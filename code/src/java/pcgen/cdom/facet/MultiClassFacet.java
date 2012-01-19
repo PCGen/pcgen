@@ -26,23 +26,19 @@ import pcgen.core.PCClass;
 
 public class MultiClassFacet
 {
-	private final FavoredClassFacet favClassFacet = FacetLibrary
-			.getFacet(FavoredClassFacet.class);
-	private final HasAnyFavoredClassFacet hasAnyFavoredFacet = FacetLibrary
-			.getFacet(HasAnyFavoredClassFacet.class);
-	private final ClassFacet classFacet = FacetLibrary
-			.getFacet(ClassFacet.class);
-	private final SubClassFacet subClassFacet = FacetLibrary
-			.getFacet(SubClassFacet.class);
+	private FavoredClassFacet favoredClassFacet;
+	private HasAnyFavoredClassFacet hasAnyFavoredClassFacet;
+	private ClassFacet classFacet;
+	private SubClassFacet subClassFacet;
 
 	public double getMultiClassXPMultiplier(CharID id)
 	{
 		HashSet<PCClass> unfavoredClasses = new HashSet<PCClass>();
 		SortedSet<PCClass> favored = new TreeSet<PCClass>(
 				CDOMObjectUtilities.CDOM_SORTER);
-		favored.addAll(favClassFacet.getSet(id));
+		favored.addAll(favoredClassFacet.getSet(id));
 		SortedSet<PCClass> aList = favored;
-		boolean hasAny = hasAnyFavoredFacet.contains(id, Boolean.TRUE);
+		boolean hasAny = hasAnyFavoredClassFacet.contains(id, Boolean.TRUE);
 		PCClass maxClass = null;
 		PCClass secondClass = null;
 		int maxClassLevel = 0;
@@ -114,6 +110,27 @@ public class MultiClassFacet
 		}
 
 		return xpMultiplier;
+	}
+
+	public void setFavoredClassFacet(FavoredClassFacet favoredClassFacet)
+	{
+		this.favoredClassFacet = favoredClassFacet;
+	}
+
+	public void setHasAnyFavoredClassFacet(
+		HasAnyFavoredClassFacet hasAnyFavoredClassFacet)
+	{
+		this.hasAnyFavoredClassFacet = hasAnyFavoredClassFacet;
+	}
+
+	public void setClassFacet(ClassFacet classFacet)
+	{
+		this.classFacet = classFacet;
+	}
+
+	public void setSubClassFacet(SubClassFacet subClassFacet)
+	{
+		this.subClassFacet = subClassFacet;
 	}
 
 }

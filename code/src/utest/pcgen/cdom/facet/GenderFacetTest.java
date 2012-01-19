@@ -36,13 +36,15 @@ public class GenderFacetTest extends TestCase
 	 */
 	private CharID id;
 	private CharID altid;
-	private GenderFacet facet = new GenderFacet();
+	private GenderFacet facet;
 	private TemplateFacet tfacet = new TemplateFacet();
 
 	@Override
 	public void setUp() throws Exception
 	{
+		facet = new GenderFacet();
 		super.setUp();
+		facet.setTemplateFacet(tfacet);
 		id = new CharID();
 		altid = new CharID();
 	}

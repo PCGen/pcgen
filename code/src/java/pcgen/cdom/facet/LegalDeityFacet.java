@@ -27,10 +27,9 @@ import pcgen.core.PCClass;
 
 public class LegalDeityFacet
 {
-	private ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
-
-	private PrerequisiteFacet prereqFacet = FacetLibrary
-			.getFacet(PrerequisiteFacet.class);
+	private ClassFacet classFacet;
+	
+	private PrerequisiteFacet prerequisiteFacet;
 
 	/*
 	 * Note this facet makes no sense to turn into a "push" facet that is a
@@ -76,7 +75,17 @@ public class LegalDeityFacet
 			}
 		}
 
-		return result && prereqFacet.qualifies(id, aDeity, aDeity);
+		return result && prerequisiteFacet.qualifies(id, aDeity, aDeity);
+	}
+
+	public void setClassFacet(ClassFacet classFacet)
+	{
+		this.classFacet = classFacet;
+	}
+
+	public void setPrerequisiteFacet(PrerequisiteFacet prerequisiteFacet)
+	{
+		this.prerequisiteFacet = prerequisiteFacet;
 	}
 
 }

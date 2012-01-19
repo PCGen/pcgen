@@ -30,13 +30,11 @@ public class LoadFacet
 {
 	private static final Formula LOADSCORE_FORMULA = FormulaFactory
 			.getFormulaFor("LOADSCORE");
-	private final FormulaResolvingFacet resolveFacet = FacetLibrary
-			.getFacet(FormulaResolvingFacet.class);
-	private final TotalWeightFacet totalWeightFacet = FacetLibrary
-			.getFacet(TotalWeightFacet.class);
-	private final SizeFacet sizeFacet = FacetLibrary.getFacet(SizeFacet.class);
-	private final BonusCheckingFacet bonusFacet = FacetLibrary
-			.getFacet(BonusCheckingFacet.class);
+
+	private FormulaResolvingFacet formulaResolvingFacet;
+	private TotalWeightFacet totalWeightFacet;
+	private SizeFacet sizeFacet;
+	private BonusCheckingFacet bonusCheckingFacet;
 
 	public Load getLoadType(CharID id)
 	{
@@ -74,7 +72,7 @@ public class LoadFacet
 
 	public Float getMaxLoad(CharID id, double mult)
 	{
-		int loadScore = resolveFacet.resolve(id, LOADSCORE_FORMULA, "")
+		int loadScore = formulaResolvingFacet.resolve(id, LOADSCORE_FORMULA, "")
 				.intValue();
 		final BigDecimal loadValue = SettingsHandler.getGame().getLoadInfo()
 				.getLoadScoreValue(loadScore);
@@ -85,7 +83,7 @@ public class LoadFacet
 			formula = formula.replaceAll(Pattern.quote("$$SCORE$$"), Double
 					.toString(loadValue.doubleValue() * mult
 							* getLoadMultForSize(id)));
-			return (float) resolveFacet.resolve(id,
+			return (float) formulaResolvingFacet.resolve(id,
 					FormulaFactory.getFormulaFor(formula), "").intValue();
 		}
 		return new Float(loadValue.doubleValue() * mult
@@ -98,8 +96,28 @@ public class LoadFacet
 		double mult =
 				SettingsHandler.getGame().getLoadInfo().getSizeAdjustment(sadj)
 					.doubleValue();
-		mult += bonusFacet.getBonus(id, "LOADMULT", "TYPE=SIZE");
+		mult += bonusCheckingFacet.getBonus(id, "LOADMULT", "TYPE=SIZE");
 		return mult;
+	}
+
+	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
+	{
+		this.formulaResolvingFacet = formulaResolvingFacet;
+	}
+
+	public void setTotalWeightFacet(TotalWeightFacet totalWeightFacet)
+	{
+		this.totalWeightFacet = totalWeightFacet;
+	}
+
+	public void setSizeFacet(SizeFacet sizeFacet)
+	{
+		this.sizeFacet = sizeFacet;
+	}
+
+	public void setBonusCheckingFacet(BonusCheckingFacet bonusCheckingFacet)
+	{
+		this.bonusCheckingFacet = bonusCheckingFacet;
 	}
 
 }

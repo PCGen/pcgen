@@ -30,11 +30,9 @@ import pcgen.core.character.CompanionMod;
 public class RaceTypeFacet
 {
 
-	private TemplateFacet templateFacet = FacetLibrary
-			.getFacet(TemplateFacet.class);
-	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
-	private CompanionModFacet companionModFacet = FacetLibrary
-			.getFacet(CompanionModFacet.class);
+	private TemplateFacet templateFacet;
+	private RaceFacet raceFacet;
+	private CompanionModFacet companionModFacet;
 
 	/**
 	 * Returns the RaceType of the Player Character represented by the given
@@ -75,6 +73,21 @@ public class RaceTypeFacet
 			}
 		}
 		return raceType;
+	}
+
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+		this.templateFacet = templateFacet;
+	}
+
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+		this.raceFacet = raceFacet;
+	}
+
+	public void setCompanionModFacet(CompanionModFacet companionModFacet)
+	{
+		this.companionModFacet = companionModFacet;
 	}
 
 }

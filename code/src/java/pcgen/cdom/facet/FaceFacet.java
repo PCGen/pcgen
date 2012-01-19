@@ -34,9 +34,8 @@ import pcgen.core.Race;
 public class FaceFacet
 {
 
-	private TemplateFacet templateFacet = FacetLibrary
-			.getFacet(TemplateFacet.class);
-	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
+	private TemplateFacet templateFacet;
+	private RaceFacet raceFacet;
 
 	/**
 	 * Returns the Face of the Player Character represented by the given CharID.
@@ -84,5 +83,15 @@ public class FaceFacet
 			return null;
 		}
 		return new Point2D.Double(width.doubleValue(), height.doubleValue());
+	}
+
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+		this.templateFacet = templateFacet;
+	}
+
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+		this.raceFacet = raceFacet;
 	}
 }

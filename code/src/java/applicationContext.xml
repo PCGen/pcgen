@@ -9,11 +9,17 @@
 	<bean id="activeEqModFacet" class="pcgen.cdom.facet.ActiveEqModFacet" />
 	<bean id="activeSpellsFacet" class="pcgen.cdom.facet.ActiveSpellsFacet" />
 	<bean id="addedBonusFacet" class="pcgen.cdom.facet.AddedBonusFacet" />
+	<bean id="addedTemplateFacet" class="pcgen.cdom.facet.AddedTemplateFacet">
+		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
+	</bean>
 	<bean id="addLevelFacet" class="pcgen.cdom.facet.AddLevelFacet" />
 	<bean id="ageFacet" class="pcgen.cdom.facet.AgeFacet" />
 	<bean id="alignmentFacet" class="pcgen.cdom.facet.AlignmentFacet" />
 	<bean id="appliedBonusFacet" class="pcgen.cdom.facet.AppliedBonusFacet">
 		<property name="addedBonusFacet" ref="addedBonusFacet"/>
+		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
+	</bean>
+	<bean id="armorClassFacet" class="pcgen.cdom.facet.ArmorClassFacet">
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
 	</bean>
 	<bean id="armorProfFacet" class="pcgen.cdom.facet.ArmorProfFacet">
@@ -31,6 +37,7 @@
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
 	</bean>
 	<!-- B -->
+	<bean id="bioSetFacet" class="pcgen.cdom.facet.BioSetFacet" />
 	<bean id="bonusChangeFacet" class="pcgen.cdom.facet.BonusChangeFacet">
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 	</bean>
@@ -46,6 +53,14 @@
 	<bean id="sourceFacet" class="pcgen.cdom.facet.CDOMObjectSourceFacet">
 		<property name="bridgeFacet" ref="bridgeFacet"/>
 	</bean>
+	<bean id="challengeRatingFacet" class="pcgen.cdom.facet.ChallengeRatingFacet">
+		<property name="templateFacet" ref="templateFacet"/>
+		<property name="raceFacet" ref="raceFacet"/>
+		<property name="classFacet" ref="classFacet"/>
+		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+		<property name="levelFacet" ref="levelFacet"/>
+	</bean>
 	<bean id="changeProfFacet" class="pcgen.cdom.facet.ChangeProfFacet" />
 	<bean id="characterConsolidationFacet" class="pcgen.cdom.facet.CharacterConsolidationFacet" />
 	<bean id="characterSpellResistanceFacet" class="pcgen.cdom.facet.CharacterSpellResistanceFacet">
@@ -57,6 +72,9 @@
 	<bean id="classFacet" class="pcgen.cdom.facet.ClassFacet" />
 	<bean id="classLevelFacet" class="pcgen.cdom.facet.ClassLevelFacet">
 		<property name="classFacet" ref="classFacet"/>
+	</bean>
+	<bean id="classSpellListFacet" class="pcgen.cdom.facet.ClassSpellListFacet">
+		<property name="spellListFacet" ref="spellListFacet"/>
 	</bean>
 	<bean id="companionModFacet" class="pcgen.cdom.facet.CompanionModFacet" />
 	<bean id="conditionalAbilityFacet" class="pcgen.cdom.facet.ConditionalAbilityFacet">
@@ -91,6 +109,10 @@
 	<bean id="equipSetFacet" class="pcgen.cdom.facet.EquipSetFacet" />
 	<bean id="expandedCampaignFacet" class="pcgen.cdom.facet.ExpandedCampaignFacet" />
 	<!-- F -->
+	<bean id="faceFacet" class="pcgen.cdom.facet.FaceFacet">
+		<property name="templateFacet" ref="templateFacet"/>
+		<property name="raceFacet" ref="raceFacet"/>
+	</bean>
 	<bean id="factFacet" class="pcgen.cdom.facet.FactFacet" />
 	<bean id="favoredClassFacet" class="pcgen.cdom.facet.FavoredClassFacet">
 		<property name="hasAnyFavoredClassFacet" ref="hasAnyFavoredClassFacet"/>
@@ -104,13 +126,24 @@
 	<bean id="followerOptionFacet" class="pcgen.cdom.facet.FollowerOptionFacet" />
 	<bean id="formulaResolvingFacet" class="pcgen.cdom.facet.FormulaResolvingFacet" />
 	<!-- G -->
+	<bean id="genderFacet" class="pcgen.cdom.facet.GenderFacet">
+		<property name="templateFacet" ref="templateFacet"/>
+	</bean>
 	<bean id="globalAddedSkillCostFacet" class="pcgen.cdom.facet.GlobalAddedSkillCostFacet"/>
 	<bean id="globalSkillCostFacet" class="pcgen.cdom.facet.GlobalSkillCostFacet"/>
 	<!-- H -->
+	<bean id="handsFacet" class="pcgen.cdom.facet.HandsFacet">
+		<property name="templateFacet" ref="templateFacet"/>
+		<property name="raceFacet" ref="raceFacet"/>
+	</bean>
 	<bean id="hasAnyFavoredClassFacet" class="pcgen.cdom.facet.HasAnyFavoredClassFacet"/>
 	<bean id="hasDeityWeaponProfFacet" class="pcgen.cdom.facet.HasDeityWeaponProfFacet"/>
 	<bean id="heightFacet" class="pcgen.cdom.facet.HeightFacet"/>
 	<!-- I -->
+	<bean id="initiativeFacet" class="pcgen.cdom.facet.InitiativeFacet">
+		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+	</bean>
 	<!-- J -->
 	<!-- K -->
 	<bean id="kitFacet" class="pcgen.cdom.facet.KitFacet"/>
@@ -119,6 +152,14 @@
 	</bean>
 	<!-- L -->
 	<bean id="languageFacet" class="pcgen.cdom.facet.LanguageFacet"/>
+	<bean id="legalDeityFacet" class="pcgen.cdom.facet.LegalDeityFacet">
+		<property name="classFacet" ref="classFacet"/>
+		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
+	</bean>
+	<bean id="legsFacet" class="pcgen.cdom.facet.LegsFacet">
+		<property name="templateFacet" ref="templateFacet"/>
+		<property name="raceFacet" ref="raceFacet"/>
+	</bean>
 	<bean id="levelFacet" class="pcgen.cdom.facet.LevelFacet">
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
@@ -129,6 +170,12 @@
 		<property name="resolveFacet" ref="formulaResolvingFacet"/>
 	</bean>
 	<bean id="listSkillCostFacet" class="pcgen.cdom.facet.ListSkillCostFacet"/>
+	<bean id="loadFacet" class="pcgen.cdom.facet.LoadFacet">
+		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+		<property name="totalWeightFacet" ref="totalWeightFacet"/>
+		<property name="sizeFacet" ref="sizeFacet"/>
+		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+	</bean>
 	<bean id="localAddedSkillCostFacet" class="pcgen.cdom.facet.LocalAddedSkillCostFacet"/>
 	<bean id="localSkillCostFacet" class="pcgen.cdom.facet.LocalSkillCostFacet">
 		<property name="domainFacet" ref="domainFacet"/>
@@ -136,8 +183,30 @@
 	<!-- M -->
 	<bean id="masterSkillFacet" class="pcgen.cdom.facet.MasterSkillFacet"/>
 	<bean id="moneyFacet" class="pcgen.cdom.facet.MoneyFacet"/>
+	<bean id="monsterClassFacet" class="pcgen.cdom.facet.MonsterClassFacet">
+		<property name="levelFacet" ref="levelFacet"/>
+		<property name="classFacet" ref="classFacet"/>
+		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+		<property name="levelInfoFacet" ref="levelInfoFacet"/>
+	</bean>
 	<bean id="monsterCSkillFacet" class="pcgen.cdom.facet.MonsterCSkillFacet"/>
 	<bean id="movementFacet" class="pcgen.cdom.facet.MovementFacet"/>
+	<bean id="movementResultFacet" class="pcgen.cdom.facet.MovementResultFacet">
+		<property name="movementFacet" ref="movementFacet"/>
+		<property name="raceFacet" ref="raceFacet"/>
+		<property name="equipmentFacet" ref="equipmentFacet"/>
+		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+		<property name="unencumberedArmorFacet" ref="unencumberedArmorFacet"/>
+		<property name="unencumberedLoadFacet" ref="unencumberedLoadFacet"/>
+		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+		<property name="loadFacet" ref="loadFacet"/>
+	</bean>
+	<bean id="multiClassFacet" class="pcgen.cdom.facet.MultiClassFacet">
+		<property name="favoredClassFacet" ref="favoredClassFacet"/>
+		<property name="hasAnyFavoredClassFacet" ref="hasAnyFavoredClassFacet"/>
+		<property name="classFacet" ref="classFacet"/>
+		<property name="subClassFacet" ref="subClassFacet"/>
+	</bean>
 	<!-- N -->
 	<bean id="naturalEquipmentFacet" class="pcgen.cdom.facet.NaturalEquipmentFacet"/>
 	<bean id="naturalWeaponFacet" class="pcgen.cdom.facet.NaturalWeaponFacet"/>
@@ -145,6 +214,9 @@
 	<bean id="nonAbilityFacet" class="pcgen.cdom.facet.NonAbilityFacet">
 		<property name="unlockedStatFacet" ref="unlockedStatFacet"/>
 		<property name="statLockFacet" ref="statLockFacet"/>
+	</bean>
+	<bean id="nonProficiencyPenaltyFacet" class="pcgen.cdom.facet.NonProficiencyPenaltyFacet">
+		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
 	<!-- O -->
 	<bean id="objectAdditionFacet" class="pcgen.cdom.facet.ObjectAdditionFacet"/>
@@ -155,6 +227,20 @@
 	<bean id="qualifyFacet" class="pcgen.cdom.facet.QualifyFacet"/>
 	<!-- R -->
 	<bean id="raceFacet" class="pcgen.cdom.facet.RaceFacet" />
+	<bean id="raceTypeFacet" class="pcgen.cdom.facet.RaceTypeFacet">
+		<property name="companionModFacet" ref="companionModFacet"/>
+		<property name="templateFacet" ref="templateFacet"/>
+		<property name="raceFacet" ref="raceFacet"/>
+	</bean>
+	<bean id="racialSubTypesFacet" class="pcgen.cdom.facet.RacialSubTypesFacet">
+		<property name="templateFacet" ref="templateFacet"/>
+		<property name="raceFacet" ref="raceFacet"/>
+	</bean>
+	<bean id="reachFacet" class="pcgen.cdom.facet.ReachFacet">
+		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+		<property name="templateFacet" ref="templateFacet"/>
+		<property name="raceFacet" ref="raceFacet"/>
+	</bean>
 	<bean id="regionFacet" class="pcgen.cdom.facet.RegionFacet">
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
@@ -189,6 +275,9 @@
 	</bean>
 	<!-- T -->
 	<bean id="templateFacet" class="pcgen.cdom.facet.TemplateFacet"/>
+	<bean id="totalWeightFacet" class="pcgen.cdom.facet.TotalWeightFacet">
+		<property name="equipmentFacet" ref="equipmentFacet"/>
+	</bean>
 	<!-- U -->
 	<bean id="unarmedDamageFacet" class="pcgen.cdom.facet.UnarmedDamageFacet">
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>

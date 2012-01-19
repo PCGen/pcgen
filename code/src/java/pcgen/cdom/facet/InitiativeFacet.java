@@ -27,11 +27,10 @@ import pcgen.cdom.enumeration.CharID;
  */
 public class InitiativeFacet
 {
-	private FormulaResolvingFacet resolveFacet = FacetLibrary
-			.getFacet(FormulaResolvingFacet.class);
-	private BonusCheckingFacet bonusFacet = FacetLibrary
-			.getFacet(BonusCheckingFacet.class);
-	private Formula initcomp = FormulaFactory.getFormulaFor("INITCOMP");
+	private static Formula initcomp = FormulaFactory.getFormulaFor("INITCOMP");
+
+	private FormulaResolvingFacet formulaResolvingFacet;
+	private BonusCheckingFacet bonusCheckingFacet;
 
 	/**
 	 * Returns the Initiative value for the Player Character represented by the
@@ -45,8 +44,18 @@ public class InitiativeFacet
 	 */
 	public int getInitiative(CharID id)
 	{
-		return (int) bonusFacet.getBonus(id, "COMBAT", "Initiative")
-				+ resolveFacet.resolve(id, initcomp, "").intValue();
+		return (int) bonusCheckingFacet.getBonus(id, "COMBAT", "Initiative")
+				+ formulaResolvingFacet.resolve(id, initcomp, "").intValue();
+	}
+
+	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
+	{
+		this.formulaResolvingFacet = formulaResolvingFacet;
+	}
+
+	public void setBonusCheckingFacet(BonusCheckingFacet bonusCheckingFacet)
+	{
+		this.bonusCheckingFacet = bonusCheckingFacet;
 	}
 
 }

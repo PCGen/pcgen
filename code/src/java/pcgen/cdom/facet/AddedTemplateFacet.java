@@ -39,10 +39,9 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 		implements DataFacetChangeListener<CDOMObject>
 {
 
-	private PrerequisiteFacet prereqFacet = FacetLibrary
-			.getFacet(PrerequisiteFacet.class);
+	private PrerequisiteFacet prerequisiteFacet;
 
-	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
+	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 		.getFacet(PlayerCharacterTrackingFacet.class);
 
 	public Collection<PCTemplate> select(CharID id, CDOMObject po)
@@ -109,7 +108,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 		final List<PCTemplate> availableList = new ArrayList<PCTemplate>();
 		for (PCTemplate pct : list)
 		{
-			if (prereqFacet.qualifies(id, pct, anOwner))
+			if (prerequisiteFacet.qualifies(id, pct, anOwner))
 			{
 				availableList.add(pct);
 			}
@@ -215,6 +214,10 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 				}
 			}
 		}
+	}
 
+	public void setPrerequisiteFacet(PrerequisiteFacet prerequisiteFacet)
+	{
+		this.prerequisiteFacet = prerequisiteFacet;
 	}
 }

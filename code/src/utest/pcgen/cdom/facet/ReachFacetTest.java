@@ -53,6 +53,8 @@ public class ReachFacetTest extends TestCase
 		id = new CharID();
 		altid = new CharID();
 		facet = getMockFacet();
+		facet.setRaceFacet(rfacet);
+		facet.setTemplateFacet(tfacet);
 		bonusInfo = new HashMap<CharID, Double>();
 	}
 
@@ -191,7 +193,7 @@ public class ReachFacetTest extends TestCase
 			IllegalAccessException
 	{
 		ReachFacet f = new ReachFacet();
-		Field field = ReachFacet.class.getDeclaredField("bonusFacet");
+		Field field = ReachFacet.class.getDeclaredField("bonusCheckingFacet");
 		field.setAccessible(true);
 		BonusCheckingFacet fakeFacet = new BonusCheckingFacet()
 		{

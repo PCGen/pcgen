@@ -46,14 +46,17 @@ public class RacialSubTypesFacetTest extends TestCase
 	 */
 	private CharID id;
 	private CharID altid;
-	private RacialSubTypesFacet facet = new RacialSubTypesFacet();
+	private RacialSubTypesFacet facet;
 	private RaceFacet rfacet = new RaceFacet();
 	private TemplateFacet tfacet = new TemplateFacet();
 
 	@Override
 	public void setUp() throws Exception
 	{
+		facet = new RacialSubTypesFacet();
 		super.setUp();
+		facet.setRaceFacet(rfacet);
+		facet.setTemplateFacet(tfacet);
 		id = new CharID();
 		altid = new CharID();
 	}

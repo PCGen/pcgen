@@ -32,8 +32,7 @@ public class ClassSpellListFacet extends
 	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 		.getFacet(PlayerCharacterTrackingFacet.class);
 
-	private final SpellListFacet spellListFacet = FacetLibrary
-		.getFacet(SpellListFacet.class);
+	private SpellListFacet spellListFacet;
 
 	/*
 	 * While it would be ideal to listen to ClassLevelFacet and trigger off that
@@ -64,4 +63,10 @@ public class ClassSpellListFacet extends
 	{
 		spellListFacet.add(id, pcc.get(ObjectKey.CLASS_SPELLLIST), pcc);
 	}
+
+	public void setSpellListFacet(SpellListFacet spellListFacet)
+	{
+		this.spellListFacet = spellListFacet;
+	}
+
 }

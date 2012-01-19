@@ -45,7 +45,7 @@ public class RaceTypeFacetTest extends TestCase
 	 */
 	private CharID id;
 	private CharID altid;
-	private RaceTypeFacet facet = new RaceTypeFacet();
+	private RaceTypeFacet facet;
 	private RaceFacet rfacet = new RaceFacet();
 	private TemplateFacet tfacet = new TemplateFacet();
 	private CompanionModFacet cfacet = new CompanionModFacet();
@@ -53,7 +53,11 @@ public class RaceTypeFacetTest extends TestCase
 	@Override
 	public void setUp() throws Exception
 	{
+		facet = new RaceTypeFacet();
 		super.setUp();
+		facet.setRaceFacet(rfacet);
+		facet.setTemplateFacet(tfacet);
+		facet.setCompanionModFacet(cfacet);
 		id = new CharID();
 		altid = new CharID();
 	}

@@ -37,22 +37,16 @@ import pcgen.util.enumeration.Load;
 
 public class MovementResultFacet
 {
-	private final MovementFacet moveFacet = FacetLibrary
-			.getFacet(MovementFacet.class);
-	private final RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
-	private final EquipmentFacet equipmentFacet = FacetLibrary
-			.getFacet(EquipmentFacet.class);
-	private final BonusCheckingFacet bonusFacet = FacetLibrary
-			.getFacet(BonusCheckingFacet.class);
-	private final UnencumberedArmorFacet unencumberedArmorFacet = FacetLibrary
-			.getFacet(UnencumberedArmorFacet.class);
-	private final UnencumberedLoadFacet unencumberedLoadFacet = FacetLibrary
-			.getFacet(UnencumberedLoadFacet.class);
-	private final FormulaResolvingFacet resolveFacet = FacetLibrary
-			.getFacet(FormulaResolvingFacet.class);
-	private final LoadFacet loadFacet = FacetLibrary.getFacet(LoadFacet.class);
-
 	private final Class<?> thisClass = getClass();
+
+	private MovementFacet movementFacet;
+	private RaceFacet raceFacet;
+	private EquipmentFacet equipmentFacet;
+	private BonusCheckingFacet bonusCheckingFacet;
+	private UnencumberedArmorFacet unencumberedArmorFacet;
+	private UnencumberedLoadFacet unencumberedLoadFacet;
+	private FormulaResolvingFacet formulaResolvingFacet;
+	private LoadFacet loadFacet;
 
 	public double movementOfType(CharID id, String moveType)
 	{
@@ -170,7 +164,7 @@ public class MovementResultFacet
 			movementMult = movement.getMovementMult();
 			movementMultOp = movement.getMovementMultOp();
 
-			for (Movement mv : moveFacet.getSet(id))
+			for (Movement mv : movementFacet.getSet(id))
 			{
 				for (int i1 = 0; i1 < mv.getNumberOfMovements(); i1++)
 				{
@@ -182,7 +176,7 @@ public class MovementResultFacet
 
 			// Need to create movement entries if there is a BONUS:MOVEADD
 			// associated with that type of movement
-			for (String moveType : bonusFacet.getExpandedBonusInfo(id, "MOVEADD"))
+			for (String moveType : bonusCheckingFacet.getExpandedBonusInfo(id, "MOVEADD"))
 			{
 				if (moveType.startsWith("TYPE"))
 				{
@@ -346,11 +340,11 @@ public class MovementResultFacet
 			double moveInFeet = getMovement(moveIdx).doubleValue();
 
 			// First get the MOVEADD bonus
-			moveInFeet += bonusFacet.getBonus(id, "MOVEADD", "TYPE."
+			moveInFeet += bonusCheckingFacet.getBonus(id, "MOVEADD", "TYPE."
 					+ getMovementType(moveIdx).toUpperCase());
 
 			// also check for special case of TYPE=ALL
-			moveInFeet += bonusFacet.getBonus(id, "MOVEADD", "TYPE.ALL");
+			moveInFeet += bonusCheckingFacet.getBonus(id, "MOVEADD", "TYPE.ALL");
 
 			double calcMove = moveInFeet;
 
@@ -363,11 +357,11 @@ public class MovementResultFacet
 			}
 
 			// Now we get the BONUS:MOVEMULT multipliers
-			double moveMult = bonusFacet.getBonus(id, "MOVEMULT", "TYPE."
+			double moveMult = bonusCheckingFacet.getBonus(id, "MOVEMULT", "TYPE."
 					+ getMovementType(moveIdx).toUpperCase());
 
 			// also check for special case of TYPE=ALL
-			moveMult += bonusFacet.getBonus(id, "MOVEMULT", "TYPE.ALL");
+			moveMult += bonusCheckingFacet.getBonus(id, "MOVEMULT", "TYPE.ALL");
 
 			if (moveMult > 0)
 			{
@@ -377,11 +371,11 @@ public class MovementResultFacet
 			double postMove = calcMove;
 
 			// now add on any POSTMOVE bonuses
-			postMove += bonusFacet.getBonus(id, "POSTMOVEADD", "TYPE."
+			postMove += bonusCheckingFacet.getBonus(id, "POSTMOVEADD", "TYPE."
 					+ getMovementType(moveIdx).toUpperCase());
 
 			// also check for special case of TYPE=ALL
-			postMove += bonusFacet.getBonus(id, "POSTMOVEADD", "TYPE.ALL");
+			postMove += bonusCheckingFacet.getBonus(id, "POSTMOVEADD", "TYPE.ALL");
 
 			// because POSTMOVE is magical movement which should not be
 			// multiplied by magical items, etc, we now see which is larger,
@@ -560,7 +554,7 @@ public class MovementResultFacet
 				{
 					formula = formula.replaceAll(Pattern.quote("$$MOVE$$"),
 							Double.toString(Math.floor(unencumberedMove)));
-					return resolveFacet.resolve(id,
+					return formulaResolvingFacet.resolve(id,
 							FormulaFactory.getFormulaFor(formula), "")
 							.doubleValue();
 				}
@@ -649,6 +643,47 @@ public class MovementResultFacet
 			return false;
 		}
 		return mci.hasMovement(moveType);
+	}
+
+	public void setMovementFacet(MovementFacet movementFacet)
+	{
+		this.movementFacet = movementFacet;
+	}
+
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+		this.raceFacet = raceFacet;
+	}
+
+	public void setEquipmentFacet(EquipmentFacet equipmentFacet)
+	{
+		this.equipmentFacet = equipmentFacet;
+	}
+
+	public void setBonusCheckingFacet(BonusCheckingFacet bonusCheckingFacet)
+	{
+		this.bonusCheckingFacet = bonusCheckingFacet;
+	}
+
+	public void setUnencumberedArmorFacet(
+		UnencumberedArmorFacet unencumberedArmorFacet)
+	{
+		this.unencumberedArmorFacet = unencumberedArmorFacet;
+	}
+
+	public void setUnencumberedLoadFacet(UnencumberedLoadFacet unencumberedLoadFacet)
+	{
+		this.unencumberedLoadFacet = unencumberedLoadFacet;
+	}
+
+	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
+	{
+		this.formulaResolvingFacet = formulaResolvingFacet;
+	}
+
+	public void setLoadFacet(LoadFacet loadFacet)
+	{
+		this.loadFacet = loadFacet;
 	}
 
 }

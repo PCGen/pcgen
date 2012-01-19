@@ -29,9 +29,8 @@ import pcgen.core.Race;
 public class LegsFacet
 {
 
-	private TemplateFacet templateFacet = FacetLibrary
-			.getFacet(TemplateFacet.class);
-	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
+	private TemplateFacet templateFacet;
+	private RaceFacet raceFacet;
 
 	/**
 	 * Returns the number of Legs possessed by the Player Character represented
@@ -62,6 +61,16 @@ public class LegsFacet
 			}
 		}
 		return legs;
+	}
+
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+		this.templateFacet = templateFacet;
+	}
+
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+		this.raceFacet = raceFacet;
 	}
 
 }

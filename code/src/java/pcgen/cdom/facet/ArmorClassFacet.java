@@ -28,8 +28,8 @@ import pcgen.util.Logging;
 public class ArmorClassFacet
 {
 
-	private PrerequisiteFacet prereqFacet = FacetLibrary
-			.getFacet(PrerequisiteFacet.class);
+	private PrerequisiteFacet prerequisiteFacet;
+
 	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 			.getFacet(PlayerCharacterTrackingFacet.class);
 
@@ -53,7 +53,7 @@ public class ArmorClassFacet
 			PlayerCharacter pc = trackingFacet.getPC(id);
 			for (ACControl acc : addList)
 			{
-				if (prereqFacet.qualifies(id, acc, null))
+				if (prerequisiteFacet.qualifies(id, acc, null))
 				{
 					armorClass += Integer.parseInt(BonusToken.getBonusToken(
 							"BONUS.COMBAT.AC." + acc.getType(), pc));
@@ -66,7 +66,7 @@ public class ArmorClassFacet
 			PlayerCharacter pc = trackingFacet.getPC(id);
 			for (ACControl acc : removeList)
 			{
-				if (prereqFacet.qualifies(id, acc, null))
+				if (prerequisiteFacet.qualifies(id, acc, null))
 				{
 					armorClass -= Integer.parseInt(BonusToken.getBonusToken(
 							"BONUS.COMBAT.AC." + acc.getType(), pc));
@@ -75,6 +75,11 @@ public class ArmorClassFacet
 		}
 
 		return armorClass;
+	}
+
+	public void setPrerequisiteFacet(PrerequisiteFacet prerequisiteFacet)
+	{
+		this.prerequisiteFacet = prerequisiteFacet;
 	}
 
 }

@@ -35,15 +35,12 @@ import pcgen.core.SettingsHandler;
  */
 public class ChallengeRatingFacet
 {
-	private TemplateFacet templateFacet = FacetLibrary
-			.getFacet(TemplateFacet.class);
-	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
-	private ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
-	private FormulaResolvingFacet resolveFacet = FacetLibrary
-			.getFacet(FormulaResolvingFacet.class);
-	private BonusCheckingFacet bonusFacet = FacetLibrary
-			.getFacet(BonusCheckingFacet.class);
-	private LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
+	private TemplateFacet templateFacet;
+	private RaceFacet raceFacet;
+	private ClassFacet classFacet;
+	private FormulaResolvingFacet formulaResolvingFacet;
+	private BonusCheckingFacet bonusCheckingFacet;
+	private LevelFacet levelFacet;
 
 	/**
 	 * Returns the Challenge Rating of the Player Character represented by the
@@ -74,7 +71,7 @@ public class ChallengeRatingFacet
 		}
 
 		// Calculate and add in the MISC bonus to CR
-		CR += (float) bonusFacet.getBonus(id, "MISC", "CR");
+		CR += (float) bonusCheckingFacet.getBonus(id, "MISC", "CR");
 
 		return CR;
 	}
@@ -136,7 +133,7 @@ public class ChallengeRatingFacet
 		// Calculate and add the CR from race
 		ChallengeRating cr = raceFacet.get(id).getSafe(
 				ObjectKey.CHALLENGE_RATING);
-		final float raceCR = resolveFacet.resolve(id, cr.getRating(), "")
+		final float raceCR = formulaResolvingFacet.resolve(id, cr.getRating(), "")
 				.floatValue();
 		return raceCR;
 	}
@@ -168,7 +165,38 @@ public class ChallengeRatingFacet
 			}
 		}
 
-		return cr == null ? 0 : resolveFacet.resolve(id, cr,
+		return cr == null ? 0 : formulaResolvingFacet.resolve(id, cr,
 				cl.getQualifiedKey()).floatValue();
 	}
+
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+		this.templateFacet = templateFacet;
+	}
+
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+		this.raceFacet = raceFacet;
+	}
+
+	public void setClassFacet(ClassFacet classFacet)
+	{
+		this.classFacet = classFacet;
+	}
+
+	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
+	{
+		this.formulaResolvingFacet = formulaResolvingFacet;
+	}
+
+	public void setBonusCheckingFacet(BonusCheckingFacet bonusCheckingFacet)
+	{
+		this.bonusCheckingFacet = bonusCheckingFacet;
+	}
+
+	public void setLevelFacet(LevelFacet levelFacet)
+	{
+		this.levelFacet = levelFacet;
+	}
+
 }

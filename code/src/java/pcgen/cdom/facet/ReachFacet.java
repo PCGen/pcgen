@@ -27,11 +27,9 @@ import pcgen.core.Race;
  */
 public class ReachFacet
 {
-	private TemplateFacet templateFacet = FacetLibrary
-			.getFacet(TemplateFacet.class);
-	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
-	private BonusCheckingFacet bonusFacet = FacetLibrary
-			.getFacet(BonusCheckingFacet.class);
+	private TemplateFacet templateFacet;
+	private RaceFacet raceFacet;
+	private BonusCheckingFacet bonusCheckingFacet;
 
 	/**
 	 * Returns the Reach for a Player Character represented by the given CharID
@@ -60,8 +58,23 @@ public class ReachFacet
 				reach = r;
 			}
 		}
-		reach += (int) bonusFacet.getBonus(id, "COMBAT", "REACH");
+		reach += (int) bonusCheckingFacet.getBonus(id, "COMBAT", "REACH");
 		return reach;
+	}
+
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+		this.templateFacet = templateFacet;
+	}
+
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+		this.raceFacet = raceFacet;
+	}
+
+	public void setBonusCheckingFacet(BonusCheckingFacet bonusCheckingFacet)
+	{
+		this.bonusCheckingFacet = bonusCheckingFacet;
 	}
 
 }

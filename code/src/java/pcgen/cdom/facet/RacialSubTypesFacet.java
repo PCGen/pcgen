@@ -34,9 +34,8 @@ import pcgen.core.Race;
  */
 public class RacialSubTypesFacet
 {
-	private TemplateFacet templateFacet = FacetLibrary
-			.getFacet(TemplateFacet.class);
-	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
+	private TemplateFacet templateFacet;
+	private RaceFacet raceFacet;
 
 	/**
 	 * Returns a Collection of the Racial Sub Types for the Player Character
@@ -116,5 +115,16 @@ public class RacialSubTypesFacet
 	{
 		return getRacialSubTypes(id).size();
 	}
+
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+		this.templateFacet = templateFacet;
+	}
+
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+		this.raceFacet = raceFacet;
+	}
+
 
 }

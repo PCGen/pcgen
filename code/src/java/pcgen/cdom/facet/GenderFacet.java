@@ -27,11 +27,10 @@ import pcgen.core.PCTemplate;
  */
 public class GenderFacet
 {
-
-	private TemplateFacet templateFacet = FacetLibrary
-			.getFacet(TemplateFacet.class);
-
 	private final Class<?> thisClass = getClass();
+
+	private TemplateFacet templateFacet;
+
 
 	/**
 	 * Sets the Gender of the Player Character represented by the given CharID
@@ -132,4 +131,8 @@ public class GenderFacet
 		return g;
 	}
 
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+		this.templateFacet = templateFacet;
+	}
 }

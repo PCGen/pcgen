@@ -24,10 +24,10 @@ import pcgen.core.RuleConstants;
 
 public class TotalWeightFacet
 {
-	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
+	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 			.getFacet(PlayerCharacterTrackingFacet.class);
-	private EquipmentFacet equipmentFacet = FacetLibrary
-			.getFacet(EquipmentFacet.class);
+
+	private EquipmentFacet equipmentFacet;
 
 	public Float getTotalWeight(CharID id)
 	{
@@ -68,6 +68,11 @@ public class TotalWeightFacet
 		}
 
 		return Float.valueOf(totalWeight);
+	}
+
+	public void setEquipmentFacet(EquipmentFacet equipmentFacet)
+	{
+		this.equipmentFacet = equipmentFacet;
 	}
 
 }

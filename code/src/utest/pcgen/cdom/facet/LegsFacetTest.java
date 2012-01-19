@@ -37,14 +37,17 @@ public class LegsFacetTest extends TestCase
 	 */
 	private CharID id;
 	private CharID altid;
-	private LegsFacet facet = new LegsFacet();
+	private LegsFacet facet;
 	private RaceFacet rfacet = new RaceFacet();
 	private TemplateFacet tfacet = new TemplateFacet();
 
 	@Override
 	public void setUp() throws Exception
 	{
+		facet = new LegsFacet();
 		super.setUp();
+		facet.setRaceFacet(rfacet);
+		facet.setTemplateFacet(tfacet);
 		id = new CharID();
 		altid = new CharID();
 	}

@@ -36,13 +36,15 @@ public class NonProficiencyPenaltyFacetTest extends TestCase
 	 */
 	private CharID id;
 	private CharID altid;
-	private NonProficiencyPenaltyFacet facet = new NonProficiencyPenaltyFacet();
+	private NonProficiencyPenaltyFacet facet;
 	private TemplateFacet tfacet = new TemplateFacet();
 
 	@Override
 	public void setUp() throws Exception
 	{
+		facet = new NonProficiencyPenaltyFacet();
 		super.setUp();
+		facet.setTemplateFacet(tfacet);
 		id = new CharID();
 		altid = new CharID();
 	}

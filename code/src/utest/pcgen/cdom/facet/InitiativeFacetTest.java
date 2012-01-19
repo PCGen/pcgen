@@ -49,6 +49,7 @@ public class InitiativeFacetTest extends TestCase
 		id = new CharID();
 		altid = new CharID();
 		facet = getMockFacet();
+		facet.setFormulaResolvingFacet(new FormulaResolvingFacet());
 		bonusInfo = new HashMap<CharID, Double>();
 	}
 
@@ -76,7 +77,7 @@ public class InitiativeFacetTest extends TestCase
 			IllegalAccessException
 	{
 		InitiativeFacet f = new InitiativeFacet();
-		Field field = InitiativeFacet.class.getDeclaredField("bonusFacet");
+		Field field = InitiativeFacet.class.getDeclaredField("bonusCheckingFacet");
 		field.setAccessible(true);
 		BonusCheckingFacet fakeFacet = new BonusCheckingFacet()
 		{

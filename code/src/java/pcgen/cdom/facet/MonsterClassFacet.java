@@ -38,18 +38,14 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 public class MonsterClassFacet implements DataFacetChangeListener<CDOMObject>
 {
 
-	private LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
+	private LevelFacet levelFacet;
+	private ClassFacet classFacet;
+	private FormulaResolvingFacet formulaResolvingFacet;
+	private LevelInfoFacet levelInfoFacet;
 
-	private ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
-
-	private FormulaResolvingFacet resolveFacet = FacetLibrary
-			.getFacet(FormulaResolvingFacet.class);
-
-	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
+	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 			.getFacet(PlayerCharacterTrackingFacet.class);
 
-	private LevelInfoFacet levelInfoFacet = FacetLibrary
-			.getFacet(LevelInfoFacet.class);
 
 	/**
 	 * Triggered when one of the Facets to which MonsterClassFacet listens fires
@@ -99,7 +95,7 @@ public class MonsterClassFacet implements DataFacetChangeListener<CDOMObject>
 			LevelCommandFactory lcf = cdo.get(ObjectKey.MONSTER_CLASS);
 			if (lcf != null)
 			{
-				int levelCount = resolveFacet.resolve(id, lcf.getLevelCount(),
+				int levelCount = formulaResolvingFacet.resolve(id, lcf.getLevelCount(),
 						"").intValue();
 				pc.incrementClassLevel(levelCount, lcf.getPCClass(), true);
 			}
@@ -161,12 +157,30 @@ public class MonsterClassFacet implements DataFacetChangeListener<CDOMObject>
 		if (lcf != null)
 		{
 			CharID id = dfce.getCharID();
-			int levelCount = resolveFacet.resolve(id, lcf.getLevelCount(), "")
+			int levelCount = formulaResolvingFacet.resolve(id, lcf.getLevelCount(), "")
 					.intValue();
 			PlayerCharacter pc = trackingFacet.getPC(id);
 			pc.incrementClassLevel(-levelCount, lcf.getPCClass(), true);
 		}
 	}
 
+	public void setLevelFacet(LevelFacet levelFacet)
+	{
+		this.levelFacet = levelFacet;
+	}
 
+	public void setClassFacet(ClassFacet classFacet)
+	{
+		this.classFacet = classFacet;
+	}
+
+	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
+	{
+		this.formulaResolvingFacet = formulaResolvingFacet;
+	}
+
+	public void setLevelInfoFacet(LevelInfoFacet levelInfoFacet)
+	{
+		this.levelInfoFacet = levelInfoFacet;
+	}
 }

@@ -23,14 +23,13 @@ import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 
 /**
- * NonProficiencyPenaltyFacet is a Facet that calcualtes the Non-Proficiency
+ * NonProficiencyPenaltyFacet is a Facet that calculates the Non-Proficiency
  * Penalty assessed when a Player Character is not proficient with a Weapon (and
  * attempts to use that Weapon)
  */
 public class NonProficiencyPenaltyFacet
 {
-	private TemplateFacet templateFacet = FacetLibrary
-			.getFacet(TemplateFacet.class);
+	private TemplateFacet templateFacet;
 
 	/**
 	 * Returns the Non-Proficiency Penalty assessed when a Player Character
@@ -59,4 +58,8 @@ public class NonProficiencyPenaltyFacet
 		return npp;
 	}
 
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+		this.templateFacet = templateFacet;
+	}
 }
