@@ -12,6 +12,7 @@
 	<bean id="addedTemplateFacet" class="pcgen.cdom.facet.AddedTemplateFacet">
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
 	</bean>
+	<bean id="addLanguageFacet" class="pcgen.cdom.facet.AddLanguageFacet"/>
 	<bean id="addLevelFacet" class="pcgen.cdom.facet.AddLevelFacet" />
 	<bean id="ageFacet" class="pcgen.cdom.facet.AgeFacet" />
 	<bean id="ageSetFacet" class="pcgen.cdom.facet.AgeSetFacet">
@@ -136,6 +137,7 @@
 	</bean>
 	<bean id="followerOptionFacet" class="pcgen.cdom.facet.FollowerOptionFacet" />
 	<bean id="formulaResolvingFacet" class="pcgen.cdom.facet.FormulaResolvingFacet" />
+	<bean id="freeLanguageFacet" class="pcgen.cdom.facet.FreeLanguageFacet"/>
 	<!-- G -->
 	<bean id="genderFacet" class="pcgen.cdom.facet.GenderFacet">
 		<property name="templateFacet" ref="templateFacet"/>
@@ -280,6 +282,7 @@
 		<property name="levelFacet" ref="levelFacet"/>
 	</bean>
 	<bean id="skillFacet" class="pcgen.cdom.facet.SkillFacet"/>
+	<bean id="skillLanguageFacet" class="pcgen.cdom.facet.SkillLanguageFacet"/>
 	<bean id="sourcedEquipmentFacet" class="pcgen.cdom.facet.SourcedEquipmentFacet"/>
 	<bean id="spellBookFacet" class="pcgen.cdom.facet.SpellBookFacet"/>
 	<bean id="spellListFacet" class="pcgen.cdom.facet.SpellListFacet"/>

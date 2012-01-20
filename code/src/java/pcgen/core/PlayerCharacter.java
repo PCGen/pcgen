@@ -208,10 +208,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private FollowerFacet followerFacet = FacetLibrary.getFacet(FollowerFacet.class);
 	
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
-	private LanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
+	private FreeLanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
 	private AutoLanguageFacet autoLangFacet = FacetLibrary.getFacet(AutoLanguageFacet.class);
-	private LanguageFacet addLangFacet = FacetLibrary.getFacet(AddLanguageFacet.class);
-	private LanguageFacet skillLangFacet = FacetLibrary.getFacet(SkillLanguageFacet.class);
+	private AddLanguageFacet addLangFacet = FacetLibrary.getFacet(AddLanguageFacet.class);
+	private SkillLanguageFacet skillLangFacet = FacetLibrary.getFacet(SkillLanguageFacet.class);
 	private StartingLanguageFacet startingLangFacet = FacetLibrary.getFacet(StartingLanguageFacet.class);
 
 	private ObjectCache cache = new ObjectCache();
@@ -12054,17 +12054,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	{
 		return !equipmentFacet.isEmpty(id);
 	}
-
-	/*
-	 * These are present here because they (1) Should be contained within
-	 * PlayerCharacter (2) Should disappear once LanguageFacet can be reused
-	 * with different parameters in a DI system if we go that direction
-	 */
-	public static class FreeLanguageFacet extends LanguageFacet {}
-
-	public static class AddLanguageFacet extends LanguageFacet {}
-
-	public static class SkillLanguageFacet extends LanguageFacet {}
 
 	public boolean hasUserVirtualAbility(AbilityCategory cat, Ability abilityInfo)
 	{

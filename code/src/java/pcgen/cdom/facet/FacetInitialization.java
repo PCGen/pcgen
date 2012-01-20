@@ -17,9 +17,6 @@
  */
 package pcgen.cdom.facet;
 
-import pcgen.core.PlayerCharacter.AddLanguageFacet;
-import pcgen.core.PlayerCharacter.FreeLanguageFacet;
-import pcgen.core.PlayerCharacter.SkillLanguageFacet;
 
 public class FacetInitialization
 {
@@ -56,13 +53,13 @@ public class FacetInitialization
 
 		LanguageFacet languageFacet = FacetLibrary
 				.getFacet(LanguageFacet.class);
-		LanguageFacet freeLangFacet = FacetLibrary
+		FreeLanguageFacet freeLangFacet = FacetLibrary
 				.getFacet(FreeLanguageFacet.class);
 		AutoLanguageFacet autoLangFacet = FacetLibrary
 				.getFacet(AutoLanguageFacet.class);
-		LanguageFacet addLangFacet = FacetLibrary
+		AddLanguageFacet addLangFacet = FacetLibrary
 				.getFacet(AddLanguageFacet.class);
-		LanguageFacet skillLangFacet = FacetLibrary
+		SkillLanguageFacet skillLangFacet = FacetLibrary
 				.getFacet(SkillLanguageFacet.class);
 		StartingLanguageFacet startingLangFacet = FacetLibrary
 				.getFacet(StartingLanguageFacet.class);
