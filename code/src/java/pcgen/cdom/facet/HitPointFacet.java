@@ -34,20 +34,18 @@ public class HitPointFacet extends
 		DataFacetChangeListener<CDOMObject>
 {
 
-	private ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
+			.getFacet(PlayerCharacterTrackingFacet.class);
+	
+	private ClassFacet classFacet;
 
-	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private RaceFacet raceFacet;
 
-	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
+	private TemplateFacet templateFacet;
 
-	private TemplateFacet templateFacet = FacetLibrary
-		.getFacet(TemplateFacet.class);
+	private LevelFacet levelFacet;
 
-	private LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
-
-	private BonusCheckingFacet bonusFacet = FacetLibrary
-		.getFacet(BonusCheckingFacet.class);
+	private BonusCheckingFacet bonusCheckingFacet;
 
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
@@ -147,13 +145,13 @@ public class HitPointFacet extends
 		{
 			final int min =
 					1
-						+ (int) bonusFacet.getBonus(id, "HD", "MIN")
-						+ (int) bonusFacet.getBonus(id, "HD", "MIN;CLASS."
+						+ (int) bonusCheckingFacet.getBonus(id, "HD", "MIN")
+						+ (int) bonusCheckingFacet.getBonus(id, "HD", "MIN;CLASS."
 							+ pcc.getKeyName());
 			final int max =
 					getLevelHitDie(id, pcc, level).getDie()
-						+ (int) bonusFacet.getBonus(id, "HD", "MAX")
-						+ (int) bonusFacet.getBonus(id, "HD", "MAX;CLASS."
+						+ (int) bonusCheckingFacet.getBonus(id, "HD", "MAX")
+						+ (int) bonusCheckingFacet.getBonus(id, "HD", "MAX;CLASS."
 							+ pcc.getKeyName());
 
 			if (Globals.getGameModeHPFormula().length() == 0)
@@ -178,10 +176,35 @@ public class HitPointFacet extends
 				}
 			}
 
-			roll += ((int) bonusFacet.getBonus(id, "HP", "CURRENTMAXPERLEVEL"));
+			roll += ((int) bonusCheckingFacet.getBonus(id, "HP", "CURRENTMAXPERLEVEL"));
 		}
 		PCClassLevel classLevel = classFacet.getClassLevel(id, pcc, level - 1);
 		set(id, classLevel, Integer.valueOf(roll));
+	}
+
+	public void setClassFacet(ClassFacet classFacet)
+	{
+		this.classFacet = classFacet;
+	}
+
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+		this.raceFacet = raceFacet;
+	}
+
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+		this.templateFacet = templateFacet;
+	}
+
+	public void setLevelFacet(LevelFacet levelFacet)
+	{
+		this.levelFacet = levelFacet;
+	}
+
+	public void setBonusCheckingFacet(BonusCheckingFacet bonusCheckingFacet)
+	{
+		this.bonusCheckingFacet = bonusCheckingFacet;
 	}
 
 }

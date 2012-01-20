@@ -28,15 +28,13 @@ import pcgen.core.Race;
 public class AgeSetFacet extends AbstractItemFacet<AgeSet> implements
 		DataFacetChangeListener<Object>
 {
-	private final AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
+	private AgeFacet ageFacet;
 
-	private final RegionFacet regionFacet = FacetLibrary
-			.getFacet(RegionFacet.class);
+	private RegionFacet regionFacet;
 
-	private final RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
+	private RaceFacet raceFacet;
 
-	private final BioSetFacet bioSetFacet = FacetLibrary
-			.getFacet(BioSetFacet.class);
+	private BioSetFacet bioSetFacet;
 
 	@Override
 	public void dataAdded(DataFacetChangeEvent<Object> dfce)
@@ -93,4 +91,25 @@ public class AgeSetFacet extends AbstractItemFacet<AgeSet> implements
 
 		return ageSet;
 	}
+
+	public void setAgeFacet(AgeFacet ageFacet)
+	{
+		this.ageFacet = ageFacet;
+	}
+
+	public void setRegionFacet(RegionFacet regionFacet)
+	{
+		this.regionFacet = regionFacet;
+	}
+
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+		this.raceFacet = raceFacet;
+	}
+
+	public void setBioSetFacet(BioSetFacet bioSetFacet)
+	{
+		this.bioSetFacet = bioSetFacet;
+	}
+	
 }

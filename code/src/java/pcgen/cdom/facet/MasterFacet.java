@@ -28,8 +28,7 @@ import pcgen.core.character.Follower;
  */
 public class MasterFacet extends AbstractItemFacet<Follower>
 {
-	private CompanionModFacet companionModFacet = FacetLibrary
-			.getFacet(CompanionModFacet.class);
+	private CompanionModFacet companionModFacet;
 
 	public String getCopyMasterCheck(CharID id)
 	{
@@ -99,6 +98,11 @@ public class MasterFacet extends AbstractItemFacet<Follower>
 		}
 
 		return false;
+	}
+
+	public void setCompanionModFacet(CompanionModFacet companionModFacet)
+	{
+		this.companionModFacet = companionModFacet;
 	}
 
 }

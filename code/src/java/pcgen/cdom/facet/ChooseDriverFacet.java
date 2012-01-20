@@ -36,7 +36,7 @@ public class ChooseDriverFacet extends
 	 * "associated data"
 	 */
 
-	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
+	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 			.getFacet(PlayerCharacterTrackingFacet.class);
 
 	/**

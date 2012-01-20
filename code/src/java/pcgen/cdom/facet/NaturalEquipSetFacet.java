@@ -27,7 +27,7 @@ import pcgen.core.character.EquipSet;
  */
 public class NaturalEquipSetFacet implements DataFacetChangeListener<Equipment>
 {
-	private PlayerCharacterTrackingFacet trackingFacet =
+	private final PlayerCharacterTrackingFacet trackingFacet =
 			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	@Override

@@ -41,16 +41,14 @@ public class SpellsFacet extends AbstractQualifiedListFacet<SpellLikeAbility>
 		implements DataFacetChangeListener<CDOMObject>
 {
 
-	private final RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
+	private RaceFacet raceFacet;
 
-	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
+	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 		.getFacet(PlayerCharacterTrackingFacet.class);
 
-	private FormulaResolvingFacet resolveFacet = FacetLibrary
-		.getFacet(FormulaResolvingFacet.class);
+	private FormulaResolvingFacet formulaResolvingFacet;
 
-	private ActiveSpellsFacet activeSpellsFacet = FacetLibrary
-		.getFacet(ActiveSpellsFacet.class);
+	private ActiveSpellsFacet activeSpellsFacet;
 
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
@@ -111,7 +109,7 @@ public class SpellsFacet extends AbstractQualifiedListFacet<SpellLikeAbility>
 		{
 			Formula times = sla.getCastTimes();
 			int resolvedTimes =
-					resolveFacet.resolve(id, times, sla.getQualifiedKey())
+					formulaResolvingFacet.resolve(id, times, sla.getQualifiedKey())
 						.intValue();
 			String book = sla.getSpellBook();
 
@@ -124,6 +122,21 @@ public class SpellsFacet extends AbstractQualifiedListFacet<SpellLikeAbility>
 			pc.addSpellBook(new SpellBook(book, SpellBook.TYPE_INNATE_SPELLS));
 			activeSpellsFacet.add(id, cs, race);
 		}
+	}
+
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+		this.raceFacet = raceFacet;
+	}
+
+	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
+	{
+		this.formulaResolvingFacet = formulaResolvingFacet;
+	}
+
+	public void setActiveSpellsFacet(ActiveSpellsFacet activeSpellsFacet)
+	{
+		this.activeSpellsFacet = activeSpellsFacet;
 	}
 
 }

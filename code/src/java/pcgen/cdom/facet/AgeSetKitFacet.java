@@ -32,14 +32,12 @@ public class AgeSetKitFacet implements DataFacetChangeListener<Integer>
 {
 	private final Class<?> thisClass = getClass();
 
-	private final AgeSetFacet ageSetFacet = FacetLibrary
-			.getFacet(AgeSetFacet.class);
-
-	private final BioSetFacet bioSetFacet = FacetLibrary
-			.getFacet(BioSetFacet.class);
-
-	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
+	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 			.getFacet(PlayerCharacterTrackingFacet.class);
+
+	private AgeSetFacet ageSetFacet;
+	
+	private BioSetFacet bioSetFacet;
 
 	@Override
 	public void dataAdded(DataFacetChangeEvent<Integer> dfce)
@@ -109,4 +107,15 @@ public class AgeSetKitFacet implements DataFacetChangeListener<Integer>
 			kitMap.addAllToListFor(ageSet, choice);
 		}
 	}
+
+	public void setAgeSetFacet(AgeSetFacet ageSetFacet)
+	{
+		this.ageSetFacet = ageSetFacet;
+	}
+
+	public void setBioSetFacet(BioSetFacet bioSetFacet)
+	{
+		this.bioSetFacet = bioSetFacet;
+	}
+	
 }
