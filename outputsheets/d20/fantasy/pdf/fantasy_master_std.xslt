@@ -2849,8 +2849,8 @@
 	TEMPLATE - Spirit Weapon Melee ATTACK TABLE
 ====================================
 ====================================-->
-	<xsl:template match="weapons/spiritweaponranged">
-		<!-- START Martial Arts Attack Table -->
+	<xsl:template match="weapons/spiritweaponmelee">
+		<!-- START Spirit Weapon Melee Attack Table -->
 		<fo:table table-layout="fixed" space-before="2mm">
 			<fo:table-column column-width="27mm"/>
 			<fo:table-column>
@@ -4065,7 +4065,8 @@
 	<xsl:template name="eclipse_channeling.info">
 		<xsl:param name="title"/>
 		<xsl:param name="info"/>
-
+		<xsl:param name="info2"/>
+		<xsl:param name="info3"/>
 		<fo:table-row>
 			<fo:table-cell padding-top="1pt" text-align="end">
 				<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.title'"/></xsl:call-template>
@@ -4089,6 +4090,10 @@
 ====================================-->
 	<xsl:template match="eclipse_channeling">
 		<xsl:param name="column_width" select="0.45 * $pagePrintableWidth"/>
+		<xsl:variable name="channel_intensity">
+			<xsl:value-of select="/channel_intensity"/>
+		</xsl:variable>
+	<!--/character/eclipse_channeling	../character/eclipse_channeling/channel_intensity/>	-->
 		<!-- BEGIN Turning Table -->
 		<fo:table table-layout="fixed" space-before="1mm" keep-together="always"  border-collapse="collapse" padding="0.5pt">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning'"/></xsl:call-template>
@@ -4165,43 +4170,44 @@
 								<fo:table-row height="1pt"/>
 								<xsl:call-template name="eclipse_channeling.intensity">
 									<xsl:with-param name="die" select="'Up to 0'"/>
-									<xsl:with-param name="number" select="number(level)-8" />
+									<xsl:with-param name="number" select="number(channel_intensity)-8"/>
+									
 								</xsl:call-template>
 								<xsl:call-template name="eclipse_channeling.intensity">
 									<xsl:with-param name="die" select="'1 - 3'"/>
-									<xsl:with-param name="number" select="number(level)-7" />
+									<xsl:with-param name="number" select="number(channel_intensity)-7" />
 								</xsl:call-template>
 								<xsl:call-template name="eclipse_channeling.intensity">
 									<xsl:with-param name="die" select="'4 - 6'"/>
-									<xsl:with-param name="number" select="number(level)-6" />
+									<xsl:with-param name="number" select="(channel_intensity)-6" />
 								</xsl:call-template>
 								<xsl:call-template name="eclipse_channeling.intensity">
 									<xsl:with-param name="die" select="'7 - 9'"/>
-									<xsl:with-param name="number" select="number(level)-5" />
+									<xsl:with-param name="number" select="number(channel_intensity)-5" />
 								</xsl:call-template>
 								<xsl:call-template name="eclipse_channeling.intensity">
 									<xsl:with-param name="die" select="'10 - 12'"/>
-									<xsl:with-param name="number" select="number(level)-4" />
+									<xsl:with-param name="number" select="number(channel_intensity)-4" />
 								</xsl:call-template>
 								<xsl:call-template name="eclipse_channeling.intensity">
 									<xsl:with-param name="die" select="'13 - 15'"/>
-									<xsl:with-param name="number" select="number(level)-3" />
+									<xsl:with-param name="number" select="number(channel_intensity)-3" />
 								</xsl:call-template>
 								<xsl:call-template name="eclipse_channeling.intensity">
 									<xsl:with-param name="die" select="'16 - 18'"/>
-									<xsl:with-param name="number" select="number(level)-2" />
+									<xsl:with-param name="number" select="number(channel_intensity)-2" />
 								</xsl:call-template>
 								<xsl:call-template name="eclipse_channeling.intensity">
 									<xsl:with-param name="die" select="'19 - 21'"/>
-									<xsl:with-param name="number" select="number(level)-1" />
+									<xsl:with-param name="number" select="number(channel_intensity)-1" />
 								</xsl:call-template>
 								<xsl:call-template name="eclipse_channeling.intensity">
 									<xsl:with-param name="die" select="'22 - 25'"/>
-									<xsl:with-param name="number" select="level" />
+									<xsl:with-param name="number" select="channel_intensity" />
 								</xsl:call-template>
 								<xsl:call-template name="eclipse_channeling.intensity">
 									<xsl:with-param name="die" select="'26+'"/>
-									<xsl:with-param name="number" select="number(level)+1" />
+									<xsl:with-param name="number" select="number(channel_intensity)+1" />
 								</xsl:call-template>
 							</fo:table-body>
 						</fo:table>
@@ -4222,15 +4228,8 @@
 								<xsl:call-template name="eclipse_channeling.info">
 									<xsl:with-param name="title" select="'Magnitude'"/>
 									<xsl:with-param name="info" select="damage" />
-<!-- Need to get the CHOOSE to properly display>										<xsl:choose>
-											<xsl:when test="contains(type, 'MagnitudeTimes')">
-											<xsl:text>x</xsl:text>
-											</xsl:when>
-											<xsl:otherwise>
-											<xsl:text>+</xsl:text>
-											</xsl:otherwise>
-										</xsl:choose>-->
-									<xsl:with-param name="info" select="damage_bonus" />
+									<xsl:with-param name="info2" select="damage_bonus" />
+									<xsl:with-param name="info3" select="factor" />
 								</xsl:call-template>
 								<xsl:call-template name="eclipse_channeling.info">
 									<xsl:with-param name="title" select="'Range'"/>

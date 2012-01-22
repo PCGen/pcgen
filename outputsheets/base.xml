@@ -614,13 +614,13 @@ Immune
 <!-- Spirit Weapon - Melee -->
 |IIF(VAR.UseSpiritWeaponMelee:1)|
 		<spiritweaponmelee>
-			<total>|VAR.SpiritWeaponMeleeToHit.INTVAL|</total>
+			<total>+|VAR.SpiritWeaponMeleeToHit.INTVAL|</total>
 |IIF(VAR.SpiritWeaponMeleeBonusDamage&lt;0)|
 			<damage>|VAR.SpiritWeaponMeleeDie.INTVAL|d|VAR.SpiritWeaponMeleeDieSize.INTVAL|-|VAR.SpiritWeaponMeleeBonusDamage.INTVAL|</damage>
 |ELSE|
 			<damage>|VAR.SpiritWeaponMeleeDie.INTVAL|d|VAR.SpiritWeaponMeleeDieSize.INTVAL|+|VAR.SpiritWeaponMeleeBonusDamage.INTVAL|</damage>
 |ENDIF|
-			<critical>|VAR.SpiritWeaponMeleeCrit.INTVAL|/x|VAR.SpiritWeaponMeleeMult.INTVAL|</critical>
+			<critical>|VAR.SpiritWeaponMeleeCritRange.INTVAL|/x|VAR.SpiritWeaponMeleeCritMult.INTVAL|</critical>
 			<reach>|REACH|</reach>
 		</spiritweaponmelee>
 |ENDIF|
@@ -1181,11 +1181,13 @@ Immune
 		<level>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingLevel.INTVAL|</level>
 		<channeling_check>1d20|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingCheck.INTVAL.SIGN|</channeling_check>
 		<intensity>1d20|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingIntensity.INTVAL.SIGN|</intensity>
-		<damage>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingMagnitude|</damage>
+		<channel_intensity>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingIntensity.INTVAL|</channel_intensity>
+		<damage>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingMagnitude||ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingMagnitudeBonus.SIGN||ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingMagnitudeFactor|</damage>
 		<damage_bonus>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingMagnitudeBonus|</damage_bonus>
 		<uses_per_day>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingUses.INTVAL|</uses_per_day>
 		<range>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingRange.INTVAL|</range>
 		<notes>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingNotes|</notes>
+		<factor>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingMagnitudeFactor|</factor>
 	</eclipse_channeling>
 |ENDIF|
 |ENDFOR|
