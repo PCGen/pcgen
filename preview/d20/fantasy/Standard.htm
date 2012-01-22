@@ -818,6 +818,42 @@ Immune
 |ENDIF|
 <!-- STOP Spirit Weapon Ranged -->
 
+
+
+
+
+<!-- START Natural Attack Block -->
+|IIF(count("ABILITIES";"CATEGORY=Natural Attack";"TYPE=NaturalAttack";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+
+|FOR,%NaturalAttack,0,count("ABILITIES","CATEGORY=Natural Attack","TYPE=NaturalAttack")-1,1,0|
+<!-->		<type>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackType|</type>	-->
+	<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Natural Attack Block">
+		<tr>
+			<td align="center" height="25" bgcolor="black" rowspan="2" width="40%" class="ab"><b>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackName|</b></td>
+			<td align="center" bgcolor="black" width="15%" class="ablable" height="20">TOTAL ATTACK BONUS</td>
+			<td align="center" bgcolor="black" width="15%" class="ablable">DAMAGE</td>
+			<td align="center" bgcolor="black" width="15%" class="ablable">CRITICAL</td>
+			<td align="center" bgcolor="black" width="15%" class="ablable">REACH</td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="white" class="border10" height="20">|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackToHit.SIGN|</td>
+			<td align="center" bgcolor="white" class="border10">|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackDamage||ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackDamageBonus.SIGN|</td>
+			<td align="center" bgcolor="white" class="border10">|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackThreatRange||ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackCritMult|</td>
+			<td align="center" bgcolor="white" class="border10">|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackReach.INTVAL|</td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="black" width="15%" class="ablable" height="20">Special Properties</td>
+			<td align="center" bgcolor="white" class="border10">|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackNotes||ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.DESC|</td>
+		</tr>
+
+	</table>
+	<br />
+|ENDFOR|
+|ENDIF|
+<!-- STOP  Natural Attack Block -->
+
+
+
 <!-- START Weapon Table -->
 |FOR,%weap,0,2,1,1|
    <table cellpadding="0" width="100%" cellspacing="0" border="0" summary="Weapon Table">
@@ -1707,16 +1743,7 @@ Immune
      <tr>
       <td bgcolor="black" align="right" class="ablable">MAGNITUDE</td>
 
-	  <td class="border9" align="center"><b>|ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingMagnitude|
-|IIF(VAR.ChannelNegativeMagnitudeNormal.EQ.0)| + 
-|ENDIF|
-|IIF(VAR.ChannelPositiveMagnitudeNormal.EQ.0)| + 
-|ENDIF|
-|IIF(VAR.ChannelPositiveMagnitudeNormal.GTEQ.1)| x 
-|ENDIF|
-|IIF(VAR.ChannelNegativeMagnitudeNormal.GTEQ.1)| x 
-|ENDIF|
-|ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingMagnitudeBonus|
+	  <td class="border9" align="center"><b>|ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingMagnitude||ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingMagnitudeBonus.SIGN||ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingMagnitudeFactor|
 	</b></td>
      </tr>
      <tr>
