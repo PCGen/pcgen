@@ -139,3 +139,8 @@ Knowledge (Bards)		KEYSTAT:INT	TYPE:Intelligence.Knowledge	USEUNTRAINED:NO
 Knowledge (Kung-Fu)	KEYSTAT:INT	TYPE:Intelligence.Knowledge	USEUNTRAINED:NO
 Knowledge (Beards)	KEYSTAT:INT	TYPE:Intelligence.Knowledge	USEUNTRAINED:NO
 Knowledge (Monkey-Fu)	KEYSTAT:INT	TYPE:Intelligence.Knowledge	USEUNTRAINED:NO
+
+
+Speak Language							USEUNTRAINED:NO					TYPE:None.Language										CHOOSE:LANG|TYPE=Spoken
+Read Language							USEUNTRAINED:NO					TYPE:None.Language										CHOOSE:LANG|TYPE=Read
+

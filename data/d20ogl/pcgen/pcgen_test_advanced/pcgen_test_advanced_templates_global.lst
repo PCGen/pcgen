@@ -1,3 +1,12 @@
+
+TEST-69	REMOVABLE:NO	
+
+TEST-64	SPELLS:Innate|TIMEUNIT=Hour|TIMES=3|CASTERLEVEL=10|Magic Missile,20
+
+TEST-66A		SPELLS:TestSixSix|CASTERLEVEL=9|Magic Missile
+
+Add one language		BONUS:LANGUAGES|NUMBER|1
+
 ###Templates
 
 Construct			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.CON|10

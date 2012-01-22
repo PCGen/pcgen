@@ -5,6 +5,13 @@ Magic Missile			CLASSES:MonKee,Sorcerer=1							SCHOOL:Evocation					DESCRIPTOR:
 
 
 
+Detect Magic									CLASSES:Bard,Sorcerer,Wizard=0								SCHOOL:Divination																						TYPE:Arcane.Divine	COMPS:V, S		CASTTIME:1 standard action	RANGE:60 ft.		ITEM:Potion	TARGETAREA:Cone-shaped emanation																			DURATION:Concentration, up to (CASTERLEVEL) minutes [D]				SAVEINFO:None							SPELLRES:No							DESC:Detects spells and magic items within 60 ft.																																																																																																																																																		SOURCEPAGE:SpellsD-E.rtf
+Light			CLASSES:Bard,Sorcerer,Wizard=0						SCHOOL:Evocation						DESCRIPTOR:Light			TYPE:Arcane.Divine	COMPS:V, M/DF	CASTTIME:1 standard action	RANGE:Touch			ITEM:Potion	TARGETAREA:Object touched																DURATION:(CASTERLEVEL*10) minutes [D]			SAVEINFO:None					SPELLRES:No							DESC:Object shines like a torch.																																											SOURCEPAGE:SpellsH-L.rtf
+
+
+
+
+
 Spell Control DC		TYPE:Arcane.Divine	DESC:DC should be 11	SAVEINFO:Fort Half	SPELLRES:NO
 
 

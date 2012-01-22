@@ -2,7 +2,49 @@
 # Bob Tests - PCG Bob needs only the simple addition of the 'Template ~ Bob Tests' Template and it will take care of testing Bob.
 # The Template has an Ability granted but only if Bob meets the requirements; the Test Includes the Requirements, so ALL tests should = True.
 
-Test Current	CATEGORY:Special Ability	MULT:YES	CHOOSE:SKILL|TYPE=Craft	BONUS:SKILL|%LIST|10
+CODE-1145	KEY:CODE-1145	CATEGORY:Special Ability	COST:2	TYPE:CODE.CODEOneOneFourFive.SpecialQuality	DESC:Cost 2 Ability kit work.	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+CODE-1145				CATEGORY:FEAT			COST:0	TYPE:CODE	BONUS:ABILITYPOOL|CodeOneOneFourFive|2
+
+CODE-1145 b	KEY:CODE-1145b	CATEGORY:Special Ability	COST:1	TYPE:CODE.CODEOneOneFourFive.SpecialQuality	DESC:Cost 2 Ability kit work.
+CODE-1145 c	KEY:CODE-1145c	CATEGORY:Special Ability	COST:0	TYPE:CODE.CODEOneOneFourFive.SpecialQuality	DESC:Cost 2 Ability kit work.
+
+# TEST-64
+# Please give SPELLS (the token) to a character that grants the exact same spell twice, but from different sources. The spell, spell book, timeunit, caster level (if any), DC (if any) must all be the same (the times may be different if you so choose) 
+TEST-64	CATEGORY:FEAT	TYPE:Test	KEY:TEST-64A	SPELLS:Innate|TIMEUNIT=Hour|TIMES=2|CASTERLEVEL=10|Magic Missile,20	DESC:Please give SPELLS (the token) to a character that grants the exact same spell twice, but from different sources. The spell, spell book, timeunit, caster level (if any), DC (if any) must all be the same (the times may be different if you so choose)	DESC:Add Template of Same Name to Complete Test.
+
+TEST-65	CATEGORY:FEAT	TYPE:Test	KEY:TEST-65	SPELLS:Innate|TIMEUNIT=Hour|TIMES=5|CASTERLEVEL=10|Fireball,20	DESC:Use SPELLS in such a way that it provides a Spell to which the character already has access (Such as an Innate Fireball to a mid level Sorcerer). Ensure that the output is correct across the different conditions (caster level, DC, etc.). Ensure you are using a fixed caster level for the Innate spell that is different than the caster level of the PC.
+
+#Grant two SPELLS entries to a PC, but with different Caster Level. Ensure they are the same spell book, but times, timeunit, DC may be different if you so choose.
+
+#Test A: Grant from two different objects.
+#Test B: Grant from the same object 
+
+TEST-66a	CATEGORY:FEAT	TYPE:Test	TEMPLATE:TEST-66A	ABILITY:Special Ability|AUTOMATIC|TEST-66A
+
+TEST-66A	CATEGORY:Special Ability	TYPE:Test.SpecialQuality			SPELLS:TestSixSix|CASTERLEVEL=7|Magic Missile
+
+
+TEST-66b	CATEGORY:FEAT	TYPE:Test	SPELLS:TestSixSix|CASTERLEVEL=7|Magic Missile	SPELLS:TestSixSix|CASTERLEVEL=9|Magic Missile
+
+
+TEST-67	CATEGORY:FEAT	TYPE:Test	SPELLS:Innate|Light	SPELLS:Innate|Detect Magic	DESC:Put two SPELLS tokens that apply to the same Spell Book (e.g. Innate) into an object and grant that object to a PC. (This ensures that multiple entries work)
+
+
+Test Current	CATEGORY:Special Ability	MULT:YES	CHOOSE:SKILL|TYPE.Craft	BONUS:SKILL|%LIST|10
+
+
+#
+Default	CATEGORY:Internal		TYPE:Internal		ABILITY:Internal|AUTOMATIC|Animal Intelligence|PREMULT:2,[!PRESTAT:1,INT=3],[!PRETEMPLATE:1,Mindless]		ABILITY:Internal|AUTOMATIC|Tool Use|PREMULT:2,[PREVARGT:SystemHands,0],[!PREABILITY:1,CATEGORY=Internal,Animal Intelligence]	DEFINE:SystemHands|0
+#ABILITY:Internal|AUTOMATIC|Weapon Proficiency ~ Sun Blade|PREFEAT:1,Exotic Weapon Proficiency(Sword (Bastard)),Martial Weapon Proficiency(Sword (Bastard)),Martial Weapon Proficiency(Sword (Short))	ABILITY:Internal|AUTOMATIC|Weapon Proficiency ~ Sling Staff ~ Halfling ~ Melee|PREFEAT:1,Exotic Weapon Proficiency(Sling Staff (Halfling)),Martial Weapon Proficiency(Sling Staff (Halfling))	ABILITY:Special Ability|AUTOMATIC|Aura ~ Any Alignment|PREALIGN:SUM	ABILITY:Special Ability|AUTOMATIC|Aura ~ Chaos|PREALIGN:CE,CG,CN	ABILITY:Special Ability|AUTOMATIC|Aura ~ Evil|PREALIGN:CE,LE,NE	ABILITY:Special Ability|AUTOMATIC|Aura ~ Good|PREALIGN:CG,LG,NG	ABILITY:Special Ability|AUTOMATIC|Aura ~ Law|PREALIGN:LE,LG,LN	ABILITY:Internal|AUTOMATIC|Ability ~ System ~ Rule ~ DAMAGE_VW|PRERULE:1,DAMAGE_VW	ABILITY:Internal|AUTOMATIC|Ability ~ System ~ Rule ~ USE_CMB|PRERULE:1,USE_CMB	ABILITY:Internal|AUTOMATIC|Ability ~ System ~ Variable ~ Encumbrance ~ 0|PREMULT:2,[PREVAREQ:ENCUMBERANCE,0],[!PREABILITY:1,CATEGORY=Internal,Ability ~ System ~ Variable ~ AC ~ Ignore DEX]	ABILITY:Internal|AUTOMATIC|Ability ~ System ~ Variable ~ Encumbrance ~ 1|PREMULT:2,[PREVAREQ:ENCUMBERANCE,1],[!PREABILITY:1,CATEGORY=Internal,Ability ~ System ~ Variable ~ AC ~ Ignore DEX]	ABILITY:Internal|AUTOMATIC|Ability ~ System ~ Variable ~ Encumbrance ~ 2|PREMULT:2,[PREVAREQ:ENCUMBERANCE,2],[!PREABILITY:1,CATEGORY=Internal,Ability ~ System ~ Variable ~ AC ~ Ignore DEX]	ABILITY:Internal|AUTOMATIC|Unarmed|!PREEQUIP:1,TYPE=Weapon	ABILITY:Internal|AUTOMATIC|Vision ~ Normal Senses|PREVAREQ:SystemSenses,0	ABILITY:Internal|AUTOMATIC|Tool Use|PREMULT:2,[PREVARGT:SystemHands,0],[!PREABILITY:1,CATEGORY=Internal,Animal Intelligence]	ABILITY:Internal|AUTOMATIC|Skill ~ Conditional ~ Stealth ~ Full Speed|PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,Animal Intelligence],[!PRETEMPLATE:1,Mindless]	ABILITY:Internal|AUTOMATIC|Skill ~ Conditional ~ Survival ~ Track ~ Double Speed|Skill ~ Conditional ~ Survival ~ Track ~ Full Speed|PREMULT:3,[!PREABILITY:1,CATEGORY=Internal,Animal Intelligence],[!PRETEMPLATE:1,Mindless],[PREABILITY:1,CATEGORY=Internal,Aspect ~ Survival ~ Track]	ABILITY:Internal|AUTOMATIC|Class Skill ~ Fly|PREMOVE:1,Fly=1
+#DEFINE:Afraid|0	DEFINE:ArmorTransmuted|0	DEFINE:FeatRunJumpNoRunningStart|0	DEFINE:FeatMultiattackQualify|0	DEFINE:HasCondition|0	DEFINE:HasCover|0	DEFINE:HasDomainAir|0	DEFINE:HasDomainAnimal|0	DEFINE:HasDomainArtifice|0	DEFINE:HasDomainChaos|0	DEFINE:HasDomainCharm|0	DEFINE:HasDomainCommunity|0	DEFINE:HasDomainDarkness|0	DEFINE:HasDomainDeath|0	DEFINE:HasDomainDestruction|0	DEFINE:HasDomainEarth|0	DEFINE:HasDomainEvil|0	DEFINE:HasDomainFire|0	DEFINE:HasDomainGlory|0	DEFINE:HasDomainGood|0	DEFINE:HasDomainHealing|0	DEFINE:HasDomainKnowledge|0	DEFINE:HasDomainLaw|0	DEFINE:HasDomainLiberation|0	DEFINE:HasDomainLuck|0	DEFINE:HasDomainMadness|0	DEFINE:HasDomainMagic|0	DEFINE:HasDomainNobility|0	DEFINE:HasDomainPlant|0	DEFINE:HasDomainProtection|0	DEFINE:HasDomainRepose|0	DEFINE:HasDomainRune|0	DEFINE:HasDomainStrength|0	DEFINE:HasDomainSun|0	DEFINE:HasDomainTravel|0	DEFINE:HasDomainTrickery|0	DEFINE:HasDomainWar|0	DEFINE:HasDomainWater|0	DEFINE:HasDomainWeather|0	DEFINE:HasFamiliar|0	DEFINE:HasNaturalAttack|0	DEFINE:HasTemplateCorporeality|0	DEFINE:HasTemplateFly|0	DEFINE:NaturalAttackBite|0	DEFINE:NaturalAttackClaw|0	DEFINE:NaturalAttackConstrict|0	DEFINE:NaturalAttackGore|0	DEFINE:NaturalAttackHoof|0	DEFINE:NaturalAttackSpit|0	DEFINE:NaturalAttackTailSpine|0	DEFINE:NaturalAttackTailSlap|0	DEFINE:NaturalAttackTalon|0	DEFINE:NaturalAttackWing|0	DEFINE:OffhandNaturalAttackDamage|0	DEFINE:OffhandNaturalAttackToHit|0	DEFINE:Polymorphed|0	DEFINE:SizeChanged|0	DEFINE:SpellDescriptorAcidDamageMultiplier|0	DEFINE:SpellDescriptorColdDamageMultiplier|0	DEFINE:SpellDescriptorElectricityDamageMultiplier|0	DEFINE:SpellDescriptorFireDamageMultiplier|0	DEFINE:SpellSchoolEvocationDamage|0	DEFINE:SpellSchoolIllusionDurationRounds|0	DEFINE:SpellSubschoolSummoningDurationRounds|0	DEFINE:SpellSubschoolPolymorphDurationDivisor|0	
+#DEFINE:SpellSubschoolPolymorphDurationMultiplier|0	DEFINE:ToolUse|0	DEFINE:TypeChanged|0	BONUS:VAR|CantBeTripped|1-min(SystemLegs,1)	BONUS:VAR|CMD_Overrun,CMD_Trip|2*(max(SystemLegs,2)-2)	BONUS:VAR|Feint_DEF|14+max(BAB+WIS,skillinfo("TOTAL","Sense Motive"))	BONUS:VAR|Feint_OFF|skillinfo("TOTAL","Bluff")	BONUS:VAR|SpellSubschoolPolymorphDurationDivisor|1	BONUS:VAR|SpellSubschoolPolymorphDurationMultiplier|1	BONUS:VAR|WalkSpeedCurrent|var("MOVE[Walk]")			
+#ABILITY:FEAT|VIRTUAL|Greater Weapon Focus(Sun Blade)|PREFEAT:1,Greater Weapon Focus(Sword (Bastard)),Greater Weapon Focus(Sword (Short))	ABILITY:FEAT|VIRTUAL|Greater Weapon Specialization(Sun Blade)|PREFEAT:1,Greater Weapon Specialization(Sword (Bastard)),Greater Weapon Specialization(Sword (Short))	ABILITY:FEAT|VIRTUAL|Weapon Focus(Sun Blade)|PREFEAT:1,Weapon Focus(Sword (Bastard)),Weapon Focus(Sword (Short))	ABILITY:FEAT|VIRTUAL|Weapon Specialization(Sun Blade)|PREFEAT:1,Weapon Specialization(Sword (Bastard)),Weapon Specialization(Sword (Short))	ABILITY:FEAT|VIRTUAL|Greater Weapon Focus(Sling Staff (Halfling ~ Melee))|PREFEAT:1,Greater Weapon Focus(Sling Staff (Halfling))	ABILITY:FEAT|VIRTUAL|Greater Weapon Specialization(Sling Staff (Halfling ~ Melee))|PREFEAT:1,Greater Weapon Specialization(Sling Staff (Halfling))	ABILITY:FEAT|VIRTUAL|Weapon Focus(Sling Staff (Halfling ~ Melee))|PREFEAT:1,Weapon Focus(Sling Staff (Halfling))	ABILITY:FEAT|VIRTUAL|Weapon Specialization(Sling Staff (Halfling ~ Melee))|PREFEAT:1,Weapon Specialization(Sling Staff (Halfling))
+Animal Intelligence	CATEGORY:Internal		TYPE:Internal	VISIBLE:NO		SOURCEPAGE:p.201
+Tool Use			CATEGORY:Internal		TYPE:Internal	VISIBLE:NO
+
+#SystemHands is a variable indicating the number of hands the race has.  The Tool Use ability triggers a few other abilities that I won't get into right now.
+
+#So I created an Ape (SystemHands = 2, INT = 2), and the Tool Use ability was triggered.  I changed the last prereq on the Tool Use ability to [PREABILITY:1,CATEGORY=Internal,[Animal Intelligence]], and it wasn't triggered.  This is the behavior I expected (and didn't get) from the !PREABILITY tag.
 
 #OS-139 DR Values incorrect
 #If you have a character with 2 or more types of DR that have the same value and that value is 10 or more, the output sheet and export sheets report the value as 0 instead of the actual value.
