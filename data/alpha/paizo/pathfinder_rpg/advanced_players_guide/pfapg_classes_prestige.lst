@@ -115,7 +115,11 @@ CLASS:Nature Warden	STARTSKILLPTS:4	CSKILL:Handle Animal|Heal|Knowledge (Geograp
 2	ADD:SPELLCASTER|Divine												ABILITY:Special Ability|AUTOMATIC|Mystic Harmony ~ Nature Warden|Wild Stride ~ Nature Warden
 3	ADD:SPELLCASTER|Divine												ABILITY:Special Ability|AUTOMATIC|Animal Speech ~ Nature Warden
 4	ADD:SPELLCASTER|Divine												ABILITY:Special Ability|AUTOMATIC|Silverclaw ~ Nature Warden
-5	BONUS:VAR|FavoredTerrainLVL|CL	BONUS:VAR|SurvivalistLVL|CL					ABILITY:Special Ability|AUTOMATIC|Favored Terrain ~ Nature Warden|Survivalist ~ Nature Warden
+#5	BONUS:VAR|FavoredTerrainLVL|CL	BONUS:VAR|SurvivalistLVL|CL					ABILITY:Special Ability|AUTOMATIC|Favored Terrain ~ Nature Warden|Survivalist ~ Nature Warden
+#
+#  Since "This ability is identical to and stacks with the ranger class ability.", it's easier just to advance the ranger variable.
+#
+5	BONUS:VAR|RangerFavoredTerrainLVL|CL	BONUS:VAR|SurvivalistLVL|CL				ABILITY:Special Ability|AUTOMATIC|Basic Favored Terrain|Ranger Favored Terrain|Survivalist ~ Nature Warden
 6	ADD:SPELLCASTER|Divine												ABILITY:Special Ability|AUTOMATIC|Woodforging ~ Nature Warden
 7	ADD:SPELLCASTER|Divine												ABILITY:Special Ability|AUTOMATIC|Companion Walk ~ Nature Warden
 8	ADD:SPELLCASTER|Divine												ABILITY:Special Ability|AUTOMATIC|Ironpaw ~ Nature Warden
