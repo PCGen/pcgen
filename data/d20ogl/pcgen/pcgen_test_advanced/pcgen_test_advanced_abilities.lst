@@ -24,7 +24,7 @@ TEST-66a	CATEGORY:FEAT	TYPE:Test	TEMPLATE:TEST-66A	ABILITY:Special Ability|AUTOM
 TEST-66A	CATEGORY:Special Ability	TYPE:Test.SpecialQuality			SPELLS:TestSixSix|CASTERLEVEL=7|Magic Missile
 
 
-TEST-66b	CATEGORY:FEAT	TYPE:Test	SPELLS:TestSixSix|CASTERLEVEL=7|Magic Missile	SPELLS:TestSixSix|CASTERLEVEL=9|Magic Missile
+TEST-66b	CATEGORY:FEAT	TYPE:Test	SPELLS:TestSixSix|CASTERLEVEL=7|Magic Missile	SPELLS:TestSixSix|CASTERLEVEL=8|Magic Missile
 
 
 TEST-67	CATEGORY:FEAT	TYPE:Test	SPELLS:Innate|Light	SPELLS:Innate|Detect Magic	DESC:Put two SPELLS tokens that apply to the same Spell Book (e.g. Innate) into an object and grant that object to a PC. (This ensures that multiple entries work)
