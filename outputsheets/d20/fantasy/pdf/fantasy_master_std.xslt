@@ -3396,9 +3396,18 @@
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon'"/>
 						</xsl:call-template>
+					<xsl:choose>
+						<xsl:when test="string-length(hand) &lt; 9">
 						<fo:block font-size="7pt">
 							<xsl:value-of select="hand"/>
 						</fo:block>
+						</xsl:when>
+						<xsl:otherwise>
+							<fo:block font-size="5pt">
+								<xsl:value-of select="hand"/>
+							</fo:block>
+						</xsl:otherwise>
+					</xsl:choose>
 					</fo:table-cell>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
@@ -4093,8 +4102,7 @@
 		<xsl:variable name="channel_intensity">
 			<xsl:value-of select="/channel_intensity"/>
 		</xsl:variable>
-	<!--/character/eclipse_channeling	../character/eclipse_channeling/channel_intensity/>	-->
-		<!-- BEGIN Turning Table -->
+		<!-- BEGIN Channeling Table -->
 		<fo:table table-layout="fixed" space-before="1mm" keep-together="always"  border-collapse="collapse" padding="0.5pt">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning'"/></xsl:call-template>
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.border'"/></xsl:call-template>
