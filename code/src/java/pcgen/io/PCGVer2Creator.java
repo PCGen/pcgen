@@ -92,6 +92,7 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceManager;
+import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
 
 /**
@@ -2001,6 +2002,12 @@ final class PCGVer2Creator implements IOConstants
 					List<? extends CDOMList<Spell>> lists =
 							thePC.getSpellLists(owner);
 
+					if (SpellLevel.getFirstLevelForKey(
+						cSpell.getSpell(), lists, thePC) < 0)
+					{
+						Logging.errorPrint("Ignoring unqualified spell " + cSpell.getSpell() + " in list for class " + pcClass + ".");
+						continue;
+					}
 					if (spellInfo.getBook().equals(
 						Globals.getDefaultSpellBook())
 						&& thePC.getSpellSupport(pcClass).isAutoKnownSpell(cSpell.getSpell(), SpellLevel.getFirstLevelForKey(
