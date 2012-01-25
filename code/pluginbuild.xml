@@ -1218,6 +1218,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${bonusplugins.dir}/BonusToken-RANGEPENALTY.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/bonustokens/Rangepenalty.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${bonusplugins.dir}/BonusToken-SIZEMOD.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>

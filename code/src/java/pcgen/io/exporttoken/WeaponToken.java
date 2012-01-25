@@ -2116,6 +2116,7 @@ public class WeaponToken extends Token
 				// Long Range To-Hit Modifier
 				int defaultRange = Integer.parseInt(eq.getRange(pc).toString());
 				int rangePenalty = SettingsHandler.getGame().getRangePenalty();
+				rangePenalty += pc.getTotalBonusTo("RANGEPENALTY", "NUMBER");
 
 				baseBonus +=
 						rangePenalty
