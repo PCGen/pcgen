@@ -12,7 +12,7 @@
 	<xsl:import href="fantasy_common.xsl"/>
 	<xsl:output indent="yes"/>
 	
-	<!-- 
+	<!-- Currently not working.
 		Set up the attributes that wll be used for this file.
 		The entries in this block need to have globally unique names,
 		so prepend each of them with the name of the file.
@@ -74,7 +74,7 @@
 		for the block.
 	 -->
 	<xsl:template match="/character" mode="leadership">
-	<!-->	<xsl:if test="class_features/leadership"> -->
+		<xsl:if test="class_features/leadership">
 			<!-- Build the leadership table, whcih will return a tree-fragment, then
 				use the xalan:nodeset() function to convert that to a nodeset so
 				that we can use it for other calculations -->
@@ -92,7 +92,7 @@
 			<xsl:variable name="leadership_table" select="xalan:nodeset($leader)"/>
 			<!-- Generate the table from the new leadership nodeset -->
 			<xsl:apply-templates select="$leadership_table" mode="table" />
-	<!-->	</xsl:if> -->
+		</xsl:if>
 	</xsl:template>
 	
 	
