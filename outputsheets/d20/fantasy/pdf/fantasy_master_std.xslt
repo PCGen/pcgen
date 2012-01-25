@@ -651,6 +651,7 @@
 						</xsl:call-template>
 						<fo:block font-size="8pt" padding-top="3pt">
 							<xsl:value-of select="size/long"/>
+							<xsl:if test="face/face != ''"> / <xsl:value-of select="face/face"/></xsl:if>
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
@@ -702,7 +703,7 @@
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio.title'"/>
 						</xsl:call-template>
-						<fo:block font-size="6pt" padding-top="1pt">SIZE</fo:block>
+						<fo:block font-size="6pt" padding-top="1pt">SIZE / FACE</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
 					<fo:table-cell>

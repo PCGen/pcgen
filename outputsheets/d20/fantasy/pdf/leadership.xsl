@@ -74,7 +74,7 @@
 		for the block.
 	 -->
 	<xsl:template match="/character" mode="leadership">
-		<xsl:if test="class_features/leadership">
+	<!-->	<xsl:if test="class_features/leadership"> -->
 			<!-- Build the leadership table, whcih will return a tree-fragment, then
 				use the xalan:nodeset() function to convert that to a nodeset so
 				that we can use it for other calculations -->
@@ -92,7 +92,7 @@
 			<xsl:variable name="leadership_table" select="xalan:nodeset($leader)"/>
 			<!-- Generate the table from the new leadership nodeset -->
 			<xsl:apply-templates select="$leadership_table" mode="table" />
-		</xsl:if>
+	<!-->	</xsl:if> -->
 	</xsl:template>
 	
 	

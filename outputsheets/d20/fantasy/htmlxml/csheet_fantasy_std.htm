@@ -627,6 +627,9 @@ Immune
    </table>
 |ENDIF|
 <!-- STOP Melee and Range Attack Table -->
+
+<!-- Add Martial Arts and Natural Attack Block Here -->
+
 <!-- START Unarmed Attack Table -->
    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Unarmed Attack">
     <tr>
@@ -645,6 +648,14 @@ Immune
    </table>
    <font style="font-size:2pt"><br /></font>
 <!-- STOP Unarmed Attack Table -->
+
+
+
+
+
+
+
+
 <!-- START Weapon Table -->
 |FOR,%weap,0,2,1,1|
    <table cellpadding="0" width="100%" cellspacing="0" border="0" summary="Weapon Table">
@@ -1842,7 +1853,7 @@ Immune
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
     <tr>
-     <td bgcolor="black" align="center"><font color="white" style="font-size: 9pt"><b>SPECIAL ATTACKS</b></font></td>
+     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: 9pt"><b>SPECIAL ATTACKS</b></font></th>
     </tr>
 |FOR,%specialAttack,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |OIF(EVEN:%specialAttack,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
@@ -1860,6 +1871,11 @@ Immune
  (Ps)
 |ENDIF|
 </b>
+</td>
+<td class="font8" valign="top"	width="30%" align="right">[|ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.SOURCE|]</td>
+<tr>
+|OIF(EVEN:%specialAttack,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;|
 |ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.DESC|</td>
     </tr>
 |ENDFOR|
@@ -1886,11 +1902,11 @@ Immune
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
     <tr>
-     <td bgcolor="black" align="center"><font color="white" style="font-size: 9pt"><b>SPECIAL QUALITIES</b></font></td>
+     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: 9pt"><b>SPECIAL QUALITIES</b></font></th>
     </tr>
 |FOR,%specialQuality,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |OIF(EVEN:%specialQuality,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality|
+     <td valign="top" width="70%" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.TYPE:Extraordinary)| 
  (Ex)
 |ENDIF|
@@ -1904,6 +1920,11 @@ Immune
  (Ps)
 |ENDIF|
 </b>
+</td>
+<td class="font8" valign="top"	width="30%" align="right">[|ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.SOURCE|]</td>
+<tr>
+|OIF(EVEN:%specialQuality,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;|
 |ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.DESC|</td>
     </tr>
 |ENDFOR|
