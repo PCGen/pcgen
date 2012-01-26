@@ -44,6 +44,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
+import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -127,16 +128,7 @@ public class TestHelper
 		}
 		try
 		{
-			final CampaignSourceEntry source;
-			try
-			{
-				source = new CampaignSourceEntry(new Campaign(),
-						new URI("file:/" + TestHelper.class.getName() + ".java"));
-			}
-			catch (URISyntaxException e)
-			{
-				throw new UnreachableError(e);
-			}
+			final CampaignSourceEntry source = createSource(TestHelper.class);
 			eqLoader.parseLine(Globals.getContext(), null, input, source);
 			return true;
 		}
@@ -145,6 +137,26 @@ public class TestHelper
 			// TODO Deal with Exception?
 		}
 		return false;
+	}
+
+	/**
+	 * Create a new CampaignSourceEntry for the class.
+	 * @param cls The class the try is for.
+	 * @return The CampaignSourceEntry.
+	 */
+	public static CampaignSourceEntry createSource(Class cls)
+	{
+		final CampaignSourceEntry source;
+		try
+		{
+			source = new CampaignSourceEntry(new Campaign(),
+					new URI("file:/" + cls.getName() + ".java"));
+		}
+		catch (URISyntaxException e)
+		{
+			throw new UnreachableError(e);
+		}
+		return source;
 	}
 
 	/**
@@ -360,6 +372,21 @@ public class TestHelper
 
 		Globals.getContext().ref.importObject(aClass);
 		return aClass;
+	}
+
+	/**
+	 * Set the important info about a Domain
+	 * @param name The domain name
+	 * @return The domain (which has also been added to global storage)
+	 */
+	public static Domain makeDomain(final String name)
+	{
+		final Domain domain = new Domain();
+		domain.setName(name);
+		domain.put(StringKey.KEY_NAME, (name));
+
+		Globals.getContext().ref.importObject(domain);
+		return domain;
 	}
 
 	/**

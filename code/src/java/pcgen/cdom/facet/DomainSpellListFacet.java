@@ -36,7 +36,7 @@ public class DomainSpellListFacet extends
 		DomainSpellList list =
 				dfce.getCDOMObject().get(ObjectKey.DOMAIN_SPELLLIST);
 		//list should never be null??
-		spellListFacet.add(dfce.getCharID(), list, dfce.getSource());
+		spellListFacet.add(dfce.getCharID(), list, dfce.getCDOMObject());
 	}
 
 	@Override

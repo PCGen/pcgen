@@ -1,0 +1,142 @@
+/*
+ * PlayerCharacterSpellTest.java
+ * Copyright James Dempsey, 2012
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Created on 26/01/2012 11:09:46 AM
+ *
+ * $Id$
+ */
+package pcgen.core;
+
+import java.util.List;
+
+import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.list.ClassSpellList;
+import pcgen.core.analysis.SpellLevel;
+import pcgen.core.spell.Spell;
+import pcgen.persistence.lst.CampaignSourceEntry;
+import pcgen.persistence.lst.GenericLoader;
+import pcgen.persistence.lst.PCClassLoader;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenUtilities;
+import pcgen.util.TestHelper;
+
+/**
+ * The Class <code>PlayerCharacterSpellTest</code> checks the function of spell related
+ * code in PlayerCharacter and associated objects.
+ *
+ * <br/>
+ * Last Editor: $Author$
+ * Last Edited: $Date$
+ * 
+ * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @version $Revision$
+ */
+
+public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
+{
+
+	private Domain sunDomain;
+	private Spell classSpell;
+	private Spell domainSpell;
+	private PCClass divineClass;
+
+	/**
+	 * @see junit.framework.TestCase#setUp()
+	 */
+	@Override
+	protected void setUp() throws Exception
+	{
+		super.setUp();
+		LoadContext context = Globals.getContext();
+		CampaignSourceEntry source = TestHelper.createSource(getClass());
+
+		// Spells
+		classSpell = TestHelper.makeSpell("classSpell");
+		domainSpell = TestHelper.makeSpell("domainSpell");
+
+		final String classLine =
+				"CLASS:MyClass	TYPE:Base.PC	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:YES	SPELLBOOK:NO";
+		PCClassLoader classLoader = new PCClassLoader();
+		divineClass = classLoader.parseLine(context, null, classLine, source);
+		classLoader.parseLine(context, divineClass, "CLASS:MyClass	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL", source);
+		classLoader.parseClassLevelLine(context, divineClass, 1, source, "CAST:5,4	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|DomainLVL|CL");
+		context.ref.importObject(divineClass);
+		
+		final String domainLine = "Sun	SPELLLEVEL:DOMAIN|Sun=1|KEY_domainSpell";
+		GenericLoader<Domain> domainLoader = new GenericLoader<Domain>(Domain.class);
+		domainLoader.parseLine(context, null, domainLine, source);
+		sunDomain = context.ref.silentlyGetConstructedCDOMObject(Domain.class, "Sun");
+		context.ref.buildDerivedObjects();
+
+		CDOMReference<ClassSpellList> ref = TokenUtilities.getTypeOrPrimitive(context,
+			ClassSpellList.class, divineClass.getKeyName());
+		AssociatedPrereqObject edge =
+				context.getListContext().addToMasterList("CLASSES", classSpell,
+					ref, classSpell);
+		edge.setAssociation(AssociationKey.SPELL_LEVEL, 1);
+	}
+
+	private void readyToRun()
+	{
+		LoadContext context = Globals.getContext();
+		context.resolveDeferredTokens();
+		assertTrue(context.ref.resolveReferences(null));
+	}
+
+	/**
+	 * Test that domain spell lusts are built and managed correctly.
+	 * @throws Exception If an error occurs.
+	 */
+	public void testDomainSpell() throws Exception
+	{
+		readyToRun();
+		
+		PlayerCharacter pc = getCharacter();
+		setPCStat(pc, cha, 15);
+		pc.incrementClassLevel(1, divineClass);
+		PCClass cls = pc.getClassKeyed(divineClass.getKeyName());
+		pc.getSpellSupport(cls).getMaxCastLevel(pc);
+		pc.addDomain(sunDomain);
+		
+		List<? extends CDOMList<Spell>> spellLists = pc.getSpellLists(sunDomain);
+		assertEquals("Incorrect number of spell lists for domain", 1, spellLists.size());
+		int level = SpellLevel.getFirstLevelForKey(domainSpell, spellLists, pc);
+		assertEquals("Incorrect spell level in domain list", 1, level);
+	}
+
+	/**
+	 * Test that class spell lusts are built and managed correctly.
+	 * @throws Exception If an error occurs.
+	 */
+	public void testPcClassSpell() throws Exception
+	{
+		readyToRun();
+		
+		PlayerCharacter pc = getCharacter();
+		pc.incrementClassLevel(1, divineClass);
+		
+		List<? extends CDOMList<Spell>> spellLists = pc.getSpellLists(pc.getClassKeyed(divineClass.getKeyName()));
+		assertEquals("Incorrect number of spell lists in class list", 1, spellLists.size());
+		int level = SpellLevel.getFirstLevelForKey(classSpell, spellLists, pc);
+		assertEquals("Incorrect spell level in class list", 1, level);
+	}
+}
