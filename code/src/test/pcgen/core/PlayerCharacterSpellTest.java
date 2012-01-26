@@ -103,7 +103,7 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test that domain spell lusts are built and managed correctly.
+	 * Test that domain spell lists are built and managed correctly.
 	 * @throws Exception If an error occurs.
 	 */
 	public void testDomainSpell() throws Exception
@@ -124,7 +124,7 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test that class spell lusts are built and managed correctly.
+	 * Test that class spell lists are built and managed correctly.
 	 * @throws Exception If an error occurs.
 	 */
 	public void testPcClassSpell() throws Exception
