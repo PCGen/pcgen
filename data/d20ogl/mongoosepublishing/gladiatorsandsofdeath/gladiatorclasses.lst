@@ -1,5 +1,7 @@
 # CVS $Revision$ $Author$ -- Thu Apr 26 23:59:39 2007 -- reformated by prettylst.pl v1.38 (build 2788)
 SOURCELONG:Mongoose Publishing - Gladiators - Sand of Death	SOURCESHORT:Gladiators	SOURCEWEB:http://mongoosepublishing.com
+# Original Entry: Unknown
+# Updated Entry: Andrew Maitland
 
 # Class Name	Hit Dice	Type		Max Level	Source Page		Save checks bonus								Combat bonus
 CLASS:Slave		HD:6		TYPE:NPC	MAXLEVEL:5	SOURCEPAGE:p.35	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -7,8 +9,27 @@ CLASS:Slave		HD:6		TYPE:NPC	MAXLEVEL:5	SOURCEPAGE:p.35	BONUS:CHECKS|BASE.Fortitu
 CLASS:Slave		STARTSKILLPTS:2	CSKILL:Climb|Handle Animal|Jump|Listen|Spot|Swim|Use Rope
 1	ADD:FEAT|Slave Weapon
 
-#Gladiator Champion
-#CLASS:Gladiator Champion	CSKILL:Bluff|Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|Perform|Perform%|Ride|Tumble
+###Block: Gladiator Champion
+# COMMENT: Unable to obtain original source book using information from Mongoose Publishing - Ultimate Sourcebook Vol. 01 - Ultimate Prestige Classes pg. 20
+CLASS:Gladiator Champion	HD:10	TYPE:Prestige.PC	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3
+CLASS:Gladiator Champion	PREATT:6	PRESKILL:2,Handle Animal=6,Perform=4	PREFEAT:2,Power Attack,Combat Reflexes
+CLASS:Gladiator Champion	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|Perform|Perform%|Ride|Tumble
+###Block: Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Simple)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency
+###Block: Class Progression
+1																						BONUS:ABILITYPOOL|Exotic Weapon Proficiency|1
+2	ABILITY:Special Ability|AUTOMATIC|Renown ~ Gladiator Champion
+3	ABILITY:Special Ability|AUTOMATIC|Perform Bonus ~ Gladiator Champion			BONUS:VAR|GladiatorChampionPerformBonus|2
+4	ABILITY:Special Ability|AUTOMATIC|Prize Status ~ Gladiator Champion										BONUS:ABILITYPOOL|Exotic Weapon Proficiency|1
+5	ABILITY:Special Ability|AUTOMATIC|Devastating Attack ~ Gladiator Champion		BONUS:VAR|DevastatingAttackDie|1
+6															BONUS:VAR|GladiatorChampionPerformBonus|2	
+7	ABILITY:Special Ability|AUTOMATIC|Lightning Strike ~ Gladiator Champion										BONUS:ABILITYPOOL|Exotic Weapon Proficiency|1
+8															BONUS:VAR|DevastatingAttackDie|1
+9															BONUS:VAR|GladiatorChampionPerformBonus|2
+10	ABILITY:Special Ability|AUTOMATIC|Improved Death Move ~ Gladiator Champion									BONUS:ABILITYPOOL|Exotic Weapon Proficiency|1
+
+
 
 #Beast Handler
 #CLASS:Beast Handler		CSKILL:Bluff|Climb|TYPE.Craft|Handle Animal|Intimidate|Jump|Perform|Perform%|Ride|Tumble

@@ -1,0 +1,14 @@
+SOURCELONG:Mongoose Publishing - Gladiators - Sand of Death	SOURCESHORT:Gladiators	SOURCEWEB:http://mongoosepublishing.com
+# Original Entry: Unknown
+# Updated Entry: Andrew Maitland
+
+#Block: Gladiator Champion ------------------------------------------
+#Gladiator Champion Abilities	KEY:Gladiator Champion						SORTKEY:Gladiator Champion_1	CATEGORY:Special Ability	TYPE:SpecialQuality
+Renown				KEY:Renown ~ Gladiator Champion				SORTKEY:Gladiator Champion_2	CATEGORY:Special Ability	TYPE:SpecialQuality
+Perform Bonus			KEY:Perform Bonus ~ Gladiator Champion			SORTKEY:Gladiator Champion_3	CATEGORY:Special Ability	TYPE:SpecialQuality		DESC:%1|GladiatorChampionPerformBonus	DEFINE:GladiatorChampionPerformBonus|0	BONUS:SKILL|Perform|GladiatorChampionPerformBonus
+Prize Status			KEY:Prize Status ~ Gladiator Champion			SORTKEY:Gladiator Champion_4	CATEGORY:Special Ability	TYPE:SpecialQuality
+Devastating Attack		KEY:Devastating Attack ~ Gladiator Champion		SORTKEY:Gladiator Champion_2	CATEGORY:Special Ability	TYPE:SpecialAttack		DESC:%1d8|DevastatingAttackDie	DEFINE:DevastatingAttackDie|0
+Lightning Strike			KEY:Lightning Strike ~ Gladiator Champion			SORTKEY:Gladiator Champion_3	CATEGORY:Special Ability	TYPE:SpecialAttack																BONUS:COMBAT|INITIATIVE|2
+Improved Death Move		KEY:Improved Death Move ~ Gladiator Champion		SORTKEY:Gladiator Champion_4	CATEGORY:Special Ability	TYPE:SpecialAttack
+
+

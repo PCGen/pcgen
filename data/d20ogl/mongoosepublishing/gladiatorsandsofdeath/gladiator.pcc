@@ -30,6 +30,9 @@ URL:Amazon.com|http://www.amazon.com/gp/product/1903980054?ie=UTF8&tag=httppcgen
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:gladiator_abilities.lst
+ABILITYCATEGORY:gladiator_abilitycategories.lst
+
 CLASS:gladiatorclasses.lst
 EQUIPMENT:gladiatorequip.lst
 EQUIPMENT:gladiatorequipweapmelee.lst
