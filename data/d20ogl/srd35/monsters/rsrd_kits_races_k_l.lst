@@ -157,9 +157,7 @@ ALIGN:LG
 CLASS:Warrior	LEVEL:1
 FEAT:Power Attack
 FEAT:Multiattack
-TEMPLATE:Lycanthrope
-# TODO: Eventually this kit will need to set the TEMPLATE:CHOOSE selections for the template above to the choices below but that is not currently possible
-#[TEMPLATE:Werebear][TEMPLATE:Natural Lycanthrope]
+TEMPLATE:Lycanthrope|Werebear|Natural Lycanthrope
 FEAT:Endurance
 FEAT:Run
 SKILL:Handle Animal	RANK:4
@@ -178,9 +176,7 @@ STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
 CLASS:Warrior	LEVEL:1
 FEAT:Power Attack
 FEAT:Improved Bull Rush
-TEMPLATE:Lycanthrope
-# TODO: Eventually this kit will need to set the TEMPLATE:CHOOSE selections for the template above to the choices below but that is not currently possible
-#[TEMPLATE:Wereboar][TEMPLATE:Natural Lycanthrope]
+TEMPLATE:Lycanthrope|Wereboar|Natural Lycanthrope
 SKILL:Handle Animal	RANK:4
 SKILL:Intimidate		RANK:4
 SKILL:Listen		RANK:3
@@ -199,9 +195,7 @@ STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
 CLASS:Warrior	LEVEL:1
 FEAT:Alertness
 FEAT:Dodge
-TEMPLATE:Lycanthrope
-# TODO: Eventually this kit will need to set the TEMPLATE:CHOOSE selections for the template above to the choices below but that is not currently possible
-#[TEMPLATE:Wererat][TEMPLATE:Natural Lycanthrope]
+TEMPLATE:Lycanthrope|Natural Lycanthrope|Wererat
 SKILL:Hide			RANK:2
 SKILL:Handle Animal	RANK:4
 SKILL:Listen		RANK:2
@@ -225,9 +219,7 @@ SKILL:Climb			RANK:4
 SKILL:Handle Animal	RANK:4
 SKILL:Listen		RANK:1
 SKILL:Spot			RANK:1
-TEMPLATE:Lycanthrope
-# TODO: Eventually this kit will need to set the TEMPLATE:CHOOSE selections for the template above to the choices below but that is not currently possible
-#[TEMPLATE:Weretiger][TEMPLATE:Natural Lycanthrope]
+TEMPLATE:Lycanthrope|Natural Lycanthrope|Weretiger
 SKILL:Listen		RANK:3
 SKILL:Spot			RANK:3
 FEAT:Improved Natural Attack(Bite)
@@ -249,9 +241,7 @@ SKILL:Hide			RANK:1
 SKILL:Move Silently	RANK:3
 FEAT:Improved Initiative
 FEAT:Stealthy
-TEMPLATE:Lycanthrope
-# TODO: Eventually this kit will need to set the TEMPLATE:CHOOSE selections for the template above to the choices below but that is not currently possible
-#[TEMPLATE:Werewolf][TEMPLATE:Natural Lycanthrope]
+TEMPLATE:Lycanthrope|Natural Lycanthrope|Werewolf
 SKILL:Hide			RANK:1
 SKILL:Survival		RANK:2
 FEAT:Weapon Focus(Bite)
@@ -265,9 +255,7 @@ NAME:Hill Giant Dire Wereboar
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
 ALIGN:TN
 RACE:Giant (Hill)	!PRERACE:1,%
-TEMPLATE:Lycanthrope
-# TODO: Eventually this kit will need to set the TEMPLATE:CHOOSE selections for the template above to the choices below but that is not currently possible
-#[TEMPLATE:Dire Wereboar][TEMPLATE:Natural Lycanthrope]
+TEMPLATE:Lycanthrope|Natural Lycanthrope|Dire Wereboar
 SKILL:Climb		RANK:3
 SKILL:Jump		RANK:3
 SKILL:Listen	RANK:7
@@ -290,9 +278,7 @@ CLASS:Fighter	LEVEL:1
 FEAT:Power Attack
 FEAT:Exotic Weapon Proficiency(Sword (Bastard))
 ABILITY:CATEGORY=Fighter Feat|Weapon Focus (Sword (Bastard))
-TEMPLATE:Lycanthrope
-# TODO: Eventually this kit will need to set the TEMPLATE:CHOOSE selections for the template above to the choices below but that is not currently possible
-#[TEMPLATE:Dire Werewolf][TEMPLATE:Natural Lycanthrope]
+TEMPLATE:Lycanthrope|Natural Lycanthrope|Dire Werewolf
 FEAT:Alertness
 FEAT:Run
 CLASS:Fighter	LEVEL:9
