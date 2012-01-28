@@ -139,8 +139,7 @@ Gris-Gris Bag					TYPE:Magic.Wondrous		COST:14000			SOURCEPAGE:p.87													
 ###Block: H ---------------------------------------------------------------------------------------------
 # Equipment Name				Type						Cost		Required Text				AC Penalty Check	Source Page		% of Spell Failure	Ability																			Innate Spells													Save checks bonus				Combat bonus				Bonus to skill									Stat bonus					Special Property				Special ABility
 Hairpins of Prehensile Coiffure	TYPE:Magic.Wondrous.Headgear		COST:18682										SOURCEPAGE:p.87																																																															BONUS:STAT|CHA|2|TYPE=Enhancement	SPROP:May be used as +1 dagger
-Harness of Carrying			TYPE:Magic.Wondrous.Shirt.Vest	COST:8000										SOURCEPAGE:p.87
-#TODO: Carrying capacity increases by 4 points of strength
+Harness of Carrying			TYPE:Magic.Wondrous.Shirt.Vest	COST:8000										SOURCEPAGE:p.87		BONUS:VAR|LOADSCORE|4
 Hauberk of the Spirits			TYPE:Magic.Wondrous.Robe		COST:51450	PRETEXT:Only usable by a shaman.				SOURCEPAGE:p.87																																								BONUS:CHECKS|ALL|5|TYPE=Resistance																		BONUS:STAT|CHA|6|TYPE=Enhancement
 #Only usable by "shaman" is that an actual class in PGTA or Arcanis?
 Headband of Delusion			TYPE:Magic.Wondrous.Headgear		COST:11000										SOURCEPAGE:p.87
