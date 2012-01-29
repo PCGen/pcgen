@@ -1,16 +1,21 @@
 # CVS $Revision$ $Author$ -- Thu Jan 24 23:45:02 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 SOURCELONG:Mongoose Publishing - Gladiators - Sand of Death	SOURCESHORT:Gladiators	SOURCEWEB:http://mongoosepublishing.com
+# Original Entry: Unknown
+# Updated Entry: Andrew Maitland
 
-# Feat Name				Type			Visible	Req. Att.	Required Class		Required Feat													Required Skill			Required Stat	Var. Min. Value		Description																			Multiple?	Choose															Modify VAR		Cost		Source Page
-Armour Penetration		TYPE:General			PREATT:6																																DESC:You are highly skilled at seeking out the weak points in your opponent's armour.																													SOURCEPAGE:p.40
-#Armour Specialization		SOURCEPAGE:p.	TYPE:General			PREATT:2	CHOOSE:FEATLIST|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|1	BONUS:ARMORPROF=%LIST|AC|1			PREFEAT:1,Armor Proficiency (Heavy),Armor Proficiency (Light),Armor Proficiency (Medium)
-Armour Specialisation		TYPE:General			PREATT:2					PREFEAT:1,Armor Proficiency (Heavy),Armor Proficiency (Light),Armor Proficiency (Medium)													DESC:+1 AC with Chosen armour type															MULT:YES	CHOOSE:FEATLIST|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)						SOURCEPAGE:p.40
-Chariot Control			TYPE:General																								PRESKILL:1,Handle Animal=8								DESC:The control you exhibit over your vehicle defies rational explanation																															SOURCEPAGE:p.40
-Death Move				TYPE:General			PREATT:6																																DESC:After defeating an enemy you may perform a special death move to intimidate other opponants and sway observers.																								SOURCEPAGE:p.40
-Distract				TYPE:General																													PRESTAT:1,CHA=13					DESC:You can throw your opponants off-balance and reduce the effectiveness of their attacks.																												SOURCEPAGE:p.41
-Fame and Glory			TYPE:General																																PREVARGTEQ:Fame,11																																							BONUS:VAR|Fame|10			SOURCEPAGE:p.41
-Fearsome Display			TYPE:General			PREATT:3																				PRESKILL:1,Intimidate=6									DESC:You can spin through a frightening display with your weapons thus reducing the morale of your opponent.																									SOURCEPAGE:p.41
-Improved Chariot Sideswipe	TYPE:General									PREFEAT:1,Chariot Control																							DESC:You have amazing ontrol in performing sideswipes with your chariot																																SOURCEPAGE:p.41
-Taunt					TYPE:General																																				DESC:You can taunt your opponant into fighting less effectively																																	SOURCEPAGE:p.41
-Slave Weapon			TYPE:Special	VISIBLE:NO			PRECLASS:1,Slave=1																																																MULT:YES	CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.Simple														SOURCEPAGE:p.35
-Slave Skills			TYPE:General																																																								MULT:YES	CHOOSE:SKILLSNAMEDTOCSKILL|CROSSCLASS													COST:0	SOURCEPAGE:p.35
+# Feat Name								Type					Req. Att.					Required Feat													Required Skill			Required Stat	Var. Min. Value		Description																			Multiple?	Choose															Modify VAR		Cost		Source Page
+Armour Penetration						TYPE:General			PREATT:6																																DESC:You are highly skilled at seeking out the weak points in your opponent's armour.																													SOURCEPAGE:p.40
+Armor Specialisation (Light)					TYPE:General			PREATT:2					PREFEAT:1,Armor Proficiency (Light)		DESC:+1 AC with Light Armor		BONUS:COMBAT|AC|1|TYPE=Armor.STACK|PREEQUIP:1,TYPE=Armor.Light		SOURCEPAGE:p.40
+Armor Specialisation (Medium)					TYPE:General			PREATT:2					PREFEAT:1,Armor Proficiency (Medium)	DESC:+1 AC with Medium Armor		BONUS:COMBAT|AC|1|TYPE=Armor.STACK|PREEQUIP:1,TYPE=Armor.Medium		SOURCEPAGE:p.40
+Armor Specialisation (Heavy)					TYPE:General			PREATT:2					PREFEAT:1,Armor Proficiency (Heavy)		DESC:+1 AC with Heavy Armor		BONUS:COMBAT|AC|1|TYPE=Armor.STACK|PREEQUIP:1,TYPE=Armor.Heavy		SOURCEPAGE:p.40
+Chariot Control							TYPE:General																								PRESKILL:1,Handle Animal=8								DESC:The control you exhibit over your vehicle defies rational explanation																															SOURCEPAGE:p.40
+Death Move								TYPE:General			PREATT:6																																DESC:After defeating an enemy you may perform a special death move to intimidate other opponants and sway observers.																								SOURCEPAGE:p.40
+Distract								TYPE:General																													PRESTAT:1,CHA=13					DESC:You can throw your opponants off-balance and reduce the effectiveness of their attacks.																												SOURCEPAGE:p.41
+Fame & Glory			KEY:Fame and Glory	TYPE:General																																PREVARGTEQ:Fame,11																																							BONUS:VAR|Fame|10			SOURCEPAGE:p.41
+Fearsome Display							TYPE:General			PREATT:3																				PRESKILL:1,Intimidate=6									DESC:You can spin through a frightening display with your weapons thus reducing the morale of your opponent.																									SOURCEPAGE:p.41
+Improved Chariot Sideswipe					TYPE:General									PREFEAT:1,Chariot Control																							DESC:You have amazing ontrol in performing sideswipes with your chariot																																SOURCEPAGE:p.41
+Taunt									TYPE:General																																				DESC:You can taunt your opponant into fighting less effectively																																	SOURCEPAGE:p.41
+
+# COMMENT: This is the method to grant fame.
+Grant Fame +1	TYPE:Fame.General	COST:0	DESC:This is how to gain fame - take this any time you have earned fame.	BONUS:VAR|Fame|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TEMPLATE:Gladiator
+
