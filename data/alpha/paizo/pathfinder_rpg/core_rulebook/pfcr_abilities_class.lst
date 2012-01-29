@@ -958,3 +958,11 @@ Expert Class Skills									CATEGORY:Special Ability	TYPE:ExpertClassSkills	VISI
 # Work Around to Old Problem
 
 Martial Weapon Proficiency	KEY:Martial Weapon Proficiency Output	CATEGORY:FEAT							VISIBLE:EXPORT	DESC:You understand how to use your martial weapons in combat.											SOURCEPAGE:p.130	BENEFIT:You make attack rolls with all your martial weapons normally (without the non-proficient penalty).
+
+
+###Block: ACF = Alternate Class Feature - Home brew Support Requests
+
+Wizard / Remove Scribe Scroll	CATEGORY:Archetype	TYPE:ACF.ScribeScroll	COST:0
+
+
+

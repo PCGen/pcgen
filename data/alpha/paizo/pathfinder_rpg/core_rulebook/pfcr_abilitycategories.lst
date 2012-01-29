@@ -20,7 +20,9 @@ ABILITYCATEGORY:Traits			VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:N
 
 # Archetypes
 ABILITYCATEGORY:Archetype		VISIBLE:NO	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Archetype
-ABILITYCATEGORY:Class Archetype	VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:Archetype	PLURAL:Archetypes			DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Class Archetype	VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:Archetype	PLURAL:Archetypes				DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:ACF			VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:ACF		PLURAL:Alternate Class Features			DISPLAYLOCATION:Archetype
+
 
 ###Block: Racial Traits Categories
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list					Plural description for UI	Display Location
