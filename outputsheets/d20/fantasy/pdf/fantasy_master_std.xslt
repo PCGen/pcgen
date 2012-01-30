@@ -737,6 +737,7 @@
 							<xsl:value-of select="classes/levels_total"/>
 							<xsl:if test="classes/levels_total != classes/levels_ecl">/<xsl:value-of select="classes/levels_ecl"/>
 							</xsl:if>
+							/ CR=<xsl:value-of select="cr"/>
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
@@ -807,6 +808,7 @@
 							<xsl:if test="classes/levels_total != classes/levels_ecl">
 								<xsl:text>/ECL</xsl:text>
 							</xsl:if>
+							<xsl:text> / CR</xsl:text>
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>

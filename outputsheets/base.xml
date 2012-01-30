@@ -181,6 +181,7 @@
 			<all>|VISION|</all>
 		</vision>
 		<wealth>|VAR.WEALTH.INTVAL|</wealth>
+		<gold>|GOLD|</gold>
 		<weight>
 			<weight_unit>|WEIGHT|</weight_unit>
 			<weight_nounit>|WEIGHT.NOUNIT|</weight_nounit>
@@ -644,7 +645,7 @@ Immune
 |FOR,%NaturalAttack,0,count("ABILITIES","CATEGORY=Natural Attack","TYPE=NaturalAttack")-1,1,0|
 	<naturalattack>	critmult
 		<name>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackName|</name>
-		<tohit>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackToHit.SIGN|</tohit>
+		<tohit>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackToHit|</tohit>
 		<damage>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackDamage||ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackDamageBonus.SIGN|</damage>
 		<type>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackType|</type>
 		<threat>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackThreatRange||ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackCritMult|</threat>
