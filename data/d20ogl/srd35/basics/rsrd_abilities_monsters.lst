@@ -676,6 +676,13 @@ Trained for Riding		KEY:Animal Training ~ Riding				CATEGORY:Special Ability	TYP
 
 # DATA-330
 Low-light Vision			KEY:Low light Vision					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision		DEFINE:LowLightRange|2		DESC:You can see %1x as far as humans in low illumination.|LowLightRange
+
+###Block: Natural Attack
+Bite			AUTO:WEAPONPROF|Bite										CATEGORY:Natural Attack		TYPE:NaturalAttack		DEFINE:NaturalBiteReach|REACH.VAL		ASPECT:NaturalAttackName|Bite				ASPECT:NaturalAttackToHit|+%1|BiteAttackBonus|PREVAREQ:SecondAttack,0	ASPECT:NaturalAttackToHit|+%1/+%2|BiteAttackBonus|BiteAttackBonus-5|PREVAREQ:SecondAttack,1	DEFINE:BiteAttackBonus|0	BONUS:VAR|BiteAttackBonus|1|PREFEAT:1,Weapon Focus(Bite)	ASPECT:NaturalAttackDamage|%1d%2|BiteDamageDice|BiteDamageSize		DEFINE:BiteDamageDice|0		DEFINE:BiteDamageSize|0		ASPECT:NaturalAttackDamageBonus|%1|BiteDamageBonus	DEFINE:BiteDamageBonus|0		ASPECT:NaturalAttackReach|%1|NaturalBiteReach			ASPECT:NaturalAttackType|Lethal	ASPECT:NaturalAttackThreatRange|%1|BiteThreatRange									DEFINE:BiteThreatRange|0	BONUS:VAR|BiteThreatRange|20		BONUS:VAR|BiteThreatRange|-1|PREFEAT:1,Improved Critical(Bite)	COST:0	
+
+
+
+
 #
 # End
 #

@@ -81,14 +81,14 @@ MASTERBONUSRACE:Weasel			TYPE:Familiar	BONUS:CHECKS|Reflex|2											VFEAT:Ale
 #
 
 ###Block:Animal Companion
-# Class of the Master	Type				Hit Dice	Ability															Virtual Feat				Automatically Gained Feat	Combat bonus					Stat bonus		Bonus Stat			Bonus Variable		Define Variable
-FOLLOWER:CompLevel=1	TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link|Share Spells																										BONUS:VAR|BonusTricks|1	DEFINE:BonusTricks|0
-FOLLOWER:CompLevel=3	TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Evasion																					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1		BONUS:VAR|BonusTricks|1
-FOLLOWER:CompLevel=6	TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Devotion																				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1		BONUS:VAR|BonusTricks|1
-FOLLOWER:CompLevel=9	TYPE:Animal Companion	HD:2																		VFEAT:Multiattack|PREHANDSGTEQ:3	AUTO:FEAT|Multiattack		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1		BONUS:VAR|BonusTricks|1
-FOLLOWER:CompLevel=12	TYPE:Animal Companion	HD:2																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1		BONUS:VAR|BonusTricks|1
-FOLLOWER:CompLevel=15	TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1		BONUS:VAR|BonusTricks|1
-FOLLOWER:CompLevel=18	TYPE:Animal Companion	HD:2																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1		BONUS:VAR|BonusTricks|1
+# Class of the Master	Type				Hit Dice	Ability															Virtual Feat				Automatically Gained Feat			Combat bonus					Stat bonus		Bonus Stat			Bonus Variable		Define Variable
+FOLLOWER:CompLevel=1	TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link|Share Spells																												BONUS:VAR|BonusTricks|1	DEFINE:BonusTricks|0	DEFINE:SecondAttack|0
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Evasion																							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1		BONUS:VAR|BonusTricks|1
+FOLLOWER:CompLevel=6	TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Devotion																						BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1		BONUS:VAR|BonusTricks|1
+FOLLOWER:CompLevel=9	TYPE:Animal Companion	HD:2																								AUTO:FEAT|Multiattack|PREHANDSGTEQ:3	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1		BONUS:VAR|BonusTricks|1	BONUS:VAR|SecondAttack|1
+FOLLOWER:CompLevel=12	TYPE:Animal Companion	HD:2																															BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1		BONUS:VAR|BonusTricks|1
+FOLLOWER:CompLevel=15	TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1		BONUS:VAR|BonusTricks|1
+FOLLOWER:CompLevel=18	TYPE:Animal Companion	HD:2																															BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1		BONUS:VAR|BonusTricks|1
 #
 
 ###Block:Specific Animal Companions
