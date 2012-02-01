@@ -275,17 +275,17 @@ CATEGORY=Special Ability|Ghost Busting Technique (Chr).MOD	DESC:&nl;Known Advanc
 
 
 # Occult Chooser
-Adamantine Fist Occult Chooser			CATEGORY:Special Ability	KEY:MA ~ Adamantine Fist ~ OC			TYPE:MA ~ Adamantine Fist		MULT:YES	CHOOSE:STRING|Inner Strength|Ki Focus (Str)|Focused Blow|Overburden
-Artic Fire Kung Fu Occult Chooser			CATEGORY:Special Ability	KEY:MA ~ Artic Fire Kung Fu ~ OC		TYPE:MA ~ Artic Fire Kung Fu		MULT:YES	CHOOSE:STRING|Inner Strength|Wrath|Paralyze
-Crane Style Kung Fu Occult Chooser			CATEGORY:Special Ability	KEY:MA ~ Crane Style Kung Fu ~ OC		TYPE:MA ~ Crane Style Kung Fu		MULT:YES	CHOOSE:STRING|Focused Strike|Light Foot
-Wind Dance Occult Chooser				CATEGORY:Special Ability	KEY:MA ~ Wind Dance ~ OC			TYPE:MA ~ Wind Dance			MULT:YES	CHOOSE:STRING|Inner Strength|Vanishing|Healing Hand|Light Foot
-Wind Dance Plague Winds Occult Chooser		CATEGORY:Special Ability	KEY:MA ~ Wind Dance Plague Winds ~ OC	TYPE:MA ~ Wind Dance			MULT:YES	CHOOSE:STRING|Inner Strength|Vanishing|Serpent Strike (Con)|Touch Strike
-Cloak Mastery Occult Chooser				CATEGORY:Special Ability	KEY:MA ~ Cloak Mastery ~ OC			TYPE:MA ~ Cloak Mastery			MULT:YES	CHOOSE:STRING|Vanishing|Focused Blow|Iron Skin
-Oaken Storm Occult Chooser				CATEGORY:Special Ability	KEY:MA ~ Oaken Storm ~ OC			TYPE:MA ~ Oaken Storm			MULT:YES	CHOOSE:STRING|Ki Block
-Phantom Blade Occult Chooser				CATEGORY:Special Ability	KEY:MA ~ Phantom Blade ~ OC			TYPE:MA ~ Phantom Blade			MULT:YES	CHOOSE:STRING|Focused Blow|One Finger|Touch Strike|Inner Strength
-Gungnir's Flight Kung Fu Occult Chooser		CATEGORY:Special Ability	KEY:MA ~ Gungnir's Flight Kung Fu ~ OC	TYPE:MA ~ Gungnir's Flight Kung Fu	MULT:YES	CHOOSE:STRING|Ki Focus|Resist Pain
-Blood Blade Occult Chooser				CATEGORY:Special Ability	KEY:MA ~ Blood Blade ~ OC			TYPE:MA ~ Blood Blade			MULT:YES	CHOOSE:STRING|Serpent Strike (Con)|Light Foot|Vanishing|Ki Focus
-Ghost Busting Occult Chooser				CATEGORY:Special Ability	KEY:MA ~ Ghost Busting ~ OC			TYPE:MA ~ Ghost Busting			MULT:YES	CHOOSE:STRING|Inner Strength|Iron Skin|Ki Focus|Wrath
+Adamantine Fist Occult Chooser		PREABILITY:5,CATEGORY=Special Ability,MA ~ Adamantine Fist ~ AC,MA ~ Adamantine Fist ~ BC	CATEGORY:Special Ability	KEY:MA ~ Adamantine Fist ~ OC			TYPE:MA ~ Adamantine Fist		MULT:YES	CHOOSE:STRING|Inner Strength|Ki Focus (Str)|Focused Blow|Overburden
+Artic Fire Kung Fu Occult Chooser		PREABILITY:5,CATEGORY=Special Ability,MA ~ Artic Fire Kung Fu ~ AC,MA ~ Artic Fire Kung Fu ~ BC	CATEGORY:Special Ability	KEY:MA ~ Artic Fire Kung Fu ~ OC		TYPE:MA ~ Artic Fire Kung Fu		MULT:YES	CHOOSE:STRING|Inner Strength|Wrath|Paralyze
+Crane Style Kung Fu Occult Chooser		PREABILITY:5,CATEGORY=Special Ability,MA ~ Crane Style Kung Fu ~ AC,MA ~ Crane Style Kung Fu ~ BC	CATEGORY:Special Ability	KEY:MA ~ Crane Style Kung Fu ~ OC		TYPE:MA ~ Crane Style Kung Fu		MULT:YES	CHOOSE:STRING|Focused Strike|Light Foot
+Wind Dance Occult Chooser			PREABILITY:5,CATEGORY=Special Ability,MA ~ Wind Dance ~ AC,MA ~ Wind Dance ~ BC	!PREABILITY:1,CATEGORY=Special Ability,MA ~ Wind Dance Plague Winds ~ OC	CATEGORY:Special Ability	KEY:MA ~ Wind Dance ~ OC			TYPE:MA ~ Wind Dance			MULT:YES	CHOOSE:STRING|Inner Strength|Vanishing|Healing Hand|Light Foot
+Wind Dance Plague Winds Occult Chooser	PREABILITY:5,CATEGORY=Special Ability,MA ~ Wind Dance ~ AC,MA ~ Wind Dance ~ BC	!PREABILITY:1,CATEGORY=Special Ability,MA ~ Wind Dance ~ OC		CATEGORY:Special Ability	KEY:MA ~ Wind Dance Plague Winds ~ OC	TYPE:MA ~ Wind Dance			MULT:YES	CHOOSE:STRING|Inner Strength|Vanishing|Serpent Strike (Con)|Touch Strike
+Cloak Mastery Occult Chooser			PREABILITY:5,CATEGORY=Special Ability,MA ~ Cloak Mastery ~ AC,MA ~ Cloak Mastery ~ BC		CATEGORY:Special Ability	KEY:MA ~ Cloak Mastery ~ OC			TYPE:MA ~ Cloak Mastery			MULT:YES	CHOOSE:STRING|Vanishing|Focused Blow|Iron Skin
+Oaken Storm Occult Chooser			PREABILITY:5,CATEGORY=Special Ability,MA ~ Oaken Storm ~ AC,MA ~ Oaken Storm ~ BC	CATEGORY:Special Ability	KEY:MA ~ Oaken Storm ~ OC			TYPE:MA ~ Oaken Storm			MULT:YES	CHOOSE:STRING|Ki Block
+Phantom Blade Occult Chooser			PREABILITY:5,CATEGORY=Special Ability,MA ~ Phantom Blade ~ AC,MA ~ Phantom Blade ~ BC	CATEGORY:Special Ability	KEY:MA ~ Phantom Blade ~ OC			TYPE:MA ~ Phantom Blade			MULT:YES	CHOOSE:STRING|Focused Blow|One Finger|Touch Strike|Inner Strength
+Gungnir's Flight Kung Fu Occult Chooser	PREABILITY:5,CATEGORY=Special Ability,MA ~ Gungnir's Flight Kung Fu ~ AC,MA ~ Gungnir's Flight Kung Fu ~ BC	CATEGORY:Special Ability	KEY:MA ~ Gungnir's Flight Kung Fu ~ OC	TYPE:MA ~ Gungnir's Flight Kung Fu	MULT:YES	CHOOSE:STRING|Ki Focus|Resist Pain
+Blood Blade Occult Chooser			PREABILITY:5,CATEGORY=Special Ability,MA ~ Blood Blade ~ AC,MA ~ Blood Blade ~ BC	CATEGORY:Special Ability	KEY:MA ~ Blood Blade ~ OC			TYPE:MA ~ Blood Blade			MULT:YES	CHOOSE:STRING|Serpent Strike (Con)|Light Foot|Vanishing|Ki Focus
+Ghost Busting Occult Chooser			PREABILITY:5,CATEGORY=Special Ability,MA ~ Ghost Busting ~ AC,MA ~ Ghost Busting ~ BC	CATEGORY:Special Ability	KEY:MA ~ Ghost Busting ~ OC			TYPE:MA ~ Ghost Busting			MULT:YES	CHOOSE:STRING|Inner Strength|Iron Skin|Ki Focus|Wrath
 
 #
 CATEGORY=Special Ability|Adamantine Fist (Str).MOD		DESC:&nl;Known Occult Techniques|PREABILITY:1,CATEGORY=Special Ability,MA ~ Adamantine Fist ~ OC	DESC:Inner Strength|PREABILITY:1,CATEGORY=Special Ability,MA ~ Adamantine Fist ~ OC(Inner Strength)	DESC:Ki Focus (Str)|PREABILITY:1,CATEGORY=Special Ability,MA ~ Adamantine Fist ~ OC(Ki Focus (Str))	DESC:Focused Blow|PREABILITY:1,CATEGORY=Special Ability,MA ~ Adamantine Fist ~ OC(Focused Blow)	DESC:Overburden|PREABILITY:1,CATEGORY=Special Ability,MA ~ Adamantine Fist ~ OC(Overburden)
