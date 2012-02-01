@@ -5,7 +5,7 @@
   <id>pcgen</id>
   <groupId>pcgen</groupId>
   <name>PCGen</name>
-  <currentVersion>5.17.10-snapshot</currentVersion>
+  <currentVersion>5.17.10</currentVersion>
   <organization>
     <name>SourceForge</name>
     <url>http://sourceforge.net/</url>
@@ -330,7 +330,7 @@
     <dependency>
       <groupId>jline</groupId>
       <artifactId>jline</artifactId>
-      <version>0.9.9</version>
+      <version>0.9.94</version>
       <url>http://jline.sourceforge.net/</url>
     </dependency>
     <dependency>
@@ -687,6 +687,11 @@
       <id>5.17.9</id>
       <name>5.17.9</name>
       <tag>release-5.17.9</tag>
+    </version>
+    <version>
+      <id>5.17.10</id>
+      <name>5.17.10</name>
+      <tag>release-5.17.10</tag>
     </version>
   </versions>
 </project>
