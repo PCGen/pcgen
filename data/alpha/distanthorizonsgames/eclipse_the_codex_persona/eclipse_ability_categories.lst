@@ -111,16 +111,19 @@ ABILITYCATEGORY:Martial Arts Wis Style		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:Y
 ABILITYCATEGORY:Martial Arts Cha Style		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MartialArtsChaStyle.MADefaultStyle	PLURAL:Martial Arts Cha Style Techniques	DISPLAYLOCATION:Character Creation Pool
 
 # Styles in Eclipse Book
-ABILITYCATEGORY:Adamantine Fist			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:AdamantineFistStyle.MADefaultStyle	PLURAL:Adamantine Techniques			DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Canmarg Martial Art			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:CanmargStyle.MADefaultStyle		PLURAL:Canmarg Techniques			DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Street Fighting Art			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:StreetFightingStyle.MADefaultStyle	PLURAL:Street Fighting Techniques		DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Arnis-Barang Style Art		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:StreetFightingStyle.MADefaultStyle	PLURAL:Arnis-Barang Techniques		DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Arts ~ Adamantine Fist			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Adamantine Fist		PLURAL:Adamantine Fist Techniques			DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Arts ~ Artic Fire Kung Fu		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Artic Fire Kung Fu		PLURAL:Artic Fire Kung Fu Techniques		DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Arts ~ Crane Style Kung Fu		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Crane Style Kung Fu		PLURAL:Crane Style Kung Fu Techniques		DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Arts ~ Wind Dance				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Wind Dance			PLURAL:Wind Dance Techniques				DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Arts ~ Cloak Mastery			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Cloak Mastery			PLURAL:Cloak Mastery Techniques			DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Arts ~ Oaken Storm			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Oaken Storm			PLURAL:Oaken Storm Techniques				DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Arts ~ Phantom Blade			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Phantom Blade			PLURAL:Phantom Blade Techniques			DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Arts ~ Gungnir's Flight Kung Fu	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Gungnir's Flight Kung Fu	PLURAL:Gungnir's Flight Kung Fu Techniques	DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Arts ~ Blood Blade Technique		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Blood Blade			PLURAL:Blood Blade Techniques				DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Arts ~ Ghost Busting Technique	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Ghost Busting			PLURAL:Ghost Busting Techniques			DISPLAYLOCATION:Character Creation Pool
 
 
-# Martial Arts Homebrews // Web Blog Section
-ABILITYCATEGORY:Bladesinger Style Art		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:BladesingerStyle.MADefaultStyle	PLURAL:Bladesinger Techniques			DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Katana Senkou Style Art		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:KatanaSenkouStyle.MADefaultStyle	PLURAL:Katana Senkou Style Art Techniques	DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:War Wizard Style Art		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:WarWizardStyle.MADefaultStyle		PLURAL:War Wizard Style Art Techniques	DISPLAYLOCATION:Character Creation Pool
+
 
 
 # Misc
