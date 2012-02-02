@@ -500,7 +500,9 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 <!-- End Attacks -->
 
 <!-- Space and Reach -->
+|IIF((FACE!=5)||(REACH!=5))|
 <br><b>Space</b> |FACE|; <b>Reach</b> |REACH|
+|ENDIF|
 
 <!-- SpecialAttack TYPE Abilities -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
