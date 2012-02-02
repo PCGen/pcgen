@@ -15,8 +15,8 @@
   <icon>C:\Projects\pcgen-release\pcgen\installers\win-installer\Local\pcgen.ico</icon>
   <jre>
     <path></path>
-    <minVersion>1.5.0</minVersion>
-    <maxVersion></maxVersion>
+    <minVersion>1.6.0</minVersion>
+    <maxVersion>1.7.9</maxVersion>
     <jdkPreference>preferJre</jdkPreference>
     <initialHeapSize>128</initialHeapSize>
     <maxHeapSize>512</maxHeapSize>
