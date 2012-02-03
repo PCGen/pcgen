@@ -253,7 +253,10 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 	public void testInvalidAllPlusAllPrereqIllegal()
 		throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "ALL|PRERACE:Dwarf|ALL"));
+		if (allowsPrerequisite())
+		{
+			assertFalse(parse(getSubTokenName() + '|' + "ALL|PRERACE:Dwarf|ALL"));
+		}
 		assertNoSideEffects();
 	}
 
@@ -272,16 +275,19 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 	public void testInvalidInputBadPrerequisite()
 		throws PersistenceLayerException
 	{
-		construct(primaryContext, "TestWP1");
-		construct(secondaryContext, "TestWP1");
-		boolean parse = parse(getSubTokenName() + '|' + "TestWP1|PREFOO:1,Human");
-		if (parse)
+		if (allowsPrerequisite())
 		{
-			assertConstructionError();
-		}
-		else
-		{
-			assertNoSideEffects();
+			construct(primaryContext, "TestWP1");
+			construct(secondaryContext, "TestWP1");
+			boolean parse = parse(getSubTokenName() + '|' + "TestWP1|PREFOO:1,Human");
+			if (parse)
+			{
+				assertConstructionError();
+			}
+			else
+			{
+				assertNoSideEffects();
+			}
 		}
 	}
 
