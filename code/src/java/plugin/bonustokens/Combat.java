@@ -35,8 +35,9 @@ public final class Combat extends MultiTagBonusObj
 	private static final String[] BONUS_TAGS =
 			{"AC", "ATTACKS", "ATTACKS-SECONDARY", "BAB", "DAMAGE",
 				"DAMAGESIZE", "DAMAGE-PRIMARY", "DAMAGE-SECONDARY",
-				"DAMAGE-SHORTRANGE", "DEFENSE", "INITIATIVE", "REACH", "TOHIT",
-				"TOHIT-PRIMARY", "TOHIT-SECONDARY", "TOHIT-SHORTRANGE"};
+				"DAMAGE-SHORTRANGE", "DEFENSE", "INITIATIVE", "RANGEPENALTY", 
+				"REACH", "TOHIT", "TOHIT-PRIMARY", "TOHIT-SECONDARY", 
+				"TOHIT-SHORTRANGE"};
 
 	/**
 	 * Return the bonus tag handled by this class.
