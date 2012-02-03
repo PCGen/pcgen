@@ -1,0 +1,13 @@
+# CVS $Revision$ $Author$ -- Mon Dec 19 23:42:16 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Unearthed Arcana	SOURCESHORT:UA	SOURCEDATE:2004-02
+# Original Entry by: Jasper-Spaans
+
+###Block: Prestige Ranger Abilities, Page 72.
+#These abilities add the paladin spells to the appropriate class.
+#Note that we actually might want to add this in a more appropriate fashion, with a chooser, but that is not possible with the current tags.
+#Note that these are only the core classes, and when using sources with additional (divine casting) classes, the appropriate abilities would need to be added.
+#Note that these are only the spells from the RSRD.
+# Ability Name				Category of Ability		Type					Visible		Required Class	List of Class Spells by Level
+Add Paladin Spellcasting to Druid	CATEGORY:Special Ability	TYPE:AddPaladinSpellCasting	VISIBLE:DISPLAY	PRECLASS:1,Druid	SPELLLEVEL:CLASS|Druid=1|Bless Weapon|Druid=3|Heal Mount|Druid=4|Holy Sword
+Add Paladin Spellcasting to Cleric	CATEGORY:Special Ability	TYPE:AddPaladinSpellCasting	VISIBLE:DISPLAY	PRECLASS:1,Cleric	SPELLLEVEL:CLASS|Cleric=1|Bless Weapon|Cleric=3|Heal Mount|Cleric=4|Holy Sword
+Add Paladin Spellcasting to Ranger	CATEGORY:Special Ability	TYPE:AddPaladinSpellCasting	VISIBLE:DISPLAY	PRECLASS:1,Ranger	SPELLLEVEL:CLASS|Ranger=1|Bless Weapon|Ranger=3|Heal Mount|Ranger=4|Holy Sword
