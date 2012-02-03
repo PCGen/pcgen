@@ -80,7 +80,7 @@ public class WeaponProfTokenTest extends
 	@Test
 	public void testRoundRobinDeityWeaponsPre() throws PersistenceLayerException
 	{
-		runRoundRobin(getSubTokenName() + '|' + "DEITYWEAPONS[PRERACE:1,Dwarf]");
+		runRoundRobin(getSubTokenName() + '|' + "DEITYWEAPONS|PRERACE:1,Dwarf");
 	}
 
 	@Test

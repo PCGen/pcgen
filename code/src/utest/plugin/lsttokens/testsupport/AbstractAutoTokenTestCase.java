@@ -192,7 +192,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 			construct(primaryContext, "TestWP2");
 			construct(secondaryContext, "TestWP1");
 			construct(secondaryContext, "TestWP2");
-			runRoundRobin(getSubTokenName() + '|' + "TestWP1[PRERACE:1,Dwarf]");
+			runRoundRobin(getSubTokenName() + '|' + "TestWP1|PRERACE:1,Dwarf");
 		}
 	}
 
@@ -205,8 +205,8 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 			construct(primaryContext, "TestWP2");
 			construct(secondaryContext, "TestWP1");
 			construct(secondaryContext, "TestWP2");
-			runRoundRobin(getSubTokenName() + '|' + "TestWP1[PRERACE:1,Dwarf]",
-				getSubTokenName() + '|' + "TestWP1[PRERACE:1,Human]");
+			runRoundRobin(getSubTokenName() + '|' + "TestWP1|PRERACE:1,Dwarf",
+				getSubTokenName() + '|' + "TestWP1|PRERACE:1,Human");
 		}
 	}
 
@@ -218,8 +218,8 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 		{
 			construct(primaryContext, "TestWP1");
 			construct(secondaryContext, "TestWP1");
-			runRoundRobin(getSubTokenName() + '|' + "ALL[PRERACE:1,Dwarf]",
-				getSubTokenName() + '|' + "TestWP1[PRERACE:1,Human]");
+			runRoundRobin(getSubTokenName() + '|' + "ALL|PRERACE:1,Dwarf",
+				getSubTokenName() + '|' + "TestWP1|PRERACE:1,Human");
 		}
 	}
 
@@ -244,8 +244,8 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 		{
 			construct(primaryContext, "TestWP1");
 			construct(secondaryContext, "TestWP1");
-			runRoundRobin(getSubTokenName() + '|' + "ALL[PRERACE:1,Dwarf]",
-				getSubTokenName() + '|' + "ALL[PRERACE:1,Human]");
+			runRoundRobin(getSubTokenName() + '|' + "ALL|PRERACE:1,Dwarf",
+				getSubTokenName() + '|' + "ALL|PRERACE:1,Human");
 		}
 	}
 
@@ -253,7 +253,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 	public void testInvalidAllPlusAllPrereqIllegal()
 		throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "ALL[PRERACE:Dwarf]|ALL"));
+		assertFalse(parse(getSubTokenName() + '|' + "ALL|PRERACE:Dwarf|ALL"));
 		assertNoSideEffects();
 	}
 
@@ -274,7 +274,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
-		boolean parse = parse(getSubTokenName() + '|' + "TestWP1[PREFOO:1,Human]");
+		boolean parse = parse(getSubTokenName() + '|' + "TestWP1|PREFOO:1,Human");
 		if (parse)
 		{
 			assertConstructionError();
@@ -339,7 +339,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 	{
 		if (allowsPrerequisite())
 		{
-			runRoundRobin(getSubTokenName() + '|' + "%LIST[PRERACE:1,Dwarf]");
+			runRoundRobin(getSubTokenName() + '|' + "%LIST|PRERACE:1,Dwarf");
 		}
 	}
 

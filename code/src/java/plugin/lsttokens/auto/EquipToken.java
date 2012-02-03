@@ -39,12 +39,14 @@ import pcgen.core.QualifiedObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		CDOMSecondaryToken<CDOMObject>, ChooseResultActor
@@ -79,13 +81,42 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		 * CONSIDER There is the ability to consolidate this PREREQ processing
 		 * into AutoLst.java (since it's the same across AUTO SubTokens)
 		 */
-		// Note: May contain PRExxx
+		boolean isPre = false;
 		if (value.indexOf("[") == -1)
 		{
+			// Supported version of PRExxx using |.  Needs to be at the front of the
+			// Parsing code because many objects expect the pre to have been determined
+			// Ahead of time.  Until deprecated code is removed, it will have to stay
+			// like this.
 			equipItems = value;
+			StringTokenizer tok = new StringTokenizer(equipItems, Constants.PIPE);
+			while (tok.hasMoreTokens())
+			{
+				String token = tok.nextToken();
+				if (PreParserFactory.isPreReqString(token))
+				{
+					if (isPre)
+					{
+						String errorText = "Invalid " + getTokenName() + ": " + value + "  PRExxx must be at the END of the Token";
+						Logging.errorPrint(errorText);
+						return new ParseResult.Fail(errorText);
+					}
+					prereq = getPrerequisite(token);
+					if (prereq == null)
+					{
+						return new ParseResult.Fail("Error generating Prerequisite "
+								+ prereq + " in " + getFullName());
+					}
+					int preStart = value.indexOf(token) - 1;
+					equipItems = value.substring(0, preStart);
+					isPre = true;
+				}
+			}
 		}
 		else
 		{
+			Logging.deprecationPrint("Use of [] for Prerequisites is is deprecated, "
+					+ "please use | based standard");
 			int openBracketLoc = value.indexOf("[");
 			equipItems = value.substring(0, openBracketLoc);
 			if (!value.endsWith("]"))
@@ -214,7 +245,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 					context.addWriteMessage("Error writing Prerequisite: " + e);
 					return null;
 				}
-				ab = ab + '[' + swriter.toString() + ']';
+				ab = ab + '|' + swriter.toString();
 			}
 			list.add(ab);
 		}

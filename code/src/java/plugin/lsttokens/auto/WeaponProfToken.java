@@ -37,12 +37,14 @@ import pcgen.core.QualifiedObject;
 import pcgen.core.WeaponProf;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 		CDOMSecondaryToken<CDOMObject>, ChooseResultActor
@@ -72,14 +74,42 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 	{
 		String weaponProfs;
 		Prerequisite prereq = null; // Do not initialize, null is significant!
-
-		// Note: May contain PRExxx
+		boolean isPre = false;
 		if (value.indexOf("[") == -1)
 		{
+			// Supported version of PRExxx using |.  Needs to be at the front of the
+			// Parsing code because many objects expect the pre to have been determined
+			// Ahead of time.  Until deprecated code is removed, it will have to stay
+			// like this.
 			weaponProfs = value;
+			StringTokenizer tok = new StringTokenizer(weaponProfs, Constants.PIPE);
+			while (tok.hasMoreTokens())
+			{
+				String token = tok.nextToken();
+				if (PreParserFactory.isPreReqString(token))
+				{
+					if (isPre)
+					{
+						String errorText = "Invalid " + getTokenName() + ": " + value + "  PRExxx must be at the END of the Token";
+						Logging.errorPrint(errorText);
+						return new ParseResult.Fail(errorText);
+					}
+					prereq = getPrerequisite(token);
+					if (prereq == null)
+					{
+						return new ParseResult.Fail("Error generating Prerequisite "
+								+ prereq + " in " + getFullName());
+					}
+					int preStart = value.indexOf(token) - 1;
+					weaponProfs = value.substring(0, preStart);
+					isPre = true;
+				}
+			}
 		}
 		else
 		{
+			Logging.deprecationPrint("Use of [] for Prerequisites is is deprecated, "
+					+ "please use | based standard");
 			int openBracketLoc = value.indexOf("[");
 			weaponProfs = value.substring(0, openBracketLoc);
 			if (!value.endsWith("]"))
@@ -110,8 +140,8 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 
 		while (tok.hasMoreTokens())
 		{
-			String aProf = tok.nextToken();
-			if ("%LIST".equals(aProf))
+			String token = tok.nextToken();
+			if ("%LIST".equals(token))
 			{
 				foundOther = true;
 				ChooseResultActor cra;
@@ -128,7 +158,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 				}
 				context.obj.addToList(obj, ListKey.CHOOSE_ACTOR, cra);
 			}
-			else if ("DEITYWEAPONS".equals(aProf))
+			else if ("DEITYWEAPONS".equals(token))
 			{
 				foundOther = true;
 				context.obj.put(obj, ObjectKey.HAS_DEITY_WEAPONPROF,
@@ -136,7 +166,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 			}
 			else
 			{
-				if (Constants.LST_ALL.equalsIgnoreCase(aProf))
+				if (Constants.LST_ALL.equalsIgnoreCase(token))
 				{
 					foundAny = true;
 					CDOMGroupRef<WeaponProf> allRef = context.ref
@@ -146,12 +176,12 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 				else
 				{
 					foundOther = true;
-					if (aProf.startsWith(Constants.LST_TYPE_DOT)
-							|| aProf.startsWith(Constants.LST_TYPE_EQUAL))
+					if (token.startsWith(Constants.LST_TYPE_DOT)
+							|| token.startsWith(Constants.LST_TYPE_EQUAL))
 					{
 						CDOMGroupRef<WeaponProf> rr = TokenUtilities
 								.getTypeReference(context, WEAPONPROF_CLASS,
-										aProf.substring(5));
+										token.substring(5));
 						if (rr == null)
 						{
 							return ParseResult.INTERNAL_ERROR;
@@ -161,7 +191,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 					else
 					{
 						CDOMSingleRef<WeaponProf> ref = context.ref
-								.getCDOMReference(WEAPONPROF_CLASS, aProf);
+								.getCDOMReference(WEAPONPROF_CLASS, token);
 						wpp.addWeaponProf(ref);
 					}
 				}
@@ -224,9 +254,8 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 			sb.append("DEITYWEAPONS");
 			if (deityweap.hasPrerequisites())
 			{
-				sb.append('[').append(
-						context.getPrerequisiteString(deityweap
-								.getPrerequisiteList())).append(']');
+				sb.append('|');
+				sb.append(context.getPrerequisiteString(deityweap.getPrerequisiteList()));
 			}
 			list.add(sb.toString());
 		}
@@ -253,8 +282,8 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 								+ getFullName());
 						return null;
 					}
-					sb.append('[').append(
-							context.getPrerequisiteString(prereqs)).append(']');
+					sb.append('|');
+					sb.append(context.getPrerequisiteString(prereqs));
 				}
 				String lstFormat = sb.toString();
 				boolean isUnconditionalAll = Constants.LST_ALL

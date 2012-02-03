@@ -37,12 +37,14 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 		CDOMSecondaryToken<CDOMObject>, ChooseResultActor
@@ -72,18 +74,46 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		CDOMObject obj, String value)
 	{
-		String weaponProfs;
+		String armorProf;
 		Prerequisite prereq = null; // Do not initialize, null is significant!
-
-		// Note: May contain PRExxx
+		boolean isPre = false;
 		if (value.indexOf("[") == -1)
 		{
-			weaponProfs = value;
+			// Supported version of PRExxx using |.  Needs to be at the front of the
+			// Parsing code because many objects expect the pre to have been determined
+			// Ahead of time.  Until deprecated code is removed, it will have to stay
+			// like this.
+			armorProf = value;
+			StringTokenizer tok = new StringTokenizer(armorProf, Constants.PIPE);
+			while (tok.hasMoreTokens())
+			{
+				String token = tok.nextToken();
+				if (PreParserFactory.isPreReqString(token))
+				{
+					if (isPre)
+					{
+						String errorText = "Invalid " + getTokenName() + ": " + value + "  PRExxx must be at the END of the Token";
+						Logging.errorPrint(errorText);
+						return new ParseResult.Fail(errorText);
+					}
+					prereq = getPrerequisite(token);
+					if (prereq == null)
+					{
+						return new ParseResult.Fail("Error generating Prerequisite "
+								+ prereq + " in " + getFullName());
+					}
+					int preStart = value.indexOf(token) - 1;
+					armorProf = value.substring(0, preStart);
+					isPre = true;
+				}
+			}
 		}
 		else
 		{
+			Logging.deprecationPrint("Use of [] for Prerequisites is is deprecated, "
+					+ "please use | based standard");
 			int openBracketLoc = value.indexOf("[");
-			weaponProfs = value.substring(0, openBracketLoc);
+			armorProf = value.substring(0, openBracketLoc);
 			if (!value.endsWith("]"))
 			{
 				return new ParseResult.Fail("Unresolved Prerequisite in "
@@ -98,7 +128,7 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 			}
 		}
 
-		ParseResult pr = checkSeparatorsAndNonEmpty('|', weaponProfs);
+		ParseResult pr = checkSeparatorsAndNonEmpty('|', armorProf);
 		if (!pr.passed())
 		{
 			return pr;
@@ -107,7 +137,7 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 		boolean foundAny = false;
 		boolean foundOther = false;
 
-		StringTokenizer tok = new StringTokenizer(weaponProfs, Constants.PIPE);
+		StringTokenizer tok = new StringTokenizer(armorProf, Constants.PIPE);
 
 		List<CDOMReference<ArmorProf>> armorProfs = new ArrayList<CDOMReference<ArmorProf>>();
 		List<CDOMReference<Equipment>> equipTypes = new ArrayList<CDOMReference<Equipment>>();
@@ -218,10 +248,9 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 				sb.append(spp.getLstFormat());
 				if (spp.hasPrerequisites())
 				{
-					sb.append('[');
+					sb.append('|');
 					sb.append(getPrerequisiteString(context, spp
 							.getPrerequisiteList()));
-					sb.append(']');
 				}
 				String ab = sb.toString();
 				boolean isUnconditionalAll = Constants.LST_ALL.equals(ab);
