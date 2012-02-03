@@ -159,10 +159,8 @@ public class ConditionalChoiceActor extends ConcretePrereqObject implements
 		sb.append(actor.getLstFormat());
 		if (hasPrerequisites())
 		{
-			sb.append('[').append(
-					new PrerequisiteWriter()
-							.getPrerequisiteString(getPrerequisiteList()))
-					.append(']');
+			sb.append('|');
+			sb.append(new PrerequisiteWriter().getPrerequisiteString(getPrerequisiteList()));
 		}
 		return sb.toString();
 	}
