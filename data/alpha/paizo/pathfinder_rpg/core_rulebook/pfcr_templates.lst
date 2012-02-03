@@ -45,7 +45,7 @@ Trained Animal	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Animal Tri
 Default Racial Traits		TEMPLATE:CHOOSE:Set Default Racial Traits with ability to swap out via KIT|Set Default Racial Traits with single ability
 #
 
-Set Default Racial Traits with ability to swap out via KIT		VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Dwarf Kit|Elf Kit|Half-Elf Kit|Gnome Kit|Half-Orc Kit|Human Kit|Halfling Kit
+PRESELECT ALL THE RACIAL ABILITIES WITH SWAP OUT CAPABILITY - DO NOT CHANGE RACE!	KEY:Set Default Racial Traits with ability to swap out via KIT		VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Dwarf Kit|Elf Kit|Half-Elf Kit|Gnome Kit|Half-Orc Kit|Human Kit|Halfling Kit
 # Sub CHoices
 Dwarf Kit		PRERACE:1,Dwarf%		KIT:1|Dwarf Racial Trait Default
 Elf Kit		PRERACE:1,Elf%		KIT:1|Elf Racial Trait Default
@@ -55,7 +55,7 @@ Half-Orc Kit	PRERACE:1,Half-Orc%	KIT:1|Half Orc Racial Trait Default
 Human Kit		PRERACE:1,Human%		KIT:1|Human Racial Trait Default
 Halfling Kit	PRERACE:1,Halfling%	KIT:1|Halfling Racial Trait Default
 
-Set Default Racial Traits with single ability		VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Dwarf Default|Elf Default|Half-Elf Default|Gnome Default|Half-Orc Default|Human Default|Halfling Default
+DEFAULT RACIAL TRAITS THAT WILL KEEP THE RACE DEFAULT FOR ANY RACE - MAY CHANGE RACE FREELY	KEY:Set Default Racial Traits with single ability		VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Dwarf Default|Elf Default|Half-Elf Default|Gnome Default|Half-Orc Default|Human Default|Halfling Default
 # Sub Choices
 Dwarf Default		PRERACE:1,Dwarf%		ABILITY:Dwarf Racial Trait|NORMAL|Grant Default Racial Abilities
 Elf Default			PRERACE:1,Elf%		ABILITY:Elf Racial Trait|NORMAL|Grant Default Racial Abilities
