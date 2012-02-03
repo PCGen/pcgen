@@ -1,9 +1,0 @@
-# CVS $Revision$ $Author$ -- Mon Dec 19 23:42:16 2011 -- reformated by prettylst.pl v1.39 (build )
-#SOURCELONG:Unearthed Arcana	SOURCESHORT:UA	SOURCEDATE:2004-02
-# Original Entry by: Jasper-Spaans
-#
-# Ability Categories
-#
-
-# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
-ABILITYCATEGORY:Prestige Paladin Unique Spells	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AddPaladinSpellCasting	PLURAL:Prestige Paladin Unique Spells	DISPLAYLOCATION:Class Abilities
