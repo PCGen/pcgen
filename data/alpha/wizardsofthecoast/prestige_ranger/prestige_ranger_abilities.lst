@@ -1,0 +1,21 @@
+# CVS $Revision$ $Author$ -- Mon Dec 19 23:39:40 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Unearthed Arcana	SOURCESHORT:UA	SOURCEDATE:2004-02
+# Original Entry by: Jasper-Spaans
+
+###Block: Prestige Ranger Abilities, Page 72.
+# Ability Name				Category of Ability		Type					Visible		Restricted Ability									Required Class	Required Feat					Var. Min. Value					Virtual Feat				Source Page
+Manyshot					CATEGORY:Special Ability	TYPE:PrestigeRangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Improved Two Weapon Fighting				PREFEAT:1,Rapid Shot				PREVARGTEQ:PrestigeRangerBonusFeatLVL,2	VFEAT:Manyshot				SOURCEPAGE:p.72
+Improved Two Weapon Fighting		CATEGORY:Special Ability	TYPE:PrestigeRangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Manyshot								PREFEAT:1,Two Weapon Fighting			PREVARGTEQ:PrestigeRangerBonusFeatLVL,2	VFEAT:Improved Two Weapon Fighting	SOURCEPAGE:p.72
+Improved Precise Shot			CATEGORY:Special Ability	TYPE:PrestigeRangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Greater Two Weapon Fighting				PREFEAT:1,Manyshot				PREVARGTEQ:PrestigeRangerBonusFeatLVL,7	VFEAT:Improved Precise Shot		SOURCEPAGE:p.72
+Greater Two Weapon Fighting		CATEGORY:Special Ability	TYPE:PrestigeRangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Improved Precise Shot					PREFEAT:1,Improved Two Weapon Fighting	PREVARGTEQ:PrestigeRangerBonusFeatLVL,7	VFEAT:Greater Two Weapon Fighting	SOURCEPAGE:p.72
+
+#These abilities add the ranger spells to the appropriate class.
+#Note that we actually might want to add this in a more appropriate fashion, with a chooser, but that is not possible with the current tags.
+#Note that these are only the core classes, and when using sources with additional (divine casting) classes, the appropriate abilities would need to be added.
+#Note that there are NO (unique) ranger spells in the RSRD, which means these abilities do not actually DO anything at this point....
+Add Ranger Spellcasting to Druid	CATEGORY:Special Ability	TYPE:AddRangerSpellCasting	VISIBLE:DISPLAY													PRECLASS:1,Druid
+#SPELLLEVEL:CLASS|Druid=1|
+Add Ranger Spellcasting to Cleric	CATEGORY:Special Ability	TYPE:AddRangerSpellCasting	VISIBLE:DISPLAY													PRECLASS:1,Cleric
+#SPELLLEVEL:CLASS|Cleric=1|
+Add Ranger Spellcasting to Paladin	CATEGORY:Special Ability	TYPE:AddRangerSpellCasting	VISIBLE:DISPLAY													PRECLASS:1,Ranger
+#SPELLLEVEL:CLASS|Paladin=1|
