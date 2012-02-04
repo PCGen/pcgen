@@ -54,6 +54,7 @@
 	</bean>
 	<bean id="availableSpellFacet" class="pcgen.cdom.facet.AvailableSpellFacet">
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
+		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<!-- B -->
 	<bean id="bioSetFacet" class="pcgen.cdom.facet.BioSetFacet" />
