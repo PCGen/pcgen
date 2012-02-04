@@ -44,6 +44,8 @@ public class UnarmedDamageFacet extends AbstractSourcedListFacet<List<String>>
 
 	private FormulaResolvingFacet formulaResolvingFacet;
 
+	private CDOMObjectConsolidationFacet consolidationFacet;
+
 	/**
 	 * Triggered when one of the Facets to which UnarmedDamageFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
@@ -116,5 +118,15 @@ public class UnarmedDamageFacet extends AbstractSourcedListFacet<List<String>>
 	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
 	{
 		this.formulaResolvingFacet = formulaResolvingFacet;
+	}
+
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+		this.consolidationFacet = consolidationFacet;
+	}
+	
+	public void init()
+	{
+		consolidationFacet.addDataFacetChangeListener(this);
 	}
 }

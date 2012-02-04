@@ -364,6 +364,7 @@
 	<bean id="unarmedDamageFacet" class="pcgen.cdom.facet.UnarmedDamageFacet">
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
+		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="unencumberedArmorFacet" class="pcgen.cdom.facet.UnencumberedArmorFacet"/>
 	<bean id="unencumberedLoadFacet" class="pcgen.cdom.facet.UnencumberedLoadFacet"/>
