@@ -161,6 +161,7 @@
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="levelFacet" ref="levelFacet"/>
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+		<property name="conditionalTemplateFacet" ref="conditionalTemplateFacet"/>
 	</bean>
 	<!-- I -->
 	<bean id="initiativeFacet" class="pcgen.cdom.facet.InitiativeFacet">

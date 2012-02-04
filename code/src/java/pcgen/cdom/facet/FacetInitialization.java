@@ -183,8 +183,6 @@ public class FacetInitialization
 		UnencumberedLoadFacet unencumberedLoadFacet =
 				FacetLibrary.getFacet(UnencumberedLoadFacet.class);		
 
-		HitPointFacet hitPointFacet = FacetLibrary.getFacet(HitPointFacet.class);
-
 		autoLangFacet.addDataFacetChangeListener(languageFacet);
 		freeLangFacet.addDataFacetChangeListener(languageFacet);
 		addLangFacet.addDataFacetChangeListener(languageFacet);
@@ -232,9 +230,6 @@ public class FacetInitialization
 		cabFacet.addDataFacetChangeListener(grantedAbilityFacet);
 
 		domainFacet.addDataFacetChangeListener(domainSpellListFacet);
-
-		templateFacet.addDataFacetChangeListener(hitPointFacet);
-		conditionalTemplateFacet.addDataFacetChangeListener(hitPointFacet);
 
 		raceFacet.addDataFacetChangeListener(listSkillCostFacet);
 		raceFacet.addDataFacetChangeListener(bioSetFacet);

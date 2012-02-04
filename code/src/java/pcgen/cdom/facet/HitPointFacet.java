@@ -42,6 +42,8 @@ public class HitPointFacet extends
 	private RaceFacet raceFacet;
 
 	private TemplateFacet templateFacet;
+	
+	private ConditionalTemplateFacet conditionalTemplateFacet;
 
 	private LevelFacet levelFacet;
 
@@ -207,4 +209,15 @@ public class HitPointFacet extends
 		this.bonusCheckingFacet = bonusCheckingFacet;
 	}
 
+	public void setConditionalTemplateFacet(
+		ConditionalTemplateFacet conditionalTemplateFacet)
+	{
+		this.conditionalTemplateFacet = conditionalTemplateFacet;
+	}
+
+	public void init()
+	{
+		templateFacet.addDataFacetChangeListener(this);
+		conditionalTemplateFacet.addDataFacetChangeListener(this);
+	}
 }
