@@ -266,7 +266,9 @@
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
 	<!-- O -->
-	<bean id="objectAdditionFacet" class="pcgen.cdom.facet.ObjectAdditionFacet"/>
+	<bean id="objectAdditionFacet" class="pcgen.cdom.facet.ObjectAdditionFacet">
+		<property name="consolidationFacet" ref="consolidationFacet"/>
+	</bean>
 	<!-- P -->
 	<bean id="prerequisiteFacet" class="pcgen.cdom.facet.PrerequisiteFacet"/>
 	<bean id="prohibitedSchoolFacet" class="pcgen.cdom.facet.ProhibitedSchoolFacet"/>
@@ -345,7 +347,9 @@
 	</bean>
 	<bean id="unencumberedArmorFacet" class="pcgen.cdom.facet.UnencumberedArmorFacet"/>
 	<bean id="unencumberedLoadFacet" class="pcgen.cdom.facet.UnencumberedLoadFacet"/>
-	<bean id="unlockedStatFacet" class="pcgen.cdom.facet.UnlockedStatFacet"/>
+	<bean id="unlockedStatFacet" class="pcgen.cdom.facet.UnlockedStatFacet">
+		<property name="consolidationFacet" ref="consolidationFacet"/>
+	</bean>
 	<bean id="userEquipmentFacet" class="pcgen.cdom.facet.UserEquipmentFacet"/>
 	<!-- V -->
 	<bean id="variableFacet" class="pcgen.cdom.facet.VariableFacet">

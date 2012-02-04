@@ -31,6 +31,8 @@ public class ObjectAdditionFacet implements DataFacetChangeListener<CDOMObject>
 {
 	private final Class<?> thisClass = getClass();
 
+	private CDOMObjectConsolidationFacet consolidationFacet;
+
 	public void associatePlayerCharacter(CharID id, PlayerCharacter pc)
 	{
 		FacetCache.set(id, thisClass, pc);
@@ -52,5 +54,15 @@ public class ObjectAdditionFacet implements DataFacetChangeListener<CDOMObject>
 		CharID id = dfce.getCharID();
 		PlayerCharacter pc = (PlayerCharacter) FacetCache.get(id, thisClass);
 		pc.processRemoval(cdo);
+	}
+
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+		this.consolidationFacet = consolidationFacet;
+	}
+	
+	public void init()
+	{
+		consolidationFacet.addDataFacetChangeListener(this);
 	}
 }

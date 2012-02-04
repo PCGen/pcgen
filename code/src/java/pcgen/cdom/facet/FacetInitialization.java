@@ -92,8 +92,6 @@ public class FacetInitialization
 		ArmorProfFacet apFacet = FacetLibrary.getFacet(ArmorProfFacet.class);
 		VariableFacet variableFacet = FacetLibrary
 				.getFacet(VariableFacet.class);
-		UnlockedStatFacet unlockedStatFacet = FacetLibrary
-				.getFacet(UnlockedStatFacet.class);
 		StatLockFacet statLockFacet = FacetLibrary
 				.getFacet(StatLockFacet.class);
 		AddedTemplateFacet addedTemplateFacet =
@@ -149,8 +147,6 @@ public class FacetInitialization
 				.getFacet(CharacterConsolidationFacet.class);
 		EquipmentConsolidationFacet eqObjectFacet = FacetLibrary
 				.getFacet(EquipmentConsolidationFacet.class);
-		ObjectAdditionFacet additionFacet = FacetLibrary
-				.getFacet(ObjectAdditionFacet.class);
 		GrantedAbilityFacet grantedAbilityFacet = FacetLibrary
 				.getFacet(GrantedAbilityFacet.class);
 		DirectAbilityFacet directAbilityFacet = FacetLibrary
@@ -232,14 +228,12 @@ public class FacetInitialization
 		eqObjectFacet.addDataFacetChangeListener(cdomObjectFacet);
 		charObjectFacet.addDataFacetChangeListener(cdomObjectFacet);
 
-		cdomObjectFacet.addDataFacetChangeListener(additionFacet);
 		cdomObjectFacet.addDataFacetChangeListener(spFacet);
 		cdomObjectFacet.addDataFacetChangeListener(srFacet);
 		cdomObjectFacet.addDataFacetChangeListener(apFacet);
 		cdomObjectFacet.addDataFacetChangeListener(qualifyFacet);
 		cdomObjectFacet.addDataFacetChangeListener(drFacet);
 		cdomObjectFacet.addDataFacetChangeListener(variableFacet);
-		cdomObjectFacet.addDataFacetChangeListener(unlockedStatFacet);
 		cdomObjectFacet.addDataFacetChangeListener(statLockFacet);
 		cdomObjectFacet.addDataFacetChangeListener(visionFacet);
 		cdomObjectFacet.addDataFacetChangeListener(foFacet);
