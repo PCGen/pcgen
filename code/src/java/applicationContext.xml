@@ -316,7 +316,12 @@
 		<property name="activeSpellsFacet" ref="activeSpellsFacet"/>
 	</bean>
 	<bean id="spellSupportFacet" class="pcgen.cdom.facet.SpellSupportFacet"/>
-	<bean id="startingLanguageFacet" class="pcgen.cdom.facet.StartingLanguageFacet"/>
+	<bean id="startingLanguageFacet" class="pcgen.cdom.facet.StartingLanguageFacet">
+		<property name="classFacet" ref="classFacet"/>
+		<property name="raceFacet" ref="raceFacet"/>
+		<property name="templateFacet" ref="templateFacet"/>
+		<property name="conditionalTemplateFacet" ref="conditionalTemplateFacet"/>
+	</bean>
 	<bean id="statFacet" class="pcgen.cdom.facet.StatFacet">
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>

@@ -61,8 +61,6 @@ public class FacetInitialization
 				.getFacet(AddLanguageFacet.class);
 		SkillLanguageFacet skillLangFacet = FacetLibrary
 				.getFacet(SkillLanguageFacet.class);
-		StartingLanguageFacet startingLangFacet = FacetLibrary
-				.getFacet(StartingLanguageFacet.class);
 		WeaponProfFacet weaponProfFacet = FacetLibrary
 				.getFacet(WeaponProfFacet.class);
 
@@ -200,11 +198,6 @@ public class FacetInitialization
 
 		raceFacet.addDataFacetChangeListener(bioSetFacet);
 		raceFacet.addDataFacetChangeListener(monsterClassFacet);
-
-		raceFacet.addDataFacetChangeListener(startingLangFacet);
-		templateFacet.addDataFacetChangeListener(startingLangFacet);
-		conditionalTemplateFacet.addDataFacetChangeListener(startingLangFacet);
-		classFacet.addDataFacetChangeListener(startingLangFacet);
 
 		raceFacet.addDataFacetChangeListener(sizeFacet);
 		templateFacet.addDataFacetChangeListener(sizeFacet);

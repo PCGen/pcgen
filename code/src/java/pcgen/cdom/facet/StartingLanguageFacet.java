@@ -32,6 +32,14 @@ public class StartingLanguageFacet extends AbstractSourcedListFacet<Language>
 		implements DataFacetChangeListener<CDOMObject>
 {
 
+	private ClassFacet classFacet;
+
+	private RaceFacet raceFacet;
+
+	private TemplateFacet templateFacet;
+	
+	private ConditionalTemplateFacet conditionalTemplateFacet;
+
 	/**
 	 * Triggered when one of the Facets to which StartingLanguageFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
@@ -76,4 +84,32 @@ public class StartingLanguageFacet extends AbstractSourcedListFacet<Language>
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
 
+	public void setClassFacet(ClassFacet classFacet)
+	{
+		this.classFacet = classFacet;
+	}
+
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+		this.raceFacet = raceFacet;
+	}
+
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+		this.templateFacet = templateFacet;
+	}
+
+	public void setConditionalTemplateFacet(
+		ConditionalTemplateFacet conditionalTemplateFacet)
+	{
+		this.conditionalTemplateFacet = conditionalTemplateFacet;
+	}
+
+	public void init()
+	{
+		raceFacet.addDataFacetChangeListener(this);
+		templateFacet.addDataFacetChangeListener(this);
+		conditionalTemplateFacet.addDataFacetChangeListener(this);
+		classFacet.addDataFacetChangeListener(this);
+	}
 }
