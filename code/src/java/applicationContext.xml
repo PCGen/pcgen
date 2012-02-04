@@ -176,7 +176,9 @@
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="conditionalTemplateFacet" ref="conditionalTemplateFacet"/>
 	</bean>
-	<bean id="hasDeityWeaponProfFacet" class="pcgen.cdom.facet.HasDeityWeaponProfFacet"/>
+	<bean id="hasDeityWeaponProfFacet" class="pcgen.cdom.facet.HasDeityWeaponProfFacet">
+		<property name="consolidationFacet" ref="consolidationFacet"/>
+	</bean>
 	<bean id="heightFacet" class="pcgen.cdom.facet.HeightFacet"/>
 	<bean id="hitPointFacet" class="pcgen.cdom.facet.HitPointFacet">
 		<property name="classFacet" ref="classFacet"/>
