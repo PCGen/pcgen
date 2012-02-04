@@ -36,6 +36,8 @@ public class AutoWeaponProfFacet extends
 		DataFacetChangeListener<CDOMObject>
 {
 
+	private CDOMObjectConsolidationFacet consolidationFacet;
+
 	/**
 	 * Triggered when one of the Facets to which AutoWeaponProfFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
@@ -85,4 +87,13 @@ public class AutoWeaponProfFacet extends
 		return profs;
 	}
 
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+		this.consolidationFacet = consolidationFacet;
+	}
+	
+	public void init()
+	{
+		consolidationFacet.addDataFacetChangeListener(this);
+	}
 }

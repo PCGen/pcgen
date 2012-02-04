@@ -49,7 +49,9 @@
 	<bean id="autoListArmorProfFacet" class="pcgen.cdom.facet.AutoListArmorProfFacet" />
 	<bean id="autoListShieldProfFacet" class="pcgen.cdom.facet.AutoListShieldProfFacet" />
 	<bean id="autoListWeaponProfFacet" class="pcgen.cdom.facet.AutoListWeaponProfFacet" />
-	<bean id="autoWeaponProfFacet" class="pcgen.cdom.facet.AutoWeaponProfFacet" />
+	<bean id="autoWeaponProfFacet" class="pcgen.cdom.facet.AutoWeaponProfFacet">
+		<property name="consolidationFacet" ref="consolidationFacet"/>
+	</bean>
 	<bean id="availableSpellFacet" class="pcgen.cdom.facet.AvailableSpellFacet">
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
 	</bean>
