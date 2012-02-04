@@ -91,8 +91,6 @@ public class FacetInitialization
 				.getFacet(MonsterClassFacet.class);
 		SpellsFacet spellsFacet = FacetLibrary.getFacet(SpellsFacet.class);
 
-		FollowerLimitFacet flFacet = FacetLibrary
-				.getFacet(FollowerLimitFacet.class);
 		ChangeProfFacet cpFacet = FacetLibrary.getFacet(ChangeProfFacet.class);
 		AutoWeaponProfFacet awpFacet = FacetLibrary
 				.getFacet(AutoWeaponProfFacet.class);
@@ -214,7 +212,6 @@ public class FacetInitialization
 		eqObjectFacet.addDataFacetChangeListener(cdomObjectFacet);
 		charObjectFacet.addDataFacetChangeListener(cdomObjectFacet);
 
-		cdomObjectFacet.addDataFacetChangeListener(flFacet);
 		cdomObjectFacet.addDataFacetChangeListener(cpFacet);
 		cdomObjectFacet.addDataFacetChangeListener(awpFacet);
 		cdomObjectFacet.addDataFacetChangeListener(hdwpFacet);

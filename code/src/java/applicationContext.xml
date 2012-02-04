@@ -148,6 +148,7 @@
 	<bean id="followerLimitFacet" class="pcgen.cdom.facet.FollowerLimitFacet">
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="followerOptionFacet" class="pcgen.cdom.facet.FollowerOptionFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>

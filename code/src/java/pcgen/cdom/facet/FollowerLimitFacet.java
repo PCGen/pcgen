@@ -38,7 +38,10 @@ import pcgen.cdom.list.CompanionList;
 public class FollowerLimitFacet implements DataFacetChangeListener<CDOMObject>
 {
 	private FormulaResolvingFacet formulaResolvingFacet;
+
 	private BonusCheckingFacet bonusCheckingFacet;
+
+	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**
 	 * Triggered when one of the Facets to which FollowerOptionFacet listens
@@ -228,4 +231,13 @@ public class FollowerLimitFacet implements DataFacetChangeListener<CDOMObject>
 		this.bonusCheckingFacet = bonusCheckingFacet;
 	}
 
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+		this.consolidationFacet = consolidationFacet;
+	}
+	
+	public void init()
+	{
+		consolidationFacet.addDataFacetChangeListener(this);
+	}
 }
