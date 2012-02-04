@@ -85,8 +85,6 @@ public class FacetInitialization
 				.getFacet(AutoListArmorProfFacet.class);
 		ArmorProfProviderFacet appFacet = FacetLibrary
 				.getFacet(ArmorProfProviderFacet.class);
-		VariableFacet variableFacet = FacetLibrary
-				.getFacet(VariableFacet.class);
 		StatLockFacet statLockFacet = FacetLibrary
 				.getFacet(StatLockFacet.class);
 		AddedTemplateFacet addedTemplateFacet =
@@ -221,7 +219,6 @@ public class FacetInitialization
 		eqObjectFacet.addDataFacetChangeListener(cdomObjectFacet);
 		charObjectFacet.addDataFacetChangeListener(cdomObjectFacet);
 
-		cdomObjectFacet.addDataFacetChangeListener(variableFacet);
 		cdomObjectFacet.addDataFacetChangeListener(statLockFacet);
 		cdomObjectFacet.addDataFacetChangeListener(visionFacet);
 		cdomObjectFacet.addDataFacetChangeListener(foFacet);
