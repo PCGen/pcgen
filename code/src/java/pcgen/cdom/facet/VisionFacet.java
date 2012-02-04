@@ -51,6 +51,8 @@ public class VisionFacet extends
 
 	private PrerequisiteFacet prerequisiteFacet;
 
+	private CDOMObjectConsolidationFacet consolidationFacet;
+
 	/**
 	 * Triggered when one of the Facets to which VisionFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
@@ -246,4 +248,13 @@ public class VisionFacet extends
 		this.prerequisiteFacet = prerequisiteFacet;
 	}
 
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+		this.consolidationFacet = consolidationFacet;
+	}
+	
+	public void init()
+	{
+		consolidationFacet.addDataFacetChangeListener(this);
+	}
 }

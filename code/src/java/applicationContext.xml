@@ -367,6 +367,7 @@
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
+		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<!-- W -->
 	<bean id="weaponProfFacet" class="pcgen.cdom.facet.WeaponProfFacet">
