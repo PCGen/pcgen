@@ -372,7 +372,9 @@
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
-	<bean id="unencumberedArmorFacet" class="pcgen.cdom.facet.UnencumberedArmorFacet"/>
+	<bean id="unencumberedArmorFacet" class="pcgen.cdom.facet.UnencumberedArmorFacet">
+		<property name="cdomSourceFacet" ref="cdomSourceFacet"/>
+	</bean>
 	<bean id="unencumberedLoadFacet" class="pcgen.cdom.facet.UnencumberedLoadFacet"/>
 	<bean id="unlockedStatFacet" class="pcgen.cdom.facet.UnlockedStatFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>

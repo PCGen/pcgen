@@ -116,8 +116,6 @@ public class FacetInitialization
 				.getFacet(DirectAbilityFacet.class);
 		ConditionallyGrantedAbilityFacet cabFacet = FacetLibrary
 				.getFacet(ConditionallyGrantedAbilityFacet.class);
-		UnencumberedArmorFacet unencumberedArmorFacet =
-			FacetLibrary.getFacet(UnencumberedArmorFacet.class);		
 		UnencumberedLoadFacet unencumberedLoadFacet =
 				FacetLibrary.getFacet(UnencumberedLoadFacet.class);		
 
@@ -192,7 +190,6 @@ public class FacetInitialization
 
 		cdomObjectFacet.addDataFacetChangeListener(nwpFacet);
 		cdomSourceFacet.addDataFacetChangeListener(autoLangFacet);
-		cdomSourceFacet.addDataFacetChangeListener(unencumberedArmorFacet);
 		cdomSourceFacet.addDataFacetChangeListener(unencumberedLoadFacet);
 		cdomSourceFacet.addDataFacetChangeListener(spellsFacet);
 
