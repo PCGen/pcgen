@@ -31,6 +31,8 @@ public class MovementFacet extends AbstractSourcedListFacet<Movement> implements
 		DataFacetChangeListener<CDOMObject>
 {
 
+	private CDOMObjectConsolidationFacet consolidationFacet;
+
 	/**
 	 * Triggered when one of the Facets to which MovementFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
@@ -68,5 +70,15 @@ public class MovementFacet extends AbstractSourcedListFacet<Movement> implements
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
+	}
+
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+		this.consolidationFacet = consolidationFacet;
+	}
+	
+	public void init()
+	{
+		consolidationFacet.addDataFacetChangeListener(this);
 	}
 }

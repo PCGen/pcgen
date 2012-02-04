@@ -248,7 +248,9 @@
 		<property name="levelInfoFacet" ref="levelInfoFacet"/>
 	</bean>
 	<bean id="monsterCSkillFacet" class="pcgen.cdom.facet.MonsterCSkillFacet"/>
-	<bean id="movementFacet" class="pcgen.cdom.facet.MovementFacet"/>
+	<bean id="movementFacet" class="pcgen.cdom.facet.MovementFacet">
+		<property name="consolidationFacet" ref="consolidationFacet"/>
+	</bean>
 	<bean id="movementResultFacet" class="pcgen.cdom.facet.MovementResultFacet">
 		<property name="movementFacet" ref="movementFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
