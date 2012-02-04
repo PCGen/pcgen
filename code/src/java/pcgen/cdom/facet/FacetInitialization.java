@@ -85,8 +85,6 @@ public class FacetInitialization
 				.getFacet(AutoListArmorProfFacet.class);
 		ArmorProfProviderFacet appFacet = FacetLibrary
 				.getFacet(ArmorProfProviderFacet.class);
-		AddedTemplateFacet addedTemplateFacet =
-				FacetLibrary.getFacet(AddedTemplateFacet.class);
 		MonsterClassFacet monsterClassFacet = FacetLibrary
 				.getFacet(MonsterClassFacet.class);
 		SpellsFacet spellsFacet = FacetLibrary.getFacet(SpellsFacet.class);
@@ -196,7 +194,6 @@ public class FacetInitialization
 		charObjectFacet.addDataFacetChangeListener(cdomObjectFacet);
 
 		cdomObjectFacet.addDataFacetChangeListener(nwpFacet);
-		cdomObjectFacet.addDataFacetChangeListener(addedTemplateFacet);
 		cdomSourceFacet.addDataFacetChangeListener(autoLangFacet);
 		cdomSourceFacet.addDataFacetChangeListener(unencumberedArmorFacet);
 		cdomSourceFacet.addDataFacetChangeListener(unencumberedLoadFacet);

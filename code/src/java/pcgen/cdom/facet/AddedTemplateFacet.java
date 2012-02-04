@@ -44,6 +44,8 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 		.getFacet(PlayerCharacterTrackingFacet.class);
 
+	private CDOMObjectConsolidationFacet consolidationFacet;
+
 	public Collection<PCTemplate> select(CharID id, CDOMObject po)
 	{
 		List<PCTemplate> list = new ArrayList<PCTemplate>();
@@ -219,5 +221,15 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 	public void setPrerequisiteFacet(PrerequisiteFacet prerequisiteFacet)
 	{
 		this.prerequisiteFacet = prerequisiteFacet;
+	}
+
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+		this.consolidationFacet = consolidationFacet;
+	}
+	
+	public void init()
+	{
+		consolidationFacet.addDataFacetChangeListener(this);
 	}
 }
