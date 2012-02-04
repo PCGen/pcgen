@@ -336,6 +336,7 @@
 	</bean>
 	<bean id="statLockFacet" class="pcgen.cdom.facet.StatLockFacet">
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="subClassFacet" class="pcgen.cdom.facet.SubClassFacet"/>
 	<bean id="subRaceFacet" class="pcgen.cdom.facet.SubRaceFacet">

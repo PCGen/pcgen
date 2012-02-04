@@ -38,6 +38,8 @@ public class StatLockFacet extends AbstractSourcedListFacet<StatLock> implements
 {
 	private FormulaResolvingFacet formulaResolvingFacet;
 
+	private CDOMObjectConsolidationFacet consolidationFacet;
+
 	/**
 	 * Triggered when one of the Facets to which StatLockFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
@@ -117,4 +119,13 @@ public class StatLockFacet extends AbstractSourcedListFacet<StatLock> implements
 		this.formulaResolvingFacet = formulaResolvingFacet;
 	}
 
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+		this.consolidationFacet = consolidationFacet;
+	}
+	
+	public void init()
+	{
+		consolidationFacet.addDataFacetChangeListener(this);
+	}
 }
