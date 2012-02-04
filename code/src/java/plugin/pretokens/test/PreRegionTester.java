@@ -33,7 +33,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * @author wardc
@@ -66,7 +66,7 @@ public class PreRegionTester extends AbstractPrerequisiteTest implements Prerequ
 		}
 		else
 		{
-			throw new PrerequisiteException(PropertyFactory.getFormattedString(
+			throw new PrerequisiteException(LanguageBundle.getFormattedString(
 				"PreRegion.error.invalid_comparator", prereq.toString())); //$NON-NLS-1$
 		}
 

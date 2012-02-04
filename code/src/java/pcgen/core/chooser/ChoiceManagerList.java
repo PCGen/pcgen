@@ -87,6 +87,16 @@ public interface ChoiceManagerList<T> {
 			final PlayerCharacter aPC,
 			final List<T> selected);
 
+	/**
+	 * Calculate the number of effective choices the user can make.
+	 *  
+	 * @param selectedList The list of already selected items.
+	 * @param reservedList 
+	 * @return The number of choices that may be made 
+	 */
+	public int getNumEffectiveChoices(final List<T> selectedList,
+		final List<String> reservedList);
+
 	public abstract boolean conditionallyApply(PlayerCharacter pc, T item);
 
 	public abstract void restoreChoice(PlayerCharacter pc, CDOMObject owner, String choice);

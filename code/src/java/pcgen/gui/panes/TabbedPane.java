@@ -24,7 +24,7 @@
 package pcgen.gui.panes; // hm.binkley.gui;
 
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import javax.swing.*;
 import javax.swing.plaf.TabbedPaneUI;
@@ -54,12 +54,12 @@ public class TabbedPane extends JTabbedPane
 	private static final int MOVE_UP_DOWN_OFFSET = 8;
 	private static final String[] labels =
 	{
-		PropertyFactory.getString("in_top"), // place
-		PropertyFactory.getString("in_left"), PropertyFactory.getString("in_bottom"),
-		PropertyFactory.getString("in_right"), PropertyFactory.getString("in_beginning"), // move left/right
-		PropertyFactory.getString("in_left"), PropertyFactory.getString("in_end"), PropertyFactory.getString("in_right"),
-		PropertyFactory.getString("in_top"), // move up/down
-		PropertyFactory.getString("in_up"), PropertyFactory.getString("in_bottom"), PropertyFactory.getString("in_down")
+		LanguageBundle.getString("in_top"), // place
+		LanguageBundle.getString("in_left"), LanguageBundle.getString("in_bottom"),
+		LanguageBundle.getString("in_right"), LanguageBundle.getString("in_beginning"), // move left/right
+		LanguageBundle.getString("in_left"), LanguageBundle.getString("in_end"), LanguageBundle.getString("in_right"),
+		LanguageBundle.getString("in_top"), // move up/down
+		LanguageBundle.getString("in_up"), LanguageBundle.getString("in_bottom"), LanguageBundle.getString("in_down")
 	};
 	private static final ImageIcon[] icons =
 	{
@@ -70,12 +70,12 @@ public class TabbedPane extends JTabbedPane
 	};
 	private static final String[] tips =
 	{
-		PropertyFactory.getString("in_tabTips1"), PropertyFactory.getString("in_tabTips2"),
-		PropertyFactory.getString("in_tabTips3"), PropertyFactory.getString("in_tabTips4"),
-		PropertyFactory.getString("in_tabTips5"), PropertyFactory.getString("in_tabTips6"),
-		PropertyFactory.getString("in_tabTips7"), PropertyFactory.getString("in_tabTips8"),
-		PropertyFactory.getString("in_tabTips9"), PropertyFactory.getString("in_tabTips10"),
-		PropertyFactory.getString("in_tabTips11"), PropertyFactory.getString("in_tabTips12")
+		LanguageBundle.getString("in_tabTips1"), LanguageBundle.getString("in_tabTips2"),
+		LanguageBundle.getString("in_tabTips3"), LanguageBundle.getString("in_tabTips4"),
+		LanguageBundle.getString("in_tabTips5"), LanguageBundle.getString("in_tabTips6"),
+		LanguageBundle.getString("in_tabTips7"), LanguageBundle.getString("in_tabTips8"),
+		LanguageBundle.getString("in_tabTips9"), LanguageBundle.getString("in_tabTips10"),
+		LanguageBundle.getString("in_tabTips11"), LanguageBundle.getString("in_tabTips12")
 	};
 	private PopupMenuPolicy policy = new DefaultPopupMenuPolicy();
 	private Set<Component> locked = new HashSet<Component>();
@@ -351,10 +351,10 @@ public class TabbedPane extends JTabbedPane
 	{
 		CloseMenuItem(int index)
 		{
-			super(PropertyFactory.getString("in_close"));
+			super(LanguageBundle.getString("in_close"));
 
 			addActionListener(new CloseActionListener(index));
-			setMnemonic(PropertyFactory.getMnemonic("in_mn_close"));
+			setMnemonic(LanguageBundle.getMnemonic("in_mn_close"));
 			setIcon(Utilities.CLOSE_ICON);
 		}
 	}
@@ -378,10 +378,10 @@ public class TabbedPane extends JTabbedPane
 	{
 		LockMenuItem(int index)
 		{
-			super(PropertyFactory.getString("in_lock"));
+			super(LanguageBundle.getString("in_lock"));
 
 			addActionListener(new LockActionListener(index));
-			setMnemonic(PropertyFactory.getMnemonic("in_mn_lock"));
+			setMnemonic(LanguageBundle.getMnemonic("in_mn_lock"));
 			setIcon(Utilities.LOCK_ICON);
 		}
 	}
@@ -460,8 +460,8 @@ public class TabbedPane extends JTabbedPane
 	{
 		MoveMenu(int index)
 		{
-			super(PropertyFactory.getString("in_moveTab"));
-			setMnemonic(PropertyFactory.getMnemonic("in_mn_moveTab"));
+			super(LanguageBundle.getString("in_moveTab"));
+			setMnemonic(LanguageBundle.getMnemonic("in_mn_moveTab"));
 
 			int[] indices = getMovableTabIndices();
 
@@ -584,10 +584,10 @@ public class TabbedPane extends JTabbedPane
 	{
 		NewMenuItem(int index)
 		{
-			super(PropertyFactory.getString("in_new"));
+			super(LanguageBundle.getString("in_new"));
 
 			addActionListener(new NewActionListener());
-			setMnemonic(PropertyFactory.getMnemonic("in_mn_new"));
+			setMnemonic(LanguageBundle.getMnemonic("in_mn_new"));
 			setIcon(Utilities.NEW_ICON);
 		}
 	}
@@ -613,8 +613,8 @@ public class TabbedPane extends JTabbedPane
 	{
 		PlaceMenu(int placement)
 		{
-			super(PropertyFactory.getString("in_placeTabs"));
-			setMnemonic(PropertyFactory.getMnemonic("in_mn_placeTabs"));
+			super(LanguageBundle.getString("in_placeTabs"));
+			setMnemonic(LanguageBundle.getMnemonic("in_mn_placeTabs"));
 
 			// Add backwards to get clockwise choices
 			for (int j = 3; j > 0; --j)
@@ -837,10 +837,10 @@ public class TabbedPane extends JTabbedPane
 	{
 		RenameMenuItem(int index, MouseEvent e)
 		{
-			super(PropertyFactory.getString("in_rename") + "...");
+			super(LanguageBundle.getString("in_rename") + "...");
 
 			addActionListener(new RenameActionListener(index, e));
-			setMnemonic(PropertyFactory.getMnemonic("in_mn_rename"));
+			setMnemonic(LanguageBundle.getMnemonic("in_mn_rename"));
 		}
 	}
 
@@ -863,10 +863,10 @@ public class TabbedPane extends JTabbedPane
 	{
 		UnlockMenuItem(int index)
 		{
-			super(PropertyFactory.getString("in_unlock"));
+			super(LanguageBundle.getString("in_unlock"));
 
 			addActionListener(new UnlockActionListener(index));
-			setMnemonic(PropertyFactory.getMnemonic("in_mn_unlock"));
+			setMnemonic(LanguageBundle.getMnemonic("in_mn_unlock"));
 			setIcon(Utilities.LOCK_ICON);
 		}
 	}

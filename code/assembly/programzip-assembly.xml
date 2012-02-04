@@ -20,6 +20,14 @@
 		<include>autobuild.timestamp</include>
       </includes>
     </fileSet>
+    <fileSet>
+      <directory>code</directory>
+      <filtered>false</filtered>
+      <outputDirectory>/</outputDirectory>
+      <includes>
+		<include>pcgen.exe</include>
+      </includes>
+    </fileSet>
     <!-- Plugins -->
     <fileSet>
       <directory></directory>

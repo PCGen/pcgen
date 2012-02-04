@@ -76,7 +76,7 @@ import pcgen.gui.editor.EditorConstants;
 import pcgen.gui.editor.EditorMainForm;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>LstEditorMain</code>
@@ -556,8 +556,8 @@ public final class LstEditorMain extends JFrame
 		gridBagConstraints.weighty = 0.1;
 		pnlButtons.add(jPanel2, gridBagConstraints);
 
-		btnNew.setText(PropertyFactory.getString("in_new"));
-		btnNew.setMnemonic(PropertyFactory.getMnemonic("in_mn_new"));
+		btnNew.setText(LanguageBundle.getString("in_new"));
+		btnNew.setMnemonic(LanguageBundle.getMnemonic("in_mn_new"));
 		btnNew.setEnabled(false);
 		btnNew.addActionListener(new ActionListener()
 			{
@@ -574,8 +574,8 @@ public final class LstEditorMain extends JFrame
 		gridBagConstraints.insets = new Insets(2, 0, 2, 0);
 		pnlButtons.add(btnNew, gridBagConstraints);
 
-		btnEdit.setText(PropertyFactory.getString("in_edit"));
-		btnEdit.setMnemonic(PropertyFactory.getMnemonic("in_mn_edit"));
+		btnEdit.setText(LanguageBundle.getString("in_edit"));
+		btnEdit.setMnemonic(LanguageBundle.getMnemonic("in_mn_edit"));
 		btnEdit.setEnabled(false);
 		btnEdit.addActionListener(new ActionListener()
 			{
@@ -592,8 +592,8 @@ public final class LstEditorMain extends JFrame
 		gridBagConstraints.insets = new Insets(2, 0, 2, 0);
 		pnlButtons.add(btnEdit, gridBagConstraints);
 
-		btnDelete.setText(PropertyFactory.getString("in_delete"));
-		btnDelete.setMnemonic(PropertyFactory.getMnemonic("in_mn_delete"));
+		btnDelete.setText(LanguageBundle.getString("in_delete"));
+		btnDelete.setMnemonic(LanguageBundle.getMnemonic("in_mn_delete"));
 		btnDelete.setEnabled(false);
 		btnDelete.addActionListener(new ActionListener()
 			{
@@ -610,8 +610,8 @@ public final class LstEditorMain extends JFrame
 		gridBagConstraints.insets = new Insets(2, 0, 2, 0);
 		pnlButtons.add(btnDelete, gridBagConstraints);
 
-		btnCopy.setText(PropertyFactory.getString("in_copy"));
-		btnCopy.setMnemonic(PropertyFactory.getMnemonic("in_mn_copy"));
+		btnCopy.setText(LanguageBundle.getString("in_copy"));
+		btnCopy.setMnemonic(LanguageBundle.getMnemonic("in_mn_copy"));
 		btnCopy.setEnabled(false);
 		btnCopy.addActionListener(new ActionListener()
 			{
@@ -635,8 +635,8 @@ public final class LstEditorMain extends JFrame
 		gridBagConstraints.weighty = 0.9;
 		pnlButtons.add(jPanel1, gridBagConstraints);
 
-		btnDone.setText(PropertyFactory.getString("in_close"));
-		btnDone.setMnemonic(PropertyFactory.getMnemonic("in_mn_close"));
+		btnDone.setText(LanguageBundle.getString("in_close"));
+		btnDone.setMnemonic(LanguageBundle.getMnemonic("in_mn_close"));
 		btnDone.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent evt)

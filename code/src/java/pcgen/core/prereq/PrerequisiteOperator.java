@@ -29,7 +29,7 @@
 package pcgen.core.prereq;
 
 import pcgen.core.utils.CoreUtility;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * @author wardc
@@ -164,7 +164,7 @@ public enum PrerequisiteOperator
 
 	public String toDisplayString()
 	{
-		return PropertyFactory.getString("PrerequisiteOperator.display."
+		return LanguageBundle.getString("PrerequisiteOperator.display."
 				+ toString().toLowerCase());
 	}
 
@@ -209,7 +209,7 @@ public enum PrerequisiteOperator
 				}
 			}
 		}
-		throw new PrerequisiteException(PropertyFactory.getFormattedString(
+		throw new PrerequisiteException(LanguageBundle.getFormattedString(
 				"PrerequisiteOperator.error.invalid_operator", operatorName)); //$NON-NLS-1$
 	}
 

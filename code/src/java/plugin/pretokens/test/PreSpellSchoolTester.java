@@ -32,7 +32,7 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.spell.Spell;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import java.util.List;
 
@@ -80,7 +80,7 @@ public class PreSpellSchoolTester extends AbstractPrerequisiteTest implements
 		final Object[] args =
 				new Object[]{prereq.getOperator().toDisplayString(),
 					"1", prereq.getOperand(), prereq.getKey()};
-		return PropertyFactory
+		return LanguageBundle
 			.getFormattedString("PreSpellSchool.toHtml", args); //$NON-NLS-1$
 	}
 }

@@ -43,7 +43,7 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.gui.utils.Utility;
 import pcgen.util.BigDecimalHelper;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * @author boomer70 <boomer70@yahoo.com>
@@ -86,7 +86,7 @@ public class AbilityPoolPanel extends JPanel
 				((AbilityCatDisplay) theCategoryField.getSelectedItem()).abilityCat;
 		
 		final JLabel abilitiesRemainingLabel = new JLabel();
-		abilitiesRemainingLabel.setText(PropertyFactory.getFormattedString(
+		abilitiesRemainingLabel.setText(LanguageBundle.getFormattedString(
 			"InfoAbility.Remaining.Label", "")); //$NON-NLS-1$
 		add(abilitiesRemainingLabel);
 
@@ -156,7 +156,7 @@ public class AbilityPoolPanel extends JPanel
 		showRemainingAbilityPoints();
 		theNumAbilitiesField.setColumns(3);
 		theNumAbilitiesField.setEditable(theCategory.allowPoolMod());
-		Utility.setDescription(theNumAbilitiesField, PropertyFactory
+		Utility.setDescription(theNumAbilitiesField, LanguageBundle
 			.getFormattedString("InfoAbility.Pool.Description", //$NON-NLS-1$
 				theCategory.getDisplayName()));
 
@@ -205,7 +205,7 @@ public class AbilityPoolPanel extends JPanel
 	{
 		theCategory = aCategory;
 		theNumAbilitiesField.setEditable(theCategory.allowPoolMod());
-		Utility.setDescription(theNumAbilitiesField, PropertyFactory
+		Utility.setDescription(theNumAbilitiesField, LanguageBundle
 			.getFormattedString("InfoAbility.Pool.Description", //$NON-NLS-1$
 				theCategory.getDisplayName()));
 		

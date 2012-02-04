@@ -32,7 +32,7 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * This is used to check the characters spellcasting ability.
@@ -84,7 +84,7 @@ public class PreSpellTypeTester extends AbstractPrerequisiteTest implements
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		return PropertyFactory.getFormattedString("PreSpellType.toHtml", //$NON-NLS-1$
+		return LanguageBundle.getFormattedString("PreSpellType.toHtml", //$NON-NLS-1$
 			prereq.getOperator().toDisplayString(),
 			1, prereq.getKey(), prereq.getOperand());
 	}

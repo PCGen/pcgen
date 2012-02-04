@@ -61,7 +61,7 @@ import pcgen.gui.utils.Utility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * This class contains all settings-related code moved from Globals.java
@@ -276,6 +276,16 @@ public final class SettingsHandler
 
 	private static String hiddenSources = ""; //$NON-NLS-1$
 	private static String quickLaunchSources = ""; //$NON-NLS-1$
+
+	public static String getSelectedGenerators(String string)
+	{
+		throw new UnsupportedOperationException("Not yet implemented");
+	}
+
+	public static void setSelectedGenerators(String prop, String generators)
+	{
+		throw new UnsupportedOperationException("Not yet implemented");
+	}
 	
 	public static void setAbilitiesShownAsATab(final boolean showAbilitiesAsTab)
 	{
@@ -1245,7 +1255,6 @@ public final class SettingsHandler
 		showSponsorsOnLoad = getPCGenOption("showSponsorsOnLoad", true); //$NON-NLS-1$
 
 		Globals.setSourceDisplay(SourceFormat.values()[getPCGenOption("sourceDisplay", SourceFormat.LONG.ordinal())]); //$NON-NLS-1$
-		Globals.setLanguage(getPCGenOption("language", null)); //$NON-NLS-1$
 		Globals.setCountry(getPCGenOption("country", null)); //$NON-NLS-1$
 
 		setAbilitiesShownAsATab(getPCGenOption("abilitiesShownAsTab", false)); //$NON-NLS-1$
@@ -1297,8 +1306,8 @@ public final class SettingsHandler
 		setIncludeSkills(getPCGenOption("includeSkills", 3)); //$NON-NLS-1$
 		setSkillsTab_IncludeSkills(getPCGenOption("skillsTab_IncludeSkills", 1)); //$NON-NLS-1$
 //		setIntCrossClassSkillCost(getPCGenOption("intCrossClassSkillCost", 2)); //$NON-NLS-1$
-		setInvalidDmgText(getPCGenOption("invalidDmgText", PropertyFactory.getString("SettingsHandler.114")));  //$NON-NLS-1$//$NON-NLS-2$
-		setInvalidToHitText(getPCGenOption("invalidToHitText", PropertyFactory.getString("SettingsHandler.114")));  //$NON-NLS-1$//$NON-NLS-2$
+		setInvalidDmgText(getPCGenOption("invalidDmgText", LanguageBundle.getString("SettingsHandler.114")));  //$NON-NLS-1$//$NON-NLS-2$
+		setInvalidToHitText(getPCGenOption("invalidToHitText", LanguageBundle.getString("SettingsHandler.114")));  //$NON-NLS-1$//$NON-NLS-2$
 		setLastTipShown(getPCGenOption("lastTipOfTheDayTipShown", -1)); //$NON-NLS-1$
 		setLoadCampaignsAtStart(getPCGenOption("loadCampaignsAtStart", false)); //$NON-NLS-1$
 		setLoadCampaignsWithPC(getPCGenOption("loadCampaignsWithPC", false)); //$NON-NLS-1$
@@ -1461,7 +1470,7 @@ public final class SettingsHandler
 			// hasn't been set properly yet
 			getOptions().setProperty("pcgen.files.characters", retractRelativePath(Globals.getDefaultPath())); //$NON-NLS-1$
 		}
-		if (!getBackupPcgPath().getPath().equals(""))
+		if (getBackupPcgPath() != null && !getBackupPcgPath().getPath().equals(""))
 		{
 			getOptions().setProperty("pcgen.files.characters.backup", retractRelativePath(getBackupPcgPath().getAbsolutePath())); //$NON-NLS-1$
 		}
@@ -1574,7 +1583,7 @@ public final class SettingsHandler
 			setPCGenOption("browserPath", ""); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
-		if (Globals.getRootFrame() != null)
+		if (PCGen_Frame1.getInst() != null)
 		{
 			setOpenRecentOption("openRecentPCs", PCGen_Frame1.getInst().getOpenRecentPCs()); //$NON-NLS-1$
 			setOpenRecentOption("openRecentParties", PCGen_Frame1.getInst().getOpenRecentParties()); //$NON-NLS-1$
@@ -1729,7 +1738,6 @@ public final class SettingsHandler
 //		setPCGenOption("intCrossClassSkillCost", getIntCrossClassSkillCost()); //$NON-NLS-1$
 		setPCGenOption("invalidDmgText", getInvalidDmgText()); //$NON-NLS-1$
 		setPCGenOption("invalidToHitText", getInvalidToHitText()); //$NON-NLS-1$
-		setPCGenOption("language", Globals.getLanguage()); //$NON-NLS-1$
 		setPCGenOption("lastTipOfTheDayTipShown", getLastTipShown()); //$NON-NLS-1$
 		setPCGenOption("loadCampaignsAtStart", isLoadCampaignsAtStart()); //$NON-NLS-1$
 		setPCGenOption("loadCampaignsWithPC", isLoadCampaignsWithPC()); //$NON-NLS-1$
@@ -1845,6 +1853,7 @@ public final class SettingsHandler
 
 	/**
 	 * Where to load the data (lst) files from
+	 * @deprecated Use ConfigurationSettings.getPccFilesDir() instead.
 	 * @return pcc files location
 	 */
 	public static File getPccFilesLocation()
@@ -1924,6 +1933,10 @@ public final class SettingsHandler
 		pcgenCustomDir = aFile;
 	}
 
+	/**
+	 * @deprecated Use ConfigurationSettings.getCustomDir()
+	 * @return
+	 */
 	public static File getPcgenCustomDir()
 	{
 		return pcgenCustomDir;
@@ -1938,6 +1951,10 @@ public final class SettingsHandler
 		pcgenVendorDataDir = aFile;
 	}
 
+	/**
+	 * @deprecated Use ConfigurationSettings.getVendorDataDir()
+	 * @return
+	 */
 	public static File getPcgenVendorDataDir()
 	{
 		return pcgenVendorDataDir;
@@ -1948,6 +1965,10 @@ public final class SettingsHandler
 		pcgenSponsorDir = aFile;
 	}
 
+	/**
+	 * @deprecated 
+	 * @return
+	 */
 	public static File getPcgenSponsorDir()
 	{
 		return pcgenSponsorDir;
@@ -1958,6 +1979,10 @@ public final class SettingsHandler
 		pcgenDocsDir = argPcgenDocsDir;
 	}
 
+	/**
+	 * @deprecated Use ConfigurationSettings.getDocsDir()
+	 * @return
+	 */
 	public static File getPcgenDocsDir()
 	{
 		return pcgenDocsDir;
@@ -1971,6 +1996,10 @@ public final class SettingsHandler
 		}
 	}
 
+	/**
+	 * @deprecated Use ConfigurationSettings.getSettingsDir()
+	 * @return
+	 */
 	public static File getPcgenFilesDir()
 	{
 		return pcgenFilesDir;
@@ -2018,6 +2047,10 @@ public final class SettingsHandler
 		pcgenOutputSheetDir = aFile;
 	}
 
+	/**
+	 * @deprecated Use ConfigurationSettings.getOutputSheetsDir()
+	 * @return
+	 */
 	public static File getPcgenOutputSheetDir()
 	{
 		return pcgenOutputSheetDir;
@@ -2028,11 +2061,19 @@ public final class SettingsHandler
 		pcgenSystemDir = aFile;
 	}
 
+	/**
+	 * @deprecated Use ConfigurationSettings.getSystemsDir() 
+	 * @return
+	 */
 	public static File getPcgenSystemDir()
 	{
 		return pcgenSystemDir;
 	}
 
+	/**
+	 * @deprecated
+	 * @return
+	 */
 	public static File getPcgenThemePackDir()
 	{
 		return pcgenThemePackDir;
@@ -2043,6 +2084,10 @@ public final class SettingsHandler
 		pcgenPreviewDir = aFile;
 	}
 	
+	/**
+	 * @deprecated Use ConfigurationSettings.getPreviewDir()
+	 * @return
+	 */
 	public static File getPcgenPreviewDir()
 	{
 		return pcgenPreviewDir;
@@ -2058,6 +2103,10 @@ public final class SettingsHandler
 		portraitsPath = path;
 	}
 
+	/**
+	 * @deprecated Use PCGenSettings.getPortraitsDir()
+	 * @return
+	 */
 	public static File getPortraitsPath()
 	{
 		return portraitsPath;
@@ -2764,7 +2813,7 @@ public final class SettingsHandler
 		catch (IOException e)
 		{
 			// Not an error, this file may not exist yet
-			Logging.debugPrint(PropertyFactory.getString("SettingsHandler.no.options.file")); //$NON-NLS-1$
+			Logging.debugPrint(LanguageBundle.getString("SettingsHandler.no.options.file")); //$NON-NLS-1$
 		}
 		finally
 		{
@@ -2778,7 +2827,7 @@ public final class SettingsHandler
 			catch (IOException ex)
 			{
 				//Not much to do about it...
-				Logging.errorPrint(PropertyFactory.getString("SettingsHandler.can.not.close.options.file"), ex); //$NON-NLS-1$
+				Logging.errorPrint(LanguageBundle.getString("SettingsHandler.can.not.close.options.file"), ex); //$NON-NLS-1$
 			}
 		}
 	}
@@ -2903,11 +2952,11 @@ public final class SettingsHandler
 			{
 				// Directory doesn't exist, so create it
 				aFile.mkdir();
-				Logging.errorPrint(PropertyFactory.getFormattedString("SettingsHandler.dir.does.not.exist", aLoc)); //$NON-NLS-1$
+				Logging.errorPrint(LanguageBundle.getFormattedString("SettingsHandler.dir.does.not.exist", aLoc)); //$NON-NLS-1$
 			}
 			else if (!aFile.isDirectory())
 			{
-				String notDir = PropertyFactory.getFormattedString(
+				String notDir = LanguageBundle.getFormattedString(
 					"SettingsHandler.is.not.a.directory", aLoc); //$NON-NLS-2$
 				ShowMessageDelegate.showMessageDialog(
 					notDir,
@@ -2927,11 +2976,11 @@ public final class SettingsHandler
 			{
 				// Directory doesn't exist, so create it
 				aFile.mkdir();
-				Logging.errorPrint(PropertyFactory.getFormattedString("SettingsHandler.dir.does.not.exist", aLoc)); //$NON-NLS-1$
+				Logging.errorPrint(LanguageBundle.getFormattedString("SettingsHandler.dir.does.not.exist", aLoc)); //$NON-NLS-1$
 			}
 			else if (!aFile.isDirectory())
 			{
-				String notDir = PropertyFactory.getFormattedString(
+				String notDir = LanguageBundle.getFormattedString(
 					"SettingsHandler.is.not.a.directory", aLoc); //$NON-NLS-2$
 				ShowMessageDelegate.showMessageDialog(
 					notDir,
@@ -2951,15 +3000,15 @@ public final class SettingsHandler
 		{
 			final File f = new File(fileLocation);
 			if (!f.canWrite()) {
-				Logging.errorPrint(PropertyFactory.getFormattedString("SettingsHandler.filepaths.readonly", fileLocation)) ; //$NON-NLS-1$
+				Logging.errorPrint(LanguageBundle.getFormattedString("SettingsHandler.filepaths.readonly", fileLocation)) ; //$NON-NLS-1$
 			}
 			else {
-				Logging.errorPrint(PropertyFactory.getString("SettingsHandler.filepaths.write"), fnfe); //$NON-NLS-1$
+				Logging.errorPrint(LanguageBundle.getString("SettingsHandler.filepaths.write"), fnfe); //$NON-NLS-1$
 			}
 		}
 		catch (IOException e)
 		{
-			Logging.errorPrint(PropertyFactory.getString("SettingsHandler.filepaths.write"), e); //$NON-NLS-1$
+			Logging.errorPrint(LanguageBundle.getString("SettingsHandler.filepaths.write"), e); //$NON-NLS-1$
 		}
 		finally
 		{
@@ -2973,7 +3022,7 @@ public final class SettingsHandler
 			catch (IOException ex)
 			{
 				// Not much to do about it...
-				Logging.errorPrint(PropertyFactory.getString("SettingsHandler.can.not.close.filepaths.ini.write"), ex); //$NON-NLS-1$
+				Logging.errorPrint(LanguageBundle.getString("SettingsHandler.can.not.close.filepaths.ini.write"), ex); //$NON-NLS-1$
 			}
 		}
 	}
@@ -3006,10 +3055,10 @@ public final class SettingsHandler
 		{
 			final File f = new File(fileLocation);
 			if (!f.canWrite()) {
-				Logging.errorPrint(PropertyFactory.getFormattedString("SettingsHandler.options.ini.read.only", optionsLocation)); //$NON-NLS-1$
+				Logging.errorPrint(LanguageBundle.getFormattedString("SettingsHandler.options.ini.read.only", optionsLocation)); //$NON-NLS-1$
 			}
 			else {
-				Logging.errorPrint(PropertyFactory.getString("SettingsHandler.can.not.write.options.ini"), fnfe); //$NON-NLS-1$
+				Logging.errorPrint(LanguageBundle.getString("SettingsHandler.can.not.write.options.ini"), fnfe); //$NON-NLS-1$
 			}
 		}
 		finally
@@ -3024,7 +3073,7 @@ public final class SettingsHandler
 			catch (IOException ex)
 			{
 				// Not much to do about it...
-				Logging.errorPrint(PropertyFactory.getString("SettingsHandler.can.not.close.options.ini.write"), ex); //$NON-NLS-1$
+				Logging.errorPrint(LanguageBundle.getString("SettingsHandler.can.not.close.options.ini.write"), ex); //$NON-NLS-1$
 			}
 		}
 	}
@@ -3481,7 +3530,7 @@ public final class SettingsHandler
 		catch (IOException e)
 		{
 			// Not an error, this file may not exist yet
-			Logging.debugPrint(PropertyFactory.getString("SettingsHandler.will.create.filepaths.ini")); //$NON-NLS-1$
+			Logging.debugPrint(LanguageBundle.getString("SettingsHandler.will.create.filepaths.ini")); //$NON-NLS-1$
 		}
 		finally
 		{
@@ -3495,7 +3544,7 @@ public final class SettingsHandler
 			catch (IOException ex)
 			{
 				//Not much to do about it...
-				Logging.errorPrint(PropertyFactory.getString("SettingsHandler.can.not.close.filepaths.ini"), ex); //$NON-NLS-1$
+				Logging.errorPrint(LanguageBundle.getString("SettingsHandler.can.not.close.filepaths.ini"), ex); //$NON-NLS-1$
 			}
 		}
 	}
@@ -3520,7 +3569,7 @@ public final class SettingsHandler
 		catch (IOException e)
 		{
 			// Not an error, this file may not exist yet
-			Logging.debugPrint(PropertyFactory.getString("SettingsHandler.will.create.filter.ini")); //$NON-NLS-1$
+			Logging.debugPrint(LanguageBundle.getString("SettingsHandler.will.create.filter.ini")); //$NON-NLS-1$
 		}
 		finally
 		{
@@ -3534,7 +3583,7 @@ public final class SettingsHandler
 			catch (IOException ex)
 			{
 				//Not much to do about it...
-				Logging.errorPrint(PropertyFactory.getString("SettingsHandler.can.not.close.filter.ini"), ex); //$NON-NLS-1$
+				Logging.errorPrint(LanguageBundle.getString("SettingsHandler.can.not.close.filter.ini"), ex); //$NON-NLS-1$
 			}
 		}
 	}
@@ -3577,15 +3626,15 @@ public final class SettingsHandler
 		{
 			final File f = new File(fileLocation);
 			if (!f.canWrite()) {
-				Logging.errorPrint(PropertyFactory.getFormattedString("SettingsHandler.filter.ini.readonly", filterLocation)); //$NON-NLS-1$
+				Logging.errorPrint(LanguageBundle.getFormattedString("SettingsHandler.filter.ini.readonly", filterLocation)); //$NON-NLS-1$
 			}
 			else {
-				Logging.errorPrint(PropertyFactory.getString("SettingsHandler.can.not.write.filter.ini"), fnfe); //$NON-NLS-1$
+				Logging.errorPrint(LanguageBundle.getString("SettingsHandler.can.not.write.filter.ini"), fnfe); //$NON-NLS-1$
 			}
 		}
 		catch (IOException e)
 		{
-			Logging.errorPrint(PropertyFactory.getString("SettingsHandler.can.not.write.filter.ini"), e); //$NON-NLS-1$
+			Logging.errorPrint(LanguageBundle.getString("SettingsHandler.can.not.write.filter.ini"), e); //$NON-NLS-1$
 		}
 		finally
 		{
@@ -3599,7 +3648,7 @@ public final class SettingsHandler
 			catch (IOException ex)
 			{
 				//Not much to do about it...
-				Logging.errorPrint(PropertyFactory.getString("SettingsHandler.can.not.close.filter.ini.write"), ex); //$NON-NLS-1$
+				Logging.errorPrint(LanguageBundle.getString("SettingsHandler.can.not.close.filter.ini.write"), ex); //$NON-NLS-1$
 			}
 		}
 

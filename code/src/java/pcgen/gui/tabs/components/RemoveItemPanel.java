@@ -31,7 +31,7 @@ import javax.swing.JPanel;
 
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.Utility;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * This class creates and manages a &quot;Remove&quot; button panel.  The class
@@ -56,7 +56,7 @@ public class RemoveItemPanel extends JPanel
 				new JButton(IconUtilitities.getImageIcon("Back16.gif")); //$NON-NLS-1$
 
 		this.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
-		Utility.setDescription(theRemoveButton, PropertyFactory
+		Utility.setDescription(theRemoveButton, LanguageBundle
 			.getString("InfoTabs.RemoveButton.Description")); //$NON-NLS-1$
 		theRemoveButton.setEnabled(false);
 		theRemoveButton.setMargin(new Insets(1, 14, 1, 14));

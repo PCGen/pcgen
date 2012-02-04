@@ -1,0 +1,525 @@
+/*
+ * EquipmentTreeTableModel.java
+ * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ * Created on Jan 29, 2011, 1:57:14 PM
+ */
+package pcgen.gui2.tabs.equip;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import javax.swing.event.EventListenerList;
+import javax.swing.event.TreeModelEvent;
+import javax.swing.event.TreeModelListener;
+import javax.swing.tree.TreePath;
+import pcgen.core.facade.CharacterFacade;
+import pcgen.core.facade.EquipmentSetFacade;
+import pcgen.core.facade.EquipmentSetFacade.EquipNode;
+import pcgen.core.facade.EquipmentSetFacade.EquipmentTreeEvent;
+import pcgen.core.facade.EquipmentSetFacade.EquipmentTreeListener;
+import pcgen.core.facade.event.ListEvent;
+import pcgen.core.facade.event.ListListener;
+import pcgen.core.facade.util.ListFacade;
+import pcgen.gui2.util.treetable.SortableTreeTableModel;
+import pcgen.gui2.util.treetable.TreeTableNode;
+import pcgen.util.CollectionMaps;
+import pcgen.util.ListMap;
+
+/**
+ *
+ * @author Connor Petty <cpmeister@users.sourceforge.net>
+ */
+public class EquipmentTreeTableModel implements SortableTreeTableModel, ListListener<EquipNode>, EquipmentTreeListener
+{
+
+	private EventListenerList listenerList = new EventListenerList();
+	private CharacterFacade character;
+	private EquipmentSetFacade equipSet;
+	private Object root = new Object();
+	private ListMap<EquipNode, EquipNode, List<EquipNode>> pathMap;
+	private List<EquipNode> bodySlotNodes;
+	private Comparator<EquipNode> pathComparator = new NodeComparator();
+
+	public EquipmentTreeTableModel(CharacterFacade character, EquipmentSetFacade equipSet)
+	{
+		this.character = character;
+		this.equipSet = equipSet;
+		pathMap = CollectionMaps.createListMap(HashMap.class, ArrayList.class);
+		bodySlotNodes = new ArrayList<EquipNode>();
+		initPathMap();
+		equipSet.getNodes().addListListener(this);
+		equipSet.addEquipmentTreeListener(this);
+	}
+
+	private void initPathMap()
+	{
+		ListFacade<EquipNode> equipNodes = equipSet.getNodes();
+		for (EquipNode equipNode : equipNodes)
+		{
+			EquipNode parent = equipNode.getParent();
+			while (parent != null && !pathMap.containsValue(parent, equipNode))
+			{
+				addNode(parent, equipNode);
+
+				equipNode = parent;
+				parent = equipNode.getParent();
+			}
+			if (parent == null && !bodySlotNodes.contains(equipNode))
+			{
+				addBodyNode(equipNode);
+			}
+		}
+	}
+
+	public boolean isCellEditable(Object node, int column)
+	{
+		return column == 0;
+	}
+
+	public Class<?> getColumnClass(int column)
+	{
+		switch (column)
+		{
+			case 0:
+				return TreeTableNode.class;
+			case 1:
+			case 2:
+				return String.class;
+			case 3:
+				return Integer.class;
+			case 4:
+				return Float.class;
+			default:
+				return Object.class;
+		}
+	}
+
+	public int getColumnCount()
+	{
+		return 5;
+	}
+
+	public String getColumnName(int column)
+	{
+		return null;
+	}
+
+	public void setValueAt(Object aValue, Object node, int column)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	public Object getValueAt(Object node, int column)
+	{
+		EquipNode pathNode = (EquipNode) node;
+		if (column == 0)
+		{
+			return pathNode;
+		}
+		switch (pathNode.getNodeType())
+		{
+			case BODY_SLOT:
+				switch (column)
+				{
+					case 1:
+						return "Type";
+					case 2:
+						return "Located";
+					case 3:
+						return "Qty";
+					case 4:
+						return "Wgt";
+				}
+			case PHANTOM_SLOT:
+				switch (column)
+				{
+					case 2:
+						return equipSet.getLocation(pathNode);
+					default:
+						return null;
+				}
+			case EQUIPMENT:
+				switch (column)
+				{
+					case 1:
+						return pathNode.getEquipment().getTypes()[0];
+					case 2:
+						return equipSet.getLocation(pathNode);
+					case 3:
+						return equipSet.getQuantity(pathNode);
+					case 4:
+						return character.getInfoFactory().getWeight(pathNode.getEquipment());
+				}
+			default:
+				return null;
+		}
+	}
+
+	public Object getRoot()
+	{
+		return root;
+	}
+
+	public Object getChild(Object parent, int index)
+	{
+		if (parent == root)
+		{
+			return bodySlotNodes.get(index);
+		}
+		else
+		{
+			return pathMap.get(parent, index);
+		}
+	}
+
+	public int getChildCount(Object parent)
+	{
+		if (parent == root)
+		{
+			return bodySlotNodes.size();
+		}
+		else
+		{
+			return pathMap.size((EquipNode) parent);
+		}
+	}
+
+	public boolean isLeaf(Object node)
+	{
+		if (root == node)
+		{
+			return false;
+		}
+		return !pathMap.containsKey((EquipNode) node);
+	}
+
+	public void valueForPathChanged(TreePath path, Object newValue)
+	{
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	public int getIndexOfChild(Object parent, Object child)
+	{
+		if (parent == root)
+		{
+			EquipNode path = (EquipNode) child;
+			return bodySlotNodes.indexOf(path);
+		}
+		else
+		{
+			return pathMap.indexOf(parent, child);
+		}
+	}
+
+	public void addTreeModelListener(TreeModelListener l)
+	{
+		listenerList.add(TreeModelListener.class, l);
+	}
+
+	public void removeTreeModelListener(TreeModelListener l)
+	{
+		listenerList.remove(TreeModelListener.class, l);
+	}
+
+	public void sortModel(Comparator<List<?>> comparator)
+	{
+	}
+
+	private void addBodyNode(EquipNode bodyNode)
+	{
+		int insertion_index = Collections.binarySearch(bodySlotNodes, bodyNode, pathComparator);
+		bodySlotNodes.add(-(insertion_index + 1), bodyNode);
+	}
+
+	private int addNode(EquipNode parent, EquipNode child)
+	{
+		List<EquipNode> children = pathMap.get(parent);
+		if (children == null)
+		{
+			children = Collections.emptyList();
+		}
+		int insertion_index = 1 + Collections.binarySearch(children, child, pathComparator);
+		pathMap.add(parent, -insertion_index, child);
+		return -insertion_index;
+	}
+
+	public void elementAdded(ListEvent<EquipNode> e)
+	{
+		EquipNode child = e.getElement();
+		EquipNode parent = child.getParent();
+
+		int index = addNode(parent, child);
+		fireTreeNodesInserted(this, getPathToRoot(parent), new int[]
+				{
+					index
+				}, new Object[]
+				{
+					child
+				});
+	}
+
+	public void elementRemoved(ListEvent<EquipNode> e)
+	{
+		EquipNode child = e.getElement();
+		EquipNode parent = child.getParent();
+
+		List<EquipNode> children = pathMap.get(parent);
+
+		int index = Collections.binarySearch(children, child, pathComparator);
+
+		pathMap.remove(parent, index);
+		fireTreeNodesRemoved(this, getPathToRoot(parent), new int[]
+				{
+					index
+				}, new Object[]
+				{
+					child
+				});
+
+	}
+
+	public void elementsChanged(ListEvent<EquipNode> e)
+	{
+		pathMap.clear();
+		initPathMap();
+		fireTreeStructureChanged(this, new Object[]
+				{
+					root
+				}, null, null);
+	}
+
+	public void quantityChanged(EquipmentTreeEvent e)
+	{
+		EquipNode child = e.getNode();
+		EquipNode parent = child.getParent();
+		List<EquipNode> children = pathMap.get(parent);
+
+		int index = Collections.binarySearch(children, child, pathComparator);
+		fireTreeNodesChanged(this, getPathToRoot(parent), new int[]
+				{
+					index
+				}, new Object[]
+				{
+					child
+				});
+	}
+
+	private Object[] getPathToRoot(EquipNode node)
+	{
+		return getPathToRoot(node, 0);
+	}
+
+	/**
+	 * Builds the parents of node up to and including the root node,
+	 * where the original node is the last element in the returned array.
+	 * The length of the returned array gives the node's depth in the
+	 * tree.
+	 *
+	 * @param aNode  the TreeNode to get the path for
+	 * @param depth  an int giving the number of steps already taken towards
+	 *        the root (on recursive calls), used to size the returned array
+	 * @return an array of TreeNodes giving the path from the root to the
+	 *         specified node
+	 */
+	private Object[] getPathToRoot(EquipNode aNode, int depth)
+	{
+		Object[] retNodes;
+		// This method recurses, traversing towards the root in order
+		// size the array. On the way back, it fills in the nodes,
+		// starting from the root and working back to the original node.
+
+		/* Check for null, in case someone passed in a null node, or
+		they passed in an element that isn't rooted at root. */
+		if (aNode == null)
+		{
+			if (depth == 0)
+			{
+				return null;
+			}
+			else
+			{
+				retNodes = new Object[depth + 1];
+				retNodes[0] = root;
+			}
+		}
+		else
+		{
+			depth++;
+			retNodes = getPathToRoot(aNode.getParent(), depth);
+			retNodes[retNodes.length - depth] = aNode;
+		}
+		return retNodes;
+	}
+
+	/**
+	 * Notifies all listeners that have registered interest for
+	 * notification on this event type.  The event instance
+	 * is lazily created using the parameters passed into
+	 * the fire method.
+	 *
+	 * @param source the node being changed
+	 * @param path the path to the root node
+	 * @param childIndices the indices of the changed elements
+	 * @param children the changed elements
+	 * @see EventListenerList
+	 */
+	protected void fireTreeNodesChanged(Object source, Object[] path,
+										int[] childIndices,
+										Object[] children)
+	{
+		// Guaranteed to return a non-null array
+		Object[] listeners = listenerList.getListenerList();
+		TreeModelEvent e = null;
+		// Process the listeners last to first, notifying
+		// those that are interested in this event
+		for (int i = listeners.length - 2; i >= 0; i -= 2)
+		{
+			if (listeners[i] == TreeModelListener.class)
+			{
+				// Lazily create the event:
+				if (e == null)
+				{
+					e = new TreeModelEvent(source, path,
+										   childIndices, children);
+				}
+				((TreeModelListener) listeners[i + 1]).treeNodesChanged(e);
+			}
+		}
+	}
+
+	/**
+	 * Notifies all listeners that have registered interest for
+	 * notification on this event type.  The event instance
+	 * is lazily created using the parameters passed into
+	 * the fire method.
+	 *
+	 * @param source the node where new elements are being inserted
+	 * @param path the path to the root node
+	 * @param childIndices the indices of the new elements
+	 * @param children the new elements
+	 * @see EventListenerList
+	 */
+	protected void fireTreeNodesInserted(Object source, Object[] path,
+										 int[] childIndices,
+										 Object[] children)
+	{
+		// Guaranteed to return a non-null array
+		Object[] listeners = listenerList.getListenerList();
+		TreeModelEvent e = null;
+		// Process the listeners last to first, notifying
+		// those that are interested in this event
+		for (int i = listeners.length - 2; i >= 0; i -= 2)
+		{
+			if (listeners[i] == TreeModelListener.class)
+			{
+				// Lazily create the event:
+				if (e == null)
+				{
+					e = new TreeModelEvent(source, path,
+										   childIndices, children);
+				}
+				((TreeModelListener) listeners[i + 1]).treeNodesInserted(e);
+			}
+		}
+	}
+
+	/**
+	 * Notifies all listeners that have registered interest for
+	 * notification on this event type.  The event instance
+	 * is lazily created using the parameters passed into
+	 * the fire method.
+	 *
+	 * @param source the node where elements are being removed
+	 * @param path the path to the root node
+	 * @param childIndices the indices of the removed elements
+	 * @param children the removed elements
+	 * @see EventListenerList
+	 */
+	protected void fireTreeNodesRemoved(Object source, Object[] path,
+										int[] childIndices,
+										Object[] children)
+	{
+		// Guaranteed to return a non-null array
+		Object[] listeners = listenerList.getListenerList();
+		TreeModelEvent e = null;
+		// Process the listeners last to first, notifying
+		// those that are interested in this event
+		for (int i = listeners.length - 2; i >= 0; i -= 2)
+		{
+			if (listeners[i] == TreeModelListener.class)
+			{
+				// Lazily create the event:
+				if (e == null)
+				{
+					e = new TreeModelEvent(source, path,
+										   childIndices, children);
+				}
+				((TreeModelListener) listeners[i + 1]).treeNodesRemoved(e);
+			}
+		}
+	}
+
+	/**
+	 * Notifies all listeners that have registered interest for
+	 * notification on this event type.  The event instance
+	 * is lazily created using the parameters passed into
+	 * the fire method.
+	 *
+	 * @param source the node where the tree model has changed
+	 * @param path the path to the root node
+	 * @param childIndices the indices of the affected elements
+	 * @param children the affected elements
+	 * @see EventListenerList
+	 */
+	protected void fireTreeStructureChanged(Object source, Object[] path,
+											int[] childIndices,
+											Object[] children)
+	{
+		// Guaranteed to return a non-null array
+		Object[] listeners = listenerList.getListenerList();
+		TreeModelEvent e = null;
+		// Process the listeners last to first, notifying
+		// those that are interested in this event
+		for (int i = listeners.length - 2; i >= 0; i -= 2)
+		{
+			if (listeners[i] == TreeModelListener.class)
+			{
+				// Lazily create the event:
+				if (e == null)
+				{
+					e = new TreeModelEvent(source, path,
+										   childIndices, children);
+				}
+				((TreeModelListener) listeners[i + 1]).treeStructureChanged(e);
+			}
+		}
+	}
+
+	private static class NodeComparator implements Comparator<EquipNode>
+	{
+
+		public int compare(EquipNode o1, EquipNode o2)
+		{
+			return o1.compareTo(o2);
+		}
+
+	}
+
+}

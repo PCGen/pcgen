@@ -28,7 +28,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.ExportHandler;
 import pcgen.util.FOPHandler;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import javax.swing.*;
 import java.awt.BorderLayout;
@@ -802,7 +802,7 @@ final class MainPrint extends JPanel
 			{
 				if (templateList.getSelectedValue() == null)
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_exportNoTemplate"), "PCGen", MessageType.ERROR);
+					ShowMessageDelegate.showMessageDialog(LanguageBundle.getString("in_exportNoTemplate"), "PCGen", MessageType.ERROR);
 				}
 				else
 				{
@@ -819,7 +819,7 @@ final class MainPrint extends JPanel
 			{
 				if (templateList.getSelectedValue() == null)
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_printNoTemplate"), "PCGen", MessageType.ERROR);
+					ShowMessageDelegate.showMessageDialog(LanguageBundle.getString("in_printNoTemplate"), "PCGen", MessageType.ERROR);
 				}
 				else
 				{

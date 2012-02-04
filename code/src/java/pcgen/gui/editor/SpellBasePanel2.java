@@ -49,7 +49,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.core.Globals;
 import pcgen.core.spell.Spell;
 import pcgen.gui.utils.IconUtilitities;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>SpellBasePanel2</code>
@@ -172,7 +172,7 @@ public class SpellBasePanel2 extends JPanel implements PObjectUpdater<Spell>
 	{
 		GridBagConstraints gbc;
 
-		pnlType = new TypePanel(PropertyFactory.getString("in_demEnterNewType"));
+		pnlType = new TypePanel(LanguageBundle.getString("in_demEnterNewType"));
 		pnlVariants = new JPanel();
 		scpVariants = new JScrollPane();
 		lstVariants = new JList(new JListModel(new ArrayList(), true));
@@ -228,7 +228,7 @@ public class SpellBasePanel2 extends JPanel implements PObjectUpdater<Spell>
 				}
 			}
 		});
-		pnlVariants.setBorder(new TitledBorder(PropertyFactory.getString("in_demVariants")));
+		pnlVariants.setBorder(new TitledBorder(LanguageBundle.getString("in_demVariants")));
 		scpVariants.setViewportView(lstVariants);
 
 		gbc = new GridBagConstraints();

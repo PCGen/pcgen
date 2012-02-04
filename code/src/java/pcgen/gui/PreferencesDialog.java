@@ -95,21 +95,21 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.panes.FlippingSplitPane;
-import pcgen.gui.prefs.CharacterStatsPanel;
-import pcgen.gui.prefs.CopySettingsPanel;
-import pcgen.gui.prefs.ExperiencePanel;
-import pcgen.gui.prefs.HouseRulesPanel;
-import pcgen.gui.prefs.LanguagePanel;
-import pcgen.gui.prefs.MonsterPanel;
-import pcgen.gui.prefs.PCGenPrefsPanel;
-import pcgen.gui.prefs.SourcesPanel;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.LinkableHtmlMessage;
 import pcgen.gui.utils.SkinManager;
 import pcgen.gui.utils.Utility;
 import pcgen.gui.utils.WholeNumberField;
+import pcgen.gui2.prefs.CharacterStatsPanel;
+import pcgen.gui2.prefs.CopySettingsPanel;
+import pcgen.gui2.prefs.ExperiencePanel;
+import pcgen.gui2.prefs.HouseRulesPanel;
+import pcgen.gui2.prefs.LanguagePanel;
+import pcgen.gui2.prefs.MonsterPanel;
+import pcgen.gui2.prefs.PCGenPrefsPanel;
+import pcgen.gui2.prefs.SourcesPanel;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.SkinLFResourceChecker;
 
 /**
@@ -132,181 +132,181 @@ final class PreferencesDialog extends JDialog
 
 	// Resource strings
 	private static String in_allowMetamagic =
-			PropertyFactory.getString("in_Prefs_allowMetamagic");
+			LanguageBundle.getString("in_Prefs_allowMetamagic");
 	private static String in_alwaysOverwrite =
-			PropertyFactory.getString("in_Prefs_alwaysOverwrite");
+			LanguageBundle.getString("in_Prefs_alwaysOverwrite");
 	private static String in_appearance =
-			PropertyFactory.getString("in_Prefs_appearance");
+			LanguageBundle.getString("in_Prefs_appearance");
 	private static String in_anyAutoEquip =
-			PropertyFactory.getString("in_Prefs_anyAutoEquip");
+			LanguageBundle.getString("in_Prefs_anyAutoEquip");
 	private static String in_autoEquip =
-			PropertyFactory.getString("in_Prefs_autoEquip");
+			LanguageBundle.getString("in_Prefs_autoEquip");
 	private static String in_autoEquipRace =
-			PropertyFactory.getString("in_Prefs_autoEquipRace");
+			LanguageBundle.getString("in_Prefs_autoEquipRace");
 	private static String in_autoEquipMasterwork =
-			PropertyFactory.getString("in_Prefs_autoEquipMasterwork");
+			LanguageBundle.getString("in_Prefs_autoEquipMasterwork");
 	private static String in_autoEquipMagic =
-			PropertyFactory.getString("in_Prefs_autoEquipMagic");
+			LanguageBundle.getString("in_Prefs_autoEquipMagic");
 	private static String in_autoEquipExotic =
-			PropertyFactory.getString("in_Prefs_autoEquipExotic");
+			LanguageBundle.getString("in_Prefs_autoEquipExotic");
 	private static String in_browserPath =
-			PropertyFactory.getString("in_Prefs_browserPath");
+			LanguageBundle.getString("in_Prefs_browserPath");
 	private static String in_clearBrowserPath =
-			PropertyFactory.getString("in_Prefs_clearBrowserPath");
+			LanguageBundle.getString("in_Prefs_clearBrowserPath");
 	private static String in_color =
-			PropertyFactory.getString("in_Prefs_color");
+			LanguageBundle.getString("in_Prefs_color");
 	private static String in_colorPrereqQualify =
-			PropertyFactory.getString("in_Prefs_colorPrereqQualify");
+			LanguageBundle.getString("in_Prefs_colorPrereqQualify");
 	private static String in_colorPrereqFail =
-			PropertyFactory.getString("in_Prefs_colorPrereqFail");
+			LanguageBundle.getString("in_Prefs_colorPrereqFail");
 	private static String in_colorAutoFeat =
-			PropertyFactory.getString("in_Prefs_colorAutoFeat");
+			LanguageBundle.getString("in_Prefs_colorAutoFeat");
 	private static String in_colorVirtFeat =
-			PropertyFactory.getString("in_Prefs_colorVirtFeat");
+			LanguageBundle.getString("in_Prefs_colorVirtFeat");
 
 	private static String in_colorSourceRelease =
-			PropertyFactory.getString("in_Prefs_colorStatusRelease");
+			LanguageBundle.getString("in_Prefs_colorStatusRelease");
 	private static String in_colorSourceAlpha =
-			PropertyFactory.getString("in_Prefs_colorStatusAlpha");
+			LanguageBundle.getString("in_Prefs_colorStatusAlpha");
 	private static String in_colorSourceBeta =
-			PropertyFactory.getString("in_Prefs_colorStatusBeta");
+			LanguageBundle.getString("in_Prefs_colorStatusBeta");
 	private static String in_colorSourceTest =
-			PropertyFactory.getString("in_Prefs_colorStatusTest");
+			LanguageBundle.getString("in_Prefs_colorStatusTest");
 
 	private static String in_charTabPlacement =
-			PropertyFactory.getString("in_Prefs_charTabPlacement");
+			LanguageBundle.getString("in_Prefs_charTabPlacement");
 	private static String in_charTabLabel =
-			PropertyFactory.getString("in_Prefs_charTabLabel");
+			LanguageBundle.getString("in_Prefs_charTabLabel");
 	private static String in_character =
-			PropertyFactory.getString("in_Prefs_character");
-	//PropertyFactory.getString("in_Prefs_chooseSkin");
+			LanguageBundle.getString("in_Prefs_character");
+	//LanguageBundle.getString("in_Prefs_chooseSkin");
 	private static String in_cmNone =
-			PropertyFactory.getString("in_Prefs_cmNone");
+			LanguageBundle.getString("in_Prefs_cmNone");
 	private static String in_cmSelect =
-			PropertyFactory.getString("in_Prefs_cmSelect");
+			LanguageBundle.getString("in_Prefs_cmSelect");
 	private static String in_cmSelectExit =
-			PropertyFactory.getString("in_Prefs_cmSelectExit");
+			LanguageBundle.getString("in_Prefs_cmSelectExit");
 	private static String in_dialogTitle =
-			PropertyFactory.getString("in_Prefs_title");
+			LanguageBundle.getString("in_Prefs_title");
 	private static String in_displayOpts =
-			PropertyFactory.getString("in_Prefs_displayOpts");
+			LanguageBundle.getString("in_Prefs_displayOpts");
 	private static String in_expertGUI =
-			PropertyFactory.getString("in_Prefs_expertGUI");
+			LanguageBundle.getString("in_Prefs_expertGUI");
 	private static String in_enforceSpending =
-			PropertyFactory.getString("in_Prefs_enforceSpending");
+			LanguageBundle.getString("in_Prefs_enforceSpending");
 	private static String in_equipment =
-			PropertyFactory.getString("in_Prefs_equipment");
-	//	private static String in_featWindow = PropertyFactory.getString("in_Prefs_featWindow");
-	private static String in_hp = PropertyFactory.getString("in_Prefs_hp");
+			LanguageBundle.getString("in_Prefs_equipment");
+	//	private static String in_featWindow = LanguageBundle.getString("in_Prefs_featWindow");
+	private static String in_hp = LanguageBundle.getString("in_Prefs_hp");
 	private static String in_houseRules =
-			PropertyFactory.getString("in_Prefs_houseRules");
+			LanguageBundle.getString("in_Prefs_houseRules");
 	private static String in_hpWindow =
-			PropertyFactory.getString("in_Prefs_hpWindow");
+			LanguageBundle.getString("in_Prefs_hpWindow");
 	private static String in_invalidToHitText =
-			PropertyFactory.getString("in_Prefs_invalidToHitText");
+			LanguageBundle.getString("in_Prefs_invalidToHitText");
 	private static String in_invalidDmgText =
-			PropertyFactory.getString("in_Prefs_invalidDmgText");
+			LanguageBundle.getString("in_Prefs_invalidDmgText");
 	private static String in_location =
-			PropertyFactory.getString("in_Prefs_location");
+			LanguageBundle.getString("in_Prefs_location");
 	private static String in_lookAndFeel =
-			PropertyFactory.getString("in_Prefs_lookAndFeel");
+			LanguageBundle.getString("in_Prefs_lookAndFeel");
 	private static String in_levelUp =
-			PropertyFactory.getString("in_Prefs_levelUp");
+			LanguageBundle.getString("in_Prefs_levelUp");
 	private static String in_monsters =
-			PropertyFactory.getString("in_Prefs_monsters");
+			LanguageBundle.getString("in_Prefs_monsters");
 	private static String in_mainTabPlacement =
-			PropertyFactory.getString("in_Prefs_mainTabPlacement");
+			LanguageBundle.getString("in_Prefs_mainTabPlacement");
 	private static String in_noAutoEquip =
-			PropertyFactory.getString("in_Prefs_noAutoEquip");
+			LanguageBundle.getString("in_Prefs_noAutoEquip");
 	private static String in_output =
-			PropertyFactory.getString("in_Prefs_output");
+			LanguageBundle.getString("in_Prefs_output");
 	private static String in_input =
-			PropertyFactory.getString("in_Prefs_input");
-	private static String in_printDeprecation = PropertyFactory
+			LanguageBundle.getString("in_Prefs_input");
+	private static String in_printDeprecation = LanguageBundle
 			.getString("in_Prefs_printDeprecation");
-	private static String in_printUnconstructed = PropertyFactory
+	private static String in_printUnconstructed = LanguageBundle
 			.getString("in_Prefs_printUnconstructed");
 	private static String in_outputSheetEqSet =
-			PropertyFactory.getString("in_Prefs_templateEqSet");
+			LanguageBundle.getString("in_Prefs_templateEqSet");
 	private static String in_pcgen =
-			PropertyFactory.getString("in_Prefs_pcgen");
+			LanguageBundle.getString("in_Prefs_pcgen");
 	private static String in_potionMax =
-			PropertyFactory.getString("in_Prefs_potionMax");
+			LanguageBundle.getString("in_Prefs_potionMax");
 	private static String in_paperType =
-			PropertyFactory.getString("in_Prefs_paperType");
+			LanguageBundle.getString("in_Prefs_paperType");
 	private static String in_postExportCommandStandard =
-			PropertyFactory.getString("in_Prefs_postExportCommandStandard");
+			LanguageBundle.getString("in_Prefs_postExportCommandStandard");
 	private static String in_postExportCommandPDF =
-			PropertyFactory.getString("in_Prefs_postExportCommandPDF");
+			LanguageBundle.getString("in_Prefs_postExportCommandPDF");
 	private static String in_removeTemp =
-			PropertyFactory.getString("in_Prefs_removeTemp");
+			LanguageBundle.getString("in_Prefs_removeTemp");
 	private static String in_statWindow =
-			PropertyFactory.getString("in_Prefs_statWindow");
+			LanguageBundle.getString("in_Prefs_statWindow");
 	private static String in_showToolTips =
-			PropertyFactory.getString("in_Prefs_showToolTips");
+			LanguageBundle.getString("in_Prefs_showToolTips");
 	private static String in_showToolBar =
-			PropertyFactory.getString("in_Prefs_showToolBar");
+			LanguageBundle.getString("in_Prefs_showToolBar");
 	private static String in_showFeatDescription =
-			PropertyFactory.getString("in_Prefs_showFeatDesciption");
+			LanguageBundle.getString("in_Prefs_showFeatDesciption");
 	private static String in_singleChoiceOption =
-			PropertyFactory.getString("in_Prefs_singleChoiceOption");
+			LanguageBundle.getString("in_Prefs_singleChoiceOption");
 	private static String in_skinnedLAF =
-			PropertyFactory.getString("in_Prefs_skinnedLAF");
+			LanguageBundle.getString("in_Prefs_skinnedLAF");
 	private static String in_saveOutputSheetWithPC =
-			PropertyFactory.getString("in_Prefs_saveOutputSheetWithPC");
+			LanguageBundle.getString("in_Prefs_saveOutputSheetWithPC");
 	private static String in_showMemory =
-			PropertyFactory.getString("in_Prefs_showMemory");
+			LanguageBundle.getString("in_Prefs_showMemory");
 	private static String in_showImagePreview =
-			PropertyFactory.getString("in_Prefs_showImagePreview");
+			LanguageBundle.getString("in_Prefs_showImagePreview");
 	private static String in_showSkillModifierBreakdown =
-		PropertyFactory.getString("in_Prefs_showSkillModifierBreakdown");
+		LanguageBundle.getString("in_Prefs_showSkillModifierBreakdown");
 	private static String in_showSkillRanksBreakdown =
-		PropertyFactory.getString("in_Prefs_showSkillRanksBreakdown");
+		LanguageBundle.getString("in_Prefs_showSkillRanksBreakdown");
 	private static String in_showSingleBoxPerBundle =
-		PropertyFactory.getString("in_Prefs_showSingleBoxPerBundle");
-	private static String in_tabs = PropertyFactory.getString("in_Prefs_tabs");
+		LanguageBundle.getString("in_Prefs_showSingleBoxPerBundle");
+	private static String in_tabs = LanguageBundle.getString("in_Prefs_tabs");
 	private static String in_tabLabelPlain =
-			PropertyFactory.getString("in_Prefs_tabLabelPlain");
+			LanguageBundle.getString("in_Prefs_tabLabelPlain");
 	private static String in_tabLabelEpic =
-			PropertyFactory.getString("in_Prefs_tabLabelEpic");
+			LanguageBundle.getString("in_Prefs_tabLabelEpic");
 	private static String in_tabLabelRace =
-			PropertyFactory.getString("in_Prefs_tabLabelRace");
+			LanguageBundle.getString("in_Prefs_tabLabelRace");
 	private static String in_tabLabelNetHack =
-			PropertyFactory.getString("in_Prefs_tabLabelNetHack");
+			LanguageBundle.getString("in_Prefs_tabLabelNetHack");
 	private static String in_tabLabelFull =
-			PropertyFactory.getString("in_Prefs_tabLabelFull");
+			LanguageBundle.getString("in_Prefs_tabLabelFull");
 	private static String in_tabPosTop =
-			PropertyFactory.getString("in_Prefs_tabPosTop");
+			LanguageBundle.getString("in_Prefs_tabPosTop");
 	private static String in_tabPosBottom =
-			PropertyFactory.getString("in_Prefs_tabPosBottom");
+			LanguageBundle.getString("in_Prefs_tabPosBottom");
 	private static String in_tabPosLeft =
-			PropertyFactory.getString("in_Prefs_tabPosLeft");
+			LanguageBundle.getString("in_Prefs_tabPosLeft");
 	private static String in_tabPosRight =
-			PropertyFactory.getString("in_Prefs_tabPosRight");
+			LanguageBundle.getString("in_Prefs_tabPosRight");
 	private static String in_tabAbilities =
-			PropertyFactory.getString("in_Prefs_tabAbilities");
+			LanguageBundle.getString("in_Prefs_tabAbilities");
 	private static String in_useAutoWaitCursor =
-			PropertyFactory.getString("in_Prefs_useAutoWaitCursor");
+			LanguageBundle.getString("in_Prefs_useAutoWaitCursor");
 	private static String in_useOutputNamesEquipment =
-			PropertyFactory.getString("in_Prefs_useOutputNamesEquipment");
+			LanguageBundle.getString("in_Prefs_useOutputNamesEquipment");
 	private static String in_useOutputNamesSpells =
-			PropertyFactory.getString("in_Prefs_useOutputNamesSpells");
+			LanguageBundle.getString("in_Prefs_useOutputNamesSpells");
 	private static String in_wandMax =
-			PropertyFactory.getString("in_Prefs_wandMax");
+			LanguageBundle.getString("in_Prefs_wandMax");
 	private static String in_warnFirstLevelUp =
-			PropertyFactory.getString("in_Prefs_warnFirstLevelUp");
+			LanguageBundle.getString("in_Prefs_warnFirstLevelUp");
 	private static String in_weaponProfPrintout =
-			PropertyFactory.getString("in_Prefs_weaponProfPrintout");
+			LanguageBundle.getString("in_Prefs_weaponProfPrintout");
 	private static String in_skillChoice =
-			PropertyFactory.getString("in_Prefs_skillChoiceLabel");
+			LanguageBundle.getString("in_Prefs_skillChoiceLabel");
 	private static String in_skillChoiceNone =
-			PropertyFactory.getString("in_Prefs_skillChoiceNone");
+			LanguageBundle.getString("in_Prefs_skillChoiceNone");
 	private static String in_skillChoiceUntrained =
-			PropertyFactory.getString("in_Prefs_skillChoiceUntrained");
+			LanguageBundle.getString("in_Prefs_skillChoiceUntrained");
 	private static String in_skillChoiceAll =
-			PropertyFactory.getString("in_Prefs_skillChoiceAll");
+			LanguageBundle.getString("in_Prefs_skillChoiceAll");
 	private static String in_skillChoiceAsUI =
-			PropertyFactory.getString("in_Prefs_skillChoiceAsUI");
+			LanguageBundle.getString("in_Prefs_skillChoiceAsUI");
 	private static String[] singleChoiceMethods =
 			{in_cmNone, in_cmSelect, in_cmSelectExit};
 	private static String in_choose = "...";
@@ -395,17 +395,17 @@ final class PreferencesDialog extends JDialog
 
 	// "HP Roll Methods"
 	private JRadioButton hpAutomax =
-			new JRadioButton(PropertyFactory.getString("in_Prefs_hpAutoMax"));
+			new JRadioButton(LanguageBundle.getString("in_Prefs_hpAutoMax"));
 	private JRadioButton hpAverage =
-			new JRadioButton(PropertyFactory.getString("in_Prefs_hpAverage"));
+			new JRadioButton(LanguageBundle.getString("in_Prefs_hpAverage"));
 	private JRadioButton hpPercentage =
-			new JRadioButton(PropertyFactory.getString("in_Prefs_hpPercentage"));
+			new JRadioButton(LanguageBundle.getString("in_Prefs_hpPercentage"));
 	private JRadioButton hpStandard =
-			new JRadioButton(PropertyFactory.getString("in_Prefs_hpStandard"));
+			new JRadioButton(LanguageBundle.getString("in_Prefs_hpStandard"));
 	private JRadioButton hpUserRolled =
-			new JRadioButton(PropertyFactory.getString("in_Prefs_hpUserRolled"));
+			new JRadioButton(LanguageBundle.getString("in_Prefs_hpUserRolled"));
 	private JRadioButton hpAverageRoundedUp =
-			new JRadioButton(PropertyFactory.getString("in_Prefs_hpAverageRoundedUp"));
+			new JRadioButton(LanguageBundle.getString("in_Prefs_hpAverageRoundedUp"));
 
 	private JRadioButton noAutoEquipCreate;
 	private JRadioButton pcgenFilesDirRadio;
@@ -770,7 +770,7 @@ final class PreferencesDialog extends JDialog
 			{
 				if (SettingsHandler.getSkinLFThemePack().length() == 0)
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory
+					ShowMessageDelegate.showMessageDialog(LanguageBundle
 						.getString("in_Prefs_noSkinError"), in_pcgen,
 						MessageType.WARNING);
 				}
@@ -786,7 +786,7 @@ final class PreferencesDialog extends JDialog
 					{
 						SettingsHandler.setLookAndFeel(0);
 						UIFactory.setLookAndFeel(0);
-						ShowMessageDelegate.showMessageDialog(PropertyFactory
+						ShowMessageDelegate.showMessageDialog(LanguageBundle
 							.getString("in_Prefs_skinSetError")
 							+ e.toString(), in_pcgen, MessageType.ERROR);
 					}
@@ -797,7 +797,7 @@ final class PreferencesDialog extends JDialog
 				Logging.errorPrint(SkinLFResourceChecker
 					.getMissingResourceMessage());
 
-				//final String missingLibMsg = PropertyFactory.getString("MissingLibMessage").replace('|', '\n');
+				//final String missingLibMsg = LanguageBundle.getString("MissingLibMessage").replace('|', '\n');
 				//GuiFacade.showMessageDialog(null, SkinLFResourceChecker.getMissingResourceMessage() + missingLibMsg, Constants.APPLICATION_NAME, GuiFacade.WARNING_MESSAGE);
 				new LinkableHtmlMessage(this, SkinLFResourceChecker
 					.getMissingResourceMessage(), Constants.APPLICATION_NAME)
@@ -1517,7 +1517,7 @@ final class PreferencesDialog extends JDialog
 		exclusiveGroup = new ButtonGroup();
 		Utility.buildConstraints(c, 0, iRow, 3, 1, 0, 0);
 		label =
-				new JLabel(PropertyFactory.getString("in_Prefs_hpGenLabel")
+				new JLabel(LanguageBundle.getString("in_Prefs_hpGenLabel")
 					+ ": ");
 		gridbag.setConstraints(label, c);
 		hitPointsPanel.add(label);
@@ -1566,7 +1566,7 @@ final class PreferencesDialog extends JDialog
 
 		Utility.buildConstraints(c, 0, iRow, 2, 1, 0, 0);
 		label =
-				new JLabel(PropertyFactory.getString("in_Prefs_hpMaxAtFirst")
+				new JLabel(LanguageBundle.getString("in_Prefs_hpMaxAtFirst")
 					+ ": ");
 		gridbag.setConstraints(label, c);
 		hitPointsPanel.add(label);
@@ -1577,7 +1577,7 @@ final class PreferencesDialog extends JDialog
 		Utility.buildConstraints(c, 0, iRow, 2, 1, 0, 0);
 		label =
 				new JLabel("      " 
-					+ PropertyFactory.getString("in_Prefs_hpMaxAtFirstClassLevel") 
+					+ LanguageBundle.getString("in_Prefs_hpMaxAtFirstClassLevel") 
 					+ ": ");
 		gridbag.setConstraints(label, c);
 		hitPointsPanel.add(label);
@@ -1588,7 +1588,7 @@ final class PreferencesDialog extends JDialog
 		Utility.buildConstraints(c, 0, iRow, 2, 1, 0, 0);
 		label =
 				new JLabel("      " 
-					+ PropertyFactory.getString("in_Prefs_hpMaxAtFirstPCClassLevelOnly") 
+					+ LanguageBundle.getString("in_Prefs_hpMaxAtFirstPCClassLevelOnly") 
 					+ ": ");
 		gridbag.setConstraints(label, c);
 		hitPointsPanel.add(label);
@@ -1753,7 +1753,7 @@ final class PreferencesDialog extends JDialog
 
 		Utility.buildConstraints(c, 0, 2, 1, 1, 0, 0);
 		label =
-				new JLabel(PropertyFactory
+				new JLabel(LanguageBundle
 					.getString("in_Prefs_pcgenCharacterDir")
 					+ ": ");
 		gridbag.setConstraints(label, c);
@@ -1795,7 +1795,7 @@ final class PreferencesDialog extends JDialog
 
 		Utility.buildConstraints(c, 0, 4, 1, 1, 0, 0);
 		label =
-				new JLabel(PropertyFactory.getString("in_Prefs_pcgenDataDir")
+				new JLabel(LanguageBundle.getString("in_Prefs_pcgenDataDir")
 					+ ": ");
 		gridbag.setConstraints(label, c);
 		locationPanel.add(label);
@@ -1817,7 +1817,7 @@ final class PreferencesDialog extends JDialog
 		//////////////////////
 		Utility.buildConstraints(c, 0, 5, 1, 1, 0, 0);
 		label =
-				new JLabel(PropertyFactory.getString("in_Prefs_pcgenCustomDir")
+				new JLabel(LanguageBundle.getString("in_Prefs_pcgenCustomDir")
 					+ ": ");
 		gridbag.setConstraints(label, c);
 		locationPanel.add(label);
@@ -1840,7 +1840,7 @@ final class PreferencesDialog extends JDialog
 
 		Utility.buildConstraints(c, 0, 6, 1, 1, 0, 0);
 		label =
-				new JLabel(PropertyFactory
+				new JLabel(LanguageBundle
 					.getString("in_Prefs_pcgenVendorDataDir")
 					+ ": ");
 		gridbag.setConstraints(label, c);
@@ -1862,7 +1862,7 @@ final class PreferencesDialog extends JDialog
 
 		Utility.buildConstraints(c, 0, 7, 1, 1, 0, 0);
 		label =
-				new JLabel(PropertyFactory.getString("in_Prefs_pcgenDocsDir")
+				new JLabel(LanguageBundle.getString("in_Prefs_pcgenDocsDir")
 					+ ": ");
 		gridbag.setConstraints(label, c);
 		locationPanel.add(label);
@@ -1883,7 +1883,7 @@ final class PreferencesDialog extends JDialog
 
 		Utility.buildConstraints(c, 0, 8, 1, 1, 0, 0);
 		label =
-				new JLabel(PropertyFactory.getString("in_Prefs_pcgenSystemDir")
+				new JLabel(LanguageBundle.getString("in_Prefs_pcgenSystemDir")
 					+ ": ");
 		gridbag.setConstraints(label, c);
 		locationPanel.add(label);
@@ -1905,7 +1905,7 @@ final class PreferencesDialog extends JDialog
 		// Output Sheet directory
 		Utility.buildConstraints(c, 0, 9, 1, 1, 0, 0);
 		label =
-				new JLabel(PropertyFactory
+				new JLabel(LanguageBundle
 					.getString("in_Prefs_pcgenOutputSheetDir")
 					+ ": ");
 		gridbag.setConstraints(label, c);
@@ -1924,7 +1924,7 @@ final class PreferencesDialog extends JDialog
 		pcgenOutputSheetDirButton.addActionListener(prefsButtonHandler);
 
 		Utility.buildConstraints(c, 0, 10, 1, 1, 0, 0);
-		label = new JLabel(PropertyFactory.getString("in_Prefs_pcgenPreviewDir") + ": ");
+		label = new JLabel(LanguageBundle.getString("in_Prefs_pcgenPreviewDir") + ": ");
 		gridbag.setConstraints(label, c);
 		locationPanel.add(label);
 		Utility.buildConstraints(c, 1, 10, 1, 1, 0, 0);
@@ -1941,7 +1941,7 @@ final class PreferencesDialog extends JDialog
 		// Character File Backup directory
 		Utility.buildConstraints(c, 0, 11, 1, 1, 0, 0);
 		label =
-				new JLabel(PropertyFactory
+				new JLabel(LanguageBundle
 					.getString("in_Prefs_pcgenCreateBackupCharacter")
 					+ ": ");
 		gridbag.setConstraints(label, c);
@@ -1952,7 +1952,7 @@ final class PreferencesDialog extends JDialog
 
 		Utility.buildConstraints(c, 0, 12, 1, 1, 0, 0);
 		label =
-				new JLabel(PropertyFactory
+				new JLabel(LanguageBundle
 					.getString("in_Prefs_pcgenBackupCharacterDir")
 					+ ": ");
 		gridbag.setConstraints(label, c);
@@ -1973,7 +1973,7 @@ final class PreferencesDialog extends JDialog
 		// Where to store options.ini file
 		Utility.buildConstraints(c, 0, 13, 1, 1, 0, 0);
 		label =
-				new JLabel(PropertyFactory.getString("in_Prefs_pcgenFilesDir")
+				new JLabel(LanguageBundle.getString("in_Prefs_pcgenFilesDir")
 					+ ": ");
 		gridbag.setConstraints(label, c);
 		locationPanel.add(label);
@@ -2117,9 +2117,9 @@ final class PreferencesDialog extends JDialog
 		}
 
 		skinnedLookFeel.setText(in_skinnedLAF + ": ");
-		Utility.setDescription(skinnedLookFeel, PropertyFactory
+		Utility.setDescription(skinnedLookFeel, LanguageBundle
 			.getString("in_Prefs_skinnedLAFTooltip"));
-		skinnedLookFeel.setMnemonic(PropertyFactory
+		skinnedLookFeel.setMnemonic(LanguageBundle
 			.getMnemonic("in_mn_Prefs_skinnedLAF"));
 		Utility.buildConstraints(c, 0, laf.length, 3, 1, 0, 0);
 		gridbag.setConstraints(skinnedLookFeel, c);
@@ -2133,7 +2133,7 @@ final class PreferencesDialog extends JDialog
 		lafPanel.add(themepackLabel);
 		Utility.buildConstraints(c, 4, laf.length, 1, 1, 0, 0);
 		themepack = new JButton(in_choose);
-		Utility.setDescription(themepack, PropertyFactory
+		Utility.setDescription(themepack, LanguageBundle
 			.getString("in_Prefs_chooseSkinTooltip"));
 		gridbag.setConstraints(themepack, c);
 		lafPanel.add(themepack);
@@ -2167,7 +2167,7 @@ final class PreferencesDialog extends JDialog
 
 		Utility.buildConstraints(c, 0, 0, 1, 1, 0, 0);
 		label =
-				new JLabel(PropertyFactory
+				new JLabel(LanguageBundle
 					.getString("in_Prefs_outputSheetHTMLDefault")
 					+ ": ");
 		gridbag.setConstraints(label, c);
@@ -2189,7 +2189,7 @@ final class PreferencesDialog extends JDialog
 
 		Utility.buildConstraints(c, 0, 1, 1, 1, 0, 0);
 		label =
-				new JLabel(PropertyFactory
+				new JLabel(LanguageBundle
 					.getString("in_Prefs_outputSheetPDFDefault")
 					+ ": ");
 		gridbag.setConstraints(label, c);
@@ -2238,7 +2238,7 @@ final class PreferencesDialog extends JDialog
 
 		Utility.buildConstraints(c, 0, 4, 1, 1, 0, 0);
 		label =
-				new JLabel(PropertyFactory
+				new JLabel(LanguageBundle
 					.getString("in_Prefs_outputSpellSheetDefault")
 					+ ": ");
 		gridbag.setConstraints(label, c);
@@ -2258,7 +2258,7 @@ final class PreferencesDialog extends JDialog
 
 		Utility.buildConstraints(c, 0, 5, 1, 1, 0, 0);
 		label =
-				new JLabel(PropertyFactory
+				new JLabel(LanguageBundle
 					.getString("in_Prefs_printSpellsWithPC")
 					+ ": ");
 		gridbag.setConstraints(label, c);
@@ -2392,7 +2392,7 @@ final class PreferencesDialog extends JDialog
 
 		// Build the selection tree
 		characterNode = new DefaultMutableTreeNode(in_character);
-		settingsPanel.add(buildEmptyPanel("", PropertyFactory
+		settingsPanel.add(buildEmptyPanel("", LanguageBundle
 			.getString("in_Prefs_charTip")), in_character);
 
 		characterStatsPanel = new CharacterStatsPanel(this);
@@ -2414,7 +2414,7 @@ final class PreferencesDialog extends JDialog
 		rootNode.add(characterNode);
 
 		appearanceNode = new DefaultMutableTreeNode(in_appearance);
-		settingsPanel.add(buildEmptyPanel("", PropertyFactory
+		settingsPanel.add(buildEmptyPanel("", LanguageBundle
 			.getString("in_Prefs_appearanceTip")), in_appearance);
 
 		appearanceNode.add(new DefaultMutableTreeNode(in_color));
@@ -2430,7 +2430,7 @@ final class PreferencesDialog extends JDialog
 		rootNode.add(appearanceNode);
 
 		pcGenNode = new DefaultMutableTreeNode(in_pcgen);
-		settingsPanel.add(buildEmptyPanel("", PropertyFactory
+		settingsPanel.add(buildEmptyPanel("", LanguageBundle
 			.getString("in_Prefs_pcgenTip")), in_pcgen);
 
 		pcGenNode.add(new DefaultMutableTreeNode(in_equipment));
@@ -2449,12 +2449,12 @@ final class PreferencesDialog extends JDialog
 		settingsPanel.add(sourcesPanel, sourcesPanel.getTitle());
 		rootNode.add(pcGenNode);
 
-		String in_gamemode =  PropertyFactory.getString("in_mnuSettingsCampaign");
+		String in_gamemode =  LanguageBundle.getString("in_mnuSettingsCampaign");
 		gameModeNode = new DefaultMutableTreeNode(in_gamemode);
-		settingsPanel.add(buildEmptyPanel("", PropertyFactory
+		settingsPanel.add(buildEmptyPanel("", LanguageBundle
 			.getString("in_Prefs_gameModeTip")), in_gamemode);
 
-		gameModeNode.add(new DefaultMutableTreeNode(PropertyFactory.getString("in_Prefs_copy")));
+		gameModeNode.add(new DefaultMutableTreeNode(LanguageBundle.getString("in_Prefs_copy")));
 		copySettingsPanel = new CopySettingsPanel();
 		settingsPanel.add(copySettingsPanel, copySettingsPanel.getTitle());
 		rootNode.add(gameModeNode);
@@ -2546,8 +2546,8 @@ final class PreferencesDialog extends JDialog
 		controlPanel = new JPanel();
 		controlPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
 
-		JButton okButton = new JButton(PropertyFactory.getString("in_ok"));
-		okButton.setMnemonic(PropertyFactory.getMnemonic("in_mn_ok"));
+		JButton okButton = new JButton(LanguageBundle.getString("in_ok"));
+		okButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_ok"));
 		controlPanel.add(okButton);
 		okButton.addActionListener(new ActionListener()
 		{
@@ -2558,8 +2558,8 @@ final class PreferencesDialog extends JDialog
 		});
 
 		JButton cancelButton =
-				new JButton(PropertyFactory.getString("in_cancel"));
-		cancelButton.setMnemonic(PropertyFactory.getMnemonic("in_mn_cancel"));
+				new JButton(LanguageBundle.getString("in_cancel"));
+		cancelButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel"));
 		controlPanel.add(cancelButton);
 		cancelButton.addActionListener(new ActionListener()
 		{
@@ -2678,7 +2678,7 @@ final class PreferencesDialog extends JDialog
 	{
 		JFileChooser fc =
 				new JFileChooser(SettingsHandler.getPcgenThemePackDir());
-		fc.setDialogTitle(PropertyFactory
+		fc.setDialogTitle(LanguageBundle
 			.getString("in_Prefs_chooseSkinDialogTitle"));
 
 		String theme = SettingsHandler.getSkinLFThemePack();
@@ -2699,7 +2699,7 @@ final class PreferencesDialog extends JDialog
 			if (newTheme.isDirectory()
 				|| (!newTheme.getName().endsWith("themepack.zip")))
 			{
-				ShowMessageDelegate.showMessageDialog(PropertyFactory
+				ShowMessageDelegate.showMessageDialog(LanguageBundle
 					.getString("in_Prefs_notAThemeErrorItem"), in_pcgen,
 					MessageType.ERROR);
 			}
@@ -2718,7 +2718,7 @@ final class PreferencesDialog extends JDialog
 						//I can't think of anything better to do.
 						SettingsHandler.setLookAndFeel(0);
 						UIFactory.setLookAndFeel(0);
-						ShowMessageDelegate.showMessageDialog(PropertyFactory
+						ShowMessageDelegate.showMessageDialog(LanguageBundle
 							.getString("in_Prefs_skinSetError")
 							+ e.toString(), in_pcgen, MessageType.ERROR);
 					}
@@ -2769,7 +2769,7 @@ final class PreferencesDialog extends JDialog
 			{
 				final Color newColor =
 						JColorChooser.showDialog(Globals.getRootFrame(),
-							PropertyFactory.getString("in_Prefs_colorSelect")
+							LanguageBundle.getString("in_Prefs_colorSelect")
 								+ source.getText().toLowerCase(), source
 								.getForeground());
 
@@ -2833,9 +2833,9 @@ final class PreferencesDialog extends JDialog
 				}
 
 				final int choice =
-						JOptionPane.showConfirmDialog(null, PropertyFactory
+						JOptionPane.showConfirmDialog(null, LanguageBundle
 							.getString("in_Prefs_clearBrowserWarn"),
-							PropertyFactory
+							LanguageBundle
 								.getString("in_Prefs_clearBrowserTitle"),
 							JOptionPane.YES_NO_OPTION);
 
@@ -2850,7 +2850,7 @@ final class PreferencesDialog extends JDialog
 			else if (source == pcgenCharacterDirButton)
 			{
 				final String dialogTitle =
-						PropertyFactory
+						LanguageBundle
 							.getString("in_Prefs_pcgenCharacterDirTitle");
 				final File currentPath = SettingsHandler.getPcgPath();
 				final JTextField textField = pcgenCharacterDir;
@@ -2859,7 +2859,7 @@ final class PreferencesDialog extends JDialog
 			else if (source == pcgenBackupCharacterDirButton)
 			{
 				final String dialogTitle =
-						PropertyFactory
+						LanguageBundle
 							.getString("in_Prefs_pcgenBackupCharacterDirTitle");
 				final File currentPath = SettingsHandler.getBackupPcgPath();
 				final JTextField textField = pcgenBackupCharacterDir;
@@ -2868,7 +2868,7 @@ final class PreferencesDialog extends JDialog
 			else if (source == pcgenPortraitsDirButton)
 			{
 				final String dialogTitle =
-						PropertyFactory
+						LanguageBundle
 							.getString("in_Prefs_pcgenPortraitDirTitle");
 				final File currentPath = SettingsHandler.getPortraitsPath();
 				final JTextField textField = pcgenPortraitsDir;
@@ -2877,7 +2877,7 @@ final class PreferencesDialog extends JDialog
 			else if (source == pcgenCustomDirButton)
 			{
 				final String dialogTitle =
-						PropertyFactory
+						LanguageBundle
 							.getString("in_Prefs_pcgenCustomDirTitle");
 				final File currentPath = SettingsHandler.getPcgenCustomDir();
 				final JTextField textField = pcgenCustomDir;
@@ -2886,7 +2886,7 @@ final class PreferencesDialog extends JDialog
 			else if (source == pcgenVendorDataDirButton)
 			{
 				final String dialogTitle =
-						PropertyFactory
+						LanguageBundle
 							.getString("in_Prefs_pcgenVendorDataDirTitle");
 				final File currentPath =
 						SettingsHandler.getPcgenVendorDataDir();
@@ -2896,7 +2896,7 @@ final class PreferencesDialog extends JDialog
 			else if (source == pcgenDataDirButton)
 			{
 				final String dialogTitle =
-						PropertyFactory.getString("in_Prefs_pcgenDataDirTitle");
+						LanguageBundle.getString("in_Prefs_pcgenDataDirTitle");
 				final File currentPath = SettingsHandler.getPccFilesLocation();
 				final JTextField textField = pcgenDataDir;
 				askForPath(currentPath, dialogTitle, textField);
@@ -2904,7 +2904,7 @@ final class PreferencesDialog extends JDialog
 			else if (source == pcgenDocsDirButton)
 			{
 				final String dialogTitle =
-						PropertyFactory.getString("in_Prefs_pcgenDocsDirTitle");
+						LanguageBundle.getString("in_Prefs_pcgenDocsDirTitle");
 				final File currentPath = SettingsHandler.getPcgenDocsDir();
 				final JTextField textField = pcgenDocsDir;
 				askForPath(currentPath, dialogTitle, textField);
@@ -2912,7 +2912,7 @@ final class PreferencesDialog extends JDialog
 			else if (source == pcgenSystemDirButton)
 			{
 				final String dialogTitle =
-						PropertyFactory
+						LanguageBundle
 							.getString("in_Prefs_pcgenSystemDirTitle");
 				final File currentPath = SettingsHandler.getPcgenSystemDir();
 				final JTextField textField = pcgenSystemDir;
@@ -2921,7 +2921,7 @@ final class PreferencesDialog extends JDialog
 			else if (source == pcgenFilesDirButton)
 			{
 				final String dialogTitle =
-						PropertyFactory
+						LanguageBundle
 							.getString("in_Prefs_pcgenFilesDirTitle");
 				final File currentPath = SettingsHandler.getPcgenFilesDir();
 				askForPath(currentPath, dialogTitle, pcgenFilesDir);
@@ -2929,7 +2929,7 @@ final class PreferencesDialog extends JDialog
 			else if (source == pcgenOutputSheetDirButton)
 			{
 				final String dialogTitle =
-						PropertyFactory
+						LanguageBundle
 							.getString("in_Prefs_pcgenOutputSheetDirTitle");
 				final File currentPath =
 						SettingsHandler.getPcgenOutputSheetDir();
@@ -2938,7 +2938,7 @@ final class PreferencesDialog extends JDialog
 			}
 			else if (source == pcgenPreviewDirButton)
 			{
-				final String dialogTitle = PropertyFactory.getString("in_Prefs_pcgenPreviewDirTitle");
+				final String dialogTitle = LanguageBundle.getString("in_Prefs_pcgenPreviewDirTitle");
 				final File currentPath = SettingsHandler.getPcgenPreviewDir();
 				final JTextField textField = pcgenPreviewDir;
 				askForPath(currentPath, dialogTitle, textField);
@@ -2946,7 +2946,7 @@ final class PreferencesDialog extends JDialog
 			else if (source == outputSheetHTMLDefaultButton)
 			{
 				JFileChooser fc = new JFileChooser();
-				fc.setDialogTitle(PropertyFactory
+				fc.setDialogTitle(LanguageBundle
 					.getString("in_Prefs_outputSheetHTMLDefaultTitle"));
 				fc.setCurrentDirectory(new File(SettingsHandler
 					.getHTMLOutputSheetPath()));
@@ -2961,7 +2961,7 @@ final class PreferencesDialog extends JDialog
 						|| (!newTemplate.getName().startsWith("csheet") && !newTemplate
 							.getName().startsWith("psheet")))
 					{
-						ShowMessageDelegate.showMessageDialog(PropertyFactory
+						ShowMessageDelegate.showMessageDialog(LanguageBundle
 							.getString("in_Prefs_outputSheetDefaultError"),
 							in_pcgen, MessageType.ERROR);
 					}
@@ -2989,7 +2989,7 @@ final class PreferencesDialog extends JDialog
 			else if (source == outputSheetPDFDefaultButton)
 			{
 				JFileChooser fc = new JFileChooser();
-				fc.setDialogTitle(PropertyFactory
+				fc.setDialogTitle(LanguageBundle
 					.getString("in_Prefs_outputSheetPDFDefaultTitle"));
 				fc.setCurrentDirectory(new File(SettingsHandler
 					.getPDFOutputSheetPath()));
@@ -3004,7 +3004,7 @@ final class PreferencesDialog extends JDialog
 						|| (!newTemplate.getName().startsWith("csheet") && !newTemplate
 							.getName().startsWith("psheet")))
 					{
-						ShowMessageDelegate.showMessageDialog(PropertyFactory
+						ShowMessageDelegate.showMessageDialog(LanguageBundle
 							.getString("in_Prefs_outputSheetDefaultError"),
 							in_pcgen, MessageType.ERROR);
 					}
@@ -3031,7 +3031,7 @@ final class PreferencesDialog extends JDialog
 			else if (source == outputSheetEqSetButton)
 			{
 				JFileChooser fc = new JFileChooser();
-				fc.setDialogTitle(PropertyFactory
+				fc.setDialogTitle(LanguageBundle
 					.getString("in_Prefs_templateEqSetTitle"));
 				fc
 					.setCurrentDirectory(SettingsHandler
@@ -3046,7 +3046,7 @@ final class PreferencesDialog extends JDialog
 					if (newTemplate.isDirectory()
 						|| !newTemplate.getName().startsWith("eqsheet"))
 					{
-						ShowMessageDelegate.showMessageDialog(PropertyFactory
+						ShowMessageDelegate.showMessageDialog(LanguageBundle
 							.getString("in_Prefs_templateEqSetError"),
 							in_pcgen, MessageType.ERROR);
 					}
@@ -3064,7 +3064,7 @@ final class PreferencesDialog extends JDialog
 			else if (source == outputSheetSpellsDefaultButton)
 			{
 				JFileChooser fc = new JFileChooser();
-				fc.setDialogTitle(PropertyFactory
+				fc.setDialogTitle(LanguageBundle
 					.getString("in_Prefs_outputSpellSheetDefault"));
 				fc
 					.setCurrentDirectory(SettingsHandler
@@ -3079,7 +3079,7 @@ final class PreferencesDialog extends JDialog
 					if (newTemplate.isDirectory()
 						|| !newTemplate.getName().startsWith("csheet"))
 					{
-						ShowMessageDelegate.showMessageDialog(PropertyFactory
+						ShowMessageDelegate.showMessageDialog(LanguageBundle
 							.getString("in_Prefs_outputSheetDefaultError"),
 							in_pcgen, MessageType.ERROR);
 					}

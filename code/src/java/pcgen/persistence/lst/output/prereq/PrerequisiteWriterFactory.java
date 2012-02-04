@@ -32,12 +32,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.system.PluginLoader;
 import pcgen.util.Logging;
 
 /**
  * A Factory for PreReq Writing 
  */
-public class PrerequisiteWriterFactory
+public class PrerequisiteWriterFactory implements PluginLoader
 {
 	private static PrerequisiteWriterFactory instance = null;
 	private static Map<String, PrerequisiteWriterInterface> parserLookup =
@@ -104,5 +105,15 @@ public class PrerequisiteWriterFactory
 		}
 
 		parserLookup.put(kindHandled.toLowerCase(), testClass);
+	}
+
+	public void loadPlugin(Class<?> clazz) throws Exception
+	{
+		register((PrerequisiteWriterInterface) clazz.newInstance());
+}
+
+	public Class[] getPluginClasses()
+	{
+		return new Class[]{PrerequisiteWriterInterface.class};
 	}
 }

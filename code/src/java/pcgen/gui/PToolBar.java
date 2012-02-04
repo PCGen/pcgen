@@ -57,7 +57,7 @@ import pcgen.gui.filter.Filterable;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.Utility;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
@@ -406,33 +406,33 @@ public class PToolBar extends JToolBar
 	private void init(PCGen_Frame1 main)
 	{
 		newItem = Utility.createButton(main.frameActionListener.newActionListener, "file.new",
-				PropertyFactory.getString("in_mnuFileNewTip"), "New16.gif", false);
+				LanguageBundle.getString("in_mnuFileNewTip"), "New16.gif", false);
 		add(newItem);
 
 		newNPCItem = Utility.createButton(main.frameActionListener.newNPCActionListener, "file.newNPC",
-				PropertyFactory.getString("in_mnuFileNewNPCTip"), "NewNPC16.gif", false);
+				LanguageBundle.getString("in_mnuFileNewNPCTip"), "NewNPC16.gif", false);
 		add(newNPCItem);
 
 		openItem = Utility.createButton(main.frameActionListener.openActionListener, "file.open",
-				PropertyFactory.getString("in_mnuFileOpenTip"), "Open16.gif", true);
+				LanguageBundle.getString("in_mnuFileOpenTip"), "Open16.gif", true);
 		add(openItem);
 
 		closeItem = Utility.createButton(main.frameActionListener.closeActionListener, "file.close",
-				PropertyFactory.getString("in_mnuFileCloseTip"), "Close16.gif", false);
+				LanguageBundle.getString("in_mnuFileCloseTip"), "Close16.gif", false);
 		add(closeItem);
 
 		saveItem = Utility.createButton(main.frameActionListener.saveActionListener, "file.save",
-				PropertyFactory.getString("in_mnuFileSaveTip"), "Save16.gif", false);
+				LanguageBundle.getString("in_mnuFileSaveTip"), "Save16.gif", false);
 		add(saveItem);
 
 		addSeparator();
 
 		printPreviewItem = Utility.createButton(main.frameActionListener.printPreviewActionListener,
-				"file.printpreview", PropertyFactory.getString("in_mnuFilePrintPreviewTip"), "PrintPreview16.gif", false);
+				"file.printpreview", LanguageBundle.getString("in_mnuFilePrintPreviewTip"), "PrintPreview16.gif", false);
 		add(printPreviewItem);
 
 		printItem = Utility.createButton(main.frameActionListener.printActionListener, "file.print",
-				PropertyFactory.getString("in_mnuFilePrintTip"), "Print16.gif", false);
+				LanguageBundle.getString("in_mnuFilePrintTip"), "Print16.gif", false);
 		add(printItem);
 
 		addSeparator();
@@ -455,7 +455,7 @@ public class PToolBar extends JToolBar
 					{
 						FilterDialogFactory.clearSelectedFiltersForSelectedFilterable();
 					}
-				}, "filter.clear", PropertyFactory.getString("in_mnuToolsFiltersClearTip"), "RemoveZoom16.gif", false);
+				}, "filter.clear", LanguageBundle.getString("in_mnuToolsFiltersClearTip"), "RemoveZoom16.gif", false);
 		add(clearFilters);
 
 		customFilters = Utility.createButton(new ActionListener()
@@ -464,7 +464,7 @@ public class PToolBar extends JToolBar
 					{
 						FilterDialogFactory.showHideFilterCustomDialog();
 					}
-				}, "filter.custom", PropertyFactory.getString("in_mnuToolsFiltersCustomTip"), "CustomZoom16.gif", false);
+				}, "filter.custom", LanguageBundle.getString("in_mnuToolsFiltersCustomTip"), "CustomZoom16.gif", false);
 		add(customFilters);
 
 		editorFilters = Utility.createButton(new ActionListener()
@@ -473,25 +473,25 @@ public class PToolBar extends JToolBar
 					{
 						FilterDialogFactory.showHideFilterEditorDialog();
 					}
-				}, "filter.editor", PropertyFactory.getString("in_mnuToolsFiltersEditTip"), "EditZoom16.gif", false);
+				}, "filter.editor", LanguageBundle.getString("in_mnuToolsFiltersEditTip"), "EditZoom16.gif", false);
 		add(editorFilters);
 
 		addSeparator();
 
 		addKit = Utility.createButton(main.frameActionListener.addKitActionListener, "assign.kit",
-				PropertyFactory.getString("in_mnuFileAddKitTip"), "Information16.gif", false);
+				LanguageBundle.getString("in_mnuFileAddKitTip"), "Information16.gif", false);
 		add(addKit);
 
 		addSeparator();
 
 		preferencesItem = Utility.createButton(main.frameActionListener.preferencesActionListener,
-				"settings.preferences", PropertyFactory.getString("in_mnuSettingsPreferencesTip"), "Preferences16.gif",
+				"settings.preferences", LanguageBundle.getString("in_mnuSettingsPreferencesTip"), "Preferences16.gif",
 				true);
 		add(preferencesItem);
 
 		addSeparator();
 		gmgenItem = Utility.createButton(main.frameActionListener.gmgenActionListener, "gmgen.load",
-				PropertyFactory.getString("in_launchGMGen"), "gmgen_icon.png", true);
+				LanguageBundle.getString("in_launchGMGen"), "gmgen_icon.png", true);
 		add(gmgenItem);
 		addSeparator();
 
@@ -501,7 +501,7 @@ public class PToolBar extends JToolBar
 					{
 						displayHelpPanel(true);
 					}
-				}, "help.context", PropertyFactory.getString("in_mnuHelpContext"), "ContextualHelp16.gif", true);
+				}, "help.context", LanguageBundle.getString("in_mnuHelpContext"), "ContextualHelp16.gif", true);
 		add(helpItem);
 
 		helpFrame.setSize(new Dimension(400, 400));
@@ -603,7 +603,7 @@ public class PToolBar extends JToolBar
 		public FilterToolTipButton(Icon inactiveIcon, Icon activeIcon)
 		{
 			super(inactiveIcon, activeIcon);
-			this.setToolTipText(PropertyFactory.getString("in_filterIcon"));
+			this.setToolTipText(LanguageBundle.getString("in_filterIcon"));
 		}
 
 		public String getToolTipText(MouseEvent event)

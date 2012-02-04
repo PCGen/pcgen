@@ -36,7 +36,7 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.prereq.PrerequisiteTestFactory;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * @author wardc
@@ -124,7 +124,7 @@ public class PreApplyTester extends AbstractPrerequisiteTest implements Prerequi
 		}
 		else
 		{
-			throw new PrerequisiteException(PropertyFactory.getFormattedString(
+			throw new PrerequisiteException(LanguageBundle.getFormattedString(
 				"PreApply.invalid_comparison", prereq.getOperator().toString())); //$NON-NLS-1$
 		}
 
@@ -147,7 +147,7 @@ public class PreApplyTester extends AbstractPrerequisiteTest implements Prerequi
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		return PropertyFactory
+		return LanguageBundle
 			.getFormattedString(
 				"PreApply.toHtml", prereq.getOperator().toString(), prereq.getOperand()); //$NON-NLS-1$
 	}

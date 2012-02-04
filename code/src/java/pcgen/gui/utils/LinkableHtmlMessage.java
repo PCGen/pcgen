@@ -22,7 +22,7 @@
  */
 package pcgen.gui.utils;
 
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import javax.swing.*;
 import java.awt.*;
@@ -149,8 +149,8 @@ public final class LinkableHtmlMessage extends JDialog implements
 		gc.weighty = 1;
 		cont.add(msgText);
 
-		btnClose = new JButton(PropertyFactory.getString("in_ok"));
-		btnClose.setMnemonic(PropertyFactory.getMnemonic("in_mn_ok"));
+		btnClose = new JButton(LanguageBundle.getString("in_ok"));
+		btnClose.setMnemonic(LanguageBundle.getMnemonic("in_mn_ok"));
 		btnClose.addActionListener(this);
 
 		final JPanel buttons = new JPanel();

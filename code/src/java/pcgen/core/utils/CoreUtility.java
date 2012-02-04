@@ -36,7 +36,7 @@ import java.util.regex.Pattern;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
 import pcgen.core.SettingsHandler;
-import pcgen.gui.PCGenProp;
+import pcgen.system.PCGenPropBundle;
 import pcgen.util.Logging;
 
 /**
@@ -560,7 +560,7 @@ public final class CoreUtility
 	 */
 	public static boolean isPriorToCurrent(String version)
 	{
-		return CoreUtility.compareVersions(version, PCGenProp
+		return CoreUtility.compareVersions(version, PCGenPropBundle
 				.getVersionNumber()) <= 0;
 	}
 
@@ -610,12 +610,12 @@ public final class CoreUtility
 	 */
 	public static boolean isCurrMinorVer(String ver)
 	{
-		if (ver.equals(PCGenProp.getVersionNumber()))
+		if (ver.equals(PCGenPropBundle.getVersionNumber()))
 		{
 			return true;
 		}
 		int[] inVer = convertVersionToNumber(ver);
-		int[] currVer = convertVersionToNumber(PCGenProp.getVersionNumber());
+		int[] currVer = convertVersionToNumber(PCGenPropBundle.getVersionNumber());
 		return (inVer[0] == currVer[0] && inVer[1] == currVer[1]);
 	}
 

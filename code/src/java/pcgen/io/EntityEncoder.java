@@ -140,13 +140,15 @@ public final class EntityEncoder
 	public static String encode(String s)
 	{
 		final StringBuffer buffer = new StringBuffer();
-		final StringTokenizer tokens = new StringTokenizer(s, ENCODE, true);
-
-		while (tokens.hasMoreTokens())
+		if (s != null)
 		{
-			buffer.append(ENTITIES.get(tokens.nextToken()));
+			final StringTokenizer tokens = new StringTokenizer(s, ENCODE, true);
+	
+			while (tokens.hasMoreTokens())
+			{
+				buffer.append(ENTITIES.get(tokens.nextToken()));
+			}
 		}
-
 		return buffer.toString();
 	}
 }

@@ -41,7 +41,7 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 /**
  * @author wardc
  *
@@ -254,7 +254,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		}
 
 		final String foo =
-				PropertyFactory.getFormattedString("PreSkill.toHtml", //$NON-NLS-1$
+				LanguageBundle.getFormattedString("PreSkill.toHtml", //$NON-NLS-1$
 					new Object[]{prereq.getOperator().toDisplayString(),
 						prereq.getOperand(), skillName});
 		return foo;

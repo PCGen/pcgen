@@ -21,6 +21,7 @@
 package pcgen.core;
 
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.facade.AlignmentFacade;
 
 /**
  * <code>PCAlignment</code>.
@@ -28,7 +29,7 @@ import pcgen.cdom.enumeration.StringKey;
  * @author Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-public final class PCAlignment extends PObject
+public final class PCAlignment extends PObject implements AlignmentFacade
 {
 	public String getAbb()
 	{
@@ -56,5 +57,13 @@ public final class PCAlignment extends PObject
 		return abb == null ? 0 : getAbb().hashCode();
 	}
 
-	
+	public String getName()
+	{
+		return getDisplayName();
+	}
+
+	public String getAbbreviation()
+	{
+		return getKeyName();
+	}
 }

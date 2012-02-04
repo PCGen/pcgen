@@ -39,7 +39,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * This class tests if the character passes the prerequisites for the caller.
@@ -265,7 +265,7 @@ public final class PrereqHandler
 				pString.append(preReqTest.toHtmlString(preReq));
 
 				final String property = "PrereqHandler.HTML_prerequisite_delimiter"; //$NON-NLS-1$
-				delimiter = PropertyFactory.getString(property);
+				delimiter = LanguageBundle.getString(property);
 			}
 		}
 

@@ -233,58 +233,61 @@ public class EqToken extends Token
 		}
 
 		// Now that we have the list, get the token for the appropriate element
-		String tempString = aTok.nextToken();
+
 		String retString = "";
-
-		if ((temp >= 0) && (temp < eqList.size()))
+		if (aTok.hasMoreTokens())
 		{
-			Equipment eq = eqList.get(temp);
-			retString = FileAccess.filterString(getEqToken(pc, eq, tempString, aTok));
+			String tempString = aTok.nextToken();
 
-			// Starting EQ.%.NAME.MAGIC,befTrue,aftTrue,befFalse,aftFalse treatment
-			if (!"".equals(bFilter))
+			if ((temp >= 0) && (temp < eqList.size()))
 			{
-				aTok = new StringTokenizer(bFilter, ".");
+				Equipment eq = eqList.get(temp);
+				retString = getEqToken(pc, eq, tempString, aTok);
 
-				boolean result = false;
-				boolean and_operation = false;
-
-				while (aTok.hasMoreTokens())
+				// Starting EQ.%.NAME.MAGIC,befTrue,aftTrue,befFalse,aftFalse treatment
+				if (!"".equals(bFilter))
 				{
-					String bString = aTok.nextToken();
+					aTok = new StringTokenizer(bFilter, ".");
 
-					if ("AND".equals(bString))
+					boolean result = false;
+					boolean and_operation = false;
+
+					while (aTok.hasMoreTokens())
 					{
-						and_operation = true;
-					}
-					else if ("OR".equals(bString))
-					{
-						and_operation = false;
-					}
-					else
-					{
-						if (and_operation)
+						String bString = aTok.nextToken();
+
+						if ("AND".equals(bString))
 						{
-							result = (result && eq.isType(bString));
+							and_operation = true;
+						}
+						else if ("OR".equals(bString))
+						{
+							and_operation = false;
 						}
 						else
 						{
-							result = (result || eq.isType(bString));
+							if (and_operation)
+							{
+								result = (result && eq.isType(bString));
+							}
+							else
+							{
+								result = (result || eq.isType(bString));
+							}
 						}
 					}
-				}
 
-				if (result)
-				{
-					retString = befTrue + retString + aftTrue;
-				}
-				else
-				{
-					retString = befFalse + retString + aftFalse;
+					if (result)
+					{
+						retString = befTrue + retString + aftTrue;
+					}
+					else
+					{
+						retString = befFalse + retString + aftFalse;
+					}
 				}
 			}
 		}
-
 		return retString;
 	}
 

@@ -32,7 +32,7 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.spell.Spell;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import java.util.List;
 
@@ -78,7 +78,7 @@ public class PreSpellSchoolSubTester extends AbstractPrerequisiteTest implements
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		return PropertyFactory.getFormattedString(
+		return LanguageBundle.getFormattedString(
 			"PreSpellSchoolSub.toHtml_spell_sub_school", //$NON-NLS-1$
 			new Object[]{prereq.getOperator().toDisplayString(),
 				prereq.getOperand(), prereq.getKey(), prereq.getSubKey()});

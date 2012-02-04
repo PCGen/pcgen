@@ -44,7 +44,7 @@ import pcgen.gui.utils.JOpenRecentMenu;
 import pcgen.gui.utils.Utility;
 import pcgen.util.FOPResourceChecker;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * Main menu bar of the PCGen application.
@@ -547,10 +547,10 @@ public final class PCGenMenuBar extends JMenuBar
 
 		loggingMenu = new LoggingLevelMenu();
 		debugMode = new JCheckBoxMenuItem();
-		debugMode.setText(PropertyFactory.getString("in_mnuDebugMode"));
+		debugMode.setText(LanguageBundle.getString("in_mnuDebugMode"));
 		debugMode
-			.setMnemonic(PropertyFactory.getMnemonic("in_mn_mnuDebugMode"));
-		Utility.setDescription(debugMode, PropertyFactory
+			.setMnemonic(LanguageBundle.getMnemonic("in_mn_mnuDebugMode"));
+		Utility.setDescription(debugMode, LanguageBundle
 			.getString("in_mnuDebugModeTip"));
 		debugMode.setSelected(Logging.isDebugMode());
 		debugMode.addActionListener(new ActionListener()

@@ -32,6 +32,7 @@ import java.util.StringTokenizer;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
@@ -103,11 +104,17 @@ public class DeityToken extends Token
 
 			if ("NAME".equals(subTag))
 			{
-				retString = deity.getDisplayName();
+				if (!pc.getSuppressBioField(BiographyField.DEITY))
+				{
+					retString = deity.getDisplayName();
+				}
 			}
 			else if ("OUTPUTNAME".equals(subTag))
 			{
-				retString = OutputNameFormatting.getOutputName(deity);
+				if (!pc.getSuppressBioField(BiographyField.DEITY))
+				{
+					retString = OutputNameFormatting.getOutputName(deity);
+				}
 			}
 			else if ("DOMAINLIST".equals(subTag))
 			{

@@ -153,7 +153,7 @@ import pcgen.util.FOPHandler;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.chooser.ChooserRadio;
@@ -178,11 +178,11 @@ public class InfoEquipping extends FilterAdapterPanel implements
 	private static List<EquipSet> tempSetList = new ArrayList<EquipSet>();
 	//	private static final String[] loadTypes = { "LIGHT", "MEDIUM", "HEAVY", "OVERLOADED" };
 	private static final String defaultEquipSet =
-			PropertyFactory.getString("in_ieDefault");
+			LanguageBundle.getString("in_ieDefault");
 	private static final String nameAdded =
-			PropertyFactory.getString("in_ieAddEqSet");
+			LanguageBundle.getString("in_ieAddEqSet");
 	private static final String nameNotAdded =
-			PropertyFactory.getString("in_ieNotAdd");
+			LanguageBundle.getString("in_ieNotAdd");
 	private static int splitOrientation = JSplitPane.HORIZONTAL_SPLIT;
 	private static boolean needsUpdate = true;
 
@@ -203,15 +203,15 @@ public class InfoEquipping extends FilterAdapterPanel implements
 	private EquipModel availableModel = null; // Model for JTreeTable
 	private EquipModel selectedModel = null; // Model for JTreeTable
 	private final JLabel avaLabel =
-			new JLabel(PropertyFactory.getString("in_ieSort"));
+			new JLabel(LanguageBundle.getString("in_ieSort"));
 	private final JLabel calcLabel =
-			new JLabel(PropertyFactory.getString("in_ieCalc"));
+			new JLabel(LanguageBundle.getString("in_ieCalc"));
 	private final JLabel loadLabel =
-			new JLabel(PropertyFactory.getString("in_load") + ": ");
+			new JLabel(LanguageBundle.getString("in_load") + ": ");
 	private final JLabel weightLabel =
-			new JLabel(PropertyFactory.getString("in_weight") + ": ");
+			new JLabel(LanguageBundle.getString("in_weight") + ": ");
 	private final JLabel loadLimitsLabel =
-			new JLabel(PropertyFactory.getString("in_loadlimits") + ": ");
+			new JLabel(LanguageBundle.getString("in_loadlimits") + ": ");
 	private FlippingSplitPane asplit;
 	private FlippingSplitPane bsplit;
 	private FlippingSplitPane splitPane;
@@ -259,9 +259,9 @@ public class InfoEquipping extends FilterAdapterPanel implements
 	private Map<String, Float> equipAddMap = new HashMap<String, Float>();
 	private Map<String, Float> equipNotMap = new HashMap<String, Float>();
 
-	private final JLabel lblQFilter = new JLabel(PropertyFactory.getString("InfoTabs.FilterLabel"));
+	private final JLabel lblQFilter = new JLabel(LanguageBundle.getString("InfoTabs.FilterLabel"));
 	private JTextField textQFilter = new JTextField();
-	private JButton clearQFilterButton = new JButton(PropertyFactory.getString("in_clear"));
+	private JButton clearQFilterButton = new JButton(LanguageBundle.getString("in_clear"));
 	private static Integer saveViewMode = null;
 
 	private PlayerCharacter pc;
@@ -344,7 +344,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		}
 		if (!hasEquip && !pc.getEquipmentMasterList().isEmpty())
 		{
-			toDoList.add(PropertyFactory.getString("in_ieTodoEquip")); //$NON-NLS-1$
+			toDoList.add(LanguageBundle.getString("in_ieTodoEquip")); //$NON-NLS-1$
 		}
 		return toDoList;
 	}
@@ -500,111 +500,111 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		if (eqI.isWeapon())
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameWeapon");
+			locTypeName = LanguageBundle.getString("in_ieLocNameWeapon");
 		}
 		else if (eqI.isArmor())
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameArmor");
+			locTypeName = LanguageBundle.getString("in_ieLocNameArmor");
 		}
 		else if (eqI.isShield())
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameShield");
+			locTypeName = LanguageBundle.getString("in_ieLocNameShield");
 		}
 		else if (eqI.isAmmunition())
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameAmmo");
+			locTypeName = LanguageBundle.getString("in_ieLocNameAmmo");
 		}
 		else if (eqI.isSuit())
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameSuit");
+			locTypeName = LanguageBundle.getString("in_ieLocNameSuit");
 		}
 		else if (eqI.isMonk())
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameMonk");
+			locTypeName = LanguageBundle.getString("in_ieLocNameMonk");
 		}
 		else if (eqI.isUnarmed())
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameUnarmed");
+			locTypeName = LanguageBundle.getString("in_ieLocNameUnarmed");
 		}
 		else if (eqI.isContainer())
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameContainer");
+			locTypeName = LanguageBundle.getString("in_ieLocNameContainer");
 		}
 		else if (eqI.isType("ROBE"))
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameRobe");
+			locTypeName = LanguageBundle.getString("in_ieLocNameRobe");
 		}
 		else if (eqI.isType("HEADGEAR"))
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameHeadgear");
+			locTypeName = LanguageBundle.getString("in_ieLocNameHeadgear");
 		}
 		else if (eqI.isType("EYEGEAR"))
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameEyegear");
+			locTypeName = LanguageBundle.getString("in_ieLocNameEyegear");
 		}
 		else if (eqI.isType("MASK"))
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameMask");
+			locTypeName = LanguageBundle.getString("in_ieLocNameMask");
 		}
 		else if (eqI.isType("AMULET") || eqI.isType("NECKLACE"))
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameAmulet");
+			locTypeName = LanguageBundle.getString("in_ieLocNameAmulet");
 		}
 		else if (eqI.isType("CAPE") || eqI.isType("CLOAK"))
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameCape");
+			locTypeName = LanguageBundle.getString("in_ieLocNameCape");
 		}
 		else if (eqI.isType("CLOTHING"))
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameClothing");
+			locTypeName = LanguageBundle.getString("in_ieLocNameClothing");
 		}
 		else if (eqI.isType("SHIRT") || eqI.isType("VEST"))
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameShirt");
+			locTypeName = LanguageBundle.getString("in_ieLocNameShirt");
 		}
 		else if (eqI.isType("BRACER") || eqI.isType("ARMWEAR"))
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameBracers");
+			locTypeName = LanguageBundle.getString("in_ieLocNameBracers");
 		}
 		else if (eqI.isType("GLOVE"))
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameGlove");
+			locTypeName = LanguageBundle.getString("in_ieLocNameGlove");
 		}
 		else if (eqI.isType("RING"))
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameRing");
+			locTypeName = LanguageBundle.getString("in_ieLocNameRing");
 		}
 		else if (eqI.isType("BELT"))
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameBelt");
+			locTypeName = LanguageBundle.getString("in_ieLocNameBelt");
 		}
 		else if (eqI.isType("BOOT"))
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameBoot");
+			locTypeName = LanguageBundle.getString("in_ieLocNameBoot");
 		}
 		else if (eqI.isType("POTION"))
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNamePotion");
+			locTypeName = LanguageBundle.getString("in_ieLocNamePotion");
 		}
 		else if (eqI.isType("ROD"))
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameRod");
+			locTypeName = LanguageBundle.getString("in_ieLocNameRod");
 		}
 		else if (eqI.isType("STAFF"))
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameStaff");
+			locTypeName = LanguageBundle.getString("in_ieLocNameStaff");
 		}
 		else if (eqI.isType("WAND"))
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameWand");
+			locTypeName = LanguageBundle.getString("in_ieLocNameWand");
 		}
 		else if (eqI.isType("INSTRUMENT"))
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameInstrument");
+			locTypeName = LanguageBundle.getString("in_ieLocNameInstrument");
 		}
 		else if (eqI.isType("BOOK"))
 		{
-			locTypeName = PropertyFactory.getString("in_ieLocNameBook");
+			locTypeName = LanguageBundle.getString("in_ieLocNameBook");
 		}
 
 		return locTypeName;
@@ -651,10 +651,10 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				b.appendI18nElement(
 						"in_ieInfoLabelTextProficient",
 						((pc.isProficientWith(eqI) && eqI.meetsPreReqs(pc))
-							? PropertyFactory
+							? LanguageBundle
 								.getString("in_ieInfoLabelTextYes")
 							: (SettingsHandler.getPrereqFailColorAsHtmlStart()
-								+ PropertyFactory
+								+ LanguageBundle
 									.getString("in_ieInfoLabelTextNo") + SettingsHandler
 								.getPrereqFailColorAsHtmlEnd())));
 			}
@@ -858,7 +858,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (slSelPath == null)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_ieSetLocNoItemSelectedMsg"), Constants.APPLICATION_NAME,
+				LanguageBundle.getString("in_ieSetLocNoItemSelectedMsg"), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 
 			return;
@@ -876,7 +876,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (eqI == null)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_ieSetLocNoItemSelectedMsg"), Constants.APPLICATION_NAME,
+				LanguageBundle.getString("in_ieSetLocNoItemSelectedMsg"), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 
 			return;
@@ -890,7 +890,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (aTok.countTokens() > 3)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_ieSetLocInsideContMsg"),
+				LanguageBundle.getString("in_ieSetLocInsideContMsg"),
 				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
@@ -906,13 +906,13 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		if (containers.size() != 0)
 		{
-			c.setComboData(PropertyFactory.getString("in_ieContChooserTitle"), containers);
+			c.setComboData(LanguageBundle.getString("in_ieContChooserTitle"), containers);
 		}
 
 		c.setAvailableList(aList);
 		c.setVisible(false);
 		c.setTitle(eqI.getName());
-		c.setMessageText(PropertyFactory.getString("in_ieSelectLocationMsg"));
+		c.setMessageText(LanguageBundle.getString("in_ieSelectLocationMsg"));
 		c.setVisible(true);
 
 		Equipment eqTarget = null;
@@ -945,7 +945,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				else
 				{
 					ShowMessageDelegate.showMessageDialog(
-						PropertyFactory.getFormattedString("in_ieContainerFullMsg", 
+						LanguageBundle.getFormattedString("in_ieContainerFullMsg",
 						eqTarget.getName() ), Constants.APPLICATION_NAME,
 						MessageType.ERROR);
 
@@ -963,7 +963,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			&& eSet.getIdPath().equals(eTargetSet.getIdPath()))
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_ieSetLocInsideSelfMsg"), Constants.APPLICATION_NAME,
+				LanguageBundle.getString("in_ieSetLocInsideSelfMsg"), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 
 			return;
@@ -973,7 +973,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (!canAddEquip(rootSet, locName, eqI, eqTarget))
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getFormattedString("in_ieCanNotEquipToSlotMsg",
+				LanguageBundle.getFormattedString("in_ieCanNotEquipToSlotMsg",
 				eqI.getName() , locName) , Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 
@@ -1061,7 +1061,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		if (noteSelPath == null)
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_ieNoEqSelectedMsg"),
+			ShowMessageDelegate.showMessageDialog(LanguageBundle.getString("in_ieNoEqSelectedMsg"),
 				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
@@ -1087,7 +1087,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		if (eqI == null)
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_ieNoEqSelectedMsg"),
+			ShowMessageDelegate.showMessageDialog(LanguageBundle.getString("in_ieNoEqSelectedMsg"),
 				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
@@ -1097,7 +1097,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		InputInterface ii = InputFactory.getInputInstance();
 		Object selectedValue =
-				ii.showInputDialog(null, PropertyFactory.getString("in_ieNewNote"), Constants.APPLICATION_NAME,
+				ii.showInputDialog(null, LanguageBundle.getString("in_ieNewNote"), Constants.APPLICATION_NAME,
 					MessageType.QUESTION, null, eSet.getNote());
 
 		if (selectedValue != null)
@@ -1129,7 +1129,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		if (qtySelPath == null)
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_ieNoEqSelectedMsg"),
+			ShowMessageDelegate.showMessageDialog(LanguageBundle.getString("in_ieNoEqSelectedMsg"),
 				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
@@ -1157,7 +1157,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		if (eqI == null)
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_ieNoEqSelectedMsg"),
+			ShowMessageDelegate.showMessageDialog(LanguageBundle.getString("in_ieNoEqSelectedMsg"),
 				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
@@ -1168,7 +1168,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (eqI.isContainer())
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_ieNoChangeQuantityCont"), Constants.APPLICATION_NAME,
+				LanguageBundle.getString("in_ieNoChangeQuantityCont"), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 
 			return;
@@ -1177,7 +1177,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if ((aTok.countTokens() <= 3) && eqI.isEquipped())
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_ieNoChangeQuantityEquip"),
+				LanguageBundle.getString("in_ieNoChangeQuantityEquip"),
 				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
@@ -1191,7 +1191,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		{
 			Object selectedValue =
 					JOptionPane.showInputDialog(null, 
-						PropertyFactory.getString("in_ieNewQuantity"),
+						LanguageBundle.getString("in_ieNewQuantity"),
 						Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
 
 			if (selectedValue != null)
@@ -1203,7 +1203,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				catch (Exception e)
 				{
 					ShowMessageDelegate.showMessageDialog(
-						PropertyFactory.getString("in_ieInvalidNumber"),
+						LanguageBundle.getString("in_ieInvalidNumber"),
 						Constants.APPLICATION_NAME, MessageType.ERROR);
 
 					return;
@@ -1240,7 +1240,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		// the PC's equipmentList number for this item
 		if (addNum > diffItemCount(eSet, eqI).floatValue())
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString(
+			ShowMessageDelegate.showMessageDialog(LanguageBundle.getFormattedString(
 				"in_ieEquipQuantityToBig" , newNum, eqI.getName() ), Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
@@ -1265,7 +1265,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				eqI.setNumberCarried(numCarried);
 
 				// Send error message
-				ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString(
+				ShowMessageDelegate.showMessageDialog(LanguageBundle.getFormattedString(
 					"in_ieContainerFull" , eqP.getName()) , Constants.APPLICATION_NAME,
 					MessageType.ERROR);
 
@@ -1635,7 +1635,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (selectedTable.getTree().isSelectionEmpty()
 			|| !pathExists(selectedTable.getTree(), aeSelPath))
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory
+			ShowMessageDelegate.showMessageDialog(LanguageBundle
 				.getString("in_ieSelectSet"), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 
@@ -1680,7 +1680,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if ((eSet == null) || (parentNode == null))
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_ieSelectSet"),
+				LanguageBundle.getString("in_ieSelectSet"),
 				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
@@ -1859,7 +1859,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (tempQty.floatValue() > diffItemCount(eSet, eqI).floatValue())
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getFormattedString("in_ieAlreadyEquipedAll", eqI.getName()),
+				LanguageBundle.getFormattedString("in_ieAlreadyEquipedAll", eqI.getName()),
 				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return null;
@@ -1882,7 +1882,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			}
 			else
 			{
-				ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString(
+				ShowMessageDelegate.showMessageDialog(LanguageBundle.getFormattedString(
 					"in_ieContainerFull", eqTarget.getName()), Constants.APPLICATION_NAME,
 					MessageType.ERROR);
 
@@ -1910,13 +1910,13 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 				if (containers.size() != 0)
 				{
-					c.setComboData(PropertyFactory.getString("in_ieContChooserTitle"), containers);
+					c.setComboData(LanguageBundle.getString("in_ieContChooserTitle"), containers);
 				}
 
 				c.setAvailableList(aList);
 				c.setVisible(false);
 				c.setTitle(eqI.getName());
-				c.setMessageText(PropertyFactory.getString("in_ieSelectLocationMsg"));
+				c.setMessageText(LanguageBundle.getString("in_ieSelectLocationMsg"));
 				c.setVisible(true);
 				aList = c.getSelectedList();
 
@@ -1947,7 +1947,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 						else
 						{
 							ShowMessageDelegate.showMessageDialog(
-								PropertyFactory.getFormattedString("in_ieContainerFullMsg",
+								LanguageBundle.getFormattedString("in_ieContainerFullMsg",
 								eqTarget.getName()),
 								Constants.APPLICATION_NAME, MessageType.ERROR);
 
@@ -1966,7 +1966,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		// make sure we can add item to that slot in this EquipSet
 		if (!canAddEquip(eSet, locName, eqI, eqTarget))
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString(
+			ShowMessageDelegate.showMessageDialog(LanguageBundle.getFormattedString(
 				"in_ieCanNotEquipToSlotMsg", eqI.getName(), locName)
 				, Constants.APPLICATION_NAME, MessageType.ERROR);
 
@@ -2030,7 +2030,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 	{
 		Float newQty;
 		Object selectedValue =
-				JOptionPane.showInputDialog(null, PropertyFactory.getString("in_ieAddEquipQuantityMsg"),
+				JOptionPane.showInputDialog(null, LanguageBundle.getString("in_ieAddEquipQuantityMsg"),
 					Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
 
 		if (selectedValue != null)
@@ -2042,7 +2042,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			catch (Exception e)
 			{
 				ShowMessageDelegate.showMessageDialog(
-					PropertyFactory.getString("in_ieInvalidNumber"),
+					LanguageBundle.getString("in_ieInvalidNumber"),
 					Constants.APPLICATION_NAME, MessageType.ERROR);
 
 				return;
@@ -2061,7 +2061,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (newQty.floatValue() <= 0)
 		{
 			Object selectedValue =
-					JOptionPane.showInputDialog(null, PropertyFactory.getString("in_ieBuyEquipQuantityMsg"),
+					JOptionPane.showInputDialog(null, LanguageBundle.getString("in_ieBuyEquipQuantityMsg"),
 						Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
 
 			if (selectedValue != null)
@@ -2073,7 +2073,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				catch (Exception e)
 				{
 					ShowMessageDelegate.showMessageDialog(
-						PropertyFactory.getString("in_ieInvalidNumber"),
+						LanguageBundle.getString("in_ieInvalidNumber"),
 						Constants.APPLICATION_NAME, MessageType.ERROR);
 
 					return;
@@ -2431,8 +2431,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		// Let them choose which bonuses to use
 		ChooserInterface lc = ChooserFactory.getChooserInstance();
 		lc.setVisible(false);
-		lc.setTitle(PropertyFactory.getString("in_ieBonChooserTitle"));
-		lc.setMessageText(PropertyFactory.getString("in_ieBonChooserMsg"));
+		lc.setTitle(LanguageBundle.getString("in_ieBonChooserTitle"));
+		lc.setMessageText(LanguageBundle.getString("in_ieBonChooserMsg"));
 		lc.setAvailableList(sList);
 		lc.setTotalChoicesAvail(sList.size());
 		lc.setPoolFlag(false);
@@ -2476,7 +2476,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (eSet == null)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_ieCpEqSetNotSelected"), Constants.APPLICATION_NAME,
+				LanguageBundle.getString("in_ieCpEqSetNotSelected"), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 
 			return;
@@ -2487,7 +2487,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		// Get a new name
 		newName =
 				JOptionPane.showInputDialog(null,
-					PropertyFactory.getString("in_ieNameNewEqSet"), Constants.APPLICATION_NAME,
+					LanguageBundle.getString("in_ieNameNewEqSet"), Constants.APPLICATION_NAME,
 					JOptionPane.QUESTION_MESSAGE);
 
 		if ((newName == null) || (newName.length() <= 0))
@@ -2502,7 +2502,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (pcSet != null)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_ieEqSetNameExists"),
+				LanguageBundle.getString("in_ieEqSetNameExists"),
 				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
@@ -2598,7 +2598,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (delSelPath == null)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_ieDelEqNotSelected"),
+				LanguageBundle.getString("in_ieDelEqNotSelected"),
 				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
@@ -2624,7 +2624,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			{
 				ShowMessageDelegate
 					.showMessageDialog(
-						PropertyFactory.getString("in_ieDelEqNotEqSet"),
+						LanguageBundle.getString("in_ieDelEqNotEqSet"),
 						Constants.APPLICATION_NAME, MessageType.ERROR);
 
 				return;
@@ -2687,7 +2687,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		int iConfirm =
 				JOptionPane.showConfirmDialog(null,
-					PropertyFactory.getString("in_ieDelEqSetConfirmMsg"), PropertyFactory.getString("in_ieDelEqSetConfirmTitle"),
+					LanguageBundle.getString("in_ieDelEqSetConfirmMsg"), LanguageBundle.getString("in_ieDelEqSetConfirmTitle"),
 					JOptionPane.YES_NO_OPTION);
 
 		if (iConfirm != JOptionPane.YES_OPTION)
@@ -2940,7 +2940,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		catch (IOException ioe)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_ieCldNotCreateTmpEqFileError"), Constants.APPLICATION_NAME,
+				LanguageBundle.getString("in_ieCldNotCreateTmpEqFileError"), Constants.APPLICATION_NAME ,
 				MessageType.ERROR);
 			Logging
 				.errorPrintLocalised("in_ieCldNotCreateTmpEqFileError");
@@ -3142,7 +3142,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 	{
 
 		PCGen_Frame1
-			.setMessageAreaTextWithoutSaving(PropertyFactory.getString("in_ieSelContToAdd"));
+			.setMessageAreaTextWithoutSaving(LanguageBundle.getString("in_ieSelContToAdd"));
 
 		refresh();
 
@@ -3436,11 +3436,11 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		SettingsHandler.setEquipTab_SelectedListMode(viewSelectMode);
 
-		viewComboBox.addItem(PropertyFactory.getString("in_nameLabel")
+		viewComboBox.addItem(LanguageBundle.getString("in_nameLabel")
 			+ "     ");
-		viewComboBox.addItem(PropertyFactory.getString("in_ieLoc") + " ");
-		viewComboBox.addItem(PropertyFactory.getString("in_ieEquipped") + " ");
-		viewComboBox.addItem(PropertyFactory.getString("in_type") + "     ");
+		viewComboBox.addItem(LanguageBundle.getString("in_ieLoc") + " ");
+		viewComboBox.addItem(LanguageBundle.getString("in_ieEquipped") + " ");
+		viewComboBox.addItem(LanguageBundle.getString("in_type") + "     ");
 		Utility.setDescription(viewComboBox, "Blah Blah");
 		viewComboBox.setSelectedIndex(viewMode);
 
@@ -3449,8 +3449,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		addEquipButton = new JButton(newImage);
 		newImage = IconUtilitities.getImageIcon("Back16.gif");
 		delEquipButton = new JButton(newImage);
-		setQtyButton = new JButton(PropertyFactory.getString("in_ieSetQt"));
-		setNoteButton = new JButton(PropertyFactory.getString("in_ieSetNote"));
+		setQtyButton = new JButton(LanguageBundle.getString("in_ieSetQt"));
+		setNoteButton = new JButton(LanguageBundle.getString("in_ieSetNote"));
 
 		// flesh out all the tree views
 		createModels();
@@ -3508,17 +3508,17 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		JButton columnButton = new JButton();
 		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
 			columnButton);
-		columnButton.setText(PropertyFactory.getString("in_caretSymbol"));
+		columnButton.setText(LanguageBundle.getString("in_caretSymbol"));
 		new TableColumnManager(availableTable, columnButton, availableModel);
 		leftPane.add(scrollPane, BorderLayout.CENTER);
 
 		JPanel bottomLeftPane =
 				new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
-		Utility.setDescription(addEquipButton, PropertyFactory
+		Utility.setDescription(addEquipButton, LanguageBundle
 			.getString("in_ieAddEqBut"));
 		addEquipButton.setEnabled(false);
 		bottomLeftPane.add(addEquipButton);
-		Utility.setDescription(bottomLeftPane, PropertyFactory
+		Utility.setDescription(bottomLeftPane, LanguageBundle
 			.getString("in_ieAddEqRight"));
 		leftPane.add(bottomLeftPane, BorderLayout.SOUTH);
 
@@ -3527,13 +3527,13 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		JPanel topRightPane =
 				new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		JLabel selProfileLabel =
-				new JLabel(PropertyFactory.getString("in_ieEquipSet") + ":");
+				new JLabel(LanguageBundle.getString("in_ieEquipSet") + ":");
 		topRightPane.add(selProfileLabel);
 		equipSetTextField.setPreferredSize(new Dimension(100, 20));
 		topRightPane.add(equipSetTextField);
-		addEquipSetButton = new JButton(PropertyFactory.getString("in_add"));
+		addEquipSetButton = new JButton(LanguageBundle.getString("in_add"));
 		topRightPane.add(addEquipSetButton);
-		delEquipSetButton = new JButton(PropertyFactory.getString("in_ieDel"));
+		delEquipSetButton = new JButton(LanguageBundle.getString("in_ieDel"));
 		topRightPane.add(delEquipSetButton);
 
 		rightPane.add(topRightPane, BorderLayout.NORTH);
@@ -3545,24 +3545,24 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		JButton columnButton2 = new JButton();
 		scrollPane2.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
 			columnButton2);
-		columnButton2.setText(PropertyFactory.getString("in_caretSymbol"));
+		columnButton2.setText(LanguageBundle.getString("in_caretSymbol"));
 		new TableColumnManager(selectedTable, columnButton2, selectedModel);
 		rightPane.add(scrollPane2, BorderLayout.CENTER);
 
 		JPanel bottomRightPane =
 				new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		Utility.setDescription(setNoteButton,
-			PropertyFactory.getString("in_ieNoteButDesc"));
+			LanguageBundle.getString("in_ieNoteButDesc"));
 		setNoteButton.setEnabled(false);
 		bottomRightPane.add(setNoteButton);
 
 		Utility.setDescription(setQtyButton, 
-			PropertyFactory.getString("in_ieQtyButDesc"));
+			LanguageBundle.getString("in_ieQtyButDesc"));
 		setQtyButton.setEnabled(false);
 		bottomRightPane.add(setQtyButton);
 
 		Utility.setDescription(delEquipButton,
-			PropertyFactory.getString("in_ieDelEqButDesc"));
+			LanguageBundle.getString("in_ieDelEqButDesc"));
 		delEquipButton.setEnabled(false);
 		bottomRightPane.add(delEquipButton);
 		rightPane.add(bottomRightPane, BorderLayout.SOUTH);
@@ -3622,7 +3622,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		// create an equipment info scroll area
 		JScrollPane sScroll = new JScrollPane();
 		TitledBorder sTitle =
-				BorderFactory.createTitledBorder(PropertyFactory.getString("in_ieEqInfo"));
+				BorderFactory.createTitledBorder(LanguageBundle.getString("in_ieEqInfo"));
 		sTitle.setTitleJustification(TitledBorder.CENTER);
 		sScroll.setBorder(sTitle);
 		infoLabel.setBackground(topPane.getBackground());
@@ -3653,15 +3653,15 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		JPanel iPanel = new JPanel();
 		gridbag.setConstraints(iPanel, c);
 
-		viewEqSetButton = new JButton(PropertyFactory.getString("in_ieViewBrowserButTitle"));
+		viewEqSetButton = new JButton(LanguageBundle.getString("in_ieViewBrowserButTitle"));
 		Utility.setDescription(viewEqSetButton,
-			PropertyFactory.getString("in_ieViewBrowserButDesc"));
+			LanguageBundle.getString("in_ieViewBrowserButDesc"));
 		viewEqSetButton.setEnabled(true);
 		iPanel.add(viewEqSetButton);
 
-		exportEqSetButton = new JButton(PropertyFactory.getString("in_ieExportFileButTitle"));
+		exportEqSetButton = new JButton(LanguageBundle.getString("in_ieExportFileButTitle"));
 		Utility.setDescription(exportEqSetButton,
-			PropertyFactory.getString("in_ieExportFileButDesc"));
+			LanguageBundle.getString("in_ieExportFileButDesc"));
 		exportEqSetButton.setEnabled(true);
 		iPanel.add(exportEqSetButton);
 
@@ -3673,13 +3673,13 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		gridbag.setConstraints(iiPanel, c);
 
 		templateTextField.setEditable(false);
-		Utility.setDescription(templateTextField, PropertyFactory.getString("in_ieTplTxtFld"));
+		Utility.setDescription(templateTextField, LanguageBundle.getString("in_ieTplTxtFld"));
 		templateTextField.setBackground(Color.lightGray);
 		templateTextField.setText(SettingsHandler
 			.getSelectedEqSetTemplateName());
-		selectTemplateButton = new JButton(PropertyFactory.getString("in_ieBtmPanelSelTplButTitle"));
+		selectTemplateButton = new JButton(LanguageBundle.getString("in_ieBtmPanelSelTplButTitle"));
 		Utility.setDescription(selectTemplateButton,
-				PropertyFactory.getString("in_ieBtmPanelSelTplButDesc"));
+				LanguageBundle.getString("in_ieBtmPanelSelTplButDesc"));
 		iiPanel.add(selectTemplateButton);
 		iiPanel.add(templateTextField);
 
@@ -3824,7 +3824,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("in_ieExportEqSetNoEqSetTpl"),
+					LanguageBundle.getString("in_ieExportEqSetNoEqSetTpl"),
 					Constants.APPLICATION_NAME, MessageType.ERROR);
 			return;
 		}
@@ -3833,7 +3833,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		JFileChooser fcExport = new JFileChooser();
 		fcExport.setCurrentDirectory(SettingsHandler.getPcgPath());
 
-		fcExport.setDialogTitle(PropertyFactory.getFormattedString("in_ieExportEqSetFileChTitle" , pc.getDisplayName()));
+		fcExport.setDialogTitle(LanguageBundle.getFormattedString("in_ieExportEqSetFileChTitle" , pc.getDisplayName()));
 
 		if (fcExport.showSaveDialog(this) != JFileChooser.APPROVE_OPTION)
 		{
@@ -3844,7 +3844,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		if (aFileName.length() < 1)
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_ieExportEqSetNoFilename"),
+			ShowMessageDelegate.showMessageDialog(LanguageBundle.getString("in_ieExportEqSetNoFilename"),
 				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
@@ -3857,7 +3857,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			if (outFile.isDirectory())
 			{
 				ShowMessageDelegate.showMessageDialog(
-					PropertyFactory.getString("in_ieExportEqSetNoOverwriteDirWithFile"), Constants.APPLICATION_NAME,
+					LanguageBundle.getString("in_ieExportEqSetNoOverwriteDirWithFile"), Constants.APPLICATION_NAME ,
 					MessageType.ERROR);
 
 				return;
@@ -3869,8 +3869,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 						JOptionPane
 							.showConfirmDialog(
 								this,
-								PropertyFactory.getFormattedString("in_ieExportEqSetOverwriteFileConfirmDesc",outFile.getName()),
-								PropertyFactory.getFormattedString("in_ieExportEqSetOverwriteFileConfirmTitle", outFile.getName()),
+								LanguageBundle.getFormattedString("in_ieExportEqSetOverwriteFileConfirmDesc",outFile.getName()),
+								LanguageBundle.getFormattedString("in_ieExportEqSetOverwriteFileConfirmTitle", outFile.getName()),
 								JOptionPane.YES_NO_OPTION);
 
 				if (reallyClose != JOptionPane.YES_OPTION)
@@ -3922,7 +3922,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		}
 		catch (IOException ex)
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString(
+			ShowMessageDelegate.showMessageDialog(LanguageBundle.getFormattedString(
 				"in_ieExportEqSetUnableToExport", pc.getDisplayName()), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 			Logging.errorPrint("Could not export " + pc.getDisplayName(), ex);
@@ -3951,7 +3951,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		if (eSet == null)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_ieRenameEqSetNoEqSet"), Constants.APPLICATION_NAME,
+				LanguageBundle.getString("in_ieRenameEqSetNoEqSet"), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 
 			return;
@@ -3962,7 +3962,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		// Get a new name
 		newName =
 				JOptionPane.showInputDialog(null,
-					PropertyFactory.getString("in_ieRenameEqSetNewName"), Constants.APPLICATION_NAME,
+					LanguageBundle.getString("in_ieRenameEqSetNewName"), Constants.APPLICATION_NAME,
 					JOptionPane.QUESTION_MESSAGE);
 
 		// If they are the same, just return
@@ -3980,7 +3980,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			if (pcSet != null)
 			{
 				ShowMessageDelegate.showMessageDialog(
-					PropertyFactory.getString("in_ieRenameEqSetNameAlreadyExists"),
+					LanguageBundle.getString("in_ieRenameEqSetNameAlreadyExists"),
 					Constants.APPLICATION_NAME, MessageType.ERROR);
 
 				return;
@@ -4034,7 +4034,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		{
 			Object selectedValue =
 					JOptionPane.showInputDialog(null, 
-						PropertyFactory.getString("in_ieSellEquipGetQuantity"),
+						LanguageBundle.getString("in_ieSellEquipGetQuantity"),
 						Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
 
 			if (selectedValue != null)
@@ -4046,7 +4046,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				catch (Exception e)
 				{
 					ShowMessageDelegate.showMessageDialog(
-						PropertyFactory.getString("in_ieInvalidNumber"),
+						LanguageBundle.getString("in_ieInvalidNumber"),
 						Constants.APPLICATION_NAME, MessageType.ERROR);
 
 					return;
@@ -4215,7 +4215,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("in_ieViewEqSetNoTpl"),
+					LanguageBundle.getString("in_ieViewEqSetNoTpl"),
 					Constants.APPLICATION_NAME, MessageType.ERROR);
 			return;
 		}
@@ -4241,7 +4241,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		}
 		catch (Exception ex)
 		{
-			Logging.errorPrint(PropertyFactory.getString("in_ieViewEqSetNoViewBrowser"),
+			Logging.errorPrint(LanguageBundle.getString("in_ieViewEqSetNoViewBrowser"),
 				ex);
 		}
 	}
@@ -4377,9 +4377,9 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 		private BonusEditor()
 		{
-			super(new String[]{	PropertyFactory.getString("in_ieBonusEditorNo"), 
-								PropertyFactory.getString("in_ieBonusEditorSelected"),
-								PropertyFactory.getString("in_ieBonusEditorYes")});
+			super(new String[]{	LanguageBundle.getString("in_ieBonusEditorNo"),
+								LanguageBundle.getString("in_ieBonusEditorSelected"),
+								LanguageBundle.getString("in_ieBonusEditorYes")});
 			setEditable(true);
 			addActionListener(new ActionListener()
 			{
@@ -4429,15 +4429,15 @@ public class InfoEquipping extends FilterAdapterPanel implements
 
 				if (i == 0)
 				{
-					setSelectedItem(PropertyFactory.getString("in_ieBonusEditorNo"));
+					setSelectedItem(LanguageBundle.getString("in_ieBonusEditorNo"));
 				}
 				else if (i == 1)
 				{
-					setSelectedItem(PropertyFactory.getString("in_ieBonusEditorSelected"));
+					setSelectedItem(LanguageBundle.getString("in_ieBonusEditorSelected"));
 				}
 				else
 				{
-					setSelectedItem(PropertyFactory.getString("in_ieBonusEditorYes"));
+					setSelectedItem(LanguageBundle.getString("in_ieBonusEditorYes"));
 				}
 			}
 			else if (obj instanceof String)
@@ -4446,7 +4446,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			}
 			else
 			{
-				setSelectedItem(PropertyFactory.getString("in_ieBonusEditorNo"));
+				setSelectedItem(LanguageBundle.getString("in_ieBonusEditorNo"));
 			}
 
 			jTable.setRowSelectionInterval(row, row);
@@ -4804,7 +4804,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 			if (fn == null)
 			{
 				Logging
-					.errorPrint(PropertyFactory.getString("in_ieEquipModelGetValueAt"));
+					.errorPrint(LanguageBundle.getString("in_ieEquipModelGetValueAt"));
 
 				return null;
 			}
@@ -5536,11 +5536,11 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		{
 			if (treeTable == availableTable)
 			{
-				EquipPopupMenu.this.add(createAddMenuItem(PropertyFactory
+				EquipPopupMenu.this.add(createAddMenuItem(LanguageBundle
 					.getString("in_ieAddItem2"), "shortcut EQUALS"));
-				EquipPopupMenu.this.add(createAddNumMenuItem(PropertyFactory
+				EquipPopupMenu.this.add(createAddNumMenuItem(LanguageBundle
 					.getString("in_ieAddItem")));
-				EquipPopupMenu.this.add(createAddAllMenuItem(PropertyFactory
+				EquipPopupMenu.this.add(createAddAllMenuItem(LanguageBundle
 					.getString("in_ieAddAllItem")));
 				EquipPopupMenu.this.addSeparator();
 				EquipPopupMenu.this.add(createBuyMenuItem("Buy 1"));
@@ -5549,11 +5549,11 @@ public class InfoEquipping extends FilterAdapterPanel implements
 				EquipPopupMenu.this.add(createSellNumMenuItem("Sell #"));
 				EquipPopupMenu.this.addSeparator();
 				EquipPopupMenu.this
-					.add(createRefreshMenuItem(PropertyFactory.getString(
+					.add(createRefreshMenuItem(LanguageBundle.getString(
 							"in_ieEquipPopupRefreshLabel")));
 				this.addSeparator();
 				EquipPopupMenu.this.add(Utility.createMenuItem(
-					PropertyFactory.getString("in_ieEquipPopupFindItem"),
+					LanguageBundle.getString("in_ieEquipPopupFindItem"),
 					new ActionListener()
 					{
 						public void actionPerformed(ActionEvent e)
@@ -5561,35 +5561,35 @@ public class InfoEquipping extends FilterAdapterPanel implements
 							lastSearch = availableTable.searchTree(lastSearch);
 						}
 					}, "searchItem", (char) 0, "shortcut F", 
-					PropertyFactory.getString("in_ieEquipPopupFindItem"), null,
+					LanguageBundle.getString("in_ieEquipPopupFindItem"), null,
 					true));
 			}
 			else
 			// selectedTable
 			{
-				EquipPopupMenu.this.add(createDelMenuItem(PropertyFactory
+				EquipPopupMenu.this.add(createDelMenuItem(LanguageBundle
 					.getString("in_ieRemEq"), "shortcut MINUS"));
-				EquipPopupMenu.this.add(createSetQtyMenuItem(PropertyFactory
+				EquipPopupMenu.this.add(createSetQtyMenuItem(LanguageBundle
 					.getString("in_ieSetQt")));
 				EquipPopupMenu.this
-					.add(createSetLocationMenuItem(PropertyFactory
+					.add(createSetLocationMenuItem(LanguageBundle
 						.getString("in_ieChangeLoc")));
-				EquipPopupMenu.this.add(createSetNoteMenuItem(PropertyFactory
+				EquipPopupMenu.this.add(createSetNoteMenuItem(LanguageBundle
 					.getString("in_ieSetNote")));
 				EquipPopupMenu.this.addSeparator();
 				EquipPopupMenu.this
-					.add(createCopyEquipSetMenuItem(PropertyFactory
+					.add(createCopyEquipSetMenuItem(LanguageBundle
 						.getString("in_ieCopyEq")));
 				EquipPopupMenu.this
-					.add(createRenameEquipSetMenuItem(PropertyFactory
+					.add(createRenameEquipSetMenuItem(LanguageBundle
 						.getString("in_ieRenameEq")));
 				EquipPopupMenu.this.addSeparator();
 				EquipPopupMenu.this
-					.add(createRefreshMenuItem(PropertyFactory
+					.add(createRefreshMenuItem(LanguageBundle
 						.getString("in_ieEquipPopupRefreshLabel")));
 				this.addSeparator();
 				EquipPopupMenu.this.add(Utility.createMenuItem(
-					PropertyFactory.getString("in_ieEquipPopupFindItem"),
+					LanguageBundle.getString("in_ieEquipPopupFindItem"),
 					new ActionListener()
 					{
 						public void actionPerformed(ActionEvent e)
@@ -5597,7 +5597,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 							lastSearch = selectedTable.searchTree(lastSearch);
 						}
 					}, "searchItem", (char) 0, "shortcut F", 
-					PropertyFactory.getString("in_ieEquipPopupFindItem"), null,
+					LanguageBundle.getString("in_ieEquipPopupFindItem"), null,
 					true));
 			}
 		}
@@ -5606,9 +5606,9 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		{
 			AddAllMenu =
 					Utility.createMenuItem(label,
-						new AddAllEquipActionListener(), PropertyFactory
+						new AddAllEquipActionListener(), LanguageBundle
 							.getString("in_ieAddAll"), (char) 0, null,
-						PropertyFactory.getString("in_ieAddAllItem"), "", true);
+						LanguageBundle.getString("in_ieAddAllItem"), "", true);
 
 			return AddAllMenu;
 		}
@@ -5617,8 +5617,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		{
 			AddMenu =
 					Utility.createMenuItem(label, new AddEquipActionListener(),
-						PropertyFactory.getString("in_add") + " 1", (char) 0,
-						accelerator, PropertyFactory.getString("in_ieAddEq"),
+						LanguageBundle.getString("in_add") + " 1", (char) 0,
+						accelerator, LanguageBundle.getString("in_ieAddEq"),
 						"", true);
 
 			return AddMenu;
@@ -5628,9 +5628,9 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		{
 			AddNumMenu =
 					Utility.createMenuItem(label,
-						new AddNumEquipActionListener(), PropertyFactory
+						new AddNumEquipActionListener(), LanguageBundle
 							.getString("in_add")
-							+ " #", (char) 0, null, PropertyFactory
+							+ " #", (char) 0, null, LanguageBundle
 							.getString("in_ieAddItem"), "", true);
 
 			return AddNumMenu;
@@ -5659,9 +5659,9 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		{
 			CopyEquipSetMenu =
 					Utility.createMenuItem(label,
-						new CopyEquipSetActionListener(), PropertyFactory
+						new CopyEquipSetActionListener(), LanguageBundle
 							.getString("in_ieCopyEq"), (char) 0, null,
-						PropertyFactory.getString("in_ieDupEq"), "", true);
+						LanguageBundle.getString("in_ieDupEq"), "", true);
 
 			return CopyEquipSetMenu;
 		}
@@ -5670,8 +5670,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		{
 			DelMenu =
 					Utility.createMenuItem(label, new DelEquipActionListener(),
-						PropertyFactory.getString("in_remove") + " 1",
-						(char) 0, accelerator, PropertyFactory
+						LanguageBundle.getString("in_remove") + " 1",
+						(char) 0, accelerator, LanguageBundle
 							.getString("in_ieRemEq"), "", true);
 
 			return DelMenu;
@@ -5680,17 +5680,17 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		private JMenuItem createRefreshMenuItem(String label)
 		{
 			return Utility.createMenuItem(label, new RefreshActionListener(),
-				PropertyFactory.getString("in_ieEquipPopupRefreshLabel"), (char) 0, null,
-				PropertyFactory.getString("in_ieEquipPopupRefreshDescription"), "", true);
+				LanguageBundle.getString("in_ieEquipPopupRefreshLabel"), (char) 0, null,
+				LanguageBundle.getString("in_ieEquipPopupRefreshDescription"), "", true);
 		}
 
 		private JMenuItem createRenameEquipSetMenuItem(String label)
 		{
 			RenameEquipSetMenu =
 					Utility.createMenuItem(label,
-						new RenameEquipSetActionListener(), PropertyFactory
+						new RenameEquipSetActionListener(), LanguageBundle
 							.getString("in_ieRenameEq"), (char) 0, null,
-						PropertyFactory.getString("in_ieRenameEqThis"), "",
+						LanguageBundle.getString("in_ieRenameEqThis"), "",
 						true);
 
 			return RenameEquipSetMenu;
@@ -5720,9 +5720,9 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		{
 			SetLocationMenu =
 					Utility.createMenuItem(label,
-						new SetLocationActionListener(), PropertyFactory
+						new SetLocationActionListener(), LanguageBundle
 							.getString("in_ieChangeLoc"), (char) 0, null,
-						PropertyFactory.getString("in_ieChangeLoc"), "", true);
+						LanguageBundle.getString("in_ieChangeLoc"), "", true);
 
 			return SetLocationMenu;
 		}
@@ -5731,8 +5731,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		{
 			SetNoteMenu =
 					Utility.createMenuItem(label, new SetNoteActionListener(),
-						PropertyFactory.getString("in_ieSetNote"), (char) 0,
-						null, PropertyFactory.getString("in_ieSetNotefull"),
+						LanguageBundle.getString("in_ieSetNote"), (char) 0,
+						null, LanguageBundle.getString("in_ieSetNotefull"),
 						"", true);
 
 			return SetNoteMenu;
@@ -5742,8 +5742,8 @@ public class InfoEquipping extends FilterAdapterPanel implements
 		{
 			SetQtyMenu =
 					Utility.createMenuItem(label, new SetQtyActionListener(),
-						PropertyFactory.getString("in_ieSetQt"), (char) 0,
-						null, PropertyFactory.getString("in_ieSetQtfull"), "",
+						LanguageBundle.getString("in_ieSetQt"), (char) 0,
+						null, LanguageBundle.getString("in_ieSetQtfull"), "",
 						true);
 
 			return SetQtyMenu;

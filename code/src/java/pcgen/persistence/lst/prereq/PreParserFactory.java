@@ -33,13 +33,14 @@ import java.util.Map;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.system.PluginLoader;
 import pcgen.util.Logging;
 
 /**
  * @author wardc
  *
  */
-public class PreParserFactory
+public class PreParserFactory implements PluginLoader
 {
 	private static PreParserFactory instance = null;
 	private static Map<String, PrerequisiteParserInterface> parserLookup =
@@ -48,6 +49,17 @@ public class PreParserFactory
 	private PreParserFactory() throws PersistenceLayerException
 	{
 		register(new PreMultParser());
+	}
+
+	public void loadPlugin(Class<?> clazz) throws Exception
+	{
+		register((PrerequisiteParserInterface) clazz.newInstance());
+	}
+
+	@SuppressWarnings("unchecked")
+	public Class[] getPluginClasses()
+	{
+		return new Class[]{PrerequisiteParserInterface.class};
 	}
 
 	/**

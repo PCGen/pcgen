@@ -48,7 +48,7 @@ import pcgen.util.Logging;
  * @author  Bryan McRoberts <merton_monk@yahoo.com>
  * @version $Revision$
  */
-final class BioSetLoader extends LstLineFileLoader
+public final class BioSetLoader extends LstLineFileLoader
 {
 	private static String regionName = Constants.NONE;
 	BioSet bioSet = new BioSet();

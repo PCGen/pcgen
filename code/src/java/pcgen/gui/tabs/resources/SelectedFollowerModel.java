@@ -12,7 +12,7 @@ import pcgen.gui.utils.AbstractTreeTableModel;
 import pcgen.gui.utils.PObjectNode;
 import pcgen.gui.utils.TreeTableModel;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import javax.swing.table.TableColumn;
 import javax.swing.tree.TreePath;
@@ -62,9 +62,9 @@ public final class SelectedFollowerModel extends AbstractTreeTableModel
 
 	static
 	{
-		selNameList[0] = PropertyFactory.getString("in_typeName"); //$NON-NLS-1$
-		selNameList[1] = PropertyFactory.getString("in_typeRace"); //$NON-NLS-1$
-		selNameList[2] = PropertyFactory.getString("in_fileName"); //$NON-NLS-1$
+		selNameList[0] = LanguageBundle.getString("in_typeName"); //$NON-NLS-1$
+		selNameList[1] = LanguageBundle.getString("in_typeRace"); //$NON-NLS-1$
+		selNameList[2] = LanguageBundle.getString("in_fileName"); //$NON-NLS-1$
 	}
 
 	/**

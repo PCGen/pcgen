@@ -31,7 +31,7 @@ import javax.swing.JPanel;
 
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.Utility;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * This class creates and manages an &quot;Add&quot; button panel.  The class
@@ -56,7 +56,7 @@ public class AddItemPanel extends JPanel
 				new JButton(IconUtilitities.getImageIcon("Forward16.gif")); //$NON-NLS-1$
 
 		this.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
-		Utility.setDescription(theAddButton, PropertyFactory
+		Utility.setDescription(theAddButton, LanguageBundle
 			.getString("InfoTabs.AddButton.Description")); //$NON-NLS-1$
 		theAddButton.setEnabled(false);
 		theAddButton.setMargin(new Insets(1, 14, 1, 14));

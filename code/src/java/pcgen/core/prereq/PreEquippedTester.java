@@ -30,7 +30,7 @@ import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.WieldCategory;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * @author wardc
@@ -116,7 +116,7 @@ public abstract class PreEquippedTester extends AbstractPrerequisiteTest {
 		}
 		else
 		{
-			throw new PrerequisiteException(PropertyFactory.getFormattedString(
+			throw new PrerequisiteException(LanguageBundle.getFormattedString(
 					"PreEquipped.error.invalid_comparison", prereq.toString())); //$NON-NLS-1$
 		}
 

@@ -63,7 +63,7 @@ import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.WholeNumberField;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.DecimalNumberField;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>SpellBasePanel</code>
@@ -333,7 +333,7 @@ public class SpellBasePanel extends BasePanel<Spell>
 		gbc.weighty = 0.3;
 		add(pnlDescription, gbc);
 
-		lblComponents.setText(PropertyFactory.getString("in_demComponents"));
+		lblComponents.setText(LanguageBundle.getString("in_demComponents"));
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
 		gbc.gridy = 2;
@@ -341,7 +341,7 @@ public class SpellBasePanel extends BasePanel<Spell>
 		gbc.anchor = GridBagConstraints.EAST;
 		add(lblComponents, gbc);
 
-		lblCastingTime.setText(PropertyFactory.getString("in_demCastingTime"));
+		lblCastingTime.setText(LanguageBundle.getString("in_demCastingTime"));
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
 		gbc.gridy = 3;
@@ -361,7 +361,7 @@ public class SpellBasePanel extends BasePanel<Spell>
 		gbc.weightx = 0.25;
 		add(cmbCastingTime, gbc);
 
-		lblRange.setText(PropertyFactory.getString("in_demRange"));
+		lblRange.setText(LanguageBundle.getString("in_demRange"));
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
 		gbc.gridy = 4;
@@ -380,7 +380,7 @@ public class SpellBasePanel extends BasePanel<Spell>
 		gbc.anchor = GridBagConstraints.WEST;
 		add(cmbRange, gbc);
 
-		lblTarget.setText(PropertyFactory.getString("in_demTargetArea"));
+		lblTarget.setText(LanguageBundle.getString("in_demTargetArea"));
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
 		gbc.gridy = 5;
@@ -399,7 +399,7 @@ public class SpellBasePanel extends BasePanel<Spell>
 		gbc.anchor = GridBagConstraints.WEST;
 		add(cmbTarget, gbc);
 
-		lblDuration.setText(PropertyFactory.getString("in_demDuration"));
+		lblDuration.setText(LanguageBundle.getString("in_demDuration"));
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
 		gbc.gridy = 6;
@@ -418,7 +418,7 @@ public class SpellBasePanel extends BasePanel<Spell>
 		gbc.anchor = GridBagConstraints.WEST;
 		add(cmbDuration, gbc);
 
-		lblSavingThrow.setText(PropertyFactory.getString("in_demSavingThrow"));
+		lblSavingThrow.setText(LanguageBundle.getString("in_demSavingThrow"));
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
 		gbc.gridy = 7;
@@ -437,7 +437,7 @@ public class SpellBasePanel extends BasePanel<Spell>
 		gbc.anchor = GridBagConstraints.WEST;
 		add(cmbSavingThrow, gbc);
 
-		lblSpellRes.setText(PropertyFactory.getString("in_demSpellResistance"));
+		lblSpellRes.setText(LanguageBundle.getString("in_demSpellResistance"));
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
 		gbc.gridy = 8;
@@ -456,7 +456,7 @@ public class SpellBasePanel extends BasePanel<Spell>
 		gbc.anchor = GridBagConstraints.WEST;
 		add(cmbSpellRes, gbc);
 
-		lblCost.setText(PropertyFactory.getString("in_demComponentCost"));
+		lblCost.setText(LanguageBundle.getString("in_demComponentCost"));
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
 		gbc.gridy = 9;
@@ -471,7 +471,7 @@ public class SpellBasePanel extends BasePanel<Spell>
 		gbc.anchor = GridBagConstraints.WEST;
 		add(txtCost, gbc);
 
-		lblSchool.setText(PropertyFactory.getString("in_demSchool"));
+		lblSchool.setText(LanguageBundle.getString("in_demSchool"));
 		gbc = new GridBagConstraints();
 		gbc.gridx = 3;
 		gbc.gridy = 2;
@@ -490,7 +490,7 @@ public class SpellBasePanel extends BasePanel<Spell>
 		gbc.anchor = GridBagConstraints.WEST;
 		add(cmbSchool, gbc);
 
-		lblSubschool.setText(PropertyFactory.getString("in_demSubschool"));
+		lblSubschool.setText(LanguageBundle.getString("in_demSubschool"));
 		gbc = new GridBagConstraints();
 		gbc.gridx = 3;
 		gbc.gridy = 3;
@@ -510,7 +510,7 @@ public class SpellBasePanel extends BasePanel<Spell>
 		gbc.weightx = 0.25;
 		add(cmbSubschool, gbc);
 
-		lblDescriptor.setText(PropertyFactory.getString( "in_demDescriptor"));
+		lblDescriptor.setText(LanguageBundle.getString( "in_demDescriptor"));
 		gbc = new GridBagConstraints();
 		gbc.gridx = 3;
 		gbc.gridy = 4;
@@ -543,7 +543,7 @@ public class SpellBasePanel extends BasePanel<Spell>
 		gbc.weightx = 0.25;
 		add(pnlDescriptor, gbc);
 
-		lblStat.setText(PropertyFactory.getString("in_demStat"));
+		lblStat.setText(LanguageBundle.getString("in_demStat"));
 		gbc = new GridBagConstraints();
 		gbc.gridx = 3;
 		gbc.gridy = 5;
@@ -563,7 +563,7 @@ public class SpellBasePanel extends BasePanel<Spell>
 		gbc.weightx = 0.25;
 		add(cmbStat, gbc);
 
-		lblXpCost.setText(PropertyFactory.getString("in_demXPCost"));
+		lblXpCost.setText(LanguageBundle.getString("in_demXPCost"));
 		gbc = new GridBagConstraints();
 		gbc.gridx = 3;
 		gbc.gridy = 9;
@@ -591,9 +591,9 @@ public class SpellBasePanel extends BasePanel<Spell>
 
 		pnlMagicTypes.setLayout(new GridBagLayout());
 
-		pnlMagicTypes.setBorder(new TitledBorder(PropertyFactory.getString("in_demAllowedMagicItemType")));
+		pnlMagicTypes.setBorder(new TitledBorder(LanguageBundle.getString("in_demAllowedMagicItemType")));
 		lblPotionAllowed.setLabelFor(chkPotionAllowed);
-		lblPotionAllowed.setText(PropertyFactory.getString("in_demPotion"));
+		lblPotionAllowed.setText(LanguageBundle.getString("in_demPotion"));
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
 		gbc.gridy = 0;
@@ -613,7 +613,7 @@ public class SpellBasePanel extends BasePanel<Spell>
 		pnlMagicTypes.add(chkPotionAllowed, gbc);
 
 		lblScrollAllowed.setLabelFor(chkScrollAllowed);
-		lblScrollAllowed.setText(PropertyFactory.getString("in_demScroll"));
+		lblScrollAllowed.setText(LanguageBundle.getString("in_demScroll"));
 		gbc = new GridBagConstraints();
 		gbc.gridx = 3;
 		gbc.gridy = 0;
@@ -633,7 +633,7 @@ public class SpellBasePanel extends BasePanel<Spell>
 		pnlMagicTypes.add(chkScrollAllowed, gbc);
 
 		lblWandAllowed.setLabelFor(chkWandAllowed);
-		lblWandAllowed.setText(PropertyFactory.getString("in_demWand"));
+		lblWandAllowed.setText(LanguageBundle.getString("in_demWand"));
 		gbc = new GridBagConstraints();
 		gbc.gridx = 3;
 		gbc.gridy = 1;
@@ -653,7 +653,7 @@ public class SpellBasePanel extends BasePanel<Spell>
 		pnlMagicTypes.add(chkWandAllowed, gbc);
 
 		lblRingAllowed.setLabelFor(chkRingAllowed);
-		lblRingAllowed.setText(PropertyFactory.getString("in_demRing"));
+		lblRingAllowed.setText(LanguageBundle.getString("in_demRing"));
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
 		gbc.gridy = 1;
@@ -752,7 +752,7 @@ public class SpellBasePanel extends BasePanel<Spell>
 			JPanel pnlDialog = new JPanel(new BorderLayout());
 			pnlSelectDescriptor = new AvailableSelectedPanel();
 
-			btnSave = new JButton(new AbstractAction(PropertyFactory.getString("in_save"))
+			btnSave = new JButton(new AbstractAction(LanguageBundle.getString("in_save"))
 			{
 				@Override
 				public void actionPerformed(ActionEvent ae)
@@ -768,7 +768,7 @@ public class SpellBasePanel extends BasePanel<Spell>
 					closeDialog();
 				}
 			});
-			btnCancel = new JButton(new AbstractAction(PropertyFactory.getString("in_cancel"))
+			btnCancel = new JButton(new AbstractAction(LanguageBundle.getString("in_cancel"))
 			{
 				@Override
 				public void actionPerformed(ActionEvent ae)

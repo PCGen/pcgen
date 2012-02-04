@@ -31,7 +31,7 @@ package pcgen.core.prereq;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * This is the base class for Prerequisites, if a given prerequisite does not
@@ -61,7 +61,7 @@ public abstract class AbstractPrerequisiteTest implements PrerequisiteTest
 	    final PlayerCharacter character, CDOMObject source) throws PrerequisiteException
 	{
 		String name    = this.getClass().getName();
-		String eString = PropertyFactory.getFormattedString(
+		String eString = LanguageBundle.getFormattedString(
 			    "prereq.error.does_not_support_characters",
 			    name);
 		throw new PrerequisiteException(eString);
@@ -91,7 +91,7 @@ public abstract class AbstractPrerequisiteTest implements PrerequisiteTest
 		if (character == null)
 		{
 			String name    = this.getClass().getName();
-			String eString = PropertyFactory.getFormattedString(
+			String eString = LanguageBundle.getFormattedString(
 				    "prereq.error.does_not_support_equipment",
 				    name);
 			throw new PrerequisiteException(eString);
@@ -118,7 +118,7 @@ public abstract class AbstractPrerequisiteTest implements PrerequisiteTest
 	 */
     public String toHtmlString(final Prerequisite prereq)
 	{
-		return PropertyFactory.getFormattedString(
+		return LanguageBundle.getFormattedString(
 			    "AbstractPrerequisiteTest.toHtml",
 			    new Object[]
 			    {

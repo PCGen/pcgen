@@ -32,7 +32,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * @author wardc
@@ -75,10 +75,9 @@ public class PreUnarmedAttackTester extends AbstractPrerequisiteTest implements
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		return PropertyFactory.getFormattedString(
-			"PreUnarmedAttack.toHtml", //$NON-NLS-1$
-			prereq.getOperator().toString(),
-			prereq.getOperand());
+		return LanguageBundle
+			.getFormattedString(
+				"PreUnarmedAttack.toHtml", prereq.getOperator().toString(), prereq.getOperand()); //$NON-NLS-1$
 	}
 
 }

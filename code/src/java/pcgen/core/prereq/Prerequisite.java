@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import pcgen.cdom.base.Constants;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * The Class <code>Prerequisite</code> is the storage format for all 
@@ -234,12 +234,12 @@ public class Prerequisite implements Cloneable
 		final StringBuffer buf = new StringBuffer();
 
 		buf.append("<"); //$NON-NLS-1$
-		buf.append(PropertyFactory.getString("Prerequisite.prereq_tag")); //$NON-NLS-1$
+		buf.append(LanguageBundle.getString("Prerequisite.prereq_tag")); //$NON-NLS-1$
 		buf.append(" "); //$NON-NLS-1$
 
 		if (kind != null)
 		{
-			buf.append(PropertyFactory.getString("Prerequisite.kind")); //$NON-NLS-1$
+			buf.append(LanguageBundle.getString("Prerequisite.kind")); //$NON-NLS-1$
 			buf.append("=\""); //$NON-NLS-1$
 			buf.append(kind);
 			buf.append("\" "); //$NON-NLS-1$
@@ -247,17 +247,17 @@ public class Prerequisite implements Cloneable
 
 		if (countMultiples)
 		{
-			buf.append(PropertyFactory.getString("Prerequisite.count-multiples")); //$NON-NLS-1$
+			buf.append(LanguageBundle.getString("Prerequisite.count-multiples")); //$NON-NLS-1$
 		}
 		
 		if (totalValues)
 		{
-			buf.append(PropertyFactory.getString("Prerequisite.total-values")); //$NON-NLS-1$
+			buf.append(LanguageBundle.getString("Prerequisite.total-values")); //$NON-NLS-1$
 		}
 
 		if (categoryName != null)
 		{
-			buf.append(PropertyFactory.getString("Prerequisite.category")); //$NON-NLS-1$
+			buf.append(LanguageBundle.getString("Prerequisite.category")); //$NON-NLS-1$
 			buf.append("=\""); //$NON-NLS-1$
 			buf.append(categoryName);
 			buf.append("\" "); //$NON-NLS-1$
@@ -265,7 +265,7 @@ public class Prerequisite implements Cloneable
 
 		if (key != null)
 		{
-			buf.append(PropertyFactory.getString("Prerequisite.key")); //$NON-NLS-1$
+			buf.append(LanguageBundle.getString("Prerequisite.key")); //$NON-NLS-1$
 			buf.append("=\""); //$NON-NLS-1$
 			buf.append(key);
 			buf.append("\" "); //$NON-NLS-1$
@@ -273,20 +273,20 @@ public class Prerequisite implements Cloneable
 
 		if ((subKey != null) && !subKey.equals("")) //$NON-NLS-1$
 		{
-			buf.append(PropertyFactory.getString("Prerequisite.sub-key")); //$NON-NLS-1$
+			buf.append(LanguageBundle.getString("Prerequisite.sub-key")); //$NON-NLS-1$
 			buf.append("=\""); //$NON-NLS-1$
 			buf.append(subKey);
 			buf.append("\" "); //$NON-NLS-1$
 		}
 
-		buf.append(PropertyFactory.getString("Prerequisite.operator")); //$NON-NLS-1$
+		buf.append(LanguageBundle.getString("Prerequisite.operator")); //$NON-NLS-1$
 		buf.append("=\""); //$NON-NLS-1$
 		buf.append(operator);
 		buf.append("\" "); //$NON-NLS-1$
 
 		if (operand != null)
 		{
-			buf.append(PropertyFactory.getString("Prerequisite.operand")); //$NON-NLS-1$
+			buf.append(LanguageBundle.getString("Prerequisite.operand")); //$NON-NLS-1$
 			buf.append("=\""); //$NON-NLS-1$
 			buf.append(operand);
 			buf.append("\" "); //$NON-NLS-1$
@@ -294,7 +294,7 @@ public class Prerequisite implements Cloneable
 
 		if (isOverrideQualify())
 		{
-			buf.append(PropertyFactory.getString("Prerequisite.override-qualify")); //$NON-NLS-1$
+			buf.append(LanguageBundle.getString("Prerequisite.override-qualify")); //$NON-NLS-1$
 		}
 
 		buf.append(">\n"); //$NON-NLS-1$
@@ -308,7 +308,7 @@ public class Prerequisite implements Cloneable
 		}
 
 		buf.append("</"); //$NON-NLS-1$
-		buf.append(PropertyFactory.getString("Prerequisite.prereq_tag")); //$NON-NLS-1$
+		buf.append(LanguageBundle.getString("Prerequisite.prereq_tag")); //$NON-NLS-1$
 		buf.append(">\n"); //$NON-NLS-1$
 
 		return buf.toString();

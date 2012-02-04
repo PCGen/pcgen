@@ -1,16 +1,16 @@
 /*
  * Copyright 2007 (C) Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
@@ -71,10 +71,10 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 			Class<T> cl, Category<T> cat);
 
 	/**
-	 * Retrieve the Reference manufacturer that handles this class and category. Note that 
-	 * even though abilities are categorized, the category may not be know initially, so 
-	 * null cat values are legal.   
-	 * 
+	 * Retrieve the Reference manufacturer that handles this class and category. Note that
+	 * even though abilities are categorized, the category may not be know initially, so
+	 * null cat values are legal.
+	 *
 	 * @param cl The class that is being processed (Ability, SubClass etc)
 	 * @param cat The category of the class.
 	 * @return The reference manufacturer
@@ -248,8 +248,8 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 			CategorizedCDOMObject cdo = (CategorizedCDOMObject) obj;
 			if (hasManufacturer(cl, cdo.getCDOMCategory()))
 			{
-			    // Work around a bug in the Eclipse 3.7.0/1 compiler by explicitly extracting a Category<?>
-				return getManufacturer(cl, (Category<?>)cdo.getCDOMCategory()).forgetObject(obj);
+                // Work around a bug in the Eclipse 3.7.0/1 compiler by explicitly extracting a Category<?>
+                return getManufacturer(cl, (Category<?>)cdo.getCDOMCategory()).forgetObject(obj);
 			}
 		}
 		else

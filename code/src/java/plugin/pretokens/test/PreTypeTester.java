@@ -35,7 +35,7 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * Prerequisite tester, tests for the presence of a type.
@@ -82,7 +82,7 @@ public class PreTypeTester extends AbstractPrerequisiteTest implements
 		else
 		{
 			throw new PrerequisiteException(
-				PropertyFactory
+				LanguageBundle
 					.getFormattedString(
 						"PreType.error.invalidComparison", prereq.getOperator().toString(), prereq.toString())); //$NON-NLS-1$
 		}
@@ -131,7 +131,7 @@ public class PreTypeTester extends AbstractPrerequisiteTest implements
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		return PropertyFactory
+		return LanguageBundle
 			.getFormattedString(
 				"PreType.toHtml", prereq.getOperator().toDisplayString(), prereq.getKey()); //$NON-NLS-1$
 	}

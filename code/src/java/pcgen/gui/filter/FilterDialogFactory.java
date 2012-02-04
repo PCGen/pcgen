@@ -29,7 +29,7 @@ import pcgen.gui.PToolBar;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.Utility;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -50,14 +50,14 @@ import java.util.List;
  */
 public final class FilterDialogFactory
 {
-	private static final String in_selectFilter = PropertyFactory.getString("in_selectFilter");
-	private static final String in_curSelFil = PropertyFactory.getString("in_curSelFil");
-	private static final String in_curNoSelFil = PropertyFactory.getString("in_curNoSelFil");
-	private static final String in_curActTab = PropertyFactory.getString("in_curActTab");
-	private static final String in_matchAllOf = PropertyFactory.getString("in_matchAllOf");
-	private static final String in_matchNotAllOf = PropertyFactory.getString("in_matchNotAllOf");
-	private static final String in_matchAnyOf = PropertyFactory.getString("in_matchAnyOf");
-	private static final String in_matchNotAnyOf = PropertyFactory.getString("in_matchNotAnyOf");
+	private static final String in_selectFilter = LanguageBundle.getString("in_selectFilter");
+	private static final String in_curSelFil = LanguageBundle.getString("in_curSelFil");
+	private static final String in_curNoSelFil = LanguageBundle.getString("in_curNoSelFil");
+	private static final String in_curActTab = LanguageBundle.getString("in_curActTab");
+	private static final String in_matchAllOf = LanguageBundle.getString("in_matchAllOf");
+	private static final String in_matchNotAllOf = LanguageBundle.getString("in_matchNotAllOf");
+	private static final String in_matchAnyOf = LanguageBundle.getString("in_matchAnyOf");
+	private static final String in_matchNotAnyOf = LanguageBundle.getString("in_matchNotAnyOf");
 	private static FilterSelectDialog filterSelectDialog = null;
 	private static FilterCustomDialog filterCustomDialog = null;
 	private static FilterEditorDialog filterEditorDialog = null;
@@ -273,7 +273,7 @@ final class FilterSelectDialog extends JDialog implements ActionListener
 	{
 		public String getCategory()
 		{
-			return PropertyFactory.getString("in_demo");
+			return LanguageBundle.getString("in_demo");
 		}
 
 		public String getDescription()
@@ -288,12 +288,12 @@ final class FilterSelectDialog extends JDialog implements ActionListener
 
 		public String getName()
 		{
-			return PropertyFactory.getString("in_actTabNot");
+			return LanguageBundle.getString("in_actTabNot");
 		}
 
 		public String getName(PlayerCharacter aPC)
 		{
-			return PropertyFactory.getString("in_actTabNot");
+			return LanguageBundle.getString("in_actTabNot");
 		}
 
 		@Override
@@ -326,7 +326,7 @@ final class FilterSelectDialog extends JDialog implements ActionListener
 
 	FilterSelectDialog()
 	{
-		super(Globals.getRootFrame(), PropertyFactory.getString("in_filOpt"));
+		super(Globals.getRootFrame(), LanguageBundle.getString("in_filOpt"));
 		init();
 	}
 
@@ -461,10 +461,10 @@ final class FilterSelectDialog extends JDialog implements ActionListener
 			{
 				// show warning
 				ShowMessageDelegate.showMessageDialog(
-					PropertyFactory.getString("in_filterErP1")
+					LanguageBundle.getString("in_filterErP1")
 						+ Constants.LINE_SEPARATOR
-						+ PropertyFactory.getString("in_filterErP2"),
-					PropertyFactory.getString("in_filterErWarn"),
+						+ LanguageBundle.getString("in_filterErP2"),
+						LanguageBundle.getString("in_filterErWarn"),
 					MessageType.ERROR);
 
 				return;
@@ -577,7 +577,7 @@ final class FilterSelectDialog extends JDialog implements ActionListener
 		// left stuff
 		leftPanel.gbc.anchor = GridBagConstraints.NORTHWEST;
 		leftPanel.gbc.weighty = 0;
-		leftPanel.add(new JLabel(PropertyFactory.getString("in_availFils")), 0, 0, 1, 1);
+		leftPanel.add(new JLabel(LanguageBundle.getString("in_availFils")), 0, 0, 1, 1);
 
 		// Available List
 //  		availableList = new JList(availableModel = new DefaultListModel());
@@ -631,7 +631,7 @@ final class FilterSelectDialog extends JDialog implements ActionListener
 		// right stuff
 		rightPanel.gbc.weighty = 0;
 		rightPanel.gbc.anchor = GridBagConstraints.NORTHWEST;
-		rightPanel.add(new JLabel(PropertyFactory.getString("in_selectedFilter")), 0, 0, 1, 1);
+		rightPanel.add(new JLabel(LanguageBundle.getString("in_selectedFilter")), 0, 0, 1, 1);
 
 		// Selected List
 //  		selectedList = new JList(selectedModel = new DefaultListModel());
@@ -645,7 +645,7 @@ final class FilterSelectDialog extends JDialog implements ActionListener
 		selectedScroll.setPreferredSize(new Dimension(200, 130));
 
 		// Save button
-		saveButton = new JButton(PropertyFactory.getString("in_save"));
+		saveButton = new JButton(LanguageBundle.getString("in_save"));
 
 //                  saveButton.setMinimumSize( buttonDimension );
 //                  saveButton.setPreferredSize( buttonDimension );
@@ -656,11 +656,11 @@ final class FilterSelectDialog extends JDialog implements ActionListener
 		saveButtonPanel.add(saveButton);
 
 		// Option buttons
-		matchAllRadio = new JRadioButton(PropertyFactory.getString("in_matchAll"));
+		matchAllRadio = new JRadioButton(LanguageBundle.getString("in_matchAll"));
 		matchAllRadio.setEnabled(true);
-		matchAnyRadio = new JRadioButton(PropertyFactory.getString("in_matchAny"));
+		matchAnyRadio = new JRadioButton(LanguageBundle.getString("in_matchAny"));
 		matchAnyRadio.setEnabled(false);
-		negateBox = new JCheckBox(PropertyFactory.getString("in_negRev"));
+		negateBox = new JCheckBox(LanguageBundle.getString("in_negRev"));
 		negateBox.setSelected(false);
 		negateBox.setEnabled(false);
 
@@ -672,7 +672,7 @@ final class FilterSelectDialog extends JDialog implements ActionListener
 		JPanel optionPanel = new JPanel(new GridLayout(3, 1));
 		optionPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createCompoundBorder(BorderFactory.createCompoundBorder(BorderFactory.createLoweredBevelBorder(),
 			BorderFactory.createRaisedBevelBorder()), BorderFactory.createEmptyBorder(0, 5, 2, 5)),
-			PropertyFactory.getString("in_options"), TitledBorder.LEFT, TitledBorder.TOP,
+			LanguageBundle.getString("in_options"), TitledBorder.LEFT, TitledBorder.TOP,
 			UIManager.getFont("Label.font")));
 		optionPanel.add(matchAllRadio);
 		optionPanel.add(matchAnyRadio);
@@ -703,13 +703,13 @@ final class FilterSelectDialog extends JDialog implements ActionListener
 		rightPanel.gbc.fill = GridBagConstraints.VERTICAL;
 		rightPanel.add(rightListPanel, 1, 0, 1, 1);
 
-		applyButton = new JButton(PropertyFactory.getString("in_apply"));
+		applyButton = new JButton(LanguageBundle.getString("in_apply"));
 
 //                  applyButton.setMinimumSize( buttonDimension );
 //                  applyButton.setPreferredSize( buttonDimension );
 		applyButton.addActionListener(this);
 
-		cancelButton = new JButton(PropertyFactory.getString("in_cancel"));
+		cancelButton = new JButton(LanguageBundle.getString("in_cancel"));
 
 //                  cancelButton.setMinimumSize( buttonDimension );
 //                  cancelButton.setPreferredSize( buttonDimension );
@@ -1242,7 +1242,7 @@ final class FilterCustomDialog extends JDialog implements ActionListener
 	 */
 	FilterCustomDialog()
 	{
-		super(Globals.getRootFrame(), PropertyFactory.getString("in_filterCustom"));
+		super(Globals.getRootFrame(), LanguageBundle.getString("in_filterCustom"));
 		this.init();
 	}
 
@@ -1380,7 +1380,7 @@ final class FilterCustomDialog extends JDialog implements ActionListener
 // left stuff
 		leftPanel.gbc.anchor = GridBagConstraints.NORTHWEST;
 		leftPanel.gbc.weighty = 0;
-		leftPanel.add(new JLabel(PropertyFactory.getString("in_availFils")), 0, 0, 1, 1);
+		leftPanel.add(new JLabel(LanguageBundle.getString("in_availFils")), 0, 0, 1, 1);
 
 		final Dimension scrollPaneDimension = new Dimension(200, 295);
 
@@ -1434,7 +1434,7 @@ final class FilterCustomDialog extends JDialog implements ActionListener
 // right stuff
 		rightPanel.gbc.weighty = 0;
 		rightPanel.gbc.anchor = GridBagConstraints.NORTHWEST;
-		rightPanel.add(new JLabel(PropertyFactory.getString("in_removeFils")), 0, 0, 1, 1);
+		rightPanel.add(new JLabel(LanguageBundle.getString("in_removeFils")), 0, 0, 1, 1);
 
 // Removed List
 		removedList = new FilterList(removedModel = new SortedListModel());
@@ -1458,11 +1458,11 @@ final class FilterCustomDialog extends JDialog implements ActionListener
 		// control buttons
 		final Dimension buttonDimension = new Dimension(95, 27);
 
-		applyButton = new JButton(PropertyFactory.getString("in_apply"));
+		applyButton = new JButton(LanguageBundle.getString("in_apply"));
 		applyButton.setPreferredSize(buttonDimension);
 		applyButton.addActionListener(this);
 
-		cancelButton = new JButton(PropertyFactory.getString("in_cancel"));
+		cancelButton = new JButton(LanguageBundle.getString("in_cancel"));
 		cancelButton.setPreferredSize(buttonDimension);
 		cancelButton.addActionListener(this);
 
@@ -1678,7 +1678,7 @@ final class FilterNameDialog extends JDialog implements ActionListener
 	 */
 	public FilterNameDialog()
 	{
-		super(Globals.getRootFrame(), PropertyFactory.getString("in_filterCustom"));
+		super(Globals.getRootFrame(), LanguageBundle.getString("in_filterCustom"));
 		this.init();
 	}
 
@@ -1739,14 +1739,14 @@ final class FilterNameDialog extends JDialog implements ActionListener
 		{
 			if (illegalNamesList.contains(name.trim()))
 			{
-				ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString("in_filterEr2P1",name), PropertyFactory.getString("in_filterErWarn"),
+				ShowMessageDelegate.showMessageDialog(LanguageBundle.getFormattedString("in_filterEr2P1",name), LanguageBundle.getString("in_filterErWarn"),
 					MessageType.ERROR);
 			}
 			else
 			{
 				int index = indexOfIllegalChar(name);
-				ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString("in_filterEr3P1",String.valueOf(name.charAt(index))),
-					PropertyFactory.getString("in_filterErWarn"), MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog(LanguageBundle.getFormattedString("in_filterEr3P1",String.valueOf(name.charAt(index))),
+					LanguageBundle.getString("in_filterErWarn"), MessageType.ERROR);
 				nameField.requestFocus();
 				nameField.setCaretPosition(index);
 			}
@@ -1800,7 +1800,7 @@ final class FilterNameDialog extends JDialog implements ActionListener
 		descriptionAreaPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 		descriptionAreaPanel.add(descriptionScroll);
 
-		applyButton = new JButton(PropertyFactory.getString("in_apply"));
+		applyButton = new JButton(LanguageBundle.getString("in_apply"));
 		applyButton.setMinimumSize(new Dimension(95, 27));
 		applyButton.setPreferredSize(new Dimension(95, 27));
 		applyButton.addActionListener(this);
@@ -1815,9 +1815,9 @@ final class FilterNameDialog extends JDialog implements ActionListener
 		mainPanel.gbc.weightx = 10;
 		mainPanel.gbc.weighty = 0;
 		mainPanel.gbc.fill = GridBagConstraints.HORIZONTAL;
-		mainPanel.add(new JLabel(PropertyFactory.getString("in_nameLabel") + ":"), 0, 0, 1, 1);
+		mainPanel.add(new JLabel(LanguageBundle.getString("in_nameLabel") + ":"), 0, 0, 1, 1);
 		mainPanel.add(nameFieldPanel, 1, 0, 1, 1);
-		mainPanel.add(new JLabel(PropertyFactory.getString("in_descrip") + ":"), 2, 0, 1, 1);
+		mainPanel.add(new JLabel(LanguageBundle.getString("in_descrip") + ":"), 2, 0, 1, 1);
 		mainPanel.gbc.weighty = 10;
 		mainPanel.gbc.fill = GridBagConstraints.BOTH;
 		mainPanel.add(descriptionAreaPanel, 3, 0, 1, 1);
@@ -1895,7 +1895,7 @@ final class FilterEditorDialog extends JDialog implements ActionListener
 	 *
 	 * author: Thomas Behr 02-09-20
 	 */
-	private static final String HELP_MESSAGE = PropertyFactory.getString("in_filterHelpMessage");
+	private static final String HELP_MESSAGE = LanguageBundle.getString("in_filterHelpMessage");
 	private FilterList customList;
 	private FilterList standardList;
 	private final FilterNameDialog filterNameDialog = new FilterNameDialog();
@@ -1918,7 +1918,7 @@ final class FilterEditorDialog extends JDialog implements ActionListener
 	 */
 	public FilterEditorDialog()
 	{
-		super(Globals.getRootFrame(), PropertyFactory.getString("in_filterCustom"));
+		super(Globals.getRootFrame(), LanguageBundle.getString("in_filterCustom"));
 		this.customFilters = new ArrayList();
 		this.customFiltersOrigin = new HashMap<String, String>();
 		this.init();
@@ -2007,7 +2007,7 @@ final class FilterEditorDialog extends JDialog implements ActionListener
 			{
 				filter = null;
 				Logging.errorPrint("Error in FilterDialogFactory::actionPerformed", ex);
-				ShowMessageDelegate.showMessageDialog(ex.getMessage(), PropertyFactory.getString("in_error"), MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog(ex.getMessage(), LanguageBundle.getString("in_error"), MessageType.ERROR);
 			}
 
 			if (filter != null)
@@ -2142,11 +2142,11 @@ final class FilterEditorDialog extends JDialog implements ActionListener
 		// control buttons
 		final Dimension buttonDimension = new Dimension(95, 27);
 
-		applyButton = new JButton(PropertyFactory.getString("in_apply"));
+		applyButton = new JButton(LanguageBundle.getString("in_apply"));
 		applyButton.setPreferredSize(buttonDimension);
 		applyButton.addActionListener(this);
 
-		cancelButton = new JButton(PropertyFactory.getString("in_cancel"));
+		cancelButton = new JButton(LanguageBundle.getString("in_cancel"));
 		cancelButton.setPreferredSize(buttonDimension);
 		cancelButton.addActionListener(this);
 
@@ -2166,11 +2166,11 @@ final class FilterEditorDialog extends JDialog implements ActionListener
 		rightButtonPanel.add(applyButtonPanel, 0, 0, 1, 1);
 		rightButtonPanel.add(cancelButtonPanel, 0, 1, 1, 1);
 
-		createButton = new JButton(PropertyFactory.getString("in_create"));
+		createButton = new JButton(LanguageBundle.getString("in_create"));
 		createButton.setPreferredSize(buttonDimension);
 		createButton.addActionListener(this);
 
-		clearButton = new JButton(PropertyFactory.getString("in_clear"));
+		clearButton = new JButton(LanguageBundle.getString("in_clear"));
 		clearButton.setPreferredSize(buttonDimension);
 		clearButton.addActionListener(this);
 
@@ -2190,7 +2190,7 @@ final class FilterEditorDialog extends JDialog implements ActionListener
 		leftButtonPanel.add(createButtonPanel, 0, 0, 1, 1);
 		leftButtonPanel.add(clearButtonPanel, 0, 1, 1, 1);
 
-		deleteButton = new JButton(PropertyFactory.getString("in_delete"));
+		deleteButton = new JButton(LanguageBundle.getString("in_delete"));
 		deleteButton.setPreferredSize(buttonDimension);
 		deleteButton.addActionListener(this);
 
@@ -2201,7 +2201,7 @@ final class FilterEditorDialog extends JDialog implements ActionListener
 // left stuff
 		leftPanel.gbc.anchor = GridBagConstraints.NORTHWEST;
 		leftPanel.gbc.weighty = 0;
-		leftPanel.add(new JLabel(PropertyFactory.getString("in_standardFils") + ": "), 0, 0, 1, 1);
+		leftPanel.add(new JLabel(LanguageBundle.getString("in_standardFils") + ": "), 0, 0, 1, 1);
 
 		final Dimension scrollPaneDimension = new Dimension(200, 295);
 
@@ -2240,7 +2240,7 @@ final class FilterEditorDialog extends JDialog implements ActionListener
 		middlePanel.gbc.weighty = 0;
 		middlePanel.gbc.fill = GridBagConstraints.NONE;
 		middlePanel.gbc.anchor = GridBagConstraints.NORTHWEST;
-		middlePanel.add(new JLabel(PropertyFactory.getString("in_editor") + ": "), 0, 0, 1, 1);
+		middlePanel.add(new JLabel(LanguageBundle.getString("in_editor") + ": "), 0, 0, 1, 1);
 
 		final Dimension editorDimension = new Dimension(scrollPaneDimension.width * 2, scrollPaneDimension.height);
 
@@ -2267,7 +2267,7 @@ final class FilterEditorDialog extends JDialog implements ActionListener
 // right stuff
 		rightPanel.gbc.weighty = 0;
 		rightPanel.gbc.anchor = GridBagConstraints.NORTHWEST;
-		rightPanel.add(new JLabel(PropertyFactory.getString("in_customFils") + ": "), 0, 1, 1, 1);
+		rightPanel.add(new JLabel(LanguageBundle.getString("in_customFils") + ": "), 0, 1, 1, 1);
 
 // Custom List
 		customList = new FilterList(customModel = new SortedListModel());

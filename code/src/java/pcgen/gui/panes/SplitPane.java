@@ -23,7 +23,7 @@
  */
 package pcgen.gui.panes; // hm.binkley.gui;
 
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import javax.swing.*;
 import javax.swing.plaf.SplitPaneUI;
@@ -485,9 +485,9 @@ final class SplitPane extends JSplitPane
 	{
 		CenterMenuItem()
 		{
-			super(PropertyFactory.getString("in_center"));
+			super(LanguageBundle.getString("in_center"));
 
-			setMnemonic(PropertyFactory.getMnemonic("in_mn_center"));
+			setMnemonic(LanguageBundle.getMnemonic("in_mn_center"));
 			setIcon(Utilities.CENTER_ICON);
 
 			addActionListener(new CenterActionListener());
@@ -515,11 +515,11 @@ final class SplitPane extends JSplitPane
 	{
 		ContinuousLayoutMenuItem()
 		{
-			super(PropertyFactory.getString("in_smothRes"));
+			super(LanguageBundle.getString("in_smothRes"));
 
 			boolean aContinuousLayout = isContinuousLayout();
 
-			setMnemonic(PropertyFactory.getMnemonic("in_mn_smothRes"));
+			setMnemonic(LanguageBundle.getMnemonic("in_mn_smothRes"));
 			setSelected(aContinuousLayout);
 
 			addActionListener(new ContinuousLayoutActionListener(!aContinuousLayout));
@@ -540,9 +540,9 @@ final class SplitPane extends JSplitPane
 	{
 		FlipMenuItem()
 		{
-			super(PropertyFactory.getString("in_flip"));
+			super(LanguageBundle.getString("in_flip"));
 
-			setMnemonic(PropertyFactory.getMnemonic("in_mn_flip"));
+			setMnemonic(LanguageBundle.getMnemonic("in_mn_flip"));
 			setIcon(Utilities.FLIP_ICON);
 
 			addActionListener(new FlipActionListener());
@@ -572,8 +572,8 @@ final class SplitPane extends JSplitPane
 		{
 			boolean enabled = !SplitPane.this.isEnabled();
 
-			setText(enabled ? PropertyFactory.getString("in_unlock") : PropertyFactory.getString("in_lock"));
-			setMnemonic(PropertyFactory.getMnemonic("in_mn_lock"));
+			setText(enabled ? LanguageBundle.getString("in_unlock") : LanguageBundle.getString("in_lock"));
+			setMnemonic(LanguageBundle.getMnemonic("in_mn_lock"));
 			setIcon(Utilities.LOCK_ICON);
 
 			addActionListener(new LockActionListener(enabled));
@@ -601,11 +601,11 @@ final class SplitPane extends JSplitPane
 	{
 		OneTouchExpandableMenuItem()
 		{
-			super(PropertyFactory.getString("in_oneTouchExp"));
+			super(LanguageBundle.getString("in_oneTouchExp"));
 
 			boolean isOneTouchExpandable = isOneTouchExpandable();
 
-			setMnemonic(PropertyFactory.getMnemonic("in_mn_oneTouchExp"));
+			setMnemonic(LanguageBundle.getMnemonic("in_mn_oneTouchExp"));
 			setSelected(isOneTouchExpandable);
 
 			addActionListener(new OneTouchExpandableActionListener(!isOneTouchExpandable));
@@ -617,9 +617,9 @@ final class SplitPane extends JSplitPane
 	{
 		OptionsMenu()
 		{
-			super(PropertyFactory.getString("in_options"));
+			super(LanguageBundle.getString("in_options"));
 
-			setMnemonic(PropertyFactory.getMnemonic("in_mn_options"));
+			setMnemonic(LanguageBundle.getMnemonic("in_mn_options"));
 
 			this.add(new OneTouchExpandableMenuItem());
 			this.add(new ContinuousLayoutMenuItem());
@@ -696,9 +696,9 @@ final class SplitPane extends JSplitPane
 	{
 		ResetMenuItem()
 		{
-			super(PropertyFactory.getString("in_reset"));
+			super(LanguageBundle.getString("in_reset"));
 
-			setMnemonic(PropertyFactory.getMnemonic("in_mn_reset"));
+			setMnemonic(LanguageBundle.getMnemonic("in_mn_reset"));
 			setIcon(Utilities.RESET_ICON);
 
 			addActionListener(new ResetActionListener());

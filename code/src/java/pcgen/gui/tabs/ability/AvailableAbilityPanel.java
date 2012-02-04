@@ -49,7 +49,7 @@ import pcgen.gui.utils.JTreeTable;
 import pcgen.gui.utils.JTreeTableMouseAdapter;
 import pcgen.gui.utils.PObjectNode;
 import pcgen.gui.utils.Utility;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * This class creates and manages a panel containing available Abilities for the
@@ -72,7 +72,7 @@ import pcgen.util.PropertyFactory;
 public class AvailableAbilityPanel extends AbilitySelectionPanel
 {
 	private static final String AVAILABLE_LABEL =
-			PropertyFactory.getString("in_available") + ": "; //$NON-NLS-1$//$NON-NLS-2$
+			LanguageBundle.getString("in_available") + ": "; //$NON-NLS-1$//$NON-NLS-2$
 
 	private AddItemPanel theAddButton;
 	private JMenuItem theAddMenu;
@@ -162,10 +162,10 @@ public class AvailableAbilityPanel extends AbilitySelectionPanel
 		{
 			theTreeTable = aTreeTable;
 			final String menuText =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"InfoAbility.Menu.Add", getCategory().getDisplayName()); //$NON-NLS-1$
 			final String menuTip =
-					PropertyFactory
+					LanguageBundle
 						.getFormattedString(
 							"InfoAbility.Menu.Add.Tooltip", getCategory().getDisplayName()); //$NON-NLS-1$
 			this.add(theAddMenu =
@@ -188,10 +188,10 @@ public class AvailableAbilityPanel extends AbilitySelectionPanel
 			// Build menus now since expert settings
 			// could get changed while we are running
 			final String NO_QUALIFY_MESSAGE =
-					PropertyFactory
+					LanguageBundle
 						.getString("InfoAbility.Messages.NotQualified"); //$NON-NLS-1$
 			final String POOL_FULL_MESSAGE =
-					PropertyFactory.getString("InfoAbility.Messages.NoPoints"); //$NON-NLS-1$
+					LanguageBundle.getString("InfoAbility.Messages.NoPoints"); //$NON-NLS-1$
 			noQualifyMenuItem =
 					Utility.createMenuItem(NO_QUALIFY_MESSAGE, null, null,
 						(char) 0, null, null, null, false);
@@ -340,7 +340,7 @@ public class AvailableAbilityPanel extends AbilitySelectionPanel
 			String txt = getCategory().getDisplayName();
 			if (txt.startsWith("in_"))
 			{
-				txt = PropertyFactory.getFormattedString(txt);
+				txt = LanguageBundle.getFormattedString(txt);
 			}
 			nameCol.setHeaderValue(txt);
 		}

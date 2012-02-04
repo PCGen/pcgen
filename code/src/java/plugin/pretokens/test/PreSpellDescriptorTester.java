@@ -31,7 +31,7 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.spell.Spell;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import java.util.List;
 
@@ -79,7 +79,7 @@ public class PreSpellDescriptorTester extends AbstractPrerequisiteTest
 		final Object[] args =
 				new Object[]{prereq.getOperator().toDisplayString(),
 					prereq.getOperand(), prereq.getSubKey(), prereq.getKey()};
-		return PropertyFactory.getFormattedString(
+		return LanguageBundle.getFormattedString(
 			"PreSpellDescriptor.toHtml", args); //$NON-NLS-1$
 	}
 }

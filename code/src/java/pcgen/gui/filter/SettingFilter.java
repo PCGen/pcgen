@@ -25,7 +25,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>SettingFilter</code>
@@ -41,9 +41,9 @@ final class SettingFilter extends AbstractPObjectFilter
 	{
 		super();
 		setting = arg;
-		setCategory(PropertyFactory.getString("in_settingLabel"));
+		setCategory(LanguageBundle.getString("in_settingLabel"));
 		setName(arg);
-		setDescription(PropertyFactory.getFormattedString("in_filterAccObj",getName()));
+		setDescription(LanguageBundle.getFormattedString("in_filterAccObj",getName()));
 	}
 
 	public boolean accept(PlayerCharacter aPC, PObject pObject)

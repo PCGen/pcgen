@@ -73,7 +73,7 @@ import pcgen.gui.PCGen_Frame1;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.Utility;
 import pcgen.persistence.PersistenceManager;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * The Class <code>SourceSelectionDialog</code> provides a simplified
@@ -119,7 +119,7 @@ public class SourceSelectionDialog extends JDialog implements
 	public SourceSelectionDialog(Frame parent, boolean modal)
 	{
 		super(parent, modal);
-		setTitle(PropertyFactory.getString("in_qsrc_title"));
+		setTitle(LanguageBundle.getString("in_qsrc_title"));
 		initComponents();
 		setLocationRelativeTo(parent); // centre on parent
 	}
@@ -138,7 +138,7 @@ public class SourceSelectionDialog extends JDialog implements
 		gbc.anchor = GridBagConstraints.WEST;
 		gbc.insets = new Insets(4, 4, 4, 4);
 
-		JLabel jLabel1 = new JLabel(PropertyFactory.getString("in_qsrc_intro"));
+		JLabel jLabel1 = new JLabel(LanguageBundle.getString("in_qsrc_intro"));
 		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
 			0.0, 0.0);
 		getContentPane().add(jLabel1, gbc);
@@ -167,46 +167,46 @@ public class SourceSelectionDialog extends JDialog implements
 			GridBagConstraints.BOTH, GridBagConstraints.WEST);
 		getContentPane().add(listScrollPane, gbc);
 
-		JButton addButton = new JButton(PropertyFactory.getString("in_add"));
+		JButton addButton = new JButton(LanguageBundle.getString("in_add"));
 		addButton.setActionCommand(ACTION_ADD);
 		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
 			0, 0, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
 		getContentPane().add(addButton, gbc);
 
-		modifyButton = new JButton(PropertyFactory.getString("in_modify"));
+		modifyButton = new JButton(LanguageBundle.getString("in_modify"));
 		modifyButton.setActionCommand(ACTION_MODIFY);
 		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
 			0, 0, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
 		getContentPane().add(modifyButton, gbc);
 
 		JButton hideButton =
-				new JButton(PropertyFactory.getString("in_hide"));
+				new JButton(LanguageBundle.getString("in_hide"));
 		hideButton.setActionCommand(ACTION_HIDE);
 		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
 			0, 0, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTH);
 		getContentPane().add(hideButton, gbc);
 
 		JButton unhideButton =
-				new JButton(PropertyFactory.getString("in_unhide"));
+				new JButton(LanguageBundle.getString("in_unhide"));
 		unhideButton.setActionCommand(ACTION_UNHIDE);
 		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
 			0, 0, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTH);
 		getContentPane().add(unhideButton, gbc);
 
-		deleteButton = new JButton(PropertyFactory.getString("in_delete"));
+		deleteButton = new JButton(LanguageBundle.getString("in_delete"));
 		deleteButton.setActionCommand(ACTION_DELETE);
 		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
 			0, 0, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTH);
 		getContentPane().add(deleteButton, gbc);
 
-		JButton advancedButton = new JButton(PropertyFactory.getString("in_qsrc_advanced"));
+		JButton advancedButton = new JButton(LanguageBundle.getString("in_qsrc_advanced"));
 		advancedButton.setActionCommand(ACTION_ADVANCED);
 		getRootPane().setDefaultButton(advancedButton);
 		Utility.buildRelativeConstraints(gbc, 1, 1, 0.0, 0.0,
 			GridBagConstraints.NONE, GridBagConstraints.WEST);
 		getContentPane().add(advancedButton, gbc);
 
-		JButton loadButton = new JButton(PropertyFactory.getString("in_load"));
+		JButton loadButton = new JButton(LanguageBundle.getString("in_load"));
 		loadButton.setActionCommand(ACTION_LOAD);
 		getRootPane().setDefaultButton(loadButton);
 		Utility.buildRelativeConstraints(gbc, 1, 1, 0.0, 0.0,
@@ -214,7 +214,7 @@ public class SourceSelectionDialog extends JDialog implements
 		getContentPane().add(loadButton, gbc);
 
 		JButton cancelButton =
-				new JButton(PropertyFactory.getString("in_cancel"));
+				new JButton(LanguageBundle.getString("in_cancel"));
 		cancelButton.setActionCommand(ACTION_CANCEL);
 		Utility.buildRelativeConstraints(gbc, 1, 1, 0, 0);
 		getContentPane().add(cancelButton, gbc);
@@ -276,7 +276,7 @@ public class SourceSelectionDialog extends JDialog implements
 				&& !mode.getDefaultDataSetList().isEmpty())
 			{
 				title =
-						PropertyFactory.getFormattedString(
+						LanguageBundle.getFormattedString(
 							"in_qsrc_game_default", mode.getDisplayName());
 			}
 			if (title != null && !"".equals(title))
@@ -305,7 +305,7 @@ public class SourceSelectionDialog extends JDialog implements
 			if (!found)
 			{
 				String title =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"in_qsrc_last_loaded", currGameModeName);
 				names.add(title);
 				nameToGameModeMap.put(title, currGameModeName);
@@ -496,7 +496,7 @@ public class SourceSelectionDialog extends JDialog implements
 		// verify a source is selected
 		if (sourceList.getSelectedIndex() < 0)
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_qsrc_err_none_selected"), PropertyFactory.getString("in_qsrc_title"), MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(LanguageBundle.getString("in_qsrc_err_none_selected"), LanguageBundle.getString("in_qsrc_title"), MessageType.ERROR);
 			return;
 		}
 		String sourceTitle = (String) sourceList.getSelectedValue();
@@ -550,9 +550,9 @@ public class SourceSelectionDialog extends JDialog implements
 			File sourceFIle = new File(uri);
 			if (!sourceFIle.delete())
 			{
-				ShowMessageDelegate.showMessageDialog(PropertyFactory
+				ShowMessageDelegate.showMessageDialog(LanguageBundle
 					.getFormattedString("in_qsrc_err_delete", sourceFIle
-						.getAbsolutePath()), PropertyFactory
+						.getAbsolutePath()), LanguageBundle
 					.getString("in_qsrc_title"), MessageType.ERROR);
 				return;
 			}
@@ -686,7 +686,7 @@ public class SourceSelectionDialog extends JDialog implements
 		public UnhideDialog(Frame parent, boolean modal, DefaultListModel sourcesList)
 		{
 			super(parent, modal);
-			setTitle(PropertyFactory.getString("in_qsrc_unhide_title"));
+			setTitle(LanguageBundle.getString("in_qsrc_unhide_title"));
 			this.sourcesList = sourcesList;
 			initComponents();
 			setLocationRelativeTo(parent); // centre on parent
@@ -738,13 +738,13 @@ public class SourceSelectionDialog extends JDialog implements
 
 			JPanel buttonPanel = new JPanel();
 			buttonPanel.setLayout(new FlowLayout());
-			JButton okButton = new JButton(PropertyFactory.getString("in_ok"));
+			JButton okButton = new JButton(LanguageBundle.getString("in_ok"));
 			okButton.setActionCommand(ACTION_OK);
 			getRootPane().setDefaultButton(okButton);
 			buttonPanel.add(okButton);
 
 			JButton cancelButton =
-					new JButton(PropertyFactory.getString("in_cancel"));
+					new JButton(LanguageBundle.getString("in_cancel"));
 			cancelButton.setActionCommand(ACTION_CANCEL);
 			buttonPanel.add(cancelButton);
 
@@ -805,7 +805,7 @@ public class SourceSelectionDialog extends JDialog implements
 		public GameModeDialog(Frame parent, boolean modal)
 		{
 			super(parent, modal);
-			setTitle(PropertyFactory.getString("in_cs_title"));
+			setTitle(LanguageBundle.getString("in_cs_title"));
 			initComponents();
 			setLocationRelativeTo(parent); // centre on parent
 		}
@@ -824,7 +824,7 @@ public class SourceSelectionDialog extends JDialog implements
 			gbc.insets = new Insets(4, 4, 4, 4);
 
 			
-			JLabel introLabel = new JLabel(PropertyFactory.getString("in_qsrc_gameModeIntro"));
+			JLabel introLabel = new JLabel(LanguageBundle.getString("in_qsrc_gameModeIntro"));
 			Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 100, 100,
 				GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
 			getContentPane().add(introLabel, gbc);
@@ -844,13 +844,13 @@ public class SourceSelectionDialog extends JDialog implements
 
 			JPanel buttonPanel = new JPanel();
 			buttonPanel.setLayout(new FlowLayout());
-			JButton okButton = new JButton(PropertyFactory.getString("in_ok"));
+			JButton okButton = new JButton(LanguageBundle.getString("in_ok"));
 			okButton.setActionCommand(ACTION_OK);
 			getRootPane().setDefaultButton(okButton);
 			buttonPanel.add(okButton);
 
 			JButton cancelButton =
-					new JButton(PropertyFactory.getString("in_cancel"));
+					new JButton(LanguageBundle.getString("in_cancel"));
 			cancelButton.setActionCommand(ACTION_CANCEL);
 			buttonPanel.add(cancelButton);
 

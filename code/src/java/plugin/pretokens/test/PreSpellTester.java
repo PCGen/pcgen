@@ -41,7 +41,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * @author wardc
@@ -65,7 +65,7 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 		catch (NumberFormatException e)
 		{
 			Logging
-				.errorPrint(PropertyFactory
+				.errorPrint(LanguageBundle
 					.getString("PreSpell.error.badly_formed_attribute") + prereq.toString()); //$NON-NLS-1$
 		}
 
@@ -127,7 +127,7 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 		final Object[] args =
 				new Object[]{prereq.getOperator().toDisplayString(),
 					prereq.getOperand(), prereq.getKey()};
-		return PropertyFactory.getFormattedString("PreSpell.toHtml", args); //$NON-NLS-1$
+		return LanguageBundle.getFormattedString("PreSpell.toHtml", args); //$NON-NLS-1$
 	}
 
 }

@@ -22,7 +22,7 @@ package pcgen.gui;
 
 import pcgen.core.SettingsHandler;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import javax.swing.filechooser.FileFilter;
 import java.io.File;
@@ -38,7 +38,7 @@ import java.util.List;
  */
 public final class CsheetFilter extends FileFilter implements FilenameFilter
 {
-	private static final String chaTemplates = PropertyFactory.getString("in_chaTemplates");
+	private static final String chaTemplates = LanguageBundle.getString("in_chaTemplates");
 	private List<String> acceptedList = null;
 	private String dirFilter = null;
 	private String ignoreExtension = ".fo";

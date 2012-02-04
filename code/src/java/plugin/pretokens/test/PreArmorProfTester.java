@@ -36,7 +36,7 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>PreArmorProfTester</code> does the testing of armor proficiency 
@@ -63,7 +63,7 @@ public class PreArmorProfTester extends AbstractPrerequisiteTest implements Prer
 		}
 		catch (NumberFormatException exceptn)
 		{
-			throw new PrerequisiteException(PropertyFactory.getFormattedString(
+			throw new PrerequisiteException(LanguageBundle.getFormattedString(
 				"Prereq.error", "PREARMOR", prereq.toString())); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 

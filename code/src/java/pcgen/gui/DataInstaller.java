@@ -61,7 +61,6 @@ import pcgen.cdom.enumeration.Destination;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.InstallableCampaign;
-import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -70,9 +69,12 @@ import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.Utility;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.PersistenceManager;
 import pcgen.persistence.lst.InstallLoader;
+import pcgen.system.ConfigurationSettings;
+import pcgen.system.FacadeFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
 
 /**
  * <code>DataInstaller</code> is responsible for managing the installation of
@@ -86,6 +88,9 @@ import pcgen.util.PropertyFactory;
  */
 public class DataInstaller extends JFrame
 {
+
+	/** Version for serialisation */
+	private static final long serialVersionUID = -7429544164441235718L;
 
 	/**
 	 * Filter class to only display potential zip format data sets.
@@ -145,25 +150,27 @@ public class DataInstaller extends JFrame
 			else if (source == selectButton)
 			{
 				JFileChooser chooser =
-						new JFileChooser(new File(System
-							.getProperty("user.dir")));
-				chooser.setDialogTitle(PropertyFactory
+						new JFileChooser(currFolder);
+				chooser.setDialogTitle(LanguageBundle
 					.getString("in_diChooserTitle"));
-				chooser.addChoosableFileFilter(new DataPackFilter());
+				chooser.setFileFilter(new DataPackFilter());
 				int result = chooser.showOpenDialog(DataInstaller.this);
 				if (result != JFileChooser.APPROVE_OPTION)
 				{
 					return;
 				}
 				File dataset = chooser.getSelectedFile();
+				currFolder = dataset.getParentFile();
 				readDataSet(dataset);
 			}
 			else if (source == installButton)
 			{
 				if (installDataSource(currDataSet, getSelectedDestination()))
 				{
-					PCGen_Frame1.getInst().getMainSource().refreshCampaigns();
-					ShowMessageDelegate.showMessageDialog(PropertyFactory
+					//PCGen_Frame1.getInst().getMainSource().refreshCampaigns();
+					PersistenceManager.getInstance().refreshCampaigns();
+					FacadeFactory.refresh();
+					ShowMessageDelegate.showMessageDialog(LanguageBundle
 						.getFormattedString("in_diInstalled", campaign
 							.getDisplayName()), TITLE, MessageType.INFORMATION);
 				}
@@ -178,7 +185,7 @@ public class DataInstaller extends JFrame
 	private static final String DATA_FOLDER = "data/";
 	
 	/** The standard window title. */
-	private static final String TITLE = PropertyFactory.getString("in_dataInstaller");
+	private static final String TITLE = LanguageBundle.getString("in_dataInstaller");
 	
 	/** The component to display the path of the selected data set. */
 	private JTextField dataSetSel;
@@ -209,6 +216,9 @@ public class DataInstaller extends JFrame
 	
 	/** The current data set. */
 	private File currDataSet;
+	
+	/** The current folder */
+	private File currFolder;
 
 	/**
 	 * Instantiates a new data installer.
@@ -217,6 +227,7 @@ public class DataInstaller extends JFrame
 	 */
 	public DataInstaller(Component owner)
 	{
+		currFolder = new File(System.getProperty("user.dir"));
 		initComponents();
 
 		IconUtilitities.maybeSetIcon(this, IconUtilitities.RESOURCE_APP_ICON);
@@ -252,7 +263,7 @@ public class DataInstaller extends JFrame
 				msg.append(' ').append(filename).append("\n");
 			}
 			DIWarningDialog dialog =
-					new DIWarningDialog(this, msg.toString(), PropertyFactory
+					new DIWarningDialog(this, msg.toString(), LanguageBundle
 						.getFormattedString("in_diNonStandardFiles"));
 			dialog.setVisible(true);
 			int result = dialog.getResponse();
@@ -303,7 +314,7 @@ public class DataInstaller extends JFrame
 				msg.append(' ').append(filename).append("\n");
 			}
 			DIWarningDialog dialog =
-					new DIWarningDialog(this, msg.toString(), PropertyFactory
+					new DIWarningDialog(this, msg.toString(), LanguageBundle
 						.getFormattedString("in_diOverwriteFiles"));
 			dialog.setVisible(true);
 			int result = dialog.getResponse();
@@ -365,8 +376,8 @@ public class DataInstaller extends JFrame
 		else if (fileName.toLowerCase().startsWith(OUTPUTSHEETS_FOLDER))
 		{
 			fileName =
-					SettingsHandler.getPcgenOutputSheetDir().getAbsolutePath()
-						+ fileName.substring(12);
+					new File(ConfigurationSettings.getOutputSheetsDir())
+						.getAbsolutePath() + fileName.substring(12);
 		}
 		return fileName;
 	}
@@ -391,7 +402,7 @@ public class DataInstaller extends JFrame
 				Logging.log(Logging.INFO, "Creating directory: " + dir);
 				if (!dir.mkdirs())
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory
+					ShowMessageDelegate.showMessageDialog(LanguageBundle
 						.getFormattedString("in_diDirNotCreated", dir
 							.getAbsoluteFile()), TITLE, MessageType.ERROR);
 					return false;
@@ -423,7 +434,7 @@ public class DataInstaller extends JFrame
 		{
 			Logging.errorPrint("Failed to read data set " + dataSet
 				+ " due to ", e);
-			ShowMessageDelegate.showMessageDialog(PropertyFactory
+			ShowMessageDelegate.showMessageDialog(LanguageBundle
 				.getFormattedString("in_diBadDataSet", dataSet), TITLE,
 				MessageType.ERROR);
 			return false;
@@ -448,7 +459,7 @@ public class DataInstaller extends JFrame
 			// Report the error
 			Logging.errorPrint("Failed to read data set " + dataSet
 				+ " or write file " + corrFilename + " due to ", e);
-			ShowMessageDelegate.showMessageDialog(PropertyFactory
+			ShowMessageDelegate.showMessageDialog(LanguageBundle
 				.getFormattedString("in_diWriteFail", corrFilename), TITLE,
 				MessageType.ERROR);
 			return false;
@@ -489,7 +500,7 @@ public class DataInstaller extends JFrame
 	
 		// Data set selection row
 		Utility.buildConstraints(gbc, 0, 0, 1, 1, 0.0, 0.0);
-		JLabel dataSetLabel = new JLabel(PropertyFactory.getString("in_diDataSet"), SwingConstants.RIGHT);
+		JLabel dataSetLabel = new JLabel(LanguageBundle.getString("in_diDataSet"), SwingConstants.RIGHT);
 		gridbag.setConstraints(dataSetLabel, gbc);
 		add(dataSetLabel, gbc);
 		
@@ -501,7 +512,7 @@ public class DataInstaller extends JFrame
 		
 		Utility.buildConstraints(gbc, 3, 0, 1, 1, 0.0, 0.0);
 		gbc.fill = GridBagConstraints.NONE;
-		selectButton = new JButton(PropertyFactory.getString("in_select"));
+		selectButton = new JButton(LanguageBundle.getString("in_select"));
 		gridbag.setConstraints(selectButton, gbc);
 		add(selectButton, gbc);
 		selectButton.addActionListener(listener);
@@ -521,21 +532,21 @@ public class DataInstaller extends JFrame
 		// Location row
 		Utility.buildConstraints(gbc, 0, 2, 1, 1, 0.0, 0.0);
 		gbc.fill = GridBagConstraints.HORIZONTAL;
-		JLabel locLabel = new JLabel(PropertyFactory.getString("in_diLocation"), SwingConstants.RIGHT);
+		JLabel locLabel = new JLabel(LanguageBundle.getString("in_diLocation"), SwingConstants.RIGHT);
 		gridbag.setConstraints(locLabel, gbc);
 		add(locLabel, gbc);
 		
 		ButtonGroup exclusiveGroup = new ButtonGroup();
 		locDataButton =
-				new JRadioButton(PropertyFactory
+				new JRadioButton(LanguageBundle
 					.getString("in_diData"));
-		Utility.setDescription(locDataButton, PropertyFactory
+		Utility.setDescription(locDataButton, LanguageBundle
 					.getString("in_diData_tip"));
 		exclusiveGroup.add(locDataButton);
 		locVendorDataButton =
-				new JRadioButton(PropertyFactory
+				new JRadioButton(LanguageBundle
 					.getString("in_diVendorData"));
-		Utility.setDescription(locVendorDataButton, PropertyFactory
+		Utility.setDescription(locVendorDataButton, LanguageBundle
 			.getString("in_diVendorData_tip"));
 		exclusiveGroup.add(locVendorDataButton);
 		JPanel optionsPanel = new JPanel();
@@ -548,9 +559,9 @@ public class DataInstaller extends JFrame
 		add(optionsPanel, gbc);
 
 		// Buttons row
-		installButton = new JButton(PropertyFactory.getString("in_diInstall"));
+		installButton = new JButton(LanguageBundle.getString("in_diInstall"));
 		installButton.addActionListener(listener);
-		cancel = new JButton(PropertyFactory.getString("in_cancel"));
+		cancel = new JButton(LanguageBundle.getString("in_close"));
 		cancel.addActionListener(listener);
 
 		JPanel buttonsPanel = new JPanel();
@@ -578,14 +589,14 @@ public class DataInstaller extends JFrame
 		// Get the directory the data is to be stored in
 		if (dataSet == null)
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory
+			ShowMessageDelegate.showMessageDialog(LanguageBundle
 				.getFormattedString("in_diDataSetNotSelected"), TITLE,
 				MessageType.ERROR);
 			return false;
 		}
 		if (dest == null)
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory
+			ShowMessageDelegate.showMessageDialog(LanguageBundle
 				.getFormattedString("in_diDataFolderNotSelected"), TITLE,
 				MessageType.ERROR);
 			return false;
@@ -594,19 +605,19 @@ public class DataInstaller extends JFrame
 		switch (dest)
 		{
 			case VENDORDATA:
-				destDir = SettingsHandler.getPcgenVendorDataDir();
+				destDir = new File(ConfigurationSettings.getVendorDataDir());
 				break;
 
 			case DATA:
 			default:
-				destDir = SettingsHandler.getPccFilesLocation();
+				destDir = new File(ConfigurationSettings.getPccFilesDir());
 				break;
 		}
 
 		// Check chosen dir exists
 		if (!destDir.exists())
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory
+			ShowMessageDelegate.showMessageDialog(LanguageBundle
 				.getFormattedString("in_diDataFolderNotExist", destDir
 					.getAbsoluteFile()), TITLE, MessageType.ERROR);
 			return false;
@@ -647,7 +658,7 @@ public class DataInstaller extends JFrame
 	 * 
 	 * @return true, if populate file and dir lists
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	private boolean populateFileAndDirLists(File dataSet,
 		List<String> directories, List<String> files)
 	{
@@ -677,7 +688,7 @@ public class DataInstaller extends JFrame
 			// Report the error
 			Logging.errorPrint("Failed to read data set " + dataSet
 				+ " due to ", e);
-			ShowMessageDelegate.showMessageDialog(PropertyFactory
+			ShowMessageDelegate.showMessageDialog(LanguageBundle
 				.getFormattedString("in_diBadDataSet", dataSet), TITLE,
 				MessageType.ERROR);
 			return false;
@@ -701,7 +712,7 @@ public class DataInstaller extends JFrame
 
 			// Get the install file in a case insensitive manner
 			ZipEntry installEntry = null;
-			@SuppressWarnings("unchecked")
+			@SuppressWarnings("rawtypes")
 		    Enumeration entries = in.entries();
 			while (entries.hasMoreElements())
 			{
@@ -718,7 +729,7 @@ public class DataInstaller extends JFrame
 				Logging.errorPrint("File " + dataSet
 					+ " is not a valid datsset - no Install.lst file");
 				ShowMessageDelegate.showMessageDialog(
-					PropertyFactory.getFormattedString("in_diNoInstallFile",
+					LanguageBundle.getFormattedString("in_diNoInstallFile",
 						dataSet.getName()), TITLE, MessageType.WARNING);
 				in.close();
 				return false;
@@ -747,7 +758,7 @@ public class DataInstaller extends JFrame
 			// Report the error
 			Logging.errorPrint("Failed to read data set " + dataSet
 				+ " due to ", e);
-			ShowMessageDelegate.showMessageDialog(PropertyFactory
+			ShowMessageDelegate.showMessageDialog(LanguageBundle
 				.getFormattedString("in_diBadDataSet", dataSet), TITLE,
 				MessageType.ERROR);
 			return false;
@@ -756,7 +767,7 @@ public class DataInstaller extends JFrame
 		{
 			Logging.errorPrint("Failed to parse data set " + dataSet
 				+ " due to ", e);
-			ShowMessageDelegate.showMessageDialog(PropertyFactory
+			ShowMessageDelegate.showMessageDialog(LanguageBundle
 				.getFormattedString("in_diBadDataSet", dataSet), TITLE,
 				MessageType.ERROR);
 			return false;
@@ -772,7 +783,7 @@ public class DataInstaller extends JFrame
 					+ " needs at least PCGen version "
 					+ campaign.getSafe(StringKey.MINDEVVER)
 					+ " to run. It could not be installed.");
-				ShowMessageDelegate.showMessageDialog(PropertyFactory
+				ShowMessageDelegate.showMessageDialog(LanguageBundle
 					.getFormattedString("in_diVersionTooOldDev", campaign.getSafe(StringKey.MINDEVVER), campaign.getSafe(StringKey.MINVER)), TITLE,
 					MessageType.WARNING);
 				return false;
@@ -784,7 +795,7 @@ public class DataInstaller extends JFrame
 			Logging.errorPrint("Dataset " + campaign.getDisplayName()
 				+ " needs at least PCGen version " + campaign.getSafe(StringKey.MINVER)
 				+ " to run. It could not be installed.");
-			ShowMessageDelegate.showMessageDialog(PropertyFactory
+			ShowMessageDelegate.showMessageDialog(LanguageBundle
 				.getFormattedString("in_diVersionTooOld", campaign.getSafe(StringKey.MINVER)),
 				TITLE, MessageType.WARNING);
 			return false;

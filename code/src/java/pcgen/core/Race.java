@@ -24,7 +24,17 @@ package pcgen.core;
 
 import java.util.List;
 
+import pcgen.base.formula.Formula;
+import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.core.facade.GenderFacade;
+import pcgen.core.facade.RaceFacade;
+import pcgen.core.facade.SimpleFacade;
+import pcgen.core.facade.util.DefaultListFacade;
+import pcgen.core.facade.util.ListFacade;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>Race</code>.
@@ -33,9 +43,33 @@ import pcgen.cdom.enumeration.ListKey;
  * @author Michael Osterlie
  * @version $Revision$
  */
-public final class Race extends PObject
+public final class Race extends PObject implements RaceFacade
 {
-	
+
+	private static final DefaultListFacade<GenderFacade> genderList =
+			new DefaultListFacade<GenderFacade>();
+	private static final DefaultListFacade<SimpleFacade> handList =
+			new DefaultListFacade<SimpleFacade>();
+
+	static
+	{
+		Gender[] genders = Gender.values();
+		for (final Gender gender : genders)
+		{
+			genderList.addElement(gender);
+		}
+		handList.addElement(new SimpleFacadeImpl(LanguageBundle
+			.getString("in_handRight")));
+		handList.addElement(new SimpleFacadeImpl(LanguageBundle
+			.getString("in_handLeft")));
+		handList.addElement(new SimpleFacadeImpl(LanguageBundle
+			.getString("in_handBoth")));
+		handList.addElement(new SimpleFacadeImpl(LanguageBundle
+			.getString("in_comboNone")));
+		handList.addElement(new SimpleFacadeImpl(LanguageBundle
+			.getString("in_comboOther")));
+	}
+
 	/**
 	 * Checks if this race's advancement is limited.
 	 * 
@@ -62,5 +96,41 @@ public final class Race extends PObject
 	{
 		List<Integer> hda = getListFor(ListKey.HITDICE_ADVANCEMENT);
 		return hda == null ? 0 : hda.get(hda.size() - 1);
+	}
+
+	public ListFacade<GenderFacade> getGenders()
+	{
+		return genderList;
+	}
+
+	public ListFacade<SimpleFacade> getHands()
+	{
+		return handList;
+	}
+
+	public String getSource()
+	{
+		return SourceFormat.getFormattedString(this,
+			Globals.getSourceDisplay(), true);
+	}
+
+	public String getSize()
+	{
+		Formula formula = get(FormulaKey.SIZE);
+		if (formula != null)
+		{
+			return formula.toString();
+		}
+		return null;
+	}
+
+	public String getMovement()
+	{
+		List<Movement> movements = getListFor(ListKey.MOVEMENT);
+		if (movements != null && !movements.isEmpty())
+		{
+			return movements.get(0).toString();
+		}
+		return null;
 	}
 }

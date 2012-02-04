@@ -30,7 +30,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * @author frugal@purplewombat.co.uk
@@ -107,11 +107,11 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 			else {
 				str.append(delimiter);
 				str.append(test.toHtmlString(element));
-				delimiter = PropertyFactory.getString("PreMult.html_delimiter"); //$NON-NLS-1$
+				delimiter = LanguageBundle.getString("PreMult.html_delimiter"); //$NON-NLS-1$
 			}
 		}
 
-		return PropertyFactory.getFormattedString("PreMult.toHtml",  //$NON-NLS-1$
+		return LanguageBundle.getFormattedString("PreMult.toHtml",  //$NON-NLS-1$
 				new Object[] {prereq.getOperator().toDisplayString(),
 						prereq.getOperand(),
 						str.toString()} );

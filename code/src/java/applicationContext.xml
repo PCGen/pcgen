@@ -341,5 +341,7 @@
 	</bean>
 	<!-- Y -->
 	<!-- Z -->
+	<bean id="chronicleEntryFacet" class="pcgen.cdom.facet.ChronicleEntryFacet" />
+	<bean id="suppressBioFieldFacet" class="pcgen.cdom.facet.SuppressBioFieldFacet" />
 
 </beans>

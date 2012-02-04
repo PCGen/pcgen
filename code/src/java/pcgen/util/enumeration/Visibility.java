@@ -34,27 +34,25 @@ public enum Visibility
 	 * @param isExporting Is the visibility being detemerined for an export function
 	 * @return true if the visibility can be viewed, false if not.
 	 */
-	public boolean isVisibileTo(View view, boolean isExporting)
+	public boolean isVisibleTo(View view, boolean isExporting)
 	{
-		if (view == View.ALL)
+		switch (view)
 		{
-			return true;
-		}
-		if (view == View.HIDDEN)
-		{
-			if (this == Visibility.HIDDEN || this == Visibility.DISPLAY_ONLY)
-			{
+			case ALL:
 				return true;
-			}
+
+			case HIDDEN:
+				return (this == Visibility.HIDDEN || this == Visibility.DISPLAY_ONLY);
+
+			case VISIBLE:
+			default:
+				if (isExporting)
+				{
+					return (this == Visibility.DEFAULT || this == Visibility.OUTPUT_ONLY);
+				}
+				
+				return (this == Visibility.DEFAULT || this == Visibility.DISPLAY_ONLY);
 		}
-		else
-		{
-			if (this == Visibility.DEFAULT || this == Visibility.OUTPUT_ONLY)
-			{
-				return true;
-			}
-		}
-		return false;
 		/*
 		 * TODO Need to deal with QUALIFY
 		 */

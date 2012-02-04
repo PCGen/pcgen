@@ -51,7 +51,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.SizeAdjustment;
 import pcgen.gui.utils.JComboBoxEx;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -609,7 +609,7 @@ public class TemplateBasePanel extends BasePanel<PCTemplate>
 
 		//pnlTemplateTypes = new AvailableSelectedPanel();
 		pnlTemplateTypes =
-				new TypePanel(PropertyFactory.getString("in_demEnterNewType"));
+				new TypePanel(LanguageBundle.getString("in_demEnterNewType"));
 
 		setLayout(new GridBagLayout());
 
@@ -806,7 +806,7 @@ public class TemplateBasePanel extends BasePanel<PCTemplate>
 		gridBagConstraints.weightx = 1.0;
 		add(pnlTemplateMisc, gridBagConstraints);
 
-		//pnlTemplateTypes.setHeader(PropertyFactory.getString("in_type"));
+		//pnlTemplateTypes.setHeader(LanguageBundle.getString("in_type"));
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridy = 5;
 		gridBagConstraints.gridheight = 4;

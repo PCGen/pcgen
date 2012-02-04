@@ -17,7 +17,8 @@
  */
 package pcgen.cdom.enumeration;
 
-import pcgen.util.PropertyFactory;
+import pcgen.core.facade.GenderFacade;
+import pcgen.system.LanguageBundle;
 
 /**
  * Represents the Genders available in PCGen.
@@ -26,13 +27,13 @@ import pcgen.util.PropertyFactory;
  * quickly compared and use less memory when identical Genders exist in two
  * CDOMObjects.
  */
-public enum Gender
+public enum Gender implements GenderFacade
 {
 	Male {
 		@Override
 		public String toString()
 		{
-			return PropertyFactory.getString("in_genderMale");
+			return LanguageBundle.getString("in_genderMale");
 		}
 	},
 
@@ -40,7 +41,7 @@ public enum Gender
 		@Override
 		public String toString()
 		{
-			return PropertyFactory.getString("in_genderFemale");
+			return LanguageBundle.getString("in_genderFemale");
 		}
 	},
 
@@ -48,7 +49,7 @@ public enum Gender
 		@Override
 		public String toString()
 		{
-			return PropertyFactory.getString("in_genderNeuter");
+			return LanguageBundle.getString("in_genderNeuter");
 		}
 	},
 
@@ -56,7 +57,7 @@ public enum Gender
 		@Override
 		public String toString()
 		{
-			return PropertyFactory.getString("in_genderUnknown");
+			return LanguageBundle.getString("in_genderUnknown");
 		}
 	};
 

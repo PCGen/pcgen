@@ -107,4 +107,10 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 	{
 		info.restoreChoice(pc, owner, info.decodeChoice(choice));
 	}
+
+	public int getNumEffectiveChoices(List<String> selectedList,
+		List<String> reservedList)
+	{
+		return 0;
+	}
 }

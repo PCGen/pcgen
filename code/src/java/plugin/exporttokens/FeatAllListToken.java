@@ -1,17 +1,20 @@
 package plugin.exporttokens;
 
+import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.AbilityListToken;
 
 /**
  * @author karianna
  * Class deals with FEATALLLIST Token
  */
-public class FeatAllListToken extends AbilityAllListToken
+public class FeatAllListToken extends AbilityListToken
 {
 
 	/**
@@ -28,7 +31,7 @@ public class FeatAllListToken extends AbilityAllListToken
 	 */
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+						   ExportHandler eh)
 	{
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		// Skip the token itself
@@ -38,4 +41,15 @@ public class FeatAllListToken extends AbilityAllListToken
 
 		return getTokenForCategory(pc, aTok, tokenString, aCategory);
 	}
+
+	/**
+	 * @see pcgen.io.exporttoken.AbilityListToken#getAbilityList(pcgen.core.PlayerCharacter, pcgen.core.AbilityCategory)
+	 */
+	@Override
+	protected List<Ability> getAbilityList(PlayerCharacter pc,
+										   AbilityCategory aCategory)
+	{
+		return pc.getAggregateVisibleAbilityList(aCategory);
+	}
+
 }

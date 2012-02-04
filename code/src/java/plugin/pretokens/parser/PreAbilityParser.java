@@ -33,7 +33,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * A prerequisite parser class that handles the parsing of pre ability tokens.
@@ -152,14 +152,14 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 					String tempCat = preKey.substring((CATEGORY.length()));
 					if (categoryName.length() > 0)
 					{
-						throw new PersistenceLayerException(PropertyFactory
+						throw new PersistenceLayerException(LanguageBundle
 							.getFormattedString(
 								"Errors.PreAbility.MultipleCategory",
 								categoryName, tempCat));
 					}
 					else if (p != prereqList.get(0))
 					{
-						throw new PersistenceLayerException(PropertyFactory
+						throw new PersistenceLayerException(LanguageBundle
 							.getFormattedString(
 								"Errors.PreAbility.CategoryNotFirst",
 								tempCat));

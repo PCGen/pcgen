@@ -57,7 +57,7 @@ import pcgen.core.npcgen.GeneratorOption;
 import pcgen.core.npcgen.LevelGeneratorOption;
 import pcgen.core.npcgen.NPCGenerator;
 import pcgen.core.npcgen.RaceGeneratorOption;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * This class implements a dialog to present the configurable options for 
@@ -251,7 +251,7 @@ public class NPCGeneratorDlg extends JDialog
 	alignPanel.setMaximumSize(new Dimension(32767, 33));
 //		alignPanel.setMinimumSize(new Dimension(32767, 25));
 	alignPanel.setPreferredSize(new Dimension(390, 33));
-	JLabel alignLbl = new JLabel(PropertyFactory.getString("in_alignString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
+	JLabel alignLbl = new JLabel(LanguageBundle.getString("in_alignString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
 	alignCombo.setMaximumSize(new Dimension(150, 19));
 	alignCombo.setPreferredSize(new Dimension(150, 19));
 	editAlign.setText("Edit");
@@ -271,7 +271,7 @@ public class NPCGeneratorDlg extends JDialog
 	flowLayout2.setAlignment(FlowLayout.RIGHT);
 	racePanel.setLayout(flowLayout2);
 	racePanel.setMaximumSize(new Dimension(32767, 33));
-	JLabel raceLbl = new JLabel(PropertyFactory.getString("in_raceString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
+	JLabel raceLbl = new JLabel(LanguageBundle.getString("in_raceString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
 	raceCombo.setMaximumSize(new Dimension(150, 19));
 	raceCombo.setMinimumSize(new Dimension(150, 19));
 	raceCombo.setPreferredSize(new Dimension(150, 19));
@@ -293,7 +293,7 @@ public class NPCGeneratorDlg extends JDialog
 	genderPanel.setLayout(flowLayout4);
 	genderPanel.setMaximumSize(new Dimension(32767, 33));
 	editGender.setText("Edit");
-	JLabel genderLbl = new JLabel(PropertyFactory.getString("in_gender") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
+	JLabel genderLbl = new JLabel(LanguageBundle.getString("in_gender") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
 	genderCombo.setMinimumSize(new Dimension(150, 19));
 	genderCombo.setPreferredSize(new Dimension(150, 19));
 	Component genderStrut = Box.createHorizontalStrut(60);
@@ -319,7 +319,7 @@ public class NPCGeneratorDlg extends JDialog
 	statsPanel.setLayout(flowLayout5);
 	statsPanel.setMaximumSize(new Dimension(32767, 33));
 	editStats.setText("Edit");
-	JLabel statsLbl = new JLabel(PropertyFactory.getString("in_Prefs_abilities") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
+	JLabel statsLbl = new JLabel(LanguageBundle.getString("in_Prefs_abilities") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
 	statsCombo.setMinimumSize(new Dimension(150, 19));
 	statsCombo.setPreferredSize(new Dimension(150, 19));
 	Component statsStrut = Box.createHorizontalStrut(60);
@@ -387,11 +387,11 @@ public class NPCGeneratorDlg extends JDialog
 	FlowLayout flowLayout5 = new FlowLayout();
 	flowLayout5.setAlignment(FlowLayout.CENTER);
 	classPanel.setLayout(flowLayout5);
-	JLabel classLbl = new JLabel(PropertyFactory.getString("in_classString") //$NON-NLS-1$
+	JLabel classLbl = new JLabel(LanguageBundle.getString("in_classString") //$NON-NLS-1$
 				     + "# " + number + ": "); //$NON-NLS-1$ //$NON-NLS-2$
 	classCombos[number].setMinimumSize(new Dimension(150, 19));
 	classCombos[number].setPreferredSize(new Dimension(150, 19));
-	JLabel lvlLbl1 = new JLabel(PropertyFactory.getString("in_level") //$NON-NLS-1$
+	JLabel lvlLbl1 = new JLabel(LanguageBundle.getString("in_level") //$NON-NLS-1$
 				    + "# " + number + ": "); //$NON-NLS-1$ //$NON-NLS-2$
 	lvlCombos[number].setMinimumSize(new Dimension(80, 19));
 	lvlCombos[number].setPreferredSize(new Dimension(80, 19));

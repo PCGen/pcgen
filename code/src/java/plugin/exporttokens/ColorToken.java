@@ -25,6 +25,7 @@
  */
 package plugin.exporttokens;
 
+import pcgen.cdom.enumeration.BiographyField;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -76,7 +77,7 @@ public class ColorToken extends Token
 
 	/**
 	 * Get the EYE token
-	 * @param pc
+	 * @param pc the character being exported
 	 * @return token
 	 */
 	public static String getEyeToken(PlayerCharacter pc)
@@ -86,21 +87,29 @@ public class ColorToken extends Token
 
 	/**
 	 * Get the Hair token 
-	 * @param pc
-	 * @return token
+	 * @param pc the character being exported
+	 * @return skin color
 	 */
 	public static String getHairToken(PlayerCharacter pc)
 	{
+		if (pc.getSuppressBioField(BiographyField.HAIR_COLOR))
+		{
+			return "";
+		}
 		return pc.getHairColor();
 	}
 
 	/**
 	 * Get the skin token
-	 * @param pc
-	 * @return token
+	 * @param pc the character being exported
+	 * @return skin color
 	 */
 	public static String getSkinToken(PlayerCharacter pc)
 	{
+		if (pc.getSuppressBioField(BiographyField.SKIN_TONE))
+		{
+			return "";
+		}
 		return pc.getSkinColor();
 	}
 }

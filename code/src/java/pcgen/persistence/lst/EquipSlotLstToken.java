@@ -37,7 +37,8 @@ public interface EquipSlotLstToken extends LstToken
 	/**
 	 * @param eqSlot
 	 * @param value
+	 * @param gameMode The name of the game mode currently being processed. 
 	 * @return true if parse OK
 	 */
-	public abstract boolean parse(EquipSlot eqSlot, String value);
+	public abstract boolean parse(EquipSlot eqSlot, String value, String gameMode);
 }

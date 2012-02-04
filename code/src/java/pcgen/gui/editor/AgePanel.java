@@ -37,7 +37,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.AgeSet;
 import pcgen.core.Globals;
 import pcgen.core.Race;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>AgePanel</code>
@@ -147,8 +147,8 @@ final class AgePanel extends JPanel implements PObjectUpdater<Race>
 	{
 		private final String[] columnNames =
 		{
-			PropertyFactory.getString("in_demAgeName"), PropertyFactory.getString("in_demAgeMin"),
-			PropertyFactory.getString("in_demAgeRoll"), PropertyFactory.getString("in_demAgeMax")
+			LanguageBundle.getString("in_demAgeName"), LanguageBundle.getString("in_demAgeMin"),
+			LanguageBundle.getString("in_demAgeRoll"), LanguageBundle.getString("in_demAgeMax")
 		};
 		private List data = null;
 

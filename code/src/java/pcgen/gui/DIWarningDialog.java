@@ -39,7 +39,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import pcgen.gui.utils.Utility;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * The Class <code>DIWarningDialog</code> is responsible for 
@@ -76,7 +76,7 @@ public class DIWarningDialog extends JDialog implements
 	 */
 	public DIWarningDialog(Frame parent, String fileList, String introText)
 	{
-		super(parent, PropertyFactory.getString("in_dataInstaller"), true);
+		super(parent, LanguageBundle.getString("in_dataInstaller"), true);
 
 		fileText = fileList;
 		this.introText = introText;
@@ -127,7 +127,7 @@ public class DIWarningDialog extends JDialog implements
 			GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
 		add(dummy, gbc);
 
-		JButton yesButton = new JButton(PropertyFactory.getString("in_yes"));
+		JButton yesButton = new JButton(LanguageBundle.getString("in_yes"));
 		yesButton.setActionCommand(ACTION_YES);
 		yesButton.addActionListener(this);
 		Utility.buildRelativeConstraints(gbc, 1, 1, 0.0, 0.0,
@@ -135,7 +135,7 @@ public class DIWarningDialog extends JDialog implements
 		gbc.insets = new Insets(5, 5, 10, 5);
 		add(yesButton, gbc);
 
-		JButton noButton = new JButton(PropertyFactory.getString("in_no"));
+		JButton noButton = new JButton(LanguageBundle.getString("in_no"));
 		noButton.setActionCommand(ACTION_NO);
 		noButton.addActionListener(this);
 		Utility.buildRelativeConstraints(gbc, 1, 1, 0.0, 0.0,
@@ -143,7 +143,7 @@ public class DIWarningDialog extends JDialog implements
 		add(noButton, gbc);
 
 		JButton cancelButton =
-				new JButton(PropertyFactory.getString("in_cancel"));
+				new JButton(LanguageBundle.getString("in_cancel"));
 		cancelButton.setActionCommand(ACTION_CANCEL);
 		cancelButton.addActionListener(this);
 		getRootPane().setDefaultButton(cancelButton);

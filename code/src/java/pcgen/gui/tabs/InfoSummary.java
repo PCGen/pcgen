@@ -128,7 +128,7 @@ import pcgen.gui.utils.Utility;
 import pcgen.gui.utils.WholeNumberField;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.Visibility;
 
@@ -145,7 +145,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 	private static final Tab tab = Tab.SUMMARY;
 
 	private static final String NONABILITY =
-			PropertyFactory.getString("in_sumCannotModifyANonAbility"); //$NON-NLS-1$
+			LanguageBundle.getString("in_sumCannotModifyANonAbility"); //$NON-NLS-1$
 	private static final int STAT_COLUMN = 0;
 	private static final int BASE_COLUMN = 1;
 	private static final int RACE_COLUMN = 2;
@@ -168,7 +168,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 	private JComboBoxEx classComboBox = new JComboBoxEx();
 	private JComboBoxEx raceComboBox = new JComboBoxEx();
 	private JFrame abilitiesFrame =
-			new JFrame(PropertyFactory.getString("in_specialabilities")); //$NON-NLS-1$
+			new JFrame(LanguageBundle.getString("in_specialabilities")); //$NON-NLS-1$
 	private JLabel labelAlignment = null;
 	private JLabel labelClass = null;
 	private JLabel labelHPName = null;
@@ -176,7 +176,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 	private JLabel labelName = null;
 	private JLabel labelRace = null;
 	private JLabel poolLabel =
-			new JLabel(PropertyFactory.getString("in_sumStatCost")); //$NON-NLS-1$
+			new JLabel(LanguageBundle.getString("in_sumStatCost")); //$NON-NLS-1$
 	private JLabel poolText = new JLabel();
 	private JLabel poolPointLabel = null;
 	private JLabel poolPointText = null;
@@ -276,7 +276,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			{
 				ShowMessageDelegate
 					.showMessageDialog(
-						PropertyFactory
+						LanguageBundle
 							.getString("in_sumNumberOfLevelsMustBePositive"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 				return;
@@ -288,7 +288,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			{
 				ShowMessageDelegate
 					.showMessageDialog(
-						PropertyFactory.getString("in_sumYouMustSelectAClass"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
+						LanguageBundle.getString("in_sumYouMustSelectAClass"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 				return;
 			}
@@ -296,7 +296,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			{
 				ShowMessageDelegate
 					.showMessageDialog(
-						PropertyFactory.getString("in_sumYouMustSelectAClass"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
+						LanguageBundle.getString("in_sumYouMustSelectAClass"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 				return;
 			}
@@ -305,7 +305,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			{
 				ShowMessageDelegate
 					.showMessageDialog(
-						PropertyFactory
+						LanguageBundle
 							.getFormattedString("in_sumYouAreNotQualifiedToTakeTheClass",pcClass.getDisplayName()), //$NON-NLS-1$
 						Constants.APPLICATION_NAME, MessageType.ERROR);
 
@@ -493,7 +493,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 	private JButton abilitiesButton;
 	private JButton btnAddHD = new JButton("+"); //$NON-NLS-1$
 	private JButton btnRemoveHD = new JButton("-"); //$NON-NLS-1$
-	private JButton btnAddKit = new JButton(PropertyFactory
+	private JButton btnAddKit = new JButton(LanguageBundle
 		.getFormattedString("in_sumCreateMonsterAddKit")); //$NON-NLS-1$
 	private JButton randName;
 	private JButton rollStatsButton;
@@ -579,17 +579,17 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		List<String> toDoList = new ArrayList<String>();
 		if (isNewCharName(pc.getName()))
 		{
-			toDoList.add(PropertyFactory.getString("in_sumTodoName")); //$NON-NLS-1$
+			toDoList.add(LanguageBundle.getString("in_sumTodoName")); //$NON-NLS-1$
 		}
 		if (Globals.getGameModeAlignmentText().length() != 0
 			&& (pc.getPCAlignment() == null || pc.getPCAlignment()
 				.getDisplayName().equals(Constants.NONE)))
 		{
-			toDoList.add(PropertyFactory.getString("in_sumTodoAlign")); //$NON-NLS-1$
+			toDoList.add(LanguageBundle.getString("in_sumTodoAlign")); //$NON-NLS-1$
 		}
 		if (pc.getTotalLevels() == 0)
 		{
-			toDoList.add(PropertyFactory.getString("in_sumTodoStats")); //$NON-NLS-1$
+			toDoList.add(LanguageBundle.getString("in_sumTodoStats")); //$NON-NLS-1$
 		}
 		if (!SettingsHandler.isAbilitiesShownAsATab())
 		{
@@ -741,7 +741,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory
+					LanguageBundle
 						.getString("in_sumNumberOfHitDiceMustBePositive"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return;
@@ -788,7 +788,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				{
 					ShowMessageDelegate
 							.showMessageDialog(
-									PropertyFactory
+									LanguageBundle
 											.getString("in_sumCannotLowerHitDiceAnyMore"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 					return;
@@ -874,7 +874,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 		if ((aRace != null) && !aRace.getDisplayName().startsWith("<none")) //$NON-NLS-1$
 		{
-			b.appendSmallTitleElement(PropertyFactory.getString("in_sumRace") //$NON-NLS-1
+			b.appendSmallTitleElement(LanguageBundle.getString("in_sumRace") //$NON-NLS-1
 				+ aRace.getDisplayName());
 
 			b.appendSpacer();
@@ -900,7 +900,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					}
 
 					aString.append(aStat.getAbb())
-						.append(PropertyFactory.getString("in_SumNonability")); //$NON-NLS-1$
+						.append(LanguageBundle.getString("in_SumNonability")); //$NON-NLS-1$
 				}
 				else
 				{
@@ -957,7 +957,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			if (fcs != null)
 			{
 				String favClassName = fcs.length() == 0 ?
-					PropertyFactory.getString("in_sumVarious"): //$NON-NLS-1$
+					LanguageBundle.getString("in_sumVarious"): //$NON-NLS-1$
 						fcs;
 
 				b.appendSpacer();
@@ -993,7 +993,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		if (aClass != null)
 		{
 			InfoLabelTextBuilder b = new InfoLabelTextBuilder();
-			b.appendSmallTitleElement(PropertyFactory.getString("in_sumClass") //$NON-NLS-1
+			b.appendSmallTitleElement(LanguageBundle.getString("in_sumClass") //$NON-NLS-1
 				+ aClass.getDisplayName());
 
 
@@ -1048,35 +1048,35 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				statBuf
 					.append("<b>").append(Globals.getGameModeACAbbrev()).append("</b> "); //$NON-NLS-1$ //$NON-NLS-2$
 				statBuf
-					.append("<i>").append(PropertyFactory.getString("in_sumTotal")).append("</i>: ").append(pc.getACTotal()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					.append("<i>").append(LanguageBundle.getString("in_sumTotal")).append("</i>: ").append(pc.getACTotal()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				if (SettingsHandler.getGame().isValidACType("Flatfooted")) //$NON-NLS-1$
 				{
 					statBuf
-						.append(" <i>").append(PropertyFactory.getString("in_sumFlatfooted")).append("</i>: ").append(pc.flatfootedAC()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						.append(" <i>").append(LanguageBundle.getString("in_sumFlatfooted")).append("</i>: ").append(pc.flatfootedAC()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				}
 				if (SettingsHandler.getGame().isValidACType("Touch")) //$NON-NLS-1$
 				{
 					statBuf
-						.append(" <i>").append(PropertyFactory.getString("in_sumTouch")).append("</i>: ").append(pc.touchAC()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						.append(" <i>").append(LanguageBundle.getString("in_sumTouch")).append("</i>: ").append(pc.touchAC()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				}
 				statBuf.append("<br>"); //$NON-NLS-1$
 			}
 			else
 			{
 				statBuf
-					.append("<b>").append(PropertyFactory.getString("in_sumTotalAC")).append("</b> ").append((int) pc.getTotalBonusTo(PropertyFactory.getString("in_sumCombat"), PropertyFactory.getString("in_sumAC"))); //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-1$ //$NON-NLS-4$ //$NON-NLS-5$
+					.append("<b>").append(LanguageBundle.getString("in_sumTotalAC")).append("</b> ").append((int) pc.getTotalBonusTo(LanguageBundle.getString("in_sumCombat"), LanguageBundle.getString("in_sumAC"))); //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-1$ //$NON-NLS-4$ //$NON-NLS-5$
 				statBuf.append("<br>"); //$NON-NLS-1$
 			}
 
 			final int initMod = pc.initiativeMod();
 			statBuf
-				.append("<b>").append(PropertyFactory.getString("in_sumInit")).append("</b>: ").append(Delta.toString(initMod)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				.append("<b>").append(LanguageBundle.getString("in_sumInit")).append("</b>: ").append(Delta.toString(initMod)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
 			// BAB
 			String aString = SettingsHandler.getGame().getBabAbbrev();
 			if (aString == null)
 			{
-				aString = PropertyFactory.getString("in_sumBAB"); //$NON-NLS-1$
+				aString = LanguageBundle.getString("in_sumBAB"); //$NON-NLS-1$
 			}
 			if ((aString != null) && (aString.length() != 0))
 			{
@@ -1113,7 +1113,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				//
 				statBuf.append("<br>"); //$NON-NLS-1$
 				statBuf
-					.append("<b>").append(PropertyFactory.getString("in_sumSaves")).append("</b>: "); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					.append("<b>").append(LanguageBundle.getString("in_sumSaves")).append("</b>: "); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				for (PCCheck check : checkList)
 				{
 					bonus = pc.getTotalCheck(check);
@@ -1130,14 +1130,14 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			if (!favClass.isEmpty())
 			{
 				statBuf
-					.append("<br><b>").append(PropertyFactory.getString("in_sumFavoredClass")).append("</b>: ").append(StringUtil.join(favClass, ", ")); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+					.append("<br><b>").append(LanguageBundle.getString("in_sumFavoredClass")).append("</b>: ").append(StringUtil.join(favClass, ", ")); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			}
 
 			//
 			// Show character's current size
 			//
 			statBuf
-				.append("<br><b>").append(PropertyFactory.getString("in_sumSize")).append("</b>: ").append(pc.getSize()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				.append("<br><b>").append(LanguageBundle.getString("in_sumSize")).append("</b>: ").append(pc.getSize()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		}
 
 		statBuf.append("</html>"); //$NON-NLS-1$
@@ -1158,7 +1158,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			{
 				ShowMessageDelegate
 					.showMessageDialog(
-						PropertyFactory
+						LanguageBundle
 							.getString("in_sumYouMustSelectAnAlignmentBeforeAddingClasses"), Constants.APPLICATION_NAME, //$NON-NLS-1$
 						MessageType.ERROR);
 
@@ -1175,7 +1175,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("in_Enforce_rejectLevelUp"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
+					LanguageBundle.getString("in_Enforce_rejectLevelUp"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 			return;
 		}
 
@@ -1183,7 +1183,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("in_Enforce_oneLevelOnly"), Constants.APPLICATION_NAME, MessageType.INFORMATION); //$NON-NLS-1$
+					LanguageBundle.getString("in_Enforce_oneLevelOnly"), Constants.APPLICATION_NAME, MessageType.INFORMATION); //$NON-NLS-1$
 			levels = 1;
 		}
 
@@ -1197,7 +1197,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					aClass.getSubClassKeyed(subClassKey);
 			if (subClass != null && !subClass.qualifies(pc, aClass))
 			{
-				ShowMessageDelegate.showMessageDialog(PropertyFactory
+				ShowMessageDelegate.showMessageDialog(LanguageBundle
 					.getFormattedString("in_sumYouAreNotQualifiedToTakeTheClass",
 					aClass.getDisplayName()
 					+ "/" //$NON-NLS-1$
@@ -1215,7 +1215,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory
+					LanguageBundle
 						.getFormattedString(
 							"in_sumMaximumLevelIs", String.valueOf(theClass.getSafe(IntegerKey.LEVEL_LIMIT))), //$NON-NLS-1$
 					Constants.APPLICATION_NAME, MessageType.INFORMATION);
@@ -1233,8 +1233,8 @@ public final class InfoSummary extends FilterAdapterPanel implements
 						JOptionPane
 							.showConfirmDialog(
 								this,
-								PropertyFactory.getString("in_sumPoolWarning"), //$NON-NLS-1$
-								PropertyFactory
+								LanguageBundle.getString("in_sumPoolWarning"), //$NON-NLS-1$
+								LanguageBundle
 									.getString("in_sumLevelWarnTitle"), JOptionPane.YES_NO_OPTION, //$NON-NLS-1$
 								JOptionPane.WARNING_MESSAGE);
 
@@ -1249,8 +1249,8 @@ public final class InfoSummary extends FilterAdapterPanel implements
 						JOptionPane
 							.showConfirmDialog(
 								this,
-								PropertyFactory.getString("in_sumAbilitiesZeroWarning"),
-								PropertyFactory
+								LanguageBundle.getString("in_sumAbilitiesZeroWarning"),
+								LanguageBundle
 									.getString("in_sumLevelWarnTitle"), JOptionPane.YES_NO_OPTION, //$NON-NLS-1$
 								JOptionPane.WARNING_MESSAGE);
 
@@ -1262,7 +1262,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			else if (SettingsHandler.isShowWarningAtFirstLevelUp())
 			{
 				final JCheckBox shouldDisplay =
-						new JCheckBox(PropertyFactory
+						new JCheckBox(LanguageBundle
 							.getString("in_sumAbilitiesWarningCheckBox"), true); //$NON-NLS-1$
 				shouldDisplay.addItemListener(new ItemListener()
 				{
@@ -1275,7 +1275,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				});
 
 				JPanel msgPanel =
-						buildMessageLabelPanel(PropertyFactory
+						buildMessageLabelPanel(LanguageBundle
 							.getString("in_sumAbilitiesWarning"), //$NON-NLS-1$
 							shouldDisplay);
 
@@ -1284,7 +1284,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 							.showConfirmDialog(
 								this,
 								msgPanel,
-								PropertyFactory
+								LanguageBundle
 									.getString("in_sumLevelWarnTitle"), JOptionPane.YES_NO_OPTION, //$NON-NLS-1$
 								JOptionPane.WARNING_MESSAGE);
 
@@ -1459,7 +1459,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		{
 			if (JOptionPane.showConfirmDialog(
 				null,
-				PropertyFactory.getString("in_sumExClassesWarning") //$NON-NLS-1$
+				LanguageBundle.getString("in_sumExClassesWarning") //$NON-NLS-1$
 					+ Constants.LINE_SEPARATOR + unqualified,
 				Constants.APPLICATION_NAME,
 				JOptionPane.OK_CANCEL_OPTION,
@@ -1720,7 +1720,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
 		labelName =
-				new JLabel(PropertyFactory.getString("in_sumCharString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
+				new JLabel(LanguageBundle.getString("in_sumCharString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
 		gridbag.setConstraints(labelName, c);
 		northPanel.add(labelName);
 
@@ -1737,10 +1737,10 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.WEST;
 		randName =
-				new JButton(PropertyFactory.getString("in_sumRandomNameString")); //$NON-NLS-1$
+				new JButton(LanguageBundle.getString("in_sumRandomNameString")); //$NON-NLS-1$
 		gridbag.setConstraints(randName, c);
 		northPanel.add(randName);
-		Utility.setDescription(randName, PropertyFactory
+		Utility.setDescription(randName, LanguageBundle
 			.getString("in_randNameTip")); //$NON-NLS-1$
 
 		Utility.buildConstraints(c, 0, 2, 1, 1, 0, 0);
@@ -1748,7 +1748,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		c.anchor = GridBagConstraints.EAST;
 
 		JLabel tabLabel =
-				new JLabel(PropertyFactory.getString("in_tabString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
+				new JLabel(LanguageBundle.getString("in_tabString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
 		gridbag.setConstraints(tabLabel, c);
 		northPanel.add(tabLabel);
 
@@ -1765,7 +1765,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 		JLabel label =
 				new JLabel(
-					PropertyFactory.getString("in_sumPlayerString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
+					LanguageBundle.getString("in_sumPlayerString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
 		gridbag.setConstraints(label, c);
 		northPanel.add(label);
 
@@ -1781,7 +1781,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
 		labelAlignment =
-				new JLabel(PropertyFactory.getString("in_alignString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
+				new JLabel(LanguageBundle.getString("in_alignString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
 		gridbag.setConstraints(labelAlignment, c);
 		northPanel.add(labelAlignment);
 
@@ -1798,7 +1798,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
 		labelRace =
-				new JLabel(PropertyFactory.getString("in_raceString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
+				new JLabel(LanguageBundle.getString("in_raceString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
 		gridbag.setConstraints(labelRace, c);
 		northPanel.add(labelRace);
 
@@ -1815,7 +1815,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
 		labelClass =
-				new JLabel(PropertyFactory.getString("in_classString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
+				new JLabel(LanguageBundle.getString("in_classString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
 		gridbag.setConstraints(labelClass, c);
 		northPanel.add(labelClass);
 
@@ -1836,7 +1836,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		Utility.buildConstraints(c, 3, 3, 1, 1, 0, 0);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		label = new JLabel(PropertyFactory.getString("in_levelString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
+		label = new JLabel(LanguageBundle.getString("in_levelString") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
 		gridbag.setConstraints(label, c);
 		northPanel.add(label);
 
@@ -1844,12 +1844,12 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.anchor = GridBagConstraints.WEST;
 
-		//label = new JLabel(PropertyFactory.getString("in_levelString") + ": ");
-		Utility.setDescription(lvlDownButton, PropertyFactory
+		//label = new JLabel(LanguageBundle.getString("in_levelString") + ": ");
+		Utility.setDescription(lvlDownButton, LanguageBundle
 			.getString("in_levelDownButtonTooltip")); //$NON-NLS-1$
-		Utility.setDescription(lvlUpButton, PropertyFactory
+		Utility.setDescription(lvlUpButton, LanguageBundle
 			.getString("in_levelUpButtonTooltip")); //$NON-NLS-1$
-		Utility.setDescription(levelText, PropertyFactory
+		Utility.setDescription(levelText, LanguageBundle
 			.getString("in_levelTextTooltip")); //$NON-NLS-1$
 
 		//levelPanel.add(label);
@@ -1864,7 +1864,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		/////////////////////////
 		Utility.buildConstraints(c, 0, 4, 1, 1, 0, 0);
 		lblMonsterlHD
-			.setText(PropertyFactory.getString("in_sumMonsterHitDice")); //$NON-NLS-1$
+			.setText(LanguageBundle.getString("in_sumMonsterHitDice")); //$NON-NLS-1$
 		c.anchor = GridBagConstraints.EAST;
 		northPanel.add(lblMonsterlHD, c);
 
@@ -1875,7 +1875,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		northPanel.add(txtMonsterlHD, c);
 
 		Utility.buildConstraints(c, 3, 4, 1, 1, 0, 0);
-		lblHDModify.setText(PropertyFactory.getString("in_sumHDToAddRem")); //$NON-NLS-1$
+		lblHDModify.setText(LanguageBundle.getString("in_sumHDToAddRem")); //$NON-NLS-1$
 		c.anchor = GridBagConstraints.EAST;
 		northPanel.add(lblHDModify, c);
 
@@ -1991,7 +1991,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		pane1.add(scroll);
 
 		TitledBorder title1 =
-				BorderFactory.createTitledBorder(PropertyFactory
+				BorderFactory.createTitledBorder(LanguageBundle
 					.getString("in_tipsString")); //$NON-NLS-1$
 		title1.setTitleJustification(TitledBorder.CENTER);
 		pane1.setBorder(title1);
@@ -2020,14 +2020,14 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		Utility
 			.setDescription(
 				infoPane,
-				PropertyFactory
+				LanguageBundle
 					.getString("in_sumAny_requirements_you_don__t_meet_are_in_italics._137")); //$NON-NLS-1$
 
 		JPanel pane2 = new JPanel();
 		pane2.add(scrol2);
 
 		TitledBorder title2 =
-				BorderFactory.createTitledBorder(PropertyFactory
+				BorderFactory.createTitledBorder(LanguageBundle
 					.getString("in_infoString")); //$NON-NLS-1$
 		title2.setTitleJustification(TitledBorder.CENTER);
 		pane2.setBorder(title2);
@@ -2053,7 +2053,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		pane3.add(scrollPane);
 
 		TitledBorder title3 =
-				BorderFactory.createTitledBorder(PropertyFactory
+				BorderFactory.createTitledBorder(LanguageBundle
 					.getString("in_classesString")); //$NON-NLS-1$
 		title3.setTitleJustification(TitledBorder.CENTER);
 		pane3.setBorder(title3);
@@ -2068,7 +2068,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			c.fill = GridBagConstraints.NONE;
 			c.anchor = GridBagConstraints.CENTER;
 			abilitiesButton =
-					new JButton(PropertyFactory
+					new JButton(LanguageBundle
 						.getString("in_specialabilities")); //$NON-NLS-1$
 			gridbag.setConstraints(abilitiesButton, c);
 			northPanel.add(abilitiesButton);
@@ -2081,8 +2081,8 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			cPanel.setLayout(new FlowLayout());
 
 			JButton closeButton =
-					new JButton(PropertyFactory.getString("in_close")); //$NON-NLS-1$
-			closeButton.setMnemonic(PropertyFactory.getMnemonic("in_mn_close")); //$NON-NLS-1$
+					new JButton(LanguageBundle.getString("in_close")); //$NON-NLS-1$
+			closeButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_close")); //$NON-NLS-1$
 			closeButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent evt)
@@ -2116,7 +2116,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		pane4.add(statsScroll);
 
 		TitledBorder title4 =
-				BorderFactory.createTitledBorder(PropertyFactory
+				BorderFactory.createTitledBorder(LanguageBundle
 					.getString("in_statsString")); //$NON-NLS-1$
 		title4.setTitleJustification(TitledBorder.CENTER);
 		pane4.setBorder(title4);
@@ -2262,7 +2262,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 				if (lcf == null)
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory
+					ShowMessageDelegate.showMessageDialog(LanguageBundle
 							.getString("in_sumClassKindErrMsg"), Constants.APPLICATION_NAME, //$NON-NLS-1$
 							MessageType.ERROR);
 				}
@@ -2384,7 +2384,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				{
 					if (!SettingsHandler.isExpertGUI())
 					{
-						ShowMessageDelegate.showMessageDialog(PropertyFactory
+						ShowMessageDelegate.showMessageDialog(LanguageBundle
 							.getFormattedString("in_sumCannotRaiseStatAbove",
 							Integer.toString(aStat.getSafe(IntegerKey.MAX_VALUE))),
 							Constants.APPLICATION_NAME, MessageType.ERROR);
@@ -2396,7 +2396,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				{
 					if (!SettingsHandler.isExpertGUI())
 					{
-						ShowMessageDelegate.showMessageDialog(PropertyFactory
+						ShowMessageDelegate.showMessageDialog(LanguageBundle
 							.getFormattedString("in_sumCannotRaiseStatAbovePurchase",
 							SettingsHandler.getGame().getStatDisplayText(
 								SettingsHandler.getGame().getPurchaseScoreMax(
@@ -2450,7 +2450,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				{
 					if (!SettingsHandler.isExpertGUI())
 					{
-						ShowMessageDelegate.showMessageDialog(PropertyFactory
+						ShowMessageDelegate.showMessageDialog(LanguageBundle
 							.getFormattedString("in_sumCannotLowerStatBelow",
 							Integer.toString(aStat.getSafe(IntegerKey.MIN_VALUE))),
 							Constants.APPLICATION_NAME, MessageType.ERROR);
@@ -2469,7 +2469,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				{
 					if (!SettingsHandler.isExpertGUI())
 					{
-						ShowMessageDelegate.showMessageDialog(PropertyFactory
+						ShowMessageDelegate.showMessageDialog(LanguageBundle
 							.getFormattedString("in_sumCannotLowerStatBelowPurchase",
 							SettingsHandler.getGame().getStatDisplayText(
 								minPurchaseScore)),
@@ -2521,7 +2521,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				{
 					ShowMessageDelegate
 						.showMessageDialog(
-							PropertyFactory.getFormattedString("in_sumStatPoolEmpty",Globals.getGameModePointPoolName()), //$NON-NLS-1$
+							LanguageBundle.getFormattedString("in_sumStatPoolEmpty",Globals.getGameModePointPoolName()), //$NON-NLS-1$
 						Constants.APPLICATION_NAME, MessageType.ERROR);
 				}
 				else
@@ -2535,7 +2535,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				{
 					ShowMessageDelegate
 						.showMessageDialog(
-							PropertyFactory.getString("in_sumNoAddThisLevel"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
+							LanguageBundle.getString("in_sumNoAddThisLevel"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 				}
 				else
 				{
@@ -2734,7 +2734,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 			if (availablePool != 0)
 			{
-				poolLabel.setText(PropertyFactory.getString("in_sumStatCost")); //$NON-NLS-1$
+				poolLabel.setText(LanguageBundle.getString("in_sumStatCost")); //$NON-NLS-1$
 				poolText.setText(bString + " / " + availablePool); //$NON-NLS-1$
 			}
 
@@ -2749,7 +2749,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				{
 					ShowMessageDelegate
 						.showMessageDialog(
-							PropertyFactory
+							LanguageBundle
 								.getFormattedString("in_sumYouHaveExcededTheMaximumPointsOf",//$NON-NLS-1$
 								String.valueOf(availablePool),
 								SettingsHandler.getGame().getPurchaseModeMethodName()),
@@ -2782,7 +2782,8 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		else if (!SettingsHandler.getGame().getModeContext().ref
 				.getConstructedCDOMObjects(RollMethod.class).isEmpty())
 		{
-			rollStatsButton = new JButton(PropertyFactory.getString("in_demAgeRoll")); //$NON-NLS-1$
+			rollStatsButton =
+					new JButton(LanguageBundle.getString("in_demAgeRoll")); //$NON-NLS-1$
 			rollStatsButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -2810,7 +2811,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		if (!SettingsHandler.getGame().isPurchaseStatMode()
 			|| (pc.getTotalPointBuyPoints() == 0))
 		{
-			poolLabel.setText(PropertyFactory.getString("in_sumStatTotal")); //$NON-NLS-1$
+			poolLabel.setText(LanguageBundle.getString("in_sumStatTotal")); //$NON-NLS-1$
 
 			int statTotal = 0;
 			int modTotal = 0;
@@ -2830,7 +2831,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			}
 
 			poolLabel
-				.setText(PropertyFactory.getString("in_sumStatTotal") + Integer.toString(statTotal) + PropertyFactory.getString("in_sumModifierTotal") //$NON-NLS-1$ //$NON-NLS-2$
+				.setText(LanguageBundle.getString("in_sumStatTotal") + Integer.toString(statTotal) + LanguageBundle.getString("in_sumModifierTotal") //$NON-NLS-1$ //$NON-NLS-2$
 					+ Integer.toString(modTotal));
 			poolText.setText(""); //$NON-NLS-1$
 		}
@@ -2912,16 +2913,16 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			switch (columnIndex)
 			{
 				case COL_PCLEVEL:
-					return PropertyFactory.getString("in_sumLevel"); //$NON-NLS-1$
+					return LanguageBundle.getString("in_sumLevel"); //$NON-NLS-1$
 
 				case COL_CLASSNAME:
-					return PropertyFactory.getString("in_sumClassLvl"); //$NON-NLS-1$
+					return LanguageBundle.getString("in_sumClassLvl"); //$NON-NLS-1$
 
 				case COL_SRC:
-					return PropertyFactory.getString("in_sumSource"); //$NON-NLS-1$
+					return LanguageBundle.getString("in_sumSource"); //$NON-NLS-1$
 
 				default:
-					return PropertyFactory.getString("in_sumOut_of_Bounds"); //$NON-NLS-1$
+					return LanguageBundle.getString("in_sumOut_of_Bounds"); //$NON-NLS-1$
 			}
 		}
 
@@ -3040,7 +3041,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					break;
 
 				default:
-					retStr = PropertyFactory.getString("in_sumOut_of_Bounds"); //$NON-NLS-1$
+					retStr = LanguageBundle.getString("in_sumOut_of_Bounds"); //$NON-NLS-1$
 			}
 
 			return retStr;
@@ -3218,22 +3219,22 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			switch (columnIndex)
 			{
 				case STAT_COLUMN:
-					return PropertyFactory.getString("in_sumStat"); //$NON-NLS-1$
+					return LanguageBundle.getString("in_sumStat"); //$NON-NLS-1$
 
 				case BASE_COLUMN:
-					return PropertyFactory.getString("in_sumScoreEditable"); //$NON-NLS-1$
+					return LanguageBundle.getString("in_sumScoreEditable"); //$NON-NLS-1$
 
 				case RACE_COLUMN:
-					return PropertyFactory.getString("in_sumRaceAdj"); //$NON-NLS-1$
+					return LanguageBundle.getString("in_sumRaceAdj"); //$NON-NLS-1$
 
 				case OTHER_COLUMN:
-					return PropertyFactory.getString("in_sumOtherAdj"); //$NON-NLS-1$
+					return LanguageBundle.getString("in_sumOtherAdj"); //$NON-NLS-1$
 
 				case TOTAL_COLUMN:
-					return PropertyFactory.getString("in_sumTotal"); //$NON-NLS-1$
+					return LanguageBundle.getString("in_sumTotal"); //$NON-NLS-1$
 
 				case MOD_COLUMN:
-					return PropertyFactory.getString("in_sumMod"); //$NON-NLS-1$
+					return LanguageBundle.getString("in_sumMod"); //$NON-NLS-1$
 
 				case INC_COLUMN:
 					return "+"; //$NON-NLS-1$
@@ -3242,7 +3243,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					return "-"; //$NON-NLS-1$
 
 				default:
-					return PropertyFactory.getString("in_sumOut_of_Bounds"); //$NON-NLS-1$
+					return LanguageBundle.getString("in_sumOut_of_Bounds"); //$NON-NLS-1$
 			}
 		}
 
@@ -3294,7 +3295,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				}
 				else if (statVal < aStat.getSafe(IntegerKey.MIN_VALUE))
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory
+					ShowMessageDelegate.showMessageDialog(LanguageBundle
 						.getFormattedString("in_sumCannotLowerStatBelow",
 						SettingsHandler.getGame().getStatDisplayText(
 							aStat.getSafe(IntegerKey.MIN_VALUE))), Constants.APPLICATION_NAME,
@@ -3304,7 +3305,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				}
 				else if (statVal > aStat.getSafe(IntegerKey.MAX_VALUE))
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory
+					ShowMessageDelegate.showMessageDialog(LanguageBundle
 						.getFormattedString("in_sumCannotRaiseStatAbove",
 						SettingsHandler.getGame().getStatDisplayText(
 							aStat.getSafe(IntegerKey.MAX_VALUE))), Constants.APPLICATION_NAME,
@@ -3320,7 +3321,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 					if (statVal > maxPurchaseScore)
 					{
-						ShowMessageDelegate.showMessageDialog(PropertyFactory
+						ShowMessageDelegate.showMessageDialog(LanguageBundle
 							.getFormattedString("in_sumCannotRaiseStatAbovePurchase",
 							SettingsHandler.getGame().getStatDisplayText(
 								maxPurchaseScore)),
@@ -3335,7 +3336,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 					if (statVal < minPurchaseScore)
 					{
-						ShowMessageDelegate.showMessageDialog(PropertyFactory
+						ShowMessageDelegate.showMessageDialog(LanguageBundle
 							.getFormattedString("in_sumCannotLowerStatBelowPurchase",
 							SettingsHandler.getGame().getStatDisplayText(
 								minPurchaseScore)),
@@ -3362,7 +3363,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 							{
 								ShowMessageDelegate
 									.showMessageDialog(
-										PropertyFactory
+										LanguageBundle
 											.getFormattedString("in_sumStatPoolEmpty",Globals.getGameModePointPoolName()), //$NON-NLS-1$
 									Constants.APPLICATION_NAME, MessageType.ERROR);
 								return;
@@ -3375,7 +3376,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 							{
 								ShowMessageDelegate
 									.showMessageDialog(
-										PropertyFactory
+										LanguageBundle
 											.getString("in_sumStatStartedHigher"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 								return;
 							}
@@ -3411,7 +3412,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			}
 			else
 			{
-				return PropertyFactory.getString("in_sumOut_of_Bounds"); //$NON-NLS-1$
+				return LanguageBundle.getString("in_sumOut_of_Bounds"); //$NON-NLS-1$
 			}
 
 			if (columnIndex == 0)
@@ -3487,7 +3488,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 					return "-"; //$NON-NLS-1$
 
 				default:
-					return PropertyFactory.getString("in_sumOut_of_Bounds"); //$NON-NLS-1$
+					return LanguageBundle.getString("in_sumOut_of_Bounds"); //$NON-NLS-1$
 			}
 		}
 	}

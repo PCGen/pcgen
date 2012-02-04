@@ -23,7 +23,7 @@
 package pcgen.gui.editor;
 
 import pcgen.core.PObject;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import javax.swing.*;
 import java.awt.*;
@@ -212,8 +212,8 @@ final class EditorBasePanel extends JPanel
 
 		pnlName.setLayout(new GridBagLayout());
 
-		lblName.setText(PropertyFactory.getString("in_dem" + nameID));
-		lblName.setDisplayedMnemonic(PropertyFactory.getMnemonic("in_mn_" + nameID));
+		lblName.setText(LanguageBundle.getString("in_dem" + nameID));
+		lblName.setDisplayedMnemonic(LanguageBundle.getMnemonic("in_mn_" + nameID));
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
 		gridBagConstraints.insets = new Insets(2, 5, 2, 5);
@@ -244,8 +244,8 @@ final class EditorBasePanel extends JPanel
 		{
 			pnlProductIdentity.setLayout(new FlowLayout(FlowLayout.RIGHT));
 
-			chkProductIdentity.setText(PropertyFactory.getString("in_demProIden"));
-			chkProductIdentity.setMnemonic(PropertyFactory.getMnemonic("in_mn_demProIden"));
+			chkProductIdentity.setText(LanguageBundle.getString("in_demProIden"));
+			chkProductIdentity.setMnemonic(LanguageBundle.getMnemonic("in_mn_demProIden"));
 			chkProductIdentity.setHorizontalTextPosition(SwingConstants.LEADING);
 			pnlProductIdentity.add(chkProductIdentity);
 
@@ -257,8 +257,8 @@ final class EditorBasePanel extends JPanel
 			pnlSource.setLayout(new GridBagLayout());
 
 			lblSource.setLabelFor(txtSource);
-			lblSource.setText(PropertyFactory.getString("in_sourceLabel"));
-			lblSource.setDisplayedMnemonic(PropertyFactory.getMnemonic("in_mn_sourceLabel"));
+			lblSource.setText(LanguageBundle.getString("in_sourceLabel"));
+			lblSource.setDisplayedMnemonic(LanguageBundle.getMnemonic("in_mn_sourceLabel"));
 			lblSource.setPreferredSize(new Dimension(70, 16));
 			gridBagConstraints = new GridBagConstraints();
 			gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;

@@ -81,7 +81,6 @@ import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.StatAnalysis;
-import pcgen.gui.PCGen_Frame1;
 import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.util.Logging;
 import plugin.initiative.AttackModel;
@@ -1455,9 +1454,9 @@ public class Initiative extends javax.swing.JPanel
 
 		if (toPaste instanceof PcgCombatant)
 		{
-			PcgCombatant cb = (PcgCombatant) toPaste;
-			PCGen_Frame1.getInst().loadPCFromFile(
-				new File(cb.getPC().getFileName()), false, true);
+//			PcgCombatant cb = (PcgCombatant) toPaste;
+//			PCGen_Frame1.getInst().loadPCFromFile(
+//				new File(cb.getPC().getFileName()), false, true);
 			// As character exists in pcgen it is automatically added in to the init list
 		}
 

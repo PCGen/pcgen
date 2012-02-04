@@ -52,8 +52,9 @@ import pcgen.cdom.reference.CategorizedCreator;
 import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.UnconstructedValidator;
+import pcgen.core.facade.AbilityCategoryFacade;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
@@ -72,7 +73,7 @@ import pcgen.util.enumeration.Visibility;
  * @since 5.11.1
  */
 public class AbilityCategory implements Category<Ability>, Loadable,
-		ManufacturableFactory<Ability>, CategorizedCreator<Ability>
+		ManufacturableFactory<Ability>, CategorizedCreator<Ability>, AbilityCategoryFacade
 {
 	private URI sourceURI;
 
@@ -100,8 +101,8 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 
 	static
 	{
-		FEAT.pluralName = PropertyFactory.getString("in_feats"); //$NON-NLS-1$
-		FEAT.displayLocation = DisplayLocation.getConstant(PropertyFactory.getString("in_feats")); //$NON-NLS-1$
+		FEAT.pluralName = LanguageBundle.getString("in_feats"); //$NON-NLS-1$
+		FEAT.displayLocation = DisplayLocation.getConstant(LanguageBundle.getString("in_feats")); //$NON-NLS-1$
 		FEAT.setInternal(true);
 		LANGBONUS.setPoolFormula(FormulaFactory.getFormulaFor("BONUSLANG"));
 		LANGBONUS.setInternal(true);
@@ -292,7 +293,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		}
 		if (name.startsWith("in_"))
 		{
-			return PropertyFactory.getString(name);
+			return LanguageBundle.getString(name);
 		}
 		else
 		{
@@ -365,7 +366,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 					|| pc.getTotalAbilityPool(this).floatValue() != 0.0
 					|| !pc.getAggregateVisibleAbilityList(this).isEmpty();
 		}
-		return visibility.isVisibileTo(View.VISIBLE, false);
+		return visibility.isVisibleTo(View.VISIBLE, false);
 	}
 	
 	/**
@@ -439,7 +440,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	{
 		if (displayName.startsWith("in_"))
 		{
-			return PropertyFactory.getString(displayName);
+			return LanguageBundle.getString(displayName);
 		}
 		else
 		{
@@ -776,5 +777,21 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	public Category<Ability> getCategory()
 	{
 		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see pcgen.core.facade.AbilityCategoryFacade#getName()
+	 */
+	public String getName()
+	{
+		return getDisplayName();
+	}
+
+	/* (non-Javadoc)
+	 * @see pcgen.core.facade.AbilityCategoryFacade#getType()
+	 */
+	public String getType()
+	{
+		return String.valueOf(getDisplayLocation());
 	}
 }

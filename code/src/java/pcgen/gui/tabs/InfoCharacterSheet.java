@@ -70,7 +70,7 @@ import pcgen.gui.CharacterInfoTab;
 import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.io.ExportHandler;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 import plugin.charactersheet.CharacterSheetPlugin;
 import plugin.charactersheet.gui.CharacterPanel;
@@ -313,7 +313,7 @@ class CharacterSheetSelectionPanel extends JPanel implements ItemListener
 	
 	private void initComponents()
 	{
-		JLabel label = new JLabel(PropertyFactory.getString("in_character_sheet"));
+		JLabel label = new JLabel(LanguageBundle.getString("in_character_sheet"));
 		add(label);
 		theCombo = new JComboBox();
 		theCombo.addItemListener(this);

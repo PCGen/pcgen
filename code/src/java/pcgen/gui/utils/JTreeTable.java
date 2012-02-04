@@ -58,7 +58,7 @@ import pcgen.core.character.SpellInfo;
 import pcgen.core.utils.MessageType;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * This example shows how to create a simple JTreeTable component,
@@ -1123,7 +1123,7 @@ public final class JTreeTable extends JTableEx implements KeyListener
 		InputInterface ii = InputFactory.getInputInstance();
 		Object selectedValue =
 				ii.showInputDialog(null,
-					PropertyFactory.getString("TreeTable.Prompt.Search"), //$NON-NLS-1$
+					LanguageBundle.getString("TreeTable.Prompt.Search"), //$NON-NLS-1$
 					Constants.APPLICATION_NAME, MessageType.INFORMATION, null,
 					lastSearch);
 

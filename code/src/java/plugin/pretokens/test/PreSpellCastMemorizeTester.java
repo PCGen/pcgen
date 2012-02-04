@@ -13,7 +13,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * @author Valued Customer
@@ -70,11 +70,11 @@ public class PreSpellCastMemorizeTester extends AbstractPrerequisiteTest
 
 		if (prereqMemorized)
 		{
-			return PropertyFactory
+			return LanguageBundle
 				.getFormattedString(
 					"PreSpellCastMemorize.toHtml_does_memorise", prereq.getOperator().toDisplayString()); //$NON-NLS-1$
 		}
-		return PropertyFactory
+		return LanguageBundle
 			.getFormattedString(
 				"PreSpellCastMemorize.toHtml_does_not_memorise", prereq.getOperator().toDisplayString()); //$NON-NLS-1$
 	}

@@ -84,7 +84,7 @@ import pcgen.gui.PCGen_Frame1;
 import pcgen.gui.utils.Utility;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.Tab;
@@ -187,19 +187,19 @@ public final class InfoSpecialAbilities extends JPanel implements
 			{
 				if (Globals.checkRule(RuleConstants.INTBONUSLANG))
 				{
-					toDoList.add(PropertyFactory
+					toDoList.add(LanguageBundle
 						.getString("in_isaTodoLangRemain")); //$NON-NLS-1$
 				}
 				else
 				{
-					toDoList.add(PropertyFactory
+					toDoList.add(LanguageBundle
 						.getString("in_isaTodoLangRemainFirstOnly")); //$NON-NLS-1$
 				}
 			}
 			else if (currentLangCount > bonusLangCount)
 			{
 				toDoList
-					.add(PropertyFactory.getString("in_isaTodoLangTooMany")); //$NON-NLS-1$
+					.add(LanguageBundle.getString("in_isaTodoLangTooMany")); //$NON-NLS-1$
 			}
 		}
 
@@ -337,7 +337,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 	private void formComponentShown()
 	{
 		requestFocus();
-		PCGen_Frame1.setMessageAreaTextWithoutSaving(PropertyFactory
+		PCGen_Frame1.setMessageAreaTextWithoutSaving(LanguageBundle
 			.getString("in_iaLangTip"));
 		refresh();
 	}
@@ -392,12 +392,12 @@ public final class InfoSpecialAbilities extends JPanel implements
 
 		JPanel sPanel = new JPanel();
 		sPanel.setLayout(new FlowLayout());
-		sPanel.add(new JLabel(PropertyFactory.getString("in_specialAb")));
+		sPanel.add(new JLabel(LanguageBundle.getString("in_specialAb")));
 
-		spAddButton = new JButton(PropertyFactory.getString("in_add"));
+		spAddButton = new JButton(LanguageBundle.getString("in_add"));
 		sPanel.add(spAddButton);
 
-		spRemButton = new JButton(PropertyFactory.getString("in_remove"));
+		spRemButton = new JButton(LanguageBundle.getString("in_remove"));
 		sPanel.add(spRemButton);
 
 		specialPanel.add(sPanel, BorderLayout.NORTH);
@@ -420,10 +420,10 @@ public final class InfoSpecialAbilities extends JPanel implements
 		JPanel bPanel = new JPanel();
 		bPanel.setLayout(new FlowLayout());
 
-		JLabel aLabel = new JLabel(PropertyFactory.getString("in_weaProfs"));
+		JLabel aLabel = new JLabel(LanguageBundle.getString("in_weaProfs"));
 		bPanel.add(aLabel);
-		weaponButton = new JButton(PropertyFactory.getString("in_optProfs"));
-		pcgen.gui.utils.Utility.setDescription(weaponButton, PropertyFactory
+		weaponButton = new JButton(LanguageBundle.getString("in_optProfs"));
+		pcgen.gui.utils.Utility.setDescription(weaponButton, LanguageBundle
 			.getString("in_iaOptTip"));
 		bPanel.add(weaponButton);
 		weaponProfPanel.add(bPanel, BorderLayout.NORTH);
@@ -448,9 +448,9 @@ public final class InfoSpecialAbilities extends JPanel implements
 	{
 		lPanel = new JPanel();
 		lPanel.setLayout(new FlowLayout());
-		lPanel.add(new JLabel(PropertyFactory.getString("in_languages")));
+		lPanel.add(new JLabel(LanguageBundle.getString("in_languages")));
 
-		langButton = new JButton(PropertyFactory.getString("in_other"));
+		langButton = new JButton(LanguageBundle.getString("in_other"));
 
 		if (pc != null)
 		{
@@ -458,7 +458,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 			{
 				if (ChooseActivation.hasChooseToken(sk))
 				{
-					JButton button = new JButton(PropertyFactory
+					JButton button = new JButton(LanguageBundle
 							.getString("in_skill")
 							+ " " + sk.getOutputName());
 					lPanel.add(button);
@@ -510,8 +510,8 @@ public final class InfoSpecialAbilities extends JPanel implements
 
 		ChooserInterface lc = ChooserFactory.getChooserInstance();
 		lc.setVisible(false);
-		lc.setTitle(PropertyFactory.getString("in_iaReSpeAb"));
-		lc.setMessageText(PropertyFactory.getString("in_iaSelSpeAb"));
+		lc.setTitle(LanguageBundle.getString("in_iaReSpeAb"));
+		lc.setMessageText(LanguageBundle.getString("in_iaSelSpeAb"));
 		lc.setAvailableList(aList);
 		lc.setSelectedList(bList);
 		lc.setTotalChoicesAvail(aList.size());
@@ -606,7 +606,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 
 			if (bonusCategory.size() == 0)
 			{
-				ShowMessageDelegate.showMessageDialog(PropertyFactory
+				ShowMessageDelegate.showMessageDialog(LanguageBundle
 					.getString("in_iaNoOptProfs"), Constants.APPLICATION_NAME,
 					MessageType.INFORMATION);
 
@@ -633,10 +633,10 @@ public final class InfoSpecialAbilities extends JPanel implements
 					{
 						InputInterface ii = InputFactory.getInputInstance();
 						Object selectedValue =
-								ii.showInputDialog(null, PropertyFactory
+								ii.showInputDialog(null, LanguageBundle
 									.getString("in_iaMultiChoice1")
 									+ Constants.LINE_SEPARATOR
-									+ PropertyFactory
+									+ LanguageBundle
 										.getString("in_iaMultiChoice2"),
 									Constants.APPLICATION_NAME,
 									MessageType.INFORMATION, bonusCategory

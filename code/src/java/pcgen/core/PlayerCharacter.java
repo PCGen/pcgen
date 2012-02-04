@@ -25,6 +25,7 @@
  */
 package pcgen.core;
 
+import java.awt.Rectangle;
 import java.awt.geom.Point2D;
 import java.io.BufferedReader;
 import java.io.File;
@@ -72,6 +73,7 @@ import pcgen.cdom.content.Modifier;
 import pcgen.cdom.content.RollMethod;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -133,9 +135,10 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.GuiConstants;
 import pcgen.io.PCGFile;
 import pcgen.persistence.PersistenceManager;
+import pcgen.system.LanguageBundle;
+import pcgen.system.PCGenSettings;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
@@ -273,6 +276,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private AgeSetFacet ageSetFacet = FacetLibrary.getFacet(AgeSetFacet.class);
 	private MultiClassFacet multiClassFacet = FacetLibrary.getFacet(MultiClassFacet.class);
 	private ArmorClassFacet armorClassFacet = FacetLibrary.getFacet(ArmorClassFacet.class);
+	private ChronicleEntryFacet chronicleEntryFacet = FacetLibrary.getFacet(ChronicleEntryFacet.class);
 	private SpellsFacet spellsFacet = FacetLibrary.getFacet(SpellsFacet.class);
 	private ActiveSpellsFacet activeSpellsFacet = FacetLibrary.getFacet(ActiveSpellsFacet.class);
 	private SpellListFacet spellListFacet = FacetLibrary.getFacet(SpellListFacet.class);
@@ -284,6 +288,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private ObjectAdditionFacet additionFacet = FacetLibrary.getFacet(ObjectAdditionFacet.class);
 	private AddLevelFacet addLevelFacet = FacetLibrary.getFacet(AddLevelFacet.class);
 	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
+	private PortraitThumbnailRectFacet portraitThumbnailRectFacet = FacetLibrary.getFacet(PortraitThumbnailRectFacet.class);
+	private SuppressBioFieldFacet suppressBioFieldFacet = FacetLibrary.getFacet(SuppressBioFieldFacet.class);
+	
 	private LevelInfoFacet levelInfoFacet = FacetLibrary.getFacet(LevelInfoFacet.class);
 
 	// List of Note objects
@@ -319,7 +326,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private boolean autoSortGear = true;
 
 	// Should we resize the gear automatically?
-	private boolean autoResize = SettingsHandler.getGearTab_AutoResize();
+	private boolean autoResize = PCGenSettings.getInstance().getBoolean(
+		PCGenSettings.OPTION_AUTO_RESIZE_EQUIP, true);
 
 	// output sheet locations
 	private String outputSheetHTML = Constants.EMPTY_STRING;
@@ -375,15 +383,16 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public PlayerCharacter()
 	{
-		this(true);
+		this(true, PersistenceManager.getInstance().getLoadedCampaigns());
 	}
 
 	/**
 	 * Constructor.
 	 *
 	 * @param load true if loading the character
+	 * @param loadedCampaigns The currently loaded campaign objects.
 	 */
-	public PlayerCharacter(boolean load)
+	public PlayerCharacter(boolean load, Collection<Campaign> loadedCampaigns)
 	{
 		resolveFacet.associatePlayerCharacter(id, this);
 		bonusFacet.associatePlayerCharacter(id, this);
@@ -402,7 +411,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		statFacet.addAll(id, Globals.getContext().ref.getOrderSortedCDOMObjects(PCStat.class));
 		checkFacet.addAll(id, Globals.getContext().ref.getOrderSortedCDOMObjects(PCCheck.class));
 		bioSetFacet.set(id, Globals.getBioSet());
-		campaignFacet.addAll(id, PersistenceManager.getInstance().getLoadedCampaigns());
+		campaignFacet.addAll(id, loadedCampaigns);
 
 		setRace(Globals.s_EMPTYRACE);
 		setName(Constants.EMPTY_STRING);
@@ -413,7 +422,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		addSpellBook(new SpellBook(Globals.INNATE_SPELL_BOOK_NAME,
 			SpellBook.TYPE_INNATE_SPELLS));
 		populateSkills(SettingsHandler.getSkillsTab_IncludeSkills());
-		setStringFor(StringKey.HANDED, PropertyFactory.getString("in_right")); //$NON-NLS-1$
+		setStringFor(StringKey.HANDED, LanguageBundle.getString("in_right")); //$NON-NLS-1$
 		if (load)
 		{
 			insertBonusLanguageAbility();
@@ -2056,7 +2065,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		{
 			String idPath = getNewIdPath(null);
 			EquipSet eSet =
-					new EquipSet(idPath, PropertyFactory.getString("in_ieDefault"));
+					new EquipSet(idPath, LanguageBundle.getString("in_ieDefault"));
 			addEquipSet(eSet);
 		}
 
@@ -2353,6 +2362,25 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return getSafeStringFor(StringKey.PORTRAIT_PATH);
 	}
 
+	/**
+	 * Set a new outline for the portrait thumbnail.
+	 * @param rect The thumbnail outline.
+	 */
+	public void setPortraitThumbnailRect(Rectangle rect) 
+	{
+		portraitThumbnailRectFacet.set(id, (Rectangle) rect.clone());
+	}
+	
+	/**
+	 * Retrieve the outline for the portrait thumbnail.
+	 * @return The outline for the portrait thumbnail.
+	 */
+	public Rectangle getPortraitThumbnailRect()
+	{
+		Rectangle rect = portraitThumbnailRectFacet.get(id);
+		return rect == null ? null : (Rectangle) rect.clone();
+	}
+	
 	/**
 	 * Selector gets the character's primary weapons.
 	 * 
@@ -2891,7 +2919,29 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	{
 		return regionFacet.getSubRegion(id);
 	}
-
+	
+	
+	/**
+	 * Check  whether the field should be hidden from output. 
+	 * @param field The BiographyField to check export suppression rules for.
+	 * @return true if the field should not be output, false if it may be.
+	 */
+	public boolean getSuppressBioField(BiographyField field)
+	{
+		return suppressBioFieldFacet.getSuppressField(id, field);
+	}
+	
+	/**
+	 * Set whether the field should be hidden from output. 
+	 * @param field The BiographyField to set export suppression rules for.
+	 * @param suppress Should the field be hidden from output.
+	 */
+	public void setSuppressBioField(BiographyField field, boolean suppress)
+	{
+		suppressBioFieldFacet.setSuppressField(id, field, suppress);
+		setDirty(true);
+	}
+	
 	/**
 	 * Set the name on the tab.
 	 * 
@@ -9292,7 +9342,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		// new data instances for all the final variables and I won't
 		// be able to reset them. Need to call new PlayerCharacter()
 		// aClone = (PlayerCharacter)super.clone();
-		aClone = new PlayerCharacter();
+		aClone = new PlayerCharacter(true, campaignFacet.getSet(id));
 		for (NoteItem n : getNotesList())
 		{
 			aClone.addNotesItem(n);
@@ -12197,10 +12247,12 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return drFacet.getDR(id, key);
 	}
 
-	/*
+	/**
 	 * WARNING: Use this method SPARINGLY... and only for transition to the
 	 * facet model. It is NOT an excuse to throw around a PlayerCharacter object
 	 * when unnecessary
+	 * 
+	 * @return The id of the character as used by the facets.
 	 */
 	public CharID getCharID()
 	{
@@ -12652,6 +12704,33 @@ public class PlayerCharacter extends Observable implements Cloneable,
 				}
 			}
 		}
+	}
+	
+	/**
+	 * Add a chronicle entry.
+	 * @param chronicleEntry The entry to be added.
+	 */
+	public void addChronicleEntry(ChronicleEntry chronicleEntry)
+	{
+		chronicleEntryFacet.add(id, chronicleEntry);
+	}
+	
+	/**
+	 * Remove a chronicle entry.
+	 * @param chronicleEntry The entry to be removed.
+	 */
+	public void removeChronicleEntry(ChronicleEntry chronicleEntry)
+	{
+		chronicleEntryFacet.remove(id, chronicleEntry);
+	}
+	
+	/**
+	 * Retrieve the set of the character's chronicle entries.
+	 * @return The character's chronicle entries.
+	 */
+	public Collection<ChronicleEntry> getChronicleEntries()
+	{
+		return chronicleEntryFacet.getSet(id);
 	}
 
 	public BioSet getBioSet()

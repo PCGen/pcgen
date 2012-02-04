@@ -34,7 +34,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * @author wardc
@@ -76,7 +76,7 @@ public class PreDeityDomainTester extends AbstractPrerequisiteTest implements Pr
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		return PropertyFactory
+		return LanguageBundle
 			.getFormattedString(
 				"PreDeityDomain.toHtml", prereq.getOperator().toDisplayString(), prereq.getKey()); //$NON-NLS-1$
 	}

@@ -42,7 +42,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.Skill;
 import pcgen.gui.utils.JComboBoxEx;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>SkillBasePanel</code>
@@ -249,7 +249,7 @@ final class SkillBasePanel extends BasePanel<Skill>
 		chkExclusive = new JCheckBox();
 
 		//pnlSkillType = new AvailableSelectedPanel();
-		pnlSkillType = new TypePanel(PropertyFactory.getString("in_demEnterNewType"));
+		pnlSkillType = new TypePanel(LanguageBundle.getString("in_demEnterNewType"));
 
 		setLayout(new GridBagLayout());
 
@@ -313,7 +313,7 @@ final class SkillBasePanel extends BasePanel<Skill>
 		gridBagConstraints.weightx = 1.0;
 		add(pnlSkillMisc, gridBagConstraints);
 
-		//pnlSkillType.setHeader(PropertyFactory.getString("in_type"));
+		//pnlSkillType.setHeader(LanguageBundle.getString("in_type"));
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridy = 5;
 		gridBagConstraints.gridheight = 4;

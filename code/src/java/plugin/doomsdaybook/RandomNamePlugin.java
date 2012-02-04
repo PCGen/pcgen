@@ -10,7 +10,7 @@ import gmgen.pluginmgr.messages.ToolMenuItemAddMessage;
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.utils.TabbedPaneUtilities;
-import plugin.doomsdaybook.gui.NameGenPanel;
+import pcgen.gui2.doomsdaybook.NameGenPanel;
 
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
@@ -59,7 +59,7 @@ public class RandomNamePlugin extends GMBPlugin
 	 */
 	public void start()
 	{
-		theView = new NameGenPanel(new File(getDataDir()));
+		theView = new NameGenPanel(new File(getDataDir()), false);
 		GMBus.send(new TabAddMessage(this, name, getView(), getPluginSystem()));
 		initMenus();
 	}

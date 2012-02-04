@@ -20,16 +20,20 @@ public final class PCGFile
 	 * file extension.
 	 *
 	 * @param file the file to test
-	 * @return {<code>true</code>} if a PCGen character file
+	 * @return {<code>true</code>} if the file exists and is a PCGen character file
 	 *
 	 * @see Constants#EXTENSION_CHARACTER_FILE
 	 */
 	public static boolean isPCGenCharacterFile(final File file)
 	{
 		// A directory strangely named "fred.pcg" is not a character file.
-		boolean notDir = !file.isDirectory();
+		if (!file.isFile())
+		{
+			return false;
+		}
 
-		return notDir && getWindowsSafeFilename(file).endsWith(Constants.EXTENSION_CHARACTER_FILE);
+		return getWindowsSafeFilename(file).endsWith(
+			Constants.EXTENSION_CHARACTER_FILE);
 	}
 
 	/**
@@ -37,16 +41,20 @@ public final class PCGFile
 	 * extension.
 	 *
 	 * @param file the file to test
-	 * @return {<code>true</code>} if a PCGen party file
+	 * @return {<code>true</code>} if the file exists and is a PCGen party file
 	 *
 	 * @see Constants#EXTENSION_PARTY_FILE
 	 */
 	public static boolean isPCGenPartyFile(final File file)
 	{
 		// A directory strangely named "fred.pcp" is not a party file.
-		boolean notDir = !file.isDirectory();
+		if (!file.isFile())
+		{
+			return false;
+		}
 
-		return notDir && getWindowsSafeFilename(file).endsWith(Constants.EXTENSION_PARTY_FILE);
+		return getWindowsSafeFilename(file).endsWith(
+			Constants.EXTENSION_PARTY_FILE);
 	}
 
 	/**
@@ -61,9 +69,13 @@ public final class PCGFile
 	public static boolean isPCGenCampaignFile(final File file)
 	{
 		// A directory strangely named "fred.pcc" is not a campaign file.
-		boolean notDir = !file.isDirectory();
+		if (!file.isFile())
+		{
+			return false;
+		}
 
-		return notDir && getWindowsSafeFilename(file).endsWith(Constants.EXTENSION_CAMPAIGN_FILE);
+		return getWindowsSafeFilename(file).endsWith(
+			Constants.EXTENSION_CAMPAIGN_FILE);
 	}
 
 	/**
@@ -99,9 +111,13 @@ public final class PCGFile
 	public static boolean isPCGenListFile(final File file)
 	{
 		// A directory strangely named "fred.lst" is not a list file.
-		boolean notDir = !file.isDirectory();
+		if (!file.isFile())
+		{
+			return false;
+		}
 
-		return notDir && getWindowsSafeFilename(file).endsWith(Constants.EXTENSION_LIST_FILE);
+		return getWindowsSafeFilename(file).endsWith(
+			Constants.EXTENSION_LIST_FILE);
 	}
 
 	/**
@@ -127,6 +143,33 @@ public final class PCGFile
 
 		return name.endsWith(Constants.EXTENSION_CHARACTER_FILE)
 			|| name.endsWith(Constants.EXTENSION_PARTY_FILE);
+	}
+
+	/**
+	 * Checks if the given <var>file</var> is a PCGen character, party or campaign
+	 * file based on the file extension.
+	 *
+	 * @param file the file to test
+	 *
+	 * @return {<code>true</code>} if a PCGen character, party or campaign file
+	 *
+	 * @see Constants#EXTENSION_CAMPAIGN_FILE
+	 * @see Constants#EXTENSION_CHARACTER_FILE
+	 * @see Constants#EXTENSION_PARTY_FILE
+	 */
+	public static boolean isPCGenCharacterPartyOrCampaignFile(final File file)
+	{
+		// A directory strangely named "fred.pcg" is not a character file.
+		if (!file.isFile())
+		{
+			return false;
+		}
+
+		final String name = getWindowsSafeFilename(file);
+
+		return name.endsWith(Constants.EXTENSION_CHARACTER_FILE)
+			|| name.endsWith(Constants.EXTENSION_PARTY_FILE)
+			|| name.endsWith(Constants.EXTENSION_CAMPAIGN_FILE);
 	}
 
 	/**

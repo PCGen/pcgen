@@ -21,7 +21,7 @@
 package pcgen.gui.filter;
 
 import pcgen.cdom.base.Constants;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -182,27 +182,27 @@ final class FilterParser
 
 			if (!isLegalToken(token))
 			{
-				throw new FilterParseException(PropertyFactory.getFormattedString("in_malformed",token));
+				throw new FilterParseException(LanguageBundle.getFormattedString("in_malformed",token));
 			}
 
 			final int sequenceError = isLegalTokenSequence(lastToken, token);
 
 			if (sequenceError == -1)
 			{
-				throw new FilterParseException(PropertyFactory.getString("in_emptyState"));
+				throw new FilterParseException(LanguageBundle.getString("in_emptyState"));
 			}
 			else if (sequenceError == -2)
 			{
-				throw new FilterParseException(PropertyFactory.getString("in_missOper"));
+				throw new FilterParseException(LanguageBundle.getString("in_missOper"));
 			}
 			else if (sequenceError == -3)
 			{
-				throw new FilterParseException(PropertyFactory.getFormattedString("in_illegSeq",lastToken,
+				throw new FilterParseException(LanguageBundle.getFormattedString("in_illegSeq",lastToken,
 				    token));
 			}
 			else if (sequenceError == -4)
 			{
-				throw new FilterParseException(PropertyFactory.getFormattedString("in_illegTok",token));
+				throw new FilterParseException(LanguageBundle.getFormattedString("in_illegTok",token));
 			}
 
 			lastToken = token;
@@ -210,7 +210,7 @@ final class FilterParser
 
 		if (isLegalTokenSequence(lastToken, "") != 0)
 		{
-			throw new FilterParseException(PropertyFactory.getFormattedString("in_illegLastTok",lastToken));
+			throw new FilterParseException(LanguageBundle.getFormattedString("in_illegLastTok",lastToken));
 		}
 	}
 
@@ -288,20 +288,20 @@ final class FilterParser
 
 		if (braceCount > 0)
 		{
-			throw new FilterParseException(PropertyFactory.getFormattedString("in_missing",TOKEN_ENDGROUP));
+			throw new FilterParseException(LanguageBundle.getFormattedString("in_missing",TOKEN_ENDGROUP));
 		}
 		else if (braceCount < 0)
 		{
-			throw new FilterParseException(PropertyFactory.getFormattedString("in_missing",TOKEN_STARTGROUP));
+			throw new FilterParseException(LanguageBundle.getFormattedString("in_missing",TOKEN_STARTGROUP));
 		}
 
 		if (bracketCount > 0)
 		{
-			throw new FilterParseException(PropertyFactory.getFormattedString("in_missing",TOKEN_ENDFILTER));
+			throw new FilterParseException(LanguageBundle.getFormattedString("in_missing",TOKEN_ENDFILTER));
 		}
 		else if (bracketCount < 0)
 		{
-			throw new FilterParseException(PropertyFactory.getFormattedString("in_missing",TOKEN_STARTFILTER));
+			throw new FilterParseException(LanguageBundle.getFormattedString("in_missing",TOKEN_STARTFILTER));
 		}
 
 		return list;
@@ -490,7 +490,7 @@ final class FilterParser
 		}
 		else
 		{
-			throw new FilterParseException(PropertyFactory.getFormattedString("in_malformed",firstToken));
+			throw new FilterParseException(LanguageBundle.getFormattedString("in_malformed",firstToken));
 		}
 
 		return filter;
@@ -523,6 +523,6 @@ final class FilterParser
 			}
 		}
 
-		throw new FilterParseException(PropertyFactory.getFormattedString("in_notFindFil",filterName));
+		throw new FilterParseException(LanguageBundle.getFormattedString("in_notFindFil",filterName));
 	}
 }

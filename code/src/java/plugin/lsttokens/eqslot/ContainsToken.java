@@ -17,7 +17,7 @@ public class ContainsToken implements EquipSlotLstToken
 		return "CONTAINS";
 	}
 
-	public boolean parse(EquipSlot eqSlot, String value)
+	public boolean parse(EquipSlot eqSlot, String value, String gameMode)
 	{
 		if (value == null || value.length()==0)
 		{

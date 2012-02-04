@@ -35,7 +35,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.utils.CoreUtility;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import java.util.List;
 
@@ -62,7 +62,7 @@ public class PreItemTester extends AbstractPrerequisiteTest implements
 		}
 		catch (NumberFormatException e)
 		{
-			throw new PrerequisiteException(PropertyFactory.getFormattedString(
+			throw new PrerequisiteException(LanguageBundle.getFormattedString(
 				"PreItem.error.bad_operand", prereq.toString())); //$NON-NLS-1$
 		}
 

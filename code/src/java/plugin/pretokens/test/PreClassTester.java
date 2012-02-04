@@ -16,7 +16,7 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * @author wardc
@@ -214,7 +214,7 @@ CLASSLIST:		for(PCClass theClass: character.getClassSet())
 		final String level = prereq.getOperand();
 		final String operator = prereq.getOperator().toDisplayString();
 
-		return PropertyFactory.getFormattedString(
+		return LanguageBundle.getFormattedString(
 			"PreClass.toHtml", prereq.getKey(), operator, level); //$NON-NLS-1$
 	}
 

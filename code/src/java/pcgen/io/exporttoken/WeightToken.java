@@ -25,6 +25,7 @@
  */
 package pcgen.io.exporttoken;
 
+import pcgen.cdom.enumeration.BiographyField;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -72,23 +73,26 @@ public class WeightToken extends Token
 	{
 		String retString = "";
 
-		if ("WEIGHT".equals(tokenSource))
+		if (!pc.getSuppressBioField(BiographyField.WEIGHT))
 		{
-			retString = getWeightToken(pc);
+			if ("WEIGHT".equals(tokenSource))
+			{
+				retString = getWeightToken(pc);
+			}
+			else if ("WEIGHT.NOUNIT".equals(tokenSource))
+			{
+				retString = getNoUnitToken(pc);
+			}
+			else
+			{
+				String type =
+						tokenSource.substring(tokenSource.lastIndexOf('.') + 1);
+				retString =
+						Globals.getGameModeUnitSet().displayWeightInUnitSet(
+							getLoadToken(type, pc));
+			}
 		}
-		else if ("WEIGHT.NOUNIT".equals(tokenSource))
-		{
-			retString = getNoUnitToken(pc);
-		}
-		else
-		{
-			String type =
-					tokenSource.substring(tokenSource.lastIndexOf('.') + 1);
-			retString =
-					Globals.getGameModeUnitSet().displayWeightInUnitSet(
-						getLoadToken(type, pc));
-		}
-
+		
 		return retString;
 	}
 

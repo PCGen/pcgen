@@ -20,7 +20,7 @@
  */
 package pcgen.io;
 
-import pcgen.gui.PCGenProp;
+import pcgen.system.PCGenPropBundle;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -186,7 +186,7 @@ public class PCGVer2ParserTest extends TestCase
 	{
 		PCGVer2Parser parser = new PCGVer2Parser(null);
 
-		parser.parseVersionLine("VERSION:" + PCGenProp.getVersionNumber());
+		parser.parseVersionLine("VERSION:" + PCGenPropBundle.getVersionNumber());
 
 		int[] version = parser.getPcgenVersion();
 		String suffix = parser.getPcgenVersionSuffix();

@@ -39,6 +39,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
+import pcgen.gui2.tools.Icons;
 
 /**
  * <p>The internal frame view class for the DiceBag.</p>
@@ -316,11 +317,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 			}
 		});
 
-		Toolkit kit = Toolkit.getDefaultToolkit();
-		Image img =
-				kit.getImage(getClass().getResource(
-					"/pcgen/gui/resource/gmgen_icon.png"));
-		setFrameIcon(new ImageIcon(img));
+		setFrameIcon(Icons.createImageIcon("gmgen_icon.png"));
 
 		//Start in rolling mode
 		setupRollingMode();

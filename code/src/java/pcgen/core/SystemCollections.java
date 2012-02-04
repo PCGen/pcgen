@@ -73,6 +73,7 @@ public class SystemCollections
 	private static final Map<String, Set<String>> phraseMap = new HashMap<String, Set<String>>();
 	private static final Map<String, List<String>> speechMap = new HashMap<String, List<String>>();
 	private static final Map<String, Set<String>> traitMap = new HashMap<String, Set<String>>();
+	private static final Map<String, List<String>> bodyStructureMap = new HashMap<String, List<String>>();
 	private static final Map<String, List<EquipSlot>> equipSlotMap = new HashMap<String, List<EquipSlot>>();
 
 	/**
@@ -174,6 +175,28 @@ public class SystemCollections
 			equipSlotList = Collections.emptyList();
 		}
 		return Collections.unmodifiableList(equipSlotList);
+	}
+	
+	/**
+	 * Return an <b>unmodifiable</b> version of the body structure list for the 
+	 * current gamemode.
+	 * @return an <b>unmodifiable</b> version of the body structure list.
+	 */
+	public static List<String> getUnmodifiableBodyStructureList()
+	{
+		// Try getting a body structure for the currently selected gamemode
+		List<String> bodyStructures = bodyStructureMap.get(SettingsHandler.getGame().getName());
+		if (bodyStructures == null)
+		{
+			// if that list doesn't exist, try the default body structure list
+			bodyStructures = bodyStructureMap.get("*");
+		}
+		if (bodyStructures == null)
+		{
+			// if that's also empty, return an empty list
+			bodyStructures = Collections.emptyList();
+		}
+		return Collections.unmodifiableList(bodyStructures);
 	}
 
 	/**
@@ -372,6 +395,25 @@ public class SystemCollections
 		if (!equipSlotList.contains(equipmentSlot))
 		{
 			equipSlotList.add(equipmentSlot);
+		}
+	}
+
+	/**
+	 * Add the body structure to the body structure list.
+	 * @param body structure
+	 * @param gameMode = key in the equipSlotMap to which to add the equipmentSlot
+	 */
+	public static void addToBodyStructureList(final String bodyStructure, final String gameMode)
+	{
+		List<String> bodyStructureList = bodyStructureMap.get(gameMode);
+		if (bodyStructureList == null)
+		{
+			bodyStructureList = new ArrayList<String>();
+			bodyStructureMap.put(gameMode, bodyStructureList);
+		}
+		if (!bodyStructureList.contains(bodyStructure))
+		{
+			bodyStructureList.add(bodyStructure);
 		}
 	}
 

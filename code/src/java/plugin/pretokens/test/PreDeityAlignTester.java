@@ -15,7 +15,7 @@ import pcgen.core.analysis.AlignmentConverter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * Prerequisite test that the character has a deity with the correct alignment.
@@ -81,10 +81,9 @@ public class PreDeityAlignTester extends AbstractPrerequisiteTest implements Pre
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		return PropertyFactory.getFormattedString(
-			"PreDeityAlign.toHtml", //$NON-NLS-1$
-			prereq.getOperator().toDisplayString(),
-			getPCAlignment(prereq.getOperand()).getAbb());
+		return LanguageBundle
+			.getFormattedString(
+				"PreDeityAlign.toHtml", prereq.getOperator().toDisplayString(), getPCAlignment(prereq.getOperand()).getAbb()); //$NON-NLS-1$
 	}
 
 }

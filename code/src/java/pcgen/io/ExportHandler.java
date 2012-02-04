@@ -86,6 +86,7 @@ import pcgen.io.exporttoken.VarToken;
 import pcgen.io.exporttoken.WeaponToken;
 import pcgen.io.exporttoken.WeaponhToken;
 import pcgen.io.exporttoken.WeightToken;
+import pcgen.system.PluginLoader;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
@@ -515,6 +516,23 @@ public final class ExportHandler
 		}
 	}
 
+	public static PluginLoader getPluginLoader()
+	{
+		return new PluginLoader(){
+
+			public void loadPlugin(Class<?> clazz) throws Exception
+			{
+				Token pl = (Token) clazz.newInstance();
+				addToTokenMap(pl);
+			}
+
+			public Class[] getPluginClasses()
+			{
+				return new Class[]{Token.class};
+			}
+
+		};
+	}
 	/**
 	 * Helper method to evaluate an expression, used by OIF and IIF tokens
 	 * 

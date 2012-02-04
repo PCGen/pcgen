@@ -57,7 +57,7 @@ import pcgen.gui.utils.JTreeTableSorter;
 import pcgen.gui.utils.LabelTreeCellRenderer;
 import pcgen.gui.utils.PObjectNode;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -593,10 +593,10 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 	public List<String> getViewChoices()
 	{
 		final List<String> viewChoices = new ArrayList<String>(4);
-		viewChoices.add(PropertyFactory.getString("in_typeName")); //$NON-NLS-1$
-		viewChoices.add(PropertyFactory.getString("in_nameLabel")); //$NON-NLS-1$
-		viewChoices.add(PropertyFactory.getString("in_preReqTree")); //$NON-NLS-1$
-		viewChoices.add(PropertyFactory.getString("in_sourceName")); //$NON-NLS-1$
+		viewChoices.add(LanguageBundle.getString("in_typeName")); //$NON-NLS-1$
+		viewChoices.add(LanguageBundle.getString("in_nameLabel")); //$NON-NLS-1$
+		viewChoices.add(LanguageBundle.getString("in_preReqTree")); //$NON-NLS-1$
+		viewChoices.add(LanguageBundle.getString("in_sourceName")); //$NON-NLS-1$
 		return viewChoices;
 	}
 

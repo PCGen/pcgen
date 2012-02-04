@@ -43,7 +43,7 @@ import pcgen.core.SizeAdjustment;
 import pcgen.core.WeaponProf;
 import pcgen.core.character.WieldCategory;
 import pcgen.io.ExportHandler;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>WeaponhToken</code>.
@@ -117,16 +117,16 @@ public class WeaponhToken extends WeaponToken
 		if (wp == null)
 		{
 			wp = new WeaponProf();
-			wp.setName(PropertyFactory.getString("Equipment.UnarmedStrike"));
+			wp.setName(LanguageBundle.getString("Equipment.UnarmedStrike"));
 			wp.put(StringKey.KEY_NAME, "Unarmed Strike");
 			wp.addToListFor(ListKey.TYPE, Type.SIMPLE);
 			Globals.getContext().ref.importObject(wp);
 		}
 		Equipment eq = new Equipment();
-		eq.setName(PropertyFactory.getString("Equipment.UnarmedStrike"));
+		eq.setName(LanguageBundle.getString("Equipment.UnarmedStrike"));
 		eq.put(StringKey.KEY_NAME, "KEY_Unarmed Strike");
 		eq.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<WeaponProf>(wp));
-		eq.put(StringKey.OUTPUT_NAME, PropertyFactory.getString("Equipment.UnarmedStrike"));
+		eq.put(StringKey.OUTPUT_NAME, LanguageBundle.getString("Equipment.UnarmedStrike"));
 		eq.addType(Type.WEAPON);
 		eq.addType(Type.MELEE);
 		eq.addType(Type.SIMPLE);

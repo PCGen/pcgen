@@ -25,7 +25,7 @@ import gmgen.gui.PreferencesRootTreeNode;
 import gmgen.pluginmgr.GMBComponent;
 import gmgen.pluginmgr.GMBMessage;
 import gmgen.pluginmgr.GMBus;
-import gmgen.pluginmgr.PluginLoader;
+import gmgen.pluginmgr.PluginManager;
 import gmgen.pluginmgr.messages.ClipboardMessage;
 import gmgen.pluginmgr.messages.FetchOpenPCGRequestMessage;
 import gmgen.pluginmgr.messages.FileOpenMessage;
@@ -42,8 +42,6 @@ import gmgen.util.MiscUtilities;
 
 import java.awt.BorderLayout;
 import java.awt.Frame;
-import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -63,6 +61,7 @@ import javax.swing.event.MenuListener;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
+import pcgen.gui2.tools.Icons;
 import pcgen.util.Logging;
 import pcgen.util.SwingWorker;
 
@@ -227,8 +226,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
 		createMenuBar();
 		theView = new GMGenSystemView();
 		GMBus.addToBus(this);
-		PluginLoader ploader = PluginLoader.inst();
-		ploader.startSystemPlugins(Constants.SYSTEM_GMGEN);
+		PluginManager.getInstance().startAllPlugins();
 		initComponents();
 		initSettings();
 		GMBus.send(new FetchOpenPCGRequestMessage(this));
@@ -823,11 +821,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
 		GMGenSystemView.getTabPane().addChangeListener(this);
 		getContentPane().add(theView, BorderLayout.CENTER);
 
-		Toolkit kit = Toolkit.getDefaultToolkit();
-		Image img =
-				kit.getImage(getClass().getResource(
-					"/pcgen/gui/resource/gmgen_icon.png"));
-		setIconImage(img);
+		setIconImage(Icons.createImageIcon("gmgen_icon.png").getImage());
 	}
 
 	// end initPcgenLocation

@@ -38,7 +38,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * @author wardc
@@ -95,7 +95,7 @@ public class PreAlignTester extends AbstractPrerequisiteTest implements Prerequi
 			else
 			{
 				throw new PrerequisiteException(
-					PropertyFactory
+					LanguageBundle
 						.getFormattedString(
 							"PreAlign.error.invalidComparison", prereq.getOperator().toString(), prereq.toString())); //$NON-NLS-1$
 			}
@@ -150,7 +150,7 @@ public class PreAlignTester extends AbstractPrerequisiteTest implements Prerequi
 	{
 		String alignment = prereq.getKey();
 		PCAlignment al = getPCAlignment(alignment);
-		return PropertyFactory
+		return LanguageBundle
 			.getFormattedString(
 				"PreAlign.toHtml", prereq.getOperator().toDisplayString(), al.getAbb()); //$NON-NLS-1$
 	}

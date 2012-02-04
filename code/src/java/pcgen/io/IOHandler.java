@@ -25,6 +25,9 @@ import pcgen.core.SettingsHandler;
 import pcgen.util.Logging;
 
 import java.io.*;
+import java.util.List;
+import pcgen.core.Campaign;
+import pcgen.core.GameMode;
 
 /**
  * <code>IOHandler</code><br>
@@ -102,7 +105,7 @@ public abstract class IOHandler
 	/////////////////////////////////////////////////////////////////////////////
 	////////////////////////////// Convenience //////////////////////////////////
 	/////////////////////////////////////////////////////////////////////////////
-
+	
 	/**
 	 * Writes the contents of the PlayerCharacter to a file.
 	 *
@@ -114,6 +117,22 @@ public abstract class IOHandler
 	 * @throws NullPointerException
 	 */
 	public final void write(PlayerCharacter aPC, String filename)
+			throws IOException, NullPointerException
+	{
+		write(aPC, null, null, filename);
+	}
+
+	/**
+	 * Writes the contents of the PlayerCharacter to a file.
+	 *
+	 * <br>author: Thomas Behr 11-03-02
+	 *
+	 * @param aPC        the PlayerCharacter to write
+	 * @param filename   the name of the output file
+	 * @throws IOException
+	 * @throws NullPointerException
+	 */
+	public final void write(PlayerCharacter aPC, GameMode mode, List<Campaign> campaigns, String filename)
 		throws IOException, NullPointerException
 	{
 		OutputStream out = null;
@@ -147,7 +166,7 @@ public abstract class IOHandler
 			outFile = null;
 
 			out = new FileOutputStream(filename);
-			write(aPC, out);
+			write(aPC, mode, campaigns, out);
 		}
 		catch (IOException ex)
 		{
@@ -205,5 +224,5 @@ public abstract class IOHandler
 	 * @param aPC   the PlayerCharacter to write
 	 * @param out   the stream to be written to
 	 */
-	protected abstract void write(PlayerCharacter aPC, OutputStream out);
+	protected abstract void write(PlayerCharacter aPC, GameMode mode, List<Campaign> campaigns, OutputStream out);
 }

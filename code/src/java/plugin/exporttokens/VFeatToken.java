@@ -1,11 +1,16 @@
 package plugin.exporttokens;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.AbilityToken;
 
 /**
  * <code>VFeatToken</code> deals with VFEAT output token.
@@ -16,8 +21,9 @@ import pcgen.io.ExportHandler;
  * @author karianna
  * @version $Revision$
  */
-public class VFeatToken extends VAbilityToken
+public class VFeatToken extends AbilityToken
 {
+
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
@@ -32,7 +38,7 @@ public class VFeatToken extends VAbilityToken
 	 */
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+						   ExportHandler eh)
 	{
 		setVisibility(ABILITY_ALL);
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
@@ -41,6 +47,27 @@ public class VFeatToken extends VAbilityToken
 				SettingsHandler.getGame().getAbilityCategory("FEAT");
 
 		return getTokenForCategory(tokenSource, pc, eh, aTok, fString,
-			aCategory);
+								   aCategory);
 	}
+
+	/**
+	 * @see pcgen.io.exporttoken.AbilityToken#getAbilityList(pcgen.core.PlayerCharacter, pcgen.core.AbilityCategory)
+	 */
+	@Override
+	protected List<Ability> getAbilityList(PlayerCharacter pc,
+										   final AbilityCategory aCategory)
+	{
+		final List<Ability> abilityList = new ArrayList<Ability>();
+		Collection<AbilityCategory> allCats =
+				SettingsHandler.getGame().getAllAbilityCategories();
+		for (AbilityCategory aCat : allCats)
+		{
+			if (aCat.getParentCategory().equals(aCategory))
+			{
+				abilityList.addAll(pc.getVirtualAbilityList(aCat));
+			}
+		}
+		return abilityList;
+	}
+
 }

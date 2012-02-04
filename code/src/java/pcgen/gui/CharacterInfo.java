@@ -33,7 +33,7 @@ import pcgen.gui.filter.Filterable;
 import pcgen.gui.tabs.*;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.SwingWorker;
 
 import javax.swing.JPanel;
@@ -100,7 +100,7 @@ public final class CharacterInfo extends JPanel {
 		try {
 			jbInit();
 		} catch (Exception e) { //This is what jbInit actually throws...
-			Logging.errorPrint(PropertyFactory.getString("in_CIerrorMess"), e);
+			Logging.errorPrint(LanguageBundle.getString("in_CIerrorMess"), e);
 		}
 	}
 

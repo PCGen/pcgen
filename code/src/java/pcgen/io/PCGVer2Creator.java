@@ -25,13 +25,12 @@
  */
 package pcgen.io;
 
+import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.MissingResourceException;
-import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
@@ -49,6 +48,7 @@ import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -61,6 +61,7 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.BonusManager;
 import pcgen.core.BonusManager.TempBonusInfo;
 import pcgen.core.Campaign;
+import pcgen.core.ChronicleEntry;
 import pcgen.core.Deity;
 import pcgen.core.Description;
 import pcgen.core.Domain;
@@ -92,6 +93,7 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceManager;
+import pcgen.system.PCGenPropBundle;
 import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
 
@@ -118,15 +120,20 @@ final class PCGVer2Creator implements IOConstants
 	 *
 	 * author: Thomas Behr 2002-11-13
 	 */
+
 	private PlayerCharacter thePC;
+	private GameMode mode;
+	private List<Campaign> campaigns;
 
 	/**
 	 * Constructor
 	 * @param aPC
 	 */
-	PCGVer2Creator(final PlayerCharacter aPC)
+	PCGVer2Creator(final PlayerCharacter aPC, GameMode mode, List<Campaign> campaigns)
 	{
 		thePC = aPC;
+		this.mode = mode;
+		this.campaigns = campaigns;
 	}
 
 	/**
@@ -441,6 +448,20 @@ final class PCGVer2Creator implements IOConstants
 		appendAgeSetLine(buffer);
 
 		/*
+		 * #Campaign History
+		 */
+		appendNewline(buffer);
+		appendComment("Campaign History", buffer); //$NON-NLS-1$
+		appendCampaignHistoryLines(buffer);
+
+		/*
+		 * #Suppressed fields
+		 */
+		appendNewline(buffer);
+		appendComment("Suppressed Biography Fields", buffer); //$NON-NLS-1$
+		appendSuppressBioFieldLines(buffer);
+
+		/*
 		 * Add one more newline at end of file
 		 */
 		appendNewline(buffer);
@@ -449,11 +470,19 @@ final class PCGVer2Creator implements IOConstants
 		return buffer.toString();
 	}
 
-	private static void appendCampaignLine(StringBuffer buffer)
+	private void appendCampaignLine(StringBuffer buffer)
 	{
 		String del = Constants.EMPTY_STRING;
-
-		for (Campaign campaign : PersistenceManager.getInstance().getLoadedCampaigns())
+		Collection<Campaign> campList;
+		if (campaigns != null)
+		{
+			campList = campaigns;
+		}
+		else
+		{
+			campList = PersistenceManager.getInstance().getLoadedCampaigns();
+		}
+		for (Campaign campaign : campList)
 		{
 			buffer.append(del);
 			buffer.append(TAG_CAMPAIGN).append(':');
@@ -464,10 +493,41 @@ final class PCGVer2Creator implements IOConstants
 		buffer.append(LINE_SEP);
 	}
 
-	private static void appendGameModeLine(StringBuffer buffer)
+	/**
+	 * @param buffer
+	 */
+	private void appendSuppressBioFieldLines(StringBuffer buffer)
+	{
+		buffer.append(TAG_SUPPRESS_BIO_FIELDS).append(':');
+		String delim = Constants.EMPTY_STRING;
+		for (BiographyField field : BiographyField.values())
+		{
+			if (thePC.getSuppressBioField(field))
+			{
+				buffer.append(delim);
+				buffer.append(field);
+				delim = "|"; //$NON-NLS-1$
+			}
+		}
+		buffer.append(LINE_SEP);
+	}
+
+	private GameMode getGameMode()
+	{
+		if (mode != null)
+		{
+			return mode;
+		}
+		else
+		{
+			return SettingsHandler.getGame();
+		}
+	}
+
+	private void appendGameModeLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_GAMEMODE).append(':');
-		buffer.append(SettingsHandler.getGame().getName());
+		buffer.append(getGameMode().getName());
 		buffer.append(LINE_SEP);
 	}
 
@@ -483,16 +543,16 @@ final class PCGVer2Creator implements IOConstants
 		buffer.append(LINE_SEP);
 	}
 
-	private static void appendPurchasePointsLine(StringBuffer buffer)
+	private void appendPurchasePointsLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_PURCHASEPOINTS).append(':');
-		if (SettingsHandler.getGame().isPurchaseStatMode())
+		if (getGameMode().isPurchaseStatMode())
 		{
 			buffer.append('Y');
 			buffer.append('|');
 			buffer.append(TAG_TYPE).append(':');
 			buffer
-				.append(SettingsHandler.getGame().getPurchaseModeMethodName());
+				.append(getGameMode().getPurchaseModeMethodName());
 		}
 		else
 		{
@@ -501,9 +561,9 @@ final class PCGVer2Creator implements IOConstants
 		buffer.append(LINE_SEP);
 	}
 
-	private static void appendRollMethodLine(StringBuffer buffer)
+	private void appendRollMethodLine(StringBuffer buffer)
 	{
-		final GameMode game = SettingsHandler.getGame();
+		final GameMode game = getGameMode();
 		buffer.append(TAG_ROLLMETHOD).append(':');
 		buffer.append(game.getRollMethod());
 		buffer.append('|');
@@ -537,19 +597,7 @@ final class PCGVer2Creator implements IOConstants
 	private static void appendVersionLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_VERSION).append(':');
-
-		ResourceBundle d_properties;
-
-		try
-		{
-			d_properties = ResourceBundle.getBundle("pcgen/gui/prop/PCGenProp"); //$NON-NLS-1$
-			buffer.append(d_properties.getString("VersionNumber")); //$NON-NLS-1$
-		}
-		catch (MissingResourceException mre)
-		{
-			d_properties = null;
-		}
-
+		buffer.append(PCGenPropBundle.getVersionNumber());
 		buffer.append(LINE_SEP);
 	}
 
@@ -582,6 +630,7 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append('0');
 			}
 		}
+		buffer.append(LINE_SEP);
 	}
 
 	private void appendAlignmentLine(StringBuffer buffer)
@@ -609,6 +658,41 @@ final class PCGVer2Creator implements IOConstants
 		buffer.append(TAG_BIRTHPLACE).append(':');
 		buffer.append(EntityEncoder.encode(thePC.getBirthplace()));
 		buffer.append(LINE_SEP);
+	}
+
+	/**
+	 * @param buffer
+	 */
+	private void appendCampaignHistoryLines(StringBuffer buffer)
+	{
+		for (ChronicleEntry ce : thePC.getChronicleEntries())
+		{
+			buffer.append(TAG_CHRONICLE_ENTRY).append(':');
+			buffer.append(ce.isOutputEntry()?"Y":"N:");
+			buffer.append('|');
+			buffer.append(TAG_CAMPAIGN).append(':');
+			buffer.append(EntityEncoder.encode(ce.getCampaign()));
+			buffer.append('|');
+			buffer.append(TAG_ADVENTURE).append(':');
+			buffer.append(EntityEncoder.encode(ce.getAdventure()));
+			buffer.append('|');
+			buffer.append(TAG_PARTY).append(':');
+			buffer.append(EntityEncoder.encode(ce.getParty()));
+			buffer.append('|');
+			buffer.append(TAG_DATE).append(':');
+			buffer.append(EntityEncoder.encode(ce.getDate()));
+			buffer.append('|');
+			buffer.append(TAG_EXPERIENCE).append(':');
+			buffer.append(ce.getXpField());
+			buffer.append('|');
+			buffer.append(TAG_GM).append(':');
+			buffer.append(EntityEncoder.encode(ce.getGmField()));
+			buffer.append('|');
+			buffer.append(TAG_CHRONICLE).append(':');
+			buffer.append(EntityEncoder.encode(ce.getChronicle()));
+			buffer.append(LINE_SEP);
+			
+		}
 	}
 
 	private void appendCatchPhraseLine(StringBuffer buffer)
@@ -1275,7 +1359,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendAbilityLines(StringBuffer buffer)
 	{
 		ArrayList<AbilityCategory> categories = new ArrayList<AbilityCategory>(
-				SettingsHandler.getGame().getAllAbilityCategories());
+				getGameMode().getAllAbilityCategories());
 		categories.add(AbilityCategory.LANGBONUS);
 		
 		for (final AbilityCategory cat : categories)
@@ -1677,6 +1761,17 @@ final class PCGVer2Creator implements IOConstants
 		buffer.append(TAG_PORTRAIT).append(':');
 		buffer.append(EntityEncoder.encode(thePC.getPortraitPath()));
 		buffer.append(LINE_SEP);
+		
+		Rectangle rect = thePC.getPortraitThumbnailRect();
+		if (rect != null)
+		{
+			buffer.append(TAG_PORTRAIT_THUMBNAIL_RECT).append(':');
+			buffer.append(rect.x).append(',');
+			buffer.append(rect.y).append(',');
+			buffer.append(rect.width).append(',');
+			buffer.append(rect.height);
+			buffer.append(LINE_SEP);
+		}
 	}
 
 	/**

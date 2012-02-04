@@ -48,7 +48,7 @@ import pcgen.gui.filter.PObjectFilter;
 import pcgen.gui.tabs.spells.InfoKnownSpells;
 import pcgen.gui.tabs.spells.InfoPreparedSpells;
 import pcgen.gui.tabs.spells.InfoSpellBooks;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
@@ -377,13 +377,13 @@ public class InfoSpells extends JTabbedPane implements CharacterInfoTab,
 	{
 		readyForRefresh = true;
 		add(known, KNOWN_INDEX);
-		setTitleAt(KNOWN_INDEX, PropertyFactory
+		setTitleAt(KNOWN_INDEX, LanguageBundle
 			.getString("in_Info" + known.getName())); //$NON-NLS-1$
 		add(prepared, PREPARED_INDEX);
-		setTitleAt(PREPARED_INDEX, PropertyFactory
+		setTitleAt(PREPARED_INDEX, LanguageBundle
 			.getString("in_Info" + prepared.getName())); //$NON-NLS-1$
 		add(spellbooks, SPELLBOOKS_INDEX);
-		setTitleAt(SPELLBOOKS_INDEX, PropertyFactory
+		setTitleAt(SPELLBOOKS_INDEX, LanguageBundle
 			.getString("in_Info" + spellbooks.getName())); //$NON-NLS-1$
 
 		addFocusListener(new FocusAdapter()

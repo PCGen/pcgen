@@ -22,7 +22,7 @@ package pcgen.gui.filter;
 
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import java.util.StringTokenizer;
 
@@ -41,7 +41,7 @@ final class NamedFilter extends AbstractPObjectFilter implements CustomFilter
 		super();
 		this.filter = filter;
 
-		setCategory(PropertyFactory.getString("in_custom"));
+		setCategory(LanguageBundle.getString("in_custom"));
 		setName(name);
 		setDescription(description);
 	}

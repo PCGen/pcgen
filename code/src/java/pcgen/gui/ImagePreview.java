@@ -1,14 +1,5 @@
 package pcgen.gui;
 
-import pcgen.core.PlayerCharacter;
-import pcgen.io.PCGFile;
-import pcgen.io.PCGIOHandler;
-import pcgen.util.PropertyFactory;
-
-import javax.imageio.ImageIO;
-import javax.swing.JFileChooser;
-import javax.swing.JPanel;
-import javax.swing.UIManager;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -17,6 +8,17 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.JFileChooser;
+import javax.swing.JPanel;
+import javax.swing.UIManager;
+
+import pcgen.core.PlayerCharacter;
+import pcgen.io.PCGFile;
+import pcgen.io.PCGIOHandler;
+import pcgen.persistence.PersistenceManager;
+import pcgen.system.LanguageBundle;
 
 /**
  * A panel for previewing graphics in a file chooser.  This includes previewing
@@ -34,9 +36,9 @@ public class ImagePreview
 	private static final int SIZE = 200;
 
 	private static String in_notAnImage
-			= PropertyFactory.getString("in_ImagePreview_notAnImage");
+			= LanguageBundle.getString("in_ImagePreview_notAnImage");
 	private static String in_noCharacterPortrait
-			= PropertyFactory.getString("in_ImagePreview_noCharacterPortrait");
+			= LanguageBundle.getString("in_ImagePreview_noCharacterPortrait");
 
 	private final JFileChooser jfc;
 
@@ -99,7 +101,7 @@ public class ImagePreview
 
 		if (PCGFile.isPCGenCharacterFile(file))
 		{
-			aPC = new PlayerCharacter(false);
+			aPC = new PlayerCharacter(false, PersistenceManager.getInstance().getLoadedCampaigns());
 
 			new PCGIOHandler().readForPreview(aPC, file.getAbsolutePath());
 

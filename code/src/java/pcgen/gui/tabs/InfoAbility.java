@@ -73,7 +73,7 @@ import pcgen.gui.tabs.ability.IAbilitySelectionListener;
 import pcgen.gui.tabs.ability.SelectedAbilityPanel;
 import pcgen.gui.utils.PObjectNode;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
@@ -93,11 +93,11 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 	private static final Tab tab = Tab.ABILITIES;
 
 	private static final String NO_QUALIFY_MESSAGE =
-			PropertyFactory.getString("InfoAbility.Messages.NotQualified"); //$NON-NLS-1$
+			LanguageBundle.getString("InfoAbility.Messages.NotQualified"); //$NON-NLS-1$
 	private static final String DUPLICATE_MESSAGE =
-			PropertyFactory.getString("InfoAbility.Messages.Duplicate"); //$NON-NLS-1$
+			LanguageBundle.getString("InfoAbility.Messages.Duplicate"); //$NON-NLS-1$
 	private static String POOL_FULL_MESSAGE =
-			PropertyFactory.getString("InfoAbility.Messages.NoPoints"); //$NON-NLS-1$
+			LanguageBundle.getString("InfoAbility.Messages.NoPoints"); //$NON-NLS-1$
 	private static int splitOrientation = JSplitPane.HORIZONTAL_SPLIT;
 
 	private static final int ABILITY_OK = 0;
@@ -198,12 +198,12 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 							pool.compareTo(getPc().getAbilityPoolSpent(cat));
 					if (dir > 0)
 					{
-						toDoList.add(PropertyFactory.getFormattedString(
+						toDoList.add(LanguageBundle.getFormattedString(
 							"in_featTodoRemain", cat.getPluralName())); //$NON-NLS-1$
 					}
 					else if (dir < 0)
 					{
-						toDoList.add(PropertyFactory.getFormattedString(
+						toDoList.add(LanguageBundle.getFormattedString(
 							"in_featTodoTooMany", cat.getPluralName())); //$NON-NLS-1$
 					}
 				}
@@ -320,7 +320,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 	{
 		requestFocus();
 
-		PCGen_Frame1.setMessageAreaTextWithoutSaving(PropertyFactory
+		PCGen_Frame1.setMessageAreaTextWithoutSaving(LanguageBundle
 			.getString("InfoAbility.StatusLine.Info")); //$NON-NLS-1$
 
 		//TODO: These setPC	calls may no longer be required now that they are also done in updateCharacterInfo
@@ -468,7 +468,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 		botPane.setLayout(new BorderLayout());
 
 		theInfoPanel =
-				new AbilityInfoPanel(getPc(), PropertyFactory
+				new AbilityInfoPanel(getPc(), LanguageBundle
 					.getFormattedString(
 						"InfoAbility.Title", theCategory.getDisplayName())); //$NON-NLS-1$
 
@@ -669,8 +669,8 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 			default:
 				Logging
 					.debugPrint(theCategory.getDisplayName()
-						+ " " + anAbility.getDisplayName() + " " + PropertyFactory.getString("in_iayIsSomehowInState") + " " + aq //$NON-NLS-1$ //$NON-NLS-2$
-						+ " " + PropertyFactory.getString("in_iayWhichIsNotHandeledInIAaddAb")); //$NON-NLS-1$
+						+ " " + anAbility.getDisplayName() + " " + LanguageBundle.getString("in_iayIsSomehowInState") + " " + aq //$NON-NLS-1$ //$NON-NLS-2$
+						+ " " + LanguageBundle.getString("in_iayWhichIsNotHandeledInIAaddAb")); //$NON-NLS-1$
 
 				break;
 		}
@@ -692,7 +692,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 		catch (Exception exc)
 		{
 			Logging.errorPrint("Failed to add ability due to ", exc);
-			ShowMessageDelegate.showMessageDialog(PropertyFactory
+			ShowMessageDelegate.showMessageDialog(LanguageBundle
 				.getFormattedString("in_iayAddAbility", exc.getMessage()),
 				Constants.APPLICATION_NAME, MessageType.ERROR);
 		}
@@ -803,7 +803,7 @@ public final class InfoAbility extends BaseCharacterInfoTab implements
 		catch (Exception exc)
 		{
 			Logging.errorPrintLocalised("in_iayFailedToRemoveAbility", exc);
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_iayRemoveAbility") + ": "
+			ShowMessageDelegate.showMessageDialog(LanguageBundle.getString("in_iayRemoveAbility") + ": "
 				+ exc.getMessage(), Constants.APPLICATION_NAME, MessageType.ERROR);
 			return false;
 		}

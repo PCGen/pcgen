@@ -65,7 +65,7 @@ import pcgen.persistence.lst.StatsAndChecksLoader;
 import pcgen.rules.context.EditorLoadContext;
 import pcgen.rules.context.ReferenceContext;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 public class LSTConverter extends Observable
 {
@@ -263,7 +263,7 @@ public class LSTConverter extends Observable
 		}
 		catch (PersistenceLayerException ple)
 		{
-			String message = PropertyFactory.getFormattedString(
+			String message = LanguageBundle.getFormattedString(
 					"Errors.LstFileLoader.LoadError", //$NON-NLS-1$
 					uri, ple.getMessage());
 			Logging.errorPrint(message);

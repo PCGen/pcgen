@@ -85,7 +85,7 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.LstFileLoader;
 import pcgen.util.InputFactory;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.chooser.ChooserFactory;
 
 /**
@@ -240,7 +240,7 @@ public class pcGenGUI
 		
 		if (!SettingsHandler.useAdvancedSourceSelect())
 		{
-			PCGen_Frame1.setMessageAreaText(PropertyFactory
+			PCGen_Frame1.setMessageAreaText(LanguageBundle
 				.getString("in_qsrc_messageText"));
 
 			SourceSelectionDialog dialog =

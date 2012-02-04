@@ -29,7 +29,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>PrePointBuyMethod</code>.
@@ -76,7 +76,7 @@ public class PrePointBuyMethodTester extends AbstractPrerequisiteTest implements
 	public String toHtmlString(final Prerequisite prereq)
 	{
 		final String foo =
-				PropertyFactory.getFormattedString("PrePointBuyMethod.toHtml", //$NON-NLS-1$
+				LanguageBundle.getFormattedString("PrePointBuyMethod.toHtml", //$NON-NLS-1$
 					new Object[]{prereq.getKey()});
 		return foo;
 	}

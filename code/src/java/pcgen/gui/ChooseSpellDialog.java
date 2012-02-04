@@ -81,7 +81,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>ChooseSpellDialog</code>
@@ -622,7 +622,7 @@ final class ChooseSpellDialog extends JDialog
 				&& (maxClassLevel > 0) && (casterLevel > maxClassLevel))
 			{
 				casterLevel = maxClassLevel;
-				ShowMessageDelegate.showMessageDialog(PropertyFactory
+				ShowMessageDelegate.showMessageDialog(LanguageBundle
 					.getString("in_csdEr4"), Constants.APPLICATION_NAME,
 					MessageType.INFORMATION);
 			}
@@ -765,7 +765,7 @@ final class ChooseSpellDialog extends JDialog
 
 		getContentPane().setLayout(new GridBagLayout());
 
-		setTitle(PropertyFactory.getString("in_csdSelect"));
+		setTitle(LanguageBundle.getString("in_csdSelect"));
 		setModal(true);
 		setResizable(true);
 		addWindowListener(new WindowAdapter()
@@ -776,8 +776,8 @@ final class ChooseSpellDialog extends JDialog
 				}
 			});
 
-		lblClass.setText(PropertyFactory.getString("in_class"));
-		lblClass.setDisplayedMnemonic(PropertyFactory.getMnemonic("in_mn_class"));
+		lblClass.setText(LanguageBundle.getString("in_class"));
+		lblClass.setDisplayedMnemonic(LanguageBundle.getMnemonic("in_mn_class"));
 		lblClass.setLabelFor(cmbClass);
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -801,8 +801,8 @@ final class ChooseSpellDialog extends JDialog
 		cmbClass.setPreferredSize(new Dimension(200, 25));
 		getContentPane().add(cmbClass, gridBagConstraints);
 
-		lblBaseSpellLevel.setText(PropertyFactory.getString("in_csdSpLvl"));
-		lblBaseSpellLevel.setDisplayedMnemonic(PropertyFactory.getMnemonic("in_mn_csdSpLvl"));
+		lblBaseSpellLevel.setText(LanguageBundle.getString("in_csdSpLvl"));
+		lblBaseSpellLevel.setDisplayedMnemonic(LanguageBundle.getMnemonic("in_mn_csdSpLvl"));
 		lblBaseSpellLevel.setLabelFor(cmbBaseSpellLevel);
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 12;
@@ -828,8 +828,8 @@ final class ChooseSpellDialog extends JDialog
 
 		if (metaAllowed)
 		{
-			lblMetamagicFeats.setText(PropertyFactory.getString("in_metaFeat"));
-			lblMetamagicFeats.setDisplayedMnemonic(PropertyFactory.getMnemonic("in_mn_metaFeat"));
+			lblMetamagicFeats.setText(LanguageBundle.getString("in_metaFeat"));
+			lblMetamagicFeats.setDisplayedMnemonic(LanguageBundle.getMnemonic("in_mn_metaFeat"));
 			lblMetamagicFeats.setLabelFor(lstMetamagicFeats);
 			gridBagConstraints = new GridBagConstraints();
 			gridBagConstraints.gridx = 0;
@@ -865,8 +865,8 @@ final class ChooseSpellDialog extends JDialog
 				});
 		}
 
-		btnOk.setMnemonic(PropertyFactory.getMnemonic("in_mn_ok"));
-		btnOk.setText(PropertyFactory.getString("in_ok"));
+		btnOk.setMnemonic(LanguageBundle.getMnemonic("in_mn_ok"));
+		btnOk.setText(LanguageBundle.getString("in_ok"));
 		btnOk.setEnabled(false);
 		btnOk.addActionListener(new ActionListener()
 			{
@@ -891,8 +891,8 @@ final class ChooseSpellDialog extends JDialog
 		btnOk.setPreferredSize(new Dimension(73, 26));
 		getContentPane().add(btnOk, gridBagConstraints);
 
-		btnCancel.setMnemonic(PropertyFactory.getMnemonic("in_mn_cancel"));
-		btnCancel.setText(PropertyFactory.getString("in_cancel"));
+		btnCancel.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel"));
+		btnCancel.setText(LanguageBundle.getString("in_cancel"));
 		btnCancel.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent evt)
@@ -916,8 +916,8 @@ final class ChooseSpellDialog extends JDialog
 		btnCancel.setPreferredSize(new Dimension(73, 26));
 		getContentPane().add(btnCancel, gridBagConstraints);
 
-		lblSpellName.setText(PropertyFactory.getString("in_spellName"));
-		lblSpellName.setDisplayedMnemonic(PropertyFactory.getMnemonic("in_mn_spellName"));
+		lblSpellName.setText(LanguageBundle.getString("in_spellName"));
+		lblSpellName.setDisplayedMnemonic(LanguageBundle.getMnemonic("in_mn_spellName"));
 		lblSpellName.setLabelFor(cmbSpellName);
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -941,8 +941,8 @@ final class ChooseSpellDialog extends JDialog
 		cmbSpellName.setPreferredSize(new Dimension(280, 25));
 		getContentPane().add(cmbSpellName, gridBagConstraints);
 
-		lblSpellVariant.setText(PropertyFactory.getString("in_csdVariant"));
-		lblSpellVariant.setDisplayedMnemonic(PropertyFactory.getMnemonic("in_mn_csdVariant"));
+		lblSpellVariant.setText(LanguageBundle.getString("in_csdVariant"));
+		lblSpellVariant.setDisplayedMnemonic(LanguageBundle.getMnemonic("in_mn_csdVariant"));
 		lblSpellVariant.setLabelFor(cmbSpellVariant);
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -959,8 +959,8 @@ final class ChooseSpellDialog extends JDialog
 		cmbSpellVariant.setPreferredSize(new Dimension(280, 25));
 		getContentPane().add(cmbSpellVariant, gridBagConstraints);
 
-		lblCasterLevel.setText(PropertyFactory.getString("in_casterLvl"));
-		lblCasterLevel.setDisplayedMnemonic(PropertyFactory.getMnemonic("in_mn_casterLvl"));
+		lblCasterLevel.setText(LanguageBundle.getString("in_casterLvl"));
+		lblCasterLevel.setDisplayedMnemonic(LanguageBundle.getMnemonic("in_mn_casterLvl"));
 		lblCasterLevel.setLabelFor(cmbCasterLevel);
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -984,8 +984,8 @@ final class ChooseSpellDialog extends JDialog
 		cmbCasterLevel.setPreferredSize(new Dimension(71, 25));
 		getContentPane().add(cmbCasterLevel, gridBagConstraints);
 
-		lblSpellType.setText(PropertyFactory.getString("in_spellType"));
-		lblSpellType.setDisplayedMnemonic(PropertyFactory.getMnemonic("in_mn_spellType"));
+		lblSpellType.setText(LanguageBundle.getString("in_spellType"));
+		lblSpellType.setDisplayedMnemonic(LanguageBundle.getMnemonic("in_mn_spellType"));
 		lblSpellType.setLabelFor(cmbSpellType);
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 6;

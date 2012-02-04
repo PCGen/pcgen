@@ -39,7 +39,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * This class is an extension of the LstFileLoader that loads items
@@ -358,7 +358,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		}
 		catch (PersistenceLayerException ple)
 		{
-			String message = PropertyFactory.getFormattedString(
+			String message = LanguageBundle.getFormattedString(
 				"Errors.LstFileLoader.LoadError", //$NON-NLS-1$
 				uri, ple.getMessage());
 			Logging.errorPrint(message);
@@ -458,7 +458,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 				catch (PersistenceLayerException ple)
 				{
 					String message =
-							PropertyFactory.getFormattedString(
+							LanguageBundle.getFormattedString(
 								"Errors.LstFileLoader.ParseError", //$NON-NLS-1$
 								uri, i + 1, ple.getMessage());
 					Logging.errorPrint(message);
@@ -468,16 +468,16 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 				catch (Throwable t)
 				{
 					String message =
-							PropertyFactory.getFormattedString(
+							LanguageBundle.getFormattedString(
 								"Errors.LstFileLoader.ParseError", //$NON-NLS-1$
 								uri, i + 1, t.getMessage());
 					Logging.errorPrint(message);
 					setChanged();
-					Logging.errorPrint(PropertyFactory
+					Logging.errorPrint(LanguageBundle
 						.getString("Errors.LstFileLoader.Ignoring: " + t.getMessage()));
 					if  (Logging.isDebugMode())
 					{
-						Logging.errorPrint(PropertyFactory
+						Logging.errorPrint(LanguageBundle
 								.getString("Errors.LstFileLoader.Ignoring"), t);
 						t.printStackTrace();
 					}
@@ -559,7 +559,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 
 		if (object == null)
 		{
-			String message = PropertyFactory.getFormattedString(
+			String message = LanguageBundle.getFormattedString(
 				"Errors.LstFileLoader.CopyObjectNotFound", //$NON-NLS-1$
 				baseName);
 			Logging.errorPrint(message);
@@ -609,7 +609,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 				return;
 			}
 
-			String message = PropertyFactory.getFormattedString(
+			String message = LanguageBundle.getFormattedString(
 				"Errors.LstFileLoader.ModObjectNotFound", //$NON-NLS-1$
 				entry.getSource().getURI(), entry.getLineNumber(), key);
 			Logging.log(Logging.LST_ERROR, message);
@@ -636,7 +636,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 				}
 				catch (PersistenceLayerException ple)
 				{
-					String message = PropertyFactory.getFormattedString(
+					String message = LanguageBundle.getFormattedString(
 						"Errors.LstFileLoader.ModParseError", //$NON-NLS-1$
 						element.getSource().getURI(), element.getLineNumber(),
 						ple.getMessage());
@@ -648,7 +648,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		}
 		catch (PersistenceLayerException ple)
 		{
-			String message = PropertyFactory.getFormattedString(
+			String message = LanguageBundle.getFormattedString(
 				"Errors.LstFileLoader.ModParseError", //$NON-NLS-1$
 				entry.getSource().getURI(), entry.getLineNumber(), ple
 					.getMessage());

@@ -20,18 +20,23 @@
  */
 package pcgen.gui;
 
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.Frame;
+import java.awt.Point;
+import java.awt.event.WindowEvent;
+
+import javax.swing.ImageIcon;
+import javax.swing.JDialog;
+import javax.swing.WindowConstants;
+
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.Utility;
-import pcgen.util.PropertyFactory;
-
-import javax.swing.JFrame;
-import javax.swing.WindowConstants;
-import java.awt.*;
-import java.awt.event.WindowEvent;
+import pcgen.system.LanguageBundle;
 
 /**
  * Popup frame which allows the user to customize equipment.
@@ -39,23 +44,29 @@ import java.awt.event.WindowEvent;
  * @author Greg Bingleman <byngl@hotmail.com>
  * @version    $Revision$
  */
-public final class EQFrame extends JFrame
+public final class EQFrame extends JDialog
 {
 	private EqBuilder mainEq = null;
 	private PlayerCharacter aPC;
+	private Equipment newEquip = null;
+	private boolean purchase;
 
 	/**
 	 * Constructor
-	 * @param aPC
+	 * @param parent The window we are opening in front of. 
+	 * @param aPC The character the dialog is for.
 	 */
-	public EQFrame(PlayerCharacter aPC)
+	public EQFrame(Frame parent, PlayerCharacter aPC)
 	{
-		super(PropertyFactory.getString("in_itemCustomizer"));
+		super (parent, LanguageBundle.getString("in_itemCustomizer"), true);
 
 		this.aPC = aPC;
 
-		IconUtilitities.maybeSetIcon(this,
-			IconUtilitities.RESOURCE_APP_ICON);
+		final ImageIcon iconImage = IconUtilitities.getImageIcon(IconUtilitities.RESOURCE_APP_ICON);
+		if (iconImage != null)
+		{
+			this.setIconImage(iconImage.getImage());
+		}
 
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 
@@ -81,7 +92,7 @@ public final class EQFrame extends JFrame
 		if ((x < -10) || (y < -10) || (customizerDim == null) || (customizerDim.height == 0)
 		    || (customizerDim.width == 0))
 		{
-			Utility.centerFrame(this, true);
+			Utility.centerDialog(this);
 		}
 		else
 		{
@@ -125,7 +136,7 @@ public final class EQFrame extends JFrame
 
 		if (e.getID() == WindowEvent.WINDOW_CLOSING)
 		{
-			handleQuit(true);
+			handleQuit(true, null, false);
 		}
 	}
 
@@ -133,9 +144,9 @@ public final class EQFrame extends JFrame
 	 * Closes the program by calling <code>handleQuit</code>
 	 * @param bCancelled
 	 */
-	void exitItem_actionPerformed(boolean bCancelled)
+	void exitItem_actionPerformed(boolean bCancelled, Equipment newEquip, boolean purchase)
 	{
-		handleQuit(bCancelled);
+		handleQuit(bCancelled, newEquip, purchase);
 	}
 
 	/**
@@ -144,10 +155,12 @@ public final class EQFrame extends JFrame
 	 * Saves options to file, then cleans up and exits.
 	 * @param bCancelled
 	 */
-	private void handleQuit(boolean bCancelled)
+	private void handleQuit(boolean bCancelled, Equipment newEquip, boolean purchase)
 	{
 		if (!bCancelled)
 		{
+			this.newEquip = newEquip;
+			this.purchase = purchase;
 			SettingsHandler.setCustomizerLeftUpperCorner(getLocationOnScreen());
 			SettingsHandler.setCustomizerDimension(getSize());
 			SettingsHandler.writeOptionsProperties(aPC);
@@ -155,6 +168,22 @@ public final class EQFrame extends JFrame
 
 		Globals.setCurrentFrame(null);
 		this.dispose();
+	}
+
+	/**
+	 * @return the newEquip
+	 */
+	public Equipment getNewEquip()
+	{
+		return newEquip;
+	}
+
+	/**
+	 * @return the purchase
+	 */
+	public boolean isPurchase()
+	{
+		return purchase;
 	}
 }
  //end EQFrame

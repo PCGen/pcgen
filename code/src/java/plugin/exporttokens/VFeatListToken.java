@@ -1,11 +1,15 @@
 package plugin.exporttokens;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.AbilityListToken;
 
 /**
  * <code>VFeatListToken</code> deals with VFEATLIST output token.
@@ -16,7 +20,7 @@ import pcgen.io.ExportHandler;
  * @author karianna
  * @version $Revision$
  */
-public class VFeatListToken extends VAbilityListToken
+public class VFeatListToken extends AbilityListToken
 {
 
 	/**
@@ -33,7 +37,7 @@ public class VFeatListToken extends VAbilityListToken
 	 */
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+						   ExportHandler eh)
 	{
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		// Skip the token itself
@@ -43,4 +47,15 @@ public class VFeatListToken extends VAbilityListToken
 
 		return getTokenForCategory(pc, aTok, tokenString, aCategory);
 	}
+
+	/**
+	 * @see pcgen.io.exporttoken.AbilityListToken#getAbilityList(pcgen.core.PlayerCharacter, pcgen.core.AbilityCategory)
+	 */
+	@Override
+	protected List<Ability> getAbilityList(PlayerCharacter pc,
+										   AbilityCategory aCategory)
+	{
+		return new ArrayList<Ability>(pc.getVirtualAbilityList(aCategory));
+	}
+
 }

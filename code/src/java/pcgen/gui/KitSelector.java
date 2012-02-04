@@ -85,7 +85,7 @@ import pcgen.gui.tabs.InfoTabUtils;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.Utility;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 final class KitSelector extends JFrame
 {
@@ -115,12 +115,12 @@ final class KitSelector extends JFrame
 	private PlayerCharacter aPC = null;
 	private int userResponse = 0;
 
-	private final JLabel lblAvailableQFilter = new JLabel(PropertyFactory.getString("in_filter") + ":");
-	private final JLabel lblSelectedQFilter = new JLabel(PropertyFactory.getString("in_filter") + ":");
+	private final JLabel lblAvailableQFilter = new JLabel(LanguageBundle.getString("in_filter") + ":");
+	private final JLabel lblSelectedQFilter = new JLabel(LanguageBundle.getString("in_filter") + ":");
 	private JTextField textAvailableQFilter = new JTextField();
 	private JTextField textSelectedQFilter = new JTextField();
-	private JButton clearAvailableQFilterButton = new JButton(PropertyFactory.getString("in_clear"));
-	private JButton clearSelectedQFilterButton = new JButton(PropertyFactory.getString("in_clear"));
+	private JButton clearAvailableQFilterButton = new JButton(LanguageBundle.getString("in_clear"));
+	private JButton clearSelectedQFilterButton = new JButton(LanguageBundle.getString("in_clear"));
 	private KitListModel availableModel;
 	private KitListModel selectedModel;
 	

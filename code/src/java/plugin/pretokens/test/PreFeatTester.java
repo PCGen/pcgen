@@ -15,7 +15,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.prereq.PrerequisiteUtilities;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * @author wardc
@@ -60,7 +60,7 @@ public class PreFeatTester extends AbstractPrerequisiteTest implements
 		}
 		catch (NumberFormatException exceptn)
 		{
-			throw new PrerequisiteException(PropertyFactory.getFormattedString(
+			throw new PrerequisiteException(LanguageBundle.getFormattedString(
 				"PreFeat.error", prereq.toString())); //$NON-NLS-1$
 		}
 
@@ -85,14 +85,14 @@ public class PreFeatTester extends AbstractPrerequisiteTest implements
 		if (aString.startsWith("TYPE="))
 		{
 			// {0} {1} {2}(s) of type {3}
-			return PropertyFactory.getFormattedString("PreFeat.type.toHtml",
+			return LanguageBundle.getFormattedString("PreFeat.type.toHtml",
 				new Object[]{prereq.getOperator().toDisplayString(),
 					prereq.getOperand(),
 					AbilityCategory.FEAT.getDisplayName().toLowerCase(),
 					aString.substring(5)});
 		}
 		// {2} {3} {1} {0}
-		return PropertyFactory.getFormattedString("PreFeat.toHtml",
+		return LanguageBundle.getFormattedString("PreFeat.toHtml",
 			new Object[]{AbilityCategory.FEAT.getDisplayName().toLowerCase(),
 				aString, prereq.getOperator().toDisplayString(),
 				prereq.getOperand()}); //$NON-NLS-1$

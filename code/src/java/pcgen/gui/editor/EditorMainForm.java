@@ -114,7 +114,7 @@ import pcgen.rules.context.AssociatedChanges;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>EditorMainForm</code>
@@ -399,7 +399,7 @@ public final class EditorMainForm extends JDialog
 /*    private void buildSynergyTab()
    {
 	   pnlSynergy.setExtraLayout(new GridBagLayout());
-	   lblQualifier.setText(PropertyFactory.getString("in_demSkillRank"));
+	   lblQualifier.setText(LanguageBundle.getString("in_demSkillRank"));
 	   lblQualifier.setLabelFor(cmbQualifier);
 	   GridBagConstraints gbc = new GridBagConstraints();
 	   gbc.gridx = 0;
@@ -416,7 +416,7 @@ public final class EditorMainForm extends JDialog
 	   gbc.anchor = GridBagConstraints.EAST;
    //        gbc.weightx = 1.0;
 		   pnlSynergy.addExtra(cmbQualifier, gbc);
-		   lblVariable.setText(PropertyFactory.getString("in_demSynergyBonus"));
+		   lblVariable.setText(LanguageBundle.getString("in_demSynergyBonus"));
 		   lblVariable.setLabelFor(cmbVariable);
 		   gbc = new GridBagConstraints();
 		   gbc.gridx = 0;
@@ -569,7 +569,7 @@ public final class EditorMainForm extends JDialog
 
 		if (aString.length() == 0)
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString(
+			ShowMessageDelegate.showMessageDialog(LanguageBundle.getString(
 				"in_demMes1"), Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
@@ -585,7 +585,7 @@ public final class EditorMainForm extends JDialog
 		catch (Exception e)
 		{
 			Logging.errorPrint("Failed to save custom object due to ", e);
-			ShowMessageDelegate.showMessageDialog(PropertyFactory
+			ShowMessageDelegate.showMessageDialog(LanguageBundle
 				.getString("in_demSaveFailed"), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 			return;
@@ -2207,8 +2207,8 @@ public final class EditorMainForm extends JDialog
 				}
 
 				pnlWeapons.setSelectedList2(selectedWPList2, true);
-				pnlWeapons.setLblSelectedText(PropertyFactory.getString("in_demAllGranted"));
-				pnlWeapons.setLblSelected2Text(PropertyFactory.getString("in_demChoiceGranted"));
+				pnlWeapons.setLblSelectedText(LanguageBundle.getString("in_demAllGranted"));
+				pnlWeapons.setLblSelected2Text(LanguageBundle.getString("in_demChoiceGranted"));
 			}
 
 			pnlWeapons.setAvailableList(availableWeaponProfList, true);
@@ -2847,7 +2847,7 @@ public final class EditorMainForm extends JDialog
 				break;
 		}
 
-		setTitle(PropertyFactory.getString("in_demTitle" + ttl));
+		setTitle(LanguageBundle.getString("in_demTitle" + ttl));
 
 		addWindowListener(new WindowAdapter()
 			{
@@ -2866,27 +2866,27 @@ public final class EditorMainForm extends JDialog
 
 		pnlTabs.setMinimumSize(new Dimension(128, 88));
 		pnlTabs.setPreferredSize(new Dimension(640, 440));
-		jTabbedPane1.setName(PropertyFactory.getString("in_demDeitytab"));
+		jTabbedPane1.setName(LanguageBundle.getString("in_demDeitytab"));
 		pnlMainTab = new EditorBasePanel(editType);
 
-		jTabbedPane1.addTab(PropertyFactory.getString("in_demBase"), pnlMainTab);
+		jTabbedPane1.addTab(LanguageBundle.getString("in_demBase"), pnlMainTab);
 
 		switch (editType)
 		{
 			case EditorConstants.EDIT_CLASS:
-				jTabbedPane1.addTab(PropertyFactory.getString("in_classability"), pnlClassAbility);
-				jTabbedPane1.addTab(PropertyFactory.getString("in_classlevel"), pnlClassLevel);
+				jTabbedPane1.addTab(LanguageBundle.getString("in_classability"), pnlClassAbility);
+				jTabbedPane1.addTab(LanguageBundle.getString("in_classlevel"), pnlClassLevel);
 
 				break;
 
 			case EditorConstants.EDIT_DEITY:
-				pnlDomains.setHeader(PropertyFactory.getString("in_demGrantDom"));
-				jTabbedPane1.addTab(PropertyFactory.getString("in_domains"), pnlDomains);
+				pnlDomains.setHeader(LanguageBundle.getString("in_demGrantDom"));
+				jTabbedPane1.addTab(LanguageBundle.getString("in_domains"), pnlDomains);
 
-				jTabbedPane1.addTab(PropertyFactory.getString("in_demFollowers"), pnlFollowers);
+				jTabbedPane1.addTab(LanguageBundle.getString("in_demFollowers"), pnlFollowers);
 
-				pnlRaces.setHeader(PropertyFactory.getString("in_demRacWors"));
-				jTabbedPane1.addTab(PropertyFactory.getString("in_race"), pnlRaces);
+				pnlRaces.setHeader(LanguageBundle.getString("in_demRacWors"));
+				jTabbedPane1.addTab(LanguageBundle.getString("in_race"), pnlRaces);
 
 				break;
 
@@ -2901,15 +2901,15 @@ public final class EditorMainForm extends JDialog
 				break;
 
 			case EditorConstants.EDIT_RACE:
-				pnlClasses.setHeader(PropertyFactory.getString("in_demFavoredClasses"));
-				jTabbedPane1.addTab(PropertyFactory.getString("in_demClasses"), pnlClasses);
-				pnlTemplates.setLblSelectedText(PropertyFactory.getString("in_demAllGranted"));
-				pnlTemplates.setLblSelected2Text(PropertyFactory.getString("in_demChoiceGranted"));
-				pnlLanguages.setLblSelectedText(PropertyFactory.getString("in_demAllGranted"));
-				pnlLanguages.setLblSelected2Text(PropertyFactory.getString("in_demChoiceGranted"));
-				pnlBonusLang.setHeader(PropertyFactory.getString("in_demBonusLang"));
-				jTabbedPane1.addTab(PropertyFactory.getString("in_demBonusLangAbbrev"), pnlBonusLang);
-				pnlFeats.setLblSelectedText(PropertyFactory.getString("in_demSelFeats"));
+				pnlClasses.setHeader(LanguageBundle.getString("in_demFavoredClasses"));
+				jTabbedPane1.addTab(LanguageBundle.getString("in_demClasses"), pnlClasses);
+				pnlTemplates.setLblSelectedText(LanguageBundle.getString("in_demAllGranted"));
+				pnlTemplates.setLblSelected2Text(LanguageBundle.getString("in_demChoiceGranted"));
+				pnlLanguages.setLblSelectedText(LanguageBundle.getString("in_demAllGranted"));
+				pnlLanguages.setLblSelected2Text(LanguageBundle.getString("in_demChoiceGranted"));
+				pnlBonusLang.setHeader(LanguageBundle.getString("in_demBonusLang"));
+				jTabbedPane1.addTab(LanguageBundle.getString("in_demBonusLangAbbrev"), pnlBonusLang);
+				pnlFeats.setLblSelectedText(LanguageBundle.getString("in_demSelFeats"));
 
 				break;
 
@@ -2917,34 +2917,34 @@ public final class EditorMainForm extends JDialog
 
 				//buildSynergyTab();
 				pnlSynergy.setHeader(" ");
-				jTabbedPane1.addTab(PropertyFactory.getString("in_demSynergy"), pnlSynergy);
+				jTabbedPane1.addTab(LanguageBundle.getString("in_demSynergy"), pnlSynergy);
 
 				pnlClasses.setHeader(" ");
-				jTabbedPane1.addTab(PropertyFactory.getString("in_demClasses"), pnlClasses);
+				jTabbedPane1.addTab(LanguageBundle.getString("in_demClasses"), pnlClasses);
 
 				break;
 
 			case EditorConstants.EDIT_SPELL:
-				jTabbedPane1.addTab(PropertyFactory.getString("in_demBase2"), pnlBase2);
-				jTabbedPane1.addTab(PropertyFactory.getString("in_demClasses"), pnlQClasses);
-				jTabbedPane1.addTab(PropertyFactory.getString("in_domains"), pnlQDomains);
+				jTabbedPane1.addTab(LanguageBundle.getString("in_demBase2"), pnlBase2);
+				jTabbedPane1.addTab(LanguageBundle.getString("in_demClasses"), pnlQClasses);
+				jTabbedPane1.addTab(LanguageBundle.getString("in_domains"), pnlQDomains);
 
 				break;
 
 			case EditorConstants.EDIT_TEMPLATE:
-				pnlClasses.setHeader(PropertyFactory.getString("in_demFavoredClasses"));
-				jTabbedPane1.addTab(PropertyFactory.getString("in_demClasses"), pnlClasses);
-				pnlTemplates.setLblSelectedText(PropertyFactory.getString("in_demAllGranted"));
-				pnlTemplates.setLblSelected2Text(PropertyFactory.getString("in_demChoiceGranted"));
-				pnlLanguages.setLblSelectedText(PropertyFactory.getString("in_demAllGranted"));
-				pnlLanguages.setLblSelected2Text(PropertyFactory.getString("in_demChoiceGranted"));
-				pnlBonusLang.setHeader(PropertyFactory.getString("in_demBonusLang"));
-				jTabbedPane1.addTab(PropertyFactory.getString("in_demBonusLangAbbrev"), pnlBonusLang);
+				pnlClasses.setHeader(LanguageBundle.getString("in_demFavoredClasses"));
+				jTabbedPane1.addTab(LanguageBundle.getString("in_demClasses"), pnlClasses);
+				pnlTemplates.setLblSelectedText(LanguageBundle.getString("in_demAllGranted"));
+				pnlTemplates.setLblSelected2Text(LanguageBundle.getString("in_demChoiceGranted"));
+				pnlLanguages.setLblSelectedText(LanguageBundle.getString("in_demAllGranted"));
+				pnlLanguages.setLblSelected2Text(LanguageBundle.getString("in_demChoiceGranted"));
+				pnlBonusLang.setHeader(LanguageBundle.getString("in_demBonusLang"));
+				jTabbedPane1.addTab(LanguageBundle.getString("in_demBonusLangAbbrev"), pnlBonusLang);
 
 				break;
 
 			case EditorConstants.EDIT_CAMPAIGN:
-				jTabbedPane1.addTab(PropertyFactory.getString("in_fileTypes"), pnlFileTypes);
+				jTabbedPane1.addTab(LanguageBundle.getString("in_fileTypes"), pnlFileTypes);
 
 				break;
 
@@ -2954,53 +2954,53 @@ public final class EditorMainForm extends JDialog
 
 		if (pnlLanguages != null)
 		{
-			pnlLanguages.setHeader(PropertyFactory.getString("in_demGrantLang"));
-			jTabbedPane1.addTab(PropertyFactory.getString("in_languages"), pnlLanguages);
+			pnlLanguages.setHeader(LanguageBundle.getString("in_demGrantLang"));
+			jTabbedPane1.addTab(LanguageBundle.getString("in_languages"), pnlLanguages);
 		}
 
 		if (pnlWeapons != null)
 		{
-			pnlWeapons.setHeader(PropertyFactory.getString("in_demGraWeaPro"));
-			jTabbedPane1.addTab(PropertyFactory.getString("in_weapon"), pnlWeapons);
+			pnlWeapons.setHeader(LanguageBundle.getString("in_demGraWeaPro"));
+			jTabbedPane1.addTab(LanguageBundle.getString("in_weapon"), pnlWeapons);
 		}
 
 		if (pnlSkills != null)
 		{
-			pnlSkills.setHeader(PropertyFactory.getString("in_demGraSkil"));
-			pnlSkills.setLblSelectedText(PropertyFactory.getString("in_demSelClaSkil"));
-			pnlSkills.setLblSelected2Text(PropertyFactory.getString("in_demSelCroCla"));
-			jTabbedPane1.addTab(PropertyFactory.getString("in_skills"), pnlSkills);
+			pnlSkills.setHeader(LanguageBundle.getString("in_demGraSkil"));
+			pnlSkills.setLblSelectedText(LanguageBundle.getString("in_demSelClaSkil"));
+			pnlSkills.setLblSelected2Text(LanguageBundle.getString("in_demSelCroCla"));
+			jTabbedPane1.addTab(LanguageBundle.getString("in_skills"), pnlSkills);
 		}
 
 		if (pnlLevelAbilities != null)
 		{
-			jTabbedPane1.addTab(PropertyFactory.getString("in_specialabilities"), pnlLevelAbilities);
+			jTabbedPane1.addTab(LanguageBundle.getString("in_specialabilities"), pnlLevelAbilities);
 		}
 
 		if (pnlMovement != null)
 		{
-			jTabbedPane1.addTab(PropertyFactory.getString("in_movement"), pnlMovement);
+			jTabbedPane1.addTab(LanguageBundle.getString("in_movement"), pnlMovement);
 		}
 
 		if (pnlTemplates != null)
 		{
-			pnlTemplates.setHeader(PropertyFactory.getString("in_demGraTemp"));
-			jTabbedPane1.addTab(PropertyFactory.getString("in_templates"), pnlTemplates);
+			pnlTemplates.setHeader(LanguageBundle.getString("in_demGraTemp"));
+			jTabbedPane1.addTab(LanguageBundle.getString("in_templates"), pnlTemplates);
 		}
 
 		if (pnlVision != null)
 		{
-			jTabbedPane1.addTab(PropertyFactory.getString("in_demVision"), pnlVision);
+			jTabbedPane1.addTab(LanguageBundle.getString("in_demVision"), pnlVision);
 		}
 
 		if (pnlAge != null)
 		{
-			jTabbedPane1.addTab(PropertyFactory.getString("in_demAge"), pnlAge);
+			jTabbedPane1.addTab(LanguageBundle.getString("in_demAge"), pnlAge);
 		}
 
 		if (pnlAppearance != null)
 		{
-			jTabbedPane1.addTab(PropertyFactory.getString("in_demAppearance"), pnlAppearance);
+			jTabbedPane1.addTab(LanguageBundle.getString("in_demAppearance"), pnlAppearance);
 		}
 
 		if (pnlNaturalAttacks != null)
@@ -3010,21 +3010,21 @@ public final class EditorMainForm extends JDialog
 
 		if (pnlFeats != null)
 		{
-			pnlFeats.setHeader(PropertyFactory.getString("in_demGraFeat"));
-			jTabbedPane1.addTab(PropertyFactory.getString("in_feats"), pnlFeats);
+			pnlFeats.setHeader(LanguageBundle.getString("in_demGraFeat"));
+			jTabbedPane1.addTab(LanguageBundle.getString("in_feats"), pnlFeats);
 		}
 
 		if (pnlVFeats != null)
 		{
-			pnlVFeats.setHeader(PropertyFactory.getString("in_demGraVFeat"));
-			jTabbedPane1.addTab(PropertyFactory.getString("in_demVFeats"), pnlVFeats);
+			pnlVFeats.setHeader(LanguageBundle.getString("in_demGraVFeat"));
+			jTabbedPane1.addTab(LanguageBundle.getString("in_demVFeats"), pnlVFeats);
 		}
 
 		//The Advanced Tab has no meaning in the Source File Editor and therefore
 		// should only be shown when needed.
 		if (editType != EditorConstants.EDIT_CAMPAIGN)
 		{
-			jTabbedPane1.addTab(PropertyFactory.getString("in_demAdv"), pnlAdvanced);
+			jTabbedPane1.addTab(LanguageBundle.getString("in_demAdv"), pnlAdvanced);
 		}
 
 		pnlTabs.add(jTabbedPane1, BorderLayout.CENTER);
@@ -3041,8 +3041,8 @@ public final class EditorMainForm extends JDialog
 
 		pnlButtons.setLayout(new FlowLayout(FlowLayout.RIGHT));
 
-		btnCancel.setMnemonic(PropertyFactory.getMnemonic("in_mn_cancel"));
-		btnCancel.setText(PropertyFactory.getString("in_cancel"));
+		btnCancel.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel"));
+		btnCancel.setText(LanguageBundle.getString("in_cancel"));
 		btnCancel.setPreferredSize(new Dimension(80, 26));
 		btnCancel.addActionListener(new ActionListener()
 			{
@@ -3055,8 +3055,8 @@ public final class EditorMainForm extends JDialog
 
 		pnlButtons.add(btnCancel);
 
-		btnSave.setMnemonic(PropertyFactory.getMnemonic("in_mn_save"));
-		btnSave.setText(PropertyFactory.getString("in_save"));
+		btnSave.setMnemonic(LanguageBundle.getMnemonic("in_mn_save"));
+		btnSave.setText(LanguageBundle.getString("in_save"));
 		btnSave.setPreferredSize(new Dimension(80, 26));
 		btnSave.addActionListener(new ActionListener()
 			{

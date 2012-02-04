@@ -47,7 +47,7 @@ import pcgen.core.PCAlignment;
 import pcgen.core.WeaponProf;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.rules.context.LoadContext;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>DeityBasePanel</code>
@@ -307,8 +307,8 @@ final class DeityBasePanel extends BasePanel<Deity>
 		pnlHolyItem.setLayout(new GridBagLayout());
 
 		lblHolyItem.setLabelFor(txtHolyItem);
-		lblHolyItem.setText(PropertyFactory.getString("in_demHolyItem"));
-		lblHolyItem.setDisplayedMnemonic(PropertyFactory.getMnemonic("in_mn_demHolyItem"));
+		lblHolyItem.setText(LanguageBundle.getString("in_demHolyItem"));
+		lblHolyItem.setDisplayedMnemonic(LanguageBundle.getMnemonic("in_mn_demHolyItem"));
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
 		gridBagConstraints.insets = new Insets(2, 5, 2, 5);
@@ -329,8 +329,8 @@ final class DeityBasePanel extends BasePanel<Deity>
 		pnlDeityAlignment.setLayout(new GridBagLayout());
 
 		lblDeityAlignment.setLabelFor(cmbDeityAlignment);
-		lblDeityAlignment.setText(PropertyFactory.getString("in_demDeityAlign"));
-		lblDeityAlignment.setDisplayedMnemonic(PropertyFactory.getMnemonic("in_mn_demDeityAlign"));
+		lblDeityAlignment.setText(LanguageBundle.getString("in_demDeityAlign"));
+		lblDeityAlignment.setDisplayedMnemonic(LanguageBundle.getMnemonic("in_mn_demDeityAlign"));
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
 		gridBagConstraints.insets = new Insets(2, 5, 2, 5);
@@ -356,7 +356,7 @@ final class DeityBasePanel extends BasePanel<Deity>
 		gridBagConstraints.weighty = 1.0;
 		add(pnlDescription, gridBagConstraints);
 
-		pnlFavoredWeapons.setHeader(PropertyFactory.getString("in_demFavWea"));
+		pnlFavoredWeapons.setHeader(LanguageBundle.getString("in_demFavWea"));
 
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridy = 5;

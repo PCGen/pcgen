@@ -38,7 +38,7 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.persistence.PersistenceManager;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * The Class <code>PreCampaignTester</code> is responsible for testing if the 
@@ -66,7 +66,7 @@ public class PreCampaignTester extends AbstractPrerequisiteTest implements Prere
 		}
 		catch (NumberFormatException exceptn)
 		{
-			throw new PrerequisiteException(PropertyFactory.getFormattedString(
+			throw new PrerequisiteException(LanguageBundle.getFormattedString(
 				"PreFeat.error", prereq.toString())); //$NON-NLS-1$
 		}
 
@@ -172,7 +172,7 @@ public class PreCampaignTester extends AbstractPrerequisiteTest implements Prere
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		final String foo = PropertyFactory.getFormattedString(
+		final String foo = LanguageBundle.getFormattedString(
 				"PreCampaign.toHtml", //$NON-NLS-1$
 				new Object[] { prereq.getOperator().toDisplayString(),
 						prereq.getOperand(), prereq.getKey() });

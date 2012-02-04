@@ -35,6 +35,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.gui.converter.event.TokenProcessEvent;
 import pcgen.gui.converter.event.TokenProcessorPlugin;
+import pcgen.system.PluginLoader;
 import pcgen.util.Logging;
 
 public class TokenConverter
@@ -58,6 +59,27 @@ public class TokenConverter
 					+ tpp.getProcessedClass().getSimpleName() + " "
 					+ tpp.getProcessedToken() + " found");
 		}
+	}
+
+	public static PluginLoader getPluginLoader()
+	{
+		return new PluginLoader()
+		{
+
+			public void loadPlugin(Class<?> clazz) throws Exception
+			{
+				addToTokenMap((TokenProcessorPlugin) clazz.newInstance());
+			}
+
+			public Class[] getPluginClasses()
+			{
+				return new Class[]
+						{
+							TokenProcessorPlugin.class
+						};
+			}
+
+		};
 	}
 
 	public static String process(TokenProcessEvent tpe)

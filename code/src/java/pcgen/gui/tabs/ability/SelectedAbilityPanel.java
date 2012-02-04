@@ -52,7 +52,7 @@ import pcgen.gui.utils.JTreeTable;
 import pcgen.gui.utils.JTreeTableMouseAdapter;
 import pcgen.gui.utils.PObjectNode;
 import pcgen.gui.utils.Utility;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * This class encapsulates a Panel used to display and manage selected
@@ -65,7 +65,7 @@ import pcgen.util.PropertyFactory;
 public class SelectedAbilityPanel extends AbilitySelectionPanel
 {
 	private static final String SELECTED_LABEL =
-			PropertyFactory.getString("in_selected") + ": "; //$NON-NLS-1$//$NON-NLS-2$
+			LanguageBundle.getString("in_selected") + ": "; //$NON-NLS-1$//$NON-NLS-2$
 
 	private RemoveItemPanel theRemoveButton;
 
@@ -198,10 +198,10 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 	public List<String> getViewChoices()
 	{
 		final List<String> viewChoices = new ArrayList<String>(4);
-		viewChoices.add(PropertyFactory.getString("in_catTypeName")); //$NON-NLS-1$
-		viewChoices.add(PropertyFactory.getString("in_catNameLabel")); //$NON-NLS-1$
-		viewChoices.add(PropertyFactory.getString("in_catPreReqTree")); //$NON-NLS-1$
-		viewChoices.add(PropertyFactory.getString("in_catSourceName")); //$NON-NLS-1$
+		viewChoices.add(LanguageBundle.getString("in_catTypeName")); //$NON-NLS-1$
+		viewChoices.add(LanguageBundle.getString("in_catNameLabel")); //$NON-NLS-1$
+		viewChoices.add(LanguageBundle.getString("in_catPreReqTree")); //$NON-NLS-1$
+		viewChoices.add(LanguageBundle.getString("in_catSourceName")); //$NON-NLS-1$
 		return viewChoices;
 	}
 
@@ -257,11 +257,11 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 		{
 			theTreeTable = aTreeTable;
 			final String menuText =
-					PropertyFactory
+					LanguageBundle
 						.getFormattedString(
 							"InfoAbility.Menu.Remove", getCategory().getDisplayName()); //$NON-NLS-1$
 			final String menuTip =
-					PropertyFactory
+					LanguageBundle
 						.getFormattedString(
 							"InfoAbility.Menu.Remove.Tooltip", getCategory().getDisplayName()); //$NON-NLS-1$
 			this.add(theRemoveMenu =

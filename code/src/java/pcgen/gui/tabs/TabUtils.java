@@ -12,7 +12,7 @@ import pcgen.core.RuleConstants;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 public class TabUtils
 {
@@ -72,7 +72,7 @@ public class TabUtils
 				List<Equipment> selectedClothes = new ArrayList<Equipment>();
 				Globals
 					.getChoiceFromList(
-						PropertyFactory
+						LanguageBundle
 							.getString("in_sumSelectAFreeSetOfClothing"), clothes, selectedClothes, 1); //$NON-NLS-1$
 
 				if (selectedClothes.size() != 0)

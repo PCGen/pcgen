@@ -25,7 +25,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 public class DisplayLocationToken extends
 		AbstractNonEmptyToken<AbilityCategory> implements
@@ -56,7 +56,7 @@ public class DisplayLocationToken extends
 		String loc;
 		if (value.startsWith("in_"))
 		{
-			loc = PropertyFactory.getString(value);
+			loc = LanguageBundle.getString(value);
 		}
 		else
 		{

@@ -18,7 +18,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * @author wardc
@@ -62,7 +62,7 @@ public class PreDeityTester extends AbstractPrerequisiteTest implements Prerequi
 				else
 				{
 					throw new PrerequisiteException(
-							PropertyFactory
+							LanguageBundle
 									.getFormattedString(
 											"PreDeity.error.bad_coparator", prereq.toString())); //$NON-NLS-1$
 				}
@@ -84,7 +84,7 @@ public class PreDeityTester extends AbstractPrerequisiteTest implements Prerequi
 				else
 				{
 					throw new PrerequisiteException(
-							PropertyFactory
+							LanguageBundle
 									.getFormattedString(
 											"PreDeity.error.bad_coparator", prereq.toString())); //$NON-NLS-1$
 				}
@@ -109,7 +109,7 @@ public class PreDeityTester extends AbstractPrerequisiteTest implements Prerequi
 			}
 			else
 			{
-				throw new PrerequisiteException(PropertyFactory
+				throw new PrerequisiteException(LanguageBundle
 					.getFormattedString(
 						"PreDeity.error.bad_coparator", prereq.toString())); //$NON-NLS-1$
 			}

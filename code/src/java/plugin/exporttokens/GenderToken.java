@@ -25,6 +25,7 @@
  */
 package plugin.exporttokens;
 
+import pcgen.cdom.enumeration.BiographyField;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -58,20 +59,22 @@ public class GenderToken extends Token
 		ExportHandler eh)
 	{
 		String retString = "";
-
-		/*
-		 * TODO Short and long result are the same as Gender is no longer
-		 * abbreviated in PC (what to do?)
-		 */
-		if ("GENDER".equals(tokenSource) || "GENDER.SHORT".equals(tokenSource))
+		if (!pc.getSuppressBioField(BiographyField.GENDER))
 		{
-			retString = pc.getGenderObject().toString();
+			/*
+			 * TODO Short and long result are the same as Gender is no longer
+			 * abbreviated in PC (what to do?)
+			 */
+			if ("GENDER".equals(tokenSource) || "GENDER.SHORT".equals(tokenSource))
+			{
+				retString = pc.getGenderObject().toString();
+			}
+			else if ("GENDER.LONG".equals(tokenSource))
+			{
+				retString = pc.getGenderObject().toString();
+			}
 		}
-		else if ("GENDER.LONG".equals(tokenSource))
-		{
-			retString = pc.getGenderObject().toString();
-		}
-
+		
 		return retString;
 	}
 }

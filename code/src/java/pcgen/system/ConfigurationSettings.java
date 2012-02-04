@@ -1,0 +1,281 @@
+/*
+ * SystemPropertyManager.java
+ * Copyright 2009 Connor Petty <cpmeister@users.sourceforge.net>
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ * Created on Sep 4, 2009, 8:22:09 PM
+ */
+package pcgen.system;
+
+import java.io.File;
+import org.apache.commons.lang.SystemUtils;
+
+/**
+ *
+ * @author Connor Petty <cpmeister@users.sourceforge.net>
+ */
+public final class ConfigurationSettings extends PropertyContext
+{
+
+	public static final String USER_LANGUAGE = "language";
+	public static final String USER_COUNTRY = "country";
+	public static final String SETTINGS_FILES_PATH = "settingsPath";
+	public static final String SYSTEMS_DIR = "systemsPath";
+	public static final String THEME_PACK_DIR = "themesPath";
+	public static final String OUTPUT_SHEETS_DIR = "osPath";
+	public static final String PLUGINS_DIR = "pluginsPath";
+	public static final String PREVIEW_DIR = "previewPath";
+	public static final String VENDOR_DATA_DIR = "vendordataPath";
+	public static final String DOCS_DIR = "docsPath";
+	public static final String PCC_FILES_DIR = "pccFilesPath";
+	public static final String CUSTOM_DATA_DIR = "customPath";
+	private static ConfigurationSettings instance = null;
+
+	private ConfigurationSettings(String configFileName)
+	{
+		super(configFileName);
+		//Initialize defaults
+		setProperty(USER_LANGUAGE, SystemUtils.USER_LANGUAGE);
+		setProperty(USER_COUNTRY, SystemUtils.USER_COUNTRY);
+		setProperty(THEME_PACK_DIR, "@lib/lnf/themes".replace('/', File.separatorChar));
+		setProperty(SYSTEMS_DIR, "@system");
+		setProperty(OUTPUT_SHEETS_DIR, "@outputsheets");
+		setProperty(PLUGINS_DIR, "@plugins");
+		setProperty(PREVIEW_DIR, "@preview");
+		setProperty(DOCS_DIR, "@docs");
+		setProperty(VENDOR_DATA_DIR, "@vendordata");
+		setProperty(PCC_FILES_DIR, "@data");
+		setProperty(CUSTOM_DATA_DIR, "@data/customsources".replace('/', File.separatorChar));
+	}
+
+	@Override
+	protected void beforePropertiesSaved()
+	{
+		relativize(THEME_PACK_DIR);
+		relativize(SYSTEMS_DIR);
+		relativize(OUTPUT_SHEETS_DIR);
+		relativize(PLUGINS_DIR);
+		relativize(PREVIEW_DIR);
+		relativize(DOCS_DIR);
+		relativize(VENDOR_DATA_DIR);
+		relativize(PCC_FILES_DIR);
+		relativize(CUSTOM_DATA_DIR);
+	}
+
+	public static String getLanguage()
+	{
+		return getSystemProperty(USER_LANGUAGE);
+	}
+
+	public static void setLanguage(String language)
+	{
+		setSystemProperty(USER_LANGUAGE, language);
+	}
+
+	public static String getCountry()
+	{
+		return getSystemProperty(USER_COUNTRY);
+	}
+
+	public static void setCountry(String country)
+	{
+		setSystemProperty(USER_COUNTRY, country);
+	}
+
+	/**
+	 * @return
+	 */
+	public static String getUserDir()
+	{
+		return SystemUtils.USER_DIR;
+	}
+
+	public static ConfigurationSettings getInstance()
+	{
+		return getInstance(null);
+	}
+
+	public static ConfigurationSettings getInstance(String configFileName)
+	{
+		if (instance == null)
+		{
+			instance =
+					new ConfigurationSettings(configFileName == null
+						? "config.ini" : configFileName);
+		}
+		return instance;
+	}
+
+	public static String getThemePackDir()
+	{
+		return getDirectory(THEME_PACK_DIR);
+	}
+
+	public static String getSystemsDir()
+	{
+		return getDirectory(SYSTEMS_DIR);
+	}
+
+	public static String getOutputSheetsDir()
+	{
+		return getDirectory(OUTPUT_SHEETS_DIR);
+	}
+
+	public static String getPluginsDir()
+	{
+		return getDirectory(PLUGINS_DIR);
+	}
+
+	public static String getPreviewDir()
+	{
+		return getDirectory(PREVIEW_DIR);
+	}
+
+	public static String getDocsDir()
+	{
+		return getDirectory(DOCS_DIR);
+	}
+
+	public static String getVendorDataDir()
+	{
+		return getDirectory(VENDOR_DATA_DIR);
+	}
+
+	public static String getPccFilesDir()
+	{
+		return getDirectory(PCC_FILES_DIR);
+	}
+
+	public static String getSettingsDir()
+	{
+		return getDirectory(SETTINGS_FILES_PATH);
+	}
+
+	public static String getCustomDir()
+	{
+		return getDirectory(CUSTOM_DATA_DIR);
+	}
+
+	public static String initSystemProperty(String key, String defaultValue)
+	{
+		return getInstance().initProperty(key, defaultValue);
+	}
+
+	public static String getSystemProperty(String key)
+	{
+		return getInstance().getProperty(key);
+	}
+
+	public static Object setSystemProperty(String key, String value)
+	{
+		return getInstance().setProperty(key, value);
+	}
+
+	private static String getDirectory(String key)
+	{
+		if (SETTINGS_FILES_PATH.equals(key))
+		{
+			return getSettingsDirFromFilePath(getSystemProperty(key));
+		}
+		return expandRelativePath(getSystemProperty(key));
+	}
+
+	private static String expandRelativePath(String path)
+	{
+		if (path.startsWith("@"))
+		{
+			path = SystemUtils.USER_DIR + File.separator + path.substring(1);
+		}
+		return path;
+	}
+
+	private static String unexpandRelativePath(String path)
+	{
+		if (path.startsWith(SystemUtils.USER_DIR + File.separator))
+		{
+			path = "@" + path.substring(SystemUtils.USER_DIR.length() + 1);
+		}
+		return path;
+	}
+
+	private static void relativize(String property)
+	{
+		setSystemProperty(property, unexpandRelativePath(getSystemProperty(property)));
+	}
+
+	public static enum SettingsFilesPath
+	{
+
+		user,
+		pcgen,
+		mac_user;
+
+		public String getSettingsDir()
+		{
+			switch (this)
+			{
+				case user:
+					return SystemUtils.USER_HOME + File.separator + ".pcgen";
+				case pcgen:
+					return SystemUtils.USER_DIR + File.separator + "settings";
+				case mac_user:
+					return SystemUtils.USER_HOME + "/Library/Preferences/pcgen";
+				default:
+					throw new InternalError();
+			}
+		}
+
+	}
+
+	public static String getSettingsDirFromFilePath(String fType)
+	{
+		if ((fType == null) || (fType.length() < 1))
+		{
+			// make sure we have a default
+			fType = getDefaultSettingsFilesPath();
+		}
+		String path;
+		try
+		{
+			//Check to see if this path is one of the standard path types
+			path = SettingsFilesPath.valueOf(fType).getSettingsDir();
+		}
+		catch (IllegalArgumentException ex)
+		{
+			//It must be a custom filepath
+			path = fType;
+		}
+		return path;
+	}
+
+	/**
+	 * @return A default Settings Files Path value.
+	 */
+	public static String getDefaultSettingsFilesPath()
+	{
+		String fType;
+		if (SystemUtils.IS_OS_MAC_OSX)
+		{
+			fType = SettingsFilesPath.mac_user.name();
+		}
+		else
+		{
+			fType = SettingsFilesPath.user.name();
+		}
+		return fType;
+	}
+
+}

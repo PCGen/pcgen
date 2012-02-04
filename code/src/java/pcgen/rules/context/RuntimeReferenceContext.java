@@ -33,7 +33,7 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SimpleReferenceManufacturer;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 public class RuntimeReferenceContext extends AbstractReferenceContext
 {
@@ -131,7 +131,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		}
 		catch (CloneNotSupportedException e)
 		{
-			String message = PropertyFactory.getFormattedString(
+			String message = LanguageBundle.getFormattedString(
 				"Errors.LstFileLoader.CopyNotSupported", //$NON-NLS-1$
 				object.getClass().getName(), object.getKeyName(), copyName);
 			Logging.errorPrint(message);

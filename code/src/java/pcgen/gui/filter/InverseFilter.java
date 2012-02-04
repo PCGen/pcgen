@@ -22,7 +22,7 @@ package pcgen.gui.filter;
 
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>InverseFilter</code>
@@ -32,7 +32,7 @@ import pcgen.util.PropertyFactory;
  */
 final class InverseFilter extends AbstractPObjectFilter implements CustomFilter
 {
-	private static final String in_not = PropertyFactory.getString("in_not");
+	private static final String in_not = LanguageBundle.getString("in_not");
 	private PObjectFilter filter;
 
 	InverseFilter(PObjectFilter filter)
@@ -40,8 +40,8 @@ final class InverseFilter extends AbstractPObjectFilter implements CustomFilter
 		super();
 		this.filter = filter;
 
-		setCategory(PropertyFactory.getString("in_custom"));
-		setName(PropertyFactory.getString("in_not") + " " + this.filter.getName());
+		setCategory(LanguageBundle.getString("in_custom"));
+		setName(LanguageBundle.getString("in_not") + " " + this.filter.getName());
 	}
 
 	public boolean accept(PlayerCharacter aPC, PObject pObject)

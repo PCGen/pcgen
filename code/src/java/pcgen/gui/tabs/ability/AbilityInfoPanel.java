@@ -56,7 +56,7 @@ import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.Utility;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * @author boomer70 <boomer70@yahoo.com>
@@ -101,7 +101,7 @@ public class AbilityInfoPanel extends JPanel
 		infoScroll.setBorder(border);
 		theInfoLabel.setBackground(getBackground());
 		infoScroll.setViewportView(theInfoLabel);
-		Utility.setDescription(infoScroll, PropertyFactory
+		Utility.setDescription(infoScroll, LanguageBundle
 			.getString("in_infoScrollTip")); //$NON-NLS-1$
 
 		add(infoScroll);
@@ -130,7 +130,7 @@ public class AbilityInfoPanel extends JPanel
 
 	public void setCategory(final AbilityCategory cat)
 	{
-		border.setTitle(PropertyFactory.getFormattedString("InfoAbility.Title",
+		border.setTitle(LanguageBundle.getFormattedString("InfoAbility.Title",
 				cat.getDisplayName()));
 		repaint();
 	}
@@ -146,14 +146,14 @@ public class AbilityInfoPanel extends JPanel
 		sb.append(HTML).append(FONT_PLUS_1).append(BOLD);
 		sb.append(OutputNameFormatting.piString(theAbility, false));
 		sb.append(END_BOLD).append(END_FONT).append(BR);
-		sb.append(PropertyFactory.getFormattedString(
+		sb.append(LanguageBundle.getFormattedString(
 			"Ability.Info.Type", //$NON-NLS-1$
 			StringUtil.join(theAbility.getTrueTypeList(true), ". "))); //$NON-NLS-1$
 
 		BigDecimal costStr = theAbility.getSafe(ObjectKey.SELECTION_COST);
 		if (!costStr.equals(BigDecimal.ONE)) //$NON-NLS-1$
 		{
-			sb.append(PropertyFactory.getFormattedString(
+			sb.append(LanguageBundle.getFormattedString(
 				"Ability.Info.Cost", //$NON-NLS-1$
 				costStr));
 		}
@@ -161,13 +161,13 @@ public class AbilityInfoPanel extends JPanel
 		if (theAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
 			sb.append(THREE_SPACES).append(
-				PropertyFactory.getString("Ability.Info.Multiple")); //$NON-NLS-1$
+				LanguageBundle.getString("Ability.Info.Multiple")); //$NON-NLS-1$
 		}
 
 		if (theAbility.getSafe(ObjectKey.STACKS))
 		{
 			sb.append(THREE_SPACES).append(
-				PropertyFactory.getString("Ability.Info.Stacks")); //$NON-NLS-1$
+				LanguageBundle.getString("Ability.Info.Stacks")); //$NON-NLS-1$
 		}
 
 		final String cString = PrerequisiteUtilities.preReqHTMLStringsForList(thePC, null,
@@ -175,13 +175,13 @@ public class AbilityInfoPanel extends JPanel
 
 		if (cString.length() > 0)
 		{
-			sb.append(PropertyFactory.getFormattedString(
+			sb.append(LanguageBundle.getFormattedString(
 				"in_InfoRequirements", //$NON-NLS-1$
 				cString));
 		}
 
 		sb.append(BR);
-		sb.append(PropertyFactory.getFormattedString(
+		sb.append(LanguageBundle.getFormattedString(
 			"in_InfoDescription", //$NON-NLS-1$
 			DescriptionFormatting.piDescSubString(thePC, theAbility)));
 
@@ -198,7 +198,7 @@ public class AbilityInfoPanel extends JPanel
 				buff.append(theAbility.printAspect(thePC, key));
 			}
 			sb.append(BR);
-			sb.append(PropertyFactory.getFormattedString(
+			sb.append(LanguageBundle.getFormattedString(
 				"Ability.Info.Aspects", //$NON-NLS-1$
 				buff.toString()));
 		}
@@ -207,12 +207,12 @@ public class AbilityInfoPanel extends JPanel
 		if (bene != null && bene.length() > 0)
 		{
 			sb.append(BR);
-			sb.append(PropertyFactory.getFormattedString(
+			sb.append(LanguageBundle.getFormattedString(
 				"Ability.Info.Benefit", //$NON-NLS-1$
 				BenefitFormatting.getBenefits(thePC, theAbility)));
 		}
 		
-		sb.append(PropertyFactory.getFormattedString(
+		sb.append(LanguageBundle.getFormattedString(
 			"in_InfoSource", //$NON-NLS-1$
 			SourceFormat.getFormattedString(theAbility,
 			Globals.getSourceDisplay(), true)));

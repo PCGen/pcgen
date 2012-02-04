@@ -35,7 +35,7 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * @author arknight
@@ -185,12 +185,12 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 		String foo = "";
 		if (prereq.getOperand().equals("1") && prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
 		{
-			foo = PropertyFactory.getFormattedString("PreCSkill.single.toHtml", //$NON-NLS-1$
+			foo = LanguageBundle.getFormattedString("PreCSkill.single.toHtml", //$NON-NLS-1$
 					new Object[]{skillName});
 		}
 		else
 		{
-			foo = PropertyFactory.getFormattedString("PreCSkill.toHtml", //$NON-NLS-1$
+			foo = LanguageBundle.getFormattedString("PreCSkill.toHtml", //$NON-NLS-1$
 					new Object[]{prereq.getOperator().toDisplayString(),
 						prereq.getOperand(), skillName});
 		}

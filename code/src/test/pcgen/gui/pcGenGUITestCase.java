@@ -16,6 +16,7 @@ import org.custommonkey.xmlunit.XMLUnit;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.persistence.PersistenceManager;
+import pcgen.system.Main;
 
 /**
  * A pcGenGUITestCase is an XMLTestCase.  It is an abstract 
@@ -29,6 +30,9 @@ import pcgen.persistence.PersistenceManager;
 @SuppressWarnings("nls")
 public abstract class pcGenGUITestCase extends XMLTestCase
 {
+	/** */
+	private static final String TEST_CONFIG_FILE = "config.ini.junit";
+
 	/**
 	 * Constructor.
 	 */
@@ -90,14 +94,18 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 	 * @param character The PC
 	 * @param mode The game mode
 	 * @param runTwice Should we rerun the test after unloading sources
-	 * @throws Exception
+	 * @throws Exception If there is an error while exporting the data
 	 */
 	public void runTest(String character, String mode, boolean runTwice) throws Exception
 	{
 		System.out.println("RUNTEST with the character: " + character
 			+ " and the game mode: " + mode);
 		// Delete the old generated output for this test 
-		new File("code/testsuite/output/" + character + ".xml").delete();
+		String outputFile = "code/testsuite/output/" + character + ".xml";
+		new File(outputFile).delete();
+		
+		String configFolder = "testsuite";
+		
 		// Set the pcc location to "data"
 		String pccLoc = "data";
 		try
@@ -105,14 +113,14 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 			// Read in options.ini and override the pcc location if it exists
 			BufferedReader br =
 					new BufferedReader(new InputStreamReader(
-						new FileInputStream("options.ini"), "UTF-8"));
+						new FileInputStream("config.ini"), "UTF-8"));
 			while (br.ready())
 			{
 				String line = br.readLine();
 				if (line != null
-					&& line.startsWith("pcgen.options.pccFilesLocation="))
+					&& line.startsWith("pccFilesPath="))
 				{
-					pccLoc = line.substring(31);
+					pccLoc = line.substring(13);
 					break;
 				}
 			}
@@ -133,43 +141,38 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 		 */
 		try
 		{
+			File configFile = new File(TEST_CONFIG_FILE);
 			BufferedWriter bw =
 					new BufferedWriter(new OutputStreamWriter(
-						new FileOutputStream("options.ini.junit"), "UTF-8"));
-			bw.write("pcgen.options.game=" + mode + "\r\n");
+						new FileOutputStream(configFile), "UTF-8"));
+			bw.write("settingsPath=" + configFolder + "\r\n");
 			if (pccLoc != null)
 			{
 				System.out.println("Using PCC Location of '" + pccLoc + "'.");
-				bw.write("pcgen.options.pccFilesLocation=" + pccLoc + "\r\n");
+				bw.write("pccFilesPath=" + pccLoc + "\r\n");
 			}
-			bw.write("pcgen.files.pcgenCustomDir=testsuite/customdata\r\n");
-			bw.write("pcgen.options.loadCampaignsWithPC=true\r\n");
+			bw.write("customPathr=testsuite\\\\customdata\r\n");
 			bw.close();
 
-			System.setProperty("pcgen.templatefile", "code/testsuite/base.xml");
-			System.setProperty("pcgen.inputfile", "code/testsuite/PCGfiles/"
-				+ character + Constants.EXTENSION_CHARACTER_FILE);
-			System.setProperty("pcgen.outputfile", "code/testsuite/output/"
-				+ character + ".xml");
-			System.setProperty("pcgen.options", "options.ini.junit");
-			System.setProperty("pcgen.dont.exit", "Y");
-
 			// Fire off PCGen, which will produce an XML file 
-			pcGenGUI.main(Globals.EMPTY_STRING_ARRAY);
+			String characterFile = "code/testsuite/PCGfiles/" + character
+				+ Constants.EXTENSION_CHARACTER_FILE;
+
+			Main.loadCharacterAndExport(characterFile,
+				"code/testsuite/base.xml", outputFile, TEST_CONFIG_FILE);
 
 			// Optionally do a second run
 			if (runTwice)
 			{
-				new File("code/testsuite/output/" + character + ".xml").delete();
+				new File(outputFile).delete();
 				Globals.emptyLists();
 				PersistenceManager.getInstance().clear();
-				pcGenGUI.main(Globals.EMPTY_STRING_ARRAY);
+				Main.loadCharacterAndExport(characterFile,
+					"code/testsuite/base.xml", outputFile, TEST_CONFIG_FILE);
 			}
 			
 			// Read in the actual XML produced by PCGen
-			actual =
-					readFile(new File("code/testsuite/output/" + character
-						+ ".xml"));
+			actual = readFile(new File(outputFile));
 			// Read in the expected XML
 			expected =
 					readFile(new File("code/testsuite/csheets/" + character
@@ -177,8 +180,7 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 		}
 		finally
 		{
-			// Make sure we don't delete the options.ini no matter what happens!
-			new File("options.ini.junit").delete();
+			new File(TEST_CONFIG_FILE).delete();
 		}
 
 		// Do the XML comparison

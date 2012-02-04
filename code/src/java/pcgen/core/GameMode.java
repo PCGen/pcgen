@@ -52,6 +52,7 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
 import pcgen.cdom.reference.TransparentReference;
 import pcgen.core.character.WieldCategory;
+import pcgen.core.facade.GameModeFacade;
 import pcgen.core.system.LoadInfo;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.GameReferenceContext;
@@ -71,7 +72,7 @@ import pcgen.util.enumeration.Tab;
  * @author Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-public final class GameMode implements Comparable<Object>
+public final class GameMode implements Comparable<Object>, GameModeFacade
 {
 	private List<String> allowedModes;
 	private List<String> bonusFeatLevels = new ArrayList<String>();
@@ -169,6 +170,8 @@ public final class GameMode implements Comparable<Object>
 
 	private String thePreviewDir;
 	private String theDefaultPreviewSheet;
+	private String theInfoSheet;
+	private String theInfoSheetSkill;
 	private int [] dieSizes;
 	private int maxDieSize = 12;
 	private int minDieSize = 4;
@@ -181,6 +184,8 @@ public final class GameMode implements Comparable<Object>
 
 	/** The BioSet used for age calculations */
 	private BioSet bioSet = new BioSet();
+
+	private Map<String, String> equipTypeIconMap = new HashMap<String, String>();
 
 	/**
 	 * Creates a new instance of GameMode.
@@ -2633,5 +2638,92 @@ public final class GameMode implements Comparable<Object>
 	{
 		return getModeContext().ref.silentlyGetConstructedCDOMObject(
 				LoadInfo.class, getName());
+	}
+
+	/**
+	 * @return the file name of the InfoSheet relative to the base pcgen directory
+	 */
+	public String getInfoSheet()
+	{
+		return theInfoSheet;
+	}
+
+	/**
+	 * @param theInfoSheet the file name of the InfoSheet relative to the base pcgen directory
+	 */
+	public void setInfoSheet(String theInfoSheet)
+	{
+		this.theInfoSheet = theInfoSheet;
+	}
+
+	/**
+	 * @return the file name of the skill InfoSheet relative to the base pcgen directory
+	 */
+	public String getInfoSheetSkill()
+	{
+		return theInfoSheetSkill;
+	}
+
+	/**
+	 * @param theInfoSheetSkill the file name of the skill InfoSheet relative to the base pcgen directory
+	 */
+	public void setInfoSheetSkill(String theInfoSheetSkill)
+	{
+		this.theInfoSheetSkill = theInfoSheetSkill;
+	}
+
+	/**
+	 * Register an icon to be used for equipment of the listed type.
+	 * @param equipType The equipment type
+	 * @param iconPath The path relative to the pcgen folder of the icon.
+	 */
+	public void setEquipTypeIcon(String equipType, String iconPath)
+	{
+		this.equipTypeIconMap.put(equipType.toUpperCase(), iconPath);
+	}
+
+	/**
+	 * Retrieve the default icon to be used for equipment of the listed type.
+	 * @param equipType The equipment type
+	 * @return The path relative to the pcgen folder of the icon, null if none exists.
+	 */
+	public String getEquipTypeIcon(String equipType)
+	{
+		return this.equipTypeIconMap.get(equipType.toUpperCase());
+	}
+
+	public String getCharSheetDir()
+	{
+		return getPreviewDir();
+	}
+
+	public String getDefaultCharSheet()
+	{
+		return getDefaultPreviewSheet();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getHeightUnit()
+	{
+		if ("ftin".equals(getUnitSet().getHeightUnit()))
+		{
+			return "inches";
+		}
+		else
+		{
+			return getUnitSet().getHeightUnit();
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getWeightUnit()
+	{
+		return getUnitSet().getWeightUnit();
 	}
 }

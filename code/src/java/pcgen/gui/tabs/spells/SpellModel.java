@@ -58,7 +58,7 @@ import pcgen.gui.utils.AbstractTreeTableModel;
 import pcgen.gui.utils.PObjectNode;
 import pcgen.gui.utils.TreeTableModel;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  *  The TreeTableModel has a single <code>root</code> node
@@ -186,69 +186,69 @@ public final class SpellModel extends AbstractTreeTableModel implements
 			switch (transList[i])
 			{
 				case COL_NAME:
-					aString = PropertyFactory.getString("SpellModel.Name"); //$NON-NLS-1$
+					aString = LanguageBundle.getString("SpellModel.Name"); //$NON-NLS-1$
 					break;
 
 				case COL_SCHOOL:
-					aString = PropertyFactory.getString("SpellModel.Scool"); //$NON-NLS-1$
+					aString = LanguageBundle.getString("SpellModel.Scool"); //$NON-NLS-1$
 					break;
 
 				case COL_SUBSCHOOL:
-					aString = PropertyFactory.getString("SpellModel.SubSchool"); //$NON-NLS-1$
+					aString = LanguageBundle.getString("SpellModel.SubSchool"); //$NON-NLS-1$
 					break;
 
 				case COL_DESCRIPTOR:
 					aString =
-							PropertyFactory.getString("SpellModel.Descriptor"); //$NON-NLS-1$
+							LanguageBundle.getString("SpellModel.Descriptor"); //$NON-NLS-1$
 					break;
 
 				case COL_COMPONENT:
 					aString =
-							PropertyFactory.getString("SpellModel.Components"); //$NON-NLS-1$
+							LanguageBundle.getString("SpellModel.Components"); //$NON-NLS-1$
 					break;
 
 				case COL_CASTTIME:
 					aString =
-							PropertyFactory.getString("SpellModel.CastingTime"); //$NON-NLS-1$
+							LanguageBundle.getString("SpellModel.CastingTime"); //$NON-NLS-1$
 					break;
 
 				case COL_RANGE:
-					aString = PropertyFactory.getString("SpellModel.Range"); //$NON-NLS-1$
+					aString = LanguageBundle.getString("SpellModel.Range"); //$NON-NLS-1$
 					break;
 
 				case COL_DESCRIPTION:
 					aString =
-							PropertyFactory.getString("SpellModel.Description"); //$NON-NLS-1$
+							LanguageBundle.getString("SpellModel.Description"); //$NON-NLS-1$
 					break;
 
 				case COL_TARGET:
 					aString =
-							PropertyFactory.getString("SpellModel.TargetArea"); //$NON-NLS-1$
+							LanguageBundle.getString("SpellModel.TargetArea"); //$NON-NLS-1$
 					break;
 
 				case COL_DURATION:
-					aString = PropertyFactory.getString("SpellModel.Duration"); //$NON-NLS-1$
+					aString = LanguageBundle.getString("SpellModel.Duration"); //$NON-NLS-1$
 					break;
 
 				case COL_SAVE:
-					aString = PropertyFactory.getString("SpellModel.SaveInfo"); //$NON-NLS-1$
+					aString = LanguageBundle.getString("SpellModel.SaveInfo"); //$NON-NLS-1$
 					break;
 
 				case COL_SR:
-					aString = PropertyFactory.getString("SpellModel.SR"); //$NON-NLS-1$
+					aString = LanguageBundle.getString("SpellModel.SR"); //$NON-NLS-1$
 					break;
 
 				case COL_SRC:
 					aString =
-							PropertyFactory.getString("SpellModel.SourceFile"); //$NON-NLS-1$
+							LanguageBundle.getString("SpellModel.SourceFile"); //$NON-NLS-1$
 					break;
 
 				case COL_PPCOST:
-					aString = PropertyFactory.getString("SpellModel.PPCost"); //$NON-NLS-1$
+					aString = LanguageBundle.getString("SpellModel.PPCost"); //$NON-NLS-1$
 					break;
 
 				case COL_SPCOST:
-					aString = PropertyFactory.getString("SpellModel.SpellPointCost"); //$NON-NLS-1$
+					aString = LanguageBundle.getString("SpellModel.SpellPointCost"); //$NON-NLS-1$
 					break;
 					
 				default:
@@ -422,7 +422,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 
 		if (fn == null)
 		{
-			Logging.errorPrint(PropertyFactory
+			Logging.errorPrint(LanguageBundle
 				.getString("SpellModel.NoActiveNode")); //$NON-NLS-1$
 
 			return null;
@@ -1225,7 +1225,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 				ix2 = " " + ix2; //$NON-NLS-1$
 			}
 			tempNodes[ix]
-				.setItem(PropertyFactory.getString("SpellModel.24") + ix2); //$NON-NLS-1$
+				.setItem(LanguageBundle.getString("SpellModel.24") + ix2); //$NON-NLS-1$
 		}
 		return tempNodes;
 	}

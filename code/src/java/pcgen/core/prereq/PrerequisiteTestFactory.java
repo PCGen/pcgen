@@ -26,14 +26,15 @@ package pcgen.core.prereq;
 import java.util.HashMap;
 import java.util.Map;
 
+import pcgen.system.PluginLoader;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * @author wardc
  *
  */
-public class PrerequisiteTestFactory {
+public class PrerequisiteTestFactory implements PluginLoader{
 	private static PrerequisiteTestFactory instance = null;
 	private static Map<String, PrerequisiteTest> testLookup = new HashMap<String, PrerequisiteTest>();
 
@@ -60,7 +61,7 @@ public class PrerequisiteTestFactory {
 			final PrerequisiteTest test = testLookup.get(kindHandled);
 			if (test != null) {
 				Logging.errorPrint(
-					PropertyFactory.getFormattedString("PrerequisiteTestFactory.error.already_registered", //$NON-NLS-1$
+					LanguageBundle.getFormattedString("PrerequisiteTestFactory.error.already_registered", //$NON-NLS-1$
 						testClass.getClass().getName(),
 						kindHandled,
 						test.getClass().getName() ));
@@ -88,5 +89,15 @@ public class PrerequisiteTestFactory {
 			}
 		}
 		return test;
+	}
+
+	public void loadPlugin(Class<?> clazz) throws Exception
+	{
+		register((PrerequisiteTest) clazz.newInstance());
+}
+
+	public Class[] getPluginClasses()
+	{
+		return new Class[]{PrerequisiteTest.class};
 	}
 }

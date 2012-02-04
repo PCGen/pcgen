@@ -35,7 +35,7 @@ import pcgen.gui.utils.PObjectNode;
 import pcgen.gui.utils.SourcedFollower;
 import pcgen.gui.utils.TreeTableModel;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  *  The TreeTableModel has a single <code>root</code> node
@@ -121,14 +121,14 @@ public final class AvailableFollowerModel extends AbstractTreeTableModel
 
 	// list of columns names
 	private String[] avaNameList =
-			new String[]{PropertyFactory.getString("in_typeName"), //$NON-NLS-1$
-				PropertyFactory.getString("in_size"), //$NON-NLS-1$
-				PropertyFactory.getString("in_speed"), //$NON-NLS-1$
-				PropertyFactory.getString("in_vision"), //$NON-NLS-1$
-				PropertyFactory.getString("in_alignLabel"), //$NON-NLS-1$
-				PropertyFactory.getString("in_typeRace"), //$NON-NLS-1$
-				PropertyFactory.getString("in_source"), //$NON-NLS-1$
-				PropertyFactory.getString("in_adjustment") //$NON-NLS-1$
+			new String[]{LanguageBundle.getString("in_typeName"), //$NON-NLS-1$
+				LanguageBundle.getString("in_size"), //$NON-NLS-1$
+				LanguageBundle.getString("in_speed"), //$NON-NLS-1$
+				LanguageBundle.getString("in_vision"), //$NON-NLS-1$
+				LanguageBundle.getString("in_alignLabel"), //$NON-NLS-1$
+				LanguageBundle.getString("in_typeRace"), //$NON-NLS-1$
+				LanguageBundle.getString("in_source"), //$NON-NLS-1$
+				LanguageBundle.getString("in_adjustment") //$NON-NLS-1$
 			};
 
 	private final int[] avaDefaultWidth =

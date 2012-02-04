@@ -6,6 +6,7 @@
 package plugin.encounter.gui;
 
 import javax.swing.*;
+import pcgen.gui2.tools.Icons;
 
 /**
  *
@@ -335,14 +336,12 @@ public class EncounterView extends javax.swing.JPanel
 		jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3,
 			javax.swing.BoxLayout.Y_AXIS));
 
-		addCreature.setIcon(new javax.swing.ImageIcon(getClass().getResource(
-			"/pcgen/gui/resource/Forward16.gif")));
+		addCreature.setIcon(Icons.Forward16.getImageIcon());
 		addCreature.setMaximumSize(new java.awt.Dimension(50, 50));
 		addCreature.setMinimumSize(new java.awt.Dimension(50, 50));
 		jPanel3.add(addCreature);
 
-		removeCreature.setIcon(new javax.swing.ImageIcon(getClass()
-			.getResource("/pcgen/gui/resource/Back16.gif")));
+		removeCreature.setIcon(Icons.Back16.getImageIcon());
 		removeCreature.setMaximumSize(new java.awt.Dimension(50, 50));
 		removeCreature.setMinimumSize(new java.awt.Dimension(50, 50));
 		jPanel3.add(removeCreature);

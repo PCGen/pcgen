@@ -258,8 +258,6 @@ public abstract class Plugin
 		{
 			Integer load1 = Integer.valueOf(p1.getPluginLoadOrder());
 			Integer load2 = Integer.valueOf(p2.getPluginLoadOrder());
-			System.out.println(p1.getName() + ": " + p1.getPluginLoadOrder() + " - " + p2.getName() + ": " + p2.getPluginLoadOrder());
-
 			return load2.compareTo(load1);
 		}
 	}

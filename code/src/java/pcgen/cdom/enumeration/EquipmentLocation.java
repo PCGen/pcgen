@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.enumeration;
 
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 public enum EquipmentLocation
 {
@@ -28,7 +28,7 @@ public enum EquipmentLocation
 		@Override
 		public String getString()
 		{
-			return PropertyFactory.getString("EquipLocation.Neither");
+			return LanguageBundle.getString("EquipLocation.Neither");
 		}
 
 		@Override
@@ -44,7 +44,7 @@ public enum EquipmentLocation
 		@Override
 		public String getString()
 		{
-			return PropertyFactory.getString("EquipLocation.Primary");
+			return LanguageBundle.getString("EquipLocation.Primary");
 		}
 
 		@Override
@@ -60,7 +60,7 @@ public enum EquipmentLocation
 		@Override
 		public String getString()
 		{
-			return PropertyFactory.getString("EquipLocation.Secondary");
+			return LanguageBundle.getString("EquipLocation.Secondary");
 		}
 
 		@Override
@@ -76,7 +76,7 @@ public enum EquipmentLocation
 		@Override
 		public String getString()
 		{
-			return PropertyFactory.getString("EquipLocation.Both");
+			return LanguageBundle.getString("EquipLocation.Both");
 		}
 
 		@Override
@@ -92,7 +92,7 @@ public enum EquipmentLocation
 		@Override
 		public String getString()
 		{
-			return PropertyFactory.getString("EquipLocation.TwoHands");
+			return LanguageBundle.getString("EquipLocation.TwoHands");
 		}
 
 		@Override
@@ -108,7 +108,7 @@ public enum EquipmentLocation
 		@Override
 		public String getString()
 		{
-			return PropertyFactory.getString("EquipLocation.TempBonus");
+			return LanguageBundle.getString("EquipLocation.TempBonus");
 		}
 		@Override
 		public boolean isEquipped()
@@ -126,7 +126,7 @@ public enum EquipmentLocation
 		@Override
 		public String getString()
 		{
-			return PropertyFactory.getString("EquipLocation.Carried");
+			return LanguageBundle.getString("EquipLocation.Carried");
 		}
 
 		@Override
@@ -142,7 +142,7 @@ public enum EquipmentLocation
 		@Override
 		public String getString()
 		{
-			return PropertyFactory.getString("EquipLocation.Contained");
+			return LanguageBundle.getString("EquipLocation.Contained");
 		}
 
 		@Override
@@ -158,7 +158,7 @@ public enum EquipmentLocation
 		@Override
 		public String getString()
 		{
-			return PropertyFactory.getString("EquipLocation.NotCarried");
+			return LanguageBundle.getString("EquipLocation.NotCarried");
 		}
 
 		@Override

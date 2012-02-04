@@ -34,7 +34,7 @@ import javax.swing.WindowConstants;
  * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
  * @version $Revision$
  */
-class PCGenPopup extends JFrame
+public class PCGenPopup extends JFrame
 {
 	/**
 	 * Construct a generic PCGen popup dialog.  The real work goes

@@ -21,7 +21,7 @@
  */
 package pcgen.gui;
 
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import javax.swing.JTabbedPane;
 
@@ -38,7 +38,7 @@ final class ExportPDFPopup extends PCGenPopup
 
 	ExportPDFPopup(JTabbedPane aPanel)
 	{
-		super(PropertyFactory.getString("in_exportPCParty"));
+		super(LanguageBundle.getString("in_exportPCParty"));
 		mainPrint = new MainPrint(this, MainPrint.EXPORT_MODE);
 		setPanel(mainPrint);
 		baseTabbedPanel = aPanel;

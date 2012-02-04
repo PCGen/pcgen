@@ -46,7 +46,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.gui.utils.Utility;
 import pcgen.persistence.PersistenceManager;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 
 /**
@@ -81,7 +81,7 @@ class CreateSourceDialog extends JDialog implements ActionListener
 	public CreateSourceDialog(Frame parent, boolean modal)
 	{
 		super(parent, modal);
-		setTitle(PropertyFactory.getString("in_cs_title"));
+		setTitle(LanguageBundle.getString("in_cs_title"));
 		initComponents();
 		setLocationRelativeTo(parent); // centre on parent
 	}
@@ -100,7 +100,7 @@ class CreateSourceDialog extends JDialog implements ActionListener
 		gbc.insets = new Insets(4, 4, 4, 4);
 
 		
-		JLabel introLabel = new JLabel(PropertyFactory.getString("in_cs_intro"));
+		JLabel introLabel = new JLabel(LanguageBundle.getString("in_cs_intro"));
 		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 100, 100,
 			GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
 		getContentPane().add(introLabel, gbc);
@@ -110,7 +110,7 @@ class CreateSourceDialog extends JDialog implements ActionListener
 			GridBagConstraints.BOTH, GridBagConstraints.WEST);
 		getContentPane().add(mainSource, gbc);
 
-		JLabel fieldLabel = new JLabel(PropertyFactory.getString("in_cs_sourceTitle"));
+		JLabel fieldLabel = new JLabel(LanguageBundle.getString("in_cs_sourceTitle"));
 		Utility.buildRelativeConstraints(gbc, 1, 1, 100, 100,
 			GridBagConstraints.NONE, GridBagConstraints.WEST);
 		getContentPane().add(fieldLabel, gbc);
@@ -121,13 +121,13 @@ class CreateSourceDialog extends JDialog implements ActionListener
 		
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setLayout(new FlowLayout());
-		JButton okButton = new JButton(PropertyFactory.getString("in_ok"));
+		JButton okButton = new JButton(LanguageBundle.getString("in_ok"));
 		okButton.setActionCommand(ACTION_OK);
 		getRootPane().setDefaultButton(okButton);
 		buttonPanel.add(okButton);
 
 		JButton cancelButton =
-				new JButton(PropertyFactory.getString("in_cancel"));
+				new JButton(LanguageBundle.getString("in_cancel"));
 		cancelButton.setActionCommand(ACTION_CANCEL);
 		buttonPanel.add(cancelButton);
 
@@ -156,7 +156,7 @@ class CreateSourceDialog extends JDialog implements ActionListener
 
 			if (name == null || name.trim().length()==0)
 			{
-				JOptionPane.showMessageDialog(this, PropertyFactory.getString("in_cs_noTitle"));
+				JOptionPane.showMessageDialog(this, LanguageBundle.getString("in_cs_noTitle"));
 				return;
 			}
 

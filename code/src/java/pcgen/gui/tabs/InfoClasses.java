@@ -124,7 +124,7 @@ import pcgen.gui.utils.Utility;
 import pcgen.gui.utils.WholeNumberField;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.Visibility;
 
@@ -140,24 +140,24 @@ public final class InfoClasses extends FilterAdapterPanel implements
 	private static boolean needsUpdate = true;
 	private static int viewMode = GuiConstants.INFOCLASS_VIEW_NAME; // keep track of what view mode we're in for Available
 	private static Integer saveViewMode = null;
-	private static int viewSelectMode = GuiConstants.INFOCLASS_VIEW_NAME; // keep track of what view mode we're in for Selected. defaults to PropertyFactory.getString("in_nameLabel")
+	private static int viewSelectMode = GuiConstants.INFOCLASS_VIEW_NAME; // keep track of what view mode we're in for Selected. defaults to LanguageBundle.getString("in_nameLabel")
 	private static int splitOrientation = JSplitPane.HORIZONTAL_SPLIT;
 	private static PObjectNode typeRoot;
 	private static PObjectNode sourceRoot;
 	private final JLabel avaLabel =
-			new JLabel(PropertyFactory.getString("in_available"));
+			new JLabel(LanguageBundle.getString("in_available"));
 	private final JLabel selLabel =
-			new JLabel(PropertyFactory.getString("in_selected"));
+			new JLabel(LanguageBundle.getString("in_selected"));
 	private ClassModel availableModel = null; // Model for the JTreeTable.
 	private ClassModel selectedModel = null; // Model for the JTreeTable.
 	private FlippingSplitPane asplit;
 	private FlippingSplitPane bsplit;
 	private FlippingSplitPane splitPane;
 	private JButton addButton;
-	private JButton adjXP = new JButton(PropertyFactory.getString("in_adjXP"));
+	private JButton adjXP = new JButton(LanguageBundle.getString("in_adjXP"));
 	private JButton hpButton = null;
 	private JButton removeButton;
-	private JButton clearQFilterButton = new JButton(PropertyFactory.getString("in_clear"));
+	private JButton clearQFilterButton = new JButton(LanguageBundle.getString("in_clear"));
 	private JComboBoxEx viewComboBox = new JComboBoxEx();
 	private JComboBoxEx viewSelectComboBox = new JComboBoxEx();
 	private JTree availableTree = null;
@@ -177,7 +177,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 	private JLabel lblHP = new JLabel();
 	private JLabel lblHPName = null;
 	private JLabel lblNextLevel = new JLabel();
-	private final JLabel lblQFilter = new JLabel(PropertyFactory.getString("in_filter") + ":");
+	private final JLabel lblQFilter = new JLabel(LanguageBundle.getString("in_filter") + ":");
 	private JLabel lblSkills = new JLabel();
 	private JLabel lblVariableDisplay = new JLabel();
 	private JLabel lblVariableDisplay2 = new JLabel();
@@ -496,7 +496,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 	{
 		if (lastClass == null)
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory
+			ShowMessageDelegate.showMessageDialog(LanguageBundle
 				.getString("in_clNoClass"), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 		}
@@ -524,7 +524,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 			if ((levels > 0)
 				&& (pc.getPCAlignment().getAbb().equals(Constants.NONE)))
 			{
-				ShowMessageDelegate.showMessageDialog(PropertyFactory
+				ShowMessageDelegate.showMessageDialog(LanguageBundle
 					.getString("in_clSelAlign"), Constants.APPLICATION_NAME,
 					MessageType.ERROR);
 
@@ -533,7 +533,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 
 			if ((levels > 0) && !pc.canLevelUp())
 			{
-				ShowMessageDelegate.showMessageDialog(PropertyFactory
+				ShowMessageDelegate.showMessageDialog(LanguageBundle
 					.getString("in_Enforce_rejectLevelUp"),
 					Constants.APPLICATION_NAME, MessageType.ERROR);
 				return;
@@ -569,7 +569,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 					aClass.getSubClassKeyed(subClassKey);
 			if (subClass != null && !subClass.qualifies(pc, aClass))
 			{
-				ShowMessageDelegate.showMessageDialog(PropertyFactory
+				ShowMessageDelegate.showMessageDialog(LanguageBundle
 					.getString("in_clYouAreNotQualifiedToTakeTheClass")
 					+ aClass.getDisplayName()
 					+ "/" //$NON-NLS-1$
@@ -590,7 +590,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		}
 		else
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory
+			ShowMessageDelegate.showMessageDialog(LanguageBundle
 				.getString("in_clMaxLvl"), Constants.APPLICATION_NAME,
 				MessageType.INFORMATION);
 
@@ -793,7 +793,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 	private void formComponentShown()
 	{
 		requestFocus();
-		PCGen_Frame1.setMessageAreaTextWithoutSaving(PropertyFactory
+		PCGen_Frame1.setMessageAreaTextWithoutSaving(LanguageBundle
 			.getString("in_clNotQualify"));
 		refresh();
 
@@ -984,9 +984,9 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		}
 
 		Collections.sort(typeList);
-		if (!typeList.contains(PropertyFactory.getString("in_other")))
+		if (!typeList.contains(LanguageBundle.getString("in_other")))
 		{
-			typeList.add(PropertyFactory.getString("in_other"));
+			typeList.add(LanguageBundle.getString("in_other"));
 		}
 		PObjectNode[] pTypes = new PObjectNode[typeList.size()];
 		for (int i = 0; i < pTypes.length; i++)
@@ -1020,10 +1020,10 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		}
 
 		SettingsHandler.setClassTab_AvailableListMode(viewMode);
-		viewComboBox.addItem(PropertyFactory.getString("in_nameLabel"));
-		viewComboBox.addItem(PropertyFactory.getString("in_typeName"));
-		viewComboBox.addItem(PropertyFactory.getString("in_sourceName"));
-		Utility.setDescription(viewComboBox, PropertyFactory
+		viewComboBox.addItem(LanguageBundle.getString("in_nameLabel"));
+		viewComboBox.addItem(LanguageBundle.getString("in_typeName"));
+		viewComboBox.addItem(LanguageBundle.getString("in_sourceName"));
+		Utility.setDescription(viewComboBox, LanguageBundle
 			.getString("in_clChangCl"));
 		viewComboBox.setSelectedIndex(viewMode); // must be done before createModels call
 
@@ -1036,10 +1036,10 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		}
 
 		SettingsHandler.setClassTab_SelectedListMode(viewSelectMode);
-		viewSelectComboBox.addItem(PropertyFactory.getString("in_nameLabel"));
-		viewSelectComboBox.addItem(PropertyFactory.getString("in_typeName"));
-		viewSelectComboBox.addItem(PropertyFactory.getString("in_sourceName"));
-		Utility.setDescription(viewSelectComboBox, PropertyFactory
+		viewSelectComboBox.addItem(LanguageBundle.getString("in_nameLabel"));
+		viewSelectComboBox.addItem(LanguageBundle.getString("in_typeName"));
+		viewSelectComboBox.addItem(LanguageBundle.getString("in_sourceName"));
+		Utility.setDescription(viewSelectComboBox, LanguageBundle
 			.getString("in_clChangCl"));
 		viewSelectComboBox.setSelectedIndex(viewSelectMode); // must be done before createModels call
 
@@ -1056,14 +1056,14 @@ public final class InfoClasses extends FilterAdapterPanel implements
 
 		//  Bottom Left Pane - Class Info
 		TitledBorder title1 =
-				BorderFactory.createTitledBorder(PropertyFactory
+				BorderFactory.createTitledBorder(LanguageBundle
 					.getString("in_clInfo"));
 		title1.setTitleJustification(TitledBorder.CENTER);
 		JScrollPane infoScroll = new JScrollPane(infoLabel);
 		infoScroll.setBorder(title1);
 		infoLabel.setBackground(bLeftPane.getBackground());
 		bLeftPane.add(infoScroll, BorderLayout.CENTER);
-		Utility.setDescription(bLeftPane, PropertyFactory
+		Utility.setDescription(bLeftPane, LanguageBundle
 			.getString("in_infoScrollTip"));
 
 		//  Bottom Right Pane - Character Info
@@ -1125,7 +1125,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		JPanel leftBottomPanel =
 				new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		addButton = new JButton(IconUtilitities.getImageIcon("Forward16.gif"));
-		Utility.setDescription(addButton, PropertyFactory
+		Utility.setDescription(addButton, LanguageBundle
 			.getString("in_clAddTip"));
 		addButton.setEnabled(false);
 		leftBottomPanel.add(addButton);
@@ -1160,7 +1160,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		JPanel rightBottomPanel =
 				new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		removeButton = new JButton(IconUtilitities.getImageIcon("Back16.gif"));
-		Utility.setDescription(removeButton, PropertyFactory
+		Utility.setDescription(removeButton, LanguageBundle
 			.getString("in_clRemoveTip"));
 		removeButton.setEnabled(false);
 		rightBottomPanel.add(removeButton);
@@ -1272,7 +1272,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 			pnlFeats.setLayout(new BorderLayout(5, 5));
 
 			lblFeats = new JLabel();
-			lblFeats.setText(PropertyFactory.getString("in_feats"));
+			lblFeats.setText(LanguageBundle.getString("in_feats"));
 			pnlFeats.add(lblFeats, BorderLayout.WEST);
 
 			featCount.setText("0");
@@ -1294,7 +1294,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		}
 		else
 		{
-			lblSkills.setText(PropertyFactory.getString("in_skills"));
+			lblSkills.setText(LanguageBundle.getString("in_skills"));
 		}
 		pnlSkills.add(lblSkills, BorderLayout.WEST);
 
@@ -1388,7 +1388,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		//pnlXP.setLayout(new BorderLayout(5, 5));
 		pnlXP.setLayout(new GridBagLayout());
 
-		lblExperience.setText(PropertyFactory.getString("in_experience"));
+		lblExperience.setText(LanguageBundle.getString("in_experience"));
 
 		//lblExperience.setPreferredSize(new Dimension(64, 16));
 		//pnlXP.add(lblExperience, BorderLayout.WEST);
@@ -1410,7 +1410,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 
 		pnlXP.add(adjXP, new GridBagConstraints());
 
-		lblNextLevel.setText(PropertyFactory.getString("in_icNextLevel"));
+		lblNextLevel.setText(LanguageBundle.getString("in_icNextLevel"));
 		gbc = new GridBagConstraints();
 		gbc.gridy = 1;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -1482,7 +1482,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 
 		if (Globals.getGameModeShowClassDefense())
 		{
-			lblDefense.setText(aString + " (" + PropertyFactory.getString("in_class") + ")");
+			lblDefense.setText(aString + " (" + LanguageBundle.getString("in_class") + ")");
 			pnlDefense.setVisible(true);
 		}
 		else
@@ -1714,14 +1714,14 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		private static final int COL_SRC = 8;
 
 		private final String[] colNameList =
-				{PropertyFactory.getString("in_nameLabel"),
-					PropertyFactory.getString("in_preReqs"),
-					PropertyFactory.getString("in_level"),
-					PropertyFactory.getString("in_type"), getBabTitle(),
-					PropertyFactory.getString("in_hdLabel"),
-					PropertyFactory.getString("in_spellType"),
-					PropertyFactory.getString("in_baseStat"),
-					PropertyFactory.getString("in_sourceLabel")};
+				{LanguageBundle.getString("in_nameLabel"),
+					LanguageBundle.getString("in_preReqs"),
+					LanguageBundle.getString("in_level"),
+					LanguageBundle.getString("in_type"), getBabTitle(),
+					LanguageBundle.getString("in_hdLabel"),
+					LanguageBundle.getString("in_spellType"),
+					LanguageBundle.getString("in_baseStat"),
+					LanguageBundle.getString("in_sourceLabel")};
 
 		private final int[] colDefaultWidth =
 				{200, 100, 35, 70, 35, 40, 60, 60, 100};
@@ -1803,9 +1803,9 @@ public final class InfoClasses extends FilterAdapterPanel implements
 					return String.class;
 
 				default:
-					Logging.errorPrint(PropertyFactory.getString("in_clICEr4")
+					Logging.errorPrint(LanguageBundle.getString("in_clICEr4")
 						+ " " + column + " "
-						+ PropertyFactory.getString("in_clICEr2"));
+						+ LanguageBundle.getString("in_clICEr2"));
 
 					break;
 			}
@@ -1867,7 +1867,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 					{
 						return fn.toString();
 					}
-					Logging.errorPrint(PropertyFactory.getString("in_clICEr5"));
+					Logging.errorPrint(LanguageBundle.getString("in_clICEr5"));
 					return "";
 
 				case COL_REQ:
@@ -1939,13 +1939,13 @@ public final class InfoClasses extends FilterAdapterPanel implements
 					{
 						return fn.getItem();
 					}
-					Logging.errorPrint(PropertyFactory.getString("in_clICEr5"));
+					Logging.errorPrint(LanguageBundle.getString("in_clICEr5"));
 					return null;
 
 				default:
-					Logging.errorPrint(PropertyFactory.getString("in_clICEr6")
+					Logging.errorPrint(LanguageBundle.getString("in_clICEr6")
 						+ " " + column + " "
-						+ PropertyFactory.getString("in_ICEr2"));
+						+ LanguageBundle.getString("in_ICEr2"));
 
 					break;
 			}
@@ -2123,9 +2123,9 @@ public final class InfoClasses extends FilterAdapterPanel implements
 					break;
 
 				default:
-					Logging.errorPrint(PropertyFactory.getString("in_clICEr1")
+					Logging.errorPrint(LanguageBundle.getString("in_clICEr1")
 						+ " " + mode + " "
-						+ PropertyFactory.getString("in_clICEr2"));
+						+ LanguageBundle.getString("in_clICEr2"));
 
 					break;
 			}
@@ -2322,17 +2322,17 @@ public final class InfoClasses extends FilterAdapterPanel implements
 				 * get "control PLUS" to function on standard US keyboard with Windows 98
 				 *
 				 */
-				ClassPopupMenu.this.add(createAddMenuItem(PropertyFactory
+				ClassPopupMenu.this.add(createAddMenuItem(LanguageBundle
 					.getString("in_add1"), "shortcut EQUALS"));
 				this.addSeparator();
-				ClassPopupMenu.this.add(Utility.createMenuItem(PropertyFactory.getString("in_icFindItem"),
+				ClassPopupMenu.this.add(Utility.createMenuItem(LanguageBundle.getString("in_icFindItem"),
 					new ActionListener()
 					{
 						public void actionPerformed(ActionEvent e)
 						{
 							lastSearch = availableTable.searchTree(lastSearch);
 						}
-					}, "searchItem", (char) 0, "shortcut F", PropertyFactory.getString("in_icFindItem"), null,
+					}, "searchItem", (char) 0, "shortcut F", LanguageBundle.getString("in_icFindItem"), null,
 					true));
 			}
 
@@ -2352,19 +2352,19 @@ public final class InfoClasses extends FilterAdapterPanel implements
 				 * changed accelerator from "control PLUS" to "control EQUALS" as cannot
 				 * get "control PLUS" to function on standard US keyboard with Windows 98
 				 */
-				ClassPopupMenu.this.add(createAddMenuItem(PropertyFactory
+				ClassPopupMenu.this.add(createAddMenuItem(LanguageBundle
 					.getString("in_add1"), "shortcut EQUALS"));
-				ClassPopupMenu.this.add(createRemoveMenuItem(PropertyFactory
+				ClassPopupMenu.this.add(createRemoveMenuItem(LanguageBundle
 					.getString("in_remove1"), "shortcut MINUS"));
 				this.addSeparator();
-				ClassPopupMenu.this.add(Utility.createMenuItem(PropertyFactory.getString("in_icFindItem"),
+				ClassPopupMenu.this.add(Utility.createMenuItem(LanguageBundle.getString("in_icFindItem"),
 					new ActionListener()
 					{
 						public void actionPerformed(ActionEvent e)
 						{
 							lastSearch = selectedTable.searchTree(lastSearch);
 						}
-					}, "searchItem", (char) 0, "shortcut F", PropertyFactory.getString("in_icFindItem"), null,
+					}, "searchItem", (char) 0, "shortcut F", LanguageBundle.getString("in_icFindItem"), null,
 					true));
 			}
 		}
@@ -2372,16 +2372,16 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		private JMenuItem createAddMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label, new AddClassActionListener(),
-				PropertyFactory.getString("in_add1"), (char) 0, accelerator,
-				PropertyFactory.getString("in_add1lvl"), "Add16.gif", true);
+				LanguageBundle.getString("in_add1"), (char) 0, accelerator,
+				LanguageBundle.getString("in_add1lvl"), "Add16.gif", true);
 		}
 
 		private JMenuItem createRemoveMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label,
-				new RemoveClassActionListener(), PropertyFactory
+				new RemoveClassActionListener(), LanguageBundle
 					.getString("in_remove1"), (char) 0, accelerator,
-				PropertyFactory.getString("in_remove1lvl"), "Remove16.gif",
+				LanguageBundle.getString("in_remove1lvl"), "Remove16.gif",
 				true);
 		}
 
@@ -2504,7 +2504,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		public void actionPerformed(ActionEvent evt)
 		{
 			String selectedValue =
-					JOptionPane.showInputDialog(null, PropertyFactory
+					JOptionPane.showInputDialog(null, LanguageBundle
 						.getString("in_clEnterXP"), Constants.APPLICATION_NAME,
 						JOptionPane.QUESTION_MESSAGE);
 
@@ -2523,7 +2523,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 				}
 				catch (NumberFormatException e)
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory
+					ShowMessageDelegate.showMessageDialog(LanguageBundle
 						.getString("in_clInvalidNum"), Constants.APPLICATION_NAME,
 						MessageType.ERROR);
 
@@ -2560,7 +2560,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 				if (temp == null)
 				{
 					lastClass = null;
-					ShowMessageDelegate.showMessageDialog(PropertyFactory
+					ShowMessageDelegate.showMessageDialog(LanguageBundle
 						.getString("in_clNoClass"), Constants.APPLICATION_NAME,
 						MessageType.ERROR);
 

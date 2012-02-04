@@ -115,7 +115,7 @@ import pcgen.gui.utils.TreeTableModel;
 import pcgen.gui.utils.Utility;
 import pcgen.gui.utils.WholeNumberField;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
@@ -143,28 +143,28 @@ public class InfoRaces extends BaseCharacterInfoTab
 	private static final int COL_LEVEL = 7;
 	private FlippingSplitPane bsplit;
 	private JButton selButton =
-			new JButton(PropertyFactory.getString("in_select")); //$NON-NLS-1$
+			new JButton(LanguageBundle.getString("in_select")); //$NON-NLS-1$
 	private JButton clearQFilterButton = new JButton("Clear");
 	private JComboBoxEx viewComboBox = new JComboBoxEx();
 	private final JLabel lblQFilter = new JLabel("Filter:");
 	private JLabel raceText = new JLabel();
 	private JLabel raceTextLabel =
-			new JLabel(PropertyFactory.getString("in_irSelectedRace")); //$NON-NLS-1$
+			new JLabel(LanguageBundle.getString("in_irSelectedRace")); //$NON-NLS-1$
 	private JLabel sortLabel =
-			new JLabel(PropertyFactory.getString("in_irSortRaces")); //$NON-NLS-1$
+			new JLabel(LanguageBundle.getString("in_irSortRaces")); //$NON-NLS-1$
 	private JLabelPane infoLabel = new JLabelPane();
 	private JPanel botPane = new JPanel();
 
 	//Monster Hit Die Panel
 	private JPanel monHdPanel = new JPanel();
 	private JLabel lblHDModify =
-			new JLabel(PropertyFactory.getString("in_sumHDToAddRem")); //$NON-NLS-1$
+			new JLabel(LanguageBundle.getString("in_sumHDToAddRem")); //$NON-NLS-1$
 	private WholeNumberField txtHD = new WholeNumberField(1, 3);
 	private JButton btnAddHD = new JButton("+");
 	private JButton btnRemoveHD = new JButton("-");
 	private JLabel txtMonsterHD = new JLabel("1");
 	private JLabel lblMonsterHD =
-			new JLabel(PropertyFactory.getString("in_sumMonsterHitDice")); //$NON-NLS-1$
+			new JLabel(LanguageBundle.getString("in_sumMonsterHitDice")); //$NON-NLS-1$
 
 	private JPanel topPane = new JPanel();
 	private JTextField textQFilter = new JTextField();
@@ -240,7 +240,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 		if (getPc().getRace() == null
 			|| Constants.NONESELECTED.equals(getPc().getRace().getKeyName()))
 		{
-			toDoList.add(PropertyFactory.getString("in_irTodoRace")); //$NON-NLS-1$
+			toDoList.add(LanguageBundle.getString("in_irTodoRace")); //$NON-NLS-1$
 		}
 		return toDoList;
 	}
@@ -495,7 +495,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 	private void formComponentShown()
 	{
 		requestFocus();
-		PCGen_Frame1.setMessageAreaTextWithoutSaving(PropertyFactory
+		PCGen_Frame1.setMessageAreaTextWithoutSaving(LanguageBundle
 			.getString("in_irSelectRace"));
 		refresh();
 
@@ -661,15 +661,15 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 		SettingsHandler.setRaceTab_ListMode(viewMode);
 
-		viewComboBox.addItem(PropertyFactory.getString("in_nameLabel") + "   ");
-		viewComboBox.addItem(PropertyFactory.getString("in_racetypeName")
+		viewComboBox.addItem(LanguageBundle.getString("in_nameLabel") + "   ");
+		viewComboBox.addItem(LanguageBundle.getString("in_racetypeName")
 			+ "   ");
-		viewComboBox.addItem(PropertyFactory
+		viewComboBox.addItem(LanguageBundle
 			.getString("in_racetypeSubtypeName")
 			+ "   ");
-		viewComboBox.addItem(PropertyFactory.getString("in_typeName") + "   ");
-		viewComboBox.addItem(PropertyFactory.getString("in_allTypes") + "   ");
-		viewComboBox.addItem(PropertyFactory.getString("in_sourceName") + " ");
+		viewComboBox.addItem(LanguageBundle.getString("in_typeName") + "   ");
+		viewComboBox.addItem(LanguageBundle.getString("in_allTypes") + "   ");
+		viewComboBox.addItem(LanguageBundle.getString("in_sourceName") + " ");
 		viewComboBox.setSelectedIndex(viewMode);
 
 		// initialize the raceModel
@@ -786,7 +786,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 		JScrollPane scroll = new JScrollPane();
 
 		TitledBorder title1 =
-				BorderFactory.createTitledBorder(PropertyFactory
+				BorderFactory.createTitledBorder(LanguageBundle
 					.getString("in_irRaceInfo"));
 		title1.setTitleJustification(TitledBorder.CENTER);
 		scroll.setBorder(title1);
@@ -990,14 +990,14 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 		// list of column names
 		private final String[] raceNameList =
-				{PropertyFactory.getString("in_nameLabel"),
-					PropertyFactory.getString("in_irTableStat"),
-					PropertyFactory.getString("in_preReqs"),
-					PropertyFactory.getString("in_size"),
-					PropertyFactory.getString("in_speed"),
-					PropertyFactory.getString("in_vision"),
-					PropertyFactory.getString("in_favoredClass"),
-					PropertyFactory.getString("in_lvlAdj")};
+				{LanguageBundle.getString("in_nameLabel"),
+					LanguageBundle.getString("in_irTableStat"),
+					LanguageBundle.getString("in_preReqs"),
+					LanguageBundle.getString("in_size"),
+					LanguageBundle.getString("in_speed"),
+					LanguageBundle.getString("in_vision"),
+					LanguageBundle.getString("in_favoredClass"),
+					LanguageBundle.getString("in_lvlAdj")};
 
 		private final int[] colDefaultWidth =
 				{300, 100, 100, 20, 100, 100, 40, 20};
@@ -1450,7 +1450,7 @@ public class InfoRaces extends BaseCharacterInfoTab
 
 		RacePopupMenu()
 		{
-			RacePopupMenu.this.add(createAddMenuItem(PropertyFactory
+			RacePopupMenu.this.add(createAddMenuItem(LanguageBundle
 				.getString("in_select"), "shortcut EQUALS"));
 			this.addSeparator();
 			RacePopupMenu.this.add(Utility.createMenuItem("Find item",
@@ -1468,8 +1468,8 @@ public class InfoRaces extends BaseCharacterInfoTab
 		{
 			return Utility
 				.createMenuItem(label, new AddRaceActionListener(),
-					PropertyFactory.getString("in_select"), '\0', accelerator,
-					PropertyFactory.getString("in_irSelRaceTip"), "Add16.gif",
+					LanguageBundle.getString("in_select"), '\0', accelerator,
+					LanguageBundle.getString("in_irSelRaceTip"), "Add16.gif",
 					true);
 		}
 

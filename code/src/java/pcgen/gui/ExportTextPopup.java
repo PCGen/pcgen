@@ -21,7 +21,7 @@
  */
 package pcgen.gui;
 
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import javax.swing.JTabbedPane;
 
@@ -37,7 +37,7 @@ final class ExportTextPopup extends PCGenPopup
 
 	ExportTextPopup(JTabbedPane aPanel)
 	{
-		super(PropertyFactory.getString("in_exportPCParty"));
+		super(LanguageBundle.getString("in_exportPCParty"));
 		// We are exporting to text
 		mainExport = new MainExport(GuiConstants.EXPORT_AS_TEXT);
 		setPanel(mainExport);

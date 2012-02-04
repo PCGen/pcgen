@@ -99,12 +99,12 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.LoadValidator;
 import pcgen.rules.context.ReferenceContext;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
  * ???
- *
+ * @deprecated
  * @author David Rice <david-pcgen@jcuz.com>
  * @version $Revision$
  */
@@ -551,7 +551,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		if (wp == null)
 		{
 			wp = new WeaponProf();
-			wp.setName(PropertyFactory.getString("Equipment.UnarmedStrike"));
+			wp.setName(LanguageBundle.getString("Equipment.UnarmedStrike"));
 			wp.put(StringKey.KEY_NAME, "Unarmed Strike");
 			wp.addToListFor(ListKey.TYPE, Type.SIMPLE);
 			Globals.getContext().ref.importObject(wp);
@@ -1061,7 +1061,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		}
 		catch (PersistenceLayerException ple)
 		{
-			Logging.errorPrint(PropertyFactory.getFormattedString(
+			Logging.errorPrint(LanguageBundle.getFormattedString(
 				"Errors.LstSystemLoader.loadGameModeInfoFile", //$NON-NLS-1$
 				uri, ple.getMessage()));
 			return;
@@ -1096,7 +1096,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 				}
 				catch (PersistenceLayerException e)
 				{
-					Logging.errorPrint(PropertyFactory.getFormattedString(
+					Logging.errorPrint(LanguageBundle.getFormattedString(
 							"Errors.LstSystemLoader.loadGameModeInfoFile", //$NON-NLS-1$
 							uri, e.getMessage()));
 				}
@@ -1114,7 +1114,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		}
 		catch (PersistenceLayerException ple)
 		{
-			Logging.errorPrint(PropertyFactory.getFormattedString(
+			Logging.errorPrint(LanguageBundle.getFormattedString(
 				"Errors.LstSystemLoader.loadGameModeInfoFile", //$NON-NLS-1$
 				uri, ple.getMessage()));
 			return gameMode;

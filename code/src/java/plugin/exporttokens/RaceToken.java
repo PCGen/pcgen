@@ -39,7 +39,7 @@ import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * This class implements support for the RACE set of tokens.
@@ -166,7 +166,7 @@ public class RaceToken extends Token
 						}
 
 						extraRaceInfo.append(monsterHD).append(
-							PropertyFactory.getString("in_hdLabel")); //$NON-NLS-1$
+							LanguageBundle.getString("in_hdLabel")); //$NON-NLS-1$
 					}
 				}
 			}

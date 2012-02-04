@@ -26,6 +26,7 @@ package pcgen.cdom.enumeration;
 import java.io.File;
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
+import java.net.URI;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
@@ -314,6 +315,8 @@ public class ObjectKey<T>
 	public static final ObjectKey<ClassSkillList> CLASS_SKILLLIST = new ObjectKey<ClassSkillList>(null);
 
 	public static final ObjectKey<Status> STATUS = new ObjectKey<Status>(Status.Release);
+
+	public static final ObjectKey<URI> ICON_URI = new ObjectKey<URI>(null);
 
 	/*
 	 * TODO Okay, this is a hack.

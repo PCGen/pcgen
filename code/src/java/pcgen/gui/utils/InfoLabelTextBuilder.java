@@ -23,7 +23,7 @@
 package pcgen.gui.utils;
 
 import pcgen.gui.HTMLUtils;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>InfoLabelTextBuilder</code> is a helper class for the various
@@ -136,7 +136,7 @@ public class InfoLabelTextBuilder {
 	 */
 	public InfoLabelTextBuilder appendI18nElement(final String propertyKey, final String value)
 	{
-		return appendElement(PropertyFactory.getString(propertyKey),value);
+		return appendElement(LanguageBundle.getString(propertyKey),value);
 	}
 	
 	/* (non-Javadoc)

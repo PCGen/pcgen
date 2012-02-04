@@ -91,7 +91,7 @@ import pcgen.gui.utils.Utility;
 import pcgen.gui.utils.WholeNumberField;
 import pcgen.util.DecimalNumberField;
 import pcgen.util.Delta;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
@@ -115,11 +115,11 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 	private static final int PORTRAIT_NOTEID = -7;
 	private static final int DMNOTES_NOTEID = -8;
 	private static final String in_noPortraitChildrenMessage =
-			PropertyFactory.getString("in_noPortraitChildrenMessage");
+			LanguageBundle.getString("in_noPortraitChildrenMessage");
 	private static final String in_noPortraitDeletionMessage =
-			PropertyFactory.getString("in_noPortraitDeletionMessage");
+			LanguageBundle.getString("in_noPortraitDeletionMessage");
 	private static final String in_noPortraitRenamingMessage =
-			PropertyFactory.getString("in_noPortraitRenamingMessage");
+			LanguageBundle.getString("in_noPortraitRenamingMessage");
 
 	// Combobox event handlers
 	private ActionListener al1 = new ActionListener()
@@ -466,31 +466,31 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 			int order = 0;
 			portraitNote =
-					new NoteItem(PORTRAIT_NOTEID, -1, PropertyFactory
+					new NoteItem(PORTRAIT_NOTEID, -1, LanguageBundle
 						.getString("in_portrait"), "");
 			nodesToBeAddedList.add(order++, portraitNote);
 
 			bioNote = new NoteItem(BIO_NOTEID, -1, "Bio", pc.getBio());
 			nodesToBeAddedList.add(order++, bioNote);
 			descriptionNote =
-					new NoteItem(DESCRIPTION_NOTEID, -1, PropertyFactory
+					new NoteItem(DESCRIPTION_NOTEID, -1, LanguageBundle
 						.getString("in_descrip"), pc.getDescription());
 			nodesToBeAddedList.add(order++, descriptionNote);
 			companionNote =
-					new NoteItem(COMPANION_NOTEID, -1, PropertyFactory
+					new NoteItem(COMPANION_NOTEID, -1, LanguageBundle
 						.getString("in_companions"), pc.getSafeStringFor(StringKey.MISC_COMPANIONS));
 			nodesToBeAddedList.add(order++, companionNote);
 			otherAssetsNote =
-					new NoteItem(OTHERASSETS_NOTEID, -1, PropertyFactory
+					new NoteItem(OTHERASSETS_NOTEID, -1, LanguageBundle
 						.getString("in_otherAssets"), pc.getSafeStringFor(StringKey.MISC_ASSETS));
 			nodesToBeAddedList.add(order++, otherAssetsNote);
 			magicItemsNote =
-					new NoteItem(MAGICITEMS_NOTEID, -1, PropertyFactory
+					new NoteItem(MAGICITEMS_NOTEID, -1, LanguageBundle
 						.getString("in_magicItems"), pc.getSafeStringFor(StringKey.MISC_MAGIC));
 			nodesToBeAddedList.add(order++, magicItemsNote);
 
 			dmNote =
-					new NoteItem(DMNOTES_NOTEID, -1, PropertyFactory
+					new NoteItem(DMNOTES_NOTEID, -1, LanguageBundle
 						.getString("in_dmNotes"), pc.getSafeStringFor(StringKey.MISC_DM));
 			nodesToBeAddedList.add(order++, dmNote);
 
@@ -545,7 +545,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
 		labelName =
-				new JLabel(PropertyFactory.getString("in_nameLabel") + ": ");
+				new JLabel(LanguageBundle.getString("in_nameLabel") + ": ");
 		gridbag.setConstraints(labelName, c);
 		northPanel.add(labelName);
 
@@ -558,7 +558,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		Utility.buildConstraints(c, 3, 0, 2, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.WEST;
-		randName = new JButton(PropertyFactory.getString("in_randomButton"));
+		randName = new JButton(LanguageBundle.getString("in_randomButton"));
 		gridbag.setConstraints(randName, c);
 		northPanel.add(randName);
 
@@ -568,7 +568,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		c.anchor = GridBagConstraints.EAST;
 
 		JLabel label =
-				new JLabel(PropertyFactory.getString("in_player") + ": ");
+				new JLabel(LanguageBundle.getString("in_player") + ": ");
 		gridbag.setConstraints(label, c);
 		northPanel.add(label);
 
@@ -581,7 +581,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		Utility.buildConstraints(c, 7, 1, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		label = new JLabel(PropertyFactory.getString("in_gender") + ": ");
+		label = new JLabel(LanguageBundle.getString("in_gender") + ": ");
 		gridbag.setConstraints(label, c);
 		northPanel.add(label);
 
@@ -593,13 +593,13 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 		genderComboBox.setAllItems(Globals.getAllGenders().toArray());
 		// TODO: Indentiofy if the following undeclared genders need to be supported
-		//		genderComboBox.addItem(PropertyFactory.getString("in_comboNone"));
-		//		genderComboBox.addItem(PropertyFactory.getString("in_comboOther"));
+		//		genderComboBox.addItem(LanguageBundle.getString("in_comboNone"));
+		//		genderComboBox.addItem(LanguageBundle.getString("in_comboOther"));
 
 		Utility.buildConstraints(c, 7, 2, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		label = new JLabel(PropertyFactory.getString("in_handString") + ": ");
+		label = new JLabel(LanguageBundle.getString("in_handString") + ": ");
 		gridbag.setConstraints(label, c);
 		northPanel.add(label);
 
@@ -609,11 +609,11 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		gridbag.setConstraints(handedComboBox, c);
 		northPanel.add(handedComboBox);
 
-		handedComboBox.addItem(PropertyFactory.getString("in_handRight"));
-		handedComboBox.addItem(PropertyFactory.getString("in_handLeft"));
-		handedComboBox.addItem(PropertyFactory.getString("in_handBoth"));
-		handedComboBox.addItem(PropertyFactory.getString("in_comboNone"));
-		handedComboBox.addItem(PropertyFactory.getString("in_comboOther"));
+		handedComboBox.addItem(LanguageBundle.getString("in_handRight"));
+		handedComboBox.addItem(LanguageBundle.getString("in_handLeft"));
+		handedComboBox.addItem(LanguageBundle.getString("in_handBoth"));
+		handedComboBox.addItem(LanguageBundle.getString("in_comboNone"));
+		handedComboBox.addItem(LanguageBundle.getString("in_comboOther"));
 
 		Utility.buildConstraints(c, 0, 2, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
@@ -622,13 +622,13 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		if (" ftin".equals(Globals.getGameModeUnitSet().getHeightUnit()))
 		{
 			labelHeight =
-					new JLabel(PropertyFactory.getString("in_height")
+					new JLabel(LanguageBundle.getString("in_height")
 						+ " (in.): ");
 		}
 		else
 		{
 			labelHeight =
-					new JLabel(PropertyFactory.getString("in_height") + " ("
+					new JLabel(LanguageBundle.getString("in_height") + " ("
 						+ Globals.getGameModeUnitSet().getHeightUnit() + "): ");
 		}
 
@@ -651,7 +651,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
 		labelWeight =
-				new JLabel(PropertyFactory.getString("in_weight") + " ("
+				new JLabel(LanguageBundle.getString("in_weight") + " ("
 					+ Globals.getGameModeUnitSet().getWeightUnit() + "): ");
 		gridbag.setConstraints(labelWeight, c);
 		northPanel.add(labelWeight);
@@ -665,7 +665,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		Utility.buildConstraints(c, 0, 4, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		label = new JLabel(PropertyFactory.getString("in_age") + ": ");
+		label = new JLabel(LanguageBundle.getString("in_age") + ": ");
 		gridbag.setConstraints(label, c);
 		northPanel.add(label);
 
@@ -714,7 +714,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		Utility.buildConstraints(c, 7, 3, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		label = new JLabel(PropertyFactory.getString("in_skin") + ": ");
+		label = new JLabel(LanguageBundle.getString("in_skin") + ": ");
 		gridbag.setConstraints(label, c);
 		northPanel.add(label);
 
@@ -733,7 +733,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		Utility.buildConstraints(c, 4, 1, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		label = new JLabel(PropertyFactory.getString("in_region") + ": ");
+		label = new JLabel(LanguageBundle.getString("in_region") + ": ");
 		gridbag.setConstraints(label, c);
 		northPanel.add(label);
 
@@ -747,7 +747,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		Utility.buildConstraints(c, 4, 2, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		label = new JLabel(PropertyFactory.getString("in_birthplace") + ": ");
+		label = new JLabel(LanguageBundle.getString("in_birthplace") + ": ");
 		gridbag.setConstraints(label, c);
 		northPanel.add(label);
 
@@ -766,7 +766,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		Utility.buildConstraints(c, 4, 5, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		label = new JLabel(PropertyFactory.getString("in_phobias") + ": ");
+		label = new JLabel(LanguageBundle.getString("in_phobias") + ": ");
 		gridbag.setConstraints(label, c);
 		northPanel.add(label);
 
@@ -785,7 +785,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		Utility.buildConstraints(c, 4, 3, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		label = new JLabel(PropertyFactory.getString("in_personality") + ": ");
+		label = new JLabel(LanguageBundle.getString("in_personality") + ": ");
 		gridbag.setConstraints(label, c);
 		northPanel.add(label);
 
@@ -804,7 +804,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		Utility.buildConstraints(c, 7, 4, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		label = new JLabel(PropertyFactory.getString("in_eye") + ": ");
+		label = new JLabel(LanguageBundle.getString("in_eye") + ": ");
 		gridbag.setConstraints(label, c);
 		northPanel.add(label);
 
@@ -823,7 +823,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		Utility.buildConstraints(c, 4, 6, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		label = new JLabel(PropertyFactory.getString("in_interest") + ": ");
+		label = new JLabel(LanguageBundle.getString("in_interest") + ": ");
 		gridbag.setConstraints(label, c);
 		northPanel.add(label);
 
@@ -842,7 +842,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		Utility.buildConstraints(c, 4, 4, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		label = new JLabel(PropertyFactory.getString("in_personality") + ": ");
+		label = new JLabel(LanguageBundle.getString("in_personality") + ": ");
 		gridbag.setConstraints(label, c);
 		northPanel.add(label);
 
@@ -861,7 +861,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		Utility.buildConstraints(c, 7, 5, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		label = new JLabel(PropertyFactory.getString("in_hair") + ": ");
+		label = new JLabel(LanguageBundle.getString("in_hair") + ": ");
 		gridbag.setConstraints(label, c);
 		northPanel.add(label);
 
@@ -880,7 +880,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		Utility.buildConstraints(c, 0, 7, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		label = new JLabel(PropertyFactory.getString("in_home") + ": ");
+		label = new JLabel(LanguageBundle.getString("in_home") + ": ");
 		gridbag.setConstraints(label, c);
 		northPanel.add(label);
 
@@ -900,7 +900,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		Utility.buildConstraints(c, 7, 7, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		label = new JLabel(PropertyFactory.getString("in_speech") + ": ");
+		label = new JLabel(LanguageBundle.getString("in_speech") + ": ");
 		gridbag.setConstraints(label, c);
 		northPanel.add(label);
 
@@ -919,7 +919,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		Utility.buildConstraints(c, 7, 6, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		label = new JLabel(PropertyFactory.getString("in_style") + ": ");
+		label = new JLabel(LanguageBundle.getString("in_style") + ": ");
 		gridbag.setConstraints(label, c);
 		northPanel.add(label);
 
@@ -938,7 +938,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		Utility.buildConstraints(c, 0, 6, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		label = new JLabel(PropertyFactory.getString("in_location") + ": ");
+		label = new JLabel(LanguageBundle.getString("in_location") + ": ");
 		gridbag.setConstraints(label, c);
 		northPanel.add(label);
 
@@ -957,7 +957,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		Utility.buildConstraints(c, 4, 7, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		label = new JLabel(PropertyFactory.getString("in_phrase") + ": ");
+		label = new JLabel(LanguageBundle.getString("in_phrase") + ": ");
 		gridbag.setConstraints(label, c);
 		northPanel.add(label);
 
@@ -976,7 +976,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		Utility.buildConstraints(c, 0, 5, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		label = new JLabel(PropertyFactory.getString("in_birthday") + ": ");
+		label = new JLabel(LanguageBundle.getString("in_birthday") + ": ");
 		gridbag.setConstraints(label, c);
 		northPanel.add(label);
 
@@ -990,13 +990,13 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 		JPanel pane = new JPanel(new FlowLayout());
 
-		checkAll = new JButton(PropertyFactory.getString("in_checkButton"));
+		checkAll = new JButton(LanguageBundle.getString("in_checkButton"));
 		pane.add(checkAll);
 
-		randAll = new JButton(PropertyFactory.getString("in_randomButton"));
+		randAll = new JButton(LanguageBundle.getString("in_randomButton"));
 		pane.add(randAll);
 
-		uncheckAll = new JButton(PropertyFactory.getString("in_uncheckButton"));
+		uncheckAll = new JButton(LanguageBundle.getString("in_uncheckButton"));
 		pane.add(uncheckAll);
 
 		centerNorthPanel.add(pane, BorderLayout.NORTH);
@@ -1057,11 +1057,11 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		setLayout(new BorderLayout());
 		buttonPanel = new JPanel();
 		buttonPanel.setLayout(new FlowLayout());
-		addButton = new JButton(PropertyFactory.getString("in_add"));
-		deleteButton = new JButton(PropertyFactory.getString("in_delete"));
-		renameButton = new JButton(PropertyFactory.getString("in_rename"));
-		revertButton = new JButton(PropertyFactory.getString("in_revert"));
-		moveButton = new JButton(PropertyFactory.getString("in_move"));
+		addButton = new JButton(LanguageBundle.getString("in_add"));
+		deleteButton = new JButton(LanguageBundle.getString("in_delete"));
+		renameButton = new JButton(LanguageBundle.getString("in_rename"));
+		revertButton = new JButton(LanguageBundle.getString("in_revert"));
+		moveButton = new JButton(LanguageBundle.getString("in_move"));
 
 		buttonPanel.add(addButton);
 		buttonPanel.add(deleteButton);
@@ -1093,8 +1093,8 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		dataLayout = new CardLayout();
 		dataPanel = new JPanel();
 		dataPanel.setLayout(dataLayout);
-		dataPanel.add(dataScroll, PropertyFactory.getString("in_notes"));
-		dataPanel.add(portrait, PropertyFactory.getString("in_portraits"));
+		dataPanel.add(dataScroll, LanguageBundle.getString("in_notes"));
+		dataPanel.add(portrait, LanguageBundle.getString("in_portraits"));
 
 		splitPane =
 				new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, notesScroll,
@@ -1104,7 +1104,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		splitPane.setDividerLocation(100);
 
 		TitledBorder title1 =
-				BorderFactory.createTitledBorder(PropertyFactory
+				BorderFactory.createTitledBorder(LanguageBundle
 					.getString("in_notes"));
 		title1.setTitleJustification(TitledBorder.LEFT);
 		centerCenterPanel.setBorder(title1);
@@ -1119,41 +1119,41 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		this.add(northPanel, BorderLayout.NORTH);
 		this.add(centerPanel, BorderLayout.CENTER);
 
-		Utility.setDescription(ageBox, PropertyFactory
+		Utility.setDescription(ageBox, LanguageBundle
 			.getString("in_randCheckTipString"));
-		Utility.setDescription(htwtBox, PropertyFactory
+		Utility.setDescription(htwtBox, LanguageBundle
 			.getString("in_randCheckTipString"));
-		Utility.setDescription(skinBox, PropertyFactory
+		Utility.setDescription(skinBox, LanguageBundle
 			.getString("in_randCheckTipString"));
-		Utility.setDescription(hairColorBox, PropertyFactory
+		Utility.setDescription(hairColorBox, LanguageBundle
 			.getString("in_randCheckTipString"));
-		Utility.setDescription(hairStyleBox, PropertyFactory
+		Utility.setDescription(hairStyleBox, LanguageBundle
 			.getString("in_randCheckTipString"));
-		Utility.setDescription(eyeColorBox, PropertyFactory
+		Utility.setDescription(eyeColorBox, LanguageBundle
 			.getString("in_randCheckTipString"));
-		Utility.setDescription(speechPatternBox, PropertyFactory
+		Utility.setDescription(speechPatternBox, LanguageBundle
 			.getString("in_randCheckTipString"));
-		Utility.setDescription(phobiaBox, PropertyFactory
+		Utility.setDescription(phobiaBox, LanguageBundle
 			.getString("in_randCheckTipString"));
-		Utility.setDescription(interestsBox, PropertyFactory
+		Utility.setDescription(interestsBox, LanguageBundle
 			.getString("in_randCheckTipString"));
-		Utility.setDescription(catchPhraseBox, PropertyFactory
+		Utility.setDescription(catchPhraseBox, LanguageBundle
 			.getString("in_randCheckTipString"));
-		Utility.setDescription(personality1Box, PropertyFactory
+		Utility.setDescription(personality1Box, LanguageBundle
 			.getString("in_randCheckTipString"));
-		Utility.setDescription(personality2Box, PropertyFactory
+		Utility.setDescription(personality2Box, LanguageBundle
 			.getString("in_randCheckTipString"));
-		Utility.setDescription(residenceBox, PropertyFactory
+		Utility.setDescription(residenceBox, LanguageBundle
 			.getString("in_randCheckTipString"));
-		Utility.setDescription(locationBox, PropertyFactory
+		Utility.setDescription(locationBox, LanguageBundle
 			.getString("in_randCheckTipString"));
-		Utility.setDescription(randName, PropertyFactory
+		Utility.setDescription(randName, LanguageBundle
 			.getString("in_randNameTipString"));
-		Utility.setDescription(randAll, PropertyFactory
+		Utility.setDescription(randAll, LanguageBundle
 			.getString("in_randTraitTipString"));
-		Utility.setDescription(checkAll, PropertyFactory
+		Utility.setDescription(checkAll, LanguageBundle
 			.getString("in_checkTipString"));
-		Utility.setDescription(uncheckAll, PropertyFactory
+		Utility.setDescription(uncheckAll, LanguageBundle
 			.getString("in_uncheckTipString"));
 
 		addComponentListener(new ComponentAdapter()
@@ -1354,8 +1354,8 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 				++newNodeId;
 
 				NoteItem a =
-						new NoteItem(newNodeId, parentId, PropertyFactory
-							.getString("in_newItem"), PropertyFactory
+						new NoteItem(newNodeId, parentId, LanguageBundle
+							.getString("in_newItem"), LanguageBundle
 							.getString("in_newValue"));
 				NoteTreeNode aNode = new NoteTreeNode(a);
 
@@ -1370,7 +1370,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 				notesTree.updateUI();
 			}
 		});
-		Utility.setDescription(addButton, PropertyFactory
+		Utility.setDescription(addButton, LanguageBundle
 			.getString("in_addChild"));
 		deleteButton.addActionListener(new ActionListener()
 		{
@@ -1426,20 +1426,20 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 				if (numChildren > 0)
 				{
 					message =
-							PropertyFactory.getFormattedString("in_delNote1",
+							LanguageBundle.getFormattedString("in_delNote1",
 								aNode.toString(), String.valueOf(numChildren));
 				}
 				else
 				{
 					message =
-							PropertyFactory.getFormattedString("in_delNote2",
+							LanguageBundle.getFormattedString("in_delNote2",
 								aNode.toString());
 				}
 
 				//The following line should be taken out and shot!
 				reallyDelete =
 						JOptionPane.showConfirmDialog(null, message,
-							PropertyFactory.getString("in_delNote4"),
+							LanguageBundle.getString("in_delNote4"),
 							JOptionPane.OK_CANCEL_OPTION);
 
 				if (reallyDelete == JOptionPane.OK_OPTION)
@@ -1465,7 +1465,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 				}
 			}
 		});
-		Utility.setDescription(deleteButton, PropertyFactory
+		Utility.setDescription(deleteButton, LanguageBundle
 			.getString("in_delSelIt"));
 		renameButton.addActionListener(new ActionListener()
 		{
@@ -1502,7 +1502,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 				}
 
 				String selectedValue =
-						JOptionPane.showInputDialog(null, PropertyFactory
+						JOptionPane.showInputDialog(null, LanguageBundle
 							.getString("in_idEnNewName"), Constants.APPLICATION_NAME,
 							JOptionPane.QUESTION_MESSAGE);
 
@@ -1515,7 +1515,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 				}
 			}
 		});
-		Utility.setDescription(renameButton, PropertyFactory
+		Utility.setDescription(renameButton, LanguageBundle
 			.getString("in_idRenSelIt"));
 		revertButton.addActionListener(new ActionListener()
 		{
@@ -1524,7 +1524,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 				// TODO This method currently does nothing?
 			}
 		});
-		Utility.setDescription(revertButton, PropertyFactory
+		Utility.setDescription(revertButton, LanguageBundle
 			.getString("in_idLoseChan"));
 		revertButton.setEnabled(false); // not coded yet
 		moveButton.addActionListener(new ActionListener()
@@ -1534,7 +1534,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 				lastItem = currentItem;
 			}
 		});
-		Utility.setDescription(moveButton, PropertyFactory
+		Utility.setDescription(moveButton, LanguageBundle
 			.getString("in_idSwitch"));
 
 		dataText.addFocusListener(new FocusAdapter()
@@ -1799,17 +1799,17 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 			if ("ftin".equals(Globals.getGameModeUnitSet().getHeightUnit()))
 			{
-				labelHeight.setText(PropertyFactory.getString("in_height")
+				labelHeight.setText(LanguageBundle.getString("in_height")
 					+ " (in.): ");
 			}
 			else
 			{
-				labelHeight.setText(PropertyFactory.getString("in_height")
+				labelHeight.setText(LanguageBundle.getString("in_height")
 					+ " (" + Globals.getGameModeUnitSet().getHeightUnit()
 					+ "): ");
 			}
 
-			labelWeight.setText(PropertyFactory.getString("in_weight") + " ("
+			labelWeight.setText(LanguageBundle.getString("in_weight") + " ("
 				+ Globals.getGameModeUnitSet().getWeightUnit() + "): ");
 		}
 
@@ -1901,7 +1901,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 			}
 			else
 			{
-				dataText.setText(PropertyFactory.getString("in_idNoteEdit"));
+				dataText.setText(LanguageBundle.getString("in_idNoteEdit"));
 				dataText.setEnabled(false);
 				dataText.setEditable(false);
 			}
@@ -2301,44 +2301,44 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 		NotePopupMenu()
 		{
-			NotePopupMenu.this.add(createAddMenuItem(PropertyFactory
+			NotePopupMenu.this.add(createAddMenuItem(LanguageBundle
 				.getString("in_add"), "shortcut EQUALS"));
-			NotePopupMenu.this.add(createRemoveMenuItem(PropertyFactory
+			NotePopupMenu.this.add(createRemoveMenuItem(LanguageBundle
 				.getString("in_remove"), "shortcut MINUS"));
-			NotePopupMenu.this.add(createRenameMenuItem(PropertyFactory
+			NotePopupMenu.this.add(createRenameMenuItem(LanguageBundle
 				.getString("in_rename"), "alt M"));
-			NotePopupMenu.this.add(createMoveMenuItem(PropertyFactory
+			NotePopupMenu.this.add(createMoveMenuItem(LanguageBundle
 				.getString("in_move"), "alt Z"));
 		}
 
 		private JMenuItem createAddMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label, new AddNoteActionListener(),
-				PropertyFactory.getString("in_add"), (char) 0, accelerator,
-				PropertyFactory.getString("in_add"), "Add16.gif", true);
+				LanguageBundle.getString("in_add"), (char) 0, accelerator,
+				LanguageBundle.getString("in_add"), "Add16.gif", true);
 		}
 
 		private JMenuItem createMoveMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label, new MoveNoteActionListener(),
-				PropertyFactory.getString("in_move"), (char) 0, accelerator,
-				PropertyFactory.getString("in_move"), "Add16.gif", true);
+				LanguageBundle.getString("in_move"), (char) 0, accelerator,
+				LanguageBundle.getString("in_move"), "Add16.gif", true);
 		}
 
 		private JMenuItem createRemoveMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label,
-				new RemoveNoteActionListener(), PropertyFactory
+				new RemoveNoteActionListener(), LanguageBundle
 					.getString("in_delete"), (char) 0, accelerator,
-				PropertyFactory.getString("in_delete"), "Remove16.gif", true);
+				LanguageBundle.getString("in_delete"), "Remove16.gif", true);
 		}
 
 		private JMenuItem createRenameMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label,
-				new RenameNoteActionListener(), PropertyFactory
+				new RenameNoteActionListener(), LanguageBundle
 					.getString("in_rename"), (char) 0, accelerator,
-				PropertyFactory.getString("in_rename"), "Add16.gif", true);
+				LanguageBundle.getString("in_rename"), "Add16.gif", true);
 		}
 
 		private class AddNoteActionListener extends NoteActionListener

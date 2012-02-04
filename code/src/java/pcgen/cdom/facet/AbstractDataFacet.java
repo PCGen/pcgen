@@ -20,7 +20,9 @@ package pcgen.cdom.facet;
 import java.util.Map;
 import java.util.TreeMap;
 
+import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.Nature;
 
 /**
  * @author Thomas Parker (thpr [at] yahoo.com)
@@ -128,6 +130,28 @@ public abstract class AbstractDataFacet<T>
 	 */
 	protected void fireDataFacetChangeEvent(CharID id, T node, int type)
 	{
+		fireDataFacetChangeEvent(id, node, type, null, null);
+	}
+
+	/**
+	 * Sends a NodeChangeEvent to the DataFacetChangeListeners that are
+	 * receiving DataFacetChangeEvents from the source DataFacet.
+	 * @param id 
+	 * 
+	 * @param node
+	 *            The Node that has beed added to or removed from the source
+	 *            DataFacet
+	 * @param type
+	 *            An identifier indicating whether the given CDOMObject was
+	 *            added to or removed from the source DataFacet
+	 * @param category 
+	 * 		      The category *e.g. AbilityCategory in which the node has been changed. 
+	 * @param nature 
+	 * 		      The optional nature in which the node has been changed. 
+	 */
+	@SuppressWarnings("rawtypes")
+	protected void fireDataFacetChangeEvent(CharID id, T node, int type, Category category, Nature nature)
+	{
 		for (DataFacetChangeListener<? super T>[] dfclArray : listeners
 				.values())
 		{
@@ -144,7 +168,14 @@ public abstract class AbstractDataFacet<T>
 				// Lazily create event
 				if (ccEvent == null)
 				{
-					ccEvent = new DataFacetChangeEvent<T>(id, node, this, type);
+					if (category == null)
+					{
+						ccEvent = new DataFacetChangeEvent<T>(id, node, this, type);
+					}
+					else
+					{
+						ccEvent = new CategorizedDataFacetChangeEvent<T>(id, node, this, type, category, nature);
+					}
 				}
 				DataFacetChangeListener dfcl = dfclArray[i];
 				switch (ccEvent.getEventType())

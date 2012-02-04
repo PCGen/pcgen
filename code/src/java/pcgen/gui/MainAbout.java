@@ -25,6 +25,7 @@
  */
 package pcgen.gui;
 
+import pcgen.system.PCGenPropBundle;
 import gmgen.gui.GridBoxLayout;
 
 import java.awt.BorderLayout;
@@ -61,7 +62,7 @@ import pcgen.gui.utils.BrowserLauncher;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * Create a simple panel to identify the program and those who contributed
@@ -107,11 +108,11 @@ final class MainAbout extends JPanel
 	private void initComponents()
 	{
 		mainPane = new JTabbedPane();
-		mainPane.add(PropertyFactory.getString("in_abt_credits"), buildCreditsPanel()); //$NON-NLS-1$
-		mainPane.add(PropertyFactory.getString("in_abt_libraries"), buildIncludesPanel()); //$NON-NLS-1$
-		mainPane.add(PropertyFactory.getString("in_abt_license"), buildLicensePanel()); //$NON-NLS-1$
-		mainPane.add(PropertyFactory.getString("in_abt_awards"), buildAwardsPanel()); //$NON-NLS-1$
-		mainPane.add(PropertyFactory.getString("in_abt_sponsors"), buildSponsorsPanel()); //$NON-NLS-1$
+		mainPane.add(LanguageBundle.getString("in_abt_credits"), buildCreditsPanel()); //$NON-NLS-1$
+		mainPane.add(LanguageBundle.getString("in_abt_libraries"), buildIncludesPanel()); //$NON-NLS-1$
+		mainPane.add(LanguageBundle.getString("in_abt_license"), buildLicensePanel()); //$NON-NLS-1$
+		mainPane.add(LanguageBundle.getString("in_abt_awards"), buildAwardsPanel()); //$NON-NLS-1$
+		mainPane.add(LanguageBundle.getString("in_abt_sponsors"), buildSponsorsPanel()); //$NON-NLS-1$
 
 		setLayout(new BorderLayout());
 
@@ -151,32 +152,32 @@ final class MainAbout extends JPanel
 
 		// Labels
 
-		versionLabel.setText(PropertyFactory.getString("in_abt_version")); //$NON-NLS-1$
+		versionLabel.setText(LanguageBundle.getString("in_abt_version")); //$NON-NLS-1$
 		gridBagConstraints1 = buildConstraints(0, 0, GridBagConstraints.WEST);
 		gridBagConstraints1.weightx = 0.2;
 		aCreditsPanel.add(versionLabel, gridBagConstraints1);
 
-		dateLabel.setText(PropertyFactory.getString("in_abt_release_date")); //$NON-NLS-1$
+		dateLabel.setText(LanguageBundle.getString("in_abt_release_date")); //$NON-NLS-1$
 		gridBagConstraints1 = buildConstraints(0, 1, GridBagConstraints.WEST);
 		aCreditsPanel.add(dateLabel, gridBagConstraints1);
 
-		javaVersionLabel.setText(PropertyFactory.getString("in_abt_java_version")); //$NON-NLS-1$
+		javaVersionLabel.setText(LanguageBundle.getString("in_abt_java_version")); //$NON-NLS-1$
 		gridBagConstraints1 = buildConstraints(0, 2, GridBagConstraints.WEST);
 		aCreditsPanel.add(javaVersionLabel, gridBagConstraints1);
 
-		leaderLabel.setText(PropertyFactory.getString("in_abt_BD")); //$NON-NLS-1$
+		leaderLabel.setText(LanguageBundle.getString("in_abt_BD")); //$NON-NLS-1$
 		gridBagConstraints1 = buildConstraints(0, 3, GridBagConstraints.WEST);
 		aCreditsPanel.add(leaderLabel, gridBagConstraints1);
 
-		wwwLink.setText(PropertyFactory.getString("in_abt_web")); //$NON-NLS-1$
+		wwwLink.setText(LanguageBundle.getString("in_abt_web")); //$NON-NLS-1$
 		gridBagConstraints1 = buildConstraints(0, 4, GridBagConstraints.WEST);
 		aCreditsPanel.add(wwwLink, gridBagConstraints1);
 
-		emailLabel.setText(PropertyFactory.getString("in_abt_email")); //$NON-NLS-1$
+		emailLabel.setText(LanguageBundle.getString("in_abt_email")); //$NON-NLS-1$
 		gridBagConstraints1 = buildConstraints(0, 5, GridBagConstraints.WEST);
 		aCreditsPanel.add(emailLabel, gridBagConstraints1);
 
-		helperLabel.setText(PropertyFactory.getString("in_abt_monkeys")); //$NON-NLS-1$
+		helperLabel.setText(LanguageBundle.getString("in_abt_monkeys")); //$NON-NLS-1$
 		gridBagConstraints1 = buildConstraints(0, 6,
 			GridBagConstraints.NORTHWEST);
 		aCreditsPanel.add(helperLabel, gridBagConstraints1);
@@ -184,7 +185,7 @@ final class MainAbout extends JPanel
 		// Info
 
 		version.setEditable(false);
-		version.setText(PCGenProp.getVersionNumber());
+		version.setText(PCGenPropBundle.getVersionNumber());
 		version.setBorder(null);
 		version.setOpaque(false);
 
@@ -194,7 +195,7 @@ final class MainAbout extends JPanel
 		aCreditsPanel.add(version, gridBagConstraints1);
 
 		releaseDate.setEditable(false);
-		releaseDate.setText(PCGenProp.getReleaseDate());
+		releaseDate.setText(PCGenPropBundle.getReleaseDate());
 		releaseDate.setBorder(new EmptyBorder(new Insets(1, 1, 1, 1)));
 		releaseDate.setOpaque(false);
 
@@ -212,7 +213,7 @@ final class MainAbout extends JPanel
 		aCreditsPanel.add(javaVersion, gridBagConstraints1);
 
 		projectLead.setEditable(false);
-		projectLead.setText(PCGenProp.getHeadCodeMonkey());
+		projectLead.setText(PCGenPropBundle.getHeadCodeMonkey());
 		projectLead.setBorder(new EmptyBorder(new Insets(1, 1, 1, 1)));
 		projectLead.setOpaque(false);
 
@@ -221,7 +222,7 @@ final class MainAbout extends JPanel
 		aCreditsPanel.add(projectLead, gridBagConstraints1);
 
 		// Web site button
-		wwwSite.setText(PCGenProp.getWWWHome());
+		wwwSite.setText(PCGenPropBundle.getWWWHome());
 		wwwSite.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -232,7 +233,7 @@ final class MainAbout extends JPanel
 				}
 				catch (IOException ioe)
 				{
-					Logging.errorPrint(PropertyFactory
+					Logging.errorPrint(LanguageBundle
 						.getString("in_abt_browser_err"), ioe); //$NON-NLS-1$
 				}
 			}
@@ -241,7 +242,7 @@ final class MainAbout extends JPanel
 		aCreditsPanel.add(wwwSite, gridBagConstraints1);
 
 		// Mailing list button
-		mailingList.setText(PCGenProp.getMailingList());
+		mailingList.setText(PCGenPropBundle.getMailingList());
 		mailingList.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -252,7 +253,7 @@ final class MainAbout extends JPanel
 				}
 				catch (IOException ioe)
 				{
-					Logging.errorPrint(PropertyFactory
+					Logging.errorPrint(LanguageBundle
 						.getString("in_abt_browser_err"), ioe); //$NON-NLS-1$
 				}
 			}
@@ -269,18 +270,18 @@ final class MainAbout extends JPanel
 
 		monkeyTabPane
 			.add(
-				PropertyFactory.getString("in_abt_code_mky"), buildMonkeyList(PCGenProp.getCodeMonkeys())); //$NON-NLS-1$
+				LanguageBundle.getString("in_abt_code_mky"), buildMonkeyList(PCGenPropBundle.getCodeMonkeys())); //$NON-NLS-1$
 		monkeyTabPane
 			.add(
-				PropertyFactory.getString("in_abt_list_mky"), buildMonkeyList(PCGenProp.getListMonkeys())); //$NON-NLS-1$
+				LanguageBundle.getString("in_abt_list_mky"), buildMonkeyList(PCGenPropBundle.getListMonkeys())); //$NON-NLS-1$
 		monkeyTabPane
 			.add(
-				PropertyFactory.getString("in_abt_test_mky"), buildMonkeyList(PCGenProp.getTestMonkeys())); //$NON-NLS-1$
+				LanguageBundle.getString("in_abt_test_mky"), buildMonkeyList(PCGenPropBundle.getTestMonkeys())); //$NON-NLS-1$
 		monkeyTabPane
 			.add(
-				PropertyFactory.getString("in_abt_eng_mky"), buildMonkeyList(PCGenProp.getEngineeringMonkeys())); //$NON-NLS-1$
+				LanguageBundle.getString("in_abt_eng_mky"), buildMonkeyList(PCGenPropBundle.getEngineeringMonkeys())); //$NON-NLS-1$
 
-		monkeyTabPane.setToolTipTextAt(2, PropertyFactory
+		monkeyTabPane.setToolTipTextAt(2, LanguageBundle
 			.getString("in_abt_easter_egg")); // because there isn't one //$NON-NLS-1$
 
 		return aCreditsPanel;
@@ -341,9 +342,9 @@ final class MainAbout extends JPanel
 
 		iPanel.setLayout(new BorderLayout());
 
-		String s = PropertyFactory.getString("in_abt_lib_apache"); //$NON-NLS-1$
-		s += PropertyFactory.getString("in_abt_lib_jdom"); //$NON-NLS-1$
-		s += PropertyFactory.getString("in_abt_lib_l2f"); //$NON-NLS-1$
+		String s = LanguageBundle.getString("in_abt_lib_apache"); //$NON-NLS-1$
+		s += LanguageBundle.getString("in_abt_lib_jdom"); //$NON-NLS-1$
+		s += LanguageBundle.getString("in_abt_lib_l2f"); //$NON-NLS-1$
 		otherLibrariesField.setText(s);
 		otherLibrariesField.setWrapStyleWord(true);
 		otherLibrariesField.setLineWrap(true);
@@ -380,7 +381,7 @@ final class MainAbout extends JPanel
 			JTextArea title = new JTextArea();
 			title.setLineWrap(true);
 			title.setWrapStyleWord(true);
-			title.setText(PropertyFactory.getString("in_abt_awards_2005_ennie"));
+			title.setText(LanguageBundle.getString("in_abt_awards_2005_ennie"));
 			aPanel.add(title);
 		}
 
@@ -393,7 +394,7 @@ final class MainAbout extends JPanel
 			JTextArea title = new JTextArea();
 			title.setLineWrap(true);
 			title.setWrapStyleWord(true);
-			title.setText(PropertyFactory.getString("in_abt_awards_2003_ennie"));
+			title.setText(LanguageBundle.getString("in_abt_awards_2003_ennie"));
 			aPanel.add(title);
 		}
 
@@ -462,13 +463,13 @@ final class MainAbout extends JPanel
 			}
 			catch (IOException ioe)
 			{
-				LGPLArea.setText(PropertyFactory
+				LGPLArea.setText(LanguageBundle
 					.getString("in_abt_license_read_err1")); //$NON-NLS-1$
 			}
 		}
 		else
 		{
-			LGPLArea.setText(PropertyFactory
+			LGPLArea.setText(LanguageBundle
 				.getString("in_abt_license_read_err2")); //$NON-NLS-1$
 		}
 

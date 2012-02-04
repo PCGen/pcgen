@@ -140,7 +140,7 @@ import pcgen.gui.utils.TableSorter;
 import pcgen.gui.utils.TreeTableModel;
 import pcgen.gui.utils.Utility;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
@@ -184,10 +184,10 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 	private JLabel deityName;
 	private JComboBoxEx viewComboBox = new JComboBoxEx();
 	private JTextField textDeityQFilter = new JTextField();
-	private JButton clearDeityQFilterButton = new JButton(PropertyFactory.getString("in_clear"));
+	private JButton clearDeityQFilterButton = new JButton(LanguageBundle.getString("in_clear"));
 	private static Integer saveDeityViewMode = null;
 	private JTextField textDomainQFilter = new JTextField();
-	private JButton clearDomainQFilterButton = new JButton(PropertyFactory.getString("in_clear"));
+	private JButton clearDomainQFilterButton = new JButton(LanguageBundle.getString("in_clear"));
 
 	// author: Thomas Behr 08-02-02
 	private JLabel domChosen = new JLabel();
@@ -283,11 +283,11 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		if (pc.getDomainCount() < pc.getMaxCharacterDomains())
 		{
-			toDoList.add(PropertyFactory.getString("in_domTodoDomainsLeft")); //$NON-NLS-1$
+			toDoList.add(LanguageBundle.getString("in_domTodoDomainsLeft")); //$NON-NLS-1$
 		}
 		else if (pc.getDomainCount() > pc.getMaxCharacterDomains())
 		{
-			toDoList.add(PropertyFactory.getString("in_domTodoTooManyDomains")); //$NON-NLS-1$
+			toDoList.add(LanguageBundle.getString("in_domTodoTooManyDomains")); //$NON-NLS-1$
 		}
 		return toDoList;
 	}
@@ -393,7 +393,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			}
 
 			infoText.append(BR);
-			infoText.append(PropertyFactory.getFormattedString(
+			infoText.append(LanguageBundle.getFormattedString(
 				"in_InfoDescription", //$NON-NLS-1$
 				DescriptionFormatting.piDescString(pc, aDeity)));
 
@@ -402,7 +402,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			if (dwp != null)
 			{
 				infoText.append(THREE_SPACES);
-				infoText.append(PropertyFactory.getFormattedString(
+				infoText.append(LanguageBundle.getFormattedString(
 					"in_deityFavWeap", //$NON-NLS-1$
 					ReferenceUtilities.joinLstFormat(dwp, "|")));
 			}
@@ -411,7 +411,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			if (aString != null)
 			{
 				infoText.append(THREE_SPACES);
-				infoText.append(PropertyFactory.getFormattedString(
+				infoText.append(LanguageBundle.getFormattedString(
 					"in_deityHolyIt", //$NON-NLS-1$
 					aString));
 			}
@@ -420,7 +420,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			if (aString != null)
 			{
 				infoText.append(THREE_SPACES);
-				infoText.append(PropertyFactory.getFormattedString(
+				infoText.append(LanguageBundle.getFormattedString(
 					"in_deityWorshippers", //$NON-NLS-1$
 					aString));
 			}
@@ -429,7 +429,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			aDeity.getPrerequisiteList(), false);
 			if (aString.length() != 0)
 			{
-				infoText.append(PropertyFactory.getFormattedString(
+				infoText.append(LanguageBundle.getFormattedString(
 					"in_InfoRequirements", //$NON-NLS-1$
 					aString));
 			}
@@ -438,7 +438,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			Globals.getSourceDisplay(), true);
 			if (aString.length() > 0)
 			{
-				infoText.append(PropertyFactory.getFormattedString(
+				infoText.append(LanguageBundle.getFormattedString(
 					"in_InfoSource", //$NON-NLS-1$
 					aString));
 			}
@@ -470,7 +470,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			if (aString.length() != 0)
 			{
 				infoText.append(BR);
-				infoText.append(PropertyFactory.getFormattedString(
+				infoText.append(LanguageBundle.getFormattedString(
 					"in_domainGrant", //$NON-NLS-1$
 					aString));
 			}
@@ -479,7 +479,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			aDomain.getPrerequisiteList(), false);
 			if (aString.length() != 0)
 			{
-				infoText.append(PropertyFactory.getFormattedString(
+				infoText.append(LanguageBundle.getFormattedString(
 					"in_InfoRequirements", //$NON-NLS-1$
 					aString));
 			}
@@ -488,7 +488,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			if (aString.length() != 0)
 			{
 				infoText.append(BR);
-				infoText.append(PropertyFactory.getFormattedString(
+				infoText.append(LanguageBundle.getFormattedString(
 					"in_domainRequirements", //$NON-NLS-1$
 					aString));
 			}
@@ -497,7 +497,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			Globals.getSourceDisplay(), true);
 			if (aString.length() > 0)
 			{
-				infoText.append(PropertyFactory.getFormattedString(
+				infoText.append(LanguageBundle.getFormattedString(
 					"in_InfoSource", //$NON-NLS-1$
 					aString));
 			}
@@ -633,7 +633,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		int width;
 
 		requestFocus();
-		PCGen_Frame1.setMessageAreaTextWithoutSaving(PropertyFactory
+		PCGen_Frame1.setMessageAreaTextWithoutSaving(LanguageBundle
 			.getString("in_statusBarDeity"));
 		refresh();
 
@@ -661,7 +661,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			{
 				TableColumn sCol = deityTable.getColumnModel().getColumn(i);
 				width =
-						Globals.getCustColumnWidth(PropertyFactory
+						Globals.getCustColumnWidth(LanguageBundle
 							.getString("in_deity"), i);
 
 				if (width != 0)
@@ -670,7 +670,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				}
 
 				sCol.addPropertyChangeListener(new ResizeColumnListener(
-					deityTable, PropertyFactory.getString("in_deity"), i));
+					deityTable, LanguageBundle.getString("in_deity"), i));
 			}
 
 			// set the prefered width on domainTable
@@ -678,7 +678,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			{
 				TableColumn sCol = domainTable.getColumnModel().getColumn(i);
 				width =
-						Globals.getCustColumnWidth(PropertyFactory
+						Globals.getCustColumnWidth(LanguageBundle
 							.getString("in_domains"), i);
 
 				if (width != 0)
@@ -687,7 +687,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 				}
 
 				sCol.addPropertyChangeListener(new ResizeColumnListener(
-					domainTable, PropertyFactory.getString("in_domains"), i));
+					domainTable, LanguageBundle.getString("in_domains"), i));
 			}
 		}
 
@@ -826,14 +826,14 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		}
 		SettingsHandler.setDomainTab_ListMode(viewMode);
 
-		viewComboBox.addItem(PropertyFactory.getString("in_nameLabel") + "   ");
-		viewComboBox.addItem(PropertyFactory.getString("in_alignmentName")
+		viewComboBox.addItem(LanguageBundle.getString("in_nameLabel") + "   ");
+		viewComboBox.addItem(LanguageBundle.getString("in_alignmentName")
 			+ "   ");
 		viewComboBox
-			.addItem(PropertyFactory.getString("in_domainName") + "   ");
-		viewComboBox.addItem(PropertyFactory.getString("in_pantheonName")
+			.addItem(LanguageBundle.getString("in_domainName") + "   ");
+		viewComboBox.addItem(LanguageBundle.getString("in_pantheonName")
 			+ "   ");
-		viewComboBox.addItem(PropertyFactory.getString("in_sourceName") + " ");
+		viewComboBox.addItem(LanguageBundle.getString("in_sourceName") + " ");
 		viewComboBox.setSelectedIndex(viewMode);
 
 		// initialize the deityModel
@@ -844,10 +844,10 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		// Set the tab description
 		Utility
-			.setDescription(this, PropertyFactory.getString("in_tabToolTip"));
+			.setDescription(this, LanguageBundle.getString("in_tabToolTip"));
 
 		// Deity table tooltip
-		Utility.setDescription(deityTable, PropertyFactory
+		Utility.setDescription(deityTable, LanguageBundle
 			.getString("in_deityTableTip"));
 
 		// Domain table Setup
@@ -857,7 +857,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		domainTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
 		// Domain table tooltip
-		Utility.setDescription(domainTable, PropertyFactory
+		Utility.setDescription(domainTable, LanguageBundle
 			.getString("in_domainTableTip"));
 
 		// Domain table mouse listener
@@ -872,7 +872,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		JPanel bRightPane = new JPanel(new BorderLayout());
 
 		TitledBorder title1 =
-				BorderFactory.createTitledBorder(PropertyFactory
+				BorderFactory.createTitledBorder(LanguageBundle
 					.getString("in_deityInfo"));
 		title1.setTitleJustification(TitledBorder.CENTER);
 		//deityInfo.setBackground(rightPane.getBackground());
@@ -880,18 +880,18 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		deityScroll.setBorder(title1);
 		bLeftPane.add(deityScroll, BorderLayout.CENTER);
 		deityInfo.setBackground(bLeftPane.getBackground());
-		Utility.setDescription(bLeftPane, PropertyFactory
+		Utility.setDescription(bLeftPane, LanguageBundle
 			.getString("in_infoScrollTip"));
 
 		TitledBorder title2 =
-				BorderFactory.createTitledBorder(PropertyFactory
+				BorderFactory.createTitledBorder(LanguageBundle
 					.getString("in_domainInfo"));
 		title2.setTitleJustification(TitledBorder.CENTER);
 		JScrollPane domainScroll = new JScrollPane(domainInfo);
 		domainScroll.setBorder(title2);
 		bRightPane.add(domainScroll, BorderLayout.CENTER);
 		domainInfo.setBackground(bRightPane.getBackground());
-		Utility.setDescription(bRightPane, PropertyFactory
+		Utility.setDescription(bRightPane, LanguageBundle
 			.getString("in_infoScrollTip"));
 
 		aSplit =
@@ -949,9 +949,9 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		splitPane.setDividerLocation(350);
 		center.add(splitPane, BorderLayout.CENTER);
 
-		leftPane.add(InfoTabUtils.createFilterPane(new JLabel(PropertyFactory
+		leftPane.add(InfoTabUtils.createFilterPane(new JLabel(LanguageBundle
 			.getString("in_irSortDeities")), viewComboBox,
-			new JLabel(PropertyFactory.getString("InfoTabs.FilterLabel")), textDeityQFilter, clearDeityQFilterButton),
+			new JLabel(LanguageBundle.getString("InfoTabs.FilterLabel")), textDeityQFilter, clearDeityQFilterButton),
 			BorderLayout.NORTH);
 
 		JScrollPane scrollPane =
@@ -961,18 +961,18 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		JButton columnButton = new JButton();
 		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
 			columnButton);
-		columnButton.setText(PropertyFactory.getString("in_caretSymbol"));
+		columnButton.setText(LanguageBundle.getString("in_caretSymbol"));
 		new TableColumnManager(deityTable, columnButton, deityModel);
 
 		leftPane.add(scrollPane);
 
 		JPanel leftBottom = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		leftBottom
-			.add(new JLabel(PropertyFactory.getString("in_deity") + ": "));
-		deityName = new JLabel(PropertyFactory.getString("in_nameLabel"));
+			.add(new JLabel(LanguageBundle.getString("in_deity") + ": "));
+		deityName = new JLabel(LanguageBundle.getString("in_nameLabel"));
 		leftBottom.add(deityName);
-		deitySelect = new JButton(PropertyFactory.getString("in_select"));
-		Utility.setDescription(deitySelect, PropertyFactory
+		deitySelect = new JButton(LanguageBundle.getString("in_select"));
+		Utility.setDescription(deitySelect, LanguageBundle
 			.getString("in_deityButTip"));
 		leftBottom.add(deitySelect);
 		leftPane.add(leftBottom, BorderLayout.SOUTH);
@@ -980,21 +980,21 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		rightPane.setLayout(new BorderLayout());
 
 		rightPane.add(InfoTabUtils.createFilterPane(null, null, new JLabel(
-			PropertyFactory.getString("InfoTabs.FilterLabel")), textDomainQFilter, clearDomainQFilterButton),
+			LanguageBundle.getString("InfoTabs.FilterLabel")), textDomainQFilter, clearDomainQFilterButton),
 			BorderLayout.NORTH);
 
 		JPanel rightBottom =
 				new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		domSelected =
-				new JLabel(PropertyFactory.getString("in_domainSelected")
+				new JLabel(LanguageBundle.getString("in_domainSelected")
 					+ ": ");
-		ofLabel = new JLabel(PropertyFactory.getString("in_ofString"));
+		ofLabel = new JLabel(LanguageBundle.getString("in_ofString"));
 		rightBottom.add(domSelected);
 		rightBottom.add(domChosen);
 		rightBottom.add(ofLabel);
 		rightBottom.add(domTotal);
-		domainSelect = new JButton(PropertyFactory.getString("in_select"));
-		Utility.setDescription(domainSelect, PropertyFactory
+		domainSelect = new JButton(LanguageBundle.getString("in_select"));
+		Utility.setDescription(domainSelect, LanguageBundle
 			.getString("in_domainButTip"));
 		domainSelect.addActionListener(new ActionListener()
 		{
@@ -1017,7 +1017,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		JButton columnButton2 = new JButton();
 		scrollPane2.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
 			columnButton2);
-		columnButton2.setText(PropertyFactory.getString("in_caretSymbol"));
+		columnButton2.setText(LanguageBundle.getString("in_caretSymbol"));
 		new TableColumnManager(domainTable, columnButton2, domainModel);
 		rightPane.add(scrollPane2);
 	}
@@ -1218,7 +1218,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		if (!pc.canSelectDeity(aDeity))
 		{
 			final ListSelectionModel lsm = deityTable.getSelectionModel();
-			ShowMessageDelegate.showMessageDialog(PropertyFactory
+			ShowMessageDelegate.showMessageDialog(LanguageBundle
 				.getFormattedString("in_reqMess",
 				aDeity.getDisplayName()), Constants.APPLICATION_NAME,
 				MessageType.INFORMATION);
@@ -1245,11 +1245,11 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		if (!allDomainsAvailable)
 		{
 			final int areYouSure =
-					JOptionPane.showConfirmDialog(null, PropertyFactory
+					JOptionPane.showConfirmDialog(null, LanguageBundle
 						.getFormattedString("in_confDomLost1",
 						aDeity.getDisplayName())
 						+ System.getProperty("line.separator")
-						+ PropertyFactory.getString("in_confDomLost2"),
+						+ LanguageBundle.getString("in_confDomLost2"),
 						Constants.APPLICATION_NAME, JOptionPane.OK_CANCEL_OPTION);
 
 			if (areYouSure != JOptionPane.OK_OPTION)
@@ -1295,7 +1295,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			}
 			else
 			{
-				deityName.setText(PropertyFactory.getString("in_tempName"));
+				deityName.setText(LanguageBundle.getString("in_tempName"));
 			}
 
 			// Display the deity description
@@ -1391,7 +1391,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		if (pc.getMaxCharacterDomains() <= 0)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_errorNotAllowedToChooseADomain"), Constants.APPLICATION_NAME,
+				LanguageBundle.getString("in_errorNotAllowedToChooseADomain"), Constants.APPLICATION_NAME,
 				MessageType.INFORMATION);
 
 			return;
@@ -1409,7 +1409,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		// Make sure a valid domain was selected
 		if (!addedDomain.qualifies(pc, addedDomain) || !qualDomain.qualifies(pc))
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory
+			ShowMessageDelegate.showMessageDialog(LanguageBundle
 				.getFormattedString("in_qualifyMess",
 				addedDomain.getDisplayName()), Constants.APPLICATION_NAME,
 				MessageType.INFORMATION);
@@ -1428,7 +1428,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			// Check selected domains vs Max number allowed
 			if (pc.getDomainCount() >= pc.getMaxCharacterDomains())
 			{
-				ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_errorNoMoreDomains"),
+				ShowMessageDelegate.showMessageDialog(LanguageBundle.getString("in_errorNoMoreDomains"),
 						Constants.APPLICATION_NAME, MessageType.INFORMATION);
 				
 				return;
@@ -1499,7 +1499,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			if (aDeity.isType(Constants.TYPE_CUSTOM))
 			{
 				final int areYouSure =
-						JOptionPane.showConfirmDialog(null, PropertyFactory
+						JOptionPane.showConfirmDialog(null, LanguageBundle
 							.getFormattedString("in_delDeity2",
 							aDeity.getDisplayName()),
 							Constants.APPLICATION_NAME, JOptionPane.OK_CANCEL_OPTION);
@@ -1513,7 +1513,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			}
 			else
 			{
-				ShowMessageDelegate.showMessageDialog(PropertyFactory
+				ShowMessageDelegate.showMessageDialog(LanguageBundle
 					.getString("in_domIDEr4"), Constants.APPLICATION_NAME,
 					MessageType.ERROR);
 			}
@@ -1700,36 +1700,36 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 	{
 		DeityPopupMenu()
 		{
-			DeityPopupMenu.this.add(createAddMenuItem(PropertyFactory
+			DeityPopupMenu.this.add(createAddMenuItem(LanguageBundle
 				.getString("in_select"), "shortcut EQUALS"));
 			this.addSeparator();
-			DeityPopupMenu.this.add(createEditMenuItem(PropertyFactory
+			DeityPopupMenu.this.add(createEditMenuItem(LanguageBundle
 				.getString("in_editDeity"), "alt E"));
-			DeityPopupMenu.this.add(createCreateMenuItem(PropertyFactory
+			DeityPopupMenu.this.add(createCreateMenuItem(LanguageBundle
 				.getString("in_createDeity"), "alt C"));
-			DeityPopupMenu.this.add(createDeleteMenuItem(PropertyFactory
+			DeityPopupMenu.this.add(createDeleteMenuItem(LanguageBundle
 				.getString("in_delDeity"), "DELETE"));
 		}
 
 		private JMenuItem createAddMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label, new AddDeityActionListener(),
-				PropertyFactory.getString("in_select"), '\0', accelerator,
-				PropertyFactory.getString("in_irSelDeityTip"), "Add16.gif",
+				LanguageBundle.getString("in_select"), '\0', accelerator,
+				LanguageBundle.getString("in_irSelDeityTip"), "Add16.gif",
 				true);
 		}
 
 		private JMenuItem createEditMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label, new EditDeityActionListener(),
-				PropertyFactory.getString("in_editDeity"), '\0', accelerator,
+				LanguageBundle.getString("in_editDeity"), '\0', accelerator,
 				null, null, true);
 		}
 
 		private JMenuItem createCreateMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label,
-				new CreateDeityActionListener(), PropertyFactory
+				new CreateDeityActionListener(), LanguageBundle
 					.getString("in_createDeity"), '\0', accelerator, null,
 				null, true);
 		}
@@ -1737,7 +1737,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		private JMenuItem createDeleteMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label,
-				new DeleteDeityActionListener(), PropertyFactory
+				new DeleteDeityActionListener(), LanguageBundle
 					.getString("in_delDeity"), '\0', accelerator, null, null,
 				true);
 		}
@@ -1900,16 +1900,16 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 			 * changed accelerator from "control PLUS" to "control EQUALS" as cannot
 			 * get "control PLUS" to function on standard US keyboard with Windows 98
 			 */
-			DomainPopupMenu.this.add(createRemoveMenuItem(PropertyFactory
+			DomainPopupMenu.this.add(createRemoveMenuItem(LanguageBundle
 				.getString("in_select"), "shortcut EQUALS"));
 		}
 
 		private JMenuItem createRemoveMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label,
-				new RemoveClassActionListener(), PropertyFactory
+				new RemoveClassActionListener(), LanguageBundle
 					.getString("in_select"), (char) 0, accelerator,
-				PropertyFactory.getString("in_selDomain"), "Add16.gif", true);
+				LanguageBundle.getString("in_selDomain"), "Add16.gif", true);
 		}
 
 		private class ClassActionListener implements ActionListener
@@ -1941,10 +1941,10 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 		// list of column names
 		private final String[] deityNameList =
-				{PropertyFactory.getString("in_nameLabel"),
-					PropertyFactory.getString("in_alignLabel"),
-					PropertyFactory.getString("in_domains"),
-					PropertyFactory.getString("in_sourceLabel")};
+				{LanguageBundle.getString("in_nameLabel"),
+					LanguageBundle.getString("in_alignLabel"),
+					LanguageBundle.getString("in_domains"),
+					LanguageBundle.getString("in_sourceLabel")};
 		private final int[] deityColList = {200, 100, 100, 100};
 
 		private List<Boolean> displayList = null;
@@ -2041,7 +2041,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 				default:
 					Logging
-						.errorPrint(PropertyFactory.getFormattedString("in_domInTheColumn",
+						.errorPrint(LanguageBundle.getFormattedString("in_domInTheColumn",
 							String.valueOf(column)));
 					break;
 			}
@@ -2156,7 +2156,7 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 
 				default:
 					Logging
-						.errorPrint(PropertyFactory.getFormattedString("in_domInTheMode",
+						.errorPrint(LanguageBundle.getFormattedString("in_domInTheMode",
 							String.valueOf(mode)));
 					break;
 			} // end of switch(mode)
@@ -2276,8 +2276,8 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 		private List<Boolean> displayList = null;
 
 		private final String[] domainColList =
-				new String[]{PropertyFactory.getString("in_domains"),
-					PropertyFactory.getString("in_sourceLabel")};
+				new String[]{LanguageBundle.getString("in_domains"),
+					LanguageBundle.getString("in_sourceLabel")};
 
 		private final int[] domainWidthList = new int[]{200, 100};
 
@@ -2395,14 +2395,14 @@ public class InfoDomain extends FilterAdapterPanel implements CharacterInfoTab
 					}
 					catch (Exception exc)
 					{
-						Logging.errorPrint(PropertyFactory
+						Logging.errorPrint(LanguageBundle
 							.getString("in_errorMess"), exc);
 					}
 
 					break;
 
 				default:
-					Logging.errorPrint(PropertyFactory.getFormattedString("in_domInTheColumn2",
+					Logging.errorPrint(LanguageBundle.getFormattedString("in_domInTheColumn2",
 						String.valueOf(col)));
 
 					break;

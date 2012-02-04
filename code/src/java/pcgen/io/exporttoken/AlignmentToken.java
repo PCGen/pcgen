@@ -25,6 +25,7 @@
  */
 package pcgen.io.exporttoken;
 
+import pcgen.cdom.enumeration.BiographyField;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
 import pcgen.core.PlayerCharacter;
@@ -55,16 +56,19 @@ public class AlignmentToken extends Token
 		ExportHandler eh)
 	{
 		String retString = "";
-
-		if ("ALIGNMENT".equals(tokenSource))
+		
+		if (!pc.getSuppressBioField(BiographyField.ALIGNMENT))
 		{
-			retString = getAlignmentToken(pc);
+			if ("ALIGNMENT".equals(tokenSource))
+			{
+				retString = getAlignmentToken(pc);
+			}
+			else if ("ALIGNMENT.SHORT".equals(tokenSource))
+			{
+				retString = getShortToken(pc);
+			}
 		}
-		else if ("ALIGNMENT.SHORT".equals(tokenSource))
-		{
-			retString = getShortToken(pc);
-		}
-
+		
 		return retString;
 	}
 

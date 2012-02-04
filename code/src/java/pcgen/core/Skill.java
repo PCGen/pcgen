@@ -23,6 +23,8 @@
 package pcgen.core;
 
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.core.facade.SkillFacade;
 
 /**
  * <code>Skill</code>.
@@ -30,7 +32,7 @@ import pcgen.cdom.enumeration.ObjectKey;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public final class Skill extends PObject
+public final class Skill extends PObject implements SkillFacade
 {
 	public String getKeyStatAbb()
 	{
@@ -50,6 +52,40 @@ public final class Skill extends PObject
 	public int hashCode()
 	{
 		return getKeyName().hashCode();
+	}
+
+	/* (non-Javadoc)
+	 * @see pcgen.core.facade.SkillFacade#getKeyStat()
+	 */
+	public String getKeyStat()
+	{
+		return getKeyStatAbb();
+	}
+
+	/* (non-Javadoc)
+	 * @see pcgen.core.facade.SkillFacade#isUntrained()
+	 */
+	public boolean isUntrained()
+	{
+		return getSafe(ObjectKey.USE_UNTRAINED);
+	}
+
+	/* (non-Javadoc)
+	 * @see pcgen.core.facade.InfoFacade#getSource()
+	 */
+	public String getSource()
+	{
+		return SourceFormat.getFormattedString(this,
+			Globals.getSourceDisplay(), true);
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString()
+	{
+		return getDisplayName();
 	}
 
 }

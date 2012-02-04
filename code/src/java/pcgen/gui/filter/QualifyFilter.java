@@ -24,7 +24,7 @@ import pcgen.core.Deity;
 import pcgen.core.Equipment;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>QualifyFilter</code>
@@ -37,12 +37,12 @@ final class QualifyFilter extends AbstractPObjectFilter
 
 	QualifyFilter()
 	{
-		super(PropertyFactory.getString("in_miscel"), "Qualify");
+		super(LanguageBundle.getString("in_miscel"), "Qualify");
 	}
 
 	public String getDescription(PlayerCharacter aPC)
 	{
-		return PropertyFactory.getFormattedString("in_filterAccQual",aPC.getName());
+		return LanguageBundle.getFormattedString("in_filterAccQual",aPC.getName());
 	}
 
 	public boolean accept(PlayerCharacter aPC, PObject pObject)

@@ -34,7 +34,7 @@ import javax.swing.JRadioButtonMenuItem;
 
 import pcgen.gui.utils.Utility;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * code>LoggingLevelMenu</code> is a menu which allows the user 
@@ -63,9 +63,9 @@ final class LoggingLevelMenu extends JMenu
 		try
 		{
 			buildMenu();
-			setText(PropertyFactory.getString("in_mnuLoggingLevel"));
-			setMnemonic(PropertyFactory.getMnemonic("in_mn_mnuLoggingLevel"));
-			Utility.setDescription(this, PropertyFactory.getString("in_mnuLoggingLevelTip"));
+			setText(LanguageBundle.getString("in_mnuLoggingLevel"));
+			setMnemonic(LanguageBundle.getMnemonic("in_mn_mnuLoggingLevel"));
+			Utility.setDescription(this, LanguageBundle.getString("in_mnuLoggingLevelTip"));
 			updateMenu();
 		}
 		catch (Exception e)
@@ -102,10 +102,10 @@ final class LoggingLevelMenu extends JMenu
 			// unless one already exists.
 			//
 			levelMenuItems[i] =
-					new JRadioButtonMenuItem(PropertyFactory
+					new JRadioButtonMenuItem(LanguageBundle
 						.getString("in_loglvl" + lvl.getName()), false);
 			levelGroup.add(mnuLevel.add(levelMenuItems[i]));
-			Utility.setDescription(levelMenuItems[i], PropertyFactory.getString("in_loglvl" + lvl.getName() + "Tip"));
+			Utility.setDescription(levelMenuItems[i], LanguageBundle.getString("in_loglvl" + lvl.getName() + "Tip"));
 			levelMenuItems[i].addActionListener(checkBoxHandler);
 			add(levelMenuItems[i]);
 		}

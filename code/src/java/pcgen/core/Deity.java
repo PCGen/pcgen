@@ -25,8 +25,15 @@
 package pcgen.core;
 
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.list.DomainList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.core.facade.AlignmentFacade;
+import pcgen.core.facade.DeityFacade;
+import pcgen.core.facade.DomainFacade;
+import pcgen.core.facade.util.ListFacade;
+import pcgen.core.facade.util.ListFacades;
 
 /**
  * <code>Deity</code>.
@@ -34,7 +41,7 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public final class Deity extends PObject
+public final class Deity extends PObject implements DeityFacade
 {
 	public static final CDOMReference<DomainList> DOMAINLIST;
 
@@ -43,5 +50,31 @@ public final class Deity extends PObject
 		DomainList wpl = new DomainList();
 		wpl.setName("*Domains");
 		DOMAINLIST = CDOMDirectSingleRef.getRef(wpl);
+	}
+
+	public String getSource()
+	{
+		return SourceFormat.getFormattedString(this,
+			Globals.getSourceDisplay(), true);
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString()
+	{
+		return getDisplayName();
+	}
+
+	public ListFacade<DomainFacade> getDomains()
+	{
+		//TODO implement this
+		return ListFacades.emptyList();
+	}
+
+	public AlignmentFacade getAlignment()
+	{
+		return get(ObjectKey.ALIGNMENT);
 	}
 }

@@ -34,7 +34,7 @@ import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * @author wardc
@@ -76,11 +76,9 @@ public class PreStatTester extends AbstractPrerequisiteTest implements
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		return PropertyFactory.getFormattedString(
-			"PreStat.toHtml", //$NON-NLS-1$
-			prereq.getKey(),
-			prereq.getOperator().toString(),
-			prereq.getOperand());
+		return LanguageBundle
+			.getFormattedString(
+				"PreStat.toHtml", prereq.getKey(), prereq.getOperator().toString(), prereq.getOperand()); //$NON-NLS-1$
 	}
 
 }

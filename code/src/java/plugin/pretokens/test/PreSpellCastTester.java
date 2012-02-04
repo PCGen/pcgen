@@ -32,7 +32,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * @author wardc
@@ -84,7 +84,7 @@ public class PreSpellCastTester extends AbstractPrerequisiteTest implements
 		final Object[] args =
 				new Object[]{prereq.getOperator().toDisplayString(),
 					prereq.getOperand(), prereq.getKey()};
-		return PropertyFactory.getFormattedString("PreSpellCast.toHtml", args); //$NON-NLS-1$
+		return LanguageBundle.getFormattedString("PreSpellCast.toHtml", args); //$NON-NLS-1$
 	}
 
 }

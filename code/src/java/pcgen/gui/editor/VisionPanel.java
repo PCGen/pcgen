@@ -54,7 +54,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.JComboBoxEx;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.VisionType;
 
 /**
@@ -177,7 +177,7 @@ final class VisionPanel extends JPanel
 		if ((visionType == null) || (visionType.length() == 0))
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_demVisionInfoMissing"),
+				LanguageBundle.getString("in_demVisionInfoMissing"),
 				Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 
@@ -250,7 +250,7 @@ final class VisionPanel extends JPanel
 			btnRemove = new JButton("<");
 		}
 
-		lblSelected = new JLabel(PropertyFactory.getString("in_selected"));
+		lblSelected = new JLabel(LanguageBundle.getString("in_selected"));
 		lstSelected = new JList(new JListModel(new ArrayList(), true));
 		pnlAvailable = new JPanel();
 		pnlAddRemove = new JPanel();
@@ -259,12 +259,12 @@ final class VisionPanel extends JPanel
 
 		// Layout the available panel
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, PropertyFactory.getString("in_demTag"));
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, LanguageBundle.getString("in_demTag"));
 		title1.setTitleJustification(TitledBorder.LEFT);
 		pnlAvailable.setBorder(title1);
 		pnlAvailable.setLayout(new GridBagLayout());
 
-		lblTemp = new JLabel(PropertyFactory.getString("in_demVisionType"));
+		lblTemp = new JLabel(LanguageBundle.getString("in_demVisionType"));
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 0;
@@ -282,7 +282,7 @@ final class VisionPanel extends JPanel
 		gridBagConstraints.weightx = 0.4;
 		pnlAvailable.add(cmbVisionType, gridBagConstraints);
 
-		lblTemp = new JLabel(PropertyFactory.getString("in_demDistance"));
+		lblTemp = new JLabel(LanguageBundle.getString("in_demDistance"));
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 6;

@@ -96,7 +96,7 @@ import pcgen.gui.utils.JTreeTableSorter;
 import pcgen.gui.utils.LabelTreeCellRenderer;
 import pcgen.gui.utils.PObjectNode;
 import pcgen.gui.utils.Utility;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
@@ -584,7 +584,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 		String classKey; //$NON-NLS-1$
 		if (theOwner == null) // should only be true for multi-spellcasting-classed characters not sorted by class/level
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory
+			ShowMessageDelegate.showMessageDialog(LanguageBundle
 				.getString("InfoSpells.only.by.class.level"), //$NON-NLS-1$
 				Constants.APPLICATION_NAME, MessageType.ERROR);
 			return null; // need to select class/level or level/class as sorters
@@ -835,7 +835,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			b.appendLineBreak();
 			b.appendI18nElement("InfoSpells.level.title", Integer.toString(si.getOriginalLevel())); //$NON-NLS-1$
 
-			b.append(PropertyFactory.getFormattedString(
+			b.append(LanguageBundle.getFormattedString(
 				"InfoSpells.html.spell.details", //$NON-NLS-1$
                     aSpell.getListAsString(ListKey.SPELL_SCHOOL),
                     aSpell.getListAsString(ListKey.SPELL_SUBSCHOOL),
@@ -905,7 +905,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 		{
 			b.append(HTMLUtils.TWO_SPACES).append(HTMLUtils.BOLD);
 			b.append(
-				PropertyFactory.getString("InfoSpellsSubTab.DefaultKnownBook")) //$NON-NLS-1$
+				LanguageBundle.getString("InfoSpellsSubTab.DefaultKnownBook")) //$NON-NLS-1$
 				.append(HTMLUtils.END_BOLD);
 		}
 		b.append(")"); //$NON-NLS-1$
@@ -913,7 +913,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 		
 		if (book.getType() == SpellBook.TYPE_SPELL_BOOK)
 		{
-			b.append(PropertyFactory.getFormattedString(
+			b.append(LanguageBundle.getFormattedString(
 				"InfoSpells.html.spellbook.details", //$NON-NLS-1$
 				new Object[]{
 					book.getNumPages(),
@@ -942,17 +942,17 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 	protected final void populateViewCombo(JComboBoxEx combo, int initialIndex,
 		boolean includeNothing)
 	{
-		combo.addItem(PropertyFactory.getString("InfoSpells.combo_class")); //$NON-NLS-1$
-		combo.addItem(PropertyFactory.getString("InfoSpells.combo_level")); //$NON-NLS-1$
-		combo.addItem(PropertyFactory.getString("InfoSpells.combo_descriptor")); //$NON-NLS-1$
-		combo.addItem(PropertyFactory.getString("InfoSpells.combo_range")); //$NON-NLS-1$
-		combo.addItem(PropertyFactory.getString("InfoSpells.combo_duration")); //$NON-NLS-1$
-		combo.addItem(PropertyFactory.getString("InfoSpells.combo_type")); //$NON-NLS-1$
-		combo.addItem(PropertyFactory.getString("InfoSpells.combo_school")); //$NON-NLS-1$
+		combo.addItem(LanguageBundle.getString("InfoSpells.combo_class")); //$NON-NLS-1$
+		combo.addItem(LanguageBundle.getString("InfoSpells.combo_level")); //$NON-NLS-1$
+		combo.addItem(LanguageBundle.getString("InfoSpells.combo_descriptor")); //$NON-NLS-1$
+		combo.addItem(LanguageBundle.getString("InfoSpells.combo_range")); //$NON-NLS-1$
+		combo.addItem(LanguageBundle.getString("InfoSpells.combo_duration")); //$NON-NLS-1$
+		combo.addItem(LanguageBundle.getString("InfoSpells.combo_type")); //$NON-NLS-1$
+		combo.addItem(LanguageBundle.getString("InfoSpells.combo_school")); //$NON-NLS-1$
 		if (includeNothing)
 		{
 			combo
-				.addItem(PropertyFactory.getString("InfoSpells.combo_nothing")); //$NON-NLS-1$
+				.addItem(LanguageBundle.getString("InfoSpells.combo_nothing")); //$NON-NLS-1$
 
 		}
 		combo.setSelectedIndex(initialIndex);
@@ -1243,7 +1243,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 			{
 				SpellPopupMenu.this
 					.add(createAddMenuItem(
-						PropertyFactory
+						LanguageBundle
 							.getString("InfoSpells.add.to.spellbook"), "shortcut EQUALS")); //$NON-NLS-1$ //$NON-NLS-2$
 				if (addSpellWithMetaMagicTitle != null)
 				{
@@ -1255,7 +1255,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 				SpellPopupMenu.this
 					.add(Utility
 						.createMenuItem(
-							PropertyFactory
+							LanguageBundle
 								.getString("InfoSpellsSubTab.FindItem"), //$NON-NLS-1$
 							new ActionListener()
 							{
@@ -1266,8 +1266,8 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 												.searchTree(lastSearch);
 								}
 							},
-							PropertyFactory
-								.getString("InfoSpellsSubTab.SearchItem"), (char) 0, PropertyFactory.getString("InfoSpellsSubTab.FindShortcut"), PropertyFactory.getString("InfoSpellsSubTab.FindItem"), null, //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+							LanguageBundle
+								.getString("InfoSpellsSubTab.SearchItem"), (char) 0, LanguageBundle.getString("InfoSpellsSubTab.FindShortcut"), LanguageBundle.getString("InfoSpellsSubTab.FindItem"), null, //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 							true));
 			}
 			else
@@ -1276,16 +1276,16 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 				if (subTab instanceof InfoSpellBooks)
 				{
 					SpellPopupMenu.this
-						.add(createSetAutoMenuItem(PropertyFactory
+						.add(createSetAutoMenuItem(LanguageBundle
 							.getString("InfoSpells.set.auto.book"), null)); //$NON-NLS-1$ //$NON-NLS-2$
 				}
-				SpellPopupMenu.this.add(createDelMenuItem(PropertyFactory
+				SpellPopupMenu.this.add(createDelMenuItem(LanguageBundle
 					.getString("InfoSpells.remove.spell"), "shortcut MINUS")); //$NON-NLS-1$ //$NON-NLS-2$
 				this.addSeparator();
 				SpellPopupMenu.this
 					.add(Utility
 						.createMenuItem(
-							PropertyFactory
+							LanguageBundle
 								.getString("InfoSpellsSubTab.FindItem"), //$NON-NLS-1$
 							new ActionListener()
 							{
@@ -1296,8 +1296,8 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 												.searchTree(lastSearch);
 								}
 							},
-							PropertyFactory
-								.getString("InfoSpellsSubTab.SearchItem"), (char) 0, PropertyFactory.getString("InfoSpellsSubTab.FindShortcut"), PropertyFactory.getString("InfoSpellsSubTab.FindItem"), null, //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+							LanguageBundle
+								.getString("InfoSpellsSubTab.SearchItem"), (char) 0, LanguageBundle.getString("InfoSpellsSubTab.FindShortcut"), LanguageBundle.getString("InfoSpellsSubTab.FindItem"), null, //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 							true));
 			}
 		}
@@ -1310,7 +1310,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 							label,
 							new AddSpellActionListener(),
 							"add 1", (char) 0, accelerator, //$NON-NLS-1$
-							PropertyFactory
+							LanguageBundle
 								.getString("InfoSpells.add.to.spellbook"), "Add16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$
 
 			return addMenu;
@@ -1336,7 +1336,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 							label,
 							new DelSpellActionListener(),
 							"remove 1", (char) 0, accelerator, //$NON-NLS-1$
-							PropertyFactory
+							LanguageBundle
 								.getString("InfoSpells.remove.spell"), "Remove16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$
 			return delSpellMenu;
 		}
@@ -1348,7 +1348,7 @@ public abstract class InfoSpellsSubTab extends FilterAdapterPanel implements
 						.createMenuItem(label,
 							new SetAutoBookActionListener(),
 							"set auto book", (char) 0, accelerator, //$NON-NLS-1$
-							PropertyFactory
+							LanguageBundle
 								.getString("InfoSpells.set.auto.book"), null, true); //$NON-NLS-1$ //$NON-NLS-2$
 			return setAutoBookMenu;
 		}

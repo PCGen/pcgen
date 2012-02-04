@@ -53,6 +53,9 @@ interface IOConstants
 	/** Tag for Follower ADJUSTMENT */
 	String TAG_ADJUSTMENT = "ADJUSTMENT";
 
+	/** Adventure */
+	String TAG_ADVENTURE = "ADVENTURE";
+
 	/** AGE tag - Used by PCGVer2Creator and Parser */
 	String TAG_AGE = "AGE";
 
@@ -152,6 +155,12 @@ interface IOConstants
 	/** CHOSENTEMPLATE */
 	String TAG_CHOSENTEMPLATE = "CHOSENTEMPLATE";
 
+
+	/** CHRONICLE */
+	String TAG_CHRONICLE = "CHRONICLE";
+	/** CHRONICLE_ENTRY */
+	String TAG_CHRONICLE_ENTRY = "CHRONICLEENTRY";
+
 	/** CITY */
 	String TAG_CITY = "CITY";
 
@@ -174,6 +183,8 @@ interface IOConstants
 	String TAG_CUSTOMIZATION = "CUSTOMIZATION";
 	/** DATA */
 	String TAG_DATA = "DATA";
+	/** Date */
+	String TAG_DATE = "DATE";
 	/** DEFINED */
 	String TAG_DEFINED = "DEFINED";
 
@@ -239,6 +250,8 @@ interface IOConstants
 	String TAG_GAMEMODE = "GAMEMODE";
 	/** GENDER */
 	String TAG_GENDER = "GENDER";
+	/** Game master */
+	String TAG_GM = "GM";
 	/** HAIRCOLOR */
 	String TAG_HAIRCOLOR = "HAIRCOLOR";
 	/** HAIRSTYLE */
@@ -293,6 +306,8 @@ interface IOConstants
 	String TAG_OUTPUTORDER = "OUTPUTORDER";
 	/** PARENTID */
 	String TAG_PARENTID = "PARENTID";
+	/** Party */
+	String TAG_PARTY = "PARTY";
 	/** PC */
 	String TAG_PC = "PC";
 	/** PCCLASS */
@@ -315,6 +330,8 @@ interface IOConstants
 	String TAG_POOLPOINTSAVAIL = "POOLPOINTSAVAIL";
 	/** PORTRAIT */
 	String TAG_PORTRAIT = "PORTRAIT";
+	/** PORTRAIT */
+	String TAG_PORTRAIT_THUMBNAIL_RECT = "PORTRAITTHUMBNAILRECT";
 	/** POSTSTAT */
 	String TAG_POSTSTAT = "POSTSTAT";
 
@@ -396,6 +413,8 @@ interface IOConstants
 	String TAG_SUBCLASS = "SUBCLASS";
 	/** SUBSTITUTIONLEVEL */
 	String TAG_SUBSTITUTIONLEVEL = "SUBSTITUTIONLEVEL";
+	/** Suppressed biography fields */
+	String TAG_SUPPRESS_BIO_FIELDS = "SUPPRESSBIOFIELDS";
 
 	/** SYNERGY */
 	String TAG_SYNERGY = "SYNERGY";

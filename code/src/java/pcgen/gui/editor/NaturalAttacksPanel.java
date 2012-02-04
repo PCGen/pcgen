@@ -64,7 +64,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>NaturalAttacksPanel</code>
@@ -331,7 +331,7 @@ final class NaturalAttacksPanel extends JPanel
 		if (naturalAttacksString.length() == 0)
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_demNatWeaponNoName"),
+				LanguageBundle.getString("in_demNatWeaponNoName"),
 				Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 
@@ -362,7 +362,7 @@ final class NaturalAttacksPanel extends JPanel
 
 		if (!boolTypeEntered)
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("" +
+			ShowMessageDelegate.showMessageDialog(LanguageBundle.getString("" +
 				"in_demNatWeaponNoType"),
 				Constants.APPLICATION_NAME,
 				MessageType.ERROR);
@@ -422,7 +422,7 @@ final class NaturalAttacksPanel extends JPanel
 			btnRemove = new JButton("<");
 		}
 
-		lblSelected = new JLabel(PropertyFactory.getString("in_selected"));
+		lblSelected = new JLabel(LanguageBundle.getString("in_selected"));
 		lstSelected = new JList(new JListModel(new ArrayList(), false));
 		pnlAvailable = new JPanel();
 		pnlAddRemove = new JPanel();
@@ -463,13 +463,13 @@ final class NaturalAttacksPanel extends JPanel
 
 		// Layout the available panel
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, PropertyFactory.getString("in_demTag"));
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, LanguageBundle.getString("in_demTag"));
 		title1.setTitleJustification(TitledBorder.LEFT);
 		pnlAvailable.setBorder(title1);
 		pnlAvailable.setLayout(new GridBagLayout());
 
 		// Here we have the natural weapon name
-		lblTemp = new JLabel(PropertyFactory.getString("in_demNatWeaponName"));
+		lblTemp = new JLabel(LanguageBundle.getString("in_demNatWeaponName"));
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 1;
@@ -494,7 +494,7 @@ final class NaturalAttacksPanel extends JPanel
 		pnlAvailable.add(aPanel, gridBagConstraints);
 
 		// Next we have whether the natural weapon is primary or secondary
-		lblTemp = new JLabel(PropertyFactory.getString("in_demWeaponPrimary"));
+		lblTemp = new JLabel(LanguageBundle.getString("in_demWeaponPrimary"));
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 1;
@@ -513,7 +513,7 @@ final class NaturalAttacksPanel extends JPanel
 		pnlAvailable.add(chbWeaponPrimary, gridBagConstraints);
 
 		// Next we have some check boxes indicating the weapon type ie. slashing/piercing/bludgeoning
-		lblTemp = new JLabel(PropertyFactory.getString("in_demWeaponBludgeoning"));
+		lblTemp = new JLabel(LanguageBundle.getString("in_demWeaponBludgeoning"));
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 5;
@@ -531,7 +531,7 @@ final class NaturalAttacksPanel extends JPanel
 		gridBagConstraints.weightx = 0.1;
 		pnlAvailable.add(chbBludgeoning, gridBagConstraints);
 
-		lblTemp = new JLabel(PropertyFactory.getString("in_demWeaponPiercing"));
+		lblTemp = new JLabel(LanguageBundle.getString("in_demWeaponPiercing"));
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 7;
@@ -549,7 +549,7 @@ final class NaturalAttacksPanel extends JPanel
 		gridBagConstraints.weightx = 0.1;
 		pnlAvailable.add(chbPiercing, gridBagConstraints);
 
-		lblTemp = new JLabel(PropertyFactory.getString("in_demWeaponSlashing"));
+		lblTemp = new JLabel(LanguageBundle.getString("in_demWeaponSlashing"));
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 9;
@@ -568,7 +568,7 @@ final class NaturalAttacksPanel extends JPanel
 		pnlAvailable.add(chbSlashing, gridBagConstraints);
 
 		// Now add the number of attacks
-		lblTemp = new JLabel(PropertyFactory.getString("in_demNatWeaponNumAttacks"));
+		lblTemp = new JLabel(LanguageBundle.getString("in_demNatWeaponNumAttacks"));
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 11;
@@ -593,7 +593,7 @@ final class NaturalAttacksPanel extends JPanel
 		pnlAvailable.add(aPanel, gridBagConstraints);
 
 		// And the number of hands used/required
-		lblTemp = new JLabel(PropertyFactory.getString("in_demNatWeaponNumHands"));
+		lblTemp = new JLabel(LanguageBundle.getString("in_demNatWeaponNumHands"));
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 11;
@@ -618,7 +618,7 @@ final class NaturalAttacksPanel extends JPanel
 		pnlAvailable.add(aPanel, gridBagConstraints);
 
 		// And lastly, the damage dealt
-		lblTemp = new JLabel(PropertyFactory.getString("in_demWeaponDamage"));
+		lblTemp = new JLabel(LanguageBundle.getString("in_demWeaponDamage"));
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 13;

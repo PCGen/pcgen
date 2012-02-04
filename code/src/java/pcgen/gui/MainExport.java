@@ -27,7 +27,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.ExportHandler;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import javax.swing.*;
 import java.awt.BorderLayout;
@@ -324,7 +324,7 @@ final class MainExport extends JPanel
 				{
 					if (templateList.getSelectedValue() == null)
 					{
-						ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_exportNoTemplate"), "PCGen", MessageType.ERROR);
+						ShowMessageDelegate.showMessageDialog(LanguageBundle.getString("in_exportNoTemplate"), "PCGen", MessageType.ERROR);
 					}
 					else
 					{

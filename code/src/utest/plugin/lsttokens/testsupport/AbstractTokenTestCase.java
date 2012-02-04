@@ -93,7 +93,9 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 		primaryContext.ref.importObject(AbilityCategory.FEAT);
 		secondaryContext.ref.importObject(AbilityCategory.FEAT);
 		primaryProf = getPrimary("TestObj");
+		primaryProf.setSourceURI(testCampaign.getURI());
 		secondaryProf = getSecondary("TestObj");
+		secondaryProf.setSourceURI(testCampaign.getURI());
 	}
 
 	protected T getSecondary(String name)

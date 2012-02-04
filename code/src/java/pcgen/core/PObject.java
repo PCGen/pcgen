@@ -107,6 +107,10 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	@Override
 	public boolean equals( final Object obj )
 	{
+		if (obj == this)
+		{
+			return true;
+		}
 		if ( obj == null )
 		{
 			return false;

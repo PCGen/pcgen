@@ -31,7 +31,9 @@ import java.util.List;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.facade.TemplateFacade;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -40,7 +42,7 @@ import pcgen.util.enumeration.Visibility;
  * @author Mark Hulsman <hulsmanm@purdue.edu>
  * @version $Revision$
  */
-public final class PCTemplate extends PObject
+public final class PCTemplate extends PObject implements TemplateFacade
 {
 	/**
 	 * Get the total adjustment to Challenge rating of a character at a given
@@ -148,5 +150,11 @@ public final class PCTemplate extends PObject
 		}
 		// end potential TO-DO change
 		return list;
+	}
+
+	public String getSource()
+	{
+		return SourceFormat.getFormattedString(this,
+			Globals.getSourceDisplay(), true);
 	}
 }

@@ -23,7 +23,7 @@
 package pcgen.gui.editor;
 
 import pcgen.gui.utils.JComboBoxEx;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
@@ -63,7 +63,7 @@ final class QualifiedAvailableSelectedPanel extends AvailableSelectedPanel
 
 		setExtraLayout(new GridBagLayout());
 
-		lblQualifier = new JLabel(PropertyFactory.getString(qtext));
+		lblQualifier = new JLabel(LanguageBundle.getString(qtext));
 		lblQualifier.setLabelFor(cmbQualifier);
 
 		GridBagConstraints gbc = new GridBagConstraints();
@@ -90,7 +90,7 @@ final class QualifiedAvailableSelectedPanel extends AvailableSelectedPanel
 		if (vtext != null)
 		{
 			cmbVariable = new JComboBoxEx();
-			lblVariable = new JLabel(PropertyFactory.getString(vtext));
+			lblVariable = new JLabel(LanguageBundle.getString(vtext));
 			lblVariable.setLabelFor(cmbVariable);
 			gbc = new GridBagConstraints();
 			gbc.gridx = 0;

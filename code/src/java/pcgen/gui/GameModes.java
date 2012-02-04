@@ -31,7 +31,7 @@ import pcgen.core.*;
 import pcgen.gui.sources.SourceSelectionUtils;
 import pcgen.gui.utils.Utility;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JMenu;
@@ -50,7 +50,7 @@ import java.util.*;
 public final class GameModes extends JMenu
 {
 	static final long serialVersionUID = -6751569845505079621L;
-	private static String in_stdrdCampaign = PropertyFactory.getString("in_stdrdCampaign"); // Title for the standard campaign menu item
+	private static String in_stdrdCampaign = LanguageBundle.getString("in_stdrdCampaign"); // Title for the standard campaign menu item
 	private AbstractList<JRadioButtonMenuItem> campaignMenuItems = new ArrayList<JRadioButtonMenuItem>();
 	private AbstractList<Campaign> campaigns = new ArrayList<Campaign>();
 	private ButtonGroup gameModeGroup = null;
@@ -65,9 +65,9 @@ public final class GameModes extends JMenu
 		try
 		{
 			jbInit();
-			setText(PropertyFactory.getString("in_mnuSettingsCampaign"));
-			setMnemonic(PropertyFactory.getMnemonic("in_mn_mnuSettingsCampaign"));
-			Utility.setDescription(this, PropertyFactory.getString("in_mnuSettingsCampaignTip"));
+			setText(LanguageBundle.getString("in_mnuSettingsCampaign"));
+			setMnemonic(LanguageBundle.getMnemonic("in_mn_mnuSettingsCampaign"));
+			Utility.setDescription(this, LanguageBundle.getString("in_mnuSettingsCampaignTip"));
 			updateMenu();
 		}
 		catch (Exception e)

@@ -3,6 +3,7 @@ package plugin.lsttokens.eqslot;
 import java.util.StringTokenizer;
 
 import pcgen.core.Globals;
+import pcgen.core.SystemCollections;
 import pcgen.core.character.EquipSlot;
 import pcgen.persistence.SystemLoader;
 import pcgen.persistence.lst.EquipSlotLstToken;
@@ -18,7 +19,7 @@ public class NumslotsToken implements EquipSlotLstToken
 		return "NUMSLOTS";
 	}
 
-	public boolean parse(EquipSlot eqSlot, String value)
+	public boolean parse(EquipSlot eqSlot, String value, String gameMode)
 	{
 		//TODO: (DJ) this sucks, and means we have tokens that we don't know the names of.  we need new syntax here.
 		//TODO: revisit in 5.11.x
@@ -38,6 +39,7 @@ public class NumslotsToken implements EquipSlotLstToken
 				if (!getTokenName().equals(eqSlotType))
 				{
 					Globals.setEquipSlotTypeCount(eqSlotType, aNum);
+					SystemCollections.addToBodyStructureList(eqSlotType, gameMode);
 				}
 			}
 		}

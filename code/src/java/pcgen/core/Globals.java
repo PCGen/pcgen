@@ -85,6 +85,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.ReferenceContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
+import pcgen.system.ConfigurationSettings;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
 import pcgen.util.Logging;
@@ -243,24 +244,24 @@ public final class Globals
 	/** Name of the default innate spell book. */
 	public static final String INNATE_SPELL_BOOK_NAME = "Innate";
 
-	static
-	{
-		ResourceBundle globalProperties;
-
-		try
-		{
-			globalProperties = ResourceBundle.getBundle("pcgen/gui/prop/PCGenProp"); //$NON-NLS-1$
-			globalProperties.getString("VersionNumber"); //$NON-NLS-1$
-		}
-		catch (MissingResourceException mrex)
-		{
-			Logging.errorPrint("Can't find the VersionNumber property.", mrex);
-		}
-		finally
-		{
-			globalProperties = null; // TODO: value never used
-		}
-	}
+//	static
+//	{
+//		ResourceBundle globalProperties;
+//
+//		try
+//		{
+//			globalProperties = ResourceBundle.getBundle("pcgen/gui/prop/PCGenProp"); //$NON-NLS-1$
+//			globalProperties.getString("VersionNumber"); //$NON-NLS-1$
+//		}
+//		catch (MissingResourceException mrex)
+//		{
+//			Logging.errorPrint("Can't find the VersionNumber property.", mrex);
+//		}
+//		finally
+//		{
+//			globalProperties = null; // TODO: value never used
+//		}
+//	}
 
 	/**
 	 * Get a list of the allowed game modes
@@ -630,7 +631,7 @@ public final class Globals
 	 */
 	public static String getDefaultPath()
 	{
-		return expandRelativePath(defaultPath);
+		return ConfigurationSettings.getUserDir();
 	}
 
 	/**
@@ -1006,24 +1007,6 @@ public final class Globals
 		}
 
 		return false;
-	}
-
-	/**
-	 * Set language
-	 * @param aString
-	 */
-	public static void setLanguage(final String aString)
-	{
-		language = aString;
-	}
-
-	/**
-	 * Get language
-	 * @return language
-	 */
-	public static String getLanguage()
-	{
-		return language;
 	}
 
 	/**

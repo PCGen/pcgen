@@ -59,7 +59,7 @@ import pcgen.gui.utils.JTableEx;
 import pcgen.gui.utils.TableSorter;
 import pcgen.gui.utils.Utility;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * Title:        AddSpecialAbility.java
@@ -151,7 +151,7 @@ public final class AddSpecialAbility extends JFrame
 
 	private static String myGetTitle()
 	{
-		String title = PropertyFactory.getString("in_addSA");
+		String title = LanguageBundle.getString("in_addSA");
 
 		return title;
 	}
@@ -233,8 +233,8 @@ public final class AddSpecialAbility extends JFrame
 			});
 
 		okButton = new JButton();
-		okButton.setText(PropertyFactory.getString("in_ok"));
-		okButton.setMnemonic(PropertyFactory.getMnemonic("in_mn_ok"));
+		okButton.setText(LanguageBundle.getString("in_ok"));
+		okButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_ok"));
 		okButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)

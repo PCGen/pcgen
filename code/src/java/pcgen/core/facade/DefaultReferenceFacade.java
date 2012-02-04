@@ -1,0 +1,101 @@
+/*
+ * DefaultReferenceFacade.java
+ * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ * Created on Apr 25, 2010, 3:28:19 PM
+ */
+package pcgen.core.facade;
+
+import javax.swing.event.EventListenerList;
+import org.apache.commons.lang.ObjectUtils;
+import pcgen.core.facade.event.ReferenceEvent;
+import pcgen.core.facade.event.ReferenceListener;
+
+/**
+ *
+ * @author Connor Petty <cpmeister@users.sourceforge.net>
+ */
+public class DefaultReferenceFacade<E> implements ReferenceFacade<E>
+{
+
+	protected EventListenerList listenerList = new EventListenerList();
+	protected E object;
+
+	public DefaultReferenceFacade()
+	{
+		this(null);
+	}
+
+	public DefaultReferenceFacade(E object)
+	{
+		this.object = object;
+	}
+
+	public void addReferenceListener(ReferenceListener<? super E> listener)
+	{
+		listenerList.add(ReferenceListener.class, listener);
+	}
+
+	public void removeReferenceListener(ReferenceListener<? super E> listener)
+	{
+		listenerList.remove(ReferenceListener.class, listener);
+	}
+
+	public E getReference()
+	{
+		return object;
+	}
+
+	public void setReference(E object)
+	{
+		if (ObjectUtils.equals(this.object, object))
+		{
+			return;
+		}
+		E old = this.object;
+		this.object = object;
+		fireReferenceChangedEvent(this, old, object);
+	}
+
+	protected void fireReferenceChangedEvent(Object source, E old, E newer)
+	{
+		Object[] listeners = listenerList.getListenerList();
+		ReferenceEvent<E> e = null;
+		for (int i = listeners.length - 2; i >= 0; i -= 2)
+		{
+			if (listeners[i] == ReferenceListener.class)
+			{
+				if (e == null)
+				{
+					e = new ReferenceEvent<E>(source, old, newer);
+				}
+				((ReferenceListener) listeners[i + 1]).referenceChanged(e);
+			}
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String toString()
+	{
+		return String.valueOf(object);
+	}
+
+	
+}

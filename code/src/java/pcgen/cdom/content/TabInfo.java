@@ -25,7 +25,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import pcgen.cdom.base.Loadable;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 public class TabInfo implements Loadable
@@ -95,7 +95,7 @@ public class TabInfo implements Loadable
 
 		if (temp.startsWith("in_"))
 		{
-			temp = PropertyFactory.getString(temp);
+			temp = LanguageBundle.getString(temp);
 		}
 
 		return temp;

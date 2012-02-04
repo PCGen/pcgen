@@ -25,7 +25,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.Utility;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -300,7 +300,7 @@ public final class PortraitChooser extends JPanel
 
 		// portrait refresh button
 		refreshButton = Utility.createButton(null, null,
-				PropertyFactory.getString("in_refreshTipString"),
+				LanguageBundle.getString("in_refreshTipString"),
 				"Refresh16.gif", true);
 		refreshButton.setMargin(new Insets(2, 2, 2, 2));
 		refreshButton.addActionListener(new ActionListener()
@@ -313,12 +313,12 @@ public final class PortraitChooser extends JPanel
 		buttonPanel.add(refreshButton);
 
 		// Portrait chooser button
-		dirButton = new JButton(PropertyFactory.getString("in_selectPortrait"));
+		dirButton = new JButton(LanguageBundle.getString("in_selectPortrait"));
 
 		if (SettingsHandler.isToolTipTextShown())
 		{
 			Utility.setDescription(dirButton,
-					PropertyFactory.getString("in_selectPortraitTipString"));
+					LanguageBundle.getString("in_selectPortraitTipString"));
 		}
 
 		dirButton.addActionListener(new ActionListener()
@@ -340,12 +340,12 @@ public final class PortraitChooser extends JPanel
 
 		// Portrait Remove button
 		removeButton = new JButton(
-				PropertyFactory.getString("in_removePortrait"));
+				LanguageBundle.getString("in_removePortrait"));
 
 		if (SettingsHandler.isToolTipTextShown())
 		{
 			Utility.setDescription(removeButton,
-					PropertyFactory.getString("in_removePortraitTipString"));
+					LanguageBundle.getString("in_removePortraitTipString"));
 		}
 
 		removeButton.addActionListener(new ActionListener()
@@ -359,12 +359,12 @@ public final class PortraitChooser extends JPanel
 
 		// Buy Portrait button
 		buyButton = new JButton(
-				PropertyFactory.getString("in_buyPortrait"));
+				LanguageBundle.getString("in_buyPortrait"));
 
 		if (SettingsHandler.isToolTipTextShown())
 		{
 			Utility.setDescription(buyButton,
-					PropertyFactory.getString("in_buyPortraitTipString"));
+					LanguageBundle.getString("in_buyPortraitTipString"));
 		}
 
 		buyButton.addActionListener(new ActionListener()

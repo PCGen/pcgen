@@ -39,6 +39,7 @@ import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.AssociationKey;
@@ -49,6 +50,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
@@ -71,6 +73,7 @@ import pcgen.core.analysis.SubClassApplication;
 import pcgen.core.analysis.SubstitutionClassApplication;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.facade.ClassFacade;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.prereq.PrereqHandler;
@@ -90,7 +93,7 @@ import pcgen.util.enumeration.AttackType;
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  */
-public class PCClass extends PObject
+public class PCClass extends PObject implements ClassFacade
 {
 
 	public static final CDOMReference<DomainList> ALLOWED_DOMAINS;
@@ -1726,5 +1729,40 @@ public class PCClass extends PObject
 		{
 			pcl.ownBonuses(owner);
 		}
+	}
+
+	/* (non-Javadoc)
+	 * @see pcgen.core.facade.ClassFacade#getBaseStat()
+	 */
+	public String getBaseStat()
+	{
+		return getSpellBaseStat();
+	}
+
+	/* (non-Javadoc)
+	 * @see pcgen.core.facade.ClassFacade#getHD()
+	 */
+	public String getHD()
+	{
+		HitDie hd = get(ObjectKey.LEVEL_HITDIE);
+		return String.valueOf(hd.getDie());
+	}
+
+	/* (non-Javadoc)
+	 * @see pcgen.core.facade.ClassFacade#getTypes()
+	 */
+	public String[] getTypes()
+	{
+		String type = getType();
+		return type.split("\\.");
+	}
+
+	/* (non-Javadoc)
+	 * @see pcgen.core.facade.InfoFacade#getSource()
+	 */
+	public String getSource()
+	{
+		return SourceFormat.getFormattedString(this,
+			Globals.getSourceDisplay(), true);
 	}
 }

@@ -22,7 +22,7 @@
  */
 package pcgen.gui.editor;
 
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import javax.swing.*;
 import java.awt.BorderLayout;
@@ -83,8 +83,8 @@ final class DescriptionPanel extends JPanel
 		GridBagConstraints gbc;
 
 		lblDescription.setLabelFor(txtDescription);
-		lblDescription.setText(PropertyFactory.getString("in_descrip"));
-		lblDescription.setDisplayedMnemonic(PropertyFactory.getMnemonic("in_mn_descrip"));
+		lblDescription.setText(LanguageBundle.getString("in_descrip"));
+		lblDescription.setDisplayedMnemonic(LanguageBundle.getMnemonic("in_mn_descrip"));
 		gbc = new GridBagConstraints();
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.insets = new Insets(2, 5, 2, 5);
@@ -111,8 +111,8 @@ final class DescriptionPanel extends JPanel
 		gbc.weighty = 0.8;
 		add(pnlDescriptionText, gbc);
 
-		chkDescProductIdentity.setText(PropertyFactory.getString("in_demDescProIden"));
-		chkDescProductIdentity.setMnemonic(PropertyFactory.getMnemonic("in_mn_demDescProIden"));
+		chkDescProductIdentity.setText(LanguageBundle.getString("in_demDescProIden"));
+		chkDescProductIdentity.setMnemonic(LanguageBundle.getMnemonic("in_mn_demDescProIden"));
 		chkDescProductIdentity.setHorizontalTextPosition(SwingConstants.LEADING);
 		gbc = new GridBagConstraints();
 		gbc.anchor = GridBagConstraints.EAST;

@@ -47,6 +47,10 @@ public final class ChooserFactory
 	 */
 	public static ChooserInterface getChooserInstance()
 	{
+		if (interfaceClassname == null)
+		{
+			return null;
+		}
 		try
 		{
 			Class<?> c = Class.forName(interfaceClassname);

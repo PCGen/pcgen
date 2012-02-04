@@ -37,7 +37,7 @@ import pcgen.persistence.lst.LstFileLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 public class CDOMTokenLoader<T extends CDOMObject> implements CDOMLoader<T>
 {
@@ -136,7 +136,7 @@ public class CDOMTokenLoader<T extends CDOMObject> implements CDOMLoader<T>
 		}
 		catch (PersistenceLayerException ple)
 		{
-			String message = PropertyFactory.getFormattedString(
+			String message = LanguageBundle.getFormattedString(
 					"Errors.LstFileLoader.LoadError", //$NON-NLS-1$
 					uri, ple.getMessage());
 			Logging.errorPrint(message);
@@ -204,7 +204,7 @@ public class CDOMTokenLoader<T extends CDOMObject> implements CDOMLoader<T>
 			}
 			catch (PersistenceLayerException ple)
 			{
-				String message = PropertyFactory.getFormattedString(
+				String message = LanguageBundle.getFormattedString(
 						"Errors.LstFileLoader.ParseError", //$NON-NLS-1$
 						uri, i + 1, ple.getMessage());
 				Logging.errorPrint(message);
@@ -212,11 +212,11 @@ public class CDOMTokenLoader<T extends CDOMObject> implements CDOMLoader<T>
 			}
 			catch (Throwable t)
 			{
-				String message = PropertyFactory.getFormattedString(
+				String message = LanguageBundle.getFormattedString(
 						"Errors.LstFileLoader.ParseError", //$NON-NLS-1$
 						uri, i + 1, t.getMessage());
 				Logging.errorPrint(message);
-				Logging.errorPrint(PropertyFactory
+				Logging.errorPrint(LanguageBundle
 						.getString("Errors.LstFileLoader.Ignoring")
 						+ "\n" + t);
 				t.printStackTrace();

@@ -62,6 +62,7 @@ import java.util.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
+import pcgen.gui2.tools.Icons;
 
 /**
  *  This class is the main view for the Notes Plugin. Mostof the work is done
@@ -1184,8 +1185,7 @@ public class NotesView extends JPanel
 		jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0,
 			0));
 
-		newButton.setIcon(new ImageIcon(getClass().getResource(
-			"/pcgen/gui/resource/stock_new-16.png")));
+		newButton.setIcon(Icons.stock_new.getImageIcon());
 		newButton.setToolTipText("New Node");
 		newButton.setBorder(new EtchedBorder());
 		newButton.setEnabled(false);
@@ -1199,8 +1199,7 @@ public class NotesView extends JPanel
 
 		fileBar.add(newButton);
 
-		saveButton.setIcon(new ImageIcon(getClass().getResource(
-			"/pcgen/gui/resource/stock_save-16.png")));
+		saveButton.setIcon(Icons.stock_save.getImageIcon());
 		saveButton.setToolTipText("Save Node");
 		saveButton.setBorder(new EtchedBorder());
 		saveButton.setEnabled(false);
@@ -1214,8 +1213,7 @@ public class NotesView extends JPanel
 
 		fileBar.add(saveButton);
 
-		exportButton.setIcon(new ImageIcon(getClass().getResource(
-			"/pcgen/gui/resource/stock_export-16.png")));
+		exportButton.setIcon(Icons.stock_export.getImageIcon());
 		exportButton.setToolTipText("Export");
 		exportButton.setBorder(new EtchedBorder());
 		exportButton.setEnabled(false);
@@ -1229,8 +1227,7 @@ public class NotesView extends JPanel
 
 		fileBar.add(exportButton);
 
-		revertButton.setIcon(new ImageIcon(getClass().getResource(
-			"/pcgen/gui/resource/stock_revert-16.png")));
+		revertButton.setIcon(Icons.stock_revert.getImageIcon());
 		revertButton.setToolTipText("Revert to Saved");
 		revertButton.setBorder(new EtchedBorder());
 		revertButton.setEnabled(false);
@@ -1244,8 +1241,7 @@ public class NotesView extends JPanel
 
 		fileBar.add(revertButton);
 
-		deleteButton.setIcon(new ImageIcon(getClass().getResource(
-			"/pcgen/gui/resource/stock_broken_image-16.png")));
+		deleteButton.setIcon(Icons.stock_broken_image.getImageIcon());
 		deleteButton.setToolTipText("Delete Node");
 		deleteButton.setBorder(new EtchedBorder());
 		deleteButton.setEnabled(false);
@@ -1261,8 +1257,7 @@ public class NotesView extends JPanel
 
 		jPanel2.add(fileBar);
 
-		cutButton.setIcon(new ImageIcon(getClass().getResource(
-			"/pcgen/gui/resource/stock_cut-16.png")));
+		cutButton.setIcon(Icons.stock_cut.getImageIcon());
 		cutButton.setToolTipText("Cut");
 		cutButton.setBorder(new EtchedBorder());
 		cutButton.addActionListener(new java.awt.event.ActionListener()
@@ -1275,8 +1270,7 @@ public class NotesView extends JPanel
 
 		clipboardBar.add(cutButton);
 
-		copyButton.setIcon(new ImageIcon(getClass().getResource(
-			"/pcgen/gui/resource/stock_copy-16.png")));
+		copyButton.setIcon(Icons.stock_copy.getImageIcon());
 		copyButton.setToolTipText("Copy");
 		copyButton.setBorder(new EtchedBorder());
 		copyButton.addActionListener(new java.awt.event.ActionListener()
@@ -1289,8 +1283,7 @@ public class NotesView extends JPanel
 
 		clipboardBar.add(copyButton);
 
-		pasteButton.setIcon(new ImageIcon(getClass().getResource(
-			"/pcgen/gui/resource/stock_paste-16.png")));
+		pasteButton.setIcon(Icons.stock_paste.getImageIcon());
 		pasteButton.setToolTipText("Paste");
 		pasteButton.setBorder(new EtchedBorder());
 		pasteButton.addActionListener(new java.awt.event.ActionListener()
@@ -1317,8 +1310,7 @@ public class NotesView extends JPanel
 
 		formatBar.add(sizeCB);
 
-		boldButton.setIcon(new ImageIcon(getClass().getResource(
-			"/pcgen/gui/resource/stock_text_bold-16.png")));
+		boldButton.setIcon(Icons.stock_text_bold.getImageIcon());
 		boldButton.setToolTipText("Bold");
 		boldButton.setBorder(new EtchedBorder());
 		boldButton.addActionListener(new java.awt.event.ActionListener()
@@ -1331,8 +1323,7 @@ public class NotesView extends JPanel
 
 		formatBar.add(boldButton);
 
-		italicButton.setIcon(new ImageIcon(getClass().getResource(
-			"/pcgen/gui/resource/stock_text_italic-16.png")));
+		italicButton.setIcon(Icons.stock_text_italic.getImageIcon());
 		italicButton.setToolTipText("Italic");
 		italicButton.setBorder(new EtchedBorder());
 		italicButton.addActionListener(new java.awt.event.ActionListener()
@@ -1345,8 +1336,7 @@ public class NotesView extends JPanel
 
 		formatBar.add(italicButton);
 
-		underlineButton.setIcon(new ImageIcon(getClass().getResource(
-			"/pcgen/gui/resource/stock_text_underline-16.png")));
+		underlineButton.setIcon(Icons.stock_text_underline.getImageIcon());
 		underlineButton.setToolTipText("Underline");
 		underlineButton.setBorder(new EtchedBorder());
 		underlineButton.addActionListener(new java.awt.event.ActionListener()
@@ -1360,8 +1350,7 @@ public class NotesView extends JPanel
 		formatBar.add(underlineButton);
 
 		colorButton.setForeground(new java.awt.Color(0, 0, 0));
-		colorButton.setIcon(new ImageIcon(getClass().getResource(
-			"/pcgen/gui/resource/menu-mode-RGB-alt.png")));
+		colorButton.setIcon(Icons.createImageIcon("menu-mode-RGB-alt.png"));
 		colorButton.setToolTipText("Color");
 		colorButton.setBorder(new EtchedBorder());
 		colorButton.addActionListener(new java.awt.event.ActionListener()
@@ -1374,22 +1363,19 @@ public class NotesView extends JPanel
 
 		formatBar.add(colorButton);
 
-		bulletButton.setIcon(new ImageIcon(getClass().getResource(
-			"/pcgen/gui/resource/stock_list_bulet-16.png")));
+		bulletButton.setIcon(Icons.stock_list_bulet.getImageIcon());
 		bulletButton.setToolTipText("Bulleted List");
 		bulletButton.setAction(actionListUnordered);
 		bulletButton.setBorder(new EtchedBorder());
 		formatBar.add(bulletButton);
 
-		enumButton.setIcon(new ImageIcon(getClass().getResource(
-			"/pcgen/gui/resource/stock_list_enum-16.png")));
+		enumButton.setIcon(Icons.stock_list_enum.getImageIcon());
 		enumButton.setToolTipText("Numbered List");
 		enumButton.setAction(actionListOrdered);
 		enumButton.setBorder(new EtchedBorder());
 		formatBar.add(enumButton);
 
-		imageButton.setIcon(new ImageIcon(getClass().getResource(
-			"/pcgen/gui/resource/stock_insert_graphic-16.png")));
+		imageButton.setIcon(Icons.stock_insert_graphic.getImageIcon());
 		imageButton.setBorder(new EtchedBorder());
 		imageButton.addActionListener(new java.awt.event.ActionListener()
 		{
@@ -1403,8 +1389,7 @@ public class NotesView extends JPanel
 
 		jPanel2.add(formatBar);
 
-		leftJustifyButton.setIcon(new ImageIcon(getClass().getResource(
-			"/pcgen/gui/resource/stock_text_align_left-16.png")));
+		leftJustifyButton.setIcon(Icons.stock_text_align_left.getImageIcon());
 		leftJustifyButton.setToolTipText("Left Justify");
 		leftJustifyButton.setBorder(new EtchedBorder());
 		leftJustifyButton.addActionListener(new java.awt.event.ActionListener()
@@ -1417,8 +1402,7 @@ public class NotesView extends JPanel
 
 		alignmentBar.add(leftJustifyButton);
 
-		centerJustifyButton.setIcon(new ImageIcon(getClass().getResource(
-			"/pcgen/gui/resource/stock_text_align_center-16.png")));
+		centerJustifyButton.setIcon(Icons.stock_text_align_center.getImageIcon());
 		centerJustifyButton.setToolTipText("Center");
 		centerJustifyButton.setBorder(new EtchedBorder());
 		centerJustifyButton
@@ -1432,8 +1416,7 @@ public class NotesView extends JPanel
 
 		alignmentBar.add(centerJustifyButton);
 
-		rightJustifyButton.setIcon(new ImageIcon(getClass().getResource(
-			"/pcgen/gui/resource/stock_text_align_right-16.png")));
+		rightJustifyButton.setIcon(Icons.stock_text_align_right.getImageIcon());
 		rightJustifyButton.setToolTipText("Right Justify");
 		rightJustifyButton.setBorder(new EtchedBorder());
 		rightJustifyButton
@@ -1494,11 +1477,9 @@ public class NotesView extends JPanel
 
 	private void initEditingComponents()
 	{
-		bulletButton.setIcon(new ImageIcon(getClass().getResource(
-			"/pcgen/gui/resource/stock_list_bulet-16.png")));
+		bulletButton.setIcon(Icons.stock_list_bulet.getImageIcon());
 		bulletButton.setToolTipText("Bulleted List");
-		enumButton.setIcon(new ImageIcon(getClass().getResource(
-			"/pcgen/gui/resource/stock_list_enum-16.png")));
+		enumButton.setIcon(Icons.stock_list_enum.getImageIcon());
 		enumButton.setToolTipText("Numbered List");
 		enumButton.setText("");
 		bulletButton.setText("");

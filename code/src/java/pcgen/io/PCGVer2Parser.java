@@ -25,6 +25,7 @@
  */
 package pcgen.io;
 
+import java.awt.Rectangle;
 import java.math.BigDecimal;
 import java.net.URI;
 import java.util.ArrayList;
@@ -50,6 +51,7 @@ import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ListKey;
@@ -70,7 +72,9 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.BonusManager;
+import pcgen.core.BonusManager.TempBonusInfo;
 import pcgen.core.Campaign;
+import pcgen.core.ChronicleEntry;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
@@ -92,8 +96,8 @@ import pcgen.core.SpecialAbility;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.SubClass;
 import pcgen.core.SubstitutionClass;
+import pcgen.core.SystemCollections;
 import pcgen.core.WeaponProf;
-import pcgen.core.BonusManager.TempBonusInfo;
 import pcgen.core.analysis.AlignmentConverter;
 import pcgen.core.analysis.BonusAddition;
 import pcgen.core.analysis.DomainApplication;
@@ -112,6 +116,7 @@ import pcgen.core.character.SpellInfo;
 import pcgen.core.chooser.CDOMChoiceManager;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
+import pcgen.core.facade.SourceSelectionFacade;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
@@ -122,8 +127,9 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.ReferenceContext;
+import pcgen.system.FacadeFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
 import pcgen.util.enumeration.ProhibitedSpellType;
 
 /**
@@ -204,7 +210,76 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 */
 	public void parsePCG(String[] lines) throws PCGParseException
 	{
-		cachedLanguages.clear();
+		buildPcgLineCache(lines);
+
+		parseCachedLines();
+		resolveLanguages();
+	}
+
+	/**
+	 * Check the game mode and then build a list of campaigns the character 
+	 * requires to be loaded.
+	 *   
+	 * @param lines The PCG lines to be parsed.
+	 * @return The list of campaigns.
+	 * @throws PCGParseException If the lines are invalid 
+	 */
+	public SourceSelectionFacade parcePCGSourceOnly(String[] lines) throws PCGParseException
+	{
+		buildPcgLineCache(lines);
+
+		if (!cache.containsKey(TAG_GAMEMODE))
+		{
+			Logging.errorPrint("Character does not have game mode information.");
+			return null;
+		}
+		if (!cache.containsKey(TAG_CAMPAIGN))
+		{
+			Logging.errorPrint("Character does not have campaign information.");
+			return null;
+		}
+		String line = cache.get(TAG_GAMEMODE).get(0);
+		String requestedMode = line.substring(TAG_GAMEMODE.length() + 1);
+		GameMode mode = SystemCollections.getGameModeNamed(requestedMode);
+		if (mode == null)
+		{
+			for (GameMode gameMode : SystemCollections.getUnmodifiableGameModeList())
+			{
+				if (gameMode.getAllowedModes().contains(requestedMode))
+				{
+					mode = gameMode;
+					break;
+				}
+			}
+		}
+		//if mode == null still then a game mode was not found
+		if (mode == null)
+		{
+			Logging.errorPrint("Character's game mode entry was not valid: " + line);
+			return null;
+		}
+		/*
+		 * #System Information
+		 * CAMPAIGN:CMP - Monkey Book I - Book For Monkeys
+		 * CAMPAIGN:CMP - Monkey Book II - Book By Monkeys
+		 * ...
+		 *
+		 * first thing to do is checking campaigns - no matter what!
+		 */
+		List<Campaign> campaigns = getCampaignList(cache.get(TAG_CAMPAIGN));
+		if (campaigns.isEmpty())
+		{
+			Logging.errorPrint("Character's campaign entry was empty.");
+			return null;
+		}
+		return FacadeFactory.createSourceSelection(mode, campaigns);
+	}
+	
+	/**
+	 * @param lines
+	 */
+	private void buildPcgLineCache(String[] lines)
+	{
 		initCache(lines.length);
 
 		for (int i = 0; i < lines.length; ++i)
@@ -214,9 +289,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				cacheLine(lines[i].trim());
 			}
 		}
-
-		parseCachedLines();
-		resolveLanguages();
 	}
 
 	/*
@@ -370,7 +442,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		if (seenStats.size() != Globals.getContext().ref.getConstructedObjectCount(PCStat.class))
 		{
 			final String message =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"Exceptions.PCGenParser.WrongNumAttributes", //$NON-NLS-1$
 						seenStats.size(),
 						Globals.getContext().ref.getConstructedObjectCount(PCStat.class));
@@ -398,7 +470,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		catch (NumberFormatException nfe)
 		{
 			final String message =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"Warnings.PCGenParser.IllegalAgeLine", //$NON-NLS-1$
 						line);
 			warnings.add(message);
@@ -438,7 +510,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 
 		final String message =
-				PropertyFactory.getFormattedString(
+				LanguageBundle.getFormattedString(
 					"Warnings.PCGenParser.IllegalAlignment", //$NON-NLS-1$
 					line);
 		warnings.add(message);
@@ -1356,6 +1428,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			parsePortraitLine(cache.get(TAG_PORTRAIT).get(0));
 		}
 
+		if (cache.containsKey(TAG_PORTRAIT_THUMBNAIL_RECT))
+		{
+			parsePortraitThumbnailRectLine(cache.get(TAG_PORTRAIT_THUMBNAIL_RECT).get(0));
+		}
+
 		/*
 		 * #Character Weapon proficiencies
 		 */
@@ -1408,6 +1485,24 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 		}
 
+		if (cache.containsKey(TAG_CHRONICLE_ENTRY))
+		{
+			for (final String line : cache.get(TAG_CHRONICLE_ENTRY))
+			{
+				parseChronicleEntryLine(line);
+			}
+		}
+
+		if (cache.containsKey(TAG_SUPPRESS_BIO_FIELDS))
+		{
+			for (final String line : cache.get(TAG_SUPPRESS_BIO_FIELDS))
+			{
+				parseSupressBioFieldsLine(line);
+			}
+		}
+		
+		
+
 	}
 
 	/*
@@ -1418,146 +1513,123 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	private void parseCampaignLines(final List<String> lines)
 		throws PCGParseException
 	{
-		final List<Campaign> campaigns = new ArrayList<Campaign>();
-
-		if (SettingsHandler.isLoadCampaignsWithPC())
-		{
-			PCGTokenizer tokens;
-
-			List<URI> chosenCampaignSourcefiles = PersistenceManager.getInstance().getChosenCampaignSourcefiles();
-			Collection<Campaign> loaded = PersistenceManager.getInstance().getLoadedCampaigns();
-			// Check for the special condition - sources are nto yet loaded
-			if (loaded.isEmpty())
-			{
-				chosenCampaignSourcefiles.clear();
-				PersistenceManager.getInstance().setChosenCampaignSourcefiles(
-					chosenCampaignSourcefiles);
-			}
-			
-			for (final String line : lines)
-			{
-				try
-				{
-					tokens = new PCGTokenizer(line);
-				}
-				catch (PCGParseException pcgpex)
-				{
-					/*
-					 * Campaigns are critical for characters,
-					 * need to stop the load process
-					 *
-					 * Thomas Behr 14-08-02
-					 */
-					throw new PCGParseException(
-						"parseCampaignLines", line, pcgpex.getMessage()); //$NON-NLS-1$
-				}
-				GameMode game = SettingsHandler.getGame();
-				Set<String> modeNames = new HashSet<String>(game.getAllowedModes());
-				modeNames.add(game.getName());
-				for (PCGElement element : tokens.getElements())
-				{
-					final Campaign aCampaign =
-							Globals.getCampaignKeyed(element.getText());
-
-					if (aCampaign != null)
-					{
-						boolean match = false;
-						for (String mode : aCampaign.getSafeListFor(ListKey.GAME_MODE))
-						{
-							match = modeNames.contains(mode);
-							if (match)
-							{
-								break;
-							}
-						}
-						if (match)
-						{
-							if (!loaded.contains(aCampaign))
-							{
-								campaigns.add(aCampaign);
-								chosenCampaignSourcefiles.add(aCampaign.getSourceURI());
-							}
-						}
-					}
-				}
-			}
-
-			if (campaigns.size() > 0)
-			{
-				// First we check that the sources are valid to load.
-				boolean validSelection = true;
-				for (Campaign campaign : campaigns)
-				{
-					if (!campaign.qualifies(null, campaign))
-					{
-						StringBuffer errCampaigns = new StringBuffer();
-						for (Campaign c : loaded)
-						{
-							errCampaigns.append(" ").append(c.getDisplayName()).append("\n");
-						}
-						ShowMessageDelegate
-							.showMessageDialog(PropertyFactory
-								.getFormattedString(
-									"Warnings.PCGenParser.InvalidSources",
-									campaign.getDisplayName(), errCampaigns
-										.toString()), PropertyFactory
-								.getString("in_error"), MessageType.ERROR);
-						validSelection = false;
-						break;
-					}
-				}
-				for (Campaign campaign : loaded)
-				{
-					if (!campaign.qualifies(null, campaign))
-					{
-						StringBuffer errCampaigns = new StringBuffer();
-						for (Campaign c : campaigns)
-						{
-							errCampaigns.append(" ").append(c.getDisplayName()).append("\n");
-						}
-						ShowMessageDelegate.showMessageDialog(PropertyFactory
-							.getFormattedString(
-								"Warnings.PCGenParser.IncompatLoadedSources",
-								campaign.getDisplayName(), errCampaigns
-									.toString()), PropertyFactory
-							.getString("in_error"), MessageType.ERROR);
-						validSelection = false;
-						break;
-					}
-				}
-				
-				if (validSelection)
-				{
-					try
-					{
-						//PersistenceObserver observer = new PersistenceObserver();
-						PersistenceManager pManager =
-								PersistenceManager.getInstance();
-						//pManager.addObserver( observer );
-						pManager.loadCampaigns(campaigns);
-						//pManager.deleteObserver( observer );
-					}
-					catch (PersistenceLayerException e)
-					{
-						throw new PCGParseException(
-							"parseCampaignLines", "N/A", e.getMessage()); //$NON-NLS-1$ //$NON-NLS-2$
-					}
-				}
-
-				if (Globals.getUseGUI())
-				{
-					pcgen.gui.PCGen_Frame1.getInst().getMainSource()
-						.updateLoadedCampaignsUI();
-				}
-			}
-		}
 
 		if (!Globals.displayListsHappy())
 		{
 			throw new PCGParseException("parseCampaignLines", "N/A", //$NON-NLS-1$ //$NON-NLS-2$
-				PropertyFactory
+				LanguageBundle
 					.getString("Exceptions.PCGenParser.NoCampaignInfo")); //$NON-NLS-1$
 		}
+	}
+
+	/**
+	 * Retrieve a list of campaigns named on the supplied lines. 
+	 * @param lines The campaign lines from the PCG file.
+	 * @return The list of campaigns.
+	 * @throws PCGParseException 
+	 */
+	private List<Campaign> getCampaignList(List<String> lines) throws PCGParseException
+	{
+		
+		final List<Campaign> campaigns = new ArrayList<Campaign>();
+		PCGTokenizer tokens;
+
+		for (final String line : lines)
+		{
+			try
+			{
+				tokens = new PCGTokenizer(line);
+			}
+			catch (PCGParseException pcgpex)
+			{
+				/*
+				 * Campaigns are critical for characters,
+				 * need to stop the load process
+				 *
+				 * Thomas Behr 14-08-02
+				 */
+				throw new PCGParseException(
+						"parseCampaignLines", line, pcgpex.getMessage()); //$NON-NLS-1$
+			}
+
+			for (PCGElement element : tokens.getElements())
+			{
+				final Campaign aCampaign =
+						Globals.getCampaignKeyed(element.getText());
+
+				if (aCampaign != null)
+				{
+					campaigns.add(aCampaign);
+				}
+			}
+		}
+
+		return campaigns;
+	}
+
+	/**
+	 * Build a list of campaigns as specified on the supplied lines. 
+	 * @param lines The campaign lines from the PCG file.
+	 * @return The list of campaigns.
+	 * @throws PCGParseException If the line format is invalid
+	 */
+	private List<Campaign> getCampaignList(final List<String> lines, Collection<Campaign> loaded, List<URI> chosenCampaignSourcefiles)
+		throws PCGParseException
+	{
+		final List<Campaign> campaigns = new ArrayList<Campaign>();
+		PCGTokenizer tokens;
+
+		GameMode game = SettingsHandler.getGame();
+		Set<String> modeNames = new HashSet<String>(game.getAllowedModes());
+		modeNames.add(game.getName());
+
+		for (final String line : lines)
+		{
+			try
+			{
+				tokens = new PCGTokenizer(line);
+			}
+			catch (PCGParseException pcgpex)
+			{
+				/*
+				 * Campaigns are critical for characters,
+				 * need to stop the load process
+				 *
+				 * Thomas Behr 14-08-02
+				 */
+				throw new PCGParseException(
+					"parseCampaignLines", line, pcgpex.getMessage()); //$NON-NLS-1$
+			}
+
+			for (PCGElement element : tokens.getElements())
+			{
+				final Campaign aCampaign =
+						Globals.getCampaignKeyed(element.getText());
+
+				if (aCampaign != null)
+				{
+					boolean match = false;
+					for (String mode : aCampaign.getSafeListFor(ListKey.GAME_MODE))
+					{
+						match = modeNames.contains(mode);
+						if (match)
+						{
+							break;
+						}
+					}
+					if (match)
+					{
+						if (!loaded.contains(aCampaign))
+						{
+							campaigns.add(aCampaign);
+							chosenCampaignSourcefiles.add(aCampaign.getSourceURI());
+						}
+					}
+				}
+			}
+		}
+
+		return campaigns;
 	}
 
 	private void parseCatchPhraseLine(final String line)
@@ -1629,7 +1701,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		catch (PCGParseException pcgpex)
 		{
 			final String message =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"Warnings.PCGenParser.IllegalClassAbility" //$NON-NLS-1$
 						, line, pcgpex.getMessage());
 			warnings.add(message);
@@ -1656,7 +1728,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			if (index < 0)
 			{
 				final String message =
-						PropertyFactory.getFormattedString(
+						LanguageBundle.getFormattedString(
 							"Warnings.PCGenParser.InvalidClassLevel", //$NON-NLS-1$
 							element.getText());
 				warnings.add(message);
@@ -1671,7 +1743,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			if (aPCClass == null)
 			{
 				final String message =
-						PropertyFactory.getFormattedString(
+						LanguageBundle.getFormattedString(
 							"Warnings.PCGenParser.ClassNotFound", //$NON-NLS-1$
 							classKeyName);
 				warnings.add(message);
@@ -1688,7 +1760,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			catch (NumberFormatException nfe)
 			{
 				final String message =
-						PropertyFactory.getFormattedString(
+						LanguageBundle.getFormattedString(
 							"Warnings.PCGenParser.InvalidClassLevel", //$NON-NLS-1$
 							element.getText());
 				warnings.add(message);
@@ -1699,7 +1771,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			if (level < 1)
 			{
 				final String message =
-						PropertyFactory.getFormattedString(
+						LanguageBundle.getFormattedString(
 							"Warnings.PCGenParser.InvalidClassLevel", //$NON-NLS-1$
 							element.getText());
 				warnings.add(message);
@@ -1747,7 +1819,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				if (aSubstitutionClass == null)
 				{
 					final String message =
-							PropertyFactory.getFormattedString(
+							LanguageBundle.getFormattedString(
 								"Warnings.PCGenParser.ClassNotFound", //$NON-NLS-1$
 								substitutionClassKeyName);
 					warnings.add(message);
@@ -1770,7 +1842,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				catch (NumberFormatException nfe)
 				{
 					final String message =
-							PropertyFactory.getFormattedString(
+							LanguageBundle.getFormattedString(
 								"Warnings.PCGenParser.InvalidHP", //$NON-NLS-1$
 								tag, element.getText());
 					warnings.add(message);
@@ -1897,7 +1969,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						catch (NumberFormatException nfe)
 						{
 							final String msg =
-									PropertyFactory.getFormattedString(
+									LanguageBundle.getFormattedString(
 										"Warnings.PCGenParser.InvalidStatMod", //$NON-NLS-1$
 										tag, element.getText());
 							warnings.add(msg);
@@ -1906,7 +1978,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					else
 					{
 						final String msg =
-								PropertyFactory.getFormattedString(
+								LanguageBundle.getFormattedString(
 									"Warnings.PCGenParser.UnknownStat", //$NON-NLS-1$
 									tag, element.getText());
 						warnings.add(msg);
@@ -1915,7 +1987,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				else
 				{
 					final String msg =
-							PropertyFactory.getFormattedString(
+							LanguageBundle.getFormattedString(
 								"Warnings.PCGenParser.MissingEquals", //$NON-NLS-1$
 								tag, element.getText());
 					warnings.add(msg);
@@ -1940,7 +2012,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			else
 			{
 				final String msg =
-						PropertyFactory.getFormattedString(
+						LanguageBundle.getFormattedString(
 							"Warnings.PCGenParser.UnknownTag", //$NON-NLS-1$
 							tag, element.getText());
 				warnings.add(msg);
@@ -2069,7 +2141,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			else
 			{
 				final String msg =
-						PropertyFactory.getFormattedString(
+						LanguageBundle.getFormattedString(
 							"Warnings.PCGenParser.CouldntAddClass", //$NON-NLS-1$
 							element.getText());
 				warnings.add(msg);
@@ -2102,7 +2174,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						else
 						{
 							final String msg =
-									PropertyFactory.getFormattedString(
+									LanguageBundle.getFormattedString(
 										"Warnings.PCGenParser.InvalidSubclass", //$NON-NLS-1$
 										element.getText());
 							warnings.add(msg);
@@ -2121,7 +2193,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				catch (NumberFormatException nfe)
 				{
 					final String msg =
-							PropertyFactory.getFormattedString(
+							LanguageBundle.getFormattedString(
 								"Warnings.PCGenParser.InvalidLevel", //$NON-NLS-1$
 								element.getText());
 					warnings.add(msg);
@@ -2136,7 +2208,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				catch (NumberFormatException nfe)
 				{
 					final String msg =
-							PropertyFactory.getFormattedString(
+							LanguageBundle.getFormattedString(
 								"Warnings.PCGenParser.InvalidSkillPool", //$NON-NLS-1$
 								element.getText());
 					warnings.add(msg);
@@ -2223,7 +2295,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		catch (PCGParseException pcgpex)
 		{
 			final String msg =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"Warnings.PCGenParser.IllegalDeity", //$NON-NLS-1$
 						line, pcgpex.getMessage());
 			warnings.add(msg);
@@ -2247,7 +2319,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			// create Deity object from information contained in pcg
 			// for now issue a warning
 			final String msg =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"Warnings.PCGenParser.DeityNotFound", //$NON-NLS-1$
 						deityKey);
 			warnings.add(msg);
@@ -2265,7 +2337,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		catch (PCGParseException pcgpex)
 		{
 			final String msg =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"Warnings.PCGenParser.IllegalDomain", //$NON-NLS-1$
 						line, pcgpex.getMessage());
 			warnings.add(msg);
@@ -2295,7 +2367,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				// information contained in pcg
 				// But for now just issue a warning
 				final String msg =
-						PropertyFactory.getFormattedString(
+						LanguageBundle.getFormattedString(
 							"Warnings.PCGenParser.DomainNotFound", //$NON-NLS-1$
 							domainKey);
 				warnings.add(msg);
@@ -2366,7 +2438,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		catch (PCGParseException pcgpex)
 		{
 			final String msg =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"Warnings.PCGenParser.IllegalEquipSetTempBonus", //$NON-NLS-1$
 						line, pcgpex.getMessage());
 			warnings.add(msg);
@@ -2390,7 +2462,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		if (tagString == null)
 		{
 			final String msg =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"Warnings.PCGenParser.InvalidEquipSetTempBonus", //$NON-NLS-1$
 						line);
 			warnings.add(msg);
@@ -2482,7 +2554,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		catch (PCGParseException pcgpex)
 		{
 			final String msg =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"Warnings.PCGenParser.IllegalAbility", //$NON-NLS-1$
 						line, pcgpex.getMessage());
 			warnings.add(msg);
@@ -2510,7 +2582,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				// emit a warning that the category doesn't exists.
 				final String msg =
-						PropertyFactory.getFormattedString(
+						LanguageBundle.getFormattedString(
 							"Warnings.PCGenParser.AbilityCategoryNotFound", //$NON-NLS-1$
 							categoryKey);
 				warnings.add(msg);
@@ -2542,7 +2614,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			if (innateCategory == null)
 			{
 				// emit a warning that the category doesn't exists.
-				final String msg = PropertyFactory.getFormattedString(
+				final String msg = LanguageBundle.getFormattedString(
 						"Warnings.PCGenParser.AbilityCategoryNotFound", //$NON-NLS-1$
 						abilityCat);
 				warnings.add(msg);
@@ -2613,7 +2685,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					else
 					{
 						final String msg =
-								PropertyFactory
+								LanguageBundle
 									.getFormattedString(
 										"Warnings.PCGenParser.IllegalAbilityIgnored", //$NON-NLS-1$
 										line);
@@ -2675,7 +2747,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						.errorPrint("Failed to create virtual ability from line "
 							+ line);
 					final String msg =
-							PropertyFactory.getFormattedString(
+							LanguageBundle.getFormattedString(
 								"Warnings.PCGenParser.CouldntAddAbility", //$NON-NLS-1$
 								abilityKey);
 					warnings.add(msg);
@@ -2704,7 +2776,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		catch (PCGParseException pcgpex)
 		{
 			final String msg =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"Warnings.PCGenParser.IllegalFeat", //$NON-NLS-1$
 						line, pcgpex.getMessage());
 			warnings.add(msg);
@@ -2731,7 +2803,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 							AbilityCategory.FEAT, abilityKey);
 			if (anAbility == null)
 			{
-				final String msg = PropertyFactory.getFormattedString(
+				final String msg = LanguageBundle.getFormattedString(
 						"Warnings.PCGenParser.CouldntAddAbility", //$NON-NLS-1$
 						abilityKey);
 				warnings.add(msg);
@@ -2766,7 +2838,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		catch (NumberFormatException nfe)
 		{
 			final String msg =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"Warnings.PCGenParser.IllegalFeatPool", //$NON-NLS-1$
 						line);
 			warnings.add(msg);
@@ -2784,7 +2856,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		catch (PCGParseException pcgpex)
 		{
 			final String msg =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"Warnings.PCGenParser.IllegalAbilityPool", //$NON-NLS-1$
 						line, pcgpex.getMessage());
 			warnings.add(msg);
@@ -2804,7 +2876,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		catch (NumberFormatException nfe)
 		{
 			final String msg =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"Warnings.PCGenParser.IllegalAbilityPool", //$NON-NLS-1$
 						line);
 			warnings.add(msg);
@@ -2863,7 +2935,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					else
 					{
 						final String msg =
-								PropertyFactory.getFormattedString(
+								LanguageBundle.getFormattedString(
 									"Warnings.PCGenParser.IllegalFeatIgnored", //$NON-NLS-1$
 									line);
 						warnings.add(msg);
@@ -2922,7 +2994,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		catch (PCGParseException pcgpex)
 		{
 			final String msg =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"Warnings.PCGenParser.IllegalFollower", //$NON-NLS-1$
 						line, pcgpex.getMessage());
 			warnings.add(msg);
@@ -3009,7 +3081,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		if (!requestedMode.equals(currentMode))
 		{
 			final String msg =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"Exceptions.PCGenParser.WrongGameMode", //$NON-NLS-1$
 						requestedMode, currentMode);
 			throw new PCGParseException("ParseGameMode", line, msg); //$NON-NLS-1$
@@ -3084,7 +3156,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		catch (NumberFormatException nfe)
 		{
 			final String msg =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"Warnings.PCGenParser.IllegalHeight", //$NON-NLS-1$
 						line);
 			warnings.add(msg);
@@ -3120,7 +3192,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		if (aKit == null)
 		{
 			final String msg =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"Warnings.PCGenParser.KitNotFound", //$NON-NLS-1$
 						line);
 			warnings.add(msg);
@@ -3147,7 +3219,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		catch (PCGParseException pcgpex)
 		{
 			final String msg =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"Warnings.PCGenParser.IllegalLanguage", //$NON-NLS-1$
 						line, pcgpex.getMessage());
 			warnings.add(msg);
@@ -3198,7 +3270,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		catch (PCGParseException pcgpex)
 		{
 			final String msg =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"Warnings.PCGenParser.IllegalMaster", //$NON-NLS-1$
 						line, pcgpex.getMessage());
 			warnings.add(msg);
@@ -3286,7 +3358,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		catch (PCGParseException pcgpex)
 		{
 			final String msg =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"Warnings.PCGenParser.IllegalNotes", //$NON-NLS-1$
 						line, pcgpex.getMessage());
 			warnings.add(msg);
@@ -3317,7 +3389,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					ni.setIdValue(-1);
 
 					final String msg =
-							PropertyFactory.getFormattedString(
+							LanguageBundle.getFormattedString(
 								"Warnings.PCGenParser.InvalidNotes", //$NON-NLS-1$
 								line);
 					warnings.add(msg);
@@ -3336,7 +3408,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					ni.setIdValue(-1);
 
 					final String msg =
-							PropertyFactory.getFormattedString(
+							LanguageBundle.getFormattedString(
 								"Warnings.PCGenParser.InvalidNotes", //$NON-NLS-1$
 								line);
 					warnings.add(msg);
@@ -3356,6 +3428,106 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 	}
 
+	/*
+	 * ###############################################################
+	 * Character Chronicle Entry methods
+	 * ###############################################################
+	 */
+	private void parseChronicleEntryLine(final String line)
+	{
+		final PCGTokenizer tokens;
+
+		try
+		{
+			tokens = new PCGTokenizer(line);
+		}
+		catch (PCGParseException pcgpex)
+		{
+			final String msg =
+					LanguageBundle.getFormattedString(
+						"Warnings.PCGenParser.IllegalChronicleEntry", //$NON-NLS-1$
+						line, pcgpex.getMessage());
+			warnings.add(msg);
+
+			return;
+		}
+
+		final ChronicleEntry ce = new ChronicleEntry();
+
+		for (PCGElement element : tokens.getElements())
+		{
+			final String tag = element.getName();
+
+			if (TAG_CHRONICLE_ENTRY.equals(tag))
+			{
+				ce.setOutputEntry("Y".equals(element.getText()));
+			}
+			else if (TAG_EXPERIENCE.equals(tag))
+			{
+				try
+				{
+					ce.setXpField(Integer.parseInt(element.getText()));
+				}
+				catch (NumberFormatException nfe)
+				{
+					ce.setXpField(0);
+
+					final String msg =
+							LanguageBundle.getFormattedString(
+								"Warnings.PCGenParser.InvalidChronicleEntry", //$NON-NLS-1$
+								line);
+					warnings.add(msg);
+
+					break;
+				}
+			}
+			else if (TAG_CAMPAIGN.equals(tag))
+			{
+				ce.setCampaign(EntityEncoder.decode(element.getText()));
+			}
+			else if (TAG_ADVENTURE.equals(tag))
+			{
+				ce.setAdventure(EntityEncoder.decode(element.getText()));
+			}
+			else if (TAG_PARTY.equals(tag))
+			{
+				ce.setParty(EntityEncoder.decode(element.getText()));
+			}
+			else if (TAG_DATE.equals(tag))
+			{
+				ce.setDate(EntityEncoder.decode(element.getText()));
+			}
+			else if (TAG_GM.equals(tag))
+			{
+				ce.setGmField(EntityEncoder.decode(element.getText()));
+			}
+			else if (TAG_CHRONICLE.equals(tag))
+			{
+				ce.setChronicle(EntityEncoder.decode(element.getText()));
+			}
+		}
+
+		thePC.addChronicleEntry(ce);
+	}
+
+	/**
+	 * Biography fields that are to be hidden from output.
+	 * @param line The SUPPRESS_BIO_FIELDS line
+	 */
+	private void parseSupressBioFieldsLine(final String line)
+	{
+		String fieldNames = EntityEncoder.decode(line
+			.substring(TAG_SUPPRESS_BIO_FIELDS.length() + 1));
+		if (!fieldNames.isEmpty())
+		{
+			String[] names = fieldNames.split("\\|");
+			for (String field : names)
+			{
+				thePC.setSuppressBioField(BiographyField.valueOf(field), true);
+			}
+		}
+	}
+	
 	/**
 	 * # PDF Output Sheet location
 	 * @param line
@@ -3411,7 +3583,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		catch (NumberFormatException nfe)
 		{
 			final String msg =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"Warnings.PCGenParser.InvalidPoolPoints", //$NON-NLS-1$
 						line);
 			warnings.add(msg);
@@ -3428,7 +3600,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		catch (NumberFormatException nfe)
 		{
 			final String msg =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"Warnings.PCGenParser.InvalidPoolPoints", //$NON-NLS-1$
 						line);
 			warnings.add(msg);
@@ -3439,6 +3611,15 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	{
 		thePC.setPortraitPath(EntityEncoder.decode(line.substring(TAG_PORTRAIT
 			.length() + 1)));
+	}
+
+	private void parsePortraitThumbnailRectLine(final String line)
+	{
+		String[] dim = line.substring(TAG_PORTRAIT_THUMBNAIL_RECT
+				.length() + 1).split(",");
+		Rectangle rect = new Rectangle(Integer.parseInt(dim[0]), Integer.parseInt(dim[1]), 
+				Integer.parseInt(dim[2]), Integer.parseInt(dim[3]));
+		thePC.setPortraitThumbnailRect(rect);
 	}
 
 	private void parseRaceLine(final String line) throws PCGParseException
@@ -3453,7 +3634,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		if (aRace == null)
 		{
-			final String msg = PropertyFactory.getFormattedString(
+			final String msg = LanguageBundle.getFormattedString(
 					"Exceptions.PCGenParser.RaceNotFound", //$NON-NLS-1$
 					race_name);
 			throw new PCGParseException("parseRaceLine", line, msg); //$NON-NLS-1$
@@ -3468,7 +3649,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else
 			{
-				final String msg = PropertyFactory.getFormattedString(
+				final String msg = LanguageBundle.getFormattedString(
 						"Warnings.PCGenParser.UnknownRaceInfo", //$NON-NLS-1$
 						aString);
 				warnings.add(msg);
@@ -3516,7 +3697,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			if (i >= hitDice)
 			{
 				final String msg =
-						PropertyFactory.getFormattedString(
+						LanguageBundle.getFormattedString(
 							"Warnings.PCGenParser.RaceFewerHD", //$NON-NLS-1$
 							race_name);
 				warnings.add(msg);
@@ -3539,7 +3720,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		if (i < hitDice)
 		{
 			final String msg =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"Warnings.PCGenParser.RaceMoreHD", //$NON-NLS-1$
 						race_name);
 			warnings.add(msg);
@@ -4967,7 +5148,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			if (aEquip == null)
 			{
 				final String msg =
-						PropertyFactory.getFormattedString(
+						LanguageBundle.getFormattedString(
 							"Warnings.PCGenParser.EquipmentNotFound", //$NON-NLS-1$
 							itemKey);
 				warnings.add(msg);

@@ -45,7 +45,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import pcgen.gui.utils.IconUtilitities;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>AvailableSelectedPanel</code>
@@ -284,7 +284,7 @@ class AvailableSelectedPanel extends JPanel
 
 		pnlAvailable.setLayout(new GridBagLayout());
 
-		lblAvailable.setText(PropertyFactory.getString("in_available"));
+		lblAvailable.setText(LanguageBundle.getString("in_available"));
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
 		gridBagConstraints.insets = new Insets(2, 5, 2, 5);
@@ -372,7 +372,7 @@ class AvailableSelectedPanel extends JPanel
 			pnlSelected.add(btnAdd, gridBagConstraints);
 		}
 
-		lblSelected.setText(PropertyFactory.getString("in_selected"));
+		lblSelected.setText(LanguageBundle.getString("in_selected"));
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
 		gridBagConstraints.insets = new Insets(2, 5, 2, 5);
@@ -462,7 +462,7 @@ class AvailableSelectedPanel extends JPanel
 			gridBagConstraints.anchor = GridBagConstraints.WEST;
 			pnlSelected2.add(btnAdd2, gridBagConstraints);
 
-			lblSelected2.setText(PropertyFactory.getString("in_selected"));
+			lblSelected2.setText(LanguageBundle.getString("in_selected"));
 			gridBagConstraints = new GridBagConstraints();
 			gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
 			gridBagConstraints.insets = new Insets(2, 5, 2, 5);

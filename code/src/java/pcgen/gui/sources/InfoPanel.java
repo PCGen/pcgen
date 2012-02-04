@@ -42,7 +42,7 @@ import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.Utility;
 import pcgen.persistence.PersistenceManager;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 
@@ -84,12 +84,12 @@ public class InfoPanel extends JPanel
 		sourcesPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		sourcesPanel.setLayout(new java.awt.GridBagLayout());
 		
-		JLabel jLabel1 = new JLabel(PropertyFactory.getString("in_si_intro"));
+		JLabel jLabel1 = new JLabel(LanguageBundle.getString("in_si_intro"));
 		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
 			0.0, 0.0);
 		sourcesPanel.add(jLabel1, gbc);
 
-		jLabel1 = new JLabel(PropertyFactory.getString("in_si_gamemode"));
+		jLabel1 = new JLabel(LanguageBundle.getString("in_si_gamemode"));
 		Utility.buildRelativeConstraints(gbc, 1, 1,
 			0.0, 0.0);
 		sourcesPanel.add(jLabel1, gbc);
@@ -100,7 +100,7 @@ public class InfoPanel extends JPanel
 			0.0, 0.0);
 		sourcesPanel.add(gameMode, gbc);
 
-		jLabel1 = new JLabel(PropertyFactory.getString("in_si_sources"));
+		jLabel1 = new JLabel(LanguageBundle.getString("in_si_sources"));
 		Utility.buildRelativeConstraints(gbc, 1, 1,
 			0.0, 0.0);
 		sourcesPanel.add(jLabel1, gbc);
@@ -116,7 +116,7 @@ public class InfoPanel extends JPanel
 		
 		infoPane.setOpaque(false);
 		infoPane.setContentType("text/html"); //$NON-NLS-1$
-		infoPane.setText(PropertyFactory.getFormattedString("in_si_whatnext", 
+		infoPane.setText(LanguageBundle.getFormattedString("in_si_whatnext",
 			IconUtilitities.class.getResource(IconUtilitities.RESOURCE_URL+"New16.gif"), 
 			IconUtilitities.class.getResource(IconUtilitities.RESOURCE_URL+"NewNPC16.gif"), 
 			IconUtilitities.class.getResource(IconUtilitities.RESOURCE_URL+"Open16.gif")));
@@ -163,7 +163,7 @@ public class InfoPanel extends JPanel
 		}
 		else
 		{
-			sourceList.setText(PropertyFactory.getString("in_si_nosources"));
+			sourceList.setText(LanguageBundle.getString("in_si_nosources"));
 		}
 	}
 }

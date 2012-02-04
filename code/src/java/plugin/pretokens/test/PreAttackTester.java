@@ -32,7 +32,7 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * Prerequisite test the type of a piece of armour.
@@ -60,10 +60,8 @@ public class PreAttackTester extends AbstractPrerequisiteTest implements Prerequ
 		}
 		catch (NumberFormatException exc)
 		{
-			throw new PrerequisiteException(
-				PropertyFactory.getFormattedString(
-					"PreAttack.error.badly_formed_attribute", //$NON-NLS-1$
-					prereq.getOperand()));
+			throw new PrerequisiteException(LanguageBundle.getFormattedString(
+				"PreAttack.error.badly_formed_attribute", prereq.getOperand())); //$NON-NLS-1$
 		}
 
 		return countedTotal(prereq, runningTotal);
@@ -84,10 +82,9 @@ public class PreAttackTester extends AbstractPrerequisiteTest implements Prerequ
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		return PropertyFactory.getFormattedString(
-			"PreAttack.toHtml",  //$NON-NLS-1$
-			prereq.getOperator().toDisplayString(),
-			prereq.getOperand());
+		return LanguageBundle
+			.getFormattedString(
+				"PreAttack.toHtml", new Object[]{prereq.getOperator().toDisplayString(), prereq.getOperand()}); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 }

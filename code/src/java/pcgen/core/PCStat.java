@@ -23,6 +23,7 @@ package pcgen.core;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.facade.StatFacade;
 
 /**
  * <code>PCStat</code>.
@@ -30,7 +31,7 @@ import pcgen.cdom.enumeration.StringKey;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public final class PCStat extends PObject
+public final class PCStat extends PObject implements StatFacade
 {
 	public String getAbb()
 	{
@@ -50,5 +51,21 @@ public final class PCStat extends PObject
 		}
 
 		return sb.toString();
+	}
+
+	/* (non-Javadoc)
+	 * @see pcgen.core.facade.StatFacade#getAbbreviation()
+	 */
+	public String getAbbreviation()
+	{
+		return getAbb();
+	}
+
+	/* (non-Javadoc)
+	 * @see pcgen.core.facade.StatFacade#getName()
+	 */
+	public String getName()
+	{
+		return getDisplayName();
 	}
 }

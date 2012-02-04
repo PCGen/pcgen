@@ -23,7 +23,7 @@
 package pcgen.gui.editor;
 
 import pcgen.gui.utils.IconUtilitities;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -53,7 +53,7 @@ class TypePanel extends AvailableSelectedPanel
 	 */
 	TypePanel(final String qtext)
 	{
-		this(qtext, PropertyFactory.getString("in_type"));
+		this(qtext, LanguageBundle.getString("in_type"));
 	}
 
 	TypePanel(final String qtext, final String title)

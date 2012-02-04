@@ -52,7 +52,7 @@ import pcgen.gui.TableColumnManagerModel;
 import pcgen.gui.utils.AbstractTreeTableModel;
 import pcgen.gui.utils.PObjectNode;
 import pcgen.gui.utils.TreeTableModel;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -401,11 +401,11 @@ public class AbilityModel extends AbstractTreeTableModel implements
 				{
 					if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 					{
-						retVal = PropertyFactory.getString("in_yes"); //$NON-NLS-1$
+						retVal = LanguageBundle.getString("in_yes"); //$NON-NLS-1$
 					}
 					else
 					{
-						retVal = PropertyFactory.getString("in_no"); //$NON-NLS-1$
+						retVal = LanguageBundle.getString("in_no"); //$NON-NLS-1$
 					}
 				}
 				break;
@@ -414,11 +414,11 @@ public class AbilityModel extends AbstractTreeTableModel implements
 				{
 					if (ability.getSafe(ObjectKey.STACKS))
 					{
-						retVal = PropertyFactory.getString("in_yes"); //$NON-NLS-1$
+						retVal = LanguageBundle.getString("in_yes"); //$NON-NLS-1$
 					}
 					else
 					{
-						retVal = PropertyFactory.getString("in_no"); //$NON-NLS-1$
+						retVal = LanguageBundle.getString("in_no"); //$NON-NLS-1$
 					}
 				}
 				break;
@@ -1178,7 +1178,7 @@ public class AbilityModel extends AbstractTreeTableModel implements
 		Column(final String aName, final int aDefaultWidth,
 			final boolean visible)
 		{
-			theName = PropertyFactory.getString(aName);
+			theName = LanguageBundle.getString(aName);
 			theWidth = aDefaultWidth;
 			theVisibleFlag = visible;
 		}

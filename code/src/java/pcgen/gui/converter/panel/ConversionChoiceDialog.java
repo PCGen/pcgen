@@ -38,7 +38,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 
 import pcgen.gui.utils.Utility;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * The Class <code>ConversionChoiceDialog</code> is responsible for 
@@ -122,7 +122,7 @@ public class ConversionChoiceDialog extends JDialog implements
 		add(dummy, gbc);
 
 		JButton okButton =
-				new JButton(PropertyFactory.getString("in_ok"));
+				new JButton(LanguageBundle.getString("in_ok"));
 		okButton.addActionListener(this);
 		getRootPane().setDefaultButton(okButton);
 		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER,

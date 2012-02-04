@@ -25,7 +25,7 @@ import pcgen.gui.sources.SourceSelectionDialog;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.Utility;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import javax.swing.JMenu;
 import java.awt.event.ActionEvent;
@@ -51,9 +51,9 @@ final class Options extends JMenu // extends Preferences
 	/** Creates new form Options */
 	public Options()
 	{
-		setText(PropertyFactory.getString("in_mnuSettings"));
-		setMnemonic(PropertyFactory.getMnemonic("in_mn_mnuSettings"));
-		Utility.setDescription(this, PropertyFactory.getString("in_mnuSettingsTip"));
+		setText(LanguageBundle.getString("in_mnuSettings"));
+		setMnemonic(LanguageBundle.getMnemonic("in_mn_mnuSettings"));
+		Utility.setDescription(this, LanguageBundle.getString("in_mnuSettingsTip"));
 
 		IconUtilitities.maybeSetIcon(this, "Preferences16.gif");
 
@@ -120,7 +120,7 @@ final class Options extends JMenu // extends Preferences
 	{
 		public void actionPerformed(ActionEvent actionEvent)
 		{
-			PCGen_Frame1.setMessageAreaText(PropertyFactory
+			PCGen_Frame1.setMessageAreaText(LanguageBundle
 				.getString("in_qsrc_messageText"));
 
 			SourceSelectionDialog dialog =

@@ -32,7 +32,7 @@ import javax.swing.JPanel;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.Race;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>AppearancePanel</code>
@@ -173,12 +173,12 @@ final class AppearancePanel extends JPanel implements PObjectUpdater<Race>
 	{
 		GridBagConstraints gridBagConstraints;
 
-		pnlHairColor = new TypePanel(PropertyFactory.getString("in_appNewHairColor"),
-				PropertyFactory.getString("in_appHairColor"));
-		pnlEyeColor = new TypePanel(PropertyFactory.getString("in_appNewEyeColor"),
-				PropertyFactory.getString("in_appEyeColor"));
-		pnlSkinTone = new TypePanel(PropertyFactory.getString("in_appNewSkintoneColor"),
-				PropertyFactory.getString("in_appSkintoneColor"));
+		pnlHairColor = new TypePanel(LanguageBundle.getString("in_appNewHairColor"),
+				LanguageBundle.getString("in_appHairColor"));
+		pnlEyeColor = new TypePanel(LanguageBundle.getString("in_appNewEyeColor"),
+				LanguageBundle.getString("in_appEyeColor"));
+		pnlSkinTone = new TypePanel(LanguageBundle.getString("in_appNewSkintoneColor"),
+				LanguageBundle.getString("in_appSkintoneColor"));
 
 		this.setLayout(new GridBagLayout());
 

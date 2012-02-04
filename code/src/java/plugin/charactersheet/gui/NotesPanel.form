@@ -68,7 +68,7 @@
             <Component class="javax.swing.JButton" name="addButton">
               <Properties>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="PropertyFactory.getString(&quot;in_add&quot;)" type="code"/>
+                  <Connection code="pcgen.system.LanguageBundle.getString(&quot;in_add&quot;)" type="code"/>
                 </Property>
               </Properties>
               <Events>
@@ -78,7 +78,7 @@
             <Component class="javax.swing.JButton" name="deleteButton">
               <Properties>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="PropertyFactory.getString(&quot;in_delete&quot;)" type="code"/>
+                  <Connection code="pcgen.system.LanguageBundle.getString(&quot;in_delete&quot;)" type="code"/>
                 </Property>
               </Properties>
               <Events>
@@ -88,7 +88,7 @@
             <Component class="javax.swing.JButton" name="renameButton">
               <Properties>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="PropertyFactory.getString(&quot;in_rename&quot;)" type="code"/>
+                  <Connection code="pcgen.system.LanguageBundle.getString(&quot;in_rename&quot;)" type="code"/>
                 </Property>
               </Properties>
               <Events>
@@ -98,7 +98,7 @@
             <Component class="javax.swing.JButton" name="moveButton">
               <Properties>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="PropertyFactory.getString(&quot;in_move&quot;)" type="code"/>
+                  <Connection code="pcgen.system.LanguageBundle.getString(&quot;in_move&quot;)" type="code"/>
                 </Property>
               </Properties>
               <Events>

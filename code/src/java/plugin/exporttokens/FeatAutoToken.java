@@ -1,17 +1,22 @@
 package plugin.exporttokens;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.AbilityToken;
 
 /**
  * @author karianna
  * Class deals with FEATAUTO Token
  */
-public class FeatAutoToken extends AbilityAutoToken
+public class FeatAutoToken extends AbilityToken
 {
 
 	/**
@@ -28,7 +33,7 @@ public class FeatAutoToken extends AbilityAutoToken
 	 */
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+						   ExportHandler eh)
 	{
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		final String fString = aTok.nextToken();
@@ -36,6 +41,27 @@ public class FeatAutoToken extends AbilityAutoToken
 				SettingsHandler.getGame().getAbilityCategory("FEAT");
 
 		return getTokenForCategory(tokenSource, pc, eh, aTok, fString,
-			aCategory);
+								   aCategory);
 	}
+
+	/**
+	 * @see pcgen.io.exporttoken.AbilityToken#getAbilityList(pcgen.core.PlayerCharacter, pcgen.core.AbilityCategory)
+	 */
+	@Override
+	protected List<Ability> getAbilityList(PlayerCharacter pc,
+										   final AbilityCategory aCategory)
+	{
+		final List<Ability> abilityList = new ArrayList<Ability>();
+		Collection<AbilityCategory> allCats =
+				SettingsHandler.getGame().getAllAbilityCategories();
+		for (AbilityCategory aCat : allCats)
+		{
+			if (aCat.getParentCategory().equals(aCategory))
+			{
+				abilityList.addAll(pc.getAutomaticAbilityList(aCat));
+			}
+		}
+		return abilityList;
+	}
+
 }

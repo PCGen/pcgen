@@ -92,11 +92,11 @@ import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.JTableEx;
 import pcgen.gui.utils.TableSorter;
 import pcgen.gui.utils.Utility;
+import pcgen.system.LanguageBundle;
 import pcgen.util.Delta;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
 
 /**
  * Item customizer main panel. Allows a user to customize an item and
@@ -191,7 +191,7 @@ final class EqBuilder extends JPanel
 	public void setParentWindow(EQFrame aFrame)
 	{
 		parentFrame = aFrame;
-		Globals.setCurrentFrame(parentFrame);
+		//Globals.setCurrentFrame(parentFrame);
 	}
 
 	/**
@@ -413,7 +413,7 @@ final class EqBuilder extends JPanel
 		jButtonAdd1.setEnabled(false);
 		jButtonAdd2.setEnabled(false);
 
-		Globals.setCurrentFrame(parentFrame);
+		//Globals.setCurrentFrame(parentFrame);
 
 		//
 		// Trash the cost modifications
@@ -852,7 +852,7 @@ final class EqBuilder extends JPanel
 
 		jPanel21.add(
 			new JLabel(
-				PropertyFactory.getString("in_EqBuilder_Sel1"),
+				LanguageBundle.getString("in_EqBuilder_Sel1"),
 				SwingConstants.CENTER),
 			BorderLayout.NORTH);
 		jPanel21.add(jScroll_ListSelected1, BorderLayout.CENTER);
@@ -953,7 +953,7 @@ final class EqBuilder extends JPanel
 
 		jPanel23.add(
 			new JLabel(
-				PropertyFactory.getString("in_EqBuilder_Sel2"),
+				LanguageBundle.getString("in_EqBuilder_Sel2"),
 				SwingConstants.CENTER),
 			BorderLayout.NORTH);
 		jPanel23.add(jScroll_ListSelected2, BorderLayout.CENTER);
@@ -1021,7 +1021,7 @@ final class EqBuilder extends JPanel
 	private void jButtonCancelActionPerformed()
 	{
 		doCleanUp();
-		((EQFrame) getRootPane().getParent()).exitItem_actionPerformed(true);
+		((EQFrame) getRootPane().getParent()).exitItem_actionPerformed(true, null, false);
 	}
 
 	private void jButtonCostActionPerformed()
@@ -1179,10 +1179,10 @@ final class EqBuilder extends JPanel
 		}
 
 		Globals.getContext().ref.importObject(aNewEq);
-		PCGen_Frame1.getInst().eqList_Changed(aNewEq, bPurchase);
+		//PCGen_Frame1.getInst().eqList_Changed(aNewEq, bPurchase);
 
+		((EQFrame) getRootPane().getParent()).exitItem_actionPerformed(false, aNewEq, bPurchase);
 		doCleanUp();
-		((EQFrame) getRootPane().getParent()).exitItem_actionPerformed(false);
 	}
 
 	private void jButtonRemove1ActionPerformed()
@@ -1950,8 +1950,8 @@ final class EqBuilder extends JPanel
 			showItemInfo(aPC);
 		}
 		//getRootPane().getParent().requestFocus();
-		((EQFrame)getRootPane().getParent()).setVisible(true);
-		((EQFrame)getRootPane().getParent()).toFront();
+		//((EQFrame)getRootPane().getParent()).setVisible(true);
+		//((EQFrame)getRootPane().getParent()).toFront();
 	}
 
 	/**

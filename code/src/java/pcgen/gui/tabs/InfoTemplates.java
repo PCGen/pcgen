@@ -107,7 +107,7 @@ import pcgen.gui.utils.ResizeColumnListener;
 import pcgen.gui.utils.TreeTableModel;
 import pcgen.gui.utils.Utility;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.Visibility;
 
@@ -128,7 +128,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 	//Available Table
 	private JLabel sortLabel =
-			new JLabel(PropertyFactory.getString("in_irSortTempl"));
+			new JLabel(LanguageBundle.getString("in_irSortTempl"));
 	private JComboBoxEx viewComboBox = new JComboBoxEx();
 	private int viewMode = 0;
 	private final JLabel lblQFilter = new JLabel("Filter:");
@@ -145,7 +145,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 	//Selected Table
 	private JLabel selSortLabel =
-			new JLabel(PropertyFactory.getString("in_irSortTemplSel"));
+			new JLabel(LanguageBundle.getString("in_irSortTemplSel"));
 	private JComboBoxEx viewSelComboBox = new JComboBoxEx();
 	private int viewSelMode = 0;
 	private JButton removeButton;
@@ -326,9 +326,9 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		}
 
 		Collections.sort(typeList);
-		if (!typeList.contains(PropertyFactory.getString("in_other")))
+		if (!typeList.contains(LanguageBundle.getString("in_other")))
 		{
-			typeList.add(PropertyFactory.getString("in_other"));
+			typeList.add(LanguageBundle.getString("in_other"));
 		}
 		PObjectNode[] pTypes = new PObjectNode[typeList.size()];
 		for (int i = 0; i < pTypes.length; i++)
@@ -363,9 +363,9 @@ public class InfoTemplates extends BaseCharacterInfoTab
 			viewMode = iView;
 		}
 		SettingsHandler.setTemplateTab_ListMode(viewMode);
-		viewComboBox.addItem(PropertyFactory.getString("in_nameLabel"));
-		viewComboBox.addItem(PropertyFactory.getString("in_typeName"));
-		viewComboBox.addItem(PropertyFactory.getString("in_sourceName"));
+		viewComboBox.addItem(LanguageBundle.getString("in_nameLabel"));
+		viewComboBox.addItem(LanguageBundle.getString("in_typeName"));
+		viewComboBox.addItem(LanguageBundle.getString("in_sourceName"));
 		viewComboBox.setSelectedIndex(viewMode);
 
 		iView = SettingsHandler.getTemplateSelTab_ListMode();
@@ -375,9 +375,9 @@ public class InfoTemplates extends BaseCharacterInfoTab
 			viewSelMode = iView;
 		}
 		SettingsHandler.setTemplateSelTab_ListMode(viewSelMode);
-		viewSelComboBox.addItem(PropertyFactory.getString("in_nameLabel"));
-		viewSelComboBox.addItem(PropertyFactory.getString("in_typeName"));
-		viewSelComboBox.addItem(PropertyFactory.getString("in_sourceName"));
+		viewSelComboBox.addItem(LanguageBundle.getString("in_nameLabel"));
+		viewSelComboBox.addItem(LanguageBundle.getString("in_typeName"));
+		viewSelComboBox.addItem(LanguageBundle.getString("in_sourceName"));
 		viewSelComboBox.setSelectedIndex(viewSelMode);
 
 		createModels();
@@ -484,7 +484,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 		JPanel bottomLeftPanel = new JPanel();
 		addButton = new JButton(IconUtilitities.getImageIcon("Forward16.gif"));
-		Utility.setDescription(addButton, PropertyFactory
+		Utility.setDescription(addButton, LanguageBundle
 			.getString("in_irTemplAddTip"));
 		addButton.setEnabled(true);
 		bottomLeftPanel.add(addButton);
@@ -512,7 +512,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 
 		JPanel rightBottomPanel = new JPanel();
 		removeButton = new JButton(IconUtilitities.getImageIcon("Back16.gif"));
-		Utility.setDescription(removeButton, PropertyFactory
+		Utility.setDescription(removeButton, LanguageBundle
 			.getString("in_irTemplRemoveTip"));
 		removeButton.setEnabled(true);
 		rightBottomPanel.add(removeButton);
@@ -534,7 +534,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		JScrollPane scroll = new JScrollPane();
 
 		TitledBorder title1 =
-				BorderFactory.createTitledBorder(PropertyFactory
+				BorderFactory.createTitledBorder(LanguageBundle
 					.getString("in_irTemplateInfo"));
 		title1.setTitleJustification(TitledBorder.CENTER);
 		scroll.setBorder(title1);
@@ -726,7 +726,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 	private void formComponentShown()
 	{
 		requestFocus();
-		PCGen_Frame1.setMessageAreaTextWithoutSaving(PropertyFactory
+		PCGen_Frame1.setMessageAreaTextWithoutSaving(LanguageBundle
 			.getString("in_irSelectTemplate"));
 		refresh();
 
@@ -867,7 +867,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		}
 		else
 		{
-			JOptionPane.showMessageDialog(null, PropertyFactory
+			JOptionPane.showMessageDialog(null, LanguageBundle
 				.getString("in_irHaveTemplate"));
 		}
 
@@ -902,7 +902,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		}
 		else
 		{
-			JOptionPane.showMessageDialog(null, PropertyFactory
+			JOptionPane.showMessageDialog(null, LanguageBundle
 				.getString("in_irNotRemovable"));
 		}
 
@@ -913,7 +913,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 	{
 		if (lastTemplate == null)
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory
+			ShowMessageDelegate.showMessageDialog(LanguageBundle
 				.getString("in_irNoTemplate"), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 		}
@@ -1036,11 +1036,11 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		private static final int COL_SRC = 4;
 
 		private final String[] COL_NAMES =
-				new String[]{PropertyFactory.getString("in_nameLabel"),
-					PropertyFactory.getString("in_lvlAdj"),
-					PropertyFactory.getString("in_modifier"),
-					PropertyFactory.getString("in_preReqs"),
-					PropertyFactory.getString("in_source")};
+				new String[]{LanguageBundle.getString("in_nameLabel"),
+					LanguageBundle.getString("in_lvlAdj"),
+					LanguageBundle.getString("in_modifier"),
+					LanguageBundle.getString("in_preReqs"),
+					LanguageBundle.getString("in_source")};
 
 		private final int[] COL_DEFAULT_WIDTH = {200, 35, 35, 100, 100};
 		private int modelType = 0; // availableModel=0,selectedModel=1
@@ -1512,12 +1512,12 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		{
 			if (treeTable == availableTable)
 			{
-				TemplatePopupMenu.this.add(createAddMenuItem(PropertyFactory
+				TemplatePopupMenu.this.add(createAddMenuItem(LanguageBundle
 					.getString("in_irAddTemplate"), "shortcut EQUALS"));
 			}
 			else
 			{
-				TemplatePopupMenu.this.add(createRemoveMenuItem(PropertyFactory
+				TemplatePopupMenu.this.add(createRemoveMenuItem(LanguageBundle
 					.getString("in_irRemoveTemplate"), "shortcut MINUS"));
 			}
 		}
@@ -1525,16 +1525,16 @@ public class InfoTemplates extends BaseCharacterInfoTab
 		private JMenuItem createAddMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label,
-				new AddTemplateActionListener(), PropertyFactory
-					.getString("in_select"), '\0', accelerator, PropertyFactory
+				new AddTemplateActionListener(), LanguageBundle
+					.getString("in_select"), '\0', accelerator, LanguageBundle
 					.getString("in_irAddTemplateTip"), "Add16.gif", true);
 		}
 
 		private JMenuItem createRemoveMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label,
-				new RemoveTemplateActionListener(), PropertyFactory
-					.getString("in_select"), '\0', accelerator, PropertyFactory
+				new RemoveTemplateActionListener(), LanguageBundle
+					.getString("in_select"), '\0', accelerator, LanguageBundle
 					.getString("in_irRemoveTemplateTip"), "Remove16.gif", true);
 		}
 
@@ -1591,7 +1591,7 @@ public class InfoTemplates extends BaseCharacterInfoTab
 				if (temp == null)
 				{
 					lastTemplate = null;
-					ShowMessageDelegate.showMessageDialog(PropertyFactory
+					ShowMessageDelegate.showMessageDialog(LanguageBundle
 						.getString("in_irNoTemplate"), Constants.APPLICATION_NAME,
 						MessageType.ERROR);
 

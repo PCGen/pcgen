@@ -27,7 +27,7 @@ package pcgen.gui.utils;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.chooser.ChooserRadio;
 
 import javax.swing.*;
@@ -65,9 +65,9 @@ public final class SwingChooserRadio extends JDialog implements ChooserRadio
 	 **/
 	static
 	{
-		PropertyFactory.getString("in_available");
-		in_ok = PropertyFactory.getString("in_ok");
-		in_cancel = PropertyFactory.getString("in_cancel");
+		LanguageBundle.getString("in_available");
+		in_ok = LanguageBundle.getString("in_ok");
+		in_cancel = LanguageBundle.getString("in_cancel");
 	}
 
 	private ButtonGroup avaGroup = null;

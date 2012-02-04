@@ -61,7 +61,7 @@ import javax.swing.table.TableModel;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.gui.utils.chooser.ChooserTableModel;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.chooser.ChooserInterface;
 
 /**
@@ -101,21 +101,21 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 	 */
 	static
 	{
-		in_uichooser_value = PropertyFactory.getString("in_uichooser_value");
-		in_selected = PropertyFactory.getString("in_selected");
-		in_completeMess = PropertyFactory.getString("in_completeMess");
-		in_chooser = PropertyFactory.getString("in_chooser");
-		in_selRemain = PropertyFactory.getString("in_selRemain");
-		in_validItem = PropertyFactory.getString("in_validItem");
-		in_deselectOne = PropertyFactory.getString("in_deselectOne");
-		in_noRemain = PropertyFactory.getString("in_noRemain");
-		in_selectPartA = PropertyFactory.getString("in_selectPartA");
-		in_selectPartB = PropertyFactory.getString("in_selectPartB");
-		in_alreadySelected = PropertyFactory.getString("in_alreadySelected");
-		in_closeChooserTip = PropertyFactory.getString("in_closeChooserTip");
-		in_pressToAdd = PropertyFactory.getString("in_pressToAdd");
-		in_pressToRemove = PropertyFactory.getString("in_pressToRemove");
-		in_removeOne = PropertyFactory.getString("in_removeOne");
+		in_uichooser_value = LanguageBundle.getString("in_uichooser_value");
+		in_selected = LanguageBundle.getString("in_selected");
+		in_completeMess = LanguageBundle.getString("in_completeMess");
+		in_chooser = LanguageBundle.getString("in_chooser");
+		in_selRemain = LanguageBundle.getString("in_selRemain");
+		in_validItem = LanguageBundle.getString("in_validItem");
+		in_deselectOne = LanguageBundle.getString("in_deselectOne");
+		in_noRemain = LanguageBundle.getString("in_noRemain");
+		in_selectPartA = LanguageBundle.getString("in_selectPartA");
+		in_selectPartB = LanguageBundle.getString("in_selectPartB");
+		in_alreadySelected = LanguageBundle.getString("in_alreadySelected");
+		in_closeChooserTip = LanguageBundle.getString("in_closeChooserTip");
+		in_pressToAdd = LanguageBundle.getString("in_pressToAdd");
+		in_pressToRemove = LanguageBundle.getString("in_pressToRemove");
+		in_removeOne = LanguageBundle.getString("in_removeOne");
 	}
 
 	/** The default selected list column array */
@@ -518,12 +518,12 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 		mPoolText = new JLabel(" ");
 
 		// Create buttons
-		mAddButton = new JButton(PropertyFactory.getString("in_add"));
-		mAddButton.setMnemonic(PropertyFactory.getMnemonic("in_mn_add"));
-		mCloseButton = new JButton(PropertyFactory.getString("in_close"));
-		mCloseButton.setMnemonic(PropertyFactory.getMnemonic("in_mn_close"));
-		mRemoveButton = new JButton(PropertyFactory.getString("in_remove"));
-		mRemoveButton.setMnemonic(PropertyFactory.getMnemonic("in_mn_remove"));
+		mAddButton = new JButton(LanguageBundle.getString("in_add"));
+		mAddButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_add"));
+		mCloseButton = new JButton(LanguageBundle.getString("in_close"));
+		mCloseButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_close"));
+		mRemoveButton = new JButton(LanguageBundle.getString("in_remove"));
+		mRemoveButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_remove"));
 
 		final ActionListener eventListener = new ActionListener()
 		{

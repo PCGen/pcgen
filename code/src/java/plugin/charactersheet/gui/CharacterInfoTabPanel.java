@@ -9,7 +9,7 @@ package plugin.charactersheet.gui;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.CharacterInfoTab;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import plugin.charactersheet.CharacterSheetModel;
 
 import javax.swing.JComponent;
@@ -86,7 +86,7 @@ public class CharacterInfoTabPanel extends JPanel implements CharacterInfoTab
 
 	public String getTabName()
 	{
-		return PropertyFactory.getString("in_preview");
+		return LanguageBundle.getString("in_preview");
 	}
 
 	public boolean isShown()

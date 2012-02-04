@@ -31,13 +31,14 @@ import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.core.Globals;
+import pcgen.util.Logging;
 
 /**
  * EquipSlot
  * Contains the possible slots that equipment can go into
  * and what type of equipment can go into each slot
  **/
-public final class EquipSlot
+public final class EquipSlot implements Cloneable
 {
 	private Set<String> containEqList = new HashSet<String>();
 
@@ -62,6 +63,23 @@ public final class EquipSlot
 	public String toString()
 	{
 		return slotName;
+	}
+
+	public EquipSlot clone()
+	{
+		EquipSlot newSlot;
+		try
+		{
+			newSlot = (EquipSlot) super.clone();
+		}
+		catch (CloneNotSupportedException e)
+		{
+			Logging.errorPrint("Clone is not supported!", e);
+			return null;
+		}
+		newSlot.containEqList = new HashSet<String>(containEqList);
+		
+		return newSlot;
 	}
 
 	/**
@@ -118,6 +136,14 @@ public final class EquipSlot
 	public void setSlotNumType(final String x)
 	{
 		slotNumType = x;
+	}
+
+	/**
+	 * @return The name of the body structure this slot is located within
+	 */
+	public String getBodyStructureName()
+	{
+		return slotNumType;
 	}
 
 	/**

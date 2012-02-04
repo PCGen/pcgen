@@ -25,6 +25,7 @@
  */
 package plugin.exporttokens;
 
+import pcgen.cdom.enumeration.BiographyField;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -63,6 +64,10 @@ public class HandedToken extends Token
 	 */
 	public static String getHandedToken(PlayerCharacter pc)
 	{
+		if (pc.getSuppressBioField(BiographyField.HANDED))
+		{
+			return "";
+		}
 		return pc.getHanded();
 	}
 }

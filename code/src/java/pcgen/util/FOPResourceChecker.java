@@ -20,6 +20,8 @@
  */
 package pcgen.util;
 
+import pcgen.system.LanguageBundle;
+
 /**
  * This class checks that PCGen has the right resources in order to run Fop
  */
@@ -37,7 +39,7 @@ public final class FOPResourceChecker
 
 	/** Handle to resource bundle message for where to get missing resources */
 	static final String getItHereMsg =
-			PropertyFactory.getString("in_FollowLink");
+			LanguageBundle.getString("in_FollowLink");
 
 	/** 
 	 * Handle to resource bundle message for when there is a missing resource
@@ -45,7 +47,7 @@ public final class FOPResourceChecker
 	 * TODO Why does this have a hard coded line separator? JK070115
 	 */
 	static final String missingLibMsg =
-			PropertyFactory.getString("MissingLibMessage").replace('|', '\n');
+			LanguageBundle.getString("MissingLibMessage").replace('|', '\n');
 
 	// This will automatically run once when this class is referenced 
 	static

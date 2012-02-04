@@ -34,7 +34,7 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * Prerequisite tester, tests for the presence of a template.
@@ -61,7 +61,7 @@ public class PreTemplateTester extends AbstractPrerequisiteTest implements Prere
 		}
 		catch (NumberFormatException exceptn)
 		{
-			throw new PrerequisiteException(PropertyFactory.getFormattedString(
+			throw new PrerequisiteException(LanguageBundle.getFormattedString(
 				"PreTemplate.error", prereq.toString())); //$NON-NLS-1$
 		}
 

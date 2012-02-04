@@ -39,8 +39,8 @@ import pcgen.base.util.HashMapToList;
 import pcgen.base.util.MapToList;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Campaign;
-import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
+import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
 
 /**
@@ -49,7 +49,7 @@ import pcgen.util.Logging;
  */
 public class CampaignSourceEntry implements SourceEntry
 {
-	private static final URI FAILED_URI;
+	public static final URI FAILED_URI;
 
 	static
 	{
@@ -285,7 +285,7 @@ public class CampaignSourceEntry implements SourceEntry
 			String pathNoLeader =
 					trimLeadingFileSeparator(basePath.substring(1));
 			String path = CoreUtility.fixFilenamePath(pathNoLeader);
-			return new File(SettingsHandler.getPccFilesLocation(), path)
+			return new File(ConfigurationSettings.getPccFilesDir(), path)
 				.toURI();
 		}
 		else if (basePath.charAt(0) == '&')
@@ -293,7 +293,7 @@ public class CampaignSourceEntry implements SourceEntry
 			String pathNoLeader =
 					trimLeadingFileSeparator(basePath.substring(1));
 			String path = CoreUtility.fixFilenamePath(pathNoLeader);
-			return new File(SettingsHandler.getPcgenVendorDataDir(), path)
+			return new File(ConfigurationSettings.getVendorDataDir(), path)
 				.toURI();
 		}
 		else if (basePath.charAt(0) == '*')
@@ -302,12 +302,12 @@ public class CampaignSourceEntry implements SourceEntry
 					trimLeadingFileSeparator(basePath.substring(1));
 			String path = CoreUtility.fixFilenamePath(pathNoLeader);
 			File pccFile =
-					new File(SettingsHandler.getPcgenVendorDataDir(), path);
+					new File(ConfigurationSettings.getVendorDataDir(), path);
 			if (pccFile.exists())
 			{
 				return pccFile.toURI();
 			}
-			return new File(SettingsHandler.getPccFilesLocation(), path)
+			return new File(ConfigurationSettings.getPccFilesDir(), path)
 				.toURI();
 		}
 		/*
@@ -324,7 +324,7 @@ public class CampaignSourceEntry implements SourceEntry
 			// substring 5 to eliminate the separator after data
 			String path =
 					CoreUtility.fixFilenamePath(pathNoLeader.substring(5));
-			return new File(SettingsHandler.getPccFilesLocation(), path)
+			return new File(ConfigurationSettings.getPccFilesDir(), path)
 				.toURI();
 		}
 		else

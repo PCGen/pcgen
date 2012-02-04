@@ -26,6 +26,7 @@
  */
 package pcgen.gui;
 
+import pcgen.system.PCGenPropBundle;
 import gmgen.GMGenSystem;
 import gmgen.plugin.InitHolder;
 import gmgen.plugin.InitHolderList;
@@ -123,7 +124,7 @@ import pcgen.io.PCGIOHandler;
 import pcgen.util.FOPResourceChecker;
 import pcgen.util.JEPResourceChecker;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
@@ -435,7 +436,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 			modeName = gameMode.getDisplayName();
 		}
 
-		setTitle("PCGen v. " + PCGenProp.getVersionNumber() + " - " + modeName
+		setTitle("PCGen v. " + PCGenPropBundle.getVersionNumber() + " - " + modeName
 			+ " Campaign");
 	}
 
@@ -1439,7 +1440,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 	{
 		if (!Globals.displayListsHappy())
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory
+			ShowMessageDelegate.showMessageDialog(LanguageBundle
 				.getString("in_newCharNoSources"), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 
@@ -1456,7 +1457,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 		{
 			// Add a waiting cursor as this can take some time
 			final Cursor oldCursor = getCursor();
-			setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+			//setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 
 			final NPCGenerator npcgen = NPCGenerator.getInst();
 			npcgen.generate(pc, genDlg.getAlignment(), genDlg.getRace(), genDlg
@@ -1469,7 +1470,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 			setPC(pc);
 
 			// Put the cursor back to what it was
-			setCursor(oldCursor);
+			//setCursor(oldCursor);
 		}
 	}
 
@@ -2011,7 +2012,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 	{
 		if (!Globals.displayListsHappy())
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory
+			ShowMessageDelegate.showMessageDialog(LanguageBundle
 				.getString("in_newCharNoSources"), Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 
@@ -2987,8 +2988,8 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 
 						if ((parent != null) && parent.isShowing())
 						{
-							parent.setCursor(Cursor
-								.getPredefinedCursor(Cursor.WAIT_CURSOR));
+//							parent.setCursor(Cursor
+//								.getPredefinedCursor(Cursor.WAIT_CURSOR));
 						}
 					}
 					catch (InterruptedException ie)
@@ -3012,7 +3013,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 				}
 				else
 				{
-					parent.setCursor(null);
+//					parent.setCursor(null);
 					parent = null;
 				}
 			}
@@ -3091,7 +3092,7 @@ public class PCGen_Frame1 extends JFrame implements GMBComponent, Observer,
 			baseTabbedPane.setToolTipTextAt(0, SettingsHandler
 				.isToolTipTextShown() ? MainSource.SOURCE_MATERIALS_TAB : null);
 
-			PCGen_Frame1.setMessageAreaText(PropertyFactory
+			PCGen_Frame1.setMessageAreaText(LanguageBundle
 				.getString("in_qsrc_messageText"));
 
 			SourceSelectionDialog dialog =

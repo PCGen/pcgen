@@ -75,7 +75,7 @@ import pcgen.gui.utils.JTreeTableSorter;
 import pcgen.gui.utils.PObjectNode;
 import pcgen.gui.utils.ResizeColumnListener;
 import pcgen.gui.utils.Utility;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
@@ -93,10 +93,10 @@ import pcgen.util.enumeration.Tab;
 public class InfoSpellBooks extends InfoSpellsSubTab
 {
 	private final JLabel avaLabel =
-			new JLabel(PropertyFactory
+			new JLabel(LanguageBundle
 				.getString("InfoSpellBooks.sort.avail.spells.by")); //$NON-NLS-1$
 	private final JLabel selLabel =
-			new JLabel(PropertyFactory
+			new JLabel(LanguageBundle
 				.getString("InfoSpellBooks.sort.select.spells.by")); //$NON-NLS-1$
 	private FlippingSplitPane asplit;
 	private FlippingSplitPane bsplit;
@@ -409,27 +409,27 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 
 		// Configure the sort order combo boxes
 		populateViewCombo(primaryViewComboBox, primaryViewMode, false);
-		Utility.setDescription(primaryViewComboBox, PropertyFactory
+		Utility.setDescription(primaryViewComboBox, LanguageBundle
 			.getString("InfoSpells.change.how.spell.are.listed")); //$NON-NLS-1$
 		populateViewCombo(secondaryViewComboBox, secondaryViewMode, true);
 
 		populateViewCombo(primaryViewSelectComboBox, primaryViewSelectMode,
 			false);
-		Utility.setDescription(primaryViewSelectComboBox, PropertyFactory
+		Utility.setDescription(primaryViewSelectComboBox, LanguageBundle
 			.getString("InfoSpells.change.how.spells.in.table.listed")); //$NON-NLS-1$
 		populateViewCombo(secondaryViewSelectComboBox, secondaryViewSelectMode,
 			true);
-		Utility.setDescription(secondaryViewSelectComboBox, PropertyFactory
+		Utility.setDescription(secondaryViewSelectComboBox, LanguageBundle
 			.getString("InfoSpells.change.how.spells.in.table.listed")); //$NON-NLS-1$
 
 		// Populate the select from combo box
-		selectFromComboBox.addItem(PropertyFactory
+		selectFromComboBox.addItem(LanguageBundle
 			.getString("InfoSpellBooks.select.known")); //$NON-NLS-1$
-		selectFromComboBox.addItem(PropertyFactory
+		selectFromComboBox.addItem(LanguageBundle
 			.getString("InfoSpellBooks.select.own.list")); //$NON-NLS-1$
 		//TODO: The following option has been temporarily deactivated as adding spells from other classes doesn't work currently.
 		// The spell storage code needs to be changed to have a character's spell book contents not be class dependant.
-		//selectFromComboBox.addItem(PropertyFactory.getString("InfoSpellBooks.select.full.list")); //$NON-NLS-1$
+		//selectFromComboBox.addItem(LanguageBundle.getString("InfoSpellBooks.select.full.list")); //$NON-NLS-1$
 		selectFromComboBox.setSelectedIndex(0);
 
 		ImageIcon newImage;
@@ -445,9 +445,9 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		createTreeTables();
 
 		List<String> colNameList = new ArrayList<String>();
-		colNameList.add(PropertyFactory.getString("InfoSpellBooks.School")); //$NON-NLS-1$
-		colNameList.add(PropertyFactory.getString("InfoSpellBooks.Descriptor")); //$NON-NLS-1$
-		colNameList.add(PropertyFactory.getString("InfoSpellBooks.SourceFile")); //$NON-NLS-1$
+		colNameList.add(LanguageBundle.getString("InfoSpellBooks.School")); //$NON-NLS-1$
+		colNameList.add(LanguageBundle.getString("InfoSpellBooks.Descriptor")); //$NON-NLS-1$
+		colNameList.add(LanguageBundle.getString("InfoSpellBooks.SourceFile")); //$NON-NLS-1$
 		List<Boolean> colActiveList = new ArrayList<Boolean>();
 		colActiveList.add(Boolean.TRUE);
 		colActiveList.add(Boolean.TRUE);
@@ -514,7 +514,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		controlsPanel.setLayout(new BorderLayout());
 		JPanel aPanel = new JPanel();
 		aPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 1));
-		aPanel.add(new JLabel(PropertyFactory
+		aPanel.add(new JLabel(LanguageBundle
 			.getString("InfoSpellBooks.select.from"))); //$NON-NLS-1$
 		aPanel.add(selectFromComboBox);
 		controlsPanel.add(aPanel, BorderLayout.NORTH);
@@ -525,7 +525,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		aPanel.add(secondaryViewComboBox);
 		controlsPanel.add(aPanel, BorderLayout.SOUTH);
 
-		Utility.setDescription(controlsPanel, PropertyFactory
+		Utility.setDescription(controlsPanel, LanguageBundle
 			.getString("InfoSpells.rightclick.add.to.spellbooks")); //$NON-NLS-1$
 		leftPane.add(controlsPanel, BorderLayout.NORTH);
 
@@ -583,7 +583,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 	{
 		JPanel panel = new JPanel();
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
-		Utility.setDescription(button, PropertyFactory.getString(title)); //$NON-NLS-1$
+		Utility.setDescription(button, LanguageBundle.getString(title)); //$NON-NLS-1$
 		button.setEnabled(false);
 		button.setMargin(new Insets(1, 14, 1, 14));
 		panel.add(button);
@@ -628,7 +628,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		gridbag.setConstraints(sScroll, c);
 
 		TitledBorder sTitle =
-				BorderFactory.createTitledBorder(PropertyFactory
+				BorderFactory.createTitledBorder(LanguageBundle
 					.getString("InfoSpells.spell.info")); //$NON-NLS-1$
 		sTitle.setTitleJustification(TitledBorder.CENTER);
 		sScroll.setBorder(sTitle);
@@ -643,7 +643,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		JScrollPane iScroll = new JScrollPane();
 
 		TitledBorder iTitle =
-				BorderFactory.createTitledBorder(PropertyFactory
+				BorderFactory.createTitledBorder(LanguageBundle
 					.getString("InfoSpells.class.info")); //$NON-NLS-1$
 		iTitle.setTitleJustification(TitledBorder.CENTER);
 		iScroll.setBorder(iTitle);
@@ -719,7 +719,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 					new SpellModel(primaryViewSelectMode,
 						secondaryViewSelectMode, false, selectedBookList,
 						currSpellBook, GuiConstants.INFOSPELLS_AVAIL_KNOWN, pc,
-						this, PropertyFactory
+						this, LanguageBundle
 							.getString("InfoSpellBooks.no.selected.help")); //$NON-NLS-1$
 		}
 		else
@@ -727,7 +727,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 			selectedModel.resetModel(primaryViewSelectMode,
 				secondaryViewSelectMode, false, selectedBookList,
 				currSpellBook, GuiConstants.INFOSPELLS_AVAIL_KNOWN, this,
-				PropertyFactory.getString("InfoSpellBooks.no.selected.help")); //$NON-NLS-1$
+				LanguageBundle.getString("InfoSpellBooks.no.selected.help")); //$NON-NLS-1$
 			if (currSpellBook.equals("")) //$NON-NLS-1$
 			{
 				currSpellBook = Globals.getDefaultSpellBook();
@@ -819,7 +819,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory
+					LanguageBundle
 						.getString("InfoSpells.first.select.spellbook"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return; // need to select a spellbook
@@ -830,7 +830,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory
+					LanguageBundle
 						.getString("InfoSpells.can.only.add.by.class.level"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 			return; // need to select class/level or level/class as sorters
 		}
@@ -877,7 +877,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory
+					LanguageBundle
 						.getString("InfoSpells.first.select.spellbook"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return; // need to select a spellbook
@@ -950,7 +950,7 @@ public class InfoSpellBooks extends InfoSpellsSubTab
 				PCClass aClass = pc.getClassKeyed(className);
 				if (aClass == null)
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory
+					ShowMessageDelegate.showMessageDialog(LanguageBundle
 						.getString("InfoSpells.can.only.add.by.class.level"), //$NON-NLS-1$
 						Constants.APPLICATION_NAME, MessageType.ERROR);
 				}

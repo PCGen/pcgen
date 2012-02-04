@@ -33,7 +33,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.prereq.PrerequisiteUtilities;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>PreAbilityParser</code> tests whether a character passes ability
@@ -79,8 +79,8 @@ public class PreAbilityTester extends AbstractPrerequisiteTest implements Prereq
 		}
 		catch (NumberFormatException exception)
 		{
-			throw new PrerequisiteException(
-			   PropertyFactory.getFormattedString("PreAbility.error", prereq.toString())); //$NON-NLS-1$
+			throw new PrerequisiteException(LanguageBundle.getFormattedString(
+				"PreAbility.error", prereq.toString())); //$NON-NLS-1$
 		}
 
 		String categoryName = prereq.getCategoryName();
@@ -108,7 +108,7 @@ public class PreAbilityTester extends AbstractPrerequisiteTest implements Prereq
 			if (prereq.getCategoryName().length() > 0)
 			{
 				// {0} {1} {2}(s) of type {3}
-				return PropertyFactory.getFormattedString("PreAbility.type.toHtml", //$NON-NLS-1$
+				return LanguageBundle.getFormattedString("PreAbility.type.toHtml", //$NON-NLS-1$
 					prereq.getOperator().toDisplayString(),
 					prereq.getOperand(),
 					prereq.getCategoryName(),
@@ -117,7 +117,7 @@ public class PreAbilityTester extends AbstractPrerequisiteTest implements Prereq
 			else
 			{
 				// {0} {1} ability(s) of type {2}
-				return PropertyFactory.getFormattedString("PreAbility.type.noCat.toHtml",  //$NON-NLS-1$ 
+				return LanguageBundle.getFormattedString("PreAbility.type.noCat.toHtml",  //$NON-NLS-1$
 					prereq.getOperator().toDisplayString(),
 					prereq.getOperand(),
 					aString.substring(5));
@@ -125,7 +125,7 @@ public class PreAbilityTester extends AbstractPrerequisiteTest implements Prereq
 				
 		}
 		// {2} {3} {1} {0}
-		return PropertyFactory.getFormattedString("PreAbility.toHtml",  //$NON-NLS-1$
+		return LanguageBundle.getFormattedString("PreAbility.toHtml",  //$NON-NLS-1$
 			prereq.getCategoryName(),
 			aString, prereq.getOperator().toDisplayString(),
 			prereq.getOperand());

@@ -85,7 +85,7 @@ import pcgen.gui.utils.ResizeColumnListener;
 import pcgen.gui.utils.Utility;
 import pcgen.util.FOPHandler;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
@@ -103,10 +103,10 @@ import pcgen.util.enumeration.Tab;
 public class InfoKnownSpells extends InfoSpellsSubTab
 {
 	private final JLabel avaLabel =
-			new JLabel(PropertyFactory
+			new JLabel(LanguageBundle
 				.getString("InfoKnownSpells.sort.avail.spells.by")); //$NON-NLS-1$
 	private final JLabel selLabel =
-			new JLabel(PropertyFactory
+			new JLabel(LanguageBundle
 				.getString("InfoKnownSpells.sort.select.spells.by")); //$NON-NLS-1$
 	private FlippingSplitPane asplit;
 	private FlippingSplitPane bsplit;
@@ -120,15 +120,15 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 	private JComboBoxEx secondaryViewSelectComboBox = new JComboBoxEx();
 
 	private JCheckBox shouldAutoSpells =
-			new JCheckBox(PropertyFactory.getString("InfoSpells.autoload")); //$NON-NLS-1$
+			new JCheckBox(LanguageBundle.getString("InfoSpells.autoload")); //$NON-NLS-1$
 	private JCheckBox canUseHigherSlots =
-			new JCheckBox(PropertyFactory
+			new JCheckBox(LanguageBundle
 				.getString("InfoKnownSpells.canUseHigherSlots")); //$NON-NLS-1$
 
 	private JButton printHtml;
 	private JButton printPdf;
 	private JButton selectSpellSheetButton =
-			new JButton(PropertyFactory
+			new JButton(LanguageBundle
 				.getString("InfoSpells.select.spellsheet")); //$NON-NLS-1$
 	private JTextField selectSpellSheetField = new JTextField();
 
@@ -199,7 +199,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 
 		if (hasFree)
 		{
-			toDoList.add(PropertyFactory.getString("InfoSpells.Todo.Remain")); //$NON-NLS-1$
+			toDoList.add(LanguageBundle.getString("InfoSpells.Todo.Remain")); //$NON-NLS-1$
 		}
 		return toDoList;
 	}
@@ -483,17 +483,17 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 
 		// Configure the sort order combo boxes
 		populateViewCombo(primaryViewComboBox, primaryViewMode, false);
-		Utility.setDescription(primaryViewComboBox, PropertyFactory
+		Utility.setDescription(primaryViewComboBox, LanguageBundle
 			.getString("InfoSpells.change.how.spell.are.listed")); //$NON-NLS-1$
 		populateViewCombo(secondaryViewComboBox, secondaryViewMode, true);
 
 		populateViewCombo(primaryViewSelectComboBox, primaryViewSelectMode,
 			false);
-		Utility.setDescription(primaryViewSelectComboBox, PropertyFactory
+		Utility.setDescription(primaryViewSelectComboBox, LanguageBundle
 			.getString("InfoSpells.change.how.spells.in.table.listed")); //$NON-NLS-1$
 		populateViewCombo(secondaryViewSelectComboBox, secondaryViewSelectMode,
 			true);
-		Utility.setDescription(secondaryViewSelectComboBox, PropertyFactory
+		Utility.setDescription(secondaryViewSelectComboBox, LanguageBundle
 			.getString("InfoSpells.change.how.spells.in.table.listed")); //$NON-NLS-1$
 
 		ImageIcon newImage;
@@ -642,7 +642,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		canUseHigherSlots.setSelected(pc.getUseHigherKnownSlots());
 		asPanel.add(canUseHigherSlots);
 
-		Utility.setDescription(addSpellButton, PropertyFactory
+		Utility.setDescription(addSpellButton, LanguageBundle
 			.getString("InfoSpells.add.selected")); //$NON-NLS-1$
 		addSpellButton.setEnabled(false);
 		addSpellButton.setMargin(new Insets(1, 14, 1, 14));
@@ -665,7 +665,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		c = new GridBagConstraints();
 		Utility.buildConstraints(c, 0, 0, 1, 1, 0.0, 0.0);
 		c.insets = new Insets(1, 2, 1, 2);
-		Utility.setDescription(delSpellButton, PropertyFactory
+		Utility.setDescription(delSpellButton, LanguageBundle
 			.getString("InfoSpells.remove.selected")); //$NON-NLS-1$
 		delSpellButton.setEnabled(false);
 		delSpellButton.setMargin(new Insets(1, 14, 1, 14));
@@ -689,7 +689,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		ssPanel.add(selectSpellSheetField, c);
 
 		printHtml = new JButton();
-		printHtml.setToolTipText(PropertyFactory
+		printHtml.setToolTipText(LanguageBundle
 			.getString("InfoSpells.print.preview")); //$NON-NLS-1$
 		IconUtilitities.maybeSetIcon(printHtml, "PrintPreview16.gif"); //$NON-NLS-1$
 		printHtml.setEnabled(true);
@@ -700,7 +700,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		ssPanel.add(printHtml, c);
 
 		printPdf = new JButton();
-		printPdf.setToolTipText(PropertyFactory.getString("InfoSpells.print")); //$NON-NLS-1$
+		printPdf.setToolTipText(LanguageBundle.getString("InfoSpells.print")); //$NON-NLS-1$
 		IconUtilitities.maybeSetIcon(printPdf, "Print16.gif"); //$NON-NLS-1$
 		printPdf.setEnabled(true);
 		c = new GridBagConstraints();
@@ -748,7 +748,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		gridbag.setConstraints(sScroll, c);
 
 		TitledBorder sTitle =
-				BorderFactory.createTitledBorder(PropertyFactory
+				BorderFactory.createTitledBorder(LanguageBundle
 					.getString("InfoSpells.spell.info")); //$NON-NLS-1$
 		sTitle.setTitleJustification(TitledBorder.CENTER);
 		sScroll.setBorder(sTitle);
@@ -763,7 +763,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		JScrollPane iScroll = new JScrollPane();
 
 		TitledBorder iTitle =
-				BorderFactory.createTitledBorder(PropertyFactory
+				BorderFactory.createTitledBorder(LanguageBundle
 					.getString("InfoSpells.class.info")); //$NON-NLS-1$
 		iTitle.setTitleJustification(TitledBorder.CENTER);
 		iScroll.setBorder(iTitle);
@@ -919,7 +919,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory
+					LanguageBundle
 						.getString("InfoSpells.first.select.spellbook"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return; // need to select a spellbook
@@ -930,7 +930,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory
+					LanguageBundle
 						.getString("InfoSpells.can.only.add.by.class.level"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 			return; // need to select class/level or level/class as sorters
 		}
@@ -993,7 +993,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 				PCClass aClass = pc.getClassKeyed(className);
 				if (aClass == null)
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory
+					ShowMessageDelegate.showMessageDialog(LanguageBundle
 						.getString("InfoSpells.can.only.add.by.class.level"), //$NON-NLS-1$
 						Constants.APPLICATION_NAME, MessageType.ERROR);
 				}
@@ -1046,7 +1046,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 	private void selectSpellSheetButton()
 	{
 		JFileChooser fc = new JFileChooser();
-		fc.setDialogTitle(PropertyFactory
+		fc.setDialogTitle(LanguageBundle
 			.getString("InfoSpells.select.output.sheet")); //$NON-NLS-1$
 		fc.setCurrentDirectory(SettingsHandler.getPcgenOutputSheetDir());
 		fc.setSelectedFile(new File(SettingsHandler.getSelectedSpellSheet()));
@@ -1073,7 +1073,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		JFileChooser fcExport = new JFileChooser();
 		fcExport.setCurrentDirectory(SettingsHandler.getPcgPath());
 
-		fcExport.setDialogTitle(PropertyFactory
+		fcExport.setDialogTitle(LanguageBundle
 			.getString("InfoSpells.export.spells.for") + pc.getDisplayName()); //$NON-NLS-1$
 
 		if (fcExport.showSaveDialog(this) != JFileChooser.APPROVE_OPTION)
@@ -1087,7 +1087,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("InfoSpells.must.set.filename"), "PCGen", MessageType.ERROR); //$NON-NLS-1$ //$NON-NLS-2$
+					LanguageBundle.getString("InfoSpells.must.set.filename"), "PCGen", MessageType.ERROR); //$NON-NLS-1$ //$NON-NLS-2$
 
 			return;
 		}
@@ -1100,7 +1100,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 			{
 				ShowMessageDelegate
 					.showMessageDialog(
-						PropertyFactory
+						LanguageBundle
 							.getString("InfoSpells.can.not.overwrite.directory"), "PCGen", MessageType.ERROR); //$NON-NLS-1$ //$NON-NLS-2$
 
 				return;
@@ -1112,10 +1112,10 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 						JOptionPane
 							.showConfirmDialog(
 								this,
-								PropertyFactory
+								LanguageBundle
 									.getFormattedString(
 										"InfoSpells.confirm.overwrite", outFile.getName()), //$NON-NLS-1$
-								PropertyFactory
+								LanguageBundle
 									.getFormattedString(
 										"InfoSpells.overwriting", outFile.getName()), JOptionPane.YES_NO_OPTION); //$NON-NLS-1$
 
@@ -1161,9 +1161,9 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		}
 		catch (Exception ex)
 		{
-			Logging.errorPrint(PropertyFactory.getFormattedString(
+			Logging.errorPrint(LanguageBundle.getFormattedString(
 				"InfoSpells.export.failed", pc.getDisplayName()), ex); //$NON-NLS-1$
-			ShowMessageDelegate.showMessageDialog(PropertyFactory
+			ShowMessageDelegate.showMessageDialog(LanguageBundle
 				.getFormattedString("InfoSpells.export.failed.retry", //$NON-NLS-1$
 					pc.getDisplayName()), "PCGen", //$NON-NLS-1$
 				MessageType.ERROR);

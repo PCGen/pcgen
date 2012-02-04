@@ -117,22 +117,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	public List<T> doChooser(PlayerCharacter aPc, final List<T> availableList,
 			final List<T> selectedList, final List<String> reservedList)
 	{
-		int selectedPoolValue = (selectedList.size() + (choicesPerUnitCost - 1))
-				/ choicesPerUnitCost;
-		int reservedPoolValue = (reservedList.size() + (choicesPerUnitCost - 1))
-				/ choicesPerUnitCost;
-		int effectiveTotalChoices;
-		if (numberOfChoices == null)
-		{
-			effectiveTotalChoices = controller.getTotalChoices();
-		}
-		else
-		{
-			effectiveTotalChoices = (numberOfChoices - reservedPoolValue + selectedPoolValue);
-		}
-		int effectiveChoices = Math
-				.min(controller.getPool() + selectedPoolValue,
-						effectiveTotalChoices / choicesPerUnitCost);
+		int effectiveChoices = getNumEffectiveChoices(selectedList, reservedList);
 
 		final ChooserInterface chooser = getChooserInstance();
 		boolean dupsAllowed = controller.isMultYes() && controller.isStackYes();
@@ -161,6 +146,35 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 		chooser.setVisible(true);
 
 		return chooser.getSelectedList();
+	}
+
+	/**
+	 * Calculate the number of effective choices the user can make.
+	 *  
+	 * @param selectedList The list of already selected items.
+	 * @param reservedList 
+	 * @return The number of choices that may be made 
+	 */
+	public int getNumEffectiveChoices(final List<T> selectedList,
+		final List<String> reservedList)
+	{
+		int selectedPoolValue = (selectedList.size() + (choicesPerUnitCost - 1))
+				/ choicesPerUnitCost;
+		int reservedPoolValue = (reservedList.size() + (choicesPerUnitCost - 1))
+				/ choicesPerUnitCost;
+		int effectiveTotalChoices;
+		if (numberOfChoices == null)
+		{
+			effectiveTotalChoices = controller.getTotalChoices();
+		}
+		else
+		{
+			effectiveTotalChoices = (numberOfChoices - reservedPoolValue + selectedPoolValue);
+		}
+		int effectiveChoices = Math
+				.min(controller.getPool() + selectedPoolValue,
+						effectiveTotalChoices / choicesPerUnitCost);
+		return effectiveChoices;
 	}
 
 	/**

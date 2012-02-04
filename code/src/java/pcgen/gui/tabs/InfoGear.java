@@ -145,7 +145,7 @@ import pcgen.util.BigDecimalHelper;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
@@ -196,31 +196,31 @@ public final class InfoGear extends FilterAdapterPanel implements
 	private FlippingSplitPane splitPane;
 	private JComboBoxEx cmbBuyPercent = new JComboBoxEx();
 	private JComboBoxEx cmbSellPercent = new JComboBoxEx();
-	private final JLabel lblAvailableQFilter = new JLabel(PropertyFactory.getString("InfoTabs.FilterLabel")); //$NON-NLS-1$
-	private final JLabel lblSelectedQFilter = new JLabel(PropertyFactory.getString("InfoTabs.FilterLabel")); //$NON-NLS-1$
+	private final JLabel lblAvailableQFilter = new JLabel(LanguageBundle.getString("InfoTabs.FilterLabel")); //$NON-NLS-1$
+	private final JLabel lblSelectedQFilter = new JLabel(LanguageBundle.getString("InfoTabs.FilterLabel")); //$NON-NLS-1$
 	private final JLabel goldLabel =
 			new JLabel(Globals.getLongCurrencyDisplay() + ": "); //$NON-NLS-1$
-	private final JLabel lblBuyRate = new JLabel(PropertyFactory.getString("in_igBuyRateLabel")); //$NON-NLS-1$
-	private final JLabel lblSellRate = new JLabel(PropertyFactory.getString("in_igSellRateLabel")); //$NON-NLS-1$
-	private final JLabel valueLabel = new JLabel(PropertyFactory.getString("in_igValueLabel")); //$NON-NLS-1$
+	private final JLabel lblBuyRate = new JLabel(LanguageBundle.getString("in_igBuyRateLabel")); //$NON-NLS-1$
+	private final JLabel lblSellRate = new JLabel(LanguageBundle.getString("in_igSellRateLabel")); //$NON-NLS-1$
+	private final JLabel valueLabel = new JLabel(LanguageBundle.getString("in_igValueLabel")); //$NON-NLS-1$
 	private JButton addButton;
 	private JButton removeButton;
-	private JButton clearAvailableQFilterButton = new JButton(PropertyFactory.getString("in_clear")); //$NON-NLS-1$
-	private JButton clearSelectedQFilterButton = new JButton(PropertyFactory.getString("in_clear")); //$NON-NLS-1$
-	private JCheckBox allowDebtBox = new JCheckBox(PropertyFactory.getString("in_igAllowDebt")); //$NON-NLS-1$
-	private JCheckBox autoResize = new JCheckBox(PropertyFactory.getString("in_igAutoResize")); //$NON-NLS-1$
-	private JCheckBox autoSort = new JCheckBox(PropertyFactory.getString("in_igAutoSort"), true); //$NON-NLS-1$
+	private JButton clearAvailableQFilterButton = new JButton(LanguageBundle.getString("in_clear")); //$NON-NLS-1$
+	private JButton clearSelectedQFilterButton = new JButton(LanguageBundle.getString("in_clear")); //$NON-NLS-1$
+	private JCheckBox allowDebtBox = new JCheckBox(LanguageBundle.getString("in_igAllowDebt")); //$NON-NLS-1$
+	private JCheckBox autoResize = new JCheckBox(LanguageBundle.getString("in_igAutoResize")); //$NON-NLS-1$
+	private JCheckBox autoSort = new JCheckBox(LanguageBundle.getString("in_igAutoSort"), true); //$NON-NLS-1$
 	private JCheckBox chkViewAll = new JCheckBox();
-	private JCheckBox costBox = new JCheckBox(PropertyFactory.getString("in_igIgnoreCost")); //$NON-NLS-1$
+	private JCheckBox costBox = new JCheckBox(LanguageBundle.getString("in_igIgnoreCost")); //$NON-NLS-1$
 	private JComboBoxEx viewComboBox = new JComboBoxEx();
 	private JComboBoxEx viewSelectComboBox = new JComboBoxEx();
 	private JLabelPane infoLabel = new JLabelPane();
 	private JMenu pcCopyMenu =
-			Utility.createMenu(PropertyFactory.getString("in_igCopyItemMenuTitle"), (char) 0, //$NON-NLS-1$
-					PropertyFactory.getString("in_igCopyItemMenuDesc"), null, true); //$NON-NLS-1$
+			Utility.createMenu(LanguageBundle.getString("in_igCopyItemMenuTitle"), (char) 0, //$NON-NLS-1$
+					LanguageBundle.getString("in_igCopyItemMenuDesc"), null, true); //$NON-NLS-1$
 	private JMenu pcMoveMenu =
-			Utility.createMenu(PropertyFactory.getString("in_igMoveItemMenuTitle"), (char) 0, //$NON-NLS-1$
-					PropertyFactory.getString("in_igMoveItemMenuDesc"), null, true); //$NON-NLS-1$
+			Utility.createMenu(LanguageBundle.getString("in_igMoveItemMenuTitle"), (char) 0, //$NON-NLS-1$
+					LanguageBundle.getString("in_igMoveItemMenuDesc"), null, true); //$NON-NLS-1$
 	private JPanel center = new JPanel();
 	private JPanel pnlBuy = new JPanel();
 	private JPanel pnlSell = new JPanel();
@@ -633,9 +633,9 @@ public final class InfoGear extends FilterAdapterPanel implements
 			{
 				b.appendSpacer();
 				final String value = (pc.isProficientWith(aEq) && aEq.meetsPreReqs(pc))
-						? PropertyFactory.getString("in_igInfoLabelTextYes") //$NON-NLS-1$ 
+						? LanguageBundle.getString("in_igInfoLabelTextYes") //$NON-NLS-1$
 						: (SettingsHandler.getPrereqFailColorAsHtmlStart()
-							+ PropertyFactory.getString("in_igInfoLabelTextNo") + //$NON-NLS-1$
+							+ LanguageBundle.getString("in_igInfoLabelTextNo") + //$NON-NLS-1$
 							SettingsHandler.getPrereqFailColorAsHtmlEnd());
 				b.appendI18nElement("in_igInfoLabelTextProficient",value); //$NON-NLS-1$
 			}
@@ -692,7 +692,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 				if (aEq.isArmor() || aEq.isShield() || (a.intValue() != 0))
 				{
 					b.appendSpacer();
-					b.appendElement(PropertyFactory.getFormattedString(
+					b.appendElement(LanguageBundle.getFormattedString(
 						"in_igInfoLabelTextAcBonus", //$NON-NLS-1$
 						Globals.getGameModeACText()), a.toString()); 
 				}
@@ -891,7 +891,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 					{
 						ShowMessageDelegate
 							.showMessageDialog(
-								PropertyFactory.getFormattedString("in_igAdjBelongStillEquiped", //$NON-NLS-1$ 
+								LanguageBundle.getFormattedString("in_igAdjBelongStillEquiped", //$NON-NLS-1$
 									updatedItem.getName()),
 									Constants.APPLICATION_NAME, MessageType.ERROR);
 						return 0.0;
@@ -921,7 +921,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 					{
 						ShowMessageDelegate
 							.showMessageDialog(
-								PropertyFactory.getFormattedString("in_igAdjBelongNumberStillEquiped", //$NON-NLS-1$
+								LanguageBundle.getFormattedString("in_igAdjBelongNumberStillEquiped", //$NON-NLS-1$
 								updatedItem.getName() ,
 								newQty ,
 								numberOfItemInUse), 
@@ -1079,8 +1079,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 		Object defaultValue = cmbSellPercent.getSelectedItem().toString();
 		InputInterface ii = InputFactory.getInputInstance();
 		Object input =
-				ii.showInputDialog(this, PropertyFactory.getString("in_igBuyPricePercMsg"), //$NON-NLS-1$
-					PropertyFactory.getString("in_igBuyPricePercTitle"), MessageType.QUESTION, null, defaultValue); //$NON-NLS-1$
+				ii.showInputDialog(this, LanguageBundle.getString("in_igBuyPricePercMsg"), //$NON-NLS-1$
+					LanguageBundle.getString("in_igBuyPricePercTitle"), MessageType.QUESTION, null, defaultValue); //$NON-NLS-1$
 
 		if (input != null)
 		{
@@ -1094,7 +1094,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			catch (NumberFormatException nfe)
 			{
 				ShowMessageDelegate.showMessageDialog(
-					PropertyFactory.getString("in_igBuyPricePercNoInteger"), Constants.APPLICATION_NAME, //$NON-NLS-1$
+					LanguageBundle.getString("in_igBuyPricePercNoInteger"), Constants.APPLICATION_NAME, //$NON-NLS-1$
 					MessageType.ERROR);
 			}
 		}
@@ -1121,7 +1121,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 				{
 					ShowMessageDelegate
 						.showMessageDialog(
-							PropertyFactory.getString("in_igBuyMustCustomizeItemFirst"), //$NON-NLS-1$
+							LanguageBundle.getString("in_igBuyMustCustomizeItemFirst"), //$NON-NLS-1$
 							Constants.APPLICATION_NAME, MessageType.ERROR);
 
 					return;
@@ -1136,7 +1136,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			if (buyQty < 0)
 			{
 				Object selectedValue =
-						JOptionPane.showInputDialog(null, PropertyFactory.getString("in_igBuyEnterQuantity"), //$NON-NLS-1$
+						JOptionPane.showInputDialog(null, LanguageBundle.getString("in_igBuyEnterQuantity"), //$NON-NLS-1$
 							Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
 
 				if (selectedValue != null)
@@ -1150,7 +1150,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 					catch (Exception e)
 					{
 						ShowMessageDelegate.showMessageDialog(
-							PropertyFactory.getString("in_igInvalidNumber"), Constants.APPLICATION_NAME, //$NON-NLS-1$
+							LanguageBundle.getString("in_igInvalidNumber"), Constants.APPLICATION_NAME, //$NON-NLS-1$
 							MessageType.ERROR);
 
 						return;
@@ -1166,7 +1166,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 				&& !CoreUtility.doublesEqual((buyQty % 1), 0))
 			{
 				ShowMessageDelegate.showMessageDialog(
-					PropertyFactory.getString("in_igBuyNonIntegralNumContainers"), //$NON-NLS-1$
+					LanguageBundle.getString("in_igBuyNonIntegralNumContainers"), //$NON-NLS-1$
 					Constants.APPLICATION_NAME, MessageType.ERROR);
 
 				return;
@@ -1249,7 +1249,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			else
 			{
 				ShowMessageDelegate.showMessageDialog(
-					PropertyFactory.getFormattedString("in_igBuyInsufficientFunds", qtyToBuy, //$NON-NLS-1$ 
+					LanguageBundle.getFormattedString("in_igBuyInsufficientFunds", qtyToBuy, //$NON-NLS-1$
 					selectedEquipment.getName()), Constants.APPLICATION_NAME,
 					MessageType.INFORMATION);
 			}
@@ -1356,7 +1356,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 		autoSort.setSelected(pc.isAutoSortGear());
 		riPanel.add(autoSort);
 
-		Utility.setDescription(autoSort, PropertyFactory
+		Utility.setDescription(autoSort, LanguageBundle
 			.getString("in_igAutoSortTip")); //$NON-NLS-1$
 		autoSort.setEnabled(true);
 		autoSort.setMargin(new Insets(1, 14, 1, 14));
@@ -1567,7 +1567,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			if (!(e.getItem() instanceof Equipment))
 			{
 				ShowMessageDelegate.showMessageDialog(
-					PropertyFactory.getString("in_igCanNotCustomizeTypes"), //$NON-NLS-1$
+					LanguageBundle.getString("in_igCanNotCustomizeTypes"), //$NON-NLS-1$
 					Constants.APPLICATION_NAME, MessageType.ERROR);
 
 				return;
@@ -1593,7 +1593,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 			if (!(e.getItem() instanceof Equipment))
 			{
-				ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_igCanNotDeleteTypes"), //$NON-NLS-1$
+				ShowMessageDelegate.showMessageDialog(LanguageBundle.getString("in_igCanNotDeleteTypes"), //$NON-NLS-1$
 					Constants.APPLICATION_NAME, MessageType.ERROR);
 
 				return;
@@ -1604,7 +1604,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 			if (!aEq.isType(Constants.TYPE_CUSTOM))
 			{
 				ShowMessageDelegate.showMessageDialog(
-					PropertyFactory.getString("in_igCanOnlyDeleteCustom"), Constants.APPLICATION_NAME, //$NON-NLS-1$
+					LanguageBundle.getString("in_igCanOnlyDeleteCustom"), Constants.APPLICATION_NAME, //$NON-NLS-1$
 					MessageType.ERROR);
 
 				return;
@@ -1626,7 +1626,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 				whose = whose.substring(1, whose.length() - 1);
 				ShowMessageDelegate
 					.showMessageDialog(
-						PropertyFactory.getFormattedString("in_igCanOnlyDeleteUncarriedItems",whose), //$NON-NLS-1$
+						LanguageBundle.getFormattedString("in_igCanOnlyDeleteUncarriedItems",whose), //$NON-NLS-1$
 						Constants.APPLICATION_NAME, MessageType.ERROR);
 
 				return;
@@ -1641,7 +1641,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 				// Give user a chance to bail
 				//
 				if (JOptionPane.showConfirmDialog(null, 
-					PropertyFactory.getFormattedString("in_igConfirmDelete",aEq.getName()), //$NON-NLS-1$ 
+					LanguageBundle.getFormattedString("in_igConfirmDelete",aEq.getName()), //$NON-NLS-1$
 					Constants.APPLICATION_NAME, JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION)
 				{
 					return;
@@ -2084,21 +2084,21 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 		SettingsHandler.setGearTab_SelectedListMode(viewSelectMode);
 
-		viewComboBox.addItem(PropertyFactory.getString("in_typeSubtypeName"));
-		viewComboBox.addItem(PropertyFactory.getString("in_typeName"));
-		viewComboBox.addItem(PropertyFactory.getString("in_nameLabel"));
-		viewComboBox.addItem(PropertyFactory.getString("in_allTypes"));
-		viewComboBox.addItem(PropertyFactory.getString("in_sourceName"));
+		viewComboBox.addItem(LanguageBundle.getString("in_typeSubtypeName"));
+		viewComboBox.addItem(LanguageBundle.getString("in_typeName"));
+		viewComboBox.addItem(LanguageBundle.getString("in_nameLabel"));
+		viewComboBox.addItem(LanguageBundle.getString("in_allTypes"));
+		viewComboBox.addItem(LanguageBundle.getString("in_sourceName"));
 		Utility.setDescription(viewComboBox,
 			"You can change how the Equipment in the Tables are listed.");
 		viewComboBox.setSelectedIndex(viewMode); // must be done before createModels call
 
-		viewSelectComboBox.addItem(PropertyFactory
+		viewSelectComboBox.addItem(LanguageBundle
 			.getString("in_typeSubtypeName"));
-		viewSelectComboBox.addItem(PropertyFactory.getString("in_typeName"));
-		viewSelectComboBox.addItem(PropertyFactory.getString("in_nameLabel"));
-		viewSelectComboBox.addItem(PropertyFactory.getString("in_allTypes"));
-		viewSelectComboBox.addItem(PropertyFactory.getString("in_sourceName"));
+		viewSelectComboBox.addItem(LanguageBundle.getString("in_typeName"));
+		viewSelectComboBox.addItem(LanguageBundle.getString("in_nameLabel"));
+		viewSelectComboBox.addItem(LanguageBundle.getString("in_allTypes"));
+		viewSelectComboBox.addItem(LanguageBundle.getString("in_sourceName"));
 		Utility.setDescription(viewSelectComboBox,
 			"You can change how the Equipment in the Tables are listed.");
 		viewSelectComboBox.setSelectedIndex(viewSelectMode); // must be done before createModels call
@@ -2310,7 +2310,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 		rightPane
 			.add(
 				buildDelPanel(removeButton,
-					PropertyFactory.getString("in_igRemoveHelpMsg")), //$NON-NLS-1$
+					LanguageBundle.getString("in_igRemoveHelpMsg")), //$NON-NLS-1$
 				BorderLayout.SOUTH);
 
 		JButton columnButton2 = new JButton();
@@ -2329,13 +2329,13 @@ public final class InfoGear extends FilterAdapterPanel implements
 		rightPane.add(buildRemoveItemPanel(), BorderLayout.SOUTH);
 
 		TitledBorder title1 =
-				BorderFactory.createTitledBorder(PropertyFactory.getString("in_igEqInfo")); //$NON-NLS-1$
+				BorderFactory.createTitledBorder(LanguageBundle.getString("in_igEqInfo")); //$NON-NLS-1$
 		title1.setTitleJustification(TitledBorder.CENTER);
 		eqScroll.setBorder(title1);
 		infoLabel.setBackground(rightPane.getBackground());
 		eqScroll.setViewportView(infoLabel);
 		Utility.setDescription(eqScroll,
-			PropertyFactory.getString("in_igReqNotMet")); //$NON-NLS-1$
+			LanguageBundle.getString("in_igReqNotMet")); //$NON-NLS-1$
 
 		GridBagLayout gridbag2 = new GridBagLayout();
 		GridBagConstraints c2 = new GridBagConstraints();
@@ -2544,7 +2544,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 		{
 			if (eqFrame == null)
 			{
-				eqFrame = new EQFrame(pc);
+				eqFrame = new EQFrame(null, pc);
 			}
 
 			if (eqFrame.setEquipment(aEq))
@@ -2573,7 +2573,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 		if (sellQty < 0.0f)
 		{
 			Object selectedValue =
-					JOptionPane.showInputDialog(null, PropertyFactory.getString("in_igRemoveEnterQuantity"), //$NON-NLS-1$
+					JOptionPane.showInputDialog(null, LanguageBundle.getString("in_igRemoveEnterQuantity"), //$NON-NLS-1$
 						Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
 
 			if (selectedValue != null)
@@ -2584,7 +2584,7 @@ public final class InfoGear extends FilterAdapterPanel implements
 				}
 				catch (Exception e)
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory.getString("in_igInvalidNumber"), //$NON-NLS-1$
+					ShowMessageDelegate.showMessageDialog(LanguageBundle.getString("in_igInvalidNumber"), //$NON-NLS-1$
 						Constants.APPLICATION_NAME, MessageType.ERROR);
 
 					return 0;
@@ -2605,13 +2605,13 @@ public final class InfoGear extends FilterAdapterPanel implements
 			}
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("in_igRemoveNoIntegerMsg"), //$NON-NLS-1$
+					LanguageBundle.getString("in_igRemoveNoIntegerMsg"), //$NON-NLS-1$
 					Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return 0;
 		}
 		ShowMessageDelegate.showMessageDialog(
-			PropertyFactory.getString("in_igRemoveNoRemoveFilledContainer"), Constants.APPLICATION_NAME, //$NON-NLS-1$
+			LanguageBundle.getString("in_igRemoveNoRemoveFilledContainer"), Constants.APPLICATION_NAME, //$NON-NLS-1$
 			MessageType.ERROR);
 		return 0;
 	}
@@ -2740,8 +2740,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 		InputInterface ii = InputFactory.getInputInstance();
 		Object input =
 				ii
-					.showInputDialog(this, PropertyFactory.getString("in_igSellPricePercMsg"), //$NON-NLS-1$
-						PropertyFactory.getString("Sell at Percent"), MessageType.QUESTION, null, //$NON-NLS-1$
+					.showInputDialog(this, LanguageBundle.getString("in_igSellPricePercMsg"), //$NON-NLS-1$
+						LanguageBundle.getString("Sell at Percent"), MessageType.QUESTION, null, //$NON-NLS-1$
 						defaultValue);
 
 		if (input != null)
@@ -2756,8 +2756,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 			catch (NumberFormatException nfe)
 			{
 				ShowMessageDelegate.showMessageDialog(
-					PropertyFactory.getString("in_igSellPricePercNoIntegerMsg"), //$NON-NLS-1$
-					PropertyFactory.getString("in_igSellPricePercNoIntegerTitle"), //$NON-NLS-1$
+					LanguageBundle.getString("in_igSellPricePercNoIntegerMsg"), //$NON-NLS-1$
+					LanguageBundle.getString("in_igSellPricePercNoIntegerTitle"), //$NON-NLS-1$
 					MessageType.ERROR);
 			}
 		}
@@ -2968,71 +2968,71 @@ public final class InfoGear extends FilterAdapterPanel implements
 		{
 			if (treeTable == availableTable)
 			{
-				GearPopupMenu.this.add(createBuyMenuItem(PropertyFactory.
+				GearPopupMenu.this.add(createBuyMenuItem(LanguageBundle.
 					getString("in_igBuy1"), 1, "shortcut EQUALS")); //$NON-NLS-1$
 
 				JMenu buyMenu =
-						Utility.createMenu(PropertyFactory.getString("in_igBuyQuantity"), //$NON-NLS-1$ 
-								(char) 0, PropertyFactory.getString("in_igBuyQuantity"), //$NON-NLS-1$
+						Utility.createMenu(LanguageBundle.getString("in_igBuyQuantity"), //$NON-NLS-1$
+								(char) 0, LanguageBundle.getString("in_igBuyQuantity"), //$NON-NLS-1$
 							null, true);
 
-				buyMenu.add(createBuyMenuItem(PropertyFactory.
+				buyMenu.add(createBuyMenuItem(LanguageBundle.
 					getString("in_igBuy2"), 2, null));  //$NON-NLS-1$
-				buyMenu.add(createBuyMenuItem(PropertyFactory.
+				buyMenu.add(createBuyMenuItem(LanguageBundle.
 					getString("in_igBuy5"), 5, null)); //$NON-NLS-1$
-				buyMenu.add(createBuyMenuItem(PropertyFactory.
+				buyMenu.add(createBuyMenuItem(LanguageBundle.
 					getString("in_igBuy10"), 10, null)); //$NON-NLS-1$
-				buyMenu.add(createBuyMenuItem(PropertyFactory.
+				buyMenu.add(createBuyMenuItem(LanguageBundle.
 					getString("in_igBuy15"), 15, null)); //$NON-NLS-1$
-				buyMenu.add(createBuyMenuItem(PropertyFactory.
+				buyMenu.add(createBuyMenuItem(LanguageBundle.
 					getString("in_igBuy20"), 20, null)); //$NON-NLS-1$
-				buyMenu.add(createBuyMenuItem(PropertyFactory.
+				buyMenu.add(createBuyMenuItem(LanguageBundle.
 					getString("in_igBuy50"), 50, null)); //$NON-NLS-1$
 				GearPopupMenu.this.add(buyMenu);
-				GearPopupMenu.this.add(createBuyMenuItem(PropertyFactory.
+				GearPopupMenu.this.add(createBuyMenuItem(LanguageBundle.
 					getString("in_igBuyN"), -1, "alt N")); //$NON-NLS-1$
 				this.addSeparator();
-				GearPopupMenu.this.add(createBuyRateMenuItem(PropertyFactory.
+				GearPopupMenu.this.add(createBuyRateMenuItem(LanguageBundle.
 					getString("in_igBuy1At"), 1, null)); //$NON-NLS-1$
 
 				JMenu buyAtMenu =
-						Utility.createMenu(PropertyFactory.getString("in_igBuyQuantityAt"), //$NON-NLS-1$ 
-							(char) 0,PropertyFactory.getString("in_igBuyQuantityAt"), null, true); //$NON-NLS-1$
-				buyAtMenu.add(createBuyRateMenuItem(PropertyFactory
+						Utility.createMenu(LanguageBundle.getString("in_igBuyQuantityAt"), //$NON-NLS-1$
+							(char) 0,LanguageBundle.getString("in_igBuyQuantityAt"), null, true); //$NON-NLS-1$
+				buyAtMenu.add(createBuyRateMenuItem(LanguageBundle
 					.getString("in_igBuy2At"), 2, null)); //$NON-NLS-1$
-				buyAtMenu.add(createBuyRateMenuItem(PropertyFactory
+				buyAtMenu.add(createBuyRateMenuItem(LanguageBundle
 						.getString("in_igBuy5At"), 5, null)); //$NON-NLS-1$
-				buyAtMenu.add(createBuyRateMenuItem(PropertyFactory
+				buyAtMenu.add(createBuyRateMenuItem(LanguageBundle
 						.getString("in_igBuy10At"), 10, null)); //$NON-NLS-1$
-				buyAtMenu.add(createBuyRateMenuItem(PropertyFactory
+				buyAtMenu.add(createBuyRateMenuItem(LanguageBundle
 						.getString("in_igBuy15At"), 15, null)); //$NON-NLS-1$
-				buyAtMenu.add(createBuyRateMenuItem(PropertyFactory
+				buyAtMenu.add(createBuyRateMenuItem(LanguageBundle
 						.getString("in_igBuy20At"), 20, null)); //$NON-NLS-1$
-				buyAtMenu.add(createBuyRateMenuItem(PropertyFactory
+				buyAtMenu.add(createBuyRateMenuItem(LanguageBundle
 						.getString("in_igBuy50At"), 50, null)); //$NON-NLS-1$
 				GearPopupMenu.this.add(buyAtMenu);
-				GearPopupMenu.this.add(createBuyRateMenuItem(PropertyFactory.getString("in_igBuyNAt"), //$NON-NLS-1$
+				GearPopupMenu.this.add(createBuyRateMenuItem(LanguageBundle.getString("in_igBuyNAt"), //$NON-NLS-1$
 					-1, "alt N"));
 				this.addSeparator();
 
 				GearPopupMenu.this.add(Utility.createMenuItem(
-					PropertyFactory.getString("in_igCreateCustomItemLabel"), new ActionListener()
+					LanguageBundle.getString("in_igCreateCustomItemLabel"), new ActionListener()
 					{
 						public void actionPerformed(ActionEvent e)
 						{
 							customizeButtonClick();
 						}
 					}, "newCustomItem", (char) 0, "alt C",
-					PropertyFactory.getString("in_igCreateCustomItemDesc"), null, true));
+					LanguageBundle.getString("in_igCreateCustomItemDesc"), null, true));
 				GearPopupMenu.this.add(Utility.createMenuItem(
-						PropertyFactory.getString("in_igDeleteCustomItemLabel"), new ActionListener()
+						LanguageBundle.getString("in_igDeleteCustomItemLabel"), new ActionListener()
 					{
 						public void actionPerformed(ActionEvent e)
 						{
 							deleteCustomButtonClick();
 						}
 					}, "deleteItem", (char) 0, "DELETE", 
-					PropertyFactory.getString("in_igDeleteCustomItemDesc"), null, true));
+					LanguageBundle.getString("in_igDeleteCustomItemDesc"), null, true));
 
 				/*                GearPopupMenu.this.add(CoreUtility.createMenuItem("Create custom item from scratch",
 				 new ActionListener()
@@ -3049,67 +3049,67 @@ public final class InfoGear extends FilterAdapterPanel implements
 			else
 			// selectedTable
 			{
-				GearPopupMenu.this.add(createRemoveMenuItem(PropertyFactory.
+				GearPopupMenu.this.add(createRemoveMenuItem(LanguageBundle.
 					getString("in_igRemove1"), 1, "shortcut MINUS")); //$NON-NLS-1$
 
 				JMenu remMenu =
-						Utility.createMenu(PropertyFactory.getString("in_igRemoveQuantity"), (char) 0, //$NON-NLS-1$
-						PropertyFactory.getString("in_igRemoveQuantity"), null, true); //$NON-NLS-1$
-				remMenu.add(createRemoveMenuItem(PropertyFactory.
+						Utility.createMenu(LanguageBundle.getString("in_igRemoveQuantity"), (char) 0, //$NON-NLS-1$
+						LanguageBundle.getString("in_igRemoveQuantity"), null, true); //$NON-NLS-1$
+				remMenu.add(createRemoveMenuItem(LanguageBundle.
 						getString("in_igRemove2"), 2, null)); //$NON-NLS-1$
-				remMenu.add(createRemoveMenuItem(PropertyFactory.
+				remMenu.add(createRemoveMenuItem(LanguageBundle.
 						getString("in_igRemove5"), 5, null)); //$NON-NLS-1$
-				remMenu.add(createRemoveMenuItem(PropertyFactory.
+				remMenu.add(createRemoveMenuItem(LanguageBundle.
 						getString("in_igRemove10"), 10, null)); //$NON-NLS-1$
-				remMenu.add(createRemoveMenuItem(PropertyFactory.
+				remMenu.add(createRemoveMenuItem(LanguageBundle.
 						getString("in_igRemove15"), 15, null)); //$NON-NLS-1$
-				remMenu.add(createRemoveMenuItem(PropertyFactory.
+				remMenu.add(createRemoveMenuItem(LanguageBundle.
 						getString("in_igRemove20"), 20, null)); //$NON-NLS-1$
-				remMenu.add(createRemoveMenuItem(PropertyFactory.
+				remMenu.add(createRemoveMenuItem(LanguageBundle.
 						getString("in_igRemove50"), 50, null)); //$NON-NLS-1$
-				remMenu.add(createRemoveMenuItem(PropertyFactory.
+				remMenu.add(createRemoveMenuItem(LanguageBundle.
 						getString("in_igRemoveN"), -1, null)); //$NON-NLS-1$
 				GearPopupMenu.this.add(remMenu);
-				GearPopupMenu.this.add(createRemoveMenuItem(PropertyFactory.
+				GearPopupMenu.this.add(createRemoveMenuItem(LanguageBundle.
 						getString("in_igRemoveAll"), -5, null)); //$NON-NLS-1$
 				this.addSeparator();
 
-				GearPopupMenu.this.add(createSellMenuItem(PropertyFactory.
+				GearPopupMenu.this.add(createSellMenuItem(LanguageBundle.
 						getString("in_igSell1"), 1, null)); //$NON-NLS-1$
 
 				JMenu sellMenu =
-						Utility.createMenu(PropertyFactory.
+						Utility.createMenu(LanguageBundle.
 							getString("in_igSellQuantity"), (char) 0, //$NON-NLS-1$
-							PropertyFactory.getString("in_igSellQuantity"), null, true); //$NON-NLS-1$
-				sellMenu.add(createSellMenuItem(PropertyFactory.
+							LanguageBundle.getString("in_igSellQuantity"), null, true); //$NON-NLS-1$
+				sellMenu.add(createSellMenuItem(LanguageBundle.
 						getString("in_igSell2"), 2, null)); //$NON-NLS-1$
-				sellMenu.add(createSellMenuItem(PropertyFactory.
+				sellMenu.add(createSellMenuItem(LanguageBundle.
 						getString("in_igSell5"), 5, null)); //$NON-NLS-1$
-				sellMenu.add(createSellMenuItem(PropertyFactory.
+				sellMenu.add(createSellMenuItem(LanguageBundle.
 						getString("in_igSell10"), 10, null)); //$NON-NLS-1$
-				sellMenu.add(createSellMenuItem(PropertyFactory.
+				sellMenu.add(createSellMenuItem(LanguageBundle.
 						getString("in_igSell15"), 15, null)); //$NON-NLS-1$
-				sellMenu.add(createSellMenuItem(PropertyFactory.
+				sellMenu.add(createSellMenuItem(LanguageBundle.
 						getString("in_igSell20"), 20, null)); //$NON-NLS-1$
-				sellMenu.add(createSellMenuItem(PropertyFactory.
+				sellMenu.add(createSellMenuItem(LanguageBundle.
 						getString("in_igSell50"), 50, null)); //$NON-NLS-1$
-				sellMenu.add(createSellMenuItem(PropertyFactory.
+				sellMenu.add(createSellMenuItem(LanguageBundle.
 						getString("in_igSellN"), -1, null)); //$NON-NLS-1$
 				GearPopupMenu.this.add(sellMenu);
 				GearPopupMenu.this
-					.add(createSellMenuItem(PropertyFactory.getString("in_igSellAll"), //$NON-NLS-1$ 
+					.add(createSellMenuItem(LanguageBundle.getString("in_igSellAll"), //$NON-NLS-1$
 						-5, null));
 				this.addSeparator();
 
-				GearPopupMenu.this.add(createSellRateMenuItem(PropertyFactory.
+				GearPopupMenu.this.add(createSellRateMenuItem(LanguageBundle.
 					getString("in_igSell1At"),	1, null)); //$NON-NLS-1$
-				GearPopupMenu.this.add(createSellRateMenuItem(PropertyFactory.
+				GearPopupMenu.this.add(createSellRateMenuItem(LanguageBundle.
 					getString("in_igSellNAtt"), -1, null)); //$NON-NLS-1$
-				GearPopupMenu.this.add(createSellRateMenuItem(PropertyFactory.
+				GearPopupMenu.this.add(createSellRateMenuItem(LanguageBundle.
 					getString("in_igSellAllAt"), -5, null)); //$NON-NLS-1$
 				this.addSeparator();
 
-				GearPopupMenu.this.add(Utility.createMenuItem(PropertyFactory.
+				GearPopupMenu.this.add(Utility.createMenuItem(LanguageBundle.
 					getString("in_igModChargesMenuLabel"), //$NON-NLS-1$
 					new ActionListener()
 					{
@@ -3117,9 +3117,9 @@ public final class InfoGear extends FilterAdapterPanel implements
 						{
 							editChargesButtonClicked();
 						}
-					}, PropertyFactory.getString("in_igModChargesMenuCommand"), //$NON-NLS-1$
-					(char) 0, PropertyFactory.getString("in_igModChargesMenuAccelerator"), //$NON-NLS-1$
-					PropertyFactory.getString("in_igModChargesMenuDesc"), null, true)); //$NON-NLS-1$
+					}, LanguageBundle.getString("in_igModChargesMenuCommand"), //$NON-NLS-1$
+					(char) 0, LanguageBundle.getString("in_igModChargesMenuAccelerator"), //$NON-NLS-1$
+					LanguageBundle.getString("in_igModChargesMenuDesc"), null, true)); //$NON-NLS-1$
 				this.addSeparator();
 
 				GearPopupMenu.this.add(pcMoveMenu);
@@ -3127,8 +3127,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 				this.addSeparator();
 
 				JMenu resortMenu =
-						Utility.createMenu(PropertyFactory.getString("in_igSortMenuLabel"), //$NON-NLS-1$ 
-						(char) 0,PropertyFactory.getString("in_igSortMenuDesc"), //$NON-NLS-1$
+						Utility.createMenu(LanguageBundle.getString("in_igSortMenuLabel"), //$NON-NLS-1$
+						(char) 0,LanguageBundle.getString("in_igSortMenuDesc"), //$NON-NLS-1$
 						null, true);
 
 				GearPopupMenu.this.add(resortMenu);
@@ -3136,54 +3136,54 @@ public final class InfoGear extends FilterAdapterPanel implements
 				resortMenu
 					.add(Utility
 						.createMenuItem(
-							PropertyFactory.getString("in_igSortNameAscLabel"), //$NON-NLS-1$
+							LanguageBundle.getString("in_igSortNameAscLabel"), //$NON-NLS-1$
 							new ResortActionListener(
 								ResortComparator.RESORT_NAME,
 								ResortComparator.RESORT_ASCENDING),
-							PropertyFactory.getString("in_igSortCommand"), //$NON-NLS-1$
+							LanguageBundle.getString("in_igSortCommand"), //$NON-NLS-1$
 							(char) 0,
 							null,
-							PropertyFactory.getString("in_igSortNameAscDesc"), //$NON-NLS-1$
+							LanguageBundle.getString("in_igSortNameAscDesc"), //$NON-NLS-1$
 							null, true));
 				resortMenu
 					.add(Utility
 						.createMenuItem(
-							PropertyFactory.getString("in_igSortNameDscLabel"), //$NON-NLS-1$
+							LanguageBundle.getString("in_igSortNameDscLabel"), //$NON-NLS-1$
 							new ResortActionListener(
 								ResortComparator.RESORT_NAME,
 								ResortComparator.RESORT_DESCENDING),
-							PropertyFactory.getString("in_igSortCommand"), //$NON-NLS-1$
+							LanguageBundle.getString("in_igSortCommand"), //$NON-NLS-1$
 							(char) 0,
 							null,
-							PropertyFactory.getString("in_igSortNameDscDesc"), //$NON-NLS-1$
+							LanguageBundle.getString("in_igSortNameDscDesc"), //$NON-NLS-1$
 							null, true));
-				resortMenu.add(Utility.createMenuItem(PropertyFactory.
+				resortMenu.add(Utility.createMenuItem(LanguageBundle.
 					getString("in_igSortWeightAscLabel"), //$NON-NLS-1$
 					new ResortActionListener(ResortComparator.RESORT_WEIGHT,
-						ResortComparator.RESORT_ASCENDING), PropertyFactory.
+						ResortComparator.RESORT_ASCENDING), LanguageBundle.
 					getString("in_igSortCommand"), (char) 0, null, //$NON-NLS-1$
-					PropertyFactory.getString("in_igSortWeightAscDesc"), null, //$NON-NLS-1$
+					LanguageBundle.getString("in_igSortWeightAscDesc"), null, //$NON-NLS-1$
 					true));
-				resortMenu.add(Utility.createMenuItem(PropertyFactory.
+				resortMenu.add(Utility.createMenuItem(LanguageBundle.
 					getString("in_igSortWeightDscLabel"), //$NON-NLS-1$
 					new ResortActionListener(ResortComparator.RESORT_WEIGHT,
-						ResortComparator.RESORT_DESCENDING), PropertyFactory.
+						ResortComparator.RESORT_DESCENDING), LanguageBundle.
 					getString("in_igSortCommand"), (char) 0, null, //$NON-NLS-1$
-					PropertyFactory.getString("in_igSortWeightDscDesc"), null, //$NON-NLS-1$
+					LanguageBundle.getString("in_igSortWeightDscDesc"), null, //$NON-NLS-1$
 					true));
-				resortMenu.add(Utility.createMenuItem(PropertyFactory.
+				resortMenu.add(Utility.createMenuItem(LanguageBundle.
 					getString("in_igSortEquippedAscLabel"), //$NON-NLS-1$
 					new ResortActionListener(ResortComparator.RESORT_EQUIPPED,
-						ResortComparator.RESORT_ASCENDING), PropertyFactory.
+						ResortComparator.RESORT_ASCENDING), LanguageBundle.
 					getString("in_igSortCommand"), (char) 0, null, //$NON-NLS-1$
-					PropertyFactory.getString("in_igSortEquippedAscDesc"), null, //$NON-NLS-1$
+					LanguageBundle.getString("in_igSortEquippedAscDesc"), null, //$NON-NLS-1$
 					true));
-				resortMenu.add(Utility.createMenuItem(PropertyFactory.
+				resortMenu.add(Utility.createMenuItem(LanguageBundle.
 					getString("in_igSortEquippedDscLabel"), //$NON-NLS-1$
 					new ResortActionListener(ResortComparator.RESORT_EQUIPPED,
-						ResortComparator.RESORT_DESCENDING), PropertyFactory.
+						ResortComparator.RESORT_DESCENDING), LanguageBundle.
 					getString("in_igSortCommand"), (char) 0, null, //$NON-NLS-1$
-					PropertyFactory.getString("in_igSortEquippedDscDesc"), null, //$NON-NLS-1$
+					LanguageBundle.getString("in_igSortEquippedDscDesc"), null, //$NON-NLS-1$
 					true));
 			}
 		}
@@ -3192,8 +3192,8 @@ public final class InfoGear extends FilterAdapterPanel implements
 			String accelerator)
 		{
 			return Utility.createMenuItem(label, new BuyGearActionListener(qty), 
-				PropertyFactory.getFormattedString("in_igBuyMenuCommand" , qty), (char) 0, //$NON-NLS-1$
-				accelerator, PropertyFactory.getFormattedString("in_igBuyRateMenuDesc" , //$NON-NLS-1$
+				LanguageBundle.getFormattedString("in_igBuyMenuCommand" , qty), (char) 0, //$NON-NLS-1$
+				accelerator, LanguageBundle.getFormattedString("in_igBuyRateMenuDesc" , //$NON-NLS-1$
 				(qty < 0) ? "n" : Integer.toString(qty)),"Add16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
@@ -3201,17 +3201,17 @@ public final class InfoGear extends FilterAdapterPanel implements
 			String accelerator)
 		{
 			return Utility.createMenuItem(label, new BuyRateGearActionListener(	qty), 
-				PropertyFactory.getFormattedString("in_igBuyRateMenuCommand", qty), (char) 0, accelerator, //$NON-NLS-1$ 
-				PropertyFactory.getFormattedString("in_igBuyRateMenuDesc", //$NON-NLS-1$
+				LanguageBundle.getFormattedString("in_igBuyRateMenuCommand", qty), (char) 0, accelerator, //$NON-NLS-1$
+				LanguageBundle.getFormattedString("in_igBuyRateMenuDesc", //$NON-NLS-1$
 				(qty < 0) ? "n" : Integer.toString(qty) ), "Add16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		private JMenuItem createRemoveMenuItem(String label, int qty,
 			String accelerator)
 		{
-			return Utility.createMenuItem(label, new RemoveGearActionListener(qty), PropertyFactory.
+			return Utility.createMenuItem(label, new RemoveGearActionListener(qty), LanguageBundle.
 				getFormattedString("in_igRemoveMenuCommand" , qty), (char) 0, accelerator, //$NON-NLS-1$  
-				PropertyFactory.getFormattedString("in_igRemoveMenuDesc", //$NON-NLS-1$
+				LanguageBundle.getFormattedString("in_igRemoveMenuDesc", //$NON-NLS-1$
 				(qty < 0) ? "n" : Integer.toString(qty) ), "Remove16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
@@ -3219,9 +3219,9 @@ public final class InfoGear extends FilterAdapterPanel implements
 			String accelerator)
 		{
 			return Utility.createMenuItem(label,
-				new SellGearActionListener(qty), PropertyFactory.
+				new SellGearActionListener(qty), LanguageBundle.
 				getFormattedString("in_igSellMenuCommand",qty), (char) 0, //$NON-NLS-1$
-				accelerator, PropertyFactory.getFormattedString("in_igSellMenuDesc", //$NON-NLS-1$
+				accelerator, LanguageBundle.getFormattedString("in_igSellMenuDesc", //$NON-NLS-1$
 				(qty < 0) ? "n" : Integer.toString(qty)), null, true); //$NON-NLS-1$
 		}
 
@@ -3229,9 +3229,9 @@ public final class InfoGear extends FilterAdapterPanel implements
 			String accelerator)
 		{
 			return Utility.createMenuItem(label,
-				new SellRateGearActionListener(qty), PropertyFactory.
+				new SellRateGearActionListener(qty), LanguageBundle.
 				getFormattedString("in_igSellRateMenuCommand" , qty), (char) 0, //$NON-NLS-1$
-				accelerator, PropertyFactory.getFormattedString("in_igSellRateMenuDesc", //$NON-NLS-1$
+				accelerator, LanguageBundle.getFormattedString("in_igSellRateMenuDesc", //$NON-NLS-1$
 				(qty < 0) ? "n" : Integer.toString(qty)), null, true); //$NON-NLS-1$
 		}
 	}
@@ -3728,12 +3728,12 @@ public final class InfoGear extends FilterAdapterPanel implements
 
 		// Names of the columns.
 		private String[] names =
-				{PropertyFactory.getString("in_igEqModelColItem"), //$NON-NLS-1$
-				PropertyFactory.getString("in_igEqModelColCost"), //$NON-NLS-1$
-				PropertyFactory.getString("in_igEqModelColWeight"), //$NON-NLS-1$
-				PropertyFactory.getString("in_igEqModelColQty"), //$NON-NLS-1$
-				PropertyFactory.getString("in_igEqModelColOrder"), //$NON-NLS-1$ 
-				PropertyFactory.getString("in_igEqModelColSource")}; //$NON-NLS-1$
+				{LanguageBundle.getString("in_igEqModelColItem"), //$NON-NLS-1$
+				LanguageBundle.getString("in_igEqModelColCost"), //$NON-NLS-1$
+				LanguageBundle.getString("in_igEqModelColWeight"), //$NON-NLS-1$
+				LanguageBundle.getString("in_igEqModelColQty"), //$NON-NLS-1$
+				LanguageBundle.getString("in_igEqModelColOrder"), //$NON-NLS-1$
+				LanguageBundle.getString("in_igEqModelColSource")}; //$NON-NLS-1$
 		private int[] widths = {100, 20, 20, 20, 20, 100};
 
 		// Types of the columns.

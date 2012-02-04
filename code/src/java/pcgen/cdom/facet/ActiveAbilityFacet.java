@@ -63,7 +63,7 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 		boolean isNew = ensureCachedSet(id, cat, nat);
 		if (getCachedSet(id, cat, nat).add(obj) || isNew)
 		{
-			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
+			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED, cat, nat);
 		}
 	}
 
@@ -126,7 +126,7 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 		boolean removed = cached != null && cached.remove(obj);
 		if (removed)
 		{
-			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
+			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED, cat, nat);
 		}
 		return removed;
 	}

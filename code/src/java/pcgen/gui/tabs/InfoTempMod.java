@@ -122,7 +122,7 @@ import pcgen.gui.utils.ResizeColumnListener;
 import pcgen.gui.utils.TreeTableModel;
 import pcgen.gui.utils.Utility;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserRadio;
 import pcgen.util.enumeration.Tab;
@@ -369,7 +369,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 	{
 		if (!pc.getUseTempMods())
 		{
-			tempModsDisabledWarning.setText(PropertyFactory
+			tempModsDisabledWarning.setText(LanguageBundle
 				.getString("InfoTempMod.warn.mods.off")); //$NON-NLS-1$
 		}
 		else
@@ -428,7 +428,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 			String minString = aTok.nextToken();
 			String maxString = aTok.nextToken();
-			String titleString = PropertyFactory.getString("in_itmPickNumber"); //$NON-NLS-1$
+			String titleString = LanguageBundle.getString("in_itmPickNumber"); //$NON-NLS-1$
 
 			if (aTok.hasMoreTokens())
 			{
@@ -474,7 +474,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				ChooserRadio c = ChooserFactory.getRadioInstance();
 				c.setAvailableList(numberList);
 				c.setVisible(false);
-				c.setTitle(PropertyFactory.getString("in_itmPickNumber")); //$NON-NLS-1$
+				c.setTitle(LanguageBundle.getString("in_itmPickNumber")); //$NON-NLS-1$
 				c.setMessageText(titleString);
 				c.setVisible(true);
 
@@ -965,7 +965,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		if (bonusTable.getTree().isSelectionEmpty())
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_itmAppBonButSelectBonusType"), Constants.APPLICATION_NAME, //$NON-NLS-1$
+				LanguageBundle.getString("in_itmAppBonButSelectBonusType"), Constants.APPLICATION_NAME, //$NON-NLS-1$
 				MessageType.ERROR); 
 
 			return;
@@ -974,7 +974,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		if (targetTable.getTree().isSelectionEmpty())
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_itmAppBonButSelectBonusTarget"), //$NON-NLS-1$
+				LanguageBundle.getString("in_itmAppBonButSelectBonusTarget"), //$NON-NLS-1$
 				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
@@ -998,7 +998,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		if ((aTarget == null) || (fNode == null))
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_itmAppBonButSelectBonusTarget"), //$NON-NLS-1$
+				LanguageBundle.getString("in_itmAppBonButSelectBonusTarget"), //$NON-NLS-1$
 				Constants.APPLICATION_NAME, MessageType.ERROR);
 
 			return;
@@ -1015,7 +1015,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		if ((anObj == null) || (fNode == null))
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_itmAppBonButSelectBonusType"), Constants.APPLICATION_NAME, //$NON-NLS-1$
+				LanguageBundle.getString("in_itmAppBonButSelectBonusType"), Constants.APPLICATION_NAME, //$NON-NLS-1$
 				MessageType.ERROR);
 
 			return;
@@ -1039,7 +1039,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 				if (pc.hasTempApplied(aMod))
 				{
 					ShowMessageDelegate.showMessageDialog(
-						PropertyFactory.getString("in_itmAppBonButAlreadyApplied"), //$NON-NLS-1$
+						LanguageBundle.getString("in_itmAppBonButAlreadyApplied"), //$NON-NLS-1$
 						Constants.APPLICATION_NAME, MessageType.ERROR);
 					return;
 				}
@@ -1398,10 +1398,10 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		leftPane.setLayout(gridbag);
 		rightPane.setLayout(gridbag);
 
-		applyBonusButton = new JButton(PropertyFactory.getString(
+		applyBonusButton = new JButton(LanguageBundle.getString(
 				"in_itmInitCompAppBonTitle")); //$NON-NLS-1$
 		Utility.setDescription(applyBonusButton,
-				PropertyFactory.getString("in_itmInitCompAppBonDesc")); //$NON-NLS-1$
+				LanguageBundle.getString("in_itmInitCompAppBonDesc")); //$NON-NLS-1$
 		applyBonusButton.setEnabled(false);
 		applyBonusButton.setPreferredSize(new Dimension(60, 20));
 		applyBonusButton.setSize(new Dimension(60, 20));
@@ -1490,7 +1490,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		JScrollPane sScroll = new JScrollPane();
 		gridbag.setConstraints(sScroll, c);
 
-		TitledBorder sTitle = BorderFactory.createTitledBorder(PropertyFactory.getString("in_itmInitCompBorderInfo")); //$NON-NLS-1$
+		TitledBorder sTitle = BorderFactory.createTitledBorder(LanguageBundle.getString("in_itmInitCompBorderInfo")); //$NON-NLS-1$
 		sTitle.setTitleJustification(TitledBorder.CENTER);
 		sScroll.setBorder(sTitle);
 		infoLabel.setBackground(topPane.getBackground());
@@ -1513,7 +1513,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		/* commented out until we fix temp mods, do not delete
 		 useTempMods = new JCheckBox("Use Temporary Bonuses");
 		 */
-		removeBonusButton = new JButton(PropertyFactory.getString("in_itmInitCompRemoveButTitle")); //$NON-NLS-1$
+		removeBonusButton = new JButton(LanguageBundle.getString("in_itmInitCompRemoveButTitle")); //$NON-NLS-1$
 		removeBonusButton.setEnabled(false);
 
 		tempModsDisabledWarning = new JLabel("");
@@ -1581,7 +1581,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		if (appliedTable.getTree().isSelectionEmpty())
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_itmRemBonButSelect"), Constants.APPLICATION_NAME,
+				LanguageBundle.getString("in_itmRemBonButSelect"), Constants.APPLICATION_NAME,
 				MessageType.ERROR); //$NON-NLS-1$
 
 			return;
@@ -1837,7 +1837,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (_target instanceof PlayerCharacter)
 			{
-				b.append(PropertyFactory.getString("in_itmTmpWrapGetNamePC"));
+				b.append(LanguageBundle.getString("in_itmTmpWrapGetNamePC"));
 			}
 			else if (_target instanceof Equipment)
 			{
@@ -1863,9 +1863,9 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 	{
 		// list of columns names
 		private String[] colNameList =
-				new String[]{PropertyFactory.getString("in_itmAppModelNameTarget"), //$NON-NLS-1$
-					PropertyFactory.getString("in_itmAppModelBonusType"), PropertyFactory.getString("in_itmAppModelBonusTo"), //$NON-NLS-1$ //$NON-NLS-2$
-					PropertyFactory.getString("in_itmAppModelBonusValue")}; //$NON-NLS-1$
+				new String[]{LanguageBundle.getString("in_itmAppModelNameTarget"), //$NON-NLS-1$
+					LanguageBundle.getString("in_itmAppModelBonusType"), LanguageBundle.getString("in_itmAppModelBonusTo"), //$NON-NLS-1$ //$NON-NLS-2$
+					LanguageBundle.getString("in_itmAppModelBonusValue")}; //$NON-NLS-1$
 		private MyPONode bonusRoot;
 
 		/**
@@ -2125,10 +2125,10 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 			// you also need to change the static COL_XXX defines
 			// at the begining of this file
 			//
-			avaNameList = new String[]{PropertyFactory.getString("in_itmBonModelAvaNameName"), //$NON-NLS-1$
-					PropertyFactory.getString("in_itmBonModelAvaNameSource"), PropertyFactory.getString("in_itmBonModelAvaNameFile")}; //$NON-NLS-1$ //$NON-NLS-2$
-			selNameList = new String[]{PropertyFactory.getString("in_itmBonModelSelNameName"), //$NON-NLS-1$
-					PropertyFactory.getString("in_itmBonModelSelNameTarget"), PropertyFactory.getString("in_itmBonModelSelNameFile")}; //$NON-NLS-1$ //$NON-NLS-2$
+			avaNameList = new String[]{LanguageBundle.getString("in_itmBonModelAvaNameName"), //$NON-NLS-1$
+					LanguageBundle.getString("in_itmBonModelAvaNameSource"), LanguageBundle.getString("in_itmBonModelAvaNameFile")}; //$NON-NLS-1$ //$NON-NLS-2$
+			selNameList = new String[]{LanguageBundle.getString("in_itmBonModelSelNameName"), //$NON-NLS-1$
+					LanguageBundle.getString("in_itmBonModelSelNameTarget"), LanguageBundle.getString("in_itmBonModelSelNameFile")}; //$NON-NLS-1$ //$NON-NLS-2$
 
 			modelType = iModel;
 			resetModel(iModel);
@@ -2294,31 +2294,31 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 					}
 					else if (aSpell != null)
 					{
-						return PropertyFactory.getString("in_itmBonModelTargetTypeSpell"); //$NON-NLS-1$ 
+						return LanguageBundle.getString("in_itmBonModelTargetTypeSpell"); //$NON-NLS-1$
 					}
 					else if (aAbility != null)
 					{
-						return PropertyFactory.getString("in_itmBonModelTargetTypeClass"); //$NON-NLS-1$
+						return LanguageBundle.getString("in_itmBonModelTargetTypeClass"); //$NON-NLS-1$
 					}
 					else if (aFeat != null)
 					{
-						return PropertyFactory.getString("in_itmBonModelTargetTypeFeat"); //$NON-NLS-1$
+						return LanguageBundle.getString("in_itmBonModelTargetTypeFeat"); //$NON-NLS-1$
 					}
 					else if (aClass != null || aClassLevel != null)
 					{
-						return PropertyFactory.getString("in_itmBonModelTargetTypeClass"); //$NON-NLS-1$
+						return LanguageBundle.getString("in_itmBonModelTargetTypeClass"); //$NON-NLS-1$
 					}
 					else if (aTemp != null)
 					{
-						return PropertyFactory.getString("in_itmBonModelTargetTypeTemplate"); //$NON-NLS-1$
+						return LanguageBundle.getString("in_itmBonModelTargetTypeTemplate"); //$NON-NLS-1$
 					}
 					else if (aSkill != null)
 					{
-						return PropertyFactory.getString("in_itmBonModelTargetTypeSkill"); //$NON-NLS-1$
+						return LanguageBundle.getString("in_itmBonModelTargetTypeSkill"); //$NON-NLS-1$
 					}
 					else if (bPC != null)
 					{
-						return PropertyFactory.getString("in_itmBonModelTargetTypeCharacter"); //$NON-NLS-1$
+						return LanguageBundle.getString("in_itmBonModelTargetTypeCharacter"); //$NON-NLS-1$
 					}
 					else
 					{
@@ -2880,20 +2880,20 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			if (treeTable == bonusTable)
 			{
-				BonusPopupMenu.this.add(createAddMenuItem(PropertyFactory.getString("in_itmBonPopUpAppBon"), //$NON-NLS-1$
+				BonusPopupMenu.this.add(createAddMenuItem(LanguageBundle.getString("in_itmBonPopUpAppBon"), //$NON-NLS-1$
 					"shortcut EQUALS"));
 				BonusPopupMenu.this.addSeparator();
 				BonusPopupMenu.this
-					.add(createRefreshMenuItem(PropertyFactory.getString("in_itmBonusPopUpRedraw"))); //$NON-NLS-1$
+					.add(createRefreshMenuItem(LanguageBundle.getString("in_itmBonusPopUpRedraw"))); //$NON-NLS-1$
 			}
 			else if (treeTable == targetTable)
 			{
 				BonusPopupMenu.this
-					.add(createRefreshMenuItem(PropertyFactory.getString("in_itmBonusPopUpRedraw"))); //$NON-NLS-1$
+					.add(createRefreshMenuItem(LanguageBundle.getString("in_itmBonusPopUpRedraw"))); //$NON-NLS-1$
 			}
 			else if (treeTable == appliedTable)
 			{
-				BonusPopupMenu.this.add(createRemoveMenuItem(PropertyFactory.getString("in_itmBonPopUpRemove"),
+				BonusPopupMenu.this.add(createRemoveMenuItem(LanguageBundle.getString("in_itmBonPopUpRemove"),
 					"shortcut MINUS"));
 			}
 		}
@@ -2901,22 +2901,22 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 		private JMenuItem createAddMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label, new AddBonusActionListener(),
-				PropertyFactory.getString("in_itmBonPopUpAppBon"), (char) 0, accelerator, 
-				PropertyFactory.getString("in_itmBonPopUpAppBonDesc"), "Add16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$
+				LanguageBundle.getString("in_itmBonPopUpAppBon"), (char) 0, accelerator,
+				LanguageBundle.getString("in_itmBonPopUpAppBonDesc"), "Add16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		private JMenuItem createRefreshMenuItem(String label)
 		{
 			return Utility.createMenuItem(label, new RefreshActionListener(),
-				PropertyFactory.getString("in_itmBonusPopUpRedraw"), (char) 0, null,
-				PropertyFactory.getString("in_itmBonPopUpRedrawDesc"), "", true); //$NON-NLS-1$ //$NON-NLS-2$
+				LanguageBundle.getString("in_itmBonusPopUpRedraw"), (char) 0, null,
+				LanguageBundle.getString("in_itmBonPopUpRedrawDesc"), "", true); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		private JMenuItem createRemoveMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label, new RemoveActionListener(),
-				PropertyFactory.getString("in_itmBonPopUpRemove"), (char) 0, 
-				accelerator,PropertyFactory.getString("in_itmBonPopUpRemove"), "",
+				LanguageBundle.getString("in_itmBonPopUpRemove"), (char) 0,
+				accelerator,LanguageBundle.getString("in_itmBonPopUpRemove"), "",
 				true); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 

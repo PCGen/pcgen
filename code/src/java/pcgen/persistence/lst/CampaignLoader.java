@@ -202,8 +202,8 @@ public class CampaignLoader extends LstLineFileLoader
 	 * @throws PersistenceLayerException if an error occurs reading a
 	 *                                   newly-encountered campaign
 	 */
-	private void initRecursivePccFiles(Campaign baseCampaign)
-		throws PersistenceLayerException
+	public void initRecursivePccFiles(Campaign baseCampaign)
+		//throws PersistenceLayerException
 	{
 		if (baseCampaign == null || inittedCampaigns.contains(baseCampaign))
 		{

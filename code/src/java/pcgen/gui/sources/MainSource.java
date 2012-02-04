@@ -117,7 +117,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.SwingWorker;
 import pcgen.util.enumeration.Tab;
 
@@ -578,7 +578,7 @@ public class MainSource extends FilterAdapterPanel
 				null, aCamp.getPrerequisiteList(), false);
 		if (preString.length() > 0)
 		{
-			sb.append(PropertyFactory.getFormattedString(
+			sb.append(LanguageBundle.getFormattedString(
 				"in_InfoRequirements", //$NON-NLS-1$
 				preString));
 			sb.append("\n");
@@ -1017,7 +1017,7 @@ public class MainSource extends FilterAdapterPanel
 					{
 						Logging.errorPrint("Failed to open URL " //$NON-NLS-1$
 							+ event.getURL() + " due to ", e); //$NON-NLS-1$
-						ShowMessageDelegate.showMessageDialog(PropertyFactory
+						ShowMessageDelegate.showMessageDialog(LanguageBundle
 							.getFormattedString("in_Src_browser", event //$NON-NLS-1$
 								.getURL().toString()), Constants.APPLICATION_NAME,
 							MessageType.ERROR);
@@ -1066,7 +1066,7 @@ public class MainSource extends FilterAdapterPanel
 
 		center.add(splitPane, BorderLayout.CENTER);
 
-		avaLabel.setText(PropertyFactory.getString("in_available"));
+		avaLabel.setText(LanguageBundle.getString("in_available"));
 		leftPane.add(InfoTabUtils.createFilterPane(avaLabel, viewComboBox, lblQFilter, textQFilter, clearQFilterButton), BorderLayout.NORTH);
 
 		JScrollPane scrollPane = addColumnManagerButton(availableTable, availableModel);
@@ -1079,7 +1079,7 @@ public class MainSource extends FilterAdapterPanel
 
 		JPanel aPanel = new JPanel();
 		aPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 1));
-		selLabel.setText(PropertyFactory.getString("in_selected"));
+		selLabel.setText(LanguageBundle.getString("in_selected"));
 		aPanel.add(selLabel);
 		aPanel.add(viewSelectComboBox);
 		rightPane.add(aPanel, BorderLayout.NORTH);
@@ -1139,7 +1139,7 @@ public class MainSource extends FilterAdapterPanel
 				});
 			jPanel1n.add(unloadAllButton);
 
-			JButton basicButton = new JButton(PropertyFactory.getString("in_Src_basic_source"));
+			JButton basicButton = new JButton(LanguageBundle.getString("in_Src_basic_source"));
 			{
 				basicButton.addActionListener(new ActionListener()
 					{
@@ -1150,7 +1150,7 @@ public class MainSource extends FilterAdapterPanel
 					});
 			}
 
-			basicButton.setToolTipText(PropertyFactory.getString("in_Src_basic_sourceTip"));
+			basicButton.setToolTipText(LanguageBundle.getString("in_Src_basic_sourceTip"));
 			jPanel1s.add(basicButton);
 			
 		}
@@ -1324,9 +1324,9 @@ public class MainSource extends FilterAdapterPanel
 		{
 			if (!campaign.qualifies(null, campaign))
 			{
-				ShowMessageDelegate.showMessageDialog(PropertyFactory
+				ShowMessageDelegate.showMessageDialog(LanguageBundle
 					.getFormattedString("in_Src_Bad_Combo_Load", campaign
-						.getDisplayName()), PropertyFactory.getString("in_error"), MessageType.ERROR);
+						.getDisplayName()), LanguageBundle.getString("in_error"), MessageType.ERROR);
 				return;
 			}
 		}

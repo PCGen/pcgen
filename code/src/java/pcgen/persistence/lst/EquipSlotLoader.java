@@ -40,7 +40,7 @@ import pcgen.util.Logging;
  * @author  Jayme Cox <jaymecox@users.sourceforge.net>
  * @version $Revision$
  **/
-final class EquipSlotLoader extends LstLineFileLoader
+public final class EquipSlotLoader extends LstLineFileLoader
 {
 	/** Creates a new instance of EquipSlotLoader */
 	public EquipSlotLoader()
@@ -83,7 +83,7 @@ final class EquipSlotLoader extends LstLineFileLoader
 				final String value = colString.substring(idxColon + 1);
 				LstUtils.deprecationCheck(token, eqSlot.getSlotName(),
 						sourceURI, value);
-				if (!token.parse(eqSlot, lstLine))
+				if (!token.parse(eqSlot, lstLine, getGameMode()))
 				{
 					Logging.errorPrint("Error parsing equip slots "
 						+ eqSlot.getSlotName() + ':' + sourceURI + ':'
@@ -96,7 +96,7 @@ final class EquipSlotLoader extends LstLineFileLoader
 				final String value = colString.substring(idxColon + 1);
 				LstUtils.deprecationCheck(token, eqSlot.getSlotName(),
 						sourceURI, value);
-				if (!token.parse(eqSlot, value))
+				if (!token.parse(eqSlot, value, getGameMode()))
 				{
 					Logging.errorPrint("Error parsing equip slots "
 						+ eqSlot.getSlotName() + ':' + sourceURI + ':'

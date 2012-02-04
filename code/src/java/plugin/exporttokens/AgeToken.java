@@ -25,6 +25,7 @@
  */
 package plugin.exporttokens;
 
+import pcgen.cdom.enumeration.BiographyField;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -53,6 +54,11 @@ public class AgeToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
+		if (pc.getSuppressBioField(BiographyField.AGE))
+		{
+			return "";
+		}
+
 		return Integer.toString(getAgeToken(pc));
 	}
 

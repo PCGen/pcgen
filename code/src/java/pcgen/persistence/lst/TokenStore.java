@@ -5,12 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import pcgen.system.PluginLoader;
 import pcgen.util.Logging;
 
 /**
  * A Store of LST tokens, has a map and list representation
  */
-public class TokenStore
+public class TokenStore implements PluginLoader
 {
 	private static TokenStore inst;
 	private HashMap<Class<? extends LstToken>, Map<String, LstToken>> tokenTypeMap;
@@ -45,11 +46,24 @@ public class TokenStore
 		//level.lst
 		tokenTypeList.add(LevelLstToken.class);
 
+		//equipIcon.lst
+		tokenTypeList.add(EquipIconLstToken.class);
+
 		//equipmentslots.lst
 		tokenTypeList.add(EquipSlotLstToken.class);
 
 		//install.lst
 		tokenTypeList.add(InstallLstToken.class);
+	}
+
+	public void loadPlugin(Class<?> clazz) throws Exception
+	{
+		addToTokenMap((LstToken) clazz.newInstance());
+	}
+
+	public Class[] getPluginClasses()
+	{
+		return new Class[]{LstToken.class};
 	}
 
 	/**

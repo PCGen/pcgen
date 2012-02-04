@@ -14,7 +14,7 @@ public class NumberToken implements EquipSlotLstToken
 		return "NUMBER";
 	}
 
-	public boolean parse(EquipSlot eqSlot, String value)
+	public boolean parse(EquipSlot eqSlot, String value, String gameMode)
 	{
 		eqSlot.setSlotNumType(value);
 		return true;

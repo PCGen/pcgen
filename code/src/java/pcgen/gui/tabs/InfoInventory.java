@@ -46,7 +46,7 @@ import pcgen.gui.PToolBar;
 import pcgen.gui.filter.FilterConstants;
 import pcgen.gui.filter.Filterable;
 import pcgen.gui.filter.PObjectFilter;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
@@ -385,23 +385,23 @@ public final class InfoInventory extends JTabbedPane implements Filterable,
 	{
 		readyForRefresh = true;
 		add(gear, Tab.GEAR.index());
-		setTitleAt(Tab.GEAR.index(), PropertyFactory.getString("in_Info"
+		setTitleAt(Tab.GEAR.index(), LanguageBundle.getString("in_Info"
 			+ gear.getName()));
 		add(equipment, Tab.EQUIPPING.index());
-		setTitleAt(Tab.EQUIPPING.index(), PropertyFactory.getString("in_Info"
+		setTitleAt(Tab.EQUIPPING.index(), LanguageBundle.getString("in_Info"
 			+ equipment.getName()));
 		add(resources, Tab.RESOURCES.index());
-		setTitleAt(Tab.RESOURCES.index(), PropertyFactory.getString("in_Info"
+		setTitleAt(Tab.RESOURCES.index(), LanguageBundle.getString("in_Info"
 			+ resources.getName()));
 		add(tempmod, Tab.TEMPBONUS.index());
-		setTitleAt(Tab.TEMPBONUS.index(), PropertyFactory.getString("in_Info"
+		setTitleAt(Tab.TEMPBONUS.index(), LanguageBundle.getString("in_Info"
 			+ tempmod.getName()));
 
 		if (SettingsHandler.showNaturalWeaponTab())
 		{
 			naturalWeapons = new InfoNaturalWeapons(pc);
 			add(naturalWeapons, Tab.NATWEAPONS.index());
-			setTitleAt(Tab.NATWEAPONS.index(), PropertyFactory
+			setTitleAt(Tab.NATWEAPONS.index(), LanguageBundle
 				.getString("in_Info" + naturalWeapons.getName()));
 		}
 

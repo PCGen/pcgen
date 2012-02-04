@@ -42,7 +42,7 @@ import pcgen.util.Logging;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  **/
-final class LevelLoader
+public final class LevelLoader
 {
 	/** Creates a new instance of LevelLoader */
 	private LevelLoader()

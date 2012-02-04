@@ -114,6 +114,9 @@ public interface Constants
 	/** Custom Equipment. */
 	String SOURCE_CUSTOM = "Custom Equipment"; //$NON-NLS-1$
 
+	/** Default */
+	String DEFAULT = "Default"; //$NON-NLS-1$
+
 	/** Generic Item. */
 	String GENERIC_ITEM = "GENERIC ITEM"; //$NON-NLS-1$
 

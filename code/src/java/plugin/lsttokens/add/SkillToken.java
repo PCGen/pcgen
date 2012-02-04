@@ -211,22 +211,6 @@ public class SkillToken extends AbstractToken implements
 	{
 		pc.addSkill(choice);
 		SkillRankControl.modRanks(1.0, null, true, pc, choice);
-
-		/*
-		 * TODO This is an unbelievably bad hack. I'm copying this from
-		 * LevelAbilitySkill, but it seems to me that the modRanks method should
-		 * trigger a "dirty" PC and that should cause a UI update. - thpr
-		 * Oct/8/08
-		 */
-		if (Globals.getUseGUI())
-		{
-			final CharacterInfo pane = PCGen_Frame1.getCharacterPane();
-			if (pane != null)
-			{
-				pane.setPaneForUpdate(pane.infoSkills());
-				pane.refresh();
-			}
-		}
 	}
 
 	public boolean allow(Skill choice, PlayerCharacter pc, boolean allowStack)
@@ -254,22 +238,6 @@ public class SkillToken extends AbstractToken implements
 	{
 		pc.addSkill(choice);
 		SkillRankControl.modRanks(-1.0, null, true, pc, choice);
-
-		/*
-		 * TODO This is an unbelievably bad hack. I'm copying this from
-		 * LevelAbilitySkill, but it seems to me that the modRanks method should
-		 * trigger a "dirty" PC and that should cause a UI update. - thpr
-		 * Oct/8/08
-		 */
-		if (Globals.getUseGUI())
-		{
-			final CharacterInfo pane = PCGen_Frame1.getCharacterPane();
-			if (pane != null)
-			{
-				pane.setPaneForUpdate(pane.infoSkills());
-				pane.refresh();
-			}
-		}
 	}
 
 	public List<Skill> getCurrentlySelected(CDOMObject owner, PlayerCharacter pc)

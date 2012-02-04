@@ -63,7 +63,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.ExportHandler;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * Convenience methods from various sources.
@@ -105,15 +105,15 @@ public final class Utility
 	 */
 	public static void setGuiTextInfo(Object obj, String in_String)
 	{
-		String text = PropertyFactory.getString(in_String);
+		String text = LanguageBundle.getString(in_String);
 
 		setTextAndMnemonic(obj, text);
 
 		String tooltipKey = in_String + "_tip";
-		String tooltip = PropertyFactory.getString(tooltipKey);
+		String tooltip = LanguageBundle.getString(tooltipKey);
 
 		if (tooltip.length() > 0
-			&& !tooltip.equals(tooltipKey + PropertyFactory.UNDEFINED)
+			&& !tooltip.equals(tooltipKey + LanguageBundle.UNDEFINED)
 			&& obj instanceof JComponent)
 		{
 			setDescription((JComponent) obj, tooltip);
@@ -456,10 +456,10 @@ public final class Utility
 	public static JMenu createMenu(final String prop, String iconName,
 		boolean enable)
 	{
-		final String label = PropertyFactory.getString("in_" + prop);
-		final char mnemonic = PropertyFactory.getMnemonic("in_mn_" + prop);
+		final String label = LanguageBundle.getString("in_" + prop);
+		final char mnemonic = (char)LanguageBundle.getMnemonic("in_mn_" + prop);
 		final String description =
-				PropertyFactory.getString("in_" + prop + "Tip");
+				LanguageBundle.getString("in_" + prop + "Tip");
 
 		return createMenu(label, mnemonic, description, iconName, enable);
 	}
@@ -514,9 +514,9 @@ public final class Utility
 		final ActionListener listener, final String command,
 		final String accelerator, final String iconName, final boolean enable)
 	{
-		String label = PropertyFactory.getString("in_" + prop);
-		char mnemonic = PropertyFactory.getMnemonic("in_mn_" + prop);
-		String description = PropertyFactory.getString("in_" + prop + "Tip");
+		String label = LanguageBundle.getString("in_" + prop);
+		char mnemonic = (char)LanguageBundle.getMnemonic("in_mn_" + prop);
+		String description = LanguageBundle.getString("in_" + prop + "Tip");
 
 		return createMenuItem(label, listener, command, mnemonic, accelerator,
 			description, iconName, enable);
@@ -724,7 +724,7 @@ public final class Utility
 		// Karianna - Fix for bug 966281
 		// null means we are not passing through the template name
 		// from the equipment sub screen
-		File outFile = getTempPreviewFile(pc, null);
+		File outFile = getTempPreviewFile(pc, fileName);
 		// Karianna - End of Fix for bug 966281
 
 		// ensure we've got something

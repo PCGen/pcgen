@@ -27,7 +27,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.JComboBoxEx;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -305,8 +305,8 @@ final class LevelAbilitiesPanel extends JPanel
 		// Layout the add/remove panel
 		pnlAddRemove.setLayout(new GridBagLayout());
 
-		//btnAdd.setMnemonic(PropertyFactory.getMnemonic("in_mn_add"));
-		//btnAdd.setText(PropertyFactory.getString("in_add"));
+		//btnAdd.setMnemonic(LanguageBundle.getMnemonic("in_mn_add"));
+		//btnAdd.setText(LanguageBundle.getString("in_add"));
 		//btnAdd.setPreferredSize(new Dimension(81, 26));
 		btnAdd.setEnabled(true);
 		btnAdd.addActionListener(new ActionListener()
@@ -325,8 +325,8 @@ final class LevelAbilitiesPanel extends JPanel
 		gridBagConstraints.weightx = 0.4;
 		pnlAddRemove.add(btnAdd, gridBagConstraints);
 
-		//btnRemove.setMnemonic(PropertyFactory.getMnemonic("in_mn_remove"));
-		//btnRemove.setText(PropertyFactory.getString("in_remove"));
+		//btnRemove.setMnemonic(LanguageBundle.getMnemonic("in_mn_remove"));
+		//btnRemove.setText(LanguageBundle.getString("in_remove"));
 		//btnRemove.setPreferredSize(new Dimension(81, 26));
 		btnRemove.setEnabled(false);
 		btnRemove.addActionListener(new ActionListener()
@@ -348,7 +348,7 @@ final class LevelAbilitiesPanel extends JPanel
 		// Layout the selected panel
 		pnlSelected.setLayout(new GridBagLayout());
 
-		lblSelected.setText(PropertyFactory.getString("in_selected"));
+		lblSelected.setText(LanguageBundle.getString("in_selected"));
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
 		gridBagConstraints.insets = new Insets(2, 5, 2, 5);
@@ -398,7 +398,7 @@ final class LevelAbilitiesPanel extends JPanel
 		gridBagConstraints.weighty = 0.0;
 		this.add(pnlHeader, gridBagConstraints);
 
-//		lblTemp.setText(PropertyFactory.getString("in_tag"));
+//		lblTemp.setText(LanguageBundle.getString("in_tag"));
 //		gridBagConstraints = new GridBagConstraints();
 //		gridBagConstraints.gridx = 0;
 //		gridBagConstraints.gridy = 1;

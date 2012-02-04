@@ -140,7 +140,7 @@ import pcgen.gui.utils.Utility;
 import pcgen.io.PCGFile;
 import pcgen.io.PCGIOHandler;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
@@ -177,10 +177,10 @@ public class InfoResources extends FilterAdapterPanel implements
 	private JButton loadButton = new JButton();
 	private JButton updateButton = new JButton();
 	private JCheckBox shouldLoadCompanion =
-			new JCheckBox(PropertyFactory
+			new JCheckBox(LanguageBundle
 				.getString("InfoResources.AutoLoadCompanions")); //$NON-NLS-1$
 	private final JLabel sortLabel =
-			new JLabel(PropertyFactory.getString("InfoResources.SortLabel")); //$NON-NLS-1$
+			new JLabel(LanguageBundle.getString("InfoResources.SortLabel")); //$NON-NLS-1$
 	private JComboBoxEx viewSortBox = new JComboBoxEx();
 	private JLabelPane followerInfo = new JLabelPane();
 	private JLabelPane infoLabel = new JLabelPane();
@@ -197,10 +197,10 @@ public class InfoResources extends FilterAdapterPanel implements
 	private int viewSortMode = 0;
 
 	private final JLabel lblQFilter =
-			new JLabel(PropertyFactory.getString("InfoTabs.FilterLabel")); //$NON-NLS-1$
+			new JLabel(LanguageBundle.getString("InfoTabs.FilterLabel")); //$NON-NLS-1$
 	private JTextField textQFilter = new JTextField();
 	private JButton clearQFilterButton =
-			new JButton(PropertyFactory.getString("in_mnuToolsFiltersClear")); //$NON-NLS-1$
+			new JButton(LanguageBundle.getString("in_mnuToolsFiltersClear")); //$NON-NLS-1$
 	private static Integer saveViewMode = null;
 
 	PlayerCharacter pc;
@@ -316,7 +316,7 @@ public class InfoResources extends FilterAdapterPanel implements
 
 				if (maxVal > 0)
 				{
-					toDoList.add(PropertyFactory.getFormattedString(
+					toDoList.add(LanguageBundle.getFormattedString(
 						"ToDo.InfoResources.AddFollower", compType, maxVal)); //$NON-NLS-1$
 				}
 			}
@@ -491,7 +491,7 @@ public class InfoResources extends FilterAdapterPanel implements
 
 			if (mPC == null)
 			{
-				followerInfo.setText(PropertyFactory
+				followerInfo.setText(LanguageBundle
 					.getString("InfoResources.LoadMasterNotice")); //$NON-NLS-1$
 
 				return;
@@ -509,19 +509,19 @@ public class InfoResources extends FilterAdapterPanel implements
 			b.append(PARA);
 			b.append(FONT_PLUS_1);
 			b.append(BOLD);
-			b.append(PropertyFactory
+			b.append(LanguageBundle
 				.getString("InfoResources.MasterInformation")); //$NON-NLS-1$
 			b.append(END_BOLD).append(END_FONT).append(BR);
 			b.append(BOLD);
-			b.append(PropertyFactory.getString("InfoResources.PCNameLabel")); //$NON-NLS-1$
+			b.append(LanguageBundle.getString("InfoResources.PCNameLabel")); //$NON-NLS-1$
 			b.append(END_BOLD).append(" "); //$NON-NLS-1$
 			b.append(mPC.getName());
 			b.append(BR).append(BOLD);
-			b.append(PropertyFactory.getString("InfoResources.FileLabel")); //$NON-NLS-1$
+			b.append(LanguageBundle.getString("InfoResources.FileLabel")); //$NON-NLS-1$
 			b.append(END_BOLD).append(" "); //$NON-NLS-1$
 			b.append(mPC.getFileName());
 			b.append(BR).append(BOLD);
-			b.append(PropertyFactory.getString("in_sumRace")); //$NON-NLS-1$
+			b.append(LanguageBundle.getString("in_sumRace")); //$NON-NLS-1$
 			b.append(END_BOLD).append(" "); //$NON-NLS-1$
 			b.append(mPC.getRace());
 			b.append(BR).append(BOLD);
@@ -541,7 +541,7 @@ public class InfoResources extends FilterAdapterPanel implements
 			b
 				.append(
 					(bonus >= 0)
-						? PropertyFactory.getString("in_plusSign") : "").append(bonus); //$NON-NLS-1$ //$NON-NLS-2$
+						? LanguageBundle.getString("in_plusSign") : "").append(bonus); //$NON-NLS-1$ //$NON-NLS-2$
 			b.append(BR);
 
 			b.append(END_HTML);
@@ -558,7 +558,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("InfoResources.SaveFirst"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
+					LanguageBundle.getString("InfoResources.SaveFirst"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return;
 		}
@@ -574,7 +574,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("InfoResources.DestinationFirst"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
+					LanguageBundle.getString("InfoResources.DestinationFirst"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return;
 		}
@@ -586,7 +586,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("InfoResources.NoMoreFollowers"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
+					LanguageBundle.getString("InfoResources.NoMoreFollowers"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 			return;
 		}
 
@@ -613,7 +613,7 @@ public class InfoResources extends FilterAdapterPanel implements
 
 		// first ask for the name of the new object
 		Object nValue =
-				JOptionPane.showInputDialog(null, PropertyFactory
+				JOptionPane.showInputDialog(null, LanguageBundle
 					.getFormattedString("InfoResources.EnterName", target), //$NON-NLS-1$
 					Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
 
@@ -627,7 +627,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		}
 
 		JFileChooser fc = new JFileChooser();
-		fc.setDialogTitle(PropertyFactory.getFormattedString(
+		fc.setDialogTitle(LanguageBundle.getFormattedString(
 			"InfoResources.SaveCaption", target, nName)); //$NON-NLS-1$
 		fc.setSelectedFile(new File(SettingsHandler.getPcgPath(), nName
 			+ Constants.EXTENSION_CHARACTER_FILE));
@@ -653,9 +653,9 @@ public class InfoResources extends FilterAdapterPanel implements
 					JOptionPane
 						.showConfirmDialog(
 							null,
-							PropertyFactory.getFormattedString(
+							LanguageBundle.getFormattedString(
 								"InfoSpells.confirm.overwrite", file.getName()), //$NON-NLS-1$
-							PropertyFactory
+							LanguageBundle
 								.getString("in_confirmOverwriteCaption"), JOptionPane.YES_NO_OPTION); //$NON-NLS-1$
 
 			if (iConfirm != JOptionPane.YES_OPTION)
@@ -691,7 +691,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		pc.setDirty(true);
 		pc.setCalcFollowerBonus(pc);
 
-		ShowMessageDelegate.showMessageDialog(PropertyFactory
+		ShowMessageDelegate.showMessageDialog(LanguageBundle
 			.getFormattedString("InfoResources.SaveAndSwitch", nName), //$NON-NLS-1$
 			Constants.APPLICATION_NAME, MessageType.INFORMATION);
 
@@ -703,10 +703,10 @@ public class InfoResources extends FilterAdapterPanel implements
 		}
 		catch (Exception ex)
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory
+			ShowMessageDelegate.showMessageDialog(LanguageBundle
 				.getFormattedString("Errors.Save", newPC.getDisplayName()), //$NON-NLS-1$
 				Constants.APPLICATION_NAME, MessageType.ERROR);
-			Logging.errorPrint(PropertyFactory.getFormattedString(
+			Logging.errorPrint(LanguageBundle.getFormattedString(
 				"Errors.Save", newPC.getDisplayName()), ex); //$NON-NLS-1$
 			return;
 		}
@@ -731,7 +731,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("InfoResources.SaveFirst"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
+					LanguageBundle.getString("InfoResources.SaveFirst"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return;
 		}
@@ -742,7 +742,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("InfoResources.DestinationFirst"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
+					LanguageBundle.getString("InfoResources.DestinationFirst"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return;
 		}
@@ -753,7 +753,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("InfoResources.NoMoreFollowers"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
+					LanguageBundle.getString("InfoResources.NoMoreFollowers"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 			return;
 		}
 
@@ -789,7 +789,7 @@ public class InfoResources extends FilterAdapterPanel implements
 			newPC = PCGen_Frame1.getInst().loadPCFromFile(file);
 			if (newPC == null)
 			{
-				Logging.errorPrint(PropertyFactory.getFormattedString(
+				Logging.errorPrint(LanguageBundle.getFormattedString(
 					"Errors.Load", file.toString())); //$NON-NLS-1$
 
 				return;
@@ -855,7 +855,7 @@ public class InfoResources extends FilterAdapterPanel implements
 
 		JPanel aPanel = new JPanel();
 		aPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 2, 2));
-		updateButton.setText(PropertyFactory
+		updateButton.setText(LanguageBundle
 			.getString("InfoResources.UpdateFromMaster")); //$NON-NLS-1$
 		updateButton.setEnabled(true);
 		aPanel.add(updateButton);
@@ -863,7 +863,7 @@ public class InfoResources extends FilterAdapterPanel implements
 
 		JScrollPane scrollPane = new JScrollPane(followerInfo);
 		TitledBorder sTitle =
-				BorderFactory.createTitledBorder(PropertyFactory
+				BorderFactory.createTitledBorder(LanguageBundle
 					.getString("InfoResources.FollowerInformation")); //$NON-NLS-1$
 		sTitle.setTitleJustification(TitledBorder.CENTER);
 		scrollPane.setBorder(sTitle);
@@ -911,12 +911,12 @@ public class InfoResources extends FilterAdapterPanel implements
 				new JScrollPane(availableTable,
 					ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
 					ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		Utility.setDescription(scrollPane, PropertyFactory
+		Utility.setDescription(scrollPane, LanguageBundle
 			.getString("InfoResources.RightClickToAdd")); //$NON-NLS-1$
 		JButton columnButton = new JButton();
 		scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
 			columnButton);
-		columnButton.setText(PropertyFactory.getString("in_caretSymbol")); //$NON-NLS-1$
+		columnButton.setText(LanguageBundle.getString("in_caretSymbol")); //$NON-NLS-1$
 
 		new TableColumnManager(availableTable, columnButton, availableModel);
 		leftPane.add(scrollPane, BorderLayout.CENTER);
@@ -934,7 +934,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		shouldLoadCompanion.setSelected(pc.getLoadCompanion());
 		bottomLeftPane.add(shouldLoadCompanion, BorderLayout.WEST);
 		addButton.setIcon(IconUtilitities.getImageIcon("Forward16.gif")); //$NON-NLS-1$
-		Utility.setDescription(addButton, PropertyFactory
+		Utility.setDescription(addButton, LanguageBundle
 			.getString("InfoResources.ClickToAdd")); //$NON-NLS-1$
 		addButton.setEnabled(false);
 		bottomLeftPane.add(addButton);
@@ -946,23 +946,23 @@ public class InfoResources extends FilterAdapterPanel implements
 				new JScrollPane(selectedTable,
 					ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
 					ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		Utility.setDescription(scrollPane2, PropertyFactory
+		Utility.setDescription(scrollPane2, LanguageBundle
 			.getString("InfoResources.RightClickToRemove")); //$NON-NLS-1$
 		JButton columnButton2 = new JButton();
 		scrollPane2.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
 			columnButton2);
-		columnButton2.setText(PropertyFactory.getString("in_caretSymbol")); //$NON-NLS-1$
+		columnButton2.setText(LanguageBundle.getString("in_caretSymbol")); //$NON-NLS-1$
 		new TableColumnManager(selectedTable, columnButton2, selectedModel);
 		rightPane.add(scrollPane2, BorderLayout.CENTER);
 
 		JPanel bottomRightPane = new JPanel();
 		bottomRightPane.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 1));
 		delButton.setIcon(IconUtilitities.getImageIcon("Back16.gif")); //$NON-NLS-1$
-		Utility.setDescription(delButton, PropertyFactory
+		Utility.setDescription(delButton, LanguageBundle
 			.getString("ClickToRemove")); //$NON-NLS-1$
 		delButton.setEnabled(false);
 		bottomRightPane.add(delButton);
-		loadButton.setText(PropertyFactory
+		loadButton.setText(LanguageBundle
 			.getString("InfoResources.LoadDlgPrompt")); //$NON-NLS-1$
 		loadButton.setEnabled(false);
 		bottomRightPane.add(loadButton);
@@ -990,7 +990,7 @@ public class InfoResources extends FilterAdapterPanel implements
 
 		// Bottom left panel
 		TitledBorder sTitle =
-				BorderFactory.createTitledBorder(PropertyFactory
+				BorderFactory.createTitledBorder(LanguageBundle
 					.getString("InfoResources.Information")); //$NON-NLS-1$
 		sTitle.setTitleJustification(TitledBorder.CENTER);
 		bLeftPane.setBorder(sTitle);
@@ -1002,11 +1002,11 @@ public class InfoResources extends FilterAdapterPanel implements
 		JPanel iPanel = new JPanel();
 		iPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
 
-		addModButton.setText(PropertyFactory
+		addModButton.setText(LanguageBundle
 			.getString("InfoResources.AddModifier")); //$NON-NLS-1$
 		addModButton.setEnabled(false);
 		iPanel.add(addModButton);
-		delModButton.setText(PropertyFactory
+		delModButton.setText(LanguageBundle
 			.getString("InfoResources.DelModifier")); //$NON-NLS-1$
 		delModButton.setEnabled(false);
 		iPanel.add(delModButton);
@@ -1037,14 +1037,14 @@ public class InfoResources extends FilterAdapterPanel implements
 	{
 		StringBuffer b = new StringBuffer();
 		b.append(FONT_PLUS_1).append(BOLD);
-		b.append(PropertyFactory.getString("InfoResources.NameLabel")); //$NON-NLS-1$
+		b.append(LanguageBundle.getString("InfoResources.NameLabel")); //$NON-NLS-1$
 		b.append(END_BOLD).append(" "); //$NON-NLS-1$
 		b.append(newPC.getName()).append(END_FONT);
 		b.append(BR).append(BOLD);
-		b.append(PropertyFactory.getString("InfoResources.TypeLabel")); //$NON-NLS-1$
+		b.append(LanguageBundle.getString("InfoResources.TypeLabel")); //$NON-NLS-1$
 		b.append(END_BOLD).append(" ").append(aF.getType()); //$NON-NLS-1$
 		b.append(BR).append(BOLD);
-		b.append(PropertyFactory.getString("in_sumRace")); //$NON-NLS-1$
+		b.append(LanguageBundle.getString("in_sumRace")); //$NON-NLS-1$
 		b.append(END_BOLD).append(" ").append(newPC.getRace()); //$NON-NLS-1$
 		b.append(BR);
 
@@ -1062,13 +1062,13 @@ public class InfoResources extends FilterAdapterPanel implements
 		{
 			b.append(BOLD).append(Globals.getGameModeACText()).append(END_BOLD)
 				.append(" "); //$NON-NLS-1$
-			b.append(ITALIC).append(PropertyFactory.getString("in_sumTotal")); //$NON-NLS-1$
+			b.append(ITALIC).append(LanguageBundle.getString("in_sumTotal")); //$NON-NLS-1$
 			b.append(END_ITALIC).append(": ").append(newPC.getACTotal()); //$NON-NLS-1$
 			b.append(" ").append(ITALIC); //$NON-NLS-1$
-			b.append(PropertyFactory.getString("in_sumFlatfooted")); //$NON-NLS-1$
+			b.append(LanguageBundle.getString("in_sumFlatfooted")); //$NON-NLS-1$
 			b.append(END_ITALIC).append(": ").append(newPC.flatfootedAC()); //$NON-NLS-1$
 			b.append(" ").append(ITALIC); //$NON-NLS-1$
-			b.append(PropertyFactory.getString("in_sumTouch")); //$NON-NLS-1$
+			b.append(LanguageBundle.getString("in_sumTouch")); //$NON-NLS-1$
 			b.append(END_ITALIC).append(": ").append(newPC.touchAC()); //$NON-NLS-1$
 			b.append(BR);
 		}
@@ -1076,10 +1076,10 @@ public class InfoResources extends FilterAdapterPanel implements
 		{
 			b
 				.append(BOLD)
-				.append(PropertyFactory.getString("in_sumAC")).append(END_BOLD).append(" "); //$NON-NLS-1$//$NON-NLS-2$
+				.append(LanguageBundle.getString("in_sumAC")).append(END_BOLD).append(" "); //$NON-NLS-1$//$NON-NLS-2$
 			b
 				.append(ITALIC)
-				.append(PropertyFactory.getString("in_sumTotal")).append(END_ITALIC).append(": "); //$NON-NLS-1$//$NON-NLS-2$
+				.append(LanguageBundle.getString("in_sumTotal")).append(END_ITALIC).append(": "); //$NON-NLS-1$//$NON-NLS-2$
 			b.append((int) newPC.getTotalBonusTo("COMBAT", "AC")); //$NON-NLS-1$ //$NON-NLS-2$
 			b.append(BR);
 		}
@@ -1087,10 +1087,10 @@ public class InfoResources extends FilterAdapterPanel implements
 		final int initMod = newPC.initiativeMod();
 		b
 			.append(BOLD)
-			.append(PropertyFactory.getString("in_sumInit")).append(END_BOLD).append(": "); //$NON-NLS-1$//$NON-NLS-2$
+			.append(LanguageBundle.getString("in_sumInit")).append(END_BOLD).append(": "); //$NON-NLS-1$//$NON-NLS-2$
 		b
 			.append(
-				(initMod >= 0) ? PropertyFactory.getString("in_plusSign") : "").append(initMod); //$NON-NLS-1$ //$NON-NLS-2$
+				(initMod >= 0) ? LanguageBundle.getString("in_plusSign") : "").append(initMod); //$NON-NLS-1$ //$NON-NLS-2$
 		b.append(BR);
 
 		int bonus = newPC.baseAttackBonus();
@@ -1102,7 +1102,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		b.append(BOLD).append(babAbbrev).append(END_BOLD).append(": "); //$NON-NLS-1$
 		b
 			.append(
-				(bonus >= 0) ? PropertyFactory.getString("in_plusSign") : "").append(bonus); //$NON-NLS-1$ //$NON-NLS-2$
+				(bonus >= 0) ? LanguageBundle.getString("in_plusSign") : "").append(bonus); //$NON-NLS-1$ //$NON-NLS-2$
 		b.append(BR);
 		b
 			.append(" ").append(BOLD).append(Globals.getGameModeHPAbbrev()).append(END_BOLD).append(": ").append(newPC.hitPoints()); //$NON-NLS-1$//$NON-NLS-2$
@@ -1117,7 +1117,7 @@ public class InfoResources extends FilterAdapterPanel implements
 
 		b
 			.append(BOLD)
-			.append(PropertyFactory.getString("in_sumSaves")).append(END_BOLD).append(": "); //$NON-NLS-1$ //$NON-NLS-2$
+			.append(LanguageBundle.getString("in_sumSaves")).append(END_BOLD).append(": "); //$NON-NLS-1$ //$NON-NLS-2$
 
 		List<PCCheck> checkList = Globals.getContext().ref
 				.getOrderSortedCDOMObjects(PCCheck.class);
@@ -1127,7 +1127,7 @@ public class InfoResources extends FilterAdapterPanel implements
 			b
 					.append(" ").append(ITALIC).append(check.toString()).append(END_ITALIC).append(": ") //$NON-NLS-1$ //$NON-NLS-2$
 					.append(
-							(bonus >= 0) ? PropertyFactory
+							(bonus >= 0) ? LanguageBundle
 									.getString("in_plusSign") : "").append(bonus); //$NON-NLS-1$//$NON-NLS-2$
 		}
 
@@ -1138,14 +1138,14 @@ public class InfoResources extends FilterAdapterPanel implements
 		{
 			b
 				.append(BOLD)
-				.append(PropertyFactory.getString("in_demSpellResistance")).append(END_BOLD).append(": "); //$NON-NLS-1$ //$NON-NLS-2$
+				.append(LanguageBundle.getString("in_demSpellResistance")).append(END_BOLD).append(": "); //$NON-NLS-1$ //$NON-NLS-2$
 			b.append(newPC.getSR());
 		}
 
 		b.append(BR);
 		b
 			.append(BOLD)
-			.append(PropertyFactory.getString("in_specialAb")).append(":").append(END_BOLD); //$NON-NLS-1$//$NON-NLS-2$
+			.append(LanguageBundle.getString("in_specialAb")).append(":").append(END_BOLD); //$NON-NLS-1$//$NON-NLS-2$
 		b.append(UL);
 
 		for (String sa : newPC.getSpecialAbilityListStrings())
@@ -1259,7 +1259,7 @@ public class InfoResources extends FilterAdapterPanel implements
 			if (newPC == null)
 			{
 
-				infoLabel.setText(PropertyFactory
+				infoLabel.setText(LanguageBundle
 					.getString("InfoResources.LoadFromFile")); //$NON-NLS-1$
 
 				return;
@@ -1465,7 +1465,7 @@ public class InfoResources extends FilterAdapterPanel implements
 
 							return;
 						}
-						infoLabel.setText(PropertyFactory.getString("in_none")); //$NON-NLS-1$
+						infoLabel.setText(LanguageBundle.getString("in_none")); //$NON-NLS-1$
 						loadButton.setEnabled(false);
 						return;
 					}
@@ -1493,7 +1493,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("InfoResources.SelectToRemove"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
+					LanguageBundle.getString("InfoResources.SelectToRemove"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return;
 		}
@@ -1505,8 +1505,8 @@ public class InfoResources extends FilterAdapterPanel implements
 				JOptionPane
 					.showConfirmDialog(
 						null,
-						PropertyFactory
-							.getString("InfoResources.ConfirmDelete"), PropertyFactory.getString("InfoResources.ConfirmRemove"), //$NON-NLS-1$ //$NON-NLS-2$
+						LanguageBundle
+							.getString("InfoResources.ConfirmDelete"), LanguageBundle.getString("InfoResources.ConfirmRemove"), //$NON-NLS-1$ //$NON-NLS-2$
 						JOptionPane.YES_NO_OPTION);
 
 		if (iConfirm != JOptionPane.YES_OPTION)
@@ -1538,7 +1538,7 @@ public class InfoResources extends FilterAdapterPanel implements
 	private File findPCGFile()
 	{
 		JFileChooser fc = new JFileChooser();
-		fc.setDialogTitle(PropertyFactory.getString("InfoResources.FindFile")); //$NON-NLS-1$
+		fc.setDialogTitle(LanguageBundle.getString("InfoResources.FindFile")); //$NON-NLS-1$
 		fc.setCurrentDirectory(SettingsHandler.getPcgPath());
 
 		if (fc.showOpenDialog(InfoResources.this) != JFileChooser.APPROVE_OPTION)
@@ -1562,7 +1562,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		refresh();
 
 		requestFocus();
-		PCGen_Frame1.setMessageAreaTextWithoutSaving(PropertyFactory
+		PCGen_Frame1.setMessageAreaTextWithoutSaving(LanguageBundle
 			.getString("InfoResources.AddFollowersEtc")); //$NON-NLS-1$
 
 		int top = topSplit.getDividerLocation();
@@ -1811,10 +1811,10 @@ public class InfoResources extends FilterAdapterPanel implements
 		// create tables associated with the above trees
 		createTreeTables();
 
-		viewSortBox.addItem(PropertyFactory.getString("in_nameLabel") + "   "); //$NON-NLS-1$ //$NON-NLS-2$
-		viewSortBox.addItem(PropertyFactory.getString("in_adjustment") + "   "); //$NON-NLS-1$//$NON-NLS-2$
+		viewSortBox.addItem(LanguageBundle.getString("in_nameLabel") + "   "); //$NON-NLS-1$ //$NON-NLS-2$
+		viewSortBox.addItem(LanguageBundle.getString("in_adjustment") + "   "); //$NON-NLS-1$//$NON-NLS-2$
 		viewSortBox
-			.addItem(PropertyFactory.getString("in_racetypeName") + "   "); //$NON-NLS-1$ //$NON-NLS-2$
+			.addItem(LanguageBundle.getString("in_racetypeName") + "   "); //$NON-NLS-1$ //$NON-NLS-2$
 
 		//viewSelectComboBox.setSelectedIndex(viewSelectMode);
 		// create both versions of the GUI
@@ -1901,7 +1901,7 @@ public class InfoResources extends FilterAdapterPanel implements
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("InfoResources.SelectObjectLoad"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
+					LanguageBundle.getString("InfoResources.SelectObjectLoad"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return;
 		}
@@ -1926,7 +1926,7 @@ public class InfoResources extends FilterAdapterPanel implements
 				{
 					ShowMessageDelegate
 						.showMessageDialog(
-							PropertyFactory.getFormattedString(
+							LanguageBundle.getFormattedString(
 								"InfoResources.AlreadyLoaded", aF.getName()), Constants.APPLICATION_NAME, MessageType.INFORMATION); //$NON-NLS-1$
 
 					return;
@@ -1939,7 +1939,7 @@ public class InfoResources extends FilterAdapterPanel implements
 			// Make sure file exists
 			if (!file.exists())
 			{
-				ShowMessageDelegate.showMessageDialog(PropertyFactory
+				ShowMessageDelegate.showMessageDialog(LanguageBundle
 					.getFormattedString(
 						"InfoResources.MovedChanged", aF.getFileName()), //$NON-NLS-1$
 					Constants.APPLICATION_NAME, MessageType.INFORMATION);
@@ -1962,7 +1962,7 @@ public class InfoResources extends FilterAdapterPanel implements
 			aF.setFileName(file.getAbsolutePath());
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory
+					LanguageBundle
 						.getFormattedString(
 							"InfoResources.LoadAndSwitch", aF.getName(), aF.getFileName()), //$NON-NLS-1$
 					Constants.APPLICATION_NAME, MessageType.INFORMATION);
@@ -2026,7 +2026,7 @@ public class InfoResources extends FilterAdapterPanel implements
 
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"InfoResources.DoneUpdating", pc.getName()), Constants.APPLICATION_NAME, MessageType.INFORMATION); //$NON-NLS-1$
 		}
 
@@ -2077,7 +2077,7 @@ public class InfoResources extends FilterAdapterPanel implements
 				ResourcesPopupMenu.this
 					.add(Utility
 						.createMenuItem(
-							PropertyFactory.getString("InfoResources.FindItem"), //$NON-NLS-1$
+							LanguageBundle.getString("InfoResources.FindItem"), //$NON-NLS-1$
 							new ActionListener()
 							{
 								public void actionPerformed(
@@ -2089,7 +2089,7 @@ public class InfoResources extends FilterAdapterPanel implements
 												.searchTree(lastSearch);
 								}
 							},
-							"searchItem", (char) 0, "shortcut F", PropertyFactory.getString("InfoResources.FindItem"), null, true)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+							"searchItem", (char) 0, "shortcut F", LanguageBundle.getString("InfoResources.FindItem"), null, true)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			}
 			else
 			// selectedTable
@@ -2102,7 +2102,7 @@ public class InfoResources extends FilterAdapterPanel implements
 				ResourcesPopupMenu.this
 					.add(Utility
 						.createMenuItem(
-							PropertyFactory.getString("InfoResources.FindItem"), //$NON-NLS-1$
+							LanguageBundle.getString("InfoResources.FindItem"), //$NON-NLS-1$
 							new ActionListener()
 							{
 								public void actionPerformed(
@@ -2114,7 +2114,7 @@ public class InfoResources extends FilterAdapterPanel implements
 												.searchTree(lastSearch);
 								}
 							},
-							"searchItem", (char) 0, "shortcut F", PropertyFactory.getString("InfoResources.FindItem"), null, true)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+							"searchItem", (char) 0, "shortcut F", LanguageBundle.getString("InfoResources.FindItem"), null, true)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			}
 		}
 
@@ -2122,30 +2122,30 @@ public class InfoResources extends FilterAdapterPanel implements
 		{
 			return Utility
 				.createMenuItem(
-					PropertyFactory.getString(label),
+					LanguageBundle.getString(label),
 					new AddFileActionListener(),
 					"add 1", (char) 0, accelerator, //$NON-NLS-1$
-					PropertyFactory.getString("InfoResources.AddExistingFile"), "Add16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$
+					LanguageBundle.getString("InfoResources.AddExistingFile"), "Add16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		private JMenuItem createAddMenuItem(String label, String accelerator)
 		{
 			return Utility
 				.createMenuItem(
-					PropertyFactory.getString(label),
+					LanguageBundle.getString(label),
 					new AddActionListener(),
 					"add 1", (char) 0, accelerator, //$NON-NLS-1$
-					PropertyFactory.getString("InfoResources.AddToList"), "Add16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$
+					LanguageBundle.getString("InfoResources.AddToList"), "Add16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		private JMenuItem createDelMenuItem(String label, String accelerator)
 		{
 			return Utility
 				.createMenuItem(
-					PropertyFactory.getString(label),
+					LanguageBundle.getString(label),
 					new DelActionListener(),
 					"remove 1", (char) 0, accelerator, //$NON-NLS-1$
-					PropertyFactory.getString("InfoResources.RemoveFromList"), "Remove16.gif", true); //$NON-NLS-1$//$NON-NLS-2$
+					LanguageBundle.getString("InfoResources.RemoveFromList"), "Remove16.gif", true); //$NON-NLS-1$//$NON-NLS-2$
 		}
 
 		private class AddActionListener implements ActionListener

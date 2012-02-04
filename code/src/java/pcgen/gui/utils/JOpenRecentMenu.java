@@ -22,7 +22,7 @@ package pcgen.gui.utils;
 
 import pcgen.cdom.base.Constants;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -145,9 +145,9 @@ public class JOpenRecentMenu extends JMenu
 
 	private void standardMenuFeatures()
 	{
-		setText(PropertyFactory.getString("in_mnuOpenRecent"));
-		setMnemonic(PropertyFactory.getMnemonic("in_mn_mnuOpenRecent"));
-		Utility.setDescription(this, PropertyFactory
+		setText(LanguageBundle.getString("in_mnuOpenRecent"));
+		setMnemonic(LanguageBundle.getMnemonic("in_mn_mnuOpenRecent"));
+		Utility.setDescription(this, LanguageBundle
 			.getString("in_mnuOpenRecentTip"));
 	}
 

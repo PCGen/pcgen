@@ -25,6 +25,7 @@
  */
 package plugin.exporttokens;
 
+import pcgen.cdom.enumeration.BiographyField;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -56,6 +57,10 @@ public class NameToken extends Token
 
 	public static String getNameToken(PlayerCharacter pc)
 	{
+		if (pc.getSuppressBioField(BiographyField.NAME))
+		{
+			return "";
+		}
 		return pc.getName();
 	}
 }

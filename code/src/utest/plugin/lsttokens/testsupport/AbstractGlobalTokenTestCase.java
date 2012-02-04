@@ -20,6 +20,7 @@ package plugin.lsttokens.testsupport;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Locale;
 
 import junit.framework.TestCase;
 
@@ -58,6 +59,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 	@BeforeClass
 	public static final void classSetUp() throws URISyntaxException
 	{
+		Locale.setDefault(Locale.US);
 		testCampaign = new CampaignSourceEntry(new Campaign(), new URI(
 				"file:/Test%20Case"));
 		classSetUpFired = true;

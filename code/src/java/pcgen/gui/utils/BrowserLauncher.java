@@ -6,7 +6,7 @@ import pcgen.core.Globals;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import java.io.File;
 import java.io.IOException;
@@ -253,7 +253,7 @@ public final class BrowserLauncher
 				{
 					loadedWithoutErrors = false;
 					errorMessage =
-							PropertyFactory.getFormattedString("in_BLEr1",
+							LanguageBundle.getFormattedString("in_BLEr1",
 								String.valueOf(version));
 				}
 			}
@@ -261,7 +261,7 @@ public final class BrowserLauncher
 			{
 				loadedWithoutErrors = false;
 				errorMessage =
-						PropertyFactory.getFormattedString("in_BLEr2",
+						LanguageBundle.getFormattedString("in_BLEr2",
 							String.valueOf(mrjVersion));
 			}
 		}
@@ -319,7 +319,7 @@ public final class BrowserLauncher
 	{
 		if (!loadedWithoutErrors)
 		{
-			throw new IOException(PropertyFactory.getFormattedString("in_BLEr3",
+			throw new IOException(LanguageBundle.getFormattedString("in_BLEr3",
 				errorMessage));
 		}
 
@@ -351,19 +351,19 @@ public final class BrowserLauncher
 					}
 					catch (InvocationTargetException ite)
 					{
-						throw new IOException(PropertyFactory
+						throw new IOException(LanguageBundle
 							.getFormattedString("in_BLEr6",
 							ite.getMessage()));
 					}
 					catch (IllegalAccessException iae)
 					{
-						throw new IOException(PropertyFactory
+						throw new IOException(LanguageBundle
 							.getFormattedString("in_BLEr7",
 							iae.getMessage()));
 					}
 					catch (InstantiationException ie)
 					{
-						throw new IOException(PropertyFactory
+						throw new IOException(LanguageBundle
 							.getFormattedString("in_BLEr8",
 							ie.getMessage()));
 					}
@@ -404,14 +404,14 @@ public final class BrowserLauncher
 						}
 						else
 						{
-							throw new IOException(PropertyFactory
+							throw new IOException(LanguageBundle
 								.getFormattedString("in_BLEr9",
 								String.valueOf(result)));
 						}
 					}
 					else
 					{
-						throw new IOException(PropertyFactory
+						throw new IOException(LanguageBundle
 							.getFormattedString("in_BLEr10",
 							String.valueOf(result)));
 					}
@@ -422,19 +422,19 @@ public final class BrowserLauncher
 
 					try
 					{
-						Logging.log(Logging.INFO, PropertyFactory
+						Logging.log(Logging.INFO, LanguageBundle
 							.getFormattedString("in_BLEr11", url));
 						openURL.invoke(null, new Object[]{url});
 					}
 					catch (InvocationTargetException ite)
 					{
-						throw new IOException(PropertyFactory
+						throw new IOException(LanguageBundle
 							.getFormattedString("in_BLEr12",
 							ite.getMessage()));
 					}
 					catch (IllegalAccessException iae)
 					{
-						throw new IOException(PropertyFactory
+						throw new IOException(LanguageBundle
 							.getFormattedString("in_BLEr13",
 							iae.getMessage()));
 					}
@@ -462,7 +462,7 @@ public final class BrowserLauncher
 					}
 					catch (InterruptedException ie)
 					{
-						throw new IOException(PropertyFactory
+						throw new IOException(LanguageBundle
 							.getFormattedString("in_BLEr14",
 							ie.getMessage()));
 					}
@@ -493,7 +493,7 @@ public final class BrowserLauncher
 					}
 					catch (InterruptedException ie)
 					{
-						throw new IOException(PropertyFactory
+						throw new IOException(LanguageBundle
 							.getFormattedString("in_BLEr14",
 							ie.getMessage()));
 					}
@@ -520,20 +520,20 @@ public final class BrowserLauncher
 				return;
 			}
 
-			Logging.log(Logging.INFO, PropertyFactory.getFormattedString(
+			Logging.log(Logging.INFO, LanguageBundle.getFormattedString(
 				"in_BLEr15", browserPath));
 
 			// On MacOS X, one must use open -a to launch an app.
 			if ((jvm == MRJ_3_1) && browserPath.toLowerCase().endsWith(".app"))
 			{
-				Logging.log(Logging.INFO, PropertyFactory.getFormattedString(
+				Logging.log(Logging.INFO, LanguageBundle.getFormattedString(
 					"in_BLEr16", browserPath, url));
 				Runtime.getRuntime().exec(
 					new String[]{"open", "-a", browserPath, url});
 			}
 			else
 			{
-				Logging.log(Logging.INFO, PropertyFactory.getFormattedString(
+				Logging.log(Logging.INFO, LanguageBundle.getFormattedString(
 					"in_BLEr17", browserPath, url));
 				Runtime.getRuntime().exec(new String[]{browserPath, url});
 			}

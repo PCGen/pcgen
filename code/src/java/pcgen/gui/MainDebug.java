@@ -57,7 +57,7 @@ import pcgen.util.Logging;
  * @author Bryan McRoberts <merton_monk@yahoo.com>
  * @version $Revision$
  */
-final class MainDebug extends JPanel
+public final class MainDebug extends JPanel
 {
 	private static final long serialVersionUID = 6997794954514089648L;
 	private static final JTextArea txtAreaDebug = new JTextArea();
@@ -71,7 +71,7 @@ final class MainDebug extends JPanel
 	private JScrollPane debugCenter = new JScrollPane();
 	private JTextField txtDebugField = new JTextField();
 
-	MainDebug()
+	public MainDebug()
 	{
 		initComponents();
 		DebugHandler ch = new DebugHandler();

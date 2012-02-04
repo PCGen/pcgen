@@ -50,7 +50,7 @@ public final class Main
 	 */
 	public static void main(String[] args)
 	{
-		String mainName = pcGenGUI.class.getName();
+		String mainName = pcgen.system.Main.class.getName();
 
 		// If arg[0] doesn't start with "pcgen." it's unlikely to be a class we
 		// can instantiate and run.  Ignore it in that case.

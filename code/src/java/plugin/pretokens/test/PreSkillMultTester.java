@@ -33,7 +33,7 @@ import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * @author frugal@purplewombat.co.uk
@@ -148,7 +148,7 @@ public class PreSkillMultTester extends AbstractPrerequisiteTest implements Prer
 		}
 
 		final String foo =
-				PropertyFactory.getFormattedString("PreSkillMult.toHtml", //$NON-NLS-1$
+				LanguageBundle.getFormattedString("PreSkillMult.toHtml", //$NON-NLS-1$
 					new Object[]{prereq.getOperator().toDisplayString(),
 						prereq.getOperand(), skillName});
 		return foo;

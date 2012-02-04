@@ -35,7 +35,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.gui.utils.Utility;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import plugin.charactersheet.CharacterSheetPlugin;
 
 /**
@@ -116,7 +116,7 @@ public class NotesPanel extends FlippingSplitPane
 
 		jPanel1.add(jScrollPane2, java.awt.BorderLayout.CENTER);
 
-		addButton.setText(PropertyFactory.getString("in_add"));
+		addButton.setText(LanguageBundle.getString("in_add"));
 		addButton.addActionListener(new java.awt.event.ActionListener()
 		{
 			public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -127,7 +127,7 @@ public class NotesPanel extends FlippingSplitPane
 
 		jToolBar1.add(addButton);
 
-		deleteButton.setText(PropertyFactory.getString("in_delete"));
+		deleteButton.setText(LanguageBundle.getString("in_delete"));
 		deleteButton.addActionListener(new java.awt.event.ActionListener()
 		{
 			public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -138,7 +138,7 @@ public class NotesPanel extends FlippingSplitPane
 
 		jToolBar1.add(deleteButton);
 
-		renameButton.setText(PropertyFactory.getString("in_rename"));
+		renameButton.setText(LanguageBundle.getString("in_rename"));
 		renameButton.addActionListener(new java.awt.event.ActionListener()
 		{
 			public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -149,7 +149,7 @@ public class NotesPanel extends FlippingSplitPane
 
 		jToolBar1.add(renameButton);
 
-		moveButton.setText(PropertyFactory.getString("in_move"));
+		moveButton.setText(LanguageBundle.getString("in_move"));
 		moveButton.addActionListener(new java.awt.event.ActionListener()
 		{
 			public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -443,27 +443,27 @@ public class NotesPanel extends FlippingSplitPane
 		nodesToBeAddedList.add(order++, bioNote);
 
 		descriptionNote =
-				new NoteItem(DESCRIPTION_NOTEID, -1, PropertyFactory
+				new NoteItem(DESCRIPTION_NOTEID, -1, LanguageBundle
 					.getString("in_descrip"), pc.getDescription());
 		nodesToBeAddedList.add(order++, descriptionNote);
 
 		companionNote =
-				new NoteItem(COMPANION_NOTEID, -1, PropertyFactory
+				new NoteItem(COMPANION_NOTEID, -1, LanguageBundle
 					.getString("in_companions"), pc.getSafeStringFor(StringKey.MISC_COMPANIONS));
 		nodesToBeAddedList.add(order++, companionNote);
 
 		otherAssetsNote =
-				new NoteItem(OTHERASSETS_NOTEID, -1, PropertyFactory
+				new NoteItem(OTHERASSETS_NOTEID, -1, LanguageBundle
 					.getString("in_otherAssets"), pc.getSafeStringFor(StringKey.MISC_ASSETS));
 		nodesToBeAddedList.add(order++, otherAssetsNote);
 
 		magicItemsNote =
-				new NoteItem(MAGICITEMS_NOTEID, -1, PropertyFactory
+				new NoteItem(MAGICITEMS_NOTEID, -1, LanguageBundle
 					.getString("in_magicItems"), pc.getSafeStringFor(StringKey.MISC_MAGIC));
 		nodesToBeAddedList.add(order++, magicItemsNote);
 
 		dmNote =
-				new NoteItem(DMNOTES_NOTEID, -1, PropertyFactory
+				new NoteItem(DMNOTES_NOTEID, -1, LanguageBundle
 					.getString("in_dmNotes"), pc.getSafeStringFor(StringKey.MISC_DM));
 		nodesToBeAddedList.add(order++, dmNote);
 
@@ -541,7 +541,7 @@ public class NotesPanel extends FlippingSplitPane
 		}
 		else
 		{
-			notesArea.setText(PropertyFactory.getString("in_idNoteEdit"));
+			notesArea.setText(LanguageBundle.getString("in_idNoteEdit"));
 			notesArea.setEnabled(false);
 			notesArea.setEditable(false);
 		}
@@ -660,20 +660,20 @@ public class NotesPanel extends FlippingSplitPane
 			if (numChildren > 0)
 			{
 				message =
-						PropertyFactory.getFormattedString("in_delNote1",
+						LanguageBundle.getFormattedString("in_delNote1",
 							toString(), String.valueOf(numChildren));
 			}
 			else
 			{
 				message =
-						PropertyFactory.getFormattedString("in_delNote2",
+						LanguageBundle.getFormattedString("in_delNote2",
 							toString());
 			}
 
 			//The following line should be taken out and shot!
 			reallyDelete =
 					JOptionPane.showConfirmDialog(null, message,
-						PropertyFactory.getString("in_delNote4"),
+						LanguageBundle.getString("in_delNote4"),
 						JOptionPane.OK_CANCEL_OPTION);
 
 			if (reallyDelete == JOptionPane.OK_OPTION)
@@ -715,8 +715,8 @@ public class NotesPanel extends FlippingSplitPane
 			++newNodeId;
 
 			NoteItem note =
-					new NoteItem(newNodeId, parentId, PropertyFactory
-						.getString("in_newItem"), PropertyFactory
+					new NoteItem(newNodeId, parentId, LanguageBundle
+						.getString("in_newItem"), LanguageBundle
 						.getString("in_newValue"));
 			NoteTreeNode node = new NoteTreeNode(note, pc);
 
@@ -817,35 +817,35 @@ public class NotesPanel extends FlippingSplitPane
 
 		NotePopupMenu()
 		{
-			NotePopupMenu.this.add(createAddMenuItem(PropertyFactory
+			NotePopupMenu.this.add(createAddMenuItem(LanguageBundle
 				.getString("in_add"), "shortcut EQUALS"));
-			NotePopupMenu.this.add(createRemoveMenuItem(PropertyFactory
+			NotePopupMenu.this.add(createRemoveMenuItem(LanguageBundle
 				.getString("in_remove"), "shortcut MINUS"));
-			NotePopupMenu.this.add(createRenameMenuItem(PropertyFactory
+			NotePopupMenu.this.add(createRenameMenuItem(LanguageBundle
 				.getString("in_rename"), "alt M"));
 		}
 
 		private JMenuItem createAddMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label, new AddNoteActionListener(),
-				PropertyFactory.getString("in_add"), (char) 0, accelerator,
-				PropertyFactory.getString("in_add"), "Add16.gif", true);
+				LanguageBundle.getString("in_add"), (char) 0, accelerator,
+				LanguageBundle.getString("in_add"), "Add16.gif", true);
 		}
 
 		private JMenuItem createRemoveMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label,
-				new RemoveNoteActionListener(), PropertyFactory
+				new RemoveNoteActionListener(), LanguageBundle
 					.getString("in_delete"), (char) 0, accelerator,
-				PropertyFactory.getString("in_delete"), "Remove16.gif", true);
+				LanguageBundle.getString("in_delete"), "Remove16.gif", true);
 		}
 
 		private JMenuItem createRenameMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label,
-				new RenameNoteActionListener(), PropertyFactory
+				new RenameNoteActionListener(), LanguageBundle
 					.getString("in_rename"), (char) 0, accelerator,
-				PropertyFactory.getString("in_rename"), "Add16.gif", true);
+				LanguageBundle.getString("in_rename"), "Add16.gif", true);
 		}
 
 		private class AddNoteActionListener extends NoteActionListener

@@ -38,7 +38,7 @@ import javax.swing.event.DocumentListener;
 import pcgen.gui.tabs.IFilterableView;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.Utility;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * This class implements a panel containing a View Choice combo and Quick Filter
@@ -115,7 +115,7 @@ public class FilterPanel extends JPanel
 		{
 			theViewComboBox.addItem(choice);
 		}
-		Utility.setDescription(theViewComboBox, PropertyFactory
+		Utility.setDescription(theViewComboBox, LanguageBundle
 			.getString("InfoTabs.ViewCombo.Description")); //$NON-NLS-1$
 
 		theViewComboBox.setSelectedIndex(aView.getInitialChoice());
@@ -130,7 +130,7 @@ public class FilterPanel extends JPanel
 		// Filter Label
 		// --------------------------------------------------------
 		final JLabel filterLabel =
-				new JLabel(PropertyFactory.getString("InfoTabs.FilterLabel")); //$NON-NLS-1$
+				new JLabel(LanguageBundle.getString("InfoTabs.FilterLabel")); //$NON-NLS-1$
 		Utility.buildConstraints(c, i++, 0, 1, 1, 0, 0);
 		c.insets = new Insets(1, 2, 1, 2);
 		c.fill = GridBagConstraints.NONE;
@@ -170,7 +170,7 @@ public class FilterPanel extends JPanel
 		// --------------------------------------------------------
 		// Clear filter button
 		// --------------------------------------------------------
-		theClearButton = new JButton(PropertyFactory.getString("in_clear")); //$NON-NLS-1$
+		theClearButton = new JButton(LanguageBundle.getString("in_clear")); //$NON-NLS-1$
 		theClearButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(@SuppressWarnings("unused")

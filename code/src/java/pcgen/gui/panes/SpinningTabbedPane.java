@@ -23,7 +23,7 @@
 package pcgen.gui.panes; // hm.binkley.gui;
 
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import javax.swing.*;
 import javax.swing.plaf.TabbedPaneUI;
@@ -59,22 +59,22 @@ public class SpinningTabbedPane extends JTabbedPane
 	private static final int UNGROUP_SINGLE_OFFSET = 28;
 	private static final String[] labels =
 	{
-		PropertyFactory.getString("in_top"), // place
-		PropertyFactory.getString("in_left"), PropertyFactory.getString("in_bottom"),
-		PropertyFactory.getString("in_right"), PropertyFactory.getString("in_beginning"), // move left/right
-		PropertyFactory.getString("in_left"), PropertyFactory.getString("in_end"), PropertyFactory.getString("in_right"),
-		PropertyFactory.getString("in_top"), // move up/down
-		PropertyFactory.getString("in_up"), PropertyFactory.getString("in_bottom"), PropertyFactory.getString("in_down"),
-		PropertyFactory.getString("in_up"), // group
-		PropertyFactory.getString("in_left"), PropertyFactory.getString("in_down"),
-		PropertyFactory.getString("in_right"), null, // tab
-		null, null, null, PropertyFactory.getString("in_ungroupTop"), // ungroup child
-		PropertyFactory.getString("in_ungroupLeft"), PropertyFactory.getString("in_ungroupBottom"),
-		PropertyFactory.getString("in_ungroupRight"), PropertyFactory.getString("in_ungroupTop"), // ungroup self
-		PropertyFactory.getString("in_ungroupLeft"), PropertyFactory.getString("in_ungroupBottom"),
-		PropertyFactory.getString("in_ungroupRight"), PropertyFactory.getString("in_ungroupUp"), // ungroup single
-		PropertyFactory.getString("in_ungroupLeft"), PropertyFactory.getString("in_ungroupDown"),
-		PropertyFactory.getString("in_ungroupRight")
+		LanguageBundle.getString("in_top"), // place
+		LanguageBundle.getString("in_left"), LanguageBundle.getString("in_bottom"),
+		LanguageBundle.getString("in_right"), LanguageBundle.getString("in_beginning"), // move left/right
+		LanguageBundle.getString("in_left"), LanguageBundle.getString("in_end"), LanguageBundle.getString("in_right"),
+		LanguageBundle.getString("in_top"), // move up/down
+		LanguageBundle.getString("in_up"), LanguageBundle.getString("in_bottom"), LanguageBundle.getString("in_down"),
+		LanguageBundle.getString("in_up"), // group
+		LanguageBundle.getString("in_left"), LanguageBundle.getString("in_down"),
+		LanguageBundle.getString("in_right"), null, // tab
+		null, null, null, LanguageBundle.getString("in_ungroupTop"), // ungroup child
+		LanguageBundle.getString("in_ungroupLeft"), LanguageBundle.getString("in_ungroupBottom"),
+		LanguageBundle.getString("in_ungroupRight"), LanguageBundle.getString("in_ungroupTop"), // ungroup self
+		LanguageBundle.getString("in_ungroupLeft"), LanguageBundle.getString("in_ungroupBottom"),
+		LanguageBundle.getString("in_ungroupRight"), LanguageBundle.getString("in_ungroupUp"), // ungroup single
+		LanguageBundle.getString("in_ungroupLeft"), LanguageBundle.getString("in_ungroupDown"),
+		LanguageBundle.getString("in_ungroupRight")
 	};
 	private static final ImageIcon[] icons =
 	{
@@ -90,22 +90,22 @@ public class SpinningTabbedPane extends JTabbedPane
 	};
 	private static final String[] tips =
 	{
-		PropertyFactory.getString("in_spinTips1"), PropertyFactory.getString("in_spinTips2"),
-		PropertyFactory.getString("in_spinTips3"), PropertyFactory.getString("in_spinTips4"),
-		PropertyFactory.getString("in_spinTips5"), PropertyFactory.getString("in_spinTips6"),
-		PropertyFactory.getString("in_spinTips7"), PropertyFactory.getString("in_spinTips8"),
-		PropertyFactory.getString("in_spinTips9"), PropertyFactory.getString("in_spinTips10"),
-		PropertyFactory.getString("in_spinTips11"), PropertyFactory.getString("in_spinTips12"),
-		PropertyFactory.getString("in_spinTips13"), PropertyFactory.getString("in_spinTips14"),
-		PropertyFactory.getString("in_spinTips15"), PropertyFactory.getString("in_spinTips16"),
-		PropertyFactory.getString("in_spinTips17"), PropertyFactory.getString("in_spinTips18"),
-		PropertyFactory.getString("in_spinTips19"), PropertyFactory.getString("in_spinTips20"),
-		PropertyFactory.getString("in_spinTips21"), PropertyFactory.getString("in_spinTips22"),
-		PropertyFactory.getString("in_spinTips23"), PropertyFactory.getString("in_spinTips24"),
-		PropertyFactory.getString("in_spinTips25"), PropertyFactory.getString("in_spinTips26"),
-		PropertyFactory.getString("in_spinTips27"), PropertyFactory.getString("in_spinTips28"),
-		PropertyFactory.getString("in_spinTips29"), PropertyFactory.getString("in_spinTips30"),
-		PropertyFactory.getString("in_spinTips31"), PropertyFactory.getString("in_spinTips32")
+		LanguageBundle.getString("in_spinTips1"), LanguageBundle.getString("in_spinTips2"),
+		LanguageBundle.getString("in_spinTips3"), LanguageBundle.getString("in_spinTips4"),
+		LanguageBundle.getString("in_spinTips5"), LanguageBundle.getString("in_spinTips6"),
+		LanguageBundle.getString("in_spinTips7"), LanguageBundle.getString("in_spinTips8"),
+		LanguageBundle.getString("in_spinTips9"), LanguageBundle.getString("in_spinTips10"),
+		LanguageBundle.getString("in_spinTips11"), LanguageBundle.getString("in_spinTips12"),
+		LanguageBundle.getString("in_spinTips13"), LanguageBundle.getString("in_spinTips14"),
+		LanguageBundle.getString("in_spinTips15"), LanguageBundle.getString("in_spinTips16"),
+		LanguageBundle.getString("in_spinTips17"), LanguageBundle.getString("in_spinTips18"),
+		LanguageBundle.getString("in_spinTips19"), LanguageBundle.getString("in_spinTips20"),
+		LanguageBundle.getString("in_spinTips21"), LanguageBundle.getString("in_spinTips22"),
+		LanguageBundle.getString("in_spinTips23"), LanguageBundle.getString("in_spinTips24"),
+		LanguageBundle.getString("in_spinTips25"), LanguageBundle.getString("in_spinTips26"),
+		LanguageBundle.getString("in_spinTips27"), LanguageBundle.getString("in_spinTips28"),
+		LanguageBundle.getString("in_spinTips29"), LanguageBundle.getString("in_spinTips30"),
+		LanguageBundle.getString("in_spinTips31"), LanguageBundle.getString("in_spinTips32")
 	};
 	private PopupMenuPolicy policy = new DefaultPopupMenuPolicy();
 	private Set<Component> locked = new HashSet<Component>();
@@ -542,10 +542,10 @@ public class SpinningTabbedPane extends JTabbedPane
 	{
 		CloseMenuItem(int index)
 		{
-			super(PropertyFactory.getString("in_close"));
+			super(LanguageBundle.getString("in_close"));
 
 			addActionListener(new CloseActionListener(index));
-			setMnemonic(PropertyFactory.getMnemonic("in_mn_close"));
+			setMnemonic(LanguageBundle.getMnemonic("in_mn_close"));
 			setIcon(Utilities.CLOSE_ICON);
 		}
 	}
@@ -572,8 +572,8 @@ public class SpinningTabbedPane extends JTabbedPane
 	{
 		GroupMenu(int index, int placement)
 		{
-			super(PropertyFactory.getString("in_groupTabs"));
-			setMnemonic(PropertyFactory.getMnemonic("in_mn_groupTabs"));
+			super(LanguageBundle.getString("in_groupTabs"));
+			setMnemonic(LanguageBundle.getMnemonic("in_mn_groupTabs"));
 
 			Component c = SpinningTabbedPane.this.getComponentAt(index);
 			boolean first = true;
@@ -659,10 +659,10 @@ public class SpinningTabbedPane extends JTabbedPane
 	{
 		LockMenuItem(int index)
 		{
-			super(PropertyFactory.getString("in_lock"));
+			super(LanguageBundle.getString("in_lock"));
 
 			addActionListener(new LockActionListener(index));
-			setMnemonic(PropertyFactory.getMnemonic("in_mn_lock"));
+			setMnemonic(LanguageBundle.getMnemonic("in_mn_lock"));
 			setIcon(Utilities.LOCK_ICON);
 		}
 	}
@@ -741,8 +741,8 @@ public class SpinningTabbedPane extends JTabbedPane
 	{
 		MoveMenu(int index)
 		{
-			super(PropertyFactory.getString("in_moveTab"));
-			setMnemonic(PropertyFactory.getMnemonic("in_mn_movetab"));
+			super(LanguageBundle.getString("in_moveTab"));
+			setMnemonic(LanguageBundle.getMnemonic("in_mn_movetab"));
 
 			final int[] indices = getMovableTabIndices();
 
@@ -867,10 +867,10 @@ public class SpinningTabbedPane extends JTabbedPane
 	{
 		NewMenuItem(int index)
 		{
-			super(PropertyFactory.getString("in_new"));
+			super(LanguageBundle.getString("in_new"));
 
 			addActionListener(new NewActionListener(index));
-			setMnemonic(PropertyFactory.getMnemonic("in_mn_new"));
+			setMnemonic(LanguageBundle.getMnemonic("in_mn_new"));
 			setIcon(Utilities.NEW_ICON);
 		}
 	}
@@ -896,8 +896,8 @@ public class SpinningTabbedPane extends JTabbedPane
 	{
 		PlaceMenu(int placement)
 		{
-			super(PropertyFactory.getString("in_placeTabs"));
-			setMnemonic(PropertyFactory.getMnemonic("in_mn_placeTabs"));
+			super(LanguageBundle.getString("in_placeTabs"));
+			setMnemonic(LanguageBundle.getMnemonic("in_mn_placeTabs"));
 
 			// Add backwards to get clockwise choices
 			for (int j = 3; j > 0; --j)
@@ -1142,10 +1142,10 @@ public class SpinningTabbedPane extends JTabbedPane
 	{
 		RenameMenuItem(int index, MouseEvent e)
 		{
-			super(PropertyFactory.getString("in_rename") + "...");
+			super(LanguageBundle.getString("in_rename") + "...");
 
 			addActionListener(new RenameActionListener(index, e));
-			setMnemonic(PropertyFactory.getMnemonic("in_mn_rename"));
+			setMnemonic(LanguageBundle.getMnemonic("in_mn_rename"));
 		}
 	}
 
@@ -1250,10 +1250,10 @@ public class SpinningTabbedPane extends JTabbedPane
 	{
 		UnlockMenuItem(int index)
 		{
-			super(PropertyFactory.getString("in_unlock"));
+			super(LanguageBundle.getString("in_unlock"));
 
 			addActionListener(new UnlockActionListener(index));
-			setMnemonic(PropertyFactory.getMnemonic("in_mn_unlock"));
+			setMnemonic(LanguageBundle.getMnemonic("in_mn_unlock"));
 			setIcon(Utilities.LOCK_ICON);
 		}
 	}

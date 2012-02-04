@@ -27,7 +27,7 @@ import java.net.URI;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.bonus.BonusObj;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * Utility class to assist with LST files
@@ -52,7 +52,7 @@ public class LstUtils
 		if (token instanceof DeprecatedToken)
 		{
 			final String msg =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"Warnings.LstTokens.Deprecated", //$NON-NLS-1$
 						token.getTokenName(), value, obj.getDisplayName(), obj
 							.getSourceURI(),
@@ -90,7 +90,7 @@ public class LstUtils
 		if (token instanceof DeprecatedToken)
 		{
 			final String msg =
-					PropertyFactory.getFormattedString(
+					LanguageBundle.getFormattedString(
 						"Warnings.Bonus.Deprecated", //$NON-NLS-1$
 						name, value, ((DeprecatedToken) token).getMessage(null,
 							value));
@@ -110,7 +110,7 @@ public class LstUtils
 		URI source, String value, String message)
 	{
 		final String msg =
-				PropertyFactory.getFormattedString(
+				LanguageBundle.getFormattedString(
 					"Warnings.LstTokens.Deprecated", //$NON-NLS-1$
 					tokenName, value, name, source, message);
 		deprecationWarning(msg);

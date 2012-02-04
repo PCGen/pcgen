@@ -49,7 +49,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.rules.context.LoadContext;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.StringPClassUtil;
 import pcgen.util.enumeration.Visibility;
 
@@ -241,7 +241,7 @@ class ClassBasePanel extends BasePanel<PCClass>
 		chkVisible = new JCheckBox();
 
 		//pnlTemplateTypes = new AvailableSelectedPanel();
-		pnlTemplateTypes = new TypePanel(PropertyFactory.getString("in_demEnterNewType"));
+		pnlTemplateTypes = new TypePanel(LanguageBundle.getString("in_demEnterNewType"));
 
 		setLayout(new GridBagLayout());
 
@@ -320,7 +320,7 @@ class ClassBasePanel extends BasePanel<PCClass>
 		gridBagConstraints = buildConstraints(gridBagConstraints, 5, 3, true);
 		add(chkVisible, gridBagConstraints);
 
-		//pnlTemplateTypes.setHeader(PropertyFactory.getString("in_type"));
+		//pnlTemplateTypes.setHeader(LanguageBundle.getString("in_type"));
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 5;
 		gridBagConstraints.gridwidth = 6;

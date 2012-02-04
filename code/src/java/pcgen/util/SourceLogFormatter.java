@@ -69,7 +69,9 @@ public final class SourceLogFormatter extends Formatter
 		
 		for (int i=1 ; i<stack.length ; i++) //1 to skip this method
 		{
-			if (!stack[i].getClassName().startsWith("pcgen.util.Logging") && !stack[i].getClassName().startsWith("java.util.logging"))
+			if (!stack[i].getClassName().startsWith("pcgen.util.Logging") 
+				&& !stack[i].getClassName().startsWith("java.util.logging")
+				&& !stack[i].getClassName().startsWith("pcgen.system.LoggingRecorder"))
 			{
 				caller = stack[i];
 				break;

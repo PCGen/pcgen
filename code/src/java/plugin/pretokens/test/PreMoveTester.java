@@ -37,7 +37,7 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * Passes PREMOVE tags
@@ -73,7 +73,7 @@ public class PreMoveTester extends AbstractPrerequisiteTest implements
 			}
 			catch (NumberFormatException e)
 			{
-				throw new PrerequisiteException(PropertyFactory
+				throw new PrerequisiteException(LanguageBundle
 					.getFormattedString(
 						"PreMove.error.bad_operand", prereq.toString())); //$NON-NLS-1$
 			}

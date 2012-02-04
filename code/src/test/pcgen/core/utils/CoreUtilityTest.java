@@ -27,7 +27,7 @@ package pcgen.core.utils;
 
 import pcgen.PCGenTestCase;
 import pcgen.base.lang.StringUtil;
-import pcgen.gui.PCGenProp;
+import pcgen.system.PCGenPropBundle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -125,7 +125,7 @@ public class CoreUtilityTest extends PCGenTestCase
 
 	public void testIsCurrMinorVer()
 	{
-		String currVerStr = PCGenProp.getVersionNumber();
+		String currVerStr = PCGenPropBundle.getVersionNumber();
 		assertEquals("Check for same verison", true, CoreUtility
 			.isCurrMinorVer(currVerStr));
 		int[] currVer = CoreUtility.convertVersionToNumber(currVerStr);
@@ -150,7 +150,7 @@ public class CoreUtilityTest extends PCGenTestCase
 
 	public void testIsPriorToCurrent()
 	{
-		String currVerStr = PCGenProp.getVersionNumber();
+		String currVerStr = PCGenPropBundle.getVersionNumber();
 		assertEquals("Check for same verison", true, CoreUtility
 			.isPriorToCurrent(currVerStr));
 		int[] currVer = CoreUtility.convertVersionToNumber(currVerStr);

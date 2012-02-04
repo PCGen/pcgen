@@ -35,6 +35,7 @@ import org.nfunk.jep.function.PostfixMathCommand;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.VariableProcessor;
 import pcgen.persistence.lst.LstUtils;
+import pcgen.system.PluginLoader;
 
 /**
  * <code>PJEP</code>
@@ -63,7 +64,26 @@ public final class PJEP extends JEP
 	{
 		commandList.add(clazz);
 	}
+	public static PluginLoader getJepPluginLoader()
+	{
+		return new PluginLoader()
+		{
 
+			public void loadPlugin(Class clazz) throws Exception
+			{
+				addCommand(clazz);
+			}
+
+			public Class[] getPluginClasses()
+			{
+				return new Class[]
+						{
+							PCGenCommand.class
+						};
+			}
+
+		};
+	}
 	public PJEP()
 	{
 		setAllowUndeclared(true);

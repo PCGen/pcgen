@@ -48,7 +48,7 @@ import pcgen.gui.utils.JComboBoxEx;
 import pcgen.gui.utils.WholeNumberField;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.DecimalNumberField;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -338,7 +338,7 @@ public class FeatBasePanel extends BasePanel<Ability>
 		pnlDescription = new DescriptionPanel();
 
 		//pnlFeatType = new AvailableSelectedPanel();
-		pnlFeatType = new TypePanel(PropertyFactory.getString("in_demEnterNewType"));
+		pnlFeatType = new TypePanel(LanguageBundle.getString("in_demEnterNewType"));
 		pnlMisc = new JPanel();
 		lblCost = new JLabel();
 		lblVisible = new JLabel();
@@ -359,7 +359,7 @@ public class FeatBasePanel extends BasePanel<Ability>
 		gbc.weighty = 0.5;
 		add(pnlDescription, gbc);
 
-		//pnlFeatType.setHeader(PropertyFactory.getString("in_type"));
+		//pnlFeatType.setHeader(LanguageBundle.getString("in_type"));
 		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
 		gbc.gridy = 1;

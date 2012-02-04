@@ -28,7 +28,7 @@ import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.Utility;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 import javax.swing.*;
 import java.awt.*;
@@ -64,7 +64,7 @@ final class TipOfTheDay extends JFrame implements ActionListener
 
 		IconUtilitities.maybeSetIcon(this, "TipOfTheDay16.gif");
 
-		setTitle(PropertyFactory.getString("in_tod_title"));
+		setTitle(LanguageBundle.getString("in_tod_title"));
 
 		// initialize the interface
 		initUI();
@@ -119,7 +119,7 @@ final class TipOfTheDay extends JFrame implements ActionListener
 		iconLabel.setOpaque(true);
 		panel.add(iconLabel, BorderLayout.WEST);
 
-		final JLabel lblDidYouKnow = new JLabel("    " + PropertyFactory.getString("in_tod_didyouknow"));
+		final JLabel lblDidYouKnow = new JLabel("    " + LanguageBundle.getString("in_tod_didyouknow"));
 		final Font old = lblDidYouKnow.getFont();
 		lblDidYouKnow.setFont(old.deriveFont(old.getStyle() | Font.ITALIC, 18f));
 		lblDidYouKnow.setOpaque(true);
@@ -138,14 +138,14 @@ final class TipOfTheDay extends JFrame implements ActionListener
 
 		panel.add(content, BorderLayout.CENTER);
 
-		chkShowTips = new JCheckBox(PropertyFactory.getString("in_tod_showTips"), SettingsHandler.getShowTipOfTheDay());
+		chkShowTips = new JCheckBox(LanguageBundle.getString("in_tod_showTips"), SettingsHandler.getShowTipOfTheDay());
 
-		final JButton btnClose = new JButton(PropertyFactory.getString("in_close"));
-		btnClose.setMnemonic(PropertyFactory.getMnemonic("in_mn_close"));
+		final JButton btnClose = new JButton(LanguageBundle.getString("in_close"));
+		btnClose.setMnemonic(LanguageBundle.getMnemonic("in_mn_close"));
 		btnClose.addActionListener(this);
 
-		final JButton btnNextTip = new JButton(PropertyFactory.getString("in_tod_nextTip"));
-		btnNextTip.setMnemonic(PropertyFactory.getMnemonic("in_mn_tod_nextTip"));
+		final JButton btnNextTip = new JButton(LanguageBundle.getString("in_tod_nextTip"));
+		btnNextTip.setMnemonic(LanguageBundle.getMnemonic("in_mn_tod_nextTip"));
 		btnNextTip.addActionListener(this);
 		btnNextTip.setActionCommand(NEXT);
 

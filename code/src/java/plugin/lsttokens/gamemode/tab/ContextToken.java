@@ -25,6 +25,7 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.system.ConfigurationSettings;
 
 /**
  * Class deals with CONTEXT Token
@@ -45,8 +46,7 @@ public class ContextToken implements CDOMPrimaryToken<TabInfo>
 			return ParseResult.SUCCESS;
 		}
 
-		String helpPath = CoreUtility.fixFilenamePath(SettingsHandler
-				.getPcgenDocsDir()
+		String helpPath = CoreUtility.fixFilenamePath(ConfigurationSettings.getDocsDir()
 				+ File.separator + value);
 		File helpFile = new File(helpPath);
 		if (!helpFile.exists())

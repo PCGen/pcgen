@@ -61,7 +61,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.utils.JTableEx;
 import pcgen.gui.utils.Utility;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * Title:        MainHP.java
@@ -270,8 +270,8 @@ final class MainHP extends JPanel
 		JPanel buttonPane = new JPanel();
 		buttonPane.setLayout(new BoxLayout(buttonPane,BoxLayout.PAGE_AXIS));
 		buttonPane.add(Box.createVerticalStrut(5));
-		okButton.setText(PropertyFactory.getString("in_ok"));
-		okButton.setMnemonic(PropertyFactory.getMnemonic("in_mn_ok"));
+		okButton.setText(LanguageBundle.getString("in_ok"));
+		okButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_ok"));
 		okButton.addActionListener(new ActionListener()
 			{
 				public void actionPerformed(ActionEvent e)
@@ -289,8 +289,8 @@ final class MainHP extends JPanel
 
 		buttonPane.add(okButton);
 		buttonPane.add(Box.createVerticalStrut(10));
-		JButton rerollButton = new JButton(PropertyFactory.getString("in_reroll"));
-		rerollButton.setMnemonic(PropertyFactory.getMnemonic("in_mn_reroll"));
+		JButton rerollButton = new JButton(LanguageBundle.getString("in_reroll"));
+		rerollButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_reroll"));
 		rerollButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{

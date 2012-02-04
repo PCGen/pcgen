@@ -26,7 +26,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>SourceFilter</code>
@@ -57,9 +57,9 @@ final class SourceFilter extends AbstractPObjectFilter
 			source = source.substring(cInt + 1, pInt);
 		}
 
-		setCategory(PropertyFactory.getString("in_sourceLabel")); //$NON-NLS-1$
+		setCategory(LanguageBundle.getString("in_sourceLabel")); //$NON-NLS-1$
 		setName(source);
-		setDescription(PropertyFactory.getFormattedString("in_filterAccObj",getName()));  //$NON-NLS-1$//$NON-NLS-2$
+		setDescription(LanguageBundle.getFormattedString("in_filterAccObj",getName()));  //$NON-NLS-1$//$NON-NLS-2$
 	}
 
 	public boolean accept(PlayerCharacter aPC, PObject pObject)

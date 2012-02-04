@@ -22,7 +22,7 @@ import java.util.Date;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Campaign;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 public enum SourceFormat
 {
@@ -209,7 +209,7 @@ public enum SourceFormat
 		StringBuffer ret = new StringBuffer();
 		if (cdo.isType(Constants.TYPE_CUSTOM))
 		{
-			ret.append(PropertyFactory.getString("in_custom")).append(" - ");
+			ret.append(LanguageBundle.getString("in_custom")).append(" - ");
 		}
 
 		String source = format.getField(cdo);

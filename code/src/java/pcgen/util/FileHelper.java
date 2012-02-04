@@ -81,7 +81,7 @@ public class FileHelper
 
 	private static String findRoot(File file)
 	{
-		File test = file.getParentFile();
+		File test = file;
 
 		while (test.getParentFile() != null)
 		{

@@ -157,7 +157,7 @@ import pcgen.gui.utils.Utility;
 import pcgen.gui.utils.WholeNumberField;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.ResetableListIterator;
 import pcgen.util.StringIgnoreCaseComparator;
 import pcgen.util.enumeration.Tab;
@@ -203,16 +203,16 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	/** The Number of costs to display - CSkill, CCSkill and x */
 	public static final int nCosts = 3;
 	private final JLabel avaLabel =
-			new JLabel(PropertyFactory.getString("in_iskDisplay_By")); //$NON-NLS-1$
+			new JLabel(LanguageBundle.getString("in_iskDisplay_By")); //$NON-NLS-1$
 	private final JLabel selLabel =
-			new JLabel(PropertyFactory.getString("in_iskDisplay_By")); //$NON-NLS-1$
+			new JLabel(LanguageBundle.getString("in_iskDisplay_By")); //$NON-NLS-1$
 	private FlippingSplitPane asplit;
 	private FlippingSplitPane bsplit;
 	private FlippingSplitPane splitPane;
 	private JButton addButton;
 	private JButton removeButton;
-	private JButton clearAvailableQFilterButton = new JButton(PropertyFactory.getString("in_clear"));
-	private JButton clearSelectedQFilterButton = new JButton(PropertyFactory.getString("in_clear"));
+	private JButton clearAvailableQFilterButton = new JButton(LanguageBundle.getString("in_clear"));
+	private JButton clearSelectedQFilterButton = new JButton(LanguageBundle.getString("in_clear"));
 	private JComboBoxEx currCharacterClass = null; // now contains Strings of Class/lvl
 
 	/** The output order selection drop-down */
@@ -222,8 +222,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 	private JComboBoxEx viewSelectComboBox = new JComboBoxEx();
 	private JLabel exclusiveLabel = new JLabel();
 	private JLabel includeLabel = new JLabel();
-	private final JLabel lblAvailableQFilter = new JLabel(PropertyFactory.getString("in_filter") + ":");
-	private final JLabel lblSelectedQFilter = new JLabel(PropertyFactory.getString("in_filter") + ":");
+	private final JLabel lblAvailableQFilter = new JLabel(LanguageBundle.getString("in_filter") + ":");
+	private final JLabel lblSelectedQFilter = new JLabel(LanguageBundle.getString("in_filter") + ":");
 	private JLabel jLbClassSkillPoints = null;
 	private JLabel jLbMaxCrossSkill = new JLabel();
 	private JLabel jLbMaxSkill = new JLabel();
@@ -326,11 +326,11 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		List<String> toDoList = new ArrayList<String>();
 		if (pc.getSkillPoints() < 0)
 		{
-			toDoList.add(PropertyFactory.getString("in_iskTodoTooMany")); //$NON-NLS-1$
+			toDoList.add(LanguageBundle.getString("in_iskTodoTooMany")); //$NON-NLS-1$
 		}
 		else if (pc.getSkillPoints() > 0)
 		{
-			toDoList.add(PropertyFactory.getString("in_iskTodoRemain")); //$NON-NLS-1$
+			toDoList.add(LanguageBundle.getString("in_iskTodoRemain")); //$NON-NLS-1$
 		}
 		return toDoList;
 	}
@@ -770,7 +770,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		if (temp == null)
 		{
 			lastSkill = null;
-			ShowMessageDelegate.showMessageDialog(PropertyFactory
+			ShowMessageDelegate.showMessageDialog(LanguageBundle
 				.getString("in_iskErr_message_02"), Constants.APPLICATION_NAME,
 				MessageType.ERROR); //$NON-NLS-1$
 
@@ -812,7 +812,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		if (temp == null)
 		{
 			lastSkill = null;
-			ShowMessageDelegate.showMessageDialog(PropertyFactory
+			ShowMessageDelegate.showMessageDialog(LanguageBundle
 				.getString("in_iskErr_message_02"), Constants.APPLICATION_NAME,
 				MessageType.ERROR); //$NON-NLS-1$
 
@@ -895,7 +895,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 						{
 							lastSkill = null;
 							ShowMessageDelegate.showMessageDialog(
-								PropertyFactory
+								LanguageBundle
 									.getString("in_iskErr_message_02"),
 								Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
@@ -1226,9 +1226,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				if (colIndex == 6)
 				{
 					sCol.setCellEditor(new OutputOrderEditor(new String[]{
-						PropertyFactory.getString("in_iskFirst"),
-						PropertyFactory.getString("in_iskLast"),
-						PropertyFactory.getString("in_iskHidden")})); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						LanguageBundle.getString("in_iskFirst"),
+						LanguageBundle.getString("in_iskLast"),
+						LanguageBundle.getString("in_iskHidden")})); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				}
 				else if (colIndex == COL_INC || colIndex == COL_DEC)
 				{
@@ -1256,9 +1256,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				if (colIndex == 6)
 				{
 					sCol.setCellEditor(new OutputOrderEditor(new String[]{
-						PropertyFactory.getString("in_iskFirst"),
-						PropertyFactory.getString("in_iskLast"),
-						PropertyFactory.getString("in_iskHidden")})); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						LanguageBundle.getString("in_iskFirst"),
+						LanguageBundle.getString("in_iskLast"),
+						LanguageBundle.getString("in_iskHidden")})); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				}
 				else if (colIndex == COL_INC || colIndex == COL_DEC)
 				{
@@ -1453,44 +1453,44 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		SettingsHandler.setSkillsTab_SelectedListMode(viewSelectMode);
 
-		viewComboBox.addItem(PropertyFactory
+		viewComboBox.addItem(LanguageBundle
 			.getString("in_iskKeyStat_SubType_Name")); //$NON-NLS-1$
-		viewComboBox.addItem(PropertyFactory.getString("in_iskKeyStat_Name")); //$NON-NLS-1$
-		viewComboBox.addItem(PropertyFactory.getString("in_iskSubType_Name")); //$NON-NLS-1$
-		viewComboBox.addItem(PropertyFactory
+		viewComboBox.addItem(LanguageBundle.getString("in_iskKeyStat_Name")); //$NON-NLS-1$
+		viewComboBox.addItem(LanguageBundle.getString("in_iskSubType_Name")); //$NON-NLS-1$
+		viewComboBox.addItem(LanguageBundle
 			.getString("in_iskCost_SubType_Name")); //$NON-NLS-1$
-		viewComboBox.addItem(PropertyFactory.getString("in_iskCost_Name")); //$NON-NLS-1$
-		viewComboBox.addItem(PropertyFactory.getString("in_iskName")); //$NON-NLS-1$
-		Utility.setDescription(viewComboBox, PropertyFactory
+		viewComboBox.addItem(LanguageBundle.getString("in_iskCost_Name")); //$NON-NLS-1$
+		viewComboBox.addItem(LanguageBundle.getString("in_iskName")); //$NON-NLS-1$
+		Utility.setDescription(viewComboBox, LanguageBundle
 			.getString("in_iskSkill_display_order_tooltip")); //$NON-NLS-1$
 		viewComboBox.setSelectedIndex(viewMode); // must be done before createModels call
 
-		viewSelectComboBox.addItem(PropertyFactory
+		viewSelectComboBox.addItem(LanguageBundle
 			.getString("in_iskKeyStat_SubType_Name")); //$NON-NLS-1$
-		viewSelectComboBox.addItem(PropertyFactory
+		viewSelectComboBox.addItem(LanguageBundle
 			.getString("in_iskKeyStat_Name")); //$NON-NLS-1$
-		viewSelectComboBox.addItem(PropertyFactory
+		viewSelectComboBox.addItem(LanguageBundle
 			.getString("in_iskSubType_Name")); //$NON-NLS-1$
-		viewSelectComboBox.addItem(PropertyFactory
+		viewSelectComboBox.addItem(LanguageBundle
 			.getString("in_iskCost_SubType_Name")); //$NON-NLS-1$
 		viewSelectComboBox
-			.addItem(PropertyFactory.getString("in_iskCost_Name")); //$NON-NLS-1$
-		viewSelectComboBox.addItem(PropertyFactory.getString("in_iskName")); //$NON-NLS-1$
-		Utility.setDescription(viewSelectComboBox, PropertyFactory
+			.addItem(LanguageBundle.getString("in_iskCost_Name")); //$NON-NLS-1$
+		viewSelectComboBox.addItem(LanguageBundle.getString("in_iskName")); //$NON-NLS-1$
+		Utility.setDescription(viewSelectComboBox, LanguageBundle
 			.getString("in_iskSkill_display_order_tooltip")); //$NON-NLS-1$
 		viewSelectComboBox.setSelectedIndex(viewSelectMode); // must be done before createModels call
 
 		// Build the Output Order Combo-box
-		outputOrderComboBox.addItem(PropertyFactory
+		outputOrderComboBox.addItem(LanguageBundle
 			.getString("in_iskBy_name_ascending")); //$NON-NLS-1$
-		outputOrderComboBox.addItem(PropertyFactory
+		outputOrderComboBox.addItem(LanguageBundle
 			.getString("in_iskBy_name_descending")); //$NON-NLS-1$
-		outputOrderComboBox.addItem(PropertyFactory
+		outputOrderComboBox.addItem(LanguageBundle
 			.getString("in_iskBy_trained_then_untrained")); //$NON-NLS-1$
-		outputOrderComboBox.addItem(PropertyFactory
+		outputOrderComboBox.addItem(LanguageBundle
 			.getString("in_iskBy_untrained_then_trained")); //$NON-NLS-1$
-		outputOrderComboBox.addItem(PropertyFactory.getString("in_iskManual")); //$NON-NLS-1$
-		Utility.setDescription(outputOrderComboBox, PropertyFactory
+		outputOrderComboBox.addItem(LanguageBundle.getString("in_iskManual")); //$NON-NLS-1$
+		Utility.setDescription(outputOrderComboBox, LanguageBundle
 			.getString("in_iskSkill_output_order_tooltip")); //$NON-NLS-1$
 		outputOrderComboBox.setSelectedIndex(selectedOutputOrder);
 
@@ -1524,7 +1524,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		leftPane.add(scrollPane, BorderLayout.CENTER);
 
 		addButton = new JButton(IconUtilitities.getImageIcon("Forward16.gif"));
-		leftPane.add(buildModPanel(addButton, PropertyFactory
+		leftPane.add(buildModPanel(addButton, LanguageBundle
 			.getString("in_iskAdd_skill_tooltip")), BorderLayout.SOUTH);
 
 		JButton columnButton = new JButton();
@@ -1547,7 +1547,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		rightPane.add(scrollPane, BorderLayout.CENTER);
 
 		removeButton = new JButton(IconUtilitities.getImageIcon("Back16.gif"));
-		rightPane.add(buildDelPanel(removeButton, PropertyFactory
+		rightPane.add(buildDelPanel(removeButton, LanguageBundle
 			.getString("in_iskRemove_skill_tooltip")), BorderLayout.SOUTH);
 
 		JButton columnButton2 = new JButton();
@@ -1573,7 +1573,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		//		selectedTable.getColumnModel().getColumn(COL_SRC).setPreferredWidth(15);
 
 		TitledBorder title1 =
-				BorderFactory.createTitledBorder(PropertyFactory
+				BorderFactory.createTitledBorder(LanguageBundle
 					.getString("in_iskSkill_Info")); //$NON-NLS-1$
 		title1.setTitleJustification(TitledBorder.CENTER);
 		cScroll.setBorder(title1);
@@ -1585,9 +1585,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		GridBagConstraints gridBagConstraints2 = new GridBagConstraints();
 
-		jLbMaxSkill.setText(PropertyFactory
+		jLbMaxSkill.setText(LanguageBundle
 			.getString("in_iskMax_Class_Skill_Rank")); //$NON-NLS-1$
-		Utility.setDescription(jLbMaxSkill, PropertyFactory
+		Utility.setDescription(jLbMaxSkill, LanguageBundle
 			.getString("in_iskMax_Class_Skill_Rank_tooltip")); //$NON-NLS-1$
 		jLbMaxSkill.setForeground(Color.black);
 		Utility.buildConstraints(gridBagConstraints2, 0, 0, 1, 1, 5, 5);
@@ -1600,9 +1600,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		gridBagConstraints2.anchor = GridBagConstraints.WEST;
 		jPanel1.add(maxSkillRank, gridBagConstraints2);
 
-		jLbMaxCrossSkill.setText(PropertyFactory
+		jLbMaxCrossSkill.setText(LanguageBundle
 			.getString("in_iskMax_Cross-Class_Skill_Rank")); //$NON-NLS-1$
-		Utility.setDescription(jLbMaxCrossSkill, PropertyFactory
+		Utility.setDescription(jLbMaxCrossSkill, LanguageBundle
 			.getString("in_iskMax_Cross-Class_Skill_Rank_tooltip")); //$NON-NLS-1$
 		jLbMaxCrossSkill.setForeground(Color.black);
 		Utility.buildConstraints(gridBagConstraints2, 0, 1, 1, 1, 5, 5);
@@ -1617,7 +1617,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		Utility.buildConstraints(gridBagConstraints2, 2, 1, 1, 1, 5, 5);
 		gridBagConstraints2.anchor = GridBagConstraints.EAST;
-		jPanel1.add(new JLabel(PropertyFactory
+		jPanel1.add(new JLabel(LanguageBundle
 			.getString("in_iskSkill_output_order")), gridBagConstraints2); //$NON-NLS-1$
 
 		Utility.buildConstraints(gridBagConstraints2, 3, 1, 1, 1, 5, 5);
@@ -1630,7 +1630,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			currCharacterClass = new JComboBoxEx();
 			currCharClassSkillPnts = new WholeNumberField(0, 4);
 
-			jLbClassSkillPoints.setText(PropertyFactory
+			jLbClassSkillPoints.setText(LanguageBundle
 				.getString("in_iskSkill_Points_Left_for_Class")); //$NON-NLS-1$
 			jLbClassSkillPoints.setForeground(Color.black);
 			Utility.buildConstraints(gridBagConstraints2, 0, 3, 2, 1, 5, 5);
@@ -1663,7 +1663,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		}
 		else
 		{
-			jLbTotalSkillPointsLeft.setText(PropertyFactory
+			jLbTotalSkillPointsLeft.setText(LanguageBundle
 				.getString("in_iskTotal_Skill_Points_Left")); //$NON-NLS-1$
 		}
 		jLbTotalSkillPointsLeft.setForeground(Color.black);
@@ -1726,17 +1726,17 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		}
 
 		includeLabel =
-				new JLabel(PropertyFactory.getString("in_iskInclude_Skills")); //$NON-NLS-1$
+				new JLabel(LanguageBundle.getString("in_iskInclude_Skills")); //$NON-NLS-1$
 		Utility.buildConstraints(gridBagConstraints2, 2, 0, 1, 1, 5, 5);
 		gridBagConstraints2.anchor = GridBagConstraints.EAST;
 		jPanel1.add(includeLabel, gridBagConstraints2);
 
 		skillChoice.setModel(new DefaultComboBoxModel(new String[]{
-			PropertyFactory.getString("in_iskNone"),
-			PropertyFactory.getString("in_iskUntrained"),
-			PropertyFactory.getString("in_iskAll")})); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			LanguageBundle.getString("in_iskNone"),
+			LanguageBundle.getString("in_iskUntrained"),
+			LanguageBundle.getString("in_iskAll")})); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		skillChoice.setMaximumRowCount(3);
-		Utility.setDescription(skillChoice, PropertyFactory
+		Utility.setDescription(skillChoice, LanguageBundle
 			.getString("in_iskDisplayed_skills_tooltip")); //$NON-NLS-1$
 		skillChoice.setMinimumSize(new Dimension(98, 22));
 		skillChoice.addActionListener(new ActionListener()
@@ -1756,7 +1756,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		gridBagConstraints2.anchor = GridBagConstraints.WEST;
 		jPanel1.add(skillChoice, gridBagConstraints2);
 
-		//		exclusiveLabel = new JLabel(PropertyFactory.getString("in_iskExclusive_skill_cost")); //$NON-NLS-1$
+		//		exclusiveLabel = new JLabel(LanguageBundle.getString("in_iskExclusive_skill_cost")); //$NON-NLS-1$
 		exclusiveLabel =
 				new JLabel("Class:"
 					+ Integer.toString(SkillCost.CLASS.getCost())
@@ -1764,8 +1764,8 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					+ Integer.toString(SkillCost.CROSS_CLASS.getCost())
 					+ " Exclusive:"
 					+ Integer.toString(SkillCost.EXCLUSIVE.getCost()));
-		PropertyFactory.getString("in_iskExclusive_skill_cost"); //$NON-NLS-1$
-		Utility.setDescription(exclusiveLabel, PropertyFactory
+		LanguageBundle.getString("in_iskExclusive_skill_cost"); //$NON-NLS-1$
+		Utility.setDescription(exclusiveLabel, LanguageBundle
 			.getString("in_iskExclusive_skill_cost_tooltip")); //$NON-NLS-1$
 		Utility.buildConstraints(gridBagConstraints2, 0, 2, 1, 1, 5, 5);
 		gridBagConstraints2.anchor = GridBagConstraints.EAST;
@@ -1864,7 +1864,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			{
 				if (ix != currCharacterClass.getSelectedIndex())
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory
+					ShowMessageDelegate.showMessageDialog(LanguageBundle
 						.getFormattedString("in_iskErr_message_03a",
 						pcl.getClassKeyName(),
 						String.valueOf(pcl.getClassLevel())),
@@ -1878,7 +1878,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			if ((points < 0.0)
 				&& ((skillPool - points) > pcl.getSkillPointsGained(pc)))
 			{
-				ShowMessageDelegate.showMessageDialog(PropertyFactory.getFormattedString("in_iskErr_message_05a",
+				ShowMessageDelegate.showMessageDialog(LanguageBundle.getFormattedString("in_iskErr_message_05a",
 					pcl.getClassKeyName(),
 					String.valueOf(pcl.getClassLevel()),
 					String.valueOf(pcl.getSkillPointsGained(pc))),
@@ -1890,7 +1890,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 		if ((points > 0.0) && (points > skillPool))
 		{
-			ShowMessageDelegate.showMessageDialog(PropertyFactory
+			ShowMessageDelegate.showMessageDialog(LanguageBundle
 				.getFormattedString("in_iskErr_message_04a",
 				String.valueOf(skillPool)),
 				Constants.APPLICATION_NAME, MessageType.INFORMATION); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -1908,7 +1908,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("in_iskErr_message_06"), Constants.APPLICATION_NAME, MessageType.INFORMATION); //$NON-NLS-1$ //$NON-NLS-2$
+					LanguageBundle.getString("in_iskErr_message_06"), Constants.APPLICATION_NAME, MessageType.INFORMATION); //$NON-NLS-1$ //$NON-NLS-2$
 
 			return false;
 		}
@@ -2315,29 +2315,29 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				.append(END_BOLD).append(END_FONT).append(BR);
 			if (!Globals.checkRule(RuleConstants.SKILLMAX))
 			{
-				b.append(PropertyFactory.getString("in_iskHtml_MAXRANK"))
+				b.append(LanguageBundle.getString("in_iskHtml_MAXRANK"))
 					.append(pc.getMaxRank(aSkill, getSelectedPCClass()).doubleValue()); //$NON-NLS-1$
 				b.append(THREE_SPACES); 
 			}
-			b.append(PropertyFactory.getString("in_iskHtml_TYPE"))
+			b.append(LanguageBundle.getString("in_iskHtml_TYPE"))
 				.append(StringUtil.join(aSkill.getTrueTypeList(true), ". ")); //$NON-NLS-1$
 
 			String aString = SkillInfoUtilities.getKeyStatFromStats(pc, aSkill);
 			if (aString.length() != 0)
 			{
-				b.append(PropertyFactory.getString("in_iskHtml_KEY_STAT")).append(aString); //$NON-NLS-1$
+				b.append(LanguageBundle.getString("in_iskHtml_KEY_STAT")).append(aString); //$NON-NLS-1$
 			}
-			b.append(PropertyFactory.getString("in_iskHtml_UNTRAINED")) //$NON-NLS-1$
-				.append(aSkill.getSafe(ObjectKey.USE_UNTRAINED) ? PropertyFactory.getString("in_yes") : PropertyFactory.getString("in_no")); 
-			b.append(PropertyFactory.getString("in_iskHtml_EXCLUSIVE")) //$NON-NLS-1$
-				.append(aSkill.getSafe(ObjectKey.EXCLUSIVE) ? PropertyFactory.getString("in_yes") : PropertyFactory.getString("in_no")); 
+			b.append(LanguageBundle.getString("in_iskHtml_UNTRAINED")) //$NON-NLS-1$
+				.append(aSkill.getSafe(ObjectKey.USE_UNTRAINED) ? LanguageBundle.getString("in_yes") : LanguageBundle.getString("in_no"));
+			b.append(LanguageBundle.getString("in_iskHtml_EXCLUSIVE")) //$NON-NLS-1$
+				.append(aSkill.getSafe(ObjectKey.EXCLUSIVE) ? LanguageBundle.getString("in_yes") : LanguageBundle.getString("in_no"));
 
 			String bString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
 			aSkill.getPrerequisiteList(), false);
 
 			if (bString.length() > 0)
 			{
-				b.append(PropertyFactory.getFormattedString(
+				b.append(LanguageBundle.getFormattedString(
 					"in_InfoRequirements", //$NON-NLS-1$
 					bString));
 			}
@@ -2346,7 +2346,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			Globals.getSourceDisplay(), true);
 			if (bString.length() > 0)
 			{
-				b.append(PropertyFactory.getString("in_iskHtml_SOURCE")).append(bString); //$NON-NLS-1$
+				b.append(LanguageBundle.getString("in_iskHtml_SOURCE")).append(bString); //$NON-NLS-1$
 			}
 
 			if (SettingsHandler.getShowSkillModifier())
@@ -2354,7 +2354,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				bString = SkillModifier.getModifierExplanation(aSkill, pc, false);
 				if (bString.length() != 0)
 				{
-					b.append(PropertyFactory.getFormattedString(
+					b.append(LanguageBundle.getFormattedString(
 						"in_iskHtml_PcMod", //$NON-NLS-1$
 						bString));
 				}
@@ -2365,7 +2365,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				bString = SkillRankControl.getRanksExplanation(pc, aSkill);
 				if (bString.length() != 0)
 				{
-					b.append(PropertyFactory.getFormattedString(
+					b.append(LanguageBundle.getFormattedString(
 						"in_iskHtml_Ranks", //$NON-NLS-1$
 						bString));
 				}
@@ -2641,7 +2641,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 				if (i == -1)
 				{
-					setSelectedItem(PropertyFactory.getString("in_iskHidden")); //$NON-NLS-1$
+					setSelectedItem(LanguageBundle.getString("in_iskHidden")); //$NON-NLS-1$
 				}
 				else
 				{
@@ -2650,7 +2650,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 			}
 			else
 			{
-				setSelectedItem(PropertyFactory.getString("in_iskHidden")); //$NON-NLS-1$
+				setSelectedItem(LanguageBundle.getString("in_iskHidden")); //$NON-NLS-1$
 			}
 
 			jTable.setRowSelectionInterval(row, row);
@@ -3057,7 +3057,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (fn == null)
 			{
-				Logging.errorPrint(PropertyFactory
+				Logging.errorPrint(LanguageBundle
 					.getString("in_iskErr_message_09")); //$NON-NLS-1$
 
 				return null;
@@ -3566,9 +3566,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 				case COL_INDEX:
 					column.setCellEditor(new OutputOrderEditor(new String[]{
-						PropertyFactory.getString("in_iskFirst"), //$NON-NLS-1$
-						PropertyFactory.getString("in_iskLast"), //$NON-NLS-1$
-						PropertyFactory.getString("in_iskHidden")})); //$NON-NLS-1$
+						LanguageBundle.getString("in_iskFirst"), //$NON-NLS-1$
+						LanguageBundle.getString("in_iskLast"), //$NON-NLS-1$
+						LanguageBundle.getString("in_iskHidden")})); //$NON-NLS-1$
 					break;
 
 				case COL_INC:
@@ -3593,7 +3593,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (SettingsHandler.isToolTipTextShown())
 			{
-				setDescription(PropertyFactory
+				setDescription(LanguageBundle
 					.getString("in_iskFilter_class_tooltip")); //$NON-NLS-1$
 			}
 		}
@@ -3638,7 +3638,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (SettingsHandler.isToolTipTextShown())
 			{
-				setDescription(PropertyFactory
+				setDescription(LanguageBundle
 					.getString("in_iskFilter_crossclass_tooltip")); //$NON-NLS-1$
 			}
 		}
@@ -3684,7 +3684,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (SettingsHandler.isToolTipTextShown())
 			{
-				setDescription(PropertyFactory
+				setDescription(LanguageBundle
 					.getString("in_iskFilter_exclusive_tooltip")); //$NON-NLS-1$
 			}
 		}
@@ -3738,7 +3738,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 
 			if (SettingsHandler.isToolTipTextShown())
 			{
-				setDescription(PropertyFactory
+				setDescription(LanguageBundle
 					.getString("in_iskFilter_qual_tooltip")); //$NON-NLS-1$
 			}
 		}
@@ -3887,17 +3887,17 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				 * changed accelerator from "control PLUS" to "control EQUALS" as cannot
 				 * get "control PLUS" to function on standard US keyboard with Windows 98
 				 */
-				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory
+				SkillPopupMenu.this.add(createAddMenuItem(LanguageBundle
 					.getString("in_iskAdd_1"), 1, "shortcut EQUALS")); //$NON-NLS-1$ //$NON-NLS-2$
-				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory
+				SkillPopupMenu.this.add(createAddMenuItem(LanguageBundle
 					.getString("in_iskAdd_2"), 2, null)); //$NON-NLS-1$
-				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory
+				SkillPopupMenu.this.add(createAddMenuItem(LanguageBundle
 					.getString("in_iskAdd_5"), 5, null)); //$NON-NLS-1$
-				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory
+				SkillPopupMenu.this.add(createAddMenuItem(LanguageBundle
 					.getString("in_iskAdd_10"), 10, null)); //$NON-NLS-1$
-				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory
+				SkillPopupMenu.this.add(createAddMenuItem(LanguageBundle
 					.getString("in_iskAdd_n"), -1, "alt A")); //$NON-NLS-1$ //$NON-NLS-2$
-				SkillPopupMenu.this.add(createMaxMenuItem(PropertyFactory
+				SkillPopupMenu.this.add(createMaxMenuItem(LanguageBundle
 					.getString("in_iskMax_Ranks"), "alt M")); //$NON-NLS-1$ //$NON-NLS-2$
 				this.addSeparator();
 				SkillPopupMenu.this.add(Utility.createMenuItem("Find item",
@@ -3927,29 +3927,29 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				 * changed accelerator from "control PLUS" to "control EQUALS" as cannot
 				 * get "control PLUS" to function on standard US keyboard with Windows 98
 				 */
-				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory
+				SkillPopupMenu.this.add(createAddMenuItem(LanguageBundle
 					.getString("in_iskAdd_1"), 1, "shortcut EQUALS")); //$NON-NLS-1$ //$NON-NLS-2$
-				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory
+				SkillPopupMenu.this.add(createAddMenuItem(LanguageBundle
 					.getString("in_iskAdd_2"), 2, null)); //$NON-NLS-1$
-				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory
+				SkillPopupMenu.this.add(createAddMenuItem(LanguageBundle
 					.getString("in_iskAdd_5"), 5, null)); //$NON-NLS-1$
-				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory
+				SkillPopupMenu.this.add(createAddMenuItem(LanguageBundle
 					.getString("in_iskAdd_10"), 10, null)); //$NON-NLS-1$
-				SkillPopupMenu.this.add(createAddMenuItem(PropertyFactory
+				SkillPopupMenu.this.add(createAddMenuItem(LanguageBundle
 					.getString("in_iskAdd_n"), -1, "alt A")); //$NON-NLS-1$ //$NON-NLS-2$
-				SkillPopupMenu.this.add(createRemoveMenuItem(PropertyFactory
+				SkillPopupMenu.this.add(createRemoveMenuItem(LanguageBundle
 					.getString("in_iskRemove_1"), 1, "shortcut MINUS")); //$NON-NLS-1$ //$NON-NLS-2$
-				SkillPopupMenu.this.add(createRemoveMenuItem(PropertyFactory
+				SkillPopupMenu.this.add(createRemoveMenuItem(LanguageBundle
 					.getString("in_iskRemove_2"), 2, null)); //$NON-NLS-1$
-				SkillPopupMenu.this.add(createRemoveMenuItem(PropertyFactory
+				SkillPopupMenu.this.add(createRemoveMenuItem(LanguageBundle
 					.getString("in_iskRemove_5"), 5, null)); //$NON-NLS-1$
-				SkillPopupMenu.this.add(createRemoveMenuItem(PropertyFactory
+				SkillPopupMenu.this.add(createRemoveMenuItem(LanguageBundle
 					.getString("in_iskRemove_10"), 10, null)); //$NON-NLS-1$
-				SkillPopupMenu.this.add(createRemoveMenuItem(PropertyFactory
+				SkillPopupMenu.this.add(createRemoveMenuItem(LanguageBundle
 					.getString("in_iskRemove_n"), -1, "alt R")); //$NON-NLS-1$ //$NON-NLS-2$
-				SkillPopupMenu.this.add(createMaxMenuItem(PropertyFactory
+				SkillPopupMenu.this.add(createMaxMenuItem(LanguageBundle
 					.getString("in_iskMax_Ranks"), "alt M")); //$NON-NLS-1$ //$NON-NLS-2$
-				SkillPopupMenu.this.add(createResetMenuItem(PropertyFactory
+				SkillPopupMenu.this.add(createResetMenuItem(LanguageBundle
 					.getString("in_iskZero_Ranks"), "alt Z")); //$NON-NLS-1$ //$NON-NLS-2$
 				this.addSeparator();
 				SkillPopupMenu.this.add(Utility.createMenuItem("Find item",
@@ -3969,28 +3969,28 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 							.createMenu(
 								"Output Order",
 								(char) 0,
-								PropertyFactory.getString("in_iskOutput_Order"), null, true); //$NON-NLS-1$ //$NON-NLS-2$
+								LanguageBundle.getString("in_iskOutput_Order"), null, true); //$NON-NLS-1$ //$NON-NLS-2$
 
 				SkillPopupMenu.this.add(resortMenu);
 
 				resortMenu.add(Utility.createMenuItem(
-					PropertyFactory.getString("in_iskBy_name_ascending"), //$NON-NLS-1$
+					LanguageBundle.getString("in_iskBy_name_ascending"), //$NON-NLS-1$
 					new ResortActionListener(SkillComparator.RESORT_NAME,
 						SkillComparator.RESORT_ASCENDING), "sortOutput",
-					(char) 0, null, PropertyFactory
+					(char) 0, null, LanguageBundle
 						.getString("in_iskBy_name_ascending_tooltip"), null,
 					true)); //$NON-NLS-1$ //$NON-NLS-2$
 				resortMenu.add(Utility.createMenuItem(
-					PropertyFactory.getString("in_iskBy_name_descending"), //$NON-NLS-1$
+					LanguageBundle.getString("in_iskBy_name_descending"), //$NON-NLS-1$
 					new ResortActionListener(SkillComparator.RESORT_NAME,
 						SkillComparator.RESORT_DESCENDING), "sortOutput",
-					(char) 0, null, PropertyFactory
+					(char) 0, null, LanguageBundle
 						.getString("in_iskBy_name_descending_tooltip"), null,
 					true)); //$NON-NLS-1$ //$NON-NLS-2$
 				resortMenu
 					.add(Utility
 						.createMenuItem(
-							PropertyFactory
+							LanguageBundle
 								.getString("in_iskBy_trained_then_untrained"), //$NON-NLS-1$
 							new ResortActionListener(
 								SkillComparator.RESORT_TRAINED,
@@ -3998,12 +3998,12 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 							"sortOutput",
 							(char) 0,
 							null,
-							PropertyFactory
+							LanguageBundle
 								.getString("in_iskBy_trained_then_untrained_tooltip"), null, true)); //$NON-NLS-1$ //$NON-NLS-2$
 				resortMenu
 					.add(Utility
 						.createMenuItem(
-							PropertyFactory
+							LanguageBundle
 								.getString("in_iskBy_untrained_then_trained"), //$NON-NLS-1$
 							new ResortActionListener(
 								SkillComparator.RESORT_TRAINED,
@@ -4011,7 +4011,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 							"sortOutput",
 							(char) 0,
 							null,
-							PropertyFactory
+							LanguageBundle
 								.getString("in_iskBy_untrained_then_trained_tooltip"), null, true)); //$NON-NLS-1$ //$NON-NLS-2$
 			}
 		}
@@ -4026,18 +4026,18 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					"add " + qty,
 					(char) 0,
 					accelerator,
-					PropertyFactory.getString("in_iskAdd")
-						+ ((qty < 0) ? PropertyFactory.getString("in_iskn")
+					LanguageBundle.getString("in_iskAdd")
+						+ ((qty < 0) ? LanguageBundle.getString("in_iskn")
 							: Integer.toString(qty))
-						+ PropertyFactory.getString("in_isk_skill_point")
+						+ LanguageBundle.getString("in_isk_skill_point")
 						+ ((qty == 1)
-							? "" : PropertyFactory.getString("in_isks")), "Add16.gif", true); //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
+							? "" : LanguageBundle.getString("in_isks")), "Add16.gif", true); //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
 		}
 
 		private JMenuItem createMaxMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label, new MaxSkillActionListener(0),
-				"max ranks", (char) 0, accelerator, PropertyFactory
+				"max ranks", (char) 0, accelerator, LanguageBundle
 					.getString("in_iskSet_to_max_ranks"), "Add16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		}
 
@@ -4051,19 +4051,19 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 					"remove " + qty,
 					(char) 0,
 					accelerator,
-					PropertyFactory.getString("in_iskRemove")
-						+ ((qty < 0) ? PropertyFactory.getString("in_iskn")
+					LanguageBundle.getString("in_iskRemove")
+						+ ((qty < 0) ? LanguageBundle.getString("in_iskn")
 							: Integer.toString(qty))
-						+ PropertyFactory.getString("in_isk_skill_point")
+						+ LanguageBundle.getString("in_isk_skill_point")
 						+ ((qty == 1)
-							? "" : PropertyFactory.getString("in_isks")), "Remove16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
+							? "" : LanguageBundle.getString("in_isks")), "Remove16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
 		}
 
 		private JMenuItem createResetMenuItem(String label, String accelerator)
 		{
 			return Utility.createMenuItem(label,
 				new ResetSkillActionListener(0), "reset ranks", (char) 0,
-				accelerator, PropertyFactory
+				accelerator, LanguageBundle
 					.getString("in_iskReset_to_zero_ranks"), "Add16.gif", true); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		}
 
@@ -4091,7 +4091,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				if (qty < 0)
 				{
 					String selectedValue =
-							JOptionPane.showInputDialog(null, PropertyFactory
+							JOptionPane.showInputDialog(null, LanguageBundle
 								.getString("in_iskAdd_quantity_tooltip"),
 								Constants.APPLICATION_NAME,
 								JOptionPane.QUESTION_MESSAGE); //$NON-NLS-1$
@@ -4108,7 +4108,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 						catch (NumberFormatException e)
 						{
 							ShowMessageDelegate.showMessageDialog(
-								PropertyFactory
+								LanguageBundle
 									.getString("in_iskInvalid_number"),
 								Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
@@ -4186,7 +4186,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				}
 				else
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory
+					ShowMessageDelegate.showMessageDialog(LanguageBundle
 						.getString("in_iskErr_message_01"),
 						Constants.APPLICATION_NAME, MessageType.INFORMATION); //$NON-NLS-1$
 				}
@@ -4208,7 +4208,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 				if (qty < 0)
 				{
 					String selectedValue =
-							JOptionPane.showInputDialog(null, PropertyFactory
+							JOptionPane.showInputDialog(null, LanguageBundle
 								.getString("in_iskRemove_quantity_tooltip"),
 								Constants.APPLICATION_NAME,
 								JOptionPane.QUESTION_MESSAGE); //$NON-NLS-1$
@@ -4225,7 +4225,7 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 						catch (NumberFormatException e)
 						{
 							ShowMessageDelegate.showMessageDialog(
-								PropertyFactory
+								LanguageBundle
 									.getString("in_iskInvalid_number"),
 								Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 

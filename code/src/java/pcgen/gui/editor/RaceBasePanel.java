@@ -54,7 +54,7 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.gui.utils.JComboBoxEx;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>RaceBasePanel</code>
@@ -539,7 +539,7 @@ public class RaceBasePanel extends BasePanel<Race>
 
 		//pnlTemplateTypes = new AvailableSelectedPanel();
 		pnlTemplateTypes =
-				new TypePanel(PropertyFactory.getString("in_demEnterNewType"));
+				new TypePanel(LanguageBundle.getString("in_demEnterNewType"));
 
 		setLayout(new GridBagLayout());
 
@@ -675,7 +675,7 @@ public class RaceBasePanel extends BasePanel<Race>
 		gridBagConstraints.weightx = 1.0;
 		add(pnlTemplateMisc, gridBagConstraints);
 
-		//pnlTemplateTypes.setHeader(PropertyFactory.getString("in_type"));
+		//pnlTemplateTypes.setHeader(LanguageBundle.getString("in_type"));
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridy = 5;
 		gridBagConstraints.gridheight = 4;

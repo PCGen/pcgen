@@ -22,7 +22,7 @@ package pcgen.gui.filter;
 
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>CompoundFilter</code>
@@ -43,7 +43,7 @@ final class CompoundFilter extends AbstractPObjectFilter implements CustomFilter
 		filter1 = argFilter1;
 		filter2 = argFilter2;
 
-		setCategory(PropertyFactory.getString("in_custom"));
+		setCategory(LanguageBundle.getString("in_custom"));
 		setName("(" + this.filter1.getName() + " " + this.connect.toLowerCase() + " " + this.filter2.getName() + ")");
 	}
 

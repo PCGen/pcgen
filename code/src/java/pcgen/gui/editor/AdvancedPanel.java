@@ -60,7 +60,7 @@ import pcgen.gui.utils.JComboBoxEx;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>AdvancedPanel</code> is ...
@@ -417,7 +417,7 @@ public final class AdvancedPanel extends JPanel
 		{
 			// Throw up an error dialog here
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_demTagInvalid"),
+				LanguageBundle.getString("in_demTagInvalid"),
 				Constants.APPLICATION_NAME,
 				MessageType.ERROR);
 			btnAddAdvanced.setEnabled(true);
@@ -520,13 +520,13 @@ public final class AdvancedPanel extends JPanel
 		//therefore should only be shown when needed.
 		this.setLayout(new GridBagLayout());
 
-		this.setName(PropertyFactory.getString("in_demLangTab"));
+		this.setName(LanguageBundle.getString("in_demLangTab"));
 		pnlAdvancedAvailable.setLayout(new GridBagLayout());
 
 		pnlAdvancedAvailable.setPreferredSize(new Dimension(259, 147));
 		pnlAdvancedTag.setLayout(new GridBagLayout());
 
-		lblAdvancedTag.setText(PropertyFactory.getString("in_demTag"));
+		lblAdvancedTag.setText(LanguageBundle.getString("in_demTag"));
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
 		gridBagConstraints.anchor = GridBagConstraints.WEST;
@@ -553,7 +553,7 @@ public final class AdvancedPanel extends JPanel
 
 		pnlAdvancedTagValue.setLayout(new GridBagLayout());
 
-		lblAdvancedTagValue.setText(PropertyFactory.getString("in_demTagVal"));
+		lblAdvancedTagValue.setText(LanguageBundle.getString("in_demTagVal"));
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 0;
@@ -581,7 +581,7 @@ public final class AdvancedPanel extends JPanel
 
 		pnllstAdvancedTagValue.add(scpAdvancedTagValue, BorderLayout.CENTER);
 
-		btnHelpAdvanced.setText(PropertyFactory.getString("in_demHelp"));
+		btnHelpAdvanced.setText(LanguageBundle.getString("in_demHelp"));
 		btnHelpAdvanced.addActionListener(new ActionListener()
 		{
 			@Override
@@ -661,7 +661,7 @@ public final class AdvancedPanel extends JPanel
 
 		pnlAdvancedSelected.setLayout(new GridBagLayout());
 
-		lblAdvancedSelected.setText(PropertyFactory.getString("in_selected"));
+		lblAdvancedSelected.setText(LanguageBundle.getString("in_selected"));
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 0;
@@ -714,7 +714,7 @@ public final class AdvancedPanel extends JPanel
 		gridBagConstraints.weighty = 1.0;
 		this.add(pnlAdvancedSelected, gridBagConstraints);
 
-		lblAdvancedHeader.setText(PropertyFactory.getString("in_demMiscTags"));
+		lblAdvancedHeader.setText(LanguageBundle.getString("in_demMiscTags"));
 		pnlAdvancedHeader.add(lblAdvancedHeader);
 
 		gridBagConstraints = new GridBagConstraints();

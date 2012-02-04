@@ -30,7 +30,7 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * @author perchrh
@@ -60,12 +60,12 @@ public class PreAgeSetTester extends AbstractPrerequisiteTest implements Prerequ
 		}
 		catch (Exception e)
 		{
-			throw new PrerequisiteException(PropertyFactory.getFormattedString("PreAgeSet.error.badly_formed_attribute", prereq.getOperand())); //$NON-NLS-1$
+			throw new PrerequisiteException(LanguageBundle.getFormattedString("PreAgeSet.error.badly_formed_attribute", prereq.getOperand())); //$NON-NLS-1$
 		}
 		
 		if (anInt == -1)
 		{ //String was not recognized
-			throw new PrerequisiteException(PropertyFactory.getFormattedString("PreAgeSet.error.badly_formed_attribute", prereq.getOperand())); //$NON-NLS-1$
+			throw new PrerequisiteException(LanguageBundle.getFormattedString("PreAgeSet.error.badly_formed_attribute", prereq.getOperand())); //$NON-NLS-1$
 		}
 
 		runningTotal = prereq.getOperator().compare(ageset, anInt);

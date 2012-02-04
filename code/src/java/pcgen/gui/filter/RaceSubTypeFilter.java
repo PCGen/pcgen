@@ -25,7 +25,7 @@ import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>RaceSubTypeFilter</code> is a filter for races by race sub type.
@@ -46,7 +46,7 @@ final class RaceSubTypeFilter extends AbstractPObjectFilter
 	 */
 	RaceSubTypeFilter(RaceSubType raceSubTypeName)
 	{
-		super(PropertyFactory.getString("in_filterRaceSubType"), raceSubTypeName.toString()); //$NON-NLS-1$
+		super(LanguageBundle.getString("in_filterRaceSubType"), raceSubTypeName.toString()); //$NON-NLS-1$
 		raceSubType = raceSubTypeName;
 	}
 

@@ -25,9 +25,14 @@
  */
 package pcgen.core;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.LanguageList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.core.facade.LanguageFacade;
 
 
 /**
@@ -36,7 +41,7 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public final class Language extends PObject implements Comparable<Object>
+public final class Language extends PObject implements Comparable<Object>, LanguageFacade
 {
 	public static final CDOMReference<LanguageList> STARTING_LIST;
 
@@ -106,5 +111,15 @@ public final class Language extends PObject implements Comparable<Object>
 	public int hashCode()
 	{
 		return getKeyName().hashCode();
+	}
+
+	public List<String> getTypes()
+	{
+		List<String> list = new ArrayList<String>();
+		for (Type type : getTrueTypeList(false))
+		{
+			list.add(type.toString());
+		}
+		return list;
 	}
 }

@@ -84,7 +84,7 @@ import pcgen.gui.utils.PObjectNode;
 import pcgen.gui.utils.ResizeColumnListener;
 import pcgen.gui.utils.Utility;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.Tab;
@@ -104,10 +104,10 @@ import pcgen.util.enumeration.Tab;
 public class InfoPreparedSpells extends InfoSpellsSubTab
 {
 	private final JLabel avaLabel =
-			new JLabel(PropertyFactory
+			new JLabel(LanguageBundle
 				.getString("InfoPreparedSpells.sort.avail.spells.by")); //$NON-NLS-1$
 	private final JLabel selLabel =
-			new JLabel(PropertyFactory
+			new JLabel(LanguageBundle
 				.getString("InfoPreparedSpells.sort.select.spells.by")); //$NON-NLS-1$
 	private FlippingSplitPane asplit;
 	private FlippingSplitPane bsplit;
@@ -127,7 +127,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 	private JComboBoxEx secondaryViewSelectComboBox = new JComboBoxEx();
 
 	private JCheckBox canUseHigherSlots =
-			new JCheckBox(PropertyFactory
+			new JCheckBox(LanguageBundle
 				.getString("InfoPreparedSpells.canUseHigherSlots")); //$NON-NLS-1$
 
 	private List<String> characterMetaMagicFeats = new ArrayList<String>();
@@ -150,7 +150,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		if (addSpellWithMetaMagicTitle.length() == 0)
 		{
 			addSpellWithMetaMagicTitle =
-					PropertyFactory.getString("InfoSpells.add.with.metamagic"); //$NON-NLS-1$
+					LanguageBundle.getString("InfoSpells.add.with.metamagic"); //$NON-NLS-1$
 		}
 
 		SwingUtilities.invokeLater(new Runnable()
@@ -485,17 +485,17 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 
 		// Configure the sort order combo boxes
 		populateViewCombo(primaryViewComboBox, primaryViewMode, false);
-		Utility.setDescription(primaryViewComboBox, PropertyFactory
+		Utility.setDescription(primaryViewComboBox, LanguageBundle
 			.getString("InfoSpells.change.how.spell.are.listed")); //$NON-NLS-1$
 		populateViewCombo(secondaryViewComboBox, secondaryViewMode, true);
 
 		populateViewCombo(primaryViewSelectComboBox, primaryViewSelectMode,
 			false);
-		Utility.setDescription(primaryViewSelectComboBox, PropertyFactory
+		Utility.setDescription(primaryViewSelectComboBox, LanguageBundle
 			.getString("InfoSpells.change.how.spells.in.table.listed")); //$NON-NLS-1$
 		populateViewCombo(secondaryViewSelectComboBox, secondaryViewSelectMode,
 			true);
-		Utility.setDescription(secondaryViewSelectComboBox, PropertyFactory
+		Utility.setDescription(secondaryViewSelectComboBox, LanguageBundle
 			.getString("InfoSpells.change.how.spells.in.table.listed")); //$NON-NLS-1$
 
 		ImageIcon newImage;
@@ -578,7 +578,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		aPanel.add(primaryViewComboBox);
 		aPanel.add(secondaryViewComboBox);
 
-		Utility.setDescription(aPanel, PropertyFactory
+		Utility.setDescription(aPanel, LanguageBundle
 			.getString("InfoSpells.rightclick.add.to.spellbooks")); //$NON-NLS-1$
 		leftPane.add(aPanel, BorderLayout.NORTH);
 
@@ -657,7 +657,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		createFeatList();
 		asPanel.add(addSpellMMButton);
 
-		Utility.setDescription(addSpellButton, PropertyFactory
+		Utility.setDescription(addSpellButton, LanguageBundle
 			.getString("InfoSpells.add.selected")); //$NON-NLS-1$
 		addSpellButton.setEnabled(false);
 		addSpellButton.setMargin(new Insets(1, 14, 1, 14));
@@ -683,14 +683,14 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 
 		Utility.buildConstraints(c, 0, 0, 1, 1, 0.0, 0.0);
 		c.insets = new Insets(1, 2, 1, 2);
-		Utility.setDescription(delSpellButton, PropertyFactory
+		Utility.setDescription(delSpellButton, LanguageBundle
 			.getString("InfoSpells.add.selected")); //$NON-NLS-1$
 		delSpellButton.setEnabled(false);
 		delSpellButton.setMargin(new Insets(1, 14, 1, 14));
 		slPanel.add(delSpellButton, c);
 
 		JLabel prepListLabel =
-				new JLabel(PropertyFactory
+				new JLabel(LanguageBundle
 					.getString("InfoPreparedSpells.preparedList")); //$NON-NLS-1$
 		Utility.buildConstraints(c, 1, 0, 1, 1, 0.0, 0.0);
 		c.insets = new Insets(1, 2, 1, 2);
@@ -701,8 +701,8 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		slPanel.add(spellBookNameText, c);
 
 		addSpellListButton =
-				new JButton(PropertyFactory.getString("InfoSpells.add")); //$NON-NLS-1$
-		Utility.setDescription(addSpellListButton, PropertyFactory
+				new JButton(LanguageBundle.getString("InfoSpells.add")); //$NON-NLS-1$
+		Utility.setDescription(addSpellListButton, LanguageBundle
 			.getString("InfoPreparedSpells.add.list")); //$NON-NLS-1$
 		Utility.buildConstraints(c, 3, 0, 1, 1, 0.0, 0.0);
 		c.insets = new Insets(1, 2, 1, 2);
@@ -710,8 +710,8 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		slPanel.add(addSpellListButton, c);
 
 		delSpellListButton =
-				new JButton(PropertyFactory.getString("InfoSpells.delete")); //$NON-NLS-1$
-		Utility.setDescription(delSpellListButton, PropertyFactory
+				new JButton(LanguageBundle.getString("InfoSpells.delete")); //$NON-NLS-1$
+		Utility.setDescription(delSpellListButton, LanguageBundle
 			.getString("InfoPreparedSpells.del.list")); //$NON-NLS-1$
 		Utility.buildConstraints(c, 4, 0, 1, 1, 0.0, 0.0);
 		c.insets = new Insets(1, 2, 1, 2);
@@ -757,7 +757,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		gridbag.setConstraints(sScroll, c);
 
 		TitledBorder sTitle =
-				BorderFactory.createTitledBorder(PropertyFactory
+				BorderFactory.createTitledBorder(LanguageBundle
 					.getString("InfoSpells.spell.info")); //$NON-NLS-1$
 		sTitle.setTitleJustification(TitledBorder.CENTER);
 		sScroll.setBorder(sTitle);
@@ -772,7 +772,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		JScrollPane iScroll = new JScrollPane();
 
 		TitledBorder iTitle =
-				BorderFactory.createTitledBorder(PropertyFactory
+				BorderFactory.createTitledBorder(LanguageBundle
 					.getString("InfoSpells.class.info")); //$NON-NLS-1$
 		iTitle.setTitleJustification(TitledBorder.CENTER);
 		iScroll.setBorder(iTitle);
@@ -951,7 +951,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory
+					LanguageBundle
 						.getString("InfoSpells.first.select.spelllist"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 
 			return; // need to select a spellbook
@@ -962,7 +962,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory
+					LanguageBundle
 						.getString("InfoSpells.can.only.add.by.class.level"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 			return; // need to select class/level or level/class as sorters
 		}
@@ -1015,7 +1015,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 				JOptionPane
 					.showMessageDialog(
 						null,
-						PropertyFactory
+						LanguageBundle
 							.getFormattedString(
 								"InfoPreparedSpells.add.list.fail", new Object[]{currSpellBook}), //$NON-NLS-1$
 						Constants.APPLICATION_NAME, JOptionPane.ERROR_MESSAGE);
@@ -1048,7 +1048,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory
+					LanguageBundle
 						.getString("InfoSpells.first.select.spellbook"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 			return; // need to selected a spellbook
 		}
@@ -1068,7 +1068,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("InfoSpells.can.not.metamagic"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
+					LanguageBundle.getString("InfoSpells.can.not.metamagic"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 			return;
 		}
 
@@ -1078,7 +1078,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory.getString("InfoSpells.unable.to.metamagic") + spellA.getOwner().getDisplayName(), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
+					LanguageBundle.getString("InfoSpells.unable.to.metamagic") + spellA.getOwner().getDisplayName(), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 			return;
 		}
 
@@ -1087,7 +1087,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		{
 			ShowMessageDelegate
 				.showMessageDialog(
-					PropertyFactory
+					LanguageBundle
 						.getString("InfoSpells.con.only.metamagic.class.level"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
 			return; // need to select class/level or level/class as sorters
 		}
@@ -1174,7 +1174,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		c.setPoolFlag(false);
 		c.setAllowsDups(true);
 		c.setTitle(addSpellWithMetaMagicTitle); //$NON-NLS-1$
-		c.setMessageText(PropertyFactory
+		c.setMessageText(LanguageBundle
 			.getString("InfoSpells.select.metamagic")); //$NON-NLS-1$
 		c.setTotalChoicesAvail(99);
 		c.setVisible(true);
@@ -1245,7 +1245,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 				PCClass aClass = pc.getClassKeyed(className);
 				if (aClass == null)
 				{
-					ShowMessageDelegate.showMessageDialog(PropertyFactory
+					ShowMessageDelegate.showMessageDialog(LanguageBundle
 						.getString("InfoSpells.can.only.add.by.class.level"), //$NON-NLS-1$
 						Constants.APPLICATION_NAME, MessageType.ERROR);
 				}
@@ -1288,7 +1288,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		{
 			if ((aString.equals(current.getKeyName())))
 			{
-				JOptionPane.showMessageDialog(null, PropertyFactory
+				JOptionPane.showMessageDialog(null, LanguageBundle
 					.getString("in_spellbook_name_error"), //$NON-NLS-1$
 					Constants.APPLICATION_NAME, JOptionPane.ERROR_MESSAGE);
 
@@ -1310,7 +1310,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 		}
 		else
 		{
-			JOptionPane.showMessageDialog(null, PropertyFactory
+			JOptionPane.showMessageDialog(null, LanguageBundle
 				.getFormattedString(
 					"InfoPreparedSpells.add.list.fail", new Object[]{aString}), //$NON-NLS-1$
 				Constants.APPLICATION_NAME, JOptionPane.ERROR_MESSAGE);
@@ -1325,7 +1325,7 @@ public class InfoPreparedSpells extends InfoSpellsSubTab
 
 		if (aString.equalsIgnoreCase(Globals.getDefaultSpellBook()))
 		{
-			Logging.errorPrint(PropertyFactory
+			Logging.errorPrint(LanguageBundle
 				.getString("InfoSpells.can.not.delete.default.spellbook")); //$NON-NLS-1$
 
 			return;

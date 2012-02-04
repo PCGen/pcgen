@@ -32,7 +32,7 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * @author wardc
@@ -60,7 +60,7 @@ public class PreHDTester extends AbstractPrerequisiteTest implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			throw new PrerequisiteException(PropertyFactory.getFormattedString(
+			throw new PrerequisiteException(LanguageBundle.getFormattedString(
 				"PreHD.error.bad_operand", prereq.getOperand())); //$NON-NLS-1$
 		}
 		return countedTotal(prereq, runningTotal);
@@ -82,7 +82,7 @@ public class PreHDTester extends AbstractPrerequisiteTest implements
 	public String toHtmlString(final Prerequisite prereq)
 	{
 		final String foo =
-				PropertyFactory.getFormattedString("PreStat.toHtml", //$NON-NLS-1$
+				LanguageBundle.getFormattedString("PreStat.toHtml", //$NON-NLS-1$
 					new Object[]{prereq.getKind().toUpperCase() + ":",
 						prereq.getOperator().toDisplayString(),
 						prereq.getOperand()});

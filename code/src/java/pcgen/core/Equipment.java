@@ -26,8 +26,10 @@
 package pcgen.core;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -58,6 +60,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.helper.Capacity;
@@ -76,6 +79,7 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 import pcgen.core.character.WieldCategory;
+import pcgen.core.facade.EquipmentFacade;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
@@ -99,7 +103,7 @@ import pcgen.util.enumeration.Visibility;
  * @version $Revision$
  */
 public final class Equipment extends PObject implements Serializable,
-		Comparable<Object>, VariableContainer, AssociationStore
+		Comparable<Object>, VariableContainer, AssociationStore, EquipmentFacade
 {
 	private static final long serialVersionUID = 1;
 
@@ -6759,5 +6763,57 @@ public final class Equipment extends PObject implements Serializable,
 
 		return false;
 	}
+
+	public String[] getTypes()
+	{
+		String type = getType();
+		return type.split("\\.");
+	}
+
+	public String getSource()
+	{
+		return SourceFormat.getFormattedString(this,
+			Globals.getSourceDisplay(), true);
+	}
+
+	/**
+	 * Retrieve the icon for this equipment item. This may be directly set for 
+	 * the item, or it may be for one of the item's types. The types are 
+	 * checked from right to left.
+	 *  
+	 * @return The icon for this equipment item, or null if none
+	 */
+	public File getIcon()
+	{
+		// Check for icon on this specific item
+		URI uri = this.get(ObjectKey.ICON_URI);
+		if (uri != null)
+		{
+			return new File(uri);
+		}
+
+		// If not defined, then try the types
+		GameMode game = SettingsHandler.getGame();
+		List<String> typeList = typeList(true);
+		for (int i = typeList.size()-1; i >=0; i--)
+		{
+			String path = game.getEquipTypeIcon(typeList.get(i));
+			if (path != null)
+			{
+				return new File(path);
+			}
+		}
+	
+		// A default fallback
+		String path = game.getEquipTypeIcon(Constants.DEFAULT);
+		if (path != null)
+		{
+			return new File(path);
+		}
+		
+		// No icon can be found
+		return null; 
+	}
+	
 
 }

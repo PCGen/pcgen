@@ -25,6 +25,7 @@
  */
 package pcgen.io.exporttoken;
 
+import pcgen.cdom.enumeration.BiographyField;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
@@ -59,19 +60,22 @@ public class HeightToken extends Token
 	{
 		String retString = "";
 
-		if ("HEIGHT".equals(tokenSource))
+		if (!pc.getSuppressBioField(BiographyField.HEIGHT))
 		{
-			retString = getHeightToken(pc);
+			if ("HEIGHT".equals(tokenSource))
+			{
+				retString = getHeightToken(pc);
+			}
+			else if ("HEIGHT.FOOTPART".equals(tokenSource))
+			{
+				retString = getFootPartToken(pc);
+			}
+			else if ("HEIGHT.INCHPART".equals(tokenSource))
+			{
+				retString = getInchPartToken(pc);
+			}
 		}
-		else if ("HEIGHT.FOOTPART".equals(tokenSource))
-		{
-			retString = getFootPartToken(pc);
-		}
-		else if ("HEIGHT.INCHPART".equals(tokenSource))
-		{
-			retString = getInchPartToken(pc);
-		}
-
+		
 		return retString;
 	}
 

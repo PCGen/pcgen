@@ -30,7 +30,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Globals;
 import pcgen.core.Language;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>LanguageBasePanel</code>
@@ -136,11 +136,11 @@ public class LanguageBasePanel extends BasePanel<Language>
 	private void initComponents()
 	{
 		//pnlLanguageType = new AvailableSelectedPanel();
-		pnlLanguageType = new TypePanel(PropertyFactory.getString("in_demEnterNewType"));
+		pnlLanguageType = new TypePanel(LanguageBundle.getString("in_demEnterNewType"));
 
 		setLayout(new BorderLayout());
 
-		//pnlLanguageType.setHeader(PropertyFactory.getString("in_type"));
+		//pnlLanguageType.setHeader(LanguageBundle.getString("in_type"));
 		add(pnlLanguageType, BorderLayout.CENTER);
 	}
 }

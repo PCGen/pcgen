@@ -82,7 +82,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * <code>ClassLevelPanel</code>
@@ -398,7 +398,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater<PCClass>
 
 		sth.add(tagList);
 
-		addBtn.setText(PropertyFactory.getString("in_add"));
+		addBtn.setText(LanguageBundle.getString("in_add"));
 		sth.add(addBtn);
 		addBtn.addActionListener(new ActionListener()
 			{
@@ -475,7 +475,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater<PCClass>
 				}
 			});
 
-		delBtn.setText(PropertyFactory.getString("in_remove"));
+		delBtn.setText(LanguageBundle.getString("in_remove"));
 		sth.add(delBtn);
 		delBtn.addActionListener(new ActionListener()
 			{
@@ -577,7 +577,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater<PCClass>
 			getContentPane().setLayout(new BorderLayout());
 			getContentPane().add(asPanel, BorderLayout.CENTER);
 
-			JButton btn = new JButton(PropertyFactory.getString("in_ok"));
+			JButton btn = new JButton(LanguageBundle.getString("in_ok"));
 			getContentPane().add(btn, BorderLayout.SOUTH);
 			btn.addActionListener(new ActionListener()
 				{
@@ -679,7 +679,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater<PCClass>
 				getContentPane().add(textField[col], gridBagConstraints);
 			}
 
-			JButton btn = new JButton(PropertyFactory.getString("in_ok"));
+			JButton btn = new JButton(LanguageBundle.getString("in_ok"));
 			gridBagConstraints = buildConstraints(gridBagConstraints, columns - 2, 2, true);
 			getContentPane().add(btn, gridBagConstraints);
 			btn.addActionListener(new ActionListener()
@@ -697,7 +697,7 @@ public class ClassLevelPanel extends JPanel implements PObjectUpdater<PCClass>
 					}
 				});
 
-			btn = new JButton(PropertyFactory.getString("in_cancel"));
+			btn = new JButton(LanguageBundle.getString("in_cancel"));
 			gridBagConstraints = buildConstraints(gridBagConstraints, columns - 1, 2, true);
 			getContentPane().add(btn, gridBagConstraints);
 			btn.addActionListener(new ActionListener()

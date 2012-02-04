@@ -29,6 +29,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.PCGIOHandler;
+import pcgen.persistence.PersistenceManager;
 import pcgen.util.FileHelper;
 import pcgen.util.Logging;
 
@@ -43,7 +44,7 @@ import java.util.*;
  *
  * @author jkwatson
  * @version $Revision$
- *
+ * @deprecated 
  */
 public class Party
 {
@@ -254,7 +255,7 @@ public class Party
 	 */
 	private static PlayerCharacter loadPCFromFile(final File file)
 	{
-		final PlayerCharacter newPC = new PlayerCharacter(false);
+		final PlayerCharacter newPC = new PlayerCharacter(false, PersistenceManager.getInstance().getLoadedCampaigns());
 		final PCGIOHandler ioHandler = new PCGIOHandler();
 		ioHandler.read(newPC, file.getAbsolutePath());
 		newPC.insertBonusLanguageAbility();

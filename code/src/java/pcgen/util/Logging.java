@@ -20,6 +20,7 @@
  */
 package pcgen.util;
 
+import pcgen.system.LanguageBundle;
 import java.awt.Toolkit;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -149,7 +150,7 @@ public class Logging
 	public static void debugPrint(final String s)
 	{
 		Logger l = getLogger();
-		if (l.isLoggable(DEBUG))
+		if (l != null && l.isLoggable(DEBUG))
 		{
 			l.log(DEBUG, s);
 		}
@@ -181,7 +182,7 @@ public class Logging
 		Logger l = getLogger();
 		if (l.isLoggable(DEBUG))
 		{
-			String msg = PropertyFactory.getFormattedString(param1, param2);
+			String msg = LanguageBundle.getFormattedString(param1, param2);
 			l.log(DEBUG, msg);
 		}
 	}
@@ -200,7 +201,7 @@ public class Logging
 		if (l.isLoggable(DEBUG))
 		{
 			String msg =
-					PropertyFactory.getFormattedString(message, param1, param2);
+					LanguageBundle.getFormattedString(message, param1, param2);
 			l.log(DEBUG, msg);
 		}
 	}
@@ -231,7 +232,7 @@ public class Logging
 			s_TOOLKIT.beep();
 		}
 
-		final String msg = PropertyFactory.getString(aKey);
+		final String msg = LanguageBundle.getString(aKey);
 		System.err.println(msg);
 	}
 
@@ -251,7 +252,7 @@ public class Logging
 			s_TOOLKIT.beep();
 		}
 
-		final String msg = PropertyFactory.getFormattedString(aKey, varargs);
+		final String msg = LanguageBundle.getFormattedString(aKey, varargs);
 		Logger l = getLogger();
 		if (l.isLoggable(ERROR))
 		{
@@ -374,7 +375,7 @@ public class Logging
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		PrintStream ps = new PrintStream(baos);
 		thr.printStackTrace(ps);
-		errorPrint(PropertyFactory.getString(s) + "\n" + baos.toString());
+		errorPrint(LanguageBundle.getString(s) + "\n" + baos.toString());
 	}
 
 	/**

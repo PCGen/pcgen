@@ -39,7 +39,7 @@ import pcgen.gui.PersistenceObserver;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.SwingWorker;
 
 
@@ -134,7 +134,7 @@ public final class SourceSelectionUtils
 		if (PCGen_Frame1.getBaseTabbedPane().getTabCount() > PCGen_Frame1.FIRST_CHAR_TAB) // All non-player tabs will be first
 		{
 			ShowMessageDelegate.showMessageDialog(
-				PropertyFactory.getString("in_campaignChangeError"),
+				LanguageBundle.getString("in_campaignChangeError"),
 				Constants.APPLICATION_NAME,
 				MessageType.INFORMATION);
 

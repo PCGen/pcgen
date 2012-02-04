@@ -34,7 +34,7 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * @author wardc
@@ -70,7 +70,7 @@ public class PreLanguageTester extends AbstractPrerequisiteTest implements
 			}
 			else if (!requiredLang.equals("ANY")) //$NON-NLS-1$
 			{
-				throw new PrerequisiteException(PropertyFactory
+				throw new PrerequisiteException(LanguageBundle
 					.getFormattedString(
 						"PreLanguage.error.no_such_language", requiredLang)); //$NON-NLS-1$
 			}

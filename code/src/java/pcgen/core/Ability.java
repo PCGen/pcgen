@@ -19,6 +19,7 @@
  */
 package pcgen.core;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.base.lang.StringUtil;
@@ -31,9 +32,12 @@ import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.helper.Aspect;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.core.facade.AbilityFacade;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
@@ -45,7 +49,7 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
  * @version  $Revision$
  */
 @SuppressWarnings("serial")
-public final class Ability extends PObject implements CategorizedCDOMObject<Ability>
+public final class Ability extends PObject implements CategorizedCDOMObject<Ability>, AbilityFacade
 {
 	public static final CDOMReference<AbilityList> FEATLIST;
 
@@ -246,6 +250,64 @@ public final class Ability extends PObject implements CategorizedCDOMObject<Abil
 			return ListKey.BENEFIT;
 		}
 		return ListKey.DESCRIPTION;
+	}
+
+	/* (non-Javadoc)
+	 * @see pcgen.core.facade.AbilityFacade#getDescription()
+	 */
+	public String getDescription()
+	{
+		return getDisplayName();
+	}
+
+	/* (non-Javadoc)
+	 * @see pcgen.core.facade.AbilityFacade#getTypes()
+	 */
+	public List<String> getTypes()
+	{
+		List<Type> trueTypeList = getTrueTypeList(true);
+		List<String> typeNames = new ArrayList<String>();
+		for (Type type : trueTypeList) {
+			typeNames.add(type.toString());
+		}
+		return typeNames;
+	}
+
+	/* (non-Javadoc)
+	 * @see pcgen.core.facade.AbilityFacade#isMult()
+	 */
+	public boolean isMult()
+	{
+		Boolean mult = get(ObjectKey.MULTIPLE_ALLOWED);
+		//Why is a null a valid return value?
+		if (mult != null && mult)
+		{
+			return true;
+		}
+		return false;
+	}
+
+	/* (non-Javadoc)
+	 * @see pcgen.core.facade.AbilityFacade#isStackable()
+	 */
+	public boolean isStackable()
+	{
+		Boolean mult = get(ObjectKey.STACKS);
+		//Why is a null a valid return value?
+		if (mult != null && mult)
+		{
+			return true;
+		}
+		return false;
+	}
+
+	/* (non-Javadoc)
+	 * @see pcgen.core.facade.InfoFacade#getSource()
+	 */
+	public String getSource()
+	{
+		return SourceFormat.getFormattedString(this,
+			Globals.getSourceDisplay(), true);
 	}
 
 	public String printAspect(PlayerCharacter pc, AspectName key) {

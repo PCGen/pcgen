@@ -31,7 +31,7 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.Utility;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * Popup frame with export options
@@ -94,7 +94,7 @@ final class HPFrame extends JFrame
 
 	private static String myGetTitle()
 	{
-		String title = PropertyFactory.getString("in_adjustHP");
+		String title = LanguageBundle.getString("in_adjustHP");
 		final int idx = title.indexOf("%s");
 
 		if (idx >= 0)

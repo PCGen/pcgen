@@ -1,0 +1,118 @@
+/**
+ * BodyStructure.java
+ * Copyright James Dempsey, 2010
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Created on 16/01/2011 10:57:27 PM
+ *
+ * $Id$
+ */
+package pcgen.core;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import pcgen.core.character.EquipSlot;
+import pcgen.core.facade.BodyStructureFacade;
+
+/**
+ * The Class <code>BodyStructure</code> represents a part of a character's 
+ * body that may hold equipment.
+ *
+ * <br/>
+ * Last Editor: $Author$
+ * Last Edited: $Date$
+ * 
+ * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @version $Revision$
+ */
+public class BodyStructure implements BodyStructureFacade
+{
+
+	private String name;
+	private List<EquipSlot> slots;
+	private boolean holdsAnyType;
+
+	/**
+	 * Create a new BodyStructure instance.
+	 * @param name The name of the body structure.
+	 */
+	public BodyStructure(String name)
+	{
+		this(name, false);
+	}
+
+	/**
+	 * Create a new BodyStructure instance noting if it can hold any type 
+	 * of equipment item. BodyStructures such as equipped, carried or not 
+	 * carried may hold items of any type.
+	 * 
+	 * @param name The name of the body structure.
+	 * @param holdsAnyType Can this item hold anything at all
+	 */
+	public BodyStructure(String name, boolean holdsAnyType)
+	{
+		this.name = name;
+		slots = new ArrayList<EquipSlot>();
+		this.holdsAnyType = holdsAnyType;
+	}
+
+	/**
+	 * @return the name
+	 */
+	String getName()
+	{
+		return name;
+	}
+
+	/**
+	 * Add an EquipSlot to the list of those contained by the body structure.
+	 * @param slot The EquipSlot to be added 
+	 */
+	public void addEquipSlot(EquipSlot slot)
+	{
+		if (!slots.contains(slot))
+		{
+			slots.add(slot);
+		}
+	}
+	
+	/**
+	 * @return A read-only list of EquipSlots that are contained by this BodyStructure.
+	 */
+	public List<EquipSlot> getEquipSlots()
+	{
+		return Collections.unmodifiableList(slots);
+	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString()
+	{
+		return name;
+	}
+
+	/**
+	 * @return the holdsAnyType
+	 */
+	public boolean isHoldsAnyType()
+	{
+		return holdsAnyType;
+	}
+}

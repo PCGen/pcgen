@@ -34,7 +34,7 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 
 /**
  * @author wardc
@@ -60,7 +60,7 @@ public class PreBaseSizeTester extends AbstractPrerequisiteTest implements Prere
 			final int targetSize = SizeUtilities.sizeInt(key, -1);
 			if (targetSize < 0)
 			{
-				throw new PrerequisiteException(PropertyFactory
+				throw new PrerequisiteException(LanguageBundle
 					.getFormattedString(
 						"PreBaseSize.error.bad_size", prereq.getOperand())); //$NON-NLS-1$
 			}

@@ -66,7 +66,7 @@ import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.PersistenceManager;
 import pcgen.util.Logging;
-import pcgen.util.PropertyFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -965,7 +965,7 @@ final class PCClassFilter extends AbstractPObjectFilter
 {
 	PCClassFilter()
 	{
-		super(PropertyFactory.getString("Filters.Category.Object"), PropertyFactory.getString("in_class")); //$NON-NLS-1$ //$NON-NLS-2$
+		super(LanguageBundle.getString("Filters.Category.Object"), LanguageBundle.getString("in_class")); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -995,8 +995,8 @@ final class PCTemplateFilter extends AbstractPObjectFilter
 {
 	PCTemplateFilter()
 	{
-		super(PropertyFactory.getString("Filters.Category.Object"),  //$NON-NLS-1$
-			  PropertyFactory.getString("in_template")); //$NON-NLS-1$
+		super(LanguageBundle.getString("Filters.Category.Object"),  //$NON-NLS-1$
+			  LanguageBundle.getString("in_template")); //$NON-NLS-1$
 	}
 
 	/**
@@ -1025,8 +1025,8 @@ final class RaceFilter extends AbstractPObjectFilter
 {
 	RaceFilter()
 	{
-		super(PropertyFactory.getString("Filters.Category.Object"),  //$NON-NLS-1$
-			  PropertyFactory.getString("in_race")); //$NON-NLS-1$
+		super(LanguageBundle.getString("Filters.Category.Object"),  //$NON-NLS-1$
+			  LanguageBundle.getString("in_race")); //$NON-NLS-1$
 	}
 
 	/**
@@ -1062,7 +1062,7 @@ final class SpellTypeFilter extends AbstractPObjectFilter
 
 	SpellTypeFilter(final String aType)
 	{
-		super(PropertyFactory.getString("in_spellType"), aType); //$NON-NLS-1$
+		super(LanguageBundle.getString("in_spellType"), aType); //$NON-NLS-1$
 		this.type = aType.toUpperCase();
 	}
 
@@ -1107,7 +1107,7 @@ abstract class AlignmentFilter extends AbstractPObjectFilter
 		
 		Mode(final String aResourceId)
 		{
-			theName = PropertyFactory.getString(aResourceId);
+			theName = LanguageBundle.getString(aResourceId);
 		}
 		
 		/**
@@ -1180,7 +1180,7 @@ final class DeityAlignmentFilter extends AlignmentFilter
 
 	DeityAlignmentFilter(PCAlignment anAlignment, Mode mode)
 	{
-		super(PropertyFactory.getString("in_alignLabel"),  //$NON-NLS-1$
+		super(LanguageBundle.getString("in_alignLabel"),  //$NON-NLS-1$
 				anAlignment.getDisplayName());
 		this.alignment = anAlignment;
 		theMode = mode;
@@ -1244,7 +1244,7 @@ final class DomainFilter extends AbstractPObjectFilter
 
 	DomainFilter(final Domain aDomain)
 	{
-		super(PropertyFactory.getString("in_domains"), aDomain.getDisplayName()); //$NON-NLS-1$
+		super(LanguageBundle.getString("in_domains"), aDomain.getDisplayName()); //$NON-NLS-1$
 		this.domain = aDomain;
 	}
 
@@ -1292,15 +1292,15 @@ final class PantheonFilter extends AbstractPObjectFilter
 		this.detailLevel = argDetailLevel;
 		this.pantheon = ((this.detailLevel == Detail.LOW) ? normalizePantheon(aPantheon) : aPantheon);
 		this.pantheon = ((this.pantheon.equalsIgnoreCase(Constants.LST_ALL)) ? Constants.LST_ALL : aPantheon);
-		setCategory(PropertyFactory.getString("in_pantheon") //$NON-NLS-1$
+		setCategory(LanguageBundle.getString("in_pantheon") //$NON-NLS-1$
 			+ ((detailLevel == Detail.LOW) 
-				? String.format("(%1$s)", PropertyFactory.getString("in_general")) //$NON-NLS-1$ //$NON-NLS-2$
-				: String.format("(%1$s)", PropertyFactory.getString("in_specific"))));  //$NON-NLS-1$//$NON-NLS-2$
+				? String.format("(%1$s)", LanguageBundle.getString("in_general")) //$NON-NLS-1$ //$NON-NLS-2$
+				: String.format("(%1$s)", LanguageBundle.getString("in_specific"))));  //$NON-NLS-1$//$NON-NLS-2$
 		setName(this.pantheon);
 
 		setDescription((this.pantheon.equalsIgnoreCase(Constants.LST_ALL)) 
-				? PropertyFactory.getString("in_acceptPantAll") //$NON-NLS-1$
-				: PropertyFactory.getFormattedString("Filters.Pantheon.Description", pantheon)); //$NON-NLS-1$
+				? LanguageBundle.getString("in_acceptPantAll") //$NON-NLS-1$
+				: LanguageBundle.getFormattedString("Filters.Pantheon.Description", pantheon)); //$NON-NLS-1$
 	}
 
 	/**
@@ -1372,7 +1372,7 @@ final class PCAlignmentFilter extends AlignmentFilter
 
 	PCAlignmentFilter(final Mode aMode)
 	{
-		super(PropertyFactory.getString("in_alignLabel"), PropertyFactory.getString("in_pc"));  //$NON-NLS-1$//$NON-NLS-2$
+		super(LanguageBundle.getString("in_alignLabel"), LanguageBundle.getString("in_pc"));  //$NON-NLS-1$//$NON-NLS-2$
 		theMode = aMode;
 	}
 
@@ -1449,7 +1449,7 @@ final class AutomaticFeatFilter extends AbstractPObjectFilter
 {
 	AutomaticFeatFilter()
 	{
-		super(PropertyFactory.getString("in_feats"), PropertyFactory.getString("in_Automatic")); //$NON-NLS-1$ //$NON-NLS-2$
+		super(LanguageBundle.getString("in_feats"), LanguageBundle.getString("in_Automatic")); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -1477,7 +1477,7 @@ final class NormalFeatFilter extends AbstractPObjectFilter
 {
 	NormalFeatFilter()
 	{
-		super(PropertyFactory.getString("in_feats"), PropertyFactory.getString("in_Normal"));  //$NON-NLS-1$//$NON-NLS-2$
+		super(LanguageBundle.getString("in_feats"), LanguageBundle.getString("in_Normal"));  //$NON-NLS-1$//$NON-NLS-2$
 	}
 
 	/**
@@ -1512,7 +1512,7 @@ final class VirtualFeatFilter extends AbstractPObjectFilter
 	 */
 	VirtualFeatFilter()
 	{
-		super(PropertyFactory.getString("in_feats"), PropertyFactory.getString("in_Virtual")); //$NON-NLS-1$ //$NON-NLS-2$
+		super(LanguageBundle.getString("in_feats"), LanguageBundle.getString("in_Virtual")); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -1545,7 +1545,7 @@ final class AffordableFilter extends AbstractPObjectFilter
 {
 	AffordableFilter()
 	{
-		super(PropertyFactory.getString("in_miscel"), PropertyFactory.getString("in_Affordable"));  //$NON-NLS-1$//$NON-NLS-2$
+		super(LanguageBundle.getString("in_miscel"), LanguageBundle.getString("in_Affordable"));  //$NON-NLS-1$//$NON-NLS-2$
 	}
 
 	/**
@@ -1574,7 +1574,7 @@ final class NonMagicFilter extends AbstractPObjectFilter
 {
 	NonMagicFilter()
 	{
-		super(PropertyFactory.getString("in_miscel"), PropertyFactory.getString("in_Non-Magic"));  //$NON-NLS-1$//$NON-NLS-2$
+		super(LanguageBundle.getString("in_miscel"), LanguageBundle.getString("in_Non-Magic"));  //$NON-NLS-1$//$NON-NLS-2$
 	}
 
 	/**
@@ -1603,7 +1603,7 @@ final class PCSizeFilter extends AbstractPObjectFilter
 {
 	PCSizeFilter()
 	{
-		super(PropertyFactory.getString("in_size"), PropertyFactory.getString("PC"));  //$NON-NLS-1$//$NON-NLS-2$
+		super(LanguageBundle.getString("in_size"), LanguageBundle.getString("PC"));  //$NON-NLS-1$//$NON-NLS-2$
 	}
 
 	/**
@@ -1658,7 +1658,7 @@ final class TypeFilter extends AbstractPObjectFilter
 
 	TypeFilter(final String argType, final boolean capitalize)
 	{
-		super(PropertyFactory.getString("in_type"), //$NON-NLS-1$
+		super(LanguageBundle.getString("in_type"), //$NON-NLS-1$
 			(capitalize) ? CoreUtility.capitalizeFirstLetter(argType) : argType);
 		this.type = argType.toUpperCase();
 	}
@@ -1694,7 +1694,7 @@ final class WeaponFilter extends AbstractPObjectFilter
 
 	WeaponFilter(final String argType)
 	{
-		super(PropertyFactory.getString("in_weapon"), //$NON-NLS-1$
+		super(LanguageBundle.getString("in_weapon"), //$NON-NLS-1$
 			CoreUtility.capitalizeFirstLetter(argType));
 		this.type = argType.toUpperCase();
 	}
@@ -1732,8 +1732,8 @@ final class RankFilter extends AbstractPObjectFilter
 
 	RankFilter(final double aMin)
 	{
-		super(PropertyFactory.getString("in_skills"),  //$NON-NLS-1$
-			  PropertyFactory.getFormattedString("Filters.Rank.Name", aMin)); //$NON-NLS-1$
+		super(LanguageBundle.getString("in_skills"),  //$NON-NLS-1$
+			  LanguageBundle.getFormattedString("Filters.Rank.Name", aMin)); //$NON-NLS-1$
 		this.min = aMin;
 	}
 
@@ -1764,8 +1764,8 @@ final class RankModifierFilter extends AbstractPObjectFilter
 
 	RankModifierFilter(final double aMin)
 	{
-		super(PropertyFactory.getString("in_skills"), //$NON-NLS-1$
-			PropertyFactory.getFormattedString("Filters.RankMod.Name", aMin)); //$NON-NLS-1$
+		super(LanguageBundle.getString("in_skills"), //$NON-NLS-1$
+			LanguageBundle.getFormattedString("Filters.RankMod.Name", aMin)); //$NON-NLS-1$
 		this.min = aMin;
 	}
 
@@ -1803,7 +1803,7 @@ final class StatFilter extends AbstractPObjectFilter
 {
 	StatFilter(final String stat)
 	{
-		super(PropertyFactory.getString("in_keyAbility"), stat.toUpperCase()); //$NON-NLS-1$
+		super(LanguageBundle.getString("in_keyAbility"), stat.toUpperCase()); //$NON-NLS-1$
 	}
 
 	/**
@@ -1831,7 +1831,7 @@ final class UntrainedSkillFilter extends AbstractPObjectFilter
 {
 	UntrainedSkillFilter()
 	{
-		super(PropertyFactory.getString("in_skills"), PropertyFactory.getString("in_untrained")); //$NON-NLS-1$ //$NON-NLS-2$
+		super(LanguageBundle.getString("in_skills"), LanguageBundle.getString("in_untrained")); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -1867,7 +1867,7 @@ final class CastingTimeFilter extends AbstractPObjectFilter
 
 	CastingTimeFilter(final String argCastingTime)
 	{
-		super(PropertyFactory.getString("in_castingTime"), argCastingTime); //$NON-NLS-1$
+		super(LanguageBundle.getString("in_castingTime"), argCastingTime); //$NON-NLS-1$
 		castingTime = argCastingTime;
 	}
 
@@ -1899,7 +1899,7 @@ final class ComponentFilter extends AbstractPObjectFilter
 
 	ComponentFilter(String argComponent)
 	{
-		super(PropertyFactory.getString("in_component"), argComponent); //$NON-NLS-1$
+		super(LanguageBundle.getString("in_component"), argComponent); //$NON-NLS-1$
 		this.component = argComponent;
 	}
 
@@ -1941,7 +1941,7 @@ final class DescriptorFilter extends AbstractPObjectFilter
 
 	DescriptorFilter(final String aDescriptor)
 	{
-		super(PropertyFactory.getString("in_descriptor"), aDescriptor); //$NON-NLS-1$
+		super(LanguageBundle.getString("in_descriptor"), aDescriptor); //$NON-NLS-1$
 		this.descriptor = aDescriptor;
 	}
 
@@ -1973,7 +1973,7 @@ final class EffectTypeFilter extends AbstractPObjectFilter
 
 	EffectTypeFilter(final String anEffectType)
 	{
-		super(PropertyFactory.getString("in_effectType"), anEffectType); //$NON-NLS-1$
+		super(LanguageBundle.getString("in_effectType"), anEffectType); //$NON-NLS-1$
 		this.effectType = anEffectType;
 	}
 
@@ -2010,7 +2010,7 @@ final class RangeFilter extends AbstractPObjectFilter
 		this.range = normalizeCategory(this.range);
 		this.range = normalizeRange(this.range);
 
-		setCategory(PropertyFactory.getString("in_range")); //$NON-NLS-1$
+		setCategory(LanguageBundle.getString("in_range")); //$NON-NLS-1$
 		setName(this.range);
 	}
 
@@ -2209,7 +2209,7 @@ final class SchoolFilter extends AbstractPObjectFilter
 
 	SchoolFilter(final String aSchool)
 	{
-		super(PropertyFactory.getString("in_school"), aSchool); //$NON-NLS-1$
+		super(LanguageBundle.getString("in_school"), aSchool); //$NON-NLS-1$
 		this.school = aSchool;
 	}
 
@@ -2243,7 +2243,7 @@ final class SpellResistanceFilter extends AbstractPObjectFilter
 	{
 		super();
 		this.sr = normalizeSpellResistance(anSR);
-		setCategory(PropertyFactory.getString("in_spellRes")); //$NON-NLS-1$
+		setCategory(LanguageBundle.getString("in_spellRes")); //$NON-NLS-1$
 		setName(this.sr);
 	}
 
@@ -2299,7 +2299,7 @@ final class SubschoolFilter extends AbstractPObjectFilter
 	{
 		super();
 		this.school = normalizeSubschool(aSchool);
-		setCategory(PropertyFactory.getString("in_subschool")); //$NON-NLS-1$
+		setCategory(LanguageBundle.getString("in_subschool")); //$NON-NLS-1$
 		setName(this.school);
 	}
 
@@ -2353,7 +2353,7 @@ final class FavoredClassFilter extends AbstractPObjectFilter
 
 	FavoredClassFilter(final String aClassName)
 	{
-		super(PropertyFactory.getString("in_favoredClass"), aClassName); //$NON-NLS-1$
+		super(LanguageBundle.getString("in_favoredClass"), aClassName); //$NON-NLS-1$
 		this.className = aClassName.toUpperCase();
 	}
 
@@ -2403,7 +2403,7 @@ final class SizeFilter extends AbstractPObjectFilter
 
 	SizeFilter(final SizeAdjustment aSize)
 	{
-		super(PropertyFactory.getString("in_size"), aSize.getDisplayName()); //$NON-NLS-1$
+		super(LanguageBundle.getString("in_size"), aSize.getDisplayName()); //$NON-NLS-1$
 		this.size = aSize;
 	}
 
