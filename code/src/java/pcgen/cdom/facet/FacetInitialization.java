@@ -65,7 +65,6 @@ public class FacetInitialization
 		WeaponProfFacet weaponProfFacet = FacetLibrary
 				.getFacet(WeaponProfFacet.class);
 
-		QualifyFacet qualifyFacet = FacetLibrary.getFacet(QualifyFacet.class);
 		LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
 		SizeFacet sizeFacet = FacetLibrary.getFacet(SizeFacet.class);
 		BonusChangeFacet bonusChangeFacet = FacetLibrary
@@ -224,7 +223,6 @@ public class FacetInitialization
 		eqObjectFacet.addDataFacetChangeListener(cdomObjectFacet);
 		charObjectFacet.addDataFacetChangeListener(cdomObjectFacet);
 
-		cdomObjectFacet.addDataFacetChangeListener(qualifyFacet);
 		cdomObjectFacet.addDataFacetChangeListener(drFacet);
 		cdomObjectFacet.addDataFacetChangeListener(variableFacet);
 		cdomObjectFacet.addDataFacetChangeListener(statLockFacet);

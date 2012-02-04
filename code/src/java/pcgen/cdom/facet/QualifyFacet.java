@@ -36,6 +36,8 @@ public class QualifyFacet implements DataFacetChangeListener<CDOMObject>
 
 	private final Class<?> thisClass = getClass();
 
+	private CDOMObjectConsolidationFacet consolidationFacet;
+
 	/**
 	 * Triggered when one of the Facets to which QualifyFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
@@ -164,5 +166,15 @@ public class QualifyFacet implements DataFacetChangeListener<CDOMObject>
 	{
 		CacheInfo ci = (CacheInfo) FacetCache.get(id, thisClass);
 		return (ci != null) && ci.isQualified(qualTestObject);
+	}
+
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+		this.consolidationFacet = consolidationFacet;
+	}
+	
+	public void init()
+	{
+		consolidationFacet.addDataFacetChangeListener(this);
 	}
 }
