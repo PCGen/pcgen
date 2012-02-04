@@ -2370,7 +2370,22 @@ BIO
 	<languages>Celestial, Common</languages>
 
 	<templates>
-		<list></list>
+		<list>Default Racial Traits</list>
+		<template>
+			<name>Default Racial Traits</name>
+			<strmod>0</strmod>
+			<dexmod>0</dexmod>
+			<conmod>0</conmod>
+			<intmod>0</intmod>
+			<wismod>0</wismod>
+			<chamod>0</chamod>
+			<cr>0</cr>
+			<dr></dr>
+			<feat></feat>
+			<sa></sa>
+			<sr>0</sr>
+			<bonuslist></bonuslist>
+		</template>
 		<template>
 			<name></name>
 			<strmod></strmod>
