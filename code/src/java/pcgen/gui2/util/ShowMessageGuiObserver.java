@@ -33,8 +33,6 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.MessageWrapper;
 import pcgen.system.LanguageBundle;
 
-import javax.swing.JOptionPane;
-import java.awt.Component;
 import java.util.Observable;
 import java.util.Observer;
 

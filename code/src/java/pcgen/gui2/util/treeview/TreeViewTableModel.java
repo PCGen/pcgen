@@ -40,7 +40,6 @@ import pcgen.gui2.util.treetable.SortableTreeTableNode;
 import pcgen.gui2.util.treetable.TreeTableNode;
 import pcgen.util.CollectionMaps;
 import pcgen.util.ListMap;
-import pcgen.util.Logging;
 
 /**
  *

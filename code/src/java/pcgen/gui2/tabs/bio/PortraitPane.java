@@ -34,7 +34,6 @@ import java.awt.image.BufferedImage;
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import pcgen.core.facade.CharacterFacade;
-import pcgen.util.Logging;
 
 /**
  *

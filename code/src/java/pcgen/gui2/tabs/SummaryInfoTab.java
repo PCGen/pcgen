@@ -53,7 +53,6 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
@@ -84,7 +83,6 @@ import pcgen.core.facade.RaceFacade;
 import pcgen.core.facade.ReferenceFacade;
 import pcgen.core.facade.SimpleFacade;
 import pcgen.core.facade.TodoFacade;
-import pcgen.core.facade.TodoFacade.CharacterTab;
 import pcgen.core.facade.event.ListEvent;
 import pcgen.core.facade.event.ListListener;
 import pcgen.core.facade.event.ReferenceEvent;
@@ -109,7 +107,6 @@ import pcgen.gui2.util.SignIcon;
 import pcgen.gui2.util.SimpleTextIcon;
 import pcgen.gui2.util.SignIcon.Sign;
 import pcgen.system.LanguageBundle;
-import pcgen.util.Logging;
 
 /**
  *

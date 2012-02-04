@@ -23,7 +23,6 @@
  */
 package pcgen.core;
 
-import pcgen.gui.pcGenGUI;
 import pcgen.util.Logging;
 
 import java.lang.reflect.InvocationTargetException;

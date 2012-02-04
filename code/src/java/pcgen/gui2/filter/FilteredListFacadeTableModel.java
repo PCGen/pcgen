@@ -25,7 +25,6 @@ import java.util.Comparator;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.EquipmentFacade;
 import pcgen.core.facade.event.ListEvent;
 import pcgen.core.facade.event.ListListener;
 import pcgen.core.facade.util.ListFacade;

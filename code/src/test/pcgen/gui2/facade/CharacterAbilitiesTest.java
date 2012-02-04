@@ -22,21 +22,14 @@
  */
 package pcgen.gui2.facade;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import pcgen.AbstractCharacterTestCase;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
-import pcgen.core.BodyStructure;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
-import pcgen.core.SystemCollections;
-import pcgen.core.character.EquipSlot;
 import pcgen.core.facade.AbilityCategoryFacade;
 import pcgen.core.facade.AbilityFacade;
 import pcgen.core.facade.util.ListFacade;

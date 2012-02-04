@@ -124,7 +124,6 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.GuiConstants;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.PersistenceManager;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.ReferenceContext;
 import pcgen.system.FacadeFactory;

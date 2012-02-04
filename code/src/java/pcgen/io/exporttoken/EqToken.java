@@ -45,7 +45,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.io.ExportHandler;
-import pcgen.io.FileAccess;
 import pcgen.util.BigDecimalHelper;
 
 /**

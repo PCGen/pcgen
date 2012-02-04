@@ -65,7 +65,6 @@ import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.analysis.OutputNameFormatting;
-import pcgen.core.analysis.SpellLevel;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 import pcgen.core.character.CharacterSpell;

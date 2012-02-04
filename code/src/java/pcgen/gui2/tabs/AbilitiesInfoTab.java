@@ -38,7 +38,6 @@ import pcgen.core.facade.util.ListFacade;
 import pcgen.core.facade.event.ListEvent;
 import pcgen.core.facade.event.ListListener;
 import pcgen.gui2.util.SharedTabPane;
-import pcgen.util.Logging;
 
 /**
  *

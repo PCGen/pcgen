@@ -35,7 +35,6 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
 import pcgen.system.PCGenSettings;
-import pcgen.util.Logging;
 
 /**
  * Convenience methods from various sources.

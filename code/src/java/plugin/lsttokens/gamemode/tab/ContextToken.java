@@ -20,7 +20,6 @@ package plugin.lsttokens.gamemode.tab;
 import java.io.File;
 
 import pcgen.cdom.content.TabInfo;
-import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;

@@ -41,8 +41,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.utils.ParsingSeparator;
-import pcgen.gui.CharacterInfo;
-import pcgen.gui.PCGen_Frame1;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;

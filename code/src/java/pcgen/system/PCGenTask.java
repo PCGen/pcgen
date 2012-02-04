@@ -20,10 +20,7 @@
  */
 package pcgen.system;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.util.logging.LogRecord;
-import java.util.logging.SimpleFormatter;
 import javax.swing.event.EventListenerList;
 import pcgen.util.Logging;
 
