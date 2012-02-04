@@ -44,8 +44,12 @@ public class DamageReductionFacet extends
 	private static final Pattern AND_PATTERN = Pattern.compile(" [aA][nN][dD] ");
 
 	private PrerequisiteFacet prerequisiteFacet;
+	
 	private FormulaResolvingFacet formulaResolvingFacet;
+
 	private BonusCheckingFacet bonusCheckingFacet;
+
+	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**
 	 * Triggered when one of the Facets to which DamageReductionFacet listens
@@ -272,5 +276,13 @@ public class DamageReductionFacet extends
 		this.bonusCheckingFacet = bonusCheckingFacet;
 	}
 	
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+		this.consolidationFacet = consolidationFacet;
+	}
 	
+	public void init()
+	{
+		consolidationFacet.addDataFacetChangeListener(this);
+	}
 }

@@ -111,6 +111,7 @@
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="deityFacet" class="pcgen.cdom.facet.DeityFacet" />
 	<bean id="deityWeaponProfFacet" class="pcgen.cdom.facet.DeityWeaponProfFacet">
