@@ -33,6 +33,8 @@ import pcgen.util.enumeration.Load;
 public class UnencumberedLoadFacet extends AbstractSourcedListFacet<Load>
 		implements DataFacetChangeListener<CDOMObject>
 {
+	private CDOMObjectSourceFacet cdomSourceFacet;
+
 	/**
 	 * Triggered when one of the Facets to which UnencumberedLoadFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
@@ -93,4 +95,13 @@ public class UnencumberedLoadFacet extends AbstractSourcedListFacet<Load>
 		return getBestLoad(id).compareTo(load) >= 0;
 	}
 
+	public void setCdomSourceFacet(CDOMObjectSourceFacet cdomSourceFacet)
+	{
+		this.cdomSourceFacet = cdomSourceFacet;
+	}
+
+	public void init()
+	{
+		cdomSourceFacet.addDataFacetChangeListener(this);
+	}
 }
