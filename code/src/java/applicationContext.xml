@@ -23,6 +23,7 @@
 		<property name="bioSetFacet" ref="bioSetFacet"/>
 	</bean>
 	<bean id="ageSetKitFacet" class="pcgen.cdom.facet.AgeSetKitFacet">
+		<property name="ageFacet" ref="ageFacet"/>
 		<property name="ageSetFacet" ref="ageSetFacet"/>
 		<property name="bioSetFacet" ref="bioSetFacet"/>
 	</bean>

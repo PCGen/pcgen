@@ -35,6 +35,8 @@ public class AgeSetKitFacet implements DataFacetChangeListener<Integer>
 	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 			.getFacet(PlayerCharacterTrackingFacet.class);
 
+	private AgeFacet ageFacet;
+
 	private AgeSetFacet ageSetFacet;
 	
 	private BioSetFacet bioSetFacet;
@@ -108,6 +110,11 @@ public class AgeSetKitFacet implements DataFacetChangeListener<Integer>
 		}
 	}
 
+	public void setAgeFacet(AgeFacet ageFacet)
+	{
+		this.ageFacet = ageFacet;
+	}
+
 	public void setAgeSetFacet(AgeSetFacet ageSetFacet)
 	{
 		this.ageSetFacet = ageSetFacet;
@@ -118,4 +125,8 @@ public class AgeSetKitFacet implements DataFacetChangeListener<Integer>
 		this.bioSetFacet = bioSetFacet;
 	}
 	
+	public void init()
+	{
+		ageFacet.addDataFacetChangeListener(this);
+	}
 }
