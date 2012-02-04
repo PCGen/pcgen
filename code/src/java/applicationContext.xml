@@ -73,7 +73,7 @@
 	<bean id="consolidationFacet" class="pcgen.cdom.facet.CDOMObjectConsolidationFacet">
 		<property name="bridgeFacet" ref="bridgeFacet"/>
 	</bean>
-	<bean id="sourceFacet" class="pcgen.cdom.facet.CDOMObjectSourceFacet">
+	<bean id="cdomSourceFacet" class="pcgen.cdom.facet.CDOMObjectSourceFacet">
 		<property name="bridgeFacet" ref="bridgeFacet"/>
 	</bean>
 	<bean id="challengeRatingFacet" class="pcgen.cdom.facet.ChallengeRatingFacet">
