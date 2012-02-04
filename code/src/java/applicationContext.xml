@@ -198,6 +198,7 @@
 	<bean id="kitFacet" class="pcgen.cdom.facet.KitFacet"/>
 	<bean id="knownSpellFacet" class="pcgen.cdom.facet.KnownSpellFacet">
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
+		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<!-- L -->
 	<bean id="languageFacet" class="pcgen.cdom.facet.LanguageFacet"/>

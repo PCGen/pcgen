@@ -52,6 +52,8 @@ public class KnownSpellFacet implements DataFacetChangeListener<CDOMObject>
 
 	private PrerequisiteFacet prerequisiteFacet;
 
+	private CDOMObjectConsolidationFacet consolidationFacet;
+
 	/**
 	 * Triggered when one of the Facets to which KnownSpellFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
@@ -385,4 +387,13 @@ public class KnownSpellFacet implements DataFacetChangeListener<CDOMObject>
 		this.prerequisiteFacet = prerequisiteFacet;
 	}
 
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+		this.consolidationFacet = consolidationFacet;
+	}
+	
+	public void init()
+	{
+		consolidationFacet.addDataFacetChangeListener(this);
+	}
 }

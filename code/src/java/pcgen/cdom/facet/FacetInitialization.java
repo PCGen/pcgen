@@ -93,8 +93,6 @@ public class FacetInitialization
 
 		NaturalWeaponProfFacet nwpFacet = FacetLibrary
 				.getFacet(NaturalWeaponProfFacet.class);
-		KnownSpellFacet knownSpellFacet = FacetLibrary
-				.getFacet(KnownSpellFacet.class);
 		AvailableSpellFacet availSpellFacet = FacetLibrary
 				.getFacet(AvailableSpellFacet.class);
 		AutoListWeaponProfFacet alWeaponProfFacet = FacetLibrary
@@ -208,7 +206,6 @@ public class FacetInitialization
 		charObjectFacet.addDataFacetChangeListener(cdomObjectFacet);
 
 		cdomObjectFacet.addDataFacetChangeListener(nwpFacet);
-		cdomObjectFacet.addDataFacetChangeListener(knownSpellFacet);
 		cdomObjectFacet.addDataFacetChangeListener(availSpellFacet);
 		cdomObjectFacet.addDataFacetChangeListener(moveFacet);
 		cdomObjectFacet.addDataFacetChangeListener(unarmedDamageFacet);
