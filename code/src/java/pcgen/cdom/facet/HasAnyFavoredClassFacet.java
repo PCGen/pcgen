@@ -28,6 +28,12 @@ public class HasAnyFavoredClassFacet extends AbstractSourcedListFacet<Boolean>
 		implements DataFacetChangeListener<CDOMObject>
 {
 
+	private RaceFacet raceFacet;
+
+	private TemplateFacet templateFacet;
+	
+	private ConditionalTemplateFacet conditionalTemplateFacet;
+
 	/**
 	 * Triggered when one of the Facets to which HasAnyFavoredClassFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
@@ -66,4 +72,28 @@ public class HasAnyFavoredClassFacet extends AbstractSourcedListFacet<Boolean>
 	{
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
+	
+	public void init()
+	{
+		raceFacet.addDataFacetChangeListener(this);
+		templateFacet.addDataFacetChangeListener(this);
+		conditionalTemplateFacet.addDataFacetChangeListener(this);
+	}
+
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+		this.raceFacet = raceFacet;
+	}
+
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+		this.templateFacet = templateFacet;
+	}
+
+	public void setConditionalTemplateFacet(
+		ConditionalTemplateFacet conditionalTemplateFacet)
+	{
+		this.conditionalTemplateFacet = conditionalTemplateFacet;
+	}
+
 }

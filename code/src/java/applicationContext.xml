@@ -155,7 +155,11 @@
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
 	</bean>
-	<bean id="hasAnyFavoredClassFacet" class="pcgen.cdom.facet.HasAnyFavoredClassFacet"/>
+	<bean id="hasAnyFavoredClassFacet" class="pcgen.cdom.facet.HasAnyFavoredClassFacet">
+		<property name="raceFacet" ref="raceFacet"/>
+		<property name="templateFacet" ref="templateFacet"/>
+		<property name="conditionalTemplateFacet" ref="conditionalTemplateFacet"/>
+	</bean>
 	<bean id="hasDeityWeaponProfFacet" class="pcgen.cdom.facet.HasDeityWeaponProfFacet"/>
 	<bean id="heightFacet" class="pcgen.cdom.facet.HeightFacet"/>
 	<bean id="hitPointFacet" class="pcgen.cdom.facet.HitPointFacet">

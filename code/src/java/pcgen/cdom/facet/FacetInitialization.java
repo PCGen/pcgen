@@ -170,8 +170,6 @@ public class FacetInitialization
 				.getFacet(DirectAbilityFacet.class);
 		ConditionallyGrantedAbilityFacet cabFacet = FacetLibrary
 				.getFacet(ConditionallyGrantedAbilityFacet.class);
-		HasAnyFavoredClassFacet hasAnyFavoredFacet = FacetLibrary
-				.getFacet(HasAnyFavoredClassFacet.class);
 		UnencumberedArmorFacet unencumberedArmorFacet =
 			FacetLibrary.getFacet(UnencumberedArmorFacet.class);		
 		UnencumberedLoadFacet unencumberedLoadFacet =
@@ -237,9 +235,6 @@ public class FacetInitialization
 		raceFacet.addDataFacetChangeListener(favClassFacet);
 		templateFacet.addDataFacetChangeListener(favClassFacet);
 		conditionalTemplateFacet.addDataFacetChangeListener(favClassFacet);
-		raceFacet.addDataFacetChangeListener(hasAnyFavoredFacet);
-		templateFacet.addDataFacetChangeListener(hasAnyFavoredFacet);
-		conditionalTemplateFacet.addDataFacetChangeListener(hasAnyFavoredFacet);
 
 		expandedCampaignFacet.addDataFacetChangeListener(charObjectFacet);
 		alignmentFacet.addDataFacetChangeListener(charObjectFacet);
