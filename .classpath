@@ -23,6 +23,7 @@
 	<classpathentry kind="lib" path="lib/cobra/cobra.jar"/>
 	<classpathentry kind="lib" path="lib/cobra/js.jar"/>
 	<classpathentry kind="lib" path="lib/apache/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="lib/apache/commons-io-2.1.jar"/>
 	<classpathentry kind="lib" path="lib/jep/jep-2.4.1.jar"/>
 	<classpathentry kind="lib" path="lib/spring/commons-logging-1.1.1.jar"/>
 	<classpathentry kind="lib" path="lib/spring/spring-beans-2.5.6.SEC01.jar"/>

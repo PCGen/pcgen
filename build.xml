@@ -807,7 +807,7 @@ pcgen.filepaths=user
         <junit fork="yes" printsummary="on" failureproperty="junitfailure" dir="${basedir}">
             <jvmarg value="-Demma.coverage.out.file=${coverage.dir}/coverage.emma" />
             <jvmarg value="-Demma.coverage.out.merge=true" />
-            <jvmarg value="-Xmx192M" />
+            <jvmarg value="-Xmx256M" />
             <formatter type="plain" />
             <formatter type="xml" />
             <classpath>
@@ -847,7 +847,7 @@ pcgen.filepaths=user
         <junit fork="yes" printsummary="on" failureproperty="junitfailure" dir="${basedir}" forkmode="perBatch">
             <jvmarg value="-Demma.coverage.out.file=${coverage.dir}/coverage.emma" />
             <jvmarg value="-Demma.coverage.out.merge=true" />
-            <jvmarg value="-Xmx192M" />
+            <jvmarg value="-Xmx300M" />
             <formatter type="brief" />
             <classpath>
                 <path refid="test.project.classpath" />
@@ -892,7 +892,7 @@ pcgen.filepaths=user
         <junit fork="yes" printsummary="on" failureproperty="junitfailure" dir="${basedir}">
             <jvmarg value="-Demma.coverage.out.file=${coverage.dir}/coverage.emma" />
             <jvmarg value="-Demma.coverage.out.merge=true" />
-            <jvmarg value="-Xmx192M" />
+            <jvmarg value="-Xmx256M" />
             <formatter type="plain" />
             <formatter type="xml" />
             <classpath>

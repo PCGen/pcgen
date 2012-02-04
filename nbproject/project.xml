@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.ant.freeform</type>
+    <configuration>
+        <general-data xmlns="http://www.netbeans.org/ns/freeform-project/1">
+            <name>pcgen-sync</name>
+        </general-data>
+        <general-data xmlns="http://www.netbeans.org/ns/freeform-project/2">
+            <!-- Do not use Project Properties customizer when editing this file manually. -->
+            <name>pcgen-sync</name>
+            <properties/>
+            <folders>
+                <source-folder>
+                    <label>pcgen-sync</label>
+                    <location>.</location>
+                    <encoding>UTF-8</encoding>
+                </source-folder>
+                <source-folder>
+                    <label>code\src\java</label>
+                    <type>java</type>
+                    <location>code/src/java</location>
+                    <encoding>UTF-8</encoding>
+                </source-folder>
+                <source-folder>
+                    <label>code\src\test</label>
+                    <type>java</type>
+                    <location>code/src/test</location>
+                    <encoding>UTF-8</encoding>
+                </source-folder>
+                <source-folder>
+                    <label>code\src\itest</label>
+                    <type>java</type>
+                    <location>code/src/itest</location>
+                    <encoding>UTF-8</encoding>
+                </source-folder>
+                <source-folder>
+                    <label>code\src\testcommon</label>
+                    <type>java</type>
+                    <location>code/src/testcommon</location>
+                    <encoding>UTF-8</encoding>
+                </source-folder>
+                <source-folder>
+                    <label>code\src\utest</label>
+                    <type>java</type>
+                    <location>code/src/utest</location>
+                    <encoding>UTF-8</encoding>
+                </source-folder>
+            </folders>
+            <ide-actions>
+                <action name="build">
+                    <script>nbproject/nbjdk.xml</script>
+                    <target>build</target>
+                </action>
+                <action name="clean">
+                    <script>nbproject/nbjdk.xml</script>
+                    <target>clean</target>
+                </action>
+                <action name="javadoc">
+                    <script>nbproject/nbjdk.xml</script>
+                    <target>docs</target>
+                </action>
+                <action name="test">
+                    <script>nbproject/nbjdk.xml</script>
+                    <target>test</target>
+                </action>
+                <action name="rebuild">
+                    <script>nbproject/nbjdk.xml</script>
+                    <target>clean</target>
+                    <target>build</target>
+                </action>
+                <action name="run.single">
+                    <script>nbproject/nbjdk.xml</script>
+                    <target>run-selected-file-in-java</target>
+                    <context>
+                        <property>run.class</property>
+                        <folder>code/src/java</folder>
+                        <pattern>\.java$</pattern>
+                        <format>java-name</format>
+                        <arity>
+                            <one-file-only/>
+                        </arity>
+                    </context>
+                </action>
+                <action name="debug.single">
+                    <script>nbproject/nbjdk.xml</script>
+                    <target>debug-selected-file-in-java</target>
+                    <context>
+                        <property>debug.class</property>
+                        <folder>code/src/java</folder>
+                        <pattern>\.java$</pattern>
+                        <format>java-name</format>
+                        <arity>
+                            <one-file-only/>
+                        </arity>
+                    </context>
+                </action>
+            </ide-actions>
+            <view>
+                <items>
+                    <source-folder style="packages">
+                        <label>code\src\java</label>
+                        <location>code/src/java</location>
+                    </source-folder>
+                    <source-folder style="packages">
+                        <label>code\src\test</label>
+                        <location>code/src/test</location>
+                    </source-folder>
+                    <source-folder style="packages">
+                        <label>code\src\itest</label>
+                        <location>code/src/itest</location>
+                    </source-folder>
+                    <source-folder style="packages">
+                        <label>code\src\testcommon</label>
+                        <location>code/src/testcommon</location>
+                    </source-folder>
+                    <source-folder style="packages">
+                        <label>code\src\utest</label>
+                        <location>code/src/utest</location>
+                    </source-folder>
+                    <source-file>
+                        <location>build.xml</location>
+                    </source-file>
+                </items>
+                <context-menu>
+                    <ide-action name="build"/>
+                    <ide-action name="rebuild"/>
+                    <ide-action name="clean"/>
+                    <ide-action name="javadoc"/>
+                    <ide-action name="test"/>
+                </context-menu>
+            </view>
+            <subprojects/>
+            <project-license>pcgen</project-license>
+        </general-data>
+        <java-data xmlns="http://www.netbeans.org/ns/freeform-project-java/2">
+            <compilation-unit>
+                <package-root>code/src/java</package-root>
+                <classpath mode="compile">lib/jep/jep-2.4.1.jar;lib/apache/commons-lang-2.4.jar;lib/cobra/cobra.jar;lib/jdom.jar;lib/fop/fop.jar;lib/lnf/skinlf.jar;lib/spring/spring-beans-2.5.6.SEC01.jar;lib/spring/spring-core-2.5.6.SEC01.jar;lib/MRJ141Stubs.jar;lib/apache/commons-io-2.1.jar</classpath>
+                <source-level>1.5</source-level>
+            </compilation-unit>
+            <compilation-unit>
+                <package-root>code/src/test</package-root>
+                <unit-tests/>
+                <classpath mode="compile">lib/test/clover.jar;lib/test/junit-4.1.jar;lib/test/xmlunit1.0.jar;lib/jep/jep-2.4.1.jar;code/src/java;code/build/classes;code/build/testclasses;code/src/testcommon</classpath>
+                <source-level>1.5</source-level>
+            </compilation-unit>
+            <compilation-unit>
+                <package-root>code/src/itest</package-root>
+                <unit-tests/>
+                <classpath mode="compile">lib/test/clover.jar;lib/test/junit-4.1.jar;lib/test/xmlunit1.0.jar;code/src/java;code/build/classes;code/build/testclasses;code/src/testcommon</classpath>
+                <source-level>1.5</source-level>
+            </compilation-unit>
+            <compilation-unit>
+                <package-root>code/src/testcommon</package-root>
+                <unit-tests/>
+                <classpath mode="compile">lib/test/clover.jar;lib/test/junit-4.1.jar;lib/test/xmlunit1.0.jar;code/src/java;code/build/classes;code/build/testclasses</classpath>
+                <source-level>1.5</source-level>
+            </compilation-unit>
+            <compilation-unit>
+                <package-root>code/src/utest</package-root>
+                <unit-tests/>
+                <classpath mode="compile">lib/test/clover.jar;lib/test/junit-4.1.jar;lib/test/xmlunit1.0.jar;code/src/java;code/build/classes;code/build/testclasses;code/src/testcommon</classpath>
+                <source-level>1.5</source-level>
+            </compilation-unit>
+        </java-data>
+        <preferences xmlns="http://www.netbeans.org/ns/auxiliary-configuration-preferences/1">
+            <module name="org-netbeans-modules-editor-indent"/>
+            <module name="org-netbeans-modules-hudson"/>
+        </preferences>
+    </configuration>
+</project>

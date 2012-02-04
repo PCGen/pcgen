@@ -7,12 +7,16 @@
 <body>
  <section name="Download Autobuild">
  <p>
- The download is split into two parts, the libraries required by PCGen, which do not 
- change frequently, and everything else, which will change with each autobuild. Generally you 
- can use your previous copy of the libraries for each autobuild and only update if a 
- missing library is reported.
+ The download is split into two parts, either a full distribution with everything needed to run CDOM UI demo 
+ (apart from Java: Java 6 required, Java 7 supported also) or the program patch which can be applied to an 
+ existing autobuild install to update it. Generally you can just patch your existing full distribution for each 
+ autobuild and only grab the full distribution if a missing library is reported.
  <ul>
+   <li><a href="downloads/pcgen-${project.version}-full.zip">PCGen Autobuild - Full Distribution</a> (35Mb)</li>
    <li><a href="downloads/pcgen-${project.version}-program.zip">PCGen Autobuild - Program</a></li>
+ </ul>
+Other portions of the full zip:
+ <ul>
    <li><a href="downloads/pcgen-${project.version}-data.zip">PCGen Autobuild - Data</a></li>
    <li><a href="downloads/pcgen-${project.version}-docs.zip">PCGen Autobuild - Docs</a></li>
    <li><a href="downloads/pcgen-${project.version}-libraries.zip">PCGen Libraries</a></li>

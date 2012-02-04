@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+</head>
+<body>
+<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Character Information">
+<tr>
+<td>
+<!-- START Skills Table -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Skills Table">
+    <tr>
+		 <td height="30" ></td>
+		 <td height="30" align="center" class="ab"><b>SKILLS</b></td>
+		 <td colspan="4" height="30"  align="center"></td>
+		 <td height="30"  align="right" ></td>
+		 <td height="30" align="center" class="ab">MAX<br>RANKS</td>
+		 <td colspan="2" height="30" align="center" class="skl"><b>|MAXSKILLLEVEL|/|MAXCCSKILLLEVEL|</b></td>
+    </tr>
+    <tr>
+		 <td align="center" width="5%" class="border7"></td>
+		 <td align="center" width="45%" class="border7">SKILL NAME</td>
+		 <td align="center" width="10%" class="border7">ABILITY</td>
+		 <td align="center" width="5%" colspan="1" class="border7">SKILL<br>TOTAL</td>
+		 <td align="center" width="5%" colspan="1" class="border7"></td>
+		 <td align="center" width="5%" colspan="1" class="border7">ABILITY<br>MOD</td>
+		 <td align="center" width="5%" colspan="1" class="border7"></td>
+		 <td align="center" width="5%" colspan="1" class="border7">RANKS</td>
+		 <td align="center" width="5%" colspan="1" class="border7"></td>
+		 <td align="center" width="5%" colspan="1" class="border7">MISC<br>MOD</td>
+    </tr>
+|FOR,%skill,0,COUNT[SKILLS]-1,1,0|
+|OIF(EVEN:%skill,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+		 <td align="center" class="skill" width="5%" height="15">|OIF(SKILL%skill.UNTRAINED,&#9670;,)|</td>
+		 <td align="left" class="skill">|SKILL.%skill|</td>
+		 <td align="center" class="skill">|SKILL.%skill.ABILITY|</td>
+		 <td align="center" class="skillValue"><b>|SKILL.%skill.TOTAL|</b></td>
+		 <td align="center" class="sign">=</td>
+		 <td align="center" class="skillValue">|SKILL.%skill.ABMOD|<br></td>
+		 <td align="center" class="sign">+</td>
+		 <td align="center" class="skillValue" >|SKILL.%skill.RANK|<br></td>
+		 <td align="center" class="sign">+</td>
+		 <td align="center" class="skillValue">|SKILL.%skill.MISC|<br></td>
+    </tr>
+|ENDFOR|
+</table>
+   <span class="skill">&#9670; = Useable Untrained</span>
+<!-- STOP Skills Table -->
+
+</td>
+</tr></table></body></html>

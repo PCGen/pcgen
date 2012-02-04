@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+</head>
+<body>
+<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Character Information">
+<tr>
+<td align="center" width="25%"><font face="Verdana" size="4"><b></b></font></td>
+<td align="center" width="35%"><font face="Verdana" size="4"><b>Statistics</b></font><br></td>
+<td align="center" width="40%"><font face="Verdana" size="4"><b></b></font></td>
+</tr>
+<tr valign="top">
+<td><img src="images/icon_hp.png">&nbsp;<b>HP:</b>&nbsp;|HP|<br>
+<img src="images/icon_bab.png">&nbsp;<b>BAB:</b>&nbsp;|ATTACK.MELEE|<br>
+<img src="images/icon_init.png">&nbsp;<b>INIT:</b>&nbsp;|INITIATIVEMOD|<br>
+<img src="images/icon_ac.png">&nbsp;<b>AC:</b>&nbsp;|AC.Total|<br>
+<img src="images/icon_acf.png">&nbsp;<b>Flatfooted:</b>&nbsp;|AC.Flatfooted|<br>
+<img src="images/icon_act.png">&nbsp;<b>Touch:</b>&nbsp;|AC.Touch|<br>
+|FOR,%checks,0,COUNT[CHECKS]-1,1,0|
+|IIF(CHECK.%checks.NAME:Fortitude)|
+<img src="images/icon_savef.png">&nbsp;<b>FORT:</b>
+|ELSE|
+|IIF(CHECK.%checks.NAME:Reflex)|
+<img src="images/icon_saver.png">&nbsp;<b>REF:</b>
+|ELSE|
+|IIF(CHECK.%checks.NAME:Will)|
+<img src="images/icon_savew.png">&nbsp;<b>WILL:</b>
+|ELSE|
+<img src="images/icon_bod.png">&nbsp;|CHECK.%checks.NAME|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|CHECK.%checks.TOTAL|<br>
+|ENDFOR|
+</td>
+<td>
+<img src="images/icon_eye.png">&nbsp;<b>Alignment:</b>&nbsp;|ALIGNMENT.SHORT|<br>
+<img src="images/icon_bod.png">&nbsp;<b>Race:</b>&nbsp;
+|IIF(RACE:<None Selected>)|
+None
+|ELSE|
+|RACE|
+|ENDIF|
+<br>
+<img src="images/icon_bod.png">&nbsp;<b>Gender:</b>&nbsp;|GENDER.LONG|<br>
+<img src="images/icon_size.png">&nbsp;<b>Size:</b>&nbsp;|SIZELONG|<br>
+<img src="images/icon_size.png">&nbsp;<b>Age:</b>&nbsp;|AGE|<br>
+<img src="images/icon_bod.png">&nbsp;<b>Handed:</b>&nbsp;|HANDED|<br>
+<img src="images/icon_eye.png">&nbsp;<b>Vision:</b>&nbsp;|VISION|<br>
+<img src="images/icon_coin.png">&nbsp;<b>Wealth:</b>&nbsp;|TOTAL.VALUE|</td>
+<td><img src="images/icon_load.png">&nbsp;<b>Load(L):</b>&nbsp;|WEIGHT.LIGHT| |UNITSET.WEIGHTUNIT|<br>
+<img src="images/icon_load.png">&nbsp;<b>Curr. Load:</b>&nbsp;|TOTAL.LOAD| |TOTAL.WEIGHT|<br>
+<img src="images/icon_bod.png">&nbsp;<b>Armor Check Penalty:</b>&nbsp;|ACCHECK|<br>
+<img src="images/icon_bod.png">&nbsp;<b>Max. Dex.:</b>&nbsp;|MAXDEX|<br>
+<img src="images/icon_move.png">&nbsp;<b>Move:</b>&nbsp;|MOVEMENT|<br>
+<img src="images/icon_unarmed.png">&nbsp;<b>CMB:</b>&nbsp;|VAR.CMB.INTVAL.SIGN|<br>
+<img src="images/icon_unarmed.png">&nbsp;<b>CMD:</b>&nbsp;|VAR.CMD.INTVAL|<br>
+
+</td></tr></table></body></html>

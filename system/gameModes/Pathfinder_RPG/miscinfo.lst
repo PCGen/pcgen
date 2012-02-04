@@ -286,6 +286,8 @@ ABILITYCATEGORY:Natural Attack	VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALP
 
 PREVIEWDIR:d20/fantasy
 PREVIEWSHEET:preview.html
+INFOSHEET:SUMMARY|preview/summary/pfrpg_info.html
+INFOSHEET:SKILLS|preview/skills/35e_skills.html
 
 # DIESIZES values are used by the HITEDIE tag to bump up/down HD per level.
 DIESIZES:1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000

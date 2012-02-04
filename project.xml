@@ -216,6 +216,12 @@
       <url>http://commons.apache.org/lang/</url>
     </dependency>
     <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.1</version>
+      <url>http://commons.apache.org/io/</url>
+    </dependency>
+    <dependency>
       <groupId>rhino</groupId>
       <artifactId>js</artifactId>
       <version>1.6R5</version>
@@ -672,6 +678,26 @@
       <id>5.17.6</id>
       <name>5.17.6</name>
       <tag>release-5.17.6</tag>
+    </version>
+    <version>
+      <id>5.17.6-uidemo</id>
+      <name>5.17.6-uidemo</name>
+      <tag>release-5.17.6-uidemo</tag>
+    </version>
+    <version>
+      <id>5.17.6-uidemo2</id>
+      <name>5.17.6-uidemo2</name>
+      <tag>release-5.17.6-uidemo2</tag>
+    </version>
+    <version>
+      <id>5.17.6-uidemo3</id>
+      <name>5.17.6-uidemo3</name>
+      <tag>release-5.17.6-uidemo3</tag>
+    </version>
+    <version>
+      <id>5.17.6-uidemo4</id>
+      <name>5.17.6-uidemo4</name>
+      <tag>release-5.17.6-uidemo4</tag>
     </version>
     <version>
       <id>5.17.7</id>

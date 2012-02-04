@@ -1,0 +1,94 @@
+#
+# Current Ver: $Revision: 12028 $
+# Last Editor: $Author: jdempsey $
+# Last Edited: $Date: 2010-06-01 17:56:24 +1000 (Tue, 01 Jun 2010) $
+#
+# Icons for equipment types
+#
+
+# Fallback icon for anything without one defined 
+ICON:DEFAULT|system/icons/item.png
+
+# General types
+ICON:Weapon|system/icons/weapon.png
+ICON:Container|system/icons/container.png
+ICON:Wondrous|system/icons/wonderous.png
+ICON:Goods|system/icons/goods.png
+ICON:Trade|system/icons/trade.png
+
+# Gear
+ICON:Alchemical|system/icons/alchemical.png
+ICON:Amulet|system/icons/amulet.png
+ICON:Art|system/icons/art.png
+ICON:Artifact|system/icons/artifact.png
+ICON:Belt|system/icons/belt.png
+ICON:Boot|system/icons/boot.png
+ICON:Bracer|system/icons/bracer.png
+ICON:Cape|system/icons/cape.png
+ICON:Cloak|system/icons/cloak.png
+ICON:Clothing|system/icons/clothing.png
+ICON:Coin|system/icons/coin.png
+ICON:Elixir|system/icons/elixer.png
+ICON:Eyegear|system/icons/eyegear.png
+ICON:Eyes|system/icons/eyes.png
+ICON:Focus|system/icons/focus.png
+ICON:Food|system/icons/food.png
+ICON:Gem|system/icons/gem.png
+ICON:Glove|system/icons/glove.png
+ICON:Headband|system/icons/headband.png
+ICON:Headgear|system/icons/headgear.png
+ICON:Instrument|system/icons/instument.png
+ICON:Ioun|system/icons/ioun.png
+ICON:LightSource|system/icons/lightsorce.png
+ICON:MaterialComponent|system/icons/material.png
+ICON:Mount|system/icons/mount.png
+ICON:Poison|system/icons/poison.png
+ICON:Potion|system/icons/potion.png
+ICON:Ring|system/icons/ring.png
+ICON:Robe|system/icons/robe.png
+ICON:Rod|system/icons/rod.png
+ICON:Saddle|system/icons/saddle.png
+ICON:Scroll|system/icons/writing.png
+ICON:Service|system/icons/service.png
+ICON:Ships|system/icons/ships.png
+ICON:Shirt|system/icons/shirt.png
+ICON:Spellbook|system/icons/spellbook.png
+ICON:SpellFocus|system/icons/spellfocus.png
+ICON:Staff|system/icons/staff.png
+ICON:Tools|system/icons/tools.png
+ICON:Wand|system/icons/wand.png
+ICON:Writing|system/icons/writing.png
+
+# Armor
+ICON:Armor|system/icons/armor.png
+ICON:Barding|system/icons/barding.png
+ICON:Shield|system/icons/shield.png
+
+
+# Weapons
+ICON:Ammunition|system/icons/ammo-fantasy.png
+ICON:Axe|system/icons/axe.png
+ICON:BladeLight|system/icons/bladelight.png
+ICON:Blowgun|system/icons/blowgun.png
+ICON:Bow|system/icons/bow.png
+ICON:Crossbow|system/icons/crossbow.png
+ICON:Dagger|system/icons/dagger.png
+ICON:Flail|system/icons/flail.png
+ICON:Gauntlet|system/icons/gauntlet.png
+ICON:Hammer|system/icons/hammer.png
+ICON:Kama|system/icons/kama.png
+ICON:Monk|system/icons/monkweapon.png
+ICON:Nunchaku|system/icons/nunchuku.png
+ICON:Polearm|system/icons/polearm.png
+ICON:Quarterstaff|system/icons/staff.png
+ICON:Sai|system/icons/sai.png
+ICON:Sap|system/icons/sap.png
+ICON:Scythe|system/icons/scythe.png
+ICON:Shieldbash|system/icons/shieldbash.png
+ICON:Siangham|system/icons/siangham.png
+ICON:Sling|system/icons/sling.png
+ICON:Spear|system/icons/spear.png
+ICON:Spiked|system/icons/spiked.png
+ICON:Sword|system/icons/sword.png
+ICON:Thrown|system/icons/thrown.png
+ICON:Unarmed|system/icons/unarmed.png
