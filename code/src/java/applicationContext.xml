@@ -43,7 +43,9 @@
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="armorProfProviderFacet" class="pcgen.cdom.facet.ArmorProfProviderFacet" />
-	<bean id="autoEquipmentFacet" class="pcgen.cdom.facet.AutoEquipmentFacet" />
+	<bean id="autoEquipmentFacet" class="pcgen.cdom.facet.AutoEquipmentFacet">
+		<property name="consolidationFacet" ref="consolidationFacet"/>
+	</bean>
 	<bean id="autoEquipmentListFacet" class="pcgen.cdom.facet.AutoEquipmentListFacet" />
 	<bean id="autoLanguageFacet" class="pcgen.cdom.facet.AutoLanguageFacet" />
 	<bean id="autoListArmorProfFacet" class="pcgen.cdom.facet.AutoListArmorProfFacet" />

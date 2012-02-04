@@ -37,6 +37,8 @@ public class AutoEquipmentFacet extends
 		implements DataFacetChangeListener<CDOMObject>
 {
 
+	private CDOMObjectConsolidationFacet consolidationFacet;
+
 	/**
 	 * Triggered when one of the Facets to which AutoEquipmentFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
@@ -92,5 +94,15 @@ public class AutoEquipmentFacet extends
 			}
 		}
 		return list;
+	}
+
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+		this.consolidationFacet = consolidationFacet;
+	}
+	
+	public void init()
+	{
+		consolidationFacet.addDataFacetChangeListener(this);
 	}
 }

@@ -97,8 +97,6 @@ public class FacetInitialization
 				.getFacet(AutoListWeaponProfFacet.class);
 		BonusWeaponProfFacet wpBonusFacet = FacetLibrary
 				.getFacet(BonusWeaponProfFacet.class);
-		AutoEquipmentFacet autoEquipFacet = FacetLibrary
-				.getFacet(AutoEquipmentFacet.class);
 		UserEquipmentFacet userEquipmentFacet = FacetLibrary
 				.getFacet(UserEquipmentFacet.class);
 		NaturalWeaponFacet naturalWeaponFacet =
@@ -201,7 +199,6 @@ public class FacetInitialization
 		charObjectFacet.addDataFacetChangeListener(cdomObjectFacet);
 
 		cdomObjectFacet.addDataFacetChangeListener(nwpFacet);
-		cdomObjectFacet.addDataFacetChangeListener(autoEquipFacet);
 		cdomObjectFacet.addDataFacetChangeListener(globalSkillCostFacet);
 		cdomObjectFacet.addDataFacetChangeListener(addedTemplateFacet);
 		cdomSourceFacet.addDataFacetChangeListener(autoLangFacet);
