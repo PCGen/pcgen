@@ -102,10 +102,7 @@ public class FacetInitialization
 		NaturalWeaponFacet naturalWeaponFacet =
 				FacetLibrary.getFacet(NaturalWeaponFacet.class);
 		EquipSetFacet equipSetFacet =
-				FacetLibrary
-				.getFacet(EquipSetFacet.class);
-		GlobalSkillCostFacet globalSkillCostFacet = FacetLibrary
-				.getFacet(GlobalSkillCostFacet.class);
+				FacetLibrary.getFacet(EquipSetFacet.class);
 		ChooseDriverFacet chooseDriverFacet = FacetLibrary
 				.getFacet(ChooseDriverFacet.class);
 
@@ -199,7 +196,6 @@ public class FacetInitialization
 		charObjectFacet.addDataFacetChangeListener(cdomObjectFacet);
 
 		cdomObjectFacet.addDataFacetChangeListener(nwpFacet);
-		cdomObjectFacet.addDataFacetChangeListener(globalSkillCostFacet);
 		cdomObjectFacet.addDataFacetChangeListener(addedTemplateFacet);
 		cdomSourceFacet.addDataFacetChangeListener(autoLangFacet);
 		cdomSourceFacet.addDataFacetChangeListener(unencumberedArmorFacet);

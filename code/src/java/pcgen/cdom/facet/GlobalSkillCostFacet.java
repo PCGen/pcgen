@@ -39,6 +39,8 @@ public class GlobalSkillCostFacet implements
 {
 	private final Class<?> thisClass = getClass();
 
+	private CDOMObjectConsolidationFacet consolidationFacet;
+
 	/**
 	 * Triggered when one of the Facets to which GlobalSkillCostFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
@@ -234,5 +236,15 @@ public class GlobalSkillCostFacet implements
 	{
 		CacheInfo ci = getInfo(id);
 		return ci != null && ci.contains(sc, sk);
+	}
+
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+		this.consolidationFacet = consolidationFacet;
+	}
+	
+	public void init()
+	{
+		consolidationFacet.addDataFacetChangeListener(this);
 	}
 }

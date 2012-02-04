@@ -167,7 +167,9 @@
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
 	<bean id="globalAddedSkillCostFacet" class="pcgen.cdom.facet.GlobalAddedSkillCostFacet"/>
-	<bean id="globalSkillCostFacet" class="pcgen.cdom.facet.GlobalSkillCostFacet"/>
+	<bean id="globalSkillCostFacet" class="pcgen.cdom.facet.GlobalSkillCostFacet">
+		<property name="consolidationFacet" ref="consolidationFacet"/>
+	</bean>
 	<bean id="grantedAbilityFacet" class="pcgen.cdom.facet.GrantedAbilityFacet"/>
 	<!-- H -->
 	<bean id="handsFacet" class="pcgen.cdom.facet.HandsFacet">
