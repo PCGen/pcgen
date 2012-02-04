@@ -112,4 +112,11 @@ public class AgeSetFacet extends AbstractItemFacet<AgeSet> implements
 		this.bioSetFacet = bioSetFacet;
 	}
 	
+	public void init()
+	{
+		raceFacet.addDataFacetChangeListener(this);
+		regionFacet.addDataFacetChangeListener(this);
+		ageFacet.addDataFacetChangeListener(this);
+		bioSetFacet.addDataFacetChangeListener(this);
+	}
 }

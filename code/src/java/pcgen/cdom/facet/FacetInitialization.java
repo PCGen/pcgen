@@ -185,15 +185,6 @@ public class FacetInitialization
 
 		HitPointFacet hitPointFacet = FacetLibrary.getFacet(HitPointFacet.class);
 
-		AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
-		RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
-		AgeSetFacet ageSetFacet = FacetLibrary.getFacet(AgeSetFacet.class);
-
-		raceFacet.addDataFacetChangeListener(ageSetFacet);
-		regionFacet.addDataFacetChangeListener(ageSetFacet);
-		ageFacet.addDataFacetChangeListener(ageSetFacet);
-		bioSetFacet.addDataFacetChangeListener(ageSetFacet);
-
 		autoLangFacet.addDataFacetChangeListener(languageFacet);
 		freeLangFacet.addDataFacetChangeListener(languageFacet);
 		addLangFacet.addDataFacetChangeListener(languageFacet);
