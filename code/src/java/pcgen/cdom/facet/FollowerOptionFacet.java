@@ -40,6 +40,8 @@ import pcgen.core.FollowerOption;
  */
 public class FollowerOptionFacet implements DataFacetChangeListener<CDOMObject>
 {
+	private CDOMObjectConsolidationFacet consolidationFacet;
+
 	/**
 	 * Triggered when one of the Facets to which FollowerOptionFacet listens
 	 * fires a DataFacetChangeEvent to indicate a FollowerOption was added to a
@@ -218,5 +220,15 @@ public class FollowerOptionFacet implements DataFacetChangeListener<CDOMObject>
 			}
 		}
 		return ret;
+	}
+
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+		this.consolidationFacet = consolidationFacet;
+	}
+	
+	public void init()
+	{
+		consolidationFacet.addDataFacetChangeListener(this);
 	}
 }

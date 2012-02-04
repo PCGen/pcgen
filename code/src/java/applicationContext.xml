@@ -149,7 +149,9 @@
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 	</bean>
-	<bean id="followerOptionFacet" class="pcgen.cdom.facet.FollowerOptionFacet" />
+	<bean id="followerOptionFacet" class="pcgen.cdom.facet.FollowerOptionFacet">
+		<property name="consolidationFacet" ref="consolidationFacet"/>
+	</bean>
 	<bean id="formulaResolvingFacet" class="pcgen.cdom.facet.FormulaResolvingFacet" />
 	<bean id="freeLanguageFacet" class="pcgen.cdom.facet.FreeLanguageFacet"/>
 	<!-- G -->
