@@ -38,6 +38,8 @@ public class ChangeProfFacet extends AbstractSourcedListFacet<ChangeProf>
 		implements DataFacetChangeListener<CDOMObject>
 {
 
+	private CDOMObjectConsolidationFacet consolidationFacet;
+
 	/**
 	 * Triggered when one of the Facets to which ChangeProfFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
@@ -100,5 +102,15 @@ public class ChangeProfFacet extends AbstractSourcedListFacet<ChangeProf>
 		}
 		aList.addAll(weaponProfsOfType);
 		return aList;
+	}
+
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+		this.consolidationFacet = consolidationFacet;
+	}
+	
+	public void init()
+	{
+		consolidationFacet.addDataFacetChangeListener(this);
 	}
 }

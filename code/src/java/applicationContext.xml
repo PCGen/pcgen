@@ -78,7 +78,9 @@
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 		<property name="levelFacet" ref="levelFacet"/>
 	</bean>
-	<bean id="changeProfFacet" class="pcgen.cdom.facet.ChangeProfFacet" />
+	<bean id="changeProfFacet" class="pcgen.cdom.facet.ChangeProfFacet">
+		<property name="consolidationFacet" ref="consolidationFacet"/>
+	</bean>
 	<bean id="characterConsolidationFacet" class="pcgen.cdom.facet.CharacterConsolidationFacet" />
 	<bean id="characterSpellResistanceFacet" class="pcgen.cdom.facet.CharacterSpellResistanceFacet">
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
