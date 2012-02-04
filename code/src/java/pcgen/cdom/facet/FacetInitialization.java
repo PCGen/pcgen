@@ -23,6 +23,7 @@ public class FacetInitialization
 
 	public static void initialize()
 	{
+		doBridges();
 		TemplateFacet templateFacet = FacetLibrary
 				.getFacet(TemplateFacet.class);
 		ConditionalTemplateFacet conditionalTemplateFacet = FacetLibrary
@@ -259,5 +260,17 @@ public class FacetInitialization
 		cdomSourceFacet.addDataFacetChangeListener(unencumberedLoadFacet);
 		cdomSourceFacet.addDataFacetChangeListener(spellsFacet);
 
+	}
+
+	private static void doBridges()
+	{
+		/*
+		 * TODO These are required because they are "bridges" - meaning they
+		 * refer to others, but no one refers to them. Need to consider if these
+		 * need to be redesigned...
+		 */
+		FacetLibrary.getFacet(AgeSetKitFacet.class);
+		FacetLibrary.getFacet(DomainSpellListFacet.class);
+		FacetLibrary.getFacet(NaturalEquipSetFacet.class);
 	}
 }
