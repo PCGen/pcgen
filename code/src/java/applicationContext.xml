@@ -290,7 +290,9 @@
 	<bean id="skillFacet" class="pcgen.cdom.facet.SkillFacet"/>
 	<bean id="skillLanguageFacet" class="pcgen.cdom.facet.SkillLanguageFacet"/>
 	<bean id="sourcedEquipmentFacet" class="pcgen.cdom.facet.SourcedEquipmentFacet"/>
-	<bean id="spellBookFacet" class="pcgen.cdom.facet.SpellBookFacet"/>
+	<bean id="spellBookFacet" class="pcgen.cdom.facet.SpellBookFacet">
+		<property name="equipmentFacet" ref="equipmentFacet"/>
+	</bean>
 	<bean id="spellListFacet" class="pcgen.cdom.facet.SpellListFacet"/>
 	<bean id="spellsFacet" class="pcgen.cdom.facet.SpellsFacet">
 		<property name="raceFacet" ref="raceFacet"/>

@@ -34,6 +34,7 @@ import pcgen.core.character.SpellBook;
  */
 public class SpellBookFacet implements DataFacetChangeListener<Equipment>
 {
+	private EquipmentFacet equipmentFacet;
 
 	/**
 	 * Triggered when one of the Facets to which SpellBookFacet listens fires a
@@ -209,5 +210,15 @@ public class SpellBookFacet implements DataFacetChangeListener<Equipment>
 		{
 			componentMap.remove(name);
 		}
+	}
+	
+	public void setEquipmentFacet(EquipmentFacet equipmentFacet)
+	{
+		this.equipmentFacet = equipmentFacet;
+	}
+
+	public void init()
+	{
+		equipmentFacet.addDataFacetChangeListener(this);
 	}
 }
