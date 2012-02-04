@@ -35,7 +35,14 @@ public class FavoredClassFacet extends AbstractSourcedListFacet<PCClass>
 {
 
 	private HasAnyFavoredClassFacet hasAnyFavoredClassFacet;
+
 	private ClassFacet classFacet;
+
+	private RaceFacet raceFacet;
+
+	private TemplateFacet templateFacet;
+	
+	private ConditionalTemplateFacet conditionalTemplateFacet;
 
 	/**
 	 * Triggered when one of the Facets to which FavoredClassFacet listens fires
@@ -115,5 +122,26 @@ public class FavoredClassFacet extends AbstractSourcedListFacet<PCClass>
 		this.classFacet = classFacet;
 	}
 	
-	
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+		this.raceFacet = raceFacet;
+	}
+
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+		this.templateFacet = templateFacet;
+	}
+
+	public void setConditionalTemplateFacet(
+		ConditionalTemplateFacet conditionalTemplateFacet)
+	{
+		this.conditionalTemplateFacet = conditionalTemplateFacet;
+	}
+
+	public void init()
+	{
+		raceFacet.addDataFacetChangeListener(this);
+		templateFacet.addDataFacetChangeListener(this);
+		conditionalTemplateFacet.addDataFacetChangeListener(this);
+	}
 }

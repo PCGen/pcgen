@@ -137,6 +137,9 @@
 	<bean id="favoredClassFacet" class="pcgen.cdom.facet.FavoredClassFacet">
 		<property name="hasAnyFavoredClassFacet" ref="hasAnyFavoredClassFacet"/>
 		<property name="classFacet" ref="classFacet"/>
+		<property name="raceFacet" ref="raceFacet"/>
+		<property name="templateFacet" ref="templateFacet"/>
+		<property name="conditionalTemplateFacet" ref="conditionalTemplateFacet"/>
 	</bean>
 	<bean id="followerFacet" class="pcgen.cdom.facet.FollowerFacet" />
 	<bean id="followerLimitFacet" class="pcgen.cdom.facet.FollowerLimitFacet">

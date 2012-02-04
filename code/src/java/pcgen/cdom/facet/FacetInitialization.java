@@ -97,8 +97,6 @@ public class FacetInitialization
 				.getFacet(UnlockedStatFacet.class);
 		StatLockFacet statLockFacet = FacetLibrary
 				.getFacet(StatLockFacet.class);
-		FavoredClassFacet favClassFacet = FacetLibrary
-				.getFacet(FavoredClassFacet.class);
 		AddedTemplateFacet addedTemplateFacet =
 				FacetLibrary.getFacet(AddedTemplateFacet.class);
 		MonsterClassFacet monsterClassFacet = FacetLibrary
@@ -218,10 +216,6 @@ public class FacetInitialization
 		templateFacet.addDataFacetChangeListener(sizeFacet);
 		conditionalTemplateFacet.addDataFacetChangeListener(sizeFacet);
 		bonusChangeFacet.addBonusChangeListener(sizeFacet, "SIZEMOD", "NUMBER");
-
-		raceFacet.addDataFacetChangeListener(favClassFacet);
-		templateFacet.addDataFacetChangeListener(favClassFacet);
-		conditionalTemplateFacet.addDataFacetChangeListener(favClassFacet);
 
 		expandedCampaignFacet.addDataFacetChangeListener(charObjectFacet);
 		alignmentFacet.addDataFacetChangeListener(charObjectFacet);
