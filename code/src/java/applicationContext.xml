@@ -244,7 +244,9 @@
 	</bean>
 	<!-- N -->
 	<bean id="naturalEquipmentFacet" class="pcgen.cdom.facet.NaturalEquipmentFacet"/>
-	<bean id="naturalEquipSetFacet" class="pcgen.cdom.facet.NaturalEquipSetFacet"/>
+	<bean id="naturalEquipSetFacet" class="pcgen.cdom.facet.NaturalEquipSetFacet">
+		<property name="naturalWeaponFacet" ref="naturalWeaponFacet"/>
+	</bean>
 	<bean id="naturalWeaponFacet" class="pcgen.cdom.facet.NaturalWeaponFacet"/>
 	<bean id="naturalWeaponProfFacet" class="pcgen.cdom.facet.NaturalWeaponProfFacet"/>
 	<bean id="nonAbilityFacet" class="pcgen.cdom.facet.NonAbilityFacet">

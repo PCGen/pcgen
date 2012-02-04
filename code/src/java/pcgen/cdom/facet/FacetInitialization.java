@@ -138,8 +138,6 @@ public class FacetInitialization
 				.getFacet(UserEquipmentFacet.class);
 		NaturalWeaponFacet naturalWeaponFacet =
 				FacetLibrary.getFacet(NaturalWeaponFacet.class);
-		NaturalEquipSetFacet naturalEquipSetFacet =
-				FacetLibrary.getFacet(NaturalEquipSetFacet.class);
 		EquipSetFacet equipSetFacet =
 				FacetLibrary
 				.getFacet(EquipSetFacet.class);
@@ -245,8 +243,6 @@ public class FacetInitialization
 		skillFacet.addDataFacetChangeListener(charObjectFacet);
 		statFacet.addDataFacetChangeListener(charObjectFacet);
 		templateFacet.addDataFacetChangeListener(charObjectFacet);
-
-		naturalWeaponFacet.addDataFacetChangeListener(naturalEquipSetFacet);
 
 		// weaponProfList is still just a list of Strings
 		// results.addAll(getWeaponProfList());

@@ -30,6 +30,8 @@ public class NaturalEquipSetFacet implements DataFacetChangeListener<Equipment>
 	private final PlayerCharacterTrackingFacet trackingFacet =
 			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
+	private NaturalWeaponFacet naturalWeaponFacet;
+
 	@Override
 	public void dataAdded(DataFacetChangeEvent<Equipment> dfce)
 	{
@@ -50,5 +52,15 @@ public class NaturalEquipSetFacet implements DataFacetChangeListener<Equipment>
 	public void dataRemoved(DataFacetChangeEvent<Equipment> dfce)
 	{
 		// Ignore for now
+	}
+
+	public void setNaturalWeaponFacet(NaturalWeaponFacet naturalWeaponFacet)
+	{
+		this.naturalWeaponFacet = naturalWeaponFacet;
+	}
+
+	public void init()
+	{
+		naturalWeaponFacet.addDataFacetChangeListener(this);
 	}
 }
