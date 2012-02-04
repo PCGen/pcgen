@@ -174,8 +174,6 @@ public class FacetInitialization
 				.getFacet(HasAnyFavoredClassFacet.class);
 		SpellBookFacet spellBookFacet = FacetLibrary
 				.getFacet(SpellBookFacet.class);
-		AddLevelFacet addLevelFacet = FacetLibrary
-				.getFacet(AddLevelFacet.class);
 		UnencumberedArmorFacet unencumberedArmorFacet =
 			FacetLibrary.getFacet(UnencumberedArmorFacet.class);		
 		UnencumberedLoadFacet unencumberedLoadFacet =
@@ -207,7 +205,6 @@ public class FacetInitialization
 		splFacet.addDataFacetChangeListener(sppFacet);
 
 		deityFacet.addDataFacetChangeListener(deityWeaponProfFacet);
-		templateFacet.addDataFacetChangeListener(addLevelFacet);
 
 		classFacet.addDataFacetChangeListener(localSkillCostFacet);
 		domainFacet.addDataFacetChangeListener(localSkillCostFacet);

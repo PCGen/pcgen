@@ -32,6 +32,8 @@ import pcgen.core.SettingsHandler;
 public class AddLevelFacet implements DataFacetChangeListener<PCTemplate>
 {
 
+	private TemplateFacet templateFacet;
+
 	private final Class<?> thisClass = getClass();
 
 	public void associatePlayerCharacter(CharID id, PlayerCharacter pc)
@@ -155,5 +157,15 @@ public class AddLevelFacet implements DataFacetChangeListener<PCTemplate>
 		SettingsHandler.setSingleChoicePreference(tempChoicePref);
 		SettingsHandler.setShowFeatDialogAtLevelUp(tempFeatDlg);
 		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
+	}
+	
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+		this.templateFacet = templateFacet;
+	}
+
+	public void init()
+	{
+		templateFacet.addDataFacetChangeListener(this);
 	}
 }

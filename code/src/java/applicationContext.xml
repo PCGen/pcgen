@@ -14,7 +14,9 @@
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
 	</bean>
 	<bean id="addLanguageFacet" class="pcgen.cdom.facet.AddLanguageFacet"/>
-	<bean id="addLevelFacet" class="pcgen.cdom.facet.AddLevelFacet" />
+	<bean id="addLevelFacet" class="pcgen.cdom.facet.AddLevelFacet">
+		<property name="templateFacet" ref="templateFacet"/>
+	</bean>
 	<bean id="ageFacet" class="pcgen.cdom.facet.AgeFacet" />
 	<bean id="ageSetFacet" class="pcgen.cdom.facet.AgeSetFacet">
 		<property name="ageFacet" ref="ageFacet"/>
