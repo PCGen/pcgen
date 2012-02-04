@@ -274,6 +274,11 @@ public class ListSkillCostFacet implements DataFacetChangeListener<CDOMObject>
 		return ci != null && ci.contains(cl, sc, sk);
 	}
 
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+		this.raceFacet = raceFacet;
+	}
+
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(this);
