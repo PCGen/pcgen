@@ -218,6 +218,8 @@
 	<bean id="localAddedSkillCostFacet" class="pcgen.cdom.facet.LocalAddedSkillCostFacet"/>
 	<bean id="localSkillCostFacet" class="pcgen.cdom.facet.LocalSkillCostFacet">
 		<property name="domainFacet" ref="domainFacet"/>
+		<property name="classFacet" ref="classFacet"/>
+		<property name="classLevelFacet" ref="classLevelFacet"/>
 	</bean>
 	<!-- M -->
 	<bean id="masterFacet" class="pcgen.cdom.facet.MasterFacet">
