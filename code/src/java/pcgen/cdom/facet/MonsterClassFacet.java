@@ -39,9 +39,14 @@ public class MonsterClassFacet implements DataFacetChangeListener<CDOMObject>
 {
 
 	private LevelFacet levelFacet;
+	
 	private ClassFacet classFacet;
+	
 	private FormulaResolvingFacet formulaResolvingFacet;
+
 	private LevelInfoFacet levelInfoFacet;
+
+	private RaceFacet raceFacet;
 
 	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 			.getFacet(PlayerCharacterTrackingFacet.class);
@@ -182,5 +187,15 @@ public class MonsterClassFacet implements DataFacetChangeListener<CDOMObject>
 	public void setLevelInfoFacet(LevelInfoFacet levelInfoFacet)
 	{
 		this.levelInfoFacet = levelInfoFacet;
+	}
+
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+		this.raceFacet = raceFacet;
+	}
+
+	public void init()
+	{
+		raceFacet.addDataFacetChangeListener(this);
 	}
 }

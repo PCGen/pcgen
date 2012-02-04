@@ -251,6 +251,7 @@
 		<property name="classFacet" ref="classFacet"/>
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="levelInfoFacet" ref="levelInfoFacet"/>
+		<property name="raceFacet" ref="raceFacet"/>
 	</bean>
 	<bean id="monsterCSkillFacet" class="pcgen.cdom.facet.MonsterCSkillFacet"/>
 	<bean id="movementFacet" class="pcgen.cdom.facet.MovementFacet">

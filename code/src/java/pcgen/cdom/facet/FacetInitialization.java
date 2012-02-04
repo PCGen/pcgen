@@ -85,8 +85,6 @@ public class FacetInitialization
 				.getFacet(AutoListArmorProfFacet.class);
 		ArmorProfProviderFacet appFacet = FacetLibrary
 				.getFacet(ArmorProfProviderFacet.class);
-		MonsterClassFacet monsterClassFacet = FacetLibrary
-				.getFacet(MonsterClassFacet.class);
 		SpellsFacet spellsFacet = FacetLibrary.getFacet(SpellsFacet.class);
 
 		NaturalWeaponProfFacet nwpFacet = FacetLibrary
@@ -159,7 +157,6 @@ public class FacetInitialization
 		cabFacet.addDataFacetChangeListener(grantedAbilityFacet);
 
 		raceFacet.addDataFacetChangeListener(bioSetFacet);
-		raceFacet.addDataFacetChangeListener(monsterClassFacet);
 
 		raceFacet.addDataFacetChangeListener(sizeFacet);
 		templateFacet.addDataFacetChangeListener(sizeFacet);
@@ -213,6 +210,7 @@ public class FacetInitialization
 		FacetLibrary.getFacet(NaturalEquipSetFacet.class);
 		FacetLibrary.getFacet(ShieldProfFacet.class);
 		FacetLibrary.getFacet(ArmorProfFacet.class);
+		FacetLibrary.getFacet(MonsterClassFacet.class);
 		//This one is a just in case
 		FacetLibrary.getFacet(ChangeProfFacet.class);
 	}
