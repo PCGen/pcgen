@@ -151,8 +151,6 @@ public class FacetInitialization
 				.getFacet(ListSkillCostFacet.class);
 		ChooseDriverFacet chooseDriverFacet = FacetLibrary
 				.getFacet(ChooseDriverFacet.class);
-		DomainSpellListFacet domainSpellListFacet = FacetLibrary
-				.getFacet(DomainSpellListFacet.class);
 
 		CDOMObjectConsolidationFacet cdomObjectFacet = FacetLibrary
 				.getFacet(CDOMObjectConsolidationFacet.class);
@@ -215,8 +213,6 @@ public class FacetInitialization
 
 		directAbilityFacet.addDataFacetChangeListener(grantedAbilityFacet);
 		cabFacet.addDataFacetChangeListener(grantedAbilityFacet);
-
-		domainFacet.addDataFacetChangeListener(domainSpellListFacet);
 
 		raceFacet.addDataFacetChangeListener(listSkillCostFacet);
 		raceFacet.addDataFacetChangeListener(bioSetFacet);

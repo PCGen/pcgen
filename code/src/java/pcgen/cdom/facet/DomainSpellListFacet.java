@@ -30,6 +30,8 @@ public class DomainSpellListFacet extends
 
 	private SpellListFacet spellListFacet;
 
+	private DomainFacet domainFacet;
+
 	@Override
 	public void dataAdded(DataFacetChangeEvent<Domain> dfce)
 	{
@@ -50,4 +52,13 @@ public class DomainSpellListFacet extends
 		this.spellListFacet = spellListFacet;
 	}
 
+	public void setDomainFacet(DomainFacet domainFacet)
+	{
+		this.domainFacet = domainFacet;
+	}
+
+	public void init()
+	{
+		domainFacet.addDataFacetChangeListener(this);
+	}
 }
