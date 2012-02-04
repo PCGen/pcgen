@@ -203,7 +203,9 @@
 	<bean id="levelTableFacet" class="pcgen.cdom.facet.LevelTableFacet">
 		<property name="resolveFacet" ref="formulaResolvingFacet"/>
 	</bean>
-	<bean id="listSkillCostFacet" class="pcgen.cdom.facet.ListSkillCostFacet"/>
+	<bean id="listSkillCostFacet" class="pcgen.cdom.facet.ListSkillCostFacet">
+		<property name="raceFacet" ref="raceFacet"/>
+	</bean>
 	<bean id="loadFacet" class="pcgen.cdom.facet.LoadFacet">
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="totalWeightFacet" ref="totalWeightFacet"/>

@@ -143,8 +143,6 @@ public class FacetInitialization
 				.getFacet(GlobalSkillCostFacet.class);
 		LocalSkillCostFacet localSkillCostFacet = FacetLibrary
 				.getFacet(LocalSkillCostFacet.class);
-		ListSkillCostFacet listSkillCostFacet = FacetLibrary
-				.getFacet(ListSkillCostFacet.class);
 		ChooseDriverFacet chooseDriverFacet = FacetLibrary
 				.getFacet(ChooseDriverFacet.class);
 
@@ -208,7 +206,6 @@ public class FacetInitialization
 		directAbilityFacet.addDataFacetChangeListener(grantedAbilityFacet);
 		cabFacet.addDataFacetChangeListener(grantedAbilityFacet);
 
-		raceFacet.addDataFacetChangeListener(listSkillCostFacet);
 		raceFacet.addDataFacetChangeListener(bioSetFacet);
 		raceFacet.addDataFacetChangeListener(monsterClassFacet);
 

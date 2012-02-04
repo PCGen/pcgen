@@ -22,6 +22,8 @@ public class ListSkillCostFacet implements DataFacetChangeListener<CDOMObject>
 {
 	private final Class<?> thisClass = getClass();
 
+	private RaceFacet raceFacet;
+
 	/**
 	 * Triggered when one of the Facets to which ListSkillCostFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
@@ -272,4 +274,9 @@ public class ListSkillCostFacet implements DataFacetChangeListener<CDOMObject>
 		return ci != null && ci.contains(cl, sc, sk);
 	}
 
+	public void init()
+	{
+		raceFacet.addDataFacetChangeListener(this);
+	}
+	
 }
