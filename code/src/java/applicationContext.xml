@@ -81,6 +81,7 @@
 	<bean id="characterConsolidationFacet" class="pcgen.cdom.facet.CharacterConsolidationFacet" />
 	<bean id="characterSpellResistanceFacet" class="pcgen.cdom.facet.CharacterSpellResistanceFacet">
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="CheckFacet" class="pcgen.cdom.facet.CheckFacet">
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>

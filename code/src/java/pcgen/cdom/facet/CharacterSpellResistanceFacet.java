@@ -36,6 +36,8 @@ public class CharacterSpellResistanceFacet extends
 {
 	private FormulaResolvingFacet formulaResolvingFacet;
 
+	private CDOMObjectConsolidationFacet consolidationFacet;
+
 	/**
 	 * Triggered when one of the Facets to which CharacterSpellResistanceFacet
 	 * listens fires a DataFacetChangeEvent to indicate a CDOMObject was added
@@ -103,4 +105,13 @@ public class CharacterSpellResistanceFacet extends
 		this.formulaResolvingFacet = formulaResolvingFacet;
 	}
 
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+		this.consolidationFacet = consolidationFacet;
+	}
+	
+	public void init()
+	{
+		consolidationFacet.addDataFacetChangeListener(this);
+	}
 }

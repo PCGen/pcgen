@@ -104,8 +104,6 @@ public class FacetInitialization
 				.getFacet(FollowerOptionFacet.class);
 		FollowerLimitFacet flFacet = FacetLibrary
 				.getFacet(FollowerLimitFacet.class);
-		CharacterSpellResistanceFacet srFacet = FacetLibrary
-				.getFacet(CharacterSpellResistanceFacet.class);
 		ChangeProfFacet cpFacet = FacetLibrary.getFacet(ChangeProfFacet.class);
 		AutoWeaponProfFacet awpFacet = FacetLibrary
 				.getFacet(AutoWeaponProfFacet.class);
@@ -227,7 +225,6 @@ public class FacetInitialization
 		eqObjectFacet.addDataFacetChangeListener(cdomObjectFacet);
 		charObjectFacet.addDataFacetChangeListener(cdomObjectFacet);
 
-		cdomObjectFacet.addDataFacetChangeListener(srFacet);
 		cdomObjectFacet.addDataFacetChangeListener(apFacet);
 		cdomObjectFacet.addDataFacetChangeListener(qualifyFacet);
 		cdomObjectFacet.addDataFacetChangeListener(drFacet);
