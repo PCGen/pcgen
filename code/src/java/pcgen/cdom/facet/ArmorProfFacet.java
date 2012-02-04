@@ -32,6 +32,8 @@ public class ArmorProfFacet implements DataFacetChangeListener<CDOMObject>
 
 	private ArmorProfProviderFacet armorProfProviderFacet;
 
+	private CDOMObjectConsolidationFacet consolidationFacet;
+
 	/**
 	 * Triggered when one of the Facets to which ArmorProfFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
@@ -76,5 +78,15 @@ public class ArmorProfFacet implements DataFacetChangeListener<CDOMObject>
 		ArmorProfProviderFacet armorProfProviderFacet)
 	{
 		this.armorProfProviderFacet = armorProfProviderFacet;
+	}
+
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+		this.consolidationFacet = consolidationFacet;
+	}
+	
+	public void init()
+	{
+		consolidationFacet.addDataFacetChangeListener(this);
 	}
 }

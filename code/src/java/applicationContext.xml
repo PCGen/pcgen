@@ -40,6 +40,7 @@
 	</bean>
 	<bean id="armorProfFacet" class="pcgen.cdom.facet.ArmorProfFacet">
 		<property name="armorProfProviderFacet" ref="armorProfProviderFacet"/>
+		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="armorProfProviderFacet" class="pcgen.cdom.facet.ArmorProfProviderFacet" />
 	<bean id="autoEquipmentFacet" class="pcgen.cdom.facet.AutoEquipmentFacet" />
