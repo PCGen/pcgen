@@ -29,8 +29,6 @@ import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.AssociationKey;
-import pcgen.cdom.facet.DomainSpellListFacet;
-import pcgen.cdom.helper.SpringHelper;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.analysis.SpellLevel;
 import pcgen.core.spell.Spell;
@@ -111,8 +109,6 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 	public void testDomainSpell() throws Exception
 	{
 		readyToRun();
-		//TODO Things like this shouldn't be necessary :(
-		SpringHelper.getBean(DomainSpellListFacet.class);
 		
 		PlayerCharacter pc = getCharacter();
 		setPCStat(pc, cha, 15);
