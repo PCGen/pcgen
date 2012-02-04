@@ -111,7 +111,9 @@
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 	</bean>
 	<bean id="deityFacet" class="pcgen.cdom.facet.DeityFacet" />
-	<bean id="deityWeaponProfFacet" class="pcgen.cdom.facet.DeityWeaponProfFacet" />
+	<bean id="deityWeaponProfFacet" class="pcgen.cdom.facet.DeityWeaponProfFacet">
+		<property name="deityFacet" ref="deityFacet"/>
+	</bean>
 	<bean id="directAbilityFacet" class="pcgen.cdom.facet.DirectAbilityFacet" />
 	<bean id="domainFacet" class="pcgen.cdom.facet.DomainFacet" />
 	<bean id="domainSpellListFacet" class="pcgen.cdom.facet.DomainSpellListFacet">

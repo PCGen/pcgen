@@ -63,8 +63,6 @@ public class FacetInitialization
 				.getFacet(SkillLanguageFacet.class);
 		StartingLanguageFacet startingLangFacet = FacetLibrary
 				.getFacet(StartingLanguageFacet.class);
-		DeityWeaponProfFacet deityWeaponProfFacet = FacetLibrary
-				.getFacet(DeityWeaponProfFacet.class);
 		WeaponProfFacet weaponProfFacet = FacetLibrary
 				.getFacet(WeaponProfFacet.class);
 
@@ -193,8 +191,6 @@ public class FacetInitialization
 
 		aplFacet.addDataFacetChangeListener(appFacet);
 		splFacet.addDataFacetChangeListener(sppFacet);
-
-		deityFacet.addDataFacetChangeListener(deityWeaponProfFacet);
 
 		classFacet.addDataFacetChangeListener(localSkillCostFacet);
 		domainFacet.addDataFacetChangeListener(localSkillCostFacet);

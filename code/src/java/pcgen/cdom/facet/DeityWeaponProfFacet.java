@@ -32,6 +32,8 @@ public class DeityWeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
 		implements DataFacetChangeListener<Deity>
 {
 
+	private DeityFacet deityFacet;
+
 	/**
 	 * Triggered when one of the Facets to which DeityWeaponProfFacet listens
 	 * fires a DataFacetChangeEvent to indicate a Deity was added to a Player
@@ -85,4 +87,13 @@ public class DeityWeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
 
+	public void setDeityFacet(DeityFacet deityFacet)
+	{
+		this.deityFacet = deityFacet;
+	}
+
+	public void init()
+	{
+		deityFacet.addDataFacetChangeListener(this);
+	}
 }
