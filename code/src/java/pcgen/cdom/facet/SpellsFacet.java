@@ -50,6 +50,8 @@ public class SpellsFacet extends AbstractQualifiedListFacet<SpellLikeAbility>
 
 	private ActiveSpellsFacet activeSpellsFacet;
 
+	private CDOMObjectSourceFacet cdomSourceFacet;
+
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
@@ -139,4 +141,13 @@ public class SpellsFacet extends AbstractQualifiedListFacet<SpellLikeAbility>
 		this.activeSpellsFacet = activeSpellsFacet;
 	}
 
+	public void setCdomSourceFacet(CDOMObjectSourceFacet cdomSourceFacet)
+	{
+		this.cdomSourceFacet = cdomSourceFacet;
+	}
+
+	public void init()
+	{
+		cdomSourceFacet.addDataFacetChangeListener(this);
+	}
 }

@@ -341,6 +341,7 @@
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="activeSpellsFacet" ref="activeSpellsFacet"/>
+		<property name="cdomSourceFacet" ref="cdomSourceFacet"/>
 	</bean>
 	<bean id="spellSupportFacet" class="pcgen.cdom.facet.SpellSupportFacet"/>
 	<bean id="startingLanguageFacet" class="pcgen.cdom.facet.StartingLanguageFacet">

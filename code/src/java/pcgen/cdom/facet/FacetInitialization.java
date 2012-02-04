@@ -85,7 +85,6 @@ public class FacetInitialization
 				.getFacet(AutoListArmorProfFacet.class);
 		ArmorProfProviderFacet appFacet = FacetLibrary
 				.getFacet(ArmorProfProviderFacet.class);
-		SpellsFacet spellsFacet = FacetLibrary.getFacet(SpellsFacet.class);
 
 		NaturalWeaponProfFacet nwpFacet = FacetLibrary
 				.getFacet(NaturalWeaponProfFacet.class);
@@ -188,8 +187,6 @@ public class FacetInitialization
 
 		cdomObjectFacet.addDataFacetChangeListener(nwpFacet);
 		cdomSourceFacet.addDataFacetChangeListener(autoLangFacet);
-		cdomSourceFacet.addDataFacetChangeListener(spellsFacet);
-
 	}
 
 	private static void doBridges()
