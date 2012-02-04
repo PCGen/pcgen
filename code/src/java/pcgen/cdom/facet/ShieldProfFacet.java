@@ -32,6 +32,8 @@ public class ShieldProfFacet implements DataFacetChangeListener<CDOMObject>
 
 	private ShieldProfProviderFacet shieldProfProviderFacet;
 
+	private CDOMObjectConsolidationFacet consolidationFacet;
+
 	/**
 	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
@@ -78,4 +80,13 @@ public class ShieldProfFacet implements DataFacetChangeListener<CDOMObject>
 		this.shieldProfProviderFacet = shieldProfProviderFacet;
 	}
 
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+		this.consolidationFacet = consolidationFacet;
+	}
+	
+	public void init()
+	{
+		consolidationFacet.addDataFacetChangeListener(this);
+	}
 }

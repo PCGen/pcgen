@@ -84,7 +84,6 @@ public class FacetInitialization
 				.getFacet(AutoListShieldProfFacet.class);
 		ShieldProfProviderFacet sppFacet = FacetLibrary
 				.getFacet(ShieldProfProviderFacet.class);
-		ShieldProfFacet spFacet = FacetLibrary.getFacet(ShieldProfFacet.class);
 		AutoListArmorProfFacet aplFacet = FacetLibrary
 				.getFacet(AutoListArmorProfFacet.class);
 		ArmorProfProviderFacet appFacet = FacetLibrary
@@ -228,7 +227,6 @@ public class FacetInitialization
 		eqObjectFacet.addDataFacetChangeListener(cdomObjectFacet);
 		charObjectFacet.addDataFacetChangeListener(cdomObjectFacet);
 
-		cdomObjectFacet.addDataFacetChangeListener(spFacet);
 		cdomObjectFacet.addDataFacetChangeListener(srFacet);
 		cdomObjectFacet.addDataFacetChangeListener(apFacet);
 		cdomObjectFacet.addDataFacetChangeListener(qualifyFacet);
@@ -266,5 +264,6 @@ public class FacetInitialization
 		FacetLibrary.getFacet(AgeSetKitFacet.class);
 		FacetLibrary.getFacet(DomainSpellListFacet.class);
 		FacetLibrary.getFacet(NaturalEquipSetFacet.class);
+		FacetLibrary.getFacet(ShieldProfFacet.class);
 	}
 }

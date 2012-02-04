@@ -296,6 +296,7 @@
 	<!-- S -->
 	<bean id="shieldProfFacet" class="pcgen.cdom.facet.ShieldProfFacet">
 		<property name="shieldProfProviderFacet" ref="shieldProfProviderFacet"/>
+		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="shieldProfProviderFacet" class="pcgen.cdom.facet.ShieldProfProviderFacet"/>
 	<bean id="sizeFacet" class="pcgen.cdom.facet.SizeFacet">
