@@ -31,6 +31,7 @@
 	<bean id="appliedBonusFacet" class="pcgen.cdom.facet.AppliedBonusFacet">
 		<property name="addedBonusFacet" ref="addedBonusFacet"/>
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
+		<property name="raceFacet" ref="raceFacet"/>
 	</bean>
 	<bean id="armorClassFacet" class="pcgen.cdom.facet.ArmorClassFacet">
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>

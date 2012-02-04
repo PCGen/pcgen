@@ -30,6 +30,8 @@ public class AppliedBonusFacet extends AbstractListFacet<BonusObj> implements
 
 	private PrerequisiteFacet prerequisiteFacet;
 
+	private RaceFacet raceFacet;
+
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
@@ -84,4 +86,13 @@ public class AppliedBonusFacet extends AbstractListFacet<BonusObj> implements
 		this.prerequisiteFacet = prerequisiteFacet;
 	}
 
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+		this.raceFacet = raceFacet;
+	}
+
+	public void init()
+	{
+		raceFacet.addDataFacetChangeListener(this);
+	}
 }

@@ -176,8 +176,6 @@ public class FacetInitialization
 				.getFacet(SpellBookFacet.class);
 		AddLevelFacet addLevelFacet = FacetLibrary
 				.getFacet(AddLevelFacet.class);
-		AppliedBonusFacet appliedBonusFacet =
-				FacetLibrary.getFacet(AppliedBonusFacet.class);
 		UnencumberedArmorFacet unencumberedArmorFacet =
 			FacetLibrary.getFacet(UnencumberedArmorFacet.class);		
 		UnencumberedLoadFacet unencumberedLoadFacet =
@@ -189,8 +187,6 @@ public class FacetInitialization
 		skillLangFacet.addDataFacetChangeListener(languageFacet);
 
 		equipmentFacet.addDataFacetChangeListener(spellBookFacet);
-
-		raceFacet.addDataFacetChangeListener(appliedBonusFacet);
 
 		equipmentFacet.addDataFacetChangeListener(naturalEquipmentFacet);
 		equippedFacet.addDataFacetChangeListener(activeEquipmentFacet);
