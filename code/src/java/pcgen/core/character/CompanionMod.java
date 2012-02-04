@@ -33,7 +33,6 @@ import java.util.Map;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
@@ -103,14 +102,5 @@ public final class CompanionMod extends PObject
 		}
 
 		return result;
-	}
-
-	/**
-	 * Get use master skill
-	 * @return true if you should use master skill
-	 */
-	public boolean getUseMasterSkill()
-	{
-		return getSafe(ObjectKey.USE_MASTER_SKILL);
 	}
 }

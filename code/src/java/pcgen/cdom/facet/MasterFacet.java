@@ -19,6 +19,7 @@ package pcgen.cdom.facet;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.character.Follower;
@@ -90,7 +91,7 @@ public class MasterFacet extends AbstractItemFacet<Follower>
 		{
 			if (cMod.getType().equalsIgnoreCase(get(id).getType().getKeyName()))
 			{
-				if (cMod.getUseMasterSkill())
+				if (cMod.getSafe(ObjectKey.USE_MASTER_SKILL))
 				{
 					return true;
 				}
