@@ -42,6 +42,7 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import pcgen.core.facade.CampaignFacade;
+import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.GameModeFacade;
 import pcgen.core.facade.SourceSelectionFacade;
 import pcgen.core.facade.event.ListEvent;
@@ -49,7 +50,9 @@ import pcgen.core.facade.event.ListListener;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.core.facade.util.ListFacades;
+import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilterBar;
+import pcgen.gui2.filter.FilterButton;
 import pcgen.gui2.filter.FilterUtilities;
 import pcgen.gui2.filter.FilteredTreeViewTable;
 import pcgen.gui2.tools.InfoPane;
@@ -192,6 +195,19 @@ class AdvancedSourceSelectionPanel extends JPanel
 		add(panel, BorderLayout.WEST);
 		
 		FilterBar bar = FilterUtilities.createDefaultFilterBar();
+		FilterButton gainedFilterButton = new FilterButton();
+		gainedFilterButton.setText("Selected");
+		gainedFilterButton.setEnabled(true);
+		gainedFilterButton.setFilter(new Filter<CharacterFacade, CampaignFacade>()
+		{
+
+			public boolean accept(CharacterFacade context, CampaignFacade element)
+			{
+				CampaignFacade camp = (CampaignFacade) element;
+				return selectedCampaigns.contains(camp);		
+			}
+		});
+		bar.addDisplayableFilter(gainedFilterButton);
 		panel = new JPanel(new BorderLayout());
 		panel.add(bar, BorderLayout.NORTH);
 		
