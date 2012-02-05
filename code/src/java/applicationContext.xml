@@ -17,6 +17,11 @@
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
+	<bean id="addFacet" class="pcgen.cdom.facet.AddFacet">
+		<property name="raceFacet" ref="raceFacet"/>
+		<property name="deityFacet" ref="deityFacet"/>
+		<property name="templateFacet" ref="templateFacet"/>
+	</bean>
 	<bean id="addLanguageFacet" class="pcgen.cdom.facet.AddLanguageFacet"/>
 	<bean id="addLevelFacet" class="pcgen.cdom.facet.AddLevelFacet">
 		<property name="templateFacet" ref="templateFacet"/>
@@ -328,6 +333,11 @@
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
 	<bean id="regionFacet" class="pcgen.cdom.facet.RegionFacet">
+		<property name="templateFacet" ref="templateFacet"/>
+	</bean>
+	<bean id="removeFacet" class="pcgen.cdom.facet.RemoveFacet">
+		<property name="raceFacet" ref="raceFacet"/>
+		<property name="deityFacet" ref="deityFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
 	<!-- S -->

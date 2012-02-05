@@ -53,12 +53,4 @@ public class AddObjectActions
 		po.activateBonuses(aPC);
 	}
 
-	public static final void globalChecksNoKitNoRegion(CDOMObject po, final PlayerCharacter aPC)
-	{
-		aPC.setDirty(true);
-		CDOMObjectUtilities.addAdds(po, aPC);
-		CDOMObjectUtilities.checkRemovals(po, aPC);
-		po.activateBonuses(aPC);
-	}
-
 }
