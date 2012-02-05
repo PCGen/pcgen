@@ -20,8 +20,6 @@
  */
 package pcgen.gui2;
 
-import java.awt.Dimension;
-import javax.swing.JComboBox;
 import javax.swing.JToolBar;
 import pcgen.gui2.util.ToolBarUtilities;
 
