@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import pcgen.base.util.NamedValue;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
@@ -35,12 +36,14 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.enumeration.Load;
 
-public class MovementResultFacet
+public class MovementResultFacet implements DataFacetChangeListener<CDOMObject>
 {
 	private final Class<?> thisClass = getClass();
 
 	private MovementFacet movementFacet;
 	private RaceFacet raceFacet;
+	private TemplateFacet templateFacet;
+	private DeityFacet deityFacet;
 	private EquipmentFacet equipmentFacet;
 	private BonusCheckingFacet bonusCheckingFacet;
 	private UnencumberedArmorFacet unencumberedArmorFacet;
@@ -645,6 +648,18 @@ public class MovementResultFacet
 		return mci.hasMovement(moveType);
 	}
 
+	@Override
+	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	{
+		reset(dfce.getCharID());
+	}
+
+	@Override
+	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	{
+		reset(dfce.getCharID());
+	}
+
 	public void setMovementFacet(MovementFacet movementFacet)
 	{
 		this.movementFacet = movementFacet;
@@ -653,6 +668,16 @@ public class MovementResultFacet
 	public void setRaceFacet(RaceFacet raceFacet)
 	{
 		this.raceFacet = raceFacet;
+	}
+
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+		this.templateFacet = templateFacet;
+	}
+
+	public void setDeityFacet(DeityFacet deityFacet)
+	{
+		this.deityFacet = deityFacet;
 	}
 
 	public void setEquipmentFacet(EquipmentFacet equipmentFacet)
@@ -686,4 +711,10 @@ public class MovementResultFacet
 		this.loadFacet = loadFacet;
 	}
 
+	public void init()
+	{
+		raceFacet.addDataFacetChangeListener(2000, this);
+		deityFacet.addDataFacetChangeListener(2000, this);
+		templateFacet.addDataFacetChangeListener(2000, this);
+	}
 }

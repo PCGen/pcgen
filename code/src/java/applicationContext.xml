@@ -282,6 +282,8 @@
 	<bean id="movementResultFacet" class="pcgen.cdom.facet.MovementResultFacet">
 		<property name="movementFacet" ref="movementFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
+		<property name="deityFacet" ref="deityFacet"/>
+		<property name="templateFacet" ref="templateFacet"/>
 		<property name="equipmentFacet" ref="equipmentFacet"/>
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 		<property name="unencumberedArmorFacet" ref="unencumberedArmorFacet"/>

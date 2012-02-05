@@ -4742,7 +4742,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 		if (!isImporting())
 		{
-			adjustMoveRates();
 			calcActiveBonuses();
 		}
 
@@ -6143,9 +6142,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			}
 			first = false;
 		}
-
-		// karianna bug 1184888
-		adjustMoveRates();
 
 		setDirty(true);
 	}
@@ -7613,9 +7609,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		templateFacet.remove(id, inTmpl);
-
-		// karianna 1184888
-		adjustMoveRates();
 
 		calcActiveBonuses();
 		setDirty(true);
