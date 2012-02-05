@@ -106,6 +106,7 @@ public class SpellsFacet extends AbstractQualifiedListFacet<SpellLikeAbility>
 	public void process(CharID id)
 	{
 		Race race = raceFacet.get(id);
+		activeSpellsFacet.removeAll(id, race);
 		PlayerCharacter pc = trackingFacet.getPC(id);
 		for (SpellLikeAbility sla : getQualifiedSet(id))
 		{

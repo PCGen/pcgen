@@ -4739,15 +4739,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void setRace(final Race newRace)
 	{
-		final Race oldRace = getRace();
-		// remove current race attributes
-
-		if (oldRace != null)
-		{
-			removeAllCharacterSpells(oldRace);
-		}
-
-		// add new race attributes
 		raceFacet.remove(id);
 
 		if (newRace != null)
@@ -4944,7 +4935,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			return;
 		}
 
-		removeAllCharacterSpells(race);
 		spellsFacet.process(id);
 		setDirty(true);
 	}
@@ -12470,11 +12460,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public boolean containsCharacterSpell(CDOMObject cdo, CharacterSpell cs)
 	{
 		return activeSpellsFacet.containsFrom(id, cs, cdo);
-	}
-
-	private void removeAllCharacterSpells(CDOMObject cdo)
-	{
-		activeSpellsFacet.removeAll(id, cdo);
 	}
 
 	public void addBonus(BonusObj bonus, CDOMObject source)

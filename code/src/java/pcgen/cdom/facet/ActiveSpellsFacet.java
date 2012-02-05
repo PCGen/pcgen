@@ -21,16 +21,42 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.character.CharacterSpell;
 
 /**
  * ActiveSpellsFacet is a Facet that tracks the active SPELLS for the PlayerCharacter
  */
 public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharacterSpell>
+		implements DataFacetChangeListener<CDOMObject>
 {
+	private RaceFacet raceFacet;
+
 	@Override
 	protected Map<CharacterSpell, Set<Object>> getComponentMap()
 	{
 		return new TreeMap<CharacterSpell, Set<Object>>();
+	}
+
+	@Override
+	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	{
+		//Nothing right now, handled in SpellsFacet
+	}
+
+	@Override
+	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	{
+		removeAll(dfce.getCharID(), dfce.getCDOMObject());
+	}
+
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+		this.raceFacet = raceFacet;
+	}
+	
+	public void init()
+	{
+		raceFacet.addDataFacetChangeListener(this);
 	}
 }

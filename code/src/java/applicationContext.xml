@@ -9,7 +9,9 @@
 	<!-- A -->
 	<bean id="activeAbilityFacet" class="pcgen.cdom.facet.ActiveAbilityFacet" />
 	<bean id="activeEqModFacet" class="pcgen.cdom.facet.ActiveEqModFacet" />
-	<bean id="activeSpellsFacet" class="pcgen.cdom.facet.ActiveSpellsFacet" />
+	<bean id="activeSpellsFacet" class="pcgen.cdom.facet.ActiveSpellsFacet">
+		<property name="raceFacet" ref="raceFacet"/>
+	</bean>
 	<bean id="addedBonusFacet" class="pcgen.cdom.facet.AddedBonusFacet" />
 	<bean id="addedTemplateFacet" class="pcgen.cdom.facet.AddedTemplateFacet">
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
