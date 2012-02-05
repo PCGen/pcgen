@@ -2976,8 +2976,29 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		{
 			limit = WeightToken.getLoadToken(load.toString(),theCharacter);
 		}
-		weightLimitRef.setReference(Globals.getGameModeUnitSet()
-			.displayWeightInUnitSet(limit));
+		double lowerLimit = 0.0f;
+		for (Load testLoad : Load.values())
+		{
+			double testLimit = WeightToken.getLoadToken(testLoad.toString(),theCharacter);
+			if (testLoad.compareTo(load) < 0 && testLimit > lowerLimit)
+			{
+				lowerLimit = testLimit;
+			}
+		}
+		StringBuilder loadLimit = new StringBuilder(Globals.getGameModeUnitSet()
+			.displayWeightInUnitSet(lowerLimit));
+		if (limit > 0)
+		{
+			loadLimit.append(" - ");
+			loadLimit.append(Globals.getGameModeUnitSet()
+				.displayWeightInUnitSet(limit));
+		}
+		else
+		{
+			loadLimit.append("+ ");
+		}
+		loadLimit.append(Globals.getGameModeUnitSet().getWeightUnit());
+		weightLimitRef.setReference(loadLimit.toString());
 	}
 
 	/* (non-Javadoc)

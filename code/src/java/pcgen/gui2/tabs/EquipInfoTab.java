@@ -46,6 +46,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 import javax.swing.TransferHandler;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -178,13 +179,12 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		panel.add(new JScrollPane(equipmentTable), BorderLayout.CENTER);
 
 		Box buttonsBox = Box.createHorizontalBox();
-		buttonsBox.add(new JLabel(Icons.Back16.getImageIcon()));
 		buttonsBox.add(unequipButton);
 		buttonsBox.add(Box.createHorizontalStrut(3));
 		buttonsBox.add(unequipAllButton);
 		buttonsBox.add(Box.createHorizontalGlue());
+		equipButton.setHorizontalTextPosition(SwingConstants.LEADING);
 		buttonsBox.add(equipButton);
-		buttonsBox.add(new JLabel(Icons.Forward16.getImageIcon()));
 		buttonsBox.setBorder(BorderFactory.createEmptyBorder(5, 0, 5, 0));
 		panel.add(buttonsBox, BorderLayout.SOUTH);
 
@@ -213,8 +213,8 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		box.add(new JLabel("Load:"));
 		box.add(Box.createHorizontalStrut(5));
 		box.add(loadLabel);
-		box.add(Box.createHorizontalGlue());
-		box.add(new JLabel("Limit:"));
+//		box.add(Box.createHorizontalGlue());
+//		box.add(new JLabel("Limit:"));
 		box.add(Box.createHorizontalStrut(5));
 		box.add(limitLabel);
 		box.add(Box.createHorizontalGlue());

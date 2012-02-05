@@ -53,6 +53,7 @@ import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
 import pcgen.gui2.filter.DisplayableFilter;
 import pcgen.gui2.filter.FilterHandler;
+import pcgen.gui2.tools.Icons;
 import pcgen.gui2.util.JTableEx;
 import pcgen.gui2.util.JTreeTable;
 import pcgen.gui2.util.table.TableCellUtilities;
@@ -226,6 +227,7 @@ public class EquipmentModels
 		public UnequipAction()
 		{
 			super("Unequip Selected");
+			this.putValue(SMALL_ICON, Icons.Back16.getImageIcon());
 		}
 
 		public void actionPerformed(ActionEvent e)
@@ -314,6 +316,7 @@ public class EquipmentModels
 		public EquipAction()
 		{
 			super("Equip Selected");
+			this.putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
 		}
 
 		public void actionPerformed(ActionEvent e)
