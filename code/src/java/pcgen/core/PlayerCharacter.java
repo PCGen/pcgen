@@ -3993,7 +3993,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 		if (!isImporting())
 		{
-			getSpellList();
 			aDeity.activateBonuses(this);
 		}
 		setDirty(true);
@@ -6086,7 +6085,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 		if (!isImporting())
 		{
-			getSpellList();
 			List<AbilitySelection> templateFeats = feats(inTemplate,
 					getTotalLevels(), totalHitDice(), true);
 			for (int j = 0, y = templateFeats.size(); j < y; ++j)
@@ -7626,8 +7624,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		// karianna 1184888
 		adjustMoveRates();
 
-		// re-evaluate non-spellcaster spell lists
-		getSpellList();
 		calcActiveBonuses();
 		setDirty(true);
 	}
@@ -7883,11 +7879,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	void validateCharacterDomains()
 	{
-		if (!isImporting())
-		{
-			getSpellList();
-		}
-
 		//Clone to avoid Concurrent Mod Exception, CODE-153
 		for (Domain d : new ArrayList<Domain>(domainFacet.getSet(id)))
 		{

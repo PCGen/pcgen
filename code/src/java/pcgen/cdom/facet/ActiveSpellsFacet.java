@@ -40,6 +40,10 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharacterSpell>
 {
 	private RaceFacet raceFacet;
 
+	private DeityFacet deityFacet;
+
+	private TemplateFacet templateFacet;
+
 	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 		.getFacet(PlayerCharacterTrackingFacet.class);
 
@@ -87,12 +91,17 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharacterSpell>
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
-		removeAll(dfce.getCharID(), dfce.getCDOMObject());
+		process(dfce.getCharID());
 	}
 
 	public void setRaceFacet(RaceFacet raceFacet)
 	{
 		this.raceFacet = raceFacet;
+	}
+
+	public void setDeityFacet(DeityFacet deityFacet)
+	{
+		this.deityFacet = deityFacet;
 	}
 
 	public void setFormulaResolvingFacet(
@@ -106,8 +115,15 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharacterSpell>
 		this.spellsFacet = spellsFacet;
 	}
 
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+		this.templateFacet = templateFacet;
+	}
+
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(this);
+		deityFacet.addDataFacetChangeListener(this);
+		templateFacet.addDataFacetChangeListener(this);
 	}
 }

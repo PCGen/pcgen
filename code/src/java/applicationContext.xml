@@ -11,6 +11,8 @@
 	<bean id="activeEqModFacet" class="pcgen.cdom.facet.ActiveEqModFacet" />
 	<bean id="activeSpellsFacet" class="pcgen.cdom.facet.ActiveSpellsFacet">
 		<property name="raceFacet" ref="raceFacet"/>
+		<property name="deityFacet" ref="deityFacet"/>
+		<property name="templateFacet" ref="templateFacet"/>
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="spellsFacet" ref="spellsFacet"/>
 	</bean>
