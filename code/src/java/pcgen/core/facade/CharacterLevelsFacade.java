@@ -56,6 +56,13 @@ public interface CharacterLevelsFacade extends ListFacade<CharacterLevelFacade>
 
 	public int getSpentSkillPoints(CharacterLevelFacade level);
 
+	/**
+	 * Return the number of skills points remaining to be spent for the level.
+	 * @param level The character level to be checked.
+	 * @return The number of skills points left.
+	 */
+	public int getRemainingSkillPoints(CharacterLevelFacade level);
+
 	public int getHPGained(CharacterLevelFacade level);
 
 	public int getHPRolled(CharacterLevelFacade level);

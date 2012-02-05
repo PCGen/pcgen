@@ -26,6 +26,7 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 import pcgen.gui2.util.SignIcon;
 import pcgen.gui2.util.SignIcon.Sign;
+import pcgen.system.LanguageBundle;
 
 /**
  *
@@ -46,7 +47,14 @@ public class Utilities
 			TableCellRenderer headerRenderer, boolean resizable)
 	{
 		TableColumn column = new TableColumn(index);
-		column.setHeaderValue(headerValue);
+    	if (headerValue.startsWith("in_"))
+    	{
+    		column.setHeaderValue(LanguageBundle.getString(headerValue));
+    	}
+    	else
+    	{
+    		column.setHeaderValue(headerValue);
+    	}
 		column.setHeaderRenderer(headerRenderer);
 		if (!resizable)
 		{

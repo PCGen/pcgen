@@ -20,12 +20,18 @@
  */
 package pcgen.gui2.tabs.skill;
 
+import java.awt.Component;
+import java.awt.Font;
+
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
+
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.CharacterLevelFacade;
 import pcgen.core.facade.CharacterLevelsFacade;
@@ -60,10 +66,12 @@ public class SkillPointTableModel extends AbstractTableModel
 		JTableHeader header = table.getTableHeader();
 		TableColumnModel columns = new DefaultTableColumnModel();
 		TableCellRenderer headerRenderer = header.getDefaultRenderer();
-		columns.addColumn(Utilities.createTableColumn(0, "Level", headerRenderer, false));
-		columns.addColumn(Utilities.createTableColumn(1, "Class", headerRenderer, true));
-		columns.addColumn(Utilities.createTableColumn(2, "Spent", headerRenderer, false));
-		columns.addColumn(Utilities.createTableColumn(3, "Gained", headerRenderer, false));
+		columns.addColumn(Utilities.createTableColumn(0, "in_level", headerRenderer, false));
+		columns.addColumn(Utilities.createTableColumn(1, "in_class", headerRenderer, true));
+		TableColumn remainCol = Utilities.createTableColumn(2, "in_iskRemain", headerRenderer, false);
+		remainCol.setCellRenderer(new BoldNumberRenderer());
+		columns.addColumn(remainCol);
+		columns.addColumn(Utilities.createTableColumn(3, "in_gained", headerRenderer, false));
 		table.setColumnModel(columns);
 		table.setFocusable(false);
 		header.setReorderingAllowed(false);
@@ -108,7 +116,7 @@ public class SkillPointTableModel extends AbstractTableModel
 			case 1:
 				return levels.getClassTaken(level);
 			case 2:
-				return levels.getSpentSkillPoints(level);
+				return levels.getRemainingSkillPoints(level);
 			case 3:
 				return levels.getGainedSkillPoints(level);
 			default:
@@ -163,6 +171,33 @@ public class SkillPointTableModel extends AbstractTableModel
 		int firstRow = e.getBaseLevelIndex();
 		int lastRow = e.affectsHigherLevels() ? levels.getSize() - 1 : firstRow;
 		fireTableRowsUpdated(firstRow, lastRow);
+	}
+
+	/**
+	 * The Class <code>BoldNumberRenderer</code> displays a right aligned
+	 * read-only column containing a bolded number.
+	 */
+	private static class BoldNumberRenderer extends DefaultTableCellRenderer
+	{
+
+		/**
+		 *  Create a new BoldNumberRenderer instance.
+		 */
+		public BoldNumberRenderer()
+		{
+			setHorizontalAlignment(RIGHT);
+		}
+
+		/* (non-Javadoc)
+		 * @see javax.swing.table.TableCellRenderer#getTableCellRendererComponent(javax.swing.JTable, java.lang.Object, boolean, boolean, int, int)
+		 */
+		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
+		{
+			Component comp = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+			comp.setFont(table.getFont().deriveFont(Font.BOLD));
+			return this;
+		}
+
 	}
 
 }

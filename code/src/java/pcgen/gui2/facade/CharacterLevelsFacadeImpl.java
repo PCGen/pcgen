@@ -386,6 +386,15 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	}
 
 	/* (non-Javadoc)
+	 * @see pcgen.core.facade.CharacterLevelsFacade#getRemainingSkillPoints(int)
+	 */
+	public int getRemainingSkillPoints(CharacterLevelFacade level)
+	{
+		PCLevelInfo classLevel = getLevelInfo(level);
+		return classLevel.getSkillPointsRemaining();
+	}
+
+	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#investSkillPoints(int, pcgen.core.facade.SkillFacade, int)
 	 */
 	public boolean investSkillPoints(CharacterLevelFacade level, SkillFacade skill, int points)
