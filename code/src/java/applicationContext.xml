@@ -153,6 +153,10 @@
 		<property name="spellListFacet" ref="spellListFacet"/>
 		<property name="domainFacet" ref="domainFacet"/>
 	</bean>
+	<bean id="domainSpellsFacet" class="pcgen.cdom.facet.DomainSpellsFacet">
+		<property name="domainFacet" ref="domainFacet"/>
+		<property name="classFacet" ref="classFacet"/>
+	</bean>
 	<!-- E -->
 	<bean id="equipmentConsolidationFacet" class="pcgen.cdom.facet.EquipmentConsolidationFacet" />
 	<bean id="equipmentFacet" class="pcgen.cdom.facet.EquipmentFacet" />

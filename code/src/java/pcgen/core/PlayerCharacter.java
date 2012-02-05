@@ -110,7 +110,6 @@ import pcgen.core.analysis.BonusActivation;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.analysis.ClassSkillApplication;
-import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.core.analysis.SpellCountCalc;
@@ -11833,17 +11832,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public void addDomain(Domain domain, ClassSource source)
 	{
 		domainFacet.add(id, domain, source);
-		if (source != null)
-		{
-			String classKey = source.getPcclass().getKeyName();
-			PCClass domainClass = getClassKeyed(classKey);
-			if (domainClass != null)
-			{
-				final int _maxLevel = this.getSpellSupport(domainClass).getMaxCastLevel();
-				DomainApplication.addSpellsToClassForLevels(this, domain,
-						domainClass, 0, _maxLevel);
-			}
-		}
 		setDirty(true);
 	}
 

@@ -207,6 +207,7 @@ public class FacetInitialization
 		FacetLibrary.getFacet(AddFacet.class);
 		FacetLibrary.getFacet(RemoveFacet.class);
 		FacetLibrary.getFacet(CalcBonusFacet.class);
+		FacetLibrary.getFacet(DomainSpellsFacet.class);
 		//This one is a just in case
 		FacetLibrary.getFacet(ChangeProfFacet.class);
 	}
