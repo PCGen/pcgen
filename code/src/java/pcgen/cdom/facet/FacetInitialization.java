@@ -203,6 +203,7 @@ public class FacetInitialization
 		FacetLibrary.getFacet(ArmorProfFacet.class);
 		FacetLibrary.getFacet(MonsterClassFacet.class);
 		FacetLibrary.getFacet(KitChoiceFacet.class);
+		FacetLibrary.getFacet(RegionChoiceFacet.class);
 		//This one is a just in case
 		FacetLibrary.getFacet(ChangeProfFacet.class);
 	}

@@ -3994,7 +3994,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		if (!isImporting())
 		{
 			getSpellList();
-			AddObjectActions.globalChecksNoKit(aDeity, this);
+			AddObjectActions.globalChecksNoKitNoRegion(aDeity, this);
 		}
 		setDirty(true);
 
@@ -4749,7 +4749,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		if (!isImporting())
 		{
 			getSpellList();
-			AddObjectActions.globalChecksNoKit(newRace, this);
+			AddObjectActions.globalChecksNoKitNoRegion(newRace, this);
 			adjustMoveRates();
 			calcActiveBonuses();
 		}
@@ -6094,7 +6094,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			{
 				AbilityUtilities.modFeatsFromList(this, templateFeats.get(j));
 			}
-			AddObjectActions.globalChecksNoKit(inTemplate, this);
+			AddObjectActions.globalChecksNoKitNoRegion(inTemplate, this);
 		}
 
 		getAutomaticAbilityList(AbilityCategory.FEAT);
