@@ -599,16 +599,6 @@ public class JTreeTable extends JTableEx
 		}
 
 		/**
-		 * Fix to bad event handling on MacOS X
-		 * @return UI Class ID
-		 **/
-		@Override
-		public String getUIClassID()
-		{
-			return "TreeTableUI"; //$NON-NLS-1$
-		}
-
-		/**
 		 * Sublcassed to translate the graphics such
 		 * that the last visible row will be drawn at 0,0.
 		 * @param g
