@@ -256,7 +256,12 @@ public class EquipmentTreeTableModel implements SortableTreeTableModel, ListList
 			children = Collections.emptyList();
 		}
 		int insertion_index = 1 + Collections.binarySearch(children, child, pathComparator);
-		pathMap.add(parent, -insertion_index, child);
+		if (insertion_index < 0)
+		{
+			// The item wasn't already in the list so the search gave us a negative index of where to add the item. 
+			insertion_index *= -1;
+		}
+		pathMap.add(parent, insertion_index, child);
 		return -insertion_index;
 	}
 
