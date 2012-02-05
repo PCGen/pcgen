@@ -4749,7 +4749,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		if (!isImporting())
 		{
 			getSpellList();
-			AddObjectActions.globalChecks(newRace, this);
+			AddObjectActions.globalChecksNoKit(newRace, this);
 			adjustMoveRates();
 			calcActiveBonuses();
 		}

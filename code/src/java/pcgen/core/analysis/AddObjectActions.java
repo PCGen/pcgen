@@ -53,4 +53,17 @@ public class AddObjectActions
 		po.activateBonuses(aPC);
 	}
 
+	public static final void globalChecksNoKit(CDOMObject po, final PlayerCharacter aPC)
+	{
+		aPC.setDirty(true);
+		TransitionChoice<Region> region = po.get(ObjectKey.REGION_CHOICE);
+		if (region != null)
+		{
+			region.act(region.driveChoice(aPC), po, aPC);
+		}
+		CDOMObjectUtilities.addAdds(po, aPC);
+		CDOMObjectUtilities.checkRemovals(po, aPC);
+		po.activateBonuses(aPC);
+	}
+
 }
