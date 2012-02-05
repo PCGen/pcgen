@@ -3990,10 +3990,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 		deityFacet.set(id, aDeity);
 
-		if (!isImporting())
-		{
-			aDeity.activateBonuses(this);
-		}
 		setDirty(true);
 
 		calcActiveBonuses();
@@ -4746,7 +4742,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 		if (!isImporting())
 		{
-			newRace.activateBonuses(this);
 			adjustMoveRates();
 			calcActiveBonuses();
 		}
@@ -6090,7 +6085,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			{
 				AbilityUtilities.modFeatsFromList(this, templateFeats.get(j));
 			}
-			inTemplate.activateBonuses(this);
 		}
 
 		getAutomaticAbilityList(AbilityCategory.FEAT);

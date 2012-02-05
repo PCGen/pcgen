@@ -73,6 +73,11 @@
 	</bean>
 	<!-- B -->
 	<bean id="bioSetFacet" class="pcgen.cdom.facet.BioSetFacet" />
+	<bean id="bonusActiviationFacet" class="pcgen.cdom.facet.BonusActiviationFacet">
+		<property name="raceFacet" ref="raceFacet"/>
+		<property name="deityFacet" ref="deityFacet"/>
+		<property name="templateFacet" ref="templateFacet"/>
+	</bean>
 	<bean id="bonusChangeFacet" class="pcgen.cdom.facet.BonusChangeFacet">
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 	</bean>
