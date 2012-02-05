@@ -34,6 +34,8 @@ public class KitChoiceFacet implements DataFacetChangeListener<CDOMObject>
 
 	private RaceFacet raceFacet;
 
+	private DeityFacet deityFacet;
+
 	/**
 	 * Triggered when one of the Facets to which KitChoiceFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
@@ -66,6 +68,11 @@ public class KitChoiceFacet implements DataFacetChangeListener<CDOMObject>
 	public void setRaceFacet(RaceFacet raceFacet)
 	{
 		this.raceFacet = raceFacet;
+	}
+
+	public void setDeityFacet(DeityFacet deityFacet)
+	{
+		this.deityFacet = deityFacet;
 	}
 
 	public void init()

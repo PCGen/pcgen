@@ -206,6 +206,7 @@
 	<!-- K -->
 	<bean id="kitChoiceFacet" class="pcgen.cdom.facet.KitChoiceFacet">
 		<property name="raceFacet" ref="raceFacet"/>
+		<property name="deityFacet" ref="deityFacet"/>
 	</bean>
 	<bean id="kitFacet" class="pcgen.cdom.facet.KitFacet"/>
 	<bean id="knownSpellFacet" class="pcgen.cdom.facet.KnownSpellFacet">

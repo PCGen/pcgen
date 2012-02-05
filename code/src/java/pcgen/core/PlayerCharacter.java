@@ -3994,7 +3994,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		if (!isImporting())
 		{
 			getSpellList();
-			AddObjectActions.globalChecks(aDeity, this);
+			AddObjectActions.globalChecksNoKit(aDeity, this);
 		}
 		setDirty(true);
 
