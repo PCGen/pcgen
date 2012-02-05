@@ -3992,8 +3992,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 		setDirty(true);
 
-		calcActiveBonuses();
-
 		return true;
 	}
 
@@ -4726,8 +4724,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Changes the race of the character. First it removes the current Race, and
-	 * any bonus attributes (e.g. feats), then add the new Race.
+	 * Changes the race of the character. First it removes the current Race,
+	 * then add the new Race.
 	 * 
 	 * @param newRace
 	 */
@@ -4738,11 +4736,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		if (newRace != null)
 		{
 			raceFacet.set(id, newRace);
-		}
-
-		if (!isImporting())
-		{
-			calcActiveBonuses();
 		}
 
 		setDirty(true);
@@ -6073,8 +6066,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		templateFacet.add(id, inTemplate);
 
 		this.setDirty(true);
-
-		calcActiveBonuses();
 
 		if (!isImporting())
 		{
@@ -7603,14 +7594,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	public void removeTemplate(final PCTemplate inTmpl)
 	{
-		if (inTmpl == null)
-		{
-			return;
-		}
-
 		templateFacet.remove(id, inTmpl);
-
-		calcActiveBonuses();
 		setDirty(true);
 	}
 
@@ -11889,7 +11873,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return domainFacet.getSet(id);
 	}
 
-		public Set<Domain> getSortedDomainSet()
+	public Set<Domain> getSortedDomainSet()
 	{
 		SortedSet<Domain> domains = new TreeSet<Domain>(
 				CDOMObjectUtilities.CDOM_SORTER);

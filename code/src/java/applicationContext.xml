@@ -84,6 +84,11 @@
 	<bean id="bonusCheckingFacet" class="pcgen.cdom.facet.BonusCheckingFacet" />
 	<bean id="bonusWeaponProfFacet" class="pcgen.cdom.facet.BonusWeaponProfFacet" />
 	<!-- C -->
+	<bean id="calcBonusFacet" class="pcgen.cdom.facet.CalcBonusFacet">
+		<property name="raceFacet" ref="raceFacet"/>
+		<property name="deityFacet" ref="deityFacet"/>
+		<property name="templateFacet" ref="templateFacet"/>
+	</bean>
 	<bean id="campaignFacet" class="pcgen.cdom.facet.CampaignFacet" />
 	<bean id="categorizedAbilityFacet" class="pcgen.cdom.facet.CategorizedAbilityFacet" />
 	<bean id="bridgeFacet" class="pcgen.cdom.facet.CDOMObjectBridge"/>
