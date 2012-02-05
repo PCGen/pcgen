@@ -36,6 +36,8 @@ public class KitChoiceFacet implements DataFacetChangeListener<CDOMObject>
 
 	private DeityFacet deityFacet;
 
+	private TemplateFacet templateFacet;
+
 	/**
 	 * Triggered when one of the Facets to which KitChoiceFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
@@ -50,12 +52,16 @@ public class KitChoiceFacet implements DataFacetChangeListener<CDOMObject>
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
-		CDOMObject cdo = dfce.getCDOMObject();
 		CharID id = dfce.getCharID();
 		PlayerCharacter aPC = trackingFacet.getPC(id);
-		for (TransitionChoice<Kit> kit : cdo.getSafeListFor(ListKey.KIT_CHOICE))
+		if (!aPC.isImporting())
 		{
-			kit.act(kit.driveChoice(aPC), cdo, aPC);
+			CDOMObject cdo = dfce.getCDOMObject();
+			for (TransitionChoice<Kit> kit : cdo
+				.getSafeListFor(ListKey.KIT_CHOICE))
+			{
+				kit.act(kit.driveChoice(aPC), cdo, aPC);
+			}
 		}
 	}
 
@@ -78,5 +84,7 @@ public class KitChoiceFacet implements DataFacetChangeListener<CDOMObject>
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(this);
+		deityFacet.addDataFacetChangeListener(this);
+		templateFacet.addDataFacetChangeListener(this);
 	}
 }

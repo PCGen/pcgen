@@ -6094,7 +6094,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			{
 				AbilityUtilities.modFeatsFromList(this, templateFeats.get(j));
 			}
-			AddObjectActions.globalChecks(inTemplate, this);
+			AddObjectActions.globalChecksNoKit(inTemplate, this);
 		}
 
 		getAutomaticAbilityList(AbilityCategory.FEAT);
