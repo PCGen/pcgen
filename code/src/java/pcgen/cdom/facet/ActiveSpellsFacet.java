@@ -21,16 +21,31 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.content.SpellLikeAbility;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
 import pcgen.core.character.CharacterSpell;
+import pcgen.core.character.SpellBook;
+import pcgen.core.character.SpellInfo;
 
 /**
- * ActiveSpellsFacet is a Facet that tracks the active SPELLS for the PlayerCharacter
+ * ActiveSpellsFacet is a Facet that tracks the active SPELLS for the
+ * PlayerCharacter
  */
 public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharacterSpell>
 		implements DataFacetChangeListener<CDOMObject>
 {
 	private RaceFacet raceFacet;
+
+	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
+		.getFacet(PlayerCharacterTrackingFacet.class);
+
+	private FormulaResolvingFacet formulaResolvingFacet;
+
+	private SpellsFacet spellsFacet;
 
 	@Override
 	protected Map<CharacterSpell, Set<Object>> getComponentMap()
@@ -41,7 +56,32 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharacterSpell>
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
-		//Nothing right now, handled in SpellsFacet
+		CharID id = dfce.getCharID();
+		process(id);
+	}
+
+	public void process(CharID id)
+	{
+		Race race = raceFacet.get(id);
+		removeAll(id, race);
+		PlayerCharacter pc = trackingFacet.getPC(id);
+		for (SpellLikeAbility sla : spellsFacet.getQualifiedSet(id))
+		{
+			Formula times = sla.getCastTimes();
+			int resolvedTimes =
+					formulaResolvingFacet.resolve(id, times,
+						sla.getQualifiedKey()).intValue();
+			String book = sla.getSpellBook();
+
+			final CharacterSpell cs = new CharacterSpell(race, sla.getSpell());
+			cs.setFixedCasterLevel(sla.getFixedCasterLevel());
+			SpellInfo si = cs.addInfo(0, resolvedTimes, book);
+			si.setTimeUnit(sla.getCastTimeUnit());
+			si.setFixedDC(sla.getDC());
+
+			pc.addSpellBook(new SpellBook(book, SpellBook.TYPE_INNATE_SPELLS));
+			add(id, cs, race);
+		}
 	}
 
 	@Override
@@ -54,7 +94,18 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharacterSpell>
 	{
 		this.raceFacet = raceFacet;
 	}
-	
+
+	public void setFormulaResolvingFacet(
+		FormulaResolvingFacet formulaResolvingFacet)
+	{
+		this.formulaResolvingFacet = formulaResolvingFacet;
+	}
+
+	public void setSpellsFacet(SpellsFacet spellsFacet)
+	{
+		this.spellsFacet = spellsFacet;
+	}
+
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(this);

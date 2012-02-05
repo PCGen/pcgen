@@ -26,11 +26,6 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.content.SpellLikeAbility;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.Race;
-import pcgen.core.character.CharacterSpell;
-import pcgen.core.character.SpellBook;
-import pcgen.core.character.SpellInfo;
 import pcgen.core.spell.Spell;
 
 /**
@@ -40,15 +35,6 @@ import pcgen.core.spell.Spell;
 public class SpellsFacet extends AbstractQualifiedListFacet<SpellLikeAbility>
 		implements DataFacetChangeListener<CDOMObject>
 {
-
-	private RaceFacet raceFacet;
-
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
-
-	private FormulaResolvingFacet formulaResolvingFacet;
-
-	private ActiveSpellsFacet activeSpellsFacet;
 
 	private CDOMObjectSourceFacet cdomSourceFacet;
 
@@ -101,45 +87,6 @@ public class SpellsFacet extends AbstractQualifiedListFacet<SpellLikeAbility>
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		removeAll(dfce.getCharID(), dfce.getSource());
-	}
-
-	public void process(CharID id)
-	{
-		Race race = raceFacet.get(id);
-		activeSpellsFacet.removeAll(id, race);
-		PlayerCharacter pc = trackingFacet.getPC(id);
-		for (SpellLikeAbility sla : getQualifiedSet(id))
-		{
-			Formula times = sla.getCastTimes();
-			int resolvedTimes =
-					formulaResolvingFacet.resolve(id, times, sla.getQualifiedKey())
-						.intValue();
-			String book = sla.getSpellBook();
-
-			final CharacterSpell cs = new CharacterSpell(race, sla.getSpell());
-			cs.setFixedCasterLevel(sla.getFixedCasterLevel());
-			SpellInfo si = cs.addInfo(0, resolvedTimes, book);
-			si.setTimeUnit(sla.getCastTimeUnit());
-			si.setFixedDC(sla.getDC());
-
-			pc.addSpellBook(new SpellBook(book, SpellBook.TYPE_INNATE_SPELLS));
-			activeSpellsFacet.add(id, cs, race);
-		}
-	}
-
-	public void setRaceFacet(RaceFacet raceFacet)
-	{
-		this.raceFacet = raceFacet;
-	}
-
-	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
-	{
-		this.formulaResolvingFacet = formulaResolvingFacet;
-	}
-
-	public void setActiveSpellsFacet(ActiveSpellsFacet activeSpellsFacet)
-	{
-		this.activeSpellsFacet = activeSpellsFacet;
 	}
 
 	public void setCdomSourceFacet(CDOMObjectSourceFacet cdomSourceFacet)

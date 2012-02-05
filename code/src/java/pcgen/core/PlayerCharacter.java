@@ -4748,7 +4748,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 		if (!isImporting())
 		{
-			getSpellList();
 			newRace.activateBonuses(this);
 			adjustMoveRates();
 			calcActiveBonuses();
@@ -4935,7 +4934,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			return;
 		}
 
-		spellsFacet.process(id);
+		activeSpellsFacet.process(id);
 		setDirty(true);
 	}
 

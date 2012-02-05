@@ -11,6 +11,8 @@
 	<bean id="activeEqModFacet" class="pcgen.cdom.facet.ActiveEqModFacet" />
 	<bean id="activeSpellsFacet" class="pcgen.cdom.facet.ActiveSpellsFacet">
 		<property name="raceFacet" ref="raceFacet"/>
+		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+		<property name="spellsFacet" ref="spellsFacet"/>
 	</bean>
 	<bean id="addedBonusFacet" class="pcgen.cdom.facet.AddedBonusFacet" />
 	<bean id="addedTemplateFacet" class="pcgen.cdom.facet.AddedTemplateFacet">
@@ -361,9 +363,6 @@
 	</bean>
 	<bean id="spellListFacet" class="pcgen.cdom.facet.SpellListFacet"/>
 	<bean id="spellsFacet" class="pcgen.cdom.facet.SpellsFacet">
-		<property name="raceFacet" ref="raceFacet"/>
-		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
-		<property name="activeSpellsFacet" ref="activeSpellsFacet"/>
 		<property name="cdomSourceFacet" ref="cdomSourceFacet"/>
 	</bean>
 	<bean id="spellSupportFacet" class="pcgen.cdom.facet.SpellSupportFacet"/>
