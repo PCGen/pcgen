@@ -81,6 +81,11 @@ public class KitChoiceFacet implements DataFacetChangeListener<CDOMObject>
 		this.deityFacet = deityFacet;
 	}
 
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+		this.templateFacet = templateFacet;
+	}
+
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(this);
