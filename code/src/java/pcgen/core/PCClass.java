@@ -1744,7 +1744,7 @@ public class PCClass extends PObject implements ClassFacade
 	 */
 	public String getHD()
 	{
-		HitDie hd = get(ObjectKey.LEVEL_HITDIE);
+		HitDie hd = getSafe(ObjectKey.LEVEL_HITDIE);
 		return String.valueOf(hd.getDie());
 	}
 
