@@ -74,3 +74,8 @@ Half Orc Racial Trait Default								CATEGORY:Internal																										
 Halfling Racial Trait Default								CATEGORY:Internal																																																																ABILITY:Halfling Racial Trait|AUTOMATIC|TYPE.HalflingRacialDefault	BONUS:ABILITYPOOL|Halfling Racial Trait|-5
 Human Racial Trait Default								CATEGORY:Internal																																																																ABILITY:Human Racial Trait|AUTOMATIC|TYPE.HumanRacialDefault		BONUS:ABILITYPOOL|Human Racial Trait|-2
 
+# Work Aroud
+
+Default		CATEGORY:Internal		
+# ABILITY:Internal|AUTOMATIC|Select Racial Traits|PRERACE:1,Dwarf%,Elf%,Halfling%,Human%,Half-Elf%,Half-Orc%,Gnome
+Select Racial Traits		CATEGORY:Internal	TEMPLATE:Default Racial Traits
