@@ -225,6 +225,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, T choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
+		pc.removeAssociation(owner, encodeChoice(choice));
 		List<ChooseSelectionActor<?>> actors =
 				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 		if (actors != null)
