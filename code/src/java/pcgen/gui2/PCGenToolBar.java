@@ -34,13 +34,11 @@ public final class PCGenToolBar extends JToolBar
 
     private final PCGenFrame frame;
     private final PCGenActionMap actionMap;
-    private final JComboBox sheetBox;
 
     public PCGenToolBar(PCGenFrame frame)
     {
         this.frame = frame;
         this.actionMap = frame.getActionMap();
-        this.sheetBox = new JComboBox();
         initComponents();
     }
 
@@ -56,10 +54,6 @@ public final class PCGenToolBar extends JToolBar
         addSeparator();
 
         add(ToolBarUtilities.createToolBarButton(actionMap.get(PCGenActionMap.PRINT_COMMAND)));
-        addSeparator();
-        sheetBox.setMaximumSize(new Dimension(200, 22));
-        //sheetBox.setModel(frame.getCharacterSheets());
-        add(sheetBox);
         addSeparator();
 
         add(ToolBarUtilities.createToolBarButton(actionMap.get(PCGenActionMap.PREFERENCES_COMMAND)));
