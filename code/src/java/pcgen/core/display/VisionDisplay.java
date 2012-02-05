@@ -38,4 +38,21 @@ public class VisionDisplay
 		return visionString.toString();
 	}
 
+	public static String getVision(PlayerCharacter pc)
+	{
+		final StringBuffer visionString = new StringBuffer();
+	
+		for (Vision vision : pc.getVisionList())
+		{
+			if (visionString.length() > 0)
+			{
+				visionString.append(", ");
+			}
+	
+			visionString.append(vision);
+		}
+	
+		return visionString.toString();
+	}
+
 }

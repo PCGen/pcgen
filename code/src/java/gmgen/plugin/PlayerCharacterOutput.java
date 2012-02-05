@@ -25,6 +25,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.QualifiedName;
 import pcgen.core.analysis.StatAnalysis;
+import pcgen.core.display.VisionDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.MovementToken;
 import pcgen.util.enumeration.AttackType;
@@ -347,7 +348,7 @@ public class PlayerCharacterOutput
 
 	public String getVision()
 	{
-		return pc.getVision();
+		return VisionDisplay.getVision(pc);
 	}
 
 	public String getWeaponToken(int weaponNo, String Token)

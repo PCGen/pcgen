@@ -57,6 +57,7 @@ import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.facet.ChooseDriverFacet;
@@ -3736,7 +3737,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	{
 		final String r =
 				EntityEncoder.decode(line.substring(TAG_REGION.length() + 1));
-		thePC.setRegion(r);
+		thePC.setRegion(Region.getConstant(r));
 	}
 
 	//this method is obsolete, but left in for backward-compatibility, replaced by parseCityLine()

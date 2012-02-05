@@ -162,6 +162,32 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	private CharID id = new CharID();
 
+	/*
+	 * Note "pure" here means no getDirty call, and absolutely no other stuff in
+	 * the method. Also any method is not used elsewhere in PlayerCharacter
+	 */
+	//The following facets are pure delegation (no exceptions) - could be considered "complete"
+	private DamageReductionFacet drFacet = FacetLibrary.getFacet(DamageReductionFacet.class);
+	private FaceFacet faceFacet = FacetLibrary.getFacet(FaceFacet.class);
+	private HandsFacet handsFacet = FacetLibrary.getFacet(HandsFacet.class);
+	private LegsFacet legsFacet = FacetLibrary.getFacet(LegsFacet.class);
+	private NonAbilityFacet nonAbilityFacet = FacetLibrary.getFacet(NonAbilityFacet.class);
+	private StatLockFacet statLockFacet = FacetLibrary.getFacet(StatLockFacet.class);
+	private UnlockedStatFacet unlockedStatFacet = FacetLibrary.getFacet(UnlockedStatFacet.class);
+	private VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
+
+	/*
+	 * Note "minimal" here means getDirty is allowed on a set, it may be used
+	 * in clone(), but no other calls are made in any methods. Also any
+	 * delegation method is not used elsewhere in PlayerCharacter
+	 */
+	//The following facets are "minimal" delegation
+	private GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
+	private HeightFacet heightFacet = FacetLibrary.getFacet(HeightFacet.class);
+	private RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
+	private WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
+	
+	//The following are other facets
 	private DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);
 	private TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
 	private ConditionalTemplateFacet conditionalTemplateFacet =
@@ -170,9 +196,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private AlignmentFacet alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
 	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
 	private StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
-	private NonAbilityFacet nonAbilityFacet = FacetLibrary.getFacet(NonAbilityFacet.class);
-	private UnlockedStatFacet unlockedStatFacet = FacetLibrary.getFacet(UnlockedStatFacet.class);
-	private StatLockFacet statLockFacet = FacetLibrary.getFacet(StatLockFacet.class);
 	private CheckFacet checkFacet = FacetLibrary.getFacet(CheckFacet.class);
 	private SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
 	private ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
@@ -193,7 +216,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private KitFacet kitFacet = FacetLibrary.getFacet(KitFacet.class);
 	private BonusWeaponProfFacet wpBonusFacet = FacetLibrary.getFacet(BonusWeaponProfFacet.class);
 	private AutoListWeaponProfFacet alWeaponProfFacet = FacetLibrary.getFacet(AutoListWeaponProfFacet.class);
-	private DamageReductionFacet drFacet = FacetLibrary.getFacet(DamageReductionFacet.class);
 	private AutoListArmorProfFacet armorProfListFacet = FacetLibrary.getFacet(AutoListArmorProfFacet.class);
 	private ArmorProfProviderFacet armorProfFacet = FacetLibrary.getFacet(ArmorProfProviderFacet.class);
 	private AutoListShieldProfFacet shieldProfListFacet = FacetLibrary.getFacet(AutoListShieldProfFacet.class);
@@ -229,16 +251,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private SubRaceFacet subRaceFacet = FacetLibrary.getFacet(SubRaceFacet.class);
 	private RacialSubTypesFacet subTypesFacet = FacetLibrary.getFacet(RacialSubTypesFacet.class);
 	private RaceTypeFacet raceTypeFacet = FacetLibrary.getFacet(RaceTypeFacet.class);
-	private HandsFacet handsFacet = FacetLibrary.getFacet(HandsFacet.class);
-	private LegsFacet legsFacet = FacetLibrary.getFacet(LegsFacet.class);
-	private FaceFacet faceFacet = FacetLibrary.getFacet(FaceFacet.class);
 	private LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
 	private LevelTableFacet levelTableFacet = FacetLibrary.getFacet(LevelTableFacet.class);
 	private SizeFacet sizeFacet = FacetLibrary.getFacet(SizeFacet.class);
-	private GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
-	private HeightFacet heightFacet = FacetLibrary.getFacet(HeightFacet.class);
-	private WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
-	private RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
 	private MoneyFacet moneyFacet = FacetLibrary.getFacet(MoneyFacet.class);
 	private ChallengeRatingFacet crFacet = FacetLibrary.getFacet(ChallengeRatingFacet.class);
 	private InitiativeFacet initiativeFacet = FacetLibrary.getFacet(InitiativeFacet.class);
@@ -249,7 +264,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private QualifyFacet qualifyFacet = FacetLibrary.getFacet(QualifyFacet.class);
 	private FavoredClassFacet favClassFacet = FacetLibrary.getFacet(FavoredClassFacet.class);
 	private VariableFacet variableFacet = FacetLibrary.getFacet(VariableFacet.class);
-	private VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
 	private FollowerOptionFacet foFacet = FacetLibrary.getFacet(FollowerOptionFacet.class);
 	private FollowerLimitFacet followerLimitFacet = FacetLibrary.getFacet(FollowerLimitFacet.class);
 	private AvailableSpellFacet availSpellFacet = FacetLibrary.getFacet(AvailableSpellFacet.class);
@@ -2399,25 +2413,28 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return raceFacet.get(id);
 	}
 
+	public void setRegion(final String region)
+	{
+		setRegion(Region.getConstant(region));
+	}
+
 	/**
 	 * Set the character's region.
 	 * 
-	 * @param region the character's region
+	 * @param r the character's region
 	 */
-	public void setRegion(final String region)
+	public void setRegion(Region r)
 	{
-		Region r = Region.getConstant(region);
 		regionFacet.setRegion(id, r);
 	}
 
 	/**
 	 * Set the character's sub region.
 	 * 
-	 * @param aString the character's sub region
+	 * @param subregion the character's sub region
 	 */
-	public void setSubRegion(final String aString)
+	private void setSubRegion(SubRegion subregion)
 	{
-		SubRegion subregion = SubRegion.getConstant(aString);
 		regionFacet.setSubRegion(id, subregion);
 	}
 
@@ -5590,23 +5607,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return visionFacet.getActiveVision(id);
 	}
 
-	public String getVision()
-	{
-		final StringBuffer visionString = new StringBuffer();
-
-		for (Vision vision : getVisionList())
-		{
-			if (visionString.length() > 0)
-			{
-				visionString.append(", ");
-			}
-
-			visionString.append(vision);
-		}
-
-		return visionString.toString();
-	}
-
 	public int abilityAC()
 	{
 		return armorClassFacet.calcACOfType(id, "Ability");
@@ -8253,13 +8253,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 				list.add(classLevel);
 			}
 		}
-		list.addAll(getConditionalTemplateObjects());
+		list.addAll(conditionalTemplateFacet.getSet(id));
 		return list;
-	}
-
-	private Collection<PCTemplate> getConditionalTemplateObjects()
-	{
-		return conditionalTemplateFacet.getSet(id);
 	}
 
 	/**
@@ -9373,14 +9368,14 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		aClone.setPortraitPath(getPortraitPath());
 		if (getRegionString() != null)
 		{
-			aClone.setRegion(getRegionString());
+			aClone.setRegion(Region.getConstant(getRegionString()));
 		}
 		aClone.setResidence(getResidence());
 		aClone.setSkinColor(getSkinColor());
 		aClone.setSpeechTendency(getSpeechTendency());
 		if (getSubRegion() != null)
 		{
-			aClone.setSubRegion(getSubRegion());
+			aClone.setSubRegion(SubRegion.getConstant(getSubRegion()));
 		}
 		aClone.tabName = tabName;
 		aClone.setTrait1(getTrait1());

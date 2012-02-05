@@ -10,6 +10,7 @@ import gmgen.plugin.PlayerCharacterOutput;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.display.VisionDisplay;
 import pcgen.io.exporttoken.AlignmentToken;
 import pcgen.io.exporttoken.HeightToken;
 import pcgen.io.exporttoken.SizeLongToken;
@@ -883,7 +884,7 @@ public class DetailsPane extends javax.swing.JPanel
 		hair.setText(pc.getHairColor() + ' ');
 
 		alignment.setText(AlignmentToken.getAlignmentToken(pc) + ' ');
-		vision.setText(pc.getVision() + ' ');
+		vision.setText(VisionDisplay.getVision(pc) + ' ');
 		points.setText(pc.getCostPool() + SPACE);
 	}
 
