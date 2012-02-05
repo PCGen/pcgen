@@ -197,7 +197,6 @@ class AdvancedSourceSelectionPanel extends JPanel
 		
 		selectionTable.setDisplayableFilter(bar);
 		selectionTable.setTreeViewModel(treeViewModel);
-		selectionTable.toggleSort(0);
 		selectionTable.getSelectionModel().addListSelectionListener(this);
 		JScrollPane pane = TableUtils.createCheckBoxSelectionPane(selectionTable, TableUtils.createDefaultTable());
 		pane.setPreferredSize(new Dimension(400, 400));
