@@ -77,6 +77,7 @@ import pcgen.gui2.util.SortMode;
 import pcgen.gui2.util.SortingPriority;
 import pcgen.gui2.util.table.TableCellUtilities.SpinnerEditor;
 import pcgen.gui2.util.table.TableCellUtilities.SpinnerRenderer;
+import pcgen.system.LanguageBundle;
 
 /**
  *
@@ -92,6 +93,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	private final TabTitle tabTitle;
 	private final FilterButton cFilterButton;
 	private final FilterButton ccFilterButton;
+	private final FilterButton gainedFilterButton;
 	private final JEditorPane htmlPane;
 
 	public SkillInfoTab()
@@ -102,6 +104,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		this.infoPane = new InfoPane();
 		this.cFilterButton = new FilterButton();
 		this.ccFilterButton = new FilterButton();
+		this.gainedFilterButton = new FilterButton();
 		this.tabTitle = new TabTitle("in_skills");
 		this.htmlPane = new JEditorPane();
 		initComponents();
@@ -122,17 +125,17 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 
 		FilterButtonGroupPanel group = new FilterButtonGroupPanel();
-		//final FilterButton cbutton = new FilterButton();
 		cFilterButton.setText("Class");
-		//cbutton.setFilter(new CSkillFilter());
 		cFilterButton.setEnabled(false);
 		group.addFilterButton(cFilterButton);
 
-		//final FilterButton ccbutton = new FilterButton();
 		ccFilterButton.setText("Cross-Class");
-		//ccbutton.setFilter(new CCSkillFilter());
 		ccFilterButton.setEnabled(false);
 		group.addFilterButton(ccFilterButton);
+
+		gainedFilterButton.setText(LanguageBundle.getString("in_gained"));
+		gainedFilterButton.setEnabled(false);
+		group.addFilterButton(gainedFilterButton);
 		filterBar.addDisplayableFilter(group);
 		JPanel availPanel = FilterUtilities.configureFilteredTreeViewPane(skillTable, filterBar);
 		JScrollPane tableScrollPane;
@@ -364,6 +367,17 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			}
 
 		};
+
+		private final Filter<CharacterFacade, SkillFacade> gainedFilter = new Filter<CharacterFacade, SkillFacade>()
+		{
+
+			public boolean accept(CharacterFacade context, SkillFacade element)
+			{
+				CharacterLevelsFacade levels = context.getCharacterLevelsFacade();
+				return levels.getSkillRanks(null, element) > 0.0f;
+			}
+
+		};
 		private final ListSelectionModel model;
 		private final CharacterFacade character;
 		private boolean installed = false;
@@ -383,6 +397,8 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			cFilterButton.setEnabled(model.getMinSelectionIndex() != -1);
 			ccFilterButton.setFilter(ccFilter);
 			ccFilterButton.setEnabled(model.getMinSelectionIndex() != -1);
+			gainedFilterButton.setFilter(gainedFilter);
+			gainedFilterButton.setEnabled(true);
 			skillTable.setContext(character);
 		}
 
