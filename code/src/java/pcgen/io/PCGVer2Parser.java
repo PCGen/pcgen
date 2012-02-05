@@ -116,6 +116,7 @@ import pcgen.core.character.SpellInfo;
 import pcgen.core.chooser.CDOMChoiceManager;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
+import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.SourceSelectionFacade;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.spell.Spell;
@@ -232,11 +233,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			Logging.errorPrint("Character does not have game mode information.");
 			return null;
 		}
-		if (!cache.containsKey(TAG_CAMPAIGN))
-		{
-			Logging.errorPrint("Character does not have campaign information.");
-			return null;
-		}
 		String line = cache.get(TAG_GAMEMODE).get(0);
 		String requestedMode = line.substring(TAG_GAMEMODE.length() + 1);
 		GameMode mode = SystemCollections.getGameModeNamed(requestedMode);
@@ -257,6 +253,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			Logging.errorPrint("Character's game mode entry was not valid: " + line);
 			return null;
 		}
+		if (!cache.containsKey(TAG_CAMPAIGN))
+		{
+			Logging.errorPrint("Character does not have campaign information.");
+			return FacadeFactory.createSourceSelection(mode, new ArrayList<CampaignFacade>());
+		}
 		/*
 		 * #System Information
 		 * CAMPAIGN:CMP - Monkey Book I - Book For Monkeys
@@ -269,7 +270,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		if (campaigns.isEmpty())
 		{
 			Logging.errorPrint("Character's campaign entry was empty.");
-			return null;
 		}
 		return FacadeFactory.createSourceSelection(mode, campaigns);
 	}

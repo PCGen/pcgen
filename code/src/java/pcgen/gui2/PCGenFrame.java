@@ -911,7 +911,13 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		}
 		else
 		{
-			CharacterManager.openCharacter(pcgFile, PCGenFrame.this, currentDataSetRef.getReference());
+			if (showWarningConfirm(Constants.APPLICATION_NAME,
+				"Source files could not be found for the character:\n" + pcgFile
+					+ "\nDo you still wish to load the character?"))
+			{
+				CharacterManager.openCharacter(pcgFile, PCGenFrame.this,
+					currentDataSetRef.getReference());
+			}
 		}
 	}
 
