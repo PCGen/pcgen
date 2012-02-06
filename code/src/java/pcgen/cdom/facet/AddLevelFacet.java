@@ -32,21 +32,17 @@ import pcgen.core.SettingsHandler;
 public class AddLevelFacet implements DataFacetChangeListener<PCTemplate>
 {
 
+	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
+			.getFacet(PlayerCharacterTrackingFacet.class);
+	
 	private TemplateFacet templateFacet;
-
-	private final Class<?> thisClass = getClass();
-
-	public void associatePlayerCharacter(CharID id, PlayerCharacter pc)
-	{
-		FacetCache.set(id, thisClass, pc);
-	}
 
 	@Override
 	public void dataAdded(DataFacetChangeEvent<PCTemplate> dfce)
 	{
 		PCTemplate template = dfce.getCDOMObject();
 		CharID id = dfce.getCharID();
-		PlayerCharacter pc = (PlayerCharacter) FacetCache.get(id, thisClass);
+		PlayerCharacter pc = trackingFacet.getPC(id);
 
 		// If we are importing these levels will have been saved with the
 		// character so don't apply them again.
@@ -65,7 +61,7 @@ public class AddLevelFacet implements DataFacetChangeListener<PCTemplate>
 	{
 		PCTemplate template = dfce.getCDOMObject();
 		CharID id = dfce.getCharID();
-		PlayerCharacter pc = (PlayerCharacter) FacetCache.get(id, thisClass);
+		PlayerCharacter pc = trackingFacet.getPC(id);
 
 		List<LevelCommandFactory> lcfList = template
 				.getSafeListFor(ListKey.ADD_LEVEL);

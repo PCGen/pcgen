@@ -412,7 +412,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		resolveFacet.associatePlayerCharacter(id, this);
 		additionFacet.associatePlayerCharacter(id, this);
 		prereqFacet.associatePlayerCharacter(id, this);
-		addLevelFacet.associatePlayerCharacter(id, this);
 		trackingFacet.associatePlayerCharacter(id, this);
 		
 		variableProcessor = new VariableProcessorPC(this);
