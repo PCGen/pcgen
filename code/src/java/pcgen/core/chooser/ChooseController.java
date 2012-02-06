@@ -37,7 +37,7 @@ class ChooseController<T>
 		return 1;
 	}
 
-	public void adjustPool(List<T> selected)
+	public void adjustPool(List<? extends T> selected)
 	{
 		// Ignore
 	}

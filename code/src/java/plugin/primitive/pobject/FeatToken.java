@@ -92,7 +92,7 @@ public class FeatToken<T> implements PrimitiveToken<T>
 		List<Ability> theFeats = pc.getFeatNamedAnyCat(a);
 		for (Ability ability : theFeats)
 		{
-			List<R> list = info.getChoiceActor().getCurrentlySelected(ability,
+			List<? extends R> list = info.getChoiceActor().getCurrentlySelected(ability,
 					pc);
 			availableList.addAll(list);
 		}

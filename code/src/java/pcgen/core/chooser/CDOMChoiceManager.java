@@ -35,7 +35,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 			List<T> selectedList)
 	{
 		availableList.addAll(info.getSet(pc));
-		List<T> selected = info.getChoiceActor()
+		List<? extends T> selected = info.getChoiceActor()
 				.getCurrentlySelected(owner, pc);
 		if (selected != null)
 		{
@@ -57,7 +57,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	 */
 	public boolean conditionallyApply(PlayerCharacter pc, T item)
 	{
-		List<T> oldSelections = info.getChoiceActor().getCurrentlySelected(
+		List<? extends T> oldSelections = info.getChoiceActor().getCurrentlySelected(
 				owner, pc);
 		boolean applied = false;
 		if (oldSelections == null || !oldSelections.contains(item))
@@ -80,7 +80,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	 */
 	public boolean applyChoices(PlayerCharacter pc, List<T> selected)
 	{
-		List<T> oldSelections = info.getChoiceActor().getCurrentlySelected(
+		List<? extends T> oldSelections = info.getChoiceActor().getCurrentlySelected(
 				owner, pc);
 		List<T> toAdd = new ArrayList<T>();
 		for (T obj : selected)
@@ -208,7 +208,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 		applyChoices(aPC, newSelections);
 	}
 
-	protected void adjustPool(List<T> selected)
+	protected void adjustPool(List<? extends T> selected)
 	{
 		controller.adjustPool(selected);
 	}

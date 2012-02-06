@@ -2453,7 +2453,7 @@ final class PCGVer2Creator implements IOConstants
 		{
 			return;
 		}
-		final List<WeaponProf> profs = thePC.getBonusWeaponProfs(source);
+		final List<? extends WeaponProf> profs = thePC.getBonusWeaponProfs(source);
 		if (profs == null || profs.isEmpty())
 		{
 			return;

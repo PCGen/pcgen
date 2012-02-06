@@ -62,7 +62,7 @@ public class AbilityChooseController extends ChooseController<Ability>
 	}
 
 	@Override
-	public void adjustPool(List<Ability> selected)
+	public void adjustPool(List<? extends Ability> selected)
 	{
 		if (AbilityCategory.FEAT.equals(ac))
 		{

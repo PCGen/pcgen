@@ -44,7 +44,7 @@ public class WeaponBonusListActor implements
 	}
 
 	@Override
-	public List<WeaponProf> getCurrentlySelected(CDOMObject owner,
+	public List<? extends WeaponProf> getCurrentlySelected(CDOMObject owner,
 			PlayerCharacter pc)
 	{
 		return pc.getBonusWeaponProfs(owner);

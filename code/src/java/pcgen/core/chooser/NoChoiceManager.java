@@ -47,7 +47,7 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 
 	public boolean applyChoices(PlayerCharacter pc, List<String> selected)
 	{
-		List<String> oldSelections =
+		List<? extends String> oldSelections =
 				info.getChoiceActor().getCurrentlySelected(owner, pc);
 		int oldSelectionSize =
 				(oldSelections == null) ? 0 : oldSelections.size();

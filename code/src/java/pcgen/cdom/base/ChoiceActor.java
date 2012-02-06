@@ -79,5 +79,5 @@ public interface ChoiceActor<T>
 	 *            The PlayerCharacter for which the currently selected items
 	 *            are being returned.
 	 */
-	public List<T> getCurrentlySelected(CDOMObject owner, PlayerCharacter pc);
+	public List<? extends T> getCurrentlySelected(CDOMObject owner, PlayerCharacter pc);
 }

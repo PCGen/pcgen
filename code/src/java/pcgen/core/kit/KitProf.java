@@ -113,8 +113,7 @@ public final class KitProf extends BaseKit
 
 				return false;
 			}
-			List<WeaponProf> bonusProfs = aPC.getBonusWeaponProfs(pcRace);
-			if (!bonusProfs.isEmpty())
+			if (!aPC.hasBonusWeaponProfs(pcRace))
 			{
 				warnings
 					.add("PROF: Race has already selected bonus weapon proficiency");
@@ -146,8 +145,7 @@ public final class KitProf extends BaseKit
 				}
 			}
 			thePObject = pcClass;
-			List<WeaponProf> bonusProfs = aPC.getBonusWeaponProfs(pcClass);
-			if (!bonusProfs.isEmpty())
+			if (!aPC.hasBonusWeaponProfs(pcClass))
 			{
 				warnings
 					.add("PROF: Class has already selected bonus weapon proficiency");
