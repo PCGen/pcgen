@@ -19,7 +19,6 @@ package pcgen.cdom.facet;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.core.PlayerCharacter;
 
 /**
  * This is a transition class, designed to allow things to be taken out of
@@ -29,17 +28,12 @@ import pcgen.core.PlayerCharacter;
  */
 public class FormulaResolvingFacet
 {
-	private final Class<?> thisClass = getClass();
-
-	public void associatePlayerCharacter(CharID id, PlayerCharacter pc)
-	{
-		FacetCache.set(id, thisClass, pc);
-	}
+	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
+			.getFacet(PlayerCharacterTrackingFacet.class);
 
 	public Number resolve(CharID id, Formula f, String source)
 	{
-		PlayerCharacter pc = (PlayerCharacter) FacetCache.get(id, thisClass);
-		return f.resolve(pc, source);
+		return f.resolve(trackingFacet.getPC(id), source);
 	}
 
 }
