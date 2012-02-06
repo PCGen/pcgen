@@ -24,10 +24,8 @@ import pcgen.cdom.enumeration.CharID;
  * this weight is the actual character weight, not the character plus the
  * character's equipment.
  */
-public class WeightFacet
+public class WeightFacet extends AbstractItemFacet<Integer>
 {
-
-	private final Class<?> thisClass = getClass();
 
 	/**
 	 * Sets the weight of the Player Character represented by the given CharID
@@ -42,7 +40,7 @@ public class WeightFacet
 	 */
 	public void setWeight(CharID id, int weight)
 	{
-		FacetCache.set(id, thisClass, weight);
+		set(id, weight);
 	}
 
 	/**
@@ -55,7 +53,7 @@ public class WeightFacet
 	 */
 	public void removeWeight(CharID id)
 	{
-		FacetCache.remove(id, thisClass);
+		remove(id);
 	}
 
 	/**
@@ -70,7 +68,7 @@ public class WeightFacet
 	 */
 	public int getWeight(CharID id)
 	{
-		Integer weight = (Integer) FacetCache.get(id, thisClass);
+		Integer weight = get(id);
 		return weight == null ? 0 : weight;
 	}
 }
