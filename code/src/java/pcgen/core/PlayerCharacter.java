@@ -171,9 +171,13 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private ChronicleEntryFacet chronicleEntryFacet = FacetLibrary.getFacet(ChronicleEntryFacet.class);
 	private DamageReductionFacet drFacet = FacetLibrary.getFacet(DamageReductionFacet.class);
 	private FaceFacet faceFacet = FacetLibrary.getFacet(FaceFacet.class);
+	private FollowerOptionFacet foFacet = FacetLibrary.getFacet(FollowerOptionFacet.class);
 	private HandsFacet handsFacet = FacetLibrary.getFacet(HandsFacet.class);
+	private HasAnyFavoredClassFacet hasAnyFavoredFacet = FacetLibrary.getFacet(HasAnyFavoredClassFacet.class);
 	private LegsFacet legsFacet = FacetLibrary.getFacet(LegsFacet.class);
+	private MultiClassFacet multiClassFacet = FacetLibrary.getFacet(MultiClassFacet.class);
 	private NonAbilityFacet nonAbilityFacet = FacetLibrary.getFacet(NonAbilityFacet.class);
+	private StartingLanguageFacet startingLangFacet = FacetLibrary.getFacet(StartingLanguageFacet.class);
 	private StatLockFacet statLockFacet = FacetLibrary.getFacet(StatLockFacet.class);
 	private SubRaceFacet subRaceFacet = FacetLibrary.getFacet(SubRaceFacet.class);
 	private UnarmedDamageFacet unarmedDamageFacet = FacetLibrary.getFacet(UnarmedDamageFacet.class);
@@ -186,6 +190,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * delegation method is not used elsewhere in PlayerCharacter
 	 */
 	//The following facets are "minimal" delegation
+	private AddLanguageFacet addLangFacet = FacetLibrary.getFacet(AddLanguageFacet.class);
+	private AutoLanguageFacet autoLangFacet = FacetLibrary.getFacet(AutoLanguageFacet.class);
+	private FreeLanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
 	private GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
 	private HeightFacet heightFacet = FacetLibrary.getFacet(HeightFacet.class);
 	private RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
@@ -236,11 +243,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private FollowerFacet followerFacet = FacetLibrary.getFacet(FollowerFacet.class);
 	
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
-	private FreeLanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
-	private AutoLanguageFacet autoLangFacet = FacetLibrary.getFacet(AutoLanguageFacet.class);
-	private AddLanguageFacet addLangFacet = FacetLibrary.getFacet(AddLanguageFacet.class);
 	private SkillLanguageFacet skillLangFacet = FacetLibrary.getFacet(SkillLanguageFacet.class);
-	private StartingLanguageFacet startingLangFacet = FacetLibrary.getFacet(StartingLanguageFacet.class);
 
 	private ObjectCache cache = new ObjectCache();
 	private AssociationSupport assocSupt = new AssociationSupport();
@@ -266,14 +269,12 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private QualifyFacet qualifyFacet = FacetLibrary.getFacet(QualifyFacet.class);
 	private FavoredClassFacet favClassFacet = FacetLibrary.getFacet(FavoredClassFacet.class);
 	private VariableFacet variableFacet = FacetLibrary.getFacet(VariableFacet.class);
-	private FollowerOptionFacet foFacet = FacetLibrary.getFacet(FollowerOptionFacet.class);
 	private FollowerLimitFacet followerLimitFacet = FacetLibrary.getFacet(FollowerLimitFacet.class);
 	private AvailableSpellFacet availSpellFacet = FacetLibrary.getFacet(AvailableSpellFacet.class);
 	private MovementResultFacet moveResultFacet = FacetLibrary.getFacet(MovementResultFacet.class);
 	private UnencumberedLoadFacet unencumberedLoadFacet = FacetLibrary.getFacet(UnencumberedLoadFacet.class);
 	private AutoEquipmentFacet autoEquipFacet = FacetLibrary.getFacet(AutoEquipmentFacet.class);
 	private SpellBookFacet spellBookFacet = FacetLibrary.getFacet(SpellBookFacet.class);
-	private HasAnyFavoredClassFacet hasAnyFavoredFacet = FacetLibrary.getFacet(HasAnyFavoredClassFacet.class);
 	private TotalWeightFacet totalWeightFacet = FacetLibrary.getFacet(TotalWeightFacet.class);
 	private LoadFacet loadFacet = FacetLibrary.getFacet(LoadFacet.class);
 	private AppliedBonusFacet appliedBonusFacet = FacetLibrary.getFacet(AppliedBonusFacet.class);
@@ -289,7 +290,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private LegalDeityFacet legalDeityFacet = FacetLibrary.getFacet(LegalDeityFacet.class);
 	private AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
 	private AgeSetFacet ageSetFacet = FacetLibrary.getFacet(AgeSetFacet.class);
-	private MultiClassFacet multiClassFacet = FacetLibrary.getFacet(MultiClassFacet.class);
 	private ArmorClassFacet armorClassFacet = FacetLibrary.getFacet(ArmorClassFacet.class);
 	private ActiveSpellsFacet activeSpellsFacet = FacetLibrary.getFacet(ActiveSpellsFacet.class);
 	private SpellListFacet spellListFacet = FacetLibrary.getFacet(SpellListFacet.class);
@@ -2411,11 +2411,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public Race getRace()
 	{
 		return raceFacet.get(id);
-	}
-
-	public void setRegion(final String region)
-	{
-		setRegion(Region.getConstant(region));
 	}
 
 	/**
@@ -12077,7 +12072,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	{
 		conditionalFacet.removeAllFromSource(id, cdo);
 		directAbilityFacet.removeAllFromSource(id, cdo);
-		autoLangFacet.removeAll(id, cdo);
 		setDirty(true);
 	}
 

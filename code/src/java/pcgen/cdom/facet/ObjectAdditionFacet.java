@@ -23,7 +23,7 @@ import pcgen.core.PlayerCharacter;
 
 /**
  * This is a transition class, designed to allow things to be taken out of
- * PlayerCharacter while a transition is made to a sytem where variables are
+ * PlayerCharacter while a transition is made to a system where variables are
  * captured when items are entered into the PlayerCharacter and is different
  * than today's (5.x) core.
  */
