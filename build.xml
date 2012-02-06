@@ -76,6 +76,7 @@ These files can be renamed and used for releases.
     <property name="default.main.class" value="pcgen.gui.pcGenGUI" />
     <property name="manifest.extra.jars" value="
         ${lib.dir}/apache/commons-lang-2.4.jar 
+    	${lib.dir}/apache/commons-io-2.1.jar 
         ${lib.dir}/fop/xercesImpl-2.5.0.jar 
         ${lib.dir}/fop/avalon-framework-cvs-20020806.jar 
         ${lib.dir}/fop/xml-apis.jar 
