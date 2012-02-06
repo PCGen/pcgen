@@ -257,6 +257,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private FollowerFacet followerFacet = FacetLibrary.getFacet(FollowerFacet.class);
 	
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
+	//private UserSpecialAbilityFacet userSpecialAbilityFacet = FacetLibrary.getFacet(UserSpecialAbilityFacet.class);
 
 	private ObjectCache cache = new ObjectCache();
 	private AssociationSupport assocSupt = new AssociationSupport();
@@ -12702,5 +12703,23 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public boolean hasBonusWeaponProfs(CDOMObject owner)
 	{
 		return wpBonusFacet.containsFrom(id, owner);
+	}
+	
+	public void addUserSpecialAbility(SpecialAbility sa, CDOMObject source)
+	{
+		addAssoc(source, AssociationListKey.SPECIAL_ABILITY, sa);
+		//userSpecialAbilityFacet.add(id, sa, source);
+	}
+
+	public void removeUserSpecialAbility(SpecialAbility sa, CDOMObject source)
+	{
+		removeAssoc(source, AssociationListKey.SPECIAL_ABILITY, sa);
+		//userSpecialAbilityFacet.remove(id, sa, source);
+	}
+
+	public List<SpecialAbility> getUserSpecialAbilityList(CDOMObject source)
+	{
+		return getAssocList(source, AssociationListKey.SPECIAL_ABILITY);
+		//return userSpecialAbilityFacet.getSetFrom(id, source)
 	}
 }

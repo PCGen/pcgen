@@ -48,7 +48,6 @@ import javax.swing.ListSelectionModel;
 import javax.swing.WindowConstants;
 import javax.swing.table.AbstractTableModel;
 
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -58,8 +57,8 @@ import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.JTableEx;
 import pcgen.gui.utils.TableSorter;
 import pcgen.gui.utils.Utility;
-import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 /**
  * Title:        AddSpecialAbility.java
@@ -170,7 +169,7 @@ public final class AddSpecialAbility extends JFrame
 			PCClass aClass = aPC.getClassList().get(0);
 			String aString = (selectedValue).trim();
 			SpecialAbility sa = new SpecialAbility(aString);
-			aPC.addAssoc(aClass, AssociationListKey.SPECIAL_ABILITY, sa);
+			aPC.addUserSpecialAbility(sa, aClass);
 
 			if (owner != null)
 			{

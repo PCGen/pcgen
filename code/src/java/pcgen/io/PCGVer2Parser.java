@@ -1923,9 +1923,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 					if (!thePC.hasSpecialAbility(specialAbilityName))
 					{
-						thePC.addAssoc(target,
-								AssociationListKey.SPECIAL_ABILITY,
-								specialAbility);
+						thePC.addUserSpecialAbility(specialAbility, target);
 					}
 				}
 			}

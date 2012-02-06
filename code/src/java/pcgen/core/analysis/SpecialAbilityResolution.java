@@ -23,7 +23,6 @@ import java.util.List;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
@@ -69,8 +68,7 @@ public class SpecialAbilityResolution
 
 	public static List<SpecialAbility> addSpecialAbilitiesToList(final List<SpecialAbility> aList, final PlayerCharacter aPC, CDOMObject cdo)
 	{
-		List<SpecialAbility> salist = aPC.getAssocList(cdo,
-				AssociationListKey.SPECIAL_ABILITY);
+		List<SpecialAbility> salist = aPC.getUserSpecialAbilityList(cdo);
 		if (salist == null)
 		{
 			return aList;

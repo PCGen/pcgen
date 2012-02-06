@@ -56,7 +56,6 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -82,9 +81,9 @@ import pcgen.gui.AddSpecialAbility;
 import pcgen.gui.CharacterInfoTab;
 import pcgen.gui.PCGen_Frame1;
 import pcgen.gui.utils.Utility;
+import pcgen.system.LanguageBundle;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
-import pcgen.system.LanguageBundle;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.Tab;
@@ -496,8 +495,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 
 		for (PCClass aClass : pc.getClassSet())
 		{
-			List<SpecialAbility> salist = pc.getAssocList(aClass,
-					AssociationListKey.SPECIAL_ABILITY);
+			List<SpecialAbility> salist = pc.getUserSpecialAbilityList(aClass);
 			if (salist != null)
 			{
 				for (SpecialAbility sa : salist)
@@ -535,7 +533,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 				continue;
 			}
 
-			pc.removeAssoc(aClass, AssociationListKey.SPECIAL_ABILITY, sa);
+			pc.removeUserSpecialAbility(sa, aClass);
 		}
 
 		//		pc = null; // forces everything to re-display it's broken
