@@ -30,16 +30,12 @@ import pcgen.core.PlayerCharacter;
  */
 public class PrerequisiteFacet
 {
-	private final Class<?> thisClass = getClass();
-
-	public void associatePlayerCharacter(CharID id, PlayerCharacter pc)
-	{
-		FacetCache.set(id, thisClass, pc);
-	}
+	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
+			.getFacet(PlayerCharacterTrackingFacet.class);
 
 	public boolean qualifies(CharID id, QualifyingObject obj, Object source)
 	{
-		PlayerCharacter pc = (PlayerCharacter) FacetCache.get(id, thisClass);
+		PlayerCharacter pc = trackingFacet.getPC(id);
 		CDOMObject cdo = null;
 		if (source instanceof CDOMObject)
 		{
