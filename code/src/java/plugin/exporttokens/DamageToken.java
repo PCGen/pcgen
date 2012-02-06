@@ -26,6 +26,7 @@
 package plugin.exporttokens;
 
 import pcgen.core.PlayerCharacter;
+import pcgen.core.display.UnarmedDamageDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -71,6 +72,6 @@ public class DamageToken extends Token
 	 */
 	public static String getUnarmedToken(PlayerCharacter pc)
 	{
-		return pc.getUnarmedDamageString(true, true);
+		return UnarmedDamageDisplay.getUnarmedDamageString(pc, true, true);
 	}
 }

@@ -167,12 +167,16 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * the method. Also any method is not used elsewhere in PlayerCharacter
 	 */
 	//The following facets are pure delegation (no exceptions) - could be considered "complete"
+	private AddedTemplateFacet addedTemplateFacet = FacetLibrary.getFacet(AddedTemplateFacet.class);
+	private ChronicleEntryFacet chronicleEntryFacet = FacetLibrary.getFacet(ChronicleEntryFacet.class);
 	private DamageReductionFacet drFacet = FacetLibrary.getFacet(DamageReductionFacet.class);
 	private FaceFacet faceFacet = FacetLibrary.getFacet(FaceFacet.class);
 	private HandsFacet handsFacet = FacetLibrary.getFacet(HandsFacet.class);
 	private LegsFacet legsFacet = FacetLibrary.getFacet(LegsFacet.class);
 	private NonAbilityFacet nonAbilityFacet = FacetLibrary.getFacet(NonAbilityFacet.class);
 	private StatLockFacet statLockFacet = FacetLibrary.getFacet(StatLockFacet.class);
+	private SubRaceFacet subRaceFacet = FacetLibrary.getFacet(SubRaceFacet.class);
+	private UnarmedDamageFacet unarmedDamageFacet = FacetLibrary.getFacet(UnarmedDamageFacet.class);
 	private UnlockedStatFacet unlockedStatFacet = FacetLibrary.getFacet(UnlockedStatFacet.class);
 	private VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
 
@@ -185,6 +189,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
 	private HeightFacet heightFacet = FacetLibrary.getFacet(HeightFacet.class);
 	private RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
+	private SuppressBioFieldFacet suppressBioFieldFacet = FacetLibrary.getFacet(SuppressBioFieldFacet.class);
 	private WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
 	
 	//The following are other facets
@@ -221,7 +226,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private AutoListShieldProfFacet shieldProfListFacet = FacetLibrary.getFacet(AutoListShieldProfFacet.class);
 	private ShieldProfProviderFacet shieldProfFacet = FacetLibrary.getFacet(ShieldProfProviderFacet.class);
 	private CharacterSpellResistanceFacet srFacet = FacetLibrary.getFacet(CharacterSpellResistanceFacet.class);
-	private AddedTemplateFacet addedTemplateFacet = FacetLibrary.getFacet(AddedTemplateFacet.class);
 	private WeaponProfFacet weaponProfFacet = FacetLibrary.getFacet(WeaponProfFacet.class);
 	private MasterFacet masterFacet = FacetLibrary.getFacet(MasterFacet.class);
 	private AutoEquipmentListFacet autoListEquipmentFacet = FacetLibrary.getFacet(AutoEquipmentListFacet.class);
@@ -247,8 +251,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private HitPointFacet hitPointFacet = FacetLibrary.getFacet(HitPointFacet.class);
 	private KnownSpellFacet knownSpellFacet = FacetLibrary.getFacet(KnownSpellFacet.class);
 
-	private UnarmedDamageFacet unarmedDamageFacet = FacetLibrary.getFacet(UnarmedDamageFacet.class);
-	private SubRaceFacet subRaceFacet = FacetLibrary.getFacet(SubRaceFacet.class);
 	private RacialSubTypesFacet subTypesFacet = FacetLibrary.getFacet(RacialSubTypesFacet.class);
 	private RaceTypeFacet raceTypeFacet = FacetLibrary.getFacet(RaceTypeFacet.class);
 	private LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
@@ -289,7 +291,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private AgeSetFacet ageSetFacet = FacetLibrary.getFacet(AgeSetFacet.class);
 	private MultiClassFacet multiClassFacet = FacetLibrary.getFacet(MultiClassFacet.class);
 	private ArmorClassFacet armorClassFacet = FacetLibrary.getFacet(ArmorClassFacet.class);
-	private ChronicleEntryFacet chronicleEntryFacet = FacetLibrary.getFacet(ChronicleEntryFacet.class);
 	private ActiveSpellsFacet activeSpellsFacet = FacetLibrary.getFacet(ActiveSpellsFacet.class);
 	private SpellListFacet spellListFacet = FacetLibrary.getFacet(SpellListFacet.class);
 	private ClassSpellListFacet classSpellListFacet = FacetLibrary.getFacet(ClassSpellListFacet.class);
@@ -301,7 +302,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private AddLevelFacet addLevelFacet = FacetLibrary.getFacet(AddLevelFacet.class);
 	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 	private PortraitThumbnailRectFacet portraitThumbnailRectFacet = FacetLibrary.getFacet(PortraitThumbnailRectFacet.class);
-	private SuppressBioFieldFacet suppressBioFieldFacet = FacetLibrary.getFacet(SuppressBioFieldFacet.class);
 	
 	private LevelInfoFacet levelInfoFacet = FacetLibrary.getFacet(LevelInfoFacet.class);
 
@@ -5136,63 +5136,14 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return div;
 	}
 
-	/**
-	 * Get the unarmed damage string for this PC as adjusted by the booleans
-	 * passed in.
-	 * @param includeStrBonus
-	 * @param adjustForPCSize
-	 * 
-	 * @return the unarmed damage string
-	 */
-	public String getUnarmedDamageString(final boolean includeStrBonus,
-		final boolean adjustForPCSize)
+	public String getUDamForRace()
 	{
-		String retString = "2|1d2";
+		return unarmedDamageFacet.getUDamForRace(id);
+	}
 
-		for (PCClass pcClass : getClassSet())
-		{
-			retString =
-					PlayerCharacterUtilities.getBestUDamString(retString,
-						pcClass.getUdamForLevel(getLevel(pcClass), this,
-							adjustForPCSize));
-		}
-
-		int sizeInt = sizeInt();
-		for (List<String> unarmedDamage : unarmedDamageFacet.getSet(id))
-		{
-			String aDamage;
-			if (unarmedDamage.size() == 1)
-			{
-				aDamage = unarmedDamage.get(0);
-			}
-			else
-			{
-				aDamage = unarmedDamage.get(sizeInt);
-			}
-			retString =
-					PlayerCharacterUtilities.getBestUDamString(retString,
-						aDamage);
-		}
-		//Test against the default for the race
-		String pObjDamage = unarmedDamageFacet.getUDamForRace(id);
-		retString =
-				PlayerCharacterUtilities.getBestUDamString(retString,
-					pObjDamage);
-
-		// string is in form sides|damage, just return damage portion
-		StringBuilder ret =
-				new StringBuilder(retString
-					.substring(retString.indexOf('|') + 1));
-		if (includeStrBonus)
-		{
-			int sb = (int) getStatBonusTo("DAMAGE", "TYPE.MELEE");
-			sb += (int) getStatBonusTo("DAMAGE", "TYPE=MELEE");
-			if (sb != 0)
-			{
-				ret.append(Delta.toString(sb));
-			}
-		}
-		return ret.toString();
+	public Set<List<String>> getUnarmedDamage()
+	{
+		return unarmedDamageFacet.getSet(id);
 	}
 
 	public boolean getUseMasterSkill()

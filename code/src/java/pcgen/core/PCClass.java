@@ -930,7 +930,7 @@ public class PCClass extends PObject implements ClassFacade
 	 * @param adjustForPCSize whether to adjust the result for the PC's size.
 	 * @return the unarmed damage string
 	 */
-	String getUdamForLevel(
+	public String getUdamForLevel(
 		int aLevel,
 		final PlayerCharacter aPC,
 		boolean adjustForPCSize)

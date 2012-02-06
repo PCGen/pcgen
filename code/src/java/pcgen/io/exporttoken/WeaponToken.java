@@ -46,6 +46,7 @@ import pcgen.core.WeaponProf;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.SizeUtilities;
+import pcgen.core.display.UnarmedDamageDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
@@ -2734,7 +2735,7 @@ public class WeaponToken extends Token
 			 * their race */
 			boolean applySize = (eqSize == iMod);
 			String uDamString =
-					pc.getUnarmedDamageString(false, applySize);
+					UnarmedDamageDisplay.getUnarmedDamageString(pc, false, applySize);
 
 			StringTokenizer bTok =
 					new StringTokenizer(damString, " d+-", false);

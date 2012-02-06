@@ -49,7 +49,7 @@ public class PlayerCharacterUtilities
 	 *          4 is bigger than the 3). If the last figure in the new string
 	 *          isn't larger, it returns the original string.
 	 */
-	static String getBestUDamString(final String oldString, final String newString)
+	public static String getBestUDamString(final String oldString, final String newString)
 	{
 		if ((newString == null) || (newString.length() < 2))
 		{
