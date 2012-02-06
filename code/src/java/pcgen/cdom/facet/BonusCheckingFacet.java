@@ -30,22 +30,18 @@ import pcgen.core.bonus.BonusPair;
 
 /**
  * This is a transition class, designed to allow things to be taken out of
- * PlayerCharacter while a transition is made to a sytem where bonuses are
+ * PlayerCharacter while a transition is made to a system where bonuses are
  * captured when items are entered into the PlayerCharacter and can be
  * subscribed to by facets... and is thus different than today's (5.x) core.
  */
 public class BonusCheckingFacet
 {
-	private final Class<?> thisClass = getClass();
-
-	public void associatePlayerCharacter(CharID id, PlayerCharacter pc)
-	{
-		FacetCache.set(id, thisClass, pc);
-	}
-
+	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
+			.getFacet(PlayerCharacterTrackingFacet.class);
+	
 	public double getBonus(CharID id, String bonusType, String bonusName)
 	{
-		PlayerCharacter pc = (PlayerCharacter) FacetCache.get(id, thisClass);
+		PlayerCharacter pc = trackingFacet.getPC(id);
 		return pc.getTotalBonusTo(bonusType, bonusName);
 	}
 
@@ -66,14 +62,14 @@ public class BonusCheckingFacet
 
 	private Number getBonusValue(CharID id, BonusObj bonus, String qualifiedKey)
 	{
-		PlayerCharacter pc = (PlayerCharacter) FacetCache.get(id, thisClass);
+		PlayerCharacter pc = trackingFacet.getPC(id);
 		return bonus.resolve(pc, qualifiedKey);
 	}
 
 	public double getAllBonusValues(CharID id, Collection<BonusObj> bonuses,
 			String qualifiedKey)
 	{
-		PlayerCharacter pc = (PlayerCharacter) FacetCache.get(id, thisClass);
+		PlayerCharacter pc = trackingFacet.getPC(id);
 		double value = 0;
 		for (BonusObj bo : bonuses)
 		{
@@ -84,7 +80,7 @@ public class BonusCheckingFacet
 
 	public Collection<String> getBonusInfo(CharID id, String bonusName)
 	{
-		PlayerCharacter pc = (PlayerCharacter) FacetCache.get(id, thisClass);
+		PlayerCharacter pc = trackingFacet.getPC(id);
 		List<String> list = new ArrayList<String>();
 		for (BonusObj bonus : pc.getActiveBonusList())
 		{
@@ -104,7 +100,7 @@ public class BonusCheckingFacet
 	 */
 	public Collection<String> getExpandedBonusInfo(CharID id, String bonusName)
 	{
-		PlayerCharacter pc = (PlayerCharacter) FacetCache.get(id, thisClass);
+		PlayerCharacter pc = trackingFacet.getPC(id);
 		List<String> list = new ArrayList<String>();
 		for (BonusObj bonus : pc.getActiveBonusList())
 		{

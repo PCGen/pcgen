@@ -410,7 +410,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public PlayerCharacter(boolean load, Collection<Campaign> loadedCampaigns)
 	{
 		resolveFacet.associatePlayerCharacter(id, this);
-		bonusFacet.associatePlayerCharacter(id, this);
 		additionFacet.associatePlayerCharacter(id, this);
 		prereqFacet.associatePlayerCharacter(id, this);
 		addLevelFacet.associatePlayerCharacter(id, this);
