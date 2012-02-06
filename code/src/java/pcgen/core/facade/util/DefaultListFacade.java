@@ -23,6 +23,7 @@ package pcgen.core.facade.util;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 import java.util.ListIterator;
 
 /**
@@ -132,6 +133,14 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 		fireElementsChanged(this);
 	}
 
+	/**
+	 * @return A copy of the contents of the list.
+	 */
+	public List<E> getContents()
+	{
+		return new ArrayList<E>(elementList);
+	}
+	
 	/**
 	 * {@inheritDoc}
 	 */

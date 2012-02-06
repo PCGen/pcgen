@@ -450,6 +450,17 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 	private void loadCampaigns() throws PersistenceLayerException
 	{
+		// Unload the existing campaigns and load our selected campaign
+		Globals.emptyLists();
+		PersistenceManager pManager = PersistenceManager.getInstance();
+		pManager.clear();
+		List<URI> uris = new ArrayList<URI>();
+		for (CampaignFacade campaignFacade : selectedCampaigns)
+		{
+			uris.add(((Campaign)campaignFacade).getSourceURI());
+		}
+		pManager.setChosenCampaignSourcefiles(uris);
+
 		sourcesSet.clear();
 		licenseFiles.clear();
 

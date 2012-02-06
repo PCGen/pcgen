@@ -34,12 +34,14 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTree;
 import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeCellRenderer;
 
 import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.CharacterFacade;
@@ -50,6 +52,7 @@ import pcgen.core.facade.event.ListListener;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.core.facade.util.ListFacades;
+import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilterBar;
 import pcgen.gui2.filter.FilterButton;
@@ -72,7 +75,7 @@ import pcgen.util.Comparators;
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 class AdvancedSourceSelectionPanel extends JPanel
-		implements ListSelectionListener
+		implements ListSelectionListener, ListListener<CampaignFacade>
 {
 	
 	private FilteredTreeViewTable selectionTable;
@@ -80,7 +83,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 	private InfoPane infoPane;
 	private GameModeFacade gameMode;
 	private JList gameModeList;
-	private List<CampaignFacade> selectedCampaigns;
+	private DefaultListFacade<CampaignFacade> selectedCampaigns;
 	
 	public AdvancedSourceSelectionPanel()
 	{
@@ -90,78 +93,17 @@ class AdvancedSourceSelectionPanel extends JPanel
 			@Override
 			protected TreeViewTableModel createDefaultTreeViewTableModel(DataView dataView)
 			{
-				return new TreeViewTableModel(dataView)
-				{
-					
-					@Override
-					public Class getColumnClass(int column)
-					{
-						if (column == -1)
-						{
-							return Boolean.class;
-						}
-						return super.getColumnClass(column);
-					}
-					
-					@Override
-					public Object getValueAt(Object node, int column)
-					{
-						if (column != -1)
-						{
-							return super.getValueAt(node, column);
-						}
-						Object userObject = ((DefaultMutableTreeNode) node).getUserObject();
-						if (userObject instanceof CampaignFacade)
-						{
-							CampaignFacade camp = (CampaignFacade) userObject;
-							return selectedCampaigns.contains(camp);
-						}
-						return null;
-					}
-					
-					@Override
-					public boolean isCellEditable(Object node, int column)
-					{
-						if (column == -1)
-						{
-							return ((DefaultMutableTreeNode) node).getUserObject() instanceof CampaignFacade;
-						}
-						return super.isCellEditable(node, column);
-					}
-					
-					@Override
-					public void setValueAt(Object aValue, Object node, int column)
-					{
-						CampaignFacade camp = (CampaignFacade) ((DefaultMutableTreeNode) node).getUserObject();
-						Boolean value = (Boolean) aValue;
-						if (value)
-						{
-							selectedCampaigns.add(camp);
-							if (!FacadeFactory.passesPrereqs(gameMode, selectedCampaigns))
-							{
-								JOptionPane.showMessageDialog(AdvancedSourceSelectionPanel.this,
-															  "Prereqs for this campaign have not fulfilled",
-															  "Cannot Select Campaign",
-															  JOptionPane.INFORMATION_MESSAGE);
-								selectedCampaigns.remove(camp);
-							}
-						}
-						else
-						{
-							selectedCampaigns.remove(camp);
-						}
-					}
-					
-				};
+				return new SourceTreeViewTableModel(dataView);
 			}
 			
 		};
 		this.treeViewModel = new SourceTreeViewModel();
 		this.gameModeList = new JList();
 		this.infoPane = new InfoPane("Campaign Info");
-		this.selectedCampaigns = new ArrayList<CampaignFacade>();
+		this.selectedCampaigns = new DefaultListFacade<CampaignFacade>();
 		initComponents();
 		initDefaults();
+		selectedCampaigns.addListListener(this);
 	}
 	
 	private void initComponents()
@@ -204,7 +146,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 			public boolean accept(CharacterFacade context, CampaignFacade element)
 			{
 				CampaignFacade camp = (CampaignFacade) element;
-				return selectedCampaigns.contains(camp);		
+				return selectedCampaigns.containsElement(camp);		
 			}
 		});
 		bar.addDisplayableFilter(gainedFilterButton);
@@ -214,6 +156,8 @@ class AdvancedSourceSelectionPanel extends JPanel
 		selectionTable.setDisplayableFilter(bar);
 		selectionTable.setTreeViewModel(treeViewModel);
 		selectionTable.getSelectionModel().addListSelectionListener(this);
+		selectionTable.setTreeCellRenderer(new CampaignRenderer());
+		
 		JScrollPane pane = TableUtils.createCheckBoxSelectionPane(selectionTable, TableUtils.createDefaultTable());
 		pane.setPreferredSize(new Dimension(400, 400));
 		panel.add(pane, BorderLayout.CENTER);
@@ -240,27 +184,27 @@ class AdvancedSourceSelectionPanel extends JPanel
 	
 	public List<CampaignFacade> getSelectedCampaigns()
 	{
-		return selectedCampaigns;
+		return selectedCampaigns.getContents();
 	}
 	
 	public void setSourceSelection(SourceSelectionFacade sources)
 	{
 		gameModeList.setSelectedValue(sources.getGameMode().getReference(), true);
-		selectedCampaigns.clear();
-		selectedCampaigns.addAll(ListFacades.wrap(sources.getCampaigns()));
+		selectedCampaigns.setContents(ListFacades.wrap(sources.getCampaigns()));
 		//selectionPanel.setSelectedObjects(ListFacades.wrap(sources.getCampaigns()));
 	}
 	
 	private void setSelectedGameMode(GameModeFacade elementAt)
 	{
 		this.gameMode = elementAt;
-		selectedCampaigns.clear();
+		selectedCampaigns.clearContents();
 		treeViewModel.setGameModel(elementAt);
 	}
 	
 	private void setSelectedCampaign(CampaignFacade source)
 	{
-		infoPane.setText(FacadeFactory.getCampaignInfoFactory().getHTMLInfo(source));
+		infoPane.setText(FacadeFactory.getCampaignInfoFactory().getHTMLInfo(
+			source, selectedCampaigns.getContents()));
 	}
 	
 	public void valueChanged(ListSelectionEvent e)
@@ -281,7 +225,113 @@ class AdvancedSourceSelectionPanel extends JPanel
 			}
 		}
 	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void elementAdded(ListEvent<CampaignFacade> e)
+	{
+		// Refresh displayed rows now that the selection has changed
+		selectionTable.updateDisplay();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void elementRemoved(ListEvent<CampaignFacade> e)
+	{
+		// Refresh displayed rows now that the selection has changed
+		selectionTable.updateDisplay();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void elementsChanged(ListEvent<CampaignFacade> e)
+	{
+		// Refresh displayed rows now that the selection has changed
+		selectionTable.updateDisplay();
+	}
 	
+	/**
+	 * The Class <code>SourceTreeViewTableModel</code> is the model backing the 
+	 * table showing the sources on the advanced source selection tab.
+	 */
+	
+	private final class SourceTreeViewTableModel extends TreeViewTableModel
+	{
+		/**
+		 * Create a new instance of SourceTreeViewTableModel
+		 * @param dataView
+		 */
+		private SourceTreeViewTableModel(DataView dataView)
+		{
+			super(dataView);
+		}
+
+		@Override
+		public Class getColumnClass(int column)
+		{
+			if (column == -1)
+			{
+				return Boolean.class;
+			}
+			return super.getColumnClass(column);
+		}
+
+		@Override
+		public Object getValueAt(Object node, int column)
+		{
+			if (column != -1)
+			{
+				return super.getValueAt(node, column);
+			}
+			Object userObject = ((DefaultMutableTreeNode) node).getUserObject();
+			if (userObject instanceof CampaignFacade)
+			{
+				CampaignFacade camp = (CampaignFacade) userObject;
+				return selectedCampaigns.containsElement(camp);
+			}
+			return null;
+		}
+
+		@Override
+		public boolean isCellEditable(Object node, int column)
+		{
+			if (column == -1)
+			{
+				return ((DefaultMutableTreeNode) node).getUserObject() instanceof CampaignFacade;
+			}
+			return super.isCellEditable(node, column);
+		}
+
+		@Override
+		public void setValueAt(Object aValue, Object node, int column)
+		{
+			CampaignFacade camp = (CampaignFacade) ((DefaultMutableTreeNode) node).getUserObject();
+			Boolean value = (Boolean) aValue;
+			if (value)
+			{
+				selectedCampaigns.addElement(camp);
+				if (!FacadeFactory.passesPrereqs(gameMode, selectedCampaigns.getContents()))
+				{
+					JOptionPane.showMessageDialog(AdvancedSourceSelectionPanel.this,
+												  "Prereqs for this campaign have not fulfilled",
+												  "Cannot Select Campaign",
+												  JOptionPane.INFORMATION_MESSAGE);
+					selectedCampaigns.removeElement(camp);
+				}
+			}
+			else
+			{
+				selectedCampaigns.removeElement(camp);
+			}
+		}
+	}
+
 	private static class SourceTreeViewModel
 			implements TreeViewModel<CampaignFacade>, DataView<CampaignFacade>, ListListener<CampaignFacade>
 	{
@@ -392,6 +442,11 @@ class AdvancedSourceSelectionPanel extends JPanel
 							return Collections.singletonList(new TreeViewPath<CampaignFacade>(
 									pobj, publisher, format, setting));
 						}
+						if (format != null)
+						{
+							return Collections.singletonList(new TreeViewPath<CampaignFacade>(
+									pobj, publisher, format));
+						}
 					case PUBLISHER_SETTING_NAME:
 						if (setting != null)
 						{
@@ -408,6 +463,49 @@ class AdvancedSourceSelectionPanel extends JPanel
 			
 		}
 		
+	}
+
+	/**
+	 * The Class <code>CampaignRenderer</code> displays the tree cells of the
+	 * source table.  
+	 */
+	private class CampaignRenderer extends DefaultTreeCellRenderer
+	{
+
+		/**
+		 * Create a new renderer for the campaign names for a game mode. The 
+		 * names will be coloured to show if they are qualified or not.
+		 */
+		public CampaignRenderer()
+		{
+			setTextNonSelectionColor(UIPropertyContext.getQualifiedColor());
+			setClosedIcon(null);
+			setLeafIcon(null);
+			setOpenIcon(null);
+		}
+
+		@Override
+		public Component getTreeCellRendererComponent(JTree tree, Object value,
+													  boolean sel, boolean expanded, boolean leaf, int row,
+													  boolean hasFocus)
+		{
+
+			super.getTreeCellRendererComponent(tree, value, sel, expanded,
+											   leaf, row, hasFocus);
+			Object campaignObj = ((DefaultMutableTreeNode) value).getUserObject();
+			if (campaignObj instanceof CampaignFacade)
+			{
+				CampaignFacade campaign = (CampaignFacade) campaignObj;
+				List<CampaignFacade> testCampaigns = selectedCampaigns.getContents();
+				testCampaigns.add(campaign);
+				if (!FacadeFactory.passesPrereqs(gameMode, testCampaigns))
+				{
+					setForeground(UIPropertyContext.getNotQualifiedColor());
+				}
+			}
+			return this;
+		}
+
 	}
 	
 }

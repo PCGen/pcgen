@@ -22,6 +22,8 @@
  */
 package pcgen.core.facade;
 
+import java.util.List;
+
 /**
  * The Class <code>CampaignInfoFactory</code> is ...
  *
@@ -40,5 +42,14 @@ public interface CampaignInfoFactory
 	 * @return The information on the campaign.
 	 */
 	public String getHTMLInfo(CampaignFacade campaign);
+
+	/**
+	 * Produce a html formatted information string for the supplied campaign using 
+	 * a specified set of campaigns for prereq determination.
+	 * @param campaign The campaign to be described
+	 * @param selectedCampaigns The previously selected campaigns to be checked against.
+	 * @return The information on the campaign.
+	 */
+	String getHTMLInfo(CampaignFacade campaign, List<CampaignFacade> selectedCampaigns);
 
 }

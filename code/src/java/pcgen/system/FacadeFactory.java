@@ -332,6 +332,7 @@ public class FacadeFactory
 				return false;
 			}
 		}
+		pman.setChosenCampaignSourcefiles(oldList);
 		return true;
 	}
 	

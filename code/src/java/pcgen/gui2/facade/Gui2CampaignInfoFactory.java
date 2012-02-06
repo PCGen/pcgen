@@ -22,6 +22,7 @@
  */
 package pcgen.gui2.facade;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,6 +41,7 @@ import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.CampaignInfoFactory;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.gui2.util.HtmlInfoBuilder;
+import pcgen.persistence.PersistenceManager;
 import pcgen.persistence.lst.CampaignSourceEntry;
 
 /**
@@ -56,6 +58,24 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 {
 
+	/**
+	 * {@inheritDoc}
+	 */
+	public String getHTMLInfo(CampaignFacade campaign, List<CampaignFacade> testList)
+	{
+		PersistenceManager pman = PersistenceManager.getInstance();
+		List<URI> oldList = pman.getChosenCampaignSourcefiles();
+		List<URI> uris = new ArrayList<URI>();
+		for (CampaignFacade campaignFacade : testList)
+		{
+			uris.add(((Campaign)campaignFacade).getSourceURI());
+		}
+		pman.setChosenCampaignSourcefiles(uris);
+		String htmlInfo = getHTMLInfo(campaign);
+		pman.setChosenCampaignSourcefiles(oldList);
+		return htmlInfo;
+	}
+	
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CampaignInfoFactory#getHTMLInfo(pcgen.core.facade.CampaignFacade)
 	 */

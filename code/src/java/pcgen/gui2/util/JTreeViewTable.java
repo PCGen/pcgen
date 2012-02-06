@@ -273,6 +273,16 @@ public class JTreeViewTable<T> extends JTreeTable
 		resizeAndRepaint();
 	}
 
+	/**
+	 * React to a non structural change in model data by repainting the table. Will 
+	 * not collapse the tree or change which rows are displayed and will not be 
+	 * sufficient if rows have been added or removed.   
+	 */
+	public void updateDisplay()
+	{
+		resizeAndRepaint();
+	}
+
 	@Override
 	public void setColumnModel(TableColumnModel columnModel)
 	{
