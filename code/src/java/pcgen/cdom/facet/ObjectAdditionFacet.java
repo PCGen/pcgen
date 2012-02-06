@@ -29,21 +29,17 @@ import pcgen.core.PlayerCharacter;
  */
 public class ObjectAdditionFacet implements DataFacetChangeListener<CDOMObject>
 {
-	private final Class<?> thisClass = getClass();
-
+	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
+			.getFacet(PlayerCharacterTrackingFacet.class);
+	
 	private CDOMObjectConsolidationFacet consolidationFacet;
-
-	public void associatePlayerCharacter(CharID id, PlayerCharacter pc)
-	{
-		FacetCache.set(id, thisClass, pc);
-	}
 
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		CharID id = dfce.getCharID();
-		PlayerCharacter pc = (PlayerCharacter) FacetCache.get(id, thisClass);
+		PlayerCharacter pc = trackingFacet.getPC(id);
 		pc.processAddition(cdo);
 	}
 
@@ -52,7 +48,7 @@ public class ObjectAdditionFacet implements DataFacetChangeListener<CDOMObject>
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		CharID id = dfce.getCharID();
-		PlayerCharacter pc = (PlayerCharacter) FacetCache.get(id, thisClass);
+		PlayerCharacter pc = trackingFacet.getPC(id);
 		pc.processRemoval(cdo);
 	}
 
