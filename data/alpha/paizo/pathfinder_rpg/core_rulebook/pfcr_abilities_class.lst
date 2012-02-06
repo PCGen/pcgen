@@ -965,4 +965,28 @@ Martial Weapon Proficiency	KEY:Martial Weapon Proficiency Output	CATEGORY:FEAT		
 Wizard / Remove Scribe Scroll	CATEGORY:Archetype	TYPE:ACF.ScribeScroll	COST:0
 
 
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Archetype Display
 
+Archetype Display	VISIBLE:NO	CATEGORY:Internal
+
+CATEGORY=Internal|Archetype Display.MOD		ABILITY:Barbarian Archetype|AUTOMATIC|Archetype Barbarian|PRECLASS:1,Barbarian=1
+CATEGORY=Internal|Archetype Display.MOD		ABILITY:Bard Archetype|AUTOMATIC|Archetype Bard|PRECLASS:1,Bard=1
+CATEGORY=Internal|Archetype Display.MOD		ABILITY:Druid Archetype|AUTOMATIC|Archetype Druid|PRECLASS:1,Druid=1
+CATEGORY=Internal|Archetype Display.MOD		ABILITY:Fighter Archetype|AUTOMATIC|Archetype Fighter|PRECLASS:1,Fighter=1
+CATEGORY=Internal|Archetype Display.MOD		ABILITY:Monk Archetype|AUTOMATIC|Archetype Monk|PRECLASS:1,Monk=1
+CATEGORY=Internal|Archetype Display.MOD		ABILITY:Paladin Archetype|AUTOMATIC|Archetype Paladin|PRECLASS:1,Paladin=1
+CATEGORY=Internal|Archetype Display.MOD		ABILITY:Ranger Archetype|AUTOMATIC|Archetype Ranger|PRECLASS:1,Ranger=1
+CATEGORY=Internal|Archetype Display.MOD		ABILITY:Rogue Archetype|AUTOMATIC|Archetype Rogue|PRECLASS:1,Rogue=1
+CATEGORY=Internal|Archetype Display.MOD		ABILITY:Wizard Archetype|AUTOMATIC|Archetype Wizard|PRECLASS:1,Wizard=1
+#CATEGORY=Internal|Archetype Display.MOD		ABILITY: Archetype|AUTOMATIC|Archetype |PRECLASS:1,=1
+
+# Bucket Displayers
+Archetype Barbarian	CATEGORY:Archetype	VISIBLE:YES	TYPE:BarbarianArchetype		
+Archetype Bard		CATEGORY:Archetype	VISIBLE:YES	TYPE:BardArchetype		
+Archetype Druid		CATEGORY:Archetype	VISIBLE:YES	TYPE:DruidArchetype		
+Archetype Fighter		CATEGORY:Archetype	VISIBLE:YES	TYPE:FighterArchetype		
+Archetype Monk		CATEGORY:Archetype	VISIBLE:YES	TYPE:MonkArchetype		
+Archetype Paladin		CATEGORY:Archetype	VISIBLE:YES	TYPE:PaladinArchetype		
+Archetype Ranger		CATEGORY:Archetype	VISIBLE:YES	TYPE:RangerArchetype		
+Archetype Rogue		CATEGORY:Archetype	VISIBLE:YES	TYPE:RogueArchetype		
+Archetype Wizard		CATEGORY:Archetype	VISIBLE:YES	TYPE:WizardArchetype		
