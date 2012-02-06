@@ -197,7 +197,7 @@ RACE:Human	!PRERACE:1,%
 ABILITY:CATEGORY=Ability Bonus|+2 Intelligence
 NAME:Worm that Walks
 STAT:STR=8|DEX=14|CON=13|INT=18|WIS=12|CHA=10
-ABILITY:CATEGORY=Human Racial Trait|Grant Default Racial Abilities
+#ABILITY:CATEGORY=Human Racial Trait|Grant Default Racial Abilities
 TEMPLATE:Worm that Walks
 LANGBONUS:Abyssal|Aklo|Infernal
 CLASS:Wizard	LEVEL:13	SUBCLASS:Conjurer

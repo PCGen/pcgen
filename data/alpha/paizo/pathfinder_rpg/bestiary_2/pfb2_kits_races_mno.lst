@@ -411,7 +411,7 @@ RACE:Human	!PRERACE:1,%
 #ABILITY:CATEGORY=Ability Bonus|+2 Dexterity
 NAME:Ogrekin (Half-Ogre)
 STAT:STR=15|DEX=13|CON=14|INT=10|WIS=12|CHA=8
-ABILITY:CATEGORY=Human Racial Trait|Grant Default Racial Abilities
+#ABILITY:CATEGORY=Human Racial Trait|Grant Default Racial Abilities
 TEMPLATE:Ogrekin
 CLASS:Fighter	LEVEL:2
 ABILITY:CATEGORY=Favored Class|Fighter

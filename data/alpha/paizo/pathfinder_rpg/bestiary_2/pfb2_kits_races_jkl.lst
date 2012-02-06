@@ -283,7 +283,7 @@ STARTPACK:Lycanthrope (Werebear Common)	VISIBLE:NO	EQUIPBUY:0
 STAT:STR=16|DEX=14|CON=13|INT=12|WIS=8|CHA=10
 RACE:Human	!PRERACE:1,%
 ABILITY:CATEGORY=Ability Bonus|+2 Wisdom
-ABILITY:CATEGORY=Human Racial Trait|Grant Default Racial Abilities
+#ABILITY:CATEGORY=Human Racial Trait|Grant Default Racial Abilities
 NAME:Werebear
 CLASS:Ranger	LEVEL:4
 ABILITY:CATEGORY=Favored Class|Ranger
@@ -329,7 +329,7 @@ ALIGN:CN
 STAT:STR=15|DEX=13|CON=14|INT=8|WIS=12|CHA=10
 RACE:Human	!PRERACE:1,%
 ABILITY:CATEGORY=Ability Bonus|+2 Intelligence
-ABILITY:CATEGORY=Human Racial Trait|Grant Default Racial Abilities
+#ABILITY:CATEGORY=Human Racial Trait|Grant Default Racial Abilities
 NAME:Wereboar
 CLASS:Barbarian	LEVEL:2
 ABILITY:CATEGORY=Favored Class|Barbarian
@@ -371,7 +371,7 @@ ALIGN:NE
 STAT:STR=13|DEX=16|CON=12|INT=10|WIS=14|CHA=8
 RACE:Human	!PRERACE:1,%
 ABILITY:CATEGORY=Ability Bonus|+2 Charisma
-ABILITY:CATEGORY=Human Racial Trait|Grant Default Racial Abilities
+#ABILITY:CATEGORY=Human Racial Trait|Grant Default Racial Abilities
 NAME:Weretiger
 CLASS:Rogue	LEVEL:4
 ABILITY:CATEGORY=Favored Class|Rogue

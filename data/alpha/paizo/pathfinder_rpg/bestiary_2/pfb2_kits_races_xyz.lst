@@ -62,7 +62,7 @@ RACE:Human	!PRERACE:1,%
 ABILITY:CATEGORY=Ability Bonus|+2 Dexterity
 NAME:Juju Zombie
 STAT:STR=14|DEX=15|CON=10|INT=8|WIS=13|CHA=10
-ABILITY:CATEGORY=Human Racial Trait|Grant Default Racial Abilities
+#ABILITY:CATEGORY=Human Racial Trait|Grant Default Racial Abilities
 TEMPLATE:Zombie (Juju)
 CLASS:Rogue	LEVEL:2
 ABILITY:CATEGORY=Favored Class|Rogue
