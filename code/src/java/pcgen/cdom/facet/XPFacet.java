@@ -33,10 +33,8 @@ import pcgen.util.Logging;
  * Total Experience Points are a combination of Earned Experience Points and
  * Level-Adjusted Experience Points.
  */
-public class XPFacet
+public class XPFacet extends AbstractItemFacet<Integer>
 {
-
-	private final Class<?> thisClass = getClass();
 
 	private LevelFacet levelFacet;
 	private LevelTableFacet levelTableFacet;
@@ -54,7 +52,7 @@ public class XPFacet
 	 */
 	public void setEarnedXP(CharID id, int earnedXP)
 	{
-		FacetCache.set(id, thisClass, earnedXP);
+		set(id, earnedXP);
 	}
 
 	/**
@@ -69,7 +67,7 @@ public class XPFacet
 	 */
 	public int getEarnedXP(CharID id)
 	{
-		Integer earnedXP = (Integer) FacetCache.get(id, thisClass);
+		Integer earnedXP = this.get(id);
 		return earnedXP == null ? 0 : earnedXP;
 	}
 
