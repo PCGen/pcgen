@@ -25,12 +25,10 @@ import pcgen.core.PCTemplate;
 /**
  * GenderFacet is a Facet that tracks the Gender of a Player Character
  */
-public class GenderFacet
+public class GenderFacet extends AbstractItemFacet<Gender>
 {
-	private final Class<?> thisClass = getClass();
 
 	private TemplateFacet templateFacet;
-
 
 	/**
 	 * Sets the Gender of the Player Character represented by the given CharID
@@ -48,7 +46,7 @@ public class GenderFacet
 	 */
 	public void setGender(CharID id, Gender obj)
 	{
-		FacetCache.set(id, thisClass, obj);
+		set(id, obj);
 	}
 
 	/**
@@ -61,7 +59,7 @@ public class GenderFacet
 	 */
 	public void removeGender(CharID id)
 	{
-		FacetCache.remove(id, thisClass);
+		remove(id);
 	}
 
 	/**
@@ -79,7 +77,7 @@ public class GenderFacet
 		Gender g = findTemplateGender(id);
 		if (g == null)
 		{
-			g = (Gender) FacetCache.get(id, thisClass);
+			g = get(id);
 		}
 		return g == null ? Gender.getDefaultValue() : g;
 	}
