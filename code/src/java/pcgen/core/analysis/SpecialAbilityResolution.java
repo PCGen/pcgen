@@ -68,7 +68,7 @@ public class SpecialAbilityResolution
 
 	public static List<SpecialAbility> addSpecialAbilitiesToList(final List<SpecialAbility> aList, final PlayerCharacter aPC, CDOMObject cdo)
 	{
-		List<SpecialAbility> salist = aPC.getUserSpecialAbilityList(cdo);
+		List<? extends SpecialAbility> salist = aPC.getUserSpecialAbilityList(cdo);
 		if (salist == null)
 		{
 			return aList;

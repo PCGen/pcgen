@@ -495,7 +495,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 
 		for (PCClass aClass : pc.getClassSet())
 		{
-			List<SpecialAbility> salist = pc.getUserSpecialAbilityList(aClass);
+			List<? extends SpecialAbility> salist = pc.getUserSpecialAbilityList(aClass);
 			if (salist != null)
 			{
 				for (SpecialAbility sa : salist)

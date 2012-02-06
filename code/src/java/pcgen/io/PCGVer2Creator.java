@@ -841,7 +841,7 @@ final class PCGVer2Creator implements IOConstants
 			String key;
 			key = pcClass.getKeyName() + TAG_SAVE + '0';
 
-			List<SpecialAbility> salist = thePC.getUserSpecialAbilityList(pcClass);
+			List<? extends SpecialAbility> salist = thePC.getUserSpecialAbilityList(pcClass);
 			if (salist != null)
 			{
 				for (SpecialAbility sa : salist)
