@@ -9286,39 +9286,17 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		}
 		aClone.tempBonusItemList.addAll(tempBonusItemList);
 		aClone.bonusManager = bonusManager.buildDeepClone(aClone);
-		aClone.setBio(getBio());
-		aClone.setBirthday(getBirthday());
-		aClone.setBirthplace(getBirthplace());
-		aClone.setCatchPhrase(getCatchPhrase());
-		aClone.setCurrentEquipSetName(getCurrentEquipSetName());
-		aClone.setDescription(getDescription());
 		aClone.setDescriptionLst(getDescriptionLst());
-		aClone.setEyeColor(getEyeColor());
-		aClone.setFileName(getFileName());
 		aClone.setGender(getGenderObject());
-		aClone.setHairColor(getHairColor());
-		aClone.setHairStyle(getHairStyle());
-		aClone.setHanded(getHanded());
-		aClone.setInterests(getInterests());
-		aClone.setLocation(getLocation());
-		aClone.setName(getName());
-		aClone.setPhobias(getPhobias());
-		aClone.setPlayersName(getPlayersName());
-		aClone.setPortraitPath(getPortraitPath());
 		if (getRegionString() != null)
 		{
 			aClone.setRegion(Region.getConstant(getRegionString()));
 		}
-		aClone.setResidence(getResidence());
-		aClone.setSkinColor(getSkinColor());
-		aClone.setSpeechTendency(getSpeechTendency());
 		if (getSubRegion() != null)
 		{
 			aClone.setSubRegion(SubRegion.getConstant(getSubRegion()));
 		}
 		aClone.tabName = tabName;
-		aClone.setTrait1(getTrait1());
-		aClone.setTrait2(getTrait2());
 		aClone.autoKnownSpells = autoKnownSpells;
 		aClone.autoLoadCompanion = autoLoadCompanion;
 		aClone.autoSortGear = autoSortGear;
