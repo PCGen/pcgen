@@ -22,10 +22,8 @@ import pcgen.cdom.enumeration.CharID;
 /**
  * HeightFacet is a Facet that tracks the Player Character's height.
  */
-public class HeightFacet
+public class HeightFacet extends AbstractItemFacet<Integer>
 {
-
-	private final Class<?> thisClass = getClass();
 
 	/**
 	 * Sets the height of the Player Character represented by the given CharID
@@ -40,7 +38,7 @@ public class HeightFacet
 	 */
 	public void setHeight(CharID id, int height)
 	{
-		FacetCache.set(id, thisClass, height);
+		set(id, height);
 	}
 
 	/**
@@ -53,7 +51,7 @@ public class HeightFacet
 	 */
 	public void removeHeight(CharID id)
 	{
-		FacetCache.remove(id, thisClass);
+		remove(id);
 	}
 
 	/**
@@ -68,7 +66,7 @@ public class HeightFacet
 	 */
 	public int getHeight(CharID id)
 	{
-		Integer height = (Integer) FacetCache.get(id, thisClass);
+		Integer height = get(id);
 		return (height == null) ? 0 : height;
 	}
 }
