@@ -16,6 +16,10 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -44,6 +48,8 @@ import org.jdom.DocType;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
+import org.xml.sax.EntityResolver;
+import org.xml.sax.InputSource;
 
 import pcgen.core.doomsdaybook.CRRule;
 import pcgen.core.doomsdaybook.DataElement;
@@ -815,13 +821,15 @@ public class NameGenPanel extends JPanel
 		{
 			File[] dataFiles = path.listFiles(new XMLFilter());
 			SAXBuilder builder = new SAXBuilder();
+			GeneratorDtdResolver resolver = new GeneratorDtdResolver(path);
+			builder.setEntityResolver(resolver);
 
 			for (int i = 0; i < dataFiles.length; i++)
 			{
 				try
 				{
-					Document nameSet =
-							builder.build(dataFiles[i].toURI().toURL());
+					URL url = dataFiles[i].toURI().toURL();
+					Document nameSet = builder.build(url);
 					DocType dt = nameSet.getDocType();
 
 					if (dt.getElementName().equals("GENERATOR"))
@@ -834,9 +842,9 @@ public class NameGenPanel extends JPanel
 				}
 				catch (Exception e)
 				{
+					Logging.errorPrint(e.getMessage(), e);
 					JOptionPane.showMessageDialog(this, "XML Error with file "
 						+ dataFiles[i].getName());
-					Logging.errorPrint(e.getMessage(), e);
 				}
 			}
 
@@ -1083,6 +1091,58 @@ public class NameGenPanel extends JPanel
 		if (gender != null && cbSex != null)
 		{
 			cbSex.setSelectedItem(gender);
+		}
+	}
+
+	/**
+	 * The Class <code>GeneratorDtdResolver</code> is an EntityResolver implementation 
+	 * for use with a SAX parser. It forces the generator.dtd to be read from a 
+	 * known location.
+	 */
+	public class GeneratorDtdResolver implements EntityResolver
+	{
+
+		private final File parent;
+
+		/**
+		 * Create a new instance of GeneratorDtdResolver to read the 
+		 * generator.dtd from a specific directory.
+		 * @param parent The parent directory holding generator.dtd
+		 */
+		public GeneratorDtdResolver(File parent)
+		{
+			this.parent = parent;
+
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		public InputSource resolveEntity(String publicId, String systemId)
+		{
+			if (systemId.endsWith("generator.dtd"))
+			{
+				// return a special input source
+				InputStream dtdIn;
+				try
+				{
+					dtdIn =
+							new FileInputStream(new File(parent,
+								"generator.dtd"));
+				}
+				catch (FileNotFoundException e)
+				{
+					Logging.errorPrint("GeneratorDtdResolver.resolveEntity failed", e);
+					return null;
+
+				}
+				return new InputSource(dtdIn);
+			}
+			else
+			{
+				// use the default behaviour
+				return null;
+			}
 		}
 	}
 }
