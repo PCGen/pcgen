@@ -226,15 +226,14 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		public void stateChanged(ChangeEvent e)
 		{
 			TabInfo tabInfo = typeMap.get(selectedTitle);
-			if (tabInfo == null)
+			if (tabInfo != null)
 			{
-				return;
+				abilityTab.storeState(tabInfo.tabData);
 			}
-			abilityTab.storeState(tabInfo.tabData);
 			if (getSelectedIndex() != -1)
 			{
 				selectedTitle = getTitleAt(getSelectedIndex());
-				abilityTab.restoreState(tabInfo.tabData);
+				abilityTab.restoreState(typeMap.get(selectedTitle).tabData);
 			}
 		}
 
