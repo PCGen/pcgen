@@ -217,7 +217,7 @@
 			<fo:table-body>
 				<fo:table-row keep-with-next="always" keep-together="always">
 					<fo:table-cell text-align="start"  wrap-option="no-wrap" border-top-color="black" border-top-style="solid" border-top-width="0.1pt" background-color="transparent" padding-top="2pt">
-						<fo:block font-size="5pt" font-weight="bold">Character: <xsl:value-of select="/character/basics/name"/></fo:block>
+						<fo:block font-size="5pt" font-weight="bold">Character: <xsl:value-of select="/character/basics/name"/> [Level: <xsl:value-of select="/character/basics/classes/levels_total"/>]</fo:block>
 						<fo:block font-size="5pt" font-weight="bold">Player: <xsl:value-of select="/character/basics/playername"/></fo:block>
 					</fo:table-cell>
 					<fo:table-cell text-align="center" wrap-option="no-wrap" border-top-color="black" border-top-style="solid" border-top-width="0.1pt" background-color="transparent" padding-top="2pt">
@@ -737,7 +737,7 @@
 							<xsl:value-of select="classes/levels_total"/>
 							<xsl:if test="classes/levels_total != classes/levels_ecl">/<xsl:value-of select="classes/levels_ecl"/>
 							</xsl:if>
-							/ CR=<xsl:value-of select="cr"/>
+							/ <xsl:value-of select="cr"/>
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
@@ -966,7 +966,7 @@
 
 		For now, just make it 3 weapons max.
 		-->
-		<xsl:value-of select="3"/>
+		<xsl:value-of select="4"/>
 	</xsl:template>
 	<!--
 ====================================
@@ -3457,6 +3457,7 @@
 	TEMPLATE - weapons - special properties
 ====================================
 ====================================-->
+	
 	<xsl:template match="common" mode="special_properties">
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
 		<fo:table table-layout="fixed" keep-with-next="always" keep-together="always">
@@ -3466,6 +3467,7 @@
 			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row keep-with-next.within-column="always">
+				<xsl:if test="special_properties != ''">
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.title'"/>
@@ -3480,10 +3482,12 @@
 							<xsl:value-of select="special_properties"/>
 						</fo:block>
 					</fo:table-cell>
+				</xsl:if>
 				</fo:table-row>
 			</fo:table-body>
 		</fo:table>
 	</xsl:template>
+	
 	<!--
 ====================================
 ====================================
