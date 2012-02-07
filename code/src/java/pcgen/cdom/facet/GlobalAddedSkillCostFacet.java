@@ -28,7 +28,7 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.Skill;
 
-public class GlobalAddedSkillCostFacet
+public class GlobalAddedSkillCostFacet extends AbstractStorageFacet
 {
 	private final Class<?> thisClass = getClass();
 
@@ -54,7 +54,7 @@ public class GlobalAddedSkillCostFacet
 		if (rci == null)
 		{
 			rci = new HashMap<SkillCost, Map<Skill, Set<CDOMObject>>>();
-			FacetCache.set(id, thisClass, rci);
+			setCache(id, thisClass, rci);
 		}
 		return rci;
 	}
@@ -77,8 +77,8 @@ public class GlobalAddedSkillCostFacet
 	 */
 	private Map<SkillCost, Map<Skill, Set<CDOMObject>>> getInfo(CharID id)
 	{
-		return (Map<SkillCost, Map<Skill, Set<CDOMObject>>>) FacetCache.get(id,
-				thisClass);
+		return (Map<SkillCost, Map<Skill, Set<CDOMObject>>>) getCache(id,
+			thisClass);
 	}
 
 	public void add(CharID id, Skill skill, SkillCost sc, CDOMObject source)
@@ -134,4 +134,24 @@ public class GlobalAddedSkillCostFacet
 		return (skMap != null) && skMap.containsKey(skill);
 	}
 
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+		Map<SkillCost, Map<Skill, Set<CDOMObject>>> map = getInfo(source);
+		if (map != null)
+		{
+			for (Map.Entry<SkillCost, Map<Skill, Set<CDOMObject>>> fme : map.entrySet())
+			{
+				SkillCost sc = fme.getKey();
+				for (Map.Entry<Skill, Set<CDOMObject>> apme : fme.getValue().entrySet())
+				{
+					Skill sk = apme.getKey();
+					for (CDOMObject cdo : apme.getValue())
+					{
+						add(copy, sk, sc, cdo);
+					}
+				}
+			}
+		}
+	}
 }

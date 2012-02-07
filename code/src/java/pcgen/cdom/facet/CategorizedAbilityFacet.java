@@ -22,6 +22,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import pcgen.base.util.WrappedMapSet;
@@ -61,7 +62,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 	 */
 	public void add(CharID id, Category<Ability> cat, Nature nat, Ability obj)
 	{
-		boolean isNew = ensureCachedSet(id, cat, nat, obj);
+		boolean isNew = ensureCachedSet(id, cat, nat);
 		if (getCachedSet(id, cat, nat).add(obj) || isNew)
 		{
 			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
@@ -202,7 +203,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 	}
 
 	private boolean ensureCachedSet(CharID id, Category<Ability> cat,
-			Nature nat, Ability obj)
+			Nature nat)
 	{
 		boolean isNew = false;
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
@@ -210,7 +211,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 		{
 			isNew = true;
 			catMap = new HashMap<Category<Ability>, Map<Nature, Set<Ability>>>();
-			FacetCache.set(id, getClass(), catMap);
+			setCache(id, getClass(), catMap);
 		}
 		Map<Nature, Set<Ability>> natureMap = catMap.get(cat);
 		if (natureMap == null)
@@ -287,8 +288,8 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 	private Map<Category<Ability>, Map<Nature, Set<Ability>>> getCachedMap(
 			CharID id)
 	{
-		return (Map<Category<Ability>, Map<Nature, Set<Ability>>>) FacetCache
-				.get(id, getClass());
+		return (Map<Category<Ability>, Map<Nature, Set<Ability>>>) getCache(id,
+			getClass());
 	}
 
 	/**
@@ -302,8 +303,9 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 	 */
 	public void removeAll(CharID id)
 	{
-		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = (Map<Category<Ability>, Map<Nature, Set<Ability>>>) FacetCache
-				.remove(id, getClass());
+		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap =
+				(Map<Category<Ability>, Map<Nature, Set<Ability>>>) removeCache(
+					id, getClass());
 		if (catMap != null)
 		{
 			for (Map.Entry<Category<Ability>, Map<Nature, Set<Ability>>> catME : catMap
@@ -455,5 +457,25 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 			return Collections.emptySet();
 		}
 		return Collections.unmodifiableSet(map.keySet());
+	}
+
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+		Map<Category<Ability>, Map<Nature, Set<Ability>>> map = getCachedMap(source);
+		if (map != null)
+		{
+			for (Entry<Category<Ability>, Map<Nature, Set<Ability>>> me : map
+				.entrySet())
+			{
+				Category<Ability> cat = me.getKey();
+				for (Entry<Nature, Set<Ability>> nme : me.getValue().entrySet())
+				{
+					Nature nat = nme.getKey();
+					ensureCachedSet(copy, cat, nat);
+					getCachedSet(copy, cat, nat).addAll(nme.getValue());
+				}
+			}
+		}
 	}
 }

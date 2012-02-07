@@ -23,8 +23,12 @@
 
 package pcgen.cdom.helper;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
+
+import pcgen.cdom.facet.AbstractStorageFacet;
 
 /**
  * The Class <code>SpringHelper</code> is a simple helper for 
@@ -70,12 +74,22 @@ public class SpringHelper
 		{
 			initSpring();
 		}
-		
+
 		String[] beanNamesForType = beanFactory.getBeanNamesForType(cl);
 		if (beanNamesForType.length ==0) 
 		{
 			return null;
 		}
 		return (T) beanFactory.getBean (beanNamesForType[0], cl);
+	}
+	
+	public static Collection<AbstractStorageFacet> getStorageBeans()
+	{
+		if (beanFactory == null)
+		{
+			initSpring();
+		}
+
+		return beanFactory.getBeansOfType(AbstractStorageFacet.class).values();
 	}
 }

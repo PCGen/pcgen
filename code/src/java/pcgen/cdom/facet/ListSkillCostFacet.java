@@ -18,7 +18,8 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Skill;
 
-public class ListSkillCostFacet implements DataFacetChangeListener<CDOMObject>
+public class ListSkillCostFacet extends AbstractStorageFacet implements
+		DataFacetChangeListener<CDOMObject>
 {
 	private final Class<?> thisClass = getClass();
 
@@ -110,7 +111,7 @@ public class ListSkillCostFacet implements DataFacetChangeListener<CDOMObject>
 		if (rci == null)
 		{
 			rci = new CacheInfo();
-			FacetCache.set(id, thisClass, rci);
+			setCache(id, thisClass, rci);
 		}
 		return rci;
 	}
@@ -132,7 +133,7 @@ public class ListSkillCostFacet implements DataFacetChangeListener<CDOMObject>
 	 */
 	private CacheInfo getInfo(CharID id)
 	{
-		return (CacheInfo) FacetCache.get(id, thisClass);
+		return (CacheInfo) getCache(id, thisClass);
 	}
 
 	/**
@@ -284,4 +285,32 @@ public class ListSkillCostFacet implements DataFacetChangeListener<CDOMObject>
 		raceFacet.addDataFacetChangeListener(this);
 	}
 	
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+		CacheInfo rci = getInfo(source);
+		if (rci != null)
+		{
+			CacheInfo copyci = getConstructingInfo(copy);
+			for (Map.Entry<ClassSkillList, Map<SkillCost, Map<Skill, Set<CDOMObject>>>> me : rci.map
+				.entrySet())
+			{
+				ClassSkillList csl = me.getKey();
+				for (Map.Entry<SkillCost, Map<Skill, Set<CDOMObject>>> fme : me
+					.getValue().entrySet())
+				{
+					SkillCost sc = fme.getKey();
+					for (Map.Entry<Skill, Set<CDOMObject>> apme : fme
+						.getValue().entrySet())
+					{
+						Skill sk = apme.getKey();
+						for (CDOMObject cdo : apme.getValue())
+						{
+							copyci.add(csl, sk, sc, cdo);
+						}
+					}
+				}
+			}
+		}
+	}
 }

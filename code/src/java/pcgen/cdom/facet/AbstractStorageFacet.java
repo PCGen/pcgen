@@ -1,6 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2009.
- * 
+ * Copyright (c) 2012 Tom Parker <thpr@users.sourceforge.net>
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
@@ -24,33 +23,30 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.util.Logging;
 
-/**
- * @author Thomas Parker (thpr [at] yahoo.com)
- * 
- * FacetCache is a container for cache objects that can be stored by the Facets
- * that process information about PlayerCharacters
- */
-public class FacetCache
+public abstract class AbstractStorageFacet
 {
+	public abstract void copyContents(CharID source, CharID copy);
 
-	private static final DoubleKeyMap<CharID, Class<?>, Object> CACHE = new DoubleKeyMap<CharID, Class<?>, Object>();
+	private static final DoubleKeyMap<CharID, Class<?>, Object> CACHE =
+			new DoubleKeyMap<CharID, Class<?>, Object>();
 
-	public static Object get(CharID id, Class<?> cl)
+	public Object removeCache(CharID id, Class<?> cl)
 	{
-		return CACHE.get(id, cl);
+		return CACHE.remove(id, cl);
 	}
 
-	public static Object set(CharID id, Class<?> cl, Object o)
+	public Object setCache(CharID id, Class<?> cl, Object o)
 	{
 		return CACHE.put(id, cl, o);
 	}
 
-	public static Object remove(CharID id, Class<?> cl)
+	public Object getCache(CharID id, Class<?> cl)
 	{
-		return CACHE.remove(id, cl);
+		return CACHE.get(id, cl);
 	}
-	
-	public static boolean areEqual(CharID id1, CharID id2, InequalityTester t)
+
+	public static boolean areEqualCache(CharID id1, CharID id2,
+		InequalityTester t)
 	{
 		Set<Class<?>> set1 = CACHE.getSecondaryKeySet(id1);
 		Set<Class<?>> set2 = CACHE.getSecondaryKeySet(id2);
@@ -71,4 +67,5 @@ public class FacetCache
 		}
 		return true;
 	}
+
 }

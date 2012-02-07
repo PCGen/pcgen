@@ -327,7 +327,7 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 		if (catMap == null)
 		{
 			catMap = new HashMap<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>>();
-			FacetCache.set(id, getClass(), catMap);
+			setCache(id, getClass(), catMap);
 		}
 		else
 		{
@@ -415,8 +415,8 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 	private Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> getCachedMap(
 			CharID id)
 	{
-		return (Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>>) FacetCache
-				.get(id, getClass());
+		return (Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>>) getCache(
+			id, getClass());
 	}
 
 	/**
@@ -492,6 +492,7 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 		return Collections.unmodifiableSet(map.keySet());
 	}
 
+	@Override
 	public void copyContents(CharID id, CharID id2)
 	{
 		Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catMap = getCachedMap(id);

@@ -35,7 +35,8 @@ import pcgen.cdom.list.CompanionList;
  * FollowerLimitFacet is a Facet that tracks the Follower Limits that have been
  * set for a Player Character.
  */
-public class FollowerLimitFacet implements DataFacetChangeListener<CDOMObject>
+public class FollowerLimitFacet extends AbstractStorageFacet implements
+		DataFacetChangeListener<CDOMObject>
 {
 	private FormulaResolvingFacet formulaResolvingFacet;
 
@@ -153,8 +154,8 @@ public class FollowerLimitFacet implements DataFacetChangeListener<CDOMObject>
 	private Map<CompanionList, Map<FollowerLimit, Set<CDOMObject>>> getCachedMap(
 			CharID id)
 	{
-		return (Map<CompanionList, Map<FollowerLimit, Set<CDOMObject>>>) FacetCache
-				.get(id, getClass());
+		return (Map<CompanionList, Map<FollowerLimit, Set<CDOMObject>>>) getCache(
+			id, getClass());
 	}
 
 	/**
@@ -178,7 +179,7 @@ public class FollowerLimitFacet implements DataFacetChangeListener<CDOMObject>
 		if (componentMap == null)
 		{
 			componentMap = new HashMap<CompanionList, Map<FollowerLimit, Set<CDOMObject>>>();
-			FacetCache.set(id, getClass(), componentMap);
+			setCache(id, getClass(), componentMap);
 		}
 		Map<FollowerLimit, Set<CDOMObject>> foMap = componentMap.get(cl);
 		if (foMap == null)
@@ -239,5 +240,25 @@ public class FollowerLimitFacet implements DataFacetChangeListener<CDOMObject>
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);
+	}
+
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+		Map<CompanionList, Map<FollowerLimit, Set<CDOMObject>>> map = getCachedMap(source);
+		if (map != null)
+		{
+			for (Map<FollowerLimit, Set<CDOMObject>> fm : map.values())
+			{
+				for (Map.Entry<FollowerLimit, Set<CDOMObject>> fme : fm.entrySet())
+				{
+					FollowerLimit fl = fme.getKey();
+					for (CDOMObject cdo : fme.getValue())
+					{
+						add(copy, fl, cdo);
+					}
+				}
+			}
+		}
 	}
 }

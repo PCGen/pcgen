@@ -26,7 +26,7 @@ import pcgen.util.Logging;
  * A AbstractItemFacet is a DataFacet that contains information about
  * CDOMObjects that are contained in a PlayerCharacter when a PlayerCharacter
  * may have only one of that type of CDOMObject (e.g. Race, Deity). This is not
- * used for CDOMObjects where the PlayerCharacter may possesse more than one of
+ * used for CDOMObjects where the PlayerCharacter may possess more than one of
  * that type of object (e.g. Template, Language)
  */
 public abstract class AbstractItemFacet<T> extends AbstractDataFacet<T>
@@ -64,7 +64,7 @@ public abstract class AbstractItemFacet<T> extends AbstractDataFacet<T>
 			{
 				fireDataFacetChangeEvent(id, old, DataFacetChangeEvent.DATA_REMOVED);
 			}
-			FacetCache.set(id, thisClass, obj);
+			setCache(id, thisClass, obj);
 			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
 		}
 	}
@@ -79,7 +79,7 @@ public abstract class AbstractItemFacet<T> extends AbstractDataFacet<T>
 	 */
 	public void remove(CharID id)
 	{
-		T old = (T) FacetCache.remove(id, thisClass);
+		T old = (T) removeCache(id, thisClass);
 		if (old != null)
 		{
 			fireDataFacetChangeEvent(id, old, DataFacetChangeEvent.DATA_REMOVED);
@@ -99,7 +99,7 @@ public abstract class AbstractItemFacet<T> extends AbstractDataFacet<T>
 	 */
 	public T get(CharID id)
 	{
-		return (T) FacetCache.get(id, thisClass);
+		return (T) getCache(id, thisClass);
 	}
 
 	/**
@@ -123,5 +123,15 @@ public abstract class AbstractItemFacet<T> extends AbstractDataFacet<T>
 		T current = get(id);
 		return (obj == null && current == null)
 				|| (obj != null && obj.equals(current));
+	}
+
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+		T obj = get(source);
+		if (obj != null)
+		{
+			setCache(copy, thisClass, obj);
+		}
 	}
 }

@@ -195,7 +195,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 		{
 			return Collections.emptyMap();
 		}
-		FacetCache.remove(id, getClass());
+		removeCache(id, getClass());
 		for (Target tgt : componentMap.values())
 		{
 			fireDataFacetChangeEvent(id, tgt.dest,
@@ -312,7 +312,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	 */
 	protected Map<S, Target> getCachedMap(CharID id)
 	{
-		return (Map<S, Target>) FacetCache.get(id, getClass());
+		return (Map<S, Target>) getCache(id, getClass());
 	}
 
 	/**
@@ -335,7 +335,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 		if (componentMap == null)
 		{
 			componentMap = getComponentMap();
-			FacetCache.set(id, getClass(), componentMap);
+			setCache(id, getClass(), componentMap);
 		}
 		return componentMap;
 	}
@@ -368,6 +368,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	 *            The CharID representing the Player Character to which the
 	 *            information should be copied
 	 */
+	@Override
 	public void copyContents(CharID source, CharID destination)
 	{
 		Map<S, Target> sourceMap = getCachedMap(source);

@@ -28,7 +28,8 @@ import pcgen.core.BioSet;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 
-public class AgeSetKitFacet implements DataFacetChangeListener<Integer>
+public class AgeSetKitFacet extends AbstractStorageFacet implements
+		DataFacetChangeListener<Integer>
 {
 	private final Class<?> thisClass = getClass();
 
@@ -80,7 +81,7 @@ public class AgeSetKitFacet implements DataFacetChangeListener<Integer>
 
 	private CacheInfo getClassInfo(CharID id)
 	{
-		return (CacheInfo) FacetCache.get(id, thisClass);
+		return (CacheInfo) getCache(id, thisClass);
 	}
 
 	private CacheInfo getConstructingClassInfo(CharID id)
@@ -89,7 +90,7 @@ public class AgeSetKitFacet implements DataFacetChangeListener<Integer>
 		if (info == null)
 		{
 			info = new CacheInfo();
-			FacetCache.set(id, thisClass, info);
+			setCache(id, thisClass, info);
 		}
 		return info;
 	}
@@ -128,5 +129,16 @@ public class AgeSetKitFacet implements DataFacetChangeListener<Integer>
 	public void init()
 	{
 		ageFacet.addDataFacetChangeListener(this);
+	}
+
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+		CacheInfo ci = getClassInfo(source);
+		if (ci != null)
+		{
+			CacheInfo copyci = getConstructingClassInfo(copy);
+			copyci.kitMap.addAllLists(ci.kitMap);
+		}
 	}
 }

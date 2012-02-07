@@ -51,7 +51,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 		List<PCTemplate> list = new ArrayList<PCTemplate>();
 		// older version of this cleared the
 		// templateAdded list, so this may have to do that as well?
-		FacetCache.remove(id, getClass());
+		removeCache(id, getClass());
 		PlayerCharacter pc = trackingFacet.getPC(id);
 		if (!pc.isImporting())
 		{

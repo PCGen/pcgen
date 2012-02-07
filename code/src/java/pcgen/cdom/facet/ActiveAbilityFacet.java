@@ -256,7 +256,7 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 		{
 			isNew = true;
 			catMap = new HashMap<Category<Ability>, Map<Nature, Set<Ability>>>();
-			FacetCache.set(id, getClass(), catMap);
+			setCache(id, getClass(), catMap);
 		}
 		Map<Nature, Set<Ability>> natureMap = catMap.get(cat);
 		if (natureMap == null)
@@ -331,8 +331,8 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	private Map<Category<Ability>, Map<Nature, Set<Ability>>> getCachedMap(
 			CharID id)
 	{
-		return (Map<Category<Ability>, Map<Nature, Set<Ability>>>) FacetCache
-				.get(id, getClass());
+		return (Map<Category<Ability>, Map<Nature, Set<Ability>>>) getCache(id,
+			getClass());
 	}
 
 	/**
@@ -346,8 +346,9 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	 */
 	public void removeAll(CharID id)
 	{
-		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = (Map<Category<Ability>, Map<Nature, Set<Ability>>>) FacetCache
-				.remove(id, getClass());
+		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap =
+				(Map<Category<Ability>, Map<Nature, Set<Ability>>>) removeCache(
+					id, getClass());
 		if (catMap != null)
 		{
 			for (Map.Entry<Category<Ability>, Map<Nature, Set<Ability>>> catME : catMap
@@ -500,19 +501,23 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 		return Collections.unmodifiableSet(map.keySet());
 	}
 
+	@Override
 	public void copyContents(CharID id, CharID id2)
 	{
-		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
+		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap =
+				getCachedMap(id);
 		if (catMap != null)
 		{
 			for (Map.Entry<Category<Ability>, Map<Nature, Set<Ability>>> catME : catMap
-					.entrySet())
+				.entrySet())
 			{
 				Category<Ability> cat = catME.getKey();
 				for (Map.Entry<Nature, Set<Ability>> natME : catME.getValue()
-						.entrySet())
+					.entrySet())
 				{
-					addAll(id2, cat, natME.getKey(), natME.getValue());
+					Nature nat = natME.getKey();
+					ensureCachedSet(id2, cat, nat);
+					getCachedSet(id2, cat, nat).addAll(natME.getValue());
 				}
 			}
 		}

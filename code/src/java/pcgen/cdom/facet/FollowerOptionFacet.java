@@ -38,7 +38,8 @@ import pcgen.core.FollowerOption;
  * FollowerOptionFacet is a Facet that tracks the FollowerOptions that have been
  * granted to a Player Character.
  */
-public class FollowerOptionFacet implements DataFacetChangeListener<CDOMObject>
+public class FollowerOptionFacet extends AbstractStorageFacet implements
+		DataFacetChangeListener<CDOMObject>
 {
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
@@ -152,8 +153,8 @@ public class FollowerOptionFacet implements DataFacetChangeListener<CDOMObject>
 	private CaseInsensitiveMap<Map<FollowerOption, Set<CDOMObject>>> getCachedMap(
 			CharID id)
 	{
-		return (CaseInsensitiveMap<Map<FollowerOption, Set<CDOMObject>>>) FacetCache
-				.get(id, getClass());
+		return (CaseInsensitiveMap<Map<FollowerOption, Set<CDOMObject>>>) getCache(
+			id, getClass());
 	}
 
 	/**
@@ -177,7 +178,7 @@ public class FollowerOptionFacet implements DataFacetChangeListener<CDOMObject>
 		if (componentMap == null)
 		{
 			componentMap = new CaseInsensitiveMap<Map<FollowerOption, Set<CDOMObject>>>();
-			FacetCache.set(id, getClass(), componentMap);
+			setCache(id, getClass(), componentMap);
 		}
 		Map<FollowerOption, Set<CDOMObject>> foMap = componentMap.get(name);
 		if (foMap == null)
@@ -230,5 +231,25 @@ public class FollowerOptionFacet implements DataFacetChangeListener<CDOMObject>
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);
+	}
+
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+		CaseInsensitiveMap<Map<FollowerOption, Set<CDOMObject>>> map = getCachedMap(source);
+		if (map != null)
+		{
+			for (Map<FollowerOption, Set<CDOMObject>> fm : map.values())
+			{
+				for (Map.Entry<FollowerOption, Set<CDOMObject>> fme : fm.entrySet())
+				{
+					FollowerOption fl = fme.getKey();
+					for (CDOMObject cdo : fme.getValue())
+					{
+						add(copy, fl, cdo);
+					}
+				}
+			}
+		}
 	}
 }

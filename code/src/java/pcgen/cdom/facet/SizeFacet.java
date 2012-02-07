@@ -176,14 +176,14 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 		if (rci == null)
 		{
 			rci = new SizeFacetInfo();
-			FacetCache.set(id, thisClass, rci);
+			setCache(id, thisClass, rci);
 		}
 		return rci;
 	}
 
 	private SizeFacetInfo getInfo(CharID id)
 	{
-		return (SizeFacetInfo) FacetCache.get(id, thisClass);
+		return (SizeFacetInfo) getCache(id, thisClass);
 	}
 
 	private static class SizeFacetInfo
@@ -263,5 +263,18 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 	public void setLevelFacet(LevelFacet levelFacet)
 	{
 		this.levelFacet = levelFacet;
+	}
+
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+		SizeFacetInfo si = getInfo(source);
+		if (si != null)
+		{
+			SizeFacetInfo copysfi = getConstructingInfo(copy);
+			copysfi.racialSizeInt = si.racialSizeInt;
+			copysfi.sizeAdj = si.sizeAdj;
+			copysfi.sizeInt = si.sizeInt;
+		}
 	}
 }

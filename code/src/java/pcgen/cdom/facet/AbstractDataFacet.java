@@ -31,7 +31,7 @@ import pcgen.cdom.enumeration.Nature;
  * CDOMObjects that are contained in a PlayerCharacter. This serves the basic
  * functions of managing the DataFacetChangeListeners for a DataFacet.
  */
-public abstract class AbstractDataFacet<T>
+public abstract class AbstractDataFacet<T> extends AbstractStorageFacet
 {
 	private final Map<Integer, DataFacetChangeListener<? super T>[]> listeners = new TreeMap<Integer, DataFacetChangeListener<? super T>[]>();
 

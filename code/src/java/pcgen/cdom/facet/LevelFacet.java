@@ -31,7 +31,8 @@ import pcgen.cdom.facet.ClassFacet.ClassLevelObjectChangeEvent;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
-public class LevelFacet implements ClassLevelChangeListener
+public class LevelFacet extends AbstractStorageFacet implements
+		ClassLevelChangeListener
 {
 	private TemplateFacet templateFacet;
 	private RaceFacet raceFacet;
@@ -96,14 +97,14 @@ public class LevelFacet implements ClassLevelChangeListener
 		if (lci == null)
 		{
 			lci = new LevelCacheInfo();
-			FacetCache.set(id, thisClass, lci);
+			setCache(id, thisClass, lci);
 		}
 		return lci;
 	}
 
 	private LevelCacheInfo getInfo(CharID id)
 	{
-		return (LevelCacheInfo) FacetCache.get(id, thisClass);
+		return (LevelCacheInfo) getCache(id, thisClass);
 	}
 
 	private static class LevelCacheInfo
@@ -291,5 +292,17 @@ public class LevelFacet implements ClassLevelChangeListener
 	public void setFormulaResolvingFacet(FormulaResolvingFacet resolveFacet)
 	{
 		this.formulaResolvingFacet = resolveFacet;
+	}
+
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+		LevelCacheInfo info = getInfo(source);
+		if (info != null)
+		{
+			LevelCacheInfo copyinfo = getConstructingInfo(copy);
+			copyinfo.monsterLevels = info.monsterLevels;
+			copyinfo.nonMonsterLevels = info.nonMonsterLevels;
+		}
 	}
 }

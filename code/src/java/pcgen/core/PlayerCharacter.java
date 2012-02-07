@@ -96,6 +96,7 @@ import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.helper.ProfProvider;
+import pcgen.cdom.helper.SpringHelper;
 import pcgen.cdom.identifier.SpellSchool;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.inst.ObjectCache;
@@ -9232,33 +9233,12 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		}
 		aClone.primaryWeapons.addAll(getPrimaryWeapons());
 		aClone.secondaryWeapons.addAll(getSecondaryWeapons());
-		aClone.domainFacet.copyContents(id, aClone.id);
-		aClone.templateFacet.addAll(aClone.id, templateFacet.getSet(id));
-		aClone.companionModFacet.addAll(aClone.id, companionModFacet.getSet(id));
-		aClone.raceFacet.set(aClone.id, raceFacet.get(id));
-		aClone.deityFacet.set(aClone.id, deityFacet.get(id));
-		aClone.alignmentFacet.set(aClone.id, alignmentFacet.get(id));
-		aClone.statFacet.addAll(aClone.id, statFacet.getSet(id));
-		aClone.skillFacet.addAll(aClone.id, skillFacet.getSet(id));
-		aClone.languageFacet.copyContents(id, aClone.id);
-		aClone.kitFacet.addAll(aClone.id, kitFacet.getSet(id));
-		aClone.equipmentFacet.copyContents(id, aClone.id);
-		aClone.userEquipmentFacet.copyContents(id, aClone.id);
-		aClone.autoLangFacet.copyContents(id, aClone.id);
-		aClone.freeLangFacet.copyContents(id, aClone.id);
-		aClone.addLangFacet.copyContents(id, aClone.id);
-		aClone.skillLangFacet.copyContents(id, aClone.id);
-		aClone.classFacet.copyContents(id, aClone.id);
-		aClone.regionFacet.copyContents(id, aClone.id);
-		aClone.moneyFacet.copyContents(id, aClone.id);
-		aClone.factFacet.copyContents(id, aClone.id);
-		aClone.ageFacet.set(id, ageFacet.get(id));
-		aClone.abFacet.copyContents(id, aClone.id);
-		aClone.grantedAbilityFacet.copyContents(id, aClone.id);
-		aClone.xpFacet.setEarnedXP(aClone.id, xpFacet.getEarnedXP(id));
-		aClone.heightFacet.setHeight(aClone.id, heightFacet.getHeight(id));
-		aClone.weightFacet.setWeight(aClone.id, weightFacet.getWeight(id));
-		aClone.genderFacet.setGender(aClone.id, genderFacet.getGender(id));
+		Collection<AbstractStorageFacet> beans = SpringHelper.getStorageBeans();
+		for (AbstractStorageFacet bean : beans)
+		{
+			bean.copyContents(id, aClone.id);
+		}
+
 		for (PCClass cloneClass : aClone.classFacet.getClassSet(aClone.id))
 		{
 			cloneClass.addFeatPoolBonus(aClone);
@@ -9280,6 +9260,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		{
 			aClone.levelInfoFacet.add(aClone.id, info.clone());
 		}
+		aClone.spellBookFacet.removeAll(aClone.id);
 		for (String book : spellBookFacet.getBookNames(id))
 		{
 			aClone.addSpellBook(book);
@@ -9287,15 +9268,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		aClone.tempBonusItemList.addAll(tempBonusItemList);
 		aClone.bonusManager = bonusManager.buildDeepClone(aClone);
 		aClone.setDescriptionLst(getDescriptionLst());
-		aClone.setGender(getGenderObject());
-		if (getRegionString() != null)
-		{
-			aClone.setRegion(Region.getConstant(getRegionString()));
-		}
-		if (getSubRegion() != null)
-		{
-			aClone.setSubRegion(SubRegion.getConstant(getSubRegion()));
-		}
 		aClone.tabName = tabName;
 		aClone.autoKnownSpells = autoKnownSpells;
 		aClone.autoLoadCompanion = autoLoadCompanion;

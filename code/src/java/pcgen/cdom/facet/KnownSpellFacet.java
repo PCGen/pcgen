@@ -45,7 +45,8 @@ import pcgen.core.spell.Spell;
  * KnownSpellFacet is a Facet that tracks the Known Spells (and target objects)
  * that are contained in a Player Character.
  */
-public class KnownSpellFacet implements DataFacetChangeListener<CDOMObject>
+public class KnownSpellFacet extends AbstractStorageFacet implements
+		DataFacetChangeListener<CDOMObject>
 {
 
 	private static final Class<Spell> SPELL_CLASS = Spell.class;
@@ -157,6 +158,36 @@ public class KnownSpellFacet implements DataFacetChangeListener<CDOMObject>
 		}
 	}
 
+	private void add(CharID id, CDOMList<Spell> list, Spell spell,
+		AssociatedPrereqObject apo, CDOMObject cdo)
+	{
+		Map<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>> map =
+				getConstructingCachedMap(id);
+		Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>> subMap =
+				map.get(list);
+		boolean fireNew = (subMap == null);
+		if (fireNew)
+		{
+			subMap =
+					new HashMap<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>();
+			map.put(list, subMap);
+		}
+		Map<AssociatedPrereqObject, Set<CDOMObject>> assocMap =
+				subMap.get(spell);
+		if (assocMap == null)
+		{
+			assocMap = new HashMap<AssociatedPrereqObject, Set<CDOMObject>>();
+			subMap.put(spell, assocMap);
+		}
+		Set<CDOMObject> sources = assocMap.get(apo);
+		if (sources == null)
+		{
+			sources = new WrappedMapSet<CDOMObject>(IdentityHashMap.class);
+			assocMap.put(apo, sources);
+		}
+		sources.add(cdo);
+	}
+
 	/**
 	 * Returns the type-safe Map for this AbstractSourcedListFacet and the given
 	 * CharID. May return null if no information has been set in this
@@ -176,8 +207,8 @@ public class KnownSpellFacet implements DataFacetChangeListener<CDOMObject>
 	private Map<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>> getCachedMap(
 		CharID id)
 	{
-		return (Map<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>>) FacetCache
-			.get(id, getClass());
+		return (Map<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>>) getCache(
+			id, getClass());
 	}
 
 	/**
@@ -202,7 +233,7 @@ public class KnownSpellFacet implements DataFacetChangeListener<CDOMObject>
 		{
 			componentMap =
 					new HashMap<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>>();
-			FacetCache.set(id, getClass(), componentMap);
+			setCache(id, getClass(), componentMap);
 		}
 		return componentMap;
 	}
@@ -395,5 +426,34 @@ public class KnownSpellFacet implements DataFacetChangeListener<CDOMObject>
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);
+	}
+
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+		Map<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>> map =
+				getCachedMap(source);
+		if (map != null)
+		{
+			for (Map.Entry<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>> me : map
+				.entrySet())
+			{
+				CDOMList<Spell> list = me.getKey();
+				for (Map.Entry<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>> fme : me
+					.getValue().entrySet())
+				{
+					Spell s = fme.getKey();
+					for (Map.Entry<AssociatedPrereqObject, Set<CDOMObject>> apme : fme
+						.getValue().entrySet())
+					{
+						AssociatedPrereqObject apo = apme.getKey();
+						for (CDOMObject cdo : apme.getValue())
+						{
+							add(copy, list, s, apo, cdo);
+						}
+					}
+				}
+			}
+		}
 	}
 }

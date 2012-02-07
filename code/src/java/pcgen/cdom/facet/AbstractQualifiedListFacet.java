@@ -207,7 +207,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		{
 			return Collections.emptyMap();
 		}
-		FacetCache.remove(id, getClass());
+		removeCache(id, getClass());
 		for (T obj : componentMap.keySet())
 		{
 			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
@@ -344,7 +344,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 */
 	private Map<T, Set<Object>> getCachedMap(CharID id)
 	{
-		return (Map<T, Set<Object>>) FacetCache.get(id, getClass());
+		return (Map<T, Set<Object>>) getCache(id, getClass());
 	}
 
 	/**
@@ -368,7 +368,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		if (componentMap == null)
 		{
 			componentMap = getComponentMap();
-			FacetCache.set(id, getClass(), componentMap);
+			setCache(id, getClass(), componentMap);
 		}
 		return componentMap;
 	}
@@ -401,6 +401,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 *            The CharID representing the Player Character to which the
 	 *            information should be copied
 	 */
+	@Override
 	public void copyContents(CharID source, CharID destination)
 	{
 		Map<T, Set<Object>> sourceMap = getCachedMap(source);

@@ -33,7 +33,8 @@ import pcgen.cdom.enumeration.VariableKey;
  * VariableFacet is a Facet that tracks the Variables that are contained in a
  * Player Character.
  */
-public class VariableFacet implements DataFacetChangeListener<CDOMObject>
+public class VariableFacet extends AbstractStorageFacet implements
+		DataFacetChangeListener<CDOMObject>
 {
 	private FormulaResolvingFacet formulaResolvingFacet;
 
@@ -116,8 +117,8 @@ public class VariableFacet implements DataFacetChangeListener<CDOMObject>
 	private Map<VariableKey, Map<Formula, Set<CDOMObject>>> getCachedMap(
 			CharID id)
 	{
-		return (Map<VariableKey, Map<Formula, Set<CDOMObject>>>) FacetCache
-				.get(id, getClass());
+		return (Map<VariableKey, Map<Formula, Set<CDOMObject>>>) getCache(id,
+			getClass());
 	}
 
 	/**
@@ -140,7 +141,7 @@ public class VariableFacet implements DataFacetChangeListener<CDOMObject>
 		if (componentMap == null)
 		{
 			componentMap = new HashMap<VariableKey, Map<Formula, Set<CDOMObject>>>();
-			FacetCache.set(id, getClass(), componentMap);
+			setCache(id, getClass(), componentMap);
 		}
 		return componentMap;
 	}
@@ -224,5 +225,28 @@ public class VariableFacet implements DataFacetChangeListener<CDOMObject>
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);
+	}
+
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+		Map<VariableKey, Map<Formula, Set<CDOMObject>>> cm = getCachedMap(source);
+		if (cm != null)
+		{
+			for (Map.Entry<VariableKey, Map<Formula, Set<CDOMObject>>> me : cm
+				.entrySet())
+			{
+				VariableKey vk = me.getKey();
+				for (Map.Entry<Formula, Set<CDOMObject>> fme : me.getValue()
+					.entrySet())
+				{
+					Formula f = fme.getKey();
+					for (CDOMObject cdo : fme.getValue())
+					{
+						add(copy, vk, f, cdo);
+					}
+				}
+			}
+		}
 	}
 }

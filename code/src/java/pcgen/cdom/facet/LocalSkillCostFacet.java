@@ -37,7 +37,8 @@ import pcgen.core.Skill;
 /**
  * LocalSkillCostFacet is a Facet to track Skill costs
  */
-public class LocalSkillCostFacet implements DataFacetChangeListener<CDOMObject>
+public class LocalSkillCostFacet extends AbstractStorageFacet implements
+		DataFacetChangeListener<CDOMObject>
 {
 	private final Class<?> thisClass = getClass();
 
@@ -133,7 +134,7 @@ public class LocalSkillCostFacet implements DataFacetChangeListener<CDOMObject>
 		if (rci == null)
 		{
 			rci = new CacheInfo();
-			FacetCache.set(id, thisClass, rci);
+			setCache(id, thisClass, rci);
 		}
 		return rci;
 	}
@@ -155,7 +156,7 @@ public class LocalSkillCostFacet implements DataFacetChangeListener<CDOMObject>
 	 */
 	private CacheInfo getInfo(CharID id)
 	{
-		return (CacheInfo) FacetCache.get(id, thisClass);
+		return (CacheInfo) getCache(id, thisClass);
 	}
 
 	/**
@@ -316,5 +317,34 @@ public class LocalSkillCostFacet implements DataFacetChangeListener<CDOMObject>
 		classFacet.addDataFacetChangeListener(this);
 		domainFacet.addDataFacetChangeListener(this);
 		classLevelFacet.addDataFacetChangeListener(this);
+	}
+
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+		CacheInfo rci = getInfo(source);
+		if (rci != null)
+		{
+			CacheInfo copyci = getConstructingInfo(copy);
+			for (Map.Entry<PCClass, Map<SkillCost, Map<Skill, Set<CDOMObject>>>> me : rci.map
+				.entrySet())
+			{
+				PCClass pcc = me.getKey();
+				for (Map.Entry<SkillCost, Map<Skill, Set<CDOMObject>>> fme : me
+					.getValue().entrySet())
+				{
+					SkillCost sc = fme.getKey();
+					for (Map.Entry<Skill, Set<CDOMObject>> apme : fme
+						.getValue().entrySet())
+					{
+						Skill sk = apme.getKey();
+						for (CDOMObject cdo : apme.getValue())
+						{
+							copyci.add(pcc, sk, sc, cdo);
+						}
+					}
+				}
+			}
+		}
 	}
 }

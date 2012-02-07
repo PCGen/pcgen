@@ -170,7 +170,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 			}
 			if (info.isEmpty())
 			{
-				FacetCache.remove(id, thisClass);
+				removeCache(id, thisClass);
 			}
 		}
 	}
@@ -185,7 +185,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 	 */
 	public ClassInfo removeAllClasses(CharID id)
 	{
-		ClassInfo info = (ClassInfo) FacetCache.remove(id, thisClass);
+		ClassInfo info = (ClassInfo) removeCache(id, thisClass);
 		if (info != null)
 		{
 			for (PCClass obj : info.getClassSet())
@@ -313,7 +313,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 
 	private ClassInfo getClassInfo(CharID id)
 	{
-		return (ClassInfo) FacetCache.get(id, thisClass);
+		return (ClassInfo) getCache(id, thisClass);
 	}
 
 	private ClassInfo getConstructingClassInfo(CharID id)
@@ -322,7 +322,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		if (info == null)
 		{
 			info = new ClassInfo();
-			FacetCache.set(id, thisClass, info);
+			setCache(id, thisClass, info);
 		}
 		return info;
 	}
@@ -480,12 +480,13 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		}
 	}
 
+	@Override
 	public void copyContents(CharID source, CharID destination)
 	{
 		ClassInfo info = getClassInfo(source);
 		if (info != null)
 		{
-			FacetCache.set(destination, thisClass, new ClassInfo(info));
+			setCache(destination, thisClass, new ClassInfo(info));
 		}
 	}
 

@@ -23,7 +23,7 @@ import java.util.Map;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.StringKey;
 
-public class FactFacet
+public class FactFacet extends AbstractStorageFacet
 {
 
 	private final Class<?> thisClass = getClass();
@@ -34,14 +34,14 @@ public class FactFacet
 		if (rci == null)
 		{
 			rci = new HashMap<StringKey, String>();
-			FacetCache.set(id, thisClass, rci);
+			setCache(id, thisClass, rci);
 		}
 		return rci;
 	}
 
 	private Map<StringKey, String> getInfo(CharID id)
 	{
-		return (Map<StringKey, String>) FacetCache.get(id, thisClass);
+		return (Map<StringKey, String>) getCache(id, thisClass);
 	}
 
 	public void set(CharID id, StringKey key, String s)
@@ -59,6 +59,7 @@ public class FactFacet
 		return null;
 	}
 
+	@Override
 	public void copyContents(CharID source, CharID destination)
 	{
 		Map<StringKey, String> sourceRCI = getInfo(source);

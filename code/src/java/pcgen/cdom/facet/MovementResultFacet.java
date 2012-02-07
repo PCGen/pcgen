@@ -36,7 +36,8 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.enumeration.Load;
 
-public class MovementResultFacet implements DataFacetChangeListener<CDOMObject>
+public class MovementResultFacet extends AbstractStorageFacet implements
+		DataFacetChangeListener<CDOMObject>
 {
 	private final Class<?> thisClass = getClass();
 
@@ -81,7 +82,7 @@ public class MovementResultFacet implements DataFacetChangeListener<CDOMObject>
 		if (rci == null)
 		{
 			rci = new MovementCacheInfo(id);
-			FacetCache.set(id, thisClass, rci);
+			setCache(id, thisClass, rci);
 		}
 		return rci;
 	}
@@ -103,7 +104,7 @@ public class MovementResultFacet implements DataFacetChangeListener<CDOMObject>
 	 */
 	private MovementCacheInfo getInfo(CharID id)
 	{
-		return (MovementCacheInfo) FacetCache.get(id, thisClass);
+		return (MovementCacheInfo) getCache(id, thisClass);
 	}
 
 	public class MovementCacheInfo
@@ -716,5 +717,19 @@ public class MovementResultFacet implements DataFacetChangeListener<CDOMObject>
 		raceFacet.addDataFacetChangeListener(2000, this);
 		deityFacet.addDataFacetChangeListener(2000, this);
 		templateFacet.addDataFacetChangeListener(2000, this);
+	}
+
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+		MovementCacheInfo mci = getInfo(source);
+		if (mci != null)
+		{
+			MovementCacheInfo copymci = getConstructingInfo(copy);
+			copymci.movementMult = mci.movementMult.clone();
+			copymci.movementMultOp = mci.movementMultOp.clone();
+			copymci.movements = mci.movements.clone();
+			copymci.movementTypes = mci.movementTypes.clone();
+		}
 	}
 }

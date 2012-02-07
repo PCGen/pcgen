@@ -34,7 +34,7 @@ import pcgen.core.Skill;
 /**
  * GlobalSkillCostFacet is a Facet to track Skill costs
  */
-public class GlobalSkillCostFacet implements
+public class GlobalSkillCostFacet extends AbstractStorageFacet implements
 		DataFacetChangeListener<CDOMObject>
 {
 	private final Class<?> thisClass = getClass();
@@ -110,7 +110,7 @@ public class GlobalSkillCostFacet implements
 		if (rci == null)
 		{
 			rci = new CacheInfo();
-			FacetCache.set(id, thisClass, rci);
+			setCache(id, thisClass, rci);
 		}
 		return rci;
 	}
@@ -132,7 +132,7 @@ public class GlobalSkillCostFacet implements
 	 */
 	private CacheInfo getInfo(CharID id)
 	{
-		return (CacheInfo) FacetCache.get(id, thisClass);
+		return (CacheInfo) getCache(id, thisClass);
 	}
 
 	/**
@@ -246,5 +246,27 @@ public class GlobalSkillCostFacet implements
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);
+	}
+
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+		CacheInfo rci = getInfo(source);
+		if (rci != null)
+		{
+			CacheInfo copyci = getConstructingInfo(copy);
+			for (Map.Entry<SkillCost, Map<Skill, Set<Object>>> fme : rci.map.entrySet())
+			{
+				SkillCost sc = fme.getKey();
+				for (Map.Entry<Skill, Set<Object>> apme : fme.getValue().entrySet())
+				{
+					Skill sk = apme.getKey();
+					for (Object cdo : apme.getValue())
+					{
+						copyci.add(sk, sc, cdo);
+					}
+				}
+			}
+		}
 	}
 }

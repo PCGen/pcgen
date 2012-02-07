@@ -61,7 +61,7 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 		if (rci == null)
 		{
 			rci = new RegionCacheInfo();
-			FacetCache.set(id, thisClass, rci);
+			setCache(id, thisClass, rci);
 		}
 		return rci;
 	}
@@ -83,7 +83,7 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 	 */
 	private RegionCacheInfo getInfo(CharID id)
 	{
-		return (RegionCacheInfo) FacetCache.get(id, thisClass);
+		return (RegionCacheInfo) getCache(id, thisClass);
 	}
 
 	/**
@@ -377,6 +377,7 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 	 *            The CharID representing the Player Character to which the
 	 *            Region information should be copied
 	 */
+	@Override
 	public void copyContents(CharID source, CharID destination)
 	{
 		RegionCacheInfo sourceRCI = getInfo(source);

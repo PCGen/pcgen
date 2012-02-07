@@ -20,7 +20,6 @@ package pcgen.cdom.facet;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 import pcgen.cdom.base.Constants;
@@ -32,7 +31,8 @@ import pcgen.core.character.SpellBook;
  * SpellBookFacet is a Facet that tracks the SpellBooks possessed by a Player
  * Character.
  */
-public class SpellBookFacet implements DataFacetChangeListener<Equipment>
+public class SpellBookFacet extends AbstractStorageFacet implements
+		DataFacetChangeListener<Equipment>
 {
 	private EquipmentFacet equipmentFacet;
 
@@ -91,7 +91,7 @@ public class SpellBookFacet implements DataFacetChangeListener<Equipment>
 		//Ignore - for now this is one in PlayerCharacter...
 	}
 
-	public void addAll(CharID id, List<SpellBook> list)
+	public void addAll(CharID id, Collection<SpellBook> list)
 	{
 		for (SpellBook sb : list)
 		{
@@ -112,7 +112,7 @@ public class SpellBookFacet implements DataFacetChangeListener<Equipment>
 
 	public void removeAll(CharID id)
 	{
-		FacetCache.remove(id, getClass());
+		removeCache(id, getClass());
 	}
 
 	/**
@@ -133,7 +133,7 @@ public class SpellBookFacet implements DataFacetChangeListener<Equipment>
 	 */
 	private Map<String, SpellBook> getCachedMap(CharID id)
 	{
-		return (Map<String, SpellBook>) FacetCache.get(id, getClass());
+		return (Map<String, SpellBook>) getCache(id, getClass());
 	}
 
 	/**
@@ -156,7 +156,7 @@ public class SpellBookFacet implements DataFacetChangeListener<Equipment>
 		if (componentMap == null)
 		{
 			componentMap = new LinkedHashMap<String, SpellBook>();
-			FacetCache.set(id, getClass(), componentMap);
+			setCache(id, getClass(), componentMap);
 		}
 		return componentMap;
 	}
@@ -220,5 +220,15 @@ public class SpellBookFacet implements DataFacetChangeListener<Equipment>
 	public void init()
 	{
 		equipmentFacet.addDataFacetChangeListener(this);
+	}
+
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+		Map<String, SpellBook> map = getCachedMap(source);
+		if (map != null)
+		{
+			addAll(copy, map.values());
+		}
 	}
 }

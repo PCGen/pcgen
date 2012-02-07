@@ -171,7 +171,7 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 	 */
 	public Collection<T> removeAll(CharID id)
 	{
-		Collection<T> componentSet = (Collection<T>) FacetCache.remove(id, thisClass);
+		Collection<T> componentSet = (Collection<T>) removeCache(id, thisClass);
 		if (componentSet == null)
 		{
 			return Collections.emptySet();
@@ -278,7 +278,7 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 	 */
 	protected Collection<T> getCachedSet(CharID id)
 	{
-		return (Collection<T>) FacetCache.get(id, thisClass);
+		return (Collection<T>) getCache(id, thisClass);
 	}
 
 	/**
@@ -300,7 +300,7 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 		if (componentSet == null)
 		{
 			componentSet = getComponentSet();
-			FacetCache.set(id, thisClass, componentSet);
+			setCache(id, thisClass, componentSet);
 		}
 		return componentSet;
 	}
@@ -308,5 +308,15 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 	protected Collection<T> getComponentSet()
 	{
 		return new LinkedHashSet<T>();
+	}
+
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+		Collection<T> componentSet = getCachedSet(source);
+		if (componentSet != null)
+		{
+			getConstructingCachedSet(copy).addAll(componentSet);
+		}
 	}
 }

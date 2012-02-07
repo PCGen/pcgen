@@ -28,7 +28,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
-import pcgen.cdom.facet.FacetCache;
+import pcgen.cdom.facet.AbstractStorageFacet;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Language;
@@ -87,28 +87,28 @@ public class TemplateLstTest extends TestCase
 		PCTemplate obj2 = construct("Templ2");
 		PlayerCharacter pc1 = new PlayerCharacter();
 		PlayerCharacter pc2 = new PlayerCharacter();
-		assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
+		assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		getActor().applyChoice(owner, obj1, pc2);
-		assertFalse(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
+		assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		getActor().applyChoice(owner, obj1, pc1);
-		assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
+		assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		getActor().removeChoice(owner, obj1, pc2);
-		assertFalse(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
+		assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		getActor().removeChoice(owner, obj1, pc1);
-		assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
+		assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		getActor().applyChoice(owner, obj1, pc2);
-		assertFalse(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
+		assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		getActor().applyChoice(owner, obj1, pc1);
-		assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
+		assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		getActor().removeChoice(owner, obj1, pc2);
-		assertFalse(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
+		assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		getActor().removeChoice(owner, obj1, pc1);
-		assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
+		assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		getActor().applyChoice(owner, obj1, pc1);
 		getActor().applyChoice(owner, obj2, pc1);
 		getActor().removeChoice(owner, obj1, pc1);
 		getActor().applyChoice(owner, obj2, pc2);
-		assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
+		assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 	}
 
 	@Test
@@ -124,30 +124,30 @@ public class TemplateLstTest extends TestCase
 		PCClass owner = new PCClass();
 		PlayerCharacter pc1 = new PlayerCharacter();
 		PlayerCharacter pc2 = new PlayerCharacter();
-		assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
+		assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		getActor().applyChoice(owner, obj1, pc2);
 		assertTrue(pc2.hasLanguage(universal));
-		assertFalse(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
+		assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		getActor().applyChoice(owner, obj1, pc1);
-		assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
+		assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		getActor().removeChoice(owner, obj1, pc2);
 		assertFalse(pc2.hasLanguage(universal));
-		assertFalse(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
+		assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		getActor().removeChoice(owner, obj1, pc1);
-		assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
+		assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		getActor().applyChoice(owner, obj1, pc2);
-		assertFalse(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
+		assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		getActor().applyChoice(owner, obj1, pc1);
-		assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
+		assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		getActor().removeChoice(owner, obj1, pc2);
-		assertFalse(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
+		assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		getActor().removeChoice(owner, obj1, pc1);
-		assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
+		assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		getActor().applyChoice(owner, obj1, pc1);
 		getActor().applyChoice(owner, obj2, pc1);
 		getActor().removeChoice(owner, obj1, pc1);
 		getActor().applyChoice(owner, obj2, pc2);
-		assertTrue(FacetCache.areEqual(pc1.getCharID(), pc2.getCharID(), it));
+		assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 	}
 
 	private PCTemplate construct(String name)

@@ -24,7 +24,7 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.cdom.enumeration.CharID;
 
-public class BonusChangeFacet
+public class BonusChangeFacet extends AbstractStorageFacet
 {
 	private final Class<?> thisClass = getClass();
 
@@ -56,15 +56,14 @@ public class BonusChangeFacet
 		if (map == null)
 		{
 			map = new DoubleKeyMap<String, String, Double>();
-			FacetCache.set(id, thisClass, map);
+			setCache(id, thisClass, map);
 		}
 		return map;
 	}
 
 	private DoubleKeyMap<String, String, Double> getInfo(CharID id)
 	{
-		return (DoubleKeyMap<String, String, Double>) FacetCache.get(id,
-				thisClass);
+		return (DoubleKeyMap<String, String, Double>) getCache(id, thisClass);
 	}
 
 	public interface BonusChangeListener
@@ -192,6 +191,16 @@ public class BonusChangeFacet
 	public void setBonusCheckingFacet(BonusCheckingFacet bonusCheckingFacet)
 	{
 		this.bonusCheckingFacet = bonusCheckingFacet;
+	}
+
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+		DoubleKeyMap<String, String, Double> map = getInfo(source);
+		if (map != null)
+		{
+			getConstructingInfo(copy).putAll(map);
+		}
 	}
 	
 	

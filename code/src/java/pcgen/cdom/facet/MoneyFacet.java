@@ -26,7 +26,7 @@ import pcgen.core.SettingsHandler;
  * MoneyFacet is a Facet to track Money in a simple, since monetary unit game
  * system.
  */
-public class MoneyFacet
+public class MoneyFacet extends AbstractStorageFacet
 {
 
 	private static final BigDecimal ZERO = new BigDecimal(0);
@@ -53,7 +53,7 @@ public class MoneyFacet
 		if (rci == null)
 		{
 			rci = new MoneyCacheInfo();
-			FacetCache.set(id, thisClass, rci);
+			setCache(id, thisClass, rci);
 		}
 		return rci;
 	}
@@ -75,7 +75,7 @@ public class MoneyFacet
 	 */
 	private MoneyCacheInfo getInfo(CharID id)
 	{
-		return (MoneyCacheInfo) FacetCache.get(id, thisClass);
+		return (MoneyCacheInfo) getCache(id, thisClass);
 	}
 
 	/**
@@ -213,6 +213,7 @@ public class MoneyFacet
 	 *            The CharID representing the Player Character to which the
 	 *            Money information should be copied
 	 */
+	@Override
 	public void copyContents(CharID source, CharID destination)
 	{
 		MoneyCacheInfo sourceRCI = getInfo(source);

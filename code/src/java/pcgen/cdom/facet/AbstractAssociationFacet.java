@@ -38,7 +38,7 @@ import pcgen.cdom.enumeration.CharID;
  * 
  *         null is NOT a valid source.
  */
-public abstract class AbstractAssociationFacet<S, A>
+public abstract class AbstractAssociationFacet<S, A> extends AbstractStorageFacet
 {
 
 	public A get(CharID id, S obj)
@@ -132,7 +132,7 @@ public abstract class AbstractAssociationFacet<S, A>
 		{
 			return Collections.emptyMap();
 		}
-		FacetCache.remove(id, getClass());
+		removeCache(id, getClass());
 		for (S obj : componentMap.keySet())
 		{
 			//fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
@@ -236,7 +236,7 @@ public abstract class AbstractAssociationFacet<S, A>
 	 */
 	protected Map<S, A> getCachedMap(CharID id)
 	{
-		return (Map<S, A>) FacetCache.get(id, getClass());
+		return (Map<S, A>) getCache(id, getClass());
 	}
 
 	/**
@@ -259,7 +259,7 @@ public abstract class AbstractAssociationFacet<S, A>
 		if (componentMap == null)
 		{
 			componentMap = getComponentMap();
-			FacetCache.set(id, getClass(), componentMap);
+			setCache(id, getClass(), componentMap);
 		}
 		return componentMap;
 	}
@@ -292,6 +292,7 @@ public abstract class AbstractAssociationFacet<S, A>
 	 *            The CharID representing the Player Character to which the
 	 *            information should be copied
 	 */
+	@Override
 	public void copyContents(CharID source, CharID destination)
 	{
 		Map<S, A> sourceMap = getCachedMap(source);

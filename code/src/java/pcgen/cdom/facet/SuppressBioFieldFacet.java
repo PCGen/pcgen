@@ -41,7 +41,7 @@ import pcgen.cdom.enumeration.CharID;
  * @version $Revision$
  */
 
-public class SuppressBioFieldFacet
+public class SuppressBioFieldFacet extends AbstractStorageFacet
 {
 
 	private final Class<?> thisClass = getClass();
@@ -57,12 +57,12 @@ public class SuppressBioFieldFacet
 	{
 		@SuppressWarnings("unchecked")
 		Set<BiographyField> suppressedFields =
-				(Set<BiographyField>) FacetCache.get(id, thisClass);
+				(Set<BiographyField>) getCache(id, thisClass);
 		if (suppressedFields == null)
 		{
 			suppressedFields =
 					Collections.synchronizedSet(new HashSet<BiographyField>());
-			FacetCache.set(id, thisClass, suppressedFields);
+			setCache(id, thisClass, suppressedFields);
 		}
 
 		if (suppress)
@@ -85,8 +85,22 @@ public class SuppressBioFieldFacet
 	public boolean getSuppressField(CharID id, BiographyField field)
 	{
 		@SuppressWarnings("unchecked")
-		Set<BiographyField> suppressedFields = (Set<BiographyField>) FacetCache.get(id, thisClass);
+		Set<BiographyField> suppressedFields = (Set<BiographyField>) getCache(id, thisClass);
 		return suppressedFields != null && suppressedFields.contains(field);
+	}
+
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+		Set<BiographyField> set =
+				(Set<BiographyField>) getCache(source, thisClass);
+		if (set != null)
+		{
+			Set<BiographyField> copyset =
+					Collections.synchronizedSet(new HashSet<BiographyField>());
+			copyset.addAll(set);
+			setCache(copy, thisClass, copyset);
+		}
 	}
 
 }

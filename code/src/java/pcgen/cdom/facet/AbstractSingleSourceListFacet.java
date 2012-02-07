@@ -183,7 +183,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 		{
 			return Collections.emptyMap();
 		}
-		FacetCache.remove(id, getClass());
+		removeCache(id, getClass());
 		for (T obj : componentMap.keySet())
 		{
 			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
@@ -289,7 +289,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 	 */
 	protected Map<T, ST> getCachedMap(CharID id)
 	{
-		return (Map<T, ST>) FacetCache.get(id, getClass());
+		return (Map<T, ST>) getCache(id, getClass());
 	}
 
 	/**
@@ -313,7 +313,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 		if (componentMap == null)
 		{
 			componentMap = getComponentMap();
-			FacetCache.set(id, getClass(), componentMap);
+			setCache(id, getClass(), componentMap);
 		}
 		return componentMap;
 	}
@@ -347,6 +347,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 	 *            The CharID representing the Player Character to which the
 	 *            information should be copied
 	 */
+	@Override
 	public void copyContents(CharID source, CharID destination)
 	{
 		Map<T, ST> sourceMap = getCachedMap(source);

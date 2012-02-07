@@ -31,7 +31,8 @@ import pcgen.cdom.reference.Qualifier;
  * QualifyFacet is a Facet that tracks the objects to which the Player Character
  * should Qualify.
  */
-public class QualifyFacet implements DataFacetChangeListener<CDOMObject>
+public class QualifyFacet extends AbstractStorageFacet implements
+		DataFacetChangeListener<CDOMObject>
 {
 
 	private final Class<?> thisClass = getClass();
@@ -54,7 +55,7 @@ public class QualifyFacet implements DataFacetChangeListener<CDOMObject>
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		List<Qualifier> qualList = cdo.getListFor(ListKey.QUALIFY);
-		CacheInfo ci = getCacheInfo(dfce.getCharID());
+		CacheInfo ci = getConstructingCacheInfo(dfce.getCharID());
 
 		if (qualList != null)
 		{
@@ -80,7 +81,7 @@ public class QualifyFacet implements DataFacetChangeListener<CDOMObject>
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		CharID id = dfce.getCharID();
-		CacheInfo ci = (CacheInfo) FacetCache.get(id, thisClass);
+		CacheInfo ci = (CacheInfo) getCache(id, thisClass);
 
 		if (ci != null)
 		{
@@ -88,15 +89,20 @@ public class QualifyFacet implements DataFacetChangeListener<CDOMObject>
 		}
 	}
 
-	private CacheInfo getCacheInfo(CharID id)
+	private CacheInfo getConstructingCacheInfo(CharID id)
 	{
-		CacheInfo ci = (CacheInfo) FacetCache.get(id, thisClass);
+		CacheInfo ci = (CacheInfo) getCache(id, thisClass);
 		if (ci == null)
 		{
 			ci = new CacheInfo();
-			FacetCache.set(id, thisClass, ci);
+			setCache(id, thisClass, ci);
 		}
 		return ci;
+	}
+
+	private CacheInfo getCacheInfo(CharID id)
+	{
+		return (CacheInfo) getCache(id, thisClass);
 	}
 
 	private static class CacheInfo
@@ -164,7 +170,7 @@ public class QualifyFacet implements DataFacetChangeListener<CDOMObject>
 
 	public boolean grantsQualify(CharID id, CDOMObject qualTestObject)
 	{
-		CacheInfo ci = (CacheInfo) FacetCache.get(id, thisClass);
+		CacheInfo ci = getCacheInfo(id);
 		return (ci != null) && ci.isQualified(qualTestObject);
 	}
 
@@ -176,5 +182,17 @@ public class QualifyFacet implements DataFacetChangeListener<CDOMObject>
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);
+	}
+
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+		CacheInfo ci = getCacheInfo(source);
+		if (ci != null)
+		{
+			CacheInfo copyci = getConstructingCacheInfo(copy);
+			copyci.hml.addAllLists(ci.hml);
+			copyci.sourceMap.addAllLists(ci.sourceMap);
+		}
 	}
 }

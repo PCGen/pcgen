@@ -24,18 +24,24 @@ import pcgen.core.PlayerCharacter;
  * This is a transition class, designed to allow things to be taken out of
  * PlayerCharacter while a transition is made to the new facet system.
  */
-public class PlayerCharacterTrackingFacet
+public class PlayerCharacterTrackingFacet extends AbstractStorageFacet
 {
 	private final Class<?> thisClass = getClass();
 
 	public void associatePlayerCharacter(CharID id, PlayerCharacter pc)
 	{
-		FacetCache.set(id, thisClass, pc);
+		setCache(id, thisClass, pc);
 	}
 
 	public PlayerCharacter getPC(CharID id)
 	{
-		return (PlayerCharacter) FacetCache.get(id, thisClass);
+		return (PlayerCharacter) getCache(id, thisClass);
+	}
+
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+		//We explicitly ignore this, since the CharID identifies the PlayerCharacter
 	}
 
 }
