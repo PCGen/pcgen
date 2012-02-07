@@ -606,32 +606,16 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		else if ("Race".equals(fieldName))
 		{
 			raceComboBox.requestFocusInWindow();
+			highlightBorder(raceComboBox);
 		}
 		else if ("Class".equals(fieldName))
 		{
 			classComboBox.requestFocusInWindow();
+			highlightBorder(classComboBox);
 		}
 		else if ("Languages".equals(fieldName))
 		{
-			final Border oldBorder = languageTable.getBorder();
-			Border highlightBorder = BorderFactory.createLineBorder(Color.GREEN, 3);
-			langScroll.setBorder(highlightBorder);
-			
-			SwingUtilities.invokeLater(new Runnable()
-			{
-				public void run()
-				{
-					try
-					{
-						Thread.sleep(500);
-					}
-					catch (InterruptedException e)
-					{
-						// Ignored as we'll exit shortly anyway.
-					}
-					langScroll.setBorder(oldBorder);
-				}
-			});
+			highlightBorder(langScroll);
 		}
 		else if ("Ability Scores".equals(fieldName))
 		{
@@ -639,6 +623,29 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			deityComboBox.transferFocus();
 		}
 
+	}
+
+	private void highlightBorder(final JComponent comp)
+	{
+		final Border oldBorder = comp.getBorder();
+		Border highlightBorder = BorderFactory.createLineBorder(Color.GREEN, 3);
+		comp.setBorder(highlightBorder);
+		
+		SwingUtilities.invokeLater(new Runnable()
+		{
+			public void run()
+			{
+				try
+				{
+					Thread.sleep(500);
+				}
+				catch (InterruptedException e)
+				{
+					// Ignored as we'll exit shortly anyway.
+				}
+				comp.setBorder(oldBorder);
+			}
+		});
 	}
 
 	public Hashtable<Object, Object> createModels(final CharacterFacade character)
