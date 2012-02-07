@@ -64,6 +64,7 @@ import pcgen.gui2.filter.FilteredTreeViewTable;
 import pcgen.gui2.tabs.ability.AbilityTreeTableModel;
 import pcgen.gui2.tabs.ability.AbilityTreeViews;
 import pcgen.gui2.tabs.ability.CategoryTableModel;
+import pcgen.gui2.tabs.models.QualifiedTreeCellRenderer;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
@@ -527,6 +528,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		//state.put(AbilityTransferHandler.class, new AbilityTransferHandler(character));
 		state.put(InfoHandler.class, new InfoHandler(character, categories));
 		state.put(AbilityRenderer.class, new AbilityRenderer(character));
+		state.put(QualifiedTreeCellRenderer.class, new QualifiedTreeCellRenderer(character));
 		state.put(AddAction.class, new AddAction(character));
 		state.put(RemoveAction.class, new RemoveAction(character));
 		state.put(CategoryFilterHandler.class, new CategoryFilterHandler(categoryTableModel));
@@ -555,7 +557,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		selectedTreeViewPanel.setTreeTableModel((AbilityTreeTableModel) state.get(AbilityTreeTableModel.class));
 		((AvailableAbilityTreeViewModel) state.get(AvailableAbilityTreeViewModel.class)).install();
 		selectedTreeViewPanel.setTreeCellRenderer((AbilityRenderer) state.get(AbilityRenderer.class));
-		availableTreeViewPanel.setTreeCellRenderer((AbilityRenderer) state.get(AbilityRenderer.class));
+		availableTreeViewPanel.setTreeCellRenderer((QualifiedTreeCellRenderer) state.get(QualifiedTreeCellRenderer.class));
 		addButton.setAction((AddAction) state.get(AddAction.class));
 		removeButton.setAction((RemoveAction) state.get(RemoveAction.class));
 		((InfoHandler) state.get(InfoHandler.class)).install();
