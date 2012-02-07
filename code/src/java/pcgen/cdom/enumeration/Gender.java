@@ -18,6 +18,7 @@
 package pcgen.cdom.enumeration;
 
 import pcgen.core.facade.GenderFacade;
+import pcgen.core.facade.SpellSupportFacade.SuperNode;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -64,5 +65,23 @@ public enum Gender implements GenderFacade
 	public static Gender getDefaultValue()
 	{
 		return Male;
+	}
+	
+	/**
+	 * Retrieve a Gender object to match the localised values output by toString.
+	 * @param name The localised display name of the Gender 
+	 * @return The matching Gender.
+	 */
+	public static Gender getGenderByName(String name)
+	{
+		for (Gender gender : Gender.values())
+		{
+			if (gender.toString().equals(name))
+			{
+				return gender;
+			}
+		}
+		
+		return Gender.valueOf(name);
 	}
 }

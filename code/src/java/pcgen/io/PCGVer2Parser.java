@@ -3101,7 +3101,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 		else
 		{
-			gender = Gender.valueOf(genderString);
+			gender = Gender.getGenderByName(genderString);
 		}
 		thePC.setGender(gender);
 	}
