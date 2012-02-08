@@ -100,7 +100,7 @@ public class RaceToken extends Token
 		}
 		
 		final List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
-		SpecialAbilityResolution.addSpecialAbilitiesToList(saList, pc, pc.getRace());
+		saList.addAll(pc.getResolvedSpecialAbilities(pc.getRace()));
 		SpecialAbilityResolution.addSABToList(saList, pc, pc.getRace());
 
 		if (saList.isEmpty())

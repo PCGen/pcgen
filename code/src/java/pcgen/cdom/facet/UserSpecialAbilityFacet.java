@@ -17,12 +17,79 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.QualifiedActor;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
 
-;
-
 public class UserSpecialAbilityFacet extends
-		AbstractSourcedListFacet<SpecialAbility>
+		AbstractQualifiedListFacet<SpecialAbility>
 {
+
+	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
+		.getFacet(PlayerCharacterTrackingFacet.class);
+
+	public List<SpecialAbility> getResolved(CharID id, Object source)
+	{
+		List<SpecialAbility> returnList = new ArrayList<SpecialAbility>();
+		SAProcessor proc = new SAProcessor(trackingFacet.getPC(id), returnList);
+		for (SpecialAbility sa : getQualifiedSet(id, source))
+		{
+			proc.act(sa, source);
+		}
+		return returnList;
+	}
+
+	public List<SpecialAbility> getAllResolved(CharID id)
+	{
+		final List<SpecialAbility> returnList = new ArrayList<SpecialAbility>();
+		actOnQualifiedSet(id, new SAProcessor(trackingFacet.getPC(id),
+			returnList));
+		return returnList;
+	}
+
+	private final class SAProcessor implements QualifiedActor<SpecialAbility>
+	{
+		private final PlayerCharacter pc;
+		private final List<SpecialAbility> returnList;
+
+		private SAProcessor(PlayerCharacter pc, List<SpecialAbility> returnList)
+		{
+			this.pc = pc;
+			this.returnList = returnList;
+		}
+
+		@Override
+		public void act(SpecialAbility sa, Object source)
+		{
+			final String key = sa.getKeyName();
+			final int idx = key.indexOf("%CHOICE");
+
+			if (idx >= 0)
+			{
+				StringBuilder sb = new StringBuilder();
+				sb.append(key.substring(0, idx));
+
+				if (pc.hasAssociations(source))
+				{
+					sb.append(StringUtil.joinToStringBuffer(
+						pc.getAssociationList(source), ", "));
+				}
+				else
+				{
+					sb.append("<undefined>");
+				}
+
+				sb.append(key.substring(idx + 7));
+				sa = new SpecialAbility(sb.toString(), sa.getSADesc());
+			}
+
+			returnList.add(sa);
+		}
+	}
 
 }

@@ -32,9 +32,9 @@ public interface AssociationStore
 
 	public List<String> removeAllAssociations(CDOMObject obj);
 
-	public boolean hasAssociations(CDOMObject obj);
+	public boolean hasAssociations(Object obj);
 
-	public List<String> getAssociationList(CDOMObject obj);
+	public List<String> getAssociationList(Object obj);
 
 	public boolean containsAssociated(CDOMObject obj, String o);
 

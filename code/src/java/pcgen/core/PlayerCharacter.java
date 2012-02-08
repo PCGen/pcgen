@@ -2707,10 +2707,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		// aList will contain a list of SpecialAbility objects
 		List<SpecialAbility> aList =
 				new ArrayList<SpecialAbility>();
+		aList.addAll(userSpecialAbilityFacet.getAllResolved(id));
 		// Try all possible PObjects
 		for (CDOMObject cdo : getCDOMObjectList())
 		{
-			SpecialAbilityResolution.addSpecialAbilitiesToList(aList, this, cdo);
 			SpecialAbilityResolution.addSABToList(aList, this, cdo);
 		}
 
@@ -2732,7 +2732,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		for (CDOMObject cdo : getCDOMObjectList())
 		{
 			saList.clear();
-			SpecialAbilityResolution.addSpecialAbilitiesToList(saList, this, cdo);
+			saList.addAll(getResolvedSpecialAbilities(cdo));
 			SpecialAbilityResolution.addSABToList(saList, this, cdo);
 			for (SpecialAbility sa : saList)
 			{
@@ -2747,6 +2747,11 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		Collections.sort(bList);
 
 		return bList;
+	}
+
+	public List<SpecialAbility> getResolvedSpecialAbilities(CDOMObject cdo)
+	{
+		return userSpecialAbilityFacet.getResolved(id, cdo);
 	}
 
 	/**
@@ -11057,7 +11062,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			/ obj.getSafe(FormulaKey.SELECT).resolve(this, "").intValue();
 	}
 
-	public List<String> getAssociationList(CDOMObject obj)
+	@Override
+	public List<String> getAssociationList(Object obj)
 	{
 		List<String> list = new ArrayList<String>();
 		List<FixedStringList> assocList =
@@ -11073,7 +11079,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return list;
 	}
 
-	public boolean hasAssociations(CDOMObject obj)
+	@Override
+	public boolean hasAssociations(Object obj)
 	{
 		return assocSupt.hasAssocs(obj, AssociationListKey.CHOICES);
 	}

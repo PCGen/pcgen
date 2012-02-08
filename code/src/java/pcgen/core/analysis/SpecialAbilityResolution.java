@@ -65,44 +65,4 @@ public class SpecialAbilityResolution
 		}
 		return saList;
 	}
-
-	public static List<SpecialAbility> addSpecialAbilitiesToList(final List<SpecialAbility> aList, final PlayerCharacter aPC, CDOMObject cdo)
-	{
-		List<? extends SpecialAbility> salist = aPC.getUserSpecialAbilityList(cdo);
-		if (salist == null)
-		{
-			return aList;
-		}
-		for ( SpecialAbility sa : salist )
-		{
-			if (sa.qualifies(aPC, cdo))
-			{
-				final String key = sa.getKeyName();
-				final int idx = key.indexOf("%CHOICE");
-	
-				if (idx >= 0)
-				{
-					StringBuilder sb = new StringBuilder();
-					sb.append(key.substring(0, idx));
-	
-					if (aPC.hasAssociations(cdo))
-					{
-						sb.append(StringUtil.joinToStringBuffer(aPC.getAssociationList(cdo), ", "));
-					}
-					else
-					{
-						sb.append("<undefined>");
-					}
-	
-					sb.append(key.substring(idx + 7));
-					sa = new SpecialAbility(sb.toString(), sa.getSADesc());
-				}
-	
-				aList.add(sa);
-			}
-		}
-	
-		return aList;
-	}
-
 }

@@ -6401,7 +6401,8 @@ public final class Equipment extends PObject implements Serializable,
 			/ select;
 	}
 
-	public List<String> getAssociationList(CDOMObject obj)
+	@Override
+	public List<String> getAssociationList(Object obj)
 	{
 		List<String> list = new ArrayList<String>();
 		List<FixedStringList> assocList =
@@ -6424,7 +6425,8 @@ public final class Equipment extends PObject implements Serializable,
 		return list;
 	}
 
-	public boolean hasAssociations(CDOMObject obj)
+	@Override
+	public boolean hasAssociations(Object obj)
 	{
 		return assocSupt.hasAssocs(obj, AssociationListKey.CHOICES);
 	}

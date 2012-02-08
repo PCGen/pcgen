@@ -25,10 +25,11 @@ import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import pcgen.base.util.WrappedMapSet;
+import pcgen.cdom.base.QualifiedActor;
 import pcgen.cdom.base.QualifyingObject;
 import pcgen.cdom.enumeration.CharID;
 
@@ -523,4 +524,49 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		}
 		return set;
 	}
+
+	public Collection<T> getQualifiedSet(CharID id, Object source)
+	{
+		Set<T> set = new HashSet<T>();
+		Map<T, Set<Object>> componentMap = getCachedMap(id);
+		if (componentMap != null)
+		{
+			for (Map.Entry<T, Set<Object>> me : componentMap.entrySet())
+			{
+				T obj = me.getKey();
+				Set<Object> sources = me.getValue();
+				if (sources.contains(source))
+				{
+					if (prereqFacet.qualifies(id, obj, source))
+					{
+						set.add(obj);
+						break;
+					}
+				}
+			}
+		}
+		return set;
+	}
+
+	public void actOnQualifiedSet(CharID id, QualifiedActor<T> qa)
+	{
+		Map<T, Set<Object>> componentMap = getCachedMap(id);
+		if (componentMap != null)
+		{
+			for (Map.Entry<T, Set<Object>> me : componentMap.entrySet())
+			{
+				T obj = me.getKey();
+				Set<Object> sources = me.getValue();
+				for (Object source : sources)
+				{
+					if (prereqFacet.qualifies(id, obj, source))
+					{
+						qa.act(obj, source);
+						break;
+					}
+				}
+			}
+		}
+	}
+
 }

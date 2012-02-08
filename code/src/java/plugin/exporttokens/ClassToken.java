@@ -167,14 +167,12 @@ public class ClassToken extends Token {
 		final List<String> formattedList = new ArrayList<String>();
 		
 		final List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
-		SpecialAbilityResolution
-				.addSpecialAbilitiesToList(saList, aPC, pcclass);
+		saList.addAll(aPC.getResolvedSpecialAbilities(pcclass));
 		SpecialAbilityResolution.addSABToList(saList, aPC, pcclass);
 		for (int i = 1; i <= aPC.getLevel(pcclass); i++)
 		{
 			PCClassLevel pcl = aPC.getActiveClassLevel(pcclass, i);
-			SpecialAbilityResolution
-					.addSpecialAbilitiesToList(saList, aPC, pcl);
+			saList.addAll(aPC.getResolvedSpecialAbilities(pcl));
 			SpecialAbilityResolution.addSABToList(saList, aPC, pcl);
 		}
 
