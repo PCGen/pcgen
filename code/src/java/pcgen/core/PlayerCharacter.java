@@ -299,11 +299,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private ActiveSpellsFacet activeSpellsFacet = FacetLibrary.getFacet(ActiveSpellsFacet.class);
 	private SpellListFacet spellListFacet = FacetLibrary.getFacet(SpellListFacet.class);
 
-	private FormulaResolvingFacet resolveFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
-	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
-	private BonusCheckingFacet bonusFacet = FacetLibrary.getFacet(BonusCheckingFacet.class);
-	private ObjectAdditionFacet additionFacet = FacetLibrary.getFacet(ObjectAdditionFacet.class);
-	private AddLevelFacet addLevelFacet = FacetLibrary.getFacet(AddLevelFacet.class);
 	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 	private PortraitThumbnailRectFacet portraitThumbnailRectFacet = FacetLibrary.getFacet(PortraitThumbnailRectFacet.class);
 	
