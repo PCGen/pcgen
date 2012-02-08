@@ -20,16 +20,21 @@ package pcgen.cdom.facet;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.SAProcessor;
 import pcgen.core.SpecialAbility;
 
-public class UserSpecialAbilityFacet extends
-		AbstractQualifiedListFacet<SpecialAbility>
+public class SpecialAbilityFacet extends
+		AbstractQualifiedListFacet<SpecialAbility> implements
+		DataFacetChangeListener<CDOMObject>
 {
 
 	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 		.getFacet(PlayerCharacterTrackingFacet.class);
+
+	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	public List<SpecialAbility> getResolved(CharID id, Object source)
 	{
@@ -50,4 +55,26 @@ public class UserSpecialAbilityFacet extends
 		return returnList;
 	}
 
+	@Override
+	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	{
+		CDOMObject cdo = dfce.getCDOMObject();
+		addAll(dfce.getCharID(), cdo.getSafeListFor(ListKey.SAB), cdo);
+	}
+
+	@Override
+	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	{
+		removeAll(dfce.getCharID(), dfce.getCDOMObject());
+	}
+
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+		this.consolidationFacet = consolidationFacet;
+	}
+	
+	public void init()
+	{
+		consolidationFacet.addDataFacetChangeListener(this);
+	}
 }

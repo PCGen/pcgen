@@ -36,7 +36,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SpecialAbility;
 import pcgen.core.analysis.OutputNameFormatting;
-import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.system.LanguageBundle;
@@ -100,8 +99,8 @@ public class RaceToken extends Token
 		}
 		
 		final List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
+		saList.addAll(pc.getResolvedUserSpecialAbilities(pc.getRace()));
 		saList.addAll(pc.getResolvedSpecialAbilities(pc.getRace()));
-		SpecialAbilityResolution.addSABToList(saList, pc, pc.getRace());
 
 		if (saList.isEmpty())
 		{

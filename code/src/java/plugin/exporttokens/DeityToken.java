@@ -45,7 +45,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.OutputNameFormatting;
-import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.Logging;
@@ -193,8 +192,8 @@ public class DeityToken extends Token
 	public static String getSAToken(Deity deity, PlayerCharacter pc)
 	{
 		final List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
+		saList.addAll(pc.getResolvedUserSpecialAbilities(deity));
 		saList.addAll(pc.getResolvedSpecialAbilities(deity));
-		SpecialAbilityResolution.addSABToList(saList, pc, deity);
 
 		if (saList.isEmpty())
 		{

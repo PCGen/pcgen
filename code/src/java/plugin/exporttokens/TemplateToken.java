@@ -38,7 +38,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.OutputNameFormatting;
-import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.core.analysis.TemplateSR;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -227,14 +226,14 @@ public class TemplateToken extends Token
 	public static String getSAToken(PCTemplate template, PlayerCharacter pc)
 	{
 		List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
+		saList.addAll(pc.getResolvedUserSpecialAbilities(template));
 		saList.addAll(pc.getResolvedSpecialAbilities(template));
-		SpecialAbilityResolution.addSABToList(saList, pc, template);
 		List<PCTemplate> subList = new ArrayList<PCTemplate>();
 		subList.addAll(template.getConditionalTemplates(pc.getTotalLevels(), pc.totalHitDice()));
 		for (PCTemplate subt : subList)
 		{
+			saList.addAll(pc.getResolvedUserSpecialAbilities(subt));
 			saList.addAll(pc.getResolvedSpecialAbilities(subt));
-			SpecialAbilityResolution.addSABToList(saList, pc, subt);
 		}
 		List<String> saDescList = new ArrayList<String>();
 		for (SpecialAbility sa : saList)

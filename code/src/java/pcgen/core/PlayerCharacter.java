@@ -112,7 +112,6 @@ import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.analysis.ClassSkillApplication;
 import pcgen.core.analysis.SkillRankControl;
-import pcgen.core.analysis.SpecialAbilityResolution;
 import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.analysis.SpellLevel;
 import pcgen.core.analysis.SpellPoint;
@@ -259,6 +258,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private UserSpecialAbilityFacet userSpecialAbilityFacet = FacetLibrary.getFacet(UserSpecialAbilityFacet.class);
+	private SpecialAbilityFacet specialAbilityFacet = FacetLibrary.getFacet(SpecialAbilityFacet.class);
 
 	private ObjectCache cache = new ObjectCache();
 	private AssociationSupport assocSupt = new AssociationSupport();
@@ -2708,11 +2708,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		List<SpecialAbility> aList =
 				new ArrayList<SpecialAbility>();
 		aList.addAll(userSpecialAbilityFacet.getAllResolved(id));
-		// Try all possible PObjects
-		for (CDOMObject cdo : getCDOMObjectList())
-		{
-			SpecialAbilityResolution.addSABToList(aList, this, cdo);
-		}
+		aList.addAll(specialAbilityFacet.getAllResolved(id));
 
 		Collections.sort(aList);
 
@@ -2732,8 +2728,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		for (CDOMObject cdo : getCDOMObjectList())
 		{
 			saList.clear();
+			saList.addAll(getResolvedUserSpecialAbilities(cdo));
 			saList.addAll(getResolvedSpecialAbilities(cdo));
-			SpecialAbilityResolution.addSABToList(saList, this, cdo);
 			for (SpecialAbility sa : saList)
 			{
 				final String saText = sa.getParsedText(this, this, cdo);
@@ -2749,9 +2745,14 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return bList;
 	}
 
-	public List<SpecialAbility> getResolvedSpecialAbilities(CDOMObject cdo)
+	public List<SpecialAbility> getResolvedUserSpecialAbilities(CDOMObject cdo)
 	{
 		return userSpecialAbilityFacet.getResolved(id, cdo);
+	}
+
+	public List<SpecialAbility> getResolvedSpecialAbilities(CDOMObject cdo)
+	{
+		return specialAbilityFacet.getResolved(id, cdo);
 	}
 
 	/**

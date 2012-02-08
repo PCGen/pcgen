@@ -376,6 +376,9 @@
 	<bean id="skillFacet" class="pcgen.cdom.facet.SkillFacet"/>
 	<bean id="skillLanguageFacet" class="pcgen.cdom.facet.SkillLanguageFacet"/>
 	<bean id="sourcedEquipmentFacet" class="pcgen.cdom.facet.SourcedEquipmentFacet"/>
+	<bean id="specialAbilityFacet" class="pcgen.cdom.facet.SpecialAbilityFacet">
+		<property name="consolidationFacet" ref="consolidationFacet"/>
+	</bean>
 	<bean id="spellBookFacet" class="pcgen.cdom.facet.SpellBookFacet">
 		<property name="equipmentFacet" ref="equipmentFacet"/>
 	</bean>
