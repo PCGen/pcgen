@@ -34,9 +34,12 @@ import java.util.Locale;
 import java.util.Properties;
 import java.util.logging.Level;
 
+import javax.swing.JOptionPane;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.SystemUtils;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.facade.UIDelegate;
 import pcgen.core.prereq.PrerequisiteTestFactory;
 import pcgen.gui.converter.TokenConverter;
@@ -74,6 +77,7 @@ public final class Main
 	private static boolean startNPCGen = false;
 	private static boolean startInSheet = false;
 	private static boolean doExport = false;
+	private static boolean ignoreJavaVer = false;
 	private static String settingsDir = null;
 	private static String campaignMode = null;
 	private static String characterSheet = null;
@@ -267,6 +271,11 @@ public final class Main
 				}
 				outputFile  = args[index];
 			}
+			else if (arg.equals("-J"))
+			{
+				// Ignore Java version checks
+				ignoreJavaVer = true;
+			}
 			else
 			{
 				//Unrecognized command argument
@@ -328,6 +337,7 @@ public final class Main
 	{
 		// configure the UI before any type of user prompting may take place
 		configureUI();
+		validateEnvironment(true);
 		loadProperties(true);
 
 		boolean showSplash = Boolean.parseBoolean(initSystemProperty("showSplash", "true"));
@@ -380,6 +390,55 @@ public final class Main
 
 	}
 
+	/**
+	 * Check that the runtime environment is suitable for PCGen to run. 
+	 * e.g. correct Java version 
+	 */
+	private static void validateEnvironment(boolean useGui)
+	{
+		String javaVerString = System.getProperty("java.version");
+		String[] javaVer = javaVerString.split("\\.");
+		int majorVar = Integer.parseInt(javaVer[0]);
+		int minorVar = Integer.parseInt(javaVer[1]);
+		if (!ignoreJavaVer)
+		{
+			if (majorVar < 1 || (majorVar == 1 && minorVar < 6))
+			{
+				String message =
+						"Java version "
+							+ javaVerString
+							+ " is too old. PCGen requires at least Java 1.6 to run.";
+				Logging.errorPrint(message);
+				if (useGui)
+				{
+					JOptionPane.showMessageDialog(null, message,
+						Constants.APPLICATION_NAME, JOptionPane.ERROR_MESSAGE);
+				}
+				System.exit(1);
+			}
+			if (majorVar > 1 || (majorVar == 1 && minorVar > 7))
+			{
+				String message =
+						"Java version "
+							+ javaVerString
+							+ " is newer than PCGen supports. The program may not\nwork correctly. Java versions up to 1.7 are supported.";
+				Logging.errorPrint(message);
+				if (useGui)
+				{
+					int result =
+							JOptionPane.showConfirmDialog(null, message
+								+ "\n\nDo you wish to conitnue?",
+								Constants.APPLICATION_NAME,
+								JOptionPane.OK_CANCEL_OPTION);
+					if (result != JOptionPane.OK_OPTION)
+					{
+						System.exit(1);
+					}
+				}
+			}
+		}
+	}
+
 	private static void loadProperties(boolean useGui)
 	{
 		if (settingsDir == null && getSystemProperty(SETTINGS_FILES_PATH) == null)
@@ -429,6 +488,7 @@ public final class Main
 	private static void startupWithoutGUI()
 	{
 		loadProperties(false);
+		validateEnvironment(false);
 
 		PCGenTaskExecutor executor = new PCGenTaskExecutor();
 		executor.addPCGenTask(createLoadPluginTask());
