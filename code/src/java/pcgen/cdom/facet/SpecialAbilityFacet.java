@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.QualifiedActor;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.SAProcessor;
@@ -39,20 +40,17 @@ public class SpecialAbilityFacet extends
 	public List<SpecialAbility> getResolved(CharID id, Object source)
 	{
 		List<SpecialAbility> returnList = new ArrayList<SpecialAbility>();
-		SAProcessor proc = new SAProcessor(trackingFacet.getPC(id), returnList);
+		SAProcessor proc = new SAProcessor(trackingFacet.getPC(id));
 		for (SpecialAbility sa : getQualifiedSet(id, source))
 		{
-			proc.act(sa, source);
+			returnList.add(proc.act(sa, source));
 		}
 		return returnList;
 	}
 
-	public List<SpecialAbility> getAllResolved(CharID id)
+	public <T> List<T> getAllResolved(CharID id, QualifiedActor<SpecialAbility, T> qa)
 	{
-		final List<SpecialAbility> returnList = new ArrayList<SpecialAbility>();
-		actOnQualifiedSet(id, new SAProcessor(trackingFacet.getPC(id),
-			returnList));
-		return returnList;
+		return actOnQualifiedSet(id, qa);
 	}
 
 	@Override

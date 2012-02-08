@@ -17,26 +17,22 @@
  */
 package pcgen.cdom.helper;
 
-import java.util.List;
-
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.QualifiedActor;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
 
-public final class SAProcessor implements QualifiedActor<SpecialAbility>
+public final class SAProcessor implements QualifiedActor<SpecialAbility, SpecialAbility>
 {
 	private final PlayerCharacter pc;
-	private final List<SpecialAbility> returnList;
 
-	public SAProcessor(PlayerCharacter pc, List<SpecialAbility> returnList)
+	public SAProcessor(PlayerCharacter pc)
 	{
 		this.pc = pc;
-		this.returnList = returnList;
 	}
 
 	@Override
-	public void act(SpecialAbility sa, Object source)
+	public SpecialAbility act(SpecialAbility sa, Object source)
 	{
 		final String key = sa.getKeyName();
 		final int idx = key.indexOf("%CHOICE");
@@ -60,6 +56,6 @@ public final class SAProcessor implements QualifiedActor<SpecialAbility>
 			sa = new SpecialAbility(sb.toString(), sa.getSADesc());
 		}
 
-		returnList.add(sa);
+		return sa;
 	}
 }

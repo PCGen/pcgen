@@ -15,38 +15,25 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.helper;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.QualifiedActor;
-import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.helper.SAProcessor;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
 
-public class UserSpecialAbilityFacet extends
-		AbstractQualifiedListFacet<SpecialAbility>
+public final class SAtoStringProcessor implements QualifiedActor<SpecialAbility, String>
 {
+	private final PlayerCharacter pc;
 
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
-
-	public List<SpecialAbility> getResolved(CharID id, Object source)
+	public SAtoStringProcessor(PlayerCharacter pc)
 	{
-		List<SpecialAbility> returnList = new ArrayList<SpecialAbility>();
-		SAProcessor proc = new SAProcessor(trackingFacet.getPC(id));
-		for (SpecialAbility sa : getQualifiedSet(id, source))
-		{
-			returnList.add(proc.act(sa, source));
-		}
-		return returnList;
+		this.pc = pc;
 	}
 
-	public <T> List<T> getAllResolved(CharID id, QualifiedActor<SpecialAbility, T> qa)
+	@Override
+	public String act(SpecialAbility sa, Object source)
 	{
-		return actOnQualifiedSet(id, qa);
+		return sa.getParsedText(pc, pc, (CDOMObject) source);
 	}
-
-
 }

@@ -96,6 +96,8 @@ import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.helper.ProfProvider;
+import pcgen.cdom.helper.SAProcessor;
+import pcgen.cdom.helper.SAtoStringProcessor;
 import pcgen.cdom.helper.SpringHelper;
 import pcgen.cdom.identifier.SpellSchool;
 import pcgen.cdom.inst.EquipmentHead;
@@ -161,6 +163,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	private CharID id = new CharID();
+	private final SAtoStringProcessor SA_TO_STRING_PROC;
+	private final SAProcessor SA_PROC;
 
 	/*
 	 * Note "pure" here means no getDirty call, and absolutely no other stuff in
@@ -181,6 +185,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private HandsFacet handsFacet = FacetLibrary.getFacet(HandsFacet.class);
 	private HasAnyFavoredClassFacet hasAnyFavoredFacet = FacetLibrary.getFacet(HasAnyFavoredClassFacet.class);
 	private InitiativeFacet initiativeFacet = FacetLibrary.getFacet(InitiativeFacet.class);
+	private LegalDeityFacet legalDeityFacet = FacetLibrary.getFacet(LegalDeityFacet.class);
 	private LegsFacet legsFacet = FacetLibrary.getFacet(LegsFacet.class);
 	private MoneyFacet moneyFacet = FacetLibrary.getFacet(MoneyFacet.class);
 	private MonsterCSkillFacet monCSkillFacet = FacetLibrary.getFacet(MonsterCSkillFacet.class);
@@ -292,7 +297,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private LocalSkillCostFacet localSkillCostFacet = FacetLibrary.getFacet(LocalSkillCostFacet.class);
 	private ListSkillCostFacet listSkillCostFacet = FacetLibrary.getFacet(ListSkillCostFacet.class);
 	private SpellSupportFacet spellSupportFacet = FacetLibrary.getFacet(SpellSupportFacet.class);
-	private LegalDeityFacet legalDeityFacet = FacetLibrary.getFacet(LegalDeityFacet.class);
 	private AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
 	private AgeSetFacet ageSetFacet = FacetLibrary.getFacet(AgeSetFacet.class);
 	private ArmorClassFacet armorClassFacet = FacetLibrary.getFacet(ArmorClassFacet.class);
@@ -405,6 +409,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public PlayerCharacter(boolean load, Collection<Campaign> loadedCampaigns)
 	{
+		SA_TO_STRING_PROC = new SAtoStringProcessor(this);
+		SA_PROC = new SAProcessor(this);
 		trackingFacet.associatePlayerCharacter(id, this);
 		
 		variableProcessor = new VariableProcessorPC(this);
@@ -2700,10 +2706,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public List<SpecialAbility> getSpecialAbilityList()
 	{
 		// aList will contain a list of SpecialAbility objects
-		List<SpecialAbility> aList =
-				new ArrayList<SpecialAbility>();
-		aList.addAll(userSpecialAbilityFacet.getAllResolved(id));
-		aList.addAll(specialAbilityFacet.getAllResolved(id));
+		List<SpecialAbility> aList = new ArrayList<SpecialAbility>();
+		aList.addAll(userSpecialAbilityFacet.getAllResolved(id, SA_PROC));
+		aList.addAll(specialAbilityFacet.getAllResolved(id, SA_PROC));
 
 		Collections.sort(aList);
 
@@ -2718,23 +2723,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public List<String> getSpecialAbilityListStrings()
 	{
 		List<String> bList = new ArrayList<String>();
-		List<SpecialAbility> saList =
-			new ArrayList<SpecialAbility>();
-		for (CDOMObject cdo : getCDOMObjectList())
-		{
-			saList.clear();
-			saList.addAll(getResolvedUserSpecialAbilities(cdo));
-			saList.addAll(getResolvedSpecialAbilities(cdo));
-			for (SpecialAbility sa : saList)
-			{
-				final String saText = sa.getParsedText(this, this, cdo);
-				if (saText != null && !saText.equals(""))
-				{
-					bList.add(saText);
-				}
-			}
-		}
 		
+		bList.addAll(userSpecialAbilityFacet.getAllResolved(id, SA_TO_STRING_PROC));
+		bList.addAll(specialAbilityFacet.getAllResolved(id, SA_TO_STRING_PROC));
+
 		Collections.sort(bList);
 
 		return bList;

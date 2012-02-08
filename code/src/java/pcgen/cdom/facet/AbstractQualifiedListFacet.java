@@ -548,8 +548,9 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		return set;
 	}
 
-	public void actOnQualifiedSet(CharID id, QualifiedActor<T> qa)
+	public <R> List<R> actOnQualifiedSet(CharID id, QualifiedActor<T, R> qa)
 	{
+		List<R> list = new ArrayList<R>();
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
@@ -561,12 +562,13 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 				{
 					if (prereqFacet.qualifies(id, obj, source))
 					{
-						qa.act(obj, source);
+						list.add(qa.act(obj, source));
 						break;
 					}
 				}
 			}
 		}
+		return list;
 	}
 
 }

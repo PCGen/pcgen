@@ -1,7 +1,7 @@
 package pcgen.cdom.base;
 
-public interface QualifiedActor<T extends QualifyingObject>
+public interface QualifiedActor<T extends QualifyingObject, R>
 {
 
-	public void act(T object, Object source);
+	public R act(T object, Object source);
 }
