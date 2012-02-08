@@ -22,8 +22,12 @@
  */
 package pcgen.core;
 
+import java.util.List;
+
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.facade.SkillFacade;
 
 /**
@@ -77,6 +81,15 @@ public final class Skill extends PObject implements SkillFacade
 	{
 		return SourceFormat.getFormattedString(this,
 			Globals.getSourceDisplay(), true);
+	}
+
+	/* (non-Javadoc)
+	 * @see pcgen.core.facade.SkillFacade#getTypes()
+	 */
+	public String getDisplayType()
+	{
+		List<Type> trueTypeList = getTrueTypeList(true);
+		return StringUtil.join(trueTypeList, ".");
 	}
 
 	/* (non-Javadoc)

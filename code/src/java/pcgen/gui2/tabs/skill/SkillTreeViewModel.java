@@ -22,9 +22,13 @@ package pcgen.gui2.tabs.skill;
 
 import java.util.Arrays;
 import java.util.List;
+
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+
+import org.apache.commons.lang.StringUtils;
+
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.CharacterLevelFacade;
@@ -148,6 +152,36 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		}
 	}
 
+	/**
+	 * Create a TreeViewPath for the skill and paths but trimming off the final 
+	 * path if it is empty. 
+	 * @param pobj The skill
+	 * @param path The paths under which the skills should be shown.
+	 * @return The TreeViewPath.
+	 */
+	protected static TreeViewPath<SkillFacade> createTreeViewPath(SkillFacade pobj,
+		Object... path)
+	{
+		Object displayPath[];
+		if (StringUtils.isEmpty(String.valueOf(path[path.length - 1])))
+		{
+			displayPath = new Object[path.length - 1];
+			for (int i = 0; i < displayPath.length; i++)
+			{
+				displayPath[i] = path[i];
+			}
+		}
+		else
+		{
+			displayPath = path;
+		}
+		if (displayPath.length == 0)
+		{
+			return new TreeViewPath<SkillFacade>(pobj);
+		}
+		return new TreeViewPath<SkillFacade>(pobj, displayPath);
+	}
+
 	private enum SkillTreeView implements TreeView<SkillFacade>
 	{
 
@@ -177,17 +211,16 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 					path = new TreeViewPath<SkillFacade>(pobj);
 					break;
 				case TYPE_NAME:
-					path = new TreeViewPath<SkillFacade>(pobj,
-														 pobj.getType());
+					path = createTreeViewPath(pobj, pobj.getDisplayType());
 					break;
 				case KEYSTAT_NAME:
 					path = new TreeViewPath<SkillFacade>(pobj,
 														 pobj.getKeyStat());
 					break;
 				case KEYSTAT_TYPE_NAME:
-					path = new TreeViewPath<SkillFacade>(pobj,
-														 pobj.getKeyStat(),
-														 pobj.getType());
+					path =
+							createTreeViewPath(pobj, pobj.getKeyStat(),
+								pobj.getDisplayType());
 					break;
 				default:
 					throw new InternalError();
@@ -226,9 +259,9 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		public List<TreeViewPath<SkillFacade>> getPaths(SkillFacade pobj)
 		{
 			CharacterLevelFacade level = levels.getElementAt(selectionModel.getMinSelectionIndex());
-			return Arrays.asList(new TreeViewPath<SkillFacade>(pobj,
-															   levels.getSkillCost(level, pobj),
-															   pobj.getType()));
+			return Arrays.asList(createTreeViewPath(pobj,
+													levels.getSkillCost(level, pobj),
+													pobj.getDisplayType()));
 //
 //			return Arrays.asList(
 //					new TreeViewPath<SkillFacade>(pobj,

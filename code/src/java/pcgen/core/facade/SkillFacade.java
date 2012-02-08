@@ -29,7 +29,7 @@ public interface SkillFacade extends InfoFacade
 
     public boolean isUntrained();
 
-    public String getType();
+    public String getDisplayType();
 
     public String getKeyStat();
 
