@@ -50,7 +50,7 @@ public final class UIPropertyContext extends PropertyContext
 		super("UIConfig.ini");
 		setColor(CUSTOM_ITEM_COLOR, Color.BLUE);
 		setColor(NOT_QUALIFIED_COLOR, Color.RED);
-		setColor(AUTOMATIC_COLOR, Color.decode("0xFFBA00"));
+		setColor(AUTOMATIC_COLOR, Color.decode("0xB2B200"));
 		setColor(VIRTUAL_COLOR, Color.MAGENTA);
 		setColor(QUALIFIED_COLOR, Color.BLACK);
 
