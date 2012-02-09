@@ -24,7 +24,7 @@ STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Bite
 ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Tail
 ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Climb
-ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Reach (1 Bite)
+ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Reach (Bite)
 ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Tail_Slap
 
 
