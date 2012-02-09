@@ -617,6 +617,8 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		xpTableName.setReference(theCharacter.getXPTableName());
 		hpRef.setReference(theCharacter.hitPoints());
 		age.setReference(theCharacter.getAge());
+		weightRef.setReference(theCharacter.getWeight());
+		heightRef.setReference(theCharacter.getHeight());
 
 		updateLevelTodo();
 		buildAvailableDomainsList();
@@ -1502,6 +1504,8 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		}
 		age.setReference(theCharacter.getAge());
 		updateAgeCategoryForAge();
+		weightRef.setReference(theCharacter.getWeight());
+		heightRef.setReference(theCharacter.getHeight());
 		refreshClassLevelModel();
 		characterAbilities.rebuildAbilityLists();
 		currentXP.setReference(theCharacter.getXP());
