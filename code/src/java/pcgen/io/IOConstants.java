@@ -227,6 +227,8 @@ interface IOConstants
 
 	/** Character experience */
 	String TAG_EXPERIENCE = "EXPERIENCE";
+	String TAG_EXPERIENCETABLE = "EXPERIENCETABLE";
+
 	/** EXPRESSION */
 	String TAG_EXPRESSION = "EXPRESSION";
 	/** EYECOLOR */

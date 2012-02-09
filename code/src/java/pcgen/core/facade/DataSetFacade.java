@@ -70,4 +70,6 @@ public interface DataSetFacade
 
 	public ListFacade<BodyStructureFacade> getEquipmentLocations();
 
+	public ListFacade<String> getXPTableNames();
+
 }

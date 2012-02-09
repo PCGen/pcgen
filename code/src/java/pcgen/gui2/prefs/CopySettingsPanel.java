@@ -189,9 +189,9 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 			}
 			gmTo.setRollMethod(gmFrom.getRollMethod());
 			gmTo.selectUnitSet(gmFrom.getUnitSet().getKeyName());
-			if (gmTo.getAvailXpTableNames().contains(gmFrom.getXpTableName()))
+			if (gmTo.getXPTableNames().contains(gmFrom.getDefaultXPTableName()))
 			{
-				gmTo.setXpTableName(gmFrom.getXpTableName());
+				gmTo.setDefaultXPTableName(gmFrom.getDefaultXPTableName());
 			}
 			String currentICS =
 					SettingsHandler.getPCGenOption("InfoCharacterSheet."

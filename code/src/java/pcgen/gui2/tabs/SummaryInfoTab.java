@@ -132,6 +132,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	private final JFormattedTextField ageField;
 	private final JFormattedTextField expField;
 	private final JFormattedTextField nextlevelField;
+	private final JComboBox xpTableComboBox;
 	private final JFormattedTextField expmodField;
 	private final JFormattedTextField addLevelsField;
 	private final JFormattedTextField removeLevelsField;
@@ -176,6 +177,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		this.playerNameField = new JTextField();
 		this.expField = new JFormattedTextField(NumberFormat.getIntegerInstance());
 		this.nextlevelField = new JFormattedTextField(NumberFormat.getIntegerInstance());
+		this.xpTableComboBox = new JComboBox();
 		this.expmodField = new JFormattedTextField(NumberFormat.getIntegerInstance());
 		this.addLevelsField = new JFormattedTextField(NumberFormat.getIntegerInstance());
 		this.removeLevelsField = new JFormattedTextField(NumberFormat.getIntegerInstance());
@@ -371,13 +373,14 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		JLabel ageLabel = createLabel("Age:");
 		JLabel classLabel = createLabel("Class:");
 		JLabel hpLabel = createLabel("Total HP:");
-		JLabel expLabel = createLabel("Current EXP:");
+		JLabel expLabel = createLabel("Current XP:");
 		JLabel nextlevelLabel = createLabel("Next Level:");
-		JLabel expmodLabel = createLabel("Add or Subtract From Current EXP:");
+		JLabel xpTableLabel = createLabel("XP Table:");
+		JLabel expmodLabel = createLabel("Add or Subtract From Current XP:");
 		expmodLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		initLevelPanel(levelPanel);
 		/*
-		 * initialize constrant variables
+		 * initialize constant variables
 		 */
 		Insets racePanelInsets = racePanel.getInsets();
 		Insets classPanelInsets = classPanel.getInsets();
@@ -444,6 +447,8 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		rightPanel.add(expField, rightgbc);
 		rightPanel.add(nextlevelLabel, leftgbc);
 		rightPanel.add(nextlevelField, rightgbc);
+		rightPanel.add(xpTableLabel, leftgbc);
+		rightPanel.add(xpTableComboBox, rightgbc);
 
 		gbc.insets.top = 10;
 		rightPanel.add(expmodLabel, gbc);
@@ -657,6 +662,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		final DeferredCharacterComboBoxModel<RaceFacade> raceModel;
 		final CharacterComboBoxModel<SimpleFacade> ageCatModel;
 		final FacadeComboBoxModel<ClassFacade> classModel;
+		final CharacterComboBoxModel<String> xpTableModel;
 
 		genderModel = new CharacterComboBoxModel<GenderFacade>()
 		{
@@ -712,6 +718,16 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			}
 
 		};
+		xpTableModel = new CharacterComboBoxModel<String>()
+		{
+
+			public void setSelectedItem(Object anItem)
+			{
+				character.setXPTable((String) anItem);
+			}
+
+		};
+
 		classModel = new FacadeComboBoxModel<ClassFacade>();
 
 		LabelHandler statTotalLabelHandler = new LabelHandler(statTotalLabel);
@@ -741,6 +757,10 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		statTotalHandler.setReference(character.getStatTotalTextRef());
 		modTotalLabelHandler.setReference(character.getModTotalLabelTextRef());
 		modTotalHandler.setReference(character.getModTotalTextRef());
+
+		//initialize XP table  model
+		xpTableModel.setListFacade(dataset.getXPTableNames());
+		xpTableModel.setReference(character.getXPTableNameRef());
 
 		ReferenceFacade<RaceFacade> raceRef = character.getRaceRef();
 		ReferenceListener<Object> raceListener = new ReferenceListener<Object>()
@@ -876,6 +896,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		stateTable.put(Models.AgeHandler, ageHandler);
 		stateTable.put(Models.ExpHandler, expHandler);
 		stateTable.put(Models.NextLevelHandler, nextLevelHandler);
+		stateTable.put(Models.XPTableComboBoxModel, xpTableModel);
 		stateTable.put(Models.ExpAddAction, new ExpAddAction(character));
 		stateTable.put(Models.ExpSubtractAction, new ExpSubtractAction(character));
 		stateTable.put(Models.StatTotalLabelHandler, statTotalLabelHandler);
@@ -921,6 +942,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		ExpAddAction,
 		ExpSubtractAction,
 		NextLevelHandler,
+		XPTableComboBoxModel,
 		StatTotalLabelHandler,
 		StatTotalHandler, 
 		ModTotalLabelHandler, 
@@ -993,6 +1015,8 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 //		Logging.errorPrint(">Set action. Eanbled: " + genRollsAction.isEnabled());
 		addLevelsButton.setAction((Action) state.get(Models.AddLevelsAction));
 		removeLevelsButton.setAction((Action) state.get(Models.RemoveLevelsAction));
+		xpTableComboBox.setModel((ComboBoxModel) state.get(Models.XPTableComboBoxModel));
+
 		expaddButton.setAction((Action) state.get(Models.ExpAddAction));
 		expsubtractButton.setAction((Action) state.get(Models.ExpSubtractAction));
 		((AddLevelsAction) state.get(Models.AddLevelsAction)).install();

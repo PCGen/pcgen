@@ -969,10 +969,15 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		/*
 		 * #Character Experience
 		 * EXPERIENCE:6000
+		 * EXPERIENCETABLE:Medium
 		 */
 		if (cache.containsKey(TAG_EXPERIENCE))
 		{
 			parseExperienceLine(cache.get(TAG_EXPERIENCE).get(0));
+		}
+		if (cache.containsKey(TAG_EXPERIENCETABLE))
+		{
+			parseExperienceTableLine(cache.get(TAG_EXPERIENCETABLE).get(0));
 		}
 
 		/*
@@ -2527,6 +2532,25 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			throw new PCGParseException(
 				"parseExperienceLine", line, nfe.getMessage()); //$NON-NLS-1$
 		}
+	}
+
+	private void parseExperienceTableLine(final String line)
+			throws PCGParseException
+	{
+		final StringTokenizer stok =
+				new StringTokenizer(
+					line.substring(TAG_EXPERIENCETABLE.length() + 1), TAG_END, false);
+
+		String xpTableName = stok.nextToken();
+		if (!SettingsHandler.getGame().getXPTableNames().contains(xpTableName))
+		{
+			String wantedName = xpTableName;
+			xpTableName = SettingsHandler.getGame().getDefaultXPTableName();
+			final String message =
+					"XP table " + wantedName + " not found. Using " + xpTableName; //$NON-NLS-1$
+			warnings.add(message);
+		}
+		thePC.setXPTable(xpTableName);
 	}
 
 	private void parseEyeColorLine(final String line)

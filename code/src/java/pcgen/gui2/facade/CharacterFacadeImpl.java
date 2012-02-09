@@ -185,6 +185,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	private CharacterLevelsFacadeImpl charLevelsFacade;
 	private DefaultReferenceFacade<Integer> currentXP;
 	private DefaultReferenceFacade<Integer> xpForNextlevel;
+	private DefaultReferenceFacade<String> xpTableName;
 	private DefaultReferenceFacade<Integer> age;
 	private DefaultReferenceFacade<SimpleFacade> ageCategory;
 	private DefaultListFacade<SimpleFacade> ageCategoryList;
@@ -323,6 +324,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		updateAgeCategoryForAge();
 		currentXP = new DefaultReferenceFacade<Integer>(pc.getXP());
 		xpForNextlevel = new DefaultReferenceFacade<Integer>(pc.minXPForNextECL());
+		xpTableName = new DefaultReferenceFacade<String>(pc.getXPTableName());
 		hpRef = new DefaultReferenceFacade<Integer>(pc.hitPoints());
 
 		skinColor = new DefaultReferenceFacade<String>(pc.getSkinColor());
@@ -612,6 +614,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		refreshLanguageList();
 		currentXP.setReference(theCharacter.getXP());
 		xpForNextlevel.setReference(theCharacter.minXPForNextECL());
+		xpTableName.setReference(theCharacter.getXPTableName());
 		hpRef.setReference(theCharacter.hitPoints());
 		age.setReference(theCharacter.getAge());
 
@@ -1503,6 +1506,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		characterAbilities.rebuildAbilityLists();
 		currentXP.setReference(theCharacter.getXP());
 		xpForNextlevel.setReference(theCharacter.minXPForNextECL());
+		xpTableName.setReference(theCharacter.getXPTableName());
 		hpRef.setReference(theCharacter.hitPoints());
 		if (theCharacter.getRace() == null
 			|| Constants.NONESELECTED.equals(theCharacter.getRace()
@@ -2222,15 +2226,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			return;
 		}
 		theCharacter.setXP(xp);
-		currentXP.setReference(theCharacter.getXP());
-		xpForNextlevel.setReference(theCharacter.minXPForNextECL());
-
-		if (theCharacter.getXP() >= theCharacter.minXPForNextECL())
-		{
-			delegate.showInfoMessage(Constants.APPLICATION_NAME, SettingsHandler.getGame()
-				.getLevelUpMessage());
-		}
-		updateLevelTodo();
+		checkForNewLevel();
 	}
 
 	/* (non-Javadoc)
@@ -2249,6 +2245,31 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		int currVal = currentXP.getReference();
 		int newVal = currVal + xp;
 		theCharacter.setXP(newVal);
+		checkForNewLevel();
+	}
+	
+	/* (non-Javadoc)
+	 * @see pcgen.core.facade.CharacterFacade#getXPForNextLevelRef()
+	 */
+	public ReferenceFacade<Integer> getXPForNextLevelRef()
+	{
+		return xpForNextlevel;
+	}
+
+	public ReferenceFacade<String> getXPTableNameRef()
+	{
+		return xpTableName;
+	}
+
+	public void setXPTable(String newTable) {
+
+		xpTableName.setReference(newTable);
+		theCharacter.setXPTable(newTable);
+		checkForNewLevel();
+	}
+
+	private void checkForNewLevel()
+	{
 		currentXP.setReference(theCharacter.getXP());
 		xpForNextlevel.setReference(theCharacter.minXPForNextECL());
 
@@ -2258,14 +2279,6 @@ public class CharacterFacadeImpl implements CharacterFacade,
 				.getLevelUpMessage());
 		}
 		updateLevelTodo();
-	}
-
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterFacade#getXPForNextLevelRef()
-	 */
-	public ReferenceFacade<Integer> getXPForNextLevelRef()
-	{
-		return xpForNextlevel;
 	}
 
 	/* (non-Javadoc)

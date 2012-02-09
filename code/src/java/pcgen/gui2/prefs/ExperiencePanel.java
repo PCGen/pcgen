@@ -111,7 +111,7 @@ public class ExperiencePanel extends PCGenPrefsPanel
 	public void setOptionsBasedOnControls()
 	{
 		final GameMode gameMode = SettingsHandler.getGame();
-		gameMode.setXpTableName(String.valueOf(xpTableCombo.getSelectedItem()));
+		gameMode.setDefaultXPTableName(String.valueOf(xpTableCombo.getSelectedItem()));
 	}
 
 	/* (non-Javadoc)
@@ -121,9 +121,9 @@ public class ExperiencePanel extends PCGenPrefsPanel
 	public void applyOptionValuesToControls()
 	{
 		final GameMode gameMode = SettingsHandler.getGame();
-		final String xpTableName = gameMode.getXpTableName();
+		final String xpTableName = gameMode.getDefaultXPTableName();
 
-		List<String> xpTableNames = gameMode.getAvailXpTableNames();
+		List<String> xpTableNames = gameMode.getXPTableNames();
 		xpTableCombo.removeAllItems();
 		
 		for (String name : xpTableNames)

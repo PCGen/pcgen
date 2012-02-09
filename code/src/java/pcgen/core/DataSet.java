@@ -77,6 +77,7 @@ public class DataSet implements DataSetFacade
 	private SkillFacade speakLanguageSkill = null;
 	private DefaultListFacade<BodyStructureFacade> bodyStructures;
 	private DefaultListFacade<EquipmentFacade> equipment;
+	private DefaultListFacade<String> xpTableNames;
 
 	public DataSet( LoadContext context, GameMode gameMode, ListFacade<CampaignFacade> campaigns)
 	{
@@ -91,6 +92,7 @@ public class DataSet implements DataSetFacade
 		abilityMap = new HashMap<AbilityCategoryFacade, ListFacade<AbilityFacade>>();
 		bodyStructures = new DefaultListFacade<BodyStructureFacade>();
 		equipment = new DefaultListFacade<EquipmentFacade>();
+		xpTableNames = new DefaultListFacade<String>();
 		this.context = context;
 		this.gameMode = gameMode;
 		this.campaigns = campaigns;
@@ -193,6 +195,10 @@ public class DataSet implements DataSetFacade
 		for(Equipment eq : context.ref.getConstructedCDOMObjects(Equipment.class))
 		{
 			equipment.addElement(eq);
+		}
+		for (String xpTableName : gameMode.getXPTableNames())
+		{
+			xpTableNames.addElement(xpTableName);
 		}
 	}
 
@@ -338,7 +344,13 @@ public class DataSet implements DataSetFacade
 	{
 		return equipment;
 	}
-	
+
+	public ListFacade<String> getXPTableNames()
+	{
+		return xpTableNames;
+	}
+
+
 	/**
 	 * The Class <code>RaceComparator</code> sorts races so that PC races come 
 	 * at the top of the list, just after <None Selected>.

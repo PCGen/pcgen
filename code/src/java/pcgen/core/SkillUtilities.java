@@ -52,7 +52,7 @@ public final class SkillUtilities
 	public static BigDecimal maxClassSkillForLevel(final int level,
 			final PlayerCharacter pc)
 	{
-		LevelInfo info = SettingsHandler.getGame().getLevelInfo(level);
+		LevelInfo info = pc.getXPTableLevelInfo(level);
 		if (info != null)
 		{
 			return info.getMaxClassSkillRank(level, pc);
@@ -75,7 +75,7 @@ public final class SkillUtilities
 	public static BigDecimal maxCrossClassSkillForLevel(final int level,
 			final PlayerCharacter pc)
 	{
-		LevelInfo info = SettingsHandler.getGame().getLevelInfo(level);
+		LevelInfo info = pc.getXPTableLevelInfo(level);
 		if (info != null)
 		{
 			return info.getMaxCrossClassSkillRank(level, pc);

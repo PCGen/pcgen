@@ -455,6 +455,18 @@ public interface CharacterFacade
 	public ReferenceFacade<Integer> getXPForNextLevelRef();
 
 	/**
+	 * Set the character's XP table.
+	 * *
+	 * @param xpTableName The name of the XP table to be set
+	 */
+	public void setXPTable(final String xpTableName);
+
+	/**
+	 * @return A reference to the name of the character's XP table
+	 */
+	public ReferenceFacade<String> getXPTableNameRef();
+
+	/**
 	 * Set the character's age in years.
 	 * @param age The new age to be set.
 	 */

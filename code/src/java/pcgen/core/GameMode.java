@@ -81,7 +81,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private List<ClassType> classTypeList = new ArrayList<ClassType>();
 	private List<String> defaultDataSetList = new ArrayList<String>();
 	private List<String> defaultDeityList = new ArrayList<String>();
-	private Map<String, Map<String, LevelInfo>> levelInfo = new HashMap<String, Map<String, LevelInfo>>();
+	private Map<String, XPTable> xpTableInfo = new HashMap<String, XPTable>();
 	private List<String> loadStrings = new ArrayList<String>();
 	private List<String> skillMultiplierLevels = new ArrayList<String>();
 	private HashMapToList<String, ACControl> ACTypeAddMap = new HashMapToList<String, ACControl>();
@@ -180,7 +180,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private Map<Class<?>, Set<String>> hiddenTypes = new HashMap<Class<?>, Set<String>>();
 
 	private List<String> xpTableNames = new ArrayList<String>();
-	private String currXpTableName;
+	private String defaultXPTableName;
 
 	/** The BioSet used for age calculations */
 	private BioSet bioSet = new BioSet();
@@ -507,28 +507,29 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	/**
 	 * map of LevelInfo objects.
 	 *
-	 * @param xpTable the xp table to be used
+	 * @param xpTableName the name of the XP table to be used
 	 *
 	 * @return level info map
 	 */
-	public Map<String, LevelInfo> getLevelInfo(final String xpTable)
+	public XPTable getLevelInfo(final String xpTableName)
 	{
-		return levelInfo.get(xpTable);
+		return xpTableInfo.get(xpTableName);
 	}
 
 	/**
-	 * Add the level info
+	 * Add new level info to an XP table
+	 * *
 	 * @param levInfo
 	 */
-	public void addLevelInfo(final String xpTable, final LevelInfo levInfo)
+	public void addLevelInfo(final String xpTableName, final LevelInfo levInfo)
 	{
-		Map<String, LevelInfo> tableInfo = levelInfo.get(xpTable);
-		if (tableInfo == null)
+		XPTable xpTable = xpTableInfo.get(xpTableName);
+		if (xpTable == null)
 		{
-			tableInfo = new HashMap<String, LevelInfo>();
-			levelInfo.put(xpTable, tableInfo);
+			xpTable = new XPTable(xpTableName);
+			xpTableInfo.put(xpTableName, xpTable);
 		}
-		tableInfo.put(levInfo.getLevelString(),levInfo);
+		xpTable.addLevelInfo(levInfo.getLevelString(), levInfo);
 	}
 
 	/**
@@ -2446,56 +2447,51 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Gets the name of the currently selected experience table
+	 * Gets the name of the currently selected default XP table
 	 *
 	 * @return the XP table name
 	 */
-	public String getXpTableName()
+	public String getDefaultXPTableName()
 	{
-		if (currXpTableName == null || currXpTableName.equals("") || !xpTableNames.contains(currXpTableName))
+		if (defaultXPTableName == null || defaultXPTableName.equals("") || !xpTableNames.contains(defaultXPTableName))
 		{
 			if (xpTableNames.isEmpty())
 			{
 				xpTableNames.add("Default");
 			}
-			currXpTableName = xpTableNames.get(0);
+			defaultXPTableName = xpTableNames.get(0);
 		}
-		return currXpTableName;
+		return defaultXPTableName;
 	}
 
 	/**
-	 * Sets the name of the currently selected experience table
+	 * Sets the default experience table by name
 	 *
-	 * @param tableName the new XP table name
+	 * @param xpTableName the new XP table name
 	 */
-	public void setXpTableName(String tableName)
+	public void setDefaultXPTableName(String xpTableName)
 	{
-		currXpTableName = tableName;
+		defaultXPTableName = xpTableName;
 	}
 
 	/**
-	 * Gets the array of names of defined experience tables.
+	 * Gets a list of names of all defined XP tables.
 	 *
-	 * @return the xp table names
+	 * @return the list of XP table names
 	 */
-	public List<String> getAvailXpTableNames()
+	public List<String> getXPTableNames()
 	{
 		return xpTableNames;
 	}
 
 	/**
-	 * Sets the array of names of defined experience tables.
+	 * Add a name for an XP tables.
 	 *
-	 * @param names the new avail XP table names
+	 * @param xpTableName the new XP table name
 	 */
-	public void setAvailXpTableNames(List<String> names)
+	public void addXPTableName(String xpTableName)
 	{
-		xpTableNames = names;
-	}
-
-	public void addXpTable(String name)
-	{
-		xpTableNames.add(name);
+		xpTableNames.add(xpTableName);
 	}
 
 	/**
@@ -2558,33 +2554,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	public String getDefaultSourceTitle()
 	{
 		return defaultSourceTitle;
-	}
-
-	/**
-	 * Returns Level information for the given Level
-	 * 
-	 * @param level
-	 *            the level for which Level Info should be returned
-	 * @return The LevelInfo for the given level
-	 */
-	public LevelInfo getLevelInfo(int level)
-	{
-		if (level < 1)
-		{
-			return null;
-		}
-		Map<String, LevelInfo> levelInfo = getLevelInfo(getXpTableName());
-		if (levelInfo == null)
-		{
-			return null;
-		}
-		LevelInfo lInfo = levelInfo.get(String.valueOf(level));
-
-		if (lInfo == null)
-		{
-			lInfo = levelInfo.get("LEVEL");
-		}
-		return lInfo;
 	}
 
 	public String getTabName(Tab tab)

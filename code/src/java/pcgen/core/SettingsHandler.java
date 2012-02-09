@@ -808,7 +808,7 @@ public final class SettingsHandler
 		game.setAllStatsValue(getPCGenOption("gameMode." + key + ".allStatsValue", 10));
 		game.setRollMethod(getPCGenOption("gameMode." + key + ".rollMethod", 0)); //$NON-NLS-1$
 
-		game.setXpTableName(getPCGenOption("gameMode." + key + ".xpTableName", "")); //$NON-NLS-1$ //$NON-NLS-2$
+		game.setDefaultXPTableName(getPCGenOption("gameMode." + key + ".xpTableName", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		
 		getChosenCampaignFiles(game);
 	}
@@ -1681,7 +1681,7 @@ public final class SettingsHandler
 			setPCGenOption("gameMode." + gameModeKey + ".rollMethod", gameMode.getRollMethod()); //$NON-NLS-1$
 			setPCGenOption("gameMode." + gameModeKey + ".rollMethodExpression", gameMode.getRollMethodExpressionName()); //$NON-NLS-1$
 			setPCGenOption("gameMode." + gameModeKey + ".allStatsValue", gameMode.getAllStatsValue());
-			setPCGenOption("gameMode." + gameModeKey + ".xpTableName", gameMode.getXpTableName());
+			setPCGenOption("gameMode." + gameModeKey + ".xpTableName", gameMode.getDefaultXPTableName());
 		}
 
 		setRuleChecksInOptions("ruleChecks"); //$NON-NLS-1$

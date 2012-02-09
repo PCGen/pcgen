@@ -255,6 +255,7 @@
 	<bean id="levelInfoFacet" class="pcgen.cdom.facet.LevelInfoFacet"/>
 	<bean id="levelTableFacet" class="pcgen.cdom.facet.LevelTableFacet">
 		<property name="resolveFacet" ref="formulaResolvingFacet"/>
+		<property name="xpTableFacet" ref="xpTableFacet"/>
 	</bean>
 	<bean id="listSkillCostFacet" class="pcgen.cdom.facet.ListSkillCostFacet">
 		<property name="raceFacet" ref="raceFacet"/>
@@ -449,6 +450,7 @@
 		<property name="levelFacet" ref="levelFacet"/>
 		<property name="levelTableFacet" ref="levelTableFacet"/>
 	</bean>
+	<bean id="xpTableFacet" class="pcgen.cdom.facet.XPTableFacet"/>
 	<!-- Y -->
 	<!-- Z -->
 	<bean id="chronicleEntryFacet" class="pcgen.cdom.facet.ChronicleEntryFacet" />

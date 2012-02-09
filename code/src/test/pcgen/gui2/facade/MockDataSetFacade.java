@@ -161,6 +161,15 @@ public class MockDataSetFacade implements DataSetFacade
 		return equipmentLoc;
 	}
 
+	/* (non-Javadoc)
+	 * @see pcgen.core.facade.DataSetFacade#getXPTableNames()
+	 */
+	public ListFacade<String> getXPTableNames()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	public void addEquipmentLocation(BodyStructureFacade elf)
 	{
 		equipmentLoc.addElement(elf);

@@ -27,11 +27,11 @@ package pcgen.persistence.lst;
 
 import java.net.URI;
 import java.util.Map;
-import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.core.GameMode;
 import pcgen.core.LevelInfo;
+import pcgen.core.XPTable;
 import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
 
@@ -82,7 +82,7 @@ public final class LevelLoader
 			}
 			else
 			{
-				gameMode.addXpTable(value);
+				gameMode.addXPTableName(value);
 				return value;
 			}
 		}
@@ -91,7 +91,7 @@ public final class LevelLoader
 		if (xpTable.equals(""))
 		{
 			xpTable = "Default";
-			gameMode.addXpTable(xpTable);
+			gameMode.addXPTableName(xpTable);
 		}
 		
 		final LevelInfo levelInfo = new LevelInfo();
@@ -151,15 +151,15 @@ public final class LevelLoader
 				+ inputLine + "' at line " + lineNum + " of " + source + ". Line ignored.");
 			return false;
 		}
-		Map<String, LevelInfo> existingInfo = gameMode.getLevelInfo(xpTable);
-		if (existingInfo == null)
+		XPTable existingTable = gameMode.getLevelInfo(xpTable);
+		if (existingTable == null)
 		{
 			// No data on this table held yet, so it has to be right
 			return true;
 		}
 
 		// Not a number so just check for a duplicate
-		if (existingInfo.get(level) != null)
+		if (existingTable.getLevelInfo(level) != null)
 		{
 			Logging.errorPrint("LevelLoader got duplicate level value of '" + level + "' in '"
 				+ inputLine + "' at line " + lineNum + " of " + source + ". Line ignored.");
@@ -171,16 +171,10 @@ public final class LevelLoader
 			return true;
 		}
 		
-		int levelValue = getIntValue(level);
-		Set<String> keys = existingInfo.keySet();
-		for (String lvlKey : keys)
-		{
-			if (levelValue < getIntValue(existingInfo.get(lvlKey).getLevelString()))
-			{
-				Logging.errorPrint("LevelLoader got out of sequence level value of '" + level + "' in '"
+		if (!existingTable.validateSequence(level)) {
+			Logging.errorPrint("LevelLoader got out of sequence level value of '" + level + "' in '"
 					+ inputLine + "' at line " + lineNum + " of " + source + ". Line ignored.");
-				return false;
-			}
+			
 		}
 		return true;
 	}
@@ -195,18 +189,6 @@ public final class LevelLoader
 		catch (NumberFormatException e)
 		{
 			return false;
-		}
-	}
-
-	private static int getIntValue(String level)
-	{
-		try
-		{
-			return Integer.parseInt(level);
-		}
-		catch (NumberFormatException e)
-		{
-			return 0;
 		}
 	}
 }

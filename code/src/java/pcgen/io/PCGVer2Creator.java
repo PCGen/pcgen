@@ -282,6 +282,7 @@ final class PCGVer2Creator implements IOConstants
 		appendNewline(buffer);
 		appendComment("Character Experience", buffer); //$NON-NLS-1$
 		appendExperienceLine(buffer);
+		appendExperienceTableLine(buffer);
 
 		/*
 		 * #Character Templates
@@ -1937,6 +1938,18 @@ final class PCGVer2Creator implements IOConstants
 	{
 		buffer.append(TAG_EXPERIENCE).append(':');
 		buffer.append(thePC.getXP());
+		buffer.append(LINE_SEP);
+	}
+
+	/*
+	 * ###############################################################
+	 * Character XP table methods
+	 * ###############################################################
+	 */
+	private void appendExperienceTableLine(StringBuffer buffer)
+	{
+		buffer.append(TAG_EXPERIENCETABLE).append(':');
+		buffer.append(thePC.getXPTableName());
 		buffer.append(LINE_SEP);
 	}
 

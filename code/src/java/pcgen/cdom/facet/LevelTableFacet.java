@@ -21,14 +21,15 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.core.LevelInfo;
-import pcgen.core.SettingsHandler;
 
 public class LevelTableFacet
 {
+	private XPTableFacet xpTableFacet;
+	
 	private FormulaResolvingFacet resolveFacet;
 
 	/**
-	 * Returns the (miniumum) number of total Experience Points needed for a
+	 * Returns the (minimum) number of total Experience Points needed for a
 	 * given level
 	 * 
 	 * @param level
@@ -42,7 +43,7 @@ public class LevelTableFacet
 	 */
 	public int minXPForLevel(int level, CharID id)
 	{
-		LevelInfo info = SettingsHandler.getGame().getLevelInfo(level);
+		LevelInfo info = xpTableFacet.getLevelInfo(id, level);
 		if (info != null)
 		{
 			Formula f = FormulaFactory.getFormulaFor(info
@@ -62,5 +63,9 @@ public class LevelTableFacet
 	public void setResolveFacet(FormulaResolvingFacet resolveFacet)
 	{
 		this.resolveFacet = resolveFacet;
+	}
+	
+	public void setXpTableFacet(XPTableFacet xpTableFacet) { 
+		this.xpTableFacet = xpTableFacet;
 	}
 }

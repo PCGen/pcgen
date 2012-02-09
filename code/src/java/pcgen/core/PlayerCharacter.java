@@ -224,6 +224,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private SuppressBioFieldFacet suppressBioFieldFacet = FacetLibrary.getFacet(SuppressBioFieldFacet.class);
 	private WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
 	private XPFacet xpFacet = FacetLibrary.getFacet(XPFacet.class);
+	private XPTableFacet xpTableFacet = FacetLibrary.getFacet(XPTableFacet.class);
 	
 	//The following are other facets
 	private DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);
@@ -424,6 +425,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		checkFacet.addAll(id, Globals.getContext().ref.getOrderSortedCDOMObjects(PCCheck.class));
 		bioSetFacet.set(id, Globals.getBioSet());
 		campaignFacet.addAll(id, loadedCampaigns);
+
+		setXPTable(SettingsHandler.getGame().getDefaultXPTableName());
 
 		setRace(Globals.s_EMPTYRACE);
 		setName(Constants.EMPTY_STRING);
@@ -3217,6 +3220,22 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public int getXP()
 	{
 		return xpFacet.getXP(id);
+	}
+
+	public void setXPTable(final String xpTableName)
+	{
+		xpTableFacet.setXPTable(id, xpTableName);
+		setDirty(true);
+	}
+
+	public String getXPTableName()
+	{
+		return xpTableFacet.getXPTable(id).getName();
+	}
+
+	public LevelInfo getXPTableLevelInfo(int level)
+	{
+		return xpTableFacet.getLevelInfo(id, level);
 	}
 
 	public void addEquipSet(final EquipSet set)
