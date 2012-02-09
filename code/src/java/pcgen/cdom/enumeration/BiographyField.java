@@ -37,5 +37,5 @@ package pcgen.cdom.enumeration;
 public enum BiographyField
 {
 	NAME, PLAYERNAME, GENDER, HANDED, ALIGNMENT, DEITY, AGE, SKIN_TONE, 
-	HAIR_COLOR, HEIGHT, WEIGHT
+	HAIR_COLOR, EYE_COLOR, HEIGHT, WEIGHT
 }

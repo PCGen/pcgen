@@ -642,6 +642,16 @@ public interface CharacterFacade
 	public void setHairColor(String color);
 
 	/**
+	 * @return a reference to this character's eye color.
+	 */
+	public ReferenceFacade<String> getEyeColorRef();
+
+	/**
+	 * @param color the eye color to set.
+	 */
+	public void setEyeColor(String color);
+
+	/**
 	 * @return a reference to this character's height.
 	 */
 	public ReferenceFacade<Integer> getHeightRef();

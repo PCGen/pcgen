@@ -170,6 +170,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			bioItems.add(new AgeItem(character));
 			bioItems.add(new SkinColorItem(character));
 			bioItems.add(new HairColorItem(character));
+			bioItems.add(new EyeColorItem(character));
 			bioItems.add(new HeightItem(character));
 			bioItems.add(new WeightItem(character));
 		}
@@ -452,6 +453,26 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 				protected void textChanged(String text)
 				{
 					character.setHairColor(text);
+				}
+
+			});
+		}
+
+	}
+
+	private static class EyeColorItem extends BioItem
+	{
+
+		public EyeColorItem(final CharacterFacade character)
+		{
+			super("Eye Color:", BiographyField.EYE_COLOR, character);
+			setTextFieldHandler(new TextFieldHandler(new JTextField(), character.getEyeColorRef())
+			{
+
+				@Override
+				protected void textChanged(String text)
+				{
+					character.setEyeColor(text);
 				}
 
 			});

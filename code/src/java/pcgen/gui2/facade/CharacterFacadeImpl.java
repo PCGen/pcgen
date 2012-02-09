@@ -214,6 +214,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	private List<Language> currBonusLangs;
 	private DefaultReferenceFacade<String> skinColor;
 	private DefaultReferenceFacade<String> hairColor;
+	private DefaultReferenceFacade<String> eyeColor;
 	private DefaultReferenceFacade<Integer> heightRef;
 	private DefaultReferenceFacade<Integer> weightRef;
 
@@ -329,6 +330,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 
 		skinColor = new DefaultReferenceFacade<String>(pc.getSkinColor());
 		hairColor = new DefaultReferenceFacade<String>(pc.getHairColor());
+		eyeColor = new DefaultReferenceFacade<String>(pc.getEyeColor());
 		weightRef = new DefaultReferenceFacade<Integer>(pc.getWeight());
 		heightRef = new DefaultReferenceFacade<Integer>(pc.getHeight());
 		
@@ -1625,6 +1627,23 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	{
 		hairColor.setReference(color);
 		theCharacter.setHairColor(color);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public ReferenceFacade<String> getEyeColorRef()
+	{
+		return eyeColor;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public void setEyeColor(String color)
+	{
+		eyeColor.setReference(color);
+		theCharacter.setEyeColor(color);
 	}
 
 	/**
