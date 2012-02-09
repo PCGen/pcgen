@@ -47,7 +47,7 @@ public class TodoManager
 		todoList = new DefaultListFacade<TodoFacade>();
 	}
 	
-	ListFacade<TodoFacade> getTodoList()
+	synchronized ListFacade<TodoFacade> getTodoList()
 	{
 		return todoList;
 	}
@@ -56,7 +56,7 @@ public class TodoManager
 	 * Add a task to be done to the todo list, if it is not already there.
 	 * @param item The item to be added
 	 */
-	void addTodo(TodoFacade item)
+	synchronized void addTodo(TodoFacade item)
 	{
 		if (findTodoByMessage(item.getMessageKey(), item.getFieldName()) == null)
 		{
@@ -68,7 +68,7 @@ public class TodoManager
 	 * Remove a task to be done from the todo list.
 	 * @param messageKey The message key of the item to be removed
 	 */
-	void removeTodo(String messageKey)
+	synchronized void removeTodo(String messageKey)
 	{
 		todoList.removeElement(findTodoByMessage(messageKey, null));
 	}
@@ -78,7 +78,7 @@ public class TodoManager
 	 * @param messageKey The message key of the item to be removed
 	 * @param fieldName The field name of the item to be removed, may be null to match any.
 	 */
-	void removeTodo(String messageKey, String fieldName)
+	synchronized void removeTodo(String messageKey, String fieldName)
 	{
 		todoList.removeElement(findTodoByMessage(messageKey, fieldName));
 	}
