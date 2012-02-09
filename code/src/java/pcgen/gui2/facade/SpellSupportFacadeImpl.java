@@ -76,6 +76,7 @@ import pcgen.core.facade.DefaultReferenceFacade;
 import pcgen.core.facade.EquipmentFacade;
 import pcgen.core.facade.EquipmentListFacade.EquipmentListEvent;
 import pcgen.core.facade.EquipmentListFacade.EquipmentListListener;
+import pcgen.core.facade.TodoFacade.CharacterTab;
 import pcgen.core.facade.InfoFacade;
 import pcgen.core.facade.SpellFacade;
 import pcgen.core.facade.SpellSupportFacade;
@@ -124,6 +125,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	
 	private DefaultListFacade<String> spellBookNames;
 	private DefaultReferenceFacade<String> defaultSpellBook;
+	private TodoManager todoManager;
 	
 
 	/**
@@ -133,12 +135,14 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	 * @param pc The character we are managing.
 	 * @param delegate The delegate class for UI display.
 	 * @param dataSet The current data being used.
+	 * @param todoManager The user tasks tracker.
 	 */
-	public SpellSupportFacadeImpl(PlayerCharacter pc, UIDelegate delegate, DataSetFacade dataSet)
+	public SpellSupportFacadeImpl(PlayerCharacter pc, UIDelegate delegate, DataSetFacade dataSet, TodoManager todoManager)
 	{
 		this.pc = pc;
 		this.delegate = delegate;
 		this.dataSet = dataSet;
+		this.todoManager = todoManager;
 		rootNodeMap = new HashMap<String, RootNodeImpl>();
 		
 		spellBookNames = new DefaultListFacade<String>();
@@ -153,6 +157,8 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		preparedSpellLists = new ArrayList<SpellSupportFacade.SpellNode>();
 		spellBooks = new ArrayList<SpellSupportFacade.SpellNode>();
 		buildKnownPreparedNodes();
+		
+		updateSpellsTodo();
 	}
 	
 	/* (non-Javadoc)
@@ -212,6 +218,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			}
 
 		}
+		updateSpellsTodo();
 	}
 	
 	/* (non-Javadoc)
@@ -225,6 +232,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			allKnownSpellNodes.removeElement(spell);
 			knownSpellNodes.removeElement(spell);
 		}
+		updateSpellsTodo();
 	}
 
 	/* (non-Javadoc)
@@ -267,6 +275,38 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 				}
 				
 			}
+		}
+	}
+
+	private void updateSpellsTodo()
+	{
+		boolean hasFree = false;
+		for (PCClass aClass : pc.getClassSet())
+		{
+			if (pc.getSpellSupport(aClass).hasKnownList() || pc.getSpellSupport(aClass).hasKnownSpells(pc))
+			{
+				int highestSpellLevel = pc.getSpellSupport(aClass).getHighestLevelSpell(pc);
+				for (int i = 0; i <= highestSpellLevel; ++i)
+				{
+					if (pc.availableSpells(i, aClass, Globals
+						.getDefaultSpellBook(), true, true))
+					{
+						hasFree = true;
+						break;
+					}
+				}
+			}
+		}
+
+		if (hasFree)
+		{
+			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SpellsTab, "Known",
+				"in_splTodoRemain", 120));
+		}
+		else
+		{
+			todoManager.removeTodo("in_splTodoRemain");
+			
 		}
 	}
 
@@ -637,6 +677,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	{
 		buildAvailableNodes();
 		buildKnownPreparedNodes();
+		updateSpellsTodo();
 	}
 
 	/* (non-Javadoc)

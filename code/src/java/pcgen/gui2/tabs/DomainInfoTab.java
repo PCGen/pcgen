@@ -79,7 +79,7 @@ import pcgen.gui2.util.treeview.TreeViewPath;
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
+public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler
 {
 
 	private final FilteredTreeViewTable deityTable;
@@ -205,7 +205,29 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	public TabTitle getTabTitle()
 	{
-		return new TabTitle("Domains");
+		return new TabTitle("in_domains");
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void adviseTodo(String fieldName)
+	{
+		if ("Domains".equals(fieldName))
+		{
+			if (domainTable.getRowCount() > 0)
+			{
+				domainTable.requestFocusInWindow();
+				domainTable.getSelectionModel().setSelectionInterval(0, 0);
+				deityTable.getSelectionModel().clearSelection();
+			}
+			else if (deityTable.getRowCount() > 0)
+			{
+				deityTable.requestFocusInWindow();
+				deityTable.getSelectionModel().setSelectionInterval(0, 0);
+			}
+		}
 	}
 
 	private class DomainRenderer extends DefaultTableCellRenderer
@@ -434,6 +456,10 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			if (ref.getReference() != null)
 			{
 				label.setText(ref.getReference().toString());
+			}
+			else
+			{
+				label.setText("");
 			}
 			ref.addReferenceListener(this);
 		}

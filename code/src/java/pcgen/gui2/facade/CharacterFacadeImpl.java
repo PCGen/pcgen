@@ -271,7 +271,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		infoFactory = new Gui2InfoFactory(pc);
 		characterAbilities = new CharacterAbilities(pc, delegate, dataSet, todoManager);
 		descriptionFacade = new DescriptionFacadeImpl(pc);
-		spellSupportFacade = new SpellSupportFacadeImpl(pc, delegate, dataSet);
+		spellSupportFacade = new SpellSupportFacadeImpl(pc, delegate, dataSet, todoManager);
 		
 		//TODO: Init appliedTempBonuses
 		appliedTempBonuses = new DefaultListFacade<TempBonusFacade>();
@@ -1721,6 +1721,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 
 		remainingDomains.setReference(theCharacter.getMaxCharacterDomains()
 			- theCharacter.getDomainCount());
+		updateDomainTodo();
 	}
 
 	/* (non-Javadoc)
@@ -1740,6 +1741,31 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		theCharacter.removeDomain(((DomainFacadeImpl) domain).getRawObject());
 		remainingDomains.setReference(theCharacter.getMaxCharacterDomains()
 			- theCharacter.getDomainCount());
+		updateDomainTodo();
+	}
+
+	/**
+	 * Update the todo list to reflect the change in number of domains.
+	 */
+	private void updateDomainTodo()
+	{
+		if (remainingDomains.getReference() > 0)
+		{
+			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.DomainsTab, "Domains",
+				"in_domTodoDomainsLeft", 120));
+			todoManager.removeTodo("in_domTodoTooManyDomains");
+		}
+		else if (remainingDomains.getReference() < 0)
+		{
+			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.DomainsTab, "Domains",
+				"in_domTodoTooManyDomains", 120));
+			todoManager.removeTodo("in_domTodoDomainsLeft");
+		}
+		else
+		{
+			todoManager.removeTodo("in_domTodoDomainsLeft");
+			todoManager.removeTodo("in_domTodoTooManyDomains");
+		}
 	}
 	
 	/* (non-Javadoc)
@@ -1769,11 +1795,6 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	 
 	/**
 	 * This method returns all available domains, without filtering.
-	 * 
-	 * @param pcDeity
-	 *            Deity selected for the current character
-	 *            
-	 * @return availDomainList
 	 */
 	private void buildAvailableDomainsList()
 	{
@@ -1852,6 +1873,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		maxDomains.setReference(theCharacter.getMaxCharacterDomains());
 		remainingDomains.setReference(theCharacter.getMaxCharacterDomains()
 			- theCharacter.getDomainCount());
+		updateDomainTodo();
 	}
 
 	/**

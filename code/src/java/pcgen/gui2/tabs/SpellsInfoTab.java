@@ -39,7 +39,7 @@ import pcgen.gui2.tabs.spells.SpellsPreparedTab;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision: 13208 $
  */
-public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab
+public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab, TodoHandler
 {
 
 	private final TabTitle tabTitle = new TabTitle("Spells");
@@ -80,6 +80,19 @@ public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab
 	public TabTitle getTabTitle()
 	{
 		return tabTitle;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void adviseTodo(String fieldName)
+	{
+		if ("Known".equals(fieldName))
+		{
+			setSelectedIndex(0);
+		}
+		
 	}
 
 }
