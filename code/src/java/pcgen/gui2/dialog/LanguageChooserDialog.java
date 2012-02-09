@@ -33,14 +33,15 @@ import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.ListSelectionModel;
+
 import pcgen.core.facade.LanguageChooserFacade;
 import pcgen.core.facade.LanguageFacade;
 import pcgen.core.facade.event.ReferenceEvent;
@@ -50,6 +51,7 @@ import pcgen.core.facade.util.DelegatingListFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.util.FacadeListModel;
+import pcgen.gui2.util.JListEx;
 import pcgen.gui2.util.JTreeViewTable;
 import pcgen.gui2.util.treeview.DataView;
 import pcgen.gui2.util.treeview.DataViewColumn;
@@ -69,7 +71,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 	private final JLabel remainingLabel;
 	private final LangTreeViewModel treeViewModel;
 	private final FacadeListModel<LanguageFacade> listModel;
-	private final JList list;
+	private final JListEx list;
 
 	public LanguageChooserDialog(Frame frame, LanguageChooserFacade chooser)
 	{
@@ -78,7 +80,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		this.availTable = new JTreeViewTable();
 		this.remainingLabel = new JLabel();
 		this.treeViewModel = new LangTreeViewModel();
-		this.list = new JList();
+		this.list = new JListEx();
 		this.listModel = new FacadeListModel<LanguageFacade>();
 
 		treeViewModel.setDelegate(chooser.getAvailableList());
@@ -111,6 +113,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		JPanel leftPane = new JPanel(new BorderLayout());
 		//leftPane.add(new JLabel("Available Languages"), BorderLayout.NORTH);
 		availTable.setTreeViewModel(treeViewModel);
+		availTable.addActionListener(this);
 		leftPane.add(new JScrollPane(availTable), BorderLayout.CENTER);
 
 		JPanel buttonPane1 = new JPanel(new FlowLayout());
@@ -136,6 +139,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 
 		list.setModel(listModel);
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		list.addActionListener(this);
 		rightPane.add(new JScrollPane(list), BorderLayout.CENTER);
 
 		JPanel buttonPane2 = new JPanel(new FlowLayout());
@@ -167,7 +171,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 
 	public void actionPerformed(ActionEvent e)
 	{
-		if (e.getActionCommand().equals("ADD"))
+		if (e.getActionCommand().equals("ADD") || e.getSource() == availTable)
 		{
 			List<Object> data = availTable.getSelectedData();
 			if (!data.isEmpty())
@@ -176,7 +180,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 			}
 			return;
 		}
-		if (e.getActionCommand().equals("REMOVE"))
+		if (e.getActionCommand().equals("REMOVE") || e.getSource() == list)
 		{
 			Object value = list.getSelectedValue();
 			if (value != null)

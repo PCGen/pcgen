@@ -56,7 +56,9 @@ public class JTableEx extends JTable
 {
 
 	private static final long serialVersionUID = 514835142307946415L;
-	protected static final int ACTION_DOUBLECLICK = 2042;
+
+	/** Constant for a double click action event. */
+	public static final int ACTION_DOUBLECLICK = 2042;
 	private final RowComparator rowComparator = new RowComparator();
 	private List<SortingPriority> columnkeys;
 	private boolean isSorting = false;
@@ -120,7 +122,7 @@ public class JTableEx extends JTable
 		            int row = convertRowIndexToModel(rowAtPoint(p)); 
 		            int column = convertColumnIndexToModel(columnAtPoint(p));
 		            Object value = getModel().getValueAt(row, column);
-					fireActionEvent(this, ACTION_DOUBLECLICK, String.valueOf(value));
+					fireActionEvent(JTableEx.this, ACTION_DOUBLECLICK, String.valueOf(value));
 		        }
 		    }
 		});
