@@ -2125,7 +2125,7 @@ BIO
 		<ability_object>
 			<name>Bonus Feat</name>
 			<description>Humans select one extra feat at 1st level.</description>
-			<type>RACIALTRAITS.SPECIALQUALITY.HUMANRACIALTRAIT.HUMANRACIALDEFAULT.HUMANBONUSFEAT</type>
+			<type>RACIALTRAITS.SPECIALQUALITY.HUMANRACIALTRAIT.HUMANRACIALDEFAULT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -2147,7 +2147,7 @@ BIO
 		<ability_object>
 			<name>Skilled</name>
 			<description>Humans gain an additional skill rank at first level and one additional rank whenever they gain a level.</description>
-			<type>RACIALTRAITS.SPECIALQUALITY.HUMANRACIALTRAIT.HUMANRACIALDEFAULT.HUMANSKILLED</type>
+			<type>RACIALTRAITS.SPECIALQUALITY.HUMANRACIALTRAIT.HUMANRACIALDEFAULT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -2157,9 +2157,31 @@ BIO
 		</ability_object>
 	<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
+			<name>Bonus Feat</name>
+			<description>Humans select one extra feat at 1st level.</description>
+			<type>RACIALTRAITS.SPECIALQUALITY.HUMANRACIALTRAIT.HUMANRACIALDEFAULT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Orisons</name>
 			<description>You can prepare a number of orisons, or 0-level spells. These spells are cast like any other spells, but they are not expended when used and may be used again.</description>
 			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Skilled</name>
+			<description>Humans gain an additional skill rank at first level and one additional rank whenever they gain a level.</description>
+			<type>RACIALTRAITS.SPECIALQUALITY.HUMANRACIALTRAIT.HUMANRACIALDEFAULT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -2326,6 +2348,39 @@ BIO
 		</ability_object>
 	<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
+			<name>Default</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Human Racial Trait Default</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Select Racial Traits</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
 			<name>Shield Bash 1d3</name>
 			<description></description>
 			<type></type>
@@ -2344,6 +2399,18 @@ BIO
 			<count>0</count>
 			<auto>T</auto>
 			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+	<!-- Hidden Automatic "Internal" Ability Objects -->
+		<ability_object>
+			<name>Archetype Display</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
 			<virtual>F</virtual>
 			<category>Internal</category>
 		</ability_object>
@@ -2370,22 +2437,7 @@ BIO
 	<languages>Celestial, Common</languages>
 
 	<templates>
-		<list>Default Racial Traits</list>
-		<template>
-			<name>Default Racial Traits</name>
-			<strmod>0</strmod>
-			<dexmod>0</dexmod>
-			<conmod>0</conmod>
-			<intmod>0</intmod>
-			<wismod>0</wismod>
-			<chamod>0</chamod>
-			<cr>0</cr>
-			<dr></dr>
-			<feat></feat>
-			<sa></sa>
-			<sr>0</sr>
-			<bonuslist></bonuslist>
-		</template>
+		<list></list>
 		<template>
 			<name></name>
 			<strmod></strmod>
