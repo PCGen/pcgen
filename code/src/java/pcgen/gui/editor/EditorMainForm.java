@@ -591,7 +591,9 @@ public final class EditorMainForm extends JDialog
 			return;
 		}
 
-		thisPObject.addToListFor(ListKey.TYPE, Type.CUSTOM);
+		// TODO: Remove fully qualified package name, once our Type  
+		// enum no longer generates a compile error in OpenJDK 1.7
+		thisPObject.addToListFor(ListKey.TYPE, pcgen.cdom.enumeration.Type.CUSTOM);
 
 		wasCancelled = false;
 		closeDialog();
@@ -2166,7 +2168,9 @@ public final class EditorMainForm extends JDialog
 			for (WeaponProf wp : Globals.getContext().ref.getConstructedCDOMObjects(WeaponProf.class))
 			{
 				availableWeaponProfList.add(wp.getDisplayName());
-				for (Type t : wp.getTrueTypeList(false))
+				// TODO: Remove fully qualified package name, once our Type  
+				// enum no longer generates a compile error in OpenJDK 1.7
+				for (pcgen.cdom.enumeration.Type t : wp.getTrueTypeList(false))
 				{
 					wpnProfTypes.add(t.toString());
 				}
@@ -2350,7 +2354,9 @@ public final class EditorMainForm extends JDialog
 					availableClassCrossClassList.add(aString);
 				}
 
-				for (Type type : aSkill.getTrueTypeList(false))
+				// TODO: Remove fully qualified package name, once our Type  
+				// enum no longer generates a compile error in OpenJDK 1.7
+				for (pcgen.cdom.enumeration.Type type : aSkill.getTrueTypeList(false))
 				{
 					aString = "TYPE." + type;
 

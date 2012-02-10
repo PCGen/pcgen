@@ -458,7 +458,9 @@ final class ChooseSpellDialog extends JDialog
 	@SuppressWarnings("fallthrough")
     private boolean canCreateItem(Spell aSpell)
 	{
-		Type itemType;
+		// TODO: Remove fully qualified package name, once our Type  
+		// enum no longer generates a compile error in OpenJDK 1.7
+		pcgen.cdom.enumeration.Type itemType;
 
 		switch (eqType)
 		{
