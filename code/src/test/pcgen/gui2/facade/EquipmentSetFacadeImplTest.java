@@ -1,9 +1,13 @@
 package pcgen.gui2.facade;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.core.BodyStructure;
 import pcgen.core.Equipment;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
@@ -30,7 +34,9 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	private static final String LOC_HANDS = "HANDS";
 	private static final String LOC_BOTH_HANDS = "Both Hands";
 	private static final String SLOT_WEAPON = "Weapon";
-	private static final int NUM_BASE_NODES = 7;
+	private static final String SLOT_RING = "Ring";
+	private static final int NUM_BASE_NODES = 9;
+	private static final String LOC_BODY = "Body";
 
 	MockDataSetFacade dataset;
 	MockUIDelegate uiDelegate;
@@ -151,6 +157,59 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	}
 
 	/**
+	 * Test the creation of phantom slots, looking at types and quantities particularly.  
+	 */
+	public void testSlotCreation()
+	{
+		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
+		EquipmentSetFacadeImpl esfi =
+				new EquipmentSetFacadeImpl(uiDelegate, getCharacter(), es,
+					dataset);
+		ListFacade<EquipNode> nodes = esfi.getNodes();
+		Map<String, EquipNode> nodeMap = new HashMap<String, EquipNode>();
+		for (EquipNode equipNode : nodes)
+		{
+			nodeMap.put(equipNode.toString(), equipNode);
+		}
+		// Equipped, HANDS, Primary Hand, Secondary Hand, Double Weapon, Both Hands, Unarmed
+		EquipNode testNode = nodeMap.get("Primary Hand");
+		assertNotNull("Primary Hand should be present", testNode);
+		assertEquals("Primary Hand type", EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType());
+		assertEquals("Primary Hand count", 1, esfi.getQuantity(testNode));
+
+		testNode = nodeMap.get("Secondary Hand");
+		assertNotNull("Secondary Hand should be present", testNode);
+		assertEquals("Secondary Hand type", EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType());
+		assertEquals("Secondary Hand count", 1, esfi.getQuantity(testNode));
+
+		testNode = nodeMap.get(Constants.EQUIP_LOCATION_SECONDARY + " 1");
+		assertNull(Constants.EQUIP_LOCATION_SECONDARY + " 1 should not be present", testNode);
+
+		testNode = nodeMap.get(Constants.EQUIP_LOCATION_SECONDARY + " 2");
+		assertNull(Constants.EQUIP_LOCATION_SECONDARY + " 2 should not be present", testNode);
+
+		testNode = nodeMap.get("Double Weapon");
+		assertNotNull("Double Weapon should be present", testNode);
+		assertEquals("Double Weapon type", EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType());
+		assertEquals("Double Weapon count", 1, esfi.getQuantity(testNode));
+
+		testNode = nodeMap.get("Both Hands");
+		assertNotNull("Both Hands should be present", testNode);
+		assertEquals("Both Hands type", EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType());
+		assertEquals("Both Hands count", 1, esfi.getQuantity(testNode));
+
+		testNode = nodeMap.get("Unarmed");
+		assertNotNull("Unarmed should be present", testNode);
+		assertEquals("Unarmed type", EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType());
+		assertEquals("Unarmed count", 1, esfi.getQuantity(testNode));
+
+		testNode = nodeMap.get("Ring");
+		assertNotNull("Ring should be present", testNode);
+		assertEquals("Ring type", EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType());
+		assertEquals("Ring count", 2, esfi.getQuantity(testNode));
+	}
+	
+	/**
 	 * Add the equipment item to the equipset.
 	 * 
 	 * @param pc The character owning the set
@@ -194,6 +253,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		dataset = new MockDataSetFacade();
 		dataset.addEquipmentLocation(new BodyStructure(Constants.EQUIP_LOCATION_EQUIPPED, true));
 		dataset.addEquipmentLocation(new BodyStructure(LOC_HANDS, false));
+		dataset.addEquipmentLocation(new BodyStructure(LOC_BODY, false));
 		if (SystemCollections.getUnmodifiableEquipSlotList().isEmpty())
 		{
 			EquipSlot equipSlot = new EquipSlot();
@@ -202,6 +262,15 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 			equipSlot.setContainNum(1);
 			equipSlot.setSlotNumType("HANDS");
 			SystemCollections.addToEquipSlotsList(equipSlot, SettingsHandler.getGame().getName());
+			Globals.setEquipSlotTypeCount("HANDS", "2");
+
+			equipSlot = new EquipSlot();
+			equipSlot.setSlotName(SLOT_RING);
+			equipSlot.addContainedType("Ring");
+			equipSlot.setContainNum(2);
+			equipSlot.setSlotNumType("BODY");
+			SystemCollections.addToEquipSlotsList(equipSlot, SettingsHandler.getGame().getName());
+			Globals.setEquipSlotTypeCount("BODY", "1");
 		}
 		uiDelegate = new MockUIDelegate();
 	}

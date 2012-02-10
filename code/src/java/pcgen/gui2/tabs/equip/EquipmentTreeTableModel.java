@@ -262,7 +262,7 @@ public class EquipmentTreeTableModel implements SortableTreeTableModel, ListList
 			insertion_index *= -1;
 		}
 		pathMap.add(parent, insertion_index, child);
-		return -insertion_index;
+		return insertion_index;
 	}
 
 	public void elementAdded(ListEvent<EquipNode> e)

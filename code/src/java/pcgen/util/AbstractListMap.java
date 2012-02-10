@@ -58,7 +58,7 @@ public abstract class AbstractListMap<K, V, L extends List<V>>
     public V get(Object key, int index)
     {
 	L list = get(key);
-	if (list != null)
+	if (list != null && list.size() > index && index >= 0)
 	{
 	    return list.get(index);
 	}

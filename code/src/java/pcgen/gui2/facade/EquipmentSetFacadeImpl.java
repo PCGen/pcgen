@@ -158,33 +158,33 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 					{
 						// Add phantom nodes for the various weapon slots
 						addEquipNodeForEquipSlot(node, createWeaponEquipSlot(
-							slot, Constants.EQUIP_LOCATION_PRIMARY));
+							slot, Constants.EQUIP_LOCATION_PRIMARY), true);
 						for (int i = 1; i < theCharacter.getHands(); ++i)
 						{
 							if (i > 1)
 							{
 								addEquipNodeForEquipSlot(node,
 									createWeaponEquipSlot(slot,
-										Constants.EQUIP_LOCATION_SECONDARY + " " + i));
+										Constants.EQUIP_LOCATION_SECONDARY + " " + i), true);
 							}
 							else
 							{
 								addEquipNodeForEquipSlot(node,
 									createWeaponEquipSlot(slot,
-										Constants.EQUIP_LOCATION_SECONDARY));
+										Constants.EQUIP_LOCATION_SECONDARY), true);
 							}
 						}
 
 						addEquipNodeForEquipSlot(node, createWeaponEquipSlot(
-							slot, Constants.EQUIP_LOCATION_DOUBLE));
+							slot, Constants.EQUIP_LOCATION_DOUBLE), true);
 						addEquipNodeForEquipSlot(node, createWeaponEquipSlot(
-							slot, Constants.EQUIP_LOCATION_BOTH));
+							slot, Constants.EQUIP_LOCATION_BOTH), true);
 						addEquipNodeForEquipSlot(node, createWeaponEquipSlot(
-							slot, Constants.EQUIP_LOCATION_UNARMED));
+							slot, Constants.EQUIP_LOCATION_UNARMED), true);
 					}
 					else
 					{
-						addEquipNodeForEquipSlot(node, slot);
+						addEquipNodeForEquipSlot(node, slot, false);
 					}
 				}
 			}
@@ -199,12 +199,16 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 	}
 
 	/**
-	 * @param bodyStructNode
-	 * @param slot
+	 * Create a new EquipNodeImpl for the slot and add it the node list.  
+	 * @param bodyStructNode The parent body structure node
+	 * @param slot The equipment slot
+	 * @param singleOnly Can the slot only ever have a single entry. e.g. weapon slots
 	 */
-	private void addEquipNodeForEquipSlot(EquipNodeImpl bodyStructNode, EquipSlot slot)
+	private void addEquipNodeForEquipSlot(EquipNodeImpl bodyStructNode,
+		EquipSlot slot, boolean singleOnly)
 	{
-		EquipNodeImpl slotNode = new EquipNodeImpl(bodyStructNode, slot);
+		EquipNodeImpl slotNode =
+				new EquipNodeImpl(bodyStructNode, slot, singleOnly);
 		nodeList.addElement(slotNode);
 		equipSlotNodeMap.put(slot, slotNode);
 	}
@@ -854,7 +858,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		}
 
 		EquipNodeImpl node = (EquipNodeImpl) slot;
-		int numPossible = node.getSlot().getSlotCount();
+		int numPossible = getQuantity(node);
 
 		// Scan for items  
 		int numUsed = 0;
@@ -953,7 +957,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 				return 1;
 
 			case PHANTOM_SLOT:
-				return node.getSlot().getSlotCount();
+				return node.singleOnly ? 1 : node.getSlot().getSlotCount();
 
 			default:
 				EquipSet parentEs = theCharacter.getEquipSetByIdPath(node.getIdPath());
@@ -997,6 +1001,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		private EquipSlot slot;
 		private String idPath;
 		private String order;
+		private boolean singleOnly = false;
 		
 		/**
 		 * Create a new EquipNodeImpl instance representing a body structure.
@@ -1019,14 +1024,16 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		 *  
 		 * @param parent The parent body structure node
 		 * @param slot The equipment slot
+		 * @param singleOnly Can the slot only ever have a single entry. e.g. weapon slots
 		 */
-		public EquipNodeImpl(EquipNodeImpl parent, EquipSlot slot)
+		public EquipNodeImpl(EquipNodeImpl parent, EquipSlot slot, boolean singleOnly)
 		{
 			this.nodeType = NodeType.PHANTOM_SLOT;
 			this.bodyStructure = parent.bodyStructure;
 			this.slot = slot;
 			this.name = slot.getSlotName();
 			this.parent = parent;
+			this.singleOnly = singleOnly;
 		}
 		
 		/**
