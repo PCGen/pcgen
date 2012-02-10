@@ -335,6 +335,10 @@ public class SourceSelectionDialog extends JDialog
 		{
 			selection = FacadeFactory.createSourceSelection(advancedPanel.getSelectedGameMode(), advancedPanel.getSelectedCampaigns());
 		}
+		if (selection == null)
+		{
+			return;
+		}
 		GameModeFacade gameMode = selection.getGameMode().getReference();
 		List<CampaignFacade> campaigns = ListFacades.wrap(selection.getCampaigns());
 		if (FacadeFactory.passesPrereqs(gameMode, campaigns))
