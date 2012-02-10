@@ -25,13 +25,14 @@
  */
 package plugin.exporttokens;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.WeaponToken;
-
-import java.util.List;
-import java.util.StringTokenizer;
 
 /**
  * <code>WeaponoToken</code>.
@@ -101,7 +102,7 @@ public class WeaponoToken extends WeaponToken
 	 */
 	public static Equipment getWeaponEquipment(final PlayerCharacter pc, final int anIndex)
 	{
-		final List<Equipment> secWeapons = pc.getSecondaryWeapons();
+		final List<Equipment> secWeapons = new ArrayList<Equipment>(pc.getSecondaryWeapons());
 		if (!secWeapons.isEmpty() && anIndex < secWeapons.size())
 		{
 			return secWeapons.get(anIndex);

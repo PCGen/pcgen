@@ -266,6 +266,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private UserSpecialAbilityFacet userSpecialAbilityFacet = FacetLibrary.getFacet(UserSpecialAbilityFacet.class);
 	private SpecialAbilityFacet specialAbilityFacet = FacetLibrary.getFacet(SpecialAbilityFacet.class);
 	private PrimaryWeaponFacet primaryWeaponFacet = FacetLibrary.getFacet(PrimaryWeaponFacet.class);
+	private SecondaryWeaponFacet secondaryWeaponFacet = FacetLibrary.getFacet(SecondaryWeaponFacet.class);
 
 	private ObjectCache cache = new ObjectCache();
 	private AssociationSupport assocSupt = new AssociationSupport();
@@ -312,8 +313,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	// List of Note objects
 	private final ArrayList<NoteItem> notesList = new ArrayList<NoteItem>();
-
-	private final ArrayList<Equipment> secondaryWeapons = new ArrayList<Equipment>();
 
 	private ClassSource defaultDomainSource = null;
 
@@ -2411,6 +2410,11 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return !primaryWeaponFacet.isEmpty(id);
 	}
 
+	public boolean hasSecondaryWeapons()
+	{
+		return !secondaryWeaponFacet.isEmpty(id);
+	}
+
 	/**
 	 * Get the character's race.
 	 * 
@@ -2476,9 +2480,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * 
 	 * @return secondary weapons
 	 */
-	public List<Equipment> getSecondaryWeapons()
+	public Collection<Equipment> getSecondaryWeapons()
 	{
-		return secondaryWeapons;
+		return secondaryWeaponFacet.getSet(id);
 	}
 
 	/**
@@ -4274,25 +4278,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 				weapList.set(idx, eqm);
 
 				boolean replacedPrimary = primaryWeaponFacet.replace(id, equip, eqm);
-
-				//
-				// Replace any secondary weapons
-				int iSecondary;
-
-				for (iSecondary = getSecondaryWeapons().size() - 1; iSecondary >= 0; --iSecondary)
-				{
-					final Equipment teq = getSecondaryWeapons().get(iSecondary);
-
-					if (teq == equip)
-					{
-						break;
-					}
-				}
-
-				if (iSecondary >= 0)
-				{
-					getSecondaryWeapons().set(iSecondary, eqm);
-				}
+				boolean replacedSecondary = secondaryWeaponFacet.replace(id, equip, eqm);
 
 				//
 				// Add thrown portion, strip Melee
@@ -4320,9 +4306,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 				{
 					primaryWeaponFacet.addAfter(id, eqm, eqr);
 				}
-				else if (iSecondary >= 0)
+				else if (replacedSecondary)
 				{
-					getSecondaryWeapons().add(++iSecondary, eqr);
+					secondaryWeaponFacet.addAfter(id, eqm, eqr);
 				}
 			}
 		}
@@ -4782,7 +4768,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			return false;
 		}
 
-		for (Equipment eqI : secondaryWeapons)
+		for (Equipment eqI : getSecondaryWeapons())
 		{
 			if (eqI.getName().equalsIgnoreCase(eq.getName())
 				&& (eqI.getLocation() == eq.getLocation()))
@@ -6669,7 +6655,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private void determinePrimaryOffWeapon()
 	{
 		primaryWeaponFacet.removeAll(id);
-		secondaryWeapons.clear();
+		secondaryWeaponFacet.removeAll(id);
 
 		if (!hasEquipment())
 		{
@@ -6707,7 +6693,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			{
 				if (isEquipped)
 				{
-					secondaryWeapons.add(eq);
+					secondaryWeaponFacet.add(id, eq);
 				}
 				else
 				{
@@ -6719,7 +6705,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			{
 				if (isEquipped)
 				{
-					secondaryWeapons.add(eq);
+					secondaryWeaponFacet.add(id, eq);
 				}
 				else
 				{
@@ -6733,7 +6719,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 				{
 					if (isEquipped)
 					{
-						secondaryWeapons.add(eq);
+						secondaryWeaponFacet.add(id, eq);
 					}
 					else
 					{
@@ -6752,7 +6738,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 			if (unequippedSecondary.size() != 0)
 			{
-				secondaryWeapons.addAll(unequippedSecondary);
+				secondaryWeaponFacet.addAll(id, unequippedSecondary);
 			}
 		}
 	}
@@ -9231,7 +9217,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		{
 			aClone.addNotesItem(n);
 		}
-		aClone.secondaryWeapons.addAll(getSecondaryWeapons());
 		Collection<AbstractStorageFacet> beans = SpringHelper.getStorageBeans();
 		for (AbstractStorageFacet bean : beans)
 		{

@@ -1551,12 +1551,12 @@ public class WeaponToken extends Token
 			hitModeHands = 2;
 		}
 		// Both Primary and Secondary weapons
-		else if (pc.hasPrimaryWeapons() && !pc.getSecondaryWeapons().isEmpty())
+		else if (pc.hasPrimaryWeapons() && pc.hasSecondaryWeapons())
 		{
 			// eq is Primary
 			if (pc.isPrimaryWeapon(eq))
 			{
-				Equipment sEq = pc.getSecondaryWeapons().get(0);
+				Equipment sEq = pc.getSecondaryWeapons().iterator().next();
 
 				if (sEq == null)
 				{
@@ -1596,7 +1596,7 @@ public class WeaponToken extends Token
 			hitMode = HITMODE_OHHIT;
 		}
 		// Just a single primary weapon
-		else if (pc.isPrimaryWeapon(eq) && pc.getSecondaryWeapons().isEmpty())
+		else if (pc.isPrimaryWeapon(eq) && !pc.hasSecondaryWeapons())
 		{
 			if (eq.getLocation() == EquipmentLocation.EQUIPPED_BOTH)
 			{
