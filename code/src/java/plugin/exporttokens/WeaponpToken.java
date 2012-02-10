@@ -97,9 +97,9 @@ public class WeaponpToken extends WeaponToken
 	 */
 	public static Equipment getWeaponEquipment(PlayerCharacter pc)
 	{
-		if (!pc.getPrimaryWeapons().isEmpty())
+		if (pc.hasPrimaryWeapons())
 		{
-			return pc.getPrimaryWeapons().get(0);
+			return pc.getPrimaryWeapons().iterator().next();
 		}
 		return null;
 	}

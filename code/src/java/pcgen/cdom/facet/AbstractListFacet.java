@@ -319,4 +319,50 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 			getConstructingCachedSet(copy).addAll(componentSet);
 		}
 	}
+
+	public boolean replace(CharID id, T old, T replacement)
+	{
+		Collection<T> componentSet = getCachedSet(id);
+		if (componentSet == null || !componentSet.contains(old))
+		{
+			return false;
+		}
+		Collection<T> replaceSet = getComponentSet();
+		for (T obj : componentSet)
+		{
+			if (obj == old)
+			{
+				replaceSet.add(replacement);
+			}
+			else
+			{
+				replaceSet.add(obj);
+			}
+		}
+		setCache(id, thisClass, componentSet);
+		fireDataFacetChangeEvent(id, old, DataFacetChangeEvent.DATA_REMOVED);
+		fireDataFacetChangeEvent(id, replacement,
+			DataFacetChangeEvent.DATA_ADDED);
+		return true;
+	}
+
+
+	public void addAfter(CharID id, T trigger, T added)
+	{
+		Collection<T> componentSet = getCachedSet(id);
+		if (componentSet != null && componentSet.contains(trigger))
+		{
+			Collection<T> replaceSet = getComponentSet();
+			for (T obj : componentSet)
+			{
+				replaceSet.add(obj);
+				if (obj == trigger)
+				{
+					replaceSet.add(added);
+				}
+			}
+			setCache(id, thisClass, componentSet);
+			fireDataFacetChangeEvent(id, added, DataFacetChangeEvent.DATA_ADDED);
+		}
+	}
 }

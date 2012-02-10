@@ -1551,8 +1551,7 @@ public class WeaponToken extends Token
 			hitModeHands = 2;
 		}
 		// Both Primary and Secondary weapons
-		else if (!pc.getPrimaryWeapons().isEmpty()
-			&& !pc.getSecondaryWeapons().isEmpty())
+		else if (pc.hasPrimaryWeapons() && !pc.getSecondaryWeapons().isEmpty())
 		{
 			// eq is Primary
 			if (pc.isPrimaryWeapon(eq))
@@ -1592,7 +1591,7 @@ public class WeaponToken extends Token
 			}
 		}
 		// Just a single off-hand weapon
-		else if (pc.isSecondaryWeapon(eq) && pc.getPrimaryWeapons().isEmpty())
+		else if (pc.isSecondaryWeapon(eq) && !pc.hasPrimaryWeapons())
 		{
 			hitMode = HITMODE_OHHIT;
 		}
@@ -2265,7 +2264,7 @@ public class WeaponToken extends Token
 		secondariesToadd +=
 				(int) pc.getTotalBonusTo("COMBAT", "SECONDARYATTACKS");
 
-		if (pc.getPrimaryWeapons().isEmpty() && (hitMode == HITMODE_TOTALHIT))
+		if (!pc.hasPrimaryWeapons() && (hitMode == HITMODE_TOTALHIT))
 		{
 			secondariesToadd = 100;
 		}
