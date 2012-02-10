@@ -33,6 +33,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 {
 	private static final String LOC_HANDS = "HANDS";
 	private static final String LOC_BOTH_HANDS = "Both Hands";
+	private static final String LOC_PRIMARY = "Primary Hand";
 	private static final String SLOT_WEAPON = "Weapon";
 	private static final String SLOT_RING = "Ring";
 	private static final int NUM_BASE_NODES = 9;
@@ -75,7 +76,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		EquipSet satchelEs = addEquipToEquipSet(pc, es, item, 1.0f);
 		addEquipToEquipSet(pc, satchelEs, item2, 1.0f);
 		addEquipToEquipSet (pc, es, item3, 1.0f, LOC_BOTH_HANDS);
-
+		int adjustedBaseNodes = NUM_BASE_NODES -4;
 		EquipmentSetFacadeImpl esfi =
 				new EquipmentSetFacadeImpl(uiDelegate, pc, es, dataset);
 		ListFacade<EquipNode> nodeList = esfi.getNodes();
@@ -85,26 +86,71 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		assertEquals("Incorrect body struct type", NodeType.BODY_SLOT, node.getNodeType());
 		assertEquals("Incorrect sort key", "00", node.getSortKey());
 		assertEquals("Incorrect parent", null, node.getParent());
-		node = (EquipNodeImpl) nodeList.getElementAt(NUM_BASE_NODES);
+		node = (EquipNodeImpl) nodeList.getElementAt(adjustedBaseNodes);
 		assertEquals("Incorrect container name", item.getName(), node.toString());
 		assertEquals("Incorrect container type", NodeType.EQUIPMENT, node.getNodeType());
 		assertEquals("Incorrect sort key", "00|"+item.getName(), node.getSortKey());
 		assertEquals("Incorrect parent", nodeList.getElementAt(0), node.getParent());
-		node = (EquipNodeImpl) nodeList.getElementAt(NUM_BASE_NODES+2);
+		node = (EquipNodeImpl) nodeList.getElementAt(adjustedBaseNodes+2);
 		assertEquals("Incorrect item name", item2.getName(), node.toString());
 		assertEquals("Incorrect item type", NodeType.EQUIPMENT, node.getNodeType());
 		assertEquals("Incorrect sort key", "00|"+item.getName()+"|"+item2.getName(), node.getSortKey());
-		assertEquals("Incorrect parent", nodeList.getElementAt(NUM_BASE_NODES), node.getParent());
-		node = (EquipNodeImpl) nodeList.getElementAt(NUM_BASE_NODES+1);
+		assertEquals("Incorrect parent", nodeList.getElementAt(adjustedBaseNodes), node.getParent());
+		node = (EquipNodeImpl) nodeList.getElementAt(adjustedBaseNodes+1);
 		assertEquals("Incorrect item name", item3.getName(), node.toString());
 		assertEquals("Incorrect item type", NodeType.EQUIPMENT, node.getNodeType());
 		assertEquals("Incorrect sort key", "01|"+item3.getName(), node.getSortKey());
 		assertEquals("Incorrect parent", LOC_HANDS, node.getParent().toString());
-		node = (EquipNodeImpl) nodeList.getElementAt(NUM_BASE_NODES+2);
+		node = (EquipNodeImpl) nodeList.getElementAt(adjustedBaseNodes+2);
 		EquipNode parent = node.getParent();
 		assertEquals("Root incorrect", Constants.EQUIP_LOCATION_EQUIPPED, parent.getParent().toString());
 		assertEquals("Leaf incorrect", item.getName(), parent.toString());
-		assertEquals("Incorrect nuber of paths found", NUM_BASE_NODES+3, nodeList.getSize());
+		assertEquals("Incorrect nuber of paths found", adjustedBaseNodes+3, nodeList.getSize());
+	}
+	
+	/**
+	 * Check that EquipmentSetFacadeImpl when initialised with a dataset 
+	 * containing equipment hides and shows the correct weapon slots.  
+	 */
+	public void testSlotManagementOnInitWithEquipment()
+	{
+		PlayerCharacter pc = getCharacter();
+		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
+		Equipment weapon = new Equipment();
+		weapon.setName("Morningstar");
+		
+		addEquipToEquipSet (pc, es, weapon, 1.0f, LOC_PRIMARY);
+
+		EquipmentSetFacadeImpl esfi =
+				new EquipmentSetFacadeImpl(uiDelegate, pc, es, dataset);
+		ListFacade<EquipNode> nodes = esfi.getNodes();
+		Map<String, EquipNode> nodeMap = new HashMap<String, EquipNode>();
+		for (EquipNode equipNode : nodes)
+		{
+			nodeMap.put(equipNode.toString(), equipNode);
+		}
+
+		EquipNode testNode = nodeMap.get("Morningstar");
+		assertNotNull("Morningstar should be present", testNode);
+		assertEquals("Morningstar type", EquipNode.NodeType.EQUIPMENT, testNode.getNodeType());
+		assertEquals("Morningstar location", LOC_PRIMARY, esfi.getLocation(testNode));
+
+		// Test for removed slots
+		String removedSlots[] = new String[] {"Primary Hand", "Double Weapon", "Both Hands"};
+		for (String slotName : removedSlots)
+		{
+			testNode = nodeMap.get(slotName);
+			assertNull(slotName + " should not be present", testNode);
+		}
+
+		// Test for still present slots
+		String retainedSlots[] = new String[] {"Secondary Hand", "Ring"};
+		for (String slotName : retainedSlots)
+		{
+			testNode = nodeMap.get(slotName);
+			assertNotNull(slotName + " should be present", testNode);
+		}
+		
 	}
 	
 	/**
@@ -171,7 +217,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		{
 			nodeMap.put(equipNode.toString(), equipNode);
 		}
-		// Equipped, HANDS, Primary Hand, Secondary Hand, Double Weapon, Both Hands, Unarmed
+
 		EquipNode testNode = nodeMap.get("Primary Hand");
 		assertNotNull("Primary Hand should be present", testNode);
 		assertEquals("Primary Hand type", EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType());
