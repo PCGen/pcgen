@@ -159,6 +159,10 @@
 			<trait>|PERSONALITY2|</trait>
 		</personality>
 		<portrait>|PORTRAIT|</portrait>
+<!-->	<portrait>
+			<portrait>|PORTRAIT|</portrait>
+			<portait_thumb>|PORTRAIT.THUMB|</portrait_thumb>
+		</portrait>	-->
 		<phobias>|PHOBIAS|</phobias>
 		<race>|RACE|</race>
 		<reach>
