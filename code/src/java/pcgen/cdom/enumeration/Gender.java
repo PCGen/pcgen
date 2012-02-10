@@ -18,7 +18,6 @@
 package pcgen.cdom.enumeration;
 
 import pcgen.core.facade.GenderFacade;
-import pcgen.core.facade.SpellSupportFacade.SuperNode;
 import pcgen.system.LanguageBundle;
 
 /**
