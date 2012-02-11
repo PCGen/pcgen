@@ -799,9 +799,9 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	 */
 	private boolean allAbilitiesAreZero()
 	{
-		for (StatFacade stat : statScoreMap.keySet())
+		for (StatFacade stat : dataSet.getStats())
 		{
-			DefaultReferenceFacade<Integer> facade = statScoreMap.get(stat);
+			ReferenceFacade<Integer> facade = getScoreBaseRef(stat);
 
 			if (facade.getReference() != 0)
 			{
