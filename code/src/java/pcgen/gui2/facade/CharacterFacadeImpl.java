@@ -2233,6 +2233,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		GameMode mode = (GameMode) dataSet.getGameMode();
 		List campaigns = ListFacades.wrap(dataSet.getCampaigns());
 		(new PCGIOHandler()).write(theCharacter, mode, campaigns, file.getReference().getAbsolutePath());
+		theCharacter.setDirty(false);
 	}
 
 	/* (non-Javadoc)
@@ -3215,6 +3216,15 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	{
 		cropRect.setReference(rect);
 		theCharacter.setPortraitThumbnailRect(rect);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isDirty()
+	{
+		return theCharacter.isDirty();
 	}
 
 	/**

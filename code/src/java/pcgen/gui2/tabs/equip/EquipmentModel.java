@@ -161,7 +161,10 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 
 	public void uninstall()
 	{
-		treeTable.getModel().removeTableModelListener(this);
+		if (treeTable != null)
+		{
+			treeTable.getModel().removeTableModelListener(this);
+		}
 		character.getEquipmentSetRef().removeReferenceListener(this);
 	}
 

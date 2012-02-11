@@ -559,16 +559,19 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 
 	public void closeCharacter(CharacterFacade character)
 	{
-		int ret = JOptionPane.showConfirmDialog(this, "Do you want to save "
-				+ character.getNameRef().getReference() + "?",
-												Constants.APPLICATION_NAME, JOptionPane.YES_NO_CANCEL_OPTION);
-		if (ret == JOptionPane.CANCEL_OPTION)
+		if (character.isDirty())
 		{
-			return;
-		}
-		if (ret == JOptionPane.YES_OPTION)
-		{
-			saveCharacter(character);
+			int ret = JOptionPane.showConfirmDialog(this, "Do you want to save "
+					+ character.getNameRef().getReference() + "?",
+													Constants.APPLICATION_NAME, JOptionPane.YES_NO_CANCEL_OPTION);
+			if (ret == JOptionPane.CANCEL_OPTION)
+			{
+				return;
+			}
+			if (ret == JOptionPane.YES_OPTION)
+			{
+				saveCharacter(character);
+			}
 		}
 		CharacterManager.removeCharacter(character);
 	}
@@ -582,7 +585,20 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		}
 		int ret = 2;
 
-		if (characters.getSize() > 1)
+		List<CharacterFacade> characterList = new ArrayList<CharacterFacade>();
+		List<CharacterFacade> unsavedPCs = new ArrayList<CharacterFacade>();
+		for (CharacterFacade characterFacade : characters)
+		{
+			if (characterFacade.isDirty())
+			{
+				unsavedPCs.add(characterFacade);
+			}
+			else
+			{
+				characterList.add(characterFacade);
+			}
+		}
+		if (unsavedPCs.size() > 1)
 		{
 			Object[] options = new Object[]
 			{
@@ -605,9 +621,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			return true;
 		}
 
-		List<CharacterFacade> characterList = new ArrayList<CharacterFacade>();
-
-		for (CharacterFacade character : characters)
+		for (CharacterFacade character : unsavedPCs)
 		{
 			int ret2 = JOptionPane.YES_OPTION;
 

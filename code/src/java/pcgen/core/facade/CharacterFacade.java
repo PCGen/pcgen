@@ -685,4 +685,9 @@ public interface CharacterFacade
 	 */
 	public void removeAbilityCatSelectionListener(ChangeListener listener);
 
+	/**
+	 * @return true if the character has been changed and needs to be saved.
+	 */
+	public boolean isDirty();
+
 }

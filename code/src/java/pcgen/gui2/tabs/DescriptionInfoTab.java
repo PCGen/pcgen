@@ -199,8 +199,12 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			{
 				return;
 			}
-			currentPage.storeModels();
 			PageItem item = (PageItem) pageList.getSelectedValue();
+			if (item == null)
+			{
+				return;
+			}
+			currentPage.storeModels();
 			currentPage = item;
 			currentPage.restoreModels();
 			CardLayout pages = (CardLayout) pagePanel.getLayout();

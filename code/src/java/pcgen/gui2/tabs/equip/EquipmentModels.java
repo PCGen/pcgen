@@ -146,8 +146,11 @@ public class EquipmentModels
 
 	public void uninstall()
 	{
-		equipAction.uninstall();
-		unequipAction.uninstall();
+		if (equipmentTable != null)
+		{
+			equipAction.uninstall();
+			unequipAction.uninstall();
+		}
 	}
 	
 	private class EquipFilterHandler implements FilterHandler
