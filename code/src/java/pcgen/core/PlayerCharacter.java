@@ -1657,6 +1657,22 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
+	 * Sets the character's wealth.
+	 * 
+	 * <p>
+	 * Gold here is used as a character's total purchase power not actual gold
+	 * pieces.
+	 * 
+	 * @param amt
+	 *            A gold amount. 
+	 */
+	public void setGold(final BigDecimal amt)
+	{
+		moneyFacet.setGold(id, amt);
+		setDirty(true);
+	}
+
+	/**
 	 * Returns the character's total wealth.
 	 * 
 	 * @see pcgen.core.PlayerCharacter#setGold(String)

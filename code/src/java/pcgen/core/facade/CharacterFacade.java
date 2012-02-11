@@ -23,6 +23,7 @@ package pcgen.core.facade;
 import java.awt.Rectangle;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.math.BigDecimal;
 
 import javax.swing.undo.UndoManager;
 
@@ -189,6 +190,35 @@ public interface CharacterFacade
 	 */
 	public float getMaxRanks(SkillCost cost, CharacterLevelFacade level);
 
+	/**
+	 * Adjust the cash held by the character.
+	 * @param modVal The amount to add to the character's funds.
+	 */
+	public void adjustFunds(BigDecimal modVal);
+
+	/**
+	 * Set the cash held by the character.
+	 * @param newVal The new amount for the character's funds.
+	 */
+	public void setFunds(BigDecimal newVal);
+
+	/**
+	 * @return A reference to the amount of gold the character owns.
+	 */
+	public ReferenceFacade<BigDecimal> getFundsRef();
+
+	/**
+	 * @return A reference to the total wealth of the character.
+	 */
+	public ReferenceFacade<BigDecimal> getWealthRef();
+
+	/**
+	 * @return A reference to the chosen buy sell rate scheme for the character.
+	 */
+	public ReferenceFacade<GearBuySellFacade> getGearBuySellRef();
+
+	public void setGearBuySellRef(GearBuySellFacade scheme);
+	
 	public ListFacade<EquipmentSetFacade> getEquipmentSets();
 
 	public ReferenceFacade<EquipmentSetFacade> getEquipmentSetRef();

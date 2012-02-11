@@ -20,6 +20,7 @@
  */
 package pcgen.core;
 
+import java.math.BigDecimal;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -44,6 +45,7 @@ import pcgen.core.facade.DataSetFacade;
 import pcgen.core.facade.DeityFacade;
 import pcgen.core.facade.EquipmentFacade;
 import pcgen.core.facade.GameModeFacade;
+import pcgen.core.facade.GearBuySellFacade;
 import pcgen.core.facade.RaceFacade;
 import pcgen.core.facade.SkillFacade;
 import pcgen.core.facade.StatFacade;
@@ -78,6 +80,7 @@ public class DataSet implements DataSetFacade
 	private DefaultListFacade<BodyStructureFacade> bodyStructures;
 	private DefaultListFacade<EquipmentFacade> equipment;
 	private DefaultListFacade<String> xpTableNames;
+	private DefaultListFacade<GearBuySellFacade> gearBuySellSchemes;
 
 	public DataSet( LoadContext context, GameMode gameMode, ListFacade<CampaignFacade> campaigns)
 	{
@@ -200,6 +203,23 @@ public class DataSet implements DataSetFacade
 		{
 			xpTableNames.addElement(xpTableName);
 		}
+		createGearBuySellSchemes();
+		
+	}
+
+	/**
+	 * Create the default set of GearBuySellSchemes.
+	 * TODO: This should be loaded from the game mode and allow for user additions.
+	 */
+	private void createGearBuySellSchemes()
+	{
+		BigDecimal fullPrice = new BigDecimal(100.0);
+		BigDecimal halfPrice = new BigDecimal(50.0);
+		BigDecimal free = BigDecimal.ZERO;
+		gearBuySellSchemes = new DefaultListFacade<GearBuySellFacade>();
+		gearBuySellSchemes.addElement(new GearBuySellScheme("Market price", fullPrice, halfPrice, fullPrice));
+		gearBuySellSchemes.addElement(new GearBuySellScheme("Character build", fullPrice, fullPrice, fullPrice));
+		gearBuySellSchemes.addElement(new GearBuySellScheme("Cashless", free, free, free));
 	}
 
 	public ListFacade<AbilityFacade> getAbilities(AbilityCategoryFacade category)
@@ -348,6 +368,14 @@ public class DataSet implements DataSetFacade
 	public ListFacade<String> getXPTableNames()
 	{
 		return xpTableNames;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public ListFacade<GearBuySellFacade> getGearBuySellSchemes()
+	{
+		return gearBuySellSchemes;
 	}
 
 

@@ -36,6 +36,7 @@ import pcgen.core.facade.DomainFacade;
 import pcgen.core.facade.EquipmentFacade;
 import pcgen.core.facade.BodyStructureFacade;
 import pcgen.core.facade.GameModeFacade;
+import pcgen.core.facade.GearBuySellFacade;
 import pcgen.core.facade.RaceFacade;
 import pcgen.core.facade.SkillFacade;
 import pcgen.core.facade.StatFacade;
@@ -233,6 +234,16 @@ public class MockDataSetFacade implements DataSetFacade
 	 * @see pcgen.core.facade.DataSetFacade#getTemplates()
 	 */
 	public ListFacade<TemplateFacade> getTemplates()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public ListFacade<GearBuySellFacade> getGearBuySellSchemes()
 	{
 		// TODO Auto-generated method stub
 		return null;

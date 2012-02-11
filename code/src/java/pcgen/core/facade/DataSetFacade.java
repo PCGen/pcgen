@@ -72,4 +72,8 @@ public interface DataSetFacade
 
 	public ListFacade<String> getXPTableNames();
 
+	/**
+	 * @return The list of possible buy/sell rate schemes for this dataset. 
+	 */
+	public ListFacade<GearBuySellFacade> getGearBuySellSchemes();
 }

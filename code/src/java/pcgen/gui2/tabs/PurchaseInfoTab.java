@@ -24,10 +24,16 @@ import static pcgen.gui2.tabs.equip.EquipmentSelection.equipmentArrayFlavor;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -37,12 +43,18 @@ import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.ComboBoxModel;
 import javax.swing.DropMode;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
+import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 import javax.swing.JTree;
 import javax.swing.SwingConstants;
 import javax.swing.TransferHandler;
@@ -57,6 +69,7 @@ import pcgen.core.facade.EquipmentFacade;
 import pcgen.core.facade.EquipmentListFacade;
 import pcgen.core.facade.EquipmentListFacade.EquipmentListEvent;
 import pcgen.core.facade.EquipmentListFacade.EquipmentListListener;
+import pcgen.core.facade.GearBuySellFacade;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.gui2.UIPropertyContext;
@@ -67,9 +80,13 @@ import pcgen.gui2.filter.FilterButtonGroupPanel;
 import pcgen.gui2.filter.FilteredTreeViewTable;
 import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.equip.EquipmentSelection;
+import pcgen.gui2.tabs.models.BigDecimalFieldHandler;
+import pcgen.gui2.tabs.models.CharacterComboBoxModel;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
+import pcgen.gui2.util.SignIcon;
+import pcgen.gui2.util.SignIcon.Sign;
 import pcgen.gui2.util.SortMode;
 import pcgen.gui2.util.SortingPriority;
 import pcgen.gui2.util.treeview.DataView;
@@ -87,6 +104,9 @@ import pcgen.system.LanguageBundle;
 public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
+	private static final Font labelFont = new Font("Verdana", Font.BOLD, 12);
+	private static final Font textFont = new Font("Verdana", Font.PLAIN, 12);
+
 	private final FilteredTreeViewTable availableTable;
 	private final FilteredTreeViewTable purchasedTable;
 	private final JCheckBox autoResizeBox;
@@ -95,6 +115,12 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private final JButton removeEquipmentButton;
 	private final InfoPane infoPane;
 	private EquipmentFacade selectedItem;
+	private final JFormattedTextField wealthLabel;
+	private final JFormattedTextField goldField;
+	private final JFormattedTextField goldModField;
+	private final JComboBox buySellRateBox;
+	private final JButton fundsAddButton;
+	private final JButton fundsSubtractButton;
 
 	public PurchaseInfoTab()
 	{
@@ -105,6 +131,13 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		this.addEquipmentButton = new JButton();
 		this.removeEquipmentButton = new JButton();
 		this.infoPane = new InfoPane();
+		this.wealthLabel = new JFormattedTextField(NumberFormat.getNumberInstance());
+		this.goldField = new JFormattedTextField(NumberFormat.getNumberInstance());
+		this.goldModField = new JFormattedTextField(NumberFormat.getNumberInstance());
+		this.buySellRateBox = new JComboBox();
+		this.fundsAddButton = new JButton();
+		this.fundsSubtractButton = new JButton();
+
 		initComponents();
 	}
 
@@ -232,6 +265,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		splitPane.setOrientation(HORIZONTAL_SPLIT);
 		{// Bottom Left Panel
 			JPanel panel = new JPanel();
+			initMoneyPanel(panel);
 			splitPane.setLeftComponent(panel);
 		}
 		{// Bottom Right Panel
@@ -241,12 +275,117 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		setBottomComponent(splitPane);
 	}
 
+	/**
+	 * @param panel
+	 */
+	private void initMoneyPanel(JPanel moneyPanel)
+	{
+		JPanel panel = new JPanel();
+		panel.setLayout(new GridBagLayout());
+		
+		GridBagConstraints leftGbc = new GridBagConstraints();
+		Insets panelInsets = panel.getInsets();
+		leftGbc.insets = new Insets(2, panelInsets.left, 2, 10);
+		leftGbc.gridwidth = 2;
+		leftGbc.fill = GridBagConstraints.HORIZONTAL;
+		leftGbc.anchor = GridBagConstraints.LINE_START;
+
+		GridBagConstraints middleGbc = new GridBagConstraints();
+		middleGbc.insets = new Insets(3, 5, 2, 5);
+		middleGbc.gridwidth = 1;
+		middleGbc.fill = GridBagConstraints.HORIZONTAL;
+		middleGbc.anchor = GridBagConstraints.LINE_END;
+		//middleGbc.weightx = 1.0f;
+
+		GridBagConstraints rightGbc = new GridBagConstraints();
+		rightGbc.insets = new Insets(3, 10, 2, panelInsets.right);
+		rightGbc.gridwidth = GridBagConstraints.REMAINDER;
+		rightGbc.fill = GridBagConstraints.HORIZONTAL;
+
+		GridBagConstraints fullLineGbc = new GridBagConstraints();
+		fullLineGbc.insets = new Insets(3, panelInsets.left, 2, panelInsets.right);
+		fullLineGbc.gridwidth = GridBagConstraints.REMAINDER;
+		fullLineGbc.fill = GridBagConstraints.HORIZONTAL;
+
+		JLabel label = new JLabel("Total Value:"); 
+		label.setFont(labelFont);
+		panel.add(label, leftGbc);
+		wealthLabel.setEditable(false);
+		wealthLabel.setFont(textFont);
+		wealthLabel.setColumns(10);
+		wealthLabel.setHorizontalAlignment(JTextField.RIGHT);
+		panel.add(wealthLabel, middleGbc);
+		panel.add(createCurrencyLabel(), rightGbc);
+
+		label = new JLabel("Funds:"); 
+		label.setFont(labelFont);
+		panel.add(label, leftGbc);
+		goldField.setHorizontalAlignment(JTextField.RIGHT);
+		goldField.setFont(textFont);
+		goldField.setColumns(10);
+		panel.add(goldField, middleGbc);
+		panel.add(createCurrencyLabel(), rightGbc);
+		
+		label = new JLabel("Add or subtract funds:");
+		label.setFont(labelFont);
+		panel.add(label, fullLineGbc);
+
+		JPanel expmodPanel = new JPanel();
+		{
+			GridBagConstraints gbc2 = new GridBagConstraints();
+			gbc2.fill = GridBagConstraints.HORIZONTAL;
+			gbc2.weightx = 1.0;
+			gbc2.insets = new Insets(0, 1, 0, 1);
+			expmodPanel .add(fundsAddButton, gbc2);
+			expmodPanel.add(fundsSubtractButton, gbc2);
+		}
+		panel.add(expmodPanel, leftGbc);
+		goldModField.setHorizontalAlignment(JTextField.RIGHT);
+		goldModField.setFont(textFont);
+		panel.add(goldModField, middleGbc);
+		panel.add(createCurrencyLabel(), rightGbc);
+		
+		label = new JLabel("Buy / Sell Rate:");
+		label.setFont(labelFont);
+		fullLineGbc.insets = new Insets(20, 2, 2, 2);
+		panel.add(label, fullLineGbc);
+		buySellRateBox.setPrototypeDisplayValue("QuiteLongPrototypeDisplayValue");
+		fullLineGbc.insets = new Insets(3, 2, 2, 2);
+		panel.add(buySellRateBox, fullLineGbc);
+		
+//		fullLineGbc.weighty = 1.0f;
+//		panel.add(new JLabel(), fullLineGbc);
+		
+		moneyPanel.setLayout(new BoxLayout(moneyPanel, BoxLayout.Y_AXIS));
+		moneyPanel.add(panel);
+		moneyPanel.add(Box.createVerticalGlue());
+	}
+
+	/**
+	 * Create a new label with the currency abbreviation.
+	 * @return A new label
+	 */
+	private JLabel createCurrencyLabel()
+	{
+		JLabel label;
+		label = new JLabel("gp");
+		label.setFont(textFont);
+		return label;
+	}
+
 	private void setSelectedItem(EquipmentFacade item)
 	{
 		this.selectedItem = item;
 	}
 
-	public Hashtable<Object, Object> createModels(CharacterFacade character)
+	private enum Models
+	{
+
+		WealthHandler,
+		FundsHandler
+	}
+
+	public Hashtable<Object, Object> createModels(final CharacterFacade character)
 	{
 		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
 		state.put(AvailableTreeViewModel.class, new AvailableTreeViewModel(character));
@@ -255,10 +394,60 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		state.put(AddCustomAction.class, new AddCustomAction(character));
 		state.put(AddAction.class, new AddAction(character));
 		state.put(RemoveAction.class, new RemoveAction(character));
+		state.put(FundsAddAction.class, new FundsAddAction(character));
+		state.put(FundsSubtractAction.class, new FundsSubtractAction(character));
 		state.put(EquipInfoHandler.class, new EquipInfoHandler(character));
 		state.put(EquipmentRenderer.class, new EquipmentRenderer(character));
 		state.put(EquipmentFilterHandler.class, new EquipmentFilterHandler(character));
 		state.put(EquipmentTransferHandler.class, new EquipmentTransferHandler(character));
+
+
+		/**
+		 * Handler for the Current Funds field. This listens for and
+		 * processes both changes to the value from the character and
+		 * modifications to the field made by the user.
+		 */
+		BigDecimalFieldHandler fundsHandler = new BigDecimalFieldHandler(goldField, character.getFundsRef())
+		{
+
+			@Override
+			protected void valueChanged(BigDecimal value)
+			{
+				character.setFunds(value);
+			}
+
+		};
+		state.put(Models.FundsHandler, fundsHandler);
+
+		/**
+		 * Handler for theTotal Wealth field. This listens for and
+		 * processes changes to the value from the character.
+		 */
+		BigDecimalFieldHandler wealthHandler = new BigDecimalFieldHandler(wealthLabel, character.getWealthRef())
+		{
+
+			@Override
+			protected void valueChanged(BigDecimal value)
+			{
+				// Ignored for this read-only field
+			}
+
+		};
+		state.put(Models.WealthHandler, wealthHandler);
+		
+		CharacterComboBoxModel<GearBuySellFacade> buySellModel = new CharacterComboBoxModel<GearBuySellFacade>()
+		{
+
+			public void setSelectedItem(Object anItem)
+			{
+				character.setGearBuySellRef((GearBuySellFacade) anItem);
+			}
+
+		};
+		buySellModel.setListFacade(character.getDataSet().getGearBuySellSchemes());
+		buySellModel.setReference(character.getGearBuySellRef());
+		state.put(CharacterComboBoxModel.class, buySellModel);
+		
 		return state;
 	}
 
@@ -272,12 +461,17 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		addCustomButton.setAction((AddCustomAction) state.get(AddCustomAction.class));
 		addEquipmentButton.setAction((AddAction) state.get(AddAction.class));
 		removeEquipmentButton.setAction((RemoveAction) state.get(RemoveAction.class));
+		fundsAddButton.setAction((FundsAddAction) state.get(FundsAddAction.class));
+		fundsSubtractButton.setAction((FundsSubtractAction) state.get(FundsSubtractAction.class));
+		buySellRateBox.setModel((ComboBoxModel) state.get(CharacterComboBoxModel.class));
 		((EquipInfoHandler) state.get(EquipInfoHandler.class)).install();
 		((EquipmentFilterHandler) state.get(EquipmentFilterHandler.class)).install();
 		((EquipmentTransferHandler) state.get(EquipmentTransferHandler.class)).install();
 		((UseAutoResizeAction) state.get(UseAutoResizeAction.class)).install();
 		((AddAction) state.get(AddAction.class)).install();
 		((RemoveAction) state.get(RemoveAction.class)).install();
+		((BigDecimalFieldHandler) state.get(Models.WealthHandler)).install();
+		((BigDecimalFieldHandler) state.get(Models.FundsHandler)).install();
 	}
 
 	public void storeModels(Hashtable<Object, Object> state)
@@ -285,6 +479,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		((EquipInfoHandler) state.get(EquipInfoHandler.class)).uninstall();
 		((AddAction) state.get(AddAction.class)).uninstall();
 		((RemoveAction) state.get(RemoveAction.class)).uninstall();
+		((BigDecimalFieldHandler) state.get(Models.WealthHandler)).uninstall();
+		((BigDecimalFieldHandler) state.get(Models.FundsHandler)).uninstall();
 	}
 
 	public TabTitle getTabTitle()
@@ -426,6 +622,62 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		public void uninstall()
 		{
 			purchasedTable.removeActionListener(this);
+		}
+
+	}
+
+	/**
+	 * Handler for actions from the add funds button. Also defines 
+	 * the appearance of the button.
+	 */
+	private class FundsAddAction extends AbstractAction
+	{
+
+		private CharacterFacade character;
+
+		public FundsAddAction(CharacterFacade character)
+		{
+			this.character = character;
+			putValue(SMALL_ICON, new SignIcon(Sign.Plus));
+		}
+
+		public void actionPerformed(ActionEvent e)
+		{
+			Object value = goldModField.getValue();
+			if (value == null)
+			{
+				return;
+			}
+			BigDecimal modVal = new BigDecimal(((Number) value).doubleValue());
+			character.adjustFunds(modVal);
+		}
+
+	}
+
+	/**
+	 * Handler for actions from the subtract funds button. Also defines 
+	 * the appearance of the button.
+	 */
+	private class FundsSubtractAction extends AbstractAction
+	{
+
+		private CharacterFacade character;
+
+		public FundsSubtractAction(CharacterFacade character)
+		{
+			this.character = character;
+			putValue(SMALL_ICON, new SignIcon(Sign.Minus));
+		}
+
+		public void actionPerformed(ActionEvent e)
+		{
+			Object value = goldModField.getValue();
+			if (value == null)
+			{
+				return;
+			}
+			BigDecimal modVal = new BigDecimal(((Number) value).doubleValue()*-1);
+			character.adjustFunds(modVal);
 		}
 
 	}

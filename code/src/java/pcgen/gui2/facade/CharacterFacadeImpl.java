@@ -26,6 +26,7 @@ import java.awt.Rectangle;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -67,6 +68,7 @@ import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
+import pcgen.core.GearBuySellScheme;
 import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PCAlignment;
@@ -105,6 +107,7 @@ import pcgen.core.facade.EquipmentListFacade;
 import pcgen.core.facade.EquipmentListFacade.EquipmentListEvent;
 import pcgen.core.facade.EquipmentListFacade.EquipmentListListener;
 import pcgen.core.facade.EquipmentSetFacade;
+import pcgen.core.facade.GearBuySellFacade;
 import pcgen.core.facade.GenderFacade;
 import pcgen.core.facade.InfoFacade;
 import pcgen.core.facade.InfoFactory;
@@ -217,6 +220,9 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	private DefaultReferenceFacade<String> eyeColor;
 	private DefaultReferenceFacade<Integer> heightRef;
 	private DefaultReferenceFacade<Integer> weightRef;
+	private DefaultReferenceFacade<BigDecimal> fundsRef;
+	private DefaultReferenceFacade<BigDecimal> wealthRef;
+	private DefaultReferenceFacade<GearBuySellFacade> gearBuySellSchemeRef;
 
 	private Gui2InfoFactory infoFactory;
 	private CharacterAbilities characterAbilities;
@@ -375,7 +381,31 @@ public class CharacterFacadeImpl implements CharacterFacade,
 
 		purchasedEquip.addListListener(spellSupportFacade);
 		purchasedEquip.addEquipmentListListener(spellSupportFacade);
-		
+		fundsRef = new DefaultReferenceFacade<BigDecimal>(theCharacter.getGold());
+		wealthRef = new DefaultReferenceFacade<BigDecimal>(theCharacter.totalValue());
+		gearBuySellSchemeRef =
+				new DefaultReferenceFacade<GearBuySellFacade>(
+					findGearBuySellRate());
+	}
+
+	private GearBuySellFacade findGearBuySellRate()
+	{
+		int buyRate = SettingsHandler.getGearTab_BuyRate();
+		int sellRate = SettingsHandler.getGearTab_SellRate();
+		for (GearBuySellFacade buySell : dataSet.getGearBuySellSchemes())
+		{
+			GearBuySellScheme scheme = (GearBuySellScheme) buySell;
+			if (scheme.getBuyRate().intValue() == buyRate
+				&& scheme.getSellRate().intValue() == sellRate)
+			{
+				return scheme;
+			}
+		}
+
+		GearBuySellScheme scheme =
+				new GearBuySellScheme("Custom", new BigDecimal(buyRate),
+					new BigDecimal(sellRate), new BigDecimal(100));
+		return scheme;
 	}
 
 	/**
@@ -2662,6 +2692,65 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		scoreRef.setReference(newScore);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	public void adjustFunds(BigDecimal modVal)
+	{
+		BigDecimal currFunds = theCharacter.getGold(); 
+		theCharacter.setGold(currFunds.add(modVal));
+		updateWealthFields();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public void setFunds(BigDecimal newVal)
+	{
+		theCharacter.setGold(newVal);
+		updateWealthFields();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public ReferenceFacade<BigDecimal> getFundsRef()
+	{
+		return fundsRef;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public ReferenceFacade<BigDecimal> getWealthRef()
+	{
+		return wealthRef;
+	}
+
+	public ReferenceFacade<GearBuySellFacade> getGearBuySellRef()
+	{
+		return gearBuySellSchemeRef;
+	}
+
+	public void setGearBuySellRef(GearBuySellFacade gearBuySell)
+	{
+		gearBuySellSchemeRef.setReference(gearBuySell);
+		GearBuySellScheme scheme = (GearBuySellScheme) gearBuySell;
+		int rate = scheme.getBuyRate().intValue();
+		SettingsHandler.setGearTab_BuyRate(rate);
+		rate = scheme.getSellRate().intValue();
+		SettingsHandler.setGearTab_SellRate(rate);
+	}
+	
+	/**
+	 * Update the wealth related fields.
+	 */
+	private void updateWealthFields()
+	{
+		fundsRef.setReference(theCharacter.getGold());
+		wealthRef.setReference(theCharacter.totalValue());
+	}
+
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getPurchasedEquipment()
 	 */
@@ -2693,6 +2782,14 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		}
 		Equipment updatedItem =
 				theCharacter.getEquipmentNamed(equipItemToAdjust.getName());
+		
+		if (!canAfford(equipItemToAdjust, quantity, SettingsHandler.getGearTab_BuyRate()))
+		{
+			delegate.showInfoMessage(Constants.APPLICATION_NAME, 
+				LanguageBundle.getFormattedString("in_igBuyInsufficientFunds", quantity, //$NON-NLS-1$
+					equipItemToAdjust.getName()));
+			return;
+		}
 
 		if (updatedItem != null)
 		{
@@ -2742,10 +2839,60 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		}
 
 		// Update the PC and equipment
+		double itemCost =
+				calcItemCost(updatedItem, quantity,
+					SettingsHandler.getGearTab_BuyRate());
+		theCharacter.adjustGold(itemCost*-1);
 		theCharacter.setCalcEquipmentList();
 		theCharacter.setDirty(true);
+		updateWealthFields();
 	}
 
+
+	/**
+	 * This method is called to determine whether the character can afford to buy
+	 * the requested quantity of an item at the rate selected.
+	 * @param selected Equipment item being bought, used to determine the base price
+	 * @param purchaseQty double number of the item bought
+	 * @param buyRate int rate (typically 0-100) at which to buy an item
+	 *
+	 * This method was overhauled March, 2003 by sage_sam as part of FREQ 606205
+	 * @return true if it can be afforded
+	 */
+	private boolean canAfford(Equipment selected, double purchaseQty,
+		int buyRate)
+	{
+		final float currentFunds = theCharacter.getGold().floatValue();
+
+		final double itemCost =
+				calcItemCost(selected, purchaseQty, buyRate);
+
+		return /*allowDebtBox.isSelected() ||*/ (itemCost <= currentFunds);
+	}
+
+	private double calcItemCost(Equipment selected, double purchaseQty, int buyRate)
+	{
+		return (purchaseQty * buyRate) * (float) 0.01
+			* selected.getCost(theCharacter).floatValue();
+	}
+
+	/**
+	 * This method adjusts the character's gold in the event an item is bought or sold.
+	 * @param base Equipment item being bought/sold, used to determine the base price
+	 * @param diffQty double number of the item bought/sold
+	 * @param buyRate int rate (typically 0-100) at which to buy an item
+	 * @param sellRate int rate (typically 0-100) at which to sell an item
+	 *
+	 * This method was overhauled March, 2003 by sage_sam as part of FREQ 606205
+	 */
+	private void adjustGold(Equipment base, double diffQty, int buyRate,
+		int sellRate)
+	{
+		double itemCost = -1* calcItemCost(base, diffQty, diffQty > 0 ? buyRate : sellRate);
+
+		theCharacter.adjustGold(itemCost);
+	}
+	
 	private Equipment openCustomizer(Equipment aEq)
 	{
 		if (aEq != null)
@@ -2826,8 +2973,13 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		}
 
 		// Update the PC and equipment
+		double itemCost =
+				calcItemCost(updatedItem, quantity,
+					SettingsHandler.getGearTab_SellRate());
+		theCharacter.adjustGold(itemCost);
 		theCharacter.setCalcEquipmentList();
 		theCharacter.setDirty(true);
+		updateWealthFields();
 	}
 
 	/* (non-Javadoc)
