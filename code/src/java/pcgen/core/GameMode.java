@@ -1173,7 +1173,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Currency abbreviation
 	 * @return currency unit abbreviation
 	 */
-	String getCurrencyDisplay()
+	public String getCurrencyDisplay()
 	{
 		return currencyUnitAbbrev;
 	}

@@ -217,7 +217,21 @@ public interface CharacterFacade
 	 */
 	public ReferenceFacade<GearBuySellFacade> getGearBuySellRef();
 
+	/**
+	 * Set a new buy sell rate scheme for the character.
+	 * @param scheme The new buy sell rate scheme.
+	 */
 	public void setGearBuySellRef(GearBuySellFacade scheme);
+
+	/**
+	 * @param allowed Is the character allowed to spend more funds than they have.
+	 */
+	public void setAllowDebt(boolean allowed);
+
+	/**
+	 * @return True if the character is allowed to spend more funds than they have.
+	 */
+	public boolean isAllowDebt();
 	
 	public ListFacade<EquipmentSetFacade> getEquipmentSets();
 

@@ -58,5 +58,10 @@ public interface GameModeFacade
 	 * @return add with meta magic message
 	 */
 	public String getAddWithMetamagicMessage();
+
+	/**
+	 * @return The abbreviation for the currency unit.
+	 */
+	public String getCurrencyDisplay();
 	
 }

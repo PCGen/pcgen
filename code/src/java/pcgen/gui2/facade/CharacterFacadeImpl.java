@@ -229,6 +229,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	private DescriptionFacade descriptionFacade;
 	private SpellSupportFacadeImpl spellSupportFacade;
 	private TodoManager todoManager;
+	private boolean allowDebt;
 
 	/**
 	 * Create a new character. The character will be blank with no race, 
@@ -386,6 +387,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		gearBuySellSchemeRef =
 				new DefaultReferenceFacade<GearBuySellFacade>(
 					findGearBuySellRate());
+		allowDebt = false;
 	}
 
 	private GearBuySellFacade findGearBuySellRate()
@@ -2751,6 +2753,25 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		wealthRef.setReference(theCharacter.totalValue());
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void setAllowDebt(boolean allowDebt)
+	{
+		this.allowDebt = allowDebt;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isAllowDebt()
+	{
+		return allowDebt;
+	}
+
+
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getPurchasedEquipment()
 	 */
@@ -2867,7 +2888,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		final double itemCost =
 				calcItemCost(selected, purchaseQty, buyRate);
 
-		return /*allowDebtBox.isSelected() ||*/ (itemCost <= currentFunds);
+		return allowDebt || (itemCost <= currentFunds);
 	}
 
 	private double calcItemCost(Equipment selected, double purchaseQty, int buyRate)
