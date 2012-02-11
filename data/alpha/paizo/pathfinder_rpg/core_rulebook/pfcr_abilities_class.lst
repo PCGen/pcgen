@@ -951,6 +951,9 @@ Change Shape				KEY:Change Shape ~ Transmutation School		CATEGORY:Special Abilit
 Hand of the Apprentice	KEY:Hand of the Apprentice ~ Universal School	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.ArcaneSchoolPower.CheckList	DEFINE:UniversalHandOfTheApprenticeTimes|0	DESC:You can cause your melee weapon to fly from your grasp and strike a foe before instantly returning to you. As a standard action, you can make a single attack using a melee weapon at a range of 30 feet. This attack is treated as a ranged attack with a thrown weapon, except that you add your Intelligence modifier on the attack roll instead of your Dexterity modifier (damage still relies on Strength). This ability cannot be used to perform a combat maneuver. You can use this ability %1 times per day.|UniversalHandOfTheApprenticeTimes																		BONUS:VAR|UniversalHandOfTheApprenticeTimes|INT+3				SOURCEPAGE:p.82	ASPECT:CheckCount|%1|UniversalHandOfTheApprenticeTimes	ASPECT:CheckType|Uses per day
 Metamagic Mastery		KEY:Metamagic Mastery ~ Universal School		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.ArcaneSchoolPower.CheckList	DEFINE:UniversalMetamagicMasteryTimes|0		DESC:You can apply any one metamagic feat that you know to a spell you are about to cast. This does not alter the level of the spell or the casting time. You can use this ability %1 per day. Any time you use this ability to apply a metamagic feat that increases the spell level by more than 1, you must use an additional daily usage for each level above 1 that the feat adds to the spell. Even though this ability does not modify the spell's actual level, you cannot use this ability to cast a spell whose modified spell level would be above the level of the highest-level spell that you are capable of casting.|UniversalMetamagicMasteryTimes	BONUS:VAR|UniversalMetamagicMasteryTimes|(UniversalSchoolLVL-8)/2+1	SOURCEPAGE:p.82	ASPECT:CheckCount|%1|UniversalMetamagicMasteryTimes	ASPECT:CheckType|Uses per day
 
+
+Free Spell Book		CATEGORY:Internal	TEMPLATE:Spellbook
+
 ###Block: Expert Abilities --------------------------------------------------------------------------------------------------------------------------------
 # Ability Name			Unique Key						Category of Ability		Type				Visible		Description										Stackable?	Multiple?	Choose			Class Skill	Source Page		Description of the Benefits
 Expert Class Skills									CATEGORY:Special Ability	TYPE:ExpertClassSkills	VISIBLE:DISPLAY												STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|ALL	CSKILL:LIST	SOURCEPAGE:p.450
@@ -964,9 +967,8 @@ Martial Weapon Proficiency	KEY:Martial Weapon Proficiency Output	CATEGORY:FEAT		
 
 Wizard / Remove Scribe Scroll	CATEGORY:Archetype	TYPE:ACF.ScribeScroll	COST:0
 
-
 CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Archetype Display
-
+#
 Archetype Display	VISIBLE:NO	CATEGORY:Internal
 
 CATEGORY=Internal|Archetype Display.MOD		ABILITY:Barbarian Archetype|AUTOMATIC|Archetype Barbarian|PRECLASS:1,Barbarian=1
