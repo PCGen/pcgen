@@ -427,29 +427,14 @@ public interface CharacterFacade
 	public ListFacade<DomainFacade> getAvailableDomains();
 
 	public ListFacade<LanguageFacade> getLanguages();
-//
-//	public void setBonusLanguages(List<LanguageFacade> languages);
-//
-//	public void setSkillLanguages(List<LanguageFacade> language);
 
 	public ListFacade<LanguageChooserFacade> getLanguageChoosers();
-//
-//	/**
-//	 * @return The number of bonus languages the character has remaining to be selected
-//	 */
-//	public ReferenceFacade<Integer> getNumBonusLanguagesOutstanding();
-//
-//	/**
-//	 * @return The number of languages from skills that the character has remaining to be selected
-//	 */
-//	public ReferenceFacade<Integer> getNumSkillLanguagesOutstanding();
-//
-//	/**
-//	 * @return The list of valid selections for bonus languages for this character.
-//	 */
-//	public List<LanguageFacade> getAvailBonusLangages();
-//
-//	public List<LanguageFacade> getCurrBonusLangages();
+
+	/**
+	 * Remove a bonus language from the character.
+	 * @param lang The language to be removed
+	 */
+	public void removeLanguage(LanguageFacade lang);
 
 	/**
 	 * Write the character details, as defined by the export handler to the writer.

@@ -88,6 +88,8 @@ import pcgen.core.Skill;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.character.EquipSet;
+import pcgen.core.chooser.ChoiceManagerList;
+import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.facade.AbilityCategoryFacade;
 import pcgen.core.facade.AbilityFacade;
 import pcgen.core.facade.AlignmentFacade;
@@ -2092,53 +2094,16 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getLanguages()
 	 */
+	@Override
 	public ListFacade<LanguageFacade> getLanguages()
 	{
 		return languages;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterFacade#setLanguages(java.util.List)
+	/**
+	 * {@inheritDoc}
 	 */
-	public void setLanguages(List<LanguageFacade> languageList)
-	{
-		languages.setContents(languageList);
-		autoLanguagesCache = null;
-	}
-
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterFacade#getAvailBonusLangages()
-	 */
-	public List<LanguageFacade> getAvailBonusLangages()
-	{
-		return new ArrayList<LanguageFacade>(availableBonusLangs);
-	}
-
-
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterFacade#getCurrBonusLangages()
-	 */
-	public List<LanguageFacade> getCurrBonusLangages()
-	{
-		return new ArrayList<LanguageFacade>(currBonusLangs);
-	}
-	
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterFacade#getNumBonusLanguagesOutstanding()
-	 */
-	public ReferenceFacade<Integer> getNumBonusLanguagesOutstanding()
-	{
-		return numBonusLang;
-	}
-
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterFacade#getNumSkillLanguagesOutstanding()
-	 */
-	public ReferenceFacade<Integer> getNumSkillLanguagesOutstanding()
-	{
-		return numSkillLang;
-	}
-
+	@Override
 	public ListFacade<LanguageChooserFacade> getLanguageChoosers()
 	{
 		Ability a =
@@ -2153,6 +2118,51 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			chooserList.addElement(new LanguageChooserFacadeImpl(this, "Language via Skill points", (Skill) speakLangSkill));
 		}
 		return chooserList;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void removeLanguage(LanguageFacade lang)
+	{
+		CDOMObject owner = getLaguageOwner(lang);
+		if (owner == null)
+		{
+			return;
+		}
+
+		List<Language> availLangs = new ArrayList<Language>();
+		List<Language> selLangs = new ArrayList<Language>();
+		ChoiceManagerList<Language> choiceManager =
+				ChooserUtilities.getChoiceManager(owner, theCharacter);
+		choiceManager.getChoices(theCharacter, availLangs, selLangs);
+		selLangs.remove(lang);
+		choiceManager.applyChoices(theCharacter, selLangs);
+
+		// Update list on character facade
+		refreshLanguageList();
+	}
+
+	/**
+	 * Identify the object that the language is associated with. i.e. The rules 
+	 * object that granted the ability to use the language. 
+	 * @param lang The language to be found.
+	 * @return The granting rules object, or null if none or automatic.
+	 */
+	private CDOMObject getLaguageOwner(LanguageFacade lang)
+	{
+		if (currBonusLangs.contains(lang))
+		{
+			return Globals.getContext().ref
+					.silentlyGetConstructedCDOMObject(Ability.class,
+							AbilityCategory.LANGBONUS, "*LANGBONUS");
+		}
+		else if (languages.containsElement(lang) && !isAutomatic(lang))
+		{
+			return  (Skill) dataSet.getSpeakLanguageSkill();
+		}
+		return null;
 	}
 
 	/* (non-Javadoc)

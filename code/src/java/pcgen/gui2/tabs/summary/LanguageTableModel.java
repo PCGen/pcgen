@@ -28,6 +28,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
+
 import javax.swing.AbstractCellEditor;
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -38,6 +39,7 @@ import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
+
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.LanguageChooserFacade;
 import pcgen.core.facade.LanguageFacade;
@@ -49,7 +51,6 @@ import pcgen.gui2.dialog.LanguageChooserDialog;
 import pcgen.gui2.tabs.Utilities;
 import pcgen.gui2.util.SignIcon.Sign;
 import pcgen.gui2.util.table.TableCellUtilities;
-import pcgen.util.Logging;
 
 public class LanguageTableModel extends AbstractTableModel
 		implements MouseMotionListener, ListListener<LanguageFacade>
@@ -245,9 +246,8 @@ public class LanguageTableModel extends AbstractTableModel
 			}
 			else
 			{
-				//TODO: Remove button action
-				Logging.errorPrint("Ignoring request to remove language "
-						+ getValueAt(table.getEditingRow(), 0));
+				LanguageFacade lang = (LanguageFacade) getValueAt(table.getEditingRow(), 0);
+				character.removeLanguage(lang);
 			}
 			cancelCellEditing();
 		}
