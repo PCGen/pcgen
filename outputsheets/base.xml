@@ -3275,7 +3275,7 @@ Immune
 |ENDFOR|
 			</spellbook>
 |%|
-|ENDFOR|
+|ENDFOR|				
 |ENDFOR|
 |ENDFOR|
 		</class_innate>

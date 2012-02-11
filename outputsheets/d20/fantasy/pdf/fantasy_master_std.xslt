@@ -217,12 +217,12 @@
 			<fo:table-body>
 				<fo:table-row keep-with-next="always" keep-together="always">
 					<fo:table-cell text-align="start"  wrap-option="no-wrap" border-top-color="black" border-top-style="solid" border-top-width="0.1pt" background-color="transparent" padding-top="2pt">
-						<fo:block font-size="5pt" font-weight="bold">Character: <xsl:value-of select="/character/basics/name"/> [Level: <xsl:value-of select="/character/basics/classes/levels_total"/>]</fo:block>
+						<fo:block font-size="5pt" font-weight="bold">Character: <xsl:value-of select="/character/basics/name"/> [Level:<xsl:value-of select="/character/basics/classes/levels_total"/> / CR:<xsl:value-of select="/character/basics/cr"/>]</fo:block>
 						<fo:block font-size="5pt" font-weight="bold">Player: <xsl:value-of select="/character/basics/playername"/></fo:block>
 					</fo:table-cell>
 					<fo:table-cell text-align="center" wrap-option="no-wrap" border-top-color="black" border-top-style="solid" border-top-width="0.1pt" background-color="transparent" padding-top="2pt">
 						<fo:block text-align="center" font-size="5pt">PCGen Character Template by Frugal, based on work by ROG, Arcady, Barak, Dimrill &amp; Dekker.</fo:block>
-						<fo:block text-align="center" font-size="5pt">Created using PCGen <xsl:value-of select="export/version"/> on <xsl:value-of select="/character/export/date"/><xsl:text> at </xsl:text><xsl:value-of select="/character/export/time"/></fo:block>
+						<fo:block text-align="center" font-size="5pt">Created using PCGen <xsl:value-of select="/character/export/version"/> on <xsl:value-of select="/character/export/date"/><xsl:text> at </xsl:text><xsl:value-of select="/character/export/time"/></fo:block>
 					</fo:table-cell>
 					<fo:table-cell text-align="end" border-top-color="black" border-top-style="solid" border-top-width="0.1pt" background-color="transparent" padding-top="2pt">
 						<fo:block font-size="7pt">Page <fo:page-number/>
