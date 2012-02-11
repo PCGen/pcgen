@@ -470,11 +470,11 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 						.getString("in_portrait"), "");
 			nodesToBeAddedList.add(order++, portraitNote);
 
-			bioNote = new NoteItem(BIO_NOTEID, -1, "Bio", pc.getBio());
+			bioNote = new NoteItem(BIO_NOTEID, -1, "Bio", pc.getDisplay().getBio());
 			nodesToBeAddedList.add(order++, bioNote);
 			descriptionNote =
 					new NoteItem(DESCRIPTION_NOTEID, -1, LanguageBundle
-						.getString("in_descrip"), pc.getDescription());
+						.getString("in_descrip"), pc.getDisplay().getDescription());
 			nodesToBeAddedList.add(order++, descriptionNote);
 			companionNote =
 					new NoteItem(COMPANION_NOTEID, -1, LanguageBundle
@@ -1789,7 +1789,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 		if (!pcRace.equals(Globals.s_EMPTYRACE))
 		{
-			handedComboBox.setSelectedItem(pc.getHanded());
+			handedComboBox.setSelectedItem(pc.getDisplay().getHanded());
 			genderComboBox.setSelectedItem(pc.getGenderObject());
 			genderComboBox.setEnabled(pc.canSetGender());
 			wtText.setText(Globals.getGameModeUnitSet().displayWeightInUnitSet(
@@ -1816,21 +1816,21 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		updateDisplayedAge();
 		playerNameText.setText(pc.getPlayersName());
 		txtName.setText(pc.getName());
-		skinText.setText(pc.getSkinColor());
+		skinText.setText(pc.getDisplay().getSkinColor());
 		fregionText.setText(pc.getFullRegion());
-		hairColorText.setText(pc.getHairColor());
-		hairStyleText.setText(pc.getHairStyle());
-		eyeColorText.setText(pc.getEyeColor());
-		speechPatternText.setText(pc.getSpeechTendency());
-		phobiaText.setText(pc.getPhobias());
-		interestsText.setText(pc.getInterests());
-		catchPhraseText.setText(pc.getCatchPhrase());
-		personality1Text.setText(pc.getTrait1());
-		personality2Text.setText(pc.getTrait2());
+		hairColorText.setText(pc.getDisplay().getHairColor());
+		hairStyleText.setText(pc.getDisplay().getHairStyle());
+		eyeColorText.setText(pc.getDisplay().getEyeColor());
+		speechPatternText.setText(pc.getDisplay().getSpeechTendency());
+		phobiaText.setText(pc.getDisplay().getPhobias());
+		interestsText.setText(pc.getDisplay().getInterests());
+		catchPhraseText.setText(pc.getDisplay().getCatchPhrase());
+		personality1Text.setText(pc.getDisplay().getTrait1());
+		personality2Text.setText(pc.getDisplay().getTrait2());
 		residenceText.setText(pc.getResidence());
-		locationText.setText(pc.getLocation());
+		locationText.setText(pc.getDisplay().getLocation());
 		birthplaceText.setText(pc.getBirthplace());
-		birthdayText.setText(pc.getBirthday());
+		birthdayText.setText(pc.getDisplay().getBirthday());
 
 		if (portrait != null)
 		{

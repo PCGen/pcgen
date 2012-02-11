@@ -308,7 +308,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		{
 			for (SimpleFacade handsFacade : pc.getRace().getHands())
 			{
-				if (handsFacade.toString().equals(pc.getHanded()))
+				if (handsFacade.toString().equals(pc.getDisplay().getHanded()))
 				{
 					handedness.setReference(handsFacade);
 					break;
@@ -334,9 +334,9 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		xpTableName = new DefaultReferenceFacade<String>(pc.getXPTableName());
 		hpRef = new DefaultReferenceFacade<Integer>(pc.hitPoints());
 
-		skinColor = new DefaultReferenceFacade<String>(pc.getSkinColor());
-		hairColor = new DefaultReferenceFacade<String>(pc.getHairColor());
-		eyeColor = new DefaultReferenceFacade<String>(pc.getEyeColor());
+		skinColor = new DefaultReferenceFacade<String>(pc.getDisplay().getSkinColor());
+		hairColor = new DefaultReferenceFacade<String>(pc.getDisplay().getHairColor());
+		eyeColor = new DefaultReferenceFacade<String>(pc.getDisplay().getEyeColor());
 		weightRef = new DefaultReferenceFacade<Integer>(pc.getWeight());
 		heightRef = new DefaultReferenceFacade<Integer>(pc.getHeight());
 		
@@ -1612,7 +1612,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	 */
 	public boolean getExportBioField(BiographyField field)
 	{
-		return !theCharacter.getSuppressBioField(field);
+		return !theCharacter.getDisplay().getSuppressBioField(field);
 	}
 	
 	/**

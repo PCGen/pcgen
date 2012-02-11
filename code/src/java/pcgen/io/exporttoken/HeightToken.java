@@ -60,7 +60,7 @@ public class HeightToken extends Token
 	{
 		String retString = "";
 
-		if (!pc.getSuppressBioField(BiographyField.HEIGHT))
+		if (!pc.getDisplay().getSuppressBioField(BiographyField.HEIGHT))
 		{
 			if ("HEIGHT".equals(tokenSource))
 			{

@@ -73,7 +73,7 @@ public class WeightToken extends Token
 	{
 		String retString = "";
 
-		if (!pc.getSuppressBioField(BiographyField.WEIGHT))
+		if (!pc.getDisplay().getSuppressBioField(BiographyField.WEIGHT))
 		{
 			if ("WEIGHT".equals(tokenSource))
 			{

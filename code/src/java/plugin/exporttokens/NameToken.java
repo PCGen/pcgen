@@ -57,7 +57,7 @@ public class NameToken extends Token
 
 	public static String getNameToken(PlayerCharacter pc)
 	{
-		if (pc.getSuppressBioField(BiographyField.NAME))
+		if (pc.getDisplay().getSuppressBioField(BiographyField.NAME))
 		{
 			return "";
 		}

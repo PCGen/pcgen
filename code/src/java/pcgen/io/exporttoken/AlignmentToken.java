@@ -57,7 +57,7 @@ public class AlignmentToken extends Token
 	{
 		String retString = "";
 		
-		if (!pc.getSuppressBioField(BiographyField.ALIGNMENT))
+		if (!pc.getDisplay().getSuppressBioField(BiographyField.ALIGNMENT))
 		{
 			if ("ALIGNMENT".equals(tokenSource))
 			{

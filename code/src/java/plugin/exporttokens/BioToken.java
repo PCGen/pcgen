@@ -25,9 +25,9 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * Handles BIO Output Token
@@ -36,28 +36,25 @@ import pcgen.io.exporttoken.Token;
  * BIO,text delimiter
  * BIO[.beforevalue[.aftervalue]]
  */
-public class BioToken extends Token
+public class BioToken extends AbstractExportToken
 {
-	/** The tokenname implemented by this class. */
-	public static final String TOKENNAME = "BIO";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "BIO";
 	}
 
 	/**
 	 * TODO  Could expand Token itself or even create a sub class of Token so that
 	 * the beforeValue and afterValue can be handled more cleanly. 
 	 *
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
+	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
 		String beforeValue = "";
@@ -87,7 +84,7 @@ public class BioToken extends Token
 		}
 
 		return beforeValue
-			+ pc.getBio().replaceAll("\n", afterValue + "\n" + beforeValue)
+			+ display.getBio().replaceAll("\n", afterValue + "\n" + beforeValue)
 			+ afterValue;
 	}
 }

@@ -25,37 +25,30 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 //PHOBIAS
-public class PhobiasToken extends Token
+public class PhobiasToken extends AbstractExportToken
 {
-	public static final String TOKENNAME = "PHOBIAS";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "PHOBIAS";
 	}
 
-	//TODO: Move this to a token that has all of teh descriptive stuff about a cahracter
+	//TODO: Move this to a token that has all of the descriptive stuff about a PC
 	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
+	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return getPhobiasToken(pc);
-	}
-
-	public static String getPhobiasToken(PlayerCharacter pc)
-	{
-		return pc.getPhobias();
+		return display.getPhobias();
 	}
 }

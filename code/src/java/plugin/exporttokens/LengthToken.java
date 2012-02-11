@@ -25,52 +25,40 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * LENGTH.HAIR Token
  */
-public class LengthToken extends Token
+public class LengthToken extends AbstractExportToken
 {
-	/** Token name */
-	public static final String TOKENNAME = "LENGTH";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "LENGTH";
 	}
 
-	//TODO: A new token needs to be made that has crap like this as a subtoken.
+	//TODO: A new token needs to be made that has stuff like this as a subtoken.
 	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
+	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
 		String retString = "";
 
 		if ("LENGTH.HAIR".equals(tokenSource))
 		{
-			retString = getHairToken(pc);
+			retString = display.getHairStyle();
 		}
 
 		return retString;
 	}
 
-	/**
-	 * Get the hair length token
-	 * @param pc
-	 * @return the hair length token
-	 */
-	public static String getHairToken(PlayerCharacter pc)
-	{
-		return pc.getHairStyle();
-	}
 }

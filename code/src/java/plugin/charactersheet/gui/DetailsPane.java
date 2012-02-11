@@ -879,9 +879,9 @@ public class DetailsPane extends javax.swing.JPanel
 			deity.setText(" ");
 		}
 		height.setText(HeightToken.getHeightToken(pc) + ' ');
-		eyes.setText(pc.getEyeColor() + ' ');
+		eyes.setText(pc.getDisplay().getEyeColor() + ' ');
 		weight.setText(WeightToken.getWeightToken(pc) + ' ');
-		hair.setText(pc.getHairColor() + ' ');
+		hair.setText(pc.getDisplay().getHairColor() + ' ');
 
 		alignment.setText(AlignmentToken.getAlignmentToken(pc) + ' ');
 		vision.setText(VisionDisplay.getVision(pc) + ' ');

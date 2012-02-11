@@ -26,48 +26,35 @@
 package plugin.exporttokens;
 
 import pcgen.cdom.enumeration.BiographyField;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * Deals with HANDED token
  */
-public class HandedToken extends Token
+public class HandedToken extends AbstractExportToken
 {
-	/** Token name */
-	public static final String TOKENNAME = "HANDED";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "HANDED";
 	}
 
 	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
+	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return getHandedToken(pc);
-	}
-
-	/**
-	 * Get HANDED token given a PC
-	 * @param pc
-	 * @return HANDED token
-	 */
-	public static String getHandedToken(PlayerCharacter pc)
-	{
-		if (pc.getSuppressBioField(BiographyField.HANDED))
+		if (display.getSuppressBioField(BiographyField.HANDED))
 		{
 			return "";
 		}
-		return pc.getHanded();
+		return display.getHanded();
 	}
 }

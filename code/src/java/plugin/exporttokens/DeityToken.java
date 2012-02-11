@@ -103,14 +103,14 @@ public class DeityToken extends Token
 
 			if ("NAME".equals(subTag))
 			{
-				if (!pc.getSuppressBioField(BiographyField.DEITY))
+				if (!pc.getDisplay().getSuppressBioField(BiographyField.DEITY))
 				{
 					retString = deity.getDisplayName();
 				}
 			}
 			else if ("OUTPUTNAME".equals(subTag))
 			{
-				if (!pc.getSuppressBioField(BiographyField.DEITY))
+				if (!pc.getDisplay().getSuppressBioField(BiographyField.DEITY))
 				{
 					retString = OutputNameFormatting.getOutputName(deity);
 				}

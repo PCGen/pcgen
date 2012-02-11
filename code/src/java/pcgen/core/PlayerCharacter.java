@@ -128,6 +128,7 @@ import pcgen.core.character.EquipSlot;
 import pcgen.core.character.Follower;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
@@ -165,6 +166,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private CharID id = new CharID();
 	private final SAtoStringProcessor SA_TO_STRING_PROC;
 	private final SAProcessor SA_PROC;
+	private final CharacterDisplay display = new CharacterDisplay(id);
 
 	/*
 	 * Note "pure" here means no getDirty call, and absolutely no other stuff in
@@ -559,16 +561,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get the BIO.
-	 * 
-	 * @return the BIO
-	 */
-	public String getBio()
-	{
-		return getSafeStringFor(StringKey.BIO);
-	}
-
-	/**
 	 * Set the birthday.
 	 * 
 	 * @param birthday the birthday to be set
@@ -576,16 +568,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public void setBirthday(final String birthday)
 	{
 		setStringFor(StringKey.BIRTHDAY, birthday);
-	}
-
-	/**
-	 * Get the birthday.
-	 * 
-	 * @return birthday
-	 */
-	public String getBirthday()
-	{
-		return getSafeStringFor(StringKey.BIRTHDAY);
 	}
 
 	/**
@@ -839,16 +821,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get the catchphrase.
-	 * 
-	 * @return catchphrase
-	 */
-	public String getCatchPhrase()
-	{
-		return getSafeStringFor(StringKey.CATCH_PHRASE);
-	}
-
-	/**
 	 * Get a class, represented by a given key, from among those possessed by this pc.
 	 * 
 	 * @param key the class's key
@@ -1033,16 +1005,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public void setDescription(final String aString)
 	{
 		setStringFor(StringKey.DESCRIPTION, aString);
-	}
-
-	/**
-	 * Get the description.
-	 * 
-	 * @return description
-	 */
-	public String getDescription()
-	{
-		return getSafeStringFor(StringKey.DESCRIPTION);
 	}
 
 	/**
@@ -1413,16 +1375,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get the characters eye colour.
-	 * 
-	 * @return the colour of their eyes
-	 */
-	public String getEyeColor()
-	{
-		return getSafeStringFor(StringKey.EYE_COLOR);
-	}
-
-	/**
 	 * Get a number that represents the number of feats added to this character
 	 * by BONUS statements.
 	 * 
@@ -1696,16 +1648,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Gets the character's hair color.
-	 * 
-	 * @return A hair color string.
-	 */
-	public String getHairColor()
-	{
-		return getSafeStringFor(StringKey.HAIR_COLOR);
-	}
-
-	/**
 	 * Sets the character's hair style.
 	 * 
 	 * @param aString
@@ -1714,16 +1656,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public void setHairStyle(final String aString)
 	{
 		setStringFor(StringKey.HAIR_STYLE, aString);
-	}
-
-	/**
-	 * Gets the character's hair style.
-	 * 
-	 * @return The character's hair style.
-	 */
-	public String getHairStyle()
-	{
-		return getSafeStringFor(StringKey.HAIR_STYLE);
 	}
 
 	/**
@@ -1738,16 +1670,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public void setHanded(final String aString)
 	{
 		setStringFor(StringKey.HANDED, aString);
-	}
-
-	/**
-	 * Returns the character's handedness string.
-	 * 
-	 * @return A String for handedness.
-	 */
-	public String getHanded()
-	{
-		return getSafeStringFor(StringKey.HANDED);
 	}
 
 	/**
@@ -1805,16 +1727,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Gets a string of interests for the character.
-	 * 
-	 * @return A String of interests or an empty string.
-	 */
-	public String getInterests()
-	{
-		return getSafeStringFor(StringKey.INTERESTS);
-	}
-
-	/**
 	 * Gets the character's list of languages.
 	 * 
 	 * @return An unmodifiable language set.
@@ -1846,16 +1758,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public void setLocation(final String aString)
 	{
 		setStringFor(StringKey.LOCATION, aString);
-	}
-
-	/**
-	 * Gets the character's location.
-	 * 
-	 * @return The character's location.
-	 */
-	public String getLocation()
-	{
-		return getSafeStringFor(StringKey.LOCATION);
 	}
 
 	/**
@@ -2323,16 +2225,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Gets the phobia string for the character.
-	 * 
-	 * @return A phobia string.
-	 */
-	public String getPhobias()
-	{
-		return getSafeStringFor(StringKey.PHOBIAS);
-	}
-
-	/**
 	 * Sets the name of the player for this character.
 	 * 
 	 * @param aString
@@ -2717,16 +2609,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get skin colour.
-	 * 
-	 * @return skin colour
-	 */
-	public String getSkinColor()
-	{
-		return getSafeStringFor(StringKey.SKIN_COLOR);
-	}
-
-	/**
 	 * Get list of special abilities.
 	 * 
 	 * @return List of special abilities
@@ -2825,16 +2707,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public void setSpeechTendency(final String tendency)
 	{
 		setStringFor(StringKey.SPEECH_TENDENCY, tendency);
-	}
-
-	/**
-	 * Get speech tendency.
-	 * 
-	 * @return speech tendency
-	 */
-	public String getSpeechTendency()
-	{
-		return getSafeStringFor(StringKey.SPEECH_TENDENCY);
 	}
 
 	/**
@@ -3092,16 +2964,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Get trait 1.
-	 * 
-	 * @return trait 1
-	 */
-	public String getTrait1()
-	{
-		return getSafeStringFor(StringKey.TRAIT1);
-	}
-
-	/**
 	 * Set trait 2.
 	 * 
 	 * @param aString the trait.
@@ -3110,20 +2972,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	{
 		setStringFor(StringKey.TRAIT2, aString);
 	}
-
-	/**
-	 * Get trait 2.
-	 * 
-	 * @return trait 2
-	 */
-	public String getTrait2()
-	{
-		return getSafeStringFor(StringKey.TRAIT2);
-	}
-
-	/* TODO This should call getPObjectList() to get a list of PObjects to test against.
-	 * I don't want to change the behaviour for now however.
-	*/
 
 	/**
 	 * Evaluates the variable string passed in and returns its value.
@@ -12665,5 +12513,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public List<? extends SpecialAbility> getUserSpecialAbilityList(CDOMObject source)
 	{
 		return userSpecialAbilityFacet.getSet(id, source);
+	}
+
+	public CharacterDisplay getDisplay()
+	{
+		return display;
 	}
 }

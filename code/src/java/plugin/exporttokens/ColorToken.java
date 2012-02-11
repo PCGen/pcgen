@@ -26,9 +26,9 @@
 package plugin.exporttokens;
 
 import pcgen.cdom.enumeration.BiographyField;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * Deal with tokens:
@@ -36,80 +36,68 @@ import pcgen.io.exporttoken.Token;
  * COLOR.HAIR
  * COLOR.SKIN
  */
-public class ColorToken extends Token
+public class ColorToken extends AbstractExportToken
 {
-	/** Token name */
-	public static final String TOKENNAME = "COLOR";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "COLOR";
 	}
 
 	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
+	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
 		String retString = "";
 
 		if ("COLOR.EYE".equals(tokenSource))
 		{
-			retString = getEyeToken(pc);
+			retString = display.getEyeColor();
 		}
 		else if ("COLOR.HAIR".equals(tokenSource))
 		{
-			retString = getHairToken(pc);
+			retString = getHairToken(display);
 		}
 		else if ("COLOR.SKIN".equals(tokenSource))
 		{
-			retString = getSkinToken(pc);
+			retString = getSkinToken(display);
 		}
 
 		return retString;
 	}
 
 	/**
-	 * Get the EYE token
-	 * @param pc the character being exported
-	 * @return token
-	 */
-	public static String getEyeToken(PlayerCharacter pc)
-	{
-		return pc.getEyeColor();
-	}
-
-	/**
 	 * Get the Hair token 
-	 * @param pc the character being exported
+	 * @param display the display for the character being exported
 	 * @return skin color
 	 */
-	public static String getHairToken(PlayerCharacter pc)
+	private static String getHairToken(CharacterDisplay display)
 	{
-		if (pc.getSuppressBioField(BiographyField.HAIR_COLOR))
+		if (display.getSuppressBioField(BiographyField.HAIR_COLOR))
 		{
 			return "";
 		}
-		return pc.getHairColor();
+		return display.getHairColor();
 	}
 
 	/**
 	 * Get the skin token
-	 * @param pc the character being exported
+	 * @param display the display of the character being exported
 	 * @return skin color
 	 */
-	public static String getSkinToken(PlayerCharacter pc)
+	private static String getSkinToken(CharacterDisplay display)
 	{
-		if (pc.getSuppressBioField(BiographyField.SKIN_TONE))
+		if (display.getSuppressBioField(BiographyField.SKIN_TONE))
 		{
 			return "";
 		}
-		return pc.getSkinColor();
+		return display.getSkinColor();
 	}
+
 }

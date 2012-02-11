@@ -185,14 +185,14 @@ public class BioSetTest extends AbstractCharacterTestCase
 		assertTrue("Generated weight " + pc.getWeight()
 			+ " is not in required range.", (pc.getWeight() >= 120 && pc
 			.getWeight() <= 280));
-		assertTrue("Generated eye colour " + pc.getEyeColor()
-			+ " is not valid.", ("Blue".equals(pc.getEyeColor())));
-		assertTrue("Generated hair colour " + pc.getHairColor()
-			+ " is not valid.", ("Blond".equals(pc.getHairColor()) || "Brown"
-			.equals(pc.getHairColor())));
-		assertTrue("Generated skin colour " + pc.getSkinColor()
-			+ " is not valid.", ("Pasty".equals(pc.getSkinColor()) || "Tanned"
-			.equals(pc.getSkinColor())));
+		assertTrue("Generated eye colour " + pc.getSafeStringFor(StringKey.EYE_COLOR)
+			+ " is not valid.", ("Blue".equals(pc.getSafeStringFor(StringKey.EYE_COLOR))));
+		assertTrue("Generated hair colour " + pc.getSafeStringFor(StringKey.HAIR_COLOR)
+			+ " is not valid.", ("Blond".equals(pc.getSafeStringFor(StringKey.HAIR_COLOR)) || "Brown"
+			.equals(pc.getSafeStringFor(StringKey.HAIR_COLOR))));
+		assertTrue("Generated skin colour " + pc.getSafeStringFor(StringKey.SKIN_COLOR)
+			+ " is not valid.", ("Pasty".equals(pc.getSafeStringFor(StringKey.SKIN_COLOR)) || "Tanned"
+			.equals(pc.getSafeStringFor(StringKey.SKIN_COLOR))));
 	}
 
 	/**

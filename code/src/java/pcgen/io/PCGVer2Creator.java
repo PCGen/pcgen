@@ -650,14 +650,14 @@ final class PCGVer2Creator implements IOConstants
 	private void appendBirthdayLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_BIRTHDAY).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getBirthday()));
+		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.BIRTHDAY)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendBirthplaceLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_BIRTHPLACE).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getBirthplace()));
+		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.BIRTHPLACE)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -699,7 +699,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendCatchPhraseLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_CATCHPHRASE).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getCatchPhrase()));
+		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.CATCH_PHRASE)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -718,7 +718,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendCharacterBioLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_CHARACTERBIO).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getBio()));
+		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.BIO)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -732,7 +732,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendCharacterDescLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_CHARACTERDESC).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getDescription()));
+		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.DESCRIPTION)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -1334,7 +1334,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendEyeColorLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_EYECOLOR).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getEyeColor()));
+		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.EYE_COLOR)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -1511,28 +1511,28 @@ final class PCGVer2Creator implements IOConstants
 	private void appendHairColorLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_HAIRCOLOR).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getHairColor()));
+		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.HAIR_COLOR)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendHairStyleLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_HAIRSTYLE).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getHairStyle()));
+		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.HAIR_STYLE)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendHandedLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_HANDED).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getHanded()));
+		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.HANDED)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendInterestsLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_INTERESTS).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getInterests()));
+		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.INTERESTS)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -1580,7 +1580,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendLocationLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_LOCATION).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getLocation()));
+		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.LOCATION)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -1623,21 +1623,21 @@ final class PCGVer2Creator implements IOConstants
 	private void appendPersonalityTrait1Line(StringBuffer buffer)
 	{
 		buffer.append(TAG_PERSONALITYTRAIT1).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getTrait1()));
+		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.TRAIT1)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendPersonalityTrait2Line(StringBuffer buffer)
 	{
 		buffer.append(TAG_PERSONALITYTRAIT2).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getTrait2()));
+		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.TRAIT2)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendPhobiasLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_PHOBIAS).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getPhobias()));
+		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.PHOBIAS)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -1830,7 +1830,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendSkinColorLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_SKINCOLOR).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getSkinColor()));
+		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.SKIN_COLOR)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -2044,7 +2044,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendSpeechPatternLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_SPEECHPATTERN).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getSpeechTendency()));
+		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.SPEECH_TENDENCY)));
 		buffer.append(LINE_SEP);
 	}
 

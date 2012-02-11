@@ -25,11 +25,11 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
-import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
-
 import java.util.StringTokenizer;
+
+import pcgen.core.display.CharacterDisplay;
+import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * Deals with tokens:
@@ -37,25 +37,22 @@ import java.util.StringTokenizer;
  * DESC
  * DESC, text delimiter
  */
-public class DescToken extends Token
+public class DescToken extends AbstractExportToken
 {
-	/** Token name */
-	public static final String TOKENNAME = "DESC";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "DESC";
 	}
 
 	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
+	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
 		StringTokenizer tok = new StringTokenizer(tokenSource, ",", false);
@@ -67,16 +64,7 @@ public class DescToken extends Token
 			delim = tok.nextToken();
 		}
 
-		return getDescToken(pc).replaceAll("(\n)", delim);
+		return display.getDescription().replaceAll("(\n)", delim);
 	}
 
-	/**
-	 * Get Desc Token
-	 * @param pc
-	 * @return Desc token
-	 */
-	public static String getDescToken(PlayerCharacter pc)
-	{
-		return pc.getDescription();
-	}
 }

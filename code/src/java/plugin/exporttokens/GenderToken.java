@@ -59,7 +59,7 @@ public class GenderToken extends Token
 		ExportHandler eh)
 	{
 		String retString = "";
-		if (!pc.getSuppressBioField(BiographyField.GENDER))
+		if (!pc.getDisplay().getSuppressBioField(BiographyField.GENDER))
 		{
 			/*
 			 * TODO Short and long result are the same as Gender is no longer

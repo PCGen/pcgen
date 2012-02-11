@@ -54,7 +54,7 @@ public class AgeToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
-		if (pc.getSuppressBioField(BiographyField.AGE))
+		if (pc.getDisplay().getSuppressBioField(BiographyField.AGE))
 		{
 			return "";
 		}

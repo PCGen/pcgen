@@ -25,37 +25,31 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 //PERSONALITY2
-public class Personality2Token extends Token
+public class Personality2Token extends AbstractExportToken
 {
-	public static final String TOKENNAME = "PERSONALITY2";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "PERSONALITY2";
 	}
 
 	//TODO: Move this to a token that has all of teh descriptive stuff about a cahracter
 	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
+	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return getPersonality2Token(pc);
+		return display.getTrait2();
 	}
 
-	public static String getPersonality2Token(PlayerCharacter pc)
-	{
-		return pc.getTrait2();
-	}
 }

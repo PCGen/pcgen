@@ -439,12 +439,12 @@ public class NotesPanel extends FlippingSplitPane
 		}
 
 		// TODO Make bio label read from properties file
-		bioNote = new NoteItem(BIO_NOTEID, -1, "Bio", pc.getBio());
+		bioNote = new NoteItem(BIO_NOTEID, -1, "Bio", pc.getDisplay().getBio());
 		nodesToBeAddedList.add(order++, bioNote);
 
 		descriptionNote =
 				new NoteItem(DESCRIPTION_NOTEID, -1, LanguageBundle
-					.getString("in_descrip"), pc.getDescription());
+					.getString("in_descrip"), pc.getDisplay().getDescription());
 		nodesToBeAddedList.add(order++, descriptionNote);
 
 		companionNote =

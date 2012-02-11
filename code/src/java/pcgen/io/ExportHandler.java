@@ -2323,11 +2323,12 @@ public final class ExportHandler
 		// Filter out CATCHPHRASE
 		if ("CATCHPHRASE".equals(aString.substring(1)))
 		{
-			if (aPC.getCatchPhrase().equals(Constants.NONE))
+			String catchPhrase = aPC.getDisplay().getCatchPhrase();
+			if (catchPhrase.equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
-			else if ((aPC.getCatchPhrase()).trim().length() == 0)
+			else if (catchPhrase.trim().length() == 0)
 			{
 				canWrite = false;
 			}
@@ -2337,11 +2338,12 @@ public final class ExportHandler
 		// Filter out LOCATION
 		if ("LOCATION".equals(aString.substring(1)))
 		{
-			if (aPC.getLocation().equals(Constants.NONE))
+			String location = aPC.getDisplay().getLocation();
+			if (location.equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
-			else if ((aPC.getLocation()).trim().length() == 0)
+			else if (location.trim().length() == 0)
 			{
 				canWrite = false;
 			}
@@ -2365,11 +2367,12 @@ public final class ExportHandler
 		// Filter out PHOBIAS
 		if ("PHOBIAS".equals(aString.substring(1)))
 		{
-			if (aPC.getPhobias().equals(Constants.NONE))
+			String phobias = aPC.getDisplay().getPhobias();
+			if (phobias.equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
-			else if ((aPC.getPhobias()).trim().length() == 0)
+			else if (phobias.trim().length() == 0)
 			{
 				canWrite = false;
 			}
@@ -2379,11 +2382,12 @@ public final class ExportHandler
 		// Filter out INTERESTS
 		if ("INTERESTS".equals(aString.substring(1)))
 		{
-			if (aPC.getInterests().equals(Constants.NONE))
+			String interests = aPC.getDisplay().getInterests();
+			if (interests.equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
-			else if ((aPC.getInterests()).trim().length() == 0)
+			else if (interests.trim().length() == 0)
 			{
 				canWrite = false;
 			}
@@ -2393,11 +2397,12 @@ public final class ExportHandler
 		// Filter out SPEECHTENDENCY
 		if ("SPEECHTENDENCY".equals(aString.substring(1)))
 		{
-			if (aPC.getSpeechTendency().equals(Constants.NONE))
+			String speechTendency = aPC.getDisplay().getSpeechTendency();
+			if (speechTendency.equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
-			else if ((aPC.getSpeechTendency()).trim().length() == 0)
+			else if (speechTendency.trim().length() == 0)
 			{
 				canWrite = false;
 			}
@@ -2407,11 +2412,12 @@ public final class ExportHandler
 		// Filter out PERSONALITY1
 		if ("PERSONALITY1".equals(aString.substring(1)))
 		{
-			if (aPC.getTrait1().equals(Constants.NONE))
+			String trait1 = aPC.getDisplay().getTrait1();
+			if (trait1.equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
-			else if ((aPC.getTrait1()).trim().length() == 0)
+			else if (trait1.trim().length() == 0)
 			{
 				canWrite = false;
 			}
@@ -2421,11 +2427,12 @@ public final class ExportHandler
 		// Filter out PERSONALITY2
 		if ("PERSONALITY2".equals(aString.substring(1)))
 		{
-			if (aPC.getTrait2().equals(Constants.NONE))
+			String trait2 = aPC.getDisplay().getTrait2();
+			if (trait2.equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
-			else if ((aPC.getTrait2()).trim().length() == 0)
+			else if (trait2.trim().length() == 0)
 			{
 				canWrite = false;
 			}
@@ -2478,11 +2485,12 @@ public final class ExportHandler
 		// Filter out DESC
 		if ("DESC".equals(aString.substring(1)))
 		{
-			if (aPC.getDescription().equals(Constants.NONE))
+			String description = aPC.getDisplay().getDescription();
+			if (description.equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
-			else if (aPC.getDescription().trim().length() == 0)
+			else if (description.trim().length() == 0)
 			{
 				canWrite = false;
 			}
@@ -2492,11 +2500,12 @@ public final class ExportHandler
 		// Filter out BIO
 		if ("BIO".equals(aString.substring(1)))
 		{
-			if (aPC.getBio().equals(Constants.NONE))
+			String bio = aPC.getDisplay().getBio();
+			if (bio.equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
-			else if (aPC.getBio().trim().length() == 0)
+			else if (bio.trim().length() == 0)
 			{
 				canWrite = false;
 			}

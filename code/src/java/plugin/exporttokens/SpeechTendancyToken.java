@@ -25,45 +25,32 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * SPEECHTENDANCY token for export
  */
-public class SpeechTendancyToken extends Token
+public class SpeechTendancyToken extends AbstractExportToken
 {
-	/** Token name */
-	public static final String TOKENNAME = "SPEECHTENDENCY";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "SPEECHTENDENCY";
 	}
 
 	//TODO: Move this to a token that has all of teh descriptive stuff about a cahracter
 	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
+	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return getSpeechTendancyToken(pc);
-	}
-
-	/**
-	 * Get value for SPEECHTENDANCY
-	 * @param pc
-	 * @return value for SPEECHTENDANCY
-	 */
-	public static String getSpeechTendancyToken(PlayerCharacter pc)
-	{
-		return pc.getSpeechTendency();
+		return display.getSpeechTendency();
 	}
 }

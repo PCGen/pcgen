@@ -25,44 +25,32 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * Deals with the INTERESTS token
  */
-public class InterestsToken extends Token
+public class InterestsToken extends AbstractExportToken
 {
-	/** Token name */
-	public static final String TOKENNAME = "INTERESTS";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "INTERESTS";
 	}
 
 	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
+	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return getInterestsToken(pc);
+		return display.getInterests();
 	}
 
-	/**
-	 * Get the token
-	 * @param pc
-	 * @return the token
-	 */
-	public static String getInterestsToken(PlayerCharacter pc)
-	{
-		return pc.getInterests();
-	}
 }
