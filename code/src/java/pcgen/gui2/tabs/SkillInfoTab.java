@@ -92,7 +92,6 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	private final InfoPane infoPane;
 	private final TabTitle tabTitle;
 	private final FilterButton cFilterButton;
-	private final FilterButton ccFilterButton;
 	private final FilterButton gainedFilterButton;
 	private final JEditorPane htmlPane;
 
@@ -103,7 +102,6 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		this.skillpointTable = new JTable();
 		this.infoPane = new InfoPane();
 		this.cFilterButton = new FilterButton();
-		this.ccFilterButton = new FilterButton();
 		this.gainedFilterButton = new FilterButton();
 		this.tabTitle = new TabTitle("in_skills");
 		this.htmlPane = new JEditorPane();
@@ -128,10 +126,6 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		cFilterButton.setText("Class");
 		cFilterButton.setEnabled(false);
 		group.addFilterButton(cFilterButton);
-
-		ccFilterButton.setText("Cross-Class");
-		ccFilterButton.setEnabled(false);
-		group.addFilterButton(ccFilterButton);
 
 		gainedFilterButton.setText(LanguageBundle.getString("in_gained"));
 		gainedFilterButton.setEnabled(false);
@@ -356,17 +350,6 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			}
 
 		};
-		private final Filter<CharacterFacade, SkillFacade> ccFilter = new Filter<CharacterFacade, SkillFacade>()
-		{
-
-			public boolean accept(CharacterFacade context, SkillFacade element)
-			{
-				CharacterLevelsFacade levels = context.getCharacterLevelsFacade();
-				CharacterLevelFacade level = levels.getElementAt(model.getMinSelectionIndex());
-				return levels.getSkillCost(level, element) == SkillCost.CROSS_CLASS;
-			}
-
-		};
 
 		private final Filter<CharacterFacade, SkillFacade> gainedFilter = new Filter<CharacterFacade, SkillFacade>()
 		{
@@ -395,8 +378,6 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			skillTable.setContext(null);
 			cFilterButton.setFilter(cFilter);
 			cFilterButton.setEnabled(model.getMinSelectionIndex() != -1);
-			ccFilterButton.setFilter(ccFilter);
-			ccFilterButton.setEnabled(model.getMinSelectionIndex() != -1);
 			gainedFilterButton.setFilter(gainedFilter);
 			gainedFilterButton.setEnabled(true);
 			skillTable.setContext(character);
@@ -412,7 +393,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			if (installed && !e.getValueIsAdjusting())
 			{
 				cFilterButton.setEnabled(model.getMinSelectionIndex() != -1);
-				ccFilterButton.setEnabled(model.getMinSelectionIndex() != -1);
+				gainedFilterButton.setEnabled(model.getMinSelectionIndex() != -1);
 			}
 		}
 

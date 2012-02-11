@@ -56,7 +56,9 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 			new DefaultDataViewColumn("Total", Integer.class, true),
 			new DefaultDataViewColumn("Modifier", Integer.class, true),
 			new DefaultDataViewColumn("Ranks", Float.class, true, true),
-			new DefaultDataViewColumn("Skill Cost", SkillCost.class, true),
+			new DefaultDataViewColumn("Class", String.class, true),
+			new DefaultDataViewColumn("Skill Cost", String.class,
+				SkillCost.CLASS.getCost() != SkillCost.CROSS_CLASS.getCost()),
 			new DefaultDataViewColumn("Source", String.class));
 	private final DefaultListFacade<TreeView<SkillFacade>> treeviews;
 	private final CharacterFacade character;
@@ -114,7 +116,7 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 	{
 		if (selectionModel.isSelectionEmpty())
 		{
-			return Arrays.asList(0, 0, 0.0, null, obj.getSource());
+			return Arrays.asList(0, 0, 0.0, null, 0, obj.getSource());
 		}
 		else
 		{
@@ -124,7 +126,8 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 					levels.getSkillTotal(level, obj),
 					levels.getSkillModifier(level, obj),
 					levels.getSkillRanks(level, obj),
-					levels.getSkillCost(level, obj),
+					levels.getSkillCost(level, obj)==SkillCost.CLASS ? "Yes" : "No",
+					levels.getSkillCost(level, obj).getCost(),
 					obj.getSource());
 		}
 	}
