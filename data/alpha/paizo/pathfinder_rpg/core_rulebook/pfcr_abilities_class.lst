@@ -968,6 +968,7 @@ Martial Weapon Proficiency	KEY:Martial Weapon Proficiency Output	CATEGORY:FEAT		
 Wizard / Remove Scribe Scroll	CATEGORY:Archetype	TYPE:ACF.ScribeScroll	COST:0
 
 CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Archetype Display
+CATEGORY=Internal|Default.MOD	DEFINE:RacialStatStr|0	DEFINE:RacialStatDex|0	DEFINE:RacialStatCon|0	DEFINE:RacialStatInt|0	DEFINE:RacialStatWis|0	DEFINE:RacialStatCha|0
 #
 Archetype Display	VISIBLE:NO	CATEGORY:Internal
 
