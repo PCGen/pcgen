@@ -4,12 +4,12 @@ SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downl
 
 ###Block: Ability Bonus Abilities
 # Ability Name	Category of Ability		Type			Visible		Stackable?	Multiple?	Stat bonus
-+2 Strength		CATEGORY:Special Ability	TYPE:AbilityBonus	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:STAT|STR|2|TYPE=Racial
-+2 Dexterity	CATEGORY:Special Ability	TYPE:AbilityBonus	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:STAT|DEX|2|TYPE=Racial
-+2 Constitution	CATEGORY:Special Ability	TYPE:AbilityBonus	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:STAT|CON|2|TYPE=Racial
-+2 Intelligence	CATEGORY:Special Ability	TYPE:AbilityBonus	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:STAT|INT|2|TYPE=Racial
-+2 Wisdom		CATEGORY:Special Ability	TYPE:AbilityBonus	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:STAT|WIS|2|TYPE=Racial
-+2 Charisma		CATEGORY:Special Ability	TYPE:AbilityBonus	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:STAT|CHA|2|TYPE=Racial
++2 Strength		CATEGORY:Special Ability	TYPE:AbilityBonus	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:VAR|RacialStatSTR|2|TYPE=Racial
++2 Dexterity	CATEGORY:Special Ability	TYPE:AbilityBonus	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:VAR|RacialStatDEX|2|TYPE=Racial
++2 Constitution	CATEGORY:Special Ability	TYPE:AbilityBonus	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:VAR|RacialStatCON|2|TYPE=Racial
++2 Intelligence	CATEGORY:Special Ability	TYPE:AbilityBonus	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:VAR|RacialStatINT|2|TYPE=Racial
++2 Wisdom		CATEGORY:Special Ability	TYPE:AbilityBonus	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:VAR|RacialStatWIS|2|TYPE=Racial
++2 Charisma		CATEGORY:Special Ability	TYPE:AbilityBonus	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:VAR|RacialStatCHA|2|TYPE=Racial
 
 ###Block: Favored Classes
 # Ability Name	Category of Ability		Type			Visible		Stackable?	Multiple?	Bonus to Ability Pool
