@@ -3,6 +3,8 @@ SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downl
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
 
+Spellbook	VISIBLE:NO	KIT:1|Wizard Spell Book
+
 ###Block: Timeless Body For Druid and Monk
 # Template Name			Visible	Template																		Minimum Age			Maximum Age			Multiple Requirements						Stat bonus
 Timeless Body			VISIBLE:NO	TEMPLATE:CHOOSE:Timeless Body ~ Adult|Timeless Body ~ Middle Age|Timeless Body ~ Old|Timeless Body ~ Venerable
