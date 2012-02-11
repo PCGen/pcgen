@@ -28,6 +28,7 @@ package plugin.exporttokens;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
+import pcgen.system.PCGenPropBundle;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -108,19 +109,7 @@ public class ExportToken extends Token
 	 */
 	public static String getVersionToken(String tokenSource)
 	{
-		String retString = "";
-
-		try
-		{
-			ResourceBundle d_properties =
-					ResourceBundle.getBundle("pcgen/gui/prop/PCGenProp");
-			retString = d_properties.getString("VersionNumber");
-		}
-		catch (MissingResourceException mre)
-		{
-			// TODO Should this be ignored?
-		}
-
+		String retString = PCGenPropBundle.getVersionNumber();
 		return retString;
 	}
 }
