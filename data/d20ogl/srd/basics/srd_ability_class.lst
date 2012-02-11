@@ -358,6 +358,9 @@ Skill Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality.RogueAbilities					VI
 Slippery Mind	CATEGORY:Special Ability	TYPE:SpecialQuality.RogueAbilities.ModifyAC			VISIBLE:YES		DESC:You can wriggle free from magical effects that would otherwise control or compel you.																						SOURCEPAGE:srdbasiccharacterclassesii.rtf
 Rogue Bonus Feat	CATEGORY:Special Ability	TYPE:Internal.RogueAbilities						VISIBLE:DISPLAY																							STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:FEAT|POOL|1		SOURCEPAGE:srdbasiccharacterclassesii.rtf
 
+###Block: Wizard
+Free Spell Book		CATEGORY:Internal	TEMPLATE:Spellbook
+
 
 ###Block: Expert Class Skills
 # Ability Name		Category of Ability		Type						Visible		Stackable?	Multiple?	Choose						Class Skill

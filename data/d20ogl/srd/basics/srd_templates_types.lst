@@ -1,6 +1,8 @@
 # CVS $Revision$ $Author$ -- Sun Nov  2 13:54:44 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 
+Spellbook	VISIBLE:NO	KIT:1|Wizard Spell Book
+
 #
 # This File is for all "standard" templates used in multiple sources.
 #

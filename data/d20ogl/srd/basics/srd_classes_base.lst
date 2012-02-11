@@ -438,7 +438,7 @@ SUBCLASS:Transmuter	COST:4	CHOICE:SCHOOL|Transmutation	KNOWNSPELLSFROMSPECIALTY:
 ###Block: Familiar - remove these via .MOD if Familiars aren't desired
 1	BONUS:VAR|FMLevel|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 ###Block: Level progression
-1	CAST:3,1				BONUS:ABILITYPOOL|Wizard Feat|CL/5	AUTO:FEAT|Scribe Scroll
+1	CAST:3,1				BONUS:ABILITYPOOL|Wizard Feat|CL/5	AUTO:FEAT|Scribe Scroll	ABILITY:Internal|AUTOMATIC|Free Spell Book|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Wizard=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Wizard=1]]
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:4,3,2

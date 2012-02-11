@@ -389,6 +389,8 @@ Evoker Learning Bonus		OUTPUTNAME:+2 bonus to Spellcraft when learning Evocation
 Illusionist Learning Bonus	OUTPUTNAME:+2 bonus to Spellcraft when learning Illusion		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	SOURCEPAGE:ClassesII.rtf
 Necromancer Learning Bonus	OUTPUTNAME:+2 bonus to Spellcraft when learning Necromancy		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	SOURCEPAGE:ClassesII.rtf
 Transmuter Learning Bonus	OUTPUTNAME:+2 bonus to Spellcraft when learning Transmutation	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	SOURCEPAGE:ClassesII.rtf
+#
+Free Spell Book														CATEGORY:Internal	TEMPLATE:Spellbook
 
 #Weapon Proficiencies for .MOD capabilities in classes.
 # See this tracker: http://sourceforge.net/tracker/?func=detail&aid=1158480&group_id=36698&atid=417819

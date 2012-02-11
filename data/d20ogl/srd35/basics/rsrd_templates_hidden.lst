@@ -2,6 +2,8 @@
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Eddy Anthony
 
+Spellbook	VISIBLE:NO	KIT:1|Wizard Spell Book
+
 ###Block: Dragon Disciple Attacks
 # Template Name				Visible	Template																	Required Size	Natural Attacks
 Dragon Disciple Attacks			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon Disciple Attacks Small|Dragon Disciple Attacks Medium|Dragon Disciple Attacks Large
