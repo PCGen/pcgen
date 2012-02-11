@@ -7,11 +7,11 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/
 ##
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Alchemist	HD:8		TYPE:Base.PC	ABB:Alc		MAXLEVEL:20	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Alchemist	HD:8		TYPE:Base.PC	ABB:Alc		MAXLEVEL:20	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	DEFINE:AlchemistLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Alchemist	STARTSKILLPTS:4	CSKILL:Appraise|TYPE.Craft|Disable Device|Fly|Heal|Knowledge (Arcana)|Knowledge (Nature)|Perception|TYPE.Profession|Sleight of Hand|Spellcraft|Survival|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
-CLASS:Alchemist	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Alchemist|CL
+CLASS:Alchemist	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Alchemist|CL	
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Alchemist Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)
