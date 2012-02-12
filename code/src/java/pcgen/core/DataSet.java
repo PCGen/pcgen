@@ -106,11 +106,23 @@ public class DataSet implements DataSetFacade
 	{
 		List<Race> raceList = new ArrayList<Race>(context.ref.getConstructedCDOMObjects(Race.class));
 		Collections.sort(raceList, new RaceComparator());
-		races.setContents(raceList);
+		for (Race race : raceList)
+		{
+			if (race.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE, false))
+			{
+				races.addElement(race);
+			}
+		}
 		
 		List<PCClass> classList = new ArrayList<PCClass>(context.ref.getConstructedCDOMObjects(PCClass.class));
 		Collections.sort(classList, new PCClassComparator());
-		classes.setContents(classList);
+		for (PCClass pcClass : classList)
+		{
+			if (pcClass.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE, false))
+			{
+				classes.addElement(pcClass);
+			}
+		}
 
 		for (Skill skill : context.ref.getConstructedCDOMObjects(Skill.class))
 		{
@@ -421,6 +433,17 @@ public class DataSet implements DataSetFacade
 			{
 				return AFTER;
 			}
+	    	
+		    final String HUMANOID = "Humanoid";
+			if (r1.isType(HUMANOID) && !r2.isType(HUMANOID))
+			{
+				return BEFORE;
+			}
+			if (!r1.isType(HUMANOID) && r2.isType(HUMANOID))
+			{
+				return AFTER;
+			}
+			
 			
 			// Check sort keys 
 			String key1 = r1.get(StringKey.SORT_KEY);
@@ -469,7 +492,26 @@ public class DataSet implements DataSetFacade
 			{
 				return AFTER;
 			}
-			
+	    	
+		    final String PRESTIGE_TYPE = "Prestige";
+			if (c1.isType(PRESTIGE_TYPE) && !c2.isType(PRESTIGE_TYPE))
+			{
+				return BEFORE;
+			}
+			if (!c1.isType(PRESTIGE_TYPE) && c2.isType(PRESTIGE_TYPE))
+			{
+				return AFTER;
+			}
+	    	
+		    final String NPC_TYPE = "NPC";
+			if (c1.isType(NPC_TYPE) && !c2.isType(NPC_TYPE))
+			{
+				return BEFORE;
+			}
+			if (!c1.isType(NPC_TYPE) && c2.isType(NPC_TYPE))
+			{
+				return AFTER;
+			}
 			
 			// Check sort keys 
 			String key1 = c1.get(StringKey.SORT_KEY);
