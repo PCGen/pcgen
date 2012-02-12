@@ -44,7 +44,6 @@ import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.ComboBoxModel;
 import javax.swing.DropMode;
 import javax.swing.JButton;
