@@ -336,11 +336,12 @@ public class SkillsPane extends javax.swing.JPanel
 	{
 		PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
 
+		int totalLevels = pc.getDisplay().getTotalLevels();
 		final String maxCrossClassRanks =
-				SkillUtilities.maxCrossClassSkillForLevel(pc.getTotalLevels(),
+				SkillUtilities.maxCrossClassSkillForLevel(totalLevels,
 					pc).toString();
 		final String maxClassRanks =
-				SkillUtilities.maxClassSkillForLevel(pc.getTotalLevels(), pc)
+				SkillUtilities.maxClassSkillForLevel(totalLevels, pc)
 					.toString();
 		jLabel15.setText(maxClassRanks + '/' + maxCrossClassRanks);
 

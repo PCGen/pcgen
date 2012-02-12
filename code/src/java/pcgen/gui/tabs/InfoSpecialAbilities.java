@@ -173,7 +173,7 @@ public final class InfoSpecialAbilities extends JPanel implements
 	{
 		List<String> toDoList = new ArrayList<String>();
 
-		if (pc.getTotalLevels() <= 1
+		if (pc.getDisplay().getTotalLevels() <= 1
 			|| Globals.checkRule(RuleConstants.INTBONUSLANG))
 		{
 			int bonusLangCount = pc.getBonusLanguageCount();

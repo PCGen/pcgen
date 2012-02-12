@@ -587,7 +587,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		{
 			toDoList.add(LanguageBundle.getString("in_sumTodoAlign")); //$NON-NLS-1$
 		}
-		if (pc.getTotalLevels() == 0)
+		if (pc.getDisplay().getTotalLevels() == 0)
 		{
 			toDoList.add(LanguageBundle.getString("in_sumTodoStats")); //$NON-NLS-1$
 		}
@@ -1224,7 +1224,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		}
 
 		// Check with the user on their first level up
-		if ((pc.getTotalLevels() == 0) && (levels > 0))
+		if ((pc.getDisplay().getTotalLevels() == 0) && (levels > 0))
 		{
 			if (SettingsHandler.getGame().isPurchaseStatMode()
 				&& (pc.getTotalPointBuyPoints() > getUsedStatPool(pc)))
@@ -2221,7 +2221,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		//
 		if (newPC)
 		{
-			if ((pc.getTotalLevels() == 0)) // new PC?
+			if ((pc.getDisplay().getTotalLevels() == 0)) // new PC?
 			{
 				classComboBox.setSelectedItem(null);
 			}
@@ -2367,7 +2367,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			case INC_COLUMN: {
 				increment = 1;
 
-				final int pcTotalLevels = pc.getTotalLevels();
+				final int pcTotalLevels = pc.getDisplay().getTotalLevels();
 				final int pcPlayerLevels = pc.totalNonMonsterLevels();
 				final boolean isPurchaseMode =
 						SettingsHandler.getGame().isPurchaseStatMode();
@@ -2441,7 +2441,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 				//final int minPurchaseScore = SettingsHandler.getPurchaseModeBaseStatScore();
 				final int minPurchaseScore =
 						SettingsHandler.getGame().getPurchaseScoreMin(pc);
-				final int pcTotalLevels = pc.getTotalLevels();
+				final int pcTotalLevels = pc.getDisplay().getTotalLevels();
 				final int pcPlayerLevels = pc.totalNonMonsterLevels();
 				final boolean isPurchaseMode =
 						SettingsHandler.getGame().isPurchaseStatMode();

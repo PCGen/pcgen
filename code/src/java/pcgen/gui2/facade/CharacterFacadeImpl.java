@@ -791,7 +791,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		}
 
 		// Check with the user on their first level up
-		if (theCharacter.getTotalLevels() == 0)
+		if (theCharacter.getDisplay().getTotalLevels() == 0)
 		{
 			if (SettingsHandler.getGame().isPurchaseStatMode() &&
 					(theCharacter.getPointBuyPoints() > getUsedStatPool(theCharacter)))

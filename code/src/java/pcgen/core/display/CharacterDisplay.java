@@ -26,6 +26,7 @@ import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.FactFacet;
+import pcgen.cdom.facet.LevelFacet;
 import pcgen.cdom.facet.RaceTypeFacet;
 import pcgen.cdom.facet.SuppressBioFieldFacet;
 import pcgen.cdom.facet.VisionFacet;
@@ -37,6 +38,7 @@ public class CharacterDisplay
 	private final CharID id;
 
 	private FactFacet factFacet = FacetLibrary.getFacet(FactFacet.class);
+	private LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
 	private RaceTypeFacet raceTypeFacet = FacetLibrary.getFacet(RaceTypeFacet.class);
 	private SuppressBioFieldFacet suppressBioFieldFacet = FacetLibrary.getFacet(SuppressBioFieldFacet.class);
 	private VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
@@ -236,6 +238,11 @@ public class CharacterDisplay
 	{
 		RaceType rt = raceTypeFacet.getRaceType(id);
 		return rt == null ? Constants.NONE : rt.toString();
+	}
+
+	public int getTotalLevels()
+	{
+		return levelFacet.getTotalLevels(id);
 	}
 
 }

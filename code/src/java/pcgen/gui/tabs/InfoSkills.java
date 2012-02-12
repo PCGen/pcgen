@@ -2232,9 +2232,9 @@ public class InfoSkills extends FilterAdapterPanel implements CharacterInfoTab
 		totalSkillPointsLeft.setValue(pc.getSkillPoints());
 
 		maxSkillRank.setText(String.valueOf(SkillUtilities
-			.maxClassSkillForLevel(pc.getTotalLevels(), pc)));
+			.maxClassSkillForLevel(pc.getDisplay().getTotalLevels(), pc)));
 		maxCrossSkillRank.setText(String.valueOf(SkillUtilities
-			.maxCrossClassSkillForLevel(pc.getTotalLevels(), pc)));
+			.maxCrossClassSkillForLevel(pc.getDisplay().getTotalLevels(), pc)));
 
 		resetSelectedModel = true;
 		updateAvailableModel();
