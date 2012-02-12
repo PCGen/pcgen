@@ -197,7 +197,7 @@ public class SpellBookFacet extends AbstractStorageFacet implements
 		return (componentMap != null) && componentMap.containsKey(name);
 	}
 
-	public double getCount(CharID id)
+	public int getCount(CharID id)
 	{
 		Map<String, SpellBook> componentMap = getCachedMap(id);
 		return (componentMap == null) ? 0 : componentMap.size();

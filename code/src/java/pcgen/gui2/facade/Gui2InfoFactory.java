@@ -1136,7 +1136,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getSpellBookInfo(String name)
 	{
-		SpellBook book = pc.getSpellBookByName(name);
+		SpellBook book = pc.getDisplay().getSpellBookByName(name);
 		if (book == null)
 		{
 			return "";

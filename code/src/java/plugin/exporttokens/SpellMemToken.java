@@ -126,7 +126,7 @@ public class SpellMemToken extends Token
 
 		if (bookNum > 0)
 		{
-			bookName = aPC.getSpellBookNames().get(bookNum);
+			bookName = aPC.getDisplay().getSpellBookNames().get(bookNum);
 		}
 
 		if ((aObject != null) || (classNum == -1))

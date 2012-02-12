@@ -1032,7 +1032,7 @@ public class InfoKnownSpells extends InfoSpellsSubTab
 		il.addAll(cs.getInfoList());
 		for (SpellInfo si : il)
 		{
-			if (pc.getSpellBookByName(si.getBook()).getType() == SpellBook.TYPE_PREPARED_LIST)
+			if (pc.getDisplay().getSpellBookByName(si.getBook()).getType() == SpellBook.TYPE_PREPARED_LIST)
 			{
 				cs.removeSpellInfo(si);
 			}

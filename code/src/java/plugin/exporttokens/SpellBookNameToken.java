@@ -56,7 +56,7 @@ public class SpellBookNameToken extends Token
 		//			return spellBooks.get(bookNum);
 		//		}
 
-		return pc.getSpellBookNames().get(bookNum);
+		return pc.getDisplay().getSpellBookNames().get(bookNum);
 	}
 
 }

@@ -36,11 +36,13 @@ import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.LevelFacet;
 import pcgen.cdom.facet.RaceTypeFacet;
 import pcgen.cdom.facet.RegionFacet;
+import pcgen.cdom.facet.SpellBookFacet;
 import pcgen.cdom.facet.SuppressBioFieldFacet;
 import pcgen.cdom.facet.TemplateFacet;
 import pcgen.cdom.facet.VisionFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.Vision;
+import pcgen.core.character.SpellBook;
 import pcgen.util.enumeration.Visibility;
 
 public class CharacterDisplay
@@ -52,6 +54,7 @@ public class CharacterDisplay
 	private LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
 	private RaceTypeFacet raceTypeFacet = FacetLibrary.getFacet(RaceTypeFacet.class);
 	private RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
+	private SpellBookFacet spellBookFacet = FacetLibrary.getFacet(SpellBookFacet.class);
 	private SuppressBioFieldFacet suppressBioFieldFacet = FacetLibrary.getFacet(SuppressBioFieldFacet.class);
 	private TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
 	private VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
@@ -378,6 +381,33 @@ public class CharacterDisplay
 	public String getSubRegion()
 	{
 		return regionFacet.getSubRegion(id);
+	}
+
+	public int getSpellBookCount()
+	{
+		return spellBookFacet.getCount(id);
+	}
+
+	/**
+	 * Get spell books.
+	 * 
+	 * @return spellBooks
+	 */
+	public List<String> getSpellBookNames()
+	{
+		return new ArrayList<String>(spellBookFacet.getBookNames(id));
+	}
+
+	/**
+	 * Retrieve a spell book object given the name of the spell book.
+	 * 
+	 * @param name
+	 *            The name of the spell book to be retrieved.
+	 * @return The spellbook (or null if not present).
+	 */
+	public SpellBook getSpellBookByName(final String name)
+	{
+		return spellBookFacet.getBookNamed(id, name);
 	}
 
 }

@@ -79,7 +79,7 @@ public class SpellListBookToken extends SpellListToken
 
 			if (params.getBookNum() > 0)
 			{
-				bookName = pc.getSpellBookNames().get(params.getBookNum());
+				bookName = pc.getDisplay().getSpellBookNames().get(params.getBookNum());
 			}
 
 			final List<CharacterSpell> spells =

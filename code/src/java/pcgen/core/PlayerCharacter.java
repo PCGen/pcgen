@@ -11876,7 +11876,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return id;
 	}
 
-	public double getSpellBookCount()
+	public int getSpellBookCount()
 	{
 		return spellBookFacet.getCount(id);
 	}

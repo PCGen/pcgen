@@ -984,7 +984,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 								getRootNode(book));
 				}
 				boolean isSpellBook =
-						pc.getSpellBookByName(book).getType() == SpellBook.TYPE_SPELL_BOOK;
+						pc.getDisplay().getSpellBookByName(book).getType() == SpellBook.TYPE_SPELL_BOOK;
 				// Add to list
 				if (isKnown)
 				{
@@ -1069,7 +1069,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		RootNodeImpl rootNode = rootNodeMap.get(bookName);
 		if (rootNode == null)
 		{
-			SpellBook book = pc.getSpellBookByName(bookName);
+			SpellBook book = pc.getDisplay().getSpellBookByName(bookName);
 			if (book == null)
 			{
 				return null;
@@ -1213,7 +1213,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	 */
 	public void setDefaultSpellBook(String bookName)
 	{
-		SpellBook book = pc.getSpellBookByName(bookName);
+		SpellBook book = pc.getDisplay().getSpellBookByName(bookName);
 		if (book == null || book.getType() != SpellBook.TYPE_SPELL_BOOK)
 		{
 			return;

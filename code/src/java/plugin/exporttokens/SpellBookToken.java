@@ -25,10 +25,10 @@ package plugin.exporttokens;
 
 import java.util.StringTokenizer;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.character.SpellBook;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * <code>SpellBookToken</code> gives the requested details of a spellbook. 
@@ -39,11 +39,8 @@ import pcgen.io.exporttoken.Token;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision: $
  */
-public class SpellBookToken extends Token
+public class SpellBookToken extends AbstractExportToken
 {
-
-	/** Token name */
-	public static final String TOKENNAME = "SPELLBOOK";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -51,14 +48,14 @@ public class SpellBookToken extends Token
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "SPELLBOOK";
 	}
 
 	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
+	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
 		String retString = "";
@@ -77,10 +74,10 @@ public class SpellBookToken extends Token
 		}
 
 		SpellBook book = null;
-		if (bookNum >= 0 && bookNum < pc.getSpellBookCount())
+		if (bookNum >= 0 && bookNum < display.getSpellBookCount())
 		{
-			String bookName = pc.getSpellBookNames().get(bookNum);
-			book = pc.getSpellBookByName(bookName);
+			String bookName = display.getSpellBookNames().get(bookNum);
+			book = display.getSpellBookByName(bookName);
 		}
 		if (book != null)
 		{

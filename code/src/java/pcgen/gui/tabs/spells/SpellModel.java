@@ -670,7 +670,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 				bookNodes[ix] = new PObjectNode();
 				if (pc != null)
 				{
-					bookNodes[ix].setItem(pc.getSpellBookByName(bookName));
+					bookNodes[ix].setItem(pc.getDisplay().getSpellBookByName(bookName));
 				}
 				else
 				{

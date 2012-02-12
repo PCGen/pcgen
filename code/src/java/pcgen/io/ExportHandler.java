@@ -3381,7 +3381,7 @@ public final class ExportHandler
 		String bookName = Globals.getDefaultSpellBook();
 		if (sbookNum > 0)
 		{
-			bookName = aPC.getSpellBookNames().get(sbookNum);
+			bookName = aPC.getDisplay().getSpellBookNames().get(sbookNum);
 		}
 
 		canWrite = false;
