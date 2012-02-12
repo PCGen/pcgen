@@ -75,7 +75,7 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Checks for the required number of Abilities.</li>
-		<li>The <code>CATEGORY</code> tag will take only quot;parentquot; categories.</li>
+		<li>The <code>CATEGORY</code> tag will take only &quot;parent&quot; categories.</li>
 		<li>If <code>CATEGORY=ALL</code> is not used the tag checks all categories (including feats) for an 
 			ability of the specified name or type.</li>
 		<li>The list of abilities, by name and/or type, is a comma-delimited (,) list.</li>
@@ -87,6 +87,8 @@
 	<p class="indent3">Requires the Night Vision or Acid Blast Special Quality</p>
 	<p class="indent2"><code>PREABILITY:1,CATEGORY=ANY,Sneak Attack</code></p>
 	<p class="indent3">Requires the Sneak Attack Ability from any category.</p>
+	<p class="indent2"><code>!PREABILITY:1,CATEGORY=ANY,Sneak Attack</code></p>
+	<p class="indent3">Requires that the Sneak Attack Ability from any category not be present.</p>
 	<p class="indent2"><code>PREABILITY:3,CATEGORY=Mutation,ANY</code></p>
 	<p class="indent3">Requires any 3 Mutation category Abilities.</p>
 	<p class="indent2"><code>PREABILITY:2,CATEGORY=Mutation,TYPE.MajorMutation</code></p>
