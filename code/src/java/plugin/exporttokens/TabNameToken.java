@@ -25,45 +25,33 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * Deals with returning the value of the TABNAME token
  */
-public class TabNameToken extends Token
+public class TabNameToken extends AbstractExportToken
 {
-	/** Token name */
-	public static final String TOKENNAME = "TABNAME";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "TABNAME";
 	}
 
 	//TODO: move this into the NameToken as NAME.TAB
 	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
+	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return getTabNameToken(pc);
+		return display.getTabName();
 	}
 
-	/**
-	 * Get the TABNAME value
-	 * @param pc
-	 * @return the TABNAME value
-	 */
-	public static String getTabNameToken(PlayerCharacter pc)
-	{
-		return pc.getTabName();
-	}
 }

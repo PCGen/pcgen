@@ -207,6 +207,16 @@ public class CharacterDisplay
 	}
 
 	/**
+	 * Get tab name.
+	 * 
+	 * @return name on tab
+	 */
+	public String getTabName()
+	{
+		return getSafeStringFor(StringKey.TAB_NAME);
+	}
+
+	/**
 	 * Get trait 1.
 	 * 
 	 * @return trait 1

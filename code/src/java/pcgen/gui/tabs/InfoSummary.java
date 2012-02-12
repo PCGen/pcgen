@@ -477,7 +477,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 			boolean valueOk = verify(input);
 			String entry = tabNameText.getText();
 
-			if ((entry != null) && (!entry.equals(pc.getTabName())))
+			if ((entry != null) && (!entry.equals(pc.getDisplay().getTabName())))
 			{
 				pc.setTabName(entry);
 			}
@@ -2171,7 +2171,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 		stopListeners();
 
 		pcNameText.setText(pc.getName());
-		tabNameText.setText(pc.getTabName());
+		tabNameText.setText(pc.getDisplay().getTabName());
 		playerNameText.setText(pc.getPlayersName());
 
 		Object[] newArray = Globals.getContext().ref.getOrderSortedCDOMObjects(

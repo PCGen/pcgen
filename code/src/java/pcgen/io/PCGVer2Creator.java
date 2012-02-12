@@ -2245,7 +2245,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendTabNameLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_TABNAME).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getTabName()));
+		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.TAB_NAME)));
 		buffer.append(LINE_SEP);
 	}
 

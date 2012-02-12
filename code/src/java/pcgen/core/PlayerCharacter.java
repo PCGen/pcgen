@@ -1070,7 +1070,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public String getDisplayName()
 	{
-		final String custom = getTabName();
+		final String custom = getSafeStringFor(StringKey.TAB_NAME);
 
 		if (!Constants.EMPTY_STRING.equals(custom))
 		{
@@ -2855,20 +2855,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		setChanged();
 		notifyObservers("TabName");
 	}
-
-	/**
-	 * Get tab name.
-	 * 
-	 * @return name on tab
-	 */
-	public String getTabName()
-	{
-		return getSafeStringFor(StringKey.TAB_NAME);
-	}
-
-	/**
-	 * Temporary Bonuses
-	 */
 
 	/**
 	 * List if Items which have Temp Bonuses applied to them.

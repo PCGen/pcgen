@@ -296,7 +296,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		portrait = new DefaultReferenceFacade<File>(portraitFile);
 		cropRect = new RectangleReference(theCharacter.getPortraitThumbnailRect());
 		
-		tabName = new DefaultReferenceFacade<String>(pc.getTabName());
+		tabName = new DefaultReferenceFacade<String>(pc.getDisplay().getTabName());
 		name = new DefaultReferenceFacade<String>(pc.getName());
 		playersName = new DefaultReferenceFacade<String>(pc.getPlayersName());
 		race = new DefaultReferenceFacade<RaceFacade>(pc.getRace());
