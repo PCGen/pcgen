@@ -2167,7 +2167,7 @@ public final class ExportHandler
 		// Filter out REGION
 		if ("REGION".equals(aString.substring(1)))
 		{
-			if (aPC.getRegionString().equals(Constants.NONE))
+			if (aPC.getDisplay().getRegionString().equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
@@ -2515,7 +2515,7 @@ public final class ExportHandler
 		// Filter out SUBREGION
 		if ("SUBREGION".equals(aString.substring(1)))
 		{
-			if (aPC.getSubRegion().equals(Constants.NONE))
+			if (aPC.getDisplay().getSubRegion().equals(Constants.NONE))
 			{
 				canWrite = false;
 			}

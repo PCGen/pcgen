@@ -35,6 +35,7 @@ import pcgen.cdom.facet.FactFacet;
 import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.LevelFacet;
 import pcgen.cdom.facet.RaceTypeFacet;
+import pcgen.cdom.facet.RegionFacet;
 import pcgen.cdom.facet.SuppressBioFieldFacet;
 import pcgen.cdom.facet.TemplateFacet;
 import pcgen.cdom.facet.VisionFacet;
@@ -50,6 +51,7 @@ public class CharacterDisplay
 	private FactFacet factFacet = FacetLibrary.getFacet(FactFacet.class);
 	private LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
 	private RaceTypeFacet raceTypeFacet = FacetLibrary.getFacet(RaceTypeFacet.class);
+	private RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
 	private SuppressBioFieldFacet suppressBioFieldFacet = FacetLibrary.getFacet(SuppressBioFieldFacet.class);
 	private TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
 	private VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
@@ -356,6 +358,26 @@ public class CharacterDisplay
 			}
 		}
 		return tl;
+	}
+
+	/**
+	 * Get the Character's Region
+	 * 
+	 * @return character region
+	 */
+	public String getRegionString()
+	{
+		return regionFacet.getRegion(id);
+	}
+
+	/**
+	 * Get the Character's SubRegion
+	 * 
+	 * @return character sub region
+	 */
+	public String getSubRegion()
+	{
+		return regionFacet.getSubRegion(id);
 	}
 
 }

@@ -2811,18 +2811,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Selector <p/> Build on-the-fly so removing templates won't mess up sub
-	 * region.
-	 * 
-	 * @return character sub region
-	 */
-	public String getSubRegion()
-	{
-		return regionFacet.getSubRegion(id);
-	}
-	
-	
-	/**
 	 * Check  whether the field should be hidden from output. 
 	 * @param field The BiographyField to check export suppression rules for.
 	 * @return true if the field should not be output, false if it may be.
