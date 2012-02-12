@@ -58,9 +58,11 @@ import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilterBar;
 import pcgen.gui2.filter.FilterButton;
+import pcgen.gui2.filter.FilterButtonGroupPanel;
 import pcgen.gui2.filter.FilterHandler;
 import pcgen.gui2.filter.FilterUtilities;
 import pcgen.gui2.filter.FilteredTreeViewTable;
+import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.ability.AbilityTreeTableModel;
 import pcgen.gui2.tabs.ability.AbilityTreeViews;
 import pcgen.gui2.tabs.ability.CategoryTableModel;
@@ -80,6 +82,7 @@ import pcgen.system.LanguageBundle;
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
+@SuppressWarnings("serial")
 public class AbilityChooserTab extends FlippingSplitPane implements StateEditable, TodoHandler
 {
 
@@ -127,23 +130,25 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		}
 
 	};
-	private final FilteredTreeViewTable availableTreeViewPanel;
+	private final FilteredTreeViewTable<CharacterFacade, AbilityFacade> availableTreeViewPanel;
 	private final JTreeTable selectedTreeViewPanel;
 	private final JTable categoryTable;
 	private final InfoPane infoPane;
 	private final JButton addButton;
 	private final JButton removeButton;
 	private final FilterBar<CharacterFacade, AbilityCategoryFacade> categoryBar;
+	private final FilterButton<CharacterFacade, AbilityFacade> qFilterButton;
 
 	public AbilityChooserTab()
 	{
-		this.availableTreeViewPanel = new FilteredTreeViewTable();
+		this.availableTreeViewPanel = new FilteredTreeViewTable<CharacterFacade, AbilityFacade>();
 		this.selectedTreeViewPanel = new JTreeTable();
 		this.categoryTable = new JTable();
 		this.infoPane = new InfoPane();
 		this.addButton = new JButton();
 		this.removeButton = new JButton();
-		this.categoryBar = new FilterBar();
+		this.categoryBar = new FilterBar<CharacterFacade, AbilityCategoryFacade>();
+		this.qFilterButton = new FilterButton<CharacterFacade, AbilityFacade>();
 		initComponents();
 	}
 
@@ -151,8 +156,14 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 	{
 		setOrientation(VERTICAL_SPLIT);
 		availableTreeViewPanel.setDefaultRenderer(Boolean.class, new BooleanRenderer());
-		JPanel availPanel = FilterUtilities.configureFilteredTreeViewPane(availableTreeViewPanel,
-																		  FilterUtilities.createDefaultFilterBar());
+		FilterBar<CharacterFacade, AbilityFacade> filterBar = new FilterBar<CharacterFacade, AbilityFacade>();
+		filterBar.addDisplayableFilter(new SearchFilterPanel());
+
+		FilterButtonGroupPanel<CharacterFacade, AbilityFacade> group = new FilterButtonGroupPanel<CharacterFacade, AbilityFacade>();
+		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter"));
+		group.addFilterButton(qFilterButton);
+		filterBar.addDisplayableFilter(group);
+		JPanel availPanel = FilterUtilities.configureFilteredTreeViewPane(availableTreeViewPanel, filterBar);
 		Box box = Box.createHorizontalBox();
 		box.add(Box.createHorizontalGlue());
 		addButton.setHorizontalTextPosition(SwingConstants.LEADING);
@@ -177,8 +188,8 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 
 		setTopComponent(topPane);
 
-		FilterButton gainedFilterButton = new FilterButton();
-		gainedFilterButton.setText("Gained");
+		FilterButton<CharacterFacade, AbilityCategoryFacade> gainedFilterButton = new FilterButton<CharacterFacade, AbilityCategoryFacade>();
+		gainedFilterButton.setText(LanguageBundle.getString("in_gained"));
 		gainedFilterButton.setEnabled(true);
 		gainedFilterButton.setSelected(true);
 		gainedFilterButton.setFilter(new Filter<CharacterFacade, AbilityCategoryFacade>()
@@ -215,11 +226,11 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		{
 			if (value == Boolean.TRUE)
 			{
-				setText("Yes");
+				setText(LanguageBundle.getString("in_yes"));
 			}
 			else if (value == Boolean.FALSE)
 			{
-				setText("No");
+				setText(LanguageBundle.getString("in_no"));
 			}
 			else
 			{
@@ -531,6 +542,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		state.put(QualifiedTreeCellRenderer.class, new QualifiedTreeCellRenderer(character));
 		state.put(AddAction.class, new AddAction(character));
 		state.put(RemoveAction.class, new RemoveAction(character));
+		state.put(AbilityFilterHandler.class, new AbilityFilterHandler(character));
 		state.put(CategoryFilterHandler.class, new CategoryFilterHandler(categoryTableModel));
 		return state;
 	}
@@ -565,6 +577,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		((CategoryTableModel) state.get(CategoryTableModel.class)).install();
 		((AddAction) state.get(AddAction.class)).install();
 		((RemoveAction) state.get(RemoveAction.class)).install();
+		((AbilityFilterHandler) state.get(AbilityFilterHandler.class)).install();
 		
 		ensureCategorySelected();
 	}
@@ -682,6 +695,32 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		public void uninstall()
 		{
 			selectedTreeViewPanel.removeActionListener(this);
+		}
+
+	}
+
+	private class AbilityFilterHandler 
+	{
+
+		private final Filter<CharacterFacade, AbilityFacade> qFilter = new Filter<CharacterFacade, AbilityFacade>()
+		{
+
+			public boolean accept(CharacterFacade context, AbilityFacade element)
+			{
+				return character.isQualifiedFor(element);
+			}
+
+		};
+		private final CharacterFacade character;
+
+		public AbilityFilterHandler(CharacterFacade character)
+		{
+			this.character = character;
+		}
+
+		public void install()
+		{
+			qFilterButton.setFilter(qFilter);
 		}
 
 	}
