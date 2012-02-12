@@ -49,6 +49,9 @@
 
 	<p class="indent0">There are a few additional rules to keep in mind when using PRExxx tags.</p>
 	<ol class="indent0">
+		<li>When using PRExxx tags as part of a class, the level will be tested before any new level 
+			is fully applied. This means that <code>PREPCLEVEL:MAX=1</code> will pass when adding a 
+			second level to a first level character as that character is not yet level 2.</li>
 		<li>Any PRExxx tag may be prefixed with a &quot;!&quot; character (i.e., !PRExxx) in order to
 			invert the requirement logic. The PRExxx tag will be evaluated like normal, then the result 
 			inverted (meaning you CAN NOT have the things listed in this tag) when determining whether 
