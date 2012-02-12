@@ -348,7 +348,7 @@ public class PlayerCharacterOutput
 
 	public String getVision()
 	{
-		return VisionDisplay.getVision(pc);
+		return VisionDisplay.getVision(pc.getDisplay());
 	}
 
 	public String getWeaponToken(int weaponNo, String Token)

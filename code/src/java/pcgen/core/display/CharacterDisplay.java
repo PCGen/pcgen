@@ -17,6 +17,8 @@
  */
 package pcgen.core.display;
 
+import java.util.Collection;
+
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
@@ -24,6 +26,8 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.FactFacet;
 import pcgen.cdom.facet.SuppressBioFieldFacet;
+import pcgen.cdom.facet.VisionFacet;
+import pcgen.core.Vision;
 
 public class CharacterDisplay
 {
@@ -32,6 +36,7 @@ public class CharacterDisplay
 
 	private FactFacet factFacet = FacetLibrary.getFacet(FactFacet.class);
 	private SuppressBioFieldFacet suppressBioFieldFacet = FacetLibrary.getFacet(SuppressBioFieldFacet.class);
+	private VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
 	
 	public CharacterDisplay(CharID id)
 	{
@@ -214,4 +219,9 @@ public class CharacterDisplay
 		return suppressBioFieldFacet.getSuppressField(id, field);
 	}
 	
+	public Collection<Vision> getVisionList()
+	{
+		return visionFacet.getActiveVision(id);
+	}
+
 }

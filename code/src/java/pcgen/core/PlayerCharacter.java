@@ -5392,11 +5392,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		return bonusManager.getSpellBonusType(bonusType, bonusName);
 	}
 
-	public Collection<Vision> getVisionList()
-	{
-		return visionFacet.getActiveVision(id);
-	}
-
 	public int abilityAC()
 	{
 		return armorClassFacet.calcACOfType(id, "Ability");

@@ -30,10 +30,10 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.Vision;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * <code>VisionToken</code> produces the output for the output token 
@@ -45,31 +45,28 @@ import pcgen.io.exporttoken.Token;
  * @author Devon Jones <soulcatcher@evilsoft.org>
  * @version $Revision$
  */
-public class VisionToken extends Token
+public class VisionToken extends AbstractExportToken
 {
-	/** Token Name */
-	public static final String TOKENNAME = "VISION";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "VISION";
 	}
 
 	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
+	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		aTok.nextToken();
 
-		List<Vision> visionList = new ArrayList<Vision>(pc.getVisionList());
+		List<Vision> visionList = new ArrayList<Vision>(display.getVisionList());
 
 		int visionIndex = 0;
 		int startIndex = 0;

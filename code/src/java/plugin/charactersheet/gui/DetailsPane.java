@@ -884,7 +884,7 @@ public class DetailsPane extends javax.swing.JPanel
 		hair.setText(pc.getDisplay().getHairColor() + ' ');
 
 		alignment.setText(AlignmentToken.getAlignmentToken(pc) + ' ');
-		vision.setText(VisionDisplay.getVision(pc) + ' ');
+		vision.setText(VisionDisplay.getVision(pc.getDisplay()) + ' ');
 		points.setText(pc.getCostPool() + SPACE);
 	}
 
