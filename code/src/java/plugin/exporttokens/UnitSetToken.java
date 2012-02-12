@@ -26,9 +26,9 @@
 package plugin.exporttokens;
 
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * <code>UnitSetToken</code>.
@@ -43,25 +43,22 @@ import pcgen.io.exporttoken.Token;
  * @author jdempsey
  * @version $Revision$
  */
-public class UnitSetToken extends Token
+public class UnitSetToken extends AbstractExportToken
 {
-	/** UnitSetToken */
-	public static final String TOKENNAME = "UNITSET";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "UNITSET";
 	}
 
 	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
+	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
 		String retString = "";
