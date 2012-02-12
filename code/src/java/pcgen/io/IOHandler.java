@@ -147,7 +147,7 @@ public abstract class IOHandler
 			{
 				String file = outFile.getName();
 				File backupPcgPath = SettingsHandler.getBackupPcgPath();
-				if (!backupPcgPath.getPath().equals(""))
+				if (backupPcgPath != null && !backupPcgPath.getPath().equals(""))
 				{
 					bakFile =
 							new File(backupPcgPath + File.separator + file
