@@ -26,26 +26,23 @@
 package plugin.exporttokens;
 
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * Deals with returning value of TEMPLATELIST token
  */
-public class TemplateListToken extends Token
+public class TemplateListToken extends AbstractExportToken
 {
-	/** Token name */
-	public static final String TOKENNAME = "TEMPLATELIST";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "TEMPLATELIST";
 	}
 
 	/**
@@ -53,30 +50,20 @@ public class TemplateListToken extends Token
 	 *      pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return getTemplateListToken(pc);
-	}
-
-	/**
-	 * Get value of TEMPALTELIST token
-	 * 
-	 * @param pc
-	 * @return value of TEMPALTELIST token
-	 */
-	public static String getTemplateListToken(PlayerCharacter pc)
-	{
-		StringBuffer retString = new StringBuffer();
+		StringBuilder retString = new StringBuilder();
 		String del = "";
-
-		for (PCTemplate template : pc.getOutputVisibleTemplateList())
+		
+		for (PCTemplate template : display.getOutputVisibleTemplateList())
 		{
 			// karianna bug 1514970
 			retString.append(del).append(OutputNameFormatting.getOutputName(template));
 			del = ", ";
 		}
-
+		
 		return retString.toString();
 	}
+
 }

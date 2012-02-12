@@ -207,7 +207,7 @@ public class Page2Panel extends javax.swing.JPanel
 			languagePane.setList("LANGUAGES", new ArrayList<Language>(pc
 				.getSortedLanguageSet()));
 			templatePane
-				.setList("TEMPLATES", pc.getOutputVisibleTemplateList());
+				.setList("TEMPLATES", pc.getDisplay().getOutputVisibleTemplateList());
 			domainPane.setMap("DOMAINS", getDomainMap(pc));
 			featPane.setMap("FEATS", getFeatMap(pc));
 

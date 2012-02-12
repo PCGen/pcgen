@@ -17,7 +17,9 @@
  */
 package pcgen.core.display;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
@@ -34,9 +36,11 @@ import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.LevelFacet;
 import pcgen.cdom.facet.RaceTypeFacet;
 import pcgen.cdom.facet.SuppressBioFieldFacet;
+import pcgen.cdom.facet.TemplateFacet;
 import pcgen.cdom.facet.VisionFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.Vision;
+import pcgen.util.enumeration.Visibility;
 
 public class CharacterDisplay
 {
@@ -47,6 +51,7 @@ public class CharacterDisplay
 	private LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
 	private RaceTypeFacet raceTypeFacet = FacetLibrary.getFacet(RaceTypeFacet.class);
 	private SuppressBioFieldFacet suppressBioFieldFacet = FacetLibrary.getFacet(SuppressBioFieldFacet.class);
+	private TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
 	private VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
 	private FormulaResolvingFacet formulaResolvingFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 
@@ -320,6 +325,27 @@ public class CharacterDisplay
 		}
 
 		return aSR;
+	}
+
+	/**
+	 * Retrieve a list of the templates applied to this PC that should be
+	 * visible on output.
+	 * 
+	 * @return The list of templates visible on output sheets.
+	 */
+	public List<PCTemplate> getOutputVisibleTemplateList()
+	{
+		List<PCTemplate> tl = new ArrayList<PCTemplate>();
+
+		for (PCTemplate template : templateFacet.getSet(id))
+		{
+			if ((template.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
+				|| (template.getSafe(ObjectKey.VISIBILITY) == Visibility.OUTPUT_ONLY))
+			{
+				tl.add(template);
+			}
+		}
+		return tl;
 	}
 
 }

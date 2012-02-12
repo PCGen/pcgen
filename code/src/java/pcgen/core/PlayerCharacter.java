@@ -2933,27 +2933,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	}
 
 	/**
-	 * Retrieve a list of the templates applied to this PC that should be
-	 * visible on output.
-	 * 
-	 * @return The list of templates visible on output sheets.
-	 */
-	public List<PCTemplate> getOutputVisibleTemplateList()
-	{
-		List<PCTemplate> tl = new ArrayList<PCTemplate>();
-
-		for (PCTemplate template : getTemplateSet())
-		{
-			if ((template.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
-				|| (template.getSafe(ObjectKey.VISIBILITY) == Visibility.OUTPUT_ONLY))
-			{
-				tl.add(template);
-			}
-		}
-		return tl;
-	}
-
-	/**
 	 * Set trait 1.
 	 * 
 	 * @param aString the trait.

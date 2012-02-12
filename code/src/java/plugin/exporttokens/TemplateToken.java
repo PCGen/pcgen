@@ -79,7 +79,7 @@ public class TemplateToken extends Token
 		String retString = "";
 		PCTemplate template;
 
-		List<PCTemplate> tl = pc.getOutputVisibleTemplateList();
+		List<PCTemplate> tl = pc.getDisplay().getOutputVisibleTemplateList();
 
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		aTok.nextToken();
