@@ -46,8 +46,7 @@ public class TemplateListToken extends AbstractExportToken
 	}
 
 	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String,
-	 *      pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
+	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
 	 */
 	@Override
 	public String getToken(String tokenSource, CharacterDisplay display,
