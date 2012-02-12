@@ -30,6 +30,9 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.MovementToken;
 import pcgen.util.enumeration.AttackType;
 
+/*
+ * TODO This needs to be merged with pcgen.core.display.CharacterDisplay
+ */
 public class PlayerCharacterOutput
 {
 	private PlayerCharacter pc;
@@ -128,7 +131,7 @@ public class PlayerCharacterOutput
 	 */
 	public String getRaceType()
 	{
-		return pc.getRaceType();
+		return pc.getDisplay().getRaceType();
 	}
 
 	public String getDeity()
