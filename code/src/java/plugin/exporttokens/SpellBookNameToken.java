@@ -2,20 +2,17 @@ package plugin.exporttokens;
 
 import java.util.StringTokenizer;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 import pcgen.util.Logging;
 
 /**
  * @author karianna
  * Class deals with SPELLBOOKNAME Token
  */
-public class SpellBookNameToken extends Token
+public class SpellBookNameToken extends AbstractExportToken
 {
-
-	/** Token name */
-	public static final String TOKENNAME = "SPELLBOOKNAME";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -23,21 +20,21 @@ public class SpellBookNameToken extends Token
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "SPELLBOOKNAME";
 	}
 
 	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
+	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		String bString = aTok.nextToken();
 		final int bookNum;
 
-		if (TOKENNAME.equals(bString))
+		if ("SPELLBOOKNAME".equals(bString))
 		{
 			bookNum = Integer.parseInt(aTok.nextToken());
 		}
@@ -48,15 +45,7 @@ public class SpellBookNameToken extends Token
 			bookNum = Integer.parseInt(tokenSource.substring(13));
 		}
 
-		//		final List<String> spellBooks = pc.getSpellBooks();
-		//		// TODO - Remove SLAs from Spellbook "logic"
-		//		spellBooks.addAll(1, pc.getSpellLikeAbilityCategories());
-		//		if ( bookNum < spellBooks.size() )
-		//		{
-		//			return spellBooks.get(bookNum);
-		//		}
-
-		return pc.getDisplay().getSpellBookNames().get(bookNum);
+		return display.getSpellBookNames().get(bookNum);
 	}
 
 }
