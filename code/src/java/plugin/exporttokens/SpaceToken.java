@@ -24,9 +24,9 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * SpaceToken - Used to provide a breaking space character (e.g. ASCII 32) 
@@ -34,25 +34,22 @@ import pcgen.io.exporttoken.Token;
  * the MANUALWHITESPACE token removes all whitespace and an HTML &nbsp; is 
  * sometimes not desirable (as it doesn't naturally line break).
  */
-public class SpaceToken extends Token
+public class SpaceToken extends AbstractExportToken
 {
-	/** Token Name */
-	public static final String TOKENNAME = "SPACE";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "SPACE";
 	}
 
 	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
+	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
 		return " ";

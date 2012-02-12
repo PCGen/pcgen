@@ -25,6 +25,7 @@ package plugin.exporttokens;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.core.display.CharacterDisplay;
 
 /**
  * <code>SpaceTokenTest</code> - Unit test for the SPACE output token
@@ -71,7 +72,7 @@ public class SpaceTokenTest extends AbstractCharacterTestCase
 	public void testSpaceToken()
 	{
 		SpaceToken token = new SpaceToken();
-		assertEquals(" ", token.getToken("SPACE", null, null));
+		assertEquals(" ", token.getToken("SPACE", (CharacterDisplay) null, null));
 	}
 
 }
