@@ -325,7 +325,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	private String calcEquipSetId = "0.1"; //$NON-NLS-1$
 	private String descriptionLst = "EMPTY"; //$NON-NLS-1$
-	private String tabName = Constants.EMPTY_STRING;
 
 	// whether to add auto known spells each level
 	private boolean autoKnownSpells = true;
@@ -2851,7 +2850,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void setTabName(final String name)
 	{
-		tabName = name;
+		setStringFor(StringKey.TAB_NAME, name);
 		setDirty(true);
 		setChanged();
 		notifyObservers("TabName");
@@ -2864,7 +2863,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public String getTabName()
 	{
-		return tabName;
+		return getSafeStringFor(StringKey.TAB_NAME);
 	}
 
 	/**
@@ -9090,7 +9089,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		aClone.tempBonusItemList.addAll(tempBonusItemList);
 		aClone.bonusManager = bonusManager.buildDeepClone(aClone);
 		aClone.setDescriptionLst(getDescriptionLst());
-		aClone.tabName = tabName;
 		aClone.autoKnownSpells = autoKnownSpells;
 		aClone.autoLoadCompanion = autoLoadCompanion;
 		aClone.autoSortGear = autoSortGear;
