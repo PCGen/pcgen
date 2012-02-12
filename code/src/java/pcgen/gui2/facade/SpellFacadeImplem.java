@@ -26,6 +26,7 @@ import java.util.List;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
@@ -167,6 +168,10 @@ public class SpellFacadeImplem implements SpellFacade
 		else if (charSpell != null)
 		{
 			buff.append(charSpell.toString());
+		}
+		if (charSpell != null && charSpell.getOwner() instanceof Domain)
+		{
+			buff.append(" [").append(charSpell.getOwner().toString()).append("]");
 		}
 		if (spellInfo != null)
 		{

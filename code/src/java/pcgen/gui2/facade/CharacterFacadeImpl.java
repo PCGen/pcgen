@@ -1779,6 +1779,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		remainingDomains.setReference(theCharacter.getMaxCharacterDomains()
 			- theCharacter.getDomainCount());
 		updateDomainTodo();
+		spellSupportFacade.refreshAvailableKnownSpells();
 	}
 
 	/* (non-Javadoc)
@@ -1799,6 +1800,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		remainingDomains.setReference(theCharacter.getMaxCharacterDomains()
 			- theCharacter.getDomainCount());
 		updateDomainTodo();
+		spellSupportFacade.refreshAvailableKnownSpells();
 	}
 
 	/**
