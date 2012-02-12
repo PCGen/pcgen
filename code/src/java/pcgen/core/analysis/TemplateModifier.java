@@ -27,10 +27,12 @@ import java.util.Map;
 import java.util.Set;
 
 import pcgen.cdom.content.DamageReduction;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.DamageReductionFacet;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.NonAbilityFacet;
+import pcgen.cdom.facet.StatFacet;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
@@ -39,6 +41,7 @@ public class TemplateModifier
 {
 
 	private static DamageReductionFacet drFacet = FacetLibrary.getFacet(DamageReductionFacet.class);
+	private static StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
 
 	/**
 	 * Generate a string that represents the changes this Template will apply.
@@ -54,7 +57,8 @@ public class TemplateModifier
 		// true than 16
 		// (the default)
 
-		for (PCStat stat : aPC.getStatSet())
+		CharID id = aPC.getCharID();
+		for (PCStat stat : statFacet.getSet(id))
 		{
 			if (NonAbilityFacet.isNonAbilityForObject(stat, pct))
 			{
@@ -98,7 +102,7 @@ public class TemplateModifier
 		}
 		if (drMap.size() != 0)
 		{
-			mods.append("DR:").append(drFacet.getDRString(aPC.getCharID(), drMap));
+			mods.append("DR:").append(drFacet.getDRString(id, drMap));
 		}
 
 		int nat = (int) BonusCalc.bonusTo(pct, "COMBAT", "AC", aPC, aPC);
@@ -114,11 +118,10 @@ public class TemplateModifier
 			mods.append("CR:").append(cr).append(' ');
 		}
 
-		if (TemplateSR
-				.getSR(pct, totalLevels, totalHitDice, aPC) != 0)
+		if (aPC.getDisplay().getTemplateSR(pct, totalLevels, totalHitDice) != 0)
 		{
 			mods.append("SR:").append(
-					TemplateSR.getSR(pct, totalLevels, totalHitDice, aPC)).append(' ');
+				aPC.getDisplay().getTemplateSR(pct, totalLevels, totalHitDice)).append(' ');
 		}
 
 		// if (!getDR(aPC.getTotalLevels(), aPC.totalHitDice()).equals(""))

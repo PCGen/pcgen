@@ -19,17 +19,23 @@ package pcgen.core.display;
 
 import java.util.Collection;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.FactFacet;
+import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.LevelFacet;
 import pcgen.cdom.facet.RaceTypeFacet;
 import pcgen.cdom.facet.SuppressBioFieldFacet;
 import pcgen.cdom.facet.VisionFacet;
+import pcgen.core.PCTemplate;
 import pcgen.core.Vision;
 
 public class CharacterDisplay
@@ -42,7 +48,8 @@ public class CharacterDisplay
 	private RaceTypeFacet raceTypeFacet = FacetLibrary.getFacet(RaceTypeFacet.class);
 	private SuppressBioFieldFacet suppressBioFieldFacet = FacetLibrary.getFacet(SuppressBioFieldFacet.class);
 	private VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
-	
+	private FormulaResolvingFacet formulaResolvingFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
+
 	public CharacterDisplay(CharID id)
 	{
 		this.id = id;
@@ -243,6 +250,76 @@ public class CharacterDisplay
 	public int getTotalLevels()
 	{
 		return levelFacet.getTotalLevels(id);
+	}
+
+	/**
+	 * Get the Spell Resistance granted by the given template to a character at a
+	 * given level (Class and Hit Dice). This will include the absolute
+	 * adjustment made with SR:, LEVEL:<num>:SR and HD:<num>:SR tags
+	 * 
+	 * Note: unlike DR and CR, the value returned here includes the PCs own
+	 * Spell Resistance.
+	 * 
+	 * @param pct
+	 * 			The PCTemplate for which the Spell Resistance will be returned.
+	 * @param level
+	 *            The level to calculate the SR for
+	 * @param hitdice
+	 *            The Hit dice to calculate the SR for
+	 * 
+	 * @return the Spell Resistance granted by the given Template at the given level
+	 *         and HD
+	 */
+	public int getTemplateSR(PCTemplate pct, int level, int hitdice)
+	{
+		String qualifiedKey = pct.getQualifiedKey();
+		Formula reduction = pct.getSafe(ObjectKey.SR).getReduction();
+		int aSR =
+				formulaResolvingFacet.resolve(id, reduction, qualifiedKey)
+					.intValue();
+
+		for (PCTemplate rlt : pct.getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
+		{
+			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
+			{
+				if (lt.get(IntegerKey.LEVEL) <= level)
+				{
+					Formula ltReduction =
+							lt.getSafe(ObjectKey.SR).getReduction();
+					int ltSR =
+							formulaResolvingFacet.resolve(id, ltReduction,
+								qualifiedKey).intValue();
+					aSR = Math.max(aSR, ltSR);
+				}
+			}
+		}
+
+		for (PCTemplate lt : pct.getSafeListFor(ListKey.LEVEL_TEMPLATES))
+		{
+			if (lt.get(IntegerKey.LEVEL) <= level)
+			{
+				Formula ltReduction = lt.getSafe(ObjectKey.SR).getReduction();
+				int ltSR =
+						formulaResolvingFacet.resolve(id, ltReduction,
+							qualifiedKey).intValue();
+				aSR = Math.max(aSR, ltSR);
+			}
+		}
+
+		for (PCTemplate lt : pct.getSafeListFor(ListKey.HD_TEMPLATES))
+		{
+			if (lt.get(IntegerKey.HD_MAX) <= hitdice
+				&& lt.get(IntegerKey.HD_MIN) >= hitdice)
+			{
+				Formula ltReduction = lt.getSafe(ObjectKey.SR).getReduction();
+				int ltSR =
+						formulaResolvingFacet.resolve(id, ltReduction,
+							qualifiedKey).intValue();
+				aSR = Math.max(aSR, ltSR);
+			}
+		}
+
+		return aSR;
 	}
 
 }

@@ -38,7 +38,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.OutputNameFormatting;
-import pcgen.core.analysis.TemplateSR;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -259,6 +258,6 @@ public class TemplateToken extends Token
 	 */
 	public static int getSRToken(PCTemplate template, PlayerCharacter pc)
 	{
-		return TemplateSR.getSR(template, pc.getTotalLevels(), pc.totalHitDice(), pc);
+		return pc.getDisplay().getTemplateSR(template, pc.getTotalLevels(), pc.totalHitDice());
 	}
 }
