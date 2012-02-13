@@ -497,7 +497,9 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		public List<?> getData(ClassFacade obj)
 		{
-			return Arrays.asList(obj.getHD(), getTypes(obj), obj.getBaseStat(), obj.getSpellType(), obj.getSource());
+			return Arrays.asList(obj.getHD(), getTypes(obj),
+				"None".equals(obj.getBaseStat()) ? "" : obj.getBaseStat(),
+				obj.getSpellType(), obj.getSource());
 		}
 
 		private String getTypes(ClassFacade obj)
