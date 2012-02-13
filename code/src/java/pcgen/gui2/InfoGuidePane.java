@@ -95,7 +95,6 @@ public class InfoGuidePane extends JComponent implements UIResource
 		JEditorPane guidePane = createHtmlPane();
 		guidePane.setText(LanguageBundle.getFormattedString("in_si_whatnext",
 															Icons.New16.getImageIcon(),
-															Icons.NewNPC16.getImageIcon(),
 															Icons.Open16.getImageIcon()));
 
 		add(sourcesPanel, gbc2);
