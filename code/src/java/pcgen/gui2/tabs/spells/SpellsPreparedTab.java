@@ -33,6 +33,7 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JTree;
+import javax.swing.SwingConstants;
 import javax.swing.tree.TreePath;
 
 import org.apache.commons.lang.StringUtils;
@@ -94,6 +95,7 @@ public class SpellsPreparedTab extends FlippingSplitPane
 		box.add(Box.createVerticalStrut(5));
 		{
 			Box hbox = Box.createHorizontalBox();
+			addMMSpellButton.setHorizontalTextPosition(SwingConstants.LEADING);
 			hbox.add(addMMSpellButton);
 			box.add(hbox);
 		}
