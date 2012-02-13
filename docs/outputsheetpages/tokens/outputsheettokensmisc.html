@@ -709,12 +709,12 @@ look like:<br/>
 			<li><code>NUMSUFFIX</code> - Output a numeric suffix appropriate for the tag result. e.g &quot;th&quot; or &quot;rd&quot;</li>
 			<li><code>REPLACE</code>, <code>REPLACEALL</code>, <code>REPLACEFIRST</code> - Performs a regular 
 				expression based search and replace on the string produced by the associated token. Multiple 
-				replacements can be specified and are processed right to left. The proper syb=ntax for these 
+				replacements can be specified and are processed right to left. The proper syntax for these 
 				tags are as follows:
 				<ul>
-					<li><code>REPLACE(regexp,newtest)</code></li>
-					<li><code>REPLACEALL(regexp,newtest)</code></li>
-					<li><code>REPLACEFIRST(regexp,newtest)</code></li>
+					<li><code>REPLACE{regexp,newtest}</code></li>
+					<li><code>REPLACEALL{regexp,newtest}</code></li>
+					<li><code>REPLACEFIRST{regexp,newtest}</code></li>
 				</ul>
 			</li>
 			<li><code>SENTENCE</code>, <code>SENTENCECASE</code> - Output the tag result in sentence case. e.g. The vitamins are in my fresh brussels sprouts</li>
@@ -724,6 +724,8 @@ look like:<br/>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>TEXT.LOWER.SPELLMEM.%class.0.%level.%spell.NAME</code></p>
 		<p class="indent3">Would output the name for the spell in lower case.</p>
+		<p class="indent2"><code>|TEXT.REPLACEFIRST{\.0,}.SKILL.%skill.RANK|</code></p>
+		<p class="indent3">Would output "5" instead of "5.0" but would leave "5.5" as is.</p>
 		<p class="indent2"><code>TEXT.NUMSUFFIX.22</code></p>
 		<p class="indent3">Would output a suffix of &quot;nd&quot; rather than the value 22.</p>
 		<p></p>
