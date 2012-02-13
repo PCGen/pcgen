@@ -434,6 +434,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		NAME(LanguageBundle.getString("in_nameLabel")),
 		TYPE_NAME(LanguageBundle.getString("in_typeName")),
+		RACETYPE_NAME(LanguageBundle.getString("in_racetypeName")),
 		SOURCE_NAME(LanguageBundle.getString("in_sourceName"));
 		private String name;
 
@@ -455,6 +456,8 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 					return Collections.singletonList(new TreeViewPath<RaceFacade>(pobj));
 				case TYPE_NAME:
 					return Collections.singletonList(new TreeViewPath<RaceFacade>(pobj, pobj.getType()));
+				case RACETYPE_NAME:
+					return Collections.singletonList(new TreeViewPath<RaceFacade>(pobj, pobj.getRaceType()));
 				case SOURCE_NAME:
 					return Collections.singletonList(new TreeViewPath<RaceFacade>(pobj, pobj.getSource()));
 				default:

@@ -28,6 +28,8 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.core.facade.GenderFacade;
 import pcgen.core.facade.RaceFacade;
@@ -132,5 +134,14 @@ public final class Race extends PObject implements RaceFacade
 			return movements.get(0).toString();
 		}
 		return null;
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	public String getRaceType()
+	{
+		RaceType rt = getSafe(ObjectKey.RACETYPE);
+		return rt == null ? "" : rt.toString();
 	}
 }

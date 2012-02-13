@@ -38,4 +38,9 @@ public interface RaceFacade extends InfoFacade
 	public String getMovement();
 
 	public String getType();
+
+	/**
+	 * @return The name of the race's racetype
+	 */
+	public String getRaceType();
 }
