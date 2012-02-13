@@ -38,6 +38,7 @@ DESC:After defeating the giants of Mokmurian, the heroes discover that Karzoug, 
 #INFOTEXT:OGL.txt
 
 #ABILITYCATEGORY:
+ABILITY:pf5_abilities.lst
 ABILITY:pf5_abilities_class.lst
 ABILITY:pf5_abilities_monster.lst
 CLASS:pf5_classes.lst
@@ -46,3 +47,4 @@ FEAT:pf5_feats.lst
 KIT:pf5_kits.lst
 RACE:pf5_race.lst
 SPELL:pf5_spells.lst
+TEMPLATE:pf5_templates.lst
