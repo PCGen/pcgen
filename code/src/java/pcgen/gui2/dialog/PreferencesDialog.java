@@ -88,7 +88,6 @@ import pcgen.gui2.prefs.MonsterPanel;
 import pcgen.gui2.prefs.OutputPanel;
 import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.gui2.prefs.SourcesPanel;
-import pcgen.gui2.prefs.TabsPanel;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
@@ -137,7 +136,7 @@ public final class PreferencesDialog extends JDialog
 	private PCGenPrefsPanel displayOptionsPanel;
 	private PCGenPrefsPanel levelUpPanel;
 	private PCGenPrefsPanel lookAndFeelPanel;
-	private PCGenPrefsPanel tabsPanel;
+//	private PCGenPrefsPanel tabsPanel;
 
 	// PCGen panels
 	private PCGenPrefsPanel equipmentPanel;
@@ -304,8 +303,8 @@ public final class PreferencesDialog extends JDialog
 		addPanelToTree(appearanceNode, levelUpPanel);
 		lookAndFeelPanel = new LookAndFeelPanel(this);
 		addPanelToTree(appearanceNode, lookAndFeelPanel);
-		tabsPanel = new TabsPanel();
-		addPanelToTree(appearanceNode, tabsPanel);
+//		tabsPanel = new TabsPanel();
+//		addPanelToTree(appearanceNode, tabsPanel);
 		rootNode.add(appearanceNode);
 
 		pcGenNode = new DefaultMutableTreeNode(in_pcgen);

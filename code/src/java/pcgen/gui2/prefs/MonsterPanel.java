@@ -52,7 +52,7 @@ public class MonsterPanel extends PCGenPrefsPanel
 {
 	private static String in_monsters =
 		LanguageBundle.getString("in_Prefs_monsters");
-	private JCheckBox hideMonsterClasses = new JCheckBox();
+//	private JCheckBox hideMonsterClasses = new JCheckBox();
 	private JCheckBox ignoreMonsterHDCap = new JCheckBox();
 
 	/**
@@ -85,16 +85,16 @@ public class MonsterPanel extends PCGenPrefsPanel
 //		this.add(label);
 //		Utility.buildConstraints(c, 2, 0, 1, 1, 0, 0);
 
-		Utility.buildConstraints(c, 0, 1, 2, 1, 0, 0);
-		label =
-				new JLabel(LanguageBundle
-					.getString("in_Prefs_hideMonsterClasses")
-					+ ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 2, 1, 1, 1, 0, 0);
-		gridbag.setConstraints(hideMonsterClasses, c);
-		this.add(hideMonsterClasses);
+//		Utility.buildConstraints(c, 0, 1, 2, 1, 0, 0);
+//		label =
+//				new JLabel(LanguageBundle
+//					.getString("in_Prefs_hideMonsterClasses")
+//					+ ": ");
+//		gridbag.setConstraints(label, c);
+//		this.add(label);
+//		Utility.buildConstraints(c, 2, 1, 1, 1, 0, 0);
+//		gridbag.setConstraints(hideMonsterClasses, c);
+//		this.add(hideMonsterClasses);
 
 		Utility.buildConstraints(c, 0, 2, 2, 1, 0, 0);
 		label =
@@ -129,7 +129,7 @@ public class MonsterPanel extends PCGenPrefsPanel
 	@Override
 	public void setOptionsBasedOnControls()
 	{
-		SettingsHandler.setHideMonsterClasses(hideMonsterClasses.isSelected());
+//		SettingsHandler.setHideMonsterClasses(hideMonsterClasses.isSelected());
 		SettingsHandler.setIgnoreMonsterHDCap(ignoreMonsterHDCap.isSelected());
 	}
 
@@ -139,7 +139,7 @@ public class MonsterPanel extends PCGenPrefsPanel
 	@Override
 	public void applyOptionValuesToControls()
 	{
-		hideMonsterClasses.setSelected(SettingsHandler.hideMonsterClasses());
+//		hideMonsterClasses.setSelected(SettingsHandler.hideMonsterClasses());
 		ignoreMonsterHDCap.setSelected(SettingsHandler.isIgnoreMonsterHDCap());
 	}
 

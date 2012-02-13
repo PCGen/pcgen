@@ -61,24 +61,24 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 	private static String in_displayOpts =
 			LanguageBundle.getString("in_Prefs_displayOpts");
 
-	private static String in_useAutoWaitCursor =
-			LanguageBundle.getString("in_Prefs_useAutoWaitCursor");
+//	private static String in_useAutoWaitCursor =
+//			LanguageBundle.getString("in_Prefs_useAutoWaitCursor");
 	private static String in_useOutputNamesEquipment =
 			LanguageBundle.getString("in_Prefs_useOutputNamesEquipment");
 	private static String in_useOutputNamesSpells =
 			LanguageBundle.getString("in_Prefs_useOutputNamesSpells");
-	private static String in_showMemory =
-			LanguageBundle.getString("in_Prefs_showMemory");
-	private static String in_showImagePreview =
-			LanguageBundle.getString("in_Prefs_showImagePreview");
-	private static String in_showSkillModifierBreakdown =
-			LanguageBundle.getString("in_Prefs_showSkillModifierBreakdown");
-	private static String in_showSkillRanksBreakdown =
-			LanguageBundle.getString("in_Prefs_showSkillRanksBreakdown");
+//	private static String in_showMemory =
+//			LanguageBundle.getString("in_Prefs_showMemory");
+//	private static String in_showImagePreview =
+//			LanguageBundle.getString("in_Prefs_showImagePreview");
+//	private static String in_showSkillModifierBreakdown =
+//			LanguageBundle.getString("in_Prefs_showSkillModifierBreakdown");
+//	private static String in_showSkillRanksBreakdown =
+//			LanguageBundle.getString("in_Prefs_showSkillRanksBreakdown");
 	private static String in_showToolTips =
 			LanguageBundle.getString("in_Prefs_showToolTips");
-	private static String in_showToolBar =
-			LanguageBundle.getString("in_Prefs_showToolBar");
+//	private static String in_showToolBar =
+//			LanguageBundle.getString("in_Prefs_showToolBar");
 	private static String in_showFeatDescription =
 			LanguageBundle.getString("in_Prefs_showFeatDesciption");
 	private static String in_singleChoiceOption =
@@ -93,16 +93,16 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 			{in_cmNone, in_cmSelect, in_cmSelectExit};
 
 	private JCheckBox featDescriptionShown = new JCheckBox();
-	private JCheckBox showToolbar = new JCheckBox();
-	private JCheckBox showSkillModifier = new JCheckBox();
-	private JCheckBox showSkillRanks = new JCheckBox();
+//	private JCheckBox showToolbar = new JCheckBox();
+//	private JCheckBox showSkillModifier = new JCheckBox();
+//	private JCheckBox showSkillRanks = new JCheckBox();
 	private JCheckBox toolTipTextShown = new JCheckBox();
-	private JCheckBox showMemory = new JCheckBox();
-	private JCheckBox showImagePreview = new JCheckBox();
+//	private JCheckBox showMemory = new JCheckBox();
+//	private JCheckBox showImagePreview = new JCheckBox();
 
 	private JCheckBox useOutputNamesEquipment = new JCheckBox();
 	private JCheckBox useOutputNamesSpells = new JCheckBox();
-	private JCheckBox waitCursor = new JCheckBox();
+//	private JCheckBox waitCursor = new JCheckBox();
 	private JComboBoxEx cmbChoiceMethods = new JComboBoxEx(singleChoiceMethods);
 
 	/**
@@ -132,14 +132,14 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 				new TreeMap<String, JComponent>();
 
 		options.put(in_showFeatDescription, featDescriptionShown);
-		options.put(in_showMemory, showMemory);
-		options.put(in_showImagePreview, showImagePreview);
-		options.put(in_showSkillModifierBreakdown, showSkillModifier);
-		options.put(in_showSkillRanksBreakdown, showSkillRanks);
-		options.put(in_showToolBar, showToolbar);
+//		options.put(in_showMemory, showMemory);
+//		options.put(in_showImagePreview, showImagePreview);
+//		options.put(in_showSkillModifierBreakdown, showSkillModifier);
+//		options.put(in_showSkillRanksBreakdown, showSkillRanks);
+//		options.put(in_showToolBar, showToolbar);
 		options.put(in_showToolTips, toolTipTextShown);
 		options.put(in_singleChoiceOption, cmbChoiceMethods);
-		options.put(in_useAutoWaitCursor, waitCursor);
+//		options.put(in_useAutoWaitCursor, waitCursor);
 		options.put(in_useOutputNamesEquipment, useOutputNamesEquipment);
 		options.put(in_useOutputNamesSpells, useOutputNamesSpells);
 
@@ -205,10 +205,10 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 	public void setOptionsBasedOnControls()
 	{
 		SettingsHandler.setToolTipTextShown(toolTipTextShown.isSelected());
-		SettingsHandler.setShowMemoryArea(showMemory.isSelected());
-		SettingsHandler.setShowImagePreview(showImagePreview.isSelected());
-		SettingsHandler.setToolBarShown(showToolbar.isSelected());
-		SettingsHandler.setUseWaitCursor(waitCursor.isSelected());
+//		SettingsHandler.setShowMemoryArea(showMemory.isSelected());
+//		SettingsHandler.setShowImagePreview(showImagePreview.isSelected());
+//		SettingsHandler.setToolBarShown(showToolbar.isSelected());
+//		SettingsHandler.setUseWaitCursor(waitCursor.isSelected());
 		SettingsHandler.setGUIUsesOutputNameEquipment(useOutputNamesEquipment
 			.isSelected());
 		SettingsHandler.setGUIUsesOutputNameSpells(useOutputNamesSpells
@@ -216,8 +216,8 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		SettingsHandler.setSingleChoicePreference(cmbChoiceMethods
 			.getSelectedIndex());
 		SettingsHandler.setUseFeatBenefits(!featDescriptionShown.isSelected());
-		SettingsHandler.setShowSkillModifier(showSkillModifier.isSelected());
-		SettingsHandler.setShowSkillRanks(showSkillRanks.isSelected());
+//		SettingsHandler.setShowSkillModifier(showSkillModifier.isSelected());
+//		SettingsHandler.setShowSkillRanks(showSkillRanks.isSelected());
 	}
 
 	/* (non-Javadoc)
@@ -229,17 +229,17 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		cmbChoiceMethods.setSelectedIndex(SettingsHandler
 			.getSingleChoicePreference());
 		featDescriptionShown.setSelected(!SettingsHandler.useFeatBenefits());
-		showMemory.setSelected(SettingsHandler.isShowMemoryArea());
-		showImagePreview.setSelected(SettingsHandler.isShowImagePreview());
-		showSkillModifier.setSelected(SettingsHandler.getShowSkillModifier());
-		showSkillRanks.setSelected(SettingsHandler.getShowSkillRanks());
-		showToolbar.setSelected(SettingsHandler.isToolBarShown());
+//		showMemory.setSelected(SettingsHandler.isShowMemoryArea());
+//		showImagePreview.setSelected(SettingsHandler.isShowImagePreview());
+//		showSkillModifier.setSelected(SettingsHandler.getShowSkillModifier());
+//		showSkillRanks.setSelected(SettingsHandler.getShowSkillRanks());
+//		showToolbar.setSelected(SettingsHandler.isToolBarShown());
 		toolTipTextShown.setSelected(SettingsHandler.isToolTipTextShown());
 		useOutputNamesEquipment.setSelected(SettingsHandler
 			.guiUsesOutputNameEquipment());
 		useOutputNamesSpells.setSelected(SettingsHandler
 			.guiUsesOutputNameSpells());
-		waitCursor.setSelected(SettingsHandler.getUseWaitCursor());
+//		waitCursor.setSelected(SettingsHandler.getUseWaitCursor());
 	}
 
 }
