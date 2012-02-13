@@ -4,4 +4,4 @@ SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yah
 # Dieties removed... Not in the SRD.  - Tir Gwaith
 
 # Deity Name	Domains							Desciption of Deity/Title	Holy Item	Deity Weapon	Source Page
-None			DOMAINS:ANY|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE	DESC:Due to closed content PCGEN cannot provide a list of deities, sorry but you need to homebrew your own list; Please see the Documentation for how to do so.				SYMBOL:None	DEITYWEAP:ANY	SOURCEPAGE:srdbasiccharacterclassesi.rtf
+None			DOMAINS:ANY|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE	DESC:Due to closed content PCGEN cannot provide a list of deities, sorry but you need to homebrew your own list; Please see the Documentation for how to do so.				SYMBOL:None	DEITYWEAP:ANY	SOURCEPAGE:srdbasiccharacterclassesi.rtf	SOURCEWEB:http://www.pcgen-test.org/autobuilds/pcgen-docs/listfilepages/lstfileclass/lfc_lesson14_deities.html
