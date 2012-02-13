@@ -114,11 +114,11 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		setResizeWeight(.70);
 
 		JSpinner spinner = new JSpinner();
-		spinner.setEditor(new JSpinner.NumberEditor(spinner, "#0.0"));
+		spinner.setEditor(new JSpinner.NumberEditor(spinner, "#0.#"));
 		skillTable.setSortingPriority(Collections.singletonList(new SortingPriority(0, SortMode.ASCENDING)));
 		skillTable.sortModel();
 		skillTable.setDefaultRenderer(Float.class, new SpinnerRenderer(spinner));
-		skillTable.setRowHeight(22);
+		skillTable.setRowHeight(26);
 		FilterBar filterBar = new FilterBar();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 
@@ -419,7 +419,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			this.model = model;
 
 			DefaultEditor editor = new DefaultEditor(spinner);
-			NumberFormatter formatter = new NumberFormatter(new DecimalFormat("#0.0"));
+			NumberFormatter formatter = new NumberFormatter(new DecimalFormat("#0.#"));
 			formatter.setValueClass(Float.class);
 			DefaultFormatterFactory factory = new DefaultFormatterFactory(formatter);
 
