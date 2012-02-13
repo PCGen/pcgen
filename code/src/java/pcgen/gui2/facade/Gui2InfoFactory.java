@@ -89,6 +89,7 @@ import pcgen.core.spell.Spell;
 import pcgen.gui.HTMLUtils;
 import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.system.LanguageBundle;
+import pcgen.system.PCGenSettings;
 
 /**
  * The Class <code>Gui2InfoFactory</code> provides character related information 
@@ -343,13 +344,14 @@ public class Gui2InfoFactory implements InfoFactory
 			infoText.appendI18nElement("in_iskSource", bString); //$NON-NLS-1$
 		}
 
-		if (SettingsHandler.getShowSkillModifier())
+		if (PCGenSettings.OPTIONS_CONTEXT.getBoolean(
+			PCGenSettings.OPTION_SHOW_SKILL_MOD_BREAKDOWN, false))
 		{
 			bString = SkillModifier.getModifierExplanation(skill, pc, false);
 			if (bString.length() != 0)
 			{
 				infoText.appendLineBreak();
-				infoText.appendI18nElement("in_iskHtml_PcMod", //$NON-NLS-1$
+				infoText.appendI18nFormattedElement("in_iskHtml_PcMod", //$NON-NLS-1$
 					bString);
 			}
 		}

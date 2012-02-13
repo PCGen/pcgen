@@ -47,6 +47,7 @@ public class PCGenSettings extends PropertyContext
 	public static final String OPTION_SHOW_STAT_DIALOG_AT_LEVELUP = "showStatDialogAtLevelUp";
 	public static final String OPTION_SHOW_WARNING_AT_FIRST_LEVEL_UP = "showWarningAtFirstLevelUp";
 	public static final String OPTION_AUTO_RESIZE_EQUIP = "autoResizeEquip";
+	public static final String OPTION_SHOW_SKILL_MOD_BREAKDOWN = "showSkillModBreakdown";
 	public static final String BROWSER_PATH = "browserPath";
 	/**
 	 * The key for the path to the character files.

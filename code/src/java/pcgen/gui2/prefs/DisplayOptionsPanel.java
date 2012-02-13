@@ -43,6 +43,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.gui2.util.JComboBoxEx;
 import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
+import pcgen.system.PCGenSettings;
 
 /**
  * The Class <code>DisplayOptionsPanel</code> is responsible for 
@@ -71,8 +72,8 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 //			LanguageBundle.getString("in_Prefs_showMemory");
 //	private static String in_showImagePreview =
 //			LanguageBundle.getString("in_Prefs_showImagePreview");
-//	private static String in_showSkillModifierBreakdown =
-//			LanguageBundle.getString("in_Prefs_showSkillModifierBreakdown");
+	private static String in_showSkillModifierBreakdown =
+			LanguageBundle.getString("in_Prefs_showSkillModifierBreakdown");
 //	private static String in_showSkillRanksBreakdown =
 //			LanguageBundle.getString("in_Prefs_showSkillRanksBreakdown");
 	private static String in_showToolTips =
@@ -94,7 +95,7 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 
 	private JCheckBox featDescriptionShown = new JCheckBox();
 //	private JCheckBox showToolbar = new JCheckBox();
-//	private JCheckBox showSkillModifier = new JCheckBox();
+	private JCheckBox showSkillModifier = new JCheckBox();
 //	private JCheckBox showSkillRanks = new JCheckBox();
 	private JCheckBox toolTipTextShown = new JCheckBox();
 //	private JCheckBox showMemory = new JCheckBox();
@@ -134,7 +135,7 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		options.put(in_showFeatDescription, featDescriptionShown);
 //		options.put(in_showMemory, showMemory);
 //		options.put(in_showImagePreview, showImagePreview);
-//		options.put(in_showSkillModifierBreakdown, showSkillModifier);
+		options.put(in_showSkillModifierBreakdown, showSkillModifier);
 //		options.put(in_showSkillRanksBreakdown, showSkillRanks);
 //		options.put(in_showToolBar, showToolbar);
 		options.put(in_showToolTips, toolTipTextShown);
@@ -216,7 +217,9 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		SettingsHandler.setSingleChoicePreference(cmbChoiceMethods
 			.getSelectedIndex());
 		SettingsHandler.setUseFeatBenefits(!featDescriptionShown.isSelected());
-//		SettingsHandler.setShowSkillModifier(showSkillModifier.isSelected());
+		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
+			PCGenSettings.OPTION_SHOW_SKILL_MOD_BREAKDOWN,
+			showSkillModifier.isSelected());
 //		SettingsHandler.setShowSkillRanks(showSkillRanks.isSelected());
 	}
 
@@ -231,7 +234,8 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		featDescriptionShown.setSelected(!SettingsHandler.useFeatBenefits());
 //		showMemory.setSelected(SettingsHandler.isShowMemoryArea());
 //		showImagePreview.setSelected(SettingsHandler.isShowImagePreview());
-//		showSkillModifier.setSelected(SettingsHandler.getShowSkillModifier());
+		showSkillModifier.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(
+			PCGenSettings.OPTION_SHOW_SKILL_MOD_BREAKDOWN, false));
 //		showSkillRanks.setSelected(SettingsHandler.getShowSkillRanks());
 //		showToolbar.setSelected(SettingsHandler.isToolBarShown());
 		toolTipTextShown.setSelected(SettingsHandler.isToolTipTextShown());
