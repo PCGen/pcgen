@@ -1773,7 +1773,7 @@ img {
                   <div align="center">
 |IIF(SKILL.%skill.RANK==0)|
 |ELSE|
-                      |SKILL.%skill.RANK|
+                      |TEXT.REPLACEFIRST{\.0,}.SKILL.%skill.RANK| 
 |ENDIF|
                     </div></td>
                   
