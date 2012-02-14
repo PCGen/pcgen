@@ -3,7 +3,7 @@ CAMPAIGN:Paizo - Pathfinder Roleplaying Game Core Rulebook
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Roleplaying Game
 RANK:1
-STATUS:BETA
+STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Core Rules
 !PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core,[Paizo - Pathfinder Roleplaying Game Core Rulebook]
