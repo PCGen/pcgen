@@ -793,6 +793,11 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 
 		if (node.getNodeType() == NodeType.PHANTOM_SLOT)
 		{
+			// Check first for an already full or taken slot
+			if (!getNodes().containsElement(node))
+			{
+				return false;
+			}
 			EquipSlot slot = ((EquipNodeImpl) node).getSlot();
 			if (slot.canContainType(item.getType()))
 			{
