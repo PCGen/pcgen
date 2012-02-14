@@ -20,6 +20,7 @@
  */
 package pcgen.gui2.tabs.equip;
 
+import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,7 +30,9 @@ import javax.swing.AbstractAction;
 import javax.swing.AbstractCellEditor;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
@@ -283,20 +286,24 @@ public class EquipmentModels
 				JTable table = new JTable(tableModel);
 				table.setFocusable(false);
 				table.setCellSelectionEnabled(false);
-				table.setPreferredScrollableViewportSize(table.getPreferredSize());
 				table.setDefaultRenderer(Integer.class, new TableCellUtilities.SpinnerRenderer());
 				table.setDefaultEditor(Integer.class, new SpinnerEditor(equipSet.getEquippedItems()));
-				//table.getColumnModel().getColumn(0).setCellRenderer(new TableCellUtilities.AlignRenderer(SwingConstants.RIGHT));
+				table.setRowHeight(22);
+				table.getColumnModel().getColumn(0).setPreferredWidth(140);
+				table.getColumnModel().getColumn(1).setPreferredWidth(50);
+				table.setPreferredScrollableViewportSize(table.getPreferredSize());
 				JTableHeader header = table.getTableHeader();
 				header.setReorderingAllowed(false);
-				header.setResizingAllowed(false);
 				JScrollPane pane = new JScrollPane(table);
-				JOptionPane.showMessageDialog(JOptionPane.getFrameForComponent(equipmentSetTable),
-											  pane, Constants.APPLICATION_NAME, JOptionPane.PLAIN_MESSAGE);
+				int res = JOptionPane.showConfirmDialog(JOptionPane.getFrameForComponent(equipmentTable),
+					  pane, Constants.APPLICATION_NAME, JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 
-				for (int i = 0; i < paths.size(); i++)
+				if (res == JOptionPane.OK_OPTION)
 				{
-					equipSet.removeEquipment(paths.get(i), (Integer) tableModel.getValueAt(i, 1));
+					for (int i = 0; i < paths.size(); i++)
+					{
+						equipSet.removeEquipment(paths.get(i), (Integer) tableModel.getValueAt(i, 1));
+					}
 				}
 			}
 		}
@@ -383,22 +390,31 @@ public class EquipmentModels
 				JTable table = new JTable(tableModel);
 				table.setFocusable(false);
 				table.setCellSelectionEnabled(false);
-				table.setPreferredScrollableViewportSize(table.getPreferredSize());
 				table.setDefaultEditor(Object.class, new ComboEditor(equipMap));
 				table.setDefaultRenderer(Integer.class, new TableCellUtilities.SpinnerRenderer());
 				table.setDefaultEditor(Integer.class, new SpinnerEditor(unequippedList));
-				//table.getColumnModel().getColumn(0).setCellRenderer(new TableCellUtilities.AlignRenderer(SwingConstants.RIGHT));
+				table.setRowHeight(22);
+				table.getColumnModel().getColumn(0).setPreferredWidth(140);
+				table.getColumnModel().getColumn(1).setPreferredWidth(50);
+				table.getColumnModel().getColumn(2).setPreferredWidth(120);
+				table.setPreferredScrollableViewportSize(table.getPreferredSize());
 				JTableHeader header = table.getTableHeader();
 				header.setReorderingAllowed(false);
-				header.setResizingAllowed(false);
 				JScrollPane pane = new JScrollPane(table);
-				JOptionPane.showMessageDialog(JOptionPane.getFrameForComponent(equipmentTable),
-											  pane, Constants.APPLICATION_NAME, JOptionPane.PLAIN_MESSAGE);
+				JPanel panel = new JPanel(new BorderLayout());
+				JLabel help = new JLabel("Select the quantity and location for each item.");
+				panel.add(help, BorderLayout.NORTH);
+				panel.add(pane, BorderLayout.CENTER);
+				int res = JOptionPane.showConfirmDialog(JOptionPane.getFrameForComponent(equipmentTable),
+					panel, Constants.APPLICATION_NAME, JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 
-				for (int i = 0; i < equipment.size(); i++)
+				if (res == JOptionPane.OK_OPTION)
 				{
-					EquipNode path = (EquipNode) tableModel.getValueAt(i, 2);
-					equipSet.addEquipment(path, equipment.get(i), (Integer) tableModel.getValueAt(i, 1));
+					for (int i = 0; i < equipment.size(); i++)
+					{
+						EquipNode path = (EquipNode) tableModel.getValueAt(i, 2);
+						equipSet.addEquipment(path, equipment.get(i), (Integer) tableModel.getValueAt(i, 1));
+					}
 				}
 			}
 		}
