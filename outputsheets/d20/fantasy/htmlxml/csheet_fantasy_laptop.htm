@@ -938,7 +938,7 @@ ATKArr[2] = new ATK("Grapple","|ATTACK.GRAPPLE.TOTAL|","|ATTACK.GRAPPLE|",STRind
 |ENDIF|
 // Now, set up the list of skills
 |FOR,%skill,0,COUNT[SKILLS]-1,1,1|
-SkillArr[%skill] = new Skill("|SKILL.%skill|","|SKILL.%skill.ABILITY|",|SKILL.%skill.TOTAL|,|SKILL.%skill.ABMOD|,|SKILL.%skill.RANK|,|SKILL.%skill.MISC|,"|SKILL.%skill.UNTRAINED|","|SKILL.%skill.EXPLAIN|");
+SkillArr[%skill] = new Skill("|SKILL.%skill|","|SKILL.%skill.ABILITY|",|SKILL.%skill.TOTAL|,|SKILL.%skill.ABMOD|,|TEXT.REPLACEFIRST{\.0,}.SKILL.%skill.RANK| ,|SKILL.%skill.MISC|,"|SKILL.%skill.UNTRAINED|","|SKILL.%skill.EXPLAIN|");
 |ENDFOR|
 // A variable of type Ability supports the following
 // Only those marked with * should be modified after creation
