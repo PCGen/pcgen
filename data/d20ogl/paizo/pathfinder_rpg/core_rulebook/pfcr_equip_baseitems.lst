@@ -1,0 +1,64 @@
+# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+# Original RSRD Entry by: PCGen Data Team
+# Pathfinder RPG Entry by: Stefan Radermacher
+
+# Sorted by the "Magic Items on the Body" listing for now...
+# Equipment Name	Type						Cost		Weight	Slot Needed	Requires Modification?
+# Belt slot
+# Equipment Name	Type						Cost		Weight	Slot Needed	Requires Modification?
+Belt			TYPE:Belt					COST:0	WT:0				MODS:REQUIRED
+Girdle		TYPE:Belt					COST:0	WT:0				MODS:REQUIRED
+# Body slot
+Robe			TYPE:Robe					COST:0	WT:0				MODS:REQUIRED
+Vestment		TYPE:Robe					COST:0	WT:0				MODS:REQUIRED
+# Chest slot
+Mantle		TYPE:Shirt					COST:0	WT:0				MODS:REQUIRED
+Shirt			TYPE:Shirt					COST:0	WT:0				MODS:REQUIRED
+Vest			TYPE:Shirt					COST:0	WT:0				MODS:REQUIRED
+# Eyes slot
+Eye Lenses		TYPE:Eyegear				COST:0	WT:0				MODS:REQUIRED
+Goggles		TYPE:Eyegear				COST:0	WT:0				MODS:REQUIRED
+# Feet slot
+Boots			TYPE:Boot					COST:0	WT:0		SLOTS:2	MODS:REQUIRED
+Shoes			TYPE:Boot					COST:0	WT:0		SLOTS:2	MODS:REQUIRED
+Slippers		TYPE:Boot					COST:0	WT:0		SLOTS:2	MODS:REQUIRED
+# Hands slot
+Gauntlets		TYPE:Glove					COST:0	WT:0		SLOTS:2	MODS:REQUIRED
+Gloves		TYPE:Glove					COST:0	WT:0		SLOTS:2	MODS:REQUIRED
+# Head slot
+Circlet		TYPE:Headgear				COST:0	WT:0				MODS:REQUIRED
+Crown			TYPE:Headgear				COST:0	WT:0				MODS:REQUIRED
+Hat			TYPE:Headgear				COST:0	WT:0				MODS:REQUIRED
+Helmet		TYPE:Headgear				COST:0	WT:0				MODS:REQUIRED
+Mask			TYPE:Headgear				COST:0	WT:0				MODS:REQUIRED
+# Headband slot
+Headband		TYPE:Headband				COST:0	WT:0				MODS:REQUIRED
+Phylactery		TYPE:Headband				COST:0	WT:0				MODS:REQUIRED
+# Neck slot
+Amulet		TYPE:Amulet					COST:0	WT:0				MODS:REQUIRED
+Brooch		TYPE:Amulet					COST:0	WT:0				MODS:REQUIRED
+Medallion		TYPE:Amulet					COST:0	WT:0				MODS:REQUIRED
+Necklace		TYPE:Amulet					COST:0	WT:0				MODS:REQUIRED
+Periapt		TYPE:Amulet					COST:0	WT:0				MODS:REQUIRED
+Scarab		TYPE:Amulet					COST:0	WT:0				MODS:REQUIRED
+# Ring slot
+Ring			TYPE:Ring					COST:0	WT:0				MODS:REQUIRED
+# Shoulders slot
+Cape			TYPE:Cloak					COST:0	WT:0				MODS:REQUIRED
+Cloak			TYPE:Cloak					COST:0	WT:0				MODS:REQUIRED
+# Wrist slot
+Bracelets		TYPE:Bracer					COST:0	WT:0		SLOTS:2	MODS:REQUIRED
+Bracers		TYPE:Bracer					COST:0	WT:0		SLOTS:2	MODS:REQUIRED
+# From "summary of magic item creation costs"
+Potion		TYPE:Potion.Consumable			COST:0	WT:0				MODS:REQUIRED
+Rod			TYPE:Rod					COST:0	WT:0				MODS:REQUIRED
+Scroll		TYPE:Scroll.Consumable			COST:0	WT:0				MODS:REQUIRED
+Staff			TYPE:Staff					COST:0	WT:0				MODS:REQUIRED
+Wand			TYPE:Wand					COST:0	WT:0				MODS:REQUIRED
+# From Magic Overview "Components"
+Spell Component	TYPE:MaterialComponent.Consumable	COST:0	WT:0				MODS:REQUIRED
+Spell Focus		TYPE:SpellFocus				COST:0	WT:0				MODS:REQUIRED
+#
+Art			TYPE:Art					COST:0	WT:0				MODS:REQUIRED
+Gem			TYPE:Gem					COST:0	WT:0				MODS:REQUIRED

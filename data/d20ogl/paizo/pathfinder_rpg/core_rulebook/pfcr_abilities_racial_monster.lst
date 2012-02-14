@@ -1,0 +1,18 @@
+# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+# Original Entry by: Andrew Maitland
+
+###Block: Monster Racial for Companions
+# Ability Name	Category of Ability		Type
+#Grab			CATEGORY:Special Ability	TYPE:SpecialAttack
+#Hold Breath		CATEGORY:Special Ability	TYPE:SpecialQuality
+#Pounce		CATEGORY:Special Ability	TYPE:SpecialAttack
+#Rake			CATEGORY:Special Ability	TYPE:SpecialAttack
+#Scent			CATEGORY:Special Ability	TYPE:SpecialQuality
+#Trip			CATEGORY:Special Ability	TYPE:SpecialAttack
+
+
+###Block: Universal Bonuses
+#Block: Animal Tricks - 3 for Int 1 or 6 for Int 2
+# Ability Name			Category of Ability		Type			Visible		Bonus to Ability Pool
+Animal Tricks and Training	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Animal Trick|3	BONUS:ABILITYPOOL|Animal Trick|3|PRESTAT:1,INT=2

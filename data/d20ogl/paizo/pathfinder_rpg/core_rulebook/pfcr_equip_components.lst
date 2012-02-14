@@ -1,0 +1,103 @@
+# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+
+###Block: Material Components
+# Equipment Name			Type						Cost		Weight	Special Property
+Amber Dust (1000 gp)		TYPE:MaterialComponent.Consumable	COST:1000	WT:0		SPROP:Material Component for Teleportation Circle
+Crushed Black Pearl (500 gp)	TYPE:MaterialComponent.Consumable	COST:500	WT:0		SPROP:Material Component for Circle of Death
+Crushed Jade (250 gp)		TYPE:MaterialComponent.Consumable	COST:250	WT:0		SPROP:Material Component for False Vision
+Diamond (500 gp)			TYPE:MaterialComponent.Consumable	COST:500	WT:0		SPROP:Material Component for Protection from Spells
+Diamond (1500 gp)			TYPE:MaterialComponent.Consumable	COST:1500	WT:0		SPROP:Material Component for Limited Wish
+Diamond (5000 gp)			TYPE:MaterialComponent.Consumable	COST:5000	WT:0		SPROP:Material Component for Raise Dead
+Diamond (10000 gp)		TYPE:MaterialComponent.Consumable	COST:10000	WT:0		SPROP:Material Component for Resurrection
+Diamond (25000 gp)		TYPE:MaterialComponent.Consumable	COST:25000	WT:0		SPROP:Material Component for True Resurrection or Wish
+Diamond Dust (50 gp)		TYPE:MaterialComponent.Consumable	COST:50	WT:0		SPROP:Material Component for Nondetection
+Diamond Dust (100 gp)		TYPE:MaterialComponent.Consumable	COST:100	WT:0		SPROP:Material Component for Restoration
+Diamond Dust (250 gp)		TYPE:MaterialComponent.Consumable	COST:250	WT:0		SPROP:Material Component for Stoneskin
+Diamond Dust (500 gp)		TYPE:MaterialComponent.Consumable	COST:500	WT:0		SPROP:Material Component for Undeath to Death
+Diamond Dust (1000 gp)		TYPE:MaterialComponent.Consumable	COST:1000	WT:0		SPROP:Material Component for Restoration
+Diamond Dust (5000 gp)		TYPE:MaterialComponent.Consumable	COST:5000	WT:0		SPROP:Material Component for Greater Restoration
+Diamond Dust (25000 gp)		TYPE:MaterialComponent.Consumable	COST:25000	WT:0		SPROP:Material Component for Miracle
+Gem Dust (5000 gp)		TYPE:MaterialComponent.Consumable	COST:5000	WT:0		SPROP:Material Component for Temporal Stasis
+Gold Dust (25 gp)			TYPE:MaterialComponent.Consumable	COST:25	WT:0		SPROP:Material Component for Arcane Lock or Fire Trap
+Herbs and Oils (2000 gp)	TYPE:MaterialComponent.Consumable	COST:2000	WT:0		SPROP:Material Component for Awaken
+Incense (25 gp)			TYPE:MaterialComponent.Consumable	COST:25	WT:0		SPROP:Material Component for Augury
+Incense (250 gp)			TYPE:MaterialComponent.Consumable	COST:250	WT:0		SPROP:Material Component for Legend Lore
+Incense (500 gp)			TYPE:MaterialComponent.Consumable	COST:500	WT:0		SPROP:Material Component for Commune
+Jade Circlet (1500 gp)		TYPE:MaterialComponent.Consumable	COST:1500	WT:0		SPROP:Material Component for Shapechange
+Jade Dust (25 gp)			TYPE:MaterialComponent.Consumable	COST:25	WT:0		SPROP:Material Component for Programmed Image
+Oils (1000 gp)			TYPE:MaterialComponent.Consumable	COST:1000	WT:0		SPROP:Material Component for Reincarnate
+Ointment (250 gp)			TYPE:MaterialComponent.Consumable	COST:250	WT:0		SPROP:Material Component for True Seeing
+Onyx (25 gp)			TYPE:MaterialComponent.Consumable	COST:25	WT:0		SPROP:Material Component for Animate Dead
+Powdered Silver (25 gp)		TYPE:MaterialComponent.Consumable	COST:25	WT:5		SPROP:Material Component for Bless Water, Consecrate, or Curse Water
+Ruby Dust (50 gp)			TYPE:MaterialComponent.Consumable	COST:50	WT:0		SPROP:Material Component for Continual Flame
+Small Replica of Self (5 gp)	TYPE:MaterialComponent.Consumable	COST:5	WT:0		SPROP:Material Component for Project Image
+# To Do
+# Divination - incense and appropriate offering worth 25 gp
+# Refuge - a prepared object worth 1500 gp
+
+###Block: Foci
+# Equipment Name					Type					Cost		Weight	Special Property
+Diamond (1000 gp)					TYPE:MaterialComponent.Focus	COST:1000	WT:0		SPROP:Focus for Protection from Spells
+Forked Metal Rod					TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift
+Forked Metal Rod (Material Plane)		TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Material Plane
+Forked Metal Rod (Astral Plane)		TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Astral Plane
+Forked Metal Rod (Ethereal Plane)		TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Ethereal Plane
+Forked Metal Rod (Shadow Plane)		TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Shadow Plane
+Forked Metal Rod (Plane of Air)		TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Plane of Air
+Forked Metal Rod (Plane of Earth)		TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Plane of Earth
+Forked Metal Rod (Plane of Fire)		TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Plane of Fire
+Forked Metal Rod (Plane of Water)		TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Plane of Water
+Forked Metal Rod (Positive Energy Plane)	TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Positive Energy Plane
+Forked Metal Rod (Negative Energy Plane)	TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Negative Energy Plane
+Forked Metal Rod (Heaven)			TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to Heaven
+Forked Metal Rod (Abyss)			TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to the Abyss
+Forked Metal Rod (Hell)				TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to Hell
+Forked Metal Rod (Elysium)			TYPE:MaterialComponent.Focus	COST:0	WT:0		SPROP:Focus for Plane Shift, attuned to Elysium
+Ivory Statuette of Self (1500 gp)		TYPE:MaterialComponent.Focus	COST:1500	WT:0		SPROP:Focus for Contingency
+Ruby and Gold Lens (1500 gp)			TYPE:MaterialComponent.Focus	COST:1500	WT:0		SPROP:Focus for Analyze Dweomer
+Platinum Ring (50 gp)				TYPE:MaterialComponent.Focus	COST:50	WT:0		SPROP:Focus for Shield Other
+Set of 4 Pieces of Ivory (200 gp)		TYPE:MaterialComponent.Focus	COST:200	WT:0		SPROP:Focus for Legend Lore
+Set of Marked Bones (25 gp)			TYPE:MaterialComponent.Focus	COST:25	WT:0		SPROP:Focus for Augury
+Silver Mirror (1000 gp)				TYPE:MaterialComponent.Focus	COST:1000	WT:0		SPROP:Focus for Scrying
+Tiny Reliquary (500 gp)				TYPE:MaterialComponent.Focus	COST:500	WT:0		SPROP:Focus for Cloak of Chaos, Holy Aura, Shield of Law, or Unholy Aura
+# To Do
+# Destuction - Holy/Unholy symbol worth 500 gp
+
+###Block: Material Components
+# Equipment Name				Output Name							Type						Cost		Weight	Special Property
+Crushed Pearls (1500 gp)										TYPE:MaterialComponent.Consumable	COST:1500	WT:0		SPROP:Material Component for Sympathy
+Diamond Dust (200 gp)											TYPE:MaterialComponent.Consumable	COST:200	WT:0		SPROP:Material Component for Glyph of Warding
+Gold Dust (50 gp)												TYPE:MaterialComponent.Consumable	COST:50	WT:0		SPROP:Material Component for Wall of Iron
+Herbs Oils and Incense (1000 gp)	OUTPUTNAME:Herbs, Oils, and Incense (1000 gp)	TYPE:MaterialComponent.Consumable	COST:2000	WT:0		SPROP:Material Component for Hallow or Unhallow
+Incense (1500 gp)												TYPE:MaterialComponent.Consumable	COST:500	WT:0		SPROP:Material Component for Forbiddance
+Jacinth (1000 gp)												TYPE:MaterialComponent.Consumable	COST:1000	WT:0		SPROP:Material Component for Astral Projection
+Jade Dust (10 gp)												TYPE:MaterialComponent.Consumable	COST:10	WT:0		SPROP:Material Component for Magic Mouth
+Laboratory Supplies (1000 gp)										TYPE:MaterialComponent.Consumable	COST:1000	WT:0		SPROP:Material Component for Clone
+Lead-Based Ink (50 gp)											TYPE:MaterialComponent.Consumable	COST:50	WT:0		SPROP:Material Component for Illusory Script
+Opal (500 gp)												TYPE:MaterialComponent.Consumable	COST:500	WT:0		SPROP:Material Component for Binding
+Onyx (50 gp)												TYPE:MaterialComponent.Consumable	COST:50	WT:0		SPROP:Material Component for Create Undead
+Powdered Amber (500 gp)											TYPE:MaterialComponent.Consumable	COST:500	WT:0		SPROP:Material Component for Sepia Snake Sigil
+Powdered Diamond and Opal (1000 gp)									TYPE:MaterialComponent.Consumable	COST:1000	WT:0		SPROP:Material Component for Symbol of Fear, Symbol of Sleep, or Symbol of Pain
+Powdered Diamond and Opal (5000 gp)									TYPE:MaterialComponent.Consumable	COST:5000	WT:0		SPROP:Material Component for Symbol of Insanity, Symbol of Persuasion, Symbol of Stunning, or Symbol of Weakness
+Powdered Opal (5000 gp)											TYPE:MaterialComponent.Consumable	COST:5000	WT:0		SPROP:Material Component for Symbol of Death
+Powdered Ruby (500 gp)											TYPE:MaterialComponent.Consumable	COST:500	WT:0		SPROP:Material Component for Simulacrum
+Sapphire (1000 gp)											TYPE:MaterialComponent.Consumable	COST:1000	WT:0		SPROP:Material Component for Instant Summons
+Special Dust (50 gp)											TYPE:MaterialComponent.Consumable	COST:50	WT:0		SPROP:Material Component for Phantom Trap
+# To Do
+# Permanency - various amounts of diamond dust
+# Planar Ally - offerings worth 1250 gp
+# Planar Ally, Greater - offerings worth 2500 gp
+# Planar Ally, Lesser - offerings worth 500 gp
+# Trap the Soul - gem or crystal worth 1000 gp per HD
+
+###Block: Foci
+# Equipment Name				Type					Cost		Weight	Special Property
+Laboratory Equipment (500 gp)		TYPE:MaterialComponent.Focus	COST:500	WT:0		SPROP:Focus for Clone
+Ivory Plaque (50 gp)			TYPE:MaterialComponent.Focus	COST:50	WT:0		SPROP:Focus for Mnemonic Enhancer
+Miniature Platinum Sword (250 gp)	TYPE:MaterialComponent.Focus	COST:250	WT:0		SPROP:Focus for Mage's Sword
+Set of Minature Items (15 gp)		TYPE:MaterialComponent.Focus	COST:15	WT:0		SPROP:Focus for Mage's Magnificent Mansion
+Set of Prayer Beads (500 gp)		TYPE:MaterialComponent.Focus	COST:500	WT:0		SPROP:Focus for Atonement
+# To Do
+# Magic Jar - a gem or crystal worth at least 100 gp
+

@@ -1,0 +1,45 @@
+# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+# Original RSRD Entry by: PCGen Data Team
+# Pathfinder RPG Entry by: Stefan Radermacher
+
+Spellbook	VISIBLE:NO	KIT:1|Wizard Spell Book
+
+###Block: Timeless Body For Druid and Monk
+# Template Name			Visible	Template																		Minimum Age			Maximum Age			Multiple Requirements						Stat bonus
+Timeless Body			VISIBLE:NO	TEMPLATE:CHOOSE:Timeless Body ~ Adult|Timeless Body ~ Middle Age|Timeless Body ~ Old|Timeless Body ~ Venerable
+
+Timeless Body ~ Adult		VISIBLE:NO																								!PREAGESET:1,Middle Age										BONUS:STAT|STR,CON,DEX|1|PREMULT:2,[PREAGESET:1,Middle Age],[!PREAGESET:1,Old]	BONUS:STAT|STR,CON,DEX|3|PREMULT:2,[PREAGESET:1,Old],[!PREAGESET:1,Venerable]	BONUS:STAT|STR,CON,DEX|6|PREAGESET:1,Venerable
+Timeless Body ~ Middle Age	VISIBLE:NO																												PREMULT:2,[PREAGESET:1,Middle Age],[!PREAGESET:1,Old]	BONUS:STAT|STR,CON,DEX|2|PREMULT:2,[PREAGESET:1,Old],[!PREAGESET:1,Venerable]	BONUS:STAT|STR,CON,DEX|5|PREAGESET:1,Venerable
+Timeless Body ~ Old		VISIBLE:NO																												PREMULT:2,[PREAGESET:1,Old],[!PREAGESET:1,Venerable]	BONUS:STAT|STR,CON,DEX|3|PREAGESET:1,Venerable
+Timeless Body ~ Venerable	VISIBLE:NO																				PREAGESET:1,Venerable
+
+###Block: Workarounds
+# This is a work-around for BONUS:MISC|MAXDEX not working in ability object when using VARs.
+# Template Name			Visible	Misc bonus
+#Armor Training workaround	VISIBLE:NO	BONUS:MISC|MAXDEX|ArmorTraining|PREEQUIP:1,TYPE=Armor
+
+###Block: Augment Summoning template
+# Template Name		Visible	Stat bonus			Add 					Ability
+Augment Summoning		VISIBLE:YES	BONUS:STAT|STR,CON|4
+
+
+
+Raven Familiar Language	VISIBLE:NO					ADD:LANGUAGE|1|TYPE=Spoken	ABILITY:Special Ability|AUTOMATIC|Speak One Language
+
+
+###Block: Fractional Hit Die Adjustments for Monster classes
+# Template Name	Hit Dice Size			Visible
+Half Hitdie		HITDIE:%/2|CLASS.TYPE=Monster	VISIBLE:NO
+Quarter Hitdie	HITDIE:%/4|CLASS.TYPE=Monster	VISIBLE:NO
+Eighth Hitdie	HITDIE:%/8|CLASS.TYPE=Monster	VISIBLE:NO
+
+###Block: Righteous Might temporary bonus DR enabler
+# Template Name					Visible		Damage Reduction	Required Ability									Req. Known Spell			Description
+Righteous Might (Damage Reduction/Evil)	VISIBLE:DISPLAY	DR:0/Evil		PREABILITY:1,CATEGORY=Special Ability,Channel Positive Energy	PRESPELL:1,Righteous Might	DESC:This Template provides the Damage Reduction to a character when Righteous Might is cast.
+Righteous Might (Damage Reduction/Good)	VISIBLE:DISPLAY	DR:0/Good		PREABILITY:1,CATEGORY=Special Ability,Channel Negative Energy	PRESPELL:1,Righteous Might	DESC:This Template provides the Damage Reduction to a character when Righteous Might is cast.
+
+###Block: Trained Animal
+# Template Name	Visible		Restricted Ability								Required Race			Prohibited Stat	Bonus to Ability Pool
+Trained Animal	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Animal Tricks and Training	PRERACE:1,RACETYPE=Animal	!PRESTAT:1,INT=3	BONUS:ABILITYPOOL|Animal Trick|3	BONUS:ABILITYPOOL|Animal Trick|3|PRESTAT:1,INT=2
+

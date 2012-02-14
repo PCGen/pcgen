@@ -1,0 +1,58 @@
+# CVS $Revision$ $Author$ -- Mon Nov 28 13:37:53 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+# Pathfinder RPG Entry by: Chris 'Barak' Chandler
+
+### Curses
+# Ability Name		Category of Ability	Type				Description																																										Cost		Source Page
+Baleful Polymorph Spell	CATEGORY:Afflictions	TYPE:Curse.Affliction	DESC:Curse, spell; Fort DC 17 negates, Will DC 17 partial;Effect transforms target into a lizard																											COST:0	SOURCEPAGE:p.556
+Bestow Curse Trap		CATEGORY:Afflictions	TYPE:Curse.Affliction	DESC:Curse, trap; Will DC 14;Effect -6 penalty to Strength																																		COST:0	SOURCEPAGE:p.556
+Curse of the Ages		CATEGORY:Afflictions	TYPE:Curse.Affliction	DESC:Curse; Will DC 17; Frequency 1/day; Effect age 1 year																																		COST:0	SOURCEPAGE:p.557
+Mummy Rot			CATEGORY:Afflictions	TYPE:Curse.Affliction	DESC:Curse, disease, injury; Fort DC 16; Onset 1 minute; Frequency 1/day; Effect 1d6 Con damage and 1d6 Cha damage; Cure mummy rot can only be cured by successfully casting both remove curse and remove disease within 1 minute of each other.			COST:0	SOURCEPAGE:p.557
+Unluck			CATEGORY:Afflictions	TYPE:Curse.Affliction	DESC:Curse; Save Will DC 20 negates, no save to avoid effects; Frequency 1/hour; Effect target must reroll any roll decided by the GM and take the worse result																	COST:0	SOURCEPAGE:p.557
+Werewolf Lycanthropy	CATEGORY:Afflictions	TYPE:Curse.Affliction	DESC:Curse, injury; Fort DC 15 negates, Will DC 15 to avoid effects; Onset the next full moon; Frequency on the night of every full moon or whenever the target is injured; Effect target transforms into a wolf under the GM’s control until the next morning	COST:0	SOURCEPAGE:p.557
+
+### Diseases
+Blinding Sickness		CATEGORY:Afflictions	TYPE:Disease.Affliction	DESC:Disease, Ingested; Fort DC 16; Onset 1d3 days; Frequency 1/day; Effect 1d4 Str damage, if more than 2 Str damage, target must make an additional Fort save or be permanently blinded; Cure 2 consecutive saves								COST:0	SOURCEPAGE:p.557
+Bubonic Plague		CATEGORY:Afflictions	TYPE:Disease.Affliction	DESC:Disease, injury or inhaled; Fort DC 17; Onset 1 day; Frequency 1/day; Effect 1d4 Con damage and 1 Cha damage and target is fatigued; Cure 2 consecutive saves																COST:0	SOURCEPAGE:p.557
+Cackle Fever		CATEGORY:Afflictions	TYPE:Disease.Affliction	DESC:Disease, inhaled; Fort DC 16; Onset 1 day; Frequency 1/day; Effect 1d6 Wis damage; Cure 2 consecutive saves																									COST:0	SOURCEPAGE:p.557
+Demon Fever			CATEGORY:Afflictions	TYPE:Disease.Affliction	DESC:Disease, injury; Fort DC 18; Onset 1 day; Frequency 1/day; Effect 1d6 Con damage, target must make a second Fort save or 1 point of the damage is drain instead; Cure 2 consecutive saves												COST:0	SOURCEPAGE:p.557
+Devil Chills		CATEGORY:Afflictions	TYPE:Disease.Affliction	DESC:Disease, injury; Fort DC 14; Onset 1d4 days; Frequency 1/day; Effect 1d4 Str damage; Cure 3 consecutive saves																								COST:0	SOURCEPAGE:p.557
+Filth Fever			CATEGORY:Afflictions	TYPE:Disease.Affliction	DESC:Disease, injury; Save Fortitude DC 12; Onset 1d3 days; Frequency 1/day; Effect 1d3 Dex damage and 1d3 Con damage; Cure 2 consecutive saves																				COST:0	SOURCEPAGE:p.557
+Leprosy			CATEGORY:Afflictions	TYPE:Disease.Affliction	DESC:Disease, contact, inhaled, or injury; Fort DC 12 negates, Fortitude DC 20 to avoid effects; Onset 2d4 weeks; Frequency 1/week; Effect 1d2 Cha damage; Cure 2 consecutive saves														COST:0	SOURCEPAGE:p.557
+Mindfire			CATEGORY:Afflictions	TYPE:Disease.Affliction	DESC:Disease, inhaled; Fort DC 12; Onset 1 day; Frequency 1/day; Effect 1d4 Int damage; Cure 2 consecutive saves																									COST:0	SOURCEPAGE:p.557
+Red Ache			CATEGORY:Afflictions	TYPE:Disease.Affliction	DESC:Disease, injury; Fort DC 15; Onset 1d3 days; Frequency 1/day; Effect 1d6 Str damage; Cure 2 consecutive saves																								COST:0	SOURCEPAGE:p.557
+Shakes			CATEGORY:Afflictions	TYPE:Disease.Affliction	DESC:Disease, contact; Fort DC 13; Onset 1 day; Frequency 1/day; Effect 1d8 Dex damage; Cure 2 consecutive saves																									COST:0	SOURCEPAGE:p.557
+Slimy Doom			CATEGORY:Afflictions	TYPE:Disease.Affliction	DESC:Disease, contact; Fortitude DC 14; Onset 1 day; Frequency 1/day; Effect 1d4 Con damage, target must make a second Fort save or 1 point of the damage is drain instead; Cure 2 consecutive saves											COST:0	SOURCEPAGE:p.557
+
+### Poison
+Arsenic			CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Ingested; Fort DC 13; Freq. 1 round (5); Effect 1 Con damage; Cure 1 save																													COST:0	SOURCEPAGE:p.558
+Black Adder Venom		CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Injury; Fort DC 11; Freq. 1 round (6); Effect 1 Con damage; Cure 1 save																													COST:0	SOURCEPAGE:p.558
+Black Lotus Extract	CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Contact; Fort DC 20; Freq. 1 round (7); Effect 3 Con damage; Cure 1 save																													COST:0	SOURCEPAGE:p.558
+Bloodroot			CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Injury; Fort DC 12; Freq. 1 round (3); Effect 1 Con damage and 1 Wis damage; Cure 1 save																											COST:0	SOURCEPAGE:p.558
+Blue Whinnis		CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Injury; Fort DC 14; Freq. 1 round (2); Effect 1 Con damage/unconsciousness for 1d3 hours; Cure 1 save																								COST:0	SOURCEPAGE:p.558
+Burnt Othur Fumes		CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Inhaled; Fort DC 18; Freq. 1 round (4); Effect 1 Con drain/3 Con damage; Cure 1 save																											COST:0	SOURCEPAGE:p.558
+Dark Reaver Powder	CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Ingested; Fort DC 18; Freq. 1 round (5); Effect 2 Con damage/1 Con damage and 1 Str damage; Cure 1 save																								COST:0	SOURCEPAGE:p.558
+Deathblade			CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Injury; Fort DC 20; Freq. 1 round (5); Effect 2 Con damage; Cure 1 save																													COST:0	SOURCEPAGE:p.558
+Dragon Bile			CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Contact; Fort DC 26; Freq. 1 round (3); Effect 3 Str damage; Cure 1 save																													COST:0	SOURCEPAGE:p.558
+Drow Poison			CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Injury; Fort DC 13; Freq. 1 minute (1); Effect unconsciousness for 1 minute/unconsciousness for 2d4 hours; Cure 1 save																						COST:0	SOURCEPAGE:p.559
+Giant Wasp Poison		CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Injury; Fort DC 18; Freq. 1 round (4); Effect 1 Dex damage; Cure 1 save																													COST:0	SOURCEPAGE:p.559
+Greenblood Oil		CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Injury; Fort DC 13; Freq. 1 round (2); Effect 1 Con damage; Cure 1 save																													COST:0	SOURCEPAGE:p.559
+Id Moss			CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Ingested; Fort DC 14; Freq. 1 round (5); Effect 2 Int damage; Cure 1 save																													COST:0	SOURCEPAGE:p.559
+Insanity Mist		CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Inhaled; Fort DC 15; Freq. 1 round (5); Effect 2 Wis damage; Cure 1 save																													COST:0	SOURCEPAGE:p.560
+King's Sleep		CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Ingested; Fort DC 19; Freq. 1 day; Effect 1 Con drain; Cure 2 consecutive saves																												COST:0	SOURCEPAGE:p.560
+Large Scorpion Venom	CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Injury; Fort DC 18; Freq. 1 round (4); Effect 1 Str damage; Cure 1 save																													COST:0	SOURCEPAGE:p.560
+Lich Dust			CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Ingested; Fort DC 17; Freq. 1 round (5); Effect 2 Str damage; Cure 1 save																													COST:0	SOURCEPAGE:p.560
+Malyass Root Paste	CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Contact; Fort DC 16; Freq. 1 round (6); Effect 1 Dex damage; Cure 1 save																													COST:0	SOURCEPAGE:p.560
+Medium Spider Venom	CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Injury; Fort DC 14; Freq. 1 round (3); Effect 1 Str damage; Cure 1 save																													COST:0	SOURCEPAGE:p.560
+Nightmare Vapor		CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Inhaled; Fort DC 20; Freq. 1 round (5); Effect 1 Wis damage and 1 Wis drain; Cure 2 consecutive saves																								COST:0	SOURCEPAGE:p.560
+Nitharit			CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Contact; Fort DC 13; Freq. 1 round (6); Effect 0/2 Con damage; Cure 1 save																													COST:0	SOURCEPAGE:p.560
+Oil of Taggit		CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Ingested; Fort DC 15; Freq. 1 minute (1); Effect 0/unconsciousness for 1d3 hours; Cure 1 save																										COST:0	SOURCEPAGE:p.560
+Purple Worm Poison	CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Injury; Fort DC 24; Freq. 1 round (5); Effect 2 Str damage; Cure 1 save																													COST:0	SOURCEPAGE:p.560
+Sassone Leaf Residue	CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Contact; Fort DC 16; Freq. 1 round (4); Effect 1d6 hit points; Cure 1 save																													COST:0	SOURCEPAGE:p.560
+Shadow Essence		CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Inhaled; Fort DC 17; Freq. 1 round (7); Effect 1 Str drain/1 Str damage; Cure 1 save																											COST:0	SOURCEPAGE:p.560
+Small Centipede Poison	CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Injury; Fort DC 11; Freq. 1 round (2); Effect 1 Dex damage; Cure 1 save																													COST:0	SOURCEPAGE:p.560
+Striped Toadstool		CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Ingested; Fort DC 11; Freq. 1 round (5); Effect 1 Wis damage/2 Wis damage plus 1 Int damage; Cure 1 save																								COST:0	SOURCEPAGE:p.560
+Tears of Death		CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Contact; Fort DC 22; Freq. 1 minute (5); Effect 1d6 Con damage; Cure none																													COST:0	SOURCEPAGE:p.560
+Terinav Root		CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Contact; Fort DC 16; Freq. 1 round (5); Effect 2 Dex damage; Cure 1 save																													COST:0	SOURCEPAGE:p.560
+Ungol Dust			CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Inhaled; Fort DC 15; Freq. 1 round (3); Effect 1 Cha damage/1 Con damage and 1 Cha drain; Cure 1 save																								COST:0	SOURCEPAGE:p.560
+Wyvern Poison		CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Injury; Fort DC 17; Freq. 1 round (7); Effect 2 Con damage; Cure 1 save																													COST:0	SOURCEPAGE:p.560

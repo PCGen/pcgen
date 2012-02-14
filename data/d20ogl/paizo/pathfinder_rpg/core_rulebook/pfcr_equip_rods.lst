@@ -1,0 +1,47 @@
+# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+# Original RSRD Entry by: PCGen Data Team
+# Pathfinder RPG Entry by: Stefan Radermacher
+
+###Block:Rods
+# Equipment Name				Output Name				Required Weapon Proficiency		Type															Alternative Type				Cost		Weight	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier					Wield Category	Requires Modification?	Size		Source Page		Virtual Feat			Combat bonus					Stat bonus					Weapon prop. bonus					Special Property
+Rod (Immovable)				OUTPUTNAME:[NAME] Rod								TYPE:Magic.Rod																			COST:5000	WT:5		BASEITEM:Rod																																								SOURCEPAGE:p.484
+Rod (Absorption)				OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod																			COST:50000	WT:5																																												SOURCEPAGE:p.485
+Rod (Alertness)				OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Mace (Light)	TYPE:Magic.Rod.Weapon.Melee.Light.Finesseable.Simple.Standard.Bludgeoning.Mace.Hammer							COST:85000	WT:4						CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL.PLUS1W			WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:p.486						BONUS:COMBAT|INITIATIVE|1|TYPE=Insight															SPROP:Enables the holder to use detect evil, detect good, detect chaos, detect law, detect magic, discern lies, light, or see invisibility as a standard action
+Rod (Cancellation)			OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod																			COST:11000	WT:5		BASEITEM:Rod																																								SOURCEPAGE:p.486
+Rod (Enemy Detection)			OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod																			COST:23500	WT:5		BASEITEM:Rod																									EQMOD:USES_PER_DAY_3|CHARGES[3]										SOURCEPAGE:p.486
+Rod (Flailing)				OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Flail (Dire)	TYPE:Magic.Rod.Weapon.Exotic.Melee.Bludgeoning.Double.Flail						ALTTYPE:Weapon.Melee.Bludgeoning	COST:50000	WT:5		BASEITEM:Rod		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d8								WIELD:OneHanded					SIZE:M	SOURCEPAGE:p.486	VFEAT:Two-Weapon Fighting														BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement
+Rod (Flame Extinguishing)		OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod																			COST:15000	WT:5																													EQMOD:USES_PER_DAY_10|CHARGES[10]										SOURCEPAGE:p.486
+Rod (Lordly Might)			OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod																			COST:70000	WT:10																																												SOURCEPAGE:p.487
+Rod (Metal and Mineral Detection)	OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod																			COST:10500	WT:5		BASEITEM:Rod																																								SOURCEPAGE:p.487
+Rod (Negation)				OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod																			COST:37000	WT:5		BASEITEM:Rod																									EQMOD:USES_PER_DAY_3|CHARGES[3]										SOURCEPAGE:p.487
+Rod (Python)				OUTPUTNAME:Rod of the Python	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Double.Quarterstaff				ALTTYPE:Weapon.Melee.Bludgeoning	COST:13000	WT:10		BASEITEM:Rod		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6								WIELD:TwoHanded					SIZE:M	SOURCEPAGE:p.488																			BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
+Rod (Rulership)				OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod																			COST:60000	WT:8		BASEITEM:Rod																																								SOURCEPAGE:p.488
+Rod (Security)				OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod																			COST:61000	WT:5																																												SOURCEPAGE:p.488
+Rod (Splendor)				OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod																			COST:25000	WT:5																																												SOURCEPAGE:p.488													BONUS:STAT|CHA|4|TYPE=Enhancement
+Rod (Thunder and Lightning)		OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Mace (Light)	TYPE:Magic.Rod.Weapon.Melee.Light.Finesseable.Simple.Standard.Bludgeoning.Mace.Hammer							COST:33000	WT:5						CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL.PLUS1W			WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:p.489																			BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
+Rod (Viper)					OUTPUTNAME:Rod of the Viper	PROFICIENCY:WEAPON|Mace (Heavy)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace													COST:19000	WT:5		BASEITEM:Rod		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8																		SIZE:M	SOURCEPAGE:p.489																			BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
+Rod (Withering)				OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Mace (Light)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace													COST:25000	WT:6		BASEITEM:Rod																															WIELD:Light						SIZE:M	SOURCEPAGE:p.489																			BONUS:WEAPON|TOHIT|1					SPROP:Deals 1d4 temporary STR and CON damage
+Rod (Wonder)				OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod																			COST:12000	WT:5		BASEITEM:Rod																																								SOURCEPAGE:p.489
+
+###Block:Metamagic Rods
+# Equipment Name		Output Name					Type			Cost		Weight	Base Item for EQMOD	Modifier					Source Page
+Rod (Empower/Lesser)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:9000	WT:5		BASEITEM:Rod		EQMOD:USES_PER_DAY_3|CHARGES[3]	SOURCEPAGE:p.484
+Rod (Empower)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:32500	WT:5		BASEITEM:Rod		EQMOD:USES_PER_DAY_3|CHARGES[3]	SOURCEPAGE:p.484
+Rod (Empower/Greater)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:73000	WT:5		BASEITEM:Rod		EQMOD:USES_PER_DAY_3|CHARGES[3]	SOURCEPAGE:p.484
+Rod (Enlarge/Lesser)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:3000	WT:5		BASEITEM:Rod		EQMOD:USES_PER_DAY_3|CHARGES[3]	SOURCEPAGE:p.484
+Rod (Enlarge)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:11000	WT:5		BASEITEM:Rod		EQMOD:USES_PER_DAY_3|CHARGES[3]	SOURCEPAGE:p.484
+Rod (Enlarge/Greater)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:24500	WT:5		BASEITEM:Rod		EQMOD:USES_PER_DAY_3|CHARGES[3]	SOURCEPAGE:p.484
+Rod (Extend/Lesser)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:3000	WT:5		BASEITEM:Rod		EQMOD:USES_PER_DAY_3|CHARGES[3]	SOURCEPAGE:p.485
+Rod (Extend)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:11000	WT:5		BASEITEM:Rod		EQMOD:USES_PER_DAY_3|CHARGES[3]	SOURCEPAGE:p.485
+Rod (Extend/Greater)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:24500	WT:5		BASEITEM:Rod		EQMOD:USES_PER_DAY_3|CHARGES[3]	SOURCEPAGE:p.485
+Rod (Maximize/Lesser)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:14000	WT:5		BASEITEM:Rod		EQMOD:USES_PER_DAY_3|CHARGES[3]	SOURCEPAGE:p.485
+Rod (Maximize)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:54000	WT:5		BASEITEM:Rod		EQMOD:USES_PER_DAY_3|CHARGES[3]	SOURCEPAGE:p.485
+Rod (Maximize/Greater)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:121500	WT:5		BASEITEM:Rod		EQMOD:USES_PER_DAY_3|CHARGES[3]	SOURCEPAGE:p.485
+Rod (Quicken/Lesser)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:35000	WT:5		BASEITEM:Rod		EQMOD:USES_PER_DAY_3|CHARGES[3]	SOURCEPAGE:p.485
+Rod (Quicken)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:75500	WT:5		BASEITEM:Rod		EQMOD:USES_PER_DAY_3|CHARGES[3]	SOURCEPAGE:p.485
+Rod (Quicken/Greater)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:170000	WT:5		BASEITEM:Rod		EQMOD:USES_PER_DAY_3|CHARGES[3]	SOURCEPAGE:p.485
+Rod (Silent/Lesser)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:3000	WT:5		BASEITEM:Rod		EQMOD:USES_PER_DAY_3|CHARGES[3]	SOURCEPAGE:p.485
+Rod (Silent)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:11000	WT:5		BASEITEM:Rod		EQMOD:USES_PER_DAY_3|CHARGES[3]	SOURCEPAGE:p.485
+Rod (Silent/Greater)	OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod	COST:24500	WT:5		BASEITEM:Rod		EQMOD:USES_PER_DAY_3|CHARGES[3]	SOURCEPAGE:p.485
+

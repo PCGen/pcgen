@@ -1,0 +1,55 @@
+# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+# Original RSRD Entry by: PCGen Data Team
+# Pathfinder RPG Entry by: Stefan Radermacher
+
+###Block: Specific Armors
+# Equipment Name			Required Armor Proficiency	Type								Cost		Weight	AC Penalty Check	Modifier							Maximum DEX Bonus	Source Page		% of Spell Failure	Ability								Innate Spells						Combat bonus			Bonus to skill						Modify VAR							Special Property																	Automatically Added to Inventory
+Adamantine Breastplate		PROFICIENCY:ARMOR|Breastplate	TYPE:Armor.Medium.Suit.Specific			COST:200	WT:30		ACCHECK:-4		EQMOD:ADAMANT_ARMR_MED					MAXDEX:3		SOURCEPAGE:p.464	SPELLFAILURE:25																			BONUS:COMBAT|AC|6|TYPE=Armor
+Banded Mail of Luck		PROFICIENCY:ARMOR|Banded Mail	TYPE:Enhancement.Armor.Heavy.Suit.Specific	COST:250	WT:35		ACCHECK:-6		EQMOD:STEEL.PLUS3A.MAGIC_COST|9500			MAXDEX:1		SOURCEPAGE:p.465	SPELLFAILURE:35																			BONUS:COMBAT|AC|8|TYPE=Armor																	SPROP:require one attack against wearer to be rerolled 1/week
+Breastplate of Command		PROFICIENCY:ARMOR|Breastplate	TYPE:Enhancement.Armor.Medium.Suit.Specific	COST:200	WT:30		ACCHECK:-4		EQMOD:STEEL.PLUS2A.MAGIC_COST|21050			MAXDEX:3		SOURCEPAGE:p.465	SPELLFAILURE:25																			BONUS:COMBAT|AC|6|TYPE=Armor	BONUS:SKILL|TYPE=Charisma|2|TYPE=Competence	BONUS:VAR|LeadershipScore|2|TYPE=Competence
+Celestial Armor			PROFICIENCY:ARMOR|Chainmail	TYPE:Enhancement.Armor.Light.Suit.Specific	COST:150	WT:20		ACCHECK:-3		EQMOD:STEEL.PLUS3A.MAGIC_COST|13100			MAXDEX:8		SOURCEPAGE:p.465	SPELLFAILURE:15											SPELLS:Magic Item|TIMES=1|CASTERLEVEL=5|Fly,14	BONUS:COMBAT|AC|6|TYPE=Armor																	SPROP:use Fly 1/day
+Demon Armor				PROFICIENCY:ARMOR|Full Plate	TYPE:Enhancement.Armor.Heavy.Suit.Specific	COST:1500	WT:50		ACCHECK:-6		EQMOD:STEEL.PLUS4A.MAGIC_COST|34610			MAXDEX:1		SOURCEPAGE:p.465	SPELLFAILURE:35		ABILITY:Special Ability|AUTOMATIC|Negative Levels									BONUS:COMBAT|AC|9|TYPE=Armor									BONUS:VAR|NegLevels|1|!PREALIGN:LE,NE,CE		SPROP:appear like a demon, may use a claw attack as +1 weapon for 1d10 damage plus Contagion (Fort DC 14 negates)	AUTO:EQUIP|Demon Armor Claw Attack
+Dwarven Plate			PROFICIENCY:ARMOR|Full Plate	TYPE:Armor.Heavy.Suit.Specific			COST:1500	WT:50		ACCHECK:-6		EQMOD:ADAMANT_ARMR_HVY					MAXDEX:1		SOURCEPAGE:p.466	SPELLFAILURE:35																			BONUS:COMBAT|AC|9|TYPE=Armor
+Dragonhide Plate			PROFICIENCY:ARMOR|Full Plate	TYPE:Armor.Heavy.Suit.Specific			COST:1500	WT:50		ACCHECK:-6		EQMOD:DRACO							MAXDEX:1		SOURCEPAGE:p.466	SPELLFAILURE:35																			BONUS:COMBAT|AC|9|TYPE=Armor
+Elven Chain				PROFICIENCY:ARMOR|Chainmail	TYPE:Armor.Light.Suit.Specific			COST:150	WT:40		ACCHECK:-5		EQMOD:MITHRAL_ARMR_MED					MAXDEX:2		SOURCEPAGE:p.466	SPELLFAILURE:30																			BONUS:COMBAT|AC|6|TYPE=Armor
+Mithral Full Plate of Speed	PROFICIENCY:ARMOR|Full Plate	TYPE:Enhancement.Armor.Medium.Suit.Specific	COST:1500	WT:50		ACCHECK:-6		EQMOD:MITHRAL_ARMR_HVY.PLUS1A.MAGIC_COST|15000	MAXDEX:1		SOURCEPAGE:p.466	SPELLFAILURE:35																			BONUS:COMBAT|AC|9|TYPE=Armor																	SPROP:use Haste for 10 rounds/day
+Mithral Shirt			PROFICIENCY:ARMOR|Chain Shirt	TYPE:Armor.Light.Suit.Specific			COST:100	WT:20		ACCHECK:-2		EQMOD:MITHRAL_ARMR_LT					MAXDEX:4		SOURCEPAGE:p.466	SPELLFAILURE:20																			BONUS:COMBAT|AC|4|TYPE=Armor
+Plate Armor of the Deep		PROFICIENCY:ARMOR|Full Plate	TYPE:Enhancement.Armor.Heavy.Suit.Specific	COST:1500	WT:50		ACCHECK:-6		EQMOD:STEEL.PLUS1A.MAGIC_COST|22000			MAXDEX:1		SOURCEPAGE:p.466	SPELLFAILURE:35																			BONUS:COMBAT|AC|9|TYPE=Armor																	SPROP:swim as unarmored, breathe underwater, comunicate with waterbreathing creatures
+Rhino Hide				PROFICIENCY:ARMOR|Hide		TYPE:Armor.Medium.Suit.Specific.Nonmetal		COST:15	WT:25		ACCHECK:-1		EQMOD:PLUS2A.MAGIC_COST|1000				MAXDEX:4		SOURCEPAGE:p.466	SPELLFAILURE:20																			BONUS:COMBAT|AC|4|TYPE=Armor																	SPROP:deal 2d6 additional damage on charge
+
+###Block: Specific Shields
+# Equipment Name	Required Shield Proficiency		Type								Cost		Weight	Modifier					Source Page		Innate Spells						Combat bonus			Special Property
+Absorbing Shield	PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Enhancement.Shield.Heavy.Specific		COST:20	WT:15		EQMOD:STEEL.PLUS1S.MAGIC_COST|49000	SOURCEPAGE:p.466									BONUS:COMBAT|AC|2|TYPE=Shield	SPROP:Allows the wearer to disintegrate an object on command as a touch attack once every 2 days
+Caster's Shield	PROFICIENCY:SHIELD|Shield (Light)	TYPE:Enhancement.Shield.Light.Specific.Nonmetal	COST:3	WT:5		EQMOD:WOOD.PLUS1S.MAGIC_COST|2000	SOURCEPAGE:p.467									BONUS:COMBAT|AC|1|TYPE=Shield	SPROP:It has a reusable back strip that allows the wearer to scribe a single spell as a scroll
+Darkwood Buckler	PROFICIENCY:SHIELD|Buckler		TYPE:Shield.Light.Specific.Nonmetal			COST:3	WT:5		EQMOD:DARK					SOURCEPAGE:p.467									BONUS:COMBAT|AC|1|TYPE=Shield
+Darkwood Shield	PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Heavy.Specific.Nonmetal			COST:7	WT:10		EQMOD:DARK					SOURCEPAGE:p.467									BONUS:COMBAT|AC|2|TYPE=Shield
+Lion's Shield	PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Enhancement.Shield.Heavy.Specific		COST:20	WT:15		EQMOD:STEEL.PLUS2S.MAGIC_COST|5000	SOURCEPAGE:p.467									BONUS:COMBAT|AC|2|TYPE=Shield	SPROP:It has a lion face that allows the wearer as a free action, to make a bite attack (wearer's BAB) and deals 2d6 damage, 3/day
+Spined Shield	PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Enhancement.Heavy.Shield.Specific		COST:20	WT:15		EQMOD:STEEL.PLUS1S.MAGIC_COST|4410	SOURCEPAGE:p.467									BONUS:COMBAT|AC|2|TYPE=Shield	SPROP:Allows the wearer to fire a spine (+1, range 120 ft., 1d10 dam, 19-20x2) 3/day
+Winged Shield	PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Enhancement.Heavy.Shield.Specific.Nonmetal	COST:7	WT:10		EQMOD:WOOD.PLUS3S.MAGIC_COST|8100	SOURCEPAGE:p.467	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=5|Fly,14	BONUS:COMBAT|AC|2|TYPE=Shield	SPROP:Allows the wearer to fly on command once per day
+
+###Block: Virtual weapons
+# Equipment Name		Required Weapon Proficiency		Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier			Wield Category	Size
+Demon Armor Claw Attack	PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Melee.Simple.Unarmed.Piercing.Slashing	COST:-2300	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10	EQMOD:STEEL.PLUS1W	WIELD:Light		SIZE:M
+
+###Block: Broken Mods -
+# Equipment Name				Combat bonus							Bonus Armor Modifiers
+Adamantine Breastplate.MOD		BONUS:COMBAT|AC|-3|TYPE=Armor|PRETYPE:1,EQMOD=BROKEA	BONUS:EQMARMOR|ACCHECK|-4|PRETYPE:1,EQMOD=BROKEA
+Banded Mail of Luck.MOD			BONUS:COMBAT|AC|-4|TYPE=Armor|PRETYPE:1,EQMOD=BROKEA	BONUS:EQMARMOR|ACCHECK|-6|PRETYPE:1,EQMOD=BROKEA
+Breastplate of Command.MOD		BONUS:COMBAT|AC|-3|TYPE=Armor|PRETYPE:1,EQMOD=BROKEA	BONUS:EQMARMOR|ACCHECK|-4|PRETYPE:1,EQMOD=BROKEA
+Celestial Armor.MOD			BONUS:COMBAT|AC|-3|TYPE=Armor|PRETYPE:1,EQMOD=BROKEA	BONUS:EQMARMOR|ACCHECK|-3|PRETYPE:1,EQMOD=BROKEA
+Demon Armor.MOD				BONUS:COMBAT|AC|-4|TYPE=Armor|PRETYPE:1,EQMOD=BROKEA	BONUS:EQMARMOR|ACCHECK|-6|PRETYPE:1,EQMOD=BROKEA
+Dwarven Plate.MOD				BONUS:COMBAT|AC|-4|TYPE=Armor|PRETYPE:1,EQMOD=BROKEA	BONUS:EQMARMOR|ACCHECK|-6|PRETYPE:1,EQMOD=BROKEA
+Dragonhide Plate.MOD			BONUS:COMBAT|AC|-4|TYPE=Armor|PRETYPE:1,EQMOD=BROKEA	BONUS:EQMARMOR|ACCHECK|-6|PRETYPE:1,EQMOD=BROKEA
+Elven Chain.MOD				BONUS:COMBAT|AC|-3|TYPE=Armor|PRETYPE:1,EQMOD=BROKEA	BONUS:EQMARMOR|ACCHECK|-5|PRETYPE:1,EQMOD=BROKEA
+Mithral Full Plate of Speed.MOD	BONUS:COMBAT|AC|-4|TYPE=Armor|PRETYPE:1,EQMOD=BROKEA	BONUS:EQMARMOR|ACCHECK|-6|PRETYPE:1,EQMOD=BROKEA
+Mithral Shirt.MOD				BONUS:COMBAT|AC|-2|TYPE=Armor|PRETYPE:1,EQMOD=BROKEA	BONUS:EQMARMOR|ACCHECK|-2|PRETYPE:1,EQMOD=BROKEA
+Plate Armor of the Deep.MOD		BONUS:COMBAT|AC|-4|TYPE=Armor|PRETYPE:1,EQMOD=BROKEA	BONUS:EQMARMOR|ACCHECK|-6|PRETYPE:1,EQMOD=BROKEA
+Rhino Hide.MOD				BONUS:COMBAT|AC|-2|TYPE=Armor|PRETYPE:1,EQMOD=BROKEA	BONUS:EQMARMOR|ACCHECK|-1|PRETYPE:1,EQMOD=BROKEA
+
+# Shields
+Absorbing Shield.MOD			BONUS:COMBAT|AC|-1|TYPE=Shield|PRETYPE:1,EQMOD=BROKES
+Darkwood Shield.MOD			BONUS:COMBAT|AC|-1|TYPE=Shield|PRETYPE:1,EQMOD=BROKES
+Lion's Shield.MOD				BONUS:COMBAT|AC|-1|TYPE=Shield|PRETYPE:1,EQMOD=BROKES
+Spined Shield.MOD				BONUS:COMBAT|AC|-1|TYPE=Shield|PRETYPE:1,EQMOD=BROKES
+Winged Shield.MOD				BONUS:COMBAT|AC|-1|TYPE=Shield|PRETYPE:1,EQMOD=BROKES

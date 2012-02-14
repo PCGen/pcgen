@@ -1,0 +1,121 @@
+# CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
+CAMPAIGN:Paizo - Pathfinder Roleplaying Game Core Rulebook
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Pathfinder Roleplaying Game
+RANK:1
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Core Rules
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core,[Paizo - Pathfinder Roleplaying Game Core Rulebook]
+SETTING:Pathfinder Chronicles
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Core Rulebook
+SOURCESHORT:PFCR
+SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj
+SOURCEDATE:2009-08
+ISOGL:YES
+
+COVER:core_rulebook.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj|Buy this publication from Paizo Publishing!
+DESC:The Pathfinder Roleplaying Game puts you in the role of a brave adventurer fighting to survive in a world beset by magic and evil. Will you cut your way through monster-filled ruins and cities rife with political intrigue to emerge as a famous hero laden with fabulous treasure, or will you fall victim to treacherous traps and fiendish monsters in a forgotten dungeon? Your fate is yours to decide with this giant Core Rulebook that provides everything a player needs to set out on a life of adventure and excitement!
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:The Book of Experimental Might. Copyright 2008, Monte J. Cook. All rights reserved.
+COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Core Rulebook" Copyright 2009-2010, PCGen Data team (Including, but not limited to Stefan Radermacher, Eddy Anthony (MoSaT), Eric Smith (Mardudd), Andrew Maitland (LegacyKing)).
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+# Data Files
+ABILITYCATEGORY:pfcr_abilitycategories.lst
+ABILITY:pfcr_abilities_afflictions.lst
+ABILITY:pfcr_abilities_class_common.lst
+ABILITY:pfcr_abilities_class.lst
+ABILITY:pfcr_abilities_class_prestige.lst
+ABILITY:pfcr_abilities_companions.lst
+ABILITY:pfcr_abilities_equipment.lst
+ABILITY:pfcr_abilities_general.lst
+ABILITY:pfcr_abilities_racial_common.lst
+ABILITY:pfcr_abilities_racial.lst
+ABILITY:pfcr_abilities_racial_monster.lst
+ARMORPROF:pfcr_profs_armor.lst
+CLASS:pfcr_classes_base.lst
+CLASS:pfcr_classes_companions.lst
+CLASS:pfcr_classes_npc.lst
+CLASS:pfcr_classes_prc.lst
+COMPANIONMOD:pfcr_companion_mods.lst
+DEITY:pfcr_deities.lst
+DOMAIN:pfcr_domains.lst
+EQUIPMENT:pfcr_equip_armorshields.lst
+EQUIPMENT:pfcr_equip_armorshields_specific.lst
+EQUIPMENT:pfcr_equip_artifacts.lst
+EQUIPMENT:pfcr_equip_baseitems.lst
+EQUIPMENT:pfcr_equip_coins.lst
+EQUIPMENT:pfcr_equip_components.lst
+EQUIPMENT:pfcr_equip_gems.lst
+EQUIPMENT:pfcr_equip.lst
+EQUIPMENT:pfcr_equip_poisons.lst
+EQUIPMENT:pfcr_equip_potions.lst
+EQUIPMENT:pfcr_equip_rings.lst
+EQUIPMENT:pfcr_equip_rods.lst
+EQUIPMENT:pfcr_equip_scrolls.lst
+EQUIPMENT:pfcr_equip_staves.lst
+EQUIPMENT:pfcr_equip_wands.lst
+EQUIPMENT:pfcr_equip_weapons_ammo.lst
+EQUIPMENT:pfcr_equip_weapons_melee.lst
+EQUIPMENT:pfcr_equip_weapons_natural.lst
+EQUIPMENT:pfcr_equip_weapons_ranged.lst
+EQUIPMENT:pfcr_equip_weapons_specific.lst
+EQUIPMENT:pfcr_equip_wondrousitems.lst
+EQUIPMENT:pfcr_equip_wondrousitems.lst
+EQUIPMOD:pfcr_equipmods_armorshields.lst
+EQUIPMOD:pfcr_equipmods_base.lst
+EQUIPMOD:pfcr_equipmods_enhancing.lst
+EQUIPMOD:pfcr_equipmods_intelligent.lst
+EQUIPMOD:pfcr_equipmods_material.lst
+EQUIPMOD:pfcr_equipmods_weapons.lst
+FEAT:pfcr_feats.lst
+KIT:pfcr_kits.lst
+KIT:pfcr_kits_companions.lst
+KIT:pfcr_kits_racial_traits.lst
+LANGUAGE:pfcr_languages.lst
+RACE:pfcr_races_base.lst
+RACE:pfcr_races_companions.lst
+SHIELDPROF:pfcr_profs_shield.lst
+SKILL:pfcr_skills_conditional.lst
+SKILL:pfcr_skills.lst
+SPELL:pfcr_spells_domain.lst
+SPELL:pfcr_spells.lst
+TEMPLATE:pfcr_templates_conditional.lst
+TEMPLATE:pfcr_templates.lst
+WEAPONPROF:pfcr_weaponprofs.lst
+
+# Load Essential Bestiary Data with Core
+PCC:bestiary_core/bestiary_core.pcc
+
+#Hide internal feat types
+HIDETYPE:FEAT|SpecialQuality|SpecialAttack|Extraordinary|SpellLike|Supernatural|AttackOption|Aura|Immunity|ModifyAC|Resistance|Weakness
+HIDETYPE:FEAT|WizardBonus|SkillFocus|WeaponFocus
+HIDETYPE:FEAT|AberrantBloodline|AbyssalBloodline|ArcaneBloodline|CelestialBloodline|DestinedBloodline|DraconicBloodline|ElementalBloodline|FeyBloodline|InfernalBloodline|UndeadBloodline
+HIDETYPE:EQUIP|AmuletOfMightyFists
+
+# Hide key stat types for skills 
+HIDETYPE:SKILL|Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma
+
+BONUS:ABILITYPOOL|Favored Class|1|PREPCLEVEL:MIN=1
+
+COMPANIONLIST:Mount|ANY
+COMPANIONLIST:Follower|ANY
+
+#
+# End
+#

@@ -1,0 +1,15 @@
+# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+# Original RSRD Entry by: PCGen Data Team
+# Pathfinder RPG Entry by: Stefan Radermacher
+
+####Block: Simple Weapons
+#-----unarmed------
+# Equipment Name		Required Weapon Proficiency			Type													Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	Requires Modification?	Size		Source Page		Weapon prop. bonus															Special Property
+Flurry of Blows		PROFICIENCY:WEAPON|Unarmed Strike		TYPE:Weapon.Melee.Special.Unarmed.Monk.Bludgeoning.Finesseable.Close	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:p.57	BONUS:WEAPON|WEAPONBAB|FlurryBABBonus	BONUS:WEAPON|ATTACKS|FlurryExtraAttacks	BONUS:WEAPON|TOHIT|-2
+
+Shieldbash (Light)	PROFICIENCY:WEAPON|Shieldbash (Light)	TYPE:Weapon.Melee.Martial.Unarmed.Bludgeoning.Finesseable.Shieldbash		COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:Light						SIZE:M	SOURCEPAGE:p.142																			SPROP:Shieldbash attacks are considered to be offhanded attacks
+Shieldbash (Heavy)	PROFICIENCY:WEAPON|Shieldbash (Heavy)	TYPE:Weapon.Melee.Martial.Unarmed.Bludgeoning.Shieldbash				COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	WIELD:OneHanded					SIZE:M	SOURCEPAGE:p.142																			SPROP:Shieldbash attacks are considered to be offhanded attacks
+
+Touch Attack (Ray)	PROFICIENCY:WEAPON|Spells (Ray)		TYPE:Weapon.Ranged.Unarmed									COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:0	WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:p.179
+Unarmed Strike		PROFICIENCY:WEAPON|Unarmed Strike		TYPE:Weapon.Melee.Special.Unarmed.Monk.Bludgeoning.Finesseable.Close	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:p.142

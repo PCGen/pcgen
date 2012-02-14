@@ -1,0 +1,75 @@
+# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+# Original Entry by: Stefan Radermacher
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Adept		HD:6		TYPE:Base.NPC	ABB:Adp		MAXLEVEL:20	SOURCEPAGE:p.448	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Adept		STARTSKILLPTS:2	CSKILL:TYPE.Craft|Handle Animal|Heal|TYPE.Knowledge|TYPE.Profession|Spellcraft|Survival
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level
+CLASS:Adept		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Adept|CL
+###Block: Spell list
+1	SPELLLEVEL:CLASS|Adept=0|Create Water,Detect Magic,Ghost Sound,Guidance,Light,Mending,Purify Food and Drink,Read Magic,Stabilize,Touch of Fatigue
+1	SPELLLEVEL:CLASS|Adept=1|Bless,Burning Hands,Cause Fear,Command,Comprehend Languages,Cure Light Wounds,Detect Chaos,Detect Evil,Detect Good,Detect Law,Endure Elements,Obscuring Mist,Protection from Chaos,Protection from Evil,Protection from Good,Protection from Law,Sleep
+1	SPELLLEVEL:CLASS|Adept=2|Aid,Animal Trance,Bear's Endurance,Bull's Strength,Cat's Grace,Cure Moderate Wounds,Darkness,Delay Poison,Invisibility,Mirror Image,Resist Energy,Scorching Ray,See Invisibility,Web
+1	SPELLLEVEL:CLASS|Adept=3|Animate Dead,Bestow Curse,Contagion,Continual Flame,Cure Serious Wounds,Daylight,Deeper Darkness,Lightning Bolt,Neutralize Poison,Remove Curse,Remove Disease,Tongues
+1	SPELLLEVEL:CLASS|Adept=4|Cure Critical Wounds,Minor Creation,Polymorph,Restoration,Stoneskin,Wall of Fire
+1	SPELLLEVEL:CLASS|Adept=5|Baleful Polymorph,Break Enchantment,Commune,Heal,Major Creation,Raise Dead,True Seeing,Wall of Stone
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+###Block Normal Level progression
+1	CAST:3,1
+2	CAST:3,1		BONUS:VAR|FMLevel|CL	ABILITY:Special Ability|AUTOMATIC|Arcane Bond ~ Familiar
+3	CAST:3,2
+4	CAST:3,2,0
+5	CAST:3,2,1
+6	CAST:3,2,1
+7	CAST:3,3,2
+8	CAST:3,3,2,0
+9	CAST:3,3,2,1
+10	CAST:3,3,2,1
+11	CAST:3,3,3,2
+12	CAST:3,3,3,2,0
+13	CAST:3,3,3,2,1
+14	CAST:3,3,3,2,1
+15	CAST:3,3,3,3,2
+16	CAST:3,3,3,3,2,0
+17	CAST:3,3,3,3,2,1
+18	CAST:3,3,3,3,2,1
+19	CAST:3,3,3,3,3,2
+20	CAST:3,3,3,3,3,2
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Aristocrat	HD:8		TYPE:Base.NPC	ABB:Ari		MAXLEVEL:20	SOURCEPAGE:p.449	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Aristocrat	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE.Craft|Diplomacy|Disguise|Handle Animal|Intimidate|TYPE.Knowledge|Linguistics|Perception|TYPE.Perform|TYPE.Profession|Ride|Sense Motive|Swim|Survival
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
+1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1																	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Optionnal Weapon Prof.	Save checks bonus								Combat bonus
+CLASS:Commoner	HD:6		TYPE:Base.NPC	ABB:Com		MAXLEVEL:20	SOURCEPAGE:p.449	WEAPONBONUS:TYPE.Simple	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Commoner	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Perception|TYPE.Profession|Ride|Swim
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Expert	HD:8		TYPE:Base.NPC	ABB:Exp		MAXLEVEL:20	SOURCEPAGE:p.450	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl
+CLASS:Expert	STARTSKILLPTS:6
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1												AUTO:FEAT|Armor Proficiency (Light)
+###Block: Class skills
+1	BONUS:ABILITYPOOL|Expert Class Skills|10
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Warrior	HD:10		TYPE:Base.NPC	ABB:War		MAXLEVEL:20	SOURCEPAGE:p.450	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Warrior	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|TYPE.Profession|Ride|Swim
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
+1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1																	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency

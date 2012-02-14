@@ -1,0 +1,26 @@
+# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+# Original Entry by: Stefan Radermacher and Tir Gwaith (Andrew McDougall)
+
+# Equipment Name			Required Weapon Proficiency		Type													Alternative Type				Cost		Weight	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier						Alternative Modifier	Wield Category	Size		Source Page		Save checks bonus			Combat bonus
+Staff of Abjuration								TYPE:Magic.Staff																	COST:82000	WT:5																													EQMOD:CHARGED_STAFF|CHARGES[10]											SOURCEPAGE:p.492
+Staff of Charming									TYPE:Magic.Staff																	COST:17600	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_STAFF|CHARGES[10]											SOURCEPAGE:p.492
+Staff of Conjuration								TYPE:Magic.Staff																	COST:82000	WT:5																													EQMOD:CHARGED_STAFF|CHARGES[10]											SOURCEPAGE:p.492
+Staff of Defense									TYPE:Magic.Staff																	COST:62000	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_STAFF|CHARGES[10]											SOURCEPAGE:p.492
+Staff of Divination								TYPE:Magic.Staff																	COST:82000	WT:5																													EQMOD:CHARGED_STAFF|CHARGES[10]											SOURCEPAGE:p.493
+Staff of Earth and Stone							TYPE:Magic.Staff																	COST:85800	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_STAFF|CHARGES[10]											SOURCEPAGE:p.492
+Staff of Enchantment								TYPE:Magic.Staff																	COST:82000	WT:5																													EQMOD:CHARGED_STAFF|CHARGES[10]											SOURCEPAGE:p.493
+Staff of Evocation								TYPE:Magic.Staff																	COST:82000	WT:5																													EQMOD:CHARGED_STAFF|CHARGES[10]											SOURCEPAGE:p.493
+Staff of Fire									TYPE:Magic.Staff																	COST:18950	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_STAFF|CHARGES[10]											SOURCEPAGE:p.494
+Staff of Frost									TYPE:Magic.Staff																	COST:41400	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_STAFF|CHARGES[10]											SOURCEPAGE:p.494
+Staff of Healing									TYPE:Magic.Staff																	COST:29600	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_STAFF|CHARGES[10]											SOURCEPAGE:p.494
+Staff of Illumination								TYPE:Magic.Staff																	COST:51500	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_STAFF|CHARGES[10]											SOURCEPAGE:p.494
+Staff of Illusion									TYPE:Magic.Staff																	COST:82000	WT:5																													EQMOD:CHARGED_STAFF|CHARGES[10]											SOURCEPAGE:p.494
+Staff of Life									TYPE:Magic.Staff																	COST:109400	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_STAFF|CHARGES[10]											SOURCEPAGE:p.494
+Staff of Necromancy								TYPE:Magic.Staff																	COST:82000	WT:5																													EQMOD:CHARGED_STAFF|CHARGES[10]											SOURCEPAGE:p.494
+Staff of Passage									TYPE:Magic.Staff																	COST:206900	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_STAFF|CHARGES[10]											SOURCEPAGE:p.495
+Staff of Power			PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Specific.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:235000	WT:5		BASEITEM:Staff		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_STAFF|CHARGES[10].PLUS2W	ALTEQMOD:PLUS2W		WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p.495	BONUS:CHECKS|ALL|2|TYPE=Luck	BONUS:COMBAT|AC|2|TYPE=Luck
+Staff of Size Alteration							TYPE:Magic.Staff																	COST:26150	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_STAFF|CHARGES[10]											SOURCEPAGE:p.495
+Staff of Swarming Insects							TYPE:Magic.Staff																	COST:22800	WT:5		BASEITEM:Staff																									EQMOD:CHARGED_STAFF|CHARGES[10]											SOURCEPAGE:p.495
+Staff of Transmutation								TYPE:Magic.Staff																	COST:82000	WT:5																													EQMOD:CHARGED_STAFF|CHARGES[10]											SOURCEPAGE:p.495
+Staff of the Woodlands		PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Specific.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:100400	WT:5						CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_STAFF|CHARGES[10].PLUS2W	ALTEQMOD:PLUS2W		WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p.496

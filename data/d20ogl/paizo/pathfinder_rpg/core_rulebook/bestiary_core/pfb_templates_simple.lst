@@ -1,0 +1,30 @@
+# CVS $Revision$ $Author$ -- Mon Nov 28 13:37:53 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+# Added 3rd printing errata - SR
+
+###Block: Simple Templates
+# Template Name		Challenge Rating	Visible	Damage Reduction		Source Page		Define																																	Combat bonus						Damage reduction			Misc bonus				Adjust PC Size		Stat bonus											Modify VAR																	Ability																					Spell Res.	Subrace		Vision
+Advanced Creature		CR:1			VISIBLE:YES					SOURCEPAGE:p.294																																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK																BONUS:STAT|STR,DEX,CON,WIS,CHA|4	BONUS:STAT|INT|4|PRESTAT:1,INT=3
+Celestial Creature				VISIBLE:YES	DR:5/Evil|PREHD:MIN=5	SOURCEPAGE:p.294	DEFINE:CelestialResistanceBonus|5	DEFINE:AcidResistanceBonus|CelestialResistanceBonus	DEFINE:ColdResistanceBonus|CelestialResistanceBonus	DEFINE:ElectricityResistanceBonus|CelestialResistanceBonus									BONUS:DR|Evil|5|PREHD:MIN=11	BONUS:MISC|CR|1|PREHD:MIN=5																	BONUS:VAR|CelestialResistanceBonus|5|PREHD:MIN=5	BONUS:VAR|CelestialResistanceBonus|5|PREHD:MIN=11	ABILITY:Special Ability|AUTOMATIC|Resistance to Acid|Resistance to Cold|Resistance to Electricity|Smite Evil ~ Celestial Creature	SR:CR+5	SUBRACE:Celestial	VISION:Darkvision (60')
+Fiendish Creature					VISIBLE:YES	DR:5/Good|PREHD:MIN=5	SOURCEPAGE:p.294	DEFINE:FiendishResistanceBonus|5	DEFINE:ColdResistanceBonus|FiendishResistanceBonus	DEFINE:FireResistanceBonus|FiendishResistanceBonus																			BONUS:DR|Good|5|PREHD:MIN=11	BONUS:MISC|CR|1|PREHD:MIN=5																	BONUS:VAR|FiendishResistanceBonus|5|PREHD:MIN=5	BONUS:VAR|FiendishResistanceBonus|5|PREHD:MIN=11		ABILITY:Special Ability|AUTOMATIC|Resistance to Cold|Resistance to Fire|Smite Good ~ Fiendish Creature					SR:CR+5	SUBRACE:Fiendish	VISION:Darkvision (60')
+Giant Creature		CR:1			VISIBLE:YES					SOURCEPAGE:p.295																																			BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK												BONUS:SIZEMOD|NUMBER|1	BONUS:STAT|STR|-4|TYPE=Size
+Young Creature		CR:-1			VISIBLE:YES					SOURCEPAGE:p.295																																			BONUS:COMBAT|AC|-2|TYPE=NaturalArmor.STACK											BONUS:SIZEMOD|NUMBER|-1	BONUS:STAT|DEX|4|TYPE=Size	BONUS:STAT|STR,CON|-4
+
+###Block: Builder Templates
+# Template Name				Challenge Rating	Visible		Required Race				Bonus to Ability Pool																								Combat bonus					Adjust PC Size		Stat bonus						Weapon prof. bonus																Natural Attacks
+Creature with Class Levels					VISIBLE:DISPLAY							BONUS:ABILITYPOOL|Class Level +4 Ability Adjustment|2	BONUS:ABILITYPOOL|Class Level +2 Ability Adjustment|2	BONUS:ABILITYPOOL|Class Level -2 Ability Adjustment|1
+Size Change (Increase by 1)					VISIBLE:DISPLAY																																									BONUS:SIZEMOD|NUMBER|1
+Size Change (Increase by 2)					VISIBLE:DISPLAY																																									BONUS:SIZEMOD|NUMBER|2
+Size Change (Decrease by 1)					VISIBLE:DISPLAY																																									BONUS:SIZEMOD|NUMBER|-1
+Size Change (Decrease by 2)					VISIBLE:DISPLAY																																									BONUS:SIZEMOD|NUMBER|-2
+
+# Companion Shared Templates:
+Advanced Creature (Heavy Horse)	CR:1						PRERACE:1,Companion (Horse),Horse																												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK					BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|4	BONUS:WEAPONPROF=Hoof|DAMAGESIZE|1	BONUS:WEAPONPROF=Bite|TOHIT|-5	BONUS:WEAPONPROF=Bite|DAMAGE|-ceil(STR/2)	NATURALATTACKS:Bite,Weapon.Natural.Melee.Slashing.Bludgeoning.Piercing,*1,1d4
+
+
+
+
+#
+# End
+#
