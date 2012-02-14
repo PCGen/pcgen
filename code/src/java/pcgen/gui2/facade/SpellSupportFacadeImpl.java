@@ -1599,7 +1599,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			String countStr = "";
 			if (count != 1)
 			{
-				countStr = " (" + count + ")";
+				countStr = " (x" + count + ")";
 			}
 			if (spell != null)
 			{
