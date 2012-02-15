@@ -126,7 +126,7 @@ public final class LanguageBundle
 			Logging.log(Logging.WARNING, "Reinitialising the language bundle.");
 		}
 		Locale locale = Locale.getDefault();
-		Logging.log(Logging.INFO, "Initialising langauge bundle with locale '" + locale + "'.");
+		Logging.log(Logging.INFO, "Initialising language bundle with locale '" + locale + "'.");
 		try
 		{
 			bundle =
