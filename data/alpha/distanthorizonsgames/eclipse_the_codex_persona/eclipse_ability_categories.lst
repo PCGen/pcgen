@@ -1,58 +1,58 @@
-# CVS $Revision$ $Author$ -- Wed Feb 23 18:28:35 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Wed Feb 15 13:58:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
 
-# Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object																																					Specific choices list				Plural description for UI				Display Location
-ABILITYCATEGORY:Character Points				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:Character Creation.SavingThrow.Proficiencies.CasterLevel.MagicLevels.CombatEnhancements.Base Attack Bonus.Abilities.TemplatesRacial.Metamagical.Channeling.Paths.Dominion.PathoftheDragon.MysticArtist.Pact.InstaCharacter.Extra								PLURAL:Character Points					DISPLAYLOCATION:Character Creation Pool
+# Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object																																					Specific choices list																																Plural description for UI				Display Location
+ABILITYCATEGORY:Character Points				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:Character Creation.SavingThrow.Proficiencies.CasterLevel.MagicLevels.CombatEnhancements.Base Attack Bonus.Abilities.TemplatesRacial.Metamagical.Channeling.Paths.Dominion.PathoftheDragon.MysticArtist.Pact.InstaCharacter.Extra																																				PLURAL:Character Points					DISPLAYLOCATION:Character Creation Pool
 #ABILITYCATEGORY:Hit Point Purchases		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:HD	PLURAL:Character Points			DISPLAYLOCATION:Character Creation Pool
 
-ABILITYCATEGORY:Character Class Skill Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ClassSkillsChoice																																											PLURAL:Class Skill Choices				DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Class Spell Selection			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ClassSpellsChoice																																											PLURAL:Class Spell Choices				DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Disadvantages					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:Disadvantage																																												PLURAL:Disadvantages					DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Transference To Companion			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:TransferToCompanion																																										PLURAL:Transference To Companion			DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Damage Reduction				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:Damage Reduction																																											PLURAL:Damage Reduction Choices			DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Defender Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:DefenderChoice																																											PLURAL:Defender Choices					DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Character Class Skill Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ClassSkillsChoice																																																																							PLURAL:Class Skill Choices				DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Class Spell Selection			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ClassSpellsChoice																																																																							PLURAL:Class Spell Choices				DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Disadvantages					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:Disadvantage																																																																								PLURAL:Disadvantages					DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Transference To Companion			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:TransferToCompanion																																																																						PLURAL:Transference To Companion			DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Damage Reduction				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:Damage Reduction																																																																							PLURAL:Damage Reduction Choices			DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Defender Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:DefenderChoice																																																																							PLURAL:Defender Choices					DISPLAYLOCATION:Character Creation Pool
 
-ABILITYCATEGORY:Inherent Spell Selection			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:InherentSpellSelection																																										PLURAL:Inherent Spell Selections			DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Inherent Spell Selection			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:InherentSpellSelection																																																																						PLURAL:Inherent Spell Selections			DISPLAYLOCATION:Character Creation Pool
 
 
-ABILITYCATEGORY:Template Character Points			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:General.Character Creation.SavingThrow.Proficiencies.CasterLevel.MagicLevels.CombatEnhancements.Base Attack Bonus.Abilities.TemplatesRacial.Metamagical.Channeling.Paths.Dominion.PathoftheDragon.MysticArtist.Pact										PLURAL:Template Character Points			DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Template Character Points			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:General.Character Creation.SavingThrow.Proficiencies.CasterLevel.MagicLevels.CombatEnhancements.Base Attack Bonus.Abilities.TemplatesRacial.Metamagical.Channeling.Paths.Dominion.PathoftheDragon.MysticArtist.Pact																																						PLURAL:Template Character Points			DISPLAYLOCATION:Character Creation Pool
 
-ABILITYCATEGORY:Battle Dance Wis BONUS			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:BattleDanceWis																																											PLURAL:Battle Dance Wis BONUSES			DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Spirited Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:SpiritedSelection																																											PLURAL:Spirited Selections				DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Battle Dance Wis BONUS			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:BattleDanceWis																																																																							PLURAL:Battle Dance Wis BONUSES			DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Spirited Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:SpiritedSelection																																																																							PLURAL:Spirited Selections				DISPLAYLOCATION:Character Creation Pool
 
-ABILITYCATEGORY:Might Path Selection			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MightPathChoice																																											PLURAL:Might Path Selections				DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Cleric Conversion Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ClericConversionChoice																																										PLURAL:Cleric Conversion Choices			DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Censure Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:CensureSelection																																											PLURAL:Censure Selections				DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Conversion Spell Selection		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ConversionSpellSelection																																										PLURAL:Conversion Spell Selections			DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Might Path Selection			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MightPathChoice																																																																							PLURAL:Might Path Selections				DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Cleric Conversion Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ClericConversionChoice																																																																						PLURAL:Cleric Conversion Choices			DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Censure Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:CensureSelection																																																																							PLURAL:Censure Selections				DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Conversion Spell Selection		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ConversionSpellSelection																																																																						PLURAL:Conversion Spell Selections			DISPLAYLOCATION:Character Creation Pool
 
 
 
 # Abilities Groups
-ABILITYCATEGORY:Action Hero Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ActionHeroChoice																																											PLURAL:Action Hero Choices				DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Action Hero Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ActionHeroChoice																																																																							PLURAL:Action Hero Choices				DISPLAYLOCATION:Character Creation Pool
 
 #
-ABILITYCATEGORY:Channeling					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ChannelingBase																																											PLURAL:Channeling						DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Channeling					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ChannelingBase																																																																							PLURAL:Channeling						DISPLAYLOCATION:Character Creation Pool
 
-ABILITYCATEGORY:Augmented Bonus Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:AugmentedBonus																																											PLURAL:Augmented Bonus Choices			DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Augmented Bonus Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:AugmentedBonus																																																																							PLURAL:Augmented Bonus Choices			DISPLAYLOCATION:Character Creation Pool
 
-ABILITYCATEGORY:Natural Magic Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:NaturalMagicChoice																																											PLURAL:Natural Magic Choices				DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Mana Choice					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ManaChoice																																												PLURAL:Mana Choices					DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Natural Magic Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:NaturalMagicChoice																																																																							PLURAL:Natural Magic Choices				DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Mana Choice					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ManaChoice																																																																								PLURAL:Mana Choices					DISPLAYLOCATION:Character Creation Pool
 
-ABILITYCATEGORY:Innate Enchantment Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:InnateEnchantmentChoice																																										PLURAL:Innate Enchantment Choices			DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:+4 Stat Choice					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability			ABILITYLIST:Innate Enchantment ~ L2 ~ STR +4|Innate Enchantment ~ L2 ~ DEX +4|Innate Enchantment ~ L2 ~ CON +4|Innate Enchantment ~ L2 ~ INT +4|Innate Enchantment ~ L2 ~ WIS +4|Innate Enchantment ~ L2 ~ CHA +4									PLURAL:+4 Stat Choice					DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Specialist Combat Selection		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:SpecialistSelection																																										PLURAL:Specialist Combat Selections			DISPLAYLOCATION:Character Creation Pool
-
-
+ABILITYCATEGORY:Innate Enchantment Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:InnateEnchantmentChoice																																																																						PLURAL:Innate Enchantment Choices			DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:+4 Stat Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability																																								ABILITYLIST:Innate Enchantment ~ L2 ~ STR +4|Innate Enchantment ~ L2 ~ DEX +4|Innate Enchantment ~ L2 ~ CON +4|Innate Enchantment ~ L2 ~ INT +4|Innate Enchantment ~ L2 ~ WIS +4|Innate Enchantment ~ L2 ~ CHA +4	PLURAL:+4 Stat Choice					DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Specialist Combat Selection		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:SpecialistSelection																																																																						PLURAL:Specialist Combat Selections			DISPLAYLOCATION:Character Creation Pool
 
 
-ABILITYCATEGORY:Companion Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:CompanionChoice																																											PLURAL:Companion Choices				DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Trick Choice					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:TrickChoice																																												PLURAL:Trick Choices					DISPLAYLOCATION:Character Creation Pool
+
+
+ABILITYCATEGORY:Companion Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:CompanionChoice																																																																							PLURAL:Companion Choices				DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Trick Choice					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:TrickChoice																																																																								PLURAL:Trick Choices					DISPLAYLOCATION:Character Creation Pool
 
 #Block: Celerity Choices - Added this to Grant greater control over the movement modification
-ABILITYCATEGORY:Celerity Additional Movement Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:CelerityAdditionalChoice																																										PLURAL:Celerity Additional Movement Choices	DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Celerity Bonus Movement Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:CelerityBonusChoice																																										PLURAL:Celerity Bonus Movement Choices		DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Celerity Additional Movement Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:CelerityAdditionalChoice																																																																						PLURAL:Celerity Additional Movement Choices	DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Celerity Bonus Movement Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:CelerityBonusChoice																																																																						PLURAL:Celerity Bonus Movement Choices		DISPLAYLOCATION:Character Creation Pool
 
 ###Block: Misc workaround stuff - Skill Purchases with CP
 # Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object	Plural description for UI	Display Location
@@ -81,6 +81,7 @@ ABILITYCATEGORY:Breath Weapon Damage Progression	VISIBLE:QUALIFY	EDITABLE:YES		E
 ###Block: Companions
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
 
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
 ABILITYCATEGORY:Animal Known Trick			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EclipseAnimalTrick		PLURAL:Animal Known Tricks			DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Companion Resistance Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CompResChoice		PLURAL:Companion Resistance Choice		DISPLAYLOCATION:Class Abilities
 
@@ -102,25 +103,25 @@ ABILITYCATEGORY:Thaumaturgy and Dweowmer		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL
 # Sub Martial Art Skills - These display Abilities but don't grant any benefit
 
 # Martial Cheat Groups - These allow access to ALL Abilities, only to be used if the MA Style isn't coded.
-# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI			Display Location
-ABILITYCATEGORY:Martial Arts Str Style		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MartialArtsStrStyle.MADefaultStyle	PLURAL:Martial Arts Str Style Techniques	DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Martial Arts Dex Style		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MartialArtsDexStyle.MADefaultStyle	PLURAL:Martial Arts Dex Style Techniques	DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Martial Arts Con Style		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MartialArtsConStyle.MADefaultStyle	PLURAL:Martial Arts Con Style Techniques	DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Martial Arts Int Style		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MartialArtsIntStyle.MADefaultStyle	PLURAL:Martial Arts Int Style Techniques	DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Martial Arts Wis Style		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MartialArtsWisStyle.MADefaultStyle	PLURAL:Martial Arts Wis Style Techniques	DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Martial Arts Cha Style		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MartialArtsChaStyle.MADefaultStyle	PLURAL:Martial Arts Cha Style Techniques	DISPLAYLOCATION:Character Creation Pool
+# Ability Category							Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI				Display Location
+ABILITYCATEGORY:Martial Arts Str Style				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MartialArtsStrStyle.MADefaultStyle	PLURAL:Martial Arts Str Style Techniques		DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Arts Dex Style				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MartialArtsDexStyle.MADefaultStyle	PLURAL:Martial Arts Dex Style Techniques		DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Arts Con Style				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MartialArtsConStyle.MADefaultStyle	PLURAL:Martial Arts Con Style Techniques		DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Arts Int Style				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MartialArtsIntStyle.MADefaultStyle	PLURAL:Martial Arts Int Style Techniques		DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Arts Wis Style				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MartialArtsWisStyle.MADefaultStyle	PLURAL:Martial Arts Wis Style Techniques		DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Arts Cha Style				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MartialArtsChaStyle.MADefaultStyle	PLURAL:Martial Arts Cha Style Techniques		DISPLAYLOCATION:Character Creation Pool
 
 # Styles in Eclipse Book
-ABILITYCATEGORY:Martial Arts ~ Adamantine Fist			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Adamantine Fist		PLURAL:Adamantine Fist Techniques			DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Martial Arts ~ Artic Fire Kung Fu		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Artic Fire Kung Fu		PLURAL:Artic Fire Kung Fu Techniques		DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Martial Arts ~ Crane Style Kung Fu		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Crane Style Kung Fu		PLURAL:Crane Style Kung Fu Techniques		DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Martial Arts ~ Wind Dance				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Wind Dance			PLURAL:Wind Dance Techniques				DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Martial Arts ~ Cloak Mastery			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Cloak Mastery			PLURAL:Cloak Mastery Techniques			DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Martial Arts ~ Oaken Storm			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Oaken Storm			PLURAL:Oaken Storm Techniques				DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Martial Arts ~ Phantom Blade			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Phantom Blade			PLURAL:Phantom Blade Techniques			DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Martial Arts ~ Gungnir's Flight Kung Fu	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Gungnir's Flight Kung Fu	PLURAL:Gungnir's Flight Kung Fu Techniques	DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Martial Arts ~ Blood Blade Technique		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Blood Blade			PLURAL:Blood Blade Techniques				DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Martial Arts ~ Ghost Busting Technique	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Ghost Busting			PLURAL:Ghost Busting Techniques			DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Arts ~ Adamantine Fist			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Adamantine Fist			PLURAL:Adamantine Fist Techniques			DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Arts ~ Artic Fire Kung Fu		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Artic Fire Kung Fu			PLURAL:Artic Fire Kung Fu Techniques		DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Arts ~ Crane Style Kung Fu		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Crane Style Kung Fu			PLURAL:Crane Style Kung Fu Techniques		DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Arts ~ Wind Dance				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Wind Dance				PLURAL:Wind Dance Techniques				DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Arts ~ Cloak Mastery			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Cloak Mastery				PLURAL:Cloak Mastery Techniques			DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Arts ~ Oaken Storm			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Oaken Storm				PLURAL:Oaken Storm Techniques				DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Arts ~ Phantom Blade			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Phantom Blade				PLURAL:Phantom Blade Techniques			DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Arts ~ Gungnir's Flight Kung Fu	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Gungnir's Flight Kung Fu		PLURAL:Gungnir's Flight Kung Fu Techniques	DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Arts ~ Blood Blade Technique		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Blood Blade				PLURAL:Blood Blade Techniques				DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Arts ~ Ghost Busting Technique	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Ghost Busting				PLURAL:Ghost Busting Techniques			DISPLAYLOCATION:Character Creation Pool
 
 
 
@@ -128,19 +129,19 @@ ABILITYCATEGORY:Martial Arts ~ Ghost Busting Technique	VISIBLE:QUALIFY	EDITABLE:
 
 # Misc
 
-ABILITYCATEGORY:Rune Casting Stat Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:RuneCastingStatChoice			PLURAL:Rune Casting Stat Choices		DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Rune Casting Stat Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:RuneCastingStatChoice			PLURAL:Rune Casting Stat Choices			DISPLAYLOCATION:Character Creation Pool
 
 
-ABILITYCATEGORY:Imbuement Enhancement		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ImbuementEnhancement			PLURAL:Imbuement  Enhancements		DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Imbuement Unarmed Enhancement	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ImbuementUnarmedEnhancement		PLURAL:Imbuement Unarmed Enhancements	DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Imbuement Enhancement				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ImbuementEnhancement			PLURAL:Imbuement  Enhancements			DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Imbuement Unarmed Enhancement			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ImbuementUnarmedEnhancement		PLURAL:Imbuement Unarmed Enhancements		DISPLAYLOCATION:Character Creation Pool
 
-ABILITYCATEGORY:Anthromorph Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AnthromorphChoice				PLURAL:Anthromorph Choices			DISPLAYLOCATION:Racial Abilities
-
-
+ABILITYCATEGORY:Anthromorph Choice					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AnthromorphChoice				PLURAL:Anthromorph Choices				DISPLAYLOCATION:Racial Abilities
 
 
 
-ABILITYCATEGORY:Eclipse Favored Enemy			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:FavoredEnemy					PLURAL:Favored Enemy Choices			DISPLAYLOCATION:Character Creation Pool
 
-ABILITYCATEGORY:Eclipse Favored Foe				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:FavoredFoe					PLURAL:Favored Foe Choices			DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Eclipse Favored Foe Bonus			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:FavoredFoeBonus				PLURAL:Favored Foe Bonus Choices			DISPLAYLOCATION:Character Creation Pool
+
+ABILITYCATEGORY:Eclipse Favored Enemy				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:FavoredEnemy					PLURAL:Favored Enemy Choices				DISPLAYLOCATION:Character Creation Pool
+
+ABILITYCATEGORY:Eclipse Favored Foe					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:FavoredFoe					PLURAL:Favored Foe Choices				DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Eclipse Favored Foe Bonus				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:FavoredFoeBonus				PLURAL:Favored Foe Bonus Choices			DISPLAYLOCATION:Character Creation Pool

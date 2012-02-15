@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Feb  9 16:10:56 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Wed Feb 15 13:58:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
@@ -35,7 +35,7 @@ FOLLOWER:PsiCrystalLvl=1	TYPE:Psicrystal	ABILITY:Special Ability|AUTOMATIC|Impro
 FOLLOWER:PsiCrystalLvl=2	TYPE:Psicrystal																																																													BONUS:VAR|FamiliarLevel|1
 FOLLOWER:PsiCrystalLvl=3	TYPE:Psicrystal	ABILITY:Special Ability|AUTOMATIC|Location and Emotion Sharing																																							BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK					BONUS:VAR|IntelligenceLockNumber|1	BONUS:VAR|FamiliarLevel|1
 FOLLOWER:PsiCrystalLvl=4	TYPE:Psicrystal																																																													BONUS:VAR|FamiliarLevel|1
-FOLLOWER:PsiCrystalLvl=5	TYPE:Psicrystal	ABILITY:Special Ability|AUTOMATIC|Telepathic Speech ~ Eclipse																																									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK					BONUS:VAR|IntelligenceLockNumber|1	BONUS:VAR|FamiliarLevel|1
+FOLLOWER:PsiCrystalLvl=5	TYPE:Psicrystal	ABILITY:Special Ability|AUTOMATIC|Telepathic Speech ~ Eclipse																																							BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK					BONUS:VAR|IntelligenceLockNumber|1	BONUS:VAR|FamiliarLevel|1
 FOLLOWER:PsiCrystalLvl=6	TYPE:Psicrystal																																																													BONUS:VAR|FamiliarLevel|1
 FOLLOWER:PsiCrystalLvl=7	TYPE:Psicrystal	ABILITY:Special Ability|AUTOMATIC|Speak normally																																									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK					BONUS:VAR|IntelligenceLockNumber|1	BONUS:VAR|FamiliarLevel|1
 FOLLOWER:PsiCrystalLvl=8	TYPE:Psicrystal																																																													BONUS:VAR|FamiliarLevel|1
@@ -54,36 +54,36 @@ FOLLOWER:PsiCrystalLvl=20	TYPE:Psicrystal																																							
 
 
 ###Block: Special Mount Progression
-# Class of the Master		Type				Hit Dice	Ability																																											Copy Masters Checks	Define			Bonus to Ability Pool						Combat bonus													Modify VAR										Main Race Type
+# Class of the Master		Type				Hit Dice	Ability																																															Copy Masters Checks	Define			Bonus to Ability Pool						Combat bonus													Modify VAR										Main Race Type
 FOLLOWER:SpecialMountLvl=1	TYPE:Special Mount			ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Improved Fortune ~ Evasion|Improved Evasion|Share Saving Throws ~ Companion Creature|Share Spells ~ Companion Creature|Communicate with Master ~ Companion Creature	ABILITY:Internal|AUTOMATIC|Intelligence Lock Tracker	COPYMASTERCHECK:MASTER	DEFINE:CompanionCPLvl|0	BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1																BONUS:VAR|IntelligenceLockNumber|8	BONUS:VAR|CompanionCPLvl|3	RACETYPE:Magical Beast
-FOLLOWER:SpecialMountLvl=2	TYPE:Special Mount	HD:1																																																															BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=3	TYPE:Special Mount																																																																															BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=4	TYPE:Special Mount	HD:1																																																															BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=5	TYPE:Special Mount																																																																															BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=6	TYPE:Special Mount	HD:1																																																						BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1	BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=7	TYPE:Special Mount																																																																															BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=8	TYPE:Special Mount	HD:1																																																															BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=9	TYPE:Special Mount																																																																															BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=10	TYPE:Special Mount	HD:1																																																															BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=11	TYPE:Special Mount																																																							BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1																BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=12	TYPE:Special Mount	HD:1																																																															BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=13	TYPE:Special Mount																																																																															BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=14	TYPE:Special Mount	HD:1																																																															BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=15	TYPE:Special Mount																																																																															BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=16	TYPE:Special Mount	HD:1																																																						BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1	BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=17	TYPE:Special Mount																																																																															BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=18	TYPE:Special Mount	HD:1																																																															BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=19	TYPE:Special Mount																																																																															BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=20	TYPE:Special Mount	HD:1																																																															BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=2	TYPE:Special Mount	HD:1																																																																			BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=3	TYPE:Special Mount																																																																																			BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=4	TYPE:Special Mount	HD:1																																																																			BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=5	TYPE:Special Mount																																																																																			BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=6	TYPE:Special Mount	HD:1																																																										BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1	BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=7	TYPE:Special Mount																																																																																			BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=8	TYPE:Special Mount	HD:1																																																																			BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=9	TYPE:Special Mount																																																																																			BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=10	TYPE:Special Mount	HD:1																																																																			BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=11	TYPE:Special Mount																																																											BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1																BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=12	TYPE:Special Mount	HD:1																																																																			BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=13	TYPE:Special Mount																																																																																			BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=14	TYPE:Special Mount	HD:1																																																																			BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=15	TYPE:Special Mount																																																																																			BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=16	TYPE:Special Mount	HD:1																																																										BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1	BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=17	TYPE:Special Mount																																																																																			BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=18	TYPE:Special Mount	HD:1																																																																			BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=19	TYPE:Special Mount																																																																																			BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=20	TYPE:Special Mount	HD:1																																																																			BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
 
 
 ###Block: Animal Progression
 # Class of the Master		Type				Hit Dice	Ability																				Define			Save checks bonus																Combat bonus													Stat bonus							Modify VAR								Main Race Type
 FOLLOWER:CompanionLvl=1		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Eclipse Animal Tricks and Training|Eclipse Bonus Tricks	DEFINE:CompanionCPLvl|0																																										BONUS:VAR|CompanionCPLvl|3					RACETYPE:Magical Beast
-FOLLOWER:CompanionLvl=2		TYPE:Animal Companion																																																																				BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=2		TYPE:Animal Companion																																																																					BONUS:VAR|CompanionCPLvl|3
 FOLLOWER:CompanionLvl=3		TYPE:Animal Companion	HD:2																							DEFINE:BonusTricks|0	BONUS:CHECKS|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:CHECKS|Will|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|BAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1
-FOLLOWER:CompanionLvl=4		TYPE:Animal Companion																																																																				BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:CompanionLvl=5		TYPE:Animal Companion																																																																				BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=4		TYPE:Animal Companion																																																																					BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=5		TYPE:Animal Companion																																																																					BONUS:VAR|CompanionCPLvl|3
 FOLLOWER:CompanionLvl=6		TYPE:Animal Companion	HD:2																											BONUS:CHECKS|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:CHECKS|Will|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|BAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1
 FOLLOWER:CompanionLvl=7		TYPE:Animal Companion																																																																					BONUS:VAR|CompanionCPLvl|3
 FOLLOWER:CompanionLvl=8		TYPE:Animal Companion																																																																					BONUS:VAR|CompanionCPLvl|3
@@ -102,14 +102,14 @@ FOLLOWER:CompanionLvl=20	TYPE:Animal Companion																																		
 
 
 ###Block: For Homebrews or different creatures - Currently testing Master > Follower Issues.
-# Class of the Master		Type				Ability																	Define					Combat bonus				Modify VAR
-FOLLOWER:OtherCompanionLvl=1	TYPE:Other Companion	ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Eclipse Animal Tricks and Training|Eclipse Bonus Tricks	DEFINE:CompanionTransferenceValue|0	BONUS:COMBAT|AC|CompanionCPLvl	BONUS:VAR|CompanionCPLvl|CompanionTransferenceValue	BONUS:VAR|BonusTricks|20
-FOLLOWER:OtherCompanionLvl=2	TYPE:Other Companion																			DEFINE:OtherCompanionLvl|0								BONUS:VAR|CompanionCPLvl|2*var("OtherCompanionLvl")
+# Class of the Master		Type								Hit Dice	Ability																				Define					Combat bonus				Modify VAR													Multiple Requirements
+FOLLOWER:OtherCompanionLvl=1	TYPE:Other Companion							ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Eclipse Animal Tricks and Training|Eclipse Bonus Tricks	DEFINE:CompanionTransferenceValue|0	BONUS:COMBAT|AC|CompanionCPLvl	BONUS:VAR|CompanionCPLvl|CompanionTransferenceValue	BONUS:VAR|BonusTricks|20
+FOLLOWER:OtherCompanionLvl=2	TYPE:Other Companion																												DEFINE:OtherCompanionLvl|0								BONUS:VAR|CompanionCPLvl|2*var("OtherCompanionLvl")
 
 # Implement a Method to grant additional HD
-FOLLOWER:ExtraHD=1		TYPE:Familiar.Special Mount.Animal Companion	HD:1	PREMULT:1,[PRETEMPLATE:1,Companion Extra HD ~ 1],[PREVARGTEQ:CompanionExtraHD,1]
-FOLLOWER:ExtraHD=2		TYPE:Familiar.Special Mount.Animal Companion	HD:1	PREMULT:1,[PRETEMPLATE:1,Companion Extra HD ~ 2],[PREVARGTEQ:CompanionExtraHD,2]
-FOLLOWER:ExtraHD=3		TYPE:Familiar.Special Mount.Animal Companion	HD:1	PREMULT:1,[PRETEMPLATE:1,Companion Extra HD ~ 3],[PREVARGTEQ:CompanionExtraHD,3]
-FOLLOWER:ExtraHD=4		TYPE:Familiar.Special Mount.Animal Companion	HD:1	PREMULT:1,[PRETEMPLATE:1,Companion Extra HD ~ 4],[PREVARGTEQ:CompanionExtraHD,4]
+FOLLOWER:ExtraHD=1		TYPE:Familiar.Special Mount.Animal Companion	HD:1																																																	PREMULT:1,[PRETEMPLATE:1,Companion Extra HD ~ 1],[PREVARGTEQ:CompanionExtraHD,1]
+FOLLOWER:ExtraHD=2		TYPE:Familiar.Special Mount.Animal Companion	HD:1																																																	PREMULT:1,[PRETEMPLATE:1,Companion Extra HD ~ 2],[PREVARGTEQ:CompanionExtraHD,2]
+FOLLOWER:ExtraHD=3		TYPE:Familiar.Special Mount.Animal Companion	HD:1																																																	PREMULT:1,[PRETEMPLATE:1,Companion Extra HD ~ 3],[PREVARGTEQ:CompanionExtraHD,3]
+FOLLOWER:ExtraHD=4		TYPE:Familiar.Special Mount.Animal Companion	HD:1																																																	PREMULT:1,[PRETEMPLATE:1,Companion Extra HD ~ 4],[PREVARGTEQ:CompanionExtraHD,4]
 
 ###EOF

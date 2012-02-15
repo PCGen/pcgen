@@ -1,9 +1,10 @@
-# CVS $Revision$ $Author$ -- Wed Feb  9 16:10:56 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Wed Feb 15 13:58:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
 
+# Ability Name			Category of Ability		Type
 Remove Human Skill Bonus	CATEGORY:Special Ability	TYPE:HumanSkillBonus
 #COMMENT: This makes humans work correctly in eclipse
 

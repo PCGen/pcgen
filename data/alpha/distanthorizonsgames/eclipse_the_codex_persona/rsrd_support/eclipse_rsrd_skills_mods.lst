@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Fri May  7 14:06:38 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Wed Feb 15 13:58:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
 #Block: RSRD SKILLS
 
-# Skill Name						Type					Ability																																					Bonus to skill
+# Skill Name						Type					Ability																																					Modify VAR
 Appraise.MOD						TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Appraise|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Appraise),Full Skill Buy(Appraise)
 Balance.MOD							TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Balance|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Balance),Full Skill Buy(Balance)
 Bluff.MOD							TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Bluff|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Bluff),Full Skill Buy(Bluff)

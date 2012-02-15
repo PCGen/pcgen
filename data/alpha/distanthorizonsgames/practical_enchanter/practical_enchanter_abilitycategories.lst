@@ -1,45 +1,45 @@
-# CVS $Revision$ $Author$ -- Fri Apr  9 23:33:37 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Wed Feb 15 13:58:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 #SOURCELONG:DHG - The Practical Enchanter	SOURCESHORT:TPE	SOURCEDATE:01-2001
 #Original Entry: Andrew Maitland
 
 
 ###Block: Practical Enchanter
 
-# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
-ABILITYCATEGORY:Talent Pool				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:TalentChoice				PLURAL:Talent Choices				DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Talent Virtual Gold			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:TalentVirtualGoldChoice		PLURAL:Talent Virtual Gold Choices		DISPLAYLOCATION:Racial Abilities
+# Ability Category								Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Specific choices list					Plural description for UI			Display Location
+ABILITYCATEGORY:Talent Pool							VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:TalentChoice												PLURAL:Talent Choices				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Talent Virtual Gold						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:TalentVirtualGoldChoice										PLURAL:Talent Virtual Gold Choices		DISPLAYLOCATION:Racial Abilities
 
-ABILITYCATEGORY:Hedge Mage Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:HedgeMageChoice			PLURAL:Hedge Mage Choices			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Hedge Mage Choice						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:HedgeMageChoice											PLURAL:Hedge Mage Choices			DISPLAYLOCATION:Class Abilities
 
-ABILITYCATEGORY:Resist Energy Choices		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	ABILITYLIST:Resist Energy ~ At Will Two Effects						DISPLAYLOCATION:Racial Abilities
-
-	
-
-ABILITYCATEGORY:Starting Wealth Level Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:StartingWealthTemplate		PLURAL:Starting Wealth Level Choice			DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Current Wealth Level Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:CurrentWealthTemplate		PLURAL:Current Wealth Level Choice			DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Level Advancement Wealth Template	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:GainedWealthTemplate		PLURAL:Wealth Level Choices			DISPLAYLOCATION:Racial Abilities			
-
-ABILITYCATEGORY:Extra Creature Level		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:WealthCompanionBonus		PLURAL:Extra Creature Levels			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Companion Stat Increase		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat		PLURAL:Companion Stat Increases		DISPLAYLOCATION:Class Abilities
-
-ABILITYCATEGORY:Common Wealth Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:WTCommonChoice			PLURAL:Common Wealth Choices			DISPLAYLOCATION:Class Abilities
-
-ABILITYCATEGORY:Wealth Template Stat Selection					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:WealthTemplateStat						DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Temp Negative Wealth Template Stat Selection		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:WealthTemplateNegStat						DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Resist Energy Choices					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability							ABILITYLIST:Resist Energy ~ At Will Two Effects								DISPLAYLOCATION:Racial Abilities
 
 
 
+ABILITYCATEGORY:Starting Wealth Level Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:StartingWealthTemplate										PLURAL:Starting Wealth Level Choice		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Current Wealth Level Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:CurrentWealthTemplate										PLURAL:Current Wealth Level Choice		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Level Advancement Wealth Template			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:GainedWealthTemplate										PLURAL:Wealth Level Choices			DISPLAYLOCATION:Racial Abilities
 
-ABILITYCATEGORY:Companion Bonus HP			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:BonusHPAll				PLURAL:Companion Bonus HP			DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Extra Creature Level					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:WealthCompanionBonus										PLURAL:Extra Creature Levels			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Companion Stat Increase					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat										PLURAL:Companion Stat Increases		DISPLAYLOCATION:Class Abilities
 
-ABILITYCATEGORY:Arcanum Minimus Feat Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ArcanumMinimusFeatChoice		PLURAL:Arcanum Minimus Feat Choices		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Enchantment Feat Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:EnchantmentFeatChoice		PLURAL:Enchantment Feat Choices		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Harvest Of Artifice Feat Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:HarvestOfArtificeFeatChoice	PLURAL:Harvest Of Artifice Feat Choices	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Imbuement Feat Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ImbuementFeatChoice		PLURAL:Imbuement Feat Choices			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Scribing Feat Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ScribingFeatChoice			PLURAL:Scribing Feat Choices			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Siddhisyoga Feat Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:SiddhisyogaFeatChoice		PLURAL:Siddhisyoga Feat Choices		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Spell Expertise Feat Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:SpellExpertiseFeatChoice		PLURAL:Spell Expertise Feat Choices		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Spell Shorthand Feat Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:SpellShorthandFeatChoice		PLURAL:Spell Shorthand Feat Choices		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Common Wealth Choice					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:WTCommonChoice											PLURAL:Common Wealth Choices			DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Wealth Template Stat Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:WealthTemplateStat																		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Temp Negative Wealth Template Stat Selection	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:WealthTemplateNegStat																	DISPLAYLOCATION:Racial Abilities
+
+
+
+
+ABILITYCATEGORY:Companion Bonus HP						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:BonusHPAll												PLURAL:Companion Bonus HP			DISPLAYLOCATION:Character Creation Pool
+
+ABILITYCATEGORY:Arcanum Minimus Feat Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ArcanumMinimusFeatChoice										PLURAL:Arcanum Minimus Feat Choices		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Enchantment Feat Choice					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:EnchantmentFeatChoice										PLURAL:Enchantment Feat Choices		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Harvest Of Artifice Feat Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:HarvestOfArtificeFeatChoice									PLURAL:Harvest Of Artifice Feat Choices	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Imbuement Feat Choice					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ImbuementFeatChoice										PLURAL:Imbuement Feat Choices			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Scribing Feat Choice					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ScribingFeatChoice											PLURAL:Scribing Feat Choices			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Siddhisyoga Feat Choice					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:SiddhisyogaFeatChoice										PLURAL:Siddhisyoga Feat Choices		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Spell Expertise Feat Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:SpellExpertiseFeatChoice										PLURAL:Spell Expertise Feat Choices		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Spell Shorthand Feat Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:SpellShorthandFeatChoice										PLURAL:Spell Shorthand Feat Choices		DISPLAYLOCATION:Feats
 
 
 

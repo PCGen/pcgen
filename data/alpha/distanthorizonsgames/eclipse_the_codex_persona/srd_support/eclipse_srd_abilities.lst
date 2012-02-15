@@ -1,19 +1,21 @@
+# CVS $Revision$ $Author$ -- Wed Feb 15 13:58:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
 
-CATEGORY=Special Ability|Weapon Prof ~ Any one Exotic Weapon.MOD						BONUS:ABILITYPOOL|Exotic Weapon Choice|1
-CATEGORY=Special Ability|Weapon Prof ~ All Simple and Martial plus any one Exotic Weapon.MOD	BONUS:ABILITYPOOL|Exotic Weapon Choice|1
-CATEGORY=Special Ability|Weapon Prof ~ All Simple and Martial and Exotic Weapon.MOD			BONUS:ABILITYPOOL|Exotic Weapon Choice|15	
+# Ability Name														Innate Spells							Bonus to Ability Pool				Allowed Companions
+CATEGORY=Special Ability|Weapon Prof ~ Any one Exotic Weapon.MOD															BONUS:ABILITYPOOL|Exotic Weapon Choice|1
+CATEGORY=Special Ability|Weapon Prof ~ All Simple and Martial plus any one Exotic Weapon.MOD										BONUS:ABILITYPOOL|Exotic Weapon Choice|1
+CATEGORY=Special Ability|Weapon Prof ~ All Simple and Martial and Exotic Weapon.MOD												BONUS:ABILITYPOOL|Exotic Weapon Choice|15
 
 
-CATEGORY=Special Ability|Companion ~ Animal Companion.MOD	COMPANIONLIST:Animal Companion|Badger,Camel,Dog,Dog (Riding),Eagle,Hawk,Horse (Heavy),Horse (Light),Owl,Pony,Porpoise,Shark (Medium),Snake (Small Viper),Snake (Medium Viper),Squid,Wolf
-CATEGORY=Special Ability|Companion ~ Familiar.MOD		COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Tiny Viper),Toad,Weasel
-CATEGORY=Special Ability|Companion ~ Psicrystal.MOD		COMPANIONLIST:Psicrystal|Psicrystal (Artiste),Psicrystal (Bully),Psicrystal (Coward),Psicrystal (Friendly),Psicrystal (Hero),Psicrystal (Liar),Psicrystal (Meticulous),Psicrystal (Observant),Psicrystal (Poised),Psicrystal (Resolved),Psicrystal (Sage),Psicrystal (Single Minded),Psicrystal (Sneaky),Psicrystal (Sympathetic)
+CATEGORY=Special Ability|Companion ~ Animal Companion.MOD																							COMPANIONLIST:Animal Companion|Badger,Camel,Dog,Dog (Riding),Eagle,Hawk,Horse (Heavy),Horse (Light),Owl,Pony,Porpoise,Shark (Medium),Snake (Small Viper),Snake (Medium Viper),Squid,Wolf
+CATEGORY=Special Ability|Companion ~ Familiar.MOD																								COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Tiny Viper),Toad,Weasel
+CATEGORY=Special Ability|Companion ~ Psicrystal.MOD																								COMPANIONLIST:Psicrystal|Psicrystal (Artiste),Psicrystal (Bully),Psicrystal (Coward),Psicrystal (Friendly),Psicrystal (Hero),Psicrystal (Liar),Psicrystal (Meticulous),Psicrystal (Observant),Psicrystal (Poised),Psicrystal (Resolved),Psicrystal (Sage),Psicrystal (Single Minded),Psicrystal (Sneaky),Psicrystal (Sympathetic)
 
 #Block: Innate Enchantments Mods
-CATEGORY=Special Ability|Innate Enchantment ~ L0 ~ Detect Magic.MOD		SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=1|Detect Magic
-CATEGORY=Special Ability|Innate Enchantment ~ L0 ~ Detect Magic_1_Day.MOD	SPELLS:Innate|CASTERLEVEL=1|Detect Magic
+CATEGORY=Special Ability|Innate Enchantment ~ L0 ~ Detect Magic.MOD					SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=1|Detect Magic
+CATEGORY=Special Ability|Innate Enchantment ~ L0 ~ Detect Magic_1_Day.MOD				SPELLS:Innate|CASTERLEVEL=1|Detect Magic
 
 
 

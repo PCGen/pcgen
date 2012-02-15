@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Feb  9 16:10:56 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Wed Feb 15 13:58:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
@@ -34,14 +34,14 @@ Dragon HD					HITDIE:12		VISIBLE:DISPLAY
 # From Web Blog
 
 ###Block: Matches Level
-# Template Name						Visible		Template									Define									Multiple Requirements								Bonus to Ability Pool						Modify VAR												Class Skill
+# Template Name						Visible		Template									Define									Multiple Requirements								Bonus to Ability Pool						Caster level					Modify VAR												Class Skill
 01 Point Buy Master Template for All Levels	VISIBLE:DISPLAY	TEMPLATE:CHOOSE:First Level Eclipse|Multiclass Eclipse	DEFINE:CharacterPoints|0	DEFINE:EclipseClassLvl|0												BONUS:ABILITYPOOL|Character Points|CharacterPoints
 #COMMENT: This Template chooses whether the Character is a True Eclipse or a Multiclass and controls how many "Character Points" the character gets (24 or 48 at 1st level)
-First Level Eclipse					VISIBLE:DISPLAY																					PREMULT:1,[PREPCLEVEL:MAX=1],[PREVARGTEQ:EclipseClassLvl,TL]										BONUS:VAR|CharacterPoints,CharacterPointsTotal|24+(24*var("EclipseClassLvl"))
-Multiclass Eclipse					VISIBLE:DISPLAY																					PREMULT:1,[PREPCLEVEL:MIN=2],[PREVARLT:EclipseClassLvl,TL]											BONUS:VAR|CharacterPoints,CharacterPointsTotal|24*var("EclipseClassLvl")
+First Level Eclipse					VISIBLE:DISPLAY																					PREMULT:1,[PREPCLEVEL:MAX=1],[PREVARGTEQ:EclipseClassLvl,TL]																	BONUS:VAR|CharacterPoints,CharacterPointsTotal|24+(24*var("EclipseClassLvl"))
+Multiclass Eclipse					VISIBLE:DISPLAY																					PREMULT:1,[PREPCLEVEL:MIN=2],[PREVARLT:EclipseClassLvl,TL]																		BONUS:VAR|CharacterPoints,CharacterPointsTotal|24*var("EclipseClassLvl")
 
 
-Bonus Caster Level ~ Spell Wall of Fire	BONUS:CASTERLEVEL|SPELL.Wall of Fire|6
+Bonus Caster Level ~ Spell Wall of Fire																																													BONUS:CASTERLEVEL|SPELL.Wall of Fire|6
 
 Low Level Adventure Template
 #Incompetent. These characters suffer a -3 penalty on all skills in which they have no training.
@@ -50,50 +50,50 @@ Low Level Adventure Template
 
 01 Adept Skills (Half Cost Bypass)																DEFINE:SkillBuyBypass|1
 
-01 Class Skills Eclipse Point Buy			VISIBLE:DISPLAY																																																						CSKILL:TYPE.NormalSkill
+01 Class Skills Eclipse Point Buy			VISIBLE:DISPLAY																																																													CSKILL:TYPE.NormalSkill
 #01 Class Skills Eclipse Psychic			CSKILL:
 #CSKILL:TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma|Speak Language
-01 Class Skills Martial Art				VISIBLE:DISPLAY																																																						CSKILL:Martial Arts|TYPE.MartialArt
+01 Class Skills Martial Art				VISIBLE:DISPLAY																																																													CSKILL:Martial Arts|TYPE.MartialArt
 
 01 - World Law - All Companions Grant 6 CP
 
 ###Block: Templates Applied to the Companion - Would be nice if we had a Feature that could Apply this from the Master PC
 # 02 Comp Bonus Might grants the Positive Level (+2) - and since we can't assign from master, grant a virtual 'ability' that will display in character points showing the companion has this.
-# Template Name						Visible		Level Adjustment		Template				Bonus to Ability Pool						Save checks bonus							Combat bonus																							Adjust PC Size					Bonus to skill				Stat bonus													Ability															Move		Description
-02 Companion Bonus ~ Might (+2 Positive Levels)	VISIBLE:DISPLAY					TEMPLATE:Positive Level (+2)																																																																							ABILITY:Character Points|VIRTUAL|Companion ~ Might
+# Template Name						Visible		Level Adjustment		Template				Define			Bonus to Ability Pool						Save checks bonus							Combat bonus																							Adjust PC Size					Bonus to skill				Stat bonus													Modify VAR					Ability															Description
+02 Companion Bonus ~ Might (+2 Positive Levels)	VISIBLE:DISPLAY					TEMPLATE:Positive Level (+2)																																																																																	ABILITY:Character Points|VIRTUAL|Companion ~ Might
 
 # This needs to be taken so the TEMP BONUS may be used. Increases Size and all associated bonuses.
-02 Companion Bonus ~ Great Form																																	BONUS:COMBAT|AC|4|TYPE=NaturalArmorEnhancement|PREAPPLY:PC	BONUS:COMBAT|AC|-1|TYPE=Size|PREAPPLY:PC	BONUS:COMBAT|TOHIT|-1|TYPE=Size|PREAPPLY:PC	BONUS:SIZEMOD|NUMBER|1|PREAPPLY:PC								BONUS:STAT|STR|8|TYPE=Size|PREAPPLY:PC	BONUS:STAT|CON|4|TYPE=Size|PREAPPLY:PC	ABILITY:Character Points|VIRTUAL|Companion ~ Great Form
-02 Rider Bonus ~ Battle Dance																BONUS:ABILITYPOOL|Battle Dance Wis BONUS|1
+02 Companion Bonus ~ Great Form																																					BONUS:COMBAT|AC|4|TYPE=NaturalArmorEnhancement|PREAPPLY:PC	BONUS:COMBAT|AC|-1|TYPE=Size|PREAPPLY:PC	BONUS:COMBAT|TOHIT|-1|TYPE=Size|PREAPPLY:PC	BONUS:SIZEMOD|NUMBER|1|PREAPPLY:PC								BONUS:STAT|STR|8|TYPE=Size|PREAPPLY:PC	BONUS:STAT|CON|4|TYPE=Size|PREAPPLY:PC							ABILITY:Character Points|VIRTUAL|Companion ~ Great Form
+02 Rider Bonus ~ Battle Dance																				BONUS:ABILITYPOOL|Battle Dance Wis BONUS|1
 02 Rider Bonus ~ Might												TEMPLATE:The Faithful Steed
-02 Rider Bonus ~ Spirited x1																BONUS:ABILITYPOOL|Spirited Selection|1
-02 Rider Bonus ~ Spirited x2																BONUS:ABILITYPOOL|Spirited Selection|1
-02 Rider Bonus ~ Spirited x3																BONUS:ABILITYPOOL|Spirited Selection|1
-02 Rider Bonus ~ Spirited x4																BONUS:ABILITYPOOL|Spirited Selection|1
-02 Rider Bonus ~ Spirited x5																BONUS:ABILITYPOOL|Spirited Selection|1
+02 Rider Bonus ~ Spirited x1																				BONUS:ABILITYPOOL|Spirited Selection|1
+02 Rider Bonus ~ Spirited x2																				BONUS:ABILITYPOOL|Spirited Selection|1
+02 Rider Bonus ~ Spirited x3																				BONUS:ABILITYPOOL|Spirited Selection|1
+02 Rider Bonus ~ Spirited x4																				BONUS:ABILITYPOOL|Spirited Selection|1
+02 Rider Bonus ~ Spirited x5																				BONUS:ABILITYPOOL|Spirited Selection|1
 
 
 
-The Faithful Steed																																																																																							ABILITY:Special Ability|AUTOMATIC|Superior Breeding ~ TFS|Furious Defense ~ TFS|Calling ~ TFS
+The Faithful Steed																																																																																																	ABILITY:Special Ability|AUTOMATIC|Superior Breeding ~ TFS|Furious Defense ~ TFS|Calling ~ TFS
 
 
 # Positive Levels grant +1 to AC, To Hit, and Saves along with 6 CP
-Positive Level (+1)																	BONUS:ABILITYPOOL|Character Points|6			BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1	BONUS:COMBAT|AC|1
-Positive Level (+2)																	BONUS:ABILITYPOOL|Character Points|12			BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|2	BONUS:COMBAT|BAB|2	BONUS:COMBAT|AC|2
-Positive Level (+3)																	BONUS:ABILITYPOOL|Character Points|18			BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|3	BONUS:COMBAT|BAB|3	BONUS:COMBAT|AC|3
-Positive Level (+4)																	BONUS:ABILITYPOOL|Character Points|24			BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|4	BONUS:COMBAT|BAB|4	BONUS:COMBAT|AC|4
-Positive Level (+5)																	BONUS:ABILITYPOOL|Character Points|30			BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|5	BONUS:COMBAT|BAB|5	BONUS:COMBAT|AC|5
+Positive Level (+1)																					BONUS:ABILITYPOOL|Character Points|6			BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1	BONUS:COMBAT|AC|1
+Positive Level (+2)																					BONUS:ABILITYPOOL|Character Points|12			BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|2	BONUS:COMBAT|BAB|2	BONUS:COMBAT|AC|2
+Positive Level (+3)																					BONUS:ABILITYPOOL|Character Points|18			BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|3	BONUS:COMBAT|BAB|3	BONUS:COMBAT|AC|3
+Positive Level (+4)																					BONUS:ABILITYPOOL|Character Points|24			BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|4	BONUS:COMBAT|BAB|4	BONUS:COMBAT|AC|4
+Positive Level (+5)																					BONUS:ABILITYPOOL|Character Points|30			BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|5	BONUS:COMBAT|BAB|5	BONUS:COMBAT|AC|5
 
 
 # Template Levels - Grant Points to a Separate Pool for easier Selections - These are for template level creation.
-Eclipse ~ Template Level +1							LEVELADJUSTMENT:1							BONUS:ABILITYPOOL|Template Character Points|32*2
-Eclipse ~ Template Level +2							LEVELADJUSTMENT:2							BONUS:ABILITYPOOL|Template Character Points|32*3
-Eclipse ~ Template Level +3							LEVELADJUSTMENT:3							BONUS:ABILITYPOOL|Template Character Points|32*4
-Eclipse ~ Template Level +4							LEVELADJUSTMENT:4							BONUS:ABILITYPOOL|Template Character Points|32*5
+Eclipse ~ Template Level +1							LEVELADJUSTMENT:1											BONUS:ABILITYPOOL|Template Character Points|32*2
+Eclipse ~ Template Level +2							LEVELADJUSTMENT:2											BONUS:ABILITYPOOL|Template Character Points|32*3
+Eclipse ~ Template Level +3							LEVELADJUSTMENT:3											BONUS:ABILITYPOOL|Template Character Points|32*4
+Eclipse ~ Template Level +4							LEVELADJUSTMENT:4											BONUS:ABILITYPOOL|Template Character Points|32*5
 
 
 # This allows for extra HD for Familiars or any companion for that matter, designed to work with the Wealth Templates and a workaround for unusual designs
-Companion Bonus HP					VISIBLE:DISPLAY										BONUS:ABILITYPOOL|Companion Bonus HP|1
+Companion Bonus HP					VISIBLE:DISPLAY														BONUS:ABILITYPOOL|Companion Bonus HP|1
 
 
 # This is a Testing of the Move 'Fly' Aspect. Works with the RSRD set.
@@ -101,23 +101,23 @@ Companion Bonus HP					VISIBLE:DISPLAY										BONUS:ABILITYPOOL|Companion Bonu
 
 
 #COMMENT: Example of GM Granted Packages (typically 12 CP of GM assigned abilities)
-Josh's Military Life Package				VISIBLE:YES																																																																																	ABILITY:Character Points|AUTOMATIC|Legionary|Weapon Prof ~ All Simple Weapons|Armor ~ Light
+Josh's Military Life Package				VISIBLE:YES																																																																																											ABILITY:Character Points|AUTOMATIC|Legionary|Weapon Prof ~ All Simple Weapons|Armor ~ Light
 
 
 # Need to move all the Web Blog stuff into a 'Web Enhancement'. Also need to note which items are in the new 'Eclipse II' release.
 
 #Block: Templates
 
-Shapeshift // Dire One Size				VISIBLE:NO																																																						BONUS:SIZEMOD|NUMBER|1|PREAPPLY:ANYPC
-Shapeshift // Dire Two Sizes				VISIBLE:NO																																																						BONUS:SIZEMOD|NUMBER|2|PREAPPLY:ANYPC
+Shapeshift // Dire One Size				VISIBLE:NO																																																										BONUS:SIZEMOD|NUMBER|1|PREAPPLY:ANYPC
+Shapeshift // Dire Two Sizes				VISIBLE:NO																																																										BONUS:SIZEMOD|NUMBER|2|PREAPPLY:ANYPC
 
 
 # If an Ability grants bonuses to a Skill, that SHOULD affect Rune Casting, this can be used to make up
-Bonus to Rune Casting ~ Intelligence																																																																BONUS:SKILL|TYPE.RuneCasting|INT																																	DESC:Allow Intelligence to Bonus Rune Casting if being granted somehow
-Bonus to Rune Casting ~ Wisdom																																																																	BONUS:SKILL|TYPE.RuneCasting|WIS																																	DESC:Allow Wisdom to Bonus Rune Casting if being granted somehow
-Bonus to Rune Casting ~ Charisma																																																																	BONUS:SKILL|TYPE.RuneCasting|CHA																																	DESC:Allow Charisma to Bonus Rune Casting if being granted somehow
+Bonus to Rune Casting ~ Intelligence																																																																				BONUS:SKILL|TYPE.RuneCasting|INT																																					DESC:Allow Intelligence to Bonus Rune Casting if being granted somehow
+Bonus to Rune Casting ~ Wisdom																																																																					BONUS:SKILL|TYPE.RuneCasting|WIS																																					DESC:Allow Wisdom to Bonus Rune Casting if being granted somehow
+Bonus to Rune Casting ~ Charisma																																																																					BONUS:SKILL|TYPE.RuneCasting|CHA																																					DESC:Allow Charisma to Bonus Rune Casting if being granted somehow
 
-Bonus to Wisdom Skills ~ Charisma																																																																	BONUS:SKILL|TYPE.Wisdom|CHA
+Bonus to Wisdom Skills ~ Charisma																																																																					BONUS:SKILL|TYPE.Wisdom|CHA
 
 HD4L1								VISIBLE:NO		LEVELADJUSTMENT:-1
 HD4L2								VISIBLE:NO		LEVELADJUSTMENT:-1
@@ -139,7 +139,7 @@ HD8L5								VISIBLE:NO		LEVELADJUSTMENT:-1
 HD8L6								VISIBLE:NO		LEVELADJUSTMENT:-1
 
 
-Enlarge Self			BONUS:VAR|EnlargeSelf|1|PREAPPLY:PC	DEFINE:EnlargeSelf|0
+Enlarge Self																		DEFINE:EnlargeSelf|0																																																																							BONUS:VAR|EnlargeSelf|1|PREAPPLY:PC
 
 
 

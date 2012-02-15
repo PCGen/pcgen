@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri May  7 14:06:38 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Wed Feb 15 13:58:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
@@ -108,7 +108,7 @@ Wilderness Lore.MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Ma
 
 
 ###Block: MM skills
-# Skill Name				Type					Ability																														Bonus to skill
+# Skill Name				Type					Ability																														Modify VAR
 Control Shape.MOD				TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Control Shape|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Control Shape),Full Skill Buy(Control Shape)
 Craft (Metalworking).MOD		TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Craft (Metalworking)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Craft (Metalworking)),Full Skill Buy(Craft (Metalworking))
 Knowledge (Geology).MOD			TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Knowledge (Geology)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Knowledge (Geology)),Full Skill Buy(Knowledge (Geology))

@@ -1,3 +1,5 @@
+# CVS $Revision$ $Author$ -- Wed Feb 15 13:58:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
 
-ABILITYCATEGORY:Exotic Weapon Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:FEAT																																										ABILITYLIST:Exotic Weapon Proficiency	PLURAL:Exotic Weapon Choices				DISPLAYLOCATION:Character Creation Pool
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Specific choices list				Plural description for UI	Display Location
+ABILITYCATEGORY:Exotic Weapon Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:FEAT		ABILITYLIST:Exotic Weapon Proficiency	PLURAL:Exotic Weapon Choices	DISPLAYLOCATION:Character Creation Pool
