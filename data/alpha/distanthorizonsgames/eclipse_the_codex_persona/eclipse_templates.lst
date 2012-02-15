@@ -41,6 +41,8 @@ First Level Eclipse					VISIBLE:DISPLAY																					PREMULT:1,[PREPCLEVE
 Multiclass Eclipse					VISIBLE:DISPLAY																					PREMULT:1,[PREPCLEVEL:MIN=2],[PREVARLT:EclipseClassLvl,TL]											BONUS:VAR|CharacterPoints,CharacterPointsTotal|24*var("EclipseClassLvl")
 
 
+Bonus Caster Level ~ Spell Wall of Fire	BONUS:CASTERLEVEL|SPELL.Wall of Fire|6
+
 Low Level Adventure Template
 #Incompetent. These characters suffer a -3 penalty on all skills in which they have no training.
 #Accursed. These characters only advance in level slowly by direct character point awards - usually gaining 2-3 character points per session. Once they hit level six, this slows even more, to a mere 1-2 CP per session. At level ten, it's reduced to 1 CP per session. Non-adventurers usually acquire CP even more slowly.
