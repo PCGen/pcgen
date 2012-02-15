@@ -4200,6 +4200,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 						return;
 					}
+					source = domain;
 				}
 				else
 				{
