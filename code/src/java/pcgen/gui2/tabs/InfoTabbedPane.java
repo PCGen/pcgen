@@ -42,6 +42,8 @@ import javax.swing.Icon;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.core.facade.CharacterFacade;
@@ -49,6 +51,7 @@ import pcgen.core.facade.TodoFacade;
 import pcgen.core.facade.TodoFacade.CharacterTab;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.tools.CharacterSelectionListener;
+import pcgen.gui2.util.DisplayAwareTab;
 import pcgen.util.Logging;
 
 /**
@@ -57,7 +60,7 @@ import pcgen.util.Logging;
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public final class InfoTabbedPane extends JTabbedPane
-		implements CharacterSelectionListener
+		implements CharacterSelectionListener, ChangeListener
 {
 
 	public static final int SUMMARY_TAB = 0;
@@ -117,6 +120,8 @@ public final class InfoTabbedPane extends JTabbedPane
 		addTab(new InventoryInfoTab());
 		addTab(new DescriptionInfoTab());
 		addTab(new CharacterSheetInfoTab());
+		
+		addChangeListener(this);
 	}
 
 	private <T extends Component & CharacterInfoTab> void addTab(T tab)
@@ -213,6 +218,19 @@ public final class InfoTabbedPane extends JTabbedPane
 		}
 	}
 
+	/**
+	* {@inheritDoc}
+	*/
+	public void stateChanged(ChangeEvent e)
+	{
+		// The currently displayed tab has changed so if the new one wants to know about it, let it know 
+		Component comp = getSelectedComponent();
+		if (comp instanceof DisplayAwareTab)
+		{
+			((DisplayAwareTab) comp).tabSelected();
+		}
+	}
+	 
 	/**
 	 * This class handles the concurrent processing of storing and restoring tab models.
 	 * Conceptually this process consists of two separate processing queues.

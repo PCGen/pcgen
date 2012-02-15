@@ -52,6 +52,7 @@ import pcgen.gui2.csheet.CharacterSheetPanel;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilteredListFacadeTableModel;
 import pcgen.gui2.tools.FlippingSplitPane;
+import pcgen.gui2.util.DisplayAwareTab;
 import pcgen.gui2.util.event.ListDataAdapter;
 import pcgen.gui2.util.table.TableUtils;
 import pcgen.system.ConfigurationSettings;
@@ -70,7 +71,7 @@ import pcgen.util.Logging;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision: 14593 $
  */
-public class CharacterSheetInfoTab extends FlippingSplitPane implements CharacterInfoTab
+public class CharacterSheetInfoTab extends FlippingSplitPane implements CharacterInfoTab, DisplayAwareTab
 {
 
 	private final TabTitle tabTitle = new TabTitle("Character Sheet");
@@ -157,6 +158,16 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		return tabTitle;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void tabSelected()
+	{
+		// Refresh the character sheet as we have been displayed.
+		csheet.refresh();
+	}
+
 	private class BoxHandler extends ListDataAdapter
 	{
 
@@ -237,48 +248,48 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		{
 			csheet.setCharacter(character);
 
-			character.getAgeCategoryRef().addReferenceListener(this);
-			character.getAgeRef().addReferenceListener(this);
-			character.getAlignmentRef().addReferenceListener(this);
-			character.getCarriedWeightRef().addReferenceListener(this);
-			character.getDeityRef().addReferenceListener(this);
-			character.getGenderRef().addReferenceListener(this);
-			character.getHandedRef().addReferenceListener(this);
-			character.getLoadRef().addReferenceListener(this);
-			character.getNameRef().addReferenceListener(this);
-			character.getPlayersNameRef().addReferenceListener(this);
-			character.getRaceRef().addReferenceListener(this);
-			character.getStatTotalTextRef().addReferenceListener(this);
-			character.getTotalHPRef().addReferenceListener(this);
-			character.getXPRef().addReferenceListener(this);
-
-			character.getDomains().addListListener(this);
-			character.getLanguages().addListListener(this);
-			character.getTempBonuses().addListListener(this);
-			character.getTemplates().addListListener(this);
+//			character.getAgeCategoryRef().addReferenceListener(this);
+//			character.getAgeRef().addReferenceListener(this);
+//			character.getAlignmentRef().addReferenceListener(this);
+//			character.getCarriedWeightRef().addReferenceListener(this);
+//			character.getDeityRef().addReferenceListener(this);
+//			character.getGenderRef().addReferenceListener(this);
+//			character.getHandedRef().addReferenceListener(this);
+//			character.getLoadRef().addReferenceListener(this);
+//			character.getNameRef().addReferenceListener(this);
+//			character.getPlayersNameRef().addReferenceListener(this);
+//			character.getRaceRef().addReferenceListener(this);
+//			character.getStatTotalTextRef().addReferenceListener(this);
+//			character.getTotalHPRef().addReferenceListener(this);
+//			character.getXPRef().addReferenceListener(this);
+//
+//			character.getDomains().addListListener(this);
+//			character.getLanguages().addListListener(this);
+//			character.getTempBonuses().addListListener(this);
+//			character.getTemplates().addListListener(this);
 		}
 
 		public void uninstall()
 		{
-			character.getAgeCategoryRef().removeReferenceListener(this);
-			character.getAgeRef().removeReferenceListener(this);
-			character.getAlignmentRef().removeReferenceListener(this);
-			character.getCarriedWeightRef().removeReferenceListener(this);
-			character.getDeityRef().removeReferenceListener(this);
-			character.getGenderRef().removeReferenceListener(this);
-			character.getHandedRef().removeReferenceListener(this);
-			character.getLoadRef().removeReferenceListener(this);
-			character.getNameRef().removeReferenceListener(this);
-			character.getPlayersNameRef().removeReferenceListener(this);
-			character.getRaceRef().removeReferenceListener(this);
-			character.getStatTotalTextRef().removeReferenceListener(this);
-			character.getTotalHPRef().removeReferenceListener(this);
-			character.getXPRef().removeReferenceListener(this);
-
-			character.getDomains().removeListListener(this);
-			character.getLanguages().removeListListener(this);
-			character.getTempBonuses().removeListListener(this);
-			character.getTemplates().removeListListener(this);
+//			character.getAgeCategoryRef().removeReferenceListener(this);
+//			character.getAgeRef().removeReferenceListener(this);
+//			character.getAlignmentRef().removeReferenceListener(this);
+//			character.getCarriedWeightRef().removeReferenceListener(this);
+//			character.getDeityRef().removeReferenceListener(this);
+//			character.getGenderRef().removeReferenceListener(this);
+//			character.getHandedRef().removeReferenceListener(this);
+//			character.getLoadRef().removeReferenceListener(this);
+//			character.getNameRef().removeReferenceListener(this);
+//			character.getPlayersNameRef().removeReferenceListener(this);
+//			character.getRaceRef().removeReferenceListener(this);
+//			character.getStatTotalTextRef().removeReferenceListener(this);
+//			character.getTotalHPRef().removeReferenceListener(this);
+//			character.getXPRef().removeReferenceListener(this);
+//
+//			character.getDomains().removeListListener(this);
+//			character.getLanguages().removeListListener(this);
+//			character.getTempBonuses().removeListListener(this);
+//			character.getTemplates().removeListListener(this);
 		}
 
 		public void elementAdded(ListEvent<Object> e)
