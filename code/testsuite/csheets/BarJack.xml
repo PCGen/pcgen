@@ -38,7 +38,7 @@ BIO
 		<deity>
 			<name>None</name>
 			<alignment></alignment>
-			<description>None</description>
+			<description>Due to closed content PCGEN cannot provide a list of deities, sorry but you need to homebrew your own list; Please see the Documentation for how to do so.</description>
 			<domainlist>Air, Animal, Chaos, Death, Destruction, Earth, Evil, Fire, Good, Healing, Knowledge, Law, Luck, Magic, Plant, Protection, Strength, Sun, Travel, Trickery, War, Water</domainlist>
 			<favoredweapon>ANY</favoredweapon>
 			<followeralignment></followeralignment>
