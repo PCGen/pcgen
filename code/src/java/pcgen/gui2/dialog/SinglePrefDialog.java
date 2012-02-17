@@ -116,8 +116,6 @@ public class SinglePrefDialog extends JDialog
 		prefsPanel.setOptionsBasedOnControls();
 		setVisible(false);
 
-		SettingsHandler.writeOptionsProperties(null);
-
 		this.dispose();
 	}
 	

@@ -476,8 +476,6 @@ public final class PreferencesDialog extends JDialog
 		applyPluginPreferences();
 		setVisible(false);
 
-		SettingsHandler.writeOptionsProperties(null);
-
 		// We need to update the menus/toolbar since
 		// some of those depend on the options
 		//PCGen_Frame1.enableDisableMenuItems();

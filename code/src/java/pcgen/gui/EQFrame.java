@@ -163,7 +163,7 @@ public final class EQFrame extends JDialog
 			this.purchase = purchase;
 			SettingsHandler.setCustomizerLeftUpperCorner(getLocationOnScreen());
 			SettingsHandler.setCustomizerDimension(getSize());
-			SettingsHandler.writeOptionsProperties(aPC);
+			//SettingsHandler.writeOptionsProperties(aPC);
 		}
 
 		Globals.setCurrentFrame(null);
