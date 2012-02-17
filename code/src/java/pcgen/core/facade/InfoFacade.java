@@ -33,4 +33,8 @@ public interface InfoFacade
     
     public String getKeyName();
 
+    /**
+     * @return true if the name of this item is Product Identity (i.e owned by the publisher)
+     */
+    public boolean isNamePI();
 }

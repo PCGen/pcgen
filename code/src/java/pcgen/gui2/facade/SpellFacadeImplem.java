@@ -265,4 +265,13 @@ public class SpellFacadeImplem implements SpellFacade
 		return true;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isNamePI()
+	{
+		return spell.isNamePI();
+	}
+
 }

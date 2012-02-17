@@ -34,6 +34,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.QualifyingObject;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.analysis.OutputNameFormatting;
@@ -230,6 +231,14 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return getDisplayName();
 	}
 
+    /**
+     * @return true if the name of this item is Product Identity (i.e owned by the publisher)
+     */
+    public boolean isNamePI()
+    {
+    	return getSafe(ObjectKey.NAME_PI);
+    }
+    
 	/**
 	 * Get the PCC text with the saved name
 	 * @return the PCC text with the saved name

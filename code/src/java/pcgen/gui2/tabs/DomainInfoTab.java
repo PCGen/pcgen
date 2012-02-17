@@ -22,6 +22,7 @@ package pcgen.gui2.tabs;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -46,6 +47,7 @@ import org.apache.commons.lang.StringUtils;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.DeityFacade;
 import pcgen.core.facade.DomainFacade;
+import pcgen.core.facade.InfoFacade;
 import pcgen.core.facade.ReferenceFacade;
 import pcgen.core.facade.event.ListEvent;
 import pcgen.core.facade.event.ListListener;
@@ -116,8 +118,6 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		deityTable.setDisplayableFilter(bar);
 		panel.add(bar, BorderLayout.NORTH);
 
-		deityTable.setSortingPriority(Collections.singletonList(new SortingPriority(0, SortMode.ASCENDING)));
-		deityTable.sortModel();
 		ListSelectionModel selectionModel = deityTable.getSelectionModel();
 		selectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		panel.add(new JScrollPane(deityTable), BorderLayout.CENTER);
@@ -256,6 +256,14 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			else
 			{
 				setForeground(UIPropertyContext.getQualifiedColor());
+			}
+			if (value instanceof InfoFacade && ((InfoFacade) value).isNamePI())
+			{
+				setFont(getFont().deriveFont(Font.BOLD + Font.ITALIC));
+			}
+			else
+			{
+				setFont(getFont().deriveFont(Font.PLAIN));
 			}
 			return this;
 		}
@@ -453,9 +461,14 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		public void install()
 		{
+			label.setFont(label.getFont().deriveFont(Font.PLAIN));
 			if (ref.getReference() != null)
 			{
 				label.setText(ref.getReference().toString());
+				if (ref.getReference().isNamePI())
+				{
+					label.setFont(label.getFont().deriveFont(Font.BOLD + Font.ITALIC));
+				}
 			}
 			else
 			{

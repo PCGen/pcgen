@@ -21,6 +21,8 @@
 package pcgen.gui2.tabs.models;
 
 import java.awt.Component;
+import java.awt.Font;
+
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
@@ -58,6 +60,14 @@ public class QualifiedTreeCellRenderer extends DefaultTreeCellRenderer
 		if (obj instanceof InfoFacade && !character.isQualifiedFor((InfoFacade) obj))
 		{
 			setForeground(UIPropertyContext.getNotQualifiedColor());
+		}
+		if (obj instanceof InfoFacade && ((InfoFacade) obj).isNamePI())
+		{
+			setFont(getFont().deriveFont(Font.BOLD + Font.ITALIC));
+		}
+		else
+		{
+			setFont(getFont().deriveFont(Font.PLAIN));
 		}
 		return this;
 	}
