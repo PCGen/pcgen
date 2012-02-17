@@ -36,7 +36,6 @@ import org.apache.commons.lang.StringUtils;
 
 import pcgen.gui2.tools.Icons;
 import pcgen.system.LanguageBundle;
-import pcgen.util.Logging;
 
 /**
  * A text search filtering bar including the title, the text field and a clear 
