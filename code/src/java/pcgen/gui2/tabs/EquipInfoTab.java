@@ -20,6 +20,8 @@
  */
 package pcgen.gui2.tabs;
 
+import static pcgen.gui2.tabs.equip.EquipmentSelection.equipmentArrayFlavor;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Font;
@@ -31,9 +33,9 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Hashtable;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.swing.AbstractAction;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -55,6 +57,7 @@ import javax.swing.table.TableColumn;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
+
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.EquipmentFacade;
 import pcgen.core.facade.EquipmentSetFacade;
@@ -69,7 +72,6 @@ import pcgen.gui2.tabs.equip.EquipmentModel;
 import pcgen.gui2.tabs.equip.EquipmentModels;
 import pcgen.gui2.tabs.equip.EquipmentModels.EquipView;
 import pcgen.gui2.tabs.equip.EquipmentSelection;
-import static pcgen.gui2.tabs.equip.EquipmentSelection.equipmentArrayFlavor;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.InfoPane;
@@ -81,16 +83,24 @@ import pcgen.gui2.util.table.DefaultDynamicTableColumnModel;
 import pcgen.gui2.util.table.DynamicTableColumnModel;
 
 /**
+ * EquipInfoTab is a character tab for managing where gear is distributed for a 
+ * character. Each set of distribution information is called an EquipSet. 
+ * Multiple EquipSets can be managed to reflect different configurations.
  *
+ * <br/>
+ * Last Editor: $Author:  $
+ * Last Edited: $Date:  $
+ *  
  * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @version $Revision:  $
  */
 public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
 	private static final DataFlavor equipNodeArrayFlavor = new DataFlavor(DataFlavor.javaJVMLocalObjectMimeType
 			+ ";class=\"" + EquipNode[].class.getName() + "\"", null);
-	private static final Font labelFont = new Font("Verdana", Font.BOLD, 12);
-	private static final Font textFont = new Font("Verdana", Font.PLAIN, 12);
+//	private static final Font labelFont = new Font("Verdana", Font.BOLD, 12);
+//	private static final Font textFont = new Font("Verdana", Font.PLAIN, 12);
 	private static final Font smallFont = new Font("Verdana", Font.PLAIN, 10);
 	private final JDynamicTable equipmentTable;
 	private final JComboBox equipViewBox;
@@ -178,9 +188,6 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		panel.add(new JScrollPane(equipmentTable), BorderLayout.CENTER);
 
 		Box buttonsBox = Box.createHorizontalBox();
-		buttonsBox.add(unequipButton);
-		buttonsBox.add(Box.createHorizontalStrut(3));
-		buttonsBox.add(unequipAllButton);
 		buttonsBox.add(Box.createHorizontalGlue());
 		equipButton.setHorizontalTextPosition(SwingConstants.LEADING);
 		buttonsBox.add(equipButton);
@@ -237,6 +244,15 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		EquipmentModel.initializeTreeTable(equipmentSetTable);
 		panel.add(new JScrollPane(equipmentSetTable), BorderLayout.CENTER);
+
+		Box selPanelbuttonsBox = Box.createHorizontalBox();
+		selPanelbuttonsBox.add(Box.createHorizontalStrut(3));
+		selPanelbuttonsBox.add(unequipButton);
+		selPanelbuttonsBox.add(Box.createHorizontalStrut(3));
+		selPanelbuttonsBox.add(unequipAllButton);
+		selPanelbuttonsBox.add(Box.createHorizontalGlue());
+		selPanelbuttonsBox.setBorder(BorderFactory.createEmptyBorder(5, 0, 5, 0));
+		panel.add(selPanelbuttonsBox, BorderLayout.SOUTH);
 		setRightComponent(panel);
 	}
 
