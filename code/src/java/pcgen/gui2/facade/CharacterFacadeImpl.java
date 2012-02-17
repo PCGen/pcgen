@@ -1372,11 +1372,18 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	public void rollStats()
 	{
 		GameMode game = (GameMode) dataSet.getGameMode();
-		if (game.getCurrentRollingMethod() == null)
+		int rollMethod = game.getRollMethod();
+		if (rollMethod == Constants.CHARACTER_STAT_METHOD_ROLLED
+			&& game.getCurrentRollingMethod() == null)
 		{
 			return;
 		}
-		theCharacter.rollStats(Constants.CHARACTER_STAT_METHOD_ROLLED);
+		if (rollMethod == Constants.CHARACTER_STAT_METHOD_USER)
+		{
+			// If a user asks to roll in user mode, set it to the current all same value.
+			rollMethod = Constants.CHARACTER_STAT_METHOD_ALL_THE_SAME; 
+		}
+		theCharacter.rollStats(rollMethod);
 		//XXX This is here to stop the stat mod from being stale. Can be removed once we merge with CDOM
 		theCharacter.calcActiveBonuses();
 		for (StatFacade stat : statScoreMap.keySet())
