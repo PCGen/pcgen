@@ -194,7 +194,6 @@ public final class Main
 			{
 				// Verbose output
 				Logging.setCurrentLoggingLevel(Logging.DEBUG);
-				index++;
 			}
 			else if (arg.equals("-s"))
 			{
@@ -209,7 +208,7 @@ public final class Main
 			}
 			else if (arg.equals("-m"))
 			{
-				// Specify the cmapaign mode
+				// Specify the campaign mode
 				index++;
 				if (index == args.length)
 				{
