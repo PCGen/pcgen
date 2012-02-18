@@ -67,7 +67,7 @@ public class InfoGuidePane extends JComponent implements UIResource
 		htmlPane.setOpaque(false);
 		htmlPane.setContentType("text/html");
 		htmlPane.setEditable(false);
-		htmlPane.setFocusable(false);
+		htmlPane.setFocusable(true);
 		return htmlPane;
 	}
 
