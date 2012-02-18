@@ -228,6 +228,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 			if (e.getIndex0() == -1 && e.getIndex1() == -1)
 			{
 				csheet.setCharacterSheet((File) sheetBox.getSelectedItem());
+				csheet.refresh();
 			}
 		}
 

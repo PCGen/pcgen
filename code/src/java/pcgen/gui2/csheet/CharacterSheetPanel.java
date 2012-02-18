@@ -140,7 +140,6 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 	public void setCharacterSheet(File sheet)
 	{
 		handler = new ExportHandler(sheet);
-		refresh();
 	}
 
 	public void refresh()
