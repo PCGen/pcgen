@@ -29,6 +29,8 @@ import java.awt.image.BufferedImage;
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 
+import pcgen.cdom.base.Constants;
+
 /**
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
@@ -36,7 +38,6 @@ import javax.swing.JComponent;
 class ThumbnailPane extends JComponent
 {
 
-	private static final int THUMBNAIL_SIZE = 100;
 	private BufferedImage portrait;
 	private Rectangle cropRect;
 
@@ -77,8 +78,8 @@ class ThumbnailPane extends JComponent
 			width += insets.left + insets.right;
 			height += insets.top + insets.bottom;
 		}
-		width += THUMBNAIL_SIZE;
-		height += THUMBNAIL_SIZE;
+		width += Constants.THUMBNAIL_SIZE;
+		height += Constants.THUMBNAIL_SIZE;
 		return new Dimension(width, height);
 	}
 
@@ -102,8 +103,9 @@ class ThumbnailPane extends JComponent
 			return;
 		}
 		Insets insets = getInsets();
-		g.drawImage(portrait.getSubimage(cropRect.x, cropRect.y, cropRect.width, cropRect.height),
-					insets.left, insets.top, THUMBNAIL_SIZE, THUMBNAIL_SIZE, this);
+		g.drawImage(portrait.getSubimage(cropRect.x, cropRect.y,
+			cropRect.width, cropRect.height), insets.left, insets.top,
+			Constants.THUMBNAIL_SIZE, Constants.THUMBNAIL_SIZE, this);
 	}
 
 }

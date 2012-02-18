@@ -672,4 +672,7 @@ public interface Constants
 
 	/** The character to used to separate path components. */
 	String EQUIP_SET_PATH_SEPARATOR = "."; //$NON-NLS-1$
+
+	/** The size (in pixels) of a side of the square thumbnail image */
+	public static final int THUMBNAIL_SIZE = 100;
 }
