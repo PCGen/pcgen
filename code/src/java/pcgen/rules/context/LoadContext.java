@@ -454,8 +454,7 @@ public abstract class LoadContext
 	{
 		for (Campaign c : campaignList)
 		{
-			List<String> hiddentypes = c.getListFor(ListKey.getKeyFor(
-					STRING_CLASS, "HIDDEN_" + cl.getSimpleName()));
+			List<String> hiddentypes = getCampaignHiddenTypes(cl, c);
 			if (hiddentypes != null)
 			{
 				for (String s : hiddentypes)
@@ -468,6 +467,17 @@ public abstract class LoadContext
 			}
 		}
 		return false;
+	}
+
+	private List<String> getCampaignHiddenTypes(Class<?> cl, Campaign c)
+	{
+		List<String> hiddentypes = c.getSafeListFor(ListKey.getKeyFor(
+				STRING_CLASS, "HIDDEN_" + cl.getSimpleName()));
+		for (Campaign subCamp : c.getSubCampaigns())
+		{
+			hiddentypes.addAll(getCampaignHiddenTypes(cl, subCamp));
+		}
+		return hiddentypes;
 	}
 
 	public abstract boolean consolidate();

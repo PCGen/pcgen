@@ -336,6 +336,12 @@ public class JTreeViewTable<T> extends JTreeTable
 
 	public void setTreeViewModel(TreeViewModel<T> viewModel)
 	{
+		ListFacade<? extends TreeView<T>> views = viewModel.getTreeViews();
+		TreeView<? super T> startingView = views.getElementAt(viewModel.getDefaultTreeViewIndex());
+		if (treetableModel != null && treetableModel.getSelectedTreeView() != null)
+		{
+			startingView = treetableModel.getSelectedTreeView();
+		}
 		DataView<T> dataView = viewModel.getDataView();
 		final TreeViewTableModel<T> model = createDefaultTreeViewTableModel(dataView);
 		this.treetableModel = model;
@@ -346,8 +352,6 @@ public class JTreeViewTable<T> extends JTreeTable
 		this.viewModel = viewModel;
 		treeviewMenu.resetComponents();
 		this.viewModel.getTreeViews().addListListener(treeviewMenu);
-		ListFacade<? extends TreeView<T>> views = viewModel.getTreeViews();
-		TreeView<? super T> startingView = views.getElementAt(viewModel.getDefaultTreeViewIndex());
 
 		model.setDataModel(viewModel.getDataModel());
 		model.setSelectedTreeView(startingView);
@@ -381,10 +385,22 @@ public class JTreeViewTable<T> extends JTreeTable
 
 		public void elementsChanged(ListEvent<TreeView<T>> e)
 		{
-			group = new ButtonGroup();
-			removeAll();
 			ListFacade<? extends TreeView<T>> views = viewModel.getTreeViews();
 			TreeView<? super T> startingView = views.getElementAt(viewModel.getDefaultTreeViewIndex());
+			for (Component child : getComponents())
+			{
+				if (child instanceof JMenuItem)
+				{
+					JMenuItem menu = (JMenuItem) child;
+					if (menu.isSelected() && menu.getAction() instanceof JTreeViewTable.ChangeViewAction)
+					{
+						ChangeViewAction changeViewAction = (JTreeViewTable.ChangeViewAction)menu.getAction();
+						startingView = changeViewAction.view;
+					}
+				}
+			}
+			group = new ButtonGroup();
+			removeAll();
 			for (TreeView<?> treeview : views)
 			{
 				JMenuItem item = new JRadioButtonMenuItem(new ChangeViewAction(treeview));
