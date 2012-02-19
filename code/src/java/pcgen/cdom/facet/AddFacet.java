@@ -28,6 +28,8 @@ import pcgen.core.PlayerCharacter;
 
 /**
  * AddFacet is a Facet that triggers when an object has an ADD token
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AddFacet implements DataFacetChangeListener<CDOMObject>
 {
@@ -41,6 +43,8 @@ public class AddFacet implements DataFacetChangeListener<CDOMObject>
 	private TemplateFacet templateFacet;
 
 	/**
+	 * Drives the necessary selections for ADD tokens on a Player Character.
+	 * 
 	 * Triggered when one of the Facets to which AddFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
@@ -77,10 +81,24 @@ public class AddFacet implements DataFacetChangeListener<CDOMObject>
 		tc.act(tc.driveChoice(pc), cdo, pc);
 	}
 
+	/**
+	 * Triggered when one of the Facets to which AddFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
+	 * Character.
+	 * 
+	 * Long term this method needs to be symmetric with dataAdded.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		//Nothing for now?
+		//TODO This eventually needs to be symmetric to dataAdded?
 	}
 
 	public void setRaceFacet(RaceFacet raceFacet)
@@ -98,6 +116,12 @@ public class AddFacet implements DataFacetChangeListener<CDOMObject>
 		this.templateFacet = templateFacet;
 	}
 
+	/**
+	 * Initializes the connections for AddFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the AddFacet.
+	 */
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(this);

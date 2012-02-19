@@ -34,6 +34,8 @@ import pcgen.core.character.SpellInfo;
 /**
  * ActiveSpellsFacet is a Facet that tracks the active SPELLS for the
  * PlayerCharacter
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharacterSpell>
 		implements DataFacetChangeListener<CDOMObject>
@@ -51,19 +53,64 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharacterSpell>
 
 	private SpellsFacet spellsFacet;
 
+	/**
+	 * Returns a new (empty) Map for this ActiveSpellsFacet. This overrides the
+	 * default provided in AbstractSourcedListFacet, in order to maintain a
+	 * sorted list of Spells for the Player Character. This does not require the
+	 * IdentityHashMap since CharacterSpell is not cloned, and behaves properly
+	 * with .equals() and .hashCode() in terms of maintaining identity (whereas
+	 * many CDOMObjects do not as of 5.16)
+	 * 
+	 * Note that this method should always be the only method used to construct
+	 * a Map for this ActiveSpellsFacet. It is actually preferred to use
+	 * getConstructingCacheMap(CharID) in order to implicitly call this method.
+	 * 
+	 * @return A new (empty) Map for use in this ActiveSpellsFacet.
+	 * 
+	 * @see pcgen.cdom.facet.AbstractSourcedListFacet#getComponentMap()
+	 */
 	@Override
 	protected Map<CharacterSpell, Set<Object>> getComponentMap()
 	{
 		return new TreeMap<CharacterSpell, Set<Object>>();
 	}
 
+	/**
+	 * Adds the Spells associated with a CDOMObject which is granted to a Player
+	 * Character.
+	 * 
+	 * Triggered when one of the Facets to which ActiveSpellsFacet listens fires
+	 * a DataFacetChangeEvent to indicate a CDOMObject was added to a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
-		CharID id = dfce.getCharID();
-		process(id);
+		process(dfce.getCharID());
 	}
 
+	/**
+	 * Currently used as a global reset for the spell list, since
+	 * ActiveSpellsFacet does not currently listen to all scenarios which can
+	 * alter Spells granted to a Player Character.
+	 * 
+	 * Use of this method outside this facet is discouraged, as the long term
+	 * goal is to get all of the processing for Spells into this Facet.
+	 * Therefore, use of this global reset indicates incomplete implementation
+	 * of Spells processing in this facet, and should be an indication that
+	 * additional work is required in order to enhance the capability of this
+	 * facet to appropriately update the Spells for a Player Character.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character that requires a
+	 *            reset on the list of spells granted to the Player Character.
+	 */
 	public void process(CharID id)
 	{
 		Race race = raceFacet.get(id);
@@ -88,6 +135,20 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharacterSpell>
 		}
 	}
 
+	/**
+	 * Removes the Spells associated with a CDOMObject which is granted to a
+	 * Player Character.
+	 * 
+	 * Triggered when one of the Facets to which ActiveSpellsFacet listens fires
+	 * a DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
@@ -120,6 +181,12 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharacterSpell>
 		this.templateFacet = templateFacet;
 	}
 
+	/**
+	 * Initializes the connections for ActiveSpellsFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the ActiveSpellsFacet.
+	 */
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(this);

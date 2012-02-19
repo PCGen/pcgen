@@ -34,6 +34,8 @@ import pcgen.core.PlayerCharacter;
 /**
  * AddedTemplateFacet is a Facet that tracks the Templates that have been added
  * to a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AddedTemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 		implements DataFacetChangeListener<CDOMObject>
@@ -46,6 +48,21 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
+	/**
+	 * Establishes the list of PCTemplates to be added to the PlayerCharacter
+	 * identified by the given CharID. Does not actually perform the addition of
+	 * the PCTemplates to the Player Character. The given CDOMObject is the
+	 * source of the PCTemplates to be added to the Player Character.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character to which the
+	 *            PCTemplates will be added.
+	 * @param po
+	 *            The CDOMObject which grants the PCTemplates that will be added
+	 *            to the Player Character.
+	 * @return The list of PCTemplates to be added to the PlayerCharacter
+	 *         identified by the given CharID.
+	 */
 	public Collection<PCTemplate> select(CharID id, CDOMObject po)
 	{
 		List<PCTemplate> list = new ArrayList<PCTemplate>();
@@ -86,6 +103,19 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 		return list;
 	}
 
+	/**
+	 * Returns a list of Templates to be removed from the Player Character as
+	 * defined by TEMPLATE:REMOVE
+	 * 
+	 * @param id
+	 *            The CharID identifying the PlayerCharacter being processed.
+	 * @param po
+	 *            The owning CDOMObject being processed to determine if there is
+	 *            any content defined by TEMPLATE:REMOVE:
+	 * 
+	 * @return The Collection of objects defined in TEMPLATE:REMOVE: of the
+	 *         given CDOMObject
+	 */
 	public Collection<PCTemplate> remove(CharID id, CDOMObject po)
 	{
 		List<PCTemplate> list = new ArrayList<PCTemplate>();
@@ -104,6 +134,20 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 		return list;
 	}
 
+	/**
+	 * Drives selection of a PCTemplate from the given list of choices.
+	 * 
+	 * @param anOwner
+	 *            The owning CDOMObject that is driving the Template selection
+	 * @param list
+	 *            The list of PCTemplates available to be selected
+	 * @param forceChoice
+	 *            true if the user is forced to make a choice of a PCTemplate;
+	 *            false otherwise
+	 * @param id
+	 *            The CharID for which the PCTempalte selection is being made.
+	 * @return The PCTemplate selected
+	 */
 	public PCTemplate chooseTemplate(CDOMObject anOwner, List<PCTemplate> list,
 			boolean forceChoice, CharID id)
 	{
@@ -140,6 +184,21 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 		return null;
 	}
 
+	/**
+	 * Returns a non-null copy of the Collection of PCTemplates added from the
+	 * given CDOMObject source to the Player Character identified by the given
+	 * CharID
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            added PCTemplates will be returned
+	 * @param cdo
+	 *            The source CDOMObject which granted the PCTemplates to be
+	 *            returned
+	 * @return A non-null copy of the Collection of PCTemplates added from the
+	 *         given CDOMObject source to the Player Character identified by the
+	 *         given CharID
+	 */
 	public Collection<PCTemplate> getFromSource(CharID id, CDOMObject cdo)
 	{
 		List<PCTemplate> list = new ArrayList<PCTemplate>();
@@ -158,6 +217,20 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 		return list;
 	}
 
+	/**
+	 * Adds and removes (as appropriate) the PCTemplates associated with a
+	 * CDOMObject which is granted to a Player Character.
+	 * 
+	 * Triggered when one of the Facets to which AddedTemplateFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
@@ -189,6 +262,21 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 		}
 	}
 
+	/**
+	 * Adds and removes (as appropriate - opposite of the action defined in the
+	 * LST files) the PCTemplates associated with a CDOMObject which is removed
+	 * from a Player Character.
+	 * 
+	 * Triggered when one of the Facets to which AddedTemplateFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
@@ -227,7 +315,13 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 	{
 		this.consolidationFacet = consolidationFacet;
 	}
-	
+
+	/**
+	 * Initializes the connections for AddedTemplateFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the AddedTemplateFacet.
+	 */
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);

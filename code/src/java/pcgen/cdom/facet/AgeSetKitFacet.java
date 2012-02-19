@@ -28,6 +28,11 @@ import pcgen.core.BioSet;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 
+/**
+ * AgeSetKitFacet stores
+ * 
+ * @author Tom Parker (thpr [at] yahoo.com)
+ */
 public class AgeSetKitFacet extends AbstractStorageFacet implements
 		DataFacetChangeListener<Integer>
 {
@@ -42,6 +47,20 @@ public class AgeSetKitFacet extends AbstractStorageFacet implements
 	
 	private BioSetFacet bioSetFacet;
 
+	/**
+	 * Drives the selection of the AgeSet Kit for a Player Character when
+	 * relevant changes (change to an AgeSet) are made to a Player Character.
+	 * 
+	 * Triggered when one of the Facets to which AgeSetKitFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<Integer> dfce)
 	{
@@ -54,6 +73,16 @@ public class AgeSetKitFacet extends AbstractStorageFacet implements
 			return;
 		}
 		int ageSetIndex = ageSetFacet.getAgeSetIndex(id);
+		/*
+		 * TODO The method of storing what AgeSets have had kit selections made
+		 * should be converted to store the actual AgeSet rather than the index,
+		 * in order to reduce the number of calls to ageSetFacet.getAgeSetIndex.
+		 * This (of course) drives the move of the AgeSets for which a kit
+		 * selection has been made into a Facet. It is possible that the
+		 * CacheInfo of AgeSetKitFacet is actually a good place to store that
+		 * information (or it may be implicit with the information already
+		 * stored there??)
+		 */
 		if (!pc.hasMadeKitSelectionForAgeSet(ageSetIndex))
 		{
 			CacheInfo cache = getConstructingClassInfo(id);
@@ -73,17 +102,61 @@ public class AgeSetKitFacet extends AbstractStorageFacet implements
 		}
 	}
 
+	/**
+	 * Triggered when one of the Facets to which AgeSetKitFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<Integer> dfce)
 	{
-		// CONSIDER Kits seem to be fire & forget - so nothing?
+		/*
+		 * CONSIDER Kits seem to be fire & forget - so nothing? Probably not, as
+		 * if the age is changed downward, it's likely that the kits from the
+		 * "older" ages should be removed...
+		 */
 	}
 
+	/**
+	 * Returns the Cached Info for this AgeSetKitFacet and the given CharID. May
+	 * return null if no information has been set in this AgeSetKitFacet for the
+	 * given CharID.
+	 * 
+	 * Note that this method SHOULD NOT be public. The CacheInfo is owned by
+	 * AgeSetKitFacet, and since it can be modified, a reference to that object
+	 * should not be exposed to any object other than AgeSetKitFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the CacheInfo should be returned
+	 * @return The CacheInfo for the Player Character represented by the given
+	 *         CharID; null if no information has been set in this
+	 *         AgeSetKitFacet for the Player Character.
+	 */
 	private CacheInfo getClassInfo(CharID id)
 	{
 		return (CacheInfo) getCache(id, thisClass);
 	}
 
+	/**
+	 * Returns a non-null CacheInfo for this AgeSetKitFacet and the given
+	 * CharID. Will return a new, empty CacheInfo if no information has been set
+	 * in this AgeSetKitFacet for the given CharID. Will not return null.
+	 * 
+	 * Note that this method SHOULD NOT be public. The CacheInfo object is owned
+	 * by AgeSetKitFacet, and since it can be modified, a reference to that
+	 * object should not be exposed to any object other than AgeSetKitFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the CacheInfo should be returned
+	 * @return The CacheInfo for the Player Character represented by the given
+	 *         CharID.
+	 */
 	private CacheInfo getConstructingClassInfo(CharID id)
 	{
 		CacheInfo info = getClassInfo(id);
@@ -95,6 +168,13 @@ public class AgeSetKitFacet extends AbstractStorageFacet implements
 		return info;
 	}
 
+	/**
+	 * CacheInfo is the data structure used to store information in
+	 * AgeSetKitFacet. This class should not be exposed outside of
+	 * AgeSetKitFacet.
+	 * 
+	 * @author thpr (thpr [at] yahoo.com)
+	 */
 	private static class CacheInfo
 	{
 
@@ -125,12 +205,41 @@ public class AgeSetKitFacet extends AbstractStorageFacet implements
 	{
 		this.bioSetFacet = bioSetFacet;
 	}
-	
+
+	/**
+	 * Initializes the connections for AgeSetKitFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the AgeSetKitFacet.
+	 */
 	public void init()
 	{
 		ageFacet.addDataFacetChangeListener(this);
 	}
 
+	/**
+	 * Copies the contents of the AgeSetKitFacet from one Player Character to
+	 * another Player Character, based on the given CharIDs representing those
+	 * Player Characters.
+	 * 
+	 * This is a method in AgeSetKitFacet in order to avoid exposing the mutable
+	 * Collection object to other classes. This should not be inlined, as the
+	 * Collection is internal information to AgeSetKitFacet and should not be
+	 * exposed to other classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the AgeSetKitFacet of one
+	 * Player Character will only impact the Player Character where the
+	 * AgeSetKitFacet was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param destination
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
 	@Override
 	public void copyContents(CharID source, CharID copy)
 	{

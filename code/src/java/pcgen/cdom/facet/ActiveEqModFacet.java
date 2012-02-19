@@ -23,7 +23,9 @@ import pcgen.core.EquipmentModifier;
 
 /**
  * ActiveEqModFacet is a Facet that tracks the EqMods that are on Equipment
- * equipped by the PlayerCharacter
+ * equipped by the PlayerCharacter.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ActiveEqModFacet extends
 		AbstractSourcedListFacet<EquipmentModifier> implements
@@ -31,6 +33,9 @@ public class ActiveEqModFacet extends
 {
 
 	/**
+	 * Adds the EqMods associated with a piece of Equipment which is equipped by
+	 * a Player Character.
+	 * 
 	 * Triggered when one of the Facets to which ActiveEqModFacet listens fires
 	 * a DataFacetChangeEvent to indicate a piece of Equipment was equipped by a
 	 * Player Character.
@@ -63,6 +68,9 @@ public class ActiveEqModFacet extends
 	}
 
 	/**
+	 * Removes the EqMods associated with a piece of Equipment which is
+	 * unequipped by a Player Character.
+	 * 
 	 * Triggered when one of the Facets to which ActiveEqModFacet listens fires
 	 * a DataFacetChangeEvent to indicate a piece of Equipment was unequipped by
 	 * a Player Character.

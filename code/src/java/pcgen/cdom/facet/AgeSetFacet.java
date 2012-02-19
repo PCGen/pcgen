@@ -25,6 +25,11 @@ import pcgen.core.AgeSet;
 import pcgen.core.BioSet;
 import pcgen.core.Race;
 
+/**
+ * AgeSetFacet stores the AgeSet for the Player Character.
+ * 
+ * @author Tom Parker (thpr [at] yahoo.com)
+ */
 public class AgeSetFacet extends AbstractItemFacet<AgeSet> implements
 		DataFacetChangeListener<Object>
 {
@@ -36,24 +41,83 @@ public class AgeSetFacet extends AbstractItemFacet<AgeSet> implements
 
 	private BioSetFacet bioSetFacet;
 
+	/**
+	 * Drives the identification of the active AgeSet for a Player Character
+	 * when certain changes are made to a Player Character.
+	 * 
+	 * Triggered when one of the Facets to which AgeSetFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<Object> dfce)
 	{
 		update(dfce.getCharID());
 	}
 
+	/**
+	 * This method simply drives a global update of the active AgeSet of a
+	 * PlayerCharacter. This is asserted to be simpler to comprehend than
+	 * attempting to do a change-by-change matrix of possible moves between
+	 * AgeSets (which would have to be built from the BioSet).
+	 * 
+	 * Since the processing to determine the AgeSet is reasonably simple, since
+	 * this facet will only throw an event if the AgeSet actually changes, and
+	 * since there are a disparate set of objects that can cause a change in the
+	 * AgeSet (e.g. change of Race, change of Age, change of Region), the
+	 * quantity of extra facets to listen to those changes in a unique fashion
+	 * and the complex storage of AgeSets would seem an unreasonable trade in
+	 * complexity vs. this global update.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            active AgeSet should be established (and updated if necessary)
+	 */
 	private void update(CharID id)
 	{
 		Region region = Region.getConstant(regionFacet.getRegion(id));
 		set(id, bioSetFacet.get(id).getAgeSet(region, getAgeSetIndex(id)));
 	}
 
+	/**
+	 * Drives the identification of the active AgeSet for a Player Character
+	 * when certain changes are made to a Player Character.
+	 * 
+	 * Triggered when one of the Facets to which AgeSetFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<Object> dfce)
 	{
 		update(dfce.getCharID());
 	}
 
+	/**
+	 * Returns the index of the active AgeSet on the Player Character.
+	 * 
+	 * In general, use of this method outside of AgeSetFacet is discouraged. If
+	 * this method is being used, a serious analysis should be taking place to
+	 * determine if the AgeSet itself (in other words, the get method of
+	 * AgeSetFacet) can be used instead.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            index of the active AgeSet should be returned.
+	 * @return The index of the active AgeSet on the Player Character.
+	 */
 	public int getAgeSetIndex(CharID id)
 	{
 		BioSet bioSet = bioSetFacet.get(id);
@@ -111,7 +175,13 @@ public class AgeSetFacet extends AbstractItemFacet<AgeSet> implements
 	{
 		this.bioSetFacet = bioSetFacet;
 	}
-	
+
+	/**
+	 * Initializes the connections for AgeSetFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the AgeSetFacet.
+	 */
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(this);

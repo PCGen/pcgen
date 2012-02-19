@@ -18,6 +18,14 @@ package pcgen.cdom.facet;
 
 import pcgen.core.bonus.BonusObj;
 
+/**
+ * Tracks the BonusObj objects that are "manually" applied to a Player
+ * Character. (This will be Bonus objects that are granted as side effects of
+ * other behavior, not those that are directly granted as BONUS: tokens within
+ * the LST files)
+ * 
+ * @author Tom Parker (thpr [at] yahoo.com)
+ */
 public class AddedBonusFacet extends AbstractSourcedListFacet<BonusObj>
 {
 }

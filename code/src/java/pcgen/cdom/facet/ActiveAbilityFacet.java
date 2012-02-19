@@ -31,10 +31,10 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.core.Ability;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
- * 
  * An ActiveAbilityFacet is a DataFacet that contains information about Ability
  * objects that are contained in a PlayerCharacter
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 {
@@ -55,8 +55,8 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	 * @param obj
 	 *            The Ability to be added to the list of Abilities defined by
 	 *            the given Category and Nature, which is stored in this
-	 *            ActiveAbilityFacet for the Player Character represented by
-	 *            the given CharID
+	 *            ActiveAbilityFacet for the Player Character represented by the
+	 *            given CharID
 	 */
 	public void add(CharID id, Category<Ability> cat, Nature nat, Ability obj)
 	{
@@ -70,8 +70,8 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	/**
 	 * Adds all of the Abilities in the given Collection to the list of
 	 * Abilities defined by the given Category and Nature, which is stored in
-	 * this ActiveAbilityFacet for the Player Character represented by the
-	 * given CharID
+	 * this ActiveAbilityFacet for the Player Character represented by the given
+	 * CharID
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
@@ -116,8 +116,8 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	 * @param obj
 	 *            The Ability to be removed from the list of Abilities defined
 	 *            by the given Category and Nature, which is stored in this
-	 *            ActiveAbilityFacet for the Player Character represented by
-	 *            the given CharID
+	 *            ActiveAbilityFacet for the Player Character represented by the
+	 *            given CharID
 	 */
 	public boolean remove(CharID id, Category<Ability> cat, Nature nat,
 			Ability obj)
@@ -132,8 +132,17 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	}
 
 	/**
-	 * Returns the Set of Abilities in this ActiveAbilityFacet for the Player
-	 * Character represented by the given CharID
+	 * Returns non-null copy of the Set of Abilities in this ActiveAbilityFacet
+	 * for the Player Character represented by the given CharID. This method
+	 * returns an empty set if no objects are in this ActiveAbilityFacet for the
+	 * Player Character identified by the given CharID.
+	 * 
+	 * This method is value-semantic in that ownership of the returned List is
+	 * transferred to the class calling this method. Modification of the
+	 * returned List will not modify this ActiveAbilityFacet and modification of
+	 * this ActiveAbilityFacet will not modify the returned List. If you wish to
+	 * modify the information stored in this ActiveAbilityFacet, you must use
+	 * the add*() and remove*() methods of ActiveAbilityFacet.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
@@ -158,9 +167,8 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	}
 
 	/**
-	 * Returns true if this ActiveAbilityFacet contains the given Ability in
-	 * the list of items for the Player Character represented by the given
-	 * CharID.
+	 * Returns true if this ActiveAbilityFacet contains the given Ability in the
+	 * list of items for the Player Character represented by the given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character used for testing
@@ -203,9 +211,8 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	}
 
 	/**
-	 * Returns true if this ActiveAbilityFacet contains the given Ability in
-	 * the list of items for the Player Character represented by the given
-	 * CharID.
+	 * Returns true if this ActiveAbilityFacet contains the given Ability in the
+	 * list of items for the Player Character represented by the given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character used for testing
@@ -282,8 +289,8 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	 * ActiveAbilityFacet for the given CharID.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Set is owned by
-	 * ActiveAbilityFacet, and since it can be modified, a reference to that
-	 * Set should not be exposed to any object other than ActiveAbilityFacet.
+	 * ActiveAbilityFacet, and since it can be modified, a reference to that Set
+	 * should not be exposed to any object other than ActiveAbilityFacet.
 	 * 
 	 * @param id
 	 *            The CharID for which the Set should be returned
@@ -319,8 +326,8 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	 * ActiveAbilityFacet for the given CharID.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Map is owned by
-	 * ActiveAbilityFacet, and since it can be modified, a reference to that
-	 * Map should not be exposed to any object other than ActiveAbilityFacet.
+	 * ActiveAbilityFacet, and since it can be modified, a reference to that Map
+	 * should not be exposed to any object other than ActiveAbilityFacet.
 	 * 
 	 * @param id
 	 *            The CharID for which the Map should be returned
@@ -372,8 +379,8 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	 * @param cat
 	 *            The Ability Category identifying which Ability objects are to
 	 *            be removed from the lists of Abilities stored in this
-	 *            ActiveAbilityFacet for the Player Character represented by
-	 *            the given CharID
+	 *            ActiveAbilityFacet for the Player Character represented by the
+	 *            given CharID
 	 * @throws NullPointerException
 	 *             if the given Collection is null
 	 */
@@ -401,13 +408,13 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	 * @param cat
 	 *            The Ability Category identifying which Ability objects are to
 	 *            be removed from the lists of Abilities stored in this
-	 *            ActiveAbilityFacet for the Player Character represented by
-	 *            the given CharID
+	 *            ActiveAbilityFacet for the Player Character represented by the
+	 *            given CharID
 	 * @param nature
 	 *            The Ability Nature identifying which Ability objects are to be
 	 *            removed from the lists of Abilities stored in this
-	 *            ActiveAbilityFacet for the Player Character represented by
-	 *            the given CharID
+	 *            ActiveAbilityFacet for the Player Character represented by the
+	 *            given CharID
 	 * @throws NullPointerException
 	 *             if the given Collection is null
 	 */
@@ -449,8 +456,8 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	 * @param nature
 	 *            The Ability Nature identifying which Ability objects are to be
 	 *            removed from the lists of Abilities stored in this
-	 *            ActiveAbilityFacet for the Player Character represented by
-	 *            the given CharID
+	 *            ActiveAbilityFacet for the Player Character represented by the
+	 *            given CharID
 	 * @throws NullPointerException
 	 *             if the given Collection is null
 	 */
@@ -481,8 +488,20 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	}
 
 	/**
-	 * Returns the Set of Ability Category objects in this ActiveAbilityFacet
-	 * for the Player Character represented by the given CharID
+	 * Returns a non-null copy of the Set of Ability Category objects in this
+	 * ActiveAbilityFacet for the Player Character represented by the given
+	 * CharID.
+	 * 
+	 * This method returns an empty set if no objects are in this
+	 * ActiveAbilityFacet for the Player Character identified by the given
+	 * CharID.
+	 * 
+	 * This method is value-semantic in that ownership of the returned List is
+	 * transferred to the class calling this method. Modification of the
+	 * returned List will not modify this ActiveAbilityFacet and modification of
+	 * this ActiveAbilityFacet will not modify the returned List. If you wish to
+	 * modify the information stored in this ActiveAbilityFacet, you must use
+	 * the add*() and remove*() methods of ActiveAbilityFacet.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
@@ -501,6 +520,29 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 		return Collections.unmodifiableSet(map.keySet());
 	}
 
+	/**
+	 * Copies the contents of the ActiveAbilityFacet from one Player Character
+	 * to another Player Character, based on the given CharIDs representing
+	 * those Player Characters.
+	 * 
+	 * This is a method in ActiveAbilityFacet in order to avoid exposing the
+	 * mutable Map object to other classes. This should not be inlined, as the
+	 * Map is internal information to ActiveAbilityFacet and should not be
+	 * exposed to other classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the ActiveAbilityFacet of one
+	 * Player Character will only impact the Player Character where the
+	 * ActiveAbilityFacet was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param destination
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
 	@Override
 	public void copyContents(CharID id, CharID id2)
 	{
@@ -523,6 +565,22 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 		}
 	}
 
+	/**
+	 * Returns the Ability Nature for the Ability within the given Ability
+	 * Category and Player Character identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            Ability Nature will be returned
+	 * @param category
+	 *            The Ability Category identifying the Ability for which the
+	 *            Ability Nature will be returned
+	 * @param ability
+	 *            The Ability in the list for which the Ability Nature will be
+	 *            returned
+	 * @return The Ability Nature for the Ability within the given Ability
+	 *         Category and Player Character identified by the given CharID.
+	 */
 	public Nature getNature(CharID id, Category<Ability> category,
 			Ability ability)
 	{
@@ -552,6 +610,32 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 		return n;
 	}
 
+	/**
+	 * Returns the Natures for which Abilities exist within this
+	 * ActiveAbilityFacet for the given Ability Category and Player Character
+	 * identified by the given CharID.
+	 * 
+	 * This method returns an empty set if no Abilities are in this
+	 * ActiveAbilityFacet for given Ability Category and the Player Character
+	 * identified by the given CharID.
+	 * 
+	 * This method is value-semantic in that ownership of the returned List is
+	 * transferred to the class calling this method. Modification of the
+	 * returned List will not modify this ActiveAbilityFacet and modification of
+	 * this ActiveAbilityFacet will not modify the returned List. If you wish to
+	 * modify the information stored in this ActiveAbilityFacet, you must use
+	 * the add*() and remove*() methods of ActiveAbilityFacet.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            Ability Natures will be returned
+	 * @param cat
+	 *            The Ability Category identifying the Abilities for which the
+	 *            Ability Natures will be returned
+	 * @return A Collection of the Natures for which Abilities exist within this
+	 *         ActiveAbilityFacet for the given Ability Category and Player
+	 *         Character identified by the given CharID.
+	 */
 	public Collection<Nature> getNatures(CharID id, Category<Ability> cat)
 	{
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);

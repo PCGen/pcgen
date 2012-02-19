@@ -29,6 +29,12 @@ import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 
+/**
+ * AddLevelFacet performs the addition of levels to a Player Character that are
+ * defined by the ADDLEVEL token.
+ * 
+ * @author Tom Parker (thpr [at] yahoo.com)
+ */
 public class AddLevelFacet implements DataFacetChangeListener<PCTemplate>
 {
 
@@ -37,6 +43,20 @@ public class AddLevelFacet implements DataFacetChangeListener<PCTemplate>
 	
 	private TemplateFacet templateFacet;
 
+	/**
+	 * Drives the necessary results of an ADDLEVEL: token to apply the results
+	 * to a Player Character.
+	 * 
+	 * Triggered when one of the Facets to which AddLevelFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<PCTemplate> dfce)
 	{
@@ -56,6 +76,21 @@ public class AddLevelFacet implements DataFacetChangeListener<PCTemplate>
 		}
 	}
 
+	/**
+	 * Drives the necessary removal of the results of an ADDLEVEL: token to
+	 * remove the added levels from a Player Character because the object
+	 * granting the ADDLEVEL: was removed from the Player Character.
+	 * 
+	 * Triggered when one of the Facets to which AddLevelFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<PCTemplate> dfce)
 	{
@@ -74,38 +109,39 @@ public class AddLevelFacet implements DataFacetChangeListener<PCTemplate>
 	}
 
 	/**
-	 * Adds levels of the PCClass in this LevelCommandFactory to the given
-	 * PlayerCharacter.
+	 * Adds levels of the given PCClass to the given PlayerCharacter.
 	 * 
 	 * The number of levels added is defined by the level formula in this
 	 * LevelCommandFactory, and the PCClass is defined by the CDOMReference
 	 * provided when this LevelCommandFactory was constructed.
 	 * 
-	 * NOTE: It is important that the CDOMReference provided during construction
-	 * of this LevelCommandFactory is resolved before this method is called.
-	 * 
+	 * @param levels
+	 *            A Formula indicating the number of levels of the given PCClass
+	 *            to be added to the given PlayerCharacter.
+	 * @param cl
+	 *            The PCClass for which the levels as defined by the given
+	 *            Formula will be added to the given PlayerCharacter.
 	 * @param pc
-	 *            The PlayerCharacter to which the levels of the PCClass in this
-	 *            LevelCommandFactory will be added.
+	 *            The PlayerCharacter to which the levels of the given PCClass
+	 *            will be added.
 	 * @throws NullPointerException
 	 *             if the given PlayerCharacter is null
 	 */
-	public void add(Formula levels, PCClass cl, PlayerCharacter pc)
+	private void add(Formula levels, PCClass cl, PlayerCharacter pc)
 	{
 		apply(pc, cl, levels.resolve(pc, "").intValue());
 	}
 
 	/**
-	 * Removes levels of the PCClass in this LevelCommandFactory to the given
-	 * PlayerCharacter.
+	 * Removes levels as defined by the given Formula of the given PCClass from
+	 * the given PlayerCharacter.
 	 * 
-	 * The number of levels removed is defined by the level formula in this
-	 * LevelCommandFactory, and the PCClass is defined by the CDOMReference
-	 * provided when this LevelCommandFactory was constructed.
-	 * 
-	 * NOTE: It is important that the CDOMReference provided during construction
-	 * of this LevelCommandFactory is resolved before this method is called.
-	 * 
+	 * @param levels
+	 *            A Formula indicating the number of levels of the given PCClass
+	 *            to be removed from the given PlayerCharacter.
+	 * @param cl
+	 *            The PCClass for which the levels as defined by the given
+	 *            Formula will be removed from the given PlayerCharacter.
 	 * @param pc
 	 *            The PlayerCharacter from which the levels of the PCClass in
 	 *            this LevelCommandFactory will be removed.
@@ -118,22 +154,18 @@ public class AddLevelFacet implements DataFacetChangeListener<PCTemplate>
 	}
 
 	/**
-	 * Applies a change in level of the PCClass in this LevelCommandFactory to
-	 * the given PlayerCharacter. The change is provided as an argument to this
-	 * method. If the number of levels is greater than zero, then levels are
-	 * added to the given PlayerCharacter, if less than zero, levels are removed
-	 * from the given PlayerCharacter
-	 * 
-	 * NOTE: It is important that the CDOMReference provided during construction
-	 * of this LevelCommandFactory is resolved before this method is called.
+	 * Applies a change in the given number of levels of the given PCClass to
+	 * the given PlayerCharacter. If the number of levels is greater than zero,
+	 * then levels are added to the given PlayerCharacter, if less than zero,
+	 * levels are removed from the given PlayerCharacter.
 	 * 
 	 * @param pc
-	 *            The PlayerCharacter from which the levels of the PCClass in
-	 *            this LevelCommandFactory will be removed.
+	 *            The PlayerCharacter for the levels of the PCClass will be
+	 *            added or removed
 	 * @param pcClass
-	 *            Despite what the javadoc for this method claims, it actually
-	 *            ignores the PCClass stored as state and instead works on the
-	 *            class passed here.
+	 *            The PCClass for which the levels as defined by the given
+	 *            Formula will be added to or removed from the given
+	 *            PlayerCharacter
 	 * @param levels
 	 *            The number of levels to apply to the PlayerCharacter
 	 * @throws NullPointerException
@@ -160,6 +192,12 @@ public class AddLevelFacet implements DataFacetChangeListener<PCTemplate>
 		this.templateFacet = templateFacet;
 	}
 
+	/**
+	 * Initializes the connections for AddLevelFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the AddLevelFacet.
+	 */
 	public void init()
 	{
 		templateFacet.addDataFacetChangeListener(this);

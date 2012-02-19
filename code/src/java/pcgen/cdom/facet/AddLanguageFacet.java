@@ -19,6 +19,12 @@ package pcgen.cdom.facet;
 
 import pcgen.core.Language;
 
+/**
+ * AddLanguageFacet tracks the Languages added to a Player Character by the
+ * ADD:LANGUAGE token
+ * 
+ * @author Tom Parker (thpr [at] yahoo.com)
+ */
 public class AddLanguageFacet extends AbstractSourcedListFacet<Language>
 {
 }
