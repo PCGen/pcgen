@@ -556,6 +556,10 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 				//skillpointTable.repaint();
 				skillTable.refreshModelData();
 			}
+			else
+			{
+				skillTable.getCellEditor().cancelCellEditing();
+			}
 		}
 
 		public Float getNextValue()
