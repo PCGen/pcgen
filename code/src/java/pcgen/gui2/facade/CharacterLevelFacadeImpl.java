@@ -69,4 +69,14 @@ public class CharacterLevelFacadeImpl implements CharacterLevelFacade
 		return classFacade;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String toString()
+	{
+		return characterLevel + " - " + String.valueOf(classFacade);
+	}
+
+	
 }

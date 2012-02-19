@@ -26,7 +26,6 @@ import java.awt.GridBagLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.text.DecimalFormat;
-import java.util.Collections;
 import java.util.EventObject;
 import java.util.Hashtable;
 
@@ -73,8 +72,6 @@ import pcgen.gui2.tabs.skill.SkillPointTableModel;
 import pcgen.gui2.tabs.skill.SkillTreeViewModel;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.InfoPane;
-import pcgen.gui2.util.SortMode;
-import pcgen.gui2.util.SortingPriority;
 import pcgen.gui2.util.table.TableCellUtilities.SpinnerEditor;
 import pcgen.gui2.util.table.TableCellUtilities.SpinnerRenderer;
 import pcgen.system.LanguageBundle;
@@ -115,8 +112,6 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 		JSpinner spinner = new JSpinner();
 		spinner.setEditor(new JSpinner.NumberEditor(spinner, "#0.#"));
-		skillTable.setSortingPriority(Collections.singletonList(new SortingPriority(0, SortMode.ASCENDING)));
-		skillTable.sortModel();
 		skillTable.setDefaultRenderer(Float.class, new SpinnerRenderer(spinner));
 		skillTable.setRowHeight(26);
 		FilterBar filterBar = new FilterBar();
@@ -250,7 +245,8 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 	}
 
-	private class LevelSelectionHandler implements ListListener, SkillPointListener, Runnable
+	private class LevelSelectionHandler implements ListListener,
+			SkillPointListener, Runnable, ListSelectionListener
 	{
 
 		private final CharacterLevelsFacade levels;
@@ -266,6 +262,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		{
 			levels.addSkillPointListener(this);
 			levels.addListListener(this);
+			model.addListSelectionListener(this);
 			updateSelectedIndex();
 		}
 
@@ -273,6 +270,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		{
 			levels.removeSkillPointListener(this);
 			levels.removeListListener(this);
+			model.removeListSelectionListener(this);
 		}
 
 		public void run()
@@ -288,6 +286,12 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 					}
 					return;
 				}
+			}
+			// Fall back for a non empty list of levels is to select the highest one.
+			if (levels.getSize() > 0)
+			{
+				model.setSelectionInterval(levels.getSize() - 1,
+					levels.getSize() - 1);
 			}
 		}
 
@@ -332,6 +336,15 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		public void elementsChanged(ListEvent e)
 		{
 			updateSelectedIndex();
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void valueChanged(ListSelectionEvent e)
+		{
+			skillTable.refreshModelData();
 		}
 
 	}
