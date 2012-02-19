@@ -23,8 +23,16 @@ import pcgen.core.ArmorProf;
 import pcgen.core.Equipment;
 
 /**
- * ArmorProfFacet is a Facet that tracks the ArmorProfs that have been granted
- * to a Player Character.
+ * ArmorProfFacet is a Facet that tracks the ArmorProf ProfProviders that have
+ * been granted to a Player Character.
+ * 
+ * This is a required consolidation since ProfProviders that are directly
+ * applied via AUTO:ARMORPROF are a distinct process from those that are
+ * indirectly added via a %LIST within AUTO:ARMORPROF (and thus the result of a
+ * CHOOSE). This facet consolidates those two sources into the complete list of
+ * ArmorProf ProfProviders for a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ArmorProfProviderFacet extends
 		AbstractQualifiedListFacet<ProfProvider<ArmorProf>> implements
@@ -32,6 +40,9 @@ public class ArmorProfProviderFacet extends
 {
 
 	/**
+	 * Processes added ArmorProf ProfProviders to consolidate those objects into
+	 * one location.
+	 * 
 	 * Triggered when one of the Facets to which ArmorProfFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
@@ -49,6 +60,9 @@ public class ArmorProfProviderFacet extends
 	}
 
 	/**
+	 * Processes added ArmorProf ProfProviders to consolidate those objects into
+	 * one location.
+	 * 
 	 * Triggered when one of the Facets to which ArmorProfFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
 	 * Character.
@@ -65,6 +79,24 @@ public class ArmorProfProviderFacet extends
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
 
+	/**
+	 * Returns true if a Player Character is proficient with a given piece of
+	 * Armor; false otherwise.
+	 * 
+	 * While this method will accept any Equipment, it is only guaranteed to
+	 * have "good behavior" for Armor. All other equipment will - at least -
+	 * return false. No guarantee is made that this method will not throw an
+	 * exception if the given Equipment is not Armor.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            proficiency will be tested.
+	 * @param eq
+	 *            The Armor (as an Equipment object) for which the proficiency
+	 *            is being tested.
+	 * @return true if a Player Character is proficient with a given piece of
+	 *         Armor; false otherwise.
+	 */
 	public boolean isProficientWithArmor(CharID id, Equipment eq)
 	{
 		for (ProfProvider<ArmorProf> pp : getQualifiedSet(id))

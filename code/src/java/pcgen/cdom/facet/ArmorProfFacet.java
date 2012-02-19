@@ -25,7 +25,10 @@ import pcgen.cdom.helper.ArmorProfProvider;
 
 /**
  * ArmorProfFacet is a Facet that tracks the ArmorProfs that have been granted
- * to a Player Character.
+ * to a Player Character by looking for AUTO:ARMORPROF entries on CDOMObjects
+ * added to/removed from the Player Character.
+ * 
+ * @author Tom Parker (thpr [at] yahoo.com)
  */
 public class ArmorProfFacet implements DataFacetChangeListener<CDOMObject>
 {
@@ -35,6 +38,10 @@ public class ArmorProfFacet implements DataFacetChangeListener<CDOMObject>
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**
+	 * Processes added CDOMObjects to determine whether they contained an
+	 * AUTO:ARMORPROF, and if so, processes the contents of that token to add
+	 * the appropriate ArmorProfProviders to the Player Character.
+	 * 
 	 * Triggered when one of the Facets to which ArmorProfFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
@@ -58,6 +65,10 @@ public class ArmorProfFacet implements DataFacetChangeListener<CDOMObject>
 	}
 
 	/**
+	 * Processes removed CDOMObjects to determine whether they contained an
+	 * AUTO:ARMORPROF, and if so, processes the contents of that token to remove
+	 * the appropriate ArmorProfProviders from the Player Character.
+	 * 
 	 * Triggered when one of the Facets to which ArmorProfFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
 	 * Character.
@@ -84,7 +95,13 @@ public class ArmorProfFacet implements DataFacetChangeListener<CDOMObject>
 	{
 		this.consolidationFacet = consolidationFacet;
 	}
-	
+
+	/**
+	 * Initializes the connections for ArmorProfFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the ArmorProfFacet.
+	 */
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);

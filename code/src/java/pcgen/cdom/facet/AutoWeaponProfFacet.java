@@ -30,6 +30,8 @@ import pcgen.core.WeaponProf;
 /**
  * AutoWeaponProfFacet is a Facet that tracks the WeaponProfs that have been
  * granted to a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AutoWeaponProfFacet extends
 		AbstractQualifiedListFacet<WeaponProfProvider> implements
@@ -39,6 +41,10 @@ public class AutoWeaponProfFacet extends
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**
+	 * Processes an added CDOMObject to extract WeaponProf objects which are
+	 * granted by AUTO:WEAPONPROF. These extracted WeaponProf objects are added
+	 * to the Player Character.
+	 * 
 	 * Triggered when one of the Facets to which AutoWeaponProfFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
 	 * Player Character.
@@ -61,6 +67,10 @@ public class AutoWeaponProfFacet extends
 	}
 
 	/**
+	 * Processes a removed CDOMObject to extract WeaponProf objects which are
+	 * granted by AUTO:WEAPONPROF. These extracted WeaponProf objects are
+	 * removed from the Player Character.
+	 * 
 	 * Triggered when one of the Facets to which AutoWeaponProfFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
 	 * Player Character.
@@ -77,6 +87,25 @@ public class AutoWeaponProfFacet extends
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
 
+	/**
+	 * Returns a non-null Collection of WeaponProf objects that have been
+	 * granted to a Player Character.
+	 * 
+	 * This method is value-semantic in that ownership of the returned
+	 * Collection is transferred to the class calling this method. Modification
+	 * of the returned Collection will not modify this AutoWeaponProfFacet and
+	 * modification of this AutoWeaponProfFacet will not modify the returned
+	 * Collection. If you wish to modify the information stored in this
+	 * AutoWeaponProfFacet, you must use the add*() and remove*() methods of
+	 * AutoWeaponProfFacet.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            Collection of granted WeaponProf objects should be returned
+	 * 
+	 * @return A non-null Collection of WeaponProf objects that have been
+	 *         granted to a Player Character.
+	 */
 	public Collection<WeaponProf> getWeaponProfs(CharID id)
 	{
 		Collection<WeaponProf> profs = new ArrayList<WeaponProf>();
@@ -91,7 +120,13 @@ public class AutoWeaponProfFacet extends
 	{
 		this.consolidationFacet = consolidationFacet;
 	}
-	
+
+	/**
+	 * Initializes the connections for AutoWeaponProfFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the AutoWeaponProfFacet.
+	 */
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);

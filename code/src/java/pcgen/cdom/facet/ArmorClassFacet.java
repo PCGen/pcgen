@@ -25,16 +25,42 @@ import pcgen.core.SettingsHandler;
 import pcgen.io.exporttoken.BonusToken;
 import pcgen.util.Logging;
 
+/**
+ * ArmorClassFacet calculates the Armor Class (actually types of armor class,
+ * such as defense against a touch attack) of a Player Character.
+ * 
+ * @author Tom Parker (thpr [at] yahoo.com)
+ */
 public class ArmorClassFacet
 {
 
+	/**
+	 * Facet used to calculate Prerequisites
+	 */
 	private PrerequisiteFacet prerequisiteFacet;
 
 	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 			.getFacet(PlayerCharacterTrackingFacet.class);
 
+	/**
+	 * Calculates the Armor Class of a certain type. These types are defined in
+	 * the game mode; there are no hardcoded Armor Class types here - (and none
+	 * should be added!)
+	 * 
+	 * @param id
+	 *            The CharId identifying the Player Character for which a
+	 *            specific type of Armor Class should be calculated
+	 * @param type
+	 *            The type of the Armor Class to be calculated. Defined in the
+	 *            Game Mode files
+	 * @return The armor class of the given type for the Player Character
+	 *         identified by the given CharID
+	 */
 	public int calcACOfType(CharID id, String type)
 	{
+		/*
+		 * CONSIDER should AC types be a type safe list?
+		 */
 		final List<ACControl> addList = SettingsHandler.getGame()
 				.getACTypeAddString(type);
 		final List<ACControl> removeList = SettingsHandler.getGame()

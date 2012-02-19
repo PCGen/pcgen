@@ -41,6 +41,8 @@ import pcgen.core.spell.Spell;
 /**
  * AvailableSpellFacet is a Facet that tracks the Available Spells (and target
  * objects) that are contained in a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AvailableSpellFacet extends AbstractStorageFacet implements
 		DataFacetChangeListener<CDOMObject>
@@ -53,6 +55,9 @@ public class AvailableSpellFacet extends AbstractStorageFacet implements
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**
+	 * Processes CDOMObjects added to the Player Character to determine if those
+	 * objects grant any available spells to the Player Character.
+	 * 
 	 * Triggered when one of the Facets to which AvailableSpellFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
 	 * Player Character.
@@ -100,6 +105,10 @@ public class AvailableSpellFacet extends AbstractStorageFacet implements
 	}
 
 	/**
+	 * Processes CDOMObjects removed from the Player Character to determine if
+	 * those objects grant any available spells to the Player Character (and if
+	 * so, removes access to those spells).
+	 * 
 	 * Triggered when one of the Facets to which AvailableSpellFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
 	 * Player Character.
@@ -230,6 +239,19 @@ public class AvailableSpellFacet extends AbstractStorageFacet implements
 		return componentMap;
 	}
 
+	/**
+	 * Removes all information for the given source from this
+	 * AvailableSpellFacet for the PlayerCharacter represented by the given
+	 * CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which items
+	 *            from the given source will be removed
+	 * @param source
+	 *            The source for the objects to be removed from the list of
+	 *            items stored for the Player Character identified by the given
+	 *            CharID
+	 */
 	public void removeAll(CharID id, Object source)
 	{
 		Map<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>> listMap = getCachedMap(id);
@@ -267,6 +289,35 @@ public class AvailableSpellFacet extends AbstractStorageFacet implements
 		}
 	}
 
+	/**
+	 * Returns a non-null HashMapToList indicating the spell levels and sources
+	 * of those spell levels available to a Player Character for a given Spell.
+	 * 
+	 * This may return multiple spell levels because it is possible for a spell
+	 * to be accessible to a Player Character at multiple levels since it may be
+	 * available from multiple sources. This also returns the spell lists
+	 * associated with the given level, since it is possible for a multi-class
+	 * character to have access to the same spell at different levels. By
+	 * returning the source as well as the spell levels, such scenarios can be
+	 * appropriately distinguished.
+	 * 
+	 * This method is value-semantic in that ownership of the returned
+	 * HashMapToList is transferred to the class calling this method.
+	 * Modification of the returned HashMapToList will not modify this
+	 * AvailableSpellFacet and modification of this AvailableSpellFacet will not
+	 * modify the returned HashMapToList. If you wish to modify the information
+	 * stored in this AvailableSpellFacet, you must use the add*() and remove*()
+	 * methods of AvailableSpellFacet.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            spell levels should be returned
+	 * @param sp
+	 *            The Spell for which the spell levels should be returned
+	 * @return A non-null HashMapToList indicating the spell levels and sources
+	 *         of those spell levels available to a Player Character for a given
+	 *         Spell.
+	 */
 	public HashMapToList<CDOMList<Spell>, Integer> getPCBasedLevelInfo(
 			CharID id, Spell sp)
 	{
@@ -318,6 +369,34 @@ public class AvailableSpellFacet extends AbstractStorageFacet implements
 		return levelInfo;
 	}
 
+	/**
+	 * Returns a non-null DoubleKeyMapToList indicating the spells, spell levels
+	 * and sources of those spell levels available to a Player Character for a
+	 * given Spell.
+	 * 
+	 * This may return multiple spell levels because it is possible for a spell
+	 * to be accessible to a Player Character at multiple levels since it may be
+	 * available from multiple sources. This also returns the spell lists
+	 * associated with the given level, since it is possible for a multi-class
+	 * character to have access to the same spell at different levels. By
+	 * returning the source as well as the spell levels, such scenarios can be
+	 * appropriately distinguished.
+	 * 
+	 * This method is value-semantic in that ownership of the returned
+	 * DoubleKeyMapToList is transferred to the class calling this method.
+	 * Modification of the returned DoubleKeyMapToList will not modify this
+	 * AvailableSpellFacet and modification of this AvailableSpellFacet will not
+	 * modify the returned DoubleKeyMapToList. If you wish to modify the
+	 * information stored in this AvailableSpellFacet, you must use the add*()
+	 * and remove*() methods of AvailableSpellFacet.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            spell levels should be returned
+	 * @return A non-null DoubleKeyMapToList indicating the Spells, spell levels
+	 *         and sources of those spell levels available to a Player Character
+	 *         for a given Spell.
+	 */
 	public DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer> getPCBasedLevelInfo(
 			CharID id)
 	{
@@ -375,12 +454,41 @@ public class AvailableSpellFacet extends AbstractStorageFacet implements
 	{
 		this.consolidationFacet = consolidationFacet;
 	}
-	
+
+	/**
+	 * Initializes the connections for AvailableSpellFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the AvailableSpellFacet.
+	 */
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);
 	}
 
+	/**
+	 * Copies the contents of the AvailableSpellFacet from one Player Character
+	 * to another Player Character, based on the given CharIDs representing
+	 * those Player Characters.
+	 * 
+	 * This is a method in AvailableSpellFacet in order to avoid exposing the
+	 * mutable Map object to other classes. This should not be inlined, as the
+	 * Map is internal information to AvailableSpellFacet and should not be
+	 * exposed to other classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the AvailableSpellFacet of one
+	 * Player Character will only impact the Player Character where the
+	 * AvailableSpellFacet was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param destination
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
 	@Override
 	public void copyContents(CharID source, CharID copy)
 	{

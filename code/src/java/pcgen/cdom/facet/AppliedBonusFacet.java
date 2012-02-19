@@ -23,6 +23,11 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.bonus.BonusObj;
 
+/**
+ * AppliedBonusFacet tracks the active BonusObj objects on a Player Character.
+ * 
+ * @author Tom Parker (thpr [at] yahoo.com)
+ */
 public class AppliedBonusFacet extends AbstractListFacet<BonusObj> implements
 		DataFacetChangeListener<CDOMObject>
 {
@@ -32,6 +37,20 @@ public class AppliedBonusFacet extends AbstractListFacet<BonusObj> implements
 
 	private RaceFacet raceFacet;
 
+	/**
+	 * Adds to the Player Character the appropriate BonusObj objects based on
+	 * the BONUS: token in the CDOMObject or applied due to a bonus side effect.
+	 * 
+	 * Triggered when one of the Facets to which AppliedBonusFacet listens fires
+	 * a DataFacetChangeEvent to indicate a CDOMObject was added to a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{

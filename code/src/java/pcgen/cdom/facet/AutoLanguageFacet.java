@@ -26,16 +26,22 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Language;
 
 /**
- * AutoLanguageFacet is a Facet that tracks the Languages that have been granted to
- * a Player Character through the AUTO:LANG and LANGAUTO tokens
+ * AutoLanguageFacet is a Facet that tracks the Languages that have been granted
+ * to a Player Character through the AUTO:LANG and LANGAUTO tokens
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AutoLanguageFacet extends AbstractSourcedListFacet<Language>
 		implements DataFacetChangeListener<CDOMObject>
 {
 
 	/**
-	 * Triggered when one of the Facets to which AutoLanguageFacet listens fires a
-	 * DataFacetChangeEvent to indicate a CDOMObjectwas added to a Player
+	 * Processes CDOMObjects added to a Player Character to extract Languages
+	 * granted to the Player Character through the AUTO:LANG: and LANGAUTO:
+	 * tokens. The extracted languages are added to the Player Character.
+	 * 
+	 * Triggered when one of the Facets to which AutoLanguageFacet listens fires
+	 * a DataFacetChangeEvent to indicate a CDOMObjectwas added to a Player
 	 * Character.
 	 * 
 	 * @param dfce
@@ -71,8 +77,13 @@ public class AutoLanguageFacet extends AbstractSourcedListFacet<Language>
 	}
 
 	/**
-	 * Triggered when one of the Facets to which AutoLanguageFacet listens fires a
-	 * DataFacetChangeEvent to indicate a CDOMObjectwas removed from a Player
+	 * Processes CDOMObjects removed from a Player Character to extract
+	 * Languages granted to the Player Character through the AUTO:LANG: and
+	 * LANGAUTO: tokens. The extracted languages are removed from a Player
+	 * Character.
+	 * 
+	 * Triggered when one of the Facets to which AutoLanguageFacet listens fires
+	 * a DataFacetChangeEvent to indicate a CDOMObjectwas removed from a Player
 	 * Character.
 	 * 
 	 * @param dfce

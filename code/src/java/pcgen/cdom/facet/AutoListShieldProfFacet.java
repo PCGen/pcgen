@@ -25,11 +25,28 @@ import pcgen.core.ShieldProf;
  * AutoListShieldProfFacet is a Facet that tracks the ShieldProfs that have been
  * granted to a Player Character by AUTO:SHIELDPROF|%LIST and converts them to
  * ProfProvider objects.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AutoListShieldProfFacet extends
 		AbstractItemConvertingFacet<ShieldProf, ProfProvider<ShieldProf>>
 {
 
+	/**
+	 * Converts an ArmorProf into a ProfProvider<ArmorProf>. This is required
+	 * because the %LIST (which listens to a CHOOSE:ARMORPROF) is given an
+	 * ArmorProf object, rather than a ProfProvider object. This therefore wraps
+	 * the ArmorProf object into a ProfProvider, since the master list of
+	 * proficiencies for a Player Character are stored as ProfProviders.
+	 * 
+	 * @param ap
+	 *            The ShieldProf that was granted to a Player Character
+	 * @return A new ProfProvider that wraps the given ShieldProf into a
+	 *         ProfProvider
+	 * 
+	 *         (non-Javadoc)
+	 * @see pcgen.cdom.facet.AbstractItemConvertingFacet#convert(java.lang.Object)
+	 */
 	@Override
 	protected ProfProvider<ShieldProf> convert(ShieldProf ap)
 	{

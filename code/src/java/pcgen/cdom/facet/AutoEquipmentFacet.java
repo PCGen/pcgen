@@ -30,7 +30,9 @@ import pcgen.core.QualifiedObject;
 
 /**
  * AutoEquipmentFacet is a Facet that tracks the Automatic Equipment objects
- * that are contained in a Player Character.
+ * (those granted by AUTO:EQUIP) that are contained in a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AutoEquipmentFacet extends
 		AbstractQualifiedListFacet<QualifiedObject<CDOMReference<Equipment>>>
@@ -40,6 +42,8 @@ public class AutoEquipmentFacet extends
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**
+	 * Adds Equipment granted to a Player Character by AUTO:EQUIP.
+	 * 
 	 * Triggered when one of the Facets to which AutoEquipmentFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
 	 * Player Character.
@@ -63,6 +67,10 @@ public class AutoEquipmentFacet extends
 	}
 
 	/**
+	 * Removes Equipment granted to a Player Character by AUTO:EQUIP from the
+	 * Player Character when the granting object is removed from the Player
+	 * Character.
+	 * 
 	 * Triggered when one of the Facets to which AutoEquipmentFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
 	 * Player Character.
@@ -79,6 +87,23 @@ public class AutoEquipmentFacet extends
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
 
+	/**
+	 * Returns a List of Equipment granted to the Player Character by all
+	 * AUTO:EQUIPMENT tokens on objects added to the Player Character.
+	 * 
+	 * This method is value-semantic in that ownership of the returned List is
+	 * transferred to the class calling this method. Modification of the
+	 * returned List will not modify this AutoEquipmentFacet and modification of
+	 * this AutoEquipmentFacet will not modify the returned Collection. If you
+	 * wish to modify the information stored in this AutoEquipmentFacet, you
+	 * must use the add*() and remove*() methods of AutoEquipmentFacet.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the list
+	 *            of all equipment granted by AUTO:EQUIP will be returned.
+	 * @return The List of Equipment granted by the the Player Character by all
+	 *         AUTO:EQUIP tokens on objects added to the Player Character.
+	 */
 	public List<Equipment> getAutoEquipment(CharID id)
 	{
 		List<Equipment> list = new ArrayList<Equipment>();
@@ -96,11 +121,18 @@ public class AutoEquipmentFacet extends
 		return list;
 	}
 
-	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	public void setConsolidationFacet(
+		CDOMObjectConsolidationFacet consolidationFacet)
 	{
 		this.consolidationFacet = consolidationFacet;
 	}
-	
+
+	/**
+	 * Initializes the connections for AutoEquipmentFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the AutoEquipmentFacet.
+	 */
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);
