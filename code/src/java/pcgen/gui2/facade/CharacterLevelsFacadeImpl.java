@@ -29,8 +29,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.inst.PCClassLevel;
@@ -46,8 +48,8 @@ import pcgen.core.facade.CharacterLevelFacade;
 import pcgen.core.facade.CharacterLevelsFacade;
 import pcgen.core.facade.ClassFacade;
 import pcgen.core.facade.SkillFacade;
-import pcgen.core.facade.UIDelegate;
 import pcgen.core.facade.TodoFacade.CharacterTab;
+import pcgen.core.facade.UIDelegate;
 import pcgen.core.facade.util.AbstractListFacade;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.utils.CoreUtility;
@@ -418,15 +420,25 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 			skillPool = classLevel.getSkillPointsRemaining();
 
 			if ((points < 0)
-				&& ((skillPool - points) > classLevel.getSkillPointsGained(theCharacter)))
+				&& (((skillPool - points) > classLevel
+					.getSkillPointsGained(theCharacter))
+				|| !classHasRanksIn(skill,
+					((CharacterLevelFacadeImpl) level).getSelectedClass())))
 			{
-				delegate.showInfoMessage(Constants.APPLICATION_NAME, LanguageBundle
-					.getFormattedString("in_iskErr_message_05a", classLevel
-						.getClassKeyName(), String.valueOf(classLevel
-						.getClassLevel()), String.valueOf(classLevel
-						.getSkillPointsGained(theCharacter))));
+				level = findLevelWithSpentSkillPoints(points, skill);
+				if (level == null)
+				{
+					delegate.showInfoMessage(Constants.APPLICATION_NAME,
+						LanguageBundle.getFormattedString(
+							"in_iskErr_message_05a", classLevel
+								.getClassKeyName(), String.valueOf(classLevel
+								.getClassLevel()), String.valueOf(classLevel
+								.getSkillPointsGained(theCharacter))));
+					return false;
+				}
 
-				return false;
+				classLevel = getLevelInfo(level);
+				skillPool = classLevel.getSkillPointsRemaining();
 			}
 		}
 
@@ -498,6 +510,48 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		fireSkillPointEvent(this, getLevelIndex(level), false);
 		fireSkillBonusEvent(this, getLevelIndex(level), false);
 		return true;
+	}
+
+	/**
+	 * Find a level which has a certain number of points spent.
+	 * @param points The negative number of points spent required.
+	 * @param skill 
+	 * @return The level with spent points, or null if none match
+	 */
+	private CharacterLevelFacade findLevelWithSpentSkillPoints(int points, SkillFacade skill)
+	{
+		for (int i = charLevels.size()-1; i>= 0; i--)
+		{
+			CharacterLevelFacadeImpl levelFacade = (CharacterLevelFacadeImpl) charLevels.get(i);
+			PCLevelInfo levelInfo = getLevelInfo(levelFacade);
+			if (levelInfo.getSkillPointsRemaining() - points <= levelInfo.getSkillPointsGained(theCharacter))
+			{
+				if (classHasRanksIn(skill, levelFacade.getSelectedClass()))
+				{
+					return levelFacade;
+				}
+			}
+		}
+		return null;
+	}
+	
+	/**
+	 * Identify if the class has ranks in the skill.
+	 * @param skill The skill to be checked for.
+	 * @param pcClass The class being checked.
+	 * @return true if the character took ranks of the skill in the class.
+	 */
+	private boolean classHasRanksIn(SkillFacade skill, ClassFacade pcClass)
+	{
+		Collection<NamedValue> skillTakenClassList = theCharacter.getSafeAssocList(skill, AssociationListKey.SKILL_RANK);
+		for (NamedValue namedValue : skillTakenClassList)
+		{
+			if (pcClass.getKeyName().equals(namedValue.name))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private void updateSkillsTodo()
