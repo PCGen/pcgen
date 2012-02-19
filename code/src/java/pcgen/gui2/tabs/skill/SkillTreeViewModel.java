@@ -20,12 +20,11 @@
  */
 package pcgen.gui2.tabs.skill;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.ListSelectionModel;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -49,7 +48,7 @@ import pcgen.gui2.util.treeview.TreeViewPath;
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
-		DataView<SkillFacade>, ListSelectionListener
+		DataView<SkillFacade>
 {
 
 	private static final List<? extends DataViewColumn> columns = Arrays.asList(
@@ -76,9 +75,10 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		List<? extends TreeView<SkillFacade>> views = Arrays.asList(SkillTreeView.NAME,
 																	SkillTreeView.TYPE_NAME,
 																	SkillTreeView.KEYSTAT_NAME,
-																	SkillTreeView.KEYSTAT_TYPE_NAME);
+																	SkillTreeView.KEYSTAT_TYPE_NAME, 
+																	COST_NAME,
+																	COST_TYPE_NAME);
 		treeviews = new DefaultListFacade<TreeView<SkillFacade>>(views);
-		selectionModel.addListSelectionListener(this);
 	}
 
 	public void install(FilteredTreeViewTable table)
@@ -99,7 +99,7 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 
 	public int getDefaultTreeViewIndex()
 	{
-		return 0;
+		return 1;
 	}
 
 	public DataView<SkillFacade> getDataView()
@@ -137,24 +137,6 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		return columns;
 	}
 
-	public void valueChanged(ListSelectionEvent e)
-	{
-		if (!e.getValueIsAdjusting() && table != null)
-		{
-			if (selectionModel.getMinSelectionIndex() != -1 && !displayCostTrees)
-			{
-				treeviews.addElement(COST_NAME);
-				treeviews.addElement(COST_TYPE_NAME);
-			}
-			else if (selectionModel.getMinSelectionIndex() == -1 && displayCostTrees)
-			{
-				treeviews.removeElement(COST_NAME);
-				treeviews.removeElement(COST_TYPE_NAME);
-			}
-			table.refreshModelData();
-		}
-	}
-
 	/**
 	 * Create a TreeViewPath for the skill and paths but trimming off the final 
 	 * path if it is empty. 
@@ -166,7 +148,7 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		Object... path)
 	{
 		Object displayPath[];
-		if (StringUtils.isEmpty(String.valueOf(path[path.length - 1])))
+		if (path.length > 0 && StringUtils.isEmpty(String.valueOf(path[path.length - 1])))
 		{
 			displayPath = new Object[path.length - 1];
 			for (int i = 0; i < displayPath.length; i++)
@@ -244,9 +226,14 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		@SuppressWarnings("unchecked")
 		public List<TreeViewPath<SkillFacade>> getPaths(SkillFacade pobj)
 		{
-			CharacterLevelFacade level = levels.getElementAt(selectionModel.getMinSelectionIndex());
-			return Arrays.asList(new TreeViewPath<SkillFacade>(pobj,
-															   levels.getSkillCost(level, pobj)));
+			List<Object> path = new ArrayList<Object>();
+			int index = selectionModel.getMinSelectionIndex();
+			if (index >= 0)
+			{
+				CharacterLevelFacade level = levels.getElementAt(index);
+				path.add(levels.getSkillCost(level, pobj));
+			}
+			return Arrays.asList(createTreeViewPath(pobj, path.toArray()));
 		}
 
 	};
@@ -261,10 +248,15 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		@SuppressWarnings("unchecked")
 		public List<TreeViewPath<SkillFacade>> getPaths(SkillFacade pobj)
 		{
-			CharacterLevelFacade level = levels.getElementAt(selectionModel.getMinSelectionIndex());
-			return Arrays.asList(createTreeViewPath(pobj,
-													levels.getSkillCost(level, pobj),
-													pobj.getDisplayType()));
+			List<Object> path = new ArrayList<Object>();
+			int index = selectionModel.getMinSelectionIndex();
+			if (index >= 0)
+			{
+				CharacterLevelFacade level = levels.getElementAt(index);
+				path.add(levels.getSkillCost(level, pobj));
+			}
+			path.add(pobj.getDisplayType());
+			return Arrays.asList(createTreeViewPath(pobj, path.toArray()));
 //
 //			return Arrays.asList(
 //					new TreeViewPath<SkillFacade>(pobj,
