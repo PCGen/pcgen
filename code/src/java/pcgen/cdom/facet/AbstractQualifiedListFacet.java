@@ -25,8 +25,8 @@ import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
+import java.util.Map.Entry;
 
 import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.QualifiedActor;
@@ -34,30 +34,41 @@ import pcgen.cdom.base.QualifyingObject;
 import pcgen.cdom.enumeration.CharID;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
- * 
- * A AbstractQualifiedListFacet is a DataFacet that contains information about
- * CDOMObjects that are contained in a PlayerCharacter when a PlayerCharacter
- * may have more than one of that type of CDOMObject (e.g. Language,
- * PCTemplate), the source of that object should be tracked, and the
+ * An AbstractQualifiedListFacet is a DataFacet that contains information about
+ * QualifyingObjects that are contained in a PlayerCharacter when a
+ * PlayerCharacter may have more than one of that type of QualifyingObject (e.g.
+ * Language, PCTemplate), the source of that object should be tracked, and the
  * PlayerCharacter can qualify for the object (they have prerequisites)
  * 
- * This class is designed to assume that each CDOMObject may only be contained
- * one time by the PlayerCharacter, even if received from multiple sources. The
- * CDOMObject will only trigger one DATA_ADDED event (when added by the first
- * source) and if removed by some sources, will only trigger one DATA_REMOVED
- * event (when it is removed by the last remaining source). Sources do not need
- * to be removed in the order in which they are added, and the first source to
- * be added does not possess special status with respect to triggering a
- * DATA_REMOVED event (it will only trigger removal if it was the last source
- * when removed)
+ * This class is designed to assume that each QualifyingObject may only be
+ * contained one time by the PlayerCharacter, even if received from multiple
+ * sources. The QualifyingObject will only trigger one DATA_ADDED event (when
+ * added by the first source) and if removed by some sources, will only trigger
+ * one DATA_REMOVED event (when it is removed by the last remaining source).
+ * Sources do not need to be removed in the order in which they are added, and
+ * the first source to be added does not possess special status with respect to
+ * triggering a DATA_REMOVED event (it will only trigger removal if it was the
+ * last source when removed)
  * 
  * The sources stored in this AbstractQualifiedListFacet are stored as a List,
  * meaning the list of sources may contain the same source multiple times. If
  * so, each call to remove will only remove that source one time from the list
  * of sources.
  * 
- * null is a valid source.
+ * In general, QualifyingObjects that are stored in an
+ * AbstractQualifiedListFacet are those where the Prerequisites are those that
+ * are considered requirements. This means that as the Player Character changes,
+ * the state of the Prerequisite can change and alter whether the underlying
+ * object is granted to the Player Character. For PCGen 5.16, this will mean
+ * things like the Prerequisite on the end of an ABILITY token (which are
+ * continuously evaluated) not the PRExxx: tokens that appear directly on the
+ * line of an Ability in the Ability LST file (those are evaluated only once,
+ * when the Ability is first added to the Player Character)
+ * 
+ * null is a valid source but a valid item to be added to the list of objects
+ * stored by AbstractQualifiedListFacet.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		extends AbstractDataFacet<T>
@@ -92,9 +103,6 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		boolean fireNew = (set == null);
 		if (fireNew)
 		{
-			/*
-			 * TODO obj Null?
-			 */
 			set = new WrappedMapSet<Object>(IdentityHashMap.class);
 			map.put(obj, set);
 		}
@@ -106,9 +114,10 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	}
 
 	/**
-	 * Adds all of the objects with the given source in the given Collection to
-	 * the list of objects stored in this AbstractQualifiedListFacet for the
-	 * Player Character represented by the given CharID
+	 * Adds all of the objects in the given Collection to the list of objects
+	 * stored in this AbstractQualifiedListFacet for the Player Character
+	 * represented by the given CharID. All objects are added as if granted with
+	 * the given source.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
@@ -118,7 +127,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 *            stored in this AbstractQualifiedListFacet for the Player
 	 *            Character represented by the given CharID
 	 * @param source
-	 *            The source for the given object
+	 *            The source for the objects in the given Collection
 	 * @throws NullPointerException
 	 *             if the given Collection is null
 	 */
@@ -136,7 +145,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 * represented by the given CharID. If the given source was the only source
 	 * for the given object, then the object is removed from the list of objects
 	 * stored in this AbstractQualifiedListFacet for the Player Character
-	 * represented by the given CharID.
+	 * represented by the given CharID and a removal event is fired.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character from which the
@@ -162,7 +171,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 * the given CharID. If the given source was the only source for any of the
 	 * objects in the collection, then those objects are removed from the list
 	 * of objects stored in this AbstractQualifiedListFacet for the Player
-	 * Character represented by the given CharID.
+	 * Character represented by the given CharID and a removal event is fired.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character from which the
@@ -194,6 +203,14 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 * objects stored in this AbstractQualifiedListFacet for the Player
 	 * Character represented by the given CharID
 	 * 
+	 * This method is value-semantic in that ownership of the returned Map is
+	 * transferred to the class calling this method. Since this is a remove all
+	 * function, modification of the returned Map will not modify this
+	 * AbstractQualifiedListFacet and modification of this
+	 * AbstractQualifiedListFacet will not modify the returned Map. If you wish
+	 * to modify the information stored in this AbstractQualifiedListFacet, you
+	 * must use the add*() and remove*() methods of AbstractQualifiedListFacet.
+	 * 
 	 * @param id
 	 *            The CharID representing the Player Character from which all
 	 *            items should be removed
@@ -217,8 +234,19 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	}
 
 	/**
-	 * Returns the Set of objects in this AbstractQualifiedListFacet for the
-	 * Player Character represented by the given CharID
+	 * Returns a non-null copy of the Set of objects in this
+	 * AbstractQualifiedListFacet for the Player Character represented by the
+	 * given CharID. This method returns an empty set if no objects are in this
+	 * AbstractQualifiedListFacet for the Player Character identified by the
+	 * given CharID.
+	 * 
+	 * This method is value-semantic in that ownership of the returned List is
+	 * transferred to the class calling this method. Modification of the
+	 * returned List will not modify this AbstractQualifiedListFacet and
+	 * modification of this AbstractQualifiedListFacet will not modify the
+	 * returned List. If you wish to modify the information stored in this
+	 * AbstractQualifiedListFacet, you must use the add*() and remove*() methods
+	 * of AbstractQualifiedListFacet.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
@@ -291,6 +319,11 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 */
 	public boolean contains(CharID id, T obj)
 	{
+		/*
+		 * TODO obj == null? - log an error?
+		 * 
+		 * This should share behavior with AbstractListFacet
+		 */
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		return componentMap != null && componentMap.containsKey(obj);
 	}
@@ -374,6 +407,24 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		return componentMap;
 	}
 
+	/**
+	 * Returns a new (empty) Map for this AbstractQualifiedListFacet. Can be
+	 * overridden by classes that extend AbstractQualifiedListFacet if a Map
+	 * other than an IdentityHashMap is desired for storing the information in
+	 * the AbstractQualifiedListFacet.
+	 * 
+	 * Note that this method SHOULD NOT be public. The Map object is owned by
+	 * AbstractQualifiedListFacet, and since it can be modified, a reference to
+	 * that object should not be exposed to any object other than
+	 * AbstractQualifiedListFacet.
+	 * 
+	 * Note that this method should always be the only method used to construct
+	 * a Map for this AbstractQualifiedListFacet. It is actually preferred to
+	 * use getConstructingCacheMap(CharID) in order to implicitly call this
+	 * method.
+	 * 
+	 * @return A new (empty) Map for use in this AbstractQualifiedListFacet.
+	 */
 	protected Map<T, Set<Object>> getComponentMap()
 	{
 		return new IdentityHashMap<T, Set<Object>>();
@@ -443,10 +494,13 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 *            sources for that object
 	 */
 	private void processRemoval(CharID id, Map<T, Set<Object>> componentMap,
-			T obj, Object source)
+		T obj, Object source)
 	{
 		/*
 		 * TODO obj Null?
+		 * 
+		 * This should probably throw an IllegalArgumentException if obj is
+		 * null, as that behavior would be consistent with AbstractListFacet.
 		 */
 		Set<Object> set = componentMap.get(obj);
 		if (set != null)
@@ -456,18 +510,31 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 			{
 				componentMap.remove(obj);
 				fireDataFacetChangeEvent(id, obj,
-						DataFacetChangeEvent.DATA_REMOVED);
+					DataFacetChangeEvent.DATA_REMOVED);
 			}
 		}
 	}
 
+	/**
+	 * Removes all information for the given source from this
+	 * AbstractQualifiedListFacet for the PlayerCharacter represented by the
+	 * given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which items
+	 *            from the given source will be removed
+	 * @param source
+	 *            The source for the objects to be removed from the list of
+	 *            items stored for the Player Character identified by the given
+	 *            CharID
+	 */
 	public void removeAll(CharID id, Object source)
 	{
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Iterator<Map.Entry<T, Set<Object>>> it = componentMap
-					.entrySet().iterator(); it.hasNext();)
+			for (Iterator<Map.Entry<T, Set<Object>>> it =
+					componentMap.entrySet().iterator(); it.hasNext();)
 			{
 				Entry<T, Set<Object>> me = it.next();
 				Set<Object> set = me.getValue();
@@ -476,20 +543,44 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 					T obj = me.getKey();
 					it.remove();
 					fireDataFacetChangeEvent(id, obj,
-							DataFacetChangeEvent.DATA_REMOVED);
+						DataFacetChangeEvent.DATA_REMOVED);
 				}
 			}
 		}
 	}
 
+	/**
+	 * Returns a non-null copy of the Set of objects in this
+	 * AbstractQualifiedListFacet for the Player Character represented by the
+	 * given CharID and the given source. This method returns an empty set if no
+	 * objects are in this AbstractQualifiedListFacet for the Player Character
+	 * identified by the given CharID and source.
+	 * 
+	 * This method is value-semantic in that ownership of the returned List is
+	 * transferred to the class calling this method. Modification of the
+	 * returned List will not modify this AbstractQualifiedListFacet and
+	 * modification of this AbstractQualifiedListFacet will not modify the
+	 * returned List. If you wish to modify the information stored in this
+	 * AbstractQualifiedListFacet, you must use the add*() and remove*() methods
+	 * of AbstractQualifiedListFacet.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            items in this AbstractQualifiedListFacet should be returned.
+	 * @param owner
+	 *            The source object for which a copy of the List of objects in
+	 *            this AbstractQualifiedListFacet should be returned.
+	 * @return A non-null Set of objects in this AbstractQualifiedListFacet for
+	 *         the Player Character represented by the given CharID
+	 */
 	public List<? extends T> getSet(CharID id, Object owner)
 	{
 		List<T> list = new ArrayList<T>();
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Iterator<Map.Entry<T, Set<Object>>> it = componentMap
-					.entrySet().iterator(); it.hasNext();)
+			for (Iterator<Map.Entry<T, Set<Object>>> it =
+					componentMap.entrySet().iterator(); it.hasNext();)
 			{
 				Entry<T, Set<Object>> me = it.next();
 				Set<Object> set = me.getValue();
@@ -502,6 +593,27 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		return list;
 	}
 
+	/**
+	 * Returns a non-null copy of the Set of objects the character qualifies for
+	 * in this AbstractQualifiedListFacet for the Player Character represented
+	 * by the given CharID. This method returns an empty set if the Player
+	 * Character identified by the given CharID qualifies for none of the
+	 * objects in this AbstractQualifiedListFacet.
+	 * 
+	 * This method is value-semantic in that ownership of the returned List is
+	 * transferred to the class calling this method. Modification of the
+	 * returned List will not modify this AbstractQualifiedListFacet and
+	 * modification of this AbstractQualifiedListFacet will not modify the
+	 * returned List. If you wish to modify the information stored in this
+	 * AbstractQualifiedListFacet, you must use the add*() and remove*() methods
+	 * of AbstractQualifiedListFacet.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            items in this AbstractQualifiedListFacet should be returned.
+	 * @return A non-null Set of objects the Player Character represented by the
+	 *         given CharID qualifies for in this AbstractQualifiedListFacet
+	 */
 	public Collection<T> getQualifiedSet(CharID id)
 	{
 		Set<T> set = new HashSet<T>();
@@ -525,6 +637,37 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		return set;
 	}
 
+	/**
+	 * Returns a non-null copy of the Set of objects the character qualifies for
+	 * in this AbstractQualifiedListFacet for the Player Character represented
+	 * by the given CharID and the given source. This method returns an empty
+	 * set if the Player Character identified by the given CharID qualifies for
+	 * none of the objects in this AbstractQualifiedListFacet granted by the
+	 * given source.
+	 * 
+	 * This method is value-semantic in that ownership of the returned List is
+	 * transferred to the class calling this method. Modification of the
+	 * returned List will not modify this AbstractQualifiedListFacet and
+	 * modification of this AbstractQualifiedListFacet will not modify the
+	 * returned List. If you wish to modify the information stored in this
+	 * AbstractQualifiedListFacet, you must use the add*() and remove*() methods
+	 * of AbstractQualifiedListFacet.
+	 * 
+	 * Generally, use of this method is discouraged in general operational
+	 * aspects. However, it is recognized that certain output tokens can list
+	 * certain items by source, and thus this method is required, and it is
+	 * unreasonable to expect complete elimination of this method or entirely
+	 * prohibit future use of this method.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            items in this AbstractQualifiedListFacet should be returned.
+	 * @param owner
+	 *            The source object for which a copy of the List of objects the
+	 *            Player Character qualifies for should be returned.
+	 * @return A non-null Set of objects the Player Character represented by the
+	 *         given CharID qualifies for in this AbstractQualifiedListFacet
+	 */
 	public Collection<T> getQualifiedSet(CharID id, Object source)
 	{
 		Set<T> set = new HashSet<T>();
@@ -548,6 +691,39 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		return set;
 	}
 
+	/**
+	 * Acts on the Set of objects the character qualifies for in this
+	 * AbstractQualifiedListFacet for the Player Character represented by the
+	 * given CharID. The results of each action as provided by the given
+	 * QualifiedActor are returned in a non-null List.
+	 * 
+	 * This method returns an empty List if the Player Character identified by
+	 * the given CharID qualifies for none of the objects in this
+	 * AbstractQualifiedListFacet.
+	 * 
+	 * This method is value-semantic in that ownership of the returned List is
+	 * transferred to the class calling this method. Modification of the
+	 * returned List will not modify this AbstractQualifiedListFacet and
+	 * modification of this AbstractQualifiedListFacet will not modify the
+	 * returned List. If you wish to modify the information stored in this
+	 * AbstractQualifiedListFacet, you must use the add*() and remove*() methods
+	 * of AbstractQualifiedListFacet.
+	 * 
+	 * Note: If a particular item has been granted by more than one source, then
+	 * the QualifiedActor will only be called for the first source that
+	 * (successfully grants) the underlying object.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            items in this AbstractQualifiedListFacet should be returned.
+	 * @param qa
+	 *            The QualifiedActor which will act on each of the items in this
+	 *            AbstractQualifiedListFacet for which the Player Character
+	 *            qualifies.
+	 * @return A non-null List of objects created by the QualifiedActor from
+	 *         each of the objects in this AbstractQualifiedListFacet for which
+	 *         the Player Character qualifies.
+	 */
 	public <R> List<R> actOnQualifiedSet(CharID id, QualifiedActor<T, R> qa)
 	{
 		List<R> list = new ArrayList<R>();
@@ -563,6 +739,12 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 					if (prereqFacet.qualifies(id, obj, source))
 					{
 						list.add(qa.act(obj, source));
+						/*
+						 * TODO Need to check if this break is appropriate -
+						 * seems that a QualifiedActor may end up converting in
+						 * way that is source specific and thus breaking after
+						 * one success could result in incorrect answers.
+						 */
 						break;
 					}
 				}

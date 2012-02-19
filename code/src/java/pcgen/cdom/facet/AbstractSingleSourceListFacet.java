@@ -30,17 +30,20 @@ import java.util.Map.Entry;
 import pcgen.cdom.enumeration.CharID;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
- * 
- * A AbstractSingleSourceListFacet is a DataFacet that contains information
- * about CDOMObjects that are contained in a PlayerCharacter when a
- * PlayerCharacter may have more than one of that type of CDOMObject (e.g.
- * Language, PCTemplate) and the source of that object should be tracked.
+ * An AbstractSingleSourceListFacet is a DataFacet that contains information
+ * about Objects that are contained in a PlayerCharacter when a PlayerCharacter
+ * may have more than one of that type of Object (e.g. Language, PCTemplate) and
+ * the source of that object should be tracked.
  * 
  * Using this class, an object may have only one source. If the object is
- * re-added with a second source, this will not trigger a DATA_ADDED event.
+ * re-added with a second source, this will not trigger a DATA_ADDED event, but
+ * the object considered the source of the item in the list of this
+ * AbstractSingleSourceListFacet will be updated to the source provided in the
+ * call to add.
  * 
  * null is NOT a valid source.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public abstract class AbstractSingleSourceListFacet<T, ST> extends
 		AbstractDataFacet<T>
@@ -55,7 +58,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 	 *            given item should be added
 	 * @param obj
 	 *            The object to be added to the list of objects stored in this
-	 *            AbstractQualifiedListFacet for the Player Character
+	 *            AbstractSingleSourceListFacet for the Player Character
 	 *            represented by the given CharID
 	 * @param source
 	 *            The source for the given object
@@ -82,7 +85,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 
 	/**
 	 * Adds all of the objects with the given source in the given Collection to
-	 * the list of objects stored in this AbstractQualifiedListFacet for the
+	 * the list of objects stored in this AbstractSingleSourceListFacet for the
 	 * Player Character represented by the given CharID
 	 * 
 	 * @param id
@@ -90,7 +93,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 	 *            given items should be added
 	 * @param c
 	 *            The Collection of objects to be added to the list of objects
-	 *            stored in this AbstractQualifiedListFacet for the Player
+	 *            stored in this AbstractSingleSourceListFacet for the Player
 	 *            Character represented by the given CharID
 	 * @param source
 	 *            The source for the given object
@@ -106,12 +109,17 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 	}
 
 	/**
-	 * Removes the given source entry from the list of sources for the given
-	 * object stored in this AbstractQualifiedListFacet for the Player Character
-	 * represented by the given CharID. If the given source was the only source
-	 * for the given object, then the object is removed from the list of objects
-	 * stored in this AbstractQualifiedListFacet for the Player Character
-	 * represented by the given CharID.
+	 * Removes the given source entry for the given object stored in this
+	 * AbstractSingleSourceListFacet for the Player Character represented by the
+	 * given CharID.
+	 * 
+	 * If the given source is the source of the object recognized by this
+	 * AbstractSingleSourceListFacet, then the object is removed from the list
+	 * of objects stored in this AbstractSingleSourceListFacet for the Player
+	 * Character represented by the given CharID.
+	 * 
+	 * If the given source is not the source recognized by this
+	 * AbstractSingleSourceListFacet, then this call to remove is ignored.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character from which the
@@ -134,17 +142,26 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 	/**
 	 * Removes the given source entry from the list of sources for all of the
 	 * objects in the given Collection for the Player Character represented by
-	 * the given CharID. If the given source was the only source for any of the
-	 * objects in the collection, then those objects are removed from the list
-	 * of objects stored in this AbstractQualifiedListFacet for the Player
-	 * Character represented by the given CharID.
+	 * the given CharID.
+	 * 
+	 * If the given source is the source (recognized by this
+	 * AbstractSingleSourceListFacet) of an object in the given collection, then
+	 * that object is removed from the list of objects stored in this
+	 * AbstractSingleSourceListFacet for the Player Character represented by the
+	 * given CharID.
+	 * 
+	 * If the given source is not the source recognized by this
+	 * AbstractSingleSourceListFacet of an object in the given collection, then
+	 * no change is made for that object to the list of objects stored in this
+	 * AbstractSingleSourceListFacet for the Player Character represented by the
+	 * given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character from which the
 	 *            given items should be removed
 	 * @param c
 	 *            The Collection of objects to be removed from the list of
-	 *            objects stored in this AbstractQualifiedListFacet for the
+	 *            objects stored in this AbstractSingleSourceListFacet for the
 	 *            Player Character represented by the given CharID
 	 * @param source
 	 *            The source for the objects in the given Collection to be
@@ -169,6 +186,15 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 	 * objects stored in this AbstractSingleSourceListFacet for the Player
 	 * Character represented by the given CharID
 	 * 
+	 * This method is value-semantic in that ownership of the returned Map is
+	 * transferred to the class calling this method. Since this is a remove all
+	 * function, modification of the returned Map will not modify this
+	 * AbstractSingleSourceListFacet and modification of this
+	 * AbstractSingleSourceListFacet will not modify the returned Map. If you
+	 * wish to modify the information stored in this
+	 * AbstractSingleSourceListFacet, you must use the add*() and remove*()
+	 * methods of AbstractSingleSourceListFacet.
+	 * 
 	 * @param id
 	 *            The CharID representing the Player Character from which all
 	 *            items should be removed
@@ -192,8 +218,20 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 	}
 
 	/**
-	 * Returns the Set of objects in this AbstractSingleSourceListFacet for the
-	 * Player Character represented by the given CharID
+	 * Returns a non-null copy of the Set of objects in this
+	 * AbstractSingleSourceListFacet for the Player Character represented by the
+	 * given CharID. This method returns an empty set if no objects are in this
+	 * AbstractSingleSourceListFacet for the Player Character identified by the
+	 * given CharID.
+	 * 
+	 * This method is value-semantic in that ownership of the returned List is
+	 * transferred to the class calling this method. Modification of the
+	 * returned List will not modify this AbstractSingleSourceListFacet and
+	 * modification of this AbstractSingleSourceListFacet will not modify the
+	 * returned List. If you wish to modify the information stored in this
+	 * AbstractSingleSourceListFacet, you must use the add*() and remove*()
+	 * methods of AbstractSingleSourceListFacet.
+	 * 
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
@@ -238,7 +276,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 	 * 
 	 * @param id
 	 *            The CharId representing the PlayerCharacter to test if any
-	 *            items are contained by this AbstractsSourcedListFacet
+	 *            items are contained by this AbstractSingleSourceListFacet
 	 * @return true if this AbstractSingleSourceListFacet does not contain any
 	 *         items for the Player Character represented by the given CharID;
 	 *         false otherwise (if it does contain items for the Player
@@ -318,6 +356,24 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 		return componentMap;
 	}
 
+	/**
+	 * Returns a new (empty) Map for this AbstractSingleSourceListFacet. Can be
+	 * overridden by classes that extend AbstractSingleSourceListFacet if a Map
+	 * other than an IdentityHashMap is desired for storing the information in
+	 * the AbstractSingleSourceListFacet.
+	 * 
+	 * Note that this method SHOULD NOT be public. The Map object is owned by
+	 * AbstractSingleSourceListFacet, and since it can be modified, a reference
+	 * to that object should not be exposed to any object other than
+	 * AbstractSingleSourceListFacet.
+	 * 
+	 * Note that this method should always be the only method used to construct
+	 * a Map for this AbstractSingleSourceListFacet. It is actually preferred to
+	 * use getConstructingCacheMap(CharID) in order to implicitly call this
+	 * method.
+	 * 
+	 * @return A new (empty) Map for use in this AbstractSingleSourceListFacet.
+	 */
 	protected Map<T, ST> getComponentMap()
 	{
 		return new IdentityHashMap<T, ST>();
@@ -360,18 +416,18 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 	/**
 	 * This method implements removal of a source for an object contained by
 	 * this AbstractSingleSourceListFacet. This implements the actual check that
-	 * determines if the given source was the only source for the given object.
-	 * If so, then that object is removed from the list of objects stored in
-	 * this AbstractQualifiedListFacet for the Player Character represented by
-	 * the given CharID.
+	 * determines if the given source was the source for the given object. If
+	 * so, then that object is removed from the list of objects stored in this
+	 * AbstractQualifiedListFacet for the Player Character represented by the
+	 * given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character which may have
 	 *            the given item removed.
 	 * @param componentMap
 	 *            The (private) Map for this AbstractSingleSourceListFacet that
-	 *            will as least have the given source removed from the list for
-	 *            the given object.
+	 *            will be removed if the given source is the recognized source
+	 *            for the given object in this AbstractSingleSourceListFacet.
 	 * @param obj
 	 *            The object which may be removed if the given source is the
 	 *            only source for this object in the Player Character
@@ -385,6 +441,9 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 	{
 		/*
 		 * TODO obj Null?
+		 * 
+		 * Behavior should be consistent with AbstractlistFacet & others on
+		 * remove
 		 */
 		Object oldSource = componentMap.get(obj);
 		if (oldSource != null)
@@ -398,6 +457,19 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 		}
 	}
 
+	/**
+	 * Removes all information for the given source from this
+	 * AbstractSingleSourceListFacet for the PlayerCharacter represented by the
+	 * given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which items
+	 *            from the given source will be removed
+	 * @param source
+	 *            The source for the objects to be removed from the list of
+	 *            items stored for the Player Character identified by the given
+	 *            CharID
+	 */
 	public void removeAll(CharID id, ST source)
 	{
 		Map<T, ST> componentMap = getCachedMap(id);
@@ -419,6 +491,31 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 		}
 	}
 
+	/**
+	 * Returns a non-null copy of the Set of objects in this
+	 * AbstractSingleSourceListFacet for the Player Character represented by the
+	 * given CharID and the given source. This method returns an empty set if no
+	 * objects are in this AbstractSingleSourceListFacet for the Player
+	 * Character identified by the given CharID and source.
+	 * 
+	 * This method is value-semantic in that ownership of the returned List is
+	 * transferred to the class calling this method. Modification of the
+	 * returned List will not modify this AbstractSingleSourceListFacet and
+	 * modification of this AbstractSingleSourceListFacet will not modify the
+	 * returned List. If you wish to modify the information stored in this
+	 * AbstractSingleSourceListFacet, you must use the add*() and remove*()
+	 * methods of AbstractSingleSourceListFacet.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            items in this AbstractSingleSourceListFacet should be
+	 *            returned.
+	 * @param owner
+	 *            The source object for which a copy of the List of objects in
+	 *            this AbstractSingleSourceListFacet should be returned.
+	 * @return A non-null Set of objects in this AbstractSingleSourceListFacet
+	 *         for the Player Character represented by the given CharID
+	 */
 	public List<? extends T> getSet(CharID id, ST owner)
 	{
 		List<T> list = new ArrayList<T>();
@@ -439,6 +536,18 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 		return list;
 	}
 
+	/**
+	 * Gets the source for the Player Character (identified by the given CharID)
+	 * and the given object.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            association get is being performed.
+	 * @param obj
+	 *            The object for which the source is to be returned.
+	 * @return The source of the given object for the Player Character
+	 *         identified by the given CharID
+	 */
 	public ST getSource(CharID id, T obj)
 	{
 		Map<T, ST> map = getCachedMap(id);
@@ -449,6 +558,17 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 		return map.get(obj);
 	}
 
+	/**
+	 * Removes (unconditionally, regardless of the source) the given object
+	 * stored in this AbstractSingleSourceListFacet for the Player Character
+	 * represented by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character from which the
+	 *            object should be removed
+	 * @param obj
+	 *            The object which should be removed
+	 */
 	public void remove(CharID id, T obj)
 	{
 		Map<T, ST> map = getCachedMap(id);
