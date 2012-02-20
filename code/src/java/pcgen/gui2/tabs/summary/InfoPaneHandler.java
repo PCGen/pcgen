@@ -65,7 +65,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 		this.character = character;
 		GameModeFacade game = character.getDataSet().getGameMode();
 		support = new HtmlSheetSupport(character, htmlPane, game.getInfoSheet());
-		support.setMissingSheetMsg(LanguageBundle.getFormattedString("in_sumNoInfoSheet",
+		support.setMissingSheetMsg(LanguageBundle.getFormattedString("in_sumNoInfoSheet", //$NON-NLS-1$
 														   character.getDataSet().getGameMode().getName()));
 		registerListeners();
 	}
@@ -83,7 +83,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 		htmlPane.setOpaque(false);
 		htmlPane.setEditable(false);
 		htmlPane.setFocusable(false);
-		htmlPane.setContentType("text/html");
+		htmlPane.setContentType("text/html"); //$NON-NLS-1$
 	}
 
 	/**

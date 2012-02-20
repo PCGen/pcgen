@@ -782,8 +782,8 @@ public class SpinningTabbedPane extends JTabbedPane
 
         MoveMenu(int index)
         {
-            super(LanguageBundle.getString("in_moveTab"));
-            setMnemonic(LanguageBundle.getMnemonic("in_mn_movetab"));
+            super(LanguageBundle.getString("in_moveTab")); //$NON-NLS-1$
+            setMnemonic(LanguageBundle.getMnemonic("in_mn_moveTab")); //$NON-NLS-1$
 
             final int[] indices = getMovableTabIndices();
 

@@ -544,7 +544,7 @@ public class FlippingSplitPane extends JSplitPane
 		CenterMenuItem()
 		{
 			super(LanguageBundle.getString("in_center"));
-			setMnemonic(LanguageBundle.getMnemonic("center"));
+			setMnemonic(LanguageBundle.getMnemonic("in_mn_center"));
 			setIcon(Icons.MediaStop16.getImageIcon());
 
 			addActionListener(this);

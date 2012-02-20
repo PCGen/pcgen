@@ -328,7 +328,7 @@ public final class PreferencesDialog extends JDialog
 		String in_gamemode =  LanguageBundle.getString("in_mnuSettingsCampaign");
 		gameModeNode = new DefaultMutableTreeNode(in_gamemode);
 		settingsPanel.add(buildEmptyPanel("", LanguageBundle
-			.getString("in_Prefs_gameModeTip")), in_gamemode);
+			.getString("in_mn_mnuSettingsCampaign")), in_gamemode);
 
 		copySettingsPanel = new CopySettingsPanel();
 		addPanelToTree(gameModeNode, copySettingsPanel);

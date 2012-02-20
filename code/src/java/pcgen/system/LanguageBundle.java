@@ -27,17 +27,17 @@ import java.util.ResourceBundle;
 import pcgen.util.Logging;
 
 /**
- * <code>LanguageBundle</code>
+ * <code>LanguageBundle</code> manages the localisation of the PCGen interface. 
+ * It provides a set of features to translate il8n keys into text in the 
+ * language chosen in preferences.
  *
  * @author Thomas Behr 03-01-02
  * @version $Revision$
- *
- * This good as is, as far as I can tell
- *
- * Mario Bonassin
  */
 public final class LanguageBundle
 {
+	/** Key primarily for use in IDE il8n tools. */
+	private static final String BUNDLE_NAME = "pcgen.resources.lang"; //$NON-NLS-1$
 
 	/** Undefined Property */
 	public static final String UNDEFINED = " not defined."; //$NON-NLS-1$
@@ -45,7 +45,7 @@ public final class LanguageBundle
 
 	/**
 	 * Get the Mnemonic
-	 * @param property
+	 * @param property The key of the property to lookup.
 	 * @return Mnemonic of the property
 	 */
 	public static int getMnemonic(String property)
@@ -54,10 +54,10 @@ public final class LanguageBundle
 	}
 
 	/**
-	 * convenience method
+	 * Convenience method to retrieve a localised string with no parameters.
 	 * author: Thomas Behr 03-01-02
-	 * @param key
-	 * @return String
+	 * @param key The key of the property to be retrieved.
+	 * @return String The localised string.
 	 */
 	public static String getString(String key)
 	{
@@ -123,15 +123,15 @@ public final class LanguageBundle
 	{
 		if (bundle != null)
 		{
-			Logging.log(Logging.WARNING, "Reinitialising the language bundle.");
+			Logging.log(Logging.WARNING, "Reinitialising the language bundle."); //$NON-NLS-1$
 		}
 		Locale locale = Locale.getDefault();
-		Logging.log(Logging.INFO, "Initialising language bundle with locale '" + locale + "'.");
+		Logging.log(Logging.INFO, "Initialising language bundle with locale '" + locale + "'."); //$NON-NLS-1$ //$NON-NLS-2$
 		try
 		{
 			bundle =
 					ResourceBundle.getBundle(
-					"pcgen.resources.lang.LanguageBundle", locale); //$NON-NLS-1$
+						BUNDLE_NAME + ".LanguageBundle", locale); //$NON-NLS-1$
 		}
 		catch (MissingResourceException mrex)
 		{
