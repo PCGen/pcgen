@@ -38,6 +38,7 @@ import javax.swing.JTable;
 import javax.swing.JTree;
 import javax.swing.ListSelectionModel;
 import javax.swing.LookAndFeel;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.event.CellEditorListener;
 import javax.swing.event.ListSelectionEvent;
@@ -220,9 +221,8 @@ public class JTreeTable extends JTableEx
 		int dx = getX();
 		int dy = getY();
 
-		for (parent = getParent(); !(parent == null) &&
-				!(parent instanceof JComponent) &&
-				!(parent instanceof CellRendererPane); parent =
+		for (parent = getParent(); !(parent == null) && !(parent instanceof JComponent)
+				&& !(parent instanceof CellRendererPane); parent =
 						parent.getParent())
 		{
 			final Rectangle bounds = parent.getBounds();
@@ -450,14 +450,36 @@ public class JTreeTable extends JTableEx
 			fireTableRowsUpdated(leadingRow, trailingRow);
 		}
 
+		/**
+		 * This is used to when handling event cascading to
+		 * prevent inconsistencies when updating the table.
+		 * It is necessary when responding to tree model events
+		 * that may have other listeners.
+		 * By firing a new event later we ensure that all listeners
+		 * have had a chance to update the tree's state.
+		 */
+		private void fireDelayedTableDataChanged()
+		{
+			SwingUtilities.invokeLater(new Runnable()
+			{
+
+				@Override
+				public void run()
+				{
+					fireTableDataChanged();
+				}
+
+			});
+		}
+
 		public void treeNodesInserted(TreeModelEvent e)
 		{
-			fireTableDataChanged();
+			fireDelayedTableDataChanged();
 		}
 
 		public void treeNodesRemoved(TreeModelEvent e)
 		{
-			fireTableDataChanged();
+			fireDelayedTableDataChanged();
 		}
 
 		public void treeStructureChanged(TreeModelEvent e)
@@ -555,8 +577,7 @@ public class JTreeTable extends JTableEx
 			super.setRowHeight(aRowHeight);
 			if (aRowHeight > 0)
 			{
-				if ((JTreeTable.this != null) &&
-						(JTreeTable.this.getRowHeight() != aRowHeight))
+				if ((JTreeTable.this != null) && (JTreeTable.this.getRowHeight() != aRowHeight))
 				{
 					JTreeTable.this.setRowHeight(JTreeTable.this.getRowHeight());
 				}

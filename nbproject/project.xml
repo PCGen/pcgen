@@ -3,15 +3,15 @@
     <type>org.netbeans.modules.ant.freeform</type>
     <configuration>
         <general-data xmlns="http://www.netbeans.org/ns/freeform-project/1">
-            <name>pcgen-sync</name>
+            <name>pcgen-trunk</name>
         </general-data>
         <general-data xmlns="http://www.netbeans.org/ns/freeform-project/2">
             <!-- Do not use Project Properties customizer when editing this file manually. -->
-            <name>pcgen-sync</name>
+            <name>pcgen-trunk</name>
             <properties/>
             <folders>
                 <source-folder>
-                    <label>pcgen-sync</label>
+                    <label>pcgen-trunk</label>
                     <location>.</location>
                     <encoding>UTF-8</encoding>
                 </source-folder>
@@ -132,35 +132,35 @@
             <subprojects/>
             <project-license>pcgen</project-license>
         </general-data>
-        <java-data xmlns="http://www.netbeans.org/ns/freeform-project-java/2">
+        <java-data xmlns="http://www.netbeans.org/ns/freeform-project-java/3">
             <compilation-unit>
                 <package-root>code/src/java</package-root>
-                <classpath mode="compile">lib/jep/jep-2.4.1.jar;lib/apache/commons-lang-2.4.jar;lib/cobra/cobra.jar;lib/jdom.jar;lib/fop/fop.jar;lib/lnf/skinlf.jar;lib/spring/spring-beans-2.5.6.SEC01.jar;lib/spring/spring-core-2.5.6.SEC01.jar;lib/MRJ141Stubs.jar;lib/apache/commons-io-2.1.jar</classpath>
-                <source-level>1.5</source-level>
+                <classpath mode="compile">lib/jep/jep-2.4.1.jar;lib/apache/commons-lang-2.4.jar;lib/cobra/cobra.jar;lib/jdom.jar;lib/fop/fop.jar;lib/lnf/skinlf.jar;lib/spring/spring-beans-2.5.6.SEC01.jar;lib/spring/spring-core-2.5.6.SEC01.jar;lib/MRJ141Stubs.jar;lib/apache/commons-io-2.1.jar;lib/fop/xalan-2.5.2.jar</classpath>
+                <source-level>1.6</source-level>
             </compilation-unit>
             <compilation-unit>
                 <package-root>code/src/test</package-root>
                 <unit-tests/>
                 <classpath mode="compile">lib/test/clover.jar;lib/test/junit-4.1.jar;lib/test/xmlunit1.0.jar;lib/jep/jep-2.4.1.jar;code/src/java;code/build/classes;code/build/testclasses;code/src/testcommon</classpath>
-                <source-level>1.5</source-level>
+                <source-level>1.6</source-level>
             </compilation-unit>
             <compilation-unit>
                 <package-root>code/src/itest</package-root>
                 <unit-tests/>
                 <classpath mode="compile">lib/test/clover.jar;lib/test/junit-4.1.jar;lib/test/xmlunit1.0.jar;code/src/java;code/build/classes;code/build/testclasses;code/src/testcommon</classpath>
-                <source-level>1.5</source-level>
+                <source-level>1.6</source-level>
             </compilation-unit>
             <compilation-unit>
                 <package-root>code/src/testcommon</package-root>
                 <unit-tests/>
                 <classpath mode="compile">lib/test/clover.jar;lib/test/junit-4.1.jar;lib/test/xmlunit1.0.jar;code/src/java;code/build/classes;code/build/testclasses</classpath>
-                <source-level>1.5</source-level>
+                <source-level>1.6</source-level>
             </compilation-unit>
             <compilation-unit>
                 <package-root>code/src/utest</package-root>
                 <unit-tests/>
                 <classpath mode="compile">lib/test/clover.jar;lib/test/junit-4.1.jar;lib/test/xmlunit1.0.jar;code/src/java;code/build/classes;code/build/testclasses;code/src/testcommon</classpath>
-                <source-level>1.5</source-level>
+                <source-level>1.6</source-level>
             </compilation-unit>
         </java-data>
         <preferences xmlns="http://www.netbeans.org/ns/auxiliary-configuration-preferences/1">

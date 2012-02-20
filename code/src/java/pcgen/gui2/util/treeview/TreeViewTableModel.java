@@ -40,6 +40,7 @@ import pcgen.gui2.util.treetable.SortableTreeTableNode;
 import pcgen.gui2.util.treetable.TreeTableNode;
 import pcgen.util.CollectionMaps;
 import pcgen.util.ListMap;
+import pcgen.util.Logging;
 
 /**
  *
@@ -55,14 +56,12 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 
 		public void elementAdded(ListEvent<E> e)
 		{
-			E elem = e.getElement();
-			addElement(elem);
+			addElement(e.getElement());
 		}
 
 		public void elementRemoved(ListEvent<E> e)
 		{
-			//Todo: optimize
-			setData(ListFacades.wrap(model));
+			removeElement(e.getElement());
 		}
 
 		public void elementsChanged(ListEvent<E> e)
@@ -137,52 +136,68 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		setSelectedTreeView(selectedView);
 	}
 
+	private void removeElement(E elem)
+	{
+		if (dataMap.containsKey(elem))
+		{
+			TreeViewNode root = viewMap.get(selectedView);
+			for (TreeViewPath<? super E> path : selectedView.getPaths(elem))
+			{
+				root.removeTreeViewPath(path);
+			}
+			dataMap.remove(elem);
+		}
+	}
+
 	private void addElement(E elem)
 	{
 		if (!dataMap.containsKey(elem))
 		{
 			dataMap.put(elem, dataview.getData(elem));
+			TreeViewNode root = viewMap.get(selectedView);
+			for (TreeViewPath<? super E> path : selectedView.getPaths(elem))
+			{
+				root.insertTreeViewPath(path);
+			}
 			//TODO If we change the root (and possibly the expanded path nodes) we lose the currently expanded path.
 			// So here we need to insert the new node wihtout disturbing the exisint nodes.
 			// We'll probably need to do the same for remove as well, both for efficiency and for keeping things expanded.
-			
-//			TreeViewNode parent = viewMap.get(selectedView);
-//			for (TreeViewPath<? super E> path : selectedView.getPaths(elem))
-//			{
-//				Logging.errorPrint("Have path " + path);
-//				Vector<TreeViewPath<? super E>> paths = new Vector<TreeViewPath<? super E>>();
-//				paths.add(path);
-//				for (int i = 0; i < path.getPathCount(); i++)
-//				{
-//					Object pathComp =path.getPathComponent(i);
-//					boolean found = false;
-//					for (int j = 0; j < parent.getChildCount(); j++)
-//					{
-//						TreeViewNode child = (TreeViewNode) parent.getChildAt(j);
-//						if (child.getUserObject().equals(pathComp))
-//						{
-//							parent = child;
-//							found = true;
-//							break;
-//						}
-//					}
-//					if (!found && i < path.getPathCount() -1)
-//					{
-//						TreeViewNode node = new TreeViewNode(i, pathComp, null);
-//						Logging.errorPrint("Adding " + node + " to " + parent);
-//						insertNodeInto(node, parent, 0);
-//						parent = node;
-//					}
-//				}
-//				TreeViewNode node = new TreeViewNode(path.getPathCount(), elem, null);
-//				Logging.errorPrint("Adding " + node + " to " + parent + " numChildren " + parent.getChildCount());
-//				insertNodeInto(node, parent, 0);
-//				Logging.errorPrint("After numChildren " + parent.getChildCount());
-//			}
 
-
-			viewMap.clear();
-			setSelectedTreeView(selectedView);
+			//			TreeViewNode parent = viewMap.get(selectedView);
+			//			for (TreeViewPath<? super E> path : selectedView.getPaths(elem))
+			//			{
+			//				Logging.errorPrint("Have path " + path);
+			//				Vector<TreeViewPath<? super E>> paths = new Vector<TreeViewPath<? super E>>();
+			//				paths.add(path);
+			//				for (int i = 0; i < path.getPathCount(); i++)
+			//				{
+			//					Object pathComp =path.getPathComponent(i);
+			//					boolean found = false;
+			//					for (int j = 0; j < parent.getChildCount(); j++)
+			//					{
+			//						TreeViewNode child = (TreeViewNode) parent.getChildAt(j);
+			//						if (child.getUserObject().equals(pathComp))
+			//						{
+			//							parent = child;
+			//							found = true;
+			//							break;
+			//						}
+			//					}
+			//					if (!found && i < path.getPathCount() -1)
+			//					{
+			//						TreeViewNode node = new TreeViewNode(i, pathComp, null);
+			//						Logging.errorPrint("Adding " + node + " to " + parent);
+			//						insertNodeInto(node, parent, 0);
+			//						parent = node;
+			//					}
+			//				}
+			//				TreeViewNode node = new TreeViewNode(path.getPathCount(), elem, null);
+			//				Logging.errorPrint("Adding " + node + " to " + parent + " numChildren " + parent.getChildCount());
+			//				insertNodeInto(node, parent, 0);
+			//				Logging.errorPrint("After numChildren " + parent.getChildCount());
+			//			}
+//			viewMap.clear();
+//			setSelectedTreeView(selectedView);
 		}
 	}
 
@@ -247,8 +262,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 	{
 		if (getDataColumn(column).isEditable())
 		{
-			return column == 0 ||
-					dataMap.containsKey(((TreeViewNode) node).getUserObject());
+			return column == 0 || dataMap.containsKey(((TreeViewNode) node).getUserObject());
 		}
 		return false;
 	}
@@ -317,8 +331,8 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 				{
 					vector = vectorMap.get(key);
 					TreeViewNode child;
-					if (vector.size() == 1 &&
-							vector.firstElement().getPathCount() <= level + 1)
+//					if (vector.size() == 1 && vector.firstElement().getPathCount() <= level + 1)
+					if (vector.size() == 1 && vector.firstElement().getPathCount() == level + 1)
 					{
 						child = new TreeViewNode(level + 1, key, null);
 					}
@@ -326,15 +340,108 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 					{
 						child = new TreeViewNode(level + 1, key, vector);
 					}
-					add(child);
+					if (mostRecentComparator == null || children == null)
+					{
+						add(child);
+					}
+					else
+					{
+						int index = Collections.binarySearch(children, child, mostRecentComparator);
+						insert(child, -(index + 1));
+					}
 				}
 				childValue = null;
 			}
 		}
 
+		public void removeTreeViewPath(TreeViewPath<? super E> path)
+		{
+			if (!loadedChildren)
+			{
+				Vector<TreeViewPath<? super E>> vector = (Vector<TreeViewPath<? super E>>) childValue;
+				vector.remove(path);
+				return;
+			}
+			Object levelObject = path.getPathComponent(level);
+
+			for (int i = 0; i < getChildCount(); i++)
+			{
+				TreeViewNode child = (TreeViewNode) getChildAt(i);
+				if (levelObject.equals(child.userObject))
+				{
+					if (path.getPathCount() == level + 1)
+					{//its a leaf, so remove appropriate child
+						removeNodeFromParent(child);
+					}
+					else
+					{//its in a branch, so pass on the request to the child
+						child.removeTreeViewPath(path);
+						//make sure to remove the branch if it is no longer useful
+						if (!dataMap.containsKey(child.userObject) && child.getChildCount() == 0)
+						{
+							removeNodeFromParent(child);
+						}
+					}
+					return;
+				}
+			}
+		}
+
+		public void insertTreeViewPath(TreeViewPath<? super E> path)
+		{
+			if (!loadedChildren)
+			{
+				Vector<TreeViewPath<? super E>> vector = (Vector<TreeViewPath<? super E>>) childValue;
+				vector.add(path);
+				return;
+			}
+			Object levelObject = path.getPathComponent(level);
+			if (mostRecentComparator == null)
+			{
+				for (int i = 0; i < getChildCount(); i++)
+				{
+					TreeViewNode child = (TreeViewNode) getChildAt(i);
+					if (levelObject.equals(child.userObject))
+					{
+						child.insertTreeViewPath(path);
+						return;
+					}
+				}
+			}
+			TreeViewNode newchild;
+			if (path.getPathCount() == level + 1)
+			{
+				newchild = new TreeViewNode(level + 1, levelObject, null);
+			}
+			else
+			{
+				Vector<TreeViewPath<? super E>> vector = new Vector<TreeViewPath<? super E>>();
+				vector.add(path);
+				newchild = new TreeViewNode(level + 1, levelObject, vector);
+			}
+			if (mostRecentComparator == null || children == null)
+			{
+				insertNodeInto(newchild, this, getChildCount());
+				return;
+			}
+			int index = Collections.binarySearch(children, newchild, mostRecentComparator);
+			if (index >= 0)
+			{
+				TreeViewNode child = (TreeViewNode) getChildAt(index);
+				child.insertTreeViewPath(path);
+			}
+			else
+			{
+				insertNodeInto(newchild, this, -(index + 1));
+			}
+		}
+
+		private Comparator<TreeTableNode> mostRecentComparator = null;
+
 		@SuppressWarnings("unchecked")
 		public void sortChildren(Comparator<TreeTableNode> comparator)
 		{
+			mostRecentComparator = comparator;
 			if (!loadedChildren)
 			{
 				loadChildren();

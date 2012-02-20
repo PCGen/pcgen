@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir=".." name="pcgen-sync-IDE">
+    <!-- TODO: edit the following target according to your needs -->
+    <!-- (more info: http://www.netbeans.org/kb/articles/freeform-config.html#runsingle) -->
+    <target name="run-selected-file-in-java">
+        <fail unless="run.class">Must set property 'run.class'</fail>
+        <java classname="${run.class}" failonerror="true" fork="true">
+            <classpath>
+                <pathelement path="pcgen.jar;lib/jep/jep-2.4.1.jar;lib/apache/commons-lang-2.4.jar;lib/cobra/cobra.jar;lib/jdom.jar;lib/fop/fop.jar;lib/lnf/skinlf.jar;lib/spring/spring-beans-2.5.6.SEC01.jar;lib/spring/spring-core-2.5.6.SEC01.jar;lib/MRJ141Stubs.jar"/>
+            </classpath>
+        </java>
+    </target>
+    <!-- TODO: edit the following target according to your needs -->
+    <!-- (more info: http://www.netbeans.org/kb/articles/freeform-config.html#runsingle) -->
+    <target name="debug-selected-file-in-java">
+        <fail unless="debug.class">Must set property 'debug.class'</fail>
+        <path id="cp">
+            <pathelement path="pcgen.jar;lib/jep/jep-2.4.1.jar;lib/apache/commons-lang-2.4.jar;lib/cobra/cobra.jar;lib/jdom.jar;lib/fop/fop.jar;lib/lnf/skinlf.jar;lib/spring/spring-beans-2.5.6.SEC01.jar;lib/spring/spring-core-2.5.6.SEC01.jar;lib/MRJ141Stubs.jar"/>
+        </path>
+        <nbjpdastart addressproperty="jpda.address" name="pcgen-sync" transport="dt_socket">
+            <classpath refid="cp"/>
+        </nbjpdastart>
+        <java classname="${debug.class}" fork="true">
+            <classpath refid="cp"/>
+            <jvmarg value="-Xdebug"/>
+            <jvmarg value="-Xrunjdwp:transport=dt_socket,address=${jpda.address}"/>
+        </java>
+    </target>
+</project>
