@@ -58,7 +58,6 @@ import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilterBar;
 import pcgen.gui2.filter.FilterButton;
-import pcgen.gui2.filter.FilterButtonGroupPanel;
 import pcgen.gui2.filter.FilterHandler;
 import pcgen.gui2.filter.FilterUtilities;
 import pcgen.gui2.filter.FilteredTreeViewTable;
@@ -159,10 +158,8 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		FilterBar<CharacterFacade, AbilityFacade> filterBar = new FilterBar<CharacterFacade, AbilityFacade>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 
-		FilterButtonGroupPanel<CharacterFacade, AbilityFacade> group = new FilterButtonGroupPanel<CharacterFacade, AbilityFacade>();
 		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter"));
-		group.addFilterButton(qFilterButton);
-		filterBar.addDisplayableFilter(group);
+		filterBar.addDisplayableFilter(qFilterButton);
 		JPanel availPanel = FilterUtilities.configureFilteredTreeViewPane(availableTreeViewPanel, filterBar);
 		Box box = Box.createHorizontalBox();
 		box.add(Box.createHorizontalGlue());

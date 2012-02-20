@@ -76,7 +76,6 @@ import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilterBar;
 import pcgen.gui2.filter.FilterButton;
-import pcgen.gui2.filter.FilterButtonGroupPanel;
 import pcgen.gui2.filter.FilteredTreeViewTable;
 import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.equip.EquipmentSelection;
@@ -182,10 +181,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 					}
 
 				});
-				FilterButtonGroupPanel groupPanel = new FilterButtonGroupPanel();
-				groupPanel.addFilterButton(premadeFilter);
-				groupPanel.addFilterButton(customFilter);
-				filterBar.addDisplayableFilter(groupPanel);
+				filterBar.addDisplayableFilter(premadeFilter);
+				filterBar.addDisplayableFilter(customFilter);
 			}
 			JPanel panel = new JPanel(new BorderLayout());
 			panel.add(filterBar, BorderLayout.NORTH);

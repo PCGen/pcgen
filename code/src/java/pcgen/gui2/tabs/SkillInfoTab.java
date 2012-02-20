@@ -62,7 +62,6 @@ import pcgen.core.facade.event.ListListener;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilterBar;
 import pcgen.gui2.filter.FilterButton;
-import pcgen.gui2.filter.FilterButtonGroupPanel;
 import pcgen.gui2.filter.FilterUtilities;
 import pcgen.gui2.filter.FilteredTreeViewTable;
 import pcgen.gui2.filter.SearchFilterPanel;
@@ -117,15 +116,13 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		FilterBar filterBar = new FilterBar();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 
-		FilterButtonGroupPanel group = new FilterButtonGroupPanel();
 		cFilterButton.setText("Class");
 		cFilterButton.setEnabled(false);
-		group.addFilterButton(cFilterButton);
+		filterBar.addDisplayableFilter(cFilterButton);
 
 		gainedFilterButton.setText(LanguageBundle.getString("in_gained"));
 		gainedFilterButton.setEnabled(false);
-		group.addFilterButton(gainedFilterButton);
-		filterBar.addDisplayableFilter(group);
+		filterBar.addDisplayableFilter(gainedFilterButton);
 		JPanel availPanel = FilterUtilities.configureFilteredTreeViewPane(skillTable, filterBar);
 		JScrollPane tableScrollPane;
 		JPanel tablePanel = new JPanel(new GridBagLayout());
