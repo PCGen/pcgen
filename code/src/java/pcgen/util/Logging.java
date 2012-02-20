@@ -71,6 +71,9 @@ public class Logging
 
 	/** Log level for application debug output. */
 	public static final Level DEBUG = Level.FINER;
+	
+	private static Logger pcgenLogger; 
+	private static Logger pluginLogger; 
 
     /**
      * Do any required initialisation of the Logger.
@@ -119,6 +122,8 @@ public class Logging
 	 */
 	public static void setDebugMode(final boolean argDebugMode)
 	{
+		retainRootLoggers();
+		
 		debugMode = argDebugMode;
 		if (debugMode)
 		{
@@ -130,6 +135,16 @@ public class Logging
 			Logger.getLogger("pcgen").setLevel(LST_WARNING);
 			Logger.getLogger("plugin").setLevel(LST_WARNING);
 		}
+	}
+
+	/**
+	 * Ensure that our root loggers (pcgen and plugin) do not get garbage 
+	 * collected, otherwise we lose the logging level!
+	 */
+	private static void retainRootLoggers()
+	{
+		pcgenLogger = Logger.getLogger("pcgen");
+		pluginLogger = Logger.getLogger("plugin");
 	}
 
 	/**
@@ -520,6 +535,7 @@ public class Logging
 	 */
 	public static void setCurrentLoggingLevel(Level level)
 	{
+		retainRootLoggers();
 		Logger.getLogger("pcgen").setLevel(level);
 		Logger.getLogger("plugin").setLevel(level);
 	}

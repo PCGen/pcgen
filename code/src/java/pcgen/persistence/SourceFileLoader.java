@@ -878,6 +878,8 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		// along with any options required by the campaigns...
 		for (Campaign campaign : aSelectedCampaignsList)
 		{
+			Logging.debugPrint("Loading campaign " + campaign);
+			
 			loadedCampaigns.add(campaign);
 //
 //			final URI sourceFile = campaign.getSourceURI();
