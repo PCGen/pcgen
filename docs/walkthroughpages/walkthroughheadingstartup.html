@@ -22,14 +22,53 @@
 	
 	<body>
 		<h1>Initial Start Up</h1>
+
+		<h2>Standard Startup</h2>
 		
-		<p>Whether you used pcgen.bat or pcgen.jar to start up PCGen, the first thing you will see is the 
-		splash screen with the man/machine DaVinci logo and the words PCGen written across it.</p>
+		<p>Whether you used <span class="lstfile">pcgen.bat</span> or <span class="lstfile">pcgen.jar</span> to start up PCGen, the first thing you will see is the 
+		splash screen with Da Vinci's Vitruvian Man logo and the words PCGen written across it.</p>
 
 		<p class="center"><img src="../images/system/pcgen_main_logo.jpg" alt="Man &amp; Machine DaVinci Image"/></p>	
 	
 		<p>From there, PCGen will load and take you to the Source Material Screen where you can get started 
 		making your characters!</p>
+
+<hr>
+
+		<h2>Command Line Startup</h2>
+		
+		<p>With the release of PCGen 5.17.11 PCGen added a new <strong>Command Line Interface</strong>. The features are as follows:</p>
+
+		<p class="indent0"><strong>Command Syntax:</strong> pcgen [-G] [-V] [-N] [-v] [-s &lt;settings_dir&gt;] [-m &lt;campaign&gt;] [-D [&lt;character_sheet&gt;]] [-E [&lt;character_sheet&gt;]] [-p &lt;party_file&gt;] [-c &lt;character_file&gt;]</p>
+		<p class="indent1"><strong>Option (G):</strong> -G (Start in GMGen Mode)</p>
+		<p class="indent1"><strong>Option (V):</strong> -V (Print Version and exit)</p>
+		<p class="indent1"><strong>Option (N):</strong> -N (Start in NPC Generator Mode)</p>
+		<p class="indent1"><strong>Option (v):</strong> -v (Set Logging Level to debug)</p>
+		<p class="indent1"><strong>Option (s):</strong> -s &lt;settings_dir&gt; (Use alternate settings directory instead of the default)</p>
+		<p class="indent1"><strong>Option (m):</strong> -m &lt;campaign_mode&gt; (Load Specified Campaign)</p>
+		<p class="indent1"><strong>Option (D):</strong> -D &lt;character_sheet&gt; (Start in Character Sheet Mode. <strong>-c</strong> or <strong>-p</strong> must be included. 
+			Will use default character sheet if not specified.)</p>
+		<p class="indent1"><strong>Option (E):</strong> -E &lt;character_sheet&gt; (Export character or party. <strong>-c</strong> or <strong>-p</strong> must be included. 
+			Will use default character sheet if not specified.)
+		<p class="indent1"><strong>Option (p):</strong> -p &lt;party_file&gt; (Loaded specified PCGen Party)</p>
+		<p class="indent1"><strong>Option (c):</strong> -c &lt;character_file&gt; (Loaded specified PCGen Character)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Except where noted, all options are optional.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>pcgen -E outputsheets/d20/fantasy/pdf/csheet_fantasy_std_blue.xslt -c &quot;characters/Test Bard.pcg&quot;</code></p>
+		<p class="indent3">Output the character <span class="lstfile">characters/Test Bard.pcg</span> to a PDF file using the <span class="lstfile">csheet_fantasy_std_blue.xslt sheet</span>.</p>
+		<p class="indent2"><code>pcgen -E outputsheets/d20/fantasy/htmlxml/psheet_fantasy_std_PFRPG.htm -p &quot;characters/The Testers.pcp&quot; </code></p>
+		<p class="indent3">Output the listed party to html.</p>
+		<p class="indent2"><code>pcgen -v -m &quot;Pathfinder RPG for Players - Advanced&quot;</code></p>
+		<p class="indent3">Startup with debug logging and load the <strong>Pathfinder RPG for Players - Advanced</strong> set.</p>
+		<p></p>
+
+		<p>As with the Standard Startup method, PCGen will load and take you to the Source Material Screen where you can get started 
+		making your characters!</p>
+
+<hr>
+
+		<h2>Beyond Startup</h2>
 		
 		<p>It is recommended that before you start, you go into the 
 		<a href="../menupages/settings/settingssectionheading.html">Settings Menu</a> and configure how you 
@@ -38,6 +77,8 @@
 		before you start making your character is highly recommended, as some setting will impact how your 
 		character is made, such as hit point rolling methods, starting gold and many other options!</p>
 		
+<hr>
+
 	<p>
 	<a href="http://validator.w3.org/check?uri=referer"><img
        	src="../images/system/valid-html401.png"
