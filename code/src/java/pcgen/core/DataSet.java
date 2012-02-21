@@ -81,6 +81,7 @@ public class DataSet implements DataSetFacade
 	private DefaultListFacade<EquipmentFacade> equipment;
 	private DefaultListFacade<String> xpTableNames;
 	private DefaultListFacade<GearBuySellFacade> gearBuySellSchemes;
+	private DefaultListFacade<String> characterTypes;
 
 	public DataSet( LoadContext context, GameMode gameMode, ListFacade<CampaignFacade> campaigns)
 	{
@@ -96,6 +97,7 @@ public class DataSet implements DataSetFacade
 		bodyStructures = new DefaultListFacade<BodyStructureFacade>();
 		equipment = new DefaultListFacade<EquipmentFacade>();
 		xpTableNames = new DefaultListFacade<String>();
+		characterTypes = new DefaultListFacade<String>();
 		this.context = context;
 		this.gameMode = gameMode;
 		this.campaigns = campaigns;
@@ -214,6 +216,10 @@ public class DataSet implements DataSetFacade
 		for (String xpTableName : gameMode.getXPTableNames())
 		{
 			xpTableNames.addElement(xpTableName);
+		}
+		for (String characterType : gameMode.getCharacterTypeList())
+		{
+			characterTypes.addElement(characterType);
 		}
 		createGearBuySellSchemes();
 		
@@ -380,6 +386,11 @@ public class DataSet implements DataSetFacade
 	public ListFacade<String> getXPTableNames()
 	{
 		return xpTableNames;
+	}
+
+	public ListFacade<String> getCharacterTypes()
+	{
+		return characterTypes;
 	}
 
 	/**

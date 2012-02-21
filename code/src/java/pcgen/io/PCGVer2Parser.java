@@ -870,6 +870,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			parsePoolPointsLine2(cache.get(TAG_POOLPOINTSAVAIL).get(0));
 		}
 
+		if (cache.containsKey(TAG_CHARACTERTYPE))
+		{
+			parseCharacterTypeLine(cache.get(TAG_CHARACTERTYPE).get(0));
+		}
+		
 		if (cache.containsKey(TAG_AUTOSPELLS))
 		{
 			parseAutoSpellsLine(cache.get(TAG_AUTOSPELLS).get(0));
@@ -2510,6 +2515,26 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		eSet.setTempBonusList(aList);
 	}
+
+	private void parseCharacterTypeLine(final String line)
+			throws PCGParseException
+	{
+		final StringTokenizer stok =
+				new StringTokenizer(
+					line.substring(TAG_CHARACTERTYPE.length() + 1), TAG_END, false);
+
+		String characterType = stok.nextToken();
+		if (!SettingsHandler.getGame().getCharacterTypeList().contains(characterType))
+		{
+			String wantedType = characterType;
+			characterType = SettingsHandler.getGame().getDefaultCharacterType();
+			final String message =
+					"Character type " + wantedType + " not found. Using " + characterType; //$NON-NLS-1$
+			warnings.add(message);
+		}
+		thePC.setCharacterType(characterType);
+	}
+
 
 	/*
 	 * ###############################################################

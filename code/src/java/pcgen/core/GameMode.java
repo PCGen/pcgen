@@ -177,10 +177,12 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private int minDieSize = 4;
 
 	private List<String> resizableTypeList = new ArrayList<String>();
+	private List<String> characterTypeList = new ArrayList<String>();
 	private Map<Class<?>, Set<String>> hiddenTypes = new HashMap<Class<?>, Set<String>>();
 
 	private List<String> xpTableNames = new ArrayList<String>();
 	private String defaultXPTableName;
+	private String defaultCharacterType;
 
 	/** The BioSet used for age calculations */
 	private BioSet bioSet = new BioSet();
@@ -2356,6 +2358,26 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		this.resizableTypeList = resizableTypeList;
 	}
 
+	/**
+	 * Retrieve the list of character types (e.g. PC or NPC).
+	 * @return the resizableTypeList
+	 */
+	public List<String> getCharacterTypeList()
+	{
+		return Collections.unmodifiableList(characterTypeList);
+	}
+
+	/**
+	 * Set the list of equipment types which flag it as able to
+	 * be resized by the automatic resize feature.
+	 *
+	 * @param resizableTypeList the resizableTypeList to set
+	 */
+	public void setCharacterTypeList(List<String> characterTypeList)
+	{
+		this.characterTypeList = characterTypeList;
+	}
+
 	private ConsolidatedListCommitStrategy masterLCS = new ConsolidatedListCommitStrategy();
 	private LoadContext context = new RuntimeLoadContext(getRefContext(), masterLCS);
 	private GameReferenceContext gameRefContext = new GameReferenceContext();
@@ -2492,6 +2514,34 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	public void addXPTableName(String xpTableName)
 	{
 		xpTableNames.add(xpTableName);
+	}
+
+	/**
+	 * Gets the name of the currently selected default character type
+	 *
+	 * @return the character type
+	 */
+	public String getDefaultCharacterType()
+	{
+		if (defaultCharacterType == null || defaultCharacterType.equals("") || !characterTypeList.contains(defaultCharacterType))
+		{
+			if (characterTypeList.isEmpty())
+			{
+				characterTypeList.add("Default");
+			}
+			defaultCharacterType = characterTypeList.get(0);
+		}
+		return defaultCharacterType;
+	}
+
+	/**
+	 * Sets the default character type
+	 *
+	 * @param characterType the new character type
+	 */
+	public void setDefaultCharacterType(String characterType)
+	{
+		defaultCharacterType = characterType;
 	}
 
 	/**

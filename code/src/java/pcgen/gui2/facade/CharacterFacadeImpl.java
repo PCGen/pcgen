@@ -191,6 +191,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	private DefaultReferenceFacade<Integer> currentXP;
 	private DefaultReferenceFacade<Integer> xpForNextlevel;
 	private DefaultReferenceFacade<String> xpTableName;
+	private DefaultReferenceFacade<String> characterType;
 	private DefaultReferenceFacade<Integer> age;
 	private DefaultReferenceFacade<SimpleFacade> ageCategory;
 	private DefaultListFacade<SimpleFacade> ageCategoryList;
@@ -295,6 +296,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		}
 		portrait = new DefaultReferenceFacade<File>(portraitFile);
 		cropRect = new RectangleReference(theCharacter.getPortraitThumbnailRect());
+		characterType = new DefaultReferenceFacade<String>(pc.getCharacterType());
 		
 		tabName = new DefaultReferenceFacade<String>(pc.getDisplay().getTabName());
 		name = new DefaultReferenceFacade<String>(pc.getName());
@@ -2376,6 +2378,17 @@ public class CharacterFacadeImpl implements CharacterFacade,
 				.getLevelUpMessage());
 		}
 		updateLevelTodo();
+	}
+
+	public ReferenceFacade<String> getCharacterTypeRef()
+	{
+		return characterType;
+	}
+
+	public void setCharacterType(String newType) {
+
+		characterType.setReference(newType);
+		theCharacter.setCharacterType(newType);
 	}
 
 	/* (non-Javadoc)

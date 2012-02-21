@@ -175,6 +175,7 @@ final class PCGVer2Creator implements IOConstants
 		appendVersionLine(buffer);
 		appendRollMethodLine(buffer);
 		appendPurchasePointsLine(buffer);
+		appendCharacterTypeLine(buffer);
 
 		//appendUnlimitedPoolCheckedLine(buffer);
 		appendPoolPointsLine(buffer);
@@ -749,6 +750,14 @@ final class PCGVer2Creator implements IOConstants
 		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.MISC_DM)));
 		buffer.append(LINE_SEP);
 	}
+
+	private void appendCharacterTypeLine(StringBuffer buffer)
+	{
+		buffer.append(TAG_CHARACTERTYPE).append(':');
+		buffer.append(thePC.getCharacterType());
+		buffer.append(LINE_SEP);
+	}
+
 
 	/*
 	 * ###############################################################

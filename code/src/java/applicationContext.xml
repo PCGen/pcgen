@@ -114,6 +114,7 @@
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
+	<bean id="characterTypeFacet" class="pcgen.cdom.facet.CharacterTypeFacet"/>
 	<bean id="CheckFacet" class="pcgen.cdom.facet.CheckFacet">
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 	</bean>

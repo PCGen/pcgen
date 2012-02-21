@@ -146,6 +146,9 @@ interface IOConstants
 	/** Character Name */
 	String TAG_CHARACTERNAME = "CHARACTERNAME";
 
+	/** Character Type */
+	String TAG_CHARACTERTYPE = "CHARACTERTYPE";
+
 	/** CHOICE */
 	String TAG_CHOICE = "CHOICE";
 

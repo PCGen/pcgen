@@ -257,6 +257,7 @@ public final class AdvancedPanel extends JPanel
 			"PREBASESIZENEQ",
 			"PREBIRTHPLACE",
 			"PRECITY",
+			"PRECHARACTERTYPE",
 			"PRECHECK",
 			"PRECHECKBASE",
 			"PRECLASS",

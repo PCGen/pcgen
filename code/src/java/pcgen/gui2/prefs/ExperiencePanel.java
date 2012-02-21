@@ -55,6 +55,7 @@ public class ExperiencePanel extends PCGenPrefsPanel
 	private static String in_experience =
 		LanguageBundle.getString("in_Prefs_experience");
 	private JComboBoxEx xpTableCombo = new JComboBoxEx();
+	private JComboBoxEx characterTypeCombo = new JComboBoxEx();
 
 	/**
 	 * Instantiates a new monster panel.
@@ -88,6 +89,17 @@ public class ExperiencePanel extends PCGenPrefsPanel
 		gridbag.setConstraints(xpTableCombo, c);
 		this.add(xpTableCombo);
 
+		Utility.buildConstraints(c, 0, 1, 2, 1, 0, 0);
+		label =
+				new JLabel(LanguageBundle
+					.getString("in_Prefs_characterType")
+					+ ": ");
+		gridbag.setConstraints(label, c);
+		this.add(label);
+		Utility.buildConstraints(c, 2, 1, 1, 1, 0, 0);
+		gridbag.setConstraints(characterTypeCombo, c);
+		this.add(characterTypeCombo);
+
 		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;
 		label = new JLabel(" ");
@@ -112,6 +124,7 @@ public class ExperiencePanel extends PCGenPrefsPanel
 	{
 		final GameMode gameMode = SettingsHandler.getGame();
 		gameMode.setDefaultXPTableName(String.valueOf(xpTableCombo.getSelectedItem()));
+		gameMode.setDefaultCharacterType(String.valueOf(characterTypeCombo.getSelectedItem()));
 	}
 
 	/* (non-Javadoc)
@@ -122,15 +135,25 @@ public class ExperiencePanel extends PCGenPrefsPanel
 	{
 		final GameMode gameMode = SettingsHandler.getGame();
 		final String xpTableName = gameMode.getDefaultXPTableName();
+		final String characterType = gameMode.getDefaultCharacterType();
 
 		List<String> xpTableNames = gameMode.getXPTableNames();
+		List<String> characterTypes = gameMode.getCharacterTypeList();
+
 		xpTableCombo.removeAllItems();
-		
 		for (String name : xpTableNames)
 		{
 			xpTableCombo.addItem(name);
 		}
 		xpTableCombo.setSelectedItem(xpTableName);
+
+		characterTypeCombo.removeAllItems();
+		for (String name : characterTypes)
+		{
+			characterTypeCombo.addItem(name);
+		}
+		characterTypeCombo.setSelectedItem(characterType);
+		
 	}
 
 }

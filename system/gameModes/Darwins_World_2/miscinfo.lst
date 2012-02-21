@@ -235,6 +235,9 @@ DIESIZES:1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000
 # Types which automatic resizing is activated on
 RESIZABLEEQUIPTYPE:Weapon|Armor|Shield|Ammunition|Resizable
 
+# Character Types:
+CHARACTERTYPE:PC|NPC
+
 DEFAULTDATASET:Darwin's World 2nd Edition - Survivors Guide
 
 #

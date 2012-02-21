@@ -227,6 +227,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
 	private XPFacet xpFacet = FacetLibrary.getFacet(XPFacet.class);
 	private XPTableFacet xpTableFacet = FacetLibrary.getFacet(XPTableFacet.class);
+	private CharacterTypeFacet characterTypeFacet = FacetLibrary.getFacet(CharacterTypeFacet.class);
 	
 	//The following are other facets
 	private DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);
@@ -427,6 +428,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		campaignFacet.addAll(id, loadedCampaigns);
 
 		setXPTable(SettingsHandler.getGame().getDefaultXPTableName());
+		setCharacterType(SettingsHandler.getGame().getDefaultCharacterType());
 
 		setRace(Globals.s_EMPTYRACE);
 		setName(Constants.EMPTY_STRING);
@@ -3061,6 +3063,17 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public LevelInfo getXPTableLevelInfo(int level)
 	{
 		return xpTableFacet.getLevelInfo(id, level);
+	}
+
+	public void setCharacterType(final String characterType)
+	{
+		characterTypeFacet.setCharacterType(id, characterType);
+		setDirty(true);
+	}
+
+	public String getCharacterType()
+	{
+		return characterTypeFacet.getCharacterType(id);
 	}
 
 	public void addEquipSet(final EquipSet set)

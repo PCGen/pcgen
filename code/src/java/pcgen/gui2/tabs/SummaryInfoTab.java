@@ -88,6 +88,7 @@ import pcgen.core.facade.event.ListListener;
 import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
 import pcgen.core.facade.util.DefaultListFacade;
+import pcgen.core.facade.util.ListFacade;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.dialog.CharacterHPDialog;
 import pcgen.gui2.dialog.RandomNameDialog;
@@ -127,6 +128,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	private final JPanel racePanel;
 	private final JPanel classPanel;
 	private final JTextField characterNameField;
+	private final JComboBox characterTypeComboBox;
 	private final JTextField playerNameField;
 	private final JTextField tabLabelField;
 	private final JFormattedTextField ageField;
@@ -173,6 +175,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		this.racePanel = new JPanel();
 		this.classPanel = new JPanel();
 		this.characterNameField = new JTextField();
+		this.characterTypeComboBox = new JComboBox();
 		this.random = new JButton();
 		this.playerNameField = new JTextField();
 		this.expField = new JFormattedTextField(NumberFormat.getIntegerInstance());
@@ -550,6 +553,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			basicsPanel.add(characterNameField, gbc);
 		}
 		Insets insets = new Insets(0, 0, 3, 2);
+		addGridBagLayer(basicsPanel, labelFont, insets, "Character Type:", characterTypeComboBox);
 		addGridBagLayer(basicsPanel, labelFont, insets, "Player:", playerNameField);
 		addGridBagLayer(basicsPanel, labelFont, insets, "Tab Label:", tabLabelField);
 		if (genderComboBox.getModel().getSize() != 0)
@@ -663,7 +667,17 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		final CharacterComboBoxModel<SimpleFacade> ageCatModel;
 		final FacadeComboBoxModel<ClassFacade> classModel;
 		final CharacterComboBoxModel<String> xpTableModel;
+		final CharacterComboBoxModel<String> characterTypeModel;
 
+		characterTypeModel = new CharacterComboBoxModel<String>()
+		{
+
+			public void setSelectedItem(Object anItem)
+			{
+				character.setCharacterType((String) anItem);
+			}
+
+		};
 		genderModel = new CharacterComboBoxModel<GenderFacade>()
 		{
 
@@ -736,6 +750,10 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		LabelHandler modTotalHandler = new LabelHandler(modTotal);
 
 		DataSetFacade dataset = character.getDataSet();
+
+		//initialize character type model
+		characterTypeModel.setListFacade(dataset.getCharacterTypes());
+		characterTypeModel.setReference(character.getCharacterTypeRef());
 		//initialize alignment model
 		alignmentModel.setListFacade(dataset.getAlignments());
 		alignmentModel.setReference(character.getAlignmentRef());
@@ -758,7 +776,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		modTotalLabelHandler.setReference(character.getModTotalLabelTextRef());
 		modTotalHandler.setReference(character.getModTotalTextRef());
 
-		//initialize XP table  model
+		//initialize XP table model
 		xpTableModel.setListFacade(dataset.getXPTableNames());
 		xpTableModel.setReference(character.getXPTableNameRef());
 
@@ -870,6 +888,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		};
 		Hashtable<Object, Object> stateTable = new Hashtable<Object, Object>();
 		stateTable.put(Models.CharacterNameHandler, charNameHandler);
+		stateTable.put(Models.CharacterTypeComboBoxModel, characterTypeModel);
 		stateTable.put(Models.PlayerNameHandler, playerNameHandler);
 		stateTable.put(Models.TabNameHandler, tabNameHandler);
 		stateTable.put(Models.GenderComboBoxModel, genderModel);
@@ -920,6 +939,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		RandomNameAction,
 		PlayerNameHandler,
 		TabNameHandler,
+		CharacterTypeComboBoxModel,
 		GenderComboBoxModel,
 		HandsComboBoxModel,
 		AlignmentComboBoxModel,
@@ -994,6 +1014,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		((RollMethodAction) state.get(Models.RollMethodAction)).install();
 		((HPHandler) state.get(Models.HPHandler)).install();
 
+		characterTypeComboBox.setModel((ComboBoxModel) state.get(Models.CharacterTypeComboBoxModel));
 		genderComboBox.setModel((ComboBoxModel) state.get(Models.GenderComboBoxModel));
 		handsComboBox.setModel((ComboBoxModel) state.get(Models.HandsComboBoxModel));
 		alignmentComboBox.setModel((ComboBoxModel) state.get(Models.AlignmentComboBoxModel));

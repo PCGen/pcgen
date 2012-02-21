@@ -225,6 +225,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-CHARACTERTYPE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/CharactertypeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${outputplugins.dir}/ExportToken-CLASSABB.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -1443,6 +1450,15 @@ jar-all-plugins - Generate the plugin jar files
 					<include name="plugin/pretokens/parser/PreCampaignParser.class" />
 					<include name="plugin/pretokens/test/PreCampaignTester.class" />
 					<include name="plugin/pretokens/writer/PreCampaignWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRECHARACTERTYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreCharactertypeParser.class" />
+					<include name="plugin/pretokens/test/PreCharactertypeTester.class" />
+					<include name="plugin/pretokens/writer/PreCharactertypeWriter.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -5251,6 +5267,13 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/gamemode/BonusstatlevelstartintervalToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-CHARACTERTYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/CharacterTypeToken.class" />
 				</patternset>
 			</fileset>
 		</jar>

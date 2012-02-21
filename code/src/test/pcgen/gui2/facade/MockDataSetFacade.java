@@ -171,6 +171,15 @@ public class MockDataSetFacade implements DataSetFacade
 		return null;
 	}
 
+	/* (non-Javadoc)
+	 * @see pcgen.core.facade.DataSetFacade#getCharacterTypes()
+	 */
+	public ListFacade<String> getCharacterTypes()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	public void addEquipmentLocation(BodyStructureFacade elf)
 	{
 		equipmentLoc.addElement(elf);

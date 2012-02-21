@@ -491,9 +491,21 @@ public interface CharacterFacade
 	public void setXPTable(final String xpTableName);
 
 	/**
+	 * Set the character's character type.
+	 * *
+	 * @param characterType The character type to be set
+	 */
+	public void setCharacterType(String characterType);
+
+	/**
 	 * @return A reference to the name of the character's XP table
 	 */
 	public ReferenceFacade<String> getXPTableNameRef();
+
+	/**
+	 * @return A reference to the name of the character's type
+	 */
+	public ReferenceFacade<String> getCharacterTypeRef();
 
 	/**
 	 * Set the character's age in years.

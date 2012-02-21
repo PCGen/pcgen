@@ -46,6 +46,7 @@
 		<name>|NAME|</name>
 		<followerof>|FOLLOWEROF|</followerof>
 		<playername>|PLAYERNAME|</playername>
+		<charactertype>|CHARACTERTYPE|</charactertype>
 		<hero_points>|VAR.HEROPOINTS.INTVAL|</hero_points>
 		<age>|AGE|</age>
 		<alignment>
