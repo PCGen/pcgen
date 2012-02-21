@@ -37,8 +37,6 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Character Tr
 ABILITY:pfctwe_abilities.lst
 FEAT:pfctwe_feat.lst
 KIT:pfctwe_kits.lst
-RACE:pfctwe_races.lst
-TEMPLATE:pfctwe_templates.lst
 
 # Hide internal types
 HIDETYPE:FEAT|Trait|BasicTrait

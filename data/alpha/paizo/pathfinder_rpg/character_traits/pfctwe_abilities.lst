@@ -2,6 +2,10 @@
 SOURCELONG:Pathfinder Roleplaying Game Character Traits	SOURCESHORT:PFCTWE	SOURCEWEB:http://paizo.com/traits	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
+###Block: Modify default ability
+# Add traits for PCs only
+CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Traits|2|PRECHARACTERTYPE:1,PC
+
 ###Block: Basic Traits: Combat
 # Ability Name	Unique Key			Category of Ability		Type						Multiple Requirements																			Description																																								Save checks bonus				Combat bonus					Misc bonus			Source Page
 Anatomist		KEY:Anatomist_Trait	CATEGORY:Special Ability	TYPE:Trait.BasicTrait.CombatTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Anatomist_Trait],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.CombatTrait]		DESC:You have studied the workings of anatomy, either as a student at university or as an apprentice mortician or necromancer.																																					SOURCEPAGE:p.3
@@ -53,10 +57,6 @@ Natural-Born Leader	KEY:Natural-Born Leader_Trait		CATEGORY:Special Ability	TYPE
 Poverty-Stricken		KEY:Poverty-Stricken_Trait		CATEGORY:Special Ability	TYPE:Trait.BasicTrait.SocialTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Poverty-Stricken_Trait],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SocialTrait]		DESC:Your childhood was tough, and your parents had to make every copper piece count. Hunger was your constant companion, and you often had to live off the land or sleep in the wild.													BONUS:SKILL|Survival|1|TYPE=Trait									CSKILL:Survival						SOURCEPAGE:p.6
 Rich Parents		KEY:Rich Parents_Trait			CATEGORY:Special Ability	TYPE:Trait.BasicTrait.SocialTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Rich Parents_Trait],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SocialTrait]		DESC:You were born into a rich family, perhaps even the nobility.																																																			KIT:1|Rich Parents	SOURCEPAGE:p.6
 Suspicious			KEY:Suspicious_Trait			CATEGORY:Special Ability	TYPE:Trait.BasicTrait.SocialTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Suspicious_Trait],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SocialTrait]			DESC:You discovered at an early age that someone you trusted, perhaps an older sibling or a parent, had lied to you, and often, about something you had taken for granted, leaving you quick to question the claims of others.						BONUS:SKILL|Sense Motive|1|TYPE=Trait								CSKILL:Sense Motive					SOURCEPAGE:p.6
-
-###Block: No Traits ability to fill the pool for NPCs and monsters
-# Ability Name	Unique Key			Category of Ability		Type												Visible		Multiple Requirements																	Description							Cost
-No Traits		KEY:No Traits ~ Trait	CATEGORY:Special Ability	TYPE:Trait.BasicTrait.CombatTrait.FaithTrait.MagicTrait.SocialTrait	VISIBLE:DISPLAY	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,No Traits ~ Trait],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.Trait]	DESC:You do not have any character traits.	COST:2
 
 #
 # End
