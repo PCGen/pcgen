@@ -94,7 +94,6 @@ SHIELDPROF:pfapg_profs_shields.lst
 WEAPONPROF:pfapg_profs_weapons.lst
 
 RACE:pfapg_races_companions.lst
-RACE:pfapg_races_traits.lst
 
 SKILL:pfapg_skills_conditional.lst
 
@@ -107,6 +106,7 @@ TEMPLATE:pfapg_templates.lst
 HIDETYPE:FEAT|AquaticBloodline|BorealBloodline|DeepearthBloodline|DreamspunBloodline|ProteanBloodline|SerpentineBloodline|ShadowBloodline|StarsoulBloodline|StormbornBloodline|VerdantBloodline
 HIDETYPE:FEAT|DruidShamanBear|DruidShamanEagle|DruidShamanLion|DruidShamanSerpent|DruidShamanWolf
 HIDETYPE:FEAT|MartialWeaponProficiency|MountedMastery|OracleWeaponmastery
+HIDETYPE:FEAT|Trait|BasicTrait
 
 #
 # End

@@ -1,10 +1,6 @@
 # CVS $Revision$ $Author$ -- Thu Jul  7 12:04:01 2011 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 
-###Block: Standard character traits template for player character races
-# Template Name	Visible	Bonus to Ability Pool
-Character Traits	VISIBLE:NO	BONUS:ABILITYPOOL|Traits|2
-
 # Oracle Tongues granting Language:
 Oracle Tongues Choice ~ Abyssal	LANGAUTO:Abyssal
 Oracle Tongues Choice ~ Aklo		LANGAUTO:Aklo
