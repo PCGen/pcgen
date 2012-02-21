@@ -99,7 +99,7 @@ Traveling Spellbook (Blank)									TYPE:Goods.Tools.Book.Spellbook		NUMPAGES:50
 # Equipment Name		Output Name				Type					Cost		Weight	Source Page
 Cleats								TYPE:Goods.Clothing,Resizable	COST:5	WT:2		SOURCEPAGE:p.182
 Furs									TYPE:Goods.Clothing.Resizable	COST:12	WT:5		SOURCEPAGE:p.182
-Outfit (Hot Weather)	OUTPUTNAME:Hot Whether Outfit	TYPE:Goods.Clothing.Resizable	COST:8	WT:4		SOURCEPAGE:p.182
+Outfit (Hot Weather)	OUTPUTNAME:Hot Weather Outfit	TYPE:Goods.Clothing.Resizable	COST:8	WT:4		SOURCEPAGE:p.182
 Snowshoes								TYPE:Goods.Clothing.Resizable	COST:5	WT:4		SOURCEPAGE:p.182
 
 ###Block:Animal-Related Gear
