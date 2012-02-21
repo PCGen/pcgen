@@ -983,6 +983,10 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 								String.valueOf(spellInfo.getActualLevel()),
 								getRootNode(book));
 				}
+				if (spellInfo.getTimes() > 1)
+				{
+					node.addCount(spellInfo.getTimes() -1);
+				}
 				boolean isSpellBook =
 						pc.getDisplay().getSpellBookByName(book).getType() == SpellBook.TYPE_SPELL_BOOK;
 				// Add to list
