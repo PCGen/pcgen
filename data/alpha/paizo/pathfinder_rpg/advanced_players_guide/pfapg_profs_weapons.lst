@@ -3,7 +3,7 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/
 # Original Entry by: Eric C. Smith (Maredudd)
 
 # Weapon Name		Type															Nb Hands
-Bomb				TYPE:Exotic.Ranged
+Bomb				TYPE:Exotic.Ranged.Splash
 # SIMPLE WEAPONS
 # -- unarmed
 # Weapon Name			Type																		Nb Hands
