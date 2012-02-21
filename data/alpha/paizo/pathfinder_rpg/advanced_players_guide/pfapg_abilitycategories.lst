@@ -139,7 +139,7 @@ ABILITYCATEGORY:Beastmaster Companion Choice				VISIBLE:QUALIFY	EDITABLE:YES		ED
 
 # Favored Bonus Spells:
 ABILITYCATEGORY:Bard Favored Bonus Spell					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownBard													PLURAL:Bard Favored Bonus Spells					DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Inquisitor Favored Bonus Spell				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownInquisistor												PLURAL:Inquisitor Favored Bonus Spells				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Inquisitor Favored Bonus Spell				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownInquisitor												PLURAL:Inquisitor Favored Bonus Spells				DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Sorcerer Favored Bonus Spell				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownSorcerer													PLURAL:Sorcerer Favored Bonus Spells				DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Oracle Favored Bonus Spell				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownOracle													PLURAL:Oracle Favored Bonus Spells				DISPLAYLOCATION:Racial Abilities
 
