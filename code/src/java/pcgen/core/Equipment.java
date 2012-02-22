@@ -1168,13 +1168,9 @@ public final class Equipment extends PObject implements Serializable,
 		final List<EquipmentModifier> commonList =
 				new ArrayList<EquipmentModifier>();
 
-		// TODO Change the arrays of lists to be lists of lists instead to get
-		// rid of eclipse warnings. See
-		// http://www.angelikalanger.com/Articles/Papers/JavaGenerics/ArraysInJavaGenerics.htm
-
-		final List<EquipmentModifier> modListByFC[] = initSplitModList();
-		final List<EquipmentModifier> altModListByFC[] = initSplitModList();
-		final List<EquipmentModifier> commonListByFC[] = initSplitModList();
+		final List<List<EquipmentModifier>> modListByFC = initSplitModList();
+		final List<List<EquipmentModifier>> altModListByFC = initSplitModList();
+		final List<List<EquipmentModifier>> commonListByFC = initSplitModList();
 
 		final Equipment baseEquipment = baseItem.resolvesTo();
 
@@ -1213,8 +1209,8 @@ public final class Equipment extends PObject implements Serializable,
 
 		// Add in front eq mods
 		int fcf = EqModFormatCat.FRONT.ordinal();
-		itemName.append(buildEqModDesc(commonListByFC[fcf], modListByFC[fcf],
-			altModListByFC[fcf]));
+		itemName.append(buildEqModDesc(commonListByFC.get(fcf), modListByFC.get(fcf),
+			altModListByFC.get(fcf)));
 
 		if (itemName.length() > 0)
 		{
@@ -1236,8 +1232,8 @@ public final class Equipment extends PObject implements Serializable,
 		// Add in middle mods
 		int fcm = EqModFormatCat.MIDDLE.ordinal();
 		String eqmodDesc1 =
-				buildEqModDesc(commonListByFC[fcm], modListByFC[fcm],
-					altModListByFC[fcm]);
+				buildEqModDesc(commonListByFC.get(fcm), modListByFC.get(fcm),
+					altModListByFC.get(fcm));
 
 		if (eqmodDesc1.length() > 0)
 		{
@@ -1276,8 +1272,8 @@ public final class Equipment extends PObject implements Serializable,
 
 		// Put in parens mods
 		int fcp = EqModFormatCat.PARENS.ordinal();
-		itemName.append(buildEqModDesc(commonListByFC[fcp], modListByFC[fcp],
-			altModListByFC[fcp]));
+		itemName.append(buildEqModDesc(commonListByFC.get(fcp), modListByFC.get(fcp),
+			altModListByFC.get(fcp)));
 
 		//
 		// If there were no modifiers, then drop the trailing '/'
@@ -4787,15 +4783,14 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return An array of equipmod lists.
 	 */
-	private List<EquipmentModifier>[] initSplitModList()
+	private List<List<EquipmentModifier>> initSplitModList()
 	{
 
-		List<EquipmentModifier>[] modListArray =
-				new List[EqModFormatCat.values().length];
-
-		for (int i = 0; i < modListArray.length; i++)
+		List<List<EquipmentModifier>> modListArray =
+				new ArrayList<List<EquipmentModifier>>();
+		for (int i = 0; i < EqModFormatCat.values().length; i++)
 		{
-			modListArray[i] = new ArrayList<EquipmentModifier>();
+			modListArray.add(new ArrayList<EquipmentModifier>());
 		}
 
 		return modListArray;
@@ -4810,13 +4805,13 @@ public final class Equipment extends PObject implements Serializable,
 	 *            The array of receiving lists, one for each format cat.
 	 */
 	private void splitModListByFormatCat(final List<EquipmentModifier> modList,
-		final List<EquipmentModifier>[] splitModList)
+		final List<List<EquipmentModifier>> splitModList)
 	{
 
 		for (EquipmentModifier aModList : modList)
 		{
 			int o = aModList.getSafe(ObjectKey.FORMAT).ordinal();
-			splitModList[o].add(aModList);
+			splitModList.get(o).add(aModList);
 		}
 	}
 
