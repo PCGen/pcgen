@@ -38,6 +38,7 @@ public final class UIPropertyContext extends PropertyContext
 	public static final String VIRTUAL_COLOR = "virtualColor";
 	public static final String QUALIFIED_COLOR = "qualifiedColor";
 	public static final String ALWAYS_OPEN_EXPORT_FILE = "alwaysOpenExportFile";
+	public static final String DEFAULT_OS_TYPE = "defaultOSType";
 	/**
 	 * The character property for the initial tab to open
 	 * this property corresponds to an integer value

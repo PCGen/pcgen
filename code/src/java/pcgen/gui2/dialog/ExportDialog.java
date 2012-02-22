@@ -175,12 +175,16 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 		setTitle("Export a PC or Party");
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		
-		String defaultOSType = SettingsHandler.getDefaultOSType();
-		for (SheetFilter filter : SheetFilter.values())
+		UIPropertyContext context = UIPropertyContext.createContext("ExportDialog");
+		String defaultOSType = context.getProperty(UIPropertyContext.DEFAULT_OS_TYPE);
+		if (defaultOSType != null)
 		{
-			if (defaultOSType.equals(filter.toString()))
+			for (SheetFilter filter : SheetFilter.values())
 			{
-				exportBox.setSelectedItem(filter);
+				if (defaultOSType.equals(filter.toString()))
+				{
+					exportBox.setSelectedItem(filter);
+				}
 			}
 		}
 	}
@@ -236,7 +240,9 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 		}
 		else if (EXPORT_TO_COMMAND.equals(e.getActionCommand()))
 		{
-			SettingsHandler.setDefaultOSType(exportBox.getSelectedItem().toString());
+			UIPropertyContext context = UIPropertyContext.createContext("ExportDialog");
+			context.setProperty(UIPropertyContext.DEFAULT_OS_TYPE,
+					exportBox.getSelectedItem().toString());
 			refreshFiles();
 		}
 		else if (EXPORT_COMMAND.equals(e.getActionCommand()))
