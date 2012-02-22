@@ -83,6 +83,7 @@ import pcgen.util.Logging;
  * be exported to.
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
+@SuppressWarnings("serial")
 public class ExportDialog extends JDialog implements ActionListener, ListSelectionListener
 {
 
@@ -523,7 +524,7 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 		}
 	}
 
-	private class PDFExporter extends SwingWorker
+	private class PDFExporter extends SwingWorker<Object, Object>
 	{
 
 		private final File saveFile;
