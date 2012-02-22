@@ -52,6 +52,7 @@ public final class PCGenToolBar extends JToolBar
         addSeparator();
 
         add(ToolBarUtilities.createToolBarButton(actionMap.get(PCGenActionMap.PRINT_COMMAND)));
+        add(ToolBarUtilities.createToolBarButton(actionMap.get(PCGenActionMap.EXPORT_COMMAND)));
         addSeparator();
 
         add(ToolBarUtilities.createToolBarButton(actionMap.get(PCGenActionMap.PREFERENCES_COMMAND)));
