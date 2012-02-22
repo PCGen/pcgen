@@ -242,6 +242,7 @@ public final class SettingsHandler
 	private static boolean cleanupTempFiles = false;
 	private static boolean alwaysOverwrite = false;
 	private static boolean allowOverride = false;
+	private static String defaultOSType = ""; //$NON-NLS-1$
 
 	/**
 	 *  See @javax.swing.SwingConstants
@@ -315,6 +316,16 @@ public final class SettingsHandler
 	public static boolean getAlwaysOverwrite()
 	{
 		return alwaysOverwrite;
+	}
+
+	public static void setDefaultOSType(final String argDefaultOSType)
+	{
+		defaultOSType = argDefaultOSType;
+	}
+
+	public static String getDefaultOSType()
+	{
+		return defaultOSType;
 	}
 
 	public static void setAutogen(final int idx, final boolean bFlag)
@@ -1273,6 +1284,7 @@ public final class SettingsHandler
 		setCleanupTempFiles(getPCGenOption("cleanupTempFiles", false)); //$NON-NLS-1$
 		setCustomizerSplit1(getPCGenOption("customizer.split1", -1)); //$NON-NLS-1$
 		setCustomizerSplit2(getPCGenOption("customizer.split2", -1)); //$NON-NLS-1$
+		setDefaultOSType(getPCGenOption("defaultOSType", null)); //$NON-NLS-1$
 		setDmNotes(getPCGenOption("dmnotes", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		setDomainTab_ListMode(getPCGenOption("DomainTab.ListMode", GuiConstants.INFODOMAIN_VIEW_NAME)); //$NON-NLS-1$
 		setEnforceSpendingBeforeLevelUp(getPCGenOption("enforceSpendingBeforeLevelUp", false)); //$NON-NLS-1$
@@ -1707,6 +1719,7 @@ public final class SettingsHandler
 		setPCGenOption("createPcgBackup", getCreatePcgBackup()); //$NON-NLS-1$
 		setPCGenOption("customizer.split1", getCustomizerSplit1()); //$NON-NLS-1$
 		setPCGenOption("customizer.split2", getCustomizerSplit2()); //$NON-NLS-1$
+		setPCGenOption("defaultOSType", getDefaultOSType()); //$NON-NLS-1$
 		setPCGenOption("dmnotes", getDmNotes()); //$NON-NLS-1$
 		setPCGenOption("DomainTab.ListMode", getDomainTab_ListMode()); //$NON-NLS-1$
 		setPCGenOption("EquipTab.availableListMode", getEquipTab_AvailableListMode()); //$NON-NLS-1$

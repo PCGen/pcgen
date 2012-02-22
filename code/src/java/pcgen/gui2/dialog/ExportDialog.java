@@ -174,6 +174,15 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 
 		setTitle("Export a PC or Party");
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+		
+		String defaultOSType = SettingsHandler.getDefaultOSType();
+		for (SheetFilter filter : SheetFilter.values())
+		{
+			if (defaultOSType.equals(filter.toString()))
+			{
+				exportBox.setSelectedItem(filter);
+			}
+		}
 	}
 
 	private void initLayout()
@@ -227,6 +236,7 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 		}
 		else if (EXPORT_TO_COMMAND.equals(e.getActionCommand()))
 		{
+			SettingsHandler.setDefaultOSType(exportBox.getSelectedItem().toString());
 			refreshFiles();
 		}
 		else if (EXPORT_COMMAND.equals(e.getActionCommand()))
@@ -469,8 +479,10 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 	{
 		if (allTemplates != null)
 		{
-			IOFileFilter sheetFilter = FileFilterUtils.asFileFilter((FilenameFilter) exportBox.getSelectedItem());
+			SheetFilter sheetFilter = (SheetFilter) exportBox.getSelectedItem();
+			IOFileFilter ioFilter = FileFilterUtils.asFileFilter((FilenameFilter) sheetFilter);
 			IOFileFilter prefixFilter;
+			String defaultSheet = null;
 			if (partyBox.isSelected())
 			{
 				prefixFilter = FileFilterUtils.prefixFileFilter(Constants.PARTY_TEMPLATE_PREFIX);
@@ -478,8 +490,16 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 			else
 			{
 				prefixFilter = FileFilterUtils.prefixFileFilter(Constants.CHARACTER_TEMPLATE_PREFIX);
+				if (sheetFilter == SheetFilter.HTMLXML)
+				{
+					defaultSheet = SettingsHandler.getSelectedCharacterHTMLOutputSheet(null);
+				}
+				else if (sheetFilter == SheetFilter.PDF)
+				{
+					defaultSheet = SettingsHandler.getSelectedCharacterPDFOutputSheet(null);
+				}
 			}
-			IOFileFilter filter = FileFilterUtils.and(prefixFilter, sheetFilter);
+			IOFileFilter filter = FileFilterUtils.and(prefixFilter, ioFilter);
 			List<File> files = FileFilterUtils.filterList(filter, allTemplates);
 
 			URI osPath = new File(ConfigurationSettings.getOutputSheetsDir()).toURI();
@@ -489,6 +509,11 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 				uriList[i] = osPath.relativize(files.get(i).toURI());
 			}
 			fileList.setListData(uriList);
+			if (defaultSheet != null)
+			{
+				URI defaultPath = new File(defaultSheet).toURI();
+				fileList.setSelectedValue(osPath.relativize(defaultPath), true);
+			}
 		}
 	}
 
@@ -618,7 +643,7 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 
 		public boolean accept(File dir, String name)
 		{
-			return dir.getName().equalsIgnoreCase(dirFilter);
+			return dir.getName().equalsIgnoreCase(dirFilter) && ! name.endsWith("~");
 		}
 
 	}
