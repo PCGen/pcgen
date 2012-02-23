@@ -51,7 +51,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		implements SortableTreeTableModel
 {
 
-	protected final Map<TreeView<? super E>, TreeViewNode> viewMap = new HashMap<TreeView<? super E>, TreeViewNode>();
+//	protected final Map<TreeView<? super E>, TreeViewNode> viewMap = new HashMap<TreeView<? super E>, TreeViewNode>();
 	private final ListListener<E> listListener = new ListListener<E>()
 	{
 
@@ -133,7 +133,6 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 	{
 		dataMap.keySet().retainAll(data);
 		populateDataMap(data);
-		viewMap.clear();
 		setSelectedTreeView(selectedView);
 	}
 
@@ -161,7 +160,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 	{
 		if (dataMap.containsKey(elem) && selectedView != null)
 		{
-			TreeViewNode root = viewMap.get(selectedView);
+			TreeViewNode root = (TreeViewNode) getRoot();
 			for (TreeViewPath<? super E> path : selectedView.getPaths(elem))
 			{
 				root.removeTreeViewPath(path);
@@ -175,50 +174,11 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		if (!dataMap.containsKey(elem) && selectedView != null)
 		{
 			dataMap.put(elem, dataview.getData(elem));
-			TreeViewNode root = viewMap.get(selectedView);
+			TreeViewNode root = (TreeViewNode) getRoot();
 			for (TreeViewPath<? super E> path : selectedView.getPaths(elem))
 			{
 				root.insertTreeViewPath(path);
 			}
-			//TODO If we change the root (and possibly the expanded path nodes) we lose the currently expanded path.
-			// So here we need to insert the new node wihtout disturbing the exisint nodes.
-			// We'll probably need to do the same for remove as well, both for efficiency and for keeping things expanded.
-
-			//			TreeViewNode parent = viewMap.get(selectedView);
-			//			for (TreeViewPath<? super E> path : selectedView.getPaths(elem))
-			//			{
-			//				Logging.errorPrint("Have path " + path);
-			//				Vector<TreeViewPath<? super E>> paths = new Vector<TreeViewPath<? super E>>();
-			//				paths.add(path);
-			//				for (int i = 0; i < path.getPathCount(); i++)
-			//				{
-			//					Object pathComp =path.getPathComponent(i);
-			//					boolean found = false;
-			//					for (int j = 0; j < parent.getChildCount(); j++)
-			//					{
-			//						TreeViewNode child = (TreeViewNode) parent.getChildAt(j);
-			//						if (child.getUserObject().equals(pathComp))
-			//						{
-			//							parent = child;
-			//							found = true;
-			//							break;
-			//						}
-			//					}
-			//					if (!found && i < path.getPathCount() -1)
-			//					{
-			//						TreeViewNode node = new TreeViewNode(i, pathComp, null);
-			//						Logging.errorPrint("Adding " + node + " to " + parent);
-			//						insertNodeInto(node, parent, 0);
-			//						parent = node;
-			//					}
-			//				}
-			//				TreeViewNode node = new TreeViewNode(path.getPathCount(), elem, null);
-			//				Logging.errorPrint("Adding " + node + " to " + parent + " numChildren " + parent.getChildCount());
-			//				insertNodeInto(node, parent, 0);
-			//				Logging.errorPrint("After numChildren " + parent.getChildCount());
-			//			}
-//			viewMap.clear();
-//			setSelectedTreeView(selectedView);
 		}
 	}
 
@@ -243,9 +203,6 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		if (view != null)
 		{
 			this.selectedView = view;
-			TreeViewNode node = viewMap.get(view);
-//			if (node == null)
-//			{
 			Vector<TreeViewPath<? super E>> paths = new Vector<TreeViewPath<? super E>>();
 			for (E element : dataMap.keySet())
 			{
@@ -254,10 +211,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 					paths.add(path);
 				}
 			}
-			node = new TreeViewNode(paths);
-			viewMap.put(view, node);
-//			}
-			setRoot(node);
+			setRoot(new TreeViewNode(paths));
 		}
 	}
 
@@ -301,7 +255,8 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 
 	public final void sortModel(Comparator<List<?>> comparator)
 	{
-		viewMap.get(selectedView).sortChildren(new TreeNodeComparator(comparator));
+		TreeViewNode root = (TreeViewNode) getRoot();
+		root.sortChildren(new TreeNodeComparator(comparator));
 		reload();
 	}
 
