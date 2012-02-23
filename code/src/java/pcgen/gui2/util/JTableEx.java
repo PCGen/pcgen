@@ -61,7 +61,6 @@ public class JTableEx extends JTable
 	public static final int ACTION_DOUBLECLICK = 2042;
 	private final RowComparator rowComparator = new RowComparator();
 	private List<SortingPriority> columnkeys;
-	private boolean isSorting = false;
 
 	/**
 	 * Constructor
@@ -186,6 +185,7 @@ public class JTableEx extends JTable
 			model = new DefaultSortableTableModel(model);
 		}
 		super.setModel(model);
+		sortModel();
 	}
 
 	@Override
@@ -210,12 +210,12 @@ public class JTableEx extends JTable
 	public void tableChanged(TableModelEvent e)
 	{
 		super.tableChanged(e);
-		if(!isSorting)
-		{
-			isSorting = true;
-			sortModel();
-			isSorting = false;
-		}
+//		if(!isSorting)
+//		{
+//			isSorting = true;
+//			sortModel();
+//			isSorting = false;
+//		}
 	}
 
 	public void toggleSort(int column)

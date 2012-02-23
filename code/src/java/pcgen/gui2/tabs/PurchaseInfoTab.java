@@ -275,6 +275,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			splitPane.setRightComponent(infoPane);
 		}
 		splitPane.setResizeWeight(.25);
+		setResizeWeight(1);
 		setBottomComponent(splitPane);
 	}
 

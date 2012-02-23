@@ -22,8 +22,13 @@ package pcgen.gui2.filter;
 
 import java.awt.event.MouseEvent;
 import java.util.Collections;
+import java.util.Enumeration;
 import java.util.List;
+import javax.swing.JTree;
+import javax.swing.SwingUtilities;
+import javax.swing.tree.TreePath;
 import pcgen.gui2.util.JTreeViewTable;
+import pcgen.gui2.util.treetable.TreeTableModel;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
@@ -63,8 +68,30 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 
 	public void refilter()
 	{
+//		JTree tree = getTree();
+//		TreeTableModel treeTableModel = getTreeTableModel();
+//		Enumeration<TreePath> paths = tree.getExpandedDescendants(new TreePath(
+//				treeTableModel.getRoot()));
+//		TreePath[] selectionPaths = tree.getSelectionPaths();
 		filteredModel.refilter();
-		sortModel();
+//		if (paths != null)
+//		{
+//			while (paths.hasMoreElements())
+//			{
+//				tree.expandPath(paths.nextElement());
+//			}
+//		}
+//		tree.setSelectionPaths(selectionPaths);
+//		SwingUtilities.invokeLater(new Runnable(){
+//
+//			@Override
+//			public void run()
+//			{
+//				throw new UnsupportedOperationException("Not supported yet.");
+//			}
+//			
+//		});
+//		sortModel();
 	}
 
 	public void setContext(C context)

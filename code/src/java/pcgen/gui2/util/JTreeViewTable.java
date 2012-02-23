@@ -43,6 +43,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JViewport;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.event.TableColumnModelEvent;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
@@ -357,7 +358,16 @@ public class JTreeViewTable<T> extends JTreeTable
 		model.setSelectedTreeView(startingView);
 		setTreeTableModel(model);
 		setColumnModel(createTableColumnModel(startingView, dataView));
-		sortModel();
+		SwingUtilities.invokeLater(new Runnable()
+		{
+
+			@Override
+			public void run()
+			{
+				sortModel();
+			}
+
+		});
 	}
 
 	private class TreeViewsPopupMenu extends JPopupMenu implements ListListener<TreeView<T>>
@@ -392,9 +402,10 @@ public class JTreeViewTable<T> extends JTreeTable
 				if (child instanceof JMenuItem)
 				{
 					JMenuItem menu = (JMenuItem) child;
-					if (menu.isSelected() && menu.getAction() instanceof JTreeViewTable.ChangeViewAction)
+					if (menu.isSelected()
+							&& menu.getAction() instanceof JTreeViewTable.ChangeViewAction)
 					{
-						ChangeViewAction changeViewAction = (JTreeViewTable.ChangeViewAction)menu.getAction();
+						ChangeViewAction changeViewAction = (JTreeViewTable.ChangeViewAction) menu.getAction();
 						startingView = changeViewAction.view;
 					}
 				}
@@ -509,8 +520,8 @@ public class JTreeViewTable<T> extends JTreeTable
 
 		protected void maybeShowPopup(MouseEvent e)
 		{
-			if (e.isPopupTrigger() && getTrackedColumn().getHeaderValue() ==
-					treetableModel.getSelectedTreeView().getViewName())
+			if (e.isPopupTrigger() && getTrackedColumn().getHeaderValue()
+					== treetableModel.getSelectedTreeView().getViewName())
 			{
 				TableColumnModel columnmodel = getColumnModel();
 				Rectangle rect = getHeaderRect(columnmodel.getColumnIndexAtX(e.getX()));
