@@ -5377,13 +5377,11 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			if (eq.typeStringContains(aType))
 			{
 				aList.add(eq);
-				setDirty(true);
 			}
 			else if (aType.equalsIgnoreCase("CONTAINED")
 				&& (eq.getParent() != null))
 			{
 				aList.add(eq);
-				setDirty(true);
 			}
 		}
 
@@ -8802,7 +8800,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	{
 		if (unsortedEquip.isEmpty())
 		{
-			return Collections.emptyList();
+			// Create a real list so it can be added to later on
+			return new ArrayList<Equipment>();
 		}
 
 		// Merge list for duplicates
