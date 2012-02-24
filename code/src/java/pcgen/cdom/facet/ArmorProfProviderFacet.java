@@ -80,7 +80,7 @@ public class ArmorProfProviderFacet extends
 	}
 
 	/**
-	 * Returns true if a Player Character is proficient with a given piece of
+	 * Returns true if a Player Character is proficient with the given piece of
 	 * Armor; false otherwise.
 	 * 
 	 * While this method will accept any Equipment, it is only guaranteed to
@@ -94,7 +94,7 @@ public class ArmorProfProviderFacet extends
 	 * @param eq
 	 *            The Armor (as an Equipment object) for which the proficiency
 	 *            is being tested.
-	 * @return true if a Player Character is proficient with a given piece of
+	 * @return true if a Player Character is proficient with the given piece of
 	 *         Armor; false otherwise.
 	 */
 	public boolean isProficientWithArmor(CharID id, Equipment eq)

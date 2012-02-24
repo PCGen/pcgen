@@ -21,13 +21,13 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.util.Logging;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
+ * An AbstractItemFacet is a DataFacet that contains information about Objects
+ * that are contained in a PlayerCharacter when a PlayerCharacter may have only
+ * one of that type of Object (e.g. Race, Deity). This is not used for Objects
+ * where the PlayerCharacter may possess more than one of that type of object
+ * (e.g. Template, Language)
  * 
- * A AbstractItemFacet is a DataFacet that contains information about
- * CDOMObjects that are contained in a PlayerCharacter when a PlayerCharacter
- * may have only one of that type of CDOMObject (e.g. Race, Deity). This is not
- * used for CDOMObjects where the PlayerCharacter may possess more than one of
- * that type of object (e.g. Template, Language)
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public abstract class AbstractItemFacet<T> extends AbstractDataFacet<T>
 {
@@ -71,7 +71,8 @@ public abstract class AbstractItemFacet<T> extends AbstractDataFacet<T>
 
 	/**
 	 * Removes the item for this AbstractItemFacet and the Player Character
-	 * represented by the given CharID.
+	 * represented by the given CharID. May return null if no value was set for
+	 * the Player Character identified by the given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
@@ -125,6 +126,29 @@ public abstract class AbstractItemFacet<T> extends AbstractDataFacet<T>
 				|| (obj != null && obj.equals(current));
 	}
 
+	/**
+	 * Copies the contents of the AbstractItemFacet from one Player Character to
+	 * another Player Character, based on the given CharIDs representing those
+	 * Player Characters.
+	 * 
+	 * This is a method in AbstractItemFacet in order to avoid exposing the
+	 * internal contents of AbstractItemFacet to other classes. This should not
+	 * be inlined, as the internal information should not be exposed to other
+	 * classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the AbstractItemFacet of one
+	 * Player Character will only impact the Player Character where the
+	 * AbstractItemFacet was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param destination
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
 	@Override
 	public void copyContents(CharID source, CharID copy)
 	{

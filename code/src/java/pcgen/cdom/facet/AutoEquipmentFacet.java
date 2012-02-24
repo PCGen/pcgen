@@ -94,9 +94,12 @@ public class AutoEquipmentFacet extends
 	 * This method is value-semantic in that ownership of the returned List is
 	 * transferred to the class calling this method. Modification of the
 	 * returned List will not modify this AutoEquipmentFacet and modification of
-	 * this AutoEquipmentFacet will not modify the returned Collection. If you
-	 * wish to modify the information stored in this AutoEquipmentFacet, you
-	 * must use the add*() and remove*() methods of AutoEquipmentFacet.
+	 * this AutoEquipmentFacet will not modify the returned Collection.
+	 * Modifications to the returned List will also not modify any future or
+	 * previous objects returned by this (or other) methods on
+	 * AutoEquipmentFacet. If you wish to modify the information stored in this
+	 * AutoEquipmentFacet, you must use the add*() and remove*() methods of
+	 * AutoEquipmentFacet.
 	 * 
 	 * @param id
 	 *            The CharID identifying the Player Character for which the list

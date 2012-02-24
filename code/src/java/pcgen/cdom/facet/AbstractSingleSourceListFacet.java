@@ -190,10 +190,12 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 	 * transferred to the class calling this method. Since this is a remove all
 	 * function, modification of the returned Map will not modify this
 	 * AbstractSingleSourceListFacet and modification of this
-	 * AbstractSingleSourceListFacet will not modify the returned Map. If you
-	 * wish to modify the information stored in this
-	 * AbstractSingleSourceListFacet, you must use the add*() and remove*()
-	 * methods of AbstractSingleSourceListFacet.
+	 * AbstractSingleSourceListFacet will not modify the returned Map.
+	 * Modifications to the returned Map will also not modify any future or
+	 * previous objects returned by this (or other) methods on
+	 * AbstractSingleSourceListFacet. If you wish to modify the information
+	 * stored in this AbstractSingleSourceListFacet, you must use the add*() and
+	 * remove*() methods of AbstractSingleSourceListFacet.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character from which all
@@ -228,9 +230,11 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 	 * transferred to the class calling this method. Modification of the
 	 * returned List will not modify this AbstractSingleSourceListFacet and
 	 * modification of this AbstractSingleSourceListFacet will not modify the
-	 * returned List. If you wish to modify the information stored in this
-	 * AbstractSingleSourceListFacet, you must use the add*() and remove*()
-	 * methods of AbstractSingleSourceListFacet.
+	 * returned List. Modifications to the returned List will also not modify
+	 * any future or previous objects returned by this (or other) methods on
+	 * AbstractSingleSourceListFacet. If you wish to modify the information
+	 * stored in this AbstractSingleSourceListFacet, you must use the add*() and
+	 * remove*() methods of AbstractSingleSourceListFacet.
 	 * 
 	 * 
 	 * @param id
@@ -502,9 +506,11 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 	 * transferred to the class calling this method. Modification of the
 	 * returned List will not modify this AbstractSingleSourceListFacet and
 	 * modification of this AbstractSingleSourceListFacet will not modify the
-	 * returned List. If you wish to modify the information stored in this
-	 * AbstractSingleSourceListFacet, you must use the add*() and remove*()
-	 * methods of AbstractSingleSourceListFacet.
+	 * returned List. Modifications to the returned List will also not modify
+	 * any future or previous objects returned by this (or other) methods on
+	 * AbstractSingleSourceListFacet. If you wish to modify the information
+	 * stored in this AbstractSingleSourceListFacet, you must use the add*() and
+	 * remove*() methods of AbstractSingleSourceListFacet.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the

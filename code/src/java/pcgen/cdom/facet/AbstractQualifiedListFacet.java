@@ -207,9 +207,12 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 * transferred to the class calling this method. Since this is a remove all
 	 * function, modification of the returned Map will not modify this
 	 * AbstractQualifiedListFacet and modification of this
-	 * AbstractQualifiedListFacet will not modify the returned Map. If you wish
-	 * to modify the information stored in this AbstractQualifiedListFacet, you
-	 * must use the add*() and remove*() methods of AbstractQualifiedListFacet.
+	 * AbstractQualifiedListFacet will not modify the returned Map.
+	 * Modifications to the returned Map will also not modify any future or
+	 * previous objects returned by this (or other) methods on
+	 * AbstractQualifiedListFacet. If you wish to modify the information stored
+	 * in this AbstractQualifiedListFacet, you must use the add*() and remove*()
+	 * methods of AbstractQualifiedListFacet.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character from which all
@@ -244,9 +247,11 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 * transferred to the class calling this method. Modification of the
 	 * returned List will not modify this AbstractQualifiedListFacet and
 	 * modification of this AbstractQualifiedListFacet will not modify the
-	 * returned List. If you wish to modify the information stored in this
-	 * AbstractQualifiedListFacet, you must use the add*() and remove*() methods
-	 * of AbstractQualifiedListFacet.
+	 * returned List. Modifications to the returned List will also not modify
+	 * any future or previous objects returned by this (or other) methods on
+	 * AbstractQualifiedListFacet. If you wish to modify the information stored
+	 * in this AbstractQualifiedListFacet, you must use the add*() and remove*()
+	 * methods of AbstractQualifiedListFacet.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
@@ -560,9 +565,11 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 * transferred to the class calling this method. Modification of the
 	 * returned List will not modify this AbstractQualifiedListFacet and
 	 * modification of this AbstractQualifiedListFacet will not modify the
-	 * returned List. If you wish to modify the information stored in this
-	 * AbstractQualifiedListFacet, you must use the add*() and remove*() methods
-	 * of AbstractQualifiedListFacet.
+	 * returned List. Modifications to the returned List will also not modify
+	 * any future or previous objects returned by this (or other) methods on
+	 * AbstractQualifiedListFacet. If you wish to modify the information stored
+	 * in this AbstractQualifiedListFacet, you must use the add*() and remove*()
+	 * methods of AbstractQualifiedListFacet.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
@@ -600,13 +607,16 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 * Character identified by the given CharID qualifies for none of the
 	 * objects in this AbstractQualifiedListFacet.
 	 * 
-	 * This method is value-semantic in that ownership of the returned List is
-	 * transferred to the class calling this method. Modification of the
-	 * returned List will not modify this AbstractQualifiedListFacet and
-	 * modification of this AbstractQualifiedListFacet will not modify the
-	 * returned List. If you wish to modify the information stored in this
-	 * AbstractQualifiedListFacet, you must use the add*() and remove*() methods
-	 * of AbstractQualifiedListFacet.
+	 * This method is value-semantic in that ownership of the returned
+	 * Collection is transferred to the class calling this method. Modification
+	 * of the returned Collection will not modify this
+	 * AbstractQualifiedListFacet and modification of this
+	 * AbstractQualifiedListFacet will not modify the returned Collection.
+	 * Modifications to the returned Collection will also not modify any future
+	 * or previous objects returned by this (or other) methods on
+	 * AbstractQualifiedListFacet. If you wish to modify the information stored
+	 * in this AbstractQualifiedListFacet, you must use the add*() and remove*()
+	 * methods of AbstractQualifiedListFacet.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
@@ -649,9 +659,11 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 * transferred to the class calling this method. Modification of the
 	 * returned List will not modify this AbstractQualifiedListFacet and
 	 * modification of this AbstractQualifiedListFacet will not modify the
-	 * returned List. If you wish to modify the information stored in this
-	 * AbstractQualifiedListFacet, you must use the add*() and remove*() methods
-	 * of AbstractQualifiedListFacet.
+	 * returned List. Modifications to the returned List will also not modify
+	 * any future or previous objects returned by this (or other) methods on
+	 * AbstractQualifiedListFacet. If you wish to modify the information stored
+	 * in this AbstractQualifiedListFacet, you must use the add*() and remove*()
+	 * methods of AbstractQualifiedListFacet.
 	 * 
 	 * Generally, use of this method is discouraged in general operational
 	 * aspects. However, it is recognized that certain output tokens can list
@@ -705,9 +717,11 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 * transferred to the class calling this method. Modification of the
 	 * returned List will not modify this AbstractQualifiedListFacet and
 	 * modification of this AbstractQualifiedListFacet will not modify the
-	 * returned List. If you wish to modify the information stored in this
-	 * AbstractQualifiedListFacet, you must use the add*() and remove*() methods
-	 * of AbstractQualifiedListFacet.
+	 * returned List. Modifications to the returned List will also not modify
+	 * any future or previous objects returned by this (or other) methods on
+	 * AbstractQualifiedListFacet. If you wish to modify the information stored
+	 * in this AbstractQualifiedListFacet, you must use the add*() and remove*()
+	 * methods of AbstractQualifiedListFacet.
 	 * 
 	 * Note: If a particular item has been granted by more than one source, then
 	 * the QualifiedActor will only be called for the first source that

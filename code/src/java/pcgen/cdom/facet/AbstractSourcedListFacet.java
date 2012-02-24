@@ -185,9 +185,12 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<T>
 	 * transferred to the class calling this method. Since this is a remove all
 	 * function, modification of the returned Map will not modify this
 	 * AbstractSourcedListFacet and modification of this
-	 * AbstractSourcedListFacet will not modify the returned Map. If you wish to
-	 * modify the information stored in this AbstractSourcedListFacet, you must
-	 * use the add*() and remove*() methods of AbstractSourcedListFacet.
+	 * AbstractSourcedListFacet will not modify the returned Map. Modifications
+	 * to the returned Map will also not modify any future or previous objects
+	 * returned by this (or other) methods on AbstractSourcedListFacet. If you
+	 * wish to modify the information stored in this AbstractSourcedListFacet,
+	 * you must use the add*() and remove*() methods of
+	 * AbstractSourcedListFacet.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character from which all
@@ -218,13 +221,15 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<T>
 	 * AbstractSourcedListFacet for the Player Character identified by the given
 	 * CharID.
 	 * 
-	 * This method is value-semantic in that ownership of the returned List is
+	 * This method is value-semantic in that ownership of the returned Set is
 	 * transferred to the class calling this method. Modification of the
-	 * returned List will not modify this AbstractSourcedListFacet and
+	 * returned Set will not modify this AbstractSourcedListFacet and
 	 * modification of this AbstractSourcedListFacet will not modify the
-	 * returned List. If you wish to modify the information stored in this
-	 * AbstractSourcedListFacet, you must use the add*() and remove*() methods
-	 * of AbstractSourcedListFacet.
+	 * returned Set. Modifications to the returned Set will also not modify any
+	 * future or previous objects returned by this (or other) methods on
+	 * AbstractSourcedListFacet. If you wish to modify the information stored in
+	 * this AbstractSourcedListFacet, you must use the add*() and remove*()
+	 * methods of AbstractSourcedListFacet.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
@@ -350,7 +355,7 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<T>
 	 * 
 	 * @param id
 	 *            The CharID for which the Set should be returned
-	 * @return The Set for the Player Character represented by the given CharID;
+	 * @return The Map for the Player Character represented by the given CharID;
 	 *         null if no information has been set in this
 	 *         AbstractSourcedListFacet for the Player Character.
 	 */
@@ -535,9 +540,11 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<T>
 	 * transferred to the class calling this method. Modification of the
 	 * returned List will not modify this AbstractSourcedListFacet and
 	 * modification of this AbstractSourcedListFacet will not modify the
-	 * returned List. If you wish to modify the information stored in this
-	 * AbstractSourcedListFacet, you must use the add*() and remove*() methods
-	 * of AbstractSourcedListFacet.
+	 * returned List. Modifications to the returned List will also not modify
+	 * any future or previous objects returned by this (or other) methods on
+	 * AbstractSourcedListFacet. If you wish to modify the information stored in
+	 * this AbstractSourcedListFacet, you must use the add*() and remove*()
+	 * methods of AbstractSourcedListFacet.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the

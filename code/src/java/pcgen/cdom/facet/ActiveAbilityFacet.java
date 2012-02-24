@@ -140,7 +140,9 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	 * This method is value-semantic in that ownership of the returned List is
 	 * transferred to the class calling this method. Modification of the
 	 * returned List will not modify this ActiveAbilityFacet and modification of
-	 * this ActiveAbilityFacet will not modify the returned List. If you wish to
+	 * this ActiveAbilityFacet will not modify the returned List. Modifications
+	 * to the returned List will also not modify any future or previous objects
+	 * returned by this (or other) methods on ActiveAbilityFacet. If you wish to
 	 * modify the information stored in this ActiveAbilityFacet, you must use
 	 * the add*() and remove*() methods of ActiveAbilityFacet.
 	 * 
@@ -499,7 +501,9 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	 * This method is value-semantic in that ownership of the returned List is
 	 * transferred to the class calling this method. Modification of the
 	 * returned List will not modify this ActiveAbilityFacet and modification of
-	 * this ActiveAbilityFacet will not modify the returned List. If you wish to
+	 * this ActiveAbilityFacet will not modify the returned List. Modifications
+	 * to the returned List will also not modify any future or previous objects
+	 * returned by this (or other) methods on ActiveAbilityFacet. If you wish to
 	 * modify the information stored in this ActiveAbilityFacet, you must use
 	 * the add*() and remove*() methods of ActiveAbilityFacet.
 	 * 
@@ -622,7 +626,9 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	 * This method is value-semantic in that ownership of the returned List is
 	 * transferred to the class calling this method. Modification of the
 	 * returned List will not modify this ActiveAbilityFacet and modification of
-	 * this ActiveAbilityFacet will not modify the returned List. If you wish to
+	 * this ActiveAbilityFacet will not modify the returned List. Modifications
+	 * to the returned List will also not modify any future or previous objects
+	 * returned by this (or other) methods on ActiveAbilityFacet. If you wish to
 	 * modify the information stored in this ActiveAbilityFacet, you must use
 	 * the add*() and remove*() methods of ActiveAbilityFacet.
 	 * 
