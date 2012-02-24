@@ -36,6 +36,8 @@ import pcgen.core.analysis.SizeUtilities;
 /**
  * UnarmedDamageFacet is a Facet that tracks the Unarmed Damage info that have
  * been added to a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class UnarmedDamageFacet extends AbstractSourcedListFacet<List<String>>
 		implements DataFacetChangeListener<CDOMObject>
@@ -47,6 +49,9 @@ public class UnarmedDamageFacet extends AbstractSourcedListFacet<List<String>>
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**
+	 * Stores in this facet any Unarmed Damage information from a CDOMObject
+	 * which has been added to a Player Character.
+	 * 
 	 * Triggered when one of the Facets to which UnarmedDamageFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
 	 * Player Character.
@@ -73,6 +78,9 @@ public class UnarmedDamageFacet extends AbstractSourcedListFacet<List<String>>
 	}
 
 	/**
+	 * Removes from this facet any Unarmed Damage information from a CDOMObject
+	 * which has been removed from a Player Character.
+	 * 
 	 * Triggered when one of the Facets to which UnarmedDamageFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
 	 * Player Character.
@@ -89,6 +97,15 @@ public class UnarmedDamageFacet extends AbstractSourcedListFacet<List<String>>
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
 
+	/**
+	 * Returns the unarmed damage String for the Race of the Player Character
+	 * identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character
+	 * @return The unarmed damage String for the Race of the Player Character
+	 *         identified by the given CharID
+	 */
 	public String getUDamForRace(CharID id)
 	{
 		Race race = raceFacet.get(id);
@@ -104,6 +121,21 @@ public class UnarmedDamageFacet extends AbstractSourcedListFacet<List<String>>
 		return "1d3";
 	}
 
+	/**
+	 * Returns a new (empty) Map for this UnarmedDamageFacet. This does not
+	 * require the IdentityHashMap since List<String> is composed of only
+	 * well-formed Java objects that behave properly with .equals() and
+	 * .hashCode() in terms of maintaining identity (whereas many CDOMObjects do
+	 * not as of 5.16)
+	 * 
+	 * Note that this method should always be the only method used to construct
+	 * a Map for this UnarmedDamageFacet. It is actually preferred to use
+	 * getConstructingCacheMap(CharID) in order to implicitly call this method.
+	 * 
+	 * @return A new (empty) Map for use in this UnarmedDamageFacet.
+	 * 
+	 * @see pcgen.cdom.facet.AbstractSourcedListFacet#getComponentMap()
+	 */
 	@Override
 	protected Map<List<String>, Set<Object>> getComponentMap()
 	{
@@ -124,7 +156,13 @@ public class UnarmedDamageFacet extends AbstractSourcedListFacet<List<String>>
 	{
 		this.consolidationFacet = consolidationFacet;
 	}
-	
+
+	/**
+	 * Initializes the connections for UnarmedDamageFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the UnarmedDamageFacet.
+	 */
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);

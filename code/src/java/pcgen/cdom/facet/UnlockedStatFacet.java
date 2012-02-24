@@ -24,8 +24,10 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PCStat;
 
 /**
- * UnlockedStatFacet is a Facet that tracks the Locked Stats that have been
+ * UnlockedStatFacet is a Facet that tracks the Unlocked Stats that have been
  * applied to a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class UnlockedStatFacet extends AbstractSourcedListFacet<PCStat>
 		implements DataFacetChangeListener<CDOMObject>
@@ -34,6 +36,9 @@ public class UnlockedStatFacet extends AbstractSourcedListFacet<PCStat>
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**
+	 * Adds a PCStat to this facet if the PCStat was unlocked by a CDOMObject
+	 * which has been added to a Player Character.
+	 * 
 	 * Triggered when one of the Facets to which UnlockedStatFacet listens fires
 	 * a DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
@@ -56,6 +61,9 @@ public class UnlockedStatFacet extends AbstractSourcedListFacet<PCStat>
 	}
 
 	/**
+	 * Removes a PCStat from this facet if the PCStat was unlocked by a
+	 * CDOMObject which has been removed from a Player Character.
+	 * 
 	 * Triggered when one of the Facets to which UnlockedStatFacet listens fires
 	 * a DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
 	 * Character.
@@ -76,7 +84,13 @@ public class UnlockedStatFacet extends AbstractSourcedListFacet<PCStat>
 	{
 		this.consolidationFacet = consolidationFacet;
 	}
-	
+
+	/**
+	 * Initializes the connections for UnlockedStatFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the UnlockedStatFacet.
+	 */
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);

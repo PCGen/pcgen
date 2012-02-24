@@ -23,16 +23,46 @@ import pcgen.core.Equipment;
  * UserEquipmentFacet is a Facet that tracks the Equipment possessed by a Player
  * Character. Possessed in this case does not mean active, it could be carried
  * or owned.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class UserEquipmentFacet extends AbstractSourcedListFacet<Equipment>
 		implements DataFacetChangeListener<Equipment>
 {
+	/**
+	 * Consolidates Equipment into this facet when that Equipment has been added
+	 * to a Player Character.
+	 * 
+	 * Triggered when one of the Facets to which UserEquipmentFacet listens
+	 * fires a DataFacetChangeEvent to indicate a piece of Equipment was added
+	 * to a Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<Equipment> dfce)
 	{
 		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
 
+	/**
+	 * Removes a piece of Equipment from this facet when the Equipment has been
+	 * removed from a Player Character.
+	 * 
+	 * Triggered when one of the Facets to which UnlockedStatFacet listens fires
+	 * a DataFacetChangeEvent to indicate a piece of Equipment was removed from
+	 * a Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<Equipment> dfce)
 	{
