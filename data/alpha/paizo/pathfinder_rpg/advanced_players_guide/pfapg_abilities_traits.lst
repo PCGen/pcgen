@@ -3,8 +3,7 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/
 
 ###Block: Modify default ability
 # Add traits for PCs only
-#CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Traits|2|PRECHARACTERTYPE:1,PC
-CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Traits|2
+CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Traits|2|PRECHARACTERTYPE:1,PC
 
 ###Block: Basic Traits: Combat Traits
 # Ability Name	Unique Key				Category of Ability		Type						Multiple Requirements																			Description																																								Save checks bonus				Combat bonus					Misc bonus			Source Page		Description of the Benefits
