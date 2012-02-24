@@ -28,14 +28,35 @@ import pcgen.core.bonus.BonusUtilities;
 /**
  * CheckFacet is a Facet that tracks the PCCheck objects available to a Player
  * Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class CheckFacet extends AbstractListFacet<PCCheck>
 {
 
 	private BonusCheckingFacet bonusCheckingFacet;
 
+	/**
+	 * Returns the Bonus value provided solely by Checks, for a given Bonus type
+	 * and Bonus name on the Player Character identified by the given CharID.
+	 * 
+	 * @param id
+	 *            CharId identifying the Player Character for which the Bonus
+	 *            value will be returned
+	 * @param type
+	 *            The Bonus type for which the Bonus value will be returned
+	 * @param name
+	 *            The Bonus name for which the Bonus value will be returned
+	 * @return The Bonus value provided solely by Checks, for a given Bonus type
+	 *         and Bonus name on the Player Character identified by the given
+	 *         CharID
+	 */
 	public double getCheckBonusTo(CharID id, String type, String name)
 	{
+		/*
+		 * TODO Need to consider whether this method actually belongs in the
+		 * core or whether this is a Display layer item
+		 */
 		double bonus = 0;
 		type = type.toUpperCase();
 		name = name.toUpperCase();

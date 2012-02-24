@@ -33,6 +33,8 @@ import pcgen.rules.context.ReferenceContext;
 /**
  * ChangeProfFacet is a Facet that tracks the ChangeProf objects that are
  * contained in a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ChangeProfFacet extends AbstractSourcedListFacet<ChangeProf>
 		implements DataFacetChangeListener<CDOMObject>
@@ -41,6 +43,9 @@ public class ChangeProfFacet extends AbstractSourcedListFacet<ChangeProf>
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**
+	 * Determines ChangeProf objects granted by CDOMObjects which are added to a
+	 * Player Character.
+	 * 
 	 * Triggered when one of the Facets to which ChangeProfFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
@@ -63,6 +68,9 @@ public class ChangeProfFacet extends AbstractSourcedListFacet<ChangeProf>
 	}
 
 	/**
+	 * Determines ChangeProf objects granted by CDOMObjects which are removed
+	 * from a Player Character.
+	 * 
 	 * Triggered when one of the Facets to which ChangeProfFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
 	 * Character.
@@ -79,6 +87,33 @@ public class ChangeProfFacet extends AbstractSourcedListFacet<ChangeProf>
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
 
+	/**
+	 * For a given type of WeaponProf, returns a List of WeaponProf objects
+	 * active for a Player Character after they are modified by the ChangeProf
+	 * objects active on the Player Character.
+	 * 
+	 * This method is value-semantic in that ownership of the returned List is
+	 * transferred to the class calling this method. Modification of the
+	 * returned List will not modify this ChangeProfFacet and modification of
+	 * this ChangeProfFacet will not modify the returned List. Modifications to
+	 * the returned List will also not modify any future or previous objects
+	 * returned by this (or other) methods on ChangeProfFacet. If you wish to
+	 * modify the information stored in this ChangeProfFacet, you must use the
+	 * add*() and remove*() methods of ChangeProfFacet.
+	 * 
+	 * @param type
+	 *            The type of WeaponProf for which the List of WeaponProf
+	 *            objects will be returned
+	 * @param id
+	 *            The CharID identifying the Player Character for which the List
+	 *            of WeaponProf objects will be returned
+	 * @param master
+	 *            The original group of WeaponProf objects to be modified by any
+	 *            ChangeProf objects active on the Player Character.
+	 * @return A List of WeaponProf objects active for a Player Character, after
+	 *         they are modified by the ChangeProf objects active on the Player
+	 *         Character
+	 */
 	public List<WeaponProf> getWeaponProfsInTarget(String type, CharID id,
 			CDOMGroupRef<WeaponProf> master)
 	{
@@ -108,7 +143,13 @@ public class ChangeProfFacet extends AbstractSourcedListFacet<ChangeProf>
 	{
 		this.consolidationFacet = consolidationFacet;
 	}
-	
+
+	/**
+	 * Initializes the connections for ChangeProfFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the ChangeProfFacet.
+	 */
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);

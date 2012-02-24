@@ -32,6 +32,8 @@ import pcgen.core.SettingsHandler;
 /**
  * ChallengeRatingFacet is a Facet that calculates the Challenge Rating of a
  * Player Character
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ChallengeRatingFacet
 {
@@ -48,7 +50,7 @@ public class ChallengeRatingFacet
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
-	 *            Chellenge Rating should be returned
+	 *            Challenge Rating should be returned
 	 * @return The Challenge Rating of the Player Character represented by the
 	 *         given CharID
 	 */
@@ -78,12 +80,12 @@ public class ChallengeRatingFacet
 
 	/**
 	 * Returns the ChallengeRating provided solely by PCTemplate objects granted
-	 * to the Player Character
+	 * to the Player Character identified by the given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character
 	 * @return the Challenge Rating provided by the PCTemplate objects granted
-	 *         to the Player Character
+	 *         to the Player Character identified by the given CharID
 	 */
 	private float getTemplateCR(CharID id)
 	{
@@ -101,12 +103,12 @@ public class ChallengeRatingFacet
 
 	/**
 	 * Returns the ChallengeRating provided solely by PCClass objects granted to
-	 * the Player Character
+	 * the Player Character identified by the given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character
 	 * @return the Challenge Rating provided by the PCClass objects granted to
-	 *         the Player Character
+	 *         the Player Character identified by the given CharID
 	 */
 	private float getClassCR(CharID id)
 	{
@@ -122,11 +124,12 @@ public class ChallengeRatingFacet
 
 	/**
 	 * Returns the ChallengeRating provided solely by the Race of the Player
-	 * Character
+	 * Character identified by the given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character
 	 * @return the Challenge Rating provided by the Race of the Player Character
+	 *         identified by the given CharID
 	 */
 	private float calcRaceCR(CharID id)
 	{
@@ -138,6 +141,18 @@ public class ChallengeRatingFacet
 		return raceCR;
 	}
 
+	/**
+	 * Returns the ChallengeRating provided solely by the given Class of the
+	 * Player Character identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character
+	 * @param cl
+	 *            The PCClass for which the class Challenge Rating should be
+	 *            calculated
+	 * @return the Challenge Rating provided solely by the given Class of the
+	 *         Player Character identified by the given CharID
+	 */
 	private float calcClassCR(CharID id, PCClass cl)
 	{
 		Formula cr = cl.get(FormulaKey.CR);
@@ -148,7 +163,8 @@ public class ChallengeRatingFacet
 			 * ClassTypes and using one of those to set one of its variables. In
 			 * theory, we should have a ClassType that triggers CR that is not a
 			 * TYPE, but a unique token. See this thread:
-			 * http://tech.groups.yahoo.com/group/pcgen_experimental/message/10778
+			 * http://tech.groups.yahoo
+			 * .com/group/pcgen_experimental/message/10778
 			 */
 			for (Type type : cl.getTrueTypeList(false))
 			{

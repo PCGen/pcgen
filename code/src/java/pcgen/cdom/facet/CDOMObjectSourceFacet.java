@@ -17,15 +17,23 @@
  */
 package pcgen.cdom.facet;
 
-import java.util.Set;
-
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.CharID;
 
 /**
- * This is a transition class, designed to allow things to be taken out of
- * PlayerCharacter while a transition is made to a sytem where abilities are
- * added in a forward manner, rather than a loop.
+ * CDOMObjectSourceFacet consolidates all of the CDOMObjects that are added to a
+ * Player Character. By consolidating all of the CDOMObjects into one location,
+ * behaviors which are consistent across all CDOMObjects can be performed based
+ * on events from a single source Facet.
+ * 
+ * Note: CDOMObjectConsolidationFacet should be used in preference to this facet
+ * where possible. CDOMObjectSourceFacet is for use when the use of
+ * CDOMObjectConsolidationFacet would produce a cycle (and thus Spring would be
+ * unable to construct the facets in that cycle)
+ * 
+ * @see pcgen.cdom.facet.CDOMObjectConsolidationFacet
+ * @see pcgen.cdom.facet.CDOMObjectBridge
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class CDOMObjectSourceFacet
 {
@@ -37,11 +45,20 @@ public class CDOMObjectSourceFacet
 		bridgeFacet = bridge;
 	}
 
-	public Set<CDOMObject> getSet(CharID id)
-	{
-		return bridgeFacet.getSet(id);
-	}
-
+	/**
+	 * Adds a new DataFacetChangeListener to receive DataFacetChangeEvents
+	 * (EdgeChangeEvent and NodeChangeEvent) from CDOMObjectSourceFacet. The
+	 * given DataFacetChangeListener is added at the default priority (zero).
+	 * 
+	 * Note that the DataFacetChangeListeners are a list, meaning a given
+	 * DataFacetChangeListener can be added more than once at a given priority,
+	 * and if that occurs, it must be removed an equivalent number of times in
+	 * order to no longer receive events from this CDOMObjectSourceFacet.
+	 * 
+	 * @param listener
+	 *            The DataFacetChangeListener to receive DataFacetChangeEvents
+	 *            from this CDOMObjectSourceFacet
+	 */
 	public void addDataFacetChangeListener(
 			DataFacetChangeListener<? super CDOMObject> listener)
 	{

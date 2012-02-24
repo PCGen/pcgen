@@ -29,6 +29,8 @@ import pcgen.cdom.enumeration.ObjectKey;
 /**
  * CharacterSpellResistanceFacet is a Facet that tracks the SpellResistance
  * objects that have been granted to a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class CharacterSpellResistanceFacet extends
 		AbstractSourcedListFacet<Formula> implements
@@ -39,6 +41,10 @@ public class CharacterSpellResistanceFacet extends
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**
+	 * Captures any SpellResistance objects granted by CDOMObjects added to the
+	 * Player Character and adds those SpellResisteance objects to this
+	 * CharacterSpellResistanceFacet for the Player Character.
+	 * 
 	 * Triggered when one of the Facets to which CharacterSpellResistanceFacet
 	 * listens fires a DataFacetChangeEvent to indicate a CDOMObject was added
 	 * to a Player Character.
@@ -61,6 +67,10 @@ public class CharacterSpellResistanceFacet extends
 	}
 
 	/**
+	 * Captures any SpellResistance objects granted by CDOMObjects removed from
+	 * the Player Character and removes those SpellResisteance objects to this
+	 * CharacterSpellResistanceFacet for the Player Character.
+	 * 
 	 * Triggered when one of the Facets to which CharacterSpellResistanceFacet
 	 * listens fires a DataFacetChangeEvent to indicate a CDOMObject was removed
 	 * from a Player Character.
@@ -77,6 +87,16 @@ public class CharacterSpellResistanceFacet extends
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
 
+	/**
+	 * Returns the Spell Resistance for the Player Character identified by the
+	 * given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            Spell Resistance will be returned
+	 * @return The Spell Resistance for the Player Character identified by the
+	 *         given CharID
+	 */
 	public int getSR(CharID id)
 	{
 		Map<Formula, Set<Object>> componentMap = getCachedMap(id);
@@ -109,7 +129,14 @@ public class CharacterSpellResistanceFacet extends
 	{
 		this.consolidationFacet = consolidationFacet;
 	}
-	
+
+	/**
+	 * Initializes the connections for CharacterSpellResistanceFacet to other
+	 * facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the CharacterSpellResistanceFacet.
+	 */
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);

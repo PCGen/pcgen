@@ -27,6 +27,12 @@ import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
 
+/**
+ * ChooseDriverFacet is a Facet that drives the selection of a CHOOSE on a
+ * CDOMObject.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ */
 public class ChooseDriverFacet extends
 		AbstractSingleSourceListFacet<CDOMObject, String> implements
 		DataFacetChangeListener<CDOMObject>
@@ -34,6 +40,8 @@ public class ChooseDriverFacet extends
 	/*
 	 * Note this is a BIT of a hack in using the "source" to hold the
 	 * "associated data"
+	 * 
+	 * TODO This needs to use AbstractAssociationFacet
 	 */
 
 	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
@@ -131,8 +139,25 @@ public class ChooseDriverFacet extends
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
+		/*
+		 * TODO Consider whether this needs to be symmetric to add (remove
+		 * associations)
+		 */
 	}
 
+	/**
+	 * Directly adds an association (the result of a CHOOSE) - available for the
+	 * I/O system.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character to which the
+	 *            association should be added
+	 * @param cdo
+	 *            The CDOMObject for which the association should be added
+	 * @param fullassoc
+	 *            The association to be added to the CDOMObject for the Player
+	 *            Character identified by the given CharID
+	 */
 	public void addAssociation(CharID id, CDOMObject cdo, String fullassoc)
 	{
 		add(id, cdo, fullassoc);

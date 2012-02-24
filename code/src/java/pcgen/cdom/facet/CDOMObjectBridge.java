@@ -20,9 +20,18 @@ package pcgen.cdom.facet;
 import pcgen.cdom.base.CDOMObject;
 
 /**
- * This is a transition class, designed to allow things to be taken out of
- * PlayerCharacter while a transition is made to a sytem where abilities are
- * added in a forward manner, rather than a loop.
+ * CDOMObjectBridge is a class that performs the breaking of cycles in the
+ * connection of Facets that form the CDOM core of PCGen. In particular, there
+ * are events that add objects (such as Templates) and as those objects are
+ * added, they can themselves add objects which result in the addition of
+ * objects of the same type. In order to deal with this (eventually)
+ * self-referencing cycle, CDOMObjectBridge acts as the underlying storage for
+ * two different Facets: CDOMObjectConsolidationFacet and CDOMObjectSourceFacet.
+ * 
+ * Note that listening to CDOMObjectConsolidationFacet is the preferred method
+ * of listening to addition of (all) CDOMObjects, where possible.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public final class CDOMObjectBridge extends AbstractSourcedListFacet<CDOMObject>
 {
