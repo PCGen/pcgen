@@ -3,7 +3,8 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/
 
 ###Block: Modify default ability
 # Add traits for PCs only
-CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Traits|2|PRECHARACTERTYPE:1,PC
+#CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Traits|2|PRECHARACTERTYPE:1,PC
+CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Traits|2
 
 ###Block: Basic Traits: Combat Traits
 # Ability Name	Unique Key				Category of Ability		Type						Multiple Requirements																			Description																																								Save checks bonus				Combat bonus					Misc bonus			Source Page		Description of the Benefits
@@ -127,6 +128,10 @@ Undead Slayer (Pharasma)			KEY:Undead Slayer ~ Trait			CATEGORY:Special Ability	
 Veteran of Battle (Gorum)			KEY:Veteran of Battle ~ Trait			CATEGORY:Special Ability	TYPE:Trait.ReligionTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Veteran of Battle ~ Trait],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ReligionTrait]		DESC:You have fought in several battles, and each time felt the presence of Gorum guiding your sword-arm, making you ready to act at a moment's notice. You gain a +1 trait bonus on Initiative checks, and if you are able to act during a surprise round, you may a draw a weapon (but not a potion or magic item) as a free action during that round.																									BONUS:COMBAT|INITIATIVE|1|TYPE=Trait																		SOURCEPAGE:p.333
 Wisdom in the Flesh (Irori) - Strength	KEY:Wisdom in the Flesh ~ Trait ~ Str	CATEGORY:Special Ability	TYPE:Trait.ReligionTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Wisdom in the Flesh ~ Trait ~ Str],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ReligionTrait]	DESC:Your hours of meditation on inner perfection and the nature of strength and speed allows you to focus your thoughts to achieve things your body might not normally be able to do on its own. Select any Strength-based skill. You make checks with that skill using your Wisdom modifier instead of the skill's normal ability score. That skill is always a class skill for you.			STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE.Strength													BONUS:SKILL|LIST|WIS-STR|TYPE=Trait									CSKILL:LIST		SOURCEPAGE:p.333
 Wisdom in the Flesh (Irori) - Dexterity	KEY:Wisdom in the Flesh ~ Trait ~ Dex	CATEGORY:Special Ability	TYPE:Trait.ReligionTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Wisdom in the Flesh ~ Trait ~ Dex],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ReligionTrait]	DESC:Your hours of meditation on inner perfection and the nature of strength and speed allows you to focus your thoughts to achieve things your body might not normally be able to do on its own. Select any Dexterity-based skill. You make checks with that skill using your Wisdom modifier instead of the skill's normal ability score. That skill is always a class skill for you.			STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE.Dexterity													BONUS:SKILL|LIST|WIS-DEX|TYPE=Trait									CSKILL:LIST		SOURCEPAGE:p.333
+
+###Block: No Traits ability to fill the pool for NPCs and monsters
+# Ability Name	Unique Key			Category of Ability		Type																						Visible		Multiple Requirements																	Description							Cost
+No Traits		KEY:No Traits ~ Trait	CATEGORY:Special Ability	TYPE:Trait.BasicTrait.CombatTrait.FaithTrait.MagicTrait.SocialTrait.CampaignTrait.RaceTrait.RegionalTrait.ReligionTrait			VISIBLE:DISPLAY	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,No Traits ~ Trait],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.Trait]	DESC:You do not have any character traits.	COST:2
 
 #
 # End

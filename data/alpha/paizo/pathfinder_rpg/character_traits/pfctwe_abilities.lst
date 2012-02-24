@@ -58,6 +58,10 @@ Poverty-Stricken		KEY:Poverty-Stricken_Trait		CATEGORY:Special Ability	TYPE:Trai
 Rich Parents		KEY:Rich Parents_Trait			CATEGORY:Special Ability	TYPE:Trait.BasicTrait.SocialTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Rich Parents_Trait],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SocialTrait]		DESC:You were born into a rich family, perhaps even the nobility.																																																			KIT:1|Rich Parents	SOURCEPAGE:p.6
 Suspicious			KEY:Suspicious_Trait			CATEGORY:Special Ability	TYPE:Trait.BasicTrait.SocialTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Suspicious_Trait],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SocialTrait]			DESC:You discovered at an early age that someone you trusted, perhaps an older sibling or a parent, had lied to you, and often, about something you had taken for granted, leaving you quick to question the claims of others.						BONUS:SKILL|Sense Motive|1|TYPE=Trait								CSKILL:Sense Motive					SOURCEPAGE:p.6
 
+###Block: No Traits ability to fill the pool for NPCs and monsters
+# Ability Name	Unique Key			Category of Ability		Type												Visible		Multiple Requirements																	Description							Cost
+No Traits		KEY:No Traits ~ Trait	CATEGORY:Special Ability	TYPE:Trait.BasicTrait.CombatTrait.FaithTrait.MagicTrait.SocialTrait	VISIBLE:DISPLAY	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,No Traits ~ Trait],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.Trait]	DESC:You do not have any character traits.	COST:2
+
 #
 # End
 #
