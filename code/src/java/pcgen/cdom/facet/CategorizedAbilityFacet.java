@@ -22,8 +22,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
+import java.util.Map.Entry;
 
 import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.Category;
@@ -32,10 +32,10 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.core.Ability;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
- * 
  * A CategorizedAbilityFacet is a DataFacet that contains information about
  * Ability objects that are contained in a PlayerCharacter
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 {
@@ -131,8 +131,21 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 	}
 
 	/**
-	 * Returns the Set of Abilities in this CategorizedAbilityFacet for the
-	 * Player Character represented by the given CharID
+	 * Returns a non-null copy of the Set of objects in thisSet of Abilities in
+	 * this CategorizedAbilityFacet for the Player Character represented by the
+	 * given CharID. This method returns an empty set if no objects are in this
+	 * CategorizedAbilityFacet for the Player Character identified by the given
+	 * CharID.
+	 * 
+	 * This method is value-semantic in that ownership of the returned Set is
+	 * transferred to the class calling this method. Modification of the
+	 * returned Set will not modify this CategorizedAbilityFacet and
+	 * modification of this CategorizedAbilityFacet will not modify the returned
+	 * Set. Modifications to the returned Set will also not modify any future or
+	 * previous objects returned by this (or other) methods on
+	 * CategorizedAbilityFacet. If you wish to modify the information stored in
+	 * this CategorizedAbilityFacet, you must use the add*() and remove*()
+	 * methods of CategorizedAbilityFacet.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
@@ -438,9 +451,21 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 	}
 
 	/**
-	 * Returns the Set of Ability Category objects in this
+	 * Returns a non-null copy of the Set of Ability Category objects in this
 	 * CategorizedAbilityFacet for the Player Character represented by the given
-	 * CharID
+	 * CharID. This method returns an empty set if no objects are in this
+	 * CategorizedAbilityFacet for the Player Character identified by the given
+	 * CharID.
+	 * 
+	 * This method is value-semantic in that ownership of the returned Set is
+	 * transferred to the class calling this method. Modification of the
+	 * returned Set will not modify this CategorizedAbilityFacet and
+	 * modification of this CategorizedAbilityFacet will not modify the returned
+	 * Set. Modifications to the returned Set will also not modify any future or
+	 * previous objects returned by this (or other) methods on
+	 * CategorizedAbilityFacet. If you wish to modify the information stored in
+	 * this CategorizedAbilityFacet, you must use the add*() and remove*()
+	 * methods of CategorizedAbilityFacet.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
@@ -459,6 +484,29 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
 		return Collections.unmodifiableSet(map.keySet());
 	}
 
+	/**
+	 * Copies the contents of the CategorizedAbilityFacet from one Player
+	 * Character to another Player Character, based on the given CharIDs
+	 * representing those Player Characters.
+	 * 
+	 * This is a method in CategorizedAbilityFacet in order to avoid exposing
+	 * the mutable Map object to other classes. This should not be inlined, as
+	 * the Map is internal information to CategorizedAbilityFacet and should not
+	 * be exposed to other classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the CategorizedAbilityFacet of
+	 * one Player Character will only impact the Player Character where the
+	 * CategorizedAbilityFacet was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param destination
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
 	@Override
 	public void copyContents(CharID source, CharID copy)
 	{

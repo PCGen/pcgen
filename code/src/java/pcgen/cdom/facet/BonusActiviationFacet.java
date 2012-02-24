@@ -22,7 +22,10 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.core.PlayerCharacter;
 
 /**
- * BonusActiviationFacet is a Facet that triggers to activate BONUS objects
+ * BonusActiviationFacet is a Facet that triggers to activate BonusObj objects
+ * on CDOMObjects which are added to a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class BonusActiviationFacet implements
 		DataFacetChangeListener<CDOMObject>
@@ -37,9 +40,12 @@ public class BonusActiviationFacet implements
 	private TemplateFacet templateFacet;
 
 	/**
-	 * Triggered when one of the Facets to which AddFacet listens fires a
-	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
+	 * Activates BonusObj objects on the CDOMObject that was added to the Player
 	 * Character.
+	 * 
+	 * Triggered when one of the Facets to which BonusActivationFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
+	 * Player Character.
 	 * 
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
@@ -59,10 +65,26 @@ public class BonusActiviationFacet implements
 		}
 	}
 
+	/**
+	 * Triggered when one of the Facets to which BonusActivationFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
-		//Nothing for now?
+		/*
+		 * Nothing for now?
+		 * 
+		 * TODO It is likely that the lack of symmetry here is incorrect. Need
+		 * to consider if this needs to call BonusActivation.deactivateBonuses
+		 */
 	}
 
 	public void setRaceFacet(RaceFacet raceFacet)
@@ -80,6 +102,12 @@ public class BonusActiviationFacet implements
 		this.templateFacet = templateFacet;
 	}
 
+	/**
+	 * Initializes the connections for BonusActivationFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the ActiveSpellsFacet.
+	 */
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(1000, this);

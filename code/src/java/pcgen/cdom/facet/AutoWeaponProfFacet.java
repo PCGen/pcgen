@@ -95,7 +95,9 @@ public class AutoWeaponProfFacet extends
 	 * Collection is transferred to the class calling this method. Modification
 	 * of the returned Collection will not modify this AutoWeaponProfFacet and
 	 * modification of this AutoWeaponProfFacet will not modify the returned
-	 * Collection. If you wish to modify the information stored in this
+	 * Collection. Modifications to the returned Collection will also not modify
+	 * any future or previous objects returned by this (or other) methods on
+	 * AutoWeaponProfFacet. If you wish to modify the information stored in this
 	 * AutoWeaponProfFacet, you must use the add*() and remove*() methods of
 	 * AutoWeaponProfFacet.
 	 * 

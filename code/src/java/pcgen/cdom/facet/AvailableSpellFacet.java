@@ -305,9 +305,11 @@ public class AvailableSpellFacet extends AbstractStorageFacet implements
 	 * HashMapToList is transferred to the class calling this method.
 	 * Modification of the returned HashMapToList will not modify this
 	 * AvailableSpellFacet and modification of this AvailableSpellFacet will not
-	 * modify the returned HashMapToList. If you wish to modify the information
-	 * stored in this AvailableSpellFacet, you must use the add*() and remove*()
-	 * methods of AvailableSpellFacet.
+	 * modify the returned HashMapToList. Modifications to the returned
+	 * HashMapToList will also not modify any future or previous objects
+	 * returned by this (or other) methods on AvailableSpellFacet. If you wish
+	 * to modify the information stored in this AvailableSpellFacet, you must
+	 * use the add*() and remove*() methods of AvailableSpellFacet.
 	 * 
 	 * @param id
 	 *            The CharID identifying the Player Character for which the
@@ -386,9 +388,11 @@ public class AvailableSpellFacet extends AbstractStorageFacet implements
 	 * DoubleKeyMapToList is transferred to the class calling this method.
 	 * Modification of the returned DoubleKeyMapToList will not modify this
 	 * AvailableSpellFacet and modification of this AvailableSpellFacet will not
-	 * modify the returned DoubleKeyMapToList. If you wish to modify the
-	 * information stored in this AvailableSpellFacet, you must use the add*()
-	 * and remove*() methods of AvailableSpellFacet.
+	 * modify the returned DoubleKeyMapToList. Modifications to the returned
+	 * DoubleKeyMapToList will also not modify any future or previous objects
+	 * returned by this (or other) methods on AvailableSpellFacet. If you wish
+	 * to modify the information stored in this AvailableSpellFacet, you must
+	 * use the add*() and remove*() methods of AvailableSpellFacet.
 	 * 
 	 * @param id
 	 *            The CharID identifying the Player Character for which the

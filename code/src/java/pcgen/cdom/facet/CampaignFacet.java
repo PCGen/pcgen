@@ -21,7 +21,11 @@ import pcgen.core.Campaign;
 
 /**
  * CampaignFacet is a Facet that tracks the Campaigns loaded and thus active on
- * a Player Character.
+ * a Player Character. This tracks the list of Campaigns selected by the user.
+ * This list must be expanded if any of the Campaigns includes another Campaign
+ * (PCC file).
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class CampaignFacet extends AbstractListFacet<Campaign>
 {

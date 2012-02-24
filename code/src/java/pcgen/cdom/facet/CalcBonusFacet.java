@@ -23,7 +23,9 @@ import pcgen.core.PlayerCharacter;
 
 /**
  * CalcBonusFacet is a Facet that triggers when an object is added in order to
- * trigger the global BONUS recalculation
+ * trigger the global Bonus value recalculation.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class CalcBonusFacet implements DataFacetChangeListener<CDOMObject>
 {
@@ -37,7 +39,9 @@ public class CalcBonusFacet implements DataFacetChangeListener<CDOMObject>
 	private TemplateFacet templateFacet;
 
 	/**
-	 * Triggered when one of the Facets to which AddFacet listens fires a
+	 * Globally recalculates Bonus values for a Player Character.
+	 * 
+	 * Triggered when one of the Facets to which CalcBonusFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
 	 * 
@@ -55,6 +59,19 @@ public class CalcBonusFacet implements DataFacetChangeListener<CDOMObject>
 		aPC.calcActiveBonuses();
 	}
 
+	/**
+	 * Globally recalculates Bonus values for a Player Character.
+	 * 
+	 * Triggered when one of the Facets to which CalcBonusFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
@@ -78,6 +95,12 @@ public class CalcBonusFacet implements DataFacetChangeListener<CDOMObject>
 		this.templateFacet = templateFacet;
 	}
 
+	/**
+	 * Initializes the connections for CalcBonusFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the CalcBonusFacet.
+	 */
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(5000, this);
