@@ -67,6 +67,9 @@ import pcgen.system.LanguageBundle;
  * This class contains all settings-related code moved from Globals.java
  *
  * Should be cleaned up more.
+ * 
+ * @deprecated This class is being gradually replaced with use of 
+ * {@link pcgen.system.PropertyContext} and its children.   
  *
  * @author jujutsunerd
  * @version $Revision$
