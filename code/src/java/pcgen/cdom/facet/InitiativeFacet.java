@@ -23,7 +23,9 @@ import pcgen.cdom.enumeration.CharID;
 
 /**
  * InitiativeFacet is a Facet that calculates the Initiative value for a Player
- * Character
+ * Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class InitiativeFacet
 {
@@ -34,7 +36,7 @@ public class InitiativeFacet
 
 	/**
 	 * Returns the Initiative value for the Player Character represented by the
-	 * given CharID
+	 * given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the

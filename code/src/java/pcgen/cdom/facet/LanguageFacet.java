@@ -22,12 +22,18 @@ import pcgen.core.Language;
 /**
  * LanguageFacet is a Facet that tracks the Languages that have been granted to
  * a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class LanguageFacet extends AbstractSourcedListFacet<Language> implements
 		DataFacetChangeListener<Language>
 {
 
 	/**
+	 * Adds the Language object identified in the DataFacetChangeEvent to this
+	 * LanguageFacet for the Player Character identified by the CharID in the
+	 * DataFacetChangeEvent.
+	 * 
 	 * Triggered when one of the Facets to which LanguageFacet listens fires a
 	 * DataFacetChangeEvent to indicate a Language was added to a Player
 	 * Character.
@@ -45,6 +51,10 @@ public class LanguageFacet extends AbstractSourcedListFacet<Language> implements
 	}
 
 	/**
+	 * Removes the Language object identified in the DataFacetChangeEvent from
+	 * this LanguageFacet for the Player Character identified by the CharID in
+	 * the DataFacetChangeEvent.
+	 * 
 	 * Triggered when one of the Facets to which LanguageFacet listens fires a
 	 * DataFacetChangeEvent to indicate a Language was removed from a Player
 	 * Character.

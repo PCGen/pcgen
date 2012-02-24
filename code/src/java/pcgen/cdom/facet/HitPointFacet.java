@@ -29,6 +29,13 @@ import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 
+/**
+ * HitPointFacet stores information about hit points for a Player Character.
+ * Specifically this Facet stores the number of hit points granted to a Player
+ * Character for each PCClassLevel possessed by the Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ */
 public class HitPointFacet extends
 		AbstractAssociationFacet<PCClassLevel, Integer> implements
 		DataFacetChangeListener<CDOMObject>
@@ -49,6 +56,21 @@ public class HitPointFacet extends
 
 	private BonusCheckingFacet bonusCheckingFacet;
 
+	/**
+	 * Watches for new PCClassLevel objects to be granted to the Player
+	 * Character. When called, this then triggers the determination of the Hit
+	 * Points for that PCClassLevel.
+	 * 
+	 * Triggered when one of the Facets to which FollowerOptionFacet listens
+	 * fires a DataFacetChangeEvent to indicate a FollowerOption was added to a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
@@ -86,10 +108,32 @@ public class HitPointFacet extends
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
-		// TODO Auto-generated method stub
-
+		/*
+		 * TODO This probably needs some form of symmetry - when a PCClassLevel
+		 * is removed, the number of hit points for that PCClassLevel is
+		 * removed.
+		 * 
+		 * Alternatively, we can define this in such a way that the otherwise
+		 * lost information is saved, so that addition and removal of the same
+		 * level doesn't trigger new seleciton of hit points - need to define
+		 * the best strategy here (and just clearly document the decision)
+		 */
 	}
 
+	/**
+	 * Returns the HitDie for the given PCClass and level in the Player
+	 * Character identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            HitDie of the given PCClass and level will be returned
+	 * @param pcClass
+	 *            The PCClass for which the HitDie will be returned
+	 * @param classLevel
+	 *            The level for which the HitDie will be returned
+	 * @return The HitDie for the given PCClass and level in the Player
+	 *         Character identified by the given CharID
+	 */
 	public HitDie getLevelHitDie(CharID id, PCClass pcClass, int classLevel)
 	{
 		// Class Base Hit Die
@@ -134,6 +178,20 @@ public class HitPointFacet extends
 		return currDie;
 	}
 
+	/**
+	 * Rolls the hit points for a given PCClass and level.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character on which the hit
+	 *            points are to be rolled
+	 * @param pcc
+	 *            The PCClass for which the hit points are to be rolled
+	 * @param level
+	 *            The class level for which the hit points are to be rolled
+	 * @param first
+	 *            And identifier indicating if this is the Player Character's
+	 *            first level.
+	 */
 	public void rollHP(CharID id, PCClass pcc, int level, boolean first)
 	{
 		int roll = 0;
@@ -215,6 +273,12 @@ public class HitPointFacet extends
 		this.conditionalTemplateFacet = conditionalTemplateFacet;
 	}
 
+	/**
+	 * Initializes the connections for HitPointFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the HitPointFacet.
+	 */
 	public void init()
 	{
 		templateFacet.addDataFacetChangeListener(this);

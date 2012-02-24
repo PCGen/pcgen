@@ -25,7 +25,10 @@ import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 
 /**
- * KitChoiceFacet is a Facet that triggers when an object has a KIT token
+ * KitChoiceFacet is a Facet that triggers when an object has a KIT token in
+ * order to drive the selection and application of the Kit(s).
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class KitChoiceFacet implements DataFacetChangeListener<CDOMObject>
 {
@@ -39,6 +42,8 @@ public class KitChoiceFacet implements DataFacetChangeListener<CDOMObject>
 	private TemplateFacet templateFacet;
 
 	/**
+	 * Drives kit selection and adds the selected Kits to the Player Character.
+	 * 
 	 * Triggered when one of the Facets to which KitChoiceFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
@@ -65,10 +70,28 @@ public class KitChoiceFacet implements DataFacetChangeListener<CDOMObject>
 		}
 	}
 
+	/**
+	 * Triggered when one of the Facets to which KitChoiceFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
-		//Nothing for now?
+		/*
+		 * Nothing for now?
+		 * 
+		 * TODO This is another tricky item for symmetry - Kits are often
+		 * "fire and forget" - the problem being if the object which granted the
+		 * Kit is removed, it is likely that the underlying kit should be
+		 * removed as well...
+		 */
 	}
 
 	public void setRaceFacet(RaceFacet raceFacet)
@@ -86,6 +109,12 @@ public class KitChoiceFacet implements DataFacetChangeListener<CDOMObject>
 		this.templateFacet = templateFacet;
 	}
 
+	/**
+	 * Initializes the connections for KitChoiceFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the KitChoiceFacet.
+	 */
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(this);

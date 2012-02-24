@@ -21,6 +21,8 @@ import pcgen.cdom.enumeration.CharID;
 
 /**
  * HeightFacet is a Facet that tracks the Player Character's height.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class HeightFacet extends AbstractItemFacet<Integer>
 {
@@ -56,7 +58,7 @@ public class HeightFacet extends AbstractItemFacet<Integer>
 
 	/**
 	 * Returns the height for the Player Character represented by the given
-	 * CharID
+	 * CharID.
 	 * 
 	 * @param id
 	 *            The CharID of the Player Character for which the height will

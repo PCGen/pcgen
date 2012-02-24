@@ -25,6 +25,12 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Deity;
 import pcgen.core.PCClass;
 
+/**
+ * LegalDeityFacet tracks the Deity objects which the Player Character may
+ * select.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ */
 public class LegalDeityFacet
 {
 	private ClassFacet classFacet;
@@ -37,6 +43,19 @@ public class LegalDeityFacet
 	 * defaults to ANY, and loading the default ANY reference into a cache and
 	 * running contains against it would probably be slower than just testing
 	 * each Class every time.
+	 */
+	/**
+	 * Returns true if selection of the given Deity is allowed by the Player
+	 * Character identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character to be checked to
+	 *            see if the given Deity is an allowed selection
+	 * @param aDeity
+	 *            The Deity to be checked to see if it is an allowed selection
+	 *            by the Player Character identified by the given CharID
+	 * @return true if selection of the given Deity is allowed by the Player
+	 *         Character identified by the given CharID; false otherwise
 	 */
 	public boolean allows(CharID id, Deity aDeity)
 	{

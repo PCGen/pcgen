@@ -44,6 +44,8 @@ import pcgen.core.spell.Spell;
 /**
  * KnownSpellFacet is a Facet that tracks the Known Spells (and target objects)
  * that are contained in a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class KnownSpellFacet extends AbstractStorageFacet implements
 		DataFacetChangeListener<CDOMObject>
@@ -189,20 +191,19 @@ public class KnownSpellFacet extends AbstractStorageFacet implements
 	}
 
 	/**
-	 * Returns the type-safe Map for this AbstractSourcedListFacet and the given
-	 * CharID. May return null if no information has been set in this
-	 * AbstractSourcedListFacet for the given CharID.
+	 * Returns the type-safe Map for this KnownSpellFacet and the given CharID.
+	 * May return null if no information has been set in this KnownSpellFacet
+	 * for the given CharID.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Map is owned by
-	 * AbstractSourcedListFacet, and since it can be modified, a reference to
-	 * that object should not be exposed to any object other than
-	 * AbstractSourcedListFacet.
+	 * KnownSpellFacet, and since it can be modified, a reference to that object
+	 * should not be exposed to any object other than KnownSpellFacet.
 	 * 
 	 * @param id
 	 *            The CharID for which the Set should be returned
 	 * @return The Set for the Player Character represented by the given CharID;
-	 *         null if no information has been set in this
-	 *         AbstractSourcedListFacet for the Player Character.
+	 *         null if no information has been set in this KnownSpellFacet for
+	 *         the Player Character.
 	 */
 	private Map<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>> getCachedMap(
 		CharID id)
@@ -238,6 +239,18 @@ public class KnownSpellFacet extends AbstractStorageFacet implements
 		return componentMap;
 	}
 
+	/**
+	 * Removes all information for the given source from this KnownSpellFacet
+	 * for the PlayerCharacter represented by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which items
+	 *            from the given source will be removed
+	 * @param source
+	 *            The source for the objects to be removed from the list of
+	 *            items stored for the Player Character identified by the given
+	 *            CharID
+	 */
 	public void removeAll(CharID id, Object source)
 	{
 		Map<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>> listMap =
@@ -276,6 +289,29 @@ public class KnownSpellFacet extends AbstractStorageFacet implements
 		}
 	}
 
+	/**
+	 * Returns a non-null Map of Spells (by spell level) known by the Player
+	 * Character for the given ClassSpellList.
+	 * 
+	 * This method is value-semantic in that ownership of the returned Map is
+	 * transferred to the class calling this method. Modification of the
+	 * returned Map will not modify this KnownSpellFacet and modification of
+	 * this KnownSpellFacet will not modify the returned Map. Modifications to
+	 * the returned Map will also not modify any future or previous objects
+	 * returned by this (or other) methods on KnownSpellFacet. If you wish to
+	 * modify the information stored in this KnownSpellFacet, you must use the
+	 * add*() and remove*() methods of KnownSpellFacet.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the List
+	 *            of known Spells will be returned
+	 * @param csl
+	 *            The ClassSpellList for which the List of known Spells will be
+	 *            returned
+	 * @return A non-null Map of Spells known (by level) by the Player Character
+	 *         for the given ClassSpellList
+	 * 
+	 */
 	public Map<Integer, List<Spell>> getKnownSpells(CharID id,
 		ClassSpellList csl)
 	{
@@ -331,6 +367,32 @@ public class KnownSpellFacet extends AbstractStorageFacet implements
 		return levelInfo;
 	}
 
+	/**
+	 * Returns a non-null List of Spells known by the Player Character for the
+	 * given ClassSpellList and spell level.
+	 * 
+	 * This method is value-semantic in that ownership of the returned List is
+	 * transferred to the class calling this method. Modification of the
+	 * returned List will not modify this KnownSpellFacet and modification of
+	 * this KnownSpellFacet will not modify the returned List. Modifications to
+	 * the returned List will also not modify any future or previous objects
+	 * returned by this (or other) methods on KnownSpellFacet. If you wish to
+	 * modify the information stored in this KnownSpellFacet, you must use the
+	 * add*() and remove*() methods of KnownSpellFacet.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the List
+	 *            of known Spells will be returned
+	 * @param csl
+	 *            The ClassSpellList for which the List of known Spells will be
+	 *            returned
+	 * @param spellLevel
+	 *            The Spell level for which the List of known Spells will be
+	 *            returned
+	 * @return A non-null List of Spells known by the Player Character for the
+	 *         given ClassSpellList and spell level
+	 * 
+	 */
 	public List<Spell> getKnownSpellsForLevel(CharID id, ClassSpellList csl,
 		int spellLevel)
 	{
@@ -422,12 +484,41 @@ public class KnownSpellFacet extends AbstractStorageFacet implements
 	{
 		this.consolidationFacet = consolidationFacet;
 	}
-	
+
+	/**
+	 * Initializes the connections for KnwonSpellFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the KnwonSpellFacet.
+	 */
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);
 	}
 
+	/**
+	 * Copies the contents of the KnwonSpellFacet from one Player Character to
+	 * another Player Character, based on the given CharIDs representing those
+	 * Player Characters.
+	 * 
+	 * This is a method in KnwonSpellFacet in order to avoid exposing the
+	 * mutable Map object to other classes. This should not be inlined, as the
+	 * Map is internal information to KnwonSpellFacet and should not be exposed
+	 * to other classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the KnwonSpellFacet of one
+	 * Player Character will only impact the Player Character where the
+	 * KnwonSpellFacet was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param destination
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
 	@Override
 	public void copyContents(CharID source, CharID copy)
 	{
