@@ -30,14 +30,38 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 
 /**
- * StatFacet is a Facet that tracks the PCStat that have been granted to a
- * Player Character.
+ * StatFacet is a Facet that tracks the PCStat objects that have been granted to
+ * a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class StatFacet extends AbstractListFacet<PCStat>
 {
 	private BonusCheckingFacet bonusCheckingFacet;
 	private PrerequisiteFacet prerequisiteFacet;
 
+	/*
+	 * TODO I think there needs to be a consideration of whether these two
+	 * methods (below) violate the "a facet should do one thing" principle. With
+	 * the proposed facet organization, these methods might make it ambiguous
+	 * where this facet belongs.
+	 */
+	/**
+	 * Returns a non-null Map indicating the bonuses of the given Bonus type and
+	 * given Bonus name, mapped to the PCStat objects which granted the Bonus.
+	 * 
+	 * @param id
+	 *            The CharID indicating the Player Character on which the
+	 *            bonuses for a given Bonus type and Bonus name are to be
+	 *            returned
+	 * @param aType
+	 *            The Bonus type of the bonuses to be returned
+	 * @param aName
+	 *            The Bonus name of the bonuses to be returned
+	 * @return A non-null Map indicating the bonuses of the given Bonus type and
+	 *         given Bonus name, mapped to the PCStat objects which granted the
+	 *         Bonus
+	 */
 	public Map<BonusObj, PCStat> getBonusListOfType(CharID id,
 			final String aType, final String aName)
 	{
@@ -56,6 +80,24 @@ public class StatFacet extends AbstractListFacet<PCStat>
 		return aList;
 	}
 
+	/**
+	 * Returns the aggregate Bonus value for the given Bonus type and given
+	 * Bonus name which are applied by PCStat objects to the Player Character
+	 * identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            aggregate Bonus value is to be calculated
+	 * @param type
+	 *            The Bonus type for which the aggregate Bonus value is to be
+	 *            calculated
+	 * @param name
+	 *            The Bonus name for which the aggregate Bonus value is to be
+	 *            calculated
+	 * @return The aggregate Bonus value for the given Bonus type and given
+	 *         Bonus name which are applied by PCStat objects to the Player
+	 *         Character identified by the given CharID
+	 */
 	public double getStatBonusTo(CharID id, String type, String name)
 	{
 		final Map<BonusObj, PCStat> map = getBonusListOfType(id, type

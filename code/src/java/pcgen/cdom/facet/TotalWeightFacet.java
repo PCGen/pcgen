@@ -22,6 +22,13 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
 
+/**
+ * TotalWeightFacet performs calculations related to the total weight of
+ * Equipment carried by a Player Character (does not include the body weight of
+ * the Player Character).
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ */
 public class TotalWeightFacet
 {
 	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
@@ -29,6 +36,16 @@ public class TotalWeightFacet
 
 	private EquipmentFacet equipmentFacet;
 
+	/**
+	 * Returns the total Equipment weight for the Player Character identified by
+	 * the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            total Equipment weight is to be returned
+	 * @return The total Equipment weight for the Player Character identified by
+	 *         the given CharID
+	 */
 	public Float getTotalWeight(CharID id)
 	{
 		float totalWeight = 0;

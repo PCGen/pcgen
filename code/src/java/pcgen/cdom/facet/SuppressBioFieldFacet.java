@@ -30,9 +30,9 @@ import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
 
 /**
- * The Class <code>SuppressBioFieldFacet</code> tracks the biography fields that 
- * should be hidden from output. 
- *
+ * The Class <code>SuppressBioFieldFacet</code> tracks the biography fields that
+ * should be hidden from output.
+ * 
  * <br/>
  * Last Editor: $Author$
  * Last Edited: $Date$
@@ -46,12 +46,18 @@ public class SuppressBioFieldFacet extends AbstractStorageFacet
 
 	private final Class<?> thisClass = getClass();
 
+	/*
+	 * TODO Can this use AbstractListFacet? (seems like it can)
+	 */
 	/**
 	 * Set whether the field should be hidden from output. 
 	 * 
-	 * @param id The CharID representing the target Player Character
-	 * @param field The BiographyField to set export suppression rules for.
-	 * @param suppress Should the field be hidden from output.
+	 * @param id
+	 *            The CharID representing the target Player Character
+	 * @param field
+	 *            The BiographyField to set export suppression rules for.
+	 * @param suppress
+	 *            Should the field be hidden from output.
 	 */
 	public void setSuppressField(CharID id, BiographyField field, boolean suppress)
 	{
@@ -77,9 +83,11 @@ public class SuppressBioFieldFacet extends AbstractStorageFacet
 
 	/**
 	 * Check whether the field should be hidden from output for the character.
-	 *  
-	 * @param id The CharID of the Player Character being queried.
-	 * @param field The BiographyField to set export suppression rules for.
+	 * 
+	 * @param id
+	 *            The CharID of the Player Character being queried.
+	 * @param field
+	 *            The BiographyField to set export suppression rules for.
 	 * @return true if the field should not be output, false if it may be.
 	 */
 	public boolean getSuppressField(CharID id, BiographyField field)
@@ -89,6 +97,29 @@ public class SuppressBioFieldFacet extends AbstractStorageFacet
 		return suppressedFields != null && suppressedFields.contains(field);
 	}
 
+	/**
+	 * Copies the contents of the SuppressBioFieldFacet from one Player
+	 * Character to another Player Character, based on the given CharIDs
+	 * representing those Player Characters.
+	 * 
+	 * This is a method in SuppressBioFieldFacet in order to avoid exposing the
+	 * mutable Map object to other classes. This should not be inlined, as the
+	 * Set is internal information to SuppressBioFieldFacet and should not be
+	 * exposed to other classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the SuppressBioFieldFacet will
+	 * only impact the Player Character where the SuppressBioFieldFacet was
+	 * changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param destination
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
 	@Override
 	public void copyContents(CharID source, CharID copy)
 	{

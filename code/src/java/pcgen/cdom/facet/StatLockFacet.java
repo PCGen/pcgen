@@ -32,6 +32,8 @@ import pcgen.core.PCStat;
 /**
  * StatLockFacet is a Facet that tracks the Stats that have been locked on a
  * Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class StatLockFacet extends AbstractSourcedListFacet<StatLock> implements
 		DataFacetChangeListener<CDOMObject>
@@ -41,6 +43,9 @@ public class StatLockFacet extends AbstractSourcedListFacet<StatLock> implements
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**
+	 * Adds StatLock objects granted by a CDOMObject which has been added to a
+	 * Player Character.
+	 * 
 	 * Triggered when one of the Facets to which StatLockFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
@@ -63,6 +68,9 @@ public class StatLockFacet extends AbstractSourcedListFacet<StatLock> implements
 	}
 
 	/**
+	 * Removes StatLock objects granted by a CDOMObject which has been removed
+	 * from a Player Character.
+	 * 
 	 * Triggered when one of the Facets to which StatLockFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
 	 * Character.
@@ -79,6 +87,21 @@ public class StatLockFacet extends AbstractSourcedListFacet<StatLock> implements
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
 
+	/**
+	 * Returns the numerical value for the given PCStat which has been locked
+	 * for the Player Character identified by the given CharID. Returns null if
+	 * no StatLock exists on the Player Character for the given PCStat.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            locked stat value is to be returned
+	 * @param stat
+	 *            The PCStat for which the numerical lock value is to be
+	 *            returned
+	 * @return The numerical value for the given PCStat which has been locked
+	 *         for the Player Character identified by the given CharID; null if
+	 *         no StatLock exists on the Player Character for the given PCStat
+	 */
 	public Number getLockedStat(CharID id, PCStat stat)
 	{
 		Number max = Double.NEGATIVE_INFINITY;
@@ -123,7 +146,13 @@ public class StatLockFacet extends AbstractSourcedListFacet<StatLock> implements
 	{
 		this.consolidationFacet = consolidationFacet;
 	}
-	
+
+	/**
+	 * Initializes the connections for StatLockFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the StatLockFacet.
+	 */
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);

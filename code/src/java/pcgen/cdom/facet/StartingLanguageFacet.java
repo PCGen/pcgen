@@ -26,7 +26,9 @@ import pcgen.core.Language;
 
 /**
  * StartingLanguageFacet is a Facet that tracks the Languages that are available
- * to a Player Character from the LANGBONUS token
+ * to a Player Character from the LANGBONUS token.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class StartingLanguageFacet extends AbstractSourcedListFacet<Language>
 		implements DataFacetChangeListener<CDOMObject>
@@ -41,6 +43,9 @@ public class StartingLanguageFacet extends AbstractSourcedListFacet<Language>
 	private ConditionalTemplateFacet conditionalTemplateFacet;
 
 	/**
+	 * Adds available Languages to this facet when a CDOMObject added to a
+	 * Player Character makes Languages available to the Player Character.
+	 * 
 	 * Triggered when one of the Facets to which StartingLanguageFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
 	 * Player Character.
@@ -68,6 +73,10 @@ public class StartingLanguageFacet extends AbstractSourcedListFacet<Language>
 	}
 
 	/**
+	 * Removes available Languages from this facet when a CDOMObject removed
+	 * from a Player Character makes Languages available to the Player
+	 * Character.
+	 * 
 	 * Triggered when one of the Facets to which StartingLanguageFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
 	 * Player Character.
@@ -105,6 +114,12 @@ public class StartingLanguageFacet extends AbstractSourcedListFacet<Language>
 		this.conditionalTemplateFacet = conditionalTemplateFacet;
 	}
 
+	/**
+	 * Initializes the connections for StartingLanguageFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the StartingLanguageFacet.
+	 */
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(this);
