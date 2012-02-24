@@ -24,7 +24,9 @@ import pcgen.core.Race;
 
 /**
  * HandsFacet is a Facet that tracks the number of Hands possessed by a Player
- * Character
+ * Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class HandsFacet
 {

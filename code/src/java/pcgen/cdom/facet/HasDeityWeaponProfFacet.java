@@ -27,6 +27,8 @@ import pcgen.core.QualifiedObject;
 /**
  * HasDeityWeaponProfFacet is a Facet that tracks if the Deity Weapon Profs are
  * contained in the Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class HasDeityWeaponProfFacet extends
 		AbstractQualifiedListFacet<QualifiedObject<Boolean>> implements
@@ -36,6 +38,9 @@ public class HasDeityWeaponProfFacet extends
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**
+	 * Adds the Deity Weapon Prof capability granted by CDOMObjects added to the
+	 * Player Character to this HasDeityWeaponProfFacet.
+	 * 
 	 * Triggered when one of the Facets to which HasDeityWeaponProfFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
 	 * Player Character.
@@ -58,6 +63,9 @@ public class HasDeityWeaponProfFacet extends
 	}
 
 	/**
+	 * Removes the Deity Weapon Prof capability granted by CDOMObjects removed
+	 * from the Player Character from this HasDeityWeaponProfFacet.
+	 * 
 	 * Triggered when one of the Facets to which HasDeityWeaponProfFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
 	 * Player Character.
@@ -74,6 +82,16 @@ public class HasDeityWeaponProfFacet extends
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
 
+	/**
+	 * Returns true if the Player Character identified by the given CharID has
+	 * been granted Deity Weapon Profs.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character to be checked if
+	 *            it has been granted Deity Weapon Profs
+	 * @return true if the Player Character identified by the given CharID has
+	 *         been granted Deity Weapon Profs; false otherwise
+	 */
 	public boolean hasDeityWeaponProf(CharID id)
 	{
 		Collection<QualifiedObject<Boolean>> set = getQualifiedSet(id);
@@ -91,7 +109,13 @@ public class HasDeityWeaponProfFacet extends
 	{
 		this.consolidationFacet = consolidationFacet;
 	}
-	
+
+	/**
+	 * Initializes the connections for HasDeityWeaponProfFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the HasDeityWeaponProfFacet.
+	 */
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);

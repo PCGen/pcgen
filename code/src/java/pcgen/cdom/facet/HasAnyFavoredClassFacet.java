@@ -23,6 +23,8 @@ import pcgen.cdom.enumeration.ObjectKey;
 /**
  * HasAnyFavoredClassFacet is a Facet that tracks if the Player Character has
  * "ANY" ("HIGHESTCLASS") as a Favored Class.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class HasAnyFavoredClassFacet extends AbstractSourcedListFacet<Boolean>
 		implements DataFacetChangeListener<CDOMObject>
@@ -35,6 +37,9 @@ public class HasAnyFavoredClassFacet extends AbstractSourcedListFacet<Boolean>
 	private ConditionalTemplateFacet conditionalTemplateFacet;
 
 	/**
+	 * Adds the Any Favored Class capability granted by CDOMObjects added to the
+	 * Player Character to this HasAnyFavoredClassFacet.
+	 * 
 	 * Triggered when one of the Facets to which HasAnyFavoredClassFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
 	 * Player Character.
@@ -57,6 +62,9 @@ public class HasAnyFavoredClassFacet extends AbstractSourcedListFacet<Boolean>
 	}
 
 	/**
+	 * Removes the Any Favored Class capability granted by CDOMObjects removed
+	 * from the Player Character from this HasAnyFavoredClassFacet.
+	 * 
 	 * Triggered when one of the Facets to which HasAnyFavoredClassFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
 	 * Player Character.
@@ -72,7 +80,13 @@ public class HasAnyFavoredClassFacet extends AbstractSourcedListFacet<Boolean>
 	{
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
-	
+
+	/**
+	 * Initializes the connections for HasAnyFavoredClassFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the HasAnyFavoredClassFacet.
+	 */
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(this);

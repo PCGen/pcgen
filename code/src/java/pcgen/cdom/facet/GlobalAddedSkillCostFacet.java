@@ -28,6 +28,12 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.Skill;
 
+/**
+ * Stores the Global SkillCost values as applied by CSKILL:%LIST and
+ * CCSKILL:%LIST
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ */
 public class GlobalAddedSkillCostFacet extends AbstractStorageFacet
 {
 	private final Class<?> thisClass = getClass();
@@ -81,6 +87,21 @@ public class GlobalAddedSkillCostFacet extends AbstractStorageFacet
 			thisClass);
 	}
 
+	/**
+	 * Adds a new SkillCost to this GlobalAddedSkillCostFacet for the given
+	 * Skill and Player Character identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Character for which the SkillCost
+	 *            is being added
+	 * @param skill
+	 *            The Skill to which the given SkillCost is being applied
+	 * @param sc
+	 *            The SkillCost to apply to the given Skill for the Player
+	 *            Character identified by the given CharID
+	 * @param source
+	 *            The source CDOMObject of the SkillCost
+	 */
 	public void add(CharID id, Skill skill, SkillCost sc, CDOMObject source)
 	{
 		Map<SkillCost, Map<Skill, Set<CDOMObject>>> map = getConstructingInfo(id);
@@ -99,6 +120,21 @@ public class GlobalAddedSkillCostFacet extends AbstractStorageFacet
 		set.add(source);
 	}
 
+	/**
+	 * Removes a SkillCost from this GlobalAddedSkillCostFacet for the given
+	 * Skill and Player Character identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Character for which the SkillCost
+	 *            is being removed
+	 * @param skill
+	 *            The Skill to which the given SkillCost is being removed
+	 * @param sc
+	 *            The SkillCost to remove for the given Skill and Player
+	 *            Character identified by the given CharID
+	 * @param source
+	 *            The source CDOMObject of the SkillCost
+	 */
 	public void remove(CharID id, Skill skill, SkillCost sc, CDOMObject source)
 	{
 		Map<SkillCost, Map<Skill, Set<CDOMObject>>> map = getInfo(id);
@@ -123,6 +159,27 @@ public class GlobalAddedSkillCostFacet extends AbstractStorageFacet
 		}
 	}
 
+	/**
+	 * Returns true if this GlobalAddedSkillCostFacet contains the given
+	 * SkillCost for the given Skill and Player Character identified by the
+	 * given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character to be tested to
+	 *            see if this GlobalAddedSkillCostFacet contains the given
+	 *            SkillCost for the given Skill
+	 * @param skill
+	 *            The Skill to be tested to see if if this
+	 *            GlobalAddedSkillCostFacet contains the given SkillCost
+	 * @param sc
+	 *            The SkillCost to be tested to see if this
+	 *            GlobalAddedSkillCostFacet contains this SkillCost for the
+	 *            given Skill and Player Character identified by the given
+	 *            CharID
+	 * @return true if this GlobalAddedSkillCostFacet contains the given
+	 *         SkillCost for the given Skill and Player Character identified by
+	 *         the given CharID; false otherwise
+	 */
 	public boolean contains(CharID id, Skill skill, SkillCost sc)
 	{
 		Map<SkillCost, Map<Skill, Set<CDOMObject>>> map = getInfo(id);
@@ -134,6 +191,29 @@ public class GlobalAddedSkillCostFacet extends AbstractStorageFacet
 		return (skMap != null) && skMap.containsKey(skill);
 	}
 
+	/**
+	 * Copies the contents of the GlobalAddedSkillCostFacet from one Player
+	 * Character to another Player Character, based on the given CharIDs
+	 * representing those Player Characters.
+	 * 
+	 * This is a method in GlobalAddedSkillCostFacet in order to avoid exposing
+	 * the mutable Map object to other classes. This should not be inlined, as
+	 * the Map is internal information to GlobalAddedSkillCostFacet and should
+	 * not be exposed to other classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the GlobalAddedSkillCostFacet
+	 * of one Player Character will only impact the Player Character where the
+	 * GlobalAddedSkillCostFacet was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param destination
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
 	@Override
 	public void copyContents(CharID source, CharID copy)
 	{

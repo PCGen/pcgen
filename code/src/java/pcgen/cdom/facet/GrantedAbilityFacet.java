@@ -36,10 +36,10 @@ import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
- * 
  * A GrantedAbilityFacet is a DataFacet that contains information about Ability
- * objects that are contained in a PlayerCharacter
+ * objects that are contained in a Player Character,
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 		DataFacetChangeListener<CategorizedAbilitySelection>
@@ -50,7 +50,7 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 	/**
 	 * Add the given Ability to the list of Abilities defined by the given
 	 * Category and Nature, which is stored in this GrantedAbilityFacet for the
-	 * Player Character represented by the given CharID
+	 * Player Character represented by the given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
@@ -201,8 +201,18 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 	}
 
 	/**
-	 * Returns the Set of Abilities in this GrantedAbilityFacet for the Player
-	 * Character represented by the given CharID
+	 * Returns a non-null copy of the Set of Abilities in this
+	 * GrantedAbilityFacet for the Player Character represented by the given
+	 * CharID.
+	 * 
+	 * This method is value-semantic in that ownership of the returned Set is
+	 * transferred to the class calling this method. Modification of the
+	 * returned Set will not modify this GrantedAbilityFacet and modification of
+	 * this GrantedAbilityFacet will not modify the returned Set. Modifications
+	 * to the returned Set will also not modify any future or previous objects
+	 * returned by this (or other) methods on GrantedAbilityFacet. If you wish
+	 * to modify the information stored in this GrantedAbilityFacet, you must
+	 * use the add*() and remove*() methods of GrantedAbilityFacet.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
@@ -213,8 +223,9 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 	 * @param nat
 	 *            The Ability Nature identifying the list of Abilities to be
 	 *            returned
-	 * @return A non-null Set of Abilities in this GrantedAbilityFacet for the
-	 *         Player Character represented by the given CharID
+	 * @return A non-null copy of the Set of Abilities in this
+	 *         GrantedAbilityFacet for the Player Character represented by the
+	 *         given CharID
 	 */
 	public Set<Ability> get(CharID id, Category<Ability> cat, Nature nat)
 	{
@@ -272,9 +283,10 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 	}
 
 	/**
-	 * Returns true if this GrantedAbilityFacet contains the given Ability in
-	 * the list of items for the Player Character represented by the given
-	 * CharID.
+	 * Returns the actual Ability in this GrantedAbilityFacet if this
+	 * GrantedAbilityFacet contains an Ability matching the Category, Nature,
+	 * and Key of the given Ability in the list of items for the Player
+	 * Character represented by the given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character used for testing
@@ -287,9 +299,10 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 	 * @param a
 	 *            The Ability to test if this GrantedAbilityFacet contains that
 	 *            item for the Player Character represented by the given CharID
-	 * @return true if this GrantedAbilityFacet contains the given Ability for
-	 *         the Player Character represented by the given CharID; false
-	 *         otherwise
+	 * @return the actual Ability in this GrantedAbilityFacet if this
+	 *         GrantedAbilityFacet contains an Ability matching the Category,
+	 *         Nature, and Key of the given Ability in the list of items for the
+	 *         Player Character represented by the given CharID
 	 */
 	public Ability getContained(CharID id, Category<Ability> cat, Nature nat,
 			Ability a)
@@ -424,6 +437,16 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 	 * of Abilities stored in this GrantedAbilityFacet for the Player Character
 	 * represented by the given CharID
 	 * 
+	 * This method is value-semantic in that ownership of the returned Map is
+	 * transferred to the class calling this method. Since this is a remove all
+	 * function, modification of the returned Map will not modify this
+	 * GrantedAbilityFacet and modification of this GrantedAbilityFacet will not
+	 * modify the returned Map. Modifications to the returned Map will also not
+	 * modify any future or previous objects returned by this (or other) methods
+	 * on GrantedAbilityFacet. If you wish to modify the information stored in
+	 * this GrantedAbilityFacet, you must use the add*() and remove*() methods
+	 * of GrantedAbilityFacet.
+	 * 
 	 * @param id
 	 *            The CharID representing the Player Character from which the
 	 *            given Abilities should be removed
@@ -472,8 +495,18 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 	}
 
 	/**
-	 * Returns the Set of Ability Category objects in this GrantedAbilityFacet
-	 * for the Player Character represented by the given CharID
+	 * Returns a non-null copy of the Set of Ability Category objects in this
+	 * GrantedAbilityFacet for the Player Character represented by the given
+	 * CharID.
+	 * 
+	 * This method is value-semantic in that ownership of the returned Set is
+	 * transferred to the class calling this method. Modification of the
+	 * returned Set will not modify this GrantedAbilityFacet and modification of
+	 * this GrantedAbilityFacet will not modify the returned Set. Modifications
+	 * to the returned Set will also not modify any future or previous objects
+	 * returned by this (or other) methods on GrantedAbilityFacet. If you wish
+	 * to modify the information stored in this GrantedAbilityFacet, you must
+	 * use the add*() and remove*() methods of GrantedAbilityFacet.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
@@ -492,6 +525,29 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 		return Collections.unmodifiableSet(map.keySet());
 	}
 
+	/**
+	 * Copies the contents of the GrantedAbilityFacet from one Player Character
+	 * to another Player Character, based on the given CharIDs representing
+	 * those Player Characters.
+	 * 
+	 * This is a method in GrantedAbilityFacet in order to avoid exposing the
+	 * mutable Map object to other classes. This should not be inlined, as the
+	 * Map is internal information to GrantedAbilityFacet and should not be
+	 * exposed to other classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the GrantedAbilityFacet of one
+	 * Player Character will only impact the Player Character where the
+	 * GrantedAbilityFacet was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param destination
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
 	@Override
 	public void copyContents(CharID id, CharID id2)
 	{
@@ -520,6 +576,21 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 		}
 	}
 
+	/**
+	 * Returns the Ability Nature of the given Ability in the given Ability
+	 * Category for the Player Character identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            Ability Nature will be returned
+	 * @param category
+	 *            The Ability Category in which the given Ability is present, in
+	 *            order to return the Ability Nature of the given Ability
+	 * @param ability
+	 *            The Ability for which the Ability Nature will be returned
+	 * @return The Ability Nature of the given Ability in the given Ability
+	 *         Category for the Player Character identified by the given CharID
+	 */
 	public Nature getNature(CharID id, Category<Ability> category,
 			Ability ability)
 	{
@@ -551,6 +622,29 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 		return n;
 	}
 
+	/**
+	 * Returns a non-null Collection of the Ability Natures in the given Ability
+	 * Category for the Player Character identified by the given CharID.
+	 * 
+	 * This method is value-semantic in that ownership of the returned
+	 * Collection is transferred to the class calling this method. Modification
+	 * of the returned Collection will not modify this GrantedAbilityFacet and
+	 * modification of this GrantedAbilityFacet will not modify the returned
+	 * Collection. Modifications to the returned Collection will also not modify
+	 * any future or previous objects returned by this (or other) methods on
+	 * GrantedAbilityFacet. If you wish to modify the information stored in this
+	 * GrantedAbilityFacet, you must use the add*() and remove*() methods of
+	 * GrantedAbilityFacet.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            Ability Natures will be returned
+	 * @param category
+	 *            The Ability Category used to return the Collection of Ability
+	 *            Natures
+	 * @return The Ability Natures in the given Ability Category for the Player
+	 *         Character identified by the given CharID
+	 */
 	public Collection<Nature> getNatures(CharID id, Category<Ability> cat)
 	{
 		Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catMap = getCachedMap(id);
@@ -565,6 +659,30 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 		return Collections.emptySet();
 	}
 
+	/**
+	 * Removes all information for the given source from this
+	 * GrantedAbilityFacet for the PlayerCharacter represented by the given
+	 * CharID.
+	 * 
+	 * This method is value-semantic in that ownership of the returned Set is
+	 * transferred to the class calling this method. Modification of the
+	 * returned Set will not modify this GrantedAbilityFacet and modification of
+	 * this GrantedAbilityFacet will not modify the returned Set. Modifications
+	 * to the returned Set will also not modify any future or previous objects
+	 * returned by this (or other) methods on GrantedAbilityFacet. If you wish
+	 * to modify the information stored in this GrantedAbilityFacet, you must
+	 * use the add*() and remove*() methods of GrantedAbilityFacet.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which items
+	 *            from the given source will be removed
+	 * @param source
+	 *            The source for the objects to be removed from the list of
+	 *            items stored for the Player Character identified by the given
+	 *            CharID
+	 * @return A non-null Set of the Ability objects removed from this
+	 *         GrantedAbilityFacet
+	 */
 	public Set<Ability> removeAll(CharID id, Object source)
 	{
 		Set<Ability> removed = new HashSet<Ability>();
@@ -629,6 +747,20 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 		return catMap == null || catMap.isEmpty();
 	}
 
+	/**
+	 * Adds the CategorizedAbilitySelection objects in the DataFacetChangeEvent
+	 * to the Player Character.
+	 * 
+	 * Triggered when one of the Facets to which GrantedAbilityFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CategorizedAbilitySelection
+	 * was added to a Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CategorizedAbilitySelection> dfce)
 	{
@@ -645,6 +777,20 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 		}
 	}
 
+	/**
+	 * Removes the CategorizedAbilitySelection objects in the
+	 * DataFacetChangeEvent from the Player Character.
+	 * 
+	 * Triggered when one of the Facets to which GrantedAbilityFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CategorizedAbilitySelection
+	 * was removed from a Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataRemoved(
 			DataFacetChangeEvent<CategorizedAbilitySelection> dfce)

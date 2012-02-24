@@ -23,7 +23,9 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
 
 /**
- * GenderFacet is a Facet that tracks the Gender of a Player Character
+ * GenderFacet is a Facet that tracks the Gender of a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class GenderFacet extends AbstractItemFacet<Gender>
 {
@@ -31,11 +33,13 @@ public class GenderFacet extends AbstractItemFacet<Gender>
 	private TemplateFacet templateFacet;
 
 	/**
-	 * Sets the Gender of the Player Character represented by the given CharID
+	 * Sets the Gender of the Player Character represented by the given CharID.
 	 * 
-	 * Note that this method will not generate an error, but will have no effect
-	 * on the Player Character, if the Gender of the Player Character has been
-	 * locked by a Gender Lock from a PCTemplate.
+	 * If the Gender of the Player Character has been locked by a Gender Lock
+	 * from a PCTemplate, this method will not generate an error, but will have
+	 * no immediate effect on the Player Character. However, the Gender set by
+	 * this method is remembered and will be the acting Gender for the Player
+	 * Character if the Gender Lock is removed.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character on which the
@@ -59,12 +63,17 @@ public class GenderFacet extends AbstractItemFacet<Gender>
 	 */
 	public void removeGender(CharID id)
 	{
+		/*
+		 * TODO Need to consider if this makes any sense - should this be like
+		 * Race that doesn't allow a null value? - if so, that needs to be
+		 * documented and this method removed.
+		 */
 		remove(id);
 	}
 
 	/**
 	 * Returns the Gender for the Player Character represented by the given
-	 * CharID
+	 * CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
@@ -86,7 +95,7 @@ public class GenderFacet extends AbstractItemFacet<Gender>
 	 * Returns true if the Gender can be set for the Player Character
 	 * represented by the given CharID. Returns false if the Gender of the
 	 * Player Character is currently controlled by a Gender Lock applied by a
-	 * PCTemplate
+	 * PCTemplate.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character to query to see
