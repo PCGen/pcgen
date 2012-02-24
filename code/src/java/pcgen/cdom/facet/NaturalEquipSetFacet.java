@@ -23,7 +23,8 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.character.EquipSet;
 
 /**
- * EquipSetFacet is a Facet that tracks the EquipSets for a Player Character.
+ * NaturalEquipSetFacet is a Facet that tracks the the Natural EquipSet for a
+ * Player Character, and automatically adds Natural Equipment to that EquipSet.
  */
 public class NaturalEquipSetFacet implements DataFacetChangeListener<Equipment>
 {
@@ -32,6 +33,20 @@ public class NaturalEquipSetFacet implements DataFacetChangeListener<Equipment>
 
 	private NaturalWeaponFacet naturalWeaponFacet;
 
+	/**
+	 * Adds a piece of TYPE=Natural Equipment to the Natural EquipSet when the
+	 * Equipment is added to a Player Character.
+	 * 
+	 * Triggered when one of the Facets to which MovementResultFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<Equipment> dfce)
 	{
@@ -48,10 +63,25 @@ public class NaturalEquipSetFacet implements DataFacetChangeListener<Equipment>
 		}
 	}
 
+	/**
+	 * Triggered when one of the Facets to which NaturalEquipSetFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<Equipment> dfce)
 	{
 		// Ignore for now
+		/*
+		 * TODO Need to establish why this is not symmetric, and what needs to
+		 * be done to make it symmetric.
+		 */
 	}
 
 	public void setNaturalWeaponFacet(NaturalWeaponFacet naturalWeaponFacet)
@@ -59,6 +89,12 @@ public class NaturalEquipSetFacet implements DataFacetChangeListener<Equipment>
 		this.naturalWeaponFacet = naturalWeaponFacet;
 	}
 
+	/**
+	 * Initializes the connections for NaturalEquipSetFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the NaturalEquipSetFacet.
+	 */
 	public void init()
 	{
 		naturalWeaponFacet.addDataFacetChangeListener(this);

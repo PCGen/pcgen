@@ -27,12 +27,17 @@ import pcgen.core.Equipment;
 /**
  * NaturalWeaponFacet is a Facet that tracks the NaturalWeapons that have been
  * granted to a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class NaturalWeaponFacet extends AbstractSourcedListFacet<Equipment>
 		implements DataFacetChangeListener<CDOMObject>
 {
 
 	/**
+	 * Adds any Natural Attacks (TYPE=Natural Equipment) which are granted by a
+	 * CDOMObject which was added to a Player Character.
+	 * 
 	 * Triggered when one of the Facets to which NaturalWeaponFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
 	 * Player Character.
@@ -59,6 +64,9 @@ public class NaturalWeaponFacet extends AbstractSourcedListFacet<Equipment>
 	}
 
 	/**
+	 * Removes any Natural Attacks (TYPE=Natural Equipment) which are granted by
+	 * a CDOMObject which was removed from a Player Character.
+	 * 
 	 * Triggered when one of the Facets to which NaturalEquipmentFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
 	 * Player Character.

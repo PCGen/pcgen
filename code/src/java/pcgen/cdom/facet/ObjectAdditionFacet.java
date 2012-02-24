@@ -23,9 +23,10 @@ import pcgen.core.PlayerCharacter;
 
 /**
  * This is a transition class, designed to allow things to be taken out of
- * PlayerCharacter while a transition is made to a system where variables are
- * captured when items are entered into the PlayerCharacter and is different
- * than today's (5.x) core.
+ * PlayerCharacter while a transition is made to a system where the results of
+ * object addition is handled entirely within facets.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ObjectAdditionFacet implements DataFacetChangeListener<CDOMObject>
 {
@@ -34,6 +35,20 @@ public class ObjectAdditionFacet implements DataFacetChangeListener<CDOMObject>
 	
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
+	/**
+	 * Forces processing of certain items internal to PlayerCharacter when a
+	 * CDOMObject is added to the Player Character.
+	 * 
+	 * Triggered when one of the Facets to which ObjectAdditionFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
@@ -43,6 +58,20 @@ public class ObjectAdditionFacet implements DataFacetChangeListener<CDOMObject>
 		pc.processAddition(cdo);
 	}
 
+	/**
+	 * Forces processing of certain items internal to PlayerCharacter when a
+	 * CDOMObject is removed from the Player Character.
+	 * 
+	 * Triggered when one of the Facets to which NaturalEquipSetFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
@@ -56,7 +85,13 @@ public class ObjectAdditionFacet implements DataFacetChangeListener<CDOMObject>
 	{
 		this.consolidationFacet = consolidationFacet;
 	}
-	
+
+	/**
+	 * Initializes the connections for ObjectAdditionFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the ObjectAdditionFacet.
+	 */
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);

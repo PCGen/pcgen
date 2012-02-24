@@ -28,6 +28,8 @@ import pcgen.core.WeaponProf;
 /**
  * NaturalWeaponProfFacet is a Facet that tracks the WeaponProfs that have been
  * implicitly granted to a Player Character via NATURALATTACKS
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class NaturalWeaponProfFacet extends
 		AbstractSourcedListFacet<WeaponProf> implements
@@ -35,6 +37,10 @@ public class NaturalWeaponProfFacet extends
 {
 
 	/**
+	 * Adds the implied (by NATURALATTACKS: token) weapon proficiencies to a
+	 * Player Character when a CDOMObject which grants natural attacks is added
+	 * to a Player Character.
+	 * 
 	 * Triggered when one of the Facets to which NaturalWeaponProfFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
 	 * Player Character.
@@ -63,6 +69,10 @@ public class NaturalWeaponProfFacet extends
 	}
 
 	/**
+	 * Reomves the implied (by NATURALATTACKS: token) weapon proficiencies from
+	 * a Player Character when a CDOMObject which grants natural attacks is
+	 * removed from a Player Character.
+	 * 
 	 * Triggered when one of the Facets to which NaturalWeaponProfFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
 	 * Player Character.

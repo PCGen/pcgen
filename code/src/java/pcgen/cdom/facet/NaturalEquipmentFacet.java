@@ -21,12 +21,17 @@ import pcgen.core.Equipment;
 
 /**
  * NaturalEquipmentFacet is a Facet that tracks the Equipment that is
- * TYPE=Natural that have been granted to a Player Character.
+ * TYPE=Natural that has been granted to a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class NaturalEquipmentFacet extends AbstractSourcedListFacet<Equipment>
 		implements DataFacetChangeListener<Equipment>
 {
 	/**
+	 * If the Equipment is TYPE=Natural, adds a piece of Equipment to this facet
+	 * when it is added to a Player Character.
+	 * 
 	 * Triggered when one of the Facets to which NaturalEquipmentFacet listens
 	 * fires a DataFacetChangeEvent to indicate a piece of Equipment was added
 	 * to a Player Character. If the added Equipment is TYPE=Natural, then it
@@ -49,6 +54,9 @@ public class NaturalEquipmentFacet extends AbstractSourcedListFacet<Equipment>
 	}
 
 	/**
+	 * Removes a piece of Equipment to this facet when it is removed from a
+	 * Player Character.
+	 * 
 	 * Triggered when one of the Facets to which NaturalEquipmentFacet listens
 	 * fires a DataFacetChangeEvent to indicate a piece of Equipment was removed
 	 * from a Player Character.
