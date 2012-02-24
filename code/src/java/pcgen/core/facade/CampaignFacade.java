@@ -41,4 +41,14 @@ public interface CampaignFacade
 
 	public String getSetting();
 
+	/**
+	 * @return A text description of the type of book the source represents.
+	 */
+	public String getBookType();
+
+	/**
+	 * @return The name of the implementation status of the source.
+	 */
+	public String getStatus();
+
 }

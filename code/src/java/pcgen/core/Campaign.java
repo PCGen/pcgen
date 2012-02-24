@@ -29,6 +29,7 @@ import java.util.List;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Status;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.facade.CampaignFacade;
@@ -137,5 +138,24 @@ public class Campaign extends PObject implements CampaignFacade
 	public String getSetting()
 	{
 		return get(StringKey.CAMPAIGN_SETTING);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getBookType()
+	{
+		return getSafe(StringKey.BOOK_TYPE);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getStatus()
+	{
+		Status status = getSafe(ObjectKey.STATUS);		
+		return status.toString();
 	}
 }
