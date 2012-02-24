@@ -26,11 +26,24 @@ import pcgen.core.character.Follower;
 
 /**
  * MasterFacet is a Facet that tracks the Master of a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class MasterFacet extends AbstractItemFacet<Follower>
 {
 	private CompanionModFacet companionModFacet;
 
+	/**
+	 * Gets a Master Check Formula string from any of the CompanionMod items for
+	 * the PlayerCharacter identified by the given CharID. The first
+	 * CompanionMod item that has a Master Check Formula will be used. Order of
+	 * CompanionMod objects is not guaranteed by this Facet.
+	 * 
+	 * @param id
+	 *            The CharID for which the Master Check Formula will be returned
+	 * @return The Master Check Formula string from any of the CompanionMod
+	 *         items for the Player Character identified by the given CharID
+	 */
 	public String getCopyMasterCheck(CharID id)
 	{
 		for (CompanionMod cMod : companionModFacet.getSet(id))
@@ -47,6 +60,17 @@ public class MasterFacet extends AbstractItemFacet<Follower>
 		return Constants.EMPTY_STRING;
 	}
 
+	/**
+	 * Gets a Master HP Formula string from any of the CompanionMod items for
+	 * the PlayerCharacter identified by the given CharID. The first
+	 * CompanionMod item that has a Master HP Formula will be used. Order of
+	 * CompanionMod objects is not guaranteed by this Facet.
+	 * 
+	 * @param id
+	 *            The CharID for which the Master HP Formula will be returned
+	 * @return The Master HP Formula string from any of the CompanionMod items
+	 *         for the Player Character identified by the given CharID
+	 */
 	public String getCopyMasterHP(CharID id)
 	{
 		for (CompanionMod cMod : companionModFacet.getSet(id))
@@ -63,6 +87,17 @@ public class MasterFacet extends AbstractItemFacet<Follower>
 		return Constants.EMPTY_STRING;
 	}
 
+	/**
+	 * Gets a Master BAB Formula string from any of the CompanionMod items for
+	 * the PlayerCharacter identified by the given CharID. The first
+	 * CompanionMod item that has a Master BAB Formula will be used. Order of
+	 * CompanionMod objects is not guaranteed by this Facet.
+	 * 
+	 * @param id
+	 *            The CharID for which the Master BAB Formula will be returned
+	 * @return The Master BAB Formula string from any of the CompanionMod items
+	 *         for the Player Character identified by the given CharID
+	 */
 	public String getCopyMasterBAB(CharID id)
 	{
 		for (CompanionMod cMod : companionModFacet.getSet(id))
@@ -85,6 +120,17 @@ public class MasterFacet extends AbstractItemFacet<Follower>
 		return Constants.EMPTY_STRING;
 	}
 
+	/**
+	 * Gets whether Use Master Skill is set for any of the CompanionMod items
+	 * for the PlayerCharacter identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character to check whether
+	 *            Use Master Skill is set
+	 * @return true if Use Master Skill is set for any of the CompanionMod items
+	 *         for the Player Character identified by the given CharID; false
+	 *         otherwise
+	 */
 	public boolean getUseMasterSkill(CharID id)
 	{
 		for (CompanionMod cMod : companionModFacet.getSet(id))

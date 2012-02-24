@@ -36,6 +36,14 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.enumeration.Load;
 
+/**
+ * MovementResultFacet stores the resulting movement of a Player Character. Note
+ * that this does not store the Movement objects granted by CDOMObjects; rather
+ * this is storing the resulting values post aggregation of those Movement
+ * objects.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ */
 public class MovementResultFacet extends AbstractStorageFacet implements
 		DataFacetChangeListener<CDOMObject>
 {
@@ -52,6 +60,19 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 	private FormulaResolvingFacet formulaResolvingFacet;
 	private LoadFacet loadFacet;
 
+	/**
+	 * Returns the movement value of the given type for the Player Character
+	 * identified by the given CharID. All appropriate BONUSes are added to the
+	 * movement before the result is returned.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            movement value of the given type to be returned
+	 * @param moveType
+	 *            The movement type to be returned
+	 * @return The movement value of the given type for the Player Character
+	 *         identified by the given CharID
+	 */
 	public double movementOfType(CharID id, String moveType)
 	{
 		MovementCacheInfo mci = getInfo(id);
@@ -107,6 +128,10 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 		return (MovementCacheInfo) getCache(id, thisClass);
 	}
 
+	/**
+	 * Data structure that stores the actual movement values for a Player
+	 * Character.
+	 */
 	public class MovementCacheInfo
 	{
 		private final CharID id;
@@ -123,6 +148,15 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 		// Movement lists
 		private Double[] movements = Globals.EMPTY_DOUBLE_ARRAY;
 
+		/**
+		 * Returns the movement value of the given type for the Player
+		 * Character. All appropriate BONUSes are added to the movement before
+		 * the result is returned.
+		 * 
+		 * @param moveType
+		 *            The movement type to be returned
+		 * @return The movement value of the given type for the Player Character
+		 */
 		public double movementOfType(String moveType)
 		{
 			if (movementTypes == null)
@@ -489,6 +523,15 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 			return list;
 		}
 
+		/**
+		 * Returns the base movement value of the given type for the Player
+		 * Character. No BONUSes are added to the movement before it is
+		 * returned.
+		 * 
+		 * @param moveType
+		 *            The movement type to be returned
+		 * @return The movement value of the given type for the Player Character
+		 */
 		public Double getMovementOfType(String moveType)
 		{
 			for (int x = 0; x < countMovementTypes(); ++x)
@@ -502,6 +545,18 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 			return Double.valueOf(0);
 		}
 
+		/**
+		 * Returns the base movement value of the given type for the Player
+		 * Character, when the Player Character is under the given Load. No
+		 * BONUSes are added to the movement before it is returned.
+		 * 
+		 * @param moveType
+		 *            The movement type to be returned
+		 * @param load
+		 *            The Load to be used to calculate the base movement of the
+		 *            Player Character
+		 * @return The movement value of the given type for the Player Character
+		 */
 		public int getBaseMovement(String moveType, Load load)
 		{
 			for (int i = 0; i < countMovementTypes(); i++)
@@ -514,6 +569,16 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 			return 0;
 		}
 
+		/**
+		 * Returns true if the Player Character has a movement value of the
+		 * given type.
+		 * 
+		 * @param moveType
+		 *            The movement type to be tested to see if the Player
+		 *            Character has a movement value of this type
+		 * @return true if the Player Character has a movement value of the
+		 *         given type; false otherwise
+		 */
 		public boolean hasMovement(String moveType)
 		{
 			for (int i = 0; i < countMovementTypes(); i++)
@@ -594,6 +659,16 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 		}
 	}
 
+	/**
+	 * Returns the number of movement types for the Player Character identified
+	 * by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            number of movement types is to be returned
+	 * @return The number of movement types for the Player Character identified
+	 *         by the given CharID
+	 */
 	public int countMovementTypes(CharID id)
 	{
 		MovementCacheInfo mci = getInfo(id);
@@ -604,11 +679,39 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 		return mci.countMovementTypes();
 	}
 
+	/**
+	 * Recalculates all movement values for the Player Character identified by
+	 * the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID for which all of the movement values is to be
+	 *            recalculated
+	 */
 	public void reset(CharID id)
 	{
 		getConstructingInfo(id).adjustMoveRates();
 	}
 
+	/**
+	 * Returns a non-null List of the movement values for the Player Character
+	 * represented by the given CharID.
+	 * 
+	 * This method is value-semantic in that ownership of the returned List is
+	 * transferred to the class calling this method. Modification of the
+	 * returned List will not modify this MovementResultFacet and modification
+	 * of this MovementResultFacet will not modify the returned List.
+	 * Modifications to the returned List will also not modify any future or
+	 * previous objects returned by this (or other) methods on
+	 * MovementResultFacet. If you wish to modify the information stored in this
+	 * MovementResultFacet, you must add Movement objects to the Player
+	 * Character and call reset(CharID).
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            movement values should be returned
+	 * @return A non-null List of the movement values for the Player Character
+	 *         represented by the given CharID.
+	 */
 	public List<NamedValue> getMovementValues(CharID id)
 	{
 		MovementCacheInfo mci = getInfo(id);
@@ -619,6 +722,19 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 		return mci.getMovementValues();
 	}
 
+	/**
+	 * Returns the base movement value of the given type for the Player
+	 * Character identified by the given CharID. No BONUSes are added to the
+	 * movement before it is returned.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            movement value of the given type to be returned
+	 * @param moveType
+	 *            The movement type to be returned
+	 * @return The movement value of the given type for the Player Character
+	 *         identified by the given CharID
+	 */
 	public Double getMovementOfType(CharID id, String moveType)
 	{
 		MovementCacheInfo mci = getInfo(id);
@@ -629,6 +745,23 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 		return mci.getMovementOfType(moveType);
 	}
 
+	/**
+	 * Returns the base movement value of the given type for the Player
+	 * Character identified by the given CharID, when the Player Character is
+	 * under the given Load. No BONUSes are added to the movement before it is
+	 * returned.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            movement value of the given type to be returned
+	 * @param moveType
+	 *            The movement type to be returned
+	 * @param load
+	 *            The Load to be used to calculate the base movement of the
+	 *            Player Character
+	 * @return The movement value of the given type for the Player Character
+	 *         identified by the given CharID
+	 */
 	public int getBaseMovement(CharID id, String moveType, Load load)
 	{
 		MovementCacheInfo mci = getInfo(id);
@@ -639,6 +772,19 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 		return mci.getBaseMovement(moveType, load);
 	}
 
+	/**
+	 * Returns true if the Player Character identified by the given CharID has a
+	 * movement value of the given type.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character which will be
+	 *            tested to see if it contains a movement of the given type
+	 * @param moveType
+	 *            The movement type to be tested to see if the Player Character
+	 *            has a movement value of this type
+	 * @return true if the Player Character identified by the given CharID has a
+	 *         movement value of the given type; false otherwise
+	 */
 	public boolean hasMovement(CharID id, String moveType)
 	{
 		MovementCacheInfo mci = getInfo(id);
@@ -649,12 +795,40 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 		return mci.hasMovement(moveType);
 	}
 
+	/**
+	 * Triggers a full recalculation of Player Character movement when a
+	 * CDOMObject is added to a Player Character.
+	 * 
+	 * Triggered when one of the Facets to which MovementResultFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		reset(dfce.getCharID());
 	}
 
+	/**
+	 * Triggers a full recalculation of Player Character movement when a
+	 * CDOMObject is added to a Player Character.
+	 * 
+	 * Triggered when one of the Facets to which MovementResultFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
@@ -712,6 +886,12 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 		this.loadFacet = loadFacet;
 	}
 
+	/**
+	 * Initializes the connections for MovementResultFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the MovementResultFacet.
+	 */
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(2000, this);
@@ -719,6 +899,29 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 		templateFacet.addDataFacetChangeListener(2000, this);
 	}
 
+	/**
+	 * Copies the contents of the MovementResultFacet from one Player Character
+	 * to another Player Character, based on the given CharIDs representing
+	 * those Player Characters.
+	 * 
+	 * This is a method in MovementResultFacet in order to avoid exposing the
+	 * mutable Map object to other classes. This should not be inlined, as the
+	 * Map is internal information to MovementResultFacet and should not be
+	 * exposed to other classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the MovementResultFacet of one
+	 * Player Character will only impact the Player Character where the
+	 * MovementResultFacet was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param destination
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
 	@Override
 	public void copyContents(CharID source, CharID copy)
 	{

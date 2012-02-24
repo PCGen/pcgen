@@ -34,6 +34,8 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 /**
  * MonsterClassFacet is a Facet that tracks the Classes & Levels that a Player
  * Character was granted through MONSTERCLASS
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class MonsterClassFacet implements DataFacetChangeListener<CDOMObject>
 {
@@ -53,6 +55,9 @@ public class MonsterClassFacet implements DataFacetChangeListener<CDOMObject>
 
 
 	/**
+	 * Adds monster classes to the Player Character when a CDOMObject which
+	 * grants monster classes is added to the Player Character.
+	 * 
 	 * Triggered when one of the Facets to which MonsterClassFacet listens fires
 	 * a DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
@@ -144,6 +149,9 @@ public class MonsterClassFacet implements DataFacetChangeListener<CDOMObject>
 	}
 
 	/**
+	 * Removes monster classes from the Player Character when the CDOMObject
+	 * which granted the monster classes is removed from the Player Character.
+	 * 
 	 * Triggered when one of the Facets to which MonsterClassFacet listens fires
 	 * a DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
 	 * Character.
@@ -194,6 +202,12 @@ public class MonsterClassFacet implements DataFacetChangeListener<CDOMObject>
 		this.raceFacet = raceFacet;
 	}
 
+	/**
+	 * Initializes the connections for MonsterClassFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the MonsterClassFacet.
+	 */
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(this);

@@ -26,22 +26,22 @@ import pcgen.core.Globals;
 import pcgen.core.Skill;
 
 /**
- * The Class <code>MasterSkillFacet</code> caches a copy of all class skill 
- * lists. This allows faster checking of whether skills are class skills for
- * a character class. 
- *
- * <br/>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
+ * The Class <code>MasterSkillFacet</code> caches a copy of all class skill
+ * lists. This allows faster checking of whether skills are class skills for a
+ * character class. Note this is a "global" facet in that it does not have
+ * method that depend on CharID (they are not character specific).
  * 
  * @author Tom Parker <thpr@users.sourceforge.net>
- * @version $Revision: $
  */
 public class MasterSkillFacet
 {
 
 	private HashMapToList<ClassSkillList, Skill> hml;
 
+	/**
+	 * Initializes the global lists of ClassSkillLists. This method only needs
+	 * to be called once for each set of sources that are loaded.
+	 */
 	private synchronized void initialize()
 	{
 		if (hml != null)
@@ -64,6 +64,20 @@ public class MasterSkillFacet
 		}
 	}
 
+	/**
+	 * Returns true if the given Skill is available on the global list of skills
+	 * in the given ClassSkillList. (The global list of skills are by definition
+	 * class skills)
+	 * 
+	 * @param csl
+	 *            The ClassSkillList which should be checked to determine if the
+	 *            given Skill is on the ClassSkillList.
+	 * @param sk
+	 *            The Skill to determine if it is on the global list of skills
+	 *            for the given ClassSkillList
+	 * @return true if the given Skill is available on the global list of skills
+	 *         in the given ClassSkillList; false otherwise
+	 */
 	public boolean hasMasterSkill(ClassSkillList csl, Skill sk)
 	{
 		if (hml == null)

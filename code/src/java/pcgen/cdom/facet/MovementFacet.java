@@ -26,6 +26,8 @@ import pcgen.core.Movement;
 /**
  * MovementFacet is a Facet that tracks the Movement objects that are contained
  * in a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class MovementFacet extends AbstractSourcedListFacet<Movement> implements
 		DataFacetChangeListener<CDOMObject>
@@ -34,6 +36,9 @@ public class MovementFacet extends AbstractSourcedListFacet<Movement> implements
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**
+	 * Adds to this Facet the Movement objects contained within a CDOMObject
+	 * granted to the Player Character.
+	 * 
 	 * Triggered when one of the Facets to which MovementFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
@@ -56,6 +61,9 @@ public class MovementFacet extends AbstractSourcedListFacet<Movement> implements
 	}
 
 	/**
+	 * Removes from this Facet the Movement objects contained within a
+	 * CDOMObject removed from the Player Character.
+	 * 
 	 * Triggered when one of the Facets to which MovementFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
 	 * Character.
@@ -76,7 +84,13 @@ public class MovementFacet extends AbstractSourcedListFacet<Movement> implements
 	{
 		this.consolidationFacet = consolidationFacet;
 	}
-	
+
+	/**
+	 * Initializes the connections for MovementFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the MovementFacet.
+	 */
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);

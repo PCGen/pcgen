@@ -24,6 +24,12 @@ import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.core.PCClass;
 
+/**
+ * Performs calculations related to multi-class characters (e.g. XP penalty
+ * multiplier)
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ */
 public class MultiClassFacet
 {
 	private FavoredClassFacet favoredClassFacet;
@@ -31,6 +37,16 @@ public class MultiClassFacet
 	private ClassFacet classFacet;
 	private SubClassFacet subClassFacet;
 
+	/**
+	 * Returns the multi-class XP multiplier for the Player Character identified
+	 * by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            multi-class XP multipler is to be returned
+	 * @return The multi-class XP multiplier for the Player Character identified
+	 *         by the given CharID
+	 */
 	public double getMultiClassXPMultiplier(CharID id)
 	{
 		HashSet<PCClass> unfavoredClasses = new HashSet<PCClass>();
