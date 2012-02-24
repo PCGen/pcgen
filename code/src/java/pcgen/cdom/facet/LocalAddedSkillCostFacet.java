@@ -28,6 +28,13 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
 
+/**
+ * LocalAddedSkillCostFacet stores directly set SkillCost objects, which are the
+ * result of a number of possibilities: ADD:CLASSSKILLS as well as CSKILL:%LIST or
+ * CCSKILL:%LIST in a Domain are both examples that use LocalAddedSkillCostFacet.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ */
 public class LocalAddedSkillCostFacet extends AbstractStorageFacet
 {
 	private final Class<?> thisClass = getClass();
@@ -82,6 +89,25 @@ public class LocalAddedSkillCostFacet extends AbstractStorageFacet
 			id, thisClass);
 	}
 
+	/**
+	 * Adds the given SkillCost for the given Skill (as granted by the given
+	 * source) for the given PCClass
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            SkillCost for the given Skill is being added
+	 * @param cl
+	 *            The PCClass for which the given SkillCost for the given Skill
+	 *            is being added
+	 * @param skill
+	 *            The Skill for which the SkillCost is being added
+	 * @param sc
+	 *            The SkillCost for the given Skill to be added for the given
+	 *            PCClass
+	 * @param source
+	 *            The source object which granted the given SkillCost for the
+	 *            given Skill
+	 */
 	public void add(CharID id, PCClass cl, Skill skill, SkillCost sc,
 			CDOMObject source)
 	{
@@ -107,6 +133,25 @@ public class LocalAddedSkillCostFacet extends AbstractStorageFacet
 		set.add(source);
 	}
 
+	/**
+	 * Removes the given SkillCost for the given Skill (as granted by the given
+	 * source) for the given PCClass
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            SkillCost for the given Skill is being removed
+	 * @param cl
+	 *            The PCClass for which the given SkillCost for the given Skill
+	 *            is being removed
+	 * @param skill
+	 *            The Skill for which the SkillCost is being removed
+	 * @param sc
+	 *            The SkillCost for the given Skill to be removed for the given
+	 *            PCClass
+	 * @param source
+	 *            The source object which granted the given SkillCost for the
+	 *            given Skill
+	 */
 	public void remove(CharID id, PCClass cl, Skill skill, SkillCost sc,
 			CDOMObject source)
 	{
@@ -143,6 +188,28 @@ public class LocalAddedSkillCostFacet extends AbstractStorageFacet
 		}
 	}
 
+	/**
+	 * Returns true if this LocalAddedSkillCostFacet has the given SkillCost for
+	 * the given Skill on the given ClassSkillList for the Player Character
+	 * identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character which will be
+	 *            checked to determine if it contains the requested SkillCost
+	 * @param cl
+	 *            The ClassSkillList which will be checked to determine if it
+	 *            contains the requested SkillCost for the given Skill
+	 * @param skill
+	 *            The Skill which will be checked to determine if it contains
+	 *            the requested SkillCost
+	 * @param sc
+	 *            The SkillCost to be checked to see if the Player Character has
+	 *            this SkillCost for the given Skill on the given ClassSkillList
+	 * @return true if this LocalAddedSkillCostFacet has the given Skill Cost
+	 *         for the given Skill on the given ClassSkillList for the Player
+	 *         Character identified by the given CharID; false otherwise
+	 * 
+	 */
 	public boolean contains(CharID id, PCClass cl, Skill skill, SkillCost sc)
 	{
 		Map<PCClass, Map<SkillCost, Map<Skill, Set<CDOMObject>>>> map = getInfo(id);
@@ -159,6 +226,29 @@ public class LocalAddedSkillCostFacet extends AbstractStorageFacet
 		return (skMap != null) && skMap.containsKey(skill);
 	}
 
+	/**
+	 * Copies the contents of the LocalAddedSkillCostFacet from one Player
+	 * Character to another Player Character, based on the given CharIDs
+	 * representing those Player Characters.
+	 * 
+	 * This is a method in LocalAddedSkillCostFacet in order to avoid exposing
+	 * the mutable Map object to other classes. This should not be inlined, as
+	 * the Map is internal information to LocalAddedSkillCostFacet and should
+	 * not be exposed to other classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the LocalAddedSkillCostFacet of
+	 * one Player Character will only impact the Player Character where the
+	 * LocalAddedSkillCostFacet was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param destination
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
 	@Override
 	public void copyContents(CharID source, CharID copy)
 	{

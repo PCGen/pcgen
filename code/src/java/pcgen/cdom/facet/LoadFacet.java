@@ -26,6 +26,13 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.util.enumeration.Load;
 
+/**
+ * LoadFacet calculates information about the Load for a Player Character. The
+ * underlying Load information used for these calculations is defined in the
+ * Game Mode LST files.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ */
 public class LoadFacet
 {
 	private static final Formula LOADSCORE_FORMULA = FormulaFactory
@@ -36,6 +43,14 @@ public class LoadFacet
 	private SizeFacet sizeFacet;
 	private BonusCheckingFacet bonusCheckingFacet;
 
+	/**
+	 * Returns the Load for the Player Character identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the Load
+	 *            should be returned
+	 * @return The Load for the Player Character identified by the given CharID
+	 */
 	public Load getLoadType(CharID id)
 	{
 		Float weight = totalWeightFacet.getTotalWeight(id);
@@ -65,11 +80,33 @@ public class LoadFacet
 		return Load.OVERLOAD;
 	}
 
+	/**
+	 * Returns the maximum Load for the Player Character identified by the given
+	 * CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            maximum Load should be returned.
+	 * @return The Maximum load for the Player Character identified by the given
+	 *         CharID
+	 */
 	public Float getMaxLoad(CharID id)
 	{
 		return getMaxLoad(id, 1.0);
 	}
 
+	/**
+	 * Returns the maximum Load for the Player Character identified by the given
+	 * CharID, multiplied by the given multiplier.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            maximum Load should be returned.
+	 * @param mult
+	 *            The multiplier by which the maximum Load will be multiplied.
+	 * @return The Maximum load for the Player Character identified by the given
+	 *         CharID, multiplied by the given multiplier
+	 */
 	public Float getMaxLoad(CharID id, double mult)
 	{
 		int loadScore = formulaResolvingFacet.resolve(id, LOADSCORE_FORMULA, "")
@@ -90,7 +127,17 @@ public class LoadFacet
 				* getLoadMultForSize(id));
 	}
 
-	public double getLoadMultForSize(CharID id)
+	/**
+	 * Returns the Load Multiplier for the size of the Player Character
+	 * identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the Load
+	 *            Multiplier will be returned.
+	 * @return The Load Multiplier for the size of the Player Character
+	 *         identified by the given CharID
+	 */
+	private double getLoadMultForSize(CharID id)
 	{
 		SizeAdjustment sadj = sizeFacet.getSizeAdjustment(id);
 		double mult =

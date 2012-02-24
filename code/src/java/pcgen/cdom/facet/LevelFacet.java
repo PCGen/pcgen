@@ -31,6 +31,13 @@ import pcgen.cdom.facet.ClassFacet.ClassLevelObjectChangeEvent;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
+/**
+ * LevelFacet stores information about the Level of a Player Character. This
+ * includes the ability to distinguish what is a Monster Level, PC level, NPC
+ * level, etc.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ */
 public class LevelFacet extends AbstractStorageFacet implements
 		ClassLevelChangeListener
 {
@@ -40,18 +47,48 @@ public class LevelFacet extends AbstractStorageFacet implements
 	private final Class<?> thisClass = getClass();
 	private final LevelChangeSupport support = new LevelChangeSupport();
 
+	/**
+	 * Returns the non-Monster level count for the Player Character identified
+	 * by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID of the Player Character for which the non-Monster
+	 *            level count will be returned
+	 * @return The non-Monster level count for the Player Character identified
+	 *         by the given CharID
+	 */
 	public int getNonMonsterLevelCount(CharID id)
 	{
 		LevelCacheInfo info = getInfo(id);
 		return info == null ? 0 : info.nonMonsterLevels;
 	}
 
+	/**
+	 * Returns the Monster level count for the Player Character identified by
+	 * the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID of the Player Character for which the Monster level
+	 *            count will be returned
+	 * @return The Monster level count for the Player Character identified by
+	 *         the given CharID
+	 */
 	public int getMonsterLevelCount(CharID id)
 	{
 		LevelCacheInfo info = getInfo(id);
 		return info == null ? 0 : info.monsterLevels;
 	}
 
+	/**
+	 * Returns the level adjustment for the Player Character identified by the
+	 * given CharID.
+	 * 
+	 * @param id
+	 *            The CharID of the Player Character for which the level
+	 *            adjustment will be returned
+	 * @return The level adjustment for the Player Character identified by the
+	 *         given CharID
+	 */
 	public int getLevelAdjustment(CharID id)
 	{
 		Race race = raceFacet.get(id);
@@ -72,6 +109,16 @@ public class LevelFacet extends AbstractStorageFacet implements
 		return levelAdj;
 	}
 
+	/**
+	 * Returns the Effective Character Level (ECL) for the Player Character
+	 * identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            Effective Character Level will be returned
+	 * @return The Effective Character Level (ECL) for the Player Character
+	 *         identified by the given CharID
+	 */
 	public int getECL(CharID id)
 	{
 		int levelAdjustment = getLevelAdjustment(id);
@@ -83,6 +130,17 @@ public class LevelFacet extends AbstractStorageFacet implements
 		return info.nonMonsterLevels + info.monsterLevels + levelAdjustment;
 	}
 
+	/**
+	 * Returns the total levels for the Player Character identified by the given
+	 * CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            total levels will be returned
+	 * @return The total levels for the Player Character identified by the given
+	 *         CharID
+	 * 
+	 */
 	public int getTotalLevels(CharID id)
 	{
 		LevelCacheInfo info = getInfo(id);
@@ -91,6 +149,20 @@ public class LevelFacet extends AbstractStorageFacet implements
 		return info == null ? 0 : info.nonMonsterLevels + info.monsterLevels;
 	}
 
+	/**
+	 * Returns the LevelCacheInfofor this LevelFacet and the given CharID. Will
+	 * return a new, empty LevelCacheInfo if no information has been set in this
+	 * LevelFacet for the given CharID. Will not return null.
+	 * 
+	 * Note that this method SHOULD NOT be public. The LevelCacheInfo object is
+	 * owned by LevelFacet, and since it can be modified, a reference to that
+	 * object should not be exposed to any object other than LevelFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the Map should be returned
+	 * @return The LevelCacheInfo for the Player Character represented by the
+	 *         given CharID.
+	 */
 	private LevelCacheInfo getConstructingInfo(CharID id)
 	{
 		LevelCacheInfo lci = getInfo(id);
@@ -102,11 +174,30 @@ public class LevelFacet extends AbstractStorageFacet implements
 		return lci;
 	}
 
+	/**
+	 * Returns the LevelCacheInfofor this LevelFacet and the given CharID. Will
+	 * return null if no information has been set in this LevelFacet for the
+	 * given CharID.
+	 * 
+	 * Note that this method SHOULD NOT be public. The LevelCacheInfo object is
+	 * owned by LevelFacet, and since it can be modified, a reference to that
+	 * object should not be exposed to any object other than LevelFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the Map should be returned
+	 * @return The LevelCacheInfo for the Player Character represented by the
+	 *         given CharID.
+	 */
 	private LevelCacheInfo getInfo(CharID id)
 	{
 		return (LevelCacheInfo) getCache(id, thisClass);
 	}
 
+	/**
+	 * Data structure for caching level information about a Player Character
+	 * 
+	 * @author Thomas Parker (thpr [at] yahoo.com)
+	 */
 	private static class LevelCacheInfo
 	{
 		public int monsterLevels;
@@ -139,21 +230,47 @@ public class LevelFacet extends AbstractStorageFacet implements
 		//ignore
 	}
 
+	/**
+	 * Adds a LevelChangeListener to receive LevelChangeEvents from LevelFacet.
+	 * 
+	 * Note that the LevelChangeListeners are a list, meaning a given
+	 * LevelChangeListener can be added more than once, and if that occurs, it
+	 * must be removed an equivalent number of times in order to no longer
+	 * receive events from this LevelFacet.
+	 * 
+	 * @param listener
+	 *            The LevelChangeListener to receive LevelChangeEvents from this
+	 *            LevelFacet
+	 */
 	public void addLevelChangeListener(LevelChangeListener listener)
 	{
 		support.addLevelChangeListener(listener);
 	}
 
-	public LevelChangeListener[] getLevelChangeListeners()
-	{
-		return support.getLevelChangeListeners();
-	}
-
+	/**
+	 * Removes a LevelChangeListener so that it does not receive
+	 * LevelChangeEvents from LevelFacet.
+	 * 
+	 * Note that the LevelChangeListeners are a list, meaning a given
+	 * LevelChangeListener can be added more than once, and if that occurs, it
+	 * must be removed an equivalent number of times in order to no longer
+	 * receive events from this LevelFacet.
+	 * 
+	 * @param listener
+	 *            The LevelChangeListener to no longer receive LevelChangeEvents
+	 *            from this LevelFacet
+	 */
 	public void removeLevelChangeListener(LevelChangeListener listener)
 	{
 		support.removeLevelChangeListener(listener);
 	}
 
+	/**
+	 * Interface for a LevelChangeListener that wants to receive
+	 * LevelChangeEvents from LevelFacet.
+	 * 
+	 * @author Thomas Parker (thpr [at] yahoo.com)
+	 */
 	public static interface LevelChangeListener extends EventListener
 	{
 		public void levelChanged(LevelChangeEvent lce);
@@ -195,8 +312,8 @@ public class LevelFacet extends AbstractStorageFacet implements
 		private final EventListenerList listenerList = new EventListenerList();
 
 		/**
-		 * Adds a new DataFacetChangeListener to receive LevelChangeEvents
-		 * (EdgeChangeEvent and NodeChangeEvent) from the source DataFacet.
+		 * Adds a new LevelChangeListener to receive LevelChangeEvents from the
+		 * source DataFacet.
 		 * 
 		 * @param listener
 		 *            The LevelChangeListener to receive LevelChangeEvents
@@ -211,7 +328,7 @@ public class LevelFacet extends AbstractStorageFacet implements
 		 * from the source DataFacet.
 		 * 
 		 * Ownership of the returned Array is transferred to the calling Object.
-		 * No reference to the Array is maintained by DataFacetChangeSupport.
+		 * No reference to the Array is maintained by LevelChangeSupport.
 		 * However, the LevelChangeListeners contained in the Array are
 		 * (obviously!) returned BY REFERENCE, and care should be taken with
 		 * modifying those LevelChangeListeners.*
@@ -237,15 +354,12 @@ public class LevelFacet extends AbstractStorageFacet implements
 		}
 
 		/**
-		 * Sends a NodeChangeEvent to the LevelChangeListeners that are
+		 * Sends a LevelChangeEvent to the LevelChangeListeners that are
 		 * receiving LevelChangeEvents from the source DataFacet.
 		 * 
-		 * @param node
-		 *            The Node that has beed added to or removed from the source
-		 *            DataFacet
-		 * @param type
-		 *            An identifier indicating whether the given CDOMObject was
-		 *            added to or removed from the source DataFacet
+		 * @param id
+		 *            An identifier indicating the Player Character on which a
+		 *            level change has occurred
 		 */
 		protected void fireLevelChangeEvent(CharID id)
 		{
@@ -271,7 +385,8 @@ public class LevelFacet extends AbstractStorageFacet implements
 	}
 
 	/**
-	 * @param templateFacet the templateFacet to set
+	 * @param templateFacet
+	 *            the templateFacet to set
 	 */
 	public void setTemplateFacet(TemplateFacet templateFacet)
 	{
@@ -279,7 +394,8 @@ public class LevelFacet extends AbstractStorageFacet implements
 	}
 
 	/**
-	 * @param raceFacet the raceFacet to set
+	 * @param raceFacet
+	 *            the raceFacet to set
 	 */
 	public void setRaceFacet(RaceFacet raceFacet)
 	{
@@ -287,13 +403,37 @@ public class LevelFacet extends AbstractStorageFacet implements
 	}
 
 	/**
-	 * @param resolveFacet the resolveFacet to set
+	 * @param resolveFacet
+	 *            the resolveFacet to set
 	 */
 	public void setFormulaResolvingFacet(FormulaResolvingFacet resolveFacet)
 	{
 		this.formulaResolvingFacet = resolveFacet;
 	}
 
+	/**
+	 * Copies the contents of the LevelFacet from one Player Character to
+	 * another Player Character, based on the given CharIDs representing those
+	 * Player Characters.
+	 * 
+	 * This is a method in LevelFacet in order to avoid exposing the mutable
+	 * LevelCacheInfo object to other classes. This should not be inlined, as
+	 * the LevelCacheInfo is internal information to LevelFacet and should not
+	 * be exposed to other classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the LevelFacet of one Player
+	 * Character will only impact the Player Character where the LevelFacet was
+	 * changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param destination
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
 	@Override
 	public void copyContents(CharID source, CharID copy)
 	{

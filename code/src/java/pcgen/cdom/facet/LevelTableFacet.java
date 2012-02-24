@@ -22,6 +22,12 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.core.LevelInfo;
 
+/**
+ * LevelTableFacet stores the Experience Point table used to identify how many
+ * experience points are required at a certain character level.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ */
 public class LevelTableFacet
 {
 	private XPTableFacet xpTableFacet;
@@ -39,7 +45,7 @@ public class LevelTableFacet
 	 *            The CharID representing the Player Character for which to
 	 *            calculate the minimum experience for a given level
 	 * 
-	 * @return The experience points needed
+	 * @return The experience points needed for the given level
 	 */
 	public int minXPForLevel(int level, CharID id)
 	{
@@ -58,7 +64,8 @@ public class LevelTableFacet
 	}
 
 	/**
-	 * @param resolveFacet the resolveFacet to set
+	 * @param resolveFacet
+	 *            the resolveFacet to set
 	 */
 	public void setResolveFacet(FormulaResolvingFacet resolveFacet)
 	{

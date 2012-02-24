@@ -24,9 +24,23 @@ import java.util.List;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 
+/**
+ * LevelInfoFacet stores the PCLevelInfo objects contained in a Player
+ * Character. These store information about a specific Level (such as stat
+ * increases)
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ */
 public class LevelInfoFacet extends AbstractListFacet<PCLevelInfo>
 {
 
+	/**
+	 * Overrides the default behavior of AbstractListFacet, since we need to
+	 * ensure we are storing the PCLevelInfo objects in an ordered list (since
+	 * we are implicitly storing the level of the PCLevelInfo by its location)
+	 * 
+	 * @see pcgen.cdom.facet.AbstractListFacet#getComponentSet()
+	 */
 	@Override
 	protected Collection<PCLevelInfo> getComponentSet()
 	{
@@ -34,7 +48,7 @@ public class LevelInfoFacet extends AbstractListFacet<PCLevelInfo>
 	}
 
 	/**
-	 * Returns the objects in this LevelInfoFacet for the Player Character
+	 * Returns the PCLevelInfo in this LevelInfoFacet for the Player Character
 	 * represented by the given CharID and the given location in the list of
 	 * items (list index starts at zero)
 	 * 
