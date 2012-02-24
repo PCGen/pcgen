@@ -30,6 +30,8 @@ import pcgen.core.character.SpellBook;
 /**
  * SpellBookFacet is a Facet that tracks the SpellBooks possessed by a Player
  * Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SpellBookFacet extends AbstractStorageFacet implements
 		DataFacetChangeListener<Equipment>
@@ -37,9 +39,12 @@ public class SpellBookFacet extends AbstractStorageFacet implements
 	private EquipmentFacet equipmentFacet;
 
 	/**
+	 * Adds a SpellBook to this facet if the Equipment added to a Player
+	 * Character was a SpellBook.
+	 * 
 	 * Triggered when one of the Facets to which SpellBookFacet listens fires a
-	 * DataFacetChangeEvent to indicate a Equipment was added to a Player
-	 * Character.
+	 * DataFacetChangeEvent to indicate a piece of Equipment was added to a
+	 * Player Character.
 	 * 
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
@@ -76,8 +81,8 @@ public class SpellBookFacet extends AbstractStorageFacet implements
 
 	/**
 	 * Triggered when one of the Facets to which SpellBookFacet listens fires a
-	 * DataFacetChangeEvent to indicate a Equipment was removed from a Player
-	 * Character.
+	 * DataFacetChangeEvent to indicate a piece of Equipment was removed from a
+	 * Player Character.
 	 * 
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
@@ -89,8 +94,26 @@ public class SpellBookFacet extends AbstractStorageFacet implements
 	public void dataRemoved(DataFacetChangeEvent<Equipment> dfce)
 	{
 		//Ignore - for now this is one in PlayerCharacter...
+		/*
+		 * TODO This method should eventually be symmetric with dataAdded
+		 */
 	}
 
+	/**
+	 * Adds all of the SpellBooks in the given Collection to the list of
+	 * SpellBooks stored in this SpellBookFacet for the Player Character
+	 * represented by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            given SpellBooks should be added
+	 * @param c
+	 *            The Collection of SpellBooks to be added to the list of
+	 *            SpellBooks stored in this SpellBookFacet for the Player
+	 *            Character represented by the given CharID
+	 * @throws NullPointerException
+	 *             if the given Collection is null
+	 */
 	public void addAll(CharID id, Collection<SpellBook> list)
 	{
 		for (SpellBook sb : list)
@@ -99,6 +122,18 @@ public class SpellBookFacet extends AbstractStorageFacet implements
 		}
 	}
 
+	/**
+	 * Add the given SpellBook to the list of SpellBooks stored in this
+	 * SpellBookFacet for the Player Character represented by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            given item should be added
+	 * @param sb
+	 *            The SpellBook to be added to the list of SpellBooks stored in
+	 *            this SpellBookFacet for the Player Character represented by
+	 *            the given CharID
+	 */
 	public void add(CharID id, SpellBook sb)
 	{
 		if (sb == null)
@@ -110,20 +145,34 @@ public class SpellBookFacet extends AbstractStorageFacet implements
 		sbMap.put(name, sb);
 	}
 
+	/**
+	 * Removes all of the SpellBooks in the given Collection from the list of
+	 * SpellBooks stored in this SpellBookFacet for the Player Character
+	 * represented by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character from which the
+	 *            given SpellBooks should be removed
+	 * @param c
+	 *            The Collection of SpellBooks to be removed from the list of
+	 *            SpellBooks stored in this SpellBookFacet for the Player
+	 *            Character represented by the given CharID
+	 * @throws NullPointerException
+	 *             if the given Collection is null
+	 */
 	public void removeAll(CharID id)
 	{
 		removeCache(id, getClass());
 	}
 
 	/**
-	 * Returns the type-safe Map for this AbstractSourcedListFacet and the given
-	 * CharID. May return null if no information has been set in this
-	 * AbstractSourcedListFacet for the given CharID.
+	 * Returns the type-safe Map for this SpellBookFacet and the given CharID.
+	 * May return null if no information has been set in this SpellBookFacet for
+	 * the given CharID.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Map is owned by
-	 * AbstractSourcedListFacet, and since it can be modified, a reference to
-	 * that object should not be exposed to any object other than
-	 * AbstractSourcedListFacet.
+	 * SpellBookFacet, and since it can be modified, a reference to that object
+	 * should not be exposed to any object other than SpellBookFacet.
 	 * 
 	 * @param id
 	 *            The CharID for which the Set should be returned
@@ -137,14 +186,13 @@ public class SpellBookFacet extends AbstractStorageFacet implements
 	}
 
 	/**
-	 * Returns a type-safe Map for this AbstractSourcedListFacet and the given
-	 * CharID. Will return a new, empty Map if no information has been set in
-	 * this AbstractSourcedListFacet for the given CharID. Will not return null.
+	 * Returns a type-safe Map for this SpellBookFacet and the given CharID.
+	 * Will return a new, empty Map if no information has been set in this
+	 * SpellBookFacet for the given CharID. Will not return null.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Map object is owned by
-	 * AbstractSourcedListFacet, and since it can be modified, a reference to
-	 * that object should not be exposed to any object other than
-	 * AbstractSourcedListFacet.
+	 * SpellBookFacet, and since it can be modified, a reference to that object
+	 * should not be exposed to any object other than SpellBookFacet.
 	 * 
 	 * @param id
 	 *            The CharID for which the Map should be returned
@@ -161,6 +209,18 @@ public class SpellBookFacet extends AbstractStorageFacet implements
 		return componentMap;
 	}
 
+	/**
+	 * Returns the SpellBook for the given SpellBook name and the Player
+	 * Character identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the PlayerCharacter for which the
+	 *            SpellBook for the given name should be returned
+	 * @param name
+	 *            The name of the SpellBook to be returned
+	 * @return The SpellBook for the given SpellBook name and the Player
+	 *         Character identified by the given CharID
+	 */
 	public SpellBook getBookNamed(CharID id, String name)
 	{
 		Map<String, SpellBook> componentMap = getCachedMap(id);
@@ -171,6 +231,28 @@ public class SpellBookFacet extends AbstractStorageFacet implements
 		return componentMap.get(name);
 	}
 
+	/**
+	 * Returns a non-null Collection of SpellBook names in this SpellBookFacet
+	 * for the Player Character represented by the given CharID. This method
+	 * returns an empty Set if no SpellBooks are in this SpellBookFacet for the
+	 * Player Character identified by the given CharID.
+	 * 
+	 * This method is value-semantic in that ownership of the returned
+	 * Collection is transferred to the class calling this method. Modification
+	 * of the returned Collection will not modify this SpellBookFacet and
+	 * modification of this SpellBookFacet will not modify the returned
+	 * Collection. Modifications to the returned Collection will also not modify
+	 * any future or previous objects returned by this (or other) methods on
+	 * SpellBookFacet. If you wish to modify the information stored in this
+	 * SpellBookFacet, you must use the add*() and remove*() methods of
+	 * SpellBookFacet.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which a copy
+	 *            of the SpellBooks in this SpellBookFacet should be returned.
+	 * @return A non-null Collection of SpellBooks in this SpellBookFacet for
+	 *         the Player Character represented by the given CharID
+	 */
 	public Collection<String> getBookNames(CharID id)
 	{
 		Map<String, SpellBook> componentMap = getCachedMap(id);
@@ -181,6 +263,28 @@ public class SpellBookFacet extends AbstractStorageFacet implements
 		return Collections.unmodifiableSet(componentMap.keySet());
 	}
 
+	/**
+	 * Returns a non-null copy of the Collection of SpellBooks in this
+	 * SpellBookFacet for the Player Character represented by the given CharID.
+	 * This method returns an empty Set if no SpellBooks are in this
+	 * SpellBookFacet for the Player Character identified by the given CharID.
+	 * 
+	 * This method is value-semantic in that ownership of the returned
+	 * Collection is transferred to the class calling this method. Modification
+	 * of the returned Collection will not modify this SpellBookFacet and
+	 * modification of this SpellBookFacet will not modify the returned
+	 * Collection. Modifications to the returned Collection will also not modify
+	 * any future or previous objects returned by this (or other) methods on
+	 * SpellBookFacet. If you wish to modify the information stored in this
+	 * SpellBookFacet, you must use the add*() and remove*() methods of
+	 * SpellBookFacet.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which a copy
+	 *            of the SpellBooks in this SpellBookFacet should be returned.
+	 * @return A non-null Collection of SpellBooks in this SpellBookFacet for
+	 *         the Player Character represented by the given CharID
+	 */
 	public Collection<SpellBook> getBooks(CharID id)
 	{
 		Map<String, SpellBook> componentMap = getCachedMap(id);
@@ -191,18 +295,56 @@ public class SpellBookFacet extends AbstractStorageFacet implements
 		return Collections.unmodifiableCollection(componentMap.values());
 	}
 
+	/**
+	 * Returns true if this SpellBookFacet contains a SpellBook of the the given
+	 * name in the list of SpellBooks for the Player Character represented by
+	 * the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character used for testing
+	 * @param obj
+	 *            The SpellBook name to test if this SpellBookFacet contains a
+	 *            SpellBook by that name for the Player Character represented by
+	 *            the given CharID
+	 * @return true if this SpellBookFacet contains a SpellBook with the given
+	 *         name for the Player Character represented by the given CharID;
+	 *         false otherwise
+	 */
 	public boolean containsBookNamed(CharID id, String name)
 	{
 		Map<String, SpellBook> componentMap = getCachedMap(id);
 		return (componentMap != null) && componentMap.containsKey(name);
 	}
 
+	/**
+	 * Returns the count of SpellBooks in this SpellBookFacet for the Player
+	 * Character represented by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            count of SpellBooks should be returned
+	 * @return The count of SpellBooks in this SpellBookFacet for the Player
+	 *         Character represented by the given CharID
+	 */
 	public int getCount(CharID id)
 	{
 		Map<String, SpellBook> componentMap = getCachedMap(id);
 		return (componentMap == null) ? 0 : componentMap.size();
 	}
 
+	/**
+	 * Removes the SpellBook with the given name from the list of SpellBooks
+	 * stored in this SpellBookFacet for the Player Character represented by the
+	 * given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character from which the
+	 *            SpellBook with the given name should be removed
+	 * @param obj
+	 *            The name of the SpellBook to be removed from the list of
+	 *            SpellBooks stored in this SpellBookFacet for the Player
+	 *            Character represented by the given CharID
+	 */
 	public void removeBookNamed(CharID id, String name)
 	{
 		Map<String, SpellBook> componentMap = getCachedMap(id);
@@ -217,11 +359,39 @@ public class SpellBookFacet extends AbstractStorageFacet implements
 		this.equipmentFacet = equipmentFacet;
 	}
 
+	/**
+	 * Initializes the connections for SpellBookFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the SpellBookFacet.
+	 */
 	public void init()
 	{
 		equipmentFacet.addDataFacetChangeListener(this);
 	}
 
+	/**
+	 * Copies the contents of the SpellBookFacet from one Player Character to
+	 * another Player Character, based on the given CharIDs representing those
+	 * Player Characters.
+	 * 
+	 * This is a method in SpellBookFacet in order to avoid exposing the mutable
+	 * Map object to other classes. This should not be inlined, as the Map is
+	 * internal information to SpellBookFacet and should not be exposed to other
+	 * classes.
+	 * 
+	 * Note also the copy is a one-time event and no SpellBook references are
+	 * maintained between the Player Characters represented by the given CharIDs
+	 * (meaning once this copy takes place, any change to the SpellBook will
+	 * only impact the Player Character where the SpellBook was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param destination
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
 	@Override
 	public void copyContents(CharID source, CharID copy)
 	{

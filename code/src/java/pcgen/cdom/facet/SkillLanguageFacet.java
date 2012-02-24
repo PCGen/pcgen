@@ -19,6 +19,12 @@ package pcgen.cdom.facet;
 
 import pcgen.core.Language;
 
+/**
+ * SkillLanguageFacet tracks the Language object granted to the Player Character
+ * from skills that grant Languages.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ */
 public class SkillLanguageFacet extends AbstractSourcedListFacet<Language>
 {
 }

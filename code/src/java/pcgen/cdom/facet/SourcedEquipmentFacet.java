@@ -21,12 +21,18 @@ import pcgen.core.Equipment;
 
 /**
  * SourcedEquipmentFacet is a Facet that tracks the Equipment that is active on
- * a PlayerCharacter. To be active, it must be Equipped, or a NaturalWeapon
+ * a PlayerCharacter. To be active, it must be Equipped, or a NaturalWeapon.
+ * This serves as a consolidation point for Equipment that is active on a Player
+ * Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SourcedEquipmentFacet extends AbstractSourcedListFacet<Equipment>
 		implements DataFacetChangeListener<Equipment>
 {
 	/**
+	 * Adds the active Equipment to this facet.
+	 * 
 	 * Triggered when one of the Facets to which SourcedEquipmentFacet listens
 	 * fires a DataFacetChangeEvent to indicate Equipment was added to a Player
 	 * Character.
@@ -44,6 +50,8 @@ public class SourcedEquipmentFacet extends AbstractSourcedListFacet<Equipment>
 	}
 
 	/**
+	 * Adds the no-longer active Equipment from this facet.
+	 * 
 	 * Triggered when one of the Facets to which SourcedEquipmentFacet listens
 	 * fires a DataFacetChangeEvent to indicate Equipment was removed from a
 	 * Player Character.

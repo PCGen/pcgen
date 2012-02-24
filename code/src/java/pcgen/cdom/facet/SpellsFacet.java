@@ -29,8 +29,10 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.core.spell.Spell;
 
 /**
- * SpellsFacet is a Facet that tracks the PCTemplates that have been granted
- * to a Player Character through SPELLS
+ * SpellsFacet is a Facet that tracks the SpellLikeAbility objects that have
+ * been granted to a Player Character through SPELLS
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SpellsFacet extends AbstractQualifiedListFacet<SpellLikeAbility>
 		implements DataFacetChangeListener<CDOMObject>
@@ -38,6 +40,20 @@ public class SpellsFacet extends AbstractQualifiedListFacet<SpellLikeAbility>
 
 	private CDOMObjectSourceFacet cdomSourceFacet;
 
+	/**
+	 * Adds a SpellLikeAbility to this facet if the CDOMObject added to a Player
+	 * Character contains a SPELLS entry.
+	 * 
+	 * Triggered when one of the Facets to which SpellsFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
@@ -83,6 +99,20 @@ public class SpellsFacet extends AbstractQualifiedListFacet<SpellLikeAbility>
 		}
 	}
 
+	/**
+	 * Removes all SpellLikeAbility objects granted by a CDOMObject when that
+	 * CDOMObject is removed from a Player Character.
+	 * 
+	 * Triggered when one of the Facets to which SpellsFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
@@ -94,6 +124,12 @@ public class SpellsFacet extends AbstractQualifiedListFacet<SpellLikeAbility>
 		this.cdomSourceFacet = cdomSourceFacet;
 	}
 
+	/**
+	 * Initializes the connections for SpellsFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the SpellsFacet.
+	 */
 	public void init()
 	{
 		cdomSourceFacet.addDataFacetChangeListener(this);

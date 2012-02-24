@@ -21,9 +21,29 @@ import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.core.spell.Spell;
 
+/**
+ * SpellListFacet maintains a list of spell lists for a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ */
 public class SpellListFacet extends AbstractSourcedListFacet<CDOMList<Spell>>
 {
 
+	/**
+	 * Add the given spell list with the given source to the list of spell lists
+	 * stored in this SpellListFacet for the Player Character represented by the
+	 * given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            given spell list should be added
+	 * @param obj
+	 *            The spell list to be added to the list of spell lists stored
+	 *            in this SpellListFacet for the Player Character represented by
+	 *            the given CharID
+	 * @param source
+	 *            The source for the given spell list
+	 */
 	@Override
 	public void add(CharID id, CDOMList<Spell> obj, Object source)
 	{
