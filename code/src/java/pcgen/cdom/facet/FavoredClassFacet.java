@@ -29,6 +29,8 @@ import pcgen.core.PCClass;
 /**
  * FavoredClassFacet is a Facet that tracks the Favored Classes that have been
  * granted to a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class FavoredClassFacet extends AbstractSourcedListFacet<PCClass>
 		implements DataFacetChangeListener<CDOMObject>
@@ -45,6 +47,9 @@ public class FavoredClassFacet extends AbstractSourcedListFacet<PCClass>
 	private ConditionalTemplateFacet conditionalTemplateFacet;
 
 	/**
+	 * Identifies CDOMObjects that grant a FavoredClass and adds the granted
+	 * FavoredClass to this FavoredClassFacet.
+	 * 
 	 * Triggered when one of the Facets to which FavoredClassFacet listens fires
 	 * a DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
@@ -71,6 +76,9 @@ public class FavoredClassFacet extends AbstractSourcedListFacet<PCClass>
 	}
 
 	/**
+	 * Identifies CDOMObjects that grant a FavoredClass and removes the granted
+	 * FavoredClass from this FavoredClassFacet.
+	 * 
 	 * Triggered when one of the Facets to which FavoredClassFacet listens fires
 	 * a DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
 	 * Character.
@@ -87,6 +95,14 @@ public class FavoredClassFacet extends AbstractSourcedListFacet<PCClass>
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
 
+	/**
+	 * Returns the number of levels the Player Character has in favored classes.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            number of levels in favored classes will be returned.
+	 * @return The number of levels the Player Character has in favored classes.
+	 */
 	public int getFavoredClassLevel(CharID id)
 	{
 		Set<PCClass> aList = getSet(id);
@@ -138,6 +154,12 @@ public class FavoredClassFacet extends AbstractSourcedListFacet<PCClass>
 		this.conditionalTemplateFacet = conditionalTemplateFacet;
 	}
 
+	/**
+	 * Initializes the connections for FavoredClassFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the FavoredClassFacet.
+	 */
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(this);

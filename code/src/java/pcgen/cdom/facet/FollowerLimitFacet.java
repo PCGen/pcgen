@@ -34,6 +34,8 @@ import pcgen.cdom.list.CompanionList;
 /**
  * FollowerLimitFacet is a Facet that tracks the Follower Limits that have been
  * set for a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class FollowerLimitFacet extends AbstractStorageFacet implements
 		DataFacetChangeListener<CDOMObject>
@@ -45,6 +47,9 @@ public class FollowerLimitFacet extends AbstractStorageFacet implements
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**
+	 * Adds the FollowerLimit objects granted by CDOMObjects added to the Player
+	 * Character to this FollowerLimitFacet.
+	 * 
 	 * Triggered when one of the Facets to which FollowerOptionFacet listens
 	 * fires a DataFacetChangeEvent to indicate a FollowerOption was added to a
 	 * Player Character.
@@ -67,6 +72,9 @@ public class FollowerLimitFacet extends AbstractStorageFacet implements
 	}
 
 	/**
+	 * Removes the FollowerLimit objects granted by CDOMObjects removed from the
+	 * Player Character from this FollowerLimitFacet.
+	 * 
 	 * Triggered when one of the Facets to which FollowerOptionFacet listens
 	 * fires a DataFacetChangeEvent to indicate a FollowerOption was removed
 	 * from a Player Character.
@@ -141,15 +149,14 @@ public class FollowerLimitFacet extends AbstractStorageFacet implements
 	 * FollowerLimitFacet for the given CharID.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Map is owned by
-	 * AbstractSourcedListFacet, and since it can be modified, a reference to
-	 * that object should not be exposed to any object other than
-	 * AbstractSourcedListFacet.
+	 * FollowerLimitFacet, and since it can be modified, a reference to that
+	 * object should not be exposed to any object other than FollowerLimitFacet.
 	 * 
 	 * @param id
 	 *            The CharID for which the Set should be returned
 	 * @return The Set for the Player Character represented by the given CharID;
 	 *         null if no information has been set in this FollowerLimitFacet
-	 *         for the Player Character.
+	 *         for the Player Character
 	 */
 	private Map<CompanionList, Map<FollowerLimit, Set<CDOMObject>>> getCachedMap(
 			CharID id)
@@ -161,16 +168,15 @@ public class FollowerLimitFacet extends AbstractStorageFacet implements
 	/**
 	 * Returns a type-safe Map for this FollowerLimitFacet and the given CharID.
 	 * Will return a new, empty Map if no information has been set in this
-	 * AbstractSourcedListFacet for the given CharID. Will not return null.
+	 * FollowerLimitFacet for the given CharID. Will not return null.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Map object is owned by
-	 * AbstractSourcedListFacet, and since it can be modified, a reference to
-	 * that object should not be exposed to any object other than
-	 * FollowerLimitFacet.
+	 * FollowerLimitFacet, and since it can be modified, a reference to that
+	 * object should not be exposed to any object other than FollowerLimitFacet.
 	 * 
 	 * @param id
 	 *            The CharID for which the Map should be returned
-	 * @return The Map for the Player Character represented by the given CharID.
+	 * @return The Map for the Player Character represented by the given CharID
 	 */
 	private Map<FollowerLimit, Set<CDOMObject>> getConstructingCachedMap(
 			CharID id, CompanionList cl)
@@ -190,6 +196,19 @@ public class FollowerLimitFacet extends AbstractStorageFacet implements
 		return foMap;
 	}
 
+	/**
+	 * Returns the maximum number of Followers of a given CompanionList for the
+	 * Player Character identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            maximum number of Followers will be returned
+	 * @param cl
+	 *            The CompanionList for which the maximum number of Followers
+	 *            will be returned
+	 * @return The maximum number of Followers of a given CompanionList for the
+	 *         Player Character identified by the given CharID.
+	 */
 	public int getMaxFollowers(CharID id, CompanionList cl)
 	{
 		Map<CompanionList, Map<FollowerLimit, Set<CDOMObject>>> componentMap = getCachedMap(id);
@@ -236,12 +255,41 @@ public class FollowerLimitFacet extends AbstractStorageFacet implements
 	{
 		this.consolidationFacet = consolidationFacet;
 	}
-	
+
+	/**
+	 * Initializes the connections for FollowerLimitFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the FollowerLimitFacet.
+	 */
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);
 	}
 
+	/**
+	 * Copies the contents of the FollowerLimitFacet from one Player Character
+	 * to another Player Character, based on the given CharIDs representing
+	 * those Player Characters.
+	 * 
+	 * This is a method in FollowerLimitFacet in order to avoid exposing the
+	 * mutable Map object to other classes. This should not be inlined, as the
+	 * Map is internal information to FollowerLimitFacet and should not be
+	 * exposed to other classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the FollowerLimitFacet of one
+	 * Player Character will only impact the Player Character where the
+	 * FollowerLimitFacet was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param destination
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
 	@Override
 	public void copyContents(CharID source, CharID copy)
 	{

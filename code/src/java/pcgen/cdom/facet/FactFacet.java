@@ -23,11 +23,29 @@ import java.util.Map;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.StringKey;
 
+/**
+ * FactFacet stores basic String information about a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ */
 public class FactFacet extends AbstractStorageFacet
 {
 
 	private final Class<?> thisClass = getClass();
 
+	/**
+	 * Returns the type-safe Map for this FactFacet and the given CharID. Will
+	 * return a new, empty Map if no information has been set in this FactFacet
+	 * for the given CharID. Will not return null.
+	 * 
+	 * Note that this method SHOULD NOT be public. The Map object is owned by
+	 * FactFacet, and since it can be modified, a reference to that object
+	 * should not be exposed to any object other than FactFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the Map should be returned
+	 * @return The Map for the Player Character represented by the given CharID.
+	 */
 	private Map<StringKey, String> getConstructingInfo(CharID id)
 	{
 		Map<StringKey, String> rci = getInfo(id);
@@ -39,16 +57,61 @@ public class FactFacet extends AbstractStorageFacet
 		return rci;
 	}
 
+	/**
+	 * Returns the type-safe Map for this FactFacet and the given CharID. May
+	 * return null if no information has been set in this FactFacet for the
+	 * given CharID.
+	 * 
+	 * Note that this method SHOULD NOT be public. The Map is owned by
+	 * FactFacet, and since it can be modified, a reference to that object
+	 * should not be exposed to any object other than FactFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the Set should be returned
+	 * @return The Map for the Player Character represented by the given CharID;
+	 *         null if no information has been set in this FactFacet for the
+	 *         Player Character.
+	 */
 	private Map<StringKey, String> getInfo(CharID id)
 	{
 		return (Map<StringKey, String>) getCache(id, thisClass);
 	}
 
+	/**
+	 * Sets a String to be contained in the FactFacet for the given StringKey
+	 * and Player Character identified by the given CharID. null is a legal
+	 * value in order to "unset" a String.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            String should be set
+	 * @param key
+	 *            The StringKey identifying which String should be set
+	 * @param s
+	 *            The value of the String to be contained in the FactFacet for
+	 *            the given StringKey and Player Character identified by the
+	 *            given CharID
+	 */
 	public void set(CharID id, StringKey key, String s)
 	{
 		getConstructingInfo(id).put(key, s);
 	}
 
+	/**
+	 * Returns a String contained in the FactFacet for the given StringKey and
+	 * Player Character identified by the given CharID. May return null if no
+	 * String is contained in the FactFacet for the StringKey and the Player
+	 * Character identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            String should be returned
+	 * @param key
+	 *            The StringKey identifying which String contained in the
+	 *            FactFacet should be returned
+	 * @return A String contained in the FactFacet for the given StringKey and
+	 *         Player Character identified by the given CharID
+	 */
 	public String get(CharID id, StringKey key)
 	{
 		Map<StringKey, String> rci = getInfo(id);
@@ -59,6 +122,29 @@ public class FactFacet extends AbstractStorageFacet
 		return null;
 	}
 
+	/**
+	 * Copies the contents of the FactFacet from one Player Character to another
+	 * Player Character, based on the given CharIDs representing those Player
+	 * Characters.
+	 * 
+	 * This is a method in FactFacet in order to avoid exposing the mutable Map
+	 * object to other classes. This should not be inlined, as the Map is
+	 * internal information to FactFacet and should not be exposed to other
+	 * classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the FactFacet of one Player
+	 * Character will only impact the Player Character where the FactFacet was
+	 * changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param destination
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
 	@Override
 	public void copyContents(CharID source, CharID destination)
 	{

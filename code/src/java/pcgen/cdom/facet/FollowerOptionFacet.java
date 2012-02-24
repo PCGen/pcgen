@@ -37,6 +37,8 @@ import pcgen.core.FollowerOption;
 /**
  * FollowerOptionFacet is a Facet that tracks the FollowerOptions that have been
  * granted to a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class FollowerOptionFacet extends AbstractStorageFacet implements
 		DataFacetChangeListener<CDOMObject>
@@ -44,6 +46,9 @@ public class FollowerOptionFacet extends AbstractStorageFacet implements
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**
+	 * Adds the FollowerOption objects granted by CDOMObjects added to the
+	 * Player Character to this FollowerLimitFacet.
+	 * 
 	 * Triggered when one of the Facets to which FollowerOptionFacet listens
 	 * fires a DataFacetChangeEvent to indicate a FollowerOption was added to a
 	 * Player Character.
@@ -66,6 +71,9 @@ public class FollowerOptionFacet extends AbstractStorageFacet implements
 	}
 
 	/**
+	 * Removes the FollowerOption objects granted by CDOMObjects removed from
+	 * the Player Character from this FollowerLimitFacet.
+	 * 
 	 * Triggered when one of the Facets to which FollowerOptionFacet listens
 	 * fires a DataFacetChangeEvent to indicate a FollowerOption was removed
 	 * from a Player Character.
@@ -135,20 +143,20 @@ public class FollowerOptionFacet extends AbstractStorageFacet implements
 	}
 
 	/**
-	 * Returns the type-safe Map for this AbstractSourcedListFacet and the given
+	 * Returns the type-safe Map for this FollowerOptionFacet and the given
 	 * CharID. May return null if no information has been set in this
-	 * AbstractSourcedListFacet for the given CharID.
+	 * FollowerOptionFacet for the given CharID.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Map is owned by
-	 * AbstractSourcedListFacet, and since it can be modified, a reference to
-	 * that object should not be exposed to any object other than
-	 * AbstractSourcedListFacet.
+	 * FollowerOptionFacet, and since it can be modified, a reference to that
+	 * object should not be exposed to any object other than
+	 * FollowerOptionFacet.
 	 * 
 	 * @param id
 	 *            The CharID for which the Set should be returned
 	 * @return The Set for the Player Character represented by the given CharID;
-	 *         null if no information has been set in this
-	 *         AbstractSourcedListFacet for the Player Character.
+	 *         null if no information has been set in this FollowerOptionFacet
+	 *         for the Player Character
 	 */
 	private CaseInsensitiveMap<Map<FollowerOption, Set<CDOMObject>>> getCachedMap(
 			CharID id)
@@ -158,18 +166,18 @@ public class FollowerOptionFacet extends AbstractStorageFacet implements
 	}
 
 	/**
-	 * Returns a type-safe Map for this AbstractSourcedListFacet and the given
+	 * Returns a type-safe Map for this FollowerOptionFacet and the given
 	 * CharID. Will return a new, empty Map if no information has been set in
-	 * this AbstractSourcedListFacet for the given CharID. Will not return null.
+	 * this FollowerOptionFacet for the given CharID. Will not return null.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Map object is owned by
-	 * AbstractSourcedListFacet, and since it can be modified, a reference to
-	 * that object should not be exposed to any object other than
-	 * AbstractSourcedListFacet.
+	 * FollowerOptionFacet, and since it can be modified, a reference to that
+	 * object should not be exposed to any object other than
+	 * FollowerOptionFacet.
 	 * 
 	 * @param id
 	 *            The CharID for which the Map should be returned
-	 * @return The Map for the Player Character represented by the given CharID.
+	 * @return The Map for the Player Character represented by the given CharID
 	 */
 	private Map<FollowerOption, Set<CDOMObject>> getConstructingCachedMap(
 			CharID id, String name)
@@ -189,6 +197,34 @@ public class FollowerOptionFacet extends AbstractStorageFacet implements
 		return foMap;
 	}
 
+	/**
+	 * Returns a non-null copy of the available FollowerOptions of a given type
+	 * for the Player Character represented by the given CharID. This method
+	 * returns an empty Map if no objects are in this FollowerOptionFacet for
+	 * the Player Character identified by the given CharID.
+	 * 
+	 * This method is value-semantic in that ownership of the returned Map is
+	 * transferred to the class calling this method. Modification of the
+	 * returned Map will not modify this FollowerOptionFacet and modification of
+	 * this FollowerOptionFacet will not modify the returned Map. Modifications
+	 * to the returned Set will also not modify any future or previous objects
+	 * returned by this (or other) methods on FollowerOptionFacet. If you wish
+	 * to modify the information stored in this FollowerOptionFacet, you must
+	 * use the add*() and remove*() methods of FollowerOptionFacet.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            items in this FollowerOptionFacet should be returned
+	 * @param type
+	 *            The type of FollowerOption that should be returned
+	 * @param comp
+	 *            An optional Comparator to be used to sort the FollowerOption
+	 *            objects in the returned Map. null is a legal value, and will
+	 *            result in the FollowerOptions being sorted by their type
+	 * @return A non-null copy of the Map of FollowerOptions in this
+	 *         FollowerOptionFacet for the Player Character represented by the
+	 *         given CharID
+	 */
 	public Map<FollowerOption, CDOMObject> getAvailableFollowers(CharID id,
 			String type, Comparator<FollowerOption> comp)
 	{
@@ -214,7 +250,8 @@ public class FollowerOptionFacet extends AbstractStorageFacet implements
 				for (FollowerOption efo : expanded)
 				{
 					/*
-					 * TODO This is a bug, and will overwrite the first source :(
+					 * TODO This is a bug, and will overwrite the first source
+					 * :(
 					 */
 					ret.put(efo, source);
 				}
@@ -227,12 +264,41 @@ public class FollowerOptionFacet extends AbstractStorageFacet implements
 	{
 		this.consolidationFacet = consolidationFacet;
 	}
-	
+
+	/**
+	 * Initializes the connections for FollowerOptionFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the FollowerOptionFacet.
+	 */
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);
 	}
 
+	/**
+	 * Copies the contents of the FollowerOptionFacet from one Player Character
+	 * to another Player Character, based on the given CharIDs representing
+	 * those Player Characters.
+	 * 
+	 * This is a method in FollowerOptionFacet in order to avoid exposing the
+	 * mutable Map object to other classes. This should not be inlined, as the
+	 * Map is internal information to FollowerOptionFacet and should not be
+	 * exposed to other classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the FollowerOptionFacet of one
+	 * Player Character will only impact the Player Character where the
+	 * FollowerOptionFacet was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param destination
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
 	@Override
 	public void copyContents(CharID source, CharID copy)
 	{

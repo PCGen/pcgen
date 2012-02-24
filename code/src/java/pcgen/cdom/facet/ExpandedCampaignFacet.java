@@ -24,12 +24,22 @@ import pcgen.core.Campaign;
  * been loaded with a Player Character. This includes the explicitly loaded
  * Campaigns as well as the implicitly loaded campaigns called by the PCC: token
  * within the Campaign files.
+ * 
+ * Just the explicitly loaded Campaign objects are stored in CampaignFacet
+ * 
+ * @see pcgen.cdom.facet.CampaignFacet
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ExpandedCampaignFacet extends AbstractSourcedListFacet<Campaign>
 		implements DataFacetChangeListener<Campaign>
 {
 
 	/**
+	 * Expands Campaigns loaded with the Player Character to include the
+	 * subcampaigns. Stores a complete list of Campaigns (explicit and implicit)
+	 * loaded with the Player Character.
+	 * 
 	 * Triggered when one of the Facets to which ExpandedCampaignFacet listens
 	 * fires a DataFacetChangeEvent to indicate a Campaign loaded with a Player
 	 * Character.
@@ -49,6 +59,10 @@ public class ExpandedCampaignFacet extends AbstractSourcedListFacet<Campaign>
 	}
 
 	/**
+	 * Expands Campaigns loaded with the Player Character to include the
+	 * subcampaigns. Removes campaigns and subcampaigns (explicit and implicit)
+	 * no longer loaded with the Player Character.
+	 * 
 	 * Triggered when one of the Facets to which ExpandedCampaignFacet listens
 	 * fires a DataFacetChangeEvent to indicate a Campaign was unloaded.
 	 * 

@@ -29,7 +29,9 @@ import pcgen.core.Race;
 /**
  * FaceFacet is a Facet that tracks the Face of a Player Character (in game
  * rules, the exposed size of a Player Character on each side of the Player
- * Character)
+ * Character).
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class FaceFacet
 {
@@ -74,6 +76,15 @@ public class FaceFacet
 		return face;
 	}
 
+	/**
+	 * Returns the Face for the Player Character as defined by a single
+	 * CDOMObject.
+	 * 
+	 * @param cdo
+	 *            The CDOMObject in which the Face information is stored
+	 * @return The Point2D indicating the Face as defined by the given
+	 *         CDOMObject.
+	 */
 	private Point2D.Double getFace(CDOMObject cdo)
 	{
 		BigDecimal width = cdo.get(ObjectKey.FACE_WIDTH);
