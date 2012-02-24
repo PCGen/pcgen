@@ -19,12 +19,20 @@ package pcgen.cdom.facet;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.helper.ProfProvider;
-import pcgen.core.ShieldProf;
 import pcgen.core.Equipment;
+import pcgen.core.ShieldProf;
 
 /**
  * ShieldProfFacet is a Facet that tracks the ShieldProfs that have been granted
  * to a Player Character.
+ * 
+ * This is a required consolidation since ProfProviders that are directly
+ * applied via AUTO:SHIELDPROF are a distinct process from those that are
+ * indirectly added via a %LIST within AUTO:SHIELDPROF (and thus the result of a
+ * CHOOSE). This facet consolidates those two sources into the complete list of
+ * ShieldProf ProfProviders for a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ShieldProfProviderFacet extends
 		AbstractQualifiedListFacet<ProfProvider<ShieldProf>> implements
@@ -32,6 +40,9 @@ public class ShieldProfProviderFacet extends
 {
 
 	/**
+	 * Processes added ShieldProf ProfProviders to consolidate those objects
+	 * into one location.
+	 * 
 	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
@@ -49,6 +60,9 @@ public class ShieldProfProviderFacet extends
 	}
 
 	/**
+	 * Processes added ShieldProf ProfProviders to consolidate those objects
+	 * into one location.
+	 * 
 	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
 	 * Character.
@@ -65,6 +79,24 @@ public class ShieldProfProviderFacet extends
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
 
+	/**
+	 * Returns true if a Player Character is proficient with a given Shield;
+	 * false otherwise.
+	 * 
+	 * While this method will accept any Equipment, it is only guaranteed to
+	 * have "good behavior" for a Shield. All other equipment will - at least -
+	 * return false. No guarantee is made that this method will not throw an
+	 * exception if the given Equipment is not a Shield.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            proficiency will be tested.
+	 * @param eq
+	 *            The Shield (as an Equipment object) for which the proficiency
+	 *            is being tested.
+	 * @return true if a Player Character is proficient with the given Shield;
+	 *         false otherwise.
+	 */
 	public boolean isProficientWithShield(CharID id, Equipment eq)
 	{
 		for (ProfProvider<ShieldProf> pp : getQualifiedSet(id))

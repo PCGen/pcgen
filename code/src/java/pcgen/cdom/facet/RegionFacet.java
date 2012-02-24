@@ -28,6 +28,8 @@ import pcgen.core.PCTemplate;
  * RegionFacet is a Facet that tracks the Region and SubRegion of a Player
  * Character. The Region and SubRegion can be set explicitly or inferred from
  * the PCTemplate objects possessed by the PlayerCharacter.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class RegionFacet extends AbstractDataFacet<String> implements
 		DataFacetChangeListener<PCTemplate>
@@ -389,6 +391,20 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 		}
 	}
 
+	/**
+	 * Drives an update of the Region and SubRegion for a Player Character when
+	 * a CDOMObject is added to a Player Character.
+	 * 
+	 * Triggered when one of the Facets to which RegionFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<PCTemplate> dfce)
 	{
@@ -413,6 +429,20 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 		}
 	}
 
+	/**
+	 * Drives an update of the Region and SubRegion for a Player Character when
+	 * a CDOMObject is removed from a Player Character.
+	 * 
+	 * Triggered when one of the Facets to which RegionFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<PCTemplate> dfce)
 	{

@@ -34,6 +34,11 @@ import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.analysis.SizeUtilities;
 
+/**
+ * SizeFacet tracks the SizeAdjustment for a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ */
 public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 		DataFacetChangeListener<CDOMObject>, LevelChangeListener,
 		BonusChangeListener
@@ -47,6 +52,16 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 	private BonusCheckingFacet bonusCheckingFacet;
 	private LevelFacet levelFacet;
 
+	/**
+	 * Returns the integer indicating the racial size for the Player Character
+	 * identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            racial size will be returned
+	 * @return the integer indicating the racial size for the Player Character
+	 *         identified by the given CharID
+	 */
 	public int racialSizeInt(CharID id)
 	{
 		SizeFacetInfo info = getInfo(id);
@@ -83,12 +98,30 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 		return iSize;
 	}
 
+	/**
+	 * Returns the integer indicating the size of the Player Character
+	 * identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            integer indicating the size of the Player Character.
+	 * @return the integer indicating the size of the Player Character
+	 *         identified by the given CharID
+	 */
 	public int sizeInt(CharID id)
 	{
 		SizeFacetInfo info = getInfo(id);
 		return info == null ? SizeUtilities.getDefaultSizeInt() : info.sizeInt;
 	}
 
+	/**
+	 * Forces a complete update of the size information for the Player Character
+	 * identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID indicating the Player Character on which to update
+	 *            the size information
+	 */
 	public void update(CharID id)
 	{
 		SizeFacetInfo info = getConstructingInfo(id);
@@ -131,7 +164,7 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 		}
 	}
 
-	int sizesToAdvance(CharID id, Race race)
+	private int sizesToAdvance(CharID id, Race race)
 	{
 		return sizesToAdvance(race, levelFacet.getMonsterLevelCount(id));
 	}
@@ -158,6 +191,16 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 		return steps;
 	}
 
+	/**
+	 * Returns the SizeAdjustment active for the Player Character identified by
+	 * the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            SizeAdjustment will be returned
+	 * @return The SizeAdjustment active for the Player Character identified by
+	 *         the given CharID
+	 */
 	public SizeAdjustment getSizeAdjustment(CharID id)
 	{
 		SizeFacetInfo info = getInfo(id);
@@ -165,11 +208,35 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 				: info.sizeAdj;
 	}
 
+	/**
+	 * Returns the abbreviation of the SizeAdjustment active for the Player
+	 * Character identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            abbreviation of the SizeAdjustment will be returned
+	 * @return The abbreviation of the SizeAdjustment active for the Player
+	 *         Character identified by the given CharID
+	 */
 	public String getSizeAbb(CharID id)
 	{
 		return getSizeAdjustment(id).getAbbreviation();
 	}
 
+	/**
+	 * Returns the type-safe SizeFacetInfo for this SizeFacet and the given
+	 * CharID. Will return a new, empty SizeFacetInfo if no Size information has
+	 * been set for the given CharID. Will not return null.
+	 * 
+	 * Note that this method SHOULD NOT be public. The SizeFacetInfo object is
+	 * owned by SizeFacet, and since it can be modified, a reference to that
+	 * object should not be exposed to any object other than SizeFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the SizeFacetInfo should be returned
+	 * @return The SizeFacetInfo for the Player Character represented by the
+	 *         given CharID.
+	 */
 	private SizeFacetInfo getConstructingInfo(CharID id)
 	{
 		SizeFacetInfo rci = getInfo(id);
@@ -181,11 +248,29 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 		return rci;
 	}
 
+	/**
+	 * Returns the type-safe SizeFacetInfo for this SizeFacet and the given
+	 * CharID. Will return a null if no Size information has been set for the
+	 * given CharID.
+	 * 
+	 * Note that this method SHOULD NOT be public. The SizeFacetInfo object is
+	 * owned by SizeFacet, and since it can be modified, a reference to that
+	 * object should not be exposed to any object other than SizeFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the SizeFacetInfo should be returned
+	 * @return The SizeFacetInfo for the Player Character represented by the
+	 *         given CharID.
+	 */
 	private SizeFacetInfo getInfo(CharID id)
 	{
 		return (SizeFacetInfo) getCache(id, thisClass);
 	}
 
+	/**
+	 * SizeFacetInfo is the data structure used by SizeFacet to store a Player
+	 * Character's size information.
+	 */
 	private static class SizeFacetInfo
 	{
 		public int sizeInt;
@@ -216,24 +301,72 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 		}
 	}
 
+	/**
+	 * Drives a recalculation of the size information for a Player Character
+	 * when a CDOMObject is added to the Player Character.
+	 * 
+	 * Triggered when one of the Facets to which SizeFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		update(dfce.getCharID());
 	}
 
+	/**
+	 * Drives a recalculation of the size information for a Player Character
+	 * when a CDOMObject is removed from the Player Character.
+	 * 
+	 * Triggered when one of the Facets to which SizeFacet listens fires a
+	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		update(dfce.getCharID());
 	}
 
+	/**
+	 * Drives a recalculation of the size information for a Player Character
+	 * when the level of the Player Character is changed.
+	 * 
+	 * @param lce
+	 *            The LevelChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void levelChanged(LevelChangeEvent lce)
 	{
 		update(lce.getCharID());
 	}
 
+	/**
+	 * Drives a recalculation of the size information for a Player Character
+	 * when a BONUS on the Player Character is changed.
+	 * 
+	 * @param bce
+	 *            The BonusChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void bonusChange(BonusChangeEvent bce)
 	{
@@ -265,6 +398,28 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 		this.levelFacet = levelFacet;
 	}
 
+	/**
+	 * Copies the contents of the SizeFacet from one Player Character to another
+	 * Player Character, based on the given CharIDs representing those Player
+	 * Characters.
+	 * 
+	 * This is a method in SizeFacet in order to avoid exposing the mutable
+	 * SizeFacetInfo object to other classes. This should not be inlined, as
+	 * SizeFacetInfo is internal information to SizeFacet and should not be
+	 * exposed to other classes.
+	 * 
+	 * Note also the copy is a one-time event and no Size references are
+	 * maintained between the Player Characters represented by the given CharIDs
+	 * (meaning once this copy takes place, any change to the Size will only
+	 * impact the Player Character where the Size was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            Size information should be copied
+	 * @param destination
+	 *            The CharID representing the Player Character to which the Size
+	 *            information should be copied
+	 */
 	@Override
 	public void copyContents(CharID source, CharID copy)
 	{

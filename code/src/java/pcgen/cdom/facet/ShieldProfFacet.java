@@ -26,6 +26,8 @@ import pcgen.cdom.helper.ShieldProfProvider;
 /**
  * ShieldProfFacet is a Facet that tracks the ShieldProfs that have been granted
  * to a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ShieldProfFacet implements DataFacetChangeListener<CDOMObject>
 {
@@ -35,6 +37,10 @@ public class ShieldProfFacet implements DataFacetChangeListener<CDOMObject>
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**
+	 * Processes added CDOMObjects to determine whether they contained an
+	 * AUTO:SHIELDPROF, and if so, processes the contents of that token to add
+	 * the appropriate ShieldProfProviders to the Player Character.
+	 * 
 	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
@@ -58,6 +64,10 @@ public class ShieldProfFacet implements DataFacetChangeListener<CDOMObject>
 	}
 
 	/**
+	 * Processes removed CDOMObjects to determine whether they contained an
+	 * AUTO:SHIELDPROF, and if so, processes the contents of that token to
+	 * remove the appropriate ShieldProfProviders from the Player Character.
+	 * 
 	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
 	 * Character.
@@ -84,7 +94,13 @@ public class ShieldProfFacet implements DataFacetChangeListener<CDOMObject>
 	{
 		this.consolidationFacet = consolidationFacet;
 	}
-	
+
+	/**
+	 * Initializes the connections for ShieldProfFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the ShieldProfFacet.
+	 */
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);

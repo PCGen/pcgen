@@ -28,6 +28,8 @@ import pcgen.core.PlayerCharacter;
 
 /**
  * RemoveFacet is a Facet that triggers when an object has a REMOVE token
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class RemoveFacet implements DataFacetChangeListener<CDOMObject>
 {
@@ -41,6 +43,8 @@ public class RemoveFacet implements DataFacetChangeListener<CDOMObject>
 	private TemplateFacet templateFacet;
 
 	/**
+	 * Drives the necessary selections for REMOVE tokens on a Player Character.
+	 * 
 	 * Triggered when one of the Facets to which RemoveFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
@@ -81,6 +85,7 @@ public class RemoveFacet implements DataFacetChangeListener<CDOMObject>
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		//Nothing for now?
+		//TODO This eventually needs to be symmetric to dataAdded?
 	}
 
 	public void setRaceFacet(RaceFacet raceFacet)
@@ -98,6 +103,12 @@ public class RemoveFacet implements DataFacetChangeListener<CDOMObject>
 		this.templateFacet = templateFacet;
 	}
 
+	/**
+	 * Initializes the connections for RemoveFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the RemoveFacet.
+	 */
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(this);

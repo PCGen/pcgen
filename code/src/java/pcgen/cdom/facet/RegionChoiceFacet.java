@@ -26,6 +26,8 @@ import pcgen.core.PlayerCharacter;
 
 /**
  * RegionChoiceFacet is a Facet that triggers when an object has a REGION token
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class RegionChoiceFacet implements DataFacetChangeListener<CDOMObject>
 {
@@ -39,6 +41,9 @@ public class RegionChoiceFacet implements DataFacetChangeListener<CDOMObject>
 	private TemplateFacet templateFacet;
 
 	/**
+	 * Drives selection of a Region (reacting to a REGION: token on a
+	 * CDOMObject) for a CDOMObject which was added to a Player Character.
+	 * 
 	 * Triggered when one of the Facets to which RegionChoiceFacet listens fires
 	 * a DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
@@ -69,6 +74,11 @@ public class RegionChoiceFacet implements DataFacetChangeListener<CDOMObject>
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		//Nothing for now?
+		/*
+		 * TODO Need to look into symmetry here. pc.setRegion was called in the
+		 * act() method above, so we need to unset that when the owning object
+		 * is removed?
+		 */
 	}
 
 	public void setRaceFacet(RaceFacet raceFacet)
@@ -86,6 +96,12 @@ public class RegionChoiceFacet implements DataFacetChangeListener<CDOMObject>
 		this.templateFacet = templateFacet;
 	}
 
+	/**
+	 * Initializes the connections for RegionChoiceFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the RegionChoiceFacet.
+	 */
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(this);

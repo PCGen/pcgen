@@ -19,6 +19,15 @@ package pcgen.cdom.facet;
 
 import pcgen.core.Equipment;
 
+/**
+ * SecondaryWeaponFacet contains the list of weapons that are Secondary Weapons
+ * for a Player Character.
+ * 
+ * Note this list of Secondary weapons may contain multiple entries to handle
+ * both melee and ranged instances of that Equipment.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ */
 public class SecondaryWeaponFacet extends AbstractListFacet<Equipment>
 {
 
