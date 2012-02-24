@@ -34,6 +34,8 @@ import pcgen.cdom.enumeration.ListKey;
 /**
  * DamageReductionFacet is a Facet that tracks the DamageReduction objects that
  * have been granted to a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class DamageReductionFacet extends
 		AbstractSourcedListFacet<DamageReduction> implements
@@ -52,8 +54,12 @@ public class DamageReductionFacet extends
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**
+	 * Extracts DamageReduction objects from CDOMObjects granted to a Player
+	 * Character. The DamageReduction objects are granted to the Player
+	 * Character.
+	 * 
 	 * Triggered when one of the Facets to which DamageReductionFacet listens
-	 * fires a DataFacetChangeEvent to indicate a DamageReduction was added to a
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
 	 * Player Character.
 	 * 
 	 * @param dfce
@@ -74,9 +80,13 @@ public class DamageReductionFacet extends
 	}
 
 	/**
+	 * Extracts DamageReduction objects from CDOMObjects removed from a Player
+	 * Character. The DamageReduction objects are removed from to the Player
+	 * Character.
+	 * 
 	 * Triggered when one of the Facets to which DamageReductionFacet listens
-	 * fires a DataFacetChangeEvent to indicate a DamageReduction was removed
-	 * from a Player Character.
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
+	 * Player Character.
 	 * 
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
@@ -186,9 +196,15 @@ public class DamageReductionFacet extends
 		return andMap;
 	}
 
-	/*
-	 * Collections.sort(ret, new DamageReductionComparator(pc)); return
-	 * Collections.unmodifiableList(resultList);
+	/**
+	 * Returns the Damage Reduction String for the Player Character identified
+	 * by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            Damage Reduction should be returned.
+	 * @return the Damage Reduction String for the Player Character identified
+	 *         by the given CharID
 	 */
 	public String getDRString(CharID id)
 	{
@@ -197,6 +213,8 @@ public class DamageReductionFacet extends
 
 	/*
 	 * Weird exposure for TemplateModifier (don't like this)
+	 * 
+	 * TODO This really needs to be in the output layer, not in the facets
 	 */
 	public String getDRString(CharID id,
 			Map<DamageReduction, Set<Object>> cachedMap)
@@ -249,12 +267,39 @@ public class DamageReductionFacet extends
 		return sb.toString();
 	}
 
+	/**
+	 * Gets the Damage Reduction value for the given Damage Reduction key and
+	 * Player Character identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            Damage Reduction for the given key will be returned
+	 * @param key
+	 *            The key identifying which Damage Reduction value will be
+	 *            returned
+	 * @return The Damage Reduction value for the given Damage Reduction key and
+	 *         Player Character identified by the given CharID
+	 */
 	public Integer getDR(CharID id, String key)
 	{
 		return getNonBonusDR(id, key)
 				+ (int) bonusCheckingFacet.getBonus(id, "DR", key);
 	}
 
+	/**
+	 * Gets the Damage Reduction value, ignoring all bonuses, for the given
+	 * Damage Reduction key and Player Character identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            Damage Reduction for the given key will be returned
+	 * @param key
+	 *            The key identifying which Damage Reduction value will be
+	 *            returned
+	 * @return The Damage Reduction value, ignoring all bonuses, for the given
+	 *         Damage Reduction key and Player Character identified by the given
+	 *         CharID
+	 */
 	private int getNonBonusDR(CharID id, String key)
 	{
 		Integer drValue = getDRMap(id, getCachedMap(id)).get(key);
@@ -280,7 +325,13 @@ public class DamageReductionFacet extends
 	{
 		this.consolidationFacet = consolidationFacet;
 	}
-	
+
+	/**
+	 * Initializes the connections for DamageReductionFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the DamageReductionFacet.
+	 */
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);

@@ -26,6 +26,13 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.spell.Spell;
 
+/**
+ * ClassSpellListFacet tracks the Spell Lists granted to a Player Character by a
+ * CDOMObject. This may be a static SpellList or a choice of a SpellLists
+ * available to the Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ */
 public class ClassSpellListFacet extends
 		AbstractSourcedListFacet<CDOMList<Spell>>
 {
@@ -41,6 +48,18 @@ public class ClassSpellListFacet extends
 	 * "out of facet events" for the moment - thpr
 	 */
 
+	/**
+	 * Process the given PCClass, and add the appropriate SpellList objects to
+	 * the Player Character. This may be a single SpellList or a choice of
+	 * SpellLists. If it is a choice, drive the choice of the SpellList.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character on which the
+	 *            SpellLists should be applied
+	 * @param pcc
+	 *            The PCClass on which the SpellLists will be added to the
+	 *            Player Character.
+	 */
 	public void process(CharID id, PCClass pcc)
 	{
 		TransitionChoice<CDOMListObject<Spell>> csc =
@@ -59,6 +78,16 @@ public class ClassSpellListFacet extends
 		}
 	}
 
+	/**
+	 * Adds the default spell list for the PCClass to the Player Character.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character on which the
+	 *            default SpellList for the given PCClass will be added
+	 * @param pcc
+	 *            The PCClass for which the default SpellList will be added to
+	 *            the PlayerCharacte identified by the given CharID.
+	 */
 	public void addDefaultSpellList(CharID id, PCClass pcc)
 	{
 		spellListFacet.add(id, pcc.get(ObjectKey.CLASS_SPELLLIST), pcc);

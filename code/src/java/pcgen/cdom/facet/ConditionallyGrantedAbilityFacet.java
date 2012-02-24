@@ -28,11 +28,11 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
+ * ConditionallyGrantedAbilityFacet is a DataFacet that contains information
+ * about Ability objects that are contained in a Player Character because the
+ * Player Character did pass prerequisites for the conditional Ability.
  * 
- * An ConditionalAbilityFacet is a DataFacet that contains information about
- * Ability objects that are contained in a PlayerCharacter because the PC did
- * pass prerequisites
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ConditionallyGrantedAbilityFacet extends
 		AbstractListFacet<CategorizedAbilitySelection>
@@ -40,6 +40,14 @@ public class ConditionallyGrantedAbilityFacet extends
 
 	private ConditionalAbilityFacet conditionalAbilityFacet;
 
+	/**
+	 * Performs a global update of conditionally granted Abilities for a Player
+	 * Character.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which a global
+	 *            update of conditionally granted Abilities should be performed.
+	 */
 	public void update(CharID id)
 	{
 		Collection<CategorizedAbilitySelection> current = getSet(id);
@@ -61,6 +69,14 @@ public class ConditionallyGrantedAbilityFacet extends
 		}
 	}
 
+	/**
+	 * Overrides the default behavior of AbstractListFacet, since we need to
+	 * ensure we are storing the conditionally granted abilities by their
+	 * identity (Ability has old behavior in .equals and Abilities are still
+	 * cloned)
+	 * 
+	 * @see pcgen.cdom.facet.AbstractListFacet#getComponentSet()
+	 */
 	@Override
 	protected Set<CategorizedAbilitySelection> getComponentSet()
 	{

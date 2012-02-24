@@ -31,6 +31,8 @@ import pcgen.core.PCTemplate;
  * ConditionalTemplateFacet is a Facet that tracks the Conditional Templates
  * granted to the PlayerCharacter. Conditional Templates are those items that
  * are are set by HD, LEVEL, and REPEATLEVEL tokens in PCTemplates.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ConditionalTemplateFacet extends AbstractListFacet<PCTemplate>
 		implements DataFacetChangeListener<PCTemplate>, LevelChangeListener
@@ -39,6 +41,9 @@ public class ConditionalTemplateFacet extends AbstractListFacet<PCTemplate>
 	private LevelFacet levelFacet;
 
 	/**
+	 * Adds all of the conditional Templates available to the Player Character
+	 * to this ConditionalTemplateFacet.
+	 * 
 	 * Triggered when one of the Facets to which ConditionalTemplateFacet
 	 * listens fires a DataFacetChangeEvent to indicate a PCTemplate was added
 	 * to a Player Character.
@@ -60,6 +65,9 @@ public class ConditionalTemplateFacet extends AbstractListFacet<PCTemplate>
 	}
 
 	/**
+	 * Removes all of the conditional Templates granted by the object removed
+	 * from the Player Character.
+	 * 
 	 * Triggered when one of the Facets to which ConditionalTemplateFacet
 	 * listens fires a DataFacetChangeEvent to indicate a PCTemplate was removed
 	 * from a Player Character.
@@ -68,7 +76,7 @@ public class ConditionalTemplateFacet extends AbstractListFacet<PCTemplate>
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
 	 * 
-	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<PCTemplate> dfce)
@@ -82,6 +90,11 @@ public class ConditionalTemplateFacet extends AbstractListFacet<PCTemplate>
 	}
 
 	/**
+	 * Adds (or removes) all of the conditional Templates available to the
+	 * Player Character to this ConditionalTemplateFacet. This requires a global
+	 * check of all Templates granted to the Player Character, since this is
+	 * occurring when the Player Character level changes.
+	 * 
 	 * Triggered when the Level of the Player Character changes.
 	 * 
 	 * @param lce
