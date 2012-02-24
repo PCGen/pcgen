@@ -20,21 +20,66 @@ package pcgen.cdom.facet;
 import pcgen.cdom.base.CDOMObject;
 
 /**
- * This is a transition class, designed to allow things to be taken out of
- * PlayerCharacter while a transition is made to a sytem where abilities are
- * added in a forward manner, rather than a loop.
+ * EquipmentConsolidationFacet consolidates all of the CDOMObjects that are not
+ * part of a Player Character. This only includes CDOMObjects not natively part
+ * of the Player Character, meaning they are part of the Equipment equipped by
+ * the Player Character.
+ * 
+ * By consolidating all of the CDOMObjects into one location, behaviors which
+ * are consistent across all CDOMObjects related to the equipment on a Player
+ * Character can be performed based on events from a single source Facet.
+ * 
+ * If you are looking for a Facet that consolidates all of the CDOMObjects
+ * granted to a Player Character, including those from Equipment and those
+ * natively part of the Player Character, then use CDOMObjectConsolidationFacet
+ * 
+ * @see pcgen.cdom.facet.CDOMObjectConsolidationFacet
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class EquipmentConsolidationFacet extends
 		AbstractSourcedListFacet<CDOMObject> implements
 		DataFacetChangeListener<CDOMObject>
 {
 
+	/**
+	 * Adds all of the CDOMObjects that are part of a Player Character's
+	 * Equipment. Listens for CDOMObjects not natively part of the Player
+	 * Character, and thus part of the Equipment equipped by the Player
+	 * Character.
+	 * 
+	 * Triggered when one of the Facets to which AvailableSpellFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
 
+	/**
+	 * Removes all of the CDOMObjects that are not part of a Player Character
+	 * when they are removed from the Player Character. Listens for CDOMObjects
+	 * not natively part of the Player Character, and thus part of the Equipment
+	 * equipped by the Player Character.
+	 * 
+	 * Triggered when one of the Facets to which CharacterConsolidationFacet
+	 * listens fires a DataFacetChangeEvent to indicate a CDOMObject was removed
+	 * from a Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{

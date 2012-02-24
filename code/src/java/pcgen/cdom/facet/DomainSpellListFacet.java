@@ -23,6 +23,13 @@ import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Domain;
 import pcgen.core.spell.Spell;
 
+/**
+ * DomainSpellListFacet tracks the Domain Spell Lists granted to a Player
+ * Character by a CDOMObject. This may be a static SpellList or a choice of a
+ * SpellLists available to the Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ */
 public class DomainSpellListFacet extends
 		AbstractSourcedListFacet<CDOMList<Spell>> implements
 		DataFacetChangeListener<Domain>
@@ -32,6 +39,20 @@ public class DomainSpellListFacet extends
 
 	private DomainFacet domainFacet;
 
+	/**
+	 * Adds Domain Spell Lists granted to the Player Character due to the Domain
+	 * selections of the Player Character.
+	 * 
+	 * Triggered when one of the Facets to which DomainSpellListFacet listens
+	 * fires a DataFacetChangeEvent to indicate a Domain was added to a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<Domain> dfce)
 	{
@@ -41,6 +62,20 @@ public class DomainSpellListFacet extends
 		spellListFacet.add(dfce.getCharID(), list, dfce.getCDOMObject());
 	}
 
+	/**
+	 * Removes Domain Spell Lists (previously) granted to the Player Character
+	 * due to the Domain removal from a Player Character.
+	 * 
+	 * Triggered when one of the Facets to which DomainSpellListFacet listens
+	 * fires a DataFacetChangeEvent to indicate a Domain was removed from a
+	 * Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<Domain> dfce)
 	{
@@ -57,6 +92,12 @@ public class DomainSpellListFacet extends
 		this.domainFacet = domainFacet;
 	}
 
+	/**
+	 * Initializes the connections for DomainSpellListFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the DomainSpellListFacet.
+	 */
 	public void init()
 	{
 		domainFacet.addDataFacetChangeListener(this);

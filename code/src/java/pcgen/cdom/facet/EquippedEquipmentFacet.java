@@ -28,6 +28,8 @@ import pcgen.core.Equipment;
 /**
  * EquippedEquipmentFacet is a Facet that tracks the Equipment that is Equipped
  * by a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class EquippedEquipmentFacet extends AbstractDataFacet<Equipment>
 {
@@ -37,7 +39,8 @@ public class EquippedEquipmentFacet extends AbstractDataFacet<Equipment>
 
 	/**
 	 * Triggered ("manually") when the equipped equipment on a Player Character
-	 * has changed
+	 * has changed. Evaluates all Equipment available to the Player Character
+	 * and places the Equipped Equipment into this EquippedEquipmentFacet.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
@@ -88,14 +91,28 @@ public class EquippedEquipmentFacet extends AbstractDataFacet<Equipment>
 	}
 
 	/**
-	 * Returns the Set of Equipment in this EquippedEquipmentFacet for the
-	 * Player Character represented by the given CharID
+	 * Returns a non-null copy of the Set of Equipment in this
+	 * EquippedEquipmentFacet for the Player Character represented by the given
+	 * CharID. This method returns an empty set if no objects are in this
+	 * EquippedEquipmentFacet for the Player Character identified by the given
+	 * CharID.
+	 * 
+	 * This method is value-semantic in that ownership of the returned Set is
+	 * transferred to the class calling this method. Modification of the
+	 * returned Set will not modify this EquippedEquipmentFacet and modification
+	 * of this EquippedEquipmentFacet will not modify the returned Set.
+	 * Modifications to the returned Set will also not modify any future or
+	 * previous objects returned by this (or other) methods on
+	 * EquippedEquipmentFacet. If you wish to modify the information stored in
+	 * this EquippedEquipmentFacet, you must use the add*() and remove*()
+	 * methods of EquippedEquipmentFacet.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
-	 *            items in this AbstractListFacet should be returned.
-	 * @return A non-null Set of Equipment in this EquippedEquipmentFacet for
-	 *         the Player Character represented by the given CharID
+	 *            items in this EquippedEquipmentFacet should be returned
+	 * @return A non-null copy of the Set of Equipment in this
+	 *         EquippedEquipmentFacet for the Player Character represented by
+	 *         the given CharID
 	 */
 	public Set<Equipment> getSet(CharID id)
 	{
@@ -112,6 +129,29 @@ public class EquippedEquipmentFacet extends AbstractDataFacet<Equipment>
 		this.equipmentFacet = equipmentFacet;
 	}
 
+	/**
+	 * Copies the contents of the EquippedEquipmentFacet from one Player
+	 * Character to another Player Character, based on the given CharIDs
+	 * representing those Player Characters.
+	 * 
+	 * This is a method in EquippedEquipmentFacet in order to avoid exposing the
+	 * mutable Map object to other classes. This should not be inlined, as the
+	 * Map is internal information to EquippedEquipmentFacet and should not be
+	 * exposed to other classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the EquippedEquipmentFacet of
+	 * one Player Character will only impact the Player Character where the
+	 * EquippedEquipmentFacet was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param destination
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
 	@Override
 	public void copyContents(CharID source, CharID copy)
 	{

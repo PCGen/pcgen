@@ -26,6 +26,12 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.spell.Spell;
 
+/**
+ * DomainSpellsFacet tracks the Domain Spells allowed / granted to the Player
+ * Character due to the Domain selections of the Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ */
 public class DomainSpellsFacet extends
 		AbstractSourcedListFacet<CDOMList<Spell>> implements
 		DataFacetChangeListener<Domain>
@@ -38,6 +44,20 @@ public class DomainSpellsFacet extends
 
 	private ClassFacet classFacet;
 
+	/**
+	 * Adds Domain Spells allowed / granted to the Player Character due to the
+	 * Domain selections of the Player Character.
+	 * 
+	 * Triggered when one of the Facets to which DomainSpellsFacet listens fires
+	 * a DataFacetChangeEvent to indicate a Domain was added to a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<Domain> dfce)
 	{
@@ -72,10 +92,29 @@ public class DomainSpellsFacet extends
 		return null;
 	}
 
+	/**
+	 * Removes Domain Spells allowed / granted to the Player Character due to
+	 * the Domain selections of the Player Character (a Domain being removed).
+	 * 
+	 * Triggered when one of the Facets to which DomainSpellsFacet listens fires
+	 * a DataFacetChangeEvent to indicate a Domain was added to a Player
+	 * Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<Domain> dfce)
 	{
-		//Nothing right now
+		/*
+		 * Nothing right now
+		 * 
+		 * TODO This should require some form of symmetry with the dataAdded
+		 * method of DomainSpellsFacet
+		 */
 	}
 
 	public void setDomainFacet(DomainFacet domainFacet)
@@ -88,6 +127,12 @@ public class DomainSpellsFacet extends
 		this.classFacet = classFacet;
 	}
 
+	/**
+	 * Initializes the connections for DomainSpellsFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the DomainSpellsFacet.
+	 */
 	public void init()
 	{
 		domainFacet.addDataFacetChangeListener(this);

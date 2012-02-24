@@ -21,6 +21,10 @@ import pcgen.core.Deity;
 
 /**
  * DeityFacet is a Facet that tracks the Deity worshipped by a Player Character.
+ * 
+ * null is a legal value for this Facet
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class DeityFacet extends AbstractItemFacet<Deity>
 {

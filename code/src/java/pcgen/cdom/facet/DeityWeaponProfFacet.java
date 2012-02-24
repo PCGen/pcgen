@@ -26,7 +26,10 @@ import pcgen.core.WeaponProf;
 
 /**
  * DeityWeaponProfFacet is a Facet that tracks the WeaponProfs that have been
- * granted to a Player Character.
+ * granted to a Player Character via the Deity selection of the Player
+ * Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class DeityWeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
 		implements DataFacetChangeListener<Deity>
@@ -35,6 +38,9 @@ public class DeityWeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
 	private DeityFacet deityFacet;
 
 	/**
+	 * Adds WeaponProfs granted to the Player Character due to the Deity
+	 * selection of the Player Character.
+	 * 
 	 * Triggered when one of the Facets to which DeityWeaponProfFacet listens
 	 * fires a DataFacetChangeEvent to indicate a Deity was added to a Player
 	 * Character.
@@ -71,6 +77,9 @@ public class DeityWeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
 	}
 
 	/**
+	 * Removes WeaponProfs (previously) granted to the Player Character due to
+	 * the Deity selection when the Deity is unset.
+	 * 
 	 * Triggered when one of the Facets to which DeityWeaponProfFacet listens
 	 * fires a DataFacetChangeEvent to indicate a Deity was removed from a
 	 * Player Character.
@@ -92,6 +101,12 @@ public class DeityWeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
 		this.deityFacet = deityFacet;
 	}
 
+	/**
+	 * Initializes the connections for DeityWeaponProfFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the DeityWeaponProfFacet.
+	 */
 	public void init()
 	{
 		deityFacet.addDataFacetChangeListener(this);
