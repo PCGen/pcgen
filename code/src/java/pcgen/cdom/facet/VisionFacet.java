@@ -39,6 +39,8 @@ import pcgen.util.enumeration.VisionType;
 /**
  * VisionFacet is a Facet that tracks the Vision objects that are contained in a
  * Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class VisionFacet extends
 		AbstractSourcedListFacet<QualifiedObject<Vision>> implements
@@ -54,6 +56,9 @@ public class VisionFacet extends
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**
+	 * Adds any granted Vision objects to this facet when a CDOMObject that
+	 * grants Vision objects is added to a Player Character.
+	 * 
 	 * Triggered when one of the Facets to which VisionFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
@@ -90,6 +95,9 @@ public class VisionFacet extends
 	}
 
 	/**
+	 * Removes any granted Vision objects to this facet when a CDOMObject that
+	 * grants Vision objects is removed from a Player Character.
+	 * 
 	 * Triggered when one of the Facets to which VisionFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
 	 * Character.
@@ -106,6 +114,25 @@ public class VisionFacet extends
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
 
+	/**
+	 * Returns a non-null copy of the Collection of Vision objects which are
+	 * active on the Player Character identified by the given CharID.
+	 * 
+	 * This method is value-semantic in that ownership of the returned
+	 * Collection is transferred to the class calling this method. Modification
+	 * of the returned Collection will not modify this VisionFacet and
+	 * modification of this VisionFacet will not modify the returned Collection.
+	 * Modifications to the returned Collection will also not modify any future
+	 * or previous objects returned by this (or other) methods on VisionFacet.
+	 * If you wish to modify the information stored in this VisionFacet, you
+	 * must use the add*() and remove*() methods of VisionFacet.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            active Vision objects is to be returned
+	 * @return a non-null copy of the Collection of Vision objects which are
+	 *         active on the Player Character identified by the given CharID
+	 */
 	public Collection<Vision> getActiveVision(CharID id)
 	{
 		Map<QualifiedObject<Vision>, Set<Object>> componentMap = getCachedMap(id);
@@ -164,6 +191,25 @@ public class VisionFacet extends
 		return returnSet;
 	}
 
+	/**
+	 * Returns a Vision object for the given VisionType for the Player Character
+	 * identified by the given CharID.
+	 * 
+	 * For a Player Character that is not changed between calls to this method,
+	 * this method does not guarantee returning a Vision object of the same
+	 * identity for the same given VisionType. While the two Vision objects will
+	 * pass object equality (.equals()), they are not guaranteed to pass (or
+	 * guaranteed to fail) instance identity (a == b). This allows VisionFacet
+	 * to reserve the right to cache results, but does not require it.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            Vision of the given VisionType is to be returned
+	 * @param type
+	 *            The VisionType for which the Vision is to be returned
+	 * @return A Vision object for the given VisionType for the Player Character
+	 *         identified by the given CharID.
+	 */
 	public Vision getActiveVision(CharID id, VisionType type)
 	{
 		Map<QualifiedObject<Vision>, Set<Object>> componentMap = getCachedMap(id);
@@ -220,12 +266,37 @@ public class VisionFacet extends
 		return new Vision(type, FormulaFactory.getFormulaFor(i.intValue()));
 	}
 
+	/**
+	 * Returns the count of vision types possessed by the Player Character
+	 * identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            number of vision types is to be returned
+	 * @return The count of vision types possessed by the Player Character
+	 *         identified by the given CharID
+	 */
 	public int getVisionCount(CharID id)
 	{
 		// Slow method for now...
 		return getActiveVision(id).size();
 	}
 
+	/**
+	 * Returns a new (empty) Map for this VisionFacet. This overrides the
+	 * default provided in AbstractSourcedListFacet, since this does not require
+	 * the IdentityHashMap (Vision is immutable and behaves properly with
+	 * .equals() and .hashCode() in terms of maintaining identity (whereas many
+	 * CDOMObjects do not as of 5.16))
+	 * 
+	 * Note that this method should always be the only method used to construct
+	 * a Map for this VisionFacet. It is actually preferred to use
+	 * getConstructingCacheMap(CharID) in order to implicitly call this method.
+	 * 
+	 * @return A new (empty) Map for use in this VisionFacet.
+	 * 
+	 * @see pcgen.cdom.facet.AbstractSourcedListFacet#getComponentMap()
+	 */
 	@Override
 	protected Map<QualifiedObject<Vision>, Set<Object>> getComponentMap()
 	{
@@ -252,7 +323,13 @@ public class VisionFacet extends
 	{
 		this.consolidationFacet = consolidationFacet;
 	}
-	
+
+	/**
+	 * Initializes the connections for VisionFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the VisionFacet.
+	 */
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);

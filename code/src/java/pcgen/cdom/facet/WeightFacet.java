@@ -23,9 +23,17 @@ import pcgen.cdom.enumeration.CharID;
  * WeightFacet is a Facet that tracks the Player Character's weight. Note that
  * this weight is the actual character weight, not the character plus the
  * character's equipment.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class WeightFacet extends AbstractItemFacet<Integer>
 {
+	/*
+	 * TODO There seems to be some inlining that can occur here - what really is
+	 * the value of setWeight() vs. set() or removeWeight() vs. remove()?
+	 * 
+	 * The getWeight() I understand since it protects against null
+	 */
 
 	/**
 	 * Sets the weight of the Player Character represented by the given CharID

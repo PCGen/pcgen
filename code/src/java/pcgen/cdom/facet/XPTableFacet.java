@@ -18,13 +18,13 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.enumeration.CharID;
-import pcgen.core.SettingsHandler;
 import pcgen.core.LevelInfo;
+import pcgen.core.SettingsHandler;
 import pcgen.core.XPTable;
 
 /**
- * AlignmentFacet is a Facet that tracks the XP table assigned to a 
- * Player Character.
+ * XPTableFacet is a Facet that tracks the XP table assigned to a Player
+ * Character.
  */
 public class XPTableFacet extends AbstractItemFacet<XPTable>
 {
@@ -57,13 +57,22 @@ public class XPTableFacet extends AbstractItemFacet<XPTable>
 		return lInfo;
 	}
 
-	public void setXPTable(CharID id, String xpTable) {
-		
+	/*
+	 * TODO Can't this be inlined? - better NOT to have SettingsHandler
+	 * hardcoded in a facet
+	 */
+	public void setXPTable(CharID id, String xpTable)
+	{
+
 		set(id, SettingsHandler.getGame().getLevelInfo(xpTable));
 	}
 
-	public XPTable getXPTable(CharID id) {
-		
+	/*
+	 * TODO Can't this be inlined?
+	 */
+	public XPTable getXPTable(CharID id)
+	{
+
 		return get(id);
 	}
 }
