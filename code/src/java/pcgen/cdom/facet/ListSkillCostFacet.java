@@ -18,6 +18,12 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Skill;
 
+/**
+ * ListSkillCostFacet processes SkillCosts associated with the MONCSKILL and
+ * MONCCSKILL tokens.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ */
 public class ListSkillCostFacet extends AbstractStorageFacet implements
 		DataFacetChangeListener<CDOMObject>
 {
@@ -26,6 +32,9 @@ public class ListSkillCostFacet extends AbstractStorageFacet implements
 	private RaceFacet raceFacet;
 
 	/**
+	 * Adds the SkillCost objects granted by CDOMObjects, as applied directly to
+	 * a ClassSkillList, when a CDOMObject is added to a Player Character.
+	 * 
 	 * Triggered when one of the Facets to which ListSkillCostFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
 	 * Player Character.
@@ -75,9 +84,13 @@ public class ListSkillCostFacet extends AbstractStorageFacet implements
 	}
 
 	/**
-	 * Triggered when one of the Facets to which ShieldProfFacet listens fires a
-	 * DataFacetChangeEvent to indicate a ShieldProf was removed from a Player
+	 * Removes the SkillCost objects granted by CDOMObjects, as applied directly
+	 * to a ClassSkillList, when a CDOMObject is removed from a Player
 	 * Character.
+	 * 
+	 * Triggered when one of the Facets to which ListSkillCostFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
+	 * Player Character.
 	 * 
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
@@ -92,13 +105,13 @@ public class ListSkillCostFacet extends AbstractStorageFacet implements
 	}
 
 	/**
-	 * Returns the type-safe CacheInfo for this SkillCostFacet and the given
+	 * Returns the type-safe CacheInfo for this ListSkillCostFacet and the given
 	 * CharID. Will return a new, empty CacheInfo if no Skill information has
 	 * been set for the given CharID. Will not return null.
 	 * 
 	 * Note that this method SHOULD NOT be public. The CacheInfo object is owned
-	 * by SkillCostFacet, and since it can be modified, a reference to that
-	 * object should not be exposed to any object other than SkillCostFacet.
+	 * by ListSkillCostFacet, and since it can be modified, a reference to that
+	 * object should not be exposed to any object other than ListSkillCostFacet.
 	 * 
 	 * @param id
 	 *            The CharID for which the CacheInfo should be returned
@@ -144,6 +157,22 @@ public class ListSkillCostFacet extends AbstractStorageFacet implements
 	{
 		Map<ClassSkillList, Map<SkillCost, Map<Skill, Set<CDOMObject>>>> map = new IdentityHashMap<ClassSkillList, Map<SkillCost, Map<Skill, Set<CDOMObject>>>>();
 
+		/**
+		 * Adds the given SkillCost for the given Skill (as granted by the given
+		 * source) on the given ClassSkillList to this CacheInfo
+		 * 
+		 * @param cl
+		 *            The ClassSkillList which will be checked to determine if
+		 *            it contains the requested SkillCost for the given Skill
+		 * @param skill
+		 *            The Skill for which the SkillCost is being added
+		 * @param sc
+		 *            The SkillCost for the given Skill to be added to this
+		 *            CacheInfo
+		 * @param source
+		 *            The source object which granted the given SkillCost for
+		 *            the given Skill
+		 */
 		public void add(ClassSkillList cl, Skill skill, SkillCost sc,
 				CDOMObject source)
 		{
@@ -168,38 +197,45 @@ public class ListSkillCostFacet extends AbstractStorageFacet implements
 			set.add(source);
 		}
 
-		public void remove(ClassSkillList cl, Skill skill, SkillCost sc,
-				CDOMObject source)
-		{
-			Map<SkillCost, Map<Skill, Set<CDOMObject>>> scMap = map.get(cl);
-			if (scMap == null)
-			{
-				return;
-			}
-			Map<Skill, Set<CDOMObject>> skMap = scMap.get(sc);
-			if (skMap == null)
-			{
-				return;
-			}
-			Set<CDOMObject> set = skMap.get(skill);
-			if (set == null)
-			{
-				return;
-			}
-			if (set.remove(source) && set.isEmpty())
-			{
-				skMap.remove(skill);
-				if (skMap.isEmpty())
-				{
-					scMap.remove(sc);
-					if (scMap.isEmpty())
-					{
-						map.remove(cl);
-					}
-				}
-			}
-		}
+		//		public void remove(ClassSkillList cl, Skill skill, SkillCost sc,
+		//			CDOMObject source)
+		//		{
+		//			Map<SkillCost, Map<Skill, Set<CDOMObject>>> scMap = map.get(cl);
+		//			if (scMap == null)
+		//			{
+		//				return;
+		//			}
+		//			Map<Skill, Set<CDOMObject>> skMap = scMap.get(sc);
+		//			if (skMap == null)
+		//			{
+		//				return;
+		//			}
+		//			Set<CDOMObject> set = skMap.get(skill);
+		//			if (set == null)
+		//			{
+		//				return;
+		//			}
+		//			if (set.remove(source) && set.isEmpty())
+		//			{
+		//				skMap.remove(skill);
+		//				if (skMap.isEmpty())
+		//				{
+		//					scMap.remove(sc);
+		//					if (scMap.isEmpty())
+		//					{
+		//						map.remove(cl);
+		//					}
+		//				}
+		//			}
+		//		}
 
+		/**
+		 * Removes all SkillCosts from this CacheInfo for the given Source.
+		 * 
+		 * @param source
+		 *            The source Object for which all SkillCosts in this
+		 *            CacheInfo will be removed
+		 */
 		public void removeAll(Object source)
 		{
 			for (Iterator<Map<SkillCost, Map<Skill, Set<CDOMObject>>>> clValues = map
@@ -232,6 +268,24 @@ public class ListSkillCostFacet extends AbstractStorageFacet implements
 			}
 		}
 
+		/**
+		 * Returns true if this CacheInfo has the given SkillCost for the given
+		 * Skill on the given ClassSkillList.
+		 * 
+		 * @param cl
+		 *            The ClassSkillList which will be checked to determine if
+		 *            it contains the requested SkillCost for the given Skill
+		 * @param sc
+		 *            The SkillCost to be checked to see if the CacheInfo has
+		 *            this SkillCost for the given Skill on the given
+		 *            ClassSkillList
+		 * @param sk
+		 *            The Skill which will be checked to determine if it
+		 *            contains the requested SkillCost
+		 * @return true if this CacheInfo has the given Skill Cost for the given
+		 *         Skill on the given ClassSkillList; false otherwise
+		 * 
+		 */
 		public boolean contains(ClassSkillList cl, SkillCost sc, Skill skill)
 		{
 			Map<SkillCost, Map<Skill, Set<CDOMObject>>> scMap = map.get(cl);
@@ -244,23 +298,13 @@ public class ListSkillCostFacet extends AbstractStorageFacet implements
 		}
 	}
 
-	public void add(CharID id, ClassSkillList cl, Skill skill, SkillCost sc,
-			CDOMObject source)
+	private void add(CharID id, ClassSkillList cl, Skill skill, SkillCost sc,
+		CDOMObject source)
 	{
 		getConstructingInfo(id).add(cl, skill, sc, source);
 	}
 
-	public void remove(CharID id, ClassSkillList cl, Skill skill, SkillCost sc,
-			CDOMObject source)
-	{
-		CacheInfo info = getInfo(id);
-		if (info != null)
-		{
-			info.remove(cl, skill, sc, source);
-		}
-	}
-
-	public void removeAll(CharID id, CDOMObject source)
+	private void removeAll(CharID id, CDOMObject source)
 	{
 		CacheInfo ci = getInfo(id);
 		if (ci != null)
@@ -269,6 +313,28 @@ public class ListSkillCostFacet extends AbstractStorageFacet implements
 		}
 	}
 
+	/**
+	 * Returns true if this ListSkillCostFacet has the given SkillCost for the
+	 * given Skill on the given ClassSkillList for the Player Character
+	 * identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character which will be
+	 *            checked to determine if it contains the requested SkillCost
+	 * @param cl
+	 *            The ClassSkillList which will be checked to determine if it
+	 *            contains the requested SkillCost for the given Skill
+	 * @param sc
+	 *            The SkillCost to be checked to see if the Player Character has
+	 *            this SkillCost for the given Skill on the given ClassSkillList
+	 * @param sk
+	 *            The Skill which will be checked to determine if it contains
+	 *            the requested SkillCost
+	 * @return true if this ListSkillCostFacet has the given Skill Cost for the
+	 *         given Skill on the given ClassSkillList for the Player Character
+	 *         identified by the given CharID; false otherwise
+	 * 
+	 */
 	public boolean contains(CharID id, ClassSkillList cl, SkillCost sc, Skill sk)
 	{
 		CacheInfo ci = getInfo(id);
@@ -280,11 +346,40 @@ public class ListSkillCostFacet extends AbstractStorageFacet implements
 		this.raceFacet = raceFacet;
 	}
 
+	/**
+	 * Initializes the connections for ListSkillCostFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the ListSkillCostFacet.
+	 */
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(this);
 	}
-	
+
+	/**
+	 * Copies the contents of the ListSkillCostFacet from one Player Character
+	 * to another Player Character, based on the given CharIDs representing
+	 * those Player Characters.
+	 * 
+	 * This is a method in ListSkillCostFacet in order to avoid exposing the
+	 * mutable CacheInfo object to other classes. This should not be inlined, as
+	 * the CacheInfo is internal information to ListSkillCostFacet and should
+	 * not be exposed to other classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the ListSkillCostFacet of one
+	 * Player Character will only impact the Player Character where the
+	 * ListSkillCostFacet was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param destination
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
 	@Override
 	public void copyContents(CharID source, CharID copy)
 	{

@@ -36,6 +36,8 @@ import pcgen.core.PCClass;
 /**
  * ClassFacet is a Facet that tracks the PCClass objects possessed by a Player
  * Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ClassFacet extends AbstractDataFacet<PCClass>
 {
@@ -46,7 +48,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 
 	/**
 	 * Add the given PCClass to the list of PCClass objects stored in this
-	 * ClassFacet for the Player Character represented by the given CharID
+	 * ClassFacet for the Player Character represented by the given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
@@ -143,7 +145,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 
 	/**
 	 * Remove the given PCClass from the list of PCClass objects stored in this
-	 * ClassFacet for the Player Character represented by the given CharID
+	 * ClassFacet for the Player Character represented by the given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character from which the
@@ -177,7 +179,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 
 	/**
 	 * Removes all PCClass objects from the list of PCClass objects stored in
-	 * this ClassFacet for the Player Character represented by the given CharID
+	 * this ClassFacet for the Player Character represented by the given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character from which all
@@ -201,7 +203,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 
 	/**
 	 * Replaces the given old PCClass stored in this ClassFacet with the given
-	 * new PCClass for the Player Character represented by the given CharID
+	 * new PCClass for the Player Character represented by the given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character from which the
@@ -225,8 +227,19 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 	}
 
 	/**
-	 * Returns the Set of PCClass objects in this ClassFacet for the Player
-	 * Character represented by the given CharID
+	 * Returns a non-null copy of the Set of PCClass objects in this ClassFacet
+	 * for the Player Character represented by the given CharID. This method
+	 * returns an empty Set if no objects are in this ClassFacet for the Player
+	 * Character identified by the given CharID.
+	 * 
+	 * This method is value-semantic in that ownership of the returned List is
+	 * transferred to the class calling this method. Modification of the
+	 * returned List will not modify this ClassFacet and modification of this
+	 * ClassFacet will not modify the returned List. Modifications to the
+	 * returned List will also not modify any future or previous objects
+	 * returned by this (or other) methods on ClassFacet. If you wish to modify
+	 * the information stored in this ClassFacet, you must use the add*() and
+	 * remove*() methods of ClassFacet.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
@@ -246,7 +259,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 
 	/**
 	 * Returns the count of PCClass objects in this ClassFacet for the Player
-	 * Character represented by the given CharID
+	 * Character represented by the given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
@@ -266,7 +279,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 
 	/**
 	 * Returns true if this ClassFacet does not contain any PCClass objects for
-	 * the Player Character represented by the given CharID
+	 * the Player Character represented by the given CharID.
 	 * 
 	 * @param id
 	 *            The CharId representing the PlayerCharacter to test if any
@@ -299,23 +312,78 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		return info != null && info.containsClass(obj);
 	}
 
+	/**
+	 * Sets the level for the given PCClass and the Player Character identified
+	 * by the given CharID to the given value.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which a level
+	 *            value is being set
+	 * @param pcc
+	 *            The PCClass identifying which class level is being set
+	 * @param level
+	 *            The level of the PCClass for the Player Character identified
+	 *            by the given CharID
+	 */
 	public void setLevel(CharID id, PCClass pcc, int level)
 	{
 		int oldLevel = getConstructingClassInfo(id).setLevel(pcc, level);
 		support.fireClassLevelChangeEvent(id, pcc, oldLevel, level);
 	}
 
+	/**
+	 * Returns the current (numerical) level for the given PCClass in the Player
+	 * Character identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            level of the given PCClass should be returned
+	 * @param pcc
+	 *            The PCClass for which the level of the Player Character should
+	 *            be returned
+	 * @return The numeric value of the level for the given PCClass in the
+	 *         Player Character identified by the given CharID
+	 */
 	public int getLevel(CharID id, PCClass pcc)
 	{
 		ClassInfo info = getClassInfo(id);
 		return (info == null) ? 0 : info.getLevel(pcc);
 	}
 
+	/**
+	 * Returns the ClassInfo for this ClassFacet and the given CharID. May
+	 * return null if no information has been set in this ClassFacet for the
+	 * given CharID.
+	 * 
+	 * Note that this method SHOULD NOT be public. The ClassInfo is owned by
+	 * ClassFacet, and since it can be modified, a reference to that object
+	 * should not be exposed to any object other than ClassFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the ClassInfo should be returned
+	 * @return The ClassInfo for the Player Character represented by the given
+	 *         CharID; null if no information has been set in this ClassFacet
+	 *         for the Player Character.
+	 */
 	private ClassInfo getClassInfo(CharID id)
 	{
 		return (ClassInfo) getCache(id, thisClass);
 	}
 
+	/**
+	 * Returns a ClassInfo for this ClassFacet and the given CharID. Will return
+	 * a new, empty ClassInfo if no information has been set in this ClassFacet
+	 * for the given CharID. Will not return null.
+	 * 
+	 * Note that this method SHOULD NOT be public. The ClassInfo object is owned
+	 * by ClassFacet, and since it can be modified, a reference to that object
+	 * should not be exposed to any object other than ClassFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the ClassInfo should be returned
+	 * @return The ClassInfo for the Player Character represented by the given
+	 *         CharID.
+	 */
 	private ClassInfo getConstructingClassInfo(CharID id)
 	{
 		ClassInfo info = getClassInfo(id);
@@ -327,15 +395,43 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		return info;
 	}
 
+	/**
+	 * ClassInfo is the Class used by ClassFacet to store information in the
+	 * global character cache. This stores both the PCClassLevel objects active
+	 * for a PCClass and Player Character, as well as the levels of the
+	 * PCClasses for a Player Character.
+	 * 
+	 * @author Thomas Parker (thpr [at] yahoo.com)
+	 */
 	public static class ClassInfo
 	{
+		/**
+		 * Map that stores the PCClassLevel objects active for a Player
+		 * Character.
+		 */
 		private Map<PCClass, Map<Integer, PCClassLevel>> map =
 				new LinkedHashMap<PCClass, Map<Integer, PCClassLevel>>();
+		/**
+		 * Map that stores the numeric level values for the PCClasses in a
+		 * Player Character.
+		 */
 		private Map<PCClass, Integer> levelmap =
 				new HashMap<PCClass, Integer>();
 
 		public ClassInfo()
 		{
+			//Default constructor for an empty ClassInfo
+		}
+
+		public ClassInfo(ClassInfo info)
+		{
+			for (Map.Entry<PCClass, Map<Integer, PCClassLevel>> me : info.map
+				.entrySet())
+			{
+				map.put(me.getKey(), new HashMap<Integer, PCClassLevel>(me
+					.getValue()));
+			}
+			levelmap.putAll(info.levelmap);
 		}
 
 		public Integer setLevel(PCClass pcc, int level)
@@ -383,17 +479,6 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 					map.put(currentClass, me.getValue());
 				}
 			}
-		}
-
-		public ClassInfo(ClassInfo info)
-		{
-			for (Map.Entry<PCClass, Map<Integer, PCClassLevel>> me : info.map
-				.entrySet())
-			{
-				map.put(me.getKey(), new HashMap<Integer, PCClassLevel>(me
-					.getValue()));
-			}
-			levelmap.putAll(info.levelmap);
 		}
 
 		public boolean addClass(PCClass pcc)

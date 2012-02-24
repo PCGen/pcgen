@@ -25,11 +25,11 @@ import pcgen.core.SettingsHandler;
 /**
  * MoneyFacet is a Facet to track Money in a simple, since monetary unit game
  * system.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class MoneyFacet extends AbstractStorageFacet
 {
-
-	private static final BigDecimal ZERO = new BigDecimal(0);
 
 	private final Class<?> thisClass = getClass();
 
@@ -142,7 +142,7 @@ public class MoneyFacet extends AbstractStorageFacet
 	public BigDecimal getGold(CharID id)
 	{
 		MoneyCacheInfo rci = getInfo(id);
-		return rci == null ? ZERO : rci.gold;
+		return rci == null ? BigDecimal.ZERO : rci.gold;
 	}
 
 	/**
@@ -185,7 +185,7 @@ public class MoneyFacet extends AbstractStorageFacet
 	 */
 	private static class MoneyCacheInfo
 	{
-		public BigDecimal gold = ZERO;
+		public BigDecimal gold = BigDecimal.ZERO;
 		public boolean allowDebt;
 		public boolean ignoreCost;
 	}

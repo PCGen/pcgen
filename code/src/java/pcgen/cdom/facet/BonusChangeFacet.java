@@ -24,14 +24,35 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.cdom.enumeration.CharID;
 
+/**
+ * BonusChangeFacet tracks changes to Bonus values on a PlayerCharacter and
+ * allows other classes to listen to changes in Bonuses on a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ */
 public class BonusChangeFacet extends AbstractStorageFacet
 {
 	private final Class<?> thisClass = getClass();
 
+	/**
+	 * The BonusChangeSupport object that manages the listeners that receive
+	 * BonusChangeEvents from this BonusChangeFacet.
+	 */
 	private final BonusChangeSupport support = new BonusChangeSupport();
 
 	private BonusCheckingFacet bonusCheckingFacet;
 
+	/**
+	 * Performs a check against the previously known values of the bonuses for
+	 * the Player Character identified by the given CharID. If any Bonus values
+	 * have changed, then this will throw a BonusChangeEvent to any
+	 * BonusChangeListener objects which have subscribed to receive updates for
+	 * the Bonus name and Bonus type where the value changed.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            check for changes in bonus values should be performed
+	 */
 	public void reset(CharID id)
 	{
 		DoubleKeyMap<String, String, Double> map = getConstructingInfo(id);
@@ -50,6 +71,24 @@ public class BonusChangeFacet extends AbstractStorageFacet
 		}
 	}
 
+	/**
+	 * Returns a DoubleKeyMap of Bonus values for this BonusChangeFacet and the
+	 * PlayerCharacter represented by the given CharID. Will create a new empty
+	 * DoubleKeyMap for the PlayerCharacter represented by the given CharID if
+	 * no information has been set in this BonusChangeFacet for the given
+	 * CharID. Will not return null.
+	 * 
+	 * Note that this method SHOULD NOT be public. The DoubleKeyMap object is
+	 * owned by BonusChangeFacet, and since it can be modified, a reference to
+	 * that DoubleKeyMap should not be exposed to any object other than
+	 * BonusChangeFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the DoubleKeyMap of bonus values should
+	 *            be returned
+	 * @return The DoubleKeyMap of Bonus values for the Player Character
+	 *         represented by the given CharID
+	 */
 	private DoubleKeyMap<String, String, Double> getConstructingInfo(CharID id)
 	{
 		DoubleKeyMap<String, String, Double> map = getInfo(id);
@@ -61,29 +100,106 @@ public class BonusChangeFacet extends AbstractStorageFacet
 		return map;
 	}
 
+	/**
+	 * Returns a DoubleKeyMap of Bonus values for this BonusChangeFacet and the
+	 * PlayerCharacter represented by the given CharID. May return null if no
+	 * information has been set in this BonusChangeFacet for the given CharID.
+	 * 
+	 * Note that this method SHOULD NOT be public. The DoubleKeyMap object is
+	 * owned by BonusChangeFacet, and since it can be modified, a reference to
+	 * that DoubleKeyMap should not be exposed to any object other than
+	 * BonusChangeFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the DoubleKeyMap of bonus values should
+	 *            be returned
+	 * @return The DoubleKeyMap of Bonus values for the Player Character
+	 *         represented by the given CharID
+	 */
 	private DoubleKeyMap<String, String, Double> getInfo(CharID id)
 	{
 		return (DoubleKeyMap<String, String, Double>) getCache(id, thisClass);
 	}
 
+	/**
+	 * BonusChangeListener is the interface that must be implemented by a class
+	 * for it to receive BonusChangeEvents from the BonusChangeFacet when a
+	 * Bonus value has changed for a Player Character.
+	 * 
+	 * @author Thomas Parker (thpr [at] yahoo.com)
+	 */
 	public interface BonusChangeListener
 	{
 
+		/**
+		 * Method called when a Bonus value has changed on a Player Character.
+		 * The BonusChangeEvent contains the relevant details of the Bonus value
+		 * change.
+		 * 
+		 * @param bce
+		 *            The BonusChangeEvent containing the details of the Bonus
+		 *            value change for a Player Character
+		 */
 		void bonusChange(BonusChangeEvent bce);
 
 	}
 
+	/**
+	 * BonusChangeEvent is an event sent to a BonusChangeListener when a Bonus
+	 * value changes on a Player Character.
+	 * 
+	 * @author Thomas Parker (thpr [at] yahoo.com)
+	 */
 	public static class BonusChangeEvent
 	{
 
+		/**
+		 * The CharID identifying the Player Character on which the Bonus value
+		 * change took place.
+		 */
 		private final CharID charID;
-		private final String bonusType;
-		private final String bonusName;
-		private final Object oldVal;
-		private final Object newVal;
 
+		/**
+		 * The Bonus type indicating which Bonus value changed on the Player
+		 * Character.
+		 */
+		private final String bonusType;
+
+		/**
+		 * The Bonus name indicating which Bonus value changed on the Player
+		 * Character.
+		 */
+		private final String bonusName;
+
+		/**
+		 * The previous value of the Bonus value
+		 */
+		private final Number oldVal;
+
+		/**
+		 * The new value of the Bonus value
+		 */
+		private final Number newVal;
+
+		/**
+		 * Constructs a new BonusChangeEvent indicating a Bonus value change
+		 * took place on the Player Character identified by the given CharId.
+		 * The Bonus name, type, old value, and new value are provided.
+		 * 
+		 * @param id
+		 *            The CharID indicating the Player Character on which the
+		 *            Bonus value change took place
+		 * @param type
+		 *            The Bonus type for the Bonus value that changed
+		 * @param name
+		 *            The Bonus name for the Bonus value that changed
+		 * @param oldValue
+		 *            The previous value of the Bonus value
+		 * @param newValue
+		 *            The new value of the Bonus value
+		 */
 		public BonusChangeEvent(CharID id, String type, String name,
-				Object oldValue, Object newValue)
+			Number oldValue, Number newValue)
 		{
 			charID = id;
 			bonusType = type;
@@ -107,22 +223,50 @@ public class BonusChangeFacet extends AbstractStorageFacet
 			return bonusName;
 		}
 
-		public Object getOldVal()
+		public Number getOldVal()
 		{
 			return oldVal;
 		}
 
-		public Object getNewVal()
+		public Number getNewVal()
 		{
 			return newVal;
 		}
 
 	}
 
+	/**
+	 * BonusChangeSupport is a support class that provides the actual structure
+	 * for adding and removing listeners to a class that can provide updates for
+	 * changes to Bonus values on a Player Character.
+	 * 
+	 * @author Thomas Parker (thpr [at] yahoo.com)
+	 */
 	public static class BonusChangeSupport
 	{
-		private DoubleKeyMapToList<String, String, BonusChangeListener> listeners = new DoubleKeyMapToList<String, String, BonusChangeListener>();
+		private DoubleKeyMapToList<String, String, BonusChangeListener> listeners =
+				new DoubleKeyMapToList<String, String, BonusChangeListener>();
 
+		/**
+		 * Adds a new BonusChangeListener to receive BonusChangeEventas from the
+		 * change source. The given BonusChangeListener is subscribed to Bonus
+		 * value changes for the given Bonus type and Bonus name.
+		 * 
+		 * Note that the BonusChangeListeners are a list, meaning a given
+		 * BonusChangeListener can be added more than once at a given priority,
+		 * and if that occurs, it must be removed an equivalent number of times
+		 * in order to no longer receive events from this BonusChangeSupport.
+		 * 
+		 * @param listener
+		 *            The BonusChangeListener to receive BonusChangeEvents from
+		 *            this BonusChangeSupport
+		 * @param type
+		 *            The Bonus type for the Bonus value changes for which the
+		 *            given listener will be added to the list of listeners
+		 * @param name
+		 *            The Bonus name for the Bonus value changes for which the
+		 *            given listener will be added to the list of listeners
+		 */
 		public synchronized void addBonusChangeListener(
 				BonusChangeListener listener, String type, String name)
 		{
@@ -139,6 +283,25 @@ public class BonusChangeFacet extends AbstractStorageFacet
 			return listeners.getSecondaryKeySet(type);
 		}
 
+		/**
+		 * Removes a BonusChangeListener so that it will no longer receive
+		 * BonusChangeEvents from the source DataFacet. This will remove the
+		 * data facet change listener from receiving events for the given Bonus
+		 * type and Bonus name.
+		 * 
+		 * Note that if the given BonusChangeListener has been registered under
+		 * a different Bonus type and Bonus name, it will continue to receive
+		 * events for those Bonus value changes.
+		 * 
+		 * @param listener
+		 *            The BonusChangeListener to be removed
+		 * @param type
+		 *            The Bonus type for the Bonus value changes for which the
+		 *            given listener will be removed from the list of listeners
+		 * @param name
+		 *            The Bonus name for the Bonus value changes for which the
+		 *            given listener will be removed from the list of listeners
+		 */
 		public synchronized void removeBonusChangeListener(
 				BonusChangeListener listener, String type, String name)
 		{
@@ -152,8 +315,24 @@ public class BonusChangeFacet extends AbstractStorageFacet
 					.toArray(new BonusChangeListener[0]));
 		}
 
+		/**
+		 * Sends a BonusChangeEvent to the BonusChangeListeners that are
+		 * receiving BonusChangeEvents from the change source.
+		 * 
+		 * @param id
+		 *            The CharID identifying the Player Character to which the
+		 *            BonusChangeEvent relates.
+		 * @param type
+		 *            The Bonus type for the Bonus value that changed
+		 * @param name
+		 *            The Bonus name for the Bonus value that changed
+		 * @param oldValue
+		 *            The previous value of the Bonus value
+		 * @param newValue
+		 *            The new value of the Bonus value
+		 */
 		public void fireBonusChange(CharID id, String type, String name,
-				Object oldValue, Object newValue)
+			Number oldValue, Number newValue)
 		{
 			BonusChangeEvent bce = new BonusChangeEvent(id, type, name,
 					oldValue, newValue);
@@ -170,18 +349,52 @@ public class BonusChangeFacet extends AbstractStorageFacet
 		}
 	}
 
+	/**
+	 * Adds a new BonusChangeListener to receive BonusChangeEvents from
+	 * BonusChangeFacet. The given BonusChangeListener subscribed to changes for
+	 * the given Bonus type and Bonus name.
+	 * 
+	 * Note that the BonusChangeListeners are a list, meaning a given
+	 * BonusChangeListener can be added more than once for a given Bonus type
+	 * and Bonus name, and if that occurs, it must be removed an equivalent
+	 * number of times in order to no longer receive events from this
+	 * BonusChangeFacet.
+	 * 
+	 * @param listener
+	 *            The BonusChangeListener to receive BonusChangeEvents from this
+	 *            BonusChangeFacet
+	 * @param type
+	 *            The Bonus type for the Bonus value changes for which the given
+	 *            listener will be added to the list of listeners
+	 * @param name
+	 *            The Bonus name for the Bonus value changes for which the given
+	 *            listener will be added to the list of listeners
+	 */
 	public void addBonusChangeListener(BonusChangeListener listener,
 			String type, String name)
 	{
 		support.addBonusChangeListener(listener, type, name);
 	}
 
-	public BonusChangeListener[] getBonusChangeListeners(String type,
-			String name)
-	{
-		return support.getBonusChangeListeners(type, name);
-	}
-
+	/**
+	 * Removes a BonusChangeListener so that it will no longer receive
+	 * BonusChangeEvents from BonusChangeFacet. This will remove the data facet
+	 * change listener from the list of listeners only for the given Bonus type
+	 * and Bonus name.
+	 * 
+	 * Note that if the given BonusChangeListener has been registered under a
+	 * different Bonus type and Bonus name, it will continue to receive events
+	 * for those Bonus value changes.
+	 * 
+	 * @param listener
+	 *            The BonusChangeListener to be removed
+	 * @param type
+	 *            The Bonus type for the Bonus value changes for which the given
+	 *            listener will be removed from the list of listeners
+	 * @param name
+	 *            The Bonus name for the Bonus value changes for which the given
+	 *            listener will be removed from the list of listeners
+	 */
 	public void removeBonusChangeListener(BonusChangeListener listener,
 			String type, String name)
 	{
@@ -193,6 +406,29 @@ public class BonusChangeFacet extends AbstractStorageFacet
 		this.bonusCheckingFacet = bonusCheckingFacet;
 	}
 
+	/**
+	 * Copies the contents of the BonusChangeFacet from one Player Character to
+	 * another Player Character, based on the given CharIDs representing those
+	 * Player Characters.
+	 * 
+	 * This is a method in BonusChangeFacet in order to avoid exposing the
+	 * mutable DoubleKeyMap object to other classes. This should not be inlined,
+	 * as the DoubleKeyMap is internal information to AbstractListFacet and
+	 * should not be exposed to other classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the BonusChangeFacet of one
+	 * Player Character will only impact the Player Character where the
+	 * BonusChangeFacet was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param destination
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
 	@Override
 	public void copyContents(CharID source, CharID copy)
 	{

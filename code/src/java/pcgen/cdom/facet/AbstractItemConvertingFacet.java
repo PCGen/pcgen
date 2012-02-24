@@ -29,10 +29,8 @@ import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.enumeration.CharID;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
- * 
- * A AbstractItemConvertingFacet is a DataFacet that converts information from one
- * type to another when the source of that object should be tracked.
+ * An AbstractItemConvertingFacet is a DataFacet that converts information from
+ * one type to another when the source of that object should be tracked.
  * 
  * This class is designed to assume that each original object may only be
  * contained one time by the PlayerCharacter, even if received from multiple
@@ -49,22 +47,30 @@ import pcgen.cdom.enumeration.CharID;
  * so, each call to remove will only remove that source one time from the list
  * of sources.
  * 
+ * Note: There is no requirement that the conversion process is reversible. In
+ * other words, more than once source object may produce the same (or equal)
+ * destination objects.
+ * 
  * null is a valid source.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public abstract class AbstractItemConvertingFacet<S, D> extends
 		AbstractDataFacet<D>
 {
 	/**
-	 * Add the given object with the given source to the list of objects stored
-	 * in this AbstractItemConvertingFacet for the Player Character represented by
-	 * the given CharID
+	 * Add the converted version of the given object with the given source to
+	 * the list of (converted) objects stored in this
+	 * AbstractItemConvertingFacet for the Player Character represented by the
+	 * given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            given item should be added
 	 * @param obj
-	 *            The object to be added to the list of objects stored in this
-	 *            AbstractQualifiedListFacet for the Player Character
+	 *            The object for which the converted version will be added to
+	 *            the list of (converted) objects stored in this
+	 *            AbstractItemConvertingFacet for the Player Character
 	 *            represented by the given CharID
 	 * @param source
 	 *            The source for the given object
@@ -75,37 +81,32 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 		{
 			throw new IllegalArgumentException("Object to add may not be null");
 		}
-		Map<S, Target> map = getConstructingCachedMap(id);
-		Target target = map.get(obj);
-		boolean fireNew = (target == null);
-		if (fireNew)
-		{
-			target = new Target();
-			map.put(obj, target);
-			target.dest = convert(obj);
-		}
+		Target target = getConstructingCachedSetFor(id, obj);
 		target.set.add(source);
-		if (fireNew)
+		if (target.dest == null)
 		{
+			target.dest = convert(obj);
 			fireDataFacetChangeEvent(id, target.dest,
 					DataFacetChangeEvent.DATA_ADDED);
 		}
 	}
 
 	/**
-	 * Adds all of the objects with the given source in the given Collection to
-	 * the list of objects stored in this AbstractQualifiedListFacet for the
-	 * Player Character represented by the given CharID
+	 * Adds conversions of all of the objects in the given Collection to the
+	 * list of (converted) objects stored in this AbstractItemConvertingFacet
+	 * for the Player Character represented by the given CharID. All items are
+	 * added with the given source.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            given items should be added
 	 * @param c
-	 *            The Collection of objects to be added to the list of objects
-	 *            stored in this AbstractQualifiedListFacet for the Player
-	 *            Character represented by the given CharID
+	 *            The Collection of objects for which the converted versions
+	 *            will be added to the list of objects stored in this
+	 *            AbstractItemConvertingFacet for the Player Character
+	 *            represented by the given CharID
 	 * @param source
-	 *            The source for the given object
+	 *            The source for the given objects in the collection
 	 * @throws NullPointerException
 	 *             if the given Collection is null
 	 */
@@ -118,21 +119,23 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	}
 
 	/**
-	 * Removes the given source entry from the list of sources for the given
-	 * object stored in this AbstractQualifiedListFacet for the Player Character
-	 * represented by the given CharID. If the given source was the only source
-	 * for the given object, then the object is removed from the list of objects
-	 * stored in this AbstractQualifiedListFacet for the Player Character
-	 * represented by the given CharID.
+	 * Removes the given source entry from the list of sources for conversion of
+	 * the given object stored in this AbstractItemConvertingFacet for the
+	 * Player Character represented by the given CharID. If the given source was
+	 * the only source for the given object, then the converted object is
+	 * removed from the list of objects stored in this
+	 * AbstractItemConvertingFacet for the Player Character represented by the
+	 * given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character from which the
 	 *            given item source should be removed
 	 * @param obj
-	 *            The object for which the source should be removed
+	 *            The object for which the source should be removed from the
+	 *            converted version of that object
 	 * @param source
-	 *            The source for the given object to be removed from the list of
-	 *            sources.
+	 *            The source for the given object is to be removed from the list
+	 *            of sources for the converted version of the given object
 	 */
 	public void remove(CharID id, S obj, Object source)
 	{
@@ -144,23 +147,25 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	}
 
 	/**
-	 * Removes the given source entry from the list of sources for all of the
-	 * objects in the given Collection for the Player Character represented by
-	 * the given CharID. If the given source was the only source for any of the
-	 * objects in the collection, then those objects are removed from the list
-	 * of objects stored in this AbstractQualifiedListFacet for the Player
-	 * Character represented by the given CharID.
+	 * Removes the given source entry from the list of sources for the converted
+	 * version of all of the objects in the given Collection for the Player
+	 * Character represented by the given CharID. If the given source was the
+	 * only source for any of the (converted) objects in the collection, then
+	 * those objects are removed from the list of objects stored in this
+	 * AbstractItemConvertingFacet for the Player Character represented by the
+	 * given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character from which the
 	 *            given items should be removed
 	 * @param c
-	 *            The Collection of objects to be removed from the list of
-	 *            objects stored in this AbstractQualifiedListFacet for the
-	 *            Player Character represented by the given CharID
+	 *            The Collection of objects for which the conversions will be
+	 *            removed from the list of objects stored in this
+	 *            AbstractItemConvertingFacet for the Player Character
+	 *            represented by the given CharID
 	 * @param source
 	 *            The source for the objects in the given Collection to be
-	 *            removed from the list of sources.
+	 *            removed from the list of sources
 	 * @throws NullPointerException
 	 *             if the given Collection is null
 	 */
@@ -177,15 +182,27 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	}
 
 	/**
-	 * Removes all objects (and all sources for those objects) from the list of
-	 * objects stored in this AbstractItemConvertingFacet for the Player Character
-	 * represented by the given CharID
+	 * Removes all converted objects (and all sources for those objects) from
+	 * the list of objects stored in this AbstractItemConvertingFacet for the
+	 * Player Character represented by the given CharID.
+	 * 
+	 * This method is value-semantic in that ownership of the returned Map is
+	 * transferred to the class calling this method. Since this is a remove all
+	 * function, modification of the returned Map will not modify this
+	 * AbstractItemConvertingFacet and modification of this
+	 * AbstractItemConvertingFacet will not modify the returned Map.
+	 * Modifications to the returned Map will also not modify any future or
+	 * previous objects returned by this (or other) methods on
+	 * AbstractItemConvertingFacet. If you wish to modify the information stored
+	 * in this AbstractItemConvertingFacet, you must use the add*() and
+	 * remove*() methods of AbstractItemConvertingFacet.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character from which all
 	 *            items should be removed
-	 * @return A non-null Set of objects removed from the list of objects stored
-	 *         in this AbstractItemConvertingFacet for the Player Character
+	 * @return A non-null Map of converted object mapped to their sources, all
+	 *         of which were removed from the list of original objects stored in
+	 *         this AbstractItemConvertingFacet for the Player Character
 	 *         represented by the given CharID
 	 */
 	public Map<S, Target> removeAll(CharID id)
@@ -205,14 +222,21 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	}
 
 	/**
-	 * Returns the count of items in this AbstractItemConvertingFacet for the Player
-	 * Character represented by the given CharID
+	 * Returns the count of (non-equal) original objects in this
+	 * AbstractItemConvertingFacet for the Player Character represented by the
+	 * given CharID.
+	 * 
+	 * Note: This does not necessarily return the count of the number of
+	 * (non-equal) converted objects added. It may, but it will do so if and
+	 * only if the conversion process can not produce identical conversion
+	 * targets from two unequal sources.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            count of items should be returned
-	 * @return The count of items in this AbstractItemConvertingFacet for the Player
-	 *         Character represented by the given CharID
+	 * @return The count of converted objects in this
+	 *         AbstractItemConvertingFacet for the Player Character represented
+	 *         by the given CharID
 	 */
 	public int getCount(CharID id)
 	{
@@ -225,15 +249,16 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	}
 
 	/**
-	 * Returns true if this AbstractItemConvertingFacet does not contain any items
-	 * for the Player Character represented by the given CharID
+	 * Returns true if this AbstractItemConvertingFacet does not contain any
+	 * items for the Player Character represented by the given CharID.
 	 * 
 	 * @param id
 	 *            The CharId representing the PlayerCharacter to test if any
 	 *            items are contained by this AbstractsSourcedListFacet
-	 * @return true if this AbstractItemConvertingFacet does not contain any items
-	 *         for the Player Character represented by the given CharID; false
-	 *         otherwise (if it does contain items for the Player Character)
+	 * @return true if this AbstractItemConvertingFacet does not contain any
+	 *         items for the Player Character represented by the given CharID;
+	 *         false otherwise (if it does contain items for the Player
+	 *         Character)
 	 */
 	public boolean isEmpty(CharID id)
 	{
@@ -242,19 +267,20 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	}
 
 	/**
-	 * Returns true if this AbstractItemConvertingFacet contains the given value in
-	 * the list of items for the Player Character represented by the given
-	 * CharID.
+	 * Returns true if this AbstractItemConvertingFacet was provided with the
+	 * given source object to be converted and stored in the list of items for
+	 * the Player Character represented by the given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character used for testing
 	 * @param obj
-	 *            The object to test if this AbstractItemConvertingFacet contains
-	 *            that item for the Player Character represented by the given
-	 *            CharID
-	 * @return true if this AbstractItemConvertingFacet contains the given value for
-	 *         the Player Character represented by the given CharID; false
-	 *         otherwise
+	 *            The object to test if this AbstractItemConvertingFacet
+	 *            contains that original item for the Player Character
+	 *            represented by the given CharID
+	 * @return true if this AbstractItemConvertingFacet was provided with the
+	 *         given source object to be converted and stored in the list of
+	 *         items for the Player Character represented by the given CharID;
+	 *         false otherwise
 	 */
 	public boolean contains(CharID id, S obj)
 	{
@@ -263,12 +289,13 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	}
 
 	/**
-	 * Returns a Set of sources for this AbstractItemConvertingFacet, the
-	 * PlayerCharacter represented by the given CharID, and the given object.
-	 * Will add the given object to the list of items for the PlayerCharacter
-	 * represented by the given CharID and will return a new, empty Set if no
-	 * information has been set in this AbstractItemConvertingFacet for the given
-	 * CharID and given object. Will not return null.
+	 * Returns a Target storage object for this AbstractItemConvertingFacet, the
+	 * PlayerCharacter represented by the given CharID, and the given source
+	 * object. Will add the given object to the list of items for the
+	 * PlayerCharacter represented by the given CharID and will return a new,
+	 * empty Target object if no information has been set in this
+	 * AbstractItemConvertingFacet for the given CharID and given object. Will
+	 * not return null.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Set object is owned by
 	 * AbstractItemConvertingFacet, and since it can be modified, a reference to
@@ -276,10 +303,10 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	 * AbstractItemConvertingFacet.
 	 * 
 	 * @param id
-	 *            The CharID for which the Set should be returned
+	 *            The CharID for which the Target should be returned
 	 * @param obj
-	 *            The object for which the Set of sources should be returned
-	 * @return The Set of sources for the given object and Player Character
+	 *            The object for which the Target should be returned
+	 * @return The Target object for the given object and Player Character
 	 *         represented by the given CharID.
 	 */
 	private Target getConstructingCachedSetFor(CharID id, S obj)
@@ -295,8 +322,8 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	}
 
 	/**
-	 * Returns the type-safe Map for this AbstractItemConvertingFacet and the given
-	 * CharID. May return null if no information has been set in this
+	 * Returns the type-safe Map for this AbstractItemConvertingFacet and the
+	 * given CharID. May return null if no information has been set in this
 	 * AbstractItemConvertingFacet for the given CharID.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Map is owned by
@@ -316,9 +343,10 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	}
 
 	/**
-	 * Returns a type-safe Map for this AbstractItemConvertingFacet and the given
-	 * CharID. Will return a new, empty Map if no information has been set in
-	 * this AbstractItemConvertingFacet for the given CharID. Will not return null.
+	 * Returns a type-safe Map for this AbstractItemConvertingFacet and the
+	 * given CharID. Will return a new, empty Map if no information has been set
+	 * in this AbstractItemConvertingFacet for the given CharID. Will not return
+	 * null.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Map object is owned by
 	 * AbstractItemConvertingFacet, and since it can be modified, a reference to
@@ -340,6 +368,24 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 		return componentMap;
 	}
 
+	/**
+	 * Returns a new (empty) Map for this AbstractItemConvertingFacet. Can be
+	 * overridden by classes that extend AbstractItemConvertingFacet if a Map
+	 * other than an IdentityHashMap is desired for storing the information in
+	 * the AbstractItemConvertingFacet.
+	 * 
+	 * Note that this method SHOULD NOT be public. The Map object is owned by
+	 * AbstractItemConvertingFacet, and since it can be modified, a reference to
+	 * that object should not be exposed to any object other than
+	 * AbstractItemConvertingFacet.
+	 * 
+	 * Note that this method should always be the only method used to construct
+	 * a Map for this AbstractItemConvertingFacet. It is actually preferred to
+	 * use getConstructingCacheMap(CharID) in order to implicitly call this
+	 * method.
+	 * 
+	 * @return A new (empty) Map for use in this AbstractItemConvertingFacet.
+	 */
 	protected Map<S, Target> getComponentMap()
 	{
 		return new IdentityHashMap<S, Target>();
@@ -350,15 +396,15 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	 * Character to another Player Character, based on the given CharIDs
 	 * representing those Player Characters.
 	 * 
-	 * This is a method in AbstractItemConvertingFacet in order to avoid exposing
-	 * the mutable Map object to other classes. This should not be inlined, as
-	 * the Map is internal information to AbstractItemConvertingFacet and should not
-	 * be exposed to other classes.
+	 * This is a method in AbstractItemConvertingFacet in order to avoid
+	 * exposing the mutable Map object to other classes. This should not be
+	 * inlined, as the Map is internal information to
+	 * AbstractItemConvertingFacet and should not be exposed to other classes.
 	 * 
 	 * Note also the copy is a one-time event and no references are maintained
 	 * between the Player Characters represented by the given CharIDs (meaning
-	 * once this copy takes place, any change to the AbstractItemConvertingFacet of
-	 * one Player Character will only impact the Player Character where the
+	 * once this copy takes place, any change to the AbstractItemConvertingFacet
+	 * of one Player Character will only impact the Player Character where the
 	 * AbstractItemConvertingFacet was changed).
 	 * 
 	 * @param source
@@ -396,7 +442,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	 * determines if the given source was the only source for the given object.
 	 * If so, then that object is removed from the list of objects stored in
 	 * this AbstractQualifiedListFacet for the Player Character represented by
-	 * the given CharID.
+	 * the given CharID and a removal event is fired.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character which may have
@@ -414,7 +460,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	 *            sources for that object
 	 */
 	private void processRemoval(CharID id, Map<S, Target> componentMap, S obj,
-			Object source)
+		Object source)
 	{
 		if (obj == null)
 		{
@@ -434,6 +480,19 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 		}
 	}
 
+	/**
+	 * Removes all information (converted and unconverted objects) for the given
+	 * source from this AbstractItemConvertingFacet for the PlayerCharacter
+	 * represented by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which items
+	 *            from the given source will be removed
+	 * @param source
+	 *            The source for the objects to be removed from the list of
+	 *            items stored for the Player Character identified by the given
+	 *            CharID
+	 */
 	public void removeAll(CharID id, Object source)
 	{
 		Map<S, Target> componentMap = getCachedMap(id);
@@ -456,7 +515,24 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 		}
 	}
 
-	public boolean containsFrom(CharID id, Object owner)
+	/**
+	 * Returns true if this AbstractItemConvertingFacet contains an object from
+	 * the given source for the Player Character identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character which will be
+	 *            checked to see if this AbstractItemConvertingFacet contains
+	 *            any objects for that Player Character
+	 * @param source
+	 *            The source for the objects to be checked, along with the
+	 *            Player Character identified by the given CharID, to see if
+	 *            this AbstractItemConvertingFacet contains an object from the
+	 *            given source
+	 * @return true if this AbstractItemConvertingFacet contains an object from
+	 *         the given source for the Player Character identified by the given
+	 *         CharID; false otherwise
+	 */
+	public boolean containsFrom(CharID id, Object source)
 	{
 		Map<S, Target> componentMap = getCachedMap(id);
 		if (componentMap != null)
@@ -468,7 +544,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 				Target target = me.getValue();
 				if (target != null)
 				{
-					if (target.set.contains(owner))
+					if (target.set.contains(source))
 					{
 						return true;
 					}
@@ -478,10 +554,24 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 		return false;
 	}
 
+	/**
+	 * The storage class for AbstractItemConvertingFacet. Used to store both the
+	 * converted object as well as the list of sources for the given destination
+	 * object.
+	 * 
+	 * @author Thomas Parker (thpr [at] yahoo.com)
+	 */
 	private class Target
 	{
-		public Set<Object> set = new WrappedMapSet<Object>(
-				IdentityHashMap.class);
+		/**
+		 * The set of objects from which the converted object has been received
+		 */
+		public Set<Object> set =
+				new WrappedMapSet<Object>(IdentityHashMap.class);
+
+		/**
+		 * The converted ("destination") object
+		 */
 		public D dest;
 
 		@Override
@@ -506,5 +596,15 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 		}
 	}
 
+	/**
+	 * Converts the given object to the destination object type stored in this
+	 * AbstractItemConvertingFacet. Must be implemented by classes that extend
+	 * AbstractItemConvertingFacet.
+	 * 
+	 * @param obj
+	 *            The original object stored in this AbstractItemConvertingFacet
+	 * @return The converted object to be stored in this
+	 *         AbstractItemConvertingFacet for the given original object
+	 */
 	protected abstract D convert(S obj);
 }

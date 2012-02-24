@@ -26,12 +26,27 @@ import pcgen.core.PCStat;
 /**
  * NonAbilityFacet is a Facet that tracks the Non-Abilities (PCStat objects)
  * that have been set on a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class NonAbilityFacet
 {
 	private UnlockedStatFacet unlockedStatFacet;
 	private StatLockFacet statLockFacet;
 
+	/**
+	 * Returns true if the given PCStat is not an ability for the Player
+	 * Character identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            given PCStat will be tested to see if it is a non-ability
+	 * @param stat
+	 *            The PCStat to be checked to see if it is a non-ability for the
+	 *            Player Character identified by the given CharID
+	 * @return true if the given PCStat is not an ability for the Player
+	 *         Character identified by the given CharID; false otherwise
+	 */
 	public boolean isNonAbility(CharID id, PCStat stat)
 	{
 		if (unlockedStatFacet.contains(id, stat))
@@ -40,8 +55,7 @@ public class NonAbilityFacet
 		}
 		for (StatLock lock : statLockFacet.getSet(id))
 		{
-			if ((lock.getLockedStat().equals(stat))
-					&& (lock.getLockValue().toString().equals("10")))
+			if ((lock.getLockedStat().equals(stat)) && isLockedStat(lock))
 			{
 				return true;
 			}
@@ -50,18 +64,39 @@ public class NonAbilityFacet
 	}
 
 	/**
-	 * Takes a stat. If that stat has been locked at 10 then it is considered a
-	 * non-ability. XXX This is insanely bad design, it's completely arse about
-	 * face. What should have been done was find a way to mark a stat as a
-	 * non-ability and then have the stat checking code interpret that as "no
-	 * bonus or penalty - treat like it was locked at 10". Doing it this way
-	 * means there is no way to actually lock a stat at 10. TODO: Fix this mess!
-	 * disparaging comments Andrew Wilson 20060308
+	 * Takes a StatLock. If that StatLock indicates a stat has been locked at 10
+	 * then it is considered a non-ability.
+	 * 
+	 * TODO This is insanely bad design, it's completely arse about face. What
+	 * should have been done was find a way to mark a stat as a non-ability and
+	 * then have the stat checking code interpret that as "no bonus or penalty -
+	 * treat like it was locked at 10". Doing it this way means there is no way
+	 * to actually lock a stat at 10. TODO: Fix this mess! disparaging comments
+	 * Andrew Wilson 20060308
 	 * 
 	 * @param stat
 	 *            the stat in question
 	 * 
 	 * @return Whether this has been defined as a non-ability
+	 */
+	private static boolean isLockedStat(StatLock lock)
+	{
+		return lock.getLockValue().toString().equals("10");
+	}
+
+	/**
+	 * Returns true if the given PCStat is not an ability as locked in the given
+	 * CDOMObject.
+	 * 
+	 * @param stat
+	 *            The PCStat to be checked to see if it is a non-ability as
+	 *            locked in the the given CDOMObject
+	 * @param po
+	 *            The CDOMObject which is to be checked to see if the given
+	 *            PCStat is locked as a non-ability
+	 * 
+	 * @return true if the given PCStat is not an ability as locked in the given
+	 *         CDOMObject; false otherwise
 	 */
 	public static boolean isNonAbilityForObject(PCStat stat, CDOMObject po)
 	{
@@ -75,7 +110,7 @@ public class NonAbilityFacet
 		{
 			if (sl.getLockedStat().equals(stat))
 			{
-				if (sl.getLockValue().toString().equals("10"))
+				if (isLockedStat(sl))
 				{
 					return true;
 				}

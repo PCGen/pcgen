@@ -25,22 +25,38 @@ import java.util.Set;
 import pcgen.cdom.enumeration.CharID;
 
 /**
+ * An AbstractAssociationFacet is a DataFacet that contains information about
+ * associations for Objects that are contained in a PlayerCharacter.
+ * 
+ * This is used when each source may only have one association (such as
+ * associating hit points to a class level), although the target can be a class
+ * that can store multiple pieces of information in some implementations.
+ * 
+ * If the source object (e.g. the class level) is re-added with a second
+ * association, this will overwrite the original association.
+ * 
+ * null is NOT a valid source.
+ * 
+ * null is NOT a valid base object or association.
+ * 
  * @author Thomas Parker (thpr [at] yahoo.com)
- * 
- *         An AbstractAssociationFacet is a DataFacet that contains information
- *         about associations Objects that are contained in a PlayerCharacter.
- * 
- *         This is used when each source may only have one association (such as
- *         associating hit points to a class level)
- * 
- *         If the source object (e.g. the class level) is re-added with a second
- *         association, this will overwrite the original association.
- * 
- *         null is NOT a valid source.
  */
 public abstract class AbstractAssociationFacet<S, A> extends AbstractStorageFacet
 {
 
+	/**
+	 * Gets the association for the Player Character (identified by the given
+	 * CharID) and the given source object.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            association get is being performed.
+	 * @param obj
+	 *            The source object for which the association get is being
+	 *            performed.
+	 * @return The association for the Player Character (identified by the given
+	 *         CharID) and the given source object
+	 */
 	public A get(CharID id, S obj)
 	{
 		if (obj == null)
@@ -57,15 +73,15 @@ public abstract class AbstractAssociationFacet<S, A> extends AbstractStorageFace
 	}
 
 	/**
-	 * Set the given association for the given object to the associations stored
-	 * in this AbstractAssociationFacet for the Player Character represented by
-	 * the given CharID
+	 * Set the given association for the given object in this
+	 * AbstractAssociationFacet for the Player Character represented by the
+	 * given CharID
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            given association should be made
 	 * @param obj
-	 *            The object for which the association will be added
+	 *            The object for which the association will be set
 	 * @param association
 	 *            The association for the given object
 	 */
@@ -79,50 +95,50 @@ public abstract class AbstractAssociationFacet<S, A> extends AbstractStorageFace
 		{
 			throw new IllegalArgumentException("Association may not be null");
 		}
-		Map<S, A> map = getConstructingCachedMap(id);
-		Object oldsource = map.get(obj);
-		boolean fireNew = (oldsource == null);
-		map.put(obj, association);
-		if (fireNew)
-		{
-			//fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
-		}
+		getConstructingCachedMap(id).put(obj, association);
 	}
 
 	/**
-	 * Removes the association for the given source entry from the list of
-	 * associations in this AbstractQualifiedListFacet for the Player Character
-	 * represented by the given CharID.
+	 * Removes the association for the given source object in this
+	 * AbstractAssociationFacet for the Player Character represented by the
+	 * given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character from which the
-	 *            given item source should be removed
+	 *            given item association should be removed
 	 * @param obj
-	 *            The object for which the source should be removed
+	 *            The object for which the association should be removed
 	 */
 	public void remove(CharID id, S obj)
 	{
 		Map<S, A> map = getCachedMap(id);
 		if (map != null)
 		{
-			if (map.remove(obj) != null)
-			{
-				//				fireDataFacetChangeEvent(id, obj,
-				//					DataFacetChangeEvent.DATA_REMOVED);
-			}
+			map.remove(obj);
 		}
 	}
 
 	/**
-	 * Removes all objects (and all sources for those objects) from the list of
-	 * objects stored in this AbstractAssociationFacet for the Player Character
-	 * represented by the given CharID
+	 * Removes all objects (and all associations for those objects) from the
+	 * list of objects stored in this AbstractAssociationFacet for the Player
+	 * Character represented by the given CharID
+	 * 
+	 * This method is value-semantic in that ownership of the returned Map is
+	 * transferred to the class calling this method. Since this is a remove all
+	 * function, modification of the returned Map will not modify this
+	 * AbstractAssociationFacet and modification of this
+	 * AbstractAssociationFacet will not modify the returned Map. Modifications
+	 * to the returned List will also not modify any future or previous objects
+	 * returned by this (or other) methods on AbstractAssociationFacet. If you
+	 * wish to modify the information stored in this AbstractAssociationFacet,
+	 * you must use the add*() and remove*() methods of
+	 * AbstractAssociationFacet.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character from which all
 	 *            items should be removed
-	 * @return A non-null Set of objects removed from the list of objects stored
-	 *         in this AbstractAssociationFacet for the Player Character
+	 * @return A non-null Map of objects to their associations that were removed
+	 *         from this AbstractAssociationFacet for the Player Character
 	 *         represented by the given CharID
 	 */
 	public Map<S, A> removeAll(CharID id)
@@ -133,22 +149,32 @@ public abstract class AbstractAssociationFacet<S, A> extends AbstractStorageFace
 			return Collections.emptyMap();
 		}
 		removeCache(id, getClass());
-		for (S obj : componentMap.keySet())
-		{
-			//fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
-		}
 		return componentMap;
 	}
 
 	/**
-	 * Returns the Set of source objects in this AbstractAssociationFacet for
-	 * the Player Character represented by the given CharID
+	 * Returns a non-null copy of the Set of objects in this
+	 * AbstractAssociationFacet for the Player Character represented by the
+	 * given CharID. This method returns an empty set if no objects are in this
+	 * AbstractAssociationFacet for the Player Character identified by the given
+	 * CharID.
+	 * 
+	 * This method is value-semantic in that ownership of the returned List is
+	 * transferred to the class calling this method. Modification of the
+	 * returned List will not modify this AbstractAssociationFacet and
+	 * modification of this AbstractAssociationFacet will not modify the
+	 * returned List. Modifications to the returned List will also not modify
+	 * any future or previous objects returned by this (or other) methods on
+	 * AbstractAssociationFacet. If you wish to modify the information stored in
+	 * this AbstractAssociationFacet, you must use the add*() and remove*()
+	 * methods of AbstractAssociationFacet.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            items in this AbstractAssociationFacet should be returned.
-	 * @return A non-null Set of objects in this AbstractAssociationFacet for
-	 *         the Player Character represented by the given CharID
+	 * @return A non-null copy of the Set of objects in this
+	 *         AbstractAssociationFacet for the Player Character represented by
+	 *         the given CharID
 	 */
 	public Set<S> getSet(CharID id)
 	{
@@ -161,14 +187,16 @@ public abstract class AbstractAssociationFacet<S, A> extends AbstractStorageFace
 	}
 
 	/**
-	 * Returns the count of items in this AbstractAssociationFacet for the
-	 * Player Character represented by the given CharID
+	 * Returns the count of items (objects -> association entries) in this
+	 * AbstractAssociationFacet for the Player Character represented by the
+	 * given CharID
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            count of items should be returned
-	 * @return The count of items in this AbstractAssociationFacet for the
-	 *         Player Character represented by the given CharID
+	 * @return The count of items (objects and thus also associations) in this
+	 *         AbstractAssociationFacet for the Player Character represented by
+	 *         the given CharID
 	 */
 	public int getCount(CharID id)
 	{
@@ -229,8 +257,8 @@ public abstract class AbstractAssociationFacet<S, A> extends AbstractStorageFace
 	 * AbstractAssociationFacet.
 	 * 
 	 * @param id
-	 *            The CharID for which the Set should be returned
-	 * @return The Set for the Player Character represented by the given CharID;
+	 *            The CharID for which the Map should be returned
+	 * @return The Map for the Player Character represented by the given CharID;
 	 *         null if no information has been set in this
 	 *         AbstractAssociationFacet for the Player Character.
 	 */
@@ -264,6 +292,23 @@ public abstract class AbstractAssociationFacet<S, A> extends AbstractStorageFace
 		return componentMap;
 	}
 
+	/**
+	 * Returns a new (empty) Map for this AbstractAssociationFacet. Can be
+	 * overridden by classes that extend AbstractAssociationFacet if a Map other
+	 * than an IdentityHashMap is desired for storing the information in the
+	 * AbstractAssociationFacet.
+	 * 
+	 * Note that this method SHOULD NOT be public. The Map object is owned by
+	 * AbstractAssociationFacet, and since it can be modified, a reference to
+	 * that object should not be exposed to any object other than
+	 * AbstractAssociationFacet.
+	 * 
+	 * Note that this method should always be the only method used to construct
+	 * a Map for this AbstractAssociationFacet. It is actually preferred to use
+	 * getConstructingCacheMap(CharID) in order to implicitly call this method.
+	 * 
+	 * @return A new (empty) Map for use in this AbstractAssociationFacet.
+	 */
 	protected Map<S, A> getComponentMap()
 	{
 		return new IdentityHashMap<S, A>();

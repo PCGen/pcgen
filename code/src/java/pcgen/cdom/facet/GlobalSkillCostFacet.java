@@ -32,7 +32,10 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.Skill;
 
 /**
- * GlobalSkillCostFacet is a Facet to track Skill costs
+ * GlobalSkillCostFacet is a Facet to track Skill costs as applied by direct
+ * skill references in CSKILL and CCSKILL
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class GlobalSkillCostFacet extends AbstractStorageFacet implements
 		DataFacetChangeListener<CDOMObject>
@@ -42,6 +45,9 @@ public class GlobalSkillCostFacet extends AbstractStorageFacet implements
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**
+	 * Adds the SkillCost objects granted by CDOMObjects added to the Player
+	 * Character to this GlobalSkillCostFacet.
+	 * 
 	 * Triggered when one of the Facets to which GlobalSkillCostFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
 	 * Player Character.
@@ -74,6 +80,9 @@ public class GlobalSkillCostFacet extends AbstractStorageFacet implements
 	}
 
 	/**
+	 * Removes the SkillCost objects granted by CDOMObjects removed from the
+	 * Player Character from this GlobalSkillCostFacet.
+	 * 
 	 * Triggered when one of the Facets to which GlobalSkillCostFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
 	 * Player Character.
@@ -87,7 +96,11 @@ public class GlobalSkillCostFacet extends AbstractStorageFacet implements
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
-		removeAll(dfce.getCharID(), dfce.getCDOMObject());
+		CacheInfo ci = getInfo(dfce.getCharID());
+		if (ci != null)
+		{
+			ci.removeAll(dfce.getCDOMObject());
+		}
 	}
 
 	/**
@@ -143,6 +156,19 @@ public class GlobalSkillCostFacet extends AbstractStorageFacet implements
 	{
 		Map<SkillCost, Map<Skill, Set<Object>>> map = new HashMap<SkillCost, Map<Skill, Set<Object>>>();
 
+		/**
+		 * Adds the given SkillCost for the given Skill (as granted by the given
+		 * source) to this CacheInfo
+		 * 
+		 * @param skill
+		 *            The Skill for which the SkillCost is being added
+		 * @param sc
+		 *            The SkillCost for the given Skill to be added to this
+		 *            CacheInfo
+		 * @param source
+		 *            The source object which granted the given SkillCost for
+		 *            the given Skill
+		 */
 		public void add(Skill skill, SkillCost sc, Object source)
 		{
 			Map<Skill, Set<Object>> skMap = map.get(sc);
@@ -160,26 +186,33 @@ public class GlobalSkillCostFacet extends AbstractStorageFacet implements
 			set.add(source);
 		}
 
-		public void remove(Skill skill, SkillCost sc, Object source)
-		{
-			Map<Skill, Set<Object>> skMap = map.get(sc);
-			if (skMap != null)
-			{
-				Set<Object> set = skMap.get(skill);
-				if (set != null)
-				{
-					if (set.remove(source) && set.isEmpty())
-					{
-						skMap.remove(skill);
-						if (skMap.isEmpty())
-						{
-							map.remove(sc);
-						}
-					}
-				}
-			}
-		}
+		//		public void remove(Skill skill, SkillCost sc, Object source)
+		//		{
+		//			Map<Skill, Set<Object>> skMap = map.get(sc);
+		//			if (skMap != null)
+		//			{
+		//				Set<Object> set = skMap.get(skill);
+		//				if (set != null)
+		//				{
+		//					if (set.remove(source) && set.isEmpty())
+		//					{
+		//						skMap.remove(skill);
+		//						if (skMap.isEmpty())
+		//						{
+		//							map.remove(sc);
+		//						}
+		//					}
+		//				}
+		//			}
+		//		}
 
+		/**
+		 * Removes all SkillCosts from this CacheInfo for the given Source.
+		 * 
+		 * @param source
+		 *            The source Object for which all SkillCosts in this
+		 *            CacheInfo will be removed
+		 */
 		public void removeAll(Object source)
 		{
 			for (Iterator<Map<Skill, Set<Object>>> mit = map.values()
@@ -202,6 +235,19 @@ public class GlobalSkillCostFacet extends AbstractStorageFacet implements
 			}
 		}
 
+		/**
+		 * Returns true if CacheInfo contains the given SkillCost for the given
+		 * Skill.
+		 * 
+		 * @param sc
+		 *            The SkillCost to be tested to see if this CacheInfo
+		 *            contains this SkillCost for the given Skill
+		 * @param sk
+		 *            The Skill to be tested to see if if this CacheInfo
+		 *            contains the given SkillCost
+		 * @return true if this GlobalSkillCostFacet contains the given
+		 *         SkillCost for the given Skill; false otherwise
+		 */
 		public boolean contains(SkillCost sc, Skill skill)
 		{
 			Map<Skill, Set<Object>> skMap = map.get(sc);
@@ -209,29 +255,30 @@ public class GlobalSkillCostFacet extends AbstractStorageFacet implements
 		}
 	}
 
-	public void add(CharID id, Skill skill, SkillCost sc, Object source)
+	private void add(CharID id, Skill skill, SkillCost sc, Object source)
 	{
 		getConstructingInfo(id).add(skill, sc, source);
 	}
 
-	public void remove(CharID id, Skill skill, SkillCost sc, Object source)
-	{
-		CacheInfo info = getInfo(id);
-		if (info != null)
-		{
-			info.remove(skill, sc, source);
-		}
-	}
-
-	public void removeAll(CharID id, Object source)
-	{
-		CacheInfo ci = getInfo(id);
-		if (ci != null)
-		{
-			ci.removeAll(source);
-		}
-	}
-
+	/**
+	 * Returns true if GlobalSkillCostFacet contains the given SkillCost for the
+	 * given Skill and Player Character identified by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character to be tested to
+	 *            see if this GlobalSkillCostFacet contains the given SkillCost
+	 *            for the given Skill
+	 * @param sc
+	 *            The SkillCost to be tested to see if this GlobalSkillCostFacet
+	 *            contains this SkillCost for the given Skill and Player
+	 *            Character identified by the given CharID
+	 * @param sk
+	 *            The Skill to be tested to see if if this GlobalSkillCostFacet
+	 *            contains the given SkillCost
+	 * @return true if this GlobalSkillCostFacet contains the given SkillCost
+	 *         for the given Skill and Player Character identified by the given
+	 *         CharID; false otherwise
+	 */
 	public boolean contains(CharID id, SkillCost sc, Skill sk)
 	{
 		CacheInfo ci = getInfo(id);
@@ -242,12 +289,41 @@ public class GlobalSkillCostFacet extends AbstractStorageFacet implements
 	{
 		this.consolidationFacet = consolidationFacet;
 	}
-	
+
+	/**
+	 * Initializes the connections for GlobalSkillCostFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the GlobalSkillCostFacet.
+	 */
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);
 	}
 
+	/**
+	 * Copies the contents of the GlobalSkillCostFacet from one Player Character
+	 * to another Player Character, based on the given CharIDs representing
+	 * those Player Characters.
+	 * 
+	 * This is a method in GlobalSkillCostFacet in order to avoid exposing the
+	 * mutable Map object to other classes. This should not be inlined, as the
+	 * Map is internal information to GlobalSkillCostFacet and should not be
+	 * exposed to other classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the GlobalSkillCostFacet of one
+	 * Player Character will only impact the Player Character where the
+	 * GlobalSkillCostFacet was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param destination
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
 	@Override
 	public void copyContents(CharID source, CharID copy)
 	{
