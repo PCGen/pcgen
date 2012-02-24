@@ -18,6 +18,12 @@ package pcgen.cdom.facet;
 
 import pcgen.core.SpellProhibitor;
 
+/**
+ * ProhibitedSpellFacet contains the SpellProhibitor objects which are active on
+ * a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ */
 public class ProhibitedSchoolFacet extends
 		AbstractSourcedListFacet<SpellProhibitor>
 {

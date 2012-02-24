@@ -30,6 +30,8 @@ import pcgen.cdom.reference.Qualifier;
 /**
  * QualifyFacet is a Facet that tracks the objects to which the Player Character
  * should Qualify.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class QualifyFacet extends AbstractStorageFacet implements
 		DataFacetChangeListener<CDOMObject>
@@ -40,6 +42,10 @@ public class QualifyFacet extends AbstractStorageFacet implements
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**
+	 * Adds the list of items a Player Character should qualify for to this
+	 * QualifyFacet when a CDOMObject which grants such a qualify is added to a
+	 * Player Character.
+	 * 
 	 * Triggered when one of the Facets to which QualifyFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
@@ -67,6 +73,10 @@ public class QualifyFacet extends AbstractStorageFacet implements
 	}
 
 	/**
+	 * Removes the list of items a Player Character should qualify for from this
+	 * QualifyFacet when a CDOMObject which grants such a qualify is removed
+	 * from a Player Character.
+	 * 
 	 * Triggered when one of the Facets to which QualifyFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
 	 * Character.
@@ -89,6 +99,21 @@ public class QualifyFacet extends AbstractStorageFacet implements
 		}
 	}
 
+	/**
+	 * Returns a CacheInfo for this QualifyFacet and the PlayerCharacter
+	 * represented by the given CharID. Will return a new, empty CacheInfo if no
+	 * information has been set in this QualifyFacet for the given CharID. Will
+	 * not return null.
+	 * 
+	 * Note that this method SHOULD NOT be public. The CacheInfo object is owned
+	 * by QualifyFacet, and since it can be modified, a reference to that object
+	 * should not be exposed to any object other than QualifyFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the Set should be returned
+	 * @return The CacheInfo for the given object and Player Character
+	 *         represented by the given CharID.
+	 */
 	private CacheInfo getConstructingCacheInfo(CharID id)
 	{
 		CacheInfo ci = (CacheInfo) getCache(id, thisClass);
@@ -100,22 +125,56 @@ public class QualifyFacet extends AbstractStorageFacet implements
 		return ci;
 	}
 
+	/**
+	 * Returns a CacheInfo for this QualifyFacet and the PlayerCharacter
+	 * represented by the given CharID. Will return a null if no information has
+	 * been set in this QualifyFacet for the given CharID.
+	 * 
+	 * Note that this method SHOULD NOT be public. The CacheInfo object is owned
+	 * by QualifyFacet, and since it can be modified, a reference to that object
+	 * should not be exposed to any object other than QualifyFacet.
+	 * 
+	 * @param id
+	 *            The CharID for which the Set should be returned
+	 * @return The CacheInfo for the given object and Player Character
+	 *         represented by the given CharID.
+	 */
 	private CacheInfo getCacheInfo(CharID id)
 	{
 		return (CacheInfo) getCache(id, thisClass);
 	}
 
+	/**
+	 * Data structure used to store information for QualifyFacet (stores
+	 * Qualifier objects and the sources of those Qualifier objects)
+	 */
 	private static class CacheInfo
 	{
 		HashMapToList<Class<? extends Loadable>, Qualifier> hml = new HashMapToList<Class<? extends Loadable>, Qualifier>();
 		HashMapToList<CDOMObject, Qualifier> sourceMap = new HashMapToList<CDOMObject, Qualifier>();
 
+		/**
+		 * Adds the given Qualifier to the CacheInfo, with the given source.
+		 * 
+		 * @param q
+		 *            The Qualifier to be added to this CacheInfo
+		 * @param source
+		 *            The source for the Qualifier being added to this CacheInfo
+		 */
 		public void add(Qualifier q, CDOMObject source)
 		{
 			hml.addToListFor(q.getQualifiedClass(), q);
 			sourceMap.addToListFor(source, q);
 		}
 
+		/**
+		 * Removes all Qualifier objects from this CacheInfo which have been
+		 * granted from the given source CDOMObject.
+		 * 
+		 * @param object
+		 *            The source CDOMObject for which all Qualifier objects will
+		 *            be removed from this CacheInfo
+		 */
 		public void removeAll(CDOMObject object)
 		{
 			List<Qualifier> list = sourceMap.removeListFor(object);
@@ -128,6 +187,16 @@ public class QualifyFacet extends AbstractStorageFacet implements
 			}
 		}
 
+		/**
+		 * Returns true if the Player Character has been granted qualification
+		 * for the given CDOMObject.
+		 * 
+		 * @param qualTestObject
+		 *            The CDOMObject to check if the Player Character has been
+		 *            granted qualification for the object
+		 * @return true if the Player Character has been granted qualification
+		 *         for the given CDOMObject; false otherwise
+		 */
 		public boolean isQualified(Loadable qualTestObject)
 		{
 			Class<? extends Loadable> cl = qualTestObject.getClass();
@@ -168,6 +237,21 @@ public class QualifyFacet extends AbstractStorageFacet implements
 		}
 	}
 
+	/**
+	 * Returns true if the Player Character identified by the given CharID has
+	 * been granted qualification for the given CDOMObject.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character for which the
+	 *            given CDOMObject will be checked to see if the Player
+	 *            Character qualifies.
+	 * @param qualTestObject
+	 *            The CDOMObject to check if the Player Character has been
+	 *            granted qualification for the object
+	 * @return true if the Player Character identified by the given CharID has
+	 *         been granted qualification for the given CDOMObject; false
+	 *         otherwise
+	 */
 	public boolean grantsQualify(CharID id, CDOMObject qualTestObject)
 	{
 		CacheInfo ci = getCacheInfo(id);
@@ -178,12 +262,41 @@ public class QualifyFacet extends AbstractStorageFacet implements
 	{
 		this.consolidationFacet = consolidationFacet;
 	}
-	
+
+	/**
+	 * Initializes the connections for QualifyFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the QualifyFacet.
+	 */
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);
 	}
 
+	/**
+	 * Copies the contents of the QualifyFacet from one Player Character to
+	 * another Player Character, based on the given CharIDs representing those
+	 * Player Characters.
+	 * 
+	 * This is a method in QualifyFacet in order to avoid exposing the mutable
+	 * Map object to other classes. This should not be inlined, as the Map is
+	 * internal information to QualifyFacet and should not be exposed to other
+	 * classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the QualifyFacet of one Player
+	 * Character will only impact the Player Character where the QualifyFacet
+	 * was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param destination
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
 	@Override
 	public void copyContents(CharID source, CharID copy)
 	{

@@ -19,6 +19,16 @@ package pcgen.cdom.facet;
 
 import pcgen.core.Equipment;
 
+/**
+ * PrimaryWeaponFacet contains the list of weapons that are Primary Weapons for
+ * a Player Character.
+ * 
+ * Theoretically, this list of Primary weapons is only a single weapon, while
+ * this list may contain multiple entries to handle both melee and ranged
+ * instances of that Equipment.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
+ */
 public class PrimaryWeaponFacet extends AbstractListFacet<Equipment>
 {
 

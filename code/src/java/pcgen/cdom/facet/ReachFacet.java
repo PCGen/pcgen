@@ -24,6 +24,8 @@ import pcgen.core.Race;
 
 /**
  * ReachFacet is a Facet that calculates the Reach for a Player Character.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ReachFacet
 {
@@ -32,7 +34,7 @@ public class ReachFacet
 	private BonusCheckingFacet bonusCheckingFacet;
 
 	/**
-	 * Returns the Reach for a Player Character represented by the given CharID
+	 * Returns the Reach for a Player Character represented by the given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the

@@ -31,6 +31,8 @@ import pcgen.core.Race;
 /**
  * RacialSubTypesFacet is a Facet that tracks the Racial Sub Types of a
  * PlayerCharacter
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class RacialSubTypesFacet
 {
@@ -38,14 +40,22 @@ public class RacialSubTypesFacet
 	private RaceFacet raceFacet;
 
 	/**
-	 * Returns a Collection of the Racial Sub Types for the Player Character
-	 * represented by the given CharID
+	 * Returns a non-null Collection of the Racial Sub Types for the Player
+	 * Character represented by the given CharID.
+	 * 
+	 * This method is value-semantic in that ownership of the returned
+	 * Collection is transferred to the class calling this method. Modification
+	 * of the returned Collection will not modify this RacialSubTypesFacet and
+	 * modification of this RacialSubTypesFacet will not modify the returned
+	 * Collection. Modifications to the returned Collection will also not modify
+	 * any future or previous objects returned by this (or other) methods on
+	 * RacialSubTypesFacet.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            Racial Sub Types should be returned
-	 * @return A Collection of the Racial Sub Types for the Player Character
-	 *         represented by the given CharID
+	 * @return A non-null Collection of the Racial Sub Types for the Player
+	 *         Character represented by the given CharID
 	 */
 	public Collection<RaceSubType> getRacialSubTypes(CharID id)
 	{

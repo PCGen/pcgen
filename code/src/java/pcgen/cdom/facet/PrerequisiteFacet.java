@@ -24,7 +24,7 @@ import pcgen.core.PlayerCharacter;
 
 /**
  * This is a transition class, designed to allow things to be taken out of
- * PlayerCharacter while a transition is made to a sytem where variables are
+ * PlayerCharacter while a transition is made to a system where variables are
  * captured when items are entered into the PlayerCharacter and is different
  * than today's (5.x) core.
  */
@@ -33,6 +33,24 @@ public class PrerequisiteFacet
 	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 			.getFacet(PlayerCharacterTrackingFacet.class);
 
+	/**
+	 * Returns true if the Player Character identified by the given CharID
+	 * qualifies for the given QualifyingObject when the QualifyingObject is
+	 * from the given source.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character on which the
+	 *            prerequisite test will be performed
+	 * @param obj
+	 *            The QualifyingObject which contains the prerequisite(s) to be
+	 *            tested
+	 * @param source
+	 *            The source of the QualifyingObject, which is used to given
+	 *            context to the prerequisites being tested
+	 * @return true if the Player Character identified by the given CharID
+	 *         qualifies for the given QualifyingObject when the
+	 *         QualifyingObject is from the given source; false otherwise
+	 */
 	public boolean qualifies(CharID id, QualifyingObject obj, Object source)
 	{
 		PlayerCharacter pc = trackingFacet.getPC(id);
