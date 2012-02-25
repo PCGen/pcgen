@@ -71,11 +71,11 @@ public class StatTableModel extends AbstractTableModel implements ListListener, 
 	private static final Font tableFont = new Font("Verdana", Font.BOLD, 14);
 	private static final Font headerFont = new Font("Verdana", Font.BOLD, 12);
 	private static final int ABILITY_NAME = 0;
-	private static final int EDITABLE_SCORE = 1;
-	private static final int RACE_ADJ = 2;
-	private static final int MISC_ADJ = 3;
-	private static final int FINAL_ABILITY_SCORE = 4;
-	private static final int ABILITY_MOD = 5;
+	private static final int EDITABLE_SCORE = 3;
+	private static final int RACE_ADJ = 4;
+	private static final int MISC_ADJ = 5;
+	private static final int FINAL_ABILITY_SCORE = 1;
+	private static final int ABILITY_MOD = 2;
 	private CharacterFacade character;
 	private ListFacade<StatFacade> stats;
 	private StatRenderer renderer = new StatRenderer();
@@ -138,9 +138,21 @@ public class StatTableModel extends AbstractTableModel implements ListListener, 
 			String htmlText = "     Ability     ";
 			columnModel.addColumn(Utilities.createTableColumn(ABILITY_NAME, htmlText, new FixedHeaderCellRenderer(htmlText), false));
 
-			htmlText = "<html><p align=\"center\"><b>Editable<br>Score</b></p></html>";
+			htmlText = "<html><p align=\"center\"><b>Final<br>Score</b></p></html>";
+			TableColumn column = Utilities.createTableColumn(FINAL_ABILITY_SCORE, htmlText, new FixedHeaderCellRenderer(htmlText), false);
 			TableCellRenderer renderer = new ModRenderer();
-			TableColumn column = Utilities.createTableColumn(EDITABLE_SCORE, htmlText, new FixedHeaderCellRenderer(htmlText), false);
+			column.setCellRenderer(new ValueRenderer());
+			columnModel.addColumn(column);
+
+			htmlText = "<html><p align=\"center\"><b>Ability<br>Mod</b></p></html>";
+			column =
+					Utilities.createTableColumn(ABILITY_MOD, htmlText,
+						new FixedHeaderCellRenderer(htmlText), false);
+			column.setCellRenderer(renderer);
+			columnModel.addColumn(column);
+
+			htmlText = "<html><p align=\"center\"><b>Editable<br>Score</b></p></html>";
+			column = Utilities.createTableColumn(EDITABLE_SCORE, htmlText, new FixedHeaderCellRenderer(htmlText), false);
 			column.setIdentifier("EDITABLE");
 			columnModel.addColumn(column);
 
@@ -151,18 +163,6 @@ public class StatTableModel extends AbstractTableModel implements ListListener, 
 
 			htmlText = "<html><p align=\"center\"><b>Misc<br>Adj</b></p></html>";
 			column = Utilities.createTableColumn(MISC_ADJ, htmlText, new FixedHeaderCellRenderer(htmlText), false);
-			column.setCellRenderer(renderer);
-			columnModel.addColumn(column);
-
-			htmlText = "<html><p align=\"center\"><b>Final<br>Score</b></p></html>";
-			column = Utilities.createTableColumn(FINAL_ABILITY_SCORE, htmlText, new FixedHeaderCellRenderer(htmlText), false);
-			column.setCellRenderer(new ValueRenderer());
-			columnModel.addColumn(column);
-
-			htmlText = "<html><p align=\"center\"><b>Ability<br>Mod</b></p></html>";
-			column =
-					Utilities.createTableColumn(ABILITY_MOD, htmlText,
-						new FixedHeaderCellRenderer(htmlText), false);
 			column.setCellRenderer(renderer);
 			columnModel.addColumn(column);
 		}
@@ -216,7 +216,7 @@ public class StatTableModel extends AbstractTableModel implements ListListener, 
 
 		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
 		{
-			if (column > 3)
+			if (column < 3)
 			{
 				setFont(table.getFont().deriveFont(Font.BOLD));
 			}
@@ -227,7 +227,7 @@ public class StatTableModel extends AbstractTableModel implements ListListener, 
 			setBackground(table.getBackground());
 			setForeground(table.getForeground());
 			Integer mod = (Integer) value;
-			if (mod.intValue() == 0 && column <= 3)
+			if (mod.intValue() == 0 && column > 3)
 			{
 				setText("-");
 			}
