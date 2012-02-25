@@ -103,17 +103,17 @@ public class SourceSelectionDialog extends JDialog
 	{
 		super(frame, true);
 		this.frame = frame;
-		setTitle(LanguageBundle.getString("in_mnuSourcesLoadSelect"));
+		setTitle(LanguageBundle.getString("in_mnuSourcesLoadSelect")); //$NON-NLS-1$
 		this.tabs = new JTabbedPane();
 		this.basicPanel = new QuickSourceSelectionPanel();
 		this.advancedPanel = new AdvancedSourceSelectionPanel();
 		this.buttonPanel = new JPanel();
-		this.loadButton = new JButton(LanguageBundle.getString("in_load"));
-		this.cancelButton = new JButton(LanguageBundle.getString("in_cancel"));
-		this.hideunhideButton = new JButton(LanguageBundle.getString("in_hideunhide"));
-		this.deleteButton = new JButton(LanguageBundle.getString("in_delete"));
-		this.installDataButton = new JButton(LanguageBundle.getString("in_mnuToolsInstallData"));
-		this.saveButton = new JButton(LanguageBundle.getString("in_saveSelection"));
+		this.loadButton = new JButton(LanguageBundle.getString("in_load")); //$NON-NLS-1$
+		this.cancelButton = new JButton(LanguageBundle.getString("in_cancel")); //$NON-NLS-1$
+		this.hideunhideButton = new JButton(LanguageBundle.getString("in_hideunhide")); //$NON-NLS-1$
+		this.deleteButton = new JButton(LanguageBundle.getString("in_delete")); //$NON-NLS-1$
+		this.installDataButton = new JButton(LanguageBundle.getString("in_mnuSourcesInstallData")); //$NON-NLS-1$
+		this.saveButton = new JButton(LanguageBundle.getString("in_saveSelection")); //$NON-NLS-1$
 		setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
 		initComponents();
 		initDefaults();

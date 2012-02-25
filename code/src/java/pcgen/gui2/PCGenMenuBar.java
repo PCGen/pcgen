@@ -42,6 +42,7 @@ import pcgen.gui2.util.AbstractListMenu;
 import pcgen.gui2.util.AbstractRadioListMenu;
 import pcgen.system.CharacterManager;
 import pcgen.system.FacadeFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.Comparators;
 
 /**
@@ -68,45 +69,11 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 	
 	private void initComponents()
 	{
-		add(createFileMenu());
+		add(new FileMenu());
 		add(createEditMenu());
 		add(createSourcesMenu());
 		add(createToolsMenu());
 		add(createHelpMenu());
-	}
-	
-	private JMenu createFileMenu()
-	{
-		JMenu fileMenu = new JMenu(actionMap.get(PCGenActionMap.FILE_COMMAND));
-		fileMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.NEW_COMMAND)));
-		fileMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.OPEN_COMMAND)));
-		fileMenu.add(new OpenRecentMenu());
-		fileMenu.addSeparator();
-		
-		fileMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.CLOSE_COMMAND)));
-		fileMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.CLOSEALL_COMMAND)));
-		fileMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.SAVE_COMMAND)));
-		fileMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.SAVEAS_COMMAND)));
-		fileMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.SAVEALL_COMMAND)));
-		fileMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.REVERT_COMMAND)));
-		fileMenu.addSeparator();
-		
-		JMenu partyMenu = new JMenu(actionMap.get(PCGenActionMap.PARTY_COMMAND));
-		partyMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.OPEN_PARTY_COMMAND)));
-		partyMenu.add(new OpenRecentPartyMenu());
-		partyMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.CLOSE_PARTY_COMMAND)));
-		partyMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.SAVE_PARTY_COMMAND)));
-		partyMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.SAVEAS_PARTY_COMMAND)));
-		fileMenu.add(partyMenu);
-		fileMenu.addSeparator();
-		
-		fileMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.PRINT_COMMAND)));
-		fileMenu.addSeparator();
-		
-		fileMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.EXPORT_COMMAND)));
-		fileMenu.addSeparator();
-		fileMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.EXIT_COMMAND)));
-		return fileMenu;
 	}
 	
 	private JMenu createEditMenu()
@@ -125,8 +92,11 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 	private JMenu createSourcesMenu()
 	{
 		JMenu menu = new JMenu(actionMap.get(PCGenActionMap.SOURCES_COMMAND));
+		menu.add(new JMenuItem(actionMap.get(PCGenActionMap.SOURCES_LOAD_SELECT_COMMAND)));
+		menu.addSeparator();
 		menu.add(new QuickSourceMenu());
 		menu.addSeparator();
+		menu.add(actionMap.get(PCGenActionMap.INSTALL_DATA_COMMAND));
 		
 		return menu;
 	}
@@ -164,8 +134,6 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 		menu.add(actionMap.get(PCGenActionMap.GMGEN_COMMAND));
 		menu.addSeparator();
 		menu.add(actionMap.get(PCGenActionMap.CONSOLE_COMMAND));
-		menu.addSeparator();
-		menu.add(actionMap.get(PCGenActionMap.INSTALL_DATA_COMMAND));
 		//menu.add(new ComboListMenu<File>(actionMap.get(PCGenActionMap.CSHEET_COMMAND),
 		//		frame.getCharacterSheets()));
 		return menu;
@@ -192,23 +160,48 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 		tempMenu.setListModel(character.getAvailableTempBonuses());
 	}
 	
-	private class OpenRecentMenu extends AbstractListMenu<File>
+	private class FileMenu extends AbstractListMenu<File>
 			implements ActionListener
 	{
 		
-		public OpenRecentMenu()
+		public FileMenu()
 		{
-			super(actionMap.get(PCGenActionMap.OPEN_RECENT_COMMAND),
-				  CharacterManager.getRecentCharacters());
+			super(actionMap.get(PCGenActionMap.FILE_COMMAND));
+			add(new JMenuItem(actionMap.get(PCGenActionMap.NEW_COMMAND)));
+			add(new JMenuItem(actionMap.get(PCGenActionMap.OPEN_COMMAND)));
+			addSeparator();
+			add(new JMenuItem(actionMap.get(PCGenActionMap.CLOSE_COMMAND)));
+			add(new JMenuItem(actionMap.get(PCGenActionMap.CLOSEALL_COMMAND)));
+			addSeparator();
+			
+			add(new JMenuItem(actionMap.get(PCGenActionMap.SAVE_COMMAND)));
+			add(new JMenuItem(actionMap.get(PCGenActionMap.SAVEAS_COMMAND)));
+			add(new JMenuItem(actionMap.get(PCGenActionMap.SAVEALL_COMMAND)));
+			add(new JMenuItem(actionMap.get(PCGenActionMap.REVERT_COMMAND)));
+			addSeparator();
+			add(new PartyMenu());
+			addSeparator();
+			
+			add(new JMenuItem(actionMap.get(PCGenActionMap.PRINT_COMMAND)));
+			add(new JMenuItem(actionMap.get(PCGenActionMap.EXPORT_COMMAND)));
+			addSeparator();
+			setOffset(16);
+			setListModel( CharacterManager.getRecentCharacters());
+			addSeparator();
+
+			
+			add(new JMenuItem(actionMap.get(PCGenActionMap.EXIT_COMMAND)));
 		}
 		
 		@Override
-		protected JMenuItem createMenuItem(File item)
+		protected JMenuItem createMenuItem(File item, int index)
 		{
 			JMenuItem menuItem = new JMenuItem();
-			menuItem.setText(item.getName());
-			menuItem.setToolTipText(item.getAbsolutePath());
+			menuItem.setText((index+1) + " " + item.getName()); //$NON-NLS-1$
+			menuItem.setToolTipText(LanguageBundle.getFormattedString(
+				"in_OpenRecentCharTip", item.getAbsolutePath())); //$NON-NLS-1$
 			menuItem.setActionCommand(item.getAbsolutePath());
+			menuItem.setMnemonic(String.valueOf(index+1).charAt(0));
 			menuItem.addActionListener(this);
 			return menuItem;
 		}
@@ -220,23 +213,32 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 		
 	}
 	
-	private class OpenRecentPartyMenu extends AbstractListMenu<File>
+	private class PartyMenu extends AbstractListMenu<File>
 			implements ActionListener
 	{
 		
-		public OpenRecentPartyMenu()
+		public PartyMenu()
 		{
-			super(actionMap.get(PCGenActionMap.OPEN_RECENT_PARTY_COMMAND),
-				  CharacterManager.getRecentParties());
+			super(actionMap.get(PCGenActionMap.PARTY_COMMAND));
+			add(new JMenuItem(actionMap.get(PCGenActionMap.OPEN_PARTY_COMMAND)));
+			add(new JMenuItem(actionMap.get(PCGenActionMap.CLOSE_PARTY_COMMAND)));
+			addSeparator();
+			
+			add(new JMenuItem(actionMap.get(PCGenActionMap.SAVE_PARTY_COMMAND)));
+			add(new JMenuItem(actionMap.get(PCGenActionMap.SAVEAS_PARTY_COMMAND)));
+			addSeparator();
+			setOffset(6);
+			setListModel( CharacterManager.getRecentParties());
 		}
 		
 		@Override
-		protected JMenuItem createMenuItem(File item)
+		protected JMenuItem createMenuItem(File item, int index)
 		{
 			JMenuItem menuItem = new JMenuItem();
-			menuItem.setText(item.getName());
+			menuItem.setText((index+1) + " " + item.getName()); //$NON-NLS-1$
 			menuItem.setToolTipText(item.getAbsolutePath());
 			menuItem.setActionCommand(item.getAbsolutePath());
+			menuItem.setMnemonic(String.valueOf(index+1).charAt(0));
 			menuItem.addActionListener(this);
 			return menuItem;
 		}
@@ -255,8 +257,6 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 		public QuickSourceMenu()
 		{
 			super(actionMap.get(PCGenActionMap.SOURCES_LOAD_COMMAND));
-			addSeparator();
-			add(new JMenuItem(actionMap.get(PCGenActionMap.SOURCES_LOAD_SELECT_COMMAND)));
 			ReferenceFacade<SourceSelectionFacade> ref = frame.getCurrentSourceSelectionRef();
 			setSelectedItem(ref.getReference());
 			ListFacade<SourceSelectionFacade> sources = FacadeFactory.getDisplayedSourceSelections();
@@ -308,7 +308,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 		}
 		
 		@Override
-		protected JMenuItem createMenuItem(TempBonusFacade item)
+		protected JMenuItem createMenuItem(TempBonusFacade item, int index)
 		{
 			return new CheckBoxMenuItem(item, character.getTempBonuses().containsElement(item),
 										this);

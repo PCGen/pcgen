@@ -38,6 +38,7 @@ public abstract class AbstractListMenu<E> extends JMenu implements ListListener<
 
 	private ListFacade<E> listModel;
 	private int oldSize = 0;
+	private int offset = 0;
 
 	public AbstractListMenu(Action action)
 	{
@@ -52,29 +53,39 @@ public abstract class AbstractListMenu<E> extends JMenu implements ListListener<
 
 	public void elementAdded(ListEvent<E> e)
 	{
-		add(createMenuItem(e.getElement()), e.getIndex());
-		oldSize++;
-		checkEnabled();
+		rebuildListMenu();
 	}
 
 	public void elementRemoved(ListEvent<E> e)
 	{
-		remove(e.getIndex());
-		oldSize--;
-		checkEnabled();
+		rebuildListMenu();
 	}
 
 	public void elementsChanged(ListEvent<E> e)
 	{
+		rebuildListMenu();
+	}
+
+	private void rebuildListMenu()
+	{
 		for (int i = 0; i < oldSize; i++)
 		{
-			remove(0);
+			remove(offset);
 		}
 		oldSize = listModel.getSize();
 		for (int i = 0; i < oldSize; i++)
 		{
-			add(createMenuItem(listModel.getElementAt(i)), i);
+			add(createMenuItem(listModel.getElementAt(i), i), i+offset);
 		}
+		checkEnabled();
+	}
+
+	/**
+	 * @param offset the offset to set
+	 */
+	public void setOffset(int offset)
+	{
+		this.offset = offset;
 	}
 
 	public void setListModel(ListFacade<E> listModel)
@@ -85,7 +96,7 @@ public abstract class AbstractListMenu<E> extends JMenu implements ListListener<
 			oldModel.removeListListener(this);
 			for (int x = 0; x < oldSize; x++)
 			{
-				remove(0);
+				remove(offset);
 			}
 		}
 		this.listModel = listModel;
@@ -94,14 +105,21 @@ public abstract class AbstractListMenu<E> extends JMenu implements ListListener<
 			oldSize = listModel.getSize();
 			for (int x = 0; x < oldSize; x++)
 			{
-				add(createMenuItem(listModel.getElementAt(x)), x);
+				add(createMenuItem(listModel.getElementAt(x), x), x+offset);
 			}
 			listModel.addListListener(this);
 		}
 		checkEnabled();
 	}
 
-	protected abstract JMenuItem createMenuItem(E item);
+	/**
+	 * Create a new dynamic menu item. The menu can optionally have a number at the 
+	 * start of the menu item to allow quick selection.
+	 * @param item The item to create a menu for.
+	 * @param index The 0 based index of the items position in the dynamic item list.
+	 * @return A menu item.
+	 */
+	protected abstract JMenuItem createMenuItem(E item, int index);
 
 	protected void checkEnabled()
 	{

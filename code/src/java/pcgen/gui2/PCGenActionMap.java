@@ -97,6 +97,7 @@ public final class PCGenActionMap extends ActionMap
 	public static final String SOURCES_COMMAND = "sources";
 	public static final String SOURCES_LOAD_COMMAND = SOURCES_COMMAND + ".load";
 	public static final String SOURCES_LOAD_SELECT_COMMAND = SOURCES_COMMAND + ".select";
+	public static final String INSTALL_DATA_COMMAND = SOURCES_COMMAND + ".installData";
 	//the tools menu commands
 	public static final String TOOLS_COMMAND = "tools";
 	public static final String FILTERS_COMMAND = TOOLS_COMMAND + ".filters";
@@ -121,7 +122,6 @@ public final class PCGenActionMap extends ActionMap
 	public static final String PREFERENCES_COMMAND = TOOLS_COMMAND + ".preferences";
 	public static final String GMGEN_COMMAND = TOOLS_COMMAND + ".gmgen";
 	public static final String CONSOLE_COMMAND = TOOLS_COMMAND + ".console";
-	public static final String INSTALL_DATA_COMMAND = TOOLS_COMMAND + ".installData";
 	//the help menu commands
 	public static final String HELP_COMMAND = "help";
 	public static final String HELP_CONTEXT_COMMAND = HELP_COMMAND + ".context";
@@ -261,12 +261,12 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class UndoAction extends CharacterAction
+	private class UndoAction extends PCGenAction//extends CharacterAction
 	{
 
 		public UndoAction()
 		{
-			super("mnuEditUndo");
+			super("mnuEditUndo", UNDO_COMMAND,  "shortcut Z");
 			setEnabled(false);
 		}
 
@@ -278,12 +278,12 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class RedoAction extends CharacterAction
+	private class RedoAction extends PCGenAction//extends CharacterAction
 	{
 
 		public RedoAction()
 		{
-			super("mnuEditRedo");
+			super("mnuEditRedo", REDO_COMMAND,  "shortcut Y");
 			setEnabled(false);
 		}
 
@@ -295,7 +295,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class GenerateAction extends CharacterAction
+	private class GenerateAction extends PCGenAction //extends CharacterAction
 	{
 
 		public GenerateAction()
@@ -395,7 +395,7 @@ public final class PCGenActionMap extends ActionMap
 
 		public InstallDataAction()
 		{
-			super("mnuToolsInstallData");
+			super("mnuSourcesInstallData");
 		}
 
 		@Override
@@ -713,7 +713,8 @@ public final class PCGenActionMap extends ActionMap
 
 		public ExportAction()
 		{
-			super("mnuFileExport", Icons.Export16);
+			super("mnuFileExport", EXPORT_COMMAND, "shift-shortcut P",
+				Icons.Export16);
 		}
 
 		@Override

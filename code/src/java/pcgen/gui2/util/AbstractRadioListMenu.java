@@ -46,7 +46,7 @@ public abstract class AbstractRadioListMenu<E> extends AbstractListMenu<E> imple
 	}
 
 	@Override
-	protected JMenuItem createMenuItem(E item)
+	protected JMenuItem createMenuItem(E item, int index)
 	{
 		RadioMenuItem menuItem = new RadioMenuItem(item, item == selectedItem, this);
 		group.add(menuItem);

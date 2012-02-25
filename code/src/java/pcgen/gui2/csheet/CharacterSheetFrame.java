@@ -169,7 +169,7 @@ public class CharacterSheetFrame extends JFrame
 		}
 
 		@Override
-		protected JMenuItem createMenuItem(TempBonusFacade item)
+		protected JMenuItem createMenuItem(TempBonusFacade item, int index)
 		{
 			return new CheckBoxMenuItem(item, character.getTempBonuses().containsElement(item),
 										this);

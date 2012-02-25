@@ -356,7 +356,7 @@ public class CharacterManager
 final class RecentFileList extends AbstractListFacade<File>
 {
 
-	private static final int MAX_RECENT_FILES = 5;
+	private static final int MAX_RECENT_FILES = 8;
 	private final LinkedList<File> fileList = new LinkedList<File>();
 	private final String contextProp;
 
