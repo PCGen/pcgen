@@ -42,6 +42,7 @@ import pcgen.gui2.util.treetable.SortableTreeTableNode;
 import pcgen.gui2.util.treetable.TreeTableNode;
 import pcgen.util.CollectionMaps;
 import pcgen.util.ListMap;
+import pcgen.util.Logging;
 
 /**
  *
@@ -325,7 +326,14 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 					else
 					{
 						int index = Collections.binarySearch(children, child, mostRecentComparator);
-						insert(child, -(index + 1));
+						if (index < 0)
+						{
+							insert(child, -(index + 1));
+						}
+						else
+						{
+							insert(child, index);
+						}
 					}
 				}
 				childValue = null;

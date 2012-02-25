@@ -102,7 +102,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		FlippingSplitPane topPane = new FlippingSplitPane();
 		setTopComponent(topPane);
 		setOrientation(VERTICAL_SPLIT);
-		
+
 		JPanel availPanel = new JPanel(new BorderLayout());
 		FilterBar bar = new FilterBar();
 		bar.addDisplayableFilter(new SearchFilterPanel());
@@ -119,7 +119,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		box.add(selectRaceButton);
 		box.add(Box.createHorizontalStrut(5));
-		box.setBorder(new EmptyBorder(0,  0, 5, 0));
+		box.setBorder(new EmptyBorder(0, 0, 5, 0));
 		availPanel.add(box, BorderLayout.SOUTH);
 
 		topPane.setLeftComponent(availPanel);
@@ -133,13 +133,13 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		selectedTable.sortModel();
 		JScrollPane scrollPane = new JScrollPane(selectedTable);
 		selPanel.add(scrollPane, BorderLayout.CENTER);
-		scrollPane.setPreferredSize(new Dimension(0,0));
+		scrollPane.setPreferredSize(new Dimension(0, 0));
 
 		box = Box.createHorizontalBox();
 		box.add(Box.createHorizontalStrut(5));
 		box.add(removeButton);
 		box.add(Box.createHorizontalGlue());
-		box.setBorder(new EmptyBorder(0,  0, 5, 0));
+		box.setBorder(new EmptyBorder(0, 0, 5, 0));
 		selPanel.add(box, BorderLayout.SOUTH);
 
 		topPane.setRightComponent(selPanel);
@@ -151,6 +151,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	private enum Models
 	{
+
 		AvailableModel,
 		SelectedModel
 	}
@@ -292,20 +293,18 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		public void actionPerformed(ActionEvent e)
 		{
-			List<RaceFacade> list = raceTable.getSelectedData();
-			if (list != null && !list.isEmpty())
+			Object obj = raceTable.getSelectedObject();
+			if(obj instanceof RaceFacade)
 			{
-				RaceFacade race = list.get(0);
-				character.setRace(race);
-				putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
+				character.setRace((RaceFacade) obj);
 			}
 		}
-		
+
 		public void install()
 		{
 			raceTable.addActionListener(this);
 		}
-		
+
 		public void uninstall()
 		{
 			raceTable.removeActionListener(this);
@@ -329,12 +328,12 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		{
 			character.setRace(null);
 		}
-		
+
 		public void install()
 		{
 			selectedTable.addActionListener(this);
 		}
-		
+
 		public void uninstall()
 		{
 			selectedTable.removeActionListener(this);
@@ -359,24 +358,24 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			this.isAvailModel = isAvailModel;
 			if (isAvailModel)
 			{
-				columns = 
-					Arrays.asList(new DefaultDataViewColumn("in_irTableStat", String.class, true),
-						  new DefaultDataViewColumn("in_preReqs", String.class),
-						  new DefaultDataViewColumn("in_size", String.class, true),
-						  new DefaultDataViewColumn("in_movement", String.class, true),
-						  new DefaultDataViewColumn("in_vision", String.class),
-						  new DefaultDataViewColumn("in_favoredClass", String.class, true),
-						  new DefaultDataViewColumn("in_lvlAdj", String.class, true));
+				columns =
+						Arrays.asList(new DefaultDataViewColumn("in_irTableStat", String.class, true),
+									  new DefaultDataViewColumn("in_preReqs", String.class),
+									  new DefaultDataViewColumn("in_size", String.class, true),
+									  new DefaultDataViewColumn("in_movement", String.class, true),
+									  new DefaultDataViewColumn("in_vision", String.class),
+									  new DefaultDataViewColumn("in_favoredClass", String.class, true),
+									  new DefaultDataViewColumn("in_lvlAdj", String.class, true));
 			}
 			else
 			{
 				columns = Arrays.asList(new DefaultDataViewColumn("in_irTableStat", String.class, false),
-					  new DefaultDataViewColumn("in_preReqs", String.class, false),
-					  new DefaultDataViewColumn("in_size", String.class, false),
-					  new DefaultDataViewColumn("in_movement", String.class, false),
-					  new DefaultDataViewColumn("in_vision", String.class, false),
-					  new DefaultDataViewColumn("in_favoredClass", String.class, false),
-					  new DefaultDataViewColumn("in_lvlAdj", String.class, false));
+										new DefaultDataViewColumn("in_preReqs", String.class, false),
+										new DefaultDataViewColumn("in_size", String.class, false),
+										new DefaultDataViewColumn("in_movement", String.class, false),
+										new DefaultDataViewColumn("in_vision", String.class, false),
+										new DefaultDataViewColumn("in_favoredClass", String.class, false),
+										new DefaultDataViewColumn("in_lvlAdj", String.class, false));
 			}
 		}
 
@@ -423,10 +422,6 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			return columns;
 		}
 
-		public boolean accept(CharacterFacade context, TemplateFacade element)
-		{
-			return !context.getTemplates().containsElement(element);
-		}
 	}
 
 	private enum RaceTreeView implements TreeView<RaceFacade>

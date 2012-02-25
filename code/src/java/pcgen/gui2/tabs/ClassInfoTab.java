@@ -127,7 +127,6 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		availableTable.setSortingPriority(Collections.singletonList(new SortingPriority(0, SortMode.ASCENDING)));
 		availableTable.sortModel();
 		availPanel.add(new JScrollPane(availableTable), BorderLayout.CENTER);
-
 		{
 			Box box = Box.createHorizontalBox();
 			box.add(Box.createHorizontalGlue());
@@ -137,7 +136,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			addButton.setHorizontalTextPosition(SwingConstants.LEADING);
 			box.add(addButton);
 			box.add(Box.createHorizontalStrut(5));
-			box.setBorder(new EmptyBorder(0,  0, 5, 0));
+			box.setBorder(new EmptyBorder(0, 0, 5, 0));
 			availPanel.add(box, BorderLayout.SOUTH);
 		}
 
@@ -147,16 +146,14 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		JScrollPane tablePane = new JScrollPane(classTable);
 		selPanel.add(tablePane, BorderLayout.CENTER);
-
 		{
 			Box box = Box.createHorizontalBox();
 			box.add(Box.createHorizontalStrut(5));
 			box.add(removeButton);
 			box.add(Box.createHorizontalGlue());
-			box.setBorder(new EmptyBorder(0,  0, 5, 0));
+			box.setBorder(new EmptyBorder(0, 0, 5, 0));
 			selPanel.add(box, BorderLayout.SOUTH);
 		}
-
 		{
 			TransferHandler handler = new ClassTransferHandler();
 			classTable.setDragEnabled(true);
@@ -201,7 +198,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 					{
 						TableModel model = classTable.getModel();
 						setSelectedClass((ClassFacade) model.getValueAt(index,
-							1));
+																		1));
 					}
 					availableTable.getSelectionModel().clearSelection();
 				}
@@ -225,7 +222,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 						List<Object> data = availableTable.getSelectedData();
 						ClassFacade clazz = null;
 						if (!data.isEmpty()
-							&& data.get(0) instanceof ClassFacade)
+								&& data.get(0) instanceof ClassFacade)
 						{
 							clazz = (ClassFacade) data.get(0);
 						}
@@ -317,19 +314,22 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		public void addCharacterLevels(ClassFacade clazz)
 		{
-			ClassFacade[] classes = new ClassFacade[spinnerValue];
-			for (int x = 0; x < spinnerValue; x++)
+			if (clazz != null)
 			{
-				classes[x] = clazz;
+				ClassFacade[] classes = new ClassFacade[spinnerValue];
+				for (int x = 0; x < spinnerValue; x++)
+				{
+					classes[x] = clazz;
+				}
+				character.addCharacterLevels(classes);
 			}
-			character.addCharacterLevels(classes);
 		}
-		
+
 		public void install()
 		{
 			availableTable.addActionListener(this);
 		}
-		
+
 		public void uninstall()
 		{
 			availableTable.removeActionListener(this);
@@ -360,8 +360,8 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private final class ClassTransferHandler extends TransferHandler
 	{
 
-		private final DataFlavor classFlavor = new DataFlavor(DataFlavor.javaJVMLocalObjectMimeType +
-				";class=" + ClassFacade.class.getName(), null);
+		private final DataFlavor classFlavor = new DataFlavor(DataFlavor.javaJVMLocalObjectMimeType
+				+ ";class=" + ClassFacade.class.getName(), null);
 
 		@Override
 		public int getSourceActions(JComponent c)
@@ -498,8 +498,8 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		public List<?> getData(ClassFacade obj)
 		{
 			return Arrays.asList(obj.getHD(), getTypes(obj),
-				"None".equals(obj.getBaseStat()) ? "" : obj.getBaseStat(),
-				obj.getSpellType(), obj.getSource());
+								 "None".equals(obj.getBaseStat()) ? "" : obj.getBaseStat(),
+								 obj.getSpellType(), obj.getSource());
 		}
 
 		private String getTypes(ClassFacade obj)
