@@ -24,6 +24,7 @@ import java.awt.Component;
 import java.awt.Font;
 
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableColumnModel;
@@ -41,6 +42,7 @@ import pcgen.core.facade.CharacterLevelsFacade.SkillPointListener;
 import pcgen.core.facade.event.ListEvent;
 import pcgen.core.facade.event.ListListener;
 import pcgen.gui2.tabs.Utilities;
+import pcgen.gui2.util.table.TableCellUtilities;
 
 /**
  *
@@ -72,6 +74,8 @@ public class SkillPointTableModel extends AbstractTableModel
 		remainCol.setCellRenderer(new BoldNumberRenderer());
 		columns.addColumn(remainCol);
 		columns.addColumn(Utilities.createTableColumn(3, "in_gained", headerRenderer, false));
+		table.setDefaultRenderer(Integer.class,
+			new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
 		table.setColumnModel(columns);
 		table.setFocusable(false);
 		header.setReorderingAllowed(false);
@@ -185,7 +189,7 @@ public class SkillPointTableModel extends AbstractTableModel
 		 */
 		public BoldNumberRenderer()
 		{
-			setHorizontalAlignment(RIGHT);
+			setHorizontalAlignment(CENTER);
 		}
 
 		/* (non-Javadoc)

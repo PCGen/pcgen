@@ -21,6 +21,7 @@
 package pcgen.gui2.tabs;
 
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.MouseEvent;
@@ -37,6 +38,7 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
+import javax.swing.SwingConstants;
 import javax.swing.JSpinner.DefaultEditor;
 import javax.swing.JSplitPane;
 import javax.swing.JTable;
@@ -71,6 +73,7 @@ import pcgen.gui2.tabs.skill.SkillPointTableModel;
 import pcgen.gui2.tabs.skill.SkillTreeViewModel;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.InfoPane;
+import pcgen.gui2.util.table.TableCellUtilities;
 import pcgen.gui2.util.table.TableCellUtilities.SpinnerEditor;
 import pcgen.gui2.util.table.TableCellUtilities.SpinnerRenderer;
 import pcgen.system.LanguageBundle;
@@ -88,7 +91,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	private final InfoPane infoPane;
 	private final TabTitle tabTitle;
 	private final FilterButton cFilterButton;
-	private final FilterButton gainedFilterButton;
+	private final FilterButton trainedFilterButton;
 	private final JEditorPane htmlPane;
 
 	public SkillInfoTab()
@@ -98,7 +101,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		this.skillpointTable = new JTable();
 		this.infoPane = new InfoPane();
 		this.cFilterButton = new FilterButton();
-		this.gainedFilterButton = new FilterButton();
+		this.trainedFilterButton = new FilterButton();
 		this.tabTitle = new TabTitle("in_skills");
 		this.htmlPane = new JEditorPane();
 		initComponents();
@@ -112,6 +115,10 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		JSpinner spinner = new JSpinner();
 		spinner.setEditor(new JSpinner.NumberEditor(spinner, "#0.#"));
 		skillTable.setDefaultRenderer(Float.class, new SpinnerRenderer(spinner));
+		skillTable.setDefaultRenderer(Integer.class,
+			new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
+		skillTable.setDefaultRenderer(String.class,
+			new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
 		skillTable.setRowHeight(26);
 		FilterBar filterBar = new FilterBar();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
@@ -120,10 +127,11 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		cFilterButton.setEnabled(false);
 		filterBar.addDisplayableFilter(cFilterButton);
 
-		gainedFilterButton.setText(LanguageBundle.getString("in_gained"));
-		gainedFilterButton.setEnabled(false);
-		filterBar.addDisplayableFilter(gainedFilterButton);
+		trainedFilterButton.setText(LanguageBundle.getString("in_trained"));
+		trainedFilterButton.setEnabled(false);
+		filterBar.addDisplayableFilter(trainedFilterButton);
 		JPanel availPanel = FilterUtilities.configureFilteredTreeViewPane(skillTable, filterBar);
+		availPanel.setPreferredSize(new Dimension(650, 300));
 		JScrollPane tableScrollPane;
 		JPanel tablePanel = new JPanel(new GridBagLayout());
 		GridBagConstraints constraints = new GridBagConstraints();
@@ -144,6 +152,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		htmlPane.setFocusable(false);
 		htmlPane.setContentType("text/html");
 		JScrollPane selScrollPane = new JScrollPane(htmlPane);
+		selScrollPane.setPreferredSize(new Dimension(530, 300));
 		
 		FlippingSplitPane topPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT,
 			  true,
@@ -153,7 +162,9 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 		FlippingSplitPane bottomPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 		bottomPane.setLeftComponent(tablePanel);
+		tablePanel.setPreferredSize(new Dimension(650, 100));
 		bottomPane.setRightComponent(infoPane);
+		infoPane.setPreferredSize(new Dimension(530, 100));
 		setBottomComponent(bottomPane);
 		
 	}
@@ -388,8 +399,8 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			skillTable.setContext(null);
 			cFilterButton.setFilter(cFilter);
 			cFilterButton.setEnabled(model.getMinSelectionIndex() != -1);
-			gainedFilterButton.setFilter(gainedFilter);
-			gainedFilterButton.setEnabled(true);
+			trainedFilterButton.setFilter(gainedFilter);
+			trainedFilterButton.setEnabled(true);
 			skillTable.setContext(character);
 		}
 
@@ -403,7 +414,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			if (installed && !e.getValueIsAdjusting())
 			{
 				cFilterButton.setEnabled(model.getMinSelectionIndex() != -1);
-				gainedFilterButton.setEnabled(model.getMinSelectionIndex() != -1);
+				trainedFilterButton.setEnabled(model.getMinSelectionIndex() != -1);
 			}
 		}
 
