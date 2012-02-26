@@ -86,18 +86,20 @@
 
 <hr>
 
-		<p class="new">*** New 5.15.2</p>
-		<p class="indent0"><strong><a name="ASPECT">Tag Name:</a></strong> ASPECT:x|y|z|z</p>
+		<p class="new"><strong><a name="ASPECT">*** New 5.15.2</a></p>
+		<p class="indent0">Tag Name:</strong> ASPECT:x|y|z|z</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of Aspect)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Value of Aspect)</p>
-		<p class="indent1"><strong>Variables Used (z):</strong> Number or Formula (Optional. Used for substitutions in y)</p>
+		<p class="indent1"><strong>Variables Used (z):</strong> Number or Formula (Substitution value. Optional.)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>Identifies an &quot;aspect&quot; (see examples below) that an ability has and sets its value.</li> 
-			<li>This tag can be used multiple times within an ability but each time it must identify a new aspect.</li>
-			<li>The text in the y variable can use %z for replacing numerical values set by the z variable, %1 
-				is replaced by the first z, %2 is replaced by the second z, etc..</li>
-			<li>The y text can also use other special variables, also usable in the <code>DESC</code> tag:
+			<li>PRExxx tags can be used with the <code>ASPECT</code> tag.</li>
+			<li>This tag can be used multiple times within an ability but each time it must identify a new aspect unless the 
+				<code>ASPECT</code> tag includes a PRExxx tag appended to the end.</li>
+			<li>The text in the (y) parameter can use %# for substituting numerical values set by the (z) parameter, %1 
+				is replaced by the first (z), %2 is replaced by the second (z), etc..</li>
+			<li>The (y) parameter can also use other special variables as is done in the <code>DESC</code> tag:
 				<ul>
 					<li><code>%CHOICE</code> - Will replace the first associated choice in the object.</li>
 					<li><code>%LIST</code> - Will substitute all choices comma separated into that parameter.</li>
