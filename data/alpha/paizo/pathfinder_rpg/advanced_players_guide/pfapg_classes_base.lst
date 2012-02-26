@@ -327,8 +327,8 @@ CLASS:Antipaladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEV
 
 # Ex-Antipaladin
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page		Visible	Define									Save checks bonus											Combat bonus
-CLASS:Ex-Antipaladin	HD:10		TYPE:Base.PC	ABB:Apl		MAXLEVEL:20	EXCLASS:Ex-Antipaladin	SOURCEPAGE:p.118	VISIBLE:NO	DEFINE:AntipaladinLVL|CL	DEFINE:AntiPaladinLvl|CL	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Visible	Define									Save checks bonus											Combat bonus
+CLASS:Ex-Antipaladin	HD:10		TYPE:Base.PC	ABB:X-Apl		MAXLEVEL:20	SOURCEPAGE:p.118	VISIBLE:NO	DEFINE:AntipaladinLVL|CL	DEFINE:AntiPaladinLvl|CL	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ex-Antipaladin	STARTSKILLPTS:2	CSKILL:Bluff|TYPE.Craft|Disguise|Handle Animal|Intimidate|Knowledge (Religion)|TYPE.Profession|Ride|Sense Motive|Spellcraft|Stealth
 ###Block: Proficiencies
