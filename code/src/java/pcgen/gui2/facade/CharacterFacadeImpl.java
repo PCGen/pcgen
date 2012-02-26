@@ -87,6 +87,8 @@ import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.StatAnalysis;
+import pcgen.core.bonus.BonusObj;
+import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.EquipSet;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
@@ -134,6 +136,7 @@ import pcgen.core.facade.util.ListFacade;
 import pcgen.core.facade.util.ListFacades;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.gui.EQFrame;
 import pcgen.io.ExportHandler;
@@ -167,6 +170,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 
 	private List<ClassFacade> pcClasses;
 	private DefaultListFacade<TempBonusFacade> appliedTempBonuses;
+	private DefaultListFacade<TempBonusFacade> availTempBonuses;
 	private DefaultReferenceFacade<AlignmentFacade> alignment;
 	private DefaultListFacade<EquipmentSetFacade> equipmentSets;
 	private DefaultReferenceFacade<GenderFacade> gender;
@@ -286,6 +290,8 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		
 		//TODO: Init appliedTempBonuses
 		appliedTempBonuses = new DefaultListFacade<TempBonusFacade>();
+		availTempBonuses = new DefaultListFacade<TempBonusFacade>();
+		buildAvailableTempBonuses();
 		
 		statScoreMap = new HashMap<StatFacade, DefaultReferenceFacade<Integer>>();
 
@@ -890,13 +896,142 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		return 0;
 	}
 
+	private void buildAvailableTempBonuses()
+	{
+		List<CDOMObject> tempBonuses = new ArrayList<CDOMObject>();
+		
+		//
+		// first do PC's feats and other abilities
+		for (Ability aFeat : theCharacter.getFullAbilitySet())
+		{
+			scanForTempBonuses(tempBonuses, aFeat);
+		}
+
+		//
+		// next do all Feats to get PREAPPLY:ANYtheCharacter
+		for (Ability aFeat : Globals.getContext().ref.getManufacturer(
+				Ability.class, AbilityCategory.FEAT).getAllObjects())
+		{
+			scanForAnyPcTempBonuses(tempBonuses, aFeat);
+		}
+
+		//
+		// Do all the PC's spells
+		for (Spell aSpell : theCharacter.aggregateSpellList("", "", "", 0, 9))
+		{
+			scanForTempBonuses(tempBonuses, aSpell);
+		}
+		
+		// Do all the pc's innate spells.
+		Collection<CharacterSpell> innateSpells= theCharacter.getCharacterSpells(theCharacter.getRace(), Globals.INNATE_SPELL_BOOK_NAME);
+		for (CharacterSpell aCharacterSpell : innateSpells) {
+			if (aCharacterSpell == null)
+			{
+				continue;
+			}
+			scanForTempBonuses(tempBonuses, aCharacterSpell.getSpell());
+		}
+		
+		//
+		// Next do all spells to get PREAPPLY:ANYPC
+		for (Iterator<?> fI = Globals.getSpellMap().values().iterator(); fI
+			.hasNext();)
+		{
+			final Object obj = fI.next();
+			if (obj instanceof Spell)
+			{
+				Spell aSpell = (Spell) obj;
+				scanForAnyPcTempBonuses(tempBonuses, aSpell);
+			}
+		}
+
+		//
+		// iterate thru all PC's equipment objects
+		for (Equipment aEq : theCharacter.getEquipmentSet())
+		{
+			scanForTempBonuses(tempBonuses, aEq);
+		}
+
+		//
+		// Do we also need to Iterate Globals.getAbilityKeyIterator(Constants.ALL_CATEGORIES); ?
+		// or will they be covered by getClassList()?
+		//
+		// iterate thru all PC's Classes
+		for (PCClass aClass : theCharacter.getClassSet())
+		{
+			int currentLevel = theCharacter.getLevel(aClass);
+			scanForTempBonuses(tempBonuses, aClass);
+			for (int i = 1; i < currentLevel; i++)
+			{
+				PCClassLevel pcl = theCharacter.getActiveClassLevel(aClass, i);
+				scanForTempBonuses(tempBonuses, pcl);
+			}
+		}
+
+		//
+		// Iterate through all the PC's Templates
+		for (PCTemplate aTemp : theCharacter.getTemplateSet())
+		{
+			scanForTempBonuses(tempBonuses, aTemp);
+		}
+
+		// do all Templates to get PREAPPLY:ANYPC
+		for (PCTemplate aTemp : Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class))
+		{
+			scanForAnyPcTempBonuses(tempBonuses, aTemp);
+		}
+
+		//
+		// Iterate through all the PC's Skills
+		for (Skill aSkill : theCharacter.getSkillSet())
+		{
+			scanForTempBonuses(tempBonuses, aSkill);
+		}
+		
+		Globals.sortPObjectListByName(tempBonuses);
+		availTempBonuses.setContents(tempBonuses);
+	}
+
+	private void scanForAnyPcTempBonuses(List<CDOMObject> tempBonuses, CDOMObject obj)
+	{
+		if (obj == null)
+		{
+			return;
+		}
+		for (BonusObj aBonus : obj.getRawBonusList(theCharacter))
+		{
+			if (aBonus.isTempBonus()
+				&& aBonus
+					.isTempBonusTarget(BonusObj.TempBonusTarget.ANYPC))
+			{
+				tempBonuses.add(obj);
+				return;
+			}
+		}
+	}
+
+	private void scanForTempBonuses(List<CDOMObject> tempBonuses, CDOMObject obj)
+	{
+		if (obj == null)
+		{
+			return;
+		}
+		for (BonusObj aBonus : obj.getRawBonusList(theCharacter))
+		{
+			if (aBonus.isTempBonus())
+			{
+				tempBonuses.add(obj);
+				return;
+			}
+		}
+	}
+	
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getAvailableTempBonuses()
 	 */
 	public ListFacade<TempBonusFacade> getAvailableTempBonuses()
 	{
-		// TODO: this needs to be implemented
-		return ListFacades.emptyList();
+		return availTempBonuses;
 	}
 
 	public void addTempBonus(TempBonusFacade bonus)
@@ -914,14 +1049,6 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	public ListFacade<TempBonusFacade> getTempBonuses()
 	{
 		return appliedTempBonuses;
-	}
-
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterFacade#isTempBonusApplied(pcgen.core.facade.TempBonusFacade)
-	 */
-	public boolean isTempBonusApplied(TempBonusFacade bonus)
-	{
-		return appliedTempBonuses.containsElement(bonus);
 	}
 
 	/* (non-Javadoc)

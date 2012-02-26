@@ -45,9 +45,10 @@ import pcgen.core.Description;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.facade.TempBonusFacade;
 
 public abstract class CDOMObject extends ConcretePrereqObject implements
-		Cloneable, BonusContainer, Loadable
+		Cloneable, BonusContainer, Loadable, TempBonusFacade
 {
 
 	private URI sourceURI = null;
