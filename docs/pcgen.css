@@ -137,6 +137,29 @@ a img {
 	margin-left: 100px;
 	text-indent: -100px;
 }
+.tagname {
+	margin: 10px 0px 0px;
+}
+.varused {
+	margin-top: 10px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 20px;
+}
+.tagexamplst {
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 50px;
+	font-family: "Courier New", Courier, mono;
+	font-size: 10pt;
+}
+.tagexampdesc {
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 70px;
+}
 .new {
 	color: #FF0000;
 	font-weight: bold;

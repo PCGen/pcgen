@@ -387,8 +387,10 @@
 		<p class="indent2"><code>BONUSSTATLEVELSTARTINTERVAL:4|if(mod(TL,10)>0&&mod(mod(TL,10),4)==0,1,0)|2</code></p>
 		<p class="indent3">Character would get bonus 2 stat points at 4th level and at every interval determined by the 
 			formula provided. (e.g. 4, 8, 14, 18, 24, 28)</p>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+
 		<p class="new">*** New 5.11.1</p>
 		<p class="indent0"><strong><a name="CATEGORY">Tag Name:</a></strong> CATEGORY:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Ability category name.).</p>
@@ -405,8 +407,23 @@
 		<p class="indent3">The parent ability category for this category is Feat.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+
+		<p class="new"><a name="CHARACTERTYPES">*** New 5.17.12</a></p>
+		<p class="tagname"><strong>Tag Name:</strong> CHARACTERTYPES:x|x</p>
+		<p class="varused"><strong>Variables Used (x):</strong> Text (Character type, e.g. PC, NPC, etc.).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Lists the character types that are avsilable in the gamemode.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="tagexamplst">CHARACTERTYPES:PC|NPC</p>
+		<p class="tagexampdesc">The character types available on this gamemode are &QUOT;PC&QUOT; and &QUOT;NPC&QUOT;.</p>
+
+		<p></p>
+
+<hr>
+
 		<p class="new">*** New 5.4</p>
 		<p class="indent0"><strong><a name="CHECKSMAXLEVEL">Tag Name:</a></strong> CHECKSMAXLEVEL:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (maximum level a characters base-saves may progress to).</p>
