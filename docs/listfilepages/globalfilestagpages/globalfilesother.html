@@ -230,8 +230,8 @@
 
 <hr>
 
-	<p class="status">*** Updated 5.11.1</p>
-	<p class="indent0"><strong><a name="AUTOWEAPONPROF">Tag Name:</a></strong> AUTO:WEAPONPROF|x|x</p>
+	<p class="status"><a name="AUTOWEAPONPROF">*** Updated 5.17.12</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> AUTO:WEAPONPROF|x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Weapon name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Weapon Type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Weapon Type)</p>
@@ -248,7 +248,7 @@
 			for natural weapons, are added.  If the deity specifies &quot;ALL&quot; or &quot;ANY&quot; for
 			its favored weapon, no weapons will be added.</li>
 		<li>Only one PRExxx tag is allowed, but it can be a PREMULT statement.</li>
-		<li>PRExxx tags must be enclosed within brackets. (i.e. [PRExxx]).</li>
+		<li>PRExxx tags must be appended with a pipe (|).</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>AUTO:WEAPONPROF|Longsword|Shortbow (Composite)</code></p>
@@ -275,6 +275,10 @@
 		are given as free weapon proficiencies.</p>
 	<p class="indent2"><code>CLASS:Rogue.MOD &lt;tab&gt; AUTO:WEAPONPROF|Gladius</code></p>
 	<p class="indent3">Modified the Rogue Class to include the Gladius weapon.</p>
+	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
+	<p class="indent2"><code>AUTO:WEAPONPROF|Longsword|Shortbow (Composite)[PRExxx]</code></p>
+	<p class="indent3">The square-bracketed PRExxx tag syntax has been deprecated in favor of the pipe-delimited (|) syntax.</p>
+	
 	<p></p>
 
 <hr>
