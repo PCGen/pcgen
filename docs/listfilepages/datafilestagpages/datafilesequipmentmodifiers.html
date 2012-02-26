@@ -650,26 +650,19 @@
 	<p class="indent0"><strong><a name="PRETYPE">Tag Name:</a></strong> PRETYPE:x,y,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of types that must match the specified requirements).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Equipment type).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> EQMODTYPE=y (Equipment Modifier type).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> EQMOD=y (Equipment Modifier KEY).</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> EQMODTYPE=Text (Equipment Modifier type).</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> EQMOD=Text (Equipment Modifier KEY).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Make specific TYPES or Equipment Modifier a prerequisite.</p>
 	<ul class="indent2">
-		<li><span class=alpha>Note</span>: PRETYPE has a different use outside of Equipment
-    	and Equipment Modifier files, it checks for race types.</li>
-		<li>See the <a href="../globalfilestagpages/globalfilesprexxx.html#PRETYPE">Global PRETYPE</a>
-		entry for usage outside of Equipment and Equipment Modifier files.</li>
-		<li>EQMODTYPE=&quot;type&quot; checks for TYPE in applied Equipment Modifiers not Equipment type.</li>
+		<li>Make specific Types or Equipment Modifiers a prerequisite.</li>
+		<li><code>EQMODTYPE</code> checks for the <strong>TYPE</strong> in the applied Equipment Modifiers, not Equipment type.</li>
+		<li><code>EQMOD</code> checks for the specified <strong>EQMOD</strong> by name or key.</li>
+		<li><code>EQMOD</code> can take an optional parameter of the form <code>EQMOD=&lt;key&gt;(&lt;choice&gt;)</code>, where the &quot;choice&quot; 
+			represents an item previously selected by an internal chooser for the specified <strong>EQMOD</strong>.</li>
 	</ul>
-	<p class="indent1"><strong>Secondary syntax:</strong></p>
-	<p class="indent2">PRETYPE has a second older syntax which is still in use in the release files.</p>
-	<ul class="indent2">
-		<li><strong>PRETYPE:y,y|y</strong></li>
-		<li>When comma (,) delineated PRETYPE requires all the types listed to pass.</li>
-		<li>When pipe (|) delineated PRETYPE requires only one of the types listed to pass.</li>
-		<li>Pipes and commas can be combined, for example <code>PRETYPE:Heavy,Armor|Shield</code>
-    	translates to: Must have &quot;Heavy&quot; AND &quot;Armor&quot; OR &quot;Shield&quot; types.</li>
-	</ul>
+	<p class="sidebar0"><span class=alpha>Note</span>: <code>PRETYPE</code> has a different use outside of Equipment and 
+		Equipment Modifier files, it checks for race types. See the <a href="../globalfilestagpages/globalfilesprexxx.html#PRETYPE">Global PRETYPE</a> 
+		entry for usage outside of Equipment and Equipment Modifier files.</p>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>PRETYPE:1,Magic &lt;tab&gt; PRETYPE:1,Piercing,Slashing</code></p>
 	<p class="indent3">Type must be magic and piercing or slashing</p>
@@ -682,6 +675,16 @@
 	<p class="indent3">Use to test for any modifier with &quot;Mundane&quot; type.</p>
 	<p class="indent2"><code>PRETYPE:1,EQMOD=IRONWOOD</code></p>
 	<p class="indent3">Use to test for the &quot;Ironwood&quot; Equipment Modifier.</p>
+	<p class="indent0"><strong>Secondary Syntax:</strong> PRETYPE:y,y|y</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Same as above.</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>PRETYPE has a second older syntax which is still in use in the release files.</li>
+		<li>The comma (,) represents a logical <strong>AND</strong> function, indicating that all types listed are required to pass.</li>
+		<li>The pipe (|) represents the logical <strong>OR</strong> function, indicating that only one of the types listed are required to pass.</li>
+		<li>Pipes (|) and commas (,) can be combined with the logical <strong>OR</strong> being processed first and then the logical <strong>AND</strong>. 
+			As an example, <code>PRETYPE:Heavy,Armor|Shield</code> translates to: Must have &quot;Heavy&quot; AND either &quot;Armor&quot; OR &quot;Shield&quot; types.</li>
+	</ul>
 	<p class="indent1"><strong>Examples of secondary syntax:</strong></p>
 	<p class="indent2"><code>PRETYPE:Magic,Piercing,Slashing</code></p>
 	<p class="indent3">Type must be Magic, Piercing and Slashing.</p>
