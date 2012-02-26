@@ -91,13 +91,13 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 		c.anchor = GridBagConstraints.WEST;
 		c.insets = new Insets(2, 2, 2, 2);
 
-		Utility.buildConstraints(c, 0, 0, 2, 1, 0, 0);
-		label =
-				new JLabel(LanguageBundle
-					.getString("in_Prefs_hrCrossSkillCost")
-					+ ": ");
-		gridbag.setConstraints(label, c);
-		mainPanel.add(label);
+//		Utility.buildConstraints(c, 0, 0, 3, 1, 0, 0);
+//		label =
+//				new JLabel(LanguageBundle
+//					.getString("in_Prefs_hrCrossSkillCost")
+//					+ ": ");
+//		gridbag.setConstraints(label, c);
+//		mainPanel.add(label);
 		//		Utility.buildConstraints(c, 2, 0, 1, 1, 0, 0);
 		//		gridbag.setConstraints(crossClassSkillCostCombo, c);
 		//		this.add(crossClassSkillCostCombo);

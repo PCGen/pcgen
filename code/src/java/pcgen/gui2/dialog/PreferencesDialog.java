@@ -30,6 +30,7 @@ import gmgen.pluginmgr.PluginManager;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -273,6 +274,7 @@ public final class PreferencesDialog extends JDialog
 		// Build the settings panel
 		settingsPanel = new JPanel();
 		settingsPanel.setLayout(new CardLayout());
+		settingsPanel.setPreferredSize(new Dimension(780, 420));
 
 		// Build the selection tree
 		characterNode = new DefaultMutableTreeNode(in_character);
@@ -451,7 +453,8 @@ public final class PreferencesDialog extends JDialog
 		panelList.add(prefsPanel);
 		parent.add(new DefaultMutableTreeNode(prefsPanel
 			.getTitle()));
-		settingsPanel.add(prefsPanel, prefsPanel.getTitle());
+		JScrollPane rightScroll = new JScrollPane(prefsPanel);
+		settingsPanel.add(rightScroll, prefsPanel.getTitle());
 	}
 
 	private void cancelButtonActionPerformed()
