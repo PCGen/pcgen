@@ -486,6 +486,9 @@
 						<li><code>&quot;NAME=&lt;text&gt;&quot;</code> - The name of a specific Ability which can be 
 						taken multiple times, returns the number of times it was taken. This does not currently function 
 						with abilities with parenthesis, i.e. Weapon Focus.</li>
+						<li><code>&quot;KEY=&lt;text&gt;&quot;</code> - The key of a specific Ability which can be 
+						taken multiple times, returns the number of times it was taken. This does not currently function 
+						with abilities with parenthesis, i.e. Weapon Focus.</li>
 						<li><code>&quot;NATURE=&lt;text&gt;&quot;</code> - &quot;NORMAL&quot;, &quot;VIRTUAL&quot;, or 
 						&quot;AUTOMATIC&quot;.</li>
 						<li><code>&quot;TYPE=&lt;text&gt;&quot;</code> - The ability type as defined in the ability.lst 
@@ -520,6 +523,8 @@
 	<p class="indent2"><code>count("ABILITIES","CATEGORY=FEAT",&quot;TYPE=Fighter&quot;,"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")</code></p>
 	<p class="indent3">Returns the number of all visible Fighter type feat abilities.</p>
 	<p class="indent2"><code>count("ABILITIES","CATEGORY=FEAT",&quot;NAME=Toughness&quot;)</code></p>
+	<p class="indent3">Returns the number of times the Toughness feat was taken.</p>
+	<p class="indent2"><code>count("ABILITIES","CATEGORY=FEAT",&quot;KEY=Toughness&quot;)</code></p>
 	<p class="indent3">Returns the number of times the Toughness feat was taken.</p>
 	<p class="indent2"><code>count("ABILITIES","CATEGORY=Special Ability",&quot;NATURE=VIRTUAL[or]NATURE=AUTOMATIC&quot;)</code></p>
 	<p class="indent3">Returns the number of abilities of category "Special Ability" the character has which are either virtual or automatic.</p>
