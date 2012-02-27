@@ -20,7 +20,7 @@
  */
 package pcgen.core.facade;
 
-import pcgen.core.facade.util.ListFacade;
+import java.util.List;
 
 /**
  *
@@ -29,7 +29,7 @@ import pcgen.core.facade.util.ListFacade;
 public interface DeityFacade extends InfoFacade
 {
 
-	ListFacade<DomainFacade> getDomains();
+	List<String> getDomainNames();
 
 	AlignmentFacade getAlignment();
 	

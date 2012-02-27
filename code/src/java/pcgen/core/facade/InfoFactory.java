@@ -86,9 +86,16 @@ public interface InfoFactory
 
 	/**
 	 * Get the description for the ability for this character.
-	 * @param ability The ability to be descrived.
+	 * @param ability The ability to be described.
 	 * @return The description.
 	 */
 	public String getDescription(AbilityFacade ability);
+
+	/**
+	 * Get a display string of the deity's domains.
+	 * @param deityFacade The deity to be output.
+	 * @return The comma separated list of domains.
+	 */
+	public String getDomains(DeityFacade deityFacade);
 
 }

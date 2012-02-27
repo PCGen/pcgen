@@ -112,8 +112,10 @@ import pcgen.util.Logging;
  */
 public class Gui2InfoFactory implements InfoFactory
 {
-	private static NumberFormat ADJ_FMT = new DecimalFormat("+0;-0");
-	private static NumberFormat COST_FMT = new DecimalFormat("0.#");
+	/** A default return value for an invalid request. */
+	private static final String EMPTY_STRING = ""; //$NON-NLS-1$
+	private static NumberFormat ADJ_FMT = new DecimalFormat("+0;-0"); //$NON-NLS-1$
+	private static NumberFormat COST_FMT = new DecimalFormat("0.#"); //$NON-NLS-1$
 
 	private PlayerCharacter pc;
 	
@@ -133,10 +135,10 @@ public class Gui2InfoFactory implements InfoFactory
 	{
 		if (!(race instanceof Race))
 		{
-			return "";
+			return EMPTY_STRING;
 		}
 		String[] favClass = Globals.getContext().unparseSubtoken((Race)race, "FAVCLASS");
-		return StringUtil.join(favClass, "");
+		return StringUtil.join(favClass, EMPTY_STRING);
 	}
 
 	/* (non-Javadoc)
@@ -146,7 +148,7 @@ public class Gui2InfoFactory implements InfoFactory
 	{
 		if (!(raceFacade instanceof Race))
 		{
-			return "";
+			return EMPTY_STRING;
 		}
 		Race race = (Race) raceFacade;
 		
@@ -202,7 +204,7 @@ public class Gui2InfoFactory implements InfoFactory
 	{
 		if (!(classFacade instanceof PCClass) || classFacade == null)
 		{
-			return "";
+			return EMPTY_STRING;
 		}
 		PCClass aClass = (PCClass) classFacade;
 		PCClass parentClass = aClass;
@@ -308,7 +310,7 @@ public class Gui2InfoFactory implements InfoFactory
 	{
 		if (!(skillFacade instanceof Skill) || skillFacade == null)
 		{
-			return "";
+			return EMPTY_STRING;
 		}
 		Skill skill = (Skill) skillFacade;
 
@@ -384,7 +386,7 @@ public class Gui2InfoFactory implements InfoFactory
 	{
 		if (!(abilityFacade instanceof Ability) || abilityFacade == null)
 		{
-			return "";
+			return EMPTY_STRING;
 		}
 		Ability ability = (Ability) abilityFacade;
 
@@ -466,7 +468,7 @@ public class Gui2InfoFactory implements InfoFactory
 	{
 		if (!(deityFacade instanceof Deity))
 		{
-			return "";
+			return EMPTY_STRING;
 		}
 		Deity aDeity = (Deity) deityFacade;
 		
@@ -479,6 +481,10 @@ public class Gui2InfoFactory implements InfoFactory
 			infoText
 				.appendI18nFormattedElement(
 					"in_InfoDescription", DescriptionFormatting.piDescString(pc, aDeity)); //$NON-NLS-1$
+
+			infoText.appendLineBreak();
+			infoText.appendI18nElement(
+				"in_domains", getDomains(aDeity)); //$NON-NLS-1$
 
 			List<CDOMReference<WeaponProf>> dwp = aDeity.getListFor(
 					ListKey.DEITYWEAPON);
@@ -532,7 +538,7 @@ public class Gui2InfoFactory implements InfoFactory
 	{
 		if (!(domainFacade instanceof DomainFacadeImpl))
 		{
-			return "";
+			return EMPTY_STRING;
 		}
 		DomainFacadeImpl domainFI = (DomainFacadeImpl) domainFacade;
 		Domain aDomain = (Domain) domainFI.getRawObject();
@@ -593,7 +599,7 @@ public class Gui2InfoFactory implements InfoFactory
 	{
 		if (equipFacade == null || !(equipFacade instanceof Equipment))
 		{
-			return "";
+			return EMPTY_STRING;
 		}
 		
 		Equipment equip = (Equipment) equipFacade;
@@ -761,12 +767,12 @@ public class Gui2InfoFactory implements InfoFactory
 
 		int critrange = pc.getCritRange(equip, true);
 		int altcritrange = pc.getCritRange(equip, false);
-		bString = critrange == 0 ? "" : Integer.toString(critrange);
+		bString = critrange == 0 ? EMPTY_STRING : Integer.toString(critrange);
 		if (equip.isDouble() && critrange != altcritrange)
 		{
 			bString +=
 					"/" //$NON-NLS-1$
-						+ (altcritrange == 0 ? "" : Integer
+						+ (altcritrange == 0 ? EMPTY_STRING : Integer
 							.toString(altcritrange));
 		}
 
@@ -862,7 +868,7 @@ public class Gui2InfoFactory implements InfoFactory
 		if (templateFacade == null
 			|| !(templateFacade instanceof TemplateFacade))
 		{
-			return "";
+			return EMPTY_STRING;
 		}
 
 		PCTemplate template = (PCTemplate) templateFacade;
@@ -928,7 +934,7 @@ public class Gui2InfoFactory implements InfoFactory
 	{
 		if (kitFacade == null || !(kitFacade instanceof KitFacade))
 		{
-			return "";
+			return EMPTY_STRING;
 		}
 
 		Kit kit = (Kit) kitFacade;
@@ -950,13 +956,13 @@ public class Gui2InfoFactory implements InfoFactory
 		sortedObjects.addAll(kit.getSafeListFor(ListKey.KIT_TASKS));
 		Collections.sort(sortedObjects, new ObjectTypeComparator());
 
-		String lastObjectName = "";
+		String lastObjectName = EMPTY_STRING;
 		for (BaseKit bk : sortedObjects)
 		{
 			String objName = bk.getObjectName();
 			if (!objName.equals(lastObjectName))
 			{
-				if (!"".equals(lastObjectName))
+				if (!EMPTY_STRING.equals(lastObjectName))
 				{
 					infoText.append("; ");
 				}
@@ -997,11 +1003,11 @@ public class Gui2InfoFactory implements InfoFactory
 	{
 		if (!(raceFacade instanceof Race))
 		{
-			return "";
+			return EMPTY_STRING;
 		}
 		Race race = (Race) raceFacade;
 		return ADJ_FMT.format(race.getSafe(FormulaKey.LEVEL_ADJUSTMENT)
-			.resolve(pc, ""));
+			.resolve(pc, EMPTY_STRING));
 	}
 
 	/* (non-Javadoc)
@@ -1011,7 +1017,7 @@ public class Gui2InfoFactory implements InfoFactory
 	{
 		if (!(race instanceof Race))
 		{
-			return "";
+			return EMPTY_STRING;
 		}
 		return PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
 			((Race) race).getPrerequisiteList(), true);
@@ -1024,7 +1030,7 @@ public class Gui2InfoFactory implements InfoFactory
 	{
 		if (!(raceFacade instanceof Race))
 		{
-			return "";
+			return EMPTY_STRING;
 		}
 		Race race = (Race) raceFacade;
 		final StringBuffer retString = new StringBuffer();
@@ -1065,7 +1071,7 @@ public class Gui2InfoFactory implements InfoFactory
 	{
 		if (!(race instanceof Race))
 		{
-			return "";
+			return EMPTY_STRING;
 		}
 		return VisionDisplay.getVision(pc, (Race) race);
 	}
@@ -1095,11 +1101,11 @@ public class Gui2InfoFactory implements InfoFactory
 	{
 		if (!(templateFacade instanceof PCTemplate))
 		{
-			return "";
+			return EMPTY_STRING;
 		}
 		PCTemplate template = (PCTemplate) templateFacade;
 		return ADJ_FMT.format(template.getSafe(FormulaKey.LEVEL_ADJUSTMENT)
-			.resolve(pc, ""));
+			.resolve(pc, EMPTY_STRING));
 	}
 
 	/* (non-Javadoc)
@@ -1109,7 +1115,7 @@ public class Gui2InfoFactory implements InfoFactory
 	{
 		if (!(templateFacade instanceof PCTemplate))
 		{
-			return "";
+			return EMPTY_STRING;
 		}
 		PCTemplate template = (PCTemplate) templateFacade;
 		return TemplateModifier.modifierString(template, pc);
@@ -1122,7 +1128,7 @@ public class Gui2InfoFactory implements InfoFactory
 	{
 		if (!(template instanceof PCTemplate))
 		{
-			return "";
+			return EMPTY_STRING;
 		}
 		return PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
 			((PCTemplate) template).getPrerequisiteList(), true);
@@ -1132,7 +1138,7 @@ public class Gui2InfoFactory implements InfoFactory
 	{
 		if (spell == null || !(spell instanceof SpellFacadeImplem))
 		{
-			return "";
+			return EMPTY_STRING;
 		}
 
 		SpellFacadeImplem sfi = (SpellFacadeImplem) spell;
@@ -1142,7 +1148,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		if (aSpell == null)
 		{
-			return "";
+			return EMPTY_STRING;
 		}
 		final HtmlInfoBuilder b =
 				new HtmlInfoBuilder(OutputNameFormatting.piString(aSpell, false));
@@ -1219,7 +1225,7 @@ public class Gui2InfoFactory implements InfoFactory
 		SpellBook book = pc.getDisplay().getSpellBookByName(name);
 		if (book == null)
 		{
-			return "";
+			return EMPTY_STRING;
 		}
 		
 		switch (book.getType())
@@ -1231,7 +1237,7 @@ public class Gui2InfoFactory implements InfoFactory
 				return produceSpellBookInfo(book);
 				
 			default:
-				return "";
+				return EMPTY_STRING;
 		}
 	}
 
@@ -1359,7 +1365,7 @@ public class Gui2InfoFactory implements InfoFactory
 	{
 		if (ability == null || !(ability instanceof Ability))
 		{
-			return "";
+			return EMPTY_STRING;
 		}
 
 		try
@@ -1368,9 +1374,34 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 		catch (Exception e)
 		{
-			Logging.errorPrint("Failed to get description for " + ability, e);
-			return "";
+			Logging.errorPrint("Failed to get description for " + ability, e); //$NON-NLS-1$
+			return EMPTY_STRING;
 		}
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	public String getDomains(DeityFacade deityFacade)
+	{
+		if (deityFacade == null || !(deityFacade instanceof Deity))
+		{
+			return EMPTY_STRING;
+		}
+		Deity deity = (Deity) deityFacade;
+		Set<String> set = new TreeSet<String>();
+		for (CDOMReference<Domain> ref : deity.getSafeListMods(Deity.DOMAINLIST))
+		{
+			for (Domain d : ref.getContainedObjects())
+			{
+				set.add(OutputNameFormatting.piString(d, false));
+			}
+		}
+		final StringBuffer piString = new StringBuffer(100);
+		piString.append("<html>"); //$NON-NLS-1$
+		piString.append(StringUtil.joinToStringBuffer(set, ",")); //$NON-NLS-1$
+		piString.append("</html>"); //$NON-NLS-1$
+		return piString.toString();
+		
+	}
 }

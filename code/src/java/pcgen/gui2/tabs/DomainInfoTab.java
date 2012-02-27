@@ -42,12 +42,11 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 
-import org.apache.commons.lang.StringUtils;
-
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.DeityFacade;
 import pcgen.core.facade.DomainFacade;
 import pcgen.core.facade.InfoFacade;
+import pcgen.core.facade.InfoFactory;
 import pcgen.core.facade.ReferenceFacade;
 import pcgen.core.facade.event.ListEvent;
 import pcgen.core.facade.event.ListListener;
@@ -67,8 +66,6 @@ import pcgen.gui2.tabs.models.QualifiedTreeCellRenderer;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.JDynamicTable;
-import pcgen.gui2.util.SortMode;
-import pcgen.gui2.util.SortingPriority;
 import pcgen.gui2.util.table.TableUtils;
 import pcgen.gui2.util.treeview.DataView;
 import pcgen.gui2.util.treeview.DataViewColumn;
@@ -602,14 +599,16 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		private static final ListFacade<TreeView<DeityFacade>> views =
 				new DefaultListFacade<TreeView<DeityFacade>>(Arrays.asList(DeityTreeView.values()));
-		private final List<DefaultDataViewColumn> columns = Arrays.asList(new DefaultDataViewColumn("Alignment", Object.class),
-																		  new DefaultDataViewColumn("Domains", String.class),
-																		  new DefaultDataViewColumn("Source", String.class));
+		private final List<DefaultDataViewColumn> columns = Arrays.asList(new DefaultDataViewColumn("in_alignLabel", Object.class), //$NON-NLS-1$
+																		  new DefaultDataViewColumn("in_domains", String.class), //$NON-NLS-1$
+																		  new DefaultDataViewColumn("in_sourceLabel", String.class)); //$NON-NLS-1$
 		private final CharacterFacade character;
+		private InfoFactory infoFactory;
 
 		public DeityTreeViewModel(CharacterFacade character)
 		{
 			this.character = character;
+			this.infoFactory = character.getInfoFactory();
 		}
 
 		public ListFacade<? extends TreeView<DeityFacade>> getTreeViews()
@@ -634,10 +633,8 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		public List<?> getData(DeityFacade obj)
 		{
-			List<DomainFacade> domains = ListFacades.wrap(obj.getDomains());
 			return Arrays.asList(obj.getAlignment(),
-								 StringUtils.join(domains.toArray(), ", "),
-								 obj.getSource());
+				infoFactory.getDomains(obj), obj.getSource());
 		}
 
 		public List<? extends DataViewColumn> getDataColumns()
@@ -675,7 +672,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 					return Collections.singletonList(new TreeViewPath<DeityFacade>(pobj));
 				case DOMAIN_NAME:
 					List<TreeViewPath<DeityFacade>> paths = new ArrayList<TreeViewPath<DeityFacade>>();
-					for (DomainFacade domain : pobj.getDomains())
+					for (String domain : pobj.getDomainNames())
 					{
 						paths.add(new TreeViewPath(pobj, domain));
 					}
