@@ -57,7 +57,11 @@ img {
 }
 .attackTables {
 	font-family: Arial;
+|IIF(WEAPON.NAME>10)|
+	font-size: 8px;
+|ELSE|
 	font-size: 14px;
+|ENDIF|
 	font-weight: bold;
 }
 .attackIterations {
