@@ -47,6 +47,7 @@ import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tools.Icons;
 import pcgen.system.LanguageBundle;
+import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
 /**
@@ -180,7 +181,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 		{
 			if (chooser == null)
 			{
-				chooser = new JFileChooser();
+				chooser = new JFileChooser(PCGenSettings.getPortraitsDir());
 			}
 			chooser.setAccessory(previewer);
 			chooser.addPropertyChangeListener(this);
