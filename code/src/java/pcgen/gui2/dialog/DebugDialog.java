@@ -81,7 +81,7 @@ public class DebugDialog extends JDialog
 
 	private void initDebugLog()
 	{
-		debuggingText.setLineWrap(true);
+		//debuggingText.setLineWrap(true);
 		debuggingText.setEditable(false);
 		debuggingText.setText(LoggingRecorder.getLogs());
 		Logging.registerHandler(new LogHandler());
