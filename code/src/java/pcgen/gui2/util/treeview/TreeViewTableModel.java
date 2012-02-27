@@ -382,6 +382,12 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 				vector.add(path);
 				return;
 			}
+			if (level >= path.getPathCount())
+			{
+				Logging.errorPrint("Ignoring attempt to add child at level "
+					+ level + " which is beyond end of path " + path);
+				return;
+			}
 			Object levelObject = path.getPathComponent(level);
 			if (mostRecentComparator == null)
 			{
@@ -416,7 +422,15 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 			if (index >= 0)
 			{
 				TreeViewNode child = (TreeViewNode) getChildAt(index);
-				child.insertTreeViewPath(path);
+				if (child.getLevel() >= path.getPathCount())
+				{
+					// Duplicate named entry - just add it to the tree.
+					insertNodeInto(newchild, this, (index + 1));
+				}
+				else
+				{
+					child.insertTreeViewPath(path);
+				}
 			}
 			else
 			{
