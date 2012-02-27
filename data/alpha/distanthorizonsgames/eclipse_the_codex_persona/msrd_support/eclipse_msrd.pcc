@@ -89,3 +89,8 @@ HIDETYPE:FEAT|Focusing|MultipleMedia
 HIDETYPE:FEAT|CharCreation|DivineWrath|Hexcrafting|PathOfThePharaoh|SpellCasterOutput|SpiritWeapon|SpiritWeaponCap|SpiritWeaponDamage|TheBoundlessRealms|TidesOfLightAndDark
 HIDETYPE:FEAT|WayOfOmnipresence|WayOfTheLands|WayOfValor|WitchcraftOutput|Special Ability|ChannelingBase|EclipseAbilityOutput
 
+HIDETYPE:SKILL|AdeptChoice|NormalSkill|MartialArtsStyle|Sample
+HIDETYPE:SKILL|OccultSkill|ThaumaturgyNecromancy|ThaumaturgyWeatherControl|ThaumaturgyPsychokinesis|ThaumaturgyTelepathy|ThaumaturgyWarping|ThaumaturgyHealing|ThaumaturgyESP|ThaumaturgyMysticism|TheurgicalVerb|TheurgicalNoun
+
+
+
