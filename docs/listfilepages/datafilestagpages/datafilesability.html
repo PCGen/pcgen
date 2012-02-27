@@ -97,6 +97,9 @@
 			<li>PRExxx tags can be used with the <code>ASPECT</code> tag.</li>
 			<li>This tag can be used multiple times within an ability but each time it must identify a new aspect unless the 
 				<code>ASPECT</code> tag includes a PRExxx tag appended to the end.</li>
+			<li>When using multiple <code>ASPECT</code> tags for the same &quot;aspect&quot; and PRExxx tags appended to the end of each, 
+				the final value for that aspect will be set by the physically last <code>ASPECT</code> tag in the ability line that passes 
+				the prerequisite.</li>
 			<li>The text in the (y) parameter can use %# for substituting numerical values set by the (z) parameter, %1 
 				is replaced by the first (z), %2 is replaced by the second (z), etc..</li>
 			<li>The (y) parameter can also use other special variables as is done in the <code>DESC</code> tag:
@@ -130,6 +133,11 @@
 		<p class="indent2"><code>ASPECT:Effect|Double damage to %CHOICE creatures</code></p>
 		<p class="indent3">Identifies the &quot;Effect&quot; of an action performed as part of the associated ability 
 			as &quot;Double damage&quot; to the creature chosen by the associated chooser.</p>
+		<p class="indent2"><code>ASPECT:Target|One creature &lt;tab&gt; ASPECT:Target|Two creatures|PREPCLEVEL:MIN=7,MAX=12 &lt;tab&gt; 
+			ASPECT:Target|Three creatures|PREPCLEVEL:MIN=13</code></p>
+		<p class="indent3">Identifies the &quot;Target&quot; of an action performed as part of the associated ability 
+			as &quot;One creature&quot; for characters that are level 1-6, &quot;Two creatures&quot' for characters level 7-12, 
+				and &quot'Three creatures&quot; for characters level 13 or greater.</p>
 		<p></p>
 
 <hr>
