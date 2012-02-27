@@ -38,6 +38,7 @@ import pcgen.core.facade.util.ListFacade;
 import pcgen.core.facade.event.ListEvent;
 import pcgen.core.facade.event.ListListener;
 import pcgen.gui2.util.SharedTabPane;
+import pcgen.util.Logging;
 
 /**
  *
@@ -135,7 +136,17 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 			String type = element.getType();
 			if (!typeMap.containsKey(type))
 			{
-				tabs.add(e.getIndex(), new TabInfo(type, character));
+				if (e.getIndex() >= tabs.size())
+				{
+					Logging.log(Logging.WARNING, "Trying to add " + type + " to "
+						+ tabs + " at index " + e.getIndex()
+						+ ". Putting at end.");
+					tabs.add(new TabInfo(type, character));
+				}
+				else
+				{
+					tabs.add(e.getIndex(), new TabInfo(type, character));
+				}
 				populateFullCategoryList(type, typeMap.get(type));
 				if (isInstalled)
 				{//Add new tab
