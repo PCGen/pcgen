@@ -253,14 +253,6 @@ public final class Ability extends PObject implements CategorizedCDOMObject<Abil
 	}
 
 	/* (non-Javadoc)
-	 * @see pcgen.core.facade.AbilityFacade#getDescription()
-	 */
-	public String getDescription()
-	{
-		return getDisplayName();
-	}
-
-	/* (non-Javadoc)
 	 * @see pcgen.core.facade.AbilityFacade#getTypes()
 	 */
 	public List<String> getTypes()

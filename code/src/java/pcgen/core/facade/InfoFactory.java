@@ -71,10 +71,24 @@ public interface InfoFactory
 	public String getHTMLInfo(SpellFacade spell);
 
 	/**
+	 * Produce the HTML information string for a kit.
+	 * @param kitFacade The kit
+	 * @return The HTML information string
+	 */
+	public String getHTMLInfo(KitFacade kitFacade);
+
+	/**
 	 * Produce the HTML information string for spell book or spell list.
 	 * @param name The spell book or spell list.
 	 * @return The HTML information string
 	 */
 	public String getSpellBookInfo(String name);
+
+	/**
+	 * Get the description for the ability for this character.
+	 * @param ability The ability to be descrived.
+	 * @return The description.
+	 */
+	public String getDescription(AbilityFacade ability);
 
 }

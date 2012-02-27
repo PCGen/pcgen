@@ -35,6 +35,4 @@ public interface AbilityFacade extends InfoFacade
 
     public boolean isStackable();
 
-    public String getDescription();
-
 }

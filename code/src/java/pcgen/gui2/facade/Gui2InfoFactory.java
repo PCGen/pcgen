@@ -26,6 +26,9 @@ import java.io.File;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -52,6 +55,7 @@ import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
+import pcgen.core.Kit;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
@@ -80,16 +84,19 @@ import pcgen.core.facade.DeityFacade;
 import pcgen.core.facade.DomainFacade;
 import pcgen.core.facade.EquipmentFacade;
 import pcgen.core.facade.InfoFactory;
+import pcgen.core.facade.KitFacade;
 import pcgen.core.facade.RaceFacade;
 import pcgen.core.facade.SkillFacade;
 import pcgen.core.facade.SpellFacade;
 import pcgen.core.facade.TemplateFacade;
+import pcgen.core.kit.BaseKit;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.spell.Spell;
 import pcgen.gui.HTMLUtils;
 import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
+import pcgen.util.Logging;
 
 /**
  * The Class <code>Gui2InfoFactory</code> provides character related information 
@@ -912,6 +919,77 @@ public class Gui2InfoFactory implements InfoFactory
 		return infoText.toString();
 	}
 	
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getHTMLInfo(KitFacade kitFacade)
+	{
+		if (kitFacade == null || !(kitFacade instanceof KitFacade))
+		{
+			return "";
+		}
+
+		Kit kit = (Kit) kitFacade;
+
+		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
+
+		infoText.appendTitleElement(OutputNameFormatting.piString(kit, false));
+
+		String aString =
+				PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
+					kit.getPrerequisiteList(), false);
+		if (aString.length() > 0)
+		{
+			infoText.appendLineBreak();
+			infoText.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
+		}
+
+		List<BaseKit> sortedObjects = new ArrayList<BaseKit>();
+		sortedObjects.addAll(kit.getSafeListFor(ListKey.KIT_TASKS));
+		Collections.sort(sortedObjects, new ObjectTypeComparator());
+
+		String lastObjectName = "";
+		for (BaseKit bk : sortedObjects)
+		{
+			String objName = bk.getObjectName();
+			if (!objName.equals(lastObjectName))
+			{
+				if (!"".equals(lastObjectName))
+				{
+					infoText.append("; ");
+				}
+				infoText.append("  <b>" + objName + "</b>: ");
+				lastObjectName = objName;
+			}
+			else
+			{
+				infoText.append(", ");
+			}
+			infoText.append(bk.toString());
+		}
+
+		aString = kit.getSource();
+		if (aString.length() > 0)
+		{
+			infoText.appendLineBreak();
+			infoText.appendI18nElement("in_sourceLabel", aString); //$NON-NLS-1$
+		}
+		//TODO ListKey.KIT_TASKS
+		return infoText.toString();
+	}
+
+	private static class ObjectTypeComparator implements Comparator<BaseKit>
+	{
+		public int compare(BaseKit bk1, BaseKit bk2)
+		{
+			String name1 = bk1.getObjectName();
+			String name2 = bk2.getObjectName();
+			return name1.compareTo(name2);
+		}
+	}
+	
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFactory#getLevelAdjustment(pcgen.core.facade.RaceFacade)
 	 */
@@ -1271,6 +1349,28 @@ public class Gui2InfoFactory implements InfoFactory
 			b.appendI18nElement("in_descrip", book.getDescription()); //$NON-NLS-1$
 		}
 		return b.toString();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getDescription(AbilityFacade ability)
+	{
+		if (ability == null || !(ability instanceof Ability))
+		{
+			return "";
+		}
+
+		try
+		{
+			return DescriptionFormatting.piDescSubString(pc, (Ability) ability);
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Failed to get description for " + ability, e);
+			return "";
+		}
 	}
 
 }

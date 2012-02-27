@@ -51,6 +51,7 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.core.facade.AbilityCategoryFacade;
 import pcgen.core.facade.AbilityFacade;
 import pcgen.core.facade.CharacterFacade;
+import pcgen.core.facade.InfoFactory;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.DelegatingListFacade;
 import pcgen.core.facade.util.ListFacade;
@@ -84,51 +85,6 @@ import pcgen.system.LanguageBundle;
 @SuppressWarnings("serial")
 public class AbilityChooserTab extends FlippingSplitPane implements StateEditable, TodoHandler
 {
-
-	private static final DataView<AbilityFacade> abilityDataView = new DataView<AbilityFacade>()
-	{
-
-		private final List<? extends DataViewColumn> dataColumns =
-				Arrays.asList(new DefaultDataViewColumn("Type",
-														String.class),
-							  new DefaultDataViewColumn("Mult",
-														Boolean.class),
-							  new DefaultDataViewColumn("Stack",
-														Boolean.class),
-							  new DefaultDataViewColumn("Description",
-														String.class),
-							  new DefaultDataViewColumn("Source",
-														String.class));
-
-		public List<? extends DataViewColumn> getDataColumns()
-		{
-			return dataColumns;
-		}
-
-		public List<?> getData(AbilityFacade obj)
-		{
-			return Arrays.asList(getTypes(obj.getTypes()),
-								 obj.isMult(),
-								 obj.isStackable(),
-								 obj.getDescription(),
-								 obj.getSource());
-		}
-
-		private String getTypes(List<String> types)
-		{
-			if (types.isEmpty())
-			{
-				return "";
-			}
-			String ret = types.get(0);
-			for (int x = 1; x < types.size(); x++)
-			{
-				ret += ", " + types.get(x);
-			}
-			return ret;
-		}
-
-	};
 	private final FilteredTreeViewTable<CharacterFacade, AbilityFacade> availableTreeViewPanel;
 	private final JTreeTable selectedTreeViewPanel;
 	private final JTable categoryTable;
@@ -238,7 +194,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 	}
 
 	private class AvailableAbilityTreeViewModel extends DelegatingListFacade<AbilityFacade>
-			implements TreeViewModel<AbilityFacade>, ListSelectionListener
+			implements TreeViewModel<AbilityFacade>, ListSelectionListener, DataView<AbilityFacade>
 	{
 
 		private final ListFacade<? extends TreeView<AbilityFacade>> treeviews;
@@ -246,6 +202,8 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		private AbilityCategoryFacade category;
 		private final ListFacade<AbilityCategoryFacade> categories;
 		private final ListSelectionModel selectionModel;
+		private final List<? extends DataViewColumn> dataColumns;
+		private final InfoFactory infoFactory;
 
 		public AvailableAbilityTreeViewModel(CharacterFacade character,
 											 ListFacade<AbilityCategoryFacade> categories,
@@ -255,8 +213,21 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 			this.treeviews = new DefaultListFacade<TreeView<AbilityFacade>>(AbilityTreeViews.createTreeViewList(character));
 			this.categories = categories;
 			this.selectionModel = selectionModel;
+			this.infoFactory = character.getInfoFactory();
 			selectionModel.addListSelectionListener(this);
 			this.setDelegate(new DefaultListFacade<AbilityFacade>());
+
+			dataColumns =
+					Arrays.asList(new DefaultDataViewColumn("Type",
+															String.class),
+								  new DefaultDataViewColumn("Mult",
+															Boolean.class),
+								  new DefaultDataViewColumn("Stack",
+															Boolean.class),
+								  new DefaultDataViewColumn("Description",
+															String.class),
+								  new DefaultDataViewColumn("Source",
+															String.class));
 		}
 
 		public ListFacade<? extends TreeView<AbilityFacade>> getTreeViews()
@@ -271,12 +242,40 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 
 		public DataView<AbilityFacade> getDataView()
 		{
-			return abilityDataView;
+			return this;
 		}
 
 		public ListFacade<AbilityFacade> getDataModel()
 		{
 			return this;
+		}
+
+		public List<? extends DataViewColumn> getDataColumns()
+		{
+			return dataColumns;
+		}
+
+		public List<?> getData(AbilityFacade obj)
+		{
+			return Arrays.asList(getTypes(obj.getTypes()),
+								 obj.isMult(),
+								 obj.isStackable(),
+								 infoFactory.getDescription(obj),
+								 obj.getSource());
+		}
+
+		private String getTypes(List<String> types)
+		{
+			if (types.isEmpty())
+			{
+				return "";
+			}
+			String ret = types.get(0);
+			for (int x = 1; x < types.size(); x++)
+			{
+				ret += ", " + types.get(x);
+			}
+			return ret;
 		}
 
 		public void install()
