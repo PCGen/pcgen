@@ -25,6 +25,10 @@ import java.text.Collator;
 import java.util.Comparator;
 import java.util.Date;
 
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.gui2.util.treetable.TreeTableNode;
+
 /**
  *
  * @author Connor Petty <mistercpp2000@gmail.com>
@@ -44,6 +48,7 @@ public final class Comparators
 	private static final NumberComparator nC = new NumberComparator();
 	private static final DateComparator dC = new DateComparator();
 	private static final HashCodeComparator hCC = new HashCodeComparator();
+	private static final TreeTableNodeComparator treeNodeComp = new TreeTableNodeComparator();
 
 	public static <T> Comparator<T> toStringComparator()
 	{
@@ -58,6 +63,14 @@ public final class Comparators
 	public static <T> Comparator<T> toStringIgnoreCaseCollator()
 	{
 		return tSICCol;
+	}
+
+	/**
+	 * @return A comparator for use with the contents of tree table nodes. 
+	 */
+	public static Comparator<Object> treeTableNodeComparator()
+	{
+		return treeNodeComp;
 	}
 
 	/**
@@ -119,6 +132,10 @@ public final class Comparators
 		{
 			return (Comparator<? super T>) ignoreCaseStringComparator();
 		}
+		else if (c == TreeTableNode.class)
+		{
+			return (Comparator<? super T>) treeTableNodeComparator();
+		}
 		return toStringComparator();
 	}
 
@@ -179,6 +196,51 @@ public final class Comparators
 					: o2.toString());
 		}
 
+	}
+
+	/**
+	 * A <code>Comparator</code> to compare tree table nodes. This respects SORTKEY for the contained object. 
+	 */
+	private static final class TreeTableNodeComparator implements Comparator<Object>,
+			Serializable
+	{
+
+		/** {@inheritDoc} */
+		public int compare(Object o1, Object o2)
+		{
+			String key1 = getSortKey(o1); 
+			String key2 = getSortKey(o2);
+			final Collator collator = Collator.getInstance();
+			
+			if (!key1.equals(key2))
+			{
+				return collator.compare(key1, key2);
+			}
+			return collator.compare(String.valueOf(o1), String.valueOf(o2));
+		}
+
+		private String getSortKey(Object obj1)
+		{
+			String key;
+			if (obj1 == null)
+			{
+				key = "";
+			}
+			else if (obj1 instanceof CDOMObject)
+			{
+				CDOMObject co = (CDOMObject) obj1;
+				key = co.get(StringKey.SORT_KEY);
+				if (key == null)
+				{
+					key = co.getDisplayName();
+				}
+			}
+			else
+			{
+				key = obj1.toString();
+			}
+			return key;
+		}
 	}
 
 	private static final class ToStringIgnoreCaseCollator<E> implements Comparator<E>, Serializable
