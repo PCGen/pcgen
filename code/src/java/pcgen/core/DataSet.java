@@ -46,6 +46,7 @@ import pcgen.core.facade.DeityFacade;
 import pcgen.core.facade.EquipmentFacade;
 import pcgen.core.facade.GameModeFacade;
 import pcgen.core.facade.GearBuySellFacade;
+import pcgen.core.facade.KitFacade;
 import pcgen.core.facade.RaceFacade;
 import pcgen.core.facade.SkillFacade;
 import pcgen.core.facade.StatFacade;
@@ -70,6 +71,7 @@ public class DataSet implements DataSetFacade
 	private DefaultListFacade<SkillFacade> skills;
 	private DefaultListFacade<TemplateFacade> templates;
 	private DefaultListFacade<AlignmentFacade> alignments;
+	private DefaultListFacade<KitFacade> kits;
 	private DefaultListFacade<StatFacade> stats;
 	private DefaultListFacade<AbilityCategoryFacade> categories;
 	private Map<AbilityCategoryFacade, ListFacade<AbilityFacade>> abilityMap;
@@ -98,6 +100,7 @@ public class DataSet implements DataSetFacade
 		equipment = new DefaultListFacade<EquipmentFacade>();
 		xpTableNames = new DefaultListFacade<String>();
 		characterTypes = new DefaultListFacade<String>();
+		kits = new DefaultListFacade<KitFacade>();
 		this.context = context;
 		this.gameMode = gameMode;
 		this.campaigns = campaigns;
@@ -142,6 +145,13 @@ public class DataSet implements DataSetFacade
 			if (template.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE, false))
 			{
 				templates.addElement(template);
+			}
+		}
+		for (Kit kit : context.ref.getConstructedCDOMObjects(Kit.class))
+		{
+			if (kit.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE, false))
+			{
+				kits.addElement(kit);
 			}
 		}
 		for (PCAlignment alignment : context.ref.getOrderSortedCDOMObjects(PCAlignment.class))
@@ -605,5 +615,14 @@ public class DataSet implements DataSetFacade
 			return ac1Key.compareTo(ac2Key);
 		}
 		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public ListFacade<KitFacade> getKits()
+	{
+		return kits;
 	}
 }

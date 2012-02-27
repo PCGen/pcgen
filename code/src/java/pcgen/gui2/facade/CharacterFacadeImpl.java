@@ -115,6 +115,7 @@ import pcgen.core.facade.GearBuySellFacade;
 import pcgen.core.facade.GenderFacade;
 import pcgen.core.facade.InfoFacade;
 import pcgen.core.facade.InfoFactory;
+import pcgen.core.facade.KitFacade;
 import pcgen.core.facade.LanguageChooserFacade;
 import pcgen.core.facade.LanguageFacade;
 import pcgen.core.facade.RaceFacade;
@@ -217,6 +218,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	private DefaultReferenceFacade<Integer> remainingDomains;
 	private DefaultListFacade<TemplateFacade> templates;
 	private DefaultListFacade<RaceFacade> raceList;
+	private DefaultListFacade<KitFacade> kitList;
 	private DefaultReferenceFacade<File> portrait;
 	private RectangleReference cropRect;
 	private String selectedGender;
@@ -3607,6 +3609,36 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			fireReferenceChangedEvent(this, old, rect);
 		}
 
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public DefaultListFacade<KitFacade> getKits()
+	{
+		// TODO build list
+		return kitList;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void addKit(KitFacade obj)
+	{
+		// TODO check qualified, add to character
+		kitList.removeElement(obj);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void removeKit(KitFacade obj)
+	{
+		// TODO check removable, remove from character
+		kitList.removeElement(obj);
 	}
 
 }

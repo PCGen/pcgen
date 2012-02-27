@@ -25,6 +25,8 @@ package pcgen.core.facade;
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public interface KitFacade {
+public interface KitFacade extends InfoFacade
+{
+	public String getType();
 
 }

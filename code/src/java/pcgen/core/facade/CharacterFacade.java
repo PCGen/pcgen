@@ -31,6 +31,7 @@ import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.facade.event.ChangeListener;
+import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.io.ExportHandler;
 
@@ -730,5 +731,20 @@ public interface CharacterFacade
 	 * @return true if the character has been changed and needs to be saved.
 	 */
 	public boolean isDirty();
+
+	/**
+	 * @return
+	 */
+	public DefaultListFacade<KitFacade> getKits();
+
+	/**
+	 * @param object
+	 */
+	public void addKit(KitFacade object);
+
+	/**
+	 * @param object
+	 */
+	public void removeKit(KitFacade object);
 
 }

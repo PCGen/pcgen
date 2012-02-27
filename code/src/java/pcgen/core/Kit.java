@@ -32,6 +32,7 @@ import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.facade.KitFacade;
 import pcgen.core.kit.BaseKit;
 import pcgen.core.kit.KitStat;
 import pcgen.core.kit.KitTable;
@@ -48,7 +49,7 @@ import pcgen.util.enumeration.Visibility;
  * @author   Greg Bingleman <byngl@hotmail.com>
  * @version  $Revision$
  */
-public final class Kit extends PObject implements Comparable<Object>
+public final class Kit extends PObject implements Comparable<Object>, KitFacade
 {
 	private int selectValue = -1;
 
@@ -356,5 +357,15 @@ public final class Kit extends PObject implements Comparable<Object>
 	public KitTable addTable(KitTable table)
 	{
 		return addToMapFor(MapKey.KIT_TABLE, table.getTableName(), table);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getSource()
+	{
+		return SourceFormat.getFormattedString(this,
+			Globals.getSourceDisplay(), true);
 	}
 }

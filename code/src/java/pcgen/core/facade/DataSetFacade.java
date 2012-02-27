@@ -78,4 +78,9 @@ public interface DataSetFacade
 	 * @return The list of possible buy/sell rate schemes for this dataset. 
 	 */
 	public ListFacade<GearBuySellFacade> getGearBuySellSchemes();
+
+	/**
+	 * @return
+	 */
+	public ListFacade<KitFacade> getKits();
 }
