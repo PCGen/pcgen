@@ -109,6 +109,7 @@ import pcgen.gui2.util.ShowMessageGuiObserver;
 import pcgen.gui2.util.SwingWorker;
 import pcgen.gui2.util.table.TableCellUtilities;
 import pcgen.io.PCGFile;
+import pcgen.persistence.PersistenceManager;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.system.CharacterManager;
 import pcgen.system.ConfigurationSettings;
@@ -461,6 +462,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		}
 	}
 
+	/**
+	 * @return A reference to the currently loaded sources.
+	 */
 	public ReferenceFacade<SourceSelectionFacade> getCurrentSourceSelectionRef()
 	{
 		return currentSourceSelection;
@@ -484,6 +488,17 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		return currentDataSetRef;
 	}
 
+	/**
+	 * Unload any currently loaded sources. 
+	 */
+	public void unloadSources()
+	{
+		currentSourceSelection.setReference(null);
+		Globals.emptyLists();
+		PersistenceManager pManager = PersistenceManager.getInstance();
+		pManager.clear();
+	}
+	
 	/**
 	 * Loads a selection of sources into PCGen asynchronously and
 	 * tracks the load progress on the status bar. While sources

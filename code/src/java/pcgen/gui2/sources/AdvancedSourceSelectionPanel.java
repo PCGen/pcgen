@@ -45,7 +45,6 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
-import pcgen.core.Globals;
 import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.GameModeFacade;
 import pcgen.core.facade.SourceSelectionFacade;
@@ -54,6 +53,7 @@ import pcgen.core.facade.event.ListListener;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.core.facade.util.ListFacades;
+import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.filter.FilterBar;
 import pcgen.gui2.filter.FilteredTreeViewTable;
@@ -62,13 +62,14 @@ import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.FacadeComboBoxModel;
+import pcgen.gui2.util.table.DynamicTableColumnModel;
+import pcgen.gui2.util.table.TableCellUtilities;
 import pcgen.gui2.util.treeview.DataView;
 import pcgen.gui2.util.treeview.DataViewColumn;
 import pcgen.gui2.util.treeview.DefaultDataViewColumn;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
-import pcgen.persistence.PersistenceManager;
 import pcgen.system.FacadeFactory;
 import pcgen.system.LanguageBundle;
 
@@ -91,9 +92,11 @@ class AdvancedSourceSelectionPanel extends JPanel
 	private final JButton addButton;
 	private final JButton removeButton;
 	private DefaultListFacade<CampaignFacade> selectedCampaigns;
+	private final PCGenFrame frame;
 	
-	public AdvancedSourceSelectionPanel()
+	public AdvancedSourceSelectionPanel(PCGenFrame frame)
 	{
+		this.frame = frame;
 		this.availableTable = new FilteredTreeViewTable();
 		this.selectedTable = new FilteredTreeViewTable();
 		this.selectedCampaigns = new DefaultListFacade<CampaignFacade>();
@@ -133,6 +136,11 @@ class AdvancedSourceSelectionPanel extends JPanel
 		availableTable.setTreeViewModel(availTreeViewModel);
 		availableTable.getSelectionModel().addListSelectionListener(this);
 		availableTable.setTreeCellRenderer(new CampaignRenderer());
+		((DynamicTableColumnModel) availableTable.getColumnModel())
+			.getAvailableColumns()
+			.get(2)
+			.setCellRenderer(
+				new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
 		
 		JScrollPane pane = new JScrollPane(availableTable);
 		pane.setPreferredSize(new Dimension(600, 310));
@@ -159,6 +167,11 @@ class AdvancedSourceSelectionPanel extends JPanel
 		selectedTable.setTreeViewModel(selTreeViewModel);
 		selectedTable.getSelectionModel().addListSelectionListener(this);
 		selectedTable.setTreeCellRenderer(new CampaignRenderer());
+		((DynamicTableColumnModel) selectedTable.getColumnModel())
+			.getAvailableColumns()
+			.get(2)
+			.setCellRenderer(
+				new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
 		JScrollPane scrollPane = new JScrollPane(selectedTable);
 		scrollPane.setPreferredSize(new Dimension(300,350));
 		selPanel.add(scrollPane, BorderLayout.CENTER);
@@ -247,6 +260,12 @@ class AdvancedSourceSelectionPanel extends JPanel
 		}
 	}
 
+	void refreshDisplay()
+	{
+		availableTable.refreshModelData();
+		selectedTable.refreshModelData();
+	}
+	
 	/**
 	 * {@inheritDoc}
 	 */
@@ -302,15 +321,17 @@ class AdvancedSourceSelectionPanel extends JPanel
 			List<CampaignFacade> list = availableTable.getSelectedData();
 			if (list != null && !list.isEmpty())
 			{
-				CampaignFacade camp = list.get(0);
-				selectedCampaigns.addElement(camp);
-				if (!FacadeFactory.passesPrereqs(gameMode, selectedCampaigns.getContents()))
+				for (CampaignFacade camp : list)
 				{
-					JOptionPane.showMessageDialog(AdvancedSourceSelectionPanel.this,
-												  LanguageBundle.getString("in_src_badComboMsg"), //$NON-NLS-1$
-												  LanguageBundle.getString("in_src_badComboTitle"), //$NON-NLS-1$
-												  JOptionPane.INFORMATION_MESSAGE);
-					selectedCampaigns.removeElement(camp);
+					selectedCampaigns.addElement(camp);
+					if (!FacadeFactory.passesPrereqs(gameMode, selectedCampaigns.getContents()))
+					{
+						JOptionPane.showMessageDialog(AdvancedSourceSelectionPanel.this,
+													  LanguageBundle.getString("in_src_badComboMsg"), //$NON-NLS-1$
+													  LanguageBundle.getString("in_src_badComboTitle"), //$NON-NLS-1$
+													  JOptionPane.INFORMATION_MESSAGE);
+						selectedCampaigns.removeElement(camp);
+					}
 				}
 			}
 		}
@@ -331,8 +352,10 @@ class AdvancedSourceSelectionPanel extends JPanel
 			List<CampaignFacade> list = selectedTable.getSelectedData();
 			if (list != null && !list.isEmpty())
 			{
-				CampaignFacade camp = list.get(0);
-				selectedCampaigns.removeElement(camp);
+				for (CampaignFacade camp : list)
+				{
+					selectedCampaigns.removeElement(camp);
+				}
 			}
 		}
 	}
@@ -347,17 +370,17 @@ class AdvancedSourceSelectionPanel extends JPanel
 
 		public void actionPerformed(ActionEvent e)
 		{
-			Globals.emptyLists();
-			PersistenceManager pManager = PersistenceManager.getInstance();
-			pManager.clear();
+			frame.unloadSources();
+			availableTable.refreshModelData();
+			selectedTable.refreshModelData();
 		}
 	}
 
-	private static class SourceTreeViewModel
+	private class SourceTreeViewModel
 			implements TreeViewModel<CampaignFacade>, DataView<CampaignFacade>, ListListener<CampaignFacade>
 	{
 		
-		private static ListFacade<TreeView<CampaignFacade>> views =
+		private ListFacade<TreeView<CampaignFacade>> views =
 				new DefaultListFacade<TreeView<CampaignFacade>>(Arrays.asList(SourceTreeView.values()));
 		private DefaultListFacade<CampaignFacade> model;
 		private ListFacade<CampaignFacade> baseModel = null;
@@ -370,7 +393,8 @@ class AdvancedSourceSelectionPanel extends JPanel
 			this.isAvailModel = true;
 			columns =
 					Arrays.asList(new DefaultDataViewColumn("in_src_bookType", String.class, true), 
-						new DefaultDataViewColumn("in_src_status", String.class, true));
+						new DefaultDataViewColumn("in_src_status", String.class, true),
+						new DefaultDataViewColumn("in_src_loaded", String.class, false));
 		}
 		
 		public SourceTreeViewModel( DefaultListFacade<CampaignFacade> model)
@@ -379,7 +403,8 @@ class AdvancedSourceSelectionPanel extends JPanel
 			this.isAvailModel = false;
 			columns =
 					Arrays.asList(new DefaultDataViewColumn("in_src_bookType", String.class, false), 
-						new DefaultDataViewColumn("in_src_status", String.class, false));
+						new DefaultDataViewColumn("in_src_status", String.class, false),
+						new DefaultDataViewColumn("in_src_loaded", String.class, false));
 		}
 		
 		public ListFacade<? extends TreeView<CampaignFacade>> getTreeViews()
@@ -404,7 +429,16 @@ class AdvancedSourceSelectionPanel extends JPanel
 		
 		public List<?> getData(CampaignFacade obj)
 		{
-			return Arrays.asList(obj.getBookType(), obj.getStatus());
+			SourceSelectionFacade sourceFacade =
+					frame.getCurrentSourceSelectionRef().getReference();
+			boolean isLoaded =
+					sourceFacade != null
+						&& sourceFacade.getCampaigns().containsElement(obj);
+			return Arrays.asList(
+				obj.getBookType(),
+				obj.getStatus(),
+				isLoaded ? LanguageBundle.getString("in_yes") : LanguageBundle
+					.getString("in_no"));
 		}
 		
 		public List<? extends DataViewColumn> getDataColumns()
@@ -438,67 +472,70 @@ class AdvancedSourceSelectionPanel extends JPanel
 			model.setContents(ListFacades.wrap(baseModel));
 		}
 		
-		private static enum SourceTreeView implements
-				TreeView<CampaignFacade>
+	}
+
+	private static enum SourceTreeView implements TreeView<CampaignFacade>
+	{
+
+		NAME("in_nameLabel"), //$NON-NLS-1$
+		PUBLISHER_NAME("in_src_pubName"), //$NON-NLS-1$
+		PUBLISHER_SETTING_NAME("in_src_pubSetName"), //$NON-NLS-1$
+		PUBLISHER_FORMAT_SETTING_NAME("in_src_pubFmtSetName"); //$NON-NLS-1$
+		private String name;
+
+		private SourceTreeView(String name)
 		{
-			
-			NAME("in_nameLabel"), //$NON-NLS-1$
-			PUBLISHER_NAME("in_src_pubName"), //$NON-NLS-1$
-			PUBLISHER_SETTING_NAME("in_src_pubSetName"), //$NON-NLS-1$
-			PUBLISHER_FORMAT_SETTING_NAME("in_src_pubFmtSetName"); //$NON-NLS-1$
-			private String name;
-			
-			private SourceTreeView(String name)
-			{
-				this.name = LanguageBundle.getString(name);
-			}
-			
-			public String getViewName()
-			{
-				return name;
-			}
-			
-			public List<TreeViewPath<CampaignFacade>> getPaths(CampaignFacade pobj)
-			{
-				String publisher = pobj.getPublisher();
-				if (publisher == null)
-				{
-					publisher = LanguageBundle.getString("in_other"); //$NON-NLS-1$
-				}
-				String setting = pobj.getSetting();
-				String format = pobj.getFormat();
-				switch (this)
-				{
-					case NAME:
-						return Collections.singletonList(new TreeViewPath<CampaignFacade>(
-								pobj));
-					case PUBLISHER_FORMAT_SETTING_NAME:
-						if (format != null && setting != null)
-						{
-							return Collections.singletonList(new TreeViewPath<CampaignFacade>(
-									pobj, publisher, format, setting));
-						}
-						if (format != null)
-						{
-							return Collections.singletonList(new TreeViewPath<CampaignFacade>(
-									pobj, publisher, format));
-						}
-					case PUBLISHER_SETTING_NAME:
-						if (setting != null)
-						{
-							return Collections.singletonList(new TreeViewPath<CampaignFacade>(
-									pobj, publisher, setting));
-						}
-					case PUBLISHER_NAME:
-						return Collections.singletonList(new TreeViewPath<CampaignFacade>(
-								pobj, publisher));
-					default:
-						throw new InternalError();
-				}
-			}
-			
+			this.name = LanguageBundle.getString(name);
 		}
-		
+
+		public String getViewName()
+		{
+			return name;
+		}
+
+		public List<TreeViewPath<CampaignFacade>> getPaths(CampaignFacade pobj)
+		{
+			String publisher = pobj.getPublisher();
+			if (publisher == null)
+			{
+				publisher = LanguageBundle.getString("in_other"); //$NON-NLS-1$
+			}
+			String setting = pobj.getSetting();
+			String format = pobj.getFormat();
+			switch (this)
+			{
+				case NAME:
+					return Collections
+						.singletonList(new TreeViewPath<CampaignFacade>(pobj));
+				case PUBLISHER_FORMAT_SETTING_NAME:
+					if (format != null && setting != null)
+					{
+						return Collections
+							.singletonList(new TreeViewPath<CampaignFacade>(
+								pobj, publisher, format, setting));
+					}
+					if (format != null)
+					{
+						return Collections
+							.singletonList(new TreeViewPath<CampaignFacade>(
+								pobj, publisher, format));
+					}
+				case PUBLISHER_SETTING_NAME:
+					if (setting != null)
+					{
+						return Collections
+							.singletonList(new TreeViewPath<CampaignFacade>(
+								pobj, publisher, setting));
+					}
+				case PUBLISHER_NAME:
+					return Collections
+						.singletonList(new TreeViewPath<CampaignFacade>(pobj,
+							publisher));
+				default:
+					throw new InternalError();
+			}
+		}
+
 	}
 
 	/**

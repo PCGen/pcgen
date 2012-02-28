@@ -34,6 +34,7 @@ import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -54,12 +55,13 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+
 import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.GameModeFacade;
 import pcgen.core.facade.LoadableFacade.LoadingState;
+import pcgen.core.facade.SourceSelectionFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.core.facade.util.ListFacades;
-import pcgen.core.facade.SourceSelectionFacade;
 import pcgen.gui.DataInstaller;
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.UIPropertyContext;
@@ -79,14 +81,14 @@ public class SourceSelectionDialog extends JDialog
 		implements ActionListener, ChangeListener, ListSelectionListener
 {
 
-	private static final UIPropertyContext context = UIPropertyContext.createContext("SourceSelectionDialog");
-	private static final String PROP_SELECTED_SOURCE = "selectedSource";
-	private static final String LOAD_COMMAND = "Load";
-	private static final String CANCEL_COMMAND = "Cancel";
-	private static final String SAVE_COMMAND = "Save";
-	private static final String DELETE_COMMAND = "Delete";
-	private static final String HIDEUNHIDE_COMMAND = "Hide";
-	private static final String INSTALLDATA_COMMAND = "Install";
+	private static final UIPropertyContext context = UIPropertyContext.createContext("SourceSelectionDialog"); //$NON-NLS-1$
+	private static final String PROP_SELECTED_SOURCE = "selectedSource"; //$NON-NLS-1$
+	private static final String LOAD_COMMAND = "Load"; //$NON-NLS-1$
+	private static final String CANCEL_COMMAND = "Cancel"; //$NON-NLS-1$
+	private static final String SAVE_COMMAND = "Save"; //$NON-NLS-1$
+	private static final String DELETE_COMMAND = "Delete"; //$NON-NLS-1$
+	private static final String HIDEUNHIDE_COMMAND = "Hide"; //$NON-NLS-1$
+	private static final String INSTALLDATA_COMMAND = "Install"; //$NON-NLS-1$
 	private final PCGenFrame frame;
 	private QuickSourceSelectionPanel basicPanel;
 	private AdvancedSourceSelectionPanel advancedPanel;
@@ -106,7 +108,7 @@ public class SourceSelectionDialog extends JDialog
 		setTitle(LanguageBundle.getString("in_mnuSourcesLoadSelect")); //$NON-NLS-1$
 		this.tabs = new JTabbedPane();
 		this.basicPanel = new QuickSourceSelectionPanel();
-		this.advancedPanel = new AdvancedSourceSelectionPanel();
+		this.advancedPanel = new AdvancedSourceSelectionPanel(frame);
 		this.buttonPanel = new JPanel();
 		this.loadButton = new JButton(LanguageBundle.getString("in_load")); //$NON-NLS-1$
 		this.cancelButton = new JButton(LanguageBundle.getString("in_cancel")); //$NON-NLS-1$
@@ -125,8 +127,8 @@ public class SourceSelectionDialog extends JDialog
 		Container pane = getContentPane();
 		pane.setLayout(new BorderLayout());
 
-		tabs.add("Basic", basicPanel);
-		tabs.add("Advanced", advancedPanel);
+		tabs.add(LanguageBundle.getString("in_basic"), basicPanel); //$NON-NLS-1$
+		tabs.add(LanguageBundle.getString("in_advanced"), advancedPanel); //$NON-NLS-1$
 		tabs.addChangeListener(this);
 		pane.add(tabs, BorderLayout.CENTER);
 
@@ -353,6 +355,19 @@ public class SourceSelectionDialog extends JDialog
 										  "Cannot Load Selected Sources",
 										  JOptionPane.INFORMATION_MESSAGE);
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void setVisible(boolean visible)
+	{
+		if (visible)
+		{
+			advancedPanel.refreshDisplay();
+		}
+		super.setVisible(visible);
 	}
 
 	private static class SourcesTableModel extends FilteredListFacadeTableModel<SourceSelectionFacade>
