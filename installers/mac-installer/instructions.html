@@ -42,9 +42,9 @@
 
 		<ol style="list-style-type: upper-alpha">
 			<li>You will need the OS X developer tools installed.  If they didn't come with your computer/OS, then you 
-				can setup a free Apple Developer Connection account at <a href="http://www.apple.com/developer">http://www.apple.com/developer</a> 
-				and download them from there. The version I'm currently using is XCode Tools 2.2 which runs in Tiger.</li>
-			<li>Make sure that you have all of current OS updates installed.</li>
+				can setup a free Apple Developer Connection account at <a href="http://developer.apple.com/xcode/index.php">http://developer.apple.com/xcode/index.php</a> 
+				and download them from there. The version I'm currently using is XCode Tools 4.02 running on Snow Leopard.</li>
+			<li>Make sure that you have all the current OS updates installed.</li>
 			<li>Download the support files in this module of the PCGen project at: https://svn.sourceforge.net/pcgen/Trunk/installers/mac-installer</a>.</li>
 			<li>Finally, download the full version of PCGen from SF.</li>
 		</ol>
@@ -55,13 +55,12 @@
 		<h2>Step 2: Converting PCGen to an OS X App</h2>
 
 		<ol style="list-style-type: upper-alpha">
-			<li>Launch /Developer/Applications/Java Tools/Jar Bundler</li>
+			<li>Launch /Developer/Applications/Utilities/Jar Bundler</li>
 			<li>On the first tab (Build Information), click on the choose button to the right of the 
 				Main Class field.  Navigate to pcgen.jar for the version we are building and select it.</li>
-			<li>Make sure the "Use Macintosh Menu Bar" is not checked, in OS 10.4 Apple changed the way 
-				the menu bar in java is handled and checking this will cause the app to crash on launch in Tiger.</li>
-			<li>Make sure the "Anti-Alias Text", "Anti-alias Graphics", and "Growbox Intrudes" checkboxs are all checked.</li>
-			<li>Make sure the JVM version is 1.5+</li>
+			<li>Make sure the "Use Macintosh Menu Bar" is not checked.</li>
+			<li>Make sure the "Anti-Alias Text" and "Anti-alias Graphics" checkboxs are all checked.</li>
+			<li>Make sure the JVM version is 1.6+</li>
 			<li>Switch to the Properties tab.</li>
 			<li>In the Type field, verify that it is APPL.</li>
 			<li>In the Signature Field Enter "PCGn" (without the quotes).</li>
@@ -124,7 +123,7 @@
 			<li>Launch /Applications/Utilities/Disk Utility.</li>
 			<li>Click on the New Image button in the toolbar of the main window.</li>
 			<li>Name this image "Install PCGen.dmg" (without the quotes). </li>
-			<li>Make the size 100 MB.</li>
+			<li>Make the size 125 MB.</li>
 			<li>Set the Encryption to "none".</li>
 			<li>Set the Format to "read/write disc image".</li>
 		</ol>
