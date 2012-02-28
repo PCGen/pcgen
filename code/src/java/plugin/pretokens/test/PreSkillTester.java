@@ -25,6 +25,7 @@
  *
  */package plugin.pretokens.test;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -215,7 +216,8 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		HashMap<Skill, Set<Skill>> serveAsSkills, Set<Skill> imitators,
 		PlayerCharacter character)
 	{
-		for (Skill aSkill : character.getSkillSet())
+		Set<Skill> skillSet = new HashSet<Skill>(character.getSkillSet());
+		for (Skill aSkill : skillSet)
 		{
 			Set<Skill> servesAs = new HashSet<Skill>();
 			for(CDOMReference<Skill> ref: aSkill.getSafeListFor(ListKey.SERVES_AS_SKILL))
