@@ -38,9 +38,9 @@ Pilum				TYPE:Martial.Ranged.Piercing.RangedPiercing.Spear
 Dagger (Swordbreaker)	TYPE:Exotic.Melee.Slashing.MeleeSlashing.Dagger
 
 # -- 1-handers
-Falcata			TYPE:Exotic.Melee.Slashing.MeleeSlashing
-Khopesh			TYPE:Exotic.Melee.Slashing.MeleeSlashing
-Sword (Temple)		TYPE:Exotic.Melee.Slashing.MeleeSlashing
+Falcata			TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword
+Khopesh			TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword
+Sword (Temple)		TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword
 
 # -- 2-handers
 Spear (Chain)		TYPE:Exotic.Melee.Piercing.Slashing.MeleePiercing.MeleeSlashing.Spear.TwoHanded
