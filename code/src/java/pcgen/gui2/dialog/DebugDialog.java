@@ -44,6 +44,7 @@ import javax.swing.Timer;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import pcgen.gui2.PCGenFrame;
+import pcgen.gui2.tools.Utility;
 import pcgen.system.LoggingRecorder;
 import pcgen.util.Logging;
 
@@ -67,6 +68,8 @@ public class DebugDialog extends JDialog
 		initComponents();
 		pack();
 		setSize(700, 500);
+		
+		Utility.installEscapeCloseOperation(this);
 	}
 
 	private void initComponents()

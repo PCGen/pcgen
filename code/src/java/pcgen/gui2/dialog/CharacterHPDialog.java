@@ -52,6 +52,7 @@ import pcgen.core.facade.ClassFacade;
 import pcgen.core.facade.ReferenceFacade;
 import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
+import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.table.IntegerEditor;
 
 /**
@@ -163,6 +164,8 @@ public class CharacterHPDialog extends JDialog implements ActionListener
 			}
 
 		});
+		
+		Utility.installEscapeCloseOperation(this);
 	}
 
 	public void actionPerformed(ActionEvent e)

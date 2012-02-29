@@ -30,6 +30,7 @@ import javax.swing.JFrame;
 
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.doomsdaybook.NameGenPanel;
+import pcgen.gui2.tools.Utility;
 
 /**
  * The Class <code>RandomNameDialog</code> is a dialog in which the user can 
@@ -61,6 +62,8 @@ public class RandomNameDialog extends JDialog
 		pack();
 		setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
 		setLocationRelativeTo(frame);
+		
+		Utility.installEscapeCloseOperation(this);
 	}
 
 	/**

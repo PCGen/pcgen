@@ -57,6 +57,7 @@ import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.tools.Hyperactive;
 import pcgen.gui2.tools.Icons;
+import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.JLabelPane;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
@@ -97,6 +98,8 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 		loadTips();
 
 		pack();
+		
+		Utility.installEscapeCloseOperation(this);
 
 		lastNumber = propertyContext.initInt("lastTip", -1);
 		showNextTip();

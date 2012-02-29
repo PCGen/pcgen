@@ -80,6 +80,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.tools.Icons;
+import pcgen.gui2.tools.Utility;
 import pcgen.io.ExportHandler;
 import pcgen.system.ConfigurationSettings;
 import pcgen.util.FOPHandler;
@@ -203,6 +204,8 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 		cancelButton.addActionListener(this);
 
 		enableEditGroup(false);
+		
+		Utility.installEscapeCloseOperation(this);
 	}
 
 	private void enableEditGroup(boolean enable)

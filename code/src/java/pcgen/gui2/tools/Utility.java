@@ -27,12 +27,21 @@ import java.awt.Dimension;
 import java.awt.GraphicsEnvironment;
 import java.awt.GridBagConstraints;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowEvent;
 import java.io.File;
 
 import java.io.IOException;
+
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JRootPane;
+import javax.swing.KeyStroke;
 
 import pcgen.system.PCGenSettings;
 
@@ -44,6 +53,13 @@ import pcgen.system.PCGenSettings;
  */
 public final class Utility
 {
+
+	private static final KeyStroke escapeStroke = KeyStroke.getKeyStroke(
+		KeyEvent.VK_ESCAPE, 0);
+
+	/** An action map key for the user requesting a dialog close via the ESC key. */
+	public static final String dispatchWindowClosingActionMapKey =
+			"pcgen:WINDOW_CLOSING"; //$NON-NLS-1$
 
 	/**
 	 * Set up GridBag Constraints.
@@ -249,6 +265,27 @@ public final class Utility
 
 		BrowserLauncher.openURL(url);
 
+	}
+
+	/**
+	 * Add a keyboard shortcut to allow ESC to close the dialog.
+	 * @param dialog The dialog to be updated.
+	 */
+	public static void installEscapeCloseOperation(final JDialog dialog)
+	{
+		Action dispatchClosing = new AbstractAction()
+		{
+			public void actionPerformed(ActionEvent event)
+			{
+				dialog.dispatchEvent(new WindowEvent(dialog,
+					WindowEvent.WINDOW_CLOSING));
+			}
+		};
+		JRootPane root = dialog.getRootPane();
+		root.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(escapeStroke,
+			dispatchWindowClosingActionMapKey);
+		root.getActionMap().put(dispatchWindowClosingActionMapKey,
+			dispatchClosing);
 	}
 
 }

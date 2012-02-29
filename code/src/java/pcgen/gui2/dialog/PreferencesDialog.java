@@ -166,6 +166,8 @@ public final class PreferencesDialog extends JDialog
 		settingsTree.setSelectionRow(1);
 
 		pack();
+		
+		Utility.installEscapeCloseOperation(this);
 	}
 
 	public static void show(JFrame frame)

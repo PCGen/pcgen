@@ -71,6 +71,7 @@ import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.PartyFacade;
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.UIPropertyContext;
+import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.FacadeComboBoxModel;
 import pcgen.system.BatchExporter;
 import pcgen.system.CharacterManager;
@@ -130,6 +131,8 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 		initComponents();
 		initLayout();
 		fileSearcher.execute();
+		
+		Utility.installEscapeCloseOperation(this);
 	}
 
 	@Override

@@ -66,6 +66,7 @@ import pcgen.gui.DataInstaller;
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.filter.FilteredListFacadeTableModel;
+import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.JTableEx;
 import pcgen.gui2.util.SortedListModel;
 import pcgen.gui2.util.table.TableUtils;
@@ -159,6 +160,8 @@ public class SourceSelectionDialog extends JDialog
 		buttons.add(cancelButton);
 		buttons.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		pane.add(buttons, BorderLayout.SOUTH);
+		
+		Utility.installEscapeCloseOperation(this);
 	}
 
 	private void initDefaults()

@@ -58,6 +58,7 @@ import pcgen.core.Globals;
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.tools.BrowserLauncher;
 import pcgen.gui2.tools.Icons;
+import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.GridBoxLayout;
 import pcgen.gui2.util.JLabelPane;
 import pcgen.system.LanguageBundle;
@@ -79,6 +80,8 @@ public class AboutDialog extends JDialog
 		pack();
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(frame);
+		
+		Utility.installEscapeCloseOperation(this);
 	}
 
 }

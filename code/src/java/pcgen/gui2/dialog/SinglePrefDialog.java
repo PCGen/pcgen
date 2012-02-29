@@ -34,6 +34,7 @@ import javax.swing.JPanel;
 
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.prefs.PCGenPrefsPanel;
+import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -73,6 +74,8 @@ public class SinglePrefDialog extends JDialog
 		prefsPanel.applyOptionValuesToControls();
 
 		pack();
+		
+		Utility.installEscapeCloseOperation(this);
 	}
 
 	private void initComponents()
