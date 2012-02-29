@@ -25,6 +25,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -233,22 +234,30 @@ class AdvancedSourceSelectionPanel extends JPanel
 	 */
 	private void selectDefaultSources(GameModeFacade gameMode)
 	{
-		if (gameMode == null)
+		if (gameMode != null)
 		{
-			return;
-		}
-		String defaultSelectedSources =
-				context.initProperty(
-					PROP_SELECTED_SOURCES + gameMode.toString(), ""); //$NON-NLS-1$
-		String[] sourceNames = defaultSelectedSources.split("\\|"); //$NON-NLS-1$
-		for (String name : sourceNames)
-		{
-			for (CampaignFacade camp : FacadeFactory
-				.getSupportedCampaigns(gameMode))
+			List<String> sourceNames;
+			String defaultSelectedSources =
+					context.initProperty(
+						PROP_SELECTED_SOURCES + gameMode.toString(), ""); //$NON-NLS-1$
+			if (defaultSelectedSources == null || "".equals(defaultSelectedSources))
 			{
-				if (name.equals(camp.toString()))
+				sourceNames = gameMode.getDefaultDataSetList();
+			}
+			else
+			{
+				sourceNames = Arrays.asList(defaultSelectedSources.split("\\|")); //$NON-NLS-1$
+			}
+			
+			for (String name : sourceNames)
+			{
+				for (CampaignFacade camp : FacadeFactory
+					.getSupportedCampaigns(gameMode))
 				{
-					selectedCampaigns.addElement(camp);
+					if (name.equals(camp.toString()))
+					{
+						selectedCampaigns.addElement(camp);
+					}
 				}
 			}
 		}
@@ -368,8 +377,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 	 */
 	void rememberSelectedSources()
 	{
-		List<CampaignFacade> selectedCampaigns2 = getSelectedCampaigns();
-		String sources = StringUtils.join(selectedCampaigns2, "|"); //$NON-NLS-1$
+		String sources = StringUtils.join(getSelectedCampaigns(), "|"); //$NON-NLS-1$
 		context.setProperty(PROP_SELECTED_SOURCES+gameMode.toString(), sources);		
 	}
 

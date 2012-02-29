@@ -20,6 +20,8 @@
  */
 package pcgen.core.facade;
 
+import java.util.List;
+
 /**
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
@@ -34,7 +36,9 @@ public interface GameModeFacade
 	public String getDisplayName();
 	
 	public String getDefaultSourceTitle();
-	
+
+	public List<String> getDefaultDataSetList();
+
 	public String getInfoSheet();
 
 	public String getInfoSheetSkill();
