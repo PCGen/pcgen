@@ -45,6 +45,8 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
+import org.apache.commons.lang.StringUtils;
+
 import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.GameModeFacade;
 import pcgen.core.facade.SourceSelectionFacade;
@@ -81,6 +83,11 @@ class AdvancedSourceSelectionPanel extends JPanel
 		implements ListSelectionListener, ListListener<CampaignFacade>, ActionListener
 {
 	
+	private static final UIPropertyContext context = UIPropertyContext
+		.createContext("advancedSourceSelectionPanel"); //$NON-NLS-1$
+	private static final String PROP_SELECTED_GAME = "selectedGame"; //$NON-NLS-1$
+	private static final String PROP_SELECTED_SOURCES = "selectedSources."; //$NON-NLS-1$
+
 	private final FilteredTreeViewTable availableTable;
 	private final FilteredTreeViewTable selectedTable;
 	private SourceTreeViewModel availTreeViewModel;
@@ -194,9 +201,59 @@ class AdvancedSourceSelectionPanel extends JPanel
 	
 	private void initDefaults()
 	{
-		if (gameModeList.getModel().getSize() > 0)
+		String defaultGame =
+				context.initProperty(PROP_SELECTED_GAME, "");		
+		GameModeFacade gameMode = null;
+		if (StringUtils.isNotEmpty(defaultGame))
+		{
+			for (int i = 0; i < gameModeList.getModel().getSize(); i++)
+			{
+				GameModeFacade game =
+						(GameModeFacade) gameModeList.getModel()
+							.getElementAt(i);
+				if (defaultGame.equals(game.toString()))
+				{
+					gameModeList.setSelectedIndex(i);
+					gameMode = game;
+				}
+			}
+		}
+		if (gameMode == null && gameModeList.getModel().getSize() > 0)
 		{
 			gameModeList.setSelectedIndex(0);
+			gameMode = (GameModeFacade) gameModeList.getSelectedItem();
+		}
+		if (gameMode != null)
+		{
+			selectDefaultSources(gameMode);
+		}
+	}
+
+	/**
+	 * Add the user's previously selected sources for this gamemode 
+	 * to the selected list.  
+	 * @param gameMode The game mode being selected
+	 */
+	private void selectDefaultSources(GameModeFacade gameMode)
+	{
+		if (gameMode == null)
+		{
+			return;
+		}
+		String defaultSelectedSources =
+				context.initProperty(
+					PROP_SELECTED_SOURCES + gameMode.toString(), ""); //$NON-NLS-1$
+		String[] sourceNames = defaultSelectedSources.split("\\|"); //$NON-NLS-1$
+		for (String name : sourceNames)
+		{
+			for (CampaignFacade camp : FacadeFactory
+				.getSupportedCampaigns(gameMode))
+			{
+				if (name.equals(camp.toString()))
+				{
+					selectedCampaigns.addElement(camp);
+				}
+			}
 		}
 	}
 	
@@ -219,8 +276,10 @@ class AdvancedSourceSelectionPanel extends JPanel
 	private void setSelectedGameMode(GameModeFacade elementAt)
 	{
 		this.gameMode = elementAt;
+		context.setProperty(PROP_SELECTED_GAME, gameMode.toString());		
 		selectedCampaigns.clearContents();
 		availTreeViewModel.setGameModel(elementAt);
+		selectDefaultSources(gameMode);
 	}
 	
 	private void setSelectedCampaign(CampaignFacade source)
@@ -306,6 +365,16 @@ class AdvancedSourceSelectionPanel extends JPanel
 		availableTable.updateDisplay();
 	}
 
+	/**
+	 * Save the selected sources for the current game mode so they can be 
+	 * restored next time we start.
+	 */
+	void rememberSelectedSources()
+	{
+		String sources = StringUtils.join(getSelectedCampaigns(), "|"); //$NON-NLS-1$
+		context.setProperty(PROP_SELECTED_SOURCES+gameMode.toString(), sources);		
+	}
+
 	private class AddAction extends AbstractAction
 	{
 
@@ -333,6 +402,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 						selectedCampaigns.removeElement(camp);
 					}
 				}
+				rememberSelectedSources();
 			}
 		}
 	}
@@ -356,6 +426,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 				{
 					selectedCampaigns.removeElement(camp);
 				}
+				rememberSelectedSources();
 			}
 		}
 	}

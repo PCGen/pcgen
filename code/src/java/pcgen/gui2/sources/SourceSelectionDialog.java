@@ -163,8 +163,9 @@ public class SourceSelectionDialog extends JDialog
 
 	private void initDefaults()
 	{
+		boolean useBasic = context.initBoolean("useBasic", true); //$NON-NLS-1$
 		SourceSelectionFacade selection = basicPanel.getSourceSelection();
-		if (selection != null)
+		if (selection != null && useBasic)
 		{
 			deleteButton.setEnabled(selection.isModifiable());
 			advancedPanel.setSourceSelection(selection);
@@ -174,7 +175,6 @@ public class SourceSelectionDialog extends JDialog
 			deleteButton.setEnabled(false);
 		}
 		buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
-		boolean useBasic = context.initBoolean("useBasic", true);
 		if (useBasic)
 		{
 			setBasicButtons();
@@ -183,6 +183,7 @@ public class SourceSelectionDialog extends JDialog
 		else
 		{
 			setAdvancedButtons();
+			tabs.setSelectedIndex(1);
 		}
 	}
 
@@ -456,6 +457,7 @@ public class SourceSelectionDialog extends JDialog
 	private class QuickSourceSelectionPanel extends JPanel implements ListSelectionListener
 	{
 
+		private static final String DEFAULT_SOURCE = "Pathfinder RPG for Players"; //$NON-NLS-1$
 		private JList sourceList;
 
 		public QuickSourceSelectionPanel()
@@ -503,7 +505,7 @@ public class SourceSelectionDialog extends JDialog
 		{
 			final ListModel sortedModel = sourceList.getModel();
 			String defaultSelectedSource =
-					context.initProperty(PROP_SELECTED_SOURCE, sortedModel.getSize() == 0 ? null : sortedModel.getElementAt(0).toString());
+					context.initProperty(PROP_SELECTED_SOURCE, DEFAULT_SOURCE);
 			int index = Collections.binarySearch(new AbstractList<Object>()
 			{
 

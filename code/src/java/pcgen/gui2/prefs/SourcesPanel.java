@@ -40,6 +40,7 @@ import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.JComboBoxEx;
 import pcgen.system.LanguageBundle;
@@ -59,8 +60,10 @@ import pcgen.util.Logging;
 @SuppressWarnings("serial")
 public class SourcesPanel extends PCGenPrefsPanel
 {
+	/** Settings key for basic/advanced sources. */
+	private static final String SOURCE_USE_BASIC_KEY = "SourceSelectionDialog.useBasic"; //$NON-NLS-1$
 	private static String in_sources =
-		LanguageBundle.getString("in_Prefs_sources");
+		LanguageBundle.getString("in_Prefs_sources"); //$NON-NLS-1$
 	private JCheckBox campLoad = new JCheckBox();
 	private JCheckBox charCampLoad = new JCheckBox();
 	private JCheckBox allowOptsInSource = new JCheckBox();
@@ -240,7 +243,7 @@ public class SourcesPanel extends PCGenPrefsPanel
 		SettingsHandler.setShowSponsors(showSponsors.isSelected());
 		SettingsHandler.setLoadURLs(loadURL.isSelected());
 		SettingsHandler.setAllowOverride(allowOverride.isSelected());
-		SettingsHandler.setUseAdvancedSourceSelect(useAdvancedSourceSelect.isSelected());
+		UIPropertyContext.getInstance().setBoolean(SOURCE_USE_BASIC_KEY, !useAdvancedSourceSelect.isSelected());
 
 		switch (sourceOptions.getSelectedIndex())
 		{
@@ -290,7 +293,7 @@ public class SourcesPanel extends PCGenPrefsPanel
 		showSponsors.setSelected(SettingsHandler.showSponsors());
 		loadURL.setSelected(SettingsHandler.isLoadURLs());
 		allowOverride.setSelected(SettingsHandler.isAllowOverride());
-		useAdvancedSourceSelect.setSelected(SettingsHandler.useAdvancedSourceSelect());
+		useAdvancedSourceSelect.setSelected(!UIPropertyContext.getInstance().getBoolean(SOURCE_USE_BASIC_KEY));
 		
 		switch (Globals.getSourceDisplay())
 		{
