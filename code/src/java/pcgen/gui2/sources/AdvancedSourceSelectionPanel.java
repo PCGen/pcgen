@@ -196,7 +196,8 @@ class AdvancedSourceSelectionPanel extends JPanel
 		infoPane.setPreferredSize(new Dimension(800, 150));
 		mainPane.setBottomComponent(infoPane);
 		mainPane.setResizeWeight(0.7);
-		add(mainPane);
+		setLayout(new BorderLayout());
+		add(mainPane, BorderLayout.CENTER);
 	}
 	
 	private void initDefaults()
