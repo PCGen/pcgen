@@ -329,7 +329,11 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 			{
 				path = new File(PCGenSettings.getPcgDir());
 			}
-			name = character.getNameRef().getReference();
+			name = character.getTabNameRef().getReference();
+			if (name == null || "".equals(name))
+			{
+				name = character.getNameRef().getReference();
+			}
 		}
 		else
 		{
