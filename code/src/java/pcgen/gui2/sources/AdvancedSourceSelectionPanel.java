@@ -224,10 +224,6 @@ class AdvancedSourceSelectionPanel extends JPanel
 			gameModeList.setSelectedIndex(0);
 			gameMode = (GameModeFacade) gameModeList.getSelectedItem();
 		}
-		if (gameMode != null)
-		{
-			selectDefaultSources(gameMode);
-		}
 	}
 
 	/**
@@ -372,7 +368,8 @@ class AdvancedSourceSelectionPanel extends JPanel
 	 */
 	void rememberSelectedSources()
 	{
-		String sources = StringUtils.join(getSelectedCampaigns(), "|"); //$NON-NLS-1$
+		List<CampaignFacade> selectedCampaigns2 = getSelectedCampaigns();
+		String sources = StringUtils.join(selectedCampaigns2, "|"); //$NON-NLS-1$
 		context.setProperty(PROP_SELECTED_SOURCES+gameMode.toString(), sources);		
 	}
 
