@@ -226,6 +226,8 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 															Boolean.class),
 								  new DefaultDataViewColumn("Description",
 															String.class),
+								  new DefaultDataViewColumn("Cost",
+															Float.class),
 								  new DefaultDataViewColumn("Source",
 															String.class));
 		}
@@ -261,6 +263,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 								 obj.isMult(),
 								 obj.isStackable(),
 								 infoFactory.getDescription(obj),
+								 (int) obj.getCost(),
 								 obj.getSource());
 		}
 

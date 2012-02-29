@@ -323,4 +323,9 @@ public final class Ability extends PObject implements CategorizedCDOMObject<Abil
 		}
 		return retAspect;
 	}
+
+	public double getCost() {
+		// TODO Auto-generated method stub
+		return getSafe(ObjectKey.SELECTION_COST).doubleValue();
+	}
 }

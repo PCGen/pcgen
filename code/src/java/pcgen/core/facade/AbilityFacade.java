@@ -34,5 +34,7 @@ public interface AbilityFacade extends InfoFacade
     public boolean isMult();
 
     public boolean isStackable();
+    
+    public double getCost();
 
 }
