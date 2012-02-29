@@ -682,6 +682,24 @@ public class CharacterAbilities
 	}
 
 	/**
+	 * Get the total number of selections for this category.
+	 * @param categoryFacade The ability category to be retrieved.
+	 * @return The total number of choices.
+	 */
+	public int getTotalSelections(AbilityCategoryFacade categoryFacade)
+	{
+		if (categoryFacade == null
+			|| !(categoryFacade instanceof AbilityCategory))
+		{
+			return 0;
+		}
+
+		AbilityCategory category = (AbilityCategory) categoryFacade;
+		BigDecimal pool = theCharacter.getTotalAbilityPool(category);
+		return pool.intValue();
+	}
+
+	/**
 	 * Get the number of selections that are remaining for this category.
 	 * @param categoryFacade The ability category to be retrieved.
 	 * @return The number of choices left.

@@ -165,6 +165,8 @@ public interface CharacterFacade
 	 */
 	public int getClassLevel(ClassFacade c);
 
+	public int getTotalSelections(AbilityCategoryFacade category);
+
 	public int getRemainingSelections(AbilityCategoryFacade category);
 
 	public void setRemainingSelection(AbilityCategoryFacade category,

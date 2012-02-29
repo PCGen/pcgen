@@ -567,6 +567,14 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	}
 	
 	/* (non-Javadoc)
+	 * @see pcgen.core.facade.CharacterFacade#getTotalSelections(pcgen.core.facade.AbilityCategoryFacade)
+	 */
+	public int getTotalSelections(AbilityCategoryFacade category)
+	{
+		return characterAbilities.getTotalSelections(category);
+	}
+
+	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getRemainingSelections(pcgen.core.facade.AbilityCategoryFacade)
 	 */
 	public int getRemainingSelections(AbilityCategoryFacade category)

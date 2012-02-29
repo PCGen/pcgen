@@ -51,13 +51,13 @@ public class CategoryTableModel extends FilteredListFacadeTableModel<AbilityCate
 
 	public int getColumnCount()
 	{
-		return 2;
+		return 3;
 	}
 
 	@Override
 	public boolean isCellEditable(int rowIndex, int columnIndex)
 	{
-		if (columnIndex == 1)
+		if (columnIndex == 2)
 		{
 			return true;
 		}
@@ -74,21 +74,27 @@ public class CategoryTableModel extends FilteredListFacadeTableModel<AbilityCate
 	@Override
 	public String getColumnName(int column)
 	{
-		if (column == 0)
+		switch (column)
 		{
-			return "Category";
+			case 0:
+				return "Category";
+			case 1:
+				return "Total";
+			case 2:
+				return "Remaining";
+			default:
+				throw new IndexOutOfBoundsException();
 		}
-		return "Remaining";
 	}
 
 	@Override
 	public Class<?> getColumnClass(int columnIndex)
 	{
-		if (columnIndex == 1)
+		if (columnIndex == 0)
 		{
-			return Integer.class;
+			return Object.class;
 		}
-		return Object.class;
+		return Integer.class;
 	}
 
 	@Override
@@ -99,6 +105,8 @@ public class CategoryTableModel extends FilteredListFacadeTableModel<AbilityCate
 			case 0:
 				return category;
 			case 1:
+				return character.getTotalSelections(category);
+			case 2:
 				return character.getRemainingSelections(category);
 			default:
 				throw new IndexOutOfBoundsException();
