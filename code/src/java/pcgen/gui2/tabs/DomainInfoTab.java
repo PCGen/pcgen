@@ -601,6 +601,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				new DefaultListFacade<TreeView<DeityFacade>>(Arrays.asList(DeityTreeView.values()));
 		private final List<DefaultDataViewColumn> columns = Arrays.asList(new DefaultDataViewColumn("in_alignLabel", Object.class), //$NON-NLS-1$
 																		  new DefaultDataViewColumn("in_domains", String.class), //$NON-NLS-1$
+																		  new DefaultDataViewColumn("in_pantheon", String.class), //$NON-NLS-1$
 																		  new DefaultDataViewColumn("in_sourceLabel", String.class)); //$NON-NLS-1$
 		private final CharacterFacade character;
 		private InfoFactory infoFactory;
@@ -634,7 +635,8 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		public List<?> getData(DeityFacade obj)
 		{
 			return Arrays.asList(obj.getAlignment(),
-				infoFactory.getDomains(obj), obj.getSource());
+				infoFactory.getDomains(obj), infoFactory.getPantheons(obj), 
+				obj.getSource());
 		}
 
 		public List<? extends DataViewColumn> getDataColumns()
@@ -651,6 +653,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		NAME("Name"),
 		ALIGNMENT_NAME("Alignment/Name"),
 		DOMAIN_NAME("Domain/Name"),
+		PANTHEON_NAME("Pantheon/Name"),
 		SOURCE_NAME("Source/Name");
 		private String name;
 
@@ -666,12 +669,12 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		public List<TreeViewPath<DeityFacade>> getPaths(DeityFacade pobj)
 		{
+			List<TreeViewPath<DeityFacade>> paths = new ArrayList<TreeViewPath<DeityFacade>>();
 			switch (this)
 			{
 				case NAME:
 					return Collections.singletonList(new TreeViewPath<DeityFacade>(pobj));
 				case DOMAIN_NAME:
-					List<TreeViewPath<DeityFacade>> paths = new ArrayList<TreeViewPath<DeityFacade>>();
 					for (String domain : pobj.getDomainNames())
 					{
 						paths.add(new TreeViewPath(pobj, domain));
@@ -679,6 +682,12 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 					return paths;
 				case ALIGNMENT_NAME:
 					return Collections.singletonList(new TreeViewPath<DeityFacade>(pobj, pobj.getAlignment()));
+				case PANTHEON_NAME:
+					for (String pantheon : pobj.getPantheons())
+					{
+						paths.add(new TreeViewPath(pobj, pantheon));
+					}
+					return paths;
 				case SOURCE_NAME:
 					return Collections.singletonList(new TreeViewPath<DeityFacade>(pobj, pobj.getSource()));
 				default:

@@ -98,4 +98,11 @@ public interface InfoFactory
 	 */
 	public String getDomains(DeityFacade deityFacade);
 
+	/**
+	 * Get a display string of the deity's pantheons.
+	 * @param deityFacade The deity to be output.
+	 * @return The comma separated list of pantheons.
+	 */
+	public String getPantheons(DeityFacade deityFacade);
+
 }

@@ -32,5 +32,7 @@ public interface DeityFacade extends InfoFacade
 	List<String> getDomainNames();
 
 	AlignmentFacade getAlignment();
-	
+
+	List<String> getPantheons();
+
 }

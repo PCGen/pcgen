@@ -44,6 +44,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SourceFormat;
@@ -476,13 +477,29 @@ public class Gui2InfoFactory implements InfoFactory
 		if (aDeity != null)
 		{
 			infoText.appendTitleElement(OutputNameFormatting.piString(aDeity, false));
-
 			infoText.appendLineBreak();
+
+			String aString = aDeity.get(StringKey.TITLE);
+			if (aString != null)
+			{
+				infoText.appendI18nFormattedElement("in_deityTitle", //$NON-NLS-1$
+					aString);
+				infoText.appendLineBreak();
+			}
+
 			infoText
 				.appendI18nFormattedElement(
 					"in_InfoDescription", DescriptionFormatting.piDescString(pc, aDeity)); //$NON-NLS-1$
 
-			infoText.appendLineBreak();
+			aString = getPantheons(aDeity);
+			if (aString != null)
+			{
+				infoText.appendSpacer();
+				infoText.appendI18nElement(
+						"in_pantheon", aString); //$NON-NLS-1$
+			}
+
+			infoText.appendSpacer();
 			infoText.appendI18nElement(
 				"in_domains", getDomains(aDeity)); //$NON-NLS-1$
 
@@ -496,7 +513,7 @@ public class Gui2InfoFactory implements InfoFactory
 					ReferenceUtilities.joinLstFormat(dwp, "|"));
 			}
 
-			String aString = aDeity.get(StringKey.HOLY_ITEM);
+			aString = aDeity.get(StringKey.HOLY_ITEM);
 			if (aString != null)
 			{
 				infoText.appendSpacer();
@@ -516,6 +533,7 @@ public class Gui2InfoFactory implements InfoFactory
 			aDeity.getPrerequisiteList(), false);
 			if (aString.length() != 0)
 			{
+				infoText.appendSpacer();
 				infoText.appendI18nFormattedElement("in_InfoRequirements", //$NON-NLS-1$
 					aString);
 			}
@@ -523,6 +541,7 @@ public class Gui2InfoFactory implements InfoFactory
 			aString = aDeity.getSource();
 			if (aString.length() > 0)
 			{
+				infoText.appendSpacer();
 				infoText.appendI18nFormattedElement("in_InfoSource", //$NON-NLS-1$
 					aString);
 			}
@@ -1398,10 +1417,29 @@ public class Gui2InfoFactory implements InfoFactory
 			}
 		}
 		final StringBuffer piString = new StringBuffer(100);
-		piString.append("<html>"); //$NON-NLS-1$
+		//piString.append("<html>"); //$NON-NLS-1$
 		piString.append(StringUtil.joinToStringBuffer(set, ",")); //$NON-NLS-1$
-		piString.append("</html>"); //$NON-NLS-1$
+		//piString.append("</html>"); //$NON-NLS-1$
 		return piString.toString();
 		
 	}
+	
+	public String getPantheons(DeityFacade deityFacade)
+	{
+		if (deityFacade == null || !(deityFacade instanceof Deity))
+		{
+			return EMPTY_STRING;
+		}
+		Deity deity = (Deity) deityFacade;
+		Set<String> set = new TreeSet<String>();
+		for (Pantheon p : deity.getSafeListFor(ListKey.PANTHEON))
+		{
+			set.add(p.toString());
+		}
+		final StringBuffer piString = new StringBuffer(100);
+		piString.append(StringUtil.joinToStringBuffer(set, ",")); //$NON-NLS-1$
+		return piString.toString();
+	
+	}
+
 }

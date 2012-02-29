@@ -28,7 +28,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.list.DomainList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -88,4 +90,17 @@ public final class Deity extends PObject implements DeityFacade
 	{
 		return get(ObjectKey.ALIGNMENT);
 	}
+
+	public List<String> getPantheons()
+	{
+		List<String> pantheons = new ArrayList<String>();
+		for (Pantheon pantheon : getSafeListFor(ListKey.PANTHEON))
+		{
+			String string = pantheon.toString();
+			pantheons.add(string);
+		}
+		
+		return pantheons;
+	}
+
 }
