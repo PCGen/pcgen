@@ -371,7 +371,7 @@ public final class PCGenActionMap extends ActionMap
 
 		public ConsoleAction()
 		{
-			super("mnuToolsConsole");
+			super("mnuToolsConsole", CONSOLE_COMMAND, "shortcut D");
 		}
 
 		@Override
@@ -772,7 +772,7 @@ public final class PCGenActionMap extends ActionMap
 
 		public LoadSourcesSelectAction()
 		{
-			super("mnuSourcesLoadSelect");
+			super("mnuSourcesLoadSelect", SOURCES_LOAD_COMMAND, "shortcut L");
 		}
 
 		@Override
