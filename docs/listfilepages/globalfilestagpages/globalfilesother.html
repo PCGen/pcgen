@@ -100,8 +100,8 @@
 
 <hr>
 
-		<p class="new">*** Updated 5.13.7</p>
-		<p class="indent0"><strong><a name="AUTOARMORPROF">Tag Name:</a></strong> AUTO:ARMORPROF|x|x</p>
+		<p class="new"><a name="AUTOARMORPROF">*** Updated 5.17.11</a></p>
+		<p class="indent0"><strong>Tag Name:</strong> AUTO:ARMORPROF|x|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Armor name)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> ARMORTYPE=Text (Armor type)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -111,8 +111,7 @@
 			<li>When including the <code>ARMORTYPE=</code> sub-tag you may use a period-delimted (.) list
 				of armor types. This will grant the character proficiency with armor that meet all of the
 				listed armor types.</li>
-			<li>Only one PRExxx tag is allowed, but it can be a PREMULT statement.</li>
-			<li>PRExxx tags must be appended to the tag using the pipe-delimited (|) syntax.</li>
+			<li>PRExxx tags are allowed with this tag and use the pipe-delimited (|) syntax.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>AUTO:ARMORPROF|ARMORTYPE=Light</code></p>
@@ -123,27 +122,27 @@
 		<p class="indent3">Light and Medium Armor is given as a free armor proficiency.</p>
 		<p class="indent2"><code>AUTO:ARMORPROF|Dwarven Plate[PRERACE:1,Dwarf]</code></p>
 		<p class="indent3">Dwarven Plate is given as a free armor proficiency if the character is a Dwarf.</p>
-		<p class="indent1"><strong>Deprecated Syntax:</strong></p>
+		<p class="indent1"><strong>Deprecated Syntax:</strong> <span class="new">*** Deprecated 5.17.11 - Remove 6.2</span></p>
 		<p class="indent2"><code>AUTO:ARMORPROF|ARMORTYPE=Light[PRExxx]</code></p>
 		<p class="indent3">The square-bracketed PRExxx tag syntax has been deprecated in favor of the pipe-delimited (|) syntax.</p>
 		<p></p>
 
 <hr>
 
-	<p class="new">*** New 5.4</p>
-	<p class="indent0"><strong><a name="AUTOEQUIP">Tag Name:</a></strong> AUTO:EQUIP|x|x</p>
+	<p class="new"><a name="AUTOEQUIP">*** New 5.17.11</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> AUTO:EQUIP|x|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (&lt;Equipment Name&gt;)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>This is a pipe-delimited (|) list of equipment that is granted to the character for free.</li>
-			<li>The equipment added is marked on the GUI just as AUTO:FEATs are (yellow) and can't be removed.</li>
+			<li>The equipment added is marked on the GUI just as feats added by the <code>AUTO:FEAT</code> tag, 
+				i.e. are yellow, and can't be removed.</li>
 			<li>The equipment must be added to the Equipment Set just as any other Equipment the PC has to come out on the OS.</li>
-			<li>Only one PRExxx tag is allowed, but it can be a PREMULT statement.</li>
-			<li>PRExxx tags must be appended to the tag using the pipe-delimited (|) syntax.</li>
-			<li>CAUTION: Some trouble has been found when attempting to add two of the same item.</li>
-			<li>CAUTION: You should not use items which have math operators (such as + and -) in their names.</li>
-			<li>AUTO:EQUIP won't take (%)LIST or (%)CHOICE for substitution. See futureequipment_equipmods_gadgets.lst.</li>
+			<li>PRExxx tags are allowed with this tag and use the pipe-delimited (|) syntax.</li>
+			<li><code>AUTO:EQUIP</code> won't take (%)LIST or (%)CHOICE for substitution. See futureequipment_equipmods_gadgets.lst.</li>
 		</ul>
+		<p class="sidebar0"><strong>CAUTION:</strong> Some trouble has been found when attempting to add two of the same item. Additionally, 
+			you should not use items which have math operators (such as + and -) in their names.</p>
         <p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Global, however AUTO:EQUIP is not supported in class level lines. It can be used on a class line.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
@@ -153,7 +152,7 @@
 		<p class="indent2"><code>AUTO:EQUIP|Flurry of Blows[PREMULT:2,[PRESTAT:1,DEX=15],[PRECLASS:1,Monk=1]]</code></p>
 		<p class="indent3">The item &quot;Flurry of Blows&quot; is granted as a free equipment item if the
 		character has a level of Monk and a DEX score of 15 or better.</p>
-	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
+	<p class="indent1"><strong>Deprecated Syntax:</strong> <span class="new">*** Deprecated 5.17.11 - Remove 6.2</span></p>
 	<p class="indent2"><code>AUTO:EQUIP|Flurry of Blows[PRECLASS:1,Monk=1]</code></p>
 	<p class="indent3">The square-bracketed PRExxx tag syntax has been deprecated in favor of the pipe-delimited (|) syntax.</p>
 		<p></p>
@@ -190,8 +189,8 @@
 <!--
 <hr>
 
-		<p class="new">*** New 5.17.x</p>
-		<p class="indent0"><strong><a name="AUTOLANG">Tag Name:</a></strong> AUTO:LANG|x|x</p>
+		<p class="new"><a name="AUTOLANG">*** New 5.17.x</a></p>
+		<p class="indent0"><strong>Tag Name:</strong> AUTO:LANG|x|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Language)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Language type)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Language type)</p>
@@ -201,8 +200,7 @@
 			<li>This is a pipe-delimited (|) list of languages, by name or type, that are granted as free language.</li>
 			<li>When including the <code>TYPE=</code> sub-tag you may use a period-delimted (.) list
 				of language types. This will grant the character any Language with the listed types.</li>
-			<li>Only one PRExxx tag is allowed, but it can be a PREMULT statement.</li>
-			<li>PRExxx tags must be enclosed within brackets. (i.e. [PRExxx]).</li>
+			<li>PRExxx tags are allowed with this tag and use the pipe-delimited (|) syntax.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>AUTO:LANG|Common</code></p>
@@ -213,8 +211,8 @@
 -->
 <hr>
 
-		<p class="new">*** Updated 5.13.8</p>
-		<p class="indent0"><strong><a name="AUTOSHIELDPROF">Tag Name:</a></strong> AUTO:SHIELDPROF|x|x</p>
+		<p class="new"><a name="AUTOSHIELDPROF">*** Updated 5.17.11</a></p>
+		<p class="indent0"><strong>Tag Name:</strong> AUTO:SHIELDPROF|x|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Shield name)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> SHIELDTYPE=Text (Shield type)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -224,22 +222,21 @@
 			<li>When including the <code>SHIELDTYPE=</code> sub-tag you may use a period-delimted (.) list
 				of shield types. This will grant the character proficiency with shields that meet all of the
 				listed shield types.</li>
-			<li>Only one PRExxx tag is allowed, but it can be a PREMULT statement.</li>
-			<li>PRExxx tags must be appended to the tag using the pipe-delimited (|) syntax.</li>
+			<li>PRExxx tags are allowed with this tag and use the pipe-delimited (|) syntax.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>AUTO:SHIELDPROF|SHIELDTYPE=Buckler</code></p>
 		<p class="indent3">Buckler shield is given as a free shield proficiency.</p>
 		<p class="indent2"><code>AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Light|SHIELDTYPE=Heavy</code></p>
 		<p class="indent3">Buckler, Light, and Heavy Shields are given as free shield proficiencies.</p>
-	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
+	<p class="indent1"><strong>Deprecated Syntax:</strong> <span class="new">*** Deprecated 5.17.11 - Remove 6.2</span></p>
 	<p class="indent2"><code>AUTO:SHIELDPROF|SHIELDTYPE=Buckler[PRExxx]</code></p>
 	<p class="indent3">The square-bracketed PRExxx tag syntax has been deprecated in favor of the pipe-delimited (|) syntax.</p>
 		<p></p>
 
 <hr>
 
-		<p class="status"><a name="AUTOWEAPONPROF">*** Updated 5.17.12</a></p>
+		<p class="new"><a name="AUTOWEAPONPROF">*** Updated 5.17.11</a></p>
 		<p class="indent0"><strong>Tag Name:</strong> AUTO:WEAPONPROF|x|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Weapon name)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Weapon Type)</p>
@@ -256,8 +253,7 @@
 			<li>When using the <code>DEITYWEAPONS</code> sub-tag, all of the deities favored weapons, except 
 				for natural weapons, are added.  If the deity specifies &quot;ALL&quot; or &quot;ANY&quot; for
 				its favored weapon, no weapons will be added.</li>
-			<li>Only one PRExxx tag is allowed, but it can be a PREMULT statement.</li>
-			<li>PRExxx tags must be appended to the tag using the pipe-delimited (|) syntax.</li>
+			<li>PRExxx tags are allowed with this tag and use the pipe-delimited (|) syntax.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>AUTO:WEAPONPROF|Longsword|Shortbow (Composite)</code></p>
@@ -284,7 +280,7 @@
 			are given as free weapon proficiencies.</p>
 		<p class="indent2"><code>CLASS:Rogue.MOD &lt;tab&gt; AUTO:WEAPONPROF|Gladius</code></p>
 		<p class="indent3">Modified the Rogue Class to include the Gladius weapon.</p>
-		<p class="indent1"><strong>Deprecated Syntax:</strong></p>
+		<p class="indent1"><strong>Deprecated Syntax:</strong> <span class="new">*** Deprecated 5.17.11 - Remove 6.2</span></p>
 		<p class="indent2"><code>AUTO:WEAPONPROF|Longsword|Shortbow (Composite)[PRExxx]</code></p>
 		<p class="indent3">The square-bracketed PRExxx tag syntax has been deprecated in favor of the pipe-delimited (|) syntax.</p>
 		<p></p>
