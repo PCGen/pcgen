@@ -30,6 +30,7 @@ public class SpellTypeToken extends AbstractRestrictedSpellPrimitive
 {
 	private String spelltype;
 
+	@Override
 	public boolean initialize(LoadContext context, Class<Spell> cl,
 		String value, String args)
 	{
@@ -41,11 +42,13 @@ public class SpellTypeToken extends AbstractRestrictedSpellPrimitive
 		return initialize(context, args);
 	}
 
+	@Override
 	public String getTokenName()
 	{
 		return "SPELLTYPE";
 	}
 
+	@Override
 	public boolean allow(PlayerCharacter pc, Spell spell)
 	{
 		HashMapToList<CDOMList<Spell>, Integer> levelInfo =
@@ -68,6 +71,7 @@ public class SpellTypeToken extends AbstractRestrictedSpellPrimitive
 		return false;
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;

@@ -28,6 +28,7 @@ import pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive;
 
 public class AllToken extends AbstractRestrictedSpellPrimitive
 {
+	@Override
 	public boolean initialize(LoadContext context, Class<Spell> cl,
 			String value, String args)
 	{
@@ -38,11 +39,13 @@ public class AllToken extends AbstractRestrictedSpellPrimitive
 		return initialize(context, args);
 	}
 
+	@Override
 	public String getTokenName()
 	{
 		return "ALL";
 	}
 
+	@Override
 	public boolean allow(PlayerCharacter pc, Spell spell)
 	{
 		HashMapToList<CDOMList<Spell>, Integer> levelInfo = SpellLevel
@@ -61,6 +64,7 @@ public class AllToken extends AbstractRestrictedSpellPrimitive
 		return false;
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return hasRestriction() ? GroupingState.ANY

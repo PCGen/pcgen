@@ -34,6 +34,7 @@ public class SpellBookToken implements PrimitiveToken<Spell>, PrimitiveFilter<Sp
 	private String spellbook;
 	private CDOMReference<Spell> allSpells;
 
+	@Override
 	public boolean initialize(LoadContext context, Class<Spell> cl,
 		String value, String args)
 	{
@@ -46,26 +47,31 @@ public class SpellBookToken implements PrimitiveToken<Spell>, PrimitiveFilter<Sp
 		return true;
 	}
 
+	@Override
 	public String getTokenName()
 	{
 		return "SPELLBOOK";
 	}
 
+	@Override
 	public Class<Spell> getReferenceClass()
 	{
 		return SPELL_CLASS;
 	}
 
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		return getTokenName() + "=" + spellbook;
 	}
 
+	@Override
 	public boolean allow(PlayerCharacter pc, Spell spell)
 	{
 		return pc.hasSpellInSpellbook(spell, spellbook);
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;
@@ -92,6 +98,7 @@ public class SpellBookToken implements PrimitiveToken<Spell>, PrimitiveFilter<Sp
 		return spellbook == null ? -7 : spellbook.hashCode();
 	}
 
+	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc,
 			Converter<Spell, R> c)
 	{

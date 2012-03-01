@@ -32,6 +32,7 @@ public class DomainListToken extends AbstractRestrictedSpellPrimitive
 {
 	private CDOMSingleRef<DomainSpellList> spelllist;
 
+	@Override
 	public boolean initialize(LoadContext context, Class<Spell> cl,
 			String value, String args)
 	{
@@ -43,11 +44,13 @@ public class DomainListToken extends AbstractRestrictedSpellPrimitive
 		return initialize(context, args);
 	}
 
+	@Override
 	public String getTokenName()
 	{
 		return "DOMAINLIST";
 	}
 
+	@Override
 	public boolean allow(PlayerCharacter pc, Spell spell)
 	{
 		DomainSpellList list = spelllist.resolvesTo();
@@ -62,6 +65,7 @@ public class DomainListToken extends AbstractRestrictedSpellPrimitive
 		return false;
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;

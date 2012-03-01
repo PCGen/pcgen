@@ -35,6 +35,7 @@ public class DescriptorToken implements PrimitiveToken<Spell>, PrimitiveFilter<S
 	private String school;
 	private CDOMReference<Spell> allSpells;
 
+	@Override
 	public boolean initialize(LoadContext context, Class<Spell> cl,
 		String value, String args)
 	{
@@ -47,26 +48,31 @@ public class DescriptorToken implements PrimitiveToken<Spell>, PrimitiveFilter<S
 		return true;
 	}
 
+	@Override
 	public String getTokenName()
 	{
 		return "DESCRIPTOR";
 	}
 
+	@Override
 	public Class<Spell> getReferenceClass()
 	{
 		return SPELL_CLASS;
 	}
 
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		return getTokenName() + "=" + school;
 	}
 
+	@Override
 	public boolean allow(PlayerCharacter pc, Spell spell)
 	{
 		return spell.containsInList(ListKey.SPELL_DESCRIPTOR, school);
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;
@@ -93,6 +99,7 @@ public class DescriptorToken implements PrimitiveToken<Spell>, PrimitiveFilter<S
 		return school == null ? -7 : school.hashCode();
 	}
 
+	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc,
 			Converter<Spell, R> c)
 	{

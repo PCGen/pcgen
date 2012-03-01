@@ -37,6 +37,7 @@ public class ProhibitedToken implements PrimitiveToken<Spell>, PrimitiveFilter<S
 	private boolean prohibited;
 	private CDOMReference<Spell> allSpells;
 
+	@Override
 	public boolean initialize(LoadContext context, Class<Spell> cl,
 		String value, String args)
 	{
@@ -61,21 +62,25 @@ public class ProhibitedToken implements PrimitiveToken<Spell>, PrimitiveFilter<S
 		return true;
 	}
 
+	@Override
 	public String getTokenName()
 	{
 		return "PROHIBITED";
 	}
 
+	@Override
 	public Class<Spell> getReferenceClass()
 	{
 		return SPELL_CLASS;
 	}
 
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		return getTokenName() + "=" + (prohibited ? "YES" : "NO");
 	}
 
+	@Override
 	public boolean allow(PlayerCharacter pc, Spell spell)
 	{
 		for (PCClass cl : pc.getClassSet())
@@ -88,6 +93,7 @@ public class ProhibitedToken implements PrimitiveToken<Spell>, PrimitiveFilter<S
 		return true;
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;
@@ -114,6 +120,7 @@ public class ProhibitedToken implements PrimitiveToken<Spell>, PrimitiveFilter<S
 		return prohibited ? 1345 : 999234;
 	}
 
+	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc,
 			Converter<Spell, R> c)
 	{

@@ -32,6 +32,7 @@ public class ClassListToken extends AbstractRestrictedSpellPrimitive
 {
 	private CDOMSingleRef<ClassSpellList> spelllist;
 
+	@Override
 	public boolean initialize(LoadContext context, Class<Spell> cl,
 			String value, String args)
 	{
@@ -43,11 +44,13 @@ public class ClassListToken extends AbstractRestrictedSpellPrimitive
 		return initialize(context, args);
 	}
 
+	@Override
 	public String getTokenName()
 	{
 		return "CLASSLIST";
 	}
 
+	@Override
 	public boolean allow(PlayerCharacter pc, Spell spell)
 	{
 		ClassSpellList list = spelllist.resolvesTo();
@@ -62,6 +65,7 @@ public class ClassListToken extends AbstractRestrictedSpellPrimitive
 		return false;
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;

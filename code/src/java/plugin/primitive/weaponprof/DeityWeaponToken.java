@@ -37,22 +37,26 @@ public class DeityWeaponToken implements PrimitiveToken<WeaponProf>
 
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
 
+	@Override
 	public boolean initialize(LoadContext context, Class<WeaponProf> cl,
 			String value, String args)
 	{
 		return (value == null) && (args == null);
 	}
 
+	@Override
 	public String getTokenName()
 	{
 		return "DEITYWEAPON";
 	}
 
+	@Override
 	public Class<WeaponProf> getReferenceClass()
 	{
 		return WEAPONPROF_CLASS;
 	}
 
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		return "DEITYWEAPON";
@@ -77,6 +81,7 @@ public class DeityWeaponToken implements PrimitiveToken<WeaponProf>
 		return false;
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;
@@ -94,6 +99,7 @@ public class DeityWeaponToken implements PrimitiveToken<WeaponProf>
 		return 5783;
 	}
 
+	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<WeaponProf, R> c)
 	{
 		Deity deity = pc.getDeity();
