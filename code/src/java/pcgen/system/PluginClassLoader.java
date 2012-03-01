@@ -104,7 +104,7 @@ public class PluginClassLoader extends PCGenTask
 
 	private void loadClasses(final File pluginJar) throws IOException
 	{
-		final JarClassLoader loader = new JarClassLoader(pluginJar.toURL());
+		final JarClassLoader loader = new JarClassLoader(pluginJar.toURI().toURL());
 		final List<String> classList = new LinkedList<String>();
 		ZipFile file = new ZipFile(pluginJar);
 		Enumeration<? extends ZipEntry> entries = file.entries();
@@ -175,7 +175,6 @@ public class PluginClassLoader extends PCGenTask
 		});
 	}
 
-	@SuppressWarnings("unchecked")
 	private boolean processClass(Class<?> clazz)
 	{
 		int modifiers = clazz.getModifiers();

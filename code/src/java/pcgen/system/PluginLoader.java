@@ -29,6 +29,6 @@ public interface PluginLoader
 
 	public void loadPlugin(Class<?> clazz) throws Exception;
 
-	public Class[] getPluginClasses();
+	public Class<?>[] getPluginClasses();
 
 }
