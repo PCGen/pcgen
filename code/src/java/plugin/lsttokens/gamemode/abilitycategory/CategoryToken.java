@@ -29,11 +29,13 @@ public class CategoryToken implements CDOMPrimaryToken<AbilityCategory>,
 		DeferredToken<AbilityCategory>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "CATEGORY";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, AbilityCategory ac,
 			String value)
 	{
@@ -43,6 +45,7 @@ public class CategoryToken implements CDOMPrimaryToken<AbilityCategory>,
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, AbilityCategory ac)
 	{
 		CDOMSingleRef<AbilityCategory> cat = ac.getAbilityCatRef();
@@ -53,16 +56,19 @@ public class CategoryToken implements CDOMPrimaryToken<AbilityCategory>,
 		return new String[] { cat.getLSTformat(false) };
 	}
 
+	@Override
 	public Class<AbilityCategory> getTokenClass()
 	{
 		return AbilityCategory.class;
 	}
 
+	@Override
 	public Class<AbilityCategory> getDeferredTokenClass()
 	{
 		return AbilityCategory.class;
 	}
 
+	@Override
 	public boolean process(LoadContext context, AbilityCategory ac)
 	{
 		CDOMSingleRef<AbilityCategory> parent = ac.getAbilityCatRef();

@@ -48,6 +48,7 @@ public class PoolToken extends AbstractNonEmptyToken<AbilityCategory> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, AbilityCategory ac)
 	{
 		Formula formula = ac.getPoolFormula();
@@ -58,6 +59,7 @@ public class PoolToken extends AbstractNonEmptyToken<AbilityCategory> implements
 		return new String[] { formula.toString() };
 	}
 
+	@Override
 	public Class<AbilityCategory> getTokenClass()
 	{
 		return AbilityCategory.class;

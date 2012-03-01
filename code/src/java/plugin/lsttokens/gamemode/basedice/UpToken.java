@@ -65,11 +65,13 @@ public class UpToken extends AbstractTokenWithSeparator<BaseDice> implements
 		return ',';
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, BaseDice bd)
 	{
 		return new String[] { StringUtil.join(bd.getUpSteps(), Constants.COMMA) };
 	}
 
+	@Override
 	public Class<BaseDice> getTokenClass()
 	{
 		return BaseDice.class;

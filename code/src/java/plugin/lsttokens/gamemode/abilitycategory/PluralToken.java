@@ -40,6 +40,7 @@ public class PluralToken extends AbstractNonEmptyToken<AbilityCategory>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, AbilityCategory ac)
 	{
 		String plural = ac.getRawPluralName();
@@ -50,6 +51,7 @@ public class PluralToken extends AbstractNonEmptyToken<AbilityCategory>
 		return new String[] { plural };
 	}
 
+	@Override
 	public Class<AbilityCategory> getTokenClass()
 	{
 		return AbilityCategory.class;

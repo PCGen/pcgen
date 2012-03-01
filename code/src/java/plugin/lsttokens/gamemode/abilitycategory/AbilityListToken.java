@@ -80,6 +80,7 @@ public class AbilityListToken extends
 		return '|';
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, AbilityCategory ac)
 	{
 		Collection<CDOMSingleRef<Ability>> abilities = ac.getAbilityRefs();
@@ -91,6 +92,7 @@ public class AbilityListToken extends
 				Constants.PIPE) };
 	}
 
+	@Override
 	public Class<AbilityCategory> getTokenClass()
 	{
 		return AbilityCategory.class;

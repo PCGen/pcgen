@@ -41,6 +41,7 @@ public class DisplayNameToken extends AbstractNonEmptyToken<AbilityCategory>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, AbilityCategory ac)
 	{
 		String displayName = ac.getRawDisplayName();
@@ -51,6 +52,7 @@ public class DisplayNameToken extends AbstractNonEmptyToken<AbilityCategory>
 		return new String[] { displayName };
 	}
 
+	@Override
 	public Class<AbilityCategory> getTokenClass()
 	{
 		return AbilityCategory.class;

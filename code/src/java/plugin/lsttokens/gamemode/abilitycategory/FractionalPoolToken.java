@@ -67,6 +67,7 @@ public class FractionalPoolToken extends AbstractNonEmptyToken<AbilityCategory>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, AbilityCategory ac)
 	{
 		if (ac.allowFractionalPool())
@@ -79,6 +80,7 @@ public class FractionalPoolToken extends AbstractNonEmptyToken<AbilityCategory>
 		}
 	}
 
+	@Override
 	public Class<AbilityCategory> getTokenClass()
 	{
 		return AbilityCategory.class;

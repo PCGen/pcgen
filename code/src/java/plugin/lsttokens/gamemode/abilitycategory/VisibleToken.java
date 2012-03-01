@@ -66,6 +66,7 @@ public class VisibleToken extends AbstractNonEmptyToken<AbilityCategory>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, AbilityCategory ac)
 	{
 		Visibility vis = ac.getVisibility();
@@ -92,6 +93,7 @@ public class VisibleToken extends AbstractNonEmptyToken<AbilityCategory>
 		return new String[] { visString };
 	}
 
+	@Override
 	public Class<AbilityCategory> getTokenClass()
 	{
 		return AbilityCategory.class;

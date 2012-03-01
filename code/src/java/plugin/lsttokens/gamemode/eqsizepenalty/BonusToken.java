@@ -31,11 +31,13 @@ import pcgen.rules.persistence.token.ParseResult;
 public class BonusToken implements CDOMPrimaryToken<EqSizePenalty>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "BONUS";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, EqSizePenalty esp,
 			String value)
 	{
@@ -50,6 +52,7 @@ public class BonusToken implements CDOMPrimaryToken<EqSizePenalty>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, EqSizePenalty esp)
 	{
 		Collection<BonusObj> added = esp.getBonuses();
@@ -70,6 +73,7 @@ public class BonusToken implements CDOMPrimaryToken<EqSizePenalty>
 		return bonusSet.toArray(new String[bonusSet.size()]);
 	}
 
+	@Override
 	public Class<EqSizePenalty> getTokenClass()
 	{
 		return EqSizePenalty.class;

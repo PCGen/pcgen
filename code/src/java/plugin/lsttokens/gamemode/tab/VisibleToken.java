@@ -68,6 +68,7 @@ public class VisibleToken extends AbstractNonEmptyToken<TabInfo> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, TabInfo ti)
 	{
 		if (ti.isVisible())
@@ -77,6 +78,7 @@ public class VisibleToken extends AbstractNonEmptyToken<TabInfo> implements
 		return new String[] { "NO" };
 	}
 
+	@Override
 	public Class<TabInfo> getTokenClass()
 	{
 		return TabInfo.class;

@@ -43,21 +43,25 @@ public class MethodToken extends AbstractNonEmptyToken<RollMethod> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, RollMethod rm)
 	{
 		return new String[] { rm.getMethodRoll() };
 	}
 
+	@Override
 	public Class<RollMethod> getTokenClass()
 	{
 		return RollMethod.class;
 	}
 
+	@Override
 	public Class<RollMethod> getDeferredTokenClass()
 	{
 		return RollMethod.class;
 	}
 
+	@Override
 	public boolean process(LoadContext context, RollMethod rm)
 	{
 		String method = rm.getMethodRoll();

@@ -66,6 +66,7 @@ public class DisplayLocationToken extends
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, AbilityCategory ac)
 	{
 		DisplayLocation location = ac.getDisplayLocation();
@@ -76,6 +77,7 @@ public class DisplayLocationToken extends
 		return new String[] { location.toString() };
 	}
 
+	@Override
 	public Class<AbilityCategory> getTokenClass()
 	{
 		return AbilityCategory.class;

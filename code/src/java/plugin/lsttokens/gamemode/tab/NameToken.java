@@ -41,6 +41,7 @@ public class NameToken extends AbstractNonEmptyToken<TabInfo> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, TabInfo ti)
 	{
 		String key = ti.getKeyName();
@@ -51,6 +52,7 @@ public class NameToken extends AbstractNonEmptyToken<TabInfo> implements
 		return new String[] { key };
 	}
 
+	@Override
 	public Class<TabInfo> getTokenClass()
 	{
 		return TabInfo.class;

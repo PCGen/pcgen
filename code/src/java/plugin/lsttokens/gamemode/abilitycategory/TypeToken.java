@@ -76,6 +76,7 @@ public class TypeToken extends AbstractNonEmptyToken<AbilityCategory> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, AbilityCategory ac)
 	{
 		if (ac.isAllAbilityTypes())
@@ -90,16 +91,19 @@ public class TypeToken extends AbstractNonEmptyToken<AbilityCategory> implements
 		return new String[] { StringUtil.join(types, Constants.DOT) };
 	}
 
+	@Override
 	public Class<AbilityCategory> getTokenClass()
 	{
 		return AbilityCategory.class;
 	}
 
+	@Override
 	public Class<AbilityCategory> getDeferredTokenClass()
 	{
 		return AbilityCategory.class;
 	}
 
+	@Override
 	public boolean process(LoadContext context, AbilityCategory ac)
 	{
 		if (ac.isAllAbilityTypes())

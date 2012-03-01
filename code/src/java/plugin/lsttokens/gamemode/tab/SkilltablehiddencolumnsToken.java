@@ -69,6 +69,7 @@ public class SkilltablehiddencolumnsToken extends
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, TabInfo ti)
 	{
 		if (!Tab.SKILLS.equals(ti.getTab()))
@@ -81,6 +82,7 @@ public class SkilltablehiddencolumnsToken extends
 		return new String[] { StringUtil.join(set, Constants.COMMA) };
 	}
 
+	@Override
 	public Class<TabInfo> getTokenClass()
 	{
 		return TabInfo.class;
