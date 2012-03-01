@@ -113,7 +113,18 @@ public class PortraitToken extends Token
 		{
 			baseName = pc.getName();
 		}
-		File thumbFile = new File(tempDir, baseName+"_tmb.jpg");
+		
+		File thumbFile;
+		try
+		{
+			thumbFile = File.createTempFile("pcgentmb_", "jpg");
+		}
+		catch (IOException e1)
+		{
+			Logging.errorPrint("PortraitToken.getThumbnailToken failed", e1);
+			return null;
+			
+		} 
 		try
 		{
 			ImageIO.write(thumb, "JPEG", thumbFile);
