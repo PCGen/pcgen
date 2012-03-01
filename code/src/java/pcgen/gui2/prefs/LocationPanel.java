@@ -434,6 +434,7 @@ public class LocationPanel extends PCGenPrefsPanel
 
 		pcgenFilesDirRadio.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				pcgenFilesDir.setText(System.getProperty("user.dir"));
@@ -442,6 +443,7 @@ public class LocationPanel extends PCGenPrefsPanel
 		});
 		usersFilesDirRadio.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				pcgenFilesDir.setText(System.getProperty("user.home")
@@ -451,6 +453,7 @@ public class LocationPanel extends PCGenPrefsPanel
 		});
 		selectFilesDirRadio.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				pcgenFilesDir.setText("");
@@ -562,6 +565,7 @@ public class LocationPanel extends PCGenPrefsPanel
 
 	private final class PrefsButtonListener implements ActionListener
 	{
+		@Override
 		public void actionPerformed(ActionEvent actionEvent)
 		{
 			JButton source = (JButton) actionEvent.getSource();
@@ -754,6 +758,7 @@ public class LocationPanel extends PCGenPrefsPanel
 		/**
 		 * @see java.awt.event.FocusListener#focusGained(FocusEvent)
 		 */
+		@Override
 		public void focusGained(FocusEvent e)
 		{
 			// reset variables
@@ -771,6 +776,7 @@ public class LocationPanel extends PCGenPrefsPanel
 		/**
 		 * @see java.awt.event.FocusListener#focusLost(FocusEvent)
 		 */
+		@Override
 		public void focusLost(FocusEvent e)
 		{
 			// Check the source to see if it was a text field

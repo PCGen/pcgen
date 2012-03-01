@@ -470,6 +470,7 @@ public class OutputPanel extends PCGenPrefsPanel
 
 	private final class PrefsButtonListener implements ActionListener
 	{
+		@Override
 		public void actionPerformed(ActionEvent actionEvent)
 		{
 			JButton source = (JButton) actionEvent.getSource();
@@ -640,6 +641,7 @@ public class OutputPanel extends PCGenPrefsPanel
 		/**
 		 * @see java.awt.event.FocusListener#focusGained(FocusEvent)
 		 */
+		@Override
 		public void focusGained(FocusEvent e)
 		{
 			// reset variables
@@ -657,6 +659,7 @@ public class OutputPanel extends PCGenPrefsPanel
 		/**
 		 * @see java.awt.event.FocusListener#focusLost(FocusEvent)
 		 */
+		@Override
 		public void focusLost(FocusEvent e)
 		{
 			// Check the source to see if it was a text field

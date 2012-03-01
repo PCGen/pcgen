@@ -183,6 +183,7 @@ public class SourcesPanel extends PCGenPrefsPanel
 		this.add(loadURL);
 		loadURL.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				if (((JCheckBox) evt.getSource()).isSelected())

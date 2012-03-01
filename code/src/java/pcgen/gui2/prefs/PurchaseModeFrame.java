@@ -243,6 +243,7 @@ public final class PurchaseModeFrame extends JDialog
 		okButton = new JButton();
 		okButton.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent e)
 				{
 					CustomData.writePurchaseModeConfiguration();
@@ -257,6 +258,7 @@ public final class PurchaseModeFrame extends JDialog
 		setTitle(s_TITLE);
 		addWindowListener(new WindowAdapter()
 			{
+				@Override
 				public void windowClosing(WindowEvent evt)
 				{
 					exitForm();
@@ -274,6 +276,7 @@ public final class PurchaseModeFrame extends JDialog
 		purchaseScoreMinEdit.setPreferredSize(new Dimension(30, 20));
 		purchaseScoreMinEdit.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				purchaseScoreMinValueActionPerformed();
@@ -296,6 +299,7 @@ public final class PurchaseModeFrame extends JDialog
 		purchaseScoreMinIncreaseButton.setPreferredSize(new Dimension(30, 20));
 		purchaseScoreMinIncreaseButton.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					purchaseScoreMinIncreaseButtonActionPerformed();
@@ -310,6 +314,7 @@ public final class PurchaseModeFrame extends JDialog
 		purchaseScoreMinDecreaseButton.setPreferredSize(new Dimension(30, 20));
 		purchaseScoreMinDecreaseButton.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					purchaseScoreMinDecreaseButtonActionPerformed();
@@ -337,6 +342,7 @@ public final class PurchaseModeFrame extends JDialog
 		purchaseScoreMaxEdit.setPreferredSize(new Dimension(30, 20));
 		purchaseScoreMaxEdit.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				purchaseScoreMaxValueActionPerformed();
@@ -359,6 +365,7 @@ public final class PurchaseModeFrame extends JDialog
 		purchaseScoreMaxIncreaseButton.setPreferredSize(new Dimension(30, 20));
 		purchaseScoreMaxIncreaseButton.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					purchaseScoreMaxIncreaseButtonActionPerformed();
@@ -373,6 +380,7 @@ public final class PurchaseModeFrame extends JDialog
 		purchaseScoreMaxDecreaseButton.setPreferredSize(new Dimension(30, 20));
 		purchaseScoreMaxDecreaseButton.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					purchaseScoreMaxDecreaseButtonActionPerformed();
@@ -439,6 +447,7 @@ public final class PurchaseModeFrame extends JDialog
 		currentPurchaseMethods.setPreferredSize(new Dimension(140, 21));
 		currentPurchaseMethods.addItemListener(new ItemListener()
 			{
+				@Override
 				public void itemStateChanged(ItemEvent evt)
 				{
 					currentPurchaseMethodsActionPerformed();
@@ -449,6 +458,7 @@ public final class PurchaseModeFrame extends JDialog
 		addMethodButton.setText("New");
 		addMethodButton.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					addMethodButtonActionPerformed();
@@ -458,6 +468,7 @@ public final class PurchaseModeFrame extends JDialog
 		removeMethodButton.setText("Remove");
 		removeMethodButton.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					removeMethodButtonActionPerformed();
@@ -491,6 +502,7 @@ public final class PurchaseModeFrame extends JDialog
 		okButton.setToolTipText("Accept these values");
 		okButton.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					okButtonActionPerformed();
@@ -503,6 +515,7 @@ public final class PurchaseModeFrame extends JDialog
 		resetButton.setToolTipText("Reset to saved values");
 		resetButton.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					resetButtonActionPerformed();
@@ -514,6 +527,7 @@ public final class PurchaseModeFrame extends JDialog
 		cancelButton.setToolTipText("Cancel Purchase Mode Configuration");
 		cancelButton.addActionListener(new ActionListener()
 			{
+			@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					cancelButtonActionPerformed();
@@ -877,31 +891,37 @@ public final class PurchaseModeFrame extends JDialog
 			copySavedToCurrent();
 		}
 
+		@Override
 		public boolean isCellEditable(int rowIndex, int columnIndex)
 		{
 			return canEdit[columnIndex];
 		}
 
+		@Override
 		public Class<?> getColumnClass(int columnIndex)
 		{
 			return types[columnIndex];
 		}
 
+		@Override
 		public int getColumnCount()
 		{
 			return columnHeaders.length;
 		}
 
+		@Override
 		public String getColumnName(int param)
 		{
 			return columnHeaders[param];
 		}
 
+		@Override
 		public int getRowCount()
 		{
 			return currentValues.length;
 		}
 
+		@Override
 		public void setValueAt(Object obj, int row, int column)
 		{
 			if ((row < 0) || (row >= currentValues.length))
@@ -920,6 +940,7 @@ public final class PurchaseModeFrame extends JDialog
 			}
 		}
 
+		@Override
 		public Object getValueAt(int row, int column)
 		{
 			if ((row < 0) || (row >= currentValues.length))

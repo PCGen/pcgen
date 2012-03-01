@@ -144,6 +144,7 @@ class NewPurchaseMethodDialog extends JDialog
 		setTitle("Enter name and points for Purchase Method");
 		addWindowListener(new WindowAdapter()
 			{
+				@Override
 				public void windowClosing(WindowEvent evt)
 				{
 					closeDialog();
@@ -191,6 +192,7 @@ class NewPurchaseMethodDialog extends JDialog
 		buttonPanel.add(cancelButton);
 		cancelButton.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					cancelButtonActionPerformed();
@@ -202,6 +204,7 @@ class NewPurchaseMethodDialog extends JDialog
 		buttonPanel.add(okButton);
 		okButton.addActionListener(new ActionListener()
 			{
+				@Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					okButtonActionPerformed();

@@ -176,6 +176,7 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 
 			label.addMouseListener(new MouseAdapter()
 			{
+				@Override
 				public void mouseClicked(final MouseEvent e)
 				{
 					checkbox.setSelected(!checkbox.isSelected());

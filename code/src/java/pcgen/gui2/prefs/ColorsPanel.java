@@ -163,6 +163,7 @@ public class ColorsPanel extends PCGenPrefsPanel
 
 	private final class PrefsButtonListener implements ActionListener
 	{
+		@Override
 		public void actionPerformed(ActionEvent actionEvent)
 		{
 			JButton source = (JButton) actionEvent.getSource();

@@ -164,6 +164,7 @@ public class TabsPanel extends PCGenPrefsPanel
 
 		expertGUICheckBox.addItemListener(new ItemListener()
 		{
+			@Override
 			public void itemStateChanged(ItemEvent evt)
 			{
 				SettingsHandler.setExpertGUI(expertGUICheckBox.isSelected());

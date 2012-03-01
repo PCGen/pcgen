@@ -120,6 +120,7 @@ public class LanguagePanel extends PCGenPrefsPanel
 		final SortedSet<JRadioButton> sorted =
 				new TreeSet<JRadioButton>(new Comparator<JRadioButton>()
 				{
+					@Override
 					public int compare(final JRadioButton o1,
 						final JRadioButton o2)
 					{
@@ -332,6 +333,7 @@ public class LanguagePanel extends PCGenPrefsPanel
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean needsRestart()
 	{
 		String langCountry[] = getSelectedLangCountry();

@@ -346,6 +346,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 			// add a listener to know when the window has closed
 			pmsFrame.addWindowListener(new WindowAdapter()
 			{
+				@Override
 				public void windowClosed(WindowEvent e)
 				{
 					Collection<PointBuyMethod> methods = SettingsHandler
@@ -412,6 +413,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 	{
 		scoreListener = new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				abilitiesAllSameButton.setSelected(true);
@@ -420,6 +422,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 
 		purchaseModeListener = new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				abilitiesPurchasedButton.setSelected(true);
@@ -428,6 +431,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 
 		rolledModeListener = new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				abilitiesRolledButton.setSelected(true);
@@ -532,6 +536,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		/* (non-Javadoc)
 		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 		 */
+		@Override
 		public void actionPerformed(ActionEvent actionEvent)
 		{
 			showPurchaseModeConfiguration();

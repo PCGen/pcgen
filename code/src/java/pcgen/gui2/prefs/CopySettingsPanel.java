@@ -173,6 +173,7 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 		/* (non-Javadoc)
 		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 		 */
+		@Override
 		public void actionPerformed(ActionEvent actionEvent)
 		{
 			GameMode gmFrom =  (GameMode) gameModeSelect.getSelectedItem();

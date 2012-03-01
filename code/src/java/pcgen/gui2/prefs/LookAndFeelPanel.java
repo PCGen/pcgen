@@ -208,12 +208,14 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 	static final class ThemePackFilter extends FileFilter
 	{
 		// The description of this filter
+		@Override
 		public String getDescription()
 		{
 			return "Themepacks (*themepack.zip)";
 		}
 
 		// Accept all directories and themepack.zip files.
+		@Override
 		public boolean accept(File f)
 		{
 			if (f.isDirectory())
@@ -258,6 +260,7 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean needsRestart()
 	{
 		boolean needsRestart = false;
@@ -305,6 +308,7 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 
 	private final class PrefsButtonListener implements ActionListener
 	{
+		@Override
 		public void actionPerformed(ActionEvent actionEvent)
 		{
 			JButton source = (JButton) actionEvent.getSource();
