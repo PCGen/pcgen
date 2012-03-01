@@ -59,6 +59,7 @@ public class JListEx extends JList
 	{
 		addMouseListener(new MouseAdapter()
 		{
+			@Override
 		    public void mouseClicked(MouseEvent e)
 		    {
 		        if (e.getComponent().isEnabled() && e.getButton() == MouseEvent.BUTTON1 && e.getClickCount() == 2)

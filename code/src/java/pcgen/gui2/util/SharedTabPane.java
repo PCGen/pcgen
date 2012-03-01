@@ -43,6 +43,7 @@ public class SharedTabPane extends JTabbedPane
 		model.addChangeListener(new ChangeListener()
 		{
 
+			@Override
 			public void stateChanged(ChangeEvent e)
 			{
 				int index = model.getSelectedIndex();
@@ -94,6 +95,7 @@ public class SharedTabPane extends JTabbedPane
 		revalidate();
 	}
 
+	@Override
 	public void removeTabAt(int index)
 	{
 		super.removeTabAt(index);

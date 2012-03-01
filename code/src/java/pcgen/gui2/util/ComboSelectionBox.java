@@ -112,16 +112,19 @@ public class ComboSelectionBox extends JPanel implements ItemSelectable
         return comboBox.getSelectedItem();
     }
 
+	@Override
     public Object[] getSelectedObjects()
     {
         return comboBox.getSelectedObjects();
     }
 
+	@Override
     public void addItemListener(ItemListener l)
     {
         comboBox.addItemListener(l);
     }
 
+	@Override
     public void removeItemListener(ItemListener l)
     {
         comboBox.removeItemListener(l);
@@ -135,6 +138,7 @@ public class ComboSelectionBox extends JPanel implements ItemSelectable
             super("...");
         }
 
+    	@Override
         public void actionPerformed(ActionEvent e)
         {
 
@@ -142,6 +146,7 @@ public class ComboSelectionBox extends JPanel implements ItemSelectable
                     new Runnable()
                     {
 
+                    	@Override
                         public void run()
                         {
                             dialog.display();

@@ -86,6 +86,7 @@ public class JTreeViewTable<T> extends JTreeTable
 	private final DynamicTableColumnModelListener listener = new DynamicTableColumnModelListener()
 	{
 
+		@Override
 		public void availableColumnAdded(TableColumnModelEvent event)
 		{
 			int index = event.getToIndex();
@@ -94,6 +95,7 @@ public class JTreeViewTable<T> extends JTreeTable
 			cornerButton.setVisible(true);
 		}
 
+		@Override
 		public void availableColumnRemove(TableColumnModelEvent event)
 		{
 
@@ -108,8 +110,8 @@ public class JTreeViewTable<T> extends JTreeTable
 	private final JButton cornerButton = new JButton(new CornerAction());
 	private DynamicTableColumnModel dynamicColumnModel = null;
 	private JPopupMenu menu = new JPopupMenu();
-	protected TreeViewTableModel treetableModel;
-	private TreeViewModel viewModel;
+	protected TreeViewTableModel<T> treetableModel;
+	private TreeViewModel<T> viewModel;
 	private TreeViewsPopupMenu treeviewMenu = new TreeViewsPopupMenu();
 
 	public JTreeViewTable()
@@ -118,9 +120,9 @@ public class JTreeViewTable<T> extends JTreeTable
 		setAutoCreateColumnsFromModel(false);
 	}
 
-	protected <T> TreeViewTableModel<T> createDefaultTreeViewTableModel(DataView<T> dataView)
+	protected <TM> TreeViewTableModel<TM> createDefaultTreeViewTableModel(DataView<TM> dataView)
 	{
-		return new TreeViewTableModel<T>(dataView);
+		return new TreeViewTableModel<TM>(dataView);
 	}
 
 	private JCheckBoxMenuItem createMenuItem(TableColumn column)
@@ -320,8 +322,7 @@ public class JTreeViewTable<T> extends JTreeTable
 		}
 	}
 
-	@SuppressWarnings("unchecked")
-	protected void setTreeView(TreeView view)
+	protected void setTreeView(TreeView<? super T> view)
 	{
 		TableColumn viewColumn = getColumn(treetableModel.getSelectedTreeView().getViewName());
 		treetableModel.setSelectedTreeView(view);
@@ -375,6 +376,7 @@ public class JTreeViewTable<T> extends JTreeTable
 
 		private ButtonGroup group = new ButtonGroup();
 
+		@Override
 		public void elementAdded(ListEvent<TreeView<T>> e)
 		{
 			JMenuItem item = new JRadioButtonMenuItem(new ChangeViewAction(e.getElement()));
@@ -382,6 +384,7 @@ public class JTreeViewTable<T> extends JTreeTable
 			add(item, e.getIndex());
 		}
 
+		@Override
 		public void elementRemoved(ListEvent<TreeView<T>> e)
 		{
 			group.remove((AbstractButton) getComponent(e.getIndex()));
@@ -393,6 +396,7 @@ public class JTreeViewTable<T> extends JTreeTable
 			elementsChanged(null);
 		}
 
+		@Override
 		public void elementsChanged(ListEvent<TreeView<T>> e)
 		{
 			ListFacade<? extends TreeView<T>> views = viewModel.getTreeViews();
@@ -405,14 +409,14 @@ public class JTreeViewTable<T> extends JTreeTable
 					if (menu.isSelected()
 							&& menu.getAction() instanceof JTreeViewTable.ChangeViewAction)
 					{
-						ChangeViewAction changeViewAction = (JTreeViewTable.ChangeViewAction) menu.getAction();
+						ChangeViewAction changeViewAction = (JTreeViewTable<T>.ChangeViewAction) menu.getAction();
 						startingView = changeViewAction.view;
 					}
 				}
 			}
 			group = new ButtonGroup();
 			removeAll();
-			for (TreeView<?> treeview : views)
+			for (TreeView<T> treeview : views)
 			{
 				JMenuItem item = new JRadioButtonMenuItem(new ChangeViewAction(treeview));
 				item.setSelected(treeview == startingView);
@@ -431,6 +435,7 @@ public class JTreeViewTable<T> extends JTreeTable
 			super("...");
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			Container parent = getParent();
@@ -455,6 +460,7 @@ public class JTreeViewTable<T> extends JTreeTable
 			this.column = column;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			dynamicColumnModel.setVisible(column, visible = !visible);
@@ -465,14 +471,15 @@ public class JTreeViewTable<T> extends JTreeTable
 	private class ChangeViewAction extends AbstractAction
 	{
 
-		private TreeView view;
+		private TreeView<T> view;
 
-		public ChangeViewAction(TreeView view)
+		public ChangeViewAction(TreeView<T> view)
 		{
 			super(view.getViewName());
 			this.view = view;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			setTreeView(view);
@@ -543,6 +550,7 @@ public class JTreeViewTable<T> extends JTreeTable
 				arrowLabel.setAlignmentX(Component.RIGHT_ALIGNMENT);
 			}
 
+			@Override
 			public Component getTableCellRendererComponent(JTable table,
 														   Object value,
 														   boolean isSelected,

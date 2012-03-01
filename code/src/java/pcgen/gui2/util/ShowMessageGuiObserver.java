@@ -50,6 +50,7 @@ public class ShowMessageGuiObserver implements Observer
 	 *
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 */
+	@Override
 	public void update(Observable o, Object arg)
 	{
 		if (arg instanceof MessageWrapper)

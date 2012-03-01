@@ -46,6 +46,7 @@ public class JDynamicTable extends JTableEx
 	private final DynamicTableColumnModelListener listener = new DynamicTableColumnModelListener()
 	{
 
+		@Override
 		public void availableColumnAdded(TableColumnModelEvent event)
 		{
 			int index = event.getToIndex();
@@ -54,6 +55,7 @@ public class JDynamicTable extends JTableEx
 			cornerButton.setVisible(true);
 		}
 
+		@Override
 		public void availableColumnRemove(TableColumnModelEvent event)
 		{
 
@@ -176,6 +178,7 @@ public class JDynamicTable extends JTableEx
 			super("...");
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			Container parent = getParent();
@@ -200,6 +203,7 @@ public class JDynamicTable extends JTableEx
 			this.column = column;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			dynamicColumnModel.setVisible(column, visible = !visible);

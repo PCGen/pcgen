@@ -70,6 +70,7 @@ public class SimpleTextIcon implements Icon
 		this.color = color;
 	}
 
+	@Override
 	public void paintIcon(Component c, Graphics g, int x, int y)
 	{
 		g.setColor(color);
@@ -77,11 +78,13 @@ public class SimpleTextIcon implements Icon
 		g.drawString(text, x, y + metrics.getAscent());
 	}
 
+	@Override
 	public int getIconWidth()
 	{
 		return metrics.stringWidth(text);
 	}
 
+	@Override
 	public int getIconHeight()
 	{
 		return metrics.getHeight();

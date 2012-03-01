@@ -52,26 +52,31 @@ public class FacadeListModel<E> extends AbstractListModel implements ListListene
 		delegate.setDelegate(list);
 	}
 
+	@Override
 	public int getSize()
 	{
 		return delegate.getSize();
 	}
 
+	@Override
 	public Object getElementAt(int index)
 	{
 		return delegate.getElementAt(index);
 	}
 
+	@Override
 	public void elementAdded(ListEvent<E> e)
 	{
 		fireIntervalAdded(this, e.getIndex(), e.getIndex());
 	}
 
+	@Override
 	public void elementRemoved(ListEvent<E> e)
 	{
 		fireIntervalRemoved(this, e.getIndex(), e.getIndex());
 	}
 
+	@Override
 	public void elementsChanged(ListEvent<E> e)
 	{
 		fireContentsChanged(this, 0, delegate.getSize() - 1);

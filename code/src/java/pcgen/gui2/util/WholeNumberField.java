@@ -101,6 +101,7 @@ public final class WholeNumberField extends JTextField implements Serializable
 		return retVal;
 	}
 
+	@Override
 	protected Document createDefaultModel()
 	{
 		return new WholeNumberDocument();
@@ -111,6 +112,7 @@ public final class WholeNumberField extends JTextField implements Serializable
 		/**
 		 * @see javax.swing.text.PlainDocument#insertString(int, java.lang.String, javax.swing.text.AttributeSet)
 		 */
+		@Override
 		public void insertString(int offs, String str, AttributeSet a)
 			throws BadLocationException
 		{

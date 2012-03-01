@@ -32,16 +32,19 @@ public abstract class ListDataAdapter implements ListDataListener
 
     public abstract void listDataChanged(ListDataEvent e);
 
+	@Override
     public void intervalAdded(ListDataEvent e)
     {
         listDataChanged(e);
     }
 
+	@Override
     public void intervalRemoved(ListDataEvent e)
     {
         listDataChanged(e);
     }
 
+	@Override
     public void contentsChanged(ListDataEvent e)
     {
         listDataChanged(e);

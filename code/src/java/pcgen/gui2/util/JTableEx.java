@@ -113,6 +113,7 @@ public class JTableEx extends JTable
 	{
 		addMouseListener(new MouseAdapter()
 		{
+			@Override
 		    public void mouseClicked(MouseEvent e)
 		    {
 		        if (e.getComponent().isEnabled() && e.getButton() == MouseEvent.BUTTON1 && e.getClickCount() == 2)
@@ -278,6 +279,7 @@ public class JTableEx extends JTable
 	private final class RowComparator implements Comparator<List<?>>
 	{
 
+		@Override
 		@SuppressWarnings("unchecked")
 		public int compare(List<?> o1,
 						   List<?> o2)

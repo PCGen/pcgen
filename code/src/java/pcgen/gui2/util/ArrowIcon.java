@@ -58,16 +58,19 @@ public class ArrowIcon implements Icon, SwingConstants
 			 UIManager.getColor("controlDkShadow"), UIManager.getColor("controlLtHighlight"));
 	}
 
+	@Override
 	public void paintIcon(Component c, Graphics g, int x, int y)
 	{
 		paintTriangle(g, x, y, size, direction, true);
 	}
 
+	@Override
 	public int getIconWidth()
 	{
 		return size;
 	}
 
+	@Override
 	public int getIconHeight()
 	{
 		return size;

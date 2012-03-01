@@ -145,7 +145,6 @@ public class JTreeTable extends JTableEx
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	public TreeTableModel getTreeTableModel()
 	{
 		return (TreeTableModel) tree.getModel();
@@ -359,6 +358,7 @@ public class JTreeTable extends JTableEx
 		}
 
 		// Wrappers, implementing TableModel interface.
+		@Override
 		public int getColumnCount()
 		{
 			if (treeTableModel == null)
@@ -378,6 +378,7 @@ public class JTreeTable extends JTableEx
 			return treeTableModel.getColumnName(column);
 		}
 
+		@Override
 		public int getRowCount()
 		{
 			return tree.getRowCount();
@@ -393,6 +394,7 @@ public class JTreeTable extends JTableEx
 			treeTableModel.setValueAt(value, nodeForRow(row), column);
 		}
 
+		@Override
 		public Object getValueAt(int row, int column)
 		{
 			if (treeTableModel == null)
@@ -412,6 +414,7 @@ public class JTreeTable extends JTableEx
 			return null;
 		}
 
+		@Override
 		public void sortModel(Comparator<List<?>> comparator)
 		{
 			if (treeTableModel == null)
@@ -432,6 +435,7 @@ public class JTreeTable extends JTableEx
 			tree.setSelectionPaths(selectionPaths);
 		}
 
+		@Override
 		public void treeNodesChanged(TreeModelEvent e)
 		{
 			TreePath parentPath = e.getTreePath();
@@ -472,16 +476,19 @@ public class JTreeTable extends JTableEx
 			});
 		}
 
+		@Override
 		public void treeNodesInserted(TreeModelEvent e)
 		{
 			fireDelayedTableDataChanged();
 		}
 
+		@Override
 		public void treeNodesRemoved(TreeModelEvent e)
 		{
 			fireDelayedTableDataChanged();
 		}
 
+		@Override
 		public void treeStructureChanged(TreeModelEvent e)
 		{
 //			fireTableStructureChanged();
@@ -490,11 +497,13 @@ public class JTreeTable extends JTableEx
 		// Don't use fireTableRowsInserted() here;
 		// the selection model would get updated twice.
 
+		@Override
 		public void treeExpanded(TreeExpansionEvent event)
 		{
 			fireTableDataChanged();
 		}
 
+		@Override
 		public void treeCollapsed(TreeExpansionEvent event)
 		{
 			fireTableDataChanged();
@@ -596,6 +605,7 @@ public class JTreeTable extends JTableEx
 		 * @param column
 		 * @return Component
 		 **/
+		@Override
 		public Component getTableCellRendererComponent(JTable table,
 													   Object value,
 													   boolean isSelected,
@@ -809,6 +819,7 @@ public class JTreeTable extends JTableEx
 			/**
 			 * @see javax.swing.event.ListSelectionListener#valueChanged(javax.swing.event.ListSelectionEvent)
 			 */
+			@Override
 			public void valueChanged(
 					@SuppressWarnings("unused") ListSelectionEvent e)
 			{
@@ -846,6 +857,7 @@ public class JTreeTable extends JTableEx
 		 * @param e
 		 * @return true if cell editable
 		 */
+		@Override
 		public boolean isCellEditable(EventObject e)
 		{
 			if (e instanceof MouseEvent)
@@ -873,6 +885,7 @@ public class JTreeTable extends JTableEx
 		/**
 		 * @see javax.swing.table.TableCellEditor#getTableCellEditorComponent(javax.swing.JTable, java.lang.Object, boolean, int, int)
 		 */
+		@Override
 		public Component getTableCellEditorComponent(
 				@SuppressWarnings("unused") JTable table,
 				@SuppressWarnings("unused") Object value,
@@ -883,29 +896,35 @@ public class JTreeTable extends JTableEx
 			return tree;
 		}
 
+		@Override
 		public Object getCellEditorValue()
 		{
 			return null;
 		}
 
+		@Override
 		public boolean shouldSelectCell(EventObject anEvent)
 		{
 			return false;
 		}
 
+		@Override
 		public boolean stopCellEditing()
 		{
 			return true;
 		}
 
+		@Override
 		public void cancelCellEditing()
 		{
 		}
 
+		@Override
 		public void addCellEditorListener(CellEditorListener l)
 		{
 		}
 
+		@Override
 		public void removeCellEditorListener(CellEditorListener l)
 		{
 		}

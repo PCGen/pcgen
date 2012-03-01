@@ -67,6 +67,7 @@ public class MultiLineTextIcon implements Icon
         }
     }
 
+	@Override
     public void paintIcon(Component c, Graphics g, int x, int y)
     {
         for (Icon icon : icons)
@@ -76,11 +77,13 @@ public class MultiLineTextIcon implements Icon
         }
     }
 
+	@Override
     public int getIconWidth()
     {
         return width;
     }
 
+	@Override
     public int getIconHeight()
     {
         return height;

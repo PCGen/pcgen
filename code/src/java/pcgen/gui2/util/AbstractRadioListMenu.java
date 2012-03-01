@@ -54,6 +54,7 @@ public abstract class AbstractRadioListMenu<E> extends AbstractListMenu<E> imple
 		return menuItem;
 	}
 
+	@Override
 	public void elementRemoved(ListEvent<E> e)
 	{
 		group.remove(getItem(e.getIndex()));

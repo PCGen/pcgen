@@ -40,6 +40,7 @@ public class SortedListModel<E> extends AbstractListModel implements ListListene
 	private Comparator<Integer> indexComparator = new Comparator<Integer>()
 	{
 
+		@Override
 		public int compare(Integer o1, Integer o2)
 		{
 			E e1 = model.getElementAt(o1);
@@ -59,6 +60,7 @@ public class SortedListModel<E> extends AbstractListModel implements ListListene
 
 	private Integer[] transform = null;
 
+	@Override
 	public E getElementAt(int index)
 	{
 		if (index < 0 || index >= transform.length)
@@ -68,6 +70,7 @@ public class SortedListModel<E> extends AbstractListModel implements ListListene
 		return model.getElementAt(transform[index]);
 	}
 
+	@Override
 	public int getSize()
 	{
 		return model.getSize();
@@ -83,6 +86,7 @@ public class SortedListModel<E> extends AbstractListModel implements ListListene
 		Arrays.sort(transform, indexComparator);
 	}
 
+	@Override
 	public void elementAdded(ListEvent<E> e)
 	{
 		transform = (Integer[]) ArrayUtils.add(transform, transform.length);
@@ -91,6 +95,7 @@ public class SortedListModel<E> extends AbstractListModel implements ListListene
 		fireIntervalAdded(this, index, index);
 	}
 
+	@Override
 	public void elementRemoved(ListEvent<E> e)
 	{
 		int index = ArrayUtils.indexOf(transform, e.getIndex());
@@ -99,6 +104,7 @@ public class SortedListModel<E> extends AbstractListModel implements ListListene
 		fireIntervalRemoved(this, index, index);
 	}
 
+	@Override
 	public void elementsChanged(ListEvent<E> e)
 	{
 		sortModel();

@@ -74,42 +74,50 @@ public class FacadeComboBoxModel<E> extends AbstractListModel
 		}
 	}
 
+	@Override
 	public int getSize()
 	{
 		return delegate.getSize();
 	}
 
+	@Override
 	public Object getElementAt(int index)
 	{
 		return delegate.getElementAt(index);
 	}
 
+	@Override
 	public void setSelectedItem(Object anItem)
 	{
 		selectedItem = anItem;
 		fireContentsChanged(this, -1, -1);
 	}
 
+	@Override
 	public Object getSelectedItem()
 	{
 		return selectedItem;
 	}
 
+	@Override
 	public void elementAdded(ListEvent<E> e)
 	{
 		fireIntervalAdded(this, e.getIndex(), e.getIndex());
 	}
 
+	@Override
 	public void elementRemoved(ListEvent<E> e)
 	{
 		fireIntervalRemoved(this, e.getIndex(), e.getIndex());
 	}
 
+	@Override
 	public void elementsChanged(ListEvent<E> e)
 	{
 		fireContentsChanged(this, 0, delegate.getSize() - 1);
 	}
 
+	@Override
 	public void referenceChanged(ReferenceEvent<E> e)
 	{
 		setSelectedItem(e.getNewReference());

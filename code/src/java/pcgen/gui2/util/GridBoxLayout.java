@@ -30,6 +30,7 @@ public class GridBoxLayout extends GridLayout implements Serializable {
 		super(rows, cols, hgap, vgap);
 	}
 
+	@Override
 	public Dimension preferredLayoutSize(Container parent) {
 		synchronized (parent.getTreeLock()) {
 			Insets insets = parent.getInsets();
@@ -87,6 +88,7 @@ public class GridBoxLayout extends GridLayout implements Serializable {
     }
   }
 
+	@Override
 	public Dimension minimumLayoutSize(Container parent) {
 		synchronized (parent.getTreeLock()) {
 			Insets insets = parent.getInsets();
@@ -144,6 +146,7 @@ public class GridBoxLayout extends GridLayout implements Serializable {
 		}
   }
 
+	@Override
 	public void layoutContainer(Container parent) {
 		synchronized (parent.getTreeLock()) {
 			Insets insets = parent.getInsets();

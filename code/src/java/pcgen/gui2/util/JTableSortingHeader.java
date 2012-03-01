@@ -91,6 +91,7 @@ public class JTableSortingHeader extends JTableHeader implements MouseListener
 			this.setMargin(new Insets(0, 0, 0, 0));
 		}
 
+		@Override
 		public Component getTableCellRendererComponent(JTable table,
 													   Object value,
 													   boolean isSelected,
@@ -133,6 +134,7 @@ public class JTableSortingHeader extends JTableHeader implements MouseListener
 
 	}
 
+	@Override
 	public void mouseClicked(MouseEvent e)
 	{
 		if (SwingUtilities.isLeftMouseButton(e) && getCursor() == Cursor.getDefaultCursor()
@@ -144,6 +146,7 @@ public class JTableSortingHeader extends JTableHeader implements MouseListener
 		}
 	}
 
+	@Override
 	public void mousePressed(MouseEvent e)
 	{
 		if (SwingUtilities.isLeftMouseButton(e))
@@ -153,6 +156,7 @@ public class JTableSortingHeader extends JTableHeader implements MouseListener
 		}
 	}
 
+	@Override
 	public void mouseReleased(MouseEvent e)
 	{
 		if (SwingUtilities.isLeftMouseButton(e))
@@ -161,11 +165,13 @@ public class JTableSortingHeader extends JTableHeader implements MouseListener
 		}
 	}
 
+	@Override
 	public void mouseEntered(MouseEvent e)
 	{
 		usedModel.setRollover(true);
 	}
 
+	@Override
 	public void mouseExited(MouseEvent e)
 	{
 		usedModel.setRollover(false);
