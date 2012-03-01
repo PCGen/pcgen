@@ -75,7 +75,7 @@ public class DefaultSortableTableModel extends DefaultTableModel implements Sort
      * @see #setDataVector
      * @see #setValueAt
      */
-    public DefaultSortableTableModel(Vector columnNames, int rowCount)
+    public DefaultSortableTableModel(Vector<?> columnNames, int rowCount)
     {
         super(columnNames, rowCount);
     }
@@ -112,7 +112,7 @@ public class DefaultSortableTableModel extends DefaultTableModel implements Sort
      * @see #getDataVector
      * @see #setDataVector
      */
-    public DefaultSortableTableModel(Vector data, Vector columnNames)
+    public DefaultSortableTableModel(Vector<?> data, Vector<?> columnNames)
     {
         super(data, columnNames);
     }
@@ -152,6 +152,7 @@ public class DefaultSortableTableModel extends DefaultTableModel implements Sort
         setColumnIdentifiers(titles);
     }
 
+	@Override
     @SuppressWarnings("unchecked")
     public void sortModel(Comparator<List<?>> comparator)
     {

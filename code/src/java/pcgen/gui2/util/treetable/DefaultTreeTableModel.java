@@ -95,6 +95,7 @@ public class DefaultTreeTableModel extends AbstractTreeTableModel
         return new DefaultTreeTableNode(node);
     }
 
+	@Override
     public int getColumnCount()
     {
         return columnCount;

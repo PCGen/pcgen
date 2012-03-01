@@ -74,11 +74,13 @@ public final class TableCellUtilities
 			button.addActionListener(this);
 		}
 
+		@Override
 		public Object getCellEditorValue()
 		{
 			return Boolean.valueOf(button.isSelected());
 		}
 
+		@Override
 		public Component getTableCellEditorComponent(JTable table, Object value,
 													 boolean isSelected,
 													 int row, int column)
@@ -96,6 +98,7 @@ public final class TableCellUtilities
 			return button;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			stopCellEditing();
@@ -125,11 +128,13 @@ public final class TableCellUtilities
 			spinner.addChangeListener(this);
 		}
 
+		@Override
 		public Object getCellEditorValue()
 		{
 			return spinner.getValue();
 		}
 
+		@Override
 		public Component getTableCellEditorComponent(JTable table, Object value,
 													 boolean isSelected,
 													 int row,
@@ -139,6 +144,7 @@ public final class TableCellUtilities
 			return spinner;
 		}
 
+		@Override
 		public void stateChanged(ChangeEvent e)
 		{
 			stopCellEditing();

@@ -65,6 +65,7 @@ public class DefaultSortableTreeTableModel extends DefaultTreeTableModel
         return new DefaultSortableTreeTableNode(node);
     }
 
+	@Override
     public void sortModel(Comparator<List<?>> comparator)
     {
         ((SortableTreeTableNode) getRoot()).sortChildren(new TreeNodeComparator(comparator));

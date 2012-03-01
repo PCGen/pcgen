@@ -40,11 +40,13 @@ public abstract class AbstractTreeTableModel extends DefaultTreeModel implements
     *  Making this column editable causes the JTable to forward mouse 
     *  and keyboard events in the Tree column to the underlying JTree. 
     */
+	@Override
     public boolean isCellEditable(Object node, int column)
     {
         return getColumnClass(column) == TreeTableNode.class;
     }
 
+	@Override
     public Class<?> getColumnClass(int column)
     {
         return Object.class;
@@ -58,6 +60,7 @@ public abstract class AbstractTreeTableModel extends DefaultTreeModel implements
      * @param column  the column being queried
      * @return a string containing the default name of <code>column</code>
      */
+	@Override
     public String getColumnName(int column)
     {
         String result = "";
@@ -68,6 +71,7 @@ public abstract class AbstractTreeTableModel extends DefaultTreeModel implements
         return result;
     }
 
+	@Override
     public void setValueAt(Object aValue, Object node, int column)
     {
     	if (node == null)
@@ -80,6 +84,7 @@ public abstract class AbstractTreeTableModel extends DefaultTreeModel implements
         nodeChanged(aNode);
     }
 
+	@Override
     public Object getValueAt(Object node, int column)
     {
         return ((TreeTableNode)node).getValueAt(column);

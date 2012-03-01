@@ -41,6 +41,7 @@ public interface SortableTreeTableModel extends TreeTableModel, SortableModel
             this.comparator = comparator;
         }
 
+    	@Override
         public int compare(TreeTableNode o1, TreeTableNode o2)
         {
             return comparator.compare(o1.getValues(), o2.getValues());

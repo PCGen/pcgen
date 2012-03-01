@@ -85,11 +85,13 @@ public class DefaultDynamicTableColumnModel extends DefaultTableColumnModel
         }
     }
 
+	@Override
     public void addDynamicTableColumnModelListener(DynamicTableColumnModelListener listener)
     {
         listenerList.add(DynamicTableColumnModelListener.class, listener);
     }
 
+	@Override
     public void removeDynamicTableColumnModelListener(DynamicTableColumnModelListener listener)
     {
         listenerList.remove(DynamicTableColumnModelListener.class, listener);
@@ -174,16 +176,19 @@ public class DefaultDynamicTableColumnModel extends DefaultTableColumnModel
         }
     }
 
+	@Override
     public List<TableColumn> getAvailableColumns()
     {
         return safeColumns;
     }
 
+	@Override
     public boolean isVisible(TableColumn column)
     {
         return tableColumns.contains(column);
     }
 
+	@Override
     public void setVisible(TableColumn column, boolean visible)
     {
         if (availableColumns.contains(column) && isVisible(column) != visible)

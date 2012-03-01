@@ -57,6 +57,7 @@ public class DefaultSortableTreeTableNode extends DefaultTreeTableNode
         }
     }
 
+	@Override
     @SuppressWarnings("unchecked")
     public void sortChildren(Comparator<TreeTableNode> comparator)
     {
