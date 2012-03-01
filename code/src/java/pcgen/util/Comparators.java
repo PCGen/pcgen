@@ -50,17 +50,17 @@ public final class Comparators
 	private static final HashCodeComparator hCC = new HashCodeComparator();
 	private static final TreeTableNodeComparator treeNodeComp = new TreeTableNodeComparator();
 
-	public static <T> Comparator<T> toStringComparator()
+	public static Comparator<Object> toStringComparator()
 	{
 		return tSC;
 	}
 
-	public static <T> Comparator<T> toStringIgnoreCaseComparator()
+	public static Comparator<Object> toStringIgnoreCaseComparator()
 	{
 		return tSICC;
 	}
 
-	public static <T> Comparator<T> toStringIgnoreCaseCollator()
+	public static Comparator<Object> toStringIgnoreCaseCollator()
 	{
 		return tSICCol;
 	}
@@ -82,13 +82,13 @@ public final class Comparators
 	{
 		if (comparator instanceof InverseComparator)
 		{
-			return ((InverseComparator) comparator).getComparator();
+			return ((InverseComparator<T>) comparator).getComparator();
 		}
 		return new InverseComparator<T>(comparator);
 
 	}
 
-	public static <T> Comparator<T> hashCodeComparator()
+	public static Comparator<Object> hashCodeComparator()
 	{
 		return hCC;
 	}
@@ -113,7 +113,6 @@ public final class Comparators
 		return String.CASE_INSENSITIVE_ORDER;
 	}
 
-	@SuppressWarnings("unchecked")
 	public static <T> Comparator<? super T> getComparatorFor(Class<T> c)
 	{
 		if (c == Integer.class)
@@ -134,7 +133,7 @@ public final class Comparators
 		}
 		else if (c == TreeTableNode.class)
 		{
-			return (Comparator<? super T>) treeTableNodeComparator();
+			return treeTableNodeComparator();
 		}
 		return toStringComparator();
 	}
@@ -147,18 +146,13 @@ public final class Comparators
 	 * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
 	 * @version $Revision: 2112 $
 	 */
-	private static final class ToStringComparator<E> implements Comparator<E>,
+	private static final class ToStringComparator implements Comparator<Object>,
 			Serializable
 	{
 
-		/** Constructs a <code>StringComparator</code>. */
-		public ToStringComparator()
-		{
-			// TODO: Exception needs to be handled
-		}
-
 		/** {@inheritDoc} */
-		public int compare(E o1, E o2)
+		@Override
+		public int compare(Object o1, Object o2)
 		{
 			// Treat null as the empty string.
 			return ((o1 == null) ? "" : o1.toString()).compareTo((o2 == null) ? ""
@@ -176,18 +170,13 @@ public final class Comparators
 	 * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
 	 * @version $Revision: 2112 $
 	 */
-	private static final class ToStringIgnoreCaseComparator<E> implements Comparator<E>,
-			Serializable
+	private static final class ToStringIgnoreCaseComparator implements
+			Comparator<Object>, Serializable
 	{
 
-		/** Constructs a <code>StringIgnoreCaseComparator</code>. */
-		public ToStringIgnoreCaseComparator()
-		{
-			// TODO: Exception needs to be handled
-		}
-
 		/** {@inheritDoc} */
-		public int compare(E o1, E o2)
+		@Override
+		public int compare(Object o1, Object o2)
 		{
 			// Treat null as the empty string.
 			return ((o1 == null) ? "" : o1.toString()).compareToIgnoreCase((o2 ==
@@ -206,6 +195,7 @@ public final class Comparators
 	{
 
 		/** {@inheritDoc} */
+		@Override
 		public int compare(Object o1, Object o2)
 		{
 			String key1 = getSortKey(o1); 
@@ -243,12 +233,14 @@ public final class Comparators
 		}
 	}
 
-	private static final class ToStringIgnoreCaseCollator<E> implements Comparator<E>, Serializable
+	private static final class ToStringIgnoreCaseCollator implements
+			Comparator<Object>, Serializable
 	{
 
 		private static final Collator collator = Collator.getInstance();
 
-		public int compare(E o1, E o2)
+		@Override
+		public int compare(Object o1, Object o2)
 		{
 			String s1 = (o1 == null) ? "" : o1.toString();
 			String s2 = (o2 == null) ? "" : o2.toString();
@@ -260,6 +252,7 @@ public final class Comparators
 	private static final class IntegerComparator implements Comparator<Integer>
 	{
 
+		@Override
 		public int compare(Integer o1, Integer o2)
 		{
 			return o1.compareTo(o2);
@@ -270,6 +263,7 @@ public final class Comparators
 	private static final class NumberComparator implements Comparator<Number>
 	{
 
+		@Override
 		public int compare(Number o1, Number o2)
 		{
 			final double d1 = o1.doubleValue();
@@ -293,6 +287,7 @@ public final class Comparators
 	private static final class DateComparator implements Comparator<Date>
 	{
 
+		@Override
 		public int compare(Date o1, Date o2)
 		{
 			final long n1 = o1.getTime();
@@ -313,9 +308,10 @@ public final class Comparators
 
 	}
 
-	private static final class HashCodeComparator implements Comparator
+	private static final class HashCodeComparator implements Comparator<Object>
 	{
 
+		@Override
 		public int compare(Object o1, Object o2)
 		{
 			return iC.compare(o1.hashCode(), o2.hashCode());
@@ -343,6 +339,7 @@ public final class Comparators
 			return comparator;
 		}
 
+		@Override
 		public int compare(E o1, E o2)
 		{
 			return -comparator.compare(o1, o2);
