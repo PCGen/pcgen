@@ -148,13 +148,13 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 
 	}
 
-	public void install(JTreeTable treeTable)
+	public void install(JTreeTable table)
 	{
-		this.treeTable = treeTable;
-		treeTable.setTreeCellRenderer(treeRenderer);
+		this.treeTable = table;
+		table.setTreeCellRenderer(treeRenderer);
 		selectedModel = equipsetMap.get(character.getEquipmentSetRef().getReference());
-		treeTable.setTreeTableModel(selectedModel);
-		treeTable.getModel().addTableModelListener(this);
+		table.setTreeTableModel(selectedModel);
+		table.getModel().addTableModelListener(this);
 		realignRowHeights();
 
 		character.getEquipmentSetRef().addReferenceListener(this);
@@ -232,7 +232,9 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 		private Map<String, ImageIcon> iconCache = new HashMap<String, ImageIcon>();
 
 		@Override
-		public Component getTreeCellRendererComponent(final JTree tree, Object value, boolean sel, boolean expanded, boolean leaf, final int row, boolean hasFocus)
+		public Component getTreeCellRendererComponent(final JTree tree,
+			Object value, boolean sel, boolean expanded, boolean leaf,
+			final int row, boolean focus)
 		{
 			String text = String.valueOf(value);
 			boolean isEquipNode = value instanceof EquipNode;
@@ -242,7 +244,7 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 			{
 				text = "Empty slot";
 			}
-			super.getTreeCellRendererComponent(tree, text, sel, expanded, leaf, row, hasFocus);
+			super.getTreeCellRendererComponent(tree, text, sel, expanded, leaf, row, focus);
 
 			if (isEquipNode && ((EquipNode) value).getParent() == null)
 			{

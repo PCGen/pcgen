@@ -406,11 +406,11 @@ public class JTreeViewTable<T> extends JTreeTable
 			{
 				if (child instanceof JMenuItem)
 				{
-					JMenuItem menu = (JMenuItem) child;
-					if (menu.isSelected()
-							&& menu.getAction() instanceof JTreeViewTable.ChangeViewAction)
+					JMenuItem menuItem = (JMenuItem) child;
+					if (menuItem.isSelected()
+							&& menuItem.getAction() instanceof JTreeViewTable.ChangeViewAction)
 					{
-						ChangeViewAction changeViewAction = (JTreeViewTable.ChangeViewAction) menu.getAction();
+						ChangeViewAction changeViewAction = (JTreeViewTable.ChangeViewAction) menuItem.getAction();
 						startingView = changeViewAction.view;
 					}
 				}
@@ -552,14 +552,14 @@ public class JTreeViewTable<T> extends JTreeTable
 			}
 
 			@Override
-			public Component getTableCellRendererComponent(JTable table,
+			public Component getTableCellRendererComponent(JTable jTable,
 														   Object value,
 														   boolean isSelected,
 														   boolean hasFocus,
 														   int row,
 														   int column)
 			{
-				super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+				super.getTableCellRendererComponent(jTable, value, isSelected, hasFocus, row, column);
 				removeAll();
 				if (treetableModel.getSelectedTreeView().getViewName() == value)
 				{

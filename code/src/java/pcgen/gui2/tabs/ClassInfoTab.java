@@ -192,9 +192,9 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			@Override
 			public void valueChanged(ListSelectionEvent e)
 			{
-				ListSelectionModel selectionModel =
+				ListSelectionModel selModel =
 						(ListSelectionModel) e.getSource();
-				int index = selectionModel.getMinSelectionIndex();
+				int index = selModel.getMinSelectionIndex();
 				if (index != -1)
 				{
 					if (!e.getValueIsAdjusting())
@@ -217,9 +217,9 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			@Override
 			public void valueChanged(ListSelectionEvent e)
 			{
-				ListSelectionModel selectionModel =
+				ListSelectionModel selModel =
 						(ListSelectionModel) e.getSource();
-				if (!selectionModel.isSelectionEmpty())
+				if (!selModel.isSelectionEmpty())
 				{
 					if (!e.getValueIsAdjusting())
 					{
@@ -400,7 +400,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				return null;
 			}
 
-			final ClassFacade selectedClass = (ClassFacade) obj;
+			final ClassFacade selClass = (ClassFacade) obj;
 
 			return new Transferable()
 			{
@@ -427,7 +427,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 					{
 						throw new UnsupportedFlavorException(flavor);
 					}
-					return selectedClass;
+					return selClass;
 				}
 
 			};

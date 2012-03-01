@@ -129,13 +129,13 @@ public class EquipmentModels
 		this.filterHandler = new EquipFilterHandler();
 	}
 
-	public void install(JComboBox equipViewBox, JTableEx equipmentTable,
+	public void install(JComboBox equipBox, JTableEx eqTable,
 		DisplayableFilter<CharacterFacade, EquipmentFacade> filter,
-		JTreeTable equipmentSetTable, JButton equipButton, JButton unequipButton)
+		JTreeTable eqSetTable, JButton equipButton, JButton unequipButton)
 	{
-		this.equipViewBox = equipViewBox;
-		this.equipmentTable = equipmentTable;
-		this.equipmentSetTable = equipmentSetTable;
+		this.equipViewBox = equipBox;
+		this.equipmentTable = eqTable;
+		this.equipmentSetTable = eqSetTable;
 		viewHandler.install();
 		equipButton.setAction(equipAction);
 		unequipButton.setAction(unequipAction);

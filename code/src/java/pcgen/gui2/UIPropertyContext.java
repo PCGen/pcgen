@@ -63,9 +63,9 @@ public final class UIPropertyContext extends PropertyContext
 	}
 
 	@Override
-	public UIPropertyContext createChildContext(String name)
+	public UIPropertyContext createChildContext(String childName)
 	{
-		return new UIPropertyContext(name, this);
+		return new UIPropertyContext(childName, this);
 	}
 
 	public static UIPropertyContext createContext(String name)

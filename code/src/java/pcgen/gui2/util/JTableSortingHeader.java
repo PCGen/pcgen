@@ -92,15 +92,15 @@ public class JTableSortingHeader extends JTableHeader implements MouseListener
 		}
 
 		@Override
-		public Component getTableCellRendererComponent(JTable table,
+		public Component getTableCellRendererComponent(JTable jTable,
 													   Object value,
 													   boolean isSelected,
 													   boolean hasFocus,
 													   int row,
 													   int column)
 		{
-			TableColumn draggedColumn = getDraggedColumn();
-			if (draggedColumn != null && draggedColumn.getHeaderValue() == value)
+			TableColumn dragColumn = getDraggedColumn();
+			if (dragColumn != null && dragColumn.getHeaderValue() == value)
 			{
 				setModel(usedModel);
 			}
@@ -109,7 +109,7 @@ public class JTableSortingHeader extends JTableHeader implements MouseListener
 				setModel(defaultModel);
 			}
 			Icon icon = null;
-			TableColumn currentColumn = table.getColumn(value);
+			TableColumn currentColumn = jTable.getColumn(value);
 			List<? extends SortingPriority> list = getTable().getSortingPriority();
 			if (!list.isEmpty())
 			{

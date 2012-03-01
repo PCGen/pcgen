@@ -82,23 +82,23 @@ public class ArrowIcon implements Icon, SwingConstants
 	 * @param g the {@code Graphics} to draw to
 	 * @param x the x coordinate
 	 * @param y the y coordinate
-	 * @param size the size of the triangle to draw
-	 * @param direction the direction in which to draw the arrow;
+	 * @param triangleSize the size of the triangle to draw
+	 * @param triangleDir the direction in which to draw the arrow;
 	 *        one of {@code SwingConstants.NORTH},
 	 *        {@code SwingConstants.SOUTH}, {@code SwingConstants.EAST} or
 	 *        {@code SwingConstants.WEST}
 	 * @param isEnabled whether or not the arrow is drawn enabled
 	 * @see javax.swing.plaf.basic.BasicArrowButton
 	 */
-	public void paintTriangle(Graphics g, int x, int y, int size,
-							  int direction, boolean isEnabled)
+	public void paintTriangle(Graphics g, int x, int y, int triangleSize,
+							  int triangleDir, boolean isEnabled)
 	{
 		Color oldColor = g.getColor();
 		int mid, i, j;
 
 		j = 0;
-		size = Math.max(size, 2);
-		mid = (size / 2) - 1;
+		triangleSize = Math.max(triangleSize, 2);
+		mid = (triangleSize / 2) - 1;
 
 		g.translate(x, y);
 		if (isEnabled)
@@ -110,10 +110,10 @@ public class ArrowIcon implements Icon, SwingConstants
 			g.setColor(shadow);
 		}
 
-		switch (direction)
+		switch (triangleDir)
 		{
 			case NORTH:
-				for (i = 0; i < size; i++)
+				for (i = 0; i < triangleSize; i++)
 				{
 					g.drawLine(mid - i, i, mid + i, i);
 				}
@@ -128,7 +128,7 @@ public class ArrowIcon implements Icon, SwingConstants
 				{
 					g.translate(1, 1);
 					g.setColor(highlight);
-					for (i = size - 1; i >= 0; i--)
+					for (i = triangleSize - 1; i >= 0; i--)
 					{
 						g.drawLine(mid - i, j, mid + i, j);
 						j++;
@@ -138,14 +138,14 @@ public class ArrowIcon implements Icon, SwingConstants
 				}
 
 				j = 0;
-				for (i = size - 1; i >= 0; i--)
+				for (i = triangleSize - 1; i >= 0; i--)
 				{
 					g.drawLine(mid - i, j, mid + i, j);
 					j++;
 				}
 				break;
 			case WEST:
-				for (i = 0; i < size; i++)
+				for (i = 0; i < triangleSize; i++)
 				{
 					g.drawLine(i, mid - i, i, mid + i);
 				}
@@ -160,7 +160,7 @@ public class ArrowIcon implements Icon, SwingConstants
 				{
 					g.translate(1, 1);
 					g.setColor(highlight);
-					for (i = size - 1; i >= 0; i--)
+					for (i = triangleSize - 1; i >= 0; i--)
 					{
 						g.drawLine(j, mid - i, j, mid + i);
 						j++;
@@ -170,7 +170,7 @@ public class ArrowIcon implements Icon, SwingConstants
 				}
 
 				j = 0;
-				for (i = size - 1; i >= 0; i--)
+				for (i = triangleSize - 1; i >= 0; i--)
 				{
 					g.drawLine(j, mid - i, j, mid + i);
 					j++;

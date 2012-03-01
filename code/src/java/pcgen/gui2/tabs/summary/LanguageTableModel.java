@@ -83,14 +83,14 @@ public class LanguageTableModel extends AbstractTableModel
 		table.getTableHeader().setReorderingAllowed(false);
 	}
 
-	public void install(JTable table)
+	public void install(JTable jTable)
 	{
-		this.table = table;
-		table.addMouseMotionListener(this);
-		table.setModel(this);
+		this.table = jTable;
+		jTable.addMouseMotionListener(this);
+		jTable.setModel(this);
 
-		table.setDefaultRenderer(Object.class, renderer);
-		table.setDefaultEditor(Object.class, editor);
+		jTable.setDefaultRenderer(Object.class, renderer);
+		jTable.setDefaultEditor(Object.class, editor);
 	}
 
 	public void uninstall()
@@ -222,20 +222,20 @@ public class LanguageTableModel extends AbstractTableModel
 		}
 
 		@Override
-		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column)
+		public Component getTableCellEditorComponent(JTable jTable, Object value, boolean isSelected, int row, int column)
 		{
-			TableCellUtilities.setToRowBackground(cellPanel, table, row);
+			TableCellUtilities.setToRowBackground(cellPanel, jTable, row);
 			if (row >= languages.getSize())
 			{
-				addLabel.setForeground(table.getForeground());
-				addLabel.setFont(table.getFont());
+				addLabel.setForeground(jTable.getForeground());
+				addLabel.setFont(jTable.getFont());
 				addLabel.setText("Add " + ((LanguageChooserFacade) value).getName());
 				cardLayout.show(cellPanel, ADD_ID);
 			}
 			else
 			{
-				cellLabel.setForeground(table.getForeground());
-				cellLabel.setFont(table.getFont());
+				cellLabel.setForeground(jTable.getForeground());
+				cellLabel.setFont(jTable.getFont());
 				cellLabel.setText(value.toString());
 				cardLayout.show(cellPanel, REMOVE_ID);
 			}
@@ -303,14 +303,14 @@ public class LanguageTableModel extends AbstractTableModel
 		}
 
 		@Override
-		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
+		public Component getTableCellRendererComponent(JTable jTable, Object value, boolean isSelected, boolean hasFocus, int row, int column)
 		{
-			TableCellUtilities.setToRowBackground(this, table, row);
+			TableCellUtilities.setToRowBackground(this, jTable, row);
 			if (row < languages.getSize())
 			{
 				boolean automatic = value instanceof LanguageFacade
 						&& character.isAutomatic((LanguageFacade) value);
-				Point mouse = table.getMousePosition();
+				Point mouse = jTable.getMousePosition();
 
 				if (automatic)
 				{
@@ -318,19 +318,19 @@ public class LanguageTableModel extends AbstractTableModel
 				}
 				else
 				{
-					cellLabel.setForeground(table.getForeground());
+					cellLabel.setForeground(jTable.getForeground());
 				}
 				cellLabel.setText(value.toString());
-				cellLabel.setFont(table.getFont());
-				removeButton.setVisible(mouse != null && table.rowAtPoint(mouse) == row
+				cellLabel.setFont(jTable.getFont());
+				removeButton.setVisible(mouse != null && jTable.rowAtPoint(mouse) == row
 						&& !automatic);
 				cardLayout.show(this, REMOVE_ID);
 			}
 			else
 			{
 				addLabel.setText("Add " + ((LanguageChooserFacade) value).getName());
-				addLabel.setFont(table.getFont());
-				addLabel.setForeground(table.getForeground());
+				addLabel.setFont(jTable.getFont());
+				addLabel.setForeground(jTable.getForeground());
 				cardLayout.show(this, ADD_ID);
 			}
 			return this;

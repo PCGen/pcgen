@@ -81,10 +81,10 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		treeviews = new DefaultListFacade<TreeView<SkillFacade>>(views);
 	}
 
-	public void install(FilteredTreeViewTable table)
+	public void install(FilteredTreeViewTable ftvt)
 	{
-		this.table = table;
-		table.setTreeViewModel(this);
+		this.table = ftvt;
+		ftvt.setTreeViewModel(this);
 	}
 
 	public void uninstall()

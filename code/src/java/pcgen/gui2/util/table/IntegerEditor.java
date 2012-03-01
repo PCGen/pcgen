@@ -123,19 +123,19 @@ public class IntegerEditor extends DefaultCellEditor
 												 Object value, boolean isSelected,
 												 int row, int column)
 	{
-		JFormattedTextField ftf =
+		JFormattedTextField textField =
 				(JFormattedTextField) super.getTableCellEditorComponent(
 				table, value, isSelected, row, column);
-		ftf.setValue(value);
-		return ftf;
+		textField.setValue(value);
+		return textField;
 	}
 
 	//Override to ensure that the value remains an Integer.
 	@Override
 	public Object getCellEditorValue()
 	{
-		JFormattedTextField ftf = (JFormattedTextField) getComponent();
-		Object o = ftf.getValue();
+		JFormattedTextField textField = (JFormattedTextField) getComponent();
+		Object o = textField.getValue();
 		if (o instanceof Integer)
 		{
 			return o;
@@ -170,12 +170,12 @@ public class IntegerEditor extends DefaultCellEditor
 	@Override
 	public boolean stopCellEditing()
 	{
-		JFormattedTextField ftf = (JFormattedTextField) getComponent();
-		if (ftf.isEditValid())
+		JFormattedTextField textField = (JFormattedTextField) getComponent();
+		if (textField.isEditValid())
 		{
 			try
 			{
-				ftf.commitEdit();
+				textField.commitEdit();
 			}
 			catch (java.text.ParseException exc)
 			{

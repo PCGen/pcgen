@@ -997,12 +997,11 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		@Override
 		public Component getTreeCellRendererComponent(JTree tree, Object value,
-													  boolean sel, boolean expanded, boolean leaf, int row,
-													  boolean hasFocus)
+			boolean sel, boolean expanded, boolean leaf, int row, boolean focus)
 		{
 
 			super.getTreeCellRendererComponent(tree, value, sel, expanded,
-											   leaf, row, hasFocus);
+											   leaf, row, focus);
 			Object equipObj = ((DefaultMutableTreeNode) value).getUserObject();
 			if (equipObj instanceof EquipmentFacade
 					&& !character.isQualifiedFor((EquipmentFacade) equipObj))

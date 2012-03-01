@@ -73,7 +73,6 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 	}
 
 	@Override
-	@SuppressWarnings("unchecked")
 	public void restoreModels(Hashtable<?, ?> state)
 	{
 		AbilityTabsModel tabsModel = (AbilityTabsModel) state.get("TabsModel");

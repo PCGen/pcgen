@@ -168,10 +168,10 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 	{
 		if (dataMap.containsKey(elem) && selectedView != null)
 		{
-			TreeViewNode root = (TreeViewNode) getRoot();
+			TreeViewNode rootNode = (TreeViewNode) getRoot();
 			for (TreeViewPath<? super E> path : selectedView.getPaths(elem))
 			{
-				root.removeTreeViewPath(path);
+				rootNode.removeTreeViewPath(path);
 			}
 			dataMap.remove(elem);
 		}
@@ -182,10 +182,10 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		if (!dataMap.containsKey(elem) && selectedView != null)
 		{
 			dataMap.put(elem, dataview.getData(elem));
-			TreeViewNode root = (TreeViewNode) getRoot();
+			TreeViewNode rootNode = (TreeViewNode) getRoot();
 			for (TreeViewPath<? super E> path : selectedView.getPaths(elem))
 			{
-				root.insertTreeViewPath(path);
+				rootNode.insertTreeViewPath(path);
 			}
 		}
 	}
@@ -265,8 +265,8 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 	@Override
 	public final void sortModel(Comparator<List<?>> comparator)
 	{
-		TreeViewNode root = (TreeViewNode) getRoot();
-		root.sortChildren(new TreeNodeComparator(comparator));
+		TreeViewNode rootNode = (TreeViewNode) getRoot();
+		rootNode.sortChildren(new TreeNodeComparator(comparator));
 		reload();
 	}
 

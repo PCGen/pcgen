@@ -118,24 +118,24 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 	}
 	
 
-	private void initForEquipSet(EquipSet eqSet)
+	private void initForEquipSet(EquipSet equipSet)
 	{
-		this.eqSet = eqSet;
-		name = new DefaultReferenceFacade<String>(eqSet.getName());
+		this.eqSet = equipSet;
+		name = new DefaultReferenceFacade<String>(equipSet.getName());
 		bodyStructMap = new HashMap<String, BodyStructure>();
 		equipmentList = new EquipmentListFacadeImpl();
 
 		for (BodyStructureFacade bodyStruct : dataSet.getEquipmentLocations())
 		{
 			bodyStructMap.put(bodyStruct.toString(), (BodyStructure) bodyStruct);
-			// Add a 'base' equippath entry for each body strcuture
+			// Add a 'base' equippath entry for each body structure
 		}
 		
 		buildNodeList();
 
 		List<EquipSet> equipList = new ArrayList<EquipSet>(theCharacter.getEquipSet());
 		Collections.sort(equipList);
-		addChildrenToPath(eqSet.getIdPath(), equipList, (EquipNodeImpl) null);
+		addChildrenToPath(equipSet.getIdPath(), equipList, (EquipNodeImpl) null);
 	}
 
 	private void buildNodeList()
@@ -145,14 +145,14 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		int index = 0;
 		for (BodyStructureFacade bodyStruct : dataSet.getEquipmentLocations())
 		{
-			String name = bodyStruct.toString();
+			String structString = bodyStruct.toString();
 			EquipNodeImpl node = new EquipNodeImpl((BodyStructure) bodyStruct, index++);
 			nodeList.addElement(node);
 			
 			// Add locations for this body structure
 			for (EquipSlot slot : SystemCollections.getUnmodifiableEquipSlotList())
 			{
-				if (slot.getBodyStructureName().equalsIgnoreCase(name))
+				if (slot.getBodyStructureName().equalsIgnoreCase(structString))
 				{
 					if (slot.canContainType("WEAPON"))
 					{

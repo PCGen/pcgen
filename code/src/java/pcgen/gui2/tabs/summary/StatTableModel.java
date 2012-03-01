@@ -434,11 +434,13 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		}
 
 		@Override
-		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
+		public Component getTableCellRendererComponent(JTable jTable,
+			Object value, boolean isSelected, boolean hasFocus, int row,
+			int column)
 		{
-			setBackground(table.getBackground());
-			setForeground(table.getForeground());
-			Font font = table.getFont().deriveFont(Font.BOLD);
+			setBackground(jTable.getBackground());
+			setForeground(jTable.getForeground());
+			Font font = jTable.getFont().deriveFont(Font.BOLD);
 			statLabel.setFont(font);
 			StatFacade stat = (StatFacade) value;
 			//TODO: this should really call stat.toString()

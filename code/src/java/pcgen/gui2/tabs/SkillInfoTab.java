@@ -489,11 +489,11 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			super.stateChanged(e);
 		}
 
-		private void releaseMouse(JSpinner spinner)
+		private void releaseMouse(JSpinner jSpinner)
 		{
-			for (int i = 0; i < spinner.getComponentCount(); i++)
+			for (int i = 0; i < jSpinner.getComponentCount(); i++)
 			{
-				Component comp = spinner.getComponent(i);
+				Component comp = jSpinner.getComponent(i);
 				if (comp instanceof JButton)
 				{
 					releaseMouse(comp);
@@ -533,10 +533,10 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			return character.getCharacterLevelsFacade().getSkillRanks(level, skill);
 		}
 
-		public void configureModel(SkillFacade skill, CharacterLevelFacade level)
+		public void configureModel(SkillFacade sk, CharacterLevelFacade charLevel)
 		{
-			this.skill = skill;
-			this.level = level;
+			this.skill = sk;
+			this.level = charLevel;
 			fireStateChanged();
 		}
 

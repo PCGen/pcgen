@@ -256,7 +256,7 @@ public class SourceSelectionDialog extends JDialog
 			{
 
 				@Override
-				public void valueChanged(ListSelectionEvent e)
+				public void valueChanged(ListSelectionEvent lse)
 				{
 					nameField.setText(sourcesList.getSelectedValue().toString());
 				}
@@ -519,9 +519,9 @@ public class SourceSelectionDialog extends JDialog
 			{
 
 				@Override
-				public Object get(int index)
+				public Object get(int idx)
 				{
-					return sortedModel.getElementAt(index);
+					return sortedModel.getElementAt(idx);
 				}
 
 				@Override

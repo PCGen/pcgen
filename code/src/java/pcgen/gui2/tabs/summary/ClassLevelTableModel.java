@@ -98,15 +98,15 @@ public class ClassLevelTableModel extends AbstractTableModel
 		classLevelTable.setRowHeight(20);
 	}
 
-	public void install(JTable table, JComboBox classComboBox)
+	public void install(JTable table, JComboBox comboBox)
 	{
-		this.classComboBox = classComboBox;
+		this.classComboBox = comboBox;
 		table.setModel(this);
 		table.setDefaultRenderer(Object.class, renderer);
 		table.setDefaultRenderer(Integer.class, new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
 		table.setDefaultEditor(Object.class, editor);
-		classComboBox.addItemListener(this);
-		classComboBox.addPropertyChangeListener("model", this);
+		comboBox.addItemListener(this);
+		comboBox.addPropertyChangeListener("model", this);
 	}
 
 	public void uninstall()

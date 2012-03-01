@@ -775,10 +775,10 @@ public class NameGenPanel extends JPanel
 		//	loop through the available genders
 		for (int i = 0; i < genders.size(); ++i)
 		{
-			String gender = genders.get(i);
+			String genderString = genders.get(i);
 
 			//	Get the list of rules for the current gender
-			List<RuleSet> genderRules = categories.get("Sex: " + gender);
+			List<RuleSet> genderRules = categories.get("Sex: " + genderString);
 
 			//	now loop through all the rules from the selected category
 			for (int j = 0; j < categoryRules.size(); ++j)
@@ -788,7 +788,7 @@ public class NameGenPanel extends JPanel
 				//	we can stop processing the list once we find a match
 				if (genderRules.contains(categoryRules.get(j)))
 				{
-					selectable.add(gender);
+					selectable.add(genderString);
 					break;
 				}
 			}

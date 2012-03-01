@@ -199,10 +199,10 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 				model = new DefaultComboBoxModel(files);
 
 				File file = null;
-				String csheet = Main.getStartupCharacterSheet();
-				if (csheet != null)
+				String charSheet = Main.getStartupCharacterSheet();
+				if (charSheet != null)
 				{
-					file = new File(sheetDir, csheet);
+					file = new File(sheetDir, charSheet);
 					if(!file.isFile())
 					{
 						Logging.errorPrint("Invalid Character Sheet: "+file.getAbsolutePath());

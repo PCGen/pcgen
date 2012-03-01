@@ -49,14 +49,15 @@ public class QualifiedTreeCellRenderer extends DefaultTreeCellRenderer
 	}
 
 	@Override
-	public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded, boolean leaf, int row, boolean hasFocus)
+	public Component getTreeCellRendererComponent(JTree tree, Object value,
+		boolean sel, boolean expanded, boolean leaf, int row, boolean focus)
 	{
 		Object obj = ((DefaultMutableTreeNode) value).getUserObject();
 		if ("".equals(obj))
 		{
 			obj = "None";
 		}
-		super.getTreeCellRendererComponent(tree, obj, sel, expanded, leaf, row, hasFocus);
+		super.getTreeCellRendererComponent(tree, obj, sel, expanded, leaf, row, focus);
 		if (obj instanceof InfoFacade && !character.isQualifiedFor((InfoFacade) obj))
 		{
 			setForeground(UIPropertyContext.getNotQualifiedColor());

@@ -205,7 +205,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 	{
 		String defaultGame =
 				context.initProperty(PROP_SELECTED_GAME, "");		
-		GameModeFacade gameMode = null;
+		GameModeFacade mode = null;
 		if (StringUtils.isNotEmpty(defaultGame))
 		{
 			for (int i = 0; i < gameModeList.getModel().getSize(); i++)
@@ -216,33 +216,33 @@ class AdvancedSourceSelectionPanel extends JPanel
 				if (defaultGame.equals(game.toString()))
 				{
 					gameModeList.setSelectedIndex(i);
-					gameMode = game;
+					mode = game;
 				}
 			}
 		}
-		if (gameMode == null && gameModeList.getModel().getSize() > 0)
+		if (mode == null && gameModeList.getModel().getSize() > 0)
 		{
 			gameModeList.setSelectedIndex(0);
-			gameMode = (GameModeFacade) gameModeList.getSelectedItem();
+			mode = (GameModeFacade) gameModeList.getSelectedItem();
 		}
 	}
 
 	/**
 	 * Add the user's previously selected sources for this gamemode 
 	 * to the selected list.  
-	 * @param gameMode The game mode being selected
+	 * @param mode The game mode being selected
 	 */
-	private void selectDefaultSources(GameModeFacade gameMode)
+	private void selectDefaultSources(GameModeFacade mode)
 	{
-		if (gameMode != null)
+		if (mode != null)
 		{
 			List<String> sourceNames;
 			String defaultSelectedSources =
 					context.initProperty(
-						PROP_SELECTED_SOURCES + gameMode.toString(), ""); //$NON-NLS-1$
+						PROP_SELECTED_SOURCES + mode.toString(), ""); //$NON-NLS-1$
 			if (defaultSelectedSources == null || "".equals(defaultSelectedSources))
 			{
-				sourceNames = gameMode.getDefaultDataSetList();
+				sourceNames = mode.getDefaultDataSetList();
 			}
 			else
 			{
@@ -252,7 +252,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 			for (String name : sourceNames)
 			{
 				for (CampaignFacade camp : FacadeFactory
-					.getSupportedCampaigns(gameMode))
+					.getSupportedCampaigns(mode))
 				{
 					if (name.equals(camp.toString()))
 					{
@@ -651,12 +651,11 @@ class AdvancedSourceSelectionPanel extends JPanel
 
 		@Override
 		public Component getTreeCellRendererComponent(JTree tree, Object value,
-													  boolean sel, boolean expanded, boolean leaf, int row,
-													  boolean hasFocus)
+			boolean sel, boolean expanded, boolean leaf, int row, boolean focus)
 		{
 
 			super.getTreeCellRendererComponent(tree, value, sel, expanded,
-											   leaf, row, hasFocus);
+											   leaf, row, focus);
 			Object campaignObj = ((DefaultMutableTreeNode) value).getUserObject();
 			if (campaignObj instanceof CampaignFacade)
 			{
