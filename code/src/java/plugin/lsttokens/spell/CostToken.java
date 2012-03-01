@@ -62,6 +62,7 @@ public class CostToken extends AbstractNonEmptyToken<Spell> implements
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Spell spell)
 	{
 		BigDecimal i = context.getObjectContext().getObject(spell,
@@ -79,6 +80,7 @@ public class CostToken extends AbstractNonEmptyToken<Spell> implements
 		return new String[] { i.toString() };
 	}
 
+	@Override
 	public Class<Spell> getTokenClass()
 	{
 		return Spell.class;

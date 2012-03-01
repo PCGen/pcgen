@@ -217,6 +217,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Spell spell)
 	{
 		DoubleKeyMapToList<Prerequisite, Integer, CDOMReference<ClassSpellList>> dkmtl = new DoubleKeyMapToList<Prerequisite, Integer, CDOMReference<ClassSpellList>>();
@@ -389,6 +390,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 		return list.toArray(new String[list.size()]);
 	}
 
+	@Override
 	public Class<Spell> getTokenClass()
 	{
 		return Spell.class;

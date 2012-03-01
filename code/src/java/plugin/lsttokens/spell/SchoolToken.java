@@ -94,6 +94,7 @@ public class SchoolToken extends AbstractTokenWithSeparator<Spell> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Spell spell)
 	{
 		Changes<SpellSchool> changes = context.getObjectContext().getListChanges(
@@ -119,6 +120,7 @@ public class SchoolToken extends AbstractTokenWithSeparator<Spell> implements
 		return new String[] { sb.toString() };
 	}
 
+	@Override
 	public Class<Spell> getTokenClass()
 	{
 		return Spell.class;

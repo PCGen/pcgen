@@ -125,6 +125,7 @@ public class SpellPointCostToken extends AbstractTokenWithSeparator<Spell>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Spell spell)
 	{
 		Changes<PointCost> changes = context.getObjectContext().getListChanges(
@@ -158,6 +159,7 @@ public class SpellPointCostToken extends AbstractTokenWithSeparator<Spell>
 		return new String[] { StringUtil.join(list, Constants.PIPE) };
 	}
 
+	@Override
 	public Class<Spell> getTokenClass()
 	{
 		return Spell.class;

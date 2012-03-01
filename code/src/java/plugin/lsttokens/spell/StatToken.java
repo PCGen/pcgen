@@ -32,11 +32,13 @@ public class StatToken implements CDOMPrimaryToken<Spell>
 
 	private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
 
+	@Override
 	public String getTokenName()
 	{
 		return "STAT";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, Spell spell, String value)
 	{
 		PCStat pcs = context.ref.getAbbreviatedObject(PCSTAT_CLASS, value);
@@ -49,6 +51,7 @@ public class StatToken implements CDOMPrimaryToken<Spell>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Spell spell)
 	{
 		PCStat pcs = context.getObjectContext().getObject(spell,
@@ -60,6 +63,7 @@ public class StatToken implements CDOMPrimaryToken<Spell>
 		return new String[] { pcs.getAbb() };
 	}
 
+	@Override
 	public Class<Spell> getTokenClass()
 	{
 		return Spell.class;

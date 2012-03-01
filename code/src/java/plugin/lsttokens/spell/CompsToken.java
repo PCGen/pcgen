@@ -81,6 +81,7 @@ public class CompsToken extends AbstractTokenWithSeparator<Spell> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Spell spell)
 	{
 		Changes<String> changes = context.getObjectContext().getListChanges(
@@ -114,6 +115,7 @@ public class CompsToken extends AbstractTokenWithSeparator<Spell> implements
 		return new String[] { sb.toString() };
 	}
 
+	@Override
 	public Class<Spell> getTokenClass()
 	{
 		return Spell.class;

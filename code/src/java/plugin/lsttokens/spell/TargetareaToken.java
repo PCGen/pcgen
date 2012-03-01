@@ -31,11 +31,13 @@ import pcgen.rules.persistence.token.ParseResult;
 public class TargetareaToken implements CDOMPrimaryToken<Spell>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "TARGETAREA";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, Spell spell, String value)
 	{
 		if (value == null || value.length() == 0)
@@ -52,6 +54,7 @@ public class TargetareaToken implements CDOMPrimaryToken<Spell>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Spell spell)
 	{
 		String target = context.getObjectContext().getString(spell,
@@ -63,6 +66,7 @@ public class TargetareaToken implements CDOMPrimaryToken<Spell>
 		return new String[] { target };
 	}
 
+	@Override
 	public Class<Spell> getTokenClass()
 	{
 		return Spell.class;

@@ -93,6 +93,7 @@ public class ItemToken extends AbstractTokenWithSeparator<Spell> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Spell spell)
 	{
 		Changes<Type> changes = context.getObjectContext().getListChanges(
@@ -134,6 +135,7 @@ public class ItemToken extends AbstractTokenWithSeparator<Spell> implements
 		return new String[] { sb.toString() };
 	}
 
+	@Override
 	public Class<Spell> getTokenClass()
 	{
 		return Spell.class;

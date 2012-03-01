@@ -29,11 +29,13 @@ import pcgen.rules.persistence.token.ParseResult;
 public class CtToken implements CDOMPrimaryToken<Spell>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "CT";
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Spell spell)
 	{
 		Integer i = context.getObjectContext().getInteger(spell,
@@ -51,11 +53,13 @@ public class CtToken implements CDOMPrimaryToken<Spell>
 		return new String[] { i.toString() };
 	}
 
+	@Override
 	public Class<Spell> getTokenClass()
 	{
 		return Spell.class;
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, Spell spell, String value)
 	{
 		try

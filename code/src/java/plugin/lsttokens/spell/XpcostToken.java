@@ -52,6 +52,7 @@ public class XpcostToken extends AbstractIntToken<Spell> implements
 		return 0;
 	}
 
+	@Override
 	public Class<Spell> getTokenClass()
 	{
 		return Spell.class;
