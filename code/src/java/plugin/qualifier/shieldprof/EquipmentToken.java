@@ -49,16 +49,19 @@ public class EquipmentToken implements QualifierToken<ShieldProf>,
 
 	private boolean wasRestricted = false;
 
+	@Override
 	public String getTokenName()
 	{
 		return "EQUIPMENT";
 	}
 
+	@Override
 	public Class<ShieldProf> getReferenceClass()
 	{
 		return ShieldProf.class;
 	}
 
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		StringBuilder sb = new StringBuilder();
@@ -70,6 +73,7 @@ public class EquipmentToken implements QualifierToken<ShieldProf>,
 		return sb.toString();
 	}
 
+	@Override
 	public boolean initialize(LoadContext context,
 			SelectionCreator<ShieldProf> sc, String condition, String value,
 			boolean negate)
@@ -123,6 +127,7 @@ public class EquipmentToken implements QualifierToken<ShieldProf>,
 		return false;
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return (pcs == null) ? GroupingState.ANY : pcs.getGroupingState()
@@ -130,6 +135,7 @@ public class EquipmentToken implements QualifierToken<ShieldProf>,
 	}
 
 
+	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc,
 			Converter<ShieldProf, R> c)
 	{
@@ -142,6 +148,7 @@ public class EquipmentToken implements QualifierToken<ShieldProf>,
 		return returnSet;
 	}
 
+	@Override
 	public Collection<CDOMReference<ShieldProf>> convert(
 			CDOMReference<Equipment> orig)
 	{
@@ -160,6 +167,7 @@ public class EquipmentToken implements QualifierToken<ShieldProf>,
 		return refSet;
 	}
 
+	@Override
 	public Collection<CDOMReference<ShieldProf>> convert(
 			CDOMReference<Equipment> orig, PrimitiveFilter<Equipment> lim)
 	{

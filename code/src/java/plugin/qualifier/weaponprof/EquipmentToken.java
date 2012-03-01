@@ -49,16 +49,19 @@ public class EquipmentToken implements QualifierToken<WeaponProf>,
 
 	private boolean wasRestricted = false;
 
+	@Override
 	public String getTokenName()
 	{
 		return "EQUIPMENT";
 	}
 
+	@Override
 	public Class<WeaponProf> getReferenceClass()
 	{
 		return WeaponProf.class;
 	}
 
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		StringBuilder sb = new StringBuilder();
@@ -70,6 +73,7 @@ public class EquipmentToken implements QualifierToken<WeaponProf>,
 		return sb.toString();
 	}
 
+	@Override
 	public boolean initialize(LoadContext context,
 			SelectionCreator<WeaponProf> sc, String condition, String value,
 			boolean negate)
@@ -123,6 +127,7 @@ public class EquipmentToken implements QualifierToken<WeaponProf>,
 		return false;
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return (pcs == null) ? GroupingState.ANY : pcs.getGroupingState()
@@ -130,6 +135,7 @@ public class EquipmentToken implements QualifierToken<WeaponProf>,
 	}
 
 
+	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc,
 			Converter<WeaponProf, R> c)
 	{
@@ -142,6 +148,7 @@ public class EquipmentToken implements QualifierToken<WeaponProf>,
 		return returnSet;
 	}
 
+	@Override
 	public Collection<CDOMReference<WeaponProf>> convert(
 			CDOMReference<Equipment> orig)
 	{
@@ -160,6 +167,7 @@ public class EquipmentToken implements QualifierToken<WeaponProf>,
 		return refSet;
 	}
 
+	@Override
 	public Collection<CDOMReference<WeaponProf>> convert(
 			CDOMReference<Equipment> orig, PrimitiveFilter<Equipment> lim)
 	{

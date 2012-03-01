@@ -37,16 +37,19 @@ public class SpellCasterToken implements QualifierToken<WeaponProf>, PrimitiveFi
 {
 	private PrimitiveCollection<WeaponProf> pcs = null;
 	
+	@Override
 	public String getTokenName()
 	{
 		return "SPELLCASTER";
 	}
 
+	@Override
 	public Class<WeaponProf> getReferenceClass()
 	{
 		return WeaponProf.class;
 	}
 
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		StringBuilder sb = new StringBuilder();
@@ -55,6 +58,7 @@ public class SpellCasterToken implements QualifierToken<WeaponProf>, PrimitiveFi
 		return sb.toString();
 	}
 
+	@Override
 	public boolean initialize(LoadContext context,
 			SelectionCreator<WeaponProf> sc, String condition, String value,
 			boolean negate)
@@ -106,16 +110,19 @@ public class SpellCasterToken implements QualifierToken<WeaponProf>, PrimitiveFi
 		return false;
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return pcs.getGroupingState().reduce();
 	}
 
+	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<WeaponProf, R> c)
 	{
 		return pcs.getCollection(pc, new AddFilterConverter<WeaponProf, R>(c, this));
 	}
 
+	@Override
 	public boolean allow(PlayerCharacter pc, WeaponProf po)
 	{
 		return pc.isSpellCaster(1);

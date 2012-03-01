@@ -39,16 +39,19 @@ public class NoRankToken implements QualifierToken<Skill>, PrimitiveFilter<Skill
 
 	private boolean wasRestricted = false;
 
+	@Override
 	public String getTokenName()
 	{
 		return "NORANK";
 	}
 
+	@Override
 	public Class<Skill> getReferenceClass()
 	{
 		return Skill.class;
 	}
 
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		StringBuilder sb = new StringBuilder();
@@ -60,6 +63,7 @@ public class NoRankToken implements QualifierToken<Skill>, PrimitiveFilter<Skill
 		return sb.toString();
 	}
 
+	@Override
 	public boolean initialize(LoadContext context, SelectionCreator<Skill> sc,
 			String condition, String value, boolean negate)
 	{
@@ -88,6 +92,7 @@ public class NoRankToken implements QualifierToken<Skill>, PrimitiveFilter<Skill
 		return pcs != null;
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return pcs == null ? GroupingState.ANY : pcs.getGroupingState().reduce();
@@ -114,11 +119,13 @@ public class NoRankToken implements QualifierToken<Skill>, PrimitiveFilter<Skill
 		return false;
 	}
 
+	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Skill, R> c)
 	{
 		return pcs.getCollection(pc, new AddFilterConverter<Skill, R>(c, this));
 	}
 
+	@Override
 	public boolean allow(PlayerCharacter pc, Skill sk)
 	{
 		return (pc.getSkillRank(sk) == 0);

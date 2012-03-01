@@ -43,16 +43,19 @@ public class ClassToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 
 	private boolean negated = false;
 
+	@Override
 	public String getTokenName()
 	{
 		return "CLASS";
 	}
 
+	@Override
 	public Class<Skill> getReferenceClass()
 	{
 		return Skill.class;
 	}
 
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		StringBuilder sb = new StringBuilder();
@@ -68,6 +71,7 @@ public class ClassToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 		return sb.toString();
 	}
 
+	@Override
 	public boolean initialize(LoadContext context, SelectionCreator<Skill> sc,
 			String condition, String value, boolean negate)
 	{
@@ -91,6 +95,7 @@ public class ClassToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 		return pcs != null;
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		GroupingState gs = pcs == null ? GroupingState.ANY : pcs
@@ -122,6 +127,7 @@ public class ClassToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 		return false;
 	}
 
+	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Skill, R> c)
 	{
 		Converter<Skill, R> conv = new AddFilterConverter<Skill, R>(c, this);
@@ -129,6 +135,7 @@ public class ClassToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 		return pcs.getCollection(pc, conv);
 	}
 
+	@Override
 	public boolean allow(PlayerCharacter pc, Skill sk)
 	{
 		Collection<PCClass> classlist = pc.getClassSet();
