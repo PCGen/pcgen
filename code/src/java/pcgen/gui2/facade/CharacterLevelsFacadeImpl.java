@@ -101,11 +101,13 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		refreshClassList();
 	}
 
+	@Override
 	public CharacterLevelFacade getElementAt(int index)
 	{
 		return charLevels.get(index);
 	}
 
+	@Override
 	public int getSize()
 	{
 		return charLevels.size();
@@ -174,6 +176,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#getClassTaken(int)
 	 */
+	@Override
 	public ClassFacade getClassTaken(CharacterLevelFacade level)
 	{
 		if (level == null || !(level instanceof CharacterLevelFacadeImpl))
@@ -209,6 +212,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#getHPGained(int)
 	 */
+	@Override
 	public int getHPGained(CharacterLevelFacade level)
 	{
 		int numHp = getHPRolled(level);
@@ -227,6 +231,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#getHPRolled(int)
 	 */
+	@Override
 	public int getHPRolled(CharacterLevelFacade level)
 	{
 		PCClassLevel classLevel = getClassLevel(level);
@@ -241,6 +246,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#setHPRolled(int, int)
 	 */
+	@Override
 	public void setHPRolled(CharacterLevelFacade level, int hp)
 	{
 		PCClassLevel classLevel = getClassLevel(level);
@@ -268,6 +274,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#getGainedSkillPoints(int)
 	 */
+	@Override
 	public int getGainedSkillPoints(CharacterLevelFacade level)
 	{
 		PCLevelInfo classLevel = getLevelInfo(level);
@@ -277,6 +284,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#getMaxRanks(int, pcgen.cdom.enumeration.SkillCost)
 	 */
+	@Override
 	public float getMaxRanks(CharacterLevelFacade level, SkillCost cost)
 	{
 		if (cost == null || level == null
@@ -313,6 +321,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#getRankCost(int, pcgen.cdom.enumeration.SkillCost)
 	 */
+	@Override
 	public int getRankCost(CharacterLevelFacade level, SkillCost cost)
 	{
 		return cost.getCost();
@@ -321,6 +330,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#getSkillCost(int, pcgen.core.facade.SkillFacade)
 	 */
+	@Override
 	public SkillCost getSkillCost(CharacterLevelFacade level, SkillFacade skill)
 	{
 		if (level != null && level instanceof CharacterLevelFacadeImpl)
@@ -339,6 +349,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#getSkillModifier(int, pcgen.core.facade.SkillFacade)
 	 */
+	@Override
 	public int getSkillModifier(CharacterLevelFacade level, SkillFacade skill)
 	{
 		if (skill instanceof Skill)
@@ -351,6 +362,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#getSkillRanks(int, pcgen.core.facade.SkillFacade)
 	 */
+	@Override
 	public float getSkillRanks(CharacterLevelFacade level, SkillFacade skill)
 	{
 		// TODO Ranks aren't stored by level - have compromised by returning the total. Further discussion needed 
@@ -364,6 +376,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#getSkillTotal(int, pcgen.core.facade.SkillFacade)
 	 */
+	@Override
 	public int getSkillTotal(CharacterLevelFacade level, SkillFacade skill)
 	{
 		// TODO Ranks aren't stored by level - have compromised by returning the total. Further discussion needed 
@@ -380,6 +393,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#getSpentSkillPoints(int)
 	 */
+	@Override
 	public int getSpentSkillPoints(CharacterLevelFacade level)
 	{
 		PCLevelInfo classLevel = getLevelInfo(level);
@@ -390,6 +404,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#getRemainingSkillPoints(int)
 	 */
+	@Override
 	public int getRemainingSkillPoints(CharacterLevelFacade level)
 	{
 		PCLevelInfo classLevel = getLevelInfo(level);
@@ -399,6 +414,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#investSkillPoints(int, pcgen.core.facade.SkillFacade, int)
 	 */
+	@Override
 	public boolean investSkillPoints(CharacterLevelFacade level, SkillFacade skill, int points)
 	{
 		if (points == 0 || level == null
@@ -469,7 +485,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		}
 
 		final double cost = sc.getCost();
-		double rank = (double)points / cost;
+		double rank = points / cost;
 		
 		Skill aSkill = (Skill) skill;
 
@@ -486,7 +502,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 
 		if ("".equals(errMessage)) //$NON-NLS-1$
 		{
-			classLevel.setSkillPointsRemaining(skillPool - (int) points);
+			classLevel.setSkillPointsRemaining(skillPool - points);
 		}
 
 		//
@@ -685,6 +701,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#setGainedSkillPoints(int, int)
 	 */
+	@Override
 	public void setGainedSkillPoints(CharacterLevelFacade level, int points)
 	{
 		int spentSkillPoints = getSpentSkillPoints(level);
@@ -734,6 +751,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#addClasListener(pcgen.core.facade.CharacterLevelsFacade.ClassListener)
 	 */
+	@Override
 	public void addClassListener(ClassListener listener)
 	{
 		listenerList.add(ClassListener.class, listener);
@@ -742,6 +760,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#addHitPointListener(pcgen.core.facade.CharacterLevelsFacade.HitPointListener)
 	 */
+	@Override
 	public void addHitPointListener(HitPointListener listener)
 	{
 		listenerList.add(HitPointListener.class, listener);
@@ -750,6 +769,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#addSkillBonusListener(pcgen.core.facade.CharacterLevelsFacade.SkillBonusListener)
 	 */
+	@Override
 	public void addSkillBonusListener(SkillBonusListener listener)
 	{
 		listenerList.add(SkillBonusListener.class, listener);
@@ -758,6 +778,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#addSkillPointListener(pcgen.core.facade.CharacterLevelsFacade.SkillPointListener)
 	 */
+	@Override
 	public void addSkillPointListener(SkillPointListener listener)
 	{
 		listenerList.add(SkillPointListener.class, listener);
@@ -766,6 +787,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#removeClassListener(pcgen.core.facade.CharacterLevelsFacade.ClassListener)
 	 */
+	@Override
 	public void removeClassListener(ClassListener listener)
 	{
 		listenerList.remove(ClassListener.class, listener);
@@ -774,6 +796,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#removeHitPointListener(pcgen.core.facade.CharacterLevelsFacade.HitPointListener)
 	 */
+	@Override
 	public void removeHitPointListener(HitPointListener listener)
 	{
 		listenerList.remove(HitPointListener.class, listener);
@@ -782,6 +805,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#removeSkillBonusListener(pcgen.core.facade.CharacterLevelsFacade.SkillBonusListener)
 	 */
+	@Override
 	public void removeSkillBonusListener(SkillBonusListener listener)
 	{
 		listenerList.remove(SkillBonusListener.class, listener);
@@ -790,6 +814,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#removeSkillPointListener(pcgen.core.facade.CharacterLevelsFacade.SkillPointListener)
 	 */
+	@Override
 	public void removeSkillPointListener(SkillPointListener listener)
 	{
 		listenerList.remove(SkillPointListener.class, listener);

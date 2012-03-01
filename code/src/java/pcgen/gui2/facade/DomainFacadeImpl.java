@@ -78,6 +78,7 @@ public class DomainFacadeImpl extends QualifiedObject<Domain> implements DomainF
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFacade#getKeyName()
 	 */
+	@Override
 	public String getKeyName()
 	{
 		return getRawObject().getKeyName();
@@ -86,6 +87,7 @@ public class DomainFacadeImpl extends QualifiedObject<Domain> implements DomainF
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFacade#getSource()
 	 */
+	@Override
 	public String getSource()
 	{
 		return SourceFormat.getFormattedString(getRawObject(),

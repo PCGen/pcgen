@@ -203,26 +203,31 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 		return name;
 	}
 
+	@Override
 	public String getAvailableTableTitle()
 	{
 		return availableTableTitle;
 	}
 
+	@Override
 	public String getSelectedTableTitle()
 	{
 		return selectedTableTitle;
 	}
 
+	@Override
 	public String getAddButtonName()
 	{
 		return addButtonName;
 	}
 
+	@Override
 	public String getRemoveButtonName()
 	{
 		return removeButtonName;
 	}
 
+	@Override
 	public String getSelectionCountName()
 	{
 		return selectionCountName;

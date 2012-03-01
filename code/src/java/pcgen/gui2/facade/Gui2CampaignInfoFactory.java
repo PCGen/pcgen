@@ -61,6 +61,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public String getHTMLInfo(CampaignFacade campaign, List<CampaignFacade> testList)
 	{
 		PersistenceManager pman = PersistenceManager.getInstance();
@@ -79,6 +80,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CampaignInfoFactory#getHTMLInfo(pcgen.core.facade.CampaignFacade)
 	 */
+	@Override
 	public String getHTMLInfo(CampaignFacade campaign)
 	{
 		if (campaign == null || !(campaign instanceof Campaign))

@@ -533,6 +533,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#addAbility(pcgen.core.facade.AbilityCategoryFacade, pcgen.core.facade.AbilityFacade)
 	 */
+	@Override
 	public void addAbility(AbilityCategoryFacade category, AbilityFacade ability)
 	{
 		characterAbilities.addAbility(category, ability);
@@ -542,6 +543,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#removeAbility(pcgen.core.facade.AbilityCategoryFacade, pcgen.core.facade.AbilityFacade)
 	 */
+	@Override
 	public void removeAbility(AbilityCategoryFacade category,
 							  AbilityFacade ability)
 	{
@@ -552,6 +554,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getAbilities(pcgen.core.facade.AbilityCategoryFacade)
 	 */
+	@Override
 	public ListFacade<AbilityFacade> getAbilities(
 			AbilityCategoryFacade category)
 	{
@@ -561,6 +564,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getActiveAbilityCategories()
 	 */
+	@Override
 	public ListFacade<AbilityCategoryFacade> getActiveAbilityCategories()
 	{
 		return characterAbilities.getActiveAbilityCategories();
@@ -569,6 +573,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getTotalSelections(pcgen.core.facade.AbilityCategoryFacade)
 	 */
+	@Override
 	public int getTotalSelections(AbilityCategoryFacade category)
 	{
 		return characterAbilities.getTotalSelections(category);
@@ -577,6 +582,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getRemainingSelections(pcgen.core.facade.AbilityCategoryFacade)
 	 */
+	@Override
 	public int getRemainingSelections(AbilityCategoryFacade category)
 	{
 		return characterAbilities.getRemainingSelections(category);
@@ -585,6 +591,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void addAbilityCatSelectionListener(ChangeListener listener)
 	{
 		characterAbilities.addAbilityCatSelectionListener(listener);
@@ -593,6 +600,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void removeAbilityCatSelectionListener(ChangeListener listener)
 	{
 		characterAbilities.removeAbilityCatSelectionListener(listener);
@@ -601,6 +609,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#setRemainingSelection(pcgen.core.facade.AbilityCategoryFacade, int)
 	 */
+	@Override
 	public void setRemainingSelection(AbilityCategoryFacade category,
 									  int remaining)
 	{
@@ -610,6 +619,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#hasAbility(pcgen.core.facade.AbilityCategoryFacade, pcgen.core.facade.AbilityFacade)
 	 */
+	@Override
 	public boolean hasAbility(AbilityCategoryFacade category, AbilityFacade ability)
 	{
 		return characterAbilities.hasAbility(category, ability);
@@ -618,6 +628,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getAbilityNature(pcgen.core.facade.AbilityFacade)
 	 */
+	@Override
 	public Nature getAbilityNature(AbilityFacade ability)
 	{
 		if (ability == null || !(ability instanceof Ability))
@@ -630,6 +641,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#addCharacterLevels(pcgen.core.facade.ClassFacade[])
 	 */
+	@Override
 	public void addCharacterLevels(ClassFacade[] classes)
 	{
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
@@ -683,6 +695,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#removeCharacterLevels(int)
 	 */
+	@Override
 	public void removeCharacterLevels(int levels)
 	{
 		for (int i = levels; i > 0 && !pcClassLevels.isEmpty(); i--)
@@ -739,6 +752,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getClassLevel(pcgen.core.facade.ClassFacade)
 	 */
+	@Override
 	public int getClassLevel(ClassFacade c)
 	{
 		int clsLevel = 0;
@@ -755,6 +769,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getLevels()
 	 */
+	@Override
 	public ListFacade<CharacterLevelFacade> getLevels()
 	{
 		return pcClassLevels;
@@ -1039,23 +1054,27 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getAvailableTempBonuses()
 	 */
+	@Override
 	public ListFacade<TempBonusFacade> getAvailableTempBonuses()
 	{
 		return availTempBonuses;
 	}
 
+	@Override
 	public void addTempBonus(TempBonusFacade bonus)
 	{
 		appliedTempBonuses.addElement(bonus);
 		refreshLanguageList();
 	}
 
+	@Override
 	public void removeTempBonus(TempBonusFacade bonus)
 	{
 		appliedTempBonuses.removeElement(bonus);
 		refreshLanguageList();
 	}
 
+	@Override
 	public ListFacade<TempBonusFacade> getTempBonuses()
 	{
 		return appliedTempBonuses;
@@ -1064,6 +1083,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getAlignmentRef()
 	 */
+	@Override
 	public ReferenceFacade<AlignmentFacade> getAlignmentRef()
 	{
 		return alignment;
@@ -1072,6 +1092,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#setAlignment(pcgen.core.facade.AlignmentFacade)
 	 */
+	@Override
 	public void setAlignment(AlignmentFacade alignment)
 	{
 		if (!validateAlignmentChange(alignment))
@@ -1210,6 +1231,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getDataSet()
 	 */
+	@Override
 	public DataSetFacade getDataSet()
 	{
 		return dataSet;
@@ -1218,6 +1240,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getEquipmentSets()
 	 */
+	@Override
 	public ListFacade<EquipmentSetFacade> getEquipmentSets()
 	{
 		return equipmentSets;
@@ -1226,6 +1249,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getGenderRef()
 	 */
+	@Override
 	public ReferenceFacade<GenderFacade> getGenderRef()
 	{
 		return gender;
@@ -1234,6 +1258,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#setGender(pcgen.cdom.enumeration.Gender)
 	 */
+	@Override
 	public void setGender(GenderFacade gender)
 	{
 		this.selectedGender = gender.toString();
@@ -1242,6 +1267,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		refreshLanguageList();
 	}
 
+	@Override
 	public void setGender(String gender)
 	{
 		this.selectedGender = gender;
@@ -1259,6 +1285,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getModTotal(pcgen.core.facade.StatFacade)
 	 */
+	@Override
 	public int getModTotal(StatFacade stat)
 	{
 		if (stat instanceof PCStat && !theCharacter.isNonAbility((PCStat) stat))
@@ -1272,6 +1299,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getScoreTotalRef(pcgen.core.facade.StatFacade)
 	 */
+	@Override
 	public ReferenceFacade<Integer> getScoreBaseRef(StatFacade stat)
 	{
 		DefaultReferenceFacade<Integer> score = statScoreMap.get(stat);
@@ -1288,6 +1316,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getScoreBase(pcgen.core.facade.StatFacade)
 	 */
+	@Override
 	public int getScoreBase(StatFacade stat)
 	{
 		if (!(stat instanceof PCStat))
@@ -1300,6 +1329,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getScoreTotalString(pcgen.core.facade.StatFacade)
 	 */
+	@Override
 	public String getScoreTotalString(StatFacade stat)
 	{
 		if (!(stat instanceof PCStat))
@@ -1318,6 +1348,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getScoreRaceBonus(pcgen.core.facade.StatFacade)
 	 */
+	@Override
 	public int getScoreRaceBonus(StatFacade stat)
 	{
 		if (!(stat instanceof PCStat))
@@ -1341,6 +1372,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getScoreOtherBonus(pcgen.core.facade.StatFacade)
 	 */
+	@Override
 	public int getScoreOtherBonus(StatFacade stat)
 	{
 		if (!(stat instanceof PCStat))
@@ -1365,6 +1397,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#setScoreBase(pcgen.core.facade.StatFacade, int)
 	 */
+	@Override
 	public void setScoreBase(StatFacade stat, int score)
 	{
 		DefaultReferenceFacade<Integer> facade = statScoreMap.get(stat);
@@ -1508,6 +1541,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#rollStats()
 	 */
+	@Override
 	public void rollStats()
 	{
 		GameMode game = (GameMode) dataSet.getGameMode();
@@ -1540,6 +1574,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#isStatRollEnabled()
 	 */
+	@Override
 	public boolean isStatRollEnabled()
 	{
 		return (charLevelsFacade.getSize() == 0);
@@ -1571,6 +1606,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getSkillModifier(pcgen.core.facade.SkillFacade)
 	 */
+	@Override
 	public int getSkillModifier(SkillFacade skill, CharacterLevelFacade level)
 	{
 		if (skill.getKeyStat() == null)
@@ -1592,6 +1628,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getSkillRanks(pcgen.core.facade.SkillFacade)
 	 */
+	@Override
 	public float getSkillRanks(SkillFacade skill, CharacterLevelFacade finallevel)
 	{
 		return charLevelsFacade.getSkillRanks(finallevel, skill);
@@ -1618,6 +1655,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getMaxRanks(pcgen.cdom.enumeration.SkillCost, pcgen.core.facade.CharacterLevelFacade)
 	 */
+	@Override
 	public float getMaxRanks(SkillCost cost, CharacterLevelFacade level)
 	{
 		if (cost == null || level == null || !pcClassLevels.containsElement(level))
@@ -1634,6 +1672,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getUndoManager()
 	 */
+	@Override
 	public UndoManager getUndoManager()
 	{
 		return undoManager;
@@ -1642,6 +1681,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getRaceRef()
 	 */
+	@Override
 	public ReferenceFacade<RaceFacade> getRaceRef()
 	{
 		return race;
@@ -1650,6 +1690,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/**
 	 * @return A reference to a list containing the character's race.
 	 */
+	@Override
 	public ListFacade<RaceFacade> getRaceAsList()
 	{
 		return raceList;
@@ -1658,6 +1699,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#setRace(pcgen.core.facade.RaceFacade)
 	 */
+	@Override
 	public void setRace(RaceFacade race)
 	{
 		// TODO: We don't have a HP dialog implemented yet, so don't try to show it
@@ -1715,6 +1757,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getTabNameRef()
 	 */
+	@Override
 	public ReferenceFacade<String> getTabNameRef()
 	{
 		return tabName;
@@ -1723,6 +1766,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#setTabName(java.lang.String)
 	 */
+	@Override
 	public void setTabName(String name)
 	{
 		tabName.setReference(name);
@@ -1732,6 +1776,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getNameRef()
 	 */
+	@Override
 	public ReferenceFacade<String> getNameRef()
 	{
 		return name;
@@ -1740,6 +1785,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#setName(java.lang.String)
 	 */
+	@Override
 	public void setName(String name)
 	{
 		this.name.setReference(name);
@@ -1760,6 +1806,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	 * @param field The BiographyField to check export rules for.
 	 * @return true if the field should be output, false if it may not be.
 	 */
+	@Override
 	public boolean getExportBioField(BiographyField field)
 	{
 		return !theCharacter.getDisplay().getSuppressBioField(field);
@@ -1770,6 +1817,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	 * @param field The BiographyField to set export rules for.
 	 * @param export Should the field be shown in output.
 	 */
+	@Override
 	public void setExportBioField(BiographyField field, boolean export)
 	{
 		theCharacter.setSuppressBioField(field, !export);
@@ -1778,6 +1826,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public ReferenceFacade<String> getSkinColorRef()
 	{
 		return skinColor;
@@ -1786,6 +1835,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void setSkinColor(String color)
 	{
 		skinColor.setReference(color);
@@ -1795,6 +1845,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public ReferenceFacade<String> getHairColorRef()
 	{
 		return hairColor;
@@ -1803,6 +1854,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void setHairColor(String color)
 	{
 		hairColor.setReference(color);
@@ -1812,6 +1864,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public ReferenceFacade<String> getEyeColorRef()
 	{
 		return eyeColor;
@@ -1820,6 +1873,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void setEyeColor(String color)
 	{
 		eyeColor.setReference(color);
@@ -1829,6 +1883,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public ReferenceFacade<Integer> getHeightRef()
 	{
 		return heightRef;
@@ -1837,6 +1892,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void setHeight(int height)
 	{
 		heightRef.setReference(height);
@@ -1846,6 +1902,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public ReferenceFacade<Integer> getWeightRef()
 	{
 		return weightRef;
@@ -1854,6 +1911,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void setWeight(int weight)
 	{
 		weightRef.setReference(weight);
@@ -1863,6 +1921,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getDeityRef()
 	 */
+	@Override
 	public ReferenceFacade<DeityFacade> getDeityRef()
 	{
 		return deity;
@@ -1871,6 +1930,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#setDeity(pcgen.core.facade.DeityFacade)
 	 */
+	@Override
 	public void setDeity(DeityFacade deity)
 	{
 		this.deity.setReference(deity);
@@ -1886,6 +1946,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#addDomain(pcgen.core.facade.DomainFacade)
 	 */
+	@Override
 	public void addDomain(DomainFacade domainFacade)
 	{
 		if (!(domainFacade instanceof DomainFacadeImpl))
@@ -1931,6 +1992,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getDomains()
 	 */
+	@Override
 	public ListFacade<DomainFacade> getDomains()
 	{
 		return domains;
@@ -1939,6 +2001,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#removeDomain(pcgen.core.facade.DomainFacade)
 	 */
+	@Override
 	public void removeDomain(DomainFacade domain)
 	{
 		domains.removeElement(domain);
@@ -1976,6 +2039,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getMaxDomains()
 	 */
+	@Override
 	public ReferenceFacade<Integer> getMaxDomains()
 	{
 		return maxDomains;
@@ -1984,6 +2048,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getRemainingDomainSelectionsRef()
 	 */
+	@Override
 	public ReferenceFacade<Integer> getRemainingDomainSelectionsRef()
 	{
 		return remainingDomains;
@@ -1992,6 +2057,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getAvailableDomains()
 	 */
+	@Override
 	public ListFacade<DomainFacade> getAvailableDomains()
 	{
 		return availDomains;
@@ -2150,6 +2216,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getEquipmentSetRef()
 	 */
+	@Override
 	public ReferenceFacade<EquipmentSetFacade> getEquipmentSetRef()
 	{
 		return equipSet;
@@ -2158,6 +2225,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#setEquipmentSet(pcgen.core.facade.EquipmentSetFacade)
 	 */
+	@Override
 	public void setEquipmentSet(EquipmentSetFacade set)
 	{
 		EquipmentSetFacade oldSet = equipSet.getReference();
@@ -2316,11 +2384,13 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getFileRef()
 	 */
+	@Override
 	public ReferenceFacade<File> getFileRef()
 	{
 		return file;
 	}
 
+	@Override
 	public void setFile(File file)
 	{
 		this.file.setReference(file);
@@ -2330,6 +2400,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#export(pcgen.io.ExportHandler, java.io.BufferedWriter)
 	 */
+	@Override
 	public void export(ExportHandler theHandler, BufferedWriter buf)
 	{
 		final int maxRetries = 3;
@@ -2362,6 +2433,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getHandedRef()
 	 */
+	@Override
 	public ReferenceFacade<SimpleFacade> getHandedRef()
 	{
 		return handedness;
@@ -2370,6 +2442,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#setHanded(java.lang.String)
 	 */
+	@Override
 	public void setHanded(SimpleFacade handedness)
 	{
 		this.handedness.setReference(handedness);
@@ -2379,6 +2452,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getPlayersNameRef()
 	 */
+	@Override
 	public ReferenceFacade<String> getPlayersNameRef()
 	{
 		return playersName;
@@ -2387,6 +2461,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#setPlayersName(java.lang.String)
 	 */
+	@Override
 	public void setPlayersName(String name)
 	{
 		this.playersName.setReference(name);
@@ -2396,6 +2471,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#isQualifiedFor(pcgen.core.facade.ClassFacade)
 	 */
+	@Override
 	public boolean isQualifiedFor(ClassFacade c)
 	{
 		if (c instanceof PCClass)
@@ -2405,6 +2481,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		return false;
 	}
 
+	@Override
 	public UIDelegate getUIDelegate()
 	{
 		return delegate;
@@ -2429,6 +2506,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#isAutomatic(pcgen.core.facade.LanguageFacade)
 	 */
+	@Override
 	public boolean isAutomatic(LanguageFacade language)
 	{
 		if (autoLanguagesCache == null)
@@ -2441,11 +2519,13 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getCharacterLevelsFacade()
 	 */
+	@Override
 	public CharacterLevelsFacade getCharacterLevelsFacade()
 	{
 		return charLevelsFacade;
 	}
 
+	@Override
 	public DescriptionFacade getDescriptionFacade()
 	{
 		return descriptionFacade;
@@ -2454,6 +2534,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#setXP(int)
 	 */
+	@Override
 	public void setXP(final int xp)
 	{
 		if (xp == currentXP.getReference())
@@ -2468,6 +2549,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getXPRef()
 	 */
+	@Override
 	public ReferenceFacade<Integer> getXPRef()
 	{
 		return currentXP;
@@ -2476,6 +2558,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#adjustXP(int)
 	 */
+	@Override
 	public void adjustXP(final int xp)
 	{
 		int currVal = currentXP.getReference();
@@ -2487,16 +2570,19 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getXPForNextLevelRef()
 	 */
+	@Override
 	public ReferenceFacade<Integer> getXPForNextLevelRef()
 	{
 		return xpForNextlevel;
 	}
 
+	@Override
 	public ReferenceFacade<String> getXPTableNameRef()
 	{
 		return xpTableName;
 	}
 
+	@Override
 	public void setXPTable(String newTable) {
 
 		xpTableName.setReference(newTable);
@@ -2517,11 +2603,13 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		updateLevelTodo();
 	}
 
+	@Override
 	public ReferenceFacade<String> getCharacterTypeRef()
 	{
 		return characterType;
 	}
 
+	@Override
 	public void setCharacterType(String newType) {
 
 		characterType.setReference(newType);
@@ -2531,6 +2619,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#setAge(int)
 	 */
+	@Override
 	public void setAge(final int age)
 	{
 		if (age == this.age.getReference())
@@ -2566,6 +2655,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getAgeRef()
 	 */
+	@Override
 	public ReferenceFacade<Integer> getAgeRef()
 	{
 		return age;
@@ -2574,11 +2664,13 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getAgeCategories()
 	 */
+	@Override
 	public ListFacade<SimpleFacade> getAgeCategories()
 	{
 		return ageCategoryList;
 	}
 
+	@Override
 	public void setAgeCategory(final SimpleFacade ageCat)
 	{
 		if (ageCat == this.ageCategory.getReference())
@@ -2608,6 +2700,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		}
 	}
 
+	@Override
 	public ReferenceFacade<SimpleFacade> getAgeCategoryRef()
 	{
 		return ageCategory;
@@ -2746,6 +2839,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getStatTotalLabelTextRef()
 	 */
+	@Override
 	public ReferenceFacade<String> getStatTotalLabelTextRef()
 	{
 		return statTotalLabelText;
@@ -2754,6 +2848,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getStatTotalTextRef()
 	 */
+	@Override
 	public ReferenceFacade<String> getStatTotalTextRef()
 	{
 		return statTotalText;
@@ -2762,6 +2857,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/**
 	 * @return A reference to the label text for the character's modifier total
 	 */
+	@Override
 	public ReferenceFacade<String> getModTotalLabelTextRef()
 	{
 		return modTotalLabelText;
@@ -2770,6 +2866,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/**
 	 * @return A reference to the text for the character's modifier total
 	 */
+	@Override
 	public ReferenceFacade<String> getModTotalTextRef()
 	{
 		return modTotalText;
@@ -2778,6 +2875,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getTodoList()
 	 */
+	@Override
 	public ListFacade<TodoFacade> getTodoList()
 	{
 		return todoManager.getTodoList();
@@ -2791,16 +2889,19 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		return theCharacter;
 	}
 
+	@Override
 	public ReferenceFacade<Integer> getTotalHPRef()
 	{
 		return hpRef;
 	}
 
+	@Override
 	public ReferenceFacade<Integer> getRollMethodRef()
 	{
 		return rollMethodRef;
 	}
 
+	@Override
 	public void refreshRollMethod()
 	{
 		if (!canChangePurchasePool())
@@ -2866,6 +2967,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void adjustFunds(BigDecimal modVal)
 	{
 		BigDecimal currFunds = theCharacter.getGold(); 
@@ -2876,6 +2978,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void setFunds(BigDecimal newVal)
 	{
 		theCharacter.setGold(newVal);
@@ -2885,6 +2988,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public ReferenceFacade<BigDecimal> getFundsRef()
 	{
 		return fundsRef;
@@ -2893,16 +2997,19 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public ReferenceFacade<BigDecimal> getWealthRef()
 	{
 		return wealthRef;
 	}
 
+	@Override
 	public ReferenceFacade<GearBuySellFacade> getGearBuySellRef()
 	{
 		return gearBuySellSchemeRef;
 	}
 
+	@Override
 	public void setGearBuySellRef(GearBuySellFacade gearBuySell)
 	{
 		gearBuySellSchemeRef.setReference(gearBuySell);
@@ -2944,6 +3051,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getPurchasedEquipment()
 	 */
+	@Override
 	public EquipmentListFacade getPurchasedEquipment()
 	{
 		return purchasedEquip;
@@ -2952,6 +3060,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#addPurchasedEquipment(pcgen.core.facade.EquipmentFacade, int)
 	 */
+	@Override
 	public void addPurchasedEquipment(EquipmentFacade equipment, int quantity, boolean customize)
 	{
 		if (equipment == null || quantity <= 0)
@@ -3108,6 +3217,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#removePurchasedEquipment(pcgen.core.facade.EquipmentFacade, int)
 	 */
+	@Override
 	public void removePurchasedEquipment(EquipmentFacade equipment, int quantity)
 	{
 		if (equipment == null || quantity <= 0)
@@ -3134,8 +3244,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 				updatedItem.setNumberCarried(new Float(0));
 				updatedItem.setLocation(EquipmentLocation.NOT_CARRIED);
 
-				final Equipment eqParent =
-						(Equipment) updatedItem.getParent();
+				final Equipment eqParent = updatedItem.getParent();
 
 				if (eqParent != null)
 				{
@@ -3175,6 +3284,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#isQualifiedFor(pcgen.core.facade.EquipmentFacade)
 	 */
+	@Override
 	public boolean isQualifiedFor(EquipmentFacade equipment)
 	{
 		final Equipment equip = (Equipment) equipment;
@@ -3193,6 +3303,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getEquipmentSizedForCharacter(pcgen.core.facade.EquipmentFacade)
 	 */
+	@Override
 	public EquipmentFacade getEquipmentSizedForCharacter(EquipmentFacade equipment)
 	{
 		final Equipment equip = (Equipment) equipment;
@@ -3264,6 +3375,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	 * character's size.
 	 * @return true if equipment should be auto resize.
 	 */
+	@Override
 	public boolean isAutoResize()
 	{
 		return theCharacter.isAutoResize();
@@ -3275,6 +3387,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	 * 
 	 * @param autoResize The new value for auto resize equipment option.
 	 */
+	@Override
 	public void setAutoResize(boolean autoResize)
 	{
 		theCharacter.setAutoResize(autoResize);
@@ -3283,6 +3396,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#createEquipmentSet(java.lang.String)
 	 */
+	@Override
 	public EquipmentSetFacade createEquipmentSet(String name)
 	{
 		String id = EquipmentSetFacadeImpl.getNewIdPath(theCharacter, null);
@@ -3298,6 +3412,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#deleteEquipmentSet(pcgen.core.facade.EquipmentSetFacade)
 	 */
+	@Override
 	public void deleteEquipmentSet(EquipmentSetFacade set)
 	{
 		if (set == null || !(set instanceof EquipmentSetFacadeImpl))
@@ -3311,16 +3426,19 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		equipmentSets.removeElement(set);
 	}
 
+	@Override
 	public ReferenceFacade<String> getCarriedWeightRef()
 	{
 		return carriedWeightRef;
 	}
 
+	@Override
 	public ReferenceFacade<String> getLoadRef()
 	{
 		return loadRef;
 	}
 
+	@Override
 	public ReferenceFacade<String> getWeightLimitRef()
 	{
 		return weightLimitRef;
@@ -3329,6 +3447,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.EquipmentListFacade.EquipmentListListener#quantityChanged(pcgen.core.facade.EquipmentListFacade.EquipmentListEvent)
 	 */
+	@Override
 	public void quantityChanged(EquipmentListEvent e)
 	{
 		refreshTotalWeight();
@@ -3337,6 +3456,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.event.ListListener#elementAdded(pcgen.core.facade.event.ListEvent)
 	 */
+	@Override
 	public void elementAdded(ListEvent<EquipmentFacade> e)
 	{
 		refreshTotalWeight();
@@ -3345,6 +3465,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.event.ListListener#elementRemoved(pcgen.core.facade.event.ListEvent)
 	 */
+	@Override
 	public void elementRemoved(ListEvent<EquipmentFacade> e)
 	{
 		refreshTotalWeight();
@@ -3353,6 +3474,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.event.ListListener#elementsChanged(pcgen.core.facade.event.ListEvent)
 	 */
+	@Override
 	public void elementsChanged(ListEvent<EquipmentFacade> e)
 	{
 		refreshTotalWeight();
@@ -3405,6 +3527,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade.HitPointListener#hitPointsChanged(pcgen.core.facade.CharacterLevelsFacade.CharacterLevelEvent)
 	 */
+	@Override
 	public void hitPointsChanged(CharacterLevelEvent e)
 	{
 		hpRef.setReference(theCharacter.hitPoints());
@@ -3413,6 +3536,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getInfoFactory()
 	 */
+	@Override
 	public InfoFactory getInfoFactory()
 	{
 		return infoFactory;
@@ -3421,6 +3545,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#isQualifiedFor(pcgen.core.facade.InfoFacade)
 	 */
+	@Override
 	public boolean isQualifiedFor(InfoFacade infoFacade)
 	{
 		if (!(infoFacade instanceof PObject))
@@ -3439,6 +3564,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#isQualifiedFor(pcgen.core.facade.DomainFacade)
 	 */
+	@Override
 	public boolean isQualifiedFor(DomainFacade domainFacade)
 	{
 		if (!(domainFacade instanceof DomainFacadeImpl))
@@ -3460,6 +3586,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#addTemplate(pcgen.core.facade.TemplateFacade)
 	 */
+	@Override
 	public void addTemplate(TemplateFacade templateFacade)
 	{
 		if (templateFacade == null || !(templateFacade instanceof PCTemplate))
@@ -3489,6 +3616,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#removeTemplate(pcgen.core.facade.TemplateFacade)
 	 */
+	@Override
 	public void removeTemplate(TemplateFacade templateFacade)
 	{
 		if (templateFacade == null || !(templateFacade instanceof PCTemplate))
@@ -3513,17 +3641,20 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getTemplates()
 	 */
+	@Override
 	public ListFacade<TemplateFacade> getTemplates()
 	{
 		return templates;
 	}
 
 
+	@Override
 	public void addCharacterChangeListener(CharacterChangeListener listener)
 	{
 		//TODO: implement this
 	}
 
+	@Override
 	public void removeCharacterChangeListener(CharacterChangeListener listener)
 	{
 		//TODO: implement this
@@ -3532,16 +3663,19 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getSpellSupport()
 	 */
+	@Override
 	public SpellSupportFacade getSpellSupport()
 	{
 		return spellSupportFacade;
 	}
 
+	@Override
 	public ReferenceFacade<File> getPortraitRef()
 	{
 		return portrait;
 	}
 
+	@Override
 	public void setPortrait(File file)
 	{
 		portrait.setReference(file);
@@ -3549,11 +3683,13 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			.getAbsolutePath());
 	}
 
+	@Override
 	public ReferenceFacade<Rectangle> getThumbnailCropRef()
 	{
 		return cropRect;
 	}
 
+	@Override
 	public void setThumbnailCrop(Rectangle rect)
 	{
 		cropRect.setReference(rect);

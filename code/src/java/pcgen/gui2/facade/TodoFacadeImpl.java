@@ -78,6 +78,7 @@ public class TodoFacadeImpl implements TodoFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.TodoFacade#getFieldName()
 	 */
+	@Override
 	public String getFieldName()
 	{
 		return fieldName;
@@ -86,6 +87,7 @@ public class TodoFacadeImpl implements TodoFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.TodoFacade#getMessage()
 	 */
+	@Override
 	public String getMessageKey()
 	{
 		return messageKey;
@@ -94,6 +96,7 @@ public class TodoFacadeImpl implements TodoFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.TodoFacade#getTabName()
 	 */
+	@Override
 	public CharacterTab getTab()
 	{
 		return tab;
@@ -102,6 +105,7 @@ public class TodoFacadeImpl implements TodoFacade
 	/* (non-Javadoc)
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
+	@Override
 	public int compareTo(TodoFacade that)
 	{
 	    final int BEFORE = -1;

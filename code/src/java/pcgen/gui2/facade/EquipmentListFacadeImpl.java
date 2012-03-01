@@ -56,11 +56,13 @@ public class EquipmentListFacadeImpl extends AbstractListFacade<EquipmentFacade>
 		}
 	}
 
+	@Override
 	public void addEquipmentListListener(EquipmentListListener listener)
 	{
 		listenerList.add(EquipmentListListener.class, listener);
 	}
 
+	@Override
 	public void removeEquipmentListListener(EquipmentListListener listener)
 	{
 		listenerList.remove(EquipmentListListener.class, listener);
@@ -102,6 +104,7 @@ public class EquipmentListFacadeImpl extends AbstractListFacade<EquipmentFacade>
 
 	}
 
+	@Override
 	public int getQuantity(EquipmentFacade equipment)
 	{
 		if (quantityMap.containsKey(equipment))
@@ -117,11 +120,13 @@ public class EquipmentListFacadeImpl extends AbstractListFacade<EquipmentFacade>
 		fireQuantityChangedEvent(this, equipment, equipmentList.indexOf(equipment));
 	}
 
+	@Override
 	public EquipmentFacade getElementAt(int index)
 	{
 		return equipmentList.get(index);
 	}
 
+	@Override
 	public int getSize()
 	{
 		return equipmentList.size();

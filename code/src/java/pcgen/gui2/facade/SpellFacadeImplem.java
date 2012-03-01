@@ -63,6 +63,7 @@ public class SpellFacadeImplem implements SpellFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFacade#getSource()
 	 */
+	@Override
 	public String getSource()
 	{
 		return SourceFormat.getFormattedString(spell,
@@ -72,6 +73,7 @@ public class SpellFacadeImplem implements SpellFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFacade#getKeyName()
 	 */
+	@Override
 	public String getKeyName()
 	{
 		return spell.getKeyName();
@@ -80,6 +82,7 @@ public class SpellFacadeImplem implements SpellFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.SpellFacade#getSchool()
 	 */
+	@Override
 	public String getSchool()
 	{
 		return spell.getListAsString(ListKey.SPELL_SCHOOL);
@@ -88,6 +91,7 @@ public class SpellFacadeImplem implements SpellFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.SpellFacade#getSubschool()
 	 */
+	@Override
 	public String getSubschool()
 	{
         return spell.getListAsString(ListKey.SPELL_SUBSCHOOL);
@@ -96,6 +100,7 @@ public class SpellFacadeImplem implements SpellFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.SpellFacade#getDescriptors()
 	 */
+	@Override
 	public String[] getDescriptors()
 	{
         List<String> descriptors = spell.getListFor(ListKey.SPELL_DESCRIPTOR);
@@ -109,6 +114,7 @@ public class SpellFacadeImplem implements SpellFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.SpellFacade#getComponents()
 	 */
+	@Override
 	public String getComponents()
 	{
 		return spell.getListAsString(ListKey.COMPONENTS);
@@ -117,6 +123,7 @@ public class SpellFacadeImplem implements SpellFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.SpellFacade#getRange()
 	 */
+	@Override
 	public String getRange()
 	{
         return pc.getSpellRange(charSpell, spellInfo);
@@ -125,6 +132,7 @@ public class SpellFacadeImplem implements SpellFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.SpellFacade#getDuration()
 	 */
+	@Override
 	public String getDuration()
 	{
 		return pc.parseSpellString(charSpell, spell.getListAsString(ListKey.DURATION));

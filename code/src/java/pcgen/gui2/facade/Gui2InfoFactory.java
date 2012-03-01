@@ -132,6 +132,7 @@ public class Gui2InfoFactory implements InfoFactory
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFactory#getFavoredClass(pcgen.core.facade.RaceFacade)
 	 */
+	@Override
 	public String getFavoredClass(RaceFacade race)
 	{
 		if (!(race instanceof Race))
@@ -145,6 +146,7 @@ public class Gui2InfoFactory implements InfoFactory
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFactory#getHTMLInfo(pcgen.core.facade.RaceFacade)
 	 */
+	@Override
 	public String getHTMLInfo(RaceFacade raceFacade)
 	{
 		if (!(raceFacade instanceof Race))
@@ -155,7 +157,7 @@ public class Gui2InfoFactory implements InfoFactory
 		
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
 
-		if ((race != null) && !race.getKeyName().startsWith("<none"))
+		if (!race.getKeyName().startsWith("<none"))
 		{
 			infoText.appendTitleElement(OutputNameFormatting.piString(race, false));
 
@@ -200,10 +202,11 @@ public class Gui2InfoFactory implements InfoFactory
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFactory#getHTMLInfo(pcgen.core.facade.ClassFacade, pcgen.core.facade.ClassFacade)
 	 */
+	@Override
 	public String getHTMLInfo(ClassFacade classFacade,
 		ClassFacade parentClassFacade)
 	{
-		if (!(classFacade instanceof PCClass) || classFacade == null)
+		if (!(classFacade instanceof PCClass))
 		{
 			return EMPTY_STRING;
 		}
@@ -307,9 +310,10 @@ public class Gui2InfoFactory implements InfoFactory
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFactory#getHTMLInfo(pcgen.core.facade.SkillFacade)
 	 */
+	@Override
 	public String getHTMLInfo(SkillFacade skillFacade)
 	{
-		if (!(skillFacade instanceof Skill) || skillFacade == null)
+		if (!(skillFacade instanceof Skill))
 		{
 			return EMPTY_STRING;
 		}
@@ -383,9 +387,10 @@ public class Gui2InfoFactory implements InfoFactory
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFactory#getHTMLInfo(pcgen.core.facade.AbilityFacade)
 	 */
+	@Override
 	public String getHTMLInfo(AbilityFacade abilityFacade)
 	{
-		if (!(abilityFacade instanceof Ability) || abilityFacade == null)
+		if (!(abilityFacade instanceof Ability))
 		{
 			return EMPTY_STRING;
 		}
@@ -465,6 +470,7 @@ public class Gui2InfoFactory implements InfoFactory
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFactory#getHTMLInfo(pcgen.core.facade.DeityFacade)
 	 */
+	@Override
 	public String getHTMLInfo(DeityFacade deityFacade)
 	{
 		if (!(deityFacade instanceof Deity))
@@ -553,6 +559,7 @@ public class Gui2InfoFactory implements InfoFactory
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFactory#getHTMLInfo(pcgen.core.facade.DomainFacade)
 	 */
+	@Override
 	public String getHTMLInfo(DomainFacade domainFacade)
 	{
 		if (!(domainFacade instanceof DomainFacadeImpl))
@@ -560,7 +567,7 @@ public class Gui2InfoFactory implements InfoFactory
 			return EMPTY_STRING;
 		}
 		DomainFacadeImpl domainFI = (DomainFacadeImpl) domainFacade;
-		Domain aDomain = (Domain) domainFI.getRawObject();
+		Domain aDomain = domainFI.getRawObject();
 		
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
 
@@ -614,6 +621,7 @@ public class Gui2InfoFactory implements InfoFactory
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFactory#getHTMLInfo(pcgen.core.facade.EquipmentFacade)
 	 */
+	@Override
 	public String getHTMLInfo(EquipmentFacade equipFacade)
 	{
 		if (equipFacade == null || !(equipFacade instanceof Equipment))
@@ -882,10 +890,10 @@ public class Gui2InfoFactory implements InfoFactory
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFactory#getHTMLInfo(pcgen.core.facade.TemplateFacade)
 	 */
+	@Override
 	public String getHTMLInfo(TemplateFacade templateFacade)
 	{
-		if (templateFacade == null
-			|| !(templateFacade instanceof TemplateFacade))
+		if (templateFacade == null)
 		{
 			return EMPTY_STRING;
 		}
@@ -951,7 +959,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getHTMLInfo(KitFacade kitFacade)
 	{
-		if (kitFacade == null || !(kitFacade instanceof KitFacade))
+		if (kitFacade == null)
 		{
 			return EMPTY_STRING;
 		}
@@ -1007,6 +1015,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 	private static class ObjectTypeComparator implements Comparator<BaseKit>
 	{
+		@Override
 		public int compare(BaseKit bk1, BaseKit bk2)
 		{
 			String name1 = bk1.getObjectName();
@@ -1018,6 +1027,7 @@ public class Gui2InfoFactory implements InfoFactory
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFactory#getLevelAdjustment(pcgen.core.facade.RaceFacade)
 	 */
+	@Override
 	public String getLevelAdjustment(RaceFacade raceFacade)
 	{
 		if (!(raceFacade instanceof Race))
@@ -1032,6 +1042,7 @@ public class Gui2InfoFactory implements InfoFactory
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFactory#getPreReqHTML(pcgen.core.facade.RaceFacade)
 	 */
+	@Override
 	public String getPreReqHTML(RaceFacade race)
 	{
 		if (!(race instanceof Race))
@@ -1045,6 +1056,7 @@ public class Gui2InfoFactory implements InfoFactory
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFactory#getStatAdjustments(pcgen.core.facade.RaceFacade)
 	 */
+	@Override
 	public String getStatAdjustments(RaceFacade raceFacade)
 	{
 		if (!(raceFacade instanceof Race))
@@ -1086,6 +1098,7 @@ public class Gui2InfoFactory implements InfoFactory
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFactory#getVision(pcgen.core.facade.RaceFacade)
 	 */
+	@Override
 	public String getVision(RaceFacade race)
 	{
 		if (!(race instanceof Race))
@@ -1095,6 +1108,7 @@ public class Gui2InfoFactory implements InfoFactory
 		return VisionDisplay.getVision(pc, (Race) race);
 	}
 
+	@Override
 	public float getCost(EquipmentFacade equipment)
 	{
 		if (equipment instanceof Equipment)
@@ -1104,6 +1118,7 @@ public class Gui2InfoFactory implements InfoFactory
 		return 0;
 	}
 
+	@Override
 	public float getWeight(EquipmentFacade equipment)
 	{
 		if (equipment instanceof Equipment)
@@ -1116,6 +1131,7 @@ public class Gui2InfoFactory implements InfoFactory
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFactory#getLevelAdjustment(pcgen.core.facade.TemplateFacade)
 	 */
+	@Override
 	public String getLevelAdjustment(TemplateFacade templateFacade)
 	{
 		if (!(templateFacade instanceof PCTemplate))
@@ -1130,6 +1146,7 @@ public class Gui2InfoFactory implements InfoFactory
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFactory#getModifier(pcgen.core.facade.TemplateFacade)
 	 */
+	@Override
 	public String getModifier(TemplateFacade templateFacade)
 	{
 		if (!(templateFacade instanceof PCTemplate))
@@ -1143,6 +1160,7 @@ public class Gui2InfoFactory implements InfoFactory
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFactory#getPreReqHTML(pcgen.core.facade.TemplateFacade)
 	 */
+	@Override
 	public String getPreReqHTML(TemplateFacade template)
 	{
 		if (!(template instanceof PCTemplate))
@@ -1153,6 +1171,7 @@ public class Gui2InfoFactory implements InfoFactory
 			((PCTemplate) template).getPrerequisiteList(), true);
 	}
 
+	@Override
 	public String getHTMLInfo(SpellFacade spell)
 	{
 		if (spell == null || !(spell instanceof SpellFacadeImplem))
@@ -1401,6 +1420,7 @@ public class Gui2InfoFactory implements InfoFactory
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public String getDomains(DeityFacade deityFacade)
 	{
 		if (deityFacade == null || !(deityFacade instanceof Deity))
@@ -1424,6 +1444,7 @@ public class Gui2InfoFactory implements InfoFactory
 		
 	}
 	
+	@Override
 	public String getPantheons(DeityFacade deityFacade)
 	{
 		if (deityFacade == null || !(deityFacade instanceof Deity))

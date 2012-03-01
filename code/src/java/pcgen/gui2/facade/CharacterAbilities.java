@@ -134,6 +134,7 @@ public class CharacterAbilities
 		activeAbilityFacet.addDataFacetChangeListener(new DataFacetChangeListener<Ability>()
 			{
 
+			@Override
 				public void dataAdded(DataFacetChangeEvent<Ability> dfce)
 				{
 					if (dfce.getCharID() != charID)
@@ -145,17 +146,18 @@ public class CharacterAbilities
 					}
 					Logging.debugPrint("Got active ability added of " + dfce.getCDOMObject());
 					Ability ability = dfce.getCDOMObject();
-					if (dfce instanceof CategorizedDataFacetChangeEvent<?>)
+					if (dfce instanceof CategorizedDataFacetChangeEvent)
 					{
 						
-						CategorizedDataFacetChangeEvent categorizedEvent =
-								(CategorizedDataFacetChangeEvent) dfce;
+						CategorizedDataFacetChangeEvent<?> categorizedEvent =
+								(CategorizedDataFacetChangeEvent<?>) dfce;
 						AbilityCategory cat = (AbilityCategory) categorizedEvent.getCategory();
 						Nature nature = categorizedEvent.getNature();
 						addAbilityToLists(cat, ability, nature);
 					}
 				}
 
+				@Override
 				public void dataRemoved(DataFacetChangeEvent<Ability> dfce)
 				{
 					if (dfce.getCharID() != charID)
@@ -169,11 +171,11 @@ public class CharacterAbilities
 					}
 					Logging.debugPrint("Got active ability removed of " + dfce.getCDOMObject());
 					Ability ability = dfce.getCDOMObject();
-					if (dfce instanceof CategorizedDataFacetChangeEvent<?>)
+					if (dfce instanceof CategorizedDataFacetChangeEvent)
 					{
 						
-						CategorizedDataFacetChangeEvent categorizedEvent =
-								(CategorizedDataFacetChangeEvent) dfce;
+						CategorizedDataFacetChangeEvent<?> categorizedEvent =
+								(CategorizedDataFacetChangeEvent<?>) dfce;
 						AbilityCategory cat = (AbilityCategory) categorizedEvent.getCategory();
 						Nature nature = categorizedEvent.getNature();
 						removeAbilityFromLists(cat, ability, nature);
@@ -183,6 +185,7 @@ public class CharacterAbilities
 		grantedAbilityFacet.addDataFacetChangeListener(new DataFacetChangeListener<Ability>()
 		{
 
+			@Override
 			public void dataAdded(DataFacetChangeEvent<Ability> dfce)
 			{
 				if (dfce.getCharID() != charID)
@@ -197,6 +200,7 @@ public class CharacterAbilities
 				rebuildAbilityLists();
 			}
 
+			@Override
 			public void dataRemoved(DataFacetChangeEvent<Ability> dfce)
 			{
 				if (dfce.getCharID() != charID)
@@ -216,6 +220,7 @@ public class CharacterAbilities
 		directAbilityFacet.addDataFacetChangeListener(new DataFacetChangeListener<CategorizedAbilitySelection>()
 		{
 
+			@Override
 			public void dataAdded(
 				DataFacetChangeEvent<CategorizedAbilitySelection> dfce)
 			{
@@ -235,6 +240,7 @@ public class CharacterAbilities
 				updateAbilityCategoryLater(cas.getAbilityCategory());
 			}
 
+			@Override
 			public void dataRemoved(
 				DataFacetChangeEvent<CategorizedAbilitySelection> dfce)
 			{
@@ -842,6 +848,7 @@ public class CharacterAbilities
 	{
 		SwingUtilities.invokeLater(new Runnable()
 		{
+			@Override
 			public void run()
 			{
 				updateAbilityCategoryTodo(cat);
@@ -860,6 +867,7 @@ public class CharacterAbilities
 	{
 		SwingUtilities.invokeLater(new Runnable()
 		{
+			@Override
 			public void run()
 			{
 				updateAbilityCategoryTodo(category);

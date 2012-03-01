@@ -377,6 +377,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.EquipmentSetFacade#addEquipment(pcgen.core.facade.EquipmentSetFacade.EquipNode, pcgen.core.facade.EquipmentFacade, int)
 	 */
+	@Override
 	public EquipmentFacade addEquipment(EquipNode node, EquipmentFacade equipment,
 		int quantity)
 	{
@@ -491,6 +492,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.EquipmentSetFacade#removeEquipment(pcgen.core.facade.EquipmentSetFacade.EquipNode, int)
 	 */
+	@Override
 	public EquipmentFacade removeEquipment(EquipNode node, int quantity)
 	{
 		if (!(node instanceof EquipNodeImpl) || node.getNodeType()!= NodeType.EQUIPMENT)
@@ -518,7 +520,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 			// the container Equipment Object
 			if (parentNode.getNodeType()==NodeType.EQUIPMENT)
 			{
-				Equipment eqP = (Equipment) eqI.getParent();
+				Equipment eqP = eqI.getParent();
 	
 				if (eqP != null)
 				{
@@ -716,6 +718,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.EquipmentSetFacade#isContainer(pcgen.core.facade.EquipmentFacade)
 	 */
+	@Override
 	public boolean isContainer(EquipmentFacade equipment)
 	{
 		if (!(equipment instanceof Equipment))
@@ -730,6 +733,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.EquipmentSetFacade#setName(java.lang.String)
 	 */
+	@Override
 	public void setName(String name)
 	{
 		this.name.setReference(name);
@@ -739,6 +743,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.EquipmentSetFacade#addEquipmentTreeListener(pcgen.core.facade.EquipmentSetFacade.EquipmentTreeListener)
 	 */
+	@Override
 	public void addEquipmentTreeListener(EquipmentTreeListener listener)
 	{
 		listeners.add(listener);
@@ -747,6 +752,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.EquipmentSetFacade#removeEquipmentTreeListener(pcgen.core.facade.EquipmentSetFacade.EquipmentTreeListener)
 	 */
+	@Override
 	public void removeEquipmentTreeListener(EquipmentTreeListener listener)
 	{
 		listeners.remove(listener);
@@ -755,11 +761,13 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.EquipmentSetFacade#getNameRef()
 	 */
+	@Override
 	public ReferenceFacade<String> getNameRef()
 	{
 		return name;
 	}
 
+	@Override
 	public EquipmentListFacade getEquippedItems()
 	{
 		return equipmentList;
@@ -768,6 +776,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.EquipmentSetFacade#canEquip(pcgen.core.facade.EquipmentSetFacade.EquipNode, pcgen.core.facade.EquipmentFacade)
 	 */
+	@Override
 	public boolean canEquip(EquipNode node, EquipmentFacade equipment)
 	{
 		if (!(equipment instanceof Equipment) || node == null)
@@ -863,6 +872,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.EquipmentSetFacade#getPreferredLoc(pcgen.core.facade.EquipmentFacade)
 	 */
+	@Override
 	public String getPreferredLoc(EquipmentFacade equipment)
 	{
 		for (EquipNode node : equipSlotNodeMap.values())
@@ -914,6 +924,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.EquipmentSetFacade#removeAllEquipment()
 	 */
+	@Override
 	public void removeAllEquipment()
 	{
 		List<EquipNode> equipToBeRemoved = new ArrayList<EquipNode>(nodeList.getSize());
@@ -976,6 +987,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public ListFacade<EquipNode> getNodes()
 	{
 		return nodeList;
@@ -984,6 +996,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public int getQuantity(EquipNode equipNode)
 	{
 		EquipNodeImpl node = (EquipNodeImpl) equipNode;
@@ -997,13 +1010,14 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 
 			default:
 				EquipSet parentEs = theCharacter.getEquipSetByIdPath(node.getIdPath());
-				return parentEs == null ? 0 : ((Float)parentEs.getQty()).intValue();
+				return parentEs == null ? 0 : parentEs.getQty().intValue();
 		}
 	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.EquipmentSetFacade#getLocation(pcgen.core.facade.EquipmentSetFacade.EquipNode)
 	 */
+	@Override
 	public String getLocation(EquipNode equipNode)
 	{
 		EquipNodeImpl node = (EquipNodeImpl) equipNode;
@@ -1094,6 +1108,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		/**
 		 * {@inheritDoc}
 		 */
+		@Override
 		public BodyStructureFacade getBodyStructure()
 		{
 			return bodyStructure;
@@ -1102,6 +1117,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		/**
 		 * {@inheritDoc}
 		 */
+		@Override
 		public EquipmentFacade getEquipment()
 		{
 			return equipment;
@@ -1110,6 +1126,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		/**
 		 * {@inheritDoc}
 		 */
+		@Override
 		public NodeType getNodeType()
 		{
 			return nodeType;
@@ -1118,6 +1135,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		/**
 		 * {@inheritDoc}
 		 */
+		@Override
 		public EquipNode getParent()
 		{
 			return parent;
@@ -1186,6 +1204,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		/**
 		 * {@inheritDoc}
 		 */
+		@Override
 		public int compareTo(EquipNode o)
 		{
 			if (o instanceof EquipNodeImpl)

@@ -63,6 +63,7 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.DescriptionFacade#createChronicleEntry()
 	 */
+	@Override
 	public ChronicleEntryFacade createChronicleEntry()
 	{
 		ChronicleEntry chronicleEntry = new ChronicleEntry();
@@ -74,6 +75,7 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.DescriptionFacade#removeChronicleEntry(pcgen.core.ChronicleEntry)
 	 */
+	@Override
 	public void removeChronicleEntry(ChronicleEntryFacade chronicleEntry)
 	{
 		if (chronicleEntry instanceof ChronicleEntry)
@@ -86,6 +88,7 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.DescriptionFacade#getChronicleEntries()
 	 */
+	@Override
 	public ListFacade<ChronicleEntryFacade> getChronicleEntries()
 	{
 		return chronicleEntries;
