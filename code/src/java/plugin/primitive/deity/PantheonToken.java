@@ -38,6 +38,7 @@ public class PantheonToken implements PrimitiveToken<Deity>, PrimitiveFilter<Dei
 	private Pantheon pantheon;
 	private CDOMReference<Deity> allDeities;
 
+	@Override
 	public boolean initialize(LoadContext context, Class<Deity> cl,
 			String value, String args)
 	{
@@ -50,26 +51,31 @@ public class PantheonToken implements PrimitiveToken<Deity>, PrimitiveFilter<Dei
 		return true;
 	}
 
+	@Override
 	public String getTokenName()
 	{
 		return "PANTHEON";
 	}
 
+	@Override
 	public Class<Deity> getReferenceClass()
 	{
 		return DEITY_CLASS;
 	}
 
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		return getTokenName() + "=" + pantheon.toString();
 	}
 
+	@Override
 	public boolean allow(PlayerCharacter pc, Deity deity)
 	{
 		return deity.containsInList(ListKey.PANTHEON, pantheon);
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;
@@ -96,6 +102,7 @@ public class PantheonToken implements PrimitiveToken<Deity>, PrimitiveFilter<Dei
 		return pantheon == null ? -3 : pantheon.hashCode();
 	}
 
+	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Deity, R> c)
 	{
 		return c.convert(allDeities, this);

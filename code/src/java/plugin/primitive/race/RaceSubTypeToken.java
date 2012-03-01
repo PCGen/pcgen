@@ -37,6 +37,7 @@ public class RaceSubTypeToken implements PrimitiveToken<Race>, PrimitiveFilter<R
 	private RaceSubType racetype;
 	private CDOMReference<Race> allRaces;
 
+	@Override
 	public boolean initialize(LoadContext context, Class<Race> cl,
 			String value, String args)
 	{
@@ -49,26 +50,31 @@ public class RaceSubTypeToken implements PrimitiveToken<Race>, PrimitiveFilter<R
 		return true;
 	}
 
+	@Override
 	public String getTokenName()
 	{
 		return "RACESUBTYPE";
 	}
 
+	@Override
 	public Class<Race> getReferenceClass()
 	{
 		return RACE_CLASS;
 	}
 
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		return getTokenName() + "=" + racetype.toString();
 	}
 
+	@Override
 	public boolean allow(PlayerCharacter pc, Race race)
 	{
 		return race.containsInList(ListKey.RACESUBTYPE, racetype);
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;
@@ -95,6 +101,7 @@ public class RaceSubTypeToken implements PrimitiveToken<Race>, PrimitiveFilter<R
 		return racetype == null ? -11 : racetype.hashCode();
 	}
 
+	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Race, R> c)
 	{
 		return c.convert(allRaces, this);

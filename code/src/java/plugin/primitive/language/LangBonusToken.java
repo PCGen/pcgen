@@ -34,6 +34,7 @@ public class LangBonusToken implements PrimitiveToken<Language>, PrimitiveFilter
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
 	private CDOMReference<Language> allLanguages;
 
+	@Override
 	public boolean initialize(LoadContext context, Class<Language> cl,
 			String value, String args)
 	{
@@ -41,26 +42,31 @@ public class LangBonusToken implements PrimitiveToken<Language>, PrimitiveFilter
 		return (value == null) && (args == null);
 	}
 
+	@Override
 	public String getTokenName()
 	{
 		return "LANGBONUS";
 	}
 
+	@Override
 	public Class<Language> getReferenceClass()
 	{
 		return LANGUAGE_CLASS;
 	}
 
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		return getTokenName();
 	}
 
+	@Override
 	public boolean allow(PlayerCharacter pc, Language l)
 	{
 		return pc.getLanguageBonusSelectionList().contains(l);
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;
@@ -78,6 +84,7 @@ public class LangBonusToken implements PrimitiveToken<Language>, PrimitiveFilter
 		return 3568;
 	}
 
+	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Language, R> c)
 	{
 		return c.convert(allLanguages, this);

@@ -36,6 +36,7 @@ public class WieldCategoryToken implements PrimitiveToken<Equipment>, PrimitiveF
 	private EqWield category;
 	private CDOMReference<Equipment> allEquipment;
 
+	@Override
 	public boolean initialize(LoadContext context, Class<Equipment> cl,
 			String value, String args)
 	{
@@ -64,26 +65,31 @@ public class WieldCategoryToken implements PrimitiveToken<Equipment>, PrimitiveF
 		return true;
 	}
 
+	@Override
 	public String getTokenName()
 	{
 		return "WIELD";
 	}
 
+	@Override
 	public Class<Equipment> getReferenceClass()
 	{
 		return EQUIPMENT_CLASS;
 	}
 
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		return "WIELD=" + category;
 	}
 
+	@Override
 	public boolean allow(PlayerCharacter pc, Equipment eq)
 	{
 		return category.checkWield(pc, eq);
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;
@@ -110,6 +116,7 @@ public class WieldCategoryToken implements PrimitiveToken<Equipment>, PrimitiveF
 		return category == null ? -13 : category.hashCode();
 	}
 
+	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc,
 			Converter<Equipment, R> c)
 	{

@@ -38,6 +38,7 @@ public class AlignToken implements PrimitiveToken<Deity>, PrimitiveFilter<Deity>
 	private PCAlignment alignment;
 	private CDOMReference<Deity> allDeities;
 
+	@Override
 	public boolean initialize(LoadContext context, Class<Deity> cl,
 			String value, String args)
 	{
@@ -50,26 +51,31 @@ public class AlignToken implements PrimitiveToken<Deity>, PrimitiveFilter<Deity>
 		return alignment != null;
 	}
 
+	@Override
 	public String getTokenName()
 	{
 		return "ALIGN";
 	}
 
+	@Override
 	public Class<Deity> getReferenceClass()
 	{
 		return DEITY_CLASS;
 	}
 
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		return getTokenName() + "=" + alignment.getLSTformat();
 	}
 
+	@Override
 	public boolean allow(PlayerCharacter pc, Deity deity)
 	{
 		return alignment.equals(deity.get(ObjectKey.ALIGNMENT));
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;
@@ -96,6 +102,7 @@ public class AlignToken implements PrimitiveToken<Deity>, PrimitiveFilter<Deity>
 		return alignment == null ? -5 : alignment.hashCode();
 	}
 
+	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Deity, R> c)
 	{
 		return c.convert(allDeities, this);

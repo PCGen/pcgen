@@ -41,6 +41,7 @@ public class FeatToken<T> implements PrimitiveToken<T>
 
 	private Class<T> refClass;
 
+	@Override
 	public boolean initialize(LoadContext context, Class<T> cl, String value,
 			String args)
 	{
@@ -54,11 +55,13 @@ public class FeatToken<T> implements PrimitiveToken<T>
 		return true;
 	}
 
+	@Override
 	public String getTokenName()
 	{
 		return "FEAT";
 	}
 
+	@Override
 	public Class<? super T> getReferenceClass()
 	{
 		if (refClass == null)
@@ -71,6 +74,7 @@ public class FeatToken<T> implements PrimitiveToken<T>
 		}
 	}
 
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		return getTokenName() + "=" + ref.getLSTformat(useAny);
@@ -99,6 +103,7 @@ public class FeatToken<T> implements PrimitiveToken<T>
 		return availableList;
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;
@@ -130,6 +135,7 @@ public class FeatToken<T> implements PrimitiveToken<T>
 		return ref == null ? -57 : ref.hashCode();
 	}
 
+	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<T, R> c)
 	{
 		/*

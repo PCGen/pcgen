@@ -35,6 +35,7 @@ public class SpellTypeToken implements PrimitiveToken<PCClass>, PrimitiveFilter<
 	private String spelltype;
 	private CDOMReference<PCClass> allClasses;
 
+	@Override
 	public boolean initialize(LoadContext context, Class<PCClass> cl,
 		String value, String args)
 	{
@@ -47,26 +48,31 @@ public class SpellTypeToken implements PrimitiveToken<PCClass>, PrimitiveFilter<
 		return true;
 	}
 
+	@Override
 	public String getTokenName()
 	{
 		return "SPELLTYPE";
 	}
 
+	@Override
 	public Class<PCClass> getReferenceClass()
 	{
 		return PCCLASS_CLASS;
 	}
 
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		return getTokenName() + "=" + spelltype;
 	}
 
+	@Override
 	public boolean allow(PlayerCharacter pc, PCClass cl)
 	{
 		return spelltype.equals(cl.get(StringKey.SPELLTYPE));
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;
@@ -93,6 +99,7 @@ public class SpellTypeToken implements PrimitiveToken<PCClass>, PrimitiveFilter<
 		return spelltype == null ? -7 : spelltype.hashCode();
 	}
 
+	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc,
 			Converter<PCClass, R> c)
 	{

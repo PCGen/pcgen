@@ -35,6 +35,7 @@ public class SpellcasterToken implements PrimitiveToken<PCClass>, PrimitiveFilte
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 	private CDOMReference<PCClass> allClasses;
 
+	@Override
 	public boolean initialize(LoadContext context, Class<PCClass> cl,
 			String value, String args)
 	{
@@ -42,21 +43,25 @@ public class SpellcasterToken implements PrimitiveToken<PCClass>, PrimitiveFilte
 		return (value == null) && (args == null);
 	}
 
+	@Override
 	public String getTokenName()
 	{
 		return "SPELLCASTER";
 	}
 
+	@Override
 	public Class<PCClass> getReferenceClass()
 	{
 		return PCCLASS_CLASS;
 	}
 
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		return "SPELLCASTER";
 	}
 
+	@Override
 	public boolean allow(PlayerCharacter pc, PCClass pcc)
 	{
 		return isSpellCaster(pcc);
@@ -69,6 +74,7 @@ public class SpellcasterToken implements PrimitiveToken<PCClass>, PrimitiveFilte
 				|| (pcc.get(ObjectKey.SPELL_STAT) != null);
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;
@@ -86,6 +92,7 @@ public class SpellcasterToken implements PrimitiveToken<PCClass>, PrimitiveFilte
 		return 123023;
 	}
 
+	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc,
 			Converter<PCClass, R> c)
 	{
