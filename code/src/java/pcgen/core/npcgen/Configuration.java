@@ -43,8 +43,8 @@ import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
-import pcgen.core.SettingsHandler;
 import pcgen.core.spell.Spell;
+import pcgen.system.ConfigurationSettings;
 
 /**
  * @author boomer70 <boomer70@yahoo.com>
@@ -61,24 +61,14 @@ public class Configuration
 	private List<GeneratorOption> theGeneratorOptions = new ArrayList<GeneratorOption>();
 	private Map<String, ClassData> theClassData = new HashMap<String, ClassData>();
 	
-	private static File optionsDir = new File(SettingsHandler.getPcgenSystemDir()
+	private static File optionsDir = new File(ConfigurationSettings.getSystemsDir()
 		+ File.separator + "npcgen"  //$NON-NLS-1$ 
 		+ File.separator + "options"); //$NON-NLS-1$
 	
-//	private static File optionsDir = new File(Globals.getDefaultPath() 
-//											+ File.separator + "system" //$NON-NLS-1$
-//											+ File.separator + "npcgen"  //$NON-NLS-1$ 
-//											+ File.separator + "options"); //$NON-NLS-1$
-
-	private static File classDataDir = new File(SettingsHandler.getPcgenSystemDir()
+	private static File classDataDir = new File(ConfigurationSettings.getSystemsDir()
 		+ File.separator + "npcgen"  //$NON-NLS-1$ 
 		+ File.separator + "classdata"); //$NON-NLS-1$
 	
-//	private static File classDataDir = new File(Globals.getDefaultPath() 
-//			+ File.separator + "system" //$NON-NLS-1$
-//			+ File.separator + "npcgen"  //$NON-NLS-1$ 
-//			+ File.separator + "classdata"); //$NON-NLS-1$
-
 	public static Configuration get( final GameMode aMode )
 	{
 		for ( final Configuration config : theConfigurations )
