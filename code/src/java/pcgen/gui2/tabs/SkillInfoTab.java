@@ -85,23 +85,23 @@ import pcgen.system.LanguageBundle;
 public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler
 {
 
-	private final FilteredTreeViewTable skillTable;
+	private final FilteredTreeViewTable<CharacterFacade, SkillFacade> skillTable;
 	private final JTable skillcostTable;
 	private final JTable skillpointTable;
 	private final InfoPane infoPane;
 	private final TabTitle tabTitle;
-	private final FilterButton cFilterButton;
-	private final FilterButton trainedFilterButton;
+	private final FilterButton<CharacterFacade, SkillFacade> cFilterButton;
+	private final FilterButton<CharacterFacade, SkillFacade> trainedFilterButton;
 	private final JEditorPane htmlPane;
 
 	public SkillInfoTab()
 	{
-		this.skillTable = new FilteredTreeViewTable();
+		this.skillTable = new FilteredTreeViewTable<CharacterFacade, SkillFacade>();
 		this.skillcostTable = new JTable();
 		this.skillpointTable = new JTable();
 		this.infoPane = new InfoPane();
-		this.cFilterButton = new FilterButton();
-		this.trainedFilterButton = new FilterButton();
+		this.cFilterButton = new FilterButton<CharacterFacade, SkillFacade>();
+		this.trainedFilterButton = new FilterButton<CharacterFacade, SkillFacade>();
 		this.tabTitle = new TabTitle("in_skills");
 		this.htmlPane = new JEditorPane();
 		initComponents();
@@ -120,7 +120,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		skillTable.setDefaultRenderer(String.class,
 			new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
 		skillTable.setRowHeight(26);
-		FilterBar filterBar = new FilterBar();
+		FilterBar<CharacterFacade, SkillFacade> filterBar = new FilterBar<CharacterFacade, SkillFacade>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 
 		cFilterButton.setText("Class");
@@ -169,6 +169,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		
 	}
 
+	@Override
 	public Hashtable<Object, Object> createModels(final CharacterFacade character)
 	{
 		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
@@ -188,6 +189,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		return state;
 	}
 
+	@Override
 	public void storeModels(Hashtable<Object, Object> state)
 	{
 		((SkillTreeViewModel) state.get(SkillTreeViewModel.class)).uninstall();
@@ -197,6 +199,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		((SkillSheetHandler) state.get(SkillSheetHandler.class)).uninstall();
 	}
 
+	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
 		skillpointTable.setModel((SkillPointTableModel) state.get(SkillPointTableModel.class));
@@ -210,6 +213,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		((SkillSheetHandler) state.get(SkillSheetHandler.class)).install();
 	}
 
+	@Override
 	public TabTitle getTabTitle()
 	{
 		return tabTitle;
@@ -246,6 +250,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			support.uninstall();
 		}
 
+		@Override
 		public void skillBonusChanged(CharacterLevelEvent e)
 		{
 			support.refresh();
@@ -253,7 +258,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 	}
 
-	private class LevelSelectionHandler implements ListListener,
+	private class LevelSelectionHandler implements ListListener<CharacterLevelFacade>,
 			SkillPointListener, Runnable, ListSelectionListener
 	{
 
@@ -281,6 +286,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			model.removeListSelectionListener(this);
 		}
 
+		@Override
 		public void run()
 		{
 			for (int i = 0; i < levels.getSize(); i++)
@@ -326,22 +332,26 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			SwingUtilities.invokeLater(this);
 		}
 
+		@Override
 		public void skillPointsChanged(CharacterLevelEvent e)
 		{
 			updateSelectedIndex();
 		}
 
-		public void elementAdded(ListEvent e)
+		@Override
+		public void elementAdded(ListEvent<CharacterLevelFacade> e)
 		{
 			updateSelectedIndex();
 		}
 
-		public void elementRemoved(ListEvent e)
+		@Override
+		public void elementRemoved(ListEvent<CharacterLevelFacade> e)
 		{
 			updateSelectedIndex();
 		}
 
-		public void elementsChanged(ListEvent e)
+		@Override
+		public void elementsChanged(ListEvent<CharacterLevelFacade> e)
 		{
 			updateSelectedIndex();
 		}
@@ -363,6 +373,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		private final Filter<CharacterFacade, SkillFacade> cFilter = new Filter<CharacterFacade, SkillFacade>()
 		{
 
+			@Override
 			public boolean accept(CharacterFacade context, SkillFacade element)
 			{
 				CharacterLevelsFacade levels = context.getCharacterLevelsFacade();
@@ -375,6 +386,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		private final Filter<CharacterFacade, SkillFacade> gainedFilter = new Filter<CharacterFacade, SkillFacade>()
 		{
 
+			@Override
 			public boolean accept(CharacterFacade context, SkillFacade element)
 			{
 				CharacterLevelsFacade levels = context.getCharacterLevelsFacade();
@@ -409,6 +421,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			installed = false;
 		}
 
+		@Override
 		public void valueChanged(ListSelectionEvent e)
 		{
 			if (installed && !e.getValueIsAdjusting())
@@ -481,7 +494,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		{
 			for (int i = 0; i < spinner.getComponentCount(); i++)
 			{
-				Component comp = (Component) spinner.getComponent(i);
+				Component comp = spinner.getComponent(i);
 				if (comp instanceof JButton)
 				{
 					releaseMouse(comp);
@@ -495,7 +508,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 					component.getMouseListeners();
 			for (int i = 0; i < listeners.length; i++)
 			{
-				MouseListener listener = (MouseListener) listeners[i];
+				MouseListener listener = listeners[i];
 				listener.mouseReleased(new MouseEvent(component, MouseEvent.MOUSE_RELEASED,
 													  System.currentTimeMillis(), 0, 0, 0, 1, false));
 			}
@@ -515,6 +528,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			this.character = character;
 		}
 
+		@Override
 		public Float getValue()
 		{
 			return character.getCharacterLevelsFacade().getSkillRanks(level, skill);
@@ -527,6 +541,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			fireStateChanged();
 		}
 
+		@Override
 		public void setValue(Object value)
 		{
 			if (value instanceof Float)
@@ -570,6 +585,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			}
 		}
 
+		@Override
 		public Float getNextValue()
 		{
 			float value = getValue();
@@ -587,6 +603,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			return value + 1f / cost.getCost();
 		}
 
+		@Override
 		public Float getPreviousValue()
 		{
 			float value = getValue();
@@ -621,6 +638,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			skillTable.getSelectionModel().removeListSelectionListener(this);
 		}
 
+		@Override
 		public void valueChanged(ListSelectionEvent e)
 		{
 			if (!e.getValueIsAdjusting())

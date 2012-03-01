@@ -641,6 +641,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		
 		SwingUtilities.invokeLater(new Runnable()
 		{
+			@Override
 			public void run()
 			{
 				try
@@ -656,6 +657,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		});
 	}
 
+	@Override
 	public Hashtable<Object, Object> createModels(final CharacterFacade character)
 	{
 		final CharacterComboBoxModel<GenderFacade> genderModel;
@@ -671,6 +673,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		characterTypeModel = new CharacterComboBoxModel<String>()
 		{
 
+			@Override
 			public void setSelectedItem(Object anItem)
 			{
 				character.setCharacterType((String) anItem);
@@ -680,6 +683,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		genderModel = new CharacterComboBoxModel<GenderFacade>()
 		{
 
+			@Override
 			public void setSelectedItem(Object anItem)
 			{
 				character.setGender((GenderFacade) anItem);
@@ -689,6 +693,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		handsModel = new CharacterComboBoxModel<SimpleFacade>()
 		{
 
+			@Override
 			public void setSelectedItem(Object anItem)
 			{
 				character.setHanded((SimpleFacade) anItem);
@@ -698,6 +703,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		alignmentModel = new CharacterComboBoxModel<AlignmentFacade>()
 		{
 
+			@Override
 			public void setSelectedItem(Object anItem)
 			{
 				character.setAlignment((AlignmentFacade) anItem);
@@ -707,6 +713,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		deityModel = new CharacterComboBoxModel<DeityFacade>()
 		{
 
+			@Override
 			public void setSelectedItem(Object anItem)
 			{
 				character.setDeity((DeityFacade) anItem);
@@ -716,6 +723,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		raceModel = new DeferredCharacterComboBoxModel<RaceFacade>()
 		{
 
+			@Override
 			public void commitSelectedItem(Object anItem)
 			{
 				character.setRace((RaceFacade) anItem);
@@ -725,6 +733,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		ageCatModel = new CharacterComboBoxModel<SimpleFacade>()
 		{
 
+			@Override
 			public void setSelectedItem(Object anItem)
 			{
 				character.setAgeCategory((SimpleFacade) anItem);
@@ -734,6 +743,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		xpTableModel = new CharacterComboBoxModel<String>()
 		{
 
+			@Override
 			public void setSelectedItem(Object anItem)
 			{
 				character.setXPTable((String) anItem);
@@ -783,6 +793,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		ReferenceListener<Object> raceListener = new ReferenceListener<Object>()
 		{
 
+			@Override
 			public void referenceChanged(ReferenceEvent<Object> e)
 			{
 				RaceFacade race = character.getRaceRef().getReference();
@@ -926,6 +937,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		return stateTable;
 	}
 
+	@Override
 	public TabTitle getTabTitle()
 	{
 		return tabTitle;
@@ -970,6 +982,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		HPHandler
 	}
 
+	@Override
 	public void storeModels(Hashtable<Object, Object> state)
 	{
 		((TextFieldHandler) state.get(Models.CharacterNameHandler)).uninstall();
@@ -992,6 +1005,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		raceComboBox.removeFocusListener((DeferredCharacterComboBoxModel<RaceFacade>) state.get(Models.RaceComboBoxModel));
 	}
 
+	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
 		((TextFieldHandler) state.get(Models.CharacterNameHandler)).install();
@@ -1143,11 +1157,13 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			ref.removeReferenceListener(this);
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			CharacterHPDialog.showHPDialog(SummaryInfoTab.this, character);
 		}
 
+		@Override
 		public void referenceChanged(ReferenceEvent<Integer> e)
 		{
 			totalHPLabel.setText(ref.getReference().toString());
@@ -1167,6 +1183,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			this.frame = frame;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			String gender =
@@ -1226,6 +1243,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		/* (non-Javadoc)
 		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 		 */
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			character.rollStats();
@@ -1242,6 +1260,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		/* (non-Javadoc)
 		 * @see pcgen.core.facade.event.ListListener#elementAdded(pcgen.core.facade.event.ListEvent)
 		 */
+		@Override
 		public void elementAdded(ListEvent<CharacterLevelFacade> e)
 		{
 			update();
@@ -1250,6 +1269,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		/* (non-Javadoc)
 		 * @see pcgen.core.facade.event.ListListener#elementRemoved(pcgen.core.facade.event.ListEvent)
 		 */
+		@Override
 		public void elementRemoved(ListEvent<CharacterLevelFacade> e)
 		{
 			update();
@@ -1258,11 +1278,13 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		/* (non-Javadoc)
 		 * @see pcgen.core.facade.event.ListListener#elementsChanged(pcgen.core.facade.event.ListEvent)
 		 */
+		@Override
 		public void elementsChanged(ListEvent<CharacterLevelFacade> e)
 		{
 			update();
 		}
 
+		@Override
 		public void referenceChanged(ReferenceEvent<Integer> e)
 		{
 			update();
@@ -1307,6 +1329,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		/* (non-Javadoc)
 		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 		 */
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			CharacterStatsPanel charStatsPanel = new CharacterStatsPanel(null);
@@ -1330,6 +1353,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			putValue(SMALL_ICON, new SignIcon(Sign.Plus));
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			ClassFacade c = (ClassFacade) classComboBox.getSelectedItem();
@@ -1369,6 +1393,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			putValue(SMALL_ICON, new SignIcon(Sign.Minus));
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			Number levels = (Number) removeLevelsField.getValue();
@@ -1392,6 +1417,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			putValue(SMALL_ICON, new SignIcon(Sign.Plus));
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			Object value = expmodField.getValue();
@@ -1420,6 +1446,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			putValue(SMALL_ICON, new SignIcon(Sign.Minus));
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			Object value = expmodField.getValue();
@@ -1494,6 +1521,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		/* (non-Javadoc)
 		 * @see pcgen.core.facade.event.ReferenceListener#referenceChanged(pcgen.core.facade.event.ReferenceEvent)
 		 */
+		@Override
 		public void referenceChanged(ReferenceEvent<String> e)
 		{
 			label.setText(e.getNewReference());
@@ -1548,6 +1576,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		/* (non-Javadoc)
 		 * @see pcgen.core.facade.event.ListListener#elementAdded(pcgen.core.facade.event.ListEvent)
 		 */
+		@Override
 		public void elementAdded(ListEvent<TodoFacade> e)
 		{
 			refreshTodoList();
@@ -1556,6 +1585,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		/* (non-Javadoc)
 		 * @see pcgen.core.facade.event.ListListener#elementRemoved(pcgen.core.facade.event.ListEvent)
 		 */
+		@Override
 		public void elementRemoved(ListEvent<TodoFacade> e)
 		{
 			refreshTodoList();
@@ -1564,6 +1594,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		/* (non-Javadoc)
 		 * @see pcgen.core.facade.event.ListListener#elementsChanged(pcgen.core.facade.event.ListEvent)
 		 */
+		@Override
 		public void elementsChanged(ListEvent<TodoFacade> e)
 		{
 			refreshTodoList();
@@ -1606,6 +1637,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			todoPane.setText(todoText.toString());
 		}
 
+		@Override
 		public void hyperlinkUpdate(HyperlinkEvent e)
 		{
 			if (e.getEventType() == HyperlinkEvent.EventType.ACTIVATED)

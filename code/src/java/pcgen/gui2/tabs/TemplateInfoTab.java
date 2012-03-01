@@ -71,16 +71,16 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 {
 
 	private final TabTitle tabTitle = new TabTitle("in_Templates");
-	private final FilteredTreeViewTable availableTable;
-	private final FilteredTreeViewTable selectedTable;
+	private final FilteredTreeViewTable<CharacterFacade, TemplateFacade> availableTable;
+	private final FilteredTreeViewTable<CharacterFacade, TemplateFacade> selectedTable;
 	private final JButton addButton;
 	private final JButton removeButton;
 	private final InfoPane infoPane;
 
 	public TemplateInfoTab()
 	{
-		this.availableTable = new FilteredTreeViewTable();
-		this.selectedTable = new FilteredTreeViewTable();
+		this.availableTable = new FilteredTreeViewTable<CharacterFacade, TemplateFacade>();
+		this.selectedTable = new FilteredTreeViewTable<CharacterFacade, TemplateFacade>();
 		this.addButton = new JButton();
 		this.removeButton = new JButton();
 		this.infoPane = new InfoPane("Template Info");
@@ -94,7 +94,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		setOrientation(VERTICAL_SPLIT);
 
 		JPanel availPanel = new JPanel(new BorderLayout());
-		FilterBar bar = new FilterBar();
+		FilterBar<CharacterFacade, TemplateFacade> bar = new FilterBar<CharacterFacade, TemplateFacade>();
 		bar.addDisplayableFilter(new SearchFilterPanel());
 		availPanel.add(bar, BorderLayout.NORTH);
 
@@ -114,7 +114,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		topPane.setLeftComponent(availPanel);
 
 		JPanel selPanel = new JPanel(new BorderLayout());
-		FilterBar filterBar = new FilterBar();
+		FilterBar<CharacterFacade, TemplateFacade> filterBar = new FilterBar<CharacterFacade, TemplateFacade>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 
 		selectedTable.setDisplayableFilter(filterBar);
@@ -145,6 +145,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		TemplateRenderer
 	}
 
+	@Override
 	public Hashtable<Object, Object> createModels(CharacterFacade character)
 	{
 		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
@@ -157,6 +158,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		return state;
 	}
 
+	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
 		availableTable.setTreeViewModel((TemplateTreeViewModel) state.get(Models.AvailableModel));
@@ -171,6 +173,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		selectedTable.setTreeCellRenderer((QualifiedTreeCellRenderer) state.get(Models.TemplateRenderer));
 	}
 
+	@Override
 	public void storeModels(Hashtable<Object, Object> state)
 	{
 		((InfoHandler) state.get(Models.InfoHandler)).uninstall();
@@ -178,6 +181,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		((RemoveAction) state.get(Models.RemoveAction)).uninstall();
 	}
 
+	@Override
 	public TabTitle getTabTitle()
 	{
 		return tabTitle;
@@ -205,6 +209,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 			selectedTable.getSelectionModel().removeListSelectionListener(this);
 		}
 
+		@Override
 		public void valueChanged(ListSelectionEvent e)
 		{
 			if (!e.getValueIsAdjusting())
@@ -247,6 +252,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			List<Object> data = availableTable.getSelectedData();
@@ -284,6 +290,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 			putValue(SMALL_ICON, Icons.Back16.getImageIcon());
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			List<Object> data = selectedTable.getSelectedData();
@@ -349,21 +356,25 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 			}
 		}
 
+		@Override
 		public ListFacade<? extends TreeView<TemplateFacade>> getTreeViews()
 		{
 			return treeViews;
 		}
 
+		@Override
 		public int getDefaultTreeViewIndex()
 		{
 			return 0;
 		}
 
+		@Override
 		public DataView<TemplateFacade> getDataView()
 		{
 			return this;
 		}
 
+		@Override
 		public ListFacade<TemplateFacade> getDataModel()
 		{
 			if (isAvailModel)
@@ -376,6 +387,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 			}
 		}
 
+		@Override
 		public List<?> getData(TemplateFacade obj)
 		{
 			return Arrays.asList(infoFactory.getLevelAdjustment(obj),
@@ -384,26 +396,31 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 								 obj.getSource());
 		}
 
+		@Override
 		public List<? extends DataViewColumn> getDataColumns()
 		{
 			return columns;
 		}
 
+		@Override
 		public void elementAdded(ListEvent<TemplateFacade> e)
 		{
 			templates.refilter();
 		}
 
+		@Override
 		public void elementRemoved(ListEvent<TemplateFacade> e)
 		{
 			templates.refilter();
 		}
 
+		@Override
 		public void elementsChanged(ListEvent<TemplateFacade> e)
 		{
 			templates.refilter();
 		}
 
+		@Override
 		public boolean accept(CharacterFacade context, TemplateFacade element)
 		{
 			return !context.getTemplates().containsElement(element);
@@ -424,11 +441,13 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 			this.name = name;
 		}
 
+		@Override
 		public String getViewName()
 		{
 			return name;
 		}
 
+		@Override
 		public List<TreeViewPath<TemplateFacade>> getPaths(TemplateFacade pobj)
 		{
 			switch (this)

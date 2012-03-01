@@ -110,6 +110,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 		pagePanel.add(page, page.getTabTitle().getValue(TabTitle.TITLE));
 	}
 
+	@Override
 	public Hashtable<Object, Object> createModels(CharacterFacade character)
 	{
 		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
@@ -130,6 +131,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 		return state;
 	}
 
+	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
 		pageList.setModel((ListModel) state.get(ListModel.class));
@@ -137,12 +139,14 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 		((PageHandler) state.get(PageHandler.class)).install();
 	}
 
+	@Override
 	public void storeModels(Hashtable<Object, Object> state)
 	{
 		pageList.setSelectionModel(new DefaultListSelectionModel());
 		((PageHandler) state.get(PageHandler.class)).uninstall();
 	}
 
+	@Override
 	public TabTitle getTabTitle()
 	{
 		return tabTitle;
@@ -154,7 +158,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 		private String name;
 		private String id;
 		private CharacterInfoTab page;
-		private Hashtable data;
+		private Hashtable<Object, Object> data;
 
 		public PageItem(CharacterFacade character, String name, CharacterInfoTab page)
 		{
@@ -164,6 +168,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			this.data = page.createModels(character);
 		}
 
+		@Override
 		public String toString()
 		{
 			return name;
@@ -193,6 +198,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			this.currentPage = currentPage;
 		}
 
+		@Override
 		public void valueChanged(ListSelectionEvent e)
 		{
 			if (e.getValueIsAdjusting())

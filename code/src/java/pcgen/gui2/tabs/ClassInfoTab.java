@@ -55,6 +55,7 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableModel;
 
 import pcgen.core.facade.CharacterFacade;
+import pcgen.core.facade.CharacterLevelFacade;
 import pcgen.core.facade.CharacterLevelsFacade;
 import pcgen.core.facade.ClassFacade;
 import pcgen.core.facade.event.ListEvent;
@@ -87,7 +88,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
 	/** The table of available classes */
-	private final FilteredTreeViewTable availableTable;
+	private final FilteredTreeViewTable<Object, ClassFacade> availableTable;
 	/** The table of the character's classes */
 	private final JTable classTable;
 	private final JButton addButton;
@@ -102,7 +103,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	public ClassInfoTab()
 	{
-		this.availableTable = new FilteredTreeViewTable();
+		this.availableTable = new FilteredTreeViewTable<Object, ClassFacade>();
 		this.classTable = TableUtils.createDefaultTable();
 		this.addButton = new JButton();
 		this.removeButton = new JButton();
@@ -119,7 +120,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		setOrientation(VERTICAL_SPLIT);
 
 		JPanel availPanel = new JPanel(new BorderLayout());
-		FilterBar bar = new FilterBar();
+		FilterBar<Object, ClassFacade> bar = new FilterBar<Object, ClassFacade>();
 		bar.addDisplayableFilter(new SearchFilterPanel());
 		availPanel.add(bar, BorderLayout.NORTH);
 
@@ -174,6 +175,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		spinner.addChangeListener(new ChangeListener()
 		{
 
+			@Override
 			public void stateChanged(ChangeEvent e)
 			{
 				spinnerValue = (Integer) spinner.getValue();
@@ -187,6 +189,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		selectionModel.addListSelectionListener(new ListSelectionListener()
 		{
 
+			@Override
 			public void valueChanged(ListSelectionEvent e)
 			{
 				ListSelectionModel selectionModel =
@@ -211,6 +214,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		selectionModel.addListSelectionListener(new ListSelectionListener()
 		{
 
+			@Override
 			public void valueChanged(ListSelectionEvent e)
 			{
 				ListSelectionModel selectionModel =
@@ -245,6 +249,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		}
 	}
 
+	@Override
 	public Hashtable<Object, Object> createModels(CharacterFacade character)
 	{
 		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
@@ -262,6 +267,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		return state;
 	}
 
+	@Override
 	public void storeModels(Hashtable<Object, Object> state)
 	{
 		if (selectedClass != null)
@@ -272,6 +278,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		((AddClassAction) state.get(AddClassAction.class)).uninstall();
 	}
 
+	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
 		addClassAction = (AddClassAction) state.get(AddClassAction.class);
@@ -289,6 +296,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		setSelectedClass((ClassFacade) state.get("SelectedClass"));
 	}
 
+	@Override
 	public TabTitle getTabTitle()
 	{
 		return tabTitle;
@@ -307,6 +315,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			setEnabled(false);
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			addCharacterLevels(selectedClass);
@@ -350,6 +359,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			setEnabled(false);
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			character.removeCharacterLevels(1);
@@ -395,6 +405,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			return new Transferable()
 			{
 
+				@Override
 				public DataFlavor[] getTransferDataFlavors()
 				{
 					return new DataFlavor[]
@@ -403,11 +414,13 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 							};
 				}
 
+				@Override
 				public boolean isDataFlavorSupported(DataFlavor flavor)
 				{
 					return classFlavor == flavor;
 				}
 
+				@Override
 				public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException, IOException
 				{
 					if (!isDataFlavorSupported(flavor))
@@ -475,26 +488,31 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			this.character = character;
 		}
 
+		@Override
 		public ListFacade<? extends TreeView<ClassFacade>> getTreeViews()
 		{
 			return treeviews;
 		}
 
+		@Override
 		public int getDefaultTreeViewIndex()
 		{
 			return 0;
 		}
 
+		@Override
 		public DataView<ClassFacade> getDataView()
 		{
 			return this;
 		}
 
+		@Override
 		public ListFacade<ClassFacade> getDataModel()
 		{
 			return character.getDataSet().getClasses();
 		}
 
+		@Override
 		public List<?> getData(ClassFacade obj)
 		{
 			return Arrays.asList(obj.getHD(), getTypes(obj),
@@ -517,6 +535,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			return ret;
 		}
 
+		@Override
 		public List<? extends DataViewColumn> getDataColumns()
 		{
 			return columns;
@@ -535,11 +554,13 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				this.name = LanguageBundle.getString(nameKey);
 			}
 
+			@Override
 			public String getViewName()
 			{
 				return name;
 			}
 
+			@Override
 			public List<TreeViewPath<ClassFacade>> getPaths(ClassFacade pobj)
 			{
 				switch (this)
@@ -573,7 +594,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	}
 
-	private static class ClassTableModel extends AbstractTableModel implements ListListener
+	private static class ClassTableModel extends AbstractTableModel implements ListListener<CharacterLevelFacade>
 	{
 
 		private static final String[] columns =
@@ -590,11 +611,13 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			model.addListListener(this);
 		}
 
+		@Override
 		public int getRowCount()
 		{
 			return model.getSize();
 		}
 
+		@Override
 		public int getColumnCount()
 		{
 			return 3;
@@ -621,6 +644,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			return null;
 		}
 
+		@Override
 		public Object getValueAt(int rowIndex, int columnIndex)
 		{
 			if (columnIndex == 0)
@@ -639,17 +663,20 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			}
 		}
 
-		public void elementAdded(ListEvent e)
+		@Override
+		public void elementAdded(ListEvent<CharacterLevelFacade> e)
 		{
 			fireTableRowsInserted(e.getIndex(), e.getIndex());
 		}
 
-		public void elementRemoved(ListEvent e)
+		@Override
+		public void elementRemoved(ListEvent<CharacterLevelFacade> e)
 		{
 			fireTableRowsDeleted(e.getIndex(), e.getIndex());
 		}
 
-		public void elementsChanged(ListEvent e)
+		@Override
+		public void elementsChanged(ListEvent<CharacterLevelFacade> e)
 		{
 			fireTableRowsUpdated(0, getRowCount() - 1);
 		}
@@ -678,6 +705,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			availableTable.getSelectionModel().removeListSelectionListener(this);
 		}
 
+		@Override
 		public void valueChanged(ListSelectionEvent e)
 		{
 			if (!e.getValueIsAdjusting())

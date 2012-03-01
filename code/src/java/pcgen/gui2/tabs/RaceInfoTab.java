@@ -80,16 +80,16 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
 	private static final TabTitle title = new TabTitle(LanguageBundle.getString("in_races"));
-	private final FilteredTreeViewTable raceTable;
-	private final FilteredTreeViewTable selectedTable;
+	private final FilteredTreeViewTable<Object, RaceFacade> raceTable;
+	private final FilteredTreeViewTable<Object, RaceFacade> selectedTable;
 	private final InfoPane infoPane;
 	private final JButton selectRaceButton;
 	private final JButton removeButton;
 
 	public RaceInfoTab()
 	{
-		this.raceTable = new FilteredTreeViewTable();
-		this.selectedTable = new FilteredTreeViewTable();
+		this.raceTable = new FilteredTreeViewTable<Object, RaceFacade>();
+		this.selectedTable = new FilteredTreeViewTable<Object, RaceFacade>();
 		this.infoPane = new InfoPane(LanguageBundle.getString("in_irRaceInfo"));
 		this.selectRaceButton = new JButton();
 		this.removeButton = new JButton();
@@ -103,7 +103,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		setOrientation(VERTICAL_SPLIT);
 
 		JPanel availPanel = new JPanel(new BorderLayout());
-		FilterBar bar = new FilterBar();
+		FilterBar<Object, RaceFacade> bar = new FilterBar<Object, RaceFacade>();
 		bar.addDisplayableFilter(new SearchFilterPanel());
 		raceTable.setDisplayableFilter(bar);
 		availPanel.add(bar, BorderLayout.NORTH);
@@ -124,7 +124,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		topPane.setLeftComponent(availPanel);
 
 		JPanel selPanel = new JPanel(new BorderLayout());
-		FilterBar filterBar = new FilterBar();
+		FilterBar<Object, RaceFacade> filterBar = new FilterBar<Object, RaceFacade>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 
 		selectedTable.setDisplayableFilter(filterBar);
@@ -155,6 +155,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		SelectedModel
 	}
 
+	@Override
 	public Hashtable<Object, Object> createModels(CharacterFacade character)
 	{
 		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
@@ -167,6 +168,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		return state;
 	}
 
+	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
 		raceTable.setTreeViewModel((RaceTreeViewModel) state.get(Models.AvailableModel));
@@ -181,6 +183,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		removeButton.setAction((RemoveRaceAction) state.get(RemoveRaceAction.class));
 	}
 
+	@Override
 	public void storeModels(Hashtable<Object, Object> state)
 	{
 		((InfoHandler) state.get(InfoHandler.class)).uninstall();
@@ -188,6 +191,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		((RemoveRaceAction) state.get(RemoveRaceAction.class)).uninstall();
 	}
 
+	@Override
 	public TabTitle getTabTitle()
 	{
 		return title;
@@ -215,6 +219,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			selectedTable.getSelectionModel().removeListSelectionListener(this);
 		}
 
+		@Override
 		public void valueChanged(ListSelectionEvent e)
 		{
 			if (!e.getValueIsAdjusting())
@@ -271,6 +276,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			ref.removeReferenceListener(this);
 		}
 
+		@Override
 		public void referenceChanged(ReferenceEvent<RaceFacade> e)
 		{
 			label.setText(e.getNewReference().toString());
@@ -290,6 +296,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			Object obj = raceTable.getSelectedObject();
@@ -323,6 +330,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			putValue(SMALL_ICON, Icons.Back16.getImageIcon());
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			character.setRace(null);
@@ -378,21 +386,25 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			}
 		}
 
+		@Override
 		public ListFacade<? extends TreeView<RaceFacade>> getTreeViews()
 		{
 			return treeViews;
 		}
 
+		@Override
 		public int getDefaultTreeViewIndex()
 		{
 			return 0;
 		}
 
+		@Override
 		public DataView<RaceFacade> getDataView()
 		{
 			return this;
 		}
 
+		@Override
 		public ListFacade<RaceFacade> getDataModel()
 		{
 			if (isAvailModel)
@@ -405,6 +417,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			}
 		}
 
+		@Override
 		public List<?> getData(RaceFacade obj)
 		{
 			return Arrays.asList(infoFactory.getStatAdjustments(obj),
@@ -416,6 +429,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 								 infoFactory.getLevelAdjustment(obj));
 		}
 
+		@Override
 		public List<? extends DataViewColumn> getDataColumns()
 		{
 			return columns;
@@ -437,11 +451,13 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			this.name = name;
 		}
 
+		@Override
 		public String getViewName()
 		{
 			return name;
 		}
 
+		@Override
 		public List<TreeViewPath<RaceFacade>> getPaths(RaceFacade pobj)
 		{
 			switch (this)

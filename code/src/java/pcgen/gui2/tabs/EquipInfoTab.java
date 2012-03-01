@@ -281,6 +281,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		return model;
 	}
 
+	@Override
 	public Hashtable<Object, Object> createModels(CharacterFacade character)
 	{
 		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
@@ -298,6 +299,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		return state;
 	}
 
+	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
 		((EquipmentModel) state.get(EquipmentModel.class)).install(equipmentSetTable);
@@ -315,6 +317,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		equipSetBox.setModel((EquipSetBoxModel) state.get(EquipSetBoxModel.class));
 	}
 
+	@Override
 	public void storeModels(Hashtable<Object, Object> state)
 	{
 		((LabelsUpdater) state.get(LabelsUpdater.class)).uninstall();
@@ -323,6 +326,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		((EquipInfoHandler) state.get(EquipInfoHandler.class)).uninstall();
 	}
 
+	@Override
 	public TabTitle getTabTitle()
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
@@ -339,6 +343,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			this.character = character;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			String name = JOptionPane.showInputDialog(JOptionPane.getFrameForComponent(EquipInfoTab.this), "Name of new set");
@@ -362,6 +367,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			this.character = character;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			character.deleteEquipmentSet(character.getEquipmentSetRef().getReference());
@@ -381,6 +387,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			setReference(character.getEquipmentSetRef());
 		}
 
+		@Override
 		public void setSelectedItem(Object anItem)
 		{
 			character.setEquipmentSet((EquipmentSetFacade) anItem);
@@ -399,6 +406,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			this.character = character;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 
@@ -445,6 +453,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			limitRef.removeReferenceListener(this);
 		}
 
+		@Override
 		public void referenceChanged(ReferenceEvent<String> e)
 		{
 			Object source = e.getSource();
@@ -484,6 +493,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			equipmentTable.getSelectionModel().removeListSelectionListener(this);
 		}
 
+		@Override
 		public void valueChanged(ListSelectionEvent e)
 		{
 			if (!e.getValueIsAdjusting())
@@ -560,16 +570,19 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			this.nodeArray = nodeArray;
 		}
 
+		@Override
 		public DataFlavor[] getTransferDataFlavors()
 		{
 			return FLAVORS;
 		}
 
+		@Override
 		public boolean isDataFlavorSupported(DataFlavor flavor)
 		{
 			return flavor == FLAVORS[0] || flavor == FLAVORS[1];
 		}
 
+		@Override
 		public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException, IOException
 		{
 			if (flavor == equipNodeArrayFlavor)

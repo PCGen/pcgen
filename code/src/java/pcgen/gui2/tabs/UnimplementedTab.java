@@ -51,6 +51,7 @@ public abstract class UnimplementedTab extends JPanel implements CharacterInfoTa
 	/* (non-Javadoc)
 	 * @see pcgen.gui2.tabs.CharacterInfoTab#getTabTitle()
 	 */
+	@Override
 	public TabTitle getTabTitle()
 	{
 		TabTitle title = new TabTitle(getTabName());
@@ -66,6 +67,7 @@ public abstract class UnimplementedTab extends JPanel implements CharacterInfoTa
 	/* (non-Javadoc)
 	 * @see pcgen.gui2.tabs.CharacterInfoTab#createModels(pcgen.core.facade.CharacterFacade)
 	 */
+	@Override
 	public Hashtable<Object, Object> createModels(CharacterFacade character)
 	{
 		return new Hashtable<Object, Object>();
@@ -74,6 +76,7 @@ public abstract class UnimplementedTab extends JPanel implements CharacterInfoTa
 	/* (non-Javadoc)
 	 * @see pcgen.gui2.tabs.CharacterInfoTab#restoreModels(java.util.Hashtable)
 	 */
+	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
 		//No action
@@ -82,6 +85,7 @@ public abstract class UnimplementedTab extends JPanel implements CharacterInfoTa
 	/* (non-Javadoc)
 	 * @see pcgen.gui2.tabs.CharacterInfoTab#storeModels(java.util.Hashtable)
 	 */
+	@Override
 	public void storeModels(Hashtable<Object, Object> state)
 	{
 		//No action

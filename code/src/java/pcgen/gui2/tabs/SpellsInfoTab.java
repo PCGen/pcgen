@@ -54,6 +54,7 @@ public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab, Todo
 		addTab("Spell Books", booksTab);
 	}
 
+	@Override
 	public Hashtable<Object, Object> createModels(CharacterFacade character)
 	{
 		Hashtable<Object, Object> table = new Hashtable<Object, Object>();
@@ -63,6 +64,7 @@ public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab, Todo
 		return table;
 	}
 
+	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
 		knownTab.restoreModels((Hashtable<?, ?>) state.get(knownTab));
@@ -70,6 +72,7 @@ public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab, Todo
 		booksTab.restoreModels((Hashtable<?, ?>) state.get(booksTab));
 	}
 
+	@Override
 	public void storeModels(Hashtable<Object, Object> state)
 	{
 		knownTab.storeModels((Hashtable<Object, Object>) state.get(knownTab));
@@ -77,6 +80,7 @@ public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab, Todo
 		booksTab.storeModels((Hashtable<Object, Object>) state.get(booksTab));
 	}
 
+	@Override
 	public TabTitle getTabTitle()
 	{
 		return tabTitle;

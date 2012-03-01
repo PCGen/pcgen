@@ -148,6 +148,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		gainedFilterButton.setFilter(new Filter<CharacterFacade, AbilityCategoryFacade>()
 		{
 
+			@Override
 			public boolean accept(CharacterFacade context, AbilityCategoryFacade element)
 			{
 				return context.getActiveAbilityCategories().containsElement(element);
@@ -232,31 +233,37 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 															String.class));
 		}
 
+		@Override
 		public ListFacade<? extends TreeView<AbilityFacade>> getTreeViews()
 		{
 			return treeviews;
 		}
 
+		@Override
 		public int getDefaultTreeViewIndex()
 		{
 			return 0;
 		}
 
+		@Override
 		public DataView<AbilityFacade> getDataView()
 		{
 			return this;
 		}
 
+		@Override
 		public ListFacade<AbilityFacade> getDataModel()
 		{
 			return this;
 		}
 
+		@Override
 		public List<? extends DataViewColumn> getDataColumns()
 		{
 			return dataColumns;
 		}
 
+		@Override
 		public List<?> getData(AbilityFacade obj)
 		{
 			return Arrays.asList(getTypes(obj.getTypes()),
@@ -292,6 +299,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 			selectedTreeViewPanel.getSelectionModel().removeListSelectionListener(this);
 		}
 
+		@Override
 		public void valueChanged(ListSelectionEvent e)
 		{
 			if (e.getValueIsAdjusting())
@@ -358,6 +366,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 			categoryTable.getSelectionModel().removeListSelectionListener(this);
 		}
 
+		@Override
 		public void valueChanged(ListSelectionEvent e)
 		{
 			if (!e.getValueIsAdjusting())
@@ -546,6 +555,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		return state;
 	}
 
+	@Override
 	public void storeState(Hashtable<Object, Object> state)
 	{
 		((InfoHandler) state.get(InfoHandler.class)).uninstall();
@@ -556,6 +566,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		((RemoveAction) state.get(RemoveAction.class)).uninstall();
 	}
 
+	@Override
 	public void restoreState(Hashtable<?, ?> state)
 	{
 		//AbilityTransferHandler handler = (AbilityTransferHandler) state.get(AbilityTransferHandler.class);
@@ -631,6 +642,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 			this.putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			Object data = availableTreeViewPanel.getSelectedObject();
@@ -666,6 +678,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 			this.putValue(SMALL_ICON, Icons.Back16.getImageIcon());
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			int selectedRow = selectedTreeViewPanel.getSelectedRow();
@@ -704,6 +717,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		private final Filter<CharacterFacade, AbilityFacade> qFilter = new Filter<CharacterFacade, AbilityFacade>()
 		{
 
+			@Override
 			public boolean accept(CharacterFacade context, AbilityFacade element)
 			{
 				return character.isQualifiedFor(element);
@@ -740,11 +754,13 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 			refilter();
 		}
 
+		@Override
 		public void refilter()
 		{
 			model.refilter();
 		}
 
+		@Override
 		public void setSearchEnabled(boolean enable)
 		{
 			//do nothing as there is no search bar

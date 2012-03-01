@@ -81,7 +81,7 @@ import pcgen.gui2.util.treeview.TreeViewPath;
 public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler
 {
 
-	private final FilteredTreeViewTable deityTable;
+	private final FilteredTreeViewTable<Object, DeityFacade> deityTable;
 	private final JDynamicTable domainTable;
 	private final JTable domainRowHeaderTable;
 	private final JLabel selectedDeity;
@@ -89,12 +89,12 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private final JLabel selectedDomain;
 	private final InfoPane deityInfo;
 	private final InfoPane domainInfo;
-	private DisplayableFilter domainFilter;
+	private DisplayableFilter<CharacterFacade, DomainFacade> domainFilter;
 	private static final Object COLUMN_ID = new Object();
 
 	public DomainInfoTab()
 	{
-		this.deityTable = new FilteredTreeViewTable();
+		this.deityTable = new FilteredTreeViewTable<Object, DeityFacade>();
 		this.domainTable = new JDynamicTable();
 		this.domainRowHeaderTable = TableUtils.createDefaultTable();
 		this.selectedDeity = new JLabel();
@@ -110,7 +110,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		setOrientation(VERTICAL_SPLIT);
 
 		JPanel panel = new JPanel(new BorderLayout());
-		FilterBar bar = new FilterBar();
+		FilterBar<Object, DeityFacade> bar = new FilterBar<Object, DeityFacade>();
 		bar.addDisplayableFilter(new SearchFilterPanel());
 		deityTable.setDisplayableFilter(bar);
 		panel.add(bar, BorderLayout.NORTH);
@@ -133,10 +133,10 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		splitPane.setLeftComponent(panel);
 
 		panel = new JPanel(new BorderLayout());
-		bar = new FilterBar();
-		bar.addDisplayableFilter(new SearchFilterPanel());
-		domainFilter = bar;
-		panel.add(bar, BorderLayout.NORTH);
+		FilterBar<CharacterFacade, DomainFacade> dbar = new FilterBar<CharacterFacade, DomainFacade>();
+		dbar.addDisplayableFilter(new SearchFilterPanel());
+		domainFilter = dbar;
+		panel.add(dbar, BorderLayout.NORTH);
 		selectionModel = domainTable.getSelectionModel();
 		selectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		JScrollPane scrollPane = TableUtils.createCheckBoxSelectionPane(domainTable, domainRowHeaderTable);
@@ -160,6 +160,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		setResizeWeight(.65);
 	}
 
+	@Override
 	public Hashtable<Object, Object> createModels(CharacterFacade character)
 	{
 		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
@@ -175,6 +176,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		return state;
 	}
 
+	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
 		((DomainLabelHandler) state.get(DomainLabelHandler.class)).install();
@@ -190,6 +192,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		selectDeity.setAction((SelectDeityAction) state.get(SelectDeityAction.class));
 	}
 
+	@Override
 	public void storeModels(Hashtable<Object, Object> state)
 	{
 		((DomainLabelHandler) state.get(DomainLabelHandler.class)).uninstall();
@@ -200,6 +203,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		((SelectDeityAction) state.get(SelectDeityAction.class)).uninstall();
 	}
 
+	@Override
 	public TabTitle getTabTitle()
 	{
 		return new TabTitle("in_domains");
@@ -287,6 +291,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			deityTable.getSelectionModel().removeListSelectionListener(this);
 		}
 
+		@Override
 		public void valueChanged(ListSelectionEvent e)
 		{
 			if (!e.getValueIsAdjusting())
@@ -325,6 +330,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			domainTable.getSelectionModel().removeListSelectionListener(this);
 		}
 
+		@Override
 		public void valueChanged(ListSelectionEvent e)
 		{
 			if (!e.getValueIsAdjusting())
@@ -355,6 +361,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			this.character = character;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			int selectedRow = deityTable.getSelectedRow();
@@ -400,11 +407,13 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			tableModel.setFilter(null);
 		}
 
+		@Override
 		public void refilter()
 		{
 			tableModel.refilter();
 		}
 
+		@Override
 		public void setSearchEnabled(boolean enable)
 		{
 		}
@@ -437,6 +446,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			ref.removeReferenceListener(this);
 		}
 
+		@Override
 		public void referenceChanged(ReferenceEvent<Integer> e)
 		{
 			label.setText(e.getNewReference().toString());
@@ -479,6 +489,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			ref.removeReferenceListener(this);
 		}
 
+		@Override
 		public void referenceChanged(ReferenceEvent<DeityFacade> e)
 		{
 			label.setText(e.getNewReference().toString());
@@ -492,18 +503,21 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		private final ListListener<DomainFacade> listListener = new ListListener<DomainFacade>()
 		{
 
+			@Override
 			public void elementAdded(ListEvent<DomainFacade> e)
 			{
 				int index = ListFacades.wrap(sortedList).indexOf(e.getElement());
 				DomainTableModel.this.fireTableCellUpdated(index, -1);
 			}
 
+			@Override
 			public void elementRemoved(ListEvent<DomainFacade> e)
 			{
 				int index = ListFacades.wrap(sortedList).indexOf(e.getElement());
 				DomainTableModel.this.fireTableCellUpdated(index, -1);
 			}
 
+			@Override
 			public void elementsChanged(ListEvent<DomainFacade> e)
 			{
 				DomainTableModel.this.fireTableRowsUpdated(0, sortedList.getSize() - 1);
@@ -544,6 +558,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			}
 		}
 
+		@Override
 		public int getColumnCount()
 		{
 			return 2;
@@ -612,26 +627,31 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			this.infoFactory = character.getInfoFactory();
 		}
 
+		@Override
 		public ListFacade<? extends TreeView<DeityFacade>> getTreeViews()
 		{
 			return views;
 		}
 
+		@Override
 		public int getDefaultTreeViewIndex()
 		{
 			return 0;
 		}
 
+		@Override
 		public DataView<DeityFacade> getDataView()
 		{
 			return this;
 		}
 
+		@Override
 		public ListFacade<DeityFacade> getDataModel()
 		{
 			return character.getDataSet().getDeities();
 		}
 
+		@Override
 		public List<?> getData(DeityFacade obj)
 		{
 			return Arrays.asList(obj.getAlignment(),
@@ -639,6 +659,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				obj.getSource());
 		}
 
+		@Override
 		public List<? extends DataViewColumn> getDataColumns()
 		{
 			return columns;
@@ -662,11 +683,13 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			this.name = name;
 		}
 
+		@Override
 		public String getViewName()
 		{
 			return name;
 		}
 
+		@Override
 		public List<TreeViewPath<DeityFacade>> getPaths(DeityFacade pobj)
 		{
 			List<TreeViewPath<DeityFacade>> paths = new ArrayList<TreeViewPath<DeityFacade>>();
@@ -677,7 +700,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				case DOMAIN_NAME:
 					for (String domain : pobj.getDomainNames())
 					{
-						paths.add(new TreeViewPath(pobj, domain));
+						paths.add(new TreeViewPath<DeityFacade>(pobj, domain));
 					}
 					return paths;
 				case ALIGNMENT_NAME:
@@ -685,7 +708,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				case PANTHEON_NAME:
 					for (String pantheon : pobj.getPantheons())
 					{
-						paths.add(new TreeViewPath(pobj, pantheon));
+						paths.add(new TreeViewPath<DeityFacade>(pobj, pantheon));
 					}
 					return paths;
 				case SOURCE_NAME:

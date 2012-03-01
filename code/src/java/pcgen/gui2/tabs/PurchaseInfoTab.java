@@ -108,8 +108,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private static final Font LABEL_FONT = new Font("Verdana", Font.BOLD, 12);
 	private static final Font TEXT_FONT = new Font("Verdana", Font.PLAIN, 12);
 
-	private final FilteredTreeViewTable availableTable;
-	private final FilteredTreeViewTable purchasedTable;
+	private final FilteredTreeViewTable<CharacterFacade, EquipmentFacade> availableTable;
+	private final FilteredTreeViewTable<CharacterFacade, EquipmentFacade> purchasedTable;
 	private final JCheckBox autoResizeBox;
 	private final JButton addCustomButton;
 	private final JButton addEquipmentButton;
@@ -130,8 +130,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	 */
 	public PurchaseInfoTab()
 	{
-		this.availableTable = new FilteredTreeViewTable();
-		this.purchasedTable = new FilteredTreeViewTable();
+		this.availableTable = new FilteredTreeViewTable<CharacterFacade, EquipmentFacade>();
+		this.purchasedTable = new FilteredTreeViewTable<CharacterFacade, EquipmentFacade>();
 		this.autoResizeBox = new JCheckBox();
 		this.addCustomButton = new JButton();
 		this.addEquipmentButton = new JButton();
@@ -155,25 +155,27 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		FlippingSplitPane splitPane = new FlippingSplitPane();
 		splitPane.setOrientation(HORIZONTAL_SPLIT);
 		{// Top Left panel
-			FilterBar filterBar = new FilterBar();
+			FilterBar<CharacterFacade, EquipmentFacade> filterBar = new FilterBar<CharacterFacade, EquipmentFacade>();
 			{// Filters
 				filterBar.addDisplayableFilter(new SearchFilterPanel());
-				FilterButton premadeFilter = new FilterButton();
+				FilterButton<CharacterFacade, EquipmentFacade> premadeFilter = new FilterButton<CharacterFacade, EquipmentFacade>();
 				premadeFilter.setText(LanguageBundle.getString("in_igQualFilter"));
 				premadeFilter.setFilter(new Filter<CharacterFacade, EquipmentFacade>()
 				{
 
+					@Override
 					public boolean accept(CharacterFacade context, EquipmentFacade element)
 					{
 						return context.isQualifiedFor(element);
 					}
 
 				});
-				FilterButton customFilter = new FilterButton();
+				FilterButton<CharacterFacade, EquipmentFacade> customFilter = new FilterButton<CharacterFacade, EquipmentFacade>();
 				customFilter.setText(LanguageBundle.getString("in_igAffordFilter"));
 				customFilter.setFilter(new Filter<CharacterFacade, EquipmentFacade>()
 				{
 
+					@Override
 					public boolean accept(CharacterFacade context, EquipmentFacade element)
 					{
 							return context.getInfoFactory().getCost(element) <= context
@@ -192,6 +194,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			availableTable.getSelectionModel().addListSelectionListener(new ListSelectionListener()
 			{
 
+				@Override
 				public void valueChanged(ListSelectionEvent e)
 				{
 					if (!e.getValueIsAdjusting())
@@ -225,7 +228,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			splitPane.setLeftComponent(panel);
 		}
 		{// Top Right panel
-			FilterBar filterBar = new FilterBar();
+			FilterBar<CharacterFacade, EquipmentFacade> filterBar = new FilterBar<CharacterFacade, EquipmentFacade>();
 			filterBar.addDisplayableFilter(new SearchFilterPanel());
 
 			JPanel panel = new JPanel(new BorderLayout());
@@ -235,6 +238,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			purchasedTable.getSelectionModel().addListSelectionListener(new ListSelectionListener()
 			{
 
+				@Override
 				public void valueChanged(ListSelectionEvent e)
 				{
 					if (!e.getValueIsAdjusting())
@@ -390,6 +394,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		FundsHandler
 	}
 
+	@Override
 	public Hashtable<Object, Object> createModels(final CharacterFacade character)
 	{
 		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
@@ -445,6 +450,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		CharacterComboBoxModel<GearBuySellFacade> buySellModel = new CharacterComboBoxModel<GearBuySellFacade>()
 		{
 
+			@Override
 			public void setSelectedItem(Object anItem)
 			{
 				character.setGearBuySellRef((GearBuySellFacade) anItem);
@@ -458,11 +464,12 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		return state;
 	}
 
+	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
-		availableTable.setTreeViewModel((TreeViewModel) state.get(AvailableTreeViewModel.class));
+		availableTable.setTreeViewModel((TreeViewModel<EquipmentFacade>) state.get(AvailableTreeViewModel.class));
 		availableTable.setTreeCellRenderer((EquipmentRenderer) state.get(EquipmentRenderer.class));
-		purchasedTable.setTreeViewModel((TreeViewModel) state.get(PurchasedTreeViewModel.class));
+		purchasedTable.setTreeViewModel((TreeViewModel<EquipmentFacade>) state.get(PurchasedTreeViewModel.class));
 		purchasedTable.setTreeCellRenderer((EquipmentRenderer) state.get(EquipmentRenderer.class));
 		autoResizeBox.setAction((UseAutoResizeAction) state.get(UseAutoResizeAction.class));
 		addCustomButton.setAction((AddCustomAction) state.get(AddCustomAction.class));
@@ -485,6 +492,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		
 	}
 
+	@Override
 	public void storeModels(Hashtable<Object, Object> state)
 	{
 		((EquipInfoHandler) state.get(EquipInfoHandler.class)).uninstall();
@@ -494,6 +502,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		((BigDecimalFieldHandler) state.get(Models.FundsHandler)).uninstall();
 	}
 
+	@Override
 	public TabTitle getTabTitle()
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
@@ -511,9 +520,10 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			this.character = character;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			List<Object> data = availableTable.getSelectedData();
+			List<?> data = availableTable.getSelectedData();
 			if (data != null)
 			{
 				for (Object object : data)
@@ -555,9 +565,10 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			this.character = character;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			List<Object> data = availableTable.getSelectedData();
+			List<?> data = availableTable.getSelectedData();
 			if (data != null)
 			{
 				for (Object object : data)
@@ -588,6 +599,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			this.character = character;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			character.setAutoResize(autoResizeBox.isSelected());
@@ -612,9 +624,10 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			this.character = character;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			List<Object> data = purchasedTable.getSelectedData();
+			List<?> data = purchasedTable.getSelectedData();
 			if (data != null)
 			{
 				for (Object object : data)
@@ -652,6 +665,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			putValue(SMALL_ICON, new SignIcon(Sign.Plus));
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			Object value = goldModField.getValue();
@@ -680,6 +694,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			putValue(SMALL_ICON, new SignIcon(Sign.Minus));
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			Object value = goldModField.getValue();
@@ -707,6 +722,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			this.character = character;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			character.setAllowDebt(allowDebt.isSelected());
@@ -739,6 +755,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			availableTable.getSelectionModel().removeListSelectionListener(this);
 		}
 
+		@Override
 		public void valueChanged(ListSelectionEvent e)
 		{
 			if (!e.getValueIsAdjusting())
@@ -809,31 +826,37 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			this.equipmentList = character.getDataSet().getEquipment();
 		}
 
+		@Override
 		public ListFacade<? extends TreeView<EquipmentFacade>> getTreeViews()
 		{
 			return treeviews;
 		}
 
+		@Override
 		public int getDefaultTreeViewIndex()
 		{
 			return 1;
 		}
 
+		@Override
 		public DataView<EquipmentFacade> getDataView()
 		{
 			return this;
 		}
 
+		@Override
 		public ListFacade<EquipmentFacade> getDataModel()
 		{
 			return equipmentList;
 		}
 
+		@Override
 		public List<?> getData(EquipmentFacade obj)
 		{
 			return Arrays.asList(character.getInfoFactory().getCost(obj), character.getInfoFactory().getWeight(obj));
 		}
 
+		@Override
 		public List<? extends DataViewColumn> getDataColumns()
 		{
 			return columns;
@@ -861,36 +884,43 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			this.equipmentList.addEquipmentListListener(this);
 		}
 
+		@Override
 		public ListFacade<? extends TreeView<EquipmentFacade>> getTreeViews()
 		{
 			return treeviews;
 		}
 
+		@Override
 		public int getDefaultTreeViewIndex()
 		{
 			return 0;
 		}
 
+		@Override
 		public DataView<EquipmentFacade> getDataView()
 		{
 			return this;
 		}
 
+		@Override
 		public ListFacade<EquipmentFacade> getDataModel()
 		{
 			return equipmentList;
 		}
 
+		@Override
 		public List<?> getData(EquipmentFacade obj)
 		{
 			return Arrays.asList(character.getInfoFactory().getCost(obj), character.getInfoFactory().getWeight(obj), equipmentList.getQuantity(obj));
 		}
 
+		@Override
 		public List<? extends DataViewColumn> getDataColumns()
 		{
 			return columns;
 		}
 
+		@Override
 		public void quantityChanged(EquipmentListEvent equipment)
 		{
 			purchasedTable.refreshModelData();
@@ -911,11 +941,13 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			this.name = name;
 		}
 
+		@Override
 		public String getViewName()
 		{
 			return name;
 		}
 
+		@Override
 		public List<TreeViewPath<EquipmentFacade>> getPaths(EquipmentFacade pobj)
 		{
 			switch (this)
@@ -1019,13 +1051,13 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		@Override
 		protected Transferable createTransferable(JComponent c)
 		{
-			List<Object> data = purchasedTable.getSelectedData();
+			List<?> data = purchasedTable.getSelectedData();
 
 			if (data == null)
 			{
 				return null;
 			}
-			Iterator<Object> it = data.iterator();
+			Iterator<?> it = data.iterator();
 			while (it.hasNext())
 			{
 				if (!(it.next() instanceof EquipmentFacade))
@@ -1085,7 +1117,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		@Override
 		protected Transferable createTransferable(JComponent c)
 		{
-			List<Object> data = null;
+			List<?> data = null;
 			if (c == availableTable)
 			{
 				data = availableTable.getSelectedData();
@@ -1098,7 +1130,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{
 				return null;
 			}
-			Iterator<Object> it = data.iterator();
+			Iterator<?> it = data.iterator();
 			while (it.hasNext())
 			{
 				if (!(it.next() instanceof EquipmentFacade))

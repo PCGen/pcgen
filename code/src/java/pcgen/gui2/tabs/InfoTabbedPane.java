@@ -134,6 +134,7 @@ public final class InfoTabbedPane extends JTabbedPane
 		tabTitle.addPropertyChangeListener(new TabActionListener(tab));
 	}
 
+	@Override
 	public void setCharacter(CharacterFacade character)
 	{
 		modelService.cancelRestoreTasks();
@@ -221,6 +222,7 @@ public final class InfoTabbedPane extends JTabbedPane
 	/**
 	* {@inheritDoc}
 	*/
+	@Override
 	public void stateChanged(ChangeEvent e)
 	{
 		// The currently displayed tab has changed so if the new one wants to know about it, let it know 
@@ -265,6 +267,7 @@ public final class InfoTabbedPane extends JTabbedPane
 			super(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>(), new ThreadFactory()
 			{
 
+				@Override
 				public Thread newThread(Runnable r)
 				{
 					Thread thread = new Thread(r);
@@ -280,6 +283,7 @@ public final class InfoTabbedPane extends JTabbedPane
 			restoreQueue = new LinkedList<Future<?>>();
 		}
 
+		@Override
 		public int compare(CharacterInfoTab o1, CharacterInfoTab o2)
 		{
 			if (timingMap.containsKey(o1) && timingMap.containsKey(o2))
@@ -363,6 +367,7 @@ public final class InfoTabbedPane extends JTabbedPane
 				this.executed = false;
 			}
 
+			@Override
 			public void run()
 			{
 				try
@@ -370,6 +375,7 @@ public final class InfoTabbedPane extends JTabbedPane
 					SwingUtilities.invokeAndWait(new Runnable()
 					{
 
+						@Override
 						public void run()
 						{
 							if (!executed)
@@ -407,6 +413,7 @@ public final class InfoTabbedPane extends JTabbedPane
 			this.component = component;
 		}
 
+		@Override
 		public void propertyChange(PropertyChangeEvent evt)
 		{
 			int index = indexOfComponent(component);

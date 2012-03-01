@@ -50,6 +50,7 @@ public class InventoryInfoTab extends JTabbedPane implements CharacterInfoTab
 		addTab("Equipment", equipTab);
 	}
 
+	@Override
 	public Hashtable<Object, Object> createModels(CharacterFacade character)
 	{
 		Hashtable<Object, Object> table = new Hashtable<Object, Object>();
@@ -58,18 +59,21 @@ public class InventoryInfoTab extends JTabbedPane implements CharacterInfoTab
 		return table;
 	}
 
+	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
 		equipTab.restoreModels((Hashtable<?, ?>) state.get(equipTab));
 		purchaseTab.restoreModels((Hashtable<?, ?>) state.get(purchaseTab));
 	}
 
+	@Override
 	public void storeModels(Hashtable<Object, Object> state)
 	{
 		equipTab.storeModels((Hashtable<Object, Object>) state.get(equipTab));
 		purchaseTab.storeModels((Hashtable<Object, Object>) state.get(purchaseTab));
 	}
 
+	@Override
 	public TabTitle getTabTitle()
 	{
 		return tabTitle;
