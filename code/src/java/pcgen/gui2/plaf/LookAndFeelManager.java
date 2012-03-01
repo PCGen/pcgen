@@ -72,6 +72,7 @@ public final class LookAndFeelManager
 		Comparator<LookAndFeelInfo> lafcomp = new Comparator<LookAndFeelInfo>()
 		{
 
+			@Override
 			public int compare(LookAndFeelInfo o1, LookAndFeelInfo o2)
 			{
 				//System laf goes first
@@ -338,6 +339,7 @@ public final class LookAndFeelManager
 			return className;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			//This is the default operation

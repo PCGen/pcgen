@@ -275,6 +275,7 @@ public final class Utility
 	{
 		Action dispatchClosing = new AbstractAction()
 		{
+			@Override
 			public void actionPerformed(ActionEvent event)
 			{
 				dialog.dispatchEvent(new WindowEvent(dialog,

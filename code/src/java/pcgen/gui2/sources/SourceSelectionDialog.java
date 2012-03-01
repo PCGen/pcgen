@@ -200,6 +200,7 @@ public class SourceSelectionDialog extends JDialog
 		loadButton.setEnabled(enable);
 	}
 
+	@Override
 	public void valueChanged(ListSelectionEvent e)
 	{
 		if (!e.getValueIsAdjusting())
@@ -226,6 +227,7 @@ public class SourceSelectionDialog extends JDialog
 		buttonPanel.revalidate();
 	}
 
+	@Override
 	public void stateChanged(ChangeEvent e)
 	{
 		if (tabs.getSelectedComponent() == basicPanel)
@@ -238,6 +240,7 @@ public class SourceSelectionDialog extends JDialog
 		}
 	}
 
+	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		String command = e.getActionCommand();
@@ -251,6 +254,7 @@ public class SourceSelectionDialog extends JDialog
 			sourcesList.addListSelectionListener(new ListSelectionListener()
 			{
 
+				@Override
 				public void valueChanged(ListSelectionEvent e)
 				{
 					nameField.setText(sourcesList.getSelectedValue().toString());
@@ -410,6 +414,7 @@ public class SourceSelectionDialog extends JDialog
 			}
 		}
 
+		@Override
 		public int getColumnCount()
 		{
 			return 1;
@@ -541,6 +546,7 @@ public class SourceSelectionDialog extends JDialog
 			return (SourceSelectionFacade) sourceList.getSelectedValue();
 		}
 
+		@Override
 		public void valueChanged(ListSelectionEvent e)
 		{
 			SourceSelectionFacade selection = getSourceSelection();

@@ -540,46 +540,55 @@ public class SpinningTabbedPane extends JTabbedPane
     private final class DefaultPopupMenuPolicy implements PopupMenuPolicy
     {
 
+    	@Override
         public boolean canClose(int index)
         {
             return true;
         }
 
+    	@Override
         public boolean canGroup(int index)
         {
             return true;
         }
 
+    	@Override
         public boolean canLock(int index)
         {
             return true;
         }
 
+    	@Override
         public boolean canMove(int index)
         {
             return true;
         }
 
+    	@Override
         public boolean canNew(int index)
         {
             return true;
         }
 
+    	@Override
         public boolean canRename(int index)
         {
             return true;
         }
 
+    	@Override
         public boolean hasGroupMenu(int index, MouseEvent e)
         {
             return true;
         }
 
+    	@Override
         public boolean hasMoveMenu(int index, MouseEvent e)
         {
             return true;
         }
 
+    	@Override
         public boolean hasPlaceMenu(int index, MouseEvent e)
         {
             return true;
@@ -597,6 +606,7 @@ public class SpinningTabbedPane extends JTabbedPane
                   LanguageBundle.getMnemonic("in_mn_close"));
         }
 
+    	@Override
         public void actionPerformed(ActionEvent e)
         {
             removeTabAt(getIndex());
@@ -681,6 +691,7 @@ public class SpinningTabbedPane extends JTabbedPane
             this.placement = placement;
         }
 
+    	@Override
         public void actionPerformed(ActionEvent e)
         {
             spinTabsAt(getIndex(), placement);
@@ -698,6 +709,7 @@ public class SpinningTabbedPane extends JTabbedPane
                   Utilities.LOCK_ICON, LanguageBundle.getMnemonic("in_mn_lock"));
         }
 
+    	@Override
         public void actionPerformed(ActionEvent e)
         {
             lockTabAt(getIndex());
@@ -717,6 +729,7 @@ public class SpinningTabbedPane extends JTabbedPane
             this.placement = placement;
         }
 
+    	@Override
         public void actionPerformed(ActionEvent e)
         {
             final int[] indices = getMovableTabIndices();
@@ -901,6 +914,7 @@ public class SpinningTabbedPane extends JTabbedPane
                   LanguageBundle.getMnemonic("in_mn_new"));
         }
 
+    	@Override
         public void actionPerformed(ActionEvent e)
         {
             addNewTab();
@@ -940,6 +954,7 @@ public class SpinningTabbedPane extends JTabbedPane
             this.placement = placement;
         }
 
+    	@Override
         public void actionPerformed(ActionEvent e)
         {
             pane.setTabPlacement(placement);
@@ -1108,6 +1123,7 @@ public class SpinningTabbedPane extends JTabbedPane
             this.evt = e;
         }
 
+    	@Override
         public void actionPerformed(ActionEvent e)
         {
             int x = evt.getX();
@@ -1179,6 +1195,7 @@ public class SpinningTabbedPane extends JTabbedPane
             this.popupMenu = popupMenu;
         }
 
+    	@Override
         public void actionPerformed(ActionEvent e)
         {
             SpinningTabbedPane.this.setTitleAt(anIndex, textField.getText());
@@ -1196,6 +1213,7 @@ public class SpinningTabbedPane extends JTabbedPane
                   UNGROUP_CHILD_OFFSET);
         }
 
+    	@Override
         public void actionPerformed(ActionEvent e)
         {
             SpinningTabbedPane pane = (SpinningTabbedPane) getComponentAt(getIndex());
@@ -1218,6 +1236,7 @@ public class SpinningTabbedPane extends JTabbedPane
 
         }
 
+    	@Override
         public void actionPerformed(ActionEvent e)
         {
             final int index = parent.indexOfComponent(SpinningTabbedPane.this);
@@ -1239,6 +1258,7 @@ public class SpinningTabbedPane extends JTabbedPane
                   UNGROUP_SINGLE_OFFSET);
         }
 
+    	@Override
         public void actionPerformed(ActionEvent e)
         {
             unspinTabAt(getIndex());
@@ -1258,6 +1278,7 @@ public class SpinningTabbedPane extends JTabbedPane
                   LanguageBundle.getMnemonic("in_mn_unlock"));
         }
 
+    	@Override
         public void actionPerformed(ActionEvent e)
         {
             unlockTabAt(getIndex());

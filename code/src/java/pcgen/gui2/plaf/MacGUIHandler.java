@@ -61,6 +61,7 @@ public class MacGUIHandler extends ApplicationAdapter
 	/**
 	 * Called when user select "About" from the application menu.
 	 */
+	@Override
 	public void handleAbout(ApplicationEvent ae)
 	{
 		PCGenUIManager.displayAboutDialog();
@@ -70,6 +71,7 @@ public class MacGUIHandler extends ApplicationAdapter
 	/**
 	 * Called when user select "Preferences" from the application menu.
 	 */
+	@Override
 	public void handlePreferences(ApplicationEvent ae)
 	{
 		PCGenUIManager.displayPreferencesDialog();
@@ -79,6 +81,7 @@ public class MacGUIHandler extends ApplicationAdapter
 	/**
 	 * Called when user select "Quit" from the application menu.
 	 */
+	@Override
 	public void handleQuit(ApplicationEvent ae)
 	{
 		ae.setHandled(false);

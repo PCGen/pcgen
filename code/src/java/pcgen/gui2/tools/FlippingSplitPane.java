@@ -489,6 +489,7 @@ public class FlippingSplitPane extends JSplitPane
 		/**
 		 * Action for Lock/Unlock item in popup menu.
 		 */
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			setLocked(!locked);
@@ -553,6 +554,7 @@ public class FlippingSplitPane extends JSplitPane
 		/**
 		 * Action for Center item in popup menu.
 		 */
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			centerDividerLocations();
@@ -578,6 +580,7 @@ public class FlippingSplitPane extends JSplitPane
 		/**
 		 * Action for Continuous layout item in options menu.
 		 */
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			setContinuousLayout(!isContinuousLayout());
@@ -604,6 +607,7 @@ public class FlippingSplitPane extends JSplitPane
 		/**
 		 * Action for Flip item in popup menu.
 		 */
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			flipOrientation();
@@ -630,6 +634,7 @@ public class FlippingSplitPane extends JSplitPane
 		/**
 		 * Action for One touch expandable item in options menu.
 		 */
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			setOneTouchExpandable(!isOneTouchExpandable());
@@ -723,6 +728,7 @@ public class FlippingSplitPane extends JSplitPane
 		/**
 		 * Action for Reset item in popup menu.
 		 */
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			resetToPreferredSizes();

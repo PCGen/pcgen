@@ -39,6 +39,7 @@ import javax.swing.event.HyperlinkListener;
 public final class Hyperactive implements HyperlinkListener
 {
 
+	@Override
 	public void hyperlinkUpdate(HyperlinkEvent e)
 	{
 		if (e.getEventType() == HyperlinkEvent.EventType.ACTIVATED)

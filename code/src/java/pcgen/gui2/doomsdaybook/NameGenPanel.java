@@ -370,6 +370,7 @@ public class NameGenPanel extends JPanel
 					NameButton nb = new NameButton(ele);
 					nb.addActionListener(new ActionListener()
 					{
+						@Override
 						public void actionPerformed(ActionEvent evt)
 						{
 							NameButtonActionPerformed(evt);
@@ -464,6 +465,7 @@ public class NameGenPanel extends JPanel
 
 		cbCatalog.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				cbCatalogActionPerformed(evt);
@@ -481,6 +483,7 @@ public class NameGenPanel extends JPanel
 
 		cbCategory.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				cbCategoryActionPerformed(evt);
@@ -500,6 +503,7 @@ public class NameGenPanel extends JPanel
 		generateButton.setText("Generate");
 		generateButton.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				generateButtonActionPerformed(evt);
@@ -517,6 +521,7 @@ public class NameGenPanel extends JPanel
 
 		cbSex.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				cbSexActionPerformed(evt);
@@ -543,6 +548,7 @@ public class NameGenPanel extends JPanel
 		cbStructure.setEnabled(false);
 		cbStructure.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				cbStructureActionPerformed(evt);
@@ -554,6 +560,7 @@ public class NameGenPanel extends JPanel
 		chkStructure.setText("Random");
 		chkStructure.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				chkStructureActionPerformed(evt);
@@ -638,6 +645,7 @@ public class NameGenPanel extends JPanel
 		}
 		jButton1.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				jButton1ActionPerformed(evt);
@@ -1118,6 +1126,7 @@ public class NameGenPanel extends JPanel
 		/**
 		 * {@inheritDoc}
 		 */
+		@Override
 		public InputSource resolveEntity(String publicId, String systemId)
 		{
 			if (systemId.endsWith("generator.dtd"))

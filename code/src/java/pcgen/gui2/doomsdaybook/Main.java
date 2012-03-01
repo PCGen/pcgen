@@ -58,6 +58,7 @@ public class Main extends javax.swing.JFrame
 		setTitle("The Doomsday Book Name Generator");
 		addWindowListener(new java.awt.event.WindowAdapter()
 		{
+			@Override
 			public void windowClosing(java.awt.event.WindowEvent evt)
 			{
 				exitForm(evt);

@@ -44,11 +44,13 @@ public class FakeWindowsLookAndFeel extends WindowsLookAndFeel
 	 *
 	 * @return boolean <code>true</code> always
 	 */
+	@Override
 	public boolean isSupportedLookAndFeel()
 	{
 		return true;
 	}
 
+	@Override
 	public void initialize()
 	{
 		// This hack convinces JDK 1.4 to use the Win2K UI
@@ -60,6 +62,7 @@ public class FakeWindowsLookAndFeel extends WindowsLookAndFeel
 		System.setProperty("os.version", osVersion);
 	}
 
+	@Override
 	protected void initComponentDefaults(UIDefaults table)
 	{
 		super.initComponentDefaults(table);

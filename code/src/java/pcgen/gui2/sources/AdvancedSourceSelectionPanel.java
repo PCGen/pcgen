@@ -293,6 +293,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 			source, selectedCampaigns.getContents()));
 	}
 	
+	@Override
 	public void valueChanged(ListSelectionEvent e)
 	{
 		if (!e.getValueIsAdjusting())
@@ -390,6 +391,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 			availableTable.addActionListener(this);
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			List<CampaignFacade> list = availableTable.getSelectedData();
@@ -422,6 +424,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 			selectedTable.addActionListener(this);
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			List<CampaignFacade> list = selectedTable.getSelectedData();
@@ -444,6 +447,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 			super(LanguageBundle.getString("in_src_unloadAll")); //$NON-NLS-1$
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			frame.unloadSources();
@@ -483,26 +487,31 @@ class AdvancedSourceSelectionPanel extends JPanel
 						new DefaultDataViewColumn("in_src_loaded", String.class, false));
 		}
 		
+		@Override
 		public ListFacade<? extends TreeView<CampaignFacade>> getTreeViews()
 		{
 			return views;
 		}
 		
+		@Override
 		public int getDefaultTreeViewIndex()
 		{
 			return isAvailModel ? 2 : 0;
 		}
 		
+		@Override
 		public DataView<CampaignFacade> getDataView()
 		{
 			return this;
 		}
 		
+		@Override
 		public ListFacade<CampaignFacade> getDataModel()
 		{
 			return model;
 		}
 		
+		@Override
 		public List<?> getData(CampaignFacade obj)
 		{
 			SourceSelectionFacade sourceFacade =
@@ -517,6 +526,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 					.getString("in_no"));
 		}
 		
+		@Override
 		public List<? extends DataViewColumn> getDataColumns()
 		{
 			return columns;
@@ -533,16 +543,19 @@ class AdvancedSourceSelectionPanel extends JPanel
 			baseModel.addListListener(this);
 		}
 		
+		@Override
 		public void elementAdded(ListEvent<CampaignFacade> e)
 		{
 			model.addElement(e.getIndex(), e.getElement());
 		}
 		
+		@Override
 		public void elementRemoved(ListEvent<CampaignFacade> e)
 		{
 			model.removeElement(e.getIndex());
 		}
 		
+		@Override
 		public void elementsChanged(ListEvent<CampaignFacade> e)
 		{
 			model.setContents(ListFacades.wrap(baseModel));
@@ -564,11 +577,13 @@ class AdvancedSourceSelectionPanel extends JPanel
 			this.name = LanguageBundle.getString(name);
 		}
 
+		@Override
 		public String getViewName()
 		{
 			return name;
 		}
 
+		@Override
 		public List<TreeViewPath<CampaignFacade>> getPaths(CampaignFacade pobj)
 		{
 			String publisher = pobj.getPublisher();
