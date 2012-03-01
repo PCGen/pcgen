@@ -59,7 +59,6 @@ import pcgen.gui2.util.table.SortableTableModel;
 import pcgen.gui2.util.treetable.DefaultSortableTreeTableModel;
 import pcgen.gui2.util.treetable.SortableTreeTableModel;
 import pcgen.gui2.util.treetable.TreeTableNode;
-import pcgen.util.Logging;
 
 /**
  * This example shows how to create a simple JTreeTable component,

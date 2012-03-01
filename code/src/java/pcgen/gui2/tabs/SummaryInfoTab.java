@@ -88,7 +88,6 @@ import pcgen.core.facade.event.ListListener;
 import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
 import pcgen.core.facade.util.DefaultListFacade;
-import pcgen.core.facade.util.ListFacade;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.dialog.CharacterHPDialog;
 import pcgen.gui2.dialog.RandomNameDialog;

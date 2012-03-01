@@ -45,7 +45,6 @@ import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.InfoFactory;
 import pcgen.core.facade.RaceFacade;
 import pcgen.core.facade.ReferenceFacade;
-import pcgen.core.facade.TemplateFacade;
 import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
 import pcgen.core.facade.util.DefaultListFacade;

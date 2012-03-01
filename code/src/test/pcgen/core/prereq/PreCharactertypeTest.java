@@ -25,14 +25,6 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
-import pcgen.cdom.base.SimpleAssociatedObject;
-import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.ClassSource;
-import pcgen.cdom.reference.CDOMDirectSingleRef;
-import pcgen.core.Deity;
-import pcgen.core.Domain;
-import pcgen.core.Globals;
-import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
@@ -48,7 +40,6 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  */
 public class PreCharactertypeTest extends AbstractCharacterTestCase
 {
-	private Deity deity;
 
 	public static void main(final String[] args)
 	{
