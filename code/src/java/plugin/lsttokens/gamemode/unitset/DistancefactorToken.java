@@ -50,11 +50,13 @@ public class DistancefactorToken extends AbstractNonEmptyToken<UnitSet>
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, UnitSet us)
 	{
 		return new String[] { us.getDistanceFactor().toString() };
 	}
 
+	@Override
 	public Class<UnitSet> getTokenClass()
 	{
 		return UnitSet.class;

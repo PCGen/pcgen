@@ -41,11 +41,13 @@ public class DistanceunitToken extends AbstractNonEmptyToken<UnitSet> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, UnitSet us)
 	{
 		return new String[] { us.getRawDistanceUnit() };
 	}
 
+	@Override
 	public Class<UnitSet> getTokenClass()
 	{
 		return UnitSet.class;

@@ -68,12 +68,14 @@ public class FinessableToken extends AbstractNonEmptyToken<WieldCategory>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, WieldCategory wc)
 	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
 	public Class<WieldCategory> getTokenClass()
 	{
 		return WieldCategory.class;

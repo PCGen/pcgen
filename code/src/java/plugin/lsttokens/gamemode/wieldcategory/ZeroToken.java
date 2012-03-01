@@ -46,12 +46,14 @@ public class ZeroToken extends AbstractNonEmptyToken<WieldCategory> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, WieldCategory wc)
 	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
 	public Class<WieldCategory> getTokenClass()
 	{
 		return WIELD_CATEGORY_CLASS;

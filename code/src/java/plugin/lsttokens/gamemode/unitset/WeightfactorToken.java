@@ -50,11 +50,13 @@ public class WeightfactorToken extends AbstractNonEmptyToken<UnitSet> implements
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, UnitSet us)
 	{
 		return new String[] { us.getWeightFactor().toString() };
 	}
 
+	@Override
 	public Class<UnitSet> getTokenClass()
 	{
 		return UnitSet.class;

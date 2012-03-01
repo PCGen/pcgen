@@ -51,11 +51,13 @@ public class WeightpatternToken extends AbstractNonEmptyToken<UnitSet>
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, UnitSet us)
 	{
 		return new String[] { us.getWeightDisplayPattern().toPattern() };
 	}
 
+	@Override
 	public Class<UnitSet> getTokenClass()
 	{
 		return UnitSet.class;

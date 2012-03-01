@@ -98,12 +98,14 @@ public class DamagemultToken extends AbstractTokenWithSeparator<WieldCategory>
 		return ',';
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, WieldCategory wc)
 	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
 	public Class<WieldCategory> getTokenClass()
 	{
 		return WieldCategory.class;
