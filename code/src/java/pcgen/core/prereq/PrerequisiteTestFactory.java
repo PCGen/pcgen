@@ -96,7 +96,7 @@ public class PrerequisiteTestFactory implements PluginLoader{
 		register((PrerequisiteTest) clazz.newInstance());
 }
 
-	public Class[] getPluginClasses()
+	public Class<?>[] getPluginClasses()
 	{
 		return new Class[]{PrerequisiteTest.class};
 	}

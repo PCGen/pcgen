@@ -499,16 +499,12 @@ public final class PrerequisiteUtilities
 	private static int subKeySpell(
 		final boolean countMults,
 		final String cType,
-		final List selectedList)
+		final List<String> selectedList)
 	{
 		int returnTotal = 0;
-		for (Object aObj : selectedList)
+		for (String spell : selectedList)
 		{
-			String spellKey = (aObj instanceof CDOMObject)
-				? ((CDOMObject) aObj).getKeyName()
-				: aObj.toString();
-
-			final Spell sp = Globals.getSpellKeyed(spellKey);
+			final Spell sp = Globals.getSpellKeyed(spell);
 
 			if (sp == null)
 			{
@@ -538,14 +534,14 @@ public final class PrerequisiteUtilities
 	private static int subKeyDomain(
 		final boolean countMults,
 		final String cType,
-		final List selectedList)
+		final List<String> selectedList)
 	{
 		int returnTotal = 0;
 
-		for (Object aObj : selectedList)
+		for (String domain : selectedList)
 		{
 			final Domain dom;
-			dom = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, aObj.toString());
+			dom = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, domain);
 			if (dom == null)
 			{
 				continue;
@@ -574,14 +570,14 @@ public final class PrerequisiteUtilities
 	private static int subKeyWeaponProf(
 		final boolean countMults,
 		final String cType,
-		final List selectedList)
+		final List<String> selectedList)
 	{
 		int returnTotal = 0;
 
-		for (Object aObj : selectedList)
+		for (String weaponprof : selectedList)
 		{
 			final WeaponProf wp = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				WeaponProf.class, aObj.toString());
+				WeaponProf.class, weaponprof);
 
 			if (wp == null)
 			{
@@ -620,14 +616,14 @@ public final class PrerequisiteUtilities
 	private static int subKeySkill(
 		final boolean countMults,
 		final String cType,
-		final List selectedList)
+		final List<String> selectedList)
 	{
 		int returnTotal = 0;
 
-		for (Object aObj : selectedList)
+		for (String skill : selectedList)
 		{
 			final Skill sk;
-			sk = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, aObj.toString());
+			sk = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, skill);
 			if (sk == null)
 			{
 				continue;
