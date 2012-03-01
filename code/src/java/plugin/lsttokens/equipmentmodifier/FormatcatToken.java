@@ -67,6 +67,7 @@ public class FormatcatToken extends AbstractNonEmptyToken<EquipmentModifier>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier mod)
 	{
 		EqModFormatCat fc = context.getObjectContext().getObject(mod,
@@ -78,6 +79,7 @@ public class FormatcatToken extends AbstractNonEmptyToken<EquipmentModifier>
 		return new String[] { fc.toString() };
 	}
 
+	@Override
 	public Class<EquipmentModifier> getTokenClass()
 	{
 		return EquipmentModifier.class;

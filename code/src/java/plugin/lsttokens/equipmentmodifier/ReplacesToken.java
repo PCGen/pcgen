@@ -67,6 +67,7 @@ public class ReplacesToken extends
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier mod)
 	{
 		Changes<CDOMSingleRef<EquipmentModifier>> changes = context
@@ -79,6 +80,7 @@ public class ReplacesToken extends
 				.getAdded(), Constants.COMMA) };
 	}
 
+	@Override
 	public Class<EquipmentModifier> getTokenClass()
 	{
 		return EquipmentModifier.class;

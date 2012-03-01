@@ -53,6 +53,7 @@ public class PlusToken extends AbstractIntToken<EquipmentModifier> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public Class<EquipmentModifier> getTokenClass()
 	{
 		return EquipmentModifier.class;

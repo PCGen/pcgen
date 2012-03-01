@@ -26,16 +26,19 @@ import pcgen.rules.persistence.token.ParseResult;
 public class NoChoiceToken implements CDOMSecondaryToken<EquipmentModifier>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "NOCHOICE";
 	}
 
+	@Override
 	public String getParentToken()
 	{
 		return "CHOOSE";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, EquipmentModifier obj,
 		String value)
 	{
@@ -49,6 +52,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<EquipmentModifier>
 				+ " must not have arguments: " + value);
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier eqMod)
 	{
 		String chooseString = context.getObjectContext().getString(eqMod,
@@ -73,6 +77,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<EquipmentModifier>
 		return new String[] { returnString };
 	}
 
+	@Override
 	public Class<EquipmentModifier> getTokenClass()
 	{
 		return EquipmentModifier.class;

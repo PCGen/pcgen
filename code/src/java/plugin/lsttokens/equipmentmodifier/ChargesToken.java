@@ -101,6 +101,7 @@ public class ChargesToken extends AbstractNonEmptyToken<EquipmentModifier>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier mod)
 	{
 		Integer max = context.getObjectContext().getInteger(mod,
@@ -135,6 +136,7 @@ public class ChargesToken extends AbstractNonEmptyToken<EquipmentModifier>
 		return new String[] { min + Constants.PIPE + max };
 	}
 
+	@Override
 	public Class<EquipmentModifier> getTokenClass()
 	{
 		return EquipmentModifier.class;

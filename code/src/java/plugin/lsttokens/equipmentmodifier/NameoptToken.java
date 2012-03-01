@@ -68,6 +68,7 @@ public class NameoptToken extends AbstractNonEmptyToken<EquipmentModifier>
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier mod)
 	{
 		EqModNameOpt opt = context.getObjectContext().getObject(mod,
@@ -112,6 +113,7 @@ public class NameoptToken extends AbstractNonEmptyToken<EquipmentModifier>
 		return new String[] { retString };
 	}
 
+	@Override
 	public Class<EquipmentModifier> getTokenClass()
 	{
 		return EquipmentModifier.class;

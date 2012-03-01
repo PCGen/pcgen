@@ -50,16 +50,19 @@ public class EqBuilderEqTypeToken implements
 	 *
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "EQBUILDER.EQTYPE";
 	}
 
+	@Override
 	public String getParentToken()
 	{
 		return "CHOOSE";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, EquipmentModifier obj,
 		String value)
 	{
@@ -127,6 +130,7 @@ public class EqBuilderEqTypeToken implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier eqMod)
 	{
 		String chooseString = context.getObjectContext().getString(eqMod,
@@ -151,6 +155,7 @@ public class EqBuilderEqTypeToken implements
 		return new String[] { returnString };
 	}
 
+	@Override
 	public Class<EquipmentModifier> getTokenClass()
 	{
 		return EquipmentModifier.class;

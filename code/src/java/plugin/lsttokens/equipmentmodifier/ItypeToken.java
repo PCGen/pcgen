@@ -73,6 +73,7 @@ public class ItypeToken extends AbstractTokenWithSeparator<EquipmentModifier>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier mod)
 	{
 		Changes<String> changes = context.getObjectContext().getListChanges(
@@ -85,6 +86,7 @@ public class ItypeToken extends AbstractTokenWithSeparator<EquipmentModifier>
 				.join(changes.getAdded(), Constants.DOT) };
 	}
 
+	@Override
 	public Class<EquipmentModifier> getTokenClass()
 	{
 		return EquipmentModifier.class;

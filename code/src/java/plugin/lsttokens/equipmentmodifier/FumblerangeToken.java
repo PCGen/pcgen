@@ -45,6 +45,7 @@ public class FumblerangeToken extends AbstractNonEmptyToken<EquipmentModifier>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier mod)
 	{
 		String range = context.getObjectContext().getString(mod,
@@ -56,6 +57,7 @@ public class FumblerangeToken extends AbstractNonEmptyToken<EquipmentModifier>
 		return new String[] { range };
 	}
 
+	@Override
 	public Class<EquipmentModifier> getTokenClass()
 	{
 		return EquipmentModifier.class;

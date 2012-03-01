@@ -30,16 +30,19 @@ public class AbilityToken implements CDOMSecondaryToken<EquipmentModifier>
 {
 	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
 
+	@Override
 	public String getTokenName()
 	{
 		return "ABILITY";
 	}
 
+	@Override
 	public String getParentToken()
 	{
 		return "CHOOSE";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, EquipmentModifier obj,
 		String value)
 	{
@@ -90,6 +93,7 @@ public class AbilityToken implements CDOMSecondaryToken<EquipmentModifier>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier eqMod)
 	{
 		String chooseString = context.getObjectContext().getString(eqMod,
@@ -103,6 +107,7 @@ public class AbilityToken implements CDOMSecondaryToken<EquipmentModifier>
 				.substring(getTokenName().length() + 1) };
 	}
 
+	@Override
 	public Class<EquipmentModifier> getTokenClass()
 	{
 		return EquipmentModifier.class;

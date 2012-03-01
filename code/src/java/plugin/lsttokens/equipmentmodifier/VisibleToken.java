@@ -73,6 +73,7 @@ public class VisibleToken extends AbstractNonEmptyToken<EquipmentModifier>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier eqm)
 	{
 		Visibility vis = context.getObjectContext().getObject(eqm,
@@ -103,6 +104,7 @@ public class VisibleToken extends AbstractNonEmptyToken<EquipmentModifier>
 		return new String[] { visString };
 	}
 
+	@Override
 	public Class<EquipmentModifier> getTokenClass()
 	{
 		return EquipmentModifier.class;

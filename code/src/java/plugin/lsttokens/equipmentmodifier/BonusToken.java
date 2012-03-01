@@ -36,11 +36,13 @@ import pcgen.rules.persistence.token.ParseResult;
 public class BonusToken implements CDOMPrimaryToken<EquipmentModifier>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "BONUS";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, EquipmentModifier mod,
 		String value)
 	{
@@ -55,6 +57,7 @@ public class BonusToken implements CDOMPrimaryToken<EquipmentModifier>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier mod)
 	{
 		Changes<BonusObj> changes = context.obj.getListChanges(mod,
@@ -83,6 +86,7 @@ public class BonusToken implements CDOMPrimaryToken<EquipmentModifier>
 		return bonusSet.toArray(new String[bonusSet.size()]);
 	}
 
+	@Override
 	public Class<EquipmentModifier> getTokenClass()
 	{
 		return EquipmentModifier.class;

@@ -53,6 +53,7 @@ public class CostToken extends AbstractNonEmptyToken<EquipmentModifier>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier mod)
 	{
 		Formula f = context.getObjectContext().getFormula(mod, FormulaKey.COST);
@@ -63,6 +64,7 @@ public class CostToken extends AbstractNonEmptyToken<EquipmentModifier>
 		return new String[] { f.toString() };
 	}
 
+	@Override
 	public Class<EquipmentModifier> getTokenClass()
 	{
 		return EquipmentModifier.class;

@@ -70,6 +70,7 @@ public class CostdoubleToken extends AbstractNonEmptyToken<EquipmentModifier>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier mod)
 	{
 		Boolean stacks = context.getObjectContext().getObject(mod,
@@ -81,6 +82,7 @@ public class CostdoubleToken extends AbstractNonEmptyToken<EquipmentModifier>
 		return new String[] { stacks.booleanValue() ? "YES" : "NO" };
 	}
 
+	@Override
 	public Class<EquipmentModifier> getTokenClass()
 	{
 		return EquipmentModifier.class;

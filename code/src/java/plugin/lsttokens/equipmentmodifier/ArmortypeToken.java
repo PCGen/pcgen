@@ -83,6 +83,7 @@ public class ArmortypeToken extends
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier mod)
 	{
 		Changes<ChangeArmorType> changes = context.getObjectContext()
@@ -101,6 +102,7 @@ public class ArmortypeToken extends
 		return set.toArray(new String[set.size()]);
 	}
 
+	@Override
 	public Class<EquipmentModifier> getTokenClass()
 	{
 		return EquipmentModifier.class;

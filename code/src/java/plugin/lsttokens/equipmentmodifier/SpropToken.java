@@ -71,6 +71,7 @@ public class SpropToken extends AbstractTokenWithSeparator<EquipmentModifier>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier mod)
 	{
 		Changes<SpecialProperty> changes = context.getObjectContext()
@@ -111,6 +112,7 @@ public class SpropToken extends AbstractTokenWithSeparator<EquipmentModifier>
 		return list.toArray(new String[list.size()]);
 	}
 
+	@Override
 	public Class<EquipmentModifier> getTokenClass()
 	{
 		return EquipmentModifier.class;

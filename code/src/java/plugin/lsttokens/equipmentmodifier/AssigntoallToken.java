@@ -70,6 +70,7 @@ public class AssigntoallToken extends AbstractNonEmptyToken<EquipmentModifier>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier mod)
 	{
 		Boolean b = context.getObjectContext().getObject(mod,
@@ -81,6 +82,7 @@ public class AssigntoallToken extends AbstractNonEmptyToken<EquipmentModifier>
 		return new String[] { b.booleanValue() ? "YES" : "NO" };
 	}
 
+	@Override
 	public Class<EquipmentModifier> getTokenClass()
 	{
 		return EquipmentModifier.class;
