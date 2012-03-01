@@ -137,6 +137,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 		add(Box.createVerticalGlue());
 	}
 
+	@Override
 	public Hashtable<Object, Object> createModels(CharacterFacade character)
 	{
 		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
@@ -144,16 +145,19 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 		return state;
 	}
 
+	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
 		((ChronicleHandler) state.get(ChronicleHandler.class)).install();
 	}
 
+	@Override
 	public void storeModels(Hashtable<Object, Object> state)
 	{
 		((ChronicleHandler) state.get(ChronicleHandler.class)).uninstall();
 	}
 
+	@Override
 	public TabTitle getTabTitle()
 	{
 		return title;
@@ -228,6 +232,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 			chroniclesPane.revalidate();
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			if (ADD_COMMAND.equals(e.getActionCommand()))
@@ -323,6 +328,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 			entry.setOutputEntry(select);
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			if (fieldsNotBlank())
@@ -423,6 +429,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 			ActionListener actionListener = new ActionListener()
 			{
 
+				@Override
 				public void actionPerformed(ActionEvent actionEvent)
 				{
 					entry.setOutputEntry(checkBox.getModel().isSelected());
@@ -473,6 +480,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 			xpField.addPropertyChangeListener("value", new PropertyChangeListener()
 			{
 
+				@Override
 				public void propertyChange(PropertyChangeEvent evt)
 				{
 					entry.setXpField(((Number) xpField.getValue()).intValue());
@@ -519,26 +527,31 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 			super(new GridLayout(0, 1, 2, 10));
 		}
 
+		@Override
 		public Dimension getPreferredScrollableViewportSize()
 		{
 			return getPreferredSize();
 		}
 
+		@Override
 		public int getScrollableUnitIncrement(Rectangle visibleRect, int orientation, int direction)
 		{
 			return 100;
 		}
 
+		@Override
 		public int getScrollableBlockIncrement(Rectangle visibleRect, int orientation, int direction)
 		{
 			return dummyPane.getPreferredSize().height + 10;
 		}
 
+		@Override
 		public boolean getScrollableTracksViewportWidth()
 		{
 			return true;
 		}
 
+		@Override
 		public boolean getScrollableTracksViewportHeight()
 		{
 			return false;

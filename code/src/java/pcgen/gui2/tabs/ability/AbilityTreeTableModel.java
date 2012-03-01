@@ -101,11 +101,13 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 		return "Selected Abilities";
 	}
 
+	@Override
 	public int getColumnCount()
 	{
 		return 1;
 	}
 
+	@Override
 	public void sortModel(Comparator<List<?>> comparator)
 	{
 	}
@@ -132,16 +134,19 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 			}
 		}
 
+		@Override
 		public void elementAdded(ListEvent<AbilityCategoryFacade> e)
 		{
 			insertNodeInto(new CategoryTreeTableNode(e.getElement()), this, e.getIndex());
 		}
 
+		@Override
 		public void elementRemoved(ListEvent<AbilityCategoryFacade> e)
 		{
 			removeNodeFromParent((MutableTreeNode) getChildAt(e.getIndex()));
 		}
 
+		@Override
 		public void elementsChanged(ListEvent<AbilityCategoryFacade> e)
 		{
 			removeAllChildren();
@@ -178,6 +183,7 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 			}
 		}
 
+		@Override
 		public void elementAdded(ListEvent<AbilityFacade> e)
 		{
 			DefaultTreeTableNode node = new DefaultTreeTableNode(Collections.singletonList(e.getElement()));
@@ -185,11 +191,13 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 			insertNodeInto(node, this, e.getIndex());
 		}
 
+		@Override
 		public void elementRemoved(ListEvent<AbilityFacade> e)
 		{
 			removeNodeFromParent((MutableTreeNode) getChildAt(e.getIndex()));
 		}
 
+		@Override
 		public void elementsChanged(ListEvent<AbilityFacade> e)
 		{
 			removeAllChildren();

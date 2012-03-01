@@ -26,6 +26,7 @@ public abstract class CharacterComboBoxModel<E> extends FacadeListModel<E> imple
 		}
 	}
 
+	@Override
 	public Object getSelectedItem()
 	{
 		return selectedItem;
@@ -37,6 +38,7 @@ public abstract class CharacterComboBoxModel<E> extends FacadeListModel<E> imple
 		fireContentsChanged(this, -1, -1);
 	}
 
+	@Override
 	public void referenceChanged(ReferenceEvent<E> e)
 	{
 		setSelectedItem0(e.getNewReference());

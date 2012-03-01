@@ -49,6 +49,7 @@ public class CategoryTableModel extends FilteredListFacadeTableModel<AbilityCate
 		return sortedList.getElementAt(index);
 	}
 
+	@Override
 	public int getColumnCount()
 	{
 		return 3;

@@ -69,6 +69,7 @@ public abstract class TextFieldHandler implements DocumentListener, ReferenceLis
 		ref.removeReferenceListener(this);
 	}
 
+	@Override
 	public void referenceChanged(ReferenceEvent<String> e)
 	{
 		if (!textField.getText().equals(e.getNewReference()))
@@ -83,16 +84,19 @@ public abstract class TextFieldHandler implements DocumentListener, ReferenceLis
 
 	protected abstract void textChanged(String text);
 
+	@Override
 	public void insertUpdate(DocumentEvent e)
 	{
 		textChanged(textField.getText());
 	}
 
+	@Override
 	public void removeUpdate(DocumentEvent e)
 	{
 		textChanged(textField.getText());
 	}
 
+	@Override
 	public void changedUpdate(DocumentEvent e)
 	{
 		textChanged(textField.getText());

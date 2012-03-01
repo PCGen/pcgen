@@ -42,6 +42,7 @@ public class EquipmentSelection implements Transferable
 		this.equipment = equipment;
 	}
 
+	@Override
 	public DataFlavor[] getTransferDataFlavors()
 	{
 		return new DataFlavor[]
@@ -50,11 +51,13 @@ public class EquipmentSelection implements Transferable
 				};
 	}
 
+	@Override
 	public boolean isDataFlavorSupported(DataFlavor flavor)
 	{
 		return equipmentArrayFlavor == flavor;
 	}
 
+	@Override
 	public EquipmentFacade[] getTransferData(DataFlavor flavor) throws UnsupportedFlavorException, IOException
 	{
 		if (!isDataFlavorSupported(flavor))

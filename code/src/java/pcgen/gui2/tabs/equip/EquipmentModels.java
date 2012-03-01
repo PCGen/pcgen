@@ -129,8 +129,9 @@ public class EquipmentModels
 		this.filterHandler = new EquipFilterHandler();
 	}
 
-	public void install(JComboBox equipViewBox, JTableEx equipmentTable, DisplayableFilter filter,
-						JTreeTable equipmentSetTable, JButton equipButton, JButton unequipButton)
+	public void install(JComboBox equipViewBox, JTableEx equipmentTable,
+		DisplayableFilter<CharacterFacade, EquipmentFacade> filter,
+		JTreeTable equipmentSetTable, JButton equipButton, JButton unequipButton)
 	{
 		this.equipViewBox = equipViewBox;
 		this.equipmentTable = equipmentTable;
@@ -159,11 +160,13 @@ public class EquipmentModels
 	private class EquipFilterHandler implements FilterHandler
 	{
 
+		@Override
 		public void refilter()
 		{
 			selectedModel.refilter();
 		}
 
+		@Override
 		public void setSearchEnabled(boolean enable)
 		{
 			//do nothing
@@ -181,6 +184,7 @@ public class EquipmentModels
 			equipmentTable.setModel(selectedModel);
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			selectedView = (EquipView) equipViewBox.getSelectedItem();
@@ -218,6 +222,7 @@ public class EquipmentModels
 			setEquipmentSet(ref.getReference());
 		}
 
+		@Override
 		public void referenceChanged(ReferenceEvent<EquipmentSetFacade> e)
 		{
 			setEquipmentList(e.getNewReference().getEquippedItems());
@@ -236,6 +241,7 @@ public class EquipmentModels
 			this.putValue(SMALL_ICON, Icons.Back16.getImageIcon());
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			EquipmentSetFacade equipSet = character.getEquipmentSetRef().getReference();
@@ -329,6 +335,7 @@ public class EquipmentModels
 			this.putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			int[] selectedRows = equipmentTable.getSelectedRows();
@@ -443,11 +450,13 @@ public class EquipmentModels
 			spinner.addChangeListener(this);
 		}
 
+		@Override
 		public Object getCellEditorValue()
 		{
 			return spinner.getValue();
 		}
 
+		@Override
 		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column)
 		{
 			EquipmentFacade equipment = (EquipmentFacade) table.getValueAt(row, 0);
@@ -457,6 +466,7 @@ public class EquipmentModels
 			return spinner;
 		}
 
+		@Override
 		public void stateChanged(ChangeEvent e)
 		{
 			stopCellEditing();
@@ -475,11 +485,13 @@ public class EquipmentModels
 			this.equipMap = equipMap;
 		}
 
+		@Override
 		public Object getCellEditorValue()
 		{
 			return comboBox.getSelectedItem();
 		}
 
+		@Override
 		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column)
 		{
 			EquipmentFacade equipment = (EquipmentFacade) table.getValueAt(row, 0);
@@ -493,6 +505,7 @@ public class EquipmentModels
 			return comboBox;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			stopCellEditing();

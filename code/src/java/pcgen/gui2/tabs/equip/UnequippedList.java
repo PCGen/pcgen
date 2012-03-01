@@ -70,31 +70,37 @@ public class UnequippedList extends AbstractListFacade<EquipmentFacade> implemen
 		ref.addReferenceListener(this);
 	}
 
+	@Override
 	public EquipmentFacade getElementAt(int index)
 	{
 		return equipmentList.get(index);
 	}
 
+	@Override
 	public int getSize()
 	{
 		return equipmentList.size();
 	}
 
+	@Override
 	public int getQuantity(EquipmentFacade equipment)
 	{
 		return quantityMap.get(equipment);
 	}
 
+	@Override
 	public void addEquipmentListListener(EquipmentListListener listener)
 	{
 		listenerList.add(EquipmentListListener.class, listener);
 	}
 
+	@Override
 	public void removeEquipmentListListener(EquipmentListListener listener)
 	{
 		listenerList.remove(EquipmentListListener.class, listener);
 	}
 
+	@Override
 	public void referenceChanged(ReferenceEvent<EquipmentSetFacade> e)
 	{
 		equippedList.removeListListener(this);
@@ -129,6 +135,7 @@ public class UnequippedList extends AbstractListFacade<EquipmentFacade> implemen
 		}
 	}
 
+	@Override
 	public void elementAdded(ListEvent<EquipmentFacade> e)
 	{
 		EquipmentFacade equipment = e.getElement();
@@ -151,6 +158,7 @@ public class UnequippedList extends AbstractListFacade<EquipmentFacade> implemen
 		}
 	}
 
+	@Override
 	public void elementRemoved(ListEvent<EquipmentFacade> e)
 	{
 		EquipmentFacade equipment = e.getElement();
@@ -173,6 +181,7 @@ public class UnequippedList extends AbstractListFacade<EquipmentFacade> implemen
 		}
 	}
 
+	@Override
 	public void elementsChanged(ListEvent<EquipmentFacade> e)
 	{
 		equipmentList.clear();
@@ -190,6 +199,7 @@ public class UnequippedList extends AbstractListFacade<EquipmentFacade> implemen
 		fireElementsChanged(this);
 	}
 
+	@Override
 	public void quantityChanged(EquipmentListEvent e)
 	{
 		EquipmentFacade equipment = e.getEquipment();

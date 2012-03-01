@@ -88,11 +88,13 @@ public class EquipmentTreeTableModel implements SortableTreeTableModel, ListList
 		}
 	}
 
+	@Override
 	public boolean isCellEditable(Object node, int column)
 	{
 		return column == 0;
 	}
 
+	@Override
 	public Class<?> getColumnClass(int column)
 	{
 		switch (column)
@@ -111,21 +113,25 @@ public class EquipmentTreeTableModel implements SortableTreeTableModel, ListList
 		}
 	}
 
+	@Override
 	public int getColumnCount()
 	{
 		return 5;
 	}
 
+	@Override
 	public String getColumnName(int column)
 	{
 		return null;
 	}
 
+	@Override
 	public void setValueAt(Object aValue, Object node, int column)
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
+	@Override
 	public Object getValueAt(Object node, int column)
 	{
 		EquipNode pathNode = (EquipNode) node;
@@ -172,11 +178,13 @@ public class EquipmentTreeTableModel implements SortableTreeTableModel, ListList
 		}
 	}
 
+	@Override
 	public Object getRoot()
 	{
 		return root;
 	}
 
+	@Override
 	public Object getChild(Object parent, int index)
 	{
 		if (parent == root)
@@ -189,6 +197,7 @@ public class EquipmentTreeTableModel implements SortableTreeTableModel, ListList
 		}
 	}
 
+	@Override
 	public int getChildCount(Object parent)
 	{
 		if (parent == root)
@@ -197,24 +206,27 @@ public class EquipmentTreeTableModel implements SortableTreeTableModel, ListList
 		}
 		else
 		{
-			return pathMap.size((EquipNode) parent);
+			return pathMap.size(parent);
 		}
 	}
 
+	@Override
 	public boolean isLeaf(Object node)
 	{
 		if (root == node)
 		{
 			return false;
 		}
-		return !pathMap.containsKey((EquipNode) node);
+		return !pathMap.containsKey(node);
 	}
 
+	@Override
 	public void valueForPathChanged(TreePath path, Object newValue)
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
+	@Override
 	public int getIndexOfChild(Object parent, Object child)
 	{
 		if (parent == root)
@@ -228,16 +240,19 @@ public class EquipmentTreeTableModel implements SortableTreeTableModel, ListList
 		}
 	}
 
+	@Override
 	public void addTreeModelListener(TreeModelListener l)
 	{
 		listenerList.add(TreeModelListener.class, l);
 	}
 
+	@Override
 	public void removeTreeModelListener(TreeModelListener l)
 	{
 		listenerList.remove(TreeModelListener.class, l);
 	}
 
+	@Override
 	public void sortModel(Comparator<List<?>> comparator)
 	{
 	}
@@ -265,6 +280,7 @@ public class EquipmentTreeTableModel implements SortableTreeTableModel, ListList
 		return insertion_index;
 	}
 
+	@Override
 	public void elementAdded(ListEvent<EquipNode> e)
 	{
 		EquipNode child = e.getElement();
@@ -280,6 +296,7 @@ public class EquipmentTreeTableModel implements SortableTreeTableModel, ListList
 				});
 	}
 
+	@Override
 	public void elementRemoved(ListEvent<EquipNode> e)
 	{
 		EquipNode child = e.getElement();
@@ -300,6 +317,7 @@ public class EquipmentTreeTableModel implements SortableTreeTableModel, ListList
 
 	}
 
+	@Override
 	public void elementsChanged(ListEvent<EquipNode> e)
 	{
 		pathMap.clear();
@@ -310,6 +328,7 @@ public class EquipmentTreeTableModel implements SortableTreeTableModel, ListList
 				}, null, null);
 	}
 
+	@Override
 	public void quantityChanged(EquipmentTreeEvent e)
 	{
 		EquipNode child = e.getNode();
@@ -520,6 +539,7 @@ public class EquipmentTreeTableModel implements SortableTreeTableModel, ListList
 	private static class NodeComparator implements Comparator<EquipNode>
 	{
 
+		@Override
 		public int compare(EquipNode o1, EquipNode o2)
 		{
 			return o1.compareTo(o2);

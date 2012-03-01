@@ -60,6 +60,7 @@ public abstract class DeferredCharacterComboBoxModel<E> extends
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public Object getSelectedItem()
 	{
 		return selectedItem;
@@ -68,6 +69,7 @@ public abstract class DeferredCharacterComboBoxModel<E> extends
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void setSelectedItem(Object item)
 	{
 		selectedItem = item;
@@ -77,6 +79,7 @@ public abstract class DeferredCharacterComboBoxModel<E> extends
 	/**
 	 * {@inheritDoc}
 	 */
+	@Override
 	public void referenceChanged(ReferenceEvent<E> e)
 	{
 		setSelectedItem(e.getNewReference());
@@ -115,6 +118,7 @@ public abstract class DeferredCharacterComboBoxModel<E> extends
 		// Focus was really lost; commit the update but do it after the focus is lost
 		final Runnable doUpdate = new Runnable()
 		{
+			@Override
 			public void run()
 			{
 				commitSelectedItem(selectedItem);

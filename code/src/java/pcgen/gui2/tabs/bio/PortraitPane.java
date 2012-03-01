@@ -150,6 +150,7 @@ class PortraitPane extends JComponent
 		private boolean movingRect = false;
 		private Point cropOffset = null;
 
+		@Override
 		public void mouseDragged(MouseEvent e)
 		{
 			if (movingRect)
@@ -174,6 +175,7 @@ class PortraitPane extends JComponent
 			}
 		}
 
+		@Override
 		public void mousePressed(MouseEvent e)
 		{
 			if (e.getButton() != MouseEvent.BUTTON1)
@@ -190,11 +192,13 @@ class PortraitPane extends JComponent
 			cropOffset = new Point(mousepoint.x - cropRect.x, mousepoint.y - cropRect.y);
 		}
 
+		@Override
 		public void mouseReleased(MouseEvent e)
 		{
 			movingRect = false;
 		}
 
+		@Override
 		public void mouseMoved(MouseEvent e)
 		{
 		}

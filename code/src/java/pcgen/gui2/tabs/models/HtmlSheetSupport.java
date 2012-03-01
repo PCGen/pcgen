@@ -60,12 +60,13 @@ public class HtmlSheetSupport
 	private final File templateFile;
 	private final JEditorPane htmlPane;
 	private ImageCache cache = new ImageCache();
-	private FutureTask refresher = null;
+	private FutureTask<HTMLDocument> refresher = null;
 	private boolean installed = false;
 	private String missingSheetMsg;
 	private ExecutorService executor = Executors.newSingleThreadExecutor(new ThreadFactory()
 	{
 
+		@Override
 		public Thread newThread(Runnable r)
 		{
 			Thread thread = new Thread(r);
@@ -142,6 +143,7 @@ public class HtmlSheetSupport
 				SwingUtilities.invokeAndWait(new Runnable()
 				{
 
+					@Override
 					public void run()
 					{
 						htmlPane.setDocument(doc);
@@ -169,6 +171,7 @@ public class HtmlSheetSupport
 	private class DocumentBuilder implements Callable<HTMLDocument>
 	{
 
+		@Override
 		public HTMLDocument call() throws Exception
 		{
 			StringWriter writer = new StringWriter();

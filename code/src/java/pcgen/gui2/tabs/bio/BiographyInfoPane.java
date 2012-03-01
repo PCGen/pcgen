@@ -130,6 +130,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		add(vbox, gbc);
 	}
 
+	@Override
 	public Hashtable<Object, Object> createModels(final CharacterFacade character)
 	{
 		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
@@ -137,16 +138,19 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		return state;
 	}
 
+	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
 		((ItemHandler) state.get(ItemHandler.class)).install(this);
 	}
 
+	@Override
 	public void storeModels(Hashtable<Object, Object> state)
 	{
 		((ItemHandler) state.get(ItemHandler.class)).uninstall(this);
 	}
 
+	@Override
 	public TabTitle getTabTitle()
 	{
 		return title;
@@ -245,6 +249,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			genderModel = new CharacterComboBoxModel<GenderFacade>()
 			{
 
+				@Override
 				public void setSelectedItem(Object anItem)
 				{
 					character.setGender((GenderFacade) anItem);
@@ -269,6 +274,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			ref.addReferenceListener(this);
 		}
 
+		@Override
 		public void referenceChanged(ReferenceEvent<RaceFacade> e)
 		{
 			if (e.getNewReference() != null)
@@ -300,6 +306,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			handsModel = new CharacterComboBoxModel<SimpleFacade>()
 			{
 
+				@Override
 				public void setSelectedItem(Object anItem)
 				{
 					character.setHanded((SimpleFacade) anItem);
@@ -324,6 +331,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			ref.addReferenceListener(this);
 		}
 
+		@Override
 		public void referenceChanged(ReferenceEvent<RaceFacade> e)
 		{
 			if (e.getNewReference() != null)
@@ -353,6 +361,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			CharacterComboBoxModel<AlignmentFacade> alignmentModel = new CharacterComboBoxModel<AlignmentFacade>()
 			{
 
+				@Override
 				public void setSelectedItem(Object anItem)
 				{
 					character.setAlignment((AlignmentFacade) anItem);
@@ -375,6 +384,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			CharacterComboBoxModel<DeityFacade> deityModel = new CharacterComboBoxModel<DeityFacade>()
 			{
 
+				@Override
 				public void setSelectedItem(Object anItem)
 				{
 					character.setDeity((DeityFacade) anItem);
@@ -397,6 +407,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			CharacterComboBoxModel<SimpleFacade> ageModel = new CharacterComboBoxModel<SimpleFacade>()
 			{
 
+				@Override
 				public void setSelectedItem(Object anItem)
 				{
 					character.setAgeCategory((SimpleFacade) anItem);
@@ -612,7 +623,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			handler.install();
 		}
 
-		protected void setComboBoxModel(CharacterComboBoxModel model)
+		protected void setComboBoxModel(CharacterComboBoxModel<?> model)
 		{
 			if (combobox != null)
 			{
@@ -675,6 +686,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			checkbox.removeItemListener(this);
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			if (ALL_COMMAND.equals(e.getActionCommand()))

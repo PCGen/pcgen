@@ -69,6 +69,7 @@ public abstract class FormattedFieldHandler implements PropertyChangeListener, R
 		ref.removeReferenceListener(this);
 	}
 
+	@Override
 	public void referenceChanged(ReferenceEvent<Integer> e)
 	{
 		int newVal = e.getNewReference();
@@ -81,6 +82,7 @@ public abstract class FormattedFieldHandler implements PropertyChangeListener, R
 
 	protected abstract void valueChanged(int value);
 
+	@Override
 	public void propertyChange(PropertyChangeEvent evt)
 	{
 		valueChanged(((Number) field.getValue()).intValue());

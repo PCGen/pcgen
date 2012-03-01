@@ -59,6 +59,7 @@ public class EquipmentTableModel extends FilteredListFacadeTableModel<EquipmentF
 		this.equipmentSet = equipmentSet;
 	}
 	
+	@Override
 	public int getColumnCount()
 	{
 		return 5;
@@ -83,6 +84,7 @@ public class EquipmentTableModel extends FilteredListFacadeTableModel<EquipmentF
 		}
 	}
 
+	@Override
 	public void quantityChanged(EquipmentListEvent e)
 	{
 		for (int i = 0; i < sortedList.getSize(); i++)

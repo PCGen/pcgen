@@ -117,6 +117,7 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 		return column;
 	}
 
+	@Override
 	public void tableChanged(TableModelEvent e)
 	{
 		realignRowHeights();
@@ -173,6 +174,7 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 		SwingUtilities.invokeLater(new Runnable()
 		{
 
+			@Override
 			public void run()
 			{
 				JTree tree = treeTable.getTree();
@@ -192,16 +194,19 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 		});
 	}
 
+	@Override
 	public void elementAdded(ListEvent<EquipmentSetFacade> e)
 	{
 		equipsetMap.put(e.getElement(), new EquipmentTreeTableModel(character, e.getElement()));
 	}
 
+	@Override
 	public void elementRemoved(ListEvent<EquipmentSetFacade> e)
 	{
 		equipsetMap.remove(e.getElement());
 	}
 
+	@Override
 	public void elementsChanged(ListEvent<EquipmentSetFacade> e)
 	{
 		equipsetMap.clear();
@@ -211,6 +216,7 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 		}
 	}
 
+	@Override
 	public void referenceChanged(ReferenceEvent<EquipmentSetFacade> e)
 	{
 		treeTable.getModel().removeTableModelListener(this);

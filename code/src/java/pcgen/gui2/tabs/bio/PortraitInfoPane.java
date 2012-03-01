@@ -137,6 +137,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 		return bufImage;
 	}
 
+	@Override
 	public Hashtable<Object, Object> createModels(CharacterFacade character)
 	{
 		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
@@ -147,6 +148,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 		return state;
 	}
 
+	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
 		loadButton.setAction((Action) state.get(LoadAction.class));
@@ -155,11 +157,13 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 		((PortraitHandler) state.get(PortraitHandler.class)).install();
 	}
 
+	@Override
 	public void storeModels(Hashtable<Object, Object> state)
 	{
 		((PortraitHandler) state.get(PortraitHandler.class)).uninstall();
 	}
 
+	@Override
 	public TabTitle getTabTitle()
 	{
 		return tabTitle;
@@ -177,6 +181,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 			this.character = character;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			if (chooser == null)
@@ -194,6 +199,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 			}
 		}
 
+		@Override
 		public void propertyChange(PropertyChangeEvent evt)
 		{
 			previewer.setImage(chooser.getSelectedFile());
@@ -212,6 +218,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 			this.character = character;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			character.setPortrait(null);
@@ -231,6 +238,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 			putValue(SHORT_DESCRIPTION, LanguageBundle.getString("in_buyPortraitTipString"));
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			Utility.viewInBrowser("https://www.e-junkie.com/ecom/gb.php?cl=154598&c=ib&aff=154875");
@@ -302,6 +310,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 			tnPane.revalidate();
 		}
 
+		@Override
 		public void referenceChanged(ReferenceEvent<Object> e)
 		{
 			Object obj = e.getNewReference();

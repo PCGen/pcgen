@@ -71,6 +71,7 @@ public abstract class BigDecimalFieldHandler implements PropertyChangeListener, 
 		ref.removeReferenceListener(this);
 	}
 
+	@Override
 	public void referenceChanged(ReferenceEvent<BigDecimal> e)
 	{
 		BigDecimal newVal = e.getNewReference();
@@ -83,6 +84,7 @@ public abstract class BigDecimalFieldHandler implements PropertyChangeListener, 
 
 	protected abstract void valueChanged(BigDecimal value);
 
+	@Override
 	public void propertyChange(PropertyChangeEvent evt)
 	{
 		valueChanged(new BigDecimal(((Number) field.getValue()).doubleValue()));
