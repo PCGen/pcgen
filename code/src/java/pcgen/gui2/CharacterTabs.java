@@ -111,11 +111,13 @@ public final class CharacterTabs extends SharedTabPane
 		listenerMap.remove(character).removeListeners();
 	}
 
+	@Override
 	public void referenceChanged(ReferenceEvent<CharacterFacade> e)
 	{
 		setSelectedIndex(characters.indexOf(e.getNewReference()));
 	}
 
+	@Override
 	public void stateChanged(ChangeEvent e)
 	{
 		int index = getSelectedIndex();
@@ -131,16 +133,19 @@ public final class CharacterTabs extends SharedTabPane
 		}
 	}
 
+	@Override
 	public void elementAdded(ListEvent<CharacterFacade> e)
 	{
 		addCharacter(e.getElement());
 	}
 
+	@Override
 	public void elementRemoved(ListEvent<CharacterFacade> e)
 	{
 		removeCharacter(e.getElement());
 	}
 
+	@Override
 	public void elementsChanged(ListEvent<CharacterFacade> e)
 	{
 		removeAll();
@@ -222,6 +227,7 @@ public final class CharacterTabs extends SharedTabPane
 			nameRef.removeReferenceListener(this);
 		}
 
+		@Override
 		public void referenceChanged(ReferenceEvent<String> e)
 		{
 			if (e.getSource() == nameRef)
@@ -244,6 +250,7 @@ public final class CharacterTabs extends SharedTabPane
 			}
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			frame.closeCharacter(character);
@@ -254,11 +261,13 @@ public final class CharacterTabs extends SharedTabPane
 	private class PopupListener extends MouseAdapter
 	{
 
+		@Override
 		public void mousePressed(MouseEvent e)
 		{
 			maybeShowPopup(e);
 		}
 
+		@Override
 		public void mouseReleased(MouseEvent e)
 		{
 			maybeShowPopup(e);

@@ -71,6 +71,7 @@ public final class PCGenUIManager
 		SwingUtilities.invokeLater(new Runnable()
 		{
 
+			@Override
 			public void run()
 			{
 				pcgenFrame.startPCGenFrame();

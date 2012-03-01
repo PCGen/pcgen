@@ -153,6 +153,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 		return menu;
 	}
 	
+	@Override
 	public void setCharacter(CharacterFacade character)
 	{
 		this.character = character;
@@ -206,6 +207,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 			return menuItem;
 		}
 		
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			frame.loadCharacterFromFile(new File(e.getActionCommand()));
@@ -243,6 +245,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 			return menuItem;
 		}
 		
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			frame.loadPartyFromFile(new File(e.getActionCommand()));
@@ -264,6 +267,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 			ref.addReferenceListener(this);
 		}
 		
+		@Override
 		public void itemStateChanged(ItemEvent e)
 		{
 			if (e.getStateChange() == ItemEvent.SELECTED)
@@ -276,6 +280,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 			}
 		}
 		
+		@Override
 		public void referenceChanged(ReferenceEvent<SourceSelectionFacade> e)
 		{
 			setSelectedItem(e.getNewReference());
@@ -291,6 +296,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 			super(actionMap.get(PCGenActionMap.EQUIPMENTSET_COMMAND));
 		}
 		
+		@Override
 		public void itemStateChanged(ItemEvent e)
 		{
 			throw new UnsupportedOperationException("Not supported yet.");
@@ -314,6 +320,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 										this);
 		}
 		
+		@Override
 		public void itemStateChanged(ItemEvent e)
 		{
 			TempBonusFacade bonus = (TempBonusFacade) e.getItemSelectable().getSelectedObjects()[0];

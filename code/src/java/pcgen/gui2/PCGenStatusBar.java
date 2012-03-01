@@ -138,6 +138,7 @@ public final class PCGenStatusBar extends JPanel
 				SwingUtilities.invokeAndWait(new Runnable()
 				{
 
+					@Override
 					public void run()
 					{
 						progressBar.setVisible(true);
@@ -164,6 +165,7 @@ public final class PCGenStatusBar extends JPanel
 			progressBar.setVisible(false);
 		}
 
+		@Override
 		public void progressChanged(final PCGenTaskEvent event)
 		{
 			if (!dirty)
@@ -172,6 +174,7 @@ public final class PCGenStatusBar extends JPanel
 				SwingUtilities.invokeLater(new Runnable()
 				{
 
+					@Override
 					public void run()
 					{
 						progressBar.getModel().setRangeProperties(task.getProgress(), 1, 0, task.getMaximum(), true);
@@ -184,6 +187,7 @@ public final class PCGenStatusBar extends JPanel
 
 		}
 
+		@Override
 		public void errorOccurred(PCGenTaskEvent event)
 		{
 			errors.add(event.getErrorRecord());

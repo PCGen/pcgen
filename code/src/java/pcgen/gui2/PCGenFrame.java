@@ -305,6 +305,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 					SwingUtilities.invokeLater(new Runnable()
 					{
 
+						@Override
 						public void run()
 						{
 							if (TipOfTheDay.showTipOfTheDay())
@@ -387,6 +388,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			SwingUtilities.invokeAndWait(new Runnable()
 			{
 
+				@Override
 				public void run()
 				{
 					if (!file.exists())
@@ -908,6 +910,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 				new Thread()
 				{
 
+					@Override
 					public void run()
 					{
 						try
@@ -916,6 +919,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 							SwingUtilities.invokeLater(new Runnable()
 							{
 
+								@Override
 								public void run()
 								{
 									CharacterManager.openCharacter(pcgFile, PCGenFrame.this, currentDataSetRef.getReference());
@@ -980,6 +984,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 				new Thread()
 				{
 
+					@Override
 					public void run()
 					{
 						try
@@ -988,6 +993,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 							SwingUtilities.invokeLater(new Runnable()
 							{
 
+								@Override
 								public void run()
 								{
 									CharacterManager.openParty(pcpFile, PCGenFrame.this, currentDataSetRef.getReference());
@@ -1145,6 +1151,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		return panel;
 	}
 
+	@Override
 	public Boolean maybeShowWarningConfirm(String title, String message, String checkBoxText, final PropertyContext context, final String contextProp)
 	{
 		if (!context.getBoolean(contextProp, true))
@@ -1155,6 +1162,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		checkBox.addItemListener(new ItemListener()
 		{
 
+			@Override
 			public void itemStateChanged(ItemEvent e)
 			{
 				context.setBoolean(contextProp, checkBox.isSelected());
@@ -1167,33 +1175,39 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		return ret == JOptionPane.YES_OPTION;
 	}
 
+	@Override
 	public boolean showWarningConfirm(String title, String message)
 	{
 		int ret = JOptionPane.showConfirmDialog(this, message, title, JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 		return ret == JOptionPane.YES_OPTION;
 	}
 
+	@Override
 	public void showErrorMessage(String title, String message)
 	{
 		JOptionPane.showMessageDialog(this, message, title, JOptionPane.ERROR_MESSAGE);
 	}
 
+	@Override
 	public void showInfoMessage(String title, String message)
 	{
 		JOptionPane.showMessageDialog(this, message, title, JOptionPane.INFORMATION_MESSAGE);
 	}
 
+	@Override
 	public void showWarningMessage(String title, String message)
 	{
 		JOptionPane.showMessageDialog(this, message, title, JOptionPane.WARNING_MESSAGE);
 	}
 
+	@Override
 	public boolean showWarningPrompt(String title, String message)
 	{
 		int ret = JOptionPane.showConfirmDialog(this, message, title, JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
 		return ret == JOptionPane.OK_OPTION;
 	}
 
+	@Override
 	public void showLevelUpInfo(CharacterFacade character, int oldLevel)
 	{
 		CharacterLevelsFacade levels = character.getCharacterLevelsFacade();
@@ -1403,6 +1417,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		jCheckBox.addItemListener(new ItemListener()
 		{
 
+			@Override
 			public void itemStateChanged(ItemEvent evt)
 			{
 				context.setBoolean(PCGenSettings.OPTION_SHOW_LICENSE, jCheckBox.isSelected());
@@ -1413,6 +1428,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		jClose.addActionListener(new ActionListener()
 		{
 
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				aFrame.dispose();
@@ -1464,6 +1480,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		jClose.addActionListener(new ActionListener()
 		{
 
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				aFrame.dispose();
@@ -1474,6 +1491,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		jCheckBox1.addItemListener(new ItemListener()
 		{
 
+			@Override
 			public void itemStateChanged(ItemEvent evt)
 			{
 				context.setBoolean(PCGenSettings.OPTION_SHOW_MATURE_ON_LOAD, jCheckBox1.isSelected());
@@ -1512,6 +1530,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		jCheckBox.addItemListener(new ItemListener()
 		{
 
+			@Override
 			public void itemStateChanged(ItemEvent evt)
 			{
 				context.setBoolean(PCGenSettings.OPTION_SHOW_SPONSORS_ON_LOAD, jCheckBox.isSelected());
@@ -1522,6 +1541,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		jClose.addActionListener(new ActionListener()
 		{
 
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				aFrame.dispose();
@@ -1618,6 +1638,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		 * @see pcgen.core.facade.event.ReferenceListener#referenceChanged(pcgen.core.facade.event.ReferenceEvent)
 		 */
 
+		@Override
 		public void referenceChanged(ReferenceEvent<File> e)
 		{
 			PCGenFrame.this.updateTitle();

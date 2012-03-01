@@ -30,6 +30,7 @@ import javax.swing.JPanel;
 import javax.swing.plaf.UIResource;
 import pcgen.cdom.base.Constants;
 import pcgen.core.facade.CampaignFacade;
+import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.SourceSelectionFacade;
 import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
@@ -104,10 +105,11 @@ public class InfoGuidePane extends JComponent implements UIResource
 
 	private void initListeners()
 	{
-		frame.getSelectedCharacterRef().addReferenceListener(new ReferenceListener()
+		frame.getSelectedCharacterRef().addReferenceListener(new ReferenceListener<CharacterFacade>()
 		{
 
-			public void referenceChanged(ReferenceEvent e)
+			@Override
+			public void referenceChanged(ReferenceEvent<CharacterFacade> e)
 			{
 				setVisible(e.getNewReference() == null);
 			}
@@ -117,6 +119,7 @@ public class InfoGuidePane extends JComponent implements UIResource
 				new ReferenceListener<SourceSelectionFacade>()
 				{
 
+					@Override
 					public void referenceChanged(ReferenceEvent<SourceSelectionFacade> e)
 					{
 						refreshDisplayedSources(e.getNewReference());

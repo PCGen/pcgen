@@ -78,6 +78,7 @@ public class SplashScreen extends JWindow implements PCGenTaskListener
 
 	private boolean dirty = false;
 
+	@Override
 	public void progressChanged(final PCGenTaskEvent event)
 	{
 		if (!dirty)
@@ -86,6 +87,7 @@ public class SplashScreen extends JWindow implements PCGenTaskListener
 			SwingUtilities.invokeLater(new Runnable()
 			{
 
+				@Override
 				public void run()
 				{
 					PCGenTask task = event.getSource();
@@ -99,6 +101,7 @@ public class SplashScreen extends JWindow implements PCGenTaskListener
 
 	}
 
+	@Override
 	public void errorOccurred(PCGenTaskEvent event)
 	{
 		throw new UnsupportedOperationException("Not supported yet.");

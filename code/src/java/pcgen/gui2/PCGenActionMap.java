@@ -439,6 +439,7 @@ public final class PCGenActionMap extends ActionMap
 		private class SourceListener implements ReferenceListener<Object>
 		{
 
+			@Override
 			public void referenceChanged(ReferenceEvent<Object> e)
 			{
 				setEnabled(e.getNewReference() != null);
@@ -530,6 +531,7 @@ public final class PCGenActionMap extends ActionMap
 			frame.saveCharacter(pc);
 		}
 
+		@Override
 		public void referenceChanged(ReferenceEvent<CharacterFacade> e)
 		{
 			CharacterFacade oldRef = e.getOldReference();
@@ -557,6 +559,7 @@ public final class PCGenActionMap extends ActionMap
 		private class FileRefListener implements ReferenceListener<File>
 		{
 
+			@Override
 			public void referenceChanged(ReferenceEvent<File> e)
 			{
 				setEnabled(e.getNewReference() != null);
@@ -1048,6 +1051,7 @@ public final class PCGenActionMap extends ActionMap
 		private class CharacterListener implements ReferenceListener<Object>
 		{
 
+			@Override
 			public void referenceChanged(ReferenceEvent<Object> e)
 			{
 				setEnabled(e.getNewReference() != null);
