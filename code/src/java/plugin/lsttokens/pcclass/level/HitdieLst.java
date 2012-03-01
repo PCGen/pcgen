@@ -49,6 +49,7 @@ public class HitdieLst extends AbstractToken implements
 		return "HITDIE";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, PCClassLevel level, String value)
 	{
 		try
@@ -205,6 +206,7 @@ public class HitdieLst extends AbstractToken implements
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClassLevel level)
 	{
 		Modifier<HitDie> hdcf = context.getObjectContext().getObject(level,
@@ -216,6 +218,7 @@ public class HitdieLst extends AbstractToken implements
 		return new String[] { hdcf.getLSTformat() };
 	}
 
+	@Override
 	public Class<PCClassLevel> getTokenClass()
 	{
 		return PCClassLevel.class;

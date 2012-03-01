@@ -119,6 +119,7 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClassLevel> im
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClassLevel level)
 	{
 		AssociatedChanges<CDOMReference<Domain>> changes = context
@@ -186,6 +187,7 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClassLevel> im
 		return new String[] { StringUtil.join(set, Constants.DOT) };
 	}
 
+	@Override
 	public Class<PCClassLevel> getTokenClass()
 	{
 		return PCClassLevel.class;

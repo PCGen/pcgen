@@ -193,6 +193,7 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 		return spellProb;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
 		Changes<SpellProhibitor> changes = context.getObjectContext()
@@ -232,6 +233,7 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 				: Constants.DOT;
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

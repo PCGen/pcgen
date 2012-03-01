@@ -33,11 +33,13 @@ public class BonusspellstatToken implements CDOMPrimaryToken<PCClass>
 
 	private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
 
+	@Override
 	public String getTokenName()
 	{
 		return "BONUSSPELLSTAT";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, PCClass pcc, String value)
 	{
 		if (Constants.LST_NONE.equals(value))
@@ -63,6 +65,7 @@ public class BonusspellstatToken implements CDOMPrimaryToken<PCClass>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
 		Boolean bss = context.getObjectContext().getObject(pcc,
@@ -96,6 +99,7 @@ public class BonusspellstatToken implements CDOMPrimaryToken<PCClass>
 		}
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

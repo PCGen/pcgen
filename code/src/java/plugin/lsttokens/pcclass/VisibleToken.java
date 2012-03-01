@@ -59,6 +59,7 @@ public class VisibleToken extends AbstractNonEmptyToken<PCClass> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
 		Visibility vis = context.getObjectContext().getObject(pcc,
@@ -85,6 +86,7 @@ public class VisibleToken extends AbstractNonEmptyToken<PCClass> implements
 		return new String[] { visString };
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

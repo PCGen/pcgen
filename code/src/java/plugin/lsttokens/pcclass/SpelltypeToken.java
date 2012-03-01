@@ -30,11 +30,13 @@ import pcgen.rules.persistence.token.ParseResult;
 public class SpelltypeToken implements CDOMPrimaryToken<PCClass>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "SPELLTYPE";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, PCClass pcc, String value)
 	{
 		if (value == null || value.length() == 0)
@@ -51,6 +53,7 @@ public class SpelltypeToken implements CDOMPrimaryToken<PCClass>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
 		String target = context.getObjectContext().getString(pcc,
@@ -62,6 +65,7 @@ public class SpelltypeToken implements CDOMPrimaryToken<PCClass>
 		return new String[] { target };
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

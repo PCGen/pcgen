@@ -48,6 +48,7 @@ public class ExclassToken extends AbstractNonEmptyToken<PCClass> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
 		CDOMSingleRef<PCClass> cl = context.getObjectContext().getObject(pcc,
@@ -59,6 +60,7 @@ public class ExclassToken extends AbstractNonEmptyToken<PCClass> implements
 		return new String[] { cl.getLSTformat(false) };
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

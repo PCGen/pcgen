@@ -124,6 +124,7 @@ public class SpelllistToken extends AbstractTokenWithSeparator<PCClass>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
 		TransitionChoice<CDOMListObject<Spell>> grantChanges = context
@@ -148,6 +149,7 @@ public class SpelllistToken extends AbstractTokenWithSeparator<PCClass>
 		return new String[] { sb.toString() };
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

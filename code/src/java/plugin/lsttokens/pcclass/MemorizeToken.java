@@ -70,6 +70,7 @@ public class MemorizeToken extends AbstractNonEmptyToken<PCClass> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
 		Boolean mem = context.getObjectContext().getObject(pcc,
@@ -81,6 +82,7 @@ public class MemorizeToken extends AbstractNonEmptyToken<PCClass> implements
 		return new String[] { mem.booleanValue() ? "YES" : "NO" };
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

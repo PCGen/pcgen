@@ -30,11 +30,13 @@ import pcgen.rules.persistence.token.ParseResult;
 public class HdToken implements CDOMPrimaryToken<PCClass>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "HD";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, PCClass pcc, String value)
 	{
 		try
@@ -56,6 +58,7 @@ public class HdToken implements CDOMPrimaryToken<PCClass>
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
 		HitDie lpf = context.getObjectContext().getObject(pcc,
@@ -72,6 +75,7 @@ public class HdToken implements CDOMPrimaryToken<PCClass>
 		return new String[] { Integer.toString(lpf.getDie()) };
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

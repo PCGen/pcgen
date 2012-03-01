@@ -69,6 +69,7 @@ public class MonskillToken extends AbstractNonEmptyToken<PCClass> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass obj)
 	{
 		Changes<BonusObj> changes = context.obj.getListChanges(obj,
@@ -108,6 +109,7 @@ public class MonskillToken extends AbstractNonEmptyToken<PCClass> implements
 		return bonusSet.toArray(new String[bonusSet.size()]);
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

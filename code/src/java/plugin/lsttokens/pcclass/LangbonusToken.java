@@ -144,6 +144,7 @@ public class LangbonusToken extends AbstractTokenWithSeparator<PCClass>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass pcl)
 	{
 		AssociatedChanges<CDOMReference<Language>> changes = context
@@ -182,6 +183,7 @@ public class LangbonusToken extends AbstractTokenWithSeparator<PCClass>
 		return list.toArray(new String[list.size()]);
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

@@ -76,6 +76,7 @@ public class DeityToken extends AbstractTokenWithSeparator<PCClass> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
 		Changes<CDOMReference<Deity>> changes = context.getObjectContext()
@@ -90,6 +91,7 @@ public class DeityToken extends AbstractTokenWithSeparator<PCClass> implements
 				Constants.PIPE) };
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

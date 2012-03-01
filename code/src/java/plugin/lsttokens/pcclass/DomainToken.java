@@ -131,6 +131,7 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClass> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
 		Changes<QualifiedObject<CDOMSingleRef<Domain>>> changes = context
@@ -192,6 +193,7 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClass> implements
 		return new String[] { StringUtil.join(list, Constants.PIPE) };
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

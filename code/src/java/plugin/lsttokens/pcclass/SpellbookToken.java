@@ -69,6 +69,7 @@ public class SpellbookToken extends AbstractNonEmptyToken<PCClass> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
 		Boolean sb = context.getObjectContext().getObject(pcc,
@@ -80,6 +81,7 @@ public class SpellbookToken extends AbstractNonEmptyToken<PCClass> implements
 		return new String[] { sb.booleanValue() ? "YES" : "NO" };
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

@@ -78,6 +78,7 @@ public class ProhibitedToken extends AbstractTokenWithSeparator<PCClass>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
 		Changes<SpellProhibitor> changes =
@@ -97,6 +98,7 @@ public class ProhibitedToken extends AbstractTokenWithSeparator<PCClass>
 		return new String[]{StringUtil.join(set, Constants.COMMA)};
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

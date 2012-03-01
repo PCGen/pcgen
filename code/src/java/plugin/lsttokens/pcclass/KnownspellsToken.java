@@ -173,6 +173,7 @@ public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
 		Changes<KnownSpellIdentifier> changes = context.getObjectContext()
@@ -231,6 +232,7 @@ public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass>
 		return new String[] { StringUtil.join(list, Constants.PIPE) };
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

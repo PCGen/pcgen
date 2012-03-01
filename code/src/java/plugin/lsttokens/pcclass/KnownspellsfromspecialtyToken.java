@@ -47,6 +47,7 @@ public class KnownspellsfromspecialtyToken extends AbstractIntToken<PCClass>
 		return 1;
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

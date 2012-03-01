@@ -50,6 +50,7 @@ public class AbbToken extends AbstractNonEmptyToken<PCClass> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
 		String abb = context.obj.getString(pcc, StringKey.ABB);
@@ -60,6 +61,7 @@ public class AbbToken extends AbstractNonEmptyToken<PCClass> implements
 		return new String[] { abb };
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

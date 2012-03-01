@@ -57,6 +57,7 @@ public class DonotaddToken extends AbstractTokenWithSeparator<PCClassLevel> impl
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClassLevel po)
 	{
 		Boolean increaseHitDice = context.getObjectContext().getObject(po, ObjectKey.DONTADD_HITDIE);
@@ -85,6 +86,7 @@ public class DonotaddToken extends AbstractTokenWithSeparator<PCClassLevel> impl
 		return new String[] { sb.toString() };
 	}
 
+	@Override
 	public Class<PCClassLevel> getTokenClass()
 	{
 		return PCClassLevel.class;

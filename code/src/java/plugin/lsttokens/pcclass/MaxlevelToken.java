@@ -30,11 +30,13 @@ import pcgen.rules.persistence.token.ParseResult;
 public class MaxlevelToken implements CDOMPrimaryToken<PCClass>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "MAXLEVEL";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, PCClass pcc, String value)
 	{
 		Integer lim;
@@ -63,6 +65,7 @@ public class MaxlevelToken implements CDOMPrimaryToken<PCClass>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
 		Integer lim = context.getObjectContext().getInteger(pcc,
@@ -84,6 +87,7 @@ public class MaxlevelToken implements CDOMPrimaryToken<PCClass>
 		return new String[] { returnString };
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

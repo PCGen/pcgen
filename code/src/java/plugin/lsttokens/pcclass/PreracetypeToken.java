@@ -54,6 +54,7 @@ public class PreracetypeToken extends AbstractNonEmptyToken<PCClass> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass obj)
 	{
 		Prerequisite prereq = context.obj.getObject(obj, ObjectKey.PRERACETYPE);
@@ -64,11 +65,13 @@ public class PreracetypeToken extends AbstractNonEmptyToken<PCClass> implements
 		return new String[] { prereq.getKey() };
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;
 	}
 
+	@Override
 	public boolean process(LoadContext context, PCClass obj)
 	{
 		Prerequisite prereq = obj.get(ObjectKey.PRERACETYPE);
@@ -85,6 +88,7 @@ public class PreracetypeToken extends AbstractNonEmptyToken<PCClass> implements
 		return true;
 	}
 
+	@Override
 	public Class<PCClass> getDeferredTokenClass()
 	{
 		return getTokenClass();

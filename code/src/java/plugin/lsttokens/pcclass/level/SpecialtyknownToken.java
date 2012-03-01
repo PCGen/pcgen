@@ -82,6 +82,7 @@ public class SpecialtyknownToken extends AbstractTokenWithSeparator<PCClassLevel
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClassLevel level)
 	{
 		Changes<Formula> changes = context.obj.getListChanges(level,
@@ -94,6 +95,7 @@ public class SpecialtyknownToken extends AbstractTokenWithSeparator<PCClassLevel
 				Constants.COMMA) };
 	}
 
+	@Override
 	public Class<PCClassLevel> getTokenClass()
 	{
 		return PCClassLevel.class;

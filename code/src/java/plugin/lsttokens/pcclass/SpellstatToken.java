@@ -32,11 +32,13 @@ public class SpellstatToken implements CDOMPrimaryToken<PCClass>
 
 	private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
 
+	@Override
 	public String getTokenName()
 	{
 		return "SPELLSTAT";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, PCClass pcc, String value)
 	{
 		if ("SPELL".equalsIgnoreCase(value))
@@ -65,6 +67,7 @@ public class SpellstatToken implements CDOMPrimaryToken<PCClass>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
 		PCStat pcs = context.getObjectContext().getObject(pcc,
@@ -123,6 +126,7 @@ public class SpellstatToken implements CDOMPrimaryToken<PCClass>
 		}
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

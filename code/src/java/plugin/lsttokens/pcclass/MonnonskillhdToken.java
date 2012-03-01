@@ -59,6 +59,7 @@ public class MonnonskillhdToken extends AbstractNonEmptyToken<PCClass>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass obj)
 	{
 		Changes<BonusObj> changes = context.obj.getListChanges(obj,
@@ -95,6 +96,7 @@ public class MonnonskillhdToken extends AbstractNonEmptyToken<PCClass>
 		return bonusSet.toArray(new String[bonusSet.size()]);
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

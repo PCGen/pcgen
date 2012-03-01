@@ -113,6 +113,7 @@ public class SkilllistToken extends AbstractTokenWithSeparator<PCClass>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
 		TransitionChoice<ClassSkillList> grantChanges = context
@@ -137,6 +138,7 @@ public class SkilllistToken extends AbstractTokenWithSeparator<PCClass>
 		return new String[] { sb.toString() };
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

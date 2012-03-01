@@ -120,6 +120,7 @@ public class LevelsperfeatToken extends AbstractTokenWithSeparator<PCClass>
 	 * @see pcgen.rules.persistence.token.CDOMPrimaryToken#unparse(pcgen.rules.context.LoadContext,
 	 *      java.lang.Object)
 	 */
+	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
 		Integer lpf = context.getObjectContext().getInteger(pcc,
@@ -152,6 +153,7 @@ public class LevelsperfeatToken extends AbstractTokenWithSeparator<PCClass>
 		return new String[] { result.toString() };
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

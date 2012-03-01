@@ -54,6 +54,7 @@ public class StartskillptsToken extends AbstractNonEmptyToken<PCClass>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
 		Formula f = context.getObjectContext().getFormula(pcc,
@@ -65,6 +66,7 @@ public class StartskillptsToken extends AbstractNonEmptyToken<PCClass>
 		return new String[] { f.toString() };
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

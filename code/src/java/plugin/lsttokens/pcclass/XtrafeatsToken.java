@@ -35,11 +35,13 @@ public class XtrafeatsToken implements CDOMPrimaryToken<PCClass>
 	 * 
 	 * @return token name
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "XTRAFEATS";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, PCClass pcc, String value)
 	{
 		int featCount;
@@ -66,6 +68,7 @@ public class XtrafeatsToken implements CDOMPrimaryToken<PCClass>
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass obj)
 	{
 		Integer feats = context.getObjectContext().getInteger(obj,
@@ -82,6 +85,7 @@ public class XtrafeatsToken implements CDOMPrimaryToken<PCClass>
 		return new String[] { feats.toString() };
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

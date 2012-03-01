@@ -158,6 +158,7 @@ public class CcskillToken extends AbstractTokenWithSeparator<PCClass> implements
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass obj)
 	{
 		Changes<CDOMReference<Skill>> changes = context.getObjectContext()
@@ -193,6 +194,7 @@ public class CcskillToken extends AbstractTokenWithSeparator<PCClass> implements
 		return list.toArray(new String[list.size()]);
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

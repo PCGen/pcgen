@@ -108,6 +108,7 @@ public class AttackcycleToken extends AbstractTokenWithSeparator<PCClass>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
 		MapChanges<AttackType, Integer> changes = context.getObjectContext()
@@ -168,6 +169,7 @@ public class AttackcycleToken extends AbstractTokenWithSeparator<PCClass>
 		return new String[] { StringUtil.join(set, Constants.PIPE) };
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;
