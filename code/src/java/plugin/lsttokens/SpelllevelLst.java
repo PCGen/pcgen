@@ -205,6 +205,7 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 		return true;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Set<String> set = new TreeSet<String>();
@@ -234,6 +235,7 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 		return set.toArray(new String[set.size()]);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

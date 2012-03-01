@@ -96,6 +96,7 @@ public class UmultLst extends AbstractIntToken<CDOMObject> implements
 		return new String[] { returnVal };
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

@@ -43,11 +43,13 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 
 	public static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
 
+	@Override
 	public String getTokenName()
 	{
 		return "DEFINE";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 			String value)
 	{
@@ -119,6 +121,7 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Changes<StatLock> changes = context.getObjectContext().getListChanges(
@@ -174,6 +177,7 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 		return set.toArray(new String[set.size()]);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

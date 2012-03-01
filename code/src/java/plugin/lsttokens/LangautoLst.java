@@ -110,6 +110,7 @@ public class LangautoLst extends AbstractTokenWithSeparator<CDOMObject>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Changes<CDOMReference<Language>> changes = context.getObjectContext()
@@ -142,6 +143,7 @@ public class LangautoLst extends AbstractTokenWithSeparator<CDOMObject>
 		return new String[] { sb.toString() };
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

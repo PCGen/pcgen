@@ -31,11 +31,13 @@ import pcgen.rules.persistence.token.ParseResult;
 public class SelectLst implements CDOMPrimaryToken<CDOMObject>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "SELECT";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, CDOMObject cdo,
 		String value)
 	{
@@ -49,6 +51,7 @@ public class SelectLst implements CDOMPrimaryToken<CDOMObject>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
 		Formula f = context.getObjectContext().getFormula(cdo,
@@ -60,6 +63,7 @@ public class SelectLst implements CDOMPrimaryToken<CDOMObject>
 		return new String[] { f.toString() };
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

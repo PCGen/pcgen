@@ -74,11 +74,13 @@ public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 	 *
 	 * @return token name
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "FOLLOWERS"; //$NON-NLS-1$
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
@@ -124,6 +126,7 @@ public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Changes<FollowerLimit> changes = context.getObjectContext()
@@ -143,6 +146,7 @@ public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 		return returnSet.toArray(new String[returnSet.size()]);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

@@ -146,6 +146,7 @@ public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		PatternChanges<Description> changes =
@@ -189,6 +190,7 @@ public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		return list.toArray(new String[list.size()]);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

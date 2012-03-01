@@ -166,6 +166,7 @@ public class UnencumberedmoveLst extends AbstractTokenWithSeparator<CDOMObject>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Load load = context.getObjectContext().getObject(obj,
@@ -230,6 +231,7 @@ public class UnencumberedmoveLst extends AbstractTokenWithSeparator<CDOMObject>
 		return new String[] { sb.toString() };
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

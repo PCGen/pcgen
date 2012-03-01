@@ -150,6 +150,7 @@ public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Changes<Movement> changes = context.getObjectContext().getListChanges(
@@ -178,6 +179,7 @@ public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject>
 		return set.toArray(new String[set.size()]);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

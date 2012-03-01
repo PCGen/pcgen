@@ -95,6 +95,7 @@ public class RegionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject pcc)
 	{
 		TransitionChoice<Region> tc = context.getObjectContext().getObject(pcc,
@@ -116,11 +117,13 @@ public class RegionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		return new String[] { sb.toString() };
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+	@Override
 	public void applyChoice(CDOMObject owner, Region choice, PlayerCharacter pc)
 	{
 		if (!pc.getRegionString().equalsIgnoreCase(choice.toString()))
@@ -129,11 +132,13 @@ public class RegionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		}
 	}
 
+	@Override
 	public boolean allow(Region choice, PlayerCharacter pc, boolean allowStack)
 	{
 		return true;
 	}
 
+	@Override
 	public List<Region> getCurrentlySelected(CDOMObject owner,
 			PlayerCharacter pc)
 	{

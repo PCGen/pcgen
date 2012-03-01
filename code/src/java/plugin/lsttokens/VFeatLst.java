@@ -194,6 +194,7 @@ public class VFeatLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		AssociatedChanges<CDOMReference<Ability>> changes = context
@@ -274,6 +275,7 @@ public class VFeatLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		return returnList.toArray(new String[returnList.size()]);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

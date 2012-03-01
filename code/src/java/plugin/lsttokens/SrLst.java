@@ -37,11 +37,13 @@ import pcgen.rules.persistence.token.ParseResult;
 public class SrLst implements CDOMPrimaryToken<CDOMObject>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "SR";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
@@ -63,6 +65,7 @@ public class SrLst implements CDOMPrimaryToken<CDOMObject>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		SpellResistance sr = context.getObjectContext().getObject(obj,
@@ -84,6 +87,7 @@ public class SrLst implements CDOMPrimaryToken<CDOMObject>
 		return list.toArray(new String[list.size()]);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

@@ -52,11 +52,13 @@ public class RemoveLst extends AbstractNonEmptyToken<CDOMObject> implements
 		return context.processSubToken(obj, getTokenName(), key, value.substring(pipeLoc + 1));
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		return context.unparseSubtoken(obj, getTokenName());
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

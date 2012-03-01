@@ -298,6 +298,7 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		AssociatedChanges<CDOMReference<Spell>> changes = context
@@ -390,6 +391,7 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 		return set.toArray(new String[set.size()]);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

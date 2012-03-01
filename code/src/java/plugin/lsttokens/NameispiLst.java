@@ -30,11 +30,13 @@ import pcgen.rules.persistence.token.ParseResult;
 public class NameispiLst implements CDOMPrimaryToken<CDOMObject>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "NAMEISPI";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
@@ -67,6 +69,7 @@ public class NameispiLst implements CDOMPrimaryToken<CDOMObject>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Boolean namePI = context.getObjectContext().getObject(obj,
@@ -78,6 +81,7 @@ public class NameispiLst implements CDOMPrimaryToken<CDOMObject>
 		return new String[] { namePI.booleanValue() ? "YES" : "NO" };
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

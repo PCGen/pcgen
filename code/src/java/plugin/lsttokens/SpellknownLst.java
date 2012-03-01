@@ -229,6 +229,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 	/* (non-Javadoc)
 	 * @see pcgen.rules.persistence.token.CDOMPrimaryToken#unparse(pcgen.rules.context.LoadContext, java.lang.Object)
 	 */
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Set<String> set = new TreeSet<String>();
@@ -252,6 +253,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 	/* (non-Javadoc)
 	 * @see pcgen.rules.persistence.token.CDOMToken#getTokenClass()
 	 */
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

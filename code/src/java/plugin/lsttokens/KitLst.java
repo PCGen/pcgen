@@ -128,6 +128,7 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject pcc)
 	{
 		Changes<TransitionChoice<Kit>> changes = context.getObjectContext()
@@ -151,16 +152,19 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		return set.toArray(new String[set.size()]);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+	@Override
 	public void applyChoice(CDOMObject owner, Kit choice, PlayerCharacter pc)
 	{
 		Kit.applyKit(choice, pc);
 	}
 
+	@Override
 	public boolean allow(Kit choice, PlayerCharacter pc, boolean allowStack)
 	{
 		for (Kit k : pc.getKitInfo())
@@ -173,6 +177,7 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		return true;
 	}
 
+	@Override
 	public List<Kit> getCurrentlySelected(CDOMObject owner, PlayerCharacter pc)
 	{
 		return Collections.emptyList();

@@ -157,6 +157,7 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Changes<ChangeProf> changes =
@@ -210,6 +211,7 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 		return new String[]{StringUtil.join(returnSet, Constants.PIPE)};
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

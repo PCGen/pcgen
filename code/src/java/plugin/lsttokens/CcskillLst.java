@@ -174,6 +174,7 @@ public class CcskillLst extends AbstractTokenWithSeparator<CDOMObject>
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Changes<CDOMReference<Skill>> changes = context.getObjectContext()
@@ -239,11 +240,13 @@ public class CcskillLst extends AbstractTokenWithSeparator<CDOMObject>
 		return list.toArray(new String[list.size()]);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+	@Override
 	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
 	{
 		Skill skill = Globals.getContext().ref
@@ -254,6 +257,7 @@ public class CcskillLst extends AbstractTokenWithSeparator<CDOMObject>
 		}
 	}
 
+	@Override
 	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
 	{
 		Skill skill = Globals.getContext().ref
@@ -264,11 +268,13 @@ public class CcskillLst extends AbstractTokenWithSeparator<CDOMObject>
 		}
 	}
 
+	@Override
 	public String getSource()
 	{
 		return getTokenName();
 	}
 
+	@Override
 	public String getLstFormat()
 	{
 		return "LIST";

@@ -133,6 +133,7 @@ public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		String key = StringPClassUtil.getStringFor(obj.getClass());
@@ -183,6 +184,7 @@ public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject>
 		return returnList.toArray(new String[returnList.size()]);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

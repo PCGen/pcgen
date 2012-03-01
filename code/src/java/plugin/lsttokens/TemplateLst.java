@@ -54,6 +54,7 @@ public class TemplateLst extends AbstractToken implements
 		return "TEMPLATE";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, CDOMObject cdo,
 		String value)
 	{
@@ -134,6 +135,7 @@ public class TemplateLst extends AbstractToken implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
 		Changes<CDOMReference<PCTemplate>> changes = context.getObjectContext()
@@ -216,33 +218,39 @@ public class TemplateLst extends AbstractToken implements
 		return list.toArray(new String[list.size()]);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+	@Override
 	public void removeChoice(CDOMObject owner, PCTemplate choice,
 			PlayerCharacter pc)
 	{
 		pc.removeTemplate(choice);
 	}
 
+	@Override
 	public void applyChoice(CDOMObject owner, PCTemplate choice,
 			PlayerCharacter pc)
 	{
 		pc.addTemplate(choice);
 	}
 
+	@Override
 	public String getLstFormat() throws PersistenceLayerException
 	{
 		return Constants.LST_PERCENT_LIST;
 	}
 
+	@Override
 	public String getSource()
 	{
 		return getTokenName();
 	}
 
+	@Override
 	public Class<PCTemplate> getChoiceClass()
 	{
 		return PCTEMPLATE_CLASS;

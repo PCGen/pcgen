@@ -168,6 +168,7 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Changes<SpecialAbility> changes = context.getObjectContext()
@@ -201,6 +202,7 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		return list.toArray(new String[list.size()]);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

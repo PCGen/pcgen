@@ -30,11 +30,13 @@ import pcgen.rules.persistence.token.ParseResult;
 public class DescispiLst implements CDOMPrimaryToken<CDOMObject>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "DESCISPI";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
@@ -67,6 +69,7 @@ public class DescispiLst implements CDOMPrimaryToken<CDOMObject>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Boolean descPI = context.getObjectContext().getObject(obj,
@@ -78,6 +81,7 @@ public class DescispiLst implements CDOMPrimaryToken<CDOMObject>
 		return new String[] { descPI.booleanValue() ? "YES" : "NO" };
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

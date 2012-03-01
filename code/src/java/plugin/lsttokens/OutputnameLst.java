@@ -63,6 +63,7 @@ public class OutputnameLst extends AbstractNonEmptyToken<CDOMObject> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		String oname = context.getObjectContext().getString(obj,
@@ -74,6 +75,7 @@ public class OutputnameLst extends AbstractNonEmptyToken<CDOMObject> implements
 		return new String[] { oname };
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

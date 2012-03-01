@@ -47,6 +47,7 @@ public class KeyLst extends AbstractNonEmptyToken<CDOMObject> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		String key =
@@ -58,6 +59,7 @@ public class KeyLst extends AbstractNonEmptyToken<CDOMObject> implements
 		return new String[]{key};
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

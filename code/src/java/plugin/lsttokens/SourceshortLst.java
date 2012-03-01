@@ -33,11 +33,13 @@ public class SourceshortLst extends AbstractStringToken<CDOMObject> implements
 		return StringKey.SOURCE_SHORT;
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+	@Override
 	public boolean parse(Campaign campaign, String value, URI sourceURI)
 	{
 		campaign.put(StringKey.SOURCE_SHORT, value);

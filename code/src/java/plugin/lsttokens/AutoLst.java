@@ -52,11 +52,13 @@ public class AutoLst extends AbstractNonEmptyToken<CDOMObject> implements
 				pipeLoc), value.substring(pipeLoc + 1));
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		return context.unparseSubtoken(obj, getTokenName());
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

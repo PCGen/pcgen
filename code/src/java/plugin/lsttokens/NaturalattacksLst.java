@@ -276,6 +276,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 		return anEquip;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Changes<Equipment> changes = context.getObjectContext().getListChanges(
@@ -369,11 +370,13 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 		return new String[] { sb.toString() };
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+	@Override
 	public boolean process(LoadContext context, CDOMObject obj)
 	{
 		List<Equipment> natWeapons = obj.getListFor(ListKey.NATURAL_WEAPON);
@@ -401,6 +404,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 		return true;
 	}
 
+	@Override
 	public Class<CDOMObject> getDeferredTokenClass()
 	{
 		return getTokenClass();

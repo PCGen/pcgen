@@ -50,11 +50,13 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 	 *
 	 * @return token name
 	 */
+	@Override
 	public String getTokenName()
 	{
 		return "BONUS";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
@@ -71,6 +73,7 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Changes<BonusObj> changes = context.obj.getListChanges(obj,
@@ -100,11 +103,13 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 		return bonusSet.toArray(new String[bonusSet.size()]);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+	@Override
 	public boolean process(LoadContext context, CDOMObject obj)
 	{
 		List<BonusObj> bonusList = obj.getListFor(ListKey.BONUS);
@@ -158,6 +163,7 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 		return returnValue;
 	}
 
+	@Override
 	public Class<CDOMObject> getDeferredTokenClass()
 	{
 		return CDOMObject.class;

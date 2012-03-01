@@ -298,6 +298,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> changedLists =
@@ -446,6 +447,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		return returnSet.toArray(new String[returnSet.size()]);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

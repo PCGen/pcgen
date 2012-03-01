@@ -48,6 +48,7 @@ public class TempdescLst extends AbstractNonEmptyToken<CDOMObject> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		String descr = context.getObjectContext().getString(obj,
@@ -59,6 +60,7 @@ public class TempdescLst extends AbstractNonEmptyToken<CDOMObject> implements
 		return new String[] { EntityEncoder.encode(descr) };
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

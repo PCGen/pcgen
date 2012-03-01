@@ -108,6 +108,7 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 		return context.processSubToken(obj, getTokenName(), key, val);
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		String[] str = context.unparseSubtoken(obj, getTokenName());
@@ -137,11 +138,13 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 		return str;
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+	@Override
 	public Class<CDOMObject> getDeferredTokenClass()
 	{
 		return CDOMObject.class;
@@ -151,6 +154,7 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 	 * This makes an editor a bit more difficult, but since CHOOSE is an early
 	 * target of 5.17, this probably isn't a big deal.
 	 */
+	@Override
 	public boolean process(LoadContext context, CDOMObject obj)
 	{
 		ChooseInformation<?> newChoose = obj.get(ObjectKey.CHOOSE_INFO);

@@ -306,6 +306,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Changes<FollowerOption> changes = context.getObjectContext()
@@ -372,6 +373,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 		return set.toArray(new String[set.size()]);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

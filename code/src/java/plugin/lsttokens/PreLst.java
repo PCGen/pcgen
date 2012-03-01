@@ -26,6 +26,7 @@ public class PreLst extends AbstractToken implements
 		return "PRE";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, ConcretePrereqObject pcc,
 		String value)
 	{
@@ -37,6 +38,7 @@ public class PreLst extends AbstractToken implements
 		return ParseResult.INTERNAL_ERROR;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, ConcretePrereqObject pcc)
 	{
 		Changes<Prerequisite> changes = context.obj.getPrerequisiteChanges(pcc);
@@ -48,6 +50,7 @@ public class PreLst extends AbstractToken implements
 		return new String[] { Constants.LST_DOT_CLEAR };
 	}
 
+	@Override
 	public Class<ConcretePrereqObject> getTokenClass()
 	{
 		return ConcretePrereqObject.class;

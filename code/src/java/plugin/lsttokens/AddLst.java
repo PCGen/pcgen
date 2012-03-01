@@ -119,6 +119,7 @@ public class AddLst extends AbstractNonEmptyToken<CDOMObject> implements
 				pipeLoc), value.substring(pipeLoc + 1));
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		String[] unparsed = context.unparseSubtoken(obj, getTokenName());
@@ -150,6 +151,7 @@ public class AddLst extends AbstractNonEmptyToken<CDOMObject> implements
 		return unparsed;
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

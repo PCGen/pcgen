@@ -71,6 +71,7 @@ public class SourcedateLst extends AbstractNonEmptyToken<CDOMObject> implements
 		return theDate;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Date date = context.getObjectContext().getObject(obj,
@@ -83,11 +84,13 @@ public class SourcedateLst extends AbstractNonEmptyToken<CDOMObject> implements
 		return new String[] { df.format(date) };
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+	@Override
 	public boolean parse(Campaign campaign, String value, URI sourceURI)
 	{
 		Date theDate = getDate(value);

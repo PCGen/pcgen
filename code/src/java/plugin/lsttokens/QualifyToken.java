@@ -122,6 +122,7 @@ public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Changes<Qualifier> changes = context.getObjectContext().getListChanges(
@@ -168,6 +169,7 @@ public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject>
 		return returnSet.toArray(new String[returnSet.size()]);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
