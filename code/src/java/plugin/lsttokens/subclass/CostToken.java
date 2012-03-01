@@ -47,6 +47,7 @@ public class CostToken extends AbstractIntToken<SubClass> implements
 		return 0;
 	}
 
+	@Override
 	public Class<SubClass> getTokenClass()
 	{
 		return SubClass.class;

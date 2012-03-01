@@ -100,6 +100,7 @@ public class HandsToken extends AbstractIntToken<WeaponProf> implements
 		return new String[]{hands};
 	}
 
+	@Override
 	public Class<WeaponProf> getTokenClass()
 	{
 		return WeaponProf.class;

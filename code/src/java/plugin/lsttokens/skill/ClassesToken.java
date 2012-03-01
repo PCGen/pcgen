@@ -136,6 +136,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Skill skill)
 	{
 		Changes<CDOMReference> masterChanges = context.getListContext()
@@ -173,6 +174,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 		return new String[] { sb.toString() };
 	}
 
+	@Override
 	public Class<Skill> getTokenClass()
 	{
 		return Skill.class;

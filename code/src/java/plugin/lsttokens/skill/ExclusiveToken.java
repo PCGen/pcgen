@@ -69,6 +69,7 @@ public class ExclusiveToken extends AbstractNonEmptyToken<Skill> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Skill skill)
 	{
 		Boolean exclusive = context.getObjectContext().getObject(skill,
@@ -80,6 +81,7 @@ public class ExclusiveToken extends AbstractNonEmptyToken<Skill> implements
 		return new String[] { exclusive.booleanValue() ? "YES" : "NO" };
 	}
 
+	@Override
 	public Class<Skill> getTokenClass()
 	{
 		return Skill.class;

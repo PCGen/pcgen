@@ -32,11 +32,13 @@ public class KeystatToken implements CDOMPrimaryToken<Skill>
 
 	private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
 
+	@Override
 	public String getTokenName()
 	{
 		return "KEYSTAT";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, Skill skill, String value)
 	{
 		PCStat pcs = context.ref.getAbbreviatedObject(PCSTAT_CLASS, value);
@@ -49,6 +51,7 @@ public class KeystatToken implements CDOMPrimaryToken<Skill>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Skill skill)
 	{
 		PCStat pcs = context.getObjectContext().getObject(skill,
@@ -60,6 +63,7 @@ public class KeystatToken implements CDOMPrimaryToken<Skill>
 		return new String[] { pcs.getLSTformat() };
 	}
 
+	@Override
 	public Class<Skill> getTokenClass()
 	{
 		return Skill.class;

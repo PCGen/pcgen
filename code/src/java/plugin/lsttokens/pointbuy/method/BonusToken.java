@@ -66,6 +66,7 @@ public class BonusToken extends AbstractNonEmptyToken<PointBuyMethod> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PointBuyMethod pbm)
 	{
 		Collection<BonusObj> added = pbm.getBonuses();
@@ -86,6 +87,7 @@ public class BonusToken extends AbstractNonEmptyToken<PointBuyMethod> implements
 		return bonusSet.toArray(new String[bonusSet.size()]);
 	}
 
+	@Override
 	public Class<PointBuyMethod> getTokenClass()
 	{
 		return PointBuyMethod.class;

@@ -55,11 +55,13 @@ public class PointsToken extends AbstractNonEmptyToken<PointBuyMethod>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PointBuyMethod pbm)
 	{
 		return new String[] { pbm.getPointFormula() };
 	}
 
+	@Override
 	public Class<PointBuyMethod> getTokenClass()
 	{
 		return PointBuyMethod.class;

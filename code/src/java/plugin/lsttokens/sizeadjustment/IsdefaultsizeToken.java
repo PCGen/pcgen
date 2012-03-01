@@ -70,6 +70,7 @@ public class IsdefaultsizeToken extends AbstractNonEmptyToken<SizeAdjustment> im
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, SizeAdjustment size)
 	{
 		Boolean b = context.getObjectContext().getObject(size,
@@ -81,6 +82,7 @@ public class IsdefaultsizeToken extends AbstractNonEmptyToken<SizeAdjustment> im
 		return new String[] { b.booleanValue() ? "YES" : "NO" };
 	}
 
+	@Override
 	public Class<SizeAdjustment> getTokenClass()
 	{
 		return SizeAdjustment.class;

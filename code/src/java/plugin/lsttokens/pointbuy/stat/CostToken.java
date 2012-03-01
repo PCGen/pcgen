@@ -64,11 +64,13 @@ public class CostToken extends AbstractNonEmptyToken<PointBuyCost> implements
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PointBuyCost pbc)
 	{
 		return new String[] { String.valueOf(pbc.getBuyCost()) };
 	}
 
+	@Override
 	public Class<PointBuyCost> getTokenClass()
 	{
 		return PointBuyCost.class;

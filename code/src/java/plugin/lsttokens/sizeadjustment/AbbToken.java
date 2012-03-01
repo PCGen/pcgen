@@ -56,6 +56,7 @@ public class AbbToken extends AbstractNonEmptyToken<SizeAdjustment> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, SizeAdjustment size)
 	{
 		String abb = context.ref.getAbbreviation(size);
@@ -66,16 +67,19 @@ public class AbbToken extends AbstractNonEmptyToken<SizeAdjustment> implements
 		return new String[] { abb };
 	}
 
+	@Override
 	public Class<SizeAdjustment> getTokenClass()
 	{
 		return SizeAdjustment.class;
 	}
 
+	@Override
 	public Class<SizeAdjustment> getDeferredTokenClass()
 	{
 		return SizeAdjustment.class;
 	}
 
+	@Override
 	public boolean process(LoadContext context, SizeAdjustment size)
 	{
 		String abb = size.get(StringKey.ABB);

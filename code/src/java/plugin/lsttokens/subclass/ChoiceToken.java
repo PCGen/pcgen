@@ -111,6 +111,7 @@ public class ChoiceToken extends AbstractTokenWithSeparator<SubClass> implements
 		return spellProb;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, SubClass pcc)
 	{
 		SpellProhibitor sp = context.getObjectContext().getObject(pcc,
@@ -130,6 +131,7 @@ public class ChoiceToken extends AbstractTokenWithSeparator<SubClass> implements
 		return new String[] { sb.toString() };
 	}
 
+	@Override
 	public Class<SubClass> getTokenClass()
 	{
 		return SubClass.class;

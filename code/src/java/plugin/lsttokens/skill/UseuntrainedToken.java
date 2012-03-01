@@ -70,6 +70,7 @@ public class UseuntrainedToken extends AbstractNonEmptyToken<Skill> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Skill skill)
 	{
 		Boolean useUntrained = context.getObjectContext().getObject(skill,
@@ -81,6 +82,7 @@ public class UseuntrainedToken extends AbstractNonEmptyToken<Skill> implements
 		return new String[] { useUntrained.booleanValue() ? "YES" : "NO" };
 	}
 
+	@Override
 	public Class<Skill> getTokenClass()
 	{
 		return Skill.class;

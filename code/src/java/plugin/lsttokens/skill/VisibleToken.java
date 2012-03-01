@@ -108,6 +108,7 @@ public class VisibleToken extends AbstractNonEmptyToken<Skill> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Skill skill)
 	{
 		Visibility vis = context.getObjectContext().getObject(skill,
@@ -142,6 +143,7 @@ public class VisibleToken extends AbstractNonEmptyToken<Skill> implements
 		return new String[] { sb.toString() };
 	}
 
+	@Override
 	public Class<Skill> getTokenClass()
 	{
 		return Skill.class;

@@ -90,6 +90,7 @@ public class AcheckToken extends AbstractNonEmptyToken<Skill> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Skill skill)
 	{
 		SkillArmorCheck sac = context.getObjectContext().getObject(skill,
@@ -101,6 +102,7 @@ public class AcheckToken extends AbstractNonEmptyToken<Skill> implements
 		return new String[] { sac.toString() };
 	}
 
+	@Override
 	public Class<Skill> getTokenClass()
 	{
 		return Skill.class;

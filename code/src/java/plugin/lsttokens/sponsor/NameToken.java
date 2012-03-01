@@ -28,22 +28,26 @@ import pcgen.rules.persistence.token.ParseResult;
 public class NameToken implements CDOMPrimaryToken<Sponsor>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "NAME";
 	}
 
+	@Override
 	public Class<Sponsor> getTokenClass()
 	{
 		return Sponsor.class;
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, Sponsor s, String value)
 	{
 		s.setName(value);
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Sponsor s)
 	{
 		// TODO Need to unparse

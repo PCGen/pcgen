@@ -31,16 +31,19 @@ import pcgen.rules.persistence.token.ParseResult;
 public class ImagesmallToken implements CDOMPrimaryToken<Sponsor>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "IMAGESMALL";
 	}
 
+	@Override
 	public Class<Sponsor> getTokenClass()
 	{
 		return Sponsor.class;
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, Sponsor s, String value)
 	{
 		try
@@ -55,6 +58,7 @@ public class ImagesmallToken implements CDOMPrimaryToken<Sponsor>
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Sponsor s)
 	{
 		// TODO Need to unparse
