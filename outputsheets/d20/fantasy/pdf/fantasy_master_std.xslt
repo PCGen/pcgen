@@ -549,20 +549,20 @@
 							<xsl:value-of select="alignment/long"/>
 						</fo:block>
 					</fo:table-cell>
-					<xsl:if test="string-length(portrait) &gt; 0">
+			<!-->		<xsl:if test="string-length(portrait) &gt; 0">	-->
 						<fo:table-cell/>
 						<fo:table-cell number-rows-spanned="6">
 							<xsl:call-template name="attrib">
 								<xsl:with-param name="attribute" select="'picture'"/>
 							</xsl:call-template>
 							<fo:block>
-								<xsl:variable name="portrait_file" select="portrait"/>
+								<xsl:variable name="portrait_file" select="/character/basics/portrait/portrait_thumb"/>
 								<fo:external-graphic src="file:{$portrait_file}">
 									<xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 14) div 8" />mm</xsl:attribute>
 								</fo:external-graphic>
 							</fo:block>
 						</fo:table-cell>
-					</xsl:if>
+			<!-->		</xsl:if>	-->
 				</fo:table-row>
 				<fo:table-row>
 					<fo:table-cell number-columns-spanned="3">
@@ -4243,8 +4243,6 @@
 								<xsl:call-template name="eclipse_channeling.info">
 									<xsl:with-param name="title" select="'Magnitude'"/>
 									<xsl:with-param name="info" select="damage" />
-									<xsl:with-param name="info2" select="damage_bonus" />
-									<xsl:with-param name="info3" select="factor" />
 								</xsl:call-template>
 								<xsl:call-template name="eclipse_channeling.info">
 									<xsl:with-param name="title" select="'Range'"/>
@@ -4913,7 +4911,7 @@
 ====================================-->
 	<xsl:template match="domains">
 		<!-- BEGIN Domains Table -->
-		<xsl:call-template name="stripped.list">
+		<xsl:call-template name="bold.list">
 			<xsl:with-param name="attribute" select="'domains'" />
 			<xsl:with-param name="title" select="'DOMAINS'" />
 			<xsl:with-param name="list" select="domain"/>
@@ -6885,7 +6883,7 @@
 					<xsl:value-of select="school/fullschool"/>
 				</fo:block>
 			</fo:table-cell>	<!-->
-			<fo:table-cell padding-top="1pt">
+			<fo:table-cell padding-top="1pt" number-columns-spanned="2">
 				<fo:block text-align="start" font-size="5pt">
 					<xsl:value-of select="source/sourceshort"/>
 					<xsl:text>: </xsl:text>
@@ -6926,7 +6924,7 @@
 			</fo:table-cell>
 			<fo:table-cell padding-top="1pt" number-columns-spanned="1">
 				<fo:block text-align="start" font-size="5pt">
-					<fo:inline font-style="italic">Caster Level: </fo:inline>
+					<fo:inline font-style="italic">Caster Level:</fo:inline>
 					<xsl:value-of select="casterlevel"/>
 				</fo:block>
 			</fo:table-cell>
@@ -6934,7 +6932,7 @@
 			<fo:table-cell padding-top="1pt" number-columns-spanned="2">
 				<fo:block text-align="start" font-size="5pt">
 					<xsl:if test="concentration != ''">
-						<fo:inline font-style="italic">Concentration: </fo:inline>
+						<fo:inline font-style="italic">Concentration:</fo:inline>
 						<xsl:value-of select="concentration"/>
 					</xsl:if>
 				</fo:block>
@@ -7229,8 +7227,8 @@
 ====================================
 ====================================-->
 	<xsl:template match="basics" mode="bio">
-		<!-- BEGIN BIO Pages -->
-		<xsl:if test="string-length(translate(normalize-space(concat(description,bio)), ' ', '')) &gt; 0">
+		<!-- BEGIN BIO Pages 
+		<xsl:if test="string-length(translate(normalize-space(concat(description,bio)), ' ', '')) &gt; 0"> -->
 			<fo:page-sequence>
 				<xsl:attribute name="master-reference">Portrait</xsl:attribute>
 				<xsl:call-template name="page.footer"/>
@@ -7269,7 +7267,7 @@
 												<xsl:with-param name="attribute" select="'picture'"/>
 											</xsl:call-template>
 											<fo:block start-indent="1mm" height="100mm">
-												<xsl:variable name="portrait_file" select="portrait"/>
+												<xsl:variable name="portrait_file" select="portrait/portrait"/>
 												<fo:external-graphic src="file:{$portrait_file}" width="92mm" scaling="uniform"/>
 											</fo:block>
 										</fo:table-cell>
@@ -7350,7 +7348,7 @@
 									<xsl:with-param name="value" select="interests"/>
 								</xsl:call-template>
 								<xsl:call-template name="bio.entry">
-									<xsl:with-param name="title" select="'SPOKEN STYLE'"/>
+									<xsl:with-param name="title" select="'SPOKEN STYLE / CATCH PHRASE'"/>
 									<xsl:with-param name="value" select="concat(speechtendency, ', ', catchphrase)"/>
 								</xsl:call-template>
 								<xsl:call-template name="bio.entry">
@@ -7386,7 +7384,7 @@
 					</fo:block>
 				</fo:flow>
 			</fo:page-sequence>
-		</xsl:if>
+		<!--></xsl:if>-->
 		<!-- END BIO Pages -->
 	</xsl:template>
 	<!--

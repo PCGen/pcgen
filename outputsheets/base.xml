@@ -159,11 +159,11 @@
 			<trait>|PERSONALITY1|</trait>
 			<trait>|PERSONALITY2|</trait>
 		</personality>
-		<portrait>|PORTRAIT|</portrait>
-<!-->	<portrait>
+<!-->		<portrait>|PORTRAIT|</portrait>-->
+		<portrait>
 			<portrait>|PORTRAIT|</portrait>
-			<portait_thumb>|PORTRAIT.THUMB|</portrait_thumb>
-		</portrait>	-->
+			<portrait_thumb>|PORTRAIT.THUMB|</portrait_thumb>
+		</portrait>	
 		<phobias>|PHOBIAS|</phobias>
 		<race>|RACE|</race>
 		<reach>
