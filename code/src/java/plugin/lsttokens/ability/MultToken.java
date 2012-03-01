@@ -72,6 +72,7 @@ public class MultToken extends AbstractNonEmptyToken<Ability> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Ability ability)
 	{
 		Boolean mult = context.getObjectContext().getObject(ability,
@@ -83,16 +84,19 @@ public class MultToken extends AbstractNonEmptyToken<Ability> implements
 		return new String[] { mult.booleanValue() ? "YES" : "NO" };
 	}
 
+	@Override
 	public Class<Ability> getTokenClass()
 	{
 		return Ability.class;
 	}
 
+	@Override
 	public Class<Ability> getDeferredTokenClass()
 	{
 		return Ability.class;
 	}
 
+	@Override
 	public boolean process(LoadContext context, Ability a)
 	{
 		if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
@@ -116,6 +120,7 @@ public class MultToken extends AbstractNonEmptyToken<Ability> implements
 		return false;
 	}
 
+	@Override
 	public int getPriority()
 	{
 		return 1000;

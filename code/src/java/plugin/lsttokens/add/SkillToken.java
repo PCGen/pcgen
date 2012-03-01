@@ -59,6 +59,7 @@ public class SkillToken extends AbstractToken implements
 		return "SKILL";
 	}
 
+	@Override
 	public String getParentToken()
 	{
 		return "ADD";
@@ -69,6 +70,7 @@ public class SkillToken extends AbstractToken implements
 		return getParentToken() + ":" + getTokenName();
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
@@ -150,6 +152,7 @@ public class SkillToken extends AbstractToken implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Changes<PersistentTransitionChoice<?>> grantChanges = context
@@ -200,44 +203,52 @@ public class SkillToken extends AbstractToken implements
 		return addStrings.toArray(new String[addStrings.size()]);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+	@Override
 	public void applyChoice(CDOMObject owner, Skill choice, PlayerCharacter pc)
 	{
 		pc.addSkill(choice);
 		SkillRankControl.modRanks(1.0, null, true, pc, choice);
 	}
 
+	@Override
 	public boolean allow(Skill choice, PlayerCharacter pc, boolean allowStack)
 	{
 		return true;
 	}
 
+	@Override
 	public Skill decodeChoice(String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				SKILL_CLASS, s);
 	}
 
+	@Override
 	public String encodeChoice(Skill choice)
 	{
 		return choice.getKeyName();
 	}
 
+	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, Skill choice)
 	{
 		// No action required
 	}
 
+	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, Skill choice)
 	{
 		pc.addSkill(choice);
 		SkillRankControl.modRanks(-1.0, null, true, pc, choice);
 	}
 
+	@Override
 	public List<Skill> getCurrentlySelected(CDOMObject owner, PlayerCharacter pc)
 	{
 		return Collections.emptyList();

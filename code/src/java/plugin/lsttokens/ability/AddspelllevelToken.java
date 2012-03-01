@@ -56,6 +56,7 @@ public class AddspelllevelToken extends AbstractNonEmptyToken<Ability>
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Ability ability)
 	{
 		Integer lvl = context.getObjectContext().getInteger(ability,
@@ -67,6 +68,7 @@ public class AddspelllevelToken extends AbstractNonEmptyToken<Ability>
 		return new String[] { lvl.toString() };
 	}
 
+	@Override
 	public Class<Ability> getTokenClass()
 	{
 		return Ability.class;

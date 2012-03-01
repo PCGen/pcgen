@@ -55,6 +55,7 @@ public class SpellCasterToken extends AbstractToken implements
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 
+	@Override
 	public String getParentToken()
 	{
 		return "ADD";
@@ -71,6 +72,7 @@ public class SpellCasterToken extends AbstractToken implements
 		return "SPELLCASTER";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
@@ -179,6 +181,7 @@ public class SpellCasterToken extends AbstractToken implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Changes<PersistentTransitionChoice<?>> grantChanges = context
@@ -230,11 +233,13 @@ public class SpellCasterToken extends AbstractToken implements
 		return addStrings.toArray(new String[addStrings.size()]);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+	@Override
 	public void applyChoice(CDOMObject owner, PCClass choice, PlayerCharacter pc)
 	{
 		PCClass theClass = pc.getClassKeyed(choice.getKeyName());
@@ -251,28 +256,33 @@ public class SpellCasterToken extends AbstractToken implements
 		theClass.setLevel(pc.getLevel(theClass), pc);
 	}
 
+	@Override
 	public boolean allow(PCClass choice, PlayerCharacter pc, boolean allowStack)
 	{
 		return true;
 	}
 
+	@Override
 	public PCClass decodeChoice(String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				PCCLASS_CLASS, s);
 	}
 
+	@Override
 	public String encodeChoice(PCClass choice)
 	{
 		return choice.getKeyName();
 	}
 
+	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
 			PCClass choice)
 	{
 		// No action required
 	}
 
+	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
 			PCClass choice)
 	{
@@ -286,6 +296,7 @@ public class SpellCasterToken extends AbstractToken implements
 		}
 	}
 
+	@Override
 	public List<PCClass> getCurrentlySelected(CDOMObject owner,
 			PlayerCharacter pc)
 	{

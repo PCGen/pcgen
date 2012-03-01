@@ -75,6 +75,7 @@ public class BenefitToken extends AbstractNonEmptyToken<Ability> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Ability ability)
 	{
 		PatternChanges<Description> changes = context.getObjectContext()
@@ -182,6 +183,7 @@ public class BenefitToken extends AbstractNonEmptyToken<Ability> implements
 		return desc;
 	}
 
+	@Override
 	public Class<Ability> getTokenClass()
 	{
 		return Ability.class;

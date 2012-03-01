@@ -42,6 +42,7 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
 
+	@Override
 	public String getParentToken()
 	{
 		return "AUTO";
@@ -116,6 +117,7 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Changes<CDOMReference<Language>> changes = context.obj.getListChanges(
@@ -178,11 +180,13 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 		return new String[] { sb.toString() };
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+	@Override
 	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
 	{
 		Language l = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
@@ -193,6 +197,7 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 	}
 
+	@Override
 	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
 	{
 		Language l = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
@@ -203,11 +208,13 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 	}
 
+	@Override
 	public String getSource()
 	{
 		return getTokenName();
 	}
 
+	@Override
 	public String getLstFormat()
 	{
 		return "%LIST";

@@ -69,6 +69,7 @@ public class StackToken extends AbstractNonEmptyToken<Ability> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Ability ability)
 	{
 		Boolean stacks = context.getObjectContext().getObject(ability,
@@ -80,6 +81,7 @@ public class StackToken extends AbstractNonEmptyToken<Ability> implements
 		return new String[] { stacks.booleanValue() ? "YES" : "NO" };
 	}
 
+	@Override
 	public Class<Ability> getTokenClass()
 	{
 		return Ability.class;

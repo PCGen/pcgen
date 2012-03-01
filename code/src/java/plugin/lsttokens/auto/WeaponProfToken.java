@@ -52,6 +52,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
 
+	@Override
 	public String getParentToken()
 	{
 		return "AUTO";
@@ -214,6 +215,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		List<String> list = new ArrayList<String>();
@@ -308,11 +310,13 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		return list.toArray(new String[list.size()]);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+	@Override
 	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
 	{
 		WeaponProf wp = Globals.getContext().ref
@@ -323,6 +327,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		}
 	}
 
+	@Override
 	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
 	{
 		WeaponProf wp = Globals.getContext().ref
@@ -333,11 +338,13 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		}
 	}
 
+	@Override
 	public String getSource()
 	{
 		return getTokenName();
 	}
 
+	@Override
 	public String getLstFormat()
 	{
 		return "%LIST";

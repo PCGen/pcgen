@@ -54,6 +54,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
 
+	@Override
 	public String getParentToken()
 	{
 		return "AUTO";
@@ -178,6 +179,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		List<String> list = new ArrayList<String>();
@@ -258,11 +260,13 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		return list.toArray(new String[list.size()]);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+	@Override
 	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
 	{
 		Equipment e = Globals.getContext().ref
@@ -276,6 +280,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 	}
 
+	@Override
 	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
 	{
 		Equipment e = Globals.getContext().ref
@@ -286,11 +291,13 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 	}
 
+	@Override
 	public String getSource()
 	{
 		return getTokenName();
 	}
 
+	@Override
 	public String getLstFormat()
 	{
 		return "%LIST";

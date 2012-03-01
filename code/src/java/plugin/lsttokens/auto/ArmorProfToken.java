@@ -54,6 +54,7 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
 
+	@Override
 	public String getParentToken()
 	{
 		return "AUTO";
@@ -209,6 +210,7 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Changes<ArmorProfProvider> changes = context.obj.getListChanges(obj,
@@ -274,11 +276,13 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+	@Override
 	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
 	{
 		ArmorProf ap = Globals.getContext().ref
@@ -289,6 +293,7 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 	}
 
+	@Override
 	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
 	{
 		ArmorProf ap = Globals.getContext().ref
@@ -299,11 +304,13 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 	}
 
+	@Override
 	public String getSource()
 	{
 		return getTokenName();
 	}
 
+	@Override
 	public String getLstFormat()
 	{
 		return "%LIST";

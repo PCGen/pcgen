@@ -55,6 +55,7 @@ public class CostToken extends AbstractNonEmptyToken<Ability> implements
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Ability ability)
 	{
 		BigDecimal bd = context.getObjectContext().getObject(ability,
@@ -66,6 +67,7 @@ public class CostToken extends AbstractNonEmptyToken<Ability> implements
 		return new String[] { bd.toString() };
 	}
 
+	@Override
 	public Class<Ability> getTokenClass()
 	{
 		return Ability.class;

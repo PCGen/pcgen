@@ -54,6 +54,7 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 
 	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
 
+	@Override
 	public String getParentToken()
 	{
 		return "AUTO";
@@ -208,6 +209,7 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Changes<ShieldProfProvider> changes = context.obj.getListChanges(obj,
@@ -272,11 +274,13 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		return set.toArray(new String[set.size()]);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+	@Override
 	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
 	{
 		ShieldProf sp = Globals.getContext().ref
@@ -287,6 +291,7 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		}
 	}
 
+	@Override
 	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
 	{
 		ShieldProf sp = Globals.getContext().ref
@@ -297,11 +302,13 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		}
 	}
 
+	@Override
 	public String getSource()
 	{
 		return getTokenName();
 	}
 
+	@Override
 	public String getLstFormat()
 	{
 		return "%LIST";

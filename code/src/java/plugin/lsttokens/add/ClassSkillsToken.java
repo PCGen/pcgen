@@ -58,6 +58,7 @@ public class ClassSkillsToken extends AbstractNonEmptyToken<PCClass> implements
 
 	private static final Class<Skill> SKILL_CLASS = Skill.class;
 
+	@Override
 	public String getParentToken()
 	{
 		return "ADD";
@@ -212,6 +213,7 @@ public class ClassSkillsToken extends AbstractNonEmptyToken<PCClass> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClass obj)
 	{
 		Changes<PersistentTransitionChoice<?>> grantChanges = context
@@ -269,6 +271,7 @@ public class ClassSkillsToken extends AbstractNonEmptyToken<PCClass> implements
 		return addStrings.toArray(new String[addStrings.size()]);
 	}
 
+	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;

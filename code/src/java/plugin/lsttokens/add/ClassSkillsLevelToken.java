@@ -59,6 +59,7 @@ public class ClassSkillsLevelToken extends AbstractNonEmptyToken<PCClassLevel> i
 
 	private static final Class<Skill> SKILL_CLASS = Skill.class;
 
+	@Override
 	public String getParentToken()
 	{
 		return "ADD";
@@ -216,6 +217,7 @@ public class ClassSkillsLevelToken extends AbstractNonEmptyToken<PCClassLevel> i
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCClassLevel obj)
 	{
 		Changes<PersistentTransitionChoice<?>> grantChanges = context
@@ -273,6 +275,7 @@ public class ClassSkillsLevelToken extends AbstractNonEmptyToken<PCClassLevel> i
 		return addStrings.toArray(new String[addStrings.size()]);
 	}
 
+	@Override
 	public Class<PCClassLevel> getTokenClass()
 	{
 		return PCClassLevel.class;

@@ -99,6 +99,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
 
+	@Override
 	public String getParentToken()
 	{
 		return "ADD";
@@ -303,6 +304,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Changes<PersistentTransitionChoice<?>> grantChanges = context
@@ -369,11 +371,13 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		return addStrings.toArray(new String[addStrings.size()]);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+	@Override
 	public void applyChoice(CDOMObject owner, AbilitySelection choice,
 			PlayerCharacter pc)
 	{
@@ -397,6 +401,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		pc.addAssociation(ab, association);
 	}
 
+	@Override
 	public boolean allow(AbilitySelection choice, PlayerCharacter pc,
 			boolean allowStack)
 	{
@@ -441,16 +446,19 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		return a.getSafe(ObjectKey.STACKS) && allowStack;
 	}
 
+	@Override
 	public AbilitySelection decodeChoice(String s)
 	{
 		return AbilitySelection.getAbilitySelectionFromPersistentFormat(s);
 	}
 
+	@Override
 	public String encodeChoice(AbilitySelection choice)
 	{
 		return choice.getPersistentFormat();
 	}
 
+	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
 			AbilitySelection choice)
 	{
@@ -460,6 +468,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		// pc.addAssoc(owner, AssociationListKey.ADDED_ABILITY, aFeat);
 	}
 
+	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
 			AbilitySelection choice)
 	{
@@ -506,6 +515,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 	}
 
+	@Override
 	public List<AbilitySelection> getCurrentlySelected(CDOMObject owner,
 			PlayerCharacter pc)
 	{

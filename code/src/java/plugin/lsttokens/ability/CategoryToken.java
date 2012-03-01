@@ -55,6 +55,7 @@ public class CategoryToken extends AbstractNonEmptyToken<Ability> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Ability ability)
 	{
 		//TODO this is wrong! (different from logic in parse!)
@@ -67,11 +68,13 @@ public class CategoryToken extends AbstractNonEmptyToken<Ability> implements
 		return new String[] { cat.getKeyName() };
 	}
 
+	@Override
 	public Class<Ability> getTokenClass()
 	{
 		return Ability.class;
 	}
 
+	@Override
 	public boolean process(LoadContext context, Ability ability)
 	{
 		if (ability.get(ObjectKey.ABILITY_CAT) == null)
@@ -84,6 +87,7 @@ public class CategoryToken extends AbstractNonEmptyToken<Ability> implements
 		return true;
 	}
 
+	@Override
 	public Class<Ability> getDeferredTokenClass()
 	{
 		return getTokenClass();

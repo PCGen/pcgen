@@ -115,6 +115,7 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Ability ability)
 	{
 		TransitionChoice<Ability> mc = context.getObjectContext().getObject(
@@ -128,11 +129,13 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 				.getLSTformat(), ",", "|") };
 	}
 
+	@Override
 	public Class<Ability> getTokenClass()
 	{
 		return Ability.class;
 	}
 
+	@Override
 	public void applyChoice(CDOMObject owner, Ability choice, PlayerCharacter pc)
 	{
 		final List<String> availableList = new ArrayList<String>();
@@ -184,11 +187,13 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 		}
 	}
 
+	@Override
 	public boolean allow(Ability choice, PlayerCharacter pc, boolean allowStack)
 	{
 		return true;
 	}
 
+	@Override
 	public List<Ability> getCurrentlySelected(CDOMObject owner,
 			PlayerCharacter pc)
 	{

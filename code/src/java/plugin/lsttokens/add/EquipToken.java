@@ -54,6 +54,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
 
+	@Override
 	public String getParentToken()
 	{
 		return "ADD";
@@ -135,6 +136,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Changes<PersistentTransitionChoice<?>> grantChanges = context
@@ -179,11 +181,13 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		return addStrings.toArray(new String[addStrings.size()]);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+	@Override
 	public void applyChoice(CDOMObject owner, Equipment choice,
 			PlayerCharacter pc)
 	{
@@ -192,35 +196,41 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		pc.addEquipment(bEquipment);
 	}
 
+	@Override
 	public boolean allow(Equipment choice, PlayerCharacter pc,
 			boolean allowStack)
 	{
 		return true;
 	}
 
+	@Override
 	public Equipment decodeChoice(String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				EQUIPMENT_CLASS, s);
 	}
 
+	@Override
 	public String encodeChoice(Equipment choice)
 	{
 		return choice.getKeyName();
 	}
 
+	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
 			Equipment choice)
 	{
 		// No action required
 	}
 
+	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
 			Equipment choice)
 	{
 		pc.removeEquipment(choice);
 	}
 
+	@Override
 	public List<Equipment> getCurrentlySelected(CDOMObject owner,
 			PlayerCharacter pc)
 	{

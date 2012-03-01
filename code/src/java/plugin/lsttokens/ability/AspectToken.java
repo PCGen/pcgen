@@ -180,6 +180,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 	 * @see pcgen.rules.persistence.token.CDOMPrimaryParserToken#unparse(pcgen.rules.context.LoadContext,
 	 *      java.lang.Object)
 	 */
+	@Override
 	public String[] unparse(LoadContext context, Ability ability)
 	{
 		MapChanges<AspectName, List<Aspect>> changes = context.getObjectContext().getMapChanges(ability, MapKey.ASPECT);
@@ -206,6 +207,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 	 * 
 	 * @see pcgen.rules.persistence.token.CDOMToken#getTokenClass()
 	 */
+	@Override
 	public Class<Ability> getTokenClass()
 	{
 		return Ability.class;

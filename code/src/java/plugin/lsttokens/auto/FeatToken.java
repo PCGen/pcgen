@@ -60,6 +60,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 {
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
+	@Override
 	public String getParentToken()
 	{
 		return "AUTO";
@@ -216,6 +217,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Set<String> returnSet = new TreeSet<String>();
@@ -301,6 +303,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 		return returnList.toArray(new String[returnList.size()]);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
