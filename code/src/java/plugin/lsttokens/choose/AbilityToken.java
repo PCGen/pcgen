@@ -55,6 +55,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 {
 	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
 
+	@Override
 	public String getParentToken()
 	{
 		return "CHOOSE";
@@ -125,6 +126,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
 		ChooseInformation<?> tc =
@@ -164,6 +166,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		return new String[]{sb.toString()};
 	}
 
+	@Override
 	public void applyChoice(CDOMObject owner, Ability st, PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, st);
@@ -178,6 +181,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		}
 	}
 
+	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
 			Ability choice)
 	{
@@ -194,6 +198,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		pc.removeAssociation(owner, encodeChoice(choice));
 	}
 
+	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
 			Ability choice)
 	{
@@ -201,12 +206,14 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		pc.addAssociation(owner, encodeChoice(choice));
 	}
 
+	@Override
 	public List<Ability> getCurrentlySelected(CDOMObject owner,
 		PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}
 
+	@Override
 	public boolean allow(Ability choice, PlayerCharacter pc,
 		boolean allowStack)
 	{
@@ -248,6 +255,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 			ABILITY_CLASS, category), category, obj, abilities);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
@@ -263,6 +271,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		return AssociationListKey.CHOOSE_ABILITY;
 	}
 
+	@Override
 	public Ability decodeChoice(String s)
 	{
 		StringTokenizer st = new StringTokenizer(s, Constants.PIPE);
@@ -293,6 +302,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		return a;
 	}
 
+	@Override
 	public String encodeChoice(Ability choice)
 	{
 		StringBuilder sb = new StringBuilder();

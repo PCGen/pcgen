@@ -45,12 +45,14 @@ public class SkillToken extends AbstractQualifiedChooseToken<Skill>
 		return "Skill choice";
 	}
 
+	@Override
 	public Skill decodeChoice(String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				SKILL_CLASS, s);
 	}
 
+	@Override
 	public String encodeChoice(Skill choice)
 	{
 		return choice.getKeyName();

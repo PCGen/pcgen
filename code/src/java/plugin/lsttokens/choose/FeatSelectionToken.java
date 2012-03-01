@@ -52,6 +52,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		PersistentChoiceActor<AbilitySelection>
 {
 
+	@Override
 	public String getParentToken()
 	{
 		return "CHOOSE";
@@ -125,6 +126,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		return getParentToken() + ":" + getTokenName();
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
 		ChooseInformation<?> tc =
@@ -162,6 +164,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		return new String[]{sb.toString()};
 	}
 
+	@Override
 	public void applyChoice(CDOMObject owner, AbilitySelection st,
 		PlayerCharacter pc)
 	{
@@ -177,6 +180,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		}
 	}
 
+	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
 		AbilitySelection choice)
 	{
@@ -193,6 +197,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		pc.removeAssociation(owner, encodeChoice(choice));
 	}
 
+	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
 		AbilitySelection choice)
 	{
@@ -200,12 +205,14 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		pc.addAssociation(owner, encodeChoice(choice));
 	}
 
+	@Override
 	public List<AbilitySelection> getCurrentlySelected(CDOMObject owner,
 		PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}
 
+	@Override
 	public boolean allow(AbilitySelection choice, PlayerCharacter pc, boolean allowStack)
 	{
 		/*
@@ -231,6 +238,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 			ABILITY_CLASS, AbilityCategory.FEAT), obj, value);
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
@@ -246,6 +254,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		return AssociationListKey.CHOOSE_FEATSELECTION;
 	}
 
+	@Override
 	public AbilitySelection decodeChoice(String s)
 	{
 		Ability ability = Globals.getContext().ref
@@ -284,6 +293,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		}
 	}
 
+	@Override
 	public String encodeChoice(AbilitySelection choice)
 	{
 		return choice.getFullAbilityKey();

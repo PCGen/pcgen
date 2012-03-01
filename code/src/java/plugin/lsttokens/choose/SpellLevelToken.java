@@ -51,6 +51,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 		PersistentChoiceActor<SpellLevel>
 {
 
+	@Override
 	public String getParentToken()
 	{
 		return "CHOOSE";
@@ -271,6 +272,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 		return getParentToken() + ":" + getTokenName();
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
 		ChooseInformation<?> tc =
@@ -308,6 +310,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 		return new String[]{sb.toString()};
 	}
 
+	@Override
 	public void applyChoice(CDOMObject owner, SpellLevel st, PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, st);
@@ -322,6 +325,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 		}
 	}
 
+	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
 		SpellLevel choice)
 	{
@@ -338,6 +342,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 		pc.removeAssociation(owner, encodeChoice(choice));
 	}
 
+	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
 		SpellLevel choice)
 	{
@@ -345,12 +350,14 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 		pc.addAssociation(owner, encodeChoice(choice));
 	}
 
+	@Override
 	public List<SpellLevel> getCurrentlySelected(CDOMObject owner,
 		PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}
 
+	@Override
 	public boolean allow(SpellLevel choice, PlayerCharacter pc,
 		boolean allowStack)
 	{
@@ -367,6 +374,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 		return "SPELLLEVEL";
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
@@ -382,11 +390,13 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 		return AssociationListKey.CHOOSE_SPELLLEVEL;
 	}
 
+	@Override
 	public SpellLevel decodeChoice(String s)
 	{
 		return SpellLevel.decodeChoice(s);
 	}
 
+	@Override
 	public String encodeChoice(SpellLevel choice)
 	{
 		return choice.toString();

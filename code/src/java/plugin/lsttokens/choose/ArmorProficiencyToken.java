@@ -46,12 +46,14 @@ public class ArmorProficiencyToken extends
 		return "Armor Proficiency choice";
 	}
 
+	@Override
 	public ArmorProf decodeChoice(String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				ARMORPROF_CLASS, s);
 	}
 
+	@Override
 	public String encodeChoice(ArmorProf choice)
 	{
 		return choice.getKeyName();

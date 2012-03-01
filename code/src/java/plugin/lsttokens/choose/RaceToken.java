@@ -63,12 +63,14 @@ public class RaceToken extends AbstractQualifiedChooseToken<Race>
 		return AssociationListKey.CHOOSE_RACE;
 	}
 
+	@Override
 	public Race decodeChoice(String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				RACE_CLASS, s);
 	}
 
+	@Override
 	public String encodeChoice(Race choice)
 	{
 		return choice.getKeyName();

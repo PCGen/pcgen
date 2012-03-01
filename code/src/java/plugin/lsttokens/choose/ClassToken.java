@@ -51,12 +51,14 @@ public class ClassToken extends AbstractQualifiedChooseToken<PCClass>
 		return "PCClass choice";
 	}
 
+	@Override
 	public PCClass decodeChoice(String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				PCCLASS_CLASS, s);
 	}
 
+	@Override
 	public String encodeChoice(PCClass choice)
 	{
 		return choice.getKeyName();

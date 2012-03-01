@@ -89,12 +89,14 @@ public class DomainToken extends AbstractQualifiedChooseToken<Domain>
 		return AssociationListKey.CHOOSE_DOMAIN;
 	}
 
+	@Override
 	public Domain decodeChoice(String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				DOMAIN_CLASS, s);
 	}
 
+	@Override
 	public String encodeChoice(Domain choice)
 	{
 		return choice.getKeyName();

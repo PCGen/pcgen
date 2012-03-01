@@ -44,16 +44,19 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 		ChooseInformation<String>, PersistentChoiceActor<String>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "NOCHOICE";
 	}
 
+	@Override
 	public String getParentToken()
 	{
 		return "CHOOSE";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
@@ -67,6 +70,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 			+ " will ignore arguments: " + value);
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
 		ChooseInformation<?> chooseString =
@@ -79,71 +83,85 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 		return new String[]{""};
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+	@Override
 	public Class<String> getChoiceClass()
 	{
 		return String.class;
 	}
 
+	@Override
 	public ChoiceManagerList getChoiceManager(CDOMObject owner, int cost)
 	{
 		return new NoChoiceManager(owner, this, cost);
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ALLOWS_NONE;
 	}
 
+	@Override
 	public String getLSTformat()
 	{
 		return "*NOCHOICE";
 	}
 
+	@Override
 	public String getName()
 	{
 		return "No Choice";
 	}
 
+	@Override
 	public Collection<String> getSet(PlayerCharacter pc)
 	{
 		return Collections.singletonList("NOCHOICE");
 	}
 
+	@Override
 	public String getTitle()
 	{
 		return "No Choice Available";
 	}
 
+	@Override
 	public String decodeChoice(String choice)
 	{
 		return choice;
 	}
 
+	@Override
 	public String encodeChoice(String choice)
 	{
 		return choice;
 	}
 
+	@Override
 	public PersistentChoiceActor<String> getChoiceActor()
 	{
 		return this;
 	}
 
+	@Override
 	public void setChoiceActor(ChoiceActor<String> ca)
 	{
 		// ignore
 	}
 
+	@Override
 	public boolean allow(String choice, PlayerCharacter pc, boolean allowStack)
 	{
 		return true;
 	}
 
+	@Override
 	public void applyChoice(CDOMObject owner, String st, PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, "");
@@ -164,6 +182,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 		ca.applyChoice(owner, "", pc);
 	}
 
+	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, String choice)
 	{
 		pc.removeAssoc(owner, AssociationListKey.CHOOSE_NOCHOICE, "");
@@ -179,6 +198,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 		}
 	}
 
+	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
 		String choice)
 	{
@@ -186,12 +206,14 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 		pc.addAssociation(owner, "");
 	}
 
+	@Override
 	public List<String> getCurrentlySelected(CDOMObject owner,
 		PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, AssociationListKey.CHOOSE_NOCHOICE);
 	}
 
+	@Override
 	public CharSequence getDisplay(PlayerCharacter pc, CDOMObject owner)
 	{
 		StringBuilder sb = new StringBuilder();

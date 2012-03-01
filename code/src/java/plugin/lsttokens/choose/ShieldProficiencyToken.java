@@ -46,12 +46,14 @@ public class ShieldProficiencyToken extends
 		return "Shield Proficiency choice";
 	}
 
+	@Override
 	public ShieldProf decodeChoice(String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				SHIELDPROF_CLASS, s);
 	}
 
+	@Override
 	public String encodeChoice(ShieldProf choice)
 	{
 		return choice.getKeyName();

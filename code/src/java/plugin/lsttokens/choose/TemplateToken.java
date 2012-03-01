@@ -45,12 +45,14 @@ public class TemplateToken extends AbstractQualifiedChooseToken<PCTemplate>
 		return "Template choice";
 	}
 
+	@Override
 	public PCTemplate decodeChoice(String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				PCTEMPLATE_CLASS, s);
 	}
 
+	@Override
 	public String encodeChoice(PCTemplate choice)
 	{
 		return choice.getKeyName();

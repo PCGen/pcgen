@@ -35,16 +35,19 @@ import pcgen.util.Logging;
 public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "USERINPUT";
 	}
 
+	@Override
 	public String getParentToken()
 	{
 		return "CHOOSE";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
@@ -100,6 +103,7 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
 		ChooseInformation<?> ci =
@@ -124,6 +128,7 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 		return "Provide User Input";
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

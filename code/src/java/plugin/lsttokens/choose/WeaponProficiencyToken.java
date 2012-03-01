@@ -46,12 +46,14 @@ public class WeaponProficiencyToken extends
 		return "Weapon Proficiency choice";
 	}
 
+	@Override
 	public WeaponProf decodeChoice(String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				WEAPONPROF_CLASS, s);
 	}
 
+	@Override
 	public String encodeChoice(WeaponProf choice)
 	{
 		return choice.getKeyName();

@@ -32,16 +32,19 @@ import pcgen.rules.persistence.token.ParseResult;
 public class NumberToken implements CDOMSecondaryToken<CDOMObject>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "NUMBER";
 	}
 
+	@Override
 	public String getParentToken()
 	{
 		return "CHOOSE";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
@@ -105,6 +108,7 @@ public class NumberToken implements CDOMSecondaryToken<CDOMObject>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
 		String chooseString = context.getObjectContext().getString(cdo,
@@ -118,6 +122,7 @@ public class NumberToken implements CDOMSecondaryToken<CDOMObject>
 				.substring(getTokenName().length() + 1) };
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

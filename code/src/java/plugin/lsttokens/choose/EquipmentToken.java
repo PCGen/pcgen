@@ -45,12 +45,14 @@ public class EquipmentToken extends AbstractQualifiedChooseToken<Equipment>
 		return "Equipment choice";
 	}
 
+	@Override
 	public Equipment decodeChoice(String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				EQUIPMENT_CLASS, s);
 	}
 
+	@Override
 	public String encodeChoice(Equipment choice)
 	{
 		return choice.getKeyName();

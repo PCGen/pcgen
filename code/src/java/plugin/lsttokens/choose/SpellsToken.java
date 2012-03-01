@@ -65,12 +65,14 @@ public class SpellsToken extends AbstractQualifiedChooseToken<Spell>
 		return AssociationListKey.CHOOSE_SPELL;
 	}
 
+	@Override
 	public Spell decodeChoice(String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 			SPELL_CLASS, s);
 	}
 
+	@Override
 	public String encodeChoice(Spell choice)
 	{
 		return choice.getKeyName();

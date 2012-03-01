@@ -44,16 +44,19 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 		PersistentChoiceActor<String>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "STRING";
 	}
 
+	@Override
 	public String getParentToken()
 	{
 		return "CHOOSE";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
@@ -105,6 +108,7 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
 		ChooseInformation<?> tc =
@@ -131,21 +135,25 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 		return new String[]{sb.toString()};
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+	@Override
 	public String decodeChoice(String s)
 	{
 		return s;
 	}
 
+	@Override
 	public String encodeChoice(String choice)
 	{
 		return choice;
 	}
 
+	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, String choice)
 	{
 		pc.removeAssoc(owner, AssociationListKey.CHOOSE_STRING, choice);
@@ -160,6 +168,7 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 		}
 	}
 
+	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
 		String choice)
 	{
@@ -167,11 +176,13 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 		pc.addAssociation(owner, encodeChoice(choice));
 	}
 
+	@Override
 	public boolean allow(String choice, PlayerCharacter pc, boolean allowStack)
 	{
 		return true;
 	}
 
+	@Override
 	public void applyChoice(CDOMObject owner, String choice, PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, choice);
@@ -192,6 +203,7 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 		ca.applyChoice(owner, st, pc);
 	}
 
+	@Override
 	public List<String> getCurrentlySelected(CDOMObject owner,
 		PlayerCharacter pc)
 	{
