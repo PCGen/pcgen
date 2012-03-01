@@ -29,11 +29,13 @@ import pcgen.rules.persistence.token.ParseResult;
 public class SymbolToken implements CDOMPrimaryToken<Deity>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "SYMBOL";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, Deity deity, String value)
 	{
 		if (value == null || value.length() == 0)
@@ -44,6 +46,7 @@ public class SymbolToken implements CDOMPrimaryToken<Deity>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Deity deity)
 	{
 		String holyItem =
@@ -56,6 +59,7 @@ public class SymbolToken implements CDOMPrimaryToken<Deity>
 		return new String[]{holyItem};
 	}
 
+	@Override
 	public Class<Deity> getTokenClass()
 	{
 		return Deity.class;

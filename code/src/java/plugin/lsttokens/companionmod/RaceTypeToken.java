@@ -47,6 +47,7 @@ public class RaceTypeToken extends AbstractNonEmptyToken<CompanionMod>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CompanionMod cMod)
 	{
 		RaceType raceType =
@@ -58,6 +59,7 @@ public class RaceTypeToken extends AbstractNonEmptyToken<CompanionMod>
 		return new String[]{raceType.toString()};
 	}
 
+	@Override
 	public Class<CompanionMod> getTokenClass()
 	{
 		return CompanionMod.class;

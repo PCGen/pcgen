@@ -50,6 +50,7 @@ public class WorshippersToken extends AbstractNonEmptyToken<Deity> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Deity deity)
 	{
 		String worshippers = context.getObjectContext().getString(deity,
@@ -61,6 +62,7 @@ public class WorshippersToken extends AbstractNonEmptyToken<Deity> implements
 		return new String[] { worshippers };
 	}
 
+	@Override
 	public Class<Deity> getTokenClass()
 	{
 		return Deity.class;

@@ -30,11 +30,13 @@ import pcgen.rules.persistence.token.ParseResult;
 public class AlignToken implements CDOMPrimaryToken<Deity>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "ALIGN";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, Deity deity, String value)
 	{
 		PCAlignment al =
@@ -48,6 +50,7 @@ public class AlignToken implements CDOMPrimaryToken<Deity>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Deity deity)
 	{
 		PCAlignment at =
@@ -60,6 +63,7 @@ public class AlignToken implements CDOMPrimaryToken<Deity>
 		return new String[]{at.getLSTformat()};
 	}
 
+	@Override
 	public Class<Deity> getTokenClass()
 	{
 		return Deity.class;

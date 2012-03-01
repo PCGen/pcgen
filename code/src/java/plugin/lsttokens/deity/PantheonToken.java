@@ -61,6 +61,7 @@ public class PantheonToken extends AbstractTokenWithSeparator<Deity> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Deity deity)
 	{
 		Changes<Pantheon> changes =
@@ -73,6 +74,7 @@ public class PantheonToken extends AbstractTokenWithSeparator<Deity> implements
 		return new String[]{StringUtil.join(changes.getAdded(), Constants.PIPE)};
 	}
 
+	@Override
 	public Class<Deity> getTokenClass()
 	{
 		return Deity.class;

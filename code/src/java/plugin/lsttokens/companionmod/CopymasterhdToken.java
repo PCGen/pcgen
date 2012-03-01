@@ -41,6 +41,7 @@ public class CopymasterhdToken extends AbstractStringToken<CompanionMod>
 		return StringKey.MASTER_HP_FORMULA;
 	}
 
+	@Override
 	public Class<CompanionMod> getTokenClass()
 	{
 		return CompanionMod.class;

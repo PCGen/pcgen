@@ -105,6 +105,7 @@ public class FollowerToken extends AbstractTokenWithSeparator<CompanionMod>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CompanionMod cMod)
 	{
 		MapChanges<CDOMSingleRef<? extends PCClass>, Integer> changes =
@@ -137,6 +138,7 @@ public class FollowerToken extends AbstractTokenWithSeparator<CompanionMod>
 		return new String[]{StringUtil.join(set, Constants.PIPE)};
 	}
 
+	@Override
 	public Class<CompanionMod> getTokenClass()
 	{
 		return CompanionMod.class;

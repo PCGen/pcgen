@@ -73,6 +73,7 @@ public class MasterbonusraceToken extends
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CompanionMod cMod)
 	{
 		Changes<CDOMSingleRef<Race>> changes =
@@ -92,6 +93,7 @@ public class MasterbonusraceToken extends
 		return new String[]{StringUtil.join(set, Constants.PIPE)};
 	}
 
+	@Override
 	public Class<CompanionMod> getTokenClass()
 	{
 		return CompanionMod.class;

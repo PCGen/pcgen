@@ -45,6 +45,7 @@ public class AppearanceToken extends AbstractNonEmptyToken<Deity> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Deity deity)
 	{
 		String appearance = context.getObjectContext().getString(deity,
@@ -56,6 +57,7 @@ public class AppearanceToken extends AbstractNonEmptyToken<Deity> implements
 		return new String[] { appearance };
 	}
 
+	@Override
 	public Class<Deity> getTokenClass()
 	{
 		return Deity.class;

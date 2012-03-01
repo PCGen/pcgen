@@ -41,6 +41,7 @@ public class CopymastercheckToken extends AbstractStringToken<CompanionMod>
 		return StringKey.MASTER_CHECK_FORMULA;
 	}
 
+	@Override
 	public Class<CompanionMod> getTokenClass()
 	{
 		return CompanionMod.class;

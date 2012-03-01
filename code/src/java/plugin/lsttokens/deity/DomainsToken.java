@@ -166,6 +166,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Deity> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Deity deity)
 	{
 		CDOMReference<DomainList> dl = Deity.DOMAINLIST;
@@ -226,6 +227,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Deity> implements
 		return list.toArray(new String[list.size()]);
 	}
 
+	@Override
 	public Class<Deity> getTokenClass()
 	{
 		return Deity.class;

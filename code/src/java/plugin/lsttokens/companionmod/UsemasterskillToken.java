@@ -66,6 +66,7 @@ public class UsemasterskillToken extends AbstractNonEmptyToken<CompanionMod>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CompanionMod cMod)
 	{
 		Boolean ums =
@@ -78,6 +79,7 @@ public class UsemasterskillToken extends AbstractNonEmptyToken<CompanionMod>
 		return new String[]{ums.booleanValue() ? "YES" : "NO"};
 	}
 
+	@Override
 	public Class<CompanionMod> getTokenClass()
 	{
 		return CompanionMod.class;

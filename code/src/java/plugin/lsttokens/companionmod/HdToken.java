@@ -46,6 +46,7 @@ public class HdToken extends AbstractIntToken<CompanionMod> implements
 		return 1;
 	}
 
+	@Override
 	public Class<CompanionMod> getTokenClass()
 	{
 		return CompanionMod.class;

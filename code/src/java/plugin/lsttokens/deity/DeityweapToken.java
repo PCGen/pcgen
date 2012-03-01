@@ -86,6 +86,7 @@ public class DeityweapToken extends AbstractTokenWithSeparator<Deity> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Deity deity)
 	{
 		Changes<CDOMReference<WeaponProf>> changes = context
@@ -98,6 +99,7 @@ public class DeityweapToken extends AbstractTokenWithSeparator<Deity> implements
 				.getAdded(), Constants.PIPE, true) };
 	}
 
+	@Override
 	public Class<Deity> getTokenClass()
 	{
 		return Deity.class;

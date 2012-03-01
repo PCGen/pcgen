@@ -41,6 +41,7 @@ public class CopymasterbabToken extends AbstractStringToken<CompanionMod>
 		return StringKey.MASTER_BAB_FORMULA;
 	}
 
+	@Override
 	public Class<CompanionMod> getTokenClass()
 	{
 		return CompanionMod.class;

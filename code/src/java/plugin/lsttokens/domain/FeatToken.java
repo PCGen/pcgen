@@ -140,6 +140,7 @@ public class FeatToken extends AbstractTokenWithSeparator<Domain> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Domain domain)
 	{
 		AssociatedChanges<CDOMReference<Ability>> changes = context
@@ -212,6 +213,7 @@ public class FeatToken extends AbstractTokenWithSeparator<Domain> implements
 		return new String[] { sb.toString() };
 	}
 
+	@Override
 	public Class<Domain> getTokenClass()
 	{
 		return Domain.class;
