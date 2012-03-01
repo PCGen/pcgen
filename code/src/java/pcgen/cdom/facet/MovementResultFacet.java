@@ -929,10 +929,22 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 		if (mci != null)
 		{
 			MovementCacheInfo copymci = getConstructingInfo(copy);
-			copymci.movementMult = mci.movementMult.clone();
-			copymci.movementMultOp = mci.movementMultOp.clone();
-			copymci.movements = mci.movements.clone();
-			copymci.movementTypes = mci.movementTypes.clone();
+			if (mci.movementMult != null)
+			{
+				copymci.movementMult = mci.movementMult.clone();
+			}
+			if (mci.movementMultOp != null)
+			{
+				copymci.movementMultOp = mci.movementMultOp.clone();
+			}
+			if (mci.movements != null)
+			{
+				copymci.movements = mci.movements.clone();
+			}
+			if (mci.movementTypes != null)
+			{
+				copymci.movementTypes = mci.movementTypes.clone();
+			}
 		}
 	}
 }
