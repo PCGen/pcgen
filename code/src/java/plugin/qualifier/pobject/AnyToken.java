@@ -42,11 +42,13 @@ public class AnyToken<T extends CDOMObject> implements QualifierToken<T>
 
 	private boolean negated = false;
 
+	@Override
 	public String getTokenName()
 	{
 		return "ANY";
 	}
 
+	@Override
 	public boolean initialize(LoadContext context, SelectionCreator<T> sc,
 			String condition, String value, boolean negate)
 	{
@@ -75,6 +77,7 @@ public class AnyToken<T extends CDOMObject> implements QualifierToken<T>
 		return pcs != null;
 	}
 
+	@Override
 	public Class<? super T> getReferenceClass()
 	{
 		if (refClass == null)
@@ -87,6 +90,7 @@ public class AnyToken<T extends CDOMObject> implements QualifierToken<T>
 		}
 	}
 
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		StringBuilder sb = new StringBuilder();
@@ -143,12 +147,14 @@ public class AnyToken<T extends CDOMObject> implements QualifierToken<T>
 		return false;
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		GroupingState gs = pcs == null ? GroupingState.ALLOWS_NONE : pcs.getGroupingState();
 		return negated ? gs.negate() : gs;
 	}
 
+	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<T, R> c)
 	{
 		Converter<T, R> conv = negated ? new NegateFilterConverter<T, R>(c) : c;

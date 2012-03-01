@@ -41,6 +41,7 @@ public class PCToken extends AbstractPCQualifierToken<Race>
 		}
 	}
 
+	@Override
 	public Class<? super Race> getReferenceClass()
 	{
 		return Race.class;

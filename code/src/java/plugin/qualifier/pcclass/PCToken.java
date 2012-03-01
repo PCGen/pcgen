@@ -32,6 +32,7 @@ public class PCToken extends AbstractPCQualifierToken<PCClass>
 		return pc.getClassSet();
 	}
 
+	@Override
 	public Class<? super PCClass> getReferenceClass()
 	{
 		return PCClass.class;

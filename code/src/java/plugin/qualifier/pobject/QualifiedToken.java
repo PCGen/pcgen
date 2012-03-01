@@ -45,11 +45,13 @@ public class QualifiedToken<T extends CDOMObject> implements QualifierToken<T>,
 
 	private boolean negated;
 
+	@Override
 	public String getTokenName()
 	{
 		return "QUALIFIED";
 	}
 
+	@Override
 	public boolean initialize(LoadContext context, SelectionCreator<T> sc,
 			String condition, String value, boolean negate)
 	{
@@ -78,6 +80,7 @@ public class QualifiedToken<T extends CDOMObject> implements QualifierToken<T>,
 		return pcs != null;
 	}
 
+	@Override
 	public Class<? super T> getReferenceClass()
 	{
 		if (refClass == null)
@@ -90,6 +93,7 @@ public class QualifiedToken<T extends CDOMObject> implements QualifierToken<T>,
 		}
 	}
 
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		StringBuilder sb = new StringBuilder();
@@ -150,6 +154,7 @@ public class QualifiedToken<T extends CDOMObject> implements QualifierToken<T>,
 		return false;
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		GroupingState gs =
@@ -158,6 +163,7 @@ public class QualifiedToken<T extends CDOMObject> implements QualifierToken<T>,
 		return negated ? gs.negate() : gs;
 	}
 
+	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<T, R> c)
 	{
 		Converter<T, R> conv = new AddFilterConverter<T, R>(c, this);
@@ -165,6 +171,7 @@ public class QualifiedToken<T extends CDOMObject> implements QualifierToken<T>,
 		return pcs.getCollection(pc, conv);
 	}
 
+	@Override
 	public boolean allow(PlayerCharacter pc, T po)
 	{
 		return pc.isQualified(po);
