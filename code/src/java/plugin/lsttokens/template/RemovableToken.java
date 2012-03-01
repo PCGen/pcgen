@@ -70,6 +70,7 @@ public class RemovableToken extends AbstractNonEmptyToken<PCTemplate> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
 		Boolean b = context.getObjectContext().getObject(pct,
@@ -81,6 +82,7 @@ public class RemovableToken extends AbstractNonEmptyToken<PCTemplate> implements
 		return new String[] { b.booleanValue() ? "YES" : "NO" };
 	}
 
+	@Override
 	public Class<PCTemplate> getTokenClass()
 	{
 		return PCTemplate.class;

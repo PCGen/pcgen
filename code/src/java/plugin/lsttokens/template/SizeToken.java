@@ -65,6 +65,7 @@ public class SizeToken extends AbstractNonEmptyToken<PCTemplate> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCTemplate template)
 	{
 		Formula res = context.getObjectContext().getFormula(template,
@@ -76,6 +77,7 @@ public class SizeToken extends AbstractNonEmptyToken<PCTemplate> implements
 		return new String[] { res.toString() };
 	}
 
+	@Override
 	public Class<PCTemplate> getTokenClass()
 	{
 		return PCTemplate.class;

@@ -55,6 +55,7 @@ public class GenderlockToken extends AbstractNonEmptyToken<PCTemplate>
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
 		Gender g = context.getObjectContext().getObject(pct,
@@ -66,6 +67,7 @@ public class GenderlockToken extends AbstractNonEmptyToken<PCTemplate>
 		return new String[] { g.toString() };
 	}
 
+	@Override
 	public Class<PCTemplate> getTokenClass()
 	{
 		return PCTemplate.class;

@@ -58,6 +58,7 @@ public class SubraceToken extends AbstractNonEmptyToken<PCTemplate> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
 		Boolean useName = context.getObjectContext().getObject(pct,
@@ -81,6 +82,7 @@ public class SubraceToken extends AbstractNonEmptyToken<PCTemplate> implements
 		return new String[] { subrace.toString() };
 	}
 
+	@Override
 	public Class<PCTemplate> getTokenClass()
 	{
 		return PCTemplate.class;

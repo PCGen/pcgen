@@ -112,6 +112,7 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
 		Changes<CDOMReference<Ability>> changes = context.getObjectContext()
@@ -147,11 +148,13 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		return new String[] { returnVal };
 	}
 
+	@Override
 	public Class<PCTemplate> getTokenClass()
 	{
 		return PCTemplate.class;
 	}
 
+	@Override
 	public void applyChoice(CDOMObject owner, AbilitySelection choice,
 			PlayerCharacter pc)
 	{
@@ -166,6 +169,7 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		pc.addAssoc(owner, AssociationListKey.TEMPLATE_FEAT, choice);
 	}
 
+	@Override
 	public boolean allow(AbilitySelection choice, PlayerCharacter pc,
 			boolean allowStack)
 	{
@@ -213,27 +217,32 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		return a.getSafe(ObjectKey.STACKS) && allowStack;
 	}
 
+	@Override
 	public AbilitySelection decodeChoice(String s)
 	{
 		return AbilitySelection.getAbilitySelectionFromPersistentFormat(s);
 	}
 
+	@Override
 	public String encodeChoice(AbilitySelection choice)
 	{
 		return choice.getPersistentFormat();
 	}
 
+	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
 			AbilitySelection choice)
 	{
 		// No action required
 	}
 
+	@Override
 	public Class<PCTemplate> getDeferredTokenClass()
 	{
 		return PCTemplate.class;
 	}
 
+	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
 			AbilitySelection choice)
 	{
@@ -255,6 +264,7 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		}
 	}
 
+	@Override
 	public boolean process(LoadContext context, PCTemplate pct)
 	{
 		List<CDOMReference<Ability>> list = pct
@@ -274,6 +284,7 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		return true;
 	}
 
+	@Override
 	public List<AbilitySelection> getCurrentlySelected(CDOMObject owner,
 			PlayerCharacter pc)
 	{

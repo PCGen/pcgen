@@ -47,6 +47,7 @@ public class BonusskillpointsToken extends AbstractIntToken<PCTemplate>
 		return 1;
 	}
 
+	@Override
 	public Class<PCTemplate> getTokenClass()
 	{
 		return PCTemplate.class;

@@ -252,6 +252,7 @@ public class HitdieToken extends AbstractNonEmptyToken<PCTemplate> implements
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCTemplate template)
 	{
 		Modifier<HitDie> hdcf = context.getObjectContext().getObject(template,
@@ -263,6 +264,7 @@ public class HitdieToken extends AbstractNonEmptyToken<PCTemplate> implements
 		return new String[] { hdcf.getLSTformat() };
 	}
 
+	@Override
 	public Class<PCTemplate> getTokenClass()
 	{
 		return PCTemplate.class;

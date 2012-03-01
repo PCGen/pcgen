@@ -77,6 +77,7 @@ public class RacesubtypeToken extends AbstractTokenWithSeparator<PCTemplate>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
 		Changes<RaceSubType> addedChanges = context.getObjectContext()
@@ -118,6 +119,7 @@ public class RacesubtypeToken extends AbstractTokenWithSeparator<PCTemplate>
 		return new String[] { sb.toString() };
 	}
 
+	@Override
 	public Class<PCTemplate> getTokenClass()
 	{
 		return PCTemplate.class;

@@ -47,6 +47,7 @@ public class RacetypeToken extends AbstractNonEmptyToken<PCTemplate> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
 		RaceType raceType = context.getObjectContext().getObject(pct,
@@ -58,6 +59,7 @@ public class RacetypeToken extends AbstractNonEmptyToken<PCTemplate> implements
 		return new String[] { raceType.toString() };
 	}
 
+	@Override
 	public Class<PCTemplate> getTokenClass()
 	{
 		return PCTemplate.class;

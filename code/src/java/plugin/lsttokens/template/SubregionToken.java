@@ -59,6 +59,7 @@ public class SubregionToken extends AbstractNonEmptyToken<PCTemplate> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
 		Boolean useName = context.getObjectContext().getObject(pct,
@@ -82,6 +83,7 @@ public class SubregionToken extends AbstractNonEmptyToken<PCTemplate> implements
 		return new String[] { subregion.toString() };
 	}
 
+	@Override
 	public Class<PCTemplate> getTokenClass()
 	{
 		return PCTemplate.class;

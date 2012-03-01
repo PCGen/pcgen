@@ -55,6 +55,7 @@ public class CrToken extends AbstractNonEmptyToken<PCTemplate> implements
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
 		BigDecimal mod = context.getObjectContext().getObject(pct,
@@ -66,6 +67,7 @@ public class CrToken extends AbstractNonEmptyToken<PCTemplate> implements
 		return new String[] { mod.toString() };
 	}
 
+	@Override
 	public Class<PCTemplate> getTokenClass()
 	{
 		return PCTemplate.class;

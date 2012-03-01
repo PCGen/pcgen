@@ -47,6 +47,7 @@ public class HandsToken extends AbstractIntToken<PCTemplate> implements
 		return 0;
 	}
 
+	@Override
 	public Class<PCTemplate> getTokenClass()
 	{
 		return PCTemplate.class;
