@@ -32,6 +32,7 @@ public class PCToken extends AbstractPCQualifierToken<Domain>
 		return pc.getDomainSet();
 	}
 
+	@Override
 	public Class<? super Domain> getReferenceClass()
 	{
 		return Domain.class;

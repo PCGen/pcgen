@@ -41,6 +41,7 @@ public class PCToken extends AbstractPCQualifierToken<Deity>
 		}
 	}
 
+	@Override
 	public Class<? super Deity> getReferenceClass()
 	{
 		return Deity.class;
