@@ -28,16 +28,19 @@ import pcgen.rules.persistence.token.ParseResult;
 public class BasestatscoreToken implements CDOMPrimaryToken<BonusSpellInfo>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "BASESTATSCORE";
 	}
 
+	@Override
 	public Class<BonusSpellInfo> getTokenClass()
 	{
 		return BonusSpellInfo.class;
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, BonusSpellInfo bsi,
 			String value)
 	{
@@ -60,6 +63,7 @@ public class BasestatscoreToken implements CDOMPrimaryToken<BonusSpellInfo>
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, BonusSpellInfo bsi)
 	{
 		int range = bsi.getStatScore();

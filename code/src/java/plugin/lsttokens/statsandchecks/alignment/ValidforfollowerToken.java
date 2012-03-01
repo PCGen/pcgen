@@ -70,6 +70,7 @@ public class ValidforfollowerToken extends AbstractNonEmptyToken<PCAlignment> im
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCAlignment al)
 	{
 		Boolean b = context.getObjectContext().getObject(al,
@@ -81,6 +82,7 @@ public class ValidforfollowerToken extends AbstractNonEmptyToken<PCAlignment> im
 		return new String[] { b.booleanValue() ? "YES" : "NO" };
 	}
 
+	@Override
 	public Class<PCAlignment> getTokenClass()
 	{
 		return PCAlignment.class;

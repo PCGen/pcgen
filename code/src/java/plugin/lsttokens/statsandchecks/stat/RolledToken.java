@@ -69,6 +69,7 @@ public class RolledToken extends AbstractNonEmptyToken<PCStat> implements CDOMPr
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCStat stat)
 	{
 		Boolean b = context.getObjectContext()
@@ -80,6 +81,7 @@ public class RolledToken extends AbstractNonEmptyToken<PCStat> implements CDOMPr
 		return new String[] { b.booleanValue() ? "YES" : "NO" };
 	}
 
+	@Override
 	public Class<PCStat> getTokenClass()
 	{
 		return PCStat.class;

@@ -54,6 +54,7 @@ public class AbbToken extends AbstractNonEmptyToken<PCAlignment> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCAlignment al)
 	{
 		String abb = context.ref.getAbbreviation(al);
@@ -64,6 +65,7 @@ public class AbbToken extends AbstractNonEmptyToken<PCAlignment> implements
 		return new String[] { abb };
 	}
 
+	@Override
 	public Class<PCAlignment> getTokenClass()
 	{
 		return PCAlignment.class;

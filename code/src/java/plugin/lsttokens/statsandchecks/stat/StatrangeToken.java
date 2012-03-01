@@ -31,11 +31,13 @@ import pcgen.rules.persistence.token.ParseResult;
 public class StatrangeToken implements CDOMPrimaryToken<PCStat>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "STATRANGE";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, PCStat stat, String value)
 	{
 		final StringTokenizer aTok = new StringTokenizer(value, "|", false);
@@ -65,6 +67,7 @@ public class StatrangeToken implements CDOMPrimaryToken<PCStat>
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCStat stat)
 	{
 		Integer min = context.getObjectContext().getInteger(stat,
@@ -86,6 +89,7 @@ public class StatrangeToken implements CDOMPrimaryToken<PCStat>
 		return new String[] { sb.toString() };
 	}
 
+	@Override
 	public Class<PCStat> getTokenClass()
 	{
 		return PCStat.class;

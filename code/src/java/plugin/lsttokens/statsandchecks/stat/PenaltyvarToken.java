@@ -28,23 +28,27 @@ import pcgen.rules.persistence.token.ParseResult;
 public class PenaltyvarToken implements CDOMPrimaryToken<PCStat>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "PENALTYVAR";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, PCStat obj, String value)
 	{
 		// TODO Need to figure out what to do here...
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCStat obj)
 	{
 		// TODO Need to figure out what to do here...
 		return null;
 	}
 
+	@Override
 	public Class<PCStat> getTokenClass()
 	{
 		return PCStat.class;

@@ -31,11 +31,13 @@ import pcgen.rules.persistence.token.ParseResult;
 public class StatmodToken implements CDOMPrimaryToken<PCStat>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "STATMOD";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, PCStat stat, String value)
 	{
 		if (value == null || value.length() == 0)
@@ -52,6 +54,7 @@ public class StatmodToken implements CDOMPrimaryToken<PCStat>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCStat stat)
 	{
 		Formula target = context.getObjectContext().getFormula(stat,
@@ -63,6 +66,7 @@ public class StatmodToken implements CDOMPrimaryToken<PCStat>
 		return new String[] { target.toString() };
 	}
 
+	@Override
 	public Class<PCStat> getTokenClass()
 	{
 		return PCStat.class;

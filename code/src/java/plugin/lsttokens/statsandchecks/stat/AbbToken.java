@@ -57,6 +57,7 @@ public class AbbToken extends AbstractNonEmptyToken<PCStat> implements CDOMPrima
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, PCStat stat)
 	{
 		String abb = context.ref.getAbbreviation(stat);
@@ -67,6 +68,7 @@ public class AbbToken extends AbstractNonEmptyToken<PCStat> implements CDOMPrima
 		return new String[] { abb };
 	}
 
+	@Override
 	public Class<PCStat> getTokenClass()
 	{
 		return PCStat.class;
