@@ -409,7 +409,7 @@ public class JTreeViewTable<T> extends JTreeTable
 					if (menu.isSelected()
 							&& menu.getAction() instanceof JTreeViewTable.ChangeViewAction)
 					{
-						ChangeViewAction changeViewAction = (JTreeViewTable<T>.ChangeViewAction) menu.getAction();
+						ChangeViewAction changeViewAction = (JTreeViewTable.ChangeViewAction) menu.getAction();
 						startingView = changeViewAction.view;
 					}
 				}
