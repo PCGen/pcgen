@@ -92,26 +92,31 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		table = null;
 	}
 
+	@Override
 	public ListFacade<? extends TreeView<SkillFacade>> getTreeViews()
 	{
 		return treeviews;
 	}
 
+	@Override
 	public int getDefaultTreeViewIndex()
 	{
 		return 1;
 	}
 
+	@Override
 	public DataView<SkillFacade> getDataView()
 	{
 		return this;
 	}
 
+	@Override
 	public ListFacade<SkillFacade> getDataModel()
 	{
 		return character.getDataSet().getSkills();
 	}
 
+	@Override
 	public List<?> getData(SkillFacade obj)
 	{
 		if (selectionModel.isSelectionEmpty())
@@ -132,6 +137,7 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		}
 	}
 
+	@Override
 	public List<? extends DataViewColumn> getDataColumns()
 	{
 		return columns;
@@ -181,11 +187,13 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 			this.name = name;
 		}
 
+		@Override
 		public String getViewName()
 		{
 			return name;
 		}
 
+		@Override
 		@SuppressWarnings("unchecked")
 		public List<TreeViewPath<SkillFacade>> getPaths(SkillFacade pobj)
 		{
@@ -218,11 +226,13 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 	private final TreeView<SkillFacade> COST_NAME = new TreeView<SkillFacade>()
 	{
 
+		@Override
 		public String getViewName()
 		{
 			return "Cost/Name";
 		}
 
+		@Override
 		@SuppressWarnings("unchecked")
 		public List<TreeViewPath<SkillFacade>> getPaths(SkillFacade pobj)
 		{
@@ -240,11 +250,13 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 	private final TreeView<SkillFacade> COST_TYPE_NAME = new TreeView<SkillFacade>()
 	{
 
+		@Override
 		public String getViewName()
 		{
 			return "Cost/Type/Name";
 		}
 
+		@Override
 		@SuppressWarnings("unchecked")
 		public List<TreeViewPath<SkillFacade>> getPaths(SkillFacade pobj)
 		{

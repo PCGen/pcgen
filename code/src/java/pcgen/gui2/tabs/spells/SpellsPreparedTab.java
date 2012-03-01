@@ -40,6 +40,7 @@ import org.apache.commons.lang.StringUtils;
 
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.SpellSupportFacade.SpellNode;
+import pcgen.core.facade.SpellSupportFacade.SuperNode;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tools.FlippingSplitPane;
@@ -57,8 +58,8 @@ public class SpellsPreparedTab extends FlippingSplitPane
 {
 
 	private final TabTitle tabTitle = new TabTitle("Prepared Spells");
-	private final JTreeViewTable availableTable;
-	private final JTreeViewTable selectedTable;
+	private final JTreeViewTable<SuperNode> availableTable;
+	private final JTreeViewTable<SuperNode> selectedTable;
 	private final JButton addMMSpellButton;
 	private final JButton addSpellButton;
 	private final JButton removeSpellButton;
@@ -71,8 +72,8 @@ public class SpellsPreparedTab extends FlippingSplitPane
 
 	public SpellsPreparedTab()
 	{
-		this.availableTable = new JTreeViewTable();
-		this.selectedTable = new JTreeViewTable();
+		this.availableTable = new JTreeViewTable<SuperNode>();
+		this.selectedTable = new JTreeViewTable<SuperNode>();
 		this.addMMSpellButton = new JButton();
 		this.addSpellButton = new JButton();
 		this.removeSpellButton = new JButton();
@@ -225,7 +226,7 @@ public class SpellsPreparedTab extends FlippingSplitPane
 		}
 		if (StringUtils.isEmpty(spellList))
 		{
-			ListFacade data = selectedTable.getTreeViewModel().getDataModel();
+			ListFacade<?> data = selectedTable.getTreeViewModel().getDataModel();
 			if (!data.isEmpty())
 			{
 				Object firstElem = data.getElementAt(0);
@@ -265,6 +266,7 @@ public class SpellsPreparedTab extends FlippingSplitPane
 			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			List<?> data = availableTable.getSelectedData();
@@ -292,6 +294,7 @@ public class SpellsPreparedTab extends FlippingSplitPane
 			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			List<?> data = availableTable.getSelectedData();
@@ -329,6 +332,7 @@ public class SpellsPreparedTab extends FlippingSplitPane
 			putValue(SMALL_ICON, Icons.Back16.getImageIcon());
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			List<?> data = selectedTable.getSelectedData();
@@ -366,6 +370,7 @@ public class SpellsPreparedTab extends FlippingSplitPane
 			this.character = character;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			character.getSpellSupport().setUseHigherPreppedSlots(slotsBox.isSelected());
@@ -389,6 +394,7 @@ public class SpellsPreparedTab extends FlippingSplitPane
 			this.character = character;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			character.getSpellSupport().addSpellList(spellListField.getText());
@@ -407,6 +413,7 @@ public class SpellsPreparedTab extends FlippingSplitPane
 			this.character = character;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			character.getSpellSupport().removeSpellList(spellListField.getText());

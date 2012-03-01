@@ -37,6 +37,7 @@ import javax.swing.JTextField;
 
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.SpellSupportFacade.SpellNode;
+import pcgen.core.facade.SpellSupportFacade.SuperNode;
 import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tools.FlippingSplitPane;
@@ -56,8 +57,8 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 {
 
 	private final TabTitle tabTitle = new TabTitle("Known Spells");
-	private final JTreeViewTable availableTable;
-	private final JTreeViewTable selectedTable;
+	private final JTreeViewTable<SuperNode> availableTable;
+	private final JTreeViewTable<SuperNode> selectedTable;
 	private final JButton addButton;
 	private final JButton removeButton;
 	private final JCheckBox autoKnownBox;
@@ -71,8 +72,8 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 	public SpellsKnownTab()
 	{
-		this.availableTable = new JTreeViewTable();
-		this.selectedTable = new JTreeViewTable();
+		this.availableTable = new JTreeViewTable<SuperNode>();
+		this.selectedTable = new JTreeViewTable<SuperNode>();
 		this.addButton = new JButton();
 		this.removeButton = new JButton();
 		this.autoKnownBox = new JCheckBox();
@@ -125,6 +126,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 			spellSheetButton.addActionListener(new ActionListener()
 			{
 
+				@Override
 				public void actionPerformed(ActionEvent e)
 				{
 					selectSpellSheetButton();
@@ -164,6 +166,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		setOrientation(VERTICAL_SPLIT);
 	}
 
+	@Override
 	public Hashtable<Object, Object> createModels(CharacterFacade character)
 	{
 		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
@@ -181,6 +184,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		return state;
 	}
 
+	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
 		((TreeViewModelHandler) state.get(TreeViewModelHandler.class)).install();
@@ -198,6 +202,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		exportSpellsButton.setAction((ExportSpellsAction) state.get(ExportSpellsAction.class));
 	}
 
+	@Override
 	public void storeModels(Hashtable<Object, Object> state)
 	{
 		((SpellInfoHandler) state.get(SpellInfoHandler.class)).uninstall();
@@ -206,6 +211,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		((RemoveSpellAction) state.get(RemoveSpellAction.class)).uninstall();
 	}
 
+	@Override
 	public TabTitle getTabTitle()
 	{
 		return tabTitle;
@@ -247,6 +253,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			List<?> data = availableTable.getSelectedData();
@@ -282,6 +289,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 			putValue(SMALL_ICON, Icons.Back16.getImageIcon());
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			List<?> data = selectedTable.getSelectedData();
@@ -317,6 +325,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 			this.character = character;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			character.getSpellSupport().setAutoSpells(autoKnownBox.isSelected());
@@ -340,6 +349,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 			this.character = character;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			character.getSpellSupport().setUseHigherKnownSlots(slotsBox.isSelected());
@@ -363,6 +373,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 			putValue(SMALL_ICON, Icons.PrintPreview16.getImageIcon());
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			character.getSpellSupport().previewSpells();
@@ -381,6 +392,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 			putValue(SMALL_ICON, Icons.Print16.getImageIcon());
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			character.getSpellSupport().exportSpells();

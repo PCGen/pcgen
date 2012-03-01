@@ -40,6 +40,7 @@ import org.apache.commons.lang.StringUtils;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.SpellSupportFacade.RootNode;
 import pcgen.core.facade.SpellSupportFacade.SpellNode;
+import pcgen.core.facade.SpellSupportFacade.SuperNode;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
@@ -57,8 +58,8 @@ public class SpellBooksTab extends FlippingSplitPane
 {
 
 	private final TabTitle tabTitle = new TabTitle("Spell Books");
-	private final JTreeViewTable availableTable;
-	private final JTreeViewTable selectedTable;
+	private final JTreeViewTable<SuperNode> availableTable;
+	private final JTreeViewTable<SuperNode> selectedTable;
 	private final JButton addButton;
 	private final JButton removeButton;
 	private final InfoPane spellsPane;
@@ -67,8 +68,8 @@ public class SpellBooksTab extends FlippingSplitPane
 
 	public SpellBooksTab()
 	{
-		this.availableTable = new JTreeViewTable();
-		this.selectedTable = new JTreeViewTable();
+		this.availableTable = new JTreeViewTable<SuperNode>();
+		this.selectedTable = new JTreeViewTable<SuperNode>();
 		this.addButton = new JButton();
 		this.removeButton = new JButton();
 		this.spellsPane = new InfoPane(LanguageBundle.getString("InfoSpells.spell.info"));
@@ -147,6 +148,7 @@ public class SpellBooksTab extends FlippingSplitPane
 		defaultSpellBookModel = new CharacterComboBoxModel<String>()
 		{
 
+			@Override
 			public void setSelectedItem(Object anItem)
 			{
 				character.getSpellSupport().setDefaultSpellBook((String) anItem);
@@ -221,7 +223,7 @@ public class SpellBooksTab extends FlippingSplitPane
 		}
 		if (StringUtils.isEmpty(spellList))
 		{
-			ListFacade data = selectedTable.getTreeViewModel().getDataModel();
+			ListFacade<?> data = selectedTable.getTreeViewModel().getDataModel();
 			if (!data.isEmpty())
 			{
 				Object firstElem = data.getElementAt(0);
@@ -245,6 +247,7 @@ public class SpellBooksTab extends FlippingSplitPane
 			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			List<?> data = availableTable.getSelectedData();
@@ -282,6 +285,7 @@ public class SpellBooksTab extends FlippingSplitPane
 			putValue(SMALL_ICON, Icons.Back16.getImageIcon());
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			List<?> data = selectedTable.getSelectedData();

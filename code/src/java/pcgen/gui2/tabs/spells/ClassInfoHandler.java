@@ -37,11 +37,11 @@ class ClassInfoHandler implements ListSelectionListener
 {
 
 	private CharacterFacade character;
-	private final JTreeViewTable availableTable;
-	private final JTreeViewTable selectedTable;
+	private final JTreeViewTable<?> availableTable;
+	private final JTreeViewTable<?> selectedTable;
 	private final InfoPane classPane;
 
-	public ClassInfoHandler(CharacterFacade character, JTreeViewTable table1, JTreeViewTable table2,
+	public ClassInfoHandler(CharacterFacade character, JTreeViewTable<?> table1, JTreeViewTable<?> table2,
 							InfoPane classPane)
 	{
 		this.character = character;
@@ -62,6 +62,7 @@ class ClassInfoHandler implements ListSelectionListener
 		selectedTable.getSelectionModel().removeListSelectionListener(this);
 	}
 
+	@Override
 	public void valueChanged(ListSelectionEvent e)
 	{
 		if (!e.getValueIsAdjusting())

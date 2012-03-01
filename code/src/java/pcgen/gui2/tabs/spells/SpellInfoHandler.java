@@ -39,11 +39,11 @@ class SpellInfoHandler implements ListSelectionListener
 {
 
 	private CharacterFacade character;
-	private final JTreeViewTable availableTable;
-	private final JTreeViewTable selectedTable;
+	private final JTreeViewTable<?> availableTable;
+	private final JTreeViewTable<?> selectedTable;
 	private final InfoPane spellsPane;
 
-	public SpellInfoHandler(CharacterFacade character, JTreeViewTable table1, JTreeViewTable table2,
+	public SpellInfoHandler(CharacterFacade character, JTreeViewTable<?> table1, JTreeViewTable<?> table2,
 							InfoPane spellsPane)
 	{
 		this.spellsPane = spellsPane;
@@ -64,6 +64,7 @@ class SpellInfoHandler implements ListSelectionListener
 		selectedTable.getSelectionModel().removeListSelectionListener(this);
 	}
 
+	@Override
 	public void valueChanged(ListSelectionEvent e)
 	{
 		if (!e.getValueIsAdjusting())

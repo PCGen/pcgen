@@ -49,7 +49,7 @@ import pcgen.gui2.util.table.TableCellUtilities;
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public class SkillPointTableModel extends AbstractTableModel
-		implements ListListener, ClassListener, SkillPointListener
+		implements ListListener<CharacterLevelFacade>, ClassListener, SkillPointListener
 {
 
 	private CharacterLevelsFacade levels;
@@ -82,11 +82,13 @@ public class SkillPointTableModel extends AbstractTableModel
 		header.setResizingAllowed(false);
 	}
 
+	@Override
 	public int getRowCount()
 	{
 		return levels.getSize();
 	}
 
+	@Override
 	public int getColumnCount()
 	{
 		return 4;
@@ -108,6 +110,7 @@ public class SkillPointTableModel extends AbstractTableModel
 		}
 	}
 
+	@Override
 	public Object getValueAt(int rowIndex, int columnIndex)
 	{
 		if (columnIndex == 0)
@@ -145,26 +148,31 @@ public class SkillPointTableModel extends AbstractTableModel
 		levels.setGainedSkillPoints(level, (Integer) aValue);
 	}
 
-	public void elementAdded(ListEvent e)
+	@Override
+	public void elementAdded(ListEvent<CharacterLevelFacade> e)
 	{
 		fireTableRowsInserted(e.getIndex(), e.getIndex());
 	}
 
-	public void elementRemoved(ListEvent e)
+	@Override
+	public void elementRemoved(ListEvent<CharacterLevelFacade> e)
 	{
 		fireTableRowsDeleted(e.getIndex(), e.getIndex());
 	}
 
-	public void elementsChanged(ListEvent e)
+	@Override
+	public void elementsChanged(ListEvent<CharacterLevelFacade> e)
 	{
 		fireTableDataChanged();
 	}
 
+	@Override
 	public void skillPointsChanged(CharacterLevelEvent e)
 	{
 		levelChanged(e);
 	}
 
+	@Override
 	public void classChanged(CharacterLevelEvent e)
 	{
 		levelChanged(e);
@@ -195,6 +203,7 @@ public class SkillPointTableModel extends AbstractTableModel
 		/* (non-Javadoc)
 		 * @see javax.swing.table.TableCellRenderer#getTableCellRendererComponent(javax.swing.JTable, java.lang.Object, boolean, boolean, int, int)
 		 */
+		@Override
 		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
 		{
 			Component comp = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);

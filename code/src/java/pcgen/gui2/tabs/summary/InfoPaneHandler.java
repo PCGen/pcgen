@@ -137,6 +137,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.event.ReferenceListener#referenceChanged(pcgen.core.facade.event.ReferenceEvent)
 	 */
+	@Override
 	public void referenceChanged(ReferenceEvent<Object> e)
 	{
 		scheduleRefresh();
@@ -145,6 +146,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.event.ListListener#elementAdded(pcgen.core.facade.event.ListEvent)
 	 */
+	@Override
 	public void elementAdded(ListEvent<CharacterLevelFacade> e)
 	{
 		scheduleRefresh();
@@ -153,6 +155,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.event.ListListener#elementRemoved(pcgen.core.facade.event.ListEvent)
 	 */
+	@Override
 	public void elementRemoved(ListEvent<CharacterLevelFacade> e)
 	{
 		scheduleRefresh();
@@ -161,6 +164,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.event.ListListener#elementsChanged(pcgen.core.facade.event.ListEvent)
 	 */
+	@Override
 	public void elementsChanged(ListEvent<CharacterLevelFacade> e)
 	{
 		scheduleRefresh();

@@ -45,6 +45,7 @@ import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumnModel;
 import pcgen.core.facade.CharacterFacade;
+import pcgen.core.facade.CharacterLevelFacade;
 import pcgen.core.facade.CharacterLevelsFacade;
 import pcgen.core.facade.CharacterLevelsFacade.CharacterLevelEvent;
 import pcgen.core.facade.CharacterLevelsFacade.ClassListener;
@@ -57,7 +58,7 @@ import pcgen.gui2.util.SignIcon.Sign;
 import pcgen.gui2.util.table.TableCellUtilities;
 
 public class ClassLevelTableModel extends AbstractTableModel
-		implements ListListener, ItemListener, PropertyChangeListener, HitPointListener, ClassListener
+		implements ListListener<CharacterLevelFacade>, ItemListener, PropertyChangeListener, HitPointListener, ClassListener
 {
 
 	private CharacterLevelsFacade levels;
@@ -127,11 +128,13 @@ public class ClassLevelTableModel extends AbstractTableModel
 		}
 	}
 
+	@Override
 	public int getRowCount()
 	{
 		return levels.getSize() + 1;
 	}
 
+	@Override
 	public int getColumnCount()
 	{
 		return 3;
@@ -156,6 +159,7 @@ public class ClassLevelTableModel extends AbstractTableModel
 		}
 	}
 
+	@Override
 	public Object getValueAt(int rowIndex, int columnIndex)
 	{
 		if (rowIndex == levels.getSize())
@@ -180,7 +184,8 @@ public class ClassLevelTableModel extends AbstractTableModel
 		}
 	}
 
-	public void elementAdded(ListEvent e)
+	@Override
+	public void elementAdded(ListEvent<CharacterLevelFacade> e)
 	{
 		editor.cancelCellEditing();
 		int i = e.getIndex();
@@ -189,20 +194,23 @@ public class ClassLevelTableModel extends AbstractTableModel
 		fireTableRowsInserted(i, i);
 	}
 
-	public void elementRemoved(ListEvent e)
+	@Override
+	public void elementRemoved(ListEvent<CharacterLevelFacade> e)
 	{
 		editor.cancelCellEditing();
 		resetLevelMap();
 		fireTableRowsDeleted(e.getIndex(), e.getIndex());
 	}
 
-	public void elementsChanged(ListEvent e)
+	@Override
+	public void elementsChanged(ListEvent<CharacterLevelFacade> e)
 	{
 		editor.cancelCellEditing();
 		resetLevelMap();
 		fireTableDataChanged();
 	}
 
+	@Override
 	public void itemStateChanged(ItemEvent e)
 	{
 		if (e.getStateChange() == ItemEvent.SELECTED)
@@ -211,16 +219,19 @@ public class ClassLevelTableModel extends AbstractTableModel
 		}
 	}
 
+	@Override
 	public void propertyChange(PropertyChangeEvent evt)
 	{
 		fireTableRowsUpdated(levels.getSize(), levels.getSize());
 	}
 
+	@Override
 	public void classChanged(CharacterLevelEvent e)
 	{
 		levelChanged(e);
 	}
 
+	@Override
 	public void hitPointsChanged(CharacterLevelEvent e)
 	{
 		levelChanged(e);
@@ -253,16 +264,19 @@ public class ClassLevelTableModel extends AbstractTableModel
 			removeLevelButton.addActionListener(this);
 		}
 
+		@Override
 		public Object getCellEditorValue()
 		{
 			return null;
 		}
 
+		@Override
 		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
 		{
 			return getTableCellEditorComponent(table, value, isSelected, row, column);
 		}
 
+		@Override
 		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column)
 		{
 			cellPanel.removeAll();
@@ -293,6 +307,7 @@ public class ClassLevelTableModel extends AbstractTableModel
 			return cellPanel;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			if (e.getSource() == addLevelButton)

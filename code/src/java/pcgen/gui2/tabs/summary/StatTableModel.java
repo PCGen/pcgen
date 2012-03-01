@@ -53,8 +53,6 @@ import javax.swing.table.TableColumn;
 
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.StatFacade;
-import pcgen.core.facade.event.ListEvent;
-import pcgen.core.facade.event.ListListener;
 import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
 import pcgen.core.facade.util.ListFacade;
@@ -65,7 +63,7 @@ import pcgen.gui2.util.table.TableCellUtilities;
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public class StatTableModel extends AbstractTableModel implements ListListener, ReferenceListener<Integer>
+public class StatTableModel extends AbstractTableModel implements ReferenceListener<Integer>
 {
 
 	private static final Font tableFont = new Font("Verdana", Font.BOLD, 14);
@@ -96,6 +94,7 @@ public class StatTableModel extends AbstractTableModel implements ListListener, 
 		Action action = new AbstractAction()
 		{
 
+			@Override
 			public void actionPerformed(ActionEvent e)
 			{
 				//Logging.log(Logging.WARNING, "Got handleEnter from " + e.getSource());
@@ -121,6 +120,7 @@ public class StatTableModel extends AbstractTableModel implements ListListener, 
 		}
 	}
 
+	@Override
 	public int getRowCount()
 	{
 		return stats.getSize();
@@ -191,6 +191,7 @@ public class StatTableModel extends AbstractTableModel implements ListListener, 
 			setBorder(BorderFactory.createEmptyBorder(2, 5, 2, 5));
 		}
 
+		@Override
 		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
 		{
 			if (table == null)
@@ -214,6 +215,7 @@ public class StatTableModel extends AbstractTableModel implements ListListener, 
 			formatter.setPositivePrefix("+");
 		}
 
+		@Override
 		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
 		{
 			if (column < 3)
@@ -259,6 +261,7 @@ public class StatTableModel extends AbstractTableModel implements ListListener, 
 		/* (non-Javadoc)
 		 * @see javax.swing.table.TableCellRenderer#getTableCellRendererComponent(javax.swing.JTable, java.lang.Object, boolean, boolean, int, int)
 		 */
+		@Override
 		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
 		{
 			setFont(table.getFont().deriveFont(Font.BOLD));
@@ -318,11 +321,13 @@ public class StatTableModel extends AbstractTableModel implements ListListener, 
 			return ((JSpinner.DefaultEditor) spinner.getEditor()).getTextField();
 		}
 
+		@Override
 		public Object getCellEditorValue()
 		{
 			return spinner.getValue();
 		}
 
+		@Override
 		public Component getTableCellEditorComponent(JTable table, Object value,
 													 boolean isSelected,
 													 int row,
@@ -333,6 +338,7 @@ public class StatTableModel extends AbstractTableModel implements ListListener, 
 			return spinner;
 		}
 
+		@Override
 		public void stateChanged(ChangeEvent e)
 		{
 			stopCellEditing();
@@ -371,11 +377,13 @@ public class StatTableModel extends AbstractTableModel implements ListListener, 
 		return Integer.class;
 	}
 
+	@Override
 	public int getColumnCount()
 	{
 		return 6;
 	}
 
+	@Override
 	public Object getValueAt(int rowIndex, int columnIndex)
 	{
 		StatFacade stat = stats.getElementAt(rowIndex);
@@ -406,21 +414,7 @@ public class StatTableModel extends AbstractTableModel implements ListListener, 
 		fireTableRowsUpdated(rowIndex, rowIndex);
 	}
 
-	public void elementAdded(ListEvent e)
-	{
-		fireTableRowsInserted(e.getIndex(), e.getIndex());
-	}
-
-	public void elementRemoved(ListEvent e)
-	{
-		fireTableRowsDeleted(e.getIndex(), e.getIndex());
-	}
-
-	public void elementsChanged(ListEvent e)
-	{
-		fireTableDataChanged();
-	}
-
+	@Override
 	public void referenceChanged(ReferenceEvent<Integer> e)
 	{
 		fireTableDataChanged();
@@ -439,6 +433,7 @@ public class StatTableModel extends AbstractTableModel implements ListListener, 
 			add(Box.createHorizontalGlue());
 		}
 
+		@Override
 		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
 		{
 			setBackground(table.getBackground());

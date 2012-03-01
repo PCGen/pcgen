@@ -98,6 +98,7 @@ public class LanguageTableModel extends AbstractTableModel
 		table.removeMouseMotionListener(this);
 	}
 
+	@Override
 	public int getRowCount()
 	{
 		return languages.getSize() + choosers.getSize();
@@ -109,11 +110,13 @@ public class LanguageTableModel extends AbstractTableModel
 		return "Languages";
 	}
 
+	@Override
 	public int getColumnCount()
 	{
 		return 1;
 	}
 
+	@Override
 	public Object getValueAt(int rowIndex, int columnIndex)
 	{
 		if (rowIndex < languages.getSize())
@@ -126,11 +129,13 @@ public class LanguageTableModel extends AbstractTableModel
 		}
 	}
 
+	@Override
 	public void mouseDragged(MouseEvent e)
 	{
 		//Do nothing
 	}
 
+	@Override
 	public void mouseMoved(MouseEvent e)
 	{
 		int row = table.rowAtPoint(e.getPoint());
@@ -155,18 +160,21 @@ public class LanguageTableModel extends AbstractTableModel
 		return true;
 	}
 
+	@Override
 	public void elementAdded(ListEvent<LanguageFacade> e)
 	{
 		fireTableRowsInserted(e.getIndex(), e.getIndex());
 		editor.cancelCellEditing();
 	}
 
+	@Override
 	public void elementRemoved(ListEvent<LanguageFacade> e)
 	{
 		fireTableRowsDeleted(e.getIndex(), e.getIndex());
 		editor.cancelCellEditing();
 	}
 
+	@Override
 	public void elementsChanged(ListEvent<LanguageFacade> e)
 	{
 		fireTableDataChanged();
@@ -213,6 +221,7 @@ public class LanguageTableModel extends AbstractTableModel
 			cellPanel.add(box, REMOVE_ID);
 		}
 
+		@Override
 		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column)
 		{
 			TableCellUtilities.setToRowBackground(cellPanel, table, row);
@@ -233,6 +242,7 @@ public class LanguageTableModel extends AbstractTableModel
 			return cellPanel;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			if (ADD_ID.equals(e.getActionCommand()))
@@ -252,6 +262,7 @@ public class LanguageTableModel extends AbstractTableModel
 			cancelCellEditing();
 		}
 
+		@Override
 		public Object getCellEditorValue()
 		{
 			return null;
@@ -291,6 +302,7 @@ public class LanguageTableModel extends AbstractTableModel
 			add(box, ADD_ID);
 		}
 
+		@Override
 		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
 		{
 			TableCellUtilities.setToRowBackground(this, table, row);

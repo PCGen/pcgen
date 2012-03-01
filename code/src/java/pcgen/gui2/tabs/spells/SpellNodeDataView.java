@@ -27,6 +27,7 @@ class SpellNodeDataView implements DataView<SuperNode>
 								new DefaultDataViewColumn("Source", String.class));
 	}
 
+	@Override
 	public List<?> getData(SuperNode obj)
 	{
 		if (obj instanceof SpellNode)
@@ -47,6 +48,7 @@ class SpellNodeDataView implements DataView<SuperNode>
 		}
 	}
 
+	@Override
 	public List<? extends DataViewColumn> getDataColumns()
 	{
 		return columns;

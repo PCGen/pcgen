@@ -51,21 +51,25 @@ public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 		this.dataView = new SpellNodeDataView(showcolumns);
 	}
 
+	@Override
 	public ListFacade<? extends TreeView<SuperNode>> getTreeViews()
 	{
 		return treeViews;
 	}
 
+	@Override
 	public int getDefaultTreeViewIndex()
 	{
 		return 0;
 	}
 
+	@Override
 	public DataView<SuperNode> getDataView()
 	{
 		return dataView;
 	}
 
+	@Override
 	public ListFacade<SuperNode> getDataModel()
 	{
 		return (ListFacade<SuperNode>) spellNodes;
@@ -82,11 +86,13 @@ public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 			this.name = name;
 		}
 
+		@Override
 		public String getViewName()
 		{
 			return name;
 		}
 
+		@Override
 		@SuppressWarnings("unchecked")
 		public List<TreeViewPath<SuperNode>> getPaths(SuperNode node)
 		{
