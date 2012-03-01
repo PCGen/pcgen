@@ -197,6 +197,7 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
 		CDOMGroupRef<ClassSkillList> monsterList = context.ref
@@ -281,11 +282,13 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 		return list.toArray(new String[list.size()]);
 	}
 
+	@Override
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;
 	}
 
+	@Override
 	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
 	{
 		Skill skill = Globals.getContext().ref
@@ -296,6 +299,7 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 		}
 	}
 
+	@Override
 	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
 	{
 		Skill skill = Globals.getContext().ref
@@ -306,11 +310,13 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 		}
 	}
 
+	@Override
 	public String getSource()
 	{
 		return getTokenName();
 	}
 
+	@Override
 	public String getLstFormat()
 	{
 		return "LIST";

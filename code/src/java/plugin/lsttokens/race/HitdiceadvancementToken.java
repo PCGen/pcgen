@@ -99,6 +99,7 @@ public class HitdiceadvancementToken extends AbstractTokenWithSeparator<Race>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
 		Changes<Integer> changes = context.getObjectContext().getListChanges(
@@ -146,6 +147,7 @@ public class HitdiceadvancementToken extends AbstractTokenWithSeparator<Race>
 		return new String[] { sb.toString() };
 	}
 
+	@Override
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;

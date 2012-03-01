@@ -88,6 +88,7 @@ public class RacesubtypeToken extends AbstractTokenWithSeparator<Race>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
 		Changes<RaceSubType> changes = context.getObjectContext()
@@ -126,6 +127,7 @@ public class RacesubtypeToken extends AbstractTokenWithSeparator<Race>
 		return list.toArray(new String[list.size()]);
 	}
 
+	@Override
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;

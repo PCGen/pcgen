@@ -94,6 +94,7 @@ public class WeaponbonusToken extends AbstractTokenWithSeparator<Race>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
 		AssociatedChanges<CDOMReference<WeaponProf>> changes = context
@@ -109,6 +110,7 @@ public class WeaponbonusToken extends AbstractTokenWithSeparator<Race>
 				Constants.PIPE) };
 	}
 
+	@Override
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;

@@ -54,6 +54,7 @@ public class LeveladjustmentToken extends AbstractNonEmptyToken<Race> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
 		Formula f = context.getObjectContext().getFormula(race,
@@ -65,6 +66,7 @@ public class LeveladjustmentToken extends AbstractNonEmptyToken<Race> implements
 		return new String[] { f.toString() };
 	}
 
+	@Override
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;

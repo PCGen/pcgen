@@ -130,6 +130,7 @@ public class FavclassToken extends AbstractTokenWithSeparator<Race> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
 		Changes<CDOMReference<? extends PCClass>> changes = context
@@ -188,6 +189,7 @@ public class FavclassToken extends AbstractTokenWithSeparator<Race> implements
 		return new String[] { StringUtil.join(set, Constants.PIPE) };
 	}
 
+	@Override
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;
@@ -199,6 +201,7 @@ public class FavclassToken extends AbstractTokenWithSeparator<Race> implements
 	 * @see pcgen.cdom.base.ChooseResultActor#apply(pcgen.core.PlayerCharacter,
 	 *      pcgen.cdom.base.CDOMObject, java.lang.String)
 	 */
+	@Override
 	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
 	{
 		PCClass cls = Globals.getContext().ref
@@ -215,6 +218,7 @@ public class FavclassToken extends AbstractTokenWithSeparator<Race> implements
 	 * @see pcgen.cdom.base.ChooseResultActor#remove(pcgen.core.PlayerCharacter,
 	 *      pcgen.cdom.base.CDOMObject, java.lang.String)
 	 */
+	@Override
 	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
 	{
 		PCClass cls = Globals.getContext().ref
@@ -226,11 +230,13 @@ public class FavclassToken extends AbstractTokenWithSeparator<Race> implements
 
 	}
 
+	@Override
 	public String getSource()
 	{
 		return getTokenName();
 	}
 
+	@Override
 	public String getLstFormat()
 	{
 		return "%LIST";

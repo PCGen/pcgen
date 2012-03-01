@@ -86,6 +86,7 @@ public class MonsterclassToken extends AbstractNonEmptyToken<Race> implements
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
 		LevelCommandFactory lcf = context.getObjectContext().getObject(race,
@@ -100,16 +101,19 @@ public class MonsterclassToken extends AbstractNonEmptyToken<Race> implements
 		return new String[] { sb.toString() };
 	}
 
+	@Override
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;
 	}
 
+	@Override
 	public Class<Race> getDeferredTokenClass()
 	{
 		return Race.class;
 	}
 
+	@Override
 	public boolean process(LoadContext context, Race r)
 	{
 		LevelCommandFactory lcf = r.get(ObjectKey.MONSTER_CLASS);

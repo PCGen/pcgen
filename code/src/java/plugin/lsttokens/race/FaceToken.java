@@ -123,6 +123,7 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
 		BigDecimal width = context.getObjectContext().getObject(race,
@@ -162,6 +163,7 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 		return new String[] { sb.toString() };
 	}
 
+	@Override
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;

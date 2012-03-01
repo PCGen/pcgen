@@ -136,6 +136,7 @@ public class LangbonusToken extends AbstractTokenWithSeparator<Race> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
 		AssociatedChanges<CDOMReference<Language>> changes = context
@@ -174,6 +175,7 @@ public class LangbonusToken extends AbstractTokenWithSeparator<Race> implements
 		return list.toArray(new String[list.size()]);
 	}
 
+	@Override
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;

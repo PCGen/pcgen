@@ -166,6 +166,7 @@ public class MonccskillToken extends AbstractTokenWithSeparator<Race> implements
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
 		CDOMGroupRef<ClassSkillList> monsterList = context.ref
@@ -220,6 +221,7 @@ public class MonccskillToken extends AbstractTokenWithSeparator<Race> implements
 		return list.toArray(new String[list.size()]);
 	}
 
+	@Override
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;

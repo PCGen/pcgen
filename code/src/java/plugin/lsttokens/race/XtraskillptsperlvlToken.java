@@ -52,6 +52,7 @@ public class XtraskillptsperlvlToken extends AbstractIntToken<Race> implements
 		return 1;
 	}
 
+	@Override
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;

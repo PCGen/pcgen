@@ -47,6 +47,7 @@ public class HandsToken extends AbstractIntToken<Race> implements
 		return 0;
 	}
 
+	@Override
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;

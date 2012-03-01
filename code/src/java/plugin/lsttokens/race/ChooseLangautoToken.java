@@ -53,6 +53,7 @@ public class ChooseLangautoToken extends AbstractTokenWithSeparator<Race> implem
 
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
 
+	@Override
 	public String getParentToken()
 	{
 		return "CHOOSE";
@@ -112,6 +113,7 @@ public class ChooseLangautoToken extends AbstractTokenWithSeparator<Race> implem
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
 		PersistentTransitionChoice<Language> container = context
@@ -135,39 +137,46 @@ public class ChooseLangautoToken extends AbstractTokenWithSeparator<Race> implem
 		return new String[] { sb.toString() };
 	}
 
+	@Override
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;
 	}
 
+	@Override
 	public void applyChoice(CDOMObject owner, Language choice,
 		PlayerCharacter pc)
 	{
 		pc.addFreeLanguage(choice, owner);
 	}
 
+	@Override
 	public boolean allow(Language choice, PlayerCharacter pc, boolean allowStack)
 	{
 		return !pc.hasLanguage(choice);
 	}
 
+	@Override
 	public Language decodeChoice(String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 			LANGUAGE_CLASS, s);
 	}
 
+	@Override
 	public String encodeChoice(Language choice)
 	{
 		return choice.getKeyName();
 	}
 
+	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
 		Language choice)
 	{
 		pc.addFreeLanguage(choice, owner);
 	}
 
+	@Override
 	public Class<Race> getDeferredTokenClass()
 	{
 		return Race.class;
@@ -178,6 +187,7 @@ public class ChooseLangautoToken extends AbstractTokenWithSeparator<Race> implem
 	 * impact CHOOSE:LANGAUTO. It is hoped that CHOOSE:LANGAUTO can be
 	 * refactored into an ADD token in order to avoid this contortion
 	 */
+	@Override
 	public boolean process(LoadContext context, Race race)
 	{
 		PersistentTransitionChoice<Language> langauto = race
@@ -189,12 +199,14 @@ public class ChooseLangautoToken extends AbstractTokenWithSeparator<Race> implem
 		return true;
 	}
 
+	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
 			Language choice)
 	{
 		pc.removeFreeLanguage(choice, owner);
 	}
 
+	@Override
 	public List<Language> getCurrentlySelected(CDOMObject owner,
 			PlayerCharacter pc)
 	{

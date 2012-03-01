@@ -81,6 +81,7 @@ public class CrToken extends AbstractNonEmptyToken<Race> implements
 	 * @param race
 	 * @return String array representing the CR token
 	 */
+	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
 		ChallengeRating cr =
@@ -98,11 +99,13 @@ public class CrToken extends AbstractNonEmptyToken<Race> implements
 	 * Get the token class
 	 * @return Token class of type Race
 	 */
+	@Override
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;
 	}
 
+	@Override
 	public boolean process(LoadContext context, Race race)
 	{
 		try
@@ -123,6 +126,7 @@ public class CrToken extends AbstractNonEmptyToken<Race> implements
 		return true;
 	}
 
+	@Override
 	public Class<Race> getDeferredTokenClass()
 	{
 		return Race.class;

@@ -250,6 +250,7 @@ public class HitdieToken extends AbstractNonEmptyToken<Race> implements
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
 		Modifier<HitDie> hdcf = context.getObjectContext().getObject(race,
@@ -261,6 +262,7 @@ public class HitdieToken extends AbstractNonEmptyToken<Race> implements
 		return new String[] { hdcf.getLSTformat() };
 	}
 
+	@Override
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;

@@ -44,6 +44,7 @@ public class StartfeatsToken extends AbstractToken implements
 		return "STARTFEATS";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, Race race, String value)
 	{
 		int bonusValue;
@@ -77,6 +78,7 @@ public class StartfeatsToken extends AbstractToken implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
 		Changes<BonusObj> changes = context.obj.getListChanges(race,
@@ -106,6 +108,7 @@ public class StartfeatsToken extends AbstractToken implements
 		return bonusSet.toArray(new String[bonusSet.size()]);
 	}
 
+	@Override
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;

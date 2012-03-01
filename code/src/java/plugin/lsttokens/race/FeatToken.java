@@ -104,6 +104,7 @@ public class FeatToken extends AbstractTokenWithSeparator<Race> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
 		Changes<CDOMReference<Ability>> changes = context.getObjectContext()
@@ -139,16 +140,19 @@ public class FeatToken extends AbstractTokenWithSeparator<Race> implements
 		return new String[] { returnVal };
 	}
 
+	@Override
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;
 	}
 
+	@Override
 	public Class<Race> getDeferredTokenClass()
 	{
 		return Race.class;
 	}
 
+	@Override
 	public boolean process(LoadContext context, Race obj)
 	{
 		for (CDOMReference<Ability> ability : obj
