@@ -41,6 +41,7 @@ public class MaxdexToken extends AbstractIntToken<Equipment> implements
 		return IntegerKey.MAX_DEX;
 	}
 
+	@Override
 	public Class<Equipment> getTokenClass()
 	{
 		return Equipment.class;

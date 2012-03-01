@@ -47,6 +47,7 @@ public class RangeToken extends AbstractIntToken<Equipment> implements
 		return 0;
 	}
 
+	@Override
 	public Class<Equipment> getTokenClass()
 	{
 		return Equipment.class;

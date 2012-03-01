@@ -60,6 +60,7 @@ public class IconToken extends AbstractNonEmptyToken<Equipment> implements
 	/* (non-Javadoc)
 	 * @see pcgen.rules.persistence.token.CDOMToken#parse(pcgen.rules.context.LoadContext, java.lang.Object, java.lang.String)
 	 */
+	@Override
 	public ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
 	{
 		URI uri = new CampaignSourceEntry.URIFactory(eq.getSourceURI(), value).getURI();
@@ -76,6 +77,7 @@ public class IconToken extends AbstractNonEmptyToken<Equipment> implements
 	/* (non-Javadoc)
 	 * @see pcgen.rules.persistence.token.CDOMPrimaryToken#unparse(pcgen.rules.context.LoadContext, java.lang.Object)
 	 */
+	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
 		String icon = context.getObjectContext().getString(eq, StringKey.ICON);
@@ -89,6 +91,7 @@ public class IconToken extends AbstractNonEmptyToken<Equipment> implements
 	/* (non-Javadoc)
 	 * @see pcgen.rules.persistence.token.CDOMToken#getTokenClass()
 	 */
+	@Override
 	public Class<Equipment> getTokenClass()
 	{
 		return Equipment.class;

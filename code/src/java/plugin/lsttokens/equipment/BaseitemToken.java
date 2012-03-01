@@ -48,6 +48,7 @@ public class BaseitemToken extends AbstractNonEmptyToken<Equipment> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
 		CDOMSingleRef<Equipment> ref =
@@ -59,6 +60,7 @@ public class BaseitemToken extends AbstractNonEmptyToken<Equipment> implements
 		return new String[]{ref.getLSTformat(false)};
 	}
 
+	@Override
 	public Class<Equipment> getTokenClass()
 	{
 		return Equipment.class;

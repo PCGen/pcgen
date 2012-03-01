@@ -66,6 +66,7 @@ public class SpellfailureToken extends AbstractIntToken<Equipment> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public Class<Equipment> getTokenClass()
 	{
 		return Equipment.class;

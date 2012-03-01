@@ -30,11 +30,13 @@ import pcgen.rules.persistence.token.ParseResult;
 public class AltcritrangeToken implements CDOMPrimaryToken<Equipment>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "ALTCRITRANGE";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, Equipment eq,
 		String value)
 	{
@@ -57,6 +59,7 @@ public class AltcritrangeToken implements CDOMPrimaryToken<Equipment>
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
 		EquipmentHead head = eq.getEquipmentHeadReference(2);
@@ -79,6 +82,7 @@ public class AltcritrangeToken implements CDOMPrimaryToken<Equipment>
 		return new String[] { mult.toString() };
 	}
 
+	@Override
 	public Class<Equipment> getTokenClass()
 	{
 		return Equipment.class;

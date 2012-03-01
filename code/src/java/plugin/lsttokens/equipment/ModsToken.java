@@ -56,6 +56,7 @@ public class ModsToken extends AbstractNonEmptyToken<Equipment> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
 		EqModControl control = context.getObjectContext().getObject(eq,
@@ -67,6 +68,7 @@ public class ModsToken extends AbstractNonEmptyToken<Equipment> implements
 		return new String[] { control.toString() };
 	}
 
+	@Override
 	public Class<Equipment> getTokenClass()
 	{
 		return Equipment.class;

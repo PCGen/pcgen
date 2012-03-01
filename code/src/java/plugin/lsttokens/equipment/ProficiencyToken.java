@@ -97,6 +97,7 @@ public class ProficiencyToken extends AbstractNonEmptyToken<Equipment>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
 		CDOMSingleRef<WeaponProf> wp = context.getObjectContext().getObject(eq,
@@ -144,16 +145,19 @@ public class ProficiencyToken extends AbstractNonEmptyToken<Equipment>
 		}
 	}
 
+	@Override
 	public Class<Equipment> getTokenClass()
 	{
 		return Equipment.class;
 	}
 
+	@Override
 	public Class<Equipment> getDeferredTokenClass()
 	{
 		return Equipment.class;
 	}
 
+	@Override
 	public boolean process(LoadContext context, Equipment eq)
 	{
 		CDOMSingleRef<WeaponProf> wp = eq.get(ObjectKey.WEAPON_PROF);

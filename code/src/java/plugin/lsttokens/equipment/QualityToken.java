@@ -74,6 +74,7 @@ public class QualityToken extends AbstractNonEmptyToken<Equipment> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
 		MapChanges<String, String> changes = context.getObjectContext()
@@ -92,6 +93,7 @@ public class QualityToken extends AbstractNonEmptyToken<Equipment> implements
 		return set.toArray(new String[set.size()]);
 	}
 
+	@Override
 	public Class<Equipment> getTokenClass()
 	{
 		return Equipment.class;

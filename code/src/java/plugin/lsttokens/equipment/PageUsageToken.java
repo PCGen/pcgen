@@ -68,6 +68,7 @@ public class PageUsageToken extends AbstractNonEmptyToken<Equipment> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
 		Formula f = context.getObjectContext().getFormula(eq,
@@ -79,6 +80,7 @@ public class PageUsageToken extends AbstractNonEmptyToken<Equipment> implements
 		return new String[] { f.toString() };
 	}
 
+	@Override
 	public Class<Equipment> getTokenClass()
 	{
 		return Equipment.class;

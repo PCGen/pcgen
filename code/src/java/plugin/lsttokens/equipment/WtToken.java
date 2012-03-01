@@ -65,6 +65,7 @@ public class WtToken extends AbstractNonEmptyToken<Equipment> implements
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
 		BigDecimal weight = context.getObjectContext().getObject(eq,
@@ -82,6 +83,7 @@ public class WtToken extends AbstractNonEmptyToken<Equipment> implements
 		return new String[] { weight.toString() };
 	}
 
+	@Override
 	public Class<Equipment> getTokenClass()
 	{
 		return Equipment.class;

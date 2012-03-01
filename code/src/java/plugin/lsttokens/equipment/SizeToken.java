@@ -30,11 +30,13 @@ import pcgen.rules.persistence.token.ParseResult;
 public class SizeToken implements CDOMPrimaryToken<Equipment>
 {
 
+	@Override
 	public String getTokenName()
 	{
 		return "SIZE";
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, Equipment eq, String value)
 	{
 		SizeAdjustment size =
@@ -49,6 +51,7 @@ public class SizeToken implements CDOMPrimaryToken<Equipment>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
 		SizeAdjustment res = context.getObjectContext().getObject(eq,
@@ -60,6 +63,7 @@ public class SizeToken implements CDOMPrimaryToken<Equipment>
 		return new String[]{res.getAbbreviation()};
 	}
 
+	@Override
 	public Class<Equipment> getTokenClass()
 	{
 		return Equipment.class;

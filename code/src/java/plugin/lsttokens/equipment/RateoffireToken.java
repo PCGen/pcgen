@@ -44,6 +44,7 @@ public class RateoffireToken extends AbstractNonEmptyToken<Equipment> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
 		String rof = context.getObjectContext().getString(eq,
@@ -55,6 +56,7 @@ public class RateoffireToken extends AbstractNonEmptyToken<Equipment> implements
 		return new String[] { rof };
 	}
 
+	@Override
 	public Class<Equipment> getTokenClass()
 	{
 		return Equipment.class;

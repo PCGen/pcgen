@@ -59,6 +59,7 @@ public class AltdamageToken extends AbstractNonEmptyToken<Equipment> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
 		EquipmentHead head = eq.getEquipmentHeadReference(2);
@@ -75,6 +76,7 @@ public class AltdamageToken extends AbstractNonEmptyToken<Equipment> implements
 		return new String[] { damage };
 	}
 
+	@Override
 	public Class<Equipment> getTokenClass()
 	{
 		return Equipment.class;

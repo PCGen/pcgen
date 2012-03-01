@@ -123,6 +123,7 @@ public class EqmodToken extends AbstractTokenWithSeparator<Equipment> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
 		AbstractObjectContext obj = context.getObjectContext();
@@ -167,6 +168,7 @@ public class EqmodToken extends AbstractTokenWithSeparator<Equipment> implements
 		return new String[] { StringUtil.join(set, Constants.DOT) };
 	}
 
+	@Override
 	public Class<Equipment> getTokenClass()
 	{
 		return Equipment.class;

@@ -201,6 +201,7 @@ public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
 		Changes<Capacity> changes = context.getObjectContext().getListChanges(
@@ -283,6 +284,7 @@ public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
 		return new String[] { sb.toString() };
 	}
 
+	@Override
 	public Class<Equipment> getTokenClass()
 	{
 		return Equipment.class;

@@ -47,6 +47,7 @@ public class ReachToken extends AbstractIntToken<Equipment> implements
 		return 1;
 	}
 
+	@Override
 	public Class<Equipment> getTokenClass()
 	{
 		return Equipment.class;

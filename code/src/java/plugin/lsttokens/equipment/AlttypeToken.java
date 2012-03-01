@@ -140,6 +140,7 @@ public class AlttypeToken extends AbstractNonEmptyToken<Equipment> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
 		EquipmentHead head = eq.getEquipmentHead(2);
@@ -184,6 +185,7 @@ public class AlttypeToken extends AbstractNonEmptyToken<Equipment> implements
 		return new String[] { sb.toString() };
 	}
 
+	@Override
 	public Class<Equipment> getTokenClass()
 	{
 		return Equipment.class;

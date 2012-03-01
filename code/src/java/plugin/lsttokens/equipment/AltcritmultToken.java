@@ -74,6 +74,7 @@ public class AltcritmultToken extends AbstractNonEmptyToken<Equipment>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
 		EquipmentHead head = eq.getEquipmentHeadReference(2);
@@ -105,6 +106,7 @@ public class AltcritmultToken extends AbstractNonEmptyToken<Equipment>
 		return new String[] { retString };
 	}
 
+	@Override
 	public Class<Equipment> getTokenClass()
 	{
 		return Equipment.class;

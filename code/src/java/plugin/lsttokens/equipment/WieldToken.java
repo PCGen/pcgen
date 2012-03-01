@@ -59,6 +59,7 @@ public class WieldToken extends AbstractNonEmptyToken<Equipment> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
 		WieldCategory w = context.getObjectContext().getObject(eq,
@@ -70,6 +71,7 @@ public class WieldToken extends AbstractNonEmptyToken<Equipment> implements
 		return new String[] { w.getKeyName() };
 	}
 
+	@Override
 	public Class<Equipment> getTokenClass()
 	{
 		return Equipment.class;
