@@ -391,6 +391,7 @@ public final class PreferencesDialog extends JDialog
 		// Add the listener which switches panels when a node of the tree is selected
 		settingsTree.addTreeSelectionListener(new TreeSelectionListener()
 		{
+			@Override
 			public void valueChanged(TreeSelectionEvent e)
 			{
 				DefaultMutableTreeNode node =
@@ -423,6 +424,7 @@ public final class PreferencesDialog extends JDialog
 		controlPanel.add(okButton);
 		okButton.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				okButtonActionPerformed();
@@ -435,6 +437,7 @@ public final class PreferencesDialog extends JDialog
 		controlPanel.add(cancelButton);
 		cancelButton.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				cancelButtonActionPerformed();
@@ -508,6 +511,7 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 		initPreferences();
 	}
 
+	@Override
 	public void applyPreferences() {
 		for ( String key : pluginMap.keySet() )
 		{
@@ -515,6 +519,7 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 		}
 	}
 
+	@Override
 	public void initPreferences() {
 		for ( String key : pluginMap.keySet() )
 		{

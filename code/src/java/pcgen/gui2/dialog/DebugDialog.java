@@ -121,6 +121,7 @@ public class DebugDialog extends JDialog
 		{
 		}
 
+		@Override
 		public void run()
 		{
 			debuggingText.setText(LoggingRecorder.getLogs());
@@ -170,7 +171,7 @@ public class DebugDialog extends JDialog
 				protected void setValue(Object value)
 				{
 					setHorizontalAlignment(JLabel.RIGHT);
-					setText(format.format((Long) value));
+					setText(format.format(value));
 				}
 
 			});
@@ -185,6 +186,7 @@ public class DebugDialog extends JDialog
 			timer.stop();
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			if ("COLLECT".equals(e.getActionCommand()))
@@ -204,11 +206,13 @@ public class DebugDialog extends JDialog
 
 		private static long megaByte = 1024 * 1024;
 
+		@Override
 		public int getRowCount()
 		{
 			return 2;
 		}
 
+		@Override
 		public int getColumnCount()
 		{
 			return 5;
@@ -247,6 +251,7 @@ public class DebugDialog extends JDialog
 			}
 		}
 
+		@Override
 		public Object getValueAt(int rowIndex, int columnIndex)
 		{
 			MemoryUsage usage;

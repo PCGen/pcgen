@@ -230,11 +230,13 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 		pack();
 	}
 
+	@Override
 	public void valueChanged(ListSelectionEvent e)
 	{
 		exportButton.setEnabled(fileList.getSelectedIndex() != -1);
 	}
 
+	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		if (PARTY_COMMAND.equals(e.getActionCommand()))
@@ -494,7 +496,7 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 		if (allTemplates != null)
 		{
 			SheetFilter sheetFilter = (SheetFilter) exportBox.getSelectedItem();
-			IOFileFilter ioFilter = FileFilterUtils.asFileFilter((FilenameFilter) sheetFilter);
+			IOFileFilter ioFilter = FileFilterUtils.asFileFilter(sheetFilter);
 			IOFileFilter prefixFilter;
 			String defaultSheet = null;
 			if (partyBox.isSelected())
@@ -650,11 +652,13 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 			this.description = description;
 		}
 
+		@Override
 		public String toString()
 		{
 			return description;
 		}
 
+		@Override
 		public boolean accept(File dir, String name)
 		{
 			return dir.getName().equalsIgnoreCase(dirFilter) && ! name.endsWith("~");

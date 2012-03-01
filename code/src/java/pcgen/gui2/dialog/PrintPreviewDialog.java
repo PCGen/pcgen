@@ -179,7 +179,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 			public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus)
 			{
 				NumberFormat format = NumberFormat.getPercentInstance();
-				value = format.format((Double) value);
+				value = format.format(value);
 				return super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 			}
 
@@ -217,6 +217,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 		printButton.setEnabled(enable);
 	}
 
+	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		if (SHEET_COMMAND.equals(e.getActionCommand()))
@@ -328,21 +329,25 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 			setBorder(oldEditor.getBorder());
 		}
 
+		@Override
 		public Component getEditorComponent()
 		{
 			return this;
 		}
 
+		@Override
 		public void setItem(Object anObject)
 		{
 			setValue(anObject);
 		}
 
+		@Override
 		public Object getItem()
 		{
 			return getValue();
 		}
 
+		@Override
 		public void propertyChange(PropertyChangeEvent evt)
 		{
 			fireActionPerformed();
@@ -586,6 +591,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 	private class SheetLoader extends SwingWorker<Object[], Object> implements FilenameFilter
 	{
 
+		@Override
 		public boolean accept(File dir, String name)
 		{
 			return dir.getName().equalsIgnoreCase("pdf");

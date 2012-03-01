@@ -88,6 +88,7 @@ public class SinglePrefDialog extends JDialog
 		controlPanel.add(okButton);
 		okButton.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				okButtonActionPerformed();
@@ -100,6 +101,7 @@ public class SinglePrefDialog extends JDialog
 		controlPanel.add(cancelButton);
 		cancelButton.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				cancelButtonActionPerformed();

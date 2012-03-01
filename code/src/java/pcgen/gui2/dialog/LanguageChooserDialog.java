@@ -67,7 +67,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 {
 
 	private final LanguageChooserFacade chooser;
-	private final JTreeViewTable availTable;
+	private final JTreeViewTable<LanguageFacade> availTable;
 	private final JLabel remainingLabel;
 	private final LangTreeViewModel treeViewModel;
 	private final FacadeListModel<LanguageFacade> listModel;
@@ -77,7 +77,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 	{
 		super(frame, true);
 		this.chooser = chooser;
-		this.availTable = new JTreeViewTable();
+		this.availTable = new JTreeViewTable<LanguageFacade>();
 		this.remainingLabel = new JLabel();
 		this.treeViewModel = new LangTreeViewModel();
 		this.list = new JListEx();
@@ -97,6 +97,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		addWindowListener(new WindowAdapter()
 		{
 
+			@Override
 			public void windowClosed(WindowEvent e)
 			{
 				//detach listeners from the chooser
@@ -164,11 +165,13 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		pane.add(bottomPane, BorderLayout.SOUTH);
 	}
 
+	@Override
 	public void referenceChanged(ReferenceEvent<Integer> e)
 	{
 		remainingLabel.setText(e.getNewReference().toString());
 	}
 
+	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		if (e.getActionCommand().equals("ADD") || e.getSource() == availTable)
@@ -204,47 +207,55 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 			DataView<LanguageFacade>, TreeView<LanguageFacade>
 	{
 
+		@Override
 		public ListFacade<? extends TreeView<LanguageFacade>> getTreeViews()
 		{
 			return new DefaultListFacade<TreeView<LanguageFacade>>(Collections.singletonList(this));
 		}
 
+		@Override
 		public int getDefaultTreeViewIndex()
 		{
 			return 0;
 		}
 
+		@Override
 		public DataView<LanguageFacade> getDataView()
 		{
 			return this;
 		}
 
+		@Override
 		public ListFacade<LanguageFacade> getDataModel()
 		{
 			return this;
 		}
 
+		@Override
 		public List<?> getData(LanguageFacade obj)
 		{
 			return Collections.emptyList();
 		}
 
+		@Override
 		public List<? extends DataViewColumn> getDataColumns()
 		{
 			return Collections.emptyList();
 		}
 
+		@Override
 		public String getViewName()
 		{
 			return "Available Languages";
 		}
 
+		@Override
 		public List<TreeViewPath<LanguageFacade>> getPaths(LanguageFacade pobj)
 		{
 			List<TreeViewPath<LanguageFacade>> paths = new ArrayList<TreeViewPath<LanguageFacade>>();
 			for(String type : pobj.getTypes())
 			{
-				paths.add(new TreeViewPath(pobj, type));
+				paths.add(new TreeViewPath<LanguageFacade>(pobj, type));
 			}
 			return paths;
 		}

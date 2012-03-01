@@ -109,7 +109,7 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 	private ExportHandler handler = null;
 	private CharacterFacade character = null;
 	private ExecutorService refreshService = null;
-	private FutureTask refreshTask = null;
+	private FutureTask<Document> refreshTask = null;
 	private CssColor cssColor = CssColor.BLUE;
 
 	public CharacterSheetPanel()
@@ -120,6 +120,7 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 		refreshService = Executors.newSingleThreadExecutor(new ThreadFactory()
 		{
 
+			@Override
 			public Thread newThread(Runnable r)
 			{
 				Thread thread = new Thread(r, "Charater-Sheet-Refresher-Thread");
@@ -131,6 +132,7 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 		});
 	}
 
+	@Override
 	public void setCharacter(CharacterFacade character)
 	{
 		this.character = character;
@@ -173,6 +175,7 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 				SwingUtilities.invokeLater(new Runnable()
 				{
 
+					@Override
 					public void run()
 					{
 						Document doc = null;
@@ -210,6 +213,7 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 	private class DocumentConstructor implements Callable<Document>
 	{
 
+		@Override
 		public Document call() throws Exception
 		{
 			StringWriter out = new StringWriter();
@@ -236,6 +240,7 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 		private boolean interupted = false;
 		private PipedReader reader = new PipedReader();
 
+		@Override
 		public void run()
 		{
 			BufferedWriter bufWriter = null;

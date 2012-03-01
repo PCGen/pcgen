@@ -163,6 +163,7 @@ public class OptionsPathDialog extends JDialog
 	private class ActionHandler implements ActionListener
 	{
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			String command = e.getActionCommand();

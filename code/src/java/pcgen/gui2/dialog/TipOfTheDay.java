@@ -110,6 +110,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 		return propertyContext.getBoolean("showTipOfTheDay", true);
 	}
 
+	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		if (NEXT.equals(e.getActionCommand()))
@@ -197,6 +198,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 		addWindowListener(new WindowAdapter()
 		{
 
+			@Override
 			public void windowClosing(WindowEvent e)
 			{
 				quit();
@@ -206,6 +208,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 		addKeyListener(new KeyAdapter()
 		{
 
+			@Override
 			public void keyPressed(KeyEvent e)
 			{
 				if (e.getKeyCode() == KeyEvent.VK_ESCAPE)

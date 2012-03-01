@@ -139,6 +139,7 @@ public class CharacterSheetFrame extends JFrame
 			character.getEquipmentSetRef().removeReferenceListener(this);
 		}
 
+		@Override
 		public void itemStateChanged(ItemEvent e)
 		{
 			if (e.getStateChange() == ItemEvent.SELECTED)
@@ -147,6 +148,7 @@ public class CharacterSheetFrame extends JFrame
 			}
 		}
 
+		@Override
 		public void referenceChanged(ReferenceEvent<EquipmentSetFacade> e)
 		{
 			setSelectedItem(e.getNewReference());
@@ -175,6 +177,7 @@ public class CharacterSheetFrame extends JFrame
 										this);
 		}
 
+		@Override
 		public void itemStateChanged(ItemEvent e)
 		{
 			TempBonusFacade bonus = (TempBonusFacade) e.getItemSelectable().getSelectedObjects()[0];

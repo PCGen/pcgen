@@ -251,6 +251,7 @@ final class MainAbout extends JPanel
 		wwwSite.addActionListener(new ActionListener()
 		{
 
+			@Override
 			public void actionPerformed(ActionEvent e)
 			{
 				try
@@ -272,6 +273,7 @@ final class MainAbout extends JPanel
 		mailingList.addActionListener(new ActionListener()
 		{
 
+			@Override
 			public void actionPerformed(ActionEvent e)
 			{
 				try

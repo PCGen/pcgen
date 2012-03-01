@@ -128,6 +128,7 @@ public class CharacterHPDialog extends JDialog implements ActionListener
 		final ReferenceListener<Integer> hpListener = new ReferenceListener<Integer>()
 		{
 
+			@Override
 			public void referenceChanged(ReferenceEvent<Integer> e)
 			{
 				totalHp.setText(e.getNewReference().toString());
@@ -168,6 +169,7 @@ public class CharacterHPDialog extends JDialog implements ActionListener
 		Utility.installEscapeCloseOperation(this);
 	}
 
+	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		if (e.getActionCommand().equals("Reroll"))
@@ -192,11 +194,13 @@ public class CharacterHPDialog extends JDialog implements ActionListener
 			levels.addHitPointListener(this);
 		}
 
+		@Override
 		public int getRowCount()
 		{
 			return levels.getSize();
 		}
 
+		@Override
 		public int getColumnCount()
 		{
 			return 7;
@@ -254,6 +258,7 @@ public class CharacterHPDialog extends JDialog implements ActionListener
 			}
 		}
 
+		@Override
 		public Object getValueAt(int rowIndex, int columnIndex)
 		{
 			CharacterLevelFacade level = levels.getElementAt(rowIndex);
@@ -284,6 +289,7 @@ public class CharacterHPDialog extends JDialog implements ActionListener
 			levels.setHPRolled(level, (Integer) aValue);
 		}
 
+		@Override
 		public void hitPointsChanged(CharacterLevelEvent e)
 		{
 			fireTableRowsUpdated(e.getBaseLevelIndex(), e.getBaseLevelIndex());
@@ -302,6 +308,7 @@ public class CharacterHPDialog extends JDialog implements ActionListener
 			button.setText("Reroll");
 		}
 
+		@Override
 		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
 		{
 			return button;
@@ -322,17 +329,20 @@ public class CharacterHPDialog extends JDialog implements ActionListener
 			button.addActionListener(this);
 		}
 
+		@Override
 		public Object getCellEditorValue()
 		{
 			return null;
 		}
 
+		@Override
 		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column)
 		{
 			editingRow = row;
 			return button;
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			CharacterLevelFacade level = levels.getElementAt(editingRow);

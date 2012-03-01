@@ -118,6 +118,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		addWindowListener(new WindowAdapter()
 		{
 
+			@Override
 			public void windowClosed(WindowEvent e)
 			{
 				//detach listeners from the chooser
@@ -185,11 +186,13 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		pane.add(bottomPane, BorderLayout.SOUTH);
 	}
 
+	@Override
 	public void referenceChanged(ReferenceEvent<Integer> e)
 	{
 		remainingLabel.setText(e.getNewReference().toString());
 	}
 
+	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		if (e.getActionCommand().equals("ADD") || e.getSource() == availTable)
@@ -235,41 +238,49 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			DataView<InfoFacade>, TreeView<InfoFacade>
 	{
 
+		@Override
 		public ListFacade<? extends TreeView<InfoFacade>> getTreeViews()
 		{
 			return new DefaultListFacade<TreeView<InfoFacade>>(Collections.singletonList(this));
 		}
 
+		@Override
 		public int getDefaultTreeViewIndex()
 		{
 			return 0;
 		}
 
+		@Override
 		public DataView<InfoFacade> getDataView()
 		{
 			return this;
 		}
 
+		@Override
 		public ListFacade<InfoFacade> getDataModel()
 		{
 			return this;
 		}
 
+		@Override
 		public List<?> getData(InfoFacade obj)
 		{
 			return Collections.emptyList();
 		}
 
+		@Override
 		public List<? extends DataViewColumn> getDataColumns()
 		{
 			return Collections.emptyList();
 		}
 
+		@Override
 		public String getViewName()
 		{
 			return chooser.getAvailableTableTitle();
 		}
 
+		@Override
 		public List<TreeViewPath<InfoFacade>> getPaths(InfoFacade pobj)
 		{
 			List<TreeViewPath<InfoFacade>> paths = new ArrayList<TreeViewPath<InfoFacade>>();
