@@ -165,7 +165,7 @@ public class TreeViewPath<E>
             return false;
         }
 
-        final TreeViewPath other = (TreeViewPath) obj;
+        final TreeViewPath<?> other = (TreeViewPath<?>) obj;
         if (this.length != other.length)
         {
             return false;
@@ -178,14 +178,14 @@ public class TreeViewPath<E>
      * the last path component.
 	 * @return the parent path
 	 */
-    public TreeViewPath getParentPath()
+    public TreeViewPath<E> getParentPath()
     {
-        return new TreeViewPath(path, length - 1);
+        return new TreeViewPath<E>(path, length - 1);
     }
 
-    public TreeViewPath getParentPath(int lastElement)
+    public TreeViewPath<E> getParentPath(int lastElement)
     {
-        return new TreeViewPath(path, lastElement + 1);
+        return new TreeViewPath<E>(path, lastElement + 1);
     }
 
     public TreeViewPath<E> pathByAddingParent(String singlePath)

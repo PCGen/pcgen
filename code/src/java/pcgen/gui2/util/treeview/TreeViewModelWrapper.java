@@ -47,21 +47,25 @@ public class TreeViewModelWrapper<E> implements TreeViewModel<E>
         this.dataModel = dataModel;
     }
 
+	@Override
     public ListFacade<? extends TreeView<E>> getTreeViews()
     {
         return treeviewModel.getTreeViews();
     }
 
+	@Override
     public int getDefaultTreeViewIndex()
     {
         return treeviewModel.getDefaultTreeViewIndex();
     }
 
+	@Override
     public DataView<E> getDataView()
     {
         return treeviewModel.getDataView();
     }
 
+	@Override
     public DefaultListFacade<E> getDataModel()
     {
         return dataModel;

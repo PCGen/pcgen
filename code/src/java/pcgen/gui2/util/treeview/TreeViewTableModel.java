@@ -56,16 +56,19 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 	private final ListListener<E> listListener = new ListListener<E>()
 	{
 
+		@Override
 		public void elementAdded(ListEvent<E> e)
 		{
 			addElement(e.getElement());
 		}
 
+		@Override
 		public void elementRemoved(ListEvent<E> e)
 		{
 			removeElement(e.getElement());
 		}
 
+		@Override
 		public void elementsChanged(ListEvent<E> e)
 		{
 			//Todo: optimize
@@ -76,21 +79,25 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 	private final DataViewColumn namecolumn = new DataViewColumn()
 	{
 
+		@Override
 		public String getName()
 		{
 			return selectedView.getViewName();
 		}
 
+		@Override
 		public Class<?> getDataClass()
 		{
 			return TreeTableNode.class;
 		}
 
+		@Override
 		public Visibility getVisibility()
 		{
 			return Visibility.ALWAYS_VISIBLE;
 		}
 
+		@Override
 		public boolean isEditable()
 		{
 			return true;
@@ -216,6 +223,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		}
 	}
 
+	@Override
 	public final int getColumnCount()
 	{
 		return datacolumns.size() + 1;
@@ -254,6 +262,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		}
 	}
 
+	@Override
 	public final void sortModel(Comparator<List<?>> comparator)
 	{
 		TreeViewNode root = (TreeViewNode) getRoot();
@@ -462,6 +471,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 			this.mostRecentComparator = comparator;
 		}
 
+		@Override
 		@SuppressWarnings("unchecked")
 		public void sortChildren(Comparator<TreeTableNode> comparator)
 		{
@@ -485,6 +495,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 			}
 		}
 
+		@Override
 		public List<Object> getValues()
 		{
 			Vector<Object> list = new Vector<Object>(getColumnCount());
@@ -498,6 +509,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 			return list;
 		}
 
+		@Override
 		public Object getValueAt(int column)
 		{
 			if (column == 0)
@@ -512,6 +524,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 			return null;
 		}
 
+		@Override
 		@SuppressWarnings("unchecked")
 		public void setValueAt(Object value, int column)
 		{

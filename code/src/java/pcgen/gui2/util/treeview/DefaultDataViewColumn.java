@@ -68,21 +68,25 @@ public class DefaultDataViewColumn implements DataViewColumn
         }
     }
 
+	@Override
     public String getName()
     {
         return name;
     }
 
+	@Override
     public Class<?> getDataClass()
     {
         return dataclass;
     }
 
+	@Override
     public Visibility getVisibility()
     {
         return visibility;
     }
 
+	@Override
     public boolean isEditable()
     {
         return editable;
