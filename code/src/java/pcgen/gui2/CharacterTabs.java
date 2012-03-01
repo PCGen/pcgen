@@ -37,7 +37,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
-import javax.swing.JTabbedPane;
+import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import org.apache.commons.lang.StringUtils;
@@ -83,7 +83,7 @@ public final class CharacterTabs extends SharedTabPane
 		CharacterManager.getCharacters().addListListener(this);
 		frame.getSelectedCharacterRef().addReferenceListener(this);
 
-		setTabPlacement(JTabbedPane.BOTTOM);
+		setTabPlacement(SwingConstants.BOTTOM);
 		addChangeListener(this);
 		setSharedComponent(infoTabbedPane);
 		//Initialize popup menu

@@ -54,7 +54,6 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextField;
 import javax.swing.JTree;
 import javax.swing.SwingConstants;
 import javax.swing.TransferHandler;
@@ -321,14 +320,14 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		wealthLabel.setEditable(false);
 		wealthLabel.setFont(TEXT_FONT);
 		wealthLabel.setColumns(10);
-		wealthLabel.setHorizontalAlignment(JTextField.RIGHT);
+		wealthLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		panel.add(wealthLabel, middleGbc);
 		panel.add(createCurrencyLabel(), rightGbc);
 
 		label = new JLabel(LanguageBundle.getString("in_igFundsLabel")); 
 		label.setFont(LABEL_FONT);
 		panel.add(label, leftGbc);
-		goldField.setHorizontalAlignment(JTextField.RIGHT);
+		goldField.setHorizontalAlignment(SwingConstants.RIGHT);
 		goldField.setFont(TEXT_FONT);
 		goldField.setColumns(10);
 		goldField.setMinimumSize(new Dimension(50, goldField.getPreferredSize().height));
@@ -349,7 +348,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			expmodPanel.add(fundsSubtractButton, gbc2);
 		}
 		panel.add(expmodPanel, leftGbc);
-		goldModField.setHorizontalAlignment(JTextField.RIGHT);
+		goldModField.setHorizontalAlignment(SwingConstants.RIGHT);
 		goldModField.setFont(TEXT_FONT);
 		panel.add(goldModField, middleGbc);
 		panel.add(createCurrencyLabel(), rightGbc);

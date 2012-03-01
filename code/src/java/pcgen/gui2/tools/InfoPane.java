@@ -26,6 +26,7 @@ import java.io.StringReader;
 import javax.swing.BorderFactory;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.border.TitledBorder;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
@@ -49,8 +50,8 @@ public class InfoPane extends JScrollPane
 
 	public InfoPane(String title)
 	{
-		super(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-			  JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		super(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+			  ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		this.titledBorder = BorderFactory.createTitledBorder(null, title,
 															 TitledBorder.CENTER,
 															 TitledBorder.DEFAULT_POSITION);

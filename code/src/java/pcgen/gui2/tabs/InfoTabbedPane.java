@@ -41,6 +41,7 @@ import java.util.concurrent.TimeUnit;
 import javax.swing.Icon;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
+import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -105,7 +106,7 @@ public final class InfoTabbedPane extends JTabbedPane
 
 	private void initComponent()
 	{
-		setTabPlacement(JTabbedPane.TOP);
+		setTabPlacement(SwingConstants.TOP);
 
 		SummaryInfoTab tab = new SummaryInfoTab();
 		addTab(tab);

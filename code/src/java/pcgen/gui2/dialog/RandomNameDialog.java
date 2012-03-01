@@ -27,6 +27,7 @@ import java.io.File;
 
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.doomsdaybook.NameGenPanel;
@@ -60,7 +61,7 @@ public class RandomNameDialog extends JDialog
 		nameGenPanel.setGender(gender);
 		getContentPane().add(nameGenPanel, BorderLayout.CENTER);
 		pack();
-		setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		setLocationRelativeTo(frame);
 		
 		Utility.installEscapeCloseOperation(this);

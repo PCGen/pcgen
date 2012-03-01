@@ -51,6 +51,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
+import javax.swing.WindowConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ListSelectionEvent;
@@ -117,7 +118,7 @@ public class SourceSelectionDialog extends JDialog
 		this.deleteButton = new JButton(LanguageBundle.getString("in_delete")); //$NON-NLS-1$
 		this.installDataButton = new JButton(LanguageBundle.getString("in_mnuSourcesInstallData")); //$NON-NLS-1$
 		this.saveButton = new JButton(LanguageBundle.getString("in_saveSelection")); //$NON-NLS-1$
-		setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		initComponents();
 		initDefaults();
 		pack();

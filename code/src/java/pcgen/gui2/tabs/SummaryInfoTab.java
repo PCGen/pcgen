@@ -60,6 +60,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.LayoutFocusTraversalPolicy;
 import javax.swing.ListCellRenderer;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
@@ -297,8 +298,8 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		StatTableModel.initializeTable(statsTable);
 		JScrollPane pane =
 				new JScrollPane(statsTable,
-					JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-					JScrollPane.HORIZONTAL_SCROLLBAR_NEVER)
+					ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+					ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER)
 		{
 
 			@Override

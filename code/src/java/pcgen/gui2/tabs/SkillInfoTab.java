@@ -42,7 +42,6 @@ import javax.swing.SwingConstants;
 import javax.swing.JSpinner.DefaultEditor;
 import javax.swing.JSplitPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingUtilities;
 import javax.swing.event.ChangeEvent;
@@ -460,7 +459,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			JFormattedTextField ftf = editor.getTextField();
 			ftf.setEditable(true);
 			ftf.setFormatterFactory(factory);
-			ftf.setHorizontalAlignment(JTextField.RIGHT);
+			ftf.setHorizontalAlignment(SwingConstants.RIGHT);
 
 			spinner.setEditor(editor);
 		}

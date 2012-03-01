@@ -29,6 +29,7 @@ import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JViewport;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.event.TableColumnModelEvent;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
@@ -90,8 +91,8 @@ public class JDynamicTable extends JTableEx
 				{
 					return;
 				}
-				scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-				scrollPane.setCorner(JScrollPane.UPPER_RIGHT_CORNER, cornerButton);
+				scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+				scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, cornerButton);
 			}
 		}
 	}
@@ -115,7 +116,7 @@ public class JDynamicTable extends JTableEx
 				{
 					return;
 				}
-				scrollPane.setCorner(JScrollPane.UPPER_RIGHT_CORNER, null);
+				scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, null);
 			}
 		}
 	}

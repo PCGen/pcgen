@@ -22,7 +22,7 @@ package pcgen.gui2.tools;
 
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
+import java.awt.event.InputEvent;
 import java.util.StringTokenizer;
 import javax.swing.AbstractAction;
 import javax.swing.KeyStroke;
@@ -74,7 +74,7 @@ public class PCGenAction extends AbstractAction
             // 2) shortcut-alt +
             // 3) F1
             // (error checking is for the weak!)
-            int iShortCut = KeyEvent.CTRL_MASK;
+            int iShortCut = InputEvent.CTRL_MASK;
             int menuShortcutKeyMask = Toolkit.getDefaultToolkit().getMenuShortcutKeyMask();
             StringTokenizer aTok = new StringTokenizer(accelerator);
 
@@ -89,16 +89,16 @@ public class PCGenAction extends AbstractAction
             {
                 if (System.getProperty("mrj.version") != null)
                 {
-                    iShortCut = menuShortcutKeyMask | KeyEvent.ALT_MASK;
+                    iShortCut = menuShortcutKeyMask | InputEvent.ALT_MASK;
                 }
                 else
                 {
-                    iShortCut = KeyEvent.ALT_MASK;
+                    iShortCut = InputEvent.ALT_MASK;
                 }
             }
             else if (aString.equalsIgnoreCase("shift-shortcut"))
             {
-                iShortCut = menuShortcutKeyMask | KeyEvent.SHIFT_MASK;
+                iShortCut = menuShortcutKeyMask | InputEvent.SHIFT_MASK;
             }
 
             if (aTok.hasMoreTokens())

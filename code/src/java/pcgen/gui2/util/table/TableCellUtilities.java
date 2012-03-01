@@ -70,7 +70,7 @@ public final class TableCellUtilities
 		public RadioButtonEditor()
 		{
 			this.button = new JRadioButton();
-			button.setHorizontalAlignment(JRadioButton.CENTER);
+			button.setHorizontalAlignment(SwingConstants.CENTER);
 			button.addActionListener(this);
 		}
 

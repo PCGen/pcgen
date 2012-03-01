@@ -48,6 +48,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.WindowConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
@@ -78,7 +79,7 @@ public class AboutDialog extends JDialog
 		getContentPane().setLayout(new BorderLayout());
 		getContentPane().add(new MainAbout(), BorderLayout.CENTER);
 		pack();
-		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(frame);
 		
 		Utility.installEscapeCloseOperation(this);

@@ -43,6 +43,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.ListSelectionModel;
+import javax.swing.WindowConstants;
 
 import pcgen.core.facade.ChooserFacade;
 import pcgen.core.facade.InfoFacade;
@@ -114,7 +115,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 	private void initComponents()
 	{
 		setTitle(chooser.getName());
-		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		addWindowListener(new WindowAdapter()
 		{
 

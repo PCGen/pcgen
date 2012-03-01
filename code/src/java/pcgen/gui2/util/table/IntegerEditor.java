@@ -38,8 +38,8 @@ import javax.swing.DefaultCellEditor;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.KeyStroke;
+import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -79,7 +79,7 @@ public class IntegerEditor extends DefaultCellEditor
 		ftf.setFormatterFactory(
 				new DefaultFormatterFactory(intFormatter));
 		ftf.setValue(minimum);
-		ftf.setHorizontalAlignment(JTextField.TRAILING);
+		ftf.setHorizontalAlignment(SwingConstants.TRAILING);
 		ftf.setFocusLostBehavior(JFormattedTextField.PERSIST);
 
 		//React when the user presses Enter while the editor is

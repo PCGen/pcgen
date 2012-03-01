@@ -37,6 +37,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
 import javax.swing.JTree;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
@@ -121,7 +122,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 	
 	private void initComponents()
 	{
-		FlippingSplitPane mainPane = new FlippingSplitPane(FlippingSplitPane.VERTICAL_SPLIT);
+		FlippingSplitPane mainPane = new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT);
 		FlippingSplitPane topPane = new FlippingSplitPane();
 		topPane.setResizeWeight(0.6);
 		JPanel panel = new JPanel(new BorderLayout());

@@ -50,6 +50,7 @@ import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingWorker;
+import javax.swing.WindowConstants;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -177,7 +178,7 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 		progressBar.setIndeterminate(true);
 
 		setTitle("Export a PC or Party");
-		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		
 		UIPropertyContext context = UIPropertyContext.createContext("ExportDialog");
 		String defaultOSType = context.getProperty(UIPropertyContext.DEFAULT_OS_TYPE);

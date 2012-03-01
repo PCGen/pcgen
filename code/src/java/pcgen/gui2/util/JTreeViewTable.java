@@ -42,6 +42,7 @@ import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JViewport;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.event.TableColumnModelEvent;
@@ -203,8 +204,8 @@ public class JTreeViewTable<T> extends JTreeTable
 				{
 					return;
 				}
-				scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-				scrollPane.setCorner(JScrollPane.UPPER_RIGHT_CORNER, cornerButton);
+				scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+				scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, cornerButton);
 			}
 		}
 	}
@@ -228,7 +229,7 @@ public class JTreeViewTable<T> extends JTreeTable
 				{
 					return;
 				}
-				scrollPane.setCorner(JScrollPane.UPPER_RIGHT_CORNER, null);
+				scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, null);
 			}
 		}
 	}

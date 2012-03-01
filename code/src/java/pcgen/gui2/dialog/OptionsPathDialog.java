@@ -34,6 +34,8 @@ import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
+import javax.swing.WindowConstants;
+
 import org.apache.commons.lang.SystemUtils;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.ConfigurationSettings.SettingsFilesPath;
@@ -75,7 +77,7 @@ public class OptionsPathDialog extends JDialog
 	{
 		setResizable(false);
 		setTitle("Directory for options.ini location");
-		setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 
 		getContentPane().setLayout(new java.awt.GridBagLayout());
 		GridBagConstraints gridBagConstraints = new GridBagConstraints();

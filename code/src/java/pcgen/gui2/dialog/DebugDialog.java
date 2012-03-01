@@ -34,11 +34,11 @@ import java.util.logging.LogRecord;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import javax.swing.table.AbstractTableModel;
@@ -170,7 +170,7 @@ public class DebugDialog extends JDialog
 				@Override
 				protected void setValue(Object value)
 				{
-					setHorizontalAlignment(JLabel.RIGHT);
+					setHorizontalAlignment(SwingConstants.RIGHT);
 					setText(format.format(value));
 				}
 
