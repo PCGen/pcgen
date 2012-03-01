@@ -209,6 +209,9 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 				infoText.appendLineBreak();
 			}
 		}
+		
+		infoText.appendLineBreak();
+		infoText.appendElement("PCCPATH", aCamp.getSourceURI().getPath());
 
 		return infoText.toString();
 	}
