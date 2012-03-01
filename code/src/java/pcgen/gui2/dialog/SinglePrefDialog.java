@@ -32,7 +32,6 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import pcgen.core.SettingsHandler;
 import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
