@@ -50,7 +50,7 @@ import pcgen.system.LanguageBundle;
  * @version $Revision:  $
  */
 public class SearchFilterPanel extends JPanel
-		implements DisplayableFilter, DocumentListener, ActionListener
+		implements DisplayableFilter<Object, Object>, DocumentListener, ActionListener
 {
 
 	private FilterHandler filterHandler;
@@ -67,16 +67,19 @@ public class SearchFilterPanel extends JPanel
 		add(clearButton, BorderLayout.EAST);
 	}
 
+	@Override
 	public void insertUpdate(DocumentEvent e)
 	{
 		refreshFilter();
 	}
 
+	@Override
 	public void removeUpdate(DocumentEvent e)
 	{
 		refreshFilter();
 	}
 
+	@Override
 	public void changedUpdate(DocumentEvent e)
 	{
 		refreshFilter();
@@ -89,16 +92,19 @@ public class SearchFilterPanel extends JPanel
 		filterHandler.refilter();
 	}
 
+	@Override
 	public boolean accept(Object context, Object element)
 	{
 		return StringUtils.containsIgnoreCase(element.toString(), searchField.getText());
 	}
 
+	@Override
 	public Component getFilterComponent()
 	{
 		return this;
 	}
 
+	@Override
 	public void setFilterHandler(FilterHandler handler)
 	{
 		this.filterHandler = handler;

@@ -50,7 +50,7 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 {
 
 	private JPanel filterPanel = new JPanel(new FilterLayout());
-	private List<DisplayableFilter<C, E>> filters = new ArrayList<DisplayableFilter<C, E>>();
+	private List<DisplayableFilter<? super C, ? super E>> filters = new ArrayList<DisplayableFilter<? super C, ? super E>>();
 	private FilterHandler filterHandler;
 
 	public FilterBar()
@@ -75,7 +75,7 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 		add(arrowbutton, BorderLayout.SOUTH);
 	}
 
-	public void addDisplayableFilter(DisplayableFilter<C, E> filter)
+	public void addDisplayableFilter(DisplayableFilter<? super C, ? super E> filter)
 	{
 		filterPanel.add(filter.getFilterComponent());
 		filters.add(filter);
@@ -89,23 +89,26 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 		filter.setFilterHandler(null);
 	}
 
+	@Override
 	public Component getFilterComponent()
 	{
 		return this;
 	}
 
+	@Override
 	public void setFilterHandler(FilterHandler handler)
 	{
 		this.filterHandler = handler;
-		for (DisplayableFilter<C, E> displayableFilter : filters)
+		for (DisplayableFilter<? super C, ? super E> displayableFilter : filters)
 		{
 			displayableFilter.setFilterHandler(handler);
 		}
 	}
 
+	@Override
 	public boolean accept(C context, E element)
 	{
-		for (DisplayableFilter<C, E> displayableFilter : filters)
+		for (DisplayableFilter<? super C, ? super E> displayableFilter : filters)
 		{
 			if (!displayableFilter.accept(context, element))
 			{
@@ -231,6 +234,7 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 			super(FlowLayout.LEFT, 5, 2);
 		}
 
+		@Override
 		public void layoutContainer(Container target)
 		{
 			synchronized (target.getTreeLock())

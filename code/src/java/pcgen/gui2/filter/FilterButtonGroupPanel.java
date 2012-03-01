@@ -65,11 +65,13 @@ public class FilterButtonGroupPanel<C, E> extends JPanel
 		button.setFilterHandler(null);
 	}
 
+	@Override
 	public Component getFilterComponent()
 	{
 		return this;
 	}
 
+	@Override
 	public void setFilterHandler(FilterHandler handler)
 	{
 		this.filterHandler = handler;
@@ -79,6 +81,7 @@ public class FilterButtonGroupPanel<C, E> extends JPanel
 		}
 	}
 
+	@Override
 	public boolean accept(C context, E element)
 	{
 		for (FilterButton<C, E> filterButton : buttons)
@@ -91,6 +94,7 @@ public class FilterButtonGroupPanel<C, E> extends JPanel
 		return true;
 	}
 
+	@Override
 	public void itemStateChanged(ItemEvent e)
 	{
 		if (e.getStateChange() == ItemEvent.SELECTED)

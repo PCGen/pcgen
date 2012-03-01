@@ -39,11 +39,13 @@ public class FilteredListFacade<C, E> extends AbstractListFacade<E> implements L
 	private Filter<C, E> filter = null;
 	private C context = null;
 
+	@Override
 	public E getElementAt(int index)
 	{
 		return data.get(index);
 	}
 
+	@Override
 	public int getSize()
 	{
 		return data.size();
@@ -102,6 +104,7 @@ public class FilteredListFacade<C, E> extends AbstractListFacade<E> implements L
 		fireElementsChanged(this);
 	}
 
+	@Override
 	public void elementAdded(ListEvent<E> e)
 	{
 		if (filter == null || filter.accept(context, e.getElement()))
@@ -112,6 +115,7 @@ public class FilteredListFacade<C, E> extends AbstractListFacade<E> implements L
 		}
 	}
 
+	@Override
 	public void elementRemoved(ListEvent<E> e)
 	{
 		int index = data.indexOf(e.getElement());
@@ -119,6 +123,7 @@ public class FilteredListFacade<C, E> extends AbstractListFacade<E> implements L
 		fireElementRemoved(this, e.getElement(), index);
 	}
 
+	@Override
 	public void elementsChanged(ListEvent<E> e)
 	{
 		refilter();

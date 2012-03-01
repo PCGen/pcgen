@@ -31,9 +31,9 @@ import javax.swing.JScrollPane;
 public class FilterUtilities
 {
 
-	public static FilterBar createDefaultFilterBar()
+	public static FilterBar<Object, Object> createDefaultFilterBar()
 	{
-		FilterBar bar = new FilterBar();
+		FilterBar<Object, Object> bar = new FilterBar<Object, Object>();
 		bar.addDisplayableFilter(new SearchFilterPanel());
 		return bar;
 	}

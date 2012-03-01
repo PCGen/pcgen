@@ -38,12 +38,14 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 	private static final TreeView<Object> searchView = new TreeView<Object>()
 	{
 
+		@Override
 		public String getViewName()
 		{
 			// TODO: use localized string
 			return "Search";
 		}
 
+		@Override
 		public List<TreeViewPath<Object>> getPaths(Object pobj)
 		{
 			return Collections.singletonList(new TreeViewPath<Object>(pobj));
@@ -51,16 +53,17 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 
 	};
 	private boolean searchMode = false;
-	private DisplayableFilter filter = null;
+	private DisplayableFilter<C, E> filter = null;
 	private FilteredTreeViewModel<C, E> filteredModel = null;
 	private C context = null;
-	private TreeView tempView;
+	private TreeView<? super E> tempView;
 
 	public FilteredTreeViewTable()
 	{
 		setTableHeader(new FilteredTreeViewHeader());
 	}
 
+	@Override
 	public void refilter()
 	{
 		filteredModel.refilter();
@@ -89,6 +92,7 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 		}
 	}
 
+	@Override
 	public void setTreeViewModel(TreeViewModel<E> viewModel)
 	{
 		filteredModel = new FilteredTreeViewModel<C, E>();
@@ -101,6 +105,7 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 		super.setTreeViewModel(filteredModel);
 	}
 
+	@Override
 	public void setSearchEnabled(boolean searchMode)
 	{
 		if (this.searchMode != searchMode)

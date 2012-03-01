@@ -44,21 +44,25 @@ public class FilteredTreeViewModel<C, E>
 	private TreeViewModel<E> model;
 	private C context;
 
+	@Override
 	public ListFacade<? extends TreeView<E>> getTreeViews()
 	{
 		return model.getTreeViews();
 	}
 
+	@Override
 	public int getDefaultTreeViewIndex()
 	{
 		return model.getDefaultTreeViewIndex();
 	}
 
+	@Override
 	public DataView<E> getDataView()
 	{
 		return model.getDataView();
 	}
 
+	@Override
 	public ListFacade<E> getDataModel()
 	{
 		return data;
@@ -112,6 +116,7 @@ public class FilteredTreeViewModel<C, E>
 		data.setContents(list);
 	}
 
+	@Override
 	public void elementAdded(ListEvent<E> e)
 	{
 		if (filter.accept(context, e.getElement()))
@@ -120,11 +125,13 @@ public class FilteredTreeViewModel<C, E>
 		}
 	}
 
+	@Override
 	public void elementRemoved(ListEvent<E> e)
 	{
 		data.removeElement(e.getElement());
 	}
 
+	@Override
 	public void elementsChanged(ListEvent<E> e)
 	{
 		refilter();

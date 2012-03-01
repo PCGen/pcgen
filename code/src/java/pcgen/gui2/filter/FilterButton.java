@@ -44,11 +44,13 @@ public class FilterButton<C, E> extends JToggleButton
 		addActionListener(this);
 	}
 
+	@Override
 	public Component getFilterComponent()
 	{
 		return this;
 	}
 
+	@Override
 	public void setFilterHandler(FilterHandler handler)
 	{
 		this.filterHandler = handler;
@@ -59,6 +61,7 @@ public class FilterButton<C, E> extends JToggleButton
 		this.filter = filter;
 	}
 
+	@Override
 	public boolean accept(C context, E element)
 	{
 		//if this button is not selected treat it as if
@@ -66,6 +69,7 @@ public class FilterButton<C, E> extends JToggleButton
 		return !isEnabled() || !isSelected() || filter.accept(context, element);
 	}
 
+	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		filterHandler.refilter();

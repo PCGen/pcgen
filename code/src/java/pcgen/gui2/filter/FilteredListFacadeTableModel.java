@@ -39,7 +39,7 @@ public abstract class FilteredListFacadeTableModel<E> extends AbstractTableModel
 {
 
 	protected final SortedListFacade<E> sortedList;
-	private final FilteredListFacade filteredList;
+	private final FilteredListFacade<CharacterFacade, E> filteredList;
 	protected final CharacterFacade character;
 
 	public FilteredListFacadeTableModel()
@@ -50,11 +50,12 @@ public abstract class FilteredListFacadeTableModel<E> extends AbstractTableModel
 	public FilteredListFacadeTableModel(CharacterFacade character)
 	{
 		this.character = character;
-		this.filteredList = new FilteredListFacade();
+		this.filteredList = new FilteredListFacade<CharacterFacade, E>();
 		filteredList.setContext(character);
 		this.sortedList = new SortedListFacade<E>(new Comparator<Object>()
 		{
 
+			@Override
 			public int compare(Object o1, Object o2)
 			{
 				return 0;
@@ -80,11 +81,13 @@ public abstract class FilteredListFacadeTableModel<E> extends AbstractTableModel
 		filteredList.refilter();
 	}
 
+	@Override
 	public int getRowCount()
 	{
 		return sortedList.getSize();
 	}
 
+	@Override
 	public Object getValueAt(int rowIndex, int columnIndex)
 	{
 		return getValueAt(sortedList.getElementAt(rowIndex), columnIndex);
@@ -92,6 +95,7 @@ public abstract class FilteredListFacadeTableModel<E> extends AbstractTableModel
 
 	protected abstract Object getValueAt(E element, int column);
 
+	@Override
 	public void sortModel(Comparator<List<?>> comparator)
 	{
 		if (comparator == null)
@@ -101,22 +105,25 @@ public abstract class FilteredListFacadeTableModel<E> extends AbstractTableModel
 		sortedList.setComparator(new RowComparator(comparator));
 	}
 
+	@Override
 	public void elementAdded(ListEvent<E> e)
 	{
 		fireTableRowsInserted(e.getIndex(), e.getIndex());
 	}
 
+	@Override
 	public void elementRemoved(ListEvent<E> e)
 	{
 		fireTableRowsDeleted(e.getIndex(), e.getIndex());
 	}
 
+	@Override
 	public void elementsChanged(ListEvent<E> e)
 	{
 		fireTableDataChanged();
 	}
 
-	private class RowList extends AbstractList
+	private class RowList extends AbstractList<Object>
 	{
 
 		private final E element;
@@ -152,6 +159,7 @@ public abstract class FilteredListFacadeTableModel<E> extends AbstractTableModel
 			this.comp = comparator;
 		}
 
+		@Override
 		public int compare(E o1, E o2)
 		{
 			return comp.compare(new RowList(o1), new RowList(o2));
