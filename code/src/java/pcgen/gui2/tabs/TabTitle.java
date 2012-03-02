@@ -40,7 +40,7 @@ public class TabTitle
 	public static final String ICON = "icon";
 	public static final String TOOLTIP = "tooltip";
 	private PropertyChangeSupport support;
-	private Hashtable table;
+	private Hashtable<String, Object> table;
 
 	public TabTitle(String title)
 	{
@@ -58,7 +58,7 @@ public class TabTitle
 	public TabTitle()
 	{
 		support = new PropertyChangeSupport(this);
-		table = new Hashtable();
+		table = new Hashtable<String, Object>();
 	}
 
 	public void addPropertyChangeListener(PropertyChangeListener l)

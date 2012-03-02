@@ -606,7 +606,7 @@ public class CharacterAbilities
 						// Get modChoices to adjust the associated list and Feat Pool
 						adjustedAbilityPool =
 								ChooserUtilities.modChoices(pcAbility,
-									new ArrayList(), new ArrayList(), true,
+									new ArrayList<String>(), new ArrayList<String>(), true,
 									theCharacter, false, theCategory);
 					}
 					else

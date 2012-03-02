@@ -132,7 +132,6 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	 * Build up the language lists for a choice of languages linked to a rules 
 	 * object. e.g. The speak language skill.
 	 */
-	@SuppressWarnings("unchecked")
 	private void buildObjectLangList()
 	{
 		final List<Language> availLangs = new ArrayList<Language>();
@@ -155,7 +154,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		}
 		else
 		{
-			ChoiceManagerList aMan = ChooserUtilities.getConfiguredController((PObject) source, theCharacter, null, new ArrayList<String>());
+			ChoiceManagerList<Language> aMan = ChooserUtilities.getConfiguredController((PObject) source, theCharacter, null, new ArrayList<String>());
 			numSelections = aMan.getNumEffectiveChoices(selLangs, new ArrayList<String>());
 		}
 		numSelectionsRemain.setReference(numSelections);

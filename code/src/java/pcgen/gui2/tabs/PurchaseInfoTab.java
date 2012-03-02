@@ -198,11 +198,11 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				{
 					if (!e.getValueIsAdjusting())
 					{
-						List<Object> data = availableTable.getSelectedData();
+						List<EquipmentFacade> data = availableTable.getSelectedData();
 						EquipmentFacade equipment = null;
-						if (!data.isEmpty() && data.get(0) instanceof EquipmentFacade)
+						if (!data.isEmpty())
 						{
-							equipment = (EquipmentFacade) data.get(0);
+							equipment = data.get(0);
 						}
 						setSelectedItem(equipment);
 					}
@@ -242,11 +242,11 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				{
 					if (!e.getValueIsAdjusting())
 					{
-						List<Object> data = purchasedTable.getSelectedData();
+						List<EquipmentFacade> data = purchasedTable.getSelectedData();
 						EquipmentFacade skill = null;
-						if (!data.isEmpty() && data.get(0) instanceof EquipmentFacade)
+						if (!data.isEmpty())
 						{
-							skill = (EquipmentFacade) data.get(0);
+							skill = data.get(0);
 						}
 						setSelectedItem(skill);
 					}

@@ -146,7 +146,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		rootNodeMap = new HashMap<String, RootNodeImpl>();
 		
 		spellBookNames = new DefaultListFacade<String>();
-		defaultSpellBook = new DefaultReferenceFacade(pc.getSpellBookNameToAutoAddKnown());
+		defaultSpellBook = new DefaultReferenceFacade<String>(pc.getSpellBookNameToAutoAddKnown());
 		
 		availableSpellNodes = new DefaultListFacade<SpellSupportFacade.SpellNode>();
 		buildAvailableNodes();

@@ -177,10 +177,10 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 	{
 		if (e.getActionCommand().equals("ADD") || e.getSource() == availTable)
 		{
-			List<Object> data = availTable.getSelectedData();
+			List<LanguageFacade> data = availTable.getSelectedData();
 			if (!data.isEmpty())
 			{
-				chooser.addSelected((LanguageFacade) data.get(0));
+				chooser.addSelected(data.get(0));
 			}
 			return;
 		}

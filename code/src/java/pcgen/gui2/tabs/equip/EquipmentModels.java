@@ -130,7 +130,7 @@ public class EquipmentModels
 	}
 
 	public void install(JComboBox equipBox, JTableEx eqTable,
-		DisplayableFilter<CharacterFacade, EquipmentFacade> filter,
+		DisplayableFilter<? super CharacterFacade, ? super EquipmentFacade> filter,
 		JTreeTable eqSetTable, JButton equipButton, JButton unequipButton)
 	{
 		this.equipViewBox = equipBox;

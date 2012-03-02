@@ -71,7 +71,7 @@ public abstract class FilteredListFacadeTableModel<E> extends AbstractTableModel
 		filteredList.setDelegate(delegate);
 	}
 
-	public void setFilter(Filter<CharacterFacade, E> filter)
+	public void setFilter(Filter<? super CharacterFacade, ? super E> filter)
 	{
 		filteredList.setFilter(filter);
 	}

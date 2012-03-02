@@ -89,8 +89,8 @@ class AdvancedSourceSelectionPanel extends JPanel
 	private static final String PROP_SELECTED_GAME = "selectedGame"; //$NON-NLS-1$
 	private static final String PROP_SELECTED_SOURCES = "selectedSources."; //$NON-NLS-1$
 
-	private final FilteredTreeViewTable availableTable;
-	private final FilteredTreeViewTable selectedTable;
+	private final FilteredTreeViewTable<Object, CampaignFacade> availableTable;
+	private final FilteredTreeViewTable<Object, CampaignFacade> selectedTable;
 	private SourceTreeViewModel availTreeViewModel;
 	private SourceTreeViewModel selTreeViewModel;
 	private InfoPane infoPane;
@@ -105,8 +105,8 @@ class AdvancedSourceSelectionPanel extends JPanel
 	public AdvancedSourceSelectionPanel(PCGenFrame frame)
 	{
 		this.frame = frame;
-		this.availableTable = new FilteredTreeViewTable();
-		this.selectedTable = new FilteredTreeViewTable();
+		this.availableTable = new FilteredTreeViewTable<Object, CampaignFacade>();
+		this.selectedTable = new FilteredTreeViewTable<Object, CampaignFacade>();
 		this.selectedCampaigns = new DefaultListFacade<CampaignFacade>();
 		this.availTreeViewModel = new SourceTreeViewModel();
 		this.selTreeViewModel = new SourceTreeViewModel(selectedCampaigns);
@@ -134,7 +134,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		gameModeList.addActionListener(this); 
 		panel.add(gameModeList, BorderLayout.CENTER);
 		
-		FilterBar bar = new FilterBar();
+		FilterBar<Object, CampaignFacade> bar = new FilterBar<Object, CampaignFacade>();
 		bar.add(panel, BorderLayout.WEST);
 		bar.addDisplayableFilter(new SearchFilterPanel());
 		panel = new JPanel(new BorderLayout());
@@ -168,7 +168,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		topPane.setLeftComponent(panel);
 		
 		JPanel selPanel = new JPanel(new BorderLayout());
-		FilterBar filterBar = new FilterBar();
+		FilterBar<Object, CampaignFacade> filterBar = new FilterBar<Object, CampaignFacade>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 		selectedTable.setDisplayableFilter(filterBar);
 

@@ -238,18 +238,18 @@ public class JTreeViewTable<T> extends JTreeTable
 	 * This returns data that is currently highlighted by the user.
 	 * @return
 	 */
-	public List<Object> getSelectedData()
+	public List<T> getSelectedData()
 	{
 		TreePath[] paths = getTree().getSelectionPaths();
 		if (paths == null)
 		{
 			return Collections.emptyList();
 		}
-		List<Object> data = new ArrayList<Object>(paths.length);
+		List<T> data = new ArrayList<T>(paths.length);
 		for (TreePath path : paths)
 		{
 			DefaultMutableTreeNode node = (DefaultMutableTreeNode) path.getLastPathComponent();
-			data.add(node.getUserObject());
+			data.add((T) node.getUserObject());
 		}
 		return data;
 	}

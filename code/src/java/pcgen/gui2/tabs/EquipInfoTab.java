@@ -119,7 +119,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private final JLabel weightLabel;
 	private final JLabel loadLabel;
 	private final JLabel limitLabel;
-	private DisplayableFilter tableFilter;
+	private DisplayableFilter<Object, Object> tableFilter;
 
 	public EquipInfoTab()
 	{

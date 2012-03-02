@@ -250,7 +250,7 @@ public class SourceSelectionDialog extends JDialog
 			final JList sourcesList = new JList();
 			final JTextField nameField = new JTextField();
 			ListFacade<SourceSelectionFacade> sources = FacadeFactory.getCustomSourceSelections();
-			sourcesList.setModel(new SortedListModel(sources,
+			sourcesList.setModel(new SortedListModel<SourceSelectionFacade>(sources,
 													 Comparators.toStringIgnoreCaseCollator()));
 			sourcesList.addListSelectionListener(new ListSelectionListener()
 			{
@@ -482,7 +482,7 @@ public class SourceSelectionDialog extends JDialog
 			JLabel label = new JLabel(LanguageBundle.getString("in_qsrc_intro"));
 			label.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 			add(label, BorderLayout.NORTH);
-			sourceList.setModel(new SortedListModel(FacadeFactory.getDisplayedSourceSelections(),
+			sourceList.setModel(new SortedListModel<SourceSelectionFacade>(FacadeFactory.getDisplayedSourceSelections(),
 													Comparators.toStringIgnoreCaseCollator()));
 			sourceList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			sourceList.setCellRenderer(new SourceListCellRenderer());

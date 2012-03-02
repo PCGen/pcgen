@@ -36,7 +36,7 @@ public class FilteredListFacade<C, E> extends AbstractListFacade<E> implements L
 
 	private List<E> data = new ArrayList<E>();
 	private ListFacade<E> delegate = null;
-	private Filter<C, E> filter = null;
+	private Filter<? super C, ? super E> filter = null;
 	private C context = null;
 
 	@Override
@@ -61,9 +61,9 @@ public class FilteredListFacade<C, E> extends AbstractListFacade<E> implements L
 		}
 	}
 
-	public void setFilter(Filter<C, E> filter)
+	public void setFilter(Filter<? super C, ? super E> filter)
 	{
-		Filter<C, E> oldFilter = this.filter;
+		Filter<? super C, ? super E> oldFilter = this.filter;
 		this.filter = filter;
 		if (oldFilter != filter)
 		{

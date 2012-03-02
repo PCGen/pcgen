@@ -2498,6 +2498,11 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	public void save() throws NullPointerException, IOException
 	{
 		GameMode mode = (GameMode) dataSet.getGameMode();
+		/*
+		 * TODO This is a bug. This List receives a CampaignFacade and the
+		 * subsequent write assumes it receives a Campaign. Since this is not
+		 * checked, it is not guaranteed to work. - thpr
+		 */
 		List campaigns = ListFacades.wrap(dataSet.getCampaigns());
 		(new PCGIOHandler()).write(theCharacter, mode, campaigns, file.getReference().getAbsolutePath());
 		theCharacter.setDirty(false);

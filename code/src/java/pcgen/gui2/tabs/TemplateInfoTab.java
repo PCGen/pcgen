@@ -255,14 +255,11 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			List<Object> data = availableTable.getSelectedData();
-			for (Object object : data)
+			List<TemplateFacade> data = availableTable.getSelectedData();
+			for (TemplateFacade object : data)
 			{
-				if (object instanceof TemplateFacade)
-				{
-					character.addTemplate((TemplateFacade) object);
-					return;
-				}
+				character.addTemplate(object);
+				return;
 			}
 		}
 		
@@ -293,14 +290,11 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			List<Object> data = selectedTable.getSelectedData();
-			for (Object object : data)
+			List<TemplateFacade> data = selectedTable.getSelectedData();
+			for (TemplateFacade object : data)
 			{
-				if (object instanceof TemplateFacade)
-				{
-					character.removeTemplate((TemplateFacade) object);
-					return;
-				}
+				character.removeTemplate(object);
+				return;
 			}
 		}
 		

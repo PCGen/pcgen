@@ -63,7 +63,7 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 	private final CharacterFacade character;
 	private final CharacterLevelsFacade levels;
 	private final ListSelectionModel selectionModel;
-	private FilteredTreeViewTable table;
+	private FilteredTreeViewTable<CharacterFacade, SkillFacade> table;
 	private boolean displayCostTrees = false;
 
 	public SkillTreeViewModel(CharacterFacade character, ListSelectionModel selectionModel)
@@ -81,7 +81,7 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		treeviews = new DefaultListFacade<TreeView<SkillFacade>>(views);
 	}
 
-	public void install(FilteredTreeViewTable ftvt)
+	public void install(FilteredTreeViewTable<CharacterFacade, SkillFacade> ftvt)
 	{
 		this.table = ftvt;
 		ftvt.setTreeViewModel(this);
