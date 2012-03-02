@@ -21,6 +21,7 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 		extends AbstractTokenWithSeparator<CDOMObject> implements
 		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<T>
 {
+	@Override
 	public String getParentToken()
 	{
 		return "CHOOSE";
@@ -89,11 +90,13 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
 		ChooseInformation<?> tc =
@@ -131,6 +134,7 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 		return new String[]{sb.toString()};
 	}
 
+	@Override
 	public void applyChoice(CDOMObject owner, T st, PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, st);
@@ -145,6 +149,7 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 		}
 	}
 
+	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, T choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
@@ -160,17 +165,20 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 		pc.removeAssociation(owner, encodeChoice(choice));
 	}
 
+	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 		pc.addAssociation(owner, encodeChoice(choice));
 	}
 
+	@Override
 	public List<T> getCurrentlySelected(CDOMObject owner, PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}
 
+	@Override
 	public boolean allow(T choice, PlayerCharacter pc, boolean allowStack)
 	{
 		/*

@@ -42,11 +42,13 @@ public class AbbreviatedCreator<T extends CDOMObject> implements
 		return new AbbreviatedCreator<T>(context, sc);
 	}
 
+	@Override
 	public CDOMGroupRef<T> getAllReference()
 	{
 		return creator.getAllReference();
 	}
 
+	@Override
 	public CDOMSingleRef<T> getReference(String key)
 	{
 		T ao = context.ref.getAbbreviatedObject(creator.getReferenceClass(),
@@ -58,11 +60,13 @@ public class AbbreviatedCreator<T extends CDOMObject> implements
 		return CDOMDirectSingleRef.getRef(ao);
 	}
 
+	@Override
 	public Class<T> getReferenceClass()
 	{
 		return creator.getReferenceClass();
 	}
 
+	@Override
 	public CDOMGroupRef<T> getTypeReference(String... types)
 	{
 		return creator.getTypeReference(types);

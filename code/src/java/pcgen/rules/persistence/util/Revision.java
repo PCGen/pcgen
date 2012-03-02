@@ -30,6 +30,7 @@ class Revision implements Comparable<Revision>
 		tertiarySequence = c;
 	}
 
+	@Override
 	public int compareTo(Revision r)
 	{
 		if (primarySequence > r.primarySequence)

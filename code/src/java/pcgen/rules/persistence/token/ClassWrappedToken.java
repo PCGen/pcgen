@@ -36,6 +36,7 @@ public class ClassWrappedToken implements CDOMCompatibilityToken<PCClassLevel>
 
 	private final int priority = wrapIndex++;
 
+	@Override
 	public Class<PCClassLevel> getTokenClass()
 	{
 		return PCClassLevel.class;
@@ -46,6 +47,7 @@ public class ClassWrappedToken implements CDOMCompatibilityToken<PCClassLevel>
 		wrappedToken = tok;
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, PCClassLevel obj,
 		String value)
 	{
@@ -67,21 +69,25 @@ public class ClassWrappedToken implements CDOMCompatibilityToken<PCClassLevel>
 				+ "but it was used in a class level line other than level 1");
 	}
 
+	@Override
 	public String getTokenName()
 	{
 		return wrappedToken.getTokenName();
 	}
 
+	@Override
 	public int compatibilityLevel()
 	{
 		return 5;
 	}
 
+	@Override
 	public int compatibilityPriority()
 	{
 		return priority;
 	}
 
+	@Override
 	public int compatibilitySubLevel()
 	{
 		return 14;

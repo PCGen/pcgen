@@ -43,11 +43,13 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 
 	private boolean negated = false;
 	
+	@Override
 	public String getTokenName()
 	{
 		return "PC";
 	}
 
+	@Override
 	public boolean initialize(LoadContext context, SelectionCreator<T> sc,
 			String condition, String value, boolean negate)
 	{
@@ -78,6 +80,7 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 
 	protected abstract Collection<T> getPossessed(PlayerCharacter pc);
 
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		StringBuilder sb = new StringBuilder();
@@ -141,6 +144,7 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 		return false;
 	}
 
+	@Override
 	public GroupingState getGroupingState()
 	{
 		GroupingState gs = pcs == null ? GroupingState.ANY : pcs
@@ -148,6 +152,7 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 		return negated ? gs.negate() : gs;
 	}
 
+	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<T, R> c)
 	{
 		Converter<T, R> conv = c;
@@ -156,6 +161,7 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 		return pcs.getCollection(pc, conv);
 	}
 
+	@Override
 	public boolean allow(PlayerCharacter pc, T po)
 	{
 		return getPossessed(pc).contains(po);

@@ -79,15 +79,18 @@ public interface ParseResult
 	 */
 	public class Pass implements ParseResult
 	{
+		@Override
 		public boolean passed()
 		{
 			return true;
 		}
 
+		@Override
 		public void addMessagesToLog()
 		{
 		}
 
+		@Override
 		public void printMessages()
 		{
 		}
@@ -105,6 +108,7 @@ public interface ParseResult
 			this.error = new QueuedMessage(Logging.LST_ERROR, error);
 		}
 
+    	@Override
 		public boolean passed()
 		{
 			return false;
@@ -115,12 +119,14 @@ public interface ParseResult
 			return error;
 		}
 
+		@Override
 		public void addMessagesToLog()
 		{
 			Logging.addParseMessage(error.level, error.message,
 				error.stackTrace);
 		}
 
+		@Override
 		public void printMessages()
 		{
 			Logging.log(error.level, error.message, error.stackTrace);

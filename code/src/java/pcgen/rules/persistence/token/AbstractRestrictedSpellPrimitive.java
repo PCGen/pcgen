@@ -143,11 +143,13 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 		}
 	}
 
+	@Override
 	public Class<Spell> getReferenceClass()
 	{
 		return SPELL_CLASS;
 	}
 
+	@Override
 	public String getLSTformat(boolean useAny)
 	{
 		StringBuilder sb = new StringBuilder();
@@ -243,6 +245,7 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 				: ('[' + restriction.getLSTformat() + ']');
 	}
 
+	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc,
 			Converter<Spell, R> c)
 	{

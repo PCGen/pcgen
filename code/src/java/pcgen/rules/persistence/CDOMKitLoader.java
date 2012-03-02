@@ -91,6 +91,7 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 		return true;
 	}
 
+	@Override
 	public boolean parseLine(LoadContext context, Kit obj, String val,
 			URI source) throws PersistenceLayerException
 	{
@@ -98,6 +99,7 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 		return false;
 	}
 
+	@Override
 	public void loadLstFiles(LoadContext context,
 			Collection<CampaignSourceEntry> sources)
 	{
@@ -134,6 +136,7 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 		return targetClass;
 	}
 
+	@Override
 	public void unloadLstFiles(LoadContext lc,
 			Collection<CampaignSourceEntry> files)
 	{

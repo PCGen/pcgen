@@ -73,6 +73,7 @@ public class ComplexParseResult implements ParseResult
 		}
 	}
 
+	@Override
 	public void printMessages()
 	{
 		for (QueuedMessage msg : queuedMessages)
@@ -81,6 +82,7 @@ public class ComplexParseResult implements ParseResult
 		}
 	}
 
+	@Override
 	public void addMessagesToLog()
 	{
 		for (QueuedMessage msg : queuedMessages)
@@ -89,6 +91,7 @@ public class ComplexParseResult implements ParseResult
 		}
 	}
 
+	@Override
 	public boolean passed()
 	{
 		for (QueuedMessage msg : queuedMessages)

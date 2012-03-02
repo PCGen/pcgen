@@ -51,11 +51,13 @@ public class PreCompatibilityToken implements
 		tokenName = (invert ? "!" : "") + "PRE" + tokenRoot;
 	}
 
+	@Override
 	public Class<ConcretePrereqObject> getTokenClass()
 	{
 		return ConcretePrereqObject.class;
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, ConcretePrereqObject obj,
 		String value)
 	{
@@ -81,6 +83,7 @@ public class PreCompatibilityToken implements
 		}
 	}
 
+	@Override
 	public String getTokenName()
 	{
 		return tokenName;
@@ -101,11 +104,13 @@ public class PreCompatibilityToken implements
 		return 14;
 	}
 
+	@Override
 	public String getParentToken()
 	{
 		return "*KITTOKEN";
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, ConcretePrereqObject obj)
 	{
 		Set<String> set = new TreeSet<String>();

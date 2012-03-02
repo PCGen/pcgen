@@ -223,6 +223,7 @@ public final class TokenFamily implements Comparable<TokenFamily>
 		return Collections.unmodifiableCollection(typeMap.values());
 	}
 
+	@Override
 	public int compareTo(TokenFamily tf)
 	{
 		return rev.compareTo(tf.rev);

@@ -17,11 +17,7 @@
  */
 package pcgen.rules.persistence.token;
 
-import java.util.Collection;
-
-import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveCollection;
-import pcgen.core.PlayerCharacter;
 import pcgen.persistence.lst.LstToken;
 import pcgen.rules.context.LoadContext;
 
@@ -29,8 +25,4 @@ public interface PrimitiveToken<T> extends LstToken, PrimitiveCollection<T>
 {
 	public boolean initialize(LoadContext context, Class<T> cl, String value,
 			String args);
-
-	public String getTokenName();
-
-	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<T, R> c);
 }

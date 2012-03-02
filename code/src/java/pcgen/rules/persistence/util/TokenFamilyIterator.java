@@ -41,6 +41,7 @@ public class TokenFamilyIterator<C> implements
 		subIterator = TokenFamily.CURRENT.getTokens(cl).iterator();
 	}
 
+	@Override
 	public CDOMPrimaryToken<? super C> next()
 	{
 		setNext();
@@ -95,12 +96,14 @@ public class TokenFamilyIterator<C> implements
 		return getNext();
 	}
 
+	@Override
 	public boolean hasNext()
 	{
 		setNext();
 		return nextToken != null;
 	}
 
+	@Override
 	public void remove()
 	{
 		throw new UnsupportedOperationException(

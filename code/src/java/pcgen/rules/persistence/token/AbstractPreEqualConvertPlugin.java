@@ -33,6 +33,7 @@ public abstract class AbstractPreEqualConvertPlugin implements
 	public static final String SET_ONE = "Set unspecified values to one (identify as 'present')";
 
 	// Just process over these magical tokens for now
+	@Override
 	public String process(TokenProcessEvent tpe)
 	{
 		String formula = tpe.getValue();
@@ -225,6 +226,7 @@ public abstract class AbstractPreEqualConvertPlugin implements
 		return 1;
 	}
 
+	@Override
 	public Class<? extends CDOMObject> getProcessedClass()
 	{
 		return CDOMObject.class;

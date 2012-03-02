@@ -47,6 +47,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 		AbstractTokenWithSeparator<CDOMObject> implements
 		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<T>
 {
+	@Override
 	public String getParentToken()
 	{
 		return "CHOOSE";
@@ -160,11 +161,13 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 		return context.ref.getManufacturer(getChooseClass());
 	}
 
+	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
 		ChooseInformation<?> tc =
@@ -202,6 +205,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 		return new String[]{sb.toString()};
 	}
 
+	@Override
 	public void applyChoice(CDOMObject owner, T st, PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, st);
@@ -222,6 +226,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 		ca.applyChoice(owner, st, pc);
 	}
 
+	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, T choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
@@ -237,17 +242,20 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 		}
 	}
 
+	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 		pc.addAssociation(owner, encodeChoice(choice));
 	}
 
+	@Override
 	public List<T> getCurrentlySelected(CDOMObject owner, PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}
 
+	@Override
 	public boolean allow(T choice, PlayerCharacter pc, boolean allowStack)
 	{
 		/*
@@ -257,12 +265,14 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 		return true;
 	}
 
+	@Override
 	public T decodeChoice(String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 			getChooseClass(), s);
 	}
 
+	@Override
 	public String encodeChoice(T choice)
 	{
 		return choice.getKeyName();

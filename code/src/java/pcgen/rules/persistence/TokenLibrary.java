@@ -259,6 +259,7 @@ public class TokenLibrary implements PluginLoader
 		return instance;
 	}
 
+	@Override
 	public void loadPlugin(Class<?> clazz) throws Exception
 	{
 		if (BonusObj.class.isAssignableFrom(clazz))
@@ -282,6 +283,7 @@ public class TokenLibrary implements PluginLoader
 		}
 	}
 
+	@Override
 	public Class[] getPluginClasses()
 	{
 		return new Class[]
@@ -310,6 +312,7 @@ public class TokenLibrary implements PluginLoader
 			tokenKey = key;
 		}
 
+		@Override
 		public boolean hasNext()
 		{
 			setNextToken();
@@ -339,6 +342,7 @@ public class TokenLibrary implements PluginLoader
 		protected abstract T grabToken(TokenFamily family, Class<?> cl,
 									   String key);
 
+		@Override
 		public T next()
 		{
 			setNextToken();
@@ -350,6 +354,7 @@ public class TokenLibrary implements PluginLoader
 			return nextToken;
 		}
 
+		@Override
 		public void remove()
 		{
 			throw new UnsupportedOperationException(

@@ -11,8 +11,4 @@ public interface QualifierToken<T extends CDOMObject> extends LstToken,
 {
 	public boolean initialize(LoadContext context, SelectionCreator<T> cl,
 			String condition, String value, boolean negated);
-
-	public String getTokenName();
-
-	public Class<? super T> getReferenceClass();
 }
