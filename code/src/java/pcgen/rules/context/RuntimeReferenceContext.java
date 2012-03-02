@@ -69,6 +69,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		return returnList;
 	}
 
+	@Override
 	public <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, Category<T> cat)
 	{
@@ -86,6 +87,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		return getManufacturer(cat);
 	}
 
+	@Override
 	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 			ManufacturableFactory<T> factory)
 	{
@@ -98,6 +100,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		return rm;
 	}
 
+	@Override
 	public <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, Class<? extends Category<T>> catClass, String category)
 	{
@@ -119,6 +122,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	 *
 	 * @throws PersistenceLayerException 
 	 */
+	@Override
 	public <T extends CDOMObject> T performCopy(T object, String copyName)
 	{
 		try
@@ -139,6 +143,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		return null;
 	}
 
+	@Override
 	public <T extends CDOMObject> T performMod(T obj)
 	{
 		return obj;

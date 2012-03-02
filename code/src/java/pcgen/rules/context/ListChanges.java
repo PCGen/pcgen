@@ -50,6 +50,7 @@ public class ListChanges<T extends PrereqObject> implements
 		clear = globallyCleared;
 	}
 
+	@Override
 	public boolean includesGlobalClear()
 	{
 		return clear;
@@ -63,6 +64,7 @@ public class ListChanges<T extends PrereqObject> implements
 		return !clear && !hasAddedItems() && !hasRemovedItems();
 	}
 
+	@Override
 	public Collection<CDOMReference<T>> getAdded()
 	{
 		TreeSet<CDOMReference<T>> set = new TreeSet<CDOMReference<T>>(
@@ -95,6 +97,7 @@ public class ListChanges<T extends PrereqObject> implements
 				&& !positive.getListMods(list).isEmpty();
 	}
 
+	@Override
 	public Collection<CDOMReference<T>> getRemoved()
 	{
 		TreeSet<CDOMReference<T>> set = new TreeSet<CDOMReference<T>>(
@@ -131,6 +134,7 @@ public class ListChanges<T extends PrereqObject> implements
 				&& !negative.getListMods(list).isEmpty();
 	}
 
+	@Override
 	public MapToList<CDOMReference<T>, AssociatedPrereqObject> getAddedAssociations()
 	{
 		MapToList<CDOMReference<T>, AssociatedPrereqObject> owned = new TreeMapToList<CDOMReference<T>, AssociatedPrereqObject>(
@@ -160,6 +164,7 @@ public class ListChanges<T extends PrereqObject> implements
 		return owned;
 	}
 
+	@Override
 	public MapToList<CDOMReference<T>, AssociatedPrereqObject> getRemovedAssociations()
 	{
 		MapToList<CDOMReference<T>, AssociatedPrereqObject> owned = new TreeMapToList<CDOMReference<T>, AssociatedPrereqObject>(

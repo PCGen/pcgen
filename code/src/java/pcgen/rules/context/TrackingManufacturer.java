@@ -42,56 +42,67 @@ public class TrackingManufacturer<T extends Loadable> implements ReferenceManufa
 		rm = mfg;
 	}
 
+	@Override
 	public void addObject(T o, String key)
 	{
 		rm.addObject(o, key);
 	}
 
+	@Override
 	public void addUnconstructedListener(UnconstructedListener listener)
 	{
 		rm.addUnconstructedListener(listener);
 	}
 
+	@Override
 	public void buildDeferredObjects()
 	{
 		rm.buildDeferredObjects();
 	}
 
+	@Override
 	public void constructIfNecessary(String value)
 	{
 		rm.constructIfNecessary(value);
 	}
 
+	@Override
 	public T constructNowIfNecessary(String name)
 	{
 		return rm.constructNowIfNecessary(name);
 	}
 
+	@Override
 	public T constructObject(String key)
 	{
 		return rm.constructObject(key);
 	}
 
+	@Override
 	public boolean containsObject(String key)
 	{
 		return rm.containsObject(key);
 	}
 
+	@Override
 	public boolean forgetObject(T o)
 	{
 		return rm.forgetObject(o);
 	}
 
+	@Override
 	public T getActiveObject(String key)
 	{
 		return rm.getActiveObject(key);
 	}
 
+	@Override
 	public Collection<T> getAllObjects()
 	{
 		return rm.getAllObjects();
 	}
 
+	@Override
 	public CDOMGroupRef<T> getAllReference()
 	{
 		CDOMGroupRef<T> ref = rm.getAllReference();
@@ -99,26 +110,31 @@ public class TrackingManufacturer<T extends Loadable> implements ReferenceManufa
 		return ref;
 	}
 
+	@Override
 	public int getConstructedObjectCount()
 	{
 		return rm.getConstructedObjectCount();
 	}
 
+	@Override
 	public T getItemInOrder(int item)
 	{
 		return rm.getItemInOrder(item);
 	}
 
+	@Override
 	public T getObject(String key)
 	{
 		return rm.getObject(key);
 	}
 
+	@Override
 	public List<T> getOrderSortedObjects()
 	{
 		return rm.getOrderSortedObjects();
 	}
 
+	@Override
 	public CDOMSingleRef<T> getReference(String key)
 	{
 		CDOMSingleRef<T> ref = rm.getReference(key);
@@ -126,11 +142,13 @@ public class TrackingManufacturer<T extends Loadable> implements ReferenceManufa
 		return ref;
 	}
 
+	@Override
 	public Class<T> getReferenceClass()
 	{
 		return rm.getReferenceClass();
 	}
 
+	@Override
 	public CDOMGroupRef<T> getTypeReference(String... types)
 	{
 		CDOMGroupRef<T> ref = rm.getTypeReference(types);
@@ -138,26 +156,31 @@ public class TrackingManufacturer<T extends Loadable> implements ReferenceManufa
 		return ref;
 	}
 
+	@Override
 	public UnconstructedListener[] getUnconstructedListeners()
 	{
 		return rm.getUnconstructedListeners();
 	}
 
+	@Override
 	public void removeUnconstructedListener(UnconstructedListener listener)
 	{
 		rm.removeUnconstructedListener(listener);
 	}
 
+	@Override
 	public void renameObject(String key, T o)
 	{
 		rm.renameObject(key, o);
 	}
 
+	@Override
 	public boolean resolveReferences(UnconstructedValidator validator)
 	{
 		return rm.resolveReferences(validator);
 	}
 
+	@Override
 	public boolean validate(UnconstructedValidator validator)
 	{
 		return rm.validate(validator);
@@ -168,36 +191,43 @@ public class TrackingManufacturer<T extends Loadable> implements ReferenceManufa
 		return rm.containsObject(name);
 	}
 
+	@Override
 	public String getReferenceDescription()
 	{
 		return rm.getReferenceDescription();
 	}
 
+	@Override
 	public T buildObject(String name)
 	{
 		return rm.buildObject(name);
 	}
 
+	@Override
 	public void fireUnconstuctedEvent(CDOMReference<?> reference)
 	{
 		rm.fireUnconstuctedEvent(reference);
 	}
 
+	@Override
 	public Collection<CDOMSingleRef<T>> getReferenced()
 	{
 		return rm.getReferenced();
 	}
 
+	@Override
 	public ManufacturableFactory<T> getFactory()
 	{
 		return rm.getFactory();
 	}
 
+	@Override
 	public Collection<CDOMReference<T>> getAllReferences()
 	{
 		return rm.getAllReferences();
 	}
 
+	@Override
 	public void injectConstructed(ReferenceManufacturer<T> rm)
 	{
 		rm.injectConstructed(rm);

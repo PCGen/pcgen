@@ -71,6 +71,7 @@ public class GameReferenceContext extends AbstractReferenceContext
 		return returnList;
 	}
 
+	@Override
 	public <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, Class<? extends Category<T>> catClass, String cat)
 	{
@@ -92,6 +93,7 @@ public class GameReferenceContext extends AbstractReferenceContext
 		return true;
 	}
 
+	@Override
 	public <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, Category<T> cat)
 	{
@@ -99,12 +101,14 @@ public class GameReferenceContext extends AbstractReferenceContext
 		return getManufacturer(cl, catClass, cat.getKeyName());
 	}
 
+	@Override
 	public <T extends CDOMObject> T performCopy(T obj, String copyName)
 	{
 		throw new UnsupportedOperationException(
 				"GameReferenceContext cannot copy objects");
 	}
 
+	@Override
 	public <T extends CDOMObject> T performMod(T obj)
 	{
 		throw new UnsupportedOperationException(
@@ -124,6 +128,7 @@ public class GameReferenceContext extends AbstractReferenceContext
 		return false;
 	}
 
+	@Override
 	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 			ManufacturableFactory<T> factory)
 	{

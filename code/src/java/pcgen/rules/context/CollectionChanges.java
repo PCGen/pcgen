@@ -34,31 +34,37 @@ public class CollectionChanges<T> implements Changes<T>
 		clear = globallyCleared;
 	}
 
+	@Override
 	public boolean includesGlobalClear()
 	{
 		return clear;
 	}
 
+	@Override
 	public boolean isEmpty()
 	{
 		return !clear && !hasAddedItems() && !hasRemovedItems();
 	}
 
+	@Override
 	public Collection<T> getAdded()
 	{
 		return positive;
 	}
 
+	@Override
 	public boolean hasAddedItems()
 	{
 		return positive != null && !positive.isEmpty();
 	}
 
+	@Override
 	public Collection<T> getRemoved()
 	{
 		return negative;
 	}
 
+	@Override
 	public boolean hasRemovedItems()
 	{
 		return negative != null && !negative.isEmpty();

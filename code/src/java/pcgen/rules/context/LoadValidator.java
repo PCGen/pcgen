@@ -44,6 +44,7 @@ public class LoadValidator implements UnconstructedValidator
 		campaignList = new ArrayList<Campaign>(campaigns);
 	}
 
+	@Override
 	public <T> boolean allow(Class<T> cl, String s)
 	{
 		if (simpleMap == null)
@@ -100,6 +101,7 @@ public class LoadValidator implements UnconstructedValidator
 		}
 	}
 
+	@Override
 	public <T extends Loadable & CategorizedCDOMObject<T>> boolean allow(
 			Class<T> cl, Category<T> cat, String s)
 	{
@@ -121,6 +123,7 @@ public class LoadValidator implements UnconstructedValidator
 		return false;
 	}
 
+	@Override
 	public boolean allowDuplicates(Class<?> cl)
 	{
 		for (Campaign c : campaignList)

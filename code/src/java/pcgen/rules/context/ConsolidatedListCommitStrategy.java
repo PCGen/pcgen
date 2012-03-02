@@ -50,6 +50,7 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		return extractURI;
 	}
 
+	@Override
 	public void setExtractURI(URI extractURI)
 	{
 		this.extractURI = extractURI;
@@ -60,6 +61,7 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		return sourceURI;
 	}
 
+	@Override
 	public void setSourceURI(URI sourceURI)
 	{
 		this.sourceURI = sourceURI;
@@ -71,6 +73,7 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 	/* (non-Javadoc)
 	 * @see pcgen.rules.context.ListCommitStrategy#addToMasterList(java.lang.String, pcgen.cdom.base.CDOMObject, pcgen.cdom.base.CDOMReference, pcgen.cdom.base.CDOMObject)
 	 */
+	@Override
 	public <T extends CDOMObject> AssociatedPrereqObject addToMasterList(
 			String tokenName, CDOMObject owner,
 			CDOMReference<? extends CDOMList<T>> list, T allowed)
@@ -82,6 +85,7 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		return a;
 	}
 
+	@Override
 	public <T extends CDOMObject> void removeFromMasterList(String tokenName,
 			CDOMObject owner, CDOMReference<? extends CDOMList<T>> list,
 			T allowed)
@@ -89,6 +93,7 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		masterList.removeListFor(list, allowed);
 	}
 
+	@Override
 	public Changes<CDOMReference> getMasterListChanges(String tokenName,
 		CDOMObject owner, Class<? extends CDOMList<?>> cl)
 	{
@@ -120,6 +125,7 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		return new CollectionChanges<CDOMReference>(set, null, false);
 	}
 
+	@Override
 	public void clearAllMasterLists(String tokenName, CDOMObject owner)
 	{
 		for (CDOMReference<? extends CDOMList<?>> ref : masterList.getKeySet())
@@ -141,6 +147,7 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		}
 	}
 
+	@Override
 	public <T extends CDOMObject> AssociatedChanges<T> getChangesInMasterList(
 		String tokenName, CDOMObject owner,
 		CDOMReference<? extends CDOMList<T>> swl)
@@ -164,11 +171,13 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		return new AssociatedCollectionChanges<T>(owned, null, false);
 	}
 
+	@Override
 	public boolean hasMasterLists()
 	{
 		return !masterList.isEmpty();
 	}
 
+	@Override
 	public <T extends PrereqObject> AssociatedPrereqObject addToList(
 		String tokenName, CDOMObject owner,
 		CDOMReference<? extends CDOMList<? super T>> list, CDOMReference<T> allowed)
@@ -179,6 +188,7 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		return a;
 	}
 
+	@Override
 	public <T extends PrereqObject> AssociatedPrereqObject removeFromList(String tokenName,
 		CDOMObject owner, CDOMReference<? extends CDOMList<? super T>> swl,
 		CDOMReference<T> ref)
@@ -187,12 +197,14 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		return new SimpleAssociatedObject();
 	}
 
+	@Override
 	public void removeAllFromList(String tokenName, CDOMObject owner,
 		CDOMReference<? extends CDOMList<?>> swl)
 	{
 		owner.removeAllFromList(swl);
 	}
 
+	@Override
 	public Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> getChangedLists(
 		CDOMObject owner, Class<? extends CDOMList<?>> cl)
 	{
@@ -209,6 +221,7 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		return list;
 	}
 
+	@Override
 	public <T extends PrereqObject> AssociatedChanges<CDOMReference<T>> getChangesInList(
 		String tokenName, CDOMObject owner,
 		CDOMReference<? extends CDOMList<T>> swl)
@@ -216,17 +229,20 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		return new ListChanges<T>(tokenName, owner, null, swl, false);
 	}
 	
+	@Override
 	public Set<CDOMReference> getActiveLists()
 	{
 		return masterList.getKeySet();
 	}
 
+	@Override
 	public <T extends CDOMObject> Collection<AssociatedPrereqObject> getAssociations(
 			CDOMReference<? extends CDOMList<T>> key1, T key2)
 	{
 		return masterList.getListFor(key1, key2);
 	}
 
+	@Override
 	public <T extends CDOMObject> Collection<AssociatedPrereqObject> getAssociations(
 			CDOMList<T> key1, T key2)
 	{
@@ -245,11 +261,13 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		return list;
 	}
 
+	@Override
 	public boolean equalsTracking(ListCommitStrategy commit)
 	{
 		return false;
 	}
 
+	@Override
 	public <T extends CDOMObject> Collection<T> getObjects(
 			CDOMReference<CDOMList<T>> ref)
 	{

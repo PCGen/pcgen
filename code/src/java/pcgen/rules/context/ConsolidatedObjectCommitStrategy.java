@@ -45,6 +45,7 @@ public class ConsolidatedObjectCommitStrategy implements ObjectCommitStrategy
 		return extractURI;
 	}
 
+	@Override
 	public void setExtractURI(URI extractURI)
 	{
 		this.extractURI = extractURI;
@@ -55,123 +56,147 @@ public class ConsolidatedObjectCommitStrategy implements ObjectCommitStrategy
 		return sourceURI;
 	}
 
+	@Override
 	public void setSourceURI(URI sourceURI)
 	{
 		this.sourceURI = sourceURI;
 	}
 
+	@Override
 	public String getString(CDOMObject cdo, StringKey sk)
 	{
 		return cdo.get(sk);
 	}
 
+	@Override
 	public Integer getInteger(CDOMObject cdo, IntegerKey ik)
 	{
 		return cdo.get(ik);
 	}
 
+	@Override
 	public Formula getFormula(CDOMObject cdo, FormulaKey fk)
 	{
 		return cdo.get(fk);
 	}
 
+	@Override
 	public Formula getVariable(CDOMObject obj, VariableKey key)
 	{
 		return obj.get(key);
 	}
 
+	@Override
 	public Set<VariableKey> getVariableKeys(CDOMObject obj)
 	{
 		return obj.getVariableKeys();
 	}
 
+	@Override
 	public <T> T getObject(CDOMObject cdo, ObjectKey<T> ik)
 	{
 		return cdo.get(ik);
 	}
 
+	@Override
 	public <T> Changes<T> getListChanges(CDOMObject cdo, ListKey<T> lk)
 	{
 		return new CollectionChanges<T>(cdo.getListFor(lk), null, false);
 	}
 
+	@Override
 	public void put(CDOMObject cdo, StringKey sk, String s)
 	{
 		cdo.put(sk, s);
 	}
 
+	@Override
 	public <T> void put(CDOMObject cdo, ObjectKey<T> sk, T s)
 	{
 		cdo.put(sk, s);
 	}
 
+	@Override
 	public void remove(CDOMObject cdo, ObjectKey<?> sk)
 	{
 		cdo.remove(sk);
 	}
 
+	@Override
 	public void put(CDOMObject cdo, IntegerKey ik, Integer i)
 	{
 		cdo.put(ik, i);
 	}
 
+	@Override
 	public void put(CDOMObject cdo, FormulaKey fk, Formula f)
 	{
 		cdo.put(fk, f);
 	}
 
+	@Override
 	public void put(CDOMObject obj, VariableKey vk, Formula f)
 	{
 		obj.put(vk, f);
 	}
 
+	@Override
 	public boolean containsListFor(CDOMObject cdo, ListKey<?> key)
 	{
 		return cdo.containsListFor(key);
 	}
 
+	@Override
 	public <T> void addToList(CDOMObject cdo, ListKey<T> key, T value)
 	{
 		cdo.addToListFor(key, value);
 	}
 
+	@Override
 	public void removeList(CDOMObject cdo, ListKey<?> lk)
 	{
 		cdo.removeListFor(lk);
 	}
 
+	@Override
 	public <T> void removeFromList(CDOMObject cdo, ListKey<T> lk, T val)
 	{
 		cdo.removeFromListFor(lk, val);
 	}
 
+	@Override
 	public <K, V> void put(CDOMObject cdo, MapKey<K, V> mk, K key, V value)
 	{
 		cdo.addToMapFor(mk, key, value);
 	}
 
+	@Override
 	public <K, V> void remove(CDOMObject cdo, MapKey<K, V> mk, K key)
 	{
 		cdo.removeFromMapFor(mk, key);
 	}
 
+	@Override
 	public void put(ConcretePrereqObject cpo, Prerequisite p)
 	{
 		cpo.addPrerequisite(p);
 	}
 
+	@Override
 	public <K, V> MapChanges<K, V> getMapChanges(CDOMObject cdo, MapKey<K, V> mk)
 	{
 		return new MapChanges<K, V>(cdo.getMapFor(mk), null, false);
 	}
 
 	
+	@Override
 	public Changes<Prerequisite> getPrerequisiteChanges(ConcretePrereqObject obj)
 	{
 		return new CollectionChanges<Prerequisite>(obj.getPrerequisiteList(),
 				null, false);
 	}
 
+	@Override
 	public <T> void removePatternFromList(CDOMObject cdo, ListKey<T> lk,
 			String pattern)
 	{
@@ -190,37 +215,44 @@ public class ConsolidatedObjectCommitStrategy implements ObjectCommitStrategy
 		}
 	}
 
+	@Override
 	public void clearPrerequisiteList(ConcretePrereqObject cpo)
 	{
 		cpo.clearPrerequisiteList();
 	}
 
+	@Override
 	public <T> PatternChanges<T> getListPatternChanges(CDOMObject cdo,
 			ListKey<T> lk)
 	{
 		return new PatternChanges<T>(cdo.getListFor(lk), null, false);
 	}
 
+	@Override
 	public boolean wasRemoved(CDOMObject cdo, ObjectKey<?> ok)
 	{
 		return false;
 	}
 
+	@Override
 	public void remove(CDOMObject cdo, StringKey sk)
 	{
 		cdo.remove(sk);
 	}
 	
+	@Override
 	public boolean wasRemoved(CDOMObject cdo, StringKey sk)
 	{
 		return false;
 	}
 
+	@Override
 	public void remove(CDOMObject cdo, IntegerKey ik)
 	{
 		cdo.remove(ik);
 	}
 
+	@Override
 	public boolean wasRemoved(CDOMObject cdo, IntegerKey ik)
 	{
 		return false;

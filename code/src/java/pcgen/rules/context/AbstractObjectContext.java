@@ -411,11 +411,13 @@ public abstract class AbstractObjectContext
 			return negative;
 		}
 
+		@Override
 		public void clearPrerequisiteList(ConcretePrereqObject cpo)
 		{
 			preClearSet.addToListFor(sourceURI, cpo);
 		}
 
+		@Override
 		public void put(ConcretePrereqObject cpo, Prerequisite p)
 		{
 			getPositive(sourceURI, cpo).addPrerequisite(p);
@@ -437,6 +439,7 @@ public abstract class AbstractObjectContext
 			return positive;
 		}
 
+		@Override
 		public void put(CDOMObject cdo, StringKey sk, String s)
 		{
 			if (s != null && s.startsWith(Constants.LST_DOT_CLEAR))
@@ -446,59 +449,70 @@ public abstract class AbstractObjectContext
 			getPositive(sourceURI, cdo).put(sk, s);
 		}
 
+		@Override
 		public void remove(CDOMObject cdo, StringKey sk)
 		{
 			getNegative(sourceURI, cdo).addToListFor(ListKey.REMOVED_STRINGKEY,
 					sk);
 		}
 
+		@Override
 		public <T> void put(CDOMObject cdo, ObjectKey<T> sk, T s)
 		{
 			getPositive(sourceURI, cdo).put(sk, s);
 		}
 
+		@Override
 		public void remove(CDOMObject cdo, ObjectKey<?> sk)
 		{
 			getNegative(sourceURI, cdo).addToListFor(ListKey.REMOVED_OBJECTKEY,
 					sk);
 		}
 
+		@Override
 		public void put(CDOMObject cdo, IntegerKey ik, Integer i)
 		{
 			getPositive(sourceURI, cdo).put(ik, i);
 		}
 
+		@Override
 		public void remove(CDOMObject cdo, IntegerKey ik)
 		{
 			getNegative(sourceURI, cdo).addToListFor(ListKey.REMOVED_INTEGERKEY,
 					ik);
 		}
 
+		@Override
 		public void put(CDOMObject cdo, FormulaKey fk, Formula f)
 		{
 			getPositive(sourceURI, cdo).put(fk, f);
 		}
 
+		@Override
 		public void put(CDOMObject cdo, VariableKey vk, Formula f)
 		{
 			getPositive(sourceURI, cdo).put(vk, f);
 		}
 
+		@Override
 		public boolean containsListFor(CDOMObject cdo, ListKey<?> key)
 		{
 			return cdo.containsListFor(key);
 		}
 
+		@Override
 		public <T> void addToList(CDOMObject cdo, ListKey<T> key, T value)
 		{
 			getPositive(sourceURI, cdo).addToListFor(key, value);
 		}
 
+		@Override
 		public void removeList(CDOMObject cdo, ListKey<?> lk)
 		{
 			globalClearSet.addToListFor(sourceURI, cdo, lk);
 		}
 
+		@Override
 		public <T> void removeFromList(CDOMObject cdo, ListKey<T> lk, T val)
 		{
 			getNegative(sourceURI, cdo).addToListFor(lk, val);
@@ -506,16 +520,19 @@ public abstract class AbstractObjectContext
 
 		// ==== MapKey manipulation functions ====
 
+		@Override
 		public <K, V> void put(CDOMObject cdo, MapKey<K, V> mk, K key, V value)
 		{
 			getPositive(sourceURI, cdo).addToMapFor(mk, key, value);
 		}
 
+		@Override
 		public <K, V> void remove(CDOMObject cdo, MapKey<K, V> mk, K key)
 		{
 			getNegative(sourceURI, cdo).addToMapFor(mk, key, null);
 		}
 
+		@Override
 		public <K, V> MapChanges<K, V> getMapChanges(CDOMObject cdo,
 				MapKey<K, V> mk)
 		{
@@ -525,36 +542,43 @@ public abstract class AbstractObjectContext
 
 		// ==== end of MapKey manipulation functions ====
 
+		@Override
 		public String getString(CDOMObject cdo, StringKey sk)
 		{
 			return getPositive(extractURI, cdo).get(sk);
 		}
 
+		@Override
 		public Integer getInteger(CDOMObject cdo, IntegerKey ik)
 		{
 			return getPositive(extractURI, cdo).get(ik);
 		}
 
+		@Override
 		public Formula getFormula(CDOMObject cdo, FormulaKey fk)
 		{
 			return getPositive(extractURI, cdo).get(fk);
 		}
 
+		@Override
 		public Formula getVariable(CDOMObject cdo, VariableKey key)
 		{
 			return getPositive(extractURI, cdo).get(key);
 		}
 
+		@Override
 		public Set<VariableKey> getVariableKeys(CDOMObject cdo)
 		{
 			return getPositive(extractURI, cdo).getVariableKeys();
 		}
 
+		@Override
 		public <T> T getObject(CDOMObject cdo, ObjectKey<T> ik)
 		{
 			return getPositive(extractURI, cdo).get(ik);
 		}
 
+		@Override
 		public <T> Changes<T> getListChanges(CDOMObject cdo, ListKey<T> lk)
 		{
 			return new CollectionChanges<T>(getPositive(extractURI, cdo)
@@ -563,6 +587,7 @@ public abstract class AbstractObjectContext
 					cdo, lk));
 		}
 
+		@Override
 		public <T> PatternChanges<T> getListPatternChanges(CDOMObject cdo,
 				ListKey<T> lk)
 		{
@@ -577,6 +602,7 @@ public abstract class AbstractObjectContext
 			return extractURI;
 		}
 
+		@Override
 		public void setExtractURI(URI extractURI)
 		{
 			this.extractURI = extractURI;
@@ -587,6 +613,7 @@ public abstract class AbstractObjectContext
 			return sourceURI;
 		}
 
+		@Override
 		public void setSourceURI(URI sourceURI)
 		{
 			this.sourceURI = sourceURI;
@@ -627,6 +654,7 @@ public abstract class AbstractObjectContext
 			return null;
 		}
 
+		@Override
 		public Changes<Prerequisite> getPrerequisiteChanges(
 				ConcretePrereqObject obj)
 		{
@@ -635,24 +663,28 @@ public abstract class AbstractObjectContext
 					.containsInList(extractURI, obj));
 		}
 
+		@Override
 		public <T> void removePatternFromList(CDOMObject cdo, ListKey<T> lk,
 				String pattern)
 		{
 			patternClearSet.addToListFor(sourceURI, cdo, lk, pattern);
 		}
 
+		@Override
 		public boolean wasRemoved(CDOMObject cdo, ObjectKey<?> ok)
 		{
 			return getNegative(extractURI, cdo).containsInList(
 					ListKey.REMOVED_OBJECTKEY, ok);
 		}
 
+		@Override
 		public boolean wasRemoved(CDOMObject cdo, StringKey sk)
 		{
 			return getNegative(extractURI, cdo).containsInList(
 					ListKey.REMOVED_STRINGKEY, sk);
 		}
 
+		@Override
 		public boolean wasRemoved(CDOMObject cdo, IntegerKey ik)
 		{
 			return getNegative(extractURI, cdo).containsInList(

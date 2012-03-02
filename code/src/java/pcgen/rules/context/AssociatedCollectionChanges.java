@@ -38,6 +38,7 @@ public class AssociatedCollectionChanges<T> implements AssociatedChanges<T>
 		clear = globallyCleared;
 	}
 
+	@Override
 	public boolean includesGlobalClear()
 	{
 		return clear;
@@ -48,6 +49,7 @@ public class AssociatedCollectionChanges<T> implements AssociatedChanges<T>
 		return !clear && !hasAddedItems() && !hasRemovedItems();
 	}
 
+	@Override
 	public Collection<T> getAdded()
 	{
 		return positive.getKeySet();
@@ -58,6 +60,7 @@ public class AssociatedCollectionChanges<T> implements AssociatedChanges<T>
 		return positive != null && !positive.isEmpty();
 	}
 
+	@Override
 	public Collection<T> getRemoved()
 	{
 		return negative == null ? null : negative.getKeySet();
@@ -68,11 +71,13 @@ public class AssociatedCollectionChanges<T> implements AssociatedChanges<T>
 		return negative != null && !negative.isEmpty();
 	}
 
+	@Override
 	public MapToList<T, AssociatedPrereqObject> getAddedAssociations()
 	{
 		return positive;
 	}
 
+	@Override
 	public MapToList<T, AssociatedPrereqObject> getRemovedAssociations()
 	{
 		return negative;
