@@ -233,6 +233,11 @@ public class BatchExporter
 				printToFile(tempFile, true, templateFile, character);
 				handler.setInputFile(tempFile);
 			}
+			if (StringUtils.isNotEmpty(handler.getErrorMessage()))
+			{
+				return false;
+			}
+					
 			handler.setMode(FOPHandler.PDF_MODE);
 			handler.setOutputFile(outFile);
 			handler.run();

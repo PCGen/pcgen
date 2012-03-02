@@ -162,6 +162,9 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 		fileList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		fileList.addListSelectionListener(this);
 
+		exportButton.setDefaultCapable(true);
+		getRootPane().setDefaultButton(exportButton);
+		
 		partyBox.setActionCommand(PARTY_COMMAND);
 		exportBox.setActionCommand(EXPORT_TO_COMMAND);
 		exportButton.setActionCommand(EXPORT_COMMAND);
@@ -551,20 +554,23 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 		@Override
 		protected Object doInBackground() throws Exception
 		{
+			Boolean result = false;
 			if (partyBox.isSelected())
 			{
 				PartyFacade party = CharacterManager.getCharacters();
-				BatchExporter.exportPartyToPDF(party, saveFile,
-					getSelectedTemplate());
+				result =
+						BatchExporter.exportPartyToPDF(party, saveFile,
+							getSelectedTemplate());
 			}
 			else
 			{
 				CharacterFacade character =
 						(CharacterFacade) characterBox.getSelectedItem();
-				BatchExporter.exportCharacterToPDF(character, saveFile,
-					getSelectedTemplate());
+				result =
+						BatchExporter.exportCharacterToPDF(character, saveFile,
+							getSelectedTemplate());
 			}
-			return null;
+			return result;
 		}
 
 		@Override
@@ -573,8 +579,14 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 			boolean exception = true;
 			try
 			{
-				get();
-				exception = false;
+				if (!((Boolean) get()))
+				{
+					pcgenFrame.showErrorMessage("Could not export " + name, "Error occured while exporting. See log for details.");
+				}
+				else
+				{
+					exception = false;
+				}
 			}
 			catch (InterruptedException ex)
 			{
@@ -582,8 +594,8 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 			}
 			catch (ExecutionException ex)
 			{
-				pcgenFrame.showErrorMessage("PCGen", "Error occured while exporting.");
 				Logging.errorPrint("Could not export " + name, ex.getCause());
+				pcgenFrame.showErrorMessage("Could not export " + name, "Error occured while exporting. See log for details.");
 			}
 			finally
 			{
