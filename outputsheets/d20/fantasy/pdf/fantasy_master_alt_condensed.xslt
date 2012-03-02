@@ -409,6 +409,17 @@
 					</fo:block>
 				</fo:flow>
 			</fo:page-sequence>
+<!-->	ADITIONAL PAGES for Spells 
+			<fo:page-sequence>
+				<xsl:attribute name="master-reference">Portrait</xsl:attribute>
+				<xsl:call-template name="page.footer"/>
+				<fo:flow flow-name="body"  font-size="8pt">
+					<fo:block span="all" space-after.optimum="3pt">
+						<xsl:apply-templates select="spells"/>
+					</fo:block> -->
+
+
+<!--		ADDITIONAL PAGES	-->
 			<xsl:apply-templates select="spells"/>
 			<xsl:apply-templates select="basics" mode="bio"/>
 			<xsl:apply-templates select="basics/notes" mode="bio"/>
@@ -557,7 +568,7 @@
 								<xsl:with-param name="attribute" select="'picture'"/>
 							</xsl:call-template>
 							<fo:block>
-								<xsl:variable name="portrait_file" select="portrait"/>
+								<xsl:variable name="portrait_file" select="portrait/portrait_thumb"/>
 								<fo:external-graphic src="file:{$portrait_file}">
 									<xsl:attribute name="column-width"><xsl:value-of select="($pagePrintableWidth - 14) div 8" />mm</xsl:attribute>
 								</fo:external-graphic>
@@ -961,13 +972,13 @@
 			 size of each weapon block in turn so that a correct cumulative
 		 height can be determined -->
 		<!--
-		This does not seem to work very well.
+		This does not seem to work very well.	-->
 
 		<xsl:value-of select="floor( (140-$featureheight) div 28) "/>
 
-		For now, just make it 3 weapons max.
-		-->
-		<xsl:value-of select="4"/>
+<!--		For now, just make it 3 weapons max.
+		
+		<xsl:value-of select="4"/>	-->
 	</xsl:template>
 	<!--
 ====================================
@@ -2323,7 +2334,7 @@
 						</fo:table-cell>
 					</fo:table-row>
 				</fo:table-body>
-			</xsl:if>-->
+				</xsl:if>-->
 <!-- End New Skill Info Section-->
 			</fo:table>
 		</xsl:if>
@@ -4846,7 +4857,7 @@
 				</fo:table-row>
 			</fo:table-body>
 		</fo:table>
-		<xsl:if test = "type = '3.0'">
+	<xsl:if test = "type = '3.0'">
 		<!-- Attack / Defence table -->
 		<fo:table table-layout="fixed" padding="0.5pt">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'psionics.border'"/></xsl:call-template>
@@ -4904,7 +4915,7 @@
 			</fo:table-body>
 		</fo:table>
 		<!-- END psionicsTable -->
-		</xsl:if>
+	</xsl:if>
 	</xsl:template>
 	<!--
 ====================================
@@ -4914,7 +4925,7 @@
 ====================================-->
 	<xsl:template match="domains">
 		<!-- BEGIN Domains Table -->
-		<xsl:call-template name="stripped.list">
+		<xsl:call-template name="bold.list">
 			<xsl:with-param name="attribute" select="'domains'" />
 			<xsl:with-param name="title" select="'DOMAINS'" />
 			<xsl:with-param name="list" select="domain"/>
@@ -6335,7 +6346,7 @@
 	<xsl:template match="spells">
 		<!-- BEGIN Spells Pages -->
 		<xsl:if test="count(.//spell) &gt; 0">
-			<fo:page-sequence>
+			<fo:page-sequence>	
 				<xsl:attribute name="master-reference">Portrait</xsl:attribute>
 				<xsl:call-template name="page.footer"/>
 				<fo:flow flow-name="body"  font-size="8pt">
@@ -6344,7 +6355,7 @@
 					<xsl:apply-templates select="known_spells"/>
 					<xsl:apply-templates select="memorized_spells"/>
 				</fo:flow>
-			</fo:page-sequence>
+			</fo:page-sequence>	
 		</xsl:if>
 		<!-- END Spells Pages -->
 	</xsl:template>
@@ -6413,7 +6424,7 @@
 ====================================-->
 	<xsl:template match="class" mode="spells.known">
 		<xsl:if test="count(.//spell) &gt; 0">
-			<fo:block break-before="page"/>
+	<!--> This is causing the new page creation		<fo:block break-before="page"/>	-->
 			<fo:table table-layout="fixed">
 				<xsl:variable name="titletext">
 					<xsl:choose>
@@ -6641,10 +6652,10 @@
 										<xsl:with-param name="count" select="@cast"/>
 									</xsl:call-template>
 					<fo:block font-size="12pt">
-						LEVEL <xsl:value-of select="@number"/> / Cast:<xsl:value-of select="@cast"/> / Caster Level:<xsl:value-of select="spell/casterlevel"/>
-						<xsl:if test="concentration != ''">
+						LEVEL <xsl:value-of select="@number"/> / Per Day:<xsl:value-of select="@cast"/> / Caster Level:<xsl:value-of select="spell/casterlevel"/>
+					<xsl:if test="concentration != ''">
 							<fo:inline> / </fo:inline>
-						<fo:inline font-style="italic" font-weight="bold">Concentration: </fo:inline>
+						<fo:inline font-style="italic" font-weight="bold">Concentration:</fo:inline>
 						<xsl:value-of select="concentration"/>
 					</xsl:if>
 					</fo:block>
@@ -6674,32 +6685,35 @@
 		<xsl:param name="title" select="''"/>
 		<xsl:param name="columnOne" select="''"/>
 		<xsl:param name="details" select="'true'"/>
+<!--	THIS BEGINS THE SECTION		-->
 		<fo:table-column column-width="11mm"/>
+		<!--	Check Boxes =5 total displayed in 11mm	-->
 		<fo:table-column>
-			<xsl:attribute name="column-width"><xsl:value-of select="$pagePrintableWidth - 153" />mm</xsl:attribute>
+			<xsl:attribute name="column-width"><xsl:value-of select="$pagePrintableWidth - 134" />mm</xsl:attribute>	<!-- was -153 now moved 6 over so it's 147 minus 13 equal 134-->
 		</fo:table-column>
-		<!-- name ^ -->
-		<fo:table-column column-width="38mm"/> <!-- Name -->
-		<!-- SR, DC, Save = 18+15+9  42--> <!-- SR/DC/Save -->
-<!-->		<fo:table-column column-width="9mm"/>	-->
-		<!-- saving throw -->
-		<fo:table-column column-width="18mm"/>	<!-- School -->
-		<!-- time -->
-		<fo:table-column column-width="34mm"/>	<!-- Time -->
-		<!-- duration -->
-		<fo:table-column column-width="18mm"/>	<!-- Duration -->
-		<!-- range -->
+		<!-- name ^ BIG AREA!-->
+		<fo:table-column column-width="38mm"/> <!-- Was Save, Now School -->
+		<!-- TIME-->
+<!--	<fo:table-column column-width="9mm"/>	-->
+		
+		<fo:table-column column-width="18mm"/>	<!-- Time -->
+		<!-- DURATION -->
+		<fo:table-column column-width="34mm"/>	<!-- Duration -->
+		<!-- RANGE -->
 		<fo:table-column column-width="18mm"/>	<!-- Range -->
+		<!-- range -->
+		<fo:table-column column-width="18mm"/>	<!-- Source -->
 		<!-- comp -->
-		<fo:table-column column-width="13mm"/>	<!-- Target -->
-		<!-- SR 
-		<fo:table-column column-width="15mm"/>	-->
+<!--		<fo:table-column column-width="13mm"/>	-->	<!--  -->
+		<!-- SR 		<fo:table-column column-width="15mm"/>	-->
 		<!-- school -->
-		<fo:table-column column-width="6mm"/>	<!-- Source -->
+<!--		<fo:table-column column-width="6mm"/>	  -->
 		<!-- source -->
+
+		<!-- Titles Columns Goes Here -->
 		<fo:table-header>
 			<fo:table-row>
-				<fo:table-cell number-columns-spanned="11" padding-top="1pt">
+				<fo:table-cell number-columns-spanned="8" padding-top="1pt">
 					<xsl:call-template name="attrib">
 						<xsl:with-param name="attribute" select="'spelllist.header'"/>
 					</xsl:call-template>
@@ -6716,11 +6730,11 @@
 		</fo:table-header>
 		<fo:table-footer>
 			<fo:table-row>
-				<fo:table-cell number-columns-spanned="11" padding-top="1pt">
+				<fo:table-cell number-columns-spanned="12" padding-top="1pt">
 					<xsl:call-template name="attrib">
 						<xsl:with-param name="attribute" select="'spelllist.footer'"/>
 					</xsl:call-template>
-					<fo:block font-size="7pt">* =Domain/Speciality Spell
+					<fo:block font-size="5pt">* =Domain/Speciality Spell
 					</fo:block>
 				</fo:table-cell>
 			</fo:table-row>
@@ -6743,7 +6757,7 @@
 					<xsl:value-of select="$columnOne"/>
 				</fo:block>
 			</fo:table-cell>
-			<fo:table-cell padding-top="1pt">
+			<fo:table-cell padding-top="1pt" number-columns-spanned="1">
 				<fo:block text-align="start" font-size="5pt" font-weight="bold">Name</fo:block>
 			</fo:table-cell>
 			<fo:table-cell padding-top="1pt">
@@ -6761,17 +6775,17 @@
 			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt" font-weight="bold">Range</fo:block>
 			</fo:table-cell>
-			<fo:table-cell padding-top="1pt">
-				<fo:block text-align="start" font-size="5pt" font-weight="bold"></fo:block>	<!--	Caster Level	-->
-			</fo:table-cell>
+<!-->			<fo:table-cell padding-top="1pt" number-columns-spanned="1">
+				<fo:block text-align="start" font-size="5pt" font-weight="bold">Target</fo:block>		Caster Level	
+			</fo:table-cell>	<-->
 <!-->			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt" font-weight="bold">Spell Resistance</fo:block>
 			</fo:table-cell>	-->
 <!-->			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt" font-weight="bold">School</fo:block>
 			</fo:table-cell>	<-->
-			<fo:table-cell padding-top="1pt">
-				<fo:block text-align="start" font-size="5pt" font-weight="bold">Source</fo:block>		<!--> Source / Now target is taking both blocks-->
+			<fo:table-cell padding-top="1pt" number-columns-spanned="1">
+				<fo:block text-align="right" font-size="5pt" font-weight="bold">Source</fo:block>		<!--> Source / Now target is taking both blocks-->
 			</fo:table-cell>
 		</fo:table-row>
 	</xsl:template>
@@ -6838,14 +6852,12 @@
 					</fo:table-cell>
 				</xsl:when>
 			</xsl:choose>
-			<fo:table-cell padding-top="1pt">
+			<fo:table-cell padding-top="1pt" number-columns-spanned="1">
 				<fo:block text-align="start" font-size="7pt" font-weight="bold">
-					<xsl:value-of select="bonusspell"/>
-					<xsl:value-of select="name"/> 
+				<fo:inline font-style="italic">	<xsl:value-of select="bonusspell"/>	</fo:inline>
+					<xsl:value-of select="name"/>
 						<xsl:if test="casterlevel != $basecasterlevel">				
-							(CL:
-							<xsl:value-of select="casterlevel"/>
-							)
+							(CL:<xsl:value-of select="casterlevel"/>)
 						</xsl:if>
 				</fo:block>
 			</fo:table-cell>
@@ -6874,17 +6886,16 @@
 					<xsl:value-of select="range"/>
 				</fo:block>
 			</fo:table-cell>
-			<fo:table-cell padding-top="1pt">			
+<!-->			<fo:table-cell padding-top="1pt" number-columns-spanned="1">
 				<fo:block text-align="start" font-size="5pt">
-			<!-->		<xsl:if test="casterlevel != $basecasterlevel">	
-						<xsl:value-of select="casterlevel"/>
-					</xsl:if>	-->
-				</fo:block>
-			</fo:table-cell>
+					<fo:inline font-style="italic">Target: </fo:inline>	
+					<xsl:value-of select="target"/>
+				</fo:block>	
+			</fo:table-cell>	-->
 			<fo:table-cell padding-top="1pt">
-				<fo:block text-align="start" font-size="5pt">
+				<fo:block text-align="right" font-size="5pt" number-columns-spanned="1">
 					<xsl:value-of select="source/sourceshort"/>
-					<xsl:text>: </xsl:text>
+					<xsl:text>:</xsl:text>
 					<xsl:value-of select="source/sourcepage"/>
 				</fo:block>
 			</fo:table-cell>	
@@ -6955,9 +6966,9 @@
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/></xsl:call-template>
 			<fo:table-cell padding-top="1pt" number-columns-spanned="10">
 				<fo:block text-align="start" font-size="5pt">
-					<fo:inline>[</fo:inline><xsl:value-of select="components"/><fo:inline>]</fo:inline>
+					<fo:inline font-weight="bold">[<xsl:value-of select="components"/>]</fo:inline>
 					<fo:inline> </fo:inline>
-					<fo:inline font-style="italic" font-weight="bold">TARGET: </fo:inline><xsl:value-of select="target"/>
+					<fo:inline font-weight="bold"> TARGET: </fo:inline><xsl:value-of select="target"/>
 					<fo:inline>; </fo:inline>
 					<fo:inline font-style="italic" font-weight="bold">EFFECT: </fo:inline>
 
@@ -6978,7 +6989,8 @@
 								<xsl:otherwise>
 								</xsl:otherwise>
 							</xsl:choose>
-						<fo:inline>] </fo:inline></xsl:if>
+						<fo:inline>] </fo:inline>
+						</xsl:if>
 		<!-->			<xsl:if test="concentration != ''">	-->
 					<xsl:if test="concentration != $baseconcentration">
 						<fo:inline>; </fo:inline>
@@ -6999,7 +7011,8 @@
 ====================================-->
 	<xsl:template match="memorized_spells">
 		<xsl:if test="count(.//spell) &gt; 0">
-			<fo:block break-before="page">
+	<!-->		<fo:block break-before="page">	-->
+			<fo:block>
 				<xsl:apply-templates mode="spells.memorized"/>
 			</fo:block>
 		</xsl:if>
@@ -7302,18 +7315,6 @@
 							</xsl:choose>
 							<fo:table-body>
 								<fo:table-row>
-									<xsl:if test="string-length(portrait) &gt; 0">
-										<fo:table-cell display-align="center" number-rows-spanned="36">
-											<xsl:call-template name="attrib">
-												<xsl:with-param name="attribute" select="'picture'"/>
-											</xsl:call-template>
-											<fo:block start-indent="1mm" height="100mm">
-												<xsl:variable name="portrait_file" select="portrait"/>
-												<fo:external-graphic src="file:{$portrait_file}" width="92mm" scaling="uniform"/>
-											</fo:block>
-										</fo:table-cell>
-										<fo:table-cell number-rows-spanned="36"/>
-									</xsl:if>
 									<fo:table-cell>
 										<xsl:call-template name="attrib">
 											<xsl:with-param name="attribute" select="'bio'"/>
@@ -7322,6 +7323,20 @@
 											<xsl:value-of select="race"/>
 										</fo:block>
 									</fo:table-cell>
+									<fo:table-cell number-rows-spanned="36"/>
+									<xsl:if test="string-length(portrait) &gt; 0">
+										<fo:table-cell display-align="right" number-rows-spanned="36">
+											<xsl:call-template name="attrib">
+												<xsl:with-param name="attribute" select="'picture'"/>
+											</xsl:call-template>
+											<fo:block start-indent="1mm" height="100mm">
+												<xsl:variable name="portrait_file" select="portrait/portrait"/>
+												<fo:external-graphic src="file:{$portrait_file}" width="92mm" scaling="uniform"/>
+											</fo:block>
+										</fo:table-cell>
+										
+									</xsl:if>
+									
 								</fo:table-row>
 								<fo:table-row>
 									<fo:table-cell padding-top="1pt">
@@ -7341,7 +7356,7 @@
 								</xsl:call-template>
 								<xsl:call-template name="bio.entry">
 									<xsl:with-param name="title" select="'VISION'"/>
-									<xsl:with-param name="value" select="vision/all"/>
+									<xsl:with-param name="value" select="vision/all"/>	
 								</xsl:call-template>
 								<xsl:call-template name="bio.entry">
 									<xsl:with-param name="title" select="'ALIGNMENT'"/>
@@ -7368,7 +7383,7 @@
 									<xsl:with-param name="value" select="skin/color"/>
 								</xsl:call-template>
 								<xsl:call-template name="bio.entry">
-									<xsl:with-param name="title" select="'HAIR'"/>
+									<xsl:with-param name="title" select="'HAIR / HAIR STYLE'"/>
 									<xsl:with-param name="value" select="concat(hair/color, ', ', hair/length)"/>
 								</xsl:call-template>
 								<xsl:call-template name="bio.entry">
@@ -7389,7 +7404,7 @@
 									<xsl:with-param name="value" select="interests"/>
 								</xsl:call-template>
 								<xsl:call-template name="bio.entry">
-									<xsl:with-param name="title" select="'SPOKEN STYLE'"/>
+									<xsl:with-param name="title" select="'SPOKEN STYLE / CATCH PHRASE'"/>
 									<xsl:with-param name="value" select="concat(speechtendency, ', ', catchphrase)"/>
 								</xsl:call-template>
 								<xsl:call-template name="bio.entry">
@@ -7403,6 +7418,10 @@
 								<xsl:call-template name="bio.entry">
 									<xsl:with-param name="title" select="'REGION'"/>
 									<xsl:with-param name="value" select="region"/>
+								</xsl:call-template>
+								<xsl:call-template name="bio.entry">
+									<xsl:with-param name="title" select="'DEITY'"/>
+									<xsl:with-param name="value" select="deity/name"/>	
 								</xsl:call-template>
 							</fo:table-body>
 						</fo:table>
