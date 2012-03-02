@@ -83,7 +83,7 @@ public class FeatToken<T> implements PrimitiveToken<T>
 	public boolean allow(PlayerCharacter pc, T obj)
 	{
 		Ability a = ref.resolvesTo();
-		ChooseInformation info = a.get(ObjectKey.CHOOSE_INFO);
+		ChooseInformation<?> info = a.get(ObjectKey.CHOOSE_INFO);
 		List<?> currentItems = getList(pc, a, info);
 		return (currentItems != null) && currentItems.contains(obj);
 	}
