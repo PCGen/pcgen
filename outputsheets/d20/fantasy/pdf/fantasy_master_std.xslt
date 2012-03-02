@@ -4634,6 +4634,7 @@
 	<xsl:for-each select="checklist">
 		<!-- BEGIN Use Per Day Ability table -->
 		<fo:table table-layout="fixed" space-before="2mm" keep-together="always" border-collapse="collapse" >
+		<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'checklist.border'"/></xsl:call-template>
 			<fo:table-column column-width="23mm"/>
 			<fo:table-column column-width="63mm"/>
 			<fo:table-body>
@@ -4641,7 +4642,7 @@
 				
 					<fo:table-cell padding-top="1pt" number-columns-spanned="2">
 						<xsl:call-template name="attrib">
-							<xsl:with-param name="attribute" select="'rage.border'"/>
+							<xsl:with-param name="attribute" select="'checklist.title'"/>
 						</xsl:call-template>
 						<fo:block font-size="10pt" font-weight="bold" text-align="center">
 							<xsl:value-of select="header"/>
@@ -4649,16 +4650,17 @@
 					</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row keep-with-next.within-column="always">
-								
 					<fo:table-cell padding-top="1pt" text-align="end">
 							<xsl:call-template name="attrib">
-							<xsl:with-param name="attribute" select="'rage.border'"/>
+							<xsl:with-param name="attribute" select="'checklist'"/>
 						</xsl:call-template>
-						<fo:block font-size="8pt" text-align="center"><xsl:value-of select="check_type"/></fo:block>
+						<fo:block font-size="8pt" text-align="center">
+							<xsl:value-of select="check_type"/>
+						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell padding-top="1pt" padding-left="9pt">
 						<xsl:call-template name="attrib">
-							<xsl:with-param name="attribute" select="'rage.border'"/>
+							<xsl:with-param name="attribute" select="'checklist'"/>
 						</xsl:call-template>
 						<fo:block font-size="9pt" font-family="ZapfDingbats">
 							<xsl:call-template name="for.loop">
@@ -4670,7 +4672,7 @@
 				<fo:table-row keep-with-next.within-column="always">
 					<fo:table-cell padding="3pt" number-columns-spanned="2">
 						<xsl:call-template name="attrib">
-							<xsl:with-param name="attribute" select="'rage.border'"/>
+							<xsl:with-param name="attribute" select="'checklist'"/>
 						</xsl:call-template>
 						<fo:block font-size="5pt" font-weight="bold">
 						<xsl:if test="name != ''"> <xsl:value-of select="name"/>:</xsl:if>

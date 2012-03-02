@@ -89,6 +89,10 @@
 		<rage.border padding="0.5pt"><subattrib border="" inverse=""/></rage.border>
 		<rage><subattrib normal=""/></rage>
 
+		<checklist.title><subattrib  centre="" inverse=""/></checklist.title>
+		<checklist.border padding="0.5pt"><subattrib border="" inverse=""/></checklist.border>
+		<checklist><subattrib normal=""/></checklist>
+
 		<wildshape.title><subattrib centre="" inverse=""/></wildshape.title>
 		<wildshape.border padding="0.5pt"><subattrib border="" inverse=""/></wildshape.border>
 		<wildshape><subattrib normal=""/></wildshape>
