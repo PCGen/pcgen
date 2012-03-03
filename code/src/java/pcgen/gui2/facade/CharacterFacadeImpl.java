@@ -556,6 +556,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		characterAbilities.addAbility(category, ability);
 		refreshLanguageList();
 		refreshKitList();
+		refreshTemplates();
 	}
 
 	/* (non-Javadoc)
@@ -698,6 +699,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		characterAbilities.rebuildAbilityLists();
 		refreshLanguageList();
 		refreshKitList();
+		refreshTemplates();
 		currentXP.setReference(theCharacter.getXP());
 		xpForNextlevel.setReference(theCharacter.minXPForNextECL());
 		xpTableName.setReference(theCharacter.getXPTableName());
@@ -1793,6 +1795,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		xpForNextlevel.setReference(theCharacter.minXPForNextECL());
 		xpTableName.setReference(theCharacter.getXPTableName());
 		hpRef.setReference(theCharacter.hitPoints());
+		refreshTemplates();
 
 		updateLevelTodo();
 		buildAvailableDomainsList();
@@ -3700,6 +3703,26 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		}
 	}
 
+	private void refreshTemplates()
+	{
+		Collection<PCTemplate> pcTemplates = theCharacter.getTemplateSet();
+		for (PCTemplate template : pcTemplates)
+		{
+			if (!templates.containsElement(template))
+			{
+				templates.addElement(template);
+			}
+		}
+		for (Iterator<TemplateFacade> iterator = templates.iterator(); iterator.hasNext();)
+		{
+			PCTemplate pcTemplate = (PCTemplate) iterator.next();
+			if (!pcTemplates.contains(pcTemplate))
+			{
+				iterator.remove();
+			}
+		}
+	}
+	
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getTemplates()
 	 */
