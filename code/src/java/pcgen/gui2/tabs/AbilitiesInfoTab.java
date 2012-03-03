@@ -276,6 +276,17 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 
 		}
 
+		/**
+		 * {@inheritDoc}
+		 */
+		@SuppressWarnings("nls")
+		@Override
+		public String toString()
+		{
+			return "AbilityTabsModel [tabs=" + tabs + ", isInstalled="
+				+ isInstalled + ", selectedTitle=" + selectedTitle + "]";
+		}
+
 	}
 
 	/**
