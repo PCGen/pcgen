@@ -1,6 +1,7 @@
 
 
 Chooser UserInput		TYPE:Test	CHOOSE:USERINPUT|TITLE="Test Case Usage"	MULT:YES
+Fast Learner (Focused on Skills /Human)						KEY:Fast Learner ~ 2 Skills ~ Human						SORTKEY:Character Creation Fast Learner / Specialized for Skills		TYPE:Character Creation.CharCreation.General																		DEFINE:HumanOffsetBonus|0	DESC:(+2) This ability grants 2 Skills per eclipse character level.																																																																																																									MULT:YES	CHOOSE:STRING|Child|Youth																													BONUS:VAR|CharacterSkillPts|HumanOffsetBonus+(2*var("EclipseClassLvl"))	BONUS:VAR|HumanOffsetBonus|6|PREABILITY:1,CATEGORY=Special Ability,Fast Learner ~ 2 Skills ~ Human(Child)	BONUS:VAR|HumanOffsetBonus|4|PREABILITY:1,CATEGORY=Special Ability,Fast Learner ~ 2 Skills ~ Human(Youth)																			COST:2						SOURCEPAGE:p.17	BENEFIT:+2 CP towards Skills per level. [+%1 total Skill Points Granted].|HumanOffsetBonus+(2*var("EclipseClassLvl"))
 
 
 AFC 1		TYPE:TestingVirtualAddition
