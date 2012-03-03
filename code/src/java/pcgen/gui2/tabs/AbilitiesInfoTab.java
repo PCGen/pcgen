@@ -140,21 +140,23 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 			String type = element.getType();
 			if (!typeMap.containsKey(type))
 			{
-				if (e.getIndex() >= tabs.size())
+				int index = e.getIndex();
+				if (index >= tabs.size())
 				{
 					Logging.log(Logging.WARNING, "Trying to add " + type + " to "
-						+ tabs + " at index " + e.getIndex()
+						+ tabs + " at index " +index
 						+ ". Putting at end.");
+					index = tabs.size();
 					tabs.add(new TabInfo(type, character));
 				}
 				else
 				{
-					tabs.add(e.getIndex(), new TabInfo(type, character));
+					tabs.add(index, new TabInfo(type, character));
 				}
 				populateFullCategoryList(type, typeMap.get(type));
 				if (isInstalled)
 				{//Add new tab
-					addTab(type, e.getIndex());
+					addTab(type,index);
 				}
 			}
 			typeMap.get(type).categoryList.addElement(element);
