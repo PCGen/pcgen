@@ -68,8 +68,8 @@ import pcgen.system.LanguageBundle;
  *
  * Should be cleaned up more.
  * 
- * @deprecated This class is being gradually replaced with use of 
- * {@link pcgen.system.PropertyContext} and its children.   
+ * <b>NB: This class is being gradually replaced with use of 
+ * {@link pcgen.system.PropertyContext} and its children.</b>   
  *
  * @author jujutsunerd
  * @version $Revision$
