@@ -3900,12 +3900,19 @@ public class CharacterFacadeImpl implements CharacterFacade,
 
 		HtmlInfoBuilder warningMsg = new HtmlInfoBuilder();
 		
-		warningMsg.append("The following warnings were encountered");
+		warningMsg.append(LanguageBundle.getString("in_kitWarnStart")); //$NON-NLS-1$
+		warningMsg.appendLineBreak();
+		warningMsg.append("<UL>"); //$NON-NLS-1$
 		for (String string : warnings)
 		{
 			warningMsg.appendLineBreak();
+			warningMsg.append("<li>"); //$NON-NLS-1$
 			warningMsg.append(string);
+			warningMsg.append("</li>"); //$NON-NLS-1$
 		}
+		warningMsg.append("</UL>"); //$NON-NLS-1$
+		warningMsg.appendLineBreak();
+		warningMsg.append(LanguageBundle.getString("in_kitWarnEnd")); //$NON-NLS-1$
 
 		return delegate.showWarningConfirm(kit.getDisplayName(), warningMsg.toString());
 	}
