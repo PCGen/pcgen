@@ -370,15 +370,17 @@ public class Gui2InfoFactory implements InfoFactory
 			}
 		}
 
-		if (SettingsHandler.getShowSkillRanks())
+		if (PCGenSettings.OPTIONS_CONTEXT.getBoolean(
+			PCGenSettings.OPTION_SHOW_SKILL_RANK_BREAKDOWN, false))
 		{
 			bString = SkillRankControl.getRanksExplanation(pc, skill);
-			if (bString.length() != 0)
+			if (bString.length() == 0)
 			{
-				infoText.appendLineBreak();
-				infoText.appendI18nElement("in_iskHtml_Ranks", //$NON-NLS-1$
-					bString);
+				bString = LanguageBundle.getString("in_none"); //$NON-NLS-1$
 			}
+			infoText.appendLineBreak();
+			infoText.appendI18nFormattedElement("in_iskHtml_Ranks", //$NON-NLS-1$
+				bString);
 		}
 
 		return infoText.toString();

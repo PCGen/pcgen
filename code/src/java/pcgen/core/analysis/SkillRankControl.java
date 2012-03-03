@@ -19,6 +19,7 @@
  */
 package pcgen.core.analysis;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -329,8 +330,20 @@ public class SkillRankControl
 
 	public static String getRanksExplanation(PlayerCharacter pc, Skill sk)
 	{
-		return StringUtil.join(pc.getAssocList(sk, AssociationListKey.SKILL_RANK),
+		List<NamedValue> assocList = pc.getAssocList(sk, AssociationListKey.SKILL_RANK);
+		String result = StringUtil.join(assocList,
 				", ");
+		double bonus = getSkillRankBonusTo(pc, sk);
+		if (bonus != 0d)
+		{
+			if (result.length() > 0)
+			{
+				result += "; ";
+			}
+			
+			result += "Skillrank bonus " + NumberFormat.getNumberInstance().format(bonus);
+		}
+		return result;
 	}
 
 	/**

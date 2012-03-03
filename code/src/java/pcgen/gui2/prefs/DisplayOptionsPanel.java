@@ -60,43 +60,43 @@ import pcgen.system.PCGenSettings;
 public class DisplayOptionsPanel extends PCGenPrefsPanel
 {
 	private static String in_displayOpts =
-			LanguageBundle.getString("in_Prefs_displayOpts");
+			LanguageBundle.getString("in_Prefs_displayOpts"); //$NON-NLS-1$
 
 //	private static String in_useAutoWaitCursor =
 //			LanguageBundle.getString("in_Prefs_useAutoWaitCursor");
 	private static String in_useOutputNamesEquipment =
-			LanguageBundle.getString("in_Prefs_useOutputNamesEquipment");
+			LanguageBundle.getString("in_Prefs_useOutputNamesEquipment"); //$NON-NLS-1$
 	private static String in_useOutputNamesSpells =
-			LanguageBundle.getString("in_Prefs_useOutputNamesSpells");
+			LanguageBundle.getString("in_Prefs_useOutputNamesSpells"); //$NON-NLS-1$
 //	private static String in_showMemory =
 //			LanguageBundle.getString("in_Prefs_showMemory");
 //	private static String in_showImagePreview =
 //			LanguageBundle.getString("in_Prefs_showImagePreview");
 	private static String in_showSkillModifierBreakdown =
-			LanguageBundle.getString("in_Prefs_showSkillModifierBreakdown");
-//	private static String in_showSkillRanksBreakdown =
-//			LanguageBundle.getString("in_Prefs_showSkillRanksBreakdown");
+			LanguageBundle.getString("in_Prefs_showSkillModifierBreakdown"); //$NON-NLS-1$
+	private static String in_showSkillRanksBreakdown =
+			LanguageBundle.getString("in_Prefs_showSkillRanksBreakdown"); //$NON-NLS-1$
 	private static String in_showToolTips =
-			LanguageBundle.getString("in_Prefs_showToolTips");
+			LanguageBundle.getString("in_Prefs_showToolTips"); //$NON-NLS-1$
 //	private static String in_showToolBar =
 //			LanguageBundle.getString("in_Prefs_showToolBar");
 	private static String in_showFeatDescription =
-			LanguageBundle.getString("in_Prefs_showFeatDesciption");
+			LanguageBundle.getString("in_Prefs_showFeatDesciption"); //$NON-NLS-1$
 	private static String in_singleChoiceOption =
-			LanguageBundle.getString("in_Prefs_singleChoiceOption");
+			LanguageBundle.getString("in_Prefs_singleChoiceOption"); //$NON-NLS-1$
 	private static String in_cmNone =
-			LanguageBundle.getString("in_Prefs_cmNone");
+			LanguageBundle.getString("in_Prefs_cmNone"); //$NON-NLS-1$
 	private static String in_cmSelect =
-			LanguageBundle.getString("in_Prefs_cmSelect");
+			LanguageBundle.getString("in_Prefs_cmSelect"); //$NON-NLS-1$
 	private static String in_cmSelectExit =
-			LanguageBundle.getString("in_Prefs_cmSelectExit");
+			LanguageBundle.getString("in_Prefs_cmSelectExit"); //$NON-NLS-1$
 	private static String[] singleChoiceMethods =
 			{in_cmNone, in_cmSelect, in_cmSelectExit};
 
 	private JCheckBox featDescriptionShown = new JCheckBox();
 //	private JCheckBox showToolbar = new JCheckBox();
 	private JCheckBox showSkillModifier = new JCheckBox();
-//	private JCheckBox showSkillRanks = new JCheckBox();
+	private JCheckBox showSkillRanks = new JCheckBox();
 	private JCheckBox toolTipTextShown = new JCheckBox();
 //	private JCheckBox showMemory = new JCheckBox();
 //	private JCheckBox showImagePreview = new JCheckBox();
@@ -136,7 +136,7 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 //		options.put(in_showMemory, showMemory);
 //		options.put(in_showImagePreview, showImagePreview);
 		options.put(in_showSkillModifierBreakdown, showSkillModifier);
-//		options.put(in_showSkillRanksBreakdown, showSkillRanks);
+		options.put(in_showSkillRanksBreakdown, showSkillRanks);
 //		options.put(in_showToolBar, showToolbar);
 		options.put(in_showToolTips, toolTipTextShown);
 		options.put(in_singleChoiceOption, cmbChoiceMethods);
@@ -153,7 +153,7 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 
 		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;
-		label = new JLabel(" ");
+		label = new JLabel(" "); //$NON-NLS-1$
 		gridbag.setConstraints(label, c);
 		this.add(label);
 	}
@@ -162,7 +162,7 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		final GridBagConstraints constraints, final GridBagLayout gridbag,
 		final JPanel panel, final String labelText, final JComponent c)
 	{
-		final JLabel label = new JLabel(labelText + ": ");
+		final JLabel label = new JLabel(labelText + ": "); //$NON-NLS-1$
 
 		Utility.buildConstraints(constraints, 0, line, 2, 1, 0, 0);
 		gridbag.setConstraints(label, constraints);
@@ -221,7 +221,9 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
 			PCGenSettings.OPTION_SHOW_SKILL_MOD_BREAKDOWN,
 			showSkillModifier.isSelected());
-//		SettingsHandler.setShowSkillRanks(showSkillRanks.isSelected());
+		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
+			PCGenSettings.OPTION_SHOW_SKILL_RANK_BREAKDOWN,
+			showSkillRanks.isSelected());
 	}
 
 	/* (non-Javadoc)
@@ -237,7 +239,8 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 //		showImagePreview.setSelected(SettingsHandler.isShowImagePreview());
 		showSkillModifier.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(
 			PCGenSettings.OPTION_SHOW_SKILL_MOD_BREAKDOWN, false));
-//		showSkillRanks.setSelected(SettingsHandler.getShowSkillRanks());
+		showSkillRanks.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(
+			PCGenSettings.OPTION_SHOW_SKILL_RANK_BREAKDOWN, false));
 //		showToolbar.setSelected(SettingsHandler.isToolBarShown());
 		toolTipTextShown.setSelected(SettingsHandler.isToolTipTextShown());
 		useOutputNamesEquipment.setSelected(SettingsHandler
