@@ -26,11 +26,13 @@ import java.util.Comparator;
 import java.util.List;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.KitApply;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.facade.KitFacade;
 import pcgen.core.kit.BaseKit;
@@ -38,8 +40,6 @@ import pcgen.core.kit.KitStat;
 import pcgen.core.kit.KitTable;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.PrerequisiteUtilities;
-import pcgen.gui.CharacterInfo;
-import pcgen.gui.PCGen_Frame1;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
 
@@ -159,13 +159,6 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 		for (BaseKit bk : thingsToAdd)
 		{
 			bk.apply(pc);
-		}
-
-		final CharacterInfo pane = PCGen_Frame1.getCharacterPane();
-		if (pane != null)
-		{
-			pane.setPaneForUpdate(pane.infoInventory());
-			pane.refresh();
 		}
 
 		if (getSafe(ObjectKey.APPLY_MODE) == KitApply.PERMANENT)
@@ -367,5 +360,14 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	{
 		return SourceFormat.getFormattedString(this,
 			Globals.getSourceDisplay(), true);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public String getDisplayType()
+	{
+		List<Type> trueTypeList = getTrueTypeList(true);
+		return StringUtil.join(trueTypeList, ".");
 	}
 }

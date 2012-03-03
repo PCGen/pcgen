@@ -35,8 +35,6 @@ import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.DomainApplication;
-import pcgen.gui.CharacterInfo;
-import pcgen.gui.PCGen_Frame1;
 
 /**
  * Deal with Dieties via Kits
@@ -236,10 +234,6 @@ public class KitDeity extends BaseKit
 			DomainApplication.applyDomain(aPC, domain);
 		}
 		aPC.calcActiveBonuses();
-
-		final CharacterInfo pane = PCGen_Frame1.getCharacterPane();
-		pane.setPaneForUpdate(pane.infoDomain());
-		pane.refresh();
 
 		theDeity = null;
 		domainsToAdd = null;

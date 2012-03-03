@@ -46,8 +46,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.SpellLevel;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
-import pcgen.gui.CharacterInfo;
-import pcgen.gui.PCGen_Frame1;
 import pcgen.util.Logging;
 
 /**
@@ -348,9 +346,6 @@ public final class KitSpells extends BaseKit
 				return;
 			}
 		}
-		final CharacterInfo pane = PCGen_Frame1.getCharacterPane();
-		pane.setPaneForUpdate(pane.infoSpells());
-		pane.refresh();
 	}
 
 	@Override

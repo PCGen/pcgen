@@ -46,6 +46,7 @@ import pcgen.core.facade.event.ReferenceListener;
 import pcgen.gui.DataInstaller;
 import pcgen.gui2.dialog.DebugDialog;
 import pcgen.gui2.dialog.ExportDialog;
+import pcgen.gui2.dialog.KitSelectionDialog;
 import pcgen.gui2.dialog.PrintPreviewDialog;
 import pcgen.gui2.tools.BrowserLauncher;
 import pcgen.gui2.tools.Icons;
@@ -90,6 +91,7 @@ public final class PCGenActionMap extends ActionMap
 	public static final String EDIT_COMMAND = "edit";
 	public static final String UNDO_COMMAND = EDIT_COMMAND + ".undo";
 	public static final String REDO_COMMAND = EDIT_COMMAND + ".redo";
+	public static final String ADD_KIT_COMMAND = EDIT_COMMAND + ".addkit";
 	public static final String GENERATE_COMMAND = EDIT_COMMAND + ".regenerate";
 	public static final String TEMP_BONUS_COMMAND = EDIT_COMMAND + ".tempbonus";
 	public static final String EQUIPMENTSET_COMMAND = EDIT_COMMAND + ".equipmentset";
@@ -165,6 +167,7 @@ public final class PCGenActionMap extends ActionMap
 		put(EDIT_COMMAND, new EditAction());
 		put(UNDO_COMMAND, new UndoAction());
 		put(REDO_COMMAND, new RedoAction());
+		put(ADD_KIT_COMMAND, new AddKitAction());
 		put(GENERATE_COMMAND, new GenerateAction());
 		put(EQUIPMENTSET_COMMAND, new EquipmentSetAction());
 		put(TEMP_BONUS_COMMAND, new TempBonusAction());
@@ -291,6 +294,27 @@ public final class PCGenActionMap extends ActionMap
 		public void actionPerformed(ActionEvent e)
 		{
 			throw new UnsupportedOperationException("Not supported yet.");
+		}
+
+	}
+
+	private class AddKitAction extends CharacterAction
+	{
+
+		public AddKitAction()
+		{
+			super("mnuEditAddKit");
+			setEnabled(false);
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			KitSelectionDialog kitDialog =
+					new KitSelectionDialog(frame, frame
+						.getSelectedCharacterRef().getReference());
+			kitDialog.setLocationRelativeTo(frame);
+			kitDialog.setVisible(true);			
 		}
 
 	}

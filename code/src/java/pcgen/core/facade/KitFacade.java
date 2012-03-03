@@ -27,6 +27,9 @@ package pcgen.core.facade;
  */
 public interface KitFacade extends InfoFacade
 {
-	public String getType();
+	/**
+	 * @return The visible types of the kit as a dot separated string.
+	 */
+	public String getDisplayType();
 
 }

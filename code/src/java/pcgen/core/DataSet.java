@@ -149,10 +149,7 @@ public class DataSet implements DataSetFacade
 		}
 		for (Kit kit : context.ref.getConstructedCDOMObjects(Kit.class))
 		{
-			if (kit.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE, false))
-			{
-				kits.addElement(kit);
-			}
+			kits.addElement(kit);
 		}
 		for (PCAlignment alignment : context.ref.getOrderSortedCDOMObjects(PCAlignment.class))
 		{

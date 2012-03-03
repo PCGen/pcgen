@@ -91,22 +91,23 @@ import pcgen.core.facade.event.ReferenceListener;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.dialog.CharacterHPDialog;
+import pcgen.gui2.dialog.KitSelectionDialog;
 import pcgen.gui2.dialog.RandomNameDialog;
 import pcgen.gui2.dialog.SinglePrefDialog;
 import pcgen.gui2.prefs.CharacterStatsPanel;
-import pcgen.gui2.tabs.summary.ClassLevelTableModel;
-import pcgen.gui2.tabs.summary.InfoPaneHandler;
-import pcgen.gui2.tabs.summary.LanguageTableModel;
-import pcgen.gui2.tabs.summary.StatTableModel;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
 import pcgen.gui2.tabs.models.DeferredCharacterComboBoxModel;
 import pcgen.gui2.tabs.models.FormattedFieldHandler;
 import pcgen.gui2.tabs.models.TextFieldHandler;
+import pcgen.gui2.tabs.summary.ClassLevelTableModel;
+import pcgen.gui2.tabs.summary.InfoPaneHandler;
+import pcgen.gui2.tabs.summary.LanguageTableModel;
+import pcgen.gui2.tabs.summary.StatTableModel;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.util.FacadeComboBoxModel;
 import pcgen.gui2.util.SignIcon;
-import pcgen.gui2.util.SimpleTextIcon;
 import pcgen.gui2.util.SignIcon.Sign;
+import pcgen.gui2.util.SimpleTextIcon;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -168,7 +169,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 	public SummaryInfoTab()
 	{
-		this.tabTitle = new TabTitle("in_summary");
+		this.tabTitle = new TabTitle("in_summary"); //$NON-NLS-1$
 		this.basicsPanel = new JPanel();
 		this.todoPanel = new JPanel();
 		this.scoresPanel = new JPanel();
@@ -221,8 +222,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		this.setFocusTraversalPolicy(new SummaryTabFocusTraversalPolicy());
 		setFont(textFont);
 
-		createMonsterButton.setText("Create Monster Character");
-		createMonsterButton.setEnabled(false);
 		LanguageTableModel.initializeTable(languageTable);
 
 		setLayout(new GridBagLayout());
@@ -916,6 +915,8 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		stateTable.put(Models.GenerateRollsAction, new GenerateRollsAction(character));
 		stateTable.put(Models.RollMethodAction, new RollMethodAction(
 				(JFrame) SwingUtilities.getWindowAncestor(this), character));
+		stateTable.put(Models.CreateMonsterAction, new CreateMonsterAction(
+			character, (JFrame) SwingUtilities.getWindowAncestor(this)));
 		stateTable.put(Models.AddLevelsAction, new AddLevelsAction(character));
 		stateTable.put(Models.RemoveLevelsAction, new RemoveLevelsAction(character));
 		stateTable.put(Models.StatTableModel, new StatTableModel(character, statsTable));
@@ -980,7 +981,8 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		ModTotalLabelHandler, 
 		ModTotalHandler,
 		TodoListHandler,
-		HPHandler
+		HPHandler, 
+		CreateMonsterAction
 	}
 
 	@Override
@@ -1045,9 +1047,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		generateRollsButton.setAction(genRollsAction);
 		RollMethodAction rollMethodAction = (RollMethodAction) state.get(Models.RollMethodAction);
 		rollMethodButton.setAction(rollMethodAction);
-//		Logging.errorPrint("Set action. Eanbled: " + genRollsAction.isEnabled());
-//		genRollsAction.update();
-//		Logging.errorPrint(">Set action. Eanbled: " + genRollsAction.isEnabled());
+		createMonsterButton.setAction((Action) state.get(Models.CreateMonsterAction));
 		addLevelsButton.setAction((Action) state.get(Models.AddLevelsAction));
 		removeLevelsButton.setAction((Action) state.get(Models.RemoveLevelsAction));
 		xpTableComboBox.setModel((ComboBoxModel) state.get(Models.XPTableComboBoxModel));
@@ -1339,6 +1339,31 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			prefsDialog.setLocationRelativeTo(parent);
 			prefsDialog.setVisible(true);
 			character.refreshRollMethod();
+		}
+
+	}
+
+	private class CreateMonsterAction extends AbstractAction
+	{
+
+		private CharacterFacade character;
+		private JFrame frame;
+
+		public CreateMonsterAction(CharacterFacade character, JFrame frame)
+		{
+			putValue(NAME, LanguageBundle.getString("in_sumCreateMonster")); //$NON-NLS-1$
+			putValue(SHORT_DESCRIPTION, LanguageBundle.getString("in_sumCreateMonster_Tip")); //$NON-NLS-1$
+			this.character = character;
+			this.frame = frame;
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			KitSelectionDialog kitDialog =
+					new KitSelectionDialog(frame, character);
+			kitDialog.setLocationRelativeTo(frame);
+			kitDialog.setVisible(true);			
 		}
 
 	}

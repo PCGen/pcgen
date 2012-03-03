@@ -44,8 +44,6 @@ import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.utils.CoreUtility;
-import pcgen.gui.CharacterInfo;
-import pcgen.gui.PCGen_Frame1;
 import pcgen.util.Logging;
 
 /**
@@ -294,10 +292,6 @@ public final class KitSkill extends BaseKit
 				}
 			}
 		}
-		final CharacterInfo pane = PCGen_Frame1.getCharacterPane();
-		pane.setPaneForUpdate(pane.infoSkills());
-		pane.refresh();
-
 		return true;
 	}
 

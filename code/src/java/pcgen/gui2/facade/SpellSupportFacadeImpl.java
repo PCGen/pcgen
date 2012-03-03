@@ -1288,7 +1288,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	 */
 	private void updateSpellBooks(Equipment equip)
 	{
-		if (equip.isType("SPELLBOOK"))
+		if (equip == null || equip.isType("SPELLBOOK"))
 		{
 			buildKnownPreparedNodes();
 			for (Iterator<SpellNode> iterator = bookSpellNodes.iterator(); iterator.hasNext();)

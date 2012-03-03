@@ -70,6 +70,7 @@ import pcgen.core.Equipment;
 import pcgen.core.GameMode;
 import pcgen.core.GearBuySellScheme;
 import pcgen.core.Globals;
+import pcgen.core.Kit;
 import pcgen.core.Language;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
@@ -135,11 +136,13 @@ import pcgen.core.facade.event.ListListener;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.core.facade.util.ListFacades;
+import pcgen.core.kit.BaseKit;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.gui.EQFrame;
+import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
 import pcgen.io.exporttoken.WeightToken;
@@ -222,7 +225,6 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	private DefaultReferenceFacade<File> portrait;
 	private RectangleReference cropRect;
 	private String selectedGender;
-	private List<Language> availableBonusLangs;
 	private List<Language> currBonusLangs;
 	private DefaultReferenceFacade<String> skinColor;
 	private DefaultReferenceFacade<String> hairColor;
@@ -294,6 +296,8 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		appliedTempBonuses = new DefaultListFacade<TempBonusFacade>();
 		availTempBonuses = new DefaultListFacade<TempBonusFacade>();
 		buildAvailableTempBonuses();
+		kitList = new DefaultListFacade<KitFacade>();
+		refreshKitList();
 		
 		statScoreMap = new HashMap<StatFacade, DefaultReferenceFacade<Integer>>();
 
@@ -400,6 +404,19 @@ public class CharacterFacadeImpl implements CharacterFacade,
 				new DefaultReferenceFacade<GearBuySellFacade>(
 					findGearBuySellRate());
 		allowDebt = false;
+	}
+
+	/**
+	 * Build up the list of kits that the character has.
+	 */
+	private void refreshKitList()
+	{
+		List<Kit> kits = new ArrayList<Kit>();
+		for (Kit kit : theCharacter.getKitInfo())
+		{
+			kits.add(kit);
+		}
+		kitList.setContents(kits);
 	}
 
 	private GearBuySellFacade findGearBuySellRate()
@@ -538,6 +555,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	{
 		characterAbilities.addAbility(category, ability);
 		refreshLanguageList();
+		refreshKitList();
 	}
 
 	/* (non-Javadoc)
@@ -549,6 +567,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	{
 		characterAbilities.removeAbility(category, ability);
 		refreshLanguageList();
+		refreshKitList();
 	}
 
 	/* (non-Javadoc)
@@ -678,6 +697,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	{
 		characterAbilities.rebuildAbilityLists();
 		refreshLanguageList();
+		refreshKitList();
 		currentXP.setReference(theCharacter.getXP());
 		xpForNextlevel.setReference(theCharacter.minXPForNextECL());
 		xpTableName.setReference(theCharacter.getXPTableName());
@@ -1559,6 +1579,12 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		theCharacter.rollStats(rollMethod);
 		//XXX This is here to stop the stat mod from being stale. Can be removed once we merge with CDOM
 		theCharacter.calcActiveBonuses();
+		refreshStatScores();
+		updateScorePurchasePool(true);		
+	}
+
+	private void refreshStatScores()
+	{
 		for (StatFacade stat : statScoreMap.keySet())
 		{
 			DefaultReferenceFacade<Integer> score = statScoreMap.get(stat);
@@ -1568,7 +1594,6 @@ public class CharacterFacadeImpl implements CharacterFacade,
 					(PCStat) stat));
 			}
 		}
-		updateScorePurchasePool(true);		
 	}
 
 	/* (non-Javadoc)
@@ -1726,6 +1751,38 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		{
 			setGender(selectedGender);
 		}
+		refreshRaceRelatedFields();
+		
+		if (oldLevel != charLevelsFacade.getSize())
+		{
+			delegate.showLevelUpInfo(this, oldLevel);
+		}
+	}
+
+	private void refreshRaceRelatedFields()
+	{
+		race.setReference(theCharacter.getRace());
+
+		if (theCharacter.getRace() != null)
+		{
+			for (SimpleFacade handsFacade : theCharacter.getRace().getHands())
+			{
+				if (handsFacade.toString().equals(theCharacter.getDisplay().getHanded()))
+				{
+					handedness.setReference(handsFacade);
+					break;
+				}
+			}
+			for (GenderFacade pcGender : race.getReference().getGenders())
+			{
+				if (pcGender.equals(theCharacter.getGenderObject()))
+				{
+					gender.setReference(pcGender);
+					break;
+				}
+			}
+		}
+
 		age.setReference(theCharacter.getAge());
 		updateAgeCategoryForAge();
 		weightRef.setReference(theCharacter.getWeight());
@@ -1736,6 +1793,12 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		xpForNextlevel.setReference(theCharacter.minXPForNextECL());
 		xpTableName.setReference(theCharacter.getXPTableName());
 		hpRef.setReference(theCharacter.hitPoints());
+
+		updateLevelTodo();
+		buildAvailableDomainsList();
+		spellSupportFacade.refreshAvailableKnownSpells();
+		updateScorePurchasePool(false);
+		
 		if (theCharacter.getRace() == null
 			|| Constants.NONESELECTED.equals(theCharacter.getRace()
 				.getKeyName()))
@@ -1746,11 +1809,6 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		else
 		{
 			todoManager.removeTodo("in_irTodoRace");
-		}
-		
-		if (oldLevel != charLevelsFacade.getSize())
-		{
-			delegate.showLevelUpInfo(this, oldLevel);
 		}
 	}
 
@@ -2253,7 +2311,6 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		autoLanguagesCache = null;
  
 		int bonusLangMax = theCharacter.getBonusLanguageCount();;
-		availableBonusLangs = new ArrayList<Language>();
 		currBonusLangs = new ArrayList<Language>();
 		Ability a =
 				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
@@ -3766,7 +3823,6 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	@Override
 	public DefaultListFacade<KitFacade> getKits()
 	{
-		// TODO build list
 		return kitList;
 	}
 
@@ -3776,18 +3832,104 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	@Override
 	public void addKit(KitFacade obj)
 	{
-		// TODO check qualified, add to character
-		kitList.removeElement(obj);
+		if (obj == null || !(obj instanceof Kit))
+		{
+			return;
+		}
+		
+		Kit kit = (Kit) obj;
+		if (!theCharacter.isQualified(kit))
+		{
+			return;
+		}
+		
+		List<BaseKit> thingsToAdd = new ArrayList<BaseKit>();
+		List<String> warnings     = new ArrayList<String>();
+		kit.testApplyKit(theCharacter, thingsToAdd, warnings);
+
+		//
+		// See if user wants to apply the kit even though there were errors
+		//
+		
+		if (!showKitWarnings(kit, warnings))
+		{
+			return;
+		}
+
+		// The user is applying the kit so use the real PC now.
+		kit.processKit(theCharacter, thingsToAdd);
+		kitList.addElement(obj);
+		
+		// Kits can upate most things so do a thorough refresh
+		race.setReference(theCharacter.getRace());
+		refreshRaceRelatedFields();
+		name.setReference(theCharacter.getName());
+		characterType.setReference(theCharacter.getCharacterType());
+		alignment.setReference(theCharacter.getPCAlignment());
+		refreshStatScores();
+		refreshEquipment();
+		
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * 
 	 */
-	@Override
-	public void removeKit(KitFacade obj)
+	private void refreshEquipment()
 	{
-		// TODO check removable, remove from character
-		kitList.removeElement(obj);
+		fundsRef.setReference(theCharacter.getGold());
+		wealthRef.setReference(theCharacter.totalValue());
+		
+		purchasedEquip.refresh(theCharacter.getEquipmentMasterList());
+		initEquipSet(theCharacter);
 	}
 
+	/**
+	 * Show the user any warnings from thekit application and get 
+	 * their approval to continue.
+	 * 
+	 * @param kit The kit being applied.
+	 * @param warnings The warnigns generated in the test application.
+	 * @return true if the kit should be applied, false if not.
+	 */
+	private boolean showKitWarnings(Kit kit, List<String> warnings)
+	{
+		if (warnings.isEmpty())
+		{
+			return true;
+		}
+
+		HtmlInfoBuilder warningMsg = new HtmlInfoBuilder();
+		
+		warningMsg.append("The following warnings were encountered");
+		for (String string : warnings)
+		{
+			warningMsg.appendLineBreak();
+			warningMsg.append(string);
+		}
+
+		return delegate.showWarningConfirm(kit.getDisplayName(), warningMsg.toString());
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	public List<KitFacade> getAvailableKits()
+	{
+		List<KitFacade> kits = new ArrayList<KitFacade>();
+		for (KitFacade obj : dataSet.getKits())
+		{
+			if (obj == null || !(obj instanceof Kit))
+			{
+				continue;
+			}
+
+			if (((Kit) obj).isVisible(theCharacter))
+			{
+				kits.add(obj);
+			}
+
+		}
+		
+		return kits;
+	}
 }

@@ -24,6 +24,7 @@ import java.awt.Rectangle;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.swing.undo.UndoManager;
 
@@ -735,18 +736,20 @@ public interface CharacterFacade
 	public boolean isDirty();
 
 	/**
-	 * @return
+	 * @return The kits that have been applied to the character 
 	 */
 	public DefaultListFacade<KitFacade> getKits();
 
 	/**
-	 * @param object
+	 * Add a kit to the character. This will test the kit is valid and warn the 
+	 * user if there are potential errors before applying the kit. 
+	 * @param object The kit to be added
 	 */
 	public void addKit(KitFacade object);
 
 	/**
-	 * @param object
+	 * @return The list of kits currently available to the character.
 	 */
-	public void removeKit(KitFacade object);
+	public List<KitFacade> getAvailableKits();
 
 }

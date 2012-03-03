@@ -56,6 +56,20 @@ public class EquipmentListFacadeImpl extends AbstractListFacade<EquipmentFacade>
 		}
 	}
 
+	/**
+	 * Refresh the equipment list facade with the supplied data.
+	 * @param list The new list of equipment.
+	 */
+	public void refresh(List<Equipment> list)
+	{
+		equipmentList = new ArrayList<EquipmentFacade>(list);
+		quantityMap = new HashMap<EquipmentFacade, Integer>();
+		for (Equipment equipment : list)
+		{
+			quantityMap.put(equipment, equipment.getQty().intValue());
+		}
+		fireElementsChanged(this);
+	}
 	@Override
 	public void addEquipmentListListener(EquipmentListListener listener)
 	{
