@@ -46,6 +46,7 @@ import pcgen.gui.converter.TokenConverter;
 import pcgen.gui.utils.DialogInputInterface;
 import pcgen.gui.utils.SwingChooser;
 import pcgen.gui.utils.SwingChooserRadio;
+import pcgen.gui.utils.SwingChooserUserInput;
 import pcgen.gui2.PCGenUIManager;
 import pcgen.gui2.SplashScreen;
 import pcgen.gui2.UIPropertyContext;
@@ -383,7 +384,7 @@ public final class Main
 		//TODO: Remove these registrations once the old choosers are fully replaced.
 		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
 		ChooserFactory.setRadioInterfaceClassname(SwingChooserRadio.class.getName());
-		ChooserFactory.setUserInputInterfaceClassname(SwingChooser.class.getName());
+		ChooserFactory.setUserInputInterfaceClassname(SwingChooserUserInput.class.getName());
 		InputFactory.setInterfaceClassname(DialogInputInterface.class
 			.getName());
 
