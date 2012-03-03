@@ -1,5 +1,8 @@
 
 
+Chooser UserInput		TYPE:Test	CHOOSE:USERINPUT|TITLE="Test Case Usage"	MULT:YES
+
+
 AFC 1		TYPE:TestingVirtualAddition
 AFC 2		TYPE:TestingVirtualAddition
 
