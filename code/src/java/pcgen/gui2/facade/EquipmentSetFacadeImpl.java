@@ -338,8 +338,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		theCharacter.setCalcEquipmentList();
 		if (!Constants.EQUIP_LOCATION_NOTCARRIED.equals(root.toString()))
 		{
-			double weight = equip.getWeightAsDouble(theCharacter)*quantity;
-			totalWeight += weight;
+			totalWeight = theCharacter.totalWeight();
 		}
 	}
 
@@ -469,6 +468,12 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		newItem.setQty(quantity);
 		newSet.setQty((float) quantity);
 		theCharacter.addEquipSet(newSet);
+		Equipment eqTarget = parentEs.getItem();
+		if ((eqTarget != null) && eqTarget.isContainer())
+		{
+			eqTarget.insertChild(theCharacter, newItem);
+			newItem.setParent(eqTarget);
+		}
 		
 		// Create EquipNode for the item
 		EquipNodeImpl itemNode = new EquipNodeImpl(parent, equipSlot, newItem, id);
