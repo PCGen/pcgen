@@ -759,4 +759,11 @@ public interface CharacterFacade
 	 */
 	public void setDefaultOutputSheet(boolean pdf, File outputSheet);
 
+	/**
+	 * Return the default output sheet for this character.
+	 * @param pdf Is this the PDF sheet?
+	 * @return The default output sheet.
+	 */
+	public String getDefaultOutputSheet(boolean pdf);
+
 }

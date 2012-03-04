@@ -2522,6 +2522,30 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getDefaultOutputSheet(boolean pdf)
+	{
+		UIPropertyContext context = UIPropertyContext.getInstance();
+		if (context.getBoolean(UIPropertyContext.SAVE_OUTPUT_SHEET_WITH_PC))
+		{
+			if (pdf)
+			{
+				return theCharacter.getSelectedCharacterPDFOutputSheet();
+			}
+			return theCharacter.getSelectedCharacterHTMLOutputSheet();
+		}
+
+		if (pdf)
+		{
+			return context
+				.getProperty(UIPropertyContext.DEFAULT_PDF_OUTPUT_SHEET);
+		}
+		return context.getProperty(UIPropertyContext.DEFAULT_HTML_OUTPUT_SHEET);
+	}
+	
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getHandedRef()
 	 */

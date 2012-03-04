@@ -508,21 +508,13 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 			}
 			else
 			{
+				CharacterFacade character = (CharacterFacade) characterBox.getSelectedItem();
 				prefixFilter =
 						FileFilterUtils
 							.prefixFileFilter(Constants.CHARACTER_TEMPLATE_PREFIX);
-				if (sheetFilter == SheetFilter.HTMLXML)
-				{
-					defaultSheet =
-							UIPropertyContext.getInstance().getProperty(
-								UIPropertyContext.DEFAULT_HTML_OUTPUT_SHEET);
-				}
-				else if (sheetFilter == SheetFilter.PDF)
-				{
-					defaultSheet =
-							UIPropertyContext.getInstance().getProperty(
-								UIPropertyContext.DEFAULT_PDF_OUTPUT_SHEET);
-				}
+				defaultSheet =
+						character
+							.getDefaultOutputSheet(sheetFilter == SheetFilter.PDF);
 			}
 			IOFileFilter filter = FileFilterUtils.and(prefixFilter, ioFilter);
 			List<File> files = FileFilterUtils.filterList(filter, allTemplates);
