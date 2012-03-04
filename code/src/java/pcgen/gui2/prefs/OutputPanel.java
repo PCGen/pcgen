@@ -400,6 +400,8 @@ public class OutputPanel extends PCGenPrefsPanel
 	@Override
 	public void setOptionsBasedOnControls()
 	{
+		UIPropertyContext context = UIPropertyContext.getInstance();
+
 		Globals.selectPaper((String) paperType.getSelectedItem());
 
 		if (SettingsHandler.getCleanupTempFiles()
@@ -428,14 +430,13 @@ public class OutputPanel extends PCGenPrefsPanel
 				.isSelected());
 		}
 
-		// added 10 April 2000 by sage_sam
-		SettingsHandler.setSelectedCharacterHTMLOutputSheet(
-			outputSheetHTMLDefault.getText(), null);
-		SettingsHandler.setSelectedCharacterPDFOutputSheet(
-			outputSheetPDFDefault.getText(), null);
+		context.setProperty(UIPropertyContext.DEFAULT_HTML_OUTPUT_SHEET,
+			outputSheetHTMLDefault.getText());
+		context.setProperty(UIPropertyContext.DEFAULT_PDF_OUTPUT_SHEET,
+			outputSheetPDFDefault.getText());
 		SettingsHandler.setSelectedEqSetTemplate(outputSheetEqSet.getText());
-		SettingsHandler.setSaveOutputSheetWithPC(saveOutputSheetWithPC
-			.isSelected());
+		context.setBoolean(UIPropertyContext.SAVE_OUTPUT_SHEET_WITH_PC,
+			saveOutputSheetWithPC.isSelected());
 		SettingsHandler.setSelectedSpellSheet(outputSheetSpellsDefault
 			.getText());
 		SettingsHandler.setPrintSpellsWithPC(printSpellsWithPC.isSelected());
@@ -447,7 +448,6 @@ public class OutputPanel extends PCGenPrefsPanel
 		SettingsHandler.setIncludeSkills(skillChoice.getSelectedIndex());
 		
 		ExportChoices choice = (ExportChoices) exportChoice.getSelectedItem();
-		UIPropertyContext context = UIPropertyContext.getInstance();
 		context.setProperty(UIPropertyContext.ALWAYS_OPEN_EXPORT_FILE, choice.getValue());
 	}
 
@@ -457,14 +457,22 @@ public class OutputPanel extends PCGenPrefsPanel
 	@Override
 	public void applyOptionValuesToControls()
 	{
+		UIPropertyContext context = UIPropertyContext.getInstance();
+
 		paperType.setSelectedIndex(Globals.getSelectedPaper());
 		weaponProfPrintout.setSelected(SettingsHandler.getWeaponProfPrintout());
-		saveOutputSheetWithPC.setSelected(SettingsHandler
-			.getSaveOutputSheetWithPC());
+		
+		outputSheetHTMLDefault.setText(context
+			.getProperty(UIPropertyContext.DEFAULT_HTML_OUTPUT_SHEET));
+		outputSheetPDFDefault.setText(context
+			.getProperty(UIPropertyContext.DEFAULT_PDF_OUTPUT_SHEET));
+		saveOutputSheetWithPC.setSelected(context
+			.getBoolean(UIPropertyContext.SAVE_OUTPUT_SHEET_WITH_PC));
 		printSpellsWithPC.setSelected(SettingsHandler.getPrintSpellsWithPC());
 		skillChoice.setSelectedIndex(SettingsHandler.getIncludeSkills());
-		
-		String value = UIPropertyContext.getInstance().getProperty(UIPropertyContext.ALWAYS_OPEN_EXPORT_FILE);
+
+		String value =
+				context.getProperty(UIPropertyContext.ALWAYS_OPEN_EXPORT_FILE);
 		exportChoice.setSelectedItem(ExportChoices.getChoice(value));
 	}
 

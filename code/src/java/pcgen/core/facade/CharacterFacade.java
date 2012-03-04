@@ -752,4 +752,11 @@ public interface CharacterFacade
 	 */
 	public List<KitFacade> getAvailableKits();
 
+	/**
+	 * Record the default output sheet for this character.
+	 * @param pdf Is this the PDF sheet?
+	 * @param outputSheet The new default.
+	 */
+	public void setDefaultOutputSheet(boolean pdf, File outputSheet);
+
 }

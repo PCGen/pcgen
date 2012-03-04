@@ -29,6 +29,7 @@ import pcgen.system.PropertyContext;
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
+@SuppressWarnings("nls")
 public final class UIPropertyContext extends PropertyContext
 {
 
@@ -39,6 +40,10 @@ public final class UIPropertyContext extends PropertyContext
 	public static final String QUALIFIED_COLOR = "qualifiedColor";
 	public static final String ALWAYS_OPEN_EXPORT_FILE = "alwaysOpenExportFile";
 	public static final String DEFAULT_OS_TYPE = "defaultOSType";
+	public static final String DEFAULT_PDF_OUTPUT_SHEET = "defaultPdfOutputSheet";
+	public static final String DEFAULT_HTML_OUTPUT_SHEET = "defaultHtmlOutputSheet";
+	public static final String SAVE_OUTPUT_SHEET_WITH_PC = "saveOutputSheetWithPC";
+
 	/**
 	 * The character property for the initial tab to open
 	 * this property corresponds to an integer value

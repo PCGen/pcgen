@@ -225,7 +225,6 @@ public class BatchExporter
 				tempFile = File.createTempFile("currentPC_", ".xml");
 				printToXMLFile(tempFile, character);
 				handler.setInputFile(tempFile, templateFile);
-				//SettingsHandler.setSelectedCharacterPDFOutputSheet(template.getAbsolutePath(), Globals.getPCList().get(pcExports[loop]));
 			}
 			else
 			{
@@ -238,6 +237,7 @@ public class BatchExporter
 				return false;
 			}
 					
+			character.setDefaultOutputSheet(true, templateFile);
 			handler.setMode(FOPHandler.PDF_MODE);
 			handler.setOutputFile(outFile);
 			handler.run();
@@ -276,6 +276,8 @@ public class BatchExporter
 					new BufferedWriter(new OutputStreamWriter(
 						new FileOutputStream(outFile), "UTF-8"));
 			character.export(new ExportHandler(templateFile), bw);
+			character.setDefaultOutputSheet(false, templateFile);
+			
 			bw.close();
 			return true;
 		}

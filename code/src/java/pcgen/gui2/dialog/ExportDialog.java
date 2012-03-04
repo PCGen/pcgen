@@ -491,7 +491,6 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 		{
 			CharacterFacade character = (CharacterFacade) characterBox.getSelectedItem();
 			BatchExporter.exportCharacterToNonPDF(character, outFile, template);
-			//SettingsHandler.setSelectedCharacterHTMLOutputSheet(template.getAbsolutePath(), aPC);
 		}
 	}
 
@@ -509,14 +508,20 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 			}
 			else
 			{
-				prefixFilter = FileFilterUtils.prefixFileFilter(Constants.CHARACTER_TEMPLATE_PREFIX);
+				prefixFilter =
+						FileFilterUtils
+							.prefixFileFilter(Constants.CHARACTER_TEMPLATE_PREFIX);
 				if (sheetFilter == SheetFilter.HTMLXML)
 				{
-					defaultSheet = SettingsHandler.getSelectedCharacterHTMLOutputSheet(null);
+					defaultSheet =
+							UIPropertyContext.getInstance().getProperty(
+								UIPropertyContext.DEFAULT_HTML_OUTPUT_SHEET);
 				}
 				else if (sheetFilter == SheetFilter.PDF)
 				{
-					defaultSheet = SettingsHandler.getSelectedCharacterPDFOutputSheet(null);
+					defaultSheet =
+							UIPropertyContext.getInstance().getProperty(
+								UIPropertyContext.DEFAULT_PDF_OUTPUT_SHEET);
 				}
 			}
 			IOFileFilter filter = FileFilterUtils.and(prefixFilter, ioFilter);
@@ -529,7 +534,7 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 				uriList[i] = osPath.relativize(files.get(i).toURI());
 			}
 			fileList.setListData(uriList);
-			if (defaultSheet != null)
+			if (StringUtils.isNotEmpty(defaultSheet))
 			{
 				URI defaultPath = new File(defaultSheet).toURI();
 				fileList.setSelectedValue(osPath.relativize(defaultPath), true);

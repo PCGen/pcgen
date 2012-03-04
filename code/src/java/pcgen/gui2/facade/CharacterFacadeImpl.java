@@ -142,6 +142,7 @@ import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.gui.EQFrame;
+import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
@@ -2469,8 +2470,6 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			try
 			{
 				theHandler.write(theCharacter, buf);
-				SettingsHandler.setSelectedCharacterHTMLOutputSheet(theHandler
-					.getTemplateFile().getAbsolutePath(), theCharacter);
 				return;
 			}
 			catch (ConcurrentModificationException e)
@@ -2490,6 +2489,39 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		}
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void setDefaultOutputSheet(boolean pdf, File outputSheet)
+	{
+		UIPropertyContext context = UIPropertyContext.getInstance();
+		String outputSheetPath = outputSheet.getAbsolutePath();
+		if (pdf)
+		{
+			context.setProperty(UIPropertyContext.DEFAULT_PDF_OUTPUT_SHEET,
+				outputSheetPath);
+		}
+		else
+		{
+			context.setProperty(UIPropertyContext.DEFAULT_HTML_OUTPUT_SHEET,
+				outputSheetPath);
+		}
+		if (context.getBoolean(UIPropertyContext.SAVE_OUTPUT_SHEET_WITH_PC))
+		{
+			if (pdf)
+			{
+				theCharacter
+					.setSelectedCharacterPDFOutputSheet(outputSheetPath);
+			}
+			else
+			{
+				theCharacter
+					.setSelectedCharacterHTMLOutputSheet(outputSheetPath);
+			}
+		}
+	}
+	
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getHandedRef()
 	 */
