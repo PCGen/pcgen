@@ -3150,7 +3150,20 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 		else
 		{
-			gender = Gender.getGenderByName(genderString);
+			try
+			{
+				gender = Gender.getGenderByName(genderString);
+			}
+			catch (IllegalArgumentException e) 
+			{
+				gender = Gender.Male;
+				final String msg =
+						LanguageBundle.getFormattedString(
+							"Warnings.PCGenParser.IllegalGender", //$NON-NLS-1$
+							line);
+				warnings.add(msg);
+				
+			}
 		}
 		thePC.setGender(gender);
 	}
