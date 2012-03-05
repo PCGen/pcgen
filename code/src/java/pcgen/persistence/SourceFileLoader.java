@@ -73,6 +73,7 @@ import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.DataSetFacade;
 import pcgen.core.facade.SourceSelectionFacade;
+import pcgen.core.facade.UIDelegate;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.io.PCGFile;
 import pcgen.persistence.lst.AbilityCategoryLoader;
@@ -165,9 +166,11 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private GameMode selectedGame;
 	private DataSet dataset = null;
 	private int progress = 0;
+	private final UIDelegate uiDelegate;
 
-	public SourceFileLoader(SourceSelectionFacade selection)
+	public SourceFileLoader(SourceSelectionFacade selection, UIDelegate delegate)
 	{
+		this.uiDelegate = delegate;
 		selectedCampaigns = new ArrayList<Campaign>();
 		for (CampaignFacade campaign : selection.getCampaigns())
 		{
@@ -212,8 +215,8 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		}
 		catch (PersistenceLayerException e)
 		{
-			Logging.errorPrint("Failed to load campaigns", e);
-			//ShowMessageDelegate.showMessageDialog(e.getMessage(), Constants.APPLICATION_NAME, MessageType.WARNING);
+			Logging.errorPrint("Failed to load sources", e);
+			uiDelegate.showErrorMessage(Constants.APPLICATION_NAME, "Failed to load sources, see log for details.");
 		}
 		Logging.removeHandler(handler);
 	}
@@ -508,7 +511,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		catch (Throwable thr)
 		{
 			Logging.errorPrint("Exception loading files.", thr);
-			//TODO: Add user message here.
+			uiDelegate.showErrorMessage(Constants.APPLICATION_NAME, "Failed to load campaigns, see log for details.");
 		}
 	}
 
@@ -977,6 +980,10 @@ public class SourceFileLoader extends PCGenTask implements Observer
 					{
 						subCampaign.applyTo(context.ref);
 					}
+				}
+				else
+				{
+					Logging.errorPrint("The referenced source " + uri + " is not valid.");
 				}
 			}
 

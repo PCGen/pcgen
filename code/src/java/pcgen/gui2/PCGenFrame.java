@@ -526,7 +526,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		//make sure all characters are closed before loading new sources.
 		if (closeAllCharacters())
 		{
-			sourceLoader = new SourceLoadWorker(sources);
+			sourceLoader = new SourceLoadWorker(sources, this);
 			sourceLoader.start();
 			return true;
 		}
@@ -1317,11 +1317,13 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		private final SourceSelectionFacade sources;
 		private final SourceFileLoader loader;
 		private final SwingWorker<List<LogRecord>> worker;
+		private final UIDelegate delegate;
 
-		public SourceLoadWorker(SourceSelectionFacade sources)
+		public SourceLoadWorker(SourceSelectionFacade sources, UIDelegate delegate)
 		{
 			this.sources = sources;
-			loader = new SourceFileLoader(sources);
+			this.delegate = delegate;
+			loader = new SourceFileLoader(sources, delegate);
 			worker = statusBar.createWorker("Loading Sources", loader);
 		}
 

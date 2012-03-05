@@ -124,7 +124,7 @@ public class BatchExporter
 					uiDelegate);
 		Logging.log(Logging.INFO, "Loading sources " + sourcesForCharacter.getCampaigns()
 			+ " using game mode " + sourcesForCharacter.getGameMode());
-		SourceFileLoader loader = new SourceFileLoader(sourcesForCharacter);
+		SourceFileLoader loader = new SourceFileLoader(sourcesForCharacter, uiDelegate);
 		loader.execute();
 
 		// Load character
@@ -179,7 +179,7 @@ public class BatchExporter
 		// Load data
 		SourceSelectionFacade sourcesForCharacter =
 				CharacterManager.getRequiredSourcesForParty(file, uiDelegate);
-		SourceFileLoader loader = new SourceFileLoader(sourcesForCharacter);
+		SourceFileLoader loader = new SourceFileLoader(sourcesForCharacter, uiDelegate);
 		loader.execute();
 
 		// Load party

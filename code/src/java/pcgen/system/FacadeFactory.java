@@ -115,11 +115,8 @@ public class FacadeFactory
 				}
 				campaignListMap.get(gameModeFacade).addElement(campaign);
 			}
-			if (campaign.showInMenu())
+			if (campaign.showInMenu() && !gameModeList.isEmpty())
 			{
-				//we asume that any campaign that was loaded can run under at least 1 of
-				//the loaded game modes
-				//TODO: Prove the asumption or don't asume
 				GameModeFacade game = gameModeList.getElementAt(0);
 				ListFacade<CampaignFacade> list =
 						new DefaultListFacade<CampaignFacade>(Collections.singleton(campaign));
