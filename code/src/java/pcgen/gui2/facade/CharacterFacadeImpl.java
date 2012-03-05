@@ -101,7 +101,9 @@ import pcgen.core.facade.CharacterLevelFacade;
 import pcgen.core.facade.CharacterLevelsFacade;
 import pcgen.core.facade.CharacterLevelsFacade.CharacterLevelEvent;
 import pcgen.core.facade.CharacterLevelsFacade.HitPointListener;
+import pcgen.core.facade.CharacterStubFacade;
 import pcgen.core.facade.ClassFacade;
+import pcgen.core.facade.CompanionSupportFacade;
 import pcgen.core.facade.DataSetFacade;
 import pcgen.core.facade.DefaultReferenceFacade;
 import pcgen.core.facade.DeityFacade;
@@ -3844,6 +3846,27 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	public boolean isDirty()
 	{
 		return theCharacter.isDirty();
+	}
+
+	@Override
+	public CompanionSupportFacade getCompanionSupport()
+	{
+		//TODO: implement this
+		return null;
+	}
+
+	@Override
+	public String getCompanionType()
+	{
+		//TODO: implement this
+		return null;
+	}
+
+	@Override
+	public CharacterStubFacade getMaster()
+	{
+		//TODO: implement this
+		return null;
 	}
 
 	/**

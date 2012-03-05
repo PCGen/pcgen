@@ -54,7 +54,7 @@ import pcgen.io.ExportHandler;
  * @see ReferenceFacade
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public interface CharacterFacade
+public interface CharacterFacade extends CompanionFacade
 {
 
 	public InfoFactory getInfoFactory();
@@ -236,7 +236,7 @@ public interface CharacterFacade
 	 * @return True if the character is allowed to spend more funds than they have.
 	 */
 	public boolean isAllowDebt();
-	
+
 	public ListFacade<EquipmentSetFacade> getEquipmentSets();
 
 	public ReferenceFacade<EquipmentSetFacade> getEquipmentSetRef();
@@ -765,5 +765,17 @@ public interface CharacterFacade
 	 * @return The default output sheet.
 	 */
 	public String getDefaultOutputSheet(boolean pdf);
+
+	public CompanionSupportFacade getCompanionSupport();
+
+	/**
+	 * @return a character stub representing this character's master
+	 */
+	public CharacterStubFacade getMaster();
+
+	/**
+	 * @return the type of companion the current character is, or null if not a companion
+	 */
+	public String getCompanionType();
 
 }
