@@ -203,12 +203,12 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 				if (charSheet != null)
 				{
 					file = new File(sheetDir, charSheet);
-					if(!file.isFile())
+					if (!file.isFile())
 					{
-						Logging.errorPrint("Invalid Character Sheet: "+file.getAbsolutePath());
+						Logging.errorPrint("Invalid Character Sheet: " + file.getAbsolutePath());
 					}
 				}
-				if(file == null || !file.isFile())
+				if (file == null || !file.isFile())
 				{
 					file = new File(sheetDir, game.getDefaultCharSheet());
 				}
@@ -399,6 +399,20 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 				return "Temporary Bonuses";
 			}
 			return null;
+		}
+
+		@Override
+		public void setValueAt(Object aValue, int rowIndex, int columnIndex)
+		{
+			TempBonusFacade bonus = sortedList.getElementAt(rowIndex);
+			if (aValue == Boolean.TRUE)
+			{
+				character.addTempBonus(bonus);
+			}
+			else
+			{
+				character.removeTempBonus(bonus);
+			}
 		}
 
 		@Override
