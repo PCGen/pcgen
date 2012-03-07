@@ -217,7 +217,7 @@ public class TokenSupport
 			}
 
 		}
-		if (token != null && CDOMPrimaryToken.class.isAssignableFrom(token.getClass()))
+		if (CDOMPrimaryToken.class.isAssignableFrom(token.getClass()))
 		{
 			CDOMPrimaryToken<? super T> primaryToken = (CDOMPrimaryToken<? super T>) token;
 			String[] s = primaryToken.unparse(loadContext, cdo);
@@ -228,11 +228,6 @@ public class TokenSupport
 					result.add(token.getTokenName() + ':' + aString);
 				}
 			}
-		}
-		else if (token == null)
-		{
-			throw new IllegalArgumentException("The token " + tokenName
-				+ " could not be found.");
 		}
 		else
 		{

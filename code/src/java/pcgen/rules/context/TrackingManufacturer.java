@@ -228,8 +228,8 @@ public class TrackingManufacturer<T extends Loadable> implements ReferenceManufa
 	}
 
 	@Override
-	public void injectConstructed(ReferenceManufacturer<T> rm)
+	public void injectConstructed(ReferenceManufacturer<T> mfg)
 	{
-		rm.injectConstructed(rm);
+		mfg.injectConstructed(mfg);
 	}
 }

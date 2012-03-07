@@ -103,28 +103,29 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 	public <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, Category<T> cat)
 	{
-		ReferenceManufacturer mfg = super.getManufacturer(cl, cat);
+		ReferenceManufacturer<T> mfg = super.getManufacturer(cl, cat);
 		if (!listening.contains(mfg))
 		{
 			mfg.addUnconstructedListener(this);
 			listening.add(mfg);
 		}
-		return new TrackingManufacturer(this, mfg);
+		return new TrackingManufacturer<T>(this, mfg);
 	}
 
 	@Override
 	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl)
 	{
-		ReferenceManufacturer mfg = super.getManufacturer(cl);
+		ReferenceManufacturer<T> mfg = super.getManufacturer(cl);
 		if (!listening.contains(mfg))
 		{
 			mfg.addUnconstructedListener(this);
 			listening.add(mfg);
 		}
-		return new TrackingManufacturer(this, mfg);
+		return new TrackingManufacturer<T>(this, mfg);
 	}
 
+	@Override
 	public void unconstructedReferenceFound(UnconstructedEvent e)
 	{
 		CDOMReference<?> ref = e.getReference();

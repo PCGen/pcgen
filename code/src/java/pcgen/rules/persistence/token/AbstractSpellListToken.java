@@ -75,7 +75,7 @@ public abstract class AbstractSpellListToken extends AbstractTokenWithSeparator<
 		{
 			AssociatedChanges changes = context.getListContext()
 					.getChangesInList(getTokenName(), obj, listRef);
-			Collection<Spell> removedItems = changes.getRemoved();
+			Collection<?> removedItems = changes.getRemoved();
 			if (removedItems != null && !removedItems.isEmpty()
 					|| changes.includesGlobalClear())
 			{
