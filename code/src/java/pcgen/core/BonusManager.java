@@ -1255,6 +1255,11 @@ public class BonusManager
 					thisValue = value.replaceAll(VALUE_TOKEN_PATTERN,
 							assocString);
 				}
+				//Need to protect against a selection not being made with a %LIST
+				if (thisValue.length() == 0)
+				{
+					thisValue = "0";
+				}
 				newFormula = FormulaFactory.getFormulaFor(thisValue);
 			}
 			for (String thisInfo : infoList)
