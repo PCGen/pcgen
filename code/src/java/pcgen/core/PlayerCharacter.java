@@ -4551,9 +4551,11 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 */
 	public void setRace(final Race newRace)
 	{
-		raceFacet.remove(id);
-
-		if (newRace != null)
+		if (newRace == null)
+		{
+			raceFacet.set(id, Globals.s_EMPTYRACE);
+		}
+		else
 		{
 			raceFacet.set(id, newRace);
 		}

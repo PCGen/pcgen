@@ -873,6 +873,8 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		
 		// With race unlock
 		nonAbilityLockerRace.addToListFor(ListKey.UNLOCKED_STATS, str);
+		//This weirdness is because we are altering the race after application (no-no at runtime)
+		pc.setRace(null);
 		pc.setRace(nonAbilityLockerRace);
 		assertEquals("STR now unlocked from a non ability by race", false, pc.isNonAbility(str));
 	}
