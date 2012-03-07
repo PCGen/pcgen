@@ -321,6 +321,7 @@ public class KnownSpellFacet extends AbstractStorageFacet implements
 				getCachedMap(id);
 		if (listMap == null)
 		{
+			//If this 
 			return levelInfo;
 		}
 		Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>> spellMap =
@@ -401,10 +402,16 @@ public class KnownSpellFacet extends AbstractStorageFacet implements
 				getCachedMap(id);
 		if (listMap == null)
 		{
+			//You shouldn't call this on a non-spellcaster, but for now, handle that scenario
 			return spellList;
 		}
 		Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>> spellMap =
 				listMap.get(csl);
+		if (spellMap == null)
+		{
+			//Possible to be called on a ClassSpellList that doesn't have any known spells
+			return spellList;
+		}
 		for (Map.Entry<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>> me : spellMap
 			.entrySet())
 		{
