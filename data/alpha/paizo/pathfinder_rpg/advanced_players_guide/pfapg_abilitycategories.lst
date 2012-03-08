@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jul  7 12:04:01 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Thu Mar  8 11:46:29 2012 -- reformated by prettylst.pl v1.39 (build )
 #SOURCELONG:Pathfinder Roleplaying Game Advanced Player's Guide Playtest	SOURCESHORT:PFAPGP1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8bcj	SOURCEDATE:2009-11
 # Original Entry by: Stefan Radermacher, Eric Smith (Maredudd) and Andrew Maitland
 
@@ -18,23 +18,23 @@ ABILITYCATEGORY:Inquisitor Judgment Effect	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOO
 ABILITYCATEGORY:Teamwork Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Teamwork			PLURAL:Tactician Feats			DISPLAYLOCATION:Feats
 
 ###Block: Oracular Ability Categories
-# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Oracle Curse				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleCurse			PLURAL:Oracle's Curses			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Oracle Mystery			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleMystery		PLURAL:Oracle Mysteries			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Battle Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BattleRevelation		PLURAL:Battle Mystery Revelations	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Bone Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BoneRevelation		PLURAL:Bone Mystery Revelations	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Flame Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FlameRevelation		PLURAL:Flame Mystery Revelations	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Heavens Mystery Revelation	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HeavensRevelation		PLURAL:Heavens Mystery Revelations	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Life Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LifeRevelation		PLURAL:Life Mystery Revelations	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Lore Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LoreRevelation		PLURAL:Lore Mystery Revelations	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Nature Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NatureRevelation		PLURAL:Nature Mystery Revelations	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Stone Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:StoneRevelation		PLURAL:Stoone Mystery Revelations	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Waves Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WavesRevelation		PLURAL:Waves Mystery Revelations	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Wind Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WindRevelation		PLURAL:Wind Mystery Revelations	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Soothsayer Revelation		VISIBLE:NO		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SoothsayerRevelation	PLURAL:Soothsayer Revelations
-ABILITYCATEGORY:Oracle Maneuver Mastery		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleManeuverMastery	PLURAL:Oracle Maneuver Masteries	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Oracle Weapon Mastery		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:OracleWeaponMastery	PLURAL:Oracle Weapon Masteries	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Oracle Spell Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleSpellChoice		PLURAL:Oracle Spell Choices		DISPLAYLOCATION:Class Abilities
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI		Display Location
+ABILITYCATEGORY:Oracle Curse				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleCurse					PLURAL:Oracle's Curses			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Oracle Mystery			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleMystery				PLURAL:Oracle Mysteries			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Battle Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BattleRevelation.GeneralRevelation	PLURAL:Battle Mystery Revelations	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Bone Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BoneRevelation.GeneralRevelation	PLURAL:Bone Mystery Revelations	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Flame Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FlameRevelation.GeneralRevelation	PLURAL:Flame Mystery Revelations	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Heavens Mystery Revelation	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HeavensRevelation.GeneralRevelation	PLURAL:Heavens Mystery Revelations	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Life Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LifeRevelation.GeneralRevelation	PLURAL:Life Mystery Revelations	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Lore Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LoreRevelation.GeneralRevelation	PLURAL:Lore Mystery Revelations	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Nature Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NatureRevelation.GeneralRevelation	PLURAL:Nature Mystery Revelations	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Stone Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:StoneRevelation.GeneralRevelation	PLURAL:Stoone Mystery Revelations	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Waves Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WavesRevelation.GeneralRevelation	PLURAL:Waves Mystery Revelations	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Wind Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WindRevelation.GeneralRevelation	PLURAL:Wind Mystery Revelations	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Soothsayer Revelation		VISIBLE:NO		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SoothsayerRevelation			PLURAL:Soothsayer Revelations
+ABILITYCATEGORY:Oracle Maneuver Mastery		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleManeuverMastery			PLURAL:Oracle Maneuver Masteries	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Oracle Weapon Mastery		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:OracleWeaponMastery			PLURAL:Oracle Weapon Masteries	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Oracle Spell Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleSpellChoice				PLURAL:Oracle Spell Choices		DISPLAYLOCATION:Class Abilities
 
 ###Block: Witch Ability Categories
 # Ability Category		Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
@@ -141,7 +141,7 @@ ABILITYCATEGORY:Beastmaster Companion Choice				VISIBLE:QUALIFY	EDITABLE:YES		ED
 ABILITYCATEGORY:Bard Favored Bonus Spell					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownBard													PLURAL:Bard Favored Bonus Spells					DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Inquisitor Favored Bonus Spell				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownInquisitor												PLURAL:Inquisitor Favored Bonus Spells				DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Sorcerer Favored Bonus Spell				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownSorcerer													PLURAL:Sorcerer Favored Bonus Spells				DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Oracle Favored Bonus Spell				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownOracle													PLURAL:Oracle Favored Bonus Spells				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Oracle Favored Bonus Spell				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownOracle													PLURAL:Oracle Favored Bonus Spells					DISPLAYLOCATION:Racial Abilities
 
 # Traits Sub Selections
 ABILITYCATEGORY:Campaign Trait Choice					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TraitCampaignChoice													PLURAL:Campaign Trait Choices						DISPLAYLOCATION:Traits
