@@ -52,7 +52,7 @@ CLASS:Commoner	HD:4		TYPE:Base.NPC	ABB:Com		MAXLEVEL:20	SOURCEPAGE:NPCClasses.rt
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Commoner	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Jump|Listen|TYPE=Profession|Ride|Spot|Swim|Use Rope
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Simple Weapon Proficiency Choice|1
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus
 CLASS:Expert	HD:6		TYPE:Base.NPC	ABB:Exp		MAXLEVEL:20	SOURCEPAGE:NPCClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE

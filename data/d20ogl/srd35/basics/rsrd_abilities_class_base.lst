@@ -407,6 +407,8 @@ Assassin Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO
 Shadowdancer Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dart|Mace (Light)|Mace (Heavy)|Morningstar|Rapier|Sap|Shortbow|Sword (Short)|Crossbow (Light)|Crossbow (Heavy)|Crossbow (Hand)|TYPE=Dagger
 #
 Martial Weapon Proficiency	KEY:Martial Weapon Proficiency Output	CATEGORY:FEAT			TYPE:Internal	VISIBLE:EXPORT	DESC:You understand how to use all types of martial weapons in combat.
+# NPC Single Simple Weapon Prof.
+Single Simple Weapon Proficiency	CATEGORY:Special Ability	TYPE:SpecialQuality	MULT:YES	CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.Simple	AUTO:WEAPONPROF|%LIST	DESC:You understand how to use %1|%LIST
 
 ###Block: Automatic Creature Type Proficiencies
 # Ability Name				Category of Ability		Type			Visible	Virtual Feat				Ability											Source Page
