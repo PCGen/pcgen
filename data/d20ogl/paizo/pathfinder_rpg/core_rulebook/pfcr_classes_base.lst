@@ -279,7 +279,7 @@ CLASS:Paladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3
 17	CAST:0,4,3,2,1													ABILITY:Special Ability|AUTOMATIC|Aura of Righteousness|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfRighteousness
 18	CAST:0,4,3,2,2
 19	CAST:0,4,3,3,2
-20	CAST:0,4,4,3,3
+20	CAST:0,4,4,3,3													ABILITY:Special Ability|AUTOMATIC|Holy Champion|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinHolyChampion				BONUS:VAR|HolyChampionLVL|CL
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Visible	Define			Save checks bonus											Combat bonus
 CLASS:Ex-Paladin	HD:10		TYPE:Base.PC	ABB:XPal		MAXLEVEL:20	VISIBLE:NO	DEFINE:PaladinLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
