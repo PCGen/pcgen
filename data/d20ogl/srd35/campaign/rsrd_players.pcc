@@ -30,7 +30,7 @@ PCC:@/d20ogl/srd35/campaign/rsrd_campaign_corebook2.pcc
 FORWARDREF:KIT|Ape Companion,Awakened Animal,Awakened Tree,Badger Companion,Bear (Black) Companion,Bear (Brown) Companion,Bear (Polar) Companion,Bison Companion,Boar Companion,Camel Companion,Camel Default,Cheetah Companion,Crocodile (Giant) Companion,Crocodile Companion,Dog (Riding) Companion,Dog Companion,Eagle Companion,Elephant Companion,Elephant Default,Hawk Companion,Horse (Heavy) Companion,Horse (Light) Companion,Leopard Companion,Lion Companion,Lizard (Monitor) Companion,Owl Companion,Pony Companion,Porpoise Companion,Rhinoceros Companion,Shark (Medium) Companion,Snake (Constrictor) Companion,Snake (Constrictor/Giant) Companion,Snake (Viper/Huge) Companion,Snake (Viper/Large) Companion,Snake (Viper/Medium) Companion,Snake (Viper/Small) Companion,Snake Familiar,Squid Companion,Tiger Companion,Wolf Companion,Wolverine Companion
 FORWARDREF:RACE|Ape,Baboon,Badger,Bat,Bear (Black),Bear (Brown),Bear (Polar),Bison,Boar,Camel,Cat,Cheetah,Crocodile,Dog,Donkey,Eagle,Elephant,Hawk,Horse (Heavy),Horse (Light),Horse (Warhorse Heavy),Horse (Warhorse Light),Hyena,Leopard,Lion,Lizard,Manta Ray,Monkey,Mule,Octopus,Owl,Pony,Porpoise,Rat,Raven,Rhinoceros,Shark (Huge),Shark (Large),Shark (Medium),Snake (Constrictor),Snake (Constrictor/Giant),Snake (Viper/Huge),Snake (Viper/Large),Snake (Viper/Medium),Snake (Viper/Small),Snake (Viper/Tiny),Squid,Tiger,Toad,Weasel,Whale (Baleen),Whale (Cachalot),Whale (Orca),Wolf,Wolverine
 FORWARDREF:FEAT|Awesome Blow,Flyby Attack,Improved Natural Attack
-
+FORWARDREF:CLASS|Animal (Will)
 #
 # End
 #
