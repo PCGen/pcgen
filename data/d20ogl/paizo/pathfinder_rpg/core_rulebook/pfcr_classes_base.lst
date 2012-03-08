@@ -243,7 +243,8 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE.Craft|Escape Artist|Int
 18	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
 19	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8																	ABILITY:Special Ability|AUTOMATIC|Empty Body|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkEmptyBody
 20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8																ABILITY:Special Ability|AUTOMATIC|Perfect Self|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkPerfectSelf
-
+# Archetype Support
+9		ABILITY:Special Ability|AUTOMATIC|Evasion|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkEvasion
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page		Visible	Define			Save checks bonus											Combat bonus
 CLASS:Paladin	HD:10		TYPE:Base.PC	ABB:Pld		MAXLEVEL:20	EXCLASS:Ex-Paladin	SOURCEPAGE:p.60	VISIBLE:YES	DEFINE:PaladinLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -327,7 +328,8 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|
 18	CAST:0,4,3,2,2
 19	CAST:0,4,3,3,2											ABILITY:Special Ability|AUTOMATIC|Improved Quarry|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerQuarry
 20	CAST:0,4,4,3,3	BONUS:VAR|MasterHunterLVL|CL						ABILITY:Special Ability|AUTOMATIC|Master Hunter|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerMasterHunter
-
+# Archetype Support
+16	ABILITY:Special Ability|AUTOMATIC|Evasion|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerEvasion
 
 
 
@@ -344,6 +346,10 @@ CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE.Craft|D
 3	BONUS:VAR|RogueTrapSenseLVL|CL												ABILITY:Special Ability|AUTOMATIC|Trap Sense ~ Rogue|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTrapSense
 4	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|CL/4	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueUncannyDodge,TYPE.RogueImprovedUncannyDodge
 20	BONUS:VAR|MasterStrikeLVL|CL													ABILITY:Special Ability|AUTOMATIC|Master Strike|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueMasterStrike
+
+# Archetype Support
+3	BONUS:VAR|RogueSneakAttackLVL|-2|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueSneakAttack			ABILITY:Special Ability|AUTOMATIC|Sneak Attack|Sneak Attack ~ Rogue|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueSneakAttack
+8	BONUS:VAR|UncannyDodgeLevel|-4|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueUncannyDodge,TYPE.RogueImprovedUncannyDodge	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueUncannyDodge,TYPE.RogueImprovedUncannyDodge
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
