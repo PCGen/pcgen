@@ -54,12 +54,6 @@ public final class Deity extends PObject implements DeityFacade
 		DOMAINLIST = CDOMDirectSingleRef.getRef(wpl);
 	}
 
-	public String getSource()
-	{
-		return SourceFormat.getFormattedString(this,
-			Globals.getSourceDisplay(), true);
-	}
-
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */

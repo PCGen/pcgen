@@ -355,16 +355,6 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override
-	public String getSource()
-	{
-		return SourceFormat.getFormattedString(this,
-			Globals.getSourceDisplay(), true);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
 	public String getDisplayType()
 	{
 		List<Type> trueTypeList = getTrueTypeList(true);

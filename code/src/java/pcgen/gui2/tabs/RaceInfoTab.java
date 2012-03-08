@@ -465,11 +465,14 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				case NAME:
 					return Collections.singletonList(new TreeViewPath<RaceFacade>(pobj));
 				case TYPE_NAME:
-					return Collections.singletonList(new TreeViewPath<RaceFacade>(pobj, pobj.getType()));
+					return Collections.singletonList(new TreeViewPath<RaceFacade>(pobj, 
+							pobj.getType()));
 				case RACETYPE_NAME:
-					return Collections.singletonList(new TreeViewPath<RaceFacade>(pobj, pobj.getRaceType()));
+					return Collections.singletonList(new TreeViewPath<RaceFacade>(pobj, 
+							pobj.getRaceType()));
 				case SOURCE_NAME:
-					return Collections.singletonList(new TreeViewPath<RaceFacade>(pobj, pobj.getSource()));
+					return Collections.singletonList(new TreeViewPath<RaceFacade>(pobj,
+							pobj.getSourceForNodeDisplay()));
 				default:
 					throw new InternalError();
 			}

@@ -1756,13 +1756,4 @@ public class PCClass extends PObject implements ClassFacade
 		String type = getType();
 		return type.split("\\.");
 	}
-
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.InfoFacade#getSource()
-	 */
-	public String getSource()
-	{
-		return SourceFormat.getFormattedString(this,
-			Globals.getSourceDisplay(), true);
-	}
 }

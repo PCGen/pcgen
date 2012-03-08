@@ -562,12 +562,11 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 						String[] types = pobj.getTypes();
 						if (types != null && types.length > 0)
 						{
-							List<TreeViewPath<ClassFacade>> paths = new ArrayList<TreeViewPath<ClassFacade>>(
-									types.length);
+							List<TreeViewPath<ClassFacade>> paths = 
+									new ArrayList<TreeViewPath<ClassFacade>>(types.length);
 							for (String type : types)
 							{
-								paths.add(new TreeViewPath<ClassFacade>(pobj,
-																		type));
+								paths.add(new TreeViewPath<ClassFacade>(pobj, type));
 							}
 							return paths;
 						}
@@ -576,15 +575,12 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 					case SOURCE_NAME:
 						return Collections.singletonList(
 								new TreeViewPath<ClassFacade>(pobj,
-															  pobj.getSource()));
+										pobj.getSourceForNodeDisplay()));
 					default:
 						throw new InternalError();
 				}
-
 			}
-
 		}
-
 	}
 
 	private static class ClassTableModel extends AbstractTableModel implements ListListener<CharacterLevelFacade>

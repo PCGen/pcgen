@@ -704,7 +704,8 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 					}
 					return paths;
 				case ALIGNMENT_NAME:
-					return Collections.singletonList(new TreeViewPath<DeityFacade>(pobj, pobj.getAlignment()));
+					return Collections.singletonList(new TreeViewPath<DeityFacade>(pobj, 
+							pobj.getAlignment()));
 				case PANTHEON_NAME:
 					for (String pantheon : pobj.getPantheons())
 					{
@@ -712,7 +713,8 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 					}
 					return paths;
 				case SOURCE_NAME:
-					return Collections.singletonList(new TreeViewPath<DeityFacade>(pobj, pobj.getSource()));
+					return Collections.singletonList(new TreeViewPath<DeityFacade>(pobj, 
+							pobj.getSourceForNodeDisplay()));
 				default:
 					throw new InternalError();
 			}

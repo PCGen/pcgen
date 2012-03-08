@@ -35,6 +35,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.QualifyingObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.analysis.OutputNameFormatting;
@@ -259,4 +260,18 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	{
 		return 0;
 	}
+	
+	public String getSource()
+	{
+		return SourceFormat.getFormattedString(this,
+			Globals.getSourceDisplay(), true);
+	}
+
+	public String getSourceForNodeDisplay()
+	{
+		return SourceFormat.getFormattedString(this,
+				SourceFormat.LONG, false);
+	}
+
+
 }

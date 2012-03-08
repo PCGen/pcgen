@@ -75,15 +75,6 @@ public final class Skill extends PObject implements SkillFacade
 	}
 
 	/* (non-Javadoc)
-	 * @see pcgen.core.facade.InfoFacade#getSource()
-	 */
-	public String getSource()
-	{
-		return SourceFormat.getFormattedString(this,
-			Globals.getSourceDisplay(), true);
-	}
-
-	/* (non-Javadoc)
 	 * @see pcgen.core.facade.SkillFacade#getTypes()
 	 */
 	public String getDisplayType()

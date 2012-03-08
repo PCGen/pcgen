@@ -6767,12 +6767,6 @@ public final class Equipment extends PObject implements Serializable,
 		return type.split("\\.");
 	}
 
-	public String getSource()
-	{
-		return SourceFormat.getFormattedString(this,
-			Globals.getSourceDisplay(), true);
-	}
-
 	/**
 	 * Retrieve the icon for this equipment item. This may be directly set for 
 	 * the item, or it may be for one of the item's types. The types are 

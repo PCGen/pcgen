@@ -293,15 +293,6 @@ public final class Ability extends PObject implements CategorizedCDOMObject<Abil
 		return false;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.InfoFacade#getSource()
-	 */
-	public String getSource()
-	{
-		return SourceFormat.getFormattedString(this,
-			Globals.getSourceDisplay(), true);
-	}
-
 	public String printAspect(PlayerCharacter pc, AspectName key) {
 		StringBuffer buff = new StringBuffer();
 		List<Aspect> aspects = this.get(MapKey.ASPECT, key);

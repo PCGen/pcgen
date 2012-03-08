@@ -110,12 +110,6 @@ public final class Race extends PObject implements RaceFacade
 		return handList;
 	}
 
-	public String getSource()
-	{
-		return SourceFormat.getFormattedString(this,
-			Globals.getSourceDisplay(), true);
-	}
-
 	public String getSize()
 	{
 		Formula formula = get(FormulaKey.SIZE);

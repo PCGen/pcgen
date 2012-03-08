@@ -449,9 +449,11 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 				case NAME:
 					return Collections.singletonList(new TreeViewPath<TemplateFacade>(pobj));
 				case TYPE_NAME:
-					return Collections.singletonList(new TreeViewPath<TemplateFacade>(pobj, pobj.getType()));
+					return Collections.singletonList(new TreeViewPath<TemplateFacade>(pobj, 
+							pobj.getType()));
 				case SOURCE_NAME:
-					return Collections.singletonList(new TreeViewPath<TemplateFacade>(pobj, pobj.getSource()));
+					return Collections.singletonList(new TreeViewPath<TemplateFacade>(pobj, 
+							pobj.getSourceForNodeDisplay()));
 				default:
 					throw new InternalError();
 			}

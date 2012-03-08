@@ -151,10 +151,4 @@ public final class PCTemplate extends PObject implements TemplateFacade
 		// end potential TO-DO change
 		return list;
 	}
-
-	public String getSource()
-	{
-		return SourceFormat.getFormattedString(this,
-			Globals.getSourceDisplay(), true);
-	}
 }

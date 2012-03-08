@@ -71,6 +71,15 @@ public class SpellFacadeImplem implements SpellFacade
 	}
 
 	/* (non-Javadoc)
+	 * @see pcgen.core.facade.InfoFacade#getSourceForNodeDisplay()
+	 */
+	public String getSourceForNodeDisplay()
+	{
+		return SourceFormat.getFormattedString(spell,
+				SourceFormat.LONG, true);
+	}
+
+	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFacade#getKeyName()
 	 */
 	@Override
