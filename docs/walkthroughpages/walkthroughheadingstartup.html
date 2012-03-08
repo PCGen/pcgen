@@ -45,10 +45,15 @@
 
 		<p class="indent0">The features included with the new Command Line interface are as follows:</p>
 
-		<p class="indent0"><strong>Command Syntax:</strong> pcgen [-G] [-V] [-N] [-v] [-s &lt;settings_dir&gt;] [-m &lt;campaign&gt;] [-D [&lt;character_sheet&gt;]] [-E [&lt;character_sheet&gt;]] [-p &lt;party_file&gt;] [-c &lt;character_file&gt;]</p>
+		<p class="indent0"><strong>Command Syntax:</strong> pcgen [-V] [-D [&lt;character_sheet&gt;]] [-v] [-s &lt;settings_dir&gt;] [-m &lt;campaign&gt;] [-p &lt;party_file&gt;] [-c &lt;character_file&gt;] [-E [&lt;character_sheet&gt;]]</p>
+<!--  This block has been hiden until the G and N features are activated.
+		<p class="indent0"><strong>Command Syntax:</strong> pcgen [-G] [-V] [-N] [-D [&lt;character_sheet&gt;]] [-v] [-s &lt;settings_dir&gt;] [-m &lt;campaign&gt;] [-p &lt;party_file&gt;] [-c &lt;character_file&gt;] [-E [&lt;character_sheet&gt;]]</p>
+-->
 		<p class="indent1"><strong>Option:</strong> -V (Print Version and exit)</p>
+<!--  This block has been hiden until the G and N features are activated.
 		<p class="indent1"><strong>Option:</strong> -G (Start in GMGen Mode)</p>
 		<p class="indent1"><strong>Option:</strong> -N (Start in NPC Generator Mode)</p>
+-->
 		<p class="indent1"><strong>Option:</strong> -D &lt;character_sheet&gt; (Start in Character Sheet Mode. Will use default character sheet if not specified.)</p>
 		<p class="indent1"><strong>Option:</strong> -v (Set Logging Level to debug)</p>
 		<p class="indent1"><strong>Option:</strong> -s &lt;settings_dir&gt; (Use alternate settings directory instead of the default)</p>
@@ -62,7 +67,10 @@
 				unless the following options are used:
 				<ul>
 					<li>If <strong>-E</strong> or <strong>-V</strong> are included PCGen will process the request and exit without starting the user interface.</li>
+<!--  This block has been hiden until the G and N features are activated.
 					<li>If <strong>-G</strong> or <strong>-m</strong> are specified PCGen will bypass the Source Material Screen.</li>
+-->
+					<li>If <strong>-m</strong> is specified PCGen will bypass the Source Material Screen.</li>
 				</ul>
 			</li>
 			<li>All parameters are optional.</li>
