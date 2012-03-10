@@ -188,6 +188,10 @@ public class Gui2InfoFactory implements InfoFactory
 				infoText.appendI18nElement("in_requirements", bString); //$NON-NLS-1$
 			}
 
+			infoText.appendLineBreak();
+			infoText.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
+				DescriptionFormatting.piDescSubString(pc, race));
+
 			bString = race.getSource();
 			if (bString.length() > 0)
 			{
