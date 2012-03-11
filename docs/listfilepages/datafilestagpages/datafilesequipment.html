@@ -36,8 +36,16 @@
 
 	<h2><a name="EquipmentBuilding">Building a Piece of Equipment</a></h2>
 
-	<p class="indent0">The Equipment file consists of a number of lines, each representing one piece
-		of equipment.</p>
+	<p class="indent0">The Equipment file consists of a number of lines with tab-delimited text entries with each 
+		line representing one piece of equipment.</p>
+	<p>The first entry on any line is the item's name and is required. This first list of tags is relevant to all
+		equipment</p>
+	<p class="indent2"><code>Clothing Outfit (Business)</code></p>
+	<p class="indent3">The item named &quot;Clothing Outfit (Business)&quot; is to be created.</p>
+	<p class="indent2"><code>Handbag.MOD</code></p>
+	<p class="indent3">The item named &quot;Handbag&quot; is to be modified.</p>
+	<p class="indent2"><code>Light-Duty Vest.COPY=Vest (Concealable/w.Outershell)</code></p>
+	<p class="indent3">Copy the equipment &quot;Light-Duty Vest&quot; and rename to &quot;Vest (Concealable/w.Outershell)&quot; in all aspects.</p>
 	<p></p>
 
 <hr>
@@ -53,20 +61,7 @@
 
 	<h3><a name="GeneralTagList">General Equipment Tags</a></h3>
 
-	<p>The following tags are used in all equipment.</p>
-	<p></p>
-
-<hr>
-
-	<p class="status">*** Updated 5.13.6</p>
-	<p>The first field is the item's name and is required. This first list of tags is relevant to all
-		equipment</p>
-	<p class="indent2"><code>Clothing Outfit (Business)</code></p>
-	<p class="indent3">The item named &quot;Clothing Outfit (Business)&quot; is to be created.</p>
-	<p class="indent2"><code>Handbag.MOD</code></p>
-	<p class="indent3">The item named &quot;Handbag&quot; is to be modified.</p>
-	<p class="indent2"><code>Light-Duty Vest.COPY=Vest (Concealable/w.Outershell)</code></p>
-	<p class="indent3">Copy the equipment &quot;Light-Duty Vest&quot; and rename to &quot;Vest (Concealable/w.Outershell)&quot; in all aspects.</p>
+	<p>The following tags may be used in all equipment.</p>
 	<p></p>
 
 <hr>
@@ -108,8 +103,8 @@
 
 <hr>
 
-	<p class="indent0 alpha"><span class="new">*** Updated 5.14.0</span></p>
-	<p class="indent0"><strong><a name="CONTAINS">Tag Name:</a></strong> CONTAINS:x|y=z</p>
+	<p class="status"><a name="CONTAINS">*** Updated 5.14.0</a></span></p>
+	<p class="indent0"><strong>Tag Name:</strong> CONTAINS:x|y=z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Weight held)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Item type)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Total</p>
@@ -171,8 +166,8 @@
 
 <hr>
 
-	<p class="status">*** Updated 5.14.0</p>
-	<p class="indent0"><strong><a name="EDR">Tag Name:</a></strong> EDR:x</p>
+	<p class="status"><a name="EDR">*** Updated 5.14.0</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> EDR:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Integer greater than zero)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">Sets the Effective Damage Resistance of an item.</p>
@@ -214,8 +209,8 @@
 
 <hr>
 
-	<p class="status">*** Added 5.17.7</p>
-	<p class="indent0"><strong><a name="ICON">Tag Name:</a></strong> ICON:x</p>
+	<p class="new"><a name="ICON">*** Added 5.17.7</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> ICON:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (file path)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">This occurs on an equipment line and sets the path to the icon to be used for the equipment item.
@@ -242,8 +237,8 @@
 
 <hr>
 
-	<p class="status">*** Added 5.9.6</p>
-	<p class="indent0"><strong><a name="NUMPAGES">Tag Name:</a></strong> NUMPAGES:x</p>
+	<p class="status"><a name="NUMPAGES">*** Added 5.9.6</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> NUMPAGES:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of pages in spell book)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">Defines the number of pages in the spellbook.
@@ -255,8 +250,8 @@
 
 <hr>
 
-	<p class="status">*** Added 5.9.6</p>
-	<p class="indent0"><strong><a name="PAGEUSAGE">Tag Name:</a></strong> PAGEUSAGE:x</p>
+	<p class="status"><a name="PAGEUSAGE">*** Added 5.9.6</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> PAGEUSAGE:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Formula (Number of pages each spell will use)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">Defines the how many pages of the spellbook each spell would use.
@@ -318,8 +313,8 @@
 
 <hr>
 
-	<p class="status">*** Added 5.9.7</p>
-	<p class="indent0"><strong><a name="QUALITY">Tag Name:</a></strong> QUALITY:x|y</p>
+	<p class="status"><a name="QUALITY">*** Added 5.9.7</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> QUALITY:x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of the quality)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Text string value of the quality)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -334,8 +329,8 @@
 
 <hr>
 
-	<p class="status">*** Updated 5.5.2</p>
-	<p class="indent0"><strong><a name="SIZE">Tag Name:</a></strong> SIZE:x</p>
+	<p class="status"><a name="SIZE">*** Updated 5.5.2</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> SIZE:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (F,D,T,S,M,L,H,G,C)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
@@ -363,8 +358,8 @@
 
 <hr>
 
-	<p class="status">*** Updated 5.7.1</p>
-	<p class="indent0"><strong><a name="SPROP">Tag Name:</a></strong> SPROP:x</p>
+	<p class="status"><a name="SPROP">*** Updated 5.7.1</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> SPROP:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Special property)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
@@ -433,8 +428,8 @@
 
 <hr>
 
-	<p class="status">*** Rediscovered 5.11.4</p>
-	<p class="indent0"><strong><a name="ALTCRITMULT">Tag Name:</a></strong> ALTCRITMULT:x</p>
+	<p class="status"><a name="ALTCRITMULT">*** Updated 5.11.4</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> ALTCRITMULT:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Secondary attack's critical modifier)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
@@ -480,8 +475,8 @@
 
 <hr>
 
-	<p class="status">*** Added 5.7.15</p>
-	<p class="indent0"><strong><a name="ALTEQMOD">Tag Name:</a></strong> ALTEQMOD:x|y|y.x|y|y</p>
+	<p class="status"><a name="ALTEQMOD">*** Added 5.7.15</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> ALTEQMOD:x|y|y.x|y|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text, period delimited
 		(Equipment modifier name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text, pipe delimited
@@ -560,8 +555,8 @@
 
 <hr>
 
-	<p class="status">*** Added 5.7.15</p>
-	<p class="indent0"><strong><a name="FUMBLERANGE">Tag Name:</a></strong> FUMBLERANGE:x</p>
+	<p class="status"><a name="FUMBLERANGE">*** Added 5.7.15</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> FUMBLERANGE:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Equipment fumble range)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">This is text which indicates the equipments fumble or error range.
@@ -577,8 +572,8 @@
 
 <hr>
 
-	<p class="new">*** Deprecated 5.15.10 - Remove 6.0 - Use <a href="#SLOTS">SLOTS</a> instead.</p>
-	<p class="indent0"><strong><a name="HANDS">Tag Name:</a></strong> HANDS:x</p>
+	<p class="new"><a name="HANDS">*** Deprecated 5.15.10</a> - Remove 6.0 - Use <a href="#SLOTS">SLOTS</a> instead.</p>
+	<p class="indent0"><strong>Tag Name:</strong> HANDS:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Hands required)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">The required number of hands to use this item.
@@ -602,8 +597,8 @@
 
 <hr>
 
-	<p class="status">*** Updated 5.13.8</p>
-	<p class="indent0"><strong><a name="PROFICIENCY">Tag Name:</a></strong> PROFICIENCY:x|y</p>
+	<p class="status"><strong><a name="PROFICIENCY">*** Updated 5.13.8</a></p>
+	<p class="indent0">Tag Name:</strong> PROFICIENCY:x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (WEAPON, ARMOR, or SHIELD)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Proficiency Name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -649,8 +644,8 @@
 
 <hr>
 
-	<p class="status">*** Updated 5.11.6</p>
-	<p class="indent0"><strong><a name="REACH">Tag Name:</a></strong> REACH:x</p>
+	<p class="status"><a name="REACH">*** Updated 5.11.6</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> REACH:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Weapon Reach)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">The numerical value supplied is used by the
@@ -666,8 +661,8 @@
 
 <hr>
 
-	<p class="status">*** Added 5.11.6</p>
-	<p class="indent0"><strong><a name="REACHMULT">Tag Name:</a></strong> REACHMULT:x</p>
+	<p class="status"><a name="REACHMULT">*** Added 5.11.6</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> REACHMULT:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Weapon Reach Multiplier)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">The numerical value supplied is used by the
@@ -695,8 +690,8 @@
 
 <hr>
 
-	<p class="status">*** Added 5.5.2</p>
-	<p class="indent0"><strong><a name="WIELD">Tag Name:</a></strong> WIELD:x</p>
+	<p class="status"><a name="WIELD">*** Added 5.5.2</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> WIELD:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Light (Weapon is Light)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> OneHanded (Weapon can be wielded in one hand)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TwoHanded (Weapon requires both hands to be wielded effectively)</p>
