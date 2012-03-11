@@ -26,8 +26,10 @@
 <body>
 
 	<h1>Feat Files</h1>
-	<p class="new">*** Updated 5.13.6</p>
 	<p>Each feat takes one line and the first field must be the feat's name.</p>
+
+<hr>
+	<h2><a name="FeatBuilding">Building Feats</a></h2>
 
 	<p class="indent0"><strong>Naming Feats</strong></p>
 	<p class="indent1">When naming feats you should only use parentheses at the end
@@ -46,8 +48,8 @@
 	<p class="indent2"><code>Occupation (Emergency Services).FORGET</code></p>
 	<p class="indent3">The feat named &quot;Occupation (Emergency Services)&quot; is to be forgotten.</p>
 	<p></p>
-	<p class="indent1">When POINTPOOLNAME trigger tag is present in miscinfo file Summary Tab
-		Will display total points/points remaining (i.e. Development Points 160/135)
+	<p class="indent1">When the <code>POINTPOOLNAME</code> trigger tag is present in the <span class="lstfile">miscinfo.lst</span> 
+		file, the <strong>Summary Tab</strong> Will display total points/points remaining (i.e. Development Points 160/135)
 		on the same line as the stat total and stat mod total</p>
 	<p></p>
 	<p class="indent1">Skills Tab - Instead of skill points by class/level requirement to spend
@@ -59,8 +61,12 @@
 
 <hr>
 
-	<p class="new">*** New</p>
-	<p class="indent0"><strong><a name="ADDSPELLLEVEL">Tag Name:</a></strong> ADDSPELLLEVEL:x</p>
+	<h2><a name="TagList">Feat Tag List</a></h2>
+
+<hr>
+
+	<p class="new"><a name="ADDSPELLLEVEL">*** Updated 5.16.0</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> ADDSPELLLEVEL:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Increase in spell slot level)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2"> This tag is used in metamagic feats to denote how much higher the spell level slot requires.</p>
@@ -71,8 +77,8 @@
 
 <hr>
 
-		<p class="new">*** New 5.15.2</p>
-		<p class="indent0"><strong><a name="ASPECT">Tag Name:</a></strong> ASPECT:x|y|z|z</p>
+		<p class="new"><a name="ASPECT">*** New 5.15.2</a></p>
+		<p class="indent0"><strong>Tag Name:</strong> ASPECT:x|y|z|z</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of Aspect)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Text (Value of Aspect)</p>
 		<p class="indent1"><strong>Variables Used (z):</strong> Number or Formula (Optional. Used for substitutions in y)</p>
@@ -148,8 +154,8 @@
 
 <hr>
 
-	<p class="new">*** New 5.11.x</p>
-	<p class="indent0"><strong><a name="MODIFYFEATCHOICE">Tag Name:</a></strong> MODIFYFEATCHOICE:x</p>
+	<p class="status"><a name="MODIFYFEATCHOICE">*** New 5.11.x</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> MODIFYFEATCHOICE:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong>Text (feat name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong>TYPE=Text (feat type)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -195,8 +201,8 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.17.x</p>
-	<p class="indent0"><strong><a name="TEMPLATE">Tag Name:</a></strong> TEMPLATE:x|x</p>
+	<p class="new"><a name="TEMPLATE">*** Updated 5.17.x</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> TEMPLATE:x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of template)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
