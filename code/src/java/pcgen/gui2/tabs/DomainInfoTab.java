@@ -523,6 +523,11 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				DomainTableModel.this.fireTableRowsUpdated(0, sortedList.getSize() - 1);
 			}
 
+			@Override
+			public void elementModified(ListEvent<DomainFacade> e)
+			{
+			}
+
 		};
 
 		public DomainTableModel(CharacterFacade character)

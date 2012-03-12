@@ -670,6 +670,12 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			fireTableRowsUpdated(0, getRowCount() - 1);
 		}
 
+		@Override
+		public void elementModified(ListEvent<CharacterLevelFacade> e)
+		{
+			fireTableRowsUpdated(e.getIndex(), e.getIndex());
+		}
+
 	}
 
 	private class InfoHandler implements ListSelectionListener

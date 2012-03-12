@@ -69,6 +69,11 @@ public abstract class AbstractListMenu<E> extends JMenu implements ListListener<
 		rebuildListMenu();
 	}
 
+	@Override
+	public void elementModified(ListEvent<E> e)
+	{
+	}
+
 	private void rebuildListMenu()
 	{
 		for (int i = 0; i < oldSize; i++)

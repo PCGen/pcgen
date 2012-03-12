@@ -118,4 +118,11 @@ public class SortedListFacade<E> extends AbstractListFacade<E> implements ListLi
 		fireElementsChanged(this);
 	}
 
+	@Override
+	public void elementModified(ListEvent<E> e)
+	{
+		int index = Arrays.binarySearch(transform, e.getIndex(), indexComparator);
+		fireElementModified(this,e.getElement(), index);
+	}
+
 }

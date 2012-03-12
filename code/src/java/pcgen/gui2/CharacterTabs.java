@@ -161,6 +161,11 @@ public final class CharacterTabs extends SharedTabPane
 		infoTabbedPane.clearStateMap();
 	}
 
+	@Override
+	public void elementModified(ListEvent<CharacterFacade> e)
+	{
+	}
+
 	private class TabLabel extends JPanel implements ActionListener, ReferenceListener<String>
 	{
 

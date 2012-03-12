@@ -1,46 +1,44 @@
 /*
- * ModifiableListListener.java
- * Copyright James Dempsey, 2012
- *
+ * FacadeEvent.java
+ * Copyright 2012 Connor Petty <cpmeister@users.sourceforge.net>
+ * 
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- *
+ * 
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- *
+ * 
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 12/03/2012 4:52:47 PM
- *
- * $Id$
+ * 
+ * Created on Mar 11, 2012, 4:22:39 PM
  */
 package pcgen.core.facade.event;
 
-/**
- * ModifiableListListener is a ListListener that can process notifications 
- * that a list entry has been changed in some significant way.
- *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
- */
-public interface ModifiableListListener<E> extends ListListener<E>
-{
+import java.util.EventObject;
 
-	/**
-	 * Signals that an element in the list was changed in some way and needs 
-	 * to be refreshed.
-	 * @param e The event being advised.
-	 */
-	void elementModified(ListEvent<E> e);
+/**
+ * This is simply a marker class for facade based events
+ * @author Connor Petty <cpmeister@users.sourceforge.net>
+ */
+public class FacadeEvent extends EventObject
+{
+	private FacadeEvent cause;
+	
+	public FacadeEvent(Object source, FacadeEvent cause)
+	{
+		super(source);
+		this.cause = cause;
+	}
+
+	public FacadeEvent getCause()
+	{
+		return cause;
+	}
 
 }

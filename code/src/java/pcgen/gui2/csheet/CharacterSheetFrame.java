@@ -31,6 +31,7 @@ import javax.swing.JToolBar;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.EquipmentSetFacade;
 import pcgen.core.facade.TempBonusFacade;
+import pcgen.core.facade.event.ListEvent;
 import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
 import pcgen.gui2.PCGenFrame;

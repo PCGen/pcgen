@@ -35,4 +35,11 @@ public interface ListListener<E> extends EventListener
 
 	void elementsChanged(ListEvent<E> e);
 
+	/**
+	 * Signals that an element in the list was changed in some way and needs 
+	 * to be refreshed.
+	 * @param e The event being advised.
+	 */
+	void elementModified(ListEvent<E> e);
+
 }

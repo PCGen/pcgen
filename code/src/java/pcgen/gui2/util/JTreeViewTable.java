@@ -426,6 +426,11 @@ public class JTreeViewTable<T> extends JTreeTable
 			}
 		}
 
+		@Override
+		public void elementModified(ListEvent<TreeView<T>> e)
+		{
+		}
+
 	}
 
 	private class CornerAction extends AbstractAction

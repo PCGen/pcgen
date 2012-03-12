@@ -129,4 +129,21 @@ public class FilteredListFacade<C, E> extends AbstractListFacade<E> implements L
 		refilter();
 	}
 
+	@Override
+	public void elementModified(ListEvent<E> e)
+	{
+		if (data.contains(e.getElement()))
+		{
+			if (filter != null && !filter.accept(context, e.getElement()))
+			{
+				elementRemoved(e);
+			}
+		}
+		else
+		{
+			elementAdded(e);
+		}
+
+	}
+
 }

@@ -1291,6 +1291,12 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			update();
 		}
 
+		@Override
+		public void elementModified(ListEvent<CharacterLevelFacade> e)
+		{
+			update();
+		}
+
 	}
 
 	/**
@@ -1626,6 +1632,11 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			refreshTodoList();
 		}
 
+		@Override
+		public void elementModified(ListEvent<TodoFacade> e)
+		{
+			refreshTodoList();
+		}
 		/**
 		 * Recreate the "Things to be Done" list based on the character's todo list.
 		 */

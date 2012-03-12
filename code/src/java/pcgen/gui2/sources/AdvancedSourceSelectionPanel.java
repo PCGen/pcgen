@@ -372,6 +372,12 @@ class AdvancedSourceSelectionPanel extends JPanel
 		availableTable.updateDisplay();
 	}
 
+	@Override
+	public void elementModified(ListEvent<CampaignFacade> e)
+	{
+		availableTable.updateDisplay();
+	}
+
 	/**
 	 * Save the selected sources for the current game mode so they can be 
 	 * restored next time we start.
@@ -560,6 +566,11 @@ class AdvancedSourceSelectionPanel extends JPanel
 		public void elementsChanged(ListEvent<CampaignFacade> e)
 		{
 			model.setContents(ListFacades.wrap(baseModel));
+		}
+
+		@Override
+		public void elementModified(ListEvent<CampaignFacade> e)
+		{
 		}
 		
 	}

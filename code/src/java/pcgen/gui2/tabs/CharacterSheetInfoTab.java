@@ -322,6 +322,12 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 			csheet.refresh();
 		}
 
+		@Override
+		public void elementModified(ListEvent<Object> e)
+		{
+			csheet.refresh();
+		}
+
 	}
 
 	private class TempBonusTableModel extends FilteredListFacadeTableModel<TempBonusFacade>
@@ -349,6 +355,11 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 			public void elementsChanged(ListEvent<TempBonusFacade> e)
 			{
 				TempBonusTableModel.this.fireTableRowsUpdated(0, sortedList.getSize() - 1);
+			}
+
+			@Override
+			public void elementModified(ListEvent<TempBonusFacade> e)
+			{
 			}
 
 		};

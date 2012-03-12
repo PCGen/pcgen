@@ -181,6 +181,12 @@ public class LanguageTableModel extends AbstractTableModel
 		editor.cancelCellEditing();
 	}
 
+	@Override
+	public void elementModified(ListEvent<LanguageFacade> e)
+	{
+		fireTableRowsUpdated(e.getIndex(), e.getIndex());
+	}
+
 	private class Editor extends AbstractCellEditor implements TableCellEditor, ActionListener
 	{
 

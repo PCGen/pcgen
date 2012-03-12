@@ -200,6 +200,11 @@ public class UnequippedList extends AbstractListFacade<EquipmentFacade> implemen
 	}
 
 	@Override
+	public void elementModified(ListEvent<EquipmentFacade> e)
+	{
+	}
+
+	@Override
 	public void quantityChanged(EquipmentListEvent e)
 	{
 		EquipmentFacade equipment = e.getEquipment();

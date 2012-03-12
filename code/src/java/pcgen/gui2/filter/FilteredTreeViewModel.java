@@ -137,4 +137,13 @@ public class FilteredTreeViewModel<C, E>
 		refilter();
 	}
 
+	@Override
+	public void elementModified(ListEvent<E> e)
+	{
+		if(!filter.accept(context, e.getElement()))
+		{
+			data.removeElement(e.getElement());
+		}
+	}
+
 }

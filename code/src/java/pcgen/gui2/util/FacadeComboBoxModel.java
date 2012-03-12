@@ -123,4 +123,10 @@ public class FacadeComboBoxModel<E> extends AbstractListModel
 		setSelectedItem(e.getNewReference());
 	}
 
+	@Override
+	public void elementModified(ListEvent<E> e)
+	{
+		fireContentsChanged(this, e.getIndex(), e.getIndex());
+	}
+
 }

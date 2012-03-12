@@ -123,6 +123,12 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 		realignRowHeights();
 	}
 
+	@Override
+	public void elementModified(ListEvent<EquipmentSetFacade> e)
+	{
+		
+	}
+
 	private static class CellRenderer extends DefaultTableCellRenderer
 	{
 

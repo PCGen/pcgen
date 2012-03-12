@@ -47,7 +47,7 @@ import javax.swing.event.ListSelectionListener;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.NoteFacade;
 import pcgen.core.facade.event.ListEvent;
-import pcgen.core.facade.event.ModifiableListListener;
+import pcgen.core.facade.event.ListListener;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.gui2.tabs.bio.BiographyInfoPane;
 import pcgen.gui2.tabs.bio.CampaignHistoryInfoPane;
@@ -183,7 +183,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 		return tabTitle;
 	}
 
-	private class NoteListHandler implements ModifiableListListener<NoteFacade>
+	private class NoteListHandler implements ListListener<NoteFacade>
 	{
 		private static final int NUM_NON_NOTE_NODES = 3;
 		private ListFacade<NoteFacade> notes;

@@ -415,6 +415,12 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		}
 
 		@Override
+		public void elementModified(ListEvent<TemplateFacade> e)
+		{
+			templates.refilter();
+		}
+
+		@Override
 		public boolean accept(CharacterFacade context, TemplateFacade element)
 		{
 			return !context.getTemplates().containsElement(element);

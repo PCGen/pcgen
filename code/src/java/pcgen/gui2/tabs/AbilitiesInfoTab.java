@@ -222,6 +222,12 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 			}
 		}
 
+		@Override
+		public void elementModified(ListEvent<AbilityCategoryFacade> e)
+		{
+			//TODO: do something
+		}
+
 		public void install()
 		{
 			for (TabInfo tabInfo : tabs)

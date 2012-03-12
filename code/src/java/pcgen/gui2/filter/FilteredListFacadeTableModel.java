@@ -123,6 +123,12 @@ public abstract class FilteredListFacadeTableModel<E> extends AbstractTableModel
 		fireTableDataChanged();
 	}
 
+	@Override
+	public void elementModified(ListEvent<E> e)
+	{
+		fireTableRowsUpdated(e.getIndex(), e.getIndex());
+	}
+
 	private class RowList extends AbstractList<Object>
 	{
 

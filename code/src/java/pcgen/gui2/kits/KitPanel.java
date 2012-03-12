@@ -126,7 +126,7 @@ public class KitPanel extends FlippingSplitPane
 		addButton.setAction(addAction);
 		box.add(addButton);
 		box.add(Box.createHorizontalStrut(5));
-		box.setBorder(new EmptyBorder(0,  0, 5, 0));
+		box.setBorder(new EmptyBorder(0, 0, 5, 0));
 		availPanel.add(box, BorderLayout.SOUTH);
 
 		topPane.setLeftComponent(availPanel);
@@ -153,7 +153,7 @@ public class KitPanel extends FlippingSplitPane
 		InfoHandler infoHandler = new InfoHandler(character);
 		availableTable.getSelectionModel().addListSelectionListener(infoHandler);
 		selectedTable.getSelectionModel().addListSelectionListener(infoHandler);
-		
+
 		availableTable.addActionListener(addAction);
 	}
 
@@ -218,6 +218,7 @@ public class KitPanel extends FlippingSplitPane
 				return;
 			}
 		}
+
 	}
 
 	private static class KitTreeViewModel
@@ -305,6 +306,12 @@ public class KitPanel extends FlippingSplitPane
 			kits.refilter();
 		}
 
+		@Override
+		public void elementModified(ListEvent<KitFacade> e)
+		{
+			kits.refilter();
+		}
+
 		public boolean accept(CharacterFacade context, KitFacade element)
 		{
 			return !context.getKits().containsElement(element);
@@ -353,7 +360,7 @@ public class KitPanel extends FlippingSplitPane
 		 * @return The TreeViewPath.
 		 */
 		protected static TreeViewPath<KitFacade> createTreeViewPath(KitFacade pobj,
-			Object... path)
+																	Object... path)
 		{
 			if (path.length == 0)
 			{

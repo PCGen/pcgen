@@ -26,6 +26,7 @@ import pcgen.core.facade.EquipmentListFacade;
 import pcgen.core.facade.EquipmentSetFacade;
 import pcgen.core.facade.EquipmentListFacade.EquipmentListEvent;
 import pcgen.core.facade.EquipmentListFacade.EquipmentListListener;
+import pcgen.core.facade.event.ListEvent;
 import pcgen.gui2.filter.FilteredListFacadeTableModel;
 
 public class EquipmentTableModel extends FilteredListFacadeTableModel<EquipmentFacade> implements EquipmentListListener
@@ -120,6 +121,11 @@ public class EquipmentTableModel extends FilteredListFacadeTableModel<EquipmentF
 			default:
 				return null;
 		}
+	}
+
+	@Override
+	public void elementModified(ListEvent<EquipmentFacade> e)
+	{
 	}
 
 }

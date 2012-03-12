@@ -82,4 +82,10 @@ public class FacadeListModel<E> extends AbstractListModel implements ListListene
 		fireContentsChanged(this, 0, delegate.getSize() - 1);
 	}
 
+	@Override
+	public void elementModified(ListEvent<E> e)
+	{
+		fireContentsChanged(this, e.getIndex(), e.getIndex());
+	}
+
 }

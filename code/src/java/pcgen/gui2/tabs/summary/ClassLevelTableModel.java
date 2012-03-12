@@ -211,6 +211,12 @@ public class ClassLevelTableModel extends AbstractTableModel
 	}
 
 	@Override
+	public void elementModified(ListEvent<CharacterLevelFacade> e)
+	{
+		fireTableRowsUpdated(e.getIndex(), e.getIndex());
+	}
+
+	@Override
 	public void itemStateChanged(ItemEvent e)
 	{
 		if (e.getStateChange() == ItemEvent.SELECTED)

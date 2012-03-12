@@ -1271,6 +1271,12 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		updateSpellBooks((Equipment) e.getElement());
 	}
 
+	@Override
+	public void elementModified(ListEvent<EquipmentFacade> e)
+	{
+		updateSpellBooks((Equipment) e.getElement());
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */

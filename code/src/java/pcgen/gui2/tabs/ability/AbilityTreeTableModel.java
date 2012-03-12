@@ -154,6 +154,11 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 			AbilityTreeTableModel.this.nodeStructureChanged(this);
 		}
 
+		@Override
+		public void elementModified(ListEvent<AbilityCategoryFacade> e)
+		{
+		}
+
 	}
 
 	private class CategoryTreeTableNode extends DefaultTreeTableNode implements ListListener<AbilityFacade>
@@ -203,6 +208,11 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 			removeAllChildren();
 			addChildren();
 			AbilityTreeTableModel.this.nodeStructureChanged(this);
+		}
+
+		@Override
+		public void elementModified(ListEvent<AbilityFacade> e)
+		{
 		}
 
 	}

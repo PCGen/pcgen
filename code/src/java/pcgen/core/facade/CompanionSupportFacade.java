@@ -28,9 +28,32 @@ import pcgen.core.facade.util.ListFacade;
  */
 public interface CompanionSupportFacade
 {
+	/**
+	 * This adds a companion to this character.
+	 * A CharacterFacade is used instead of a CompanionFacade to make
+	 * sure that the added companion is an existing character. This enforces
+	 * that this method doesn't try to create a new character behind the scenes.
+	 * <br>
+	 * To implement this method, the added companion would need to be wrapped in
+	 * another CompanionFacade such that the backing character can be garbage
+	 * collected if the character is closed.
+	 * @param companion the companion to add
+	 */
 	public void addCompanion(CharacterFacade companion);
+	/**
+	 * Removes a companion from this character.
+	 * The companion to removed will be one retrieved from the <code>getCompanions</code>
+	 * list.
+	 * @param companion the companion to remove
+	 */
 	public void removeCompanion(CompanionFacade companion);
 	
+	/**
+	 * Returns a list of companions that the character can create.
+	 * Elements of the list are expected to be bare-bones implementations
+	 * of CompanionStubFacade 
+	 * @return a list of companion stubs
+	 */
 	public ListFacade<CompanionStubFacade> getAvailableCompanions();
 	public int getRemainingCompanions(String type);
 	public int getMaxCompanions(String type);

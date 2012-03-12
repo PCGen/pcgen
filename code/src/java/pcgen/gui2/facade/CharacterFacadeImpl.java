@@ -3603,6 +3603,15 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		refreshTotalWeight();
 	}
 
+	/* (non-Javadoc)
+	 * @see pcgen.core.facade.event.ListListener#elementModified(pcgen.core.facade.event.ListEvent)
+	 */
+	@Override
+	public void elementModified(ListEvent<EquipmentFacade> e)
+	{
+		refreshTotalWeight();
+	}
+
 	/**
 	 * Refreshes the total weight by reading it from the current equipment set.  
 	 */

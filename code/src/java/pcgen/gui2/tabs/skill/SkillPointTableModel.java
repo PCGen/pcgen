@@ -167,6 +167,12 @@ public class SkillPointTableModel extends AbstractTableModel
 	}
 
 	@Override
+	public void elementModified(ListEvent<CharacterLevelFacade> e)
+	{
+		fireTableRowsUpdated(e.getIndex(), e.getIndex());
+	}
+
+	@Override
 	public void skillPointsChanged(CharacterLevelEvent e)
 	{
 		levelChanged(e);

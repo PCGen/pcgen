@@ -355,6 +355,12 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			updateSelectedIndex();
 		}
 
+		@Override
+		public void elementModified(ListEvent<CharacterLevelFacade> e)
+		{
+			updateSelectedIndex();
+		}
+
 		/**
 		 * {@inheritDoc}
 		 */

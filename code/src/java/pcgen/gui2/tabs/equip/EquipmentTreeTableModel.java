@@ -329,6 +329,11 @@ public class EquipmentTreeTableModel implements SortableTreeTableModel, ListList
 	}
 
 	@Override
+	public void elementModified(ListEvent<EquipNode> e)
+	{
+	}
+
+	@Override
 	public void quantityChanged(EquipmentTreeEvent e)
 	{
 		EquipNode child = e.getNode();

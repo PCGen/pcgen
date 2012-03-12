@@ -25,7 +25,6 @@ import java.util.Iterator;
 import javax.swing.event.EventListenerList;
 import pcgen.core.facade.event.ListEvent;
 import pcgen.core.facade.event.ListListener;
-import pcgen.core.facade.event.ModifiableListListener;
 
 /**
  *
@@ -188,10 +187,7 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 				{
 					e = new ListEvent<E>(source, ListEvent.ELEMENT_MODIFIED, element, index);
 				}
-				if (listeners[i + 1] instanceof ModifiableListListener)
-				{
-					((ModifiableListListener) listeners[i + 1]).elementModified(e);
-				}
+				((ListListener) listeners[i + 1]).elementModified(e);
 			}
 		}
 	}

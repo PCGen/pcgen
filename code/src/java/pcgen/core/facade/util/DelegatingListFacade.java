@@ -88,4 +88,10 @@ public class DelegatingListFacade<E> extends AbstractListFacade<E> implements Li
 		fireElementsChanged(this);
 	}
 
+	@Override
+	public void elementModified(ListEvent<E> e)
+	{
+		fireElementModified(this, e.getElement(), e.getIndex());
+	}
+
 }

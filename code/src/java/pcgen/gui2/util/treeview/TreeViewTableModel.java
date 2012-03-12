@@ -75,6 +75,12 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 			setElements(ListFacades.wrap(model));
 		}
 
+		@Override
+		public void elementModified(ListEvent<E> e)
+		{
+			//TODO: implement this
+		}
+
 	};
 	private final DataViewColumn namecolumn = new DataViewColumn()
 	{
