@@ -25,6 +25,7 @@ import java.util.Iterator;
 import javax.swing.event.EventListenerList;
 import pcgen.core.facade.event.ListEvent;
 import pcgen.core.facade.event.ListListener;
+import pcgen.core.facade.event.ModifiableListListener;
 
 /**
  *
@@ -161,6 +162,36 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 					e = new ListEvent<E>(source);
 				}
 				((ListListener) listeners[i + 1]).elementsChanged(e);
+			}
+		}
+	}
+
+	/**
+	 * <code>AbstractListFacade</code> subclasses must call this method
+	 * <b>after</b> an element in the model has had its contents changed.
+	 * <code>index</code> is the index that has been modified.
+	 *
+	 * @param source the <code>ListFacade</code> that changed, typically "this"
+	 * @param element the element that was modified
+	 * @param index the index of the element that was modified.
+	 * @see EventListenerList
+	 */
+	protected void fireElementModified(Object source, E element, int index)
+	{
+		Object[] listeners = listenerList.getListenerList();
+		ListEvent<E> e = null;
+		for (int i = listeners.length - 2; i >= 0; i -= 2)
+		{
+			if (listeners[i] == ListListener.class)
+			{
+				if (e == null)
+				{
+					e = new ListEvent<E>(source, ListEvent.ELEMENT_REMOVED, element, index);
+				}
+				if (listeners[i + 1] instanceof ModifiableListListener)
+				{
+					((ModifiableListListener) listeners[i + 1]).elementModified(e);
+				}
 			}
 		}
 	}

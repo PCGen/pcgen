@@ -56,4 +56,34 @@ public interface DescriptionFacade
 	 */
 	public ChronicleEntryFacade createChronicleEntry();
 	
+	/**
+	 * Retrieve the set of notes defined for the character.
+	 * @return The character's notes.
+	 */
+	public ListFacade<NoteFacade> getNotes();
+	
+	/**
+	 * Update the name of a note.
+	 * @param note The note to be renamed.
+	 * @param newName The new name.
+	 */
+	public void renameNote(NoteFacade note, String newName);
+	
+	/**
+	 * Remove a note from a character. 
+	 * @param note The note to be removed.
+	 */
+	public void deleteNote(NoteFacade note);
+
+	/**
+	 * Add a new custom note to the character.
+	 */
+	public void addNewNote();
+
+	/**
+	 * Set the contents of a note.
+	 * @param note The note to be updated.
+	 * @param text The new contents of the note.
+	 */
+	public void setNote(NoteFacade note, String text);
 }

@@ -120,6 +120,21 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 		fireElementRemoved(this, elementList.remove(index), index);
 	}
 
+	/**
+	 * Signal that an element in the list has been modified in some way that
+	 * subscribers to the list need to know about. This will advise all 
+	 * capable subscribers to the list of the change. 
+	 * @param element The element that has been modified.
+	 */
+	public void modifyElement(E element)
+	{
+		int index = getIndexOfElement(element);
+		if (index >= 0)
+		{
+			fireElementModified(this, element, index);
+		}
+	}
+
 	public void setContents(Collection<? extends E> elements)
 	{
 		elementList.clear();

@@ -22,6 +22,7 @@
  */
 package pcgen.core;
 
+import pcgen.core.facade.NoteFacade;
 import pcgen.io.FileAccess;
 
 
@@ -31,12 +32,13 @@ import pcgen.io.FileAccess;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public final class NoteItem
+public final class NoteItem implements NoteFacade
 {
 	private String name = "";
 	private String value = "";
 	private int id_parent = -1;
 	private int id_value = -1;
+	private boolean required;
 
 	public NoteItem(final int my_id, final int my_parent, final String aName, final String aValue)
 	{
@@ -46,9 +48,16 @@ public final class NoteItem
 		value = aValue;
 	}
 
-	/* this is used to export to character sheets
+	/**
+	 * This is used to export to character sheets
 	 * e.g. getExportString("<b>","</b>,"<br>,"")
-	 * would return the name in bold and the value on the next line in html format
+	 * would return the name in bold and the value on the next line in html format.
+	 * 
+	 * @param beforeName The markup to be included before the name. 
+	 * @param afterName  The markup to be included after the name.
+	 * @param beforeValue The markup to be included before the value.
+	 * @param afterValue The markup to be included after the value.
+	 * @return The export string including markup, the name of the note and the note contents. 
 	 */
 	public String getExportString(final String beforeName, final String afterName, final String beforeValue, final String afterValue)
 	{
@@ -93,6 +102,24 @@ public final class NoteItem
 	public String getValue()
 	{
 		return value;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isRequired()
+	{
+		return required;
+	}
+
+	/**
+	 * Update the flag identifying if this note can be renamed or removed.
+	 * @param required the new required flag
+	 */
+	public void setRequired(boolean required)
+	{
+		this.required = required;
 	}
 
 	@Override
