@@ -28,7 +28,8 @@ public class SkillChooseController extends ChooseController<Ability>
 	@Override
 	public int getPool()
 	{
-		return SkillRankControl.getTotalRank(pc, skill).intValue();
+		return SkillRankControl.getTotalRank(pc, skill).intValue()
+			- pc.getAssociationList(skill).size();
 	}
 
 	@Override
