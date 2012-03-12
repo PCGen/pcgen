@@ -186,7 +186,7 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 			{
 				if (e == null)
 				{
-					e = new ListEvent<E>(source, ListEvent.ELEMENT_REMOVED, element, index);
+					e = new ListEvent<E>(source, ListEvent.ELEMENT_MODIFIED, element, index);
 				}
 				if (listeners[i + 1] instanceof ModifiableListListener)
 				{

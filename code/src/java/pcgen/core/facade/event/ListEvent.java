@@ -32,6 +32,7 @@ public class ListEvent<E> extends EventObject
 	public static int ELEMENT_ADDED = 0;
 	public static int ELEMENT_REMOVED = 1;
 	public static int ELEMENTS_CHANGED = 2;
+	public static int ELEMENT_MODIFIED = 3;
 	private final E element;
 	private final int type;
 	private final int index;
