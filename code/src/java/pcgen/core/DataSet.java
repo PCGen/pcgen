@@ -368,7 +368,9 @@ public class DataSet implements DataSetFacade
 		for (SkillFacade aSkillFacade : skills)
 		{
 			Skill aSkill = (Skill) aSkillFacade;
-			if (aSkill.getSafe(StringKey.CHOICE_STRING).indexOf("Language") >= 0)
+			if (aSkill.getSafe(StringKey.CHOICE_STRING).indexOf("Language") >= 0
+				|| (aSkill.get(ObjectKey.CHOOSE_INFO) != null && "LANG"
+					.equals(aSkill.get(ObjectKey.CHOOSE_INFO).getName())))
 			{
 				speakLanguageSkill = aSkillFacade;
 			}
