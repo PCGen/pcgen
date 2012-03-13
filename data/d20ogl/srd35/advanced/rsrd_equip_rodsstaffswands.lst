@@ -2,7 +2,6 @@
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Thomas/Chipoulou tjannes@vub.ac.be
 
-# Set Wand weight to 0.1 - according to RSRD it weighs an ounce, no clue how much pounds that is...
 # changed outputname of Immovable Rod
 # gave Rod of Enemy Detection 3 charges as per "The rod can be used three times each day"
 # gave Rod of Flame Extinguishing 10 charges as per "A rod of flame extinguishing has 10 charges when found. Spent charges are renewed every day, so that a wielder can expend up to 10 charges in any 24-hour period"
