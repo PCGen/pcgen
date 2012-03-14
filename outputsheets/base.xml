@@ -166,6 +166,12 @@
 		</portrait>	
 		<phobias>|PHOBIAS|</phobias>
 		<race>|RACE|</race>
+		<race>
+			<racetype>|RACETYPE|</racetype>
+|FOR,%racesubtype,0,COUNT[RACESUBTYPE]-1,1,0|
+			<racesubtype>|RACESUBTYPE.%racesubtype|</racesubtype>
+|ENDFOR|
+		</race>
 		<reach>
 			<reach>|REACH|</reach>
 			<squares>|REACH.SQUARES|</squares>
@@ -285,12 +291,18 @@
 		<natural>|AC.NaturalArmor|</natural>
 		<deflection>|AC.Deflection|</deflection>
 		<dodge>|AC.Dodge|</dodge>
-		<class_bonus>|AC.ClassDefense|</class_bonus>
 		<dodge_bonus>|AC.Dodge|</dodge_bonus>
+		<class_bonus>|AC.ClassDefense|</class_bonus>
 |IIF(isgamemode("Modern").OR.isgamemode("Darwins_World_2").OR.isgamemode("Sidewinder"))|
 		<equipment_bonus>|AC.Equipment|</equipment_bonus>
 |ENDIF|
 		<misc>|AC.Misc|</misc>
+		<insight>|AC.Insight|</insight>
+		<morale>|AC.Morale|</morale>
+		<sacred>|AC.Sacred|</sacred>
+		<profane>|AC.Profane|</profane>
+
+
 		<miss_chance/>
 		<max_dex>|MAXDEX|</max_dex>
 		<spell_failure>|SPELLFAILURE|</spell_failure>
