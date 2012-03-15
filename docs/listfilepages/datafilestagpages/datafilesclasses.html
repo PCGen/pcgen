@@ -672,14 +672,13 @@
 	<p class="indent1"><strong>Where it is used:</strong></p>
 	<p class="indent2">Class Line, SubClass line or SubstitutionClass line.</p>
 	<p></p>
-
+<!-- This tag entry will be deleted before Jira DOCS-173 is closed.
 <hr>
 
 	<p class="indent0"><strong><a name="SPELLSTAT">Tag Name:</a></strong> SPELLSTAT:x</p>
 	<p class="indent1"><strong>Variables Used:</strong> abbreviated name of stat (from statsandchecks.lst)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Used to tell PCGen what attribute/stat to use for determining bonus spells and
-		maximum level the character can cast</p>
+	<p class="indent2">Used to tell PCGen what attribute/stat to use for determining bonus spells and maximum level the character can cast</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SPELLSTAT:INT</code></p>
 	<p class="indent3">The class uses Intelligence to determine bonus spells and maximum casting level.</p>
@@ -691,6 +690,33 @@
 	<p class="indent3">Modifying the class Defender changes all of these tags to determine bonus spells and maximum casting level.</p>
 	<p class="indent1"><strong>Where it is used:</strong></p>
 	<p class="indent2">Class Line.</p>
+	<p></p>
+-->
+<hr>
+
+	<p class="indent0"><strong><a name="SPELLSTAT">Tag Name:</a></strong> SPELLSTAT:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (abbreviated name of stat from statsandchecks.lst)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SPELL</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> OTHER</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Used to tell PCGen what attribute/stat to use for determining bonus spells and maximum level the character can cast</li>
+		<li>Used in a Subclass Line this tag overwrites any <code>SPELLSTAT</code> tag in the main Class Line.</li>
+		<li>The stat specified can be any stat defined in <span class="lstfile">statsandchecks.lst</span> system file.</li>
+		<li>Use of the <code>SPELL</code> subtag tells PCGen to use the stat specified in the <code>SPELLSTAT</code> tag located in the class' individual spells.</li>
+		<li>Use of the <code>OTHER</code> subtag will</li>
+	</ul>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>SPELLSTAT:INT</code></p>
+	<p class="indent3">This class/subclass uses Intelligence to determine maximum level of spells.</p>
+	<p class="indent2"><code>SPELLSTAT:SPELL</code></p>
+	<p class="indent3">This class/subclass uses the stat specified in the <code>STAT:x</code> tag in the spells the class/subclass uses.</p>
+	<p class="indent2"><code>SPELLSTAT:OTHER</code></p>
+	<p class="indent3">Thia class/subclass does not recieve a stat bonus for spell casting.</p>
+	<p class="indent2"><code>CLASS:Defender.MOD &lt;tab&gt; SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt; SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt; BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt; SPELLLIST:1|Channeler</code></p>
+	<p class="indent3">Modifies the <strong>Defender</strong> class's spell stat is changed to the inteligence stat.</p>
+	<p class="indent1"><strong>Where it is used:</strong></p>
+	<p class="indent2">Class or Subclass Line.</p>
 	<p></p>
 
 <hr>
@@ -821,32 +847,6 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PROHIBITCOST:2</code></p>
 	<p class="indent3">The subclass has a prohibited cost of 2.</p>
-	<p class="indent1"><strong>Where it is used:</strong></p>
-	<p class="indent2">Subclass Line.</p>
-	<p></p>
-
-<hr>
-
-	<p class="indent0"><strong><a name="SPELLSTATSUB">Tag Name:</a></strong> SPELLSTAT:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (abbreviated name of stat from statsandchecks.lst)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>Indicates what stat this subclass/specialty uses to determine what maximum level
-			of spells they can cast.</li>
-		<li>Overwrites any SPELLSTAT tag in the main CLASS line.</li>
-		<li>The stat specified can be any stat defined in statsandchecks.lst system file.</li>
-	</ul>
-	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>SPELLSTAT:STR</code></p>
-	<p class="indent3">This subclass uses Strength to determine maximum level of spells.</p>
-	<p class="indent2"><code>SPELLSTAT:INT</code></p>
-	<p class="indent3">This subclass uses Intelligence to determine maximum level of spells.</p>
-	<p class="indent2"><code>SPELLSTAT:SPELL</code></p>
-	<p class="indent3">Tells the program to look for a STAT:tag in the spells the class uses, and use
-		that for each spell. For example used with psionic classes,where the spellstat depends on the powers
-		used and not on the class.</p>
-	<p class="indent2"><code>CLASS:Defender.MOD &lt;tab&gt; SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt; SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt; BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt; SPELLLIST:1|Channeler</code></p>
-	<p class="indent3">Modifying the class Defender changes all of these tags to determine bonus spells and maximum casting level.</p>
 	<p class="indent1"><strong>Where it is used:</strong></p>
 	<p class="indent2">Subclass Line.</p>
 	<p></p>
