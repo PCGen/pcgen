@@ -190,7 +190,7 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 			}
 			else if (NOTE_NAME_DESCRIP.equals(noteName))
 			{
-				theCharacter.setBio(text);
+				theCharacter.setDescription(text);
 			}
 			else if (NOTE_NAME_COMPANION.equals(noteName))
 			{
