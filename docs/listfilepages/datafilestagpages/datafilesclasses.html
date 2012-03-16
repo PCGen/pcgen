@@ -683,9 +683,8 @@
 	<p class="indent2"><code>SPELLSTAT:INT</code></p>
 	<p class="indent3">The class uses Intelligence to determine bonus spells and maximum casting level.</p>
 	<p class="indent2"><code>SPELLSTAT:SPELL</code></p>
-	<p class="indent3">Tells the program to look for a STAT:tag in the spells the class uses, and use
-		that for each spell.  For example used with psionic classes, where the spellstat depends on the powers
-		used and not on the class.</p>
+	<p class="indent3">Tells the program to look for a STAT:tag in the spells the class uses, and use that for each spell. 
+		For example used with psionic classes, where the spellstat depends on the powers used and not on the class.</p>
 	<p class="indent2"><code>CLASS:Defender.MOD &lt;tab&gt; SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt; SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt; BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt; SPELLLIST:1|Channeler</code></p>
 	<p class="indent3">Modifying the class Defender changes all of these tags to determine bonus spells and maximum casting level.</p>
 	<p class="indent1"><strong>Where it is used:</strong></p>
@@ -704,7 +703,7 @@
 		<li>Used in a Subclass Line this tag overwrites any <code>SPELLSTAT</code> tag in the main Class Line.</li>
 		<li>The stat specified can be any stat defined in <span class="lstfile">statsandchecks.lst</span> system file.</li>
 		<li>Use of the <code>SPELL</code> subtag tells PCGen to use the stat specified in the <code>SPELLSTAT</code> tag located in the class' individual spells.</li>
-		<li>Use of the <code>OTHER</code> subtag will</li>
+		<li>Use of the <code>OTHER</code> subtag will result in no stat bonuses being granted.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>SPELLSTAT:INT</code></p>
