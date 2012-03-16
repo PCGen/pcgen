@@ -100,12 +100,15 @@ public final class KitAbilities extends BaseKit
 			List<String> choices = me.getValue();
 			for (Ability a : me.getKey().getContainedObjects())
 			{
-				sb.append(a.getKeyName());
-				if (choices != null)
+				if (a != null)
 				{
-					sb.append(" (");
-					sb.append(StringUtil.joinToStringBuffer(choices, ", "));
-					sb.append(')');
+					sb.append(a.getKeyName());
+					if (choices != null)
+					{
+						sb.append(" (");
+						sb.append(StringUtil.joinToStringBuffer(choices, ", "));
+						sb.append(')');
+					}
 				}
 			}
 		}
