@@ -31,7 +31,6 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
-import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.list.DomainList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.facade.AlignmentFacade;

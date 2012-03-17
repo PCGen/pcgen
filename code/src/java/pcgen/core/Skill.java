@@ -26,7 +26,6 @@ import java.util.List;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.facade.SkillFacade;
 

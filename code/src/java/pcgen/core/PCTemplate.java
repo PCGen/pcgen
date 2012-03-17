@@ -31,7 +31,6 @@ import java.util.List;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.facade.TemplateFacade;
 import pcgen.util.enumeration.Visibility;

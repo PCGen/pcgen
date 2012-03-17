@@ -30,7 +30,6 @@ import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
-import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.core.facade.GenderFacade;
 import pcgen.core.facade.RaceFacade;
 import pcgen.core.facade.SimpleFacade;

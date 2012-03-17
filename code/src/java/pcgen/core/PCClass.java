@@ -50,7 +50,6 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
-import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
