@@ -135,6 +135,7 @@ public final class Globals
 
 	/** we need maps for efficient lookups */
 	private static Map<URI, Campaign>        campaignMap     = new HashMap<URI, Campaign>();
+	private static Map<String, Campaign>        campaignNameMap     = new HashMap<String, Campaign>();
 
 	/** TODO Why can spellMap contain both Spell and List<Spell>? Change to always contain List<Spell> (it is possible said list only has one member, but that's ok.)
 	 * Does  need to be sorted? If not, change to HashMap.*/
@@ -1410,6 +1411,13 @@ public final class Globals
 	{
 		campaignMap.put(campaign.getSourceURI(), campaign);
 		campaignList.add(campaign);
+		Campaign oldCampaign = campaignNameMap.put(campaign.getName(), campaign);
+		if (oldCampaign != null)
+		{
+			Logging.errorPrint("Loaded Campaigns with matching names ("
+					+ campaign.getName() + ") at different Locations: "
+					+ oldCampaign.getSourceURI() + " " + campaign.getSourceURI());
+		}
 	}
 
 	/**
