@@ -2614,6 +2614,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		String abilityCat = null;
 		Ability ability = null;
 		String abilityKey = "";
+		String missingCat = null;
 
 		final Iterator<PCGElement> it = tokens.getElements().iterator();
 
@@ -2627,16 +2628,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					SettingsHandler.getGame().getAbilityCategory(categoryKey);
 			if (category == null)
 			{
-				// emit a warning that the category doesn't exists.
-				final String msg =
-						LanguageBundle.getFormattedString(
-							"Warnings.PCGenParser.AbilityCategoryNotFound", //$NON-NLS-1$
-							categoryKey);
-				warnings.add(msg);
-
-				// Create one.
-				category = Globals.getContext().ref.constructNowIfNecessary(
-						AbilityCategory.class, categoryKey);
+				missingCat = categoryKey;
 			}
 		}
 
@@ -2660,16 +2652,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					.getAbilityCategory(abilityCat);
 			if (innateCategory == null)
 			{
-				// emit a warning that the category doesn't exists.
-				final String msg = LanguageBundle.getFormattedString(
-						"Warnings.PCGenParser.AbilityCategoryNotFound", //$NON-NLS-1$
-						abilityCat);
-				warnings.add(msg);
-
-				// Create one.
-				innateCategory = Globals.getContext().ref
-						.constructNowIfNecessary(AbilityCategory.class,
-								abilityCat);
+				missingCat = abilityCat;
 			}
 		}
 
@@ -2679,6 +2662,15 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			final PCGElement element = it.next();
 
 			abilityKey = EntityEncoder.decode(element.getText());
+			if (innateCategory == null || category == null)
+			{
+				final String msg =
+						LanguageBundle.getFormattedString(
+							"Warnings.PCGenParser.AbilityCategoryNotFound", //$NON-NLS-1$
+							abilityKey, missingCat);
+				warnings.add(msg);
+				return;
+			}
 			ability = Globals.getContext().ref
 					.silentlyGetConstructedCDOMObject(Ability.class,
 							innateCategory, abilityKey);
