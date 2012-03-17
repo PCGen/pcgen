@@ -46,6 +46,7 @@ import pcgen.core.facade.util.ListFacade;
 import pcgen.core.facade.util.ListFacades;
 import pcgen.gui2.facade.CharacterFacadeImpl;
 import pcgen.gui2.facade.PartyFacadeImpl;
+import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.io.PCGFile;
 import pcgen.io.PCGIOHandler;
 import pcgen.util.Logging;
@@ -121,20 +122,18 @@ public class CharacterManager
 		ioHandler.read(newPC, file.getAbsolutePath());
 		newPC.insertBonusLanguageAbility();
 
-		for (String error : ioHandler.getErrors())
+		if (!showLoadNotices(true, ioHandler.getErrors(), file.getName(),
+			delegate))
 		{
-			delegate.showErrorMessage(Constants.APPLICATION_NAME, "Error: " + error);
+			// if we've had errors, then abort trying to add the new PC, it's most likely "broken"
+			return null;
 		}
-		for (String warning : ioHandler.getWarnings())
-		{
-			delegate.showWarningMessage(Constants.APPLICATION_NAME, "Warning: " + warning);
-		}
-
-		// if we've had errors, then abort trying to add the new PC, it's most likely "broken"
-		if (!ioHandler.getErrors().isEmpty())
+		if (!showLoadNotices(false, ioHandler.getWarnings(), file.getName(),
+			delegate))
 		{
 			return null;
 		}
+
 		// if it's not broken, then only warnings should have been generated, and we won't count those
 		// Set the filename so that future checks to see if file already loaded will work
 		newPC.setFileName(file.getAbsolutePath());
@@ -143,6 +142,56 @@ public class CharacterManager
 		CharacterFacade character = new CharacterFacadeImpl(newPC, delegate, dataset);
 		characters.addElement(character);
 		return character;
+	}
+
+	/**
+	 * Show the user any warnings or errors from the character load and get 
+	 * their approval to continue.
+	 * 
+	 * @param errors Is this a list of errors?  
+	 * @param warnings The warnings generated on load.
+	 * @param fileName The name of the file being loaded.
+	 * @param delegate The UIDelegate to use for notifications.
+	 * @return true if the character should be loaded, false if not.
+	 */
+	private static boolean showLoadNotices(boolean errors, List<String> warnings, String fileName, UIDelegate delegate)
+	{
+		if (warnings.isEmpty())
+		{
+			return true;
+		}
+
+		HtmlInfoBuilder warningMsg = new HtmlInfoBuilder();
+		
+		if (errors)
+		{
+			warningMsg.append(LanguageBundle.getString("in_cmErrorStart")); //$NON-NLS-1$
+		}
+		else
+		{
+			warningMsg.append(LanguageBundle.getString("in_cmWarnStart")); //$NON-NLS-1$
+		}
+		warningMsg.appendLineBreak();
+		warningMsg.append("<UL>"); //$NON-NLS-1$
+		for (String string : warnings)
+		{
+			warningMsg.appendLineBreak();
+			warningMsg.append("<li>"); //$NON-NLS-1$
+			warningMsg.append(string);
+			warningMsg.append("</li>"); //$NON-NLS-1$
+		}
+		warningMsg.append("</UL>"); //$NON-NLS-1$
+		warningMsg.appendLineBreak();
+		if (errors)
+		{
+			warningMsg.append(LanguageBundle.getString("in_cmErrorEnd")); //$NON-NLS-1$
+			delegate.showErrorMessage(fileName, warningMsg.toString());
+			return false;
+		}
+
+		warningMsg.append(LanguageBundle.getString("in_cmWarnEnd")); //$NON-NLS-1$
+		return delegate.showWarningConfirm(fileName, warningMsg.toString());
+
 	}
 
 	/**
