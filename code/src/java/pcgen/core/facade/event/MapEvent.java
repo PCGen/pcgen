@@ -20,8 +20,6 @@
  */
 package pcgen.core.facade.event;
 
-import java.util.EventObject;
-
 /**
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
