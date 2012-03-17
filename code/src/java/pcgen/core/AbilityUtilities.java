@@ -188,6 +188,12 @@ public class AbilityUtilities
 		if (!aPC.isImporting())
 		{
 			AddObjectActions.globalChecks(ability, aPC);
+			/*
+			 * Protection for CODE-1240. Note the better solution is when facets
+			 * are association aware and thus trigger a change when an
+			 * association is added. - thpr
+			 */
+			aPC.calcActiveBonuses();
 		}
 	}
 
