@@ -623,6 +623,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		context.ref.validate(validator);
 		context.resolveReferences(validator);
 		context.resolvePostDeferredTokens();
+		context.validateAssociations();
 		for (Equipment eq : context.ref
 				.getConstructedCDOMObjects(Equipment.class))
 		{

@@ -28,11 +28,14 @@ import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.inst.ObjectCache;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SelectionCreator;
 import pcgen.cdom.reference.UnconstructedValidator;
@@ -590,6 +593,55 @@ public abstract class LoadContext
 		for (Type t : cdo.getTrueTypeList(false))
 		{
 			typeSet.add(t.toString());
+		}
+	}
+
+	public void validateAssociations()
+	{
+		for (ReferenceManufacturer<?> rm : ref.getAllManufacturers())
+		{
+			for (CDOMSingleRef<?> singleRef : rm.getReferenced())
+			{
+				String choice = singleRef.getChoice();
+				if (choice != null)
+				{
+					CDOMObject cdo = (CDOMObject) singleRef.resolvesTo();
+					ChooseInformation<?> ci = cdo.get(ObjectKey.CHOOSE_INFO);
+					if (ci == null)
+					{
+						Logging.errorPrint("Found "
+							+ rm.getReferenceDescription() + " "
+							+ cdo.getKeyName() + " " + " that had association: "
+							+ choice + " but was not an object with CHOOSE");
+						rm.fireUnconstuctedEvent(singleRef);
+						continue;
+					}
+					Class<?> cl = ci.getChoiceClass();
+					if (choice.indexOf("%") > -1)
+					{
+						//patterns or %LIST are OK
+						//See CollectionToAbilitySelection.ExpandingConverter
+						continue;
+					}
+					if (Loadable.class.isAssignableFrom(cl))
+					{
+						ReferenceManufacturer<? extends Loadable> mfg =
+								ref.getManufacturer((Class<? extends Loadable>) cl);
+						if (!mfg.containsObject(choice))
+						{
+							Logging.errorPrint("Found "
+								+ rm.getReferenceDescription() + " "
+								+ cdo.getKeyName() + " "
+								+ " that had association: " + choice
+								+ " but no such "
+								+ mfg.getReferenceDescription()
+								+ " was ever defined");
+							rm.fireUnconstuctedEvent(singleRef);
+							continue;
+						}
+					}
+				}
+			}
 		}
 	}
 }
