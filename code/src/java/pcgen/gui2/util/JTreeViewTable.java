@@ -235,21 +235,23 @@ public class JTreeViewTable<T> extends JTreeTable
 	}
 
 	/**
-	 * This returns data that is currently highlighted by the user.
-	 * @return
+	 * This returns data that is currently highlighted by the user. This may 
+	 * include branch nodes which are of type Object and not the type managed by 
+	 * the table model. Hence we cannot use <T> here.  
+	 * @return A list of selected leaf and branch rows.
 	 */
-	public List<T> getSelectedData()
+	public List<Object> getSelectedData()
 	{
 		TreePath[] paths = getTree().getSelectionPaths();
 		if (paths == null)
 		{
 			return Collections.emptyList();
 		}
-		List<T> data = new ArrayList<T>(paths.length);
+		List<Object> data = new ArrayList<Object>(paths.length);
 		for (TreePath path : paths)
 		{
 			DefaultMutableTreeNode node = (DefaultMutableTreeNode) path.getLastPathComponent();
-			data.add((T) node.getUserObject());
+			data.add(node.getUserObject());
 		}
 		return data;
 	}

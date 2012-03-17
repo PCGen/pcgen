@@ -223,11 +223,15 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				{
 					if (!e.getValueIsAdjusting())
 					{
-						List<ClassFacade> data = availableTable.getSelectedData();
+						List<Object> data = availableTable.getSelectedData();
 						ClassFacade clazz = null;
-						if (!data.isEmpty())
+						for (Object object : data)
 						{
-							clazz = data.get(0);
+							if (object instanceof ClassFacade)
+							{
+								clazz = (ClassFacade) object;
+								break;
+							}
 						}
 						setSelectedClass(clazz);
 					}
@@ -388,12 +392,21 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		@Override
 		protected Transferable createTransferable(JComponent c)
 		{
-			List<ClassFacade> data = availableTable.getSelectedData();
-			if (data.isEmpty())
+			List<Object> data = availableTable.getSelectedData();
+			ClassFacade selClassTemp = null;
+			for (Object object : data)
+			{
+				if (object instanceof ClassFacade)
+				{
+					selClassTemp = (ClassFacade) object;
+					break;
+				}
+			}
+			if (selClassTemp == null)
 			{
 				return null;
 			}
-			final ClassFacade selClass = data.get(0);
+			final ClassFacade selClass = selClassTemp;
 
 			return new Transferable()
 			{

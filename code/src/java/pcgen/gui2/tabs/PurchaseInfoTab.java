@@ -114,7 +114,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private final JButton addEquipmentButton;
 	private final JButton removeEquipmentButton;
 	private final InfoPane infoPane;
-	private EquipmentFacade selectedItem;
 	private final JFormattedTextField wealthLabel;
 	private final JFormattedTextField goldField;
 	private final JFormattedTextField goldModField;
@@ -190,25 +189,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 			availableTable.getTree().setLargeModel(true);
 			availableTable.setDisplayableFilter(filterBar);
-			availableTable.getSelectionModel().addListSelectionListener(new ListSelectionListener()
-			{
-
-				@Override
-				public void valueChanged(ListSelectionEvent e)
-				{
-					if (!e.getValueIsAdjusting())
-					{
-						List<EquipmentFacade> data = availableTable.getSelectedData();
-						EquipmentFacade equipment = null;
-						if (!data.isEmpty())
-						{
-							equipment = data.get(0);
-						}
-						setSelectedItem(equipment);
-					}
-				}
-
-			});
 			availableTable.sortModel();
 			panel.add(new JScrollPane(availableTable), BorderLayout.CENTER);
 
@@ -234,25 +214,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			panel.add(filterBar, BorderLayout.NORTH);
 
 			purchasedTable.setDisplayableFilter(filterBar);
-			purchasedTable.getSelectionModel().addListSelectionListener(new ListSelectionListener()
-			{
-
-				@Override
-				public void valueChanged(ListSelectionEvent e)
-				{
-					if (!e.getValueIsAdjusting())
-					{
-						List<EquipmentFacade> data = purchasedTable.getSelectedData();
-						EquipmentFacade skill = null;
-						if (!data.isEmpty())
-						{
-							skill = data.get(0);
-						}
-						setSelectedItem(skill);
-					}
-				}
-
-			});
 			purchasedTable.setSortingPriority(Collections.singletonList(new SortingPriority(0, SortMode.ASCENDING)));
 			purchasedTable.sortModel();
 			panel.add(new JScrollPane(purchasedTable), BorderLayout.CENTER);
@@ -379,11 +340,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		label.setFont(TEXT_FONT);
 		currencyLabels.add(label);
 		return label;
-	}
-
-	private void setSelectedItem(EquipmentFacade item)
-	{
-		this.selectedItem = item;
 	}
 
 	private enum Models

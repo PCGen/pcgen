@@ -401,19 +401,23 @@ class AdvancedSourceSelectionPanel extends JPanel
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			List<CampaignFacade> list = availableTable.getSelectedData();
+			List<Object> list = availableTable.getSelectedData();
 			if (list != null && !list.isEmpty())
 			{
-				for (CampaignFacade camp : list)
+				for (Object obj : list)
 				{
-					selectedCampaigns.addElement(camp);
-					if (!FacadeFactory.passesPrereqs(gameMode, selectedCampaigns.getContents()))
+					if (obj instanceof CampaignFacade)
 					{
-						JOptionPane.showMessageDialog(AdvancedSourceSelectionPanel.this,
-													  LanguageBundle.getString("in_src_badComboMsg"), //$NON-NLS-1$
-													  LanguageBundle.getString("in_src_badComboTitle"), //$NON-NLS-1$
-													  JOptionPane.INFORMATION_MESSAGE);
-						selectedCampaigns.removeElement(camp);
+						CampaignFacade camp = (CampaignFacade) obj;
+						selectedCampaigns.addElement(camp);
+						if (!FacadeFactory.passesPrereqs(gameMode, selectedCampaigns.getContents()))
+						{
+							JOptionPane.showMessageDialog(AdvancedSourceSelectionPanel.this,
+														  LanguageBundle.getString("in_src_badComboMsg"), //$NON-NLS-1$
+														  LanguageBundle.getString("in_src_badComboTitle"), //$NON-NLS-1$
+														  JOptionPane.INFORMATION_MESSAGE);
+							selectedCampaigns.removeElement(camp);
+						}
 					}
 				}
 				rememberSelectedSources();
@@ -434,12 +438,15 @@ class AdvancedSourceSelectionPanel extends JPanel
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			List<CampaignFacade> list = selectedTable.getSelectedData();
+			List<Object> list = selectedTable.getSelectedData();
 			if (list != null && !list.isEmpty())
 			{
-				for (CampaignFacade camp : list)
+				for (Object obj : list)
 				{
-					selectedCampaigns.removeElement(camp);
+					if (obj instanceof CampaignFacade)
+					{
+						selectedCampaigns.removeElement((CampaignFacade) obj);
+					}
 				}
 				rememberSelectedSources();
 			}

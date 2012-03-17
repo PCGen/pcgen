@@ -211,11 +211,14 @@ public class KitPanel extends FlippingSplitPane
 
 		public void actionPerformed(ActionEvent e)
 		{
-			List<KitFacade> data = availableTable.getSelectedData();
-			for (KitFacade kit : data)
+			List<Object> data = availableTable.getSelectedData();
+			for (Object kit : data)
 			{
-				character.addKit(kit);
-				return;
+				if (kit instanceof KitFacade)
+				{
+					character.addKit((KitFacade) kit);
+					return;
+				}
 			}
 		}
 
