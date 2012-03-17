@@ -157,6 +157,7 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, String choice)
 	{
 		pc.removeAssoc(owner, AssociationListKey.CHOOSE_STRING, choice);
+		pc.removeAssociation(owner, encodeChoice(choice));
 		List<ChooseSelectionActor<?>> actors =
 				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 		if (actors != null)
