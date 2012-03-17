@@ -799,7 +799,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			}
 
 			character.setFile(file);
-			context.setProperty(PCGenSettings.PCG_SAVE_PATH, file.getParent());
 			if (!CharacterManager.saveCharacter(character))
 			{
 				return showSaveCharacterChooser(character);
@@ -823,7 +822,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		if (ret == JFileChooser.APPROVE_OPTION)
 		{
 			File file = chooser.getSelectedFile();
-			context.setProperty(PCGenSettings.PCG_SAVE_PATH, file.getParent());
 			loadCharacterFromFile(file);
 		}
 	}
@@ -840,7 +838,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		if (returnVal == JFileChooser.APPROVE_OPTION)
 		{
 			File file = chooser.getSelectedFile();
-			context.setProperty(PCGenSettings.PCP_SAVE_PATH, file.getParent());
 			loadPartyFromFile(file);
 		}
 	}
