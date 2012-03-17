@@ -107,6 +107,7 @@ import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.list.DomainSpellList;
+import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.analysis.BonusActivation;
@@ -308,6 +309,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private ArmorClassFacet armorClassFacet = FacetLibrary.getFacet(ArmorClassFacet.class);
 	private ActiveSpellsFacet activeSpellsFacet = FacetLibrary.getFacet(ActiveSpellsFacet.class);
 	private SpellListFacet spellListFacet = FacetLibrary.getFacet(SpellListFacet.class);
+	private ChangeProfFacet changeProfFacet = FacetLibrary.getFacet(ChangeProfFacet.class);
 
 	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 	private PortraitThumbnailRectFacet portraitThumbnailRectFacet = FacetLibrary.getFacet(PortraitThumbnailRectFacet.class);
@@ -12478,5 +12480,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public CharacterDisplay getDisplay()
 	{
 		return display;
+	}
+	
+	public List<WeaponProf> getWeaponProfsInTarget(CDOMGroupRef<WeaponProf> master)
+	{
+		return changeProfFacet.getWeaponProfsInTarget(id, master);
 	}
 }

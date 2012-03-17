@@ -126,4 +126,10 @@ public class ChangeProf extends ConcretePrereqObject
 		ChangeProf other = (ChangeProf) obj;
 		return source.equals(other.source) && result.equals(other.result);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return getClass() + "[" + source + " -> " + result + "]";
+	}
 }

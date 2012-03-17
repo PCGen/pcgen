@@ -136,8 +136,13 @@ public class ProficiencyToken implements CDOMSecondaryToken<CDOMObject>
 		Logging.deprecationPrint("CHOOSE:PROFICIENCY|" + first
 				+ " has been deprecated, please use CHOOSE:" + subtoken
 				+ "|...");
+		String targetString = sb.toString();
+		if (first.equals("WEAPON"))
+		{
+			targetString = targetString.replaceAll("TYPE\\.", "TYPE=");
+		}
 		return context.processSubToken(obj, "CHOOSE", subtoken, qualifier
-				+ "[" + sb.toString() + "]");
+				+ "[" + targetString + "]");
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)

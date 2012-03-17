@@ -101,9 +101,6 @@ public class ChangeProfFacet extends AbstractSourcedListFacet<ChangeProf>
 	 * modify the information stored in this ChangeProfFacet, you must use the
 	 * add*() and remove*() methods of ChangeProfFacet.
 	 * 
-	 * @param type
-	 *            The type of WeaponProf for which the List of WeaponProf
-	 *            objects will be returned
 	 * @param id
 	 *            The CharID identifying the Player Character for which the List
 	 *            of WeaponProf objects will be returned
@@ -114,9 +111,15 @@ public class ChangeProfFacet extends AbstractSourcedListFacet<ChangeProf>
 	 *         they are modified by the ChangeProf objects active on the Player
 	 *         Character
 	 */
-	public List<WeaponProf> getWeaponProfsInTarget(String type, CharID id,
+	public List<WeaponProf> getWeaponProfsInTarget(CharID id,
 			CDOMGroupRef<WeaponProf> master)
 	{
+		String type = master.getLSTformat(false);
+		if (!type.startsWith("TYPE="))
+		{
+			throw new IllegalArgumentException("Cannot get targets for: "
+					+ type);
+		}
 		ReferenceContext ref = Globals.getContext().ref;
 		List<WeaponProf> aList = new ArrayList<WeaponProf>();
 		// Can't use master because late called references may not have been

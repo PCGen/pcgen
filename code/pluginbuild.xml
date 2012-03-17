@@ -6467,6 +6467,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${lstplugins.dir}/WeaponProfPrimitive-TYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/primitive/weaponprof/TypeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 	</target>
 
 	<target name="jar-qualifier-plugins" depends="jar-qualifier-global-plugins,jar-qualifier-armorprof-plugins,jar-qualifier-shieldprof-plugins,jar-qualifier-skill-plugins,jar-qualifier-weaponprof-plugins,jar-qualifier-transition-plugins" description="Build (Link) Lst Compatibility Token plugin jar files">

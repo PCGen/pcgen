@@ -154,7 +154,7 @@ public class WeaponProfToken implements CDOMSecondaryToken<CDOMObject>
 			context.obj.put(obj, FormulaKey.NUMCHOICES, f);
 			context.obj.put(obj, FormulaKey.SELECT, f);
 			boolean result = context.processToken(obj, getParentToken(),
-					"WEAPONPROFICIENCY|" + profs);
+					"WEAPONPROFICIENCY|" + profs.replaceAll("TYPE\\.", "TYPE="));
 			if (result)
 			{
 				return ParseResult.SUCCESS;
