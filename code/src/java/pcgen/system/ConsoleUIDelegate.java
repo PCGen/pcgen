@@ -83,7 +83,7 @@ public class ConsoleUIDelegate implements UIDelegate
 	public boolean showWarningConfirm(String title, String message)
 	{
 		Logging.log(Logging.WARNING, title + " - " + message);
-		return false;
+		return true;
 	}
 
 	/* (non-Javadoc)
@@ -92,7 +92,7 @@ public class ConsoleUIDelegate implements UIDelegate
 	public boolean showWarningPrompt(String title, String message)
 	{
 		Logging.log(Logging.WARNING, title + " - " + message);
-		return false;
+		return true;
 	}
 
 	public void showWarningMessage(String title, String message)
