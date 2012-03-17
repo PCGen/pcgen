@@ -48,6 +48,7 @@ public class FreeToken extends AbstractNonEmptyToken<KitSkill> implements
 		return "FREE";
 	}
 
+	@Override
 	public Class<KitSkill> getTokenClass()
 	{
 		return KitSkill.class;
@@ -86,6 +87,7 @@ public class FreeToken extends AbstractNonEmptyToken<KitSkill> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitSkill kitSkill)
 	{
 		Boolean mult = kitSkill.getFree();

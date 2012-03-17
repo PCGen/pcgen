@@ -50,6 +50,7 @@ public class RankToken extends AbstractNonEmptyToken<KitSkill> implements
 		return "RANK";
 	}
 
+	@Override
 	public Class<KitSkill> getTokenClass()
 	{
 		return KitSkill.class;
@@ -76,6 +77,7 @@ public class RankToken extends AbstractNonEmptyToken<KitSkill> implements
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitSkill kitSkill)
 	{
 		BigDecimal bd = kitSkill.getRank();

@@ -48,6 +48,7 @@ public class StartpackToken extends AbstractNonEmptyToken<Kit> implements
 		return "STARTPACK";
 	}
 
+	@Override
 	public Class<Kit> getTokenClass()
 	{
 		return Kit.class;
@@ -60,6 +61,7 @@ public class StartpackToken extends AbstractNonEmptyToken<Kit> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Kit obj)
 	{
 		return new String[]{obj.getDisplayName()};

@@ -59,6 +59,7 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 		return "VALUES";
 	}
 
+	@Override
 	public Class<KitTable> getTokenClass()
 	{
 		return KitTable.class;
@@ -162,6 +163,7 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 		return true;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitTable kitTable)
 	{
 		StringBuilder sb = new StringBuilder();

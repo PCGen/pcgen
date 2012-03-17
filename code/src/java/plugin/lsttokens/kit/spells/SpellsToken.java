@@ -69,6 +69,7 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 		return "SPELLS";
 	}
 
+	@Override
 	public Class<KitSpells> getTokenClass()
 	{
 		return KitSpells.class;
@@ -178,6 +179,7 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 		return pr;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitSpells kitSpell)
 	{
 		StringBuilder sb = new StringBuilder();

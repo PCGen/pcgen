@@ -57,6 +57,7 @@ public class ProfToken extends AbstractTokenWithSeparator<KitProf> implements
 		return "PROF";
 	}
 
+	@Override
 	public Class<KitProf> getTokenClass()
 	{
 		return KitProf.class;
@@ -83,6 +84,7 @@ public class ProfToken extends AbstractTokenWithSeparator<KitProf> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitProf obj)
 	{
 		Collection<CDOMSingleRef<WeaponProf>> ref = obj.getProficiencies();

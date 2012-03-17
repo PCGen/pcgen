@@ -48,11 +48,13 @@ public class CountToken extends AbstractToken implements
 		return "COUNT";
 	}
 
+	@Override
 	public Class<KitProf> getTokenClass()
 	{
 		return KitProf.class;
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, KitProf kitProf, String value)
 	{
 		try
@@ -73,6 +75,7 @@ public class CountToken extends AbstractToken implements
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitProf kitProf)
 	{
 		Integer bd = kitProf.getCount();

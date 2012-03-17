@@ -50,6 +50,7 @@ public class CountToken extends AbstractNonEmptyToken<KitSpells> implements
 		return "COUNT";
 	}
 
+	@Override
 	public Class<KitSpells> getTokenClass()
 	{
 		return KitSpells.class;
@@ -68,6 +69,7 @@ public class CountToken extends AbstractNonEmptyToken<KitSpells> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitSpells kitSpells)
 	{
 		Formula bd = kitSpells.getCount();

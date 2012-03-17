@@ -58,6 +58,7 @@ public class SkillToken extends AbstractTokenWithSeparator<KitSkill> implements
 		return "SKILL";
 	}
 
+	@Override
 	public Class<KitSkill> getTokenClass()
 	{
 		return KitSkill.class;
@@ -88,6 +89,7 @@ public class SkillToken extends AbstractTokenWithSeparator<KitSkill> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitSkill kitSkill)
 	{
 		Collection<CDOMReference<Skill>> ref = kitSkill.getSkills();

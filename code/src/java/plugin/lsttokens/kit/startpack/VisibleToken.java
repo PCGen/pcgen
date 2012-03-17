@@ -50,6 +50,7 @@ public class VisibleToken extends AbstractNonEmptyToken<Kit> implements
 		return "VISIBLE";
 	}
 
+	@Override
 	public Class<Kit> getTokenClass()
 	{
 		return Kit.class;
@@ -80,6 +81,7 @@ public class VisibleToken extends AbstractNonEmptyToken<Kit> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Kit kit)
 	{
 		Visibility vis = kit.get(ObjectKey.VISIBILITY);

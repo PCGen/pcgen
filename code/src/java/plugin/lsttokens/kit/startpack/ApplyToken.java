@@ -50,6 +50,7 @@ public class ApplyToken extends AbstractNonEmptyToken<Kit> implements
 		return "APPLY";
 	}
 
+	@Override
 	public Class<Kit> getTokenClass()
 	{
 		return Kit.class;
@@ -72,6 +73,7 @@ public class ApplyToken extends AbstractNonEmptyToken<Kit> implements
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Kit kit)
 	{
 		KitApply bd = kit.get(ObjectKey.APPLY_MODE);

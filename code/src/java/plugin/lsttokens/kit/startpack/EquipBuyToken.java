@@ -58,6 +58,7 @@ public class EquipBuyToken extends AbstractNonEmptyToken<Kit> implements
 		return "EQUIPBUY";
 	}
 
+	@Override
 	public Class<Kit> getTokenClass()
 	{
 		return Kit.class;
@@ -97,6 +98,7 @@ public class EquipBuyToken extends AbstractNonEmptyToken<Kit> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, Kit kit)
 	{
 		QualifiedObject<Formula> qo = kit.get(ObjectKey.EQUIP_BUY);

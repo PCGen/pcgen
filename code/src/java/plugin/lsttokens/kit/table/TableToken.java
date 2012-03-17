@@ -53,6 +53,7 @@ public class TableToken extends AbstractNonEmptyToken<KitTable> implements
 		return "TABLE";
 	}
 
+	@Override
 	public Class<KitTable> getTokenClass()
 	{
 		return KitTable.class;
@@ -66,6 +67,7 @@ public class TableToken extends AbstractNonEmptyToken<KitTable> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitTable kitTable)
 	{
 		String bd = kitTable.getTableName();
@@ -76,6 +78,7 @@ public class TableToken extends AbstractNonEmptyToken<KitTable> implements
 		return new String[] { bd };
 	}
 
+	@Override
 	public boolean process(LoadContext context, Kit obj)
 	{
 		for (BaseKit bk : obj.getSafeListFor(ListKey.KIT_TASKS))
@@ -96,6 +99,7 @@ public class TableToken extends AbstractNonEmptyToken<KitTable> implements
 		return true;
 	}
 
+	@Override
 	public Class<Kit> getDeferredTokenClass()
 	{
 		return Kit.class;

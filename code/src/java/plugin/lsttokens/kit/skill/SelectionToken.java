@@ -62,6 +62,7 @@ public class SelectionToken extends AbstractTokenWithSeparator<KitSkill>
 		return "SELECTION";
 	}
 
+	@Override
 	public Class<KitSkill> getTokenClass()
 	{
 		return KitSkill.class;
@@ -86,6 +87,7 @@ public class SelectionToken extends AbstractTokenWithSeparator<KitSkill>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitSkill kitSkill)
 	{
 		List<CDOMSingleRef<Language>> ref = kitSkill.getSelections();

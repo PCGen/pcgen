@@ -45,6 +45,7 @@ public class RacialToken extends AbstractNonEmptyToken<KitProf> implements
 		return "RACIAL";
 	}
 
+	@Override
 	public Class<KitProf> getTokenClass()
 	{
 		return KitProf.class;
@@ -83,6 +84,7 @@ public class RacialToken extends AbstractNonEmptyToken<KitProf> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitProf obj)
 	{
 		Boolean mult = obj.getRacialProf();
