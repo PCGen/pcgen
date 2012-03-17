@@ -1198,14 +1198,7 @@ public class PCClass extends PObject implements ClassFacade
 			}
 		}
 
-		// Update Skill Points. Modified 20 Nov 2002 by sage_sam
-		// for bug #629643
-		//final int spMod;
-		int spMod = recalcSkillPointMod(aPC, total);
-		if (classLevel.get(ObjectKey.DONTADD_SKILLPOINTS) != null)
-		{
-			spMod = 0;
-		}
+		int spMod = getSkillPointsForLevel(aPC, classLevel, total);
 
 		PCLevelInfo pcl;
 
@@ -1291,6 +1284,20 @@ public class PCClass extends PObject implements ClassFacade
 			ExchangeLevelApplication.exchangeLevels(aPC, this);
 		}
 		return true;
+	}
+
+	public int getSkillPointsForLevel(final PlayerCharacter aPC,
+		PCClassLevel classLevel, int total)
+	{
+		// Update Skill Points. Modified 20 Nov 2002 by sage_sam
+		// for bug #629643
+		//final int spMod;
+		int spMod = recalcSkillPointMod(aPC, total);
+		if (classLevel.get(ObjectKey.DONTADD_SKILLPOINTS) != null)
+		{
+			spMod = 0;
+		}
+		return spMod;
 	}
 
 	/*

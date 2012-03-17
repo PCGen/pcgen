@@ -12314,8 +12314,11 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			{
 				for (PCLevelInfo pi : getLevelInfo())
 				{
+					PCClassLevel classLevel =
+							getActiveClassLevel(pcClass, pi.getClassLevel());
 					final int newSkillPointsGained =
-						pcClass.recalcSkillPointMod(this, pi.getClassLevel());
+							pcClass.getSkillPointsForLevel(this, classLevel,
+								getTotalLevels());
 					if (pi.getClassKeyName().equals(pcClass.getKeyName()))
 					{
 						final int formerGained = pi.getSkillPointsGained(this);
