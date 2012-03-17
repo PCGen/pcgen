@@ -54,6 +54,7 @@ public class ClassToken extends AbstractNonEmptyToken<KitClass> implements
 		return "CLASS";
 	}
 
+	@Override
 	public Class<KitClass> getTokenClass()
 	{
 		return KitClass.class;
@@ -69,6 +70,7 @@ public class ClassToken extends AbstractNonEmptyToken<KitClass> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitClass kitClass)
 	{
 		CDOMReference<PCClass> ref = kitClass.getPcclass();

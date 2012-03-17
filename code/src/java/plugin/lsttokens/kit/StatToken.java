@@ -60,6 +60,7 @@ public class StatToken extends AbstractTokenWithSeparator<KitStat> implements
 		return "STAT";
 	}
 
+	@Override
 	public Class<KitStat> getTokenClass()
 	{
 		return KitStat.class;
@@ -114,11 +115,13 @@ public class StatToken extends AbstractTokenWithSeparator<KitStat> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitStat kitStat)
 	{
 		return kitStat.isEmpty() ? null : new String[] { kitStat.toString() };
 	}
 
+	@Override
 	public boolean process(LoadContext context, Kit obj)
 	{
 		for (BaseKit bk : obj.getSafeListFor(ListKey.KIT_TASKS))
@@ -132,6 +135,7 @@ public class StatToken extends AbstractTokenWithSeparator<KitStat> implements
 		return true;
 	}
 
+	@Override
 	public Class<Kit> getDeferredTokenClass()
 	{
 		return Kit.class;

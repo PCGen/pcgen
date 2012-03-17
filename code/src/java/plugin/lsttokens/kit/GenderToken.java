@@ -54,6 +54,7 @@ public class GenderToken extends AbstractTokenWithSeparator<KitBio> implements
 		return "GENDER";
 	}
 
+	@Override
 	public Class<KitBio> getTokenClass()
 	{
 		return KitBio.class;
@@ -77,6 +78,7 @@ public class GenderToken extends AbstractTokenWithSeparator<KitBio> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitBio kitGender)
 	{
 		Collection<Gender> genders = kitGender.getGenders();

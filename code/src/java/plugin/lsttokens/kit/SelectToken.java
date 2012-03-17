@@ -50,6 +50,7 @@ public class SelectToken extends AbstractNonEmptyToken<KitSelect> implements
 		return "SELECT";
 	}
 
+	@Override
 	public Class<KitSelect> getTokenClass()
 	{
 		return KitSelect.class;
@@ -69,6 +70,7 @@ public class SelectToken extends AbstractNonEmptyToken<KitSelect> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitSelect kitSelect)
 	{
 		Formula f = kitSelect.getFormula();

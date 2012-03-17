@@ -52,6 +52,7 @@ public class SubclassToken extends AbstractNonEmptyToken<KitClass> implements
 		return "SUBCLASS";
 	}
 
+	@Override
 	public Class<KitClass> getTokenClass()
 	{
 		return KitClass.class;
@@ -72,6 +73,7 @@ public class SubclassToken extends AbstractNonEmptyToken<KitClass> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitClass kitClass)
 	{
 		CDOMReference<SubClass> ref = kitClass.getSubClass();

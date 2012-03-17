@@ -55,6 +55,7 @@ public class OptionToken extends AbstractNonEmptyToken<BaseKit> implements
 		return "OPTION";
 	}
 
+	@Override
 	public Class<BaseKit> getTokenClass()
 	{
 		return BaseKit.class;
@@ -110,6 +111,7 @@ public class OptionToken extends AbstractNonEmptyToken<BaseKit> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, BaseKit kit)
 	{
 		Collection<OptionBound> bounds = kit.getBounds();

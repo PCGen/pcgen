@@ -56,11 +56,13 @@ public class LookupToken extends AbstractToken implements
 		return "LOOKUP";
 	}
 
+	@Override
 	public Class<KitGear> getTokenClass()
 	{
 		return KitGear.class;
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, KitGear kitGear, String value)
 	{
 		ParsingSeparator sep = new ParsingSeparator(value, ',');
@@ -84,6 +86,7 @@ public class LookupToken extends AbstractToken implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitGear kitGear)
 	{
 		Collection<NamedFormula> lookups = kitGear.getLookups();

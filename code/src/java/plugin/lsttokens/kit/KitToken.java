@@ -55,6 +55,7 @@ public class KitToken extends AbstractTokenWithSeparator<KitKit> implements
 		return "KIT";
 	}
 
+	@Override
 	public Class<KitKit> getTokenClass()
 	{
 		return KitKit.class;
@@ -82,6 +83,7 @@ public class KitToken extends AbstractTokenWithSeparator<KitKit> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitKit kitKit)
 	{
 		List<CDOMSingleRef<Kit>> kits = kitKit.getKits();

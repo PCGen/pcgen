@@ -63,6 +63,7 @@ public class FeatToken extends AbstractTokenWithSeparator<KitAbilities>
 		return "FEAT";
 	}
 
+	@Override
 	public Class<KitAbilities> getTokenClass()
 	{
 		return KitAbilities.class;
@@ -112,6 +113,7 @@ public class FeatToken extends AbstractTokenWithSeparator<KitAbilities>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitAbilities KitAbilities)
 	{
 		Collection<CDOMReference<Ability>> ref = KitAbilities.getAbilityKeys();

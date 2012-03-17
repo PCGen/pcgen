@@ -61,6 +61,7 @@ public class LangBonusToken extends AbstractTokenWithSeparator<KitLangBonus>
 		return "LANGBONUS";
 	}
 
+	@Override
 	public Class<KitLangBonus> getTokenClass()
 	{
 		return KitLangBonus.class;
@@ -86,6 +87,7 @@ public class LangBonusToken extends AbstractTokenWithSeparator<KitLangBonus>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitLangBonus kitLangBonus)
 	{
 		List<CDOMSingleRef<Language>> languages = kitLangBonus.getLanguages();

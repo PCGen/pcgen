@@ -49,6 +49,7 @@ public class NameToken extends AbstractNonEmptyToken<KitBio> implements
 		return "NAME";
 	}
 
+	@Override
 	public Class<KitBio> getTokenClass()
 	{
 		return KitBio.class;
@@ -62,6 +63,7 @@ public class NameToken extends AbstractNonEmptyToken<KitBio> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitBio kitName)
 	{
 		String bd = kitName.getCharacterName();

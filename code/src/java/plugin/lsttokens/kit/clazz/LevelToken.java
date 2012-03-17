@@ -51,6 +51,7 @@ public class LevelToken extends AbstractNonEmptyToken<KitClass> implements
 		return "LEVEL";
 	}
 
+	@Override
 	public Class<KitClass> getTokenClass()
 	{
 		return KitClass.class;
@@ -70,6 +71,7 @@ public class LevelToken extends AbstractNonEmptyToken<KitClass> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitClass kitClass)
 	{
 		Formula f = kitClass.getLevel();

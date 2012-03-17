@@ -55,6 +55,7 @@ public class RaceToken extends AbstractNonEmptyToken<KitRace> implements
 		return "RACE";
 	}
 
+	@Override
 	public Class<KitRace> getTokenClass()
 	{
 		return KitRace.class;
@@ -76,6 +77,7 @@ public class RaceToken extends AbstractNonEmptyToken<KitRace> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitRace kitRace)
 	{
 		CDOMReference<Race> race = kitRace.getRace();

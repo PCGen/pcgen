@@ -64,6 +64,7 @@ public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
 		return "ABILITY";
 	}
 
+	@Override
 	public Class<KitAbilities> getTokenClass()
 	{
 		return KitAbilities.class;
@@ -146,6 +147,7 @@ public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitAbilities kitAbil)
 	{
 		Collection<CDOMReference<Ability>> references =

@@ -57,6 +57,7 @@ public class AlignToken extends AbstractTokenWithSeparator<KitAlignment>
 		return "ALIGN";
 	}
 
+	@Override
 	public Class<KitAlignment> getTokenClass()
 	{
 		return KitAlignment.class;
@@ -88,6 +89,7 @@ public class AlignToken extends AbstractTokenWithSeparator<KitAlignment>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitAlignment kitAlignment)
 	{
 		List<PCAlignment> alignments = kitAlignment.getAlignments();

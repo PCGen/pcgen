@@ -68,6 +68,7 @@ public class TemplateToken extends AbstractTokenWithSeparator<KitTemplate>
 		return "TEMPLATE";
 	}
 
+	@Override
 	public Class<KitTemplate> getTokenClass()
 	{
 		return KitTemplate.class;
@@ -129,6 +130,7 @@ public class TemplateToken extends AbstractTokenWithSeparator<KitTemplate>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitTemplate kitTemplate)
 	{
 		return kitTemplate.isEmpty() ? null : new String[] { kitTemplate
