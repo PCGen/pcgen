@@ -623,7 +623,13 @@ public abstract class LoadContext
 						//See CollectionToAbilitySelection.ExpandingConverter
 						continue;
 					}
-					if (Loadable.class.isAssignableFrom(cl))
+					/*
+					 * Currently, we can't validate CHOOSE:ABILITY and we don't
+					 * want to dump stack. This is (hopefully) temporary
+					 * protection - thpr (CODE-1383)
+					 */
+					if (Loadable.class.isAssignableFrom(cl)
+						&& !CategorizedCDOMObject.class.isAssignableFrom(cl))
 					{
 						ReferenceManufacturer<? extends Loadable> mfg =
 								ref.getManufacturer((Class<? extends Loadable>) cl);
