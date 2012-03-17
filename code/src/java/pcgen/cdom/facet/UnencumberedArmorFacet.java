@@ -117,7 +117,7 @@ public class UnencumberedArmorFacet extends AbstractSourcedListFacet<Load>
 	public Load getBestLoad(CharID id)
 	{
 		TreeMap<Load, Set<Object>> map = (TreeMap<Load, Set<Object>>) getCachedMap(id);
-		if (map == null)
+		if (map == null || map.isEmpty())
 		{
 			return Load.LIGHT;
 		}
