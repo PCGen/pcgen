@@ -54,11 +54,13 @@ public class AbilityToken extends AbstractToken implements
 		return "ABILITY";
 	}
 
+	@Override
 	public Class<KitLevelAbility> getTokenClass()
 	{
 		return KitLevelAbility.class;
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, KitLevelAbility kitAbility,
 		String value)
 	{
@@ -104,6 +106,7 @@ public class AbilityToken extends AbstractToken implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitLevelAbility kitAbility)
 	{
 		return new String[]{"PROMPT:"};

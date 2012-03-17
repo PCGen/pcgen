@@ -48,6 +48,7 @@ public class LocationToken extends AbstractNonEmptyToken<KitGear> implements
 		return "LOCATION";
 	}
 
+	@Override
 	public Class<KitGear> getTokenClass()
 	{
 		return KitGear.class;
@@ -61,6 +62,7 @@ public class LocationToken extends AbstractNonEmptyToken<KitGear> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitGear kitGear)
 	{
 		String bd = kitGear.getLocation();

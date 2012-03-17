@@ -49,6 +49,7 @@ public class FundsToken extends AbstractNonEmptyToken<KitFunds> implements
 		return "FUNDS";
 	}
 
+	@Override
 	public Class<KitFunds> getTokenClass()
 	{
 		return KitFunds.class;
@@ -62,6 +63,7 @@ public class FundsToken extends AbstractNonEmptyToken<KitFunds> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitFunds kitFunds)
 	{
 		String bd = kitFunds.getName();

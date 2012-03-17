@@ -70,6 +70,7 @@ public class GearToken extends AbstractNonEmptyToken<KitGear> implements
 		return false;
 	}
 
+	@Override
 	public Class<KitGear> getTokenClass()
 	{
 		return KitGear.class;
@@ -86,6 +87,7 @@ public class GearToken extends AbstractNonEmptyToken<KitGear> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitGear kitGear)
 	{
 		CDOMReference<Equipment> ref = kitGear.getEquipment();

@@ -50,6 +50,7 @@ public class QtyToken extends AbstractNonEmptyToken<KitFunds> implements
 		return "QTY";
 	}
 
+	@Override
 	public Class<KitFunds> getTokenClass()
 	{
 		return KitFunds.class;
@@ -69,6 +70,7 @@ public class QtyToken extends AbstractNonEmptyToken<KitFunds> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitFunds kitFunds)
 	{
 		Formula f = kitFunds.getQuantity();

@@ -55,6 +55,7 @@ public class LevelAbilityToken extends AbstractNonEmptyToken<KitLevelAbility>
 		return "LEVELABILITY";
 	}
 
+	@Override
 	public Class<KitLevelAbility> getTokenClass()
 	{
 		return KitLevelAbility.class;
@@ -102,6 +103,7 @@ public class LevelAbilityToken extends AbstractNonEmptyToken<KitLevelAbility>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitLevelAbility kitLA)
 	{
 		CDOMReference<PCClass> cl = kitLA.getPCClass();
@@ -113,11 +115,13 @@ public class LevelAbilityToken extends AbstractNonEmptyToken<KitLevelAbility>
 		return new String[] { cl.getLSTformat(false) + '=' + lvl };
 	}
 
+	@Override
 	public Class<Kit> getDeferredTokenClass()
 	{
 		return Kit.class;
 	}
 
+	@Override
 	public boolean process(LoadContext context, Kit obj)
 	{
 		for (BaseKit bk : obj.getSafeListFor(ListKey.KIT_TASKS))

@@ -60,6 +60,7 @@ public class EqmodToken extends AbstractTokenWithSeparator<KitGear> implements
 		return "EQMOD";
 	}
 
+	@Override
 	public Class<KitGear> getTokenClass()
 	{
 		return KitGear.class;
@@ -137,6 +138,7 @@ public class EqmodToken extends AbstractTokenWithSeparator<KitGear> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitGear kitGear)
 	{
 		if (!kitGear.hasEqMods())

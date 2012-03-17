@@ -51,6 +51,7 @@ public class CountToken extends AbstractNonEmptyToken<KitDeity> implements
 		return "COUNT";
 	}
 
+	@Override
 	public Class<KitDeity> getTokenClass()
 	{
 		return KitDeity.class;
@@ -70,6 +71,7 @@ public class CountToken extends AbstractNonEmptyToken<KitDeity> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitDeity kitDeity)
 	{
 		Formula bd = kitDeity.getCount();

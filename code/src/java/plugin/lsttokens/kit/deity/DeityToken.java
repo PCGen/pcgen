@@ -53,6 +53,7 @@ public class DeityToken extends AbstractNonEmptyToken<KitDeity> implements
 		return "DEITY";
 	}
 
+	@Override
 	public Class<KitDeity> getTokenClass()
 	{
 		return KitDeity.class;
@@ -68,6 +69,7 @@ public class DeityToken extends AbstractNonEmptyToken<KitDeity> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitDeity kitDeity)
 	{
 		CDOMSingleRef<Deity> deity = kitDeity.getDeityRef();

@@ -49,6 +49,7 @@ public class SizeToken extends AbstractNonEmptyToken<KitGear> implements
 		return "SIZE";
 	}
 
+	@Override
 	public Class<KitGear> getTokenClass()
 	{
 		return KitGear.class;
@@ -76,6 +77,7 @@ public class SizeToken extends AbstractNonEmptyToken<KitGear> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitGear kitGear)
 	{
 		SizeAdjustment sz = kitGear.getSize();

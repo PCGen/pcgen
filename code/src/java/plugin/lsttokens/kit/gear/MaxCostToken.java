@@ -48,11 +48,13 @@ public class MaxCostToken extends AbstractToken implements
 		return "MAXCOST";
 	}
 
+	@Override
 	public Class<KitGear> getTokenClass()
 	{
 		return KitGear.class;
 	}
 
+	@Override
 	public ParseResult parseToken(LoadContext context, KitGear kitGear, String value)
 	{
 		try
@@ -73,6 +75,7 @@ public class MaxCostToken extends AbstractToken implements
 		}
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitGear kitGear)
 	{
 		Integer bd = kitGear.getMaxCost();

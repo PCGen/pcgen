@@ -55,6 +55,7 @@ public class DomainToken extends AbstractTokenWithSeparator<KitDeity> implements
 		return "DOMAIN";
 	}
 
+	@Override
 	public Class<KitDeity> getTokenClass()
 	{
 		return KitDeity.class;
@@ -82,6 +83,7 @@ public class DomainToken extends AbstractTokenWithSeparator<KitDeity> implements
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, KitDeity kitDeity)
 	{
 		Collection<CDOMSingleRef<Domain>> domains = kitDeity.getDomains();
