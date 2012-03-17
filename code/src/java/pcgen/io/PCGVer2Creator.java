@@ -1447,12 +1447,15 @@ final class PCGVer2Creator implements IOConstants
 
 				buffer.append(LINE_SEP);
 			}
-			buffer.append(TAG_USERPOOL).append(TAG_END);
-			buffer.append(EntityEncoder.encode(cat.getKeyName())).append(
-				TAG_SEPARATOR);
-			buffer.append(TAG_POOLPOINTS).append(TAG_END);
-			buffer.append(thePC.getUserPoolBonus(cat));
-			buffer.append(LINE_SEP);
+			if (!abilitiesToSave.isEmpty() || thePC.getUserPoolBonus(cat) != 0.0)
+			{
+				buffer.append(TAG_USERPOOL).append(TAG_END);
+				buffer.append(EntityEncoder.encode(cat.getKeyName())).append(
+					TAG_SEPARATOR);
+				buffer.append(TAG_POOLPOINTS).append(TAG_END);
+				buffer.append(thePC.getUserPoolBonus(cat));
+				buffer.append(LINE_SEP);
+			}
 		}
 	}
 
