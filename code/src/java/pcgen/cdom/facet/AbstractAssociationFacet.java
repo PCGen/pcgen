@@ -22,6 +22,7 @@ import java.util.IdentityHashMap;
 import java.util.Map;
 import java.util.Set;
 
+import pcgen.base.util.ListSet;
 import pcgen.cdom.enumeration.CharID;
 
 /**
@@ -183,7 +184,7 @@ public abstract class AbstractAssociationFacet<S, A> extends AbstractStorageFace
 		{
 			return Collections.emptySet();
 		}
-		return Collections.unmodifiableSet(componentMap.keySet());
+		return Collections.unmodifiableSet(new ListSet<S>(componentMap.keySet()));
 	}
 
 	/**

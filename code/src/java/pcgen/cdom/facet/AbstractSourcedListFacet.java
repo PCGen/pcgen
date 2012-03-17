@@ -24,9 +24,10 @@ import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
+import pcgen.base.util.ListSet;
 import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
@@ -245,7 +246,8 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<T>
 		{
 			return Collections.emptySet();
 		}
-		return Collections.unmodifiableSet(componentMap.keySet());
+		return Collections
+			.unmodifiableSet(new ListSet<T>(componentMap.keySet()));
 	}
 
 	/**
@@ -572,7 +574,7 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<T>
 				}
 			}
 		}
-		return list;
+		return Collections.unmodifiableList(list);
 	}
 
 	/**

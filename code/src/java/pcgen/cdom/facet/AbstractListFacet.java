@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashSet;
@@ -227,7 +228,7 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 		{
 			return Collections.emptySet();
 		}
-		return Collections.unmodifiableCollection(componentSet);
+		return Collections.unmodifiableList(new ArrayList<T>(componentSet));
 	}
 
 	/**
