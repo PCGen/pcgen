@@ -165,11 +165,10 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 	 */
 	public String getRegion(CharID id)
 	{
-		RegionCacheInfo rci = getInfo(id);
-		// character's region trumps any from templates
-		if (rci != null && rci.region != null)
+		String charRegion = getCharacterRegion(id);
+		if (!charRegion.equalsIgnoreCase(Constants.NONE))
 		{
-			return rci.region.toString();
+			return charRegion;
 		}
 
 		String region = Constants.NONE;
