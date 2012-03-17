@@ -146,6 +146,12 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			}
 			else
 			{
+				if (lstLine.indexOf('\t') == -1)
+				{
+					Logging.errorPrint("Ignoring line: " + lstLine
+						+ " as SUBSTITUTIONLEVEL line was empty");
+					return null;
+				}
 				List<SubstitutionClass> substitutionClassList = target
 						.getListFor(ListKey.SUBSTITUTION_CLASS);
 				if (substitutionClassList != null
