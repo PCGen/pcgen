@@ -141,7 +141,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 			if (!typeMap.containsKey(type))
 			{
 				int index = e.getIndex();
-				if (index >= tabs.size())
+				if (index > tabs.size())
 				{
 					Logging.log(Logging.WARNING, "Trying to add " + type + " to "
 						+ tabs + " at index " +index
@@ -278,6 +278,17 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 				this.fullCategoryList = new DefaultListFacade<AbilityCategoryFacade>();
 				this.tabData = abilityTab.createState(character, categoryList, fullCategoryList);
 				typeMap.put(title, this);
+			}
+
+			/**
+			 * {@inheritDoc}
+			 */
+			@SuppressWarnings("nls")
+			@Override
+			public String toString()
+			{
+				return "TabInfo [title=" + title + ", categoryList="
+					+ categoryList + "]";
 			}
 
 		}
