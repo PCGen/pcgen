@@ -42,7 +42,7 @@ import pcgen.util.Logging;
 /**
  * An AbstractReferenceManufacturer is a concrete, but abstract object capable
  * of creating CDOMReferences of a given "form". That "form" includes a specific
- * Class of CDOMObject, or a specific Class/Category for Categorized CDOMObjects
+ * Class of Loadable, or a specific Class/Category for Categorized Loadable
  * (this class does not make distinction between the Class and Class/Categorized
  * cases)
  * 
@@ -468,7 +468,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	}
 
 	/**
-	 * Constructs a new CDOMObject of the Class or Class/Category represented by
+	 * Constructs a new Loadable of the Class or Class/Category represented by
 	 * this AbstractReferenceManufacturer. This also adds the object to the list
 	 * of constructed objects within this AbstractReferenceManufacturer.
 	 * 
@@ -480,8 +480,8 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * "rename" an object once a KEY is encountered, see renameObject(String, T)
 	 * 
 	 * @param key
-	 *            The identifier of the CDOMObject to be constructed
-	 * @return The new CDOMObject of the Class or Class/Category represented by
+	 *            The identifier of the Loadable to be constructed
+	 * @return The new Loadable of the Class or Class/Category represented by
 	 *         this AbstractReferenceManufacturer
 	 * @throws IllegalArgumentException
 	 *             if the given identifier is null or empty (length is zero)
@@ -495,7 +495,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	}
 
 	/**
-	 * Constructs a new CDOMObject of the Class or Class/Category represented by
+	 * Constructs a new Loadable of the Class or Class/Category represented by
 	 * this AbstractReferenceManufacturer
 	 * 
 	 * This should remain protected (vs. public) as it is for "internal use
@@ -504,8 +504,8 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * constructObject(String)
 	 * 
 	 * @param key
-	 *            The identifier of the CDOMObject to be constructed
-	 * @return The new CDOMObject of the Class or Class/Category represented by
+	 *            The identifier of the Loadable to be constructed
+	 * @return The new Loadable of the Class or Class/Category represented by
 	 *         this AbstractReferenceManufacturer
 	 * @throws IllegalArgumentException
 	 *             if the given identifier is null or empty (length is zero)
@@ -736,7 +736,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * AbstractReferenceManufacturer is one where all of the following are true:
 	 * 
 	 * (1) Any object stored in the AbstractReferenceManufacturer reports that
-	 * it's KEY (as defined by CDOMObject.getKeyName()) matches the identifier
+	 * it's KEY (as defined by Loadable.getKeyName()) matches the identifier
 	 * used to store the object in the AbstractReferenceManufacturer.
 	 * 
 	 * (2) All objects stored in the ReferenceManufacturer have valid names
@@ -886,6 +886,9 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 		{
 			List<T> list = duplicates.getListFor(second);
 			T good = active.get(second.toString());
+			/*
+			 * CONSIDER Should get CDOMObject reference out of here :(
+			 */
 			if (good instanceof CDOMObject)
 			{
 				CDOMObject cdo = (CDOMObject) good;
@@ -944,7 +947,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * (such as Weapon Proficiencies for Natural Attacks)
 	 * 
 	 * @param key
-	 *            The identifier of the CDOMObject to be built (if otherwise not
+	 *            The identifier of the Loadable to be built (if otherwise not
 	 *            constructed or imported into this
 	 *            AbstractReferenceManufacturer) when buildDeferredObjects() is
 	 *            called.
@@ -1143,12 +1146,12 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * (and avoids the contains-triggered branch)
 	 * 
 	 * @param key
-	 *            The identifier of the CDOMObject to be built (if otherwise not
+	 *            The identifier of the Loadable to be built (if otherwise not
 	 *            constructed or imported into this
 	 *            AbstractReferenceManufacturer), or if an object with that
 	 *            identifier already exists, the identifier of the object to be
 	 *            returned.
-	 * @return The previously existing or new CDOMObject with the given
+	 * @return The previously existing or new Loadable with the given
 	 *         identifier.
 	 */
 	@Override
