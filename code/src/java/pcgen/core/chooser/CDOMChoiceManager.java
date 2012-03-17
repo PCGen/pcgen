@@ -7,6 +7,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 
@@ -232,7 +233,17 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	{
 		if (choice.length() > 0)
 		{
-			info.restoreChoice(pc, owner, info.decodeChoice(choice));
+			T ch = info.decodeChoice(choice);
+			if (ch == null)
+			{
+				Logging.errorPrint("Error finding "
+					+ info.getChoiceClass().getSimpleName() + " " + choice
+					+ ": Not Found");
+			}
+			else
+			{
+				info.restoreChoice(pc, owner, ch);
+			}
 		}
 	}
 
