@@ -4,7 +4,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 # Weapon Name	Type
 Leshay Weapon	TYPE:Exotic
-
+Boulder		TYPE:Simple.Thrown.Rock
 #
 # End
 #
