@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Oct 13 21:56:37 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Sun Mar 18 13:19:23 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Modern System Reference Document - Menace	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 #removed SA:Blindsight from Toxic Sludge, as it is already included in Ooze template -- Frank Kliewe
@@ -45,16 +45,16 @@ Maniac Gargantuan		VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Slam,Weapon.Natural.Me
 Maniac Colossal		VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,4d6
 
 ###Block: specific templates
-# Template Name	Visible	Template			Define			Bonus to Ability Pool				Stat bonus			Modify VAR										Ability																																			Feat						Bonus Languages	Move			Race Subtype	Vision					Innate Spells
-Animated Object	VISIBLE:NO	TEMPLATE:Construct	DEFINE:LOCK.INT|10								BONUS:STAT|WIS,CHA|-10												ABILITY:Special Ability|AUTOMATIC|Blind|Constrict|Hardness|Improved Speed|Trample																																MOVE:Walk,30				VISION:Darkvision (60')
-Fiend			VISIBLE:NO	TEMPLATE:Outsider						BONUS:ABILITYPOOL|Outsider Proficiency|1																																																										LANGBONUS:Abyssal							VISION:Darkvision (60')
-Infester		VISIBLE:NO	TEMPLATE:Vermin																												ABILITY:Special Ability|AUTOMATIC|Boost Host|Host Protection|Infestation																																	MOVE:Walk,30				VISION:Blindsight (60')
+# Template Name	Visible	Template			Define			Bonus to Ability Pool				Stat bonus			Modify VAR										Ability																																			Automatically Gained Feat			Bonus Languages	Move			Race Subtype	Vision					Innate Spells
+Animated Object	VISIBLE:NO	TEMPLATE:Construct	DEFINE:LOCK.INT|10								BONUS:STAT|WIS,CHA|-10												ABILITY:Special Ability|AUTOMATIC|Blind|Constrict|Hardness|Improved Speed|Trample																																	MOVE:Walk,30				VISION:Darkvision (60')
+Fiend			VISIBLE:NO	TEMPLATE:Outsider						BONUS:ABILITYPOOL|Outsider Proficiency|1																																																											LANGBONUS:Abyssal							VISION:Darkvision (60')
+Infester		VISIBLE:NO	TEMPLATE:Vermin																												ABILITY:Special Ability|AUTOMATIC|Boost Host|Host Protection|Infestation																																		MOVE:Walk,30				VISION:Blindsight (60')
 Skin Feaster	VISIBLE:NO	TEMPLATE:Undead																												ABILITY:Special Ability|AUTOMATIC|Flesh Weakness|Necrotizing Touch|Skin Regrowth																							AUTO:FEAT|Simple Weapons Proficiency
 Star Doppelganger	VISIBLE:NO																				BONUS:VAR|ColdResistanceBonus|10	BONUS:VAR|RegenerationRate|5	ABILITY:Special Ability|AUTOMATIC|Absrobe|Alien Physiolgoy|Convert|Hive Mind|Mimic|Regeneration|Resistance To Cold|Split|Star Doppelganger Fear Aura|Star Doppelganger Flesh Transfer|Star Doppelganger Immunities
-Thunderbird		VISIBLE:NO	TEMPLATE:Magical Beast																											ABILITY:Special Ability|AUTOMATIC|Immunity To Electricity|Immunity To Sonic|Improved Grab|Thunderbird Breath Weapon|Thunderbird Fear Aura																				LANGBONUS:Auran							VISION:Darkvision (60')|Low-light
-Toxic Sludge	VISIBLE:NO	TEMPLATE:Ooze																												ABILITY:Special Ability|AUTOMATIC|Acid|Expansion|Immunity To Acid|Immunity To Cold|Immunity To Electricity|Improved Grab|Toxic Fumes																							MOVE:Walk,20
-Udoroot		VISIBLE:NO	TEMPLATE:Plant		DEFINE:LOCK.INT|10												BONUS:VAR|ColdResistanceBonus|20						ABILITY:Special Ability|AUTOMATIC|Immunity To Electricity|Immunity To Fire|Resistance To Cold																																				VISION:Blindsight (40')			SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=10|False Sensory Input,13+CHA|Lesser Body Adjustment,11+STR|Lightning Strike,13+INT|Telekinesis,14+CON
-Yeti			VISIBLE:NO																															ABILITY:Special Ability|AUTOMATIC|Constrict|Hide in Snow|Improved Grab																																		MOVE:Walk,40	RACESUBTYPE:Cold	VISION:Darkvision (60')
+Thunderbird		VISIBLE:NO	TEMPLATE:Magical Beast																											ABILITY:Special Ability|AUTOMATIC|Immunity To Electricity|Immunity To Sonic|Improved Grab|Thunderbird Breath Weapon|Thunderbird Fear Aura																					LANGBONUS:Auran							VISION:Darkvision (60')|Low-light
+Toxic Sludge	VISIBLE:NO	TEMPLATE:Ooze																												ABILITY:Special Ability|AUTOMATIC|Acid|Expansion|Immunity To Acid|Immunity To Cold|Immunity To Electricity|Improved Grab|Toxic Fumes																								MOVE:Walk,20
+Udoroot		VISIBLE:NO	TEMPLATE:Plant		DEFINE:LOCK.INT|10												BONUS:VAR|ColdResistanceBonus|20						ABILITY:Special Ability|AUTOMATIC|Immunity To Electricity|Immunity To Fire|Resistance To Cold																																					VISION:Blindsight (40')			SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=10|False Sensory Input,13+CHA|Lesser Body Adjustment,11+STR|Lightning Strike,13+INT|Telekinesis,14+CON
+Yeti			VISIBLE:NO																															ABILITY:Special Ability|AUTOMATIC|Constrict|Hide in Snow|Improved Grab																																			MOVE:Walk,40	RACESUBTYPE:Cold	VISION:Darkvision (60')
 
 ###Block: Robot variants
 # Template Name	Visible	Move

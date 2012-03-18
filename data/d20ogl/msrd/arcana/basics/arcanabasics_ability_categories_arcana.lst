@@ -1,28 +1,28 @@
-# CVS $Revision$ $Author$ -- Sun Oct 12 12:26:30 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Sun Mar 18 13:19:23 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 #SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
-# Ability Category									Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI					Display Location			Ability List
-ABILITYCATEGORY:Weapon Finesse Selection						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT								PLURAL:Weapon Finesse Selections				DISPLAYLOCATION:Feats		ABILITYLIST:Weapon Finesse
-ABILITYCATEGORY:Increased Weapon Critical Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability						PLURAL:Increased Weapon Critical Selections		DISPLAYLOCATION:Feats		ABILITYLIST:Increased Weapon Critical
-ABILITYCATEGORY:Spell Focus Selection						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT								PLURAL:Spell Focus Selections					DISPLAYLOCATION:Feats		ABILITYLIST:Spell Focus
-ABILITYCATEGORY:Exotic Melee Weapon Proficiency Selection			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT								PLURAL:Exotic Melee Weapon Proficiency Selections	DISPLAYLOCATION:Feats		ABILITYLIST:Exotic Melee Weapon Proficiency
+# Ability Category							Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list					Plural description for UI					Display Location
+ABILITYCATEGORY:Weapon Finesse Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Weapon Finesse				PLURAL:Weapon Finesse Selections				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Increased Weapon Critical Selection		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Increased Weapon Critical		PLURAL:Increased Weapon Critical Selections		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Spell Focus Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Spell Focus					PLURAL:Spell Focus Selections					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Exotic Melee Weapon Proficiency Selection	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Exotic Melee Weapon Proficiency	PLURAL:Exotic Melee Weapon Proficiency Selections	DISPLAYLOCATION:Feats
 
 
-# Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
-ABILITYCATEGORY:Apothecary Occupation Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Apothecary_Skills		PLURAL:Apothecary Occupation Skills		DISPLAYLOCATION:Background
-ABILITYCATEGORY:Hedge Wizard Occupation Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Hedge_Wizard_Skills	PLURAL:Hedge Wizard Occupation Skills	DISPLAYLOCATION:Background
-ABILITYCATEGORY:Novitiate Occupation Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Novitiate_Skills		PLURAL:Novitiate Occupation Skills		DISPLAYLOCATION:Background
-ABILITYCATEGORY:Psychic Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Psychic_Skills		PLURAL:Psychic Occupation Skills		DISPLAYLOCATION:Background
-ABILITYCATEGORY:Shadow Scholar Occupation Skills	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Shadow_Scholar_Skills	PLURAL:Shadow Scholar Occupation Skills	DISPLAYLOCATION:Background
-ABILITYCATEGORY:Squire Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Squire_Skills		PLURAL:Squire Occupation Skills		DISPLAYLOCATION:Background
+# Ability Category							Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list					Plural description for UI					Display Location
+ABILITYCATEGORY:Apothecary Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Apothecary_Skills										PLURAL:Apothecary Occupation Skills				DISPLAYLOCATION:Background
+ABILITYCATEGORY:Hedge Wizard Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Hedge_Wizard_Skills									PLURAL:Hedge Wizard Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Novitiate Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Novitiate_Skills										PLURAL:Novitiate Occupation Skills				DISPLAYLOCATION:Background
+ABILITYCATEGORY:Psychic Occupation Skills				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Psychic_Skills										PLURAL:Psychic Occupation Skills				DISPLAYLOCATION:Background
+ABILITYCATEGORY:Shadow Scholar Occupation Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Shadow_Scholar_Skills									PLURAL:Shadow Scholar Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Squire Occupation Skills				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Squire_Skills										PLURAL:Squire Occupation Skills				DISPLAYLOCATION:Background
 
-# Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
-ABILITYCATEGORY:Apothecary Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Apothecary			PLURAL:Apothecary Feats				DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Hedge Wizard Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:HedgeWizard			PLURAL:Hedge Wizard Feats			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Novitiate Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Novitiate			PLURAL:Novitiate Feats				DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Psychic Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Psychic			PLURAL:Psychic Feats				DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Shadow Scholar Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ShadowScholar		PLURAL:Shadow Scholar Feats			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Squire Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Squire				PLURAL:Squire Feats				DISPLAYLOCATION:Feats
+# Ability Category							Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list					Plural description for UI					Display Location
+ABILITYCATEGORY:Apothecary Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Apothecary											PLURAL:Apothecary Feats						DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Hedge Wizard Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:HedgeWizard											PLURAL:Hedge Wizard Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Novitiate Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Novitiate											PLURAL:Novitiate Feats						DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Psychic Feat						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Psychic											PLURAL:Psychic Feats						DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Shadow Scholar Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ShadowScholar										PLURAL:Shadow Scholar Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Squire Feat						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Squire												PLURAL:Squire Feats						DISPLAYLOCATION:Feats
 
 ###Block: Arcana Basics Class Feat
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object			Plural description for UI		Display Location

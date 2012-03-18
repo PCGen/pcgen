@@ -298,7 +298,7 @@ SKILL:Climb		RANK:1
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
 ABILITY:CATEGORY=Giant Proficiency|Simple Weapons Proficiency
-FEAT:Weapon Focus (Huge Club)
+FEAT:Weapon Focus (Club)
 GEAR:Club	SIZE:H	LOCATION:Both Hands
 
 STARTPACK:Ooze (Terrestrial Effluvium) Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ooze (Terrestrial Effluvium)]

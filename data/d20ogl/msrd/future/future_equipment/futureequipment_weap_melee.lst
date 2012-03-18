@@ -1,14 +1,14 @@
-# CVS $Revision$ $Author$ -- Wed Feb 18 12:57:31 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Sun Mar 18 13:19:23 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 #Original Entry by: Frank Kliewe
 
 #Progress Level 6 Melee Weapons
-# Equipment Name		Required Weapon Proficiency			Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage			Size		Source Page					Special Property
-High Frequency Sword	PROFICIENCY:WEAPON|High Frequency Sword	TYPE:Weapon.Simple.Melee.Standard.Slashing.Metal.Sword.PL6			COST:15	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6			SIZE:L	SOURCEPAGE:FutureEquipment.rtf
-Stun Baton			PROFICIENCY:WEAPON|Stun Baton			TYPE:Weapon.Simple.Melee.Standard.Bludgeoning.Metal.Stun.PL6		COST:16	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6			SIZE:M	SOURCEPAGE:FutureEquipment.rtf	SPROP:Fortitude save (DC 10 + damage dealt) or be stunned for 1d4 rounds
+# Equipment Name		Required Weapon Proficiency			Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page					Special Property
+High Frequency Sword	PROFICIENCY:WEAPON|High Frequency Sword	TYPE:Weapon.Simple.Melee.Standard.Slashing.Metal.Sword.PL6			COST:15	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6	SIZE:L	SOURCEPAGE:FutureEquipment.rtf
+Stun Baton			PROFICIENCY:WEAPON|Stun Baton			TYPE:Weapon.Simple.Melee.Standard.Bludgeoning.Metal.Stun.PL6		COST:16	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	SIZE:M	SOURCEPAGE:FutureEquipment.rtf	SPROP:Fortitude save (DC 10 + damage dealt) or be stunned for 1d4 rounds
 
 #Progress Level 7 Melee Weapons
-Concussion Rod		PROFICIENCY:WEAPON|Concussion Rod		TYPE:Weapon.Simple.Melee.Standard.Bludgeoning.Concussion.Metal.PL7	COST:17	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8			SIZE:M	SOURCEPAGE:FutureEquipment.rtf	SPROP:half of the damage is bludgeoning damage; half is concussive damage
+Concussion Rod		PROFICIENCY:WEAPON|Concussion Rod		TYPE:Weapon.Simple.Melee.Standard.Bludgeoning.Concussion.Metal.PL7	COST:17	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	SIZE:M	SOURCEPAGE:FutureEquipment.rtf	SPROP:half of the damage is bludgeoning damage; half is concussive damage
 
 #Progress Level 8 Melee Weapons
-Beam Sword			PROFICIENCY:WEAPON|Beam Sword			TYPE:Weapon.Simple.Melee.Standard.Fire.Sword.PL8				COST:17	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d8			SIZE:M	SOURCEPAGE:FutureEquipment.rtf
+Beam Sword			PROFICIENCY:WEAPON|Beam Sword			TYPE:Weapon.Simple.Melee.Standard.Fire.Sword.PL8				COST:17	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d8	SIZE:M	SOURCEPAGE:FutureEquipment.rtf

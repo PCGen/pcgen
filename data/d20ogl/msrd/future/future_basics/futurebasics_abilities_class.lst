@@ -1,85 +1,85 @@
-# CVS $Revision$ $Author$ -- Wed Oct 15 13:28:23 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Sun Mar 18 13:19:23 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 
-# Ability Name			Category of Ability		Type					Visible	Special ABility						Define
-Action Trust			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Action Trust
-August Leadership			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:August Leadership
-Build Prototype			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Build Prototype
-Cheat Fate				CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Cheat Fate
-Commanding Presence		CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Commanding Presence
-Craft XP Reserve			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Craft XP Reserve (%)|CraftReserve		DEFINE:CraftReserve|0
-Cybermancer				CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Cybermancer
-Decisive Attack			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Decisive Attack
-Defender of the Universe	CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Defender of the Universe
-Diplomatic Immunity		CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Diplomatic Immunity
-Down with Robots			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Down with Robots +%|DownWithRobots		DEFINE:DownWithRobots|0
-Exotic Weapons Adept		CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Exotic Weapons Adept
-Expeditious Salvager		CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Expeditious Salvager
-Explorer Lore			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Explorer Lore +%|ExplorerLore			DEFINE:ExplorerLore|0
-Explorer's Evasion		CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Explorer's Evasion
-Extra Step				CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Extra Step
-Fortune's Favor			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Fortune's Favor +%|FortunesFavor		DEFINE:FortunesFavor|0
-Haul					CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Haul
-Heavy Artillery			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Heavy Artillery
-Hibernation Trance		CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Hibernation Trance
-Improve Kit				CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Improve Kit +%|ImproveKit				DEFINE:ImproveKit|0
-Information Access		CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Information Access
-Keep it Together			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Keep it Together
-Knockdown				CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Knockdown
-Know Location			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Know Location (%)|KnowLocation			DEFINE:KnowLocation|0
-Leadership				CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Leadership
-Light Sleeper			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Light Sleeper
-Master Defender			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Master Defender
-Monkey Shines			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Monkey Shines
-Monkey Shot				CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Monkey Shot
-Monkeys Unite			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Monkeys Unite
-Monkey's Wrench			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Monkey's Wrench +%|MonkeysWrench		DEFINE:MonkeysWrench|0
-Open Arms				CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Open Arms
-Quick Craft				CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Quick Craft
-Quick Fix				CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Quick Fix
-Reconfigure Weapon		CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Reconfigure Weapon
-Resolve				CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Resolve
-Restricted Access			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Restricted Access
-Robomancer				CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Robomancer
-Sabotage				CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Sabotage
-Select Consuls			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Select Consuls
-Shake Rattle and Roll		CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Shake Rattle and Roll +%|ShakeRattleRoll	DEFINE:ShakeRattleRoll|0
-Skilled Researcher		CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Skilled Researcher
-Skilled Salvager			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Skilled Salvager
-Space Suitable			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Space Suitable
-Steamroller				CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Steamroller
-Stipend				CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Stipend
-Strong as an Ox			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Strong as an Ox
-Super Cybersurgeon		CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Super Cybersurgeon
-Superior Conditioning		CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Superior Conditioning
-Superior Repair			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Superior Repair
-Survivalist				CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Survivalist
-Survivor				CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Survivor
-Swift Tracking			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Swift Tracking
-Tactical Expertise		CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Tactical Expertise
-Tactical Mastery			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Tactical Mastery
-Target Species			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Target Species
-Technocrat				CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Technocrat
-Technophile				CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Technophile
-Thousand Faces			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Thousand Faces
-To the Max				CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:To the Max
-Uncanny Survival			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Uncanny Survival
-Unflustered				CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Unflustered
-Unhindered				CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Unhindered
-Virtual Houdini			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Virtual Houdini
-Warp Probability			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Warp Probability +%|WarpProbability		DEFINE:WarpProbability|0
-Weapon Upgrade			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Weapon Upgrade
-Xenodefense				CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Xenodefense +%|Xenodef				DEFINE:Xenodef|0
-Xenolore				CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Xenolore
-Xenoresistance			CATEGORY:Special Ability	TYPE:Class.SpecialAbility		SAB:Xenoresistance +%|Xenoresist			DEFINE:Xenoresist|0
+# Ability Name			Category of Ability		Type					Special ABility						Define
+Action Trust			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Action Trust
+August Leadership			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:August Leadership
+Build Prototype			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Build Prototype
+Cheat Fate				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Cheat Fate
+Commanding Presence		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Commanding Presence
+Craft XP Reserve			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Craft XP Reserve (%)|CraftReserve		DEFINE:CraftReserve|0
+Cybermancer				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Cybermancer
+Decisive Attack			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Decisive Attack
+Defender of the Universe	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Defender of the Universe
+Diplomatic Immunity		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Diplomatic Immunity
+Down with Robots			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Down with Robots +%|DownWithRobots		DEFINE:DownWithRobots|0
+Exotic Weapons Adept		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Exotic Weapons Adept
+Expeditious Salvager		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Expeditious Salvager
+Explorer Lore			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Explorer Lore +%|ExplorerLore			DEFINE:ExplorerLore|0
+Explorer's Evasion		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Explorer's Evasion
+Extra Step				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Extra Step
+Fortune's Favor			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Fortune's Favor +%|FortunesFavor		DEFINE:FortunesFavor|0
+Haul					CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Haul
+Heavy Artillery			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Heavy Artillery
+Hibernation Trance		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Hibernation Trance
+Improve Kit				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Improve Kit +%|ImproveKit				DEFINE:ImproveKit|0
+Information Access		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Information Access
+Keep it Together			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Keep it Together
+Knockdown				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Knockdown
+Know Location			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Know Location (%)|KnowLocation			DEFINE:KnowLocation|0
+Leadership				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Leadership
+Light Sleeper			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Light Sleeper
+Master Defender			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Master Defender
+Monkey Shines			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Monkey Shines
+Monkey Shot				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Monkey Shot
+Monkeys Unite			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Monkeys Unite
+Monkey's Wrench			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Monkey's Wrench +%|MonkeysWrench		DEFINE:MonkeysWrench|0
+Open Arms				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Open Arms
+Quick Craft				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Quick Craft
+Quick Fix				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Quick Fix
+Reconfigure Weapon		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Reconfigure Weapon
+Resolve				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Resolve
+Restricted Access			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Restricted Access
+Robomancer				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Robomancer
+Sabotage				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Sabotage
+Select Consuls			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Select Consuls
+Shake Rattle and Roll		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Shake Rattle and Roll +%|ShakeRattleRoll	DEFINE:ShakeRattleRoll|0
+Skilled Researcher		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Skilled Researcher
+Skilled Salvager			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Skilled Salvager
+Space Suitable			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Space Suitable
+Steamroller				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Steamroller
+Stipend				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Stipend
+Strong as an Ox			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Strong as an Ox
+Super Cybersurgeon		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Super Cybersurgeon
+Superior Conditioning		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Superior Conditioning
+Superior Repair			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Superior Repair
+Survivalist				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Survivalist
+Survivor				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Survivor
+Swift Tracking			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Swift Tracking
+Tactical Expertise		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Tactical Expertise
+Tactical Mastery			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Tactical Mastery
+Target Species			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Target Species
+Technocrat				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Technocrat
+Technophile				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Technophile
+Thousand Faces			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Thousand Faces
+To the Max				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:To the Max
+Uncanny Survival			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Uncanny Survival
+Unflustered				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Unflustered
+Unhindered				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Unhindered
+Virtual Houdini			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Virtual Houdini
+Warp Probability			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Warp Probability +%|WarpProbability		DEFINE:WarpProbability|0
+Weapon Upgrade			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Weapon Upgrade
+Xenodefense				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Xenodefense +%|Xenodef				DEFINE:Xenodef|0
+Xenolore				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Xenolore
+Xenoresistance			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Xenoresistance +%|Xenoresist			DEFINE:Xenoresist|0
 
 ###Block: Special Abilities
-# Ability Name			Output Name				Category of Ability		Visible	Special ABility																									Define																				Combat bonus										Stat bonus										Modify VAR
-Dreadnought Ability Surge	OUTPUTNAME:Ability Surge	CATEGORY:Special Ability		SAB:Ability Surge ~ %/day for % rounds (STR +%, Defense -% when Surged)|AbilitySurgeTimes|AbilitySurgeRounds|AbilitySurgeStrBonus|AbilitySurgeDefensePenalty	DEFINE:AbilitySurgeTimes|0	DEFINE:AbilitySurgeRounds|0	DEFINE:AbilitySurgeStrBonus|0	DEFINE:AbilitySurgeDefensePenalty|0	BONUS:COMBAT|AC|-AbilitySurgeDefensePenalty|TYPE=Temporary|PREAPPLY:PC	BONUS:STAT|STR|AbilitySurgeStrBonus|TYPE=Temporary|PREAPPLY:PC	BONUS:VAR|AbilitySurgeRounds|0	BONUS:VAR|AbilitySurgeDefensePenalty|2	BONUS:VAR|AbilitySurgeStrBonus|4*AbilitySurgeDefensePenalty
-Swift Strike								CATEGORY:Special Ability		SAB:Swift Strike +%d%|SwiftStrike|SwiftStrikeDie																			DEFINE:SwiftStrikeDie|6	DEFINE:SwiftStrike|0
-Trap Sense									CATEGORY:Special Ability		SAB:Trap Sense (Ex) +%|TrapSense																						DEFINE:TrapSense|0
-Uncanny Stealth								CATEGORY:Special Ability		SAB:Uncanny Stealth (full speed)|PREVARLT:UncannyStealthChargeQual,1	SAB:Uncanny Stealth (charge/run)|PREVARGTEQ:UncannyStealthChargeQual,1
+# Ability Name			Output Name				Category of Ability		Special ABility																									Define																				Combat bonus										Stat bonus										Modify VAR
+Dreadnought Ability Surge	OUTPUTNAME:Ability Surge	CATEGORY:Special Ability	SAB:Ability Surge ~ %/day for % rounds (STR +%, Defense -% when Surged)|AbilitySurgeTimes|AbilitySurgeRounds|AbilitySurgeStrBonus|AbilitySurgeDefensePenalty	DEFINE:AbilitySurgeTimes|0	DEFINE:AbilitySurgeRounds|0	DEFINE:AbilitySurgeStrBonus|0	DEFINE:AbilitySurgeDefensePenalty|0	BONUS:COMBAT|AC|-AbilitySurgeDefensePenalty|TYPE=Temporary|PREAPPLY:PC	BONUS:STAT|STR|AbilitySurgeStrBonus|TYPE=Temporary|PREAPPLY:PC	BONUS:VAR|AbilitySurgeRounds|0	BONUS:VAR|AbilitySurgeDefensePenalty|2	BONUS:VAR|AbilitySurgeStrBonus|4*AbilitySurgeDefensePenalty
+Swift Strike								CATEGORY:Special Ability	SAB:Swift Strike +%d%|SwiftStrike|SwiftStrikeDie																			DEFINE:SwiftStrikeDie|6	DEFINE:SwiftStrike|0
+Trap Sense									CATEGORY:Special Ability	SAB:Trap Sense (Ex) +%|TrapSense																						DEFINE:TrapSense|0
+Uncanny Stealth								CATEGORY:Special Ability	SAB:Uncanny Stealth (full speed)|PREVARLT:UncannyStealthChargeQual,1	SAB:Uncanny Stealth (charge/run)|PREVARGTEQ:UncannyStealthChargeQual,1
 
 ###Block: Xenophile Xenotype block
 # Ability Name				Category of Ability		Type				Visible		Required Ability										Required Skill							Special ABility									Define							Stackable?	Multiple?	Choose		Modify VAR

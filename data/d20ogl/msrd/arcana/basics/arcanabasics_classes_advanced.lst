@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Feb 18 12:57:31 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Sun Mar 18 13:19:23 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 #Original Entry by: Paul King
 
@@ -25,15 +25,15 @@ CLASS:Archaic Weaponsmaster	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:Arcan
 CLASS:Archaic Weaponsmaster	PREATT:3	PREFEAT:2,Archaic Weapons Proficiency,Weapon Focus
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Archaic Weaponsmaster	STARTSKILLPTS:2	CSKILL:Climb|Craft (Mechanical)|Craft (Structural)|Craft (Visual Art)|Craft (Writing)|Handle Animal|Jump|Knowledge (Art)|Knowledge (History)|Knowledge (Theology and Philosophy)|Profession|Research|Ride|Swim
-1	BONUS:ABILITYPOOL|Weapon Specialization|1								DEFINE:WeapSpecQualify|1
-2									BONUS:VAR|ImbueWeapon|(CL+4)/6	DEFINE:ImbueWeapon|0		ABILITY:Special Ability|AUTOMATIC|Imbue Weapon
+1	BONUS:ABILITYPOOL|Weapon Specialization|1										DEFINE:WeapSpecQualify|1
+2											BONUS:VAR|ImbueWeapon|(CL+4)/6	DEFINE:ImbueWeapon|0		ABILITY:Special Ability|AUTOMATIC|Imbue Weapon
 3	BONUS:ABILITYPOOL|Archaic Weaponmaster Feat|1
-4																				ABILITY:Special Ability|AUTOMATIC|Quick Weapon Draw
-5																				ABILITY:Special Ability|AUTOMATIC|Expert in Your Field
+4																						ABILITY:Special Ability|AUTOMATIC|Quick Weapon Draw
+5																						ABILITY:Special Ability|AUTOMATIC|Expert in Your Field
 6	BONUS:ABILITYPOOL|Archaic Weaponmaster Feat|1
-7																				ABILITY:Special Ability|AUTOMATIC|Weapon Stun
+7																						ABILITY:Special Ability|AUTOMATIC|Weapon Stun
 9	BONUS:ABILITYPOOL|Archaic Weaponmaster Feat|1
-10																														BONUS:ABILITYPOOL|Increased Weapon Critical Selection|1
+10	BONUS:ABILITYPOOL|Increased Weapon Critical Selection|1
 
 # Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
 CLASS:Glamourist	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
@@ -187,7 +187,7 @@ CLASS:Techno Mage	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK
 4	CAST:4,3,2											ABILITY:Special Ability|AUTOMATIC|Create Homunculus
 5	CAST:4,3,2,1	BONUS:ABILITYPOOL|Techno Mage Spontaneous Casting|1
 6	CAST:4,3,3,2	BONUS:ABILITYPOOL|Techno Mage Feat|1
-7	CAST:4,4,3,2,1																			BONUS:ABILITYPOOL|Spell Focus Selection|1
+7	CAST:4,4,3,2,1	BONUS:ABILITYPOOL|Spell Focus Selection|1
 8	CAST:4,4,3,3,2										ABILITY:Special Ability|AUTOMATIC|Online Casting
 9	CAST:4,4,4,3,2,1	BONUS:ABILITYPOOL|Techno Mage Feat|1
 10	CAST:4,4,4,3,3,2										ABILITY:Special Ability|AUTOMATIC|Quicken Spell

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Aug 31 16:19:37 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Sun Mar 18 13:19:23 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 
@@ -26,7 +26,7 @@ Cloudkill					KEY:Dragon Cloudkill				CATEGORY:Special Ability	TYPE:DragonSpellL
 Telekinesis					KEY:Dragon Telekinesis				CATEGORY:Special Ability	TYPE:DragonSpellLikeEmperor		VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(MonsterLevel-4)/3|Telekinesis,15+CHA
 
 ###Block: Vivilor swap table
-# Ability Name			Category of Ability		Type			Visible				Multiple?	Choose		Bonus to Ability Pool
+# Ability Name			Category of Ability		Type			Visible		Stackable?	Multiple?	Choose		Bonus to Ability Pool
 2 Vivilor Type A Abilities	CATEGORY:Special Ability	TYPE:VivSwap1	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Vivilor A Ability|2
 1 Vivilor Type B Ability	CATEGORY:Special Ability	TYPE:VivSwap1	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Vivilor B Ability|1
 

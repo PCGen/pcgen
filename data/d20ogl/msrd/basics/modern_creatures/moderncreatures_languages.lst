@@ -1,21 +1,21 @@
-# CVS $Revision$ $Author$ -- Tue Nov 25 12:07:19 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Sun Mar 18 13:19:23 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Modern System Reference Document - Creatures	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
-# Language	Type			Source Page
-Abyssal	TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Abyssal	TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf	KEY:Abyssal ~ Written
-Auran		TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Auran		TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf	KEY:Auran ~ Written
-Draconic	TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Draconic	TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf	KEY:Draconic ~ Written
-Giant		TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Giant		TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf	KEY:Giant ~ Written
-Gnoll		TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Gnoll		TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf	KEY:Gnoll ~ Written
-Goblin	TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Goblin	TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf	KEY:Goblin ~ Written
-Terran	TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Terran	TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf	KEY:Terran ~ Written
+# Language	Unique Key			Type			Source Page
+Abyssal					TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
+Abyssal	KEY:Abyssal ~ Written	TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
+Auran						TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
+Auran		KEY:Auran ~ Written	TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
+Draconic					TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
+Draconic	KEY:Draconic ~ Written	TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
+Giant						TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
+Giant		KEY:Giant ~ Written	TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
+Gnoll						TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
+Gnoll		KEY:Gnoll ~ Written	TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
+Goblin					TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
+Goblin	KEY:Goblin ~ Written	TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
+Terran					TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
+Terran	KEY:Terran ~ Written	TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
 
 #
 # End
