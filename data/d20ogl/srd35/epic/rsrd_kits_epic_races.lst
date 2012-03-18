@@ -110,7 +110,7 @@ FEAT:Cleave
 FEAT:Combat Reflexes
 FEAT:Epic Toughness
 FEAT:Epic Weapon Focus(Claw)
-FEAT:Epic Weapon Focus(Pincers)
+FEAT:Epic Weapon Focus(Pincer)
 FEAT:Flyby Attack
 FEAT:Great Cleave
 FEAT:Improved Sunder
@@ -119,7 +119,7 @@ FEAT:Quicken Spell Like Ability
 FEAT:Weapon Focus(Bite)
 FEAT:Weapon Focus(Claw)
 FEAT:Weapon Focus(Gore)
-FEAT:Weapon Focus(Pincers)
+FEAT:Weapon Focus(Pincer)
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Abomination (Hecatoncheires) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Hecatoncheires)]
@@ -1410,12 +1410,12 @@ FEAT:Dodge
 FEAT:Great Cleave
 FEAT:Great Fortitude
 FEAT:Improved Bull Rush
-FEAT:Improved Critical(Pincers)
+FEAT:Improved Critical(Pincer)
 FEAT:Improved Critical(Sting)
 FEAT:Improved Initiative
 FEAT:Multiattack
 FEAT:Power Attack
-FEAT:Weapon Focus(Pincers)
+FEAT:Weapon Focus(Pincer)
 FEAT:Weapon Focus(Sting)
 
 STARTPACK:Winterwight Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Winterwight]

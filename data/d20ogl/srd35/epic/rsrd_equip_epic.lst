@@ -173,3 +173,6 @@ Ring of Nine Facets									TYPE:Artifact.Major.Ring.Magic											COST:0	WT:0
 
 # Equipment Name	Required Weapon Proficiency		Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier							Wield Category	Size
 Leshay Weapon	PROFICIENCY:WEAPON|Leshay Weapon	TYPE:Magic.Weapon.Melee.Exotic.Specific.Slashing.Sword	COST:0	WT:0		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:BRI_EN_M.KEEN.MWORKW.PLUS_10_WEAP.STEEL	WIELD:Light		SIZE:M
+# COMMENT: Unknown on the actual weight of a Boulder sized for HUGE, placing at 20lbs for the time being. - LegacyKing Mar 17, 2012
+# COMMENT: Added for Hecatoncheires
+Boulder		PROFICIENCY:WEAPON|Boulder		TYPE:Weapon.Ranged.Specific.Rock					COST:0	WT:20		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8									WIELD:OneHanded	SIZE:H
