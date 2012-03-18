@@ -2,6 +2,18 @@
 # Bob Tests - PCG Bob needs only the simple addition of the 'Template ~ Bob Tests' Template and it will take care of testing Bob.
 # The Template has an Ability granted but only if Bob meets the requirements; the Test Includes the Requirements, so ALL tests should = True.
 
+
+
+Rune Weaver (30 CP)	CATEGORY:Special Ability	TYPE:Extra.EclipseAbilityOutput	ABILITY:Character Points|AUTOMATIC|Shaping ~ Rune Weaver|Mana ~ Rune Weaver|Ritual of Chi ~ Rune Weaver|Create Relic ~ Rune Weaver
+
+Shaping (Rune Weaver)			KEY:Shaping ~ Rune Weaver		CATEGORY:Special Ability	TYPE:Extra.EclipseAbilityOutput	DESC:Specialized and Corrupted (for double effect and two thirds cost) / the user may only choose a limited number of relatively narrow themes linked to a particular attribute to use rather than being able to produce any desired effect within his or her limits; the user may select two attributes, gaining (Attribute Mod) themes from each, to start with. Additional attributes may be "opened" at a cost of 6 CP each at levels 3, 6, 9, and 12. The themes chosen will be represented by symbols on the user's skin, which will be revealing to any knowledgeable observer. Sadly, without boosting, this is effectively limited to level zero effects - and cumulative effects (such as healing) lose effectiveness on any given target after 2d6 uses per day (4 CP).	COST:4
+2d6 (8) Mana				KEY:Mana ~ Rune Weaver			CATEGORY:Special Ability	TYPE:Extra.EclipseAbilityOutput	DESC:(Spell Enhancement Option), Specialized and Corrupted for triple effect (24 Mana)/only for use with Shaping, only to reduce spell levels (not for caster level enhancement), use of more than half the reserve will fatigue the user, using it up will exhaust him or her (12 CP).	COST:12
+Ritual of Chi with +4 Bonus Uses	KEY:Ritual of Chi ~ Rune Weaver	CATEGORY:Special Ability	TYPE:Extra.EclipseAbilityOutput	DESC:Specialized (for double effect) and Corrupted: requires at least an hour of rest and meditation or sleep, only restores Mana (8 CP).	COST:8
+Runebinding					KEY:Create Relic ~ Rune Weaver	CATEGORY:Special Ability	TYPE:Extra.EclipseAbilityOutput	DESC:Create Relic, Specialized and Corrupted: only usable to make one and two point personal relics, only usable with points from Enthusiast (2 CP) and Double Enthusiast with Adaption, Specialized and Corrupted for 1.5x effect (3 CP) and half cost/ points from Enthusiast are only usable to make Relics (3 CP), and Immunity/the normal XP costs of Innate Enchantments (Uncommon, Minor, Trivial / only covers L0 and L1 effects at caster level one), Specialized and Corrupted / only for making temporary relics with Enthusiast Points (1 CP).	COST:1
+
+
+
+
 CODE-1145	KEY:CODE-1145	CATEGORY:Special Ability	COST:2	TYPE:CODE.CODEOneOneFourFive.SpecialQuality	DESC:Cost 2 Ability kit work.	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
 CODE-1145				CATEGORY:FEAT			COST:0	TYPE:CODE	BONUS:ABILITYPOOL|CodeOneOneFourFive|2
 
