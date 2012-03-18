@@ -23,34 +23,18 @@ import javax.swing.AbstractCellEditor;
 import javax.swing.JEditorPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.event.EventListenerList;
-import javax.swing.event.TreeModelEvent;
-import javax.swing.event.TreeModelListener;
 import javax.swing.table.TableCellEditor;
 import javax.swing.tree.MutableTreeNode;
-import javax.swing.tree.TreePath;
-import pcgen.base.util.HashMapToList;
-import pcgen.base.util.MapToList;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.CompanionFacade;
 import pcgen.core.facade.CompanionSupportFacade;
 import pcgen.core.facade.event.*;
-import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.core.facade.util.MapFacade;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.util.JTreeTable;
-import pcgen.gui2.util.JTreeViewTable;
 import pcgen.gui2.util.treetable.AbstractTreeTableModel;
 import pcgen.gui2.util.treetable.DefaultTreeTableNode;
-import pcgen.gui2.util.treetable.SortableTreeTableModel;
-import pcgen.gui2.util.treetable.TreeTableNode;
-import pcgen.gui2.util.treeview.DataView;
-import pcgen.gui2.util.treeview.DataViewColumn;
-import pcgen.gui2.util.treeview.DefaultDataViewColumn;
-import pcgen.gui2.util.treeview.TreeView;
-import pcgen.gui2.util.treeview.TreeViewModel;
-import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.util.Comparators;
 
 /**
@@ -179,7 +163,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			@Override
 			public String toString()
 			{
-				Integer max = maxMap.get(type);
+				Integer max = maxMap.getValue(type);
 				String maxString = max == -1 ? "*" : max.toString();
 				return type + " (" + getChildCount() + "/" + maxString;
 			}
