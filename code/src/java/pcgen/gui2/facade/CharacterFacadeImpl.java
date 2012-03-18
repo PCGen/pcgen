@@ -676,11 +676,17 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		{
 			if (classFacade instanceof PCClass)
 			{
+				int totalLevels = theCharacter.getTotalLevels();
 				if (!validateAddLevel((PCClass) classFacade))
 				{
 					return;
 				}
 				theCharacter.incrementClassLevel(1, (PCClass) classFacade);
+				if (totalLevels == theCharacter.getTotalLevels())
+				{
+					// The level change was rejected - no further processing needed.
+					return;
+				}
 			}
 			if (!pcClasses.contains(classFacade))
 			{
@@ -781,9 +787,11 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	public int getClassLevel(ClassFacade c)
 	{
 		int clsLevel = 0;
+		// We have to compare by class key as classes get cloned and we may have multiple instances of the same class in our level list 
+		String classKey = c.getKeyName();
 		for (CharacterLevelFacade charLevel : pcClassLevels)
 		{
-			if (charLevelsFacade.getClassTaken(charLevel) == c)
+			if (charLevelsFacade.getClassTaken(charLevel).getKeyName().equals(classKey))
 			{
 				clsLevel++;
 			}
