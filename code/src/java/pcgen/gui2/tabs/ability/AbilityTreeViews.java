@@ -141,8 +141,9 @@ public class AbilityTreeViews
 				ArrayList<AbilityFacade> pathclone = (ArrayList<AbilityFacade>) path.clone();
 				pathclone.add(preAbility);
 				List<AbilityFacade> preAbilities2 = dataset.getPrereqAbilities(preAbility);
-				if (preAbilities2.isEmpty() || preAbilities2.size() == 1
-					&& preAbilities2.get(0).equals(preAbility))
+				// Don't include self references in the path
+				preAbilities2.remove(preAbility);
+				if (preAbilities2.isEmpty())
 				{
 					abilityPaths.add(pathclone);
 				}
