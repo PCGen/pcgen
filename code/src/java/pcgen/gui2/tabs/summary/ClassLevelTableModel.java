@@ -62,7 +62,7 @@ public class ClassLevelTableModel extends AbstractTableModel
 {
 
 	private CharacterLevelsFacade levels;
-	private Map<ClassFacade, Integer> finalLevelMap;
+	private Map<String, Integer> finalLevelMap;
 	private CharacterFacade character;
 	private Editor editor = new Editor();
 	private Editor renderer = new Editor();
@@ -73,7 +73,7 @@ public class ClassLevelTableModel extends AbstractTableModel
 		super();
 		this.character = character;
 		this.levels = character.getCharacterLevelsFacade();
-		this.finalLevelMap = new HashMap<ClassFacade, Integer>();
+		this.finalLevelMap = new HashMap<String, Integer>();
 		resetLevelMap();
 		levels.addListListener(this);
 		levels.addClassListener(this);
@@ -120,7 +120,7 @@ public class ClassLevelTableModel extends AbstractTableModel
 		finalLevelMap.clear();
 		for (int i = levels.getSize() - 1; i >= 0; i--)
 		{
-			ClassFacade c = levels.getClassTaken(levels.getElementAt(i));
+			String c = levels.getClassTaken(levels.getElementAt(i)).getKeyName();
 			if (!finalLevelMap.containsKey(c))
 			{
 				finalLevelMap.put(c, i);
@@ -174,7 +174,8 @@ public class ClassLevelTableModel extends AbstractTableModel
 				return levels.getHPGained(levels.getElementAt(rowIndex));
 			case 2:
 				ClassFacade c = levels.getClassTaken(levels.getElementAt(rowIndex));
-				if (finalLevelMap.get(c) == rowIndex)
+				String classKey = c.getKeyName();
+				if (finalLevelMap.get(classKey) == rowIndex)
 				{
 					return c.toString() + " (" + character.getClassLevel(c) + ")";
 				}
@@ -189,9 +190,10 @@ public class ClassLevelTableModel extends AbstractTableModel
 	{
 		editor.cancelCellEditing();
 		int i = e.getIndex();
-		ClassFacade c = levels.getClassTaken(levels.getElementAt(i));
+		String c = levels.getClassTaken(levels.getElementAt(i)).getKeyName();
 		finalLevelMap.put(c, i);
-		fireTableRowsInserted(i, i);
+		// Do a full refresh as the previous max class level row may be affected
+		fireTableDataChanged();
 	}
 
 	@Override
@@ -199,7 +201,8 @@ public class ClassLevelTableModel extends AbstractTableModel
 	{
 		editor.cancelCellEditing();
 		resetLevelMap();
-		fireTableRowsDeleted(e.getIndex(), e.getIndex());
+		// Do a full refresh as the new max class level row may be affected
+		fireTableDataChanged();
 	}
 
 	@Override
@@ -213,7 +216,8 @@ public class ClassLevelTableModel extends AbstractTableModel
 	@Override
 	public void elementModified(ListEvent<CharacterLevelFacade> e)
 	{
-		fireTableRowsUpdated(e.getIndex(), e.getIndex());
+		// Do a full refresh as the new max class level row may be affected
+		fireTableDataChanged();
 	}
 
 	@Override
