@@ -3735,8 +3735,15 @@ public class CharacterFacadeImpl implements CharacterFacade,
 
 		if (!theCharacter.hasTemplate(template))
 		{
+			int oldLevel = charLevelsFacade.getSize();
 			templates.addElement(template);
 			theCharacter.addTemplate(template);
+			refreshRaceRelatedFields();
+			
+			if (oldLevel != charLevelsFacade.getSize())
+			{
+				delegate.showLevelUpInfo(this, oldLevel);
+			}
 		}
 		else
 		{
