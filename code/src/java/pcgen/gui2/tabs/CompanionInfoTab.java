@@ -1,31 +1,24 @@
 /*
- * CompanionInfoTab.java
- * Copyright 2012 Connor Petty <cpmeister@users.sourceforge.net>
- * 
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- * 
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * CompanionInfoTab.java Copyright 2012 Connor Petty <cpmeister@users.sourceforge.net>
+ *
+ * This library is free software; you can redistribute it and/or modify it under the terms of the
+ * GNU Lesser General Public License as published by the Free Software Foundation; either version 2.1
+ * of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+ * even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * Lesser General Public License for more details.
- * 
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
+ *
+ * You should have received a copy of the GNU Lesser General Public License along with this library;
+ * if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+ * 02111-1307 USA
+ *
  * Created on Mar 4, 2012, 5:01:02 PM
  */
 package pcgen.gui2.tabs;
 
 import java.awt.Component;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Hashtable;
-import java.util.List;
+import java.util.*;
 import javax.swing.AbstractCellEditor;
 import javax.swing.JEditorPane;
 import javax.swing.JScrollPane;
@@ -34,14 +27,22 @@ import javax.swing.event.EventListenerList;
 import javax.swing.event.TreeModelEvent;
 import javax.swing.event.TreeModelListener;
 import javax.swing.table.TableCellEditor;
+import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreePath;
+import pcgen.base.util.HashMapToList;
+import pcgen.base.util.MapToList;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.CompanionFacade;
 import pcgen.core.facade.CompanionSupportFacade;
+import pcgen.core.facade.event.*;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
+import pcgen.core.facade.util.MapFacade;
 import pcgen.gui2.tools.FlippingSplitPane;
+import pcgen.gui2.util.JTreeTable;
 import pcgen.gui2.util.JTreeViewTable;
+import pcgen.gui2.util.treetable.AbstractTreeTableModel;
+import pcgen.gui2.util.treetable.DefaultTreeTableNode;
 import pcgen.gui2.util.treetable.SortableTreeTableModel;
 import pcgen.gui2.util.treetable.TreeTableNode;
 import pcgen.gui2.util.treeview.DataView;
@@ -50,6 +51,7 @@ import pcgen.gui2.util.treeview.DefaultDataViewColumn;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
+import pcgen.util.Comparators;
 
 /**
  *
@@ -58,12 +60,12 @@ import pcgen.gui2.util.treeview.TreeViewPath;
 public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
-	private final JTreeViewTable companionsTable;
+	private final JTreeTable companionsTable;
 	private final JEditorPane infoPane;
 
 	public CompanionInfoTab()
 	{
-		this.companionsTable = new JTreeViewTable();
+		this.companionsTable = new JTreeTable();
 		this.infoPane = new JEditorPane();
 		initComponents();
 	}
@@ -85,7 +87,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
-		companionsTable.setTreeViewModel((CompanionsModel) state.get(CompanionsModel.class));
+		companionsTable.setTreeTableModel((CompanionsModel) state.get(CompanionsModel.class));
 	}
 
 	@Override
@@ -116,27 +118,17 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 
 	}
 
-	private class CompanionModel implements SortableTreeTableModel
+	private class CompanionsModel extends AbstractTreeTableModel
 	{
 
-		private EventListenerList listenerList = new EventListenerList();
-		private ListFacade<CompanionFacade> companions;
 		private CompanionSupportFacade support;
+		private MapFacade<String, Integer> maxMap;
 
-		@Override
-		public boolean isCellEditable(Object node, int column)
+		public CompanionsModel(CharacterFacade character)
 		{
-			return true;
-		}
-
-		@Override
-		public Class<?> getColumnClass(int column)
-		{
-			if (column == 0)
-			{
-				return TreeTableNode.class;
-			}
-			return Object.class;
+			this.support = character.getCompanionSupport();
+			this.maxMap = support.getMaxCompanionsMap();
+			this.setRoot(new RootNode());
 		}
 
 		@Override
@@ -145,290 +137,244 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			return 2;
 		}
 
-		@Override
-		public String getColumnName(int column)
+		private class CompanionNode extends DefaultTreeTableNode
 		{
-			return null;
-		}
 
-		@Override
-		public void setValueAt(Object aValue, Object node, int column)
-		{
-			throw new UnsupportedOperationException("Not supported yet.");
-		}
+			private CompanionFacade companion;
 
-		@Override
-		public Object getValueAt(Object node, int column)
-		{
-			throw new UnsupportedOperationException("Not supported yet.");
-		}
-
-		private Object root = new Object();
-
-		@Override
-		public Object getRoot()
-		{
-			return root;
-		}
-
-		@Override
-		public Object getChild(Object parent, int index)
-		{
-			if (parent == root)
+			public CompanionNode(CompanionFacade companion)
 			{
+				this.companion = companion;
 			}
-			return null;
-		}
 
-		@Override
-		public int getChildCount(Object parent)
-		{
-			throw new UnsupportedOperationException("Not supported yet.");
-		}
-
-		@Override
-		public boolean isLeaf(Object node)
-		{
-			throw new UnsupportedOperationException("Not supported yet.");
-		}
-
-		@Override
-		public void valueForPathChanged(TreePath path, Object newValue)
-		{
-			throw new UnsupportedOperationException("Not supported yet.");
-		}
-
-		@Override
-		public int getIndexOfChild(Object parent, Object child)
-		{
-			throw new UnsupportedOperationException("Not supported yet.");
-		}
-
-		@Override
-		public void addTreeModelListener(TreeModelListener l)
-		{
-			listenerList.add(TreeModelListener.class, l);
-		}
-
-		@Override
-		public void removeTreeModelListener(TreeModelListener l)
-		{
-			listenerList.remove(TreeModelListener.class, l);
-		}
-
-		@Override
-		public void sortModel(Comparator<List<?>> comparator)
-		{
-		}
-
-		/**
-		 * Notifies all listeners that have registered interest for
-		 * notification on this event type.  The event instance
-		 * is lazily created using the parameters passed into
-		 * the fire method.
-		 *
-		 * @param source the node being changed
-		 * @param path the path to the root node
-		 * @param childIndices the indices of the changed elements
-		 * @param children the changed elements
-		 * @see EventListenerList
-		 */
-		protected void fireTreeNodesChanged(Object source, Object[] path,
-											int[] childIndices,
-											Object[] children)
-		{
-			// Guaranteed to return a non-null array
-			Object[] listeners = listenerList.getListenerList();
-			TreeModelEvent e = null;
-			// Process the listeners last to first, notifying
-			// those that are interested in this event
-			for (int i = listeners.length - 2; i >= 0; i -= 2)
+			@Override
+			public Object getValueAt(int column)
 			{
-				if (listeners[i] == TreeModelListener.class)
+				if (column == 0)
 				{
-					// Lazily create the event:
-					if (e == null)
+					return companion.getNameRef().getReference();
+				}
+				return null;
+			}
+
+			@Override
+			public String toString()
+			{
+				return companion.getNameRef().getReference();
+			}
+
+		}
+
+		private class CompanionTypeNode extends DefaultTreeTableNode implements ReferenceListener<String>
+		{
+
+			private String type;
+
+			public CompanionTypeNode(String type)
+			{
+				super(Arrays.asList(type, null));
+				this.type = type;
+			}
+
+			@Override
+			public String toString()
+			{
+				Integer max = maxMap.get(type);
+				String maxString = max == -1 ? "*" : max.toString();
+				return type + " (" + getChildCount() + "/" + maxString;
+			}
+
+			private void addCompanion(CompanionFacade companion, boolean silently)
+			{
+				companion.getNameRef().addReferenceListener(this);
+				CompanionNode child = new CompanionNode(companion);
+				if (children == null)
+				{
+					children = new Vector();
+				}
+				@SuppressWarnings("unchecked")
+				int insertIndex = Collections.binarySearch(children, child, Comparators.toStringIgnoreCaseCollator());
+				if (insertIndex < 0)
+				{
+					if (silently)
 					{
-						e = new TreeModelEvent(source, path,
-											   childIndices, children);
+						insert(child, -(insertIndex + 1));
 					}
-					((TreeModelListener) listeners[i + 1]).treeNodesChanged(e);
+					else
+					{
+						insertNodeInto(child, this, -(insertIndex + 1));
+					}
+				}
+				else
+				{
+					if (silently)
+					{
+						insert(child, insertIndex);
+					}
+					else
+					{
+						insertNodeInto(child, this, insertIndex);
+					}
+				}
+				if (!silently)
+				{
+					nodeChanged(this);
 				}
 			}
-		}
 
-		/**
-		 * Notifies all listeners that have registered interest for
-		 * notification on this event type.  The event instance
-		 * is lazily created using the parameters passed into
-		 * the fire method.
-		 *
-		 * @param source the node where new elements are being inserted
-		 * @param path the path to the root node
-		 * @param childIndices the indices of the new elements
-		 * @param children the new elements
-		 * @see EventListenerList
-		 */
-		protected void fireTreeNodesInserted(Object source, Object[] path,
-											 int[] childIndices,
-											 Object[] children)
-		{
-			// Guaranteed to return a non-null array
-			Object[] listeners = listenerList.getListenerList();
-			TreeModelEvent e = null;
-			// Process the listeners last to first, notifying
-			// those that are interested in this event
-			for (int i = listeners.length - 2; i >= 0; i -= 2)
+			private void removeCompanion(CompanionFacade companion)
 			{
-				if (listeners[i] == TreeModelListener.class)
+				companion.getNameRef().removeReferenceListener(this);
+				//we create a dummy child for comparison
+				CompanionNode child = new CompanionNode(companion);
+				@SuppressWarnings("unchecked")
+				int index = Collections.binarySearch(children, child, Comparators.toStringIgnoreCaseCollator());
+				removeNodeFromParent((CompanionNode) getChildAt(index));
+				nodeChanged(this);
+			}
+
+			@Override
+			@SuppressWarnings("unchecked")
+			public void referenceChanged(ReferenceEvent<String> e)
+			{
+				Collections.sort(children, Comparators.toStringIgnoreCaseCollator());
+				int[] indexes = new int[getChildCount()];
+				for (int i = 0; i < indexes.length; i++)
 				{
-					// Lazily create the event:
-					if (e == null)
+					indexes[i] = i;
+				}
+				nodesChanged(this, indexes);
+			}
+
+			@Override
+			public void setParent(MutableTreeNode newParent)
+			{
+				super.setParent(newParent);
+				if (newParent == null && children != null)
+				{
+					for (int i = 0; i < getChildCount(); i++)
 					{
-						e = new TreeModelEvent(source, path,
-											   childIndices, children);
+						CompanionNode child = (CompanionNode) getChildAt(i);
+						child.companion.getNameRef().removeReferenceListener(this);
 					}
-					((TreeModelListener) listeners[i + 1]).treeNodesInserted(e);
 				}
 			}
+
 		}
 
-		/**
-		 * Notifies all listeners that have registered interest for
-		 * notification on this event type.  The event instance
-		 * is lazily created using the parameters passed into
-		 * the fire method.
-		 *
-		 * @param source the node where elements are being removed
-		 * @param path the path to the root node
-		 * @param childIndices the indices of the removed elements
-		 * @param children the removed elements
-		 * @see EventListenerList
-		 */
-		protected void fireTreeNodesRemoved(Object source, Object[] path,
-											int[] childIndices,
-											Object[] children)
+		private class RootNode extends DefaultTreeTableNode implements MapListener<String, Integer>, ListListener<CompanionFacade>
 		{
-			// Guaranteed to return a non-null array
-			Object[] listeners = listenerList.getListenerList();
-			TreeModelEvent e = null;
-			// Process the listeners last to first, notifying
-			// those that are interested in this event
-			for (int i = listeners.length - 2; i >= 0; i -= 2)
+
+			private List<String> types;
+			private ListFacade<CompanionFacade> companions;
+
+			public RootNode()
 			{
-				if (listeners[i] == TreeModelListener.class)
+				this.types = new ArrayList<String>();
+				this.companions = support.getCompanions();
+				maxMap.addMapListener(this);
+				companions.addListListener(this);
+				initChildren();
+			}
+
+			private void initChildren()
+			{
+				types.clear();
+				types.addAll(maxMap.getKeys());
+				Collections.sort(types, Comparators.toStringIgnoreCaseCollator());
+				removeAllChildren();
+				for (String key : types)
 				{
-					// Lazily create the event:
-					if (e == null)
-					{
-						e = new TreeModelEvent(source, path,
-											   childIndices, children);
-					}
-					((TreeModelListener) listeners[i + 1]).treeNodesRemoved(e);
+					CompanionTypeNode child = new CompanionTypeNode(key);
+					add(child);
+				}
+				for (CompanionFacade companion : companions)
+				{
+					addCompanion(companion, true);
 				}
 			}
-		}
 
-		/**
-		 * Notifies all listeners that have registered interest for
-		 * notification on this event type.  The event instance
-		 * is lazily created using the parameters passed into
-		 * the fire method.
-		 *
-		 * @param source the node where the tree model has changed
-		 * @param path the path to the root node
-		 * @param childIndices the indices of the affected elements
-		 * @param children the affected elements
-		 * @see EventListenerList
-		 */
-		protected void fireTreeStructureChanged(Object source, Object[] path,
-												int[] childIndices,
-												Object[] children)
-		{
-			// Guaranteed to return a non-null array
-			Object[] listeners = listenerList.getListenerList();
-			TreeModelEvent e = null;
-			// Process the listeners last to first, notifying
-			// those that are interested in this event
-			for (int i = listeners.length - 2; i >= 0; i -= 2)
+			private void addCompanion(CompanionFacade companion, boolean silently)
 			{
-				if (listeners[i] == TreeModelListener.class)
-				{
-					// Lazily create the event:
-					if (e == null)
-					{
-						e = new TreeModelEvent(source, path,
-											   childIndices, children);
-					}
-					((TreeModelListener) listeners[i + 1]).treeStructureChanged(e);
-				}
+				String type = companion.getCompanionType();
+				int index = Collections.binarySearch(types, type, Comparators.toStringIgnoreCaseCollator());
+				CompanionTypeNode child = (CompanionTypeNode) getChildAt(index);
+				child.addCompanion(companion, silently);
 			}
+
+			@Override
+			public void keyAdded(MapEvent<String, Integer> e)
+			{
+				@SuppressWarnings("unchecked")
+				int insertIndex = Collections.binarySearch(types, e.getKey(), Comparators.toStringIgnoreCaseCollator());
+				types.add(-(insertIndex + 1), e.getKey());
+				CompanionTypeNode child = new CompanionTypeNode(e.getKey());
+				insertNodeInto(child, this, -(insertIndex + 1));
+			}
+
+			@Override
+			public void keyRemoved(MapEvent<String, Integer> e)
+			{
+				int index = types.indexOf(e.getKey());
+				types.remove(index);
+				removeNodeFromParent((MutableTreeNode) getChildAt(index));
+			}
+
+			@Override
+			public void keyModified(MapEvent<String, Integer> e)
+			{
+				//ignore this
+			}
+
+			@Override
+			public void valueChanged(MapEvent<String, Integer> e)
+			{
+				int index = types.indexOf(e.getKey());
+				nodeChanged(getChildAt(index));
+			}
+
+			@Override
+			public void valueModified(MapEvent<String, Integer> e)
+			{
+				//ignore this
+			}
+
+			@Override
+			public void keysChanged(MapEvent<String, Integer> e)
+			{
+				initChildren();
+				nodeStructureChanged(this);
+			}
+
+			@Override
+			public void elementAdded(ListEvent<CompanionFacade> e)
+			{
+				addCompanion(e.getElement(), false);
+			}
+
+			@Override
+			public void elementRemoved(ListEvent<CompanionFacade> e)
+			{
+				String type = e.getElement().getCompanionType();
+				int index = Collections.binarySearch(types, type, Comparators.toStringIgnoreCaseCollator());
+				CompanionTypeNode child = (CompanionTypeNode) getChildAt(index);
+				child.removeCompanion(e.getElement());
+			}
+
+			@Override
+			public void elementsChanged(ListEvent<CompanionFacade> e)
+			{
+				initChildren();
+				nodeStructureChanged(this);
+			}
+
+			@Override
+			public void elementModified(ListEvent<CompanionFacade> e)
+			{
+				//this is handled by the CompanionTypeNode
+			}
+
 		}
-
-	}
-
-	private class CompanionsModel implements TreeViewModel<CompanionFacade>,
-			DataView<CompanionFacade>, TreeView<CompanionFacade>
-	{
-
-		private final ListFacade<TreeView<CompanionFacade>> views =
-				new DefaultListFacade<TreeView<CompanionFacade>>(Arrays.asList(this));
-		private final List<DefaultDataViewColumn> columns = Arrays.asList(new DefaultDataViewColumn(null, Object.class));
-		private CharacterFacade character;
-
-		public CompanionsModel(CharacterFacade character)
-		{
-			this.character = character;
-		}
-
-		@Override
-		public ListFacade<? extends TreeView<CompanionFacade>> getTreeViews()
-		{
-			return views;
-		}
-
-		@Override
-		public int getDefaultTreeViewIndex()
-		{
-			return 0;
-		}
-
-		@Override
-		public DataView<CompanionFacade> getDataView()
-		{
-			return this;
-		}
-
-		@Override
-		public ListFacade<CompanionFacade> getDataModel()
-		{
-			return character.getCompanionSupport().getCompanions();
-		}
-
-		@Override
-		public List<?> getData(CompanionFacade obj)
-		{
-			return Collections.singletonList(null);
-		}
-
-		@Override
-		public List<? extends DataViewColumn> getDataColumns()
-		{
-			return columns;
-		}
-
-		@Override
-		public String getViewName()
-		{
-			return "Companions View";//it doesn't matter what this string is
-		}
-
-		@Override
-		public List<TreeViewPath<CompanionFacade>> getPaths(CompanionFacade pobj)
-		{
-			return Arrays.asList(new TreeViewPath<CompanionFacade>(pobj, pobj.getCompanionType()));
-		}
-
 	}
 
 }

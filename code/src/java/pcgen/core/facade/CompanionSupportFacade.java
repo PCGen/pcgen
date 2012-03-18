@@ -1,26 +1,27 @@
 /*
  * CompanionSupportFacade.java
  * Copyright 2012 Connor Petty <cpmeister@users.sourceforge.net>
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
+ *
  * Created on Mar 4, 2012, 6:08:03 PM
  */
 package pcgen.core.facade;
 
 import pcgen.core.facade.util.ListFacade;
+import pcgen.core.facade.util.MapFacade;
 
 /**
  *
@@ -28,6 +29,7 @@ import pcgen.core.facade.util.ListFacade;
  */
 public interface CompanionSupportFacade
 {
+
 	/**
 	 * This adds a companion to this character.
 	 * A CharacterFacade is used instead of a CompanionFacade to make
@@ -40,22 +42,41 @@ public interface CompanionSupportFacade
 	 * @param companion the companion to add
 	 */
 	public void addCompanion(CharacterFacade companion);
+
 	/**
 	 * Removes a companion from this character.
-	 * The companion to removed will be one retrieved from the <code>getCompanions</code>
-	 * list.
+	 * The companion to removed will be one retrieved from the
+	 * <code>getCompanions</code> list.
 	 * @param companion the companion to remove
 	 */
 	public void removeCompanion(CompanionFacade companion);
-	
+
 	/**
 	 * Returns a list of companions that the character can create.
 	 * Elements of the list are expected to be bare-bones implementations
-	 * of CompanionStubFacade 
+	 * of CompanionStubFacade
 	 * @return a list of companion stubs
 	 */
 	public ListFacade<CompanionStubFacade> getAvailableCompanions();
-	public int getRemainingCompanions(String type);
-	public int getMaxCompanions(String type);
+
+	/**
+	 * Returns a map correlating a type of companion with the number
+	 * the character may have at most. If a particular companion type
+	 * can be created without limit then the mapped value should be
+	 * -1.
+	 * @return a map of companion types to the maximum number the character
+	 * may have of them.
+	 */
+	public MapFacade<String, Integer> getMaxCompanionsMap();
+
+	/**
+	 * Returns a ListFacade containing the companions that the character
+	 * possesses. The returned CompanionFacades should be wrappers for
+	 * the real implementations. This is to allow Characters to be loaded
+	 * and unloaded behind the scenes without it affecting the returned list
+	 * or its contents.
+	 * @return a list of companions that the character currently has
+	 */
 	public ListFacade<CompanionFacade> getCompanions();
+
 }

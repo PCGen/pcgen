@@ -47,10 +47,14 @@ public abstract class AbstractTreeTableModel extends DefaultTreeModel implements
     }
 
 	@Override
-    public Class<?> getColumnClass(int column)
-    {
-        return Object.class;
-    }
+	public Class<?> getColumnClass(int column)
+	{
+		if (column == 0)
+		{
+			return TreeTableNode.class;
+		}
+		return Object.class;
+	}
 
     /**
      *  Returns a default name for the column using spreadsheet conventions:

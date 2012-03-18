@@ -20,6 +20,7 @@
  */
 package pcgen.core.facade.util;
 
+import java.util.Set;
 import pcgen.core.facade.event.MapListener;
 
 /**
@@ -39,10 +40,12 @@ public interface MapFacade<K, V>
 	 * map events.
 	 * @return a list containing the map's keys
 	 */
-	ListFacade<K> getKeys();
+	Set<K> getKeys();
 
 	V get(K key);
 
+	int getSize();
+	
 	/**
 	 * behaves like the standard Map function with the addition
 	 * that is fires events as appropriate.
