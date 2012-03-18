@@ -263,8 +263,10 @@ public class AbilityRefChoiceSet implements
 		/*
 		 * TODO Need a general solution for this special assignment in parens
 		 */
-		if ("DEITYWEAPON".equals(nameRoot) && (chooseInfo != null)
-				&& chooseInfo.getChoiceClass().equals(WeaponProf.class))
+		if ("DEITYWEAPON".equals(nameRoot)
+			&& (chooseInfo != null)
+			&& chooseInfo.getClassIdentity().getChoiceClass()
+				.equals(WeaponProf.class))
 		{
 			Deity deity = aPC.getDeity();
 			if (deity == null)

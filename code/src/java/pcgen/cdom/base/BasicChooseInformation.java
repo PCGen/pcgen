@@ -209,9 +209,9 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	 * @return the Class contained within this ChoiceSet
 	 */
 	@Override
-	public Class<? super T> getChoiceClass()
+	public ClassIdentity<? super T> getClassIdentity()
 	{
-		return pcs.getChoiceClass();
+		return BasicClassIdentity.getInstance(pcs.getChoiceClass());
 	}
 
 	/**

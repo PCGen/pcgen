@@ -21,10 +21,12 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import pcgen.cdom.base.BasicClassIdentity;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChoiceActor;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.GroupingState;
@@ -43,6 +45,9 @@ import pcgen.rules.persistence.token.ParseResult;
 public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 		ChooseInformation<String>, PersistentChoiceActor<String>
 {
+
+	private static final ClassIdentity<String> STRING_INFO = BasicClassIdentity
+		.getInstance(String.class);
 
 	@Override
 	public String getTokenName()
@@ -90,9 +95,9 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public Class<String> getChoiceClass()
+	public ClassIdentity<String> getClassIdentity()
 	{
-		return String.class;
+		return STRING_INFO;
 	}
 
 	@Override

@@ -46,6 +46,9 @@ public class SpellLevelChooseInformation implements
 		ChooseInformation<SpellLevel>
 {
 
+	private static final ClassIdentity<SpellLevel> SPELLLEVEL_INFO =
+			BasicClassIdentity.getInstance(SpellLevel.class);
+
 	private final List<SpellLevelInfo> info;
 
 	/**
@@ -219,9 +222,9 @@ public class SpellLevelChooseInformation implements
 	 * @return the Class contained within this ChoiceSet
 	 */
 	@Override
-	public Class<SpellLevel> getChoiceClass()
+	public ClassIdentity<SpellLevel> getClassIdentity()
 	{
-		return SpellLevel.class;
+		return SPELLLEVEL_INFO;
 	}
 
 	/**

@@ -23,6 +23,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -168,7 +169,7 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 		if (newChoose != null)
 		{
-			Class<?> chooseClass = newChoose.getChoiceClass();
+			ClassIdentity<?> chooseClass = newChoose.getClassIdentity();
 			List<ChooseSelectionActor<?>> newactors =
 					obj.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 			if (newactors != null)
@@ -178,7 +179,7 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 					if (!chooseClass.equals(csa.getChoiceClass()))
 					{
 						Logging.errorPrint("CHOOSE of type "
-							+ chooseClass.getSimpleName() + " on "
+							+ chooseClass.getName() + " on "
 							+ obj.getClass().getSimpleName() + " "
 							+ obj.getKeyName() + " had an actor from token "
 							+ csa.getSource() + " that was expecting a "

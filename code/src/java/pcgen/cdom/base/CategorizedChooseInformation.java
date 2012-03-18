@@ -22,7 +22,6 @@ import java.util.Collections;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.CDOMChoiceManager;
 import pcgen.core.chooser.ChoiceManagerList;
@@ -38,7 +37,8 @@ import pcgen.core.chooser.ChoiceManagerList;
  * 
  * @param <T>
  */
-public class CategorizedChooseInformation<T> implements ChooseInformation<T>
+public class CategorizedChooseInformation<T extends Loadable & CategorizedCDOMObject<T>>
+		implements ChooseInformation<T>
 {
 
 	/**
@@ -47,7 +47,7 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 	 */
 	private final PrimitiveChoiceSet<T> pcs;
 
-	private final Category<Ability> category;
+	private final Category<T> category;
 
 	/**
 	 * The name of this ChoiceSet
@@ -79,7 +79,7 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 	 * @throws IllegalArgumentException
 	 *             if the given name or PrimitiveChoiceSet is null
 	 */
-	public CategorizedChooseInformation(String name, Category<Ability> cat,
+	public CategorizedChooseInformation(String name, Category<T> cat,
 			PrimitiveChoiceSet<T> choice, Class<T> objClass)
 	{
 		if (name == null)
@@ -223,9 +223,9 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 	 * @return the Class contained within this ChoiceSet
 	 */
 	@Override
-	public Class<T> getChoiceClass()
+	public ClassIdentity<T> getClassIdentity()
 	{
-		return underlyingClass;
+		return CategorizedClassIdentity.getInstance(underlyingClass, category);
 	}
 
 	/**
@@ -293,7 +293,7 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 		return pcs.getGroupingState();
 	}
 
-	public Category<Ability> getCategory()
+	public Category<T> getCategory()
 	{
 		return category;
 	}
@@ -305,7 +305,7 @@ public class CategorizedChooseInformation<T> implements ChooseInformation<T>
 	}
 
 	@Override
-	public ChoiceManagerList getChoiceManager(CDOMObject owner, int cost)
+	public ChoiceManagerList<T> getChoiceManager(CDOMObject owner, int cost)
 	{
 		return new CDOMChoiceManager<T>(owner, this, null, cost);
 	}

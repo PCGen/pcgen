@@ -29,6 +29,7 @@ import java.util.TreeSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.enumeration.ListKey;
@@ -616,24 +617,21 @@ public abstract class LoadContext
 						rm.fireUnconstuctedEvent(singleRef);
 						continue;
 					}
-					Class<?> cl = ci.getChoiceClass();
+					ClassIdentity<?> clIdentity = ci.getClassIdentity();
 					if (choice.indexOf("%") > -1)
 					{
 						//patterns or %LIST are OK
 						//See CollectionToAbilitySelection.ExpandingConverter
 						continue;
 					}
-					/*
-					 * Currently, we can't validate CHOOSE:ABILITY and we don't
-					 * want to dump stack. This is (hopefully) temporary
-					 * protection - thpr (CODE-1383)
-					 */
-					if (Loadable.class.isAssignableFrom(cl)
-						&& !CategorizedCDOMObject.class.isAssignableFrom(cl))
+					Class<?> cl = clIdentity.getChoiceClass();
+					if (Loadable.class.isAssignableFrom(cl))
 					{
 						ReferenceManufacturer<? extends Loadable> mfg =
-								ref.getManufacturer((Class<? extends Loadable>) cl);
-						if (!mfg.containsObject(choice))
+								ref.getManufacturer((ClassIdentity<? extends Loadable>) clIdentity);
+						if (!mfg.containsObject(choice)
+							&& (ref.getAbbreviatedObject(
+								clIdentity.getChoiceClass(), choice) == null))
 						{
 							Logging.errorPrint("Found "
 								+ rm.getReferenceDescription() + " "

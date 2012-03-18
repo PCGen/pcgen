@@ -28,7 +28,9 @@ import java.util.Set;
 import pcgen.base.util.OneToOneMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.CategorizedClassIdentity;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -518,6 +520,23 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 	public <T extends Loadable> T getItemInOrder(Class<T> cl, int item)
 	{
 		return getManufacturer(cl).getItemInOrder(item);
+	}
+
+	@Override
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
+			ClassIdentity<T> identity)
+	{
+		Class cl = identity.getChoiceClass();
+		if (CategorizedCDOMObject.class.isAssignableFrom(cl))
+		{
+			//Do categorized.
+			Category category = ((CategorizedClassIdentity) identity).getCategory();
+			return getManufacturer(cl, category);
+		}
+		else
+		{
+			return getManufacturer(cl);
+		}
 	}
 
 }

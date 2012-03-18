@@ -32,6 +32,9 @@ import pcgen.core.chooser.UserInputManager;
 public class UserChooseInformation implements ChooseInformation<String>,
 		PersistentChoiceActor<String>
 {
+	
+	private static final ClassIdentity<String> STRING_INFO = BasicClassIdentity
+			.getInstance(String.class);
 
 	public static final String UCI_NAME = "User Input";
 	
@@ -41,9 +44,9 @@ public class UserChooseInformation implements ChooseInformation<String>,
 	private String title = null;
 
 	@Override
-	public Class<String> getChoiceClass()
+	public ClassIdentity<String> getClassIdentity()
 	{
-		return String.class;
+		return STRING_INFO;
 	}
 
 	@Override

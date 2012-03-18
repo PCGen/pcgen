@@ -45,7 +45,7 @@ public interface ChooseInformation<T> extends PersistentChoice<T>
 
 	GroupingState getGroupingState();
 
-	Class<? super T> getChoiceClass();
+	ClassIdentity<? super T> getClassIdentity();
 
 	Collection<? extends T> getSet(PlayerCharacter pc);
 	

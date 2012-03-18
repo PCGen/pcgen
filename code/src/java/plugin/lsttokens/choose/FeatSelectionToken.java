@@ -20,8 +20,8 @@ package plugin.lsttokens.choose;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.CategorizedChooseInformation;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.PersistentChoiceActor;
@@ -111,10 +111,9 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		}
 		PrimitiveChoiceSet<AbilitySelection> pcs = new CollectionToAbilitySelection(
 				prim);
-		CategorizedChooseInformation<AbilitySelection> tc =
-				new CategorizedChooseInformation<AbilitySelection>(
-					getTokenName(), AbilityCategory.FEAT, pcs,
-					AbilitySelection.class);
+		BasicChooseInformation<AbilitySelection> tc =
+				new BasicChooseInformation<AbilitySelection>(getTokenName(),
+					pcs);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.obj.put(obj, ObjectKey.CHOOSE_INFO, tc);

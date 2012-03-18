@@ -25,6 +25,7 @@ import java.util.Set;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -36,6 +37,9 @@ public interface ReferenceContext
 {
 	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl);
+
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
+		ClassIdentity<T> cl);
 
 	public <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, Class<? extends Category<T>> catClass, String category);
