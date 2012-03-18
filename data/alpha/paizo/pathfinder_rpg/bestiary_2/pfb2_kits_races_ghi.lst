@@ -130,7 +130,7 @@ ALIGN:TN
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Perception	RANK:4
 SKILL:Stealth	RANK:5
-FEAT:Ability Focus (Confusion)
+FEAT:Ability Focus (Confusion ~ Gloomwing)
 FEAT:Flyby Attack
 FEAT:Hover
 
@@ -613,7 +613,7 @@ SKILL:Knowledge (Religion)	RANK:16
 SKILL:Perception			RANK:16
 SKILL:Sense Motive		RANK:16
 SKILL:Survival			RANK:16
-FEAT:Ability Focus (Fists of Lightning and Thunder)
+FEAT:Ability Focus (Fists of Lightning and Thunder ~ Marut)
 FEAT:Awesome Blow
 FEAT:Combat Casting
 FEAT:Dodge

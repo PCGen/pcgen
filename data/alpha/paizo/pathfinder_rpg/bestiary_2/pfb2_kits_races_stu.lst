@@ -133,7 +133,7 @@ SKILL:Perception			RANK:9
 SKILL:Sense Motive		RANK:9
 SKILL:Stealth			RANK:9
 SKILL:Use Magic Device		RANK:9
-FEAT:Ability Focus (Aura of Madness)
+FEAT:Ability Focus (Aura of Madness ~ Seugathi)
 FEAT:Combat Casting
 FEAT:Combat Reflexes
 FEAT:Improved Initiative
@@ -187,7 +187,7 @@ SKILL:Knowledge (Planes)	RANK:16
 SKILL:Perception			RANK:16
 SKILL:Spellcraft			RANK:16
 SKILL:Use Magic Device		RANK:16
-FEAT:Ability Focus (Blinding Light)
+FEAT:Ability Focus (Blinding Light ~ Shining Child)
 FEAT:Dodge
 FEAT:Improved Initiative
 FEAT:Lightning Reflexes
@@ -656,7 +656,7 @@ SKILL:Disguise		RANK:10
 SKILL:Perception		RANK:10
 SKILL:Sense Motive	RANK:10
 SKILL:Stealth		RANK:10
-FEAT:Ability Focus (Charisma Drain)
+FEAT:Ability Focus (Charisma Drain ~ Totenmaske)
 FEAT:Combat Expertise
 FEAT:Combat Reflexes
 FEAT:Improved Initiative
@@ -760,7 +760,7 @@ ABILITY:CATEGORY=Channel Energy|Channel Positive Energy ~ Cleric
 SKILL:Diplomacy			RANK:1
 SKILL:Knowledge (Religion)	RANK:1
 DEITY:None	DOMAIN:Charm|Water
-FEAT:Weapon Focus (Heavy Mace)
+FEAT:Weapon Focus (Mace (Heavy))
 GEAR:Scale Mail	LOCATION:Equipped
 GEAR:Trident	LOCATION:Equipped
 GEAR:Sling		LOCATION:Carried

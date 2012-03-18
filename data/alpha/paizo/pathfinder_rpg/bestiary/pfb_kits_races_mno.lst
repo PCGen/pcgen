@@ -222,7 +222,7 @@ SKILL:Climb		RANK:14
 SKILL:Perception	RANK:14
 SKILL:Stealth	RANK:14
 SKILL:Swim		RANK:14
-FEAT:Ability Focus (Paralysis)
+FEAT:Ability Focus (Paralysis ~ Mohrg)
 FEAT:Dodge
 FEAT:Improved Initiative
 FEAT:Lightning Reflexes
@@ -317,7 +317,7 @@ SKILL:Perception			RANK:10
 SKILL:Spellcraft			RANK:7
 SKILL:Stealth			RANK:9
 SKILL:Swim				RANK:1
-FEAT:Ability Focus (Charming Gaze)
+FEAT:Ability Focus (Charming Gaze ~ Spirit Naga)
 FEAT:Combat Casting
 FEAT:Lightning Reflexes
 FEAT:Skill Focus (Perception)

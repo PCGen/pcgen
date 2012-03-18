@@ -56,7 +56,7 @@ NAME:Poltergeist
 ALIGN:LE
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 SKILL:Perception	RANK:3
-FEAT:Ability Focus (Frightener)
+FEAT:Ability Focus (Frightener ~ Poltergeist)
 FEAT:Alertness
 
 STARTPACK:Primate (Baboon) Default	TYPE:DefaultMonster.Baboon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Primate (Baboon)]	SOURCEPAGE:p.212

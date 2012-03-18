@@ -237,7 +237,7 @@ NAME:Rust Monster
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Perception	RANK:5
-FEAT:Ability Focus (Rust)
+FEAT:Ability Focus (Rust ~ Rust Monster)
 FEAT:Skill Focus (Perception)
 FEAT:Weapon Finesse
 
