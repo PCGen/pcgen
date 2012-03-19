@@ -367,8 +367,12 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			int selectedRow = deityTable.getSelectedRow();
 			if (selectedRow != -1)
 			{
-				DeityFacade deity = (DeityFacade) deityTable.getModel().getValueAt(selectedRow, 0);
-				character.setDeity(deity);
+				Object rowObj = deityTable.getModel().getValueAt(selectedRow, 0);
+				if (rowObj instanceof DeityFacade)
+				{
+					DeityFacade deity = (DeityFacade) rowObj;
+					character.setDeity(deity);
+				}
 			}
 		}
 		
