@@ -242,9 +242,10 @@ CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLE
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Witch Weapon Proficiencies|All Automatic Proficiencies
 ###Block: Level progression
-1	CAST:3,1				BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex1	BONUS:ABILITYPOOL|Witch Patron|1	BONUS:VAR|FMLevel|CL	DEFINE:SpellMasteryQualify|1	ABILITY:Special Ability|AUTOMATIC|Witch ~ Familiar|Cantrips ~ Witch
+1	CAST:3,1				BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex1	BONUS:ABILITYPOOL|Witch Patron|1	BONUS:VAR|FMLevel|CL	DEFINE:SpellMasteryQualify|1	ABILITY:Special Ability|AUTOMATIC|Witch ~ Familiar|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchFamiliar
+1						ABILITY:Special Ability|AUTOMATIC|Cantrips ~ Witch|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchCantrips
 2	CAST:4,2				BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex2
-3	CAST:4,2,1																																ABILITY:Special Ability|AUTOMATIC|Witch ~ Familiar Touch Spells
+3	CAST:4,2,1																																ABILITY:Special Ability|AUTOMATIC|Witch ~ Familiar Touch Spells|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchFamiliar,TYPE.WitchFamiliarTouchSpells
 4	CAST:4,3,2				BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex4
 5	CAST:4,3,2,1
 6	CAST:4,3,3,2			BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex6
