@@ -64,8 +64,8 @@
 
 <hr>
 
-	<p class="new">*** New 5.11.7</p>
-	<p class="indent0"><strong><a name="PREABILITY">Tag Name:</a></strong>PREABILITY:x,CATEGORY=y,z,z</p>
+	<p class="status"><a name="PREABILITY">*** New 5.11.7</a></p>
+	<p class="indent0"><strong>Tag Name:</strong>PREABILITY:x,CATEGORY=y,z,z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong>Number (Number of abilities needed).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong>Text (Category name).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong>ALL</p>
@@ -100,8 +100,8 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.13.12</p>
-	<p class="indent0"><strong><a name="PREAGESET">Tag Name:</a></strong> PREAGESET:x,y,y</p>
+	<p class="status"><a name="PREAGESET">*** Updated 5.13.12</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> PREAGESET:x,y,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong>Number (Number of agesets required)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong>Text (Ageset abbreviation)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -125,8 +125,8 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.7.6</p>
-	<p class="indent0"><strong><a name="PREALIGN">Tag Name:</a></strong> PREALIGN:x,x</p>
+	<p class="status"><a name="PREALIGN">*** Updated 5.7.6</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> PREALIGN:x,x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong>LG,LN,LE,NG,TN,NE,CG,CN,CE,Deity (Alignment abbreviation).</p>
 	<p class="indent1"><strong>Variables Used (x):</strong>0,1,2,3,4,5,6,7,8,10 (Alignment array number).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -185,24 +185,8 @@
 	<p></p>
 
 <hr>
-
-	<p class="new">*** Deprecated 5.15.8 - Remove 6.0 - Use <a href="#PREPROFWITHARMOR">PREPROFWITHARMOR</a> instead.</p>
-	<p class="indent0"><strong><a name="PREARMORPROF">Tag Name:</a></strong> PREARMORPROF:x,y,y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of armor proficiencies needed).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a Armor Prof).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> TYPE.Text (The type of Armor prof).</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Checks for Armor proficiency requirements.</p>
-	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>PREARMORPROF:1,Chainmail,Full Plate</code></p>
-	<p class="indent3">Character must be proficient with either "Chainmail" or "Full Plate".</p>
-	<p class="indent2"><code>PREARMORPROF:1,TYPE.Medium</code></p>
-	<p class="indent3">Character must be proficient with Medium armor.</p>
-	<p></p>
-
-<hr>
-	<p class="new">*** New 5.10</p>
-	<p class="indent0"><strong><a name="PREARMORTYPE">Tag Name:</a></strong> PREARMORTYPE:x,y,y</p>
+	<p class="status"><a name="PREARMORTYPE">*** New 5.10</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> PREARMORTYPE:x,y,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of equipped armors needed).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of an Armor).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text
@@ -270,8 +254,8 @@
 
 <hr>
 
-	<p class="new">*** New 5.15.2</p>
-	<p class="indent0"><strong><a name="PRECAMPAIGN">Tag Name:</a></strong> PRECAMPAIGN:x,y,y</p>
+	<p class="new"><a name="PRECAMPAIGN">*** New 5.15.2</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> PRECAMPAIGN:x,y,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of items required to pass)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Data set name as set by the CAMPAIGN tag).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> BOOKTYPE=Text (Data set name as set by the CAMPAIGN tag).</p>
@@ -302,7 +286,7 @@
 
 	<p class="indent0"><strong><a name="PRECHECK">Tag Name:</a></strong> PRECHECK:x,y=z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number
-			(The number of checks  that must be equal to or greater than the numbers specified for the check to succeed).</p>
+			(The number of checks that must be equal to or greater than the numbers specified for the check to succeed).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (A defined check from  statsandchecks.lst - e.g. Fortitude or Willpower).</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> Number (The number the associated  check must be greater than or equal to).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -409,13 +393,13 @@
 	<p class="indent2"><code>PRECLASSLEVELMAX:2,Fighter=2,SPELLCASTER=2</code></p>
 	<p class="indent3">Character cannot have more than 2 levels of fighter and cannot have more than 2 levels in any spellcasting class.</p>
 	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
-	<p class="indent2"><code>PRECLASSLEVELMAX:x,y,y=z</code> - <span class="new">Deprecated 5.15.4 - Remove 6.0</span></p>
+	<p class="indent2"><code>PRECLASSLEVELMAX:x,y,y=z</code> - <span class="dep">Deprecated 5.15.4 - Remove 6.0</span></p>
 	<p class="indent3">The level (z) is now mandatory for all classes/class types (y) designated.</p>
 	<p></p>
 
 <hr>
-	<p class="new">*** New 5.9.0</p>
-	<p class="indent0"><strong><a name="PRECSKILL">Tag Name:</a></strong> PRECSKILL:x,y</p>
+	<p class="status"><a name="PRECSKILL">*** New 5.9.0</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> PRECSKILL:x,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number
 		(The number of skills that must be considered Class Skills for the check to succeed).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (A defined skill name)</p>
@@ -492,8 +476,8 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.11.7</p>
-	<p class="indent0"><strong><a name="PREDOMAIN">Tag Name:</a></strong> PREDOMAIN:x,y,y</p>
+	<p class="status"><a name="PREDOMAIN">*** Updated 5.11.7</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> PREDOMAIN:x,y,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of the deity's domains that must match).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Domain names or ANY).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -712,8 +696,8 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.13.5</p>
-	<p class="indent0"><strong><a name="PREHD">Tag Name:</a></strong> PREHD:x,y</p>
+	<p class="status"><a name="PREHD">*** Updated 5.13.5</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> PREHD:x,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> MIN=Number or Formula (Minimum racial Hit Dice)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> MAX=Number or Formula (Maximum racial Hit Dice)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -734,8 +718,8 @@
 
 <hr>
 
-	<p class="new">*** New 5.10</p>
-	<p class="indent0"><strong><a name="PREHP">Tag Name:</a></strong> PREHP:x</p>
+	<p class="status"><a name="PREHP">*** New 5.10</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> PREHP:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (minimum Hitpoints)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">Makes the amount of hitpoints a character has a prerequisite.</p>
@@ -767,8 +751,7 @@
 
 <hr>
 
-	<p class="indent0"><strong>
-<a name="PRELANG">Tag Name:</a></strong> PRELANG:x,y,y</p>
+	<p class="indent0"><strong><a name="PRELANG">Tag Name:</a></strong> PRELANG:x,y,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of languages a character must know).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a language the character must know).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> ANY
@@ -807,8 +790,8 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.13.5</p>
-	<p class="indent0"><strong><a name="PRELEVEL">Tag Name:</a></strong> PRELEVEL:x,y</p>
+	<p class="status"><a name="PRELEVEL">*** Updated 5.13.5</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> PRELEVEL:x,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> MIN=Number or formula (Minimum total level).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> MAX=Number or formula (Maximum total level).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -843,8 +826,8 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.9.4</p>
-	<p class="indent0"><strong><a name="PREMOVE">Tag Name:</a></strong> PREMOVE:x,y=z,y=z</p>
+	<p class="status"><a name="PREMOVE">*** Updated 5.9.4</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> PREMOVE:x,y=z,y=z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (The minimum number movement types which must pass).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a type of movement).</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> Number
@@ -884,8 +867,8 @@
 
 <hr>
 
-	<p class="new">*** New 5.13.6</p>
-	<p class="indent0"><strong><a name="PREPCLEVEL">Tag Name:</a></strong> PREPCLEVEL:x,y</p>
+	<p class="status"><a name="PREPCLEVEL">*** New 5.13.6</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> PREPCLEVEL:x,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> MIN=Number or formula (Minimum total level).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> MAX=Number or formula (Maximum total level).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -913,8 +896,8 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.13.12</p>
-	<p class="indent0"><strong><a name="PREPOINTBUYMETHOD">Tag Name:</a></strong> PREPOINTBUYMETHOD:x,y,y</p>
+	<p class="status"><a name="PREPOINTBUYMETHOD">*** Updated 5.13.12</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> PREPOINTBUYMETHOD:x,y,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of required point-buy methods)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Pointbuy method)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -932,8 +915,8 @@
 
 <hr>
 
-	<p class="new">*** New 5.15.8</p>
-	<p class="indent0"><strong><a name="PREPROFWITHARMOR">Tag Name:</a></strong> PREPROFWITHARMOR:x,y,y</p>
+	<p class="new"><a name="PREPROFWITHARMOR">*** New 5.15.8</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> PREPROFWITHARMOR:x,y,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of armor proficiencies needed).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a Armor Prof).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> TYPE.Text (The type of Armor prof).</p>
@@ -948,8 +931,8 @@
 
 <hr>
 
-	<p class="new">*** NEW 5.15.8</p>
-	<p class="indent0"><strong><a name="PREPROFWITHSHIELD">Tag Name:</a></strong> PREPROFWITHSHIELD:x,y,y</p>
+	<p class="new"><a name="PREPROFWITHSHIELD">*** NEW 5.15.8</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> PREPROFWITHSHIELD:x,y,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of shield proficiencies needed).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a shield proficiency).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> TYPE.Text (The type of shield proficiency).</p>
@@ -964,8 +947,8 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.9.5</p>
-	<p class="indent0"><strong><a name="PRERACE">Tag Name:</a></strong> PRERACE:x,y,y</p>
+	<p class="status"><a name="PRERACE">*** Updated 5.9.5</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> PRERACE:x,y,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of racial properties which
 		must be met).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a race).</p>
@@ -1017,8 +1000,8 @@
 
 <hr>
 
-	<p class="new">*** New 5.11.6</p>
-	<p class="indent0"><strong><a name="PREREACH">Tag Name:</a></strong> PREREACHx:y</p>
+	<p class="status"><a name="PREREACH">*** New 5.11.6</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> PREREACHx:y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> EQ (Equals).</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> GT (Greater Than).</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> GTEQ (Greater Than or Equal to).</p>
@@ -1089,7 +1072,7 @@
 
 <hr>
 
-	<p class="new">*** Deprecated 5.15.8 - Remove 6.0 - Use <a href="#PREPROFWITHSHIELD">PREPROFWITHSHIELD</a> instead.</p>
+	<p class="dep">*** Deprecated 5.15.8 - Remove 6.0 - Use <a href="#PREPROFWITHSHIELD">PREPROFWITHSHIELD</a> instead.</p>
 	<p class="indent0"><strong><a name="PRESHIELDPROF">Tag Name:</a></strong> PRESHIELDPROF:x,y,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of shield proficiencies needed).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a shield proficiency).</p>
@@ -1153,7 +1136,7 @@
 	<p class="indent2"><code>PRESKILL:3,Appraise=3,Decipher Script=3,Knowledge (TYPE=Other)=3</code></p>
 	<p class="indent3">Character must have three skills with at least three ranks in each of them.</p>
 	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
-	<p class="indent2"><code>PRESKILL:x,y,y=z</code> - <span class="new">Deprecated 5.15.4 - Remove 6.0</span></p>
+	<p class="indent2"><code>PRESKILL:x,y,y=z</code> - <span class="dep">Deprecated 5.15.4 - Remove 6.0</span></p>
 	<p class="indent3">The level (z) is now mandatory for all classes/class types (y) designated.</p>
 	<p></p>
 
@@ -1185,7 +1168,7 @@
 	<p class="indent2"><code>PRESKILLMULT:1,Spot=10,Listen=10</code></p>
 	<p class="indent3">Character must have a Spot or Listen at 10 or above.</p>
 	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
-	<p class="indent2"><code>PRESKILLMULT:x,y,y=z</code> - <span class="new">Deprecated 5.15.4 - Remove 6.0</span></p>
+	<p class="indent2"><code>PRESKILLMULT:x,y,y=z</code> - <span class="dep">Deprecated 5.15.4 - Remove 6.0</span></p>
 	<p class="indent3">The level (z) is now mandatory for all classes/class types (y) designated.</p>
 	<p></p>
 
@@ -1275,8 +1258,8 @@
 
 <hr>
 
-	<p class="new">*** NEW 5.12</p>
-	<p class="indent0"><strong><a name="PRESPELLSCHOOL">Tag Name:</a></strong> PRESPELLSCHOOL:x,y=z,y=z</p>
+	<p class="status"><a name="PRESPELLSCHOOL">*** NEW 5.12</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> PRESPELLSCHOOL:x,y=z,y=z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of spells known)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Name of a school of magic).</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> Number (Minimum spell level)</p>
@@ -1293,8 +1276,8 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.12</p>
-	<p class="indent0"><strong><a name="PRESPELLSCHOOLSUB">Tag Name:</a></strong> PRESPELLSCHOOLSUB:x,y=z,y=z</p>
+	<p class="status"><a name="PRESPELLSCHOOLSUB">*** Updated 5.12</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> PRESPELLSCHOOLSUB:x,y=z,y=z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of spells known)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Name of sub-school of magic.)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> Number (Minimum spell level)</p>
@@ -1311,8 +1294,8 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.10</p>
-	<p class="indent0"><strong><a name="PRESPELLTYPE">Tag Name:</a></strong> PRESPELLTYPE:x,y=z</p>
+	<p class="status"><a name="PRESPELLTYPE">*** Updated 5.10</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> PRESPELLTYPE:x,y=z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of spells known).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Arcane (Arcane type spells).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Divine (Divine type spells).</p>
@@ -1487,14 +1470,14 @@
 	<p class="indent2"><code>PREVISION:1,Blindsight=30,Darkvision=30</code></p>
 	<p class="indent3">Character must have either Blindsight or Darkvision at at least 30.</p>
 	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
-	<p class="indent2"><code>PREVISION:x,y,y=z</code> - <span class="new">Deprecated 5.15.4 - Remove 6.0</span></p>
+	<p class="indent2"><code>PREVISION:x,y,y=z</code> - <span class="dep">Deprecated 5.15.4 - Remove 6.0</span></p>
 	<p class="indent3">The level (z) is now mandatory for all classes/class types (y) designated.</p>
 	<p></p>
 
 <hr>
 
-	<p class="new">*** Updated</p>
-	<p class="indent0"><strong><a name="PREWEAPONPROF">Tag Name:</a></strong> PREWEAPONPROF:x,y,y</p>
+	<p class="status"><a name="PREWEAPONPROF">*** Updated 5.13.0</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> PREWEAPONPROF:x,y,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of matching proficiencies).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Weapon proficiency name).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> TYPE.Text (Weapon Proficiency type).</p>

@@ -165,6 +165,11 @@ a img {
 	font-weight: bold;
 	margin-bottom: -10px;
 }
+.dep {
+	color: #FF0000;
+	font-weight: bold;
+	margin-bottom: -10px;
+}
 .status {
 	color: #000000;
 	margin-bottom: -10px;
