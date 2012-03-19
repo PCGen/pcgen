@@ -77,6 +77,6 @@ public interface CompanionSupportFacade
 	 * or its contents.
 	 * @return a list of companions that the character currently has
 	 */
-	public ListFacade<CompanionFacade> getCompanions();
+	public ListFacade<? extends CompanionFacade> getCompanions();
 
 }
