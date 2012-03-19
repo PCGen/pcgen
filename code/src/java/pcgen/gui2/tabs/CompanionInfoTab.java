@@ -303,7 +303,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		{
 			
 			private List<String> types;
-			private ListFacade<CompanionFacade> companions;
+			private ListFacade<? extends CompanionFacade> companions;
 			
 			public RootNode()
 			{
