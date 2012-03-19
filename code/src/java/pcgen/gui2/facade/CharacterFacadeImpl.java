@@ -1047,7 +1047,8 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		}
 		
 		Globals.sortPObjectListByName(tempBonuses);
-		availTempBonuses.setContents(tempBonuses);
+		//TODO Reactivate after release and implement bonus application.
+		//availTempBonuses.setContents(tempBonuses);
 	}
 
 	private void scanForAnyPcTempBonuses(List<CDOMObject> tempBonuses, CDOMObject obj)
@@ -1096,6 +1097,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	@Override
 	public void addTempBonus(TempBonusFacade bonus)
 	{
+		//TODO: Apply to character
 		appliedTempBonuses.addElement(bonus);
 		refreshLanguageList();
 	}
@@ -1103,6 +1105,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	@Override
 	public void removeTempBonus(TempBonusFacade bonus)
 	{
+		//TODO: Remove character
 		appliedTempBonuses.removeElement(bonus);
 		refreshLanguageList();
 	}
