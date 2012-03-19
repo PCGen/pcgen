@@ -1645,7 +1645,7 @@ BIO
 	  ====================================
 	  ====================================-->
 	<!-- Domains -->
-	<weapon_proficiencies>Axe (Throwing), Battleaxe, Bite, Claw, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Falchion, Flail, Flail (Heavy), Gauntlet, Gauntlet (Spiked), Giant Rock, Glaive, Grapple, Greataxe, Greatclub, Greatsword, Guisarme, Halberd, Hammer (Light), Handaxe, Javelin, Kukri, Lance, Longbow, Longspear, Longsword, Mace (Heavy), Mace (Light), Morningstar, Pick (Heavy), Pick (Light), Quarterstaff, Ranseur, Rapier, Sap, Scimitar, Scythe, Shieldbash (Heavy), Shieldbash (Light), Shortbow, Shortspear, Sickle, Slam, Sling, Spear, Spells(Ray), Spiked Armor, Sword (Bastard), Sword (Short), Trident, Unarmed Strike, Waraxe (Dwarven), Warhammer</weapon_proficiencies>
+	<weapon_proficiencies>Axe (Throwing), Battleaxe, Bite, Boulder, Claw, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Falchion, Flail, Flail (Heavy), Gauntlet, Gauntlet (Spiked), Giant Rock, Glaive, Grapple, Greataxe, Greatclub, Greatsword, Guisarme, Halberd, Hammer (Light), Handaxe, Javelin, Kukri, Lance, Longbow, Longspear, Longsword, Mace (Heavy), Mace (Light), Morningstar, Pick (Heavy), Pick (Light), Quarterstaff, Ranseur, Rapier, Sap, Scimitar, Scythe, Shieldbash (Heavy), Shieldbash (Light), Shortbow, Shortspear, Sickle, Slam, Sling, Spear, Spells(Ray), Spiked Armor, Sword (Bastard), Sword (Short), Trident, Unarmed Strike, Waraxe (Dwarven), Warhammer</weapon_proficiencies>
 	<languages>Giant</languages>
 
 	<templates>
