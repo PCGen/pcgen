@@ -26,7 +26,11 @@
 <body>
 
 	<h1>Spell Files</h1>
-		<p class="new">*** Updated 5.13.6
+
+<hr>
+
+	<h2><a name="BUILDINGSPELLS">Building a Spell</a></h2>
+
 	<p class="indent1">The first field is the name of the spell.</p>
 	<p></p>
 	<p class="indent2"><code>Ghost Sound</code></p>
@@ -70,8 +74,12 @@
 
 <hr>
 
-	<p class="new">*** NEW 5.10.1</p>
-	<p class="indent0"><strong><a name="BONUSPPCOST">Tag Name:</a></strong> BONUS:PPCOST|x|y</p>
+	<h2>Spell File Tag Dictionary</h2>
+
+<hr>
+
+	<p class="status"><a name="BONUSPPCOST">*** NEW 5.10.1</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> BONUS:PPCOST|x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell Name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number (Power Points)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -94,8 +102,8 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.13.8</p>
-	<p class="indent0"><strong><a name="CASTERLEVEL">Tag Name:</a></strong> CASTERLEVEL (Spell Variable)</p>
+	<p class="status"><a name="CASTERLEVEL">*** Updated 5.13.8</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> CASTERLEVEL (Spell Variable)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>CASTERLEVEL is a special variable for use within <a href="#DESC">
@@ -143,8 +151,8 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.11.11</p>
-	<p class="indent0"><strong><a name="CLASSES">Tag Name:</a></strong> CLASSES:x,x=y|x,x=y</p>
+	<p class="status"><a name="CLASSES">*** Updated 5.11.11</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> CLASSES:x,x=y|x,x=y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL (All classes)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Class type)</p>
@@ -182,8 +190,8 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.11.12</p>
-	<p class="indent0"><strong><a name="COMPS">Tag Name:</a></strong> COMPS:x</p>
+	<p class="status"><a name="COMPS">*** Updated 5.11.12</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> COMPS:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (V, S, M, DF)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">Lists the types of spell components required for this spells (Verbal, Somatic, etc).</p>
@@ -196,8 +204,8 @@
 
 <hr>
 
-	<p class="new">*** Updated</p>
-	<p class="indent0"><strong><a name="COST">Tag Name:</a></strong> COST:x</p>
+	<p class="status"><a name="COST">*** Updated before 5.12.0</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> COST:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Component Cost)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">This is the cost of the spells components.</p>
@@ -205,27 +213,11 @@
 	<p class="indent2"><code>COST:300</code></p>
 	<p class="indent3">This spell's components cost 300 gold.</p>
 	<p></p>
-<!--
+
 <hr>
 
-	<p class="new">*** Updated</p>
-	<p class="indent0"><strong><a name="COST">Tag Name:</a></strong> COST:x|y,x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (Component Cost)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (Name of Class, optional)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This is the cost of the spells components.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>COST:300</code></p>
-	<p class="indent3">This spell's components cost 300 gold.</p>
-	<p class="indent2"><code>COST:1000|Druid,0|Cleric,100</code></p>
-	<p class="indent3">This spell's components cost 0 for a Druid, 100 for a Cleric and 1000 for everyone
-		else.</p>
-	<p></p>
--->
-<hr>
-
-	<p class="new">*** New 5.11.6</p>
-	<p class="indent0"><strong><a name="CT">Tag Name:</a></strong> CT:x</p>
+	<p class="status"><a name="CT">*** New 5.11.6</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> CT:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Casting Threshold)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">This roll is applied/accumulated toward the Casting Threshold of the spell that the
@@ -238,8 +230,8 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.11.13</p>
-	<p class="indent0"><strong><a name="DESCRIPTOR">Tag Name:</a></strong> DESCRIPTOR:x|x</p>
+	<p class="status"><a name="DESCRIPTOR">*** Updated 5.11.13</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> DESCRIPTOR:x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell type)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">Reports what types the spell is and is used for specialist wizards
@@ -255,8 +247,8 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.11.11</p>
-	<p class="indent0"><strong><a name="DOMAINS">Tag Name:</a></strong> DOMAINS:x,x=y|x,x=y</p>
+	<p class="status"><a name="DOMAINS">*** Updated 5.11.11</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> DOMAINS:x,x=y|x,x=y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Domain name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number (Spell level)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -303,8 +295,8 @@
 
 <hr>
 
-	<p class="new">*** Updated</p>
-	<p class="indent0"><strong><a name="ITEM">Tag Name:</a></strong> ITEM:x</p>
+	<p class="status"><a name="ITEM">*** Updated before 5.12.0</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> ITEM:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Item type)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">Tells PCGen what types of items this spell can be used to make
@@ -320,8 +312,8 @@
 
 <hr>
 
-	<p class="new">*** NEW 5.10.1</p>
-	<p class="indent0"><strong><a name="PPCOST">Tag Name:</a></strong> PPCOST:x</p>
+	<p class="status"><a name="PPCOST">*** NEW 5.10.1</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> PPCOST:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">This is a point pool cost to purchase/cast the spell
@@ -333,8 +325,8 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.13.6</p>
-	<p class="indent0"><strong><a name="RANGE">Tag Name:</a></strong> RANGE:x</p>
+	<p class="status"><a name="RANGE">*** Updated 5.13.6</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> RANGE:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell range)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">Reports the range that the spell has.</p>
@@ -358,8 +350,8 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.13.6</p>
-	<p class="indent0"><strong><a name="SCHOOL">Tag Name:</a></strong> SCHOOL:x|x</p>
+	<p class="status"><a name="SCHOOL">*** Updated 5.13.6</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> SCHOOL:x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell School Name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">This is a | (pipe) delimited list of Schools the spell belongs to and is used for specialist
@@ -378,8 +370,8 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.11.13</p>
-	<p class="indent0"><strong><a name="SPELLRES">Tag Name:</a></strong> SPELLRES:x</p>
+	<p class="status"><a name="SPELLRES">*** Updated 5.11.13</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> SPELLRES:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Yes, No or free-form text)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">Indicates whether the character can try to resist the spell based on
@@ -415,8 +407,8 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.11.13</p>
-	<p class="indent0"><strong><a name="SUBSCHOOL">Tag Name:</a></strong> SUBSCHOOL:x|x</p>
+	<p class="status"><a name="SUBSCHOOL">*** Updated 5.11.13</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> SUBSCHOOL:x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell Sub-School Name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">This is a | (pipe) delimited list of Sub-Schools the spell belongs to and is used for specialist
@@ -435,8 +427,8 @@
 
 <hr>
 
-	<p class="new">*** New</p>
-	<p class="indent0"><strong><a name="TARGETAREA">Tag Name:</a></strong> TARGETAREA:x</p>
+	<p class="status"><a name="TARGETAREA">*** New before 5.8.0</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> TARGETAREA:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Target area)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
@@ -458,8 +450,8 @@
 
 <hr>
 
-	<p class="new">*** Updated 5.11.13</p>
-	<p class="indent0"><strong><a name="VARIANTS">Tag Name:</a></strong> VARIANTS:x|x</p>
+	<p class="status"><a name="VARIANTS">*** Updated 5.11.13</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> VARIANTS:x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell Variant)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
