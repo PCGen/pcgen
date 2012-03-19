@@ -1,11 +1,12 @@
-# CVS $Revision$ $Author$ -- Sat Sep 26 16:44:39 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: TaluronIscandar
 
-CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Psionic|PRERACE:1,RACESUBTYPE=Psionic
+# Ability Name				Category of Ability		Type				Visible	Define														Description																				Ability											Modify VAR
+CATEGORY=Internal|Master Traits.MOD																																																ABILITY:Special Ability|AUTOMATIC|Psionic|PRERACE:1,RACESUBTYPE=Psionic
 
-# Ability Name	Category of Ability		Type				Visible	Define														Description																				Modify VAR
-Psionic		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0	DESC:Total Power Points %1; Base Power Points %2; Bonus Power Points %3|TotalPowerPoints|BasePowerPoints|BonusPowerPoints	BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints
+# Ability Name				Category of Ability		Type				Visible	Define														Description																				Ability											Modify VAR
+Psionic					CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0	DESC:Total Power Points %1; Base Power Points %2; Bonus Power Points %3|TotalPowerPoints|BasePowerPoints|BonusPowerPoints													BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints
 
 ###Block: count feat for Psionic Talent: workaround for COUNT[FEATNAME bug
 # Ability Name			Category of Ability		Type			Visible	Modify VAR
@@ -18,21 +19,21 @@ Psionic Talent Power Points	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	BO
 Psion Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff|Shortspear|Spells(Ray)
 
 ###Block: Mind Blade abilities
-# Ability Name			Output Name						Category of Ability		Type						Visible	Define																Description				Automatically Gained Weapon Prof.	Modify VAR																										Aspects
-MindBlade Wielder																	CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO	DEFINE:MndBladeECL|0	DEFINE:MindBladePlus|0	DEFINE:MindBladeEnhancement|0	DEFINE:PsychicStrike|0						AUTO:WEAPONPROF|Mind Blade		BONUS:VAR|MindBladePlus|floor(MndBladeECL/4)	BONUS:VAR|MindBladeEnhancement|floor((MndBladeECL-2)/4)	BONUS:VAR|PsychicStrike|floor((MndBladeECL+1)/4)
-Mind Blade					KEY:MindBlade Standard			OUTPUTNAME:Mind Blade				CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES
-Throw Mind Blade				KEY:MindBlade Throw			OUTPUTNAME:Throw Mind Blade			CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:YES	DESC:You can throw your mind blade as a ranged weapon with a range increment of 30 feet. Whether or not the attack hits, a thrown mind blade then dissipates. A soulknife of 3rd level or higher can make a psychic strike (see below) with a thrown mind blade and can use the blade in conjunction with other special abilities (such as Knife to the Soul; see below).
-Psychic Strike				KEY:MindBlade Psychic Strike		OUTPUTNAME:Psychic Strike			CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:YES																		DESC:+%1d8|PsychicStrike																																		ASPECT:Ability Benefit|+%1d8|PsychicStrike
-Mind Blade					KEY:MindBlade Plus			OUTPUTNAME:Mind Blade				CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES																		DESC:+%1|MindBladePlus																																			ASPECT:Ability Bonus|+%1|MindBladePlus
-Draw Mind Blade as free action	KEY:MindBlade Free Draw			OUTPUTNAME:Draw Mind Blade as free action	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Shape Mind Blade				KEY:MindBlade Shape			OUTPUTNAME:Shape Mind Blade			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Mind Blade Enhancement			KEY:MindBlade Enhancement		OUTPUTNAME:Mind Blade Enhancement		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																		DESC:+%1|MindBladeEnhancement																																		ASPECT:Ability Benefit|+%1|MindBladeEnhancement
-Bladewind					KEY:MindBlade Bladewind			OUTPUTNAME:Bladewind				CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES
-Knife to the Soul				KEY:MindBlade Knife to the Soul	OUTPUTNAME:Knife to the Soul			CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES
-Multiple Throw				KEY:MindBlade Multiple Throw		OUTPUTNAME:Multiple Throw			CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES
+# Ability Name							Unique Key					Output Name						Category of Ability		Type						Visible	Define																Description																																																																																																																																																																																												Automatically Gained Weapon Prof.	Modify VAR																										Aspects
+MindBlade Wielder																				CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO	DEFINE:MndBladeECL|0	DEFINE:MindBladePlus|0	DEFINE:MindBladeEnhancement|0	DEFINE:PsychicStrike|0																																																																																																																																																																																														AUTO:WEAPONPROF|Mind Blade		BONUS:VAR|MindBladePlus|floor(MndBladeECL/4)	BONUS:VAR|MindBladeEnhancement|floor((MndBladeECL-2)/4)	BONUS:VAR|PsychicStrike|floor((MndBladeECL+1)/4)
+Mind Blade								KEY:MindBlade Standard			OUTPUTNAME:Mind Blade				CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES
+Throw Mind Blade							KEY:MindBlade Throw			OUTPUTNAME:Throw Mind Blade			CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:YES																		DESC:You can throw your mind blade as a ranged weapon with a range increment of 30 feet. Whether or not the attack hits, a thrown mind blade then dissipates. A soulknife of 3rd level or higher can make a psychic strike (see below) with a thrown mind blade and can use the blade in conjunction with other special abilities (such as Knife to the Soul; see below).
+Psychic Strike							KEY:MindBlade Psychic Strike		OUTPUTNAME:Psychic Strike			CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:YES																		DESC:+%1d8|PsychicStrike																																																																																																																																																																																																																										ASPECT:Ability Benefit|+%1d8|PsychicStrike
+Mind Blade								KEY:MindBlade Plus			OUTPUTNAME:Mind Blade				CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES																		DESC:+%1|MindBladePlus																																																																																																																																																																																																																											ASPECT:Ability Bonus|+%1|MindBladePlus
+Draw Mind Blade as free action				KEY:MindBlade Free Draw			OUTPUTNAME:Draw Mind Blade as free action	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Shape Mind Blade							KEY:MindBlade Shape			OUTPUTNAME:Shape Mind Blade			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Mind Blade Enhancement						KEY:MindBlade Enhancement		OUTPUTNAME:Mind Blade Enhancement		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																		DESC:+%1|MindBladeEnhancement																																																																																																																																																																																																																										ASPECT:Ability Benefit|+%1|MindBladeEnhancement
+Bladewind								KEY:MindBlade Bladewind			OUTPUTNAME:Bladewind				CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES
+Knife to the Soul							KEY:MindBlade Knife to the Soul	OUTPUTNAME:Knife to the Soul			CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES
+Multiple Throw							KEY:MindBlade Multiple Throw		OUTPUTNAME:Multiple Throw			CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES
 
 
-CATEGORY=Special Ability|MindBlade Psychic Strike.MOD	DESC:As a move action, a soulknife of 3rd level or higher can imbue his mind blade with destructive psychic energy. This effect deals an extra 1d8 points of damage to the next living, nonmindless target he successfully hits with a melee attack (or ranged attack, if he is using the throw mind blade ability). Creatures immune to mind-affecting effects are immune to psychic strike damage. (Unlike the rogue's sneak attack, the psychic strike is not precision damage and can affect creatures otherwise immune to extra damage from critical hits or more than 30 feet away, provided they are living, nonmindless creatures not immune to mind-affecting effects.) A mind blade deals this extra damage only once when this ability is called upon, but a soulknife can imbue his mind blade with psychic energy again by taking another move action. Once a soulknife has prepared his blade for a psychic strike, it holds the extra energy until it is used. Even if the soulknife drops the mind blade (or it otherwise dissipates, such as when it is thrown and misses), it is still imbued with psychic energy when the soulknife next materializes it.
+CATEGORY=Special Ability|MindBlade Psychic Strike.MOD																																												DESC:As a move action, a soulknife of 3rd level or higher can imbue his mind blade with destructive psychic energy. This effect deals an extra 1d8 points of damage to the next living, nonmindless target he successfully hits with a melee attack (or ranged attack, if he is using the throw mind blade ability). Creatures immune to mind-affecting effects are immune to psychic strike damage. (Unlike the rogue's sneak attack, the psychic strike is not precision damage and can affect creatures otherwise immune to extra damage from critical hits or more than 30 feet away, provided they are living, nonmindless creatures not immune to mind-affecting effects.) A mind blade deals this extra damage only once when this ability is called upon, but a soulknife can imbue his mind blade with psychic energy again by taking another move action. Once a soulknife has prepared his blade for a psychic strike, it holds the extra energy until it is used. Even if the soulknife drops the mind blade (or it otherwise dissipates, such as when it is thrown and misses), it is still imbued with psychic energy when the soulknife next materializes it.
 
 
 ###Block: Wilder Abilities
@@ -116,61 +117,61 @@ Sweeping Strike			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VIS
 Chain of Overwhelming Force	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES						DESC:1x/day
 
 ###Block: Astral Construct Menu A Abilities
-# Ability Name			Unique Key						Category of Ability		Type							Visible		Move			Automatically Gained Feat		Ability									Bonus to Ability Pool						Combat bonus				Damage reduction	Bonus to HP			Add to base move			Stat bonus		Modify VAR						Vision			Damage Reduction
-Buff					KEY:Astral_Buff					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES																																							BONUS:HP|CURRENTMAX|5
-Celerity				KEY:Astral_Celerity				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES																																											BONUS:MOVEADD|TYPE.Walk|10
-Cleave				KEY:Astral_Cleave					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY				AUTO:FEAT|Cleave
-Deflection				KEY:Astral_Deflection				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES																														BONUS:COMBAT|AC|1|TYPE=Deflection
-Fly					KEY:Astral_Fly					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES		MOVE:Fly,20								ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability																															BONUS:VAR|Maneuverability|3
-Improved Bull Rush		KEY:Astral_Improved Bull Rush			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY				AUTO:FEAT|Improved Bull Rush
-Improved Slam Attack		KEY:Astral_Improved Slam Attack		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY				SERVESAS:ABILITY=FEAT|Improved Natural Attack
-Mobility				KEY:Astral_Mobility				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY				AUTO:FEAT|Mobility
-Power Attack			KEY:Astral_Power Attack				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY				AUTO:FEAT|Power Attack
-Resistance				KEY:Astral_Resistance				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY										ABILITY:Special Ability|AUTOMATIC|Resistance
-Swim					KEY:Astral_Swim					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES		MOVE:Swim,20
-Trip					KEY:Astral_Trip					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY										ABILITY:Special Ability|AUTOMATIC|Trip
-Resistance To Cold		KEY:Astral_Resistance To Cold			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY										ABILITY:Special Ability|AUTOMATIC|Resistance To Cold																																BONUS:VAR|ColdResistanceBonus|5
-Resistance To Fire		KEY:Astral_Resistance To Fire			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY										ABILITY:Special Ability|AUTOMATIC|Resistance To Fire																																BONUS:VAR|FireResistanceBonus|5
-Resistance To Electricity	KEY:Astral_Resistance To Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY										ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity																															BONUS:VAR|ElectricityResistanceBonus|5
-Resistance To Sonic		KEY:Astral_Resistance To Sonic		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY										ABILITY:Special Ability|AUTOMATIC|Resistance To Sonic																																BONUS:VAR|SonicResistanceBonus|5
-Resistance To Acid		KEY:Astral_Resistance To Acid			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY										ABILITY:Special Ability|AUTOMATIC|Resistance To Acid																																BONUS:VAR|AcidResistanceBonus|5
+# Ability Name			Unique Key						Category of Ability		Type							Visible		Serves As							Move			Automatically Gained Feat	Ability									Bonus to Ability Pool						Combat bonus				Damage reduction	Bonus to HP			Add to base move			Stat bonus		Modify VAR						Vision			Damage Reduction
+Buff					KEY:Astral_Buff					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES																																														BONUS:HP|CURRENTMAX|5
+Celerity				KEY:Astral_Celerity				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES																																																		BONUS:MOVEADD|TYPE.Walk|10
+Cleave				KEY:Astral_Cleave					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY												AUTO:FEAT|Cleave
+Deflection				KEY:Astral_Deflection				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES																																					BONUS:COMBAT|AC|1|TYPE=Deflection
+Fly					KEY:Astral_Fly					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES										MOVE:Fly,20							ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability																															BONUS:VAR|Maneuverability|3
+Improved Bull Rush		KEY:Astral_Improved Bull Rush			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY												AUTO:FEAT|Improved Bull Rush
+Improved Slam Attack		KEY:Astral_Improved Slam Attack		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY	SERVESAS:ABILITY=FEAT|Improved Natural Attack
+Mobility				KEY:Astral_Mobility				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY												AUTO:FEAT|Mobility
+Power Attack			KEY:Astral_Power Attack				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY												AUTO:FEAT|Power Attack
+Resistance				KEY:Astral_Resistance				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																	ABILITY:Special Ability|AUTOMATIC|Resistance
+Swim					KEY:Astral_Swim					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES										MOVE:Swim,20
+Trip					KEY:Astral_Trip					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																	ABILITY:Special Ability|AUTOMATIC|Trip
+Resistance To Cold		KEY:Astral_Resistance To Cold			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																	ABILITY:Special Ability|AUTOMATIC|Resistance To Cold																																BONUS:VAR|ColdResistanceBonus|5
+Resistance To Fire		KEY:Astral_Resistance To Fire			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																	ABILITY:Special Ability|AUTOMATIC|Resistance To Fire																																BONUS:VAR|FireResistanceBonus|5
+Resistance To Electricity	KEY:Astral_Resistance To Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																	ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity																															BONUS:VAR|ElectricityResistanceBonus|5
+Resistance To Sonic		KEY:Astral_Resistance To Sonic		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																	ABILITY:Special Ability|AUTOMATIC|Resistance To Sonic																																BONUS:VAR|SonicResistanceBonus|5
+Resistance To Acid		KEY:Astral_Resistance To Acid			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																	ABILITY:Special Ability|AUTOMATIC|Resistance To Acid																																BONUS:VAR|AcidResistanceBonus|5
 
 #Astral Construct Menu B Abilities
-Two Menu A Abilities		KEY:Astral_Two Menu A Abilities		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																				BONUS:ABILITYPOOL|Astral Construct Menu A Ability|2
+Two Menu A Abilities		KEY:Astral_Two Menu A Abilities		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																											BONUS:ABILITYPOOL|Astral Construct Menu A Ability|2
 Extra Attack			KEY:Astral_Extra Attack				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:YES
-Fast Healing			KEY:Astral_Fast Healing				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY										ABILITY:Special Ability|AUTOMATIC|Fast Healing																																	BONUS:VAR|FastHealing|2
-Heavy Deflection			KEY:Astral_Heavy Deflection			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:YES																														BONUS:COMBAT|AC|4|TYPE=Deflection
-Improved Buff			KEY:Astral_Improved Buff			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:YES																																							BONUS:HP|CURRENTMAX|15
-Improved Critical			KEY:Astral_Improved Critical			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY				SERVESAS:ABILITY=FEAT|Improved Critical
-Improved Damage Reduction	KEY:Astral_Improved Damage Reduction	CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																																			BONUS:DR|Magic|3																								DR:0/Magic
-Improved Fly			KEY:Astral_Improved Fly				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY	MOVE:Fly,40								ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability																															BONUS:VAR|Maneuverability|3
-Improved Grab			KEY:Astral_Improved Grab			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY										ABILITY:Special Ability|AUTOMATIC|Improved Grab
-Improved Swim			KEY:Astral_Improved Swim			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:YES		MOVE:Swim,60
-Muscle				KEY:Astral_Muscle					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:YES																																																BONUS:STAT|STR|4
+Fast Healing			KEY:Astral_Fast Healing				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																	ABILITY:Special Ability|AUTOMATIC|Fast Healing																																	BONUS:VAR|FastHealing|2
+Heavy Deflection			KEY:Astral_Heavy Deflection			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:YES																																					BONUS:COMBAT|AC|4|TYPE=Deflection
+Improved Buff			KEY:Astral_Improved Buff			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:YES																																														BONUS:HP|CURRENTMAX|15
+Improved Critical			KEY:Astral_Improved Critical			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY	SERVESAS:ABILITY=FEAT|Improved Critical
+Improved Damage Reduction	KEY:Astral_Improved Damage Reduction	CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																																										BONUS:DR|Magic|3																								DR:0/Magic
+Improved Fly			KEY:Astral_Improved Fly				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY									MOVE:Fly,40							ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability																															BONUS:VAR|Maneuverability|3
+Improved Grab			KEY:Astral_Improved Grab			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																	ABILITY:Special Ability|AUTOMATIC|Improved Grab
+Improved Swim			KEY:Astral_Improved Swim			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:YES										MOVE:Swim,60
+Muscle				KEY:Astral_Muscle					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:YES																																																							BONUS:STAT|STR|4
 Poison Touch			KEY:Astral_Poison Touch				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:YES
-Pounce				KEY:Astral_Pounce					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY										ABILITY:Special Ability|AUTOMATIC|Pounce
+Pounce				KEY:Astral_Pounce					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																	ABILITY:Special Ability|AUTOMATIC|Pounce
 Smite					KEY:Astral_Smite					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:YES
-Trample				KEY:Astral_Trample				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY										ABILITY:Special Ability|AUTOMATIC|Trample
+Trample				KEY:Astral_Trample				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																	ABILITY:Special Ability|AUTOMATIC|Trample
 Energy Touch ~ Acid									CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:YES
 Energy Touch ~ Cold									CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:YES
 Energy Touch ~ Electricity								CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:YES
 Energy Touch ~ Fire									CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:YES
 
 #Astral Construct Menu C Abilities
-Two Menu B Abilities		KEY:Astral_Two Menu B Abilities		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY																				BONUS:ABILITYPOOL|Astral Construct Menu B Ability|2
-Blindsight				KEY:Astral_Blindsight				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY																																																									VISION:Blindsight (60')
+Two Menu B Abilities		KEY:Astral_Two Menu B Abilities		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY																											BONUS:ABILITYPOOL|Astral Construct Menu B Ability|2
+Blindsight				KEY:Astral_Blindsight				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY																																																																VISION:Blindsight (60')
 Concussion				KEY:Astral_Concussion				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:YES
-Constrict				KEY:Astral_Constrict				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY										ABILITY:Special Ability|AUTOMATIC|Constrict
+Constrict				KEY:Astral_Constrict				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY																	ABILITY:Special Ability|AUTOMATIC|Constrict
 Dimension Slide			KEY:Astral_Dimension Slide			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:YES
 Energy Bolt				KEY:Astral_Energy Bolt				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:YES
-Extra Buff				KEY:Astral_Extra Buff				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:YES																																							BONUS:HP|CURRENTMAX|30
-Extreme Damage Reduction	KEY:Astral_Extreme Damage Reduction		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:YES																																				BONUS:DR|Magic|6
-Extreme Deflection		KEY:Astral_Extreme Deflection			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:YES																														BONUS:COMBAT|AC|8|TYPE=Deflection
-Natural Invisibility		KEY:Astral_Natural Invisibility		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY										ABILITY:Special Ability|AUTOMATIC|Natural Invisibility
+Extra Buff				KEY:Astral_Extra Buff				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:YES																																														BONUS:HP|CURRENTMAX|30
+Extreme Damage Reduction	KEY:Astral_Extreme Damage Reduction		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:YES																																											BONUS:DR|Magic|6
+Extreme Deflection		KEY:Astral_Extreme Deflection			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:YES																																					BONUS:COMBAT|AC|8|TYPE=Deflection
+Natural Invisibility		KEY:Astral_Natural Invisibility		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY																	ABILITY:Special Ability|AUTOMATIC|Natural Invisibility
 Power Resistance			KEY:Astral_Power Resistance			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:YES
-Rend					KEY:Astral_Rend					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY										ABILITY:Special Ability|AUTOMATIC|Rend
-Spring Attack			KEY:Astral_Spring Attack			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY				AUTO:FEAT|Spring Attack
-Whirlwind Attack			KEY:Astral_Whirlwind Attack			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY				AUTO:FEAT|Whirlwind Attack
+Rend					KEY:Astral_Rend					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY																	ABILITY:Special Ability|AUTOMATIC|Rend
+Spring Attack			KEY:Astral_Spring Attack			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY												AUTO:FEAT|Spring Attack
+Whirlwind Attack			KEY:Astral_Whirlwind Attack			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY												AUTO:FEAT|Whirlwind Attack
 
 
 ###Block: Psicrystal personalities

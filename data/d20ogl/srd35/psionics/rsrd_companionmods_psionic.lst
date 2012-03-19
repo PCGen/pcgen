@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jan  7 21:23:13 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Arknight
 
@@ -8,7 +8,7 @@ FOLLOWER:PCrystalLevel=1	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Har
 FOLLOWER:PCrystalLevel=3	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Deliver Touch Powers																												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|INT|1
 FOLLOWER:PCrystalLevel=5	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Telepathic Speech																													BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|INT|1
 FOLLOWER:PCrystalLevel=7	TYPE:Psicrystal																																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|INT|1
-FOLLOWER:PCrystalLevel=9	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|Flight ~ Psicrystal																								MOVE:Fly,50	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|INT|1	BONUS:VAR|Maneuverability|2
+FOLLOWER:PCrystalLevel=9	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|Flight ~ Psicrystal																							MOVE:Fly,50	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|INT|1	BONUS:VAR|Maneuverability|2
 FOLLOWER:PCrystalLevel=11	TYPE:Psicrystal	SR:5		ABILITY:Special Ability|AUTOMATIC|Power Resistance																													BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:MISC|SR|PCrystalLevel	BONUS:STAT|INT|1
 FOLLOWER:PCrystalLevel=13	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Sight Link																														BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|INT|1
 FOLLOWER:PCrystalLevel=15	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Channel Power																														BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|INT|1

@@ -1,7 +1,8 @@
-# CVS $Revision$ $Author$ -- Mon Nov  3 22:48:47 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 
 # Not sure if this is the best method, but I'm not wholly up on Psionics. Need to review.
-Psicrystal Power		CATEGORY:Special Ability	TYPE:SpecialQuality.PsicrystalPower	CHOOSE:SPELLS|SPELLTYPE=Psionic[LEVELMAX=8]	MULT:YES	DESC:Your psicrystal can manifest a power.	BENEFIT:Choose one power you know of 8th level or lower. Your psicrystal can now manifest this power once per day at your manifester level (the psicrystal gains sufficient power points to manifest the power once). You cannot bestow a power upon your psicrystal if the power normally has any experience point cost.	SOURCEPAGE:EpicFeats.rtf
+# Ability Name	Category of Ability		Type						Description							Multiple?	Choose							Source Page				Description of the Benefits
+Psicrystal Power	CATEGORY:Special Ability	TYPE:SpecialQuality.PsicrystalPower	DESC:Your psicrystal can manifest a power.	MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Psionic[LEVELMAX=8]	SOURCEPAGE:EpicFeats.rtf	BENEFIT:Choose one power you know of 8th level or lower. Your psicrystal can now manifest this power once per day at your manifester level (the psicrystal gains sufficient power points to manifest the power once). You cannot bestow a power upon your psicrystal if the power normally has any experience point cost.
 

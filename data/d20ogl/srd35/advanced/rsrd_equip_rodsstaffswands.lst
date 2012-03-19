@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Sep 26 16:44:39 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Thomas/Chipoulou tjannes@vub.ac.be
 
@@ -27,7 +27,7 @@ Rod (Security)				OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod																C
 Rod (Splendor)				OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod																COST:25000	WT:5		BASEITEM:Rod																																				SOURCEPAGE:MagicItemsIII.rtf											BONUS:STAT|CHA|4|TYPE=Enhancement
 Rod (Thunder and Lightning)		OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Mace (Light)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace										COST:33000	WT:5		BASEITEM:Rod		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6											WIELD:Light		SIZE:M	SOURCEPAGE:MagicItemsIII.rtf																	BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
 Rod (Viper)					OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Mace (Heavy)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace										COST:19000	WT:5		BASEITEM:Rod		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8														SIZE:M	SOURCEPAGE:MagicItemsIII.rtf																	BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
-Rod (Withering)				OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Mace (Light)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace										COST:25000	WT:6		BASEITEM:Rod		CRITMULT:x2			CRITRANGE:1																							WIELD:Light		SIZE:M	SOURCEPAGE:MagicItemsIII.rtf																	BONUS:WEAPON|TOHIT|1					SPROP:Deals 1d4 temporary STR and CON damage
+Rod (Withering)				OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Mace (Light)	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace										COST:25000	WT:6		BASEITEM:Rod		CRITMULT:x2			CRITRANGE:1																								WIELD:Light		SIZE:M	SOURCEPAGE:MagicItemsIII.rtf																	BONUS:WEAPON|TOHIT|1					SPROP:Deals 1d4 temporary STR and CON damage
 Rod (Wonder)				OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod																COST:12000	WT:5		BASEITEM:Rod																																				SOURCEPAGE:MagicItemsIII.rtf
 
 ###Block:Metamagic Rods

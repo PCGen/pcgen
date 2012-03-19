@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Jul  6 00:06:40 2008 -- reformated by prettylst.pl v1.38 (build 6887)
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 # SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 ###Block: Epic Core Class Feat Pools
@@ -46,11 +46,11 @@ ABILITYCATEGORY:Legendary Dreadnought Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOO
 ABILITYCATEGORY:Perfect Wight Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:PerfectWight			PLURAL:Perfect Wight Feats		DISPLAYLOCATION:Feats
 
 ###Block: Epic Spellcasting Support
-# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI		Display Location
-ABILITYCATEGORY:Epic Spellcasting Type	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EpicSpells	PLURAL:Epic Spellcasting Types	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Familiar Spell Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FamiliarSpell	PLURAL:Familiar Spell Choices	DISPLAYLOCATION:Feats
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Specific choices list		Plural description for UI		Display Location
+ABILITYCATEGORY:Epic Spellcasting Type	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EpicSpells							PLURAL:Epic Spellcasting Types	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Familiar Spell Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FamiliarSpell						PLURAL:Familiar Spell Choices		DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Tenacious Magic Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			ABILITYLIST:Tenacious Magic	PLURAL:Tenacious Magic Choices	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Tenacious Magic Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT							ABILITYLIST:Tenacious Magic	PLURAL:Tenacious Magic Choices	DISPLAYLOCATION:Feats
 
 #
 # End

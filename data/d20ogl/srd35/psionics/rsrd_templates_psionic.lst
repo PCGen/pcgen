@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Nov  3 22:48:47 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original entry by: Arknight
 # update by: TaluronIscandar
@@ -11,16 +11,16 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 #Basic Psionic Creature		Visible
 # Template Name	Visible		Level Adjustment	Template								Source Page					Required Race			Prohibited Race				Prohibited Template	Misc bonus												Stat bonus											Modify VAR				Ability								Removable?		Spell Res.	Subrace	Main Race Type		Race Subtype			Innate Spells
 Psionic		VISIBLE:EXPORT																																																																ABILITY:Special Ability|AUTOMATIC|Psionic								SUBRACE:YES					RACESUBTYPE:Psionic
-Phrenic		VISIBLE:YES		LEVELADJUSTMENT:2	TEMPLATE:CHOOSE:Phrenic (Animal)	RACESUBTYPE:Psionic	TEMPLATE:Psionic	SOURCEPAGE:PsionicMonsters.rtf						!PRERACE:1,RACESUBTYPE=Psionic	!PRETEMPLATE:1,Mindless	BONUS:MISC|CR|1	BONUS:MISC|CR|1|PREHD:MIN=6	BONUS:MISC|CR|1|PREHD:MIN=11	BONUS:STAT|INT|2|PRESTAT:1,INT=3	BONUS:STAT|WIS|2	BONUS:STAT|CHA|4	BONUS:VAR|BonusPowerPoints|1	ABILITY:Special Ability|AUTOMATIC|Naturally Psionic	REMOVABLE:YES	SR:10+HD												SPELLS:Innate|TIMES=3|CASTERLEVEL=HD|Precognition (Defensive),11+CHA	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Force Screen,11+CHA	SPELLS:Innate|TIMES=3|CASTERLEVEL=HD|Empty Mind,11+CHA|Mind Thrust,11+CHA|PREHD:MIN=3	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Body Adjustment,13+CHA|Brain Lock,12+CHA|PREHD:MIN=5	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Aversion,12+CHA|Psionic Blast,13+CHA|PREHD:MIN=7	SPELLS:Innate|TIMES=3|CASTERLEVEL=HD|Intellect Fortress,14+CHA|PREHD:MIN=9	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Psychic Crush,15+CHA|PREHD:MIN=9	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Dominate (Psionic),14+CHA|PREHD:MIN=11	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Energy Current,15+CHA|Tower of Iron Will,15+CHA|PREHD:MIN=13	SPELLS:Innate|TIMES=3|CASTERLEVEL=HD|Teleport (Psionic),15+CHA|PREHD:MIN=15	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Fission,17+CHA|PREHD:MIN=17	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Ultrablast,17+CHA|PREHD:MIN=19
+Phrenic		VISIBLE:YES		LEVELADJUSTMENT:2	TEMPLATE:CHOOSE:Phrenic (Animal)	TEMPLATE:Psionic	SOURCEPAGE:PsionicMonsters.rtf						!PRERACE:1,RACESUBTYPE=Psionic	!PRETEMPLATE:1,Mindless	BONUS:MISC|CR|1	BONUS:MISC|CR|1|PREHD:MIN=6	BONUS:MISC|CR|1|PREHD:MIN=11	BONUS:STAT|INT|2|PRESTAT:1,INT=3	BONUS:STAT|WIS|2	BONUS:STAT|CHA|4	BONUS:VAR|BonusPowerPoints|1	ABILITY:Special Ability|AUTOMATIC|Naturally Psionic	REMOVABLE:YES	SR:10+HD							RACESUBTYPE:Psionic		SPELLS:Innate|TIMES=3|CASTERLEVEL=HD|Precognition (Defensive),11+CHA	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Force Screen,11+CHA	SPELLS:Innate|TIMES=3|CASTERLEVEL=HD|Empty Mind,11+CHA|Mind Thrust,11+CHA|PREHD:MIN=3	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Body Adjustment,13+CHA|Brain Lock,12+CHA|PREHD:MIN=5	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Aversion,12+CHA|Psionic Blast,13+CHA|PREHD:MIN=7	SPELLS:Innate|TIMES=3|CASTERLEVEL=HD|Intellect Fortress,14+CHA|PREHD:MIN=9	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Psychic Crush,15+CHA|PREHD:MIN=9	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Dominate (Psionic),14+CHA|PREHD:MIN=11	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Energy Current,15+CHA|Tower of Iron Will,15+CHA|PREHD:MIN=13	SPELLS:Innate|TIMES=3|CASTERLEVEL=HD|Teleport (Psionic),15+CHA|PREHD:MIN=15	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Fission,17+CHA|PREHD:MIN=17	SPELLS:Innate|TIMES=1|CASTERLEVEL=HD|Ultrablast,17+CHA|PREHD:MIN=19
 Phrenic (Animal)	VISIBLE:NO														SOURCEPAGE:PsionicMonsters.rtf	PRERACE:1,RACETYPE=Animal																																																									RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal
 
 ###Block: Dromite Chitin
-# Template Name			Visible	Template																Combat bonus						Modify VAR						Ability
+# Template Name			Visible	Template																Combat bonus					Modify VAR						Ability
 Dromite Chitin			VISIBLE:NO	TEMPLATE:CHOOSE:Cold Resist Chitin|Electricity Resist Chitin|Fire Resist Chitin|Sonic Resist Chitin	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK
-Cold Resist Chitin		VISIBLE:NO																										BONUS:VAR|ColdResistanceBonus|5		ABILITY:Special Ability|AUTOMATIC|Resistance To Cold
-Fire Resist Chitin		VISIBLE:NO																										BONUS:VAR|FireResistanceBonus|5		ABILITY:Special Ability|AUTOMATIC|Resistance To Fire
-Electricity Resist Chitin	VISIBLE:NO																										BONUS:VAR|ElectricityResistanceBonus|5	ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity
-Sonic Resist Chitin		VISIBLE:NO																										BONUS:VAR|SonicResistanceBonus|5		ABILITY:Special Ability|AUTOMATIC|Resistance To Sonic
+Cold Resist Chitin		VISIBLE:NO																									BONUS:VAR|ColdResistanceBonus|5		ABILITY:Special Ability|AUTOMATIC|Resistance To Cold
+Fire Resist Chitin		VISIBLE:NO																									BONUS:VAR|FireResistanceBonus|5		ABILITY:Special Ability|AUTOMATIC|Resistance To Fire
+Electricity Resist Chitin	VISIBLE:NO																									BONUS:VAR|ElectricityResistanceBonus|5	ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity
+Sonic Resist Chitin		VISIBLE:NO																									BONUS:VAR|SonicResistanceBonus|5		ABILITY:Special Ability|AUTOMATIC|Resistance To Sonic
 
 #
 # End

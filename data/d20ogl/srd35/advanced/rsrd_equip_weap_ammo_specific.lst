@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Mar  2 05:43:01 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original entry by: ???, Thaldorf
 
-# Equipment Name		Output Name					Type									Cost		Weight	Base Quantity	Modifier		Requires Modification?	Source Page				Weapon prop. bonus		Special Property
+# Equipment Name		Output Name					Type										Cost		Weight	Base Quantity	Modifier		Requires Modification?	Source Page				Weapon prop. bonus		Special Property
 Screaming Bolt		OUTPUTNAME:Bolt, [NAME]			TYPE:Magic.Enhancement.Ammunition.SpecificBolt.Individual	COST:267	WT:0		BASEQTY:1		EQMOD:STEEL.WOOD	MODS:YES			SOURCEPAGE:MagicItemsII.rtf	BONUS:WEAPON|DAMAGE,TOHIT|2
 Slaying Arrow								TYPE:Magic.Enhancement.Ammunition.SpecificArrow.Individual	COST:2282	WT:0					EQMOD:STEEL.WOOD					SOURCEPAGE:MagicItemsII.rtf	BONUS:WEAPON|DAMAGE,TOHIT|1	SPROP:Any type or subtype of creature must made a fortitude save (DC 20) or dies (or be destroyed) instantly when hit
 Slaying Arrow (Greater)	OUTPUTNAME:Greater Slaying Arrow	TYPE:Magic.Enhancement.Ammunition.SpecificArrow.Individual	COST:4057	WT:0					EQMOD:STEEL.WOOD					SOURCEPAGE:MagicItemsII.rtf	BONUS:WEAPON|DAMAGE,TOHIT|1	SPROP:Any type or subtype of creature must made a fortitude save (DC 23) or dies (or be destroyed) instantly when hit

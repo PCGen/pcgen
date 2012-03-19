@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Sep 26 16:44:39 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, DLM, GldDragon35, monch9ph
 
@@ -27,7 +27,7 @@ Poison Use					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBL
 
 ###Block:Archmage High Arcana Class Abilities ---------------------------------------------------------------------------------------
 # Archmage abilities needs new PRE tag of PRESPELLSLOT that would function as PRESPELLSLOT:1,8 meaning that character must have 1 8th level spell slot
-# Ability Name			Output Name			Category of Ability		Type								Visible	Required Class		Req. Spell Type		Define			Description																												Stackable?	Multiple?	Choose						Bonus to spell cast/day				Modify VAR			Source Page
+# Ability Name			Output Name			Category of Ability		Type								Visible	Required Class		Req. Spell Type		Define			Description																												Stackable?	Multiple?	Choose						Bonus to spell cast/day				Modify VAR																	Source Page
 Arcane Fire								CATEGORY:Special Ability	TYPE:HighArcana.Supernatural.SpecialAttack	VISIBLE:YES	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=9					DESC:You change arcane spell energy into arcane fire, manifesting it as a bolt of raw magical energy.																								BONUS:SPELLCAST|TYPE=Arcane;LEVEL=9|-1																			SOURCEPAGE:PrestigeClasses.rtf
 Arcane Reach							CATEGORY:Special Ability	TYPE:HighArcana.Supernatural.SpecialAttack	VISIBLE:YES	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=7	DEFINE:ArcaneReach|0	DESC:You can use spells with a range of touch on a target up to %1 feet away.|ArcaneReach															STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=2|NOCHOICE			BONUS:SPELLCAST|TYPE=Arcane;LEVEL=7|-1	BONUS:VAR|ArcaneReach|30*count("ABILITIES","CATEGORY=Special Ability","NAME=Arcane Reach")|TYPE=ArcaneReach	SOURCEPAGE:PrestigeClasses.rtf
 Mastery of Counterspelling					CATEGORY:Special Ability	TYPE:HighArcana.SpecialQuality			VISIBLE:YES	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=7					DESC:When you counterspell a spell, it is turned back upon the caster as if it were fully affected by a spell turning spell.																				BONUS:SPELLCAST|TYPE=Arcane;LEVEL=7|-1																			SOURCEPAGE:PrestigeClasses.rtf
@@ -49,15 +49,15 @@ Fiendish Summoning					CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike			
 
 #COMMENT: Not sure about Dragon Disciple stuff, so I'm commenting these out for now. - Tir Gwaith
 ###Block: Dragon Disciple Class Features ----------------------------------------------------------------------------------------------
-# Ability Name		Category of Ability		Type									Visible		Required Ability								Required Class			Choose												Clone Movement
-Bonus Spell Slot 1	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell					VISIBLE:DISPLAY																CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]	MULT:YES
-Bonus Spell Slot 2	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell					VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 1						CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]	MULT:YES
-Bonus Spell Slot 3	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell					VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 2						CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]	MULT:YES
-Bonus Spell Slot 4	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell					VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 3						CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]	MULT:YES
-Bonus Spell Slot 5	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell					VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 4						CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]	MULT:YES
-Bonus Spell Slot 6	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell					VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 5						CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]	MULT:YES
-Bonus Spell Slot 7	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell					VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 6						CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]	MULT:YES
-Dragon Wings		CATEGORY:Special Ability	TYPE:DragonDisciple.SpecialQuality.Extraordinary	VISIBLE:YES												PRECLASS:1,Dragon Disciple=9														MOVECLONE:Walk,Fly,*1
+# Ability Name		Category of Ability		Type									Visible		Required Ability								Required Class			Multiple?	Choose												Clone Movement
+Bonus Spell Slot 1	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell					VISIBLE:DISPLAY																MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 2	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell					VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 1						MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 3	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell					VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 2						MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 4	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell					VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 3						MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 5	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell					VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 4						MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 6	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell					VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 5						MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Bonus Spell Slot 7	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell					VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bonus Spell Slot 6						MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]
+Dragon Wings		CATEGORY:Special Ability	TYPE:DragonDisciple.SpecialQuality.Extraordinary	VISIBLE:YES												PRECLASS:1,Dragon Disciple=9																MOVECLONE:Walk,Fly,*1
 
 ###Block: Dragon Disciple - Subclass -----------------------------
 # Ability Name		Output Name							Category of Ability		Type						Visible	Description

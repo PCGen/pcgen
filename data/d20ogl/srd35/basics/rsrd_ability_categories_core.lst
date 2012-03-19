@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Jun 11 18:42:35 2008 -- reformated by prettylst.pl v1.38 (build 6503)
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 #SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, Eddy Anthony
 #
@@ -6,11 +6,12 @@
 #
 
 ###Block: Master Category
-# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object
-ABILITYCATEGORY:Special Ability	VISIBLE:NO		EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability
+# Ability Category			Visible	Editable or Static?	Change Pool?	Fractional values?	Category of Object
+ABILITYCATEGORY:Special Ability	VISIBLE:NO	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability
 
 ###Block: Animal Tricks and Training
-ABILITYCATEGORY:Animal Trick		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AnimalTrick		PLURAL:Animal Tricks		DISPLAYLOCATION:Class Abilities
+# Ability Category		Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Animal Trick	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AnimalTrick	PLURAL:Animal Tricks		DISPLAYLOCATION:Class Abilities
 
 ###Block: Bonus FEATs and subgroups
 # Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object				Plural description for UI	Display Location
@@ -19,20 +20,20 @@ ABILITYCATEGORY:Wizard Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTION
 ABILITYCATEGORY:Metamagic Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Metamagic				PLURAL:Metamagic Feats		DISPLAYLOCATION:Feats
 
 ###Block: Special Ability and subgroups
-# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object		Type of Object		Plural description for UI		Display Location
-ABILITYCATEGORY:Monk Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability	TYPE:MonkBonusFeat	PLURAL:Monk Feats				DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Rogue Special Ability	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability	TYPE:RogueAbilities	PLURAL:Rogue Special Abilities	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Ranger Combat Style		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability	TYPE:RangerCombatStyle	PLURAL:Ranger Combat Styles		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Favored Enemy			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:FavoredEnemies	CATEGORY:Special Ability	TYPE:FavoredEnemy		PLURAL:Favored Enemies			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Favored Enemy Bonus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:FavoredEBonuses	CATEGORY:Special Ability	TYPE:FavoredEnemyBonus	PLURAL:Favored Enemy Bonuses		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Turn Undead			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability	TYPE:TurnUndead		PLURAL:Turn Undead			DISPLAYLOCATION:Class Abilities
+# Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object		Type of Object		Specific choices list					Plural description for UI			Display Location
+ABILITYCATEGORY:Monk Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability	TYPE:MonkBonusFeat									PLURAL:Monk Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Rogue Special Ability			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability	TYPE:RogueAbilities									PLURAL:Rogue Special Abilities		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Ranger Combat Style				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability	TYPE:RangerCombatStyle									PLURAL:Ranger Combat Styles			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Favored Enemy					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:FavoredEnemies	CATEGORY:Special Ability	TYPE:FavoredEnemy										PLURAL:Favored Enemies				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Favored Enemy Bonus				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:FavoredEBonuses	CATEGORY:Special Ability	TYPE:FavoredEnemyBonus									PLURAL:Favored Enemy Bonuses			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Turn Undead					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability	TYPE:TurnUndead										PLURAL:Turn Undead				DISPLAYLOCATION:Class Abilities
 #ABILITYCATEGORY:Expert Class Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability	TYPE:ExpertClassSkills	PLURAL:Expert Class Skills		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Simple Weapon Proficiency Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO			CATEGORY:Special Ability	ABILITYLIST:Single Simple Weapon Proficiency		PLURAL:Simple Weapon Proficiency Choice			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Simple Weapon Proficiency Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability					ABILITYLIST:Single Simple Weapon Proficiency	PLURAL:Simple Weapon Proficiency Choice	DISPLAYLOCATION:Class Abilities
 
 ###Block: Alternate Class Features
-# Ability Category				Visible	Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI		Display Location
+# Ability Category				Visible	Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object	Plural description for UI		Display Location
 ABILITYCATEGORY:ACF				VISIBLE:NO	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:ACF
-ABILITYCATEGORY:Alternate Class Feature	VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:ACF		TYPE:ACF					PLURAL:Alternate Class Features	DISPLAYLOCATION:Alternate Class Features
+ABILITYCATEGORY:Alternate Class Feature	VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:ACF		TYPE:ACF		PLURAL:Alternate Class Features	DISPLAYLOCATION:Alternate Class Features
 
 #
 # End

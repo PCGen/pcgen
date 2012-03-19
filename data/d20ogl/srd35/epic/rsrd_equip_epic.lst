@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Sep 26 16:44:39 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: TaluronIscandar
 
@@ -101,47 +101,47 @@ Staff (Winter)		OUTPUTNAME:Staff of [NAME]								TYPE:Magic.Epic.Staff									
 
 
 ###Block: Epic Wondrous Items
-# Equipment Name				Type						Cost			Weight	Slot Needed	Source Page					Ability						Spell Res.	Save checks bonus							Combat bonus					Multiply base move		Bonus to skill								Bonus to skill point/L		Stat bonus
-Amulet of Epic Natural Armor +6	TYPE:Magic.Epic.Wondrous.Amulet	COST:720000		WT:0				SOURCEPAGE:epicMagicItemsOther.rtf																			BONUS:COMBAT|AC|6|TYPE=NaturalArmor
-Amulet of Epic Natural Armor +7	TYPE:Magic.Epic.Wondrous.Amulet	COST:980000		WT:0				SOURCEPAGE:epicMagicItemsOther.rtf																			BONUS:COMBAT|AC|7|TYPE=NaturalArmor
-Amulet of Epic Natural Armor +8	TYPE:Magic.Epic.Wondrous.Amulet	COST:1280000	WT:0				SOURCEPAGE:epicMagicItemsOther.rtf																			BONUS:COMBAT|AC|8|TYPE=NaturalArmor
-Amulet of Epic Natural Armor +9	TYPE:Magic.Epic.Wondrous.Amulet	COST:1620000	WT:0				SOURCEPAGE:epicMagicItemsOther.rtf																			BONUS:COMBAT|AC|9|TYPE=NaturalArmor
-Amulet of Epic Natural Armor +10	TYPE:Magic.Epic.Wondrous.Amulet	COST:2000000	WT:0				SOURCEPAGE:epicMagicItemsOther.rtf																			BONUS:COMBAT|AC|10|TYPE=NaturalArmor
-Belt of Epic Strength +8		TYPE:Magic.Epic.Wondrous.Belt		COST:640000		WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																																														BONUS:STAT|STR|8|TYPE=Enhancement
-Belt of Epic Strength +10		TYPE:Magic.Epic.Wondrous.Belt		COST:1000000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																																														BONUS:STAT|STR|10|TYPE=Enhancement
-Belt of Epic Strength +12		TYPE:Magic.Epic.Wondrous.Belt		COST:1440000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																																														BONUS:STAT|STR|12|TYPE=Enhancement
-Boots of Swiftness			TYPE:Magic.Epic.Wondrous.Boot		COST:256000		WT:1		SLOTS:2	SOURCEPAGE:epicMagicItemsOther.rtf	ABILITY:Special Ability|VIRTUAL|Evasion																			BONUS:MOVEMULT|TYPE.Walk|2	BONUS:SKILL|Balance,Climb,Jump,Tumble|20|TYPE=Competence						BONUS:STAT|DEX|6|TYPE=Enhancement
-Bracers of Epic Armor +11		TYPE:Magic.Epic.Wondrous.Bracer	COST:1210000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																			BONUS:COMBAT|AC|11|TYPE=Armor
-Bracers of Epic Armor +12		TYPE:Magic.Epic.Wondrous.Bracer	COST:1440000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																			BONUS:COMBAT|AC|12|TYPE=Armor
-Bracers of Epic Armor +13		TYPE:Magic.Epic.Wondrous.Bracer	COST:1690000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																			BONUS:COMBAT|AC|13|TYPE=Armor
-Bracers of Epic Armor +14		TYPE:Magic.Epic.Wondrous.Bracer	COST:1960000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																			BONUS:COMBAT|AC|14|TYPE=Armor
-Bracers of Epic Armor +15		TYPE:Magic.Epic.Wondrous.Bracer	COST:2250000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																			BONUS:COMBAT|AC|15|TYPE=Armor
-Bracers of Epic Health +8		TYPE:Magic.Epic.Wondrous.Bracer	COST:640000		WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																																														BONUS:STAT|CON|8|TYPE=Enhancement
-Bracers of Epic Health +10		TYPE:Magic.Epic.Wondrous.Bracer	COST:1000000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																																														BONUS:STAT|CON|10|TYPE=Enhancement
-Bracers of Epic Health +12		TYPE:Magic.Epic.Wondrous.Bracer	COST:1440000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																																														BONUS:STAT|CON|12|TYPE=Enhancement
-Bracers of Relentless Might		TYPE:Magic.Epic.Wondrous.Bracer	COST:4384000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																																														BONUS:STAT|CON|12|TYPE=Enhancement	BONUS:STAT|STR|12|TYPE=Enhancement
-Cabinet of Feasting			TYPE:Magic.Epic.Wondrous		COST:288000		WT:20				SOURCEPAGE:epicMagicItemsOther.rtf
-Cloak of Epic Charisma +8		TYPE:Magic.Epic.Wondrous.Cape		COST:640000		WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																																														BONUS:STAT|CHA|8|TYPE=Enhancement
-Cloak of Epic Charisma +10		TYPE:Magic.Epic.Wondrous.Cape		COST:1000000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																																														BONUS:STAT|CHA|10|TYPE=Enhancement
-Cloak of Epic Charisma +12		TYPE:Magic.Epic.Wondrous.Cape		COST:1440000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																																														BONUS:STAT|CHA|12|TYPE=Enhancement
-Cloak of Epic Resistance +6		TYPE:Magic.Epic.Wondrous.Cape		COST:360000		WT:1				SOURCEPAGE:epicMagicItemsOther.rtf										BONUS:CHECKS|Fortitude,Reflex,Will|6|TYPE=Resistance
-Cloak of Epic Resistance +7		TYPE:Magic.Epic.Wondrous.Cape		COST:490000		WT:1				SOURCEPAGE:epicMagicItemsOther.rtf										BONUS:CHECKS|Fortitude,Reflex,Will|7|TYPE=Resistance
-Cloak of Epic Resistance +8		TYPE:Magic.Epic.Wondrous.Cape		COST:640000		WT:1				SOURCEPAGE:epicMagicItemsOther.rtf										BONUS:CHECKS|Fortitude,Reflex,Will|8|TYPE=Resistance
-Cloak of Epic Resistance +9		TYPE:Magic.Epic.Wondrous.Cape		COST:810000		WT:1				SOURCEPAGE:epicMagicItemsOther.rtf										BONUS:CHECKS|Fortitude,Reflex,Will|9|TYPE=Resistance
-Cloak of Epic Resistance +10		TYPE:Magic.Epic.Wondrous.Cape		COST:1000000	WT:1				SOURCEPAGE:epicMagicItemsOther.rtf										BONUS:CHECKS|Fortitude,Reflex,Will|10|TYPE=Resistance
-Gate Key					TYPE:Magic.Epic.Wondrous		COST:378000		WT:1				SOURCEPAGE:epicMagicItemsOther.rtf
-Gloves of Epic Dexterity +8		TYPE:Magic.Epic.Wondrous.Glove	COST:640000		WT:0		SLOTS:2	SOURCEPAGE:epicMagicItemsOther.rtf																																														BONUS:STAT|DEX|8|TYPE=Enhancement
-Gloves of Epic Dexterity +10		TYPE:Magic.Epic.Wondrous.Glove	COST:1000000	WT:0		SLOTS:2	SOURCEPAGE:epicMagicItemsOther.rtf																																														BONUS:STAT|DEX|10|TYPE=Enhancement
-Gloves of Epic Dexterity +12		TYPE:Magic.Epic.Wondrous.Glove	COST:1440000	WT:0		SLOTS:2	SOURCEPAGE:epicMagicItemsOther.rtf																																														BONUS:STAT|DEX|12|TYPE=Enhancement
-Headband of Epic Intellect +8		TYPE:Magic.Epic.Wondrous.Headgear	COST:640000		WT:0				SOURCEPAGE:epicMagicItemsOther.rtf																																									BONUS:SKILLPOINTS|NUMBER|-4	BONUS:STAT|INT|8|TYPE=Enhancement
-Headband of Epic Intellect +10	TYPE:Magic.Epic.Wondrous.Headgear	COST:1000000	WT:0				SOURCEPAGE:epicMagicItemsOther.rtf																																									BONUS:SKILLPOINTS|NUMBER|-5	BONUS:STAT|INT|10|TYPE=Enhancement
-Headband of Epic Intellect +12	TYPE:Magic.Epic.Wondrous.Headgear	COST:1440000	WT:0				SOURCEPAGE:epicMagicItemsOther.rtf																																									BONUS:SKILLPOINTS|NUMBER|-6	BONUS:STAT|INT|12|TYPE=Enhancement
-Horseshoes of the Peerless Steed	TYPE:Magic.Epic.Wondrous.Boot		COST:217000		WT:1		SLOTS:2	SOURCEPAGE:epicMagicItemsOther.rtf																																																											SLOTS:2				BONUS:MOVEMULT|TYPE.Walk|2|PRELEGSGTEQ:4		SPROP:Grants mount or rider (as appropriate) Trample, Ride-By Attack, and Spirited Charge; +10 competence bonus on Ride checks
-Mantle of Epic Spell Resistance	TYPE:Magic.Epic.Wondrous.Cape		COST:290000		WT:1				SOURCEPAGE:epicMagicItemsOther.rtf								SR:40
-Mantle of Great Stealth			TYPE:Magic.Epic.Wondrous.Cape		COST:242000		WT:1				SOURCEPAGE:epicMagicItemsOther.rtf																															BONUS:SKILL|Hide,Move Silently|30
-Periapt of Epic Wisdom +8		TYPE:Magic.Epic.Wondrous.Amulet	COST:640000		WT:0				SOURCEPAGE:epicMagicItemsOther.rtf																																														BONUS:STAT|WIS|8|TYPE=Enhancement
-Periapt of Epic Wisdom +10		TYPE:Magic.Epic.Wondrous.Amulet	COST:1000000	WT:0				SOURCEPAGE:epicMagicItemsOther.rtf																																														BONUS:STAT|WIS|10|TYPE=Enhancement
-Periapt of Epic Wisdom +12		TYPE:Magic.Epic.Wondrous.Amulet	COST:1440000	WT:0				SOURCEPAGE:epicMagicItemsOther.rtf																																														BONUS:STAT|WIS|12|TYPE=Enhancement
+# Equipment Name				Type						Cost			Weight	Slot Needed			Source Page					Ability						Spell Res.	Save checks bonus							Combat bonus					Multiply base move				Bonus to skill								Bonus to skill point/L		Stat bonus											Special Property
+Amulet of Epic Natural Armor +6	TYPE:Magic.Epic.Wondrous.Amulet	COST:720000		WT:0						SOURCEPAGE:epicMagicItemsOther.rtf																			BONUS:COMBAT|AC|6|TYPE=NaturalArmor
+Amulet of Epic Natural Armor +7	TYPE:Magic.Epic.Wondrous.Amulet	COST:980000		WT:0						SOURCEPAGE:epicMagicItemsOther.rtf																			BONUS:COMBAT|AC|7|TYPE=NaturalArmor
+Amulet of Epic Natural Armor +8	TYPE:Magic.Epic.Wondrous.Amulet	COST:1280000	WT:0						SOURCEPAGE:epicMagicItemsOther.rtf																			BONUS:COMBAT|AC|8|TYPE=NaturalArmor
+Amulet of Epic Natural Armor +9	TYPE:Magic.Epic.Wondrous.Amulet	COST:1620000	WT:0						SOURCEPAGE:epicMagicItemsOther.rtf																			BONUS:COMBAT|AC|9|TYPE=NaturalArmor
+Amulet of Epic Natural Armor +10	TYPE:Magic.Epic.Wondrous.Amulet	COST:2000000	WT:0						SOURCEPAGE:epicMagicItemsOther.rtf																			BONUS:COMBAT|AC|10|TYPE=NaturalArmor
+Belt of Epic Strength +8		TYPE:Magic.Epic.Wondrous.Belt		COST:640000		WT:1						SOURCEPAGE:epicMagicItemsOther.rtf																																																BONUS:STAT|STR|8|TYPE=Enhancement
+Belt of Epic Strength +10		TYPE:Magic.Epic.Wondrous.Belt		COST:1000000	WT:1						SOURCEPAGE:epicMagicItemsOther.rtf																																																BONUS:STAT|STR|10|TYPE=Enhancement
+Belt of Epic Strength +12		TYPE:Magic.Epic.Wondrous.Belt		COST:1440000	WT:1						SOURCEPAGE:epicMagicItemsOther.rtf																																																BONUS:STAT|STR|12|TYPE=Enhancement
+Boots of Swiftness			TYPE:Magic.Epic.Wondrous.Boot		COST:256000		WT:1		SLOTS:2			SOURCEPAGE:epicMagicItemsOther.rtf	ABILITY:Special Ability|VIRTUAL|Evasion																			BONUS:MOVEMULT|TYPE.Walk|2			BONUS:SKILL|Balance,Climb,Jump,Tumble|20|TYPE=Competence						BONUS:STAT|DEX|6|TYPE=Enhancement
+Bracers of Epic Armor +11		TYPE:Magic.Epic.Wondrous.Bracer	COST:1210000	WT:1						SOURCEPAGE:epicMagicItemsOther.rtf																			BONUS:COMBAT|AC|11|TYPE=Armor
+Bracers of Epic Armor +12		TYPE:Magic.Epic.Wondrous.Bracer	COST:1440000	WT:1						SOURCEPAGE:epicMagicItemsOther.rtf																			BONUS:COMBAT|AC|12|TYPE=Armor
+Bracers of Epic Armor +13		TYPE:Magic.Epic.Wondrous.Bracer	COST:1690000	WT:1						SOURCEPAGE:epicMagicItemsOther.rtf																			BONUS:COMBAT|AC|13|TYPE=Armor
+Bracers of Epic Armor +14		TYPE:Magic.Epic.Wondrous.Bracer	COST:1960000	WT:1						SOURCEPAGE:epicMagicItemsOther.rtf																			BONUS:COMBAT|AC|14|TYPE=Armor
+Bracers of Epic Armor +15		TYPE:Magic.Epic.Wondrous.Bracer	COST:2250000	WT:1						SOURCEPAGE:epicMagicItemsOther.rtf																			BONUS:COMBAT|AC|15|TYPE=Armor
+Bracers of Epic Health +8		TYPE:Magic.Epic.Wondrous.Bracer	COST:640000		WT:1						SOURCEPAGE:epicMagicItemsOther.rtf																																																BONUS:STAT|CON|8|TYPE=Enhancement
+Bracers of Epic Health +10		TYPE:Magic.Epic.Wondrous.Bracer	COST:1000000	WT:1						SOURCEPAGE:epicMagicItemsOther.rtf																																																BONUS:STAT|CON|10|TYPE=Enhancement
+Bracers of Epic Health +12		TYPE:Magic.Epic.Wondrous.Bracer	COST:1440000	WT:1						SOURCEPAGE:epicMagicItemsOther.rtf																																																BONUS:STAT|CON|12|TYPE=Enhancement
+Bracers of Relentless Might		TYPE:Magic.Epic.Wondrous.Bracer	COST:4384000	WT:1						SOURCEPAGE:epicMagicItemsOther.rtf																																																BONUS:STAT|CON|12|TYPE=Enhancement	BONUS:STAT|STR|12|TYPE=Enhancement
+Cabinet of Feasting			TYPE:Magic.Epic.Wondrous		COST:288000		WT:20						SOURCEPAGE:epicMagicItemsOther.rtf
+Cloak of Epic Charisma +8		TYPE:Magic.Epic.Wondrous.Cape		COST:640000		WT:1						SOURCEPAGE:epicMagicItemsOther.rtf																																																BONUS:STAT|CHA|8|TYPE=Enhancement
+Cloak of Epic Charisma +10		TYPE:Magic.Epic.Wondrous.Cape		COST:1000000	WT:1						SOURCEPAGE:epicMagicItemsOther.rtf																																																BONUS:STAT|CHA|10|TYPE=Enhancement
+Cloak of Epic Charisma +12		TYPE:Magic.Epic.Wondrous.Cape		COST:1440000	WT:1						SOURCEPAGE:epicMagicItemsOther.rtf																																																BONUS:STAT|CHA|12|TYPE=Enhancement
+Cloak of Epic Resistance +6		TYPE:Magic.Epic.Wondrous.Cape		COST:360000		WT:1						SOURCEPAGE:epicMagicItemsOther.rtf										BONUS:CHECKS|Fortitude,Reflex,Will|6|TYPE=Resistance
+Cloak of Epic Resistance +7		TYPE:Magic.Epic.Wondrous.Cape		COST:490000		WT:1						SOURCEPAGE:epicMagicItemsOther.rtf										BONUS:CHECKS|Fortitude,Reflex,Will|7|TYPE=Resistance
+Cloak of Epic Resistance +8		TYPE:Magic.Epic.Wondrous.Cape		COST:640000		WT:1						SOURCEPAGE:epicMagicItemsOther.rtf										BONUS:CHECKS|Fortitude,Reflex,Will|8|TYPE=Resistance
+Cloak of Epic Resistance +9		TYPE:Magic.Epic.Wondrous.Cape		COST:810000		WT:1						SOURCEPAGE:epicMagicItemsOther.rtf										BONUS:CHECKS|Fortitude,Reflex,Will|9|TYPE=Resistance
+Cloak of Epic Resistance +10		TYPE:Magic.Epic.Wondrous.Cape		COST:1000000	WT:1						SOURCEPAGE:epicMagicItemsOther.rtf										BONUS:CHECKS|Fortitude,Reflex,Will|10|TYPE=Resistance
+Gate Key					TYPE:Magic.Epic.Wondrous		COST:378000		WT:1						SOURCEPAGE:epicMagicItemsOther.rtf
+Gloves of Epic Dexterity +8		TYPE:Magic.Epic.Wondrous.Glove	COST:640000		WT:0		SLOTS:2			SOURCEPAGE:epicMagicItemsOther.rtf																																																BONUS:STAT|DEX|8|TYPE=Enhancement
+Gloves of Epic Dexterity +10		TYPE:Magic.Epic.Wondrous.Glove	COST:1000000	WT:0		SLOTS:2			SOURCEPAGE:epicMagicItemsOther.rtf																																																BONUS:STAT|DEX|10|TYPE=Enhancement
+Gloves of Epic Dexterity +12		TYPE:Magic.Epic.Wondrous.Glove	COST:1440000	WT:0		SLOTS:2			SOURCEPAGE:epicMagicItemsOther.rtf																																																BONUS:STAT|DEX|12|TYPE=Enhancement
+Headband of Epic Intellect +8		TYPE:Magic.Epic.Wondrous.Headgear	COST:640000		WT:0						SOURCEPAGE:epicMagicItemsOther.rtf																																											BONUS:SKILLPOINTS|NUMBER|-4	BONUS:STAT|INT|8|TYPE=Enhancement
+Headband of Epic Intellect +10	TYPE:Magic.Epic.Wondrous.Headgear	COST:1000000	WT:0						SOURCEPAGE:epicMagicItemsOther.rtf																																											BONUS:SKILLPOINTS|NUMBER|-5	BONUS:STAT|INT|10|TYPE=Enhancement
+Headband of Epic Intellect +12	TYPE:Magic.Epic.Wondrous.Headgear	COST:1440000	WT:0						SOURCEPAGE:epicMagicItemsOther.rtf																																											BONUS:SKILLPOINTS|NUMBER|-6	BONUS:STAT|INT|12|TYPE=Enhancement
+Horseshoes of the Peerless Steed	TYPE:Magic.Epic.Wondrous.Boot		COST:217000		WT:1		SLOTS:2	SLOTS:2	SOURCEPAGE:epicMagicItemsOther.rtf																										BONUS:MOVEMULT|TYPE.Walk|2|PRELEGSGTEQ:4																												SPROP:Grants mount or rider (as appropriate) Trample, Ride-By Attack, and Spirited Charge; +10 competence bonus on Ride checks
+Mantle of Epic Spell Resistance	TYPE:Magic.Epic.Wondrous.Cape		COST:290000		WT:1						SOURCEPAGE:epicMagicItemsOther.rtf								SR:40
+Mantle of Great Stealth			TYPE:Magic.Epic.Wondrous.Cape		COST:242000		WT:1						SOURCEPAGE:epicMagicItemsOther.rtf																																	BONUS:SKILL|Hide,Move Silently|30
+Periapt of Epic Wisdom +8		TYPE:Magic.Epic.Wondrous.Amulet	COST:640000		WT:0						SOURCEPAGE:epicMagicItemsOther.rtf																																																BONUS:STAT|WIS|8|TYPE=Enhancement
+Periapt of Epic Wisdom +10		TYPE:Magic.Epic.Wondrous.Amulet	COST:1000000	WT:0						SOURCEPAGE:epicMagicItemsOther.rtf																																																BONUS:STAT|WIS|10|TYPE=Enhancement
+Periapt of Epic Wisdom +12		TYPE:Magic.Epic.Wondrous.Amulet	COST:1440000	WT:0						SOURCEPAGE:epicMagicItemsOther.rtf																																																BONUS:STAT|WIS|12|TYPE=Enhancement
 
 ###Block: Epic Wondrous Items - Circlet of Eyes is a Variant of robe of eyes used by the Sample Force Dragon, Adult
 # Equipment Name	Type					Cost		Weight	Source Page					Vision											Bonus to skill						Special Property
@@ -149,29 +149,29 @@ Circlet of Eyes	TYPE:Magic.Wondrous.Headgear	COST:120000	WT:0		SOURCEPAGE:EpicMo
 
 ###Block: Artifacts
 #minor
-# Equipment Name				Required Weapon Proficiency		Type															Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier										Wield Category	Size		Source Page				Stat bonus					Weapon prop. bonus
-Everfull Purse										TYPE:Magic.Artifact.Minor												COST:0	WT:0.5																											SOURCEPAGE:epicArtifacts.rtf
-Libram of Gainful Conjuration								TYPE:Magic.Artifact.Minor												COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
-Libram of Ineffable Damnation								TYPE:Magic.Artifact.Minor												COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
-Libram of Silver Magic									TYPE:Magic.Artifact.Minor												COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
-Manual of Puissant Skill at Arms							TYPE:Magic.Artifact.Minor												COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
-Manual of Stealthly Pilfering								TYPE:Magic.Artifact.Minor												COST:0	WT:3																												SOURCEPAGE:epicArtifacts.rtf
-Rogue's Dice										TYPE:Magic.Artifact.Minor												COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
+# Equipment Name				Required Weapon Proficiency		Required Armor Proficiency	Type															Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier										Wield Category	Maximum DEX Bonus	Size		Source Page				% of Spell Failure	Damage Reduction	Innate Spells												Combat bonus			Adjust PC Size		Stat bonus																		Modify VAR											Weapon prop. bonus												Special Property
+Everfull Purse															TYPE:Magic.Artifact.Minor											COST:0	WT:0.5																																	SOURCEPAGE:epicArtifacts.rtf
+Libram of Gainful Conjuration													TYPE:Magic.Artifact.Minor											COST:0	WT:3																																		SOURCEPAGE:epicArtifacts.rtf
+Libram of Ineffable Damnation													TYPE:Magic.Artifact.Minor											COST:0	WT:3																																		SOURCEPAGE:epicArtifacts.rtf
+Libram of Silver Magic														TYPE:Magic.Artifact.Minor											COST:0	WT:3																																		SOURCEPAGE:epicArtifacts.rtf
+Manual of Puissant Skill at Arms												TYPE:Magic.Artifact.Minor											COST:0	WT:3																																		SOURCEPAGE:epicArtifacts.rtf
+Manual of Stealthly Pilfering													TYPE:Magic.Artifact.Minor											COST:0	WT:3																																		SOURCEPAGE:epicArtifacts.rtf
+Rogue's Dice															TYPE:Magic.Artifact.Minor											COST:0	WT:0																																		SOURCEPAGE:epicArtifacts.rtf
 
 #major
-Axe of the Dwarvish Lords		PROFICIENCY:WEAPON|Waraxe (Dwarven)	TYPE:Magic.Epic.Artifact.Major.Weapon.Melee.Martial.Exotic.Standard.Dwarven.Slashing.Axe	COST:0	WT:15		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10	EQMOD:BANE_M|Humanoids (goblinoid).MWORKW.PLUS_6_WEAP.STEEL.THROW	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:epicArtifacts.rtf	BONUS:STAT|CHA|-2|!PRERACE:1,Dwarf%	BONUS:WEAPON|WIELDCATEGORY|-1|PREFEAT:1,Exotic Weapon Proficiency (Waraxe (Dwarven))
-Codex of the Infinite Planes								TYPE:Artifact.Major.Magic												COST:0	WT:100																											SOURCEPAGE:epicArtifacts.rtf
-Cup of the Demigod									TYPE:Artifact.Major.Magic												COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
-Talisman of the Demigod									TYPE:Amulet.Artifact.Major.Magic												COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf	BONUS:STAT|CHA|6	SPELLS:Innate|TIMES=ATWILL|Remove Blindness/Deafness|Remove Curse|Remove Disease
-Eye of the Orc										TYPE:Artifact.Major.Magic												COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf	BONUS:STAT|STR,CHA|6|PRERACE:1,Orc%	BONUS:STAT|STR|2|!PRERACE:1,Orc%	BONUS:STAT|INT,CHA|-2|!PRERACE:1,Orc%
-Golem Armor											TYPE:Armor.Suit.Heavy.Unique.Artifact.Major.Magic												COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf	PROFICIENCY:ARMOR|Full Plate	BONUS:STAT|STR|10|TYPE=Enhancement	SPROP:Rendered Immune to mind-affecting effects, poison, disease, and similar effects. Not subject to critical hits, subdual damage, ability damage, energy drain, or death from massive damage.	DR:15/Adamantine	BONUS:SIZEMOD|NUMBER|1	BONUS:COMBAT|AC|8|TYPE=Armor	EQMOD:PLUS_10_ARMR.STEEL	WT:50		ACCHECK:-6				MAXDEX:1	SPELLFAILURE:35
-Invulnerable Coat										TYPE:Armor.Suit.Light.Unique.Artifact.Major.Magic												COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf	PROFICIENCY:ARMOR|Chain Shirt	EQMOD:PLUS5A.STEEL	DR:10/Epic	SPROP:Resistance 20 against acid, cold, electricity, fire and sonic energy	BONUS:VAR|TurnLevelBase,LayOnHandsLVL,SmiteEvilDamage,SmiteGoodDamage|4	BONUS:COMBAT|AC|4|TYPE=Armor	WT:25		ACCHECK:-2				MAXDEX:4		SPELLFAILURE:20		
-Iron Gauntlet of War									TYPE:Glove.Artifact.Major.Magic												COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf	BONUS:STAT|STR|8|TYPE=Enhancement	SPROP:doubles the damage bonus on any smite attacks he or she makes	BONUS:VAR|LeadershipScore|4
-Ring of Nine Facets									TYPE:Artifact.Major.Ring.Magic											COST:0	WT:0																												SOURCEPAGE:epicArtifacts.rtf
+Axe of the Dwarvish Lords		PROFICIENCY:WEAPON|Waraxe (Dwarven)						TYPE:Magic.Epic.Artifact.Major.Weapon.Melee.Martial.Exotic.Standard.Dwarven.Slashing.Axe	COST:0	WT:15					CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10	EQMOD:BANE_M|Humanoids (goblinoid).MWORKW.PLUS_6_WEAP.STEEL.THROW	WIELD:TwoHanded				SIZE:M	SOURCEPAGE:epicArtifacts.rtf																															BONUS:STAT|CHA|-2|!PRERACE:1,Dwarf%																										BONUS:WEAPON|WIELDCATEGORY|-1|PREFEAT:1,Exotic Weapon Proficiency (Waraxe (Dwarven))
+Codex of the Infinite Planes													TYPE:Artifact.Major.Magic											COST:0	WT:100																																	SOURCEPAGE:epicArtifacts.rtf
+Cup of the Demigod														TYPE:Artifact.Major.Magic											COST:0	WT:0																																		SOURCEPAGE:epicArtifacts.rtf
+Talisman of the Demigod														TYPE:Amulet.Artifact.Major.Magic										COST:0	WT:0																																		SOURCEPAGE:epicArtifacts.rtf								SPELLS:Innate|TIMES=ATWILL|Remove Blindness/Deafness|Remove Curse|Remove Disease										BONUS:STAT|CHA|6
+Eye of the Orc															TYPE:Artifact.Major.Magic											COST:0	WT:0																																		SOURCEPAGE:epicArtifacts.rtf																															BONUS:STAT|STR,CHA|6|PRERACE:1,Orc%	BONUS:STAT|STR|2|!PRERACE:1,Orc%	BONUS:STAT|INT,CHA|-2|!PRERACE:1,Orc%
+Golem Armor											PROFICIENCY:ARMOR|Full Plate	TYPE:Armor.Suit.Heavy.Unique.Artifact.Major.Magic							COST:0	WT:0	WT:50	ACCHECK:-6												EQMOD:PLUS_10_ARMR.STEEL										MAXDEX:1				SOURCEPAGE:epicArtifacts.rtf	SPELLFAILURE:35		DR:15/Adamantine															BONUS:COMBAT|AC|8|TYPE=Armor	BONUS:SIZEMOD|NUMBER|1	BONUS:STAT|STR|10|TYPE=Enhancement																																									SPROP:Rendered Immune to mind-affecting effects, poison, disease, and similar effects. Not subject to critical hits, subdual damage, ability damage, energy drain, or death from massive damage.
+Invulnerable Coat										PROFICIENCY:ARMOR|Chain Shirt	TYPE:Armor.Suit.Light.Unique.Artifact.Major.Magic							COST:0	WT:0	WT:25	ACCHECK:-2												EQMOD:PLUS5A.STEEL											MAXDEX:4				SOURCEPAGE:epicArtifacts.rtf	SPELLFAILURE:20		DR:10/Epic																BONUS:COMBAT|AC|4|TYPE=Armor																								BONUS:VAR|TurnLevelBase,LayOnHandsLVL,SmiteEvilDamage,SmiteGoodDamage|4																SPROP:Resistance 20 against acid, cold, electricity, fire and sonic energy
+Iron Gauntlet of War														TYPE:Glove.Artifact.Major.Magic										COST:0	WT:0																																		SOURCEPAGE:epicArtifacts.rtf																															BONUS:STAT|STR|8|TYPE=Enhancement														BONUS:VAR|LeadershipScore|4																							SPROP:doubles the damage bonus on any smite attacks he or she makes
+Ring of Nine Facets														TYPE:Artifact.Major.Ring.Magic										COST:0	WT:0																																		SOURCEPAGE:epicArtifacts.rtf
 
 ###Block: Specific Weapons for Epic Monsters
 
-# Equipment Name	Required Weapon Proficiency		Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier							Wield Category	Size
+# Equipment Name	Required Weapon Proficiency		Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier							Wield Category	Size
 Leshay Weapon	PROFICIENCY:WEAPON|Leshay Weapon	TYPE:Magic.Weapon.Melee.Exotic.Specific.Slashing.Sword	COST:0	WT:0		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:BRI_EN_M.KEEN.MWORKW.PLUS_10_WEAP.STEEL	WIELD:Light		SIZE:M
 # COMMENT: Unknown on the actual weight of a Boulder sized for HUGE, placing at 20lbs for the time being. - LegacyKing Mar 17, 2012
 # COMMENT: Added for Hecatoncheires

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 STARTPACK:Aboleth Mage	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Aboleth]
@@ -32,7 +32,7 @@ FEAT:Improved Initiative
 FEAT:Lightning Reflexes
 FEAT:Eschew Materials
 FEAT:Spell Focus(Enchantment)
-FEAT:Spell Focus(Illusion)		FREE:YES
+FEAT:Spell Focus(Illusion)	FREE:YES
 FEAT:Spell Penetration
 SPELLS:SPELLBOOK=Prepared Spells|Daze|Detect Magic=2|Resistance|Alarm|Charm Person|Color Spray|Mage Armor|Magic Missile=2|Blur|Bull's Strength|Darkness|Fox's Cunning|See Invisibility|Dispel Magic|Displacement|Fly|Lightning Bolt|Invisibility (Greater)|Phantasmal Killer|Scrying|Stoneskin|Hold Monster|Lightning Bolt[Empower Spell]|Wall of Force
 

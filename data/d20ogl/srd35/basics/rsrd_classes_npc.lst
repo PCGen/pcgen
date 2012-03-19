@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Aug  9 14:59:52 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus
@@ -52,7 +52,7 @@ CLASS:Commoner	HD:4		TYPE:Base.NPC	ABB:Com		MAXLEVEL:20	SOURCEPAGE:NPCClasses.rt
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Commoner	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Jump|Listen|TYPE=Profession|Ride|Spot|Swim|Use Rope
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Simple Weapon Proficiency Choice|1
+1	BONUS:ABILITYPOOL|Simple Weapon Proficiency Choice|1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus
 CLASS:Expert	HD:6		TYPE:Base.NPC	ABB:Exp		MAXLEVEL:20	SOURCEPAGE:NPCClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE

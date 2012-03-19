@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep 10 09:38:18 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Merton Monk and Glddragon35
 
@@ -13,19 +13,19 @@ Monk Outsider	OUTPUTNAME:Outsider	VISIBLE:EXPORT	DR:10/Magic		SOURCEPAGE:Classes
 # Aberration, Animal, Dragon, Elemental, Fey, Giant, Humanoid, Magical Beast, Monstrous Humanoid, Outsider, Plant and Vermin
 # Post 5.10 the use of these should be hunted down and deleted
 
-# Template Name		Visible	Source Page						Define
-Construct			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.CON|10
-Ooze				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.INT|10
-Undead			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.CON|10
+# Template Name	Visible	Source Page						Define
+Construct		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.CON|10
+Ooze			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.INT|10
+Undead		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.CON|10
 
 ###Block: Creature Subtypes
-# Template Name	Visible	Source Page						Define			Automatic Language
-Goblinoid		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf					LANGAUTO:Goblin
-Incorporeal		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.STR|10
+# Template Name		Visible	Source Page						Define			Required AL	Required Race			Var. Max. Value		Automatic Languages
+Goblinoid			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																LANGAUTO:Goblin
+Incorporeal			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.STR|10
 
 #DEPRECATED:
 Aberration			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
-Animal			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	PREALIGN:TN	PREVARLTEQ:INTSCORE,2
+Animal			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf					PREALIGN:TN						PREVARLTEQ:INTSCORE,2
 Dragon			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Elemental			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Fey				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
@@ -37,24 +37,24 @@ Outsider			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Plant				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Vermin			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
 #DEPRECATED
-Air			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	
-Angel			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	
-Aquatic		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	
-Archon		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	
-Augmented		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
-Chaotic		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	
-Cold			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	
-Evil			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	
-Fire			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	
-Good			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	
-Earth			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
-Lawful		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	
-Reptilian		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
-Shapechanger	VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
-Swarm			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	
-Water			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	
-Extraplanar		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
-Native		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	PRERACE:1,RACETYPE=Outsider
+Air				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Angel				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Aquatic			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Archon			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Augmented			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Chaotic			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Cold				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Evil				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Fire				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Good				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Earth				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Lawful			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Reptilian			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Shapechanger		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Swarm				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Water				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Extraplanar			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Native			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf							PRERACE:1,RACETYPE=Outsider
 
 
 ###Block: Variable Type Traits
@@ -69,44 +69,45 @@ Eighth Hitdie	HITDIE:%/8|CLASS.TYPE=Monster	VISIBLE:NO
 
 
 ###Block: Templates for Homebrew Support and Customizations:
-Assign Race Type ~ Aberration			RACETYPE:Aberration
-Assign Race Type ~ Animal			RACETYPE:Animal
-Assign Race Type ~ Construct			RACETYPE:Construct
-Assign Race Type ~ Dragon			RACETYPE:Dragon
-Assign Race Type ~ Elemental			RACETYPE:Elemental
-Assign Race Type ~ Fey				RACETYPE:Fey
-Assign Race Type ~ Giant			RACETYPE:Giant
-Assign Race Type ~ Humanoid			RACETYPE:Humanoid
-Assign Race Type ~ Magical Beast		RACETYPE:Magical Beast
-Assign Race Type ~ Monstrous Humanoid	RACETYPE:Monstrous Humanoid
-Assign Race Type ~ Ooze				RACETYPE:Ooze
-Assign Race Type ~ Outsider			RACETYPE:Outsider
-Assign Race Type ~ Plant			RACETYPE:Plant
-Assign Race Type ~ Undead			RACETYPE:Undead
-Assign Race Type ~ Vermin			RACETYPE:Vermin
+# Template Name					Required Race			Main Race Type			Race Subtype
+Assign Race Type ~ Aberration								RACETYPE:Aberration
+Assign Race Type ~ Animal								RACETYPE:Animal
+Assign Race Type ~ Construct								RACETYPE:Construct
+Assign Race Type ~ Dragon								RACETYPE:Dragon
+Assign Race Type ~ Elemental								RACETYPE:Elemental
+Assign Race Type ~ Fey									RACETYPE:Fey
+Assign Race Type ~ Giant								RACETYPE:Giant
+Assign Race Type ~ Humanoid								RACETYPE:Humanoid
+Assign Race Type ~ Magical Beast							RACETYPE:Magical Beast
+Assign Race Type ~ Monstrous Humanoid						RACETYPE:Monstrous Humanoid
+Assign Race Type ~ Ooze									RACETYPE:Ooze
+Assign Race Type ~ Outsider								RACETYPE:Outsider
+Assign Race Type ~ Plant								RACETYPE:Plant
+Assign Race Type ~ Undead								RACETYPE:Undead
+Assign Race Type ~ Vermin								RACETYPE:Vermin
 
 #Block: Assign Creature Subtypes
-# Template Name	
-Assign Subtype ~ Air			RACESUBTYPE:Air		
-Assign Subtype ~ Angel			RACESUBTYPE:Angel
-Assign Subtype ~ Aquatic		RACESUBTYPE:Aquatic
-Assign Subtype ~ Archon			RACESUBTYPE:Archon
-Assign Subtype ~ Augmented		RACESUBTYPE:Augmented
-Assign Subtype ~ Chaotic		RACESUBTYPE:Chaotic
-Assign Subtype ~ Cold			RACESUBTYPE:Cold
-Assign Subtype ~ Earth			RACESUBTYPE:Earth
-Assign Subtype ~ Evil			RACESUBTYPE:Evil
-Assign Subtype ~ Extraplanar		RACESUBTYPE:Extraplanar
-Assign Subtype ~ Fire			RACESUBTYPE:Fire
-Assign Subtype ~ Goblinoid		RACESUBTYPE:Goblinoid
-Assign Subtype ~ Good			RACESUBTYPE:Good
-Assign Subtype ~ Incorporeal		RACESUBTYPE:Incorporeal
-Assign Subtype ~ Lawful			RACESUBTYPE:Lawful
-Assign Subtype ~ Native			RACESUBTYPE:Native		PRERACE:1,RACETYPE=Outsider
-Assign Subtype ~ Reptilian		RACESUBTYPE:Reptilian
-Assign Subtype ~ Shapechanger		RACESUBTYPE:Shapechanger
-Assign Subtype ~ Swarm			RACESUBTYPE:Swarm
-Assign Subtype ~ Water			RACESUBTYPE:Water
+# Template Name					Required Race			Main Race Type			Race Subtype
+Assign Subtype ~ Air														RACESUBTYPE:Air
+Assign Subtype ~ Angel														RACESUBTYPE:Angel
+Assign Subtype ~ Aquatic													RACESUBTYPE:Aquatic
+Assign Subtype ~ Archon														RACESUBTYPE:Archon
+Assign Subtype ~ Augmented													RACESUBTYPE:Augmented
+Assign Subtype ~ Chaotic													RACESUBTYPE:Chaotic
+Assign Subtype ~ Cold														RACESUBTYPE:Cold
+Assign Subtype ~ Earth														RACESUBTYPE:Earth
+Assign Subtype ~ Evil														RACESUBTYPE:Evil
+Assign Subtype ~ Extraplanar													RACESUBTYPE:Extraplanar
+Assign Subtype ~ Fire														RACESUBTYPE:Fire
+Assign Subtype ~ Goblinoid													RACESUBTYPE:Goblinoid
+Assign Subtype ~ Good														RACESUBTYPE:Good
+Assign Subtype ~ Incorporeal													RACESUBTYPE:Incorporeal
+Assign Subtype ~ Lawful														RACESUBTYPE:Lawful
+Assign Subtype ~ Native				PRERACE:1,RACETYPE=Outsider						RACESUBTYPE:Native
+Assign Subtype ~ Reptilian													RACESUBTYPE:Reptilian
+Assign Subtype ~ Shapechanger													RACESUBTYPE:Shapechanger
+Assign Subtype ~ Swarm														RACESUBTYPE:Swarm
+Assign Subtype ~ Water														RACESUBTYPE:Water
 
 
 #

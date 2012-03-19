@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Sep  9 13:06:56 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Arknight
 #     Variables - HasPsionics, ManifesterLvl
@@ -83,8 +83,8 @@ CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|All Automatic Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1													AUTO:FEAT|Shield Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																	AUTO:FEAT|Shield Proficiency
 
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 1	BONUS:VAR|PsychicWarriorML|CL	BONUS:VAR|PsychicWarriorML|var("BL=Psychic Warrior")																											DEFINE:PsychicWarriorML|0	TEMPLATE:Psionic
@@ -123,9 +123,9 @@ CLASS:Soulknife	HD:10		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:PsionicClasse
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Concentration|TYPE=Craft|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|TYPE=Profession|Spot|Tumble
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1												AUTO:FEAT|Armor Proficiency (Light)
+1												AUTO:FEAT|Shield Proficiency
 
 ###Block: Mind Blade abilities by effective level; to add a PrC's class level to SK for
 #  mind blade powers, use BONUS:VAR|MndBladeECL|x in the PrC's class level line setup
@@ -153,9 +153,9 @@ CLASS:Wilder	STARTSKILLPTS:4	CSKILL:Autohypnosis|Balance|Bluff|Climb|Concentrati
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Wilder	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Wilder|CL
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1												AUTO:FEAT|Armor Proficiency (Light)
+1												AUTO:FEAT|Shield Proficiency
 
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 1	BONUS:VAR|WilderML|CL	BONUS:VAR|WilderML|var("BL=Wilder")																											DEFINE:WilderML|0	TEMPLATE:Psionic

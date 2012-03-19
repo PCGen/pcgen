@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Sep  5 15:26:57 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Eddy Anthony
 
-# Class Name	Hit Dice	Type			Max Level		Source Page					Ability																														Save checks bonus											Combat bonus
+# Class Name	Hit Dice	Type			Max Level		Source Page					Ability																							Save checks bonus											Combat bonus
 CLASS:Unbodied	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Monstrous Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	ABILITY:Internal|AUTOMATIC|Master Traits	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Reg. Race Type
 CLASS:Unbodied	PRERACETYPE:Monstrous Humanoid
@@ -13,7 +13,7 @@ CLASS:Unbodied	STARTSKILLPTS:2	MODTOSKILLS:YES
 3	BONUS:PCLEVEL|Psion|1
 4	BONUS:PCLEVEL|Psion|1
 ###Block: Psionic Power Points
-1	BONUS:VAR|PsionML|CL																												DEFINE:PsionML|0	TEMPLATE:Psionic
+1	BONUS:VAR|PsionML|CL																													DEFINE:PsionML|0	TEMPLATE:Psionic
 1	BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:PsionML,2	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:PsionML,3	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:PsionML,4
 1	BONUS:VAR|BonusPowerPoints|(INT*PsionML)/2|TYPE=PsionBonusPP
 

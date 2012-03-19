@@ -1,8 +1,9 @@
-# CVS $Revision$ $Author$ -- Sun Mar  8 10:38:47 2009 -- reformated by prettylst.pl v1.39 (build 9548)
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Eddy Anthony
 
-Spellbook	VISIBLE:NO	KIT:1|Wizard Spell Book
+# Template Name	Visible	Apply Kit
+Spellbook		VISIBLE:NO	KIT:1|Wizard Spell Book
 
 ###Block: Dragon Disciple Attacks
 # Template Name				Visible	Template																	Required Size	Natural Attacks
@@ -100,12 +101,13 @@ Raven Familiar Language	VISIBLE:NO	SOURCEPAGE:ClassesII.rtf	ADD:LANGUAGE|TYPE=Sp
 ###Block: More Temp Mods
 
 # The only problem with Bardic Abilities are they are level dependent
-Bardic Inspire Courage ~ Is the Bard	VISIBLE:NO		BONUS:CHECKS|ALL|InspireCourageSaves|TYPE=BardicInspireCourage|PREAPPLY:PC	BONUS:COMBAT|TOHIT|InspireCourageAttack|TYPE=BardicInspireCourage|PREAPPLY:PC	BONUS:COMBAT|DAMAGE.Melee,DAMAGE.Ranged|InspireCourageDamage|TYPE=BardicInspireCourage|PREAPPLY:PC
-Bardic Inspire Competence ~ Is The Bard	VISIBLE:NO		BONUS:SKILL|TYPE.Standard|InspireCompetenceBonus|PREAPPLY:PC
+# Template Name					Unique Key						Visible	Save checks bonus											Combat bonus																												Bonus to skill									Modify VAR																		Choose
+Bardic Inspire Courage ~ Is the Bard								VISIBLE:NO	BONUS:CHECKS|ALL|InspireCourageSaves|TYPE=BardicInspireCourage|PREAPPLY:PC	BONUS:COMBAT|TOHIT|InspireCourageAttack|TYPE=BardicInspireCourage|PREAPPLY:PC	BONUS:COMBAT|DAMAGE.Melee,DAMAGE.Ranged|InspireCourageDamage|TYPE=BardicInspireCourage|PREAPPLY:PC
+Bardic Inspire Competence ~ Is The Bard								VISIBLE:NO																																												BONUS:SKILL|TYPE.Standard|InspireCompetenceBonus|PREAPPLY:PC
 
 # This is for Non-Bards traveling with Bards - They need to select the Bard's Level.
-Bardic Inspire Courage ~ Not The Bard	KEY:Bardic Inspire Courage (Other)		VISIBLE:NO	BONUS:VAR|EnableBardicInspireCourage|1|PREAPPLY:ANYPC		CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Bard Level	BONUS:VAR|OtherInspireCourageLVL|%CHOICE|PREAPPLY:ANYPC
-Bardic Inspire Competence ~ Not The Bard	KEY:Bardic Inspire Competence (Other)	VISIBLE:NO	BONUS:VAR|EnableBardicInspireCompetence|1|PREAPPLY:ANYPC
+Bardic Inspire Courage ~ Not The Bard	KEY:Bardic Inspire Courage (Other)		VISIBLE:NO																																																							BONUS:VAR|EnableBardicInspireCourage|1|PREAPPLY:ANYPC	BONUS:VAR|OtherInspireCourageLVL|%CHOICE|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Bard Level
+Bardic Inspire Competence ~ Not The Bard	KEY:Bardic Inspire Competence (Other)	VISIBLE:NO																																																							BONUS:VAR|EnableBardicInspireCompetence|1|PREAPPLY:ANYPC
 #
 # End
 #

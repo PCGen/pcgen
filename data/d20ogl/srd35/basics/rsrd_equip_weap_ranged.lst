@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Sep 26 16:44:39 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # $Author$ -- Wed Jul 23 2003
 
@@ -15,7 +15,7 @@ Shuriken										PROFICIENCY:WEAPON|Shuriken				TYPE:Weapon.Exotic.Ranged.Pierc
 
 #Martial Ranged
 Shortbow										PROFICIENCY:WEAPON|Shortbow				TYPE:Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Shortbow		CONTAINS:1|Arrow=1	COST:30	WT:2		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD										RANGE:60			SOURCEPAGE:Equipment.rtf	BONUS:WEAPON|DAMAGE|min(STR,0)
-Longbow										PROFICIENCY:WEAPON|Longbow				TYPE:Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Longbow			CONTAINS:1|Arrow=1	COST:75	WT:3		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD			WIELD:TwoHanded							RANGE:100	SIZE:M	SOURCEPAGE:Equipment.rtf	BONUS:WEAPON|DAMAGE|min(STR,0)
+Longbow										PROFICIENCY:WEAPON|Longbow				TYPE:Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Longbow			CONTAINS:1|Arrow=1	COST:75	WT:3		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD			WIELD:TwoHanded					RANGE:100	SIZE:M	SOURCEPAGE:Equipment.rtf	BONUS:WEAPON|DAMAGE|min(STR,0)
 Shortbow (Composite)		OUTPUTNAME:[NAME] Shortbow STR	PROFICIENCY:WEAPON|Shortbow				TYPE:Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Shortbow.Composite	CONTAINS:1|Arrow=1	COST:75	WT:2		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD						MODS:REQUIRED		RANGE:70			SOURCEPAGE:Equipment.rtf	BONUS:WEAPON|DAMAGE|min(STR,0)
 Longbow (Composite)		OUTPUTNAME:[NAME] Longbow STR		PROFICIENCY:WEAPON|Longbow				TYPE:Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Longbow.Composite	CONTAINS:1|Arrow=1	COST:100	WT:3		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD						MODS:REQUIRED		RANGE:110			SOURCEPAGE:Equipment.rtf	BONUS:WEAPON|DAMAGE|min(STR,0)
 Shortbow (Composite +0)		OUTPUTNAME:[NAME] Shortbow STR0	PROFICIENCY:WEAPON|Shortbow				TYPE:Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Shortbow.Composite	CONTAINS:1|Arrow=1	COST:75	WT:2		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD						MODS:NO			RANGE:70			SOURCEPAGE:Equipment.rtf

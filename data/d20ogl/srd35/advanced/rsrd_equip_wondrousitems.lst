@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Nov 16 12:47:59 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Chipoulou/Thomas tjannes@vub.ac.be based on srdequipwondrous
 
@@ -266,7 +266,7 @@ Necklace of Fireballs VI								TYPE:Magic.Wondrous									COST:8100	WT:0						
 Necklace of Fireballs VII								TYPE:Magic.Wondrous									COST:8700	WT:0														SOURCEPAGE:MagicItemsV.rtf
 Orb of Storms										TYPE:Magic.Wondrous									COST:48000	WT:6														SOURCEPAGE:MagicItemsV.rtf
 ###Block: P's
-# Equipment Name				Type					Contains			Cost		Weight	Modifier					Source Page				Ability								Vision											Spell Res.	Save checks bonus							Combat bonus			Bonus to skill						Stat bonus					Modify VAR													Special Property
+# Equipment Name				Type					Contains			Cost		Weight	Modifier					Source Page				Ability										Vision											Spell Res.	Save checks bonus							Combat bonus			Bonus to skill						Stat bonus					Modify VAR													Special Property
 Pearl of Power (1st Level)		TYPE:Magic.Wondrous						COST:1000	WT:0								SOURCEPAGE:MagicItemsV.rtf
 Pearl of Power (2nd Level)		TYPE:Magic.Wondrous						COST:4000	WT:0								SOURCEPAGE:MagicItemsV.rtf
 Pearl of Power (3rd Level)		TYPE:Magic.Wondrous						COST:9000	WT:0								SOURCEPAGE:MagicItemsV.rtf
@@ -280,12 +280,12 @@ Pearl of Power (2 Spells)		TYPE:Magic.Wondrous						COST:70000	WT:0								SOURC
 Pearl of the Sirines			TYPE:Magic.Wondrous						COST:15300	WT:0								SOURCEPAGE:MagicItemsV.rtf
 Periapt of Health				TYPE:Magic.Wondrous.Amulet					COST:7500	WT:0								SOURCEPAGE:MagicItemsV.rtf
 Periapt of Proof against Poison	TYPE:Magic.Wondrous.Amulet					COST:27000	WT:0								SOURCEPAGE:MagicItemsV.rtf
-Periapt of Wisdom +2			TYPE:Magic.Wondrous.Amulet					COST:4000	WT:0								SOURCEPAGE:MagicItemsV.rtf																																														BONUS:STAT|WIS|2|TYPE=Enhancement
-Periapt of Wisdom +4			TYPE:Magic.Wondrous.Amulet					COST:16000	WT:0								SOURCEPAGE:MagicItemsV.rtf																																														BONUS:STAT|WIS|4|TYPE=Enhancement
-Periapt of Wisdom +6			TYPE:Magic.Wondrous.Amulet					COST:36000	WT:0								SOURCEPAGE:MagicItemsV.rtf																																														BONUS:STAT|WIS|6|TYPE=Enhancement
+Periapt of Wisdom +2			TYPE:Magic.Wondrous.Amulet					COST:4000	WT:0								SOURCEPAGE:MagicItemsV.rtf																																																BONUS:STAT|WIS|2|TYPE=Enhancement
+Periapt of Wisdom +4			TYPE:Magic.Wondrous.Amulet					COST:16000	WT:0								SOURCEPAGE:MagicItemsV.rtf																																																BONUS:STAT|WIS|4|TYPE=Enhancement
+Periapt of Wisdom +6			TYPE:Magic.Wondrous.Amulet					COST:36000	WT:0								SOURCEPAGE:MagicItemsV.rtf																																																BONUS:STAT|WIS|6|TYPE=Enhancement
 Periapt of Wound Closure		TYPE:Magic.Wondrous.Amulet					COST:15000	WT:0								SOURCEPAGE:MagicItemsV.rtf
 Phylactery of Faithfulness		TYPE:Magic.Wondrous.Headgear					COST:1000	WT:0								SOURCEPAGE:MagicItemsV.rtf
-Phylactery of Undead Turning		TYPE:Magic.Wondrous.Headgear					COST:11000	WT:0								SOURCEPAGE:MagicItemsV.rtf																																																				BONUS:VAR|TurnLevelUndead|4	BONUS:VAR|TurnDamagePlusUndead|4
+Phylactery of Undead Turning		TYPE:Magic.Wondrous.Headgear					COST:11000	WT:0								SOURCEPAGE:MagicItemsV.rtf																																																						BONUS:VAR|TurnLevelUndead|4	BONUS:VAR|TurnDamagePlusUndead|4
 Pipes of Haunting				TYPE:Magic.Wondrous						COST:6000	WT:3								SOURCEPAGE:MagicItemsV.rtf
 Pipes of Pain				TYPE:Magic.Wondrous						COST:12000	WT:3								SOURCEPAGE:MagicItemsV.rtf
 Pipes of the Sewers			TYPE:Magic.Wondrous						COST:1150	WT:3								SOURCEPAGE:MagicItemsV.rtf
@@ -293,23 +293,23 @@ Pipes of Sounding				TYPE:Magic.Wondrous						COST:1800	WT:3								SOURCEPAGE:M
 Portable Hole				TYPE:Magic.Wondrous.Container	CONTAINS:*UNLIM|Any	COST:20000	WT:0								SOURCEPAGE:MagicItemsV.rtf
 Restorative Ointment			TYPE:Magic.Wondrous.Vial					COST:4000	WT:0.5	EQMOD:CHARGED_ITEM_5|CHARGES[5]	SOURCEPAGE:MagicItemsV.rtf
 Ring Gates					TYPE:Magic.Wondrous						COST:40000	WT:1								SOURCEPAGE:MagicItemsV.rtf
-Robe of the Archmagi (Black)		TYPE:Magic.Wondrous.Robe					COST:75000	WT:1								SOURCEPAGE:MagicItemsV.rtf	ABILITY:Special Ability|AUTOMATIC|Negative Levels													SR:18		BONUS:CHECKS|Fortitude,Reflex,Will|4|TYPE=Resistance	BONUS:COMBAT|AC|5|TYPE=Armor															BONUS:VAR|NegLevels|3|PREALIGN:LG,NG,CG	BONUS:VAR|NegLevels|2|PREALIGN:LN,TN,CN	SPROP:good wearers gain three negative levels, neutral two; +2 enhancement bonus on caster level checks made to overcome spell resistance
-Robe of the Archmagi (Gray)		TYPE:Magic.Wondrous.Robe					COST:75000	WT:1								SOURCEPAGE:MagicItemsV.rtf	ABILITY:Special Ability|AUTOMATIC|Negative Levels													SR:18		BONUS:CHECKS|Fortitude,Reflex,Will|4|TYPE=Resistance	BONUS:COMBAT|AC|5|TYPE=Armor															BONUS:VAR|NegLevels|2|PREALIGN:LG,LE,NG,NE,CG,CE						SPROP:good or evil wearers gain two negative levels; +2 enhancement bonus on caster level checks made to overcome spell resistance
-Robe of the Archmagi (White)		TYPE:Magic.Wondrous.Robe					COST:75000	WT:1								SOURCEPAGE:MagicItemsV.rtf	ABILITY:Special Ability|AUTOMATIC|Negative Levels													SR:18		BONUS:CHECKS|Fortitude,Reflex,Will|4|TYPE=Resistance	BONUS:COMBAT|AC|5|TYPE=Armor															BONUS:VAR|NegLevels|3|PREALIGN:LE,NE,CE	BONUS:VAR|NegLevels|2|PREALIGN:LN,TN,CN	SPROP:evil wearers gain three negative levels, neutral two; +2 enhancement bonus on caster level checks made to overcome spell resistance
-Robe of Blending				TYPE:Magic.Wondrous.Robe					COST:30000	WT:1								SOURCEPAGE:MagicItemsV.rtf																																						BONUS:SKILL|Hide|10|TYPE=Competence																							SPROP:Change Self at will
+Robe of the Archmagi (Black)		TYPE:Magic.Wondrous.Robe					COST:75000	WT:1								SOURCEPAGE:MagicItemsV.rtf	ABILITY:Special Ability|AUTOMATIC|Negative Levels															SR:18		BONUS:CHECKS|Fortitude,Reflex,Will|4|TYPE=Resistance	BONUS:COMBAT|AC|5|TYPE=Armor															BONUS:VAR|NegLevels|3|PREALIGN:LG,NG,CG	BONUS:VAR|NegLevels|2|PREALIGN:LN,TN,CN	SPROP:good wearers gain three negative levels, neutral two; +2 enhancement bonus on caster level checks made to overcome spell resistance
+Robe of the Archmagi (Gray)		TYPE:Magic.Wondrous.Robe					COST:75000	WT:1								SOURCEPAGE:MagicItemsV.rtf	ABILITY:Special Ability|AUTOMATIC|Negative Levels															SR:18		BONUS:CHECKS|Fortitude,Reflex,Will|4|TYPE=Resistance	BONUS:COMBAT|AC|5|TYPE=Armor															BONUS:VAR|NegLevels|2|PREALIGN:LG,LE,NG,NE,CG,CE						SPROP:good or evil wearers gain two negative levels; +2 enhancement bonus on caster level checks made to overcome spell resistance
+Robe of the Archmagi (White)		TYPE:Magic.Wondrous.Robe					COST:75000	WT:1								SOURCEPAGE:MagicItemsV.rtf	ABILITY:Special Ability|AUTOMATIC|Negative Levels															SR:18		BONUS:CHECKS|Fortitude,Reflex,Will|4|TYPE=Resistance	BONUS:COMBAT|AC|5|TYPE=Armor															BONUS:VAR|NegLevels|3|PREALIGN:LE,NE,CE	BONUS:VAR|NegLevels|2|PREALIGN:LN,TN,CN	SPROP:evil wearers gain three negative levels, neutral two; +2 enhancement bonus on caster level checks made to overcome spell resistance
+Robe of Blending				TYPE:Magic.Wondrous.Robe					COST:30000	WT:1								SOURCEPAGE:MagicItemsV.rtf																																								BONUS:SKILL|Hide|10|TYPE=Competence																							SPROP:Change Self at will
 Robe of Bones				TYPE:Magic.Wondrous.Robe					COST:2400	WT:1								SOURCEPAGE:MagicItemsV.rtf
-Robe of Eyes				TYPE:Magic.Wondrous.Robe					COST:120000	WT:1								SOURCEPAGE:MagicItemsV.rtf									ABILITY:Special Ability|AUTOMATIC|Retain Dex To AC ~ Flat-footed	VISION:Darkvision (120')|See Etheral (120')|See Invisibility (120')																	BONUS:SKILL|Search,Spot|10|TYPE=Competence																					SPROP:Can't avert eyes from Gaze Attack
+Robe of Eyes				TYPE:Magic.Wondrous.Robe					COST:120000	WT:1								SOURCEPAGE:MagicItemsV.rtf	ABILITY:Special Ability|AUTOMATIC|Retain Dex To AC ~ Flat-footed	VISION:Darkvision (120')|See Etheral (120')|See Invisibility (120')																	BONUS:SKILL|Search,Spot|10|TYPE=Competence																					SPROP:Can't avert eyes from Gaze Attack
 # Robe of Eyes: Uncanny dodge like 3rd level Rogue....
 Robe of Scintillating Colors		TYPE:Magic.Wondrous.Robe					COST:27000	WT:1								SOURCEPAGE:MagicItemsV.rtf
-Robe of Stars				TYPE:Magic.Wondrous.Robe					COST:58000	WT:1								SOURCEPAGE:MagicItemsV.rtf																								BONUS:CHECKS|Fortitude,Will,Reflex|1|TYPE=Luck																																			SPROP:Allows Astral travel, contains 6 +5 Shuriken
+Robe of Stars				TYPE:Magic.Wondrous.Robe					COST:58000	WT:1								SOURCEPAGE:MagicItemsV.rtf																										BONUS:CHECKS|Fortitude,Will,Reflex|1|TYPE=Luck																																			SPROP:Allows Astral travel, contains 6 +5 Shuriken
 Robe of Useful Items			TYPE:Magic.Wondrous.Robe					COST:7000	WT:1								SOURCEPAGE:MagicItemsV.rtf
 Rope of Climbing				TYPE:Magic.Wondrous						COST:3000	WT:3								SOURCEPAGE:MagicItemsV.rtf
 Rope of Entanglement			TYPE:Magic.Wondrous						COST:21000	WT:5								SOURCEPAGE:MagicItemsV.rtf
 ###Block: S's
-# Equipment Name					Output Name				Type						Cost		Weight	Slot Needed	Modifier					Source Page				Spell Res.	Save checks bonus						Bonus to skill																		Modify VAR					Special Property
+# Equipment Name					Output Name				Type						Cost		Weight	Slot Needed	Modifier					Source Page				Spell Res.	Innate Spells							Save checks bonus						Bonus to skill																		Modify VAR					Special Property
 Salve of Slipperiness									TYPE:Magic.Wondrous.Vial.Consumable	COST:1000	WT:0										SOURCEPAGE:MagicItemsV.rtf
 Scabbard of Keen Edges									TYPE:Magic.Wondrous			COST:16000	WT:1										SOURCEPAGE:MagicItemsV.rtf
-Scarab of Protection									TYPE:Magic.Wondrous.Amulet		COST:38000	WT:0				EQMOD:CHARGED_ITEM_12|CHARGES[12]	SOURCEPAGE:MagicItemsV.rtf	SR:20																																				SPROP:Absorbs energy drains, negative levels and death effects
+Scarab of Protection									TYPE:Magic.Wondrous.Amulet		COST:38000	WT:0				EQMOD:CHARGED_ITEM_12|CHARGES[12]	SOURCEPAGE:MagicItemsV.rtf	SR:20																																													SPROP:Absorbs energy drains, negative levels and death effects
 Scarab (Golembane)				OUTPUTNAME:Scarab, [NAME]	TYPE:Magic.Wondrous.Amulet		COST:2500	WT:0										SOURCEPAGE:MagicItemsV.rtf
 Shrouds of Disintegration								TYPE:Magic.Wondrous.Consumable	COST:6600	WT:10										SOURCEPAGE:MagicItemsV.rtf
 Silversheen											TYPE:Magic.Wondrous.Vial.Consumable	COST:250	WT:0										SOURCEPAGE:MagicItemsV.rtf
@@ -317,13 +317,13 @@ Slippers of Spider Climbing								TYPE:Magic.Wondrous.Boot		COST:4800	WT:0.5	SL
 Sovereign Glue										TYPE:Magic.Wondrous.Vial.Consumable	COST:2400	WT:0										SOURCEPAGE:MagicItemsV.rtf
 Stone of Alarm										TYPE:Magic.Wondrous			COST:2700	WT:2										SOURCEPAGE:MagicItemsV.rtf
 Stone of Controlling Earth Elementals						TYPE:Magic.Wondrous			COST:100000	WT:5										SOURCEPAGE:MagicItemsV.rtf
-Stone of Good Luck (Luckstone)							TYPE:Magic.Wondrous			COST:20000	WT:0										SOURCEPAGE:MagicItemsV.rtf			BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Luck	BONUS:SKILL|TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma|1|TYPE=Luck	BONUS:VAR|TurnCheckBase|1|TYPE=Luck	SPROP:+1 Luck bonus to ability checks
+Stone of Good Luck (Luckstone)							TYPE:Magic.Wondrous			COST:20000	WT:0										SOURCEPAGE:MagicItemsV.rtf												BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Luck	BONUS:SKILL|TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma|1|TYPE=Luck	BONUS:VAR|TurnCheckBase|1|TYPE=Luck	SPROP:+1 Luck bonus to ability checks
 Stone Horse (Courser)									TYPE:Magic.Wondrous			COST:10000	WT:6000									SOURCEPAGE:MagicItemsV.rtf
 Stone Horse (Destrier)									TYPE:Magic.Wondrous			COST:14800	WT:6000									SOURCEPAGE:MagicItemsV.rtf
 Stone Salve											TYPE:Magic.Wondrous.Vial.Consumable	COST:4000	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Strand of Prayer Beads (Lesser)							TYPE:Magic.Wondrous			COST:9600	WT:0										SOURCEPAGE:MagicItemsV.rtf																																					SPROP:Bead of Blessing 1/day -- Wearer can cast bless.  Bead of Healing 1/day -- Wearer can cast his choice of Cure Serious Wounds, Remove Blindness/Deafness, or Remove Disease.																																																																												SPELLS:Magic Item|TIMES=1|CASTERLEVEL=1|Bless
-Strand of Prayer Beads									TYPE:Magic.Wondrous			COST:25800	WT:0										SOURCEPAGE:MagicItemsV.rtf																																					SPROP:Bead of Healing 1/day -- Wearer can cast his choice of cure serious wounds, remove blindness/deafness, or remove disease.  Bead of Karma 1/ day -- Wearer casts his spells at +4 caster level. Effect lasts 10 minutes.  Bead of Smiting 1/day -- Wearer can cast chaos hammer, holy smite, orders wrath, or unholy blight (Will DC 17 partial).
-Strand of Prayer Beads (Greater)							TYPE:Magic.Wondrous			COST:95800	WT:0										SOURCEPAGE:MagicItemsV.rtf																																					SPROP:Bead of Healing 1/day -- Wearer can cast his choice of cure serious wounds, remove blindness/deafness, or remove disease.  Bead of Karma 1/ day -- Wearer casts his spells at +4 caster level. Effect lasts 10 minutes.  Bead of Summons 1 time only -- Summons a powerful creature of appropriate alignment from the Outer Planes (an angel, devil, etc.) to aid the wearer for one day. (If the wearer uses the bead of summons to summon a deitys emissary frivolously, the deity takes that character's items and places a geas/quest upon him as punishment in the very least.)  Bead of Wind Walk 1/day -- Wearer can cast Wind Walk	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=11|Wind Walk
+Strand of Prayer Beads (Lesser)							TYPE:Magic.Wondrous			COST:9600	WT:0										SOURCEPAGE:MagicItemsV.rtf			SPELLS:Magic Item|TIMES=1|CASTERLEVEL=1|Bless																																				SPROP:Bead of Blessing 1/day -- Wearer can cast bless.  Bead of Healing 1/day -- Wearer can cast his choice of Cure Serious Wounds, Remove Blindness/Deafness, or Remove Disease.
+Strand of Prayer Beads									TYPE:Magic.Wondrous			COST:25800	WT:0										SOURCEPAGE:MagicItemsV.rtf																																														SPROP:Bead of Healing 1/day -- Wearer can cast his choice of cure serious wounds, remove blindness/deafness, or remove disease.  Bead of Karma 1/ day -- Wearer casts his spells at +4 caster level. Effect lasts 10 minutes.  Bead of Smiting 1/day -- Wearer can cast chaos hammer, holy smite, orders wrath, or unholy blight (Will DC 17 partial).
+Strand of Prayer Beads (Greater)							TYPE:Magic.Wondrous			COST:95800	WT:0										SOURCEPAGE:MagicItemsV.rtf			SPELLS:Magic Item|TIMES=1|CASTERLEVEL=11|Wind Walk																																			SPROP:Bead of Healing 1/day -- Wearer can cast his choice of cure serious wounds, remove blindness/deafness, or remove disease.  Bead of Karma 1/ day -- Wearer casts his spells at +4 caster level. Effect lasts 10 minutes.  Bead of Summons 1 time only -- Summons a powerful creature of appropriate alignment from the Outer Planes (an angel, devil, etc.) to aid the wearer for one day. (If the wearer uses the bead of summons to summon a deitys emissary frivolously, the deity takes that character's items and places a geas/quest upon him as punishment in the very least.)  Bead of Wind Walk 1/day -- Wearer can cast Wind Walk
 Sustaining Spoon										TYPE:Magic.Wondrous			COST:5400	WT:0										SOURCEPAGE:MagicItemsV.rtf
 Tome of Clear Thought +1								TYPE:Magic.Wondrous.Book.Consumable	COST:27500	WT:5										SOURCEPAGE:MagicItemsV.rtf
 Tome of Clear Thought +2								TYPE:Magic.Wondrous.Book.Consumable	COST:55000	WT:5										SOURCEPAGE:MagicItemsV.rtf
@@ -342,11 +342,11 @@ Tome of Understanding +4								TYPE:Magic.Wondrous.Book.Consumable	COST:110000	
 Tome of Understanding +5								TYPE:Magic.Wondrous.Book.Consumable	COST:137500	WT:5										SOURCEPAGE:MagicItemsV.rtf
 Unguent of Timelessness									TYPE:Magic.Wondrous.Vial.Consumable	COST:150	WT:0										SOURCEPAGE:MagicItemsV.rtf
 Universal Solvent										TYPE:Magic.Wondrous.Vial.Consumable	COST:50	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Vest of Escape										TYPE:Magic.Wondrous.Shirt		COST:5200	WT:0										SOURCEPAGE:MagicItemsV.rtf											BONUS:SKILL|Escape Artist|6|TYPE=Competence	BONUS:SKILL|Open Lock|4|TYPE=Competence
-Vestments (Druid)					OUTPUTNAME:Vestments, [NAME]	TYPE:Magic.Wondrous.Clothing		COST:10000	WT:0										SOURCEPAGE:MagicItemsV.rtf																															BONUS:VAR|WildShapeTimes|1
+Vest of Escape										TYPE:Magic.Wondrous.Shirt		COST:5200	WT:0										SOURCEPAGE:MagicItemsV.rtf																				BONUS:SKILL|Escape Artist|6|TYPE=Competence	BONUS:SKILL|Open Lock|4|TYPE=Competence
+Vestments (Druid)					OUTPUTNAME:Vestments, [NAME]	TYPE:Magic.Wondrous.Clothing		COST:10000	WT:0										SOURCEPAGE:MagicItemsV.rtf																																								BONUS:VAR|WildShapeTimes|1
 Well of Many Worlds									TYPE:Magic.Wondrous			COST:82000	WT:0										SOURCEPAGE:MagicItemsV.rtf
 Wind Fan											TYPE:Magic.Wondrous			COST:5500	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Wings of Flying										TYPE:Magic.Wondrous.Cape		COST:54000	WT:2										SOURCEPAGE:MagicItemsV.rtf		SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=17|Fly,13
+Wings of Flying										TYPE:Magic.Wondrous.Cape		COST:54000	WT:2										SOURCEPAGE:MagicItemsV.rtf			SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=17|Fly,13
 
 ###Block: Magic items detailed in Monster entries
 # Equipment Name					Output Name			Type					Cost		Weight	Source Page				Save checks bonus

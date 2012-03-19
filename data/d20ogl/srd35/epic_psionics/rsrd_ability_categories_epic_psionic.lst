@@ -1,14 +1,14 @@
-# CVS $Revision$ $Author$ -- Thu Jun 19 06:15:07 2008 -- reformated by prettylst.pl v1.38 (build 6737)
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 # SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 ###Block: Epic Psionic Core Class Feat Pools
-# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object							Plural description for UI		Display Location
-ABILITYCATEGORY:Epic Psion Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Epic.Psionic.Metapsionic.ItemCreation		PLURAL:Epic Psion Feats			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Epic Psychic Warrior Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Epic.Psionic.Metapsionic.ItemCreation.Fighter	PLURAL:Epic Psychic Warrior Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Epic Soulknife Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Epic.Psionic.Metapsionic.ItemCreation		PLURAL:Epic Soulknife Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Epic Cerebremancer Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:EpicCerebremancer						PLURAL:Epic Cerebremancer Feats	DISPLAYLOCATION:Feats
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object							Plural description for UI		Display Location
+ABILITYCATEGORY:Epic Psion Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Epic.Psionic.Metapsionic.ItemCreation		PLURAL:Epic Psion Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Epic Psychic Warrior Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Epic.Psionic.Metapsionic.ItemCreation.Fighter	PLURAL:Epic Psychic Warrior Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Epic Soulknife Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Epic.Psionic.Metapsionic.ItemCreation		PLURAL:Epic Soulknife Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Epic Cerebremancer Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:EpicCerebremancer						PLURAL:Epic Cerebremancer Feats	DISPLAYLOCATION:Feats
 #
-ABILITYCATEGORY:Psicrystal Power Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:PsiCrystalPower				PLURAL:Psicrystal Power Choices	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Psicrystal Power Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PsiCrystalPower						PLURAL:Psicrystal Power Choices	DISPLAYLOCATION:Feats
 #
 # End
 #

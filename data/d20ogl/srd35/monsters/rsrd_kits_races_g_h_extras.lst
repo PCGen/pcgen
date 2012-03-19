@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
 STARTPACK:Frost Giant Jarl	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Frost)]
@@ -89,17 +89,17 @@ STAT:STR=16|DEX=14|CON=14|INT=8|WIS=12|CHA=10
 
 # Giants:
 
-STARTPACK:Default Giant Rock (Huge)		TYPE:GiantEquip	VISIBLE:NO	EQUIPBUY:0	
-GEAR:Giant Rock (Huge)				SIZE:PC	LOCATION:Carried
+STARTPACK:Default Giant Rock (Huge)	TYPE:GiantEquip	VISIBLE:NO	EQUIPBUY:0
+GEAR:Giant Rock (Huge)	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Giant Rock (Large)	TYPE:GiantEquip	VISIBLE:NO	EQUIPBUY:0	
-GEAR:Giant Rock (Large)				SIZE:PC	LOCATION:Carried
+STARTPACK:Default Giant Rock (Large)	TYPE:GiantEquip	VISIBLE:NO	EQUIPBUY:0
+GEAR:Giant Rock (Large)	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Giant Rock (Fire)		TYPE:GiantEquip	VISIBLE:NO	EQUIPBUY:0	
-GEAR:Giant Rock (Fire Giant)			SIZE:PC	LOCATION:Carried
+STARTPACK:Default Giant Rock (Fire)	TYPE:GiantEquip	VISIBLE:NO	EQUIPBUY:0
+GEAR:Giant Rock (Fire Giant)	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Giant Rock (Stone)	TYPE:GiantEquip	VISIBLE:NO	EQUIPBUY:0	
-GEAR:Giant Rock (Stone Giant)			SIZE:PC	LOCATION:Carried
+STARTPACK:Default Giant Rock (Stone)	TYPE:GiantEquip	VISIBLE:NO	EQUIPBUY:0
+GEAR:Giant Rock (Stone Giant)	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Giant Rock (Cloud)	TYPE:GiantEquip	VISIBLE:NO	EQUIPBUY:0	
-GEAR:Giant Rock (Cloud Giant)			SIZE:PC	LOCATION:Carried
+STARTPACK:Default Giant Rock (Cloud)	TYPE:GiantEquip	VISIBLE:NO	EQUIPBUY:0
+GEAR:Giant Rock (Cloud Giant)	SIZE:PC	LOCATION:Carried

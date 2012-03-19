@@ -1,10 +1,11 @@
-# CVS $Revision$ $Author$ -- Mon Nov  3 22:48:47 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry By: Andrew Maitland
 
 # Workaround to Allow the Familiar or PsiCrystal to obtain the "Feat"
 
-Familiar Spell		CATEGORY:Special Ability	TYPE:SpecialQuality.FamiliarSpell		DESC:Your familiar can cast a spell once per day as a spell-like ability																																													STACK:NO	MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[LEVELMAX=8]																																																																																																																																																																																															SOURCEPAGE:EpicFeats.rtf
+# Ability Name	Category of Ability		Type						Description												Stackable?	Multiple?	Choose							Source Page
+Familiar Spell	CATEGORY:Special Ability	TYPE:SpecialQuality.FamiliarSpell	DESC:Your familiar can cast a spell once per day as a spell-like ability	STACK:NO	MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[LEVELMAX=8]	SOURCEPAGE:EpicFeats.rtf
 
 
 

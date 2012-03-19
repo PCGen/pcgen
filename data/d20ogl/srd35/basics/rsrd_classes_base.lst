@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Nov  7 13:02:46 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: dlm1065
 
@@ -421,7 +421,7 @@ SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Transmuter Learning Bonus
 ###Block: Familiar
 1	BONUS:VAR|FMLevel|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WizardSummonFamiliar	ABILITY:Internal|AUTOMATIC|Free Spell Book|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Wizard=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Wizard=1]]
 ###Block: Level progression
-1	CAST:3,1				BONUS:ABILITYPOOL|Wizard Feat|CL/5		ABILITY:FEAT|AUTOMATIC|Scribe Scroll|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WizardScribeScroll
+1	CAST:3,1				BONUS:ABILITYPOOL|Wizard Feat|CL/5	ABILITY:FEAT|AUTOMATIC|Scribe Scroll|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WizardScribeScroll
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:4,3,2

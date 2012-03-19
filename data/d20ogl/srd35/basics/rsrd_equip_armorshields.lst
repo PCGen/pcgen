@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Sep 26 16:44:39 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: arbernet
 
@@ -25,7 +25,7 @@ Full Plate		PROFICIENCY:ARMOR|Full Plate		TYPE:Armor.Heavy.Suit.Standard		COST:1
 ###Block: Shields
 # Replaced armor bonus with shield bonus.
 #Shields ---------------------------------------------------------------------------------				---------------------------------
-# Equipment Name		Output Name				Required Shield Proficiency		Type						Cost		Weight	Slot Needed	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Maximum DEX Bonus	Size		Source Page				% of Spell Failure	Combat bonus																					Special Property
+# Equipment Name		Output Name				Required Shield Proficiency		Type						Cost		Weight	Slot Needed	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Maximum DEX Bonus	Size		Source Page				% of Spell Failure	Combat bonus																			Special Property
 Buckler								PROFICIENCY:SHIELD|Buckler		TYPE:Shield.Buckler.Standard		COST:15	WT:5		SLOTS:0	ACCHECK:-1												EQMOD:STEEL									SOURCEPAGE:Equipment.rtf	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield	BONUS:COMBAT|TOHIT|-1|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]
 Shield (Light/Metal)	OUTPUTNAME:Shield, Light	PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard		COST:9	WT:6				ACCHECK:-1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	EQMOD:STEEL	WIELD:Light					SIZE:M	SOURCEPAGE:Equipment.rtf	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield
 Shield (Light/Wood)	OUTPUTNAME:Shield, Light	PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard		COST:3	WT:5				ACCHECK:-1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	EQMOD:WOOD	WIELD:Light					SIZE:M	SOURCEPAGE:Equipment.rtf	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield

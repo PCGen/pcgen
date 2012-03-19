@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Sep 26 16:44:39 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 # Entered by GldDragon35
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
@@ -163,16 +163,16 @@ SUBCLASS:Silver Dragon Disciple	COST:0
 SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Cone of Cold
 SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Cold
 1										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							BONUS:VAR|BreathWeaponDC|10+CL+CON	DEFINE:BreathWeaponDC|0
-2										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1									BONUS:STAT|STR|2																												TEMPLATE:Dragon Disciple Attacks
-3																																BONUS:VAR|BreathWeaponDice|2		DEFINE:BreathWeaponDice|0
+2										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1								BONUS:STAT|STR|2																												TEMPLATE:Dragon Disciple Attacks
+3																															BONUS:VAR|BreathWeaponDice|2		DEFINE:BreathWeaponDice|0
 4										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|2
 5	VISION:Blindsense (30')						BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1
-6										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1									BONUS:STAT|CON|2
+6										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1								BONUS:STAT|CON|2
 7																		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							BONUS:VAR|BreathWeaponDice|2
-8										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1									BONUS:STAT|INT|2
-9										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1																										ABILITY:Special Ability|AUTOMATIC|Dragon Wings
+8										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1								BONUS:STAT|INT|2
+9										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1																									ABILITY:Special Ability|AUTOMATIC|Dragon Wings
 10	VISION:Blindsense (60')|Darkvision (60')|Low-light									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|4	BONUS:STAT|CHA|2	BONUS:VAR|BreathWeaponDice|2							ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis|Immunity To Sleep
-10	ABILITY:Special Ability|AUTOMATIC|Low light Vision
+10																																										ABILITY:Special Ability|AUTOMATIC|Low light Vision
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus												Combat bonus
 CLASS:Duelist	HD:10		TYPE:PC.Prestige	ABB:Dul		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE

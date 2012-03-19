@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Tue Nov 15 19:57:24 2005 -- reformated by prettylst.pl v1.35 (build 529)
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 
-STARTPACK:Wizard Spell Book	PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Wizard=1]	EQUIPBUY:0
+STARTPACK:Wizard Spell Book	EQUIPBUY:0	PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Wizard=1]
 GEAR:Spellbook (Wizard's/Blank)	LOCATION:Carried
 
 STARTPACK:Dwarf Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dwarf%]

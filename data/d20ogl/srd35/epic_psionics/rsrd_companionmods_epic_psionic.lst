@@ -1,25 +1,27 @@
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 #Original Entry: Andrew Maitland
 
 
 
 #Block: Epic Psi Crystal Progression
-FOLLOWER:PCrystalLevel=21	TYPE:Psicrystal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1	BONUS:ABILITYPOOL|Psicrystal Power Choice|(PCrystalLevel-11)/10
-FOLLOWER:PCrystalLevel=23	TYPE:Psicrystal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
-FOLLOWER:PCrystalLevel=25	TYPE:Psicrystal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
-FOLLOWER:PCrystalLevel=27	TYPE:Psicrystal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
-FOLLOWER:PCrystalLevel=29	TYPE:Psicrystal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
-FOLLOWER:PCrystalLevel=31	TYPE:Psicrystal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
-FOLLOWER:PCrystalLevel=33	TYPE:Psicrystal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
-FOLLOWER:PCrystalLevel=35	TYPE:Psicrystal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
-FOLLOWER:PCrystalLevel=37	TYPE:Psicrystal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
-FOLLOWER:PCrystalLevel=39	TYPE:Psicrystal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
-FOLLOWER:PCrystalLevel=41	TYPE:Psicrystal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
-FOLLOWER:PCrystalLevel=43	TYPE:Psicrystal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
-FOLLOWER:PCrystalLevel=45	TYPE:Psicrystal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
-FOLLOWER:PCrystalLevel=47	TYPE:Psicrystal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
-FOLLOWER:PCrystalLevel=49	TYPE:Psicrystal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
-FOLLOWER:PCrystalLevel=51	TYPE:Psicrystal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
-FOLLOWER:PCrystalLevel=53	TYPE:Psicrystal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
-FOLLOWER:PCrystalLevel=55	TYPE:Psicrystal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
+# Class of the Master		Type			Bonus to Ability Pool								Combat bonus						Stat bonus
+FOLLOWER:PCrystalLevel=21	TYPE:Psicrystal	BONUS:ABILITYPOOL|Psicrystal Power Choice|(PCrystalLevel-11)/10	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=23	TYPE:Psicrystal												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=25	TYPE:Psicrystal												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=27	TYPE:Psicrystal												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=29	TYPE:Psicrystal												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=31	TYPE:Psicrystal												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=33	TYPE:Psicrystal												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=35	TYPE:Psicrystal												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=37	TYPE:Psicrystal												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=39	TYPE:Psicrystal												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=41	TYPE:Psicrystal												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=43	TYPE:Psicrystal												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=45	TYPE:Psicrystal												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=47	TYPE:Psicrystal												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=49	TYPE:Psicrystal												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=51	TYPE:Psicrystal												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=53	TYPE:Psicrystal												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
+FOLLOWER:PCrystalLevel=55	TYPE:Psicrystal												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
 
