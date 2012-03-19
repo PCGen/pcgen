@@ -83,7 +83,9 @@ public class TokenStore implements PluginLoader
 				{
 					Logging.errorPrint("More than one " + tokClass.getName()
 						+ " has the same token name: '"
-						+ newToken.getTokenName() + "'");
+						+ newToken.getTokenName() + "'. " + "Classes were "
+						+ test.getClass().getName() + " and "
+						+ newToken.getClass().getName());
 				}
 			}
 		}

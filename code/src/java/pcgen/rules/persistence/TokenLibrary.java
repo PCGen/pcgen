@@ -146,10 +146,14 @@ public class TokenLibrary implements PluginLoader
 		if (newToken instanceof CDOMPrimaryToken)
 		{
 			CDOMPrimaryToken<?> tok = (CDOMPrimaryToken<?>) newToken;
-			if (TokenFamily.CURRENT.putToken(tok) != null)
+			CDOMToken<?> existingToken = TokenFamily.CURRENT.putToken(tok);
+			if (existingToken != null)
 			{
-				Logging.errorPrint("Duplicate " + tok.getTokenClass().getSimpleName() +
-						" Token found for token " + tok.getTokenName());
+				Logging.errorPrint("Duplicate "
+					+ tok.getTokenClass().getSimpleName()
+					+ " Token found for token " + tok.getTokenName()
+					+ ". Classes were " + existingToken.getClass().getName()
+					+ " and " + newToken.getClass().getName());
 			}
 			if (PCCLASS_CLASS.equals(tok.getTokenClass()))
 			{
@@ -160,10 +164,15 @@ public class TokenLibrary implements PluginLoader
 		if (newToken instanceof CDOMSecondaryToken)
 		{
 			CDOMSecondaryToken<?> tok = (CDOMSecondaryToken<?>) newToken;
-			if (TokenFamily.CURRENT.putSubToken(tok) != null)
+			CDOMSubToken<?> existingToken = TokenFamily.CURRENT.putSubToken(tok);
+			if (existingToken != null)
 			{
-				Logging.errorPrint("Duplicate " + tok.getTokenClass().getSimpleName() +
-						" Token found for token " + tok.getParentToken() + ":" + tok.getTokenName());
+				Logging.errorPrint("Duplicate "
+					+ tok.getTokenClass().getSimpleName()
+					+ " Token found for token " + tok.getParentToken() + ":"
+					+ tok.getTokenName() + ". Classes were "
+					+ existingToken.getClass().getName() + " and "
+					+ newToken.getClass().getName());
 			}
 		}
 		// if (newToken instanceof ChoiceSetToken)
