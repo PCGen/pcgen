@@ -812,6 +812,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	{
 		PCGenSettings context = PCGenSettings.getInstance();
 		chooser.setCurrentDirectory(new File(context.getProperty(PCGenSettings.PCG_SAVE_PATH)));
+		chooser.setSelectedFile(new File("")); //$NON-NLS-1$
 
 		chooser.resetChoosableFileFilters();
 		FileFilter filter = new PcgFileFilter();
