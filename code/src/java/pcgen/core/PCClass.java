@@ -1446,7 +1446,7 @@ public class PCClass extends PObject implements ClassFacade
 				final int maxxp = aPC.minXPForNextECL();
 				if (aPC.getXP() >= maxxp)
 				{
-					aPC.setXP(maxxp-1);
+					aPC.setXP(Math.max(maxxp-1, 0));
 				}
 			}
 		}
