@@ -501,7 +501,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 			infoText
 				.appendI18nFormattedElement(
-					"in_InfoDescription", DescriptionFormatting.piDescString(pc, aDeity)); //$NON-NLS-1$
+					"in_InfoDescription", DescriptionFormatting.piDescSubString(pc, aDeity)); //$NON-NLS-1$
 
 			aString = getPantheons(aDeity);
 			if (aString != null)
@@ -1444,7 +1444,7 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 		final StringBuffer piString = new StringBuffer(100);
 		//piString.append("<html>"); //$NON-NLS-1$
-		piString.append(StringUtil.joinToStringBuffer(set, ",")); //$NON-NLS-1$
+		piString.append(StringUtil.joinToStringBuffer(set, ", ")); //$NON-NLS-1$
 		//piString.append("</html>"); //$NON-NLS-1$
 		return piString.toString();
 		
