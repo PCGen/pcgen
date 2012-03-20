@@ -2,6 +2,14 @@
 #SOURCELONG:Pathfinder Roleplaying Game Advanced Player's Guide Playtest	SOURCESHORT:PFAPGP1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8bcj	SOURCEDATE:2009-11
 # Original Entry by: Stefan Radermacher, Eric Smith (Maredudd) and Andrew Maitland
 
+###Block: Archetype Buckets
+ABILITYCATEGORY:Alchemist Archetype	TYPE:AlchemistArchetype	PLURAL:Alchemist Archetypes	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	DISPLAYLOCATION:Archetype	
+ABILITYCATEGORY:Cavalier Archetype	TYPE:CavalierArchetype	PLURAL:Cavalier Archetypes	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	DISPLAYLOCATION:Archetype	
+ABILITYCATEGORY:Inquisitor Archetype	TYPE:InquisitorArchetype	PLURAL:Inquisitor Archetypes	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	DISPLAYLOCATION:Archetype	
+ABILITYCATEGORY:Oracle Archetype	TYPE:OracleArchetype	PLURAL:Oracle Archetypes	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	DISPLAYLOCATION:Archetype	
+ABILITYCATEGORY:Summoner Archetype	TYPE:SummonerArchetype	PLURAL:Summoner Archetypes	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	DISPLAYLOCATION:Archetype	
+ABILITYCATEGORY:Witch Archetype	TYPE:WitchArchetype	PLURAL:Witch Archetypes	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	DISPLAYLOCATION:Archetype	
+
 # Alchemist
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
 ABILITYCATEGORY:Alchemist Discovery			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AlchemistDiscovery		PLURAL:Alchemist Discoveries		DISPLAYLOCATION:Class Abilities

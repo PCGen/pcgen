@@ -8,6 +8,19 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/
 ###Block: Base Class Special Abilities
 ##
 
+CATEGORY=Internal|Archetype Display.MOD		ABILITY:Alchemist Archetype|AUTOMATIC|Archetype Alchemist|PRECLASS:1,Alchemist=1
+CATEGORY=Internal|Archetype Display.MOD		ABILITY:Cavalier Archetype|AUTOMATIC|Archetype Cavalier|PRECLASS:1,Cavalier=1
+CATEGORY=Internal|Archetype Display.MOD		ABILITY:Inquisitor Archetype|AUTOMATIC|Archetype Inquisitor|PRECLASS:1,Inquisitor=1
+CATEGORY=Internal|Archetype Display.MOD		ABILITY:Oracle Archetype|AUTOMATIC|Archetype Oracle|PRECLASS:1,Oracle=1
+CATEGORY=Internal|Archetype Display.MOD		ABILITY:Summoner Archetype|AUTOMATIC|Archetype Summoner|PRECLASS:1,Summoner=1
+CATEGORY=Internal|Archetype Display.MOD		ABILITY:Witch Archetype|AUTOMATIC|Archetype Witch|PRECLASS:1,Witch=1
+
+Archetype Alchemist	CATEGORY:Archetype	VISIBLE:YES	TYPE:AlchemistArchetype
+Archetype Cavalier	CATEGORY:Archetype	VISIBLE:YES	TYPE:CavalierArchetype
+Archetype Inquisitor	CATEGORY:Archetype	VISIBLE:YES	TYPE:InquisitorArchetype
+Archetype Oracle		CATEGORY:Archetype	VISIBLE:YES	TYPE:OracleArchetype
+Archetype Summoner	CATEGORY:Archetype	VISIBLE:YES	TYPE:SummonerArchetype
+Archetype Witch		CATEGORY:Archetype	VISIBLE:YES	TYPE:WitchArchetype
 
 
 ###Block: Alchemist class features
