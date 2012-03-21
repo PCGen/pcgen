@@ -21,6 +21,14 @@
 package pcgen.gui2.facade;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.list.CompanionList;
+import pcgen.core.FollowerOption;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.CompanionFacade;
@@ -44,11 +52,37 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade
 
 	private DefaultListFacade<CompanionFacadeDelegate> companionList;
 	private PlayerCharacter theCharacter;
+	private DefaultListFacade<CompanionStubFacade> availCompList;
 
+	/**
+	 * Create a new instance of CompanionSupportFacadeImpl
+	 * @param theCharacter The character to be represented.
+	 */
 	public CompanionSupportFacadeImpl(PlayerCharacter theCharacter)
 	{
 		this.theCharacter = theCharacter;
 		this.companionList = new DefaultListFacade<CompanionFacadeDelegate>();
+		this.availCompList = new DefaultListFacade<CompanionStubFacade>();
+		initCompData();
+	}
+
+	/**
+	 * Initialisation of the character's companion data. 
+	 */
+	private void initCompData()
+	{
+		List<CompanionStub> companions = new ArrayList<CompanionStub>();
+		for (CompanionList compList : Globals.getContext().ref
+				.getConstructedCDOMObjects(CompanionList.class))
+		{
+			Map<FollowerOption, CDOMObject> fMap = theCharacter.getAvailableFollowers(compList.getKeyName(), null);
+			for (FollowerOption followerOpt : fMap.keySet())
+			{
+				companions.add(new CompanionStub(followerOpt.getRace(), compList.getKeyName()));
+			}
+		}
+		availCompList.setContents(companions);
+		//Logging.errorPrint("Available comps" + availCompList);
 	}
 
 	@Override
@@ -118,7 +152,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade
 	@Override
 	public ListFacade<CompanionStubFacade> getAvailableCompanions()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return availCompList;
 	}
 
 	@Override

@@ -242,6 +242,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	private CharacterAbilities characterAbilities;
 	private DescriptionFacade descriptionFacade;
 	private SpellSupportFacadeImpl spellSupportFacade;
+	private CompanionSupportFacadeImpl companionSupportFacade;
 	private TodoManager todoManager;
 	private boolean allowDebt;
 
@@ -294,6 +295,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		characterAbilities = new CharacterAbilities(pc, delegate, dataSet, todoManager);
 		descriptionFacade = new DescriptionFacadeImpl(pc);
 		spellSupportFacade = new SpellSupportFacadeImpl(pc, delegate, dataSet, todoManager);
+		companionSupportFacade = new CompanionSupportFacadeImpl(theCharacter);
 		
 		//TODO: Init appliedTempBonuses
 		appliedTempBonuses = new DefaultListFacade<TempBonusFacade>();
@@ -3875,11 +3877,13 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		return theCharacter.isDirty();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public CompanionSupportFacade getCompanionSupport()
 	{
-		//TODO: implement this
-		return null;
+		return companionSupportFacade;
 	}
 
 	@Override
