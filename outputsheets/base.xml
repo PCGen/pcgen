@@ -660,19 +660,28 @@ Immune
 
 	<!-- Natural Attack -->
 |FOR,%NaturalAttack,0,count("ABILITIES","CATEGORY=Natural Attack","TYPE=NaturalAttack")-1,1,0|
-	<naturalattack>	critmult
+	<naturalattack>
 		<name>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackName|</name>
 		<tohit>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackToHit|</tohit>
 		<damage>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackDamage|</damage>
 		<type>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackType|</type>
 		<threat>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackThreatRange||ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackCritMult|</threat>
 		<reach>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackReach.INTVAL|</reach>
-		<range>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackRange.INTVAL|</range>
+				<range>|ABILITYALL.Natural Attack.%NaturalAttack.%NaturalAttackRange.TYPE=NaturalAttack.ASPECT.NaturalAttackRange|</range>
+		<rangeincrement>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackRangeIncrement|</rangeincrement>
 
+|FOR,%NaturalAttackRange,0,4,1,0|
+		<range>
+		<distance>|ABILITYALL.Natural Attack.%NaturalAttackRange.TYPE=NaturalAttack.ASPECT.NaturalAttackRange|</distance>
+		<rangeincrement>|ABILITYALL.Natural Attack.%NaturalAttackRange.TYPE=NaturalAttack.ASPECT.NaturalAttackRangeIncrement|</rangeincrement>
+		<distance_unit>|UNITSET.DISTANCEUNIT|</distance_unit>
+		</range>
+|ENDFOR|
 		<notes>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackNotes||ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.DESC|</notes>
 <!--> Used to Validate Word Toggle between Crit / Mult vs. Crit <-->
 		<critmult>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackCritMult|</critmult>
 		<!--|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackDamageBonus.SIGN|-->
+		<distance_unit>|UNITSET.DISTANCEUNIT|</distance_unit>
 	</naturalattack>
 |ENDFOR|
 
@@ -767,7 +776,8 @@ Immune
 				</w2_o>
 			</melee>
 |ENDIF| <!-- IIF(WEAPON.%weap.CATEGORY:Ranged) -->
-|IIF(WEAPON.%weap.CATEGORY:Ranged)|
+|IIF(WEAPON.%weap.CATEGORY:Ranged)|	<!-- We work out now whether this is a Ranged Only or Thrown -->
+|IIF(WEAPON.%weap.ISTYPE.Thrown)| <!-- Valid only if we find the Thrown Value -->
 			<ranges>
 |FOR,%range,0,4,1,0|
 				<range>
@@ -783,16 +793,36 @@ Immune
 				</range>
 |ENDFOR|	<!-- Range -->
 			</ranges>
-		</weapon>
+|ELSE| <!-- IIF(WEAPON.%weap.ISTYPE.Thrown) but IS Ranged -->
+
+<!-- New Ranges Section -->
+			<ranges>
+|FOR,%range,0,9,1,0|
+				<range>
+					<distance>|WEAPON.%weap.RANGELIST.%range|</distance>
+					<to_hit>|WEAPON.%weap.RANGELIST.%range.TOTALHIT|</to_hit>
+					<damage>|WEAPON.%weap.RANGELIST.%range.DAMAGE|</damage>
+					<basehit>|WEAPON.%weap.RANGELIST.%range.BASEHIT|</basehit>
+					<tohit_offhand>|WEAPON.%weap.RANGELIST.%range.OHHIT|</tohit_offhand>
+					<tohit_twohand>|WEAPON.%weap.RANGELIST.%range.BASEHIT|</tohit_twohand>
+					<tohit_2weap_heavy>|WEAPON.%weap.RANGELIST.%range.TWPHITH|</tohit_2weap_heavy>
+					<tohit_2weap_light>|WEAPON.%weap.RANGELIST.%range.TWPHITL|</tohit_2weap_light>
+					<tohit_2weap_offhand>|WEAPON.%weap.RANGELIST.%range.TWOHIT|</tohit_2weap_offhand>
+				</range>
+|ENDFOR|	<!-- Range -->
+			</ranges>
+		
+|ENDIF| <!-- IIF(WEAPON.%weap.ISTYPE.Thrown) -->
+</weapon>
 |ELSE| <!-- IIF(WEAPON.%weap.CATEGORY:Ranged) -->
 |ENDIF| <!-- IIF(WEAPON.%weap.CATEGORY:Ranged) -->
 
 
+<!-- End New Ranges Section -->
 |ELSE| <!-- IIF(WEAPON.%weap.CATEGORY:BOTH) -->
 
 
 |IIF(WEAPON.%weap.CATEGORY:Ranged)|
-
 		<weapon>
 			<common>
 				<name>
@@ -847,6 +877,7 @@ Immune
 			</common>
 |IIF(WEAPON.%weap.CONTENTS:0)|
 			<ranges>
+|IIF(WEAPON.%weap.ISTYPE.Thrown)|
 |FOR,%range,0,4,1,0|
 				<range>
 					<distance>|WEAPON.%weap.RANGELIST.%range|</distance>
@@ -860,7 +891,23 @@ Immune
 					<tohit_2weap_offhand>|WEAPON.%weap.RANGELIST.%range.TWOHIT|</tohit_2weap_offhand>
 				</range>
 |ENDFOR|	<!-- Range -->
+|ELSE|	<!--|IIF(WEAPON.%weap.ISTYPE.Thrown)| -->
+
+|FOR,%range,0,9,1,0|
+				<range>
+					<distance>|WEAPON.%weap.RANGELIST.%range|</distance>
+					<to_hit>|WEAPON.%weap.RANGELIST.%range.TOTALHIT|</to_hit>
+					<damage>|WEAPON.%weap.RANGELIST.%range.DAMAGE|</damage>
+					<basehit>|WEAPON.%weap.RANGELIST.%range.BASEHIT|</basehit>
+					<tohit_offhand>|WEAPON.%weap.RANGELIST.%range.OHHIT|</tohit_offhand>
+					<tohit_twohand>|WEAPON.%weap.RANGELIST.%range.BASEHIT|</tohit_twohand>
+					<tohit_2weap_heavy>|WEAPON.%weap.RANGELIST.%range.TWPHITH|</tohit_2weap_heavy>
+					<tohit_2weap_light>|WEAPON.%weap.RANGELIST.%range.TWPHITL|</tohit_2weap_light>
+					<tohit_2weap_offhand>|WEAPON.%weap.RANGELIST.%range.TWOHIT|</tohit_2weap_offhand>
+				</range>
+|ENDFOR|	<!-- Range -->
 			</ranges>
+|ENDIF|	<!--|IIF(WEAPON.%weap.ISTYPE.Thrown)| -->
 |ELSE|   <!-- IIF(WEAPON.%weap.CONTENTS:0) -->
 |FOR,%ammo,0,WEAPON.%weap.CONTENTS-1,1,0|
 			<ranges>
@@ -869,6 +916,7 @@ Immune
 					<special_properties>|WEAPON.%weap.CONTENTS.%ammo.SPROP|</special_properties>
 					<quantity>|EQ.IS.WEAPON.%weap.CONTENTS.%ammo.QTY|</quantity>
 				</ammunition>
+|IIF(WEAPON.%weap.ISTYPE.Thrown)|
 |FOR,%range,0,4,1,0|
 				<range>
 					<distance>|WEAPON.%weap.RANGELIST.%range|</distance>
@@ -882,6 +930,25 @@ Immune
 					<tohit_2weap_offhand>|WEAPON.%weap.RANGELIST.%range.TWOHIT|</tohit_2weap_offhand>
 				</range>
 |ENDFOR|	<!-- Range -->
+|ELSE|	<!--|IIF(WEAPON.%weap.ISTYPE.Thrown)| -->
+
+
+|FOR,%range,0,9,1,0|
+				<range>
+					<distance>|WEAPON.%weap.RANGELIST.%range|</distance>
+					<to_hit>|WEAPON.%weap.RANGELIST.%range.CONTENTS.%ammo.TOTALHIT|</to_hit>
+					<damage>|WEAPON.%weap.RANGELIST.%range.CONTENTS.%ammo.DAMAGE|</damage>
+					<basehit>|WEAPON.%weap.RANGELIST.%range.BASEHIT|</basehit>
+					<tohit_offhand>|WEAPON.%weap.RANGELIST.%range.OHHIT|</tohit_offhand>
+					<tohit_twohand>|WEAPON.%weap.RANGELIST.%range.BASEHIT|</tohit_twohand>
+					<tohit_2weap_heavy>|WEAPON.%weap.RANGELIST.%range.TWPHITH|</tohit_2weap_heavy>
+					<tohit_2weap_light>|WEAPON.%weap.RANGELIST.%range.TWPHITL|</tohit_2weap_light>
+					<tohit_2weap_offhand>|WEAPON.%weap.RANGELIST.%range.TWOHIT|</tohit_2weap_offhand>
+				</range>
+|ENDFOR|	<!-- Range -->
+
+|ENDIF|	<!--|IIF(WEAPON.%weap.ISTYPE.Thrown)| -->
+
 			</ranges>
 |ENDFOR|  <!-- FOR,%ammo,0,WEAPON.%weap.CONTENTS-1,1,1 -->
 |ENDIF|   <!-- IIF(WEAPON.%weap.CONTENTS:0) -->
