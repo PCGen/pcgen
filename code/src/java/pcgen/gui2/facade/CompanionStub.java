@@ -80,8 +80,7 @@ public class CompanionStub implements CompanionStubFacade
 	@Override
 	public String toString()
 	{
-		return "CompanionStub [type=" + companionType + ", race="
-			+ race + "]";
+		return race.toString();
 	}
 
 }

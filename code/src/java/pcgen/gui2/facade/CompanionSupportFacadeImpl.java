@@ -85,7 +85,14 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade
 				companions.add(new CompanionStub(followerOpt.getRace(), compList.getKeyName()));
 			}
 			int maxVal = theCharacter.getMaxFollowers(compList);
-			maxCompanionsMap.putValue(compList.toString(), maxVal);
+			if (maxVal == 0)
+			{
+				maxCompanionsMap.removeKey(compList.toString());
+			}
+			else
+			{
+				maxCompanionsMap.putValue(compList.toString(), maxVal);
+			}
 		}
 		availCompList.setContents(companions);
 		Logging.debugPrint("Available comps " + availCompList);
