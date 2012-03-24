@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.enumeration.Nature;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
@@ -58,7 +59,7 @@ public class FeatAutoToken extends AbilityToken
 		{
 			if (aCat.getParentCategory().equals(aCategory))
 			{
-				abilityList.addAll(pc.getAutomaticAbilityList(aCat));
+				abilityList.addAll(pc.getAbilityList(aCat, Nature.AUTOMATIC));
 			}
 		}
 		return abilityList;

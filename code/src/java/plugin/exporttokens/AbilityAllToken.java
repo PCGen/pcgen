@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import pcgen.cdom.enumeration.Nature;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
@@ -82,8 +83,8 @@ public class AbilityAllToken extends AbilityToken
 			if (aCat.getParentCategory().equals(aCategory))
 			{
 				ret.addAll(pc.getRealAbilitiesListAnyCat(aCat));
-				ret.addAll(pc.getAutomaticAbilityList(aCat));
-				ret.addAll(pc.getVirtualAbilityList(aCat));
+				ret.addAll(pc.getAbilityList(aCat, Nature.AUTOMATIC));
+				ret.addAll(pc.getAbilityList(aCat, Nature.VIRTUAL));
 			}
 		}
 		return ret;

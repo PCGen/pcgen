@@ -28,6 +28,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.enumeration.Nature;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
@@ -181,7 +182,7 @@ public class AbilityListToken extends Token
 		AbilityCategory aCategory)
 	{
 		List<Ability> listOfAbilities = new ArrayList<Ability>();
-		for (Ability ability : pc.getRealAbilitiesList(aCategory))
+		for (Ability ability : pc.getAbilityList(aCategory, Nature.NORMAL))
 		{
 			listOfAbilities.add(ability);
 		}

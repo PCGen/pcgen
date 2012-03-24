@@ -50,6 +50,7 @@ import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.helper.AbilitySelection;
@@ -1374,8 +1375,8 @@ final class PCGVer2Creator implements IOConstants
 		for (final AbilityCategory cat : categories)
 		{
 			final List<Ability> abilitiesToSave =
-					new ArrayList<Ability>(thePC.getRealAbilitiesList(cat));
-			for (final Ability vability : thePC.getVirtualAbilityList(cat))
+					new ArrayList<Ability>(thePC.getAbilityList(cat, Nature.NORMAL));
+			for (final Ability vability : thePC.getAbilityList(cat, Nature.VIRTUAL))
 			{
 				Boolean needsSaving = thePC.getAssoc(vability, AssociationKey.NEEDS_SAVING);
 				if (needsSaving != null && needsSaving)
@@ -2463,8 +2464,7 @@ final class PCGVer2Creator implements IOConstants
 		//
 		// Save any selected feat bonus weapons
 		//
-		for (final Ability feat : thePC
-			.getRealAbilitiesList(AbilityCategory.FEAT))
+		for (final Ability feat : thePC.getAbilityList(AbilityCategory.FEAT, Nature.NORMAL))
 		{
 			appendWeaponProficiencyLines(buffer, feat);
 		}

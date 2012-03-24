@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import pcgen.cdom.enumeration.Nature;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
@@ -68,7 +69,7 @@ public class VAbilityToken extends AbilityToken
 		{
 			if (aCat.getParentCategory().equals(aCategory))
 			{
-				abilityList.addAll(pc.getVirtualAbilityList(aCat));
+				abilityList.addAll(pc.getAbilityList(aCat, Nature.VIRTUAL));
 			}
 		}
 		return abilityList;

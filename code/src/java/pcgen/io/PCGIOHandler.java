@@ -42,6 +42,7 @@ import java.util.StringTokenizer;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Ability;
@@ -394,7 +395,7 @@ public final class PCGIOHandler extends IOHandler
 			aPC.setFeats(baseFeatPool);
 		}
 
-		for (Ability aFeat : aPC.getRealAbilitiesList(AbilityCategory.FEAT))
+		for (Ability aFeat : aPC.getAbilityList(AbilityCategory.FEAT, Nature.NORMAL))
 		{
 			if (aFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED) && !currentPC.hasAssociations(aFeat))
 			{

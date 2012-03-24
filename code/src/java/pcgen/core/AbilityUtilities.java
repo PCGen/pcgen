@@ -31,6 +31,7 @@ import java.util.List;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.AbilitySelection;
 import pcgen.core.analysis.AddObjectActions;
@@ -214,7 +215,7 @@ public class AbilityUtilities
 		{
 			int listSize = aPC.getSelectCorrectedAssociationCount(ability);
 
-			for (Ability myAbility : aPC.getRealAbilitiesList(AbilityCategory.FEAT))
+			for (Ability myAbility : aPC.getAbilityList(AbilityCategory.FEAT, Nature.NORMAL))
 			{
 				if (myAbility.getKeyName().equalsIgnoreCase(ability.getKeyName()))
 				{

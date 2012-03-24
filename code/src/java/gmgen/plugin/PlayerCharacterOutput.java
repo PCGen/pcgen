@@ -11,6 +11,7 @@ import java.util.StringTokenizer;
 import org.apache.commons.lang.math.Fraction;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Deity;
@@ -208,7 +209,7 @@ public class PlayerCharacterOutput
 
 		boolean firstLine = true;
 
-		for (Ability feat : pc.getRealAbilitiesList(AbilityCategory.FEAT))
+		for (Ability feat : pc.getAbilityList(AbilityCategory.FEAT, Nature.NORMAL))
 		{
 			if (!firstLine)
 			{

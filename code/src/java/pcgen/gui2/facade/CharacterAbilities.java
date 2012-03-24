@@ -280,9 +280,9 @@ public class CharacterAbilities
 		removeCategorisedAbility(cat, ability, nature);
 		
 		boolean stillActive =
-				!theCharacter.getAutomaticAbilityList(cat).isEmpty()
-					|| !theCharacter.getRealAbilitiesList(cat).isEmpty()
-					|| !theCharacter.getVirtualAbilityList(cat).isEmpty()
+				!theCharacter.getAbilityList(cat, Nature.AUTOMATIC).isEmpty()
+					|| !theCharacter.getAbilityList(cat, Nature.NORMAL).isEmpty()
+					|| !theCharacter.getAbilityList(cat, Nature.VIRTUAL).isEmpty()
 					|| theCharacter.getAvailableAbilityPool(cat).intValue() > 0;
 		if (!stillActive && activeCategories.containsElement(cat))
 		{
@@ -307,17 +307,17 @@ public class CharacterAbilities
 		{
 			AbilityCategory cat = (AbilityCategory) category;
 			boolean found = false;
-			for (Ability ability : theCharacter.getAutomaticAbilityList(cat))
+			for (Ability ability : theCharacter.getAbilityList(cat, Nature.AUTOMATIC))
 			{
 				addCategorisedAbility(cat, ability, Nature.AUTOMATIC);
 				found = true;
 			}
-			for (Ability ability : theCharacter.getRealAbilitiesList(cat))
+			for (Ability ability : theCharacter.getAbilityList(cat, Nature.NORMAL))
 			{
 				addCategorisedAbility(cat, ability, Nature.NORMAL);
 				found = true;
 			}
-			for (Ability ability : theCharacter.getVirtualAbilityList(cat))
+			for (Ability ability : theCharacter.getAbilityList(cat, Nature.VIRTUAL))
 			{
 				addCategorisedAbility(cat, ability, Nature.VIRTUAL);
 				found = true;

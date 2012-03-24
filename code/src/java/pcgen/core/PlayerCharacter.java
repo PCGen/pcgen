@@ -5828,7 +5828,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		getAutomaticAbilityList(AbilityCategory.FEAT);
+		getAbilityList(AbilityCategory.FEAT, Nature.AUTOMATIC);
 
 		calcActiveBonuses();
 		int postLockMonsterSkillPoints; // this is what this value was before
@@ -9666,19 +9666,11 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 		for (Category<Ability> ac : abCats)
 		{
-			list.addAll(getAutomaticAbilityList(ac));
-			list.addAll(getRealAbilitiesList(ac));
-			list.addAll(getVirtualAbilityList(ac));
+			list.addAll(getAbilityList(ac, Nature.AUTOMATIC));
+			list.addAll(getAbilityList(ac, Nature.NORMAL));
+			list.addAll(getAbilityList(ac, Nature.VIRTUAL));
 		}
 		return list;
-	}
-
-	public Set<Ability> getRealAbilitiesList(final Category<Ability> aCategory)
-	{
-		Set<Ability> newSet = new HashSet<Ability>();
-		newSet.addAll(abFacet.get(id, aCategory, Nature.NORMAL));
-		newSet.addAll(grantedAbilityFacet.get(id, aCategory, Nature.NORMAL));
-		return Collections.unmodifiableSet(newSet);
 	}
 
 	/**
@@ -9695,7 +9687,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		for (AbilityCategory cat : SettingsHandler.getGame()
 			.getAllAbilityCategories())
 		{
-			for (Ability ability : getRealAbilitiesList(cat))
+			for (Ability ability : getAbilityList(cat, Nature.NORMAL))
 			{
 				if (aCategory.getKeyName().equals(ability.getCategory()))
 				{
@@ -9926,7 +9918,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 	private Set<Ability> getSelectedAbilities(final AbilityCategory aCategory)
 	{
-		return getRealAbilitiesList(aCategory);
+		return getAbilityList(aCategory, Nature.NORMAL);
 	}
 
 	/**
@@ -10159,7 +10151,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	public Ability getAutomaticAbilityKeyed(final AbilityCategory aCategory,
 		final String anAbilityKey)
 	{
-		for (final Ability ability : getAutomaticAbilityList(aCategory))
+		for (final Ability ability : getAbilityList(aCategory, Nature.AUTOMATIC))
 		{
 			if (ability.getKeyName().equals(anAbilityKey))
 			{
@@ -10244,9 +10236,9 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		//		}
 
 		final List<Ability> abilities =
-				new ArrayList<Ability>(getRealAbilitiesList(aCategory));
-		abilities.addAll(getVirtualAbilityList(aCategory));
-		abilities.addAll(getAutomaticAbilityList(aCategory));
+				new ArrayList<Ability>(getAbilityList(aCategory, Nature.NORMAL));
+		abilities.addAll(getAbilityList(aCategory, Nature.VIRTUAL));
+		abilities.addAll(getAbilityList(aCategory, Nature.AUTOMATIC));
 
 		return abilities;
 	}
@@ -10271,7 +10263,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		List<Ability> aggregate = new ArrayList<Ability>();
 		final Map<String, Ability> aHashMap = new HashMap<String, Ability>();
 
-		for (Ability aFeat : getRealAbilitiesList(aCategory))
+		for (Ability aFeat : getAbilityList(aCategory, Nature.NORMAL))
 		{
 			if (aFeat != null)
 			{
@@ -10279,8 +10271,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		addUniqueAbilitiesToMap(aHashMap, getVirtualAbilityList(aCategory));
-		addUniqueAbilitiesToMap(aHashMap, getAutomaticAbilityList(aCategory));
+		addUniqueAbilitiesToMap(aHashMap, getAbilityList(aCategory, Nature.VIRTUAL));
+		addUniqueAbilitiesToMap(aHashMap, getAbilityList(aCategory, Nature.AUTOMATIC));
 
 		aggregate.addAll(aHashMap.values());
 		return aggregate;
@@ -10290,7 +10282,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	{
 		final Map<String, Ability> aHashMap = new HashMap<String, Ability>();
 
-		for (Ability aFeat : getRealAbilitiesList(AbilityCategory.FEAT))
+		for (Ability aFeat : getAbilityList(AbilityCategory.FEAT, Nature.NORMAL))
 		{
 			if (aFeat != null)
 			{
@@ -10298,10 +10290,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		addUniqueAbilitiesToMap(aHashMap, getVirtualAbilityList(AbilityCategory.FEAT));
+		addUniqueAbilitiesToMap(aHashMap, getAbilityList(AbilityCategory.FEAT, Nature.VIRTUAL));
 		List<Ability> aggregate = new ArrayList<Ability>();
 		aggregate.addAll(aHashMap.values());
-		addUniqueAbilitiesToMap(aHashMap, getAutomaticAbilityList(AbilityCategory.FEAT));
+		addUniqueAbilitiesToMap(aHashMap, getAbilityList(AbilityCategory.FEAT, Nature.AUTOMATIC));
 		//TODO Is this a bug?
 		aggregate = new ArrayList<Ability>();
 		aggregate.addAll(aHashMap.values());
@@ -10354,8 +10346,8 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	{
 		final List<Ability> abilities = new ArrayList<Ability>();
 		abilities.addAll(getRealAbilitiesListAnyCat(aCategory));
-		abilities.addAll(getAutomaticAbilityList(aCategory));
-		abilities.addAll(getVirtualAbilityList(aCategory));
+		abilities.addAll(getAbilityList(aCategory, Nature.AUTOMATIC));
+		abilities.addAll(getAbilityList(aCategory, Nature.VIRTUAL));
 		final List<Ability> ret = new ArrayList<Ability>(abilities.size());
 		for (final Ability ability : abilities)
 		{
@@ -10382,21 +10374,21 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			case AUTOMATIC:
 				for (AbilityCategory Ac : Sc)
 				{
-					Sa.addAll(this.getAutomaticAbilityList(Ac));
+					Sa.addAll(getAbilityList(Ac, Nature.AUTOMATIC));
 				}
 				break;
 
 			case NORMAL:
 				for (AbilityCategory Ac : Sc)
 				{
-					Sa.addAll(this.getRealAbilitiesList(Ac));
+					Sa.addAll(getAbilityList(Ac, Nature.NORMAL));
 				}
 				break;
 
 			case VIRTUAL:
 				for (AbilityCategory Ac : Sc)
 				{
-					Sa.addAll(this.getVirtualAbilityList(Ac));
+					Sa.addAll(getAbilityList(Ac, Nature.VIRTUAL));
 				}
 				break;
 
@@ -10446,35 +10438,6 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		return abilityList;
-	}
-
-	public Set<Ability> getVirtualAbilityList(final Category<Ability> aCategory)
-	{
-		Set<Ability> newSet = new HashSet<Ability>();
-		newSet.addAll(abFacet.get(id, aCategory, Nature.VIRTUAL));
-		newSet.addAll(grantedAbilityFacet.get(id, aCategory, Nature.VIRTUAL));
-		return Collections.unmodifiableSet(newSet);
-	}
-
-	/**
-	 * Returns the list of automatic abilities of the specified category the
-	 * character possesses.
-	 * 
-	 * @param aCategory
-	 *            The <tt>AbilityCategory</tt> to check.
-	 * 
-	 * @return A <tt>List</tt> of <tt>Ability</tt> objects.
-	 * 
-	 * @author boomer70
-	 * @since 5.11.1
-	 */
-	public Set<Ability> getAutomaticAbilityList(
-			final Category<Ability> aCategory)
-	{
-		Set<Ability> newSet = new HashSet<Ability>();
-		newSet.addAll(abFacet.get(id, aCategory, Nature.AUTOMATIC));
-		newSet.addAll(grantedAbilityFacet.get(id, aCategory, Nature.AUTOMATIC));
-		return Collections.unmodifiableSet(newSet);
 	}
 
 	private <A extends PrereqObject> void processAbilityListsOnAdd(

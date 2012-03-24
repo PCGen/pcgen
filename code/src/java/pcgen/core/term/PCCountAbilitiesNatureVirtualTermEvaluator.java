@@ -29,6 +29,7 @@ package pcgen.core.term;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.enumeration.Nature;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Ability;
@@ -51,7 +52,7 @@ public class PCCountAbilitiesNatureVirtualTermEvaluator
 	@Override
 	List<Ability> getAbilities(PlayerCharacter pc)
 	{
-		return new ArrayList<Ability>(pc.getVirtualAbilityList(abCat));
+		return new ArrayList<Ability>(pc.getAbilityList(abCat, Nature.VIRTUAL));
 	}
 
 	@Override

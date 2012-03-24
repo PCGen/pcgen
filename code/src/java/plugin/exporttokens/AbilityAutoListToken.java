@@ -25,6 +25,7 @@ package plugin.exporttokens;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.enumeration.Nature;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
@@ -63,6 +64,6 @@ public class AbilityAutoListToken extends AbilityListToken
 	protected List<Ability> getAbilityList(PlayerCharacter pc,
 		AbilityCategory aCategory)
 	{
-		return new ArrayList<Ability>(pc.getAutomaticAbilityList(aCategory));
+		return new ArrayList<Ability>(pc.getAbilityList(aCategory, Nature.AUTOMATIC));
 	}
 }
