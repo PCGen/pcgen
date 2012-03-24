@@ -22,6 +22,7 @@
  */
 package pcgen.core.facade;
 
+import pcgen.cdom.enumeration.BiographyField;
 import pcgen.core.facade.util.ListFacade;
 
 /**
@@ -86,4 +87,37 @@ public interface DescriptionFacade
 	 * @param text The new contents of the note.
 	 */
 	public void setNote(NoteFacade note, String text);
+
+	/**
+	 * Retrieve the value for a text only biography field.
+	 * @param field The field to be queried. 
+	 * @return the value of the field.
+	 */
+	public ReferenceFacade<String> getBiographyField(BiographyField field);
+
+	/**
+	 * Update the value of a text only biography field.
+	 * @param field The field to be updated. 
+	 * @param newValue The new value of the field.
+	 */
+	public void setBiographyField(BiographyField field, String newValue);
+
+	/**
+	 * @return The custom BiographyFields held for this character.
+	 */
+	public ListFacade<BiographyField> getCustomBiographyFields();
+	
+	/**
+	 * Add a new field to the list of fields that will be displayed for 
+	 * this character.
+	 * @param field The BiographyField to be displayed.
+	 */
+	public void addCustomBiographyField(BiographyField field);
+	
+	/**
+	 * Remove a new field from the list of fields that will be displayed for 
+	 * this character.
+	 * @param field The BiographyField to be hidden.
+	 */
+	public void removeCustomBiographyField(BiographyField field);
 }

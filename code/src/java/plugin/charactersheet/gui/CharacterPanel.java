@@ -6,7 +6,6 @@
 
 package plugin.charactersheet.gui;
 
-import gmgen.gui.ScrollablePanel;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -30,6 +29,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.panes.FlippingSplitPane;
+import pcgen.gui2.util.ScrollablePanel;
 import plugin.charactersheet.CharacterSheetPlugin;
 
 /**

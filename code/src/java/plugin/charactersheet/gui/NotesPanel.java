@@ -464,7 +464,7 @@ public class NotesPanel extends FlippingSplitPane
 
 		dmNote =
 				new NoteItem(DMNOTES_NOTEID, -1, LanguageBundle
-					.getString("in_dmNotes"), pc.getSafeStringFor(StringKey.MISC_DM));
+					.getString("in_dmNotes"), pc.getSafeStringFor(StringKey.MISC_GM));
 		nodesToBeAddedList.add(order++, dmNote);
 
 		addNodes(rootTreeNode, nodesToBeAddedList);
@@ -588,7 +588,7 @@ public class NotesPanel extends FlippingSplitPane
 			}
 			else if (currentItem == dmNote)
 			{
-				pc.setStringFor(StringKey.MISC_DM, notesArea.getText());
+				pc.setStringFor(StringKey.MISC_GM, notesArea.getText());
 				pc.setDirty(true);
 			}
 

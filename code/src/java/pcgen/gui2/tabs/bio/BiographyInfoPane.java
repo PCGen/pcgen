@@ -20,6 +20,7 @@
  */
 package pcgen.gui2.tabs.bio;
 
+
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -29,18 +30,28 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.EnumMap;
+import java.util.EnumSet;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 
+import javax.swing.AbstractAction;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
+
+import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.core.facade.AlignmentFacade;
@@ -50,14 +61,19 @@ import pcgen.core.facade.GenderFacade;
 import pcgen.core.facade.RaceFacade;
 import pcgen.core.facade.ReferenceFacade;
 import pcgen.core.facade.SimpleFacade;
+import pcgen.core.facade.event.ListEvent;
+import pcgen.core.facade.event.ListListener;
 import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
 import pcgen.core.facade.util.DefaultListFacade;
+import pcgen.core.facade.util.ListFacade;
 import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
 import pcgen.gui2.tabs.models.FormattedFieldHandler;
 import pcgen.gui2.tabs.models.TextFieldHandler;
+import pcgen.gui2.util.ScrollablePanel;
+import pcgen.system.LanguageBundle;
 
 /**
  * The Class <code>BiographyInfoPane</code> is a panel within the Description 
@@ -74,13 +90,21 @@ import pcgen.gui2.tabs.models.TextFieldHandler;
 @SuppressWarnings("serial")
 public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 {
-	private static final String ALL_COMMAND = "ALL";
-	private static final String NONE_COMMAND = "NONE";
+	private static final String ALL_COMMAND = "ALL"; //$NON-NLS-1$
+	private static final String NONE_COMMAND = "NONE"; //$NON-NLS-1$
+	private static final JTextField templateTextField = new JTextField(
+		"PrototypeDisplayText"); //$NON-NLS-1$;
+	/** The fields that we always display */
+	private static final EnumSet<BiographyField> defaultBioFieds = EnumSet
+		.range(BiographyField.NAME, BiographyField.WEIGHT);
 
-	private final TabTitle title = new TabTitle("Biography");
+	private final TabTitle title = new TabTitle(
+		LanguageBundle.getString("in_descBiography")); //$NON-NLS-1$
 	private final JButton allButton;
 	private final JButton noneButton;
-	private final JPanel itemsPanel = new JPanel(new GridBagLayout());
+	private final JPanel itemsPanel;
+	private JButton addCustomItemButton;
+	private JScrollPane detailsScroll;
 
 	/**
 	 * Create a new instance of BiographyInfoPane.
@@ -89,6 +113,8 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	{
 		this.allButton = new JButton();
 		this.noneButton = new JButton();
+		this.itemsPanel = new ScrollablePanel(15);
+		itemsPanel.setLayout(new GridBagLayout());
 		initComponents();
 	}
 
@@ -97,13 +123,13 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		setLayout(new GridBagLayout());
 		Box vbox = Box.createVerticalBox();
 
-		allButton.setText("All");
+		allButton.setText(LanguageBundle.getString("in_all")); //$NON-NLS-1$
 		allButton.setActionCommand(ALL_COMMAND);
-		noneButton.setText("None");
+		noneButton.setText(LanguageBundle.getString("in_none")); //$NON-NLS-1$
 		noneButton.setActionCommand(NONE_COMMAND);
 
 		Box hbox = Box.createHorizontalBox();
-		hbox.add(new JLabel("Check an item to include on your Character Sheet"));
+		hbox.add(new JLabel(LanguageBundle.getString("in_descCheckItem"))); //$NON-NLS-1$
 		hbox.add(Box.createRigidArea(new Dimension(5, 0)));
 		hbox.add(allButton);
 		hbox.add(Box.createRigidArea(new Dimension(3, 0)));
@@ -111,20 +137,26 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		vbox.add(hbox);
 
 		vbox.add(Box.createVerticalStrut(10));
-		vbox.add(itemsPanel);
+		detailsScroll = new JScrollPane(itemsPanel);
+		detailsScroll.setPreferredSize(detailsScroll.getMaximumSize());
+		detailsScroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		detailsScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+		detailsScroll.setMinimumSize(new Dimension(600, 0));
+		vbox.add(detailsScroll);
 		vbox.add(Box.createVerticalStrut(10));
 
 		hbox = Box.createHorizontalBox();
 		hbox.add(Box.createHorizontalGlue());
-		JButton customItemButton = new JButton("Add custom Biography item");
-		customItemButton.setEnabled(false);
-		hbox.add(customItemButton);
+		addCustomItemButton = new JButton();
+		hbox.add(addCustomItemButton);
 		hbox.add(Box.createHorizontalGlue());
 		vbox.add(hbox);
+		vbox.add(Box.createVerticalGlue());
 
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.anchor = GridBagConstraints.NORTHWEST;
 		gbc.weightx = 1;
+		gbc.fill = GridBagConstraints.VERTICAL;
 		gbc.weighty = 1;
 		gbc.insets = new Insets(5, 5, 5, 5);
 		add(vbox, gbc);
@@ -135,6 +167,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	{
 		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
 		state.put(ItemHandler.class, new ItemHandler(character));
+		state.put(AddCustomAction.class, new AddCustomAction(character));
 		return state;
 	}
 
@@ -142,6 +175,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	public void restoreModels(Hashtable<?, ?> state)
 	{
 		((ItemHandler) state.get(ItemHandler.class)).install(this);
+		addCustomItemButton.setAction(((AddCustomAction) state.get(AddCustomAction.class)));
 	}
 
 	@Override
@@ -156,15 +190,20 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		return title;
 	}
 
-	private class ItemHandler
+	private class ItemHandler implements ListListener<BiographyField>
 	{
 
+		private final ListFacade<BiographyField> customFields;
 		private List<BioItem> bioItems = new ArrayList<BioItem>();
-		//private CharacterFacade character;
+		private Map<BiographyField, BioItem> customFieldMap =
+				new EnumMap<BiographyField, BiographyInfoPane.BioItem>(
+					BiographyField.class);
+		private final CharacterFacade character;
+		private BiographyInfoPane detailsPane;
 
-		public ItemHandler(CharacterFacade character)
+		public ItemHandler(CharacterFacade character2)
 		{
-			//this.character = character;
+			this.character = character2;
 			bioItems.add(new NameItem(character));
 			bioItems.add(new PlayerNameItem(character));
 			bioItems.add(new GenderItem(character));
@@ -174,19 +213,39 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			bioItems.add(new AgeItem(character));
 			bioItems.add(new SkinColorItem(character));
 			bioItems.add(new HairColorItem(character));
+			bioItems.add(new HairStyleItem(character));
 			bioItems.add(new EyeColorItem(character));
 			bioItems.add(new HeightItem(character));
 			bioItems.add(new WeightItem(character));
+			
+			customFields = character.getDescriptionFacade().getCustomBiographyFields();
+			
+			for (BiographyField field : customFields)
+			{
+				BioItem item = new BiographyFieldBioItem(field,character);
+				customFieldMap.put(field, item);
+			}
 		}
 
 		public void install(BiographyInfoPane parent)
 		{
+			detailsPane = parent;
 			itemsPanel.removeAll();
+			// 
 			for (BioItem bioItem : bioItems)
 			{
 				bioItem.addComponents(itemsPanel);
 				bioItem.install(parent);
 			}
+			for (BioItem bioItem : customFieldMap.values())
+			{
+				bioItem.addComponents(itemsPanel);
+				bioItem.install(parent);
+			}
+
+			customFields.addListListener(this);
+			detailsScroll.setPreferredSize(itemsPanel.getPreferredSize());
+			detailsScroll.invalidate();
 		}
 
 		public void uninstall(BiographyInfoPane parent)
@@ -195,6 +254,62 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			{
 				bioItem.uninstall(parent);
 			}
+			for (BioItem bioItem : customFieldMap.values())
+			{
+				bioItem.uninstall(parent);
+			}
+			detailsPane = null;
+			customFields.removeListListener(this);
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void elementAdded(ListEvent<BiographyField> e)
+		{
+			BiographyField field = e.getElement();
+			BioItem bioItem = new BiographyFieldBioItem(field, character);
+			customFieldMap.put(field, bioItem);
+			bioItem.addComponents(itemsPanel);
+			bioItem.install(detailsPane);
+			detailsPane.invalidate();
+			detailsScroll.setPreferredSize(itemsPanel.getPreferredSize());
+			detailsScroll.repaint();
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void elementRemoved(ListEvent<BiographyField> e)
+		{
+			BiographyField field = e.getElement();
+			BioItem bioItem = new BiographyFieldBioItem(field, character);
+			customFieldMap.put(field, bioItem);
+			bioItem.uninstall(detailsPane);
+			detailsPane.invalidate();
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void elementsChanged(ListEvent<BiographyField> e)
+		{
+			BiographyInfoPane parent = detailsPane;
+			uninstall(parent);
+			install(parent);
+			detailsPane.invalidate();
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void elementModified(ListEvent<BiographyField> e)
+		{
+			// Ignored.
 		}
 	}
 
@@ -203,8 +318,8 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 		public NameItem(final CharacterFacade character)
 		{
-			super("Name:", BiographyField.NAME, character);
-			setTextFieldHandler(new TextFieldHandler(new JTextField(), character.getNameRef())
+			super("in_nameLabel", BiographyField.NAME, character); //$NON-NLS-1$
+			setTextFieldHandler(new TextFieldHandler(new JTextField(30), character.getNameRef())
 			{
 
 				@Override
@@ -223,7 +338,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 		public PlayerNameItem(final CharacterFacade character)
 		{
-			super("Player:", BiographyField.PLAYERNAME, character);
+			super("in_player", BiographyField.PLAYERNAME, character); //$NON-NLS-1$
 			setTextFieldHandler(new TextFieldHandler(new JTextField(), character.getPlayersNameRef())
 			{
 
@@ -245,7 +360,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 		public GenderItem(final CharacterFacade character)
 		{
-			super("Gender:", BiographyField.GENDER, character);
+			super("in_gender", BiographyField.GENDER, character); //$NON-NLS-1$
 			genderModel = new CharacterComboBoxModel<GenderFacade>()
 			{
 
@@ -302,7 +417,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 		public HandedItem(final CharacterFacade character)
 		{
-			super("Handed:", BiographyField.HANDED, character);
+			super("in_handString", BiographyField.HANDED, character); //$NON-NLS-1$
 			handsModel = new CharacterComboBoxModel<SimpleFacade>()
 			{
 
@@ -357,7 +472,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 		public AlignmentItem(final CharacterFacade character)
 		{
-			super("Alignment:", BiographyField.ALIGNMENT, character);
+			super("in_alignString", BiographyField.ALIGNMENT, character); //$NON-NLS-1$
 			CharacterComboBoxModel<AlignmentFacade> alignmentModel = new CharacterComboBoxModel<AlignmentFacade>()
 			{
 
@@ -380,7 +495,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 		public DeityItem(final CharacterFacade character)
 		{
-			super("Deity:", BiographyField.DEITY, character);
+			super("in_deity", BiographyField.DEITY, character); //$NON-NLS-1$
 			CharacterComboBoxModel<DeityFacade> deityModel = new CharacterComboBoxModel<DeityFacade>()
 			{
 
@@ -403,7 +518,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 		public AgeItem(final CharacterFacade character)
 		{
-			super("Age:", BiographyField.AGE, character);
+			super("in_age", BiographyField.AGE, character); //$NON-NLS-1$
 			CharacterComboBoxModel<SimpleFacade> ageModel = new CharacterComboBoxModel<SimpleFacade>()
 			{
 
@@ -436,7 +551,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 		public SkinColorItem(final CharacterFacade character)
 		{
-			super("Skin Tone:", BiographyField.SKIN_TONE, character);
+			super("in_appSkintoneColor", BiographyField.SKIN_TONE, character); //$NON-NLS-1$
 			setTextFieldHandler(new TextFieldHandler(new JTextField(), character.getSkinColorRef())
 			{
 
@@ -456,7 +571,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 		public HairColorItem(final CharacterFacade character)
 		{
-			super("Hair Color:", BiographyField.HAIR_COLOR, character);
+			super("in_appHairColor", BiographyField.HAIR_COLOR, character); //$NON-NLS-1$
 			setTextFieldHandler(new TextFieldHandler(new JTextField(), character.getHairColorRef())
 			{
 
@@ -476,7 +591,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 		public EyeColorItem(final CharacterFacade character)
 		{
-			super("Eye Color:", BiographyField.EYE_COLOR, character);
+			super("in_appEyeColor", BiographyField.EYE_COLOR, character); //$NON-NLS-1$
 			setTextFieldHandler(new TextFieldHandler(new JTextField(), character.getEyeColorRef())
 			{
 
@@ -496,7 +611,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 		public HeightItem(final CharacterFacade character)
 		{
-			super("Height:", BiographyField.HEIGHT, character);
+			super("in_height", BiographyField.HEIGHT, character); //$NON-NLS-1$
 			setTrailingLabel(character.getDataSet().getGameMode().getHeightUnit());
 			setFormattedFieldHandler(new FormattedFieldHandler(new JFormattedTextField(), character.getHeightRef())
 			{
@@ -517,7 +632,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 		public WeightItem(final CharacterFacade character)
 		{
-			super("Weight:", BiographyField.WEIGHT, character);
+			super("in_weight", BiographyField.WEIGHT, character); //$NON-NLS-1$
 			setTrailingLabel(character.getDataSet().getGameMode().getWeightUnit());
 			setFormattedFieldHandler(new FormattedFieldHandler(new JFormattedTextField(), character.getWeightRef())
 			{
@@ -526,6 +641,73 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 				protected void valueChanged(int value)
 				{
 					character.setWeight(value);
+				}
+
+			});
+		}
+
+	}
+
+	private static class RegionItem extends BioItem
+	{
+
+		public RegionItem(final CharacterFacade character)
+		{
+			super("in_region", BiographyField.REGION, character); //$NON-NLS-1$
+			final JTextField regionField = new JTextField();
+			regionField.setEditable(false);
+			setTextFieldHandler(new TextFieldHandler(regionField, character.getEyeColorRef())
+			{
+				@Override
+				protected void textChanged(String text)
+				{
+					// Ignored for a non-editable field.
+				}
+
+			});
+		}
+
+	}
+
+	private static class HairStyleItem extends BiographyFieldBioItem
+	{
+		public HairStyleItem(final CharacterFacade character)
+		{
+			super("in_style", BiographyField.HAIR_STYLE, character); //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * The Class <code>BiographyFieldBioItem</code> manages a row displaying a 
+	 * textual biography item and allowing it to be edited and suppressed 
+	 * from output.
+	 */
+	private static class BiographyFieldBioItem extends BioItem
+	{
+
+		public BiographyFieldBioItem(final String titleKey, final BiographyField field, final CharacterFacade character)
+		{
+			super(titleKey, field, character);
+			setTextFieldHandler(new TextFieldHandler(new JTextField(), character.getDescriptionFacade().getBiographyField(field))
+			{
+				@Override
+				protected void textChanged(String text)
+				{
+					character.getDescriptionFacade().setBiographyField(field, text);
+				}
+
+			});
+		}
+
+		public BiographyFieldBioItem(final BiographyField field, final CharacterFacade character)
+		{
+			super(field.getIl8nKey(), field, character);
+			setTextFieldHandler(new TextFieldHandler(new JTextField(), character.getDescriptionFacade().getBiographyField(field))
+			{
+				@Override
+				protected void textChanged(String text)
+				{
+					character.getDescriptionFacade().setBiographyField(field, text);
 				}
 
 			});
@@ -548,14 +730,25 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		{
 			this.bioField = bioField;
 			this.character = character;
-			label.setText(text);
+			if (text.startsWith("in_")) //$NON-NLS-1$
+			{
+				label.setText(LanguageBundle.getString(text) + ":"); //$NON-NLS-1$
+			}
+			else
+			{
+				label.setText(text);
+			}
 			label.setHorizontalAlignment(SwingConstants.RIGHT);
-			checkbox.setSelected(character.getExportBioField(bioField));
+			if (character != null)
+			{
+				checkbox.setSelected(character.getExportBioField(bioField));
+			}
 		}
 
 		public void addComponents(JPanel panel)
 		{
 			GridBagConstraints gbc = new GridBagConstraints();
+			gbc.anchor = GridBagConstraints.PAGE_START;
 			gbc.gridwidth = 1;
 			gbc.fill = GridBagConstraints.BOTH;
 			panel.add(checkbox, gbc);
@@ -607,7 +800,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		{
 			if (textField != null)
 			{
-				throw new IllegalStateException("The TextField has already been set");
+				throw new IllegalStateException("The TextField has already been set"); //$NON-NLS-1$
 			}
 			this.textField = handler.getTextField();
 			handler.install();
@@ -617,7 +810,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		{
 			if (textField != null)
 			{
-				throw new IllegalStateException("The TextField has already been set");
+				throw new IllegalStateException("The TextField has already been set"); //$NON-NLS-1$
 			}
 			this.textField = handler.getFormattedTextField();
 			handler.install();
@@ -627,10 +820,10 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		{
 			if (combobox != null)
 			{
-				throw new IllegalStateException("The CharacterComboBoxModel has already been set");
+				throw new IllegalStateException("The CharacterComboBoxModel has already been set"); //$NON-NLS-1$
 			}
 			this.combobox = new JComboBox(model);
-			combobox.setPreferredSize(new Dimension(10, 25));
+			combobox.setPreferredSize(new Dimension(10, templateTextField.getPreferredSize().height));
 		}
 
 
@@ -641,7 +834,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		{
 			if (trailinglabel != null)
 			{
-				throw new IllegalStateException("The trailing label has already been set");
+				throw new IllegalStateException("The trailing label has already been set"); //$NON-NLS-1$
 			}
 			this.trailinglabel = new JLabel(text);
 		}
@@ -713,4 +906,68 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 	}
 
+
+	/**
+	 * The Class <code>AddAction</code> acts on a user pressing the Add Custom 
+	 * Details button.
+	 */
+	private class AddCustomAction extends AbstractAction
+	{
+
+		private CharacterFacade character;
+
+		public AddCustomAction(CharacterFacade character)
+		{
+			super(LanguageBundle.getString("in_descAddDetail")); //$NON-NLS-1$
+			this.character = character;
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			// Build list of choices
+			List<BiographyField> availFields =
+					new ArrayList<BiographyField>(Arrays.asList(BiographyField.values()));
+			availFields.removeAll(defaultBioFieds);
+			for (BiographyField field : character.getDescriptionFacade()
+				.getCustomBiographyFields())
+			{
+				availFields.remove(field);
+			}
+			String fieldNames[] = new String[availFields.size()];
+			int i = 0;		
+			for (BiographyField biographyField : availFields)
+			{
+				fieldNames[i++] = LanguageBundle.getString(biographyField.getIl8nKey());
+			}
+
+			// Show dialog to choose fields
+			String s = (String)JOptionPane.showInputDialog(
+				JOptionPane.getFrameForComponent(addCustomItemButton),
+			                    "Which field would you like to add?",
+			                    "Add Custom Detail Field",
+			                    JOptionPane.QUESTION_MESSAGE,
+			                    null,
+			                    fieldNames,
+			                    fieldNames[0]);
+
+			// Check if a selection was made
+			if (StringUtils.isEmpty(s))
+			{
+				return;
+			}
+			
+			// Add the chosen field to the character
+			for (BiographyField field : availFields)
+			{
+				if (s.equals( LanguageBundle.getString(field.getIl8nKey())))
+				{
+					character.getDescriptionFacade().addCustomBiographyField(field);
+					break;
+				}
+			}
+		}
+
+	}
+	
 }

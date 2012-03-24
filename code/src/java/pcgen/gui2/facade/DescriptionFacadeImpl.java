@@ -22,16 +22,22 @@
  */
 package pcgen.gui2.facade;
 
+import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.commons.lang.StringUtils;
+
+import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.ChronicleEntry;
 import pcgen.core.NoteItem;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.facade.ChronicleEntryFacade;
+import pcgen.core.facade.DefaultReferenceFacade;
 import pcgen.core.facade.DescriptionFacade;
 import pcgen.core.facade.NoteFacade;
+import pcgen.core.facade.ReferenceFacade;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.system.LanguageBundle;
@@ -67,13 +73,26 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 	private static final String NOTE_NAME_MAGIC_ITEMS = LanguageBundle
 		.getString("in_magicItems"); //$NON-NLS-1$
 	/** Name of the DM Notes node. */
-	private static final String NOTE_NAME_DM_NOTES = LanguageBundle
-		.getString("in_dmNotes"); //$NON-NLS-1$
+	private static final String NOTE_NAME_GM_NOTES = LanguageBundle
+		.getString("in_gmNotes"); //$NON-NLS-1$
 
 	private PlayerCharacter theCharacter;
 	private DefaultListFacade<ChronicleEntryFacade> chronicleEntries;
 	private DefaultListFacade<NoteFacade> notes;
-	
+
+	private DefaultReferenceFacade<String> birthday;
+	private DefaultReferenceFacade<String> location;
+	private DefaultReferenceFacade<String> city;
+	private DefaultReferenceFacade<String> region;
+	private DefaultReferenceFacade<String> birthplace;
+	private DefaultReferenceFacade<String> personalityTrait1;
+	private DefaultReferenceFacade<String> personalityTrait2;
+	private DefaultReferenceFacade<String> phobias;
+	private DefaultReferenceFacade<String> interests;
+	private DefaultReferenceFacade<String> catchPhrase;
+	private DefaultReferenceFacade<String> hairStyle;
+	private DefaultReferenceFacade<String> speechPattern;
+	private DefaultListFacade<BiographyField> customBiographyFields; 	
 
 	/**
 	 * Create a new DescriptionFacadeImpl instance for the character.
@@ -95,6 +114,21 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 		{
 			notes.addElement(item);
 		}
+
+		birthday = new DefaultReferenceFacade<String>();
+		location = new DefaultReferenceFacade<String>();
+		city = new DefaultReferenceFacade<String>();
+		region = new DefaultReferenceFacade<String>();
+		birthplace = new DefaultReferenceFacade<String>();
+		personalityTrait1 = new DefaultReferenceFacade<String>();
+		personalityTrait2 = new DefaultReferenceFacade<String>();
+		phobias = new DefaultReferenceFacade<String>();
+		interests = new DefaultReferenceFacade<String>();
+		catchPhrase = new DefaultReferenceFacade<String>();
+		hairStyle = new DefaultReferenceFacade<String>();
+		speechPattern = new DefaultReferenceFacade<String>();
+		customBiographyFields = new DefaultListFacade<BiographyField>();
+		addCharacterCustomFields();
 	}
 
 	private void addDefaultNotes()
@@ -109,8 +143,8 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 			theCharacter.getSafeStringFor(StringKey.MISC_ASSETS)));
 		notes.addElement(createDefaultNote(NOTE_NAME_MAGIC_ITEMS,
 			theCharacter.getSafeStringFor(StringKey.MISC_MAGIC)));
-		notes.addElement(createDefaultNote(NOTE_NAME_DM_NOTES,
-			theCharacter.getSafeStringFor(StringKey.MISC_DM)));
+		notes.addElement(createDefaultNote(NOTE_NAME_GM_NOTES,
+			theCharacter.getSafeStringFor(StringKey.MISC_GM)));
 	}
 
 	/**
@@ -123,6 +157,20 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 		NoteItem note = new NoteItem(0, -1, noteName, value);
 		note.setRequired(true);
 		return note;
+	}
+
+	/**
+	 * Add any custom biography fields already registered for the character.  
+	 */
+	private void addCharacterCustomFields()
+	{
+		for (BiographyField field : EnumSet.range(BiographyField.SPEECH_PATTERN, BiographyField.CATCH_PHRASE))
+		{
+			if (StringUtils.isNotEmpty(getBiographyField(field).getReference()))
+			{
+				customBiographyFields.addElement(field);
+			}
+		}
 	}
 
 	/* (non-Javadoc)
@@ -204,9 +252,9 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 			{
 				theCharacter.setStringFor(StringKey.MISC_MAGIC, text);
 			}
-			else if (NOTE_NAME_DM_NOTES.equals(noteName))
+			else if (NOTE_NAME_GM_NOTES.equals(noteName))
 			{
-				theCharacter.setStringFor(StringKey.MISC_DM, text);
+				theCharacter.setStringFor(StringKey.MISC_GM, text);
 			}
 		}
 	}
@@ -242,6 +290,10 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 		notes.removeElement(note);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public void addNewNote()
 	{
 		int parentId = -1;
@@ -276,5 +328,155 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 					.getString("in_newValue")); //$NON-NLS-1$
 		theCharacter.addNotesItem(note);
 		notes.addElement(note);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public ReferenceFacade<String> getBiographyField(BiographyField field)
+	{
+		switch (field)
+		{
+			case SPEECH_PATTERN:
+				return speechPattern;
+
+			case BIRTHDAY:
+				return birthday;
+
+			case LOCATION:
+				return location;
+
+			case CITY:
+				return city;
+
+			case REGION:
+				return region;
+
+			case BIRTHPLACE:
+				return birthplace;
+
+			case PERSONALITY_TRAIT_1:
+				return personalityTrait1;
+
+			case PERSONALITY_TRAIT_2:
+				return personalityTrait2;
+
+			case PHOBIAS:
+				return phobias;
+
+			case INTERESTS:
+				return interests;
+
+			case CATCH_PHRASE:
+				return catchPhrase;
+
+			case HAIR_STYLE:
+				return hairStyle;
+				
+			default:
+				throw new UnsupportedOperationException("The field " + field //$NON-NLS-1$
+					+ " must use a dedicated getter."); //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void setBiographyField(BiographyField field, String newValue)
+	{
+		switch (field)
+		{
+			case SPEECH_PATTERN:
+				speechPattern.setReference(newValue);
+				theCharacter.setSpeechTendency(newValue);
+				break;
+
+			case BIRTHDAY:
+				birthday.setReference(newValue);
+				theCharacter.setBirthday(newValue);
+				break;
+
+			case LOCATION:
+				location.setReference(newValue);
+				theCharacter.setLocation(newValue);
+				break;
+
+			case CITY:
+				city.setReference(newValue);
+				theCharacter.setResidence(newValue);
+				break;
+
+			case BIRTHPLACE:
+				birthplace.setReference(newValue);
+				theCharacter.setBirthplace(newValue);
+				break;
+
+			case PERSONALITY_TRAIT_1:
+				personalityTrait1.setReference(newValue);
+				theCharacter.setTrait1(newValue);
+				break;
+
+			case PERSONALITY_TRAIT_2:
+				personalityTrait2.setReference(newValue);
+				theCharacter.setTrait2(newValue);
+				break;
+
+			case PHOBIAS:
+				phobias.setReference(newValue);
+				theCharacter.setPhobias(newValue);
+				break;
+
+			case INTERESTS:
+				interests.setReference(newValue);
+				theCharacter.setInterests(newValue);
+				break;
+
+			case CATCH_PHRASE:
+				catchPhrase.setReference(newValue);
+				theCharacter.setCatchPhrase(newValue);
+				break;
+
+			case HAIR_STYLE:
+				hairStyle.setReference(newValue);
+				theCharacter.setHairStyle(newValue);
+				break;
+				
+			case REGION:
+				throw new UnsupportedOperationException("The field " + field //$NON-NLS-1$
+					+ " cannot be set from the UI."); //$NON-NLS-1$
+
+			default:
+				throw new UnsupportedOperationException("The field " + field //$NON-NLS-1$
+					+ " must use a dedicated setter."); //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public ListFacade<BiographyField> getCustomBiographyFields()
+	{
+		return customBiographyFields;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void addCustomBiographyField(BiographyField field)
+	{
+		customBiographyFields.addElement(field);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void removeCustomBiographyField(BiographyField field)
+	{
+		customBiographyFields.removeElement(field);
 	}
 }

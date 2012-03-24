@@ -491,7 +491,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 
 			dmNote =
 					new NoteItem(DMNOTES_NOTEID, -1, LanguageBundle
-						.getString("in_dmNotes"), pc.getSafeStringFor(StringKey.MISC_DM));
+						.getString("in_dmNotes"), pc.getSafeStringFor(StringKey.MISC_GM));
 			nodesToBeAddedList.add(order++, dmNote);
 
 		}
@@ -2081,7 +2081,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 			}
 			else if (currentItem == dmNote)
 			{
-				pc.setStringFor(StringKey.MISC_DM, dataText.getText());
+				pc.setStringFor(StringKey.MISC_GM, dataText.getText());
 				pc.setDirty(true);
 			}
 

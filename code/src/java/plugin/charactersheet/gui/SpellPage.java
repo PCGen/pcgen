@@ -6,9 +6,9 @@
 
 package plugin.charactersheet.gui;
 
-import gmgen.gui.ScrollablePanel;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.gui2.util.ScrollablePanel;
 
 import java.util.Properties;
 

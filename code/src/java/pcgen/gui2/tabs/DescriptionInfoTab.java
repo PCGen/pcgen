@@ -113,8 +113,8 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 		CardLayout pages = new CardLayout();
 
 		pagePanel.setLayout(pages);
-		addPage(portraitPane);
 		addPage(bioPane);
+		addPage(portraitPane);
 		addPage(histPane);
 		setRightComponent(pagePanel);
 		setResizeWeight(0);
@@ -140,9 +140,9 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 		DefaultListModel listModel = new DefaultListModel();
 		List<NoteInfoPane> notePaneList = new ArrayList<NoteInfoPane>();
 
-		PageItem firstPage = new PageItem(character, LanguageBundle.getString("in_portrait"), portraitPane); //$NON-NLS-1$
+		PageItem firstPage = new PageItem(character, LanguageBundle.getString("in_descBiography"), bioPane); //$NON-NLS-1$
 		listModel.addElement(firstPage);
-		listModel.addElement(new PageItem(character, LanguageBundle.getString("in_descBiography"), bioPane)); //$NON-NLS-1$
+		listModel.addElement(new PageItem(character, LanguageBundle.getString("in_portrait"), portraitPane)); //$NON-NLS-1$
 		listModel.addElement(new PageItem(character, LanguageBundle.getString("in_descCampHist"), histPane)); //$NON-NLS-1$
 		
 		state.put(ListModel.class, listModel);

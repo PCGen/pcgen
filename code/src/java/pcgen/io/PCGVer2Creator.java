@@ -747,7 +747,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendCharacterDmNotesLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_CHARACTERDMNOTES).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.MISC_DM)));
+		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.MISC_GM)));
 		buffer.append(LINE_SEP);
 	}
 
