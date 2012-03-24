@@ -1677,7 +1677,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseCharacterDmNotesLine(final String line)
 	{
-		thePC.setStringFor(StringKey.MISC_DM,
+		thePC.setStringFor(StringKey.MISC_GM,
 			EntityEncoder.decode(line
 				.substring(TAG_CHARACTERDMNOTES.length() + 1)));
 	}
