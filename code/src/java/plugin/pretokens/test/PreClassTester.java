@@ -36,7 +36,11 @@ public class PreClassTester extends AbstractPrerequisiteTest implements Prerequi
 	{
 		Logging.errorPrint("PreClass on equipment: " + equipment.getName()
 			+ "  pre: " + toHtmlString(prereq));
-		return 0;
+		if (aPC == null)
+		{
+			return 0;
+		}
+		return passes(prereq, aPC, equipment);
 	}
 
 	/* (non-Javadoc)
