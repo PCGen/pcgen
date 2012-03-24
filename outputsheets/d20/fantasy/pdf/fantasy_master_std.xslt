@@ -3220,6 +3220,7 @@
 							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
 						</xsl:call-template>
 						<fo:block font-size="8pt">
+						<xsl:if test="tohit &gt; 0">+</xsl:if>
 							<xsl:value-of select="tohit"/>
 						</fo:block>
 					</fo:table-cell>
@@ -3406,6 +3407,7 @@
 									<xsl:with-param name="attribute" select="'weapon.title'"/>
 							</xsl:call-template>
 								<fo:block font-size="7pt" padding-right="2pt">
+									<xsl:if test="($tohit) &gt; 0">+</xsl:if>
 									<xsl:value-of select="$tohit"/>
 								</fo:block>
 							</fo:table-cell>
@@ -3415,6 +3417,7 @@
 									<xsl:with-param name="attribute" select="'weapon.title'"/>
 							</xsl:call-template>
 								<fo:block font-size="7pt" padding-right="2pt">
+								<xsl:if test="($tohit)-2 &gt; 0">+</xsl:if>
 									<xsl:value-of select="number($tohit)-2"/>
 								</fo:block>
 							</fo:table-cell>
@@ -3423,6 +3426,7 @@
 									<xsl:with-param name="attribute" select="'weapon.title'"/>
 							</xsl:call-template>
 								<fo:block font-size="7pt" padding-right="2pt">
+								<xsl:if test="($tohit)-4 &gt; 0">+</xsl:if>
 									<xsl:value-of select="number($tohit)-4"/>
 								</fo:block>
 							</fo:table-cell>
@@ -3431,6 +3435,7 @@
 									<xsl:with-param name="attribute" select="'weapon.title'"/>
 							</xsl:call-template>
 								<fo:block font-size="7pt" padding-right="2pt">
+								<xsl:if test="($tohit)-6 &gt; 0">+</xsl:if>
 									<xsl:value-of select="number($tohit)-6"/>
 								</fo:block>
 							</fo:table-cell>
@@ -3439,6 +3444,7 @@
 									<xsl:with-param name="attribute" select="'weapon.title'"/>
 							</xsl:call-template>
 								<fo:block font-size="7pt" padding-right="2pt">
+									<xsl:if test="($tohit)-8 &gt; 0">+</xsl:if>
 									<xsl:value-of select="($tohit)-8"/>
 								</fo:block>
 							</fo:table-cell>
