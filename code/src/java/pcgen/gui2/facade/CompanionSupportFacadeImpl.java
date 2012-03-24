@@ -35,8 +35,10 @@ import pcgen.core.facade.CompanionFacade;
 import pcgen.core.facade.CompanionStubFacade;
 import pcgen.core.facade.CompanionSupportFacade;
 import pcgen.core.facade.util.DefaultListFacade;
+import pcgen.core.facade.util.DefaultMapFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.core.facade.util.MapFacade;
+import pcgen.util.Logging;
 
 /**
  * This class implements the basic CompanionSupportFacade
@@ -53,6 +55,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade
 	private DefaultListFacade<CompanionFacadeDelegate> companionList;
 	private PlayerCharacter theCharacter;
 	private DefaultListFacade<CompanionStubFacade> availCompList;
+	private DefaultMapFacade<String, Integer> maxCompanionsMap;
 
 	/**
 	 * Create a new instance of CompanionSupportFacadeImpl
@@ -63,6 +66,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade
 		this.theCharacter = theCharacter;
 		this.companionList = new DefaultListFacade<CompanionFacadeDelegate>();
 		this.availCompList = new DefaultListFacade<CompanionStubFacade>();
+		this.maxCompanionsMap = new DefaultMapFacade<String, Integer>();
 		initCompData();
 	}
 
@@ -80,9 +84,12 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade
 			{
 				companions.add(new CompanionStub(followerOpt.getRace(), compList.getKeyName()));
 			}
+			int maxVal = theCharacter.getMaxFollowers(compList);
+			maxCompanionsMap.putValue(compList.toString(), maxVal);
 		}
 		availCompList.setContents(companions);
-		//Logging.errorPrint("Available comps" + availCompList);
+		Logging.debugPrint("Available comps " + availCompList);
+		Logging.debugPrint("Max comps " + maxCompanionsMap);
 	}
 
 	@Override
@@ -158,7 +165,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade
 	@Override
 	public MapFacade<String, Integer> getMaxCompanionsMap()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return maxCompanionsMap;
 	}
 
 	@Override

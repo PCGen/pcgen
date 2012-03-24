@@ -92,4 +92,13 @@ public class DefaultMapFacade<K, V> extends AbstractMapFacade<K, V>
 		fireKeysChanged(this);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String toString()
+	{
+		return "DefaultMapFacade [map=" + map + "]"; //$NON-NLS-1$
+	}
+
 }
