@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Set;
 
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.base.PrimitiveCollection;
@@ -31,31 +32,39 @@ import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.AbilitySelection;
+import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.ChooserUtilities;
 
 public class CollectionToAbilitySelection implements
-		PrimitiveChoiceSet<AbilitySelection>
+		PrimitiveChoiceSet<CategorizedAbilitySelection>
 {
 	private final PrimitiveCollection<Ability> collection;
+	
+	private final Category<Ability> category;
 
-	public CollectionToAbilitySelection(PrimitiveCollection<Ability> coll)
+	public CollectionToAbilitySelection(Category<Ability> cat, PrimitiveCollection<Ability> coll)
 	{
+		if (cat == null)
+		{
+			throw new IllegalArgumentException(
+					"Category must not be null");
+		}
 		if (coll == null)
 		{
 			throw new IllegalArgumentException(
 					"PrimitiveCollection must not be null");
 		}
+		category = cat;
 		collection = coll;
 	}
 
 	@Override
-	public Class<? super AbilitySelection> getChoiceClass()
+	public Class<? super CategorizedAbilitySelection> getChoiceClass()
 	{
-		return AbilitySelection.class;
+		return CategorizedAbilitySelection.class;
 	}
 
 	@Override
@@ -71,9 +80,9 @@ public class CollectionToAbilitySelection implements
 	}
 
 	@Override
-	public Collection<AbilitySelection> getSet(PlayerCharacter pc)
+	public Collection<CategorizedAbilitySelection> getSet(PlayerCharacter pc)
 	{
-		return collection.getCollection(pc, new ExpandingConverter(pc));
+		return collection.getCollection(pc, new ExpandingConverter(pc, category));
 	}
 
 	/**
@@ -104,20 +113,23 @@ public class CollectionToAbilitySelection implements
 	}
 
 	public static class ExpandingConverter implements
-			Converter<Ability, AbilitySelection>
+			Converter<Ability, CategorizedAbilitySelection>
 	{
 
 		private final PlayerCharacter character;
 
-		public ExpandingConverter(PlayerCharacter pc)
+		private final Category<Ability> category;
+
+		public ExpandingConverter(PlayerCharacter pc, Category<Ability> cat)
 		{
 			character = pc;
+			category = cat;
 		}
 
 		@Override
-		public Collection<AbilitySelection> convert(CDOMReference<Ability> ref)
+		public Collection<CategorizedAbilitySelection> convert(CDOMReference<Ability> ref)
 		{
-			Set<AbilitySelection> returnSet = new HashSet<AbilitySelection>();
+			Set<CategorizedAbilitySelection> returnSet = new HashSet<CategorizedAbilitySelection>();
 			for (Ability a : ref.getContainedObjects())
 			{
 				processAbility(ref, returnSet, a);
@@ -126,7 +138,7 @@ public class CollectionToAbilitySelection implements
 		}
 
 		private void processAbility(CDOMReference<Ability> ref,
-				Set<AbilitySelection> returnSet, Ability a)
+				Set<CategorizedAbilitySelection> returnSet, Ability a)
 		{
 			if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 			{
@@ -135,15 +147,15 @@ public class CollectionToAbilitySelection implements
 			}
 			else
 			{
-				returnSet.add(new AbilitySelection(a, Nature.NORMAL));
+				returnSet.add(new CategorizedAbilitySelection(category, a, Nature.NORMAL));
 			}
 		}
 
 		@Override
-		public Collection<AbilitySelection> convert(CDOMReference<Ability> ref,
+		public Collection<CategorizedAbilitySelection> convert(CDOMReference<Ability> ref,
 				PrimitiveFilter<Ability> lim)
 		{
-			Set<AbilitySelection> returnSet = new HashSet<AbilitySelection>();
+			Set<CategorizedAbilitySelection> returnSet = new HashSet<CategorizedAbilitySelection>();
 			for (Ability a : ref.getContainedObjects())
 			{
 				if (lim.allow(character, a))
@@ -154,7 +166,7 @@ public class CollectionToAbilitySelection implements
 			return returnSet;
 		}
 
-		private Collection<AbilitySelection> addMultiplySelectableAbility(
+		private Collection<CategorizedAbilitySelection> addMultiplySelectableAbility(
 				final PlayerCharacter aPC, Ability ability, String subName)
 		{
 			// If already have taken the feat, use it so we can remove
@@ -234,12 +246,12 @@ public class CollectionToAbilitySelection implements
 				}
 			}
 
-			List<AbilitySelection> returnList = new ArrayList<AbilitySelection>(
+			List<CategorizedAbilitySelection> returnList = new ArrayList<CategorizedAbilitySelection>(
 					availableList.size());
 			for (String s : availableList)
 			{
 				returnList
-						.add(new AbilitySelection(pcability, Nature.NORMAL, s));
+						.add(new CategorizedAbilitySelection(category, pcability, Nature.NORMAL, s));
 			}
 			return returnList;
 		}

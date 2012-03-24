@@ -38,7 +38,7 @@ import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.AbilitySelection;
+import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -55,7 +55,7 @@ import pcgen.core.chooser.ChooserUtilities;
  * not vary by the PlayerCharacter used to resolve the AbilityRefChoiceSet.
  */
 public class AbilityRefChoiceSet implements
-		PrimitiveChoiceSet<AbilitySelection>
+		PrimitiveChoiceSet<CategorizedAbilitySelection>
 {
 
 	/**
@@ -159,9 +159,9 @@ public class AbilityRefChoiceSet implements
 	 * @return The class of object this AbilityRefChoiceSet contains.
 	 */
 	@Override
-	public Class<AbilitySelection> getChoiceClass()
+	public Class<CategorizedAbilitySelection> getChoiceClass()
 	{
-		return AbilitySelection.class;
+		return CategorizedAbilitySelection.class;
 	}
 
 	/**
@@ -185,9 +185,9 @@ public class AbilityRefChoiceSet implements
 	 *         contains.
 	 */
 	@Override
-	public Set<AbilitySelection> getSet(PlayerCharacter pc)
+	public Set<CategorizedAbilitySelection> getSet(PlayerCharacter pc)
 	{
-		Set<AbilitySelection> returnSet = new HashSet<AbilitySelection>();
+		Set<CategorizedAbilitySelection> returnSet = new HashSet<CategorizedAbilitySelection>();
 		for (CDOMReference<Ability> ref : abilityRefSet)
 		{
 			for (Ability a : ref.getContainedObjects())
@@ -199,14 +199,14 @@ public class AbilityRefChoiceSet implements
 				}
 				else
 				{
-					returnSet.add(new AbilitySelection(a, nature));
+					returnSet.add(new CategorizedAbilitySelection(category, a, nature));
 				}
 			}
 		}
 		return returnSet;
 	}
 
-	private Collection<AbilitySelection> addMultiplySelectableAbility(
+	private Collection<CategorizedAbilitySelection> addMultiplySelectableAbility(
 			final PlayerCharacter aPC, Ability ability, String subName)
 	{
 		// If already have taken the feat, use it so we can remove
@@ -313,11 +313,11 @@ public class AbilityRefChoiceSet implements
 			}
 		}
 
-		List<AbilitySelection> returnList = new ArrayList<AbilitySelection>(
+		List<CategorizedAbilitySelection> returnList = new ArrayList<CategorizedAbilitySelection>(
 				availableList.size());
 		for (String s : availableList)
 		{
-			returnList.add(new AbilitySelection(pcability, nature, s));
+			returnList.add(new CategorizedAbilitySelection(category, pcability, nature, s));
 		}
 		return returnList;
 	}

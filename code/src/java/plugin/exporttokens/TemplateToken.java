@@ -31,7 +31,7 @@ import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.facet.NonAbilityFacet;
-import pcgen.cdom.helper.AbilitySelection;
+import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
@@ -157,7 +157,7 @@ public class TemplateToken extends Token
 	 */
 	public static String getFeatToken(PCTemplate template, PlayerCharacter pc)
 	{
-		List<AbilitySelection> fList = pc.feats(template, pc.getTotalLevels(),
+		List<CategorizedAbilitySelection> fList = pc.feats(template, pc.getTotalLevels(),
 				pc.totalHitDice(), false);
 		return StringUtil.join(fList, ", ");
 	}

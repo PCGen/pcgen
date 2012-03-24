@@ -31,7 +31,7 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FixedStringList;
 import pcgen.base.util.NamedValue;
-import pcgen.cdom.helper.AbilitySelection;
+import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.helper.SpellLevel;
 import pcgen.cdom.identifier.SpellSchool;
 import pcgen.cdom.list.ClassSkillList;
@@ -84,7 +84,7 @@ public final class AssociationListKey<T>
 
 	public static final AssociationListKey<Ability> ADDED_FEAT = new AssociationListKey<Ability>();
 
-	public static final AssociationListKey<AbilitySelection> TEMPLATE_FEAT = new AssociationListKey<AbilitySelection>();
+	public static final AssociationListKey<CategorizedAbilitySelection> TEMPLATE_FEAT = new AssociationListKey<CategorizedAbilitySelection>();
 
 	public static final AssociationListKey<SpecialAbility> SPECIAL_ABILITY = new AssociationListKey<SpecialAbility>();
 
@@ -132,7 +132,7 @@ public final class AssociationListKey<T>
 
 	public static final AssociationListKey<String> CHOOSE_NOCHOICE = new AssociationListKey<String>();
 
-	public static final AssociationListKey<AbilitySelection> CHOOSE_FEATSELECTION = new AssociationListKey<AbilitySelection>();
+	public static final AssociationListKey<CategorizedAbilitySelection> CHOOSE_FEATSELECTION = new AssociationListKey<CategorizedAbilitySelection>();
 
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 

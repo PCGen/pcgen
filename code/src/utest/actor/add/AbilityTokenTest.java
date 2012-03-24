@@ -25,7 +25,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.Nature;
-import pcgen.cdom.helper.AbilitySelection;
+import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
@@ -56,7 +56,9 @@ public class AbilityTokenTest extends TestCase
 	public void testEncodeChoice()
 	{
 		Ability item = construct("ItemName");
-		AbilitySelection as = new AbilitySelection(item, Nature.NORMAL);
+		CategorizedAbilitySelection as =
+				new CategorizedAbilitySelection(AbilityCategory.FEAT, item,
+					Nature.NORMAL);
 		assertEquals("CATEGORY=FEAT|NATURE=NORMAL|ItemName", pca
 			.encodeChoice(as));
 	}
@@ -74,7 +76,9 @@ public class AbilityTokenTest extends TestCase
 			// OK
 		}
 		Ability item = construct("ItemName");
-		AbilitySelection as = new AbilitySelection(item, Nature.NORMAL);
+		CategorizedAbilitySelection as =
+				new CategorizedAbilitySelection(AbilityCategory.FEAT, item,
+					Nature.NORMAL);
 		assertEquals(as, pca
 			.decodeChoice("CATEGORY=FEAT|NATURE=NORMAL|ItemName"));
 	}

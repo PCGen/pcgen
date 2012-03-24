@@ -92,7 +92,6 @@ import pcgen.cdom.enumeration.SubRegion;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.*;
-import pcgen.cdom.helper.AbilitySelection;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.helper.ProfProvider;
@@ -5820,7 +5819,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 		if (!isImporting())
 		{
-			List<AbilitySelection> templateFeats = feats(inTemplate,
+			List<CategorizedAbilitySelection> templateFeats = feats(inTemplate,
 					getTotalLevels(), totalHitDice(), true);
 			for (int j = 0, y = templateFeats.size(); j < y; ++j)
 			{
@@ -8634,7 +8633,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		// Handle any feat changes as a result of level changes
 		for (PCTemplate template : templateFacet.getSet(id))
 		{
-			final List<AbilitySelection> templateFeats =
+			final List<CategorizedAbilitySelection> templateFeats =
 					feats(template, getTotalLevels(), totalHitDice(), true);
 
 			for (int j = 0, y = templateFeats.size(); j < y; ++j)
@@ -10650,19 +10649,19 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 *
 	 * @return
 	 */
-	public List<AbilitySelection> feats(
+	public List<CategorizedAbilitySelection> feats(
 		PCTemplate pct,
 		final int level,
 		final int hitdice,
 		final boolean addNew)
 	{
-		final List<AbilitySelection> feats = new ArrayList<AbilitySelection>();
+		final List<CategorizedAbilitySelection> feats = new ArrayList<CategorizedAbilitySelection>();
 
 		for (PCTemplate rlt : pct.getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
 		{
 			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
 			{
-				Collection<? extends AbilitySelection> featList =
+				Collection<? extends CategorizedAbilitySelection> featList =
 						getAssocList(lt, AssociationListKey.TEMPLATE_FEAT);
 				if (featList == null && addNew
 					&& lt.get(IntegerKey.LEVEL) <= level)
@@ -10677,7 +10676,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		}
 		for (PCTemplate lt : pct.getSafeListFor(ListKey.LEVEL_TEMPLATES))
 		{
-			Collection<? extends AbilitySelection> featList =
+			Collection<? extends CategorizedAbilitySelection> featList =
 					getAssocList(lt, AssociationListKey.TEMPLATE_FEAT);
 			if (featList == null && addNew && lt.get(IntegerKey.LEVEL) <= level)
 			{
@@ -10691,7 +10690,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 
 		for (PCTemplate lt : pct.getSafeListFor(ListKey.HD_TEMPLATES))
 		{
-			Collection<? extends AbilitySelection> featList =
+			Collection<? extends CategorizedAbilitySelection> featList =
 					getAssocList(lt, AssociationListKey.TEMPLATE_FEAT);
 			if (featList == null && addNew
 				&& lt.get(IntegerKey.HD_MAX) <= hitdice
@@ -10705,7 +10704,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 			}
 		}
 
-		Collection<? extends AbilitySelection> featList = getAssocList(pct,
+		Collection<? extends CategorizedAbilitySelection> featList = getAssocList(pct,
 				AssociationListKey.TEMPLATE_FEAT);
 		if (featList == null && addNew)
 		{
@@ -10726,14 +10725,14 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * @param pct
 	 *            The template to be checked for the choices to offer
 	 */
-	private Collection<? extends AbilitySelection> getLevelFeat(PCTemplate pct)
+	private Collection<? extends CategorizedAbilitySelection> getLevelFeat(PCTemplate pct)
 	{
-		PersistentTransitionChoice<AbilitySelection> choice = pct.get(ObjectKey.TEMPLATE_FEAT);
+		PersistentTransitionChoice<CategorizedAbilitySelection> choice = pct.get(ObjectKey.TEMPLATE_FEAT);
 		if (choice == null)
 		{
 			return Collections.emptyList();
 		}
-		Collection<? extends AbilitySelection> result = choice
+		Collection<? extends CategorizedAbilitySelection> result = choice
 				.driveChoice(this);
 		choice.act(result, pct, this);
 		return result;

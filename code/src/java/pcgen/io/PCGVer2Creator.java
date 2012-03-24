@@ -53,7 +53,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.cdom.helper.AbilitySelection;
+import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSpellList;
@@ -2538,7 +2538,7 @@ final class PCGVer2Creator implements IOConstants
 		{
 			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
 			{
-				List<AbilitySelection> featList = thePC.getAssocList(lt,
+				List<CategorizedAbilitySelection> featList = thePC.getAssocList(lt,
 						AssociationListKey.TEMPLATE_FEAT);
 				if (featList != null)
 				{
@@ -2548,7 +2548,7 @@ final class PCGVer2Creator implements IOConstants
 		}
 		for (PCTemplate lt : pct.getSafeListFor(ListKey.LEVEL_TEMPLATES))
 		{
-			List<AbilitySelection> featList = thePC.getAssocList(lt,
+			List<CategorizedAbilitySelection> featList = thePC.getAssocList(lt,
 					AssociationListKey.TEMPLATE_FEAT);
 			if (featList != null)
 			{
@@ -2558,7 +2558,7 @@ final class PCGVer2Creator implements IOConstants
 
 		for (PCTemplate lt : pct.getSafeListFor(ListKey.HD_TEMPLATES))
 		{
-			List<AbilitySelection> featList = thePC.getAssocList(lt,
+			List<CategorizedAbilitySelection> featList = thePC.getAssocList(lt,
 					AssociationListKey.TEMPLATE_FEAT);
 			if (featList != null)
 			{
@@ -2568,9 +2568,9 @@ final class PCGVer2Creator implements IOConstants
 		return aString.toString();
 	}
 
-	private void writeTemplateFeat(StringBuilder aString, PCTemplate pct, List<AbilitySelection> featList)
+	private void writeTemplateFeat(StringBuilder aString, PCTemplate pct, List<CategorizedAbilitySelection> featList)
 	{
-		for (AbilitySelection s : featList)
+		for (CategorizedAbilitySelection s : featList)
 		{
 			if (aString.length() != 0)
 			{

@@ -39,7 +39,7 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.AbilitySelection;
+import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -55,10 +55,11 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<AbilitySelection>
+		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<CategorizedAbilitySelection>
 {
 
-	private static final Class<AbilitySelection> ABILITY_SELECTION_CLASS = AbilitySelection.class;
+	private static final Class<CategorizedAbilitySelection> CAT_ABILITY_SELECTION_CLASS =
+			CategorizedAbilitySelection.class;
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
 	@Override
@@ -196,11 +197,12 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 			return new ParseResult.Fail("Non-sensical " + getFullName()
 					+ ": Contains ANY and a specific reference: " + value);
 		}
-		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
-				getTokenName(), rcs);
+		ChoiceSet<CategorizedAbilitySelection> cs =
+				new ChoiceSet<CategorizedAbilitySelection>(getTokenName(), rcs);
 		cs.setTitle("Virtual Feat Selection");
-		PersistentTransitionChoice<AbilitySelection> tc = new ConcretePersistentTransitionChoice<AbilitySelection>(
-				cs, count);
+		PersistentTransitionChoice<CategorizedAbilitySelection> tc =
+				new ConcretePersistentTransitionChoice<CategorizedAbilitySelection>(
+					cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.allowStack(allowStack);
 		if (dupChoices != 0)
@@ -228,7 +230,7 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			SelectableSet<?> cs = container.getChoices();
 			if (getTokenName().equals(cs.getName())
-					&& ABILITY_SELECTION_CLASS.equals(cs.getChoiceClass()))
+					&& CAT_ABILITY_SELECTION_CLASS.equals(cs.getChoiceClass()))
 			{
 				Formula f = container.getCount();
 				if (f == null)
@@ -280,7 +282,7 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void applyChoice(CDOMObject owner, AbilitySelection choice,
+	public void applyChoice(CDOMObject owner, CategorizedAbilitySelection choice,
 			PlayerCharacter pc)
 	{
 		Ability aFeat = AbilityUtilities.addCloneOfAbilityToVirtualListwithChoices(pc, choice.getAbility(), choice.getSelection(), AbilityCategory.FEAT);
@@ -300,7 +302,7 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public boolean allow(AbilitySelection choice, PlayerCharacter pc,
+	public boolean allow(CategorizedAbilitySelection choice, PlayerCharacter pc,
 			boolean allowStack)
 	{
 		// Remove any already selected
@@ -324,7 +326,7 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	private boolean hasAssoc(List<String> associationList,
-			AbilitySelection choice)
+		CategorizedAbilitySelection choice)
 	{
 		if (associationList == null)
 		{
@@ -346,20 +348,20 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public AbilitySelection decodeChoice(String s)
+	public CategorizedAbilitySelection decodeChoice(String s)
 	{
-		return AbilitySelection.getAbilitySelectionFromPersistentFormat(s);
+		return CategorizedAbilitySelection.getAbilitySelectionFromPersistentFormat(s);
 	}
 
 	@Override
-	public String encodeChoice(AbilitySelection choice)
+	public String encodeChoice(CategorizedAbilitySelection choice)
 	{
 		return choice.getPersistentFormat();
 	}
 
 	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-			AbilitySelection choice)
+		CategorizedAbilitySelection choice)
 	{
 		// String featName = choice.getAbilityKey();
 		// Ability aFeat = pc.getAbilityKeyed(AbilityCategory.FEAT,
@@ -369,7 +371,7 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-			AbilitySelection choice)
+		CategorizedAbilitySelection choice)
 	{
 		//TODO Need to reverse this action:
 		// String featName = choice.getFullAbilityKey();
@@ -379,7 +381,7 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public List<AbilitySelection> getCurrentlySelected(CDOMObject owner,
+	public List<CategorizedAbilitySelection> getCurrentlySelected(CDOMObject owner,
 			PlayerCharacter pc)
 	{
 		return Collections.emptyList();

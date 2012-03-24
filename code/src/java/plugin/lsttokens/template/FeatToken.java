@@ -36,7 +36,7 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.AbilitySelection;
+import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
@@ -57,7 +57,7 @@ import pcgen.util.enumeration.Visibility;
  * Class deals with FEAT Token
  */
 public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
-		CDOMPrimaryToken<PCTemplate>, PersistentChoiceActor<AbilitySelection>,
+		CDOMPrimaryToken<PCTemplate>, PersistentChoiceActor<CategorizedAbilitySelection>,
 		DeferredToken<PCTemplate>
 {
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
@@ -155,7 +155,7 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 	}
 
 	@Override
-	public void applyChoice(CDOMObject owner, AbilitySelection choice,
+	public void applyChoice(CDOMObject owner, CategorizedAbilitySelection choice,
 			PlayerCharacter pc)
 	{
 		double cost = choice.getAbility().getSafe(ObjectKey.SELECTION_COST)
@@ -170,7 +170,7 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 	}
 
 	@Override
-	public boolean allow(AbilitySelection choice, PlayerCharacter pc,
+	public boolean allow(CategorizedAbilitySelection choice, PlayerCharacter pc,
 			boolean allowStack)
 	{
 		// Remove any already selected
@@ -196,7 +196,7 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 	}
 
 	private boolean hasAssoc(List<String> associationList,
-			AbilitySelection choice)
+		CategorizedAbilitySelection choice)
 	{
 		if (associationList == null)
 		{
@@ -218,20 +218,20 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 	}
 
 	@Override
-	public AbilitySelection decodeChoice(String s)
+	public CategorizedAbilitySelection decodeChoice(String s)
 	{
-		return AbilitySelection.getAbilitySelectionFromPersistentFormat(s);
+		return CategorizedAbilitySelection.getAbilitySelectionFromPersistentFormat(s);
 	}
 
 	@Override
-	public String encodeChoice(AbilitySelection choice)
+	public String encodeChoice(CategorizedAbilitySelection choice)
 	{
 		return choice.getPersistentFormat();
 	}
 
 	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-			AbilitySelection choice)
+		CategorizedAbilitySelection choice)
 	{
 		// No action required
 	}
@@ -244,7 +244,7 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 
 	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-			AbilitySelection choice)
+		CategorizedAbilitySelection choice)
 	{
 		if (!pc.isImporting())
 		{
@@ -273,11 +273,12 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		{
 			AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(
 					AbilityCategory.FEAT, list, Nature.AUTOMATIC);
-			ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
+			ChoiceSet<CategorizedAbilitySelection> cs = new ChoiceSet<CategorizedAbilitySelection>(
 					getTokenName(), rcs);
 			cs.setTitle("Feat Choice");
-			PersistentTransitionChoice<AbilitySelection> tc = new ConcretePersistentTransitionChoice<AbilitySelection>(
-					cs, FormulaFactory.ONE);
+			PersistentTransitionChoice<CategorizedAbilitySelection> tc =
+					new ConcretePersistentTransitionChoice<CategorizedAbilitySelection>(
+						cs, FormulaFactory.ONE);
 			context.getObjectContext().put(pct, ObjectKey.TEMPLATE_FEAT, tc);
 			tc.setChoiceActor(this);
 		}
@@ -285,7 +286,7 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 	}
 
 	@Override
-	public List<AbilitySelection> getCurrentlySelected(CDOMObject owner,
+	public List<CategorizedAbilitySelection> getCurrentlySelected(CDOMObject owner,
 			PlayerCharacter pc)
 	{
 		return Collections.emptyList();

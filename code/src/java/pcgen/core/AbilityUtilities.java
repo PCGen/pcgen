@@ -33,7 +33,7 @@ import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.AbilitySelection;
+import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.utils.CoreUtility;
@@ -270,7 +270,7 @@ public class AbilityUtilities
 	 * @param all
 	 */
 	static void modFeatsFromList(final PlayerCharacter aPC,
-			final AbilitySelection as)
+			final CategorizedAbilitySelection as)
 	{
 		Ability anAbility = aPC.getFeatNamed(as.getAbilityKey());
 

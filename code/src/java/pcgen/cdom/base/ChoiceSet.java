@@ -27,7 +27,7 @@ import java.util.Collection;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.Nature;
-import pcgen.cdom.helper.AbilitySelection;
+import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
 
@@ -240,7 +240,7 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 		return false;
 	}
 
-	public static class AbilityChoiceSet extends ChoiceSet<AbilitySelection>
+	public static class AbilityChoiceSet extends ChoiceSet<CategorizedAbilitySelection>
 	{
 
 		private final AbilityRefChoiceSet arcs;

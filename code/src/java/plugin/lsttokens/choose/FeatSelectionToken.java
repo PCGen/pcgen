@@ -32,7 +32,7 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.AbilitySelection;
+import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -49,7 +49,7 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMSecondaryToken<CDOMObject>,
-		PersistentChoiceActor<AbilitySelection>
+		PersistentChoiceActor<CategorizedAbilitySelection>
 {
 
 	@Override
@@ -109,10 +109,10 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 			return new ParseResult.Fail("Non-sensical " + getFullName()
 				+ ": Contains ANY and a specific reference: " + value);
 		}
-		PrimitiveChoiceSet<AbilitySelection> pcs = new CollectionToAbilitySelection(
-				prim);
-		BasicChooseInformation<AbilitySelection> tc =
-				new BasicChooseInformation<AbilitySelection>(getTokenName(),
+		PrimitiveChoiceSet<CategorizedAbilitySelection> pcs =
+				new CollectionToAbilitySelection(AbilityCategory.FEAT, prim);
+		BasicChooseInformation<CategorizedAbilitySelection> tc =
+				new BasicChooseInformation<CategorizedAbilitySelection>(getTokenName(),
 					pcs);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
@@ -164,7 +164,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	public void applyChoice(CDOMObject owner, AbilitySelection st,
+	public void applyChoice(CDOMObject owner, CategorizedAbilitySelection st,
 		PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, st);
@@ -181,7 +181,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 
 	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-		AbilitySelection choice)
+		CategorizedAbilitySelection choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors =
@@ -198,21 +198,21 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 
 	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-		AbilitySelection choice)
+		CategorizedAbilitySelection choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 		pc.addAssociation(owner, encodeChoice(choice));
 	}
 
 	@Override
-	public List<AbilitySelection> getCurrentlySelected(CDOMObject owner,
+	public List<CategorizedAbilitySelection> getCurrentlySelected(CDOMObject owner,
 		PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}
 
 	@Override
-	public boolean allow(AbilitySelection choice, PlayerCharacter pc, boolean allowStack)
+	public boolean allow(CategorizedAbilitySelection choice, PlayerCharacter pc, boolean allowStack)
 	{
 		/*
 		 * This is universally true, as any filter for qualify, etc. was dealt
@@ -248,13 +248,13 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		return "Ability choice";
 	}
 
-	protected AssociationListKey<AbilitySelection> getListKey()
+	protected AssociationListKey<CategorizedAbilitySelection> getListKey()
 	{
 		return AssociationListKey.CHOOSE_FEATSELECTION;
 	}
 
 	@Override
-	public AbilitySelection decodeChoice(String s)
+	public CategorizedAbilitySelection decodeChoice(String s)
 	{
 		Ability ability = Globals.getContext().ref
 				.silentlyGetConstructedCDOMObject(Ability.class,
@@ -274,7 +274,8 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 						+ "(or Feat Key with Selection if appropriate), was: "
 						+ s);
 			}
-			return new AbilitySelection(ability, Nature.NORMAL, choices.get(0));
+			return new CategorizedAbilitySelection(AbilityCategory.FEAT,
+				ability, Nature.NORMAL, choices.get(0));
 		}
 		else if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
@@ -284,16 +285,18 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 			 * TODO There needs to be better validation at some point that this
 			 * is proper (meaning it is actually CHOOSE:NOCHOICE!)
 			 */
-			return new AbilitySelection(ability, Nature.NORMAL, "");
+			return new CategorizedAbilitySelection(AbilityCategory.FEAT,
+				ability, Nature.NORMAL, "");
 		}
 		else
 		{
-			return new AbilitySelection(ability, Nature.NORMAL);
+			return new CategorizedAbilitySelection(AbilityCategory.FEAT,
+				ability, Nature.NORMAL);
 		}
 	}
 
 	@Override
-	public String encodeChoice(AbilitySelection choice)
+	public String encodeChoice(CategorizedAbilitySelection choice)
 	{
 		return choice.getFullAbilityKey();
 	}

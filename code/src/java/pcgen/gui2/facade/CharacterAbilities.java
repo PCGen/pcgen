@@ -444,23 +444,22 @@ public class CharacterAbilities
 			List<String> choices = theCharacter.getAssoc(ability, AssociationKey.ASSOC_CHOICES);
 			if (choices == null || choices.isEmpty())
 			{
-				cas.add(new CategorizedAbilitySelection(
-						null, cat, ability, nature, ""));
+				cas.add(new CategorizedAbilitySelection(cat, ability, nature,
+					""));
 			}
 			else
 			{
 				for (String choice : choices)
 				{
-					cas.add(new CategorizedAbilitySelection(
-						null, cat, ability, nature, choice));
+					cas.add(new CategorizedAbilitySelection(cat, ability,
+						nature, choice));
 				}
 			}
 			
 		}
 		else
 		{
-			cas.add(new CategorizedAbilitySelection(null, cat, ability,
-				nature));
+			cas.add(new CategorizedAbilitySelection(cat, ability, nature));
 		}
 		for (CategorizedAbilitySelection sel : cas)
 		{
@@ -474,12 +473,11 @@ public class CharacterAbilities
 		CategorizedAbilitySelection cas;
 		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
-			cas = new CategorizedAbilitySelection(
-					null, cat, ability, nature, "");
+			cas = new CategorizedAbilitySelection(cat, ability, nature, "");
 		}
 		else
 		{
-			cas = new CategorizedAbilitySelection(null,  cat, ability, nature);
+			cas = new CategorizedAbilitySelection(cat, ability, nature);
 		}
 		removeElement(cas);
 	}

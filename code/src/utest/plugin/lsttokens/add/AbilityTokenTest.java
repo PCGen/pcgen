@@ -34,7 +34,7 @@ import pcgen.cdom.choiceset.AbilityRefChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.Type;
-import pcgen.cdom.helper.AbilitySelection;
+import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.Ability;
@@ -866,7 +866,7 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 		AbilityChoiceSet cs = new AbilityChoiceSet(
 				getSubToken().getTokenName(), rcs);
 		cs.setTitle("Virtual Feat Selection");
-		PersistentTransitionChoice<AbilitySelection> tc = new ConcretePersistentTransitionChoice<AbilitySelection>(
+		PersistentTransitionChoice<CategorizedAbilitySelection> tc = new ConcretePersistentTransitionChoice<CategorizedAbilitySelection>(
 				cs, count);
 		tc.allowStack(false);
 		// if (dupChoices != 0)
@@ -968,7 +968,7 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 		AbilityChoiceSet cs = new AbilityChoiceSet(
 				getSubToken().getTokenName(), rcs);
 		cs.setTitle("Virtual Feat Selection");
-		PersistentTransitionChoice<AbilitySelection> tc = new ConcretePersistentTransitionChoice<AbilitySelection>(
+		PersistentTransitionChoice<CategorizedAbilitySelection> tc = new ConcretePersistentTransitionChoice<CategorizedAbilitySelection>(
 				cs, FormulaFactory.getFormulaFor(3));
 		tc.allowStack(true);
 		tc.setStackLimit(2);

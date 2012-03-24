@@ -26,7 +26,7 @@ import org.junit.Test;
 
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.AbilitySelection;
+import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
@@ -58,14 +58,16 @@ public class FeatSelectionTokenTest extends TestCase
 	public void testEncodeChoice()
 	{
 		Ability item = construct("ItemName");
-		AbilitySelection as = new AbilitySelection(item, Nature.NORMAL);
+		CategorizedAbilitySelection as =
+				new CategorizedAbilitySelection(AbilityCategory.FEAT, item,
+					Nature.NORMAL);
 		assertEquals("ItemName", pca.encodeChoice(as));
 		Ability paren = construct("ParenName (test)");
-		as = new AbilitySelection(paren, Nature.NORMAL);
+		as = new CategorizedAbilitySelection(AbilityCategory.FEAT, paren, Nature.NORMAL);
 		assertEquals("ParenName (test)", pca.encodeChoice(as));
 		Ability sel = construct("ChooseName");
 		sel.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
-		as = new AbilitySelection(sel, Nature.NORMAL, "selection");
+		as = new CategorizedAbilitySelection(AbilityCategory.FEAT, sel, Nature.NORMAL, "selection");
 		assertEquals("ChooseName(selection)", pca.encodeChoice(as));
 	}
 
@@ -82,14 +84,16 @@ public class FeatSelectionTokenTest extends TestCase
 			// OK
 		}
 		Ability item = construct("ItemName");
-		AbilitySelection as = new AbilitySelection(item, Nature.NORMAL);
+		CategorizedAbilitySelection as =
+				new CategorizedAbilitySelection(AbilityCategory.FEAT, item,
+					Nature.NORMAL);
 		assertEquals(as, pca.decodeChoice("ItemName"));
 		Ability paren = construct("ParenName (test)");
-		as = new AbilitySelection(paren, Nature.NORMAL);
+		as = new CategorizedAbilitySelection(AbilityCategory.FEAT, paren, Nature.NORMAL);
 		assertEquals(as, pca.decodeChoice("ParenName (test)"));
 		Ability sel = construct("ChooseName");
 		sel.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
-		as = new AbilitySelection(sel, Nature.NORMAL, "selection");
+		as = new CategorizedAbilitySelection(AbilityCategory.FEAT, sel, Nature.NORMAL, "selection");
 		assertEquals(as, pca.decodeChoice("ChooseName(selection)"));
 	}
 

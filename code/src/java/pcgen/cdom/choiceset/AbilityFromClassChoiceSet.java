@@ -24,10 +24,11 @@ import java.util.Set;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.cdom.helper.AbilitySelection;
+import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 
@@ -41,7 +42,7 @@ import pcgen.core.PlayerCharacter;
  * REMOVE:FEAT|Class.???
  */
 public class AbilityFromClassChoiceSet implements
-		PrimitiveChoiceSet<AbilitySelection>
+		PrimitiveChoiceSet<CategorizedAbilitySelection>
 {
 
 	/**
@@ -116,9 +117,9 @@ public class AbilityFromClassChoiceSet implements
 	 * @return the Class contained within this AbilityFromClassChoiceSet
 	 */
 	@Override
-	public Class<? super AbilitySelection> getChoiceClass()
+	public Class<? super CategorizedAbilitySelection> getChoiceClass()
 	{
-		return AbilitySelection.class;
+		return CategorizedAbilitySelection.class;
 	}
 
 	/**
@@ -138,10 +139,10 @@ public class AbilityFromClassChoiceSet implements
 	 *         contains.
 	 */
 	@Override
-	public Set<AbilitySelection> getSet(PlayerCharacter pc)
+	public Set<CategorizedAbilitySelection> getSet(PlayerCharacter pc)
 	{
 		PCClass aClass = pc.getClassKeyed(classRef.resolvesTo().getKeyName());
-		Set<AbilitySelection> set = new HashSet<AbilitySelection>();
+		Set<CategorizedAbilitySelection> set = new HashSet<CategorizedAbilitySelection>();
 		if (aClass != null)
 		{
 			List<Ability> abilityList = pc.getAssocList(aClass,
@@ -150,8 +151,8 @@ public class AbilityFromClassChoiceSet implements
 			{
 				for (Ability aFeat : abilityList)
 				{
-					set.add(new AbilitySelection(aFeat, pc
-							.getAbilityNature(aFeat)));
+					set.add(new CategorizedAbilitySelection(
+						AbilityCategory.FEAT, aFeat, pc.getAbilityNature(aFeat)));
 				}
 			}
 			for (int lvl = 0; lvl < pc.getLevel(aClass); lvl++)
@@ -163,7 +164,8 @@ public class AbilityFromClassChoiceSet implements
 				{
 					for (Ability aFeat : abilityList)
 					{
-						set.add(new AbilitySelection(aFeat, pc
+						set.add(new CategorizedAbilitySelection(
+							AbilityCategory.FEAT, aFeat, pc
 								.getAbilityNature(aFeat)));
 					}
 				}

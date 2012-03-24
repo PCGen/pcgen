@@ -42,7 +42,7 @@ import pcgen.cdom.choiceset.CompoundOrChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.AbilitySelection;
+import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
@@ -60,11 +60,11 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<AbilitySelection>
+		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<CategorizedAbilitySelection>
 {
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
-	private static final Class<AbilitySelection> ABILITY_SELECTION_CLASS = AbilitySelection.class;
+	private static final Class<CategorizedAbilitySelection> CAT_ABILITY_SELECTION_CLASS = CategorizedAbilitySelection.class;
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
 	@Override
@@ -129,7 +129,8 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 
 		List<CDOMReference<Ability>> refs = new ArrayList<CDOMReference<Ability>>();
-		List<PrimitiveChoiceSet<AbilitySelection>> pcs = new ArrayList<PrimitiveChoiceSet<AbilitySelection>>();
+		List<PrimitiveChoiceSet<CategorizedAbilitySelection>> pcs =
+				new ArrayList<PrimitiveChoiceSet<CategorizedAbilitySelection>>();
 		ParsingSeparator tok = new ParsingSeparator(activeValue, ',');
 
 		boolean foundAny = false;
@@ -196,20 +197,21 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 			return new ParseResult.Fail("Internal Error: " + getFullName()
 					+ " did not have any references: " + value);
 		}
-		PrimitiveChoiceSet<AbilitySelection> ascs;
+		PrimitiveChoiceSet<CategorizedAbilitySelection> ascs;
 		if (pcs.size() == 1)
 		{
 			ascs = pcs.get(0);
 		}
 		else
 		{
-			ascs = new CompoundOrChoiceSet<AbilitySelection>(pcs, Constants.COMMA);
+			ascs = new CompoundOrChoiceSet<CategorizedAbilitySelection>(pcs, Constants.COMMA);
 		}
-		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
+		ChoiceSet<CategorizedAbilitySelection> cs = new ChoiceSet<CategorizedAbilitySelection>(
 				getTokenName(), ascs, true);
 		cs.setTitle("Select for removal");
-		PersistentTransitionChoice<AbilitySelection> tc = new ConcretePersistentTransitionChoice<AbilitySelection>(
-				cs, count);
+		PersistentTransitionChoice<CategorizedAbilitySelection> tc =
+				new ConcretePersistentTransitionChoice<CategorizedAbilitySelection>(
+					cs, count);
 		context.getObjectContext().addToList(obj, ListKey.REMOVE, tc);
 		tc.allowStack(true);
 		tc.setChoiceActor(this);
@@ -233,7 +235,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			SelectableSet<?> cs = container.getChoices();
 			if (getTokenName().equals(cs.getName())
-					&& ABILITY_SELECTION_CLASS.equals(cs.getChoiceClass()))
+					&& CAT_ABILITY_SELECTION_CLASS.equals(cs.getChoiceClass()))
 			{
 				Formula f = container.getCount();
 				if (f == null)
@@ -261,7 +263,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void applyChoice(CDOMObject owner, AbilitySelection choice,
+	public void applyChoice(CDOMObject owner, CategorizedAbilitySelection choice,
 			PlayerCharacter pc)
 	{
 		if (!pc.isImporting())
@@ -306,7 +308,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public boolean allow(AbilitySelection choice, PlayerCharacter pc,
+	public boolean allow(CategorizedAbilitySelection choice, PlayerCharacter pc,
 			boolean allowStack)
 	{
 		// Only allow those already selected
@@ -326,7 +328,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	private boolean hasAssoc(List<String> associationList,
-			AbilitySelection choice)
+		CategorizedAbilitySelection choice)
 	{
 		if (associationList == null)
 		{
@@ -345,20 +347,20 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public AbilitySelection decodeChoice(String s)
+	public CategorizedAbilitySelection decodeChoice(String s)
 	{
-		return AbilitySelection.getAbilitySelectionFromPersistentFormat(s);
+		return CategorizedAbilitySelection.getAbilitySelectionFromPersistentFormat(s);
 	}
 
 	@Override
-	public String encodeChoice(AbilitySelection choice)
+	public String encodeChoice(CategorizedAbilitySelection choice)
 	{
 		return choice.getPersistentFormat();
 	}
 
 	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-			AbilitySelection choice)
+		CategorizedAbilitySelection choice)
 	{
 		// String featName = choice.getAbilityKey();
 		// Ability aFeat = pc.getAbilityKeyed(AbilityCategory.FEAT,
@@ -368,7 +370,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-			AbilitySelection choice)
+		CategorizedAbilitySelection choice)
 	{
 		if (!pc.isImporting())
 		{
@@ -389,7 +391,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public List<AbilitySelection> getCurrentlySelected(CDOMObject owner,
+	public List<CategorizedAbilitySelection> getCurrentlySelected(CDOMObject owner,
 			PlayerCharacter pc)
 	{
 		return Collections.emptyList();

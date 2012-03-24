@@ -32,7 +32,7 @@ import pcgen.cdom.choiceset.AbilityRefChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.AbilitySelection;
+import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -239,10 +239,10 @@ public class FeatTokenTest extends
 	public void testUnparseSingle() throws PersistenceLayerException
 	{
 		AbilityRefChoiceSet arcs = build("TestWP1");
-		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
+		ChoiceSet<CategorizedAbilitySelection> cs = new ChoiceSet<CategorizedAbilitySelection>(
 				getSubTokenName(), arcs, true);
 		cs.setTitle("Select for removal");
-		PersistentTransitionChoice<AbilitySelection> tc = new ConcretePersistentTransitionChoice<AbilitySelection>(
+		PersistentTransitionChoice<CategorizedAbilitySelection> tc = new ConcretePersistentTransitionChoice<CategorizedAbilitySelection>(
 				cs, FormulaFactory.ONE);
 		tc.setChoiceActor(subtoken);
 		primaryProf.addToListFor(ListKey.REMOVE, tc);
@@ -254,10 +254,10 @@ public class FeatTokenTest extends
 	public void testUnparseBadCount() throws PersistenceLayerException
 	{
 		AbilityRefChoiceSet arcs = build("TestWP1");
-		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
+		ChoiceSet<CategorizedAbilitySelection> cs = new ChoiceSet<CategorizedAbilitySelection>(
 				getSubTokenName(), arcs, true);
 		cs.setTitle("Select for removal");
-		PersistentTransitionChoice<AbilitySelection> tc = new ConcretePersistentTransitionChoice<AbilitySelection>(
+		PersistentTransitionChoice<CategorizedAbilitySelection> tc = new ConcretePersistentTransitionChoice<CategorizedAbilitySelection>(
 				cs, null);
 		tc.setChoiceActor(subtoken);
 		primaryProf.addToListFor(ListKey.REMOVE, tc);
@@ -285,10 +285,10 @@ public class FeatTokenTest extends
 	public void testUnparseMultiple() throws PersistenceLayerException
 	{
 		AbilityRefChoiceSet arcs = build("TestWP1", "TestWP2");
-		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
+		ChoiceSet<CategorizedAbilitySelection> cs = new ChoiceSet<CategorizedAbilitySelection>(
 				getSubTokenName(), arcs, true);
 		cs.setTitle("Select for removal");
-		PersistentTransitionChoice<AbilitySelection> tc = new ConcretePersistentTransitionChoice<AbilitySelection>(
+		PersistentTransitionChoice<CategorizedAbilitySelection> tc = new ConcretePersistentTransitionChoice<CategorizedAbilitySelection>(
 				cs, FormulaFactory.ONE);
 		tc.setChoiceActor(subtoken);
 		primaryProf.addToListFor(ListKey.REMOVE, tc);
@@ -300,10 +300,10 @@ public class FeatTokenTest extends
 	public void testUnparseMultipleParen() throws PersistenceLayerException
 	{
 		AbilityRefChoiceSet arcs = build("TestWP1 (Foo)", "TestWP2 (Bar)");
-		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
+		ChoiceSet<CategorizedAbilitySelection> cs = new ChoiceSet<CategorizedAbilitySelection>(
 				getSubTokenName(), arcs, true);
 		cs.setTitle("Select for removal");
-		PersistentTransitionChoice<AbilitySelection> tc = new ConcretePersistentTransitionChoice<AbilitySelection>(
+		PersistentTransitionChoice<CategorizedAbilitySelection> tc = new ConcretePersistentTransitionChoice<CategorizedAbilitySelection>(
 				cs, FormulaFactory.ONE);
 		tc.setChoiceActor(subtoken);
 		primaryProf.addToListFor(ListKey.REMOVE, tc);
@@ -322,10 +322,10 @@ public class FeatTokenTest extends
 		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(AbilityCategory.FEAT,
 				list, Nature.NORMAL);
 		AbilityRefChoiceSet arcs = rcs;
-		ChoiceSet<AbilitySelection> cs = new ChoiceSet<AbilitySelection>(
+		ChoiceSet<CategorizedAbilitySelection> cs = new ChoiceSet<CategorizedAbilitySelection>(
 				getSubTokenName(), arcs, true);
 		cs.setTitle("Select for removal");
-		PersistentTransitionChoice<AbilitySelection> tc = new ConcretePersistentTransitionChoice<AbilitySelection>(
+		PersistentTransitionChoice<CategorizedAbilitySelection> tc = new ConcretePersistentTransitionChoice<CategorizedAbilitySelection>(
 				cs, FormulaFactory.ONE);
 		tc.setChoiceActor(subtoken);
 		primaryProf.addToListFor(ListKey.REMOVE, tc);
