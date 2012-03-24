@@ -115,7 +115,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 	}
 
 	private static class ButtonCellEditor extends AbstractCellEditor implements TableCellEditor,
-																				ActionListener
+			ActionListener
 	{
 
 		private static final String CREATE_COMMAND = "New";
@@ -161,7 +161,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			{
 				CompanionFacade companion = (CompanionFacade) selectedElement;
 				int ret = JOptionPane.showConfirmDialog(button, "Are you sure you want to remove "
-																+ companion.getNameRef().getReference() + " as a companion?",
+						+ companion.getNameRef().getReference() + " as a companion?",
 														"Confirm Removal", JOptionPane.YES_NO_OPTION);
 				if (ret == JOptionPane.YES_OPTION)
 				{
@@ -195,6 +195,19 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			this.support = character.getCompanionSupport();
 			this.maxMap = support.getMaxCompanionsMap();
 			this.setRoot(new RootNode());
+		}
+
+		@Override
+		public boolean isCellEditable(Object node, int column)
+		{
+			if (column > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return super.isCellEditable(node, column);
+			}
 		}
 
 		@Override
@@ -253,7 +266,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			{
 				Integer max = maxMap.getValue(type);
 				String maxString = max == -1 ? "*" : max.toString();
-				return type + " (" + getChildCount() + "/" + maxString;
+				return type + " (" + getChildCount() + "/" + maxString+")";
 			}
 
 			private void addCompanion(CompanionFacade companion, boolean silently)
@@ -447,5 +460,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			}
 
 		}
+
 	}
+
 }
