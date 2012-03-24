@@ -3203,7 +3203,7 @@
 							<xsl:with-param name="attribute" select="'weapon.title'"/>
 						</xsl:call-template>
 				<xsl:choose>
-					<xsl:when test="range &gt; 0">
+					<xsl:when test="(range) &gt; 0">
 						<fo:block font-size="6pt">RANGE</fo:block>
 					</xsl:when>
 					<xsl:otherwise>
@@ -3214,6 +3214,7 @@
 				</fo:table-row>
 <!-->	<xsl:for-each select="naturalattack">-->
 				<fo:table-row>
+
 					<fo:table-cell number-rows-spanned="2">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
@@ -3244,7 +3245,7 @@
 						</xsl:call-template>
 						<fo:block font-size="8pt">
 						<xsl:choose>
-							<xsl:when test="range &gt; 0">
+							<xsl:when test="(range) &gt; 0">
 								<xsl:value-of select="range"/>
 								<xsl:value-of select="distance_unit"/>
 							</xsl:when>
@@ -3311,127 +3312,134 @@
 	</xsl:template>
 
 	<xsl:template name="range.distance.thrown">
+		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
 		<xsl:param name="distance"/>
-		<xsl:param name="tohit"/>
 		<xsl:param name="damage"/>
+		<xsl:param name="tohit" select="''"/>
 			<fo:table table-layout="fixed" space-before="2mm" keep-with-next.within-column="always">
-			<fo:table-column column-width="16mm"/>
-			<fo:table-column column-width="16mm"/>
-			<fo:table-column column-width="16mm"/>
-			<fo:table-column column-width="16mm"/>
-			<fo:table-column column-width="16mm"/>
-			<fo:table-column column-width="16mm"/>
+			<fo:table-column column-width="5mm"/>
+			<fo:table-column>
+				<xsl:attribute name="column-width"><xsl:value-of select="0.2 * ($column_width - 5)" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+				<xsl:attribute name="column-width"><xsl:value-of select="0.2 * ($column_width - 5)" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+				<xsl:attribute name="column-width"><xsl:value-of select="0.2 * ($column_width - 5)" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+				<xsl:attribute name="column-width"><xsl:value-of select="0.2 * ($column_width - 5)" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-column>
+				<xsl:attribute name="column-width"><xsl:value-of select="0.2 * ($column_width - 5)" />mm</xsl:attribute>
+			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row>
 <!-->HEREIAM-->				<fo:table-cell padding-top="2pt" padding-bottom="2pt" padding-left="2pt">
 							<xsl:call-template name="attrib">
 									<xsl:with-param name="attribute" select="'weapon.title'"/>
 							</xsl:call-template>
-								<fo:block font-size="8pt" padding-right="2pt">
-									Range
+								<fo:block font-size="7pt" padding-right="2pt">
+									Rng
 								</fo:block>
 							</fo:table-cell>
-						<xsl:for-each select="range">
+					<!-->	<xsl:for-each select="range">	-->
 							<fo:table-cell padding-top="2pt" padding-bottom="2pt" padding-left="2pt">
 							<xsl:call-template name="attrib">
-									<xsl:with-param name="attribute" select="'weapon.border'"/>
+									<xsl:with-param name="attribute" select="'weapon.title'"/>
 							</xsl:call-template>
-								<fo:block font-size="8pt" padding-right="2pt">
+								<fo:block font-size="7pt" padding-right="2pt">
 									<xsl:value-of select="number($distance)"/>
-									<xsl:value-of select="distance_unit"/> / 
-									<xsl:value-of select="$tohit"/>
+									<xsl:value-of select="distance_unit"/>
 								</fo:block>
 							</fo:table-cell>
-						</xsl:for-each>
+				<!-->		</xsl:for-each> -->
 							<!-- 2nd -->
-<!-->							<fo:table-cell padding-top="2pt" padding-bottom="2pt" padding-left="2pt">
+							<fo:table-cell padding-top="2pt" padding-bottom="2pt" padding-left="2pt">
 							<xsl:call-template name="attrib">
-									<xsl:with-param name="attribute" select="'weapon.border'"/>
+									<xsl:with-param name="attribute" select="'weapon.title'"/>
 							</xsl:call-template>
-								<fo:block font-size="8pt" padding-right="2pt">
-									<xsl:value-of select="range*2"/>
+								<fo:block font-size="7pt" padding-right="2pt">
+									<xsl:value-of select="$distance*2"/>
 									<xsl:value-of select="distance_unit"/>
 								</fo:block>
 							</fo:table-cell>
 							<fo:table-cell padding-top="2pt" padding-bottom="2pt" padding-left="2pt">
 							<xsl:call-template name="attrib">
-									<xsl:with-param name="attribute" select="'weapon.border'"/>
+									<xsl:with-param name="attribute" select="'weapon.title'"/>
 							</xsl:call-template>
-								<fo:block font-size="8pt" padding-right="2pt">
-									<xsl:value-of select="range*3"/>
+								<fo:block font-size="7pt" padding-right="2pt">
+									<xsl:value-of select="$distance*3"/>
 									<xsl:value-of select="distance_unit"/>
 								</fo:block>
 							</fo:table-cell>
 							<fo:table-cell padding-top="2pt" padding-bottom="2pt" padding-left="2pt">
 							<xsl:call-template name="attrib">
-									<xsl:with-param name="attribute" select="'weapon.border'"/>
+									<xsl:with-param name="attribute" select="'weapon.title'"/>
 							</xsl:call-template>
-								<fo:block font-size="8pt" padding-right="2pt">
-									<xsl:value-of select="range*4"/>
+								<fo:block font-size="7pt" padding-right="2pt">
+									<xsl:value-of select="$distance*4"/>
 									<xsl:value-of select="distance_unit"/>
 								</fo:block>
 							</fo:table-cell>
 							<fo:table-cell padding-top="2pt" padding-bottom="2pt" padding-left="2pt">
 							<xsl:call-template name="attrib">
-									<xsl:with-param name="attribute" select="'weapon.border'"/>
+									<xsl:with-param name="attribute" select="'weapon.title'"/>
 							</xsl:call-template>
-								<fo:block font-size="8pt" padding-right="2pt">
-									<xsl:value-of select="range*5"/>
+								<fo:block font-size="7pt" padding-right="2pt">
+									<xsl:value-of select="$distance*5"/>
 									<xsl:value-of select="distance_unit"/>
 								</fo:block>
-							</fo:table-cell>-->
+							</fo:table-cell>
 						</fo:table-row>	
 						<fo:table-row>
 								<fo:table-cell padding-top="2pt" padding-bottom="2pt" padding-left="2pt">
 							<xsl:call-template name="attrib">
 									<xsl:with-param name="attribute" select="'weapon.title'"/>
 							</xsl:call-template>
-								<fo:block font-size="8pt" padding-right="2pt">
-									To Hit
+								<fo:block font-size="7pt" padding-right="2pt">
+									TH
 								</fo:block>
 							</fo:table-cell>
 							<fo:table-cell padding-top="2pt" padding-bottom="2pt" padding-left="2pt">
 							<xsl:call-template name="attrib">
-									<xsl:with-param name="attribute" select="'weapon.border'"/>
+									<xsl:with-param name="attribute" select="'weapon.title'"/>
 							</xsl:call-template>
-								<fo:block font-size="8pt" padding-right="2pt">
-									<xsl:value-of select="tohit"/>
+								<fo:block font-size="7pt" padding-right="2pt">
+									<xsl:value-of select="$tohit"/>
 								</fo:block>
 							</fo:table-cell>
 							<!-- 2nd -->
 							<fo:table-cell padding-top="2pt" padding-bottom="2pt" padding-left="2pt">
 							<xsl:call-template name="attrib">
-									<xsl:with-param name="attribute" select="'weapon.border'"/>
+									<xsl:with-param name="attribute" select="'weapon.title'"/>
 							</xsl:call-template>
-								<fo:block font-size="8pt" padding-right="2pt">
-									<xsl:value-of select="tohit"/>
-									
+								<fo:block font-size="7pt" padding-right="2pt">
+									<xsl:value-of select="number($tohit)-2"/>
 								</fo:block>
 							</fo:table-cell>
 							<fo:table-cell padding-top="2pt" padding-bottom="2pt" padding-left="2pt">
 							<xsl:call-template name="attrib">
-									<xsl:with-param name="attribute" select="'weapon.border'"/>
+									<xsl:with-param name="attribute" select="'weapon.title'"/>
 							</xsl:call-template>
-								<fo:block font-size="8pt" padding-right="2pt">
-									<xsl:value-of select="tohit"/>
+								<fo:block font-size="7pt" padding-right="2pt">
+									<xsl:value-of select="number($tohit)-4"/>
 								</fo:block>
 							</fo:table-cell>
 							<fo:table-cell padding-top="2pt" padding-bottom="2pt" padding-left="2pt">
 							<xsl:call-template name="attrib">
-									<xsl:with-param name="attribute" select="'weapon.border'"/>
+									<xsl:with-param name="attribute" select="'weapon.title'"/>
 							</xsl:call-template>
-								<fo:block font-size="8pt" padding-right="2pt">
-									<xsl:value-of select="range*4"/>
-									<xsl:value-of select="distance_unit"/>
+								<fo:block font-size="7pt" padding-right="2pt">
+									<xsl:value-of select="number($tohit)-6"/>
 								</fo:block>
 							</fo:table-cell>
 							<fo:table-cell padding-top="2pt" padding-bottom="2pt" padding-left="2pt">
 							<xsl:call-template name="attrib">
-									<xsl:with-param name="attribute" select="'weapon.border'"/>
+									<xsl:with-param name="attribute" select="'weapon.title'"/>
 							</xsl:call-template>
-								<fo:block font-size="8pt" padding-right="2pt">
-									<xsl:value-of select="range*5"/>
-									<xsl:value-of select="distance_unit"/>
+								<fo:block font-size="7pt" padding-right="2pt">
+									<xsl:value-of select="($tohit)-8"/>
 								</fo:block>
 							</fo:table-cell>
 							</fo:table-row>
@@ -3440,23 +3448,24 @@
 						</xsl:template>
 
 						<xsl:template name="range.ranged">
+								<xsl:param name="distance"/>
+								<xsl:param name="damage"/>
+								<xsl:param name="tohit" select="''"/>
 							<fo:table-cell number-columns-spanned="1">
 								<xsl:call-template name="attrib">
-									<xsl:with-param name="attribute" select="'weapon.border'"/>
+									<xsl:with-param name="attribute" select="'weapon.title'"/>
 								</xsl:call-template>
 								<fo:block font-size="8pt" padding-right="2pt">
-									<xsl:value-of select="range*6"/>
+									<xsl:value-of select="$distance*6"/>
 									<xsl:value-of select="distance_unit"/>
 								</fo:block>
 							</fo:table-cell>
-						
-						
 							<fo:table-cell number-columns-spanned="1">
 								<xsl:call-template name="attrib">
-									<xsl:with-param name="attribute" select="'weapon.border'"/>
+									<xsl:with-param name="attribute" select="'weapon.title'"/>
 								</xsl:call-template>
 								<fo:block font-size="8pt" padding-right="2pt">
-									<xsl:value-of select="range*7"/>
+									<xsl:value-of select="$distance*7"/>
 									<xsl:value-of select="distance_unit"/>
 								</fo:block>
 							</fo:table-cell>
