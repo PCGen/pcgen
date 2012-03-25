@@ -790,7 +790,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		@Override
 		public int getDefaultTreeViewIndex()
 		{
-			return 1;
+			return 2;
 		}
 
 		@Override
@@ -886,8 +886,10 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private enum EquipmentTreeView implements TreeView<EquipmentFacade>
 	{
 
-		NAME(LanguageBundle.getString("in_nameLabel")),
-		TYPE_NAME(LanguageBundle.getString("in_typeName"));
+		NAME(LanguageBundle.getString("in_nameLabel")), //$NON-NLS-1$
+		TYPE_NAME(LanguageBundle.getString("in_typeName")), //$NON-NLS-1$
+		TYPE_SUBTYPE_NAME(LanguageBundle.getString("in_typeSubtypeName")); //$NON-NLS-1$
+		
 		//SOURCE_NAME("Source/Name");
 		private String name;
 
@@ -907,8 +909,18 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		{
 			switch (this)
 			{
-				case TYPE_NAME:
+				case TYPE_SUBTYPE_NAME:
 					String[] types = pobj.getTypes();
+					if (types != null && types.length > 1)
+					{
+						List<TreeViewPath<EquipmentFacade>> paths = new ArrayList<TreeViewPath<EquipmentFacade>>(
+								types.length);
+						paths.add(new TreeViewPath<EquipmentFacade>(pobj, types[0], types[1]));
+						return paths;
+					}
+					// Less then two types, fall through to treat it as a type tree.
+				case TYPE_NAME:
+					types = pobj.getTypes();
 					if (types != null && types.length > 0)
 					{
 
@@ -918,6 +930,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 						paths.add(new TreeViewPath<EquipmentFacade>(pobj, type));
 						return paths;
 					}
+					// No types, fall through and treat it as just a name.
 				case NAME:
 					return Collections.singletonList(new TreeViewPath<EquipmentFacade>(pobj));
 //				case SOURCE_NAME:
