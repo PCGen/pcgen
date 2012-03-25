@@ -101,7 +101,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 			}
 		}
 		availCompList.setContents(companions);
-		Logging.errorPrint("Available comps " + availCompList);
+		Logging.debugPrint("Available comps " + availCompList);
 		//Logging.debugPrint("Max comps " + maxCompanionsMap);
 		
 		for (Follower follower : theCharacter.getFollowerList())
@@ -114,7 +114,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 			delegate.setCompanionFacade(comp);
 			companionList.addElement(delegate);
 		}
-		Logging.errorPrint("Companion list " + companionList);
+		Logging.debugPrint("Companion list " + companionList);
 	}
 
 	@Override
