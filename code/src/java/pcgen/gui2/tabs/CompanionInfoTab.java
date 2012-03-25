@@ -17,13 +17,21 @@
  */
 package pcgen.gui2.tabs;
 
+import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
 import javax.swing.tree.MutableTreeNode;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.CompanionFacade;
@@ -52,13 +60,40 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 
 	public CompanionInfoTab()
 	{
-		this.companionsTable = new JTreeTable();
+		this.companionsTable = new JTreeTable()
+		{
+
+			@Override
+			protected void configureEnclosingScrollPane()
+			{
+				//We do nothing so the table is displayed without a header
+			}
+
+		};
 		this.infoPane = new JEditorPane();
 		initComponents();
 	}
 
 	private void initComponents()
 	{
+		{
+			DefaultTableColumnModel model = new DefaultTableColumnModel();
+			TableColumn column = new TableColumn(0);
+			column.setResizable(true);
+			model.addColumn(column);
+
+			column = new TableColumn(1, 120, new ButtonCellRenderer(), null);
+			column.setMaxWidth(120);
+			column.setResizable(false);
+			model.addColumn(column);
+
+			companionsTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+			companionsTable.getTableHeader().setResizingAllowed(false);
+			companionsTable.setAutoCreateColumnsFromModel(false);
+			companionsTable.setColumnModel(model);
+		}
+		companionsTable.setIntercellSpacing(new Dimension(0, 0));
+		companionsTable.setFocusable(false);
 		setLeftComponent(new JScrollPane(companionsTable));
 		setRightComponent(new JScrollPane(infoPane));
 	}
@@ -69,7 +104,6 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
 		state.put(CompanionsModel.class, new CompanionsModel(character));
 		state.put(ButtonCellEditor.class, new ButtonCellEditor(character));
-		state.put(ButtonCellRenderer.class, new ButtonCellRenderer());
 		return state;
 	}
 
@@ -78,7 +112,6 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 	{
 		companionsTable.setTreeTableModel((CompanionsModel) state.get(CompanionsModel.class));
 		companionsTable.setDefaultEditor(Object.class, (ButtonCellEditor) state.get(ButtonCellEditor.class));
-		companionsTable.setDefaultRenderer(Object.class, (ButtonCellRenderer) state.get(ButtonCellRenderer.class));
 	}
 
 	@Override
@@ -92,14 +125,46 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		return new TabTitle("Companions");
 	}
 
-	private static class ButtonCellRenderer implements TableCellRenderer
+	private static class ButtonCellRenderer extends JPanel implements TableCellRenderer
 	{
 
 		private final JButton button = new JButton();
+		private final DefaultTableCellRenderer background = new DefaultTableCellRenderer();
+
+		public ButtonCellRenderer()
+		{
+			button.setMargin(new Insets(0, 0, 0, 0));
+
+			setOpaque(true);
+			setLayout(new GridBagLayout());
+			GridBagConstraints gbc = new GridBagConstraints();
+			gbc.weightx = 1;
+			gbc.weighty = 1;
+			gbc.anchor = GridBagConstraints.EAST;
+			gbc.fill = GridBagConstraints.VERTICAL;
+			add(button, gbc);
+		}
+
+		public boolean isOpaque()
+		{
+			Color back = getBackground();
+			Component p = getParent();
+			if (p != null)
+			{
+				p = p.getParent();
+			}
+
+			// p should now be the JTable. 
+			boolean colorMatch = (back != null) && (p != null) && back.equals(p.getBackground())
+					&& p.isOpaque();
+			return !colorMatch && super.isOpaque();
+		}
 
 		@Override
 		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
 		{
+			background.getTableCellRendererComponent(table, null, isSelected, hasFocus, row, column);
+			setBackground(background.getBackground());
 			value = table.getValueAt(row, 0);
 			if (value instanceof CompanionFacade)
 			{
@@ -109,7 +174,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			{
 				button.setText("Create New");
 			}
-			return button;
+			return this;
 		}
 
 	}
@@ -121,12 +186,24 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		private static final String CREATE_COMMAND = "New";
 		private static final String REMOVE_COMMAND = "Remove";
 		private final JButton button = new JButton();
+		private final JPanel container = new JPanel();
+		private final DefaultTableCellRenderer background = new DefaultTableCellRenderer();
 		private final CompanionSupportFacade support;
 
 		public ButtonCellEditor(CharacterFacade character)
 		{
 			this.support = character.getCompanionSupport();
 			button.addActionListener(this);
+			button.setMargin(new Insets(0, 0, 0, 0));
+
+			container.setOpaque(true);
+			container.setLayout(new GridBagLayout());
+			GridBagConstraints gbc = new GridBagConstraints();
+			gbc.weightx = 1;
+			gbc.weighty = 1;
+			gbc.anchor = GridBagConstraints.EAST;
+			gbc.fill = GridBagConstraints.VERTICAL;
+			container.add(button, gbc);
 		}
 
 		@Override
@@ -140,6 +217,8 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		@Override
 		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column)
 		{
+			background.getTableCellRendererComponent(table, null, true, false, row, column);
+			container.setBackground(background.getBackground());
 			selectedElement = table.getValueAt(row, 0);
 			if (selectedElement instanceof CompanionFacade)
 			{
@@ -151,7 +230,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 				button.setText("Create New");
 				button.setActionCommand(CREATE_COMMAND);
 			}
-			return button;
+			return container;
 		}
 
 		@Override
@@ -266,7 +345,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			{
 				Integer max = maxMap.getValue(type);
 				String maxString = max == -1 ? "*" : max.toString();
-				return type + " (" + getChildCount() + "/" + maxString+")";
+				return type + " (" + getChildCount() + "/" + maxString + ")";
 			}
 
 			private void addCompanion(CompanionFacade companion, boolean silently)
