@@ -231,12 +231,16 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		box = Box.createHorizontalBox();
 		box.add(exportTemplateButton);
+		exportTemplateButton.setEnabled(false);
 		box.add(Box.createHorizontalStrut(3));
 		box.add(viewBrowserButton);
+		viewBrowserButton.setEnabled(false);
 		box.add(Box.createHorizontalStrut(3));
 		box.add(exportFileButton);
+		exportFileButton.setEnabled(false);
 		box.add(Box.createHorizontalStrut(3));
 		box.add(setNoteButton);
+		setNoteButton.setEnabled(false);
 		equipPane.add(box);
 		equipPane.add(Box.createVerticalStrut(3));
 
