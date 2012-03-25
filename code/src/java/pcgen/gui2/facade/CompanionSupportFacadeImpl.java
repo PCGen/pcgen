@@ -30,14 +30,19 @@ import pcgen.cdom.list.CompanionList;
 import pcgen.core.FollowerOption;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.character.Follower;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.CompanionFacade;
 import pcgen.core.facade.CompanionStubFacade;
 import pcgen.core.facade.CompanionSupportFacade;
+import pcgen.core.facade.PartyFacade;
+import pcgen.core.facade.event.ListEvent;
+import pcgen.core.facade.event.ListListener;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.DefaultMapFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.core.facade.util.MapFacade;
+import pcgen.system.CharacterManager;
 import pcgen.util.Logging;
 
 /**
@@ -49,7 +54,7 @@ import pcgen.util.Logging;
  * @see pcgen.gui2.facade.CharacterFacadeImpl
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public class CompanionSupportFacadeImpl implements CompanionSupportFacade
+public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListListener<CharacterFacade>
 {
 
 	private DefaultListFacade<CompanionFacadeDelegate> companionList;
@@ -68,6 +73,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade
 		this.availCompList = new DefaultListFacade<CompanionStubFacade>();
 		this.maxCompanionsMap = new DefaultMapFacade<String, Integer>();
 		initCompData();
+		CharacterManager.getCharacters().addListListener(this);
 	}
 
 	/**
@@ -95,8 +101,20 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade
 			}
 		}
 		availCompList.setContents(companions);
-		Logging.debugPrint("Available comps " + availCompList);
-		Logging.debugPrint("Max comps " + maxCompanionsMap);
+		Logging.errorPrint("Available comps " + availCompList);
+		//Logging.debugPrint("Max comps " + maxCompanionsMap);
+		
+		for (Follower follower : theCharacter.getFollowerList())
+		{
+			CompanionFacade comp =
+					new CompanionNotLoaded(follower.getName(), new File(
+						follower.getFileName()), follower.getRace(), follower
+						.getType().toString());
+			CompanionFacadeDelegate delegate = new CompanionFacadeDelegate();
+			delegate.setCompanionFacade(comp);
+			companionList.addElement(delegate);
+		}
+		Logging.errorPrint("Companion list " + companionList);
 	}
 
 	@Override
@@ -155,9 +173,12 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade
 			File file = delegate.getFileRef().getReference();
 			if (file.equals(character.getFileRef().getReference()))
 			{
-				CompanionFacade dummy = null;
-				//TODO: create dummy CompanionFacade containing follower info from character
-				delegate.setCompanionFacade(dummy);
+				CompanionFacade comp =
+						new CompanionNotLoaded(character.getNameRef()
+							.getReference(), character.getFileRef()
+							.getReference(), character.getRaceRef()
+							.getReference(), delegate.getCompanionType());
+				delegate.setCompanionFacade(comp);
 				return;
 			}
 		}
@@ -179,6 +200,47 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade
 	public ListFacade<? extends CompanionFacade> getCompanions()
 	{
 		return companionList;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void elementAdded(ListEvent<CharacterFacade> e)
+	{
+		linkCompanion(e.getElement());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void elementRemoved(ListEvent<CharacterFacade> e)
+	{
+		unlinkCompanion(e.getElement());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void elementsChanged(ListEvent<CharacterFacade> e)
+	{
+		PartyFacade characters = CharacterManager.getCharacters();
+		for (CharacterFacade characterFacade : characters)
+		{
+			linkCompanion(characterFacade);
+		}
+		// TODO: Unlink characters no longer open 
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void elementModified(ListEvent<CharacterFacade> e)
+	{
+		// Ignored.
 	}
 
 }
