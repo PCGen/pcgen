@@ -36,213 +36,213 @@ import javax.swing.tree.DefaultMutableTreeNode;
  */
 public class PreferencesDialog extends javax.swing.JDialog
 {
-	private javax.swing.JButton bApply;
-	private javax.swing.JButton bCancel;
-	private javax.swing.JButton bOk;
-	private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton bApply;
+    private javax.swing.JButton bCancel;
+    private javax.swing.JButton bOk;
+    private javax.swing.JPanel jPanel2;
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private FlippingSplitPane jSplitPane1;
-	private javax.swing.JTabbedPane prefsPane;
-	private javax.swing.JTree prefsTree;
-	private PreferencesRootTreeNode root;
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private FlippingSplitPane jSplitPane1;
+    private javax.swing.JTabbedPane prefsPane;
+    private javax.swing.JTree prefsTree;
+    private PreferencesRootTreeNode root;
 
-	/**
-	 *  Creates new form PreferencesDialog
-	 *
-	 *@param  parent      Description of the Parameter
-	 *@param  modal       Description of the Parameter
-	 * @param root
-	 */
-	public PreferencesDialog(java.awt.Frame parent, boolean modal, PreferencesRootTreeNode root)
-	{
-		super(parent, modal);
-		this.root = root;
-		initComponents();
-		initLast();
-		initPreferences();
-	}
+    /**
+     *  Creates new form PreferencesDialog
+     *
+     *@param  parent      Description of the Parameter
+     *@param  modal       Description of the Parameter
+     * @param root
+     */
+    public PreferencesDialog(java.awt.Frame parent, boolean modal, PreferencesRootTreeNode root)
+    {
+        super(parent, modal);
+        this.root = root;
+        initComponents();
+        initLast();
+        initPreferences();
+    }
 
-	/**
-	 * Apply the new preferences
-	 */
-	public void applyPreferences()
-	{
-		for (PreferencesPanel panel : root.getPanelList())
-		{
-			panel.applyPreferences();
-		}
-	}
+    /**
+     * Apply the new preferences
+     */
+    public void applyPreferences()
+    {
+        for (PreferencesPanel panel : root.getPanelList())
+        {
+            panel.applyPreferences();
+        }
+    }
 
-	//GEN-LAST:event_bCancelActionPerformed
-	private void PrefsTreeActionPerformed()
-	{
-		// Add your handling code here:
-		Object obj = prefsTree.getLastSelectedPathComponent();
+    //GEN-LAST:event_bCancelActionPerformed
+    private void PrefsTreeActionPerformed()
+    {
+        // Add your handling code here:
+        Object obj = prefsTree.getLastSelectedPathComponent();
 
-		if (obj instanceof DefaultMutableTreeNode)
-		{
-			DefaultMutableTreeNode node = (DefaultMutableTreeNode) obj;
-			Object uobj = node.getUserObject();
+        if (obj instanceof DefaultMutableTreeNode)
+        {
+            DefaultMutableTreeNode node = (DefaultMutableTreeNode) obj;
+            Object uobj = node.getUserObject();
 
-			if (uobj instanceof PreferencesPanel)
-			{
-				prefsPane.removeAll();
-				prefsPane.addTab(obj.toString(), (PreferencesPanel) uobj);
-			}
-		}
-	}
+            if (uobj instanceof PreferencesPanel)
+            {
+                prefsPane.removeAll();
+                prefsPane.addTab(obj.toString(), (PreferencesPanel) uobj);
+            }
+        }
+    }
 
-	private void bApplyActionPerformed()
-	{
-		//GEN-FIRST:event_bApplyActionPerformed
-		// Add your handling code here:
-		applyPreferences();
-	}
+    private void bApplyActionPerformed()
+    {
+        //GEN-FIRST:event_bApplyActionPerformed
+        // Add your handling code here:
+        applyPreferences();
+    }
 
-	//GEN-LAST:event_bOkActionPerformed
-	private void bCancelActionPerformed()
-	{
-		//GEN-FIRST:event_bCancelActionPerformed
-		// Add your handling code here:
-		setVisible(false);
-		dispose();
-	}
+    //GEN-LAST:event_bOkActionPerformed
+    private void bCancelActionPerformed()
+    {
+        //GEN-FIRST:event_bCancelActionPerformed
+        // Add your handling code here:
+        setVisible(false);
+        dispose();
+    }
 
-	//GEN-LAST:event_bApplyActionPerformed
-	private void bOkActionPerformed()
-	{
-		//GEN-FIRST:event_bOkActionPerformed
-		// Add your handling code here:
-		applyPreferences();
-		setVisible(false);
-		dispose();
-	}
+    //GEN-LAST:event_bApplyActionPerformed
+    private void bOkActionPerformed()
+    {
+        //GEN-FIRST:event_bOkActionPerformed
+        // Add your handling code here:
+        applyPreferences();
+        setVisible(false);
+        dispose();
+    }
 
-	/**
-	 *  Closes the dialog
-	 *
-	 */
-	private void closeDialog()
-	{
-		//GEN-FIRST:event_closeDialog
-		SettingsHandler.setGMGenOption("PreferencesDialog.PrefsDividerLocation", jSplitPane1.getDividerLocation());
+    /**
+     *  Closes the dialog
+     *
+     */
+    private void closeDialog()
+    {
+        //GEN-FIRST:event_closeDialog
+        SettingsHandler.setGMGenOption("PreferencesDialog.PrefsDividerLocation", jSplitPane1.getDividerLocation());
 
-		SettingsHandler.setGMGenOption("PreferencesDialog.PrefsWindowX", this.getX());
-		SettingsHandler.setGMGenOption("PreferencesDialog.PrefsWindowY", this.getY());
-		SettingsHandler.setGMGenOption("PreferencesDialog.PrefsWindowWidth", this.getSize().width);
-		SettingsHandler.setGMGenOption("PreferencesDialog.PrefsWindowHeight", this.getSize().height);
-		setVisible(false);
-		dispose();
-	}
+        SettingsHandler.setGMGenOption("PreferencesDialog.PrefsWindowX", this.getX());
+        SettingsHandler.setGMGenOption("PreferencesDialog.PrefsWindowY", this.getY());
+        SettingsHandler.setGMGenOption("PreferencesDialog.PrefsWindowWidth", this.getSize().width);
+        SettingsHandler.setGMGenOption("PreferencesDialog.PrefsWindowHeight", this.getSize().height);
+        setVisible(false);
+        dispose();
+    }
 
-	/**
-	 *  This method is called from within the constructor to initialize the form.
-	 *  WARNING: Do NOT modify this code. The content of this method is always
-	 *  regenerated by the Form Editor.
-	 */
-	private void initComponents()
-	{ //GEN-BEGIN:initComponents
-		jPanel2 = new javax.swing.JPanel();
-		bOk = new javax.swing.JButton();
-		bCancel = new javax.swing.JButton();
-		bApply = new javax.swing.JButton();
-		jSplitPane1 = new FlippingSplitPane();
-		prefsTree = new javax.swing.JTree(root);
-		prefsPane = new javax.swing.JTabbedPane();
+    /**
+     *  This method is called from within the constructor to initialize the form.
+     *  WARNING: Do NOT modify this code. The content of this method is always
+     *  regenerated by the Form Editor.
+     */
+    private void initComponents()
+    { //GEN-BEGIN:initComponents
+        jPanel2 = new javax.swing.JPanel();
+        bOk = new javax.swing.JButton();
+        bCancel = new javax.swing.JButton();
+        bApply = new javax.swing.JButton();
+        jSplitPane1 = new FlippingSplitPane();
+        prefsTree = new javax.swing.JTree(root);
+        prefsPane = new javax.swing.JTabbedPane();
 
-		addWindowListener(new java.awt.event.WindowAdapter()
-			{
-				public void windowClosing(java.awt.event.WindowEvent evt)
-				{
-					closeDialog();
-				}
-			});
+        addWindowListener(new java.awt.event.WindowAdapter()
+            {
+                public void windowClosing(java.awt.event.WindowEvent evt)
+                {
+                    closeDialog();
+                }
+            });
 
-		jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.X_AXIS));
+        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.X_AXIS));
 
-		bOk.setText("Ok");
-		bOk.addActionListener(new java.awt.event.ActionListener()
-			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					bOkActionPerformed();
-				}
-			});
+        bOk.setText("Ok");
+        bOk.addActionListener(new java.awt.event.ActionListener()
+            {
+                public void actionPerformed(java.awt.event.ActionEvent evt)
+                {
+                    bOkActionPerformed();
+                }
+            });
 
-		jPanel2.add(bOk);
+        jPanel2.add(bOk);
 
-		bCancel.setText("Cancel");
-		bCancel.addActionListener(new java.awt.event.ActionListener()
-			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					bCancelActionPerformed();
-				}
-			});
+        bCancel.setText("Cancel");
+        bCancel.addActionListener(new java.awt.event.ActionListener()
+            {
+                public void actionPerformed(java.awt.event.ActionEvent evt)
+                {
+                    bCancelActionPerformed();
+                }
+            });
 
-		jPanel2.add(bCancel);
-		bCancel.addActionListener(new java.awt.event.ActionListener()
-			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					bCancelActionPerformed();
-				}
-			});
+        jPanel2.add(bCancel);
+        bCancel.addActionListener(new java.awt.event.ActionListener()
+            {
+                public void actionPerformed(java.awt.event.ActionEvent evt)
+                {
+                    bCancelActionPerformed();
+                }
+            });
 
-		bApply.setText("Apply");
-		bApply.addActionListener(new java.awt.event.ActionListener()
-			{
-				public void actionPerformed(java.awt.event.ActionEvent evt)
-				{
-					bApplyActionPerformed();
-				}
-			});
+        bApply.setText("Apply");
+        bApply.addActionListener(new java.awt.event.ActionListener()
+            {
+                public void actionPerformed(java.awt.event.ActionEvent evt)
+                {
+                    bApplyActionPerformed();
+                }
+            });
 
-		jPanel2.add(bApply);
+        jPanel2.add(bApply);
 
-		getContentPane().add(jPanel2, java.awt.BorderLayout.SOUTH);
+        getContentPane().add(jPanel2, java.awt.BorderLayout.SOUTH);
 
-		jSplitPane1.setLeftComponent(prefsTree);
-		prefsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener()
-			{
-				public void valueChanged(javax.swing.event.TreeSelectionEvent evt)
-				{
-					PrefsTreeActionPerformed();
-				}
-			});
+        jSplitPane1.setLeftComponent(prefsTree);
+        prefsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener()
+            {
+                public void valueChanged(javax.swing.event.TreeSelectionEvent evt)
+                {
+                    PrefsTreeActionPerformed();
+                }
+            });
 
-		jSplitPane1.setRightComponent(prefsPane);
+        jSplitPane1.setRightComponent(prefsPane);
 
-		getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
-	}
-	 //GEN-END:initComponents
+        getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
+    }
+     //GEN-END:initComponents
 
-	//GEN-LAST:event_closeDialog
+    //GEN-LAST:event_closeDialog
 
-	/** Moves and resizes the preferences dialog based on your last opening of it */
-	private void initLast()
-	{
-		int iDividerLocation = SettingsHandler.getGMGenOption("PreferencesDialog.PrefsDividerLocation", 118);
-		jSplitPane1.setDividerLocation(iDividerLocation);
+    /** Moves and resizes the preferences dialog based on your last opening of it */
+    private void initLast()
+    {
+        int iDividerLocation = SettingsHandler.getGMGenOption("PreferencesDialog.PrefsDividerLocation", 118);
+        jSplitPane1.setDividerLocation(iDividerLocation);
 
-		int iWinX = SettingsHandler.getGMGenOption("PreferencesDialog.PrefsWindowX", 0);
-		int iWinY = SettingsHandler.getGMGenOption("PreferencesDialog.PrefsWindowY", 0);
-		this.setLocation(iWinX, iWinY);
+        int iWinX = SettingsHandler.getGMGenOption("PreferencesDialog.PrefsWindowX", 0);
+        int iWinY = SettingsHandler.getGMGenOption("PreferencesDialog.PrefsWindowY", 0);
+        this.setLocation(iWinX, iWinY);
 
-		int iWinWidth = SettingsHandler.getGMGenOption("PreferencesDialog.PrefsWindowWidth", 550);
-		int iWinHeight = SettingsHandler.getGMGenOption("PreferencesDialog.PrefsWindowHeight", 385);
-		this.setSize(iWinWidth, iWinHeight);
-	}
+        int iWinWidth = SettingsHandler.getGMGenOption("PreferencesDialog.PrefsWindowWidth", 550);
+        int iWinHeight = SettingsHandler.getGMGenOption("PreferencesDialog.PrefsWindowHeight", 385);
+        this.setSize(iWinWidth, iWinHeight);
+    }
 
-	/** Sets all the widgets to refelct the current preferences */
-	private void initPreferences()
-	{
-		for (PreferencesPanel panel : root.getPanelList())
-		{
-			panel.initPreferences();
-		}
-	}
+    /** Sets all the widgets to refelct the current preferences */
+    private void initPreferences()
+    {
+        for (PreferencesPanel panel : root.getPanelList())
+        {
+            panel.initPreferences();
+        }
+    }
 
-	// End of variables declaration//GEN-END:variables
+    // End of variables declaration//GEN-END:variables
 }
