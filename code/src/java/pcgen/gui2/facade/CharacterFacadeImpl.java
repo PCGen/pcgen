@@ -1817,6 +1817,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		buildAvailableDomainsList();
 		spellSupportFacade.refreshAvailableKnownSpells();
 		updateScorePurchasePool(false);
+		refreshEquipment();
 		
 		if (theCharacter.getRace() == null
 			|| Constants.NONESELECTED.equals(theCharacter.getRace()
@@ -4000,7 +4001,6 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		characterType.setReference(theCharacter.getCharacterType());
 		alignment.setReference(theCharacter.getPCAlignment());
 		refreshStatScores();
-		refreshEquipment();
 		
 	}
 
