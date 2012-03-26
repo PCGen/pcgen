@@ -155,6 +155,13 @@ ABILITYCATEGORY:Oracle Favored Bonus Spell				VISIBLE:QUALIFY	EDITABLE:YES		EDIT
 ABILITYCATEGORY:Campaign Trait Choice					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TraitCampaignChoice													PLURAL:Campaign Trait Choices						DISPLAYLOCATION:Traits
 
 
+###Block: Elemental Wizard Opposition School choices
+ABILITYCATEGORY:Air Opposition School Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AirOpposedSchool														PLURAL:Oracle Air Opposition School Choice					DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Earth Opposition School Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EarthOpposedSchool														PLURAL:Oracle Earth Opposition School Choice					DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Fire Opposition School Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FireOpposedSchool														PLURAL:Oracle Fire Opposition School Choice					DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Water Opposition School Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WaterOpposedSchool														PLURAL:Oracle Water Opposition School Choice					DISPLAYLOCATION:Class Abilities
+
+
 #COMMENT: The following are in the Core Set and shouldn't be required any longer.
 
 ###Block: Character Traits

@@ -1203,6 +1203,143 @@ Sunburst.MOD													DOMAINS:Seasons Subdomain=8
 Whirlwind.MOD													DOMAINS:Storms Subdomain=8
 Storm of Vengeance.MOD												DOMAINS:Seasons Subdomain,Storms Subdomain=9
 
+
+Accelerate Poison.MOD		DESCRIPTOR:WaterSchool
+Acid Arrow.MOD			DESCRIPTOR:EarthSchool
+Acid Fog.MOD			DESCRIPTOR:EarthSchool
+Acid Pit.MOD			DESCRIPTOR:EarthSchool
+Acid Splash.MOD			DESCRIPTOR:EarthSchool
+Alter Winds.MOD			DESCRIPTOR:AirSchool
+Aqueous Orb.MOD			DESCRIPTOR:WaterSchool
+Ball Lightning.MOD		DESCRIPTOR:AirSchool
+Burning Gaze.MOD			DESCRIPTOR:FireSchool
+Burning Hands.MOD			DESCRIPTOR:FireSchool
+Calcific Touch.MOD		DESCRIPTOR:EarthSchool
+Campfire Wall.MOD			DESCRIPTOR:FireSchool
+Chain Lightning.MOD		DESCRIPTOR:AirSchool
+Clashing Rocks.MOD		DESCRIPTOR:EarthSchool
+Cloak of Winds.MOD		DESCRIPTOR:AirSchool
+Cloudkill.MOD			DESCRIPTOR:WaterSchool
+Cone of Cold.MOD			DESCRIPTOR:WaterSchool
+Contagious Flame.MOD		DESCRIPTOR:FireSchool
+Control Weather.MOD		DESCRIPTOR:AirSchool
+Control Weather.MOD		DESCRIPTOR:WaterSchool
+Create Pit.MOD			DESCRIPTOR:EarthSchool
+Dancing Lantern.MOD		DESCRIPTOR:FireSchool
+Delayed Blast Fireball.MOD	DESCRIPTOR:FireSchool
+Detonate.MOD			DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
+Draconic Reservoir.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
+Dragon's Breath.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
+Elemental Aura.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
+Elemental Body I.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
+Elemental Body II.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
+Elemental Body III.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
+Elemental Body IV.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
+Elemental Speech.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
+Elemental Touch.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
+Expeditious Excavation.MOD	DESCRIPTOR:EarthSchool
+Feather Fall.MOD			DESCRIPTOR:AirSchool
+Fiery Body.MOD			DESCRIPTOR:FireSchool
+Fire Breath.MOD			DESCRIPTOR:FireSchool
+Fire Shield.MOD			DESCRIPTOR:FireSchool
+Fire Snake.MOD			DESCRIPTOR:FireSchool
+Fire Trap.MOD			DESCRIPTOR:FireSchool
+Fireball.MOD			DESCRIPTOR:FireSchool
+Firebrand.MOD			DESCRIPTOR:FireSchool
+Firefall.MOD			DESCRIPTOR:FireSchool
+Flame Arrow.MOD			DESCRIPTOR:FireSchool
+Flaming Sphere.MOD		DESCRIPTOR:FireSchool
+Flesh to Stone.MOD		DESCRIPTOR:EarthSchool
+Fluid Form.MOD			DESCRIPTOR:WaterSchool
+Fly (Mass).MOD			DESCRIPTOR:AirSchool
+Fly.MOD				DESCRIPTOR:AirSchool
+Fog Cloud.MOD			DESCRIPTOR:WaterSchool
+Freezing Sphere.MOD		DESCRIPTOR:WaterSchool
+Gaseous Form.MOD			DESCRIPTOR:AirSchool
+Gate.MOD				DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
+Geyser.MOD				DESCRIPTOR:FireSchool
+Geyser.MOD				DESCRIPTOR:WaterSchool
+Glide.MOD				DESCRIPTOR:AirSchool
+Glitterdust.MOD			DESCRIPTOR:EarthSchool
+Grease.MOD				DESCRIPTOR:EarthSchool
+Gust of Wind.MOD			DESCRIPTOR:AirSchool
+Horrid Wilting.MOD		DESCRIPTOR:WaterSchool
+Hungry Pit.MOD			DESCRIPTOR:EarthSchool
+Hydraulic Push.MOD		DESCRIPTOR:WaterSchool
+Hydraulic Torrent.MOD		DESCRIPTOR:WaterSchool
+Ice Storm.MOD			DESCRIPTOR:WaterSchool
+Incendiary Cloud.MOD		DESCRIPTOR:FireSchool
+Iron Body.MOD			DESCRIPTOR:EarthSchool
+Levitate.MOD			DESCRIPTOR:AirSchool
+Lightning Bolt.MOD		DESCRIPTOR:AirSchool
+Message.MOD				DESCRIPTOR:AirSchool
+Meteor Swarm.MOD			DESCRIPTOR:FireSchool
+Move Earth.MOD			DESCRIPTOR:EarthSchool
+Obscuring Mist.MOD		DESCRIPTOR:WaterSchool
+Overland Flight.MOD		DESCRIPTOR:AirSchool
+Passwall.MOD			DESCRIPTOR:EarthSchool
+Planar Adaptation (Mass).MOD	DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
+Planar Adaptation.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
+Planar Binding (Greater).MOD	DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
+Planar Binding (Lesser).MOD	DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
+Planar Binding.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
+Polar Ray.MOD			DESCRIPTOR:WaterSchool
+Protection from Energy.MOD	DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
+Pyrotechnics.MOD			DESCRIPTOR:FireSchool
+Rampart.MOD				DESCRIPTOR:EarthSchool
+Ray of Frost.MOD			DESCRIPTOR:WaterSchool
+Resist Energy.MOD			DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
+Reverse Gravity.MOD		DESCRIPTOR:EarthSchool
+River of Wind.MOD			DESCRIPTOR:AirSchool
+Scorching Ray.MOD			DESCRIPTOR:FireSchool
+Seamantle.MOD			DESCRIPTOR:WaterSchool
+Shatter.MOD				DESCRIPTOR:EarthSchool
+Shifting Sand.MOD			DESCRIPTOR:EarthSchool
+Shocking Grasp.MOD		DESCRIPTOR:AirSchool
+Shout (Greater).MOD		DESCRIPTOR:AirSchool
+Shout.MOD				DESCRIPTOR:AirSchool
+Sirocco.MOD				DESCRIPTOR:AirSchool
+Sirocco.MOD				DESCRIPTOR:FireSchool
+Sleet Storm.MOD			DESCRIPTOR:WaterSchool
+Slipstream.MOD			DESCRIPTOR:WaterSchool
+Solid Fog.MOD			DESCRIPTOR:WaterSchool
+Spark.MOD				DESCRIPTOR:FireSchool
+Spiked Pit.MOD			DESCRIPTOR:EarthSchool
+Statue.MOD				DESCRIPTOR:EarthSchool
+Stinking Cloud.MOD		DESCRIPTOR:EarthSchool
+Stone Call.MOD			DESCRIPTOR:EarthSchool
+Stone Fist.MOD			DESCRIPTOR:EarthSchool
+Stone Shape.MOD			DESCRIPTOR:EarthSchool
+Stone to Flesh.MOD		DESCRIPTOR:EarthSchool
+Stoneskin.MOD			DESCRIPTOR:EarthSchool
+Stormbolts.MOD			DESCRIPTOR:AirSchool
+Suffocation (Mass).MOD		DESCRIPTOR:AirSchool
+Suffocation.MOD			DESCRIPTOR:AirSchool
+Summon Monster II.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
+Summon Monster IV.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
+Summon Monster V.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
+Summon Monster VI.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
+Summon Monster VII.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
+Summon Monster VIII.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
+Touch of the Sea.MOD		DESCRIPTOR:WaterSchool
+Transmute Mud to Rock.MOD	DESCRIPTOR:EarthSchool
+Transmute Rock to Mud.MOD	DESCRIPTOR:EarthSchool
+Tsunami.MOD				DESCRIPTOR:WaterSchool
+Vortex.MOD				DESCRIPTOR:WaterSchool
+Wall of Fire.MOD			DESCRIPTOR:FireSchool
+Wall of Ice.MOD			DESCRIPTOR:WaterSchool
+Wall of Iron.MOD			DESCRIPTOR:EarthSchool
+Wall of Lava.MOD			DESCRIPTOR:EarthSchool
+Wall of Lava.MOD			DESCRIPTOR:FireSchool
+Wall of Stone.MOD			DESCRIPTOR:EarthSchool
+Water Breathing.MOD		DESCRIPTOR:WaterSchool
+Whispering Wind.MOD		DESCRIPTOR:AirSchool
+Wind Wall.MOD			DESCRIPTOR:AirSchool
+Winds of Vengeance.MOD		DESCRIPTOR:AirSchool
+World Wave.MOD			DESCRIPTOR:EarthSchool
+World Wave.MOD			DESCRIPTOR:WaterSchool
+
+
 #
 # EOF
 #
