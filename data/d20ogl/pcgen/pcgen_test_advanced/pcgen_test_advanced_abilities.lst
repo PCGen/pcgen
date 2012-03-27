@@ -76,7 +76,7 @@ OS 139 Display	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Should be seein
 #Preview and Export report 10/Cold and Acid; 15/Electricity
 
 
-Natural Attack ~ Test	KEY:Test Attack	CATEGORY:Natural Attack	TYPE:NaturalAttack	DEFINE:NaturalShieldReach|REACH.VAL	ASPECT:NaturalAttackName|PASSES	ASPECT:NaturalAttackName|Test Output		ASPECT:NaturalAttackToHit|%1|BAB+STR	ASPECT:NaturalAttackDamage|%1d%2|1|8|PREFEAT:1,Dont Display 1d6	ASPECT:NaturalAttackDamage|%1d%2|1|6|!PREFEAT:1,Dont Display 1d6	ASPECT:NaturalAttackDamageBonus|%1|STR+ShieldBashDamageBonus	ASPECT:NaturalAttackDamageBonus|%1|STR+ShieldBashDamageBonus		DEFINE:ShieldBashDamageBonus|0		ASPECT:NaturalAttackReach|%1|NaturalShieldReach				ASPECT:NaturalAttackType|Lethal		ASPECT:NaturalAttackThreatRange|%1|ShieldThreatRange										DEFINE:ShieldThreatRange|0	BONUS:VAR|ShieldThreatRange|20	ABILITY:Internal|AUTOMATIC|Shield Bash Stats
+Natural Attack ~ Test	KEY:Test Attack	CATEGORY:Natural Attack	TYPE:NaturalAttack	DEFINE:NaturalShieldReach|REACH.VAL	ASPECT:NaturalAttackName|PASSES|PREVARNEQ:ShieldThreatRange,20	ASPECT:NaturalAttackName| Test Output|PREVARNEQ:ShieldThreatRange,20	ASPECT:NaturalAttackName|PASSES Req|PREVAREQ:ShieldThreatRange,20	ASPECT:NaturalAttackName| Test Output|PREVAREQ:ShieldThreatRange,20	ASPECT:NaturalAttackToHit|%1|BAB+STR	ASPECT:NaturalAttackDamage|%1d%2|1|8|PREFEAT:1,Dont Display 1d6	ASPECT:NaturalAttackDamage|%1d%2|1|6|!PREFEAT:1,Dont Display 1d6	ASPECT:NaturalAttackDamageBonus|%1|STR+ShieldBashDamageBonus	ASPECT:NaturalAttackDamageBonus|%1|STR+ShieldBashDamageBonus		DEFINE:ShieldBashDamageBonus|0		ASPECT:NaturalAttackReach|%1|NaturalShieldReach				ASPECT:NaturalAttackType|Lethal		ASPECT:NaturalAttackThreatRange|%1|ShieldThreatRange										DEFINE:ShieldThreatRange|0	BONUS:VAR|ShieldThreatRange|20|TYPE=Base	ABILITY:Internal|AUTOMATIC|Shield Bash Stats
 Dont Display 1d6	CATEGORY:FEAT	SORTKEY:NEWTAG-252_2	TYPE:NEWTAG
 
 NEWTAG-252 Aspect Tag	KEY:NEWTAG-252	SORTKEY:NEWTAG-252_1	CATEGORY:FEAT	TYPE:NEWTAG	ABILITY:Natural Attack|AUTOMATIC|Test Attack
@@ -84,7 +84,7 @@ NEWTAG-252 Aspect Tag	KEY:NEWTAG-252	SORTKEY:NEWTAG-252_1	CATEGORY:FEAT	TYPE:NEW
 
 
 # COMMENT: This activates the OS and Displays on the PDF.
-Natural Attack ~ Shield Bash	CATEGORY:Natural Attack	TYPE:NaturalAttack	DEFINE:ShieldBashingDieSizeStep|0	DEFINE:NaturalShieldReach|REACH.VAL	ASPECT:NaturalAttackName|Shield Bash		ASPECT:NaturalAttackToHit|%1|BAB+STR+ShieldBashAttackBonus			DEFINE:ShieldBashAttackBonus|0		ASPECT:NaturalAttackDamage|%1d%2|ShieldDamageDice|ShieldDamageSize		DEFINE:ShieldDamageDice|0			DEFINE:ShieldDamageSize|0			ASPECT:NaturalAttackDamageBonus|%1|STR+ShieldBashDamageBonus		DEFINE:ShieldBashDamageBonus|0		ASPECT:NaturalAttackReach|%1|NaturalShieldReach				ASPECT:NaturalAttackType|Lethal		ASPECT:NaturalAttackThreatRange|%1|ShieldThreatRange										DEFINE:ShieldThreatRange|0	BONUS:VAR|ShieldThreatRange|20	ABILITY:Internal|AUTOMATIC|Shield Bash Stats
+Natural Attack ~ Shield Bash	CATEGORY:Natural Attack	TYPE:NaturalAttack	DEFINE:ShieldBashingDieSizeStep|0	DEFINE:NaturalShieldReach|REACH.VAL	ASPECT:NaturalAttackName|Shield Bash		ASPECT:NaturalAttackToHit|%1|BAB+STR+ShieldBashAttackBonus			DEFINE:ShieldBashAttackBonus|0		ASPECT:NaturalAttackDamage|%1d%2|ShieldDamageDice|ShieldDamageSize		DEFINE:ShieldDamageDice|0			DEFINE:ShieldDamageSize|0			ASPECT:NaturalAttackDamageBonus|%1|STR+ShieldBashDamageBonus		DEFINE:ShieldBashDamageBonus|0		ASPECT:NaturalAttackReach|%1|NaturalShieldReach				ASPECT:NaturalAttackType|Lethal		ASPECT:NaturalAttackThreatRange|%1|ShieldThreatRange										DEFINE:ShieldThreatRange|0	BONUS:VAR|ShieldThreatRange|20|TYPE=Base	ABILITY:Internal|AUTOMATIC|Shield Bash Stats
 
 # COMMENT: This Controls Damage of the Shield
 Shield Bash Stats	CATEGORY:Internal		BONUS:VAR|ShieldDamageDice|1|TYPE=Base	BONUS:VAR|ShieldBashAttackBonus|-4|!PREFEAT:1,Shield Mastery
@@ -384,6 +384,9 @@ Bob Ability ~ Weapon  TYPE Bob			AUTO:WEAPONPROF|TYPE=Bob			CATEGORY:Special Abi
 
 Bob Ability ~ TEST~7  SR Assigned via Companion Mod	DEFINE:CompanionLVL|1+TL	FOLLOWERS:Companion Mod|1	COMPANIONLIST:Companion Mod|Companion	CATEGORY:Special Ability	TYPE:SpecialQuality.BobTestAdditional	DESC:THis grants a single Companion to test the SR being applied from a Companion to the Master.
 
+Grant Template Chosen		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:This will grant a TEMPLATE Chosen to the Character	TEMPLATE:%LIST	CHOOSE:TEMPLATE|ALL
+
+
 
 
 # End the Bob Test Section
@@ -421,7 +424,9 @@ Choose String Stack No	CATEGORY:Special Ability		TYPE:TestMonkey.Chooser.Special
 
 ###Block: OS Tests
 
-Test OS Output Displays		CATEGORY:Special Ability	TYPE:SpecialAttack.SpecialQuality				DESC:Grabs Multiple Abilities and loads them to display in the various OS blocks that we have.	ABILITY:Special Ability|AUTOMATIC|SRD Master OS|MSRD Talent Support|FourE Master OS|SWSE Master OS|WoD Master OS|Eclipse Master OS
+Test OS Output Displays		CATEGORY:Special Ability	TYPE:SpecialAttack.SpecialQuality				DESC:Grabs Multiple Abilities and loads them to display in the various OS blocks that we have.	ABILITY:Special Ability|AUTOMATIC|SRD Master OS|MSRD Talent Support|FourE Master OS|SWSE Master OS|WoD Master OS|Eclipse Master OS		ABILITY:Natural Attack|AUTOMATIC|TYPE=NaturalAttack
+
+Test OS Output Display - Natural Attacks		CATEGORY:Internal	ABILITY:Natural Attack|AUTOMATIC|TYPE=NaturalAttack
 
 # SRD / RSRD (Ex, Su, Sp, Ps; Salient Ability, Mutation Ability)
 SRD Master OS			CATEGORY:Special Ability	ABILITY:Special Ability|AUTOMATIC|SRD Test Master OS|Extraordinary Ability|Supernatural Ability|Spell Like Ability|Psi Ability	ABILITY:Salient Divine Ability|AUTOMATIC|Salient Divine Ability	ABILITY:Mutation|AUTOMATIC|Mutation
@@ -433,6 +438,10 @@ Spell Like Ability		CATEGORY:Special Ability		TYPE:SpecialAttack.SpecialQuality.
 Psi Ability				CATEGORY:Special Ability		TYPE:SpecialAttack.SpecialQuality.PsiLike			DESC:Testing	
 Salient Divine Ability		CATEGORY:Salient Divine Ability	TYPE:SalientDivineAbility					DESC:Testing
 Mutation				CATEGORY:Mutation				TYPE:Mutation							DESC:Testing
+
+Natural Attack Block (Melee)	CATEGORY:Natural Attack			TYPE:NaturalAttack	DEFINE:NaturalBiteReach|REACH.VAL	DEFINE:BiteDamageDice|2	DEFINE:BiteDamageSize|6	DEFINE:BiteThreatRange|20	COST:0	ASPECT:NaturalAttackName|Bite	ASPECT:NaturalAttackToHit|%1|BAB+STR	ASPECT:NaturalAttackDamage|%1d%2+%3|BiteDamageDice|BiteDamageSize|BiteDamageBonus	DEFINE:BiteDamageBonus|0	BONUS:VAR|BiteDamageBonus|STR	ASPECT:NaturalAttackReach|%1|NaturalBiteReach	ASPECT:NaturalAttackType|Lethal	ASPECT:NaturalAttackThreatRange|%1|BiteThreatRange
+Natural Attack Block (Ranged)	CATEGORY:Natural Attack			TYPE:NaturalAttack	DEFINE:RangedDamageDice|2	DEFINE:RangedDamageSize|6	DEFINE:RangedThreatRange|20	COST:0	ASPECT:NaturalAttackName|Ranged	ASPECT:NaturalAttackToHit|%1|BAB+STR	ASPECT:NaturalAttackDamage|%1d%2+%3|RangedDamageDice|RangedDamageSize|RangedDamageBonus	DEFINE:RangedDamageBonus|0	BONUS:VAR|RangedDamageBonus|STR	ASPECT:NaturalAttackRange|%1|5	ASPECT:NaturalAttackRangeIncrement|%1|10	ASPECT:NaturalAttackType|Lethal	ASPECT:NaturalAttackThreatRange|%1|RangedThreatRange
+
 
 # MSRD Support
 MSRD Talent Support		CATEGORY:Special Ability													ABILITY:Talent|AUTOMATIC|Extraordinary Ability|Supernatural Ability|Spell Like Ability|Psi Ability

@@ -18,7 +18,7 @@ Simple Weapon Two		TYPE:Simple
 Simple Weapon Three		TYPE:Simple
 Simple Weapon Four		TYPE:Simple
 
-
+Longbow			TYPE:Martial.Bow.Longbow.WeaponGroupBows
 
 # Deity Specific Weapons For Bob Tests
 Deity Weapon Puni			TYPE:Exotic

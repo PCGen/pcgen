@@ -146,7 +146,7 @@ TemplateMoveFly_80_ManeuverClumsy	ABILITY:Special Ability|AUTOMATIC|Maneuverabil
 
 Template_DisplayOS_Blocks		ABILITY:Special Ability|AUTOMATIC|Test OS Output Displays
 # DESC:Grabs the Ability that will load all the various abilities to test OS output for Character Tab Preview 'Standard.htm' and PDF output.
-
+Test OS Output Display - Natural Attacks	ABILITY:Internal|AUTOMATIC|Test OS Output Display - Natural Attacks
 
 ###Block: How to break a PC
 Template A		ABILITY:FEAT|AUTOMATIC|Ability E
@@ -200,3 +200,9 @@ All Eclipse Automatic						VISIBLE:NO
 #COMMENT: This Template chooses whether the Character is a True Eclipse or a Multiclass and controls how many "Character Points" the character gets (24 or 48 at 1st level)
 First Level Eclipse					VISIBLE:DISPLAY																					PREMULT:1,[PREPCLEVEL:MAX=1],[PREVARGTEQ:EclipseClassLvl,TL]										BONUS:VAR|CharacterPoints,CharacterPointsTotal|24+(24*var("EclipseClassLvl"))
 Multiclass Eclipse					VISIBLE:DISPLAY																					PREMULT:1,[PREPCLEVEL:MIN=2],[PREVARLT:EclipseClassLvl,TL]											BONUS:VAR|CharacterPoints,CharacterPointsTotal|24*var("EclipseClassLvl")
+
+
+
+# Tom Test's
+Template Choice for Bob ~ 1			
+Template Choice for Bob ~ 2			

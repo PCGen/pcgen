@@ -1,6 +1,10 @@
 #Equip
 Test Equipment	TYPE:CODE433		ABILITY:Any Feat Choice|VIRTUAL|AFC 1	ABILITY:Any Feat Choice|AUTOMATIC|AFC 2
 
+
+Longbow		PROFICIENCY:WEAPON|Longbow	TYPE:Weapon.Ranged.Piercing.Cool.Magic.RangeIncrementTen	DAMAGE:1d8	CRITMULT:x2	CRITRANGE:1	SPROP:This is a test bow	WIELD:TwoHanded	SIZE:M	SLOTS:2	RANGE:100
+
+
 Torch		TYPE:Goods
 Lantern	TYPE:Goods.Lightsource.Latern
 
