@@ -2,9 +2,10 @@ PCGVERSION:2.0
 
 # System Information
 CAMPAIGN:PCGen Advanced Testing Set - Code & Data Team Use Only
-VERSION:5.17.3
-ROLLMETHOD:1|EXPRESSION:10
+VERSION:5.17.13-dev
+ROLLMETHOD:0|EXPRESSION:0
 PURCHASEPOINTS:N
+CHARACTERTYPE:PC
 POOLPOINTS:0
 POOLPOINTSAVAIL:-1
 GAMEMODE:35e
@@ -66,6 +67,7 @@ CLASSABILITIESLEVEL:MonKee=4|HITPOINTS:7|SKILLSGAINED:3|SKILLSREMAINING:3
 
 # Character Experience
 EXPERIENCE:10000
+EXPERIENCETABLE:Default
 
 # Character Templates
 TEMPLATESAPPLIED:[NAME:Template A]
@@ -73,6 +75,7 @@ TEMPLATESAPPLIED:[NAME:Template ~ 1 Bob Tests ~ ALL]
 TEMPLATESAPPLIED:[NAME:Template Type TEST]
 TEMPLATESAPPLIED:[NAME:Template Test ~ TEST~3 WEAPONBONUS may Be Persistent in Template]
 TEMPLATESAPPLIED:[NAME:BOB ~ Template ~ Test 34 Favored Class Highest]
+TEMPLATESAPPLIED:[NAME:Template Choice for Bob ~ 1]
 
 # Character Region
 REGION:None
@@ -91,51 +94,46 @@ SKILL:Perception|OUTPUTORDER:12|
 SKILL:Persuasion|OUTPUTORDER:13|
 SKILL:Poetry|OUTPUTORDER:14|CLASSBOUGHT:[CLASS:Basic Fighter|RANKS:1.0|COST:2|CLASSSKILL:N]
 SKILL:Poetry Recitation Specialty|OUTPUTORDER:15|
-SKILL:Test Coding Script|OUTPUTORDER:16|
-SKILL:Test Crafting|OUTPUTORDER:17|
-SKILL:Test Skill (Class Level)|OUTPUTORDER:18|
-SKILL:Test Skill Chooser_1|OUTPUTORDER:19|
-SKILL:Test Skill Chooser_2|OUTPUTORDER:20|
-SKILL:Test Skill Chooser_3|OUTPUTORDER:21|
-SKILL:Test Skill Chooser_4|OUTPUTORDER:22|
-SKILL:Test Skill Chooser_5|OUTPUTORDER:23|
-SKILL:Uber Scripting from five ranks in Test Coding Script|OUTPUTORDER:24|
+SKILL:Stealth|OUTPUTORDER:16|
+SKILL:Test Coding Script|OUTPUTORDER:17|
+SKILL:Test Crafting|OUTPUTORDER:18|
+SKILL:Test Skill (Class Level)|OUTPUTORDER:19|
+SKILL:Test Skill Chooser_1|OUTPUTORDER:20|
+SKILL:Test Skill Chooser_2|OUTPUTORDER:21|
+SKILL:Test Skill Chooser_3|OUTPUTORDER:22|
+SKILL:Test Skill Chooser_4|OUTPUTORDER:23|
+SKILL:Test Skill Chooser_5|OUTPUTORDER:24|
+SKILL:Uber Scripting from five ranks in Test Coding Script|OUTPUTORDER:25|
 SKILL:Domain Skill 1|OUTPUTORDER:6|CLASSBOUGHT:[CLASS:MonKee|RANKS:2.0|COST:1|CLASSSKILL:Y]
 SKILL:Domain Skill 2|OUTPUTORDER:7|CLASSBOUGHT:[CLASS:MonKee|RANKS:2.0|COST:1|CLASSSKILL:Y]
 
 # Character Languages
-LANGUAGE:Choose Lang Persistence Race|LANGUAGE:Common|LANGUAGE:Terestial Alpha|LANGUAGE:Evilhaasness
+LANGUAGE:Choose Lang Persistence Race|LANGUAGE:Terestial Alpha|LANGUAGE:Common|LANGUAGE:Evilhaasness
 
 # Character Feats
 FEATPOOL:-2.0
 
 # Character Abilities
-ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Weapon Focus|APPLIEDTO:Uber Sword,Suns Weapon Of Choice|TYPE:General.Fighter|DESC:See Text
-ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:BOB ~ TEST 31|TYPE:BobTest
-ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Bob Test Feat Choose Spelllevel Arcane|APPLIEDTO:CLASS.MonKee;LEVEL.1|TYPE:General.Tests.BobTest|SAVE:BONUS&pipe;SPELLCAST&pipe;CLASS.MONKEE;LEVEL.1&pipe;1
-ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Exotic Weapon Proficiency|APPLIEDTO:Uber Sword|TYPE:General.Fighter|DESC:See Text
-ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Ability D|TYPE:ATest
-ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Ability A|TYPE:ATest
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Ability F|TYPE:ATest
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Bob Test Feat Choose Spelllevel Arcane|APPLIEDTO:CLASS.MonKee;LEVEL.1|TYPE:General.Tests.BobTest|SAVE:BONUS&pipe;SPELLCAST&pipe;CLASS.MONKEE;LEVEL.1&pipe;1
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Ability A|TYPE:ATest
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Exotic Weapon Proficiency|APPLIEDTO:Uber Sword|TYPE:General.Fighter|DESC:See Text
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Bob Test Feat Choose Spells Monkee|APPLIEDTO:Identify|TYPE:General.Tests.BobTest
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:BOB ~ TEST 31|TYPE:BobTest
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Ability D|TYPE:ATest
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Weapon Focus|APPLIEDTO:Uber Sword,Suns Weapon Of Choice|TYPE:General.Fighter|DESC:See Text
 USERPOOL:FEAT|POOLPOINTS:0.0
-USERPOOL:Internal|POOLPOINTS:0.0
-USERPOOL:Mutation|POOLPOINTS:0.0
-USERPOOL:Salient Divine Ability|POOLPOINTS:0.0
-USERPOOL:Special Ability|POOLPOINTS:0.0
-USERPOOL:Animal Trick|POOLPOINTS:0.0
-USERPOOL:Talent|POOLPOINTS:0.0
-USERPOOL:Force Powers|POOLPOINTS:0.0
-USERPOOL:Force Techniques|POOLPOINTS:0.0
-USERPOOL:Force Secrets|POOLPOINTS:0.0
+ABILITY:Special Ability|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Grant Template Chosen|TYPE:SpecialQuality|DESC:This will grant a TEMPLATE Chosen to the Character
+USERPOOL:Special Ability|POOLPOINTS:1.0
 ABILITY:Test Choosers|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Bob Test ~ Bonus Var in a Chooser|APPLIEDTO:,,|TYPE:BobTest.Test.Chooser.SpecialQuality|DESC:Bonus Var should be outputting 3 (ability taken three times) var number is showing %1&pipe;BonusVarTest
 USERPOOL:Test Choosers|POOLPOINTS:0.0
 ABILITY:*LANGBONUS|TYPE:VIRTUAL|CATEGORY:*LANGBONUS|KEY:*LANGBONUS|APPLIEDTO:|TYPE:
 USERPOOL:*LANGBONUS|POOLPOINTS:0.0
 
 # Character Weapon proficiencies
-WEAPONPROF:[WEAPON:Auto Weapon Standard|WEAPON:Bob Long Blade|WEAPON:Bob Short Blade|WEAPON:Bob Two Hand Blade|WEAPON:Deity Weapon Puni|WEAPON:Deity Weapon Second Puni|WEAPON:Extra Blade|WEAPON:Fine Wine Blade|WEAPON:Jim Long Blade|WEAPON:Jim Short Blade]
-WEAPONPROF:[WEAPON:Jim Two Handed Blade|WEAPON:Longsword|WEAPON:Suns Weapon Of Choice|WEAPON:Template Weapon Test|WEAPON:Uber Sword|WEAPON:Unarmed Strike]
+WEAPONPROF:[WEAPON:Auto Weapon Standard|WEAPON:Bob Long Blade|WEAPON:Bob Short Blade|WEAPON:Bob Two Hand Blade|WEAPON:Dagger|WEAPON:Deity Weapon Puni|WEAPON:Deity Weapon Second Puni|WEAPON:Extra Blade|WEAPON:Fine Wine Blade|WEAPON:Jim Long Blade]
+WEAPONPROF:[WEAPON:Jim Short Blade|WEAPON:Jim Two Handed Blade|WEAPON:Longsword|WEAPON:Simple Weapon Four|WEAPON:Simple Weapon One|WEAPON:Simple Weapon Three|WEAPON:Simple Weapon Two|WEAPON:Spear|WEAPON:Suns Weapon Of Choice|WEAPON:Template Weapon Test]
+WEAPONPROF:[WEAPON:Uber Sword|WEAPON:Unarmed Strike]
 WEAPONPROF:[WEAPON:Template Weapon Test]|SOURCE:[TYPE:PCTEMPLATE|NAME:Template Test ~ TEST~3 WEAPONBONUS may Be Persistent in Template]
 
 # Character Equipment
@@ -151,8 +149,8 @@ CALCEQUIPSET:0.1
 
 # Character Deity/Domain
 DEITY:Test Deity|DEITYDOMAINS:[DOMAIN:Bar Ball|DOMAIN:Domain Add Feat|DOMAIN:Domain Test Skill|DOMAIN:Domain Test Skill List|DOMAIN:Dungeon Crawl|DOMAIN:Foo Ball|DOMAIN:Test Spells Domain]|ALIGNALLOW:|HOLYITEM:|DEITYFAVWEAP:[WEAPON:Fine Wine Blade|WEAPON:Deity Weapon Second Puni|WEAPON:Deity Weapon Puni]|DEITYALIGN:
-DOMAIN:Bar Ball|ASSOCIATEDDATA:Fine Wine Blade|DOMAINGRANTS:This is the Bar Ball Domain|SOURCE:[TYPE:PCClass|NAME:MonKee|LEVEL:1]
 DOMAIN:Domain Test Skill|SOURCE:[TYPE:PCClass|NAME:MonKee|LEVEL:1]
+DOMAIN:Bar Ball|ASSOCIATEDDATA:Fine Wine Blade|DOMAINGRANTS:This is the Bar Ball Domain|SOURCE:[TYPE:PCClass|NAME:MonKee|LEVEL:1]
 DOMAIN:Domain Test Skill List|ASSOCIATEDDATA:Domain Skill 2|SOURCE:[TYPE:PCClass|NAME:MonKee|LEVEL:1]
 
 # Character Spells Information
@@ -175,3 +173,9 @@ NOTE:Character Sheet Notes|ID:1|PARENTID:-1|VALUE:
 
 # Age Set Selections
 AGESET:1:0:0:0:0:0:0:0:0:0
+
+# Campaign History
+
+# Suppressed Biography Fields
+SUPPRESSBIOFIELDS:
+
