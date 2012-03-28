@@ -31,6 +31,7 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.net.URI;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -518,7 +519,7 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 			}
 			IOFileFilter filter = FileFilterUtils.and(prefixFilter, ioFilter);
 			List<File> files = FileFilterUtils.filterList(filter, allTemplates);
-
+			Collections.sort(files);
 			URI osPath = new File(ConfigurationSettings.getOutputSheetsDir()).toURI();
 			Object[] uriList = new Object[files.size()];
 			for (int i = 0; i < uriList.length; i++)
