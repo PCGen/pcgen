@@ -117,7 +117,7 @@ public class PortraitToken extends Token
 		File thumbFile;
 		try
 		{
-			thumbFile = File.createTempFile("pcgentmb_", "jpg");
+			thumbFile = File.createTempFile("pcgentmb_", ".jpg");
 		}
 		catch (IOException e1)
 		{
