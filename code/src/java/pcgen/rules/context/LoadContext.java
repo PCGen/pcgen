@@ -631,7 +631,8 @@ public abstract class LoadContext
 								ref.getManufacturer((ClassIdentity<? extends Loadable>) clIdentity);
 						if (!mfg.containsObject(choice)
 							&& (ref.getAbbreviatedObject(
-								clIdentity.getChoiceClass(), choice) == null))
+								clIdentity.getChoiceClass(), choice) == null)
+							&& (TokenLibrary.getPrimitive(cl, choice) == null))
 						{
 							Logging.errorPrint("Found "
 								+ rm.getReferenceDescription() + " "
