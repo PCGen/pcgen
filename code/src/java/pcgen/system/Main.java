@@ -514,6 +514,7 @@ public final class Main
 	public static void shutdown()
 	{
 		configFactory.savePropertyContexts();
+		BatchExporter.removeTemporaryFiles();
 		PropertyContextFactory.getDefaultFactory().savePropertyContexts();
 		System.exit(0);
 	}

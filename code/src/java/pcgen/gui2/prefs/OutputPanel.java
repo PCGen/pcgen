@@ -108,7 +108,7 @@ public class OutputPanel extends PCGenPrefsPanel
 	private static String in_choose = "...";
 
 	private JCheckBox printSpellsWithPC = new JCheckBox();
-	private JCheckBox removeTempFiles;
+	private JCheckBox removeTempFiles = new JCheckBox(in_removeTemp);
 	private JCheckBox saveOutputSheetWithPC = new JCheckBox();
 
 	private JCheckBox weaponProfPrintout;
@@ -280,9 +280,6 @@ public class OutputPanel extends PCGenPrefsPanel
 		this.add(paperType);
 
 		Utility.buildConstraints(c, 0, 7, 3, 1, 0, 0);
-		removeTempFiles =
-				new JCheckBox(in_removeTemp, SettingsHandler
-					.getCleanupTempFiles());
 		gridbag.setConstraints(removeTempFiles, c);
 		this.add(removeTempFiles);
 
@@ -404,11 +401,8 @@ public class OutputPanel extends PCGenPrefsPanel
 
 		Globals.selectPaper((String) paperType.getSelectedItem());
 
-		if (SettingsHandler.getCleanupTempFiles()
-			|| removeTempFiles.isSelected())
-		{
-			SettingsHandler.setCleanupTempFiles(removeTempFiles.isSelected());
-		}
+		context.setBoolean(UIPropertyContext.CLEANUP_TEMP_FILES,
+			removeTempFiles.isSelected());
 
 		if (SettingsHandler.getWeaponProfPrintout() != weaponProfPrintout
 			.isSelected())
@@ -468,6 +462,9 @@ public class OutputPanel extends PCGenPrefsPanel
 			.getProperty(UIPropertyContext.DEFAULT_PDF_OUTPUT_SHEET));
 		saveOutputSheetWithPC.setSelected(context
 			.getBoolean(UIPropertyContext.SAVE_OUTPUT_SHEET_WITH_PC));
+		removeTempFiles.setSelected(context.initBoolean(
+			UIPropertyContext.CLEANUP_TEMP_FILES, true));
+		
 		printSpellsWithPC.setSelected(SettingsHandler.getPrintSpellsWithPC());
 		skillChoice.setSelectedIndex(SettingsHandler.getIncludeSkills());
 

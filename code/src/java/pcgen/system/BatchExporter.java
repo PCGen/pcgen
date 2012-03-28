@@ -25,6 +25,7 @@ package pcgen.system;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
@@ -32,11 +33,13 @@ import java.io.UnsupportedEncodingException;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.PartyFacade;
 import pcgen.core.facade.SourceSelectionFacade;
 import pcgen.core.facade.UIDelegate;
+import pcgen.gui2.UIPropertyContext;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGFile;
 import pcgen.persistence.SourceFileLoader;
@@ -241,16 +244,18 @@ public class BatchExporter
 			handler.setMode(FOPHandler.PDF_MODE);
 			handler.setOutputFile(outFile);
 			handler.run();
+			if (StringUtils.isNotBlank(handler.getErrorMessage()))
+			{
+				Logging.errorPrint("BatchExporter.exportCharacterToPDF failed: " //$NON-NLS-1$
+					+ handler.getErrorMessage());
+				return false;
+			}
 		}
 		catch (IOException e)
 		{
-			Logging.errorPrint("BatchExporter.exportCharacterToPDF failed", e);
+			Logging.errorPrint("BatchExporter.exportCharacterToPDF failed", e); //$NON-NLS-1$
 			return false;
 
-		}
-		if (tempFile != null)
-		{
-			tempFile.delete();
 		}
 		return true;
 
@@ -338,10 +343,6 @@ public class BatchExporter
 			return false;
 
 		}
-		if (tempFile != null)
-		{
-			tempFile.delete();
-		}
 		return true;
 	}
 
@@ -380,6 +381,44 @@ public class BatchExporter
 				"Unable to create output file " + outFile.getAbsolutePath(), e);
 			return false;
 		}
+	}
+
+	/**
+	 * Remove any temporary xml files produced while outputting characters. 
+	 */
+	public static void removeTemporaryFiles()
+	{
+		final boolean cleanUp =
+				UIPropertyContext.getInstance().initBoolean(
+					UIPropertyContext.CLEANUP_TEMP_FILES, true);
+
+		if (!cleanUp)
+		{
+			return;
+		}
+
+		final String aDirectory =
+				SettingsHandler.getTempPath() + File.separator;
+		new File(aDirectory).list(new FilenameFilter()
+		{
+			public boolean accept(File aFile, String aString)
+			{
+				try
+				{
+					if (aString.startsWith(Constants.TEMPORARY_FILE_NAME))
+					{
+						final File tf = new File(aFile, aString);
+						tf.delete();
+					}
+				}
+				catch (Exception e)
+				{
+					Logging.errorPrint("removeTemporaryFiles", e);
+				}
+
+				return false;
+			}
+		});
 	}
 
 	private static void printToXMLFile(File outFile, CharacterFacade character)

@@ -43,6 +43,8 @@ public final class UIPropertyContext extends PropertyContext
 	public static final String DEFAULT_PDF_OUTPUT_SHEET = "defaultPdfOutputSheet";
 	public static final String DEFAULT_HTML_OUTPUT_SHEET = "defaultHtmlOutputSheet";
 	public static final String SAVE_OUTPUT_SHEET_WITH_PC = "saveOutputSheetWithPC";
+	/** Should we delete all temp files on exit that were generated during outputting character. */
+	public static final String CLEANUP_TEMP_FILES = "cleanupTempFiles";
 
 	/**
 	 * The character property for the initial tab to open

@@ -60,8 +60,8 @@ import pcgen.gui.filter.Filterable;
 import pcgen.gui.utils.Utility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
-import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 /**
  * This class contains all settings-related code moved from Globals.java
@@ -456,11 +456,17 @@ public final class SettingsHandler
 		return classTab_SelectedListMode;
 	}
 
+	/**
+	 * @Deprecated Use UIPropertyContext.CLEANUP_TEMP_FILES instead.
+	 */
 	public static void setCleanupTempFiles(final boolean argDoCleanup)
 	{
 		cleanupTempFiles = argDoCleanup;
 	}
 
+	/**
+	 * @Deprecated Use UIPropertyContext.CLEANUP_TEMP_FILES instead.
+	 */
 	public static boolean getCleanupTempFiles()
 	{
 		return cleanupTempFiles;
