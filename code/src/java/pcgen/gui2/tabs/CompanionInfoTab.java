@@ -38,8 +38,11 @@ import pcgen.core.facade.CompanionFacade;
 import pcgen.core.facade.CompanionStubFacade;
 import pcgen.core.facade.CompanionSupportFacade;
 import pcgen.core.facade.event.*;
+import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.core.facade.util.MapFacade;
+import pcgen.gui2.filter.Filter;
+import pcgen.gui2.filter.FilteredListFacade;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.util.FacadeComboBoxModel;
 import pcgen.gui2.util.JTreeTable;
@@ -57,7 +60,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 
 	private final JTreeTable companionsTable;
 	private final JEditorPane infoPane;
-
+	private CompanionDialog companionDialog;
 	public CompanionInfoTab()
 	{
 		this.companionsTable = new JTreeTable()
@@ -71,6 +74,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 
 		};
 		this.infoPane = new JEditorPane();
+		this.companionDialog = new CompanionDialog();
 		initComponents();
 	}
 
@@ -156,7 +160,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 
 			// p should now be the JTable. 
 			boolean colorMatch = (back != null) && (p != null) && back.equals(p.getBackground())
-					&& p.isOpaque();
+								 && p.isOpaque();
 			return !colorMatch && super.isOpaque();
 		}
 
@@ -179,8 +183,8 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 
 	}
 
-	private static class ButtonCellEditor extends AbstractCellEditor implements TableCellEditor,
-			ActionListener
+	private class ButtonCellEditor extends AbstractCellEditor implements TableCellEditor,
+																				ActionListener
 	{
 
 		private static final String CREATE_COMMAND = "New";
@@ -189,10 +193,13 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		private final JPanel container = new JPanel();
 		private final DefaultTableCellRenderer background = new DefaultTableCellRenderer();
 		private final CompanionSupportFacade support;
-
+		private final FilteredCompanionList compCreationList;
 		public ButtonCellEditor(CharacterFacade character)
 		{
 			this.support = character.getCompanionSupport();
+			compCreationList = new FilteredCompanionList();
+			compCreationList.setDelegate(support.getAvailableCompanions());
+			
 			button.addActionListener(this);
 			button.setMargin(new Insets(0, 0, 0, 0));
 
@@ -240,7 +247,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			{
 				CompanionFacade companion = (CompanionFacade) selectedElement;
 				int ret = JOptionPane.showConfirmDialog(button, "Are you sure you want to remove "
-						+ companion.getNameRef().getReference() + " as a companion?",
+																+ companion.getNameRef().getReference() + " as a companion?",
 														"Confirm Removal", JOptionPane.YES_NO_OPTION);
 				if (ret == JOptionPane.YES_OPTION)
 				{
@@ -249,16 +256,52 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			}
 			if (CREATE_COMMAND.equals(e.getActionCommand()))
 			{
-				//TODO: implement this for real
-				///////////////////////////////////////
-				JComboBox box = new JComboBox();
-				FacadeComboBoxModel<CompanionStubFacade> model = new FacadeComboBoxModel<CompanionStubFacade>();
-				model.setListFacade(support.getAvailableCompanions());
-				box.setModel(model);
-				JOptionPane.showMessageDialog(button, box, "Select a companion", JOptionPane.OK_OPTION);
-				///////////////////////////////////////
+				String type = (String) selectedElement;
+				compCreationList.setCompanionType(type);
+				companionDialog.setModel(compCreationList);
+				companionDialog.setVisible(true);
 			}
 			cancelCellEditing();
+		}
+
+	}
+
+	private static class FilteredCompanionList extends FilteredListFacade<String, CompanionStubFacade>
+		implements Filter<String, CompanionStubFacade>
+	{
+
+		public FilteredCompanionList()
+		{
+			setFilter(this);
+		}
+
+		public void setCompanionType(String type)
+		{
+			setContext(type);
+		}
+
+		@Override
+		public boolean accept(String context, CompanionStubFacade element)
+		{
+			if (context == null)
+			{
+				return true;
+			}
+			return context.equals(element.getCompanionType());
+		}
+
+	}
+
+	private class CompanionDialog extends JDialog
+	{
+
+		public CompanionDialog()
+		{
+			super(JOptionPane.getFrameForComponent(CompanionInfoTab.this), true);
+		}
+
+		public void setModel(ListFacade<CompanionStubFacade> model)
+		{
 		}
 
 	}
@@ -471,9 +514,13 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			{
 				@SuppressWarnings("unchecked")
 				int insertIndex = Collections.binarySearch(types, e.getKey(), Comparators.toStringIgnoreCaseCollator());
-				types.add(-(insertIndex + 1), e.getKey());
+				if (insertIndex < 0)
+				{
+					insertIndex = -(insertIndex + 1);
+				}
+				types.add(insertIndex, e.getKey());
 				CompanionTypeNode child = new CompanionTypeNode(e.getKey());
-				insertNodeInto(child, this, -(insertIndex + 1));
+				insertNodeInto(child, this, insertIndex);
 			}
 
 			@Override
@@ -539,7 +586,5 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			}
 
 		}
-
 	}
-
 }
