@@ -98,7 +98,10 @@ public class FeatToken<T> implements PrimitiveToken<T>
 		{
 			List<? extends R> list = info.getChoiceActor().getCurrentlySelected(ability,
 					pc);
-			availableList.addAll(list);
+			if (list != null)
+			{
+				availableList.addAll(list);
+			}
 		}
 		return availableList;
 	}
