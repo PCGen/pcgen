@@ -1,5 +1,5 @@
 /*
- * ExperiencePanel.java
+ * DefaultsPanel.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -39,9 +39,10 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>ExperiencePanel</code> is responsible for 
- * displaying experience related preferences and allowing the 
- * preferences to be edited by the user.
+ * The Class <code>DefaultsPanel</code> is responsible for 
+ * setting various defaults for characters that can be changed
+ * on a per character basis, such as experience table, character
+ * type, and so on. 
  * 
  * Last Editor: $Author: $
  * Last Edited: $Date:  $
@@ -50,24 +51,24 @@ import pcgen.system.LanguageBundle;
  * @version $Revision:  $
  */
 @SuppressWarnings("serial")
-public class ExperiencePanel extends PCGenPrefsPanel
+public class DefaultsPanel extends PCGenPrefsPanel
 {
-	private static String in_experience =
-		LanguageBundle.getString("in_Prefs_experience");
+	private static String in_defaults =
+		LanguageBundle.getString("in_Prefs_defaults");
 	private JComboBoxEx xpTableCombo = new JComboBoxEx();
 	private JComboBoxEx characterTypeCombo = new JComboBoxEx();
 
 	/**
-	 * Instantiates a new monster panel.
+	 * Instantiates a new defaults panel.
 	 */
-	public ExperiencePanel()
+	public DefaultsPanel()
 	{
 		GridBagLayout gridbag = new GridBagLayout();
 		GridBagConstraints c = new GridBagConstraints();
 		JLabel label;
 		Border etched = null;
 		TitledBorder title1 =
-				BorderFactory.createTitledBorder(etched, in_experience);
+				BorderFactory.createTitledBorder(etched, in_defaults);
 
 		title1.setTitleJustification(TitledBorder.LEFT);
 		this.setBorder(title1);
@@ -113,7 +114,7 @@ public class ExperiencePanel extends PCGenPrefsPanel
 	@Override
 	public String getTitle()
 	{
-		return in_experience;
+		return in_defaults;
 	}
 	
 	/* (non-Javadoc)

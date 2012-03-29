@@ -77,7 +77,7 @@ import pcgen.gui2.prefs.ColorsPanel;
 import pcgen.gui2.prefs.CopySettingsPanel;
 import pcgen.gui2.prefs.DisplayOptionsPanel;
 import pcgen.gui2.prefs.EquipmentPanel;
-import pcgen.gui2.prefs.ExperiencePanel;
+import pcgen.gui2.prefs.DefaultsPanel;
 import pcgen.gui2.prefs.HitPointsPanel;
 import pcgen.gui2.prefs.HouseRulesPanel;
 import pcgen.gui2.prefs.InputPanel;
@@ -130,7 +130,7 @@ public final class PreferencesDialog extends JDialog
 	private PCGenPrefsPanel hitPointsPanel;
 	private PCGenPrefsPanel houseRulesPanel;
 	private PCGenPrefsPanel monsterPanel;
-	private PCGenPrefsPanel experiencePanel;
+	private PCGenPrefsPanel defaultsPanel;
 
 	// Appearance panels
 	private PCGenPrefsPanel colorsPanel;
@@ -231,7 +231,7 @@ public final class PreferencesDialog extends JDialog
 		
 		// Copy Settings
 		copySettingsPanel.registerAffectedPanel(characterStatsPanel);
-		copySettingsPanel.registerAffectedPanel(experiencePanel);
+		copySettingsPanel.registerAffectedPanel(defaultsPanel);
 		copySettingsPanel.registerAffectedPanel(languagePanel);
 
 	}
@@ -291,8 +291,8 @@ public final class PreferencesDialog extends JDialog
 		addPanelToTree(characterNode, houseRulesPanel);
 		monsterPanel = new MonsterPanel();
 		addPanelToTree(characterNode, monsterPanel);
-		experiencePanel = new ExperiencePanel();
-		addPanelToTree(characterNode, experiencePanel);
+		defaultsPanel = new DefaultsPanel();
+		addPanelToTree(characterNode, defaultsPanel);
 		rootNode.add(characterNode);
 
 		appearanceNode = new DefaultMutableTreeNode(in_appearance);

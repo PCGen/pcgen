@@ -102,7 +102,7 @@ import pcgen.gui.utils.Utility;
 import pcgen.gui.utils.WholeNumberField;
 import pcgen.gui2.prefs.CharacterStatsPanel;
 import pcgen.gui2.prefs.CopySettingsPanel;
-import pcgen.gui2.prefs.ExperiencePanel;
+import pcgen.gui2.prefs.DefaultsPanel;
 import pcgen.gui2.prefs.HouseRulesPanel;
 import pcgen.gui2.prefs.LanguagePanel;
 import pcgen.gui2.prefs.MonsterPanel;
@@ -469,8 +469,8 @@ final class PreferencesDialog extends JDialog
 	// "Monsters"
 	private PCGenPrefsPanel monsterPanel;
 
-	// "Experience"
-	private PCGenPrefsPanel experiencePanel;
+	// "Defaults"
+	private PCGenPrefsPanel defaultsPanel;
 
 	private PCGenPrefsPanel sourcesPanel;
 
@@ -617,8 +617,8 @@ final class PreferencesDialog extends JDialog
 		// Monsters
 		monsterPanel.setOptionsBasedOnControls();
 
-		// Experience
-		experiencePanel.setOptionsBasedOnControls();
+		// Defaults
+		defaultsPanel.setOptionsBasedOnControls();
 
 		// Tab Options
 		switch (mainTabPlacementCombo.getSelectedIndex())
@@ -983,7 +983,7 @@ final class PreferencesDialog extends JDialog
 		monsterPanel.applyOptionValuesToControls();
 		
 		// Experience
-		experiencePanel.applyOptionValuesToControls();
+		defaultsPanel.applyOptionValuesToControls();
 		
 		// Colors
 		prereqQualifyColor.setForeground(new Color(SettingsHandler
@@ -1200,7 +1200,7 @@ final class PreferencesDialog extends JDialog
 		// Copy Settings
 		copySettingsPanel.applyOptionValuesToControls();
 		copySettingsPanel.registerAffectedPanel(characterStatsPanel);
-		copySettingsPanel.registerAffectedPanel(experiencePanel);
+		copySettingsPanel.registerAffectedPanel(defaultsPanel);
 		copySettingsPanel.registerAffectedPanel(languagePanel);
 
 	}
@@ -2407,10 +2407,10 @@ final class PreferencesDialog extends JDialog
 		characterNode.add(new DefaultMutableTreeNode(in_monsters));
 		monsterPanel = new MonsterPanel();
 		settingsPanel.add(monsterPanel, monsterPanel.getTitle());
-		experiencePanel = new ExperiencePanel();
+		defaultsPanel = new DefaultsPanel();
 		characterNode
-			.add(new DefaultMutableTreeNode(experiencePanel.getTitle()));
-		settingsPanel.add(experiencePanel, experiencePanel.getTitle());
+			.add(new DefaultMutableTreeNode(defaultsPanel.getTitle()));
+		settingsPanel.add(defaultsPanel, defaultsPanel.getTitle());
 		rootNode.add(characterNode);
 
 		appearanceNode = new DefaultMutableTreeNode(in_appearance);
