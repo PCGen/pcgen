@@ -55,6 +55,7 @@ public class CompanionFacadeDelegate implements CompanionFacade
 
 	public void setCompanionFacade(CompanionFacade companionFacade)
 	{
+		delegate = companionFacade;
 		nameDelegate.setDelegate(companionFacade.getNameRef());
 		fileDelegate.setDelegate(companionFacade.getFileRef());
 		raceDelegate.setDelegate(companionFacade.getRaceRef());
