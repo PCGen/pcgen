@@ -88,7 +88,10 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 			Map<FollowerOption, CDOMObject> fMap = theCharacter.getAvailableFollowers(compList.getKeyName(), null);
 			for (FollowerOption followerOpt : fMap.keySet())
 			{
-				companions.add(new CompanionStub(followerOpt.getRace(), compList.getKeyName()));
+				if (followerOpt.getRace() != Globals.s_EMPTYRACE)
+				{
+					companions.add(new CompanionStub(followerOpt.getRace(), compList.getKeyName()));
+				}
 			}
 			int maxVal = theCharacter.getMaxFollowers(compList);
 			if (maxVal == 0)
