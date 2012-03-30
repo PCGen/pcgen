@@ -3103,8 +3103,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		if (!Constants.EMPTY_STRING.equals(aFollower.getFileName())
 			&& !Constants.EMPTY_STRING.equals(aFollower.getName())
-			&& !Constants.EMPTY_STRING.equals(aFollower.getType().toString())
-			&& aFollower.getType() != null)
+			&& aFollower.getType() != null
+			&& !Constants.EMPTY_STRING.equals(aFollower.getType().toString()))
 		{
 			thePC.addFollower(aFollower);
 		}
