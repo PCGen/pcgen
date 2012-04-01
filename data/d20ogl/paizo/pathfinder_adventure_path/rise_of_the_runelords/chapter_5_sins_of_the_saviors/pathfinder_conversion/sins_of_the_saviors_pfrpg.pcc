@@ -43,6 +43,7 @@ COPYRIGHT:PCGen dataset conversion for "Rise of the Runelords, Chapter 5: Sins o
 # Imported 35e data files
 ABILITY:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_5_sins_of_the_saviors/pf5_abilities_monster.lst
 ABILITY:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_5_sins_of_the_saviors/pf5_abilities.lst
+EQUIPMOD:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_5_sins_of_the_saviors/pf5_equipmods_weapons.lst
 EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_5_sins_of_the_saviors/pf5_equipment.lst
 FEAT:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_5_sins_of_the_saviors/pf5_feats.lst
 RACE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_5_sins_of_the_saviors/pf5_race.lst

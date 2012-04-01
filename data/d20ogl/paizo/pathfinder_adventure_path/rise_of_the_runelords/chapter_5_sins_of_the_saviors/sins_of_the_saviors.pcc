@@ -42,6 +42,7 @@ ABILITY:pf5_abilities.lst
 ABILITY:pf5_abilities_class.lst
 ABILITY:pf5_abilities_monster.lst
 CLASS:pf5_classes.lst
+EQUIPMOD:pf5_equipmods_weapons.lst
 EQUIPMENT:pf5_equipment.lst
 FEAT:pf5_feats.lst
 KIT:pf5_kits.lst
