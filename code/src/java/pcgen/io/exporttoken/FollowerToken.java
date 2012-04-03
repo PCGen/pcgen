@@ -21,7 +21,7 @@
  * $Id: InfoKnownSpells.java 1030 2006-05-26 08:25:10Z jdempsey $
  *
  */
-package plugin.exporttokens;
+package pcgen.io.exporttoken;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -34,7 +34,6 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.Follower;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
 import pcgen.util.Logging;
 
 /**

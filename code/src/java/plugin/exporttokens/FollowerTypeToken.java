@@ -30,6 +30,7 @@ import java.util.StringTokenizer;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.Follower;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.FollowerToken;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.Logging;
 
