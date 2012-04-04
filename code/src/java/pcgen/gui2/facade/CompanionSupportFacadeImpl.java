@@ -22,6 +22,7 @@ package pcgen.gui2.facade;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -30,6 +31,7 @@ import pcgen.cdom.list.CompanionList;
 import pcgen.core.FollowerOption;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
 import pcgen.core.character.Follower;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.CompanionFacade;
@@ -61,6 +63,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	private PlayerCharacter theCharacter;
 	private DefaultListFacade<CompanionStubFacade> availCompList;
 	private DefaultMapFacade<String, Integer> maxCompanionsMap;
+	private Map<String, CompanionList> keyToCompanionListMap;
 
 	/**
 	 * Create a new instance of CompanionSupportFacadeImpl
@@ -72,6 +75,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		this.companionList = new DefaultListFacade<CompanionFacadeDelegate>();
 		this.availCompList = new DefaultListFacade<CompanionStubFacade>();
 		this.maxCompanionsMap = new DefaultMapFacade<String, Integer>();
+		this.keyToCompanionListMap = new HashMap<String, CompanionList>();
 		initCompData();
 		CharacterManager.getCharacters().addListListener(this);
 	}
@@ -85,6 +89,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		for (CompanionList compList : Globals.getContext().ref
 				.getConstructedCDOMObjects(CompanionList.class))
 		{
+			keyToCompanionListMap.put(compList.getKeyName(), compList);
 			Map<FollowerOption, CDOMObject> fMap = theCharacter.getAvailableFollowers(compList.getKeyName(), null);
 			for (FollowerOption followerOpt : fMap.keySet())
 			{
@@ -104,7 +109,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 			}
 		}
 		availCompList.setContents(companions);
-		Logging.debugPrint("Available comps " + availCompList);
+		//Logging.debugPrint("Available comps " + availCompList);
 		//Logging.debugPrint("Max comps " + maxCompanionsMap);
 		
 		for (Follower follower : theCharacter.getFollowerList())
@@ -117,12 +122,51 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 			delegate.setCompanionFacade(comp);
 			companionList.addElement(delegate);
 		}
-		Logging.debugPrint("Companion list " + companionList);
+		//Logging.debugPrint("Companion list " + companionList);
 	}
 
 	@Override
-	public void addCompanion(CharacterFacade companion)
+	public void addCompanion(CharacterFacade companion, String companionType)
 	{
+		if (companion == null || !(companion instanceof CharacterFacadeImpl))
+		{
+			return;
+		}
+
+		CharacterFacadeImpl compFacadeImpl = (CharacterFacadeImpl) companion;
+		CompanionList compList = keyToCompanionListMap.get(companionType);
+		Race compRace = (Race) compFacadeImpl.getRaceRef().getReference();
+		FollowerOption followerOpt = null; 
+		Map<FollowerOption, CDOMObject> fMap = theCharacter.getAvailableFollowers(compList.getKeyName(), null);
+		for (FollowerOption fOpt : fMap.keySet())
+		{
+			if (compRace == fOpt.getRace())
+			{
+				followerOpt = fOpt;
+				break;
+			}
+		}
+		if (followerOpt == null)
+		{
+			Logging.errorPrint("Unable to find follower option for companion " //$NON-NLS-1$
+				+ companion + " of race " + compRace); //$NON-NLS-1$
+			return;
+		}
+		
+		// Update the companion with the master details
+		final Follower newMaster =
+				new Follower(theCharacter.getFileName(), theCharacter.getName(), compList);
+		newMaster.setAdjustment(followerOpt.getAdjustment());
+		compFacadeImpl.getTheCharacter().setMaster(newMaster);
+		
+		// Update the master with the new companion
+		Follower follower =
+				new Follower(compFacadeImpl.getFileRef().getReference()
+					.getAbsolutePath(), compFacadeImpl.getNameRef()
+					.getReference(), compList);
+		follower.setRace(compRace);
+		theCharacter.addFollower(follower);
+
 		CompanionFacadeDelegate delegate = new CompanionFacadeDelegate();
 		delegate.setCompanionFacade(companion);
 		companionList.addElement(delegate);

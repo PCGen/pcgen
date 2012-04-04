@@ -40,8 +40,9 @@ public interface CompanionSupportFacade
 	 * another CompanionFacade such that the backing character can be garbage
 	 * collected if the character is closed.
 	 * @param companion the companion to add
+	 * @param companionType The type of companion (e.g, Follower, Familiar)
 	 */
-	public void addCompanion(CharacterFacade companion);
+	public void addCompanion(CharacterFacade companion, String companionType);
 
 	/**
 	 * Removes a companion from this character.
