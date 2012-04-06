@@ -384,7 +384,8 @@ Bob Ability ~ Weapon  TYPE Bob			AUTO:WEAPONPROF|TYPE=Bob			CATEGORY:Special Abi
 
 Bob Ability ~ TEST~7  SR Assigned via Companion Mod	DEFINE:CompanionLVL|1+TL	FOLLOWERS:Companion Mod|1	COMPANIONLIST:Companion Mod|Companion	CATEGORY:Special Ability	TYPE:SpecialQuality.BobTestAdditional	DESC:THis grants a single Companion to test the SR being applied from a Companion to the Master.
 
-Grant Template Chosen		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:This will grant a TEMPLATE Chosen to the Character	TEMPLATE:%LIST	CHOOSE:TEMPLATE|ALL
+# TEST-71
+Grant Template Chosen		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:This will grant a TEMPLATE Chosen to the Character	MULT:YES	TEMPLATE:%LIST	CHOOSE:TEMPLATE|ALL
 
 
 
