@@ -296,7 +296,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		dataset = new MockDataSetFacade();
+		dataset = new MockDataSetFacade(SettingsHandler.getGame());
 		dataset.addEquipmentLocation(new BodyStructure(Constants.EQUIP_LOCATION_EQUIPPED, true));
 		dataset.addEquipmentLocation(new BodyStructure(LOC_HANDS, false));
 		dataset.addEquipmentLocation(new BodyStructure(LOC_BODY, false));

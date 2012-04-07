@@ -1,9 +1,13 @@
 package pcgen;
 
+import java.math.BigDecimal;
+
 import junit.framework.TestCase;
 import pcgen.core.GameMode;
+import pcgen.core.LevelInfo;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
+import pcgen.core.system.LoadInfo;
 import pcgen.persistence.lst.LstSystemLoader;
 import pcgen.util.Logging;
 import pcgen.util.TestChecker;
@@ -61,6 +65,13 @@ public abstract class PCGenTestCase extends TestCase
 		final GameMode gamemode = new GameMode("3.5");
 		gamemode.setBonusFeatLevels("3|3");
 		gamemode.setAlignmentText("Alignment");
+		gamemode.addLevelInfo("Normal", new LevelInfo());
+		gamemode.addXPTableName("Normal");
+		gamemode.setDefaultXPTableName("Normal");
+		LoadInfo loadable =
+				gamemode.getModeContext().ref.constructNowIfNecessary(
+					LoadInfo.class, gamemode.getName());
+		loadable.addLoadScoreValue(0, BigDecimal.ONE);
 		LstSystemLoader.addDefaultTabInfo(gamemode);
 		SystemCollections.addToGameModeList(gamemode);
 		SettingsHandler.setGame("3.5");

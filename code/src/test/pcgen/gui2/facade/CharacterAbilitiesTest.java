@@ -30,6 +30,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.core.facade.AbilityCategoryFacade;
 import pcgen.core.facade.AbilityFacade;
 import pcgen.core.facade.util.ListFacade;
@@ -146,7 +147,7 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		dataset = new MockDataSetFacade();
+		dataset = new MockDataSetFacade(SettingsHandler.getGame());
 		dataset.addAbilityCategory(AbilityCategory.FEAT);
 		uiDelegate = new MockUIDelegate();
 		todoManager = new TodoManager();

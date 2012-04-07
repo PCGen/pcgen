@@ -25,6 +25,7 @@ package pcgen.gui2.facade;
 import java.util.List;
 
 import pcgen.core.AbilityCategory;
+import pcgen.core.GameMode;
 import pcgen.core.facade.AbilityCategoryFacade;
 import pcgen.core.facade.AbilityFacade;
 import pcgen.core.facade.AlignmentFacade;
@@ -61,10 +62,12 @@ public class MockDataSetFacade implements DataSetFacade
 
 	private DefaultListFacade<BodyStructureFacade> equipmentLoc;
 	private DefaultListFacade<AbilityCategoryFacade> abilityCat;
+	private final GameMode game;
 
 
-	public MockDataSetFacade()
+	public MockDataSetFacade(GameMode gameMode)
 	{
+		this.game = gameMode;
 		equipmentLoc = new DefaultListFacade<BodyStructureFacade>();
 		abilityCat = new DefaultListFacade<AbilityCategoryFacade>();
 	}
@@ -191,8 +194,7 @@ public class MockDataSetFacade implements DataSetFacade
 	 */
 	public GameModeFacade getGameMode()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return game;
 	}
 
 	/* (non-Javadoc)
