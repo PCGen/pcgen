@@ -125,6 +125,9 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		//Logging.debugPrint("Companion list " + companionList);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void addCompanion(CharacterFacade companion, String companionType)
 	{
@@ -172,12 +175,26 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		companionList.addElement(delegate);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void removeCompanion(CompanionFacade companion)
 	{
 		if (!(companion instanceof CompanionFacadeDelegate))
 		{
 			return;
+		}
+		
+		File compFile = companion.getFileRef().getReference();
+		for (Follower follower : theCharacter.getFollowerList())
+		{
+			File followerFile = new File(follower.getFileName());
+			if (followerFile.equals(compFile))
+			{
+				theCharacter.delFollower(follower);
+				break;
+			}
 		}
 		companionList.removeElement((CompanionFacadeDelegate) companion);
 	}

@@ -91,6 +91,7 @@ import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.EquipSet;
+import pcgen.core.character.Follower;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.facade.AbilityCategoryFacade;
@@ -3887,18 +3888,37 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		return companionSupportFacade;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public String getCompanionType()
 	{
-		//TODO: implement this
+		Follower master = theCharacter.getMaster();
+		if (master != null)
+		{
+			return master.getType().getKeyName();
+		}
 		return null;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public CharacterStubFacade getMaster()
 	{
-		//TODO: implement this
-		return null;
+		Follower master = theCharacter.getMaster();
+		if (master == null)
+		{
+			return null;
+		}
+		CompanionNotLoaded stub =
+				new CompanionNotLoaded(master.getName(), new File(
+					master.getFileName()), master.getRace(), master.getType()
+					.getKeyName());
+		//TODO: match with loaded characters
+		return stub;
 	}
 
 	/**
