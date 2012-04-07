@@ -281,7 +281,7 @@ ABILITYCATEGORY:Natural Attack	VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALP
 
 
 PREVIEWDIR:d20/fantasy
-PREVIEWSHEET:standard.htm
+PREVIEWSHEET:Standard.htm
 INFOSHEET:SUMMARY|preview/summary/35e_info.html
 INFOSHEET:SKILLS|preview/skills/35e_skills.html
 
