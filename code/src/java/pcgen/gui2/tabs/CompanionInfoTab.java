@@ -60,6 +60,7 @@ import pcgen.gui2.util.treeview.DataViewColumn;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
+import pcgen.system.CharacterManager;
 import pcgen.util.Comparators;
 
 /**
@@ -212,11 +213,11 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		private final JButton button = new JButton();
 		private final JPanel container = new JPanel();
 		private final DefaultTableCellRenderer background = new DefaultTableCellRenderer();
-		private final CompanionSupportFacade support;
+		private final CharacterFacade character;
 
 		public ButtonCellEditor(CharacterFacade character)
 		{
-			this.support = character.getCompanionSupport();
+			this.character = character;
 
 			button.addActionListener(this);
 			button.setMargin(new Insets(0, 0, 0, 0));
@@ -261,6 +262,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
+			CompanionSupportFacade support = character.getCompanionSupport();
 			if (REMOVE_COMMAND.equals(e.getActionCommand()))
 			{
 				CompanionFacade companion = (CompanionFacade) selectedElement;
@@ -276,7 +278,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			{
 				initDialog();
 				String type = (String) selectedElement;
-				companionDialog.setDelegate(support.getAvailableCompanions());
+				companionDialog.setCharacter(character);
 				companionDialog.setCompanionType(type);
 				companionDialog.setLocationRelativeTo(CompanionInfoTab.this);
 				companionDialog.setVisible(true);
@@ -318,12 +320,16 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 
 		private final FilteredCompanionList model;
 		private final JButton selectButton;
+		private final JTreeViewTable raceTable;
+		private CharacterFacade character;
+		private String companionType;
 
 		public CompanionDialog()
 		{
 			super(JOptionPane.getFrameForComponent(CompanionInfoTab.this), true);
 			this.model = new FilteredCompanionList();
 			this.selectButton = new JButton();
+			this.raceTable = new JTreeViewTable();
 			initComponents();
 			pack();
 		}
@@ -333,9 +339,8 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			setTitle("Select a Race");
 			setLayout(new BorderLayout());
 			Container container = getContentPane();
-			JTreeViewTable table = new JTreeViewTable();
 			{
-				final ListSelectionModel selectionModel = table.getSelectionModel();
+				final ListSelectionModel selectionModel = raceTable.getSelectionModel();
 				selectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 				selectionModel.addListSelectionListener(new ListSelectionListener()
 				{
@@ -351,9 +356,9 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 
 				});
 			}
-			table.addActionListener(this);
-			table.setTreeViewModel(this);
-			container.add(new JScrollPane(table), BorderLayout.CENTER);
+			raceTable.addActionListener(this);
+			raceTable.setTreeViewModel(this);
+			container.add(new JScrollPane(raceTable), BorderLayout.CENTER);
 			JPanel buttonPane = new JPanel(new FlowLayout());
 			selectButton.addActionListener(this);
 			selectButton.setEnabled(false);
@@ -366,19 +371,27 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
+			CharacterFacade newCompanion = CharacterManager.createNewCharacter(character.getUIDelegate(), character.getDataSet());
+			CompanionStubFacade selected = (CompanionStubFacade) raceTable.getSelectedObject();
+			newCompanion.setRace(selected.getRaceRef().getReference());
+			character.getCompanionSupport().addCompanion(newCompanion, companionType);
+			setVisible(false);
+			//TODO select newly created character
+		}
+
+		public void setCharacter(CharacterFacade character)
+		{
+			this.character = character;
+			model.setDelegate(character.getCompanionSupport().getAvailableCompanions());
 		}
 
 		public void setCompanionType(String type)
 		{
+			companionType = type;
 			model.setCompanionType(type);
 			selectButton.setText("Create " + type);
 		}
-
-		public void setDelegate(ListFacade<CompanionStubFacade> delegate)
-		{
-			model.setDelegate(delegate);
-		}
-
+		
 		private DefaultListFacade<CompanionTreeView> treeViews = new DefaultListFacade<CompanionTreeView>(
 				Arrays.asList(CompanionTreeView.values()));
 
