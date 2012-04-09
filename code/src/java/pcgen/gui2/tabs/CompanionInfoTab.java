@@ -181,7 +181,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 
 			// p should now be the JTable. 
 			boolean colorMatch = (back != null) && (p != null) && back.equals(p.getBackground())
-					&& p.isOpaque();
+								 && p.isOpaque();
 			return !colorMatch && super.isOpaque();
 		}
 
@@ -199,13 +199,22 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			{
 				button.setText("Create New");
 			}
+			value = table.getValueAt(row, 1);
+			if (value instanceof Boolean)
+			{
+				button.setEnabled((Boolean) value);
+			}
+			else
+			{
+				button.setEnabled(true);
+			}
 			return this;
 		}
 
 	}
 
 	private class ButtonCellEditor extends AbstractCellEditor implements TableCellEditor,
-			ActionListener
+																		 ActionListener
 	{
 
 		private static final String CREATE_COMMAND = "New";
@@ -267,7 +276,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			{
 				CompanionFacade companion = (CompanionFacade) selectedElement;
 				int ret = JOptionPane.showConfirmDialog(button, "Are you sure you want to remove "
-						+ companion.getNameRef().getReference() + " as a companion?",
+																+ companion.getNameRef().getReference() + " as a companion?",
 														"Confirm Removal", JOptionPane.YES_NO_OPTION);
 				if (ret == JOptionPane.YES_OPTION)
 				{
@@ -289,7 +298,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 	}
 
 	private static class FilteredCompanionList extends FilteredListFacade<String, CompanionStubFacade>
-			implements Filter<String, CompanionStubFacade>
+		implements Filter<String, CompanionStubFacade>
 	{
 
 		public FilteredCompanionList()
@@ -315,7 +324,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 	}
 
 	private class CompanionDialog extends JDialog implements TreeViewModel<CompanionStubFacade>,
-			DataView<CompanionStubFacade>, ActionListener
+															 DataView<CompanionStubFacade>, ActionListener
 	{
 
 		private final FilteredCompanionList model;
@@ -391,9 +400,9 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			model.setCompanionType(type);
 			selectButton.setText("Create " + type);
 		}
-		
+
 		private DefaultListFacade<CompanionTreeView> treeViews = new DefaultListFacade<CompanionTreeView>(
-				Arrays.asList(CompanionTreeView.values()));
+			Arrays.asList(CompanionTreeView.values()));
 
 		@Override
 		public ListFacade<? extends TreeView<CompanionStubFacade>> getTreeViews()
@@ -464,7 +473,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 
 	}
 
-	private class CompanionsModel extends AbstractTreeTableModel implements SortableTreeTableModel
+	private static class CompanionsModel extends AbstractTreeTableModel implements SortableTreeTableModel
 	{
 
 		private CompanionSupportFacade support;
@@ -482,6 +491,11 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		{
 			if (column > 0)
 			{
+				Object value = getValueAt(node, column);
+				if (value instanceof Boolean)
+				{
+					return (Boolean) value;
+				}
 				return true;
 			}
 			else
@@ -517,7 +531,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			{
 				if (column == 0)
 				{
-					return companion.getNameRef().getReference();
+					return companion;
 				}
 				return null;
 			}
@@ -539,6 +553,24 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			{
 				super(Arrays.asList(type, null));
 				this.type = type;
+			}
+
+			@Override
+			public Object getValueAt(int column)
+			{
+				if (column > 0)
+				{
+					Integer max = maxMap.getValue(type);
+					if (max < 0)
+					{
+						return true;
+					}
+					return getChildCount() < max;
+				}
+				else
+				{
+					return super.getValueAt(column);
+				}
 			}
 
 			@Override
@@ -744,7 +776,5 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			}
 
 		}
-
 	}
-
 }
