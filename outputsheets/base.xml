@@ -910,8 +910,8 @@ Immune
 					<tohit_2weap_offhand>|WEAPON.%weap.RANGELIST.%range.TWOHIT|</tohit_2weap_offhand>
 				</range>
 |ENDFOR|	<!-- Range -->
-			</ranges>
 |ENDIF|	<!--|IIF(WEAPON.%weap.ISTYPE.Thrown)| -->
+			</ranges>
 |ELSE|   <!-- IIF(WEAPON.%weap.CONTENTS:0) -->
 |FOR,%ammo,0,WEAPON.%weap.CONTENTS-1,1,0|
 			<ranges>
