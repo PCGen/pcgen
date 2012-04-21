@@ -62,7 +62,7 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 	{
 		SettingsHandler.setGMGenOption("Notes.DataDir", getDataDir());
 		SettingsHandler.setGMGenOption("Logging.On", isLogging());
-		LogUtilities.inst().setLoggingOn(isLogging());
+		LogUtilities.inst().setLogging(isLogging());
 	}
 
 	public void initPreferences()

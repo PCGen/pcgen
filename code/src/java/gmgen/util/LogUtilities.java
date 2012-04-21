@@ -35,7 +35,7 @@ public class LogUtilities implements LogReceiver
 {
 	private static LogUtilities singleton = null;
 	private List<LogReceiver> receivers;
-	private boolean loggingOn;
+	private boolean logging;
 
 	/**
 	 *  The private constructor. Called by inst to create the singleton instance if
@@ -45,7 +45,7 @@ public class LogUtilities implements LogReceiver
 	 */
 	private LogUtilities()
 	{
-		loggingOn = false;
+		logging = false;
 		receivers = new ArrayList<LogReceiver>();
 	}
 
@@ -66,25 +66,23 @@ public class LogUtilities implements LogReceiver
 	}
 
 	/**
-	 *  Turns on or off logging.
+	 * Turns on or off logging.
 	 *
-	 *@param  on  a boolean specifying to turn on/off logging.
-	 *@since      GMGen 3.3
+	 * @param loggingFlag - A boolean specifying to turn on/off logging.
 	 */
-	public void setLoggingOn(boolean on)
+	public void setLogging(boolean loggingFlag)
 	{
-		loggingOn = on;
+		logging = loggingFlag;
 	}
 
 	/**
-	 *  Add a receiver that will be called when a message is to be logged.
+	 * Add a receiver that will be called when a message is to be logged.
 	 *
-	 *@param  rcvr  the receiver to be called with new messages.
-	 *@since        GMGen 3.3
+	 * @param receiver The receiver to be called with new messages.
 	 */
-	public void addReceiver(LogReceiver rcvr)
+	public void addReceiver(LogReceiver receiver)
 	{
-		receivers.add(rcvr);
+		receivers.add(receiver);
 	}
 
 	/**
@@ -96,7 +94,7 @@ public class LogUtilities implements LogReceiver
 	 */
 	public void logMessage(String owner, String message)
 	{
-		if (loggingOn)
+		if (logging)
 		{
 			// send the message to all registered receivers
 			for (LogReceiver rcvr : receivers)
@@ -114,7 +112,7 @@ public class LogUtilities implements LogReceiver
 	 */
 	public void logMessage(String message)
 	{
-		if (loggingOn)
+		if (logging)
 		{
 			for (LogReceiver rcvr : receivers)
 			{

@@ -62,149 +62,82 @@ import pcgen.util.Logging;
 import pcgen.util.SwingWorker;
 
 /**
- *  <code>GMGenSystem</code> is the main class of this application. This class
- *  holds the controller of every section, and the menu bar.
- *
- *@since    May 30, 2003
- *@version    3.3
- *@since      GMGen 3.3
+ * <code>GMGenSystem</code> is the main class of the GMGen application.
+ * 
+ * It holds the controller for every tab as well as the menu bar.
  */
 public final class GMGenSystem extends JFrame implements ChangeListener,
-        MenuListener, ActionListener, GMBComponent
-{
+        MenuListener, ActionListener, GMBComponent {
+
+    // Serial UID
+    private static final long serialVersionUID = -7372446160499882872L;
+
     /**
-     *  Holds an instance of the top window, so components and windows can get
-     *  their parent frame.
+     * Holds an instance of the top window, so components and windows can get
+     * their parent frame.
      */
     public static GMGenSystem inst;
 
-    /**
-     * Boolean true if this is a Macintosh system.
-     */
-    public static final boolean MAC_OS_X = (System.getProperty("os.name").equals("Mac OS X"));
+    // The main <code>JPanel</code> view for the system.
+    private GMGenSystemView theView;
+
+    // Boolean true if this is a Mac OS X system.
+    private static final boolean MAC_OS_X = (System.getProperty("os.name")
+            .equals("Mac OS X"));
+
+    private JMenuBar systemMenuBar;
+    
+    // Menus
+    private JMenu editMenu;
+    private JMenu fileMenu;
+    private JMenu toolsMenu;
+
+    // File menu items
+    private JMenuItem copyEditItem;
+    private JMenuItem cutEditItem;
+    private JMenuItem pasteEditItem;
+    private JMenuItem preferencesEditItem;
+    private JMenuItem exitFileItem;
+    private JMenuItem versionToolsItem;
 
     /**
-     *  The copy menu item in the edit menu.
-     */
-    public JMenuItem copyEditItem;
-
-    /**
-     *  The cut menu item in the edit menu.
-     */
-    public JMenuItem cutEditItem;
-
-    /**
-     *  The new menu item in the file menu.
+     * The new menu item in the file menu.
      */
     public JMenuItem newFileItem;
 
     /**
-     *  The open menu item in the file menu.
+     * The open menu item in the file menu.
      */
     public JMenuItem openFileItem;
 
     /**
-     *  The paste menu item in the edit menu.
-     */
-    public JMenuItem pasteEditItem;
-
-    /**
-     *  The preferences menu item in the edit menu.
-     */
-    public JMenuItem preferencesEditItem;
-
-    /**
-     *  The save menu item in the file menu.
+     * The save menu item in the file menu.
      */
     public JMenuItem saveFileItem;
 
-    /**
-     *  The source loader section.
-     */
-
-    /**
-     *  The main <code>JPanel</code> view for the system.
-     */
-    private GMGenSystemView theView;
-
-    /**
-     *  The edit menu.
-     */
-    private JMenu editMenu;
-
-    /**
-     *  The file menu.
-     */
-    private JMenu fileMenu;
-
-    /**
-     *  The tools menu.
-     */
-    private JMenu toolsMenu;
-
-    /**
-     *  The main menu bar.
-     */
-    private JMenuBar systemMenu;
-
-    /**
-     *  The exit menu item in the file menu.
-     */
-    private JMenuItem exitFileItem;
-
-    /**
-     *  The version menu item in the tools menu.
-     */
-    private JMenuItem versionToolsItem;
-
-    /**
-     *  The file menu separator.
-     */
+    // Separators
     private JSeparator editSeparator1;
-
-    /**
-     *  The file menu separator.
-     */
     private JSeparator fileSeparator1;
-
-    /**
-     *  The file menu separator.
-     */
     private JSeparator fileSeparator2;
-
-    /**
-     *  The tools menu separator.
-     */
     private JSeparator toolsSeparator1;
 
-    /**
-     *  Tree for the preferences dialog
-     */
+    // Tree for the preferences dialog
     private PreferencesRootTreeNode rootNode = new PreferencesRootTreeNode();
 
     /**
-     * Creates an instance of the main application. Does all the core
-     * initialization
-     *
-     *@since GMGen 3.3
+     * Constructor
+     * 
+     * Creates a JFrame TODO comment correctly.
+     * Starts the GMGen renderer
      */
-    public GMGenSystem()
-    {
+    public GMGenSystem() {
         super("GMGen System");
         new Renderer().start();
     }
 
-    private void initialize()
-    {
-        // Fixes for Mac OS X look-and-feel menu problems.sk4p 12 Dec 2002
-        if (MAC_OS_X)
-        {
-            System.setProperty("com.apple.mrj.application.growbox.intrudes", "false");
-            System.setProperty("com.apple.mrj.application.live-resize", "false");
-            System.setProperty("com.apple.macos.smallTabs", "true");
-            System.setProperty("apple.laf.useScreenMenuBar", "true");
-            System.setProperty("com.apple.mrj.application.apple.menu.about.name", "GMGen");
-            macOSXRegistration();
+    private void initialize() {
+        if (MAC_OS_X) {
+            initialiseMacOS();
         }
 
         inst = this;
@@ -220,293 +153,268 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         inst.setVisible(true);
     }
 
-    /**
-     *  Gets the build number of GMGen.
-     *
-     *@return    The build number
-     *@since     GMGen 3.3
+    /*
+     * Fixes for Mac OS X look-and-feel menu problems.sk4p 12 Dec 2002
      */
-    public static String getBuild()
-    {
+    private void initialiseMacOS() {
+        System.setProperty("com.apple.mrj.application.growbox.intrudes",
+                "false");
+        System.setProperty("com.apple.mrj.application.live-resize", "false");
+        System.setProperty("com.apple.macos.smallTabs", "true");
+        System.setProperty("apple.laf.useScreenMenuBar", "true");
+        System.setProperty("com.apple.mrj.application.apple.menu.about.name",
+                "GMGen");
+        macOSXRegistration();
+    }
+
+    /**
+     * Gets the build number of GMGen.
+     * 
+     * @return The build number
+     * @since GMGen 3.3
+     */
+    public static String getBuild() {
         return "03.03.99.01.00";
     }
 
     /**
-     *  Returns the GMGen version as a human-readable string.
-     *
-     *@return    The version
-     *@since     GMGen 3.3
+     * Returns the GMGen version as a human-readable string.
+     * 
+     * @return The version
+     * @since GMGen 3.3
      */
-    public static String getVersion()
-    {
+    public static String getVersion() {
         return MiscUtilities.buildToVersion(getBuild());
     }
 
     /**
-     * Calls the appropriate methods depending on the actions that happened on the
-     * GUI.
-     *
-     *@param event event that took place
-     *@since GMGen 3.3
+     * Calls the appropriate methods depending on the actions that happened on
+     * the GUI.
+     * 
+     * @param event
+     *            event that took place
+     * @since GMGen 3.3
      */
     @Override
-    public void actionPerformed(ActionEvent event)
-    {
-        if (event.getSource() == openFileItem)
-        {
+    public void actionPerformed(ActionEvent event) {
+        if (event.getSource() == openFileItem) {
             GMBus.send(new FileOpenMessage(this));
-        }
-        else if (event.getSource() == exitFileItem)
-        {
+        } else if (event.getSource() == exitFileItem) {
             GMBus.send(new WindowClosedMessage(this));
-        }
-        else if (event.getSource() == newFileItem)
-        {
+        } else if (event.getSource() == newFileItem) {
             GMBus.send(new LoadMessage(this));
-        }
-        else if (event.getSource() == saveFileItem)
-        {
+        } else if (event.getSource() == saveFileItem) {
             GMBus.send(new SaveMessage(this));
-        }
-        else if (event.getSource() == cutEditItem)
-        {
+        } else if (event.getSource() == cutEditItem) {
             GMBus.send(new ClipboardMessage(this, ClipboardMessage.CUT));
-        }
-        else if (event.getSource() == copyEditItem)
-        {
+        } else if (event.getSource() == copyEditItem) {
             GMBus.send(new ClipboardMessage(this, ClipboardMessage.COPY));
-        }
-        else if (event.getSource() == pasteEditItem)
-        {
+        } else if (event.getSource() == pasteEditItem) {
             GMBus.send(new ClipboardMessage(this, ClipboardMessage.PASTE));
         }
     }
 
     /**
-     *  Clears the edit menu to allow a plugin to populate it.
+     * Clears the edit menu to allow a plugin to populate it.
      */
-    public void clearEditMenu()
-    {
+    public void clearEditMenu() {
         editMenu.removeAll();
 
         /**
-         *  Preferences on the Macintosh is in the application menu. See
-         *  macOSXRegistration()
+         * Preferences on the Macintosh is in the application menu. See
+         * macOSXRegistration()
          */
-        if (!MAC_OS_X)
-        {
+        if (!MAC_OS_X) {
             editMenu.add(editSeparator1);
             preferencesEditItem.setText("Preferences");
             editMenu.add(preferencesEditItem);
             preferencesEditItem.setEnabled(true);
-            ActionListener[] listenerArray = preferencesEditItem.getActionListeners();
-            
-            for (int i = 0; i < listenerArray.length; i++)
-            {
+            ActionListener[] listenerArray = preferencesEditItem
+                    .getActionListeners();
+
+            for (int i = 0; i < listenerArray.length; i++) {
                 preferencesEditItem.removeActionListener(listenerArray[i]);
             }
             preferencesEditItem
-                .addActionListener(new java.awt.event.ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(java.awt.event.ActionEvent evt)
-                    {
-                        mPreferencesActionPerformed(evt);
-                    }
-                });
+                    .addActionListener(new java.awt.event.ActionListener() {
+                        @Override
+                        public void actionPerformed(
+                                java.awt.event.ActionEvent evt) {
+                            mPreferencesActionPerformed(evt);
+                        }
+                    });
         }
     }
 
     /**
-     *  Exits GMGen, the Mac way.
+     * Exits GMGen, the Mac way.
      */
-    public void exitFormMac()
-    {
+    public void exitFormMac() {
         this.setVisible(false);
     }
 
     /**
-     *  Message handler for the GMBus.
-     *
-     *@param  message  The message passed in from the bus
-     *@since           GMGen 3.3
+     * Message handler for the GMBus.
+     * 
+     * @param message
+     *            The message passed in from the bus
+     * @since GMGen 3.3
      */
     @Override
-    public void handleMessage(GMBMessage message)
-    {
-        //A plugin is asking for the creation of a new tab
-        if (message instanceof TabAddMessage)
-        {
+    public void handleMessage(GMBMessage message) {
+        // A plugin is asking for the creation of a new tab
+        if (message instanceof TabAddMessage) {
             TabAddMessage tmessage = (TabAddMessage) message;
-            if (tmessage.getSystem().equals(Constants.SYSTEM_GMGEN))
-            {
+            if (tmessage.getSystem().equals(Constants.SYSTEM_GMGEN)) {
                 Logging.debugPrint("Creating Tab "
-                    + GMGenSystemView.getTabPane().getTabCount());
+                        + GMGenSystemView.getTabPane().getTabCount());
                 theView.insertPane(tmessage.getName(), tmessage.getPane(),
-                    GMGenSystemView.getTabPane().getTabCount());
+                        GMGenSystemView.getTabPane().getTabCount());
             }
-        }
-        else if (message instanceof PreferencesPanelAddMessage)
-        {
-            PreferencesPanelAddMessage pmessage =
-                    (PreferencesPanelAddMessage) message;
+        } else if (message instanceof PreferencesPanelAddMessage) {
+            PreferencesPanelAddMessage pmessage = (PreferencesPanelAddMessage) message;
             Logging.debugPrint("Creating Preferences Panel");
             rootNode.addPanel(pmessage.getName(), pmessage.getPane());
         }
         // A plugin is asking for the creation of a new option in the tool menu
-        else if (message instanceof ToolMenuItemAddMessage)
-        {
+        else if (message instanceof ToolMenuItemAddMessage) {
             ToolMenuItemAddMessage mmessage = (ToolMenuItemAddMessage) message;
             toolsMenu.add(mmessage.getMenuItem());
-        }
-        else if (message instanceof WindowClosedMessage)
-        {
+        } else if (message instanceof WindowClosedMessage) {
             setCloseSettings();
-            // Karianna 07/03/2008 - Added a call to exitForm passing in no window event
-            // TODO This sequence of calls simply hides GMGen as opposed to unloading it
+            // Karianna 07/03/2008 - Added a call to exitForm passing in no
+            // window event
+            // TODO This sequence of calls simply hides GMGen as opposed to
+            // unloading it
             exitForm(null);
         }
     }
 
     /**
-     *  Handles the clicking on the tool menu.
-     *
-     *@since    GMGen 3.3
+     * Handles the clicking on the tool menu.
+     * 
+     * @since GMGen 3.3
      */
-    public void handleToolsMenu()
-    {
+    public void handleToolsMenu() {
         // TODO
     }
 
     /**
      * launches the preferences dialog on a mac.
      */
-    public void mPreferencesActionPerformedMac()
-    {
+    public void mPreferencesActionPerformedMac() {
         PreferencesDialog dialog = new PreferencesDialog(this, true, rootNode);
         dialog.setVisible(true);
     }
 
     /**
-     * generic registration with the Mac OS X application menu.  Checks the platform, then attempts
-     * to register with the Apple EAWT.
-     * This method calls OSXAdapter.registerMacOSXApplication() and OSXAdapter.enablePrefs().
-     * See OSXAdapter.java for the signatures of these methods.
+     * Generic registration with the Mac OS X application menu. Checks the
+     * platform, then attempts to register with the Apple EAWT.
+     * 
+     * This method calls OSXAdapter.registerMacOSXApplication() and
+     * OSXAdapter.enablePrefs(). See OSXAdapter.java for the signatures of these
+     * methods.
      */
-    public void macOSXRegistration()
-    {
-        if (MAC_OS_X)
-        {
-            try
-            {
-                Class<?> osxAdapter = Class.forName("gmgen.util.OSXAdapter");
-                Class[] defArgs = {GMGenSystem.class};
-                Method registerMethod =
-                        osxAdapter.getDeclaredMethod(
-                            "registerMacOSXApplication", defArgs);
+    private void macOSXRegistration() {
+        try {
+            Class<?> osxAdapter = Class.forName("gmgen.util.OSXAdapter");
+            Class<?>[] defArgs = { GMGenSystem.class };
+            Method registerMethod = osxAdapter.getDeclaredMethod(
+                    "registerMacOSXApplication", defArgs);
 
-                if (registerMethod != null)
-                {
-                    Object[] args = {this};
-                    registerMethod.invoke(osxAdapter, args);
-                }
-
-                // This is slightly gross.  to reflectively access methods with boolean args,
-                // use "boolean.class", then pass a Boolean object in as the arg, which apparently
-                // gets converted for you by the reflection system.
-                defArgs[0] = boolean.class;
-
-                Method prefsEnableMethod =
-                        osxAdapter.getDeclaredMethod("enablePrefs", defArgs);
-
-                if (prefsEnableMethod != null)
-                {
-                    Object[] args = {Boolean.TRUE};
-                    prefsEnableMethod.invoke(osxAdapter, args);
-                }
+            if (registerMethod != null) {
+                Object[] args = { this };
+                registerMethod.invoke(osxAdapter, args);
             }
-            catch (NoClassDefFoundError e)
-            {
-                // This will be thrown first if the OSXAdapter is loaded on a system without the EAWT
-                // because OSXAdapter extends ApplicationAdapter in its def
-                System.err
+
+            // This is slightly gross. to reflectively access methods with
+            // boolean args,
+            // use "boolean.class", then pass a Boolean object in as the arg,
+            // which apparently
+            // gets converted for you by the reflection system.
+            defArgs[0] = boolean.class;
+
+            Method prefsEnableMethod = osxAdapter.getDeclaredMethod(
+                    "enablePrefs", defArgs);
+
+            if (prefsEnableMethod != null) {
+                Object[] args = { Boolean.TRUE };
+                prefsEnableMethod.invoke(osxAdapter, args);
+            }
+        } catch (NoClassDefFoundError e) {
+            // This will be thrown first if the OSXAdapter is loaded on a system
+            // without the EAWT
+            // because OSXAdapter extends ApplicationAdapter in its def
+            System.err
                     .println("This version of Mac OS X does not support the Apple EAWT.  Application Menu handling has been disabled ("
-                        + e + ")");
-            }
-            catch (ClassNotFoundException e)
-            {
-                // This shouldn't be reached; if there's a problem with the OSXAdapter we should get the
-                // above NoClassDefFoundError first.
-                System.err
+                            + e + ")");
+        } catch (ClassNotFoundException e) {
+            // This shouldn't be reached; if there's a problem with the
+            // OSXAdapter we should get the
+            // above NoClassDefFoundError first.
+            System.err
                     .println("This version of Mac OS X does not support the Apple EAWT.  Application Menu handling has been disabled ("
-                        + e + ")");
-            }
-            catch (Exception e)
-            {
-                System.err.println("Exception while loading the OSXAdapter = [" + e.getMessage() + "]");
-            }
+                            + e + ")");
+        } catch (Exception e) {
+            System.err.println("Exception while loading the OSXAdapter = ["
+                    + e.getMessage() + "]");
         }
     }
 
     /**
-     *  Handles a menu canceled event.
-     *
-     *@param  e  menu canceled event
-     *@since     GMGen 3.3
+     * Handles a menu canceled event.
+     * 
+     * @param e
+     *            menu canceled event
+     * @since GMGen 3.3
      */
     @Override
-    public void menuCanceled(MenuEvent e)
-    {
+    public void menuCanceled(MenuEvent e) {
         // TODO
     }
 
     /**
-     *  Handles a menu de-selected event.
-     *
-     *@param  e  Menu Deselected event
-     *@since     GMGen 3.3
+     * Handles a menu de-selected event.
+     * 
+     * @param e
+     *            Menu Deselected event
+     * @since GMGen 3.3
      */
     @Override
-    public void menuDeselected(MenuEvent e)
-    {
+    public void menuDeselected(MenuEvent e) {
         // TODO
     }
 
     /**
-     *  Listens for menus to be clicked and calls the appropriate handlers.
-     *
-     *@param  e  the menu event that happened.
-     *@since     GMGen 3.3
+     * Listens for menus to be clicked and calls the appropriate handlers.
+     * 
+     * @param e
+     *            the menu event that happened.
+     * @since GMGen 3.3
      */
     @Override
-    public void menuSelected(MenuEvent e)
-    {
-        if (e.getSource() == toolsMenu)
-        {
+    public void menuSelected(MenuEvent e) {
+        if (e.getSource() == toolsMenu) {
             handleToolsMenu();
         }
     }
 
     /**
-     *  Calls the necessary methods if an item on the GUI or model has changed.
-     *
-     *@param  e  the event that has happened.
-     *@since     GMGen 3.3
+     * Calls the necessary methods if an item on the GUI or model has changed.
+     * 
+     * @param event - The event that has happened.
      */
     @Override
-    public void stateChanged(ChangeEvent e)
-    {
-        stateUpdate(e);
+    public void stateChanged(ChangeEvent event) {
+        stateUpdate(event);
     }
 
     /**
-     *  Calls the necessary methods if an item on the GUI or model has changed.
-     *
-     *@param  e  the event that has happened.
-     *@since     GMGen 3.3
+     * Calls the necessary methods if an item on the GUI or model has changed.
+     * 
+     * @param event - The event that has happened.
      */
-    public void stateUpdate(EventObject e)
-    {
+    private void stateUpdate(EventObject event) {
         newFileItem.setEnabled(false);
         openFileItem.setEnabled(false);
         saveFileItem.setEnabled(false);
@@ -514,120 +422,88 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         GMBus.send(new StateChangedMessage(this, editMenu));
     }
 
-    /**
-     *  Sets a bunch of properties based on the status of GMGen at close.
-     *
-     *@since    GMGen 3.3
-     */
-    private void setCloseSettings()
-    {
+
+    // Sets a bunch of properties based on the status of GMGen at close.
+    private void setCloseSettings() {
         SettingsHandler.setGMGenOption("WindowX", this.getX());
         SettingsHandler.setGMGenOption("WindowY", this.getY());
         SettingsHandler.setGMGenOption("WindowWidth", this.getSize().width);
         SettingsHandler.setGMGenOption("WindowHeight", this.getSize().height);
 
-        //Maximized state of the window
-        if ((getExtendedState() & Frame.MAXIMIZED_BOTH) != 0)
-        {
+        // Maximized state of the window
+        if ((getExtendedState() & Frame.MAXIMIZED_BOTH) != 0) {
             SettingsHandler.setGMGenOption("WindowState", Frame.MAXIMIZED_BOTH);
-        }
-        else if ((getExtendedState() & Frame.MAXIMIZED_HORIZ) != 0)
-        {
+        } else if ((getExtendedState() & Frame.MAXIMIZED_HORIZ) != 0) {
             SettingsHandler
-                .setGMGenOption("WindowState", Frame.MAXIMIZED_HORIZ);
-        }
-        else if ((getExtendedState() & Frame.MAXIMIZED_VERT) != 0)
-        {
+                    .setGMGenOption("WindowState", Frame.MAXIMIZED_HORIZ);
+        } else if ((getExtendedState() & Frame.MAXIMIZED_VERT) != 0) {
             SettingsHandler.setGMGenOption("WindowState", Frame.MAXIMIZED_VERT);
-        }
-        else
-        {
+        } else {
             SettingsHandler.setGMGenOption("WindowState", Frame.NORMAL);
         }
     }
 
-    /**
-     * Sets all the panes on the GUI in the correct order.
-     *
-     *@since  GMGen 3.3
-     */
-    private void setTabbedPanes()
-    {
-        try
-        {
+    // Sets all the panes on the GUI in the correct order.
+    private void setTabbedPanes() {
+        try {
             GMGenSystemView.getTabPane().setSelectedIndex(0);
             theView.showPane();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             // TODO
         }
     }
 
-    /**
-     *  Creates the MenuBar for the application.
-     *
-     *@since    GMGen 3.3
-     */
-    private void createMenuBar()
-    {
-        systemMenu = new JMenuBar();
+    // Creates the MenuBar for the application.
+    private void createMenuBar() {
+        systemMenuBar = new JMenuBar();
+        createFileMenu();
+        createEditMenu();
+        createToolsMenu();
+        setJMenuBar(systemMenuBar);
+        setDefaultEnablementOfMenuItems();
+        pack();
+    }
 
-        fileMenu = new JMenu();
-        newFileItem = new JMenuItem();
-        openFileItem = new JMenuItem();
-        fileSeparator1 = new JSeparator();
-        saveFileItem = new JMenuItem();
-        fileSeparator2 = new JSeparator();
-        exitFileItem = new JMenuItem();
+    // Enable or Disable menu items at initialisation time
+    private void setDefaultEnablementOfMenuItems() {
+        openFileItem.setEnabled(true);
+        saveFileItem.setEnabled(false);
+        newFileItem.setEnabled(false);
+        cutEditItem.setEnabled(false);
+        copyEditItem.setEnabled(false);
+        pasteEditItem.setEnabled(false);
+        preferencesEditItem.setEnabled(true);
+        versionToolsItem.setEnabled(false);
+    }
+
+    // Create tools menu
+    private void createToolsMenu() {
+        toolsMenu = new JMenu();
+        toolsSeparator1 = new JSeparator();
+        versionToolsItem = new JMenuItem();
+        
+        toolsMenu.setText("Tools");
+        toolsMenu.setMnemonic('T');
+        toolsMenu.addMenuListener(this);
+
+        versionToolsItem.setMnemonic('G');
+        versionToolsItem.setText("Get Newest Version");
+        toolsMenu.add(versionToolsItem);
+
+        toolsMenu.add(toolsSeparator1);
+
+        systemMenuBar.add(toolsMenu);
+    }
+
+    // Create the edit menu
+    private void createEditMenu() {
         editMenu = new JMenu();
         cutEditItem = new JMenuItem();
         copyEditItem = new JMenuItem();
         pasteEditItem = new JMenuItem();
         editSeparator1 = new JSeparator();
         preferencesEditItem = new JMenuItem();
-
-        toolsMenu = new JMenu();
-        toolsSeparator1 = new JSeparator();
-        versionToolsItem = new JMenuItem();
-
-        // FILE MENU
-        fileMenu.setText("File");
-        fileMenu.setMnemonic('F');
-        fileMenu.addMenuListener(this);
-
-        newFileItem.setMnemonic('N');
-        newFileItem.setText("New");
-        newFileItem.addActionListener(this);
-        fileMenu.add(newFileItem);
-
-        openFileItem.setMnemonic('O');
-        openFileItem.setText("Open");
-        fileMenu.add(openFileItem);
-        openFileItem.addActionListener(this);
-
-        fileMenu.add(fileSeparator1);
-
-        saveFileItem.setMnemonic('S');
-        saveFileItem.setText("Save");
-        fileMenu.add(saveFileItem);
-        saveFileItem.addActionListener(this);
-
-        /**
-         *  Exit is quit on the Macintosh is in the application menu. See
-         *  macOSXRegistration()
-         */
-        if (!MAC_OS_X)
-        {
-            fileMenu.add(fileSeparator2);
-            exitFileItem.setMnemonic('x');
-            exitFileItem.setText("Exit");
-            fileMenu.add(exitFileItem);
-            exitFileItem.addActionListener(this);
-        }
-
-        systemMenu.add(fileMenu);
-
+        
         // EDIT MENU
         editMenu.setText("Edit");
         editMenu.setMnemonic('E');
@@ -642,139 +518,157 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         pasteEditItem.setText("Paste");
         editMenu.add(pasteEditItem);
 
-        /**
-         *  Preferences... on the Macintosh is in the application menu. See
-         *  macOSXRegistration()
-         */
-        if (!MAC_OS_X)
-        {
+        // Preferences... on MAC OS X is in the application menu. See macOSXRegistration()
+        if (!MAC_OS_X) {
             editMenu.add(editSeparator1);
 
             preferencesEditItem.setText("Preferences");
             editMenu.add(preferencesEditItem);
             preferencesEditItem.setEnabled(true);
 
-            ActionListener[] listenerArray =
-                    preferencesEditItem.getActionListeners();
-            for (int i = 0; i < listenerArray.length; i++)
-            {
+            ActionListener[] listenerArray = preferencesEditItem
+                    .getActionListeners();
+            for (int i = 0; i < listenerArray.length; i++) {
                 preferencesEditItem.removeActionListener(listenerArray[i]);
             }
 
-            preferencesEditItem.addActionListener(new ActionListener()
-            {
+            preferencesEditItem.addActionListener(new ActionListener() {
                 @Override
-                public void actionPerformed(ActionEvent evt)
-                {
+                public void actionPerformed(ActionEvent evt) {
                     mPreferencesActionPerformed(evt);
                 }
             });
         }
 
-        systemMenu.add(editMenu);
+        systemMenuBar.add(editMenu);
+    }
 
-        // TOOLS MENU
-        toolsMenu.setText("Tools");
-        toolsMenu.setMnemonic('T');
-        toolsMenu.addMenuListener(this);
+    // Create the file menu
+    private void createFileMenu() {
+        fileMenu = new JMenu();
+        newFileItem = new JMenuItem();
+        openFileItem = new JMenuItem();
+        fileSeparator1 = new JSeparator();
+        saveFileItem = new JMenuItem();
+        fileSeparator2 = new JSeparator();
+        exitFileItem = new JMenuItem();
+        
+        fileMenu.setText("File");
+        fileMenu.setMnemonic('F');
+        fileMenu.addMenuListener(this);
 
-        versionToolsItem.setMnemonic('G');
-        versionToolsItem.setText("Get Newest Version");
-        toolsMenu.add(versionToolsItem);
+        createFileNewMenuItem();
+        createFileOpenMenuItem();
+        fileMenu.add(fileSeparator1);
+        createFileSaveMenuItem();
 
-        toolsMenu.add(toolsSeparator1);
+        // Exit is quit on the Macintosh is in the application menu. See macOSXRegistration()
+        if (!MAC_OS_X) {
+            exitForMacOSX();
+        }
 
-        systemMenu.add(toolsMenu);
-
-        setJMenuBar(systemMenu);
-        openFileItem.setEnabled(true);
-        saveFileItem.setEnabled(false);
-        newFileItem.setEnabled(false);
-        cutEditItem.setEnabled(false);
-        copyEditItem.setEnabled(false);
-        pasteEditItem.setEnabled(false);
-        preferencesEditItem.setEnabled(true);
-        versionToolsItem.setEnabled(false);
-
-        pack();
+        systemMenuBar.add(fileMenu);
     }
 
     /**
-     *  Closes and exits the application cleanly.
-     *
-     *@param event - a window close event
-     *@since GMGen 3.3
+     * 
      */
-    private void exitForm(WindowEvent event)
-    {
+    private void createFileSaveMenuItem() {
+        saveFileItem.setMnemonic('S');
+        saveFileItem.setText("Save");
+        fileMenu.add(saveFileItem);
+        saveFileItem.addActionListener(this);
+    }
+
+    /**
+     * 
+     */
+    private void createFileOpenMenuItem() {
+        openFileItem.setMnemonic('O');
+        openFileItem.setText("Open");
+        fileMenu.add(openFileItem);
+        openFileItem.addActionListener(this);
+    }
+
+    /**
+     * 
+     */
+    private void createFileNewMenuItem() {
+        newFileItem.setMnemonic('N');
+        newFileItem.setText("New");
+        newFileItem.addActionListener(this);
+        fileMenu.add(newFileItem);
+    }
+
+    /**
+     * 
+     */
+    private void exitForMacOSX() {
+        fileMenu.add(fileSeparator2);
+        exitFileItem.setMnemonic('x');
+        exitFileItem.setText("Exit");
+        fileMenu.add(exitFileItem);
+        exitFileItem.addActionListener(this);
+    }
+
+    /**
+     * Closes and exits the application cleanly.
+     * 
+     * @param event
+     *            - a window close event
+     * @since GMGen 3.3
+     */
+    private void exitForm(WindowEvent event) {
         this.setVisible(false);
     }
 
     /**
-     * Initializes all the GUI components and places them in the correct place on
-     * the GUI.
-     *
-     *@since GMGen 3.3
+     * Initializes all the GUI components and places them in the correct place
+     * on the GUI.
+     * 
+     * @since GMGen 3.3
      */
-    private void initComponents()
-    {
+    private void initComponents() {
         getContentPane().setLayout(new BorderLayout());
         setTabbedPanes();
 
-        addWindowListener(new WindowAdapter()
-        {
+        addWindowListener(new WindowAdapter() {
             @Override
-            public void windowClosing(WindowEvent evt)
-            {
+            public void windowClosing(WindowEvent evt) {
                 exitForm(evt);
             }
         });
 
-        addWindowFocusListener(new java.awt.event.WindowFocusListener()
-        {
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             @Override
-            public void windowGainedFocus(java.awt.event.WindowEvent e)
-            {
+            public void windowGainedFocus(java.awt.event.WindowEvent e) {
                 stateUpdate(e);
             }
 
             @Override
-            public void windowLostFocus(java.awt.event.WindowEvent e)
-            {
-                //Intentionally left blank because WindowFocusListener requires
-                //the method to be implemented.
+            public void windowLostFocus(java.awt.event.WindowEvent e) {
+                // Intentionally left blank because WindowFocusListener requires
+                // the method to be implemented.
             }
         });
 
-        //sourceView.getLoadButton().addActionListener(this);
-        //sourceView.getUnloadAllButton().addActionListener(this);
-        //sourceView.getRemoveAllButton().addActionListener(this);
+        // sourceView.getLoadButton().addActionListener(this);
+        // sourceView.getUnloadAllButton().addActionListener(this);
+        // sourceView.getRemoveAllButton().addActionListener(this);
         GMGenSystemView.getTabPane().addChangeListener(this);
         getContentPane().add(theView, BorderLayout.CENTER);
 
         setIconImage(Icons.createImageIcon("gmgen_icon.png").getImage());
     }
 
-    // end initPcgenLocation
-
-    /**
-     *  Initializes the Logger component.
-     *
-     *@since    GMGen 3.3
-     */
-    private void initLogger()
-    {
-        LogUtilities.inst().setLoggingOn(
-            SettingsHandler.getGMGenOption("Logging.On", false));
+    // Initializes the Logger component.
+    private void initLogger() {
+        boolean logging = SettingsHandler.getGMGenOption("Logging.On", false);
+        LogUtilities.inst().setLogging(logging);
     }
 
-    /**
-     *  Initializes the settings, and implements their commands.
-     *
-     *@since    GMGen 3.3
-     */
-    private void initSettings()
-    {
+    // Initializes the settings, and implements their commands.
+    private void initSettings() {
         int iWinX = SettingsHandler.getGMGenOption("WindowX", 0);
         int iWinY = SettingsHandler.getGMGenOption("WindowY", 0);
         setLocation(iWinX, iWinY);
@@ -783,36 +677,29 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         int iWinHeight = SettingsHandler.getGMGenOption("WindowHeight", 580);
         setSize(iWinWidth, iWinHeight);
 
-        int windowState =
-                SettingsHandler.getGMGenOption("WindowState", Frame.NORMAL);
+        int windowState = SettingsHandler.getGMGenOption("WindowState",
+                Frame.NORMAL);
 
-        if (windowState != Frame.NORMAL)
-        {
+        if (windowState != Frame.NORMAL) {
             setExtendedState(windowState);
         }
 
     }
 
-    // end handleOpenFile
-
-    private void mPreferencesActionPerformed(ActionEvent event)
-    {
+    private void mPreferencesActionPerformed(ActionEvent event) {
         PreferencesDialog dialog = new PreferencesDialog(this, true, rootNode);
         dialog.setVisible(true);
     }
 
-    private class Renderer extends SwingWorker
-    {
+    private class Renderer extends SwingWorker {
 
         @Override
-        public Object construct()
-        {
+        public Object construct() {
             return "";
         }
 
         @Override
-        public void finished()
-        {
+        public void finished() {
             GMGenSystem.this.initialize();
         }
     }
