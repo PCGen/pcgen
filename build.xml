@@ -293,8 +293,35 @@ then
     esac
 fi
 
+available_memory="unknown"
+default_min_memory=256
+default_max_memory=512
+
+# Linux /proc/meminfo
+if [ -e "/proc/meminfo" ]; then
+available_memory=$(grep MemFree: /proc/meminfo | awk '{ print $2; }')
+echo "Available memory: $available_memory kB"
+fi
+
+
+# Test if the value is numeric before performing arithmetic on it
+if [ $available_memory -eq $available_memory 2> /dev/null ]; then
+
+# We go with the defaults if memory is too low
+if [ $available_memory -gt 1048576 ]; then
+echo "There is more than 1 GB of free memory available. Will raise memory limits."
+echo "Will take a quarter as low limit and half as upper limit:"
+default_min_memory=$(($available_memory/1024/4))
+default_max_memory=$(($available_memory/1024/2))
+else
+echo "There is less than 1 GB of free memory available. Will keep default memory limits"
+fi
+
+echo "min: $default_min_memory MB, max: $default_max_memory MB"
+fi
+
 # To load all sources takes more than the default 64MB.
-javaargs="-Xms128m -Xmx256m"
+javaargs="-Xms${default_min_memory}m -Xmx${default_max_memory}m"
 pcgenargs=""
 whosearg=java
 
