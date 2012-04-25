@@ -301,6 +301,18 @@ default_max_memory=512
 if [ -e "/proc/meminfo" ]; then
 available_memory=$(grep MemFree: /proc/meminfo | awk '{ print $2; }')
 echo "Available memory: $available_memory kB"
+# BSD (thus MacOSX) memory command line should be in /usr/bin/vm_stat
+elif [ -x /usr/bin/vm_stat ]; then
+	# Mach Virtual Memory Statistics: (page size of 4096 bytes)
+	# Pages free:                         713087.
+	BLOCK_SIZE=$(vm_stat | grep 'page size of' | cut -d ' ' -f 8);
+	FREE_BLOCKS=$(vm_stat | grep 'Pages free' | awk '{ print $3; }' | sed -e 's/\.//');
+	FREE_SPACE=$(($FREE_BLOCKS * $BLOCK_SIZE))
+	available_memory=$(($FREE_SPACE / 1024))
+
+	echo "Available memory: $available_memory kB"
+else
+	echo "Could not detect available memory. Will stick to default of $available_memory kB"
 fi
 
 
