@@ -49,7 +49,9 @@ public class ObjectCache extends CDOMObject
 
 	/**
 	 * Returns the cost of a given Skill for the given PlayerCharacter and
-	 * PCClass.
+	 * PCClass. 
+	 * Note: Some continuous looping behaviour has been observed when two 
+	 * threads are using this method, so it has been synchronized as a precaution. 
 	 * 
 	 * @param pc
 	 *            The PlayerCharacter for which the SkillCost is being
@@ -61,7 +63,7 @@ public class ObjectCache extends CDOMObject
 	 * @return The cost of a given Skill for the given PlayerCharacter and
 	 *         PCClass.
 	 */
-	public SkillCost getSkillCost(PlayerCharacter pc, Skill skill, PCClass pcc)
+	public synchronized SkillCost getSkillCost(PlayerCharacter pc, Skill skill, PCClass pcc)
 	{
 		SkillCost cost = skillCostMap.get(skill, pcc);
 		if (cost == null)
