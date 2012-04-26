@@ -82,6 +82,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.StatAnalysis;
 import pcgen.gui.panes.FlippingSplitPane;
+import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import plugin.initiative.AttackModel;
 import plugin.initiative.CheckModel;
@@ -1889,7 +1890,7 @@ public class Initiative extends javax.swing.JPanel
 	public void saveToFile()
 	{
 		JFileChooser fLoad = new JFileChooser();
-		File defaultFile = SettingsHandler.getPcgPath();
+		File defaultFile = new File(PCGenSettings.getPcgDir());
 
 		if (defaultFile.exists())
 		{

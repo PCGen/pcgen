@@ -12,24 +12,31 @@ import gmgen.pluginmgr.GMBus;
 import gmgen.pluginmgr.messages.*;
 import gmgen.util.LogUtilities;
 import gmgen.util.MiscUtilities;
-import pcgen.cdom.base.Constants;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
-import pcgen.gui.utils.TabbedPaneUtilities;
-import pcgen.gui.ImagePreview;
-import pcgen.io.PCGFile;
-import plugin.initiative.gui.*;
+
+import java.awt.Component;
+import java.awt.Cursor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
 
 import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.filechooser.FileFilter;
-import java.awt.Component;
-import java.awt.Cursor;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
+
+import pcgen.cdom.base.Constants;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.gui.ImagePreview;
+import pcgen.gui.utils.TabbedPaneUtilities;
+import pcgen.io.PCGFile;
+import pcgen.system.PCGenSettings;
+import plugin.initiative.gui.Initiative;
+import plugin.initiative.gui.PreferencesDamagePanel;
+import plugin.initiative.gui.PreferencesInitiativePanel;
+import plugin.initiative.gui.PreferencesMassiveDamagePanel;
+import plugin.initiative.gui.PreferencesPerformancePanel;
 
 /**
  * The <code>ExperienceAdjusterController</code> handles the functionality of
@@ -153,7 +160,7 @@ public class InitiativePlugin extends GMBPlugin
 	{
 		JFileChooser chooser =
 				ImagePreview.decorateWithImagePreview(new JFileChooser());
-		File defaultFile = SettingsHandler.getPcgPath();
+		File defaultFile = new File(PCGenSettings.getPcgDir());
 
 		if (defaultFile.exists())
 		{

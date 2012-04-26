@@ -29,8 +29,11 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
+import pcgen.system.ConfigurationSettings;
+import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
+import java.io.File;
 import java.util.StringTokenizer;
 
 /**
@@ -123,7 +126,8 @@ public class DirToken extends Token
 	 */
 	public static String getPCGenToken()
 	{
-		return SettingsHandler.getPcgenSystemDir().getAbsolutePath();
+		return new File(ConfigurationSettings.getSystemsDir())
+			.getAbsolutePath();
 	}
 
 	/**
@@ -132,7 +136,7 @@ public class DirToken extends Token
 	 */
 	public static String getPcgToken()
 	{
-		return SettingsHandler.getPcgPath().getAbsolutePath();
+		return new File(PCGenSettings.getPcgDir()).getAbsolutePath();
 	}
 
 	/**
@@ -150,6 +154,7 @@ public class DirToken extends Token
 	 */
 	public static String getTemplatesToken()
 	{
-		return SettingsHandler.getPcgenOutputSheetDir().getAbsolutePath();
+		return new File(ConfigurationSettings.getOutputSheetsDir())
+			.getAbsolutePath();
 	}
 }

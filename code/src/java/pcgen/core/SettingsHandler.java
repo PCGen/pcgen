@@ -61,6 +61,7 @@ import pcgen.gui.utils.Utility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
 import pcgen.system.LanguageBundle;
+import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
 /**
@@ -1914,6 +1915,8 @@ public final class SettingsHandler
 
 	/**
 	 * Returns the path to the character files.
+	 *
+	 * @deprecated Callers should use PCGenSettings.getPcgDir() instead.
 	 *
 	 * @return    the <code>pcgPath</code> property
 	 */

@@ -30,7 +30,7 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.list.CompanionList;
 import pcgen.core.Race;
-import pcgen.core.SettingsHandler;
+import pcgen.system.PCGenSettings;
 
 /**
  * <code>Follower.java</code>
@@ -133,12 +133,12 @@ public final class Follower implements Comparable<Object>, Cloneable
 	 */
 	public void setRelativeFileName(final String x)
 	{
-		if (x.startsWith(SettingsHandler.getPcgPath().toString()))
+		if (x.startsWith(PCGenSettings.getPcgDir()))
 		{
 			fileName = x;
 		}
 
-		fileName = SettingsHandler.getPcgPath().toString() + x;
+		fileName = PCGenSettings.getPcgDir() + x;
 	}
 
 	/**
@@ -149,9 +149,9 @@ public final class Follower implements Comparable<Object>, Cloneable
 	{
 		String result = fileName;
 
-		if (fileName.startsWith(SettingsHandler.getPcgPath().toString()))
+		if (fileName.startsWith(PCGenSettings.getPcgDir()))
 		{
-			result = fileName.substring(SettingsHandler.getPcgPath().toString().length());
+			result = fileName.substring(PCGenSettings.getPcgDir().length());
 		}
 
 		return result;

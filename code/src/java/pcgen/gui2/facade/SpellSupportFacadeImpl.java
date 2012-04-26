@@ -1401,7 +1401,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		String ext = template.substring(template.lastIndexOf('.'));
 
 		JFileChooser fcExport = new JFileChooser();
-		fcExport.setCurrentDirectory(SettingsHandler.getPcgPath());
+		fcExport.setCurrentDirectory(new File(PCGenSettings.getPcgDir()));
 
 		fcExport.setDialogTitle(LanguageBundle
 			.getString("InfoSpells.export.spells.for") + pc.getDisplayName()); //$NON-NLS-1$

@@ -15,6 +15,7 @@ import pcgen.gui.utils.TabbedPaneUtilities;
 import pcgen.gui.ImagePreview;
 import pcgen.io.PCGIOHandler;
 import pcgen.io.PCGFile;
+import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import plugin.pcgtracker.gui.PCGTrackerView;
 
@@ -249,7 +250,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 	 */
 	public void handleOpen()
 	{
-		File defaultFile = SettingsHandler.getPcgPath();
+		File defaultFile = new File(PCGenSettings.getPcgDir());
 		JFileChooser chooser =
 				ImagePreview.decorateWithImagePreview(new JFileChooser());
 		chooser.setCurrentDirectory(defaultFile);
@@ -323,8 +324,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 		if (aPCFileName.equals(""))
 		{
 			prevFile =
-					new File(SettingsHandler.getPcgPath().toString(), aPC
-						.getDisplayName()
+					new File(PCGenSettings.getPcgDir(), aPC.getDisplayName()
 						+ Constants.EXTENSION_CHARACTER_FILE);
 			aPCFileName = prevFile.getAbsolutePath();
 			newPC = true;
