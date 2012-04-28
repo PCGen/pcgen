@@ -121,7 +121,7 @@ public final class InfoTabbedPane extends JTabbedPane
 		addTab(new InventoryInfoTab());
 		addTab(new DescriptionInfoTab());
 		addTab(new CharacterSheetInfoTab());
-		
+		addTab(new CompanionInfoTab());
 		addChangeListener(this);
 	}
 
