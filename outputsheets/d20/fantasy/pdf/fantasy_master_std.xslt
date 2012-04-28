@@ -4047,7 +4047,62 @@
 <!-- New Row For Actual Range with 10 increments 
 		CHOOSE tests for Thrown or Ranged and then grants the -->
 			<xsl:choose>
-			<xsl:when test="contains(rangetype, 'Thrown')">
+			<xsl:when test="range[position() &gt; 6]">
+				<fo:table-row keep-with-next.within-column="always">
+					<!-- Distances -->
+					<fo:table-cell>
+						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
+					</fo:table-cell>
+					<xsl:for-each select="range[position() &gt; 6 and position() &lt; 12]">
+						<fo:table-cell>
+							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
+							<fo:block font-size="5pt" font-weight="bold">
+								<xsl:value-of select="distance"/>
+							</fo:block>
+						</fo:table-cell>
+					</xsl:for-each>
+				</fo:table-row>
+				<fo:table-row keep-with-next.within-column="always">
+					<!-- Range To-Hits -->
+					<fo:table-cell>
+						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
+						<fo:block font-size="6pt" font-weight="bold">TH</fo:block>
+					</fo:table-cell>
+					<xsl:for-each select="range[position() &gt; 6 and position() &lt; 12]">
+						<fo:table-cell>
+							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.hilight'"/></xsl:call-template>
+							<fo:block space-before="1pt">
+								<xsl:attribute name="font-size">
+									<xsl:choose>
+										<xsl:when test="string-length(to_hit) &gt; 15">6pt</xsl:when>
+										<xsl:otherwise>7pt</xsl:otherwise>
+									</xsl:choose>
+								</xsl:attribute>
+								<xsl:value-of select="to_hit"/>
+							</fo:block>
+						</fo:table-cell>
+					</xsl:for-each>
+				</fo:table-row>
+				<fo:table-row keep-with-next.within-column="always">
+					<!-- Damages -->
+					<fo:table-cell>
+						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
+						<fo:block font-size="6pt" font-weight="bold">Dam</fo:block>
+					</fo:table-cell>
+					<xsl:for-each select="range[position() &gt; 6 and position() &lt; 12]">
+						<fo:table-cell>
+							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.hilight'"/></xsl:call-template>
+							<fo:block font-size="7pt" space-before="1pt">
+								<xsl:value-of select="damage"/>
+							</fo:block>
+						</fo:table-cell>
+					</xsl:for-each>
+				</fo:table-row>
+
+
+			</xsl:when>
+			<xsl:otherwise>
+<!-->			<xsl:when test="contains(rangetype, 'Thrown')"> -->
 				<fo:table-row keep-with-next.within-column="always">
 					<!-- Distances -->
 					<fo:table-cell>
@@ -4099,60 +4154,8 @@
 						</fo:table-cell>
 					</xsl:for-each>	
 				</fo:table-row>
-			</xsl:when>
-			<xsl:otherwise>
-				<fo:table-row keep-with-next.within-column="always">
-					<!-- Distances -->
-					<fo:table-cell>
-						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
-					</fo:table-cell>
-					<xsl:for-each select="range[position() &gt; 6 and position() &lt; 12]">
-						<fo:table-cell>
-							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
-							<fo:block font-size="5pt" font-weight="bold">
-								<xsl:value-of select="distance"/>
-							</fo:block>
-						</fo:table-cell>
-					</xsl:for-each>
-				</fo:table-row>
-				<fo:table-row keep-with-next.within-column="always">
-					<!-- Range To-Hits -->
-					<fo:table-cell>
-						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
-						<fo:block font-size="6pt" font-weight="bold">TH</fo:block>
-					</fo:table-cell>
-					<xsl:for-each select="range[position() &gt; 6 and position() &lt; 12]">
-						<fo:table-cell>
-							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.hilight'"/></xsl:call-template>
-							<fo:block space-before="1pt">
-								<xsl:attribute name="font-size">
-									<xsl:choose>
-										<xsl:when test="string-length(to_hit) &gt; 15">6pt</xsl:when>
-										<xsl:otherwise>7pt</xsl:otherwise>
-									</xsl:choose>
-								</xsl:attribute>
-								<xsl:value-of select="to_hit"/>
-							</fo:block>
-						</fo:table-cell>
-					</xsl:for-each>
-				</fo:table-row>
-				<fo:table-row keep-with-next.within-column="always">
-					<!-- Damages -->
-					<fo:table-cell>
-						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
-						<fo:block font-size="6pt" font-weight="bold">Dam</fo:block>
-					</fo:table-cell>
-					<xsl:for-each select="range[position() &gt; 6 and position() &lt; 12]">
-						<fo:table-cell>
-							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.hilight'"/></xsl:call-template>
-							<fo:block font-size="7pt" space-before="1pt">
-								<xsl:value-of select="damage"/>
-							</fo:block>
-						</fo:table-cell>
-					</xsl:for-each>
-				</fo:table-row>
-				</xsl:otherwise>
-				</xsl:choose>
+			</xsl:otherwise>
+		</xsl:choose>
 
 			</fo:table-body>
 		</fo:table>
