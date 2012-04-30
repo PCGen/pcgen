@@ -8,8 +8,8 @@ CLASS:Spherewalker	HD:8		TYPE:PC.Prestige	ABB:Sph		MAXLEVEL:5	SOURCEPAGE:p.73	BO
 CLASS:Spherewalker	PREATT:5	PREDEITY:1,Desna	PREFEAT:1,Great Fortitude,Iron Will,Lightning Reflexes	PREFEAT:1,Acrobatic,Agile,Athletic,Endurance,Run,Self Sufficient	PRESKILL:2,Climb=5,Knowledge (Geography)=5,Knowledge (Nature)=5,Knowledge (Religion)=5,TYPE.Perform=5,Ride=5,Survival=5,Swim=5	PREWEAPONPROF:1,Starknife
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Spherewalker	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|Escape Artist|Handle Animal|Heal|Jump|Knowledge (Geography)|TYPE=Perform|Ride|Spot|Survival|Swim|Tumble
-1						ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Landmark|Longstrider
-2						ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Efficient Sleep|Star Slinger
-3						ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Dream Link
-4	BONUS:VAR|DivineLuckLVL|CL	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Divine Luck
-5	BONUS:VAR|SwarmFormLVL|CL	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Swarm Form
+1						ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Landmark|Longstrider
+2						ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Efficient Sleep|Star Slinger
+3						ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Dream Link
+4	BONUS:VAR|DivineLuckLVL|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Divine Luck
+5	BONUS:VAR|SwarmFormLVL|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Swarm Form
