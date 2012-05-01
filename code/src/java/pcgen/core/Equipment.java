@@ -502,6 +502,15 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
+	 * Identifies if this item is one that is sold like cash (e.g. coins, trade goods)
+	 * @return true if the item is tradeable
+	 */
+	public boolean isSellAsCash()
+	{
+		return isType("Coin") || isType("Gem") //$NON-NLS-1$ //$NON-NLS-2$
+			|| isType("Trade"); //$NON-NLS-1$
+	}
+	/**
 	 * Description of the Method
 	 * 
 	 * @param aString

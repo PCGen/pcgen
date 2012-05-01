@@ -3220,10 +3220,11 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		Equipment updatedItem =
 				theCharacter.getEquipmentNamed(equipItemToAdjust.getName());
 		
-		if (!canAfford(equipItemToAdjust, quantity, SettingsHandler.getGearTab_BuyRate()))
+		if (!canAfford(equipItemToAdjust, quantity,
+			(GearBuySellScheme) gearBuySellSchemeRef.getReference()))
 		{
-			delegate.showInfoMessage(Constants.APPLICATION_NAME, 
-				LanguageBundle.getFormattedString("in_igBuyInsufficientFunds", quantity, //$NON-NLS-1$
+			delegate.showInfoMessage(Constants.APPLICATION_NAME, LanguageBundle
+				.getFormattedString("in_igBuyInsufficientFunds", quantity, //$NON-NLS-1$
 					equipItemToAdjust.getName()));
 			return;
 		}
@@ -3278,7 +3279,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		// Update the PC and equipment
 		double itemCost =
 				calcItemCost(updatedItem, quantity,
-					SettingsHandler.getGearTab_BuyRate());
+					(GearBuySellScheme) gearBuySellSchemeRef.getReference());
 		theCharacter.adjustGold(itemCost*-1);
 		theCharacter.setCalcEquipmentList();
 		theCharacter.setDirty(true);
@@ -3291,43 +3292,33 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	 * the requested quantity of an item at the rate selected.
 	 * @param selected Equipment item being bought, used to determine the base price
 	 * @param purchaseQty double number of the item bought
-	 * @param buyRate int rate (typically 0-100) at which to buy an item
+	 * @param gearBuySellScheme The scheme for buying and selling rates
 	 *
 	 * This method was overhauled March, 2003 by sage_sam as part of FREQ 606205
 	 * @return true if it can be afforded
 	 */
 	private boolean canAfford(Equipment selected, double purchaseQty,
-		int buyRate)
+		GearBuySellScheme gearBuySellScheme)
 	{
 		final float currentFunds = theCharacter.getGold().floatValue();
 
 		final double itemCost =
-				calcItemCost(selected, purchaseQty, buyRate);
+				calcItemCost(selected, purchaseQty, gearBuySellScheme);
 
 		return allowDebt || (itemCost <= currentFunds);
 	}
 
-	private double calcItemCost(Equipment selected, double purchaseQty, int buyRate)
+	private double calcItemCost(Equipment selected, double purchaseQty,
+		GearBuySellScheme gearBuySellScheme)
 	{
-		return (purchaseQty * buyRate) * (float) 0.01
+		BigDecimal rate = purchaseQty >= 0 ? gearBuySellScheme.getBuyRate() : gearBuySellScheme.getSellRate();
+		if (purchaseQty < 0 && selected.isSellAsCash())
+		{
+			rate = gearBuySellScheme.getCashSellRate();
+		}
+
+		return (purchaseQty * rate.intValue()) * (float) 0.01
 			* selected.getCost(theCharacter).floatValue();
-	}
-
-	/**
-	 * This method adjusts the character's gold in the event an item is bought or sold.
-	 * @param base Equipment item being bought/sold, used to determine the base price
-	 * @param diffQty double number of the item bought/sold
-	 * @param buyRate int rate (typically 0-100) at which to buy an item
-	 * @param sellRate int rate (typically 0-100) at which to sell an item
-	 *
-	 * This method was overhauled March, 2003 by sage_sam as part of FREQ 606205
-	 */
-	private void adjustGold(Equipment base, double diffQty, int buyRate,
-		int sellRate)
-	{
-		double itemCost = -1* calcItemCost(base, diffQty, diffQty > 0 ? buyRate : sellRate);
-
-		theCharacter.adjustGold(itemCost);
 	}
 	
 	private Equipment openCustomizer(Equipment aEq)
@@ -3411,9 +3402,9 @@ public class CharacterFacadeImpl implements CharacterFacade,
 
 		// Update the PC and equipment
 		double itemCost =
-				calcItemCost(updatedItem, quantity,
-					SettingsHandler.getGearTab_SellRate());
-		theCharacter.adjustGold(itemCost);
+				calcItemCost(updatedItem, quantity * -1,
+					(GearBuySellScheme) gearBuySellSchemeRef.getReference());
+		theCharacter.adjustGold(itemCost * -1);
 		theCharacter.setCalcEquipmentList();
 		theCharacter.setDirty(true);
 		updateWealthFields();
