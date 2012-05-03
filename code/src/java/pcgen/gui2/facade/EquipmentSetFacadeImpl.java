@@ -48,9 +48,9 @@ import pcgen.core.facade.DefaultReferenceFacade;
 import pcgen.core.facade.EquipmentFacade;
 import pcgen.core.facade.EquipmentListFacade;
 import pcgen.core.facade.EquipmentSetFacade;
+import pcgen.core.facade.EquipmentSetFacade.EquipNode.NodeType;
 import pcgen.core.facade.ReferenceFacade;
 import pcgen.core.facade.UIDelegate;
-import pcgen.core.facade.EquipmentSetFacade.EquipNode.NodeType;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.system.LanguageBundle;
@@ -84,6 +84,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 	private double totalWeight = 0;
 	private DefaultListFacade<EquipNode> nodeList;
 	private Map<EquipSlot, EquipNode> equipSlotNodeMap;
+	private Map<String, EquipNodeImpl> naturalWeaponNodes;
 	
 	/**
 	 * Create a new Equipment Set Facade implementation for an existing 
@@ -124,6 +125,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		name = new DefaultReferenceFacade<String>(equipSet.getName());
 		bodyStructMap = new HashMap<String, BodyStructure>();
 		equipmentList = new EquipmentListFacadeImpl();
+		naturalWeaponNodes = new HashMap<String, EquipmentSetFacadeImpl.EquipNodeImpl>();
 
 		for (BodyStructureFacade bodyStruct : dataSet.getEquipmentLocations())
 		{
@@ -157,8 +159,13 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 					if (slot.canContainType("WEAPON"))
 					{
 						// Add phantom nodes for the various weapon slots
-						addEquipNodeForEquipSlot(node, createWeaponEquipSlot(
-							slot, Constants.EQUIP_LOCATION_PRIMARY), true);
+						if (theCharacter.getHands() > 0)
+						{
+							addEquipNodeForEquipSlot(
+								node,
+								createWeaponEquipSlot(slot,
+									Constants.EQUIP_LOCATION_PRIMARY), true);
+						}
 						for (int i = 1; i < theCharacter.getHands(); ++i)
 						{
 							if (i > 1)
@@ -535,7 +542,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 			else if (targetNode.getSlot() != null)
 			{
 				final EquipNodeImpl restoredNode = (EquipNodeImpl) equipSlotNodeMap.get(targetNode.getSlot());
-				if (!nodeList.containsElement(restoredNode))
+				if (restoredNode != null && !nodeList.containsElement(restoredNode))
 				{
 					nodeList.addElement(0, restoredNode);
 					addCompatWeaponSlots(restoredNode);
@@ -789,6 +796,13 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 			return false;
 		}
 		Equipment item = (Equipment) equipment;
+		
+		// Check for a required location (i.e. you can't carry a natural weapon)
+		EquipNode requiredLoc = getRequiredLoc(equipment);
+		if (requiredLoc != null)
+		{
+			return requiredLoc.equals(node);
+		}
 
 		// Is this a container? Then check if the object can fit in
 		if (node.getNodeType() == NodeType.EQUIPMENT)
@@ -880,6 +894,11 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 	@Override
 	public String getPreferredLoc(EquipmentFacade equipment)
 	{
+		EquipNode reqNode = getRequiredLoc(equipment);
+		if (reqNode != null)
+		{
+			return reqNode.toString();
+		}
 		for (EquipNode node : equipSlotNodeMap.values())
 		{
 			if (node.getNodeType()==NodeType.PHANTOM_SLOT)
@@ -894,6 +913,44 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		return "Other";
 	}
 
+	protected EquipNode getRequiredLoc(EquipmentFacade equipment)
+	{
+		if (!(equipment instanceof Equipment) || equipment == null)
+		{
+			return null;
+		}
+		Equipment item = (Equipment) equipment;
+		String locName = theCharacter.getNaturalWeaponLocation(item);
+		if (locName != null)
+		{
+			//TODO: What if it already exists?
+			EquipNodeImpl slotNode = naturalWeaponNodes.get(locName);
+			if (slotNode != null)
+			{
+				return slotNode;
+			}
+			for (EquipSlot slot : SystemCollections.getUnmodifiableEquipSlotList())
+			{
+				if (slot.canContainType("WEAPON")) //$NON-NLS-1$
+				{
+					EquipSlot natWpnEquipSlot = createWeaponEquipSlot(slot, locName);
+					for (EquipNode node : nodeList)
+					{
+						if (node.getNodeType() == NodeType.BODY_SLOT && slot.getBodyStructureName().equalsIgnoreCase(node.getBodyStructure().toString()))
+						{
+							slotNode =
+									new EquipNodeImpl((EquipNodeImpl)node, natWpnEquipSlot, true);
+							naturalWeaponNodes.put(locName, slotNode);
+							nodeList.addElement(slotNode);
+							return slotNode; 
+						}
+					}
+				}
+			}
+		}
+		
+		return null;
+	}
 	/**
 	 * Calculate the number of free instances of the slot there are in the
 	 * equipment set.

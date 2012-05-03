@@ -4006,7 +4006,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	 * weapons and melee+ranged weapons Output order is assumed Merge of like
 	 * equipment depends on the passed in int
 	 * 
-	 * @param merge
+	 * @param merge The type of merge to perform
 	 * 
 	 * @return the sorted list of weapons.
 	 */
@@ -9142,17 +9142,10 @@ public class PlayerCharacter extends Observable implements Cloneable,
 	private String getSingleLocation(Equipment eqI)
 	{
 		// Handle natural weapons
-		if (eqI.isNatural())
+		String loc = getNaturalWeaponLocation(eqI);
+		if (loc != null)
 		{
-			if (eqI.getSlots(this) == 0)
-			{
-				// TODO - Yuck. This should not look at the name!!
-				if (eqI.modifiedName().endsWith("Primary"))
-				{
-					return Constants.EQUIP_LOCATION_NATURAL_PRIMARY;
-				}
-				return Constants.EQUIP_LOCATION_NATURAL_SECONDARY;
-			}
+			return loc;
 		}
 
 		// Always force weapons to go through the chooser dialog
@@ -9180,6 +9173,28 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		}
 
 		return Constants.EMPTY_STRING;
+	}
+
+	/**
+	 * Identify the equipping location for a natural weapon. 
+	 * @param eqI The natural weapon
+	 * @return The location name, or null if not a natural weapon.
+	 */
+	public String getNaturalWeaponLocation(Equipment eqI)
+	{
+		if (eqI.isNatural())
+		{
+			if (eqI.getSlots(this) == 0)
+			{
+				// TODO - Yuck. This should not look at the name!!
+				if (eqI.modifiedName().endsWith("Primary"))
+				{
+					return Constants.EQUIP_LOCATION_NATURAL_PRIMARY;
+				}
+				return Constants.EQUIP_LOCATION_NATURAL_SECONDARY;
+			}
+		}
+		return null;
 	}
 
 	/**

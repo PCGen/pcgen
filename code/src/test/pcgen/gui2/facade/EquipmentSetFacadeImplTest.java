@@ -5,6 +5,8 @@ import java.util.Map;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.BodyStructure;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -254,6 +256,40 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		assertEquals("Ring type", EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType());
 		assertEquals("Ring count", 2, esfi.getQuantity(testNode));
 	}
+	
+	/**
+	 * Verify the getRequiredLoc method. 
+	 */
+	public void testgetRequiredLoc()
+	{
+		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
+		EquipmentSetFacadeImpl esfi =
+				new EquipmentSetFacadeImpl(uiDelegate, getCharacter(), es,
+					dataset);
+
+		assertNull("Null equipment should give null location", esfi.getRequiredLoc(null));
+		
+		Equipment eq = new Equipment();
+		eq.addType(Type.MELEE);
+		eq.addType(Type.WEAPON);
+		EquipNode requiredLoc = esfi.getRequiredLoc(eq);
+		assertNull("Melee weapon should not have required location.", requiredLoc);
+		
+		eq.addType(Type.NATURAL);
+		eq.put(IntegerKey.SLOTS, 0);
+		eq.setName("Sting");
+		requiredLoc = esfi.getRequiredLoc(eq);
+		assertNotNull("Natural weapon should have required location.", requiredLoc);
+		assertEquals("Incorrect name for secondary natural weapon", "Natural-Secondary", requiredLoc.toString());
+		assertEquals("Natural weapom should replace hands.", "HANDS", requiredLoc.getBodyStructure().toString());
+
+		eq.setModifiedName("Natural/Primary");
+		requiredLoc = esfi.getRequiredLoc(eq);
+		assertNotNull("Natural weapon should have required location.", requiredLoc);
+		assertEquals("Incorrect name for primary natural weapon", "Natural-Primary", requiredLoc.toString());
+		assertEquals("Natural weapom should replace hands.", "HANDS", requiredLoc.getBodyStructure().toString());
+	}
+	
 	
 	/**
 	 * Add the equipment item to the equipset.

@@ -152,6 +152,13 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 			return this;
 		}
 
+		@Override
+		protected void setValue(Object value)
+		{
+			super.setValue(value);
+			setToolTipText(getText());
+		}
+
 	}
 
 	public void install(JTreeTable table)
