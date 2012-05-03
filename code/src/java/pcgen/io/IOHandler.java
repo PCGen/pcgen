@@ -22,6 +22,7 @@ package pcgen.io;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
 import java.io.*;
@@ -142,12 +143,12 @@ public abstract class IOHandler
 		{
 			// Make a backup of the old file, if it exists and isn't empty
 			File outFile = new File(filename);
-			if (SettingsHandler.getCreatePcgBackup() && outFile.exists()
+			if (PCGenSettings.getCreatePcgBackup() && outFile.exists()
 				&& outFile.length() > 0)
 			{
 				String file = outFile.getName();
-				File backupPcgPath = SettingsHandler.getBackupPcgPath();
-				if (backupPcgPath != null && !backupPcgPath.getPath().equals(""))
+				String backupPcgPath = PCGenSettings.getBackupPcgDir(); 
+				if (backupPcgPath != null && !backupPcgPath.equals(""))
 				{
 					bakFile =
 							new File(backupPcgPath + File.separator + file

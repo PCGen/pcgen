@@ -110,6 +110,7 @@ import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.gui2.prefs.SourcesPanel;
 import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
+import pcgen.system.PCGenSettings;
 import pcgen.util.SkinLFResourceChecker;
 
 /**
@@ -1182,7 +1183,7 @@ final class PreferencesDialog extends JDialog
 		languagePanel.applyOptionValuesToControls();
 		
 		// Locations
-		pcgenCreateBackupCharacter.setSelected(SettingsHandler.getCreatePcgBackup());
+		pcgenCreateBackupCharacter.setSelected(PCGenSettings.getCreatePcgBackup());
 
 		// Input
 		printDeprecationMessages.setSelected(SettingsHandler.outputDeprecationMessages());
