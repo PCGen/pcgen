@@ -1,16 +1,16 @@
-# CVS $Revision: 11672 $ $Author: eddyanthony $ -- Fri Sep 17 15:19:14 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision: 11672 $ $Author: eddyanthony $ -- Fri May  4 13:57:44 2012 -- reformated by prettylst.pl v1.39 (build 16265)
 SOURCELONG:Sargava, the Lost Colony	SOURCESHORT:StLC	SOURCEWEB:http://paizo.com/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy8ey2	SOURCEDATE:2010-07
 # Original Entry by: Stefan Radermacher
 
 ###Block: Special Substances and Items
-# Equipment Name		Type							Cost		Weight	Source Page
-Kaava Musk (Flask)	TYPE:Goods.Alchemical.Flask.Consumable	COST:40	WT:0.5	SOURCEPAGE:p.24	NAMEISPI:YES
+# Equipment Name		Product Identity?	Type							Cost		Weight	Source Page
+Kaava Musk (Flask)	NAMEISPI:YES	TYPE:Goods.Alchemical.Flask.Consumable	COST:40	WT:0.5	SOURCEPAGE:p.24
 
 ###Block: Shields
-# Equipment Name					Output Name					Required Shield Proficiency		Type						Cost		Weight	Modifier											Source Page		Combat bonus					Special Property
-Mwangi Spirit Shield (Bull's Strength)	OUTPUTNAME:Mwangi Spirit Shield	PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Specific.Nonmetal	COST:3	WT:5		EQMOD:WOOD.PLUS1S.GHOST.MAGIC_COST|15240.USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.29	BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE	SPROP:Can grant its bearer Bull's Strength for 1 minute once per day.	NAMEISPI:YES
-Mwangi Spirit Shield (Cat's Grace)		OUTPUTNAME:Mwangi Spirit Shield	PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Specific.Nonmetal	COST:3	WT:5		EQMOD:WOOD.PLUS1S.GHOST.MAGIC_COST|15240.USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.29	BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE	SPROP:Can grant its bearer Cat's Grace for 1 minute once per day.	NAMEISPI:YES
-Mwangi Spirit Shield (Bear's Endurance)	OUTPUTNAME:Mwangi Spirit Shield	PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Specific.Nonmetal	COST:3	WT:5		EQMOD:WOOD.PLUS1S.GHOST.MAGIC_COST|15240.USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.29	BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE	SPROP:Can grant its bearer Bear's Endurance for 1 minute once per day.	NAMEISPI:YES
+# Equipment Name					Product Identity?	Output Name					Required Shield Proficiency		Type						Cost		Weight	Modifier											Source Page		Combat bonus					Special Property
+Mwangi Spirit Shield (Bull's Strength)	NAMEISPI:YES	OUTPUTNAME:Mwangi Spirit Shield	PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Specific.Nonmetal	COST:3	WT:5		EQMOD:WOOD.PLUS1S.GHOST.MAGIC_COST|15240.USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.29	BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE	SPROP:Can grant its bearer Bull's Strength for 1 minute once per day.
+Mwangi Spirit Shield (Cat's Grace)		NAMEISPI:YES	OUTPUTNAME:Mwangi Spirit Shield	PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Specific.Nonmetal	COST:3	WT:5		EQMOD:WOOD.PLUS1S.GHOST.MAGIC_COST|15240.USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.29	BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE	SPROP:Can grant its bearer Cat's Grace for 1 minute once per day.
+Mwangi Spirit Shield (Bear's Endurance)	NAMEISPI:YES	OUTPUTNAME:Mwangi Spirit Shield	PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Specific.Nonmetal	COST:3	WT:5		EQMOD:WOOD.PLUS1S.GHOST.MAGIC_COST|15240.USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.29	BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE	SPROP:Can grant its bearer Bear's Endurance for 1 minute once per day.
 
 ###Block: Weapons
 # Equipment Name		Required Weapon Proficiency		Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier										Wield Category	Size		Source Page		Special Property
