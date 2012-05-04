@@ -58,9 +58,12 @@ Ustalav			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Fog-
 Varisia			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Wild Frontier Region			TEMPLATE:Regional Affinity (Varisia)			SOURCEPAGE:p.22
 
 ###Block: Placeholder objects for no Human Ethnicities or Regional Affinities
-# Ability Name	Category of Ability	Type
-None			CATEGORY:Background	TYPE:HumanEthnicity.Region
-Unknown		CATEGORY:Background	TYPE:HumanEthnicity.Region
+# Ability Name	Unique Key				Category of Ability	Type
+None			KEY:None ~ HumanEthnicity	CATEGORY:Background	TYPE:HumanEthnicity
+Unknown		KEY:Unknown ~ HumanEthnicity	CATEGORY:Background	TYPE:HumanEthnicity
+#
+None			KEY:None ~ Region			CATEGORY:Background	TYPE:Region
+Unknown		KEY:Unknown ~ Region		CATEGORY:Background	TYPE:Region
 
 #
 # End
