@@ -981,6 +981,8 @@ CATEGORY=Internal|Archetype Display.MOD		ABILITY:Paladin Archetype|AUTOMATIC|Arc
 CATEGORY=Internal|Archetype Display.MOD		ABILITY:Ranger Archetype|AUTOMATIC|Archetype Ranger|PRECLASS:1,Ranger=1
 CATEGORY=Internal|Archetype Display.MOD		ABILITY:Rogue Archetype|AUTOMATIC|Archetype Rogue|PRECLASS:1,Rogue=1
 CATEGORY=Internal|Archetype Display.MOD		ABILITY:Wizard Archetype|AUTOMATIC|Archetype Wizard|PRECLASS:1,Wizard=1
+CATEGORY=Internal|Archetype Display.MOD		ABILITY:Sorcerer Archetype|AUTOMATIC|Archetype Sorcerer|PRECLASS:1,Sorcerer=1
+CATEGORY=Internal|Archetype Display.MOD		ABILITY:Cleric Archetype|AUTOMATIC|Archetype Cleric|PRECLASS:1,Cleric=1
 #CATEGORY=Internal|Archetype Display.MOD		ABILITY: Archetype|AUTOMATIC|Archetype |PRECLASS:1,=1
 
 # Bucket Displayers
@@ -993,3 +995,5 @@ Archetype Paladin		CATEGORY:Archetype	VISIBLE:YES	TYPE:PaladinArchetype
 Archetype Ranger		CATEGORY:Archetype	VISIBLE:YES	TYPE:RangerArchetype		
 Archetype Rogue		CATEGORY:Archetype	VISIBLE:YES	TYPE:RogueArchetype		
 Archetype Wizard		CATEGORY:Archetype	VISIBLE:YES	TYPE:WizardArchetype		
+Archetype Sorcerer	CATEGORY:Archetype	VISIBLE:YES	TYPE:SorcererArchetype		
+Archetype Cleric		CATEGORY:Archetype	VISIBLE:YES	TYPE:ClericArchetype		
