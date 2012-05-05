@@ -367,6 +367,15 @@ public class EquipmentModels
 					data[i][0] = equipmentFacade;
 					data[i][1] = 1;
 					data[i][2] = equipMap.getElementInList(equipmentFacade, 0);
+					String preferredNodeName = equipSet.getPreferredLoc(equipmentFacade);
+					for (EquipNode node : equipMap.getListFor(equipmentFacade))
+					{
+						if (preferredNodeName.equals(node.toString()))
+						{
+							data[i][2] = node;
+							break;
+						}
+					} 
 				}
 				Object[] columns = new Object[]
 				{

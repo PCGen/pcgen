@@ -267,24 +267,24 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 				new EquipmentSetFacadeImpl(uiDelegate, getCharacter(), es,
 					dataset);
 
-		assertNull("Null equipment should give null location", esfi.getRequiredLoc(null));
+		assertNull("Null equipment should give null location", esfi.getNaturalWeaponLoc(null));
 		
 		Equipment eq = new Equipment();
 		eq.addType(Type.MELEE);
 		eq.addType(Type.WEAPON);
-		EquipNode requiredLoc = esfi.getRequiredLoc(eq);
+		EquipNode requiredLoc = esfi.getNaturalWeaponLoc(eq);
 		assertNull("Melee weapon should not have required location.", requiredLoc);
 		
 		eq.addType(Type.NATURAL);
 		eq.put(IntegerKey.SLOTS, 0);
 		eq.setName("Sting");
-		requiredLoc = esfi.getRequiredLoc(eq);
+		requiredLoc = esfi.getNaturalWeaponLoc(eq);
 		assertNotNull("Natural weapon should have required location.", requiredLoc);
 		assertEquals("Incorrect name for secondary natural weapon", "Natural-Secondary", requiredLoc.toString());
 		assertEquals("Natural weapom should replace hands.", "HANDS", requiredLoc.getBodyStructure().toString());
 
 		eq.setModifiedName("Natural/Primary");
-		requiredLoc = esfi.getRequiredLoc(eq);
+		requiredLoc = esfi.getNaturalWeaponLoc(eq);
 		assertNotNull("Natural weapon should have required location.", requiredLoc);
 		assertEquals("Incorrect name for primary natural weapon", "Natural-Primary", requiredLoc.toString());
 		assertEquals("Natural weapom should replace hands.", "HANDS", requiredLoc.getBodyStructure().toString());

@@ -9186,8 +9186,7 @@ public class PlayerCharacter extends Observable implements Cloneable,
 		{
 			if (eqI.getSlots(this) == 0)
 			{
-				// TODO - Yuck. This should not look at the name!!
-				if (eqI.modifiedName().endsWith("Primary"))
+				if (eqI.isPrimaryNaturalWeapon())
 				{
 					return Constants.EQUIP_LOCATION_NATURAL_PRIMARY;
 				}

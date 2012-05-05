@@ -138,6 +138,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		List<EquipSet> equipList = new ArrayList<EquipSet>(theCharacter.getEquipSet());
 		Collections.sort(equipList);
 		addChildrenToPath(equipSet.getIdPath(), equipList, (EquipNodeImpl) null);
+		createNaturalWeaponSlots();
 	}
 
 	private void buildNodeList()
@@ -798,10 +799,10 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		Equipment item = (Equipment) equipment;
 		
 		// Check for a required location (i.e. you can't carry a natural weapon)
-		EquipNode requiredLoc = getRequiredLoc(equipment);
+		EquipNode requiredLoc = getNaturalWeaponLoc(equipment);
 		if (requiredLoc != null)
 		{
-			return requiredLoc.equals(node);
+			return validLocationForNaturalWeapon(node, item, requiredLoc);
 		}
 
 		// Is this a container? Then check if the object can fit in
@@ -888,13 +889,33 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		return false;
 	}
 
+	/**
+	 * Check if the node is a valid location for the natural weapon to be equipped to.
+	 * This allows primary natural weapons to be equipped to primary or secondary 
+	 * slots, but secondary weapons only too the secondary slot.
+	 * 
+	 * @param node The node to be tested.
+	 * @param equipment The natural weapon
+	 * @param naturalLoc The natural weapon;s preferred slot.
+	 * @return true if the node can take the natural weapon, false otherwise.
+	 */
+	private boolean validLocationForNaturalWeapon(EquipNode node,
+		Equipment equipment, EquipNode naturalLoc)
+	{
+		if (equipment.isPrimaryNaturalWeapon())
+		{
+			return naturalWeaponNodes.containsValue(node);
+		}
+		return node.equals(naturalLoc);
+	}
+
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.EquipmentSetFacade#getPreferredLoc(pcgen.core.facade.EquipmentFacade)
 	 */
 	@Override
 	public String getPreferredLoc(EquipmentFacade equipment)
 	{
-		EquipNode reqNode = getRequiredLoc(equipment);
+		EquipNode reqNode = getNaturalWeaponLoc(equipment);
 		if (reqNode != null)
 		{
 			return reqNode.toString();
@@ -913,7 +934,14 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		return "Other";
 	}
 
-	protected EquipNode getRequiredLoc(EquipmentFacade equipment)
+	/**
+	 * Retrieve the preferred location for a natural weapon. Will return null 
+	 * for non natural weapon equipment items.
+	 * 
+	 * @param equipment The equipment item to be checked.
+	 * @return The preferred natural equip node, or null if not applicable. 
+	 */
+	protected EquipNode getNaturalWeaponLoc(EquipmentFacade equipment)
 	{
 		if (!(equipment instanceof Equipment) || equipment == null)
 		{
@@ -923,34 +951,54 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		String locName = theCharacter.getNaturalWeaponLocation(item);
 		if (locName != null)
 		{
-			//TODO: What if it already exists?
-			EquipNodeImpl slotNode = naturalWeaponNodes.get(locName);
-			if (slotNode != null)
+			// Ensure natural weapon locations are visible
+			for (EquipNodeImpl natWpnEquipNode : naturalWeaponNodes.values())
 			{
-				return slotNode;
-			}
-			for (EquipSlot slot : SystemCollections.getUnmodifiableEquipSlotList())
-			{
-				if (slot.canContainType("WEAPON")) //$NON-NLS-1$
+				if (!nodeList.containsElement(natWpnEquipNode))
 				{
-					EquipSlot natWpnEquipSlot = createWeaponEquipSlot(slot, locName);
-					for (EquipNode node : nodeList)
-					{
-						if (node.getNodeType() == NodeType.BODY_SLOT && slot.getBodyStructureName().equalsIgnoreCase(node.getBodyStructure().toString()))
-						{
-							slotNode =
-									new EquipNodeImpl((EquipNodeImpl)node, natWpnEquipSlot, true);
-							naturalWeaponNodes.put(locName, slotNode);
-							nodeList.addElement(slotNode);
-							return slotNode; 
-						}
-					}
+					nodeList.addElement(natWpnEquipNode);
 				}
 			}
+			
+			return naturalWeaponNodes.get(locName);
 		}
 		
 		return null;
 	}
+	
+	protected void createNaturalWeaponSlots()
+	{
+		for (EquipSlot slot : SystemCollections.getUnmodifiableEquipSlotList())
+		{
+			if (slot.canContainType("WEAPON")) //$NON-NLS-1$
+			{
+				for (EquipNode node : nodeList)
+				{
+					if (node.getNodeType() == NodeType.BODY_SLOT
+						&& slot.getBodyStructureName().equalsIgnoreCase(
+							node.getBodyStructure().toString()))
+					{
+						createNaturalWeaponSlot(slot, node,
+							Constants.EQUIP_LOCATION_NATURAL_PRIMARY);
+						createNaturalWeaponSlot(slot, node,
+							Constants.EQUIP_LOCATION_NATURAL_SECONDARY);
+						return;
+					}
+				}
+			}
+		}
+
+	}
+
+	private void createNaturalWeaponSlot(EquipSlot slot, EquipNode node, String locName)
+	{
+		EquipSlot natWpnEquipSlot = createWeaponEquipSlot(slot, locName);
+		EquipNodeImpl slotNode =
+				new EquipNodeImpl((EquipNodeImpl) node,
+					natWpnEquipSlot, true);
+		naturalWeaponNodes.put(locName, slotNode);
+	}
+	
 	/**
 	 * Calculate the number of free instances of the slot there are in the
 	 * equipment set.
