@@ -200,17 +200,18 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 
 		private final ListFacade<? extends TreeView<AbilityFacade>> treeviews;
 		private final CharacterFacade character;
-		private AbilityCategoryFacade category;
 		private final ListFacade<AbilityCategoryFacade> categories;
 		private final ListSelectionModel selectionModel;
 		private final List<? extends DataViewColumn> dataColumns;
 		private final InfoFactory infoFactory;
+		private final String title;
 
 		public AvailableAbilityTreeViewModel(CharacterFacade character,
 											 ListFacade<AbilityCategoryFacade> categories,
-											 ListSelectionModel selectionModel)
+											 ListSelectionModel selectionModel, String tableTitle)
 		{
 			this.character = character;
+			this.title = tableTitle;
 			this.treeviews = new DefaultListFacade<TreeView<AbilityFacade>>(AbilityTreeViews.createTreeViewList(character));
 			this.categories = categories;
 			this.selectionModel = selectionModel;
@@ -336,6 +337,15 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 					}
 				}
 			}
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String getPrefsKey()
+		{
+			return title;
 		}
 
 	}
@@ -532,8 +542,8 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 	private static final String AVAILABLE_TREEVIEW_PANEL_STATE = "AvailableTreeViewPanelState";
 
 	public Hashtable<Object, Object> createState(CharacterFacade character,
-												 ListFacade<AbilityCategoryFacade> categories,
-												 ListFacade<AbilityCategoryFacade> fullCategoryList)
+		ListFacade<AbilityCategoryFacade> categories,
+		ListFacade<AbilityCategoryFacade> fullCategoryList, String title)
 	{
 		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
 		CategoryTableModel categoryTableModel = new CategoryTableModel(character, fullCategoryList, categoryBar);
@@ -543,7 +553,9 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		listModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		state.put(ListSelectionModel.class, listModel);
 		state.put(AbilityTreeTableModel.class, new AbilityTreeTableModel(character, categories));
-		state.put(AvailableAbilityTreeViewModel.class, new AvailableAbilityTreeViewModel(character, fullCategoryList, listModel));
+		state.put(AvailableAbilityTreeViewModel.class,
+			new AvailableAbilityTreeViewModel(character, fullCategoryList,
+				listModel, title));
 		//state.put(AbilityTransferHandler.class, new AbilityTransferHandler(character));
 		state.put(InfoHandler.class, new InfoHandler(character, categories));
 		state.put(AbilityRenderer.class, new AbilityRenderer(character));

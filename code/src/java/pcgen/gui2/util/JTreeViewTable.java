@@ -26,10 +26,13 @@ import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+
 import javax.swing.AbstractAction;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
@@ -51,9 +54,11 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
+
 import pcgen.core.facade.event.ListEvent;
 import pcgen.core.facade.event.ListListener;
 import pcgen.core.facade.util.ListFacade;
+import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.event.DynamicTableColumnModelListener;
 import pcgen.gui2.util.table.DefaultDynamicTableColumnModel;
 import pcgen.gui2.util.table.DynamicTableColumnModel;
@@ -63,6 +68,7 @@ import pcgen.gui2.util.treeview.DataViewColumn.Visibility;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewTableModel;
+import pcgen.system.PropertyContext;
 import pcgen.util.CollectionMaps;
 import pcgen.util.ListMap;
 
@@ -81,7 +87,8 @@ import pcgen.util.ListMap;
  * setAutoCreateColumnsFromModel(boolean);
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public class JTreeViewTable<T> extends JTreeTable
+@SuppressWarnings("serial")
+public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListener
 {
 
 	private final DynamicTableColumnModelListener listener = new DynamicTableColumnModelListener()
@@ -114,13 +121,46 @@ public class JTreeViewTable<T> extends JTreeTable
 	protected TreeViewTableModel<T> treetableModel;
 	private TreeViewModel<T> viewModel;
 	private TreeViewsPopupMenu treeviewMenu = new TreeViewsPopupMenu();
+	private PropertyContext baseContext;
 
+	/**
+	 * Create a new instance of JTreeViewTable
+	 */
 	public JTreeViewTable()
 	{
 		setTableHeader(new JTreeViewHeader());
 		setAutoCreateColumnsFromModel(false);
+		baseContext = UIPropertyContext.createContext("tablePrefs");
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void propertyChange(PropertyChangeEvent evt)
+	{
+		if (isShowing() && "width".equals(evt.getPropertyName()) //$NON-NLS-1$
+			&& evt.getSource() instanceof TableColumn)
+		{
+			TableColumn col = (TableColumn) evt.getSource();
+//			Logging.errorPrint("new width of " + evt.getNewValue() + " for "
+//				+ this.viewModel.getDataView().getPrefsKey() + "."
+//				+ normalisePrefsKey(col.getHeaderValue().toString()) + " from "
+//				+ evt.getOldValue());
+			PropertyContext context =
+					baseContext.createChildContext(
+						this.viewModel.getDataView().getPrefsKey())
+						.createChildContext("width"); //$NON-NLS-1$
+			context.setInt(normalisePrefsKey(col.getHeaderValue().toString()), (Integer) evt.getNewValue());
+		}
+		
+	}
+
+	private String normalisePrefsKey(String origKey)
+	{
+		return origKey.replaceAll("[^\\w\\.]", "_"); //$NON-NLS-1$ //$NON-NLS-2$
+	}
+	
 	protected <TM> TreeViewTableModel<TM> createDefaultTreeViewTableModel(DataView<TM> dataView)
 	{
 		return new TreeViewTableModel<TM>(dataView);
@@ -141,12 +181,21 @@ public class JTreeViewTable<T> extends JTreeTable
 		@SuppressWarnings("unchecked")
 		ListMap<Visibility, TableColumn, List<TableColumn>> listMap =
 				CollectionMaps.createListMap(HashMap.class, ArrayList.class);
+		PropertyContext context =
+				baseContext.createChildContext(
+					this.viewModel.getDataView().getPrefsKey())
+					.createChildContext("width"); //$NON-NLS-1$
 		int index = 1;
 		for (DataViewColumn column : dataView.getDataColumns())
 		{
 			TableColumn tableColumn = new TableColumn(index++);
 			tableColumn.setHeaderValue(column.getName());
 			listMap.add(column.getVisibility(), tableColumn);
+			tableColumn
+				.setPreferredWidth(context.initInt(
+					normalisePrefsKey(tableColumn.getHeaderValue().toString()),
+					75));
+			tableColumn.addPropertyChangeListener(this);
 		}
 
 		List<TableColumn> columns = listMap.get(Visibility.ALWAYS_VISIBLE);
@@ -158,6 +207,9 @@ public class JTreeViewTable<T> extends JTreeTable
 		TableColumn viewColumn = new TableColumn();
 		viewColumn.setHeaderValue(startingView.getViewName());
 		model.addColumn(viewColumn);
+		viewColumn.setPreferredWidth(context.initInt(
+			normalisePrefsKey(viewColumn.getHeaderValue().toString()), 150));
+		viewColumn.addPropertyChangeListener(this);
 
 		for (TableColumn column : columns)
 		{

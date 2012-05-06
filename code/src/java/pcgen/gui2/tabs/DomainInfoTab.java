@@ -674,6 +674,15 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			return columns;
 		}
 
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String getPrefsKey()
+		{
+			return "DeityTree";  //$NON-NLS-1$
+		}
+
 	}
 
 	//TODO: pantheon view

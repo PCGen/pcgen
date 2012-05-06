@@ -39,4 +39,8 @@ public interface DataView<E>
 
     List<? extends DataViewColumn> getDataColumns();
 
+    /**
+     * @return The key that will be used to save any preferences for this data view. 
+     */
+    String getPrefsKey();
 }

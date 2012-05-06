@@ -116,6 +116,15 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		return character.getDataSet().getSkills();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getPrefsKey()
+	{
+		return "SkillTreeAvail";  //$NON-NLS-1$
+	}
+
 	@Override
 	public List<?> getData(SkillFacade obj)
 	{

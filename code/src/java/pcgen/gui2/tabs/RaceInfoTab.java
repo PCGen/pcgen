@@ -435,6 +435,15 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			return columns;
 		}
 
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String getPrefsKey()
+		{
+			return isAvailModel ? "RaceTreeAvail" : "RaceTreeSelected";  //$NON-NLS-1$//$NON-NLS-2$
+		}
+
 	}
 
 	private enum RaceTreeView implements TreeView<RaceFacade>

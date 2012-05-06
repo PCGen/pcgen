@@ -320,6 +320,15 @@ public class KitPanel extends FlippingSplitPane
 			return !context.getKits().containsElement(element);
 		}
 
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String getPrefsKey()
+		{
+			return isAvailModel ? "KitTreeAvail" : "KitTreeSelected";  //$NON-NLS-1$//$NON-NLS-2$
+		}
+
 	}
 
 	private enum TemplateTreeView implements TreeView<KitFacade>
@@ -340,6 +349,7 @@ public class KitPanel extends FlippingSplitPane
 			return name;
 		}
 
+		@SuppressWarnings("unchecked")
 		public List<TreeViewPath<KitFacade>> getPaths(KitFacade pobj)
 		{
 			switch (this)
@@ -347,7 +357,9 @@ public class KitPanel extends FlippingSplitPane
 				case NAME:
 					return Collections.singletonList(new TreeViewPath<KitFacade>(pobj));
 				case TYPE_NAME:
-					TreeViewPath<KitFacade> path = createTreeViewPath(pobj, pobj.getDisplayType().split("\\."));
+					TreeViewPath<KitFacade> path =
+							createTreeViewPath(pobj, (Object[]) pobj
+								.getDisplayType().split("\\.")); //$NON-NLS-1$
 					return Arrays.asList(path);
 				case SOURCE_NAME:
 					return Collections.singletonList(new TreeViewPath<KitFacade>(pobj, pobj.getSource()));

@@ -432,6 +432,15 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 			return !context.getTemplates().containsElement(element);
 		}
 
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String getPrefsKey()
+		{
+			return isAvailModel ? "TemplateTreeAvail" : "TemplateTreeSelected";  //$NON-NLS-1$//$NON-NLS-2$
+		}
+
 	}
 
 	private enum TemplateTreeView implements TreeView<TemplateFacade>

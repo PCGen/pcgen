@@ -579,6 +579,15 @@ class AdvancedSourceSelectionPanel extends JPanel
 		public void elementModified(ListEvent<CampaignFacade> e)
 		{
 		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String getPrefsKey()
+		{
+			return isAvailModel ? "SourceAvail" : "SourceSelected";  //$NON-NLS-1$//$NON-NLS-2$
+		}
 		
 	}
 

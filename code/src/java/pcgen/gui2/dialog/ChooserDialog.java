@@ -287,6 +287,15 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			return chooser.getAvailableTableTitle();
 		}
 
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String getPrefsKey()
+		{
+			return chooser.getAvailableTableTitle();
+		}
+
 		@Override
 		public List<TreeViewPath<InfoFacade>> getPaths(InfoFacade pobj)
 		{

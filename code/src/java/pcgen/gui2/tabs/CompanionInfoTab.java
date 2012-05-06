@@ -646,6 +646,15 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			return Collections.emptyList();
 		}
 
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String getPrefsKey()
+		{
+			return "CompanionAvail";  //$NON-NLS-1$
+		}
+
 	}
 
 	private enum CompanionTreeView implements TreeView<CompanionStubFacade>

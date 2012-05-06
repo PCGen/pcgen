@@ -494,6 +494,15 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			this.character = character;
 		}
 
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String getPrefsKey()
+		{
+			return "ClassTree";  //$NON-NLS-1$
+		}
+
 		@Override
 		public ListFacade<? extends TreeView<ClassFacade>> getTreeViews()
 		{

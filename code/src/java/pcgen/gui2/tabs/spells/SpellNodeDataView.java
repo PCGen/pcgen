@@ -54,4 +54,13 @@ class SpellNodeDataView implements DataView<SuperNode>
 		return columns;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getPrefsKey()
+	{
+		return "SpellTree";  //$NON-NLS-1$
+	}
+
 }

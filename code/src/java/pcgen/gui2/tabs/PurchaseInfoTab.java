@@ -817,6 +817,15 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			return columns;
 		}
 
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String getPrefsKey()
+		{
+			return "PurchaseAvail";  //$NON-NLS-1$
+		}
+
 	}
 
 	private class PurchasedTreeViewModel
@@ -879,6 +888,15 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		public void quantityChanged(EquipmentListEvent equipment)
 		{
 			purchasedTable.refreshModelData();
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String getPrefsKey()
+		{
+			return "Purchased";  //$NON-NLS-1$
 		}
 
 	}

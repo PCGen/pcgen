@@ -276,7 +276,9 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 				this.title = title;
 				this.categoryList = new DefaultListFacade<AbilityCategoryFacade>();
 				this.fullCategoryList = new DefaultListFacade<AbilityCategoryFacade>();
-				this.tabData = abilityTab.createState(character, categoryList, fullCategoryList);
+				this.tabData =
+						abilityTab.createState(character, categoryList,
+							fullCategoryList, title);
 				typeMap.put(title, this);
 			}
 

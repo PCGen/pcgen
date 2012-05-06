@@ -256,6 +256,15 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 			return "Available Languages";
 		}
 
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String getPrefsKey()
+		{
+			return getViewName();
+		}
+
 		@Override
 		public List<TreeViewPath<LanguageFacade>> getPaths(LanguageFacade pobj)
 		{
