@@ -31,6 +31,7 @@ import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.DataSetFacade;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewPath;
+import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 /**
@@ -46,6 +47,7 @@ public class AbilityTreeViews
 		list.add(new NameTreeView());
 		list.add(new TypeTreeView());
 		list.add(new PreReqTreeView(character.getDataSet()));
+		list.add(new SourceTreeView());
 		return list;
 	}
 
@@ -55,7 +57,7 @@ public class AbilityTreeViews
 		@Override
 		public String getViewName()
 		{
-			return "Name";
+			return LanguageBundle.getString("in_nameLabel"); //$NON-NLS-1$
 		}
 
 		@Override
@@ -72,7 +74,7 @@ public class AbilityTreeViews
 		@Override
 		public String getViewName()
 		{
-			return "Type/Name";
+			return LanguageBundle.getString("in_typeName"); //$NON-NLS-1$
 		}
 
 		@Override
@@ -84,6 +86,24 @@ public class AbilityTreeViews
 				list.add(new TreeViewPath<AbilityFacade>(pobj, type));
 			}
 			return list;
+		}
+
+	}
+
+	private static class SourceTreeView implements TreeView<AbilityFacade>
+	{
+
+		@Override
+		public String getViewName()
+		{
+			return LanguageBundle.getString("in_sourceName"); //$NON-NLS-1$
+		}
+
+		@Override
+		public List<TreeViewPath<AbilityFacade>> getPaths(AbilityFacade pobj)
+		{
+			return Collections.singletonList(new TreeViewPath<AbilityFacade>(
+				pobj, pobj.getSourceForNodeDisplay()));
 		}
 
 	}
@@ -101,7 +121,7 @@ public class AbilityTreeViews
 		@Override
 		public String getViewName()
 		{
-			return "Prereq Tree";
+			return LanguageBundle.getString("in_preReqTree"); //$NON-NLS-1$
 		}
 
 		@Override

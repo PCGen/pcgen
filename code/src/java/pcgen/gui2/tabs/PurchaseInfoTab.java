@@ -906,7 +906,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		NAME(LanguageBundle.getString("in_nameLabel")), //$NON-NLS-1$
 		TYPE_NAME(LanguageBundle.getString("in_typeName")), //$NON-NLS-1$
-		TYPE_SUBTYPE_NAME(LanguageBundle.getString("in_typeSubtypeName")); //$NON-NLS-1$
+		TYPE_SUBTYPE_NAME(LanguageBundle.getString("in_typeSubtypeName")), //$NON-NLS-1$
+		SOURCE_NAME(LanguageBundle.getString("in_sourceName")); //$NON-NLS-1$
 		
 		//SOURCE_NAME("Source/Name");
 		private String name;
@@ -951,10 +952,10 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 					// No types, fall through and treat it as just a name.
 				case NAME:
 					return Collections.singletonList(new TreeViewPath<EquipmentFacade>(pobj));
-//				case SOURCE_NAME:
-//					return Collections.singletonList(
-//							new TreeViewPath<ClassFacade>(pobj,
-//														  pobj.getSource()));
+				case SOURCE_NAME:
+					return Collections
+						.singletonList(new TreeViewPath<EquipmentFacade>(pobj,
+							pobj.getSourceForNodeDisplay()));
 				default:
 					throw new InternalError();
 			}
