@@ -1927,32 +1927,7 @@ Immune
 		</occupation>
 |ENDFOR|
 	</occupations>
-		<!--
-	  ====================================
-	  ====================================
-			DISADVANTAGES
-	  ====================================
-	  ====================================-->
-	<disadvantages>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Disadvantage")==0)|
-|ELSE|
-	<!-- Standard Disadvantages -->
-|ENDIF|
-|FOR,%disadvantage,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Disadvantage")-1,1,0|
-		<disadvantage>
-			<name>|ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage|</name>
-			<description>|ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.DESC|</description>
-			<type>|ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.TYPE|</type>
-			<associated>|ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.ASSOCIATED|</associated>
-			<count>|ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.ASSOCIATEDCOUNT|</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-			<source>|ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.SOURCE|</source>
-		</disadvantage>
-|ENDFOR|
-	</disadvantages>
+
 
 <!-- Eclipse Section -->
 		<!--
