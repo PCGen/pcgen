@@ -56,7 +56,7 @@ import pcgen.util.Logging;
 public class HtmlSheetSupport
 {
 
-	private final CharacterFacade character;
+	private CharacterFacade character;
 	private final File templateFile;
 	private final JEditorPane htmlPane;
 	private ImageCache cache = new ImageCache();
@@ -77,9 +77,8 @@ public class HtmlSheetSupport
 
 	});
 
-	public HtmlSheetSupport(CharacterFacade character, JEditorPane htmlPane, String infoSheetFile)
+	public HtmlSheetSupport(JEditorPane htmlPane, String infoSheetFile)
 	{
-		this.character = character;
 		if (!StringUtils.isEmpty(infoSheetFile))
 		{
 			templateFile = new File(infoSheetFile);
@@ -89,6 +88,17 @@ public class HtmlSheetSupport
 			templateFile = null;
 		}
 		this.htmlPane = htmlPane;
+	}
+
+	public HtmlSheetSupport(CharacterFacade character, JEditorPane htmlPane, String infoSheetFile)
+	{
+		this(htmlPane, infoSheetFile);
+		this.character = character;
+	}
+
+	public void setCharacter(CharacterFacade character)
+	{
+		this.character = character;
 	}
 
 	public void install()
@@ -107,6 +117,10 @@ public class HtmlSheetSupport
 		if (templateFile == null)
 		{
 			htmlPane.setText(missingSheetMsg);
+			return;
+		}
+		if (character == null)
+		{
 			return;
 		}
 		if (refresher != null && !refresher.isDone())
@@ -181,6 +195,7 @@ public class HtmlSheetSupport
 			HTMLDocument doc = new HTMLDocument();
 
 			doc.setBase(templateFile.getParentFile().toURL());
+			doc.putProperty("IgnoreCharsetDirective", new Boolean(true));
 			// XXX - This is a hack specific to Sun's JDK 5.0 and in no
 			// way should be trusted to work in future java releases
 			// (though it still might) - Connor Petty
