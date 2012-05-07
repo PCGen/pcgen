@@ -258,7 +258,9 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		for (CompanionFacadeDelegate delegate : companionList)
 		{
 			File file = delegate.getFileRef().getReference();
-			if (file.equals(character.getFileRef().getReference()))
+			String name = delegate.getNameRef().getReference();
+			if (file.equals(character.getFileRef().getReference())
+				&& name.equals(character.getNameRef().getReference()))
 			{
 				delegate.setCompanionFacade(character);
 				return;
