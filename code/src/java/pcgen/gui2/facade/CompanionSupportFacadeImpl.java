@@ -38,6 +38,7 @@ import pcgen.core.facade.CompanionFacade;
 import pcgen.core.facade.CompanionStubFacade;
 import pcgen.core.facade.CompanionSupportFacade;
 import pcgen.core.facade.PartyFacade;
+import pcgen.core.facade.TodoFacade.CharacterTab;
 import pcgen.core.facade.event.ListEvent;
 import pcgen.core.facade.event.ListListener;
 import pcgen.core.facade.util.DefaultListFacade;
@@ -64,14 +65,17 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	private DefaultListFacade<CompanionStubFacade> availCompList;
 	private DefaultMapFacade<String, Integer> maxCompanionsMap;
 	private Map<String, CompanionList> keyToCompanionListMap;
+	private final TodoManager todoManager;
 
 	/**
 	 * Create a new instance of CompanionSupportFacadeImpl
 	 * @param theCharacter The character to be represented.
+	 * @param todoManager The user tasks tracker.
 	 */
-	public CompanionSupportFacadeImpl(PlayerCharacter theCharacter)
+	public CompanionSupportFacadeImpl(PlayerCharacter theCharacter, TodoManager todoManager)
 	{
 		this.theCharacter = theCharacter;
+		this.todoManager = todoManager;
 		this.companionList = new DefaultListFacade<CompanionFacadeDelegate>();
 		this.availCompList = new DefaultListFacade<CompanionStubFacade>();
 		this.maxCompanionsMap = new DefaultMapFacade<String, Integer>();
@@ -123,6 +127,44 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 			companionList.addElement(delegate);
 		}
 		//Logging.debugPrint("Companion list " + companionList);
+		for (CompanionList compList : Globals.getContext().ref
+				.getConstructedCDOMObjects(CompanionList.class))
+		{
+			updateCompanionTodo(compList.toString());
+		}
+	}
+
+
+	private void updateCompanionTodo(String companionType)
+	{
+		Integer max = maxCompanionsMap.getValue(companionType);
+		int maxCompanions = max == null ? 0 : max;
+		int numCompanions = 0;
+		for (CompanionFacadeDelegate cfd : companionList)
+		{
+			if (cfd.getCompanionType().equals(companionType))
+			{
+				numCompanions++;
+			}
+		}		
+
+		if (maxCompanions > -1 && maxCompanions < numCompanions)
+		{
+			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.CompanionsTab,
+				companionType, "in_companionTodoTooMany", companionType, 1)); //$NON-NLS-1$
+			todoManager.removeTodo("in_companionTodoRemain", companionType); //$NON-NLS-1$
+		}
+		else if (maxCompanions > -1 && maxCompanions > numCompanions)
+		{
+			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.CompanionsTab,
+				companionType, "in_companionTodoRemain", companionType, 1)); //$NON-NLS-1$
+			todoManager.removeTodo("in_companionTodoTooMany", companionType); //$NON-NLS-1$
+		}
+		else
+		{
+			todoManager.removeTodo("in_companionTodoRemain", companionType); //$NON-NLS-1$
+			todoManager.removeTodo("in_companionTodoTooMany", companionType); //$NON-NLS-1$
+		}
 	}
 
 	/**
@@ -173,6 +215,8 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		CompanionFacadeDelegate delegate = new CompanionFacadeDelegate();
 		delegate.setCompanionFacade(companion);
 		companionList.addElement(delegate);
+
+		updateCompanionTodo(companionType);
 	}
 
 	/**
@@ -197,6 +241,8 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 			}
 		}
 		companionList.removeElement((CompanionFacadeDelegate) companion);
+
+		updateCompanionTodo(companion.getCompanionType());
 	}
 
 	/**

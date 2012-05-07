@@ -296,7 +296,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		characterAbilities = new CharacterAbilities(pc, delegate, dataSet, todoManager);
 		descriptionFacade = new DescriptionFacadeImpl(pc);
 		spellSupportFacade = new SpellSupportFacadeImpl(pc, delegate, dataSet, todoManager);
-		companionSupportFacade = new CompanionSupportFacadeImpl(theCharacter);
+		companionSupportFacade = new CompanionSupportFacadeImpl(theCharacter, todoManager);
 		
 		//TODO: Init appliedTempBonuses
 		appliedTempBonuses = new DefaultListFacade<TempBonusFacade>();

@@ -63,6 +63,7 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 	private Race masterRace;
 	private Race companionRace;
 	private CompanionList companionList;
+	private TodoManager todoManager;
 
 	/**
 	 * {@inheritDoc}
@@ -73,6 +74,7 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 		super.setUp();
 		
 		uiDelegate = new MockUIDelegate();
+		todoManager = new TodoManager();
 		ListFacade<CampaignFacade> campaigns = new DefaultListFacade<CampaignFacade>();
 		dataSetFacade = new DataSet(Globals.getContext(), SettingsHandler.getGame(), campaigns );
 		masterRace = TestHelper.makeRace("Wood Elf");
@@ -94,7 +96,7 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 		master.setRace(masterRace);
 		master.setFileName("Master.pcg");
 		master.setName("Master1");
-		CompanionSupportFacadeImpl masterCsfi = new CompanionSupportFacadeImpl(master);
+		CompanionSupportFacadeImpl masterCsfi = new CompanionSupportFacadeImpl(master, todoManager);
 		
 		PlayerCharacter companion = new PlayerCharacter();
 		companion.setRace(companionRace);

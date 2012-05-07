@@ -41,9 +41,12 @@ import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.tree.MutableTreeNode;
+import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.ObjectUtils;
+
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.CompanionFacade;
 import pcgen.core.facade.CompanionStubFacade;
@@ -76,7 +79,7 @@ import pcgen.util.Comparators;
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfoTab
+public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler
 {
 
 	private final JTreeTable companionsTable;
@@ -919,7 +922,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 
 		}
 
-		private class RootNode extends DefaultTreeTableNode implements MapListener<String, Integer>, ListListener<CompanionFacade>
+		class RootNode extends DefaultTreeTableNode implements MapListener<String, Integer>, ListListener<CompanionFacade>
 		{
 
 			private List<String> types;
@@ -1037,6 +1040,25 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 
 		}
 
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void adviseTodo(String fieldName)
+	{
+		CompanionsModel model =  (CompanionsModel) companionsTable.getTreeTableModel();
+		CompanionsModel.RootNode root = (CompanionsModel.RootNode) model.getRoot();
+		for (int i = 0; i < root.getChildCount(); i++)
+		{
+			TreeNode node = root.getChildAt(i);
+			if (node.toString().startsWith(fieldName))
+			{
+				companionsTable.getSelectionModel().setSelectionInterval(i,  i);
+				return;
+			}
+		}
 	}
 
 }

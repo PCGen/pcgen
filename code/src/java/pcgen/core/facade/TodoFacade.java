@@ -45,7 +45,8 @@ public interface TodoFacade extends Comparable<TodoFacade>
 	 */
 	public enum CharacterTab
 	{
-		SummaryTab, RacesTab, TemplatesTab, ClassesTab, SkillsTab, FeatsAbilitiesTab, DomainsTab, SpellsTab;
+		SummaryTab, RacesTab, TemplatesTab, ClassesTab, SkillsTab, FeatsAbilitiesTab, 
+		DomainsTab, SpellsTab, CompanionsTab;
 		
 
 		/**
@@ -71,6 +72,8 @@ public interface TodoFacade extends Comparable<TodoFacade>
 					return LanguageBundle.getString("in_domains");
 				case SpellsTab:
 					return LanguageBundle.getString("in_spells");
+				case CompanionsTab:
+					return LanguageBundle.getString("in_companions");
 				default:
 					throw new InternalError();
 			}
