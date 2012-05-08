@@ -26,6 +26,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.lang.ref.WeakReference;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.Collections;
@@ -56,7 +57,7 @@ import pcgen.util.Logging;
 public class HtmlSheetSupport
 {
 
-	private CharacterFacade character;
+	private WeakReference<CharacterFacade> characterRef;
 	private final File templateFile;
 	private final JEditorPane htmlPane;
 	private ImageCache cache = new ImageCache();
@@ -93,12 +94,12 @@ public class HtmlSheetSupport
 	public HtmlSheetSupport(CharacterFacade character, JEditorPane htmlPane, String infoSheetFile)
 	{
 		this(htmlPane, infoSheetFile);
-		this.character = character;
+		setCharacter(character);
 	}
 
 	public void setCharacter(CharacterFacade character)
 	{
-		this.character = character;
+		this.characterRef = new WeakReference<CharacterFacade>(character);
 	}
 
 	public void install()
@@ -119,7 +120,7 @@ public class HtmlSheetSupport
 			htmlPane.setText(missingSheetMsg);
 			return;
 		}
-		if (character == null)
+		if (characterRef == null || characterRef.get() == null)
 		{
 			return;
 		}
@@ -189,7 +190,7 @@ public class HtmlSheetSupport
 		public HTMLDocument call() throws Exception
 		{
 			StringWriter writer = new StringWriter();
-			character.export(new ExportHandler(templateFile), new BufferedWriter(writer));
+			characterRef.get().export(new ExportHandler(templateFile), new BufferedWriter(writer));
 			StringReader reader = new StringReader(writer.toString());
 			EditorKit kit = htmlPane.getEditorKit();
 			HTMLDocument doc = new HTMLDocument();
