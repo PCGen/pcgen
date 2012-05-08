@@ -46,6 +46,7 @@ import javax.swing.tree.TreePath;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.ObjectUtils;
+import org.apache.commons.lang.StringUtils;
 
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.CompanionFacade;
@@ -297,7 +298,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			if (isCompanionOpen(companion))
 			{
 				File compFile = companion.getFileRef().getReference();
-				if (compFile == null)
+				if (compFile == null || StringUtils.isEmpty(compFile.getName()))
 				{
 					String compName = companion.getNameRef().getReference();
 					for (CharacterFacade character : CharacterManager.getCharacters())
