@@ -62,7 +62,7 @@ public class DebugDialog extends JDialog
 	public DebugDialog(PCGenFrame frame)
 	{
 		super(frame);
-		setTitle("Debugging Console");
+		setTitle("Log & Memory Use");
 		debuggingText = new JTextArea();
 		memoryPanel = new MemoryPanel();
 		initComponents();

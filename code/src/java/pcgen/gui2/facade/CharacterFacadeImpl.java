@@ -86,6 +86,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SimpleFacadeImpl;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
+import pcgen.core.VariableProcessor;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.bonus.BonusObj;
@@ -4082,5 +4083,15 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		}
 		
 		return kits;
+	}
+
+	@Override
+	public VariableProcessor getVariableProcessor() {
+		return theCharacter.getVariableProcessor();
+	}
+
+	@Override
+	public Float getVariable(String variableString, boolean isMax) {
+		return theCharacter.getVariable(variableString, isMax);
 	}
 }

@@ -44,6 +44,7 @@ import pcgen.core.facade.TemplateFacade;
 import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
 import pcgen.gui.DataInstaller;
+import pcgen.gui2.dialog.ConsoleDialog;
 import pcgen.gui2.dialog.DebugDialog;
 import pcgen.gui2.dialog.ExportDialog;
 import pcgen.gui2.dialog.KitSelectionDialog;
@@ -123,6 +124,7 @@ public final class PCGenActionMap extends ActionMap
 	public static final String SPELL_GENERATORS_COMMAND = GENERATORS_COMMAND + ".spell";
 	public static final String PREFERENCES_COMMAND = TOOLS_COMMAND + ".preferences";
 	public static final String GMGEN_COMMAND = TOOLS_COMMAND + ".gmgen";
+	public static final String LOG_COMMAND = TOOLS_COMMAND + ".log";
 	public static final String CONSOLE_COMMAND = TOOLS_COMMAND + ".console";
 	//the help menu commands
 	public static final String HELP_COMMAND = "help";
@@ -173,6 +175,7 @@ public final class PCGenActionMap extends ActionMap
 		put(TEMP_BONUS_COMMAND, new TempBonusAction());
 		put(PREFERENCES_COMMAND, new PreferencesAction());
 		put(GMGEN_COMMAND, new GMGenAction());
+		put(LOG_COMMAND, new DebugAction());
 		put(CONSOLE_COMMAND, new ConsoleAction());
 		put(INSTALL_DATA_COMMAND, new InstallDataAction());
 		put(FILTERS_COMMAND, new FiltersAction());
@@ -388,14 +391,14 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class ConsoleAction extends PCGenAction
+	private class DebugAction extends PCGenAction
 	{
 
 		private DebugDialog dialog = null;
 
-		public ConsoleAction()
+		public DebugAction()
 		{
-			super("mnuToolsConsole", CONSOLE_COMMAND, "shortcut D");
+			super("mnuToolsLog", LOG_COMMAND, "shortcut L");
 		}
 
 		@Override
@@ -404,6 +407,29 @@ public final class PCGenActionMap extends ActionMap
 			if (dialog == null)
 			{
 				dialog = new DebugDialog(frame);
+			}
+			dialog.setLocationRelativeTo(frame);
+			dialog.setVisible(true);
+		}
+
+	}
+
+	private class ConsoleAction extends PCGenAction
+	{
+
+		private ConsoleDialog dialog = null;
+
+		public ConsoleAction()
+		{
+			super("mnuToolsConsole", CONSOLE_COMMAND, "shortcut C");
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			if (dialog == null)
+			{
+				dialog = new ConsoleDialog(frame);
 			}
 			dialog.setLocationRelativeTo(frame);
 			dialog.setVisible(true);

@@ -31,6 +31,7 @@ import javax.swing.undo.UndoManager;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.core.VariableProcessor;
 import pcgen.core.facade.event.ChangeListener;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
@@ -512,6 +513,12 @@ public interface CharacterFacade extends CompanionFacade
 	public ReferenceFacade<String> getCharacterTypeRef();
 
 	/**
+	 * @return A reference to the name of the character's 
+	 * associated preview sheet
+	 */
+	//public ReferenceFacade<String> getPreviewSheetRef();
+
+	/**
 	 * Set the character's age in years.
 	 * @param age The new age to be set.
 	 */
@@ -777,5 +784,16 @@ public interface CharacterFacade extends CompanionFacade
 	 * @return the type of companion the current character is, or null if not a companion
 	 */
 	public String getCompanionType();
+
+	/**
+	 * @return the variable processor for the current character
+	 */
+	public VariableProcessor getVariableProcessor();
+
+	/**
+	 * @return calculate a variable for the current character
+	 */
+	public Float getVariable(final String variableString, final boolean isMax)
+;
 
 }
