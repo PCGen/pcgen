@@ -38,9 +38,11 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import javax.swing.AbstractAction;
 import javax.swing.Box;
@@ -106,6 +108,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 	private static final Font LABEL_FONT = new Font("Verdana", Font.BOLD, 12);
 	private static final Font TEXT_FONT = new Font("Verdana", Font.PLAIN, 12);
+	private static final Set<String> primaryTypes = new HashSet<String>();
 
 	private final FilteredTreeViewTable<CharacterFacade, EquipmentFacade> availableTable;
 	private final FilteredTreeViewTable<CharacterFacade, EquipmentFacade> purchasedTable;
@@ -779,6 +782,19 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		{
 			this.character = character;
 			this.equipmentList = character.getDataSet().getEquipment();
+			
+			if (primaryTypes.isEmpty())
+			{
+				for (int i = 0; i < equipmentList.getSize(); i++)
+				{
+					EquipmentFacade eq = equipmentList.getElementAt(i);
+					String[] types = eq.getTypes();
+					if (types.length > 0)
+					{
+						primaryTypes.add(types[0]);
+					}
+				}
+			}
 		}
 
 		@Override
@@ -932,9 +948,23 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 					String[] types = pobj.getTypes();
 					if (types != null && types.length > 1)
 					{
-						List<TreeViewPath<EquipmentFacade>> paths = new ArrayList<TreeViewPath<EquipmentFacade>>(
-								types.length);
-						paths.add(new TreeViewPath<EquipmentFacade>(pobj, types[0], types[1]));
+						List<TreeViewPath<EquipmentFacade>> paths =
+								new ArrayList<TreeViewPath<EquipmentFacade>>();
+						for (String type : pobj.getTypes())
+						{
+							if (primaryTypes.contains(type))
+							{
+								for (String subType : pobj.getTypes())
+								{
+									if (!type.equals(subType))
+									{
+										paths
+											.add(new TreeViewPath<EquipmentFacade>(
+												pobj, type, subType));
+									}
+								}
+							}
+						}
 						return paths;
 					}
 					// Less then two types, fall through to treat it as a type tree.
@@ -942,11 +972,15 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 					types = pobj.getTypes();
 					if (types != null && types.length > 0)
 					{
-
 						List<TreeViewPath<EquipmentFacade>> paths = new ArrayList<TreeViewPath<EquipmentFacade>>(
 								types.length);
-						String type = types[0];
-						paths.add(new TreeViewPath<EquipmentFacade>(pobj, type));
+						for(String type : pobj.getTypes())
+						{
+							if (primaryTypes.contains(type))
+							{
+								paths.add(new TreeViewPath<EquipmentFacade>(pobj, type));
+							}
+						}
 						return paths;
 					}
 					// No types, fall through and treat it as just a name.
