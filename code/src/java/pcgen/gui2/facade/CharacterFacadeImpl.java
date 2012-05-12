@@ -368,6 +368,8 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		carriedWeightRef = new DefaultReferenceFacade<String>();
 		loadRef = new DefaultReferenceFacade<String>();
 		weightLimitRef = new DefaultReferenceFacade<String>();
+		equipSet = new DefaultReferenceFacade<EquipmentSetFacade>();
+		equipmentSets = new DefaultListFacade<EquipmentSetFacade>();
 		initEquipSet(pc);
 
 		GameMode game = (GameMode) dataSet.getGameMode();
@@ -453,8 +455,6 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	 */
 	private void initEquipSet(PlayerCharacter pc)
 	{
-		equipSet = new DefaultReferenceFacade<EquipmentSetFacade>();
-		
 		// Setup the default EquipSet if not already present
 		if (pc.getEquipSet().size() == 0)
 		{
@@ -465,7 +465,8 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		}
 
 		// Make facades for each root equipset.
-		equipmentSets = new DefaultListFacade<EquipmentSetFacade>();
+		List<EquipmentSetFacade> eqSetList = new ArrayList<EquipmentSetFacade>();
+		EquipmentSetFacade currSet = null;
 		String currIdPath = pc.getCalcEquipSetId();
 		for (EquipSet es : pc.getEquipSet())
 		{
@@ -473,12 +474,17 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			{
 				final EquipmentSetFacadeImpl facade =
 						new EquipmentSetFacadeImpl(delegate, pc, es, dataSet);
-				equipmentSets.addElement(facade);
+				eqSetList.add(facade);
 				if (es.getIdPath().equals(currIdPath))
 				{
-					equipSet.setReference(facade);
+					currSet = facade;
 				}
 			}
+		}
+		equipmentSets.setContents(eqSetList);
+		if (currSet != null)
+		{
+			equipSet.setReference(currSet);
 		}
 
 		EquipmentSetFacade set = equipSet.getReference();

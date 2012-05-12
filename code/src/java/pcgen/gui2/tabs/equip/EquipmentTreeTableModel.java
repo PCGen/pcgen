@@ -43,8 +43,16 @@ import pcgen.util.CollectionMaps;
 import pcgen.util.ListMap;
 
 /**
- *
+ * The model backing the selected table on the equipping tab. This controls the 
+ * tree structure showing the equipment by its equipped location for a 
+ * particular character and equipment set.
+ * 
+ * <br/>
+ * Last Editor: $Author:  $
+ * Last Edited: $Date:  $
+ *  
  * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @version $Revision:  $
  */
 public class EquipmentTreeTableModel implements SortableTreeTableModel, ListListener<EquipNode>, EquipmentTreeListener
 {
