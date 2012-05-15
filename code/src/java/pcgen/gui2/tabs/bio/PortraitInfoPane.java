@@ -214,7 +214,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 
 		public ClearAction(CharacterFacade character)
 		{
-			super(LanguageBundle.getString("in_clearPortrait"));
+			super(LanguageBundle.getString("in_clearPortrait")); //$NON-NLS-1$
 			this.character = character;
 		}
 
@@ -233,15 +233,15 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 
 		public PurchaseAction(CharacterFacade character)
 		{
-			super(LanguageBundle.getString("in_buyPortrait"));
+			super(LanguageBundle.getString("in_buyPortrait")); //$NON-NLS-1$
 			this.character = character;
-			putValue(SHORT_DESCRIPTION, LanguageBundle.getString("in_buyPortraitTipString"));
+			putValue(SHORT_DESCRIPTION, LanguageBundle.getString("in_buyPortraitTipString")); //$NON-NLS-1$
 		}
 
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			Utility.viewInBrowser("https://www.e-junkie.com/ecom/gb.php?cl=154598&c=ib&aff=154875");
+			Utility.viewInBrowser("https://www.e-junkie.com/ecom/gb.php?cl=154598&c=ib&aff=154875"); //$NON-NLS-1$
 		}
 
 	}
@@ -293,12 +293,20 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 			{
 				if (file != null)
 				{
-					image = ImageIO.read(file);
+					if (file.exists() && file.canRead())
+					{
+						image = ImageIO.read(file);
+					}
+					else
+					{
+						Logging.errorPrint("Unable to read portrait file " //$NON-NLS-1$
+							+ file.getAbsolutePath());
+					}
 				}
 			}
 			catch (IOException ex)
 			{
-				Logging.errorPrint("Could not load image", ex);
+				Logging.errorPrint("Could not load image", ex); //$NON-NLS-1$
 			}
 			if (image == null)
 			{
