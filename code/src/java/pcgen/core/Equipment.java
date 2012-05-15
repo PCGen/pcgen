@@ -3593,7 +3593,7 @@ public final class Equipment extends PObject implements Serializable,
 			{
 				double mult = 1.0;
 
-				if (newSize != null)
+				if (newSize != null && pc != null)
 				{
 					mult =
 							pc.getSizeBonusTo(newSize, "ITEMCAPACITY", eq
@@ -4027,12 +4027,15 @@ public final class Equipment extends PObject implements Serializable,
 			return c;
 		}
 
-		final double saDbl =
-				aPC.getSizeBonusTo(saSize, "ITEMCOST", typeList(), 1.0);
-		final double saBaseDbl =
-				aPC.getSizeBonusTo(saBase, "ITEMCOST", typeList(), 1.0);
-		final double mult = saDbl / saBaseDbl;
-		c = c.multiply(new BigDecimal(mult));
+		if (aPC != null)
+		{
+			final double saDbl =
+					aPC.getSizeBonusTo(saSize, "ITEMCOST", typeList(), 1.0);
+			final double saBaseDbl =
+					aPC.getSizeBonusTo(saBase, "ITEMCOST", typeList(), 1.0);
+			final double mult = saDbl / saBaseDbl;
+			c = c.multiply(new BigDecimal(mult));
+		}
 
 		//
 		// TODO:Non-humanoid races can also double the cost (armor)
@@ -4369,16 +4372,21 @@ public final class Equipment extends PObject implements Serializable,
 
 		final SizeAdjustment currSA = getSafe(ObjectKey.SIZE);
 
+		BigDecimal weight = getBaseWeight();
 		if ((newSA == null) || (currSA == null))
 		{
-			return getBaseWeight();
+			return weight;
 		}
 
-		final double mult =
-				aPC.getSizeBonusTo(newSA, "ITEMWEIGHT", typeList(), 1.0)
-					/ aPC.getSizeBonusTo(currSA, "ITEMWEIGHT", typeList(), 1.0);
+		if (aPC != null)
+		{
+			final double mult =
+					aPC.getSizeBonusTo(newSA, "ITEMWEIGHT", typeList(), 1.0)
+						/ aPC.getSizeBonusTo(currSA, "ITEMWEIGHT", typeList(), 1.0);
+			weight = weight.multiply(new BigDecimal(mult));
+		}
 
-		return getBaseWeight().multiply(new BigDecimal(mult));
+		return weight;
 	}
 
 	/**
@@ -4406,7 +4414,7 @@ public final class Equipment extends PObject implements Serializable,
 			double mult = 1.0;
 			final SizeAdjustment currSA = baseEq.getSafe(ObjectKey.SIZE);
 
-			if ((newSA != null) && (currSA != null))
+			if ((newSA != null) && (currSA != null) && aPC != null)
 			{
 				mult =
 						aPC
