@@ -1,0 +1,11 @@
+# CVS $Revision: 10453 $ $Author: eddyanthony $ -- Fri Sep 17 15:06:09 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Sargava, the Lost Colony	SOURCESHORT:StLC	SOURCEWEB:http://paizo.com/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy8ey2	SOURCEDATE:2010-07
+# Original Entry by: Stefan Radermacher
+
+# Deity Name	Product Identity?	Domains							Desciption of Deity/Title	Pantheon
+Aroden		NAMEISPI:YES									DESC:Dead God			PANTHEON:Pathfinder Chronicles
+Mwangi Shamanism	NAMEISPI:YES	DOMAINS:ALL|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE						PANTHEON:Pathfinder Chronicles
+
+#
+# End
+#

@@ -1,0 +1,72 @@
+# CVS $Revision$ $Author$ -- Thu Apr 22 12:20:08 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Pathfinder Chronicles: Campaign Setting	SOURCESHORT:PFCS	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search	SOURCEDATE:2008-08
+
+
+# Template Name			Hit Dice Size		Visible		Required Language	Automatic Languages
+Taldane as Common Language					VISIBLE:DISPLAY	PRELANG:1,Common	LANGAUTO:Taldane
+Holy Warrior Hit Dice		HITDIE:10|CLASS=Cleric	VISIBLE:NO
+
+###Block: Human Ethnicities
+# Template Name			Visible	Source Page		Bonus to Ability Pool			Subrace
+Human Ethnicity			VISIBLE:NO				BONUS:ABILITYPOOL|Human Ethnicity|1
+Human Ethnicity (Azlanti)	VISIBLE:NO	SOURCEPAGE:p.18							SUBRACE:Azlanti
+Human Ethnicity (Chelaxian)	VISIBLE:NO	SOURCEPAGE:p.20							SUBRACE:Chelaxian
+Human Ethnicity (Garundi)	VISIBLE:NO	SOURCEPAGE:p.22							SUBRACE:Garundi
+Human Ethnicity (Keleshite)	VISIBLE:NO	SOURCEPAGE:p.24							SUBRACE:Keleshite
+Human Ethnicity (Kellid)	VISIBLE:NO	SOURCEPAGE:p.26							SUBRACE:Kellid
+Human Ethnicity (Mwangi)	VISIBLE:NO	SOURCEPAGE:p.28							SUBRACE:Mwangi
+Human Ethnicity (Taldan)	VISIBLE:NO	SOURCEPAGE:p.30							SUBRACE:Taldan
+Human Ethnicity (Tian)		VISIBLE:NO	SOURCEPAGE:p.32							SUBRACE:Tian
+Human Ethnicity (Ulfen)		VISIBLE:NO	SOURCEPAGE:p.34							SUBRACE:Ulfen
+Human Ethnicity (Varisian)	VISIBLE:NO	SOURCEPAGE:p.36							SUBRACE:Varisian
+Human Ethnicity (Vudrani)	VISIBLE:NO	SOURCEPAGE:p.38							SUBRACE:Vudrani
+
+###Block: Regional Affinities
+# Template Name				Visible	Source Page		Region
+Regional Affinity (Absalom)		VISIBLE:NO	SOURCEPAGE:p.54	REGION:Absalom
+Regional Affinity (Alkenstar)		VISIBLE:NO	SOURCEPAGE:p.58	REGION:Alkenstar
+Regional Affinity (Andoran)		VISIBLE:NO	SOURCEPAGE:p.60	REGION:Andoran
+Regional Affinity (Belkzen)		VISIBLE:NO	SOURCEPAGE:p.64	REGION:Belkzen
+Regional Affinity (Brevoy)		VISIBLE:NO	SOURCEPAGE:p.66	REGION:Brevoy
+Regional Affinity (Cheliax)		VISIBLE:NO	SOURCEPAGE:p.68	REGION:Cheliax
+Regional Affinity (Druma)		VISIBLE:NO	SOURCEPAGE:p.72	REGION:Druma
+Regional Affinity (Galt)		VISIBLE:NO	SOURCEPAGE:p.74	REGION:Galt
+Regional Affinity (Geb)			VISIBLE:NO	SOURCEPAGE:p.76	REGION:Geb
+Regional Affinity (Hermea)		VISIBLE:NO	SOURCEPAGE:p.78	REGION:Hermea
+Regional Affinity (Irrisen)		VISIBLE:NO	SOURCEPAGE:p.80	REGION:Irrisen
+Regional Affinity (Isger)		VISIBLE:NO	SOURCEPAGE:p.82	REGION:Isger
+Regional Affinity (Jalmeray)		VISIBLE:NO	SOURCEPAGE:p.84	REGION:Jalmeray
+Regional Affinity (Katapesh)		VISIBLE:NO	SOURCEPAGE:p.86	REGION:Katapesh
+Regional Affinity (Kyonin)		VISIBLE:NO	SOURCEPAGE:p.88	REGION:Kyonin
+Regional Affinity (Lastwall)		VISIBLE:NO	SOURCEPAGE:p.90	REGION:Lastwall
+Regional Affinity (Linnorm Kings)	VISIBLE:NO	SOURCEPAGE:p.92	REGION:Lands of the Linnorm Kings
+Regional Affinity (Mammoth Lords)	VISIBLE:NO	SOURCEPAGE:p.94	REGION:Realm of the Mammoth Lords
+Regional Affinity (Mediogalti)	VISIBLE:NO	SOURCEPAGE:p.96	REGION:Mediogalti Island
+Regional Affinity (Mendev)		VISIBLE:NO	SOURCEPAGE:p.98	REGION:Mendev
+Regional Affinity (Molthune)		VISIBLE:NO	SOURCEPAGE:p.102	REGION:Molthune
+Regional Affinity (Mwangi Expanse)	VISIBLE:NO	SOURCEPAGE:p.104	REGION:Mwangi Expanse
+Regional Affinity (Nex)			VISIBLE:NO	SOURCEPAGE:p.108	REGION:Nex
+Regional Affinity (Nidal)		VISIBLE:NO	SOURCEPAGE:p.110	REGION:Nidal
+Regional Affinity (Nirmathas)		VISIBLE:NO	SOURCEPAGE:p.112	REGION:Nirmathas
+Regional Affinity (Numeria)		VISIBLE:NO	SOURCEPAGE:p.114	REGION:Numeria
+Regional Affinity (Osirion)		VISIBLE:NO	SOURCEPAGE:p.116	REGION:Osirion
+Regional Affinity (Qadira)		VISIBLE:NO	SOURCEPAGE:p.120	REGION:Qadira
+Regional Affinity (Rahadoum)		VISIBLE:NO	SOURCEPAGE:p.122	REGION:Rahadoum
+Regional Affinity (Razmiran)		VISIBLE:NO	SOURCEPAGE:p.124	REGION:Razmiran
+Regional Affinity (River Kingdoms)	VISIBLE:NO	SOURCEPAGE:p.126	REGION:The River Kingdoms
+Regional Affinity (Sargava)		VISIBLE:NO	SOURCEPAGE:p.130	REGION:Sargava
+Regional Affinity (Shackles)		VISIBLE:NO	SOURCEPAGE:p.132	REGION:The Shackles
+Regional Affinity (Sodden Lands)	VISIBLE:NO	SOURCEPAGE:p.134	REGION:The Sodden Lands
+Regional Affinity (Taldor)		VISIBLE:NO	SOURCEPAGE:p.136	REGION:Taldor
+Regional Affinity (Thuvia)		VISIBLE:NO	SOURCEPAGE:p.138	REGION:Thuvia
+Regional Affinity (Ustalav)		VISIBLE:NO	SOURCEPAGE:p.140	REGION:The Immortal Principality of Ustalav
+Regional Affinity (Varisia)		VISIBLE:NO	SOURCEPAGE:p.144	REGION:Varisia
+Regional Affinity (Worldwound)	VISIBLE:NO	SOURCEPAGE:p.148	REGION:The Worldwound
+
+###Block: Shade of the Uskwood feat support
+# Template Name			Visible	List of Class Spells by Level
+Shade of the Uskwood Spells	VISIBLE:NO	SPELLLEVEL:CLASS|Druid=0|Disrupt Undead,Ray of Frost	SPELLLEVEL:CLASS|Druid=1|Ghost Sound,Touch of Fatigue	SPELLLEVEL:CLASS|Druid=2|Chill Touch,Spectral Hand	SPELLLEVEL:CLASS|Druid=3|Ghoul Touch,Invisibility	SPELLLEVEL:CLASS|Druid=4|Displacement,Ray of Exhaustion	SPELLLEVEL:CLASS|Druid=5|Animate Dead,Phantasmal Killer	SPELLLEVEL:CLASS|Druid=6|Nightmare,Waves of Fatigue	SPELLLEVEL:CLASS|Druid=7|Circle of Death,Shadow Walk	SPELLLEVEL:CLASS|Druid=8|Invisibility (Mass),Waves of Exhaustion	SPELLLEVEL:CLASS|Druid=9|Horrid Wilting,Weird
+
+#
+# End
+#

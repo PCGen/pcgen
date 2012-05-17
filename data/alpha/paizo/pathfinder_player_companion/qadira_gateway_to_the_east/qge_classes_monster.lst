@@ -1,0 +1,10 @@
+# CVS $Revision: $ $Author: $ -- Thu Oct 28 09:50:48 2010 -- reformated by prettylst.pl v1.38 (build 6875)
+SOURCELONG:Qadira, Gateway to the East	SOURCESHORT:QGE	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy88zq	SOURCEDATE:2009-08
+# Original entry by Chris 'Barak' Chandler
+
+# Class Name		Output Name			Hit Dice	Type			Max Level		Source Page		Ability																		Save checks bonus											Combat bonus
+CLASS:Outsider (Zhyen)	OUTPUTNAME:Outsider	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.23	ABILITY:Special Ability|AUTOMATIC|Outsider Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Reg. Race Type
+CLASS:Outsider (Zhyen)	PRERACETYPE:Outsider
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Outsider (Zhyen)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Bluff|TYPE.Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth

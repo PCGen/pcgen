@@ -1,0 +1,13 @@
+# CVS $Revision: 11672 $ $Author: eddyanthony $ -- Fri Sep 17 15:06:09 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Sargava, the Lost Colony	SOURCESHORT:StLC	SOURCEWEB:http://paizo.com/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy8ey2	SOURCEDATE:2010-07
+# Original Entry by: Stefan Radermacher
+
+###Block: Spells
+# Spell Name	Classes of caster					School			Spell Descriptors	Type				Components		Casting Time			Range		Target Area or Effect		Duration					Save Info						Spell Resistance		Description																			Source Page
+Ape Walk		CLASSES:Druid,Sorcerer,Wizard=3|Ranger=2	SCHOOL:Transmutation				TYPE:Arcane.Divine	COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Touch	TARGETAREA:Creature touched	DURATION:(CASTERLEVEL*10) minutes	SAVEINFO:Will negates (harmless)		SPELLRES:Yes (harmless)	DESC:The subject can climb like a monkey.														SOURCEPAGE:p.28
+Defoliate		CLASSES:Druid,Sorcerer,Wizard=2|Ranger=1	SCHOOL:Necromancy					TYPE:Arcane.Divine	COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Close	TARGETAREA:See text		DURATION:Instantaneous			SAVEINFO:None					SPELLRES:Yes		DESC:You hurl a tiny ball of negative energy, destroying plant life in either a 60-ft. line or a 10-ft..-radius spread.	SOURCEPAGE:p.28
+Heatstroke		CLASSES:Druid,Sorcerer,Wizard=3		SCHOOL:Evocation		DESCRIPTOR:Fire	TYPE:Arcane.Divine	COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Close	TARGETAREA:Ray			DURATION:(CASTERLEVEL) minutes	SAVEINFO:Fortitude partial, see text	SPELLRES:Yes		DESC:Ray inflicts 1d4 points of nonlethal damage; target suffers from heatstroke and is exhausted.				SOURCEPAGE:p.28
+
+#
+# End
+#

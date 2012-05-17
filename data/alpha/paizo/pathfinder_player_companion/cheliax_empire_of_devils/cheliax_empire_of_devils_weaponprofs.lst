@@ -1,0 +1,12 @@
+# CVS $Revision$ $Author$ -- Sun Feb 28 14:25:54 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+SOURCELONG:Cheliax, Empire of Devils	SOURCESHORT:CED	SOURCEWEB:http://paizo.com/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy89ca	SOURCEDATE:2009-08
+# Original Entry by: Stefan Radermacher
+
+# EXOTIC
+# -- light
+# Weapon Name	Type
+Barbazu Beard	TYPE:Exotic.Melee.Piercing.MeleePiercing
+
+#
+# End
+#
