@@ -40,7 +40,7 @@ Weretiger_CON	VISIBLE:NO	DEFINE:LOCK.CON|19	!PRESTAT:1,CON=19
 ###Block: Ogrekin template
 # NEEDS DATA WORK: Minimum CR 2
 # Template Name	Challenge Rating	Source Page		Required Race		Bonus to Ability Pool															Combat bonus					Stat bonus									Race Subtype	Vision		PRESIZE
-Ogrekin		CR:1			SOURCEPAGE:p.204	PRERACE:1,Humanoid	BONUS:ABILITYPOOL|Ogrekin Beneficial Deformity|1	BONUS:ABILITYPOOL|Ogrekin Disadvantageous Deformity|1	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|6	BONUS:STAT|CON|4	BONUS:STAT|INT,CHA|-2	RACESUBTYPE:Giant	VISION:Low-light	PRESIZE:M
+Ogrekin		CR:1			SOURCEPAGE:p.204	PRERACE:1,RACETYPE=Humanoid	BONUS:ABILITYPOOL|Ogrekin Beneficial Deformity|1	BONUS:ABILITYPOOL|Ogrekin Disadvantageous Deformity|1	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|6	BONUS:STAT|CON|4	BONUS:STAT|INT,CHA|-2	RACESUBTYPE:Giant	VISION:Low-light	PRESIZE:M
 
 ###Block: Petitioner Natural Attack templates
 
