@@ -209,17 +209,17 @@ Wine (Fine/Bottle)	TYPE:Goods.Food.Consumable			COST:10	WT:1.5	SOURCEPAGE:p.159
 # Barding is in armor .LST file
 # Equipment Name			Type								Contains				Cost		Weight	Size		Source Page		Special Property
 Bit and Bridle			TYPE:Goods.Mount.Resizable									COST:2	WT:1				SOURCEPAGE:p.159
-Dog (Guard)				TYPE:Goods.Mount.Container				CONTAINS:*300|Any=UNLIM		COST:25					SOURCEPAGE:p.159
-Dog (Riding)			TYPE:Goods.Transportation.Mount.Container		CONTAINS:*300|Any=UNLIM		COST:150			SIZE:M	SOURCEPAGE:p.162
-Donkey				TYPE:Goods.Transportation.Mount.Container		CONTAINS:*690|Any=UNLIM		COST:8			SIZE:M	SOURCEPAGE:p.162
-Mule					TYPE:Goods.Transportation.Mount.Container		CONTAINS:*690|Any=UNLIM		COST:8			SIZE:M	SOURCEPAGE:p.162
+Dog (Guard)				TYPE:Mount.Goods.Container				CONTAINS:*300|Any=UNLIM		COST:25					SOURCEPAGE:p.159
+Dog (Riding)			TYPE:Mount.Goods.Transportation.Container		CONTAINS:*300|Any=UNLIM		COST:150			SIZE:M	SOURCEPAGE:p.162
+Donkey				TYPE:Mount.Goods.Transportation.Container		CONTAINS:*690|Any=UNLIM		COST:8			SIZE:M	SOURCEPAGE:p.162
+Mule					TYPE:Mount.Goods.Transportation.Container		CONTAINS:*690|Any=UNLIM		COST:8			SIZE:M	SOURCEPAGE:p.162
 Feed (Per Day)			TYPE:Goods.Mount.Consumable									COST:0.05	WT:10				SOURCEPAGE:p.162
-Horse (Heavy)			TYPE:Goods.Transportation.Mount.Container		CONTAINS:*600|Any=UNLIM		COST:200	WT:0		SIZE:L	SOURCEPAGE:p.162
-Horse (Heavy/Combat Trained)	TYPE:Goods.Transportation.Mount.Container		CONTAINS:*900|Any=UNLIM		COST:300			SIZE:L	SOURCEPAGE:p.162
-Horse (Light)			TYPE:Goods.Transportation.Mount.Container		CONTAINS:*450|Any=UNLIM		COST:75			SIZE:L	SOURCEPAGE:p.162
-Horse (Light/Combat Trained)	TYPE:Goods.Transportation.Mount.Container		CONTAINS:*690|Any=UNLIM		COST:110			SIZE:L	SOURCEPAGE:p.162
-Pony					TYPE:Goods.Transportation.Mount.Container		CONTAINS:*225|Any=UNLIM		COST:30			SIZE:M	SOURCEPAGE:p.162
-Pony (Combat Trained)		TYPE:Goods.Transportation.Mount.Container		CONTAINS:*300|Any=UNLIM		COST:45			SIZE:M	SOURCEPAGE:p.162
+Horse (Heavy)			TYPE:Mount.Goods.Transportation.Container		CONTAINS:*600|Any=UNLIM		COST:200	WT:0		SIZE:L	SOURCEPAGE:p.162
+Horse (Heavy/Combat Trained)	TYPE:Mount.Goods.Transportation.Container		CONTAINS:*900|Any=UNLIM		COST:300			SIZE:L	SOURCEPAGE:p.162
+Horse (Light)			TYPE:Mount.Goods.Transportation.Container		CONTAINS:*450|Any=UNLIM		COST:75			SIZE:L	SOURCEPAGE:p.162
+Horse (Light/Combat Trained)	TYPE:Mount.Goods.Transportation.Container		CONTAINS:*690|Any=UNLIM		COST:110			SIZE:L	SOURCEPAGE:p.162
+Pony					TYPE:Mount.Goods.Transportation.Container		CONTAINS:*225|Any=UNLIM		COST:30			SIZE:M	SOURCEPAGE:p.162
+Pony (Combat Trained)		TYPE:Mount.Goods.Transportation.Container		CONTAINS:*300|Any=UNLIM		COST:45			SIZE:M	SOURCEPAGE:p.162
 Saddle (Military)			TYPE:Goods.Mount.Saddle.Military.Resizable						COST:20	WT:30				SOURCEPAGE:p.162	SPROP:+2 circumstance bonus on Ride checks related to staying in the saddle
 Saddle (Pack)			TYPE:Goods.Container.Mount.Saddle.Resizable	CONTAINS:UNLIM|Any=UNLIM	COST:5	WT:15				SOURCEPAGE:p.162
 Saddle (Riding)			TYPE:Goods.Mount.Saddle.Resizable								COST:10	WT:25				SOURCEPAGE:p.162
