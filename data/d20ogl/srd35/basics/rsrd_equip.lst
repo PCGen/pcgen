@@ -132,17 +132,17 @@ Whetstone				TYPE:Goods.General															COST:0.02	WT:1		SOURCEPAGE:Equipme
 # Barding is in armor .LST file
 # Equipment Name			Type								Contains			Cost		Weight	Size		Source Page				Special Property
 Bit and Bridle			TYPE:Goods.Mount.Resizable								COST:2	WT:1				SOURCEPAGE:Equipment.rtf
-Dog (Guard)				TYPE:Goods.Mount.Container				CONTAINS:*300|Any		COST:25	WT:0				SOURCEPAGE:Equipment.rtf
-Dog (Riding)			TYPE:Goods.Transportation.Mount.Container		CONTAINS:*300|Any		COST:150	WT:0		SIZE:M	SOURCEPAGE:Equipment.rtf
-Donkey				TYPE:Goods.Transportation.Mount.Container		CONTAINS:*690|Any		COST:8	WT:0		SIZE:M	SOURCEPAGE:Equipment.rtf
-Mule					TYPE:Goods.Transportation.Mount.Container		CONTAINS:*690|Any		COST:8	WT:0		SIZE:L	SOURCEPAGE:Equipment.rtf
+Dog (Guard)				TYPE:Mount.Goods.Container				CONTAINS:*300|Any		COST:25	WT:0				SOURCEPAGE:Equipment.rtf
+Dog (Riding)			TYPE:Mount.Goods.Transportation.Container		CONTAINS:*300|Any		COST:150	WT:0		SIZE:M	SOURCEPAGE:Equipment.rtf
+Donkey				TYPE:Mount.Goods.Transportation.Container		CONTAINS:*690|Any		COST:8	WT:0		SIZE:M	SOURCEPAGE:Equipment.rtf
+Mule					TYPE:Mount.Goods.Transportation.Container		CONTAINS:*690|Any		COST:8	WT:0		SIZE:L	SOURCEPAGE:Equipment.rtf
 Feed (Per Day)			TYPE:Goods.Mount.Consumable								COST:0.05	WT:10				SOURCEPAGE:Equipment.rtf
-Horse (Heavy)			TYPE:Goods.Transportation.Mount.Container		CONTAINS:*600|Any		COST:200	WT:0		SIZE:L	SOURCEPAGE:Equipment.rtf
-Horse (Light)			TYPE:Goods.Transportation.Mount.Container		CONTAINS:*450|Any		COST:75	WT:0		SIZE:L	SOURCEPAGE:Equipment.rtf
-Warhorse (Heavy)			TYPE:Goods.Transportation.Mount.Container		CONTAINS:*900|Any		COST:400	WT:0		SIZE:L	SOURCEPAGE:Equipment.rtf
-Warhorse (Light)			TYPE:Goods.Transportation.Mount.Container		CONTAINS:*690|Any		COST:150	WT:0		SIZE:L	SOURCEPAGE:Equipment.rtf
-Pony					TYPE:Goods.Transportation.Mount.Container		CONTAINS:*225|Any		COST:30	WT:0		SIZE:M	SOURCEPAGE:Equipment.rtf
-Warpony				TYPE:Goods.Transportation.Mount.Container		CONTAINS:*300|Any		COST:100	WT:0		SIZE:M	SOURCEPAGE:Equipment.rtf
+Horse (Heavy)			TYPE:Mount.Goods.Transportation.Container		CONTAINS:*600|Any		COST:200	WT:0		SIZE:L	SOURCEPAGE:Equipment.rtf
+Horse (Light)			TYPE:Mount.Goods.Transportation.Container		CONTAINS:*450|Any		COST:75	WT:0		SIZE:L	SOURCEPAGE:Equipment.rtf
+Warhorse (Heavy)			TYPE:Mount.Goods.Transportation.Container		CONTAINS:*900|Any		COST:400	WT:0		SIZE:L	SOURCEPAGE:Equipment.rtf
+Warhorse (Light)			TYPE:Mount.Goods.Transportation.Container		CONTAINS:*690|Any		COST:150	WT:0		SIZE:L	SOURCEPAGE:Equipment.rtf
+Pony					TYPE:Mount.Goods.Transportation.Container		CONTAINS:*225|Any		COST:30	WT:0		SIZE:M	SOURCEPAGE:Equipment.rtf
+Warpony				TYPE:Mount.Goods.Transportation.Container		CONTAINS:*300|Any		COST:100	WT:0		SIZE:M	SOURCEPAGE:Equipment.rtf
 Saddle (Military)			TYPE:Goods.Mount.Saddle.Military.Resizable					COST:20	WT:30				SOURCEPAGE:Equipment.rtf	SPROP:+2 circumstance bonus on Ride checks related to staying in the saddle
 Saddle (Pack)			TYPE:Goods.Container.Mount.Saddle.Resizable	CONTAINS:UNLIM|Any	COST:5	WT:15				SOURCEPAGE:Equipment.rtf
 Saddle (Riding)			TYPE:Goods.Mount.Saddle.Resizable							COST:10	WT:25				SOURCEPAGE:Equipment.rtf
