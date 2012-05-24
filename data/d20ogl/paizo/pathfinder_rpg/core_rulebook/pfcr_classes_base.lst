@@ -180,9 +180,9 @@ CLASS:Fighter	HD:10		TYPE:Base.PC	ABB:Ftr		MAXLEVEL:20	SOURCEPAGE:p.55	DEFINE:Fi
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|Knowledge (Dungeoneering)|Knowledge (Engineering)|TYPE.Profession|Ride|Survival|Swim
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
-1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1																	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponProficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponProficiencies
+1												AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies
+1												AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies
 ###Block: Advanced Weapon Feat qualifications
 1	ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker
 1	ABILITY:Special Ability|AUTOMATIC|Weapon Specialization Qualify
@@ -195,12 +195,12 @@ CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|K
 1	ABILITY:Special Ability|AUTOMATIC|Critical Mastery Qualify
 1	ABILITY:Special Ability|AUTOMATIC|Greater Penetrating Strike Qualify
 ###Block: Level progression
-1	BONUS:ABILITYPOOL|Fighter Bonus Feat|CL/2+1
+1	BONUS:ABILITYPOOL|Fighter Bonus Feat|CL/2+1|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeats
 2									BONUS:VAR|BraveryLVL|CL				ABILITY:Special Ability|AUTOMATIC|Bravery|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBravery
 3									BONUS:VAR|ArmorTrainingLVL|CL			ABILITY:Special Ability|AUTOMATIC|Armor Training|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorTraining_ALL
 5									BONUS:VAR|FighterWeaponTrainingLVL|CL	ABILITY:Special Ability|AUTOMATIC|Fighter Weapon Training|Weapon Training|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponTraining_ALL
 19																ABILITY:Special Ability|AUTOMATIC|Armor Mastery|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorMastery
-20	BONUS:ABILITYPOOL|Weapon Mastery|1
+20	BONUS:ABILITYPOOL|Weapon Mastery|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponMastery
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define						Save checks bonus								Combat bonus
