@@ -1,0 +1,11 @@
+# CVS $Revision$ $Author$ -- Thu May 17 18:58:16 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Pathfinder Chronicles: Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
+
+###Block: Creature Subtypes
+# Template Name	Visible	Race Subtype				Vision
+Kitsune		VISIBLE:NO	RACESUBTYPE:Kitsune|Shapechanger	VISION:Low-Light
+Nagaji		VISIBLE:NO	RACESUBTYPE:Reptilian			VISION:Low-Light
+Samsaran		VISIBLE:NO	RACESUBTYPE:Samsaran			VISION:Low-Light
+Tengu			VISIBLE:NO	RACESUBTYPE:Tengu				VISION:Low-Light
+Wayang		VISIBLE:NO	RACESUBTYPE:Wayang			VISION:Darkvision (60')
+

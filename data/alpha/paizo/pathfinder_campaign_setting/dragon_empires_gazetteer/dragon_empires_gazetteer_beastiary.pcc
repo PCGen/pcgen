@@ -1,0 +1,49 @@
+# CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
+CAMPAIGN:Paizo - Pathfinder Chronicles: Dragon Empires Gazetteer for Bestiary
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Pathfinder Campaign Setting
+STATUS:ALPHA
+RANK:3
+GENRE:Fantasy
+BOOKTYPE:Campaign Setting
+PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Bestiary,Pathfinder RPG for Game Masters (includes Monsters)
+PUBNAMELONG:Paizo Publishing LLC
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SETTING:Pathfinder Chronicles
+SOURCELONG:Pathfinder Chronicles: Dragon Empires Gazetteer
+SOURCESHORT:DEG
+SOURCEWEB:http://paizo.com/products/btpy8pfu
+SOURCEDATE:2012-02
+ISOGL:YES
+ISLICENSED:NO
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:The Book of Fiends. Copyright 2003. Green Ronin Publishing: Authors Aaron Loeb, Erik Mona, Chris Pramas, Robert J. Schwalb
+COPYRIGHT:Death Worm from the Tome of Horrors Complete Copyright 2003. 2011 Necromancer Games, Inc. Published and distributed by Frog God Games Author: Scott Greene, based on original material by Gary Gygax
+COPYRIGHT:Foo Creature  from the Tome of Horrors Complete Copyright 2003. 2011 Necromancer Games, Inc. Published and distributed by Frog God Games Author: Scott Greene, based on original material by Gary Gygax
+COPYRIGHT:Grippli from the Tome of Horrors Complete Copyright 2003. 2011 Necromancer Games, Inc. Published and distributed by Frog God Games Author: Scott Greene, based on original material by Gary Gygax
+COPYRIGHT:Yeti from the Tome of Horrors Complete Copyright 2003. 2011 Necromancer Games, Inc. Published and distributed by Frog God Games Author: Scott Greene, based on original material by Gary Gygax
+COPYRIGHT:Pathfinder Campaign Setting: Dragon Empires Gazetteer Copyright 2011 Paizo Publishing, LLC: Authors: Matthew Goodall, Dave Gros, James Jacobs, Steve Kenson, Michael Kortes, Colin McComb, Rob McCreary, Richerd Fett, F. Wesley Schenider, Mike Shel and Todd Stewart
+COPYRIGHT:PCGen dataset conversion for "Dragon Empires Gazetteer" Copyright 2012, PCGen Data team (Including, but not limited to David York (Phoex))
+
+COVER:dragon_empires_gazetteer.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8pfu|Buy this publication from Paizo Publishing!
+DESC:It is a land where honorable samurai wage war against devious ninja. Where the guardian spirits known as kami stand against the ravages of evil oni. Where the martial artists of a shattered empire strive to maintain their traditions against rising chaos. A land of jade and tea, of pride and treachery, of reincarnation and vengeful ghosts. These are the lands of the Dragon Empires. Dragon Empires Gazetteer presents the first exploration of the continent of Tian Xia, a vast realm found on the opposite side of the world of Golarion from the Inner Sea region. Inspired by the fascinating myths and rich histories of numerous Asian cultures and traditions, the Dragon Empires can be either an exotic destination for world-traveling heroes from the far side of the world, or they can be the foundation of an entirely new campaign.
+FORWARDREF:FEAT|Fox Shape (Kitsune),Swift Kitsune Shapechanger,Vulpine Pounce
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+ABILITY:dragon_empires_gazetteer_abilitymod.lst
+RACE:dragon_empires_gazetteer_racesmod.lst
+
+
+PCC:dragon_empires_gazetteer.pcc
+#
+# End
+#

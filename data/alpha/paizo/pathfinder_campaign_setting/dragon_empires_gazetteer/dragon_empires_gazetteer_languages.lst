@@ -1,0 +1,21 @@
+# CVS $Revision$ $Author$ -- Thu May 17 18:58:16 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Pathfinder Chronicles: Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
+
+# Modern Eastern Languages
+# Language	Type
+Nagaji	TYPE:Spoken.Written.Read
+Samsaran	TYPE:Spoken.Written.Read
+Senzar	TYPE:Spoken.Written.Read
+Wayang	TYPE:Spoken.Written.Read
+
+# Modern Humand Eastern Languages
+Dtang		TYPE:Spoken.Written.Read
+Hwan		TYPE:Spoken.Written.Read
+Hon-La	TYPE:Spoken.Written.Read
+MinKaian	TYPE:Spoken.Written.Read
+Minatan	TYPE:Spoken.Written.Read
+
+
+#
+# End
+#

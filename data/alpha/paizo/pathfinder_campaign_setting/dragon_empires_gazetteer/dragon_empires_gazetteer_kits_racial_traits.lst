@@ -1,0 +1,49 @@
+# CVS $Revision$ $Author$ -- Thu May 17 18:58:16 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Pathfinder Chronicles: Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
+
+###Block: These Set the Default Racial Traits
+#Block: Kitsune Racial
+STARTPACK:Kitsune Racial Trait Default	VISIBLE:QUALIFY	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kitsune%]
+RACE:Kitsune	!PRERACE:1,%
+ABILITY:CATEGORY=Kitsune Racial Trait|Change Shape ~ Kitsune
+ABILITY:CATEGORY=Kitsune Racial Trait|Agile ~ Kitsune
+ABILITY:CATEGORY=Kitsune Racial Trait|Kitsune Magic ~ Kitsune
+ABILITY:CATEGORY=Kitsune Racial Trait|Natural Weapon ~ Kitsune
+
+###Block: These Set the Default Racial Traits
+#Block: Nagaji Racial
+STARTPACK:Nagaji Racial Trait Default	VISIBLE:QUALIFY	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nagaji%]
+RACE:Nagaji	!PRERACE:1,%
+ABILITY:CATEGORY=Nagaji Racial Trait|Armored Scales ~ Nagaji
+ABILITY:CATEGORY=Nagaji Racial Trait|Resistant ~ Nagaji
+ABILITY:CATEGORY=Nagaji Racial Trait|Serpent's Sense ~ Nagaji
+
+###Block: These Set the Default Racial Traits
+#Block: Samsaran Racial
+STARTPACK:Samsaran Racial Trait Default	VISIBLE:QUALIFY	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Samsaran%]
+RACE:Samsaran	!PRERACE:1,%
+ABILITY:CATEGORY=Samsaran Racial Trait|Lifebound ~ Samsaran
+ABILITY:CATEGORY=Samsaran Racial Trait|Samsaran Magic ~ Samsaran
+ABILITY:CATEGORY=Samsaran Racial Trait|Shards of the Past ~ Samsaran
+
+###Block: These Set the Default Racial Traits
+#Block: Tengu Racial
+STARTPACK:Tengu Racial Trait Default	VISIBLE:QUALIFY	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,RACESUBTYPE=Tengu]
+RACE:Tengu_DEG	!PRERACE:1,%
+ABILITY:CATEGORY=Tengu Racial Trait|Sneaky ~ Tengu
+ABILITY:CATEGORY=Tengu Racial Trait|Gifted Linguist ~ Tengu
+ABILITY:CATEGORY=Tengu Racial Trait|Swordtrained ~ Tengu
+ABILITY:CATEGORY=Tengu Racial Trait|Natural Weapon ~ Tengu
+
+
+###Block: These Set the Default Racial Traits
+#Block: Wayang Racial
+STARTPACK:Wayang Racial Trait Default	VISIBLE:QUALIFY	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wayang%]
+RACE:Wayang	!PRERACE:1,%
+ABILITY:CATEGORY=Wayang Racial Trait|Light and Dark ~ Wayang
+ABILITY:CATEGORY=Wayang Racial Trait|Lurker ~ Wayang
+ABILITY:CATEGORY=Wayang Racial Trait|Shadow Magic ~ Wayang
+ABILITY:CATEGORY=Wayang Racial Trait|Shadow Resistance ~ Wayang
+
+
+#STARTPACK:Tengu Default.FORGET
