@@ -1409,7 +1409,7 @@ BIO
 				<short>L</short>
 			</size>
 			<special_properties></special_properties>
-			<type>GOODS.TRANSPORTATION.MOUNT.CONTAINER</type>
+			<type>MOUNT.GOODS.TRANSPORTATION.CONTAINER</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1884,7 +1884,7 @@ BIO
 						<short>L</short>
 					</size>
 					<special_properties></special_properties>
-					<type>GOODS.TRANSPORTATION.MOUNT.CONTAINER</type>
+					<type>MOUNT.GOODS.TRANSPORTATION.CONTAINER</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
