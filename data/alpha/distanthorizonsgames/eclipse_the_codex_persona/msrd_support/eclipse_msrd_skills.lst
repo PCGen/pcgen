@@ -76,3 +76,14 @@ Survival.MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKI
 Swim.MOD						TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Swim|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Swim),Full Skill Buy(Swim)
 Treat Injury.MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Treat Injury|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Treat Injury),Full Skill Buy(Treat Injury)
 Tumble.MOD						TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Tumble|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Tumble),Full Skill Buy(Tumble)
+
+# Mystic Artist Sub Skills
+Perform (Act).MOD																																																	BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Act)")|TYPE=PerformSkill|PREABILITY:1,CATEGORY=Special Ability,TYPE.MysticArtistDefault
+Perform (Comedy).MOD																																																BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Comedy)")|TYPE=PerformSkill|PREABILITY:1,CATEGORY=Special Ability,TYPE.MysticArtistDefault
+Perform (Dance).MOD																																																BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Dance)")|TYPE=PerformSkill|PREABILITY:1,CATEGORY=Special Ability,TYPE.MysticArtistDefault
+Perform (Keyboard Instruments).MOD																																														BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Keyboard Instruments)")|TYPE=PerformSkill|PREABILITY:1,CATEGORY=Special Ability,TYPE.MysticArtistDefault
+Perform (Oratory).MOD																																																BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Oratory)")|TYPE=PerformSkill|PREABILITY:1,CATEGORY=Special Ability,TYPE.MysticArtistDefault
+Perform (Percussion Instruments).MOD																																													BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Percussion Instruments)")|TYPE=PerformSkill|PREABILITY:1,CATEGORY=Special Ability,TYPE.MysticArtistDefault
+Perform (String Instruments).MOD																																														BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (String Instruments)")|TYPE=PerformSkill|PREABILITY:1,CATEGORY=Special Ability,TYPE.MysticArtistDefault
+Perform (Wind Instruments).MOD																																														BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Wind Instruments)")|TYPE=PerformSkill|PREABILITY:1,CATEGORY=Special Ability,TYPE.MysticArtistDefault
+Perform (Sing).MOD																																																BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Sing)")|TYPE=PerformSkill|PREABILITY:1,CATEGORY=Special Ability,TYPE.MysticArtistDefault

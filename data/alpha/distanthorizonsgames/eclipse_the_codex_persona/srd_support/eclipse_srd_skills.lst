@@ -118,7 +118,7 @@ Knowledge (Plane of Water).MOD	TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIR
 Profession (Hunt).MOD			TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Profession (Hunt)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Profession (Hunt)),Full Skill Buy(Profession (Hunt))
 
 # Mystic Artist Sub Skill
-Perform.MOD																																									BONUS:VAR|MysticArtist|skillinfo("TOTAL","Perform")|TYPE=PerformSkill
+Perform.MOD																																									BONUS:VAR|MysticArtist|skillinfo("TOTAL","Perform")|TYPE=PerformSkill|PREABILITY:1,CATEGORY=Special Ability,TYPE.MysticArtistDefault
 
 
 

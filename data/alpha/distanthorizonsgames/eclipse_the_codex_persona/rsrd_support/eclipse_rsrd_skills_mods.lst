@@ -80,13 +80,13 @@ Use Rope.MOD						TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSK
 #	ABILITY:Internal|VIRTUAL|Make CSKILL ~ x1|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(x1),Full Skill Buy(x1)
 
 # Mystic Artist Sub Skills
-Perform (Act).MOD																																																	BONUS:VAR|MysticArtist|skillinfo("TOTAL","Perform (Act)")|TYPE=PerformSkill
-Perform (Comedy).MOD																																																BONUS:VAR|MysticArtist|skillinfo("TOTAL","Perform (Comedy)")|TYPE=PerformSkill
-Perform (Dance).MOD																																																BONUS:VAR|MysticArtist|skillinfo("TOTAL","Perform (Dance)")|TYPE=PerformSkill
-Perform (Keyboard Instruments).MOD																																														BONUS:VAR|MysticArtist|skillinfo("TOTAL","Perform (Keyboard Instruments)")|TYPE=PerformSkill
-Perform (Oratory).MOD																																																BONUS:VAR|MysticArtist|skillinfo("TOTAL","Perform (Oratory)")|TYPE=PerformSkill
-Perform (Percussion Instruments).MOD																																													BONUS:VAR|MysticArtist|skillinfo("TOTAL","Perform (Percussion Instruments)")|TYPE=PerformSkill
-Perform (String Instruments).MOD																																														BONUS:VAR|MysticArtist|skillinfo("TOTAL","Perform (String Instruments)")|TYPE=PerformSkill
-Perform (Wind Instruments).MOD																																														BONUS:VAR|MysticArtist|skillinfo("TOTAL","Perform (Wind Instruments)")|TYPE=PerformSkill
-Perform (Sing).MOD																																																BONUS:VAR|MysticArtist|skillinfo("TOTAL","Perform (Sing)")|TYPE=PerformSkill
+Perform (Act).MOD																																																	BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Act)")|TYPE=PerformSkill|PREABILITY:1,CATEGORY=Special Ability,TYPE.MysticArtistDefault
+Perform (Comedy).MOD																																																BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Comedy)")|TYPE=PerformSkill|PREABILITY:1,CATEGORY=Special Ability,TYPE.MysticArtistDefault
+Perform (Dance).MOD																																																BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Dance)")|TYPE=PerformSkill|PREABILITY:1,CATEGORY=Special Ability,TYPE.MysticArtistDefault
+Perform (Keyboard Instruments).MOD																																														BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Keyboard Instruments)")|TYPE=PerformSkill|PREABILITY:1,CATEGORY=Special Ability,TYPE.MysticArtistDefault
+Perform (Oratory).MOD																																																BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Oratory)")|TYPE=PerformSkill|PREABILITY:1,CATEGORY=Special Ability,TYPE.MysticArtistDefault
+Perform (Percussion Instruments).MOD																																													BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Percussion Instruments)")|TYPE=PerformSkill|PREABILITY:1,CATEGORY=Special Ability,TYPE.MysticArtistDefault
+Perform (String Instruments).MOD																																														BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (String Instruments)")|TYPE=PerformSkill|PREABILITY:1,CATEGORY=Special Ability,TYPE.MysticArtistDefault
+Perform (Wind Instruments).MOD																																														BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Wind Instruments)")|TYPE=PerformSkill|PREABILITY:1,CATEGORY=Special Ability,TYPE.MysticArtistDefault
+Perform (Sing).MOD																																																BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Sing)")|TYPE=PerformSkill|PREABILITY:1,CATEGORY=Special Ability,TYPE.MysticArtistDefault
 

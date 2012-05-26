@@ -2,8 +2,10 @@
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
-
+ABILITYCATEGORY:Domain Path Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:DomainSelection																																																																							PLURAL:Domain or Path Selection			DISPLAYLOCATION:Character Creation Pool
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object																																					Specific choices list																																Plural description for UI				Display Location
+ABILITYCATEGORY:Hit Die Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:HitDieSelection																																																																							PLURAL:Hitdie Selections					DISPLAYLOCATION:Character Creation Pool
+
 ABILITYCATEGORY:Character Points				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:Character Creation.SavingThrow.Proficiencies.CasterLevel.MagicLevels.CombatEnhancements.Base Attack Bonus.Abilities.TemplatesRacial.Metamagical.Channeling.Paths.Dominion.PathoftheDragon.MysticArtist.Pact.InstaCharacter.Extra																																				PLURAL:Character Points					DISPLAYLOCATION:Character Creation Pool
 #ABILITYCATEGORY:Hit Point Purchases		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:HD	PLURAL:Character Points			DISPLAYLOCATION:Character Creation Pool
 
@@ -29,23 +31,18 @@ ABILITYCATEGORY:Conversion Spell Selection		VISIBLE:QUALIFY	EDITABLE:YES		EDITPO
 
 
 
+
 # Abilities Groups
 ABILITYCATEGORY:Action Hero Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ActionHeroChoice																																																																							PLURAL:Action Hero Choices				DISPLAYLOCATION:Character Creation Pool
-
 #
 ABILITYCATEGORY:Channeling					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ChannelingBase																																																																							PLURAL:Channeling						DISPLAYLOCATION:Character Creation Pool
-
 ABILITYCATEGORY:Augmented Bonus Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:AugmentedBonus																																																																							PLURAL:Augmented Bonus Choices			DISPLAYLOCATION:Character Creation Pool
-
 ABILITYCATEGORY:Natural Magic Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:NaturalMagicChoice																																																																							PLURAL:Natural Magic Choices				DISPLAYLOCATION:Character Creation Pool
 ABILITYCATEGORY:Mana Choice					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ManaChoice																																																																								PLURAL:Mana Choices					DISPLAYLOCATION:Character Creation Pool
-
+ABILITYCATEGORY:Power Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:PowerPointsGain																																																																								PLURAL:Power Selections					DISPLAYLOCATION:Character Creation Pool
 ABILITYCATEGORY:Innate Enchantment Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:InnateEnchantmentChoice																																																																						PLURAL:Innate Enchantment Choices			DISPLAYLOCATION:Character Creation Pool
 ABILITYCATEGORY:+4 Stat Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability																																								ABILITYLIST:Innate Enchantment ~ L2 ~ STR +4|Innate Enchantment ~ L2 ~ DEX +4|Innate Enchantment ~ L2 ~ CON +4|Innate Enchantment ~ L2 ~ INT +4|Innate Enchantment ~ L2 ~ WIS +4|Innate Enchantment ~ L2 ~ CHA +4	PLURAL:+4 Stat Choice					DISPLAYLOCATION:Character Creation Pool
 ABILITYCATEGORY:Specialist Combat Selection		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:SpecialistSelection																																																																						PLURAL:Specialist Combat Selections			DISPLAYLOCATION:Character Creation Pool
-
-
-
 
 ABILITYCATEGORY:Companion Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:CompanionChoice																																																																							PLURAL:Companion Choices				DISPLAYLOCATION:Character Creation Pool
 ABILITYCATEGORY:Trick Choice					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:TrickChoice																																																																								PLURAL:Trick Choices					DISPLAYLOCATION:Character Creation Pool
@@ -65,6 +62,8 @@ ABILITYCATEGORY:Character Skills	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRAC
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
 ABILITYCATEGORY:Mystic Artist Skill			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:MysticArtistSkill										DISPLAYLOCATION:Character Creation Pool
 ABILITYCATEGORY:Mystic Artist Stat Selection	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:MysticArtistChoice										DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Mystic Artist Skill Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MysticArtistSkillChoice		PLURAL:Mystic Artist Skill Selection	DISPLAYLOCATION:Character Creation Pool
+
 ABILITYCATEGORY:Witchcraft Abilities		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:WitchcraftAbilities		PLURAL:Witchcraft Abilities			DISPLAYLOCATION:Character Creation Pool
 ABILITYCATEGORY:Advanced Witchcraft Ability	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:WitchcraftAdvancedAbilities	PLURAL:Advanced Witchcraft Abilities	DISPLAYLOCATION:Character Creation Pool
 

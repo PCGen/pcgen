@@ -88,8 +88,6 @@ Mystic Artist Skill					CLASSES:ALL	TYPE:None				VISIBLE:DISPLAY	BONUS:VAR|Mysti
 #Block: Mystic Artist Subs
 
 
-Perform (Atrocities)		USEUNTRAINED:NO			TYPE:Charisma.Perform.Sample
-Perform (Atrocities).MOD														BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL", "Perform (Atrocities)")|TYPE=PerformSkill
 
 ###Block:
 #Dweomer - buy feat to access skills
@@ -204,5 +202,13 @@ Theurgical Noun (Time)			USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.T
 
 
 
+#Block: Umbrancy
+Thaumaturgy (Umbrancy ~ Darkness)			USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Umbrancy ~ Light)			USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Umbrancy ~ Ambiance)			USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Umbrancy ~ Spectrum Vision)		USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Umbrancy ~ Gate of Shadow)		USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Umbrancy ~ One with Shadow)		USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Umbrancy ~ Wind)				USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
 
 

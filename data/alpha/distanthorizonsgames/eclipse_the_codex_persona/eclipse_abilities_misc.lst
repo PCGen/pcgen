@@ -6,10 +6,10 @@
 
 # No Level Progression to associate
 # Ability Name								Unique Key			Category of Ability		Type							Define																		Description																	Stackable?	Multiple?	Choose		Ability								Bonus to DC			Modify VAR																								Cost		Source Page
-Rune Caster									KEY:Rune Caster Base	CATEGORY:Special Ability	TYPE:SpellCasterOutput				DEFINE:RuneCasterMagicLvls|0	DEFINE:PointBuyRuneCasterLvl|0	DEFINE:PointBuyRuneCasterCasterLvl|0		DESC:RuneCaster Level %1, Casterlevel is %2|RuneCasterMagicLvls|PointBuyRuneCasterCasterLvl+CasterLevelAll																	BONUS:DC|ALLSPELLS|INT	BONUS:VAR|RuneCasterMagicLvls|count("ABILITIES","CATEGORY=Special Ability","NAME=Base Caster Level ~ Specialized ~ Rune Caster")						SOURCEPAGE:p.97
-Hexcrafter									KEY:Hexcrafter Base	CATEGORY:Special Ability	TYPE:SpellCasterOutput				DEFINE:HexcrafterMagicLvls|0	DEFINE:PointBuyHexcrafterLvl|0	DEFINE:PointBuyHexcrafterCasterLvl|0		DESC:Hexcrafter Casterlevel is %2|HexcrafterMagicLvls|PointBuyHexcrafterCasterLvl+CasterLevelAll																		BONUS:DC|ALLSPELLS|INT	BONUS:VAR|HexcrafterMagicLvls|count("ABILITIES","CATEGORY=Special Ability","NAME=Base Caster Level ~ Specialized ~ Hexcrafter")						SOURCEPAGE:p.11
-Thaumaturgist								KEY:Thaumaturgist Base	CATEGORY:Special Ability	TYPE:SpellCasterOutput				DEFINE:ThaumaturgistMagicLvls|0	DEFINE:PointBuyThaumaturgistLvl|0	DEFINE:PointBuyThaumaturgistCasterLvl|0	DESC:Thaumaturgist Casterlevel is %2|ThaumaturgistMagicLvls|PointBuyThaumaturgistCasterLvl+CasterLevelAll																	BONUS:DC|ALLSPELLS|INT	BONUS:VAR|ThaumaturgistMagicLvls|count("ABILITIES","CATEGORY=Special Ability","NAME=Base Caster Level ~ Specialized ~ Thaumaturgist and Dweomer")			SOURCEPAGE:p.11
-Theurgist									KEY:Theurgist Base	CATEGORY:Special Ability	TYPE:SpellCasterOutput				DEFINE:TheurgistMagicLvls|0	DEFINE:PointBuyTheurgistLvl|0	DEFINE:PointBuyTheurgistCasterLvl|0				DESC:Theurgist Casterlevel is %2|TheurgistMagicLvls|PointBuyTheurgistCasterLvl+CasterLevelAll																			BONUS:DC|ALLSPELLS|INT	BONUS:VAR|TheurgistMagicLvls|count("ABILITIES","CATEGORY=Special Ability","NAME=Base Caster Level ~ Specialized ~ Theurgist")							SOURCEPAGE:p.11
+Rune Caster									KEY:Rune Caster Base	CATEGORY:Special Ability	TYPE:SpellCasterOutput				DEFINE:RuneCasterMagicLvls|0	DEFINE:PointBuyRuneCasterLvl|0	DEFINE:PointBuyRuneCasterCasterLvl|0		DESC:RuneCaster Level %1, Casterlevel is %2|RuneCasterMagicLvls|PointBuyRuneCasterCasterLvl+CasterLevelAll																	BONUS:DC|ALLSPELLS|INT	BONUS:VAR|PointBuyRuneCasterCasterLvl|count("ABILITIES","CATEGORY=Special Ability","NAME=Base Caster Level ~ Specialized ~ Rune Caster")						SOURCEPAGE:p.97
+Hexcrafter									KEY:Hexcrafter Base	CATEGORY:Special Ability	TYPE:SpellCasterOutput				DEFINE:HexcrafterMagicLvls|0	DEFINE:PointBuyHexcrafterLvl|0	DEFINE:PointBuyHexcrafterCasterLvl|0		DESC:Hexcrafter Casterlevel is %2|HexcrafterMagicLvls|PointBuyHexcrafterCasterLvl+CasterLevelAll																		BONUS:DC|ALLSPELLS|INT	BONUS:VAR|PointBuyHexcrafterCasterLvl|count("ABILITIES","CATEGORY=Special Ability","NAME=Base Caster Level ~ Specialized ~ Hexcrafter")						SOURCEPAGE:p.11
+Thaumaturgist								KEY:Thaumaturgist Base	CATEGORY:Special Ability	TYPE:SpellCasterOutput				DEFINE:ThaumaturgistMagicLvls|0	DEFINE:PointBuyThaumaturgistLvl|0	DEFINE:PointBuyThaumaturgistCasterLvl|0	DESC:Thaumaturgist Casterlevel is %2|ThaumaturgistMagicLvls|PointBuyThaumaturgistCasterLvl+CasterLevelAll																	BONUS:DC|ALLSPELLS|INT	BONUS:VAR|PointBuyThaumaturgistCasterLvl|count("ABILITIES","CATEGORY=Special Ability","KEY=Base Caster Level ~ Specialized ~ Thaumaturgist and Dweomer")			SOURCEPAGE:p.11
+Theurgist									KEY:Theurgist Base	CATEGORY:Special Ability	TYPE:SpellCasterOutput				DEFINE:TheurgistMagicLvls|0	DEFINE:PointBuyTheurgistLvl|0	DEFINE:PointBuyTheurgistCasterLvl|0				DESC:Theurgist Casterlevel is %2|TheurgistMagicLvls|PointBuyTheurgistCasterLvl+CasterLevelAll																			BONUS:DC|ALLSPELLS|INT	BONUS:VAR|PointBuyTheurgistCasterLvl|count("ABILITIES","CATEGORY=Special Ability","NAME=Base Caster Level ~ Specialized ~ Theurgist")							SOURCEPAGE:p.11
 
 # Base Caster Level Increase Only, no Progression
 Base Caster Level ~ Specialized ~ Rune Caster							CATEGORY:Special Ability	TYPE:CasterLevel.EclipseAbilityOutput																																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Rune Caster Base																														COST:3	SOURCEPAGE:p.11
@@ -21,15 +21,15 @@ Base Caster Level ~ Specialized ~ Theurgist							CATEGORY:Special Ability	TYPE:
 #Comment: Different measuring standard, don't need the Initial, but will need to make sure they are getting called from the correct abilities.
 
 
-
-
+Domain	CATEGORY:Special Ability	SORTKEY:Domain Path	TYPE:DomainSelection	DESC:You have chosen to take a Domain.	BONUS:DOMAIN|NUMBER|1	BONUS:ABILITYPOOL|Domain Choice|1			MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Metaspell	CATEGORY:Special Ability	SORTKEY:Domain Path	TYPE:DomainSelection.EclipseAbilityOutput	DESC:You have the selected Metaspell(s)	CHOOSE:USERINPUT|TITLE="Metaspell"		MULT:YES
 
 ###Block: Skill Rank Purchase - Standard Buy
 # Ability Name	Unique Key					Output Name					Category of Ability	Type				Stackable?	Multiple?	Choose					Selections	Bonus to skill rank	Cost
-~ Adept Skill Buy	KEY:Adept Skill Buy			OUTPUTNAME:~ Adept Skill Buy Choice	CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	STACK:YES	MULT:YES	CHOOSE:SKILLSNAMED|TYPE=AdeptChoice	SELECT:2	BONUS:SKILLRANK|%LIST|1	COST:1
-~ Full Skill Buy	KEY:Full Skill Buy			OUTPUTNAME:~ Skill Buy Choice		CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	STACK:YES	MULT:YES	CHOOSE:SKILLSNAMED|TYPE=AdeptChoice			BONUS:SKILLRANK|%LIST|1	COST:1
+~ Adept Skill Buy	KEY:Adept Skill Buy			OUTPUTNAME:~ Adept Skill Buy Choice	CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=AdeptChoice	SELECT:2	BONUS:SKILLRANK|%LIST|1	COST:1
+~ Full Skill Buy	KEY:Full Skill Buy			OUTPUTNAME:~ Skill Buy Choice		CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=AdeptChoice			BONUS:SKILLRANK|%LIST|1	COST:1
 
-Adept Skill Buy	KEY:Adept Skill Buy ~ Feat Pull							CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	STACK:YES	MULT:YES	CHOOSE:FEAT=Adept				SELECT:2	BONUS:SKILLRANK|%LIST|1	COST:1
+Adept Skill Buy	KEY:Adept Skill Buy ~ Feat Pull							CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	STACK:YES	MULT:YES	CHOOSE:SKILL|FEAT=Adept				SELECT:2	BONUS:SKILLRANK|%LIST|1	COST:1
 
 
 #######################################
@@ -133,7 +133,7 @@ Javelin				CATEGORY:Special Ability	TYPE:SpiritWeaponChoice				PREABILITY:1,CATE
 ###
 
 # Domain Paths
-Cleric Domains			CATEGORY:Special Ability	TYPE:Abilities		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Cleric Package Magic Level									BONUS:DOMAIN|NUMBER|2
+Cleric Domains			CATEGORY:Special Ability	TYPE:Abilities		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Cleric Package Magic Level									BONUS:DOMAIN|NUMBER|2	BONUS:ABILITYPOOL|Domain Choice|2
 
 ###Block: Damage Reduction
 # Damage Reduction ~ All
@@ -243,9 +243,9 @@ Augmented Bonus / Int to Dex for AC												KEY:Augmented Bonus ~ INT adds to
 Augmented Bonus / Wis to Dex for AC												KEY:Augmented Bonus ~ WIS adds to AC										CATEGORY:Special Ability	TYPE:AugmentedBonus.EclipseAbilityOutput																																																								BONUS:COMBAT|AC|WIS|TYPE=Ability.STACK																																										COST:6	SOURCEPAGE:p.25	BENEFIT:Adds WIS bonus to AC.
 Augmented Bonus / Cha to Dex for AC												KEY:Augmented Bonus ~ CHA adds to AC										CATEGORY:Special Ability	TYPE:AugmentedBonus.EclipseAbilityOutput																																																								BONUS:COMBAT|AC|CHA|TYPE=Ability.STACK																																										COST:6	SOURCEPAGE:p.25	BENEFIT:Adds CHA bonus to AC.
 
-Augment Bonus (INT boosts Performance Skill; specialized for double effect - to inspire minions only)	KEY:Augmented Bonus ~ INT adds to Perform										CATEGORY:Special Ability	TYPE:AugmentedBonus.EclipseAbilityOutput																																																																																				BONUS:SKILL|Perform (Atrocities)|INT*2|TYPE=AugmentedBonus	BONUS:VAR|MysticArtistSkillTotal|INT*2|TYPE=AugmentedBonus	COST:6	SOURCEPAGE:p.25	BENEFIT:(+6 CP) Adds INT bonus to Perform (Atrocities).
-Augment Bonus ~ Paladin Grace													KEY:Augmented Bonus ~ CHA adds to All Saves									CATEGORY:Special Ability	TYPE:AugmentedBonus.EclipseAbilityOutput				DESC: + Cha bonus to all saves																																								BONUS:CHECKS|Fortitude,Reflex,Will|CHA																																																	COST:18	SOURCEPAGE:web
-Augment Bonus / Improved ~ Dex applies to Attack									KEY:Augmented Bonus ~ DEX adds to Attacks										CATEGORY:Special Ability	TYPE:AugmentedBonus.EclipseAbilityOutput																																																								BONUS:COMBAT|TOHIT|DEX|TYPE=ExtraStat																																										COST:12
+Augmented Bonus (INT boosts Performance Skill; specialized for double effect - to inspire minions only)	KEY:Augmented Bonus ~ INT adds to Perform										CATEGORY:Special Ability	TYPE:AugmentedBonus.EclipseAbilityOutput																																																																																				BONUS:SKILL|Perform (Atrocities)|INT*2|TYPE=AugmentedBonus	BONUS:VAR|MysticArtistSkillTotal|INT*2|TYPE=AugmentedBonus	COST:6	SOURCEPAGE:p.25	BENEFIT:(+6 CP) Adds INT bonus to Perform (Atrocities).
+Augmented Bonus ~ Paladin Grace													KEY:Augmented Bonus ~ CHA adds to All Saves									CATEGORY:Special Ability	TYPE:AugmentedBonus.EclipseAbilityOutput				DESC: + Cha bonus to all saves																																								BONUS:CHECKS|Fortitude,Reflex,Will|CHA																																																	COST:18	SOURCEPAGE:web
+Augmented Bonus / Improved ~ Dex applies to Attack									KEY:Augmented Bonus ~ DEX adds to Attacks										CATEGORY:Special Ability	TYPE:AugmentedBonus.EclipseAbilityOutput																																																								BONUS:COMBAT|TOHIT|DEX|TYPE=ExtraStat																																										COST:12
 
 Augmented Bonus / Str to Con for HP												KEY:Augmented Bonus ~ STR adds to HP										CATEGORY:Special Ability	TYPE:AugmentedBonus.EclipseAbilityOutput																																																																							BONUS:HP|CURRENTMAX|STR*(TL+EclipseHD-EclipseClassLvl)|TYPE=Ability.STACK																					COST:18	SOURCEPAGE:p.25	BENEFIT:Adds STR bonus to HP.
 Augmented Bonus / Dex to Con for HP												KEY:Augmented Bonus ~ DEX adds to HP										CATEGORY:Special Ability	TYPE:AugmentedBonus.EclipseAbilityOutput																																																																							BONUS:HP|CURRENTMAX|DEX*(TL+EclipseHD-EclipseClassLvl)|TYPE=Ability.STACK																					COST:18	SOURCEPAGE:p.25	BENEFIT:Adds DEX bonus to HP.

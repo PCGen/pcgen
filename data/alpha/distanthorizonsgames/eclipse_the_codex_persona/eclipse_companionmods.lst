@@ -76,6 +76,29 @@ FOLLOWER:SpecialMountLvl=18	TYPE:Special Mount	HD:1																													
 FOLLOWER:SpecialMountLvl=19	TYPE:Special Mount																																																																																			BONUS:VAR|CompanionCPLvl|3
 FOLLOWER:SpecialMountLvl=20	TYPE:Special Mount	HD:1																																																																			BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
 
+###Block: Mystic Companion Progression
+# Class of the Master		Type				Hit Dice	Ability																																															Copy Masters Checks	Define			Bonus to Ability Pool						Combat bonus													Modify VAR										Main Race Type
+FOLLOWER:SpecialMountLvl=1	TYPE:Mystic Companion			ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Improved Fortune ~ Evasion|Improved Evasion|Share Saving Throws ~ Companion Creature|Share Spells ~ Companion Creature|Communicate with Master ~ Companion Creature	ABILITY:Internal|AUTOMATIC|Intelligence Lock Tracker	COPYMASTERCHECK:MASTER	DEFINE:CompanionCPLvl|0	BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1																BONUS:VAR|IntelligenceLockNumber|8	BONUS:VAR|CompanionCPLvl|3	RACETYPE:Magical Beast
+FOLLOWER:SpecialMountLvl=2	TYPE:Mystic Companion	HD:1																																																																			BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=3	TYPE:Mystic Companion																																																																																			BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=4	TYPE:Mystic Companion	HD:1																																																																			BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=5	TYPE:Mystic Companion																																																																																			BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=6	TYPE:Mystic Companion	HD:1																																																										BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1	BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=7	TYPE:Mystic Companion																																																																																			BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=8	TYPE:Mystic Companion	HD:1																																																																			BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=9	TYPE:Mystic Companion																																																																																			BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=10	TYPE:Mystic Companion	HD:1																																																																			BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=11	TYPE:Mystic Companion																																																											BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1																BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=12	TYPE:Mystic Companion	HD:1																																																																			BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=13	TYPE:Mystic Companion																																																																																			BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=14	TYPE:Mystic Companion	HD:1																																																																			BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=15	TYPE:Mystic Companion																																																																																			BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=16	TYPE:Mystic Companion	HD:1																																																										BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1	BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=17	TYPE:Mystic Companion																																																																																			BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=18	TYPE:Mystic Companion	HD:1																																																																			BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=19	TYPE:Mystic Companion																																																																																			BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=20	TYPE:Mystic Companion	HD:1																																																																			BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+
 
 ###Block: Animal Progression
 # Class of the Master		Type				Hit Dice	Ability																				Define			Save checks bonus																Combat bonus													Stat bonus							Modify VAR								Main Race Type
