@@ -186,8 +186,14 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 
 	/** The BioSet used for age calculations */
 	private BioSet bioSet = new BioSet();
+	
+	/** SHOWTAB compatibility */
+	private Map<CDOMSingleRef<TabInfo>, Boolean> visibleTabs;
 
 	private Map<String, String> equipTypeIconMap = new HashMap<String, String>();
+
+	/** Priority of the equipment types for icon use. */
+	private Map<String, Integer> equipTypeIconPriorityMap = new HashMap<String, Integer>();
 
 	/**
 	 * Creates a new instance of GameMode.
@@ -2620,11 +2626,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return ti.isVisible();
 	}
 
-	/*
-	 * SHOWTAB compatibility
-	 */
-	private Map<CDOMSingleRef<TabInfo>, Boolean> visibleTabs;
-
 	public void setTabVisible(CDOMSingleRef<TabInfo> ref, Boolean set)
 	{
 		if (visibleTabs == null)
@@ -2695,10 +2696,12 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Register an icon to be used for equipment of the listed type.
 	 * @param equipType The equipment type
 	 * @param iconPath The path relative to the pcgen folder of the icon.
+	 * @param priority The importance of this icon, higher means more important
 	 */
-	public void setEquipTypeIcon(String equipType, String iconPath)
+	public void setEquipTypeIcon(String equipType, String iconPath, int priority)
 	{
 		this.equipTypeIconMap.put(equipType.toUpperCase(), iconPath);
+		this.equipTypeIconPriorityMap.put(equipType.toUpperCase(), priority);
 	}
 
 	/**
@@ -2711,6 +2714,19 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return this.equipTypeIconMap.get(equipType.toUpperCase());
 	}
 
+	/**
+	 * Retrieve the priority of the listed type;s icon. A higher number means a higher 
+	 * priority, generally the highest priority icon will be used.
+	 * @param equipType The equipment type
+	 * @return The priority, or 0 if none is known.
+	 */
+	public int getEquipTypeIconPriority(String equipType)
+	{
+		Integer priority =
+				this.equipTypeIconPriorityMap.get(equipType.toUpperCase());
+		return priority == null ? 0 : priority;
+	}
+	
 	public String getCharSheetDir()
 	{
 		return getPreviewDir();

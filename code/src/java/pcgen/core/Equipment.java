@@ -6809,16 +6809,28 @@ public final class Equipment extends PObject implements Serializable,
 			return new File(uri);
 		}
 
-		// If not defined, then try the types
+		// If not defined, then try the types 
 		GameMode game = SettingsHandler.getGame();
 		List<String> typeList = typeList(true);
-		for (int i = typeList.size()-1; i >=0; i--)
+		String iconPath = null;
+		int iconPriority = 0;
+		for (String type : typeList)
 		{
-			String path = game.getEquipTypeIcon(typeList.get(i));
+			String path = game.getEquipTypeIcon(type);
 			if (path != null)
 			{
-				return new File(path);
+				int priority = game.getEquipTypeIconPriority(type);
+				// Later types will win priority ties
+				if (iconPath == null || priority >= iconPriority)
+				{
+					iconPath = path;
+					iconPriority = priority;
+				}
 			}
+		}
+		if (iconPath != null)
+		{
+			return new File(iconPath);
 		}
 	
 		// A default fallback

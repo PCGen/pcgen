@@ -66,18 +66,35 @@ public class IconToken implements EquipIconLstToken
 			return false;
 		}
 
-		if (aTok.countTokens() > 2)
+		if (aTok.countTokens() > 3)
 		{
 			Logging.log(Logging.LST_ERROR, getTokenName()
 				+ " too many '|', format is: "
-				+ "EquipType|IconPath was: " + value);
+				+ "EquipType|IconPath|Priority was: " + value);
 			return false;
 		}
 
 		final String equipType = aTok.nextToken();
 		final String iconPath = aTok.nextToken();
+		int priority = 10;
+		if (aTok.hasMoreElements())
+		{
+			String priorityToken = aTok.nextToken();
+			try
+			{
+				priority = Integer.parseInt(priorityToken);
+			}
+			catch (NumberFormatException ex)
+			{
+				Logging.log(Logging.LST_ERROR, getTokenName()
+					+ " expected an integer priority .  Found: "
+					+ priorityToken + " in " + value);
+				return false;
+			}
+			
+		}
 		
-		gameMode.setEquipTypeIcon(equipType, iconPath);
+		gameMode.setEquipTypeIcon(equipType, iconPath, priority);
 		return true;
 	}
 

@@ -7,14 +7,14 @@
 #
 
 # Fallback icon for anything without one defined 
-ICON:DEFAULT|system/icons/item.png
+ICON:DEFAULT|system/icons/item.png|0
 
 # General types
-ICON:Weapon|system/icons/weapon.png
-ICON:Container|system/icons/container.png
-ICON:Wondrous|system/icons/wonderous.png
-ICON:Goods|system/icons/goods.png
-ICON:Trade|system/icons/trade.png
+ICON:Weapon|system/icons/weapon.png|5
+ICON:Container|system/icons/container.png|3
+ICON:Wondrous|system/icons/wonderous.png|5
+ICON:Goods|system/icons/goods.png|1
+ICON:Trade|system/icons/trade.png|5
 
 # Gear
 ICON:Alchemical|system/icons/alchemical.png
@@ -41,14 +41,14 @@ ICON:Instrument|system/icons/instument.png
 ICON:Ioun|system/icons/ioun.png
 ICON:LightSource|system/icons/lightsorce.png
 ICON:MaterialComponent|system/icons/material.png
-ICON:Mount|system/icons/mount.png
+ICON:Mount|system/icons/mount.png|12
 ICON:Natural|system/icons/natural.png
 ICON:Poison|system/icons/poison.png
 ICON:Potion|system/icons/potion.png
 ICON:Ring|system/icons/ring.png
 ICON:Robe|system/icons/robe.png
 ICON:Rod|system/icons/rod.png
-ICON:Saddle|system/icons/saddle.png
+ICON:Saddle|system/icons/saddle.png|15
 ICON:Scroll|system/icons/writing.png
 ICON:Service|system/icons/service.png
 ICON:Ships|system/icons/ships.png
@@ -62,14 +62,14 @@ ICON:Writing|system/icons/writing.png
 
 # Armor
 ICON:Armor|system/icons/armor.png
-ICON:Barding|system/icons/barding.png
-ICON:Shield|system/icons/shield.png
+ICON:Barding|system/icons/barding.png|15
+ICON:Shield|system/icons/shield.png|15
 
 
 # Weapons
 ICON:Ammunition|system/icons/ammo-fantasy.png
 ICON:Axe|system/icons/axe.png
-ICON:BladeLight|system/icons/bladelight.png
+ICON:BladeLight|system/icons/bladelight.png|8
 ICON:Blowgun|system/icons/blowgun.png
 ICON:Bow|system/icons/bow.png
 ICON:Crossbow|system/icons/crossbow.png
@@ -89,7 +89,7 @@ ICON:Shieldbash|system/icons/shieldbash.png
 ICON:Siangham|system/icons/siangham.png
 ICON:Sling|system/icons/sling.png
 ICON:Spear|system/icons/spear.png
-ICON:Spiked|system/icons/spiked.png
+ICON:Spiked|system/icons/spiked.png|8
 ICON:Sword|system/icons/sword.png
-ICON:Thrown|system/icons/thrown.png
-ICON:Unarmed|system/icons/unarmed.png
+ICON:Thrown|system/icons/thrown.png|8
+ICON:Unarmed|system/icons/unarmed.png|8
