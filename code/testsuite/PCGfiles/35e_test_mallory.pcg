@@ -71,6 +71,7 @@ CLASSABILITIESLEVEL:Sorcerer=9|HITPOINTS:3|PRESTAT:CHA=12|SKILLSGAINED:3|SKILLSR
 EXPERIENCE:36000
 
 # Character Templates
+TEMPLATESAPPLIED:[NAME:TEST-66A]
 
 # Character Region
 REGION:None
@@ -104,7 +105,7 @@ SKILL:Uber Scripting from five ranks in Test Coding Script|OUTPUTORDER:23|
 LANGUAGE:Common
 
 # Character Feats
-FEATPOOL:-1.0
+FEATPOOL:-3.0
 
 # Character Abilities
 USERPOOL:Animal Trick|POOLPOINTS:0.0
@@ -116,6 +117,8 @@ USERPOOL:CODE-362|POOLPOINTS:0.0
 USERPOOL:CodeOneOneFourFive|POOLPOINTS:0.0
 USERPOOL:Disadvantages|POOLPOINTS:0.0
 USERPOOL:Exotic Weapon Choice|POOLPOINTS:0.0
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:TEST-66b|TYPE:Test
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:TEST-66a|TYPE:Test
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:TEST-65|TYPE:Test|DESC:Use SPELLS in such a way that it provides a Spell to which the character already has access (Such as an Innate Fireball to a mid level Sorcerer). Ensure that the output is correct across the different conditions (caster level, DC, etc.). Ensure you are using a fixed caster level for the Innate spell that is different than the caster level of the PC.
 USERPOOL:FEAT|POOLPOINTS:0.0
 USERPOOL:Force Powers|POOLPOINTS:0.0
@@ -149,6 +152,7 @@ CALCEQUIPSET:0.1
 # Character Deity/Domain
 
 # Character Spells Information
+SPELLBOOK:TestSixSix|TYPE:4
 SPELLNAME:Fireball|TIMES:1|CLASS:Sorcerer|BOOK:Known Spells|SPELLLEVEL:1|SOURCE:[TYPE:CLASS|NAME:Sorcerer]
 
 # Character Description/Bio/History
