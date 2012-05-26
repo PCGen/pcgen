@@ -2296,6 +2296,9 @@ public final class SettingsHandler
 		setSaveCustomInLst(aBool);
 	}
 
+	/**
+	 * @deprecated Use PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SAVE_CUSTOM_EQUIPMENT)
+	 */
 	public static boolean getSaveCustomEquipment()
 	{
 		return isSaveCustomInLst();

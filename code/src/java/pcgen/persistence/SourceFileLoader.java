@@ -157,7 +157,6 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private StringBuffer licensesToDisplayString = new StringBuffer();
 	private StringBuffer matureCampaigns = new StringBuffer();
 	private final CampaignSourceEntry globalCampaign;
-	private boolean customItemsLoaded = false;
 	private boolean showD20 = false;
 	private boolean showLicensed = true;
 	private boolean showMature = false;
@@ -687,8 +686,6 @@ public class SourceFileLoader extends PCGenTask implements Observer
 //	}
 	private void loadCustomItems()
 	{
-		customItemsLoaded = true;
-
 		if (!PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SAVE_CUSTOM_EQUIPMENT))
 		{
 			return;
@@ -747,6 +744,8 @@ public class SourceFileLoader extends PCGenTask implements Observer
 					}
 				}
 			}
+			
+			CustomData.setCustomItemsLoaded(true);
 		}
 		catch (IOException e)
 		{
@@ -1089,11 +1088,6 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	public boolean hasLicensedCampaign()
 	{
 		return showLicensed;
-	}
-
-	public boolean isCustomItemsLoaded()
-	{
-		return customItemsLoaded;
 	}
 
 	public void update(Observable o, Object arg)

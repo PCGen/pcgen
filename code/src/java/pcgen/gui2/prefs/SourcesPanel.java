@@ -44,6 +44,7 @@ import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.JComboBoxEx;
 import pcgen.system.LanguageBundle;
+import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
 /**
@@ -237,7 +238,9 @@ public class SourcesPanel extends PCGenPrefsPanel
 		SettingsHandler.setLoadCampaignsWithPC(charCampLoad.isSelected());
 		SettingsHandler.setOptionAllowedInSources(allowOptsInSource
 			.isSelected());
-		SettingsHandler.setSaveCustomEquipment(saveCustom.isSelected());
+		PCGenSettings.OPTIONS_CONTEXT
+			.setBoolean(PCGenSettings.OPTION_SAVE_CUSTOM_EQUIPMENT,
+				saveCustom.isSelected());
 		SettingsHandler.setShowLicense(showOGL.isSelected());
 		SettingsHandler.setShowMature(showMature.isSelected());
 		SettingsHandler.setShowD20Info(showd20.isSelected());
@@ -287,7 +290,8 @@ public class SourcesPanel extends PCGenPrefsPanel
 		charCampLoad.setSelected(SettingsHandler.isLoadCampaignsWithPC());
 		allowOptsInSource.setSelected(SettingsHandler
 			.isOptionAllowedInSources());
-		saveCustom.setSelected(SettingsHandler.getSaveCustomEquipment());
+		saveCustom.setSelected(PCGenSettings.OPTIONS_CONTEXT
+			.getBoolean(PCGenSettings.OPTION_SAVE_CUSTOM_EQUIPMENT));
 		showOGL.setSelected(SettingsHandler.showLicense());
 		showMature.setSelected(SettingsHandler.showMature());
 		showd20.setSelected(SettingsHandler.showD20Info());

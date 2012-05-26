@@ -40,6 +40,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.SystemUtils;
 
 import pcgen.cdom.base.Constants;
+import pcgen.core.CustomData;
 import pcgen.core.facade.UIDelegate;
 import pcgen.core.prereq.PrerequisiteTestFactory;
 import pcgen.gui.converter.TokenConverter;
@@ -137,6 +138,7 @@ public final class Main
 	 */
 	public static void main(String[] args)
 	{
+		Logging.log(Level.INFO, "Starting PCGen v" + PCGenPropBundle.getVersionNumber()); //$NON-NLS-1$
 		logSystemProps();
 		configFactory = new PropertyContextFactory(SystemUtils.USER_DIR);
 		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance());
@@ -516,6 +518,14 @@ public final class Main
 		configFactory.savePropertyContexts();
 		BatchExporter.removeTemporaryFiles();
 		PropertyContextFactory.getDefaultFactory().savePropertyContexts();
+
+		// Need to (possibly) write customEquipment.lst
+		if (PCGenSettings.OPTIONS_CONTEXT
+				.getBoolean(PCGenSettings.OPTION_SAVE_CUSTOM_EQUIPMENT))
+		{
+			CustomData.writeCustomItems();
+		}
+
 		System.exit(0);
 	}
 
