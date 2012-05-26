@@ -202,7 +202,7 @@ Mandarin's Pin.MOD																																																														
 Captain's Torc (Charm).MOD																																																																																																																																								SPROP:This neckpiece amplifies sound and thus provides both a +4 bonus to Listen checks and great volume to the user's voice, allowing him or her to be clearly heard at considerably greater distances. They do, however, have the unfortunate side effect of a -1 on saving throws versus sonic attacks. They're fairly popular with orators, actors and, of course, military commanders.
 
 ### Talisman
-Shimmer Mail.MOD																																																																																																																																										SPROP:This mail is as light as normal clothing. It has no armor check penalty, max Dex bonus, or arcane failure, but has a +4 armor bonus.
+Shimmer Mail.MOD		TYPE:ArmorType																																																																																																																																								SPROP:This mail is as light as normal clothing. It has no armor check penalty, max Dex bonus, or arcane failure, but has a +4 armor bonus.
 Endless Rope.MOD																																																																																																																																										SPROP:This coil of rope never seems to run out, supplying several hundred feet per day.
 
 
