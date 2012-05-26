@@ -29,6 +29,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.base.Constants;
@@ -36,6 +37,7 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.CharacterFacade;
+import pcgen.core.facade.CharacterStubFacade;
 import pcgen.core.facade.DataSetFacade;
 import pcgen.core.facade.GameModeFacade;
 import pcgen.core.facade.PartyFacade;
@@ -377,6 +379,44 @@ public class CharacterManager
 		return characters;
 	}
 
+	/**
+	 * Retrieve the loaded character matching the character stub. The character 
+	 * may not have been saved yet, so may not have a file name, in which case 
+	 * the match is made on character name. This is often used for retrieval of 
+	 * a loaded master or companion.  
+	 * 
+	 * @param companion The companion to be searched for.
+	 * @return The character, or null if the companion is not loaded.
+	 */
+	public static CharacterFacade getCharacterMatching(CharacterStubFacade companion)
+	{
+		File compFile = companion.getFileRef().getReference();
+		if (compFile == null || StringUtils.isEmpty(compFile.getName()))
+		{
+			String compName = companion.getNameRef().getReference();
+			for (CharacterFacade character : CharacterManager.getCharacters())
+			{
+				String charName = character.getNameRef().getReference();
+				if (ObjectUtils.equals(compName, charName))
+				{
+					return character;
+				}
+			}
+		}
+		else
+		{
+			for (CharacterFacade character : CharacterManager.getCharacters())
+			{
+				File charFile = character.getFileRef().getReference();
+				if (compFile.equals(charFile))
+				{
+					return character;
+				}
+			}
+		}
+		return null;
+	}
+	
 	private static String createNewCharacterName()
 	{
 		String name = "Unnamed ";

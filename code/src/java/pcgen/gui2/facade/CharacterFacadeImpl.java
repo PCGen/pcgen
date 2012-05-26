@@ -151,6 +151,7 @@ import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
 import pcgen.io.exporttoken.WeightToken;
+import pcgen.system.CharacterManager;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
@@ -297,7 +298,11 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		characterAbilities = new CharacterAbilities(pc, delegate, dataSet, todoManager);
 		descriptionFacade = new DescriptionFacadeImpl(pc);
 		spellSupportFacade = new SpellSupportFacadeImpl(pc, delegate, dataSet, todoManager);
-		companionSupportFacade = new CompanionSupportFacadeImpl(theCharacter, todoManager);
+		
+		name = new DefaultReferenceFacade<String>(pc.getName());
+		file = new DefaultReferenceFacade<File>(new File(pc.getFileName()));
+		
+		companionSupportFacade = new CompanionSupportFacadeImpl(theCharacter, todoManager, name, file);
 		
 		//TODO: Init appliedTempBonuses
 		appliedTempBonuses = new DefaultListFacade<TempBonusFacade>();
@@ -318,7 +323,6 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		characterType = new DefaultReferenceFacade<String>(pc.getCharacterType());
 		
 		tabName = new DefaultReferenceFacade<String>(pc.getDisplay().getTabName());
-		name = new DefaultReferenceFacade<String>(pc.getName());
 		playersName = new DefaultReferenceFacade<String>(pc.getPlayersName());
 		race = new DefaultReferenceFacade<RaceFacade>(pc.getRace());
 		raceList = new DefaultListFacade<RaceFacade>();
@@ -349,7 +353,6 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		}
 
 		alignment = new DefaultReferenceFacade<AlignmentFacade>(pc.getPCAlignment());
-		file = new DefaultReferenceFacade<File>(new File(pc.getFileName()));
 		age = new DefaultReferenceFacade<Integer>(pc.getAge());
 		ageCategory = new DefaultReferenceFacade<SimpleFacade>();
 		updateAgeCategoryForAge();
@@ -3915,7 +3918,11 @@ public class CharacterFacadeImpl implements CharacterFacade,
 				new CompanionNotLoaded(master.getName(), new File(
 					master.getFileName()), master.getRace(), master.getType()
 					.getKeyName());
-		//TODO: match with loaded characters
+		CharacterFacade masterFacade = CharacterManager.getCharacterMatching(stub);
+		if (masterFacade != null)
+		{
+			return masterFacade;
+		}
 		return stub;
 	}
 

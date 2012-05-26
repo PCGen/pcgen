@@ -38,9 +38,12 @@ import pcgen.core.facade.CompanionFacade;
 import pcgen.core.facade.CompanionStubFacade;
 import pcgen.core.facade.CompanionSupportFacade;
 import pcgen.core.facade.PartyFacade;
+import pcgen.core.facade.ReferenceFacade;
 import pcgen.core.facade.TodoFacade.CharacterTab;
 import pcgen.core.facade.event.ListEvent;
 import pcgen.core.facade.event.ListListener;
+import pcgen.core.facade.event.ReferenceEvent;
+import pcgen.core.facade.event.ReferenceListener;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.DefaultMapFacade;
 import pcgen.core.facade.util.ListFacade;
@@ -71,8 +74,12 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	 * Create a new instance of CompanionSupportFacadeImpl
 	 * @param theCharacter The character to be represented.
 	 * @param todoManager The user tasks tracker.
+	 * @param nameRef The reference to the character's name. 
+	 * @param fileRef The reference to the character's file. 
 	 */
-	public CompanionSupportFacadeImpl(PlayerCharacter theCharacter, TodoManager todoManager)
+	public CompanionSupportFacadeImpl(PlayerCharacter theCharacter,
+		TodoManager todoManager, ReferenceFacade<String> nameRef,
+		ReferenceFacade<File> fileRef)
 	{
 		this.theCharacter = theCharacter;
 		this.todoManager = todoManager;
@@ -82,6 +89,60 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		this.keyToCompanionListMap = new HashMap<String, CompanionList>();
 		initCompData();
 		CharacterManager.getCharacters().addListListener(this);
+		addMasterListeners(nameRef, fileRef);
+	}
+
+	/**
+	 * Add listeners to the master name and file that will update the master 
+	 * information of all companions when the master changes.
+	 * @param nameRef The reference to the character's name. 
+	 * @param fileRef The reference to the character's file.
+	 */
+	private void addMasterListeners(ReferenceFacade<String> nameRef,
+		ReferenceFacade<File> fileRef)
+	{
+		nameRef.addReferenceListener(new ReferenceListener<String>()
+		{
+
+			@Override
+			public void referenceChanged(ReferenceEvent<String> e)
+			{
+				String newName = e.getNewReference();
+				for (CompanionFacadeDelegate delegate : companionList)
+				{
+					CharacterFacade companion =
+							CharacterManager.getCharacterMatching(delegate);
+					CharacterFacadeImpl compFacadeImpl =
+							(CharacterFacadeImpl) companion;
+					Follower follower =
+							compFacadeImpl.getTheCharacter().getMaster();
+					follower.setName(newName);
+				}
+
+			}
+
+		});
+		fileRef.addReferenceListener(new ReferenceListener<File>()
+		{
+
+			@Override
+			public void referenceChanged(ReferenceEvent<File> e)
+			{
+				File newFile = e.getNewReference();
+				for (CompanionFacadeDelegate delegate : companionList)
+				{
+					CharacterFacade companion =
+							CharacterManager.getCharacterMatching(delegate);
+					CharacterFacadeImpl compFacadeImpl =
+							(CharacterFacadeImpl) companion;
+					Follower follower =
+							compFacadeImpl.getTheCharacter().getMaster();
+					follower.setFileName(newFile.getAbsolutePath());
+				}
+
+			}
+
+		});
 	}
 
 	/**
@@ -215,6 +276,10 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		CompanionFacadeDelegate delegate = new CompanionFacadeDelegate();
 		delegate.setCompanionFacade(companion);
 		companionList.addElement(delegate);
+
+		// Watch companion file name and character name to update follower record
+		companion.getFileRef().addReferenceListener(new DelegateFileListener(follower));
+		companion.getNameRef().addReferenceListener(new DelegateNameListener(follower));
 
 		updateCompanionTodo(companionType);
 	}
@@ -355,4 +420,49 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		// Ignored.
 	}
 
+	/**
+	 * The Class <code>DelegateFileListener</code> tracks the file name of a companion and 
+	 * keeps the associated Follower record up to date.
+	 */
+	private class DelegateFileListener implements ReferenceListener<File> 
+	{
+		private final Follower follower;
+
+		public DelegateFileListener(Follower followerIn)
+		{
+			this.follower = followerIn;
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void referenceChanged(ReferenceEvent<File> e)
+		{
+			follower.setFileName(e.getNewReference().getAbsolutePath());
+		}
+	}
+
+	/**
+	 * The Class <code>DelegateNameListener</code> tracks the name of a companion and 
+	 * keeps the associated Follower record up to date.
+	 */
+	private class DelegateNameListener implements ReferenceListener<String> 
+	{
+		private final Follower follower;
+
+		public DelegateNameListener(Follower followerIn)
+		{
+			this.follower = followerIn;
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void referenceChanged(ReferenceEvent<String> e)
+		{
+			follower.setName(e.getNewReference());
+		}
+	}
 }

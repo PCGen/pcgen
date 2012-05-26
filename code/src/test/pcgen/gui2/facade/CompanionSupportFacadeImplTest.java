@@ -22,6 +22,8 @@
  */
 package pcgen.gui2.facade;
 
+import java.io.File;
+
 import org.junit.Test;
 
 import pcgen.AbstractCharacterTestCase;
@@ -40,9 +42,9 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.character.Follower;
 import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.DataSetFacade;
+import pcgen.core.facade.DefaultReferenceFacade;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
-import pcgen.core.system.LoadInfo;
 import pcgen.util.TestHelper;
 
 /**
@@ -96,7 +98,10 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 		master.setRace(masterRace);
 		master.setFileName("Master.pcg");
 		master.setName("Master1");
-		CompanionSupportFacadeImpl masterCsfi = new CompanionSupportFacadeImpl(master, todoManager);
+		CompanionSupportFacadeImpl masterCsfi =
+				new CompanionSupportFacadeImpl(master, todoManager,
+					new DefaultReferenceFacade<String>(),
+					new DefaultReferenceFacade<File>());
 		
 		PlayerCharacter companion = new PlayerCharacter();
 		companion.setRace(companionRace);

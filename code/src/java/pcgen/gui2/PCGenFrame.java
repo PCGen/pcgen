@@ -87,8 +87,10 @@ import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.CharacterLevelFacade;
 import pcgen.core.facade.CharacterLevelsFacade;
+import pcgen.core.facade.CharacterStubFacade;
 import pcgen.core.facade.ChooserFacade;
 import pcgen.core.facade.ClassFacade;
+import pcgen.core.facade.CompanionFacade;
 import pcgen.core.facade.DataSetFacade;
 import pcgen.core.facade.DefaultReferenceFacade;
 import pcgen.core.facade.PartyFacade;
@@ -122,8 +124,15 @@ import pcgen.system.PropertyContext;
 import pcgen.util.Logging;
 
 /**
+ * The main window for PCGen. In addition this class is responsible for providing 
+ * global UI functions such as message dialogs. 
  *
+ * <br/>
+ * Last Editor: $Author:  $
+ * Last Edited: $Date:  $
+ * 
  * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @version $Revision:  $
  */
 @SuppressWarnings("serial")
 public final class PCGenFrame extends JFrame implements UIDelegate
@@ -571,9 +580,56 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		{
 			return showSaveCharacterChooser(character);
 		}
+		// We must have a file name before we prepare.
+		prepareForSave(character, false);
+		if (!CharacterManager.saveCharacter(character))
+		{
+			return showSaveCharacterChooser(character);
+		}
 		return true;
 	}
 
+	/**
+	 * Prepare the character for a save. This is primarily concerned with 
+	 * ensuring all companions (or masters) have file names before the save is 
+	 * done.
+	 * @param character The character being saved.
+	 */
+	private void prepareForSave(CharacterFacade character, boolean savingAll)
+	{
+		List<CompanionFacade> tobeSaved = new ArrayList<CompanionFacade>(); 
+		for (CompanionFacade comp : character.getCompanionSupport().getCompanions())
+		{
+			if (StringUtils.isEmpty(comp.getFileRef().getReference().getName()))
+			{
+				tobeSaved.add(comp);
+			}
+		} 
+		if (!tobeSaved.isEmpty())
+		{
+			if (savingAll || showWarningConfirm("", "You have unsaved companions. Do you wish to save them now?"))
+			{
+				for (CompanionFacade companionFacade : tobeSaved)
+				{
+					CharacterFacade compChar = CharacterManager.getCharacterMatching(companionFacade);
+					showSaveCharacterChooser(compChar);
+				}
+			}
+		}
+		CharacterStubFacade master = character.getMaster();
+		if (master != null
+			&& (master.getFileRef().getReference() == null || StringUtils
+				.isEmpty(master.getFileRef().getReference().getName())))
+		{
+			if (savingAll || showWarningConfirm("", "You have an unsaved master. Do you wish to save it now?"))
+			{
+				CharacterFacade masterChar = CharacterManager.getCharacterMatching(master);
+				showSaveCharacterChooser(masterChar);
+			}
+		}			
+	}
+	
+	
 	public void closeCharacter(CharacterFacade character)
 	{
 		if (character.isDirty())
@@ -738,6 +794,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			}
 			else
 			{
+				prepareForSave(character, true);
 				ok &= CharacterManager.saveCharacter(character);
 			}
 		}
@@ -799,6 +856,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			}
 
 			character.setFile(file);
+			prepareForSave(character, false);
 			if (!CharacterManager.saveCharacter(character))
 			{
 				return showSaveCharacterChooser(character);

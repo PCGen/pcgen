@@ -45,8 +45,6 @@ import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.ObjectUtils;
-import org.apache.commons.lang.StringUtils;
 
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.CompanionFacade;
@@ -291,52 +289,24 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			{
 				if(!switchTabs)
 				{
-					infoPane.setText("");
+					infoPane.setText(""); //$NON-NLS-1$
 				}
 				return;
 			}
 			if (isCompanionOpen(companion))
 			{
-				File compFile = companion.getFileRef().getReference();
-				if (compFile == null || StringUtils.isEmpty(compFile.getName()))
+				CharacterFacade character = CharacterManager.getCharacterMatching(companion);
+				if (character != null)
 				{
-					String compName = companion.getNameRef().getReference();
-					for (CharacterFacade character : CharacterManager.getCharacters())
+					if (switchTabs)
 					{
-						String charName = character.getNameRef().getReference();
-						if (ObjectUtils.equals(compName, charName))
-						{
-							if (switchTabs)
-							{
-								frame.setSelectedCharacter(character);
-								return;
-							}
-							else
-							{
-								sheetSupport.setCharacter(character);
-								sheetSupport.refresh();
-							}
-						}
+						frame.setSelectedCharacter(character);
+						return;
 					}
-				}
-				else
-				{
-					for (CharacterFacade character : CharacterManager.getCharacters())
+					else
 					{
-						File charFile = character.getFileRef().getReference();
-						if (compFile.equals(charFile))
-						{
-							if (switchTabs)
-							{
-								frame.setSelectedCharacter(character);
-								return;
-							}
-							else
-							{
-								sheetSupport.setCharacter(character);
-								sheetSupport.refresh();
-							}
-						}
+						sheetSupport.setCharacter(character);
+						sheetSupport.refresh();
 					}
 				}
 				//the companion was not found
