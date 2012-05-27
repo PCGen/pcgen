@@ -24,13 +24,13 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Language;
+import pcgen.core.QualifiedObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class LangTokenTest extends AbstractAutoTokenTestCase<Language>
-{
+public class LangTokenTest extends AbstractAutoTokenTestCase<Language> {
 
 	static LangToken subtoken = new LangToken();
 
@@ -67,15 +67,14 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language>
 	@Override
 	protected void loadAllReference()
 	{
-		CDOMGroupRef<Language> ref =
-				primaryContext.ref.getCDOMAllReference(Language.class);
-		primaryProf.addToListFor(ListKey.AUTO_LANGUAGE, ref);
+		CDOMGroupRef<Language> ref = primaryContext.ref.getCDOMAllReference(Language.class);
+		primaryProf.addToListFor(ListKey.AUTO_LANGUAGE, new QualifiedObject(ref));
 	}
 
 	@Override
 	protected void loadProf(CDOMSingleRef<Language> ref)
 	{
-		primaryProf.addToListFor(ListKey.AUTO_LANGUAGE, ref);
+		primaryProf.addToListFor(ListKey.AUTO_LANGUAGE, new QualifiedObject(ref));
 	}
 
 	@Test
@@ -87,8 +86,7 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language>
 		{
 			getToken().unparse(primaryContext, primaryProf);
 			fail();
-		}
-		catch (ClassCastException e)
+		} catch (ClassCastException e)
 		{
 			// Yep!
 		}
@@ -97,9 +95,8 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language>
 	@Override
 	protected void loadTypeProf(String... types)
 	{
-		CDOMGroupRef<Language> ref =
-				primaryContext.ref.getCDOMTypeReference(Language.class, types);
-		primaryProf.addToListFor(ListKey.AUTO_LANGUAGE, ref);
+		CDOMGroupRef<Language> ref = primaryContext.ref.getCDOMTypeReference(Language.class, types);
+		primaryProf.addToListFor(ListKey.AUTO_LANGUAGE, new QualifiedObject(ref));
 	}
 
 	@Override
@@ -115,12 +112,11 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language>
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{
-		return new ConsolidationRule()
-		{
+		return new ConsolidationRule() {
 
 			public String[] getAnswer(String... strings)
 			{
-				return new String[]{"LANG|TestWP1|TestWP2|TestWP1|TestWP2|TestWP3"};
+				return new String[] { "LANG|TestWP1|TestWP2|TestWP1|TestWP2|TestWP3" };
 			}
 		};
 	}
