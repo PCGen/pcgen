@@ -25,20 +25,22 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Language;
+import pcgen.core.QualifiedObject;
+import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 /**
  * @author djones4
  *
  */
-public class LangautoLst extends AbstractTokenWithSeparator<CDOMObject>
-		implements CDOMPrimaryToken<CDOMObject>
-{
+public class LangautoLst extends AbstractTokenWithSeparator<CDOMObject> implements DeprecatedToken,
+		CDOMPrimaryToken<CDOMObject> {
 
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
 
@@ -55,9 +57,9 @@ public class LangautoLst extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
+		Logging.deprecationPrint(getTokenName() + " has been deprecated, please use AUTO:LANG");
 		boolean firstToken = true;
 		boolean foundAny = false;
 		boolean foundOther = false;
@@ -71,41 +73,35 @@ public class LangautoLst extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				if (!firstToken)
 				{
-					return new ParseResult.Fail("Non-sensical situation was "
-							+ "encountered while parsing " + getTokenName()
-							+ ": When used, .CLEAR must be the first argument");
+					return new ParseResult.Fail("Non-sensical situation was " + "encountered while parsing "
+							+ getTokenName() + ": When used, .CLEAR must be the first argument");
 				}
-				context.getObjectContext().removeList(obj,
-						ListKey.AUTO_LANGUAGES);
-			}
-			else
+				context.getObjectContext().removeList(obj, ListKey.AUTO_LANGUAGES);
+			} else
 			{
 				CDOMReference<Language> ref;
 				if (Constants.LST_ALL.equals(tokText))
 				{
 					foundAny = true;
 					ref = context.ref.getCDOMAllReference(LANGUAGE_CLASS);
-				}
-				else
+				} else
 				{
 					foundOther = true;
-					ref = TokenUtilities.getTypeOrPrimitive(context,
-							LANGUAGE_CLASS, tokText);
+					ref = TokenUtilities.getTypeOrPrimitive(context, LANGUAGE_CLASS, tokText);
 				}
 				if (ref == null)
 				{
-					return new ParseResult.Fail("  Error was encountered while parsing "
-							+ getTokenName());
+					return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName());
 				}
-				context.getObjectContext().addToList(obj,
-						ListKey.AUTO_LANGUAGES, ref);
+				context.getObjectContext().addToList(obj, ListKey.AUTO_LANGUAGES,
+						new QualifiedObject<CDOMReference<Language>>(ref));
 			}
 			firstToken = false;
 		}
 		if (foundAny && foundOther)
 		{
-			return new ParseResult.Fail("Non-sensical " + getTokenName()
-					+ ": Contains ANY and a specific reference: " + value);
+			return new ParseResult.Fail("Non-sensical " + getTokenName() + ": Contains ANY and a specific reference: "
+					+ value);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -113,31 +109,30 @@ public class LangautoLst extends AbstractTokenWithSeparator<CDOMObject>
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<CDOMReference<Language>> changes = context.getObjectContext()
-				.getListChanges(obj, ListKey.AUTO_LANGUAGES);
-		Collection<CDOMReference<Language>> added = changes.getAdded();
+		Changes<QualifiedObject<CDOMReference<Language>>> changes = context.getObjectContext().getListChanges(obj,
+				ListKey.AUTO_LANGUAGES);
+		Collection<QualifiedObject<CDOMReference<Language>>> added = changes.getAdded();
 		StringBuilder sb = new StringBuilder();
 		boolean needComma = false;
 		if (changes.includesGlobalClear())
 		{
 			sb.append(Constants.LST_DOT_CLEAR);
 			needComma = true;
-		}
-		else if (added == null || added.isEmpty())
+		} else if (added == null || added.isEmpty())
 		{
 			// Zero indicates no Token (and no global clear, so nothing to do)
 			return null;
 		}
 		if (added != null)
 		{
-			for (CDOMReference<Language> lw : added)
+			for (QualifiedObject<CDOMReference<Language>> lw : added)
 			{
 				if (needComma)
 				{
 					sb.append(Constants.COMMA);
 				}
 				needComma = true;
-				sb.append(lw.getLSTformat(false));
+				sb.append(lw.getRawObject().getLSTformat(false));
 			}
 		}
 		return new String[] { sb.toString() };
@@ -147,5 +142,10 @@ public class LangautoLst extends AbstractTokenWithSeparator<CDOMObject>
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
+	}
+
+	public String getMessage(CDOMObject obj, String value)
+	{
+		return getTokenName() + " has been deprecated, please use AUTO:LANG";
 	}
 }
