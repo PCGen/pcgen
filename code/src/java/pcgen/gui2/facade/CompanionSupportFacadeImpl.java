@@ -264,6 +264,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 				new Follower(theCharacter.getFileName(), theCharacter.getName(), compList);
 		newMaster.setAdjustment(followerOpt.getAdjustment());
 		compFacadeImpl.getTheCharacter().setMaster(newMaster);
+		compFacadeImpl.postLevellingUpdates();
 		
 		// Update the master with the new companion
 		Follower follower =

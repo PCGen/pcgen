@@ -716,7 +716,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	/**
 	 * Ensure any items that could be affected by the level up or down are refreshed.
 	 */
-	private void postLevellingUpdates()
+	void postLevellingUpdates()
 	{
 		characterAbilities.rebuildAbilityLists();
 		refreshLanguageList();
