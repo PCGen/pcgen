@@ -5007,8 +5007,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			s = s.substring(1, s.length() - 1);
 
 			final String message =
-					"No longer proficient with following weapon(s):"
-						+ Constants.LINE_SEPARATOR + s;
+					"No longer proficient with following weapon(s):" + s;
 			warnings.add(message);
 		}
 	}
