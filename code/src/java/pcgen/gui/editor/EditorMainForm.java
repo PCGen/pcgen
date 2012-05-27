@@ -1019,7 +1019,7 @@ public final class EditorMainForm extends JDialog {
 
 				if (lang != null)
 				{
-					thisPObject.addToListFor(ListKey.AUTO_LANGUAGES, new QualifiedObject(
+					thisPObject.addToListFor(ListKey.AUTO_LANGUAGES, new QualifiedObject<CDOMReference<Language>>(
 							new CDOMDirectSingleRef<Language>(lang)));
 				}
 			}
