@@ -61,6 +61,8 @@ import pcgen.rules.context.ReferenceContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.rules.context.TrackingReferenceContext;
+import pcgen.system.PCGenSettings;
+import pcgen.system.PropertyContext;
 import pcgen.util.ComparableComparator;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
@@ -74,6 +76,9 @@ import pcgen.util.enumeration.Tab;
  */
 public final class GameMode implements Comparable<Object>, GameModeFacade
 {
+	private static PropertyContext prefsContext = PCGenSettings.getInstance().createChildContext("gameMode");
+
+	private PropertyContext gamemodePrefsContext = prefsContext.createChildContext("gameMode");
 	private List<String> allowedModes;
 	private List<String> bonusFeatLevels = new ArrayList<String>();
 	private List<String> bonusStackList = new ArrayList<String>();
@@ -206,6 +211,16 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		folderName = modeName;
 		thePreviewDir = modeName;
 		theDefaultPreviewSheet = "preview.html"; //$NON-NLS-1$
+
+		gamemodePrefsContext = prefsContext.createChildContext(modeName);
+		activeRollMethod =
+				getModeContext().ref.silentlyGetConstructedCDOMObject(
+					RollMethod.class,
+					gamemodePrefsContext.getProperty("rollMethodExpression")); //$NON-NLS-1$
+		rollMethod = gamemodePrefsContext.getInt("rollMethod"); //$NON-NLS-1$
+		allStatsValue = gamemodePrefsContext.initInt("allStatsValue", 10); //$NON-NLS-1$
+		purchaseMethodName =
+				gamemodePrefsContext.getProperty("purchaseMethodName"); //$NON-NLS-1$
 	}
 
 	/**
@@ -1575,6 +1590,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		}
 
 		purchaseMethodName = argMethodName;
+		gamemodePrefsContext.setProperty("purchaseMethodName", argMethodName); //$NON-NLS-1$
 	}
 
 	/**
@@ -1746,6 +1762,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	public void setRollMethod(final int argRollMethod)
 	{
 		rollMethod = argRollMethod;
+		gamemodePrefsContext.setInt("rollMethod", argRollMethod); //$NON-NLS-1$
 
 		if (argRollMethod != Constants.CHARACTER_STAT_METHOD_PURCHASE)
 		{
@@ -1837,6 +1854,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		{
 			setRollMethod(Constants.CHARACTER_STAT_METHOD_ROLLED);
 		}
+		gamemodePrefsContext.setProperty("rollMethodExpression", aString); //$NON-NLS-1$
 	}
 
 	/**
@@ -1886,6 +1904,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	public void setAllStatsValue(final int argAllStatsValue)
 	{
 		allStatsValue = argAllStatsValue;
+		gamemodePrefsContext.setInt("allStatsValue", argAllStatsValue); //$NON-NLS-1$
 	}
 
 	/**

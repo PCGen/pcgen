@@ -37,6 +37,8 @@ import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
+import org.apache.commons.lang.SystemUtils;
+
 import pcgen.core.SettingsHandler;
 
 /**
@@ -83,9 +85,8 @@ public class Logging
     	// Set a default configuration file if none was specified.
 		Properties p = System.getProperties();
 		File propsFile =
-				new File(SettingsHandler.getDecodedPCGenFilesDir()
-					.getAbsolutePath()
-					+ File.separator + "logging.properties");
+				new File(SystemUtils.USER_DIR + File.separator
+					+ "logging.properties");
 		if (!propsFile.exists())
 		{
 			propsFile = new File("logging.properties");

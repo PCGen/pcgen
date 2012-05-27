@@ -312,8 +312,10 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 			gameMode.setRollMethod(Constants.CHARACTER_STAT_METHOD_USER);
 		}
 
-		final int allStatsValue =
+		int allStatsValue =
 				Math.min(gameMode.getStatMax(), gameMode.getAllStatsValue());
+		allStatsValue =
+				Math.max(gameMode.getStatMin(), allStatsValue);
 		gameMode.setAllStatsValue(allStatsValue);
 		abilityScoreCombo.setSelectedIndex(allStatsValue
 			- gameMode.getStatMin());

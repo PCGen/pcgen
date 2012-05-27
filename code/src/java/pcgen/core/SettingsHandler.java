@@ -824,10 +824,11 @@ public final class SettingsHandler
 				game.selectUnitSet(Constants.STANDARD_UNITSET_NAME);
 			}
 		}
-		game.setRollMethodExpressionByName(getPCGenOption("gameMode." + key + ".rollMethodExpression", ""));
-		game.setPurchaseMethodName(getPCGenOption("gameMode." + key + ".purchaseMethodName", "")); //$NON-NLS-1$ //$NON-NLS-2$
-		game.setAllStatsValue(getPCGenOption("gameMode." + key + ".allStatsValue", 10));
-		game.setRollMethod(getPCGenOption("gameMode." + key + ".rollMethod", 0)); //$NON-NLS-1$
+		// These have been migrated to the new preferences 
+//		game.setRollMethodExpressionByName(getPCGenOption("gameMode." + key + ".rollMethodExpression", ""));
+//		game.setPurchaseMethodName(getPCGenOption("gameMode." + key + ".purchaseMethodName", "")); //$NON-NLS-1$ //$NON-NLS-2$
+//		game.setAllStatsValue(getPCGenOption("gameMode." + key + ".allStatsValue", 10));
+//		game.setRollMethod(getPCGenOption("gameMode." + key + ".rollMethod", 0)); //$NON-NLS-1$
 
 		game.setDefaultXPTableName(getPCGenOption("gameMode." + key + ".xpTableName", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		game.setDefaultCharacterType(getPCGenOption("gameMode." + key + ".characterType", "")); //$NON-NLS-1$ //$NON-NLS-2$
