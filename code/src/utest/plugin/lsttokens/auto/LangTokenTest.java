@@ -19,6 +19,7 @@ package plugin.lsttokens.auto;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMGroupRef;
@@ -68,13 +69,13 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language> {
 	protected void loadAllReference()
 	{
 		CDOMGroupRef<Language> ref = primaryContext.ref.getCDOMAllReference(Language.class);
-		primaryProf.addToListFor(ListKey.AUTO_LANGUAGE, new QualifiedObject(ref));
+		primaryProf.addToListFor(ListKey.AUTO_LANGUAGE, new QualifiedObject<CDOMReference<Language>>(ref));
 	}
 
 	@Override
 	protected void loadProf(CDOMSingleRef<Language> ref)
 	{
-		primaryProf.addToListFor(ListKey.AUTO_LANGUAGE, new QualifiedObject(ref));
+		primaryProf.addToListFor(ListKey.AUTO_LANGUAGE, new QualifiedObject<CDOMReference<Language>>(ref));
 	}
 
 	@Test
@@ -96,7 +97,7 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language> {
 	protected void loadTypeProf(String... types)
 	{
 		CDOMGroupRef<Language> ref = primaryContext.ref.getCDOMTypeReference(Language.class, types);
-		primaryProf.addToListFor(ListKey.AUTO_LANGUAGE, new QualifiedObject(ref));
+		primaryProf.addToListFor(ListKey.AUTO_LANGUAGE, new QualifiedObject<CDOMReference<Language>>(ref));
 	}
 
 	@Override
