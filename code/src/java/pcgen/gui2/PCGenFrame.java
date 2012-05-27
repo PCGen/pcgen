@@ -607,7 +607,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		} 
 		if (!tobeSaved.isEmpty())
 		{
-			if (savingAll || showWarningConfirm("", "You have unsaved companions. Do you wish to save them now?"))
+			if (savingAll || showMessageConfirm("", "You have unsaved companions. Do you wish to save them now?"))
 			{
 				for (CompanionFacade companionFacade : tobeSaved)
 				{
@@ -621,7 +621,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			&& (master.getFileRef().getReference() == null || StringUtils
 				.isEmpty(master.getFileRef().getReference().getName())))
 		{
-			if (savingAll || showWarningConfirm("", "You have an unsaved master. Do you wish to save it now?"))
+			if (savingAll || showMessageConfirm("", "You have an unsaved master. Do you wish to save it now?"))
 			{
 				CharacterFacade masterChar = CharacterManager.getCharacterMatching(master);
 				showSaveCharacterChooser(masterChar);
@@ -1235,6 +1235,12 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	public boolean showWarningConfirm(String title, String message)
 	{
 		int ret = JOptionPane.showConfirmDialog(this, message, title, JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+		return ret == JOptionPane.YES_OPTION;
+	}
+
+	private boolean showMessageConfirm(String title, String message)
+	{
+		int ret = JOptionPane.showConfirmDialog(this, message, title, JOptionPane.YES_NO_OPTION);
 		return ret == JOptionPane.YES_OPTION;
 	}
 
