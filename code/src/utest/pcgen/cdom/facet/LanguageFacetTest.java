@@ -20,10 +20,16 @@ package pcgen.cdom.facet;
 import pcgen.cdom.testsupport.AbstractConsolidatingFacetTest;
 import pcgen.core.Language;
 
-public class LanguageFacetTest extends AbstractConsolidatingFacetTest<Language>
-{
+public class LanguageFacetTest extends AbstractConsolidatingFacetTest<Language> {
 
 	private LanguageFacet facet = new LanguageFacet();
+
+	@Override
+	public void setUp() throws Exception
+	{
+		super.setUp();
+		facet.setAutoLanguageFacet(new AutoLanguageFacet());
+	}
 
 	@Override
 	protected AbstractSourcedListFacet<Language> getFacet()
@@ -40,7 +46,6 @@ public class LanguageFacetTest extends AbstractConsolidatingFacetTest<Language>
 		wp.setName("WP" + n++);
 		return wp;
 	}
-
 
 	@Override
 	protected DataFacetChangeListener<Language> getListener()
