@@ -36,7 +36,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javax.swing.undo.UndoManager;
 
@@ -174,9 +173,8 @@ import pcgen.util.enumeration.Load;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class CharacterFacadeImpl implements CharacterFacade,
-		EquipmentListListener, ListListener<EquipmentFacade>, HitPointListener
-{
+public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListener, ListListener<EquipmentFacade>,
+		HitPointListener {
 
 	private List<ClassFacade> pcClasses;
 	private DefaultListFacade<TempBonusFacade> appliedTempBonuses;
@@ -200,7 +198,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	private DefaultReferenceFacade<File> file;
 	private DefaultReferenceFacade<SimpleFacade> handedness;
 	private UIDelegate delegate;
-	private Set<Language> autoLanguagesCache;
+	private List<Language> autoLanguagesCache;
 	private CharacterLevelsFacadeImpl charLevelsFacade;
 	private DefaultReferenceFacade<Integer> currentXP;
 	private DefaultReferenceFacade<Integer> xpForNextlevel;
@@ -256,8 +254,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	 * @param delegate the UIDelegate for this CharacterFacade
 	 * @param dataSetFacade The data set in use for the character
 	 */
-	public CharacterFacadeImpl(UIDelegate delegate, DataSetFacade dataSetFacade)
-	{
+	public CharacterFacadeImpl(UIDelegate delegate, DataSetFacade dataSetFacade) {
 		this(null, delegate, dataSetFacade);
 	}
 
@@ -268,16 +265,14 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	 * @param delegate the UIDelegate for this CharacterFacade
 	 * @param dataSetFacade The data set in use for the character
 	 */
-	public CharacterFacadeImpl(PlayerCharacter pc, UIDelegate delegate, DataSetFacade dataSetFacade)
-	{
+	public CharacterFacadeImpl(PlayerCharacter pc, UIDelegate delegate, DataSetFacade dataSetFacade) {
 		this.delegate = delegate;
 		if (pc == null)
 		{
 			@SuppressWarnings("rawtypes")
-			List campaigns = ListFacades.wrap(dataSetFacade.getCampaigns());		
+			List campaigns = ListFacades.wrap(dataSetFacade.getCampaigns());
 			theCharacter = new PlayerCharacter(false, campaigns);
-		}
-		else
+		} else
 		{
 			theCharacter = pc;
 		}
@@ -298,7 +293,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		characterAbilities = new CharacterAbilities(pc, delegate, dataSet, todoManager);
 		descriptionFacade = new DescriptionFacadeImpl(pc);
 		spellSupportFacade = new SpellSupportFacadeImpl(pc, delegate, dataSet, todoManager);
-		
+
 		name = new DefaultReferenceFacade<String>(pc.getName());
 		file = new DefaultReferenceFacade<File>(new File(pc.getFileName()));
 		
@@ -310,7 +305,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		buildAvailableTempBonuses();
 		kitList = new DefaultListFacade<KitFacade>();
 		refreshKitList();
-		
+
 		statScoreMap = new HashMap<StatFacade, DefaultReferenceFacade<Integer>>();
 
 		File portraitFile = null;
@@ -321,7 +316,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		portrait = new DefaultReferenceFacade<File>(portraitFile);
 		cropRect = new RectangleReference(theCharacter.getPortraitThumbnailRect());
 		characterType = new DefaultReferenceFacade<String>(pc.getCharacterType());
-		
+
 		tabName = new DefaultReferenceFacade<String>(pc.getDisplay().getTabName());
 		playersName = new DefaultReferenceFacade<String>(pc.getPlayersName());
 		race = new DefaultReferenceFacade<RaceFacade>(pc.getRace());
@@ -366,7 +361,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		eyeColor = new DefaultReferenceFacade<String>(pc.getDisplay().getEyeColor());
 		weightRef = new DefaultReferenceFacade<Integer>(pc.getWeight());
 		heightRef = new DefaultReferenceFacade<Integer>(pc.getHeight());
-		
+
 		purchasedEquip = new EquipmentListFacadeImpl(pc.getEquipmentMasterList());
 		carriedWeightRef = new DefaultReferenceFacade<String>();
 		loadRef = new DefaultReferenceFacade<String>();
@@ -377,8 +372,8 @@ public class CharacterFacadeImpl implements CharacterFacade,
 
 		GameMode game = (GameMode) dataSet.getGameMode();
 		rollMethodRef = new DefaultReferenceFacade<Integer>(game.getRollMethod());
-		
-		charLevelsFacade = new CharacterLevelsFacadeImpl(pc, delegate,todoManager);
+
+		charLevelsFacade = new CharacterLevelsFacadeImpl(pc, delegate, todoManager);
 		pcClasses = new ArrayList<ClassFacade>();
 		pcClassLevels = new DefaultListFacade<CharacterLevelFacade>();
 		refreshClassLevelModel();
@@ -387,16 +382,14 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		deity = new DefaultReferenceFacade<DeityFacade>(pc.getDeity());
 		domains = new DefaultListFacade<DomainFacade>();
 		maxDomains = new DefaultReferenceFacade<Integer>(pc.getMaxCharacterDomains());
-		remainingDomains =
-				new DefaultReferenceFacade<Integer>(pc.getMaxCharacterDomains()
-					- domains.getSize());
+		remainingDomains = new DefaultReferenceFacade<Integer>(pc.getMaxCharacterDomains() - domains.getSize());
 		availDomains = new DefaultListFacade<DomainFacade>();
 		buildAvailableDomainsList();
-		
+
 		templates = new DefaultListFacade<TemplateFacade>(theCharacter.getTemplateSet());
-		
+
 		initTodoList();
-		
+
 		statTotalLabelText = new DefaultReferenceFacade<String>();
 		statTotalText = new DefaultReferenceFacade<String>();
 		modTotalLabelText = new DefaultReferenceFacade<String>();
@@ -412,9 +405,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		purchasedEquip.addEquipmentListListener(spellSupportFacade);
 		fundsRef = new DefaultReferenceFacade<BigDecimal>(theCharacter.getGold());
 		wealthRef = new DefaultReferenceFacade<BigDecimal>(theCharacter.totalValue());
-		gearBuySellSchemeRef =
-				new DefaultReferenceFacade<GearBuySellFacade>(
-					findGearBuySellRate());
+		gearBuySellSchemeRef = new DefaultReferenceFacade<GearBuySellFacade>(findGearBuySellRate());
 		allowDebt = false;
 	}
 
@@ -438,16 +429,14 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		for (GearBuySellFacade buySell : dataSet.getGearBuySellSchemes())
 		{
 			GearBuySellScheme scheme = (GearBuySellScheme) buySell;
-			if (scheme.getBuyRate().intValue() == buyRate
-				&& scheme.getSellRate().intValue() == sellRate)
+			if (scheme.getBuyRate().intValue() == buyRate && scheme.getSellRate().intValue() == sellRate)
 			{
 				return scheme;
 			}
 		}
 
-		GearBuySellScheme scheme =
-				new GearBuySellScheme("Custom", new BigDecimal(buyRate),
-					new BigDecimal(sellRate), new BigDecimal(100));
+		GearBuySellScheme scheme = new GearBuySellScheme("Custom", new BigDecimal(buyRate), new BigDecimal(sellRate),
+				new BigDecimal(100));
 		return scheme;
 	}
 
@@ -475,8 +464,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		{
 			if (es.getParentIdPath().equals("0"))
 			{
-				final EquipmentSetFacadeImpl facade =
-						new EquipmentSetFacadeImpl(delegate, pc, es, dataSet);
+				final EquipmentSetFacadeImpl facade = new EquipmentSetFacadeImpl(delegate, pc, es, dataSet);
 				eqSetList.add(facade);
 				if (es.getIdPath().equals(currIdPath))
 				{
@@ -494,7 +482,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		set.getEquippedItems().addListListener(this);
 		set.getEquippedItems().addEquipmentListListener(this);
 		refreshTotalWeight();
-		
+
 	}
 
 	/**
@@ -532,17 +520,13 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	{
 		if (isNewCharName(theCharacter.getName()))
 		{
-			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab,
-				"Name", "in_sumTodoName", 1));
+			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab, "Name", "in_sumTodoName", 1));
 		}
-		if (theCharacter.getRace() == null
-			|| Constants.NONESELECTED.equals(theCharacter.getRace()
-				.getKeyName()))
+		if (theCharacter.getRace() == null || Constants.NONESELECTED.equals(theCharacter.getRace().getKeyName()))
 		{
-			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab, "Race",
-				"in_irTodoRace", 100));
+			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab, "Race", "in_irTodoRace", 100));
 		}
-		
+
 		// Stats todo already done in updateScorePurchasePool
 		updateLevelTodo();
 	}
@@ -562,7 +546,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 
 		return charName.startsWith("Unnamed"); //$NON-NLS-1$
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#addAbility(pcgen.core.facade.AbilityCategoryFacade, pcgen.core.facade.AbilityFacade)
 	 */
@@ -579,8 +563,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	 * @see pcgen.core.facade.CharacterFacade#removeAbility(pcgen.core.facade.AbilityCategoryFacade, pcgen.core.facade.AbilityFacade)
 	 */
 	@Override
-	public void removeAbility(AbilityCategoryFacade category,
-							  AbilityFacade ability)
+	public void removeAbility(AbilityCategoryFacade category, AbilityFacade ability)
 	{
 		characterAbilities.removeAbility(category, ability);
 		refreshLanguageList();
@@ -591,8 +574,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	 * @see pcgen.core.facade.CharacterFacade#getAbilities(pcgen.core.facade.AbilityCategoryFacade)
 	 */
 	@Override
-	public ListFacade<AbilityFacade> getAbilities(
-			AbilityCategoryFacade category)
+	public ListFacade<AbilityFacade> getAbilities(AbilityCategoryFacade category)
 	{
 		return characterAbilities.getAbilities(category);
 	}
@@ -605,7 +587,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	{
 		return characterAbilities.getActiveAbilityCategories();
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getTotalSelections(pcgen.core.facade.AbilityCategoryFacade)
 	 */
@@ -646,8 +628,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	 * @see pcgen.core.facade.CharacterFacade#setRemainingSelection(pcgen.core.facade.AbilityCategoryFacade, int)
 	 */
 	@Override
-	public void setRemainingSelection(AbilityCategoryFacade category,
-									  int remaining)
+	public void setRemainingSelection(AbilityCategoryFacade category, int remaining)
 	{
 		characterAbilities.setRemainingSelection(category, remaining);
 	}
@@ -673,7 +654,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		}
 		return theCharacter.getAbilityNature((Ability) ability);
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#addCharacterLevels(pcgen.core.facade.ClassFacade[])
 	 */
@@ -684,7 +665,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		//SettingsHandler.setShowStatDialogAtLevelUp(false);
 
 		int oldLevel = charLevelsFacade.getSize();
-		
+
 		for (ClassFacade classFacade : classes)
 		{
 			if (classFacade instanceof PCClass)
@@ -705,7 +686,8 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			{
 				pcClasses.add(classFacade);
 			}
-			CharacterLevelFacadeImpl cl = new CharacterLevelFacadeImpl(classFacade, theCharacter, charLevelsFacade.getSize()+1);
+			CharacterLevelFacadeImpl cl = new CharacterLevelFacadeImpl(classFacade, theCharacter,
+					charLevelsFacade.getSize() + 1);
 			pcClassLevels.addElement(cl);
 			charLevelsFacade.addLevelOfClass(cl);
 		}
@@ -744,9 +726,8 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	{
 		for (int i = levels; i > 0 && !pcClassLevels.isEmpty(); i--)
 		{
-			ClassFacade classFacade =
-					charLevelsFacade.getClassTaken(pcClassLevels
-						.getElementAt(pcClassLevels.getSize() - 1));
+			ClassFacade classFacade = charLevelsFacade
+					.getClassTaken(pcClassLevels.getElementAt(pcClassLevels.getSize() - 1));
 			pcClassLevels.removeElement(pcClassLevels.getSize() - 1);
 			if (classFacade instanceof PCClass)
 			{
@@ -784,10 +765,8 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	{
 		if (theCharacter.getXP() >= theCharacter.minXPForNextECL())
 		{
-			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab, "Class",
-				"in_clTodoLevelUp", 120));
-		}
-		else
+			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab, "Class", "in_clTodoLevelUp", 120));
+		} else
 		{
 			todoManager.removeTodo("in_clTodoLevelUp");
 		}
@@ -832,7 +811,8 @@ public class CharacterFacadeImpl implements CharacterFacade,
 
 		if (!theCharacter.isQualified(theClass))
 		{
-			delegate.showErrorMessage(Constants.APPLICATION_NAME, LanguageBundle.getString("in_clYouAreNotQualifiedToTakeTheClass"));
+			delegate.showErrorMessage(Constants.APPLICATION_NAME,
+					LanguageBundle.getString("in_clYouAreNotQualifiedToTakeTheClass"));
 			return false;
 		}
 
@@ -848,54 +828,51 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		String subClassKey = theCharacter.getSubClassName(aClass);
 		if (aClass != null && subClassKey != null)
 		{
-			final PCClass subClass =
-					aClass.getSubClassKeyed(subClassKey);
+			final PCClass subClass = aClass.getSubClassKeyed(subClassKey);
 			if (subClass != null && !theCharacter.isQualified(subClass))
 			{
-				delegate.showErrorMessage(Constants.APPLICATION_NAME, LanguageBundle.getFormattedString(
-						"in_sumYouAreNotQualifiedToTakeTheClass",//$NON-NLS-1$
-						aClass.getDisplayName() + "/" + subClass.getDisplayName()));//$NON-NLS-1$
+				delegate.showErrorMessage(Constants.APPLICATION_NAME,
+						LanguageBundle.getFormattedString("in_sumYouAreNotQualifiedToTakeTheClass",//$NON-NLS-1$
+								aClass.getDisplayName() + "/" + subClass.getDisplayName()));//$NON-NLS-1$
 				return false;
 			}
 		}
 
-		if (!Globals.checkRule(RuleConstants.LEVELCAP) && theClass.hasMaxLevel() &&
-				((levels > theClass.getSafe(IntegerKey.LEVEL_LIMIT)) || ((aClass != null) &&
-				((theCharacter.getLevel(aClass) + levels) > aClass.getSafe(IntegerKey.LEVEL_LIMIT)))))
+		if (!Globals.checkRule(RuleConstants.LEVELCAP)
+				&& theClass.hasMaxLevel()
+				&& ((levels > theClass.getSafe(IntegerKey.LEVEL_LIMIT)) || ((aClass != null) && ((theCharacter
+						.getLevel(aClass) + levels) > aClass.getSafe(IntegerKey.LEVEL_LIMIT)))))
 		{
-			delegate.showInfoMessage(Constants.APPLICATION_NAME, LanguageBundle.getFormattedString(
-					"in_sumMaximumLevelIs", //$NON-NLS-1$
-					String.valueOf(theClass.getSafe(IntegerKey.LEVEL_LIMIT))));
+			delegate.showInfoMessage(Constants.APPLICATION_NAME,
+					LanguageBundle.getFormattedString("in_sumMaximumLevelIs", //$NON-NLS-1$
+							String.valueOf(theClass.getSafe(IntegerKey.LEVEL_LIMIT))));
 			return false;
 		}
 
 		// Check with the user on their first level up
 		if (theCharacter.getDisplay().getTotalLevels() == 0)
 		{
-			if (SettingsHandler.getGame().isPurchaseStatMode() &&
-					(theCharacter.getPointBuyPoints() > getUsedStatPool(theCharacter)))
+			if (SettingsHandler.getGame().isPurchaseStatMode()
+					&& (theCharacter.getPointBuyPoints() > getUsedStatPool(theCharacter)))
 			{
 				if (!delegate.showWarningConfirm(LanguageBundle.getString("in_sumLevelWarnTitle"),//$NON-NLS-1$
-												 LanguageBundle.getString("in_sumPoolWarning")))//$NON-NLS-1$
+						LanguageBundle.getString("in_sumPoolWarning")))//$NON-NLS-1$
 				{
 					return false;
 				}
-			}
-			else if (allAbilitiesAreZero())
+			} else if (allAbilitiesAreZero())
 			{
 				if (!delegate.showWarningConfirm(LanguageBundle.getString("in_sumLevelWarnTitle"),
-												 LanguageBundle.getString("in_sumAbilitiesZeroWarning")))
+						LanguageBundle.getString("in_sumAbilitiesZeroWarning")))
 				{
 					return false;
 				}
-			}
-			else
+			} else
 			{
 				Boolean proceed = delegate.maybeShowWarningConfirm(LanguageBundle.getString("in_sumLevelWarnTitle"),
-																   LanguageBundle.getString("in_sumAbilitiesWarning"),
-																   LanguageBundle.getString("in_sumAbilitiesWarningCheckBox"),
-																   PCGenSettings.OPTIONS_CONTEXT,
-																   PCGenSettings.OPTION_SHOW_WARNING_AT_FIRST_LEVEL_UP);
+						LanguageBundle.getString("in_sumAbilitiesWarning"),
+						LanguageBundle.getString("in_sumAbilitiesWarningCheckBox"), PCGenSettings.OPTIONS_CONTEXT,
+						PCGenSettings.OPTION_SHOW_WARNING_AT_FIRST_LEVEL_UP);
 				if (Boolean.FALSE.equals(proceed))
 				{
 					return false;
@@ -948,8 +925,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		return i;
 	}
 
-	private static int getPurchaseCostForStat(final PlayerCharacter aPC,
-											  int statValue)
+	private static int getPurchaseCostForStat(final PlayerCharacter aPC, int statValue)
 	{
 		final int iMax = SettingsHandler.getGame().getPurchaseScoreMax(aPC);
 		final int iMin = SettingsHandler.getGame().getPurchaseScoreMin(aPC);
@@ -961,8 +937,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 
 		if (statValue >= iMin)
 		{
-			return SettingsHandler.getGame().getAbilityScoreCost(
-					statValue - iMin);
+			return SettingsHandler.getGame().getAbilityScoreCost(statValue - iMin);
 		}
 		return 0;
 	}
@@ -970,7 +945,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	private void buildAvailableTempBonuses()
 	{
 		List<CDOMObject> tempBonuses = new ArrayList<CDOMObject>();
-		
+
 		//
 		// first do PC's feats and other abilities
 		for (Ability aFeat : theCharacter.getFullAbilitySet())
@@ -980,8 +955,8 @@ public class CharacterFacadeImpl implements CharacterFacade,
 
 		//
 		// next do all Feats to get PREAPPLY:ANYtheCharacter
-		for (Ability aFeat : Globals.getContext().ref.getManufacturer(
-				Ability.class, AbilityCategory.FEAT).getAllObjects())
+		for (Ability aFeat : Globals.getContext().ref.getManufacturer(Ability.class, AbilityCategory.FEAT)
+				.getAllObjects())
 		{
 			scanForAnyPcTempBonuses(tempBonuses, aFeat);
 		}
@@ -992,21 +967,22 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		{
 			scanForTempBonuses(tempBonuses, aSpell);
 		}
-		
+
 		// Do all the pc's innate spells.
-		Collection<CharacterSpell> innateSpells= theCharacter.getCharacterSpells(theCharacter.getRace(), Globals.INNATE_SPELL_BOOK_NAME);
-		for (CharacterSpell aCharacterSpell : innateSpells) {
+		Collection<CharacterSpell> innateSpells = theCharacter.getCharacterSpells(theCharacter.getRace(),
+				Globals.INNATE_SPELL_BOOK_NAME);
+		for (CharacterSpell aCharacterSpell : innateSpells)
+		{
 			if (aCharacterSpell == null)
 			{
 				continue;
 			}
 			scanForTempBonuses(tempBonuses, aCharacterSpell.getSpell());
 		}
-		
+
 		//
 		// Next do all spells to get PREAPPLY:ANYPC
-		for (Iterator<?> fI = Globals.getSpellMap().values().iterator(); fI
-			.hasNext();)
+		for (Iterator<?> fI = Globals.getSpellMap().values().iterator(); fI.hasNext();)
 		{
 			final Object obj = fI.next();
 			if (obj instanceof Spell)
@@ -1058,7 +1034,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		{
 			scanForTempBonuses(tempBonuses, aSkill);
 		}
-		
+
 		Globals.sortPObjectListByName(tempBonuses);
 		//TODO Reactivate after release and implement bonus application.
 		//availTempBonuses.setContents(tempBonuses);
@@ -1072,9 +1048,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		}
 		for (BonusObj aBonus : obj.getRawBonusList(theCharacter))
 		{
-			if (aBonus.isTempBonus()
-				&& aBonus
-					.isTempBonusTarget(BonusObj.TempBonusTarget.ANYPC))
+			if (aBonus.isTempBonus() && aBonus.isTempBonusTarget(BonusObj.TempBonusTarget.ANYPC))
 			{
 				tempBonuses.add(obj);
 				return;
@@ -1097,7 +1071,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			}
 		}
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getAvailableTempBonuses()
 	 */
@@ -1212,8 +1186,8 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		//
 		if (unqualified.length() > 0)
 		{
-			if (!delegate.showWarningConfirm(Constants.APPLICATION_NAME, LanguageBundle.getString("in_sumExClassesWarning") +
-					Constants.LINE_SEPARATOR + unqualified))
+			if (!delegate.showWarningConfirm(Constants.APPLICATION_NAME,
+					LanguageBundle.getString("in_sumExClassesWarning") + Constants.LINE_SEPARATOR + unqualified))
 			{
 				theCharacter.setAlignment(savedAlignmnet);
 				return false;
@@ -1255,17 +1229,15 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			PCClass currClass = classMap.get(classKeyName);
 			if (currClass == null)
 			{
-				Logging.errorPrint("No PCClass found for '" + classKeyName +
-						"' in character's class list: " + newClasses);
+				Logging.errorPrint("No PCClass found for '" + classKeyName + "' in character's class list: "
+						+ newClasses);
 				return;
 			}
 
 			int clsLvlNum = levelCount.get(classKeyName);
 			levelCount.put(classKeyName, clsLvlNum + 1);
 			//PCClassLevel classLevel = currClass.getClassLevel(clsLvlNum);
-			CharacterLevelFacadeImpl cl =
-					new CharacterLevelFacadeImpl(currClass, theCharacter,
-						clsLvlNum + 1);
+			CharacterLevelFacadeImpl cl = new CharacterLevelFacadeImpl(currClass, theCharacter, clsLvlNum + 1);
 			newlevels.add(cl);
 		}
 
@@ -1331,6 +1303,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			}
 		}
 	}
+
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getModTotal(pcgen.core.facade.StatFacade)
 	 */
@@ -1339,8 +1312,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	{
 		if (stat instanceof PCStat && !theCharacter.isNonAbility((PCStat) stat))
 		{
-			return Integer.valueOf(StatAnalysis.getStatModFor(theCharacter,
-				(PCStat) stat));
+			return Integer.valueOf(StatAnalysis.getStatModFor(theCharacter, (PCStat) stat));
 		}
 		return 0;
 	}
@@ -1354,9 +1326,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		DefaultReferenceFacade<Integer> score = statScoreMap.get(stat);
 		if (score == null)
 		{
-			score =
-					new DefaultReferenceFacade<Integer>(StatAnalysis
-						.getTotalStatFor(theCharacter, (PCStat) stat));
+			score = new DefaultReferenceFacade<Integer>(StatAnalysis.getTotalStatFor(theCharacter, (PCStat) stat));
 			statScoreMap.put(stat, score);
 		}
 		return score;
@@ -1390,10 +1360,9 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			return "*"; //$NON-NLS-1$
 		}
 
-		return SettingsHandler.getGame().getStatDisplayText(
-			StatAnalysis.getTotalStatFor(theCharacter, (PCStat) stat));
+		return SettingsHandler.getGame().getStatDisplayText(StatAnalysis.getTotalStatFor(theCharacter, (PCStat) stat));
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getScoreRaceBonus(pcgen.core.facade.StatFacade)
 	 */
@@ -1411,13 +1380,12 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		}
 
 		//return Integer.valueOf(currentStatAnalysis.getTotalStatFor(aStat) - currentStatAnalysis.getBaseStatFor(aStat));
-		int rBonus =
-				(int) theCharacter.getRaceBonusTo("STAT", activeStat.getAbb()); //$NON-NLS-1$
+		int rBonus = (int) theCharacter.getRaceBonusTo("STAT", activeStat.getAbb()); //$NON-NLS-1$
 		rBonus += (int) theCharacter.getBonusDueToType("STAT", activeStat.getAbb(), "RACIAL");
 
 		return rBonus;
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getScoreOtherBonus(pcgen.core.facade.StatFacade)
 	 */
@@ -1435,14 +1403,13 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		}
 
 		//return Integer.valueOf(currentStatAnalysis.getTotalStatFor(aStat) - currentStatAnalysis.getBaseStatFor(aStat));
-		int iRace =
-				(int) theCharacter.getRaceBonusTo("STAT", activeStat.getAbb()); //$NON-NLS-1$
+		int iRace = (int) theCharacter.getRaceBonusTo("STAT", activeStat.getAbb()); //$NON-NLS-1$
 		iRace += (int) theCharacter.getBonusDueToType("STAT", activeStat.getAbb(), "RACIAL");
 
 		return StatAnalysis.getTotalStatFor(theCharacter, activeStat)
-			- StatAnalysis.getBaseStatFor(theCharacter, activeStat) - iRace;
+				- StatAnalysis.getBaseStatFor(theCharacter, activeStat) - iRace;
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#setScoreBase(pcgen.core.facade.StatFacade, int)
 	 */
@@ -1469,8 +1436,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		}
 		if (pcStat == null)
 		{
-			Logging.errorPrint("Unexpected stat '" + stat
-				+ "' found - ignoring.");
+			Logging.errorPrint("Unexpected stat '" + stat + "' found - ignoring.");
 			return;
 		}
 
@@ -1482,16 +1448,14 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			return;
 		}
 
-		final int baseScore =
-				theCharacter.getAssoc(pcStat, AssociationKey.STAT_SCORE);
+		final int baseScore = theCharacter.getAssoc(pcStat, AssociationKey.STAT_SCORE);
 		// Deal with a point pool based game mode where you buy skills and feats as well as stats
 		if (Globals.getGameModeHasPointPool())
 		{
 			if (pcPlayerLevels > 0)
 			{
-				int poolMod =
-						getPurchaseCostForStat(theCharacter, score)
-							- getPurchaseCostForStat(theCharacter, baseScore);
+				int poolMod = getPurchaseCostForStat(theCharacter, score)
+						- getPurchaseCostForStat(theCharacter, baseScore);
 				//
 				// Adding to stat
 				//
@@ -1500,21 +1464,16 @@ public class CharacterFacadeImpl implements CharacterFacade,
 					if (poolMod > theCharacter.getSkillPoints())
 					{
 						delegate.showErrorMessage(Constants.APPLICATION_NAME,
-							LanguageBundle.getFormattedString(
-								"in_sumStatPoolEmpty", Globals //$NON-NLS-1$
-									.getGameModePointPoolName()));
+								LanguageBundle.getFormattedString("in_sumStatPoolEmpty", Globals //$NON-NLS-1$
+										.getGameModePointPoolName()));
 						return;
 					}
-				}
-				else if (poolMod < 0)
+				} else if (poolMod < 0)
 				{
-					if (theCharacter.getStatIncrease(pcStat, true) < Math
-						.abs(score - baseScore))
+					if (theCharacter.getStatIncrease(pcStat, true) < Math.abs(score - baseScore))
 					{
-						delegate
-							.showErrorMessage(Constants.APPLICATION_NAME,
-								LanguageBundle
-									.getString("in_sumStatStartedHigher")); //$NON-NLS-1$
+						delegate.showErrorMessage(Constants.APPLICATION_NAME,
+								LanguageBundle.getString("in_sumStatStartedHigher")); //$NON-NLS-1$
 						return;
 					}
 				}
@@ -1529,7 +1488,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		theCharacter.saveStatIncrease(pcStat, score - baseScore, false);
 		hpRef.setReference(theCharacter.hitPoints());
 
-		updateScorePurchasePool(true);		
+		updateScorePurchasePool(true);
 	}
 
 	/**
@@ -1540,50 +1499,38 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	 * @param pcPlayerLevels The number of non moster levels the character currently has.
 	 * @return An error message if the score is not valid.
 	 */
-	private String validateNewStatBaseScore(int score, PCStat pcStat,
-		final int pcPlayerLevels)
+	private String validateNewStatBaseScore(int score, PCStat pcStat, final int pcPlayerLevels)
 	{
 		if (theCharacter.isNonAbility(pcStat))
 		{
 			return LanguageBundle.getString("in_sumCannotModifyANonAbility"); //$NON-NLS-1$
-		}
-		else if (score < pcStat.getSafe(IntegerKey.MIN_VALUE))
+		} else if (score < pcStat.getSafe(IntegerKey.MIN_VALUE))
 		{
-			return LanguageBundle.getFormattedString(
-				"in_sumCannotLowerStatBelow", SettingsHandler.getGame() //$NON-NLS-1$
+			return LanguageBundle.getFormattedString("in_sumCannotLowerStatBelow", SettingsHandler.getGame() //$NON-NLS-1$
 					.getStatDisplayText(pcStat.getSafe(IntegerKey.MIN_VALUE)));
-		}
-		else if (score > pcStat.getSafe(IntegerKey.MAX_VALUE))
+		} else if (score > pcStat.getSafe(IntegerKey.MAX_VALUE))
 		{
-			return LanguageBundle.getFormattedString(
-				"in_sumCannotRaiseStatAbove", SettingsHandler.getGame() //$NON-NLS-1$
+			return LanguageBundle.getFormattedString("in_sumCannotRaiseStatAbove", SettingsHandler.getGame() //$NON-NLS-1$
 					.getStatDisplayText(pcStat.getSafe(IntegerKey.MAX_VALUE)));
-		}
-		else if ((pcPlayerLevels < 2)
-			&& SettingsHandler.getGame().isPurchaseStatMode())
+		} else if ((pcPlayerLevels < 2) && SettingsHandler.getGame().isPurchaseStatMode())
 		{
-			final int maxPurchaseScore =
-					SettingsHandler.getGame().getPurchaseScoreMax(theCharacter);
+			final int maxPurchaseScore = SettingsHandler.getGame().getPurchaseScoreMax(theCharacter);
 
 			if (score > maxPurchaseScore)
 			{
-				return LanguageBundle.getFormattedString(
-					"in_sumCannotRaiseStatAbovePurchase", SettingsHandler //$NON-NLS-1$
+				return LanguageBundle.getFormattedString("in_sumCannotRaiseStatAbovePurchase", SettingsHandler //$NON-NLS-1$
 						.getGame().getStatDisplayText(maxPurchaseScore));
 			}
 
-			final int minPurchaseScore =
-					SettingsHandler.getGame().getPurchaseScoreMin(
-						theCharacter);
+			final int minPurchaseScore = SettingsHandler.getGame().getPurchaseScoreMin(theCharacter);
 
 			if (score < minPurchaseScore)
 			{
-				return LanguageBundle.getFormattedString(
-					"in_sumCannotLowerStatBelowPurchase", SettingsHandler //$NON-NLS-1$
+				return LanguageBundle.getFormattedString("in_sumCannotLowerStatBelowPurchase", SettingsHandler //$NON-NLS-1$
 						.getGame().getStatDisplayText(minPurchaseScore));
 			}
 		}
-		
+
 		return null;
 	}
 
@@ -1595,21 +1542,20 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	{
 		GameMode game = (GameMode) dataSet.getGameMode();
 		int rollMethod = game.getRollMethod();
-		if (rollMethod == Constants.CHARACTER_STAT_METHOD_ROLLED
-			&& game.getCurrentRollingMethod() == null)
+		if (rollMethod == Constants.CHARACTER_STAT_METHOD_ROLLED && game.getCurrentRollingMethod() == null)
 		{
 			return;
 		}
 		if (rollMethod == Constants.CHARACTER_STAT_METHOD_USER)
 		{
 			// If a user asks to roll in user mode, set it to the current all same value.
-			rollMethod = Constants.CHARACTER_STAT_METHOD_ALL_THE_SAME; 
+			rollMethod = Constants.CHARACTER_STAT_METHOD_ALL_THE_SAME;
 		}
 		theCharacter.rollStats(rollMethod);
 		//XXX This is here to stop the stat mod from being stale. Can be removed once we merge with CDOM
 		theCharacter.calcActiveBonuses();
 		refreshStatScores();
-		updateScorePurchasePool(true);		
+		updateScorePurchasePool(true);
 	}
 
 	private void refreshStatScores()
@@ -1619,8 +1565,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			DefaultReferenceFacade<Integer> score = statScoreMap.get(stat);
 			if (stat instanceof PCStat)
 			{
-				score.setReference(StatAnalysis.getTotalStatFor(theCharacter,
-					(PCStat) stat));
+				score.setReference(StatAnalysis.getTotalStatFor(theCharacter, (PCStat) stat));
 			}
 		}
 	}
@@ -1633,7 +1578,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	{
 		return (charLevelsFacade.getSize() == 0);
 	}
-	
+
 	/**
 	 * Update the  
 	 */
@@ -1653,8 +1598,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 
 		int poolPointsUsed = poolPointsTotal - theCharacter.getSkillPoints();
 
-		poolPointText.setReference(Integer.toString(poolPointsUsed)
-			+ " / " + Integer.toString(poolPointsTotal)); //$NON-NLS-1$
+		poolPointText.setReference(Integer.toString(poolPointsUsed) + " / " + Integer.toString(poolPointsTotal)); //$NON-NLS-1$
 	}
 
 	/* (non-Javadoc)
@@ -1686,16 +1630,16 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	public float getSkillRanks(SkillFacade skill, CharacterLevelFacade finallevel)
 	{
 		return charLevelsFacade.getSkillRanks(finallevel, skill);
-//		float numRanks = 0.0f;
-//		for (CharacterLevelFacade level : pcClassLevels)
-//		{
-//			numRanks += charLevelsFacade.getSkillRanks(finallevel, skill);
-//			if (level == finallevel)
-//			{
-//				break;
-//			}
-//		}
-//		return numRanks;
+		//		float numRanks = 0.0f;
+		//		for (CharacterLevelFacade level : pcClassLevels)
+		//		{
+		//			numRanks += charLevelsFacade.getSkillRanks(finallevel, skill);
+		//			if (level == finallevel)
+		//			{
+		//				break;
+		//			}
+		//		}
+		//		return numRanks;
 	}
 
 	/* (non-Javadoc)
@@ -1781,7 +1725,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			setGender(selectedGender);
 		}
 		refreshRaceRelatedFields();
-		
+
 		if (oldLevel != charLevelsFacade.getSize())
 		{
 			delegate.showLevelUpInfo(this, oldLevel);
@@ -1829,15 +1773,11 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		spellSupportFacade.refreshAvailableKnownSpells();
 		updateScorePurchasePool(false);
 		refreshEquipment();
-		
-		if (theCharacter.getRace() == null
-			|| Constants.NONESELECTED.equals(theCharacter.getRace()
-				.getKeyName()))
+
+		if (theCharacter.getRace() == null || Constants.NONESELECTED.equals(theCharacter.getRace().getKeyName()))
 		{
-			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab, "Race",
-				"in_irTodoRace", 100));
-		}
-		else
+			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab, "Race", "in_irTodoRace", 100));
+		} else
 		{
 			todoManager.removeTodo("in_irTodoRace");
 		}
@@ -1881,10 +1821,8 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		theCharacter.setName(name);
 		if (isNewCharName(theCharacter.getName()))
 		{
-			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab, "Name",
-				"in_sumTodoName", 1));
-		}
-		else
+			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab, "Name", "in_sumTodoName", 1));
+		} else
 		{
 			todoManager.removeTodo("in_sumTodoName");
 		}
@@ -1900,7 +1838,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	{
 		return !theCharacter.getDisplay().getSuppressBioField(field);
 	}
-	
+
 	/**
 	 * Set whether the field should be output. 
 	 * @param field The BiographyField to set export rules for.
@@ -2006,7 +1944,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		weightRef.setReference(weight);
 		theCharacter.setWeight(weight);
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getDeityRef()
 	 */
@@ -2031,7 +1969,6 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		buildAvailableDomainsList();
 	}
 
-
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#addDomain(pcgen.core.facade.DomainFacade)
 	 */
@@ -2051,8 +1988,8 @@ public class CharacterFacadeImpl implements CharacterFacade,
 
 		if (!isQualifiedFor(domainFacade))
 		{
-			delegate.showErrorMessage(Constants.APPLICATION_NAME, LanguageBundle
-				.getFormattedString("in_qualifyMess", domain.getDisplayName()));
+			delegate.showErrorMessage(Constants.APPLICATION_NAME,
+					LanguageBundle.getFormattedString("in_qualifyMess", domain.getDisplayName()));
 
 			return;
 		}
@@ -2060,20 +1997,19 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		// Check selected domains vs Max number allowed
 		if (theCharacter.getDomainCount() >= theCharacter.getMaxCharacterDomains())
 		{
-			delegate.showErrorMessage(Constants.APPLICATION_NAME, LanguageBundle
-				.getFormattedString("in_errorNoMoreDomains"));
+			delegate.showErrorMessage(Constants.APPLICATION_NAME,
+					LanguageBundle.getFormattedString("in_errorNoMoreDomains"));
 
 			return;
 		}
-		
+
 		domains.addElement(domainFI);
 		theCharacter.addDomain(domain);
 		DomainApplication.applyDomain(theCharacter, domain);
 
 		theCharacter.calcActiveBonuses();
 
-		remainingDomains.setReference(theCharacter.getMaxCharacterDomains()
-			- theCharacter.getDomainCount());
+		remainingDomains.setReference(theCharacter.getMaxCharacterDomains() - theCharacter.getDomainCount());
 		updateDomainTodo();
 		spellSupportFacade.refreshAvailableKnownSpells();
 	}
@@ -2095,8 +2031,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	{
 		domains.removeElement(domain);
 		theCharacter.removeDomain(((DomainFacadeImpl) domain).getRawObject());
-		remainingDomains.setReference(theCharacter.getMaxCharacterDomains()
-			- theCharacter.getDomainCount());
+		remainingDomains.setReference(theCharacter.getMaxCharacterDomains() - theCharacter.getDomainCount());
 		updateDomainTodo();
 		spellSupportFacade.refreshAvailableKnownSpells();
 	}
@@ -2108,23 +2043,20 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	{
 		if (remainingDomains.getReference() > 0)
 		{
-			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.DomainsTab, "Domains",
-				"in_domTodoDomainsLeft", 120));
+			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.DomainsTab, "Domains", "in_domTodoDomainsLeft", 120));
 			todoManager.removeTodo("in_domTodoTooManyDomains");
-		}
-		else if (remainingDomains.getReference() < 0)
+		} else if (remainingDomains.getReference() < 0)
 		{
-			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.DomainsTab, "Domains",
-				"in_domTodoTooManyDomains", 120));
+			todoManager
+					.addTodo(new TodoFacadeImpl(CharacterTab.DomainsTab, "Domains", "in_domTodoTooManyDomains", 120));
 			todoManager.removeTodo("in_domTodoDomainsLeft");
-		}
-		else
+		} else
 		{
 			todoManager.removeTodo("in_domTodoDomainsLeft");
 			todoManager.removeTodo("in_domTodoTooManyDomains");
 		}
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getMaxDomains()
 	 */
@@ -2152,7 +2084,6 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		return availDomains;
 	}
 
-	 
 	/**
 	 * This method returns all available domains, without filtering.
 	 */
@@ -2161,22 +2092,19 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		List<DomainFacadeImpl> availDomainList = new ArrayList<DomainFacadeImpl>();
 		List<DomainFacadeImpl> selDomainList = new ArrayList<DomainFacadeImpl>();
 		Deity pcDeity = theCharacter.getDeity();
-		
+
 		if (pcDeity != null)
 		{
-			for (CDOMReference<Domain> domainRef : pcDeity
-				.getSafeListMods(Deity.DOMAINLIST))
+			for (CDOMReference<Domain> domainRef : pcDeity.getSafeListMods(Deity.DOMAINLIST))
 			{
-				Collection<AssociatedPrereqObject> assoc =
-						pcDeity.getListAssociations(Deity.DOMAINLIST, domainRef);
+				Collection<AssociatedPrereqObject> assoc = pcDeity.getListAssociations(Deity.DOMAINLIST, domainRef);
 				for (AssociatedPrereqObject apo : assoc)
 				{
 					for (Domain d : domainRef.getContainedObjects())
 					{
 						if (!isDomainInList(availDomainList, d))
 						{
-							availDomainList.add(new DomainFacadeImpl(d, apo
-								.getPrerequisiteList()));
+							availDomainList.add(new DomainFacadeImpl(d, apo.getPrerequisiteList()));
 						}
 					}
 				}
@@ -2194,13 +2122,11 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			processAddDomains(aClass, availDomainList);
 			for (int lvl = 0; lvl <= theCharacter.getLevel(aClass); lvl++)
 			{
-				PCClassLevel cl =
-					theCharacter.getActiveClassLevel(aClass, lvl);
+				PCClassLevel cl = theCharacter.getActiveClassLevel(aClass, lvl);
 				processAddDomains(cl, availDomainList);
 				processDomainList(cl, availDomainList);
 			}
 		}
-		
 
 		// Loop through the character's selected domains
 		for (Domain d : theCharacter.getDomainSet())
@@ -2227,12 +2153,11 @@ public class CharacterFacadeImpl implements CharacterFacade,
 				selDomainList.add(domainFI);
 			}
 		}
-		
+
 		availDomains.setContents(availDomainList);
 		domains.setContents(selDomainList);
 		maxDomains.setReference(theCharacter.getMaxCharacterDomains());
-		remainingDomains.setReference(theCharacter.getMaxCharacterDomains()
-			- theCharacter.getDomainCount());
+		remainingDomains.setReference(theCharacter.getMaxCharacterDomains() - theCharacter.getDomainCount());
 		updateDomainTodo();
 	}
 
@@ -2243,9 +2168,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	 * @param qualDomain The domain to search for.
 	 * @return tue if the domain is in the list 
 	 */
-	private boolean isDomainInList(
-		List<DomainFacadeImpl> qualDomainList,
-		Domain domain)
+	private boolean isDomainInList(List<DomainFacadeImpl> qualDomainList, Domain domain)
 	{
 		for (DomainFacadeImpl row : qualDomainList)
 		{
@@ -2257,16 +2180,14 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		return false;
 	}
 
-	private void processAddDomains(CDOMObject cdo,
-			final List<DomainFacadeImpl> availDomainList)
+	private void processAddDomains(CDOMObject cdo, final List<DomainFacadeImpl> availDomainList)
 	{
 		Collection<CDOMReference<Domain>> domainRefs = cdo.getListMods(PCClass.ALLOWED_DOMAINS);
 		if (domainRefs != null)
 		{
 			for (CDOMReference<Domain> ref : domainRefs)
 			{
-				Collection<AssociatedPrereqObject> assoc =
-						cdo.getListAssociations(PCClass.ALLOWED_DOMAINS, ref);
+				Collection<AssociatedPrereqObject> assoc = cdo.getListAssociations(PCClass.ALLOWED_DOMAINS, ref);
 				for (AssociatedPrereqObject apo : assoc)
 				{
 					for (Domain d : ref.getContainedObjects())
@@ -2278,8 +2199,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 						 */
 						if (!isDomainInList(availDomainList, d))
 						{
-							availDomainList.add(new DomainFacadeImpl(d, apo
-								.getPrerequisiteList()));
+							availDomainList.add(new DomainFacadeImpl(d, apo.getPrerequisiteList()));
 						}
 					}
 				}
@@ -2287,8 +2207,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		}
 	}
 
-	private void processDomainList(CDOMObject obj,
-			final List<DomainFacadeImpl> availDomainList)
+	private void processDomainList(CDOMObject obj, final List<DomainFacadeImpl> availDomainList)
 	{
 		for (QualifiedObject<CDOMSingleRef<Domain>> qo : obj.getSafeListFor(ListKey.DOMAIN))
 		{
@@ -2296,12 +2215,11 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			Domain domain = ref.resolvesTo();
 			if (!isDomainInList(availDomainList, domain))
 			{
-				availDomainList.add(new DomainFacadeImpl(domain, qo
-						.getPrerequisiteList()));
+				availDomainList.add(new DomainFacadeImpl(domain, qo.getPrerequisiteList()));
 			}
 		}
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getEquipmentSetRef()
 	 */
@@ -2340,12 +2258,12 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		Collections.sort(sortedLanguages);
 		languages.setContents(sortedLanguages);
 		autoLanguagesCache = null;
- 
-		int bonusLangMax = theCharacter.getBonusLanguageCount();;
+
+		int bonusLangMax = theCharacter.getBonusLanguageCount();
+		;
 		currBonusLangs = new ArrayList<Language>();
-		Ability a =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-					Ability.class, AbilityCategory.LANGBONUS, "*LANGBONUS");
+		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Ability.class, AbilityCategory.LANGBONUS,
+				"*LANGBONUS");
 		List<String> currBonusLangNameList = theCharacter.getAssociationList(a);
 		for (LanguageFacade langFacade : languages)
 		{
@@ -2359,14 +2277,13 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		numBonusLang.setReference(bonusLangRemain);
 		if (bonusLangRemain > 0)
 		{
-			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab, "Languages",
-				"in_sumTodoBonusLanguage", 110));
-		}
-		else
+			todoManager
+					.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab, "Languages", "in_sumTodoBonusLanguage", 110));
+		} else
 		{
 			todoManager.removeTodo("in_sumTodoBonusLanguage");
 		}
-		
+
 		int numSkillLangSelected = 0;
 		int skillLangMax = 0;
 		//TODO: Need to cope with multiple skill languages
@@ -2378,21 +2295,20 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			numSkillLangSelected = langList.size();
 			skillLangMax = (int) theCharacter.getSkillRank(skill);
 		}
-		
+
 		int skillLangRemain = skillLangMax - numSkillLangSelected;
 		numSkillLang.setReference(skillLangRemain);
 		if (skillLangRemain > 0)
 		{
-			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab, "Languages",
-				"in_sumTodoSkillLanguage", 112));
-		}
-		else
+			todoManager
+					.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab, "Languages", "in_sumTodoSkillLanguage", 112));
+		} else
 		{
 			todoManager.removeTodo("in_sumTodoSkillLanguage");
 		}
 
 		long endTime = new Date().getTime();
-		Logging.log(Logging.DEBUG, "refreshLanguageList took " + (endTime-startTime) + " ms.");
+		Logging.log(Logging.DEBUG, "refreshLanguageList took " + (endTime - startTime) + " ms.");
 	}
 
 	/* (non-Javadoc)
@@ -2410,16 +2326,16 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	@Override
 	public ListFacade<LanguageChooserFacade> getLanguageChoosers()
 	{
-		Ability a =
-			Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				Ability.class, AbilityCategory.LANGBONUS, "*LANGBONUS");
+		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Ability.class, AbilityCategory.LANGBONUS,
+				"*LANGBONUS");
 		DefaultListFacade<LanguageChooserFacade> chooserList = new DefaultListFacade<LanguageChooserFacade>();
 		chooserList.addElement(new LanguageChooserFacadeImpl(this, "Bonus Language", a));
 
 		SkillFacade speakLangSkill = dataSet.getSpeakLanguageSkill();
 		if (speakLangSkill != null)
 		{
-			chooserList.addElement(new LanguageChooserFacadeImpl(this, "Language via Skill points", (Skill) speakLangSkill));
+			chooserList.addElement(new LanguageChooserFacadeImpl(this, "Language via Skill points",
+					(Skill) speakLangSkill));
 		}
 		return chooserList;
 	}
@@ -2438,8 +2354,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 
 		List<Language> availLangs = new ArrayList<Language>();
 		List<Language> selLangs = new ArrayList<Language>();
-		ChoiceManagerList<Language> choiceManager =
-				ChooserUtilities.getChoiceManager(owner, theCharacter);
+		ChoiceManagerList<Language> choiceManager = ChooserUtilities.getChoiceManager(owner, theCharacter);
 		choiceManager.getChoices(theCharacter, availLangs, selLangs);
 		selLangs.remove(lang);
 		choiceManager.applyChoices(theCharacter, selLangs);
@@ -2458,13 +2373,11 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	{
 		if (currBonusLangs.contains(lang))
 		{
-			return Globals.getContext().ref
-					.silentlyGetConstructedCDOMObject(Ability.class,
-							AbilityCategory.LANGBONUS, "*LANGBONUS");
-		}
-		else if (languages.containsElement(lang) && !isAutomatic(lang))
+			return Globals.getContext().ref.silentlyGetConstructedCDOMObject(Ability.class, AbilityCategory.LANGBONUS,
+					"*LANGBONUS");
+		} else if (languages.containsElement(lang) && !isAutomatic(lang))
 		{
-			return  (Skill) dataSet.getSpeakLanguageSkill();
+			return (Skill) dataSet.getSpeakLanguageSkill();
 		}
 		return null;
 	}
@@ -2492,25 +2405,23 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	public void export(ExportHandler theHandler, BufferedWriter buf)
 	{
 		final int maxRetries = 3;
-		for (int i = 0; i < maxRetries ; i++)
+		for (int i = 0; i < maxRetries; i++)
 		{
 			try
 			{
 				theHandler.write(theCharacter, buf);
 				return;
-			}
-			catch (ConcurrentModificationException e)
+			} catch (ConcurrentModificationException e)
 			{
 				Logging.log(Logging.INFO, "Retrying export after ConcurrentModificationException", e);
 				try
 				{
 					Thread.sleep(1000);
-				}
-				catch (InterruptedException e1)
+				} catch (InterruptedException e1)
 				{
 					Logging.errorPrint("Interrupted sleep - probably closing.");
 					return;
-					
+
 				}
 			}
 		}
@@ -2526,29 +2437,23 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		String outputSheetPath = outputSheet.getAbsolutePath();
 		if (pdf)
 		{
-			context.setProperty(UIPropertyContext.DEFAULT_PDF_OUTPUT_SHEET,
-				outputSheetPath);
-		}
-		else
+			context.setProperty(UIPropertyContext.DEFAULT_PDF_OUTPUT_SHEET, outputSheetPath);
+		} else
 		{
-			context.setProperty(UIPropertyContext.DEFAULT_HTML_OUTPUT_SHEET,
-				outputSheetPath);
+			context.setProperty(UIPropertyContext.DEFAULT_HTML_OUTPUT_SHEET, outputSheetPath);
 		}
 		if (context.getBoolean(UIPropertyContext.SAVE_OUTPUT_SHEET_WITH_PC))
 		{
 			if (pdf)
 			{
-				theCharacter
-					.setSelectedCharacterPDFOutputSheet(outputSheetPath);
-			}
-			else
+				theCharacter.setSelectedCharacterPDFOutputSheet(outputSheetPath);
+			} else
 			{
-				theCharacter
-					.setSelectedCharacterHTMLOutputSheet(outputSheetPath);
+				theCharacter.setSelectedCharacterHTMLOutputSheet(outputSheetPath);
 			}
 		}
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -2567,12 +2472,11 @@ public class CharacterFacadeImpl implements CharacterFacade,
 
 		if (pdf)
 		{
-			return context
-				.getProperty(UIPropertyContext.DEFAULT_PDF_OUTPUT_SHEET);
+			return context.getProperty(UIPropertyContext.DEFAULT_PDF_OUTPUT_SHEET);
 		}
 		return context.getProperty(UIPropertyContext.DEFAULT_HTML_OUTPUT_SHEET);
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getHandedRef()
 	 */
@@ -2714,7 +2618,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		theCharacter.setXP(newVal);
 		checkForNewLevel();
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getXPForNextLevelRef()
 	 */
@@ -2731,7 +2635,8 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	}
 
 	@Override
-	public void setXPTable(String newTable) {
+	public void setXPTable(String newTable)
+	{
 
 		xpTableName.setReference(newTable);
 		theCharacter.setXPTable(newTable);
@@ -2745,8 +2650,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 
 		if (theCharacter.getXP() >= theCharacter.minXPForNextECL())
 		{
-			delegate.showInfoMessage(Constants.APPLICATION_NAME, SettingsHandler.getGame()
-				.getLevelUpMessage());
+			delegate.showInfoMessage(Constants.APPLICATION_NAME, SettingsHandler.getGame().getLevelUpMessage());
 		}
 		updateLevelTodo();
 	}
@@ -2758,7 +2662,8 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	}
 
 	@Override
-	public void setCharacterType(String newType) {
+	public void setCharacterType(String newType)
+	{
 
 		characterType.setReference(newType);
 		theCharacter.setCharacterType(newType);
@@ -2775,7 +2680,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			// We've already processed this change, most likely via the setAgeCategory method
 			return;
 		}
-		
+
 		theCharacter.setAge(age);
 		this.age.setReference(age);
 		updateAgeCategoryForAge();
@@ -2799,7 +2704,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			}
 		}
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getAgeRef()
 	 */
@@ -2839,8 +2744,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 				if (idx >= 0)
 				{
 					ageCategory.setReference(ageCat);
-					Globals.getBioSet().randomize(
-							"AGECAT" + Integer.toString(idx), theCharacter);
+					Globals.getBioSet().randomize("AGECAT" + Integer.toString(idx), theCharacter);
 					age.setReference(theCharacter.getAge());
 					ageCategory.setReference(ageCat);
 				}
@@ -2853,7 +2757,6 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	{
 		return ageCategory;
 	}
-
 
 	/**
 	 * This method updates the purchase point pool and the stat total text. The 
@@ -2881,19 +2784,16 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			int availablePool = theCharacter.getPointBuyPoints();
 			if (availablePool < 0)
 			{
-				availablePool =
-						RollingMethods.roll(SettingsHandler.getGame()
-							.getPurchaseModeMethodPoolFormula());
+				availablePool = RollingMethods.roll(SettingsHandler.getGame().getPurchaseModeMethodPoolFormula());
 				theCharacter.setPointBuyPoints(availablePool);
 			}
 
 			if (availablePool != 0)
 			{
-				statTotalLabelText.setReference(LanguageBundle
-					.getFormattedString("in_sumStatCost", SettingsHandler //$NON-NLS-1$
+				statTotalLabelText.setReference(LanguageBundle.getFormattedString("in_sumStatCost", SettingsHandler //$NON-NLS-1$
 						.getGame().getPurchaseModeMethodName()));
 				statTotalText.setReference(LanguageBundle.getFormattedString(
-					"in_sumStatPurchaseDisplay", bString, availablePool)); //$NON-NLS-1$
+						"in_sumStatPurchaseDisplay", bString, availablePool)); //$NON-NLS-1$
 				modTotalLabelText.setReference("");
 				modTotalText.setReference("");
 			}
@@ -2904,21 +2804,17 @@ public class CharacterFacadeImpl implements CharacterFacade,
 				// Let the user know that they've exceeded their goal, but allow them to keep going if they want...
 				// Only do this at 1st level or lower
 				//
-				if (canChangePurchasePool() && (availablePool > 0)
-					&& (usedStatPool > availablePool))
+				if (canChangePurchasePool() && (availablePool > 0) && (usedStatPool > availablePool))
 				{
-					delegate.showInfoMessage(Constants.APPLICATION_NAME,
-						LanguageBundle.getFormattedString(
+					delegate.showInfoMessage(Constants.APPLICATION_NAME, LanguageBundle.getFormattedString(
 							"in_sumYouHaveExcededTheMaximumPointsOf",//$NON-NLS-1$
-							String.valueOf(availablePool), SettingsHandler
-								.getGame().getPurchaseModeMethodName()));
+							String.valueOf(availablePool), SettingsHandler.getGame().getPurchaseModeMethodName()));
 				}
 			}
 		}
 
 		// Non-purchase mode for stats
-		if (!SettingsHandler.getGame().isPurchaseStatMode()
-			|| (theCharacter.getPointBuyPoints() == 0))
+		if (!SettingsHandler.getGame().isPurchaseStatMode() || (theCharacter.getPointBuyPoints() == 0))
 		{
 			int statTotal = 0;
 			int modTotal = 0;
@@ -2937,24 +2833,19 @@ public class CharacterFacadeImpl implements CharacterFacade,
 				modTotal += currentMod;
 			}
 
-			statTotalLabelText.setReference(LanguageBundle
-				.getString("in_sumStatTotalLabel")); //$NON-NLS-1$
-			statTotalText.setReference(LanguageBundle.getFormattedString(
-				"in_sumStatTotal", Integer.toString(statTotal)));
-			modTotalLabelText.setReference(LanguageBundle
-				.getString("in_sumModTotalLabel"));
-			modTotalText.setReference(LanguageBundle.getFormattedString(
-				"in_sumModTotal", Integer.toString(modTotal)));
+			statTotalLabelText.setReference(LanguageBundle.getString("in_sumStatTotalLabel")); //$NON-NLS-1$
+			statTotalText
+					.setReference(LanguageBundle.getFormattedString("in_sumStatTotal", Integer.toString(statTotal)));
+			modTotalLabelText.setReference(LanguageBundle.getString("in_sumModTotalLabel"));
+			modTotalText.setReference(LanguageBundle.getFormattedString("in_sumModTotal", Integer.toString(modTotal)));
 		}
-		
+
 		if (charLevelsFacade.getSize() == 0
-			&& (allAbilitiesAreZero() || (SettingsHandler.getGame()
-				.isPurchaseStatMode() && (theCharacter.getPointBuyPoints() != getUsedStatPool(theCharacter)))))
+				&& (allAbilitiesAreZero() || (SettingsHandler.getGame().isPurchaseStatMode() && (theCharacter
+						.getPointBuyPoints() != getUsedStatPool(theCharacter)))))
 		{
-			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab,
-				"Ability Scores", "in_sumTodoStats", 50));
-		}
-		else
+			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab, "Ability Scores", "in_sumTodoStats", 50));
+		} else
 		{
 			todoManager.removeTodo("in_sumTodoStats");
 		}
@@ -2971,13 +2862,12 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		// adjustment so only count PC & NPC levels, not
 		// monster levels XXX
 		int pcPlayerLevels = theCharacter.totalNonMonsterLevels();
-		
+
 		int maxDiddleLevel;
 		if (poolPointText != null)
 		{
 			maxDiddleLevel = 0;
-		}
-		else
+		} else
 		{
 			maxDiddleLevel = 1;
 		}
@@ -3060,18 +2950,15 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		rollMethodRef.setReference(game.getRollMethod());
 		if (SettingsHandler.getGame().isPurchaseStatMode())
 		{
-			int availablePool =
-					RollingMethods.roll(SettingsHandler.getGame()
-						.getPurchaseModeMethodPoolFormula());
+			int availablePool = RollingMethods.roll(SettingsHandler.getGame().getPurchaseModeMethodPoolFormula());
 			theCharacter.setPointBuyPoints(availablePool);
 
 			// Make sure all scores are within the valid range
 			for (StatFacade stat : statScoreMap.keySet())
 			{
 				DefaultReferenceFacade<Integer> score = statScoreMap.get(stat);
-				if (score.getReference() < SettingsHandler.getGame()
-					.getPurchaseScoreMin(theCharacter)
-					&& stat instanceof PCStat)
+				if (score.getReference() < SettingsHandler.getGame().getPurchaseScoreMin(theCharacter)
+						&& stat instanceof PCStat)
 				{
 					setStatToPurchaseNeutral((PCStat) stat, score);
 				}
@@ -3090,19 +2977,14 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	 * @param pcStat The stata ebing adjusted.
 	 * @param scoreRef The reference tothe current score.
 	 */
-	private void setStatToPurchaseNeutral(PCStat pcStat,
-		DefaultReferenceFacade<Integer> scoreRef)
+	private void setStatToPurchaseNeutral(PCStat pcStat, DefaultReferenceFacade<Integer> scoreRef)
 	{
-		int newScore =
-				SettingsHandler.getGame().getPurchaseModeBaseStatScore(
-					theCharacter);
-		if (StringUtils.isNotEmpty(validateNewStatBaseScore(newScore, pcStat,
-			theCharacter.totalNonMonsterLevels())))
+		int newScore = SettingsHandler.getGame().getPurchaseModeBaseStatScore(theCharacter);
+		if (StringUtils.isNotEmpty(validateNewStatBaseScore(newScore, pcStat, theCharacter.totalNonMonsterLevels())))
 		{
-			newScore =
-					SettingsHandler.getGame().getPurchaseScoreMin(theCharacter);
-			if (StringUtils.isNotEmpty(validateNewStatBaseScore(newScore, pcStat,
-				theCharacter.totalNonMonsterLevels())))
+			newScore = SettingsHandler.getGame().getPurchaseScoreMin(theCharacter);
+			if (StringUtils
+					.isNotEmpty(validateNewStatBaseScore(newScore, pcStat, theCharacter.totalNonMonsterLevels())))
 			{
 				return;
 			}
@@ -3118,7 +3000,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	@Override
 	public void adjustFunds(BigDecimal modVal)
 	{
-		BigDecimal currFunds = theCharacter.getGold(); 
+		BigDecimal currFunds = theCharacter.getGold();
 		theCharacter.setGold(currFunds.add(modVal));
 		updateWealthFields();
 	}
@@ -3167,7 +3049,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		rate = scheme.getSellRate().intValue();
 		SettingsHandler.setGearTab_SellRate(rate);
 	}
-	
+
 	/**
 	 * Update the wealth related fields.
 	 */
@@ -3195,7 +3077,6 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		return allowDebt;
 	}
 
-
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getPurchasedEquipment()
 	 */
@@ -3215,8 +3096,8 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		{
 			return;
 		}
-		
-//		int nextOutputIndex = 1;
+
+		//		int nextOutputIndex = 1;
 		Equipment equipItemToAdjust = (Equipment) equipment;
 
 		if (customize)
@@ -3227,31 +3108,27 @@ public class CharacterFacadeImpl implements CharacterFacade,
 				return;
 			}
 		}
-		Equipment updatedItem =
-				theCharacter.getEquipmentNamed(equipItemToAdjust.getName());
-		
-		if (!canAfford(equipItemToAdjust, quantity,
-			(GearBuySellScheme) gearBuySellSchemeRef.getReference()))
+		Equipment updatedItem = theCharacter.getEquipmentNamed(equipItemToAdjust.getName());
+
+		if (!canAfford(equipItemToAdjust, quantity, (GearBuySellScheme) gearBuySellSchemeRef.getReference()))
 		{
-			delegate.showInfoMessage(Constants.APPLICATION_NAME, LanguageBundle
-				.getFormattedString("in_igBuyInsufficientFunds", quantity, //$NON-NLS-1$
-					equipItemToAdjust.getName()));
+			delegate.showInfoMessage(Constants.APPLICATION_NAME,
+					LanguageBundle.getFormattedString("in_igBuyInsufficientFunds", quantity, //$NON-NLS-1$
+							equipItemToAdjust.getName()));
 			return;
 		}
 
 		if (updatedItem != null)
 		{
 			// item is already in inventory; update it
-			final double prevQty =
-					(updatedItem.qty() < 0) ? 0 : updatedItem.qty();
+			final double prevQty = (updatedItem.qty() < 0) ? 0 : updatedItem.qty();
 			final double newQty = prevQty + quantity;
 
 			theCharacter.updateEquipmentQty(updatedItem, prevQty, newQty);
 			Float qty = new Float(newQty);
 			updatedItem.setQty(qty);
 			purchasedEquip.setQuantity(equipment, qty.intValue());
-		}
-		else
+		} else
 		{
 			// item is not in inventory; add it
 			updatedItem = equipItemToAdjust.clone();
@@ -3259,43 +3136,40 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			if (updatedItem != null)
 			{
 				//TODO:  Calc the item's output order
-//				if (autoSort.isSelected())
-//				{
-//					updatedItem.setOutputIndex(nextOutputIndex);
-//				}
-//				else
-//				{
-//					if (updatedItem.getOutputIndex() == 0)
-//					{
-//						updatedItem
-//							.setOutputIndex(getHighestOutputIndex() + 1);
-//						theCharacter.cacheOutputIndex(updatedItem);
-//					}
-//				}
+				//				if (autoSort.isSelected())
+				//				{
+				//					updatedItem.setOutputIndex(nextOutputIndex);
+				//				}
+				//				else
+				//				{
+				//					if (updatedItem.getOutputIndex() == 0)
+				//					{
+				//						updatedItem
+				//							.setOutputIndex(getHighestOutputIndex() + 1);
+				//						theCharacter.cacheOutputIndex(updatedItem);
+				//					}
+				//				}
 
 				// Set the number carried and add it to the character
 				Float qty = new Float(quantity);
 				updatedItem.setQty(qty);
 				theCharacter.addEquipment(updatedItem);
-//				if (autoSort.isSelected())
-//				{
-//					resortSelected(ResortComparator.RESORT_NAME,
-//						ResortComparator.RESORT_ASCENDING);
-//				}
+				//				if (autoSort.isSelected())
+				//				{
+				//					resortSelected(ResortComparator.RESORT_NAME,
+				//						ResortComparator.RESORT_ASCENDING);
+				//				}
 			}
 			purchasedEquip.addElement(updatedItem, quantity);
 		}
 
 		// Update the PC and equipment
-		double itemCost =
-				calcItemCost(updatedItem, quantity,
-					(GearBuySellScheme) gearBuySellSchemeRef.getReference());
-		theCharacter.adjustGold(itemCost*-1);
+		double itemCost = calcItemCost(updatedItem, quantity, (GearBuySellScheme) gearBuySellSchemeRef.getReference());
+		theCharacter.adjustGold(itemCost * -1);
 		theCharacter.setCalcEquipmentList();
 		theCharacter.setDirty(true);
 		updateWealthFields();
 	}
-
 
 	/**
 	 * This method is called to determine whether the character can afford to buy
@@ -3307,19 +3181,16 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	 * This method was overhauled March, 2003 by sage_sam as part of FREQ 606205
 	 * @return true if it can be afforded
 	 */
-	private boolean canAfford(Equipment selected, double purchaseQty,
-		GearBuySellScheme gearBuySellScheme)
+	private boolean canAfford(Equipment selected, double purchaseQty, GearBuySellScheme gearBuySellScheme)
 	{
 		final float currentFunds = theCharacter.getGold().floatValue();
 
-		final double itemCost =
-				calcItemCost(selected, purchaseQty, gearBuySellScheme);
+		final double itemCost = calcItemCost(selected, purchaseQty, gearBuySellScheme);
 
 		return allowDebt || (itemCost <= currentFunds);
 	}
 
-	private double calcItemCost(Equipment selected, double purchaseQty,
-		GearBuySellScheme gearBuySellScheme)
+	private double calcItemCost(Equipment selected, double purchaseQty, GearBuySellScheme gearBuySellScheme)
 	{
 		BigDecimal rate = purchaseQty >= 0 ? gearBuySellScheme.getBuyRate() : gearBuySellScheme.getSellRate();
 		if (purchaseQty < 0 && selected.isSellAsCash())
@@ -3327,10 +3198,9 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			rate = gearBuySellScheme.getCashSellRate();
 		}
 
-		return (purchaseQty * rate.intValue()) * (float) 0.01
-			* selected.getCost(theCharacter).floatValue();
+		return (purchaseQty * rate.intValue()) * (float) 0.01 * selected.getCost(theCharacter).floatValue();
 	}
-	
+
 	private Equipment openCustomizer(Equipment aEq)
 	{
 		if (aEq != null)
@@ -3341,11 +3211,9 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			{
 				eqFrame.setVisible(true);
 				Equipment newEquip = eqFrame.getNewEquip();
-				if (newEquip != null
-					&& dataSet.getEquipment() instanceof DefaultListFacade<?>)
+				if (newEquip != null && dataSet.getEquipment() instanceof DefaultListFacade<?>)
 				{
-					((DefaultListFacade<EquipmentFacade>) dataSet
-						.getEquipment()).addElement(newEquip);
+					((DefaultListFacade<EquipmentFacade>) dataSet.getEquipment()).addElement(newEquip);
 				}
 				return eqFrame.isPurchase() ? newEquip : null;
 			}
@@ -3363,17 +3231,15 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		{
 			return;
 		}
-		
+
 		Equipment equipItemToAdjust = (Equipment) equipment;
 
-		Equipment updatedItem =
-				theCharacter.getEquipmentNamed(equipItemToAdjust.getName());
+		Equipment updatedItem = theCharacter.getEquipmentNamed(equipItemToAdjust.getName());
 
 		// see if item is already in inventory; update it
 		if (updatedItem != null)
 		{
-			final double prevQty =
-					(updatedItem.qty() < 0) ? 0 : updatedItem.qty();
+			final double prevQty = (updatedItem.qty() < 0) ? 0 : updatedItem.qty();
 			final double newQty = prevQty - quantity;
 
 			//TODO: Check for presence in equipset and offer to remove
@@ -3393,8 +3259,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 				theCharacter.removeEquipment(updatedItem);
 				theCharacter.delEquipSetItem(updatedItem);
 				purchasedEquip.removeElement(updatedItem);
-			}
-			else
+			} else
 			{
 				// update item count
 				theCharacter.updateEquipmentQty(updatedItem, prevQty, newQty);
@@ -3403,7 +3268,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 				updatedItem.setNumberCarried(qty);
 				purchasedEquip.setQuantity(equipment, qty.intValue());
 			}
-			
+
 			theCharacter.updateEquipmentQty(updatedItem, prevQty, newQty);
 			Float qty = new Float(newQty);
 			updatedItem.setQty(qty);
@@ -3411,9 +3276,8 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		}
 
 		// Update the PC and equipment
-		double itemCost =
-				calcItemCost(updatedItem, quantity * -1,
-					(GearBuySellScheme) gearBuySellSchemeRef.getReference());
+		double itemCost = calcItemCost(updatedItem, quantity * -1,
+				(GearBuySellScheme) gearBuySellSchemeRef.getReference());
 		theCharacter.adjustGold(itemCost * -1);
 		theCharacter.setCalcEquipmentList();
 		theCharacter.setDirty(true);
@@ -3427,9 +3291,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	public boolean isQualifiedFor(EquipmentFacade equipment)
 	{
 		final Equipment equip = (Equipment) equipment;
-		final boolean accept =
-				PrereqHandler.passesAll(equip.getPrerequisiteList(),
-					theCharacter, equip);
+		final boolean accept = PrereqHandler.passesAll(equip.getPrerequisiteList(), theCharacter, equip);
 
 		if (accept && (equip.isShield() || equip.isWeapon() || equip.isArmor()))
 		{
@@ -3447,18 +3309,15 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	{
 		final Equipment equip = (Equipment) equipment;
 		final SizeAdjustment newSize = theCharacter.getSizeAdjustment();
-		if (equip.getSizeAdjustment() == newSize
-			|| !Globals.canResizeHaveEffect(theCharacter, equip, null))
+		if (equip.getSizeAdjustment() == newSize || !Globals.canResizeHaveEffect(theCharacter, equip, null))
 		{
 			return equipment;
 		}
-		
-		final String existingKey = equip.getKeyName();
-		final String newKey =
-				equip.createKeyForAutoResize(newSize);
 
-		Equipment potential = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				Equipment.class, newKey);
+		final String existingKey = equip.getKeyName();
+		final String newKey = equip.createKeyForAutoResize(newSize);
+
+		Equipment potential = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Equipment.class, newKey);
 
 		if (newKey.equals(existingKey))
 		{
@@ -3473,24 +3332,19 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			return potential;
 		}
 
-		final String newName =
-					equip.createNameForAutoResize(newSize);
-		potential = Globals.getContext().ref
-				.silentlyGetConstructedCDOMObject(Equipment.class,
-						newName);
+		final String newName = equip.createNameForAutoResize(newSize);
+		potential = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Equipment.class, newName);
 
 		if (potential != null)
 		{
 			return potential;
 		}
 
-		final Equipment newEq =
-				equip.clone();
+		final Equipment newEq = equip.clone();
 
 		if (!newEq.containsKey(ObjectKey.BASE_ITEM))
 		{
-			newEq.put(ObjectKey.BASE_ITEM, CDOMDirectSingleRef
-				.getRef(equip));
+			newEq.put(ObjectKey.BASE_ITEM, CDOMDirectSingleRef.getRef(equip));
 		}
 
 		newEq.setName(newName);
@@ -3541,10 +3395,9 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		String id = EquipmentSetFacadeImpl.getNewIdPath(theCharacter, null);
 		EquipSet eSet = new EquipSet(id, setName);
 		theCharacter.addEquipSet(eSet);
-		final EquipmentSetFacadeImpl facade =
-			new EquipmentSetFacadeImpl(delegate, theCharacter, eSet, dataSet);
+		final EquipmentSetFacadeImpl facade = new EquipmentSetFacadeImpl(delegate, theCharacter, eSet, dataSet);
 		equipmentSets.addElement(facade);
-		
+
 		return facade;
 	}
 
@@ -3633,38 +3486,33 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	 */
 	private void refreshTotalWeight()
 	{
-		String weight = Globals.getGameModeUnitSet().displayWeightInUnitSet(
-			theCharacter.totalWeight().doubleValue());
+		String weight = Globals.getGameModeUnitSet().displayWeightInUnitSet(theCharacter.totalWeight().doubleValue());
 		carriedWeightRef.setReference(weight);
-		
+
 		Load load = theCharacter.getLoadType();
 		loadRef.setReference(CoreUtility.capitalizeFirstLetter(load.toString()));
-		
-		Float mult = SettingsHandler.getGame().getLoadInfo().getLoadMultiplier(
-			load.toString());
+
+		Float mult = SettingsHandler.getGame().getLoadInfo().getLoadMultiplier(load.toString());
 		double limit = 0.0f;
 		if (mult != null)
 		{
-			limit = WeightToken.getLoadToken(load.toString(),theCharacter);
+			limit = WeightToken.getLoadToken(load.toString(), theCharacter);
 		}
 		double lowerLimit = 0.0f;
 		for (Load testLoad : Load.values())
 		{
-			double testLimit = WeightToken.getLoadToken(testLoad.toString(),theCharacter);
+			double testLimit = WeightToken.getLoadToken(testLoad.toString(), theCharacter);
 			if (testLoad.compareTo(load) < 0 && testLimit > lowerLimit)
 			{
 				lowerLimit = testLimit;
 			}
 		}
-		StringBuilder loadLimit = new StringBuilder(Globals.getGameModeUnitSet()
-			.displayWeightInUnitSet(lowerLimit));
+		StringBuilder loadLimit = new StringBuilder(Globals.getGameModeUnitSet().displayWeightInUnitSet(lowerLimit));
 		if (limit > 0)
 		{
 			loadLimit.append(" - ");
-			loadLimit.append(Globals.getGameModeUnitSet()
-				.displayWeightInUnitSet(limit));
-		}
-		else
+			loadLimit.append(Globals.getGameModeUnitSet().displayWeightInUnitSet(limit));
+		} else
 		{
 			loadLimit.append("+ ");
 		}
@@ -3722,9 +3570,8 @@ public class CharacterFacadeImpl implements CharacterFacade,
 
 		DomainFacadeImpl domainFI = (DomainFacadeImpl) domainFacade;
 		Domain domain = domainFI.getRawObject();
-		if (!PrereqHandler.passesAll(domainFI.getPrerequisiteList(),
-			theCharacter, domain)
-			|| !theCharacter.isQualified(domain))
+		if (!PrereqHandler.passesAll(domainFI.getPrerequisiteList(), theCharacter, domain)
+				|| !theCharacter.isQualified(domain))
 		{
 			return false;
 		}
@@ -3755,16 +3602,14 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			templates.addElement(template);
 			theCharacter.addTemplate(template);
 			refreshRaceRelatedFields();
-			
+
 			if (oldLevel != charLevelsFacade.getSize())
 			{
 				delegate.showLevelUpInfo(this, oldLevel);
 			}
-		}
-		else
+		} else
 		{
-			delegate.showErrorMessage(Constants.APPLICATION_NAME, LanguageBundle
-				.getString("in_irHaveTemplate"));
+			delegate.showErrorMessage(Constants.APPLICATION_NAME, LanguageBundle.getString("in_irHaveTemplate"));
 		}
 	}
 
@@ -3785,11 +3630,9 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		{
 			theCharacter.removeTemplate(template);
 			templates.removeElement(template);
-		}
-		else
+		} else
 		{
-			delegate.showErrorMessage(Constants.APPLICATION_NAME, LanguageBundle
-				.getString("in_irNotRemovable"));
+			delegate.showErrorMessage(Constants.APPLICATION_NAME, LanguageBundle.getString("in_irNotRemovable"));
 		}
 	}
 
@@ -3812,7 +3655,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			}
 		}
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#getTemplates()
 	 */
@@ -3821,7 +3664,6 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	{
 		return templates;
 	}
-
 
 	@Override
 	public void addCharacterChangeListener(CharacterChangeListener listener)
@@ -3854,8 +3696,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	public void setPortrait(File file)
 	{
 		portrait.setReference(file);
-		theCharacter.setPortraitPath(file == null ? null : file
-			.getAbsolutePath());
+		theCharacter.setPortraitPath(file == null ? null : file.getAbsolutePath());
 	}
 
 	@Override
@@ -3914,10 +3755,8 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		{
 			return null;
 		}
-		CompanionNotLoaded stub =
-				new CompanionNotLoaded(master.getName(), new File(
-					master.getFileName()), master.getRace(), master.getType()
-					.getKeyName());
+		CompanionNotLoaded stub = new CompanionNotLoaded(master.getName(), new File(master.getFileName()),
+				master.getRace(), master.getType().getKeyName());
 		CharacterFacade masterFacade = CharacterManager.getCharacterMatching(stub);
 		if (masterFacade != null)
 		{
@@ -3931,15 +3770,13 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	 * object are leaked to the outside world. This guarantees that the underlying reference
 	 * object will not changed after it is set.
 	 */
-	private static class RectangleReference extends DefaultReferenceFacade<Rectangle>
-	{
+	private static class RectangleReference extends DefaultReferenceFacade<Rectangle> {
 
 		/**
 		 * Create a new reference based on the supplied rectangle.
 		 * @param rect
 		 */
-		public RectangleReference(Rectangle rect) 
-		{
+		public RectangleReference(Rectangle rect) {
 			this.object = rect == null ? null : (Rectangle) rect.clone();
 		}
 
@@ -3995,21 +3832,21 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		{
 			return;
 		}
-		
+
 		Kit kit = (Kit) obj;
 		if (!theCharacter.isQualified(kit))
 		{
 			return;
 		}
-		
+
 		List<BaseKit> thingsToAdd = new ArrayList<BaseKit>();
-		List<String> warnings     = new ArrayList<String>();
+		List<String> warnings = new ArrayList<String>();
 		kit.testApplyKit(theCharacter, thingsToAdd, warnings);
 
 		//
 		// See if user wants to apply the kit even though there were errors
 		//
-		
+
 		if (!showKitWarnings(kit, warnings))
 		{
 			return;
@@ -4018,7 +3855,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		// The user is applying the kit so use the real PC now.
 		kit.processKit(theCharacter, thingsToAdd);
 		kitList.addElement(obj);
-		
+
 		// Kits can upate most things so do a thorough refresh
 		race.setReference(theCharacter.getRace());
 		refreshRaceRelatedFields();
@@ -4026,7 +3863,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		characterType.setReference(theCharacter.getCharacterType());
 		alignment.setReference(theCharacter.getPCAlignment());
 		refreshStatScores();
-		
+
 	}
 
 	/**
@@ -4036,7 +3873,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 	{
 		fundsRef.setReference(theCharacter.getGold());
 		wealthRef.setReference(theCharacter.totalValue());
-		
+
 		purchasedEquip.refresh(theCharacter.getEquipmentMasterList());
 		initEquipSet(theCharacter);
 	}
@@ -4057,7 +3894,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 		}
 
 		HtmlInfoBuilder warningMsg = new HtmlInfoBuilder();
-		
+
 		warningMsg.append(LanguageBundle.getString("in_kitWarnStart")); //$NON-NLS-1$
 		warningMsg.appendLineBreak();
 		warningMsg.append("<UL>"); //$NON-NLS-1$
@@ -4074,7 +3911,7 @@ public class CharacterFacadeImpl implements CharacterFacade,
 
 		return delegate.showWarningConfirm(kit.getDisplayName(), warningMsg.toString());
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -4094,17 +3931,19 @@ public class CharacterFacadeImpl implements CharacterFacade,
 			}
 
 		}
-		
+
 		return kits;
 	}
 
 	@Override
-	public VariableProcessor getVariableProcessor() {
+	public VariableProcessor getVariableProcessor()
+	{
 		return theCharacter.getVariableProcessor();
 	}
 
 	@Override
-	public Float getVariable(String variableString, boolean isMax) {
+	public Float getVariable(String variableString, boolean isMax)
+	{
 		return theCharacter.getVariable(variableString, isMax);
 	}
 }

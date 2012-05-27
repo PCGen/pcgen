@@ -89,6 +89,7 @@ import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
+import pcgen.core.QualifiedObject;
 import pcgen.core.Race;
 import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
@@ -112,8 +113,8 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.rules.context.AssociatedChanges;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
-import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 /**
  * <code>EditorMainForm</code>
@@ -121,169 +122,168 @@ import pcgen.system.LanguageBundle;
  * @author  Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-public final class EditorMainForm extends JDialog
-{
+public final class EditorMainForm extends JDialog {
 	static final long serialVersionUID = 608648521263089459L;
 
-//
-// tags from PObject:
-// ADD, AUTO
-// BONUS
-// CCSKILL, CSKILL
-// CHOOSE
-// DEFINE, DESC, DESCISPI, DR
-// KEY, KIT
-// LANGAUTO
-// NAME, NAMEISPI
-// OUTPUTNAME
-// PRExxx
-// REGION, RESTRICT
-// SA, SPELL, SR
-// TYPE
-// UDAM, UMULT
-// VISION
-// WEAPONAUTO
-//
-// tags from Class:
-// ABB
-// ADDDOMAINS
-// ATTACKCYCLE
-// BAB
-// CAST
-// CASTAS
-// DEF
-// DEITY
-// DOMAIN
-// EXCHANGELEVEL
-// EXCLASS
-// FEAT
-// FEATAUTO
-// HASSUBCLASS
-// HD
-// ITEMCREATE
-// KNOWN
-// KNOWNSPELLS
-// KNOWNSPELLSFROMSPECIALTY
-// LANGBONUS
-// LEVELSPERFEAT
-// MAXLEVEL
-// MEMORIZE
-// MODTOSKILLS
-// MULTIPREREQS
-// PROHIBITED
-// QUALIFY
-// SKILLLIST
-// SPECIALS
-// SPECIALTYKNOWN
-// SPELLBOOK
-// SPELLLIST
-// SPELLSTAT
-// SPELLTYPE
-// STARTSKILLPTS
-// SUBCLASS
-// TEMPLATE
-// UATT
-// VFEAT
-// VISIBLE
-// WEAPONBONUS
-// XTRAFEATS
-// MONSKILL
-// PRERACETYPE
-//
-// tags from Deity:
-// ALIGN
-// DEITYWEAP
-// DOMAINS
-// FOLLOWERALIGN
-// PANTHEON
-// QUALIFY
-// RACE
-// SYMBOL
-//
-// tags from Domain:
-// FEAT
-// QUALIFY
-//
-// tags from Feat:
-// ADD
-// COST
-// MULT
-// QUALIFY
-// STACK
-// VISIBLE
-//
-// tags from Language:
-// --none--
-//
-// tags from Race:
-// AC
-// BAB
-// CHOOSE:LANGAUTO
-// CR
-// FACE
-// FAVCLASS
-// FEAT
-// HANDS
-// HITDIE
-// HITDICEADVANCEMENT
-// INIT
-// LANGBONUS
-// LANGNUM
-// LEGS
-// LEVELADJUSTMENT
-// MONSTERCLASS
-// MOVE
-// NATURALATTACKS
-// PROF
-// QUALIFY
-// RACENAME
-// REACH
-// SIZE
-// SKILL
-// SKILLMULT
-// STARTFEATS
-// TEMPLATE
-// VFEAT
-// WEAPONBONUS
-// XTRASKILLPTSPERLVL
-//
-// tags from Skill:
-// ACHECK
-// CLASSES
-// EXCLUSIVE
-// KEYSTAT
-// QUALIFY
-// REQ
-// ROOT
-// SYNERGY
-// USEUNTRAINED
-//
-// tags from Spell:
-// CASTTIME
-// CLASSES
-// COMPS
-// COST
-// DOMAINS
-// EFFECTS (deprecated use DESC)
-// EFFECTTYPE (deprecated use TARGETAREA)
-// CT
-// DESCRIPTOR
-// DURATION
-// ITEM
-// LVLRANGE (Wheel of Time)
-// QUALIFY
-// RANGE
-// SAVEINFO
-// SCHOOL
-// SPELLLEVEL (deprecated use CLASSES or DOMAINS)
-// SPELLRES
-// SUBSCHOOL
-// TARGETAREA
-// STAT
-// VARIANTS
-// XPCOST
-//
-//
+	//
+	// tags from PObject:
+	// ADD, AUTO
+	// BONUS
+	// CCSKILL, CSKILL
+	// CHOOSE
+	// DEFINE, DESC, DESCISPI, DR
+	// KEY, KIT
+	// LANGAUTO
+	// NAME, NAMEISPI
+	// OUTPUTNAME
+	// PRExxx
+	// REGION, RESTRICT
+	// SA, SPELL, SR
+	// TYPE
+	// UDAM, UMULT
+	// VISION
+	// WEAPONAUTO
+	//
+	// tags from Class:
+	// ABB
+	// ADDDOMAINS
+	// ATTACKCYCLE
+	// BAB
+	// CAST
+	// CASTAS
+	// DEF
+	// DEITY
+	// DOMAIN
+	// EXCHANGELEVEL
+	// EXCLASS
+	// FEAT
+	// FEATAUTO
+	// HASSUBCLASS
+	// HD
+	// ITEMCREATE
+	// KNOWN
+	// KNOWNSPELLS
+	// KNOWNSPELLSFROMSPECIALTY
+	// LANGBONUS
+	// LEVELSPERFEAT
+	// MAXLEVEL
+	// MEMORIZE
+	// MODTOSKILLS
+	// MULTIPREREQS
+	// PROHIBITED
+	// QUALIFY
+	// SKILLLIST
+	// SPECIALS
+	// SPECIALTYKNOWN
+	// SPELLBOOK
+	// SPELLLIST
+	// SPELLSTAT
+	// SPELLTYPE
+	// STARTSKILLPTS
+	// SUBCLASS
+	// TEMPLATE
+	// UATT
+	// VFEAT
+	// VISIBLE
+	// WEAPONBONUS
+	// XTRAFEATS
+	// MONSKILL
+	// PRERACETYPE
+	//
+	// tags from Deity:
+	// ALIGN
+	// DEITYWEAP
+	// DOMAINS
+	// FOLLOWERALIGN
+	// PANTHEON
+	// QUALIFY
+	// RACE
+	// SYMBOL
+	//
+	// tags from Domain:
+	// FEAT
+	// QUALIFY
+	//
+	// tags from Feat:
+	// ADD
+	// COST
+	// MULT
+	// QUALIFY
+	// STACK
+	// VISIBLE
+	//
+	// tags from Language:
+	// --none--
+	//
+	// tags from Race:
+	// AC
+	// BAB
+	// CHOOSE:LANGAUTO
+	// CR
+	// FACE
+	// FAVCLASS
+	// FEAT
+	// HANDS
+	// HITDIE
+	// HITDICEADVANCEMENT
+	// INIT
+	// LANGBONUS
+	// LANGNUM
+	// LEGS
+	// LEVELADJUSTMENT
+	// MONSTERCLASS
+	// MOVE
+	// NATURALATTACKS
+	// PROF
+	// QUALIFY
+	// RACENAME
+	// REACH
+	// SIZE
+	// SKILL
+	// SKILLMULT
+	// STARTFEATS
+	// TEMPLATE
+	// VFEAT
+	// WEAPONBONUS
+	// XTRASKILLPTSPERLVL
+	//
+	// tags from Skill:
+	// ACHECK
+	// CLASSES
+	// EXCLUSIVE
+	// KEYSTAT
+	// QUALIFY
+	// REQ
+	// ROOT
+	// SYNERGY
+	// USEUNTRAINED
+	//
+	// tags from Spell:
+	// CASTTIME
+	// CLASSES
+	// COMPS
+	// COST
+	// DOMAINS
+	// EFFECTS (deprecated use DESC)
+	// EFFECTTYPE (deprecated use TARGETAREA)
+	// CT
+	// DESCRIPTOR
+	// DURATION
+	// ITEM
+	// LVLRANGE (Wheel of Time)
+	// QUALIFY
+	// RANGE
+	// SAVEINFO
+	// SCHOOL
+	// SPELLLEVEL (deprecated use CLASSES or DOMAINS)
+	// SPELLRES
+	// SUBSCHOOL
+	// TARGETAREA
+	// STAT
+	// VARIANTS
+	// XPCOST
+	//
+	//
 	private AgePanel pnlAge;
 	private AppearancePanel pnlAppearance;
 	private AvailableSelectedPanel pnlBonusLang;
@@ -327,9 +327,7 @@ public final class EditorMainForm extends JDialog
 	 * @param argPObject
 	 * @param argEditType
 	 * @throws Exception*/
-	public EditorMainForm(JFrame parent, PObject argPObject, int argEditType)
-		throws Exception
-	{
+	public EditorMainForm(JFrame parent, PObject argPObject, int argEditType) throws Exception {
 		super(parent);
 
 		if (argPObject == null)
@@ -395,56 +393,56 @@ public final class EditorMainForm extends JDialog
 	// Synergy tab
 	//
 
-/*    private void buildSynergyTab()
-   {
-	   pnlSynergy.setExtraLayout(new GridBagLayout());
-	   lblQualifier.setText(LanguageBundle.getString("in_demSkillRank"));
-	   lblQualifier.setLabelFor(cmbQualifier);
-	   GridBagConstraints gbc = new GridBagConstraints();
-	   gbc.gridx = 0;
-	   gbc.gridy = 0;
-	   gbc.fill = GridBagConstraints.HORIZONTAL;
-	   gbc.insets = new Insets(2, 5, 2, 5);
-	   gbc.anchor = GridBagConstraints.WEST;
-	   pnlSynergy.addExtra(lblQualifier, gbc);
-	   gbc = new GridBagConstraints();
-	   gbc.gridx = 1;
-	   gbc.gridy = 0;
-	   gbc.fill = GridBagConstraints.HORIZONTAL;
-	   gbc.insets = new Insets(2, 5, 2, 5);
-	   gbc.anchor = GridBagConstraints.EAST;
-   //        gbc.weightx = 1.0;
-		   pnlSynergy.addExtra(cmbQualifier, gbc);
-		   lblVariable.setText(LanguageBundle.getString("in_demSynergyBonus"));
-		   lblVariable.setLabelFor(cmbVariable);
-		   gbc = new GridBagConstraints();
+	/*    private void buildSynergyTab()
+	   {
+		   pnlSynergy.setExtraLayout(new GridBagLayout());
+		   lblQualifier.setText(LanguageBundle.getString("in_demSkillRank"));
+		   lblQualifier.setLabelFor(cmbQualifier);
+		   GridBagConstraints gbc = new GridBagConstraints();
 		   gbc.gridx = 0;
-		   gbc.gridy = 1;
+		   gbc.gridy = 0;
 		   gbc.fill = GridBagConstraints.HORIZONTAL;
 		   gbc.insets = new Insets(2, 5, 2, 5);
 		   gbc.anchor = GridBagConstraints.WEST;
-		   pnlSynergy.addExtra(lblVariable, gbc);
+		   pnlSynergy.addExtra(lblQualifier, gbc);
 		   gbc = new GridBagConstraints();
 		   gbc.gridx = 1;
-		   gbc.gridy = 1;
+		   gbc.gridy = 0;
 		   gbc.fill = GridBagConstraints.HORIZONTAL;
 		   gbc.insets = new Insets(2, 5, 2, 5);
 		   gbc.anchor = GridBagConstraints.EAST;
-   //        gbc.weightx = 1.0;
-		   pnlSynergy.addExtra(cmbVariable, gbc);
-		   pnlSynergy.setAddFilter(new EditorAddFilter()
-		   {
-			   public Object encode(Object anObj)
+	   //        gbc.weightx = 1.0;
+			   pnlSynergy.addExtra(cmbQualifier, gbc);
+			   lblVariable.setText(LanguageBundle.getString("in_demSynergyBonus"));
+			   lblVariable.setLabelFor(cmbVariable);
+			   gbc = new GridBagConstraints();
+			   gbc.gridx = 0;
+			   gbc.gridy = 1;
+			   gbc.fill = GridBagConstraints.HORIZONTAL;
+			   gbc.insets = new Insets(2, 5, 2, 5);
+			   gbc.anchor = GridBagConstraints.WEST;
+			   pnlSynergy.addExtra(lblVariable, gbc);
+			   gbc = new GridBagConstraints();
+			   gbc.gridx = 1;
+			   gbc.gridy = 1;
+			   gbc.fill = GridBagConstraints.HORIZONTAL;
+			   gbc.insets = new Insets(2, 5, 2, 5);
+			   gbc.anchor = GridBagConstraints.EAST;
+	   //        gbc.weightx = 1.0;
+			   pnlSynergy.addExtra(cmbVariable, gbc);
+			   pnlSynergy.setAddFilter(new EditorAddFilter()
 			   {
-				   return encodeSynergyEntry((String) anObj);
-			   }
-			   public Object decode(Object anObj)
-			   {
-				   return decodeSynergyEntry((String) anObj);
-			   }
-		   });
-	   }
- */
+				   public Object encode(Object anObj)
+				   {
+					   return encodeSynergyEntry((String) anObj);
+				   }
+				   public Object decode(Object anObj)
+				   {
+					   return decodeSynergyEntry((String) anObj);
+				   }
+			   });
+		   }
+	 */
 	private String decodeSynergyEntry(String entry)
 	{
 		int idx = -1;
@@ -521,7 +519,7 @@ public final class EditorMainForm extends JDialog
 
 		if (idx >= 0)
 		{
-			entry = entry.substring(idx+2);
+			entry = entry.substring(idx + 2);
 		}
 
 		return Globals.getSpellKeyed(entry);
@@ -568,8 +566,8 @@ public final class EditorMainForm extends JDialog
 
 		if (aString.length() == 0)
 		{
-			ShowMessageDelegate.showMessageDialog(LanguageBundle.getString(
-				"in_demMes1"), Constants.APPLICATION_NAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(LanguageBundle.getString("in_demMes1"), Constants.APPLICATION_NAME,
+					MessageType.ERROR);
 
 			return;
 		}
@@ -580,13 +578,11 @@ public final class EditorMainForm extends JDialog
 		try
 		{
 			copyDataToObject(originalKey);
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			Logging.errorPrint("Failed to save custom object due to ", e);
-			ShowMessageDelegate.showMessageDialog(LanguageBundle
-				.getString("in_demSaveFailed"), Constants.APPLICATION_NAME,
-				MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(LanguageBundle.getString("in_demSaveFailed"),
+					Constants.APPLICATION_NAME, MessageType.ERROR);
 			return;
 		}
 
@@ -609,11 +605,11 @@ public final class EditorMainForm extends JDialog
 		//
 		// Save source info
 		//
-		
+
 		// TODO - Not sure what the desired behaviour is here.
 		// I am going to assume that this shouldn't touch the mod entry but I 
 		// am not sure that is correct.
-//		thisPObject.setModSourceMap(new HashMap());
+		//		thisPObject.setModSourceMap(new HashMap());
 
 		aString = pnlMainTab.getSourceText();
 
@@ -647,381 +643,366 @@ public final class EditorMainForm extends JDialog
 
 		switch (editType)
 		{
-			case EditorConstants.EDIT_DEITY:
+		case EditorConstants.EDIT_DEITY:
 
-				//
-				// Save granted domains
-				//
-				CDOMReference<DomainList> list = Deity.DOMAINLIST;
-				Deity deity = (Deity) thisPObject;
-				deity.removeAllFromList(list);
-				if (pnlDomains.getSelectedList().length > 0)
+			//
+			// Save granted domains
+			//
+			CDOMReference<DomainList> list = Deity.DOMAINLIST;
+			Deity deity = (Deity) thisPObject;
+			deity.removeAllFromList(list);
+			if (pnlDomains.getSelectedList().length > 0)
+			{
+				List<Prerequisite> followerPrereqs = buildFollowerPrereqs(pnlFollowers.getSelectedList());
+				sel = pnlDomains.getSelectedList();
+				for (Object object : sel)
 				{
-					List<Prerequisite> followerPrereqs = buildFollowerPrereqs(pnlFollowers.getSelectedList());
-					sel = pnlDomains.getSelectedList();
-					for (Object object : sel)
-					{
-						Domain d = (Domain) object;
-						CDOMDirectSingleRef<Domain> ref = CDOMDirectSingleRef
-							.getRef(d);
-						SimpleAssociatedObject sao = new SimpleAssociatedObject();
-						sao.addAllPrerequisites(followerPrereqs);
-						sao.setAssociation(AssociationKey.TOKEN, "DOMAINS");
-						deity.putToList(list, ref, sao);
-					}
+					Domain d = (Domain) object;
+					CDOMDirectSingleRef<Domain> ref = CDOMDirectSingleRef.getRef(d);
+					SimpleAssociatedObject sao = new SimpleAssociatedObject();
+					sao.addAllPrerequisites(followerPrereqs);
+					sao.setAssociation(AssociationKey.TOKEN, "DOMAINS");
+					deity.putToList(list, ref, sao);
 				}
+			}
 
-				//
-				// Save racial worshippers
-				//
-				thisPObject.removeListFor(ListKey.RACEPANTHEON);
-				sel = pnlRaces.getSelectedList();
-				for (int i = 0; i < sel.length; i++)
+			//
+			// Save racial worshippers
+			//
+			thisPObject.removeListFor(ListKey.RACEPANTHEON);
+			sel = pnlRaces.getSelectedList();
+			for (int i = 0; i < sel.length; i++)
+			{
+				thisPObject.addToListFor(ListKey.RACEPANTHEON, ((Race) sel[i]).getKeyName());
+			}
+
+			break;
+
+		case EditorConstants.EDIT_DOMAIN:
+
+			// Clear old data 
+			thisPObject.removeAllFromList(Ability.FEATLIST);
+			EditorMainForm.clearSpellListInfo(thisPObject);
+			context.commit();
+
+			// Save feats
+			sel = pnlFeats.getSelectedList();
+			if (sel.length > 0)
+			{
+				aString = EditUtil.delimitArray(sel, '|');
+				context.unconditionallyProcess(thisPObject, "FEAT", aString);
+			}
+
+			sel = pnlQSpells.getSelectedList();
+
+			context.ref.constructNowIfNecessary(DomainSpellList.class, thisPObject.getKeyName());
+			for (int i = 0; i < sel.length; ++i)
+			{
+				aString = sel[i].toString();
+				final int idx = aString.indexOf('=');
+				if (idx > 0)
 				{
-					thisPObject.addToListFor(ListKey.RACEPANTHEON, ((Race) sel[i])
-						.getKeyName());
+					final String domainKey = thisPObject.getKeyName();
+					String spellName = aString.substring(idx + 2);
+					String spellLevel = aString.substring(idx - 1, idx);
+					context.unconditionallyProcess(thisPObject, "SPELLLEVEL", "DOMAIN|" + domainKey + "=" + spellLevel
+							+ "|" + spellName);
 				}
+			}
 
-				break;
+			break;
 
-			case EditorConstants.EDIT_DOMAIN:
+		case EditorConstants.EDIT_FEAT:
+			Ability thisAbility = (Ability) thisPObject;
+			thisAbility.setCDOMCategory(AbilityCategory.FEAT);
+			break;
 
-				// Clear old data 
-				thisPObject.removeAllFromList(Ability.FEATLIST);
-				EditorMainForm.clearSpellListInfo(thisPObject);
-				context.commit();
-				
-				// Save feats
-				sel = pnlFeats.getSelectedList();
-				if (sel.length>0)
-				{
-					aString = EditUtil.delimitArray(sel, '|');
-					context.unconditionallyProcess(thisPObject, "FEAT", aString);
-				}
+		case EditorConstants.EDIT_LANGUAGE:
+			break;
 
-				sel = pnlQSpells.getSelectedList();
+		case EditorConstants.EDIT_RACE:
 
-				context.ref.constructNowIfNecessary(
-					DomainSpellList.class, thisPObject.getKeyName());
-				for (int i = 0; i < sel.length; ++i)
-				{
-					aString = sel[i].toString();
-					final int idx = aString.indexOf('=');
-					if (idx > 0)
-					{
-						final String domainKey = thisPObject.getKeyName();
-						String spellName = aString.substring(idx + 2);
-						String spellLevel = aString.substring(idx - 1, idx);
-						context.unconditionallyProcess(thisPObject, "SPELLLEVEL",
-							"DOMAIN|" + domainKey + "=" + spellLevel + "|"
-									+ spellName);
-					}
-				}
+			Race thisRace = (Race) thisPObject;
 
-				break;
+			thisRace.removeListFor(ListKey.MOVEMENT);
+			Movement cm = Movement.getMovementFrom(pnlMovement.getMoveValues());
+			cm.setMovementTypes(pnlMovement.getMoveTypes());
+			thisRace.addToListFor(ListKey.MOVEMENT, cm);
 
-			case EditorConstants.EDIT_FEAT:
-				Ability thisAbility = (Ability) thisPObject;
-				thisAbility.setCDOMCategory(AbilityCategory.FEAT);
-				break;
-
-			case EditorConstants.EDIT_LANGUAGE:
-				break;
-
-			case EditorConstants.EDIT_RACE:
-
-				Race thisRace = (Race) thisPObject;
-
-				thisRace.removeListFor(ListKey.MOVEMENT);
-				Movement cm = Movement.getMovementFrom(pnlMovement.getMoveValues());
-				cm.setMovementTypes(pnlMovement.getMoveTypes());
-				thisRace.addToListFor(ListKey.MOVEMENT, cm);
-				
-				thisRace.removeAllFromList(Vision.VISIONLIST);
-				List<Vision> visionList = pnlVision.getVision();
-				for (Vision vis : visionList) 
-				{
-					thisRace.putToList(Vision.VISIONLIST,
-						new CDOMDirectSingleRef<Vision>(vis),
+			thisRace.removeAllFromList(Vision.VISIONLIST);
+			List<Vision> visionList = pnlVision.getVision();
+			for (Vision vis : visionList)
+			{
+				thisRace.putToList(Vision.VISIONLIST, new CDOMDirectSingleRef<Vision>(vis),
 						new SimpleAssociatedObject());
-				}
-				
-				thisRace.removeListFor(ListKey.NATURAL_WEAPON);
-				thisRace.addAllToListFor(ListKey.NATURAL_WEAPON, pnlNaturalAttacks.getNaturalWeapons());
-				pnlAppearance.updateData(thisRace);
-				pnlAge.updateData(thisRace);
+			}
 
-				//
-				// Save granted templates
-				//
-				thisRace.removeListFor(ListKey.TEMPLATE);
-				thisRace.removeListFor(ListKey.TEMPLATE_CHOOSE);
-				thisRace.removeListFor(ListKey.TEMPLATE_ADDCHOICE);
-				sel = pnlTemplates.getSelectedList();
+			thisRace.removeListFor(ListKey.NATURAL_WEAPON);
+			thisRace.addAllToListFor(ListKey.NATURAL_WEAPON, pnlNaturalAttacks.getNaturalWeapons());
+			pnlAppearance.updateData(thisRace);
+			pnlAge.updateData(thisRace);
+
+			//
+			// Save granted templates
+			//
+			thisRace.removeListFor(ListKey.TEMPLATE);
+			thisRace.removeListFor(ListKey.TEMPLATE_CHOOSE);
+			thisRace.removeListFor(ListKey.TEMPLATE_ADDCHOICE);
+			sel = pnlTemplates.getSelectedList();
+			aString = EditUtil.delimitArray(sel, '|');
+			if ((aString != null) && (aString.length() > 0))
+			{
+				context.unconditionallyProcess(thisRace, "TEMPLATE", aString);
+			}
+
+			//
+			// Save choice of templates
+			//
+			sel = pnlTemplates.getSelectedList2();
+			aString = EditUtil.delimitArray(sel, '|');
+
+			if ((aString != null) && (aString.length() > 0))
+			{
+				context.unconditionallyProcess(thisRace, "TEMPLATE", "CHOOSE:" + aString);
+			}
+
+			//
+			// Save favoured classes
+			//
+			sel = pnlClasses.getSelectedList();
+			if (sel.length > 0)
+			{
 				aString = EditUtil.delimitArray(sel, '|');
-				if ((aString != null) && (aString.length() > 0))
-				{
-					context.unconditionallyProcess(thisRace, "TEMPLATE", aString);
-				}
+				context.unconditionallyProcess(thisRace, "FAVCLASS", aString);
+			}
 
-				//
-				// Save choice of templates
-				//
-				sel = pnlTemplates.getSelectedList2();
+			//
+			// Save choice of auto languages
+			//
+			sel = pnlLanguages.getSelectedList2();
+			if (sel.length > 0)
+			{
 				aString = EditUtil.delimitArray(sel, '|');
+				context.unconditionallyProcess(thisRace, "CHOOSE", "LANGAUTO|" + aString);
+			}
 
-				if ((aString != null) && (aString.length() > 0))
+			//
+			// Save feats
+			//
+			sel = pnlFeats.getSelectedList();
+			for (Object o : sel)
+			{
+				context.unconditionallyProcess(thisRace, "FEAT", o.toString());
+			}
+
+			//
+			// Save bonus languages
+			//
+			thisRace.removeAllFromList(Language.STARTING_LIST);
+			sel = pnlBonusLang.getSelectedList();
+			if (sel.length > 0)
+			{
+				aString = EditUtil.delimitArray(sel, ',');
+				context.unconditionallyProcess(thisRace, "LANGBONUS", aString);
+			}
+
+			break;
+
+		case EditorConstants.EDIT_SKILL:
+
+			sel = pnlSynergy.getSelectedList();
+
+			// BONUS:SKILL|Ride|2|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK
+			StringTokenizer aTok;
+
+			for (int i = 0; i < sel.length; ++i)
+			{
+				//((Skill) thisPObject).addSynergyList(sel[i].toString());
+				aTok = new StringTokenizer(sel[i].toString(), "=");
+
+				if (aTok.countTokens() == 3)
 				{
-					context.unconditionallyProcess(thisRace, "TEMPLATE", "CHOOSE:"
-						+ aString);
-				}
+					final String skillName = aTok.nextToken();
+					final String skillRank = aTok.nextToken();
+					StringBuffer sb = new StringBuffer(50);
+					sb.append("SKILL|").append(thisPObject.getKeyName());
+					sb.append('|').append(aTok.nextToken());
+					sb.append("|PRESKILL:1,").append(skillName).append('=').append(skillRank);
+					sb.append("|TYPE=Synergy.STACK");
+					final BonusObj aBonus = Bonus.newBonus(context, sb.toString());
 
-				//
-				// Save favoured classes
-				//
-				sel = pnlClasses.getSelectedList();
-				if (sel.length > 0)
-				{
-					aString = EditUtil.delimitArray(sel, '|');
-					context.unconditionallyProcess(thisRace, "FAVCLASS", aString);
-				}
-
-				//
-				// Save choice of auto languages
-				//
-				sel = pnlLanguages.getSelectedList2();
-				if (sel.length > 0)
-				{
-					aString = EditUtil.delimitArray(sel, '|');
-					context.unconditionallyProcess(thisRace, "CHOOSE", "LANGAUTO|"
-						+ aString);
-				}
-
-				//
-				// Save feats
-				//
-				sel = pnlFeats.getSelectedList();
-				for (Object o : sel)
-				{
-					context.unconditionallyProcess(thisRace, "FEAT", o.toString());
-				}
-
-				//
-				// Save bonus languages
-				//
-				thisRace.removeAllFromList(Language.STARTING_LIST);
-				sel = pnlBonusLang.getSelectedList();
-				if (sel.length > 0)
-				{
-					aString = EditUtil.delimitArray(sel, ',');
-					context.unconditionallyProcess(thisRace, "LANGBONUS", aString);
-				}
-
-				break;
-
-			case EditorConstants.EDIT_SKILL:
-
-				sel = pnlSynergy.getSelectedList();
-
-				// BONUS:SKILL|Ride|2|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK
-				StringTokenizer aTok;
-
-				for (int i = 0; i < sel.length; ++i)
-				{
-					//((Skill) thisPObject).addSynergyList(sel[i].toString());
-					aTok = new StringTokenizer(sel[i].toString(), "=");
-
-					if (aTok.countTokens() == 3)
+					if (aBonus != null)
 					{
-						final String skillName = aTok.nextToken();
-						final String skillRank = aTok.nextToken();
-						StringBuffer sb = new StringBuffer(50);
-						sb.append("SKILL|").append(thisPObject.getKeyName());
-						sb.append('|').append(aTok.nextToken());
-						sb.append("|PRESKILL:1,").append(skillName).append('=').append(skillRank);
-						sb.append("|TYPE=Synergy.STACK");
-						final BonusObj aBonus = Bonus.newBonus(context, sb.toString());
-						
-						if (aBonus != null)
-						{
-							thisPObject.addToListFor(ListKey.BONUS, aBonus);
-						}
+						thisPObject.addToListFor(ListKey.BONUS, aBonus);
 					}
-					else
-					{
-						Logging.errorPrint("Synergy has invalid format: " + sel[i].toString());
-					}
-				}
-
-				Globals.getContext().getListContext().clearAllMasterLists(
-					"CLASSES", thisPObject);
-				context.commit();
-				sel = pnlClasses.getSelectedList2();
-				if (sel.length > 0)
+				} else
 				{
-					context.unconditionallyProcess(thisPObject, "CLASSES", "ALL|!"
-							+ StringUtil.join(Arrays.asList(sel), "|!"));
+					Logging.errorPrint("Synergy has invalid format: " + sel[i].toString());
 				}
+			}
 
-				for (Object o : pnlClasses.getSelectedList())
-				{
-					context.unconditionallyProcess(thisPObject, "CLASSES", o.toString());
-				}
+			Globals.getContext().getListContext().clearAllMasterLists("CLASSES", thisPObject);
+			context.commit();
+			sel = pnlClasses.getSelectedList2();
+			if (sel.length > 0)
+			{
+				context.unconditionallyProcess(thisPObject, "CLASSES",
+						"ALL|!" + StringUtil.join(Arrays.asList(sel), "|!"));
+			}
 
-				break;
+			for (Object o : pnlClasses.getSelectedList())
+			{
+				context.unconditionallyProcess(thisPObject, "CLASSES", o.toString());
+			}
 
-			case EditorConstants.EDIT_SPELL:
-				Spell sp = (Spell) thisPObject;
-				((SpellBasePanel2) pnlBase2).updateData(sp);
-				context.getListContext().clearAllMasterLists("CLASSES", sp);
-				context.getListContext().clearAllMasterLists("DOMAINS", sp);
-				context.commit();
-				for (Object o : pnlQClasses.getSelectedList())
-				{
-					context.unconditionallyProcess(sp, "CLASSES", o.toString());
-				}
-				for (Object o : pnlQDomains.getSelectedList())
-				{
-					context.unconditionallyProcess(sp, "DOMAINS", o.toString());
-				}
+			break;
 
-				break;
+		case EditorConstants.EDIT_SPELL:
+			Spell sp = (Spell) thisPObject;
+			((SpellBasePanel2) pnlBase2).updateData(sp);
+			context.getListContext().clearAllMasterLists("CLASSES", sp);
+			context.getListContext().clearAllMasterLists("DOMAINS", sp);
+			context.commit();
+			for (Object o : pnlQClasses.getSelectedList())
+			{
+				context.unconditionallyProcess(sp, "CLASSES", o.toString());
+			}
+			for (Object o : pnlQDomains.getSelectedList())
+			{
+				context.unconditionallyProcess(sp, "DOMAINS", o.toString());
+			}
 
-			case EditorConstants.EDIT_TEMPLATE:
+			break;
 
-				PCTemplate thisPCTemplate = (PCTemplate) thisPObject;
-				thisPCTemplate.removeListFor(ListKey.MOVEMENT);
-				if (pnlMovement.getMoveValues().length() > 0)
-				{
-					Movement cmv = Movement.getMovementFrom(pnlMovement.getMoveValues());
-					cmv.setMoveRatesFlag(pnlMovement.getMoveRateType());
-					thisPCTemplate.addToListFor(ListKey.MOVEMENT, cmv);
-				}
+		case EditorConstants.EDIT_TEMPLATE:
 
-				thisPCTemplate.removeAllFromList(Vision.VISIONLIST);
-				List<Vision> tplVisionList = pnlVision.getVision();
-				for (Vision vis : tplVisionList) 
-				{
-					thisPCTemplate.putToList(Vision.VISIONLIST,
-						new CDOMDirectSingleRef<Vision>(vis),
+			PCTemplate thisPCTemplate = (PCTemplate) thisPObject;
+			thisPCTemplate.removeListFor(ListKey.MOVEMENT);
+			if (pnlMovement.getMoveValues().length() > 0)
+			{
+				Movement cmv = Movement.getMovementFrom(pnlMovement.getMoveValues());
+				cmv.setMoveRatesFlag(pnlMovement.getMoveRateType());
+				thisPCTemplate.addToListFor(ListKey.MOVEMENT, cmv);
+			}
+
+			thisPCTemplate.removeAllFromList(Vision.VISIONLIST);
+			List<Vision> tplVisionList = pnlVision.getVision();
+			for (Vision vis : tplVisionList)
+			{
+				thisPCTemplate.putToList(Vision.VISIONLIST, new CDOMDirectSingleRef<Vision>(vis),
 						new SimpleAssociatedObject());
-				}
+			}
 
-				//
-				// Save granted templates
-				//
-				thisPCTemplate.removeListFor(ListKey.TEMPLATE);
-				thisPCTemplate.removeListFor(ListKey.TEMPLATE_CHOOSE);
-				thisPCTemplate.removeListFor(ListKey.TEMPLATE_ADDCHOICE);
-				sel = pnlTemplates.getSelectedList();
+			//
+			// Save granted templates
+			//
+			thisPCTemplate.removeListFor(ListKey.TEMPLATE);
+			thisPCTemplate.removeListFor(ListKey.TEMPLATE_CHOOSE);
+			thisPCTemplate.removeListFor(ListKey.TEMPLATE_ADDCHOICE);
+			sel = pnlTemplates.getSelectedList();
+			aString = EditUtil.delimitArray(sel, '|');
+			if ((aString != null) && (aString.length() > 0))
+			{
+				context.unconditionallyProcess(thisPCTemplate, "TEMPLATE", aString);
+			}
+
+			//
+			// Save choice of templates
+			//
+			sel = pnlTemplates.getSelectedList2();
+			aString = EditUtil.delimitArray(sel, '|');
+
+			if ((aString != null) && (aString.length() > 0))
+			{
+				context.unconditionallyProcess(thisPCTemplate, "TEMPLATE", "CHOOSE:" + aString);
+			}
+
+			//
+			// Save favoured classes
+			//
+			sel = pnlClasses.getSelectedList();
+			if (sel.length > 0)
+			{
 				aString = EditUtil.delimitArray(sel, '|');
-				if ((aString != null) && (aString.length() > 0))
-				{
-					context.unconditionallyProcess(thisPCTemplate, "TEMPLATE", aString);
-				}
+				context.unconditionallyProcess(thisPCTemplate, "FAVOREDCLASS", aString);
+			}
 
-				//
-				// Save choice of templates
-				//
-				sel = pnlTemplates.getSelectedList2();
+			//
+			// Save choice of auto languages
+			//
+			sel = pnlLanguages.getSelectedList2();
+			if (sel.length > 0)
+			{
 				aString = EditUtil.delimitArray(sel, '|');
+				context.unconditionallyProcess(thisPCTemplate, "CHOOSE", "LANGAUTO|" + aString);
+			}
 
-				if ((aString != null) && (aString.length() > 0))
+			//
+			// Save feats
+			//
+			thisPCTemplate.removeListFor(ListKey.FEAT_TOKEN_LIST);
+			sel = pnlFeats.getSelectedList();
+			if (sel.length > 0)
+			{
+				aString = EditUtil.delimitArray(sel, '|');
+				context.unconditionallyProcess(thisPCTemplate, "FEAT", aString);
+			}
+
+			//
+			// Save bonus languages
+			//
+			thisPCTemplate.removeAllFromList(Language.STARTING_LIST);
+			sel = pnlBonusLang.getSelectedList();
+			if (sel.length > 0)
+			{
+				aString = EditUtil.delimitArray(sel, ',');
+				context.unconditionallyProcess(thisPCTemplate, "LANGBONUS", aString);
+			}
+
+			//
+			// Save level and hit dice abilities
+			//
+			thisPCTemplate.removeListFor(ListKey.LEVEL_TEMPLATES);
+			thisPCTemplate.removeListFor(ListKey.HD_TEMPLATES);
+			sel = pnlLevelAbilities.getSelectedList();
+
+			for (int index = 0; index < sel.length; index++)
+			{
+				aString = (String) sel[index];
+
+				if (aString.startsWith("HD:"))
 				{
-					context.unconditionallyProcess(thisPCTemplate, "TEMPLATE", "CHOOSE:"
-						+ aString);
-				}
-
-				//
-				// Save favoured classes
-				//
-				sel = pnlClasses.getSelectedList();
-				if (sel.length > 0)
+					context.unconditionallyProcess(thisPCTemplate, "HD", aString.substring(3));
+				} else if (aString.startsWith("LEVEL:"))
 				{
-					aString = EditUtil.delimitArray(sel, '|');
-					context.unconditionallyProcess(thisPCTemplate, "FAVOREDCLASS", aString);
+					context.unconditionallyProcess(thisPCTemplate, "LEVEL", aString.substring(6));
 				}
+			}
 
-				//
-				// Save choice of auto languages
-				//
-				sel = pnlLanguages.getSelectedList2();
-				if (sel.length > 0)
-				{
-					aString = EditUtil.delimitArray(sel, '|');
-					context.unconditionallyProcess(thisPCTemplate, "CHOOSE", "LANGAUTO|"
-						+ aString);
-				}
+			context.performDeferredProcessing(thisPCTemplate);
+			break;
 
-				//
-				// Save feats
-				//
-				thisPCTemplate.removeListFor(ListKey.FEAT_TOKEN_LIST);
-				sel = pnlFeats.getSelectedList();
-				if (sel.length > 0)
-				{
-					aString = EditUtil.delimitArray(sel, '|');
-					context.unconditionallyProcess(thisPCTemplate, "FEAT", aString);
-				}
+		case EditorConstants.EDIT_CAMPAIGN:
+			pnlFileTypes.updateData((Campaign) thisPObject);
 
-				//
-				// Save bonus languages
-				//
-				thisPCTemplate.removeAllFromList(Language.STARTING_LIST);
-				sel = pnlBonusLang.getSelectedList();
-				if (sel.length > 0)
-				{
-					aString = EditUtil.delimitArray(sel, ',');
-					context.unconditionallyProcess(thisPCTemplate, "LANGBONUS", aString);
-				}
+			break;
 
-				//
-				// Save level and hit dice abilities
-				//
-				thisPCTemplate.removeListFor(ListKey.LEVEL_TEMPLATES);
-				thisPCTemplate.removeListFor(ListKey.HD_TEMPLATES);
-				sel = pnlLevelAbilities.getSelectedList();
+		case EditorConstants.EDIT_CLASS:
+			PCClass thisPCClass = (PCClass) thisPObject;
+			thisPCClass.removeListFor(ListKey.TEMPLATE);
+			thisPCClass.removeListFor(ListKey.TEMPLATE_CHOOSE);
+			thisPCClass.removeListFor(ListKey.TEMPLATE_ADDCHOICE);
+			thisPCClass.remove(IntegerKey.UMULT);
+			thisPCClass.removeListFor(ListKey.UNARMED_DAMAGE);
+			for (PCClassLevel pcl : thisPCClass.getOriginalClassLevelCollection())
+			{
+				pcl.remove(IntegerKey.UMULT);
+				pcl.removeListFor(ListKey.UNARMED_DAMAGE);
+			}
+			break;
 
-				for (int index = 0; index < sel.length; index++)
-				{
-					aString = (String) sel[index];
-
-					if (aString.startsWith("HD:"))
-					{
-						context.unconditionallyProcess(thisPCTemplate, "HD",
-								aString.substring(3));
-					}
-					else if (aString.startsWith("LEVEL:"))
-					{
-						context.unconditionallyProcess(thisPCTemplate, "LEVEL",
-							aString.substring(6));
-					}
-				}
-
-				context.performDeferredProcessing(thisPCTemplate);
-				break;
-
-			case EditorConstants.EDIT_CAMPAIGN:
-				pnlFileTypes.updateData((Campaign) thisPObject);
-
-				break;
-
-			case EditorConstants.EDIT_CLASS:
-				PCClass thisPCClass = (PCClass) thisPObject;
-				thisPCClass.removeListFor(ListKey.TEMPLATE);
-				thisPCClass.removeListFor(ListKey.TEMPLATE_CHOOSE);
-				thisPCClass.removeListFor(ListKey.TEMPLATE_ADDCHOICE);
-				thisPCClass.remove(IntegerKey.UMULT);
-				thisPCClass.removeListFor(ListKey.UNARMED_DAMAGE);
-				for (PCClassLevel pcl : thisPCClass.getOriginalClassLevelCollection())
-				{
-					pcl.remove(IntegerKey.UMULT);
-					pcl.removeListFor(ListKey.UNARMED_DAMAGE);
-				}
-				break;
-
-			default:
-				break;
+		default:
+			break;
 		}
 
 		//
@@ -1033,14 +1014,13 @@ public final class EditorMainForm extends JDialog
 			sel = pnlLanguages.getSelectedList();
 			for (int i = 0; i < sel.length; i++)
 			{
-				final Language lang = Globals.getContext().ref
-						.silentlyGetConstructedCDOMObject(Language.class,
-								sel[i].toString());
+				final Language lang = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Language.class,
+						sel[i].toString());
 
 				if (lang != null)
 				{
-					thisPObject.addToListFor(ListKey.AUTO_LANGUAGES,
-							new CDOMDirectSingleRef<Language>(lang));
+					thisPObject.addToListFor(ListKey.AUTO_LANGUAGES, new QualifiedObject(
+							new CDOMDirectSingleRef<Language>(lang)));
 				}
 			}
 		}
@@ -1055,7 +1035,7 @@ public final class EditorMainForm extends JDialog
 			StringBuffer selList = new StringBuffer();
 			for (int i = 0; i < sel.length; i++)
 			{
-				if (i>0)
+				if (i > 0)
 				{
 					selList.append('|');
 				}
@@ -1063,28 +1043,25 @@ public final class EditorMainForm extends JDialog
 			}
 			if (selList.length() > 0)
 			{
-				context.unconditionallyProcess(thisPObject, "AUTO",
-						"WEAPONPROF|"+selList.toString());
+				context.unconditionallyProcess(thisPObject, "AUTO", "WEAPONPROF|" + selList.toString());
 			}
 
 			sel = pnlWeapons.getSelectedList2();
 
 			if (sel != null)
 			{
-				if (editType == EditorConstants.EDIT_CLASS
-				  || editType == EditorConstants.EDIT_RACE)
+				if (editType == EditorConstants.EDIT_CLASS || editType == EditorConstants.EDIT_RACE)
 				{
 					thisPObject.removeAllFromList(WeaponProf.STARTING_LIST);
 					if (sel.length > 0)
 					{
-						context.unconditionallyProcess(thisPObject, "WEAPONBONUS",
-								EditUtil.delimitArray(sel, ','));
+						context.unconditionallyProcess(thisPObject, "WEAPONBONUS", EditUtil.delimitArray(sel, ','));
 					}
 				}
 			}
 		}
 
-// TODO: check if all skills of one type are selected...maybe change to TYPE.blah?
+		// TODO: check if all skills of one type are selected...maybe change to TYPE.blah?
 		if (pnlSkills != null)
 		{
 			//
@@ -1094,12 +1071,10 @@ public final class EditorMainForm extends JDialog
 			sel = pnlSkills.getSelectedList();
 			for (int i = 0; i < sel.length; i++)
 			{
-				Skill sk = context.ref.silentlyGetConstructedCDOMObject(
-						Skill.class, sel[i].toString());
+				Skill sk = context.ref.silentlyGetConstructedCDOMObject(Skill.class, sel[i].toString());
 				if (sk != null)
 				{
-					thisPObject.addToListFor(ListKey.CSKILL,
-							CDOMDirectSingleRef.getRef(sk));
+					thisPObject.addToListFor(ListKey.CSKILL, CDOMDirectSingleRef.getRef(sk));
 				}
 			}
 
@@ -1110,12 +1085,10 @@ public final class EditorMainForm extends JDialog
 			sel = pnlSkills.getSelectedList2();
 			for (int i = 0; i < sel.length; i++)
 			{
-				Skill sk = context.ref.silentlyGetConstructedCDOMObject(
-						Skill.class, sel[i].toString());
+				Skill sk = context.ref.silentlyGetConstructedCDOMObject(Skill.class, sel[i].toString());
 				if (sk != null)
 				{
-					thisPObject.addToListFor(ListKey.CCSKILL,
-							CDOMDirectSingleRef.getRef(sk));
+					thisPObject.addToListFor(ListKey.CCSKILL, CDOMDirectSingleRef.getRef(sk));
 				}
 			}
 		}
@@ -1128,49 +1101,47 @@ public final class EditorMainForm extends JDialog
 		//
 		switch (editType)
 		{
-			case EditorConstants.EDIT_CLASS:
-				((PCClass) thisPObject).removeListFor(ListKey.ADD);
-				break;
+		case EditorConstants.EDIT_CLASS:
+			((PCClass) thisPObject).removeListFor(ListKey.ADD);
+			break;
 
-			case EditorConstants.EDIT_DEITY:
-				((Deity) thisPObject).removeListFor(ListKey.PANTHEON);
-				break;
+		case EditorConstants.EDIT_DEITY:
+			((Deity) thisPObject).removeListFor(ListKey.PANTHEON);
+			break;
 
-			case EditorConstants.EDIT_DOMAIN:
-				break;
+		case EditorConstants.EDIT_DOMAIN:
+			break;
 
-			case EditorConstants.EDIT_FEAT:
-				break;
+		case EditorConstants.EDIT_FEAT:
+			break;
 
-			case EditorConstants.EDIT_LANGUAGE:
-				break;
+		case EditorConstants.EDIT_LANGUAGE:
+			break;
 
-			case EditorConstants.EDIT_RACE:
-				break;
+		case EditorConstants.EDIT_RACE:
+			break;
 
-			case EditorConstants.EDIT_SKILL:
-				((Skill) thisPObject).put(StringKey.CHOICE_STRING, null);
+		case EditorConstants.EDIT_SKILL:
+			((Skill) thisPObject).put(StringKey.CHOICE_STRING, null);
 
-				break;
+			break;
 
-			case EditorConstants.EDIT_SPELL:
-				break;
+		case EditorConstants.EDIT_SPELL:
+			break;
 
-			case EditorConstants.EDIT_TEMPLATE:
-				break;
+		case EditorConstants.EDIT_TEMPLATE:
+			break;
 
-			default:
-				break;
+		default:
+			break;
 		}
-		context.getListContext().removeAllFromList("VISION", thisPObject,
-			Vision.VISIONLIST);
+		context.getListContext().removeAllFromList("VISION", thisPObject, Vision.VISIONLIST);
 		context.commit();
 
 		if (editType == EditorConstants.EDIT_SKILL)
 		{
 			((Skill) thisPObject).put(StringKey.CHOICE_STRING, null);
-		}
-		else if ((editType == EditorConstants.EDIT_DOMAIN) || (editType == EditorConstants.EDIT_FEAT))
+		} else if ((editType == EditorConstants.EDIT_DOMAIN) || (editType == EditorConstants.EDIT_FEAT))
 		{
 			thisPObject.put(StringKey.CHOICE_STRING, "");
 		}
@@ -1179,7 +1150,7 @@ public final class EditorMainForm extends JDialog
 		{
 			EditorMainForm.clearSpellListInfo(thisPObject);
 		}
-		
+
 		sel = pnlAdvanced.getSelectedList();
 
 		if (editType == EditorConstants.EDIT_CLASS)
@@ -1197,37 +1168,30 @@ public final class EditorMainForm extends JDialog
 				final int colonLoc = token.indexOf(':');
 				if (colonLoc == -1)
 				{
-					Logging.errorPrint("Invalid Token - does not contain a colon: "
-							+ token);
-				}
-				else if (colonLoc == 0)
+					Logging.errorPrint("Invalid Token - does not contain a colon: " + token);
+				} else if (colonLoc == 0)
 				{
-					Logging.errorPrint("Invalid Token - starts with a colon: "
-							+ token);
-				}
-				else
+					Logging.errorPrint("Invalid Token - starts with a colon: " + token);
+				} else
 				{
 					String key = token.substring(0, colonLoc);
-					String value = (colonLoc == token.length() - 1) ? null : token
-							.substring(colonLoc + 1);
+					String value = (colonLoc == token.length() - 1) ? null : token.substring(colonLoc + 1);
 					if (context.processToken(thisPObject, key, value))
 					{
 						context.commit();
-					}
-					else
+					} else
 					{
 						context.rollback();
 						Logging.replayParsedMessages();
 					}
 					Logging.clearParseMessages();
 				}
-			}
-			catch (PersistenceLayerException ple)
+			} catch (PersistenceLayerException ple)
 			{
 				Logging.errorPrint(ple.getMessage() + " while parsing " + aString, ple);
 			}
 		}
-		
+
 		if (editType == EditorConstants.EDIT_CLASS)
 		{
 			PCClassKeyChange.changeReferences(originalKey, (PCClass) thisPObject);
@@ -1263,30 +1227,26 @@ public final class EditorMainForm extends JDialog
 					break;
 				}
 			}
-			
+
 			if (!found)
 			{
-				Logging.errorPrint("Alignment " + alignName
-					+ " could not be found. Ignoring.");
+				Logging.errorPrint("Alignment " + alignName + " could not be found. Ignoring.");
 			}
 		}
-		
+
 		if (tbuf.length() > 0)
 		{
 			try
 			{
-				final PrerequisiteParserInterface parser =
-						PreParserFactory.getInstance().getParser("ALIGN");
+				final PrerequisiteParserInterface parser = PreParserFactory.getInstance().getParser("ALIGN");
 				Prerequisite prereq = parser.parse("align", tbuf.toString(), false, false);
 				prereqs.add(prereq);
-			}
-			catch (PersistenceLayerException e)
+			} catch (PersistenceLayerException e)
 			{
-				Logging.errorPrint("Unable to create PREALIGN for " + tbuf.toString()
-					+ ". Ignoring.", e);
+				Logging.errorPrint("Unable to create PREALIGN for " + tbuf.toString() + ". Ignoring.", e);
 			}
 		}
-		
+
 		return prereqs;
 	}
 
@@ -1295,8 +1255,8 @@ public final class EditorMainForm extends JDialog
 	{
 		String aString;
 		StringTokenizer aTok;
-//		List selectedList = new ArrayList();
-//		List selectedList2 = new ArrayList();
+		//		List selectedList = new ArrayList();
+		//		List selectedList2 = new ArrayList();
 		List<String> aList;
 		List<String> movementValues;
 		List<String> visionValues;
@@ -1311,784 +1271,748 @@ public final class EditorMainForm extends JDialog
 
 		switch (editType)
 		{
-			case EditorConstants.EDIT_CLASS:
+		case EditorConstants.EDIT_CLASS:
 
-				//pnlMainTab.setDescriptionText(thisPObject.getDescription());	// don't want PI here
-				//pnlMainTab.setDescIsPI(thisPObject.getDescIsPI());
-				break;
+			//pnlMainTab.setDescriptionText(thisPObject.getDescription());	// don't want PI here
+			//pnlMainTab.setDescIsPI(thisPObject.getDescIsPI());
+			break;
 
-			case EditorConstants.EDIT_DEITY:
+		case EditorConstants.EDIT_DEITY:
 
-				//
-				// Initialize the lists of available and selected follower alignments
-				//
-				List<String> availableFollowerAlignmentList = new ArrayList<String>();
-				List<String> selectedFollowerAlignmentList = new ArrayList<String>();
+			//
+			// Initialize the lists of available and selected follower alignments
+			//
+			List<String> availableFollowerAlignmentList = new ArrayList<String>();
+			List<String> selectedFollowerAlignmentList = new ArrayList<String>();
 
-				for (PCAlignment anAlignment : Globals.getContext().ref.getOrderSortedCDOMObjects(PCAlignment.class))
+			for (PCAlignment anAlignment : Globals.getContext().ref.getOrderSortedCDOMObjects(PCAlignment.class))
+			{
+				if (anAlignment.getSafe(ObjectKey.VALID_FOR_FOLLOWER))
 				{
-					if (anAlignment.getSafe(ObjectKey.VALID_FOR_FOLLOWER))
+					availableFollowerAlignmentList.add(anAlignment.getDisplayName());
+				}
+			}
+
+			Prerequisite prereq = getFirstPrereqOfKind(thisPObject, "align");
+			if (prereq != null)
+			{
+				parseAlignAbbrev(availableFollowerAlignmentList, selectedFollowerAlignmentList, prereq);
+			}
+
+			pnlFollowers.setAvailableList(availableFollowerAlignmentList, true);
+			pnlFollowers.setSelectedList(selectedFollowerAlignmentList, true);
+
+			//
+			// Initialize the contents of the available and selected domains lists
+			//
+			List<Domain> selectedDomainList = new ArrayList<Domain>();
+			List<Domain> availableDomainList = new ArrayList<Domain>();
+
+			for (Domain aDomain : Globals.getContext().ref.getConstructedCDOMObjects(Domain.class))
+			{
+				if (((Deity) thisPObject).hasObjectOnList(Deity.DOMAINLIST, aDomain))
+				{
+					selectedDomainList.add(aDomain);
+				} else
+				{
+					availableDomainList.add(aDomain);
+				}
+			}
+
+			pnlDomains.setAvailableList(availableDomainList, true);
+			pnlDomains.setSelectedList(selectedDomainList, true);
+
+			//
+			// Initialize the contents of the available and selected races list
+			//
+			List<Race> selectedRaceList = new ArrayList<Race>();
+			List<Race> availableRaceList = new ArrayList<Race>();
+
+			final List<String> raceList = ((Deity) thisPObject).getSafeListFor(ListKey.RACEPANTHEON);
+
+			for (final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class))
+			{
+				final String raceName = race.getKeyName();
+
+				if (!raceName.equals(Constants.NONESELECTED))
+				{
+					if (raceList.contains(raceName))
 					{
-						availableFollowerAlignmentList.add(anAlignment.getDisplayName());
+						selectedRaceList.add(race);
+					} else
+					{
+						availableRaceList.add(race);
 					}
 				}
+			}
 
-				Prerequisite prereq =
-						getFirstPrereqOfKind(thisPObject, "align");
-				if (prereq != null)
+			pnlRaces.setAvailableList(availableRaceList, true);
+			pnlRaces.setSelectedList(selectedRaceList, true);
+
+			break;
+
+		case EditorConstants.EDIT_DOMAIN:
+
+			//
+			// Populate the feats available list and selected lists
+			//
+			List<String> availableFeatList = new ArrayList<String>();
+			List<String> selecetdFeatList = new ArrayList<String>();
+
+			for (Ability anAbility : Globals.getContext().ref.getManufacturer(Ability.class, AbilityCategory.FEAT)
+					.getAllObjects())
+			{
+				availableFeatList.add(anAbility.getKeyName());
+			}
+
+			for (CDOMReference<Ability> ref : thisPObject.getSafeListMods(Ability.FEATLIST))
+			{
+				String lst = ref.getLSTformat(false);
+				if (!selecetdFeatList.contains(lst))
 				{
-					parseAlignAbbrev(availableFollowerAlignmentList,
-						selectedFollowerAlignmentList, prereq);
+					availableFeatList.remove(lst);
+					selecetdFeatList.add(lst);
 				}
+			}
 
-				pnlFollowers.setAvailableList(availableFollowerAlignmentList, true);
-				pnlFollowers.setSelectedList(selectedFollowerAlignmentList, true);
+			pnlFeats.setAvailableList(availableFeatList, true);
+			pnlFeats.setSelectedList(selecetdFeatList, true);
 
-				//
-				// Initialize the contents of the available and selected domains lists
-				//
-				List<Domain> selectedDomainList = new ArrayList<Domain>();
-				List<Domain> availableDomainList = new ArrayList<Domain>();
+			//TODO Remember to change here when spellMap is changed JK070101
+			List<Spell> availableSpellList = new ArrayList<Spell>();
+			List<String> selectedSpellList = new ArrayList<String>();
 
-				for (Domain aDomain : Globals.getContext().ref.getConstructedCDOMObjects(Domain.class))
+			availableSpellList = new ArrayList<Spell>(Globals.getSpellMap().values().size());
+
+			for (Iterator<?> e = Globals.getSpellMap().values().iterator(); e.hasNext();)
+			{
+				final Object obj = e.next();
+
+				if (obj instanceof Spell)
 				{
-					if (((Deity) thisPObject).hasObjectOnList(Deity.DOMAINLIST, aDomain))
+					HashMapToList<CDOMList<Spell>, Integer> hml = SpellLevel.getMasterLevelInfo(null, (Spell) obj);
+					List<Integer> levelList = hml.getListFor(((Domain) thisPObject).get(ObjectKey.DOMAIN_SPELLLIST));
+					if (levelList == null || levelList.isEmpty())
 					{
-						selectedDomainList.add(aDomain);
-					}
-					else
+						availableSpellList.add((Spell) obj);
+					} else
 					{
-						availableDomainList.add(aDomain);
-					}
-				}
-
-				pnlDomains.setAvailableList(availableDomainList, true);
-				pnlDomains.setSelectedList(selectedDomainList, true);
-
-				//
-				// Initialize the contents of the available and selected races list
-				//
-				List<Race>selectedRaceList = new ArrayList<Race>();
-				List<Race>availableRaceList = new ArrayList<Race>();
-
-				final List<String> raceList = ((Deity) thisPObject).getSafeListFor(ListKey.RACEPANTHEON);
-
-				for ( final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class) )
-				{
-					final String raceName = race.getKeyName();
-
-					if (!raceName.equals(Constants.NONESELECTED))
-					{
-						if (raceList.contains(raceName))
+						int lvl = levelList.get(0);
+						if (lvl == -1)
 						{
-							selectedRaceList.add(race);
-						}
-						else
+							availableSpellList.add((Spell) obj);
+						} else
 						{
-							availableRaceList.add(race);
-						}
-					}
-				}
-
-				pnlRaces.setAvailableList(availableRaceList, true);
-				pnlRaces.setSelectedList(selectedRaceList, true);
-
-				break;
-
-			case EditorConstants.EDIT_DOMAIN:
-
-				//
-				// Populate the feats available list and selected lists
-				//
-				List<String> availableFeatList = new ArrayList<String>();
-				List<String> selecetdFeatList = new ArrayList<String>();
-
-				for (Ability anAbility : Globals.getContext().ref.getManufacturer(
-						Ability.class, AbilityCategory.FEAT).getAllObjects())
-				{
-					availableFeatList.add(anAbility.getKeyName());
-				}
-
-				for (CDOMReference<Ability> ref : thisPObject.getSafeListMods(Ability.FEATLIST))
-				{
-					String lst = ref.getLSTformat(false);
-					if (!selecetdFeatList.contains(lst))
-					{
-						availableFeatList.remove(lst);
-						selecetdFeatList.add(lst);
-					}
-				}
-
-				pnlFeats.setAvailableList(availableFeatList, true);
-				pnlFeats.setSelectedList(selecetdFeatList, true);
-
-
-				//TODO Remember to change here when spellMap is changed JK070101
-				List<Spell> availableSpellList = new ArrayList<Spell>();
-				List<String> selectedSpellList = new ArrayList<String>();
-
-				availableSpellList = new ArrayList<Spell>(Globals.getSpellMap().values().size());
-
-				for (Iterator<?> e = Globals.getSpellMap().values().iterator(); e.hasNext();)
-				{
-					final Object obj = e.next();
-
-					if (obj instanceof Spell)
-					{
-						HashMapToList<CDOMList<Spell>, Integer> hml = SpellLevel
-							.getMasterLevelInfo(null, (Spell) obj);
-						List<Integer> levelList = hml
-							.getListFor(((Domain) thisPObject)
-									.get(ObjectKey.DOMAIN_SPELLLIST));
-						if (levelList == null || levelList.isEmpty())
-						{
-							availableSpellList.add((Spell)obj);
-						}
-						else
-						{
-							int lvl = levelList.get(0);
-							if (lvl == -1)
-							{
-								availableSpellList.add((Spell)obj);
-							}
-							else
-							{
-								selectedSpellList.add(encodeSpellEntry(obj.toString(), Integer.toString(lvl)));
-							}
+							selectedSpellList.add(encodeSpellEntry(obj.toString(), Integer.toString(lvl)));
 						}
 					}
 				}
-				// TODO: Fix this hack. Copied domains will show the original spell list when subsequently edited. Close and reload will show the correct one
-				if (selectedSpellList.isEmpty())
+			}
+			// TODO: Fix this hack. Copied domains will show the original spell list when subsequently edited. Close and reload will show the correct one
+			if (selectedSpellList.isEmpty())
+			{
+				addSelectedDomainSpells(availableSpellList, selectedSpellList);
+			}
+			Globals.sortPObjectList(availableSpellList);
+
+			pnlQSpells.setAvailableList(availableSpellList, true);
+			pnlQSpells.setSelectedList(selectedSpellList, true);
+
+			break;
+
+		case EditorConstants.EDIT_FEAT:
+			break;
+
+		case EditorConstants.EDIT_LANGUAGE:
+			break;
+
+		case EditorConstants.EDIT_RACE:
+
+			//
+			// Populate the templates available list and selected lists
+			//
+			List<String> availableRaceTemplateList = new ArrayList<String>();
+			List<String> selectedRaceTemplateList = new ArrayList<String>();
+			List<String> selectedRaceTemplateList2 = new ArrayList<String>();
+
+			for (PCTemplate aTemplate : Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class))
+			{
+				aString = aTemplate.getKeyName();
+
+				if (!availableRaceTemplateList.contains(aString))
 				{
-					addSelectedDomainSpells(availableSpellList,
-						selectedSpellList);
+					availableRaceTemplateList.add(aString);
 				}
-				Globals.sortPObjectList(availableSpellList);
+			}
 
-				pnlQSpells.setAvailableList(availableSpellList, true);
-				pnlQSpells.setSelectedList(selectedSpellList, true);
-
-				break;
-
-			case EditorConstants.EDIT_FEAT:
-				break;
-
-			case EditorConstants.EDIT_LANGUAGE:
-				break;
-
-			case EditorConstants.EDIT_RACE:
-
-				//
-				// Populate the templates available list and selected lists
-				//
-				List<String> availableRaceTemplateList = new ArrayList<String>();
-				List<String> selectedRaceTemplateList = new ArrayList<String>();
-				List<String> selectedRaceTemplateList2 = new ArrayList<String>();
-
-				for (PCTemplate aTemplate : Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class))
-				{
-					aString = aTemplate.getKeyName();
-
-					if (!availableRaceTemplateList.contains(aString))
-					{
-						availableRaceTemplateList.add(aString);
-					}
-				}
-
-				//
-				// remove this race's granted templates from the available list and place into selected list
-				//
-				moveGrantedTemplatesFromAvailableToSelected(thisPObject, selectedRaceTemplateList,
+			//
+			// remove this race's granted templates from the available list and place into selected list
+			//
+			moveGrantedTemplatesFromAvailableToSelected(thisPObject, selectedRaceTemplateList,
 					selectedRaceTemplateList2, availableRaceTemplateList);
 
-				pnlTemplates.setAvailableList(availableRaceTemplateList, true);
-				pnlTemplates.setSelectedList(selectedRaceTemplateList, true);
-				pnlTemplates.setSelectedList2(selectedRaceTemplateList2, true);
+			pnlTemplates.setAvailableList(availableRaceTemplateList, true);
+			pnlTemplates.setSelectedList(selectedRaceTemplateList, true);
+			pnlTemplates.setSelectedList2(selectedRaceTemplateList2, true);
 
-				//
-				// Populate the favoured classes available list and selected lists
-				//
-				List<String> availableFavouredClassList = new ArrayList<String>();
-				List<String> selectedFavouredClassList = new ArrayList<String>();
+			//
+			// Populate the favoured classes available list and selected lists
+			//
+			List<String> availableFavouredClassList = new ArrayList<String>();
+			List<String> selectedFavouredClassList = new ArrayList<String>();
 
-				for (PCClass aClass : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class))
+			for (PCClass aClass : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class))
+			{
+				if (!(aClass instanceof SubClass) && !(aClass instanceof SubstitutionClass))
 				{
-					if (!(aClass instanceof SubClass)
-						&& !(aClass instanceof SubstitutionClass))
+					availableFavouredClassList.add(aClass.getKeyName());
+				}
+				if (aClass.containsListFor(ListKey.SUB_CLASS))
+				{
+					for (SubClass subClass : aClass.getListFor(ListKey.SUB_CLASS))
 					{
-						availableFavouredClassList.add(aClass.getKeyName());
+						availableFavouredClassList.add(aClass.getKeyName() + "." + subClass.getKeyName());
 					}
-					if (aClass.containsListFor(ListKey.SUB_CLASS))
+				}
+				if (aClass.containsListFor(ListKey.SUBSTITUTION_CLASS))
+				{
+					for (SubstitutionClass subClass : aClass.getListFor(ListKey.SUBSTITUTION_CLASS))
 					{
-						for (SubClass subClass : aClass.getListFor(ListKey.SUB_CLASS))
+						availableFavouredClassList.add(aClass.getKeyName() + "." + subClass.getKeyName());
+					}
+				}
+			}
+
+			availableFavouredClassList.add("Any");
+			List<CDOMReference<? extends PCClass>> favClass = thisPObject.getListFor(ListKey.FAVORED_CLASS);
+			if (favClass != null)
+			{
+				for (CDOMReference<? extends PCClass> ref : favClass)
+				{
+					String cl = ref.getLSTformat(false);
+					availableFavouredClassList.remove(cl);
+					selectedFavouredClassList.add(cl);
+				}
+			}
+
+			pnlClasses.setAvailableList(availableFavouredClassList, true);
+			pnlClasses.setSelectedList(selectedFavouredClassList, true);
+
+			//
+			// Populate the feats available list and selected lists
+			//
+			List<String> availableRaceFeatList = new ArrayList<String>();
+			List<String> selectedRaceFeatList = new ArrayList<String>();
+
+			for (Ability anAbility : Globals.getContext().ref.getManufacturer(Ability.class, AbilityCategory.FEAT)
+					.getAllObjects())
+			{
+				availableRaceFeatList.add(anAbility.getKeyName());
+			}
+
+			for (CDOMReference<Ability> ref : thisPObject.getSafeListFor(ListKey.FEAT_TOKEN_LIST))
+			{
+				String lst = ref.getLSTformat(false);
+				if (!selectedRaceFeatList.contains(lst))
+				{
+					availableRaceFeatList.remove(lst);
+					selectedRaceFeatList.add(lst);
+				}
+			}
+
+			pnlFeats.setAvailableList(availableRaceFeatList, true);
+			pnlFeats.setSelectedList(selectedRaceFeatList, true);
+
+			//
+			// Populate the virtual feats available list and selected list
+			//
+			List<String> availableRaceVirtualFeatList = new ArrayList<String>();
+			List<String> selectedRaceVirtualFeatList = new ArrayList<String>();
+
+			for (Ability anAbility : Globals.getContext().ref.getManufacturer(Ability.class, AbilityCategory.FEAT)
+					.getAllObjects())
+			{
+				availableRaceVirtualFeatList.add(anAbility.getKeyName());
+			}
+
+			Collection<CDOMReference<Ability>> mods = thisPObject.getListMods(AbilityList.getAbilityListReference(
+					AbilityCategory.FEAT, Nature.VIRTUAL));
+			if (mods != null)
+			{
+				for (CDOMReference<Ability> ref : mods)
+				{
+					String featName = ref.getLSTformat(false);
+					if (!selectedRaceVirtualFeatList.contains(featName))
+					{
+						availableRaceVirtualFeatList.remove(featName);
+						selectedRaceVirtualFeatList.add(featName);
+					}
+				}
+			}
+
+			pnlVFeats.setAvailableList(availableRaceVirtualFeatList, true);
+			pnlVFeats.setSelectedList(selectedRaceVirtualFeatList, true);
+
+			//
+			// Populate the bonus languages available list and selected lists
+			//
+			List<Language> availableRaceLangList = new ArrayList<Language>();
+			List<Language> selectedRaceLangList = new ArrayList<Language>();
+			Collection<CDOMReference<Language>> langCollection = thisPObject.getListMods(Language.STARTING_LIST);
+			if (langCollection != null)
+			{
+				for (CDOMReference<Language> ref : langCollection)
+				{
+					selectedRaceLangList.addAll(ref.getContainedObjects());
+				}
+			}
+			availableRaceLangList.addAll(Globals.getContext().ref.getConstructedCDOMObjects(Language.class));
+			availableRaceLangList.removeAll(selectedRaceLangList);
+
+			pnlBonusLang.setAvailableList(availableRaceLangList, true);
+			pnlBonusLang.setSelectedList(selectedRaceLangList, true);
+
+			//
+			// Populate the movement panel
+			//
+			movementValues = new ArrayList<String>();
+
+			List<Movement> mms = thisPObject.getListFor(ListKey.MOVEMENT);
+			if (mms != null && !mms.isEmpty())
+			{
+				Movement cm = mms.get(0);
+				if (cm != null && cm.getNumberOfMovementTypes() > 0)
+				{
+					for (int index = 0; index < cm.getNumberOfMovementTypes(); index++)
+					{
+						final String aMove = MovementPanel.makeMoveString(cm.getMovementType(index),
+								cm.getMovement(index), null, null);
+						movementValues.add(aMove);
+					}
+				}
+			}
+
+			pnlMovement.setSelectedList(movementValues);
+
+			//
+			// Populate the vision panel
+			//
+			vision = new ArrayList<Vision>();
+			for (CDOMReference<Vision> ref : thisPObject.getSafeListMods(Vision.VISIONLIST))
+			{
+				vision.addAll(ref.getContainedObjects());
+			}
+			visionValues = buildVisionValues(vision);
+			pnlVision.setSelectedList(visionValues);
+
+			//
+			// Populate the natural attacks panel
+			//
+			naturalAttacks = thisPObject.getSafeListFor(ListKey.NATURAL_WEAPON);
+			pnlNaturalAttacks.setSelectedList(naturalAttacks);
+
+			//
+			// Populate the appearance panel
+			//
+			List<String> eyeColorList = new ArrayList<String>();
+			List<String> hairColorList = new ArrayList<String>();
+			List<String> skinToneList = new ArrayList<String>();
+
+			for (final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class))
+			{
+				//					final String raceName = (String) e.next();
+				String[] unp = Globals.getContext().unparseSubtoken(race, "REGION");
+
+				if (unp == null)
+				{
+					aString = Constants.NONE;
+				} else
+				{
+					aString = unp[0];
+				}
+
+				aList = Globals.getBioSet().getTagForRace(aString, race.getKeyName(), "HAIR");
+
+				if (aList != null)
+				{
+					for (Iterator<String> ai = aList.iterator(); ai.hasNext();)
+					{
+						String as = ai.next();
+						StringTokenizer at = new StringTokenizer(as, "|", false);
+
+						while (at.hasMoreTokens())
 						{
-							availableFavouredClassList.add(aClass.getKeyName()
-								+ "." + subClass.getKeyName());
-						}
-					}
-					if (aClass.containsListFor(ListKey.SUBSTITUTION_CLASS))
-					{
-						for (SubstitutionClass subClass : aClass.getListFor(ListKey.SUBSTITUTION_CLASS))
-						{
-							availableFavouredClassList.add(aClass.getKeyName()
-								+ "." + subClass.getKeyName());
-						}
-					}
-				}
+							String ast = at.nextToken();
 
-				availableFavouredClassList.add("Any");
-				List<CDOMReference<? extends PCClass>> favClass = thisPObject
-					.getListFor(ListKey.FAVORED_CLASS);
-				if (favClass != null)
-				{
-					for (CDOMReference<? extends PCClass> ref : favClass)
-					{
-						String cl = ref.getLSTformat(false);
-						availableFavouredClassList.remove(cl);
-						selectedFavouredClassList.add(cl);
-					}
-				}
-
-				pnlClasses.setAvailableList(availableFavouredClassList, true);
-				pnlClasses.setSelectedList(selectedFavouredClassList, true);
-
-				//
-				// Populate the feats available list and selected lists
-				//
-				List<String> availableRaceFeatList = new ArrayList<String>();
-				List<String> selectedRaceFeatList = new ArrayList<String>();
-
-				for (Ability anAbility : Globals.getContext().ref.getManufacturer(
-						Ability.class, AbilityCategory.FEAT).getAllObjects())
-				{
-					availableRaceFeatList.add(anAbility.getKeyName());
-				}
-
-				for (CDOMReference<Ability> ref : thisPObject
-					.getSafeListFor(ListKey.FEAT_TOKEN_LIST))
-				{
-					String lst = ref.getLSTformat(false);
-					if (!selectedRaceFeatList.contains(lst))
-					{
-						availableRaceFeatList.remove(lst);
-						selectedRaceFeatList.add(lst);
-					}
-				}
-
-				pnlFeats.setAvailableList(availableRaceFeatList, true);
-				pnlFeats.setSelectedList(selectedRaceFeatList, true);
-
-				//
-				// Populate the virtual feats available list and selected list
-				//
-				List<String> availableRaceVirtualFeatList = new ArrayList<String>();
-				List<String> selectedRaceVirtualFeatList = new ArrayList<String>();
-
-				for (Ability anAbility : Globals.getContext().ref.getManufacturer(
-						Ability.class, AbilityCategory.FEAT).getAllObjects())
-				{
-					availableRaceVirtualFeatList.add(anAbility.getKeyName());
-				}
-
-				Collection<CDOMReference<Ability>> mods = thisPObject.getListMods(AbilityList.getAbilityListReference(AbilityCategory.FEAT, Nature.VIRTUAL));
-				if (mods != null)
-				{
-					for (CDOMReference<Ability> ref : mods)
-					{
-						String featName = ref.getLSTformat(false);
-						if (!selectedRaceVirtualFeatList.contains(featName))
-						{
-							availableRaceVirtualFeatList.remove(featName);
-							selectedRaceVirtualFeatList.add(featName);
-						}
-					}
-				}
-
-				pnlVFeats.setAvailableList(availableRaceVirtualFeatList, true);
-				pnlVFeats.setSelectedList(selectedRaceVirtualFeatList, true);
-
-				//
-				// Populate the bonus languages available list and selected lists
-				//
-				List<Language> availableRaceLangList = new ArrayList<Language>();
-				List<Language> selectedRaceLangList = new ArrayList<Language>();
-				Collection<CDOMReference<Language>> langCollection = thisPObject
-					.getListMods(Language.STARTING_LIST);
-				if (langCollection != null)
-				{
-					for (CDOMReference<Language> ref : langCollection)
-					{
-						selectedRaceLangList.addAll(ref.getContainedObjects());
-					}
-				}
-				availableRaceLangList.addAll(Globals.getContext().ref.getConstructedCDOMObjects(Language.class));
-				availableRaceLangList.removeAll(selectedRaceLangList);
-
-				pnlBonusLang.setAvailableList(availableRaceLangList, true);
-				pnlBonusLang.setSelectedList(selectedRaceLangList, true);
-
-				//
-				// Populate the movement panel
-				//
-				movementValues = new ArrayList<String>();
-
-				List<Movement> mms = thisPObject.getListFor(ListKey.MOVEMENT);
-				if (mms != null && !mms.isEmpty())
-				{
-					Movement cm = mms.get(0);
-					if (cm != null && cm.getNumberOfMovementTypes() > 0)
-					{
-						for (int index = 0; index < cm.getNumberOfMovementTypes(); index++)
-						{
-							final String aMove = MovementPanel.makeMoveString(cm.getMovementType(index),
-									cm.getMovement(index), null, null);
-							movementValues.add(aMove);
-						}
-					}
-				}
-
-				pnlMovement.setSelectedList(movementValues);
-
-				//
-				// Populate the vision panel
-				//
-				vision = new ArrayList<Vision>();
-				for (CDOMReference<Vision> ref : thisPObject
-					.getSafeListMods(Vision.VISIONLIST))
-				{
-					vision.addAll(ref.getContainedObjects());
-				}
-				visionValues = buildVisionValues(vision);
-				pnlVision.setSelectedList(visionValues);
-
-				//
-				// Populate the natural attacks panel
-				//
-				naturalAttacks = thisPObject.getSafeListFor(ListKey.NATURAL_WEAPON);
-				pnlNaturalAttacks.setSelectedList(naturalAttacks);
-
-				//
-				// Populate the appearance panel
-				//
-				List<String> eyeColorList = new ArrayList<String>();
-				List<String> hairColorList = new ArrayList<String>();
-				List<String> skinToneList = new ArrayList<String>();
-
-				for ( final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class) )
-				{
-//					final String raceName = (String) e.next();
-					String[] unp = Globals.getContext().unparseSubtoken(race, "REGION");
-
-					if (unp == null)
-					{
-						aString = Constants.NONE;
-					}
-					else
-					{
-						aString = unp[0];
-					}
-
-					aList = Globals.getBioSet().getTagForRace(aString, race.getKeyName(), "HAIR");
-
-					if (aList != null)
-					{
-						for (Iterator<String> ai = aList.iterator(); ai.hasNext();)
-						{
-							String as = ai.next();
-							StringTokenizer at = new StringTokenizer(as, "|", false);
-
-							while (at.hasMoreTokens())
+							if (!hairColorList.contains(ast))
 							{
-								String ast = at.nextToken();
-
-								if (!hairColorList.contains(ast))
-								{
-									hairColorList.add(ast);
-								}
-							}
-						}
-					}
-
-					aList = Globals.getBioSet().getTagForRace(aString, race.getKeyName(), "EYES");
-
-					if (aList != null)
-					{
-						for (Iterator<String> ai = aList.iterator(); ai.hasNext();)
-						{
-							String as = ai.next();
-							StringTokenizer at = new StringTokenizer(as, "|", false);
-
-							while (at.hasMoreTokens())
-							{
-								String ast = at.nextToken();
-
-								if (!eyeColorList.contains(ast))
-								{
-									eyeColorList.add(ast);
-								}
-							}
-						}
-					}
-
-					aList = Globals.getBioSet().getTagForRace(aString, race.getKeyName(), "SKINTONE");
-
-					if (aList != null)
-					{
-						for (Iterator ai = aList.iterator(); ai.hasNext();)
-						{
-							String as = (String) ai.next();
-							StringTokenizer at = new StringTokenizer(as, "|", false);
-
-							while (at.hasMoreTokens())
-							{
-								String ast = at.nextToken();
-
-								if (!skinToneList.contains(ast))
-								{
-									skinToneList.add(ast);
-								}
+								hairColorList.add(ast);
 							}
 						}
 					}
 				}
 
-				pnlAppearance.setEyeColorAvailableList(eyeColorList, true);
-				pnlAppearance.setHairColorAvailableList(hairColorList, true);
-				pnlAppearance.setSkinToneAvailableList(skinToneList, true);
-				pnlAppearance.updateView((Race) thisPObject);
+				aList = Globals.getBioSet().getTagForRace(aString, race.getKeyName(), "EYES");
 
-				//
-				// Populate the age panel
-				//
-				pnlAge.updateView((Race) thisPObject);
-
-				break;
-
-			case EditorConstants.EDIT_SKILL:
-				List<String> availableSkillList = new ArrayList<String>();
-				List<String> selectedSkillList = new ArrayList<String>();
-				List<String> selectedSkillList2 = new ArrayList<String>();
-
-				for (Iterator <PCClass>e = Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class).iterator(); e.hasNext();)
+				if (aList != null)
 				{
-					final PCClass aClass = e.next();
-					availableSkillList.add(aClass.getKeyName());
-				}
-
-				Changes<CDOMReference> masterChanges = Globals.getContext().getListContext()
-					.getMasterListChanges("CLASSES", thisPObject,
-							ClassSkillList.class);
-				Collection<CDOMReference> add = masterChanges.getAdded();
-				if (add != null)
-				{
-					for (CDOMReference<ClassSkillList> ref : add)
+					for (Iterator<String> ai = aList.iterator(); ai.hasNext();)
 					{
-						String className = ref.getLSTformat(false);
-						if (className.startsWith("ALL|!"))
+						String as = ai.next();
+						StringTokenizer at = new StringTokenizer(as, "|", false);
+
+						while (at.hasMoreTokens())
 						{
-							for (String prev : className.substring(5).split(
-							"\\|\\!"))
+							String ast = at.nextToken();
+
+							if (!eyeColorList.contains(ast))
 							{
-								selectedSkillList2.add(prev);
-								availableSkillList.remove(prev);
+								eyeColorList.add(ast);
 							}
-						}
-						else
-						{
-							selectedSkillList.add(className);
-							availableSkillList.remove(className);
 						}
 					}
 				}
 
-				pnlClasses.setAvailableList(availableSkillList, true);
-				pnlClasses.setSelectedList(selectedSkillList, true);
-				pnlClasses.setSelectedList2(selectedSkillList2, true);
-				pnlClasses.setLblSelectedText("Class Skill");
-				pnlClasses.setLblSelected2Text("Not allowed");
+				aList = Globals.getBioSet().getTagForRace(aString, race.getKeyName(), "SKINTONE");
 
-				break;
-
-			case EditorConstants.EDIT_SPELL:
-				((SpellBasePanel2) pnlBase2).updateView((Spell) thisPObject);
-
-				//
-				// Initialize the contents of the available and selected domains lists
-				//
-				int iCount = 0;
-				List<String> availableDomainsList = new ArrayList<String>();
-				List<String> selectedDomainsList = new ArrayList<String>();
-
-				HashMapToList<CDOMList<Spell>, Integer> hml = SpellLevel
-					.getMasterLevelInfo(null, (Spell) thisPObject);
-				for (Domain aDomain : Globals.getContext().ref.getConstructedCDOMObjects(Domain.class))
+				if (aList != null)
 				{
-					List<Integer> levelList = hml
-						.getListFor(aDomain.get(ObjectKey.DOMAIN_SPELLLIST));
-					if (levelList == null || levelList.isEmpty())
+					for (Iterator ai = aList.iterator(); ai.hasNext();)
+					{
+						String as = (String) ai.next();
+						StringTokenizer at = new StringTokenizer(as, "|", false);
+
+						while (at.hasMoreTokens())
+						{
+							String ast = at.nextToken();
+
+							if (!skinToneList.contains(ast))
+							{
+								skinToneList.add(ast);
+							}
+						}
+					}
+				}
+			}
+
+			pnlAppearance.setEyeColorAvailableList(eyeColorList, true);
+			pnlAppearance.setHairColorAvailableList(hairColorList, true);
+			pnlAppearance.setSkinToneAvailableList(skinToneList, true);
+			pnlAppearance.updateView((Race) thisPObject);
+
+			//
+			// Populate the age panel
+			//
+			pnlAge.updateView((Race) thisPObject);
+
+			break;
+
+		case EditorConstants.EDIT_SKILL:
+			List<String> availableSkillList = new ArrayList<String>();
+			List<String> selectedSkillList = new ArrayList<String>();
+			List<String> selectedSkillList2 = new ArrayList<String>();
+
+			for (Iterator<PCClass> e = Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class).iterator(); e
+					.hasNext();)
+			{
+				final PCClass aClass = e.next();
+				availableSkillList.add(aClass.getKeyName());
+			}
+
+			Changes<CDOMReference> masterChanges = Globals.getContext().getListContext()
+					.getMasterListChanges("CLASSES", thisPObject, ClassSkillList.class);
+			Collection<CDOMReference> add = masterChanges.getAdded();
+			if (add != null)
+			{
+				for (CDOMReference<ClassSkillList> ref : add)
+				{
+					String className = ref.getLSTformat(false);
+					if (className.startsWith("ALL|!"))
+					{
+						for (String prev : className.substring(5).split("\\|\\!"))
+						{
+							selectedSkillList2.add(prev);
+							availableSkillList.remove(prev);
+						}
+					} else
+					{
+						selectedSkillList.add(className);
+						availableSkillList.remove(className);
+					}
+				}
+			}
+
+			pnlClasses.setAvailableList(availableSkillList, true);
+			pnlClasses.setSelectedList(selectedSkillList, true);
+			pnlClasses.setSelectedList2(selectedSkillList2, true);
+			pnlClasses.setLblSelectedText("Class Skill");
+			pnlClasses.setLblSelected2Text("Not allowed");
+
+			break;
+
+		case EditorConstants.EDIT_SPELL:
+			((SpellBasePanel2) pnlBase2).updateView((Spell) thisPObject);
+
+			//
+			// Initialize the contents of the available and selected domains lists
+			//
+			int iCount = 0;
+			List<String> availableDomainsList = new ArrayList<String>();
+			List<String> selectedDomainsList = new ArrayList<String>();
+
+			HashMapToList<CDOMList<Spell>, Integer> hml = SpellLevel.getMasterLevelInfo(null, (Spell) thisPObject);
+			for (Domain aDomain : Globals.getContext().ref.getConstructedCDOMObjects(Domain.class))
+			{
+				List<Integer> levelList = hml.getListFor(aDomain.get(ObjectKey.DOMAIN_SPELLLIST));
+				if (levelList == null || levelList.isEmpty())
+				{
+					availableDomainsList.add(aDomain.getKeyName());
+				} else
+				{
+					int lvl = levelList.get(0);
+					if (lvl == -1)
 					{
 						availableDomainsList.add(aDomain.getKeyName());
-					}
-					else
+					} else
 					{
-						int lvl = levelList.get(0);
-						if (lvl == -1)
-						{
-							availableDomainsList.add(aDomain.getKeyName());
-						}
-						else
-						{
-							selectedDomainsList.add(encodeDomainEntry(aDomain.getKeyName(), Integer.toString(lvl)));
-							++iCount;
-						}
+						selectedDomainsList.add(encodeDomainEntry(aDomain.getKeyName(), Integer.toString(lvl)));
+						++iCount;
 					}
 				}
+			}
 
-				pnlQDomains.setAvailableList(availableDomainsList, true);
-				pnlQDomains.setSelectedList(selectedDomainsList, true);
+			pnlQDomains.setAvailableList(availableDomainsList, true);
+			pnlQDomains.setSelectedList(selectedDomainsList, true);
 
-				//
-				// Initialize the contents of the available and selected classes lists
-				//
-				List<String> availableClassesList = new ArrayList<String>();
-				List<String> selectedClassesList = new ArrayList<String>();
+			//
+			// Initialize the contents of the available and selected classes lists
+			//
+			List<String> availableClassesList = new ArrayList<String>();
+			List<String> selectedClassesList = new ArrayList<String>();
 
-				for (Iterator<PCClass> e = Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class).iterator(); e.hasNext();)
+			for (Iterator<PCClass> e = Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class).iterator(); e
+					.hasNext();)
+			{
+				final PCClass aClass = e.next();
+				List<Integer> levelList = hml.getListFor(aClass.get(ObjectKey.CLASS_SPELLLIST));
+				if (levelList == null || levelList.isEmpty())
 				{
-					final PCClass aClass = e.next();
-					List<Integer> levelList = hml.getListFor(aClass
-						.get(ObjectKey.CLASS_SPELLLIST));
-					if (levelList == null || levelList.isEmpty())
+					availableClassesList.add(aClass.getKeyName());
+				} else
+				{
+					int lvl = levelList.get(0);
+					if (lvl == -1)
 					{
 						availableClassesList.add(aClass.getKeyName());
-					}
-					else
+					} else
 					{
-						int lvl = levelList.get(0);
-						if (lvl == -1)
-						{
-							availableClassesList.add(aClass.getKeyName());
-						}
-						else
-						{
-							selectedClassesList.add(encodeDomainEntry(aClass.getKeyName(), Integer.toString(lvl)));
-							++iCount;
-						}
+						selectedClassesList.add(encodeDomainEntry(aClass.getKeyName(), Integer.toString(lvl)));
+						++iCount;
 					}
 				}
+			}
 
-				pnlQClasses.setAvailableList(availableClassesList, true);
-				pnlQClasses.setSelectedList(selectedClassesList, true);
+			pnlQClasses.setAvailableList(availableClassesList, true);
+			pnlQClasses.setSelectedList(selectedClassesList, true);
 
-				//
-				// Inform the user if there is a domain/class defined for the spell that was not found
-				//
-				HashMapToList<CDOMList<Spell>, Integer> lvlInfo = SpellLevel.getMasterLevelInfo(null, (Spell) thisPObject);
-				if ((lvlInfo != null) && (lvlInfo.size() != iCount))
-				{
-					Logging.errorPrint(Integer.toString(iCount) + " classes and domains found. Should have been "
+			//
+			// Inform the user if there is a domain/class defined for the spell that was not found
+			//
+			HashMapToList<CDOMList<Spell>, Integer> lvlInfo = SpellLevel.getMasterLevelInfo(null, (Spell) thisPObject);
+			if ((lvlInfo != null) && (lvlInfo.size() != iCount))
+			{
+				Logging.errorPrint(Integer.toString(iCount) + " classes and domains found. Should have been "
 						+ Integer.toString(lvlInfo.size()) + "\n" + lvlInfo);
-				}
+			}
 
-				break;
+			break;
 
-			case EditorConstants.EDIT_TEMPLATE:
+		case EditorConstants.EDIT_TEMPLATE:
 
-				//
-				// Populate the templates available list and selected lists
-				//
-				List<String> availableTemplateList = new ArrayList<String>();
-				List<String> selectedTemplateList = new ArrayList<String>();
-				List<String> selectedTemplateList2 = new ArrayList<String>();
+			//
+			// Populate the templates available list and selected lists
+			//
+			List<String> availableTemplateList = new ArrayList<String>();
+			List<String> selectedTemplateList = new ArrayList<String>();
+			List<String> selectedTemplateList2 = new ArrayList<String>();
 
-				for (PCTemplate aTemplate : Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class))
+			for (PCTemplate aTemplate : Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class))
+			{
+				aString = aTemplate.getKeyName();
+
+				if (!availableTemplateList.contains(aString))
 				{
-					aString = aTemplate.getKeyName();
+					availableTemplateList.add(aString);
+				}
+			}
 
-					if (!availableTemplateList.contains(aString))
+			//
+			// remove this template's granted templates from the available list and place into selected list
+			//
+			moveGrantedTemplatesFromAvailableToSelected(thisPObject, selectedTemplateList, selectedTemplateList2,
+					availableTemplateList);
+
+			pnlTemplates.setAvailableList(availableTemplateList, true);
+			pnlTemplates.setSelectedList(selectedTemplateList, true);
+			pnlTemplates.setSelectedList2(selectedTemplateList2, true);
+
+			//
+			// Populate the favoured classes available list and selected lists
+			//
+			List<String> availableFavouredClassesList = new ArrayList<String>();
+			List<String> selectedFavouredClassesList = new ArrayList<String>();
+
+			for (PCClass aClass : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class))
+			{
+				if (!(aClass instanceof SubClass) && !(aClass instanceof SubstitutionClass))
+				{
+					availableFavouredClassesList.add(aClass.getKeyName());
+				}
+				if (aClass.containsListFor(ListKey.SUB_CLASS))
+				{
+					for (SubClass subClass : aClass.getListFor(ListKey.SUB_CLASS))
 					{
-						availableTemplateList.add(aString);
+						availableFavouredClassesList.add(aClass.getKeyName() + "." + subClass.getKeyName());
 					}
 				}
-
-				//
-				// remove this template's granted templates from the available list and place into selected list
-				//
-				moveGrantedTemplatesFromAvailableToSelected(thisPObject, selectedTemplateList,
-					selectedTemplateList2, availableTemplateList);
-
-				pnlTemplates.setAvailableList(availableTemplateList, true);
-				pnlTemplates.setSelectedList(selectedTemplateList, true);
-				pnlTemplates.setSelectedList2(selectedTemplateList2, true);
-
-				//
-				// Populate the favoured classes available list and selected lists
-				//
-				List<String> availableFavouredClassesList = new ArrayList<String>();
-				List<String> selectedFavouredClassesList = new ArrayList<String>();
-
-				for (PCClass aClass : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class))
+				if (aClass.containsListFor(ListKey.SUBSTITUTION_CLASS))
 				{
-					if (!(aClass instanceof SubClass)
-						&& !(aClass instanceof SubstitutionClass))
+					for (SubstitutionClass subClass : aClass.getListFor(ListKey.SUBSTITUTION_CLASS))
 					{
-						availableFavouredClassesList.add(aClass.getKeyName());
-					}
-					if (aClass.containsListFor(ListKey.SUB_CLASS))
-					{
-						for (SubClass subClass : aClass.getListFor(ListKey.SUB_CLASS))
-						{
-							availableFavouredClassesList.add(aClass.getKeyName()
-								+ "." + subClass.getKeyName());
-						}
-					}
-					if (aClass.containsListFor(ListKey.SUBSTITUTION_CLASS))
-					{
-						for (SubstitutionClass subClass : aClass.getListFor(ListKey.SUBSTITUTION_CLASS))
-						{
-							availableFavouredClassesList.add(aClass.getKeyName()
-								+ "." + subClass.getKeyName());
-						}
+						availableFavouredClassesList.add(aClass.getKeyName() + "." + subClass.getKeyName());
 					}
 				}
+			}
 
-				availableFavouredClassesList.add("Any");
-				favClass = thisPObject.getListFor(ListKey.FAVORED_CLASS);
-				if (favClass != null)
+			availableFavouredClassesList.add("Any");
+			favClass = thisPObject.getListFor(ListKey.FAVORED_CLASS);
+			if (favClass != null)
+			{
+				for (CDOMReference<? extends PCClass> ref : favClass)
 				{
-					for (CDOMReference<? extends PCClass> ref : favClass)
+					String cl = ref.getLSTformat(false);
+					availableFavouredClassesList.remove(cl);
+					selectedFavouredClassesList.add(cl);
+				}
+			}
+			pnlClasses.setAvailableList(availableFavouredClassesList, true);
+			pnlClasses.setSelectedList(selectedFavouredClassesList, true);
+
+			//
+			// Populate the feats available list and selected lists
+			//
+			List<String> availableTemplateFeatsList = new ArrayList<String>();
+			List<String> selectedTemplateFeatsList = new ArrayList<String>();
+
+			for (Ability anAbility : Globals.getContext().ref.getManufacturer(Ability.class, AbilityCategory.FEAT)
+					.getAllObjects())
+			{
+				availableTemplateFeatsList.add(anAbility.getKeyName());
+			}
+
+			PersistentTransitionChoice<?> ptc = thisPObject.get(ObjectKey.TEMPLATE_FEAT);
+			if (ptc != null)
+			{
+				for (String str : ptc.getChoices().getLSTformat().split(","))
+				{
+					if (!selectedTemplateFeatsList.contains(str))
 					{
-						String cl = ref.getLSTformat(false);
-						availableFavouredClassesList.remove(cl);
-						selectedFavouredClassesList.add(cl);
+						availableTemplateFeatsList.remove(str);
+						selectedTemplateFeatsList.add(str);
 					}
 				}
-				pnlClasses.setAvailableList(availableFavouredClassesList, true);
-				pnlClasses.setSelectedList(selectedFavouredClassesList, true);
+			}
 
-				//
-				// Populate the feats available list and selected lists
-				//
-				List<String> availableTemplateFeatsList = new ArrayList<String>();
-				List<String> selectedTemplateFeatsList = new ArrayList<String>();
+			pnlFeats.setAvailableList(availableTemplateFeatsList, true);
+			pnlFeats.setSelectedList(selectedTemplateFeatsList, true);
 
-				for (Ability anAbility : Globals.getContext().ref.getManufacturer(
-						Ability.class, AbilityCategory.FEAT).getAllObjects())
+			//
+			// Populate the movement panel
+			//
+			movementValues = new ArrayList<String>();
+
+			List<Movement> mmsl = thisPObject.getListFor(ListKey.MOVEMENT);
+			if (mmsl != null && !mmsl.isEmpty())
+			{
+				Movement cmv = mmsl.get(0);
+				if (cmv != null && cmv.getNumberOfMovementTypes() > 0)
 				{
-					availableTemplateFeatsList.add(anAbility.getKeyName());
-				}
-
-				PersistentTransitionChoice<?> ptc = thisPObject.get(ObjectKey.TEMPLATE_FEAT);
-				if (ptc != null)
-				{
-					for (String str : ptc.getChoices().getLSTformat().split(","))
+					for (int index = 0; index < cmv.getNumberOfMovementTypes(); index++)
 					{
-						if (!selectedTemplateFeatsList.contains(str))
-						{
-							availableTemplateFeatsList.remove(str);
-							selectedTemplateFeatsList.add(str);
-						}
+						final String aMove = MovementPanel.makeMoveString(cmv.getMovementType(index),
+								cmv.getMovement(index), cmv.getMovementMult(index), cmv.getMovementMultOp(index));
+						movementValues.add(aMove);
 					}
+					pnlMovement.setMoveRateType(cmv.getMoveRatesFlag());
 				}
+			}
+			pnlMovement.setSelectedList(movementValues);
 
-				pnlFeats.setAvailableList(availableTemplateFeatsList, true);
-				pnlFeats.setSelectedList(selectedTemplateFeatsList, true);
+			//
+			// Populate the vision panel
+			//
+			vision = new ArrayList<Vision>();
+			for (CDOMReference<Vision> ref : thisPObject.getSafeListMods(Vision.VISIONLIST))
+			{
+				vision.addAll(ref.getContainedObjects());
+			}
+			visionValues = buildVisionValues(vision);
+			pnlVision.setSelectedList(visionValues);
 
-				//
-				// Populate the movement panel
-				//
-				movementValues = new ArrayList<String>();
+			//
+			// Populate the specialabilities panel
+			//
+			List<String> selectedSAList = new ArrayList<String>();
 
-				List<Movement> mmsl = thisPObject.getListFor(ListKey.MOVEMENT);
-				if (mmsl != null && !mmsl.isEmpty())
+			LoadContext context = Globals.getContext();
+			String[] level = context.unparseSubtoken(thisPObject, "LEVEL");
+			if (level != null)
+			{
+				for (String s : level)
 				{
-					Movement cmv = mmsl.get(0);
-					if (cmv != null && cmv.getNumberOfMovementTypes() > 0)
-					{
-						for (int index = 0; index < cmv
-							.getNumberOfMovementTypes(); index++)
-						{
-							final String aMove =
-									MovementPanel.makeMoveString(cmv
-										.getMovementType(index), cmv
-										.getMovement(index), cmv
-										.getMovementMult(index), cmv
-										.getMovementMultOp(index));
-							movementValues.add(aMove);
-						}
-						pnlMovement.setMoveRateType(cmv.getMoveRatesFlag());
-					}
+					selectedSAList.add("LEVEL:" + s);
 				}
-				pnlMovement.setSelectedList(movementValues);
-
-				//
-				// Populate the vision panel
-				//
-				vision = new ArrayList<Vision>();
-				for (CDOMReference<Vision> ref : thisPObject
-					.getSafeListMods(Vision.VISIONLIST))
+			}
+			level = context.unparseSubtoken(thisPObject, "HD");
+			if (level != null)
+			{
+				for (String s : level)
 				{
-					vision.addAll(ref.getContainedObjects());
+					selectedSAList.add("HD:" + s);
 				}
-				visionValues = buildVisionValues(vision);
-				pnlVision.setSelectedList(visionValues);
+			}
 
-				//
-				// Populate the specialabilities panel
-				//
-				List<String> selectedSAList = new ArrayList<String>();
+			pnlLevelAbilities.setSelectedList(selectedSAList);
 
-				LoadContext context = Globals.getContext();
-				String[] level = context.unparseSubtoken(thisPObject, "LEVEL");
-				if (level != null)
+			//
+			// Populate the bonus languages available list and selected lists
+			//
+			List<Language> availableBonusLangList = new ArrayList<Language>();
+			List<Language> selectedBonusLangList = new ArrayList<Language>();
+
+			Collection<CDOMReference<Language>> langColl = thisPObject.getListMods(Language.STARTING_LIST);
+			if (langColl != null)
+			{
+				for (CDOMReference<Language> ref : langColl)
 				{
-					for (String s : level)
-					{
-						selectedSAList.add("LEVEL:" + s);
-					}
+					selectedBonusLangList.addAll(ref.getContainedObjects());
 				}
-				level = context.unparseSubtoken(thisPObject, "HD");
-				if (level != null)
-				{
-					for (String s : level)
-					{
-						selectedSAList.add("HD:" + s);
-					}
-				}
+			}
+			availableBonusLangList.addAll(Globals.getContext().ref.getConstructedCDOMObjects(Language.class));
+			availableBonusLangList.removeAll(selectedBonusLangList);
 
-				pnlLevelAbilities.setSelectedList(selectedSAList);
+			pnlBonusLang.setAvailableList(availableBonusLangList, true);
+			pnlBonusLang.setSelectedList(selectedBonusLangList, true);
 
-				//
-				// Populate the bonus languages available list and selected lists
-				//
-				List<Language> availableBonusLangList = new ArrayList<Language>();
-				List<Language> selectedBonusLangList = new ArrayList<Language>();
+			break;
 
-				Collection<CDOMReference<Language>> langColl = thisPObject
-					.getListMods(Language.STARTING_LIST);
-				if (langColl != null)
-				{
-					for (CDOMReference<Language> ref : langColl)
-					{
-						selectedBonusLangList.addAll(ref.getContainedObjects());
-					}
-				}
-				availableBonusLangList.addAll(Globals.getContext().ref.getConstructedCDOMObjects(Language.class));
-				availableBonusLangList.removeAll(selectedBonusLangList);
+		case EditorConstants.EDIT_CAMPAIGN:
+			pnlFileTypes.updateView((Campaign) thisPObject);
 
-				pnlBonusLang.setAvailableList(availableBonusLangList, true);
-				pnlBonusLang.setSelectedList(selectedBonusLangList, true);
+			break;
 
-				break;
-
-			case EditorConstants.EDIT_CAMPAIGN:
-				pnlFileTypes.updateView((Campaign) thisPObject);
-
-				break;
-
-			default:
-				break;
+		default:
+			break;
 		}
 
 		//
@@ -2100,13 +2024,20 @@ public final class EditorMainForm extends JDialog
 			List<Language> selectedLanguageList = new ArrayList<Language>();
 			List<Language> selectedLanguageList2 = new ArrayList<Language>();
 
-			List<CDOMReference<Language>> aSet = thisPObject.getSafeListFor(ListKey.AUTO_LANGUAGES);
+			List<QualifiedObject<CDOMReference<Language>>> aSet = thisPObject.getSafeListFor(ListKey.AUTO_LANGUAGES);
 
 			for (Language aLang : Globals.getContext().ref.getConstructedCDOMObjects(Language.class))
 			{
 				boolean found = false;
-				for (CDOMReference<Language> ref : aSet)
+				for (QualifiedObject<CDOMReference<Language>> qual : aSet)
 				{
+					CDOMReference<Language> ref = qual.getRawObject();
+					List<Prerequisite> prereqs = qual.getPrerequisiteList();
+					Prerequisite p = null;
+					if (prereqs != null && !prereqs.isEmpty())
+					{
+						p = prereqs.get(0);
+					}
 					if (ref.contains(aLang))
 					{
 						selectedLanguageList.add(aLang);
@@ -2140,7 +2071,8 @@ public final class EditorMainForm extends JDialog
 
 				while (aTok.hasMoreTokens())
 				{
-					final Language aLang = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Language.class, aTok.nextToken());
+					final Language aLang = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Language.class,
+							aTok.nextToken());
 
 					if (aLang != null)
 					{
@@ -2198,15 +2130,13 @@ public final class EditorMainForm extends JDialog
 			{
 				moveProfToSelectedList(availableWeaponProfList, selectedWPList, e.next());
 			}
-			Collection<CDOMReference<WeaponProf>> wplist = thisPObject
-					.getListMods(WeaponProf.STARTING_LIST);
+			Collection<CDOMReference<WeaponProf>> wplist = thisPObject.getListMods(WeaponProf.STARTING_LIST);
 			if (wplist != null)
 			{
 				List<String> selectedWPList2 = new ArrayList<String>();
 				for (CDOMReference<WeaponProf> ref : wplist)
 				{
-					moveProfToSelectedList(availableWeaponProfList, selectedWPList2,
-							ref.getLSTformat(false));
+					moveProfToSelectedList(availableWeaponProfList, selectedWPList2, ref.getLSTformat(false));
 				}
 
 				pnlWeapons.setSelectedList2(selectedWPList2, true);
@@ -2222,118 +2152,120 @@ public final class EditorMainForm extends JDialog
 
 		switch (editType)
 		{
-			case EditorConstants.EDIT_DEITY:
+		case EditorConstants.EDIT_DEITY:
 
-				//
-				// Initialize the Variable combo with all the variable names we can find
-				//
-				List<String> availableVariableList = new ArrayList<String>();
-				addVariables(availableVariableList, Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class));
-				addVariables(availableVariableList, Globals.getContext().ref.getManufacturer(Ability.class, AbilityCategory.FEAT).getAllObjects());
-				addVariables(availableVariableList, Globals.getContext().ref.getConstructedCDOMObjects(Race.class));
-				addVariables(availableVariableList, Globals.getContext().ref.getConstructedCDOMObjects(Skill.class));
-				addVariables(availableVariableList, Globals.getContext().ref.getConstructedCDOMObjects(EquipmentModifier.class));
-				addVariables(availableVariableList, Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class));
-				addVariables(availableVariableList, Globals.getAllCompanionMods());
-				Collections.sort(availableVariableList);
+			//
+			// Initialize the Variable combo with all the variable names we can find
+			//
+			List<String> availableVariableList = new ArrayList<String>();
+			addVariables(availableVariableList, Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class));
+			addVariables(availableVariableList,
+					Globals.getContext().ref.getManufacturer(Ability.class, AbilityCategory.FEAT).getAllObjects());
+			addVariables(availableVariableList, Globals.getContext().ref.getConstructedCDOMObjects(Race.class));
+			addVariables(availableVariableList, Globals.getContext().ref.getConstructedCDOMObjects(Skill.class));
+			addVariables(availableVariableList,
+					Globals.getContext().ref.getConstructedCDOMObjects(EquipmentModifier.class));
+			addVariables(availableVariableList, Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class));
+			addVariables(availableVariableList, Globals.getAllCompanionMods());
+			Collections.sort(availableVariableList);
 
-				break;
+			break;
 
-			case EditorConstants.EDIT_DOMAIN:
+		case EditorConstants.EDIT_DOMAIN:
 
-				//
-				// Domain Spells allow levels 1 to 9
-				//
-				List<String> availableDomainList = new ArrayList<String>();
+			//
+			// Domain Spells allow levels 1 to 9
+			//
+			List<String> availableDomainList = new ArrayList<String>();
 
-				for (int i = 1; i <= 9; ++i)
+			for (int i = 1; i <= 9; ++i)
+			{
+				availableDomainList.add(String.valueOf(i));
+			}
+
+			pnlQSpells.setQualifierModel(new DefaultComboBoxModel(availableDomainList.toArray()));
+			pnlQSpells.setQualifierSelectedIndex(0);
+
+			break;
+
+		case EditorConstants.EDIT_FEAT:
+			break;
+
+		case EditorConstants.EDIT_LANGUAGE:
+			break;
+
+		case EditorConstants.EDIT_RACE:
+			break;
+
+		case EditorConstants.EDIT_SKILL:
+			List<String> availableSkillList = new ArrayList<String>();
+			List<String> selectedSkillList = new ArrayList<String>();
+
+			for (Skill aSkill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
+			{
+				if (!aSkill.getKeyName().equals(thisPObject.getKeyName()))
 				{
-					availableDomainList.add(String.valueOf(i));
+					availableSkillList.add(aSkill.getKeyName());
 				}
+			}
 
-				pnlQSpells.setQualifierModel(new DefaultComboBoxModel(availableDomainList.toArray()));
-				pnlQSpells.setQualifierSelectedIndex(0);
+			//
+			// BONUS:SKILL|Ride|2|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK
+			//
+			for (Iterator<BonusObj> e = thisPObject.getSafeListFor(ListKey.BONUS).iterator(); e.hasNext();)
+			{
+				parseSynergyBonus(e.next(), availableSkillList, selectedSkillList);
+			}
 
-				break;
+			pnlSynergy.setAvailableList(availableSkillList, true);
+			pnlSynergy.setSelectedList(selectedSkillList, true);
 
-			case EditorConstants.EDIT_FEAT:
-				break;
+			//
+			// initialize the Qualifier and Variables combos on the Synergy tab
+			//
+			values = new String[30];
 
-			case EditorConstants.EDIT_LANGUAGE:
-				break;
+			for (int i = 0; i < values.length; ++i)
+			{
+				values[i] = String.valueOf(i + 1);
+			}
 
-			case EditorConstants.EDIT_RACE:
-				break;
+			pnlSynergy.setQualifierModel(new DefaultComboBoxModel(values));
+			pnlSynergy.setVariableModel(new DefaultComboBoxModel(values));
+			pnlSynergy.setQualifierSelectedIndex(4); // should be 5
+			pnlSynergy.setVariableSelectedIndex(1); // should be 2
 
-			case EditorConstants.EDIT_SKILL:
-				List<String> availableSkillList = new ArrayList<String>();
-				List<String> selectedSkillList = new ArrayList<String>();
+			break;
 
-				for (Skill aSkill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
-				{
-					if (!aSkill.getKeyName().equals(thisPObject.getKeyName()))
-					{
-						availableSkillList.add(aSkill.getKeyName());
-					}
-				}
+		case EditorConstants.EDIT_SPELL:
 
-				//
-				// BONUS:SKILL|Ride|2|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK
-				//
-				for (Iterator<BonusObj> e = thisPObject.getSafeListFor(ListKey.BONUS).iterator(); e.hasNext();)
-				{
-					parseSynergyBonus(e.next(), availableSkillList, selectedSkillList);
-				}
+			//
+			// Domains allow levels 1 to 9
+			//
+			List<String> availableDomainsList = new ArrayList<String>();
 
-				pnlSynergy.setAvailableList(availableSkillList, true);
-				pnlSynergy.setSelectedList(selectedSkillList, true);
+			for (int i = 1; i <= 9; ++i)
+			{
+				availableDomainsList.add(String.valueOf(i));
+			}
 
-				//
-				// initialize the Qualifier and Variables combos on the Synergy tab
-				//
-				values = new String[30];
+			pnlQDomains.setQualifierModel(new DefaultComboBoxModel(availableDomainsList.toArray()));
+			pnlQDomains.setQualifierSelectedIndex(0);
 
-				for (int i = 0; i < values.length; ++i)
-				{
-					values[i] = String.valueOf(i + 1);
-				}
+			//
+			// Classes allow levels 0-9
+			//
+			availableDomainsList.add(0, "0");
+			pnlQClasses.setQualifierModel(new DefaultComboBoxModel(availableDomainsList.toArray()));
+			pnlQClasses.setQualifierSelectedIndex(0);
 
-				pnlSynergy.setQualifierModel(new DefaultComboBoxModel(values));
-				pnlSynergy.setVariableModel(new DefaultComboBoxModel(values));
-				pnlSynergy.setQualifierSelectedIndex(4); // should be 5
-				pnlSynergy.setVariableSelectedIndex(1); // should be 2
+			break;
 
-				break;
+		case EditorConstants.EDIT_TEMPLATE:
+			break;
 
-			case EditorConstants.EDIT_SPELL:
-
-				//
-				// Domains allow levels 1 to 9
-				//
-				List<String> availableDomainsList = new ArrayList<String>();
-
-				for (int i = 1; i <= 9; ++i)
-				{
-					availableDomainsList.add(String.valueOf(i));
-				}
-
-				pnlQDomains.setQualifierModel(new DefaultComboBoxModel(availableDomainsList.toArray()));
-				pnlQDomains.setQualifierSelectedIndex(0);
-
-				//
-				// Classes allow levels 0-9
-				//
-				availableDomainsList.add(0, "0");
-				pnlQClasses.setQualifierModel(new DefaultComboBoxModel(availableDomainsList.toArray()));
-				pnlQClasses.setQualifierSelectedIndex(0);
-
-				break;
-
-			case EditorConstants.EDIT_TEMPLATE:
-				break;
-
-			default:
-				break;
+		default:
+			break;
 		}
 
 		//
@@ -2425,26 +2357,22 @@ public final class EditorMainForm extends JDialog
 	 * @param selectedSpellList The list of domain spells strings 
 	 */
 	@SuppressWarnings("unchecked")
-	private void addSelectedDomainSpells(List<Spell> availableSpellList,
-		List<String> selectedSpellList)
+	private void addSelectedDomainSpells(List<Spell> availableSpellList, List<String> selectedSpellList)
 	{
 		final LoadContext context = Globals.getContext();
 		final String tokenName = "SPELLLEVEL";
 
 		Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> changedDomainLists = context
-		.getListContext().getChangedLists(thisPObject, DomainSpellList.class);
+				.getListContext().getChangedLists(thisPObject, DomainSpellList.class);
 		for (CDOMReference listRef : changedDomainLists)
 		{
-			AssociatedChanges changes = context.getListContext()
-					.getChangesInList(tokenName, thisPObject, listRef);
+			AssociatedChanges changes = context.getListContext().getChangesInList(tokenName, thisPObject, listRef);
 			Collection<Spell> removedItems = changes.getRemoved();
-			if (removedItems != null && !removedItems.isEmpty()
-					|| changes.includesGlobalClear())
+			if (removedItems != null && !removedItems.isEmpty() || changes.includesGlobalClear())
 			{
 				return;
 			}
-			MapToList<CDOMReference<Spell>, AssociatedPrereqObject> mtl = changes
-					.getAddedAssociations();
+			MapToList<CDOMReference<Spell>, AssociatedPrereqObject> mtl = changes.getAddedAssociations();
 			if (mtl == null || mtl.isEmpty())
 			{
 				// Zero indicates no Token
@@ -2454,10 +2382,9 @@ public final class EditorMainForm extends JDialog
 			{
 				for (AssociatedPrereqObject assoc : mtl.getListFor(added))
 				{
-					Integer lvl = assoc
-							.getAssociation(AssociationKey.SPELL_LEVEL);
+					Integer lvl = assoc.getAssociation(AssociationKey.SPELL_LEVEL);
 					Boolean known = assoc.getAssociation(AssociationKey.KNOWN);
-					boolean isKnown = known !=null && known;
+					boolean isKnown = known != null && known;
 					if (!isKnown)
 					{
 						for (Spell spell : added.getContainedObjects())
@@ -2487,26 +2414,25 @@ public final class EditorMainForm extends JDialog
 		{
 			return null;
 		}
-		
+
 		Collection<CDOMReference<Domain>> keys = obj.getListMods(Deity.DOMAINLIST);
 		if (keys == null || keys.isEmpty())
 		{
 			return null;
 		}
-		
+
 		CDOMReference<Domain> firstKey = keys.iterator().next();
 		Collection<AssociatedPrereqObject> prereqObjCol = obj.getListAssociations(Deity.DOMAINLIST, firstKey);
 		AssociatedPrereqObject assoc = prereqObjCol.iterator().next();
-		
 
 		List<Prerequisite> prereqList = assoc.getPrerequisiteList();
 		if (prereqList == null || prereqList.isEmpty())
 		{
 			return null;
 		}
-		
+
 		return getPrereqOfKind(kind, prereqList);
-		
+
 	}
 
 	/**
@@ -2571,8 +2497,7 @@ public final class EditorMainForm extends JDialog
 		{
 			selectedList.add(profName);
 			availableList.remove(profName.toUpperCase());
-		}
-		else
+		} else
 		{
 			final WeaponProf wp = Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, profName);
 
@@ -2592,7 +2517,7 @@ public final class EditorMainForm extends JDialog
 	 * @param availableList
 	 */
 	private static void moveGrantedTemplatesFromAvailableToSelected(PObject cdo, List<String> selectedList,
-		List<String> selectedList2, List<String> availableList)
+			List<String> selectedList2, List<String> availableList)
 	{
 		for (CDOMReference<PCTemplate> ref : cdo.getSafeListFor(ListKey.TEMPLATE))
 		{
@@ -2635,166 +2560,159 @@ public final class EditorMainForm extends JDialog
 
 		switch (editType)
 		{
-			case EditorConstants.EDIT_CLASS:
-				pnlLanguages = new AvailableSelectedPanel();
-				pnlSkills = new AvailableSelectedPanel(true);
-				pnlWeapons = new AvailableSelectedPanel(true);
-				pnlClassAbility = new ClassAbilityPanel();
-				pnlClassAbility.updateView((PCClass) thisPObject);
-				pnlClassLevel = new ClassLevelPanel();
-				pnlClassLevel.updateView((PCClass) thisPObject);
+		case EditorConstants.EDIT_CLASS:
+			pnlLanguages = new AvailableSelectedPanel();
+			pnlSkills = new AvailableSelectedPanel(true);
+			pnlWeapons = new AvailableSelectedPanel(true);
+			pnlClassAbility = new ClassAbilityPanel();
+			pnlClassAbility.updateView((PCClass) thisPObject);
+			pnlClassLevel = new ClassLevelPanel();
+			pnlClassLevel.updateView((PCClass) thisPObject);
 
-				break;
+			break;
 
-			case EditorConstants.EDIT_DEITY:
-				pnlLanguages = new AvailableSelectedPanel();
-				pnlSkills = new AvailableSelectedPanel(true);
-				pnlWeapons = new AvailableSelectedPanel();
+		case EditorConstants.EDIT_DEITY:
+			pnlLanguages = new AvailableSelectedPanel();
+			pnlSkills = new AvailableSelectedPanel(true);
+			pnlWeapons = new AvailableSelectedPanel();
 
-				//cmbQualifier = new JComboBoxEx();
-				//cmbVariable = new JComboBoxEx();
-				//lblQualifier = new JLabel();
-				//lblVariable = new JLabel();
-				pnlDomains = new AvailableSelectedPanel();
-				pnlFollowers = new AvailableSelectedPanel();
-				pnlRaces = new AvailableSelectedPanel();
+			//cmbQualifier = new JComboBoxEx();
+			//cmbVariable = new JComboBoxEx();
+			//lblQualifier = new JLabel();
+			//lblVariable = new JLabel();
+			pnlDomains = new AvailableSelectedPanel();
+			pnlFollowers = new AvailableSelectedPanel();
+			pnlRaces = new AvailableSelectedPanel();
 
-				break;
+			break;
 
-			case EditorConstants.EDIT_DOMAIN:
-				pnlLanguages = new AvailableSelectedPanel();
-				pnlFeats = new AvailableSelectedPanel();
-				pnlSkills = new AvailableSelectedPanel(true);
-				pnlWeapons = new AvailableSelectedPanel();
-				pnlQSpells = new QualifiedAvailableSelectedPanel("in_demLevel", null,
-						new EditorAddFilter()
+		case EditorConstants.EDIT_DOMAIN:
+			pnlLanguages = new AvailableSelectedPanel();
+			pnlFeats = new AvailableSelectedPanel();
+			pnlSkills = new AvailableSelectedPanel(true);
+			pnlWeapons = new AvailableSelectedPanel();
+			pnlQSpells = new QualifiedAvailableSelectedPanel("in_demLevel", null, new EditorAddFilter() {
+				@Override
+				public Object encode(Object anObj)
+				{
+					return encodeSpellEntry(pnlQSpells, anObj.toString());
+				}
+
+				@Override
+				public Object decode(Object anObj)
+				{
+					return decodeSpellEntry(anObj.toString());
+				}
+			}, null);
+
+			break;
+
+		case EditorConstants.EDIT_FEAT:
+			pnlLanguages = new AvailableSelectedPanel();
+			pnlSkills = new AvailableSelectedPanel(true);
+			pnlWeapons = new AvailableSelectedPanel();
+
+			break;
+
+		case EditorConstants.EDIT_LANGUAGE:
+			break;
+
+		case EditorConstants.EDIT_RACE:
+			pnlMovement = new MovementPanel(true);
+			pnlVision = new VisionPanel();
+			pnlNaturalAttacks = new NaturalAttacksPanel();
+			pnlLanguages = new AvailableSelectedPanel(true);
+			pnlSkills = new AvailableSelectedPanel(true);
+			pnlTemplates = new AvailableSelectedPanel(true);
+			pnlWeapons = new AvailableSelectedPanel(true);
+			pnlClasses = new AvailableSelectedPanel();
+			pnlFeats = new AvailableSelectedPanel();
+			pnlVFeats = new AvailableSelectedPanel();
+			pnlBonusLang = new AvailableSelectedPanel();
+			pnlAppearance = new AppearancePanel();
+			pnlAge = new AgePanel();
+
+			break;
+
+		case EditorConstants.EDIT_SKILL:
+			pnlLanguages = new AvailableSelectedPanel();
+			pnlSkills = new AvailableSelectedPanel(true);
+			pnlWeapons = new AvailableSelectedPanel();
+
+			//cmbQualifier = new JComboBoxEx();
+			//cmbVariable = new JComboBoxEx();
+			//lblQualifier = new JLabel();
+			//lblVariable = new JLabel();
+			pnlClasses = new AvailableSelectedPanel(true);
+			pnlSynergy = new QualifiedAvailableSelectedPanel("in_demSkillRank", "in_demSynergyBonus",
+					new EditorAddFilter() {
+						@Override
+						public Object encode(Object anObj)
 						{
-							@Override
-							public Object encode(Object anObj)
-							{
-								return encodeSpellEntry(pnlQSpells, anObj.toString());
-							}
+							return encodeSynergyEntry((String) anObj);
+						}
 
-							@Override
-							public Object decode(Object anObj)
-							{
-								return decodeSpellEntry( anObj.toString());
-							}
-						}, null);
-
-				break;
-
-			case EditorConstants.EDIT_FEAT:
-				pnlLanguages = new AvailableSelectedPanel();
-				pnlSkills = new AvailableSelectedPanel(true);
-				pnlWeapons = new AvailableSelectedPanel();
-
-				break;
-
-			case EditorConstants.EDIT_LANGUAGE:
-				break;
-
-			case EditorConstants.EDIT_RACE:
-				pnlMovement = new MovementPanel(true);
-				pnlVision = new VisionPanel();
-				pnlNaturalAttacks = new NaturalAttacksPanel();
-				pnlLanguages = new AvailableSelectedPanel(true);
-				pnlSkills = new AvailableSelectedPanel(true);
-				pnlTemplates = new AvailableSelectedPanel(true);
-				pnlWeapons = new AvailableSelectedPanel(true);
-				pnlClasses = new AvailableSelectedPanel();
-				pnlFeats = new AvailableSelectedPanel();
-				pnlVFeats = new AvailableSelectedPanel();
-				pnlBonusLang = new AvailableSelectedPanel();
-				pnlAppearance = new AppearancePanel();
-				pnlAge = new AgePanel();
-
-				break;
-
-			case EditorConstants.EDIT_SKILL:
-				pnlLanguages = new AvailableSelectedPanel();
-				pnlSkills = new AvailableSelectedPanel(true);
-				pnlWeapons = new AvailableSelectedPanel();
-
-				//cmbQualifier = new JComboBoxEx();
-				//cmbVariable = new JComboBoxEx();
-				//lblQualifier = new JLabel();
-				//lblVariable = new JLabel();
-				pnlClasses = new AvailableSelectedPanel(true);
-				pnlSynergy = new QualifiedAvailableSelectedPanel("in_demSkillRank", "in_demSynergyBonus",
-						new EditorAddFilter()
+						@Override
+						public Object decode(Object anObj)
 						{
-							@Override
-							public Object encode(Object anObj)
-							{
-								return encodeSynergyEntry((String) anObj);
-							}
+							return decodeSynergyEntry((String) anObj);
+						}
+					}, null);
 
-							@Override
-							public Object decode(Object anObj)
-							{
-								return decodeSynergyEntry((String) anObj);
-							}
-						}, null);
+			break;
 
-				break;
+		case EditorConstants.EDIT_SPELL:
+			pnlBase2 = new SpellBasePanel2();
+			pnlQClasses = new QualifiedAvailableSelectedPanel("in_demLevel", null, new EditorAddFilter() {
+				@Override
+				public Object encode(Object anObj)
+				{
+					return encodeDomainEntry(pnlQClasses, (String) anObj);
+				}
 
-			case EditorConstants.EDIT_SPELL:
-				pnlBase2 = new SpellBasePanel2();
-				pnlQClasses = new QualifiedAvailableSelectedPanel("in_demLevel", null,
-						new EditorAddFilter()
-						{
-							@Override
-							public Object encode(Object anObj)
-							{
-								return encodeDomainEntry(pnlQClasses, (String) anObj);
-							}
+				@Override
+				public Object decode(Object anObj)
+				{
+					return decodeDomainEntry((String) anObj);
+				}
+			}, null);
+			pnlQDomains = new QualifiedAvailableSelectedPanel("in_demLevel", null, new EditorAddFilter() {
+				@Override
+				public Object encode(Object anObj)
+				{
+					return encodeDomainEntry(pnlQDomains, (String) anObj);
+				}
 
-							@Override
-							public Object decode(Object anObj)
-							{
-								return decodeDomainEntry((String) anObj);
-							}
-						}, null);
-				pnlQDomains = new QualifiedAvailableSelectedPanel("in_demLevel", null,
-						new EditorAddFilter()
-						{
-							@Override
-							public Object encode(Object anObj)
-							{
-								return encodeDomainEntry(pnlQDomains, (String) anObj);
-							}
+				@Override
+				public Object decode(Object anObj)
+				{
+					return decodeDomainEntry((String) anObj);
+				}
+			}, null);
 
-							@Override
-							public Object decode(Object anObj)
-							{
-								return decodeDomainEntry((String) anObj);
-							}
-						}, null);
+			break;
 
-				break;
+		case EditorConstants.EDIT_TEMPLATE:
+			pnlVision = new VisionPanel();
+			pnlMovement = new MovementPanel(false);
+			pnlLevelAbilities = new LevelAbilitiesPanel();
+			pnlLanguages = new AvailableSelectedPanel(true);
+			pnlSkills = new AvailableSelectedPanel(true);
+			pnlTemplates = new AvailableSelectedPanel(true);
+			pnlWeapons = new AvailableSelectedPanel();
+			pnlClasses = new AvailableSelectedPanel();
+			pnlFeats = new AvailableSelectedPanel();
+			pnlBonusLang = new AvailableSelectedPanel();
 
-			case EditorConstants.EDIT_TEMPLATE:
-				pnlVision = new VisionPanel();
-				pnlMovement = new MovementPanel(false);
-				pnlLevelAbilities = new LevelAbilitiesPanel();
-				pnlLanguages = new AvailableSelectedPanel(true);
-				pnlSkills = new AvailableSelectedPanel(true);
-				pnlTemplates = new AvailableSelectedPanel(true);
-				pnlWeapons = new AvailableSelectedPanel();
-				pnlClasses = new AvailableSelectedPanel();
-				pnlFeats = new AvailableSelectedPanel();
-				pnlBonusLang = new AvailableSelectedPanel();
+			break;
 
-				break;
+		case EditorConstants.EDIT_CAMPAIGN:
+			pnlFileTypes = new SourceFilesPanel();
 
-			case EditorConstants.EDIT_CAMPAIGN:
-				pnlFileTypes = new SourceFilesPanel();
+			break;
 
-				break;
-
-			default:
-				break;
+		default:
+			break;
 		}
 
 		getContentPane().setLayout(new GridBagLayout());
@@ -2803,66 +2721,65 @@ public final class EditorMainForm extends JDialog
 
 		switch (editType)
 		{
-			case EditorConstants.EDIT_CLASS:
-				ttl = "Class";
+		case EditorConstants.EDIT_CLASS:
+			ttl = "Class";
 
-				break;
+			break;
 
-			case EditorConstants.EDIT_DEITY:
-				ttl = "Deity";
+		case EditorConstants.EDIT_DEITY:
+			ttl = "Deity";
 
-				break;
+			break;
 
-			case EditorConstants.EDIT_DOMAIN:
-				ttl = "Domain";
+		case EditorConstants.EDIT_DOMAIN:
+			ttl = "Domain";
 
-				break;
+			break;
 
-			case EditorConstants.EDIT_FEAT:
-				ttl = "Feat";
+		case EditorConstants.EDIT_FEAT:
+			ttl = "Feat";
 
-				break;
+			break;
 
-			case EditorConstants.EDIT_LANGUAGE:
-				ttl = "Language";
+		case EditorConstants.EDIT_LANGUAGE:
+			ttl = "Language";
 
-				break;
+			break;
 
-			case EditorConstants.EDIT_RACE:
-				ttl = "Race";
+		case EditorConstants.EDIT_RACE:
+			ttl = "Race";
 
-				break;
+			break;
 
-			case EditorConstants.EDIT_SKILL:
-				ttl = "Skill";
+		case EditorConstants.EDIT_SKILL:
+			ttl = "Skill";
 
-				break;
+			break;
 
-			case EditorConstants.EDIT_SPELL:
-				ttl = "Spell";
+		case EditorConstants.EDIT_SPELL:
+			ttl = "Spell";
 
-				break;
+			break;
 
-			case EditorConstants.EDIT_TEMPLATE:
-				ttl = "Template";
+		case EditorConstants.EDIT_TEMPLATE:
+			ttl = "Template";
 
-				break;
+			break;
 
-			default:
-				break;
+		default:
+			break;
 		}
 
 		setTitle(LanguageBundle.getString("in_demTitle" + ttl));
 
-		addWindowListener(new WindowAdapter()
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent evt)
 			{
-				@Override
-				public void windowClosing(WindowEvent evt)
-				{
-					wasCancelled = true;
-					closeDialog();
-				}
-			});
+				wasCancelled = true;
+				closeDialog();
+			}
+		});
 
 		pnlMainDialog.setLayout(new GridBagLayout());
 
@@ -2878,83 +2795,83 @@ public final class EditorMainForm extends JDialog
 
 		switch (editType)
 		{
-			case EditorConstants.EDIT_CLASS:
-				jTabbedPane1.addTab(LanguageBundle.getString("in_classability"), pnlClassAbility);
-				jTabbedPane1.addTab(LanguageBundle.getString("in_classlevel"), pnlClassLevel);
+		case EditorConstants.EDIT_CLASS:
+			jTabbedPane1.addTab(LanguageBundle.getString("in_classability"), pnlClassAbility);
+			jTabbedPane1.addTab(LanguageBundle.getString("in_classlevel"), pnlClassLevel);
 
-				break;
+			break;
 
-			case EditorConstants.EDIT_DEITY:
-				pnlDomains.setHeader(LanguageBundle.getString("in_demGrantDom"));
-				jTabbedPane1.addTab(LanguageBundle.getString("in_domains"), pnlDomains);
+		case EditorConstants.EDIT_DEITY:
+			pnlDomains.setHeader(LanguageBundle.getString("in_demGrantDom"));
+			jTabbedPane1.addTab(LanguageBundle.getString("in_domains"), pnlDomains);
 
-				jTabbedPane1.addTab(LanguageBundle.getString("in_demFollowers"), pnlFollowers);
+			jTabbedPane1.addTab(LanguageBundle.getString("in_demFollowers"), pnlFollowers);
 
-				pnlRaces.setHeader(LanguageBundle.getString("in_demRacWors"));
-				jTabbedPane1.addTab(LanguageBundle.getString("in_race"), pnlRaces);
+			pnlRaces.setHeader(LanguageBundle.getString("in_demRacWors"));
+			jTabbedPane1.addTab(LanguageBundle.getString("in_race"), pnlRaces);
 
-				break;
+			break;
 
-			case EditorConstants.EDIT_DOMAIN:
-				jTabbedPane1.addTab("Spell Lists", pnlQSpells);
-				break;
+		case EditorConstants.EDIT_DOMAIN:
+			jTabbedPane1.addTab("Spell Lists", pnlQSpells);
+			break;
 
-			case EditorConstants.EDIT_FEAT:
-				break;
+		case EditorConstants.EDIT_FEAT:
+			break;
 
-			case EditorConstants.EDIT_LANGUAGE:
-				break;
+		case EditorConstants.EDIT_LANGUAGE:
+			break;
 
-			case EditorConstants.EDIT_RACE:
-				pnlClasses.setHeader(LanguageBundle.getString("in_demFavoredClasses"));
-				jTabbedPane1.addTab(LanguageBundle.getString("in_demClasses"), pnlClasses);
-				pnlTemplates.setLblSelectedText(LanguageBundle.getString("in_demAllGranted"));
-				pnlTemplates.setLblSelected2Text(LanguageBundle.getString("in_demChoiceGranted"));
-				pnlLanguages.setLblSelectedText(LanguageBundle.getString("in_demAllGranted"));
-				pnlLanguages.setLblSelected2Text(LanguageBundle.getString("in_demChoiceGranted"));
-				pnlBonusLang.setHeader(LanguageBundle.getString("in_demBonusLang"));
-				jTabbedPane1.addTab(LanguageBundle.getString("in_demBonusLangAbbrev"), pnlBonusLang);
-				pnlFeats.setLblSelectedText(LanguageBundle.getString("in_demSelFeats"));
+		case EditorConstants.EDIT_RACE:
+			pnlClasses.setHeader(LanguageBundle.getString("in_demFavoredClasses"));
+			jTabbedPane1.addTab(LanguageBundle.getString("in_demClasses"), pnlClasses);
+			pnlTemplates.setLblSelectedText(LanguageBundle.getString("in_demAllGranted"));
+			pnlTemplates.setLblSelected2Text(LanguageBundle.getString("in_demChoiceGranted"));
+			pnlLanguages.setLblSelectedText(LanguageBundle.getString("in_demAllGranted"));
+			pnlLanguages.setLblSelected2Text(LanguageBundle.getString("in_demChoiceGranted"));
+			pnlBonusLang.setHeader(LanguageBundle.getString("in_demBonusLang"));
+			jTabbedPane1.addTab(LanguageBundle.getString("in_demBonusLangAbbrev"), pnlBonusLang);
+			pnlFeats.setLblSelectedText(LanguageBundle.getString("in_demSelFeats"));
 
-				break;
+			break;
 
-			case EditorConstants.EDIT_SKILL:
+		case EditorConstants.EDIT_SKILL:
 
-				//buildSynergyTab();
-				pnlSynergy.setHeader(" ");
-				jTabbedPane1.addTab(LanguageBundle.getString("in_demSynergy"), pnlSynergy);
+			//buildSynergyTab();
+			pnlSynergy.setHeader(" ");
+			jTabbedPane1.addTab(LanguageBundle.getString("in_demSynergy"), pnlSynergy);
 
-				pnlClasses.setHeader(" ");
-				jTabbedPane1.addTab(LanguageBundle.getString("in_demClasses"), pnlClasses);
+			pnlClasses.setHeader(" ");
+			jTabbedPane1.addTab(LanguageBundle.getString("in_demClasses"), pnlClasses);
 
-				break;
+			break;
 
-			case EditorConstants.EDIT_SPELL:
-				jTabbedPane1.addTab(LanguageBundle.getString("in_demBase2"), pnlBase2);
-				jTabbedPane1.addTab(LanguageBundle.getString("in_demClasses"), pnlQClasses);
-				jTabbedPane1.addTab(LanguageBundle.getString("in_domains"), pnlQDomains);
+		case EditorConstants.EDIT_SPELL:
+			jTabbedPane1.addTab(LanguageBundle.getString("in_demBase2"), pnlBase2);
+			jTabbedPane1.addTab(LanguageBundle.getString("in_demClasses"), pnlQClasses);
+			jTabbedPane1.addTab(LanguageBundle.getString("in_domains"), pnlQDomains);
 
-				break;
+			break;
 
-			case EditorConstants.EDIT_TEMPLATE:
-				pnlClasses.setHeader(LanguageBundle.getString("in_demFavoredClasses"));
-				jTabbedPane1.addTab(LanguageBundle.getString("in_demClasses"), pnlClasses);
-				pnlTemplates.setLblSelectedText(LanguageBundle.getString("in_demAllGranted"));
-				pnlTemplates.setLblSelected2Text(LanguageBundle.getString("in_demChoiceGranted"));
-				pnlLanguages.setLblSelectedText(LanguageBundle.getString("in_demAllGranted"));
-				pnlLanguages.setLblSelected2Text(LanguageBundle.getString("in_demChoiceGranted"));
-				pnlBonusLang.setHeader(LanguageBundle.getString("in_demBonusLang"));
-				jTabbedPane1.addTab(LanguageBundle.getString("in_demBonusLangAbbrev"), pnlBonusLang);
+		case EditorConstants.EDIT_TEMPLATE:
+			pnlClasses.setHeader(LanguageBundle.getString("in_demFavoredClasses"));
+			jTabbedPane1.addTab(LanguageBundle.getString("in_demClasses"), pnlClasses);
+			pnlTemplates.setLblSelectedText(LanguageBundle.getString("in_demAllGranted"));
+			pnlTemplates.setLblSelected2Text(LanguageBundle.getString("in_demChoiceGranted"));
+			pnlLanguages.setLblSelectedText(LanguageBundle.getString("in_demAllGranted"));
+			pnlLanguages.setLblSelected2Text(LanguageBundle.getString("in_demChoiceGranted"));
+			pnlBonusLang.setHeader(LanguageBundle.getString("in_demBonusLang"));
+			jTabbedPane1.addTab(LanguageBundle.getString("in_demBonusLangAbbrev"), pnlBonusLang);
 
-				break;
+			break;
 
-			case EditorConstants.EDIT_CAMPAIGN:
-				jTabbedPane1.addTab(LanguageBundle.getString("in_fileTypes"), pnlFileTypes);
+		case EditorConstants.EDIT_CAMPAIGN:
+			jTabbedPane1.addTab(LanguageBundle.getString("in_fileTypes"), pnlFileTypes);
 
-				break;
+			break;
 
-			default:
-				break;
+		default:
+			break;
 		}
 
 		if (pnlLanguages != null)
@@ -3049,28 +2966,26 @@ public final class EditorMainForm extends JDialog
 		btnCancel.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel"));
 		btnCancel.setText(LanguageBundle.getString("in_cancel"));
 		btnCancel.setPreferredSize(new Dimension(80, 26));
-		btnCancel.addActionListener(new ActionListener()
+		btnCancel.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent evt)
 			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					btnCancelActionPerformed();
-				}
-			});
+				btnCancelActionPerformed();
+			}
+		});
 
 		pnlButtons.add(btnCancel);
 
 		btnSave.setMnemonic(LanguageBundle.getMnemonic("in_mn_save"));
 		btnSave.setText(LanguageBundle.getString("in_save"));
 		btnSave.setPreferredSize(new Dimension(80, 26));
-		btnSave.addActionListener(new ActionListener()
+		btnSave.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent evt)
 			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					btnSaveActionPerformed();
-				}
-			});
+				btnSaveActionPerformed();
+			}
+		});
 
 		pnlButtons.add(btnSave);
 
@@ -3100,8 +3015,7 @@ public final class EditorMainForm extends JDialog
 	 * @param selectedList the selected list
 	 * @param prereq the prereq
 	 */
-	private void parseAlignAbbrev(List<String> availableList,
-		List<String> selectedList, Prerequisite prereq)
+	private void parseAlignAbbrev(List<String> availableList, List<String> selectedList, Prerequisite prereq)
 	{
 		if (prereq == null)
 		{
@@ -3111,17 +3025,17 @@ public final class EditorMainForm extends JDialog
 		{
 			parseAlignAbbrev(availableList, selectedList, childPrereq);
 		}
-		
+
 		String key = prereq.getKey();
-		PCAlignment align = Globals.getContext().ref
-				.getAbbreviatedObject(PCAlignment.class, key);
+		PCAlignment align = Globals.getContext().ref.getAbbreviatedObject(PCAlignment.class, key);
 		if (align != null)
 		{
 			selectedList.add(align.getDisplayName());
 		}
 	}
 
-	private static boolean parseSynergyBonus(final BonusObj aBonus, List<String> availableList, List<String> selectedList)
+	private static boolean parseSynergyBonus(final BonusObj aBonus, List<String> availableList,
+			List<String> selectedList)
 	{
 		String aString = aBonus.toString();
 
@@ -3136,7 +3050,7 @@ public final class EditorMainForm extends JDialog
 			// we can correct the naming when we save
 			//
 			if ((bonusParts.size() == 5) && ((String) bonusParts.get(3)).startsWith("PRESKILL:1,")
-				&& ((String) bonusParts.get(4)).equalsIgnoreCase("TYPE=Synergy.STACK"))
+					&& ((String) bonusParts.get(4)).equalsIgnoreCase("TYPE=Synergy.STACK"))
 			{
 				final String bonus = (String) bonusParts.get(2);
 				String skill = ((String) bonusParts.get(3)).substring(11);
@@ -3182,35 +3096,35 @@ public final class EditorMainForm extends JDialog
 
 		switch (anEditType)
 		{
-			case EditorConstants.EDIT_DEITY:
-				for (Iterator e = ((Deity) thisPObject).getSafeListFor(ListKey.PANTHEON).iterator(); e.hasNext();)
-				{
-					selectedList.add("PANTHEON:" + e.next());
-				}
+		case EditorConstants.EDIT_DEITY:
+			for (Iterator e = ((Deity) thisPObject).getSafeListFor(ListKey.PANTHEON).iterator(); e.hasNext();)
+			{
+				selectedList.add("PANTHEON:" + e.next());
+			}
 
-				break;
+			break;
 
-			case EditorConstants.EDIT_DOMAIN:
-			case EditorConstants.EDIT_FEAT:
-				if (thisPObject.getSafe(StringKey.CHOICE_STRING).length() != 0)
-				{
-					selectedList.add("CHOOSE:" + thisPObject.getSafe(StringKey.CHOICE_STRING));
-				}
+		case EditorConstants.EDIT_DOMAIN:
+		case EditorConstants.EDIT_FEAT:
+			if (thisPObject.getSafe(StringKey.CHOICE_STRING).length() != 0)
+			{
+				selectedList.add("CHOOSE:" + thisPObject.getSafe(StringKey.CHOICE_STRING));
+			}
 
-				break;
+			break;
 
-			case EditorConstants.EDIT_SKILL:
-				final String choiceString = thisPObject.getSafe(StringKey.CHOICE_STRING);
+		case EditorConstants.EDIT_SKILL:
+			final String choiceString = thisPObject.getSafe(StringKey.CHOICE_STRING);
 
-				if ((choiceString != null) && (choiceString.length() > 0))
-				{
-					selectedList.add("CHOOSE:" + choiceString);
-				}
+			if ((choiceString != null) && (choiceString.length() > 0))
+			{
+				selectedList.add("CHOOSE:" + choiceString);
+			}
 
-				break;
+			break;
 
-			default:
-				break;
+		default:
+			break;
 		}
 
 		String[] auto = Globals.getContext().unparseSubtoken(thisPObject, "AUTO");
@@ -3240,8 +3154,10 @@ public final class EditorMainForm extends JDialog
 			}
 		}
 
-		if (thisPObject.hasPrerequisites()) {
-			for (Prerequisite p : thisPObject.getPrerequisiteList()) {
+		if (thisPObject.hasPrerequisites())
+		{
+			for (Prerequisite p : thisPObject.getPrerequisiteList())
+			{
 				// TODO: This hack is here because there is currently no
 				// specific Prerequisite editor. The code curently relies
 				// on the assumption that input format==in memory format== output format
@@ -3251,8 +3167,7 @@ public final class EditorMainForm extends JDialog
 				try
 				{
 					prereqWriter.write(writer, p);
-				}
-				catch (PersistenceLayerException e1)
+				} catch (PersistenceLayerException e1)
 				{
 					e1.printStackTrace();
 				}
@@ -3265,8 +3180,7 @@ public final class EditorMainForm extends JDialog
 		{
 			for (VariableKey vk : thisPObject.getVariableKeys())
 			{
-				selectedList.add("DEFINE:" + vk.toString() + "|"
-						+ thisPObject.get(vk));
+				selectedList.add("DEFINE:" + vk.toString() + "|" + thisPObject.get(vk));
 			}
 		}
 
@@ -3292,8 +3206,7 @@ public final class EditorMainForm extends JDialog
 
 		if (anEditType != EditorConstants.EDIT_CLASS)
 		{
-			String[] unparse = Globals.getContext().unparseSubtoken(thisPObject,
-					"SPELLS");
+			String[] unparse = Globals.getContext().unparseSubtoken(thisPObject, "SPELLS");
 			if (unparse != null)
 			{
 				for (String s : unparse)
@@ -3309,20 +3222,20 @@ public final class EditorMainForm extends JDialog
 		{
 			selectedList.add("SR:" + sr.getLSTformat());
 		}
-		
+
 		if (anEditType != EditorConstants.EDIT_DOMAIN)
 		{
 			String[] spellSupportObj = Globals.getContext().unparseSubtoken(thisPObject, "SPELLLEVEL");
-			if(spellSupportObj != null)
+			if (spellSupportObj != null)
 			{
 				selectedList.addAll(Arrays.asList(spellSupportObj));
 			}
 		}
-		
+
 		if (anEditType == EditorConstants.EDIT_CLASS)
 		{
-			String[] unparse  = Globals.getContext().unparseSubtoken(thisPObject, "ADD");
-			if(unparse != null)
+			String[] unparse = Globals.getContext().unparseSubtoken(thisPObject, "ADD");
+			if (unparse != null)
 			{
 				for (String s : unparse)
 				{
@@ -3330,7 +3243,7 @@ public final class EditorMainForm extends JDialog
 				}
 			}
 		}
-		
+
 		//KEY
 		//QUALIFY
 		//UDAM
@@ -3344,7 +3257,7 @@ public final class EditorMainForm extends JDialog
 				selectedList.add(tag);
 			}
 		}
-		
+
 		return selectedList;
 	}
 

@@ -17,106 +17,67 @@
  */
 package pcgen.cdom.facet;
 
-
-public class FacetInitialization
-{
+public class FacetInitialization {
 
 	public static void initialize()
 	{
 		doBridges();
-		TemplateFacet templateFacet = FacetLibrary
-				.getFacet(TemplateFacet.class);
-		ConditionalTemplateFacet conditionalTemplateFacet = FacetLibrary
-				.getFacet(ConditionalTemplateFacet.class);
+		TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
+		ConditionalTemplateFacet conditionalTemplateFacet = FacetLibrary.getFacet(ConditionalTemplateFacet.class);
 		RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
 		ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
-		ClassLevelFacet classLevelFacet = FacetLibrary
-				.getFacet(ClassLevelFacet.class);
-		CampaignFacet campaignFacet = FacetLibrary
-				.getFacet(CampaignFacet.class);
-		ExpandedCampaignFacet expandedCampaignFacet = FacetLibrary
-				.getFacet(ExpandedCampaignFacet.class);
-		EquipmentFacet equipmentFacet = FacetLibrary
-				.getFacet(EquipmentFacet.class);
-		EquippedEquipmentFacet equippedFacet = FacetLibrary
-				.getFacet(EquippedEquipmentFacet.class);
-		NaturalEquipmentFacet naturalEquipmentFacet = FacetLibrary
-				.getFacet(NaturalEquipmentFacet.class);
-		SourcedEquipmentFacet activeEquipmentFacet = FacetLibrary
-				.getFacet(SourcedEquipmentFacet.class);
-		ActiveEqModFacet activeEqModFacet = FacetLibrary
-				.getFacet(ActiveEqModFacet.class);
+		ClassLevelFacet classLevelFacet = FacetLibrary.getFacet(ClassLevelFacet.class);
+		CampaignFacet campaignFacet = FacetLibrary.getFacet(CampaignFacet.class);
+		ExpandedCampaignFacet expandedCampaignFacet = FacetLibrary.getFacet(ExpandedCampaignFacet.class);
+		EquipmentFacet equipmentFacet = FacetLibrary.getFacet(EquipmentFacet.class);
+		EquippedEquipmentFacet equippedFacet = FacetLibrary.getFacet(EquippedEquipmentFacet.class);
+		NaturalEquipmentFacet naturalEquipmentFacet = FacetLibrary.getFacet(NaturalEquipmentFacet.class);
+		SourcedEquipmentFacet activeEquipmentFacet = FacetLibrary.getFacet(SourcedEquipmentFacet.class);
+		ActiveEqModFacet activeEqModFacet = FacetLibrary.getFacet(ActiveEqModFacet.class);
 
-		AlignmentFacet alignmentFacet = FacetLibrary
-				.getFacet(AlignmentFacet.class);
+		AlignmentFacet alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
 		BioSetFacet bioSetFacet = FacetLibrary.getFacet(BioSetFacet.class);
 		CheckFacet checkFacet = FacetLibrary.getFacet(CheckFacet.class);
 
-		LanguageFacet languageFacet = FacetLibrary
-				.getFacet(LanguageFacet.class);
-		FreeLanguageFacet freeLangFacet = FacetLibrary
-				.getFacet(FreeLanguageFacet.class);
-		AutoLanguageFacet autoLangFacet = FacetLibrary
-				.getFacet(AutoLanguageFacet.class);
-		AddLanguageFacet addLangFacet = FacetLibrary
-				.getFacet(AddLanguageFacet.class);
-		SkillLanguageFacet skillLangFacet = FacetLibrary
-				.getFacet(SkillLanguageFacet.class);
-		WeaponProfFacet weaponProfFacet = FacetLibrary
-				.getFacet(WeaponProfFacet.class);
+		LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
+		FreeLanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
+		AutoLanguageFacet autoLangFacet = FacetLibrary.getFacet(AutoLanguageFacet.class);
+		AutoLanguageListFacet autoLangListFacet = FacetLibrary.getFacet(AutoLanguageListFacet.class);
+		AddLanguageFacet addLangFacet = FacetLibrary.getFacet(AddLanguageFacet.class);
+		SkillLanguageFacet skillLangFacet = FacetLibrary.getFacet(SkillLanguageFacet.class);
+		WeaponProfFacet weaponProfFacet = FacetLibrary.getFacet(WeaponProfFacet.class);
 
 		LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
 		SizeFacet sizeFacet = FacetLibrary.getFacet(SizeFacet.class);
-		BonusChangeFacet bonusChangeFacet = FacetLibrary
-				.getFacet(BonusChangeFacet.class);
+		BonusChangeFacet bonusChangeFacet = FacetLibrary.getFacet(BonusChangeFacet.class);
 		DeityFacet deityFacet = FacetLibrary.getFacet(DeityFacet.class);
 		DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);
-		CompanionModFacet companionModFacet = FacetLibrary
-				.getFacet(CompanionModFacet.class);
+		CompanionModFacet companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
 		StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
 		SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
-		ActiveAbilityFacet abFacet = FacetLibrary
-				.getFacet(ActiveAbilityFacet.class);
-		AutoListShieldProfFacet splFacet = FacetLibrary
-				.getFacet(AutoListShieldProfFacet.class);
-		ShieldProfProviderFacet sppFacet = FacetLibrary
-				.getFacet(ShieldProfProviderFacet.class);
-		AutoListArmorProfFacet aplFacet = FacetLibrary
-				.getFacet(AutoListArmorProfFacet.class);
-		ArmorProfProviderFacet appFacet = FacetLibrary
-				.getFacet(ArmorProfProviderFacet.class);
+		ActiveAbilityFacet abFacet = FacetLibrary.getFacet(ActiveAbilityFacet.class);
+		AutoListShieldProfFacet splFacet = FacetLibrary.getFacet(AutoListShieldProfFacet.class);
+		ShieldProfProviderFacet sppFacet = FacetLibrary.getFacet(ShieldProfProviderFacet.class);
+		AutoListArmorProfFacet aplFacet = FacetLibrary.getFacet(AutoListArmorProfFacet.class);
+		ArmorProfProviderFacet appFacet = FacetLibrary.getFacet(ArmorProfProviderFacet.class);
 
-		NaturalWeaponProfFacet nwpFacet = FacetLibrary
-				.getFacet(NaturalWeaponProfFacet.class);
-		AutoListWeaponProfFacet alWeaponProfFacet = FacetLibrary
-				.getFacet(AutoListWeaponProfFacet.class);
-		BonusWeaponProfFacet wpBonusFacet = FacetLibrary
-				.getFacet(BonusWeaponProfFacet.class);
-		UserEquipmentFacet userEquipmentFacet = FacetLibrary
-				.getFacet(UserEquipmentFacet.class);
-		NaturalWeaponFacet naturalWeaponFacet =
-				FacetLibrary.getFacet(NaturalWeaponFacet.class);
-		EquipSetFacet equipSetFacet =
-				FacetLibrary.getFacet(EquipSetFacet.class);
-		ChooseDriverFacet chooseDriverFacet = FacetLibrary
-				.getFacet(ChooseDriverFacet.class);
+		NaturalWeaponProfFacet nwpFacet = FacetLibrary.getFacet(NaturalWeaponProfFacet.class);
+		AutoListWeaponProfFacet alWeaponProfFacet = FacetLibrary.getFacet(AutoListWeaponProfFacet.class);
+		BonusWeaponProfFacet wpBonusFacet = FacetLibrary.getFacet(BonusWeaponProfFacet.class);
+		UserEquipmentFacet userEquipmentFacet = FacetLibrary.getFacet(UserEquipmentFacet.class);
+		NaturalWeaponFacet naturalWeaponFacet = FacetLibrary.getFacet(NaturalWeaponFacet.class);
+		EquipSetFacet equipSetFacet = FacetLibrary.getFacet(EquipSetFacet.class);
+		ChooseDriverFacet chooseDriverFacet = FacetLibrary.getFacet(ChooseDriverFacet.class);
 
-		CDOMObjectConsolidationFacet cdomObjectFacet = FacetLibrary
-				.getFacet(CDOMObjectConsolidationFacet.class);
-		CDOMObjectSourceFacet cdomSourceFacet = FacetLibrary
-				.getFacet(CDOMObjectSourceFacet.class);
-		CharacterConsolidationFacet charObjectFacet = FacetLibrary
-				.getFacet(CharacterConsolidationFacet.class);
-		EquipmentConsolidationFacet eqObjectFacet = FacetLibrary
-				.getFacet(EquipmentConsolidationFacet.class);
-		GrantedAbilityFacet grantedAbilityFacet = FacetLibrary
-				.getFacet(GrantedAbilityFacet.class);
-		DirectAbilityFacet directAbilityFacet = FacetLibrary
-				.getFacet(DirectAbilityFacet.class);
-		ConditionallyGrantedAbilityFacet cabFacet = FacetLibrary
-				.getFacet(ConditionallyGrantedAbilityFacet.class);
+		CDOMObjectConsolidationFacet cdomObjectFacet = FacetLibrary.getFacet(CDOMObjectConsolidationFacet.class);
+		CDOMObjectSourceFacet cdomSourceFacet = FacetLibrary.getFacet(CDOMObjectSourceFacet.class);
+		CharacterConsolidationFacet charObjectFacet = FacetLibrary.getFacet(CharacterConsolidationFacet.class);
+		EquipmentConsolidationFacet eqObjectFacet = FacetLibrary.getFacet(EquipmentConsolidationFacet.class);
+		GrantedAbilityFacet grantedAbilityFacet = FacetLibrary.getFacet(GrantedAbilityFacet.class);
+		DirectAbilityFacet directAbilityFacet = FacetLibrary.getFacet(DirectAbilityFacet.class);
+		ConditionallyGrantedAbilityFacet cabFacet = FacetLibrary.getFacet(ConditionallyGrantedAbilityFacet.class);
 
-		autoLangFacet.addDataFacetChangeListener(languageFacet);
+		autoLangListFacet.addDataFacetChangeListener(languageFacet);
 		freeLangFacet.addDataFacetChangeListener(languageFacet);
 		addLangFacet.addDataFacetChangeListener(languageFacet);
 		skillLangFacet.addDataFacetChangeListener(languageFacet);

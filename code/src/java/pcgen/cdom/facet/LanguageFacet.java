@@ -17,6 +17,11 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.IdentityHashMap;
+import java.util.Set;
+
+import pcgen.base.util.WrappedMapSet;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.core.Language;
 
 /**
@@ -25,9 +30,8 @@ import pcgen.core.Language;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class LanguageFacet extends AbstractSourcedListFacet<Language> implements
-		DataFacetChangeListener<Language>
-{
+public class LanguageFacet extends AbstractSourcedListFacet<Language> implements DataFacetChangeListener<Language> {
+	private AutoLanguageFacet autoLanguageFacet;
 
 	/**
 	 * Adds the Language object identified in the DataFacetChangeEvent to this
@@ -71,4 +75,39 @@ public class LanguageFacet extends AbstractSourcedListFacet<Language> implements
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
 
+	public void setAutoLanguageFacet(AutoLanguageFacet autoLanguageFacet)
+	{
+		this.autoLanguageFacet = autoLanguageFacet;
+	}
+
+	@Override
+	public boolean contains(CharID id, Language lang)
+	{
+		return super.contains(id, lang) || autoLanguageFacet.getAutoLanguage(id).contains(lang);
+	}
+
+	@Override
+	public Set<Language> getSet(CharID id)
+	{
+		final Set<Language> ret = new WrappedMapSet<Language>(IdentityHashMap.class);
+		ret.addAll(super.getSet(id));
+		ret.addAll(autoLanguageFacet.getAutoLanguage(id));
+		return ret;
+	}
+
+	@Override
+	public boolean isEmpty(CharID id)
+	{
+		if (super.isEmpty(id))
+		{
+			return autoLanguageFacet.getAutoLanguage(id).isEmpty();
+		}
+		return false;
+	}
+
+	@Override
+	public int getCount(CharID id)
+	{
+		return super.getCount(id) + autoLanguageFacet.getAutoLanguage(id).size();
+	}
 }

@@ -29,11 +29,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.LanguageList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.facade.LanguageFacade;
-
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
 
 /**
  * <code>Language</code>.
@@ -41,8 +43,7 @@ import pcgen.core.facade.LanguageFacade;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public final class Language extends PObject implements Comparable<Object>, LanguageFacade
-{
+public final class Language extends PObject implements Comparable<Object>, LanguageFacade {
 	public static final CDOMReference<LanguageList> STARTING_LIST;
 
 	static
@@ -96,7 +97,8 @@ public final class Language extends PObject implements Comparable<Object>, Langu
 		{
 			return getKeyName().equals(o1);
 		}
-		if (!o1.getClass().equals(Language.class)) {
+		if (!o1.getClass().equals(Language.class))
+		{
 			return false;
 		}
 
@@ -121,5 +123,21 @@ public final class Language extends PObject implements Comparable<Object>, Langu
 			list.add(type.toString());
 		}
 		return list;
+	}
+
+	@Override
+	public Language clone()
+	{
+		Language l = null;
+
+		try
+		{
+			l = (Language) super.clone();
+		} catch (CloneNotSupportedException e)
+		{
+			ShowMessageDelegate.showMessageDialog(e.getMessage(), Constants.APPLICATION_NAME, MessageType.ERROR);
+		}
+
+		return l;
 	}
 }

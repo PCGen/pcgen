@@ -157,8 +157,8 @@ public final class ListKey<T> {
 	public static final ListKey<String> INFO_TEXT = new ListKey<String>();
 	/** TEMP_BONUS - a ListKey */
 	public static final ListKey<BonusObj> TEMP_BONUS = new ListKey<BonusObj>();
-//	/** Key for a list of weapon proficiencies */
-//	public static final ListKey<String> WEAPON_PROF = new ListKey<String>();
+	//	/** Key for a list of weapon proficiencies */
+	//	public static final ListKey<String> WEAPON_PROF = new ListKey<String>();
 	public static final ListKey<CampaignSourceEntry> FILE_ARMOR_PROF = new ListKey<CampaignSourceEntry>();
 	public static final ListKey<CampaignSourceEntry> FILE_SHIELD_PROF = new ListKey<CampaignSourceEntry>();
 	public static final ListKey<CDOMReference<WeaponProf>> DEITYWEAPON = new ListKey<CDOMReference<WeaponProf>>();
@@ -191,7 +191,6 @@ public final class ListKey<T> {
 	public static final ListKey<KnownSpellIdentifier> KNOWN_SPELLS = new ListKey<KnownSpellIdentifier>();
 	public static final ListKey<SpellProhibitor> SPELL_PROHIBITOR = new ListKey<SpellProhibitor>();
 	public static final ListKey<Description> BENEFIT = new ListKey<Description>();
-	public static final ListKey<CDOMReference<Language>> AUTO_LANGUAGES = new ListKey<CDOMReference<Language>>();
 	public static final ListKey<PCTemplate> LEVEL_TEMPLATES = new ListKey<PCTemplate>();
 	public static final ListKey<PCTemplate> REPEATLEVEL_TEMPLATES = new ListKey<PCTemplate>();
 	public static final ListKey<PCTemplate> HD_TEMPLATES = new ListKey<PCTemplate>();
@@ -243,7 +242,7 @@ public final class ListKey<T> {
 	public static final ListKey<CampaignURL> CAMPAIGN_URL = new ListKey<CampaignURL>();
 	public static final ListKey<Qualifier> FORWARDREF = new ListKey<Qualifier>();
 	public static final ListKey<Campaign> CAMPAIGN = new ListKey<Campaign>();
-	
+
 	public static final ListKey<Class<?>> DUPES_ALLOWED = new ListKey<Class<?>>();
 	public static final ListKey<ObjectKey<?>> REMOVED_OBJECTKEY = new ListKey<ObjectKey<?>>();
 	public static final ListKey<StringKey> REMOVED_STRINGKEY = new ListKey<StringKey>();
@@ -251,18 +250,19 @@ public final class ListKey<T> {
 	public static final ListKey<CDOMReference<Ability>> FEAT_TOKEN_LIST = new ListKey<CDOMReference<Ability>>();
 	public static final ListKey<ChooseSelectionActor<?>> NEW_CHOOSE_ACTOR = new ListKey<ChooseSelectionActor<?>>();
 	public static final ListKey<KitStat> STAT_LIST = new ListKey<KitStat>();
-	
+
 	//These are case sensitive, please do not change them to upper case
 	public static final ListKey<String> HIDDEN_Equipment = new ListKey<String>();
 	public static final ListKey<String> HIDDEN_Ability = new ListKey<String>();
 	public static final ListKey<String> HIDDEN_Skill = new ListKey<String>();
-	public static final ListKey<CDOMReference<Language>> AUTO_LANGUAGE = new ListKey<CDOMReference<Language>>();
+	public static final ListKey<QualifiedObject<CDOMReference<Language>>> AUTO_LANGUAGES = new ListKey<QualifiedObject<CDOMReference<Language>>>();
+	public static final ListKey<QualifiedObject<CDOMReference<Language>>> AUTO_LANGUAGE = new ListKey<QualifiedObject<CDOMReference<Language>>>();
 	public static final ListKey<CDOMReference<Skill>> CLASS_SKILL = new ListKey<CDOMReference<Skill>>();
 	public static final ListKey<CDOMReference<Skill>> LOCALCSKILL = new ListKey<CDOMReference<Skill>>();
 	public static final ListKey<CDOMReference<Skill>> LOCALCCSKILL = new ListKey<CDOMReference<Skill>>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;
-	
+
 	static
 	{
 		buildMap();
@@ -306,8 +306,7 @@ public final class ListKey<T> {
 		{
 			int mod = fields[i].getModifiers();
 
-			if (java.lang.reflect.Modifier.isStatic(mod)
-					&& java.lang.reflect.Modifier.isFinal(mod)
+			if (java.lang.reflect.Modifier.isStatic(mod) && java.lang.reflect.Modifier.isFinal(mod)
 					&& java.lang.reflect.Modifier.isPublic(mod))
 			{
 				try
@@ -317,12 +316,10 @@ public final class ListKey<T> {
 					{
 						map.put(fields[i].getName(), (ListKey<?>) obj);
 					}
-				}
-				catch (IllegalArgumentException e)
+				} catch (IllegalArgumentException e)
 				{
 					throw new UnreachableError(e);
-				}
-				catch (IllegalAccessException e)
+				} catch (IllegalAccessException e)
 				{
 					throw new UnreachableError(e);
 				}

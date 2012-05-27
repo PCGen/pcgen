@@ -61,6 +61,7 @@
 	</bean>
 	<bean id="autoEquipmentListFacet" class="pcgen.cdom.facet.AutoEquipmentListFacet" />
 	<bean id="autoLanguageFacet" class="pcgen.cdom.facet.AutoLanguageFacet" />
+	<bean id="autoLanguageListFacet" class="pcgen.cdom.facet.AutoLanguageListFacet" />
 	<bean id="autoListArmorProfFacet" class="pcgen.cdom.facet.AutoListArmorProfFacet" />
 	<bean id="autoListShieldProfFacet" class="pcgen.cdom.facet.AutoListShieldProfFacet" />
 	<bean id="autoListWeaponProfFacet" class="pcgen.cdom.facet.AutoListWeaponProfFacet" />
@@ -239,7 +240,9 @@
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<!-- L -->
-	<bean id="languageFacet" class="pcgen.cdom.facet.LanguageFacet"/>
+	<bean id="languageFacet" class="pcgen.cdom.facet.LanguageFacet">
+		<property name="autoLanguageFacet" ref="autoLanguageFacet"/>
+	</bean>
 	<bean id="legalDeityFacet" class="pcgen.cdom.facet.LegalDeityFacet">
 		<property name="classFacet" ref="classFacet"/>
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
