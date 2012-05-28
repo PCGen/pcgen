@@ -1,0 +1,30 @@
+# CVS $Revision$ $Author$ -- Sat Jul 17 14:04:38 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Dark Markets: A Guide to Katapesh	SOURCESHORT:DMGK	SOURCEWEB:http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut	SOURCEDATE:2009-04
+# Original Entry by: Terry Milnes
+
+###Block: Aluum abilities
+# Ability Name	Unique Key					Category of Ability		Type								Define						Description																																				Modify VAR										Source Page		Aspects				Description of the Benefits
+Immunity to Magic	KEY:Immunity to Magic ~ Aluum		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity								DESC:A aluum is immune to any spell or spell-like ability that allows spell resistance.																																		SOURCEPAGE:p.58	ASPECT:Immunity|Magic		BENEFIT:An aluum is immune to any spell or spell-like ability that allows spell resistance. In addition, certain spells and effects function differently against the creature. A magical attack that uses negative energy (such as inflict light wounds or enervation) deals no damage, but speeds up the golem's attacks and movement as if it were under the effects of a haste spell, lasting 1 round per spell level of the attack (attacks that do not have a spell level have no effect on the aluum). A magical attack that uses positive energy slows the aluum as if by a slow spell and dispels any haste effect currently affecting it. A magic jar spell confuses the creature for 1d6 rounds.
+Paralysis		KEY:Paralysis ~ Aluum			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			DEFINE:AluumParalysisDC|10+(HD/2)+CHA	DESC:The touch of an aluum paralyzes living creatures that fail a Fortitude save (DC %1). The effect lasts for 1d4 minutes.																	BONUS:VAR|AluumParalysisDC|2|PREFEAT:1,Ability Focus (Paralysis)	SOURCEPAGE:p.58						BENEFIT:This special attack renders the victim immobile. Paralyzed creatures cannot move, speak, or take any physical actions. The creature is rooted to the spot, frozen and helpless. Paralysis works on the body, and a character can resist it with a Fortitude saving throw DC %1. Unlike hold person and similar effects, a paralysis effect does not allow a new save each round.|AluumParalysisDC
+Soul Shriek								CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			DEFINE:AluumSoulShriekDC|10+(HD/2)+CHA	DESC:A aluum's enslaved souls emit a wailing sound in a 15 ft. cone causing 6d6 sonic damage and are stunned for 1 round.																	BONUS:VAR|AluumSoulShriekDC|2|						SOURCEPAGE:p.58						BENEFIT:As a free action every 1d4 rounds, the aluum's enslaved souls may emit a keening wail in a 15-ft. cone in front of the aluum. Creatures in the cone take 6d6 points of sonic damage and are stunned for 1 round. Creatures that make their save (Will DC %1) take half damage and are not stunned. This is a sonic mind-affecting effect.
+
+###Block: Dhabba abilities
+# Ability Name	Unique Key					Category of Ability		Type								Define						Description																																				Modify VAR										Source Page		Aspects								Description of the Benefits
+Poison		KEY:Poison ~ Dhabba			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			DEFINE:DhabbaPoisonDC|10+(HD/2)+CON		DESC:Bite--injury; save Fort DC %1; initial damage nauseated for 1 round; secondary damage 1d4 Dex; cure 1 save.|DhabbaPoisonDC																BONUS:VAR|DhabbaPoisonDC|2|PREFEAT:1,Ability Focus (Poison)		SOURCEPAGE:p.60	ASPECT:Ability Benefit|(DC %1)|DhabbaPoisonDC
+
+###Block: Sand Eel abilities
+# Ability Name	Unique Key					Category of Ability		Type								Define						Description																																				Modify VAR										Source Page		Aspects								Description of the Benefits
+Erupt									CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary										DESC:A sand eel that has buried itself in the sand can quickly erupt from the ground and attack.																																SOURCEPAGE:p.61										BENEFIT:A sand eel that has buried itself in the sand can quickly erupt from the ground and attack. This counts as a charge, except the sand eel can only move its speed (not twice its speed), and it gains a +2 on its attack roll (in addition to the normal bonuses and penalties for charging).
+Sandwalking								CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary										DESC:Sand eels travel across sand, quicksand, gravel, and other areas with loose, small debris as if traversing normal ground rather than difficult terrain.																						SOURCEPAGE:p.61										BENEFIT:Sand eels travel across sand, quicksand, gravel, and other areas with loose, small debris as if traversing normal ground rather than difficult terrain.
+
+###Block: Ghul abilities
+# Ability Name	Unique Key					Category of Ability		Type								Define						Description																																				Modify VAR										Source Page		Aspects								Description of the Benefits
+Change Shape	KEY:Change Shape ~ Ghul			CATEGORY:Special Ability	TYPE:Extraordinary												DESC:TODO																																															SOURCEPAGE:p.										BENEFIT:TODO
+Cursed Claws							CATEGORY:Special Ability	TYPE:Extraordinary												DESC:TODO																																															SOURCEPAGE:p.										BENEFIT:TODO
+Genie-Kin								CATEGORY:Special Ability	TYPE:Extraordinary												DESC:TODO																																															SOURCEPAGE:p.										BENEFIT:TODO
+Rend			KEY:Rend ~ Ghul				CATEGORY:Special Ability	TYPE:Extraordinary												DESC:TODO																																															SOURCEPAGE:p.										BENEFIT:TODO
+Skills		KEY:Skills ~ Ghul				CATEGORY:Special Ability	TYPE:Extraordinary												DESC:TODO																																															SOURCEPAGE:p.										BENEFIT:TODO
+
+#
+# End
+#
