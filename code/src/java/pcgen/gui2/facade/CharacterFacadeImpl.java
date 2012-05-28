@@ -557,6 +557,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		refreshLanguageList();
 		refreshKitList();
 		refreshTemplates();
+		companionSupportFacade.refreshCompanionData();
 	}
 
 	/* (non-Javadoc)
@@ -568,6 +569,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		characterAbilities.removeAbility(category, ability);
 		refreshLanguageList();
 		refreshKitList();
+		companionSupportFacade.refreshCompanionData();
 	}
 
 	/* (non-Javadoc)
@@ -701,6 +703,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	void postLevellingUpdates()
 	{
 		characterAbilities.rebuildAbilityLists();
+		companionSupportFacade.refreshCompanionData();
 		refreshLanguageList();
 		refreshKitList();
 		refreshTemplates();

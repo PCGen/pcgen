@@ -87,7 +87,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		this.availCompList = new DefaultListFacade<CompanionStubFacade>();
 		this.maxCompanionsMap = new DefaultMapFacade<String, Integer>();
 		this.keyToCompanionListMap = new HashMap<String, CompanionList>();
-		initCompData();
+		initCompData(true);
 		CharacterManager.getCharacters().addListListener(this);
 		addMasterListeners(nameRef, fileRef);
 	}
@@ -146,9 +146,19 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	}
 
 	/**
-	 * Initialisation of the character's companion data. 
+	 * Refresh the character;s companion information, reflecting any changes in 
+	 * the character's qualification for companions.   
 	 */
-	private void initCompData()
+	void refreshCompanionData()
+	{
+		initCompData(false);
+	}
+	
+	/**
+	 * Initialisation of the character's companion data.
+	 * @param rebuildCompanionList Should the list of the character;s companions be rebuilt?
+	 */
+	private void initCompData(boolean rebuildCompanionList)
 	{
 		List<CompanionStub> companions = new ArrayList<CompanionStub>();
 		for (CompanionList compList : Globals.getContext().ref
@@ -177,15 +187,18 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		//Logging.debugPrint("Available comps " + availCompList);
 		//Logging.debugPrint("Max comps " + maxCompanionsMap);
 		
-		for (Follower follower : theCharacter.getFollowerList())
+		if (rebuildCompanionList)
 		{
-			CompanionFacade comp =
-					new CompanionNotLoaded(follower.getName(), new File(
-						follower.getFileName()), follower.getRace(), follower
-						.getType().toString());
-			CompanionFacadeDelegate delegate = new CompanionFacadeDelegate();
-			delegate.setCompanionFacade(comp);
-			companionList.addElement(delegate);
+			for (Follower follower : theCharacter.getFollowerList())
+			{
+				CompanionFacade comp =
+						new CompanionNotLoaded(follower.getName(), new File(
+							follower.getFileName()), follower.getRace(), follower
+							.getType().toString());
+				CompanionFacadeDelegate delegate = new CompanionFacadeDelegate();
+				delegate.setCompanionFacade(comp);
+				companionList.addElement(delegate);
+			}
 		}
 		//Logging.debugPrint("Companion list " + companionList);
 		for (CompanionList compList : Globals.getContext().ref
