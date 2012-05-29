@@ -248,34 +248,16 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private boolean allowDebt;
 
 	/**
-	 * Create a new character. The character will be blank with no race, 
-	 * stats etc
-	 * 
-	 * @param delegate the UIDelegate for this CharacterFacade
-	 * @param dataSetFacade The data set in use for the character
-	 */
-	public CharacterFacadeImpl(UIDelegate delegate, DataSetFacade dataSetFacade) {
-		this(null, delegate, dataSetFacade);
-	}
-
-	/**
 	 * Create a new character facade for an existing character.
 	 * 
 	 * @param pc The character to be represented
 	 * @param delegate the UIDelegate for this CharacterFacade
 	 * @param dataSetFacade The data set in use for the character
 	 */
-	public CharacterFacadeImpl(PlayerCharacter pc, UIDelegate delegate, DataSetFacade dataSetFacade) {
+	public CharacterFacadeImpl(PlayerCharacter pc, UIDelegate delegate, DataSetFacade dataSetFacade) 
+	{
 		this.delegate = delegate;
-		if (pc == null)
-		{
-			@SuppressWarnings("rawtypes")
-			List campaigns = ListFacades.wrap(dataSetFacade.getCampaigns());
-			theCharacter = new PlayerCharacter(false, campaigns);
-		} else
-		{
-			theCharacter = pc;
-		}
+		theCharacter = pc;
 		dataSet = dataSetFacade;
 		buildAgeCategories();
 		initForCharacter(theCharacter);

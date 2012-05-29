@@ -88,7 +88,11 @@ public class CharacterManager
 
 	public static CharacterFacade createNewCharacter(UIDelegate delegate, DataSetFacade dataset)
 	{
-		CharacterFacade character = new CharacterFacadeImpl(delegate, dataset);
+		@SuppressWarnings("rawtypes")
+		List campaigns = ListFacades.wrap(dataset.getCampaigns());
+		PlayerCharacter pc = new PlayerCharacter(false, campaigns);
+		Globals.getPCList().add(pc);
+		CharacterFacade character = new CharacterFacadeImpl(pc, delegate, dataset);
 		String name = createNewCharacterName();
 		character.setName(name);
 		characters.addElement(character);
