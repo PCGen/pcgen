@@ -1,0 +1,22 @@
+# CVS $Revision$ $Author$ -- Tue May 29 18:19:26 2012 -- reformated by prettylst.pl v1.39 (build 16265)
+SOURCELONG:Pirates of the Inner Sea	SOURCESHORT:PotIS	SOURCEWEB:http://paizo.com/products/btpy8qif?Pathfinder-Player-Companion-Pirates-of-the-Inner-Sea	SOURCEDATE:2012-04
+# Original Entry by: Stefan Radermacher
+
+###Block: Inner Sea Pirate
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Inner Sea Pirate	HD:8		TYPE:PC.Prestige	ABB:ISP		MAXLEVEL:10	SOURCEPAGE:p.24	BONUS:CHECKS|BASE.Reflex|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Restricted AL		Required Skill
+CLASS:Inner Sea Pirate	!PREALIGN:LG,LN,LE	PRESKILL:3,Appraise=5,Profession (Sailor)=5,Swim=5
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Inner Sea Pirate	STARTSKILLPTS:6	CSKILL:Appraise|Climb|Intimidate|Knowledge (Nature)|Profession (Sailor)|Swim
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Inner Sea Pirate Weapon Proficiencies
+###Block: Normal Level Progression
+1	BONUS:VAR|SneakAttack|(CL+2)/3	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+2	BONUS:VAR|PirateTrickLVL|CL		ABILITY:Special Ability|AUTOMATIC|Pirate Tricks ~ Inner Sea Pirate
+6							ABILITY:Special Ability|AUTOMATIC|Advanced Tricks ~ Inner Sea Pirate
+
+#
+# End
+#

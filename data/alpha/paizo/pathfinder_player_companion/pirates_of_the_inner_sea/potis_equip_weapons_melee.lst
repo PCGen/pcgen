@@ -1,0 +1,34 @@
+# CVS $Revision$ $Author$ -- Thu Apr 12 15:30:31 2012 -- reformated by prettylst.pl v1.39 (build 16265)
+SOURCELONG:Pirates of the Inner Sea	SOURCESHORT:PotIS	SOURCEWEB:http://paizo.com/products/btpy8qif?Pathfinder-Player-Companion-Pirates-of-the-Inner-Sea	SOURCEDATE:2012-04
+# Original Entry by: Stefan Radermacher
+
+####Block: Simple Weapons
+#------light---------
+# Equipment Name	Output Name				Required Weapon Proficiency			Type																	Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier					Alternative Modifier	Wield Category	Range		Size		Source Page
+Brass Knife							PROFICIENCY:WEAPON|Brass Knife		TYPE:Weapon.Melee.Light.Finesseable.Ranged.Thrown.Simple.Standard.Piercing.Slashing.Dagger.BladeLight	COST:2	WT:1				CRITMULT:x2			CRITRANGE:2												DAMAGE:1d4					EQMOD:STEEL									WIELD:Light		RANGE:10	SIZE:M	SOURCEPAGE:p.19
+Hook Hand							PROFICIENCY:WEAPON|Hook Hand			TYPE:Weapon.Melee.Light.Finesseable.Simple.Standard.Slashing.Pirate						COST:10	WT:1				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4					EQMOD:STEEL.DISARM							WIELD:Light				SIZE:M	SOURCEPAGE:p.18
+#-----two handed -------
+Bayonet							PROFICIENCY:WEAPON|Bayonet			TYPE:Weapon.Melee.TwoHanded.Simple.Standard.Piercing									COST:5	WT:1				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL									WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.18
+Boarding Pike						PROFICIENCY:WEAPON|Boarding Pike		TYPE:Weapon.Melee.TwoHanded.Simple.Reach.Standard.Piercing								COST:8	WT:9				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8					EQMOD:STEEL.BRACE								WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.18
+
+####Block: Martial Weapons
+#------light---------
+Axe (Boarding)	OUTPUTNAME:Axe, Boarding	PROFICIENCY:WEAPON|Axe (Boarding)		TYPE:Weapon.Melee.Light.Finesseable.Martial.Standard.Piercing.Slashing.Axe					COST:6	WT:3				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL									WIELD:Light				SIZE:M	SOURCEPAGE:p.18
+Cat-O'-Nine-Tails						PROFICIENCY:WEAPON|Cat-O'-Nine-Tails	TYPE:Weapon.Melee.Light.Finesseable.Martial.Standard.Slashing							COST:1	WT:2				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4					EQMOD:LEATHER.DISARM.NONLETHAL					WIELD:Light				SIZE:M	SOURCEPAGE:p.18
+#-----one handed -------
+Cutlass							PROFICIENCY:WEAPON|Cutlass			TYPE:Weapon.Melee.OneHanded.Martial.Standard.Slashing.Sword.Pirate						COST:15	WT:4				CRITMULT:x2			CRITRANGE:3												DAMAGE:1d6					EQMOD:STEEL									WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.18
+
+####Block: Exotic Weapons
+#-----two handed -------
+Boarding Gaff						PROFICIENCY:WEAPON|Boarding Gaff		TYPE:Weapon.Melee.TwoHanded.Exotic.Reach.Standard.Double.Slashing							COST:8	WT:8		SLOTS:2	CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:STEEL.TRIP				ALTEQMOD:STEEL.TRIP	WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.18
+Harpoon							PROFICIENCY:WEAPON|Harpoon			TYPE:Weapon.Melee.OneHanded.Exotic.Ranged.Standard.Slashing.Sword							COST:5	WT:16				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8					EQMOD:STEEL									WIELD:TwoHanded	RANGE:10	SIZE:M	SOURCEPAGE:p.18
+
+###Block: Modifications
+# Equipment Name	Type
+Dagger.MOD		TYPE:Pirate
+Rapier.MOD		TYPE:Pirate
+Sword (Short).MOD	TYPE:Pirate
+
+#
+# End
+#
