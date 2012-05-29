@@ -3,6 +3,16 @@ SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
+###Block: Matches Level
+# Template Name						Visible		Template									Define									Multiple Requirements								Bonus to Ability Pool						Caster level					Modify VAR												Class Skill
+01 Point Buy Master Template for All Levels	VISIBLE:DISPLAY	TEMPLATE:CHOOSE:First Level Eclipse|Multiclass Eclipse	DEFINE:CharacterPoints|0	DEFINE:EclipseClassLvl|0												
+#BONUS:ABILITYPOOL|Character Points|CharacterPoints
+#COMMENT: This Template chooses whether the Character is a True Eclipse or a Multiclass and controls how many "Character Points" the character gets (24 or 48 at 1st level)
+First Level Eclipse					VISIBLE:DISPLAY																					PREMULT:1,[PREPCLEVEL:MAX=1],[PREVARGTEQ:EclipseClassLvl,TL]																	BONUS:VAR|CharacterPoints,CharacterPointsTotal|24*EclipseClassLvl	BONUS:VAR|CharacterPoints,CharacterPointsTotal|24
+Multiclass Eclipse					VISIBLE:DISPLAY																					PREMULT:1,[PREPCLEVEL:MIN=2],[PREVARLT:EclipseClassLvl,TL]																		BONUS:VAR|CharacterPoints,CharacterPointsTotal|24*EclipseClassLvl
+
+
+
 # Template Name				Hit Dice Size	Visible		Level Adjustment		Required Non-Monster Lvl	Bonus to HP						Modify VAR
 All Eclipse Automatic						VISIBLE:NO
 
@@ -33,12 +43,6 @@ Dragon HD					HITDIE:12		VISIBLE:DISPLAY
 
 # From Web Blog
 
-###Block: Matches Level
-# Template Name						Visible		Template									Define									Multiple Requirements								Bonus to Ability Pool						Caster level					Modify VAR												Class Skill
-01 Point Buy Master Template for All Levels	VISIBLE:DISPLAY	TEMPLATE:CHOOSE:First Level Eclipse|Multiclass Eclipse	DEFINE:CharacterPoints|0	DEFINE:EclipseClassLvl|0												BONUS:ABILITYPOOL|Character Points|CharacterPoints
-#COMMENT: This Template chooses whether the Character is a True Eclipse or a Multiclass and controls how many "Character Points" the character gets (24 or 48 at 1st level)
-First Level Eclipse					VISIBLE:DISPLAY																					PREMULT:1,[PREPCLEVEL:MAX=1],[PREVARGTEQ:EclipseClassLvl,TL]																	BONUS:VAR|CharacterPoints,CharacterPointsTotal|24+(24*var("EclipseClassLvl"))
-Multiclass Eclipse					VISIBLE:DISPLAY																					PREMULT:1,[PREPCLEVEL:MIN=2],[PREVARLT:EclipseClassLvl,TL]																		BONUS:VAR|CharacterPoints,CharacterPointsTotal|24*var("EclipseClassLvl")
 
 
 Bonus Caster Level ~ Spell Wall of Fire																																													BONUS:CASTERLEVEL|SPELL.Wall of Fire|6
