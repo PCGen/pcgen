@@ -1,5 +1,11 @@
 # CVS $Revision$ $Author$ -- Thu May 17 18:58:16 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
+# Ability Category				Visible	Editable or Static?	Change Pool?	Fractional values?	Category of Object	Display Location
+ABILITYCATEGORY:Background			VISIBLE:YES	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Background
+
+###Block: Background Ability Categories
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI	Display Location
+ABILITYCATEGORY:Human Ethnicity		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Background		TYPE:HumanEthnicity		PLURAL:Human Ethnicities	DISPLAYLOCATION:Background
 
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI	Display Location
 ABILITYCATEGORY:Kitsune Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:KitsuneRacialTrait		PLURAL:Kitsune Racial Traits	DISPLAYLOCATION:Racial Abilities

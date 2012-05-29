@@ -45,15 +45,20 @@ FORWARDREF:RACE|Tengu
 LANGUAGE:*/alpha/paizo/pathfinder_campaign_setting/pathfinder_campaign_setting/pathfinder_campaign_setting_languages.lst
 
 # Main Files
+ABILITY:deg_abilities_background.lst
+ABILITY:deg_abilities_racial.lst
 ABILITYCATEGORY:deg_abilitycategories.lst
+
+BIOSET:deg_biosettings.lst
+DEITY:deg_deities.lst
+
 KIT:deg_kits_racial_traits.lst
 ABILITY:deg_abilities_racial.lst
 LANGUAGE:deg_languages.lst
 RACE:deg_races.lst
+RACE:deg_races_mod.lst
+TEMPLATE:deg_templates_background.lst
 TEMPLATE:deg_templates_types.lst
-
-
-
 
 
 #

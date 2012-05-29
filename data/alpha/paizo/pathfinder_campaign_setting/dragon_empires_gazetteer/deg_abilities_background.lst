@@ -1,0 +1,16 @@
+SOURCELONG:Pathfinder Chronicles: Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
+
+###Block: Human Ethnicities
+# Ability Name	Product Identity?	Category of Ability	Type				Visible		Template						Source Page
+Tian-Dan		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Tian-Dan)		SOURCEPAGE:p.5
+Tian-Dtang		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Tian-Dtang)	SOURCEPAGE:p.5
+Tian-Hwan		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Tian-Hwan)	SOURCEPAGE:p.5
+Tian-La		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Tian-La)		SOURCEPAGE:p.6
+Tian-Min		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Tian-Min)		SOURCEPAGE:p.6
+Tian-Shu		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Tian-Shu)		SOURCEPAGE:p.6
+Tian-Sing		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Tian-Sing)	SOURCEPAGE:p.6
+
+###Block: Placeholder objects for no Human Ethnicities or Regional Affinities
+# Ability Name	Unique Key				Category of Ability	Type
+None			KEY:None ~ HumanEthnicity	CATEGORY:Background	TYPE:HumanEthnicity
+Unknown		KEY:Unknown ~ HumanEthnicity	CATEGORY:Background	TYPE:HumanEthnicity
