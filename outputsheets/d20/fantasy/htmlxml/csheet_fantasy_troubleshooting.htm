@@ -177,6 +177,10 @@ $Date: 2007/03/08 18:57:54 $
 |CHECK.2.MISC.NOMAGIC.NOSTAT|[MISC]
 |ENDIF|
 <br>
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SaveBonus")-1,1,0|
+<b>Conditionals:</b>
+|ABILITYALL.Special Ability.%ability.TYPE=SaveBonus.ASPECT.SaveBonus|
+|ENDFOR|
 </blockquote>
 
 <hr />

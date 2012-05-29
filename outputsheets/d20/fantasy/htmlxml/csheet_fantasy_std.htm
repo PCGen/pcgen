@@ -446,7 +446,10 @@ $Date$
      <td align="center" width="25" class="font4">MISC</td>
      <td align="center"></td>
      <td align="center" width="25" class="font4">TEMPORARY</td>
-     <td align="left" valign="top" width="63" rowspan="4" class="border4">CONDITIONAL<br />MODIFIERS</td>
+     <td align="left" valign="top" width="63" rowspan="4" class="border4">CONDITIONAL<br />MODIFIERS
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SaveBonus")-1,1,0|
+	 |ABILITYALL.Special Ability.%ability.TYPE=SaveBonus.ASPECT.SaveBonus|
+|ENDFOR|</td>
     </tr>
 |FOR,%checks,0,COUNT[CHECKS]-1,1,0|
     <tr>
