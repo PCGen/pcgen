@@ -45,12 +45,12 @@ FORWARDREF:RACE|Tengu
 LANGUAGE:*/alpha/paizo/pathfinder_campaign_setting/pathfinder_campaign_setting/pathfinder_campaign_setting_languages.lst
 
 # Main Files
-ABILITYCATEGORY:dragon_empires_gazetteer_abilitycategories.lst
-KIT:dragon_empires_gazetteer_kits_racial_traits.lst
-ABILITY:dragon_empires_gazetteer_abilities_racial.lst
-LANGUAGE:dragon_empires_gazetteer_languages.lst
-RACE:dragon_empires_gazetteer_races.lst
-TEMPLATE:dragon_empires_gazetteer_templates_types.lst
+ABILITYCATEGORY:deg_abilitycategories.lst
+KIT:deg_kits_racial_traits.lst
+ABILITY:deg_abilities_racial.lst
+LANGUAGE:deg_languages.lst
+RACE:deg_races.lst
+TEMPLATE:deg_templates_types.lst
 
 
 
