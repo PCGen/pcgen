@@ -7,7 +7,15 @@ RANK:4
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,[Paizo - Pathfinder RPG for Game Masters (includes Monsters)]
-#!PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Bestiary
+
+# ENABLE THESE AND REMOVE FORWARDREFS ONCE INCLUDED
+#PRECAMPAIGN:1,Paizo - Inner Sea World Guide
+#PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Ultimate Combat
+INFOTEXT:This set requires data from Inner Sea World Guide and UC for deity weapons and a domain. Neither if those sets are completed.
+FORWARDREF:WEAPONPROF|Naginata,Nine-Ring broadsword,Bo staff,Urumi,Katana,Tetsubo
+FORWARDREF:DOMAIN|Scalykind
+
+###
 PUBNAMELONG:Paizo Publishing LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -18,6 +26,7 @@ SOURCEWEB:http://paizo.com/products/btpy8pfu
 SOURCEDATE:2012-02
 ISOGL:YES
 ISLICENSED:NO
+
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
@@ -35,7 +44,7 @@ URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
 URL:Paizo Publishing|http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search|Buy this publication from Paizo Publishing!
 DESC:It is a land where honorable samurai wage war against devious ninja. Where the guardian spirits known as kami stand against the ravages of evil oni. Where the martial artists of a shattered empire strive to maintain their traditions against rising chaos. A land of jade and tea, of pride and treachery, of reincarnation and vengeful ghosts. These are the lands of the Dragon Empires. Dragon Empires Gazetteer presents the first exploration of the continent of Tian Xia, a vast realm found on the opposite side of the world of Golarion from the Inner Sea region. Inspired by the fascinating myths and rich histories of numerous Asian cultures and traditions, the Dragon Empires can be either an exotic destination for world-traveling heroes from the far side of the world, or they can be the foundation of an entirely new campaign.
-FORWARDREF:FEAT|Fox Shape (Kitsune),Swift Kitsune Shapechanger,Vulpine Pounce
+
 FORWARDREF:RACE|Tengu
 
 #Do Not Remove Comment
