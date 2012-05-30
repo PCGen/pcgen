@@ -63,6 +63,21 @@ class ThumbnailPane extends JComponent
 	{
 		if (cropRect != null)
 		{
+			if ((this.cropRect.x + this.cropRect.width) > portrait.getWidth())
+			{
+				this.cropRect.x = portrait.getWidth() - cropRect.width;
+			}
+			if ((this.cropRect.y + this.cropRect.height) > portrait.getHeight())
+			{
+				this.cropRect.y = portrait.getHeight() - cropRect.height;
+			}
+			if (this.cropRect.x < 0 || this.cropRect.y < 0)
+			{
+				this.cropRect = null;
+			}
+		}
+		if (cropRect != null)
+		{
 			repaint();
 		}
 	}
