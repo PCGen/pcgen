@@ -112,11 +112,14 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 				{
 					CharacterFacade companion =
 							CharacterManager.getCharacterMatching(delegate);
-					CharacterFacadeImpl compFacadeImpl =
-							(CharacterFacadeImpl) companion;
-					Follower follower =
-							compFacadeImpl.getTheCharacter().getMaster();
-					follower.setName(newName);
+					if (companion != null)
+					{
+						CharacterFacadeImpl compFacadeImpl =
+								(CharacterFacadeImpl) companion;
+						Follower follower =
+								compFacadeImpl.getTheCharacter().getMaster();
+						follower.setName(newName);
+					}
 				}
 
 			}
