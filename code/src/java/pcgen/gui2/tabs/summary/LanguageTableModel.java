@@ -95,7 +95,10 @@ public class LanguageTableModel extends AbstractTableModel
 
 	public void uninstall()
 	{
-		table.removeMouseMotionListener(this);
+		if (table != null)
+		{
+			table.removeMouseMotionListener(this);
+		}
 	}
 
 	@Override
