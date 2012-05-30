@@ -682,22 +682,23 @@ public final class ExportHandler
 		 * something 1
 		 * |ELSE|
 		 * something 2
-		 * |END IF|
+		 * |ENDIF|
 		 * 
 		 * It can theoretically be used with any valid token, doing an equal compare
 		 * (integer or string equalities are valid)
 		 * 
-		 * TODO Don't really understand what's going on here
+		 * Can now contain a token on the right side as well, so two tokens can be
+		 * compared to each other. Comparison is case-insensitive.
 		 */
 		final StringTokenizer aTok = new StringTokenizer(expr1, ":");
-		final String token;
-		final String equals;
+		final String leftToken;
+		final String rightToken;
 
 		final int tokenCount = aTok.countTokens();
 		if (tokenCount == 1)
 		{
-			token = expr1;
-			equals = "TRUE";
+			leftToken = expr1;
+			rightToken = "TRUE";
 		}
 		else if (tokenCount != 2)
 		{
@@ -707,19 +708,25 @@ public final class ExportHandler
 		}
 		else
 		{
-			token = aTok.nextToken();
-			equals = aTok.nextToken().toUpperCase();
+			leftToken = aTok.nextToken();
+			rightToken = aTok.nextToken();
 		}
 
-		final StringWriter sWriter = new StringWriter();
-		final BufferedWriter aWriter = new BufferedWriter(sWriter);
-		replaceToken(token, aWriter, aPC);
-		sWriter.flush();
+		final StringWriter sLeftWriter = new StringWriter();
+		final BufferedWriter leftWriter = new BufferedWriter(sLeftWriter);
+		replaceToken(leftToken, leftWriter, aPC);
+		sLeftWriter.flush();
+
+		final StringWriter sRightWriter = new StringWriter();
+		final BufferedWriter rightWriter = new BufferedWriter(sRightWriter);
+		replaceToken(rightToken, rightWriter, aPC);
+		sRightWriter.flush();
 
 		// Try to flush the output writer
 		try
 		{
-			aWriter.flush();
+			leftWriter.flush();
+			rightWriter.flush();
 		}
 		catch (IOException ignore)
 		{
@@ -727,17 +734,24 @@ public final class ExportHandler
 				"Could not flush output buffer in evaluateExpression", ignore);
 		}
 
-		String aString = sWriter.toString();
-		if (token.startsWith("VAR."))
+		String leftString = sLeftWriter.toString();
+		if (leftToken.startsWith("VAR."))
 		{
-			aString = aPC.getVariableValue(token.substring(4), "").toString();
+			leftString = aPC.getVariableValue(leftToken.substring(4), "").toString();
+		}
+
+		String rightString = sRightWriter.toString();
+		if (rightToken.startsWith("VAR."))
+		{
+			rightString = aPC.getVariableValue(rightToken.substring(4), "").toString();
 		}
 
 		try
 		{
 			// integer values
-			final int i = Integer.parseInt(aString);
-			if (i == Integer.parseInt(equals))
+			final int left = Integer.parseInt(leftString);
+			final int right= Integer.parseInt(rightString);
+			if (left == right)
 			{
 				return true;
 			}
@@ -746,7 +760,11 @@ public final class ExportHandler
 		catch (NumberFormatException e)
 		{
 			// String values
-			return 0 <= aString.toUpperCase().indexOf(equals);
+			if (leftString.equalsIgnoreCase(rightString))
+			{
+				return true;
+			}
+			return false;
 		}
 	}
 
