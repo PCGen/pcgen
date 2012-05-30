@@ -88,6 +88,8 @@ public class CharacterManager
 
 	public static CharacterFacade createNewCharacter(UIDelegate delegate, DataSetFacade dataset)
 	{
+		Logging.log(Logging.INFO, "Createing new character."); //$NON-NLS-1$
+
 		@SuppressWarnings("rawtypes")
 		List campaigns = ListFacades.wrap(dataset.getCampaigns());
 		PlayerCharacter pc = new PlayerCharacter(false, campaigns);
@@ -139,6 +141,8 @@ public class CharacterManager
 		{
 			return null;
 		}
+		Logging.log(Logging.INFO, "Loaded character " + newPC.getName() //$NON-NLS-1$
+			+ " - " + file.getAbsolutePath()); //$NON-NLS-1$
 
 		// if it's not broken, then only warnings should have been generated, and we won't count those
 		// Set the filename so that future checks to see if file already loaded will work
@@ -211,6 +215,7 @@ public class CharacterManager
 	 */
 	public static PartyFacade openParty(File file, final UIDelegate delegate, final DataSetFacade dataset)
 	{
+		Logging.log(Logging.INFO, "Loading party " + file.getAbsolutePath()); //$NON-NLS-1$
 		PCGIOHandler ioHandler = new PCGIOHandler();
 		for (File charFile : ioHandler.readCharacterFileList(file))
 		{
@@ -303,6 +308,8 @@ public class CharacterManager
 			return false;
 		}
 
+		Logging.log(Logging.INFO, "Saving character " + file.getAbsolutePath()); //$NON-NLS-1$
+
 		if (character instanceof CharacterFacadeImpl)
 		{
 			UIDelegate delegate = character.getUIDelegate();
@@ -345,6 +352,7 @@ public class CharacterManager
 		{
 			return false;
 		}
+		Logging.log(Logging.INFO, "Saving party " + file.getAbsolutePath()); //$NON-NLS-1$
 		characters.save();
 		return true;
 	}
@@ -365,6 +373,9 @@ public class CharacterManager
 			recentParties.addRecentFile(characters.getFileRef().getReference());
 			characters.setFile(null);
 		}
+		Logging.log(Logging.INFO,
+			"Closed character " + character.getNameRef().getReference()  //$NON-NLS-1$
+				+ " - " + charFile.getAbsolutePath()); //$NON-NLS-1$
 	}
 
 	public static void removeAllCharacters()
@@ -376,6 +387,7 @@ public class CharacterManager
 		characters.clearContents();
 		recentParties.addRecentFile(characters.getFileRef().getReference());
 		characters.setFile(null);
+		Logging.log(Logging.INFO, "Closed all characters"); //$NON-NLS-1$
 	}
 
 	public static PartyFacade getCharacters()
