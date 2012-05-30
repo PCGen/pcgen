@@ -52,6 +52,8 @@ FORWARDREF:RACE|Tengu
 
 #ADDITIONAL FILES:
 LANGUAGE:*/alpha/paizo/pathfinder_campaign_setting/pathfinder_campaign_setting/pathfinder_campaign_setting_languages.lst
+ABILITY:*/alpha/paizo/pathfinder_rpg/bestiary/pfb_abilities_monsters_stu.lst|(INCLUDE:CATEGORY=Special Ability,Gifted Linguist ~ Tengu,Sneaky ~ Tengu,Sword Trained ~ Tengu,Natural Weapon ~ Tengu)
+#RACE:*/alpha/paizo/pathfinder_rpg/bestiary/pfb_races_stu.lst|(INCLUDE:Tengu)
 
 # Main Files
 ABILITY:deg_abilities_background.lst
