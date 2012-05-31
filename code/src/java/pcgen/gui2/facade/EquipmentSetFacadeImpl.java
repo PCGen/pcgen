@@ -78,7 +78,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 	private EquipSet eqSet;
 	private List<EquipmentTreeListener> listeners = new ArrayList<EquipmentTreeListener>();
 	private DefaultReferenceFacade<String> name;
-	private EquipmentListFacadeImpl equipmentList;
+	private EquipmentListFacadeImpl equippedItemsList;
 	private DataSetFacade dataSet;
 	private Map<String, BodyStructure> bodyStructMap;
 	private UIDelegate delegate;
@@ -125,7 +125,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		this.eqSet = equipSet;
 		name = new DefaultReferenceFacade<String>(equipSet.getName());
 		bodyStructMap = new HashMap<String, BodyStructure>();
-		equipmentList = new EquipmentListFacadeImpl();
+		equippedItemsList = new EquipmentListFacadeImpl();
 		naturalWeaponNodes = new HashMap<String, EquipmentSetFacadeImpl.EquipNodeImpl>();
 
 		for (BodyStructureFacade bodyStruct : dataSet.getEquipmentLocations())
@@ -140,6 +140,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		Collections.sort(equipList);
 		addChildrenToPath(equipSet.getIdPath(), equipList, (EquipNodeImpl) null);
 		createNaturalWeaponSlots();
+		updateNaturalWeaponSlots();
 	}
 
 	private void buildNodeList()
@@ -442,7 +443,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 				return null;
 		}
 		
-		// Check for adding more instances to an existing item, but don;t merge containers
+		// Check for adding more instances to an existing item, but don't merge containers
 		if (!item.isContainer())
 		{
 			for (EquipNode existing : nodeList)
@@ -464,6 +465,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 						updateTotalWeight(existingItem, quantity, parent.getBodyStructure());
 						fireQuantityChanged(existing);
 						updateTotalQuantity(existingItem, quantity);
+						updateNaturalWeaponSlots();
 						return existingItem;
 					}
 				}
@@ -499,6 +501,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		
 		updateTotalWeight(newItem, quantity, parent.getBodyStructure());
 		updateTotalQuantity(newItem, quantity);
+		updateNaturalWeaponSlots();
 		
 		return newItem;
 	}
@@ -558,6 +561,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		}
 		updateTotalWeight(eqI, quantity*-1, targetNode.getBodyStructure());
 		updateTotalQuantity(eqI, quantity*-1);
+		updateNaturalWeaponSlots();
 		
 		return eqI;
 	}
@@ -700,27 +704,56 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 	 */
 	private void updateTotalQuantity(Equipment item, int amtChanged)
 	{
-		for (EquipmentFacade equip : equipmentList)
+		for (EquipmentFacade equip : equippedItemsList)
 		{
 			if (item.equals(equip))
 			{
-				int newQty = equipmentList.getQuantity(equip) + amtChanged;
+				int newQty = equippedItemsList.getQuantity(equip) + amtChanged;
 				if (newQty > 0)
 				{
-					equipmentList.setQuantity(equip, newQty);
+					equippedItemsList.setQuantity(equip, newQty);
 				}
 				else
 				{
-					equipmentList.removeElement(equip);
+					equippedItemsList.removeElement(equip);
 				}
 				return;
 			}
 		}
 		
 		// Item is new so add it
-		equipmentList.addElement(item, amtChanged);
+		equippedItemsList.addElement(item, amtChanged);
 	}
 
+	/**
+	 * Update the available natural weapon slots that are displayed. Will hide the 
+	 * natural weapon slots unless there are unequipped natural weapons.  
+	 */
+	private void updateNaturalWeaponSlots()
+	{
+		if (pcHasUnequippedNaturalWeapons())
+		{
+			// Ensure natural weapon locations are visible
+			for (EquipNodeImpl natWpnEquipNode : naturalWeaponNodes.values())
+			{
+				if (!nodeList.containsElement(natWpnEquipNode))
+				{
+					nodeList.addElement(natWpnEquipNode);
+				}
+			}
+		}
+		else
+		{
+			// Ensure natural weapon locations are not visible
+			for (EquipNodeImpl natWpnEquipNode : naturalWeaponNodes.values())
+			{
+				if (nodeList.containsElement(natWpnEquipNode))
+				{
+					nodeList.removeElement(natWpnEquipNode);
+				}
+			}
+		}
+	}
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.EquipmentSetFacade#getName()
 	 */
@@ -784,7 +817,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 	@Override
 	public EquipmentListFacade getEquippedItems()
 	{
-		return equipmentList;
+		return equippedItemsList;
 	}
 
 	/* (non-Javadoc)
@@ -952,15 +985,6 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		String locName = theCharacter.getNaturalWeaponLocation(item);
 		if (locName != null)
 		{
-			// Ensure natural weapon locations are visible
-			for (EquipNodeImpl natWpnEquipNode : naturalWeaponNodes.values())
-			{
-				if (!nodeList.containsElement(natWpnEquipNode))
-				{
-					nodeList.addElement(natWpnEquipNode);
-				}
-			}
-			
 			return naturalWeaponNodes.get(locName);
 		}
 		
@@ -1144,6 +1168,23 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 				}
 				return node.getBodyStructure().toString();
 		}
+	}
+	
+	/**
+	 * Identify if the character has any natural weapons that have not been 
+	 * equipped yet.
+	 * @return true if there are unequipped natural attacks, false if not.
+	 */
+	private boolean pcHasUnequippedNaturalWeapons()
+	{
+		for (Equipment equipItem : theCharacter.getEquipmentMasterList())
+		{
+			if (equipItem.isNatural() && !equippedItemsList.containsElement(equipItem))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	/**

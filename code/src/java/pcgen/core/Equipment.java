@@ -338,7 +338,7 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Gets the natural attribute of the Equipment object
+	 * Gets the natural weapon attribute of the Equipment object
 	 * 
 	 * @return The natural value
 	 */
