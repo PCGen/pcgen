@@ -189,17 +189,19 @@
 
 <hr>
 
-		<p class="new"><a name="AUTOLANG">*** New 5.17.4</a></p>
+		<p class="new"><a name="AUTOLANG">*** New 5.17.14</a></p>
 		<p class="indent0"><strong>Tag Name:</strong> AUTO:LANG|x|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Language)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Language type)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Language type)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> %LIST</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>This is a pipe-delimited (|) list of languages, by name or type, that are granted as free language.</li>
 			<li>When including the <code>TYPE=</code> sub-tag you may use a period-delimited (.) list of language types. 
 				This will grant the character any Language with the listed types.</li>
+			<li>Use of <code>%LIST</code> will insert the result of a <code>CHOOSE</code> tag.</li>
 			<li>PRExxx tags are allowed with this tag and use the pipe-delimited (|) syntax.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
@@ -207,6 +209,8 @@
 		<p class="indent3">Common is granted as a free language to the character.</p>
 		<p class="indent2"><code>AUTO:LANG|TYPE=Latin</code></p>
 		<p class="indent3">Latin-type Languages are given as free languages .</p>
+		<p class="indent2"><code>AUTO:LANG|Draconic|PREFEAT:1,Dodge</code></p>
+		<p class="indent3">The Draconic language is granted as a free language if the the character has the Dodge feat.</p>
 		<p></p>
 
 <hr>
