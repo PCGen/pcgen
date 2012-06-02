@@ -138,9 +138,9 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 
 		List<EquipSet> equipList = new ArrayList<EquipSet>(theCharacter.getEquipSet());
 		Collections.sort(equipList);
-		addChildrenToPath(equipSet.getIdPath(), equipList, (EquipNodeImpl) null);
 		createNaturalWeaponSlots();
 		updateNaturalWeaponSlots();
+		addChildrenToPath(equipSet.getIdPath(), equipList, (EquipNodeImpl) null);
 	}
 
 	private void buildNodeList()
