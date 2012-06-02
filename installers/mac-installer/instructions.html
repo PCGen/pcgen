@@ -46,7 +46,7 @@
 				and download them from there. The version I'm currently using is XCode Tools 4.02 running on Snow Leopard.</li>
 			<li>Make sure that you have all the current OS updates installed.</li>
 			<li>Download the support files in this module of the PCGen project at: https://svn.sourceforge.net/pcgen/Trunk/installers/mac-installer</a>.</li>
-			<li>Finally, download the full version of PCGen from SF.</li>
+			<li>Finally, download the full version of PCGen from Source Forge.</li>
 		</ol>
 
 		<p class="indent0">Now that we have all the parts and pieces, we can start to assemble.</p>
@@ -55,7 +55,7 @@
 		<h2>Step 2: Converting PCGen to an OS X App</h2>
 
 		<ol style="list-style-type: upper-alpha">
-			<li>Launch /Developer/Applications/Utilities/Jar Bundler</li>
+			<li>Launch /usr/share/java/Tools/Jar Bundler. [On earlier versions of Mac OSX you'll find it here: /Developer/Applications/Utilities/Jar Bundler.]</li>
 			<li>On the first tab (Build Information), click on the choose button to the right of the 
 				Main Class field.  Navigate to pcgen.jar for the version we are building and select it.</li>
 			<li>Make sure the "Use Macintosh Menu Bar" is not checked.</li>
@@ -74,7 +74,7 @@
 				in the mac-installer/graphics/icon folder. You may have to paste it on the app after it is built 
 				anyway, I've found that it does not always stick for some reason.</li>
 			<li>Click the Create Application button.  Save the application as PCGen &lt;version number&gt;.app 
-				(e.g. PCGen 5.15.2.app) into the folder you downloaded off of SF.</li>
+				(e.g. PCGen 5.15.2.app) into the folder you downloaded off of Source Forge.</li>
 		</ol>
 
 		<p class="indent0">This will encapsulate the PCGen jar file into an OS X application.  We then need to 
