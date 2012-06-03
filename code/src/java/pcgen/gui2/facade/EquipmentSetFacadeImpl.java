@@ -520,6 +520,12 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		EquipNodeImpl targetNode = (EquipNodeImpl) node;
 		EquipNodeImpl parentNode = (EquipNodeImpl) node.getParent();
 		EquipSet eSet = theCharacter.getEquipSetByIdPath(targetNode.getIdPath());
+		if (eSet == null)
+		{
+			Logging.errorPrint("No equipset found for node " + targetNode
+				+ " path " + targetNode.getIdPath());
+			return null;
+		}
 		int newQty = (int) (eSet.getQty()-quantity);
 
 		Equipment eqI = eSet.getItem();
