@@ -88,7 +88,7 @@ public class CharacterManager
 
 	public static CharacterFacade createNewCharacter(UIDelegate delegate, DataSetFacade dataset)
 	{
-		Logging.log(Logging.INFO, "Createing new character."); //$NON-NLS-1$
+		Logging.log(Logging.INFO, "Creating new character."); //$NON-NLS-1$
 
 		@SuppressWarnings("rawtypes")
 		List campaigns = ListFacades.wrap(dataset.getCampaigns());
@@ -308,7 +308,9 @@ public class CharacterManager
 			return false;
 		}
 
-		Logging.log(Logging.INFO, "Saving character " + file.getAbsolutePath()); //$NON-NLS-1$
+		Logging.log(Logging.INFO,
+			"Saving character " + character.getNameRef().getReference() //$NON-NLS-1$
+				+ " - " + file.getAbsolutePath()); //$NON-NLS-1$
 
 		if (character instanceof CharacterFacadeImpl)
 		{
