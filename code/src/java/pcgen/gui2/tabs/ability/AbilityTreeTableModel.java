@@ -39,10 +39,13 @@ import pcgen.core.facade.util.SortedListFacade;
 import pcgen.gui2.tabs.Utilities;
 import pcgen.gui2.util.JTreeTable;
 import pcgen.gui2.util.treetable.AbstractTreeTableModel;
+import pcgen.gui2.util.treetable.DefaultSortableTreeTableNode;
 import pcgen.gui2.util.treetable.DefaultTreeTableNode;
 import pcgen.gui2.util.treetable.SortableTreeTableModel;
+import pcgen.gui2.util.treetable.SortableTreeTableNode;
 import pcgen.gui2.util.treetable.TreeTableNode;
 import pcgen.util.Comparators;
+import pcgen.util.Logging;
 
 /**
  * The Class <code>AbilityTreeTableModel</code> is a model for the 
@@ -75,11 +78,12 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 	 */
 	public static void initializeTreeTable(JTreeTable treeTable)
 	{
-		treeTable.getTree().putClientProperty("JTree.lineStyle", "Horizontal");
+		treeTable.getTree().putClientProperty("JTree.lineStyle", "Horizontal"); //$NON-NLS-1$ //$NON-NLS-2$
 		treeTable.setAutoCreateColumnsFromModel(false);
 		DefaultTableColumnModel model = new DefaultTableColumnModel();
 		TableCellRenderer headerRenderer =  treeTable.getTableHeader().getDefaultRenderer();
 		model.addColumn(Utilities.createTableColumn(0, "Selected Abilities", headerRenderer, true));
+		//model.addColumn(Utilities.createTableColumn(1, "Choices", headerRenderer, true));
 		treeTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		treeTable.setColumnModel(model);
 		treeTable.getTableHeader().setResizingAllowed(false);
@@ -98,7 +102,17 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 	@Override
 	public String getColumnName(int column)
 	{
-		return "Selected Abilities";
+		switch (column)
+		{
+			case 0:
+				return "Selected Abilities";
+			case 1:
+				return "Choices";
+
+			default:
+				return "Unknown column";
+		}
+		
 	}
 
 	@Override
@@ -110,6 +124,8 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 	@Override
 	public void sortModel(Comparator<List<?>> comparator)
 	{
+        ((RootTreeTableNode) getRoot()).sortChildren(new TreeNodeComparator(comparator));
+        reload();
 	}
 
 	private class RootTreeTableNode extends DefaultTreeTableNode implements ListListener<AbilityCategoryFacade>
@@ -159,9 +175,23 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 		{
 		}
 
+	    @SuppressWarnings("unchecked")
+	    public void sortChildren(Comparator<TreeTableNode> comparator)
+	    {
+	        if (children != null)
+	        {
+	            Collections.sort(children, comparator);
+	            for (int x = 0; x < children.size(); x++)
+	            {
+	                SortableTreeTableNode child = (SortableTreeTableNode) children.get(x);
+	                child.sortChildren(comparator);
+	            }
+	        }
+	    }
+
 	}
 
-	private class CategoryTreeTableNode extends DefaultTreeTableNode implements ListListener<AbilityFacade>
+	private class CategoryTreeTableNode extends DefaultSortableTreeTableNode implements ListListener<AbilityFacade>
 	{
 
 		private final AbilityCategoryFacade category;
@@ -182,7 +212,7 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 		{
 			for (AbilityFacade ability : abilities)
 			{
-				DefaultTreeTableNode node = new DefaultTreeTableNode(Collections.singletonList(ability));
+				DefaultTreeTableNode node = new DefaultSortableTreeTableNode(Collections.singletonList(ability));
 				node.setUserObject(ability);
 				add(node);
 			}
@@ -191,7 +221,7 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 		@Override
 		public void elementAdded(ListEvent<AbilityFacade> e)
 		{
-			DefaultTreeTableNode node = new DefaultTreeTableNode(Collections.singletonList(e.getElement()));
+			DefaultTreeTableNode node = new DefaultSortableTreeTableNode(Collections.singletonList(e.getElement()));
 			node.setUserObject(e.getElement());
 			insertNodeInto(node, this, e.getIndex());
 		}
