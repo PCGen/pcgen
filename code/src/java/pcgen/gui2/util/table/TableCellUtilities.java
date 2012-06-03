@@ -249,14 +249,30 @@ public final class TableCellUtilities
 		 * align is one of:
 		 * SwingConstants.LEFT
 		 * SwingConstants.CENTER
-		 * SwingConstants.RIGHT
+		 * X.RIGHT
 		 **/
 		private int align = SwingConstants.LEFT;
+		private final boolean showTooltips;
 
+		/**
+		 * Create a new instance of AlignRenderer without tool tips.
+		 * @param anInt The alignment constant, from SwingConstants.
+		 */
 		public AlignRenderer(int anInt)
+		{
+			this(anInt, false);
+		}
+
+		/**
+		 * Create a new instance of AlignRenderer
+		 * @param anInt The alignment constant, from SwingConstants.
+		 * @param tooltips Should we show tool tips?
+		 */
+		public AlignRenderer(int anInt, boolean tooltips)
 		{
 			super();
 			align = anInt;
+			this.showTooltips = tooltips;
 			setHorizontalAlignment(align);
 		}
 
@@ -266,6 +282,10 @@ public final class TableCellUtilities
 			super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 			setEnabled((table == null) || table.isEnabled());
 			setHorizontalAlignment(align);
+			if (showTooltips)
+			{
+				setToolTipText(String.valueOf(value));
+			}
 			return this;
 		}
 

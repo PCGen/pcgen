@@ -105,4 +105,12 @@ public interface InfoFactory
 	 */
 	public String getPantheons(DeityFacade deityFacade);
 
+	/**
+	 * Get a display string of the choices made for this character for the 
+	 * ability. The format may be either a, b or x3.
+	 * @param abilityFacade The ability to be output.
+	 * @return The comma separated list of choices.
+	 */
+	public String getChoices(AbilityFacade abilityFacade);
+
 }

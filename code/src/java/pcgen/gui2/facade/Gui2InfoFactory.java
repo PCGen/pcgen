@@ -37,6 +37,7 @@ import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -1469,4 +1470,34 @@ public class Gui2InfoFactory implements InfoFactory
 	
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getChoices(AbilityFacade abilityFacade)
+	{
+		if (abilityFacade == null || !(abilityFacade instanceof Ability))
+		{
+			return EMPTY_STRING;
+		}
+		final Ability ability = (Ability) abilityFacade;
+		final StringBuilder choices = new StringBuilder();
+
+		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		{
+			ChooseInformation<?> chooseInfo =
+					ability.get(ObjectKey.CHOOSE_INFO);
+
+			if (chooseInfo != null)
+			{
+				choices.append(chooseInfo.getDisplay(pc, ability));
+			}
+			else
+			{
+				choices.append(StringUtil.joinToStringBuffer(
+					pc.getExpandedAssociations(ability), ",")); //$NON-NLS-1$
+			}
+		}
+		return choices.toString();
+	}
 }

@@ -20,11 +20,13 @@
  */
 package pcgen.gui2.tabs.ability;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.tree.MutableTreeNode;
@@ -38,14 +40,15 @@ import pcgen.core.facade.util.ListFacade;
 import pcgen.core.facade.util.SortedListFacade;
 import pcgen.gui2.tabs.Utilities;
 import pcgen.gui2.util.JTreeTable;
+import pcgen.gui2.util.table.TableCellUtilities;
 import pcgen.gui2.util.treetable.AbstractTreeTableModel;
 import pcgen.gui2.util.treetable.DefaultSortableTreeTableNode;
 import pcgen.gui2.util.treetable.DefaultTreeTableNode;
 import pcgen.gui2.util.treetable.SortableTreeTableModel;
 import pcgen.gui2.util.treetable.SortableTreeTableNode;
 import pcgen.gui2.util.treetable.TreeTableNode;
+import pcgen.system.LanguageBundle;
 import pcgen.util.Comparators;
-import pcgen.util.Logging;
 
 /**
  * The Class <code>AbilityTreeTableModel</code> is a model for the 
@@ -82,11 +85,14 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 		treeTable.setAutoCreateColumnsFromModel(false);
 		DefaultTableColumnModel model = new DefaultTableColumnModel();
 		TableCellRenderer headerRenderer =  treeTable.getTableHeader().getDefaultRenderer();
-		model.addColumn(Utilities.createTableColumn(0, "Selected Abilities", headerRenderer, true));
-		//model.addColumn(Utilities.createTableColumn(1, "Choices", headerRenderer, true));
+		model.addColumn(Utilities.createTableColumn(0,
+			"in_featSelectedAbilities", headerRenderer, true)); //$NON-NLS-1$
+		model.addColumn(Utilities.createTableColumn(1, "in_featChoices", //$NON-NLS-1$
+			headerRenderer, true));
 		treeTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		treeTable.setColumnModel(model);
-		treeTable.getTableHeader().setResizingAllowed(false);
+		treeTable.setDefaultRenderer(String.class,
+			new TableCellUtilities.AlignRenderer(SwingConstants.LEFT, true));
 	}
 
 	@Override
@@ -96,7 +102,7 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 		{
 			return TreeTableNode.class;
 		}
-		return Object.class;
+		return String.class;
 	}
 
 	@Override
@@ -105,9 +111,9 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 		switch (column)
 		{
 			case 0:
-				return "Selected Abilities";
+				return LanguageBundle.getString("in_featSelectedAbilities"); //$NON-NLS-1$
 			case 1:
-				return "Choices";
+				return LanguageBundle.getString("in_featChoices"); //$NON-NLS-1$
 
 			default:
 				return "Unknown column";
@@ -118,7 +124,7 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 	@Override
 	public int getColumnCount()
 	{
-		return 1;
+		return 2;
 	}
 
 	@Override
@@ -212,16 +218,26 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 		{
 			for (AbilityFacade ability : abilities)
 			{
-				DefaultTreeTableNode node = new DefaultSortableTreeTableNode(Collections.singletonList(ability));
+				DefaultTreeTableNode node = buildAbilityNode(ability);
 				node.setUserObject(ability);
 				add(node);
 			}
 		}
 
+		private DefaultTreeTableNode buildAbilityNode(AbilityFacade ability)
+		{
+			List<Object> data = new ArrayList<Object>(2);
+			data.add(ability);
+			data.add(character.getInfoFactory().getChoices(ability));
+			DefaultTreeTableNode node = new DefaultSortableTreeTableNode(data);
+			return node;
+		}
+
 		@Override
 		public void elementAdded(ListEvent<AbilityFacade> e)
 		{
-			DefaultTreeTableNode node = new DefaultSortableTreeTableNode(Collections.singletonList(e.getElement()));
+			//Logging.errorPrint("Adding " + category + " - "  + e.getElement());
+			DefaultTreeTableNode node = buildAbilityNode(e.getElement());
 			node.setUserObject(e.getElement());
 			insertNodeInto(node, this, e.getIndex());
 		}
@@ -229,12 +245,14 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 		@Override
 		public void elementRemoved(ListEvent<AbilityFacade> e)
 		{
+			//Logging.errorPrint("Removing " + category + " - "  + e.getElement());
 			removeNodeFromParent((MutableTreeNode) getChildAt(e.getIndex()));
 		}
 
 		@Override
 		public void elementsChanged(ListEvent<AbilityFacade> e)
 		{
+			//Logging.errorPrint("Changing " + category + " - " + e.getSource());
 			removeAllChildren();
 			addChildren();
 			AbilityTreeTableModel.this.nodeStructureChanged(this);
@@ -243,6 +261,7 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 		@Override
 		public void elementModified(ListEvent<AbilityFacade> e)
 		{
+			//Logging.errorPrint("Modifying " + category + " - " + e.getElement());
 		}
 
 	}
