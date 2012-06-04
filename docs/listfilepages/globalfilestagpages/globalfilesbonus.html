@@ -750,20 +750,59 @@
 	<p class="dep">*** deprecated 5.5.8 - Remove 6.0 - Use <a href="#COMBATDAMAGE">BONUS:COMBAT|DAMAGE.x|y</a></p>
 	<p class="indent0"><strong><a name="DAMAGETYPE">Tag Name:</a></strong> BONUS:DAMAGE|TYPE.x|y</p>
 	<p></p>
-<!--
-<hr>
 
+<hr>
+<!--
 	<p class="status"><a name="DC">*** Updated 5.5.5</a></p>
-	<p class="indent0"><strong>Tag Name:</strong> BONUS:DC|SPELL.x|y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell name)</p>
+	<p class="indent0"><strong>Tag Name:</strong> BONUS:DC|x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SPELL.Text (Spell name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALLSPELLS</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> CLASS.Text (Class name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> DESCRIPTOR.Text (Spell descriptor)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> DOMAIN.Text (Domain name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> FEATBONUS</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SCHOOL.Text (Spell school)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SUBSCHOOL.Text (Spell subschool)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Spell type)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (DC increase)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
-	<p class="indent2">Adds to the DC (Difficulty Class) of a specific spell.</p>
+	<ul class="indent2">
+		<li>Adds to the Difficulty Class (DC) of spell(s) by name, class, descriptor, domain, school, subschool, or type.</li>
+		<li>Use of ALLSPELLS adds to the DC of all spells.
+		<li>Use of FEATBONUS raises the DC of spells that receive the applied feat bonus, i.e. through the application of a 
+			metamagic feat, by raising the spell level of the affected spells.</li>
+		<li><code>%LIST</code> can be used with this tag to insert a choice made with a <code>CHOOSE</code> tag.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:DC|SPELL.Fireball|7</code></p>
 	<p class="indent3">Adds 7 to the DC of the spell Fireball.</p>
-	<p class="indent2"><code>CHOOSE:SCHOOLS|1 &lt;tab&gt; BONUS:DC|SCHOOL.%LIST|1</code></p>
+	<p class="indent2"><code>CHOOSE:SCHOOLS|ALL &lt;tab&gt; BONUS:DC|SCHOOL.%LIST|1</code></p>
 	<p class="indent3">Choose 1 School and add 1 to its DC.</p>
+	<p class="indent2"><code>BONUS:DC|ALLSPELLS|1</code></p>
+	<p class="indent3">Adds 1 to the DC of all spells.</p>
+	<p class="indent2"><code>BONUS:DC|CLASS.Sorcerer|2</code></p>
+	<p class="indent3">Adds 2 to the DC of sorcerer spells.</p>
+	<p class="indent2"><code>BONUS:DC|DESCRIPTOR.Law|4</code></p>
+	<p class="indent3">Adds 4 to the DC of any spells with the Law descriptor.</p>
+	<p class="indent2"><code>BONUS:DC|DESCRIPTOR.Law,DOMAIN.Law|3</code></p>
+	<p class="indent3">Adds 3 to the DC of any spells with the Law domain or descriptor and
+		would add 6 to a spell with both the Law Domain and Law Descriptor.</p>
+	<p class="indent2"><code>BONUS:DC|DOMAIN.War|6</code></p>
+	<p class="indent3">Adds 6 to the DC of War Domain spells.</p>
+	<p class="indent2"><code>MULT:YES &lt;tab&gt; CHOOSE:|Air|Earth|Fire|Water &lt;tab&gt; BONUS:DC|DOMAIN.%LIST|1</code></p>
+	<p class="indent3">Choose a domain and add 1 to the DC of spells for that domain. This may be used multiple times.</p>
+	<p class="indent2"><code>BONUS:DC|FEATBONUS|1</code></p>
+	<p class="indent3">Adds 1 to the DC of spells that this bonus applies to by raising the spell's level by 1. The Heighten Spell metamagic feat is an example of where this is used.</p>
+	<p class="indent2"><code>BONUS:DC|SCHOOL.Enchantment|2</code></p>
+	<p class="indent3">Adds 2 to Enchantment school spells.</p>
+	<p class="indent2"><code>MULT:YES &lt;tab&gt; CHOOSE:FEAT=Psionic Focus &lt;tab&gt; BONUS:DC|SCHOOL.%LIST|2|TYPE=Psychic</code></p>
+	<p class="indent3">Adds 2 to 1 psychic school focus DC.</p>
+	<p class="indent2"><code>BONUS:DC|SCHOOL.Telepathy|SPELLSTAT-CHA|TYPE=Subdiscipline</code></p>
+	<p class="indent3">Subtracts the Chrisma Modifier to Telepathy School with a bonus type of &quot;Subdiscipline&quot;.</p>
+	<p class="indent2"><code>BONUS:DC|SUBSCHOOL.something|5</code></p>
+	<p class="indent3">Adds 5 to the any spell with a subschool of &quot;something&quot;.</p>
+	<p class="indent2"><code>BONUS:DC|TYPE.Arcane|3</code></p>
+	<p class="indent3">Adds 3 to arcane spell DCs.</p>
 	<p></p>
 -->
 <hr>
