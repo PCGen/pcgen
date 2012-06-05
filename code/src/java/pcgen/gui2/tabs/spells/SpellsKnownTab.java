@@ -181,6 +181,8 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 															   selectedTable, spellsPane));
 		state.put(ClassInfoHandler.class, new ClassInfoHandler(character, availableTable,
 															   selectedTable, classPane));
+		state.put(QualifiedSpellTreeCellRenderer.class,
+			new QualifiedSpellTreeCellRenderer(character));
 		return state;
 	}
 
@@ -200,6 +202,12 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		((UseHigherSlotsAction) state.get(UseHigherSlotsAction.class)).install();
 		previewSpellsButton.setAction((PreviewSpellsAction) state.get(PreviewSpellsAction.class));
 		exportSpellsButton.setAction((ExportSpellsAction) state.get(ExportSpellsAction.class));
+		availableTable
+			.setTreeCellRenderer((QualifiedSpellTreeCellRenderer) state
+				.get(QualifiedSpellTreeCellRenderer.class));
+		selectedTable
+			.setTreeCellRenderer((QualifiedSpellTreeCellRenderer) state
+				.get(QualifiedSpellTreeCellRenderer.class));
 	}
 
 	@Override

@@ -87,6 +87,7 @@ import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.VariableProcessor;
 import pcgen.core.analysis.DomainApplication;
+import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
@@ -126,6 +127,7 @@ import pcgen.core.facade.RaceFacade;
 import pcgen.core.facade.ReferenceFacade;
 import pcgen.core.facade.SimpleFacade;
 import pcgen.core.facade.SkillFacade;
+import pcgen.core.facade.SpellFacade;
 import pcgen.core.facade.SpellSupportFacade;
 import pcgen.core.facade.StatFacade;
 import pcgen.core.facade.TempBonusFacade;
@@ -3557,6 +3559,35 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		Domain domain = domainFI.getRawObject();
 		if (!PrereqHandler.passesAll(domainFI.getPrerequisiteList(), theCharacter, domain)
 				|| !theCharacter.isQualified(domain))
+		{
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isQualifiedFor(SpellFacade spellFacade,
+		ClassFacade classFacade)
+	{
+		if (!(spellFacade instanceof SpellFacadeImplem)
+			|| !(classFacade instanceof PCClass))
+		{
+			return false;
+		}
+
+		SpellFacadeImplem spellFI = (SpellFacadeImplem) spellFacade;
+		PCClass pcClass = (PCClass) classFacade;
+
+		if (!theCharacter.isQualified(spellFI.getSpell()))
+		{
+			return false;
+		}
+		if (!spellFI.getCharSpell().isSpecialtySpell(theCharacter)
+			&& SpellCountCalc.isProhibited(spellFI.getSpell(), pcClass,
+				theCharacter))
 		{
 			return false;
 		}

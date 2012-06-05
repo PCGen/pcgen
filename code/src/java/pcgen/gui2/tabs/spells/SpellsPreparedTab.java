@@ -158,6 +158,8 @@ public class SpellsPreparedTab extends FlippingSplitPane
 															   selectedTable, spellsPane));
 		state.put(ClassInfoHandler.class, new ClassInfoHandler(character, availableTable,
 															   selectedTable, classPane));
+		state.put(QualifiedSpellTreeCellRenderer.class,
+			new QualifiedSpellTreeCellRenderer(character));
 		return state;
 	}
 
@@ -175,6 +177,12 @@ public class SpellsPreparedTab extends FlippingSplitPane
 		removeSpellListButton.setAction((RemoveSpellListAction) state.get(RemoveSpellListAction.class));
 		slotsBox.setAction((UseHigherSlotsAction) state.get(UseHigherSlotsAction.class));
 		((UseHigherSlotsAction) state.get(UseHigherSlotsAction.class)).install();
+		availableTable
+			.setTreeCellRenderer((QualifiedSpellTreeCellRenderer) state
+				.get(QualifiedSpellTreeCellRenderer.class));
+		selectedTable
+			.setTreeCellRenderer((QualifiedSpellTreeCellRenderer) state
+				.get(QualifiedSpellTreeCellRenderer.class));
 	}
 
 	public void storeModels(Hashtable<Object, Object> state)

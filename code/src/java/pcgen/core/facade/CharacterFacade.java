@@ -613,6 +613,14 @@ public interface CharacterFacade extends CompanionFacade
 	 */
 	public boolean isQualifiedFor(DomainFacade domain);
 
+	/**
+	 * Check if the character meets all requirements to know the spell.
+	 * @param spell The spell to be checked.
+	 * @param classFacade The class the spell would be added within.
+	 * @return True if the character can know the spell, false if not.
+	 */
+	public boolean isQualifiedFor(SpellFacade spell, ClassFacade classFacade);
+
 	public void addCharacterChangeListener(CharacterChangeListener listener);
 
 	public void removeCharacterChangeListener(CharacterChangeListener listener);
@@ -793,7 +801,6 @@ public interface CharacterFacade extends CompanionFacade
 	/**
 	 * @return calculate a variable for the current character
 	 */
-	public Float getVariable(final String variableString, final boolean isMax)
-;
+	public Float getVariable(final String variableString, final boolean isMax);
 
 }

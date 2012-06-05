@@ -158,6 +158,8 @@ public class SpellBooksTab extends FlippingSplitPane
 		defaultSpellBookModel.setListFacade(character.getSpellSupport().getSpellbooks());
 		defaultSpellBookModel.setReference(character.getSpellSupport().getDefaultSpellBookRef());
 		state.put(Models.DefaultSpellBookModel, defaultSpellBookModel);
+		state.put(QualifiedSpellTreeCellRenderer.class,
+			new QualifiedSpellTreeCellRenderer(character));
 
 		return state;
 	}
@@ -172,6 +174,12 @@ public class SpellBooksTab extends FlippingSplitPane
 		addButton.setAction((AddSpellAction) state.get(AddSpellAction.class));
 		removeButton.setAction((RemoveSpellAction) state.get(RemoveSpellAction.class));
 		defaultBookCombo.setModel((ComboBoxModel) state.get(Models.DefaultSpellBookModel));
+		availableTable
+			.setTreeCellRenderer((QualifiedSpellTreeCellRenderer) state
+				.get(QualifiedSpellTreeCellRenderer.class));
+		selectedTable
+			.setTreeCellRenderer((QualifiedSpellTreeCellRenderer) state
+				.get(QualifiedSpellTreeCellRenderer.class));
 	}
 
 	public void storeModels(Hashtable<Object, Object> state)
