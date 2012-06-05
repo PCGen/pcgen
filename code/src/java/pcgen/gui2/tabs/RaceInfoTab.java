@@ -25,6 +25,7 @@ package pcgen.gui2.tabs;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Hashtable;
@@ -449,10 +450,12 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private enum RaceTreeView implements TreeView<RaceFacade>
 	{
 
-		NAME(LanguageBundle.getString("in_nameLabel")),
-		TYPE_NAME(LanguageBundle.getString("in_typeName")),
-		RACETYPE_NAME(LanguageBundle.getString("in_racetypeName")),
-		SOURCE_NAME(LanguageBundle.getString("in_sourceName"));
+		NAME(LanguageBundle.getString("in_nameLabel")), //$NON-NLS-1$
+		TYPE_NAME(LanguageBundle.getString("in_typeName")), //$NON-NLS-1$
+		RACETYPE_NAME(LanguageBundle.getString("in_racetypeName")), //$NON-NLS-1$
+		RACETYPE_RACE_SUBTYPE_NAME(
+				LanguageBundle.getString("in_racetypeSubtypeName")), //$NON-NLS-1$
+		SOURCE_NAME(LanguageBundle.getString("in_sourceName")); //$NON-NLS-1$
 		private String name;
 
 		private RaceTreeView(String name)
@@ -476,6 +479,23 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				case TYPE_NAME:
 					return Collections.singletonList(new TreeViewPath<RaceFacade>(pobj, 
 							pobj.getType()));
+				case RACETYPE_RACE_SUBTYPE_NAME:
+					List<String> subtypes = pobj.getRaceSubTypes();
+					if (!subtypes.isEmpty())
+					{
+						List<TreeViewPath<RaceFacade>> paths =
+								new ArrayList<TreeViewPath<RaceFacade>>();
+						String raceType = pobj.getRaceType();
+						for (String subtype : subtypes)
+						{
+							paths.add(new TreeViewPath<RaceFacade>(pobj,
+								raceType, subtype));
+						}
+						return paths;
+					}
+					// No subtypes, fall through to treat it as a type tree.
+					return Collections.singletonList(new TreeViewPath<RaceFacade>(pobj, 
+							pobj.getRaceType()));
 				case RACETYPE_NAME:
 					return Collections.singletonList(new TreeViewPath<RaceFacade>(pobj, 
 							pobj.getRaceType()));

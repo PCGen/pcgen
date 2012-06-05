@@ -20,6 +20,8 @@
  */
 package pcgen.core.facade;
 
+import java.util.List;
+
 import pcgen.core.facade.util.ListFacade;
 
 /**
@@ -43,4 +45,9 @@ public interface RaceFacade extends InfoFacade
 	 * @return The name of the race's racetype
 	 */
 	public String getRaceType();
+
+	/**
+	 * @return A list of the race's racesubtype names.
+	 */
+	public List<String> getRaceSubTypes();
 }

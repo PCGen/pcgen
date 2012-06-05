@@ -22,6 +22,7 @@
  */
 package pcgen.core;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.base.formula.Formula;
@@ -29,6 +30,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.facade.GenderFacade;
 import pcgen.core.facade.RaceFacade;
@@ -136,5 +138,23 @@ public final class Race extends PObject implements RaceFacade
 	{
 		RaceType rt = getSafe(ObjectKey.RACETYPE);
 		return rt == null ? "" : rt.toString();
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public List<String> getRaceSubTypes()
+	{
+		List<String> subTypeNames = new ArrayList<String>();
+		List<RaceSubType> rst = getListFor(ListKey.RACESUBTYPE);
+		if (rst != null)
+		{
+		    for (RaceSubType subtype : rst)
+		    {
+		    	subTypeNames.add(subtype.toString());
+		    }
+		}
+		return subTypeNames;
 	}
 }
