@@ -42,6 +42,7 @@ class SpellInfoHandler implements ListSelectionListener
 	private final JTreeViewTable<?> availableTable;
 	private final JTreeViewTable<?> selectedTable;
 	private final InfoPane spellsPane;
+	private String currText;
 
 	public SpellInfoHandler(CharacterFacade character, JTreeViewTable<?> table1, JTreeViewTable<?> table2,
 							InfoPane spellsPane)
@@ -50,12 +51,14 @@ class SpellInfoHandler implements ListSelectionListener
 		this.availableTable = table1;
 		this.selectedTable = table2;
 		this.character = character;
+		this.currText = ""; //$NON-NLS-1$
 	}
 
 	public void install()
 	{
 		availableTable.getSelectionModel().addListSelectionListener(this);
 		selectedTable.getSelectionModel().addListSelectionListener(this);
+		spellsPane.setText(currText);
 	}
 
 	public void uninstall()
@@ -82,6 +85,7 @@ class SpellInfoHandler implements ListSelectionListener
 			{
 				SpellNode node = (SpellNode) obj;
 				String text = character.getInfoFactory().getHTMLInfo(node.getSpell());
+				currText= text;
 				spellsPane.setText(text);
 			}
 			else if (obj instanceof RootNode)
@@ -90,6 +94,7 @@ class SpellInfoHandler implements ListSelectionListener
 				String text = character.getInfoFactory().getSpellBookInfo(node.getName());
 				if (!StringUtils.isEmpty(text))
 				{
+					currText= text;
 					spellsPane.setText(text);
 				}
 			}

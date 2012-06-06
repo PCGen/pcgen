@@ -202,16 +202,19 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	{
 
 		private final CharacterFacade character;
+		private String text;
 
 		public InfoHandler(CharacterFacade character)
 		{
 			this.character = character;
+			this.text = ""; //$NON-NLS-1$
 		}
 
 		public void install()
 		{
 			raceTable.getSelectionModel().addListSelectionListener(this);
 			selectedTable.getSelectionModel().addListSelectionListener(this);
+			infoPane.setText(text);
 		}
 
 		public void uninstall()
@@ -244,7 +247,8 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				}
 				if (obj instanceof RaceFacade)
 				{
-					infoPane.setText(character.getInfoFactory().getHTMLInfo((RaceFacade) obj));
+					text = character.getInfoFactory().getHTMLInfo((RaceFacade) obj);
+					infoPane.setText(text);
 				}
 			}
 		}

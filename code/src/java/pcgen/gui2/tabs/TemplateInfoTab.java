@@ -191,16 +191,19 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 	{
 
 		private CharacterFacade character;
+		private String text;
 
 		public InfoHandler(CharacterFacade character)
 		{
 			this.character = character;
+			this.text = ""; //$NON-NLS-1$
 		}
 
 		public void install()
 		{
 			availableTable.getSelectionModel().addListSelectionListener(this);
 			selectedTable.getSelectionModel().addListSelectionListener(this);
+			infoPane.setText(text);
 		}
 
 		public void uninstall()
@@ -233,7 +236,8 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 				}
 				if (obj instanceof TemplateFacade)
 				{
-					infoPane.setText(character.getInfoFactory().getHTMLInfo((TemplateFacade) obj));
+					text = character.getInfoFactory().getHTMLInfo((TemplateFacade) obj);
+					infoPane.setText(text);
 				}
 			}
 		}

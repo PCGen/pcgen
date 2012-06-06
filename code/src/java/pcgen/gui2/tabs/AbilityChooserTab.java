@@ -355,11 +355,15 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 
 		private CharacterFacade character;
 		private final ListFacade<AbilityCategoryFacade> categories;
+		private String text;
+		private String title;
 
 		public InfoHandler(CharacterFacade character, ListFacade<AbilityCategoryFacade> categories)
 		{
 			this.character = character;
 			this.categories = categories;
+			this.text = "";
+			this.title = "Ability Info";
 		}
 
 		public void install()
@@ -367,6 +371,8 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 			availableTreeViewPanel.getSelectionModel().addListSelectionListener(this);
 			selectedTreeViewPanel.getSelectionModel().addListSelectionListener(this);
 			categoryTable.getSelectionModel().addListSelectionListener(this);
+			infoPane.setTitle(title);
+			infoPane.setText(text);
 		}
 
 		public void uninstall()
@@ -406,17 +412,20 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 				{
 					if (data instanceof AbilityFacade)
 					{
-						infoPane.setText(character.getInfoFactory().getHTMLInfo((AbilityFacade) data));
+						text = character.getInfoFactory().getHTMLInfo((AbilityFacade) data);
+						infoPane.setText(text);
 					}
 					if (data instanceof AbilityCategoryFacade)
 					{
-						infoPane.setTitle(((AbilityCategoryFacade) data).getName() + " Info");
+						title = ((AbilityCategoryFacade) data).getName() + " Info";
+						infoPane.setTitle(title);
 
 					}
 				}
 				else
 				{
-					infoPane.setText("");
+					text = ""; //$NON-NLS-1$
+					infoPane.setText(""); //$NON-NLS-1$
 				}
 			}
 		}

@@ -481,38 +481,52 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	{
 
 		private CharacterFacade character;
+		private String text;
 
 		public EquipInfoHandler(CharacterFacade character)
 		{
 			this.character = character;
+			this.text = ""; //$NON-NLS-1$
 		}
 
 		public void install()
 		{
 			equipmentTable.getSelectionModel().addListSelectionListener(this);
+			equipmentSetTable.getSelectionModel().addListSelectionListener(this);
+			infoPane.setText(text);
 		}
 
 		public void uninstall()
 		{
 			equipmentTable.getSelectionModel().removeListSelectionListener(this);
+			equipmentSetTable.getSelectionModel().removeListSelectionListener(this);
 		}
 
 		@Override
 		public void valueChanged(ListSelectionEvent e)
 		{
+			JTable target = equipmentTable;
+			if (equipmentSetTable.getSelectionModel().equals(e.getSource()))
+			{
+				target = equipmentSetTable;
+			}
 			if (!e.getValueIsAdjusting())
 			{
-				int selectedRows[] = equipmentTable.getSelectedRows();
+				int selectedRows[] = target.getSelectedRows();
 				StringBuilder sb = new StringBuilder(2000);
 				for (int row : selectedRows)
 				{
 					EquipmentFacade equip = null;
 					if (row != -1)
 					{
-						Object value = equipmentTable.getModel().getValueAt(row, 0);
+						Object value = target.getModel().getValueAt(row, 0);
 						if (value instanceof EquipmentFacade)
 						{
 							equip = (EquipmentFacade) value;
+						}
+						else if (value instanceof EquipNode)
+						{
+							equip = ((EquipNode) value).getEquipment();
 						}
 					}
 					if (equip != null)
@@ -520,7 +534,8 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 						sb.append(character.getInfoFactory().getHTMLInfo(equip));
 					}
 				}
-				infoPane.setText("<html>" + sb.toString() + "</html>");
+				text = "<html>" + sb.toString() + "</html>"; //$NON-NLS-1$ //$NON-NLS-2$
+				infoPane.setText(text);
 			}
 		}
 

@@ -704,16 +704,19 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	{
 
 		private CharacterFacade character;
+		private String text;
 
 		public InfoHandler(CharacterFacade character)
 		{
 			this.character = character;
+			this.text = ""; //$NON-NLS-1$
 		}
 
 		public void install()
 		{
 			classTable.getSelectionModel().addListSelectionListener(this);
 			availableTable.getSelectionModel().addListSelectionListener(this);
+			infoPane.setText(text);
 		}
 
 		public void uninstall()
@@ -742,13 +745,14 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				}
 				if (data != null && data instanceof ClassFacade)
 				{
-					//TODO: Need to identify if this is a subclass and if so supply the parent class too.
-					infoPane.setText(character.getInfoFactory().getHTMLInfo(
-							(ClassFacade) data, null));
+					text = character.getInfoFactory().getHTMLInfo(
+							(ClassFacade) data, null);
+					infoPane.setText(text);
 				}
 				else
 				{
-					infoPane.setText("");
+					text = ""; //$NON-NLS-1$
+					infoPane.setText(""); //$NON-NLS-1$
 				}
 			}
 		}

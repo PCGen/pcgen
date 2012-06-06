@@ -40,6 +40,7 @@ class ClassInfoHandler implements ListSelectionListener
 	private final JTreeViewTable<?> availableTable;
 	private final JTreeViewTable<?> selectedTable;
 	private final InfoPane classPane;
+	private String text;
 
 	public ClassInfoHandler(CharacterFacade character, JTreeViewTable<?> table1, JTreeViewTable<?> table2,
 							InfoPane classPane)
@@ -48,12 +49,14 @@ class ClassInfoHandler implements ListSelectionListener
 		this.classPane = classPane;
 		this.availableTable = table1;
 		this.selectedTable = table2;
+		this.text = ""; //$NON-NLS-1$
 	}
 
 	public void install()
 	{
 		availableTable.getSelectionModel().addListSelectionListener(this);
 		selectedTable.getSelectionModel().addListSelectionListener(this);
+		classPane.setText(text);
 	}
 
 	public void uninstall()
@@ -93,7 +96,7 @@ class ClassInfoHandler implements ListSelectionListener
 			}
 			if (c != null)
 			{
-				String text = character.getSpellSupport().getClassInfo(c);
+				text = character.getSpellSupport().getClassInfo(c);
 				classPane.setText(text);
 			}
 		}

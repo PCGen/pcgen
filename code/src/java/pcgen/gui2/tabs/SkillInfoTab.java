@@ -627,15 +627,18 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	{
 
 		private CharacterFacade character;
+		private String text;
 
 		public InfoHandler(CharacterFacade character)
 		{
 			this.character = character;
+			this.text = ""; //$NON-NLS-1$
 		}
 
 		public void install()
 		{
 			skillTable.getSelectionModel().addListSelectionListener(this);
+			infoPane.setText(text);
 		}
 
 		public void uninstall()
@@ -651,13 +654,14 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 				Object data = skillTable.getSelectedObject();
 				if (data != null && data instanceof SkillFacade)
 				{
-					infoPane.setText(character.getInfoFactory().getHTMLInfo(
-							(SkillFacade) data));
+					text = character.getInfoFactory().getHTMLInfo(
+							(SkillFacade) data);
 				}
 				else
 				{
-					infoPane.setText("");
+					text = ""; //$NON-NLS-1$
 				}
+				infoPane.setText(text);
 			}
 		}
 

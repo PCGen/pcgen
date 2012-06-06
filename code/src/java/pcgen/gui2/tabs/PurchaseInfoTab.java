@@ -56,6 +56,7 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTree;
 import javax.swing.SwingConstants;
 import javax.swing.TransferHandler;
@@ -697,35 +698,45 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	{
 
 		private CharacterFacade character;
+		private String text;
 
 		public EquipInfoHandler(CharacterFacade character)
 		{
 			this.character = character;
+			this.text = ""; //$NON-NLS-1$
 		}
 
 		public void install()
 		{
 			availableTable.getSelectionModel().addListSelectionListener(this);
+			purchasedTable.getSelectionModel().addListSelectionListener(this);
+			infoPane.setText(text);
 		}
 
 		public void uninstall()
 		{
 			availableTable.getSelectionModel().removeListSelectionListener(this);
+			purchasedTable.getSelectionModel().removeListSelectionListener(this);
 		}
 
 		@Override
 		public void valueChanged(ListSelectionEvent e)
 		{
+			JTable target = availableTable;
+			if (purchasedTable.getSelectionModel().equals(e.getSource()))
+			{
+				target = purchasedTable;
+			}
 			if (!e.getValueIsAdjusting())
 			{
-				int selectedRows[] = availableTable.getSelectedRows();
+				int selectedRows[] = target.getSelectedRows();
 				StringBuilder sb = new StringBuilder(2000);
 				for (int row : selectedRows)
 				{
 					EquipmentFacade equip = null;
 					if (row != -1)
 					{
-						Object value = availableTable.getModel().getValueAt(row, 0);
+						Object value = target.getModel().getValueAt(row, 0);
 						if (value instanceof EquipmentFacade)
 						{
 							equip = (EquipmentFacade) value;
@@ -736,7 +747,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 						sb.append(character.getInfoFactory().getHTMLInfo(equip));
 					}
 				}
-				infoPane.setText("<html>" + sb.toString() + "</html>");
+				text = "<html>" + sb.toString() + "</html>"; //$NON-NLS-1$ //$NON-NLS-2$
+				infoPane.setText(text);
 			}
 		}
 

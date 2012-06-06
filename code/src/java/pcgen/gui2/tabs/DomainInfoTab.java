@@ -275,15 +275,18 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	{
 
 		private CharacterFacade character;
+		private String text;
 
 		public DeityInfoHandler(CharacterFacade character)
 		{
 			this.character = character;
+			this.text = ""; //$NON-NLS-1$
 		}
 
 		public void install()
 		{
 			deityTable.getSelectionModel().addListSelectionListener(this);
+			deityInfo.setText(text);
 		}
 
 		public void uninstall()
@@ -302,7 +305,8 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 					Object obj = deityTable.getModel().getValueAt(selectedRow, 0);
 					if (obj instanceof DeityFacade)
 					{
-						deityInfo.setText(character.getInfoFactory().getHTMLInfo((DeityFacade) obj));
+						text = character.getInfoFactory().getHTMLInfo((DeityFacade) obj);
+						deityInfo.setText(text);
 					}
 				}
 			}
@@ -314,15 +318,18 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	{
 
 		private CharacterFacade character;
+		private String text;
 
 		public DomainInfoHandler(CharacterFacade character)
 		{
 			this.character = character;
+			this.text = ""; //$NON-NLS-1$
 		}
 
 		public void install()
 		{
 			domainTable.getSelectionModel().addListSelectionListener(this);
+			domainInfo.setText(text);
 		}
 
 		public void uninstall()
@@ -343,7 +350,8 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				}
 				if (domain != null)
 				{
-					domainInfo.setText(character.getInfoFactory().getHTMLInfo(domain));
+					text = character.getInfoFactory().getHTMLInfo(domain);
+					domainInfo.setText(text);
 				}
 			}
 		}
