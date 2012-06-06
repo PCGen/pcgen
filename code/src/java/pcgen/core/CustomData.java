@@ -29,7 +29,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
-import pcgen.persistence.PersistenceManager;
 import pcgen.persistence.lst.CampaignOutput;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.system.ConfigurationSettings;

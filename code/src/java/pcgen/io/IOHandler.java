@@ -21,7 +21,6 @@
 package pcgen.io;
 
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
