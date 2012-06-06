@@ -1993,14 +1993,7 @@ public class InfoTempMod extends FilterAdapterPanel implements CharacterInfoTab
 					return aVal;
 
 				default:
-
-					if (fn != null)
-					{
-						return fn.toString();
-					}
-					Logging
-						.errorPrintLocalised("in_itmAppModelNoActiveNode"); //$NON-NLS-1$
-					return null;
+					return fn.toString();
 			}
 		}
 

@@ -4961,14 +4961,7 @@ public class InfoEquipping extends FilterAdapterPanel implements
 					return null;
 
 				default:
-
-					if (fn != null)
-					{
-						return fn.toString();
-					}
-					Logging
-						.errorPrintLocalised("in_ieEquipModelGetValueAtBis");
-					return null;
+					return fn.toString();
 			}
 		}
 

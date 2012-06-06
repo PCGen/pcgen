@@ -284,7 +284,7 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 			PCClass pcClass = (PCClass) classComboBox.getSelectedItem();
 
-			if (pcClass.getDisplayName().equals(Constants.NONESELECTED))
+			if (pcClass == null || pcClass.getDisplayName().equals(Constants.NONESELECTED))
 			{
 				ShowMessageDelegate
 					.showMessageDialog(
@@ -292,15 +292,6 @@ public final class InfoSummary extends FilterAdapterPanel implements
 
 				return;
 			}
-			if (pcClass == null)
-			{
-				ShowMessageDelegate
-					.showMessageDialog(
-						LanguageBundle.getString("in_sumYouMustSelectAClass"), Constants.APPLICATION_NAME, MessageType.ERROR); //$NON-NLS-1$
-
-				return;
-			}
-
 			if (!pcClass.qualifies(pc, pcClass))
 			{
 				ShowMessageDelegate
