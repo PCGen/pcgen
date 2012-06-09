@@ -152,7 +152,10 @@ public final class Utility
 		// encapsulated to accomodate this with a hack.
 		// TODO: remove the hack, once Java fixed this.
 		// final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		final Rectangle screenSize = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration().getBounds();
+		final Rectangle screenSize =
+				GraphicsEnvironment.getLocalGraphicsEnvironment()
+					.getDefaultScreenDevice().getDefaultConfiguration()
+					.getBounds();
 
 		final Dimension dialogSize = dialog.getSize();
 
@@ -165,11 +168,34 @@ public final class Utility
 		{
 			dialogSize.width = screenSize.width;
 		}
-
+		dialog.setSize(dialogSize);
+		
 		dialog.setLocation(screenSize.x + (screenSize.width - dialogSize.width) / 2,
 						   screenSize.y + (screenSize.height - dialogSize.height) / 2);
 	}
 
+	/**
+	 * Update the size of the dialog to ensure it will fit on the screen.
+	 * @param dialog The dialog to be resized.
+	 */
+	public static void resizeDialogToScreen(JDialog dialog)
+	{
+		Rectangle screenBounds = dialog.getGraphicsConfiguration().getBounds();
+
+		final Dimension dialogSize = dialog.getSize();
+
+		if (dialogSize.height > screenBounds.height)
+		{
+			dialogSize.height = screenBounds.height;
+		}
+
+		if (dialogSize.width > screenBounds.width)
+		{
+			dialogSize.width = screenBounds.width;
+		}
+		dialog.setSize(dialogSize);
+	}
+	
 	/**
 	 * Centers a <code>JFrame</code> to the screen.
 	 *

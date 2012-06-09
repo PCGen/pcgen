@@ -74,6 +74,7 @@ public class KitSelectionDialog extends JDialog
 		setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
 		initComponents();
 		pack();
+		Utility.resizeDialogToScreen(this);
 	}
 
 	private void initComponents()
