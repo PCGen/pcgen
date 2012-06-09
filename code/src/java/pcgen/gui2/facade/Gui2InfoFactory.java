@@ -29,6 +29,7 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -36,6 +37,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.content.HitDie;
@@ -61,6 +63,7 @@ import pcgen.core.Kit;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
+import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
@@ -75,6 +78,7 @@ import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpellPoint;
 import pcgen.core.analysis.TemplateModifier;
+import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
@@ -90,8 +94,10 @@ import pcgen.core.facade.KitFacade;
 import pcgen.core.facade.RaceFacade;
 import pcgen.core.facade.SkillFacade;
 import pcgen.core.facade.SpellFacade;
+import pcgen.core.facade.TempBonusFacade;
 import pcgen.core.facade.TemplateFacade;
 import pcgen.core.kit.BaseKit;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.spell.Spell;
 import pcgen.gui.HTMLUtils;
@@ -638,6 +644,21 @@ public class Gui2InfoFactory implements InfoFactory
 		
 		Equipment equip = (Equipment) equipFacade;
 
+		final HtmlInfoBuilder b = getEquipmentHtmlInfo(equip);
+
+		String bString = equip.getSource();
+		if (bString.length() > 0)
+		{
+			b.appendLineBreak();
+			b.appendI18nElement("in_igInfoLabelTextSource", bString); //$NON-NLS-1$
+		}
+		b.appendLineBreak();
+
+		return b.toString();
+	}
+
+	private HtmlInfoBuilder getEquipmentHtmlInfo(Equipment equip)
+	{
 		final StringBuilder title = new StringBuilder(50);
 		title.append(OutputNameFormatting.piString(equip, false));
 
@@ -882,16 +903,7 @@ public class Gui2InfoFactory implements InfoFactory
 			b.appendI18nElement("in_igInfoLabelTextQualities", StringUtil.join( //$NON-NLS-1$
 				qualities, ", ")); //$NON-NLS-2$
 		}
-
-		bString = equip.getSource();
-		if (bString.length() > 0)
-		{
-			b.appendLineBreak();
-			b.appendI18nElement("in_igInfoLabelTextSource", bString); //$NON-NLS-1$
-		}
-		b.appendLineBreak();
-
-		return b.toString();
+		return b;
 	}
 
 	/* (non-Javadoc)
@@ -1017,6 +1029,90 @@ public class Gui2InfoFactory implements InfoFactory
 			infoText.appendI18nElement("in_sourceLabel", aString); //$NON-NLS-1$
 		}
 		//TODO ListKey.KIT_TASKS
+		return infoText.toString();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getHTMLInfo(TempBonusFacade tempBonusFacade)
+	{
+		if (tempBonusFacade == null || !(tempBonusFacade instanceof TempBonusFacade))
+		{
+			return EMPTY_STRING;
+		}
+
+		if (!(tempBonusFacade instanceof TempBonusFacade))
+		{
+			final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
+			infoText.appendTitleElement(tempBonusFacade.toString());
+			return infoText.toString();
+		}
+
+		TempBonusFacadeImpl tempBonus = (TempBonusFacadeImpl) tempBonusFacade;
+		CDOMObject originObj = tempBonus.getOriginObj();
+
+		final HtmlInfoBuilder infoText;
+		if (originObj instanceof Equipment)
+		{
+			infoText = getEquipmentHtmlInfo((Equipment) originObj);
+		}
+		else
+		{
+			infoText = new HtmlInfoBuilder();
+			infoText.appendTitleElement(OutputNameFormatting.piString(originObj, false));
+			infoText.append(" (").append(tempBonus.getOriginType()).append(")"); //$NON-NLS-1$ //$NON-NLS-2$
+		}
+
+		if (originObj instanceof Spell)
+		{
+			Spell aSpell = (Spell) originObj; 
+			infoText.appendLineBreak();
+			infoText.appendI18nElement("in_itmInfoLabelTextDuration", //$NON-NLS-1$
+				aSpell.getListAsString(ListKey.DURATION));
+			infoText.appendSpacer();
+			infoText.appendI18nElement("in_itmInfoLabelTextRange", //$NON-NLS-1$
+				aSpell.getListAsString(ListKey.RANGE));
+			infoText.appendSpacer();
+			infoText.appendI18nElement("in_itmInfoLabelTextTarget", //$NON-NLS-1$
+				aSpell.getSafe(StringKey.TARGET_AREA));
+		}
+
+		if (originObj instanceof PObject)
+		{
+			String aString = DescriptionFormatting.piDescSubString(pc, (PObject) originObj);
+			if (aString.length() != 0)
+			{
+				infoText.appendLineBreak();
+				infoText.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
+					aString);
+			}
+		}
+
+		String aString = originObj.getSafe(StringKey.TEMP_DESCRIPTION);
+		if (aString.length() > 0)
+		{
+			infoText.appendLineBreak();
+			infoText.appendI18nElement("in_itmInfoLabelTextDesc", aString); //$NON-NLS-1$
+		}
+		
+		aString =
+				PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
+					originObj.getPrerequisiteList(), false);
+		if (aString.length() > 0)
+		{
+			infoText.appendLineBreak();
+			infoText.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
+		}
+
+		
+		infoText.appendLineBreak();
+		infoText.appendI18nElement(
+			"in_itmInfoLabelTextSource", //$NON-NLS-1$
+			SourceFormat.getFormattedString(originObj,
+				Globals.getSourceDisplay(), true));
+
 		return infoText.toString();
 	}
 
@@ -1499,5 +1595,48 @@ public class Gui2InfoFactory implements InfoFactory
 			}
 		}
 		return choices.toString();
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getTempBonusTarget(TempBonusFacade tempBonusFacade)
+	{
+		if (tempBonusFacade == null || !(tempBonusFacade instanceof TempBonusFacadeImpl))
+		{
+			return EMPTY_STRING;
+		}
+		
+		TempBonusFacadeImpl tempBonus = (TempBonusFacadeImpl) tempBonusFacade;
+
+		Set<String> targetSet = new HashSet<String>();
+		for (BonusObj aBonus : tempBonus.getOriginObj().getRawBonusList(pc))
+		{
+			for (Prerequisite prereq : aBonus.getTempBonusPreApply())
+			{
+				if ("ANYPC".equals(prereq.getOperand()) //$NON-NLS-1$
+					|| "PC".equals(prereq.getOperand())) //$NON-NLS-1$
+				{
+					targetSet.add(LanguageBundle
+						.getString("in_itmBonModelTargetTypeCharacter")); //$NON-NLS-1$
+				}
+				else
+				{
+					targetSet.add(prereq.getOperand());
+				}
+			}
+		}
+		StringBuilder target = new StringBuilder();
+		for (String string : targetSet)
+		{
+			target.append(string).append(";"); //$NON-NLS-1$
+		}
+		if (target.length() > 0)
+		{
+			target.deleteCharAt(target.length()-1);
+		}
+		return target.toString();
 	}
 }

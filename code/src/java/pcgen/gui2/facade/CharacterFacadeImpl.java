@@ -286,7 +286,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		//TODO: Init appliedTempBonuses
 		appliedTempBonuses = new DefaultListFacade<TempBonusFacade>();
 		availTempBonuses = new DefaultListFacade<TempBonusFacade>();
-		buildAvailableTempBonuses();
+		refreshAvailableTempBonuses();
 		kitList = new DefaultListFacade<KitFacade>();
 		refreshKitList();
 
@@ -541,6 +541,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		refreshLanguageList();
 		refreshKitList();
 		refreshTemplates();
+		refreshAvailableTempBonuses();
 		companionSupportFacade.refreshCompanionData();
 	}
 
@@ -691,6 +692,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		refreshLanguageList();
 		refreshKitList();
 		refreshTemplates();
+		refreshAvailableTempBonuses();
 		currentXP.setReference(theCharacter.getXP());
 		xpForNextlevel.setReference(theCharacter.minXPForNextECL());
 		xpTableName.setReference(theCharacter.getXPTableName());
@@ -929,9 +931,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return 0;
 	}
 
-	private void buildAvailableTempBonuses()
+	private void refreshAvailableTempBonuses()
 	{
-		List<CDOMObject> tempBonuses = new ArrayList<CDOMObject>();
+		List<TempBonusFacadeImpl> tempBonuses = new ArrayList<TempBonusFacadeImpl>();
 
 		//
 		// first do PC's feats and other abilities
@@ -1022,12 +1024,11 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			scanForTempBonuses(tempBonuses, aSkill);
 		}
 
-		Globals.sortPObjectListByName(tempBonuses);
-		//TODO Reactivate after release and implement bonus application.
-		//availTempBonuses.setContents(tempBonuses);
+		Collections.sort(tempBonuses);
+		availTempBonuses.updateContents(tempBonuses);
 	}
 
-	private void scanForAnyPcTempBonuses(List<CDOMObject> tempBonuses, CDOMObject obj)
+	private void scanForAnyPcTempBonuses(List<TempBonusFacadeImpl> tempBonuses, PObject obj)
 	{
 		if (obj == null)
 		{
@@ -1037,13 +1038,13 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			if (aBonus.isTempBonus() && aBonus.isTempBonusTarget(BonusObj.TempBonusTarget.ANYPC))
 			{
-				tempBonuses.add(obj);
+				tempBonuses.add(new TempBonusFacadeImpl(obj));
 				return;
 			}
 		}
 	}
 
-	private void scanForTempBonuses(List<CDOMObject> tempBonuses, CDOMObject obj)
+	private void scanForTempBonuses(List<TempBonusFacadeImpl> tempBonuses, CDOMObject obj)
 	{
 		if (obj == null)
 		{
@@ -1053,7 +1054,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			if (aBonus.isTempBonus())
 			{
-				tempBonuses.add(obj);
+				tempBonuses.add(new TempBonusFacadeImpl(obj));
 				return;
 			}
 		}
@@ -1069,19 +1070,44 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 	@Override
-	public void addTempBonus(TempBonusFacade bonus)
+	public void addTempBonus(TempBonusFacade bonusFacade)
 	{
-		//TODO: Apply to character
-		appliedTempBonuses.addElement(bonus);
-		refreshLanguageList();
+		if (bonusFacade == null || !(bonusFacade instanceof TempBonusFacadeImpl))
+		{
+			return;
+		}
+		TempBonusFacadeImpl tempBonus = (TempBonusFacadeImpl) bonusFacade;
+		
+		// Allow selection of target for bonus affecting equipment
+		Equipment aEq = null;
+		CDOMObject originObj = tempBonus.getOriginObj();
+
+		// Resolve choices and apply the bonus to the character.
+		TempBonusHelper.applyBonusToCharacter(tempBonus, aEq, originObj,
+			theCharacter);
+		
+		appliedTempBonuses.addElement(bonusFacade);
+		postLevellingUpdates();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
-	public void removeTempBonus(TempBonusFacade bonus)
+	public void removeTempBonus(TempBonusFacade bonusFacade)
 	{
-		//TODO: Remove character
-		appliedTempBonuses.removeElement(bonus);
-		refreshLanguageList();
+		if (bonusFacade == null || !(bonusFacade instanceof TempBonusFacadeImpl))
+		{
+			return;
+		}
+		TempBonusFacadeImpl tempBonus = (TempBonusFacadeImpl) bonusFacade;
+		
+		Equipment aEq = null;
+		CDOMObject originObj = tempBonus.getOriginObj();
+		TempBonusHelper.removeBonusFromCharacter(theCharacter, aEq, originObj);
+
+		appliedTempBonuses.removeElement(tempBonus);
+		postLevellingUpdates();
 	}
 
 	@Override
@@ -1754,6 +1780,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		xpTableName.setReference(theCharacter.getXPTableName());
 		hpRef.setReference(theCharacter.hitPoints());
 		refreshTemplates();
+		refreshAvailableTempBonuses();
 
 		updateLevelTodo();
 		buildAvailableDomainsList();
@@ -3569,6 +3596,26 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * {@inheritDoc}
 	 */
 	@Override
+	public boolean isQualifiedFor(TempBonusFacade tempBonusFacade)
+	{
+		if (!(tempBonusFacade instanceof TempBonusFacadeImpl))
+		{
+			return false;
+		}
+
+		TempBonusFacadeImpl tempBonus = (TempBonusFacadeImpl) tempBonusFacade;
+		CDOMObject originObj = tempBonus.getOriginObj();
+		if (!theCharacter.isQualified(originObj))
+		{
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public boolean isQualifiedFor(SpellFacade spellFacade,
 		ClassFacade classFacade)
 	{
@@ -3879,6 +3926,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		characterType.setReference(theCharacter.getCharacterType());
 		alignment.setReference(theCharacter.getPCAlignment());
 		refreshStatScores();
+		refreshAvailableTempBonuses();
 
 	}
 

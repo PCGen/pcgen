@@ -27,6 +27,7 @@ package pcgen.core.bonus;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -254,6 +255,39 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 			}
 		}
 		return false;
+	}
+	
+	/**
+	 * Retrieve a list of the PREAPPLY prerequisites for this bonus. These are the 
+	 * prereqs that define the bonus as a temporary bonus.
+	 * @return The list of APPLY prereqs. 
+	 */
+	public List<Prerequisite> getTempBonusPreApply()
+	{
+		if (!hasPrerequisites())
+		{
+			return Collections.emptyList();
+		}
+
+		List<Prerequisite> preApplyList = new ArrayList<Prerequisite>();
+		for (final Prerequisite prereq : getPrerequisiteList())
+		{
+			if (prereq.getPrerequisites().isEmpty()
+				&& Prerequisite.APPLY_KIND.equalsIgnoreCase(prereq.getKind()))
+			{
+				preApplyList.add(prereq);
+			}
+
+			for (final Prerequisite premult : prereq.getPrerequisites())
+			{
+				if (Prerequisite.APPLY_KIND.equalsIgnoreCase(premult.getKind()))
+				{
+					preApplyList.add(premult);
+				}
+			}
+		}
+
+		return preApplyList;
 	}
 	
 	////////////////////////////////////////////////

@@ -25,6 +25,12 @@ package pcgen.core.facade;
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public interface TempBonusFacade {
+public interface TempBonusFacade extends InfoFacade
+{
+
+	/**
+	 * @return The type of object the bonus originates from. 
+	 */
+	public String getOriginType();
 
 }

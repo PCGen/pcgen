@@ -149,6 +149,60 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 	}
 
 	/**
+	 * Makes the contents of this list match the provided list. This is done by making 
+	 * individual add and remove of the elements of this list to make it match. The 
+	 * lists must sorted in the same order for this method to be efficient. A fall back 
+	 * to setContents is made if the current list is empty or there are large size 
+	 * differences.   
+	 * @param newElements The new contents of the list.
+	 */
+	public void updateContents(List<? extends E> newElements)
+	{
+		final int maxUpdateSize = 20;
+		if (isEmpty() || newElements.isEmpty()
+			|| Math.abs(getSize() - newElements.size()) > maxUpdateSize)
+		{
+			setContents(newElements);
+			return;
+		}
+		
+		// Scan for items that need to be removed
+		int currPos = 0;
+		for (Iterator<E> iterator = elementList.iterator(); iterator.hasNext();)
+		{
+			E e = iterator.next();
+			int index = currPos;
+			boolean found = false;
+			while (index < newElements.size())
+			{
+				if (e.equals(newElements.get(index)))
+				{
+					currPos = index+1;
+					found = true;
+					break;
+				}
+				index++;
+			}
+			if (!found)
+			{
+				int loc = elementList.indexOf(e);
+				iterator.remove();
+				fireElementRemoved(this, e, loc);
+			}
+		}
+		currPos = 0;
+		for (E e : newElements)
+		{
+			if (elementList.size() <= currPos
+				|| !e.equals(elementList.get(currPos)))
+			{
+				addElement(currPos, e);
+			}
+			currPos++;
+		}
+	}
+
+	/**
 	 * @return A copy of the contents of the list.
 	 */
 	public List<E> getContents()

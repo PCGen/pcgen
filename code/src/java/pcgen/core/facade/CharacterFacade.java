@@ -614,6 +614,13 @@ public interface CharacterFacade extends CompanionFacade
 	public boolean isQualifiedFor(DomainFacade domain);
 
 	/**
+	 * Check if the character meets all requirements to take the temporary bonus.
+	 * @param tempBonusFacade The temporary bonus to be checked.
+	 * @return True if the character can take the bonus, false if not.
+	 */
+	public boolean isQualifiedFor(TempBonusFacade tempBonusFacade);
+
+	/**
 	 * Check if the character meets all requirements to know the spell.
 	 * @param spell The spell to be checked.
 	 * @param classFacade The class the spell would be added within.

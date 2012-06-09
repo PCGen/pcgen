@@ -78,6 +78,13 @@ public interface InfoFactory
 	public String getHTMLInfo(KitFacade kitFacade);
 
 	/**
+	 * Produce the HTML information string for a temporary bonus.
+	 * @param tempBonusFacade The temporary bonus.
+	 * @return The HTML information string
+	 */
+	public String getHTMLInfo(TempBonusFacade tempBonusFacade);
+
+	/**
 	 * Produce the HTML information string for spell book or spell list.
 	 * @param name The spell book or spell list.
 	 * @return The HTML information string
@@ -112,5 +119,13 @@ public interface InfoFactory
 	 * @return The comma separated list of choices.
 	 */
 	public String getChoices(AbilityFacade abilityFacade);
+
+	/**
+	 * Retrieve the description of the targets to which the temporary bonus 
+	 * can be applied. e.g. Character, or weapon,ranged.
+	 * @param tempBonusFacade The temporary bonus.
+	 * @return The targets.
+	 */
+	public String getTempBonusTarget(TempBonusFacade tempBonusFacade);
 
 }

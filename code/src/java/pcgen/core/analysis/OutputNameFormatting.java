@@ -105,10 +105,10 @@ public class OutputNameFormatting
 
 	/**
 	 * Returns the Product Identity string (with or without the header)
-	 * @param useHeader
+	 * @param useHeader Should html start and end tags be added? 
 	 * @return the Product Identity string (with or without the header)
 	 */
-	public static String piString(PObject po, final boolean useHeader)
+	public static String piString(CDOMObject po, final boolean useHeader)
 	{
 		String aString = po.toString();
 	
