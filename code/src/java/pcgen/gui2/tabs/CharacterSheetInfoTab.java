@@ -73,8 +73,10 @@ import pcgen.util.Logging;
  */
 public class CharacterSheetInfoTab extends FlippingSplitPane implements CharacterInfoTab, DisplayAwareTab
 {
+	/** Version for serialisation. */
+	private static final long serialVersionUID = -4957524684640929994L;
 
-	private final TabTitle tabTitle = new TabTitle("Character Sheet");
+	private final TabTitle tabTitle = new TabTitle("in_character_sheet"); //$NON-NLS-1$
 	private final CharacterSheetPanel csheet;
 	private final JComboBox sheetBox;
 	private final JTable equipSetTable;
@@ -82,6 +84,10 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 	private final JTable tempBonusRowTable;
 	private final JTable equipSetRowTable;
 
+	/**
+	 * Create a new instance of CharacterSheetInfoTab
+	 */
+	@SuppressWarnings("serial")
 	public CharacterSheetInfoTab()
 	{
 		this.csheet = new CharacterSheetPanel();
@@ -92,11 +98,9 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		this.tempBonusRowTable = TableUtils.createDefaultTable();
 		setOneTouchExpandable(true);
 
-		setLeftComponent(csheet);
-
 		JPanel panel = new JPanel(new BorderLayout());
 		Box box = Box.createHorizontalBox();
-		box.add(new JLabel(LanguageBundle.getString("in_character_sheet")));
+		box.add(new JLabel(LanguageBundle.getString("in_character_sheet"))); //$NON-NLS-1$
 		sheetBox.setRenderer(new DefaultListCellRenderer()
 		{
 
@@ -125,7 +129,11 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		pane.setPreferredSize(new Dimension(200, 100));
 		subPane.setBottomComponent(pane);
 		panel.add(subPane, BorderLayout.CENTER);
-		setRightComponent(panel);
+		panel.setPreferredSize(panel.getMinimumSize());
+		setLeftComponent(panel);
+
+		csheet.setPreferredSize(new Dimension(600, 300));
+		setRightComponent(csheet);
 	}
 
 	@Override
@@ -205,7 +213,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 					file = new File(sheetDir, charSheet);
 					if (!file.isFile())
 					{
-						Logging.errorPrint("Invalid Character Sheet: " + file.getAbsolutePath());
+						Logging.errorPrint("Invalid Character Sheet: " + file.getAbsolutePath()); //$NON-NLS-1$
 					}
 				}
 				if (file == null || !file.isFile())
@@ -334,6 +342,9 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 			implements Filter<CharacterFacade, TempBonusFacade>
 	{
 
+		/** Version for serialisation. */
+		private static final long serialVersionUID = -2157540968522498242L;
+		
 		private ListListener<TempBonusFacade> listener = new ListListener<TempBonusFacade>()
 		{
 
@@ -407,7 +418,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		{
 			if (column == 0)
 			{
-				return "Temporary Bonuses";
+				return LanguageBundle.getString("in_InfoTempMod"); //$NON-NLS-1$
 			}
 			return null;
 		}
@@ -424,6 +435,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 			{
 				character.removeTempBonus(bonus);
 			}
+			csheet.refresh();
 		}
 
 		@Override
@@ -447,6 +459,9 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 	private class EquipSetTableModel extends FilteredListFacadeTableModel<EquipmentSetFacade>
 			implements ReferenceListener<EquipmentSetFacade>, Filter<CharacterFacade, EquipmentSetFacade>
 	{
+
+		/** Version for serialisation. */
+		private static final long serialVersionUID = 5028006226606996671L;
 
 		public EquipSetTableModel(CharacterFacade character)
 		{
@@ -491,7 +506,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		{
 			if (column == 0)
 			{
-				return "Equipment Sets";
+				return LanguageBundle.getString("in_csEquipSets"); //$NON-NLS-1$
 			}
 			return null;
 		}
@@ -511,6 +526,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		{
 			EquipmentSetFacade eqset = sortedList.getElementAt(rowIndex);
 			character.setEquipmentSet(eqset);
+			csheet.refresh();
 		}
 
 		@Override
