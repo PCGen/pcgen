@@ -9,7 +9,7 @@ Ability Damaged (Strength)	VISIBLE:NO	SOURCEPAGE:p.555	DEFINE:AbilityDamageStren
 
 ###Block: Ability Drain
 # Template Name				Visible	Source Page		Stat bonus							Choose								Temporary effect description
-Ability Drained (Strength)		VISIBLE:NO	SOURCEPAGE:p.555	BONUS:STAT|STR|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Dexterity Drain	TEMPDESC:You have temporarily lost 1 or more Strength ability score points
+Ability Drained (Strength)		VISIBLE:NO	SOURCEPAGE:p.555	BONUS:STAT|STR|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Strength Drain		TEMPDESC:You have temporarily lost 1 or more Strength ability score points
 Ability Drained (Dexterity)		VISIBLE:NO	SOURCEPAGE:p.555	BONUS:STAT|DEX|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Dexterity Drain	TEMPDESC:You have temporarily lost 1 or more Dexterity ability score points
 Ability Drained (Constitution)	VISIBLE:NO	SOURCEPAGE:p.555	BONUS:STAT|CON|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Constitution Drain	TEMPDESC:You have temporarily lost 1 or more Constitution ability score points
 Ability Drained (Intelligence)	VISIBLE:NO	SOURCEPAGE:p.555	BONUS:STAT|INT|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Intelligence Drain	TEMPDESC:You have temporarily lost 1 or more Intelligence ability score points
