@@ -30,8 +30,11 @@ import gmgen.pluginmgr.PluginManager;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.Enumeration;
+import java.util.Hashtable;
 import java.util.Locale;
 import java.util.Properties;
+import java.util.Set;
 import java.util.logging.Level;
 
 import javax.swing.JOptionPane;
@@ -129,7 +132,13 @@ public final class Main
 		StringWriter writer = new StringWriter();
 		PrintWriter pwriter = new PrintWriter(writer);
 		pwriter.println();
-		props.list(pwriter);
+		pwriter.println("-- listing properties --"); //$NON-NLS-1$
+		// Manually output the property values to avoid them being cut off at 40 characters
+		Set<String> keys = props.stringPropertyNames();
+		for (String key : keys)
+		{
+			pwriter.println(key + "=" + props.getProperty(key)); //$NON-NLS-1$
+		}
 		Logging.log(Level.CONFIG, writer.toString());
 	}
 
