@@ -36,6 +36,8 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.apache.commons.lang.StringUtils;
+
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -55,6 +57,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.BenefitFormatting;
+import pcgen.core.BonusManager.TempBonusInfo;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
@@ -1065,6 +1068,52 @@ public class Gui2InfoFactory implements InfoFactory
 			infoText.append(" (").append(tempBonus.getOriginType()).append(")"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
+		if (tempBonus.getTarget() != null)
+		{
+			String targetName = pc.getName();
+			if (tempBonus.getTarget() instanceof CDOMObject)
+			{
+				targetName = ((CDOMObject)tempBonus.getTarget()).getKeyName();
+			}
+
+			infoText.appendLineBreak();
+			infoText.appendI18nElement("in_itmInfoLabelTextTarget", targetName); //$NON-NLS-1$
+
+			StringBuilder bonusValues = new StringBuilder();
+			Map<BonusObj, TempBonusInfo> bonusMap = pc.getTempBonusMap(originObj.getKeyName(), targetName);
+			boolean first = true;
+			List<BonusObj> bonusList = new ArrayList<BonusObj>(bonusMap.keySet());
+			Collections.sort(bonusList, new BonusComparator());
+			for (BonusObj bonusObj : bonusList)
+			{
+				if (!first)
+				{
+					bonusValues.append(", "); //$NON-NLS-1$
+				}
+				first = false;
+				String adj = ADJ_FMT.format(bonusObj.resolve(pc, "")); //$NON-NLS-1$
+				String bonusDesc = bonusObj.getTypeOfBonus() + " " + bonusObj.getBonusInfo(); //$NON-NLS-1$
+				if ("STAT".equals(bonusObj.getTypeOfBonus())) //$NON-NLS-1$
+				{
+					final PCStat pcstat = Globals.getContext().ref
+							.getAbbreviatedObject(PCStat.class, bonusObj.getBonusInfo());
+					if (pcstat != null)
+					{
+						bonusDesc = pcstat.getName();
+					}
+				}
+				
+				bonusValues.append(adj + " " + bonusDesc);  //$NON-NLS-1$
+			}
+			if (bonusValues.length() > 0)
+			{
+				infoText.appendLineBreak();
+				infoText.appendI18nElement(
+					"in_itmInfoLabelTextEffect", //$NON-NLS-1$
+					bonusValues.toString());
+			}
+		}
+
 		if (originObj instanceof Spell)
 		{
 			Spell aSpell = (Spell) originObj; 
@@ -1079,18 +1128,13 @@ public class Gui2InfoFactory implements InfoFactory
 				aSpell.getSafe(StringKey.TARGET_AREA));
 		}
 
-		if (originObj instanceof PObject)
-		{
-			String aString = DescriptionFormatting.piDescSubString(pc, (PObject) originObj);
-			if (aString.length() != 0)
-			{
-				infoText.appendLineBreak();
-				infoText.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
-					aString);
-			}
-		}
-
 		String aString = originObj.getSafe(StringKey.TEMP_DESCRIPTION);
+		if (StringUtils.isEmpty(aString) && originObj instanceof PObject)
+		{
+			aString =
+					DescriptionFormatting.piDescSubString(pc,
+						(PObject) originObj);
+		}
 		if (aString.length() > 0)
 		{
 			infoText.appendLineBreak();
@@ -1106,7 +1150,6 @@ public class Gui2InfoFactory implements InfoFactory
 			infoText.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
 		}
 
-		
 		infoText.appendLineBreak();
 		infoText.appendI18nElement(
 			"in_itmInfoLabelTextSource", //$NON-NLS-1$
@@ -1124,6 +1167,21 @@ public class Gui2InfoFactory implements InfoFactory
 			String name1 = bk1.getObjectName();
 			String name2 = bk2.getObjectName();
 			return name1.compareTo(name2);
+		}
+	}
+
+	private static class BonusComparator implements Comparator<BonusObj>
+	{
+		@Override
+		public int compare(BonusObj bo1, BonusObj bo2)
+		{
+			String type1 = bo1.getTypeOfBonus();
+			String type2 = bo2.getTypeOfBonus();
+			if (!type1.equals(type2))
+			{
+				return type1.compareTo(type2);
+			}
+			return bo1.getBonusInfo().compareTo(bo2.getBonusInfo());
 		}
 	}
 	

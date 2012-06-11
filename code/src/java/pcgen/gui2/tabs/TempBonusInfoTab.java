@@ -467,7 +467,6 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 			}
 		}
 
-		@SuppressWarnings("unchecked")
 		@Override
 		public List<?> getData(TempBonusFacade obj)
 		{

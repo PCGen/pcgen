@@ -306,10 +306,12 @@ public class TempBonusHelper
 					// if Target was this PC, then add
 					// bonus to TempBonusMap
 					TempBonusInfo tempBonusInfo;
+					Object target;
 					if (aEq == null)
 					{
 						theCharacter.setApplied(newB, newB.qualifies(theCharacter, aEq ));
 						tempBonusInfo = theCharacter.addTempBonus(newB, originObj, theCharacter);
+						target = theCharacter;
 					}
 					else
 					{
@@ -317,12 +319,13 @@ public class TempBonusHelper
 							newB.getPrerequisiteList(), aEq, theCharacter));
 						aEq.addTempBonus(newB);
 						tempBonusInfo = theCharacter.addTempBonus(newB, originObj, aEq);
+						target = aEq;
 					}
 
 					if (appliedBonus == null)
 					{
 						String bonusName = new BonusManager(theCharacter).getBonusName(newB, tempBonusInfo);
-						appliedBonus = new TempBonusFacadeImpl(tempBonus.getOriginObj(), aEq, bonusName);
+						appliedBonus = new TempBonusFacadeImpl(tempBonus.getOriginObj(), target, bonusName);
 					}
 				}
 			}
