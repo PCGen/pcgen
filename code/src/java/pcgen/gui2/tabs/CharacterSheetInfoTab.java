@@ -378,7 +378,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		public TempBonusTableModel(CharacterFacade character)
 		{
 			super(character);
-			setDelegate(character.getAvailableTempBonuses());
+			setDelegate(character.getTempBonuses());
 			setFilter(this);
 			character.getTempBonuses().addListListener(listener);
 		}
@@ -399,7 +399,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 			switch (column)
 			{
 				case -1:
-					return character.getTempBonuses().containsElement(element);
+					return element.isActive();
 				case 0:
 					return element;
 				default:
@@ -427,14 +427,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		public void setValueAt(Object aValue, int rowIndex, int columnIndex)
 		{
 			TempBonusFacade bonus = sortedList.getElementAt(rowIndex);
-			if (aValue == Boolean.TRUE)
-			{
-				character.addTempBonus(bonus);
-			}
-			else
-			{
-				character.removeTempBonus(bonus);
-			}
+			character.setTempBonusActive(bonus, aValue == Boolean.TRUE);
 			csheet.refresh();
 		}
 

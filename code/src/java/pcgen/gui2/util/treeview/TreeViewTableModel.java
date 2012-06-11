@@ -78,7 +78,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		@Override
 		public void elementModified(ListEvent<E> e)
 		{
-			//TODO: implement this
+			refreshElement(e.getElement());
 		}
 
 	};
@@ -191,6 +191,20 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 			TreeViewNode rootNode = (TreeViewNode) getRoot();
 			for (TreeViewPath<? super E> path : selectedView.getPaths(elem))
 			{
+				rootNode.insertTreeViewPath(path);
+			}
+		}
+	}
+
+	private void refreshElement(E elem)
+	{
+		if (dataMap.containsKey(elem) && selectedView != null)
+		{
+			dataMap.put(elem, dataview.getData(elem));
+			TreeViewNode rootNode = (TreeViewNode) getRoot();
+			for (TreeViewPath<? super E> path : selectedView.getPaths(elem))
+			{
+				rootNode.removeTreeViewPath(path);
 				rootNode.insertTreeViewPath(path);
 			}
 		}

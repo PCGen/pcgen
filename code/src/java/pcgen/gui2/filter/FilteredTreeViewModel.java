@@ -79,7 +79,7 @@ public class FilteredTreeViewModel<C, E>
 		{
 			this.model.getDataModel().addListListener(this);
 		}
-		data.setContents(ListFacades.wrap(model.getDataModel()));
+		data.updateContents(ListFacades.wrap(model.getDataModel()));
 	}
 
 	public void setContext(C context)
@@ -113,7 +113,7 @@ public class FilteredTreeViewModel<C, E>
 				list.add(element);
 			}
 		}
-		data.setContents(list);
+		data.updateContents(list);
 	}
 
 	@Override
@@ -143,6 +143,10 @@ public class FilteredTreeViewModel<C, E>
 		if(!filter.accept(context, e.getElement()))
 		{
 			data.removeElement(e.getElement());
+		}
+		else
+		{
+			data.modifyElement(e.getElement());
 		}
 	}
 

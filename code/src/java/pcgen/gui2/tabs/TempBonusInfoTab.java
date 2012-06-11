@@ -415,7 +415,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 				tempBonuses.setFilter(this);
 				tempBonuses.setDelegate(character.getAvailableTempBonuses());
 				character.getAvailableTempBonuses().addListListener(this);
-				columns = Arrays.asList(new DefaultDataViewColumn("in_itmFrom", String.class, false), //$NON-NLS-1$
+				columns = Arrays.asList(new DefaultDataViewColumn("in_itmFrom", String.class, true), //$NON-NLS-1$
 										new DefaultDataViewColumn("in_itmTarget", String.class, true), //$NON-NLS-1$
 										new DefaultDataViewColumn("in_source", String.class, true)); //$NON-NLS-1$
 			}
@@ -445,7 +445,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		@Override
 		public int getDefaultTreeViewIndex()
 		{
-			return 0;
+			return isAvailModel ? 1 : 0;
 		}
 
 		@Override
@@ -467,6 +467,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 			}
 		}
 
+		@SuppressWarnings("unchecked")
 		@Override
 		public List<?> getData(TempBonusFacade obj)
 		{

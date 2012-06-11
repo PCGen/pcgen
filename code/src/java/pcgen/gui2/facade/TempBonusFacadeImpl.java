@@ -24,6 +24,8 @@ package pcgen.gui2.facade;
 
 import java.text.Collator;
 
+import org.apache.commons.lang.StringUtils;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
@@ -54,10 +56,43 @@ public class TempBonusFacadeImpl implements TempBonusFacade, Comparable<TempBonu
 {
 	
 	private final CDOMObject originObj;
+	private boolean active;
+	private final Object target;
+	private final String bonusName;
 
+	/**
+	 * Create a new instance of TempBonusFacadeImpl.
+	 * @param theOrigin The rules object that defines the bonus.  
+	 */
 	TempBonusFacadeImpl(CDOMObject theOrigin)
 	{
 		this.originObj = theOrigin;
+		this.active = true;
+		this.target = null;
+		this.bonusName = null;
+	}
+	
+	/**
+	 * Create a new instance of TempBonusFacadeImpl for an applied bonus.
+	 * @param theOrigin The rules object that defines the bonus.  
+	 * @param theTarget The target object to which the bonus is applied.
+	 * @param bonusName The display name of the bonus (may include target information). 
+	 */
+	TempBonusFacadeImpl(CDOMObject theOrigin, Object theTarget, String bonusName)
+	{
+		this.target = theTarget;
+		this.bonusName = bonusName;
+		this.originObj = theOrigin;
+		this.active = true;
+	}
+
+	/**
+	 * Change the reported active state of this bonus.
+	 * @param newActive The new active state of the bonus.
+	 */
+	void setActive(boolean newActive)
+	{
+		active = newActive;
 	}
 	
 	/**
@@ -135,6 +170,23 @@ public class TempBonusFacadeImpl implements TempBonusFacade, Comparable<TempBonu
 	 * {@inheritDoc}
 	 */
 	@Override
+	public boolean isActive()
+	{
+		return active;
+	}
+
+	/**
+	 * @return the target
+	 */
+	public Object getTarget()
+	{
+		return target;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public int compareTo(TempBonusFacadeImpl o)
 	{
 		final Collator collator = Collator.getInstance();
@@ -164,6 +216,10 @@ public class TempBonusFacadeImpl implements TempBonusFacade, Comparable<TempBonu
 	@Override
 	public String toString()
 	{
+		if (StringUtils.isNotEmpty(bonusName))
+		{
+			return bonusName;
+		}
 		return getOriginObj().toString();
 	}
 
@@ -186,6 +242,7 @@ public class TempBonusFacadeImpl implements TempBonusFacade, Comparable<TempBonu
 		result =
 				prime * result
 					+ ((originObj == null) ? 0 : originObj.hashCode());
+		result = prime * result + ((target == null) ? 0 : target.hashCode());
 		return result;
 	}
 
@@ -216,6 +273,17 @@ public class TempBonusFacadeImpl implements TempBonusFacade, Comparable<TempBonu
 			}
 		}
 		else if (!originObj.equals(other.originObj))
+		{
+			return false;
+		}
+		if (target == null)
+		{
+			if (other.target != null)
+			{
+				return false;
+			}
+		}
+		else if (!target.equals(other.target))
 		{
 			return false;
 		}

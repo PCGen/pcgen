@@ -33,9 +33,11 @@ import java.util.Collections;
 import java.util.ConcurrentModificationException;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.swing.undo.UndoManager;
 
@@ -63,6 +65,8 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AgeSet;
+import pcgen.core.BonusManager;
+import pcgen.core.BonusManager.TempBonusInfo;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
@@ -283,10 +287,10 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		
 		companionSupportFacade = new CompanionSupportFacadeImpl(theCharacter, todoManager, name, file);
 		
-		//TODO: Init appliedTempBonuses
-		appliedTempBonuses = new DefaultListFacade<TempBonusFacade>();
 		availTempBonuses = new DefaultListFacade<TempBonusFacade>();
 		refreshAvailableTempBonuses();
+		appliedTempBonuses = new DefaultListFacade<TempBonusFacade>();
+		buildAppliedTempBonusList();
 		kitList = new DefaultListFacade<KitFacade>();
 		refreshKitList();
 
@@ -403,7 +407,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			kits.add(kit);
 		}
-		kitList.setContents(kits);
+		kitList.updateContents(kits);
 	}
 
 	private GearBuySellFacade findGearBuySellRate()
@@ -456,7 +460,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				}
 			}
 		}
-		equipmentSets.setContents(eqSetList);
+		equipmentSets.updateContents(eqSetList);
 		if (currSet != null)
 		{
 			equipSet.setReference(currSet);
@@ -1069,6 +1073,33 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return availTempBonuses;
 	}
 
+	/**
+	 * Build up the list of temporary bonuses which have been applied to this character.
+	 */
+	private void buildAppliedTempBonusList()
+	{
+		Set<String> found = new HashSet<String>();
+		BonusManager bonusMgr = new BonusManager(theCharacter);
+		for (Map.Entry<BonusObj, BonusManager.TempBonusInfo> me : theCharacter
+				.getTempBonusMap().entrySet())
+		{
+			BonusObj aBonus = me.getKey();
+			TempBonusInfo tbi = me.getValue();
+			Object aC = tbi.source;
+			Object aT = tbi.target;
+			String name = bonusMgr.getBonusName(aBonus, tbi);
+
+			if (!found.contains(name))
+			{
+				found.add(name);
+				TempBonusFacadeImpl facade = new TempBonusFacadeImpl((CDOMObject) aC, aT, name);
+				appliedTempBonuses.addElement(facade);
+			}
+		}
+		
+		
+	}
+
 	@Override
 	public void addTempBonus(TempBonusFacade bonusFacade)
 	{
@@ -1079,14 +1110,30 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		TempBonusFacadeImpl tempBonus = (TempBonusFacadeImpl) bonusFacade;
 		
 		// Allow selection of target for bonus affecting equipment
-		Equipment aEq = null;
 		CDOMObject originObj = tempBonus.getOriginObj();
+		Equipment aEq = null;
+		Object target = 
+				TempBonusHelper.getTempBonusTarget(originObj,
+					theCharacter, delegate);
+		if (target == null)
+		{
+			return;
+		}
+		if (target instanceof Equipment)
+		{
+			aEq = (Equipment) target;
+		}
 
 		// Resolve choices and apply the bonus to the character.
-		TempBonusHelper.applyBonusToCharacter(tempBonus, aEq, originObj,
-			theCharacter);
+		TempBonusFacadeImpl appliedTempBonus =
+				TempBonusHelper.applyBonusToCharacter(tempBonus, aEq,
+					originObj, theCharacter);
+		if (appliedTempBonus == null)
+		{
+			return;
+		}
 		
-		appliedTempBonuses.addElement(bonusFacade);
+		appliedTempBonuses.addElement(appliedTempBonus);
 		postLevellingUpdates();
 	}
 
@@ -1103,6 +1150,10 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		TempBonusFacadeImpl tempBonus = (TempBonusFacadeImpl) bonusFacade;
 		
 		Equipment aEq = null;
+		if (tempBonus.getTarget() instanceof Equipment)
+		{
+			aEq = (Equipment) tempBonus.getTarget();
+		}
 		CDOMObject originObj = tempBonus.getOriginObj();
 		TempBonusHelper.removeBonusFromCharacter(theCharacter, aEq, originObj);
 
@@ -1110,6 +1161,33 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		postLevellingUpdates();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void setTempBonusActive(TempBonusFacade bonusFacade, boolean active)
+	{
+		if (bonusFacade == null || !(bonusFacade instanceof TempBonusFacadeImpl))
+		{
+			return;
+		}
+		TempBonusFacadeImpl tempBonus = (TempBonusFacadeImpl) bonusFacade;
+
+		if (active)
+		{
+			theCharacter.unsetTempBonusFilter(tempBonus.toString());
+		}
+		else
+		{
+			theCharacter.setTempBonusFilter(tempBonus.toString());
+		}
+		tempBonus.setActive(active);
+		appliedTempBonuses.modifyElement(tempBonus);
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public ListFacade<TempBonusFacade> getTempBonuses()
 	{
@@ -1257,7 +1335,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		pcClasses.clear();
 		pcClasses.addAll(newClasses);
 
-		pcClassLevels.setContents(newlevels);
+		pcClassLevels.updateContents(newlevels);
 		// Now get the CharacterLevelsFacadeImpl to do a refresh too.
 		charLevelsFacade.classListRefreshRequired();
 	}
@@ -2168,8 +2246,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			}
 		}
 
-		availDomains.setContents(availDomainList);
-		domains.setContents(selDomainList);
+		availDomains.updateContents(availDomainList);
+		domains.updateContents(selDomainList);
 		maxDomains.setReference(theCharacter.getMaxCharacterDomains());
 		remainingDomains.setReference(theCharacter.getMaxCharacterDomains() - theCharacter.getDomainCount());
 		updateDomainTodo();
@@ -2270,7 +2348,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		long startTime = new Date().getTime();
 		List<Language> sortedLanguages = new ArrayList<Language>(theCharacter.getLanguageSet());
 		Collections.sort(sortedLanguages);
-		languages.setContents(sortedLanguages);
+		languages.updateContents(sortedLanguages);
 		autoLanguagesCache = null;
 
 		int bonusLangMax = theCharacter.getBonusLanguageCount();

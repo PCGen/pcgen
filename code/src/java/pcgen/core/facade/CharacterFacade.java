@@ -314,6 +314,13 @@ public interface CharacterFacade extends CompanionFacade
 	public void removeTempBonus(TempBonusFacade bonus);
 
 	/**
+	 * Enables or disables a temporary bonus to the character.
+	 * @param bonusFacade the bonus to change
+	 * @param active True: Make the bonus active, False: Make the bonus inactive 
+	 */
+	public void setTempBonusActive(TempBonusFacade bonusFacade, boolean active);
+
+	/**
 	 * 
 	 * @return a list of bonuses that have been added to the character
 	 */

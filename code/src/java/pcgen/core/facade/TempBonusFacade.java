@@ -33,4 +33,9 @@ public interface TempBonusFacade extends InfoFacade
 	 */
 	public String getOriginType();
 
+	/**
+	 * @return true if the bonus is active, false if not.
+	 */
+	boolean isActive();
+
 }
