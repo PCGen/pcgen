@@ -697,6 +697,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		refreshKitList();
 		refreshTemplates();
 		refreshAvailableTempBonuses();
+		refreshEquipment();
 		currentXP.setReference(theCharacter.getXP());
 		xpForNextlevel.setReference(theCharacter.minXPForNextECL());
 		xpTableName.setReference(theCharacter.getXPTableName());
