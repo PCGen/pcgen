@@ -1847,7 +1847,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				}
 			}
 		}
-
+		refreshStatScores();
 		age.setReference(theCharacter.getAge());
 		updateAgeCategoryForAge();
 		weightRef.setReference(theCharacter.getWeight());
