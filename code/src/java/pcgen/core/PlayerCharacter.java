@@ -108,6 +108,7 @@ import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.BonusManager.TempBonusInfo;
 import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.analysis.BonusCalc;
@@ -3121,11 +3122,13 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 	 * @param aBonus The bonus object to add.
 	 * @param source The source of the temporary bonus
 	 * @param target The object getting the bonus (typically the PC, can also be equipment).
+	 * @return The bonus info representing the added instance of the bonus.
 	 */
-	public void addTempBonus(final BonusObj aBonus, Object source, Object target)
+	public TempBonusInfo addTempBonus(final BonusObj aBonus, Object source, Object target)
 	{
-		bonusManager.addTempBonus(aBonus, source, target);
+		TempBonusInfo tempBonusInfo = bonusManager.addTempBonus(aBonus, source, target);
 		setDirty(true);
+		return tempBonusInfo;
 	}
 
 	/**

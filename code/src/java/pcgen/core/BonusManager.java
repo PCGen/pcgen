@@ -811,9 +811,11 @@ public class BonusManager
 		return returnMap;
 	}
 
-	public void addTempBonus(BonusObj bonus, Object source, Object target)
+	public TempBonusInfo addTempBonus(BonusObj bonus, Object source, Object target)
 	{
-		tempBonusBySource.put(bonus, new TempBonusInfo(source, target));
+		TempBonusInfo tempBonusInfo = new TempBonusInfo(source, target);
+		tempBonusBySource.put(bonus, tempBonusInfo);
+		return tempBonusInfo;
 	}
 
 	public void removeTempBonus(BonusObj bonus)
