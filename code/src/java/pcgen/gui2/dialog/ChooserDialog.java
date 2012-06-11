@@ -46,6 +46,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.WindowConstants;
 
 import pcgen.core.facade.ChooserFacade;
+import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
 import pcgen.core.facade.InfoFacade;
 import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
@@ -242,19 +243,25 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 	}
 
 	private class GeneralTreeViewModel extends DelegatingListFacade<InfoFacade> implements TreeViewModel<InfoFacade>,
-			DataView<InfoFacade>, TreeView<InfoFacade>
+			DataView<InfoFacade>
 	{
 
 		@Override
 		public ListFacade<? extends TreeView<InfoFacade>> getTreeViews()
 		{
-			return new DefaultListFacade<TreeView<InfoFacade>>(Collections.singletonList(this));
+			DefaultListFacade<TreeView<InfoFacade>> views =
+					new DefaultListFacade<TreeView<InfoFacade>>();
+			views.addElement(new ChooserTreeView(ChooserTreeViewType.NAME,
+				chooser.getAvailableTableTitle(), chooser));
+			views.addElement(new ChooserTreeView(ChooserTreeViewType.TYPE_NAME,
+				chooser.getAvailableTableTypeNameTitle(), chooser));
+			return views;
 		}
 
 		@Override
 		public int getDefaultTreeViewIndex()
 		{
-			return 0;
+			return chooser.getDefaultView().ordinal();
 		}
 
 		@Override
@@ -281,36 +288,68 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			return Collections.emptyList();
 		}
 
-		@Override
-		public String getViewName()
-		{
-			return chooser.getAvailableTableTitle();
-		}
-
 		/**
 		 * {@inheritDoc}
 		 */
 		@Override
 		public String getPrefsKey()
 		{
-			return chooser.getAvailableTableTitle();
+			return chooser.getAvailableTableTypeNameTitle();
+		}
+
+	}
+
+	private class ChooserTreeView implements TreeView<InfoFacade>
+	{
+		
+		private String viewName;
+		private final ChooserFacade chooser;
+		private final ChooserTreeViewType viewType; 
+
+		private ChooserTreeView(ChooserTreeViewType viewType, String name, ChooserFacade chooser)
+		{
+			this.viewType = viewType;
+			this.viewName = name;
+			this.chooser = chooser;
+		}
+
+		@Override
+		public String getViewName()
+		{
+			return viewName;
 		}
 
 		@Override
 		public List<TreeViewPath<InfoFacade>> getPaths(InfoFacade pobj)
 		{
-			List<TreeViewPath<InfoFacade>> paths = new ArrayList<TreeViewPath<InfoFacade>>();
-			for(String type : chooser.getBranchNames(pobj))
+			switch (viewType)
 			{
-				paths.add(new TreeViewPath<InfoFacade>(pobj, type));
+				case TYPE_NAME:
+					List<TreeViewPath<InfoFacade>> paths = new ArrayList<TreeViewPath<InfoFacade>>();
+					for(String type : chooser.getBranchNames(pobj))
+					{
+						paths.add(new TreeViewPath<InfoFacade>(pobj, type));
+					}
+					if (!paths.isEmpty())
+					{
+						return paths;
+					}
+					// Otherwise treat as a name entry
+				case NAME:
+					return Collections.singletonList(new TreeViewPath<InfoFacade>(pobj));
+				default:
+					throw new InternalError();
 			}
-			if (paths.isEmpty())
-			{
-				paths.add(new TreeViewPath<InfoFacade>(pobj));
-			}
-			return paths;
 		}
 
+		/**
+		 * @param viewName the viewName to set
+		 */
+		public void setViewName(String viewName)
+		{
+			this.viewName = viewName;
+		}
 	}
 
+	
 }

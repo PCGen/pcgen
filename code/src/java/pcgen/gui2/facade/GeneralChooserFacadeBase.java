@@ -61,12 +61,15 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 	private DefaultListFacade<InfoFacade> selectedList;
 	private DefaultReferenceFacade<Integer> numSelectionsRemain;
 
-	private final String availableTableTitle;
+	private final String availableTableTypeNameTitle;
 	private final String selectedTableTitle;
 	private final String selectionCountName;
 	private final String addButtonName;
 	private final String removeButtonName;
 
+	private final String availableTableTitle;
+	private ChooserTreeViewType defaultView =
+			ChooserTreeViewType.TYPE_NAME;
 	
 	/**
 	 * Create a new instance of GeneraChooserFacadeBase with default localised 
@@ -81,11 +84,12 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 	GeneralChooserFacadeBase(String name, List<InfoFacade> available, List<InfoFacade> selected, int maxNewSelections)
 	{
 		this(name, available, selected, maxNewSelections, 
-			LanguageBundle.getString("in_available"),
-			LanguageBundle.getString("in_selected"), 
-			LanguageBundle.getString("in_selRemain"), 
-			LanguageBundle.getString("in_add"),
-			LanguageBundle.getString("in_remove"));
+			LanguageBundle.getString("in_available"), //$NON-NLS-1$
+			LanguageBundle.getString("in_typeName"), //$NON-NLS-1$
+			LanguageBundle.getString("in_selected"),  //$NON-NLS-1$
+			LanguageBundle.getString("in_selRemain"),  //$NON-NLS-1$
+			LanguageBundle.getString("in_add"), //$NON-NLS-1$
+			LanguageBundle.getString("in_remove")); //$NON-NLS-1$
 	}
 
 	/**
@@ -96,7 +100,8 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 	 * @param available The list of items to select from.
 	 * @param selected The list of items already selected. The user may choose to deselect items from this list.
 	 * @param maxNewSelections The number of selections the user may make in addition to those in the selected list.
-	 * @param availableTableTitle The title for the available list.
+	 * @param availableTableTitle The title for the available list in flat mode.
+	 * @param availableTableTypeNameTitle The title for the available list in tree mode.
 	 * @param selectedTableTitle The title for the selected list.
 	 * @param selectionCountName The label for the number of selections remaining.
 	 * @param addButtonName The label for the add button.
@@ -104,7 +109,8 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 	 */
 	GeneralChooserFacadeBase(String name, List<InfoFacade> available,
 		List<InfoFacade> selected, int maxNewSelections,
-		String availableTableTitle, String selectedTableTitle,
+		String availableTableTitle, String availableTableTypeNameTitle, 
+		String selectedTableTitle,
 		String selectionCountName, String addButtonName, String removeButtonName)
 	{
 		this.name = name;
@@ -112,6 +118,7 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 		this.origSelected = selected;
 		this.maxNewSelections = maxNewSelections;
 		this.availableTableTitle = availableTableTitle;
+		this.availableTableTypeNameTitle = availableTableTypeNameTitle;
 		this.selectedTableTitle = selectedTableTitle;
 		this.selectionCountName = selectionCountName;
 		this.addButtonName = addButtonName;
@@ -204,6 +211,15 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 	}
 
 	@Override
+	public String getAvailableTableTypeNameTitle()
+	{
+		return availableTableTypeNameTitle;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public String getAvailableTableTitle()
 	{
 		return availableTableTitle;
@@ -250,6 +266,23 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 			}
 		}
 		return branches;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public ChooserTreeViewType getDefaultView()
+	{
+		return defaultView;
+	}
+
+	/**
+	 * @param defaultView the flatDefault to set
+	 */
+	public void setDefaultView(ChooserTreeViewType defaultView)
+	{
+		this.defaultView = defaultView;
 	}
 
 }

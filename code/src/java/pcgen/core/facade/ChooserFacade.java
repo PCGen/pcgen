@@ -42,6 +42,19 @@ public interface ChooserFacade
 {
 
 	/**
+	 * <code>ChooserTreeViewType</code> defines the types of tree views that can 
+	 * be displayed in a chooser dialog.
+	 */
+	public enum ChooserTreeViewType
+	{
+		/** A flat display of just the choice name. */
+		NAME, 
+		
+		/** A hierarchical display of choice names within their types. */
+		TYPE_NAME;
+	}
+
+	/**
 	 *
 	 * @return the currently available items
 	 */
@@ -93,10 +106,20 @@ public interface ChooserFacade
 	String getName();
 	
 	/**
-	 * @return The title for the available list.
+	 * @return The title for the available list in its tree mode.
+	 */
+	String getAvailableTableTypeNameTitle();
+	
+	/**
+	 * @return The title for the available list in its flat mode.
 	 */
 	String getAvailableTableTitle();
 
+	/**
+	 * @return The starting tree view for the chooser.
+	 */
+	ChooserTreeViewType getDefaultView();
+	
 	/**
 	 * @return The title for the selected list.
 	 */
@@ -120,7 +143,7 @@ public interface ChooserFacade
 	/**
 	 * Get the names of parent branches under which the item should be 
 	 * displayed. If an empty list is returned the item will be displayed 
-	 * at the top level.
+	 * at the top level. Will only be called in tree mode.
 	 * @param item The item being displayed.
 	 * @return The names of branches under which the node should be displayed.
 	 */
