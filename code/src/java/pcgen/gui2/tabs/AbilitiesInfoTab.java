@@ -53,7 +53,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 	public AbilitiesInfoTab()
 	{
 		this.abilityTab = new AbilityChooserTab();
-		this.tabTitle = new TabTitle("in_featsAbilities");
+		this.tabTitle = new TabTitle("in_featsAbilities"); //$NON-NLS-1$
 		setSharedComponent(abilityTab);
 	}
 
@@ -61,21 +61,21 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 	public Hashtable<Object, Object> createModels(CharacterFacade character)
 	{
 		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
-		state.put("TabsModel", new AbilityTabsModel(character));
+		state.put("TabsModel", new AbilityTabsModel(character)); //$NON-NLS-1$
 		return state;
 	}
 
 	@Override
 	public void storeModels(Hashtable<Object, Object> state)
 	{
-		AbilityTabsModel tabsModel = (AbilityTabsModel) state.get("TabsModel");
+		AbilityTabsModel tabsModel = (AbilityTabsModel) state.get("TabsModel"); //$NON-NLS-1$
 		tabsModel.uninstall();
 	}
 
 	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
-		AbilityTabsModel tabsModel = (AbilityTabsModel) state.get("TabsModel");
+		AbilityTabsModel tabsModel = (AbilityTabsModel) state.get("TabsModel"); //$NON-NLS-1$
 		tabsModel.install();
 	}
 
@@ -143,9 +143,9 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 				int index = e.getIndex();
 				if (index > tabs.size())
 				{
-					Logging.log(Logging.WARNING, "Trying to add " + type + " to "
-						+ tabs + " at index " +index
-						+ ". Putting at end.");
+					Logging.log(Logging.WARNING, "Trying to add " + type + " to " //$NON-NLS-1$ //$NON-NLS-2$
+						+ tabs + " at index " +index //$NON-NLS-1$
+						+ ". Putting at end."); //$NON-NLS-1$
 					index = tabs.size();
 					tabs.add(new TabInfo(type, character));
 				}
@@ -182,8 +182,8 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		@Override
 		public void elementsChanged(ListEvent<AbilityCategoryFacade> e)
 		{
-			Map<String, Collection<AbilityCategoryFacade>> tempMap;
-			tempMap = new HashMap<String, Collection<AbilityCategoryFacade>>();
+			Map<String, List<AbilityCategoryFacade>> tempMap;
+			tempMap = new HashMap<String, List<AbilityCategoryFacade>>();
 			for (AbilityCategoryFacade category : categories)
 			{
 				String type = category.getType();
@@ -204,7 +204,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 						addTab(type);
 					}
 				}
-				typeMap.get(type).categoryList.setContents(tempMap.get(type));
+				typeMap.get(type).categoryList.updateContents(tempMap.get(type));
 			}
 			Iterator<String> oldTypes = typeMap.keySet().iterator();
 			while (oldTypes.hasNext())

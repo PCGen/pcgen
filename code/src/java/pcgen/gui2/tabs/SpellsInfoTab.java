@@ -28,6 +28,7 @@ import pcgen.core.facade.CharacterFacade;
 import pcgen.gui2.tabs.spells.SpellBooksTab;
 import pcgen.gui2.tabs.spells.SpellsKnownTab;
 import pcgen.gui2.tabs.spells.SpellsPreparedTab;
+import pcgen.system.LanguageBundle;
 
 /**
  * The Class <code>SpellsInfoTab</code> is a placeholder for the yet
@@ -42,16 +43,16 @@ import pcgen.gui2.tabs.spells.SpellsPreparedTab;
 public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab, TodoHandler
 {
 
-	private final TabTitle tabTitle = new TabTitle("Spells");
+	private final TabTitle tabTitle = new TabTitle("in_spells"); //$NON-NLS-1$
 	private final SpellsKnownTab knownTab = new SpellsKnownTab();
 	private final SpellsPreparedTab preparedTab = new SpellsPreparedTab();
 	private final SpellBooksTab booksTab = new SpellBooksTab();
 
 	public SpellsInfoTab()
 	{
-		addTab("Known Spells", knownTab);
-		addTab("Prepared Spells", preparedTab);
-		addTab("Spell Books", booksTab);
+		addTab(LanguageBundle.getString("in_InfoKnown"), knownTab); //$NON-NLS-1$
+		addTab(LanguageBundle.getString("in_InfoPrepared"), preparedTab); //$NON-NLS-1$
+		addTab(LanguageBundle.getString("in_InfoSpellbooks"), booksTab); //$NON-NLS-1$
 	}
 
 	@Override
@@ -92,7 +93,7 @@ public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab, Todo
 	@Override
 	public void adviseTodo(String fieldName)
 	{
-		if ("Known".equals(fieldName))
+		if ("Known".equals(fieldName)) //$NON-NLS-1$
 		{
 			setSelectedIndex(0);
 		}

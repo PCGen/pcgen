@@ -53,6 +53,7 @@ import pcgen.core.facade.TodoFacade.CharacterTab;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.tools.CharacterSelectionListener;
 import pcgen.gui2.util.DisplayAwareTab;
+import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 /**
@@ -191,7 +192,7 @@ public final class InfoTabbedPane extends JTabbedPane
 		}
 		if (selTab == null)
 		{
-			Logging.errorPrint("Failed to find tab " + tabName);
+			Logging.errorPrint("Failed to find tab " + tabName); //$NON-NLS-1$
 			return;
 		}
 
@@ -215,9 +216,10 @@ public final class InfoTabbedPane extends JTabbedPane
 		}
 		else
 		{
-			String message = "Please use the " + dest[1] + " field.";
+			String message = LanguageBundle.getFormattedString("in_todoUseField", dest[1]); //$NON-NLS-1$
 			JOptionPane.showMessageDialog(selTab, message,
-										  "Things To Be Done", JOptionPane.INFORMATION_MESSAGE);
+				LanguageBundle.getString("in_tipsString"), //$NON-NLS-1$
+				JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 
@@ -275,7 +277,7 @@ public final class InfoTabbedPane extends JTabbedPane
 					Thread thread = new Thread(r);
 					thread.setDaemon(true);
 					thread.setPriority(Thread.NORM_PRIORITY);
-					thread.setName("tab-info-thread");
+					thread.setName("tab-info-thread"); //$NON-NLS-1$
 					return thread;
 				}
 
@@ -439,7 +441,7 @@ public final class InfoTabbedPane extends JTabbedPane
 			else if (TodoFacade.SWITCH_TABS.equals(propName))
 			{
 				String destString = (String) evt.getNewValue();
-				String[] dest = destString.split("/");
+				String[] dest = destString.split("/"); //$NON-NLS-1$
 				switchTabsAndAdviseTodo(dest);
 			}
 		}

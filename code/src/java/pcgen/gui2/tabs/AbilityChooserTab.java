@@ -114,7 +114,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		FilterBar<CharacterFacade, AbilityFacade> filterBar = new FilterBar<CharacterFacade, AbilityFacade>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 
-		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter"));
+		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
 		filterBar.addDisplayableFilter(qFilterButton);
 		JPanel availPanel = FilterUtilities.configureFilteredTreeViewPane(availableTreeViewPanel, filterBar);
 		Box box = Box.createHorizontalBox();
@@ -142,7 +142,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		setTopComponent(topPane);
 
 		FilterButton<CharacterFacade, AbilityCategoryFacade> gainedFilterButton = new FilterButton<CharacterFacade, AbilityCategoryFacade>();
-		gainedFilterButton.setText(LanguageBundle.getString("in_gained"));
+		gainedFilterButton.setText(LanguageBundle.getString("in_gained")); //$NON-NLS-1$
 		gainedFilterButton.setEnabled(true);
 		gainedFilterButton.setSelected(true);
 		gainedFilterButton.setFilter(new Filter<CharacterFacade, AbilityCategoryFacade>()
@@ -180,11 +180,11 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		{
 			if (value == Boolean.TRUE)
 			{
-				setText(LanguageBundle.getString("in_yes"));
+				setText(LanguageBundle.getString("in_yes")); //$NON-NLS-1$
 			}
 			else if (value == Boolean.FALSE)
 			{
-				setText(LanguageBundle.getString("in_no"));
+				setText(LanguageBundle.getString("in_no")); //$NON-NLS-1$
 			}
 			else
 			{
@@ -220,17 +220,17 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 			this.setDelegate(new DefaultListFacade<AbilityFacade>());
 
 			dataColumns =
-					Arrays.asList(new DefaultDataViewColumn("Type",
+					Arrays.asList(new DefaultDataViewColumn("in_type", //$NON-NLS-1$
 															String.class),
-								  new DefaultDataViewColumn("Mult",
+								  new DefaultDataViewColumn("in_abColumnsMultiples", //$NON-NLS-1$
 															Boolean.class),
-								  new DefaultDataViewColumn("Stack",
+								  new DefaultDataViewColumn("in_abColumnsStacks", //$NON-NLS-1$
 															Boolean.class),
-								  new DefaultDataViewColumn("Description",
+								  new DefaultDataViewColumn("in_abColumnsDescription", //$NON-NLS-1$
 															String.class),
-								  new DefaultDataViewColumn("Cost",
+								  new DefaultDataViewColumn("in_abColumnsCost", //$NON-NLS-1$
 															Float.class),
-								  new DefaultDataViewColumn("Source",
+								  new DefaultDataViewColumn("in_abColumnsSource", //$NON-NLS-1$
 															String.class));
 		}
 
@@ -362,8 +362,8 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		{
 			this.character = character;
 			this.categories = categories;
-			this.text = "";
-			this.title = "Ability Info";
+			this.text = ""; //$NON-NLS-1$
+			this.title = LanguageBundle.getString("in_abInfo"); //$NON-NLS-1$
 		}
 
 		public void install()
@@ -417,7 +417,10 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 					}
 					if (data instanceof AbilityCategoryFacade)
 					{
-						title = ((AbilityCategoryFacade) data).getName() + " Info";
+						title =
+								LanguageBundle.getFormattedString(
+									"in_abCatInfo", //$NON-NLS-1$
+									((AbilityCategoryFacade) data).getName());
 						infoPane.setTitle(title);
 
 					}
@@ -547,9 +550,6 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 //
 //	}
 
-	private static final String SELECTED_TREEVIEW_PANEL_STATE = "SelectedTreeViewPanelState";
-	private static final String AVAILABLE_TREEVIEW_PANEL_STATE = "AvailableTreeViewPanelState";
-
 	public Hashtable<Object, Object> createState(CharacterFacade character,
 		ListFacade<AbilityCategoryFacade> categories,
 		ListFacade<AbilityCategoryFacade> fullCategoryList, String title)
@@ -658,7 +658,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 
 		public AddAction(CharacterFacade character)
 		{
-			super(LanguageBundle.getString("in_addSelected"));
+			super(LanguageBundle.getString("in_addSelected")); //$NON-NLS-1$
 			this.character = character;
 			this.putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
 		}
@@ -694,7 +694,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 
 		public RemoveAction(CharacterFacade character)
 		{
-			super(LanguageBundle.getString("in_removeSelected"));
+			super(LanguageBundle.getString("in_removeSelected")); //$NON-NLS-1$
 			this.character = character;
 			this.putValue(SMALL_ICON, Icons.Back16.getImageIcon());
 		}

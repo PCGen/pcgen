@@ -73,6 +73,7 @@ import pcgen.gui2.util.treeview.DefaultDataViewColumn;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
+import pcgen.system.LanguageBundle;
 
 /**
  *
@@ -100,8 +101,8 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		this.selectedDeity = new JLabel();
 		this.selectDeity = new JButton();
 		this.selectedDomain = new JLabel();
-		this.deityInfo = new InfoPane("Deity Info");
-		this.domainInfo = new InfoPane("Domain Info");
+		this.deityInfo = new InfoPane("in_deityInfo"); //$NON-NLS-1$
+		this.domainInfo = new InfoPane("in_domainInfo"); //$NON-NLS-1$
 		initComponents();
 	}
 
@@ -121,7 +122,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		Box box = Box.createHorizontalBox();
 		box.add(Box.createHorizontalGlue());
-		box.add(new JLabel("Deity:"));
+		box.add(new JLabel(LanguageBundle.getString("in_domDeityLabel"))); //$NON-NLS-1$
 		box.add(Box.createHorizontalStrut(5));
 		box.add(selectedDeity);
 		box.add(Box.createHorizontalStrut(5));
@@ -144,7 +145,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		box = Box.createHorizontalBox();
 		box.add(Box.createHorizontalGlue());
-		box.add(new JLabel("Domains Remaining to be Selected:"));
+		box.add(new JLabel(LanguageBundle.getString("in_domRemainDomLabel"))); //$NON-NLS-1$
 		box.add(Box.createHorizontalStrut(5));
 		box.add(selectedDomain);
 		box.add(Box.createHorizontalGlue());
@@ -206,7 +207,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	@Override
 	public TabTitle getTabTitle()
 	{
-		return new TabTitle("in_domains");
+		return new TabTitle("in_domains"); //$NON-NLS-1$
 	}
 
 	/**
@@ -215,7 +216,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	@Override
 	public void adviseTodo(String fieldName)
 	{
-		if ("Domains".equals(fieldName))
+		if ("Domains".equals(fieldName)) //$NON-NLS-1$
 		{
 			if (domainTable.getRowCount() > 0)
 			{
@@ -365,7 +366,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		public SelectDeityAction(CharacterFacade character)
 		{
-			super("Select");
+			super(LanguageBundle.getString("in_select")); //$NON-NLS-1$
 			this.character = character;
 		}
 
@@ -491,7 +492,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			}
 			else
 			{
-				label.setText("");
+				label.setText(""); //$NON-NLS-1$
 			}
 			ref.addReferenceListener(this);
 		}
@@ -587,9 +588,9 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			switch (column)
 			{
 				case 0:
-					return "Domains";
+					return LanguageBundle.getString("in_domains"); //$NON-NLS-1$
 				case 1:
-					return "Source";
+					return LanguageBundle.getString("in_source"); //$NON-NLS-1$
 			}
 			return null;
 		}
@@ -693,20 +694,19 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	}
 
-	//TODO: pantheon view
 	private enum DeityTreeView implements TreeView<DeityFacade>
 	{
-
-		NAME("Name"),
-		ALIGNMENT_NAME("Alignment/Name"),
-		DOMAIN_NAME("Domain/Name"),
-		PANTHEON_NAME("Pantheon/Name"),
-		SOURCE_NAME("Source/Name");
+		NAME("in_nameLabel"), //$NON-NLS-1$
+		ALIGNMENT_NAME("in_alignmentName"), //$NON-NLS-1$
+		DOMAIN_NAME("in_domainName"), //$NON-NLS-1$
+		PANTHEON_NAME("in_pantheonName"), //$NON-NLS-1$
+		SOURCE_NAME("in_sourceName"); //$NON-NLS-1$
+		
 		private String name;
 
 		private DeityTreeView(String name)
 		{
-			this.name = name;
+			this.name = LanguageBundle.getString(name);
 		}
 
 		@Override

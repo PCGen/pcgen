@@ -40,14 +40,14 @@ import pcgen.system.LanguageBundle;
 public class InventoryInfoTab extends JTabbedPane implements CharacterInfoTab
 {
 
-	private final TabTitle tabTitle = new TabTitle(LanguageBundle.getString("in_inventory"));
+	private final TabTitle tabTitle = new TabTitle(LanguageBundle.getString("in_inventory")); //$NON-NLS-1$
 	private final EquipInfoTab equipTab = new EquipInfoTab();
 	private final PurchaseInfoTab purchaseTab = new PurchaseInfoTab();
 
 	public InventoryInfoTab()
 	{
-		addTab("Purchase", purchaseTab);
-		addTab("Equipment", equipTab);
+		addTab(LanguageBundle.getString("in_purchase"), purchaseTab); //$NON-NLS-1$
+		addTab(LanguageBundle.getString("in_equipment"), equipTab); //$NON-NLS-1$
 	}
 
 	@Override

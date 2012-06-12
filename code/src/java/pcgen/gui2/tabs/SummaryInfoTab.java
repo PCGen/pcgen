@@ -118,10 +118,10 @@ import pcgen.system.LanguageBundle;
 public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHandler
 {
 
-	private static final Font titleFont = new Font("Verdana", Font.BOLD, 15);
-	private static final Font labelFont = new Font("Verdana", Font.BOLD, 12);
-	private static final Font textFont = new Font("Verdana", Font.PLAIN, 12);
-	private static final Font smallFont = new Font("Verdana", Font.PLAIN, 9);
+	private static final Font titleFont = new Font("Verdana", Font.BOLD, 15); //$NON-NLS-1$
+	private static final Font labelFont = new Font("Verdana", Font.BOLD, 12); //$NON-NLS-1$
+	private static final Font textFont = new Font("Verdana", Font.PLAIN, 12); //$NON-NLS-1$
+	private static final Font smallFont = new Font("Verdana", Font.PLAIN, 9); //$NON-NLS-1$
 	private final TabTitle tabTitle;
 	private final JPanel basicsPanel;
 	private final JPanel todoPanel;
@@ -227,28 +227,28 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
 
-		setPanelTitle(basicsPanel, "Character Basics");
+		setPanelTitle(basicsPanel, LanguageBundle.getString("in_sumCharacterBasics")); //$NON-NLS-1$
 		basicsPanel.setLayout(new GridBagLayout());
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.weightx = 0.1;
 		gbc.weighty = .7;
 		add(basicsPanel, gbc);
 
-		setPanelTitle(todoPanel, "Things To Be Done");
+		setPanelTitle(todoPanel, LanguageBundle.getString("in_tipsString")); //$NON-NLS-1$
 		initTodoPanel(todoPanel);
 		gbc.gridy = 1;
 		gbc.gridheight = GridBagConstraints.REMAINDER;
 		add(todoPanel, gbc);
 
-		setPanelTitle(scoresPanel, "Ability Scores");
+		setPanelTitle(scoresPanel, LanguageBundle.getString("in_sumAbilityScores")); //$NON-NLS-1$
 		initMiddlePanel(scoresPanel);
 		gbc.gridy = GridBagConstraints.RELATIVE;
 		gbc.weightx = 1;
 		add(scoresPanel, gbc);
 
 		JPanel rightPanel = new JPanel();
-		setPanelTitle(racePanel, "Race");
-		setPanelTitle(classPanel, "Class & Level");
+		setPanelTitle(racePanel, LanguageBundle.getString("in_raceString")); //$NON-NLS-1$
+		setPanelTitle(classPanel, LanguageBundle.getString("in_sumClassLevel")); //$NON-NLS-1$
 		initRightPanel(rightPanel);
 		gbc.weightx = .1;
 		gbc.weighty = 1;
@@ -275,8 +275,8 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		todoPane.setOpaque(false);
 		todoPane.setContentType("text/html"); //$NON-NLS-1$
 		String bodyRule =
-				"body { font-family: " + textFont.getFamily() + "; " + "font-size: " +
-				textFont.getSize() + "pt; }";
+				"body { font-family: " + textFont.getFamily() + "; " + "font-size: " + //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				textFont.getSize() + "pt; }"; //$NON-NLS-1$
 		((HTMLDocument) todoPane.getDocument()).getStyleSheet().addRule(
 				bodyRule);
 		todoPane.setEditable(false);
@@ -331,9 +331,9 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		modTotal.setFont(textFont);
 		statTotalPanel.add(modTotal);
 		statTotalPanel.add(Box.createHorizontalGlue());
-		generateRollsButton.setText(LanguageBundle.getString("in_sumGenerate_Rolls"));
+		generateRollsButton.setText(LanguageBundle.getString("in_sumGenerate_Rolls")); //$NON-NLS-1$
 		statTotalPanel.add(generateRollsButton);
-		rollMethodButton.setText(LanguageBundle.getString("in_sumRoll_Method"));
+		rollMethodButton.setText(LanguageBundle.getString("in_sumRoll_Method")); //$NON-NLS-1$
 		statTotalPanel.add(Box.createRigidArea(new Dimension(5, 0)));
 		statTotalPanel.add(rollMethodButton);
 		statTotalPanel.add(Box.createHorizontalGlue());
@@ -362,8 +362,8 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		nextlevelField.setEnabled(false);
 		expmodField.setHorizontalAlignment(SwingConstants.RIGHT);
 
-		raceComboBox.setPrototypeDisplayValue("PrototypeDisplayValue");
-		classComboBox.setPrototypeDisplayValue("PrototypeDisplayValue");
+		raceComboBox.setPrototypeDisplayValue("PrototypeDisplayValue"); //$NON-NLS-1$
+		classComboBox.setPrototypeDisplayValue("PrototypeDisplayValue"); //$NON-NLS-1$
 
 		expaddButton.setMargin(new Insets(0, 8, 0, 8));
 		expsubtractButton.setMargin(new Insets(0, 8, 0, 8));
@@ -371,14 +371,14 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 		JPanel expmodPanel = new JPanel(new GridBagLayout());
 		JPanel levelPanel = new JPanel();
-		JLabel raceLabel = createLabel("Race:");
-		JLabel ageLabel = createLabel("Age:");
-		JLabel classLabel = createLabel("Class:");
-		JLabel hpLabel = createLabel("Total HP:");
-		JLabel expLabel = createLabel("Current XP:");
-		JLabel nextlevelLabel = createLabel("Next Level:");
-		JLabel xpTableLabel = createLabel("XP Table:");
-		JLabel expmodLabel = createLabel("Add or Subtract From Current XP:");
+		JLabel raceLabel = createLabel("in_sumRace"); //$NON-NLS-1$
+		JLabel ageLabel = createLabel("in_sumAge"); //$NON-NLS-1$
+		JLabel classLabel = createLabel("in_sumClass"); //$NON-NLS-1$
+		JLabel hpLabel = createLabel("in_sumTotalHP"); //$NON-NLS-1$
+		JLabel expLabel = createLabel("in_sumCurrentXp"); //$NON-NLS-1$
+		JLabel nextlevelLabel = createLabel("in_sumNextlevel"); //$NON-NLS-1$
+		JLabel xpTableLabel = createLabel("in_sumXpTable"); //$NON-NLS-1$
+		JLabel expmodLabel = createLabel("in_sumExpMod"); //$NON-NLS-1$
 		expmodLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		initLevelPanel(levelPanel);
 		/*
@@ -484,10 +484,10 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	private void initLevelPanel(JPanel panel)
 	{
 		panel.setLayout(new GridBagLayout());
-		JLabel addLabel = createLabel("Add Levels:");
-		JLabel removeLabel = createLabel("Remove Levels:");
-		JLabel darrowLabel = new JLabel(Icons.createImageIcon("button_arrow_down.png"));
-		JLabel uarrowLabel = new JLabel(Icons.createImageIcon("button_arrow_up.png"));
+		JLabel addLabel = createLabel("in_sumAddLevels"); //$NON-NLS-1$
+		JLabel removeLabel = createLabel("in_sumRemoveLevels"); //$NON-NLS-1$
+		JLabel darrowLabel = new JLabel(Icons.createImageIcon("button_arrow_down.png")); //$NON-NLS-1$
+		JLabel uarrowLabel = new JLabel(Icons.createImageIcon("button_arrow_up.png")); //$NON-NLS-1$
 
 		addLevelsButton.setMargin(new Insets(0, 8, 0, 8));
 		addLevelsField.setValue(1);
@@ -524,7 +524,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 	private static JLabel createLabel(String text)
 	{
-		JLabel label = new JLabel(text);
+		JLabel label = new JLabel(LanguageBundle.getString(text));
 		label.setFont(labelFont);
 		return label;
 	}
@@ -534,12 +534,12 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		basicsPanel.removeAll();
 		GridBagConstraints gbc = new GridBagConstraints();
 		{
-			JLabel label = createLabel("Name:");
+			JLabel label = createLabel("in_sumName"); //$NON-NLS-1$
 			gbc.anchor = java.awt.GridBagConstraints.WEST;
 			gbc.insets = new Insets(0, 0, 3, 0);
 			basicsPanel.add(label, gbc);
 
-			random.setText("Random");
+			random.setText(LanguageBundle.getString("in_randomButton")); //$NON-NLS-1$
 			random.setMargin(new Insets(0, 0, 0, 0));
 			random.setFont(smallFont);
 			gbc.insets = new Insets(0, 2, 3, 2);
@@ -552,24 +552,24 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			basicsPanel.add(characterNameField, gbc);
 		}
 		Insets insets = new Insets(0, 0, 3, 2);
-		addGridBagLayer(basicsPanel, labelFont, insets, "Character Type:", characterTypeComboBox);
-		addGridBagLayer(basicsPanel, labelFont, insets, "Player:", playerNameField);
-		addGridBagLayer(basicsPanel, labelFont, insets, "Tab Label:", tabLabelField);
+		addGridBagLayer(basicsPanel, labelFont, insets, "in_sumCharType", characterTypeComboBox); //$NON-NLS-1$
+		addGridBagLayer(basicsPanel, labelFont, insets, "in_sumPlayer", playerNameField); //$NON-NLS-1$
+		addGridBagLayer(basicsPanel, labelFont, insets, "in_sumTabLabel", tabLabelField); //$NON-NLS-1$
 		if (genderComboBox.getModel().getSize() != 0)
 		{
-			addGridBagLayer(basicsPanel, labelFont, insets, "Gender:", genderComboBox);
+			addGridBagLayer(basicsPanel, labelFont, insets, "in_sumGender", genderComboBox); //$NON-NLS-1$
 		}
 		if (handsComboBox.getModel().getSize() != 0)
 		{
-			addGridBagLayer(basicsPanel, labelFont, insets, "Handed:", handsComboBox);
+			addGridBagLayer(basicsPanel, labelFont, insets, "in_sumHanded", handsComboBox); //$NON-NLS-1$
 		}
 		if (alignmentComboBox.getModel().getSize() != 0)
 		{
-			addGridBagLayer(basicsPanel, labelFont, insets, "Alignment:", alignmentComboBox);
+			addGridBagLayer(basicsPanel, labelFont, insets, "in_sumAlignment", alignmentComboBox); //$NON-NLS-1$
 		}
 		if (deityComboBox.getModel().getSize() != 0)
 		{
-			addGridBagLayer(basicsPanel, labelFont, insets, "Deity:", deityComboBox);
+			addGridBagLayer(basicsPanel, labelFont, insets, "in_domDeityLabel", deityComboBox); //$NON-NLS-1$
 		}
 
 		gbc = new GridBagConstraints();
@@ -585,7 +585,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	private void addGridBagLayer(JPanel panel, Font font, Insets insets, String text, JComponent comp)
 	{
 		GridBagConstraints gbc = new GridBagConstraints();
-		JLabel label = new JLabel(text);
+		JLabel label = new JLabel(LanguageBundle.getString(text));
 		label.setFont(font);
 		gbc.anchor = java.awt.GridBagConstraints.WEST;
 		gbc.gridwidth = 2;
@@ -606,26 +606,26 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	@Override
 	public void adviseTodo(String fieldName)
 	{
-		if ("Name".equals(fieldName))
+		if ("Name".equals(fieldName)) //$NON-NLS-1$
 		{
 			characterNameField.requestFocusInWindow();
 			characterNameField.selectAll();
 		}
-		else if ("Race".equals(fieldName))
+		else if ("Race".equals(fieldName)) //$NON-NLS-1$
 		{
 			raceComboBox.requestFocusInWindow();
 			highlightBorder(raceComboBox);
 		}
-		else if ("Class".equals(fieldName))
+		else if ("Class".equals(fieldName)) //$NON-NLS-1$
 		{
 			classComboBox.requestFocusInWindow();
 			highlightBorder(classComboBox);
 		}
-		else if ("Languages".equals(fieldName))
+		else if ("Languages".equals(fieldName)) //$NON-NLS-1$
 		{
 			highlightBorder(langScroll);
 		}
-		else if ("Ability Scores".equals(fieldName))
+		else if ("Ability Scores".equals(fieldName)) //$NON-NLS-1$
 		{
 			deityComboBox.requestFocusInWindow();
 			deityComboBox.transferFocus();
@@ -1143,7 +1143,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		{
 			this.character = character;
 			this.ref = character.getTotalHPRef();
-			putValue(NAME, "Edit");
+			putValue(NAME, LanguageBundle.getString("in_edit")); //$NON-NLS-1$
 		}
 
 		public void install()
@@ -1188,11 +1188,11 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		public void actionPerformed(ActionEvent e)
 		{
 			String gender =
-					character.getGenderRef().getReference() != null ? character.getGenderRef().getReference().toString() : "";
+					character.getGenderRef().getReference() != null ? character.getGenderRef().getReference().toString() : ""; //$NON-NLS-1$
 			RandomNameDialog dialog = new RandomNameDialog(frame, gender);
 			dialog.setVisible(true);
 			String chosenName = dialog.getChosenName();
-			if (chosenName != null && chosenName.length() > 0 && !chosenName.equals("Name"))
+			if (chosenName != null && chosenName.length() > 0 && !chosenName.equals(LanguageBundle.getString("in_rndNmDefault"))) //$NON-NLS-1$
 			{
 				character.setName(chosenName);
 			}
@@ -1214,7 +1214,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		public GenerateRollsAction(CharacterFacade character)
 		{
 			this.character = character;
-			putValue(NAME, LanguageBundle.getString("in_sumGenerate_Rolls"));
+			putValue(NAME, LanguageBundle.getString("in_sumGenerate_Rolls")); //$NON-NLS-1$
 			update();
 		}
 
@@ -1311,8 +1311,8 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 		public RollMethodAction(JFrame parent, CharacterFacade character)
 		{
-			putValue(NAME, LanguageBundle.getString("in_sumRoll_Method"));
-			putValue(SHORT_DESCRIPTION, LanguageBundle.getString("in_sumRoll_Method_Tip"));
+			putValue(NAME, LanguageBundle.getString("in_sumRoll_Method")); //$NON-NLS-1$
+			putValue(SHORT_DESCRIPTION, LanguageBundle.getString("in_sumRoll_Method_Tip")); //$NON-NLS-1$
 			this.parent = parent;
 			this.character = character;
 		}
@@ -1572,7 +1572,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	{
 
 		private CharacterFacade character;
-		private String lastDest = "";
+		private String lastDest = ""; //$NON-NLS-1$
 
 		/**
 		 * Create a new instance for the character.
@@ -1591,7 +1591,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		{
 			character.getTodoList().addListListener(this);
 			todoPane.addHyperlinkListener(this);
-			lastDest = "";
+			lastDest = ""; //$NON-NLS-1$
 			refreshTodoList();
 		}
 
@@ -1654,12 +1654,12 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			for (TodoFacade item : sortedTodos)
 			{
 				todoText.append(i++).append(". "); //$NON-NLS-1$
-				String fieldLoc =  item.getTab().name() + "/" + item.getFieldName();
+				String fieldLoc =  item.getTab().name() + "/" + item.getFieldName(); //$NON-NLS-1$
 				if (StringUtils.isNotEmpty(item.getSubTabName()))
 				{
-					fieldLoc +=  "/" + item.getSubTabName();
+					fieldLoc +=  "/" + item.getSubTabName(); //$NON-NLS-1$
 				}
-				todoText.append("<a href=\"" + fieldLoc + "\">");
+				todoText.append("<a href=\"" + fieldLoc + "\">"); //$NON-NLS-1$ //$NON-NLS-2$
 				if (item.getMessageKey().startsWith("in_")) //$NON-NLS-1$
 				{
 					todoText.append(LanguageBundle.getFormattedString(item.getMessageKey(), item.getFieldName()));
@@ -1682,11 +1682,11 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 				// We get two messages on a click, so ignore duplicates
 				if (lastDest.equals(e.getDescription()))
 				{
-					lastDest = "";
+					lastDest = ""; //$NON-NLS-1$
 					return;
 				}
 				lastDest = e.getDescription();
-				firePropertyChange(TodoFacade.SWITCH_TABS, "", e.getDescription());
+				firePropertyChange(TodoFacade.SWITCH_TABS, "", e.getDescription()); //$NON-NLS-1$
 			}
 		}
 
@@ -1700,7 +1700,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		{
 			if (aComponent == deityComboBox)
 			{
-				int column = statsTable.getColumn("EDITABLE").getModelIndex();
+				int column = statsTable.getColumn("EDITABLE").getModelIndex(); //$NON-NLS-1$
 				statsTable.editCellAt(0, column);
 				JSpinner spinner = (JSpinner) statsTable.getEditorComponent();
 				return ((JSpinner.DefaultEditor) spinner.getEditor()).getTextField();

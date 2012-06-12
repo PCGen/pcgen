@@ -87,6 +87,9 @@ import pcgen.system.LanguageBundle;
 public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
+	/** State key for storing the selected class. */
+	private static final String SELECTED_CLASS = "SelectedClass";
+	
 	/** The table of available classes */
 	private final FilteredTreeViewTable<Object, ClassFacade> availableTable;
 	/** The table of the character's classes */
@@ -107,8 +110,8 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		this.classTable = TableUtils.createDefaultTable();
 		this.addButton = new JButton();
 		this.removeButton = new JButton();
-		this.tabTitle = new TabTitle("in_clClass");
-		this.infoPane = new InfoPane(LanguageBundle.getString("in_clInfo"));
+		this.tabTitle = new TabTitle("in_clClass"); //$NON-NLS-1$
+		this.infoPane = new InfoPane(LanguageBundle.getString("in_clInfo")); //$NON-NLS-1$
 		this.spinner = new JSpinner(new SpinnerNumberModel(1, 1, 50, 1));
 		initComponents();
 	}
@@ -265,7 +268,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		CharacterLevelsFacade levels = character.getCharacterLevelsFacade();
 		if (levels.getSize() > 0)
 		{
-			state.put("SelectedClass", levels.getClassTaken(levels.getElementAt(0)));
+			state.put(SELECTED_CLASS, levels.getClassTaken(levels.getElementAt(0)));
 		}
 		return state;
 	}
@@ -275,7 +278,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	{
 		if (selectedClass != null)
 		{
-			state.put("SelectedClass", selectedClass);
+			state.put(SELECTED_CLASS, selectedClass);
 		}
 		((InfoHandler) state.get(InfoHandler.class)).uninstall();
 		((AddClassAction) state.get(AddClassAction.class)).uninstall();
@@ -296,7 +299,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		((InfoHandler) state.get(InfoHandler.class)).install();
 		((AddClassAction) state.get(AddClassAction.class)).install();
-		setSelectedClass((ClassFacade) state.get("SelectedClass"));
+		setSelectedClass((ClassFacade) state.get(SELECTED_CLASS));
 	}
 
 	@Override
@@ -374,7 +377,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	{
 
 		private final DataFlavor classFlavor = new DataFlavor(DataFlavor.javaJVMLocalObjectMimeType
-				+ ";class=" + ClassFacade.class.getName(), null);
+				+ ";class=" + ClassFacade.class.getName(), null); //$NON-NLS-1$
 
 		@Override
 		public int getSourceActions(JComponent c)
@@ -480,11 +483,11 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	{
 
 		private static final List<DefaultDataViewColumn> columns =
-				Arrays.asList(new DefaultDataViewColumn("in_clInfoHD", String.class),
-							  new DefaultDataViewColumn("in_clInfoType", String.class, true),
-							  new DefaultDataViewColumn("in_baseStat", String.class),
-							  new DefaultDataViewColumn("in_spellType", String.class),
-							  new DefaultDataViewColumn("in_source", String.class));
+				Arrays.asList(new DefaultDataViewColumn("in_clInfoHD", String.class), //$NON-NLS-1$
+							  new DefaultDataViewColumn("in_clInfoType", String.class, true), //$NON-NLS-1$
+							  new DefaultDataViewColumn("in_baseStat", String.class), //$NON-NLS-1$
+							  new DefaultDataViewColumn("in_spellType", String.class), //$NON-NLS-1$
+							  new DefaultDataViewColumn("in_source", String.class)); //$NON-NLS-1$
 		private static final ListFacade<? extends TreeView<ClassFacade>> treeviews =
 				new DefaultListFacade<TreeView<ClassFacade>>(Arrays.asList(ClassTreeView.values()));
 		private CharacterFacade character;
@@ -531,20 +534,20 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		public List<?> getData(ClassFacade obj)
 		{
 			return Arrays.asList(obj.getHD(), getTypes(obj),
-								 "None".equals(obj.getBaseStat()) ? "" : obj.getBaseStat(),
+								 "None".equals(obj.getBaseStat()) ? "" : obj.getBaseStat(), //$NON-NLS-1$ //$NON-NLS-2$
 								 obj.getSpellType(), obj.getSource());
 		}
 
 		private String getTypes(ClassFacade obj)
 		{
-			String ret = "";
+			String ret = ""; //$NON-NLS-1$
 			String[] types = obj.getTypes();
 			if (types != null && types.length > 0)
 			{
 				ret += types[0];
 				for (int x = 1; x < types.length; x++)
 				{
-					ret += ", " + types[x];
+					ret += ", " + types[x]; //$NON-NLS-1$
 				}
 			}
 			return ret;
@@ -559,9 +562,9 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		private static enum ClassTreeView implements TreeView<ClassFacade>
 		{
 
-			NAME("in_nameLabel"),
-			TYPE_NAME("in_typeName"),
-			SOURCE_NAME("in_sourceName");
+			NAME("in_nameLabel"), //$NON-NLS-1$
+			TYPE_NAME("in_typeName"), //$NON-NLS-1$
+			SOURCE_NAME("in_sourceName"); //$NON-NLS-1$
 			private String name;
 
 			private ClassTreeView(String nameKey)
@@ -610,9 +613,9 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		private static final String[] columns =
 		{
-			LanguageBundle.getString("in_level"),
-			LanguageBundle.getString("in_class"),
-			LanguageBundle.getString("in_source")
+			LanguageBundle.getString("in_level"), //$NON-NLS-1$
+			LanguageBundle.getString("in_class"), //$NON-NLS-1$
+			LanguageBundle.getString("in_source") //$NON-NLS-1$
 		};
 		private CharacterLevelsFacade model;
 

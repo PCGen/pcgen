@@ -107,8 +107,8 @@ import pcgen.system.LanguageBundle;
 public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
-	private static final Font LABEL_FONT = new Font("Verdana", Font.BOLD, 12);
-	private static final Font TEXT_FONT = new Font("Verdana", Font.PLAIN, 12);
+	private static final Font LABEL_FONT = new Font("Verdana", Font.BOLD, 12); //$NON-NLS-1$
+	private static final Font TEXT_FONT = new Font("Verdana", Font.PLAIN, 12); //$NON-NLS-1$
 	private static final Set<String> primaryTypes = new HashSet<String>();
 
 	private final FilteredTreeViewTable<CharacterFacade, EquipmentFacade> availableTable;
@@ -161,7 +161,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{// Filters
 				filterBar.addDisplayableFilter(new SearchFilterPanel());
 				FilterButton<CharacterFacade, EquipmentFacade> premadeFilter = new FilterButton<CharacterFacade, EquipmentFacade>();
-				premadeFilter.setText(LanguageBundle.getString("in_igQualFilter"));
+				premadeFilter.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
 				premadeFilter.setFilter(new Filter<CharacterFacade, EquipmentFacade>()
 				{
 
@@ -173,7 +173,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 				});
 				FilterButton<CharacterFacade, EquipmentFacade> customFilter = new FilterButton<CharacterFacade, EquipmentFacade>();
-				customFilter.setText(LanguageBundle.getString("in_igAffordFilter"));
+				customFilter.setText(LanguageBundle.getString("in_igAffordFilter")); //$NON-NLS-1$
 				customFilter.setFilter(new Filter<CharacterFacade, EquipmentFacade>()
 				{
 
@@ -239,7 +239,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			splitPane.setLeftComponent(panel);
 		}
 		{// Bottom Right Panel
-			infoPane.setTitle(LanguageBundle.getString("in_igEqInfo"));
+			infoPane.setTitle(LanguageBundle.getString("in_igEqInfo")); //$NON-NLS-1$
 			splitPane.setRightComponent(infoPane);
 		}
 		splitPane.setResizeWeight(.25);
@@ -279,7 +279,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		fullLineGbc.gridwidth = GridBagConstraints.REMAINDER;
 		fullLineGbc.fill = GridBagConstraints.HORIZONTAL;
 
-		JLabel label = new JLabel(LanguageBundle.getString("in_igValueLabel")); 
+		JLabel label = new JLabel(LanguageBundle.getString("in_igValueLabel"));  //$NON-NLS-1$
 		label.setFont(LABEL_FONT);
 		panel.add(label, leftGbc);
 		wealthLabel.setEditable(false);
@@ -289,7 +289,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		panel.add(wealthLabel, middleGbc);
 		panel.add(createCurrencyLabel(), rightGbc);
 
-		label = new JLabel(LanguageBundle.getString("in_igFundsLabel")); 
+		label = new JLabel(LanguageBundle.getString("in_igFundsLabel"));  //$NON-NLS-1$
 		label.setFont(LABEL_FONT);
 		panel.add(label, leftGbc);
 		goldField.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -299,7 +299,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		panel.add(goldField, middleGbc);
 		panel.add(createCurrencyLabel(), rightGbc);
 		
-		label = new JLabel(LanguageBundle.getString("in_igAddSubFundsLabel"));
+		label = new JLabel(LanguageBundle.getString("in_igAddSubFundsLabel")); //$NON-NLS-1$
 		label.setFont(LABEL_FONT);
 		panel.add(label, fullLineGbc);
 
@@ -318,11 +318,11 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		panel.add(goldModField, middleGbc);
 		panel.add(createCurrencyLabel(), rightGbc);
 		
-		label = new JLabel(LanguageBundle.getString("in_igBuySellRateLabel"));
+		label = new JLabel(LanguageBundle.getString("in_igBuySellRateLabel")); //$NON-NLS-1$
 		label.setFont(LABEL_FONT);
 		fullLineGbc.insets = new Insets(10, 2, 2, 2);
 		panel.add(label, fullLineGbc);
-		buySellRateBox.setPrototypeDisplayValue("QuiteLongPrototypeDisplayValue");
+		buySellRateBox.setPrototypeDisplayValue("QuiteLongPrototypeDisplayValue"); //$NON-NLS-1$
 		fullLineGbc.insets = new Insets(2, 2, 2, 2);
 		panel.add(buySellRateBox, fullLineGbc);
 
@@ -340,7 +340,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private JLabel createCurrencyLabel()
 	{
 		JLabel label;
-		label = new JLabel("");
+		label = new JLabel(""); //$NON-NLS-1$
 		label.setFont(TEXT_FONT);
 		currencyLabels.add(label);
 		return label;
@@ -464,7 +464,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	@Override
 	public TabTitle getTabTitle()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return new TabTitle("in_purchase"); //$NON-NLS-1$
 	}
 
 	private class AddAction extends AbstractAction
@@ -474,7 +474,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		public AddAction(CharacterFacade character)
 		{
-			super(LanguageBundle.getString("in_ieAddEq"));
+			super(LanguageBundle.getString("in_ieAddEq")); //$NON-NLS-1$
 			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
 			this.character = character;
 		}
@@ -519,7 +519,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		public AddCustomAction(CharacterFacade character)
 		{
-			super(LanguageBundle.getString("in_igAddCustom"));
+			super(LanguageBundle.getString("in_igAddCustom")); //$NON-NLS-1$
 			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
 			this.character = character;
 		}
@@ -554,7 +554,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		public UseAutoResizeAction(CharacterFacade character)
 		{
-			super(LanguageBundle.getString("in_igAutoResize"));
+			super(LanguageBundle.getString("in_igAutoResize")); //$NON-NLS-1$
 			this.character = character;
 		}
 
@@ -578,7 +578,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		public RemoveAction(CharacterFacade character)
 		{
-			super(LanguageBundle.getString("in_ieRemEq"));
+			super(LanguageBundle.getString("in_ieRemEq")); //$NON-NLS-1$
 			putValue(SMALL_ICON, Icons.Back16.getImageIcon());
 			this.character = character;
 		}
@@ -677,7 +677,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		public AllowDebtAction(CharacterFacade character)
 		{
-			super(LanguageBundle.getString("in_igAllowDebt"));
+			super(LanguageBundle.getString("in_igAllowDebt")); //$NON-NLS-1$
 			this.character = character;
 		}
 
@@ -785,8 +785,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		private static final ListFacade<? extends TreeView<EquipmentFacade>> treeviews =
 				new DefaultListFacade<TreeView<EquipmentFacade>>(Arrays.asList(EquipmentTreeView.values()));
 		private static final List<DefaultDataViewColumn> columns =
-				Arrays.asList(new DefaultDataViewColumn("in_igEqModelColCost", Float.class, true),
-							  new DefaultDataViewColumn("in_igEqModelColWeight", Float.class, true));
+				Arrays.asList(new DefaultDataViewColumn("in_igEqModelColCost", Float.class, true), //$NON-NLS-1$
+							  new DefaultDataViewColumn("in_igEqModelColWeight", Float.class, true)); //$NON-NLS-1$
 		private final CharacterFacade character;
 		private final ListFacade<EquipmentFacade> equipmentList;
 
@@ -863,9 +863,9 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		private final ListFacade<? extends TreeView<EquipmentFacade>> treeviews =
 				new DefaultListFacade<TreeView<EquipmentFacade>>(Arrays.asList(EquipmentTreeView.values()));
 		private final List<DefaultDataViewColumn> columns =
-				Arrays.asList(new DefaultDataViewColumn("in_igEqModelColCost", Float.class, true),
-							  new DefaultDataViewColumn("in_igEqModelColWeight", Float.class, false),
-							  new DefaultDataViewColumn("in_igEqModelColQty", Integer.class, true));
+				Arrays.asList(new DefaultDataViewColumn("in_igEqModelColCost", Float.class, true), //$NON-NLS-1$
+							  new DefaultDataViewColumn("in_igEqModelColWeight", Float.class, false), //$NON-NLS-1$
+							  new DefaultDataViewColumn("in_igEqModelColQty", Integer.class, true)); //$NON-NLS-1$
 		private final CharacterFacade character;
 		private final EquipmentListFacade equipmentList;
 

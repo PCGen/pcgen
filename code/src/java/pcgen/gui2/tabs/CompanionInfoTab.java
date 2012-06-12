@@ -72,6 +72,7 @@ import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.CharacterManager;
 import pcgen.system.ConfigurationSettings;
+import pcgen.system.LanguageBundle;
 import pcgen.util.Comparators;
 
 /**
@@ -138,7 +139,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		infoPane.setOpaque(false);
 		infoPane.setEditable(false);
 		infoPane.setFocusable(false);
-		infoPane.setContentType("text/html");
+		infoPane.setContentType("text/html"); //$NON-NLS-1$
 		rightPane.add(new JScrollPane(infoPane), BorderLayout.CENTER);
 		JPanel buttonPane = new JPanel(new FlowLayout());
 		buttonPane.add(loadButton);
@@ -235,7 +236,9 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 
 		public LoadButtonAndSheetHandler()
 		{
-			File sheet = FileUtils.getFile(ConfigurationSettings.getPreviewDir(), "companions", "compact_companion.htm");
+			File sheet =
+					FileUtils.getFile(ConfigurationSettings.getPreviewDir(),
+						"companions", "compact_companion.htm"); //$NON-NLS-1$ //$NON-NLS-2$
 			this.sheetSupport = new HtmlSheetSupport(infoPane, sheet.getAbsolutePath());
 			this.selectedRow = -1;
 			this.selectionModel = companionsTable.getSelectionModel();
@@ -273,12 +276,14 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			if (companion != null && isCompanionOpen(companion))
 			{
 				//configure action for show
-				this.putValue(Action.NAME, "Switch to");
+				this.putValue(Action.NAME,
+					LanguageBundle.getString("in_companionSwitchTo")); //$NON-NLS-1$
 			}
 			else
 			{
 				//configure action for load
-				this.putValue(Action.NAME, "Load Companion");
+				this.putValue(Action.NAME,
+					LanguageBundle.getString("in_companionLoadComp")); //$NON-NLS-1$
 			}
 		}
 
@@ -318,8 +323,9 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			}
 			else
 			{
-				//TODO: this should display a message telling the user to open the companion.
-				infoPane.setText("");
+				// Display a message telling the user to open the companion.
+				infoPane.setText(LanguageBundle
+					.getString("in_companionLoadCompanionMessage")); //$NON-NLS-1$
 			}
 		}
 
@@ -418,11 +424,12 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			value = table.getValueAt(row, 0);
 			if (value instanceof CompanionFacade)
 			{
-				button.setText("Remove");
+				button.setText(LanguageBundle.getString("in_companionRemove")); //$NON-NLS-1$
 			}
 			else
 			{
-				button.setText("Create New");
+				button.setText(LanguageBundle
+					.getString("in_companionCreateNew")); //$NON-NLS-1$
 			}
 			value = table.getValueAt(row, 1);
 			if (value instanceof Boolean)
@@ -442,8 +449,8 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			ActionListener
 	{
 
-		private static final String CREATE_COMMAND = "New";
-		private static final String REMOVE_COMMAND = "Remove";
+		private static final String CREATE_COMMAND = "New"; //$NON-NLS-1$
+		private static final String REMOVE_COMMAND = "Remove"; //$NON-NLS-1$
 		private final JButton button = new JButton();
 		private final JPanel container = new JPanel();
 		private final DefaultTableCellRenderer background = new DefaultTableCellRenderer();
@@ -482,12 +489,13 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			selectedElement = table.getValueAt(row, 0);
 			if (selectedElement instanceof CompanionFacade)
 			{
-				button.setText("Remove");
+				button.setText(LanguageBundle.getString("in_companionRemove")); //$NON-NLS-1$
 				button.setActionCommand(REMOVE_COMMAND);
 			}
 			else
 			{
-				button.setText("Create New");
+				button.setText(LanguageBundle
+					.getString("in_companionCreateNew")); //$NON-NLS-1$
 				button.setActionCommand(CREATE_COMMAND);
 			}
 			return container;
@@ -500,9 +508,14 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			if (REMOVE_COMMAND.equals(e.getActionCommand()))
 			{
 				CompanionFacade companion = (CompanionFacade) selectedElement;
-				int ret = JOptionPane.showConfirmDialog(button, "Are you sure you want to remove "
-						+ companion.getNameRef().getReference() + " as a companion?",
-														"Confirm Removal", JOptionPane.YES_NO_OPTION);
+				int ret =
+						JOptionPane.showConfirmDialog(button, LanguageBundle
+							.getFormattedString(
+								"in_companionConfirmRemovalMsg", companion //$NON-NLS-1$
+									.getNameRef().getReference()),
+							LanguageBundle
+								.getString("in_companionConfirmRemoval"), //$NON-NLS-1$
+							JOptionPane.YES_NO_OPTION);
 				if (ret == JOptionPane.YES_OPTION)
 				{
 					support.removeCompanion(companion);
@@ -570,7 +583,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 
 		private void initComponents()
 		{
-			setTitle("Select a Race");
+			setTitle(LanguageBundle.getString("in_companionSelectRace")); //$NON-NLS-1$
 			setLayout(new BorderLayout());
 			Container container = getContentPane();
 			{
@@ -623,7 +636,8 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		{
 			companionType = type;
 			model.setCompanionType(type);
-			selectButton.setText("Create " + type);
+			selectButton.setText(LanguageBundle.getFormattedString(
+				"in_companionCreateType", type)); //$NON-NLS-1$
 		}
 
 		private DefaultListFacade<CompanionTreeView> treeViews = new DefaultListFacade<CompanionTreeView>(
@@ -679,12 +693,12 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 	private enum CompanionTreeView implements TreeView<CompanionStubFacade>
 	{
 
-		NAME("Race");
+		NAME("in_race"); //$NON-NLS-1$
 		private String name;
 
 		private CompanionTreeView(String name)
 		{
-			this.name = name;
+			this.name = LanguageBundle.getString(name);
 		}
 
 		@Override
@@ -807,11 +821,12 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 				}
 			}
 
+			@SuppressWarnings("nls")
 			@Override
 			public String toString()
 			{
 				Integer max = maxMap.getValue(type);
-				String maxString = max == -1 ? "*" : max.toString();
+				String maxString = max == -1 ? "*" : max.toString(); 
 				return type + " (" + getChildCount() + "/" + maxString + ")";
 			}
 
@@ -936,7 +951,6 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			@Override
 			public void keyAdded(MapEvent<String, Integer> e)
 			{
-				@SuppressWarnings("unchecked")
 				int insertIndex = Collections.binarySearch(types, e.getKey(), Comparators.toStringIgnoreCaseCollator());
 				if (insertIndex < 0)
 				{

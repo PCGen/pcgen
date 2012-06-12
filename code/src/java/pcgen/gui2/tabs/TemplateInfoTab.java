@@ -70,7 +70,7 @@ import pcgen.system.LanguageBundle;
 public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
-	private final TabTitle tabTitle = new TabTitle("in_Templates");
+	private final TabTitle tabTitle = new TabTitle("in_Templates"); //$NON-NLS-1$
 	private final FilteredTreeViewTable<CharacterFacade, TemplateFacade> availableTable;
 	private final FilteredTreeViewTable<CharacterFacade, TemplateFacade> selectedTable;
 	private final JButton addButton;
@@ -83,7 +83,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		this.selectedTable = new FilteredTreeViewTable<CharacterFacade, TemplateFacade>();
 		this.addButton = new JButton();
 		this.removeButton = new JButton();
-		this.infoPane = new InfoPane("Template Info");
+		this.infoPane = new InfoPane("in_irTemplateInfo"); //$NON-NLS-1$
 		initComponents();
 	}
 
@@ -251,7 +251,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		public AddAction(CharacterFacade character)
 		{
-			super(LanguageBundle.getString("in_irAddTemplate"));
+			super(LanguageBundle.getString("in_irAddTemplate")); //$NON-NLS-1$
 			this.character = character;
 			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
 		}
@@ -289,7 +289,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		public RemoveAction(CharacterFacade character)
 		{
-			super(LanguageBundle.getString("in_irRemoveTemplate"));
+			super(LanguageBundle.getString("in_irRemoveTemplate")); //$NON-NLS-1$
 			this.character = character;
 			putValue(SMALL_ICON, Icons.Back16.getImageIcon());
 		}
@@ -345,18 +345,18 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 				templates.setFilter(this);
 				templates.setDelegate(character.getDataSet().getTemplates());
 				character.getTemplates().addListListener(this);
-				columns = Arrays.asList(new DefaultDataViewColumn("Lvl Adj", String.class, true),
-										new DefaultDataViewColumn("Modifier", String.class, true),
-										new DefaultDataViewColumn("Pre-Reqs", String.class, true),
-										new DefaultDataViewColumn("Source", String.class, false));
+				columns = Arrays.asList(new DefaultDataViewColumn("in_lvlAdj", String.class, true), //$NON-NLS-1$
+										new DefaultDataViewColumn("in_modifier", String.class, true), //$NON-NLS-1$
+										new DefaultDataViewColumn("in_preReqs", String.class, true), //$NON-NLS-1$
+										new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 			else
 			{
 				templates = null;
-				columns = Arrays.asList(new DefaultDataViewColumn("Lvl Adj", String.class, false),
-										new DefaultDataViewColumn("Modifier", String.class, false),
-										new DefaultDataViewColumn("Pre-Reqs", String.class, false),
-										new DefaultDataViewColumn("Source", String.class, false));
+				columns = Arrays.asList(new DefaultDataViewColumn("in_lvlAdj", String.class, false), //$NON-NLS-1$
+										new DefaultDataViewColumn("Modifier", String.class, false), //$NON-NLS-1$
+										new DefaultDataViewColumn("in_preReqs", String.class, false), //$NON-NLS-1$
+										new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 		}
 
@@ -450,14 +450,15 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private enum TemplateTreeView implements TreeView<TemplateFacade>
 	{
 
-		NAME("Name"),
-		TYPE_NAME("Type/Name"),
-		SOURCE_NAME("Source/Name");
+		NAME("in_nameLabel"), //$NON-NLS-1$
+		TYPE_NAME("in_typeName"), //$NON-NLS-1$
+		SOURCE_NAME("in_sourceName"); //$NON-NLS-1$
+		
 		private String name;
 
 		private TemplateTreeView(String name)
 		{
-			this.name = name;
+			this.name = LanguageBundle.getString(name);
 		}
 
 		@Override

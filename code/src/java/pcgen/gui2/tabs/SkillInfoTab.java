@@ -101,7 +101,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		this.infoPane = new InfoPane();
 		this.cFilterButton = new FilterButton<CharacterFacade, SkillFacade>();
 		this.trainedFilterButton = new FilterButton<CharacterFacade, SkillFacade>();
-		this.tabTitle = new TabTitle("in_skills");
+		this.tabTitle = new TabTitle("in_skills"); //$NON-NLS-1$
 		this.htmlPane = new JEditorPane();
 		initComponents();
 	}
@@ -112,7 +112,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		setResizeWeight(.70);
 
 		JSpinner spinner = new JSpinner();
-		spinner.setEditor(new JSpinner.NumberEditor(spinner, "#0.#"));
+		spinner.setEditor(new JSpinner.NumberEditor(spinner, "#0.#")); //$NON-NLS-1$
 		skillTable.setDefaultRenderer(Float.class, new SpinnerRenderer(spinner));
 		skillTable.setDefaultRenderer(Integer.class,
 			new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
@@ -122,11 +122,11 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		FilterBar<CharacterFacade, SkillFacade> filterBar = new FilterBar<CharacterFacade, SkillFacade>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 
-		cFilterButton.setText("Class");
+		cFilterButton.setText(LanguageBundle.getString("in_classString")); //$NON-NLS-1$
 		cFilterButton.setEnabled(false);
 		filterBar.addDisplayableFilter(cFilterButton);
 
-		trainedFilterButton.setText(LanguageBundle.getString("in_trained"));
+		trainedFilterButton.setText(LanguageBundle.getString("in_trained")); //$NON-NLS-1$
 		trainedFilterButton.setEnabled(false);
 		filterBar.addDisplayableFilter(trainedFilterButton);
 		JPanel availPanel = FilterUtilities.configureFilteredTreeViewPane(skillTable, filterBar);
@@ -149,7 +149,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		htmlPane.setOpaque(false);
 		htmlPane.setEditable(false);
 		htmlPane.setFocusable(false);
-		htmlPane.setContentType("text/html");
+		htmlPane.setContentType("text/html"); //$NON-NLS-1$
 		JScrollPane selScrollPane = new JScrollPane(htmlPane);
 		selScrollPane.setPreferredSize(new Dimension(530, 300));
 		
@@ -458,7 +458,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			this.model = model;
 
 			DefaultEditor editor = new DefaultEditor(spinner);
-			NumberFormatter formatter = new NumberFormatter(new DecimalFormat("#0.#"));
+			NumberFormatter formatter = new NumberFormatter(new DecimalFormat("#0.#")); //$NON-NLS-1$
 			formatter.setValueClass(Float.class);
 			DefaultFormatterFactory factory = new DefaultFormatterFactory(formatter);
 

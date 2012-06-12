@@ -32,6 +32,7 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import javax.swing.text.EditorKit;
 import pcgen.base.lang.UnreachableError;
+import pcgen.system.LanguageBundle;
 
 /**
  *
@@ -45,14 +46,19 @@ public class InfoPane extends JScrollPane
 
 	public InfoPane()
 	{
-		this("Info");
+		this("in_source_info"); //$NON-NLS-1$
 	}
 
 	public InfoPane(String title)
 	{
 		super(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
 			  ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		this.titledBorder = BorderFactory.createTitledBorder(null, title,
+		String name = title;
+		if (title.startsWith("in_")) //$NON-NLS-1$
+		{
+			name = LanguageBundle.getString(title);
+		}
+		this.titledBorder = BorderFactory.createTitledBorder(null, name,
 															 TitledBorder.CENTER,
 															 TitledBorder.DEFAULT_POSITION);
 		this.textPane = new JTextPane();
@@ -65,7 +71,7 @@ public class InfoPane extends JScrollPane
 
 		textPane.setEditable(false);
 		setViewportView(textPane);
-		textPane.setContentType("text/html");
+		textPane.setContentType("text/html"); //$NON-NLS-1$
 		setPreferredSize(new Dimension(300, 200));
 	}
 

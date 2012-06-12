@@ -81,6 +81,7 @@ import pcgen.gui2.util.SortMode;
 import pcgen.gui2.util.SortingPriority;
 import pcgen.gui2.util.table.DefaultDynamicTableColumnModel;
 import pcgen.gui2.util.table.DynamicTableColumnModel;
+import pcgen.system.LanguageBundle;
 
 /**
  * EquipInfoTab is a character tab for managing where gear is distributed for a 
@@ -97,11 +98,12 @@ import pcgen.gui2.util.table.DynamicTableColumnModel;
 public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
-	private static final DataFlavor equipNodeArrayFlavor = new DataFlavor(DataFlavor.javaJVMLocalObjectMimeType
-			+ ";class=\"" + EquipNode[].class.getName() + "\"", null);
-//	private static final Font labelFont = new Font("Verdana", Font.BOLD, 12);
+	private static final DataFlavor equipNodeArrayFlavor = new DataFlavor(
+		DataFlavor.javaJVMLocalObjectMimeType + ";class=\"" //$NON-NLS-1$
+			+ EquipNode[].class.getName() + "\"", null); //$NON-NLS-1$
+	//	private static final Font labelFont = new Font("Verdana", Font.BOLD, 12);
 //	private static final Font textFont = new Font("Verdana", Font.PLAIN, 12);
-	private static final Font smallFont = new Font("Verdana", Font.PLAIN, 10);
+	private static final Font smallFont = new Font("Verdana", Font.PLAIN, 10); //$NON-NLS-1$
 	private final JDynamicTable equipmentTable;
 	private final JComboBox equipViewBox;
 	private final JTreeTable equipmentSetTable;
@@ -159,10 +161,10 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		removeSetButton.setFont(smallFont);
 		removeSetButton.setMargin(new Insets(0, 0, 0, 0));
 
-		exportTemplateButton.setText("Export Template");
-		viewBrowserButton.setText("View in Browser");
-		exportFileButton.setText("Export to File");
-		setNoteButton.setText("Set Note");
+		exportTemplateButton.setText(LanguageBundle.getString("in_equipExportTemplate")); //$NON-NLS-1$
+		viewBrowserButton.setText(LanguageBundle.getString("in_equipViewBrowser")); //$NON-NLS-1$
+		exportFileButton.setText(LanguageBundle.getString("in_equipExportFile")); //$NON-NLS-1$
+		setNoteButton.setText(LanguageBundle.getString("in_equipSetNote")); //$NON-NLS-1$
 
 
 		setOrientation(HORIZONTAL_SPLIT);
@@ -172,7 +174,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		Box bar = Box.createHorizontalBox();
 		bar.add(Box.createHorizontalStrut(5));
-		bar.add(new JLabel("Equip View"));
+		bar.add(new JLabel(LanguageBundle.getString("in_equipView"))); //$NON-NLS-1$
 		bar.add(Box.createHorizontalStrut(5));
 		bar.add(equipViewBox);
 		bar.add(Box.createHorizontalStrut(5));
@@ -204,7 +206,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		Box equipPane = Box.createVerticalBox();
 		Box box = Box.createHorizontalBox();
 		box.add(Box.createHorizontalGlue());
-		box.add(new JLabel("Equip Set:"));
+		box.add(new JLabel(LanguageBundle.getString("in_equipSetLabel"))); //$NON-NLS-1$
 		box.add(Box.createHorizontalStrut(3));
 		box.add(equipSetBox);
 		box.add(Box.createHorizontalStrut(3));
@@ -212,11 +214,11 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		box.add(Box.createHorizontalStrut(3));
 		box.add(removeSetButton);
 		box.add(Box.createHorizontalGlue());
-		box.add(new JLabel("Weight:"));
+		box.add(new JLabel(LanguageBundle.getString("in_equipWeightLabel"))); //$NON-NLS-1$
 		box.add(Box.createHorizontalStrut(5));
 		box.add(weightLabel);
 		box.add(Box.createHorizontalGlue());
-		box.add(new JLabel("Load:"));
+		box.add(new JLabel(LanguageBundle.getString("in_equipLoadLabel"))); //$NON-NLS-1$
 		box.add(Box.createHorizontalStrut(5));
 		box.add(loadLabel);
 //		box.add(Box.createHorizontalGlue());
@@ -264,22 +266,22 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	{
 		DefaultDynamicTableColumnModel model = new DefaultDynamicTableColumnModel(1);
 		TableColumn column = new TableColumn(0);
-		column.setHeaderValue("Name");
+		column.setHeaderValue(LanguageBundle.getString("in_nameLabel")); //$NON-NLS-1$
 		model.addColumn(column);
 		column = new TableColumn(1);
-		column.setHeaderValue("Type");
+		column.setHeaderValue(LanguageBundle.getString("in_type")); //$NON-NLS-1$
 		model.addColumn(column);
 		model.setVisible(column, true);
 		column = new TableColumn(2);
-		column.setHeaderValue("Loc");
+		column.setHeaderValue(LanguageBundle.getString("in_equipLocationAbbrev")); //$NON-NLS-1$
 		model.addColumn(column);
 		model.setVisible(column, true);
 		column = new TableColumn(3);
-		column.setHeaderValue("Qty");
+		column.setHeaderValue(LanguageBundle.getString("in_equipQuantityAbbrev")); //$NON-NLS-1$
 		model.addColumn(column);
 		model.setVisible(column, true);
 		column = new TableColumn(4);
-		column.setHeaderValue("Wgt");
+		column.setHeaderValue(LanguageBundle.getString("in_equipWeightAbbrev")); //$NON-NLS-1$
 		model.addColumn(column);
 		model.setVisible(column, true);
 		return model;
@@ -333,7 +335,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	@Override
 	public TabTitle getTabTitle()
 	{
-		throw new UnsupportedOperationException("Not supported yet.");
+		return new TabTitle("in_equipping"); //$NON-NLS-1$
 	}
 
 	private class AddSetAction extends AbstractAction
@@ -343,7 +345,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		public AddSetAction(CharacterFacade character)
 		{
-			super("New");
+			super(LanguageBundle.getString("in_new")); //$NON-NLS-1$
 			this.character = character;
 		}
 
@@ -367,7 +369,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		public RemoveSetAction(CharacterFacade character)
 		{
-			super("Remove");
+			super(LanguageBundle.getString("in_remove")); //$NON-NLS-1$
 			this.character = character;
 		}
 
@@ -406,7 +408,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		public UnequipAllAction(CharacterFacade character)
 		{
-			super("Unequip All");
+			super(LanguageBundle.getString("in_equipUnequipAll")); //$NON-NLS-1$
 			this.character = character;
 		}
 
@@ -414,9 +416,11 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		public void actionPerformed(ActionEvent e)
 		{
 
-			int ret = JOptionPane.showConfirmDialog(EquipInfoTab.this,
-													"All items will be removed from your character",
-													"Are you sure?", JOptionPane.YES_NO_OPTION);
+			int ret =
+					JOptionPane.showConfirmDialog(EquipInfoTab.this,
+						LanguageBundle.getString("in_equipUnequipConfirm"), //$NON-NLS-1$
+						LanguageBundle.getString("in_areYouSure"), //$NON-NLS-1$
+						JOptionPane.YES_NO_OPTION);
 			if (ret == JOptionPane.YES_OPTION)
 			{
 				character.getEquipmentSetRef().getReference().removeAllEquipment();

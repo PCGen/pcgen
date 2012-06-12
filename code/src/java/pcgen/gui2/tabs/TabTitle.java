@@ -33,19 +33,19 @@ import pcgen.system.LanguageBundle;
 public class TabTitle
 {
 
-	public static final String FOREGROUND = "foreground";
-	public static final String BACKGROUND = "background";
-	public static final String ENABLED = "enabled";
-	public static final String TITLE = "title";
-	public static final String ICON = "icon";
-	public static final String TOOLTIP = "tooltip";
+	public static final String FOREGROUND = "foreground"; //$NON-NLS-1$
+	public static final String BACKGROUND = "background"; //$NON-NLS-1$
+	public static final String ENABLED = "enabled"; //$NON-NLS-1$
+	public static final String TITLE = "title"; //$NON-NLS-1$
+	public static final String ICON = "icon"; //$NON-NLS-1$
+	public static final String TOOLTIP = "tooltip"; //$NON-NLS-1$
 	private PropertyChangeSupport support;
 	private Hashtable<String, Object> table;
 
 	public TabTitle(String title)
 	{
 		this();
-		if (title.startsWith("in_"))
+		if (title.startsWith("in_")) //$NON-NLS-1$
 		{
 			putValue(TITLE, LanguageBundle.getString(title));
 		}

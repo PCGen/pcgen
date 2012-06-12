@@ -80,7 +80,7 @@ import pcgen.system.LanguageBundle;
 public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
-	private static final TabTitle title = new TabTitle(LanguageBundle.getString("in_races"));
+	private static final TabTitle title = new TabTitle(LanguageBundle.getString("in_races")); //$NON-NLS-1$
 	private final FilteredTreeViewTable<Object, RaceFacade> raceTable;
 	private final FilteredTreeViewTable<Object, RaceFacade> selectedTable;
 	private final InfoPane infoPane;
@@ -91,7 +91,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	{
 		this.raceTable = new FilteredTreeViewTable<Object, RaceFacade>();
 		this.selectedTable = new FilteredTreeViewTable<Object, RaceFacade>();
-		this.infoPane = new InfoPane(LanguageBundle.getString("in_irRaceInfo"));
+		this.infoPane = new InfoPane(LanguageBundle.getString("in_irRaceInfo")); //$NON-NLS-1$
 		this.selectRaceButton = new JButton();
 		this.removeButton = new JButton();
 		initComponents();
@@ -296,7 +296,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		public SelectRaceAction(CharacterFacade character)
 		{
-			super(LanguageBundle.getString("in_irSelectRace"));
+			super(LanguageBundle.getString("in_irSelectRace")); //$NON-NLS-1$
 			this.character = character;
 			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
 		}
@@ -330,7 +330,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		public RemoveRaceAction(CharacterFacade character)
 		{
-			super(LanguageBundle.getString("in_irUnselectRace"));
+			super(LanguageBundle.getString("in_irUnselectRace")); //$NON-NLS-1$
 			this.character = character;
 			putValue(SMALL_ICON, Icons.Back16.getImageIcon());
 		}
@@ -371,23 +371,23 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			if (isAvailModel)
 			{
 				columns =
-						Arrays.asList(new DefaultDataViewColumn("in_irTableStat", String.class, true),
-									  new DefaultDataViewColumn("in_preReqs", String.class),
-									  new DefaultDataViewColumn("in_size", String.class, true),
-									  new DefaultDataViewColumn("in_movement", String.class, true),
-									  new DefaultDataViewColumn("in_vision", String.class),
-									  new DefaultDataViewColumn("in_favoredClass", String.class, true),
-									  new DefaultDataViewColumn("in_lvlAdj", String.class, true));
+						Arrays.asList(new DefaultDataViewColumn("in_irTableStat", String.class, true), //$NON-NLS-1$
+									  new DefaultDataViewColumn("in_preReqs", String.class), //$NON-NLS-1$
+									  new DefaultDataViewColumn("in_size", String.class, true), //$NON-NLS-1$
+									  new DefaultDataViewColumn("in_movement", String.class, true), //$NON-NLS-1$
+									  new DefaultDataViewColumn("in_vision", String.class), //$NON-NLS-1$
+									  new DefaultDataViewColumn("in_favoredClass", String.class, true), //$NON-NLS-1$
+									  new DefaultDataViewColumn("in_lvlAdj", String.class, true)); //$NON-NLS-1$
 			}
 			else
 			{
-				columns = Arrays.asList(new DefaultDataViewColumn("in_irTableStat", String.class, false),
-										new DefaultDataViewColumn("in_preReqs", String.class, false),
-										new DefaultDataViewColumn("in_size", String.class, false),
-										new DefaultDataViewColumn("in_movement", String.class, false),
-										new DefaultDataViewColumn("in_vision", String.class, false),
-										new DefaultDataViewColumn("in_favoredClass", String.class, false),
-										new DefaultDataViewColumn("in_lvlAdj", String.class, false));
+				columns = Arrays.asList(new DefaultDataViewColumn("in_irTableStat", String.class, false), //$NON-NLS-1$
+										new DefaultDataViewColumn("in_preReqs", String.class, false), //$NON-NLS-1$
+										new DefaultDataViewColumn("in_size", String.class, false), //$NON-NLS-1$
+										new DefaultDataViewColumn("in_movement", String.class, false), //$NON-NLS-1$
+										new DefaultDataViewColumn("in_vision", String.class, false), //$NON-NLS-1$
+										new DefaultDataViewColumn("in_favoredClass", String.class, false), //$NON-NLS-1$
+										new DefaultDataViewColumn("in_lvlAdj", String.class, false)); //$NON-NLS-1$
 			}
 		}
 
