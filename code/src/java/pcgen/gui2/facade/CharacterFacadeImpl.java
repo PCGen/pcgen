@@ -666,6 +666,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				{
 					return;
 				}
+				Logging.log(Logging.INFO, theCharacter.getName()
+					+ ": Adding level " + (totalLevels + 1) //$NON-NLS-1$
+					+ " in class " + classFacade); //$NON-NLS-1$
 				theCharacter.incrementClassLevel(1, (PCClass) classFacade);
 				if (totalLevels == theCharacter.getTotalLevels())
 				{
@@ -1804,6 +1807,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		this.race.setReference(race);
 		if (race instanceof Race && race != theCharacter.getRace())
 		{
+			Logging.log(Logging.INFO, theCharacter.getName()
+				+ ": Setting race to " + race); //$NON-NLS-1$
 			theCharacter.setRace((Race) race);
 			raceList.clearContents();
 			if (race != Globals.s_EMPTYRACE)
@@ -3740,6 +3745,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 		if (!theCharacter.hasTemplate(template))
 		{
+			Logging.log(Logging.INFO, theCharacter.getName()
+				+ ": Adding template " + template); //$NON-NLS-1$
 			int oldLevel = charLevelsFacade.getSize();
 			templates.addElement(template);
 			theCharacter.addTemplate(template);
@@ -3981,6 +3988,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			return;
 		}
 
+		Logging.log(Logging.INFO, theCharacter.getName()
+			+ ": Testing kit " + kit); //$NON-NLS-1$
 		List<BaseKit> thingsToAdd = new ArrayList<BaseKit>();
 		List<String> warnings = new ArrayList<String>();
 		kit.testApplyKit(theCharacter, thingsToAdd, warnings);
@@ -3995,6 +4004,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 
 		// The user is applying the kit so use the real PC now.
+		Logging.log(Logging.INFO, theCharacter.getName()
+			+ ": Adding kit " + kit); //$NON-NLS-1$
 		kit.processKit(theCharacter, thingsToAdd);
 		kitList.addElement(obj);
 
