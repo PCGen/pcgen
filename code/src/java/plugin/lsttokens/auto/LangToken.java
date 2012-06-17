@@ -108,11 +108,20 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 			}
 		}
 
+		boolean firstToken = true;
 		tok = new StringTokenizer(lang, Constants.PIPE);
 		while (tok.hasMoreTokens())
 		{
 			String token = tok.nextToken();
-			if ("%LIST".equals(token))
+			if (Constants.LST_DOT_CLEAR.equals(token))
+			{
+				if (!firstToken)
+				{
+					return new ParseResult.Fail("Non-sensical situation was " + "encountered while parsing "
+							+ getTokenName() + ": When used, .CLEAR must be the first argument");
+				}
+				context.getObjectContext().removeList(obj, ListKey.AUTO_LANGUAGE);
+			} else if ("%LIST".equals(token))
 			{
 				ChooseResultActor cra;
 				if (prereq == null)
@@ -145,6 +154,7 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 				context.getObjectContext().addToList(obj, ListKey.AUTO_LANGUAGE,
 						new QualifiedObject<CDOMReference<Language>>(ref, prereq));
 			}
+			firstToken = false;
 		}
 
 		if (foundAny && foundOther)
