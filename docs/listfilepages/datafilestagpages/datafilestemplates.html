@@ -402,6 +402,7 @@
 
 <hr>
 
+	<p class="dep"><a name="LANGAUTO">*** Deprecated 5.17.15 - Use <a href="../globalfilestagpages/globalfilesother.html#AUTOLANG">AUTO:LANG</a> instead. Remove for 6.2.</a></p>
 	<p class="indent0"><strong><a name="LANGAUTO">Tag Name:</a></strong> LANGAUTO:x,x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Language Name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -419,6 +420,10 @@
 	<p class="indent2">Modified By: <code>Space Monkey.MOD &lt;tab&gt; LANGAUTO:Martian</code></p>
 	<p class="indent2">Is Equivalent To: <code>Space Monkey &lt;tab&gt; LANGAUTO:Simian,Martian</code>.</p>
 	<p class="indent3">The character is automatically granted the languages &quot;Simian&quot; and &quot;Martian&quot;.</p>
+	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
+	<p class="indent2"><code>LANGAUTO:Common,Gnome</code> becomes <code>AUTO:LANG|Common,Gnome</code></p>
+	<p class="indent2"><code>Gnome.MOD &lt;tab&gt; LANGAUTO:.CLEAR &lt;tab&gt; LANGAUTO:Low Coryani,Gnome</code> becomes</p>
+	<p class="indent3"> <code>Gnome.MOD &lt;tab&gt; LANGAUTO:.CLEAR &lt;tab&gt; AUTO:LANG|.CLEAR &lt;tab&gt; AUTO:LANG|Low Coryani,Gnome</code></p>
 	<p></p>
 
 <hr>

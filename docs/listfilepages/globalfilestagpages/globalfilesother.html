@@ -583,10 +583,8 @@
 	<p></p>
 
 <hr>
-<!--
+
 	<p class="dep"><a name="LANGAUTO">*** Deprecated 5.17.15 - Use <a href="#AUTOLANG">AUTO:LANG</a> instead. Remove for 6.2.</a></p>
--->
-	<p class="status"><a name="LANGAUTO">*** Updated 5.13.6</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> LANGAUTO:x,x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (&lt;Language Name&gt;)</p>
 	<p class="indent1"><strong>What it does:</strong> </p>
@@ -600,12 +598,10 @@
 	<p class="indent3">The language &quot;Remarian&quot; is added and then all languages are cleared, including the newly added &quot;Remarian&quot; and any free 
 		racial and class languages, and the languages &quot;Aeylamdyarian&quot;, &quot;Calisian&quot;, &quot;Desolati&quot;, &quot;Galkarnic&quot;, &quot;Homish&quot;, 
 		and &quot;Launhymian&quot; are granted by the <code>LANGBONUS</code> tag. Note that the >CLEAR should be performed first.</p>
-<!--
 	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
 	<p class="indent2"><code>LANGAUTO:Common,Gnome</code> becomes <code>AUTO:LANG|Common,Gnome</code></p>
-	<p class="indent2"><code>Gnome.MOD &lt;tab&gt; LANGAUTO:.CLEAR &lt;tab&gt; LANGAUTO:Low Coryani,Gnome</code></br> 
-		becomes <code>Gnome.MOD &lt;tab&gt; LANGAUTO:.CLEAR &lt;tab&gt; AUTO:LANG|.CLEAR &lt;tab&gt; AUTO:LANG|Low Coryani,Gnome</code></p>
--->
+	<p class="indent2"><code>Gnome.MOD &lt;tab&gt; LANGAUTO:.CLEAR &lt;tab&gt; LANGAUTO:Low Coryani,Gnome</code> becomes</p>
+	<p class="indent3"> <code>Gnome.MOD &lt;tab&gt; LANGAUTO:.CLEAR &lt;tab&gt; AUTO:LANG|.CLEAR &lt;tab&gt; AUTO:LANG|Low Coryani,Gnome</code></p>
 	<p></p>
 
 <hr>
