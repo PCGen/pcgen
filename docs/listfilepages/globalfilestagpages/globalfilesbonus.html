@@ -775,129 +775,7 @@
 	<p class="indent2"><code>BONUS:DC|TYPE.Arcane|3</code></p>
 	<p class="indent3">Adds 3 to arcane spell DCs.</p>
 	<p></p>
-<!--
-		
-<hr>
 
-	<p class="status"><a name="DC">*** Updated 5.5.5</a></p>
-	<p class="indent0"><strong>Tag Name:</strong> BONUS:DC|SPELL.x|y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell name)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (DC increase)</p>
-	<p class="indent1"><strong>What it Does:</strong></p>
-	<p class="indent2">Adds to the DC (Difficulty Class) of a specific spell.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>BONUS:DC|SPELL.Fireball|7</code></p>
-	<p class="indent3">Adds 7 to the DC of the spell Fireball.</p>
-	<p class="indent2"><code>CHOOSE:SCHOOLS|1 &lt;tab&gt; BONUS:DC|SCHOOL.%LIST|1</code></p>
-	<p class="indent3">Choose 1 School and add 1 to its DC.</p>
-	<p></p>
-
-<hr>
-
-	<p class="status"><a name="DCALLSPELLS">*** Updated 5.3.3</a> - Replaces the deprecated ALL tag</p>
-	<p class="indent0"><strong>Tag Name:</strong> BONUS:DC|ALLSPELLS|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (DC increase)</p>
-	<p class="indent1"><strong>What it Does:</strong></p>
-	<p class="indent2">Adds to the DC (Difficulty Class) of all spells.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>BONUS:DC|ALLSPELLS|1</code></p>
-	<p class="indent3">Adds 1 to the DC of all spells.</p>
-	<p></p>
-
-<hr>
-
-	<p class="indent0"><strong><a name="DCCLASS">Tag Name:</a></strong> BONUS:DC|CLASS.x|y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of class)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (DC increase)</p>
-	<p class="indent1"><strong>What it Does:</strong></p>
-	<p class="indent2">Adds to the DC (Difficulty Class) of spells of the specified caster class.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>BONUS:DC|CLASS.Sorcerer|2</code></p>
-	<p class="indent3">Adds 2 to the DC of sorcerer spells.</p>
-	<p></p>
-
-<hr>
-
-	<p class="indent0"><strong><a name="DCDESCRIPTOR">Tag Name:</a></strong> BONUS:DC|DESCRIPTOR.x|y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of descriptor)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (DC increase)</p>
-	<p class="indent1"><strong>What it Does:</strong></p>
-	<p class="indent2">Adds to the DC (Difficulty Class) of spells with the specified descriptor.</p>
-	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>BONUS:DC|DESCRIPTOR.Law|4</code></p>
-	<p class="indent3">Adds 4 to the DC of any spells with the Law descriptor.</p>
-	<p class="indent2"><code>BONUS:DC|DESCRIPTOR.Law,DOMAIN.Law|3</code></p>
-	<p class="indent3">Adds 3 to the DC of any spells with the Law domain or descriptor and
-		would add 6 to a spell with both the Law Domain and Law Descriptor.</p>
-	<p></p>
-
-<hr>
-
-	<p class="indent0"><strong><a name="DCDOMAIN">Tag Name:</a></strong> BONUS:DC|DOMAIN.x|y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of domain)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (DC increase)</p>
-	<p class="indent1"><strong>What it Does:</strong></p>
-	<p class="indent2">Adds to the DC (Difficulty Class) of spells with the specified domain.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>BONUS:DC|DOMAIN.War|6</code></p>
-	<p class="indent3">Adds 6 to the DC of War Domain spells.</p>
-	<p class="indent2"><code>MULT:YES &lt;tab&gt; CHOOSE:Afterlife|Air|Ancestor|Animal|Artificer|Binding|Cavern|Charm|Cold|Commerce|Daemonology|Death|Destruction|Disease|Divination|Earth|Fate|Fire|Glory|Healing|Holy|Honor|Knowledge|Luck|Magic|Murder|Music|Nature|Oath|Pain|Plant|Pleasure|Protection|Refuge|Saurian|Sea|Secrets|Senses|Storm|Strength|Subterfuge|Suffering|Sun|Trickery|Undead|War|Water &lt;tab&gt; BONUS:DC|DOMAIN.%LIST|1</code></p>
-	<p class="indent3">A chooser to add 1 to the DC of Domain spells, may be used multiple times.</p>
-	<p></p>
-
-<hr>
-
-	<p class="status"><a name="DCFEATBONUS">*** Updated 5.9.3</a></p>
-	<p class="indent0"><strong>Tag Name:</strong> BONUS:DC|FEATBONUS|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (DC increase)</p>
-	<p class="indent1"><strong>What it Does:</strong></p>
-	<p class="indent2">Adds to the DC (Difficulty Class) of spells by increasing the spell's actual level.</p>
-	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>BONUS:DC|FEATBONUS|1</code></p>
-	<p class="indent3">Adds 1 to the DC of spells that this bonus applies to by raising the spell's level by 1. The Heighten Spell metamagic feat is an example of where this is used.</p>
-	<p></p>
-
-<hr>
-
-	<p class="indent0"><strong><a name="DCSCHOOL">Tag Name:</a></strong> BONUS:DC|SCHOOL.x|y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of school)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (DC increase)</p>
-	<p class="indent1"><strong>What it Does:</strong></p>
-	<p class="indent2">Adds to the DC (Difficulty Class) of spells of the specified spell school.</p>
-	<p class="indent2">TYPE.xxx for reference, TYPE=xxx for assignment.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>BONUS:DC|SCHOOL.Enchantment|2</code></p>
-	<p class="indent3">Adds 2 to Enchantment school spells.</p>
-	<p class="indent2"><code>MULT:YES &lt;tab&gt; CHOOSE:FEAT=Psionic Focus|1 &lt;tab&gt; BONUS:DC|SCHOOL.%LIST|2|TYPE=Psychic</code></p>
-	<p class="indent3">Adds 2 to Psychic school focus.</p>
-	<p class="indent2"><code>BONUS:DC|SCHOOL.Telepathy|SPELLSTAT-CHA|TYPE=Subdiscipline</code></p>
-	<p class="indent3">Subtracts the Chrisma Modifier to Telepathy School Subdiscipline.</p>
-	<p></p>
-
-<hr>
-
-	<p class="indent0"><strong><a name="DCSUBSCHOOL">Tag Name:</a></strong> BONUS:DC|SUBSCHOOL.x|y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of subschool)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (DC increase)</p>
-	<p class="indent1"><strong>What it Does:</strong></p>
-	<p class="indent2">Adds to the DC (Difficulty Class) of spells of the specified spell subschool.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>BONUS:DC|SUBSCHOOL.something|5</code></p>
-	<p class="indent3">Adds 5 to the any spell with a subschool of &quot;something&quot;.</p>
-	<p></p>
-
-<hr>
-
-	<p class="indent0"><strong><a name="DCTYPE">Tag Name:</a></strong> BONUS:DC|TYPE.x|y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell type)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (DC increase)</p>
-	<p class="indent1"><strong>What it Does:</strong></p>
-	<p class="indent2">Adds to the DC (Difficulty Class) of spells of the specified spell type.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>BONUS:DC|TYPE.Arcane|3</code></p>
-	<p class="indent3">Adds 3 to arcane spell DCs.</p>
-	<p></p>
--->
 <hr>
 
 	<p class="indent0"><strong><a name="DR">Tag Name:</a></strong> BONUS:DR|x|y</p>
@@ -978,32 +856,27 @@
 
 <hr>
 
-	<p class="indent0"><strong><a name="HPALTHP">Tag Name:</a></strong> BONUS:HP|ALTHP|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to secondary 			hit points, as defined in miscinfo.lst)</p>
+	<p class="indent0"><strong><a name="HP">Tag Name:</a></strong> BONUS:HP|x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALTHP</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> CURRENTMAX</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add to hit points, as defined in miscinfo.lst)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
-	<p class="indent2">Adds to secondary Hit Points.</p>
+	<ul class="indent2">
+		<li>Adds to the number of either the current maximum (<strong>CURRENTMAX</strong>) hit points or to the secondary (<strong>ALTHP</strong>) hit points.</li>
+		<li>Both <strong>CURRENTMAX</strong> and <strong>ALTHP</strong> hit points are defined in the <span class="lstfile">miscinfo.lst</span> file.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:HP|ALTHP|3</code></p>
 	<p class="indent3">Adds three to total the secondary hit points.</p>
 	<p class="indent2"><code>BONUS:HP|ALTHP|5|TYPE=Species</code></p>
 	<p class="indent3">Adds five to total the secondary hit points for species reasons.</p>
-	<p></p>
-
-<hr>
-
-	<p class="indent0"><strong><a name="HPCURRENTMAX">Tag Name:</a></strong> BONUS:HP|CURRENTMAX|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to
-		hit points)</p>
-	<p class="indent1"><strong>What it Does:</strong></p>
-	<p class="indent2">Adds to total Hit Points.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2">BONUS:HP|CURRENTMAX|2</p>
+	<p class="indent2"><code>BONUS:HP|CURRENTMAX|2</code></p>
 	<p class="indent3">Character gains two additional hit points.</p>
-	<p class="indent2">STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt; CHOOSE:NUMCHOICES=1|STAT|CON
-		&lt;tab&gt; BONUS:HP|CURRENTMAX|%LIST-CON</p>
+	<p class="indent2"><code>STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt; CHOOSE:NUMCHOICES=1|STAT|CON
+		&lt;tab&gt; BONUS:HP|CURRENTMAX|%LIST-CON</code></p>
 	<p class="indent3">Character gains between 1 and CON Bonus additional hit points, can be used multiple
 		time, does not stack.</p>
-	<p class="indent2">BONUS:HP|CURRENTMAX|AidSoulHitPoints*%CHOICE|TYPE=Temporary|PREAPPLY:PC</p>
+	<p class="indent2"><code>BONUS:HP|CURRENTMAX|AidSoulHitPoints*%CHOICE|TYPE=Temporary|PREAPPLY:PC</code></p>
 	<p class="indent3">Character gains additional hit points temporary based on the calculation.</p>
 	<p></p>
 
@@ -1068,68 +941,7 @@
 	<p class="indent2"><code>BONUS:MISC|SR|10+CL|TYPE=EbonLink</code></p>
 	<p class="indent3">Adds 10 plus the Character Level to the spell resistance due to EbonLink.</p>
 	<p></p>
-<!--
-<hr>
 
-	<p class="indent0"><strong><a name="MISCACCHECK">Tag Name:</a></strong> BONUS:MISC|ACCHECK|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to armor check)</p>
-	<p class="indent1"><strong>What it Does:</strong></p>
-	<p class="indent2">Modifies the characters armor check.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>BONUS:MISC|ACCHECK|1</code></p>
-	<p class="indent3">Adds one to total Armor Check.</p>
-	<p></p>
-
-<hr>
-
-	<p class="status"><a name="MISCCR">*** New 5.13.6</a></p>
-	<p class="indent0"><strong>Tag Name:</strong> BONUS:MISC|CR|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to challange rating)</p>
-	<p class="indent1"><strong>What it Does:</strong></p>
-	<p class="indent2">Modifies the characters challange rating.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>BONUS:MISC|CR|2</code></p>
-	<p class="indent3">Adds 2 to the challange rating.</p>
-	<p></p>
-
-<hr>
-
-	<p class="indent0"><strong><a name="MISCMAXDEX">Tag Name:</a></strong> BONUS:MISC|MAXDEX|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to the maximum dexterity)</p>
-	<p class="indent1"><strong>What it Does:</strong></p>
-	<p class="indent2">Modifies the characters maximum dexterity armor penalty.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>BONUS:MISC|MAXDEX|1</code></p>
-	<p class="indent3">Adds one to total Maximum Dex allowed while wearing armor.</p>
-	<p></p>
-
-<hr>
-
-	<p class="indent0"><strong><a name="MISCSPELLFAILURE">Tag Name:</a></strong> BONUS:MISC|SPELLFAILURE|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to the
-		spell failure percentage)</p>
-	<p class="indent1"><strong>What it Does:</strong></p>
-	<p class="indent2">Modifies the characters spell failure armor penalty.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>BONUS:MISC|SPELLFAILURE|5</code></p>
-	<p class="indent3">Adds 5% to Spell Failure chance.</p>
-	<p class="indent2"><code>BONUS:MISC|SPELLFAILURE|20|PREEQUIP:2,TYPE=Armor,TYPE=Light</code></p>
-	<p class="indent3">Adds 20% to Spell Failure chance if equipped with light armor.</p>
-	<p></p>
-
-<hr>
-
-	<p class="indent0"><strong><a name="MISCSR">Tag Name:</a></strong> BONUS:MISC|SR|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to spell resistance)</p>
-	<p class="indent1"><strong>What it Does:</strong></p>
-	<p class="indent2">Modifies the characters spell resistance.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>BONUS:MISC|SR|10</code></p>
-	<p class="indent3">Adds 10 to the spell resistance.</p>
-	<p class="indent2"><code>BONUS:MISC|SR|10+CL|TYPE=EbonLink</code></p>
-	<p class="indent3">Adds 10 plus the Character Level to the spell resistance due to EbonLink.</p>
-	<p></p>
--->
 <hr>
 
 	<p class="dep"><a name="MOVE">*** Deprecated 4.3.8</a> - Remove 6.0 - Use <a href="#MOVEADD">BONUS:MOVEADD</a> or
