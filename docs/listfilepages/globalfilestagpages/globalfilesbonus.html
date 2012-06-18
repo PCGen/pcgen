@@ -1039,6 +1039,38 @@
 	
 <hr>
 
+	<p class="status"><a name="MISC">*** Updated 5.13.6</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> BONUS:MISC|x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ACCHECKS</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> CR</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> MAXDEX</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SPELLFAILURE</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SR</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to apply as a bonus)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<p class="indent2">Modifies the parameter specified:</p>
+	<ul class="indent2">
+		<li><strong>ACCHECK</strong> - Armor Check Penalty</li>
+		<li><strong>CR</strong> - Challenge Rating</li>
+		<li><strong>MAXDEX</strong> - Maximum Dexterity Bonus</li>
+		<li><strong>SPELLFAILURE</strong> - Arcane Spell Failure</li>
+		<li><strong>SR</strong> - Spell Resistance</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>BONUS:MISC|ACCHECK|1</code></p>
+	<p class="indent3">Adds one to total Armor Check.</p>
+	<p class="indent2"><code>BONUS:MISC|CR|2</code></p>
+	<p class="indent3">Adds 2 to the challange rating.</p>
+	<p class="indent2"><code>BONUS:MISC|MAXDEX|1</code></p>
+	<p class="indent3">Adds one to total Maximum Dex allowed while wearing armor.</p>
+	<p class="indent2"><code>BONUS:MISC|SPELLFAILURE|20|PREEQUIP:2,TYPE=Armor,TYPE=Light</code></p>
+	<p class="indent3">Adds 20% to Spell Failure chance if equipped with light armor.</p>
+	<p class="indent2"><code>BONUS:MISC|SR|10+CL|TYPE=EbonLink</code></p>
+	<p class="indent3">Adds 10 plus the Character Level to the spell resistance due to EbonLink.</p>
+	<p></p>
+<!--
+<hr>
+
 	<p class="indent0"><strong><a name="MISCACCHECK">Tag Name:</a></strong> BONUS:MISC|ACCHECK|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add to armor check)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
@@ -1097,7 +1129,7 @@
 	<p class="indent2"><code>BONUS:MISC|SR|10+CL|TYPE=EbonLink</code></p>
 	<p class="indent3">Adds 10 plus the Character Level to the spell resistance due to EbonLink.</p>
 	<p></p>
-
+-->
 <hr>
 
 	<p class="dep"><a name="MOVE">*** Deprecated 4.3.8</a> - Remove 6.0 - Use <a href="#MOVEADD">BONUS:MOVEADD</a> or
