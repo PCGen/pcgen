@@ -130,7 +130,7 @@ Scroll (Clairaudience/Clairvoyance)											TYPE:Magic.Scroll.Arcane.Consumabl
 Scroll (Daylight/Arcane)				OUTPUTNAME:Scroll (Daylight)				TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:.01	SOURCEPAGE:p.490
 Scroll (Deep Slumber)													TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:.01	SOURCEPAGE:p.490
 Scroll (Dispel Magic/Arcane)				OUTPUTNAME:Scroll (Dispel Magic)			TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:.01	SOURCEPAGE:p.490
-Scroll (Displacem/Arcaneent)												TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:.01	SOURCEPAGE:p.490
+Scroll (Displacement)													TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:.01	SOURCEPAGE:p.490
 Scroll (Explosive Runes)												TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:.01	SOURCEPAGE:p.490
 Scroll (Fireball)														TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:.01	SOURCEPAGE:p.490
 Scroll (Flame Arrow)													TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:.01	SOURCEPAGE:p.490
