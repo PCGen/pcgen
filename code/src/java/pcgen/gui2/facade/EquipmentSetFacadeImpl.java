@@ -971,7 +971,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 			}
 		}
 		
-		return "Other";
+		return LanguageBundle.getString("in_other"); //$NON-NLS-1$
 	}
 
 	/**

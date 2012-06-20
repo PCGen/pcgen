@@ -1393,7 +1393,7 @@ public class Gui2InfoFactory implements InfoFactory
 				.valueOf(SpellPoint.getSPCostStrings(pc, aSpell)));
 		}
 		b.appendLineBreak();
-		b.appendI18nElement("in_descrip", pc.parseSpellString(cs, 
+		b.appendI18nElement("in_descrip", pc.parseSpellString(cs,  //$NON-NLS-1$
 			pc.getDescription(aSpell)));
 
 		final String cString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,

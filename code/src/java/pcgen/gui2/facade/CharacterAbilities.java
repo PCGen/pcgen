@@ -383,20 +383,20 @@ public class CharacterAbilities
 		{
 			todoManager.addTodo(new TodoFacadeImpl(
 				CharacterTab.FeatsAbilitiesTab, category.getDisplayName(),
-				"in_featTodoTooMany", category.getType(), 1));
-			todoManager.removeTodo("in_featTodoRemain", category.getDisplayName());
+				"in_featTodoTooMany", category.getType(), 1)); //$NON-NLS-1$
+			todoManager.removeTodo("in_featTodoRemain", category.getDisplayName()); //$NON-NLS-1$
 		}
 		else if (numSelections > 0)
 		{
 			todoManager.addTodo(new TodoFacadeImpl(
 				CharacterTab.FeatsAbilitiesTab, category.getDisplayName(),
-				"in_featTodoRemain", category.getType(), 1));
-			todoManager.removeTodo("in_featTodoTooMany", category.getDisplayName());
+				"in_featTodoRemain", category.getType(), 1)); //$NON-NLS-1$
+			todoManager.removeTodo("in_featTodoTooMany", category.getDisplayName()); //$NON-NLS-1$
 		}
 		else
 		{
-			todoManager.removeTodo("in_featTodoRemain", category.getDisplayName());
-			todoManager.removeTodo("in_featTodoTooMany", category.getDisplayName());
+			todoManager.removeTodo("in_featTodoRemain", category.getDisplayName()); //$NON-NLS-1$
+			todoManager.removeTodo("in_featTodoTooMany", category.getDisplayName()); //$NON-NLS-1$
 		}
 	}
 	
@@ -526,7 +526,7 @@ public class CharacterAbilities
 		{
 			Logging.errorPrint("Failed to add ability due to ", exc);
 			ShowMessageDelegate.showMessageDialog(LanguageBundle
-				.getFormattedString("in_iayAddAbility", exc.getMessage()),
+				.getFormattedString("in_iayAddAbility", exc.getMessage()), //$NON-NLS-1$
 				Constants.APPLICATION_NAME, MessageType.ERROR);
 		}
 
@@ -642,9 +642,9 @@ public class CharacterAbilities
 		}
 		catch (Exception exc)
 		{
-			Logging.errorPrintLocalised("in_iayFailedToRemoveAbility", exc);
+			Logging.errorPrintLocalised("in_iayFailedToRemoveAbility", exc); //$NON-NLS-1$
 			delegate.showErrorMessage(Constants.APPLICATION_NAME, LanguageBundle
-				.getString("in_iayRemoveAbility")
+				.getString("in_iayRemoveAbility") //$NON-NLS-1$
 				+ ": " + exc.getMessage());
 			return;
 		}
@@ -884,7 +884,7 @@ public class CharacterAbilities
 		if (pcHasIt && !ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
 			delegate.showErrorMessage(Constants.APPLICATION_NAME, LanguageBundle
-				.getString("InfoAbility.Messages.Duplicate"));
+				.getString("InfoAbility.Messages.Duplicate")); //$NON-NLS-1$
 			return false;
 		}
 
@@ -895,7 +895,7 @@ public class CharacterAbilities
 			&& !Globals.checkRule(RuleConstants.FEATPRE))
 		{
 			delegate.showErrorMessage(Constants.APPLICATION_NAME, LanguageBundle
-				.getString("InfoAbility.Messages.NotQualified"));
+				.getString("InfoAbility.Messages.NotQualified")); //$NON-NLS-1$
 			return false;
 		}
 
@@ -906,7 +906,7 @@ public class CharacterAbilities
 				.getAvailableAbilityPool(theCategory)) > 0)
 			{
 				delegate.showErrorMessage(Constants.APPLICATION_NAME, LanguageBundle
-					.getString("InfoAbility.Messages.NoPoints"));
+					.getString("InfoAbility.Messages.NoPoints")); //$NON-NLS-1$
 				return false;
 			}
 		}

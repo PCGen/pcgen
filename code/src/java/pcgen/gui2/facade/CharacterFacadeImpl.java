@@ -423,8 +423,10 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			}
 		}
 
-		GearBuySellScheme scheme = new GearBuySellScheme("Custom", new BigDecimal(buyRate), new BigDecimal(sellRate),
-				new BigDecimal(100));
+		GearBuySellScheme scheme =
+				new GearBuySellScheme(LanguageBundle.getString("in_custom"), //$NON-NLS-1$
+					new BigDecimal(buyRate), new BigDecimal(sellRate),
+					new BigDecimal(100));
 		return scheme;
 	}
 
@@ -2427,13 +2429,15 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Ability.class, AbilityCategory.LANGBONUS,
 				"*LANGBONUS");
 		DefaultListFacade<LanguageChooserFacade> chooserList = new DefaultListFacade<LanguageChooserFacade>();
-		chooserList.addElement(new LanguageChooserFacadeImpl(this, "Bonus Language", a));
+		chooserList.addElement(new LanguageChooserFacadeImpl(this,
+			LanguageBundle.getString("in_sumLangBonus"), a)); //$NON-NLS-1$
 
 		SkillFacade speakLangSkill = dataSet.getSpeakLanguageSkill();
 		if (speakLangSkill != null)
 		{
-			chooserList.addElement(new LanguageChooserFacadeImpl(this, "Language via Skill points",
-					(Skill) speakLangSkill));
+			chooserList.addElement(new LanguageChooserFacadeImpl(this,
+				LanguageBundle.getString("in_sumLangSkill"), //$NON-NLS-1$
+				(Skill) speakLangSkill));
 		}
 		return chooserList;
 	}

@@ -43,6 +43,7 @@ import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.persistence.PersistenceManager;
 import pcgen.persistence.lst.CampaignSourceEntry;
+import pcgen.system.LanguageBundle;
 
 /**
  * The Class <code>Gui2CampaignInfoFactory</code> is responsible for producing 
@@ -114,42 +115,45 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 			bString = SourceFormat.getFormattedString(aCamp,
 					SourceFormat.LONG, true);
 		}
-		infoText.appendElement("SOURCE", bString);
-		infoText.append(" <b>by</b> ");
-		infoText.append(aCamp.getSafe(StringKey.PUB_NAME_LONG));
+		infoText.appendI18nElement("in_sumSource", bString); //$NON-NLS-1$
+		infoText.appendI18nFormattedElement("in_infByPub", //$NON-NLS-1$
+			aCamp.getSafe(StringKey.PUB_NAME_LONG));
 		infoText.appendLineBreak();
 
 		// Add the data set release status
 		Status status = aCamp.getSafe(ObjectKey.STATUS);
-		infoText.appendElement("STATUS", "<font color=\"#" + Integer.toHexString(status.getColor()) + "\">" + status + "</font>");
+		infoText.appendI18nElement("in_infStatus", //$NON-NLS-1$
+			"<font color=\"#" + Integer.toHexString(status.getColor()) + "\">" //$NON-NLS-1$ //$NON-NLS-2$
+				+ status + "</font>"); //$NON-NLS-1$
 		infoText.appendLineBreak();
 			
 		String descr = aCamp.get(StringKey.DESCRIPTION);
 		if (descr != null)
 		{
-			infoText.appendElement("DESCRIPTION", descr);
+			infoText.appendI18nElement("in_infDesc", descr); //$NON-NLS-1$
 			infoText.appendLineBreak();
 		}
 		// Add the website URLs
 		List<CampaignURL> webURLs = getUrlListForKind(aCamp, URLKind.WEBSITE);
 		if (!webURLs.isEmpty())
 		{
-			infoText.appendElement("WEBSITE", buildURLListString(webURLs));
+			infoText.appendI18nElement("in_infWebsite", buildURLListString(webURLs)); //$NON-NLS-1$
 			infoText.appendLineBreak();
 		}
 		
 		if (aCamp.getType().length() > 0)
 		{
-			infoText.appendElement("TYPE", aCamp.getType());
+			infoText.appendI18nElement("in_infType", aCamp.getType()); //$NON-NLS-1$
 			infoText.appendSpacer();
 		}
 
-		infoText.appendElement("RANK", String.valueOf(aCamp
+		infoText.appendI18nElement("in_infRank", String.valueOf(aCamp //$NON-NLS-1$
 			.getSafe(IntegerKey.CAMPAIGN_RANK)));
 		if (StringUtil.join(aCamp.getSafeListFor(ListKey.GAME_MODE), ", ").length() > 0)
 		{
 			infoText.appendSpacer();
-			infoText.appendElement("GAME MODE", StringUtil.join(aCamp.getSafeListFor(ListKey.GAME_MODE), ", "));
+			infoText.appendI18nElement("in_infGame", //$NON-NLS-1$
+				StringUtil.join(aCamp.getSafeListFor(ListKey.GAME_MODE), ", "));
 		}
 		infoText.appendLineBreak();
 
@@ -157,7 +161,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		List<CampaignURL> purchaseURLs = getUrlListForKind(aCamp, URLKind.PURCHASE);
 		if (!purchaseURLs.isEmpty())
 		{
-			infoText.appendElement("PURCHASE", buildURLListString(purchaseURLs));
+			infoText.appendI18nElement("in_infPurchase", buildURLListString(purchaseURLs)); //$NON-NLS-1$
 			infoText.appendLineBreak();
 		}
 
@@ -165,7 +169,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		List<CampaignURL> surveyURLs = getUrlListForKind(aCamp, URLKind.SURVEY);
 		if (!surveyURLs.isEmpty())
 		{
-			infoText.appendElement("SURVEY", buildURLListString(surveyURLs));
+			infoText.appendI18nElement("in_infSurvey", buildURLListString(surveyURLs)); //$NON-NLS-1$
 			infoText.appendLineBreak();
 		}
 
@@ -185,7 +189,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 				infoText.appendLineBreak();
 			}
 
-			infoText.appendSmallTitleElement("INFORMATION:");
+			infoText.appendSmallTitleElement(LanguageBundle.getString("in_infInf")); //$NON-NLS-1$
 			infoText.appendLineBreak();
 			for (String infotext : info)
 			{
@@ -203,7 +207,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 				infoText.appendLineBreak();
 			}
 
-			infoText.appendSmallTitleElement("COPYRIGHT:");
+			infoText.appendSmallTitleElement(LanguageBundle.getString("in_infCopyright")); //$NON-NLS-1$
 			infoText.appendLineBreak();
 			for (String license : copyright)
 			{
@@ -213,7 +217,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		}
 		
 		infoText.appendLineBreak();
-		infoText.appendElement("PCCPATH", aCamp.getSourceURI().getPath());
+		infoText.appendI18nElement("in_infPccPath", aCamp.getSourceURI().getPath());
 
 		return infoText.toString();
 	}

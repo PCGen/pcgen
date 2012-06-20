@@ -186,7 +186,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 				maxCompanionsMap.putValue(compList.toString(), maxVal);
 			}
 		}
-		availCompList.setContents(companions);
+		availCompList.updateContents(companions);
 		//Logging.debugPrint("Available comps " + availCompList);
 		//Logging.debugPrint("Max comps " + maxCompanionsMap);
 		

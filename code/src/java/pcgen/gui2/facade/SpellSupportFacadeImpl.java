@@ -1395,7 +1395,8 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			PCGenSettings.SELECTED_SPELL_SHEET_PATH);
 		if (StringUtils.isEmpty(template))
 		{
-			delegate.showErrorMessage("PCGen", "No spell sheet selected.");
+			delegate.showErrorMessage(Constants.APPLICATION_NAME,
+				LanguageBundle.getString("in_spellNoSheet")); //$NON-NLS-1$
 			return;
 		}
 		String ext = template.substring(template.lastIndexOf('.'));
@@ -1415,7 +1416,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 
 		if (aFileName.length() < 1)
 		{
-			delegate.showErrorMessage("PCGen", //$NON-NLS-1$ 
+			delegate.showErrorMessage(Constants.APPLICATION_NAME,  
 				LanguageBundle.getString("InfoSpells.must.set.filename")); //$NON-NLS-1$ 
 			return;
 		}
@@ -1426,7 +1427,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 
 			if (outFile.isDirectory())
 			{
-				delegate.showErrorMessage("PCGen", //$NON-NLS-1$ 
+				delegate.showErrorMessage(Constants.APPLICATION_NAME,
 					LanguageBundle.getString("InfoSpells.can.not.overwrite.directory")); //$NON-NLS-1$ 
 				return;
 			}
@@ -1488,7 +1489,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		{
 			Logging.errorPrint(LanguageBundle.getFormattedString(
 				"InfoSpells.export.failed", pc.getDisplayName()), ex); //$NON-NLS-1$
-			delegate.showErrorMessage("PCGen", //$NON-NLS-1$ 
+			delegate.showErrorMessage(Constants.APPLICATION_NAME, 
 				LanguageBundle.getFormattedString(
 					"InfoSpells.export.failed.retry", pc.getDisplayName())); //$NON-NLS-1$ 
 		}
@@ -1526,7 +1527,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 
 		if (errMessage.length() > 0)
 		{
-			delegate.showErrorMessage("PCGen", errMessage); //$NON-NLS-1$
+			delegate.showErrorMessage(Constants.APPLICATION_NAME, errMessage); 
 		}
 	}
 
@@ -1635,7 +1636,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			String countStr = "";
 			if (count != 1)
 			{
-				countStr = " (x" + count + ")";
+				countStr = " (x" + count + ")"; //$NON-NLS-1$ //$NON-NLS-2$
 			}
 			if (spell != null)
 			{
@@ -1649,7 +1650,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			{
 				return rootNode.toString() + countStr;
 			}
-			return "Empty node" + countStr;
+			return LanguageBundle.getFormattedString("in_spellEmptyNode", countStr); //$NON-NLS-1$
 		}
 
 		/* (non-Javadoc)
@@ -1824,7 +1825,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		@Override
 		public String toString()
 		{
-			return "Empty spell list";
+			return LanguageBundle.getString("in_spellEmptySpellList"); //$NON-NLS-1$
 		}
 		
 	}
