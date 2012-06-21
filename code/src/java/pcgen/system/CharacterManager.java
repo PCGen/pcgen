@@ -92,13 +92,28 @@ public class CharacterManager
 
 		@SuppressWarnings("rawtypes")
 		List campaigns = ListFacades.wrap(dataset.getCampaigns());
-		PlayerCharacter pc = new PlayerCharacter(false, campaigns);
-		Globals.getPCList().add(pc);
-		CharacterFacade character = new CharacterFacadeImpl(pc, delegate, dataset);
-		String name = createNewCharacterName();
-		character.setName(name);
-		characters.addElement(character);
-		return character;
+		try
+		{
+			@SuppressWarnings("unchecked")
+			PlayerCharacter pc = new PlayerCharacter(false, campaigns);
+			Globals.getPCList().add(pc);
+			CharacterFacade character = new CharacterFacadeImpl(pc, delegate, dataset);
+			String name = createNewCharacterName();
+			character.setName(name);
+			characters.addElement(character);
+			return character;
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Unable to create character with data " //$NON-NLS-1$
+				+ dataset, e);
+			delegate.showErrorMessage(
+				LanguageBundle.getString("in_cmCreateErrorTitle"), //$NON-NLS-1$
+				LanguageBundle.getFormattedString("in_cmCreateErrorMessage", //$NON-NLS-1$
+					e.getMessage()));
+			return null;
+		}
+		
 	}
 
 	public static ListFacade<File> getRecentCharacters()
@@ -120,38 +135,51 @@ public class CharacterManager
 	 * @param dataset the dataset that this will be loaded with
 	 * @return The character that was opened.
 	 */
+	@SuppressWarnings("unchecked")
 	public static CharacterFacade openCharacter(File file, UIDelegate delegate, DataSetFacade dataset)
 	{
 		@SuppressWarnings("rawtypes")
-		List campaigns = ListFacades.wrap(dataset.getCampaigns());		
-		@SuppressWarnings("unchecked")
-		final PlayerCharacter newPC = new PlayerCharacter(false, campaigns);
+		List campaigns = ListFacades.wrap(dataset.getCampaigns());
 		final PCGIOHandler ioHandler = new PCGIOHandler();
-		ioHandler.read(newPC, file.getAbsolutePath());
-		newPC.insertBonusLanguageAbility();
-
-		if (!showLoadNotices(true, ioHandler.getErrors(), file.getName(),
-			delegate))
+		final PlayerCharacter newPC;
+		try
 		{
-			// if we've had errors, then abort trying to add the new PC, it's most likely "broken"
+			newPC = new PlayerCharacter(false, campaigns);
+			ioHandler.read(newPC, file.getAbsolutePath());
+			newPC.insertBonusLanguageAbility();
+
+			if (!showLoadNotices(true, ioHandler.getErrors(), file.getName(),
+				delegate))
+			{
+				// if we've had errors, then abort trying to add the new PC, it's most likely "broken"
+				return null;
+			}
+			if (!showLoadNotices(false, ioHandler.getWarnings(), file.getName(),
+				delegate))
+			{
+				return null;
+			}
+			Logging.log(Logging.INFO, "Loaded character " + newPC.getName() //$NON-NLS-1$
+				+ " - " + file.getAbsolutePath()); //$NON-NLS-1$
+	
+			// if it's not broken, then only warnings should have been generated, and we won't count those
+			// Set the filename so that future checks to see if file already loaded will work
+			newPC.setFileName(file.getAbsolutePath());
+			Globals.getPCList().add(newPC);
+	
+			CharacterFacade character = new CharacterFacadeImpl(newPC, delegate, dataset);
+			characters.addElement(character);
+			return character;
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Unable to load character " + file, e); //$NON-NLS-1$
+			delegate.showErrorMessage(
+				LanguageBundle.getString("in_cmLoadErrorTitle"), //$NON-NLS-1$
+				LanguageBundle.getFormattedString("in_cmLoadErrorMessage", //$NON-NLS-1$
+					file, e.getMessage()));
 			return null;
 		}
-		if (!showLoadNotices(false, ioHandler.getWarnings(), file.getName(),
-			delegate))
-		{
-			return null;
-		}
-		Logging.log(Logging.INFO, "Loaded character " + newPC.getName() //$NON-NLS-1$
-			+ " - " + file.getAbsolutePath()); //$NON-NLS-1$
-
-		// if it's not broken, then only warnings should have been generated, and we won't count those
-		// Set the filename so that future checks to see if file already loaded will work
-		newPC.setFileName(file.getAbsolutePath());
-		Globals.getPCList().add(newPC);
-
-		CharacterFacade character = new CharacterFacadeImpl(newPC, delegate, dataset);
-		characters.addElement(character);
-		return character;
 	}
 
 	/**

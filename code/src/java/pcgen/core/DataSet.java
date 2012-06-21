@@ -624,4 +624,19 @@ public class DataSet implements DataSetFacade
 	{
 		return kits;
 	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String toString()
+	{
+		StringBuilder builder = new StringBuilder();
+		builder.append("DataSet [gameMode=");
+		builder.append(gameMode);
+		builder.append(", campaigns=");
+		builder.append(campaigns);
+		builder.append("]");
+		return builder.toString();
+	}
 }
