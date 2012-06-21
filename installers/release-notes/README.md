@@ -30,11 +30,11 @@ For full details of the new changes in this release, see the
 
 
 
-SHA1 digest for pcgen-5.17.14-sources.jar:
-3c0381a4a5524e6f48047d3b84437854755a40f2 
+SHA1 digest for pcgen-5.17.15-sources.jar:
+afe2d4757e4d718de5fb917f9dc5d0bc1cdee652 
 
-SHA1 digest for pcgen51714_full.zip:
-155befcb636c224487c374347c2aa00976dd5e09 
+SHA1 digest for pcgen51715_full.zip:
+a02cc17650f1288e6e171b95e6bddaa8e698b07c 
 
-SHA1 digest for pcgen51714_win_install.exe:
-777a803f0db4521850b7f8167da3b7ce23055c42 
+SHA1 digest for pcgen51715_win_install.exe:
+67d88ce1ad0b9376f87d7bd88efd5c23fe675439 
