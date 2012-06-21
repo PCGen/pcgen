@@ -517,6 +517,9 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private void loadCampaigns(GameMode gamemode, final List<Campaign> aSelectedCampaignsList,
 							   LoadContext context) throws PersistenceLayerException
 	{
+		Logging.log(Logging.INFO, "Loading game " + gamemode + " and sources "
+			+ aSelectedCampaignsList + ".");
+		
 //		// The first thing we need to do is load the
 //		// correct statsandchecks.lst file for this gameMode
 //		GameMode gamemode = SettingsHandler.getGame();
