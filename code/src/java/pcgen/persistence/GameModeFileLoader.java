@@ -416,6 +416,7 @@ public class GameModeFileLoader extends PCGenTask
 		}
 		addDefaultUnitSet(gameMode);
 		addDefaultTabInfo(gameMode);
+		gameMode.applyPreferences();
 		return gameMode;
 	}
 

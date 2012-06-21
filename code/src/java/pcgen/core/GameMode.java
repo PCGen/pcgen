@@ -76,9 +76,9 @@ import pcgen.util.enumeration.Tab;
  */
 public final class GameMode implements Comparable<Object>, GameModeFacade
 {
-	private static PropertyContext prefsContext = PCGenSettings.getInstance().createChildContext("gameMode");
+	private static PropertyContext prefsContext = PCGenSettings.getInstance().createChildContext("gameMode"); //$NON-NLS-1$
 
-	private PropertyContext gamemodePrefsContext = prefsContext.createChildContext("gameMode");
+	private PropertyContext gamemodePrefsContext = prefsContext.createChildContext("gameMode"); //$NON-NLS-1$
 	private List<String> allowedModes;
 	private List<String> bonusFeatLevels = new ArrayList<String>();
 	private List<String> bonusStackList = new ArrayList<String>();
@@ -211,12 +211,26 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		folderName = modeName;
 		thePreviewDir = modeName;
 		theDefaultPreviewSheet = "preview.html"; //$NON-NLS-1$
+	}
 
-		gamemodePrefsContext = prefsContext.createChildContext(modeName);
-		activeRollMethod =
-				getModeContext().ref.silentlyGetConstructedCDOMObject(
-					RollMethod.class,
-					gamemodePrefsContext.getProperty("rollMethodExpression")); //$NON-NLS-1$
+	/**
+	 * Apply the stored preferences to the game mode. 
+	 */
+	public void applyPreferences()
+	{
+		gamemodePrefsContext = prefsContext.createChildContext(name);
+		String rollMethodExpr = gamemodePrefsContext.getProperty("rollMethodExpression"); //$NON-NLS-1$
+		if (rollMethodExpr != null)
+		{
+			activeRollMethod =
+					getModeContext().ref.silentlyGetConstructedCDOMObject(
+						RollMethod.class, rollMethodExpr);
+			if (activeRollMethod == null)
+			{
+				Logging.errorPrint("Could not find roll method '" //$NON-NLS-1$
+					+ rollMethodExpr + "' while loading game mode " + name); //$NON-NLS-1$
+			}
+		}
 		rollMethod = gamemodePrefsContext.getInt("rollMethod"); //$NON-NLS-1$
 		allStatsValue = gamemodePrefsContext.initInt("allStatsValue", 10); //$NON-NLS-1$
 		purchaseMethodName =
