@@ -64,11 +64,20 @@
 	<p class="indent0"><strong><a name="CR">Tag Name:</a></strong> CR:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Challenge rating)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Sets the Challenge Rating of the creature. For CR's less than 1, fractions are used (1/2, 1/4, 1/8).
-	<strong>Note:</strong> CR's using fractions must start with a &quot;1/&quot;. Expressions such as CR:3/4 or CR:0.5 will not work</p>
+	<ul class="indent2">
+		<li>Sets the Challenge Rating of the creature. For CR's less than 1, fractions are used (1/2, 1/4, 1/8).</li>
+		<li><strong>.MOD Behavior:</strong> When modifying a template, with the <code>.MOD</code> tag, given an existing <code>CR</code> 
+			tag, the data included in a new <code>CR</code> tag will overwrite the existing tag data.</li>
+	</ul>
+	<p class="sidebar0"><strong>Note:</strong> CR's using fractions must start with a &quot;1/&quot;. Expressions such as CR:3/4 or CR:0.5 will not work.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CR:1/4</code></p>
 	<p class="indent3">Race is rated at a quarter challenge rating.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Race: <code>Boar &lt;tab&gt; CR:2</code>
+	<p class="indent2">Modified By: <code>Boar.MOD &lt;tab&gt; CR:3</code></p>
+	<p class="indent2">Results In: <code>Boar &lt;tab&gt; CR:3</code></p>
+	<p class="indent3">The Boar's CR is set to 3.</p>
 	<p></p>
 
 <hr>
