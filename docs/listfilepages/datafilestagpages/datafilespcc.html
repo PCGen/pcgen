@@ -28,25 +28,50 @@
 <body>
 
 	<h1>PCC files</h1>
-	<p>These are the PCGen Campaign Configuration files. Here you can specify what you want included in this campaign.
-		It is recommended practice that your pcc files be located in the same directory as your list files,
-		the notable exception being if you have multiple directories, with multiple list files, then you locate a &quot;master&quot; pcc file in the main directory.
-		This will be explained below in the TAGs section.</p>
+	<p>The PCGen Campaign Configuration files are where you specify what you want included in your campaign. It is the PCGen team's recommended practice 
+		that your pcc files be located in the same directory as your list files with the notable exception being if you have many files spread between 
+		multiple directories. In this situation you should locate a &quot;master&quot; pcc file in the main directory.</p>
 
-	<p>This page is divided into three sections</p>
+	<p>This page is divided into two sections</p>
+
+	<p class="indent1"><strong><a href="#CampaignBuilding">Campaign File Building 101</a></strong></p>
+	<p class="indent2">This section covers a few basic points to keep in mind when building your own PCC file.</p>
+	<p class="indent1"><strong><a href="#TagList">PCC File Tag List</a></strong></p>
+	<p class="indent2">This section covers the syntax and function provided by the tags used in the PCGen Campaign (PCC) files.L/p>
+	<p></p>
+
+<hr>
+
+	<h2><a name="CampaignBuilding">Camapign File Building 101</a></h2>
+	
+	<h4>Notes on File Loading Order</h4>
+	
+	<p class="indent1">LST file loading order is enforced by PCGen's loading system so it is important to keep the following 
+		issues in mind when building a custom PCC file:</p>
+	<ul class="indent1">
+		<li>Ability Category files will be loaded before Ability files</li>
+		<li>All other files (e.g. Ability, Deity, Equipment, etc., but excluding embeded PCC files.) will be loaded in the order listed in the PCC file.</li>
+	</ul>
+
+	<p class="sidebar0"><strong>Note:</strong> You cannot use a colon (:) in the PCC file anywhere other 
+		than immediately after LST tags, e.g. <code>CAMPAIGN:</code>, etc. Doing so will cause PCGen to report errors 
+		and not load correctly.</p>
+		
+	<p class="indent1">
+<hr>
+
+	<h2><a name="TagList">PCC File Tag List</a></h2>
+
+	<p>This section is divided into three sub-sections:</p>
 
 	<p class="indent1"><strong><a href="#DATASETTAGS">Data Set and Campaign Information Tags</a></strong> - are used to provide information about the dataset</p>
 	<p class="indent1"><strong><a href="#MAINBODYTAGS">Main Body Tags</a></strong> - are used to load the specific .lst files which make up the dataset.</p>
 	<p class="indent1"><strong><a href="#OTHERPCCTAGS">Other .pcc file tags</a></strong> - are used to provide additional functionality.</p>
 	<p></p>
 
-	<p class="sidebar1"><strong>Note:</strong> You cannot use a colon (:) in the PCC file anywhere other 
-		than immediately after the <code>CAMPAIGN</code> tag. Doing so will cause PCGen to report errors 
-		and not load correctly.</p>
-		
 <hr>
 
-	<h2><a name="DATASETTAGS">Data Set and Campaign Information Tags</a></h2>
+	<h3><a name="DATASETTAGS">Data Set and Campaign Information Tags</a></h3>
 	<p class="indent0">The first two tags in the PCC file should be <code>CAMPAIGN</code> and <code>GAMEMODE</code>. 
 		These are presented below out of alphabetical order to emphasize that they are required tags which must be 
 		the first two lines in a PCC file.</p>
@@ -473,7 +498,7 @@
 
 <hr>
 
-	<h2><a name="MAINBODYTAGS">Main Body Tags</a></h2>
+	<h3><a name="MAINBODYTAGS">Main Body Tags</a></h3>
 
 	<p>The function of all the main body tags is tell PCGen to load a specific file.  There are three ways
 		of doing this.</p>
@@ -770,7 +795,7 @@
 	<p></p>
 <hr>
 
-	<h2><a name="OTHERPCCTAGS">Other .pcc file tags</a></h2>
+	<h3><a name="OTHERPCCTAGS">Other .pcc file tags</a></h3>
 
 	<p>The tags below do not provide information about the dataset nor do they load files by themselves but instead provide additional functionality.</p>
 	<p></p>
