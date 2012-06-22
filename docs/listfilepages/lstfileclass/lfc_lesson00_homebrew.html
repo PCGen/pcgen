@@ -32,8 +32,9 @@
 		
 		<p class="indent0">All PCGen data sets are made up of a collection of text files called LST files, each of which contains a particular type of LST Object, e.g. Class, 
 			Deity, Feat, Race, etc. PCGen includes built-in LST Editors that can be used to create new LST objects but many LST monkeys find it easier to build data sets from 
-			the ground up. For the new LST monkey though, this can be confusing so the PCGen team has provided a template for a data set. This template can be found in PCGen's
-			<i>data/homebrew/my_dataset</i> folder. In this LST Class we will provide an introduction to the <strong>my_dataset</strong> homebrew data set template.</p>
+			the ground up. For the new LST monkey though, this can be confusing so the PCGen team has provided a basic template for a data set. This template can be found in PCGen's
+			<i>data/homebrew/my_dataset</i> folder. In this LST Class we will provide an introduction to the <strong>my_dataset</strong> homebrew data set template and get you 
+			started building your own data set, whenther its for your own homebrewed campaign or a simple addition or modification of an exosting one.</p>
 
 		<p class="indent0">You will find below a short introduction to the data set template itself, followed by a section that will cover each of the files which can be found
 			in the data set, covering each of the files listed below:</p>
@@ -76,35 +77,35 @@
 
 		<p class="indent0">3) Files referenced in this lesson are identified by <span class="lstfile">file.lst</span> style.</p>
 
-		<p class="indent0">4) When referencing a specific PCGen object, i.e. deity, feat, weapon, etc., the object name 
+		<p class="indent0">4) When referencing a specific PCGen object, i.e. deity, feat, weapon, etc., the object name will be 
 			formated as <span class="lstobj">BOLD</span> text, except for when the object is part of a <code>&lt;code&gt;</code> 
 			example.</p>
 
-		<p></p>
-		<p class="indent0">Now lets jump right in!</p>
 		<p></p>
 
 <hr>
 
 		<h3>Introduction to the My_Dataset Files</h3>
 	
-		<p class="indent0">The <span class="lstfile">my_dataset</span> files form a framework for building a dataset for use with PCGen. It is meant to be used 
+		<p class="indent0">The <span class="lstfile">my_dataset</span> template forms a framework for building a dataset for use with PCGen. It is meant to be used 
 			by beginners who want to take their first steps in entering their own custom data into PCGen and have found that the built-in List Editors are too 
-			limiting for what they intend to do. The <span class="lstfile">my_dataset</span> files consist of a collection of LST files, one each for the different 
-			LST objects possible in PCGen. Copy these files into your own folder to make your dataset, leaving the original <span class="lstfile">my_dataset</span> 
-			files as a clean template for future use. You can rename the copied files to anything you wish but it is generally a good idea to use some part of the 
-			name for the RPG source material you plan on encoding. Also it is a good idea to retain the type of LST object contained in the file as part of the file 
-			names. An example of this might be <span class="lstfile">rsrd_feat.lst</span> for the file containing the feats for WotC's Revised Standard Reference 
-			Document. For the purposes of this class though we will continue using the standard <span class="lstfile">my_dataset.lst</span> naming convention. To 
-			use this template you will find the LST file corresponding to the kind of LST object you wish to create, e.g. <span class="lstfile">my_classes.lst</span> 
-			if you want to add a new class, and enter your new data there. Each LST file includes an example to give you a feel for how an entry in that particular 
-			type of file would look like.</p>
+			limiting for what they intend to do. The template consists of a collection of LST files, one each for the different LST objects possible in PCGen. Copy 
+			these files into your own folder to make your dataset, leaving the original <span class="lstfile">my_dataset</span> files as a clean template for future 
+			use. You can rename the copied files to anything you wish but it is generally a good idea to use some part of the name for the RPG source material you 
+			plan on encoding. Also it is a good idea to retain the type of LST object contained in the file as part of the file names. An example of this might be 
+			<span class="lstfile">rsrd_feat.lst</span> for the file containing the feats for WotC's Revised Standard Reference Document (gamemode 35e). For the purposes 
+			of this class though we will continue using the standard <span class="lstfile">my_dataset.lst</span> naming convention. To use this template you will 
+			find the LST file corresponding to the kind of LST object you wish to create, i.e. <span class="lstfile">my_classes.lst</span> if you want to add a new 
+			class, and enter your new data there. Each LST file includes an example to give you a feel for what an entry in that particular type of file would look like.</p>
 
-		<p class="indent0">You will find below more information about each LST file but you will also need to become familiar with PCGen's included documentation 
-			by starting PCGen and clicking on &quot;Documentation&quot; in the Help menu. That will bring up a browser window in which you should click 'List Files'. 
-			This will open a menu tree that includes the option 'LST File Class' which will guide you through your first steps.</p>
+		<p class="indent0">You will find below more information about each LST file, and the LST objects that are defined in them, but you will also need to become 
+			familiar with PCGen's included documentation. You will find this documentation by starting PCGen and clicking on &quot;Documentation&quot; in the Help menu. 
+			That will bring up a browser window in which you will find in the navigation bar on the left a link to the 'List Files'. Clicking this link will open a menu 
+			tree that includes the option 'LST File Tag Index' which points to PCGen LST Tag Dictionary. You will also see a 'List File Class' links that take you to the 
+			same classes linked to below. Nnot all LST object types are covered by a LST File Class, but those that are covered are covered well. For the rest, you can 
+			stop by <a href="http://tech.groups.yahoo.com/group/PCGenListFileHelp/">ListFileHelp@Yahoo!</a> to get help.</p>
 
-		<p class="indent0">After editing the LST file you need to edit the <span class="lstfile">my_campaign.pcc</span> file. For every one of the LST files included, 
+		<p class="indent0">Once you have created or editing your LST file you will need to edit the <span class="lstfile">my_campaign.pcc</span> file. For every one of the LST files included, 
 			you must set up a line that calls it inside of the campaign file, but is commented out by use of a '#' character. Remove the '#' from the beginning of the corresponding line. You 
 			might also want to change the game mode, as it is now set to '35e', if your custom data is meant for a different game mode.</p>
 
