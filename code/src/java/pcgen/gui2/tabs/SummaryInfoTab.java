@@ -1392,9 +1392,12 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			if (c != null)
 			{
 				Number levels = (Number) addLevelsField.getValue();
-				ClassFacade[] classes = new ClassFacade[levels.intValue()];
-				Arrays.fill(classes, c);
-				character.addCharacterLevels(classes);
+				if (levels.intValue() >= 0)
+				{
+					ClassFacade[] classes = new ClassFacade[levels.intValue()];
+					Arrays.fill(classes, c);
+					character.addCharacterLevels(classes);
+				}
 			}
 		}
 

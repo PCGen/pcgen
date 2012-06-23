@@ -730,6 +730,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			pcClassLevels.removeElement(pcClassLevels.getSize() - 1);
 			if (classFacade instanceof PCClass)
 			{
+				Logging.log(Logging.INFO, theCharacter.getName()
+					+ ": Removing level " + (pcClassLevels.getSize()+1) //$NON-NLS-1$
+					+ " in class " + classFacade); //$NON-NLS-1$
 				theCharacter.incrementClassLevel(-1, (PCClass) classFacade);
 			}
 			charLevelsFacade.removeLastLevel();
@@ -1312,11 +1315,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		List<PCClass> newClasses = theCharacter.getClassList();
 		Collection<PCLevelInfo> levelInfo = theCharacter.getLevelInfo();
 
-		Map<String, Integer> levelCount = new HashMap<String, Integer>();
 		Map<String, PCClass> classMap = new HashMap<String, PCClass>();
 		for (PCClass pcClass : newClasses)
 		{
-			levelCount.put(pcClass.getKeyName(), 0);
 			classMap.put(pcClass.getKeyName(), pcClass);
 		}
 
@@ -1331,10 +1332,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				return;
 			}
 
-			int clsLvlNum = levelCount.get(classKeyName);
-			levelCount.put(classKeyName, clsLvlNum + 1);
-			//PCClassLevel classLevel = currClass.getClassLevel(clsLvlNum);
-			CharacterLevelFacadeImpl cl = new CharacterLevelFacadeImpl(currClass, theCharacter, clsLvlNum + 1);
+			CharacterLevelFacadeImpl cl = new CharacterLevelFacadeImpl(currClass, theCharacter, newlevels.size() + 1);
 			newlevels.add(cl);
 		}
 

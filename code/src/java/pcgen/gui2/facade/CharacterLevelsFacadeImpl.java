@@ -104,6 +104,10 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	@Override
 	public CharacterLevelFacade getElementAt(int index)
 	{
+		if (index < 0 || index >= charLevels.size())
+		{
+			return null;
+		}
 		return charLevels.get(index);
 	}
 
@@ -397,6 +401,10 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	public int getSpentSkillPoints(CharacterLevelFacade level)
 	{
 		PCLevelInfo classLevel = getLevelInfo(level);
+		if (classLevel == null)
+		{
+			return 0;
+		}
 		return classLevel.getSkillPointsGained(theCharacter)
 			- classLevel.getSkillPointsRemaining();
 	}
@@ -408,6 +416,10 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	public int getRemainingSkillPoints(CharacterLevelFacade level)
 	{
 		PCLevelInfo classLevel = getLevelInfo(level);
+		if (classLevel == null)
+		{
+			return 0;
+		}
 		return classLevel.getSkillPointsRemaining();
 	}
 
