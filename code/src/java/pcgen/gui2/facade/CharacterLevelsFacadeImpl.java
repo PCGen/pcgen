@@ -254,8 +254,11 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	public void setHPRolled(CharacterLevelFacade level, int hp)
 	{
 		PCClassLevel classLevel = getClassLevel(level);
-		theCharacter.setHP(classLevel, Integer.valueOf(hp));
-		fireHitPointEvent(this, getLevelIndex(level), false);
+		if (classLevel != null)
+		{
+			theCharacter.setHP(classLevel, Integer.valueOf(hp));
+			fireHitPointEvent(this, getLevelIndex(level), false);
+		}
 	}
 
 	private PCLevelInfo getLevelInfo(CharacterLevelFacade level)
@@ -272,6 +275,10 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	private int getLevelIndex(CharacterLevelFacade level)
 	{
 		CharacterLevelFacadeImpl levelImpl = (CharacterLevelFacadeImpl) level;
+		if (levelImpl == null)
+		{
+			return 0;
+		}
 		return levelImpl.getCharacterLevel()-1;
 	}
 	
@@ -282,6 +289,10 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	public int getGainedSkillPoints(CharacterLevelFacade level)
 	{
 		PCLevelInfo classLevel = getLevelInfo(level);
+		if (classLevel == null)
+		{
+			return 0;
+		}
 		return classLevel.getSkillPointsGained(theCharacter);
 	}
 
