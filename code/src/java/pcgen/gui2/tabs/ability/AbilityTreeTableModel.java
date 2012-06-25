@@ -262,6 +262,11 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 		public void elementModified(ListEvent<AbilityFacade> e)
 		{
 			//Logging.errorPrint("Modifying " + category + " - " + e.getElement());
+			MutableTreeNode oldNode = (MutableTreeNode) getChildAt(e.getIndex());
+			DefaultTreeTableNode node = buildAbilityNode(e.getElement());
+			node.setUserObject(e.getElement());
+			insertNodeInto(node, this, e.getIndex());
+			removeNodeFromParent(oldNode);
 		}
 
 	}

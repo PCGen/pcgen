@@ -891,6 +891,7 @@ public class CharacterAbilities
 			{
 				updateAbilityCategoryTodo(cat);
 				fireAbilityCatSelectionUpdated(cat);
+				refreshChoices(cat);
 			}
 		});
 	}
@@ -913,6 +914,24 @@ public class CharacterAbilities
 		});
 	}
 	
+	/**
+	 * Signal that any ability that could have choices has been modified. This 
+	 * ensures that the choice display is up to date.
+	 * @param category The ability category being refreshed.
+	 */
+	protected void refreshChoices(Category<Ability> category)
+	{
+		DefaultListFacade<AbilityFacade> listFacade = abilityListMap.get(category);
+		for (AbilityFacade abilityFacade : listFacade)
+		{
+			Ability ability = (Ability) abilityFacade;
+			if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+			{
+				listFacade.modifyElement(ability);
+			}
+		}
+	}
+
 	private boolean checkAbilityQualify(final Ability anAbility,
 		AbilityCategory theCategory)
 	{
