@@ -144,8 +144,11 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 
 	public void clearContents()
 	{
-		elementList.clear();
-		fireElementsChanged(this);
+		if (!isEmpty())
+		{
+			elementList.clear();
+			fireElementsChanged(this);
+		}
 	}
 
 	/**
@@ -202,6 +205,42 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 		}
 	}
 
+	/**
+	 * Makes the contents of this list match the provided list apart from element 
+	 * ordering. This is done by making individual add and remove of the 
+	 * elements of this list to make it match. The lists need not be sorted in 
+	 * the same order for this method to be efficient. A fall back to setContents 
+	 * is made if the current list is empty or there are large size differences.   
+	 * @param newElements The new contents of the list.
+	 */
+	public void updateContentsNoOrder(List<? extends E> newElements)
+	{
+		final int maxUpdateSize = 20;
+		if (isEmpty() || newElements.isEmpty()
+			|| Math.abs(getSize() - newElements.size()) > maxUpdateSize)
+		{
+			setContents(newElements);
+			return;
+		}
+		
+		for (E elem : newElements)
+		{
+			if (!containsElement(elem))
+			{
+				addElement(elem);
+			}
+		}
+		
+		for (Iterator<E> iterator = elementList.iterator(); iterator.hasNext();)
+		{
+			E e = iterator.next();
+			if (!newElements.contains(e))
+			{
+				iterator.remove();
+			}
+		}
+	}
+	
 	/**
 	 * @return A copy of the contents of the list.
 	 */

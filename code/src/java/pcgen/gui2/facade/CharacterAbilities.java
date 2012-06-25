@@ -24,9 +24,11 @@ package pcgen.gui2.facade;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.swing.SwingUtilities;
 
@@ -236,7 +238,7 @@ public class CharacterAbilities
 				Logging.debugPrint("Got direct ability added of "
 					+ cas.getAbilityKey() + " for cat "
 					+ cas.getAbilityCategory());
-				addElement(cas);
+				addElement(abilityListMap, cas);
 				updateAbilityCategoryLater(cas.getAbilityCategory());
 			}
 
@@ -261,10 +263,10 @@ public class CharacterAbilities
 
 	void addAbilityToLists(AbilityCategory cat, Ability ability, Nature nature)
 	{
-		addCategorisedAbility(cat, ability,nature);
+		addCategorisedAbility(cat, ability, nature, abilityListMap);
 		if (!activeCategories.containsElement(cat))
 		{
-			int index = getCatIndex(cat);
+			int index = getCatIndex(cat, activeCategories);
 			activeCategories.addElement(index, cat);
 		}
 		else
@@ -299,9 +301,12 @@ public class CharacterAbilities
 	 * Rebuild the ability lists for the character to include the character's 
 	 * current abilities.
 	 */
-	void rebuildAbilityLists()
+	synchronized void rebuildAbilityLists()
 	{
-		clearLists();
+		Map<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>> workingAbilityListMap =
+				new LinkedHashMap<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>>();
+		DefaultListFacade<AbilityCategoryFacade> workingActiveCategories = new DefaultListFacade<AbilityCategoryFacade>();
+
 		ListFacade<AbilityCategoryFacade> categories = dataSetFacade.getAbilityCategories();
 		for (AbilityCategoryFacade category : categories)
 		{
@@ -309,17 +314,17 @@ public class CharacterAbilities
 			boolean found = false;
 			for (Ability ability : theCharacter.getAbilityList(cat, Nature.AUTOMATIC))
 			{
-				addCategorisedAbility(cat, ability, Nature.AUTOMATIC);
+				addCategorisedAbility(cat, ability, Nature.AUTOMATIC, workingAbilityListMap);
 				found = true;
 			}
 			for (Ability ability : theCharacter.getAbilityList(cat, Nature.NORMAL))
 			{
-				addCategorisedAbility(cat, ability, Nature.NORMAL);
+				addCategorisedAbility(cat, ability, Nature.NORMAL, workingAbilityListMap);
 				found = true;
 			}
 			for (Ability ability : theCharacter.getAbilityList(cat, Nature.VIRTUAL))
 			{
-				addCategorisedAbility(cat, ability, Nature.VIRTUAL);
+				addCategorisedAbility(cat, ability, Nature.VIRTUAL, workingAbilityListMap);
 				found = true;
 			}
 			
@@ -344,15 +349,15 @@ public class CharacterAbilities
 					break;
 			}
 			
-			if (found && !activeCategories.containsElement(cat))
+			if (found && !workingActiveCategories.containsElement(cat))
 			{
-				int index = getCatIndex(cat);
-				activeCategories.addElement(index, cat);
+				int index = getCatIndex(cat, workingActiveCategories);
+				workingActiveCategories.addElement(index, cat);
 			}
-			if (!found && activeCategories.containsElement(cat))
+			if (!found && workingActiveCategories.containsElement(cat))
 			{
-				activeCategories.removeElement(cat);
-				updateAbilityCategoryTodo(cat);
+				workingActiveCategories.removeElement(cat);
+//				updateAbilityCategoryTodo(cat);
 			}
 			
 			if (found)
@@ -360,6 +365,39 @@ public class CharacterAbilities
 				adviseSelectionChangeLater(cat);
 			}
 		}
+		
+		// Update map contents
+		for (AbilityCategoryFacade category : workingAbilityListMap.keySet())
+		{
+			DefaultListFacade<AbilityFacade> workingListFacade = workingAbilityListMap.get(category);
+			DefaultListFacade<AbilityFacade> masterListFacade = abilityListMap.get(category);
+			if (masterListFacade == null)
+			{
+				abilityListMap.put(category, workingListFacade);
+			}
+			else
+			{
+				masterListFacade.updateContentsNoOrder(workingListFacade.getContents());
+			}
+		}
+		
+		Set<AbilityCategoryFacade> origCats = new HashSet<AbilityCategoryFacade>(abilityListMap.keySet());
+		for (AbilityCategoryFacade category : origCats)
+		{
+			if (!workingAbilityListMap.containsKey(category))
+			{
+				if (workingActiveCategories.containsElement(category))
+				{
+					abilityListMap.get(category).clearContents();
+				}
+				else
+				{
+					abilityListMap.remove(category);
+					updateAbilityCategoryTodo((AbilityCategory)category);
+				}
+			}
+		}
+		activeCategories.updateContents(workingActiveCategories.getContents());
 	}
 
 
@@ -408,18 +446,18 @@ public class CharacterAbilities
 	 * @param abilityCategory The category being added 
 	 * @return The index at which to insert the category.
 	 */
-	private int getCatIndex(AbilityCategory abilityCategory)
+	private int getCatIndex(AbilityCategory abilityCategory, ListFacade<AbilityCategoryFacade> catList)
 	{
 		ListFacade<AbilityCategoryFacade> allCategories = dataSetFacade.getAbilityCategories();
 		int index = 0;
 		for (int i = 0; i < allCategories.getSize(); i++)
 		{
 			AbilityCategoryFacade compCat = allCategories.getElementAt(i);
-			if (compCat == abilityCategory || index >= activeCategories.getSize())
+			if (compCat == abilityCategory || index >= catList.getSize())
 			{
 				break;
 			}
-			if (activeCategories.getElementAt(index) == compCat)
+			if (catList.getElementAt(index) == compCat)
 			{
 				index++;
 			}
@@ -434,9 +472,10 @@ public class CharacterAbilities
 	 * @param cat The AbilityCategory that the ability is being added to.
 	 * @param ability The ability being added.
 	 * @param nature The nature via which the ability is being added.
+	 * @param workingAbilityListMap The map to be adjusted.
 	 */
 	private void addCategorisedAbility(AbilityCategory cat,
-		Ability ability, Nature nature)
+		Ability ability, Nature nature, Map<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>> workingAbilityListMap)
 	{
 		List<CategorizedAbilitySelection> cas = new ArrayList<CategorizedAbilitySelection>();
 		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
@@ -463,7 +502,7 @@ public class CharacterAbilities
 		}
 		for (CategorizedAbilitySelection sel : cas)
 		{
-			addElement(sel);
+			addElement(workingAbilityListMap, sel);
 		}
 	}
 
@@ -914,7 +953,7 @@ public class CharacterAbilities
 		return true;
 	}
 
-	private void addElement(CategorizedAbilitySelection cas)
+	private void addElement(Map<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>> workingAbilityListMap, CategorizedAbilitySelection cas)
 	{
 		Ability ability = cas.getAbility();
 		if (!ability.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE,
@@ -924,11 +963,11 @@ public class CharacterAbilities
 			return;
 		}
 		AbilityCategoryFacade cat = (AbilityCategoryFacade) cas.getAbilityCategory();
-		DefaultListFacade<AbilityFacade> listFacade = abilityListMap.get(cat);
+		DefaultListFacade<AbilityFacade> listFacade = workingAbilityListMap.get(cat);
 		if (listFacade == null)
 		{
 			listFacade = new  DefaultListFacade<AbilityFacade>();
-			abilityListMap.put(cat, listFacade);
+			workingAbilityListMap.put(cat, listFacade);
 		}
 		listFacade.addElement(ability);
 	}
@@ -944,11 +983,4 @@ public class CharacterAbilities
 		}
 	}
 
-	private void clearLists()
-	{
-		for (AbilityCategoryFacade cat : abilityListMap.keySet())
-		{
-			abilityListMap.get(cat).clearContents();
-		}
-	}
 }
