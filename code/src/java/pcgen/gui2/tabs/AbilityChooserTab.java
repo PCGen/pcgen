@@ -555,7 +555,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		ListFacade<AbilityCategoryFacade> fullCategoryList, String title)
 	{
 		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
-		CategoryTableModel categoryTableModel = new CategoryTableModel(character, fullCategoryList, categoryBar);
+		CategoryTableModel categoryTableModel = new CategoryTableModel(character, fullCategoryList, categoryBar, categoryTable);
 		state.put(CategoryTableModel.class, categoryTableModel);
 
 		ListSelectionModel listModel = new DefaultListSelectionModel();

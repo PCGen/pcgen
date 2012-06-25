@@ -20,6 +20,8 @@
  */
 package pcgen.gui2.tabs.ability;
 
+import javax.swing.JTable;
+
 import pcgen.core.facade.AbilityCategoryFacade;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.event.ChangeEvent;
@@ -35,11 +37,15 @@ import pcgen.gui2.filter.FilteredListFacadeTableModel;
 public class CategoryTableModel extends FilteredListFacadeTableModel<AbilityCategoryFacade> implements ChangeListener
 {
 
+	boolean installed = false;
+	private final JTable categoryTable;
+	
 	public CategoryTableModel(CharacterFacade character,
 							  ListFacade<AbilityCategoryFacade> categories,
-							  Filter<CharacterFacade, AbilityCategoryFacade> filter)
+							  Filter<CharacterFacade, AbilityCategoryFacade> filter, JTable theCategoryTable)
 	{
 		super(character);
+		this.categoryTable = theCategoryTable;
 		setDelegate(categories);
 		setFilter(filter);
 	}
@@ -120,6 +126,15 @@ public class CategoryTableModel extends FilteredListFacadeTableModel<AbilityCate
 	@Override
 	public void ItemChanged(ChangeEvent event)
 	{
+		AbilityCategoryFacade facade = null;
+		if (installed)
+		{
+			int selectedRow = categoryTable.getSelectedRow();
+			if (selectedRow >= 0 && selectedRow < sortedList.getSize())
+			{
+				facade = sortedList.getElementAt(selectedRow);
+			}
+		}
 		Object data = event.getSource();
 		refilter();
 		for (int i = 0; i < getRowCount(); i++)
@@ -129,7 +144,18 @@ public class CategoryTableModel extends FilteredListFacadeTableModel<AbilityCate
 			{
 				fireTableRowsUpdated(i, i);
 			}
-			
+		}
+		
+		if (facade != null)
+		{
+			for (int i = 0; i < sortedList.getSize(); i++)
+			{
+				if (facade == sortedList.getElementAt(i))
+				{
+					categoryTable.getSelectionModel().setSelectionInterval(i, i);
+					break;
+				}
+			}
 		}
 	}
 
@@ -139,6 +165,7 @@ public class CategoryTableModel extends FilteredListFacadeTableModel<AbilityCate
 	public void install()
 	{
 		character.addAbilityCatSelectionListener(this);
+		installed = true;
 	}
 
 	/**
@@ -146,6 +173,7 @@ public class CategoryTableModel extends FilteredListFacadeTableModel<AbilityCate
 	 */
 	public void uninstall()
 	{
+		installed = false;
 		character.removeAbilityCatSelectionListener(this);
 	}
 }

@@ -379,6 +379,7 @@ public class CharacterAbilities
 			{
 				masterListFacade.updateContentsNoOrder(workingListFacade.getContents());
 			}
+			updateAbilityCategoryTodo((AbilityCategory)category);
 		}
 		
 		Set<AbilityCategoryFacade> origCats = new HashSet<AbilityCategoryFacade>(abilityListMap.keySet());
@@ -393,8 +394,8 @@ public class CharacterAbilities
 				else
 				{
 					abilityListMap.remove(category);
-					updateAbilityCategoryTodo((AbilityCategory)category);
 				}
+				updateAbilityCategoryTodo((AbilityCategory)category);
 			}
 		}
 		activeCategories.updateContents(workingActiveCategories.getContents());
