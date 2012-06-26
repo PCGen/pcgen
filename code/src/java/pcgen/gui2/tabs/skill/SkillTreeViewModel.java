@@ -32,6 +32,8 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.CharacterLevelFacade;
 import pcgen.core.facade.CharacterLevelsFacade;
+import pcgen.core.facade.CharacterLevelsFacade.CharacterLevelEvent;
+import pcgen.core.facade.CharacterLevelsFacade.SkillBonusListener;
 import pcgen.core.facade.SkillFacade;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
@@ -48,7 +50,7 @@ import pcgen.gui2.util.treeview.TreeViewPath;
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
-		DataView<SkillFacade>
+		DataView<SkillFacade>, SkillBonusListener
 {
 
 	private static final List<? extends DataViewColumn> columns = Arrays.asList(
@@ -85,11 +87,13 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 	{
 		this.table = ftvt;
 		ftvt.setTreeViewModel(this);
+		levels.addSkillBonusListener(this);
 	}
 
 	public void uninstall()
 	{
 		table = null;
+		levels.removeSkillBonusListener(this);
 	}
 
 	@Override
@@ -150,6 +154,15 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 	public List<? extends DataViewColumn> getDataColumns()
 	{
 		return columns;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void skillBonusChanged(CharacterLevelEvent e)
+	{
+		table.refreshModelData();
 	}
 
 	/**

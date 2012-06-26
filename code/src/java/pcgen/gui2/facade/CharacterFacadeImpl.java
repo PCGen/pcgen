@@ -1584,6 +1584,10 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		hpRef.setReference(theCharacter.hitPoints());
 
 		updateScorePurchasePool(true);
+		if (charLevelsFacade != null)
+		{
+			charLevelsFacade.fireSkillBonusEvent(this, 0, true);
+		}
 	}
 
 	/**
@@ -1662,6 +1666,10 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			{
 				score.setReference(StatAnalysis.getTotalStatFor(theCharacter, (PCStat) stat));
 			}
+		}
+		if (charLevelsFacade != null)
+		{
+			charLevelsFacade.fireSkillBonusEvent(this, 0, true);
 		}
 	}
 
