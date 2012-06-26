@@ -672,6 +672,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 			{
 				AbilityCategoryFacade category = (AbilityCategoryFacade) categoryTable.getValueAt(index, 0);
 				character.addAbility(category, (AbilityFacade) data);
+				availableTreeViewPanel.refilter();
 			}
 		}
 		
@@ -716,6 +717,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 				if (category instanceof AbilityCategoryFacade)
 				{
 					character.removeAbility((AbilityCategoryFacade) category, (AbilityFacade) data);
+					availableTreeViewPanel.refilter();
 				}
 			}
 		}

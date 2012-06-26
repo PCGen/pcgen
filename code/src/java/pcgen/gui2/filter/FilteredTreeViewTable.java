@@ -67,6 +67,7 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 	public void refilter()
 	{
 		filteredModel.refilter();
+		updateDisplay();
 	}
 
 	public void setContext(C context)
