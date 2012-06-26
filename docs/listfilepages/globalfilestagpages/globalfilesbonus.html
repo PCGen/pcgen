@@ -347,10 +347,10 @@
 				<li>Using the <code>AC</code> syntax adds to the armor class.</li>
 				<li>Using the <code>ATTACKS</code> syntax adds to the number of attacks the primary hand gets.</li>
 				<li>Using the <code>BAB</code> syntax increases the base attack bonus and may increase the number of attacks the primary hand gets.</li>
-				<li>Using the <code>DAMAGE.x</code> syntax increases the damage bonus but the weapon and damage types must be a valid equipment type assigned 
-					to a weapon in the current data set or must have been defined by the <code>WEAPONTYPE</code> tag in the current gamemode. Examples of 
-					standard Weapon and Weapon Damage types can be found on the <a href="globalfilestype.html#Equipment">Global Type</a> page.</li>
-				<li>Using the <code>DAMAGEMULT:x</code> syntax increases the damage multiplier for thedesignated hand(s) wielding the weapon. Bonuses are 
+				<li>Using the <code>DAMAGE</code> syntax increases the damage bonus but the weapon and damage types specified must be valid equipment types 
+					assigned to a weapon in the current data set or must have been defined by the <code>WEAPONTYPE</code> tag in the current gamemode. 
+					Examples of standard Weapon and Weapon Damage types can be found on the <a href="globalfilestype.html#Equipment">Global Type</a> page.</li>
+				<li>Using the <code>DAMAGEMULT</code> syntax increases the damage multiplier for the designated hand(s) wielding the weapon. Bonuses are 
 					additive between each <code>BONUS</code>. Two <code>BONUS:COMBAT|DAMAGEMULT:0|1.5</code> tags will do a total of x3 damage, not 2.25.</li>
 				<li>Using the <code>DAMAGESIZE</code> syntax increases, or decreases, the damage die size along the same scale as is used for weapon size, i.e.:
 					<ul>
