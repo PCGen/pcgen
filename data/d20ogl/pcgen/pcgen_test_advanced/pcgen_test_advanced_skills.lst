@@ -144,3 +144,4 @@ Knowledge (Monkey-Fu)	KEYSTAT:INT	TYPE:Intelligence.Knowledge	USEUNTRAINED:NO
 Speak Language							USEUNTRAINED:NO					TYPE:None.Language										CHOOSE:LANG|TYPE=Spoken
 Read Language							USEUNTRAINED:NO					TYPE:None.Language										CHOOSE:LANG|TYPE=Read
 
+Martial Arts ~ Hiten Mitsurugi Ryuu		OUTPUTNAME:Martial Arts (Hiten Mitsurugi Ryuu)			KEYSTAT:DEX	USEUNTRAINED:NO					TYPE:Dexterity.AdeptChoice.MartialArtsStyle.MartialArts									ABILITY:Special Ability|AUTOMATIC|Hiten Mitsurugi Ryuu (Dex)																											BONUS:ABILITYPOOL|Martial Arts ~ Hiten Mitsurugi Ryuu|(1+skillinfo("TOTAL", "Martial Arts ~ Hiten Mitsurugi Ryuu"))/2				BONUS:VAR|MartialArtsSkillCounter|(1+skillinfo("TOTAL", "Martial Arts ~ Hiten Mitsurugi Ryuu"))/2|TYPE=MartialArts	BONUS:VAR|MartialArtsSkillTotal|skillinfo("TOTAL","Martial Arts ~ Hiten Mitsurugi Ryuu")|TYPE=MartialArts
