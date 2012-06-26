@@ -85,7 +85,10 @@ public class FilteredTreeViewModel<C, E>
 	public void setContext(C context)
 	{
 		this.context = context;
-		filterCheck();
+		if (filter != null)
+		{
+			refilter();
+		}
 	}
 
 	public void setFilter(Filter<C, E> filter)
