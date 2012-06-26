@@ -11,7 +11,7 @@ PRECAMPAIGN:1,BOOKTYPE=Core Rules,[Paizo - Pathfinder RPG for Game Masters (incl
 # ENABLE THESE AND REMOVE FORWARDREFS ONCE INCLUDED
 #PRECAMPAIGN:1,Paizo - Inner Sea World Guide
 #PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Ultimate Combat
-INFOTEXT:This set requires data from Inner Sea World Guide and UC for deity weapons and a domain. Neither if those sets are completed.
+INFOTEXT:This set requires data from Inner Sea World Guide and UC for deity weapons and a domain. Neither of those sets are completed.
 FORWARDREF:WEAPONPROF|Naginata,Nine-Ring broadsword,Bo staff,Urumi,Katana,Tetsubo
 FORWARDREF:DOMAIN|Scalykind
 
