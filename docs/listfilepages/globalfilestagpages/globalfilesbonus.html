@@ -993,6 +993,26 @@
 
 <hr>
 
+	<p class="indent0"><strong><a name="PCLEVEL">Tag Name:</a></strong> BONUS:PCLEVEL|x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Class or Spell type)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Bonus value)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<ul class="indent2">
+		<li>Increases the spellcasting level Class, class type, or spell type identified.</li>
+		<li>The character must already have a level in a spellcasting class to gain the bonus spellcasting level.</li>
+		<li>The syntax <code>BONUS:PCLEVEL|TYPE=x|y</code> is valid but in the context of this tag it is converted to 
+			<code>BONUS:PCLEVEL|TYPE.x|y</code> by PCGen on the fly.</li>
+	</ul>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>BONUS:PCLEVEL|Sorcerer|1</code></p>
+	<p class="indent3">Adds 1 to Sorcerer spell caster level.</p>
+	<p class="indent2"><code>BONUS:PCLEVEL|TYPE.Arcane|1</code></p>
+	<p class="indent3">Adds 1 to Arcane spell caster level.</p>
+	<p></p>
+<!--
+<hr>
+
 	<p class="indent0"><strong><a name="PCLEVEL1">Tag Name:</a></strong> BONUS:PCLEVEL|x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Class type)</p>
@@ -1023,7 +1043,7 @@
 	<p class="indent2"><code>BONUS:PCLEVEL|TYPE=Arcane|1</code></p>
 	<p class="indent3">Adds 1 level to all arcane spellcaster levels that the character already has levels in.</p>
 	<p></p>
-
+-->
 <hr>
 
 	<p class="status"><strong><a name="POSTMOVEADD">*** New 4.3.8</a></p>
