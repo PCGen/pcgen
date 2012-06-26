@@ -187,8 +187,18 @@ Damage Reduction ~ Energy 35							KEY:Damage Reduction ~ Energy 35				OUTPUTNAM
 
 
 Finesse / Wisdom replaces Dexterity for Reflex				KEY:Finesse ~ Wisdom replaces Dexterity for Reflex	OUTPUTNAME:Finesse (Wisdom replaces Dexterity for Reflex)	CATEGORY:Special Ability	TYPE:General.EclipseAbilityOutput.Abilities.Corruptable	DESC:(6 CP). A character with Finesse may replace one attribute modifier with another in some fairly common situation, such as for a particular saving throw.																																																																																				BONUS:CHECKS|Reflex|-DEX	BONUS:CHECKS|Reflex|WIS																								COST:6	SOURCEPAGE:p.32
-Finesse / Dex replaces Str for Damage					KEY:Finesse ~ Dex replaces Str for Damage													CATEGORY:Special Ability	TYPE:General.EclipseAbilityOutput.Abilities.Corruptable	DESC:(6 CP). A character with Finesse may replace one attribute modifier with another in some fairly common situation, such as for a particular saving throw.																																																																																													BONUS:COMBAT|DAMAGE.Melee,DAMAGE.Ranged|-STR	BONUS:COMBAT|DAMAGE.Melee,DAMAGE.Ranged|DEX								COST:6	SOURCEPAGE:p.32
+
+Finesse / Wisdom replaces Strength for Damage				KEY:Finesse ~ Wisdom replaces Strength for Damage	OUTPUTNAME:Finesse (Wisdom replaces Strength for Damage)	CATEGORY:Special Ability	TYPE:General.EclipseAbilityOutput.Abilities.Corruptable	DESC:(6 CP). A character with Finesse may replace one attribute modifier with another in some fairly common situation, such as for a particular saving throw.																																																																																				BONUS:COMBAT|DAMAGE.Melee,DAMAGE.Ranged,DAMAGE.Unarmed|-STR	BONUS:COMBAT|DAMAGE.Melee,DAMAGE.Ranged,DAMAGE.Unarmed|WIS																								COST:6	SOURCEPAGE:p.32	BONUS:VAR|MartialArtsBonusDamage|-STR	BONUS:VAR|MartialArtsBonusDamage|WIS
+
+
+
+Finesse / Dex replaces Str for Damage					KEY:Finesse ~ Dex replaces Str for Damage													CATEGORY:Special Ability	TYPE:General.EclipseAbilityOutput.Abilities.Corruptable	DESC:(6 CP). A character with Finesse may replace one attribute modifier with another in some fairly common situation, such as for a particular saving throw.																																																																																													BONUS:COMBAT|DAMAGE.Melee,DAMAGE.Ranged,DAMAGE.Unarmed|-STR	BONUS:COMBAT|DAMAGE.Melee,DAMAGE.Ranged,DAMAGE.Unarmed|DEX								COST:6	SOURCEPAGE:p.32
 Finesse / Dex replaces Str for To Hit					KEY:Finesse ~ Dex replaces Str for Hit													CATEGORY:Special Ability	TYPE:General.EclipseAbilityOutput.Abilities.Corruptable	DESC:(6 CP). A character with Finesse may replace one attribute modifier with another in some fairly common situation, such as for a particular saving throw.																																																																																													BONUS:COMBAT|TOHIT.Melee|-STR	BONUS:COMBAT|TOHIT.Melee|DEX														COST:6	SOURCEPAGE:p.32
+
+
+
+
+
 
 Augmented Magic ~ +1 Caster Level to Electricity Based Spells	KEY:Augmented Magic ~ Electricity Descriptor												CATEGORY:Special Ability	TYPE:General.EclipseAbilityOutput.Abilities.Corruptable	DESC:+1 Caster Level for Electricity based Spells																																																																																														BONUS:CASTERLEVEL|DESCRIPTOR.Electricity|1																																	COST:3
 Augmented Magic ~ +1 to Damage Die for Electricity Based Spells	KEY:Augmented Magic ~ Electricity Damage													CATEGORY:Special Ability	TYPE:General.EclipseAbilityOutput.Abilities.Corruptable	DESC:[Not Calculated] Grants an additional die of damage for Electiricity based spells																																																																																																																																COST:3
