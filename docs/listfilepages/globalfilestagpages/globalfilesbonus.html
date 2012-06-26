@@ -321,6 +321,182 @@
 
 <hr>
 
+	<p class="status"><a name="COMBAT">*** Updated 5.11.4</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> BONUS:COMBAT|x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> AC</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ATTACKS</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> BAB</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> DAMAGE.Text (Weapon or damage type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> DAMAGEMULT:Number (0 for off-hand, 1 for primary, and 2 for two-handed)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> DAMAGESIZE</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> INITIATIVE</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> REACH</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> RANGEPENALTY</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SECONDARYATTACKS</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SECONDARYDAMAGE</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TOHIT</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TOHIT.Text (Weapon type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TOHIT-PRIMARY</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TOHIT-SECONDARY</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TOHIT-SHORTRANGE</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Number, Variable or Formula (Bonus value)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<ul class="indent2">
+		<li>Adds to indicated combat bonus, i.e.:
+			<ul>
+				<li>Using the <code>AC</code> syntax adds to the armor class.</li>
+				<li>Using the <code>ATTACKS</code> syntax adds to the number of attacks the primary hand gets.</li>
+				<li>Using the <code>BAB</code> syntax increases the base attack bonus and may increase the number of attacks the primary hand gets.</li>
+				<li>Using the <code>DAMAGE.x</code> syntax increases the damage bonus but the weapon and damage types must be a valid equipment type assigned 
+					to a weapon in the current data set or must have been defined by the <code>WEAPONTYPE</code> tag in the current gamemode. Examples of 
+					standard Weapon and Weapon Damage types can be found on the <a href="globalfilestype.html#Equipment">Global Type</a> page.</li>
+				<li>Using the <code>DAMAGEMULT:x</code> syntax increases the damage multiplier for thedesignated hand(s) wielding the weapon. Bonuses are 
+					additive between each <code>BONUS</code>. Two <code>BONUS:COMBAT|DAMAGEMULT:0|1.5</code> tags will do a total of x3 damage, not 2.25.</li>
+				<li>Using the <code>DAMAGESIZE</code> syntax increases, or decreases, the damage die size along the same scale as is used for weapon size, i.e.:
+					<ul>
+						<li>Base Damage Dice:1d2
+							<ul>
+								<li>Scaling Up:1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6,8d6,12d6</li>
+								<li>Scaling Down:1,0</li>
+							</ul>
+						</li>
+						<li>Base Damage Dice:1d3
+							<ul>
+								<li>Scaling Up:1d4,1d6,1d8,2d6,3d6,4d6,6d6,8d6,12d6</li>
+								<li>Scaling Down:1d2,1,0</li>
+							</ul>
+						</li>
+						<li>Base Damage Dice:1d4
+							<ul>
+								<li>Scaling Up:1d6,1d8,2d6,3d6,4d6,6d6,8d6,12d6</li>
+								<li>Scaling Down:1d3,1d2,1,0</li>
+							</ul>
+						</li>
+						<li>Base Damage Dice:1d6
+							<ul>
+								<li>Scaling Up:1d8,2d6,3d6,4d6,6d6,8d6,12d6</li>
+								<li>Scaling Down:1d4,1d3,1d2,1</li>
+							</ul>
+						</li>
+						<li>Base Damage Dice:1d8
+							<ul>
+								<li>Scaling Up:2d6,3d6,4d6,6d6,8d6,12d6</li>
+								<li>Scaling Down:1d6,1d4,1d3,1d2</li>
+							</ul>
+						</li>
+						<li>Base Damage Dice:1d10
+							<ul>
+								<li>Scaling Up:2d8,3d8,4d8,6d8,8d8,12d8</li>
+								<li>Scaling Down:1d8,1d6,1d4,1d3</li>
+							</ul>
+						</li>
+						<li>Base Damage Dice:1d12
+							<ul>
+								<li>Scaling Up:3d6,4d6,6d6,8d6,12d6</li>
+								<li>Scaling Down:1d10,1d8,1d6,1d4</li>
+							</ul>
+						</li>
+						<li>Base Damage Dice:2d4
+							<ul>
+								<li>Scaling Up:2d6,3d6,4d6,6d6,8d6,12d6</li>
+								<li>Scaling Down:1d6,1d4,1d3,1d2</li>
+							</ul>
+						</li>
+						<li>Base Damage Dice:2d6
+							<ul>
+								<li>Scaling Up:3d6,4d6,6d6,8d6,12d6</li>
+								<li>Scaling Down:1d10,1d8,1d6,1d4</li>
+							</ul>
+						</li>
+						<li>Base Damage Dice:2d8
+							<ul>
+								<li>Scaling Up:3d8,4d8,6d8,8d8,12d8</li>
+								<li>Scaling Down:2d6,1d10,1d8,1d6</li>
+							</ul>
+						</li>
+						<li>Base Damage Dice:2d10
+							<ul>
+								<li>Scaling Up:4d8,6d8,8d8,12d8</li>
+								<li>Scaling Down:2d8,2d6,1d10,1d8</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>Using the <code>INITIATIVE</code> syntax increases the character's initiative.</li>
+				<li>Using the <code>REACH</code> syntax modifies the character's reach.</li>
+				<li>Using the <code>RANGEPENALTY</code> syntax modifies the character's range increment penalty.</li>
+				<li>Using the <code>SECONDARYATTACKS</code> syntax increases the number of secondary attacks.</li>
+				<li>Using the <code>SECONDARYDAMAGE</code> syntax increases the damage modifier for secondary attacks.</li>
+				<li>Using the <code>TOHIT</code> syntax increases the primary attack bonus.</li>
+				<li>Using the <code>TOHIT.x</code> syntax increases the attack bonus for the designated attack, i.e. by weapon type, grapple, melee, or ranged attack.</li>
+				<li>Using the <code>TOHIT-PRIMARY</code> syntax increases the primary attack bonus.</li>
+				<li>Using the <code>TOHIT-SECONDARY</code> syntax increases the secondary attack bonus.</li>
+				<li>Using the <code>TOHIT-SHORTRANGE</code> syntax adds to the ranged attack rolls that are less than the gamemode defined <strong>SHORTRANGE</strong>but 
+					does not affect attacks per round.</li>
+			</ul>
+		</li>
+	</ul>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>BONUS:COMBAT|AC|2|TYPE=Enhancement</code></p>
+	<p class="indent3">Increases enchantment armor bonus by two.</p>
+	<p class="indent2"><code>BONUS:COMBAT|AC|7|TYPE=NaturalArmor.REPLACE</code></p>
+	<p class="indent3">Replaces the natural armor bonus to seven.</p>
+	<p class="indent2"><code>BONUS:COMBAT|ATTACKS|2</code></p>
+	<p class="indent3">Increases number of attacks by two.</p>
+	<p class="indent2"><code>BONUS:COMBAT|BAB|1</code></p>
+	<p class="indent3">Increases base attack bonus by one.</p>
+	<p class="indent2"><code>BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE</code></p>
+	<p class="indent3">Increases base attack bonus by Character Level, replacing the Base value.</p>
+	<p class="indent2"><code>BONUS:COMBAT|DAMAGE.Piercing|2</code></p>
+	<p class="indent3">Increases &quot;Piercing&quot; damage bonus by two.</p>
+	<p class="indent2"><code>BONUS:COMBAT|DAMAGE.Unarmed,DAMAGE.Thrown|DEX</code></p>
+	<p class="indent3">Adds the characters dexterity modifier to both &quot;Unarmed&quot; and &quot;Thrown&quot; 
+		damage.</p>
+	<p class="indent2"><code>BONUS:COMBAT|DAMAGEMULT:0|0.5</code></p>
+	<p class="indent3">Increases the damage multiplier by half your strength bonus. Combined with the
+		existing bonus this bonus will total your full strength bonus for an off hand weapon.</p>
+	<p class="indent2"><code>BONUS:COMBAT|DAMAGEMULT:1|1</code></p>
+	<p class="indent3">Increases the damage multiplier of the weapon by your strength bonus when
+		wielding in your primary hand.</p>
+	<p class="indent2"><code>BONUS:COMBAT|DAMAGEMULT:2|1.5</code></p>
+	<p class="indent3">Increases the damage multiplier of the weapon by one and a half your strength 
+		bonus when wielding it two-handed.</p>
+	<p class="indent2"><code>BONUS:COMBAT|DAMAGESIZE|2</code></p>
+	<p class="indent3">If the base damage dice is 1d8 this would scale it up to 3d6.</p>
+	<p class="indent2"><code>BONUS:COMBAT|DAMAGESIZE|-1</code></p>
+	<p class="indent3">If the base damage dice is 1d4 this would scale it down to 1d3.</p>
+	<p class="indent2"><code>BONUS:COMBAT|INITIATIVE|3</code></p>
+	<p class="indent3">Increases initiative by three.</p>
+	<p class="indent2"><code>BONUS:COMBAT|INITIATIVE|2|TYPE=Competence</code></p>
+	<p class="indent3">Increases initiative by two for Competence.</p>
+	<p class="indent2"><code>BONUS:COMBAT|REACH|10</code></p>
+	<p class="indent3">Increases reach by ten feet.</p>
+	<p class="indent2"><code>BONUS:COMBAT|RANGEPENALTY|1</code></p>
+	<p class="indent3">Reduces the range increment penalty by 1 (for example from -2 to -1).</p>
+	<p class="indent2"><code>BONUS:COMBAT|RANGEPENALTY|-2</code></p>
+	<p class="indent3">Increases the range increment penalty by 2 (for example from -2 to -4).</p>
+	<p class="indent2"><code>BONUS:COMBAT|SECONDARYATTACKS|1</code></p>
+	<p class="indent3">Increases secondary attacks by one.</p>
+	<p class="indent2"><code>BONUS:COMBAT|SECONDARYDAMAGE|2</code></p>
+	<p class="indent3">Increases the secondary attack damage bonus by two.</p>
+	<p class="indent2"><code>BONUS:COMBAT|TOHIT|2|TYPE=Luck</code></p>
+	<p class="indent3">Increases Attack bonus by two.</p>
+	<p class="indent2"><code>CHOOSE:WEAPONPROFS|3 &lt;tab&gt; BONUS:COMBAT|TOHIT.%LIST|1|TYPE=Talent</code></p>
+	<p class="indent3">Increases Attack bonus by one for three WEAPONPROFS based on Talent.</p>
+	<p class="indent2"><code>BONUS:COMBAT|TOHIT.THROWN|2|TYPE=Racial</code></p>
+	<p class="indent3">Increases Attack for thrown weapons bonus by two.</p>
+	<p class="indent2"><code>BONUS:COMBAT|TOHIT.SLASHING|2|TYPE=Enhancement</code></p>
+	<p class="indent3">Increases Attack bonus by two when using a Slashing weapon.</p>
+	<p class="indent2"><code>BONUS:COMBAT|TOHIT-PRIMARY|2</code></p>
+	<p class="indent3">Increases Primary Attack bonus to two.</p>
+	<p class="indent2"><code>BONUS:COMBAT|TOHIT-SECONDARY|1</code></p>
+	<p class="indent3">Increases Secondary Attack bonus to one.</p>
+	<p class="indent2"><code>BONUS:COMBAT|TOHIT-SHORTRANGE|1</code></p>
+	<p class="indent3">Adds one to character's short range To-Hit attack rolls.</p>
+	<p></p>
+<!--
+<hr>
+
 	<p class="indent0"><strong><a name="COMBAT">Tag Name:</a></strong> BONUS:COMBAT|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Combat Bonus)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
@@ -583,8 +759,6 @@
 	<p class="indent3">Increases Attack bonus by one if a <code>TYPE=DivineWeapon</code> is in Primary Hand.</p>
 	<p class="indent2"><code>5 &lt;tab&gt; BONUS:COMBAT|TOHIT|2|PREEQUIPPRIMARY:1,DivineWeapon</code></p>
 	<p class="indent3">Increases Attack bonus by two if a <code>TYPE=DivineWeapon</code> is in Primary Hand.</p>
-	<p class="indent2"><code>CHOOSE:WEAPONPROFS|3 &lt;tab&gt; BONUS:COMBAT|TOHIT.%LIST|1|TYPE=Talent</code></p>
-	<p class="indent3">Increases Attack bonus by one for three WEAPONPROFS based on Talent.</p>
 	<p></p>
 
 <hr>
@@ -668,7 +842,7 @@
 	<p class="indent2"><code>5 &lt;tab&gt; BONUS:COMBAT|TOHIT-SHORTRANGE|2|TYPE=Divine|PREEQUIPSECONDARY:1,DivineWeapon</code></p>
 	<p class="indent3">Increases Attack bonus by two if a <code>TYPE=DivineWeapon</code> is in Secondary Hand.</p>
 	<p></p>
-
+-->
 <hr>
 
 	<p class="new"><a name="CONCENTRATION">*** New 5.17.7</a></p>
@@ -1010,40 +1184,7 @@
 	<p class="indent2"><code>BONUS:PCLEVEL|TYPE.Arcane|1</code></p>
 	<p class="indent3">Adds 1 to Arcane spell caster level.</p>
 	<p></p>
-<!--
-<hr>
 
-	<p class="indent0"><strong><a name="PCLEVEL1">Tag Name:</a></strong> BONUS:PCLEVEL|x|y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Class type)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add class level)</p>
-	<p class="indent1"><strong>What it Does:</strong></p>
-	<ul class="indent2">
-		<li>Sets the spellcasting level higher than the current class level.</li>
-		<li>The character must already have a level in the class to gain the bonus spellcasting level.</li>
-	</ul>
-	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>BONUS:PCLEVEL|Sorcerer|1</code></p>
-	<p class="indent3">Adds 1 to Sorcerer spell caster level.</p>
-	<p class="indent2"><code>BONUS:PCLEVEL|TYPE.Arcane|1</code></p>
-	<p class="indent3">Adds 1 to Arcane spell caster level.</p>
-	<p></p>
-
-<hr>
-
-	<p class="indent0"><strong><a name="PCLEVEL2">Tag Name:</a></strong> BONUS:PCLEVEL|Type=x|y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell type)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add class level)</p>
-	<p class="indent1"><strong>What it Does:</strong></p>
-	<ul class="indent2">
-		<li>Sets the spellcasting level higher than the current class level.</li>
-		<li>The character must already have a level in the class to gain the bonus spellcasting level.</li>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>BONUS:PCLEVEL|TYPE=Arcane|1</code></p>
-	<p class="indent3">Adds 1 level to all arcane spellcaster levels that the character already has levels in.</p>
-	<p></p>
--->
 <hr>
 
 	<p class="status"><strong><a name="POSTMOVEADD">*** New 4.3.8</a></p>
