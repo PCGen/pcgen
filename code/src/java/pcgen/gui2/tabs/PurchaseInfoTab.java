@@ -385,6 +385,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			protected void valueChanged(BigDecimal value)
 			{
 				character.setFunds(value);
+				availableTable.refilter();
 			}
 
 		};
@@ -497,6 +498,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 						character.addPurchasedEquipment(equip, 1, false);
 					}
 				}
+				availableTable.refilter();
 			}
 		}
 		
@@ -593,7 +595,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				{
 					character.removePurchasedEquipment((EquipmentFacade) object, 1);
 				}
-
+				availableTable.refilter();
 			}
 		}
 		
@@ -1233,6 +1235,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 					character.addPurchasedEquipment(equip, 1, false);
 				}
 			}
+			availableTable.refilter();
 			return true;
 		}
 
