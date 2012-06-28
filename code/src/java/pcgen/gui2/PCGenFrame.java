@@ -122,6 +122,7 @@ import pcgen.system.PCGenPropBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.system.PropertyContext;
 import pcgen.util.Logging;
+import pcgen.util.chooser.ChooserFactory;
 
 /**
  * The main window for PCGen. In addition this class is responsible for providing 
@@ -164,6 +165,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		Globals.setRootFrame(this);
 		Observer messageObserver = new ShowMessageGuiObserver(this);
 		ShowMessageDelegate.getInstance().addObserver(messageObserver);
+		ChooserFactory.setDelegate(this);
 		initComponents();
 		pack();
 		initSettings();

@@ -19,6 +19,8 @@
  */
 package pcgen.util.chooser;
 
+import pcgen.core.facade.UIDelegate;
+
 /**
  * This factory class returns a Chooser of the appropriate type. This is intended
  * to reduce the core/gui interdependence. Much more work is needed on this...
@@ -32,7 +34,7 @@ public final class ChooserFactory
 	private static String interfaceClassname = null;
 	private static String radioInterfaceClassname = null;
 	private static String userInputInterfaceClassname = null;
-
+	private static UIDelegate delegate;
 	/**
 	 * Deliberately private so it can't be instantiated.
 	 */
@@ -175,5 +177,21 @@ public final class ChooserFactory
 	public static String getUserInputInterfaceClassname()
 	{
 		return ChooserFactory.userInputInterfaceClassname;
+	}
+
+	/**
+	 * @return the delegate
+	 */
+	public static UIDelegate getDelegate()
+	{
+		return delegate;
+	}
+
+	/**
+	 * @param delegate the delgate to set
+	 */
+	public static void setDelegate(UIDelegate delegate)
+	{
+		ChooserFactory.delegate = delegate;
 	}
 }

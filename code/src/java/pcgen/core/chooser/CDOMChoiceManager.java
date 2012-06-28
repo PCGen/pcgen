@@ -147,6 +147,15 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 		chooser.setVisible(true);
 
 		return chooser.getSelectedList();
+//		CDOMChooserFacadeImpl<T> chooserFacade =
+//				new CDOMChooserFacadeImpl<T>(
+//					LanguageBundle.getString("in_chooser"), availableList, //$NON-NLS-1$
+//					selectedList, effectiveChoices);
+//		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
+//		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
+//		
+//		return chooserFacade.getFinalSelected();
+		
 	}
 
 	/**
@@ -175,6 +184,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 		int effectiveChoices = Math
 				.min(controller.getPool() + selectedPoolValue,
 						effectiveTotalChoices / choicesPerUnitCost);
+		//effectiveChoices -=  selectedList.size();
 		return effectiveChoices;
 	}
 
