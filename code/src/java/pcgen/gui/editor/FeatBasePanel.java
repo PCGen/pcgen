@@ -219,8 +219,7 @@ public class FeatBasePanel extends BasePanel<Ability>
 	}
 
 	/**
-	 * Set visible
-	 * @param aNumber
+	 * @param vis the visibility to set
 	 */
 	public void setVisible(final Visibility vis)
 	{

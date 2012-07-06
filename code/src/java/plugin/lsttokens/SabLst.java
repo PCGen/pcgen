@@ -53,12 +53,11 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	 * This method sets the special abilities granted by this [object]. For
 	 * efficiency, avoid calling this method except from I/O routines.
 	 *
+	 * @param context 
 	 * @param obj
-	 *            the PObject that is to receive the new SpecialAbility
+	 *            the CDOMbject that is to receive the new SpecialAbility
 	 * @param aString
 	 *            String of special abilities delimited by pipes
-	 * @param level
-	 *            int level at which the ability is gained
 	 */
 	@Override
 	protected ParseResult parseTokenWithSeparator(LoadContext context,

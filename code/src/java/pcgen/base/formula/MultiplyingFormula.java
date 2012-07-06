@@ -38,8 +38,8 @@ public class MultiplyingFormula implements ReferenceFormula<Integer>
 	 * Creates a new MultiplyingFormula with the given int as the value to be
 	 * multiplied with the input to the resolve method
 	 * 
-	 * @param multiplier
-	 *            the int to be multiplied with the input when this
+	 * @param mult
+	 *            multiplier, the int to be multiplied with the input when this
 	 *            MultiplyingFormula is used
 	 */
 	public MultiplyingFormula(int mult)

@@ -371,8 +371,8 @@ public class TemplateBasePanel extends BasePanel<PCTemplate>
 	}
 
 	/**
-	 * Set whether the tempalte should be visible or not
-	 * @param aNumber
+	 * Set whether the template should be visible or not
+	 * @param vis
 	 */
 	public void setVisible(final Visibility vis)
 	{

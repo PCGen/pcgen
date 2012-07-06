@@ -39,7 +39,7 @@ public class TreeViewPath<E>
      * new TreePath(new Object[]{string1, string2, pobj})<br>
      * instead you can now say:<br>
      * new TreeViewPath(pobj, string1, string2)
-     * @param obj the last element in the list
+     * @param pobj the last element in the list
      * @param path the string path leading to the last element
      */
     public TreeViewPath(E pobj, Object path)

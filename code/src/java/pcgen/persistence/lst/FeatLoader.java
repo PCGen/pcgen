@@ -50,7 +50,7 @@ public final class FeatLoader extends AbilityLoader
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, CDOMObject, String, SourceEntry)
 	 */
 	@Override
 	public Ability parseLine(LoadContext context, Ability aFeat,
@@ -77,7 +77,7 @@ public final class FeatLoader extends AbilityLoader
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#loadLstFile(pcgen.persistence.lst.CampaignSourceEntry)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#loadLstFile(LoadContext, CampaignSourceEntry)
 	 */
 	@Override
 	protected void loadLstFile(LoadContext context, CampaignSourceEntry sourceEntry)

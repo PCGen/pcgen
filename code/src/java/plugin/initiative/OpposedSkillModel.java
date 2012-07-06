@@ -92,7 +92,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 		 * Gets the skill bonus for the specified skill name
 		 * </p>
 		 *
-		 * @param aSkillName
+		 * @param aSkillKey
 		 * @return skillBonus
 		 */
 		public Integer getSkillBonus(String aSkillKey)

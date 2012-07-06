@@ -156,7 +156,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	private static final String TAG_PCTEMPLATE = "PCTEMPLATE";
 
 	private ChooseDriverFacet chooseDriverFacet = FacetLibrary
-			.getFacet(ChooseDriverFacet.class);
+		.getFacet(ChooseDriverFacet.class);
 
 	/**
 	 * DO NOT CHANGE line separator.
@@ -225,13 +225,15 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 * @return The list of campaigns.
 	 * @throws PCGParseException If the lines are invalid 
 	 */
-	public SourceSelectionFacade parcePCGSourceOnly(String[] lines) throws PCGParseException
+	public SourceSelectionFacade parcePCGSourceOnly(String[] lines)
+		throws PCGParseException
 	{
 		buildPcgLineCache(lines);
 
 		if (!cache.containsKey(TAG_GAMEMODE))
 		{
-			Logging.errorPrint("Character does not have game mode information.");
+			Logging
+				.errorPrint("Character does not have game mode information.");
 			return null;
 		}
 		String line = cache.get(TAG_GAMEMODE).get(0);
@@ -239,7 +241,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		GameMode mode = SystemCollections.getGameModeNamed(requestedMode);
 		if (mode == null)
 		{
-			for (GameMode gameMode : SystemCollections.getUnmodifiableGameModeList())
+			for (GameMode gameMode : SystemCollections
+				.getUnmodifiableGameModeList())
 			{
 				if (gameMode.getAllowedModes().contains(requestedMode))
 				{
@@ -251,13 +254,15 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		//if mode == null still then a game mode was not found
 		if (mode == null)
 		{
-			Logging.errorPrint("Character's game mode entry was not valid: " + line);
+			Logging.errorPrint("Character's game mode entry was not valid: "
+				+ line);
 			return null;
 		}
 		if (!cache.containsKey(TAG_CAMPAIGN))
 		{
 			Logging.errorPrint("Character does not have campaign information.");
-			return FacadeFactory.createSourceSelection(mode, new ArrayList<CampaignFacade>());
+			return FacadeFactory.createSourceSelection(mode,
+				new ArrayList<CampaignFacade>());
 		}
 		/*
 		 * #System Information
@@ -274,7 +279,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 		return FacadeFactory.createSourceSelection(mode, campaigns);
 	}
-	
+
 	/**
 	 * @param lines
 	 */
@@ -314,7 +319,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 * Given a Source string and Target string,
 	 * return a List of BonusObj's
 	 */
-	private Map<BonusObj, TempBonusInfo> getBonusFromName(String sName, String tName)
+	private Map<BonusObj, TempBonusInfo> getBonusFromName(String sName,
+		String tName)
 	{
 		//sName = NAME=Haste
 		//tName = PC
@@ -329,15 +335,17 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			oSource = thePC.getAbilityKeyed(AbilityCategory.FEAT, sourceStr);
 			if (oSource == null)
 			{
-		 		for (final AbilityCategory cat : SettingsHandler.getGame().getAllAbilityCategories())
+				for (final AbilityCategory cat : SettingsHandler.getGame()
+					.getAllAbilityCategories())
 				{
-					Ability abilSourceObj = Globals.getContext().ref
-							.silentlyGetConstructedCDOMObject(Ability.class,
-									cat, sourceStr);
-		 			if (abilSourceObj != null)
-		 			{
-		 				oSource = abilSourceObj;
-		 			}
+					Ability abilSourceObj =
+							Globals.getContext().ref
+								.silentlyGetConstructedCDOMObject(
+									Ability.class, cat, sourceStr);
+					if (abilSourceObj != null)
+					{
+						oSource = abilSourceObj;
+					}
 				}
 			}
 		}
@@ -361,15 +369,16 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		else if (sourceStr.startsWith(TAG_TEMPLATE + '='))
 		{
 			sourceStr = sourceStr.substring(9);
-			oSource = Globals.getContext().ref
-					.silentlyGetConstructedCDOMObject(PCTemplate.class,
-							sourceStr);
+			oSource =
+					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+						PCTemplate.class, sourceStr);
 		}
 		else if (sourceStr.startsWith(TAG_SKILL + '='))
 		{
 			sourceStr = sourceStr.substring(6);
-			Skill aSkill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-					Skill.class, sourceStr);
+			Skill aSkill =
+					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+						Skill.class, sourceStr);
 			if (thePC.hasSkill(aSkill))
 			{
 				oSource = aSkill;
@@ -439,13 +448,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void checkStats() throws PCGParseException
 	{
-		if (seenStats.size() != Globals.getContext().ref.getConstructedObjectCount(PCStat.class))
+		if (seenStats.size() != Globals.getContext().ref
+			.getConstructedObjectCount(PCStat.class))
 		{
 			final String message =
 					LanguageBundle.getFormattedString(
 						"Exceptions.PCGenParser.WrongNumAttributes", //$NON-NLS-1$
-						seenStats.size(),
-						Globals.getContext().ref.getConstructedObjectCount(PCStat.class));
+						seenStats.size(), Globals.getContext().ref
+							.getConstructedObjectCount(PCStat.class));
 			throw new PCGParseException("parseStatLines", "N/A", message); //$NON-NLS-1$//$NON-NLS-2$
 		}
 	}
@@ -485,23 +495,25 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		while (aTok.hasMoreTokens() && (i < 10))
 		{
-			thePC.setHasMadeKitSelectionForAgeSet(i++, aTok.nextToken().equals(
-				"1")); //$NON-NLS-1$
+			thePC.setHasMadeKitSelectionForAgeSet(i++,
+				aTok.nextToken().equals("1")); //$NON-NLS-1$
 		}
 	}
 
 	private void parseAlignmentLine(String line)
 	{
 		final String alignment = line.substring(TAG_ALIGNMENT.length() + 1);
-		PCAlignment align = Globals.getContext().ref.getAbbreviatedObject(PCAlignment.class, alignment);
+		PCAlignment align =
+				Globals.getContext().ref.getAbbreviatedObject(
+					PCAlignment.class, alignment);
 
 		if (align != null)
 		{
 			if (!RaceAlignment.canBeAlignment(thePC.getRace(), align))
 			{
 				ShowMessageDelegate.showMessageDialog(
-						"Invalid alignment. Setting to <none selected>",
-						Constants.APPLICATION_NAME, MessageType.INFORMATION);
+					"Invalid alignment. Setting to <none selected>",
+					Constants.APPLICATION_NAME, MessageType.INFORMATION);
 				align = AlignmentConverter.getNoAlignment();
 			}
 			thePC.setAlignment(align);
@@ -582,8 +594,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 		else if (objecttype.startsWith(TAG_SKILL))
 		{
-			Skill aSkill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-					Skill.class, objectname);
+			Skill aSkill =
+					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+						Skill.class, objectname);
 
 			if (aSkill != null && thePC.hasSkill(aSkill))
 			{
@@ -601,8 +614,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 		else if (objecttype.startsWith(TAG_DOMAIN))
 		{
-			Domain aDomain = Globals.getContext().ref
-					.silentlyGetConstructedCDOMObject(DOMAIN_CLASS, objectname);
+			Domain aDomain =
+					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+						DOMAIN_CLASS, objectname);
 
 			if (aDomain != null && thePC.hasDomain(aDomain))
 			{
@@ -638,9 +652,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 		else if (objecttype.startsWith(TAG_TEMPLATE))
 		{
-			PCTemplate aTemplate = Globals.getContext().ref
-					.silentlyGetConstructedCDOMObject(PCTemplate.class,
-							objectname);
+			PCTemplate aTemplate =
+					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+						PCTemplate.class, objectname);
 
 			if (aTemplate != null && thePC.hasTemplate(aTemplate))
 			{
@@ -874,7 +888,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			parseCharacterTypeLine(cache.get(TAG_CHARACTERTYPE).get(0));
 		}
-		
+
 		if (cache.containsKey(TAG_AUTOSPELLS))
 		{
 			parseAutoSpellsLine(cache.get(TAG_AUTOSPELLS).get(0));
@@ -1200,7 +1214,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		//For those that weren't explicitly specified, insert them
 		insertDefaultClassSpellLists();
-		
+
 		if (cache.containsKey(TAG_SPELLNAME))
 		{
 			for (final String line : cache.get(TAG_SPELLNAME))
@@ -1440,7 +1454,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		if (cache.containsKey(TAG_PORTRAIT_THUMBNAIL_RECT))
 		{
-			parsePortraitThumbnailRectLine(cache.get(TAG_PORTRAIT_THUMBNAIL_RECT).get(0));
+			parsePortraitThumbnailRectLine(cache.get(
+				TAG_PORTRAIT_THUMBNAIL_RECT).get(0));
 		}
 
 		/*
@@ -1510,8 +1525,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				parseSupressBioFieldsLine(line);
 			}
 		}
-		
-		
 
 	}
 
@@ -1538,9 +1551,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 * @return The list of campaigns.
 	 * @throws PCGParseException 
 	 */
-	private List<Campaign> getCampaignList(List<String> lines) throws PCGParseException
+	private List<Campaign> getCampaignList(List<String> lines)
+		throws PCGParseException
 	{
-		
+
 		final List<Campaign> campaigns = new ArrayList<Campaign>();
 		PCGTokenizer tokens;
 
@@ -1559,7 +1573,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				 * Thomas Behr 14-08-02
 				 */
 				throw new PCGParseException(
-						"parseCampaignLines", line, pcgpex.getMessage()); //$NON-NLS-1$
+					"parseCampaignLines", line, pcgpex.getMessage()); //$NON-NLS-1$
 			}
 
 			for (PCGElement element : tokens.getElements())
@@ -1583,7 +1597,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 * @return The list of campaigns.
 	 * @throws PCGParseException If the line format is invalid
 	 */
-	private List<Campaign> getCampaignList(final List<String> lines, Collection<Campaign> loaded, List<URI> chosenCampaignSourcefiles)
+	private List<Campaign> getCampaignList(final List<String> lines,
+		Collection<Campaign> loaded, List<URI> chosenCampaignSourcefiles)
 		throws PCGParseException
 	{
 		final List<Campaign> campaigns = new ArrayList<Campaign>();
@@ -1619,7 +1634,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				if (aCampaign != null)
 				{
 					boolean match = false;
-					for (String mode : aCampaign.getSafeListFor(ListKey.GAME_MODE))
+					for (String mode : aCampaign
+						.getSafeListFor(ListKey.GAME_MODE))
 					{
 						match = modeNames.contains(mode);
 						if (match)
@@ -1632,7 +1648,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						if (!loaded.contains(aCampaign))
 						{
 							campaigns.add(aCampaign);
-							chosenCampaignSourcefiles.add(aCampaign.getSourceURI());
+							chosenCampaignSourcefiles.add(aCampaign
+								.getSourceURI());
 						}
 					}
 				}
@@ -1650,16 +1667,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseCharacterAssetLine(final String line)
 	{
-		thePC.setStringFor(StringKey.MISC_ASSETS,
-			EntityEncoder.decode(line
-				.substring(TAG_CHARACTERASSET.length() + 1)));
+		thePC.setStringFor(StringKey.MISC_ASSETS, EntityEncoder.decode(line
+			.substring(TAG_CHARACTERASSET.length() + 1)));
 	}
 
 	private void parseCharacterCompLine(final String line)
 	{
-		thePC.setStringFor(StringKey.MISC_COMPANIONS,
-			EntityEncoder
-				.decode(line.substring(TAG_CHARACTERCOMP.length() + 1)));
+		thePC.setStringFor(StringKey.MISC_COMPANIONS, EntityEncoder.decode(line
+			.substring(TAG_CHARACTERCOMP.length() + 1)));
 	}
 
 	private void parseCharacterDescLine(final String line)
@@ -1670,16 +1685,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseCharacterMagicLine(final String line)
 	{
-		thePC.setStringFor(StringKey.MISC_MAGIC,
-			EntityEncoder.decode(line
-				.substring(TAG_CHARACTERMAGIC.length() + 1)));
+		thePC.setStringFor(StringKey.MISC_MAGIC, EntityEncoder.decode(line
+			.substring(TAG_CHARACTERMAGIC.length() + 1)));
 	}
 
 	private void parseCharacterDmNotesLine(final String line)
 	{
-		thePC.setStringFor(StringKey.MISC_GM,
-			EntityEncoder.decode(line
-				.substring(TAG_CHARACTERDMNOTES.length() + 1)));
+		thePC.setStringFor(StringKey.MISC_GM, EntityEncoder.decode(line
+			.substring(TAG_CHARACTERDMNOTES.length() + 1)));
 	}
 
 	/*
@@ -1839,14 +1852,15 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				SubstitutionLevelSupport.applyLevelArrayModsToLevel(
 					aSubstitutionClass, aPCClass, level, thePC);
 				thePC.setAssoc(thePC.getActiveClassLevel(aPCClass, level),
-						AssociationKey.SUBSTITUTIONCLASS_KEY,
-						substitutionClassKeyName);
+					AssociationKey.SUBSTITUTIONCLASS_KEY,
+					substitutionClassKeyName);
 			}
 			else if (TAG_HITPOINTS.equals(tag))
 			{
 				try
 				{
-					PCClassLevel classLevel = thePC.getActiveClassLevel(aPCClass, level - 1);
+					PCClassLevel classLevel =
+							thePC.getActiveClassLevel(aPCClass, level - 1);
 					thePC.setHP(classLevel, Integer.valueOf(element.getText()));
 				}
 				catch (NumberFormatException nfe)
@@ -1871,24 +1885,28 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						if (pipeLoc != -1)
 						{
 							CDOMObject target = aPCClass;
-							String potentialInt = bonusString.substring(0, pipeLoc);
+							String potentialInt =
+									bonusString.substring(0, pipeLoc);
 							try
 							{
 								int bonusLevel = Integer.parseInt(potentialInt);
 								if (bonusLevel > 0)
 								{
-									target = thePC.getActiveClassLevel(
-											aPCClass, bonusLevel);
+									target =
+											thePC.getActiveClassLevel(aPCClass,
+												bonusLevel);
 								}
-								bonusString = bonusString.substring(pipeLoc + 1);
+								bonusString =
+										bonusString.substring(pipeLoc + 1);
 							}
 							catch (NumberFormatException e)
 							{
 								//OK (no level embedded in file)
 								if (level > 0)
 								{
-									target = thePC.getActiveClassLevel(
-											aPCClass, level);
+									target =
+											thePC.getActiveClassLevel(aPCClass,
+												level);
 								}
 							}
 							BonusAddition.applyBonus(bonusString, "", thePC,
@@ -1902,7 +1920,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				for (final PCGElement child : element.getChildren())
 				{
 					thePC.setAssoc(aPCClass, AssociationKey.SPECIALTY,
-							EntityEncoder.decode(child.getText()));
+						EntityEncoder.decode(child.getText()));
 				}
 			}
 			else if (TAG_SPECIALABILITIES.equals(tag))
@@ -1943,7 +1961,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (tag.equals(TAG_ADDTOKEN))
 			{
-				parseAddTokenInfo(element, thePC.getActiveClassLevel(aPCClass, level));
+				parseAddTokenInfo(element,
+					thePC.getActiveClassLevel(aPCClass, level));
 			}
 
 			//
@@ -1963,16 +1982,18 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				if (idx > 0)
 				{
 					String statAbb = element.getText().substring(0, idx);
-					final PCStat pcstat = Globals.getContext().ref
-							.getAbbreviatedObject(PCStat.class, statAbb);
+					final PCStat pcstat =
+							Globals.getContext().ref.getAbbreviatedObject(
+								PCStat.class, statAbb);
 
 					if (pcstat != null)
 					{
 						try
 						{
-							thePC.saveStatIncrease(pcstat, Integer
-									.parseInt(element.getText().substring(
-											idx + 1)), isPre);
+							thePC.saveStatIncrease(
+								pcstat,
+								Integer.parseInt(element.getText().substring(
+									idx + 1)), isPre);
 						}
 						catch (NumberFormatException nfe)
 						{
@@ -2008,9 +2029,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if ((pcl != null) && TAG_SKILLPOINTSREMAINING.equals(tag))
 			{
-				pcl
-					.setSkillPointsRemaining(Integer
-						.parseInt(element.getText()));
+				pcl.setSkillPointsRemaining(Integer.parseInt(element.getText()));
 			}
 			else if (TAG_DATA.equals(tag))
 			{
@@ -2064,7 +2083,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		if (!found)
 		{
 			warnings.add(cdo.getDisplayName() + "(" + cdo.getClass().getName()
-					+ ")\nCould not find matching ADD: " + name + "|" + dString);
+				+ ")\nCould not find matching ADD: " + name + "|" + dString);
 		}
 	}
 
@@ -2189,7 +2208,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						}
 					}
 				}
-				SubClassApplication.setSubClassKey(thePC, aPCClass, subClassKey);
+				SubClassApplication
+					.setSubClassKey(thePC, aPCClass, subClassKey);
 			}
 
 			if (TAG_LEVEL.equals(tag))
@@ -2239,7 +2259,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			else if (TAG_PROHIBITED.equals(tag))
 			{
 				String prohib = EntityEncoder.decode(element.getText());
-				StringTokenizer st = new StringTokenizer(prohib, Constants.COMMA);
+				StringTokenizer st =
+						new StringTokenizer(prohib, Constants.COMMA);
 				while (st.hasMoreTokens())
 				{
 					String choice = st.nextToken();
@@ -2264,7 +2285,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			for (int i = 0; i < level; ++i)
 			{
-				PCLevelInfo levelInfo = thePC.addLevelInfo(aPCClass.getKeyName());
+				PCLevelInfo levelInfo =
+						thePC.addLevelInfo(aPCClass.getKeyName());
 				aPCClass.addLevel(false, false, thePC, true);
 
 			}
@@ -2386,7 +2408,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				// PC doesn't have the domain, so create a new
 				// one and add it to the PC domain list
 				ClassSource source = null;
-				
+
 				while (it.hasNext())
 				{
 					element = it.next();
@@ -2394,19 +2416,22 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 					if (TAG_SOURCE.equals(tag))
 					{
-						source = getDomainSource(sourceElementToString(element));
+						source =
+								getDomainSource(sourceElementToString(element));
 					}
 					else if (TAG_ASSOCIATEDDATA.equals(tag))
 					{
-						String fullassoc = EntityEncoder.decode(element.getText());
+						String fullassoc =
+								EntityEncoder.decode(element.getText());
 						CharID id = thePC.getCharID();
-						chooseDriverFacet.addAssociation(id, aDomain, fullassoc);
+						chooseDriverFacet
+							.addAssociation(id, aDomain, fullassoc);
 					}
 				}
 				if (source == null)
 				{
 					warnings.add("Domain not added due to no source: "
-							+ domainKey);
+						+ domainKey);
 				}
 				else
 				{
@@ -2424,7 +2449,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 	}
 
-	private void parseDomainSpellsLine(@SuppressWarnings("unused") String line)
+	private void parseDomainSpellsLine(@SuppressWarnings("unused")
+	String line)
 	{
 		// TODO
 	}
@@ -2487,7 +2513,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		//# EquipSet Temp Bonuses
 		//EQSETBONUS:0.2|TEMPBONUS:NAME=Haste|TBTARGET:PC|TEMPBONUS:SPELL=Shield of Faith|TBTARGET:PC
-		final Map<BonusObj, BonusManager.TempBonusInfo> aList = new IdentityHashMap<BonusObj, BonusManager.TempBonusInfo>();
+		final Map<BonusObj, BonusManager.TempBonusInfo> aList =
+				new IdentityHashMap<BonusObj, BonusManager.TempBonusInfo>();
 
 		for (final PCGElement element : tokens.getElements())
 		{
@@ -2517,14 +2544,16 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	}
 
 	private void parseCharacterTypeLine(final String line)
-			throws PCGParseException
+		throws PCGParseException
 	{
 		final StringTokenizer stok =
 				new StringTokenizer(
-					line.substring(TAG_CHARACTERTYPE.length() + 1), TAG_END, false);
+					line.substring(TAG_CHARACTERTYPE.length() + 1), TAG_END,
+					false);
 
 		String characterType = stok.nextToken();
-		if (!SettingsHandler.getGame().getCharacterTypeList().contains(characterType))
+		if (!SettingsHandler.getGame().getCharacterTypeList()
+			.contains(characterType))
 		{
 			String wantedType = characterType;
 			characterType = SettingsHandler.getGame().getDefaultCharacterType();
@@ -2534,7 +2563,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 		thePC.setCharacterType(characterType);
 	}
-
 
 	/*
 	 * ###############################################################
@@ -2560,11 +2588,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	}
 
 	private void parseExperienceTableLine(final String line)
-			throws PCGParseException
+		throws PCGParseException
 	{
 		final StringTokenizer stok =
 				new StringTokenizer(
-					line.substring(TAG_EXPERIENCETABLE.length() + 1), TAG_END, false);
+					line.substring(TAG_EXPERIENCETABLE.length() + 1), TAG_END,
+					false);
 
 		String xpTableName = stok.nextToken();
 		if (!SettingsHandler.getGame().getXPTableNames().contains(xpTableName))
@@ -2648,8 +2677,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			final PCGElement element = it.next();
 
 			abilityCat = EntityEncoder.decode(element.getText());
-			innateCategory = SettingsHandler.getGame()
-					.getAbilityCategory(abilityCat);
+			innateCategory =
+					SettingsHandler.getGame().getAbilityCategory(abilityCat);
 			if (innateCategory == null)
 			{
 				missingCat = abilityCat;
@@ -2671,9 +2700,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				warnings.add(msg);
 				return;
 			}
-			ability = Globals.getContext().ref
-					.silentlyGetConstructedCDOMObject(Ability.class,
-							innateCategory, abilityKey);
+			ability =
+					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+						Ability.class, innateCategory, abilityKey);
 			if (ability == null)
 			{
 				warnings.add("Unable to Find Ability: " + abilityKey);
@@ -2732,12 +2761,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					}
 				}
 				else if ((ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) && ability
-						.getSafe(ObjectKey.STACKS))
-						|| !thePC.containsAssociated(ability, appliedToKey))
+					.getSafe(ObjectKey.STACKS))
+					|| !thePC.containsAssociated(ability, appliedToKey))
 				{
-					ChoiceManagerList<Object> controller = ChooserUtilities
-							.getConfiguredController(ability, thePC, category,
-									new ArrayList<String>());
+					ChoiceManagerList<Object> controller =
+							ChooserUtilities.getConfiguredController(ability,
+								thePC, category, new ArrayList<String>());
 					String[] assoc = appliedToKey.split(Constants.COMMA, -1);
 					for (String string : assoc)
 					{
@@ -2753,7 +2782,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				if (saveKey.startsWith(TAG_BONUS) && (saveKey.length() > 6))
 				{
 					final BonusObj aBonus =
-							Bonus.newBonus(Globals.getContext(), saveKey.substring(6));
+							Bonus.newBonus(Globals.getContext(),
+								saveKey.substring(6));
 
 					if (aBonus != null)
 					{
@@ -2779,7 +2809,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (nature == Nature.VIRTUAL)
 			{
-				ability = AbilityUtilities.addCloneOfAbilityToVirtualListwithChoices(thePC, ability, null, category);
+				ability =
+						AbilityUtilities
+							.addCloneOfAbilityToVirtualListwithChoices(thePC,
+								ability, null, category);
 				if (ability == null)
 				{
 					Logging
@@ -2793,7 +2826,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				}
 				else
 				{
-					thePC.setAssoc(ability, AssociationKey.NEEDS_SAVING, Boolean.TRUE);
+					thePC.setAssoc(ability, AssociationKey.NEEDS_SAVING,
+						Boolean.TRUE);
 				}
 			}
 		}
@@ -2837,20 +2871,22 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			 * one and add it using non-aggregate (when using aggregate, we
 			 * get clones of the PCs actual feats, which don't get saved or
 			 * preserved) */
-			Ability anAbility = Globals.getContext().ref
-					.silentlyGetConstructedCDOMObject(Ability.class,
-							AbilityCategory.FEAT, abilityKey);
+			Ability anAbility =
+					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+						Ability.class, AbilityCategory.FEAT, abilityKey);
 			if (anAbility == null)
 			{
-				final String msg = LanguageBundle.getFormattedString(
-						"Warnings.PCGenParser.CouldntAddAbility", //$NON-NLS-1$
-						abilityKey);
+				final String msg =
+						LanguageBundle.getFormattedString(
+							"Warnings.PCGenParser.CouldntAddAbility", //$NON-NLS-1$
+							abilityKey);
 				warnings.add(msg);
 
 				return;
 			}
 
-			Ability pcAbility = thePC.addAbilityNeedCheck(AbilityCategory.FEAT, anAbility);
+			Ability pcAbility =
+					thePC.addAbilityNeedCheck(AbilityCategory.FEAT, anAbility);
 			parseFeatsHandleAppliedToAndSaveTags(it, pcAbility, line);
 			featsPresent = (pcAbility != anAbility);
 		}
@@ -2861,8 +2897,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		try
 		{
 			double featPool =
-					Double.parseDouble(line
-						.substring(TAG_FEATPOOL.length() + 1));
+					Double
+						.parseDouble(line.substring(TAG_FEATPOOL.length() + 1));
 			// In earlier versions the featpool included the bonus, so we need to counter it
 			if (compareVersionTo(new int[]{5, 11, 1}) < 0)
 			{
@@ -2994,7 +3030,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				if (saveKey.startsWith(TAG_BONUS) && (saveKey.length() > 6))
 				{
 					final BonusObj aBonus =
-							Bonus.newBonus(Globals.getContext(), saveKey.substring(6));
+							Bonus.newBonus(Globals.getContext(),
+								saveKey.substring(6));
 
 					if (aBonus != null)
 					{
@@ -3072,8 +3109,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			else if (TAG_RACE.equals(tag))
 			{
 				String raceText = EntityEncoder.decode(element.getText());
-				Race r = Globals.getContext().ref
-						.silentlyGetConstructedCDOMObject(Race.class, raceText);
+				Race r =
+						Globals.getContext().ref
+							.silentlyGetConstructedCDOMObject(Race.class,
+								raceText);
 				if (r == null)
 				{
 					Logging.errorPrint("Cannot find Race: " + raceText);
@@ -3129,8 +3168,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseGenderLine(final String line)
 	{
-		String genderString = EntityEncoder.decode(line.substring(TAG_GENDER
-				.length() + 1));
+		String genderString =
+				EntityEncoder.decode(line.substring(TAG_GENDER.length() + 1));
 		Gender gender;
 		if ("M".equals(genderString))
 		{
@@ -3146,7 +3185,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				gender = Gender.getGenderByName(genderString);
 			}
-			catch (IllegalArgumentException e) 
+			catch (IllegalArgumentException e)
 			{
 				gender = Gender.Male;
 				final String msg =
@@ -3154,7 +3193,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 							"Warnings.PCGenParser.IllegalGender", //$NON-NLS-1$
 							line);
 				warnings.add(msg);
-				
+
 			}
 		}
 		thePC.setGender(gender);
@@ -3194,16 +3233,16 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseHandedLine(final String line)
 	{
-		thePC.setHanded(EntityEncoder.decode(line
-			.substring(TAG_HANDED.length() + 1)));
+		thePC
+			.setHanded(EntityEncoder.decode(line.substring(TAG_HANDED.length() + 1)));
 	}
 
 	private void parseHeightLine(final String line)
 	{
 		try
 		{
-			thePC.setHeight(Integer.parseInt(line
-				.substring(TAG_HEIGHT.length() + 1)));
+			thePC
+				.setHeight(Integer.parseInt(line.substring(TAG_HEIGHT.length() + 1)));
 		}
 		catch (NumberFormatException nfe)
 		{
@@ -3568,8 +3607,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 */
 	private void parseSupressBioFieldsLine(final String line)
 	{
-		String fieldNames = EntityEncoder.decode(line
-			.substring(TAG_SUPPRESS_BIO_FIELDS.length() + 1));
+		String fieldNames =
+				EntityEncoder.decode(line.substring(TAG_SUPPRESS_BIO_FIELDS
+					.length() + 1));
 		if (!fieldNames.isEmpty())
 		{
 			String[] names = fieldNames.split("\\|");
@@ -3579,7 +3619,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 		}
 	}
-	
+
 	/**
 	 * # PDF Output Sheet location
 	 * @param line
@@ -3587,8 +3627,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	private void parsePDFOutputSheetLine(final String line)
 	{
 		String aFileName =
-				EntityEncoder.decode(line
-					.substring(TAG_PDFOUTPUTSHEET.length() + 1));
+				EntityEncoder
+					.decode(line.substring(TAG_PDFOUTPUTSHEET.length() + 1));
 
 		if (aFileName.length() <= 0)
 		{
@@ -3627,8 +3667,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	{
 		try
 		{
-			final int poolPoints = Integer.parseInt(line.substring(TAG_POOLPOINTS
-				.length() + 1));
+			final int poolPoints =
+					Integer
+						.parseInt(line.substring(TAG_POOLPOINTS.length() + 1));
 			thePC.setPoolAmount(poolPoints);
 			thePC.setCostPool(poolPoints);
 		}
@@ -3667,10 +3708,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parsePortraitThumbnailRectLine(final String line)
 	{
-		String[] dim = line.substring(TAG_PORTRAIT_THUMBNAIL_RECT
-				.length() + 1).split(",");
-		Rectangle rect = new Rectangle(Integer.parseInt(dim[0]), Integer.parseInt(dim[1]), 
-				Integer.parseInt(dim[2]), Integer.parseInt(dim[3]));
+		String[] dim =
+				line.substring(TAG_PORTRAIT_THUMBNAIL_RECT.length() + 1).split(
+					",");
+		Rectangle rect =
+				new Rectangle(Integer.parseInt(dim[0]),
+					Integer.parseInt(dim[1]), Integer.parseInt(dim[2]),
+					Integer.parseInt(dim[3]));
 		thePC.setPortraitThumbnailRect(rect);
 	}
 
@@ -3686,9 +3730,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		if (aRace == null)
 		{
-			final String msg = LanguageBundle.getFormattedString(
-					"Exceptions.PCGenParser.RaceNotFound", //$NON-NLS-1$
-					race_name);
+			final String msg =
+					LanguageBundle.getFormattedString(
+						"Exceptions.PCGenParser.RaceNotFound", //$NON-NLS-1$
+						race_name);
 			throw new PCGParseException("parseRaceLine", line, msg); //$NON-NLS-1$
 		}
 		if (sTok.hasMoreTokens())
@@ -3697,13 +3742,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			if (aString.startsWith(TAG_APPLIEDTO))
 			{
 				chooseDriverFacet.addAssociation(thePC.getCharID(), aRace,
-						aString.substring(TAG_APPLIEDTO.length() + 1));
+					aString.substring(TAG_APPLIEDTO.length() + 1));
 			}
 			else
 			{
-				final String msg = LanguageBundle.getFormattedString(
-						"Warnings.PCGenParser.UnknownRaceInfo", //$NON-NLS-1$
-						aString);
+				final String msg =
+						LanguageBundle.getFormattedString(
+							"Warnings.PCGenParser.UnknownRaceInfo", //$NON-NLS-1$
+							aString);
 				warnings.add(msg);
 			}
 		}
@@ -3717,8 +3763,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	private void parseFavoredClassLine(final String line)
 	{
 		String favClass =
-				EntityEncoder.decode(line
-					.substring(TAG_FAVOREDCLASS.length() + 1));
+				EntityEncoder
+					.decode(line.substring(TAG_FAVOREDCLASS.length() + 1));
 		PCClass cl =
 				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 					PCClass.class, favClass);
@@ -3759,8 +3805,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			try
 			{
-				hitPointMap.put(Integer.toString(i++), Integer.valueOf(aTok
-					.nextToken()));
+				hitPointMap.put(Integer.toString(i++),
+					Integer.valueOf(aTok.nextToken()));
 			}
 			catch (NumberFormatException ex)
 			{
@@ -3834,8 +3880,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			final PCGElement element = it.next();
 
 			final String skillKey = EntityEncoder.decode(element.getText());
-			aSkill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-					Skill.class, skillKey);
+			aSkill =
+					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+						Skill.class, skillKey);
 
 			if (aSkill == null)
 			{
@@ -3948,8 +3995,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (TAG_ASSOCIATEDDATA.equals(tag))
 			{
-				thePC.addAssociation(aSkill, EntityEncoder.decode(element
-					.getText()));
+				thePC.addAssociation(aSkill,
+					EntityEncoder.decode(element.getText()));
 			}
 			else if (tag.equals(TAG_LEVELABILITY))
 			{
@@ -4060,7 +4107,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 		if (aSpellBook == null)
 		{
-			warnings.add("Internal Error: Did not build Spell Book from SPELLBOOK line");
+			warnings
+				.add("Internal Error: Did not build Spell Book from SPELLBOOK line");
 		}
 		else
 		{
@@ -4217,8 +4265,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 				if (TAG_DOMAIN.equals(typeName))
 				{
-					Domain domain = Globals.getContext().ref
-							.silentlyGetConstructedCDOMObject(DOMAIN_CLASS,
+					Domain domain =
+							Globals.getContext().ref
+								.silentlyGetConstructedCDOMObject(DOMAIN_CLASS,
 									objectKey);
 					ClassSource cs = thePC.getDomainSource(domain);
 
@@ -4242,7 +4291,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 									ClassSpellList.class, objectKey);
 					if (((aPCClass != null) && objectKey.equals(aPCClass
 						.getKeyName()))
-						|| (aPCClass != null && thePC.getSpellLists(aPCClass).contains(csl)))
+						|| (aPCClass != null && thePC.getSpellLists(aPCClass)
+							.contains(csl)))
 					{
 						source = aPCClass;
 					}
@@ -4258,9 +4308,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				{
 					final String featKey =
 							EntityEncoder.decode(child.getText());
-					final Ability anAbility = Globals.getContext().ref
-							.silentlyGetConstructedCDOMObject(Ability.class,
-									AbilityCategory.FEAT, featKey);
+					final Ability anAbility =
+							Globals.getContext().ref
+								.silentlyGetConstructedCDOMObject(
+									Ability.class, AbilityCategory.FEAT,
+									featKey);
 
 					if (anAbility != null)
 					{
@@ -4294,8 +4346,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				// valid spell has a non-negative spell level
 				if ((spell != null)
-					&& (SpellLevel.getFirstLevelForKey(spell, thePC
-						.getSpellLists(source), thePC) >= 0))
+					&& (SpellLevel.getFirstLevelForKey(spell,
+						thePC.getSpellLists(source), thePC) >= 0))
 				{
 					aSpell = spell;
 					break;
@@ -4349,8 +4401,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 							for (AssociatedPrereqObject apo : assocs)
 							{
 								String sb =
-										apo
-											.getAssociation(AssociationKey.SPELLBOOK);
+										apo.getAssociation(AssociationKey.SPELLBOOK);
 								if (spellBook.equals(sb))
 								{
 									found = true;
@@ -4367,8 +4418,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			// do not load auto knownspells into default spellbook
 			if (spellBook.equals(Globals.getDefaultSpellBook())
-				&& thePC.getSpellSupport(aPCClass).isAutoKnownSpell(aSpell, level, false, thePC)
-				&& thePC.getAutoSpells())
+				&& thePC.getSpellSupport(aPCClass).isAutoKnownSpell(aSpell,
+					level, false, thePC) && thePC.getAutoSpells())
 			{
 				continue;
 			}
@@ -4520,7 +4571,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			PCGElement element = it.next();
 			final String statName = element.getText();
-			PCStat stat = Globals.getContext().ref.getAbbreviatedObject(PCStat.class, statName);
+			PCStat stat =
+					Globals.getContext().ref.getAbbreviatedObject(PCStat.class,
+						statName);
 
 			if ((stat != null) && seenStats.add(statName.toUpperCase())
 				&& (it.hasNext()))
@@ -4529,7 +4582,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 				try
 				{
-					thePC.setAssoc(stat, AssociationKey.STAT_SCORE, Integer.parseInt(element.getText()));
+					thePC.setAssoc(stat, AssociationKey.STAT_SCORE,
+						Integer.parseInt(element.getText()));
 				}
 				catch (NumberFormatException nfe)
 				{
@@ -4600,8 +4654,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					String childTag = child.getName();
 					if (TAG_NAME.equals(childTag))
 					{
-						aPCTemplate = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-								PCTemplate.class, EntityEncoder.decode(child.getText()));
+						aPCTemplate =
+								Globals.getContext().ref
+									.silentlyGetConstructedCDOMObject(
+										PCTemplate.class,
+										EntityEncoder.decode(child.getText()));
 
 						if (aPCTemplate == null)
 						{
@@ -4611,7 +4668,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					else if (TAG_APPLIEDTO.equals(childTag))
 					{
 						chooseDriverFacet.addAssociation(thePC.getCharID(),
-								aPCTemplate, child.getText());
+							aPCTemplate, child.getText());
 					}
 				}
 
@@ -4649,15 +4706,16 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						if ((mapKey != null) && (mapValue != null))
 						{
 							String feat = EntityEncoder.decode(mapValue);
-							PCTemplate subt = Compatibility.getTemplateFor(
-									aPCTemplate, EntityEncoder.decode(mapKey),
-									feat);
+							PCTemplate subt =
+									Compatibility.getTemplateFor(aPCTemplate,
+										EntityEncoder.decode(mapKey), feat);
 							if (subt != null)
 							{
-								CategorizedAbilitySelection as = CategorizedAbilitySelection
-										.getAbilitySelectionFromPersistentFormat(feat);
+								CategorizedAbilitySelection as =
+										CategorizedAbilitySelection
+											.getAbilitySelectionFromPersistentFormat(feat);
 								thePC.addAssoc(subt,
-										AssociationListKey.TEMPLATE_FEAT, as);
+									AssociationListKey.TEMPLATE_FEAT, as);
 							}
 						}
 					}
@@ -4690,10 +4748,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 		else
 		{
-			String key = EntityEncoder.decode(line
-					.substring(TAG_TEMPLATESAPPLIED.length() + 1));
-			PCTemplate aPCTemplate = Globals.getContext().ref
-					.silentlyGetConstructedCDOMObject(PCTemplate.class, key);
+			String key =
+					EntityEncoder.decode(line.substring(TAG_TEMPLATESAPPLIED
+						.length() + 1));
+			PCTemplate aPCTemplate =
+					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+						PCTemplate.class, key);
 			addKeyedTemplate(aPCTemplate);
 		}
 	}
@@ -4737,9 +4797,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			final PCGElement element = it.next();
 
 			final String abilityKey = EntityEncoder.decode(element.getText());
-			anAbility = Globals.getContext().ref
-					.silentlyGetConstructedCDOMObject(Ability.class,
-							AbilityCategory.FEAT, abilityKey);
+			anAbility =
+					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+						Ability.class, AbilityCategory.FEAT, abilityKey);
 
 			if (anAbility == null)
 			{
@@ -4748,8 +4808,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 				return;
 			}
-			anAbility = AbilityUtilities.addCloneOfAbilityToVirtualListwithChoices(thePC, anAbility, null, AbilityCategory.FEAT);
-			thePC.setAssoc(anAbility, AssociationKey.NEEDS_SAVING, Boolean.TRUE);
+			anAbility =
+					AbilityUtilities.addCloneOfAbilityToVirtualListwithChoices(
+						thePC, anAbility, null, AbilityCategory.FEAT);
+			thePC
+				.setAssoc(anAbility, AssociationKey.NEEDS_SAVING, Boolean.TRUE);
 			thePC.setDirty(true);
 		}
 
@@ -4871,9 +4934,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				}
 				else if (TAG_PCTEMPLATE.equals(type))
 				{
-					PCTemplate template = Globals.getContext().ref
-							.silentlyGetConstructedCDOMObject(PCTemplate.class,
-									key);
+					PCTemplate template =
+							Globals.getContext().ref
+								.silentlyGetConstructedCDOMObject(
+									PCTemplate.class, key);
 					if (thePC.hasTemplate(template))
 					{
 						source = template;
@@ -4889,8 +4953,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				}
 				else if (TAG_DOMAIN.equals(type))
 				{
-					Domain domain = Globals.getContext().ref
-							.silentlyGetConstructedCDOMObject(DOMAIN_CLASS, key);
+					Domain domain =
+							Globals.getContext().ref
+								.silentlyGetConstructedCDOMObject(DOMAIN_CLASS,
+									key);
 					if (thePC.hasDomain(domain))
 					{
 						source = domain;
@@ -4907,7 +4973,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				// Fix for bug 1185344
 				else if (TAG_ABILITY.equals(type))
 				{
-					source = thePC.getAutomaticAbilityKeyed(AbilityCategory.FEAT, key);
+					source =
+							thePC.getAutomaticAbilityKeyed(
+								AbilityCategory.FEAT, key);
 				}
 				// End of Fix
 
@@ -4935,17 +5003,19 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			for (PCGElement child : element.getChildren())
 			{
-				Collection<CDOMReference<WeaponProf>> wpBonus = source
-						.getListMods(WeaponProf.STARTING_LIST);
+				Collection<CDOMReference<WeaponProf>> wpBonus =
+						source.getListMods(WeaponProf.STARTING_LIST);
 				if (wpBonus != null)
 				{
-					ChooseInformation<WeaponProf> tc = new BasicChooseInformation<WeaponProf>(
-							"WEAPONBONUS", new ReferenceChoiceSet<WeaponProf>(
-									wpBonus));
+					ChooseInformation<WeaponProf> tc =
+							new BasicChooseInformation<WeaponProf>(
+								"WEAPONBONUS",
+								new ReferenceChoiceSet<WeaponProf>(wpBonus));
 					tc.setChoiceActor(WeaponProf.STARTING_ACTOR);
-					CDOMChoiceManager<WeaponProf> mgr = new CDOMChoiceManager<WeaponProf>(
-							source, tc, 1, 1);
-					mgr.conditionallyApply(thePC, getWeaponProf(child.getText()));
+					CDOMChoiceManager<WeaponProf> mgr =
+							new CDOMChoiceManager<WeaponProf>(source, tc, 1, 1);
+					mgr.conditionallyApply(thePC,
+						getWeaponProf(child.getText()));
 				}
 			}
 		}
@@ -4955,8 +5025,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	{
 		try
 		{
-			thePC.setWeight(Integer.parseInt(line
-				.substring(TAG_WEIGHT.length() + 1)));
+			thePC
+				.setWeight(Integer.parseInt(line.substring(TAG_WEIGHT.length() + 1)));
 		}
 		catch (NumberFormatException nfe)
 		{
@@ -4976,12 +5046,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	@Deprecated
 	private WeaponProf getWeaponProf(final String aString)
 	{
-		WeaponProf wp = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-			WeaponProf.class, EntityEncoder.decode(aString));
+		WeaponProf wp =
+				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					WeaponProf.class, EntityEncoder.decode(aString));
 		if (wp == null)
 		{
-			final String message = "Unable to find Weapon Proficiency in Rules Data:"
-					+ aString;
+			final String message =
+					"Unable to find Weapon Proficiency in Rules Data:"
+						+ aString;
 			warnings.add(message);
 		}
 		return wp;
@@ -4989,7 +5061,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void checkWeaponProficiencies()
 	{
-		for (final Iterator<WeaponProf> it = weaponprofs.iterator(); it.hasNext();)
+		for (final Iterator<WeaponProf> it = weaponprofs.iterator(); it
+			.hasNext();)
 		{
 			if (thePC.hasWeaponProf(it.next()))
 			{
@@ -5511,17 +5584,20 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			// type of object to set as the creator
 			if (cType.equals(TAG_FEAT))
 			{
-				Ability aFeat = Globals.getContext().ref
-						.silentlyGetConstructedCDOMObject(Ability.class,
+				Ability aFeat =
+						Globals.getContext().ref
+							.silentlyGetConstructedCDOMObject(Ability.class,
 								AbilityCategory.FEAT, cKey);
 				if (aFeat == null)
 				{
-					AbilityCategory saCat = SettingsHandler.getGame()
-							.getAbilityCategory("Special Ability");
+					AbilityCategory saCat =
+							SettingsHandler.getGame().getAbilityCategory(
+								"Special Ability");
 
-					aFeat = Globals.getContext().ref
-							.silentlyGetConstructedCDOMObject(Ability.class,
-									saCat, cKey);
+					aFeat =
+							Globals.getContext().ref
+								.silentlyGetConstructedCDOMObject(
+									Ability.class, saCat, cKey);
 				}
 
 				if (aFeat != null)
@@ -5537,9 +5613,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				if (aEquip == null)
 				{
 					aEquip =
-						context.ref
-								.silentlyGetConstructedCDOMObject(
-									Equipment.class, cKey);
+							context.ref.silentlyGetConstructedCDOMObject(
+								Equipment.class, cKey);
 				}
 
 				if (aEquip != null)
@@ -5563,9 +5638,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (cType.equals(TAG_TEMPLATE))
 			{
-				PCTemplate aTemplate = context.ref
-						.silentlyGetConstructedCDOMObject(PCTemplate.class,
-								cKey);
+				PCTemplate aTemplate =
+						context.ref.silentlyGetConstructedCDOMObject(
+							PCTemplate.class, cKey);
 
 				if (aTemplate != null)
 				{
@@ -5575,8 +5650,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (cType.equals(TAG_SKILL))
 			{
-				Skill aSkill = context.ref
-						.silentlyGetConstructedCDOMObject(Skill.class, cKey);
+				Skill aSkill =
+						context.ref.silentlyGetConstructedCDOMObject(
+							Skill.class, cKey);
 
 				if (aSkill != null)
 				{
@@ -5596,8 +5672,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (cType.equals(TAG_NAME))
 			{
-					newB = Bonus.newBonus(context, bonus);
-					//newB.setCreatorObject(thePC);
+				newB = Bonus.newBonus(context, bonus);
+				//newB.setCreatorObject(thePC);
 			}
 
 			if (newB == null)
@@ -5887,8 +5963,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 								buffer.delete(0, buffer.length());
 
 								final PCGElement element =
-										new PCGElement(token
-											.substring(0, index));
+										new PCGElement(
+											token.substring(0, index));
 								element.addContent(token.substring(index + 1));
 								parent.addContent(element);
 							}
@@ -6030,23 +6106,24 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			PersistentTransitionChoice<?> ptc = null;
 			try
 			{
-				ptc = Compatibility
-						.processOldAdd(Globals.getContext(), dString);
+				ptc =
+						Compatibility.processOldAdd(Globals.getContext(),
+							dString);
 			}
 			catch (PersistenceLayerException ple)
 			{
 				warnings.add(pObj.getDisplayName() + "("
-						+ pObj.getClass().getName()
-						+ ")\nCould not process LevelAbility: " + dString
-						+ "\n" + ple.getLocalizedMessage());
+					+ pObj.getClass().getName()
+					+ ")\nCould not process LevelAbility: " + dString + "\n"
+					+ ple.getLocalizedMessage());
 				return;
 			}
-		
+
 			if (ptc == null)
 			{
 				warnings.add(pObj.getDisplayName() + "("
-						+ pObj.getClass().getName()
-						+ ")\nCould not process LevelAbility: " + dString);
+					+ pObj.getClass().getName()
+					+ ")\nCould not process LevelAbility: " + dString);
 				return;
 			}
 
@@ -6055,7 +6132,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				target = thePC.getActiveClassLevel(((PCClass) pObj), level);
 			}
-			for (PersistentTransitionChoice<?> tptc : target.getSafeListFor(ListKey.ADD))
+			for (PersistentTransitionChoice<?> tptc : target
+				.getSafeListFor(ListKey.ADD))
 			{
 				if (tptc.equals(ptc))
 				{
@@ -6088,8 +6166,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void resolveLanguages()
 	{
-		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				Ability.class, AbilityCategory.LANGBONUS, "*LANGBONUS");
+		Ability a =
+				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Ability.class, AbilityCategory.LANGBONUS, "*LANGBONUS");
 		boolean foundLang = thePC.getDetailedAssociationCount(a) > 0;
 
 		Set<Language> foundLanguages = new HashSet<Language>();
@@ -6107,10 +6186,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				// Haven't seen it, check for starting language
 				if (bonusList.contains(l))
 				{
-					ChoiceManagerList<Object> controller = ChooserUtilities
-							.getConfiguredController(a, thePC,
-									AbilityCategory.LANGBONUS,
-									new ArrayList<String>());
+					ChoiceManagerList<Object> controller =
+							ChooserUtilities.getConfiguredController(a, thePC,
+								AbilityCategory.LANGBONUS,
+								new ArrayList<String>());
 					controller.restoreChoice(thePC, a, l.getKeyName());
 				}
 				foundlist.add(l);
@@ -6120,30 +6199,27 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		for (Language l : cachedLanguages)
 		{
 			warnings.add("Unable to find source: "
-					+ "Character no longer speaks language: "
-					+ l.getDisplayName());
+				+ "Character no longer speaks language: " + l.getDisplayName());
 		}
 	}
 
 	/**
-	 * Set the source of the domain
+	 * Set the source of the domain. See getDomainSource() for details.
 	 * This method should NOT be called outside of file i/o routines!
-	 * @param charDomain
 	 * @param aSource the source to be set
-	 * See getDomainSource() for details.
 	 **/
 	public ClassSource getDomainSource(String aSource)
 	{
 		final StringTokenizer aTok = new StringTokenizer(aSource, "|", false);
-	
+
 		if (aTok.countTokens() < 2)
 		{
 			Logging.errorPrint("Invalid Domain Source:" + aSource);
 			return null;
 		}
-	
+
 		aTok.nextToken(); //Throw away "PCClass"
-	
+
 		String classString = aTok.nextToken();
 		PCClass cl = thePC.getClassKeyed(classString);
 		if (cl == null)

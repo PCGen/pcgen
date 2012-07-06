@@ -116,9 +116,8 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 
 	/**
 	 * This method will perform a single .COPY operation.
-	 * @param context TODO
+	 * @param object the object to copy
 	 * @param copyName String name of the target object
-	 * @param baseName String name of the object to copy
 	 *
 	 * @throws PersistenceLayerException 
 	 */

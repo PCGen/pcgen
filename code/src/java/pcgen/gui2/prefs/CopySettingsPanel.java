@@ -157,7 +157,7 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 	 * Register the other settings panels that can be affected by this 
 	 * class.
 	 * 
-	 * @param xpPanel The ExperiencePanel instance
+	 * @param panel The ExperiencePanel instance
 	 */
 	public void registerAffectedPanel(PCGenPrefsPanel panel)
 	{

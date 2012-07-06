@@ -51,9 +51,6 @@ public class ConcreteChoice<T> implements PersistentChoice<T>
 	 * @param set
 	 *            The SelectableSet indicating the choices available in this
 	 *            TransitionChoice.
-	 * @param count
-	 *            The Formula indicating the number of choices that may be
-	 *            selected when selections are made in this TransitionChoice.
 	 */
 	public ConcreteChoice(SelectableSet<? extends T> set)
 	{

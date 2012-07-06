@@ -2410,7 +2410,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Set the list of equipment types which flag it as able to
 	 * be resized by the automatic resize feature.
 	 *
-	 * @param resizableTypeList the resizableTypeList to set
+	 * @param characterTypeList the characterTypeList to set
 	 */
 	public void setCharacterTypeList(List<String> characterTypeList)
 	{

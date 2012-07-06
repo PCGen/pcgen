@@ -39,8 +39,6 @@ import pcgen.core.chooser.ChoiceManagerList;
  * This is a TransitionChoice that is designed to be stored in a PlayerCharacter
  * file when saved. Thus, encoding and decoding (to a 'persistent' string)
  * methods are provided.
- * 
- * @param <T>
  */
 public class SpellLevelChooseInformation implements
 		ChooseInformation<SpellLevel>
@@ -268,8 +266,6 @@ public class SpellLevelChooseInformation implements
 	 * but it does not represent information that should be stored in a
 	 * persistent state (it is not sufficient information to reconstruct this
 	 * ChoiceSet)
-	 * 
-	 * @return The title of this ChoiceSet
 	 */
 	public void setTitle(String choiceTitle)
 	{

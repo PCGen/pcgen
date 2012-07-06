@@ -452,7 +452,7 @@ public class KnownSpellFacet extends AbstractStorageFacet implements
 	 * are specified by SPELLKNOWN tags associated with the character. Any
 	 * existing contents of the list are preserved.
 	 * 
-	 * @param pc
+	 * @param id
 	 *            The character being tested
 	 * @param aClass
 	 *            The PC class being checked
@@ -522,7 +522,7 @@ public class KnownSpellFacet extends AbstractStorageFacet implements
 	 * @param source
 	 *            The CharID representing the Player Character from which the
 	 *            information should be copied
-	 * @param destination
+	 * @param copy
 	 *            The CharID representing the Player Character to which the
 	 *            information should be copied
 	 */

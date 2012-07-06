@@ -40,8 +40,8 @@ public class IconUtilitities
 	 * Fetch an <code>ImageIcon</code> relative to the calling
 	 * location.
 	 *
-	 * @param iconName <code>String</code>, the path to the
-	 * <code>IconImage> source
+	 * @param location <code>String</code>, the path to the
+	 * <code>IconImage</code> source
 	 *
 	 * @return <code>ImageIcon</code>, the icon or
 	 * <code>null</code> on failure

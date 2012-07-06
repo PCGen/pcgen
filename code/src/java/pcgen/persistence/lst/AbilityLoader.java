@@ -53,8 +53,7 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext,
-	 *      pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, CDOMObject, String, SourceEntry)
 	 */
 	@Override
 	public Ability parseLine(LoadContext context, Ability ability,

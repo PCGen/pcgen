@@ -370,7 +370,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	/**
 	 * Retrieve the set of keys for the MapKey.
 	 * 
-	 * @param mk The MapKey we are retrieving
+	 * @param mapKey The MapKey we are retrieving
 	 * @return The set of keys.
 	 */
 	public final <K, V> Set<K> getKeysFor(MapKey<K, V> mapKey)
@@ -382,7 +382,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 * Get the value for the given MapKey and secondary key. If there is 
 	 * not a mapping for the given keys, null is returned.
 	 * 
-	 * @param mk
+	 * @param mapKey
 	 *            The MapKey for retrieving the given value
 	 * @param key2
 	 *            The secondary key for retrieving the given value
@@ -397,7 +397,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 * Remove the value associated with the primary and secondary keys 
 	 * from the map.
 	 *  
-	 * @param mk The MapKey of the entry we are removing
+	 * @param mapKey The MapKey of the entry we are removing
 	 * @param key2 The secondary key of the entry we are removing
 	 * @return true if the key and its associated value were successfully removed 
 	 *         from the map; false otherwise
@@ -688,7 +688,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	
 	/**
 	 * Get the list of bonuses for this object
-	 * @param as TODO
+	 * @param pc the current player character
 	 * @return the list of bonuses for this object
 	 */
 	public List<BonusObj> getRawBonusList(PlayerCharacter pc)
@@ -736,7 +736,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	/**
 	 * Set the source file for this object
-	 * @param sourceFile
+	 * @param source
 	 */
 	@Override
 	public final void setSourceURI(URI source)

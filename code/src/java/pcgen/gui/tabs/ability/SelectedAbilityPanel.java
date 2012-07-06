@@ -78,7 +78,7 @@ public class SelectedAbilityPanel extends AbilitySelectionPanel
 	 * base class table.
 	 * 
 	 * @param aPC The PC
-	 * @param aCategory The <tt>AbilityCategory</tt> to display selected
+	 * @param aCategoryList The <tt>AbilityCategory</tt> to display selected
 	 * Abilities for.
 	 * 
 	 * @see pcgen.gui.tabs.ability.AbilitySelectionPanel

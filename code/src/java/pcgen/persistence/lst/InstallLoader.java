@@ -53,7 +53,7 @@ public class InstallLoader extends LstLineFileLoader
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#loadLstFile(java.net.URI)
+	 * @see pcgen.persistence.lst.LstLineFileLoader#loadLstString(LoadContext, URI, String)
 	 */
 	@Override
 	public void loadLstString(LoadContext context, URI fileName, String lstData) throws PersistenceLayerException

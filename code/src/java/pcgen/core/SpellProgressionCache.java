@@ -125,7 +125,7 @@ public class SpellProgressionCache implements Cloneable {
 	 * transferred to the calling object (The returned list can be modified
 	 * without impacting the internal contents of this SpellProgression)
 	 * 
-	 * @param aInt
+	 * @param aLevel
 	 *            The class level for which the known spell progression should
 	 *            be returned.
 	 * @return The known spell progression for the given class level, or null if
@@ -167,7 +167,7 @@ public class SpellProgressionCache implements Cloneable {
 	 * SPECIALTY spell progression for the given class level if one is already
 	 * present within this SpellProgression.
 	 * 
-	 * @param iLevel
+	 * @param aLevel
 	 *            The class level for which the given known specialty spell
 	 *            progression applies.
 	 * @param aList
@@ -227,7 +227,7 @@ public class SpellProgressionCache implements Cloneable {
 	 * transferred to the calling object (The returned list can be modified
 	 * without impacting the internal contents of this SpellProgression)
 	 * 
-	 * @param aInt
+	 * @param aLevel
 	 *            The class level for which the known specialty spell
 	 *            progression should be returned.
 	 * @return The known specialty spell progression for the given class level,
@@ -247,7 +247,7 @@ public class SpellProgressionCache implements Cloneable {
 	 * spell progression for the given class level if one is already present
 	 * within this SpellProgression.
 	 * 
-	 * @param iLevel
+	 * @param aLevel
 	 *            The class level for which the given CAST spell progression
 	 *            applies.
 	 * @param aList
@@ -302,7 +302,7 @@ public class SpellProgressionCache implements Cloneable {
 	 * transferred to the calling object (The returned list can be modified
 	 * without impacting the internal contents of this SpellProgression)
 	 * 
-	 * @param aInt
+	 * @param aLevel
 	 *            The class level for which the CAST spell progression should be
 	 *            returned.
 	 * @return The CAST spell progression for the given class level, or null if

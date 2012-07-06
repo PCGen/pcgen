@@ -461,6 +461,7 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 	 *            GrantedAbilityFacet for the Player Character represented by
 	 *            the given CharID
 	 * @return
+	 * 			  an empty map
 	 * @throws NullPointerException
 	 *             if the given Collection is null
 	 */
@@ -544,14 +545,14 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 	 * @param source
 	 *            The CharID representing the Player Character from which the
 	 *            information should be copied
-	 * @param destination
+	 * @param copy
 	 *            The CharID representing the Player Character to which the
 	 *            information should be copied
 	 */
 	@Override
-	public void copyContents(CharID id, CharID id2)
+	public void copyContents(CharID source, CharID copy)
 	{
-		Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catMap = getCachedMap(id);
+		Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catMap = getCachedMap(source);
 		if (catMap != null)
 		{
 			for (Map.Entry<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catME : catMap
@@ -566,9 +567,9 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 							.entrySet())
 					{
 						Ability ability = aME.getKey();
-						for (Object source : aME.getValue())
+						for (Object cdo : aME.getValue())
 						{
-							add(id2, cat, nature, ability, source);
+							add(copy, cat, nature, ability, cdo);
 						}
 					}
 				}
@@ -645,12 +646,12 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 	 * @return The Ability Natures in the given Ability Category for the Player
 	 *         Character identified by the given CharID
 	 */
-	public Collection<Nature> getNatures(CharID id, Category<Ability> cat)
+	public Collection<Nature> getNatures(CharID id, Category<Ability> category)
 	{
 		Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catMap = getCachedMap(id);
 		if (catMap != null)
 		{
-			Map<Nature, Map<Ability, List<Object>>> natMap = catMap.get(cat);
+			Map<Nature, Map<Ability, List<Object>>> natMap = catMap.get(category);
 			if (natMap != null)
 			{
 				return Collections.unmodifiableSet(natMap.keySet());

@@ -19,6 +19,7 @@ import pcgen.core.Race;
  * Created on February 19, 2003<br>
  * Updated on March 12, 2003
  * @author  Expires 2003
+ * @author John Dells <JohnDells@woh.rr.com>
  * @version 2.10
  */
 public class EncounterModel extends DefaultListModel
@@ -109,7 +110,6 @@ public class EncounterModel extends DefaultListModel
 	/**
 	 * Takes the CR of a monster and transforms it into "power level", used when summing monsters for total CR
 	 * @param x
-	 * @author John Dells <JohnDells@woh.rr.com>
 	 * @return "power level"
 	 */
 	public float mCRtoPL(float x)
@@ -131,7 +131,6 @@ public class EncounterModel extends DefaultListModel
 	/**
 	 * Takes a "power level" into CR. See <code>mCRtoPL()</code> for details.
 	 * @param x
-	 * @author John Dells <JohnDells@woh.rr.com>
 	 * @return "power level"
 	 */
 	public int mPLtoCR(float x)

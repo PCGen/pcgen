@@ -58,8 +58,10 @@ public class AbilitySelector extends ConcretePrereqObject implements
 	 * Creates a new AbilitySelection for the given Ability. The given Ability
 	 * must be a MULT:NO Ability or this constructor will throw an exception.
 	 * 
-	 * @param abil
+	 * @param token
 	 *            The Ability which this AbilitySelection will contain
+	 * @param cat
+	 * 			  The Ability category which this AbilitySelection will contain
 	 * @param nat
 	 *            The Nature of the given Ability as it should be applied to a
 	 *            PlayerCharacter

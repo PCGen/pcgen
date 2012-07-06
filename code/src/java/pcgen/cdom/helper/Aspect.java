@@ -97,7 +97,7 @@ public class Aspect extends ConcretePrereqObject
 	/**
 	 * Instantiates a new aspect.
 	 * 
-	 * @param name the name of the aspect
+	 * @param key the name of the aspect
 	 * @param aString the aspect string
 	 */
 	public Aspect(final AspectName key, final String aString )

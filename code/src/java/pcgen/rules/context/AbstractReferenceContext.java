@@ -78,11 +78,8 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 	 * even though abilities are categorized, the category may not be know initially, so
 	 * null cat values are legal.
 	 *
-	 * @param cl The class that is being processed (Ability, SubClass etc)
-	 * @param cat The category of the class.
 	 * @return The reference manufacturer
 	 */
-
 	@Override
 	public abstract Collection<? extends ReferenceManufacturer<?>> getAllManufacturers();
 

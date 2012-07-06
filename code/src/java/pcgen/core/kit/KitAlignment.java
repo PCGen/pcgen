@@ -56,8 +56,8 @@ public class KitAlignment extends BaseKit
 	/**
 	 * testApply
 	 *
+	 * @param k
 	 * @param aPC PlayerCharacter
-	 * @param aKit Kit
 	 * @param warnings List
 	 */
 	@Override

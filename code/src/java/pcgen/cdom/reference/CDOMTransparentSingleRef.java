@@ -129,7 +129,7 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 	 * 
 	 * @return A representation of this CDOMTransparentSingleRef, suitable for
 	 *         storing in an LST file.
-	 * @see pcgen.cdom.base.CDOMReference#getLSTformat()
+	 * @see pcgen.cdom.base.CDOMReference#getLSTformat(boolean)
 	 */
 	@Override
 	public String getLSTformat(boolean useAny)
@@ -175,7 +175,7 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 	 * Throws an exception. This method may not be called because a
 	 * CDOMTransparentSingleRef is resolved using an underlying CDOMSingleRef.
 	 * 
-	 * @see Resolve(ReferenceManufacturer<T, ?>)
+	 * @see CDOMTransparentSingleRef#resolve(ReferenceManufacturer)
 	 * 
 	 * @param item
 	 *            ignored

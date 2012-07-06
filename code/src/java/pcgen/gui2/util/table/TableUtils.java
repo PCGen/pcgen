@@ -67,8 +67,7 @@ public class TableUtils
 	 * scroll pane's row header.
 	 * @param table
 	 * @param rowheaderTable
-	 * @param model
-	 * @return
+	 * @return the toggle button selection pane
 	 */
 	public static JScrollPane createCheckBoxSelectionPane(JTable table, JTable rowheaderTable)
 	{

@@ -73,7 +73,7 @@ public final class BioSetLoader extends LstLineFileLoader
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#loadLstFile(String)
+	 * @see pcgen.persistence.lst.LstLineFileLoader#loadLstFile(LoadContext, URI)
 	 */
 	@Override
 	public void loadLstFile(LoadContext context, URI fileName)
@@ -87,8 +87,7 @@ public final class BioSetLoader extends LstLineFileLoader
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.net.URL,
-	 *      java.lang.String)
+	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(LoadContext, String, URI)
 	 */
 	@Override
 	public void parseLine(LoadContext context, String lstLine, URI sourceURI)

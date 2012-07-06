@@ -107,7 +107,7 @@ public class SpellBookFacet extends AbstractStorageFacet implements
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            given SpellBooks should be added
-	 * @param c
+	 * @param list
 	 *            The Collection of SpellBooks to be added to the list of
 	 *            SpellBooks stored in this SpellBookFacet for the Player
 	 *            Character represented by the given CharID
@@ -153,10 +153,6 @@ public class SpellBookFacet extends AbstractStorageFacet implements
 	 * @param id
 	 *            The CharID representing the Player Character from which the
 	 *            given SpellBooks should be removed
-	 * @param c
-	 *            The Collection of SpellBooks to be removed from the list of
-	 *            SpellBooks stored in this SpellBookFacet for the Player
-	 *            Character represented by the given CharID
 	 * @throws NullPointerException
 	 *             if the given Collection is null
 	 */
@@ -302,7 +298,7 @@ public class SpellBookFacet extends AbstractStorageFacet implements
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character used for testing
-	 * @param obj
+	 * @param name
 	 *            The SpellBook name to test if this SpellBookFacet contains a
 	 *            SpellBook by that name for the Player Character represented by
 	 *            the given CharID
@@ -340,7 +336,7 @@ public class SpellBookFacet extends AbstractStorageFacet implements
 	 * @param id
 	 *            The CharID representing the Player Character from which the
 	 *            SpellBook with the given name should be removed
-	 * @param obj
+	 * @param name
 	 *            The name of the SpellBook to be removed from the list of
 	 *            SpellBooks stored in this SpellBookFacet for the Player
 	 *            Character represented by the given CharID
@@ -388,7 +384,7 @@ public class SpellBookFacet extends AbstractStorageFacet implements
 	 * @param source
 	 *            The CharID representing the Player Character from which the
 	 *            information should be copied
-	 * @param destination
+	 * @param copy
 	 *            The CharID representing the Player Character to which the
 	 *            information should be copied
 	 */

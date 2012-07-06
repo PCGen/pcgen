@@ -120,7 +120,7 @@ public final class SpellModel extends AbstractTreeTableModel implements
 	 * @param available Is this an available (true) or selected (false) list
 	 * @param bookList The list of books to be displayed.
 	 * @param currSpellBook The name of the currently selected spell book
-	 * @param fullSpellList Should we display a full list of available spells?
+	 * @param spellListType Should we display a full list of available spells?
 	 * @param pc The character we are building the spell list for.
 	 * @param spellTab The tab the list is being displayed upon.
 	 * @param emptyMessage The message to be displayed if the model is empty

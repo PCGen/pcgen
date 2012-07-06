@@ -54,7 +54,6 @@ public final class PCLevelInfo implements Cloneable
 	/**
 	 * Creates a new PCLevelInfo object.
 	 *
-	 * @param  aPC              The PC this level is part of
 	 * @param  argClassKeyName  The KeyName of the class taken at this level
 	 */
 	public PCLevelInfo(final String argClassKeyName)
@@ -134,14 +133,14 @@ public final class PCLevelInfo implements Cloneable
 	 * @param pc TODO
 	 * @return  the number of skill points gained
 	 */
-	public int getSkillPointsGained(PlayerCharacter aPC)
+	public int getSkillPointsGained(PlayerCharacter pc)
 	{
 		// If this information in not saved on PCG, then try to recalc it
 		if ((skillPointsGained == Integer.MIN_VALUE) && (classKeyName.length() > 0))
 		{
 			final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKeyName);
-			skillPointsGained = aClass.recalcSkillPointMod(aPC, classLevel) +
-				getBonusSkillPool(aPC);
+			skillPointsGained = aClass.recalcSkillPointMod(pc, classLevel) +
+				getBonusSkillPool(pc);
 		}
 
 		return skillPointsGained;
@@ -151,11 +150,11 @@ public final class PCLevelInfo implements Cloneable
 	 * Set the number of skill points gained at this level that have not been
 	 * spent yet.
 	 *
-	 * @param  arg  skill points remaining for this level
+	 * @param  points  skill points remaining for this level
 	 */
-	public void setSkillPointsRemaining(final int arg)
+	public void setSkillPointsRemaining(final int points)
 	{
-		skillPointsRemaining = arg;
+		skillPointsRemaining = points;
 	}
 
 	/**
@@ -169,7 +168,7 @@ public final class PCLevelInfo implements Cloneable
 	/**
 	 * Get the value of a character stat at this level
 	 *
-	 * @param   statAbb      the Abbreviation of the stat (STR, DEX, etc)
+	 * @param   aStat      the Abbreviation of the stat (STR, DEX, etc)
 	 * @param   includePost  whether to include any stat increases gained at
 	 *                       this level
 	 *
@@ -213,7 +212,7 @@ public final class PCLevelInfo implements Cloneable
 	 * stat matching statABB, make a new on, set its value to mod and store it
 	 * in the list.
 	 *
-	 * @param  statAbb   The abbreviation of the stat to modifiy
+	 * @param  stat   The abbreviation of the stat to modifiy
 	 * @param  mod       The adjustment to make
 	 * @param  isPreMod  Whether the increment should be pre or post the
 	 *                   calculation of other benefits gained at this level.

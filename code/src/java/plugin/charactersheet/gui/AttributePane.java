@@ -190,8 +190,8 @@ public class AttributePane extends JPanel
 		private JPanel tempBonusPanel;
 
 		/**
-		 * Constrctor
-		 * @param index
+		 * Constructor
+		 * @param pcstat
 		 */
 		public Attribute(PCStat pcstat)
 		{

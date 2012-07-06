@@ -45,7 +45,7 @@ public abstract class TextFieldListener implements DocumentListener
 	private final JTextComponent textField;
 
 	/**
-	 * @param textArea
+	 * @param textField
 	 */
 	public TextFieldListener(JTextComponent textField)
 	{

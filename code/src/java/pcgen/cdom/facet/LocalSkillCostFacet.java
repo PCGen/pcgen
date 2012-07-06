@@ -422,7 +422,7 @@ public class LocalSkillCostFacet extends AbstractStorageFacet implements
 	 * @param source
 	 *            The CharID representing the Player Character from which the
 	 *            information should be copied
-	 * @param destination
+	 * @param copy
 	 *            The CharID representing the Player Character to which the
 	 *            information should be copied
 	 */

@@ -74,7 +74,7 @@ public final class CDOMTypeRef<T> extends CDOMGroupRef<T>
 	 * 
 	 * @return A representation of this CDOMTypeRef, suitable for storing in an
 	 *         LST file.
-	 * @see pcgen.cdom.base.CDOMReference#getLSTformat()
+	 * @see pcgen.cdom.base.CDOMReference#getLSTformat(boolean)
 	 */
 	@Override
 	public String getLSTformat(boolean useAny)

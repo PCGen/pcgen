@@ -151,7 +151,7 @@ public interface CharacterFacade extends CompanionFacade
 
 	/**
 	 *
-	 * @return
+	 * @return a list of levels
 	 * @deprecated
 	 */
 	public ListFacade<CharacterLevelFacade> getLevels();
@@ -176,21 +176,21 @@ public interface CharacterFacade extends CompanionFacade
 
 	/**
 	 *
-	 * @return
+	 * @return the skill modifer for the specified level and skill
 	 * @deprecated
 	 */
 	public int getSkillModifier(SkillFacade skill, CharacterLevelFacade level);
 
 	/**
 	 *
-	 * @return
+	 * @return the number of skill ranks for the specified skill and level
 	 * @deprecated
 	 */
 	public float getSkillRanks(SkillFacade skill, CharacterLevelFacade level);
 
 	/**
 	 *
-	 * @return
+	 * @return the maximum number of ranks that can be allocated for the specified skill and level
 	 * @deprecated
 	 */
 	public float getMaxRanks(SkillCost cost, CharacterLevelFacade level);
@@ -393,14 +393,14 @@ public interface CharacterFacade extends CompanionFacade
 	public void setHanded(SimpleFacade handedness);
 
 	/**
-	 * @see setFile(File)
+	 * @see CharacterFacade#setFile(File)
 	 * @return a reference to the character's file
 	 */
 	public ReferenceFacade<File> getFileRef();
 
 	/**
 	 * Sets the file that this character will be saved to.
-	 * @see getFileRef()
+	 * @see CharacterFacade#getFileRef()
 	 * @param file the File to associate with this character
 	 */
 	public void setFile(File file);

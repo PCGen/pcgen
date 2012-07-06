@@ -250,9 +250,9 @@ public abstract class Plugin
 		/**
 		 *  Description of the Method
 		 *
-		 *@param  o1  Object 1 to compare
-		 *@param  o2  Object 2 to compare
-		 *@return     the comparion between the two (in java.util.Comperator format)
+		 *@param  p1  Object 1 to compare
+		 *@param  p2  Object 2 to compare
+		 *@return     the comparison between the two (in java.util.Comperator format)
 		 */
 		public int compare(Plugin p1, Plugin p2)
 		{

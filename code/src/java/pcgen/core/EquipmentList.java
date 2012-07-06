@@ -327,8 +327,6 @@ public class EquipmentList {
 	/**
 	 * Get an Equipment object from the list matching the passed-in type(s).
 	 *
-	 * @param eqIterator
-	 *          the equipment list to search in
 	 * @param desiredTypes
 	 *          a '.' separated list of types to match
 	 * @param excludedTypes

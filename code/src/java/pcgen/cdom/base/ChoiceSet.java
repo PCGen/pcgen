@@ -177,8 +177,6 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 	 * but it does not represent information that should be stored in a
 	 * persistent state (it is not sufficient information to reconstruct this
 	 * ChoiceSet)
-	 * 
-	 * @return The title of this ChoiceSet
 	 */
 	@Override
 	public void setTitle(String choiceTitle)

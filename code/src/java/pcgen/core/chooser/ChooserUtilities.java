@@ -237,10 +237,9 @@ public class ChooserUtilities
 	 * aPObject.getChoiceString();
 	 * 
 	 * @param aPObject
-	 * @param theChoices
 	 * @param aPC
 	 * 
-	 * @return an initialised ChoiceManager
+	 * @return an initialized ChoiceManager
 	 */
 	public static ChoiceManagerList getChoiceManager(CDOMObject aPObject,
 		PlayerCharacter aPC)

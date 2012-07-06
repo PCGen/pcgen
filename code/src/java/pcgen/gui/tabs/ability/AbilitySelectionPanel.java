@@ -155,7 +155,7 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 	 * Construct and build a new panel to display a list of abilities.
 	 * 
 	 * @param aPC
-	 * @param aCategory
+	 * @param aCategoryList
 	 */
 	public AbilitySelectionPanel(final PlayerCharacter aPC,
 		final List<AbilityCategory> aCategoryList)
@@ -203,7 +203,7 @@ public abstract class AbilitySelectionPanel extends JPanel implements
 
 	/**
 	 * Return the <tt>AbilityCategory</tt> these abilities come from.
-	 * @TODO Convert this to react to current category
+	 * TODO Convert this to react to current category
 	 * @return The Ability category
 	 */
 	public AbilityCategory getCategory()

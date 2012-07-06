@@ -60,7 +60,7 @@ public class LocationLoader extends LstLineFileLoader
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.net.URL, java.lang.String)
+	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(LoadContext, String, URI)
 	 */
 	@Override
 	public void parseLine(LoadContext context, String lstLine, URI sourceURI)

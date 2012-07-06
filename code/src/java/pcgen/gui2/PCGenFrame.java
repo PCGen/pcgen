@@ -806,7 +806,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	/**
 	 * This brings up a file chooser allows the user to select
 	 * the location that a character should be saved to.
-	 * @param selectedCharacter the character to be saved
+	 * @param character the character to be saved
 	 */
 	boolean showSaveCharacterChooser(CharacterFacade character)
 	{

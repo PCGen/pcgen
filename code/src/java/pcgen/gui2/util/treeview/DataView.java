@@ -33,7 +33,7 @@ public interface DataView<E>
      * Note: If any of the returned data is editable, make sure that the returned
      * list is editable as well.
      * @param obj
-     * @return
+     * @return editable list
      */
     List<?> getData(E obj);
 

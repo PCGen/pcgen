@@ -49,7 +49,7 @@ public final class EquipSlotLoader extends LstLineFileLoader
 	}
 
 	/**
-	 * @see LstLineFileLoader#parseLine(URL, String)
+	 * @see LstLineFileLoader#parseLine(LoadContext, String, URI)
 	 */
 	@Override
 	public void parseLine(LoadContext context, String lstLine, URI sourceURI)

@@ -355,7 +355,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 	/**
 	 * returns new id_Path with the last id one higher than the current
 	 * highest id for EquipSets with the same ParentIdPath.
-	 * @TODO: This needs to be moved to the core.
+	 * TODO: This needs to be moved to the core.
 	 * @param pc The character owning the equipset.
 	 * @param parentSet The parent of the equipset that is being created, null if it a root set.
 	 * @return new id path

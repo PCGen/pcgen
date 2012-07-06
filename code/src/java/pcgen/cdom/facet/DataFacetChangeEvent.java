@@ -75,8 +75,10 @@ public class DataFacetChangeEvent<T> extends EventObject
 	 * @param id
 	 *            The CharID identifying the PlayerCharacter in which the event
 	 *            took place
-	 * @param ge
+	 * @param cdo
 	 *            The CDOMObject which was added to or removed from the Graph
+	 * @param source           
+	 *            The base event object
 	 * @param type
 	 *            An integer identifying whether the given CDOMObject was added
 	 *            or removed from the PlayerCharacter

@@ -286,7 +286,7 @@ public class AvailableAbilityPanel extends AbilitySelectionPanel
 	}
 
 	/**
-	 * @see pcgen.gui.tabs.ability.IAbilityListFilter#accept(ViewMode, pcgen.core.Ability)
+	 * @see pcgen.gui.tabs.ability.IAbilityListFilter#accept(ViewMode, Ability)
 	 */
 	@Override
 	public boolean accept(final ViewMode aMode, Ability anAbility)

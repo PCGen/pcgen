@@ -42,7 +42,6 @@ public class FormatcatToken extends AbstractNonEmptyToken<EquipmentModifier>
 
 	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 * @Override
 	 */
 	@Override
 	public String getTokenName()

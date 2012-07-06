@@ -133,8 +133,10 @@ public class MapKeyMap
 	 * passed into the method and ownership of the returned List is transferred
 	 * to the class calling this method.
 	 * 
-	 * @param key
-	 *            The ListKey for which a copy of the list should be returned.
+	 * @param key1
+	 *           The MapKeyMap to find
+	 * @param key2
+	 * 			 The ListKey for which a copy of the list should be returned.
 	 * @return a copy of the List contained in this MapKeyMap for the given key;
 	 *         null if the given key is not a key in this MapKeyMap.
 	 */
@@ -157,9 +159,9 @@ public class MapKeyMap
 	 * @return a copy of the List contained in this MapKeyMap for the given key;
 	 *         null if the given key is not a key in this MapKeyMap.
 	 */
-	public <K, V> Map<K, V> getMapFor(MapKey<K, V> key1)
+	public <K, V> Map<K, V> getMapFor(MapKey<K, V> key)
 	{
-		return map.getMapFor(key1);
+		return map.getMapFor(key);
 	}
 
 	/**
@@ -176,9 +178,9 @@ public class MapKeyMap
 	 * @return A <tt>Set</tt> of secondary key objects for the given primary
 	 *         key.
 	 */
-	public <K, V> Set<K> getKeysFor(MapKey<K, V> key1)
+	public <K, V> Set<K> getKeysFor(MapKey<K, V> key)
 	{
-		return map.getSecondaryKeySet(key1);
+		return map.getSecondaryKeySet(key);
 	}
 
 	/**
@@ -257,7 +259,7 @@ public class MapKeyMap
 	 * 
 	 * @return true, if equals
 	 * 
-	 * @see java.lang.Object#equals()
+	 * @see java.lang.Object#equals(Object)
 	 */
 	@Override
 	public boolean equals(Object obj)

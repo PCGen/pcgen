@@ -65,17 +65,15 @@ public final class KitSpells extends BaseKit
 	private transient List<KitSpellBookEntry> theSpells = null;
 
 	/**
-	 * Set the count formula
-	 * @param argCountFormula
+	 * @param formula the count formula to set
 	 */
-	public void setCount(Formula f)
+	public void setCount(Formula formula)
 	{
-		countFormula = f;
+		countFormula = formula;
 	}
 
 	/**
-	 * Get the count formula
-	 * @return count formula
+	 * @return the count formula
 	 */
 	public Formula getCount()
 	{

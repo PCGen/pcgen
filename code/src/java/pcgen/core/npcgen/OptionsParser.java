@@ -69,7 +69,7 @@ public class OptionsParser
 	
 	/**
 	 * @param aFileName File to parse.
-	 * @return
+	 * @return a list of generator options
 	 * @throws SAXException
 	 * @throws IOException
 	 */

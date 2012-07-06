@@ -98,7 +98,7 @@ public class RacialSubTypesFacet
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character used for testing
-	 * @param obj
+	 * @param subType
 	 *            The object to test if this RacialSubTypesFacet contains that
 	 *            RaceSubType for the Player Character represented by the given
 	 *            CharID
@@ -106,9 +106,9 @@ public class RacialSubTypesFacet
 	 *         for the Player Character represented by the given CharID; false
 	 *         otherwise
 	 */
-	public boolean contains(CharID id, RaceSubType st)
+	public boolean contains(CharID id, RaceSubType subType)
 	{
-		return getRacialSubTypes(id).contains(st);
+		return getRacialSubTypes(id).contains(subType);
 	}
 
 	/**

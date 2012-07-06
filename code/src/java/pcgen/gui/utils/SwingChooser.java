@@ -434,7 +434,6 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	 * Sets the SelectedList attribute of the Chooser object
 	 *
 	 * @param selectedList  The new SelectedList value
-	 * @param columnNames   The new SelectedList value
 	 * author              Matt Woodard
 	 */
 	public void setSelectedList(List selectedList)

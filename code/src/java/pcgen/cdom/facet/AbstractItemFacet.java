@@ -41,7 +41,7 @@ public abstract class AbstractItemFacet<T> extends AbstractDataFacet<T>
 	 * wish to unset a value, you should use the remove(CharID id) method of
 	 * AbstractItemFacet
 	 * 
-	 * @see remove(CharID id)
+	 * @see AbstractItemFacet#remove(CharID)
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
@@ -145,7 +145,7 @@ public abstract class AbstractItemFacet<T> extends AbstractDataFacet<T>
 	 * @param source
 	 *            The CharID representing the Player Character from which the
 	 *            information should be copied
-	 * @param destination
+	 * @param copy
 	 *            The CharID representing the Player Character to which the
 	 *            information should be copied
 	 */

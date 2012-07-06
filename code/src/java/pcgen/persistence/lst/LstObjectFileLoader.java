@@ -54,6 +54,7 @@ import pcgen.system.LanguageBundle;
  * Last Edited: $Date$
  *
  * @author AD9C15
+ * @author boomer70 <boomer70@yahoo.com>
  */
 public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observable
 {
@@ -170,13 +171,11 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	 * @param context TODO
 	 * @param pObj The object that has just completed loading.
 	 * 
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#includeObject(CDOMObject)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#includeObject(SourceEntry, CDOMObject)
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#finishObject(CDOMObject)
 	 * @see pcgen.core.SettingsHandler#isAllowOverride()
 	 * 
-	 * @author boomer70 <boomer70@yahoo.com>
 	 * @throws PersistenceLayerException 
-	 * 
 	 * @since 5.11
 	 */
 	public void completeObject(LoadContext context, SourceEntry source,
@@ -253,8 +252,6 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	 * Adds an object to the global repository.
 	 * 
 	 * @param cdo The object to add.
-	 * 
-	 * @author boomer70 <boomer70@yahoo.com>
 	 * 
 	 * @since 5.11
 	 */
@@ -728,7 +725,6 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		 * @param aLstLine LST syntax modification
 		 *         [must not be null]
 		 * @param aLineNumber
-		 * @param aSourceMap
 		 * 
 		 * @throws IllegalArgumentException if aSource or aLstLine is null.
 		 */

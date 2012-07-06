@@ -132,7 +132,7 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 	 * Character, it is unlikely that you want this method. It is more likely
 	 * that you should be using getRegion(CharID id)
 	 * 
-	 * @see getRegion(CharID id)
+	 * @see RegionFacet#getRegion(CharID)
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
@@ -241,7 +241,7 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 	 * Character, it is unlikely that you want this method. It is more likely
 	 * that you should be using getSubRegion(CharID id)
 	 * 
-	 * @see getSubRegion(CharID id)
+	 * @see RegionFacet#getSubRegion(CharID)
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the

@@ -674,7 +674,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            items in this AbstractQualifiedListFacet should be returned.
-	 * @param owner
+	 * @param source
 	 *            The source object for which a copy of the List of objects the
 	 *            Player Character qualifies for should be returned.
 	 * @return A non-null Set of objects the Player Character represented by the

@@ -36,7 +36,7 @@ public class SimpleReferenceManufacturer<T extends Loadable> extends
 	 * Constructs a new SimpleReferenceManufacturer that will construct or
 	 * reference non-categorized CDOMObjects of the given Class.
 	 * 
-	 * @param objClass
+	 * @param factory
 	 *            The Class of object this AbstractReferenceManufacturer will
 	 *            construct and reference.
 	 */

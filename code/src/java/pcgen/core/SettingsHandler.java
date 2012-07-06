@@ -458,16 +458,18 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * @Deprecated Use UIPropertyContext.CLEANUP_TEMP_FILES instead.
+	 *  Use UIPropertyContext.CLEANUP_TEMP_FILES instead.
 	 */
+	@Deprecated
 	public static void setCleanupTempFiles(final boolean argDoCleanup)
 	{
 		cleanupTempFiles = argDoCleanup;
 	}
 
 	/**
-	 * @Deprecated Use UIPropertyContext.CLEANUP_TEMP_FILES instead.
+	 * Use UIPropertyContext.CLEANUP_TEMP_FILES instead.
 	 */
+	@Deprecated
 	public static boolean getCleanupTempFiles()
 	{
 		return cleanupTempFiles;
@@ -1963,7 +1965,7 @@ public final class SettingsHandler
 
 	/**
 	 * @deprecated Use ConfigurationSettings.getCustomDir()
-	 * @return
+	 * @return the custom directory
 	 */
 	public static File getPcgenCustomDir()
 	{
@@ -1981,7 +1983,7 @@ public final class SettingsHandler
 
 	/**
 	 * @deprecated Use ConfigurationSettings.getVendorDataDir()
-	 * @return
+	 * @return the vendor data directory
 	 */
 	public static File getPcgenVendorDataDir()
 	{
@@ -1995,7 +1997,7 @@ public final class SettingsHandler
 
 	/**
 	 * @deprecated 
-	 * @return
+	 * @return the sponsor directory
 	 */
 	public static File getPcgenSponsorDir()
 	{
@@ -2009,7 +2011,7 @@ public final class SettingsHandler
 
 	/**
 	 * @deprecated Use ConfigurationSettings.getDocsDir()
-	 * @return
+	 * @return the documents directory
 	 */
 	public static File getPcgenDocsDir()
 	{
@@ -2026,7 +2028,7 @@ public final class SettingsHandler
 
 	/**
 	 * @deprecated Use ConfigurationSettings.getSettingsDir()
-	 * @return
+	 * @return the files directory
 	 */
 	public static File getPcgenFilesDir()
 	{
@@ -2077,7 +2079,7 @@ public final class SettingsHandler
 
 	/**
 	 * @deprecated Use ConfigurationSettings.getOutputSheetsDir()
-	 * @return
+	 * @return the output sheet directory
 	 */
 	public static File getPcgenOutputSheetDir()
 	{
@@ -2091,7 +2093,7 @@ public final class SettingsHandler
 
 	/**
 	 * @deprecated Use ConfigurationSettings.getSystemsDir() 
-	 * @return
+	 * @return the system directory
 	 */
 	public static File getPcgenSystemDir()
 	{
@@ -2100,7 +2102,7 @@ public final class SettingsHandler
 
 	/**
 	 * @deprecated
-	 * @return
+	 * @return the theme pack directory
 	 */
 	public static File getPcgenThemePackDir()
 	{
@@ -2114,7 +2116,7 @@ public final class SettingsHandler
 	
 	/**
 	 * @deprecated Use ConfigurationSettings.getPreviewDir()
-	 * @return
+	 * @return the preview directory
 	 */
 	public static File getPcgenPreviewDir()
 	{
@@ -2133,7 +2135,7 @@ public final class SettingsHandler
 
 	/**
 	 * @deprecated Use PCGenSettings.getPortraitsDir()
-	 * @return
+	 * @return the portraits directory
 	 */
 	public static File getPortraitsPath()
 	{
@@ -3059,7 +3061,7 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * Opens (options.ini) for writing and calls {@link setOptionsProperties}.
+	 * Opens (options.ini) for writing and calls {@link SettingsHandler#setOptionsProperties(PlayerCharacter)}.
 	 * @param aPC
 	 */
 	public static void writeOptionsProperties(final PlayerCharacter aPC)

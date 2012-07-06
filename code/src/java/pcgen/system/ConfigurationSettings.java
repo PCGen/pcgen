@@ -96,7 +96,7 @@ public final class ConfigurationSettings extends PropertyContext
 	}
 
 	/**
-	 * @return
+	 * @return the current user directory
 	 */
 	public static String getUserDir()
 	{

@@ -94,7 +94,7 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 	 * 
 	 * @return A representation of this CDOMTransparentAllRef, suitable for
 	 *         storing in an LST file.
-	 * @see pcgen.cdom.base.CDOMReference#getLSTformat()
+	 * @see pcgen.cdom.base.CDOMReference#getLSTformat(boolean)
 	 */
 	@Override
 	public String getLSTformat(boolean useAny)
@@ -139,7 +139,7 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 	 * Throws an exception. This method may not be called because a
 	 * CDOMTransparentAllRef is resolved using an underlying CDOMGroupRef.
 	 * 
-	 * @see Resolve(ReferenceManufacturer<T, ?>)
+	 * @see CDOMTransparentAllRef#resolve(ReferenceManufacturer)
 	 * 
 	 * @param item
 	 *            ignored

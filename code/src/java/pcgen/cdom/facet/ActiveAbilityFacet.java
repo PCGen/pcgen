@@ -543,15 +543,15 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	 * @param source
 	 *            The CharID representing the Player Character from which the
 	 *            information should be copied
-	 * @param destination
+	 * @param copy
 	 *            The CharID representing the Player Character to which the
 	 *            information should be copied
 	 */
 	@Override
-	public void copyContents(CharID id, CharID id2)
+	public void copyContents(CharID source, CharID copy)
 	{
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap =
-				getCachedMap(id);
+				getCachedMap(source);
 		if (catMap != null)
 		{
 			for (Map.Entry<Category<Ability>, Map<Nature, Set<Ability>>> catME : catMap
@@ -562,8 +562,8 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 					.entrySet())
 				{
 					Nature nat = natME.getKey();
-					ensureCachedSet(id2, cat, nat);
-					getCachedSet(id2, cat, nat).addAll(natME.getValue());
+					ensureCachedSet(copy, cat, nat);
+					getCachedSet(copy, cat, nat).addAll(natME.getValue());
 				}
 			}
 		}

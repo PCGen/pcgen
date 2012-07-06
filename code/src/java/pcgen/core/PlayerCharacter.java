@@ -3231,7 +3231,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 
 	/**
 	 *
-	 * @return
+	 * @return the racial size
 	 */
 	public int racialSizeInt()
 	{
@@ -4040,8 +4040,6 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 	 * renaming to standard convention due to refactoring of export
 	 * 
 	 * Build on-the-fly so removing templates doesn't mess up favoured list
-	 * 
-	 * @author Thomas Behr 08-03-02
 	 */
 	public SortedSet<PCClass> getFavoredClasses()
 	{
@@ -10190,7 +10188,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 	 *
 	 * @param addNew
 	 *
-	 * @return
+	 * @return a list of feats 
 	 */
 	public List<CategorizedAbilitySelection> feats(PCTemplate pct, final int level, final int hitdice,
 			final boolean addNew)

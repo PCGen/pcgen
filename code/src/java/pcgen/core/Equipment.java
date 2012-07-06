@@ -5598,10 +5598,10 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param aPC The PC that has the Equipment
 	 * 
 	 * @return The acBonus value
-	 * @todo BONUS:EQMARMOR|ACBONUS|x should be documented.
 	 */
 	public Integer getACBonus(final PlayerCharacter aPC)
 	{
+		//TODO BONUS:EQMARMOR|ACBONUS|x should be documented.
 		int dbon = (int) bonusTo(aPC, "COMBAT", "AC", true);
 		dbon += (int) bonusTo(aPC, "EQMARMOR", "ACBONUS", true);
 
@@ -5614,11 +5614,10 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param aPC The PC that has the Equipment
 	 * 
 	 * @return The acMod value
-	 * @todo This should be documented
 	 */
 	public Integer getACMod(final PlayerCharacter aPC)
 	{
-
+		//TODO This should be documented
 		return (int) bonusTo(aPC, "EQMARMOR", "AC", true)
 			+ (int) bonusTo(aPC, "COMBAT", "AC", true);
 	}

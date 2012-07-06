@@ -231,9 +231,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	}
 
 	/**
-	 * returns a list of licenses read from the campaign license files
-	 *
-	 * @return
+	 * @return  a list of licenses read from the campaign license files
 	 */
 	public List<String> getOtherLicenses()
 	{

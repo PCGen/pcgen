@@ -89,7 +89,7 @@ public final class BonusUtilities
 	/**
 	 * Get Bonus from list
 	 * @param bonusList
-	 * @param iType
+	 * @param type
 	 * @return List
 	 */
 	public static List<BonusObj> getBonusFromList(final List<BonusObj> bonusList, final String type)

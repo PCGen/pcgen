@@ -53,7 +53,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	/**
 	 * Conditionally add the selected item
 	 * 
-	 * @param aPC
+	 * @param pc
 	 * @param item
 	 */
 	public boolean conditionallyApply(PlayerCharacter pc, T item)
@@ -76,7 +76,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	/**
 	 * Add the selected Feat proficiencies
 	 * 
-	 * @param aPC
+	 * @param pc
 	 * @param selected
 	 */
 	public boolean applyChoices(PlayerCharacter pc, List<T> selected)
@@ -206,17 +206,17 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 
 	/**
 	 * 
-	 * @param aPc
+	 * @param pc
 	 * @param availableList
 	 * @param selectedList
 	 */
-	public void doChooserRemove(PlayerCharacter aPC, List<T> availableList,
+	public void doChooserRemove(PlayerCharacter pc, List<T> availableList,
 			List<T> selectedList, List<String> reservedList)
 	{
 		final List<T> newSelections =
-				doChooser(aPC, availableList, selectedList, reservedList);
+				doChooser(pc, availableList, selectedList, reservedList);
 
-		applyChoices(aPC, newSelections);
+		applyChoices(pc, newSelections);
 	}
 
 	protected void adjustPool(List<? extends T> selected)

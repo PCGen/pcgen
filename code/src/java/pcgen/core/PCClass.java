@@ -670,7 +670,7 @@ public class PCClass extends PObject implements ClassFacade
 	 * returns the value at which another attack is gained attackCycle of 4
 	 * means a second attack is gained at a BAB of +5/+1
 	 *
-	 * @param index
+	 * @param at the AttackType
 	 * @return int
 	 */
 	/*

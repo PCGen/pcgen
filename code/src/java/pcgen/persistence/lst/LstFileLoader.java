@@ -73,9 +73,8 @@ public final class LstFileLoader
 	 * data buffer, returning a URL to the specified file for use in log/error
 	 * messages by its caller.
 	 *
-	 * @param url        String path of the URL to read -- MUST be a URL path,
+	 * @param uri        String path of the URL to read -- MUST be a URL path,
 	 *                   not a file!
-	 * @param dataBuffer StringBuffer to buffer the file content into
 	 * @return URL pointing to the actual file read, for use in debug/log
 	 *         messages
 	 * @throws PersistenceLayerException 

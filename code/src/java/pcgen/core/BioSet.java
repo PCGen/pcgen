@@ -115,7 +115,7 @@ public final class BioSet extends PObject
 	 * an entry for each age set. The supplied index is used to ensure that the
 	 * value is placed in the correct age bracket.
 	 *
-	 * @param region The region the race is defined in.
+	 * @param regionString The region the race is defined in.
 	 * @param race The race to be updated.
 	 * @param tag The tag to be entered. Must be in the form key:value
 	 * @param ageSetIndex The age set to be updated.

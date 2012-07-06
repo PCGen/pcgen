@@ -416,7 +416,7 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 	 * @param source
 	 *            The CharID representing the Player Character from which the
 	 *            Size information should be copied
-	 * @param destination
+	 * @param copy
 	 *            The CharID representing the Player Character to which the Size
 	 *            information should be copied
 	 */

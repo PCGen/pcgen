@@ -114,8 +114,6 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * 
 	 * <p>This method sets the display and plural names to the same value as
 	 * the key name.
-	 * 
-	 * @param aKeyName The name to use to reference this category.
 	 */
 	public AbilityCategory()
 	{
@@ -189,7 +187,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	/**
 	 * Adds a new type to the list of types included in this category.
 	 * 
-	 * @param aType A type string.
+	 * @param type A type string.
 	 */
 	public void addAbilityType(final Type type)
 	{
@@ -238,13 +236,13 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	/**
 	 * @param key the Ability Key to add to the set
 	 */
-	public void addAbilityKey(CDOMSingleRef<Ability> ref)
+	public void addAbilityKey(CDOMSingleRef<Ability> key)
 	{
 		if ( containedAbilities == null )
 		{
 			containedAbilities = new HashSet<CDOMSingleRef<Ability>>();
 		}
-		containedAbilities.add(ref);
+		containedAbilities.add(key);
 	}
 
 	/**
@@ -262,7 +260,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * Sets the formula to use to calculate the base pool size for this category
 	 * of ability.
 	 * 
-	 * @param aFormula A valid formula or variable.
+	 * @param formula A valid formula or variable.
 	 */
 	public void setPoolFormula(Formula formula)
 	{
@@ -323,7 +321,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	/**
 	 * Sets the location where the AbilityCategory should be displayed.
 	 * 
-	 * @param displayLocation
+	 * @param location
 	 *            The new displayLocation
 	 */
 	public void setDisplayLocation(DisplayLocation location)
@@ -334,7 +332,8 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	/**
 	 * Sets if abilities of this category should be displayed in the UI.
 	 * 
-	 * @param yesNo <tt>true</tt> if these abilities should be displayed.
+	 * @param visible the visibility for abilities, i.e. hidden, visible, etc. 
+	 * @see pcgen.util.enumeration.Visibility
 	 */
 	public void setVisible(Visibility visible)
 	{

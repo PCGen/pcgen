@@ -38,8 +38,8 @@ public class DividingFormula implements ReferenceFormula<Integer>
 	 * Creates a new DividingFormula with the given int as the value to divide
 	 * the input to the resolve method by
 	 * 
-	 * @param denominator
-	 *            the int to be divide the input by when this DividingFormula is
+	 * @param denom
+	 *            denominator, the int to be divide the input by when this DividingFormula is
 	 *            used
 	 * @throws IllegalArgumentException
 	 *             if the given int is zero

@@ -77,7 +77,7 @@ public class CampaignLoader extends LstLineFileLoader
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#loadLstFile(java.net.URI)
+	 * @see pcgen.persistence.lst.LstLineFileLoader#loadLstFile(LoadContext, URI)
 	 */
 	@Override
 	public void loadLstFile(LoadContext context, URI fileName) throws PersistenceLayerException

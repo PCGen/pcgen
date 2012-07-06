@@ -74,9 +74,7 @@ public class LoadInfo implements Loadable
 	}
 
 	/**
-	 * Set the load score multiplier
-	 * 
-	 * @param value
+	 * @param multiplier the load score multiplier to set
 	 */
 	public void setLoadScoreMultiplier(BigDecimal multiplier)
 	{

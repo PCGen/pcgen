@@ -80,7 +80,7 @@ public interface DataSetFacade
 	public ListFacade<GearBuySellFacade> getGearBuySellSchemes();
 
 	/**
-	 * @return
+	 * @return the list of kits
 	 */
 	public ListFacade<KitFacade> getKits();
 }

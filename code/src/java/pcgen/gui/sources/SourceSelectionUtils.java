@@ -260,7 +260,7 @@ public final class SourceSelectionUtils
 	 * Returns the provided path otherwise.
 	 * 
 	 * @param absPath
-	 * @return
+	 * @return the decoded, relative path
 	 */
 	public static String convertPathToDataPath(String absPath)
 	{

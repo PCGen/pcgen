@@ -71,7 +71,7 @@ public class SkillRankControl
 	 * bonuses). Note that the total ranks could be higher than the max ranks if
 	 * the ranks come from a familiar's master.
 	 * 
-	 * @param aPC
+	 * @param pc
 	 * @return rank + bonus ranks (racial, class, etc. bonuses)
 	 */
 	public static Float getTotalRank(PlayerCharacter pc, Skill sk)

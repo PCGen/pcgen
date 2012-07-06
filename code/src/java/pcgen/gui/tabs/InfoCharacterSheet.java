@@ -390,8 +390,9 @@ class SelectPanel extends JPanel implements ActionListener
 	private InfoCharacterSheet theParent;
 	private CharacterSheetSelectionPanel theSheetSelectionPanel = null;
 
-	/** Creates new form SelectPanel
-	 * @param parent
+	/** 
+	 * Creates new form SelectPanel
+	 * @param aParent
 	 */
 	public SelectPanel(final InfoCharacterSheet aParent)
 	{
@@ -434,7 +435,7 @@ class SelectPanel extends JPanel implements ActionListener
 	 * <code>setPc</code> updates the currently displayed character.
 	 * Should typically be called when the user switches the PC tab.
 	 *
-	 * @param pc the new <code>PlayerCharacter</code> object
+	 * @param aPC the new <code>PlayerCharacter</code> object
 	 * @throws Exception
 	 */
 	public void setPc(final PlayerCharacter aPC) throws Exception

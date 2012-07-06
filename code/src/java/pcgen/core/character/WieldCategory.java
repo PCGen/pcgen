@@ -163,7 +163,7 @@ public final class WieldCategory implements Loadable
 	 * Get the WieldCategory adjusted for the size difference between the weapon
 	 * and the PC. This uses the 3.5 equipment sizes.
 	 * 
-	 * @param aPC
+	 * @param pc
 	 *            Player character to get the weild category for.
 	 * @param eq
 	 *            Equipment to get the weild category for.

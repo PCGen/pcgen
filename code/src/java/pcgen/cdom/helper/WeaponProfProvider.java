@@ -121,7 +121,7 @@ public class WeaponProfProvider extends ConcretePrereqObject implements
 	 * (Thus, removal of a WeaponProf from the returned Collection will not
 	 * remove that WeaponProf from this WeaponProfProvider)
 	 * 
-	 * @param pc
+	 * @param id
 	 *            The PlayerCharacter used to resolve the references in order to
 	 *            account for any proficiency changes
 	 * @return A Collection of the WeaponProf objects that this

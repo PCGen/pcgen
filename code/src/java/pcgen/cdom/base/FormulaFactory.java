@@ -132,7 +132,7 @@ public final class FormulaFactory
 	/**
 	 * Returns a Formula for the given Integer.
 	 * 
-	 * @param e
+	 * @param dbl
 	 *            The double to be converted to a Formula
 	 * @return A Formula for the given Double.
 	 * @throws IllegalArgumentException

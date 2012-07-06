@@ -741,7 +741,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	 * Register the addition of a new level to the character of the 
 	 * specified class. It is expected that the backing PlayerCharacter object 
 	 * will be updated by our caller.
-	 * @param theClass The class the level is in.
+	 * @param theClassLevel The class the level is in.
 	 */
 	void addLevelOfClass(CharacterLevelFacadeImpl theClassLevel)
 	{

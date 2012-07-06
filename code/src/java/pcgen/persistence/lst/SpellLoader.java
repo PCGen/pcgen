@@ -52,7 +52,7 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, CDOMObject, String, SourceEntry)
 	 */
 	@Override
 	public Spell parseLine(LoadContext context, Spell aSpell,
@@ -194,7 +194,7 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(LoadContext, pcgen.core.PObject)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(LoadContext, CDOMObject)
 	 */
 	@Override
 	protected void performForget(LoadContext context, final Spell objToForget)

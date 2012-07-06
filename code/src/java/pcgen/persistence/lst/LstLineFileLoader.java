@@ -148,7 +148,7 @@ public abstract class LstLineFileLoader extends Observable
 	 * new value.
 	 *
 	 * @param lstLine String LST formatted line read from the source URL
-	 * @param sourceURL URL that the line was read from, for error reporting
+	 * @param sourceURI URI that the line was read from, for error reporting
 	 *         purposes
 	 * @throws PersistenceLayerException if there is a problem with the LST syntax
 	 */

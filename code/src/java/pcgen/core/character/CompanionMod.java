@@ -48,7 +48,7 @@ public final class CompanionMod extends PObject
 {
 	/**
 	 * Get Level
-	 * @param className
+	 * @param var
 	 * @return level
 	 */
 	public int getVariableApplied(final String var)

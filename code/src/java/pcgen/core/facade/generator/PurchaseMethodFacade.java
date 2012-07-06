@@ -32,14 +32,14 @@ public interface PurchaseMethodFacade extends StatGenerationFacade
 	public int getMaxScore();
 
 	/**
-	 * @return the number of points that can be distrubuted
+	 * @return the number of points that can be distributed
 	 */
 	public int getPoints();
 
 	/**
 	 * 
 	 * @param score
-	 * @return
+	 * @return the cost for the give score
 	 */
 	public int getScoreCost(int score);
 

@@ -46,7 +46,7 @@ public class KitSpellBookEntry
 	/**
 	 *
 	 * @param aBookName
-	 * @param aName
+	 * @param sp
 	 * @param modifiers
 	 * @param copies
 	 */

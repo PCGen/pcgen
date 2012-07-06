@@ -62,7 +62,7 @@ public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 	 * 
 	 * @return A representation of this CDOMAllRef, suitable for storing in an
 	 *         LST file.
-	 * @see pcgen.cdom.base.CDOMReference#getLSTformat()
+	 * @see pcgen.cdom.base.CDOMReference#getLSTformat(boolean)
 	 */
 	@Override
 	public String getLSTformat(boolean useAny)

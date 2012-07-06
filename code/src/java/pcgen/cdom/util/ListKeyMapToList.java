@@ -349,7 +349,7 @@ public class ListKeyMapToList
 	 * Note that equality as defined by this method is both a class of
 	 * ListKeyMapToList and equality of contents of the ListKeyMapToList.
 	 * 
-	 * @see java.lang.Object#equals()
+	 * @see java.lang.Object#equals(Object)
 	 */
 	@Override
 	public boolean equals(Object obj)

@@ -400,7 +400,7 @@ public class SystemCollections
 
 	/**
 	 * Add the body structure to the body structure list.
-	 * @param body structure
+	 * @param bodyStructure
 	 * @param gameMode = key in the equipSlotMap to which to add the equipmentSlot
 	 */
 	public static void addToBodyStructureList(final String bodyStructure, final String gameMode)

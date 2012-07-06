@@ -54,7 +54,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, pcgen.core.PObject, java.lang.String, pcgen.persistence.lst.CampaignSourceEntry)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, pcgen.cdom.base.CDOMObject, String, SourceEntry)
 	 */
 	@Override
 	public PCClass parseLine(LoadContext context, PCClass target,
@@ -492,7 +492,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectNamed(java.lang.String)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(LoadContext, String)
 	 */
 	@Override
 	protected PCClass getObjectKeyed(LoadContext context, String aKey)

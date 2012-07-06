@@ -82,7 +82,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            given PCClassLevel should be set
-	 * @param obj
+	 * @param pcc
 	 *            The PCClass object for which the PCClassLevel object is set as
 	 *            the PCClass
 	 * @param pcl
@@ -770,12 +770,18 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		 * Sends a NodeChangeEvent to the LevelChangeListeners that are
 		 * receiving LevelChangeEvents from the source ClassFacet.
 		 * 
-		 * @param node
-		 *            The Node that has beed added to or removed from the source
+		 * @param id
+		 *            The CharID that has beed added to or removed from the source
 		 *            ClassFacet
-		 * @param type
-		 *            An identifier indicating whether the given CDOMObject was
-		 *            added to or removed from the source ClassFacet
+		 * @param pcc
+		 *			  The PCClass to be added to the list of PCClass objects stored
+  	     *            in this AbstractListFacet for the Player Character represented
+	     *            by the given CharID
+	     * @param oldLevel
+	     * 			  The chracter's previous level
+	     * 
+	     * @param newLevel
+	     * 			  The new level specified by the user.
 		 */
 		protected void fireClassLevelChangeEvent(CharID id, PCClass pcc,
 			int oldLevel, int newLevel)

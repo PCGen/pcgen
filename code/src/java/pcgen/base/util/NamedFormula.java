@@ -41,7 +41,7 @@ public final class NamedFormula
 	 * 
 	 * @param formulaName
 	 *            The String to be used as the name of the NamedFormula.
-	 * @param d
+	 * @param value
 	 *            The Formula value of the NamedFormula.
 	 */
 	public NamedFormula(String formulaName, Formula value)

@@ -47,7 +47,7 @@ public class TransparentCategorizedReferenceManufacturer<T extends Loadable & Ca
 	 * Constructs a new TransparentCategorizedReferenceManufacturer for the
 	 * given Class.
 	 * 
-	 * @param objClass
+	 * @param factory
 	 *            The Class of object this
 	 *            TransparentCategorizedReferenceManufacturer will construct and
 	 *            reference.

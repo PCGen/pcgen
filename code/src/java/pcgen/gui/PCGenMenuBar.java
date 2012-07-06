@@ -122,7 +122,7 @@ public final class PCGenMenuBar extends JMenuBar
 
 	/**
 	 * Create a new menu item bar including all menu items.  
-	 * @param pcgenframe The PCGen window we are attached to.
+	 * @param pcgenFrame The PCGen window we are attached to.
 	 * @param frameActionListener Listener for Menubar and toolbar actions.
 	 */
 	public PCGenMenuBar(PCGen_Frame1 pcgenFrame,

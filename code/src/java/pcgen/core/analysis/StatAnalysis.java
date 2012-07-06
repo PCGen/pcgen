@@ -67,7 +67,7 @@ public class StatAnalysis
 	 * Calculate the total for the requested stat. If equipment or temporary
 	 * bonuses should be excluded, getPartialStatFor should be used instead.
 	 *
-	 * @param aStat The abbreviation of the stat to be calculated
+	 * @param stat The abbreviation of the stat to be calculated
 	 * @return The value of the stat
 	 */
 	public static int getTotalStatFor(PlayerCharacter ownerPC, PCStat stat)
@@ -94,7 +94,7 @@ public class StatAnalysis
 	 * Retrieve a correctly calculated attribute value where one or more
 	 * types are excluded.
 	 *
-	 * @param aStat The abbreviation of the stat to be calculated
+	 * @param stat The abbreviation of the stat to be calculated
 	 * @param useTemp Should temporary bonuses be included?
 	 * @param useEquip Should equipment bonuses be included?
 	 * @return The value of the stat

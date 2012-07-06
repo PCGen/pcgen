@@ -99,6 +99,7 @@ import pcgen.util.enumeration.VisionType;
  * it is build from static methods rather than instantiated.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
+ * @author boomer70 <boomer70@yahoo.com>
  * @version $Revision$
  */
 public final class Globals
@@ -419,8 +420,6 @@ public final class Globals
 	 * 
 	 * @param aMod A <tt>CompanionMod</tt> to add.
 	 * 
-	 * @author boomer70 <boomer70@yahoo.com>
-	 * 
 	 * @since 5.11
 	 */
 	public static void addCompanionMod(final CompanionMod aMod)
@@ -454,9 +453,6 @@ public final class Globals
 	 * 
 	 * @param aMod
 	 *            A <tt>CompanionMod</tt> to remove
-	 * 
-	 * @author boomer70 <boomer70@yahoo.com>
-	 * 
 	 * @since 5.11
 	 */
 	public static void removeCompanionMod( final CompanionMod aMod )
@@ -481,12 +477,10 @@ public final class Globals
 	 * Gets all the <code>CompanionMod</code>s for the specified type of 
 	 * follower.
 	 * 
-	 * @param aType The type of Follower to get mods for.
+	 * @param cList The type of Follower to get mods for.
 	 * @return An unmodifiable Collection of COMPANIONMODs or an EMPTY_LIST
 	 * 
-	 * @author boomer70 <boomer70@yahoo.com>
-	 * 
-	 * @since 5.11
+ 	 * @since 5.11
 	 */
 	public static Collection<CompanionMod> getCompanionMods(
 			final CompanionList cList)
@@ -1274,10 +1268,8 @@ public final class Globals
 	 * Returns a List of Spell with following criteria:
 	 *
 	 * @param level      (optional, ignored if < 0),
+	 * @param spellLists the lists of spells
 	 * @param pc TODO
-	 * @param classKey  (optional, ignored if "")
-	 * @param domainKey (optional, ignored if "")
-	 *                   at least one of classKey and domainKey must not be ""
 	 * @return a List of Spell
 	 */
 	public static List<Spell> getSpellsIn(final int level, List<? extends CDOMList<Spell>> spellLists, PlayerCharacter pc)
@@ -2213,8 +2205,8 @@ public final class Globals
 	/**
 	 * Reduce/increase damage for modified size as per DMG p.162
 	 * @param aDamage
-	 * @param sBaseSize
-	 * @param sNewSize
+	 * @param baseSize
+	 * @param newSize
 	 * @return String
 	 */
 	public static String adjustDamage(String aDamage, SizeAdjustment baseSize, SizeAdjustment newSize)
@@ -2282,7 +2274,6 @@ public final class Globals
 	 * @param load
 	 * @param unencumberedMove
 	 *            the unencumbered move value
-	 * @param checkLoad
 	 * @param aPC
 	 * @return encumbered move as an integer
 	 */

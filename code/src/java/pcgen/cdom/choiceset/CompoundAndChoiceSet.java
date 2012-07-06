@@ -65,7 +65,7 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * strong references are maintained to the PrimitiveChoiceSet objects
 	 * contained within the given Collection.
 	 * 
-	 * @param col
+	 * @param pcsCollection
 	 *            A Collection of PrimitiveChoiceSets which define the Set of
 	 *            objects contained within the CompoundAndChoiceSet
 	 * @throws IllegalArgumentException

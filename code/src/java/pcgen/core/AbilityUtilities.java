@@ -58,8 +58,8 @@ public class AbilityUtilities
 	 * adding it).
 	 * @param pc TODO
 	 * @param   anAbility
-	 * @param   choices
-	 * @param   addList
+	 * @param   choice
+	 * @param   cat
 	 *
 	 * @return the Ability added, or null if Ability was not added to the list.
 	 */
@@ -115,10 +115,7 @@ public class AbilityUtilities
 	 * @param   ability
 	 * @param   choice
 	 * @param   aPC
-	 * @param   addIt
-	 * @param   singleChoice
 	 * @param   category The AbilityCategory to add or remove the ability from.
-	 * @return 1 if adding the Ability, or 0 if removing it.
 	 */
 	public static void finaliseAbility(
 			final Ability         ability,
@@ -234,18 +231,10 @@ public class AbilityUtilities
 	 * weapon proficiencies, either a single choice if addAll is false, or all
 	 * possible choices if addAll is true.
 	 * @param   aPC                       the PC to add or remove the Feat from
-	 * @param   levelInfo  LevelInfo object to adjust.
 	 * @param   argAbility                The ability to process
 	 * @param   choice                    For an isMultiples() Ability
-	 * @param   create false means the character must already have the Ability (which
-	 *                 only makes sense if it allows multiples); true means a new
-	 *                 instance of the global Ability will be cloned and added to the
-	 *                 character as a real Ability (this is the only way to add real
-	 *                 non-virtual Ability objects).
 	 * @param   category The AbilityCategory to add or remove the ability from.
-	 * @return  1 if adding the Ability or 0 if removing it.
 	 */
-
 	public static void modAbility(
 		final PlayerCharacter aPC,
 		final Ability         argAbility,
@@ -264,10 +253,7 @@ public class AbilityUtilities
 	/**
 	 * Add multiple feats from a String list separated by commas.
 	 * @param aPC
-	 * @param LevelInfo
-	 * @param aList
-	 * @param addIt
-	 * @param all
+	 * @param as
 	 */
 	static void modFeatsFromList(final PlayerCharacter aPC,
 			final CategorizedAbilitySelection as)
@@ -326,7 +312,7 @@ public class AbilityUtilities
 	/**
 	 * Extracts the choiceless form of a name, for example, with all choices removed
 	 *
-	 * @param aName
+	 * @param name
 	 *
 	 * @return the name with sub-choices stripped from it
 	 */

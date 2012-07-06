@@ -327,10 +327,9 @@ public abstract class LoadContext
 
 	/**
 	 * Create a copy of a CDOMObject duplicating any references to the old 
-	 * object.
+	 * object. (e.g. Spell, Domain etc)
 	 *  
-	 * @param <T>    The type of CDOMObject being copied (e.g. Spell, Domain etc)
-	 * @param cdoOld The original object being copied. 
+	 * @param cdo The original object being copied. 
 	 * @param newName The name that should be given to the new object.
 	 * @return The newly created CDOMObject.
 	 */

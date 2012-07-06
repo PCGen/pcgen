@@ -73,9 +73,7 @@ public final class GenericLoader<T extends CDOMObject> extends
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext,
-	 *      pcgen.cdom.core.CDOMObject, java.lang.String,
-	 *      pcgen.persistence.lst.CampaignSourceEntry)
+	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, CDOMObject, String, SourceEntry)
 	 */
 	@Override
 	public T parseLine(LoadContext context, T aWP, String lstLine,

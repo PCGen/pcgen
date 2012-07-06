@@ -88,7 +88,6 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 	/**
 	 * Link this handler with our display component and schedule a refresh of 
 	 * the contents for the character. 
-	 * @param htmlPane The display component
 	 */
 	public void install()
 	{

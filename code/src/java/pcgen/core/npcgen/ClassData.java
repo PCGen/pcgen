@@ -65,7 +65,7 @@ public class ClassData
 	/**
 	 * Creates an empty <tt>ClassData</tt> object
 	 * 
-	 * @param aClassKey The key of the class this data is for
+	 * @param aClass The key of the class this data is for
 	 */
 	public ClassData( final PCClass aClass )
 	{

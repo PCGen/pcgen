@@ -54,7 +54,7 @@ public final class LevelLoader
 	 * Parse the line from the level.lst file, populating the
 	 * levelInfo object with the info found.
 	 *
-	 * @param levelInfo  The LevelInfo object to be populated
+	 * @param gameMode  the game mode 
 	 * @param inputLine  The line to be parsed
 	 * @param lineNum    The number of the line being parsed.
 	 */

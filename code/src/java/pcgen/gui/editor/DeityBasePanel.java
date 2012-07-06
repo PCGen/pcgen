@@ -74,14 +74,13 @@ final class DeityBasePanel extends BasePanel<Deity>
 	}
 
 	/**
-	 * Set deity alignment
-	 * @param aString
+	 * @param alignment the deity alignment to set
 	 */
-	public void setDeityAlignment(PCAlignment al)
+	public void setDeityAlignment(PCAlignment alignment)
 	{
-		if (al != null && al.getSafe(ObjectKey.VALID_FOR_DEITY))
+		if (alignment != null && alignment.getSafe(ObjectKey.VALID_FOR_DEITY))
 		{
-			cmbDeityAlignment.setSelectedItem(al);
+			cmbDeityAlignment.setSelectedItem(alignment);
 		}
 	}
 
