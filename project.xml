@@ -201,6 +201,14 @@
       <name>Connor Petty</name>
       <id>cpmeister</id>
     </developer>
+    <developer>
+      <name>Michael Isaacson</name>
+      <id>merkidemis</id>
+      <email>m@xemi.us</email>
+      <organization>PCGen</organization>
+      <url>http://xemi.us/</url>
+      <timezone>-6</timezone>
+    </developer>
   </developers>
   <dependencies>
     <!-- Compiling --> 
