@@ -51,56 +51,56 @@ public class NumberToken implements CDOMSecondaryToken<CDOMObject>
 		if (value == null)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " requires additional arguments");
+					+ " requires additional arguments", context);
 		}
 		if (value.indexOf('[') != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain [] : " + value);
+					+ " arguments may not contain [] : " + value, context);
 		}
 		if (value.charAt(0) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not start with | : " + value);
+					+ " arguments may not start with | : " + value, context);
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not end with | : " + value);
+					+ " arguments may not end with | : " + value, context);
 		}
 		if (value.indexOf("||") != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments uses double separator || : " + value);
+					+ " arguments uses double separator || : " + value, context);
 		}
 		int pipeLoc = value.indexOf("|");
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 							+ " must have two or more | delimited arguments : "
-							+ value);
+							+ value, context);
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		if (tok.countTokens() != 3)
 		{
 			return new ParseResult.Fail("COUNT:" + getTokenName()
 					+ " requires three arguments, MIN=, MAX= and TITLE= : "
-					+ value);
+					+ value, context);
 		}
 		if (!tok.nextToken().startsWith("MIN="))
 		{
 			return new ParseResult.Fail("COUNT:" + getTokenName()
-					+ " first argument was not MIN=");
+					+ " first argument was not MIN=", context);
 		}
 		if (!tok.nextToken().startsWith("MAX="))
 		{
 			return new ParseResult.Fail("COUNT:" + getTokenName()
-					+ " second argument was not MAX=");
+					+ " second argument was not MAX=", context);
 		}
 		if (!tok.nextToken().startsWith("TITLE="))
 		{
 			return new ParseResult.Fail("COUNT:" + getTokenName()
-					+ " third argument was not TITLE=");
+					+ " third argument was not TITLE=", context);
 		}
 		StringBuilder sb = new StringBuilder();
 		sb.append(getTokenName()).append('|').append(value);

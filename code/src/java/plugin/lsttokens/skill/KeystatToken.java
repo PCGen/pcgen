@@ -45,7 +45,7 @@ public class KeystatToken implements CDOMPrimaryToken<Skill>
 		if (pcs == null)
 		{
 			return new ParseResult.Fail("Invalid Stat Abbreviation in Token "
-					+ getTokenName() + ": " + value);
+					+ getTokenName() + ": " + value, context);
 		}
 		context.getObjectContext().put(skill, ObjectKey.KEY_STAT, pcs);
 		return ParseResult.SUCCESS;

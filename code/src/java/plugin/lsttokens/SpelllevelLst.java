@@ -71,7 +71,7 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 			if (lastPipeLoc == -1)
 			{
 				return new ParseResult.Fail("Invalid " + getTokenName()
-						+ " not enough tokens: " + value);
+						+ " not enough tokens: " + value, context);
 			}
 			String lastToken = workingValue.substring(lastPipeLoc + 1);
 			if (lastToken.startsWith("PRE") || lastToken.startsWith("!PRE"))
@@ -90,7 +90,7 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 		if (tok.countTokens() < 3)
 		{
 			return new ParseResult.Fail("Insufficient values in SPELLLEVEL tag: "
-					+ value);
+					+ value, context);
 		}
 
 		String tagType = tok.nextToken(); // CLASS or DOMAIN
@@ -107,7 +107,7 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 				{
 					return ParseResult.INTERNAL_ERROR;
 					//return new ParseResult.Fail("  " + getTokenName()
-					//		+ " error - entire token was " + value);
+					//		+ " error - entire token was " + value, context);
 				}
 			}
 			else if (tagType.equalsIgnoreCase("DOMAIN"))
@@ -116,13 +116,13 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 						spellString, prereqs))
 				{
 					return new ParseResult.Fail("  " + getTokenName()
-							+ " error - entire token was " + value);
+							+ " error - entire token was " + value, context);
 				}
 			}
 			else
 			{
 				return new ParseResult.Fail("First token of " + getTokenName()
-						+ " must be CLASS or DOMAIN:" + value);
+						+ " must be CLASS or DOMAIN:" + value, context);
 			}
 		}
 

@@ -71,7 +71,7 @@ public class VisibleToken extends AbstractNonEmptyToken<Ability> implements
 		else
 		{
 			return new ParseResult.Fail("Unable to understand " + getTokenName()
-					+ " tag: " + value);
+					+ " tag: " + value, context);
 		}
 		context.getObjectContext().put(ability, ObjectKey.VISIBILITY, vis);
 		return ParseResult.SUCCESS;

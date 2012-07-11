@@ -87,14 +87,14 @@ public class DomainsToken extends AbstractTokenWithSeparator<Deity> implements
 			if (tokString.startsWith("PRE") || tokString.startsWith("!PRE"))
 			{
 				return new ParseResult.Fail("Invalid " + getTokenName()
-						+ ": PRExxx was comma delimited : " + value);
+						+ ": PRExxx was comma delimited : " + value, context);
 			}
 			if (Constants.LST_DOT_CLEAR.equals(tokString))
 			{
 				if (!first)
 				{
 					return new ParseResult.Fail("  Non-sensical " + getTokenName()
-							+ ": .CLEAR was not the first list item: " + value);
+							+ ": .CLEAR was not the first list item: " + value, context);
 				}
 				context.getListContext().removeAllFromList(getTokenName(),
 						deity, dl);
@@ -140,7 +140,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Deity> implements
 		if (foundAll && foundOther)
 		{
 			return new ParseResult.Fail("Non-sensical " + getTokenName()
-					+ ": Contains ALL and a specific reference: " + value);
+					+ ": Contains ALL and a specific reference: " + value, context);
 		}
 
 		while (pipeTok.hasMoreTokens())
@@ -148,14 +148,14 @@ public class DomainsToken extends AbstractTokenWithSeparator<Deity> implements
 			if (foundClear)
 			{
 				return new ParseResult.Fail("Cannot use PREREQs when using .CLEAR or .CLEAR. in "
-								+ getTokenName());
+								+ getTokenName(), context);
 			}
 			String tokString = pipeTok.nextToken();
 			Prerequisite prereq = getPrerequisite(tokString);
 			if (prereq == null)
 			{
 				return new ParseResult.Fail("   (Did you put items after the "
-						+ "PRExxx tags in " + getTokenName() + ":?)");
+						+ "PRExxx tags in " + getTokenName() + ":?)", context);
 			}
 			for (AssociatedPrereqObject ao : proList)
 			{

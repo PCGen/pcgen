@@ -65,7 +65,7 @@ public class DurationToken extends AbstractTokenWithSeparator<Spell> implements
 				if (!first)
 				{
 					return new ParseResult.Fail("Non-sensical use of .CLEAR in "
-							+ getTokenName() + ": " + value);
+							+ getTokenName() + ": " + value, context);
 				}
 				context.getObjectContext().removeList(spell, ListKey.DURATION);
 			}
@@ -74,7 +74,7 @@ public class DurationToken extends AbstractTokenWithSeparator<Spell> implements
 				if (!StringUtil.hasBalancedParens(value))
 				{
 					return new ParseResult.Fail("Unbalanced parentheses in " + getTokenName() + " '" + value
-							+ "' used in spell " + spell);
+							+ "' used in spell " + spell, context);
 				}
 				context.getObjectContext().addToList(spell, ListKey.DURATION,
 						tok);

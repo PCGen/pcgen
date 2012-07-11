@@ -56,14 +56,14 @@ public class StatrangeToken implements CDOMPrimaryToken<PCStat>
 			{
 				return new ParseResult.Fail("Error in specified Stat range, "
 						+ "expected two comma separated integers, found: "
-						+ value);
+						+ value, context);
 			}
 		}
 		else
 		{
 			return new ParseResult.Fail("Error in specified Stat range, "
 					+ "expected two comma separated integers, found "
-					+ aTok.countTokens() + " values in: " + value);
+					+ aTok.countTokens() + " values in: " + value, context);
 		}
 	}
 

@@ -87,19 +87,19 @@ public class LanguageToken extends AbstractNonEmptyToken<CDOMObject> implements
 			if (!count.isValid())
 			{
 				return new ParseResult.Fail("Count in " + getTokenName()
-						+ " was not valid: " + count.toString());
+						+ " was not valid: " + count.toString(), context);
 			}
 			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
 				return new ParseResult.Fail("Count in " + getFullName()
-								+ " must be > 0");
+								+ " must be > 0", context);
 			}
 			activeValue = sep.next();
 		}
 		if (sep.hasNext())
 		{
 			return new ParseResult.Fail(getFullName()
-					+ " had too many pipe separated items: " + value);
+					+ " had too many pipe separated items: " + value, context);
 		}
 		ParseResult pr = checkSeparatorsAndNonEmpty(',', activeValue);
 		if (!pr.passed())
@@ -118,7 +118,7 @@ public class LanguageToken extends AbstractNonEmptyToken<CDOMObject> implements
 			{
 				return new ParseResult.Fail("  Error was encountered while parsing "
 						+ getFullName() + ": " + value
-						+ " had an invalid reference: " + tokText);
+						+ " had an invalid reference: " + tokText, context);
 			}
 			refs.add(lang);
 		}
@@ -128,7 +128,7 @@ public class LanguageToken extends AbstractNonEmptyToken<CDOMObject> implements
 		if (!rcs.getGroupingState().isValid())
 		{
 			return new ParseResult.Fail("Non-sensical " + getFullName()
-					+ ": Contains ANY and a specific reference: " + value);
+					+ ": Contains ANY and a specific reference: " + value, context);
 		}
 
 		ChoiceSet<Language> cs = new ChoiceSet<Language>(getTokenName(), rcs);

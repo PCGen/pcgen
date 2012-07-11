@@ -44,7 +44,7 @@ public class AlignToken implements CDOMPrimaryToken<Deity>
 		if (al == null)
 		{
 			return new ParseResult.Fail("In " + getTokenName() + " " + value
-				+ " is not an Alignment");
+				+ " is not an Alignment", context);
 		}
 		context.getObjectContext().put(deity, ObjectKey.ALIGNMENT, al);
 		return ParseResult.SUCCESS;

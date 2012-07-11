@@ -81,13 +81,13 @@ public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		if (descString.startsWith("PRE") || descString.startsWith("!PRE"))
 		{
 			return new ParseResult.Fail(getTokenName() + " encountered only a PRExxx: "
-				+ aDesc);
+				+ aDesc, context);
 		}
 		String ds = EntityEncoder.decode(descString);
 		if (!StringUtil.hasBalancedParens(ds))
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " encountered imbalanced Parenthesis: " + aDesc);
+					+ " encountered imbalanced Parenthesis: " + aDesc, context);
 		}
 		ParseResult pr = checkForInvalidXMLChars(ds);
 		if (!pr.passed())
@@ -105,7 +105,7 @@ public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				{
 					return new ParseResult.Fail(getTokenName()
 						+ " tag confused by '.CLEAR' as a " + "middle token: "
-						+ aDesc);
+						+ aDesc, context);
 				}
 				else if (token.startsWith("PRE") || token.startsWith("!PRE"))
 				{
@@ -132,7 +132,7 @@ public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				{
 					return new ParseResult.Fail(
 						"   (Did you put Abilities after the "
-							+ "PRExxx tags in " + getTokenName() + ":?)");
+							+ "PRExxx tags in " + getTokenName() + ":?)", context);
 				}
 				desc.addPrerequisite(prereq);
 				if (!tok.hasMoreTokens())

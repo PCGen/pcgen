@@ -37,12 +37,12 @@ public class EquipTypeToken implements CDOMSecondaryToken<CDOMObject>
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-			String value)
+		String value)
 	{
 		Logging.deprecationPrint("CHOOSE:EQUIPTYPE has been deprecated, "
-				+ "please use CHOOSE:EQUIPMENT|TYPE=x");
+			+ "please use CHOOSE:EQUIPMENT|TYPE=x", context);
 		return context.processSubToken(obj, getParentToken(), "EQUIPMENT",
-				"TYPE=" + value);
+			"TYPE=" + value);
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)

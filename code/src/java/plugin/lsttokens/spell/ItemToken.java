@@ -66,14 +66,14 @@ public class ItemToken extends AbstractTokenWithSeparator<Spell> implements
 				{
 					return new ParseResult.Fail("Invalid " + getTokenName()
 							+ ": mismatched open Bracket: " + tokString
-							+ " in " + value);
+							+ " in " + value, context);
 				}
 				String substring = tokString.substring(1,
 						tokString.length() - 1);
 				if (substring.length() == 0)
 				{
 					return new ParseResult.Fail("Invalid " + getTokenName()
-							+ ": cannot be empty item in brackets []");
+							+ ": cannot be empty item in brackets []", context);
 				}
 				context.getObjectContext().addToList(spell,
 						ListKey.PROHIBITED_ITEM, Type.getConstant(substring));
@@ -84,7 +84,7 @@ public class ItemToken extends AbstractTokenWithSeparator<Spell> implements
 				{
 					return new ParseResult.Fail("Invalid " + getTokenName()
 							+ ": mismatched close Bracket: " + tokString
-							+ " in " + value);
+							+ " in " + value, context);
 				}
 				context.getObjectContext().addToList(spell, ListKey.ITEM,
 						Type.getConstant(tokString));

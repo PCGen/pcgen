@@ -59,7 +59,7 @@ public class BonusToken extends AbstractNonEmptyToken<PointBuyMethod> implements
 		if (bon == null)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " was given invalid bonus: " + value);
+					+ " was given invalid bonus: " + value, context);
 		}
 		bon.setTokenSource(getTokenName());
 		pbm.addBonus(bon);

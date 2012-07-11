@@ -44,10 +44,10 @@ public class StatToken implements CDOMSecondaryToken<CDOMObject>
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-			String value)
+		String value)
 	{
 		Logging.deprecationPrint("CHOOSE:STAT has been deprecated, "
-				+ "please use CHOOSE:PCSTAT");
+			+ "please use CHOOSE:PCSTAT", context);
 		if (value == null)
 		{
 			// No args - use all stats - legal
@@ -56,36 +56,36 @@ public class StatToken implements CDOMSecondaryToken<CDOMObject>
 		if (value.indexOf('[') != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain [] : " + value);
+				+ " arguments may not contain [] : " + value, context);
 		}
 		if (value.charAt(0) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not start with | : " + value);
+				+ " arguments may not start with | : " + value, context);
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not end with | : " + value);
+				+ " arguments may not end with | : " + value, context);
 		}
 		if (value.indexOf("||") != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments uses double separator || : " + value);
+				+ " arguments uses double separator || : " + value, context);
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		Collection<PCStat> list = context.ref
-				.getConstructedCDOMObjects(PCStat.class);
+		Collection<PCStat> list =
+				context.ref.getConstructedCDOMObjects(PCStat.class);
 		List<PCStat> subList = new ArrayList<PCStat>(list);
 		while (tok.hasMoreTokens())
 		{
 			String tokText = tok.nextToken();
-			PCStat stat = context.ref.getAbbreviatedObject(PCStat.class,
-					tokText);
+			PCStat stat =
+					context.ref.getAbbreviatedObject(PCStat.class, tokText);
 			if (stat == null)
 			{
 				Logging.deprecationPrint("Did not find STAT: " + tokText
-						+ " used in CHOOSE: " + value);
+					+ " used in CHOOSE: " + value, context);
 				continue;
 			}
 			subList.remove(stat);

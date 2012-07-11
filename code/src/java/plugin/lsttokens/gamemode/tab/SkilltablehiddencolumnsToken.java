@@ -48,7 +48,7 @@ public class SkilltablehiddencolumnsToken extends
 		if (!Tab.SKILLS.equals(ti.getTab()))
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " may only be used on the " + Tab.SKILLS + " Tab");
+					+ " may only be used on the " + Tab.SKILLS + " Tab", context);
 		}
 		ti.clearHiddenColumns();
 
@@ -63,7 +63,7 @@ public class SkilltablehiddencolumnsToken extends
 			catch (NumberFormatException nfe)
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " misunderstood Integer: " + token + " in " + value);
+						+ " misunderstood Integer: " + token + " in " + value, context);
 			}
 		}
 		return ParseResult.SUCCESS;

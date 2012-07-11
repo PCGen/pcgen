@@ -75,7 +75,7 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClassLevel>
 				{
 					return new ParseResult.Fail("  Non-sensical "
 							+ getTokenName()
-							+ ": .CLEAR was not the first list item");
+							+ ": .CLEAR was not the first list item", context);
 				}
 				context.getObjectContext()
 						.removeList(obj, ListKey.LOCALCSKILL);
@@ -97,7 +97,7 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClassLevel>
 					{
 						return new ParseResult.Fail(
 								"  Error was encountered while parsing "
-										+ getTokenName());
+										+ getTokenName(), context);
 					}
 					context.getObjectContext().removeFromList(obj,
 							ListKey.LOCALCSKILL, ref);
@@ -127,7 +127,7 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClassLevel>
 					{
 						return new ParseResult.Fail(
 								"  Error was encountered while parsing "
-										+ getTokenName());
+										+ getTokenName(), context);
 					}
 					context.getObjectContext().addToList(obj,
 							ListKey.LOCALCSKILL, ref);
@@ -138,7 +138,7 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClassLevel>
 		if (foundAny && foundOther)
 		{
 			return new ParseResult.Fail("Non-sensical " + getTokenName()
-					+ ": Contains ANY and a specific reference: " + value);
+					+ ": Contains ANY and a specific reference: " + value, context);
 		}
 		return ParseResult.SUCCESS;
 	}

@@ -45,7 +45,7 @@ public class StatToken implements CDOMPrimaryToken<Spell>
 		if (pcs == null)
 		{
 			return new ParseResult.Fail("Invalid Stat Abbreviation in Token "
-					+ getTokenName() + ": " + value);
+					+ getTokenName() + ": " + value, context);
 		}
 		context.getObjectContext().put(spell, ObjectKey.SPELL_STAT, pcs);
 		return ParseResult.SUCCESS;

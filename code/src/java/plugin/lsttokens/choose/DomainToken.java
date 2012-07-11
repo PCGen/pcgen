@@ -50,7 +50,7 @@ public class DomainToken extends AbstractQualifiedChooseToken<Domain>
 
 	@Override
 	public ParseResult parseTokenWithSeparator(LoadContext context,
-			CDOMObject obj, String value)
+		CDOMObject obj, String value)
 	{
 		StringBuilder sb = new StringBuilder();
 		StringTokenizer st = new StringTokenizer(value, "|,", true);
@@ -60,15 +60,15 @@ public class DomainToken extends AbstractQualifiedChooseToken<Domain>
 			if ("QUALIFY".equals(tok))
 			{
 				Logging.deprecationPrint("CHOOSE:DOMAIN argument "
-						+ "QUALIFY has been deprecated, "
-						+ "please use QUALIFIED,!PC "
-						+ "to achieve the same effect");
+					+ "QUALIFY has been deprecated, "
+					+ "please use QUALIFIED,!PC "
+					+ "to achieve the same effect", context);
 				tok = "QUALIFIED,!PC";
 			}
 			sb.append(tok);
 		}
-		return super.parseTokenWithSeparator(context, context.ref
-				.getManufacturer(DOMAIN_CLASS), obj, sb.toString());
+		return super.parseTokenWithSeparator(context,
+			context.ref.getManufacturer(DOMAIN_CLASS), obj, sb.toString());
 	}
 
 	@Override
@@ -93,7 +93,7 @@ public class DomainToken extends AbstractQualifiedChooseToken<Domain>
 	public Domain decodeChoice(String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				DOMAIN_CLASS, s);
+			DOMAIN_CLASS, s);
 	}
 
 	@Override

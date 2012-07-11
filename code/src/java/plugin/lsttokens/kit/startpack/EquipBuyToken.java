@@ -73,13 +73,13 @@ public class EquipBuyToken extends AbstractNonEmptyToken<Kit> implements
 		if (activeValue.startsWith("PRE") || activeValue.startsWith("!PRE"))
 		{
 			return new ParseResult.Fail("Cannot have only PRExxx subtoken in "
-					+ getTokenName());
+					+ getTokenName(), context);
 		}
 		Formula f = FormulaFactory.getFormulaFor(activeValue);
 		if (!f.isValid())
 		{
 			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + f.toString());
+					+ " was not valid: " + f.toString(), context);
 		}
 		List<Prerequisite> prereqs = new ArrayList<Prerequisite>();
 
@@ -90,7 +90,7 @@ public class EquipBuyToken extends AbstractNonEmptyToken<Kit> implements
 			if (prereq == null)
 			{
 				return new ParseResult.Fail("   (Did you put feats after the "
-					+ "PRExxx tags in " + getTokenName() + ":?)");
+					+ "PRExxx tags in " + getTokenName() + ":?)", context);
 			}
 			prereqs.add(prereq);
 		}

@@ -104,27 +104,27 @@ public class HdToken extends AbstractTokenWithSeparator<PCTemplate> implements
 			if (maxhd < minhd)
 			{
 				return new ParseResult.Fail("Malformed " + getTokenName()
-						+ " Token (Max < Min): " + hdString);
+						+ " Token (Max < Min): " + hdString, context);
 			}
 		}
 		catch (NumberFormatException ex)
 		{
 			return new ParseResult.Fail("Malformed " + getTokenName()
-					+ " Token (HD syntax invalid): " + hdString);
+					+ " Token (HD syntax invalid): " + hdString, context);
 		}
 
 		if (!tok.hasMoreTokens())
 		{
 			return new ParseResult.Fail("Invalid " + getTokenName()
 					+ ": requires 3 colon separated elements (has one): "
-					+ value);
+					+ value, context);
 		}
 		String typeStr = tok.nextToken();
 		if (!tok.hasMoreTokens())
 		{
 			return new ParseResult.Fail("Invalid " + getTokenName()
 					+ ": requires 3 colon separated elements (has two): "
-					+ value);
+					+ value, context);
 		}
 		String argument = tok.nextToken();
 		PCTemplate derivative = new PCTemplate();
@@ -141,7 +141,7 @@ public class HdToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		}
 		catch (PersistenceLayerException e)
 		{
-			return new ParseResult.Fail(e.getMessage());
+			return new ParseResult.Fail(e.getMessage(), context);
 		}
 		return ParseResult.INTERNAL_ERROR;
 	}

@@ -53,7 +53,7 @@ public class LicenseToken extends AbstractNonEmptyToken<Campaign> implements
 			if (fileURI.length() == 0)
 			{
 				return new ParseResult.Fail("Cannot have empty FILE in "
-						+ getTokenName());
+						+ getTokenName(), context);
 			}
 			CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, fileURI);
 			if (cse == null)

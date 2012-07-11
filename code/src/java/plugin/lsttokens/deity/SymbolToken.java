@@ -40,7 +40,7 @@ public class SymbolToken implements CDOMPrimaryToken<Deity>
 	{
 		if (value == null || value.length() == 0)
 		{
-			return new ParseResult.Fail(getTokenName() + " arguments may not be empty");
+			return new ParseResult.Fail(getTokenName() + " arguments may not be empty", context);
 		}
 		context.getObjectContext().put(deity, StringKey.HOLY_ITEM, value);
 		return ParseResult.SUCCESS;

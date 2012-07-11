@@ -59,7 +59,7 @@ public class LangautoLst extends AbstractTokenWithSeparator<CDOMObject> implemen
 	@Override
 	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
-		Logging.deprecationPrint(getTokenName() + " has been deprecated, please use AUTO:LANG");
+		Logging.deprecationPrint(getTokenName() + " has been deprecated, please use AUTO:LANG", context);
 		boolean firstToken = true;
 		boolean foundAny = false;
 		boolean foundOther = false;
@@ -74,7 +74,7 @@ public class LangautoLst extends AbstractTokenWithSeparator<CDOMObject> implemen
 				if (!firstToken)
 				{
 					return new ParseResult.Fail("Non-sensical situation was " + "encountered while parsing "
-							+ getTokenName() + ": When used, .CLEAR must be the first argument");
+							+ getTokenName() + ": When used, .CLEAR must be the first argument", context);
 				}
 				context.getObjectContext().removeList(obj, ListKey.AUTO_LANGUAGES);
 			} else
@@ -91,7 +91,7 @@ public class LangautoLst extends AbstractTokenWithSeparator<CDOMObject> implemen
 				}
 				if (ref == null)
 				{
-					return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName());
+					return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName(), context);
 				}
 				context.getObjectContext().addToList(obj, ListKey.AUTO_LANGUAGES,
 						new QualifiedObject<CDOMReference<Language>>(ref));
@@ -101,7 +101,7 @@ public class LangautoLst extends AbstractTokenWithSeparator<CDOMObject> implemen
 		if (foundAny && foundOther)
 		{
 			return new ParseResult.Fail("Non-sensical " + getTokenName() + ": Contains ANY and a specific reference: "
-					+ value);
+					+ value, context);
 		}
 		return ParseResult.SUCCESS;
 	}

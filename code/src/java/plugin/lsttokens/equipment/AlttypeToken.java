@@ -64,14 +64,14 @@ public class AlttypeToken extends AbstractNonEmptyToken<Equipment> implements
 				{
 					return new ParseResult.Fail(getTokenName()
 									+ "started with .CLEAR. but expected to have a Type after .: "
-									+ value);
+									+ value, context);
 				}
 			}
 			else
 			{
 				return new ParseResult.Fail(getTokenName()
 								+ "started with .CLEAR but expected next character to be .: "
-								+ value);
+								+ value, context);
 			}
 		}
 		ParseResult pr = checkForIllegalSeparator('.', value);
@@ -92,7 +92,7 @@ public class AlttypeToken extends AbstractNonEmptyToken<Equipment> implements
 				if (bRemove)
 				{
 					return new ParseResult.Fail("Non-sensical use of .REMOVE.ADD. in "
-									+ getTokenName() + ": " + value);
+									+ getTokenName() + ": " + value, context);
 				}
 				bRemove = false;
 				bAdd = true;
@@ -102,14 +102,14 @@ public class AlttypeToken extends AbstractNonEmptyToken<Equipment> implements
 				if (bAdd)
 				{
 					return new ParseResult.Fail("Non-sensical use of .ADD.REMOVE. in "
-									+ getTokenName() + ": " + value);
+									+ getTokenName() + ": " + value, context);
 				}
 				bRemove = true;
 			}
 			else if ("CLEAR".equals(aType))
 			{
 				return new ParseResult.Fail("Non-sensical use of .CLEAR in "
-						+ getTokenName() + ": " + value);
+						+ getTokenName() + ": " + value, context);
 			}
 			else if (bRemove)
 			{
@@ -129,13 +129,13 @@ public class AlttypeToken extends AbstractNonEmptyToken<Equipment> implements
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ "ended with REMOVE, so didn't have any Type to remove: "
-					+ value);
+					+ value, context);
 		}
 		if (bAdd)
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ "ended with ADD, so didn't have any Type to add: "
-					+ value);
+					+ value, context);
 		}
 		return ParseResult.SUCCESS;
 	}

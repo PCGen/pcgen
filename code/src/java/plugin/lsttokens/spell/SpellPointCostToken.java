@@ -72,7 +72,7 @@ public class SpellPointCostToken extends AbstractTokenWithSeparator<Spell>
 				if (!first)
 				{
 					return new ParseResult.Fail("Non-sensical use of .CLEAR in "
-							+ getTokenName() + ": " + value);
+							+ getTokenName() + ": " + value, context);
 				}
 				context.getObjectContext().removeList(spell,
 						ListKey.SPELL_POINT_COST);
@@ -97,7 +97,7 @@ public class SpellPointCostToken extends AbstractTokenWithSeparator<Spell>
 					{
 						return new ParseResult.Fail("Invalid number of Arguments in "
 								+ getTokenName() + "(" + spell.getDisplayName()
-								+ "): " + value);
+								+ "): " + value, context);
 					}
 					type = tok.substring(0, equalLoc);
 					cost = tok.substring(equalLoc + 1);
@@ -111,7 +111,7 @@ public class SpellPointCostToken extends AbstractTokenWithSeparator<Spell>
 				{
 					return new ParseResult.Fail("Invalid Value in " + getTokenName()
 							+ "(" + spell.getDisplayName() + "): " + value
-							+ ".  Value must be an integer.");
+							+ ".  Value must be an integer.", context);
 				}
 				context.getObjectContext().addToList(spell,
 						ListKey.SPELL_POINT_COST, new PointCost(type, costInt));

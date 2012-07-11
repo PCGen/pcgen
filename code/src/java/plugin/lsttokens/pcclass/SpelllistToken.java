@@ -71,17 +71,17 @@ public class SpelllistToken extends AbstractTokenWithSeparator<PCClass>
 		if (!count.isValid())
 		{
 			return new ParseResult.Fail("Count in " + getTokenName()
-					+ " was not valid: " + count.toString());
+					+ " was not valid: " + count.toString(), context);
 		}
 		if (!count.isStatic() || count.resolve(null, "").intValue() <= 0)
 		{
-			return new ParseResult.Fail("Count in " + getTokenName() + " must be > 0");
+			return new ParseResult.Fail("Count in " + getTokenName() + " must be > 0", context);
 		}
 		if (!tok.hasMoreTokens())
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " must have a | separating "
-					+ "count from the list of possible values: " + value);
+					+ "count from the list of possible values: " + value, context);
 		}
 		List<CDOMReference<? extends CDOMListObject<Spell>>> refs = new ArrayList<CDOMReference<? extends CDOMListObject<Spell>>>();
 
@@ -111,7 +111,7 @@ public class SpelllistToken extends AbstractTokenWithSeparator<PCClass>
 		{
 			return new ParseResult.Fail("Non-sensical "
 					+ getTokenName()
-					+ ": Contains ANY and a specific reference: " + value);
+					+ ": Contains ANY and a specific reference: " + value, context);
 		}
 
 		ChoiceSet<? extends CDOMListObject<Spell>> cs = new ChoiceSet<CDOMListObject<Spell>>(

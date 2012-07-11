@@ -67,7 +67,7 @@ public class RacesubtypeToken extends AbstractTokenWithSeparator<Race>
 				if (!first)
 				{
 					return new ParseResult.Fail("  Non-sensical " + getTokenName()
-							+ ": .CLEAR was not the first list item: " + value);
+							+ ": .CLEAR was not the first list item: " + value, context);
 				}
 				context.obj.removeList(race, ListKey.RACESUBTYPE);
 			}

@@ -50,7 +50,7 @@ public class AllowBaseClassToken extends AbstractNonEmptyToken<PCClass>
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
 				return new ParseResult.Fail("You should use 'YES' as the "
-						+ getTokenName() + ": " + value);
+						+ getTokenName() + ": " + value, context);
 			}
 			set = Boolean.TRUE;
 		}
@@ -64,7 +64,7 @@ public class AllowBaseClassToken extends AbstractNonEmptyToken<PCClass>
 			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
 			{
 				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-						+ getTokenName() + ": " + value);
+						+ getTokenName() + ": " + value, context);
 			}
 			set = Boolean.FALSE;
 		}

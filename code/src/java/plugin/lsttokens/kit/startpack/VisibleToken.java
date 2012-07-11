@@ -75,7 +75,7 @@ public class VisibleToken extends AbstractNonEmptyToken<Kit> implements
 		}
 		else
 		{
-			return new ParseResult.Fail("Can't understand Visibility: " + value);
+			return new ParseResult.Fail("Can't understand Visibility: " + value, context);
 		}
 		kit.put(ObjectKey.VISIBILITY, vis);
 		return ParseResult.SUCCESS;

@@ -124,20 +124,20 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		if (isEmpty(value))
 		{
 			return new ParseResult.Fail("Value in " + getFullName()
-					+ " may not be empty");
+					+ " may not be empty", context);
 		}
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		String first = sep.next();
 		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail("Syntax of ADD:" + getTokenName()
-					+ " requires 3 to 4 |: " + value);
+					+ " requires 3 to 4 |: " + value, context);
 		}
 		String second = sep.next();
 		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail("Syntax of ADD:" + getTokenName()
-					+ " requires a minimum of three | : " + value);
+					+ " requires a minimum of three | : " + value, context);
 		}
 		String third = sep.next();
 		Formula count;
@@ -147,12 +147,12 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 			if (!count.isValid())
 			{
 				return new ParseResult.Fail("Count in " + getTokenName()
-						+ " was not valid: " + count.toString());
+						+ " was not valid: " + count.toString(), context);
 			}
 			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
 				return new ParseResult.Fail("Count in " + getFullName()
-						+ " must be > 0");
+						+ " must be > 0", context);
 			}
 			first = second;
 			second = third;
@@ -166,7 +166,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			return new ParseResult.Fail("Syntax of ADD:" + getTokenName()
 					+ " has max of four | when a count is not present: "
-					+ value);
+					+ value, context);
 		}
 
 		Category<Ability> category = context.ref
@@ -174,14 +174,14 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		if (category == null)
 		{
 			return new ParseResult.Fail(getFullName() + ": Invalid ability category: "
-					+ first);
+					+ first, context);
 		}
 
 		Nature nature = Nature.valueOf(second);
 		if (nature == null)
 		{
 			return new ParseResult.Fail(getFullName() + ": Invalid ability nature: "
-					+ second);
+					+ second, context);
 		}
 		if (Nature.ANY.equals(nature))
 		{
@@ -193,7 +193,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " refers to AUTOMATIC Ability Nature, cannot be used in "
-					+ getTokenName() + ": " + value);
+					+ getTokenName() + ": " + value, context);
 		}
 
 		ParseResult pr = checkSeparatorsAndNonEmpty(',', third);
@@ -220,7 +220,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 				{
 					return new ParseResult.Fail(getFullName()
 							+ " found second stacking specification in value: "
-							+ value);
+							+ value, context);
 				}
 				allowStack = true;
 				continue;
@@ -231,7 +231,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 				{
 					return new ParseResult.Fail(getFullName()
 							+ " found second stacking specification in value: "
-							+ value);
+							+ value, context);
 				}
 				allowStack = true;
 				try
@@ -241,12 +241,12 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 				catch (NumberFormatException nfe)
 				{
 					return new ParseResult.Fail("Invalid Stack number in "
-							+ getFullName() + ": " + value);
+							+ getFullName() + ": " + value, context);
 				}
 				if (dupChoices <= 0)
 				{
 					return new ParseResult.Fail("Invalid (less than 1) Stack number in "
-							+ getFullName() + ": " + value);
+							+ getFullName() + ": " + value, context);
 				}
 				continue;
 			}
@@ -265,7 +265,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 			{
 				return new ParseResult.Fail("  Error was encountered while parsing "
 						+ getTokenName() + ": " + value
-						+ " had an invalid reference: " + token);
+						+ " had an invalid reference: " + token, context);
 			}
 			refs.add(ab);
 		}
@@ -273,7 +273,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		if (refs.isEmpty())
 		{
 			return new ParseResult.Fail("Non-sensical " + getFullName()
-					+ ": Contains no ability reference: " + value);
+					+ ": Contains no ability reference: " + value, context);
 		}
 
 		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(category, refs,
@@ -281,7 +281,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		if (!rcs.getGroupingState().isValid())
 		{
 			return new ParseResult.Fail("Non-sensical " + getFullName()
-					+ ": Contains ANY and a specific reference: " + value);
+					+ ": Contains ANY and a specific reference: " + value, context);
 		}
 		AbilityChoiceSet cs = new AbilityChoiceSet(getTokenName(), rcs);
 		StringBuilder title = new StringBuilder();

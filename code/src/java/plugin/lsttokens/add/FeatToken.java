@@ -98,19 +98,19 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 			if (!count.isValid())
 			{
 				return new ParseResult.Fail("Count in " + getTokenName()
-						+ " was not valid: " + count.toString());
+						+ " was not valid: " + count.toString(), context);
 			}
 			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
 				return new ParseResult.Fail("Count in " + getFullName()
-								+ " must be > 0");
+								+ " must be > 0", context);
 			}
 			activeValue = sep.next();
 		}
 		if (sep.hasNext())
 		{
 			return new ParseResult.Fail(getFullName()
-					+ " had too many pipe separated items: " + value);
+					+ " had too many pipe separated items: " + value, context);
 		}
 		ParseResult pr = checkSeparatorsAndNonEmpty(',', activeValue);
 		if (!pr.passed())
@@ -136,7 +136,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 				{
 					return new ParseResult.Fail(getFullName()
 							+ " found second stacking specification in value: "
-							+ value);
+							+ value, context);
 				}
 				allowStack = true;
 				continue;
@@ -147,7 +147,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 				{
 					return new ParseResult.Fail(getFullName()
 							+ " found second stacking specification in value: "
-							+ value);
+							+ value, context);
 				}
 				allowStack = true;
 				try
@@ -157,12 +157,12 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 				catch (NumberFormatException nfe)
 				{
 					return new ParseResult.Fail("Invalid Stack number in "
-							+ getFullName() + ": " + value);
+							+ getFullName() + ": " + value, context);
 				}
 				if (dupChoices <= 0)
 				{
 					return new ParseResult.Fail("Invalid (less than 1) Stack number in "
-							+ getFullName() + ": " + value);
+							+ getFullName() + ": " + value, context);
 				}
 				continue;
 			}
@@ -178,7 +178,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 			{
 				return new ParseResult.Fail("  Error was encountered while parsing "
 						+ getTokenName() + ": " + value
-						+ " had an invalid reference: " + token);
+						+ " had an invalid reference: " + token, context);
 			}
 			refs.add(ab);
 		}
@@ -186,14 +186,14 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		if (refs.isEmpty())
 		{
 			return new ParseResult.Fail("Non-sensical " + getFullName()
-					+ ": Contains no ability reference: " + value);
+					+ ": Contains no ability reference: " + value, context);
 		}
 
 		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(category, refs, nature);
 		if (!rcs.getGroupingState().isValid())
 		{
 			return new ParseResult.Fail("Non-sensical " + getFullName()
-					+ ": Contains ANY and a specific reference: " + value);
+					+ ": Contains ANY and a specific reference: " + value, context);
 		}
 		ChoiceSet<CategorizedAbilitySelection> cs = new ChoiceSet<CategorizedAbilitySelection>(
 				getTokenName(), rcs);

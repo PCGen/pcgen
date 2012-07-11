@@ -71,12 +71,12 @@ public class CoverToken extends AbstractTokenWithSeparator<Campaign> implements
 		if (!cse.getIncludeItems().isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName() + " does not allow INCLUDE: "
-				+ value);
+				+ value, context);
 		}
 		if (!cse.getExcludeItems().isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName() + " does not allow EXCLUDE: "
-				+ value);
+				+ value, context);
 		}
 		context.obj.addToList(campaign, ListKey.FILE_COVER, cse);
 		return ParseResult.SUCCESS;

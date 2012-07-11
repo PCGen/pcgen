@@ -61,13 +61,13 @@ public class ChoiceToken extends AbstractTokenWithSeparator<SubClass> implements
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " has no | separator for arguments: " + value);
+					+ " has no | separator for arguments: " + value, context);
 		}
 
 		if (value.lastIndexOf('|') != pipeLoc)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " has more than two | separated arguments: " + value);
+					+ " has more than two | separated arguments: " + value, context);
 		}
 
 		String pstString = value.substring(0, pipeLoc);
@@ -99,7 +99,7 @@ public class ChoiceToken extends AbstractTokenWithSeparator<SubClass> implements
 		}
 
 		return new ParseResult.Fail("Invalid TYPE in " + getTokenName() + ": "
-				+ pstString);
+				+ pstString, context);
 	}
 
 	private SpellProhibitor typeSafeParse(LoadContext context, PCClass pcc,

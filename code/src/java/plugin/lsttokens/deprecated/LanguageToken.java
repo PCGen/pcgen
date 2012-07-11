@@ -38,13 +38,15 @@ public class LanguageToken implements CDOMSecondaryToken<CDOMObject>
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-			String value)
+		String value)
 	{
 		Logging.deprecationPrint("CHOOSE:LANGUAGE has been deprecated, "
-				+ "please use CHOOSE:LANG.  "
-				+ "You may also need AUTO:LANG if used in a skill");
-		ParseResult pr = context.processSubToken(obj, getParentToken(), "LANG",
-				"TYPE=" + value);
+			+ "please use CHOOSE:LANG.  "
+			+ "You may also need AUTO:LANG if used in a skill.", context);
+
+		ParseResult pr =
+				context.processSubToken(obj, getParentToken(), "LANG", "TYPE="
+					+ value);
 		if (!pr.passed())
 		{
 			return pr;
@@ -55,11 +57,11 @@ public class LanguageToken implements CDOMSecondaryToken<CDOMObject>
 			{
 				return ParseResult.SUCCESS;
 			}
-			return new ParseResult.Fail("Internal Error: AUTO:LANG failed");
+			return new ParseResult.Fail("Internal Error: AUTO:LANG failed", context);
 		}
 		catch (PersistenceLayerException e)
 		{
-			return new ParseResult.Fail(e.getLocalizedMessage());
+			return new ParseResult.Fail(e.getLocalizedMessage(), context);
 		}
 	}
 

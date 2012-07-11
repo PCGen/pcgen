@@ -47,13 +47,13 @@ public class ChargesToken extends AbstractNonEmptyToken<EquipmentModifier>
 		{
 			return new ParseResult.Fail(getTokenName()
 							+ " has no | : must be of format <min charges>|<max charges>: "
-							+ value);
+							+ value, context);
 		}
 		if (value.lastIndexOf(Constants.PIPE) != pipeLoc)
 		{
 			return new ParseResult.Fail(getTokenName()
 							+ " has two | : must be of format <min charges>|<max charges>: "
-							+ value);
+							+ value, context);
 		}
 		String minChargeString = value.substring(0, pipeLoc);
 		int minCharges;
@@ -63,13 +63,13 @@ public class ChargesToken extends AbstractNonEmptyToken<EquipmentModifier>
 			if (minCharges < 0)
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " min charges must be >= zero: " + value);
+						+ " min charges must be >= zero: " + value, context);
 			}
 		}
 		catch (NumberFormatException nfe)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " min charges is not an integer: " + value);
+					+ " min charges is not an integer: " + value, context);
 		}
 
 		String maxChargeString = value.substring(pipeLoc + 1);
@@ -85,13 +85,13 @@ public class ChargesToken extends AbstractNonEmptyToken<EquipmentModifier>
 		catch (NumberFormatException nfe)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " max charges is not an integer: " + value);
+					+ " max charges is not an integer: " + value, context);
 		}
 
 		if (minCharges > maxCharges)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " max charges must be >= min charges: " + value);
+					+ " max charges must be >= min charges: " + value, context);
 		}
 
 		context.getObjectContext().put(mod, IntegerKey.MIN_CHARGES,

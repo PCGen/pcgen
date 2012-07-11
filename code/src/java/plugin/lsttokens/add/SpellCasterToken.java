@@ -79,7 +79,7 @@ public class SpellCasterToken extends AbstractToken implements
 		if (isEmpty(value))
 		{
 			return new ParseResult.Fail("Value in " + getFullName()
-					+ " may not be empty");
+					+ " may not be empty", context);
 		}
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		String activeValue = sep.next();
@@ -94,19 +94,19 @@ public class SpellCasterToken extends AbstractToken implements
 			if (!count.isValid())
 			{
 				return new ParseResult.Fail("Count in " + getTokenName()
-						+ " was not valid: " + count.toString());
+						+ " was not valid: " + count.toString(), context);
 			}
 			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
 				return new ParseResult.Fail("Count in " + getFullName()
-								+ " must be > 0");
+								+ " must be > 0", context);
 			}
 			activeValue = sep.next();
 		}
 		if (sep.hasNext())
 		{
 			return new ParseResult.Fail(getFullName()
-					+ " had too many pipe separated items: " + value);
+					+ " had too many pipe separated items: " + value, context);
 		}
 		ParseResult pr = checkSeparatorsAndNonEmpty(',', activeValue);
 		if (!pr.passed())
@@ -150,7 +150,7 @@ public class SpellCasterToken extends AbstractToken implements
 										+ getFullName()
 										+ ": "
 										+ token
-										+ " is not a valid reference: " + value);
+										+ " is not a valid reference: " + value, context);
 					}
 					groups.add(ref);
 				}
@@ -165,7 +165,7 @@ public class SpellCasterToken extends AbstractToken implements
 		if (foundAny && foundOther)
 		{
 			return new ParseResult.Fail("Non-sensical " + getFullName()
-					+ ": Contains ANY and a specific reference: " + value);
+					+ ": Contains ANY and a specific reference: " + value, context);
 		}
 
 		ReferenceChoiceSet<PCClass> grcs = groups.isEmpty() ? null

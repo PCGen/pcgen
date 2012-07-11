@@ -44,7 +44,7 @@ public class SizeToken implements CDOMPrimaryToken<Equipment>
 					value);
 		if (size == null)
 		{
-			return new ParseResult.Fail("Unable to find Size: " + value);
+			return new ParseResult.Fail("Unable to find Size: " + value, context);
 		}
 		context.getObjectContext().put(eq, ObjectKey.BASESIZE, size);
 		context.getObjectContext().put(eq, ObjectKey.SIZE, size);

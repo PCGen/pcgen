@@ -91,7 +91,7 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 				{
 					return new ParseResult.Fail("Non-sensical situation was "
 							+ "encountered while parsing " + getTokenName()
-							+ ": When used, .CLEAR must be the first argument");
+							+ ": When used, .CLEAR must be the first argument", context);
 				}
 				context.getListContext().removeAllFromList(getTokenName(),
 						race, monsterList);
@@ -118,7 +118,7 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 						{
 							return new ParseResult.Fail(
 									"  Error was encountered while parsing "
-											+ getTokenName());
+											+ getTokenName(), context);
 						}
 					}
 				}
@@ -159,7 +159,7 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 						{
 							return new ParseResult.Fail(
 									"  Error was encountered while parsing "
-											+ getTokenName());
+											+ getTokenName(), context);
 						}
 					}
 				}
@@ -177,7 +177,7 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 		if (foundAny && foundOther)
 		{
 			return new ParseResult.Fail("Non-sensical " + getTokenName()
-					+ ": Contains ANY and a specific reference: " + value);
+					+ ": Contains ANY and a specific reference: " + value, context);
 		}
 		return ParseResult.SUCCESS;
 	}

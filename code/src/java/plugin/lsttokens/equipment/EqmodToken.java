@@ -79,7 +79,7 @@ public class EqmodToken extends AbstractTokenWithSeparator<Equipment> implements
 			if (modInfo.equalsIgnoreCase(Constants.NONE))
 			{
 				Logging.deprecationPrint("'NONE' EqMod in " + getTokenName()
-						+ " will be ignored");
+						+ " will be ignored", context);
 				continue;
 			}
 			ParseResult pr = checkForIllegalSeparator('|', modInfo); 

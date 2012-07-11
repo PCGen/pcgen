@@ -41,56 +41,56 @@ public class ProficiencyToken implements CDOMSecondaryToken<CDOMObject>
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-			String value)
+		String value)
 	{
 		if (value == null)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " requires additional arguments");
+				+ " requires additional arguments", context);
 		}
 		if (value.indexOf(',') != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain , : " + value);
+				+ " arguments may not contain , : " + value, context);
 		}
 		if (value.indexOf('[') != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain [] : " + value);
+				+ " arguments may not contain [] : " + value, context);
 		}
 		if (value.charAt(0) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not start with | : " + value);
+				+ " arguments may not start with | : " + value, context);
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not end with | : " + value);
+				+ " arguments may not end with | : " + value, context);
 		}
 		if (value.indexOf("||") != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments uses double separator || : " + value);
+				+ " arguments uses double separator || : " + value, context);
 		}
 		int pipeLoc = value.indexOf("|");
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " must have two or more | delimited arguments : " + value);
+				+ " must have two or more | delimited arguments : " + value, context);
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		if (tok.countTokens() < 3)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " requires at least three arguments: " + value);
+				+ " requires at least three arguments: " + value, context);
 		}
 		String first = tok.nextToken();
 		if (!first.equals("ARMOR") && !first.equals("SHIELD")
-				&& !first.equals("WEAPON"))
+			&& !first.equals("WEAPON"))
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " first argument was not ARMOR, SHIELD, or WEAPON");
+				+ " first argument was not ARMOR, SHIELD, or WEAPON", context);
 		}
 		String subtoken = first + "PROFICIENCY";
 		String second = tok.nextToken();
@@ -110,7 +110,7 @@ public class ProficiencyToken implements CDOMSecondaryToken<CDOMObject>
 		else
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " second argument was not PC, ALL, or UNIQUE");
+				+ " second argument was not PC, ALL, or UNIQUE", context);
 		}
 		StringBuilder sb = new StringBuilder();
 		boolean needPipe = false;
@@ -126,7 +126,7 @@ public class ProficiencyToken implements CDOMSecondaryToken<CDOMObject>
 			{
 				ComplexParseResult cpr = new ComplexParseResult();
 				cpr.addErrorMessage("CHOOSE:" + getTokenName()
-						+ " arguments must have value after = : " + tokString);
+					+ " arguments must have value after = : " + tokString);
 				cpr.addErrorMessage("  entire token was: " + value);
 				return cpr;
 			}
@@ -134,15 +134,15 @@ public class ProficiencyToken implements CDOMSecondaryToken<CDOMObject>
 			needPipe = true;
 		}
 		Logging.deprecationPrint("CHOOSE:PROFICIENCY|" + first
-				+ " has been deprecated, please use CHOOSE:" + subtoken
-				+ "|...");
+			+ " has been deprecated, please use CHOOSE:" + subtoken
+			+ "|...", context);
 		String targetString = sb.toString();
 		if (first.equals("WEAPON"))
 		{
 			targetString = targetString.replaceAll("TYPE\\.", "TYPE=");
 		}
-		return context.processSubToken(obj, "CHOOSE", subtoken, qualifier
-				+ "[" + targetString + "]");
+		return context.processSubToken(obj, "CHOOSE", subtoken, qualifier + "["
+			+ targetString + "]");
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)

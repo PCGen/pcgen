@@ -37,10 +37,10 @@ public class CSkillsToken implements CDOMSecondaryToken<CDOMObject>
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-			String value)
+		String value)
 	{
 		Logging.deprecationPrint("CHOOSE:CSKILLS has been deprecated, "
-				+ "please use CHOOSE:SKILL|CLASS");
+			+ "please use CHOOSE:SKILL|CLASS", context);
 		return context.processSubToken(obj, "CHOOSE", "SKILL", "CLASS");
 	}
 

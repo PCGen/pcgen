@@ -89,7 +89,7 @@ public class TypeToken extends AbstractTokenWithSeparator<Campaign> implements
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " in Campaign may have a"
-				+ " maximum of 3 items, value is invalid: " + value);
+				+ " maximum of 3 items, value is invalid: " + value, context);
 		}
 		return ParseResult.SUCCESS;
 	}

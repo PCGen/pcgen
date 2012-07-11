@@ -88,7 +88,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 				if (title == null || title.length() == 0)
 				{
 					return new ParseResult.Fail(getParentToken() + ":"
-						+ getTokenName() + " had TITLE= but no title: " + value);
+						+ getTokenName() + " had TITLE= but no title: " + value, context);
 				}
 				activeValue = value.substring(0, pipeLoc);
 			}
@@ -107,7 +107,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		if (!prim.getGroupingState().isValid())
 		{
 			return new ParseResult.Fail("Non-sensical " + getFullName()
-				+ ": Contains ANY and a specific reference: " + value);
+				+ ": Contains ANY and a specific reference: " + value, context);
 		}
 		PrimitiveChoiceSet<CategorizedAbilitySelection> pcs =
 				new CollectionToAbilitySelection(AbilityCategory.FEAT, prim);

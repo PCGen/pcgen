@@ -37,17 +37,17 @@ public class FeatListToken implements CDOMSecondaryToken<CDOMObject>
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-			String value)
+		String value)
 	{
 		if (value == null)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " requires additional arguments");
+				+ " requires additional arguments", context);
 		}
 		Logging.deprecationPrint("CHOOSE:FEATLIST has been deprecated, "
-				+ "please use CHOOSE:FEAT|PC[x]");
-		return context.processSubToken(obj, "CHOOSE", "FEAT", "PC["
-				+ value + "]");
+			+ "please use CHOOSE:FEAT|PC[x]", context);
+		return context.processSubToken(obj, "CHOOSE", "FEAT", "PC[" + value
+			+ "]");
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)

@@ -45,7 +45,7 @@ public class AltcritrangeToken implements CDOMPrimaryToken<Equipment>
 			Integer cr = Integer.valueOf(value);
 			if (cr.intValue() < 0)
 			{
-				return new ParseResult.Fail(getTokenName() + " cannot be < 0");
+				return new ParseResult.Fail(getTokenName() + " cannot be < 0", context);
 			}
 			context.getObjectContext().put(eq.getEquipmentHead(2),
 					IntegerKey.CRIT_RANGE, cr);
@@ -55,7 +55,7 @@ public class AltcritrangeToken implements CDOMPrimaryToken<Equipment>
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " expected an integer. " + "Tag must be of the form: "
-					+ getTokenName() + ":<int>");
+					+ getTokenName() + ":<int>", context);
 		}
 	}
 

@@ -59,7 +59,7 @@ public class BonusspellstatToken implements CDOMPrimaryToken<PCClass>
 		if (pcs == null)
 		{
 			return new ParseResult.Fail("Invalid Stat Abbreviation in " + getTokenName()
-					+ ": " + value);
+					+ ": " + value, context);
 		}
 		context.getObjectContext().put(pcc, ObjectKey.BONUS_SPELL_STAT, pcs);
 		return ParseResult.SUCCESS;

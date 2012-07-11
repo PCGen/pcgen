@@ -109,7 +109,7 @@ public class AddLst extends AbstractNonEmptyToken<CDOMObject> implements
 			else
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " requires a SubToken and argument, found: " + value);
+						+ " requires a SubToken and argument, found: " + value, context);
 			}
 			context.getObjectContext().removeList(obj, ListKey.ADD);
 			return ParseResult.SUCCESS;

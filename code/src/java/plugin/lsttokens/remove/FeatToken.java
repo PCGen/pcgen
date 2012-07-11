@@ -104,24 +104,24 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 			if (!count.isValid())
 			{
 				return new ParseResult.Fail("Count in " + getTokenName()
-						+ " was not valid: " + count.toString());
+						+ " was not valid: " + count.toString(), context);
 			}
 			if (!count.isValid())
 			{
 				return new ParseResult.Fail("Count in " + getTokenName()
-						+ " was not valid: " + count.toString());
+						+ " was not valid: " + count.toString(), context);
 			}
 			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
 				return new ParseResult.Fail("Count in " + getFullName()
-								+ " must be > 0");
+								+ " must be > 0", context);
 			}
 			activeValue = sep.next();
 		}
 		if (sep.hasNext())
 		{
 			return new ParseResult.Fail(getFullName()
-					+ " had too many pipe separated items: " + value);
+					+ " had too many pipe separated items: " + value, context);
 		}
 		if (isEmpty(activeValue) || hasIllegalSeparator(',', activeValue))
 		{
@@ -155,7 +155,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 				if (className.length() == 0)
 				{
 					return new ParseResult.Fail(getTokenName()
-							+ " must have Class name after " + token);
+							+ " must have Class name after " + token, context);
 				}
 				CDOMSingleRef<PCClass> pcc = context.ref.getCDOMReference(
 						PCCLASS_CLASS, className);
@@ -171,7 +171,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 				{
 					return new ParseResult.Fail("  Error was encountered while parsing "
 							+ getTokenName() + ": " + value
-							+ " had an invalid reference: " + token);
+							+ " had an invalid reference: " + token, context);
 				}
 			}
 			if (ab != null)
@@ -183,7 +183,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		if (foundAny && foundOther)
 		{
 			return new ParseResult.Fail("Non-sensical " + getFullName()
-					+ ": Contains ANY and a specific reference: " + value);
+					+ ": Contains ANY and a specific reference: " + value, context);
 		}
 
 		if (!refs.isEmpty())
@@ -195,7 +195,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		if (pcs.isEmpty())
 		{
 			return new ParseResult.Fail("Internal Error: " + getFullName()
-					+ " did not have any references: " + value);
+					+ " did not have any references: " + value, context);
 		}
 		PrimitiveChoiceSet<CategorizedAbilitySelection> ascs;
 		if (pcs.size() == 1)

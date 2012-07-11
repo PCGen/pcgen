@@ -136,7 +136,7 @@ public class UnencumberedmoveLst extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				return new ParseResult.Fail("Invalid value of \""
 						+ loadString + "\" for UNENCUMBEREDMOVE in \""
-						+ obj.getDisplayName() + "\".");
+						+ obj.getDisplayName() + "\".", context);
 			}
 		}
 		context.getObjectContext().put(obj, ObjectKey.UNENCUMBERED_LOAD,

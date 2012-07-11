@@ -37,10 +37,10 @@ public class SpellClassesToken implements CDOMSecondaryToken<CDOMObject>
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-			String value)
+		String value)
 	{
 		Logging.deprecationPrint("CHOOSE:SPELLCLASSES has been deprecated, "
-				+ "please use CHOOSE:CLASS|SPELLCASTER");
+			+ "please use CHOOSE:CLASS|SPELLCASTER", context);
 		return context.processSubToken(obj, "CHOOSE", "CLASS", "SPELLCASTER");
 	}
 

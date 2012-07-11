@@ -92,7 +92,7 @@ public class ChooseLangautoToken extends AbstractTokenWithSeparator<Race> implem
 			{
 				return new ParseResult.Fail("  Error was encountered while parsing "
 					+ getFullName() + ": " + value
-					+ " had an invalid reference: " + tokText);
+					+ " had an invalid reference: " + tokText, context);
 			}
 			refs.add(lang);
 		}
@@ -102,7 +102,7 @@ public class ChooseLangautoToken extends AbstractTokenWithSeparator<Race> implem
 		if (!rcs.getGroupingState().isValid())
 		{
 			return new ParseResult.Fail("Non-sensical " + getFullName()
-				+ ": Contains ANY and a specific reference: " + value);
+				+ ": Contains ANY and a specific reference: " + value, context);
 		}
 		ChoiceSet<Language> cs = new ChoiceSet<Language>(getTokenName(), rcs);
 		cs.setTitle("Pick a Language");

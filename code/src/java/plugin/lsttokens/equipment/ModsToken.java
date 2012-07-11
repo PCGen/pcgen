@@ -50,7 +50,7 @@ public class ModsToken extends AbstractNonEmptyToken<Equipment> implements
 		catch (IllegalArgumentException iae)
 		{
 			return new ParseResult.Fail("Invalid Mod Control provided in "
-					+ getTokenName() + ": " + value);
+					+ getTokenName() + ": " + value, context);
 		}
 		context.getObjectContext().put(eq, ObjectKey.MOD_CONTROL, ctrl);
 		return ParseResult.SUCCESS;

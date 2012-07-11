@@ -65,7 +65,7 @@ public class SaveinfoToken extends AbstractTokenWithSeparator<Spell> implements
 				if (!first)
 				{
 					return new ParseResult.Fail("Non-sensical use of .CLEAR in "
-							+ getTokenName() + ": " + value);
+							+ getTokenName() + ": " + value, context);
 				}
 				context.getObjectContext().removeList(spell, ListKey.SAVE_INFO);
 			}

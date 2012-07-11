@@ -42,12 +42,12 @@ public class TargetareaToken implements CDOMPrimaryToken<Spell>
 	{
 		if (value == null || value.length() == 0)
 		{
-			return new ParseResult.Fail(getTokenName() + " arguments may not be empty");
+			return new ParseResult.Fail(getTokenName() + " arguments may not be empty", context);
 		}
 		if (!StringUtil.hasBalancedParens(value))
 		{
 			return new ParseResult.Fail("Unbalanced parentheses in " + getTokenName() + " '" + value
-					+ "' used in spell " + spell);
+					+ "' used in spell " + spell, context);
 		}
 		Globals.addSpellTargetSet(value);
 		context.getObjectContext().put(spell, StringKey.TARGET_AREA, value);

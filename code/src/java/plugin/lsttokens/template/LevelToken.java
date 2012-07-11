@@ -99,21 +99,21 @@ public class LevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		catch (NumberFormatException ex)
 		{
 			return new ParseResult.Fail("Misunderstood Level value: " + levelStr
-					+ " in " + getTokenName());
+					+ " in " + getTokenName(), context);
 		}
 
 		if (!tok.hasMoreTokens())
 		{
 			return new ParseResult.Fail("Invalid " + getTokenName()
 					+ ": requires 3 colon separated elements (has one): "
-					+ value);
+					+ value, context);
 		}
 		String typeStr = tok.nextToken();
 		if (!tok.hasMoreTokens())
 		{
 			return new ParseResult.Fail("Invalid " + getTokenName()
 					+ ": requires 3 colon separated elements (has two): "
-					+ value);
+					+ value, context);
 		}
 		String argument = tok.nextToken();
 		PCTemplate derivative = new PCTemplate();
@@ -129,7 +129,7 @@ public class LevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		}
 		catch (PersistenceLayerException e)
 		{
-			return new ParseResult.Fail(e.getMessage());
+			return new ParseResult.Fail(e.getMessage(), context);
 		}
 		return ParseResult.INTERNAL_ERROR;
 	}

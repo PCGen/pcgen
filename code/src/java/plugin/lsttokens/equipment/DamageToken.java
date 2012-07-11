@@ -50,7 +50,7 @@ public class DamageToken extends AbstractNonEmptyToken<Equipment> implements
 			if (!StringUtils.isBlank(errorMessage))
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " is invalid: " + errorMessage);
+						+ " is invalid: " + errorMessage, context);
 			}
 		}
 		context.getObjectContext().put(eq.getEquipmentHead(1),

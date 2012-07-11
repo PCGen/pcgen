@@ -62,7 +62,7 @@ public class RacialToken extends AbstractNonEmptyToken<KitProf> implements
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
 				return new ParseResult.Fail("You should use 'YES' as the "
-					+ getTokenName() + ": " + value);
+					+ getTokenName() + ": " + value, context);
 			}
 			set = Boolean.TRUE;
 		}
@@ -71,12 +71,12 @@ public class RacialToken extends AbstractNonEmptyToken<KitProf> implements
 			if (firstChar != 'N' && firstChar != 'n')
 			{
 				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-						+ getTokenName() + ": " + value);
+						+ getTokenName() + ": " + value, context);
 			}
 			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
 			{
 				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-						+ getTokenName() + ": " + value);
+						+ getTokenName() + ": " + value, context);
 			}
 			set = Boolean.FALSE;
 		}

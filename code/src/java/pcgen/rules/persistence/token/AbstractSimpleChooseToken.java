@@ -66,7 +66,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 		if (value.indexOf('[') != -1 || value.indexOf(']') != -1)
 		{
 			return new ParseResult.Fail(getParentToken() + ":" + getTokenName()
-				+ " may not contain brackets: " + value);
+				+ " may not contain brackets: " + value, context);
 		}
 		int pipeLoc = value.lastIndexOf('|');
 		String activeValue;
@@ -90,7 +90,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 				if (title == null || title.length() == 0)
 				{
 					return new ParseResult.Fail(getParentToken() + ":"
-						+ getTokenName() + " had TITLE= but no title: " + value);
+						+ getTokenName() + " had TITLE= but no title: " + value, context);
 				}
 			}
 			else
@@ -125,17 +125,17 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 				{
 					return new ParseResult.Fail(
 						"Error: Count not get Reference for " + tok + " in "
-							+ getTokenName());
+							+ getTokenName(), context);
 				}
 				if (!set.add(ref))
 				{
 					return new ParseResult.Fail("Error, Found item: " + ref
-						+ " twice while parsing " + getTokenName());
+						+ " twice while parsing " + getTokenName(), context);
 				}
 			}
 			if (set.isEmpty())
 			{
-				return new ParseResult.Fail("No items in set.");
+				return new ParseResult.Fail("No items in set.", context);
 			}
 			prim = new CompoundOrPrimitive<T>(set);
 		}

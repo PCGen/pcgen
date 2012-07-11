@@ -46,7 +46,7 @@ public class CritrangeToken implements CDOMPrimaryToken<Equipment>
 			if (cr.intValue() < 0)
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " cannot be < 0");
+						+ " cannot be < 0", context);
 			}
 			context.getObjectContext().put(eq.getEquipmentHead(1),
 					IntegerKey.CRIT_RANGE, cr);
@@ -56,7 +56,7 @@ public class CritrangeToken implements CDOMPrimaryToken<Equipment>
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " expected an integer. " + "Tag must be of the form: "
-					+ getTokenName() + ":<int>");
+					+ getTokenName() + ":<int>", context);
 		}
 	}
 

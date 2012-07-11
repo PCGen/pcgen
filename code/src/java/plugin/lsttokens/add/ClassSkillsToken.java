@@ -86,19 +86,19 @@ public class ClassSkillsToken extends AbstractNonEmptyToken<PCClass> implements
 			if (!count.isValid())
 			{
 				return new ParseResult.Fail("Count in " + getTokenName()
-						+ " was not valid: " + count.toString());
+						+ " was not valid: " + count.toString(), context);
 			}
 			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
 			{
 				return new ParseResult.Fail("Count in " + getFullName()
-								+ " must be > 0");
+								+ " must be > 0", context);
 			}
 			activeValue = sep.next();
 		}
 		if (sep.hasNext())
 		{
 			return new ParseResult.Fail(getFullName()
-					+ " had too many pipe separated items: " + value);
+					+ " had too many pipe separated items: " + value, context);
 		}
 		ParseResult pr = checkSeparatorsAndNonEmpty(',', activeValue);
 		if (!pr.passed())
@@ -155,7 +155,7 @@ public class ClassSkillsToken extends AbstractNonEmptyToken<PCClass> implements
 					if (autoRank != null)
 					{
 						return new ParseResult.Fail("Cannot have two AUTORANK= items in "
-										+ getFullName() + ": " + value);
+										+ getFullName() + ": " + value, context);
 					}
 					String rankString = tokText.substring(9);
 					try
@@ -165,13 +165,13 @@ public class ClassSkillsToken extends AbstractNonEmptyToken<PCClass> implements
 						{
 							return new ParseResult.Fail("Expected AUTORANK= to be"
 									+ " greater than zero, found: "
-									+ autoRank);
+									+ autoRank, context);
 						}
 					}
 					catch (NumberFormatException e)
 					{
 						return new ParseResult.Fail("Expected AUTORANK= to have"
-								+ " an integer value, found: " + rankString);
+								+ " an integer value, found: " + rankString, context);
 					}
 				}
 				else
@@ -185,7 +185,7 @@ public class ClassSkillsToken extends AbstractNonEmptyToken<PCClass> implements
 										+ ": "
 										+ value
 										+ " had an invalid reference: "
-										+ tokText);
+										+ tokText, context);
 					}
 					refs.add(skref);
 				}
@@ -195,14 +195,14 @@ public class ClassSkillsToken extends AbstractNonEmptyToken<PCClass> implements
 		if (refs.isEmpty())
 		{
 			return new ParseResult.Fail("Non-sensical " + getFullName()
-					+ ": Contains no skill reference: " + value);
+					+ ": Contains no skill reference: " + value, context);
 		}
 
 		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
 		if (!rcs.getGroupingState().isValid())
 		{
 			return new ParseResult.Fail("Non-sensical " + getFullName()
-					+ ": Contains ANY and a specific reference: " + value);
+					+ ": Contains ANY and a specific reference: " + value, context);
 		}
 		ChoiceSet<Skill> cs = new ChoiceSet<Skill>(getTokenName(), rcs, true);
 		PersistentTransitionChoice<Skill> tc = new ConcretePersistentTransitionChoice<Skill>(

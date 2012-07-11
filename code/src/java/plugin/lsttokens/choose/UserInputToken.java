@@ -63,8 +63,9 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 			else
 			{
 				String countString = value.substring(0, pipeLoc);
-				Logging.deprecationPrint("CHOOSE:USERINPUT with count is deprecated, "
-						+ "please use SELECT: to identify the quantity of selections");
+				Logging
+					.deprecationPrint("CHOOSE:USERINPUT with count is deprecated, "
+						+ "please use SELECT: to identify the quantity of selections", context);
 				int firstarg;
 				try
 				{
@@ -73,8 +74,8 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 				catch (NumberFormatException nfe)
 				{
 					return new ParseResult.Fail("If CHOOSE:" + getTokenName()
-							+ " contains a pipe, "
-							+ "first argument must be an Integer : " + value);
+						+ " contains a pipe, "
+						+ "first argument must be an Integer : " + value, context);
 				}
 				Formula count = FormulaFactory.getFormulaFor(firstarg);
 				context.obj.put(obj, FormulaKey.NUMCHOICES, count);
@@ -84,8 +85,8 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 			if (!titleString.startsWith("TITLE="))
 			{
 				return new ParseResult.Fail("CHOOSE:" + getTokenName() + " in "
-						+ obj.getClass() + " " + obj.getKeyName()
-						+ " had invalid arguments: " + value);
+					+ obj.getClass() + " " + obj.getKeyName()
+					+ " had invalid arguments: " + value, context);
 			}
 			String title = value.substring(6);
 			if (title.startsWith("\""))

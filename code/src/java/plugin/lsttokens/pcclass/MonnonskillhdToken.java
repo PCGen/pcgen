@@ -52,7 +52,7 @@ public class MonnonskillhdToken extends AbstractNonEmptyToken<PCClass>
 		if (bon == null)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " was given invalid bonus value: " + value);
+					+ " was given invalid bonus value: " + value, context);
 		}
 		bon.setTokenSource(getTokenName());
 		context.obj.addToList(pcc, ListKey.BONUS, bon);

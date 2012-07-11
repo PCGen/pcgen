@@ -85,7 +85,7 @@ public class FeatToken extends AbstractTokenWithSeparator<Domain> implements
 				if (!first)
 				{
 					return new ParseResult.Fail("  Non-sensical " + getTokenName()
-							+ ": .CLEAR was not the first list item: " + value);
+							+ ": .CLEAR was not the first list item: " + value, context);
 				}
 				context.getListContext().removeAllFromList(getTokenName(), obj,
 						Ability.FEATLIST);

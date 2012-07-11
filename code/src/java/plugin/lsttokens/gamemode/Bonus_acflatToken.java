@@ -20,7 +20,7 @@ public class Bonus_acflatToken implements GameModeLstToken
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		Logging.deprecationPrint(getTokenName() + " is an unused "
-				+ "Game Mode token found in " + source.toString());
+				+ "Game Mode token found in " + source.toString() );
 		return true;
 	}
 }

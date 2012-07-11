@@ -87,31 +87,31 @@ public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 		if ((value == null) || (value.length() == 0))
 		{
 			return new ParseResult.Fail("Argument in " + getTokenName()
-					+ " cannot be empty");
+					+ " cannot be empty", context);
 		}
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		String followerType = sep.next();
 		if (followerType.length() == 0)
 		{
 			return new ParseResult.Fail("Follower Type in " + getTokenName()
-					+ " cannot be empty");
+					+ " cannot be empty", context);
 		}
 		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " has no PIPE character: Must be of the form <follower type>|<formula>");
+					+ " has no PIPE character: Must be of the form <follower type>|<formula>", context);
 		}
 		String followerNumber = sep.next();
 		if (sep.hasNext())
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " has too many PIPE characters: "
-					+ "Must be of the form <follower type>|<formula");
+					+ "Must be of the form <follower type>|<formula", context);
 		}
 		if (followerNumber.length() == 0)
 		{
 			return new ParseResult.Fail("Follower Count in " + getTokenName()
-					+ " cannot be empty");
+					+ " cannot be empty", context);
 		}
 		CDOMSingleRef<CompanionList> cl = context.ref.getCDOMReference(
 				CompanionList.class, followerType);
@@ -119,7 +119,7 @@ public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 		if (!num.isValid())
 		{
 			return new ParseResult.Fail("Number of Followers in "
-					+ getTokenName() + " was not valid: " + num.toString());
+					+ getTokenName() + " was not valid: " + num.toString(), context);
 		}
 		context.getObjectContext().addToList(obj, ListKey.FOLLOWERS,
 				new FollowerLimit(cl, num));

@@ -82,7 +82,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail(
 					"Cannot have only PRExxx subtoken in " + getTokenName()
-							+ ": " + value);
+							+ ": " + value, context);
 		}
 
 		ArrayList<AssociatedPrereqObject> edgeList = new ArrayList<AssociatedPrereqObject>();
@@ -152,7 +152,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail(
 					"Cannot use PREREQs when using .CLEAR or .CLEAR. in "
-							+ getTokenName());
+							+ getTokenName(), context);
 		}
 
 		while (true)
@@ -162,7 +162,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			{
 				return new ParseResult.Fail(
 						"   (Did you put vision after the " + "PRExxx tags in "
-								+ getTokenName() + ":?)");
+								+ getTokenName() + ":?)", context);
 			}
 			for (AssociatedPrereqObject edge : edgeList)
 			{

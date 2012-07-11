@@ -62,7 +62,7 @@ public class RacesubtypeToken extends AbstractTokenWithSeparator<PCTemplate>
 				String substring = aType.substring(8);
 				if (substring.length() == 0)
 				{
-					return new ParseResult.Fail("Invalid .REMOVE. in " + getTokenName() + " requires an argument");
+					return new ParseResult.Fail("Invalid .REMOVE. in " + getTokenName() + " requires an argument", context);
 				}
 				context.getObjectContext().addToList(template,
 						ListKey.REMOVED_RACESUBTYPE,

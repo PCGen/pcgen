@@ -49,7 +49,7 @@ public class MultToken extends AbstractNonEmptyToken<Ability> implements
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
 				return new ParseResult.Fail("You should use 'YES' as the "
-						+ getTokenName() + ": " + value);
+						+ getTokenName() + ": " + value, context);
 			}
 			set = Boolean.TRUE;
 		}
@@ -58,12 +58,12 @@ public class MultToken extends AbstractNonEmptyToken<Ability> implements
 			if (firstChar != 'N' && firstChar != 'n')
 			{
 				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-						+ getTokenName() + ": " + value);
+						+ getTokenName() + ": " + value, context);
 			}
 			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
 			{
 				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-						+ getTokenName() + ": " + value);
+						+ getTokenName() + ": " + value, context);
 			}
 			set = Boolean.FALSE;
 		}
@@ -104,7 +104,7 @@ public class MultToken extends AbstractNonEmptyToken<Ability> implements
 			if (a.get(ObjectKey.CHOOSE_INFO) == null)
 			{
 				Logging.errorPrint("Ability (" + a.getCategory() + ") "
-						+ a.getKeyName() + " had MULT:YES but no CHOOSE");
+						+ a.getKeyName() + " had MULT:YES but no CHOOSE", context);
 				return false;
 			}
 		}
@@ -113,7 +113,7 @@ public class MultToken extends AbstractNonEmptyToken<Ability> implements
 			if (a.get(ObjectKey.CHOOSE_INFO) != null)
 			{
 				Logging.errorPrint("Ability (" + a.getCategory() + ") "
-						+ a.getKeyName() + " had MULT:NO but did have CHOOSE");
+						+ a.getKeyName() + " had MULT:NO but did have CHOOSE", context);
 				return false;
 			}
 		}

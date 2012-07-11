@@ -48,7 +48,7 @@ public class UsemasterskillToken extends AbstractNonEmptyToken<CompanionMod>
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
 				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-					+ getTokenName());
+					+ getTokenName(), context);
 			}
 			set = true;
 		}
@@ -58,7 +58,7 @@ public class UsemasterskillToken extends AbstractNonEmptyToken<CompanionMod>
 				&& !value.equalsIgnoreCase("NO"))
 			{
 				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-					+ getTokenName());
+					+ getTokenName(), context);
 			}
 			set = false;
 		}

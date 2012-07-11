@@ -47,32 +47,32 @@ public class FeatAddToken implements CDOMSecondaryToken<CDOMObject>
 		if (value == null)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " requires additional arguments");
+				+ " requires additional arguments", context);
 		}
 		if (value.indexOf(',') != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain , : " + value);
+				+ " arguments may not contain , : " + value, context);
 		}
 		if (value.indexOf('[') != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain [] : " + value);
+				+ " arguments may not contain [] : " + value, context);
 		}
 		if (value.charAt(0) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not start with | : " + value);
+				+ " arguments may not start with | : " + value, context);
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not end with | : " + value);
+				+ " arguments may not end with | : " + value, context);
 		}
 		if (value.indexOf("||") != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments uses double separator || : " + value);
+				+ " arguments uses double separator || : " + value, context);
 		}
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		while (st.hasMoreTokens())
@@ -83,33 +83,38 @@ public class FeatAddToken implements CDOMSecondaryToken<CDOMObject>
 			{
 				ComplexParseResult cpr = new ComplexParseResult();
 				cpr.addErrorMessage("CHOOSE:" + getTokenName()
-						+ " arguments must have value after = : " + tokString);
+					+ " arguments must have value after = : " + tokString);
 				cpr.addErrorMessage("  entire token was: " + value);
 				return cpr;
 			}
 		}
 		try
 		{
-			Logging.deprecationPrint("CHOOSE:" + getTokenName() + " has been deprecated, "
-					+ "please use CHOOSE:FEATSELECTION|x with AUTO:FEAT|%LIST");
-			boolean proc = context.processToken(obj, "CHOOSE", "FEATSELECTION|" + value + "|TITLE=Add a Feat");
+			Logging
+				.deprecationPrint("CHOOSE:"
+					+ getTokenName()
+					+ " has been deprecated, "
+					+ "please use CHOOSE:FEATSELECTION|x with AUTO:FEAT|%LIST", context);
+			boolean proc =
+					context.processToken(obj, "CHOOSE", "FEATSELECTION|"
+						+ value + "|TITLE=Add a Feat");
 			if (!proc)
 			{
 				return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " encountered an error delegating to "
-					+ "CHOOSE:FEATSELECTION|" + value + "|TITLE=Add a Feat");
+					+ "CHOOSE:FEATSELECTION|" + value + "|TITLE=Add a Feat", context);
 			}
 			proc = context.processToken(obj, "AUTO", "FEAT|%LIST");
 			if (!proc)
 			{
 				return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " encountered an error delegating to AUTO:FEAT|%LIST");
+					+ " encountered an error delegating to AUTO:FEAT|%LIST", context);
 			}
 		}
 		catch (PersistenceLayerException e)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " found error : " + e.getMessage());
+				+ " found error : " + e.getMessage(), context);
 		}
 		return ParseResult.SUCCESS;
 	}

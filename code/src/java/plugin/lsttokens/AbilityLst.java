@@ -137,13 +137,13 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		if (category == null)
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " refers to invalid Ability Category: " + cat);
+				+ " refers to invalid Ability Category: " + cat, context);
 		}
 		if (!tok.hasMoreTokens())
 		{
 
 			return new ParseResult.Fail(getTokenName() + " must have a Nature, "
-				+ "Format is: CATEGORY|NATURE|AbilityName: " + value);
+				+ "Format is: CATEGORY|NATURE|AbilityName: " + value, context);
 		}
 		final String natureKey = tok.nextToken();
 		Nature nature;
@@ -154,19 +154,19 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		catch (IllegalArgumentException iae)
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ " refers to invalid Ability Nature: " + natureKey);
+				+ " refers to invalid Ability Nature: " + natureKey, context);
 		}
 		if (Nature.ANY.equals(nature))
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " refers to ANY Ability Nature, cannot be used in "
-					+ getTokenName() + ": " + value);
+					+ getTokenName() + ": " + value, context);
 		}
 		if (!tok.hasMoreTokens())
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " must have abilities, Format is: "
-				+ "CATEGORY|NATURE|AbilityName: " + value);
+				+ "CATEGORY|NATURE|AbilityName: " + value, context);
 		}
 
 		String token = tok.nextToken();
@@ -174,7 +174,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		if (token.startsWith("PRE") || token.startsWith("!PRE"))
 		{
 			return new ParseResult.Fail("Cannot have only PRExxx subtoken in "
-				+ getTokenName() + ": " + value);
+				+ getTokenName() + ": " + value, context);
 		}
 
 		ArrayList<PrereqObject> edgeList = new ArrayList<PrereqObject>();
@@ -195,7 +195,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 				if (!first)
 				{
 					return new ParseResult.Fail("  Non-sensical " + getTokenName()
-						+ ": .CLEAR was not the first list item: " + value);
+						+ ": .CLEAR was not the first list item: " + value, context);
 				}
 				context.getListContext().removeAllFromList(getTokenName(), obj,
 					abilList);
@@ -273,7 +273,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		if (removed)
 		{
 			return new ParseResult.Fail("Cannot use PREREQs when using .CLEAR or .CLEAR. in "
-							+ getTokenName());
+							+ getTokenName(), context);
 		}
 
 		while (true)
@@ -282,7 +282,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 			if (prereq == null)
 			{
 				return new ParseResult.Fail("   (Did you put feats after the "
-					+ "PRExxx tags in " + getTokenName() + ":?)");
+					+ "PRExxx tags in " + getTokenName() + ":?)", context);
 			}
 			for (PrereqObject edge : edgeList)
 			{

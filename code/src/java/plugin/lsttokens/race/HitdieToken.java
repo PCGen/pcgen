@@ -63,7 +63,7 @@ public class HitdieToken extends AbstractNonEmptyToken<Race> implements
 			if (pipeLoc != lock.lastIndexOf(Constants.PIPE))
 			{
 				return new ParseResult.Fail(getTokenName() + " has more than one pipe, "
-						+ "is not of format: <int>[|<prereq>]");
+						+ "is not of format: <int>[|<prereq>]", context);
 			}
 			// Do not initialize, null is significant
 			CDOMReference<PCClass> owner = null;
@@ -77,7 +77,7 @@ public class HitdieToken extends AbstractNonEmptyToken<Race> implements
 					if (substring.length() == 0)
 					{
 						return new ParseResult.Fail("Cannot have Empty Type Limitation in "
-										+ getTokenName() + ": " + value);
+										+ getTokenName() + ": " + value, context);
 					}
 					ParseResult pr = checkForIllegalSeparator('.', substring); 
 					if (!pr.passed())
@@ -93,7 +93,7 @@ public class HitdieToken extends AbstractNonEmptyToken<Race> implements
 					if (substring.length() == 0)
 					{
 						return new ParseResult.Fail("Cannot have Empty Class Limitation in "
-										+ getTokenName() + ": " + value);
+										+ getTokenName() + ": " + value, context);
 					}
 					owner = context.ref.getCDOMReference(PCCLASS_CLASS,
 							substring);
@@ -101,7 +101,7 @@ public class HitdieToken extends AbstractNonEmptyToken<Race> implements
 				else
 				{
 					return new ParseResult.Fail("Invalid Limitation in HITDIE: "
-							+ lockPre);
+							+ lockPre, context);
 				}
 				lock = lock.substring(0, pipeLoc);
 			}
@@ -115,7 +115,7 @@ public class HitdieToken extends AbstractNonEmptyToken<Race> implements
 				{
 					return new ParseResult.Fail(getTokenName()
 							+ " was expecting a Positive Integer "
-							+ "for dividing Lock, was : " + lock.substring(2));
+							+ "for dividing Lock, was : " + lock.substring(2), context);
 				}
 				hdm = new HitDieFormula(new DividingFormula(denom));
 			}
@@ -128,7 +128,7 @@ public class HitdieToken extends AbstractNonEmptyToken<Race> implements
 					return new ParseResult.Fail(getTokenName()
 							+ " was expecting a Positive "
 							+ "Integer for multiplying Lock, was : "
-							+ lock.substring(2));
+							+ lock.substring(2), context);
 				}
 				hdm = new HitDieFormula(new MultiplyingFormula(mult));
 			}
@@ -142,7 +142,7 @@ public class HitdieToken extends AbstractNonEmptyToken<Race> implements
 					return new ParseResult.Fail(getTokenName()
 							+ " was expecting a Positive "
 							+ "Integer for adding Lock, was : "
-							+ lock.substring(2));
+							+ lock.substring(2), context);
 				}
 				hdm = new HitDieFormula(new AddingFormula(add));
 			}
@@ -157,7 +157,7 @@ public class HitdieToken extends AbstractNonEmptyToken<Race> implements
 					return new ParseResult.Fail(getTokenName()
 							+ " was expecting a Positive "
 							+ "Integer for subtracting Lock, was : "
-							+ lock.substring(2));
+							+ lock.substring(2), context);
 				}
 				hdm = new HitDieFormula(new SubtractingFormula(sub));
 			}
@@ -170,12 +170,12 @@ public class HitdieToken extends AbstractNonEmptyToken<Race> implements
 				if (steps <= 0)
 				{
 					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
-							+ getTokenName() + " up (must be positive)");
+							+ getTokenName() + " up (must be positive)", context);
 				}
 				if (steps >= 5)
 				{
 					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
-							+ getTokenName() + " up (too large)");
+							+ getTokenName() + " up (too large)", context);
 				}
 
 				hdm = new HitDieStep(steps, new HitDie(12));
@@ -189,7 +189,7 @@ public class HitdieToken extends AbstractNonEmptyToken<Race> implements
 				if (steps <= 0)
 				{
 					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
-							+ getTokenName());
+							+ getTokenName(), context);
 				}
 				hdm = new HitDieStep(steps, null);
 			}
@@ -203,12 +203,12 @@ public class HitdieToken extends AbstractNonEmptyToken<Race> implements
 				if (steps <= 0)
 				{
 					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
-							+ getTokenName() + " down (must be positive)");
+							+ getTokenName() + " down (must be positive)", context);
 				}
 				if (steps >= 5)
 				{
 					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
-							+ getTokenName() + " down (too large)");
+							+ getTokenName() + " down (too large)", context);
 				}
 
 				hdm = new HitDieStep(-steps, new HitDie(4));
@@ -222,7 +222,7 @@ public class HitdieToken extends AbstractNonEmptyToken<Race> implements
 				if (steps <= 0)
 				{
 					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
-							+ getTokenName());
+							+ getTokenName(), context);
 				}
 				hdm = new HitDieStep(-steps, null);
 			}
@@ -232,7 +232,7 @@ public class HitdieToken extends AbstractNonEmptyToken<Race> implements
 				if (i <= 0)
 				{
 					return new ParseResult.Fail("Invalid HitDie: " + i + " in "
-							+ getTokenName());
+							+ getTokenName(), context);
 				}
 				// HITDIE:num --- sets the hit die to num regardless of class.
 				hdm = new HitDieLock(new HitDie(i));
@@ -246,7 +246,7 @@ public class HitdieToken extends AbstractNonEmptyToken<Race> implements
 		catch (NumberFormatException nfe)
 		{
 			return new ParseResult.Fail("Invalid Number (must be an Integer) in " + getTokenName() + ": "
-					+ nfe.getLocalizedMessage());
+					+ nfe.getLocalizedMessage(), context);
 		}
 	}
 

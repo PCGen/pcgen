@@ -39,43 +39,44 @@ public class WeaponProfsToken implements CDOMSecondaryToken<CDOMObject>
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-			String value)
+		String value)
 	{
 		if (value == null)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " requires additional arguments");
+				+ " requires additional arguments", context);
 		}
 		if (value.indexOf(',') != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain , : " + value);
+				+ " arguments may not contain , : " + value, context);
 		}
 		if (value.indexOf('[') != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain [] : " + value);
+				+ " arguments may not contain [] : " + value, context);
 		}
 		if (value.charAt(0) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not start with | : " + value);
+				+ " arguments may not start with | : " + value, context);
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not end with | : " + value);
+				+ " arguments may not end with | : " + value, context);
 		}
 		if (value.indexOf("||") != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments uses double separator || : " + value);
+				+ " arguments uses double separator || : " + value, context);
 		}
 		String newValue = processMagicalWords(context, value);
-		Logging.deprecationPrint("CHOOSE:WEAPONPROFS" + " has been deprecated, "
-				+ "please use CHOOSE:WEAPONPROFICIENCY|");
+		Logging.deprecationPrint("CHOOSE:WEAPONPROFS"
+			+ " has been deprecated, "
+			+ "please use CHOOSE:WEAPONPROFICIENCY|", context);
 		return context.processSubToken(obj, "CHOOSE", "WEAPONPROFICIENCY",
-				newValue);
+			newValue);
 	}
 
 	private String processMagicalWords(LoadContext context, String value)
@@ -94,7 +95,7 @@ public class WeaponProfsToken implements CDOMSecondaryToken<CDOMObject>
 			{
 				final String profKey = tok.substring(7);
 				Logging.deprecationPrint("CHOOSE:WEAPONPROFS|SIZE "
-						+ "has been changed to PC.");
+					+ "has been changed to PC.", context);
 				tok = "PC[" + profKey + "]";
 			}
 			if ("ADD.".regionMatches(true, 0, tok, 0, 4))
@@ -103,8 +104,8 @@ public class WeaponProfsToken implements CDOMSecondaryToken<CDOMObject>
 			}
 			if ("WSIZE.".regionMatches(true, 0, tok, 0, 6))
 			{
-				StringTokenizer bTok = new StringTokenizer(tok.substring(6),
-						".");
+				StringTokenizer bTok =
+						new StringTokenizer(tok.substring(6), ".");
 				StringBuilder wsize = new StringBuilder();
 				wsize.append("PC,EQUIPMENT[");
 				String wield = bTok.nextToken();
@@ -132,7 +133,7 @@ public class WeaponProfsToken implements CDOMSecondaryToken<CDOMObject>
 				tok = wsize.toString();
 			}
 			if ("TYPE.".regionMatches(true, 0, tok, 0, 5)
-					|| "TYPE=".regionMatches(true, 0, tok, 0, 5))
+				|| "TYPE=".regionMatches(true, 0, tok, 0, 5))
 			{
 				String prefix = "EQUIPMENT[TYPE=";
 				String type = tok.substring(5);

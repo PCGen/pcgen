@@ -67,11 +67,11 @@ public class FollowerToken extends AbstractTokenWithSeparator<CompanionMod>
 		int equalLoc = value.indexOf('=');
 		if (equalLoc == -1)
 		{
-			return new ParseResult.Fail("No = in token.");
+			return new ParseResult.Fail("No = in token.", context);
 		}
 		if (equalLoc != value.lastIndexOf('='))
 		{
-			return new ParseResult.Fail("Too many = in token.");
+			return new ParseResult.Fail("Too many = in token.", context);
 		}
 		String classString = value.substring(0, equalLoc);
 		String levelString = value.substring(equalLoc + 1);

@@ -98,7 +98,7 @@ public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements
 			if (lvls <= 0)
 			{
 				return new ParseResult.Fail("Number of Levels granted in "
-						+ getTokenName() + " must be greater than zero");
+						+ getTokenName() + " must be greater than zero", context);
 			}
 			f = FormulaFactory.getFormulaFor(lvls);
 		}
@@ -109,7 +109,7 @@ public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements
 		if (!f.isValid())
 		{
 			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + f.toString());
+					+ " was not valid: " + f.toString(), context);
 		}
 		LevelCommandFactory cf = new LevelCommandFactory(cl, f);
 		context.getObjectContext().addToList(template, ListKey.ADD_LEVEL, cf);

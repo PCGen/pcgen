@@ -45,53 +45,53 @@ public class FeatEqToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-			String value)
+		String value)
 	{
 		if (value == null)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " requires additional arguments");
+				+ " requires additional arguments", context);
 		}
 		if (value.indexOf(',') != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain , : " + value);
+				+ " arguments may not contain , : " + value, context);
 		}
 		if (value.indexOf('[') != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain [] : " + value);
+				+ " arguments may not contain [] : " + value, context);
 		}
 		if (value.charAt(0) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not start with | : " + value);
+				+ " arguments may not start with | : " + value, context);
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not end with | : " + value);
+				+ " arguments may not end with | : " + value, context);
 		}
 		if (value.indexOf("||") != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments uses double separator || : " + value);
+				+ " arguments uses double separator || : " + value, context);
 		}
 		Logging.deprecationPrint("CHOOSE:FEAT= has been deprecated, "
-				+ "please use a CHOOSE of the "
-				+ "appropriate type with the FEAT= primitive, "
-				+ "e.g. CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus");
+			+ "please use a CHOOSE of the "
+			+ "appropriate type with the FEAT= primitive, "
+			+ "e.g. CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus", context);
 		ParseResult pr = ParseResult.SUCCESS;
 		if (value.indexOf('|') != -1)
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
 			cpr.addWarningMessage("CHOOSE:" + getTokenName()
-					+ " will ignore arguments: "
-					+ value.substring(value.indexOf('|') + 1));
+				+ " will ignore arguments: "
+				+ value.substring(value.indexOf('|') + 1));
 			pr = cpr;
 		}
 		context.obj.put(obj, ObjectKey.FEATEQ_STRING, context.ref
-				.getCDOMReference(Ability.class, AbilityCategory.FEAT, value));
+			.getCDOMReference(Ability.class, AbilityCategory.FEAT, value));
 		return pr;
 	}
 
@@ -124,17 +124,16 @@ public class FeatEqToken implements CDOMSecondaryToken<CDOMObject>,
 			if (info == null)
 			{
 				Logging.errorPrint("Feat " + ref.getLSTformat(false)
-						+ " was referred to in "
-						+ obj.getClass().getSimpleName() + " "
-						+ obj.getKeyName()
-						+ " but it was not a FEAT with CHOOSE");
+					+ " was referred to in " + obj.getClass().getSimpleName()
+					+ " " + obj.getKeyName()
+					+ " but it was not a FEAT with CHOOSE");
 				return false;
 			}
 			/*
 			 * TODO This breaks for Abilities (no cat :( )
 			 */
 			context.unconditionallyProcess(obj, "CHOOSE", info.getName()
-					+ "|FEAT=" + ref.getLSTformat(false));
+				+ "|FEAT=" + ref.getLSTformat(false));
 			obj.remove(ObjectKey.FEATEQ_STRING);
 		}
 		return true;

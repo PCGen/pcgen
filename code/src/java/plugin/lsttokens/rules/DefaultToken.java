@@ -47,7 +47,7 @@ public class DefaultToken extends AbstractNonEmptyToken<RuleCheck> implements
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
 				return new ParseResult.Fail("You should use 'YES' as the "
-						+ getTokenName() + ": " + value);
+						+ getTokenName() + ": " + value, context);
 			}
 			set = Boolean.TRUE;
 		}
@@ -57,13 +57,13 @@ public class DefaultToken extends AbstractNonEmptyToken<RuleCheck> implements
 			{
 				return new ParseResult.Fail(
 						"You should use 'YES' or 'NO' as the " + getTokenName()
-								+ ": " + value);
+								+ ": " + value, context);
 			}
 			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
 			{
 				return new ParseResult.Fail(
 						"You should use 'YES' or 'NO' as the " + getTokenName()
-								+ ": " + value);
+								+ ": " + value, context);
 			}
 			set = Boolean.FALSE;
 		}

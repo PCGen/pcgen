@@ -39,7 +39,7 @@ public class HelpToken implements CDOMPrimaryToken<Campaign>
 	{
 		if (value == null || value.length() == 0)
 		{
-			return new ParseResult.Fail(getTokenName() + " arguments may not be empty");
+			return new ParseResult.Fail(getTokenName() + " arguments may not be empty", context);
 		}
 		context.getObjectContext().put(campaign, StringKey.HELP, value);
 		return ParseResult.SUCCESS;

@@ -42,22 +42,22 @@ public class SkillsNamedToCSkillToken implements CDOMSecondaryToken<Ability>
 	public ParseResult parseToken(LoadContext context, Ability obj, String value)
 	{
 		Logging
-				.deprecationPrint("CHOOSE:SKILLSNAMEDTOCSKILL has been deprecated, "
-						+ "please use CHOOSE:SKILL| and CSKILL:LIST");
+			.deprecationPrint("CHOOSE:SKILLSNAMEDTOCSKILL has been deprecated, "
+				+ "please use CHOOSE:SKILL| and CSKILL:LIST", context);
 		try
 		{
 			boolean res = context.processToken(obj, "CSKILL", "LIST");
 			if (!res)
 			{
 				Logging
-						.deprecationPrint("Error in conversion, CSKILL:LIST failed");
+					.deprecationPrint("Error in conversion, CSKILL:LIST failed", context);
 			}
 		}
 		catch (PersistenceLayerException e)
 		{
 			Logging
-					.deprecationPrint("Error in conversion, CSKILL:LIST failed with exception: "
-							+ e.getLocalizedMessage());
+				.deprecationPrint("Error in conversion, CSKILL:LIST failed with exception: "
+					+ e.getLocalizedMessage(), context);
 		}
 		String newValue = processSkillMagicalWords(value);
 		return context.processSubToken(obj, "CHOOSE", "SKILL", newValue);

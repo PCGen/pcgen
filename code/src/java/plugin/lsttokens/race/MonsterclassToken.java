@@ -56,13 +56,13 @@ public class MonsterclassToken extends AbstractNonEmptyToken<Race> implements
 		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail(getTokenName() + " must have a colon: "
-					+ value);
+					+ value, context);
 		}
 		String numLevels = sep.next();
 		if (sep.hasNext())
 		{
 			return new ParseResult.Fail(getTokenName() + " must have only one colon: "
-					+ value);
+					+ value, context);
 		}
 		CDOMSingleRef<PCClass> cl = context.ref.getCDOMReference(PCCLASS_CLASS,
 				classString);
@@ -72,7 +72,7 @@ public class MonsterclassToken extends AbstractNonEmptyToken<Race> implements
 			if (lvls <= 0)
 			{
 				return new ParseResult.Fail("Number of levels in " + getTokenName()
-						+ " must be greater than zero: " + value);
+						+ " must be greater than zero: " + value, context);
 			}
 			LevelCommandFactory cf = new LevelCommandFactory(cl, FormulaFactory
 					.getFormulaFor(lvls));
@@ -82,7 +82,7 @@ public class MonsterclassToken extends AbstractNonEmptyToken<Race> implements
 		catch (NumberFormatException nfe)
 		{
 			return new ParseResult.Fail("Number of levels in " + getTokenName()
-					+ " must be an integer greater than zero: " + value);
+					+ " must be an integer greater than zero: " + value, context);
 		}
 	}
 

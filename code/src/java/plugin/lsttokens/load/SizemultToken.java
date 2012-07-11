@@ -60,12 +60,12 @@ public class SizemultToken extends AbstractTokenWithSeparator<LoadInfo>
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " requires a pipe, found : " + value);
+					+ " requires a pipe, found : " + value, context);
 		}
 		if (pipeLoc != value.lastIndexOf('|'))
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " requires only one pipe, found : " + value);
+					+ " requires only one pipe, found : " + value, context);
 		}
 		String sizeName = value.substring(0, pipeLoc);
 		String multiplierString = value.substring(pipeLoc + 1);
@@ -83,7 +83,7 @@ public class SizemultToken extends AbstractTokenWithSeparator<LoadInfo>
 			{
 				return new ParseResult.Fail(getTokenName()
 						+ " requires a positive multiplier : "
-						+ multiplierString + " in value: " + value);
+						+ multiplierString + " in value: " + value, context);
 			}
 			info.addSizeAdjustment(size, multiplier);
 		}
@@ -91,7 +91,7 @@ public class SizemultToken extends AbstractTokenWithSeparator<LoadInfo>
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " misunderstood multiplier : " + multiplierString
-					+ " in value: " + value);
+					+ " in value: " + value, context);
 		}
 		return ParseResult.SUCCESS;
 	}

@@ -75,7 +75,7 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClass> implements
 				if (!first)
 				{
 					return new ParseResult.Fail("  Non-sensical " + getTokenName()
-							+ ": .CLEAR was not the first list item");
+							+ ": .CLEAR was not the first list item", context);
 				}
 				context.getObjectContext().removeList(pcc, ListKey.DOMAIN);
 				continue;
@@ -90,7 +90,7 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClass> implements
 				if (tok.indexOf(']') != -1)
 				{
 					return new ParseResult.Fail("Invalid " + getTokenName()
-							+ " must have '[' if it contains a PREREQ tag");
+							+ " must have '[' if it contains a PREREQ tag", context);
 				}
 				domainKey = tok;
 			}
@@ -99,7 +99,7 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClass> implements
 				if (tok.indexOf(']') != tok.length() - 1)
 				{
 					return new ParseResult.Fail("Invalid " + getTokenName()
-							+ " must end with ']' if it contains a PREREQ tag");
+							+ " must end with ']' if it contains a PREREQ tag", context);
 				}
 				domainKey = tok.substring(0, openBracketLoc);
 				String prereqString = tok.substring(openBracketLoc + 1, tok
@@ -107,13 +107,13 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClass> implements
 				if (prereqString.length() == 0)
 				{
 					return new ParseResult.Fail(getTokenName()
-							+ " cannot have empty prerequisite : " + value);
+							+ " cannot have empty prerequisite : " + value, context);
 				}
 				prereq = getPrerequisite(prereqString);
 				if (prereq == null)
 				{
 					return new ParseResult.Fail(getTokenName()
-							+ " had invalid prerequisite : " + prereqString);
+							+ " had invalid prerequisite : " + prereqString, context);
 				}
 			}
 			CDOMSingleRef<Domain> domain = context.ref.getCDOMReference(

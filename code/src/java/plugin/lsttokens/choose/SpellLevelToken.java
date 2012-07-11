@@ -102,7 +102,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				Integer.valueOf(firstValue);
 				Logging
-					.deprecationPrint("CHOOSE:SPELLLEVEL with first argument integer is deprecated");
+					.deprecationPrint("CHOOSE:SPELLLEVEL with first argument integer is deprecated", context);
 				return doDeprecatedParse(context, obj, activeValue);
 			}
 			catch (NumberFormatException e)
@@ -115,20 +115,20 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail("Found no arguments in "
-				+ getFullName() + ": " + value);
+				+ getFullName() + ": " + value, context);
 		}
 		List<SpellLevelInfo> sliList = new ArrayList<SpellLevelInfo>();
 		while (sep.hasNext())
 		{
 			String token = sep.next();
-			PrimitiveCollection<PCClass> pcf = context
-					.getPrimitiveChoiceFilter(context.ref
-							.getManufacturer(PCClass.class), token);
+			PrimitiveCollection<PCClass> pcf =
+					context.getPrimitiveChoiceFilter(
+						context.ref.getManufacturer(PCClass.class), token);
 			if (!sep.hasNext())
 			{
 				return new ParseResult.Fail(
 					"Expected minimum level argument after " + token + " in "
-						+ getFullName() + ": " + value);
+						+ getFullName() + ": " + value, context);
 			}
 			String minLevelString = sep.next();
 			int minLevel;
@@ -140,20 +140,20 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				return new ParseResult.Fail("Badly formed minimum level: "
 					+ minLevelString + " in " + getFullName() + " value: "
-					+ value);
+					+ value, context);
 			}
 			if (!sep.hasNext())
 			{
 				return new ParseResult.Fail(
 					"Expected maximum level argument after " + minLevelString
-						+ " in " + getFullName() + ": " + value);
+						+ " in " + getFullName() + ": " + value, context);
 			}
 			String maxLevelString = sep.next();
 			Formula maxLevel = FormulaFactory.getFormulaFor(maxLevelString);
 			if (!maxLevel.isValid())
 			{
-				return new ParseResult.Fail("Max Level Formula in " + getTokenName()
-						+ " was not valid: " + maxLevel.toString());
+				return new ParseResult.Fail("Max Level Formula in "
+					+ getTokenName() + " was not valid: " + maxLevel.toString(), context);
 			}
 			SpellLevelInfo sli = new SpellLevelInfo(pcf, minLevel, maxLevel);
 			sliList.add(sli);
@@ -172,12 +172,12 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 		if (value == null)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " requires additional arguments");
+				+ " requires additional arguments", context);
 		}
 		if (value.indexOf(',') != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " arguments may not contain , : " + value);
+				+ " arguments may not contain , : " + value, context);
 		}
 		List<String> bonuses = new ArrayList<String>();
 		int bracketLoc;
@@ -187,7 +187,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 			if (closeLoc != value.length() - 1)
 			{
 				return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments does not contain matching brackets: " + value);
+					+ " arguments does not contain matching brackets: " + value, context);
 			}
 			String bracketString = value.substring(bracketLoc + 1, closeLoc);
 			if (bracketString.startsWith("BONUS:"))
@@ -199,30 +199,30 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not contain [" + bracketString
-					+ "] without BONUS: : " + value);
+					+ "] without BONUS: : " + value, context);
 			}
 			value = value.substring(0, bracketLoc);
 		}
 		if (value.charAt(0) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " arguments may not start with | : " + value);
+				+ " arguments may not start with | : " + value, context);
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " arguments may not end with | : " + value);
+				+ " arguments may not end with | : " + value, context);
 		}
 		if (value.indexOf("||") != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " arguments uses double separator || : " + value);
+				+ " arguments uses double separator || : " + value, context);
 		}
 		int pipeLoc = value.indexOf("|");
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " must have two or more | delimited arguments : " + value);
+				+ " must have two or more | delimited arguments : " + value, context);
 		}
 		String startString = value.substring(0, pipeLoc);
 		try
@@ -232,12 +232,14 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 		catch (NumberFormatException nfe)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " first argument must be an Integer : " + value);
+				+ " first argument must be an Integer : " + value, context);
 		}
 		String newVal = value.substring(pipeLoc + 1);
 		try
 		{
-			String repl = newVal.replaceAll("TYPE=", "SPELLTYPE=").replaceAll("TYPE\\.", "SPELLTYPE=");
+			String repl =
+					newVal.replaceAll("TYPE=", "SPELLTYPE=").replaceAll(
+						"TYPE\\.", "SPELLTYPE=");
 			if (context.processToken(obj, "CHOOSE", "SPELLLEVEL|" + repl))
 			{
 				for (String bonus : bonuses)
@@ -247,23 +249,23 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 					{
 						return new ParseResult.Fail("CHOOSE:" + getTokenName()
 							+ " failure in BONUS: " + bonus
-							+ " did not understand items with =%");
+							+ " did not understand items with =%", context);
 					}
 					if (!context.processToken(obj, "BONUS", b))
 					{
 						return new ParseResult.Fail("CHOOSE:" + getTokenName()
-							+ " failure in BONUS: " + b);
+							+ " failure in BONUS: " + b, context);
 					}
 				}
 				return ParseResult.SUCCESS;
 			}
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " failure: " + value);
+				+ " failure: " + value, context);
 		}
 		catch (PersistenceLayerException e)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " failure: " + value + " " + e.getLocalizedMessage());
+				+ " failure: " + value + " " + e.getLocalizedMessage(), context);
 		}
 	}
 

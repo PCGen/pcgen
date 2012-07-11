@@ -47,7 +47,7 @@ public class AbbToken extends AbstractNonEmptyToken<PCStat> implements CDOMPrima
 		{
 			return new ParseResult.Fail("Stat " + stat.getDisplayName() + " found with "
 					+ getTokenName() + ":" + value
-					+ " should be 3 characters long!");
+					+ " should be 3 characters long!", context);
 		}
 		/*
 		 * Warning: RegisterAbbreviation is not editor friendly, and this is a

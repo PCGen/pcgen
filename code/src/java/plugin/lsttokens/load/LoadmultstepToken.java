@@ -51,7 +51,7 @@ public class LoadmultstepToken extends AbstractNonEmptyToken<LoadInfo>
 			if (step <= 0)
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " expected a positive integer, found : " + value);
+						+ " expected a positive integer, found : " + value, context);
 			}
 			info.setLoadMultStep(Integer.parseInt(value));
 			return ParseResult.SUCCESS;
@@ -60,7 +60,7 @@ public class LoadmultstepToken extends AbstractNonEmptyToken<LoadInfo>
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>");
+					+ getTokenName() + ":<int>", context);
 		}
 	}
 

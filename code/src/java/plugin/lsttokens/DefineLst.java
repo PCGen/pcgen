@@ -56,7 +56,7 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		if (!sep.hasNext())
 		{
-			return new ParseResult.Fail(getTokenName() + " may not be empty");
+			return new ParseResult.Fail(getTokenName() + " may not be empty", context);
 		}
 		String firstItem = sep.next();
 
@@ -68,7 +68,7 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 						getTokenName()
 								+ " found UNLOCK. with additional pipe separated item.  "
 								+ "Must be of Format: varName|varFormula or "
-								+ "LOCK.<stat>|value or UNLOCK.<stat>");
+								+ "LOCK.<stat>|value or UNLOCK.<stat>", context);
 			}
 			PCStat stat = context.ref.getAbbreviatedObject(PCSTAT_CLASS, value
 					.substring(7));
@@ -78,13 +78,13 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail(getTokenName() + " varName|varFormula"
-					+ "or LOCK.<stat>|value syntax requires an argument");
+					+ "or LOCK.<stat>|value syntax requires an argument", context);
 		}
 		String var = firstItem;
 		if (var.length() == 0)
 		{
 			return new ParseResult.Fail("Empty Variable Name found in "
-					+ getTokenName() + ": " + value);
+					+ getTokenName() + ": " + value, context);
 		}
 		try
 		{
@@ -92,12 +92,12 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 			if (!f.isValid())
 			{
 				return new ParseResult.Fail("Formula in " + getTokenName()
-						+ " was not valid: " + f.toString());
+						+ " was not valid: " + f.toString(), context);
 			}
 			if (sep.hasNext())
 			{
 				return new ParseResult.Fail(getTokenName() + " " + firstItem
-						+ " syntax requires only one argument: " + value);
+						+ " syntax requires only one argument: " + value, context);
 			}
 			if (value.startsWith("LOCK."))
 			{
@@ -117,7 +117,7 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 		{
 			return new ParseResult.Fail("Illegal Formula found in "
 					+ getTokenName() + ": " + value + " "
-					+ e.getLocalizedMessage());
+					+ e.getLocalizedMessage(), context);
 		}
 	}
 

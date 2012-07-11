@@ -84,13 +84,13 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 			if (maxCount == null || maxCount.length() == 0)
 			{
 				return new ParseResult.Fail(
-					"NUMCHOICES in CHOOSE must be a formula: " + value);
+					"NUMCHOICES in CHOOSE must be a formula: " + value, context);
 			}
 			Formula f = FormulaFactory.getFormulaFor(maxCount);
 			if (!f.isValid())
 			{
 				return new ParseResult.Fail("Number of Choices in "
-						+ getTokenName() + " was not valid: " + f.toString());
+						+ getTokenName() + " was not valid: " + f.toString(), context);
 			}
 			context.obj.put(obj, FormulaKey.NUMCHOICES, f);
 			pipeLoc = val.indexOf(Constants.PIPE);

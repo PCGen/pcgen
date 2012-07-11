@@ -64,7 +64,7 @@ public class CastToken extends AbstractTokenWithSeparator<PCClassLevel> implemen
 				if (Integer.parseInt(tok) < 0)
 				{
 					return new ParseResult.Fail("Invalid Spell Count: " + tok
-							+ " is less than zero");
+							+ " is less than zero", context);
 				}
 			}
 			catch (NumberFormatException e)
@@ -75,7 +75,7 @@ public class CastToken extends AbstractTokenWithSeparator<PCClassLevel> implemen
 			if (!formula.isValid())
 			{
 				return new ParseResult.Fail("Formula in " + getTokenName()
-						+ " was not valid: " + formula.toString());
+						+ " was not valid: " + formula.toString(), context);
 			}
 			context.obj.addToList(level, ListKey.CAST, formula);
 		}

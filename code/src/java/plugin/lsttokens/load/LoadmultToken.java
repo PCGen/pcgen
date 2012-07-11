@@ -60,14 +60,14 @@ public class LoadmultToken extends AbstractNonEmptyToken<LoadInfo> implements
 			{
 				return new ParseResult.Fail(getTokenName()
 						+ " requires a positive load multiplier, found : "
-						+ value);
+						+ value, context);
 			}
 			info.setLoadScoreMultiplier(mult);
 			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail("Misunderstood Double in Tag: " + value);
+			return new ParseResult.Fail("Misunderstood Double in Tag: " + value, context);
 		}
 	}
 

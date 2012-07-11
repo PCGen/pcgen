@@ -31,7 +31,7 @@ public class ShowtabToken implements GameModeLstToken, DeferredToken<TabInfo>,
 		final StringTokenizer tok = new StringTokenizer(value, "|");
 		final String tabName = tok.nextToken();
 		Logging.deprecationPrint("This Token is Deprecated. "
-				+ "Please use VISIBLE: on the TAB:" + tabName + " line");
+				+ "Please use VISIBLE: on the TAB:" + tabName + " line (Source: " + source + ")");
 		final String visibility = tok.nextToken();
 		CDOMSingleRef<TabInfo> ref = gameMode.getModeContext().ref
 				.getCDOMReference(TabInfo.class, tabName);

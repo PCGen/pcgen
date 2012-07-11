@@ -70,7 +70,7 @@ public class SizeToken extends AbstractNonEmptyToken<KitGear> implements
 			if (size == null)
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " found invalid Size abbreviation: " + value);
+						+ " found invalid Size abbreviation: " + value, context);
 			}
 			kitGear.setSize(size);
 		}

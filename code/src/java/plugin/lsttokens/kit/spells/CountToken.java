@@ -63,7 +63,7 @@ public class CountToken extends AbstractNonEmptyToken<KitSpells> implements
 		if (!formula.isValid())
 		{
 			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString());
+					+ " was not valid: " + formula.toString(), context);
 		}
 		kitSpells.setCount(formula);
 		return ParseResult.SUCCESS;

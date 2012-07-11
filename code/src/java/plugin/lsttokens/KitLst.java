@@ -76,23 +76,23 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		if (!count.isValid())
 		{
 			return new ParseResult.Fail("Count in " + getTokenName()
-					+ " was not valid: " + count.toString());
+					+ " was not valid: " + count.toString(), context);
 		}
 		if (!count.isStatic())
 		{
 			return new ParseResult.Fail("Count in "
-					+ getTokenName() + " must be a number");
+					+ getTokenName() + " must be a number", context);
 		}
 		if (count.resolve(null, "").intValue() <= 0)
 		{
 			return new ParseResult.Fail("Count in "
-					+ getTokenName() + " must be > 0");
+					+ getTokenName() + " must be > 0", context);
 		}
 		if (!tok.hasMoreTokens())
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " must have a | separating "
-					+ "count from the list of possible values: " + value);
+					+ "count from the list of possible values: " + value, context);
 		}
 		List<CDOMReference<Kit>> refs = new ArrayList<CDOMReference<Kit>>();
 
@@ -116,7 +116,7 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail("Non-sensical "
 					+ getTokenName()
-					+ ": Contains ANY and a specific reference: " + value);
+					+ ": Contains ANY and a specific reference: " + value, context);
 		}
 		ChoiceSet<Kit> cs = new ChoiceSet<Kit>(getTokenName(),
 				new QualifiedDecorator<Kit>(rcs));

@@ -55,20 +55,20 @@ public class RegionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		if (!count.isValid())
 		{
 			return new ParseResult.Fail("Count in " + getTokenName()
-					+ " was not valid: " + count.toString());
+					+ " was not valid: " + count.toString(), context);
 		}
 		if (count.isStatic())
 		{
 			if (!tok.hasMoreTokens())
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " cannot have only a count: " + value);
+						+ " cannot have only a count: " + value, context);
 			}
 			item = tok.nextToken();
 			if (count.resolve(null, "").intValue() <= 0)
 			{
 				return new ParseResult.Fail("Count in "
-						+ getTokenName() + " must be > 0: " + value);
+						+ getTokenName() + " must be > 0: " + value, context);
 			}
 		}
 		else

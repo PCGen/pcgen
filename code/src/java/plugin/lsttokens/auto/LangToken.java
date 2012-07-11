@@ -95,12 +95,12 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 					String errorText = "Invalid " + getTokenName() + ": " + value
 							+ "  PRExxx must be at the END of the Token";
 					Logging.errorPrint(errorText);
-					return new ParseResult.Fail(errorText);
+					return new ParseResult.Fail(errorText, context);
 				}
 				prereq = getPrerequisite(token);
 				if (prereq == null)
 				{
-					return new ParseResult.Fail("Error generating Prerequisite " + prereq + " in " + getFullName());
+					return new ParseResult.Fail("Error generating Prerequisite " + prereq + " in " + getFullName(), context);
 				}
 				int preStart = value.indexOf(token) - 1;
 				lang = value.substring(0, preStart);
@@ -118,7 +118,7 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 				if (!firstToken)
 				{
 					return new ParseResult.Fail("Non-sensical situation was " + "encountered while parsing "
-							+ getTokenName() + ": When used, .CLEAR must be the first argument");
+							+ getTokenName() + ": When used, .CLEAR must be the first argument", context);
 				}
 				context.getObjectContext().removeList(obj, ListKey.AUTO_LANGUAGE);
 			} else if ("%LIST".equals(token))
@@ -149,7 +149,7 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 				CDOMReference<Language> ref = TokenUtilities.getTypeOrPrimitive(context, LANGUAGE_CLASS, token);
 				if (ref == null)
 				{
-					return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName());
+					return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName(), context);
 				}
 				context.getObjectContext().addToList(obj, ListKey.AUTO_LANGUAGE,
 						new QualifiedObject<CDOMReference<Language>>(ref, prereq));
@@ -160,7 +160,7 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 		if (foundAny && foundOther)
 		{
 			return new ParseResult.Fail("Non-sensical " + getFullName() + ": Contains ANY and a specific reference: "
-					+ value);
+					+ value, context);
 		}
 
 		return ParseResult.SUCCESS;

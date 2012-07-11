@@ -65,7 +65,7 @@ public class SchoolToken extends AbstractTokenWithSeparator<Spell> implements
 				if (!first)
 				{
 					return new ParseResult.Fail("  Non-sensical " + getTokenName()
-							+ ": .CLEAR was not the first list item: " + value);
+							+ ": .CLEAR was not the first list item: " + value, context);
 				}
 				context.getObjectContext().removeList(spell,
 						ListKey.SPELL_SCHOOL);
@@ -73,12 +73,12 @@ public class SchoolToken extends AbstractTokenWithSeparator<Spell> implements
 			else if (Constants.LST_ALL.equals(tokString))
 			{
 				return new ParseResult.Fail(getTokenName()
-					+ "used reserved word ALL: " + value);
+					+ "used reserved word ALL: " + value, context);
 			}
 			else if (Constants.LST_ANY.equals(tokString))
 			{
 				return new ParseResult.Fail(getTokenName()
-					+ "used reserved word ANY: " + value);
+					+ "used reserved word ANY: " + value, context);
 			}
 			else
 			{

@@ -84,31 +84,31 @@ public class StatToken extends AbstractTokenWithSeparator<KitStat> implements
 			if (equalLoc == -1)
 			{
 				return new ParseResult.Fail("Illegal " + getTokenName()
-						+ " did not have Stat=X format: " + value);
+						+ " did not have Stat=X format: " + value, context);
 			}
 			if (equalLoc != token.lastIndexOf('='))
 			{
 				return new ParseResult.Fail("Illegal " + getTokenName()
 						+ " had two equal signs, is not Stat=X format: "
-						+ value);
+						+ value, context);
 			}
 			String statName = token.substring(0, equalLoc);
 			PCStat stat = context.ref.getAbbreviatedObject(PCStat.class,
 					statName);
 			if (stat == null)
 			{
-				return new ParseResult.Fail("Unable to find STAT: " + statName);
+				return new ParseResult.Fail("Unable to find STAT: " + statName, context);
 			}
 			String formula = token.substring(equalLoc + 1);
 			if (formula.length() == 0)
 			{
-				return new ParseResult.Fail("Unable to find STAT value: " + value);
+				return new ParseResult.Fail("Unable to find STAT value: " + value, context);
 			}
 			Formula statValue = FormulaFactory.getFormulaFor(formula);
 			if (!statValue.isValid())
 			{
 				return new ParseResult.Fail("StatValue in " + getTokenName()
-						+ " was not valid: " + statValue.toString());
+						+ " was not valid: " + statValue.toString(), context);
 			}
 			kitStat.addStat(stat, statValue);
 		}

@@ -36,7 +36,7 @@ public class RaceToken implements CDOMCompatibilityToken<CDOMObject>
 	{
 		if (value == null)
 		{
-			return new ParseResult.Fail("CHOOSE:RACE must not be empty");
+			return new ParseResult.Fail("CHOOSE:RACE must not be empty", context);
 		}
 		if (((value.indexOf("RACE|") == 0) && ((value.indexOf("[") == 4) || (value
 				.indexOf("|[") != -1))))
@@ -44,7 +44,7 @@ public class RaceToken implements CDOMCompatibilityToken<CDOMObject>
 			return context.processSubToken(obj, getTokenName(), "RACE",
 					StringUtil.replaceAll(value.substring(5), "[", "ANY["));
 		}
-		return new ParseResult.Fail("CHOOSE:RACE not compatible");
+		return new ParseResult.Fail("CHOOSE:RACE not compatible", context);
 	}
 
 	public Class<CDOMObject> getTokenClass()

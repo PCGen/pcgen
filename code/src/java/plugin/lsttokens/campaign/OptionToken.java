@@ -51,7 +51,7 @@ public class OptionToken extends AbstractNonEmptyToken<Campaign> implements
 		if (equalsPos < 0)
 		{
 			return new ParseResult.Fail("Invalid option line in campaign "
-					+ campaign.getKeyName() + " : " + value);
+					+ campaign.getKeyName() + " : " + value, context);
 		}
 		String optName = value.substring(0, equalsPos);
 

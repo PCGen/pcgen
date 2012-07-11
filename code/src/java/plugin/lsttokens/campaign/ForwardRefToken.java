@@ -65,7 +65,7 @@ public class ForwardRefToken extends AbstractTokenWithSeparator<Campaign>
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " requires at least two arguments, "
-					+ "ReferenceType and Key: " + value);
+					+ "ReferenceType and Key: " + value, context);
 		}
 		if (value.lastIndexOf('|') != pipeLoc)
 		{
@@ -82,14 +82,14 @@ public class ForwardRefToken extends AbstractTokenWithSeparator<Campaign>
 		if (rm == null)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " unable to generate manufacturer for type: " + value);
+					+ " unable to generate manufacturer for type: " + value, context);
 		}
 
 		String rest = value.substring(pipeLoc + 1);
 		if (hasIllegalSeparator(',', rest))
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " keys are comma separated");
+					+ " keys are comma separated", context);
 		}
 		StringTokenizer st = new StringTokenizer(rest, Constants.COMMA);
 		while (st.hasMoreTokens())

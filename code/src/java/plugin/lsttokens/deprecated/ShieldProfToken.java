@@ -37,12 +37,12 @@ public class ShieldProfToken implements CDOMSecondaryToken<CDOMObject>
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-			String value)
+		String value)
 	{
 		Logging.deprecationPrint("CHOOSE:SHIELDPROF has been deprecated, "
-				+ "please use CHOOSE:SHIELDPROFICIENCY|EQUIPMENT[x]");
+			+ "please use CHOOSE:SHIELDPROFICIENCY|EQUIPMENT[x]", context);
 		return context.processSubToken(obj, getParentToken(),
-				"SHIELDPROFICIENCY", "EQUIPMENT[" + value + "]");
+			"SHIELDPROFICIENCY", "EQUIPMENT[" + value + "]");
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)

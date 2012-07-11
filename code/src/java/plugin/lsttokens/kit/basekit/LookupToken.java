@@ -69,18 +69,18 @@ public class LookupToken extends AbstractToken implements
 		String first = sep.next();
 		if (!sep.hasNext())
 		{
-			return new ParseResult.Fail("Token must contain separator ','");
+			return new ParseResult.Fail("Token must contain separator ','", context);
 		}
 		String second = sep.next();
 		if (sep.hasNext())
 		{
-			return new ParseResult.Fail("Token cannot have more than one separator ','");
+			return new ParseResult.Fail("Token cannot have more than one separator ','", context);
 		}
 		Formula formula = FormulaFactory.getFormulaFor(second);
 		if (!formula.isValid())
 		{
 			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString());
+					+ " was not valid: " + formula.toString(), context);
 		}
 		kitGear.loadLookup(first, formula);
 		return ParseResult.SUCCESS;

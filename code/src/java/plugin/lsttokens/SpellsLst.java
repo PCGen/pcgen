@@ -79,14 +79,14 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 		if ((sourceLine == null) || (sourceLine.length() == 0))
 		{
 			return new ParseResult.Fail("Argument in " + getTokenName()
-					+ " cannot be empty");
+					+ " cannot be empty", context);
 		}
 		ParsingSeparator sep = new ParsingSeparator(sourceLine, '|');
 		String spellBook = sep.next();
 		if (spellBook.length() == 0)
 		{
 			return new ParseResult.Fail("SpellBook in " + getTokenName()
-					+ " cannot be empty");
+					+ " cannot be empty", context);
 		}
 		// Formula casterLevel = null;
 		String casterLevel = null;
@@ -96,7 +96,7 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ ": minimally requires a Spell Name");
+					+ ": minimally requires a Spell Name", context);
 		}
 		String token = sep.next();
 
@@ -108,20 +108,20 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 				{
 					return new ParseResult.Fail(
 							"Found two TIMES entries in " + getTokenName()
-									+ ": invalid: " + sourceLine);
+									+ ": invalid: " + sourceLine, context);
 				}
 				times = token.substring(6);
 				if (times.length() == 0)
 				{
 					return new ParseResult.Fail(
 							"Error in Times in " + getTokenName()
-									+ ": argument was empty");
+									+ ": argument was empty", context);
 				}
 				if (!sep.hasNext())
 				{
 					return new ParseResult.Fail(getTokenName()
 							+ ": minimally requires "
-							+ "a Spell Name (after TIMES=)");
+							+ "a Spell Name (after TIMES=)", context);
 				}
 				token = sep.next();
 			}
@@ -131,20 +131,20 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 				{
 					return new ParseResult.Fail(
 							"Found two TIMEUNIT entries in " + getTokenName()
-									+ ": invalid: " + sourceLine);
+									+ ": invalid: " + sourceLine, context);
 				}
 				timeunit = token.substring(9);
 				if (timeunit.length() == 0)
 				{
 					return new ParseResult.Fail(
 							"Error in TimeUnit in " + getTokenName()
-									+ ": argument was empty");
+									+ ": argument was empty", context);
 				}
 				if (!sep.hasNext())
 				{
 					return new ParseResult.Fail(getTokenName()
 							+ ": minimally requires "
-							+ "a Spell Name (after TIMEUNIT=)");
+							+ "a Spell Name (after TIMEUNIT=)", context);
 				}
 				token = sep.next();
 			}
@@ -155,20 +155,20 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 					return new ParseResult.Fail(
 							"Found two CASTERLEVEL entries in "
 									+ getTokenName() + ": invalid: "
-									+ sourceLine);
+									+ sourceLine, context);
 				}
 				casterLevel = token.substring(12);
 				if (casterLevel.length() == 0)
 				{
 					return new ParseResult.Fail(
 							"Error in Caster Level in " + getTokenName()
-									+ ": argument was empty");
+									+ ": argument was empty", context);
 				}
 				if (!sep.hasNext())
 				{
 					return new ParseResult.Fail(getTokenName()
 							+ ": minimally requires a "
-							+ "Spell Name (after CASTERLEVEL=)");
+							+ "Spell Name (after CASTERLEVEL=)", context);
 				}
 				token = sep.next();
 			}
@@ -185,22 +185,22 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 		if (token.length() == 0)
 		{
 			return new ParseResult.Fail("Spell arguments may not be empty in "
-					+ getTokenName() + ": " + sourceLine);
+					+ getTokenName() + ": " + sourceLine, context);
 		}
 		if (token.charAt(0) == ',')
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " Spell arguments may not start with , : " + token);
+					+ " Spell arguments may not start with , : " + token, context);
 		}
 		if (token.charAt(token.length() - 1) == ',')
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " Spell arguments may not end with , : " + token);
+					+ " Spell arguments may not end with , : " + token, context);
 		}
 		if (token.indexOf(",,") != -1)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " Spell arguments uses double separator ,, : " + token);
+					+ " Spell arguments uses double separator ,, : " + token, context);
 		}
 
 		/*
@@ -216,7 +216,7 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 			if (token.length() == 0)
 			{
 				return new ParseResult.Fail("Spell arguments may not end with comma or pipe in "
-						+ getTokenName() + ": " + sourceLine);
+						+ getTokenName() + ": " + sourceLine, context);
 			}
 			int commaLoc = token.indexOf(',');
 			String name = commaLoc == -1 ? token : token.substring(0, commaLoc);
@@ -227,7 +227,7 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 			if (!timesFormula.isValid())
 			{
 				return new ParseResult.Fail("Times in " + getTokenName()
-						+ " was not valid: " + timesFormula.toString());
+						+ " was not valid: " + timesFormula.toString(), context);
 			}
 			dkm.put(spell, AssociationKey.TIMES_PER_UNIT, timesFormula);
 			if (timeunit != null)
@@ -262,7 +262,7 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 			{
 				return new ParseResult.Fail(
 						"   (Did you put spells after the "
-								+ "PRExxx tags in SPELLS:?)");
+								+ "PRExxx tags in SPELLS:?)", context);
 			}
 			prereqs.add(prereq);
 			if (!sep.hasNext())

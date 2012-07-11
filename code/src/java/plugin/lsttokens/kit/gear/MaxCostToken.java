@@ -62,7 +62,7 @@ public class MaxCostToken extends AbstractToken implements
 			Integer quan = Integer.valueOf(value);
 			if (quan.intValue() <= 0)
 			{
-				return new ParseResult.Fail(getTokenName() + " expected an integer > 0");
+				return new ParseResult.Fail(getTokenName() + " expected an integer > 0", context);
 			}
 			kitGear.setMaxCost(quan);
 			return ParseResult.SUCCESS;
@@ -71,7 +71,7 @@ public class MaxCostToken extends AbstractToken implements
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " expected an integer.  Tag must be of the form: "
-				+ getTokenName() + ":<int>");
+				+ getTokenName() + ":<int>", context);
 		}
 	}
 

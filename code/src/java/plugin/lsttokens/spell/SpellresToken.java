@@ -65,7 +65,7 @@ public class SpellresToken extends AbstractTokenWithSeparator<Spell> implements
 				if (!first)
 				{
 					return new ParseResult.Fail("Non-sensical use of .CLEAR in "
-							+ getTokenName() + ": " + value);
+							+ getTokenName() + ": " + value, context);
 				}
 				context.getObjectContext().removeList(spell,
 						ListKey.SPELL_RESISTANCE);

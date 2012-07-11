@@ -72,7 +72,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 			return ParseResult.SUCCESS;
 		}
 		return new ParseResult.Fail("CHOOSE:" + getTokenName()
-			+ " will ignore arguments: " + value);
+			+ " will ignore arguments: " + value, context);
 	}
 
 	@Override

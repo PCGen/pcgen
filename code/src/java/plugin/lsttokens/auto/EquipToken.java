@@ -100,13 +100,13 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 					{
 						String errorText = "Invalid " + getTokenName() + ": " + value + "  PRExxx must be at the END of the Token";
 						Logging.errorPrint(errorText);
-						return new ParseResult.Fail(errorText);
+						return new ParseResult.Fail(errorText, context);
 					}
 					prereq = getPrerequisite(token);
 					if (prereq == null)
 					{
 						return new ParseResult.Fail("Error generating Prerequisite "
-								+ prereq + " in " + getFullName());
+								+ prereq + " in " + getFullName(), context);
 					}
 					int preStart = value.indexOf(token) - 1;
 					equipItems = value.substring(0, preStart);
@@ -117,13 +117,13 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		else
 		{
 			Logging.deprecationPrint("Use of [] for Prerequisites is is deprecated, "
-					+ "please use | based standard");
+					+ "please use | based standard", context);
 			int openBracketLoc = value.indexOf("[");
 			equipItems = value.substring(0, openBracketLoc);
 			if (!value.endsWith("]"))
 			{
 				return new ParseResult.Fail("Unresolved Prerequisite in " + value
-						+ " in " + getFullName());
+						+ " in " + getFullName(), context);
 			}
 			prereq = getPrerequisite(value.substring(openBracketLoc + 1, value
 					.length() - 1));
@@ -131,7 +131,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 			{
 				return new ParseResult.Fail("Error generating Prerequisite "
 						+ value.substring(openBracketLoc + 1,
-								value.length() - 1) + " in " + getFullName());
+								value.length() - 1) + " in " + getFullName(), context);
 			}
 		}
 

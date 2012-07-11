@@ -54,7 +54,7 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 		if (commaLoc != value.lastIndexOf(Constants.COMMA))
 		{
 			return new ParseResult.Fail(getTokenName() + " must be of the form: "
-					+ getTokenName() + ":<num>[,<num>]");
+					+ getTokenName() + ":<num>[,<num>]", context);
 		}
 		if (commaLoc > -1)
 		{
@@ -62,13 +62,13 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 			{
 				return new ParseResult.Fail(getTokenName()
 								+ " should not start with a comma.  Must be of the form: "
-								+ getTokenName() + ":<num>[,<num>]");
+								+ getTokenName() + ":<num>[,<num>]", context);
 			}
 			if (commaLoc == value.length() - 1)
 			{
 				return new ParseResult.Fail(getTokenName()
 								+ " should not end with a comma.  Must be of the form: "
-								+ getTokenName() + ":<num>[,<num>]");
+								+ getTokenName() + ":<num>[,<num>]", context);
 			}
 			try
 			{
@@ -77,7 +77,7 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 				if (width.compareTo(BigDecimal.ZERO) < 0)
 				{
 					return new ParseResult.Fail("Cannot have negative width in "
-							+ getTokenName() + ": " + value);
+							+ getTokenName() + ": " + value, context);
 				}
 				context.getObjectContext().put(fObj, ObjectKey.FACE_WIDTH,
 						width);
@@ -85,7 +85,7 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 			catch (NumberFormatException nfe)
 			{
 				return new ParseResult.Fail("Misunderstood Double Width in Tag: "
-						+ value);
+						+ value, context);
 			}
 
 			try
@@ -95,7 +95,7 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 				if (height.compareTo(BigDecimal.ZERO) < 0)
 				{
 					return new ParseResult.Fail("Cannot have negative height in "
-							+ getTokenName() + ": " + value);
+							+ getTokenName() + ": " + value, context);
 				}
 				context.getObjectContext().put(fObj, ObjectKey.FACE_HEIGHT,
 						height);
@@ -103,7 +103,7 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 			catch (NumberFormatException ne)
 			{
 				return new ParseResult.Fail("Misunderstood Double Height in Tag: "
-						+ value);
+						+ value, context);
 			}
 		}
 		else
@@ -115,7 +115,7 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 				if (width.compareTo(BigDecimal.ZERO) < 0)
 				{
 					return new ParseResult.Fail("Cannot have negative width in "
-							+ getTokenName() + ": " + value);
+							+ getTokenName() + ": " + value, context);
 				}
 				context.getObjectContext().put(fObj, ObjectKey.FACE_WIDTH,
 						width);
@@ -124,7 +124,7 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 			}
 			catch (NumberFormatException nfe)
 			{
-				return new ParseResult.Fail("Misunderstood Double in Tag: " + value);
+				return new ParseResult.Fail("Misunderstood Double in Tag: " + value, context);
 			}
 		}
 		return ParseResult.SUCCESS;

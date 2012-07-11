@@ -37,10 +37,10 @@ public class HPToken implements CDOMSecondaryToken<CDOMObject>
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-			String value)
+		String value)
 	{
 		Logging.deprecationPrint("CHOOSE:HP has been deprecated, "
-				+ "please use CHOOSE:STRING| ");
+			+ "please use CHOOSE:STRING|", context);
 		return context.processSubToken(obj, "CHOOSE", "STRING", value);
 	}
 

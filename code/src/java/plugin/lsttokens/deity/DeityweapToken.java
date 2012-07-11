@@ -81,7 +81,7 @@ public class DeityweapToken extends AbstractTokenWithSeparator<Deity> implements
 		if (foundAny && foundOther)
 		{
 			return new ParseResult.Fail("Non-sensical " + getTokenName()
-					+ ": Contains ANY and a specific reference: " + value);
+					+ ": Contains ANY and a specific reference: " + value, context);
 		}
 		return ParseResult.SUCCESS;
 	}

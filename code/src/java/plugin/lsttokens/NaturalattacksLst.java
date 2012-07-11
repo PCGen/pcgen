@@ -114,7 +114,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				return ParseResult.INTERNAL_ERROR;
 				//return new ParseResult.Fail("Natural Weapon Creation Failed for : "
-				//		+ tokString);
+				//		+ tokString, context);
 			}
 
 			if (count == 1)

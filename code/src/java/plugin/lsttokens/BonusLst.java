@@ -66,7 +66,7 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 		if (bon == null)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " was given invalid bonus: " + value);
+					+ " was given invalid bonus: " + value, context);
 		}
 		bon.setTokenSource(getTokenName());
 		context.obj.addToList(obj, ListKey.BONUS, bon);

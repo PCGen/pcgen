@@ -79,27 +79,27 @@ public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
 		{
 			return new ParseResult.Fail(
 				"No pipe found.  ABILITY token "
-					+ "in a Kit requires CATEGORY=<cat>|<ability>,<ability>");
+					+ "in a Kit requires CATEGORY=<cat>|<ability>,<ability>", context);
 		}
 		String catString = value.substring(0, pipeLoc);
 		if (!catString.startsWith("CATEGORY="))
 		{
 			return new ParseResult.Fail(
 				"No CATEGORY= found.  ABILITY token "
-					+ "in a Kit requires CATEGORY=<cat>|<abilities>");
+					+ "in a Kit requires CATEGORY=<cat>|<abilities>", context);
 		}
 		if (catString.length() < 10)
 		{
 			return new ParseResult.Fail(
 				"No category found.  ABILITY token "
-					+ "in a Kit requires CATEGORY=<cat>|<abilities>");
+					+ "in a Kit requires CATEGORY=<cat>|<abilities>", context);
 		}
 		Category<Ability> ac = context.ref.silentlyGetConstructedCDOMObject(
 				ABILITY_CATEGORY_CLASS, catString.substring(9));
 		if (ac == null)
 		{
 			return new ParseResult.Fail(
-					"Ability Category " + catString.substring(9) + " not found");
+					"Ability Category " + catString.substring(9) + " not found", context);
 		}
 		/*
 		 * CONSIDER In the future it would be nice to not have to do this cast,

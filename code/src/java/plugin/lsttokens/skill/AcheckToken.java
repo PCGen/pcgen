@@ -82,7 +82,7 @@ public class AcheckToken extends AbstractNonEmptyToken<Skill> implements
 			else
 			{
 				return new ParseResult.Fail("Skill "
-						+ getTokenName() + " Did not understand: " + value);
+						+ getTokenName() + " Did not understand: " + value, context);
 			}
 		}
 

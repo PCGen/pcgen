@@ -68,18 +68,18 @@ public class LevelAbilityToken extends AbstractNonEmptyToken<KitLevelAbility>
 		int equalLoc = value.indexOf('=');
 		if (equalLoc == -1)
 		{
-			return new ParseResult.Fail(getTokenName() + " requires an =: " + value);
+			return new ParseResult.Fail(getTokenName() + " requires an =: " + value, context);
 		}
 		if (equalLoc != value.lastIndexOf('='))
 		{
 			return new ParseResult.Fail(getTokenName() + " requires a single =: "
-					+ value);
+					+ value, context);
 		}
 		String className = value.substring(0, equalLoc);
 		if (className.length() == 0)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ " requires a class name before =: " + value);
+					+ " requires a class name before =: " + value, context);
 		}
 		String level = value.substring(equalLoc + 1);
 		CDOMSingleRef<PCClass> cl = context.ref.getCDOMReference(PCClass.class,
@@ -97,7 +97,7 @@ public class LevelAbilityToken extends AbstractNonEmptyToken<KitLevelAbility>
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>");
+					+ getTokenName() + ":<int>", context);
 		}
 		kitLA.setClass(cl);
 		return ParseResult.SUCCESS;

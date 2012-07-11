@@ -66,17 +66,17 @@ public class SkilllistToken extends AbstractTokenWithSeparator<PCClass>
 		if (!count.isValid())
 		{
 			return new ParseResult.Fail("Count in " + getTokenName()
-					+ " was not valid: " + count.toString());
+					+ " was not valid: " + count.toString(), context);
 		}
 		if (!count.isStatic() || count.resolve(null, "").intValue() <= 0)
 		{
-			return new ParseResult.Fail("Count in " + getTokenName() + " must be > 0");
+			return new ParseResult.Fail("Count in " + getTokenName() + " must be > 0", context);
 		}
 		if (!tok.hasMoreTokens())
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " must have a | separating "
-					+ "count from the list of possible values: " + value);
+					+ "count from the list of possible values: " + value, context);
 		}
 		List<CDOMReference<ClassSkillList>> refs = new ArrayList<CDOMReference<ClassSkillList>>();
 

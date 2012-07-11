@@ -19,6 +19,7 @@ package pcgen.rules.persistence.token;
 
 import java.util.logging.Level;
 
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -54,7 +55,6 @@ public interface ParseResult
 	 * See plugin.lsttokens.race.FeatToken.
 	 */
 	public static Fail INTERNAL_ERROR = new Fail("Internal error.");
-
 
 	/**
 	 * Class representing a message from the parser.
@@ -103,12 +103,28 @@ public interface ParseResult
 	{
 		private final QueuedMessage error;
 
-        public Fail(String error)
+		public Fail(String error)
 		{
 			this.error = new QueuedMessage(Logging.LST_ERROR, error);
 		}
 
-    	@Override
+		public Fail(String error, LoadContext context)
+		{
+			if (context != null && context.getObjectContext() != null
+				&& context.getObjectContext().getSourceURI() != null)
+			{
+				this.error =
+						new QueuedMessage(Logging.LST_ERROR, error
+							+ " (Source: "
+							+ context.getObjectContext().getSourceURI() + ")");
+			}
+			else
+			{
+				this.error = new QueuedMessage(Logging.LST_ERROR, error);
+			}
+		}
+
+		@Override
 		public boolean passed()
 		{
 			return false;
@@ -131,7 +147,7 @@ public interface ParseResult
 		{
 			Logging.log(error.level, error.message, error.stackTrace);
 		}
-		
+
 		@Override
 		public String toString()
 		{

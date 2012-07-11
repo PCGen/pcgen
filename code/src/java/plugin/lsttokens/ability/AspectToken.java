@@ -82,7 +82,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " expecting '|', format is: "
-					+ "AspectName|Aspect value|Variable|... was: " + value);
+					+ "AspectName|Aspect value|Variable|... was: " + value, context);
 		}
 		String key = value.substring(0, pipeLoc);
 		if (key.length() == 0)
@@ -90,7 +90,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 			return new ParseResult.Fail(getTokenName()
 					+ " expecting non-empty type, "
 					+ "format is: AspectName|Aspect value|Variable|... was: "
-					+ value);
+					+ value, context);
 		}
 		String val = value.substring(pipeLoc + 1);
 		if (val.length() == 0)
@@ -98,14 +98,14 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 			return new ParseResult.Fail(getTokenName()
 					+ " expecting non-empty value, "
 					+ "format is: AspectName|Aspect value|Variable|... was: "
-					+ value);
+					+ value, context);
 		}
 		if (val.startsWith(Constants.PIPE))
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " expecting non-empty value, "
 					+ "format is: AspectName|Aspect value|Variable|... was: "
-					+ value);
+					+ value, context);
 		}
 		Aspect a = parseAspect(key, val);
 		List<Aspect> aspects = null;

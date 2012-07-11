@@ -130,7 +130,7 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 		{
 			return new ParseResult.Fail("Non-sensical " + getTokenName()
 				+ ": Contains " + Constants.HIGHEST_LEVEL_CLASS
-				+ " and a specific reference: " + value);
+				+ " and a specific reference: " + value, context);
 		}
 		return ParseResult.SUCCESS;
 	}

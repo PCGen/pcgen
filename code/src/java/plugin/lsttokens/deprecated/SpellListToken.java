@@ -36,11 +36,13 @@ public class SpellListToken implements CDOMSecondaryToken<CDOMObject>
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-			String value)
+		String value)
 	{
-		return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " no longer supported, "
-				+ "please use the Data Converter to convert data to 5.17.x");
+		return new ParseResult.Fail(
+			"CHOOSE:"
+				+ getTokenName()
+				+ " no longer supported, please use the Data Converter to convert data to 5.17.x",
+			context);
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)

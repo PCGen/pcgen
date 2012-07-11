@@ -69,7 +69,7 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		if (firstToken.startsWith("PRE") || firstToken.startsWith("!PRE"))
 		{
 			return new ParseResult.Fail("Cannot have only PRExxx subtoken in "
-					+ getTokenName());
+					+ getTokenName(), context);
 		}
 
 		boolean foundClear = false;
@@ -89,13 +89,13 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail(
 					"Cannot use PREREQs when using .CLEAR in "
-							+ getTokenName());
+							+ getTokenName(), context);
 		}
 
 		if (Constants.LST_DOT_CLEAR.equals(firstToken))
 		{
 			return new ParseResult.Fail("SA tag confused by redundant '.CLEAR'"
-					+ aString);
+					+ aString, context);
 		}
 
 		SpecialAbility sa = new SpecialAbility(firstToken);
@@ -116,7 +116,7 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			if (Constants.LST_DOT_CLEAR.equals(token))
 			{
 				return new ParseResult.Fail("SA tag confused by '.CLEAR' as a "
-						+ "middle token: " + aString);
+						+ "middle token: " + aString, context);
 			}
 			else if (token.startsWith("PRE") || token.startsWith("!PRE"))
 			{
@@ -145,7 +145,7 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail(
 					"Cannot use PREREQs when using .CLEAR and a Special Ability in "
-							+ getTokenName());
+							+ getTokenName(), context);
 		}
 
 		while (true)
@@ -154,7 +154,7 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			if (prereq == null)
 			{
 				return new ParseResult.Fail("   (Did you put Abilities after the "
-						+ "PRExxx tags in " + getTokenName() + ":?)");
+						+ "PRExxx tags in " + getTokenName() + ":?)", context);
 			}
 			sa.addPrerequisite(prereq);
 			if (!tok.hasMoreTokens())

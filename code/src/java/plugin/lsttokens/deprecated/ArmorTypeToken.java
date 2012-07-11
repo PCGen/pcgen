@@ -42,8 +42,8 @@ public class ArmorTypeToken implements CDOMSecondaryToken<CDOMObject>
 	{
 		ComplexParseResult cpr = new ComplexParseResult();
 		cpr.addWarningMessage("CHOOSE:ARMORTYPE has been deprecated.  "
-				+ "If you are looking for a replacement function, "
-				+ "please contact the PCGen team for support");
+			+ "If you are looking for a replacement function, "
+			+ "please contact the PCGen team for support. (Source: " + context.getObjectContext().getSourceURI() + ")");
 		if (value == null)
 		{
 			// No args - legal
@@ -51,13 +51,14 @@ public class ArmorTypeToken implements CDOMSecondaryToken<CDOMObject>
 			return cpr;
 		}
 		return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " will ignore arguments: " + value);
+			+ " will ignore arguments: " + value, context);
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		String chooseString = context.getObjectContext().getString(cdo,
-				StringKey.CHOICE_STRING);
+		String chooseString =
+				context.getObjectContext().getString(cdo,
+					StringKey.CHOICE_STRING);
 		if (chooseString == null)
 		{
 			return null;
@@ -75,7 +76,7 @@ public class ArmorTypeToken implements CDOMSecondaryToken<CDOMObject>
 			}
 			returnString = chooseString.substring(getTokenName().length() + 1);
 		}
-		return new String[] { returnString };
+		return new String[]{returnString};
 	}
 
 	public Class<CDOMObject> getTokenClass()

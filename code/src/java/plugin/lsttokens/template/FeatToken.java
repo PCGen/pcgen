@@ -93,7 +93,7 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 				if (!first)
 				{
 					return new ParseResult.Fail("  Non-sensical " + getTokenName()
-							+ ": .CLEAR was not the first list item: " + value);
+							+ ": .CLEAR was not the first list item: " + value, context);
 				}
 			}
 			else

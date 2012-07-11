@@ -62,7 +62,7 @@ public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject>
 			return new ParseResult.Fail(
 					"Invalid Version of MOVECLONE detected: " + value
 							+ "\n  MOVECLONE has 3 arguments: "
-							+ "SourceMove,DestinationMove,Modifier");
+							+ "SourceMove,DestinationMove,Modifier", context);
 		}
 
 		String oldType = moves.nextToken();
@@ -79,14 +79,14 @@ public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject>
 					return new ParseResult.Fail(getTokenName()
 							+ " was expecting a Positive Integer "
 							+ "for dividing Movement, was : "
-							+ formulaString.substring(1));
+							+ formulaString.substring(1), context);
 				}
 			}
 			catch (NumberFormatException e)
 			{
 				return new ParseResult.Fail(getTokenName()
 						+ " was expecting an integer to follow /, was : "
-						+ formulaString);
+						+ formulaString, context);
 			}
 		}
 		else if (formulaString.startsWith("*"))
@@ -99,14 +99,14 @@ public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject>
 					return new ParseResult.Fail(getTokenName()
 							+ " was expecting an "
 							+ "Integer >= 0 for multiplying Movement, was : "
-							+ formulaString.substring(1));
+							+ formulaString.substring(1), context);
 				}
 			}
 			catch (NumberFormatException e)
 			{
 				return new ParseResult.Fail(getTokenName()
 						+ " was expecting an integer to follow *, was : "
-						+ formulaString);
+						+ formulaString, context);
 			}
 		}
 		else if (formulaString.startsWith("+"))
@@ -119,14 +119,14 @@ public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject>
 					return new ParseResult.Fail(getTokenName()
 							+ " was expecting a Non-Negative "
 							+ "Integer for adding Movement, was : "
-							+ formulaString.substring(1));
+							+ formulaString.substring(1), context);
 				}
 			}
 			catch (NumberFormatException e)
 			{
 				return new ParseResult.Fail(getTokenName()
 						+ " was expecting an integer to follow +, was : "
-						+ formulaString);
+						+ formulaString, context);
 			}
 		}
 		else
@@ -139,7 +139,7 @@ public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				return new ParseResult.Fail(getTokenName()
 						+ " was expecting a Formula as the final value, was : "
-						+ formulaString);
+						+ formulaString, context);
 			}
 		}
 		Movement cm = new Movement(2);

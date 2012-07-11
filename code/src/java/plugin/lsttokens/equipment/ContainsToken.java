@@ -75,7 +75,7 @@ public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
 		if (percentLoc != weightCapacity.lastIndexOf(Constants.CHAR_PERCENT))
 		{
 			return new ParseResult.Fail("Cannot have two weight reduction "
-							+ "characters (indicated by %): " + value);
+							+ "characters (indicated by %): " + value, context);
 		}
 		if (percentLoc != -1)
 		{
@@ -83,7 +83,7 @@ public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
 			{
 				return new ParseResult.Fail("Cannot have Constant Weight (indicated by *) "
 								+ "and weight reduction (indicated by %): "
-								+ value);
+								+ value, context);
 			}
 			String redString = weightCapacity.substring(0, percentLoc);
 			weightCapacity = weightCapacity.substring(percentLoc + 1);
@@ -97,7 +97,7 @@ public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
 			catch (NumberFormatException ex)
 			{
 				return new ParseResult.Fail("Weight Reduction (indicated by %) must be an integer: "
-								+ value);
+								+ value, context);
 			}
 		}
 
@@ -116,13 +116,13 @@ public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
 				{
 					return new ParseResult.Fail("Weight Capacity must be >= 0: "
 											+ weightCapacity
-											+ "\n  Use 'UNLIM' (not -1) for unlimited Count");
+											+ "\n  Use 'UNLIM' (not -1) for unlimited Count", context);
 				}
 			}
 			catch (NumberFormatException ex)
 			{
 				return new ParseResult.Fail("Weight Capacity must be 'UNLIM or a number >= 0: "
-								+ weightCapacity);
+								+ weightCapacity, context);
 			}
 		}
 		context.getObjectContext().put(eq, ObjectKey.CONTAINER_WEIGHT_CAPACITY,
@@ -144,7 +144,7 @@ public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
 			int equalLoc = typeString.indexOf(Constants.EQUALS);
 			if (equalLoc != typeString.lastIndexOf(Constants.EQUALS))
 			{
-				return new ParseResult.Fail("Two many = signs");
+				return new ParseResult.Fail("Two many = signs", context);
 			}
 			if (equalLoc == -1)
 			{
@@ -173,12 +173,12 @@ public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
 					{
 						return new ParseResult.Fail("Item Number for " + itemType
 										+ " must be 'UNLIM' or a number > 0: "
-										+ itemNumString);
+										+ itemNumString, context);
 					}
 					if (BigDecimal.ZERO.compareTo(itemNumber) >= 0)
 					{
 						return new ParseResult.Fail("Cannot have negative quantity of " + itemType
-										+ ": " + value);
+										+ ": " + value, context);
 					}
 				}
 				if (limited)

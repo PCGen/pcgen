@@ -52,7 +52,7 @@ public class CostToken extends AbstractNonEmptyToken<Equipment> implements
 			// if (cost.compareTo(BigDecimal.ZERO) < 0)
 			// {
 			// return new ParseResult.Fail(getTokenName()
-			// + " must be a positive number: " + value);
+			// + " must be a positive number: " + value, context);
 			// return false;
 			// }
 			context.getObjectContext().put(eq, ObjectKey.COST, cost);
@@ -60,7 +60,7 @@ public class CostToken extends AbstractNonEmptyToken<Equipment> implements
 		}
 		catch (NumberFormatException e)
 		{
-			return new ParseResult.Fail(getTokenName() + " expected a number: " + value);
+			return new ParseResult.Fail(getTokenName() + " expected a number: " + value, context);
 		}
 	}
 

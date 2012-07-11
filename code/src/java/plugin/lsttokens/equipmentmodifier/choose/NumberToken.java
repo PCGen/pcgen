@@ -48,34 +48,34 @@ public class NumberToken implements CDOMSecondaryToken<EquipmentModifier>
 		if (value == null)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " requires additional arguments");
+					+ " requires additional arguments", context);
 		}
 		if (value.indexOf('[') != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain [] : " + value);
+					+ " arguments may not contain [] : " + value, context);
 		}
 		if (value.charAt(0) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not start with | : " + value);
+					+ " arguments may not start with | : " + value, context);
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not end with | : " + value);
+					+ " arguments may not end with | : " + value, context);
 		}
 		if (value.indexOf("||") != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments uses double separator || : " + value);
+					+ " arguments uses double separator || : " + value, context);
 		}
 		int pipeLoc = value.indexOf("|");
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 							+ " must have two or more | delimited arguments : "
-							+ value);
+							+ value, context);
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		Integer min = null;
@@ -124,7 +124,7 @@ public class NumberToken implements CDOMSecondaryToken<EquipmentModifier>
 			if (min != null)
 			{
 				return new ParseResult.Fail("Cannot have MIN=n without MAX=m in CHOOSE:NUMBER: "
-								+ value);
+								+ value, context);
 			}
 		}
 		else
@@ -132,12 +132,12 @@ public class NumberToken implements CDOMSecondaryToken<EquipmentModifier>
 			if (min == null)
 			{
 				return new ParseResult.Fail("Cannot have MAX=n without MIN=m in CHOOSE:NUMBER: "
-								+ value);
+								+ value, context);
 			}
 			if (max < min)
 			{
 				return new ParseResult.Fail("Cannot have MAX= less than MIN= in CHOOSE:NUMBER: "
-								+ value);
+								+ value, context);
 			}
 		}
 		StringBuilder sb = new StringBuilder();

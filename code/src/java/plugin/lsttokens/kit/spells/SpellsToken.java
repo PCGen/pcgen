@@ -88,13 +88,13 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 				if (kitSpell.getSpellBook() != null)
 				{
 					return new ParseResult.Fail("Cannot reset SPELLBOOK in SPELLS: "
-							+ value);
+							+ value, context);
 				}
 				String spellBook = field.substring(10);
 				if (spellBook.length() == 0)
 				{
 					return new ParseResult.Fail("Cannot set SPELLBOOK "
-							+ "to empty value in SPELLS: " + value);
+							+ "to empty value in SPELLS: " + value, context);
 				}
 				kitSpell.setSpellBook(spellBook);
 			}
@@ -103,13 +103,13 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 				if (kitSpell.getCastingClass() != null)
 				{
 					return new ParseResult.Fail("Cannot reset CLASS" + " in SPELLS: "
-							+ value);
+							+ value, context);
 				}
 				String className = field.substring(6);
 				if (className.length() == 0)
 				{
 					return new ParseResult.Fail("Cannot set CLASS "
-							+ "to empty value in SPELLS: " + value);
+							+ "to empty value in SPELLS: " + value, context);
 				}
 				else if (className.equalsIgnoreCase("Default"))
 				{
@@ -136,14 +136,14 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 					catch (NumberFormatException e)
 					{
 						return new ParseResult.Fail("Expected an Integer COUNT,"
-								+ " but found: " + countStr + " in " + value);
+								+ " but found: " + countStr + " in " + value, context);
 					}
 					field = field.substring(0, equalLoc);
 				}
 				if (field.length() == 0)
 				{
 					return new ParseResult.Fail("Expected an Spell in SPELLS"
-							+ " but found: " + value);
+							+ " but found: " + value, context);
 				}
 				StringTokenizer subTok = new StringTokenizer(field, "[]");
 				String filterString = subTok.nextToken();
@@ -156,7 +156,7 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 				if (sp == null)
 				{
 					return new ParseResult.Fail("  encountered Invalid limit in "
-							+ getTokenName() + ": " + value);
+							+ getTokenName() + ": " + value, context);
 				}
 
 				KnownSpellIdentifier ksi = new KnownSpellIdentifier(sp, null);

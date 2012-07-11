@@ -37,10 +37,10 @@ public class FeatSelectToken implements CDOMSecondaryToken<CDOMObject>
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-			String value)
+		String value)
 	{
 		Logging.deprecationPrint("CHOOSE:FEATSELECT has been deprecated, "
-				+ "please use CHOOSE:FEAT|x");
+			+ "please use CHOOSE:FEAT|x", context);
 		return context.processSubToken(obj, "CHOOSE", "FEAT", value);
 	}
 

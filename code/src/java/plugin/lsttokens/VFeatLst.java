@@ -82,7 +82,7 @@ public class VFeatLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		if (token.startsWith("PRE") || token.startsWith("!PRE"))
 		{
 			return new ParseResult.Fail("Cannot have only PRExxx subtoken in "
-					+ getTokenName() + ": " + value);
+					+ getTokenName() + ": " + value, context);
 		}
 
 		ArrayList<PrereqObject> edgeList = new ArrayList<PrereqObject>();
@@ -103,7 +103,7 @@ public class VFeatLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				if (!first)
 				{
 					return new ParseResult.Fail("  Non-sensical " + getTokenName()
-							+ ": .CLEAR was not the first list item: " + value);
+							+ ": .CLEAR was not the first list item: " + value, context);
 				}
 				context.getListContext().removeAllFromList(getTokenName(), obj,
 						list);
@@ -169,7 +169,7 @@ public class VFeatLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return new ParseResult.Fail(
 					"Cannot use PREREQs when using .CLEAR in "
-							+ getTokenName());
+							+ getTokenName(), context);
 		}
 
 		while (true)
@@ -178,7 +178,7 @@ public class VFeatLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			if (prereq == null)
 			{
 				return new ParseResult.Fail("   (Did you put feats after the "
-						+ "PRExxx tags in " + getTokenName() + ":?)");
+						+ "PRExxx tags in " + getTokenName() + ":?)", context);
 			}
 			for (PrereqObject edge : edgeList)
 			{

@@ -69,7 +69,7 @@ public class HitdiceadvancementToken extends AbstractTokenWithSeparator<Race>
 				if (commaTok.hasMoreTokens())
 				{
 					return new ParseResult.Fail("Found * in " + getTokenName()
-							+ " but was not at end of list");
+							+ " but was not at end of list", context);
 				}
 
 				hd = Integer.MAX_VALUE;
@@ -84,13 +84,13 @@ public class HitdiceadvancementToken extends AbstractTokenWithSeparator<Race>
 						return new ParseResult.Fail("Found " + hd + " in "
 										+ getTokenName() + " but was < 1 "
 										+ "or the previous value in the list: "
-										+ value);
+										+ value, context);
 					}
 					last = hd;
 				}
 				catch (NumberFormatException nfe)
 				{
-					return new ParseResult.Fail(nfe.getMessage());
+					return new ParseResult.Fail(nfe.getMessage(), context);
 				}
 			}
 			context.getObjectContext().addToList(race,

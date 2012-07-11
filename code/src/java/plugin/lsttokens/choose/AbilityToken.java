@@ -53,7 +53,8 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMSecondaryToken<CDOMObject>,
 		PersistentChoiceActor<Ability>
 {
-	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
+	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS =
+			AbilityCategory.class;
 
 	@Override
 	public String getParentToken()
@@ -93,7 +94,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 				if (title == null || title.length() == 0)
 				{
 					return new ParseResult.Fail(getParentToken() + ":"
-						+ getTokenName() + " had TITLE= but no title: " + value);
+						+ getTokenName() + " had TITLE= but no title: " + value, context);
 				}
 			}
 			else
@@ -103,7 +104,8 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 			}
 		}
 
-		PrimitiveCollection<Ability> coll = context.getChoiceSet(rm, activeValue);
+		PrimitiveCollection<Ability> coll =
+				context.getChoiceSet(rm, activeValue);
 		if (coll == null)
 		{
 			return ParseResult.INTERNAL_ERROR;
@@ -112,14 +114,16 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
 			cpr.addErrorMessage("Invalid combination of objects was used in: "
-					+ activeValue);
+				+ activeValue);
 			cpr.addErrorMessage("  Check that ALL is not combined");
 			cpr.addErrorMessage("  Check that a key is not joined with AND (,)");
 			return cpr;
 		}
-		PrimitiveChoiceSet<Ability> pcs = new CollectionToChoiceSet<Ability>(coll);
+		PrimitiveChoiceSet<Ability> pcs =
+				new CollectionToChoiceSet<Ability>(coll);
 		CategorizedChooseInformation<Ability> tc =
-				new CategorizedChooseInformation<Ability>(getTokenName(), category, pcs, Ability.class);
+				new CategorizedChooseInformation<Ability>(getTokenName(),
+					category, pcs, Ability.class);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.obj.put(obj, ObjectKey.CHOOSE_INFO, tc);
@@ -183,7 +187,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 
 	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-			Ability choice)
+		Ability choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors =
@@ -200,7 +204,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 
 	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-			Ability choice)
+		Ability choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 		pc.addAssociation(owner, encodeChoice(choice));
@@ -214,8 +218,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	public boolean allow(Ability choice, PlayerCharacter pc,
-		boolean allowStack)
+	public boolean allow(Ability choice, PlayerCharacter pc, boolean allowStack)
 	{
 		/*
 		 * This is universally true, as any filter for qualify, etc. was dealt
@@ -240,19 +243,22 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		if (barLoc == -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " requires a CATEGORY and arguments : " + value);
+				+ " requires a CATEGORY and arguments : " + value, context);
 		}
 		String cat = value.substring(0, barLoc);
-		Category<Ability> category = context.ref
-				.silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS, cat);
+		Category<Ability> category =
+				context.ref.silentlyGetConstructedCDOMObject(
+					ABILITY_CATEGORY_CLASS, cat);
 		if (category == null)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " found invalid CATEGORY: " + cat + " in value: " + value);
+				+ " found invalid CATEGORY: " + cat + " in value: " + value,
+				context);
 		}
 		String abilities = value.substring(barLoc + 1);
-		return parseTokenWithSeparator(context, context.ref.getManufacturer(
-			ABILITY_CLASS, category), category, obj, abilities);
+		return parseTokenWithSeparator(context,
+			context.ref.getManufacturer(ABILITY_CLASS, category), category,
+			obj, abilities);
 	}
 
 	@Override
@@ -279,25 +285,26 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		if (!catString.startsWith("CATEGORY="))
 		{
 			throw new IllegalArgumentException(
-					"String in getAbilitySelectionFromPersistentFormat "
-							+ "must start with CATEGORY=, found: " + s);
+				"String in getAbilitySelectionFromPersistentFormat "
+					+ "must start with CATEGORY=, found: " + s);
 		}
 		String cat = catString.substring(9);
 		AbilityCategory ac = SettingsHandler.getGame().getAbilityCategory(cat);
 		if (ac == null)
 		{
 			throw new IllegalArgumentException(
-					"Category in getAbilitySelectionFromPersistentFormat "
-							+ "must exist found: " + cat);
+				"Category in getAbilitySelectionFromPersistentFormat "
+					+ "must exist found: " + cat);
 		}
 		String ab = st.nextToken();
-		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				Ability.class, ac, ab);
+		Ability a =
+				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Ability.class, ac, ab);
 		if (a == null)
 		{
 			throw new IllegalArgumentException(
-					"Second argument in String in getAbilitySelectionFromPersistentFormat "
-							+ "must be an Ability, but it was not found: " + s);
+				"Second argument in String in getAbilitySelectionFromPersistentFormat "
+					+ "must be an Ability, but it was not found: " + s);
 		}
 		return a;
 	}

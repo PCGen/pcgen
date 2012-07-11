@@ -76,7 +76,7 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 			if (thing.length() == 0)
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " arguments has invalid pipe separator: " + value);
+						+ " arguments has invalid pipe separator: " + value, context);
 			}
 			KitGear optionInfo = new KitGear();
 			for (String s : thing.split("[\\[\\]]"))
@@ -89,7 +89,7 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 				if (colonLoc == -1)
 				{
 					return new ParseResult.Fail("Expected colon in Value item: " + s
-							+ " within: " + value);
+							+ " within: " + value, context);
 				}
 				String key = s.substring(0, colonLoc);
 				String thingValue = s.substring(colonLoc + 1);
@@ -99,24 +99,24 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 							thingValue);
 					if (!passed)
 					{
-						return new ParseResult.Fail("Failure in token: " + key);
+						return new ParseResult.Fail("Failure in token: " + key, context);
 					}
 				}
 				catch (PersistenceLayerException e)
 				{
 					return new ParseResult.Fail("Failure in token: " + key
-							+ " " + e.getMessage());
+							+ " " + e.getMessage(), context);
 				}
 			}
 			if (!sep.hasNext())
 			{
-				return new ParseResult.Fail("Odd token count in Value: " + value);
+				return new ParseResult.Fail("Odd token count in Value: " + value, context);
 			}
 			String range = sep.next();
 			if (!processRange(kitTable, optionInfo, range))
 			{
 				return new ParseResult.Fail("Invalid Range in Value: " + range
-						+ " within " + value);
+						+ " within " + value, context);
 			}
 		}
 

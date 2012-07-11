@@ -85,7 +85,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 				if (title == null || title.length() == 0)
 				{
 					return new ParseResult.Fail(getParentToken() + ":"
-						+ getTokenName() + " had TITLE= but no title: " + value);
+						+ getTokenName() + " had TITLE= but no title: " + value, context);
 				}
 			}
 			else

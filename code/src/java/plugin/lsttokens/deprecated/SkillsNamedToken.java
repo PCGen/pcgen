@@ -39,10 +39,10 @@ public class SkillsNamedToken implements CDOMSecondaryToken<CDOMObject>
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-			String value)
+		String value)
 	{
 		Logging.deprecationPrint("CHOOSE:SKILLSNAMED has been deprecated, "
-				+ "please use CHOOSE:SKILL|");
+			+ "please use CHOOSE:SKILL|", context);
 		String newValue = processSkillMagicalWords(value);
 		return context.processSubToken(obj, "CHOOSE", "SKILL", newValue);
 	}

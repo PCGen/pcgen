@@ -67,7 +67,7 @@ public class VisibleToken extends AbstractNonEmptyToken<EquipmentModifier>
 		}
 		else
 		{
-			return new ParseResult.Fail("Can't understand Visibility: " + value);
+			return new ParseResult.Fail("Can't understand Visibility: " + value, context);
 		}
 		context.getObjectContext().put(eqm, ObjectKey.VISIBILITY, vis);
 		return ParseResult.SUCCESS;

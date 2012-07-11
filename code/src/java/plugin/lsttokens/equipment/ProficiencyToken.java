@@ -53,20 +53,20 @@ public class ProficiencyToken extends AbstractNonEmptyToken<Equipment>
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail("Equipment Token PROFICIENCY syntax "
-							+ "without a Subtoken is invalid: " + value);
+							+ "without a Subtoken is invalid: " + value, context);
 		}
 		if (pipeLoc != value.lastIndexOf(Constants.PIPE))
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " expecting only one '|', "
-					+ "format is: SubToken|ProfName value was: " + value);
+					+ "format is: SubToken|ProfName value was: " + value, context);
 		}
 		String subtoken = value.substring(0, pipeLoc);
 		String prof = value.substring(pipeLoc + 1);
 		if (prof == null || prof.length() == 0)
 		{
 			return new ParseResult.Fail("PROFICIENCY cannot have " + "empty second argument: "
-							+ value);
+							+ value, context);
 		}
 		if (subtoken.equals("WEAPON"))
 		{

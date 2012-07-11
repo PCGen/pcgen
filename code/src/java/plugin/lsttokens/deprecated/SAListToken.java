@@ -37,12 +37,13 @@ public class SAListToken implements CDOMSecondaryToken<CDOMObject>
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-			String value)
+		String value)
 	{
 		ComplexParseResult cpr = new ComplexParseResult();
 		cpr.addWarningMessage("CHOOSE:SALIST has been deprecated.  "
-				+ "If you are looking for a replacement function, "
-				+ "please contact the PCGen team for support");
+			+ "If you are looking for a replacement function, "
+			+ "please contact the PCGen team for support (Source: "
+			+ context.getObjectContext().getSourceURI() + ")");
 		return cpr;
 	}
 

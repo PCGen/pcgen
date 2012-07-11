@@ -37,12 +37,12 @@ public class ArmorProfToken implements CDOMSecondaryToken<CDOMObject>
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-			String value)
+		String value)
 	{
 		Logging.deprecationPrint("CHOOSE:ARMORPROF has been deprecated, "
-				+ "please use CHOOSE:ARMORPROFICIENCY|EQUIPMENT[x]");
-		return context.processSubToken(obj, getParentToken(), "ARMORPROFICIENCY",
-				"EQUIPMENT[" + value + "]");
+			+ "please use CHOOSE:ARMORPROFICIENCY|EQUIPMENT[x]", context);
+		return context.processSubToken(obj, getParentToken(),
+			"ARMORPROFICIENCY", "EQUIPMENT[" + value + "]");
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)

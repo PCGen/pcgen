@@ -32,7 +32,8 @@ import pcgen.util.Logging;
 public class SchoolsToken extends AbstractSimpleChooseToken<SpellSchool>
 {
 
-	private static final Class<SpellSchool> SPELLSCHOOL_CLASS = SpellSchool.class;
+	private static final Class<SpellSchool> SPELLSCHOOL_CLASS =
+			SpellSchool.class;
 
 	@Override
 	public String getTokenName()
@@ -55,7 +56,8 @@ public class SchoolsToken extends AbstractSimpleChooseToken<SpellSchool>
 	@Override
 	public SpellSchool decodeChoice(String s)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(SPELLSCHOOL_CLASS, s);
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+			SPELLSCHOOL_CLASS, s);
 	}
 
 	@Override
@@ -72,19 +74,16 @@ public class SchoolsToken extends AbstractSimpleChooseToken<SpellSchool>
 
 	@Override
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-			String value)
+		String value)
 	{
 		if (value == null)
 		{
 			// No args - deprecated
 			Logging.deprecationPrint("CHOOSE:" + getTokenName()
-					+ " with no argument has been deprecated");
+				+ " with no argument has been deprecated", context);
 			value = "ALL";
 		}
 		return super.parseToken(context, obj, value);
 	}
 
-
-	
-	
 }

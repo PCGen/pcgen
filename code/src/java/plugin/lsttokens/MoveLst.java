@@ -115,7 +115,7 @@ public class MoveLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			{
 				return new ParseResult.Fail(
 						"Badly formed MOVE token "
-								+ "(extra value at end of list): " + value);
+								+ "(extra value at end of list): " + value, context);
 			}
 		}
 		cm.setMoveRatesFlag(0);

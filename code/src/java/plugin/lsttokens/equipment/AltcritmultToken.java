@@ -50,13 +50,13 @@ public class AltcritmultToken extends AbstractNonEmptyToken<Equipment>
 				cm = Integer.valueOf(value.substring(1));
 				if (cm.intValue() <= 0)
 				{
-					return new ParseResult.Fail(getTokenName() + " cannot be <= 0");
+					return new ParseResult.Fail(getTokenName() + " cannot be <= 0", context);
 				}
 			}
 			catch (NumberFormatException nfe)
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " was expecting an Integer: " + value);
+						+ " was expecting an Integer: " + value, context);
 			}
 		}
 		else if ("-".equals(value))
@@ -67,7 +67,7 @@ public class AltcritmultToken extends AbstractNonEmptyToken<Equipment>
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " was expecting x followed by an integer "
-					+ "or the special value '-' (representing no value)");
+					+ "or the special value '-' (representing no value)", context);
 		}
 		EquipmentHead altHead = eq.getEquipmentHead(2);
 		context.getObjectContext().put(altHead, IntegerKey.CRIT_MULT, cm);

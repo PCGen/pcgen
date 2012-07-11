@@ -73,7 +73,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 					return new ParseResult.Fail("Non-sensical Skill "
 							+ getTokenName()
 							+ ": Contains ALL after a specific reference: "
-							+ value);
+							+ value, context);
 				}
 				break;
 			}
@@ -81,7 +81,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 			{
 				return new ParseResult.Fail("Non-sensical Skill "
 						+ getTokenName()
-						+ ": Contains ! without (or before) ALL: " + value);
+						+ ": Contains ! without (or before) ALL: " + value, context);
 			}
 			allow.add(context.ref.getCDOMReference(SKILLLIST_CLASS, className));
 			added = true;
@@ -102,7 +102,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 							|| Constants.LST_ANY.equals(clString))
 					{
 						return new ParseResult.Fail("Invalid " + getTokenName()
-								+ " cannot use !ALL");
+								+ " cannot use !ALL", context);
 					}
 					CDOMSingleRef<ClassSkillList> ref = context.ref
 							.getCDOMReference(SKILLLIST_CLASS, clString);
@@ -113,7 +113,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 					return new ParseResult.Fail("Non-sensical Skill "
 							+ getTokenName()
 							+ ": Contains ALL and a specific reference: "
-							+ value);
+							+ value, context);
 				}
 			}
 			context.list

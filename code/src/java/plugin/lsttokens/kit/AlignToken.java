@@ -82,7 +82,7 @@ public class AlignToken extends AbstractTokenWithSeparator<KitAlignment>
 						ALIGNMENT_CLASS, tokText);
 			if (ref == null)
 			{
-				return new ParseResult.Fail("Cannot find Alignment: " + tokText + " part of " + value);
+				return new ParseResult.Fail("Cannot find Alignment: " + tokText + " part of " + value, context);
 			}
 			kitAlignment.addAlignment(ref);
 		}

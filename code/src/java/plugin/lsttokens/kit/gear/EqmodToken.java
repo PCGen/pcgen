@@ -85,7 +85,7 @@ public class EqmodToken extends AbstractTokenWithSeparator<KitGear> implements
 			if (aEqModName.equalsIgnoreCase(Constants.LST_NONE))
 			{
 				return new ParseResult.Fail("Embedded " + Constants.LST_NONE
-					+ " is prohibited in " + getTokenName());
+					+ " is prohibited in " + getTokenName(), context);
 			}
 			ParseResult pr = checkForIllegalSeparator('|', aEqModName);
 			if (!pr.passed())
@@ -111,7 +111,7 @@ public class EqmodToken extends AbstractTokenWithSeparator<KitGear> implements
 					if (assocTok.indexOf("[]") != -1)
 					{
 						return new ParseResult.Fail("Found empty assocation in "
-							+ getTokenName() + ": " + value);
+							+ getTokenName() + ": " + value, context);
 					}
 					StringTokenizer bracketTok =
 							new StringTokenizer(assocTok, "]");
@@ -122,12 +122,12 @@ public class EqmodToken extends AbstractTokenWithSeparator<KitGear> implements
 						if (openBracketLoc == -1)
 						{
 							return new ParseResult.Fail("Found close bracket without open bracket in assocation in "
-									+ getTokenName() + ": " + value);
+									+ getTokenName() + ": " + value, context);
 						}
 						if (openBracketLoc != assoc.lastIndexOf('['))
 						{
 							return new ParseResult.Fail("Found open bracket without close bracket in assocation in "
-									+ getTokenName() + ": " + value);
+									+ getTokenName() + ": " + value, context);
 						}
 					}
 				}

@@ -72,7 +72,7 @@ public class OptionToken extends AbstractNonEmptyToken<BaseKit> implements
 			if (subTok.length() == 0)
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " arguments has invalid pipe separator: " + value);
+						+ " arguments has invalid pipe separator: " + value, context);
 			}
 			ParseResult pr = checkForIllegalSeparator(',', subTok);
 			if (!pr.passed())
@@ -92,19 +92,19 @@ public class OptionToken extends AbstractNonEmptyToken<BaseKit> implements
 			}
 			if (commaSep.hasNext())
 			{
-				return new ParseResult.Fail("Token cannot have more than one separator ','");
+				return new ParseResult.Fail("Token cannot have more than one separator ','", context);
 			}
 			Formula min = FormulaFactory.getFormulaFor(minString);
 			if (!min.isValid())
 			{
 				return new ParseResult.Fail("Min Formula in " + getTokenName()
-						+ " was not valid: " + min.toString());
+						+ " was not valid: " + min.toString(), context);
 			}
 			Formula max = FormulaFactory.getFormulaFor(maxString);
 			if (!max.isValid())
 			{
 				return new ParseResult.Fail("Max Formula in " + getTokenName()
-						+ " was not valid: " + max.toString());
+						+ " was not valid: " + max.toString(), context);
 			}
 			kit.setOptionBounds(min, max);
 		}

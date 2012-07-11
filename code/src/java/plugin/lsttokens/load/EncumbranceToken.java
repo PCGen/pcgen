@@ -58,7 +58,7 @@ public class EncumbranceToken extends AbstractNonEmptyToken<LoadInfo> implements
 		if ((tokenCount != 2) && (tokenCount != 4))
 		{
 			return new ParseResult.Fail("Expected " + getTokenName()
-					+ " to have 2 or 4 arguments, found: " + value);
+					+ " to have 2 or 4 arguments, found: " + value, context);
 		}
 
 		String multString = tokens[1];
@@ -74,7 +74,7 @@ public class EncumbranceToken extends AbstractNonEmptyToken<LoadInfo> implements
 			{
 				return new ParseResult.Fail("Expected " + getTokenName()
 						+ " multiple to be a decimal (or a fraction), found: "
-						+ multString);
+						+ multString, context);
 			}
 		}
 		else
@@ -83,7 +83,7 @@ public class EncumbranceToken extends AbstractNonEmptyToken<LoadInfo> implements
 			{
 				return new ParseResult.Fail("Expected " + getTokenName()
 						+ " multiple to be a decimal or a fraction, found: "
-						+ multString);
+						+ multString, context);
 			}
 			mult = Double.parseDouble(multString.substring(0, divLoc))
 					/ Double.parseDouble(multString.substring(divLoc + 1));
@@ -101,7 +101,7 @@ public class EncumbranceToken extends AbstractNonEmptyToken<LoadInfo> implements
 			catch (NumberFormatException e)
 			{
 				return new ParseResult.Fail("Expected " + getTokenName()
-						+ " penalty to be an integer, found: " + tokens[3]);
+						+ " penalty to be an integer, found: " + tokens[3], context);
 			}
 		}
 		else

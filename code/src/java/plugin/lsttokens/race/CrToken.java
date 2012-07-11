@@ -55,19 +55,19 @@ public class CrToken extends AbstractNonEmptyToken<Race> implements
 			if (intRating < 0)
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " Challenge Rating cannot be negative");
+						+ " Challenge Rating cannot be negative", context);
 			}
 		}
 		catch (NumberFormatException e)
 		{
 			return new ParseResult.Fail(getTokenName()
-					+ "Challenge Rating must be a positive integer i or 1/i");
+					+ "Challenge Rating must be a positive integer i or 1/i", context);
 		}
 		Formula formula = FormulaFactory.getFormulaFor(value);
 		if (!formula.isValid())
 		{
 			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString());
+					+ " was not valid: " + formula.toString(), context);
 		}
 		ChallengeRating cr = new ChallengeRating(formula);
 		context.getObjectContext().put(race, ObjectKey.CHALLENGE_RATING, cr);

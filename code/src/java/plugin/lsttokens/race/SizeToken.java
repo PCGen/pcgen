@@ -47,7 +47,7 @@ public class SizeToken implements CDOMPrimaryToken<Race>
 		if (size == null)
 		{
 			return new ParseResult.Fail("Error parsing " + getTokenName() + ": " + value
-					+ " is not a Size for this Game Mode");
+					+ " is not a Size for this Game Mode", context);
 			//sizeFormula = FormulaFactory.getFormulaFor(value);
 		}
 		else

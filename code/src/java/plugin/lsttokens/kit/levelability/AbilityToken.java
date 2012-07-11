@@ -67,7 +67,7 @@ public class AbilityToken extends AbstractToken implements
 		if (!value.startsWith("PROMPT:"))
 		{
 			return new ParseResult.Fail("Expected " + getTokenName()
-				+ " to start with PROMPT: " + value);
+				+ " to start with PROMPT: " + value, context);
 		}
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		String first = st.nextToken();
@@ -79,11 +79,11 @@ public class AbilityToken extends AbstractToken implements
 		}
 		catch (PersistenceLayerException e)
 		{
-			return new ParseResult.Fail(e.getMessage());
+			return new ParseResult.Fail(e.getMessage(), context);
 		}
 		if (ptc == null)
 		{
-			return new ParseResult.Fail("Error was in " + getTokenName() + " " + value);
+			return new ParseResult.Fail("Error was in " + getTokenName() + " " + value, context);
 		}
 		kitAbility.setAdd(ptc);
 
@@ -93,13 +93,13 @@ public class AbilityToken extends AbstractToken implements
 			if (!choiceString.startsWith("CHOICE:"))
 			{
 				return new ParseResult.Fail("Expected " + getTokenName()
-					+ " choice string to start with CHOICE: " + value);
+					+ " choice string to start with CHOICE: " + value, context);
 			}
 			String choice = choiceString.substring(7);
 			if (ptc.decodeChoice(choice) == null)
 			{
 				return new ParseResult.Fail("Choice: " + choice
-					+ " is not a valid selection for ADD:" + first);
+					+ " is not a valid selection for ADD:" + first, context);
 			}
 			kitAbility.addChoice(choice);
 		}

@@ -59,20 +59,20 @@ public class ShowinmenuToken extends AbstractNonEmptyToken<Campaign> implements
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
 				return new ParseResult.Fail("You should use 'YES' as the "
-						+ getTokenName() + ": " + value);
+						+ getTokenName() + ": " + value, context);
 			}
 			set = Boolean.TRUE;
 		}
 		else if (Boolean.valueOf(value).booleanValue())
 		{
 			Logging.deprecationPrint("You should use 'YES' as the "
-				+ getTokenName() + ": " + value + " in " + campaign.toString());
+				+ getTokenName() + ": " + value + " in " + campaign.toString(), context);
 			set = Boolean.TRUE;
 		}
 		else if ("false".equalsIgnoreCase(value))
 		{
 			Logging.deprecationPrint("You should use 'NO' as the "
-				+ getTokenName() + ": " + value + " in " + campaign.toString());
+				+ getTokenName() + ": " + value + " in " + campaign.toString(), context);
 			set = Boolean.FALSE;
 		}
 		else
@@ -80,12 +80,12 @@ public class ShowinmenuToken extends AbstractNonEmptyToken<Campaign> implements
 			if (firstChar != 'N' && firstChar != 'n')
 			{
 				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-						+ getTokenName() + ": " + value);
+						+ getTokenName() + ": " + value, context);
 			}
 			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
 			{
 				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-						+ getTokenName() + ": " + value);
+						+ getTokenName() + ": " + value, context);
 			}
 			set = Boolean.FALSE;
 		}

@@ -42,13 +42,13 @@ public class StatmodToken implements CDOMPrimaryToken<PCStat>
 	{
 		if (value == null || value.length() == 0)
 		{
-			return new ParseResult.Fail(getTokenName() + " arguments may not be empty");
+			return new ParseResult.Fail(getTokenName() + " arguments may not be empty", context);
 		}
 		Formula formula = FormulaFactory.getFormulaFor(value);
 		if (!formula.isValid())
 		{
 			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString());
+					+ " was not valid: " + formula.toString(), context);
 		}
 		context.getObjectContext().put(stat, FormulaKey.STAT_MOD, formula);
 		return ParseResult.SUCCESS;

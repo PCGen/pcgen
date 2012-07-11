@@ -41,19 +41,19 @@ public class WeaponProfToken implements CDOMSecondaryToken<CDOMObject>
 	}
 
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-			String value)
+		String value)
 	{
 		if (value == null)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " requires additional arguments");
+				+ " requires additional arguments", context);
 		}
 		Logging.deprecationPrint("CHOOSE:WEAPONPROF is deprecated, "
-				+ "please use CHOOSE:WEAPONPROFICIENCY");
+			+ "please use CHOOSE:WEAPONPROFICIENCY", context);
 		if (value.indexOf(',') != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain , : " + value);
+				+ " arguments may not contain , : " + value, context);
 		}
 		int bracketLoc;
 		while ((bracketLoc = value.lastIndexOf('[')) != -1)
@@ -62,27 +62,26 @@ public class WeaponProfToken implements CDOMSecondaryToken<CDOMObject>
 			if (closeLoc != value.length() - 1)
 			{
 				return new ParseResult.Fail("CHOOSE:" + getTokenName()
-						+ " arguments does not contain matching brackets: "
-						+ value);
+					+ " arguments does not contain matching brackets: " + value, context);
 			}
 			String bracketString = value.substring(bracketLoc + 1, closeLoc);
 			if ("WEAPONPROF".equals(bracketString))
 			{
 				Logging.deprecationPrint("  You need AUTO:WEAPONPROF|%LIST "
-						+ "as [WEAPONPROF] is used");
+					+ "as [WEAPONPROF] is used", context);
 				try
 				{
 					if (!context.processToken(obj, "AUTO", "WEAPONPROF|%LIST"))
 					{
 						return new ParseResult.Fail(
-								"Internal error on conversion");
+							"Internal error on conversion", context);
 					}
 				}
 				catch (PersistenceLayerException e)
 				{
 					return new ParseResult.Fail(
-							"Internal error on conversion: "
-									+ e.getLocalizedMessage());
+						"Internal error on conversion: "
+							+ e.getLocalizedMessage(), context);
 				}
 			}
 			else if (bracketString.startsWith("FEAT="))
@@ -90,51 +89,53 @@ public class WeaponProfToken implements CDOMSecondaryToken<CDOMObject>
 				// This is okay.
 				String feat = bracketString.substring(5);
 				Logging.deprecationPrint("  You need AUTO:FEAT|" + feat
-						+ "(%LIST) " + "as [FEAT=" + feat + "] is used");
+					+ "(%LIST) " + "as [FEAT=" + feat + "] is used", context);
 				try
 				{
-					if (!context.processToken(obj, "AUTO", "FEAT|"
-							+ feat + "(%LIST)"))
+					if (!context.processToken(obj, "AUTO", "FEAT|" + feat
+						+ "(%LIST)"))
 					{
 						return new ParseResult.Fail(
-								"Internal error on conversion");
+							"Internal error on conversion", context);
 					}
 				}
 				catch (PersistenceLayerException e)
 				{
 					return new ParseResult.Fail(
-							"Internal error on conversion: "
-									+ e.getLocalizedMessage());
+						"Internal error on conversion: "
+							+ e.getLocalizedMessage(), context);
 				}
 			}
 			else
 			{
 				return new ParseResult.Fail("CHOOSE:" + getTokenName()
-						+ " arguments may not contain [" + bracketString
-						+ "] : " + value);
+					+ " arguments may not contain [" + bracketString + "] : "
+					+ value, context);
 			}
 			value = value.substring(0, bracketLoc);
 		}
 		if (value.charAt(0) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not start with | : " + value);
+				+ " arguments may not start with | : " + value, context);
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not end with | : " + value);
+				+ " arguments may not end with | : " + value, context);
 		}
 		if (value.indexOf("||") != -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments uses double separator || : " + value);
+				+ " arguments uses double separator || : " + value
+				, context);
 		}
 		int pipeLoc = value.indexOf("|");
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " must have two or more | delimited arguments : " + value);
+				+ " must have two or more | delimited arguments : " + value
+				, context);
 		}
 		String start = value.substring(0, pipeLoc);
 		int firstarg;
@@ -145,7 +146,8 @@ public class WeaponProfToken implements CDOMSecondaryToken<CDOMObject>
 		catch (NumberFormatException nfe)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " first argument must be an Integer : " + value);
+				+ " first argument must be an Integer : " + value
+				, context);
 		}
 		String profs = value.substring(pipeLoc + 1);
 		try
@@ -153,8 +155,12 @@ public class WeaponProfToken implements CDOMSecondaryToken<CDOMObject>
 			Formula f = FormulaFactory.getFormulaFor(firstarg);
 			context.obj.put(obj, FormulaKey.NUMCHOICES, f);
 			context.obj.put(obj, FormulaKey.SELECT, f);
-			boolean result = context.processToken(obj, getParentToken(),
-					"WEAPONPROFICIENCY|" + profs.replaceAll("TYPE\\.", "TYPE="));
+			boolean result =
+					context.processToken(
+						obj,
+						getParentToken(),
+						"WEAPONPROFICIENCY|"
+							+ profs.replaceAll("TYPE\\.", "TYPE="));
 			if (result)
 			{
 				return ParseResult.SUCCESS;
@@ -163,11 +169,11 @@ public class WeaponProfToken implements CDOMSecondaryToken<CDOMObject>
 		catch (PersistenceLayerException e)
 		{
 			return new ParseResult.Fail(
-					"Error on conversion from CHOOSE:WEAPONPROF: "
-							+ e.getLocalizedMessage());
+				"Error on conversion from CHOOSE:WEAPONPROF: "
+					+ e.getLocalizedMessage(), context);
 		}
 		return new ParseResult.Fail(
-				"Error on conversion from CHOOSE:WEAPONPROF");
+			"Error on conversion from CHOOSE:WEAPONPROF", context);
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
@@ -185,7 +191,7 @@ public class WeaponProfToken implements CDOMSecondaryToken<CDOMObject>
 	// {
 	// return new ParseResult.Fail("Cannot use NUMCHOICES= with
 	// CHOOSE:WEAPONPROF, "
-	// + "as it has an integrated choice count");
+	// + "as it has an integrated choice count", context);
 	// return false;
 	// }
 
