@@ -922,6 +922,10 @@ public class CharacterAbilities
 	protected void refreshChoices(Category<Ability> category)
 	{
 		DefaultListFacade<AbilityFacade> listFacade = abilityListMap.get(category);
+		if (listFacade == null)
+		{
+			return;
+		}
 		for (AbilityFacade abilityFacade : listFacade)
 		{
 			Ability ability = (Ability) abilityFacade;

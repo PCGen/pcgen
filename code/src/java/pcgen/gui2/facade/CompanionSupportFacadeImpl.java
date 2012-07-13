@@ -276,10 +276,14 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		}
 		
 		// Update the companion with the master details
+		Logging.log(Logging.INFO,
+			"Setting master to " + theCharacter.getName() //$NON-NLS-1$
+				+ " for character " + compFacadeImpl); //$NON-NLS-1$
 		final Follower newMaster =
 				new Follower(theCharacter.getFileName(), theCharacter.getName(), compList);
 		newMaster.setAdjustment(followerOpt.getAdjustment());
 		compFacadeImpl.getTheCharacter().setMaster(newMaster);
+		compFacadeImpl.refreshClassLevelModel();
 		compFacadeImpl.postLevellingUpdates();
 		
 		// Update the master with the new companion

@@ -1309,7 +1309,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return true;
 	}
 
-	private void refreshClassLevelModel()
+	void refreshClassLevelModel()
 	{
 		List<CharacterLevelFacade> newlevels = new ArrayList<CharacterLevelFacade>();
 		List<PCClass> newClasses = theCharacter.getClassList();
