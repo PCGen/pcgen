@@ -43,6 +43,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.content.HitDie;
+import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -201,6 +202,17 @@ public class Gui2InfoFactory implements InfoFactory
 			infoText.appendLineBreak();
 			infoText.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
 				DescriptionFormatting.piDescSubString(pc, race));
+
+			LevelCommandFactory levelCommandFactory =
+					race.get(ObjectKey.MONSTER_CLASS);
+			if (levelCommandFactory != null)
+			{
+				infoText.appendLineBreak();
+				infoText.appendI18nFormattedElement("in_irInfoMonsterClass", //$NON-NLS-1$
+					String.valueOf(levelCommandFactory.getLevelCount()),
+					OutputNameFormatting.piString(levelCommandFactory.getPCClass(), false));
+				
+			}
 
 			bString = race.getSource();
 			if (bString.length() > 0)
@@ -1198,6 +1210,27 @@ public class Gui2InfoFactory implements InfoFactory
 		Race race = (Race) raceFacade;
 		return ADJ_FMT.format(race.getSafe(FormulaKey.LEVEL_ADJUSTMENT)
 			.resolve(pc, EMPTY_STRING));
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int getNumMonsterClassLevels(RaceFacade raceFacade)
+	{
+		if (!(raceFacade instanceof Race))
+		{
+			return 0;
+		}
+		Race race = (Race) raceFacade;
+		LevelCommandFactory levelCommandFactory =
+				race.get(ObjectKey.MONSTER_CLASS);
+		if (levelCommandFactory == null)
+		{
+			return 0;
+		}
+		return levelCommandFactory.getLevelCount().resolve(pc, EMPTY_STRING)
+			.intValue();
 	}
 
 	/* (non-Javadoc)

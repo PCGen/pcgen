@@ -47,6 +47,15 @@ public interface InfoFactory
 
 	public String getLevelAdjustment(RaceFacade race);
 
+	/**
+	 * Calculate the number of monster class levels (aka racial hit dice) 
+	 * that the race receives.
+	 * 
+	 * @param raceFacade The race to check.
+	 * @return The number of levels of monster classes, or 0 if none.
+	 */
+	public int getNumMonsterClassLevels(RaceFacade raceFacade);
+
 	public String getHTMLInfo(RaceFacade race);
 
 	public String getHTMLInfo(ClassFacade pcClass, ClassFacade parentClass);

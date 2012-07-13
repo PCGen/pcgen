@@ -89,6 +89,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private final JButton selectRaceButton;
 	private final JButton removeButton;
 	private final FilterButton<Object, RaceFacade> qFilterButton;
+	private final FilterButton<Object, RaceFacade> noRacialHdFilterButton;
 
 	public RaceInfoTab()
 	{
@@ -98,6 +99,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		this.selectRaceButton = new JButton();
 		this.removeButton = new JButton();
 		this.qFilterButton = new FilterButton<Object, RaceFacade>();
+		this.noRacialHdFilterButton = new FilterButton<Object, RaceFacade>();
 		initComponents();
 	}
 
@@ -110,6 +112,9 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		JPanel availPanel = new JPanel(new BorderLayout());
 		FilterBar<Object, RaceFacade> bar = new FilterBar<Object, RaceFacade>();
 		bar.addDisplayableFilter(new SearchFilterPanel());
+		noRacialHdFilterButton.setText(LanguageBundle.getString("in_irNoRacialHd")); //$NON-NLS-1$
+		noRacialHdFilterButton.setToolTipText(LanguageBundle.getString("in_irNoRacialHdTip")); //$NON-NLS-1$
+		bar.addDisplayableFilter(noRacialHdFilterButton);
 		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
 		bar.addDisplayableFilter(qFilterButton);
 		raceTable.setDisplayableFilter(bar);
@@ -173,6 +178,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		state.put(InfoHandler.class, new InfoHandler(character));
 		state.put(QualifiedTreeCellRenderer.class, new QualifiedTreeCellRenderer(character));
 		state.put(QualifiedFilterHandler.class, new QualifiedFilterHandler(character));
+		state.put(NoRacialHdFilterHandler.class, new NoRacialHdFilterHandler(character));
 		return state;
 	}
 
@@ -185,7 +191,8 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		((SelectRaceAction) state.get(SelectRaceAction.class)).install();
 		((RemoveRaceAction) state.get(RemoveRaceAction.class)).install();
 		((QualifiedFilterHandler) state.get(QualifiedFilterHandler.class)).install();
-
+		((NoRacialHdFilterHandler) state.get(NoRacialHdFilterHandler.class)).install();
+		
 		raceTable.setTreeCellRenderer((QualifiedTreeCellRenderer) state.get(QualifiedTreeCellRenderer.class));
 		selectedTable.setTreeCellRenderer((QualifiedTreeCellRenderer) state.get(QualifiedTreeCellRenderer.class));
 		selectRaceButton.setAction((SelectRaceAction) state.get(SelectRaceAction.class));
@@ -357,6 +364,37 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		public void uninstall()
 		{
 			selectedTable.removeActionListener(this);
+		}
+
+	}
+
+	/**
+	 * The Class <code>NoRacialHdFilterHandler</code> provides the filter backing the 
+	 * No Racial HD filter button.
+	 */
+	private class NoRacialHdFilterHandler 
+	{
+
+		private final Filter<Object, RaceFacade> noRacialHdFilter = new Filter<Object, RaceFacade>()
+		{
+
+			@Override
+			public boolean accept(Object context, RaceFacade element)
+			{
+				return infoFactory.getNumMonsterClassLevels(element) == 0;
+			}
+
+		};
+		private final InfoFactory infoFactory;
+
+		public NoRacialHdFilterHandler(CharacterFacade character)
+		{
+			this.infoFactory = character.getInfoFactory();
+		}
+
+		public void install()
+		{
+			noRacialHdFilterButton.setFilter(noRacialHdFilter);
 		}
 
 	}
