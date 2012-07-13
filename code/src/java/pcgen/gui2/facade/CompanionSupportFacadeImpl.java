@@ -149,12 +149,22 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	}
 
 	/**
-	 * Refresh the character;s companion information, reflecting any changes in 
+	 * Refresh the character's companion information, reflecting any changes in 
 	 * the character's qualification for companions.   
 	 */
 	void refreshCompanionData()
 	{
 		initCompData(false);
+		for (CompanionFacadeDelegate delegate : companionList)
+		{
+			CompanionFacade compFacade = delegate.getDelegate();
+			if (compFacade instanceof CharacterFacadeImpl)
+			{
+				CharacterFacadeImpl compFacadeImpl = (CharacterFacadeImpl) compFacade;
+				compFacadeImpl.refreshClassLevelModel();
+				compFacadeImpl.postLevellingUpdates();
+			}
+		}
 	}
 	
 	/**

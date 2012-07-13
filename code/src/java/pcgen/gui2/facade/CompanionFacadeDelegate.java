@@ -61,6 +61,14 @@ public class CompanionFacadeDelegate implements CompanionFacade
 		raceDelegate.setDelegate(companionFacade.getRaceRef());
 	}
 
+	/**
+	 * @return The CompanionFacade backing this CompanionFacadeDelegate 
+	 */
+	CompanionFacade getDelegate()
+	{
+		return delegate;
+	}
+	
 	@Override
 	public ReferenceFacade<String> getNameRef()
 	{
