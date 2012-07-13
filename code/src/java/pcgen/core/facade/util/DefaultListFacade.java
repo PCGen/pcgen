@@ -236,7 +236,9 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 			E e = iterator.next();
 			if (!newElements.contains(e))
 			{
+				int index = elementList.indexOf(e);
 				iterator.remove();
+				fireElementRemoved(this, e, index);
 			}
 		}
 	}

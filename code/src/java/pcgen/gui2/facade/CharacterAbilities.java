@@ -989,7 +989,10 @@ public class CharacterAbilities
 			listFacade = new  DefaultListFacade<AbilityFacade>();
 			workingAbilityListMap.put(cat, listFacade);
 		}
-		listFacade.addElement(ability);
+		if (!listFacade.containsElement(ability))
+		{
+			listFacade.addElement(ability);
+		}
 	}
 
 	private void removeElement(CategorizedAbilitySelection cas)
