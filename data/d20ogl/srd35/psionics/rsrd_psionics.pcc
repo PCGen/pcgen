@@ -6,7 +6,7 @@ GENRE:Fantasy
 BOOKTYPE:Core Supplement
 SETTING:RSRD
 TYPE:RSRD.Partial
-PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:3,BOOKTYPE=Core Rules,3.5 RSRD Advanced,3.5 RSRD Monsters
 !PRECAMPAIGN:1,3.5 RSRD,3.5 RSRD - Campaign Set - Core Book I,3.5 RSRD - Campaign Set - Core Books I and II,3.5 RSRD - Campaign Set - Core Books I - III,3.5 RSRD - Campaign Set - No Psionics
 PUBNAMELONG:Wizards of the Coast
 PUBNAMESHORT:WotC
