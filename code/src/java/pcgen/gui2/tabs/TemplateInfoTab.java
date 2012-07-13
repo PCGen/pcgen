@@ -46,6 +46,7 @@ import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilterBar;
+import pcgen.gui2.filter.FilterButton;
 import pcgen.gui2.filter.FilteredListFacade;
 import pcgen.gui2.filter.FilteredTreeViewTable;
 import pcgen.gui2.filter.SearchFilterPanel;
@@ -76,6 +77,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private final JButton addButton;
 	private final JButton removeButton;
 	private final InfoPane infoPane;
+	private final FilterButton<CharacterFacade, TemplateFacade> qFilterButton;
 
 	public TemplateInfoTab()
 	{
@@ -84,6 +86,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		this.addButton = new JButton();
 		this.removeButton = new JButton();
 		this.infoPane = new InfoPane("in_irTemplateInfo"); //$NON-NLS-1$
+		this.qFilterButton = new FilterButton<CharacterFacade, TemplateFacade>();
 		initComponents();
 	}
 
@@ -96,6 +99,8 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		JPanel availPanel = new JPanel(new BorderLayout());
 		FilterBar<CharacterFacade, TemplateFacade> bar = new FilterBar<CharacterFacade, TemplateFacade>();
 		bar.addDisplayableFilter(new SearchFilterPanel());
+		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
+		bar.addDisplayableFilter(qFilterButton);
 		availPanel.add(bar, BorderLayout.NORTH);
 
 		availableTable.setDisplayableFilter(bar);
@@ -155,6 +160,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		state.put(Models.AddAction, new AddAction(character));
 		state.put(Models.RemoveAction, new RemoveAction(character));
 		state.put(Models.TemplateRenderer, new QualifiedTreeCellRenderer(character));
+		state.put(QualifiedFilterHandler.class, new QualifiedFilterHandler(character));
 		return state;
 	}
 
@@ -166,6 +172,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		((InfoHandler) state.get(Models.InfoHandler)).install();
 		((AddAction) state.get(Models.AddAction)).install();
 		((RemoveAction) state.get(Models.RemoveAction)).install();
+		((QualifiedFilterHandler) state.get(QualifiedFilterHandler.class)).install();
 
 		addButton.setAction((AddAction) state.get(Models.AddAction));
 		removeButton.setAction((RemoveAction) state.get(Models.RemoveAction));
@@ -316,6 +323,33 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		public void uninstall()
 		{
 			selectedTable.removeActionListener(this);
+		}
+
+	}
+
+	private class QualifiedFilterHandler 
+	{
+
+		private final Filter<CharacterFacade, TemplateFacade> qFilter = new Filter<CharacterFacade, TemplateFacade>()
+		{
+
+			@Override
+			public boolean accept(CharacterFacade context, TemplateFacade element)
+			{
+				return character.isQualifiedFor(element);
+			}
+
+		};
+		private final CharacterFacade character;
+
+		public QualifiedFilterHandler(CharacterFacade character)
+		{
+			this.character = character;
+		}
+
+		public void install()
+		{
+			qFilterButton.setFilter(qFilter);
 		}
 
 	}

@@ -62,7 +62,9 @@ import pcgen.core.facade.event.ListEvent;
 import pcgen.core.facade.event.ListListener;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
+import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilterBar;
+import pcgen.gui2.filter.FilterButton;
 import pcgen.gui2.filter.FilteredTreeViewTable;
 import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.models.QualifiedTreeCellRenderer;
@@ -103,6 +105,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private ClassFacade selectedClass;
 	private int spinnerValue;
 	private final JSpinner spinner;
+	private final FilterButton<Object, ClassFacade> qFilterButton;
 
 	public ClassInfoTab()
 	{
@@ -113,6 +116,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		this.tabTitle = new TabTitle("in_clClass"); //$NON-NLS-1$
 		this.infoPane = new InfoPane(LanguageBundle.getString("in_clInfo")); //$NON-NLS-1$
 		this.spinner = new JSpinner(new SpinnerNumberModel(1, 1, 50, 1));
+		this.qFilterButton = new FilterButton<Object, ClassFacade>();
 		initComponents();
 	}
 
@@ -125,6 +129,8 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		JPanel availPanel = new JPanel(new BorderLayout());
 		FilterBar<Object, ClassFacade> bar = new FilterBar<Object, ClassFacade>();
 		bar.addDisplayableFilter(new SearchFilterPanel());
+		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
+		bar.addDisplayableFilter(qFilterButton);
 		availPanel.add(bar, BorderLayout.NORTH);
 
 		availableTable.setDisplayableFilter(bar);
@@ -265,6 +271,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		state.put(RemoveClassAction.class, new RemoveClassAction(character));
 		state.put(InfoHandler.class, new InfoHandler(character));
 		state.put(QualifiedTreeCellRenderer.class, new QualifiedTreeCellRenderer(character));
+		state.put(QualifiedFilterHandler.class, new QualifiedFilterHandler(character));
 		CharacterLevelsFacade levels = character.getCharacterLevelsFacade();
 		if (levels.getSize() > 0)
 		{
@@ -299,6 +306,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		((InfoHandler) state.get(InfoHandler.class)).install();
 		((AddClassAction) state.get(AddClassAction.class)).install();
+		((QualifiedFilterHandler) state.get(QualifiedFilterHandler.class)).install();
 		setSelectedClass((ClassFacade) state.get(SELECTED_CLASS));
 	}
 
@@ -474,6 +482,33 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				return false;
 			}
 			return true;
+		}
+
+	}
+
+	private class QualifiedFilterHandler 
+	{
+
+		private final Filter<Object, ClassFacade> qFilter = new Filter<Object, ClassFacade>()
+		{
+
+			@Override
+			public boolean accept(Object context, ClassFacade element)
+			{
+				return character.isQualifiedFor(element);
+			}
+
+		};
+		private final CharacterFacade character;
+
+		public QualifiedFilterHandler(CharacterFacade character)
+		{
+			this.character = character;
+		}
+
+		public void install()
+		{
+			qFilterButton.setFilter(qFilter);
 		}
 
 	}

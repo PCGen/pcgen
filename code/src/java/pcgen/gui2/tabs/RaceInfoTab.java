@@ -50,7 +50,9 @@ import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
+import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilterBar;
+import pcgen.gui2.filter.FilterButton;
 import pcgen.gui2.filter.FilteredTreeViewTable;
 import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.models.QualifiedTreeCellRenderer;
@@ -86,6 +88,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private final InfoPane infoPane;
 	private final JButton selectRaceButton;
 	private final JButton removeButton;
+	private final FilterButton<Object, RaceFacade> qFilterButton;
 
 	public RaceInfoTab()
 	{
@@ -94,6 +97,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		this.infoPane = new InfoPane(LanguageBundle.getString("in_irRaceInfo")); //$NON-NLS-1$
 		this.selectRaceButton = new JButton();
 		this.removeButton = new JButton();
+		this.qFilterButton = new FilterButton<Object, RaceFacade>();
 		initComponents();
 	}
 
@@ -106,6 +110,8 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		JPanel availPanel = new JPanel(new BorderLayout());
 		FilterBar<Object, RaceFacade> bar = new FilterBar<Object, RaceFacade>();
 		bar.addDisplayableFilter(new SearchFilterPanel());
+		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
+		bar.addDisplayableFilter(qFilterButton);
 		raceTable.setDisplayableFilter(bar);
 		availPanel.add(bar, BorderLayout.NORTH);
 
@@ -166,6 +172,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		state.put(Models.SelectedModel, new RaceTreeViewModel(character, false));
 		state.put(InfoHandler.class, new InfoHandler(character));
 		state.put(QualifiedTreeCellRenderer.class, new QualifiedTreeCellRenderer(character));
+		state.put(QualifiedFilterHandler.class, new QualifiedFilterHandler(character));
 		return state;
 	}
 
@@ -177,6 +184,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		((InfoHandler) state.get(InfoHandler.class)).install();
 		((SelectRaceAction) state.get(SelectRaceAction.class)).install();
 		((RemoveRaceAction) state.get(RemoveRaceAction.class)).install();
+		((QualifiedFilterHandler) state.get(QualifiedFilterHandler.class)).install();
 
 		raceTable.setTreeCellRenderer((QualifiedTreeCellRenderer) state.get(QualifiedTreeCellRenderer.class));
 		selectedTable.setTreeCellRenderer((QualifiedTreeCellRenderer) state.get(QualifiedTreeCellRenderer.class));
@@ -349,6 +357,33 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		public void uninstall()
 		{
 			selectedTable.removeActionListener(this);
+		}
+
+	}
+
+	private class QualifiedFilterHandler 
+	{
+
+		private final Filter<Object, RaceFacade> qFilter = new Filter<Object, RaceFacade>()
+		{
+
+			@Override
+			public boolean accept(Object context, RaceFacade element)
+			{
+				return character.isQualifiedFor(element);
+			}
+
+		};
+		private final CharacterFacade character;
+
+		public QualifiedFilterHandler(CharacterFacade character)
+		{
+			this.character = character;
+		}
+
+		public void install()
+		{
+			qFilterButton.setFilter(qFilter);
 		}
 
 	}

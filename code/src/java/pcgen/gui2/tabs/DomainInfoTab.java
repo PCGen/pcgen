@@ -57,7 +57,9 @@ import pcgen.core.facade.util.ListFacade;
 import pcgen.core.facade.util.ListFacades;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.filter.DisplayableFilter;
+import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilterBar;
+import pcgen.gui2.filter.FilterButton;
 import pcgen.gui2.filter.FilterHandler;
 import pcgen.gui2.filter.FilteredListFacadeTableModel;
 import pcgen.gui2.filter.FilteredTreeViewTable;
@@ -92,6 +94,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private final InfoPane domainInfo;
 	private DisplayableFilter<CharacterFacade, DomainFacade> domainFilter;
 	private static final Object COLUMN_ID = new Object();
+	private final FilterButton<Object, DomainFacade> qFilterButton;
 
 	public DomainInfoTab()
 	{
@@ -103,6 +106,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		this.selectedDomain = new JLabel();
 		this.deityInfo = new InfoPane("in_deityInfo"); //$NON-NLS-1$
 		this.domainInfo = new InfoPane("in_domainInfo"); //$NON-NLS-1$
+		this.qFilterButton = new FilterButton<Object, DomainFacade>();
 		initComponents();
 	}
 
@@ -136,6 +140,8 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		panel = new JPanel(new BorderLayout());
 		FilterBar<CharacterFacade, DomainFacade> dbar = new FilterBar<CharacterFacade, DomainFacade>();
 		dbar.addDisplayableFilter(new SearchFilterPanel());
+		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
+		dbar.addDisplayableFilter(qFilterButton);
 		domainFilter = dbar;
 		panel.add(dbar, BorderLayout.NORTH);
 		selectionModel = domainTable.getSelectionModel();
@@ -174,6 +180,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		state.put(DomainInfoHandler.class, new DomainInfoHandler(character));
 		state.put(DomainRenderer.class, new DomainRenderer(character));
 		state.put(QualifiedTreeCellRenderer.class, new QualifiedTreeCellRenderer(character));
+		state.put(QualifiedFilterHandler.class, new QualifiedFilterHandler(character));
 		return state;
 	}
 
@@ -187,6 +194,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		((DeityInfoHandler) state.get(DeityInfoHandler.class)).install();
 		((DomainRenderer) state.get(DomainRenderer.class)).install();
 		((SelectDeityAction) state.get(SelectDeityAction.class)).install();
+		((QualifiedFilterHandler) state.get(QualifiedFilterHandler.class)).install();
 
 		deityTable.setTreeViewModel((DeityTreeViewModel) state.get(DeityTreeViewModel.class));
 		deityTable.setTreeCellRenderer((QualifiedTreeCellRenderer) state.get(QualifiedTreeCellRenderer.class));
@@ -397,6 +405,32 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	}
 
+	private class QualifiedFilterHandler 
+	{
+
+		private final Filter<Object, DomainFacade> qFilter = new Filter<Object, DomainFacade>()
+		{
+
+			@Override
+			public boolean accept(Object context, DomainFacade element)
+			{
+				return character.isQualifiedFor(element);
+			}
+
+		};
+		private final CharacterFacade character;
+
+		public QualifiedFilterHandler(CharacterFacade character)
+		{
+			this.character = character;
+		}
+
+		public void install()
+		{
+			qFilterButton.setFilter(qFilter);
+		}
+	}
+	
 	private class DomainTableHandler implements FilterHandler
 	{
 
