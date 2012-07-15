@@ -32,6 +32,8 @@ import java.awt.Insets;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
@@ -54,7 +56,11 @@ import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTree;
@@ -66,6 +72,7 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.EquipmentFacade;
 import pcgen.core.facade.EquipmentListFacade;
@@ -90,6 +97,7 @@ import pcgen.gui2.util.SignIcon;
 import pcgen.gui2.util.SignIcon.Sign;
 import pcgen.gui2.util.SortMode;
 import pcgen.gui2.util.SortingPriority;
+import pcgen.gui2.util.event.PopupMouseAdapter;
 import pcgen.gui2.util.treeview.DataView;
 import pcgen.gui2.util.treeview.DataViewColumn;
 import pcgen.gui2.util.treeview.DefaultDataViewColumn;
@@ -371,7 +379,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		state.put(EquipmentFilterHandler.class, new EquipmentFilterHandler(character));
 		state.put(EquipmentTransferHandler.class, new EquipmentTransferHandler(character));
 		state.put(CurrencyLabelHandler.class, new CurrencyLabelHandler(character));
-
+		state.put(BuyPopupMenuHandler.class, new BuyPopupMenuHandler(character));
+		state.put(SellPopupMenuHandler.class, new SellPopupMenuHandler(character));
 
 		/**
 		 * Handler for the Current Funds field. This listens for and
@@ -449,7 +458,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		((BigDecimalFieldHandler) state.get(Models.WealthHandler)).install();
 		((BigDecimalFieldHandler) state.get(Models.FundsHandler)).install();
 		((CurrencyLabelHandler) state.get(CurrencyLabelHandler.class)).install();
-		
+		((BuyPopupMenuHandler) state.get(BuyPopupMenuHandler.class)).install();
+		((SellPopupMenuHandler) state.get(SellPopupMenuHandler.class)).install();
 	}
 
 	@Override
@@ -460,12 +470,33 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		((RemoveAction) state.get(RemoveAction.class)).uninstall();
 		((BigDecimalFieldHandler) state.get(Models.WealthHandler)).uninstall();
 		((BigDecimalFieldHandler) state.get(Models.FundsHandler)).uninstall();
+		((BuyPopupMenuHandler) state.get(BuyPopupMenuHandler.class)).uninstall();
+		((SellPopupMenuHandler) state.get(SellPopupMenuHandler.class)).uninstall();
 	}
 
 	@Override
 	public TabTitle getTabTitle()
 	{
 		return new TabTitle("in_purchase"); //$NON-NLS-1$
+	}
+
+	private List<EquipmentFacade> getMenuTargets(JTable table, MouseEvent e)
+	{
+		int row = table.rowAtPoint( e.getPoint() );
+		if (! table.isRowSelected(row))
+		{
+			table.setRowSelectionInterval(row, row);
+		}
+		List<EquipmentFacade> targets = new ArrayList<EquipmentFacade>();
+		for (int selRow : table.getSelectedRows())
+		{
+			Object value = table.getModel().getValueAt(selRow, 0);
+			if (value instanceof EquipmentFacade)
+			{
+				targets.add((EquipmentFacade) value);
+			}
+		}
+		return targets;
 	}
 
 	private class AddAction extends AbstractAction
@@ -1241,4 +1272,250 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 	}
 
+	private class BuyPopupMenuHandler extends PopupMouseAdapter
+	{
+
+		private final CharacterFacade character;
+
+		BuyPopupMenuHandler(CharacterFacade character)
+		{
+			this.character = character;
+		}
+		
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void showPopup(MouseEvent e)
+		{
+			List<EquipmentFacade> targets = getMenuTargets(availableTable, e);
+			if (targets.isEmpty())
+			{
+				return;
+			}
+
+			JPopupMenu popupMenu = new JPopupMenu();
+			popupMenu.add(new BuyNumMenuItem(character, targets, 1));
+			JMenu buyMenu = new JMenu(LanguageBundle.getString("in_igBuyQuantity")); //$NON-NLS-1$
+			buyMenu.add(new BuyNumMenuItem(character, targets, 2));
+			buyMenu.add(new BuyNumMenuItem(character, targets, 5));
+			buyMenu.add(new BuyNumMenuItem(character, targets, 10));
+			buyMenu.add(new BuyNumMenuItem(character, targets, 15));
+			buyMenu.add(new BuyNumMenuItem(character, targets, 20));
+			buyMenu.add(new BuyNumMenuItem(character, targets, 50));
+			popupMenu.add(buyMenu);
+			popupMenu.add(new BuyNumMenuItem(character, targets, 0));
+			popupMenu.addSeparator();
+			popupMenu.add(new AddCustomAction(character));
+			popupMenu.show(e.getComponent(), e.getX(), e.getY());
+		}
+
+		public void install()
+		{
+			availableTable.addMouseListener(this);
+		}
+
+		public void uninstall()
+		{
+			availableTable.removeMouseListener(this);
+		}
+	}
+
+	/**
+	 * Menu item for buying a quanity of an item at the current rate.
+	 */
+	private class BuyNumMenuItem extends JMenuItem implements ActionListener
+	{
+
+		private final int quantity;
+		private final CharacterFacade character;
+		private final List<EquipmentFacade> targets;
+
+		BuyNumMenuItem(CharacterFacade character, List<EquipmentFacade> targets, int quantity)
+		{
+			super(LanguageBundle.getFormattedString(quantity > 0
+				? "in_igBuyMenuCommand" : "in_igBuyN", quantity)); //$NON-NLS-1$ //$NON-NLS-2$
+			this.character = character;
+			this.targets = targets;
+			this.quantity = quantity;
+			if (quantity > 0)
+			{
+				setToolTipText(LanguageBundle.getFormattedString(
+					"in_igBuyMenuDesc", quantity)); //$NON-NLS-1$
+			}
+			else
+			{
+				setToolTipText(LanguageBundle.getString("in_igBuyNMenuDesc")); //$NON-NLS-1$
+			}
+			//			setMnemonic(LanguageBundle.getMnemonic("in_mn_center"));
+			setIcon(Icons.Add16.getImageIcon());
+
+			addActionListener(this);
+		}
+
+		/**
+		 * Action to buy a certain number of items.
+		 */
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			int num = quantity;
+			if (num == 0)
+			{
+				String selectedValue =
+						JOptionPane.showInputDialog(null, LanguageBundle.getString("in_igBuyEnterQuantity"), //$NON-NLS-1$
+							Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
+				if (selectedValue != null)
+				{
+					try
+					{
+						num = (int) Float.parseFloat(selectedValue);
+					}
+					catch (NumberFormatException ex)
+					{
+						//Ignored
+					}
+				}
+			}
+			if (num > 0)
+			{
+				for (EquipmentFacade equip : targets)
+				{
+					if (character.isAutoResize())
+					{
+						equip = character.getEquipmentSizedForCharacter(equip);
+					}
+					character.addPurchasedEquipment(equip, num, false);
+					availableTable.refilter();
+				}
+			}
+		}
+
+	}
+
+	private class SellPopupMenuHandler extends PopupMouseAdapter
+	{
+
+		private final CharacterFacade character;
+
+		SellPopupMenuHandler(CharacterFacade character)
+		{
+			this.character = character;
+		}
+		
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void showPopup(MouseEvent e)
+		{
+			List<EquipmentFacade> targets = getMenuTargets(purchasedTable, e);
+			if (targets.isEmpty())
+			{
+				return;
+			}
+
+			JPopupMenu popupMenu = new JPopupMenu();
+			popupMenu.add(new SellNumMenuItem(character, targets, 1));
+			JMenu sellMenu = new JMenu(LanguageBundle.getString("in_igSellQuantity")); //$NON-NLS-1$
+			sellMenu.add(new SellNumMenuItem(character, targets, 2));
+			sellMenu.add(new SellNumMenuItem(character, targets, 5));
+			sellMenu.add(new SellNumMenuItem(character, targets, 10));
+			sellMenu.add(new SellNumMenuItem(character, targets, 15));
+			sellMenu.add(new SellNumMenuItem(character, targets, 20));
+			sellMenu.add(new SellNumMenuItem(character, targets, 50));
+			popupMenu.add(sellMenu);
+			popupMenu.add(new SellNumMenuItem(character, targets, 0));
+			popupMenu.add(new SellNumMenuItem(character, targets, SellNumMenuItem.SELL_ALL_QUANTITY));
+			popupMenu.show(e.getComponent(), e.getX(), e.getY());
+		}
+
+		public void install()
+		{
+			purchasedTable.addMouseListener(this);
+		}
+
+		public void uninstall()
+		{
+			purchasedTable.removeMouseListener(this);
+		}
+	}
+
+	/**
+	 * Menu item for selling a quantity of an item at the current rate.
+	 */
+	private class SellNumMenuItem extends JMenuItem implements ActionListener
+	{
+		public static final int SELL_ALL_QUANTITY = -5;
+		private final int quantity;
+		private final CharacterFacade character;
+		private final List<EquipmentFacade> targets;
+
+		SellNumMenuItem(CharacterFacade character, List<EquipmentFacade> targets, int quantity)
+		{
+			super(LanguageBundle.getFormattedString(quantity > 0
+				? "in_igSellMenuCommand" : (quantity == SELL_ALL_QUANTITY //$NON-NLS-1$
+					? "in_igSellAll" : "in_igSellN"), quantity)); //$NON-NLS-1$ //$NON-NLS-2$
+			this.character = character;
+			this.targets = targets;
+			this.quantity = quantity;
+			if (quantity > 0)
+			{
+				setToolTipText(LanguageBundle.getFormattedString(
+					"in_igSellMenuDesc", quantity)); //$NON-NLS-1$
+			}
+			else if (quantity == SELL_ALL_QUANTITY)
+			{
+				setToolTipText(LanguageBundle.getString("in_igSelAllMenuDesc")); //$NON-NLS-1$
+			}
+			else
+			{
+				setToolTipText(LanguageBundle.getString("in_igSellNMenuDesc")); //$NON-NLS-1$
+			}
+			//			setMnemonic(LanguageBundle.getMnemonic("in_mn_center"));
+			setIcon(Icons.Remove16.getImageIcon());
+
+			addActionListener(this);
+		}
+
+		/**
+		 * Action to buy a certain number of items.
+		 */
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			boolean sellAll = quantity == SELL_ALL_QUANTITY;
+			int num = quantity;
+			if (num == 0)
+			{
+				String selectedValue =
+						JOptionPane.showInputDialog(null, LanguageBundle.getString("in_igBuyEnterQuantity"), //$NON-NLS-1$
+							Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
+				if (selectedValue != null)
+				{
+					try
+					{
+						num = (int) Float.parseFloat(selectedValue);
+					}
+					catch (NumberFormatException ex)
+					{
+						//Ignored
+					}
+				}
+			}
+			if (num > 0 || sellAll)
+			{
+				for (EquipmentFacade equip : targets)
+				{
+					if (sellAll)
+					{
+						num = character.getPurchasedEquipment().getQuantity(equip);
+					}
+					character.removePurchasedEquipment(equip, num);
+				}
+				availableTable.refilter();
+			}
+		}
+
+	}
 }
