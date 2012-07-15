@@ -77,6 +77,8 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	private final String availableTableTitle;
 	private ChooserTreeViewType defaultView =
 			ChooserTreeViewType.TYPE_NAME;
+
+	private boolean dupsAllowed = false;
 	
 	/**
 	 * Create a new instance of GeneraChooserFacadeBase with default localised 
@@ -190,7 +192,10 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 			return;
 		}
 		selectedList.addElement(item);
-		availableList.removeElement(item);
+		if (!dupsAllowed)
+		{
+			availableList.removeElement(item);
+		}
 		numSelectionsRemain.setReference(numSelectionsRemain.getReference()-1);
 	}
 
@@ -201,7 +206,10 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	public final void removeSelected(InfoFacade item)
 	{
 		selectedList.removeElement(item);
-		availableList.addElement(item);
+		if (!dupsAllowed)
+		{
+			availableList.addElement(item);
+		}
 		numSelectionsRemain.setReference(numSelectionsRemain.getReference()+1);
 	}
 
@@ -343,6 +351,14 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	public List<T> getFinalSelected()
 	{
 		return finalSelected;
+	}
+
+	/**
+	 * @param dupsAllowed Should the chooser allow an entry to be selected multiple times.
+	 */
+	public void setAllowsDups(boolean dupsAllowed)
+	{
+		this.dupsAllowed = dupsAllowed;
 	}
 
 	private class CDOMInfoWrapper implements InfoFacade

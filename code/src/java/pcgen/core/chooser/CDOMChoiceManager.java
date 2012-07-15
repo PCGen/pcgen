@@ -123,9 +123,9 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	{
 		int effectiveChoices = getNumEffectiveChoices(selectedList, reservedList);
 
-		final ChooserInterface chooser = getChooserInstance();
+//		final ChooserInterface chooser = getChooserInstance();
 		boolean dupsAllowed = controller.isMultYes() && controller.isStackYes();
-		chooser.setAllowsDups(dupsAllowed);
+//		chooser.setAllowsDups(dupsAllowed);
 		
 		/*
 		 * TODO This is temporarily commented out until the correct behavior of
@@ -155,6 +155,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 					LanguageBundle.getString("in_chooser"), availableList, //$NON-NLS-1$
 					selectedList, effectiveChoices);
 		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
+		chooserFacade.setAllowsDups(dupsAllowed);
 		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
 		
 		return chooserFacade.getFinalSelected();
