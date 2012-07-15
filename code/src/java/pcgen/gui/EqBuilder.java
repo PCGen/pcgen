@@ -638,28 +638,7 @@ final class EqBuilder extends JPanel
 
 		actionButtonPanel.setLayout(new BoxLayout(actionButtonPanel, BoxLayout.X_AXIS));
 
-		setGuiTextInfo(jButtonCancel, "Cancel");
-		jButtonCancel.setPreferredSize(new Dimension(81, 27));
-		jButtonCancel.setMaximumSize(new Dimension(81, 27));
-		jButtonCancel.setMinimumSize(new Dimension(81, 27));
-		jButtonCancel.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent evt)
-				{
-					jButtonCancelActionPerformed();
-				}
-			});
-		jButtonCancel.addMouseListener(new MouseAdapter()
-			{
-				public void mouseClicked(MouseEvent evt)
-				{
-					jButtonCancelActionPerformed();
-				}
-			});
-
-		actionButtonPanel.add(jButtonCancel);
-
-		setGuiTextInfo(jButtonOk, "Ok");
+		setGuiTextInfo(jButtonOk, "Ok"); //$NON-NLS-1$
 		jButtonOk.setPreferredSize(new Dimension(81, 27));
 		jButtonOk.setMaximumSize(new Dimension(81, 27));
 		jButtonOk.setMinimumSize(new Dimension(81, 27));
@@ -680,7 +659,7 @@ final class EqBuilder extends JPanel
 
 		actionButtonPanel.add(jButtonOk);
 
-		setGuiTextInfo(jButtonPurchase, "Purchase");
+		setGuiTextInfo(jButtonPurchase, "Purchase"); //$NON-NLS-1$
 		jButtonPurchase.setPreferredSize(new Dimension(81, 27));
 		jButtonPurchase.setMaximumSize(new Dimension(81, 27));
 		jButtonPurchase.setMinimumSize(new Dimension(81, 27));
@@ -702,6 +681,27 @@ final class EqBuilder extends JPanel
 		actionButtonPanel.add(jButtonPurchase);
 
 		jPanelOkCancel.add(actionButtonPanel);
+
+		setGuiTextInfo(jButtonCancel, "Cancel"); //$NON-NLS-1$
+		jButtonCancel.setPreferredSize(new Dimension(81, 27));
+		jButtonCancel.setMaximumSize(new Dimension(81, 27));
+		jButtonCancel.setMinimumSize(new Dimension(81, 27));
+		jButtonCancel.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent evt)
+				{
+					jButtonCancelActionPerformed();
+				}
+			});
+		jButtonCancel.addMouseListener(new MouseAdapter()
+			{
+				public void mouseClicked(MouseEvent evt)
+				{
+					jButtonCancelActionPerformed();
+				}
+			});
+
+		actionButtonPanel.add(jButtonCancel);
 
 		jPanel1.add(jPanelOkCancel, BorderLayout.SOUTH);
 
