@@ -187,7 +187,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 		int effectiveChoices = Math
 				.min(controller.getPool() + selectedPoolValue,
 						effectiveTotalChoices / choicesPerUnitCost);
-		//effectiveChoices -=  selectedList.size();
+		effectiveChoices -=  selectedList.size();
 		return effectiveChoices;
 	}
 
