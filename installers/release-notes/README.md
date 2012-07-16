@@ -1,12 +1,12 @@
-What's new for v5.17.15
+What's new for v5.17.16
 =======================
 
-PCGen v5.17.15 continues to round out the new UI and stabilise the feature set 
-as we head for a beta release soon. Some notable changes are:
+PCGen v5.17.16 is our last alpha for this cycle! We are almost done with new 
+additions to the new UI and expect to head for a beta release in the next week 
+or two. Some notable changes are:
 
-* New Temporary Bonuses tab
-* Choices are back on the Abilities tab
-* Elemental wizards class bonuses to skills
+* New, improved choosers in most locations
+* Pop-up context menu on the purchase tab for buying or selling multiple items
 
 The new user interface does most of what you are used to, but will not 
 initially support NPC generation and LST editor functionality.
@@ -18,17 +18,14 @@ welcome your input, just comment on the wiki pages or post to the PCGen mailing
 list .
 
 For full details of the new changes in this release, see the 
-[Release Notes](https://sourceforge.net/projects/pcgen/files/PCGen%20Unstable/5.17.15%20Alpha/pcgen-release-notes-51715.html/download) in the list above.
+[Release Notes](https://sourceforge.net/projects/pcgen/files/PCGen%20Unstable/5.17.16%20Alpha/pcgen-release-notes-51716.html/download) in the list above.
 
-James Dempsey for the PCGEN Team -- 21 June, 2012.
+James Dempsey for the PCGEN Team -- 17 July, 2012.
 
 
 
-SHA1 digest for pcgen-5.17.15-sources.jar:
-afe2d4757e4d718de5fb917f9dc5d0bc1cdee652 
+SHA1 digest for pcgen-5.17.16-sources.jar:
 
-SHA1 digest for pcgen51715_full.zip:
-a02cc17650f1288e6e171b95e6bddaa8e698b07c 
+SHA1 digest for pcgen51716_full.zip:
 
-SHA1 digest for pcgen51715_win_install.exe:
-67d88ce1ad0b9376f87d7bd88efd5c23fe675439 
+SHA1 digest for pcgen51716_win_install.exe:
