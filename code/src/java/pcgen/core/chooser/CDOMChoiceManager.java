@@ -18,8 +18,8 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 
 	private final CDOMObject owner;
 	private final Integer numberOfChoices;
-	private final int choicesPerUnitCost;
-	private ChooseController<T> controller = new ChooseController<T>();
+	protected final int choicesPerUnitCost;
+	protected ChooseController<T> controller = new ChooseController<T>();
 	private final ChooseInformation<T> info;
 
 	private transient int preChooserChoices;
