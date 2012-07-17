@@ -25,7 +25,10 @@ James Dempsey for the PCGEN Team -- 17 July, 2012.
 
 
 SHA1 digest for pcgen-5.17.16-sources.jar:
+4bb2a9e0f2bf523c5e47eb608bd8eb4c6b8a9bfd 
 
 SHA1 digest for pcgen51716_full.zip:
+6e5fde56d568e374a72d7bb432ff1c8d7a01cc70 
 
 SHA1 digest for pcgen51716_win_install.exe:
+5125a720713d9c3814afbd2d322ff80c3deabd1c 
