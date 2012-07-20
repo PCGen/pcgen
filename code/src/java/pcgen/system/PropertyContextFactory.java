@@ -144,7 +144,7 @@ public class PropertyContextFactory
 		}
 		for (File file : files)
 		{
-			if (!file.isDirectory())
+			if (!file.isDirectory() && file.getName().endsWith(".ini")) //$NON-NLS-1$
 			{
 				loadPropertyContext(file);
 			}

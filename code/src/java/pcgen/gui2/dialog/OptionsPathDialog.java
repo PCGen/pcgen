@@ -25,12 +25,15 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
@@ -179,6 +182,23 @@ public class OptionsPathDialog extends JDialog
 
 				if (rVal == JFileChooser.APPROVE_OPTION)
 				{
+					File dir = fc.getSelectedFile();
+					if (dir.listFiles().length > 0)
+					{
+						int confirm =
+								JOptionPane
+									.showConfirmDialog(
+										rootPane,
+										"The folder "
+											+ dir.getAbsolutePath()
+											+ " is not empty.\n"
+											+ "All ini files in this directory may be overwritten. "
+											+ "Are you sure?");
+						if (confirm != JOptionPane.YES_OPTION)
+						{
+							return;
+						}
+					}
 					selectedDir = String.valueOf(fc.getSelectedFile());
 					dirField.setText(selectedDir);
 				}
