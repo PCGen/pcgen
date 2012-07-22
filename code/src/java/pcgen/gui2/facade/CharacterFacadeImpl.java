@@ -22,6 +22,9 @@
  */
 package pcgen.gui2.facade;
 
+import gmgen.pluginmgr.GMBus;
+import gmgen.pluginmgr.messages.PCClosedMessage;
+
 import java.awt.Rectangle;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -270,6 +273,15 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		undoManager = new UndoManager();
 	}
 
+	/**
+	 * {@inheritDoc} 
+	 */
+	public void closeCharacter()
+	{
+		characterAbilities.closeCharacter();
+		GMBus.send(new PCClosedMessage(null, theCharacter));
+	}
+	
 	/**
 	 * 
 	 */
@@ -4109,5 +4121,14 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	public Float getVariable(String variableString, boolean isMax)
 	{
 		return theCharacter.getVariable(variableString, isMax);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean matchesCharacter(PlayerCharacter pc)
+	{
+		return theCharacter != null && theCharacter.equals(pc);
 	}
 }

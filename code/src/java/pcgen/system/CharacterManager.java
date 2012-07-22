@@ -20,6 +20,9 @@
  */
 package pcgen.system;
 
+import gmgen.pluginmgr.GMBus;
+import gmgen.pluginmgr.messages.PCLoadedMessage;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
@@ -86,10 +89,14 @@ public class CharacterManager
 	{
 	}
 
+	/**
+	 * Create a new character using the supplied data sets.
+	 * @param delegate the UIDelegate that this character will use.
+	 * @param dataset the dataset that this will be loaded with.
+	 * @return The character that was created.
+	 */
 	public static CharacterFacade createNewCharacter(UIDelegate delegate, DataSetFacade dataset)
 	{
-		Logging.log(Logging.INFO, "Creating new character."); //$NON-NLS-1$
-
 		@SuppressWarnings("rawtypes")
 		List campaigns = ListFacades.wrap(dataset.getCampaigns());
 		try
@@ -101,6 +108,8 @@ public class CharacterManager
 			String name = createNewCharacterName();
 			character.setName(name);
 			characters.addElement(character);
+			Logging.log(Logging.INFO, "Created new character " + name + "."); //$NON-NLS-1$ //$NON-NLS-2$
+			GMBus.send(new PCLoadedMessage(null, pc));
 			return character;
 		}
 		catch (Exception e)
@@ -166,6 +175,7 @@ public class CharacterManager
 			// Set the filename so that future checks to see if file already loaded will work
 			newPC.setFileName(file.getAbsolutePath());
 			Globals.getPCList().add(newPC);
+			GMBus.send(new PCLoadedMessage(null, newPC));
 	
 			CharacterFacade character = new CharacterFacadeImpl(newPC, delegate, dataset);
 			characters.addElement(character);
@@ -396,6 +406,7 @@ public class CharacterManager
 	public static void removeCharacter(CharacterFacade character)
 	{
 		characters.removeElement(character);
+		character.closeCharacter();
 		File charFile = character.getFileRef().getReference();
 		recentCharacters.addRecentFile(charFile);
 		if (characters.isEmpty())
@@ -413,6 +424,7 @@ public class CharacterManager
 		for (CharacterFacade characterFacade : characters)
 		{
 			recentCharacters.addRecentFile(characterFacade.getFileRef().getReference());
+			characterFacade.closeCharacter();
 		}
 		characters.clearContents();
 		recentParties.addRecentFile(characters.getFileRef().getReference());

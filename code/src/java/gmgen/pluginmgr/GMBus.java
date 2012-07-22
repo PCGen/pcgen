@@ -137,6 +137,9 @@ public class GMBus
 		}
 
 		//Then the sender
-		message.getSource().handleMessage(message);
+		if (message.getSource() != null)
+		{
+			message.getSource().handleMessage(message);
+		}
 	}
 }

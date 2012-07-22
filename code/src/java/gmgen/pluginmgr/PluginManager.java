@@ -68,6 +68,11 @@ public final class PluginManager implements pcgen.system.PluginLoader
 			if(pluginMap.get(plugin))
 			{
 				plugin.start();
+
+				if (plugin instanceof GMBPlugin)
+				{
+					GMBus.addToBus((GMBPlugin) plugin);
+				}
 			}
 		}
 	}
@@ -120,7 +125,7 @@ public final class PluginManager implements pcgen.system.PluginLoader
 
 		if ((logName == null || plVersion == null) || (plName == null))
 		{
-			Logging.debugPrint("Plugin " + clazz.getCanonicalName() + " needs"
+			Logging.log(Logging.WARNING, "Plugin " + clazz.getCanonicalName() + " needs"
 					+ " 'name' and 'version' properties.");
 			pluginMap.put(new Plugin.Broken(clazz.getCanonicalName()), Boolean.FALSE);
 		}

@@ -31,6 +31,7 @@ import javax.swing.undo.UndoManager;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.VariableProcessor;
 import pcgen.core.facade.event.ChangeListener;
 import pcgen.core.facade.util.DefaultListFacade;
@@ -817,4 +818,15 @@ public interface CharacterFacade extends CompanionFacade
 	 */
 	public Float getVariable(final String variableString, final boolean isMax);
 
+	/**
+	 * Advise the character facade that it is being closed.
+	 */
+	public void closeCharacter();
+
+	/**
+	 * Identify if this character facade is a facade for the supplied character.
+	 * @param pc The character to check for.
+	 * @return True if this is a facade for the supplied character, false otherwise.
+	 */
+	public boolean matchesCharacter(PlayerCharacter pc);
 }

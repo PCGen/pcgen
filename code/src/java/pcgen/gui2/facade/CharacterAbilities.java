@@ -89,6 +89,7 @@ import pcgen.util.enumeration.Visibility;
  */
 public class CharacterAbilities
 {
+
 	private PlayerCharacter theCharacter;
 	private UIDelegate delegate;
 
@@ -98,6 +99,9 @@ public class CharacterAbilities
 	private DataSetFacade dataSetFacade;
 	private final List<ChangeListener> abilityCatSelectionListeners;
 	private final TodoManager todoManager;
+	private ActiveAbilityChangeHandler activeAbilityChangeHandler;
+	private GrantedAbilityChangeHandler grantedAbilityChangeHandler;
+	private DirectAbilityChangeHandler directAbilityChangeHandler;
 
 	/**
 	 * Create a new instance of CharacterAbilities for a character.
@@ -116,9 +120,21 @@ public class CharacterAbilities
 		abilityCatSelectionListeners = new ArrayList<ChangeListener>();
 		
 		initForCharacter();
-		//TODO Remove listener on close character
 	}
 
+	/**
+	 * Tidy up character listeners when closing the character. 
+	 */
+	protected void closeCharacter()
+	{
+		DirectAbilityFacet directAbilityFacet = FacetLibrary.getFacet(DirectAbilityFacet.class);
+		directAbilityFacet.removeDataFacetChangeListener(directAbilityChangeHandler);
+		GrantedAbilityFacet grantedAbilityFacet = FacetLibrary.getFacet(GrantedAbilityFacet.class);
+		grantedAbilityFacet.removeDataFacetChangeListener(grantedAbilityChangeHandler);
+		ActiveAbilityFacet activeAbilityFacet = FacetLibrary.getFacet(ActiveAbilityFacet.class);
+		activeAbilityFacet.removeDataFacetChangeListener(activeAbilityChangeHandler);
+	}
+	
 	private void initForCharacter()
 	{
 		abilityListMap = 
@@ -133,132 +149,12 @@ public class CharacterAbilities
 		//theCharacter.getAbilityList(cat, nature)
 		rebuildAbilityLists();
 		
-		activeAbilityFacet.addDataFacetChangeListener(new DataFacetChangeListener<Ability>()
-			{
-
-			@Override
-				public void dataAdded(DataFacetChangeEvent<Ability> dfce)
-				{
-					if (dfce.getCharID() != charID)
-					{
-							Logging.debugPrint("CA for " + theCharacter.getName()
-								+ ". Ignoring active ability added for character "
-								+ dfce.getCharID());
-						return;
-					}
-					Logging.debugPrint("Got active ability added of " + dfce.getCDOMObject());
-					Ability ability = dfce.getCDOMObject();
-					if (dfce instanceof CategorizedDataFacetChangeEvent)
-					{
-						
-						CategorizedDataFacetChangeEvent<?> categorizedEvent =
-								(CategorizedDataFacetChangeEvent<?>) dfce;
-						AbilityCategory cat = (AbilityCategory) categorizedEvent.getCategory();
-						Nature nature = categorizedEvent.getNature();
-						addAbilityToLists(cat, ability, nature);
-					}
-				}
-
-				@Override
-				public void dataRemoved(DataFacetChangeEvent<Ability> dfce)
-				{
-					if (dfce.getCharID() != charID)
-					{
-							Logging
-								.debugPrint("CA for "
-									+ theCharacter.getName()
-									+ ". Ignoring active ability removed for character "
-									+ dfce.getCharID());
-						return;
-					}
-					Logging.debugPrint("Got active ability removed of " + dfce.getCDOMObject());
-					Ability ability = dfce.getCDOMObject();
-					if (dfce instanceof CategorizedDataFacetChangeEvent)
-					{
-						
-						CategorizedDataFacetChangeEvent<?> categorizedEvent =
-								(CategorizedDataFacetChangeEvent<?>) dfce;
-						AbilityCategory cat = (AbilityCategory) categorizedEvent.getCategory();
-						Nature nature = categorizedEvent.getNature();
-						removeAbilityFromLists(cat, ability, nature);
-					}
-				}
-			});
-		grantedAbilityFacet.addDataFacetChangeListener(new DataFacetChangeListener<Ability>()
-		{
-
-			@Override
-			public void dataAdded(DataFacetChangeEvent<Ability> dfce)
-			{
-				if (dfce.getCharID() != charID)
-				{
-						Logging.debugPrint("CA for " + theCharacter.getName()
-							+ ". Ignoring granted ability added for character "
-							+ dfce.getCharID());
-					return;
-				}
-				Logging.debugPrint("Got granted ability added of " + dfce.getCDOMObject());
-				Ability ability = dfce.getCDOMObject();
-				rebuildAbilityLists();
-			}
-
-			@Override
-			public void dataRemoved(DataFacetChangeEvent<Ability> dfce)
-			{
-				if (dfce.getCharID() != charID)
-				{
-						Logging
-							.debugPrint("CA for "
-								+ theCharacter.getName()
-								+ ". Ignoring granted ability removed for character "
-								+ dfce.getCharID());
-					return;
-				}
-				Logging.debugPrint("Got granted ability removed of " + dfce.getCDOMObject());
-				Ability ability = dfce.getCDOMObject();
-				rebuildAbilityLists();
-			}
-		});
-		directAbilityFacet.addDataFacetChangeListener(new DataFacetChangeListener<CategorizedAbilitySelection>()
-		{
-
-			@Override
-			public void dataAdded(
-				DataFacetChangeEvent<CategorizedAbilitySelection> dfce)
-			{
-				if (dfce.getCharID() != charID)
-				{
-					// The change notification is not for this character, so ignore it.
-					Logging.debugPrint("CA for " + theCharacter.getName()
-						+ ". Ignoring direct ability added for character "
-						+ dfce.getCharID());
-					return;
-				}
-				CategorizedAbilitySelection cas = dfce.getCDOMObject();
-				Logging.debugPrint("Got direct ability added of "
-					+ cas.getAbilityKey() + " for cat "
-					+ cas.getAbilityCategory());
-				addElement(abilityListMap, cas);
-				updateAbilityCategoryLater(cas.getAbilityCategory());
-			}
-
-			@Override
-			public void dataRemoved(
-				DataFacetChangeEvent<CategorizedAbilitySelection> dfce)
-			{
-				if (dfce.getCharID() != charID)
-				{
-					// The change notification is not for this character, so ignore it.
-					return;
-				}
-				CategorizedAbilitySelection cas = dfce.getCDOMObject();
-				Logging.debugPrint("Got direct ability removed of "
-					+ cas.getAbilityKey() + " for cat "
-					+ cas.getAbilityCategory());
-				removeElement(cas);
-				updateAbilityCategoryLater(cas.getAbilityCategory());
-			}
-		});
+		activeAbilityChangeHandler = new ActiveAbilityChangeHandler();
+		activeAbilityFacet.addDataFacetChangeListener(activeAbilityChangeHandler);
+		grantedAbilityChangeHandler = new GrantedAbilityChangeHandler();
+		grantedAbilityFacet.addDataFacetChangeListener(grantedAbilityChangeHandler);
+		directAbilityChangeHandler = new DirectAbilityChangeHandler();
+		directAbilityFacet.addDataFacetChangeListener(directAbilityChangeHandler);
 	}
 
 	void addAbilityToLists(AbilityCategory cat, Ability ability, Nature nature)
@@ -1007,6 +903,154 @@ public class CharacterAbilities
 		if (listFacade != null)
 		{
 			listFacade.removeElement(ability);
+		}
+	}
+
+	
+	/**
+	 * The Class <code>DirectAbilityChangeHandler</code> responds to changes to 
+	 * the character's list of direct abilities.
+	 */
+	private final class DirectAbilityChangeHandler implements
+			DataFacetChangeListener<CategorizedAbilitySelection>
+	{
+		@SuppressWarnings("nls")
+		@Override
+		public void dataAdded(
+			DataFacetChangeEvent<CategorizedAbilitySelection> dfce)
+		{
+			if (dfce.getCharID() != charID)
+			{
+				// The change notification is not for this character, so ignore it.
+				Logging.debugPrint("CA for " + theCharacter.getName() 
+					+ ". Ignoring direct ability added for character " 
+					+ dfce.getCharID());
+				return;
+			}
+			CategorizedAbilitySelection cas = dfce.getCDOMObject();
+			Logging.debugPrint("Got direct ability added of " 
+				+ cas.getAbilityKey() + " for cat "
+				+ cas.getAbilityCategory());
+			addElement(abilityListMap, cas);
+			updateAbilityCategoryLater(cas.getAbilityCategory());
+		}
+
+		@SuppressWarnings("nls")
+		@Override
+		public void dataRemoved(
+			DataFacetChangeEvent<CategorizedAbilitySelection> dfce)
+		{
+			if (dfce.getCharID() != charID)
+			{
+				// The change notification is not for this character, so ignore it.
+				return;
+			}
+			CategorizedAbilitySelection cas = dfce.getCDOMObject();
+			Logging.debugPrint("Got direct ability removed of "
+				+ cas.getAbilityKey() + " for cat "
+				+ cas.getAbilityCategory());
+			removeElement(cas);
+			updateAbilityCategoryLater(cas.getAbilityCategory());
+		}
+	}
+
+	/**
+	 * The Class <code>GrantedAbilityChangeHandler</code> responds to changes to 
+	 * the character's list of granted abilities.
+	 */
+	private final class GrantedAbilityChangeHandler implements
+			DataFacetChangeListener<Ability>
+	{
+		@SuppressWarnings("nls")
+		@Override
+		public void dataAdded(DataFacetChangeEvent<Ability> dfce)
+		{
+			if (dfce.getCharID() != charID)
+			{
+					Logging.debugPrint("CA for " + theCharacter.getName()
+						+ ". Ignoring granted ability added for character "
+						+ dfce.getCharID());
+				return;
+			}
+			Logging.debugPrint("Got granted ability added of " + dfce.getCDOMObject());
+			//Ability ability = dfce.getCDOMObject();
+			rebuildAbilityLists();
+		}
+
+		@SuppressWarnings("nls")
+		@Override
+		public void dataRemoved(DataFacetChangeEvent<Ability> dfce)
+		{
+			if (dfce.getCharID() != charID)
+			{
+					Logging
+						.debugPrint("CA for "
+							+ theCharacter.getName()
+							+ ". Ignoring granted ability removed for character "
+							+ dfce.getCharID());
+				return;
+			}
+			Logging.debugPrint("Got granted ability removed of " + dfce.getCDOMObject());
+			//Ability ability = dfce.getCDOMObject();
+			rebuildAbilityLists();
+		}
+	}
+
+	/**
+	 * The Class <code>ActiveAbilityChangeHandler</code> responds to changes to 
+	 * the character's list of active abilities.
+	 */
+	private final class ActiveAbilityChangeHandler implements
+			DataFacetChangeListener<Ability>
+	{
+		@SuppressWarnings("nls")
+		@Override
+		public void dataAdded(DataFacetChangeEvent<Ability> dfce)
+		{
+			if (dfce.getCharID() != charID)
+			{
+					Logging.debugPrint("CA for " + theCharacter.getName()
+						+ ". Ignoring active ability added for character "
+						+ dfce.getCharID());
+				return;
+			}
+			Logging.debugPrint("Got active ability added of " + dfce.getCDOMObject());
+			Ability ability = dfce.getCDOMObject();
+			if (dfce instanceof CategorizedDataFacetChangeEvent)
+			{
+				
+				CategorizedDataFacetChangeEvent<?> categorizedEvent =
+						(CategorizedDataFacetChangeEvent<?>) dfce;
+				AbilityCategory cat = (AbilityCategory) categorizedEvent.getCategory();
+				Nature nature = categorizedEvent.getNature();
+				addAbilityToLists(cat, ability, nature);
+			}
+		}
+
+		@SuppressWarnings("nls")
+		@Override
+		public void dataRemoved(DataFacetChangeEvent<Ability> dfce)
+		{
+			if (dfce.getCharID() != charID)
+			{
+					Logging
+						.debugPrint("CA for "
+							+ theCharacter.getName()
+							+ ". Ignoring active ability removed for character "
+							+ dfce.getCharID());
+				return;
+			}
+			Logging.debugPrint("Got active ability removed of " + dfce.getCDOMObject());
+			Ability ability = dfce.getCDOMObject();
+			if (dfce instanceof CategorizedDataFacetChangeEvent)
+			{
+				
+				CategorizedDataFacetChangeEvent<?> categorizedEvent =
+						(CategorizedDataFacetChangeEvent<?>) dfce;
+				AbilityCategory cat = (AbilityCategory) categorizedEvent.getCategory();
+				Nature nature = categorizedEvent.getNature();
+				removeAbilityFromLists(cat, ability, nature);
+			}
 		}
 	}
 
