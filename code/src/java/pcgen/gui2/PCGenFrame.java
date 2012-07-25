@@ -436,7 +436,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			{
 				return false;
 			}
-			//TODO: finish this
+			PCGenUIManager.displayGmGen();
 			return true;
 		}
 
