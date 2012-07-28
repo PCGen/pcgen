@@ -2,12 +2,64 @@
 SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 # Added 3rd printing errata - SR
+###Block: Creature Type Traits
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Aberration Traits|PRERACE:1,RACETYPE=Aberration
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Animal Traits|PRERACE:1,RACETYPE=Animal
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Construct Traits|PRERACE:1,RACETYPE=Construct
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Dragon Traits|PRERACE:1,RACETYPE=Dragon
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Fey Traits|PRERACE:1,RACETYPE=Fey
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Humanoid Traits|PRERACE:1,RACETYPE=Humanoid
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Magical Beast Traits|PRERACE:1,RACETYPE=Magical Beast
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Monstrous Humanoid Traits|PRERACE:1,RACETYPE=Monstrous Humanoid
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Ooze Traits|PRERACE:1,RACETYPE=Ooze
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Outsider Traits|PRERACE:1,RACETYPE=Outsider
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Plant Traits|PRERACE:1,RACETYPE=Plant
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Undead Traits|PRERACE:1,RACETYPE=Undead
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Vermin Traits|PRERACE:1,RACETYPE=Vermin
+
+###Block: Creature Subtype Traits
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Air Traits|PRERACE:1,RACESUBTYPE=Air
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Angel Traits|PRERACE:1,RACESUBTYPE=Angel
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Aquatic Traits|PRERACE:1,RACESUBTYPE=Aquatic
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Archon Traits|PRERACE:1,RACESUBTYPE=Archon
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Azata Traits|PRERACE:1,RACESUBTYPE=Azata
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Chaotic Traits|PRERACE:1,RACESUBTYPE=Chaotic
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Cold Traits|PRERACE:1,RACESUBTYPE=Cold
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Demon Traits|PRERACE:1,RACESUBTYPE=Demon
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Devil Traits|PRERACE:1,RACESUBTYPE=Devil
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Dwarf Traits|PRERACE:1,RACESUBTYPE=Dwarf
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Earth Traits|PRERACE:1,RACESUBTYPE=Earth
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Elemental Traits|PRERACE:1,RACESUBTYPE=Elemental
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Elf Traits|PRERACE:1,RACESUBTYPE=Elf
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Evil Traits|PRERACE:1,RACESUBTYPE=Evil
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Extraplanar Traits|PRERACE:1,RACESUBTYPE=Extraplanar
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Fire Traits|PRERACE:1,RACESUBTYPE=Fire
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Giant Traits|PRERACE:1,RACESUBTYPE=Giant
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Gnome Traits|PRERACE:1,RACESUBTYPE=Gnome
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Gnoll Traits|PRERACE:1,RACESUBTYPE=Gnoll
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Goblinoid Traits|PRERACE:1,RACESUBTYPE=Goblinoid
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Good Traits|PRERACE:1,RACESUBTYPE=Good
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Halfling Traits|PRERACE:1,RACESUBTYPE=Halfling
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Human Traits|PRERACE:1,RACESUBTYPE=Human
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Incorporeal Traits|PRERACE:1,RACESUBTYPE=Incorporeal
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Lawful Traits|PRERACE:1,RACESUBTYPE=Lawful
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Native Traits|PRERACE:1,RACESUBTYPE=Native
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Oni Traits|PRERACE:1,RACESUBTYPE=Oni
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Orc Traits|PRERACE:1,RACESUBTYPE=Orc
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Reptilian Traits|PRERACE:1,RACESUBTYPE=Reptilian
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Shapechanger Traits|PRERACE:1,RACESUBTYPE=Shapechanger
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Swarm Traits|PRERACE:1,RACESUBTYPE=Swarm
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Water Traits|PRERACE:1,RACESUBTYPE=Water
+
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Mindless Traits|PRERACE:1,RACESUBTYPE=Mindless
+
+
 
 ###Block: Creature Type Traits
 # Ability Name			Category of Ability		Visible	Automatically Gained Weapon Prof.		Ability																																																																																		Vision					Source Page
 Aberration Traits			CATEGORY:Special Ability	VISIBLE:NO								ABILITY:Special Ability|AUTOMATIC|Aberration Traits Output|PRERULE:1,DISPLAYTYPETRAITS																																																																					VISION:Darkvision (60')			SOURCEPAGE:p.306
 Animal Traits			CATEGORY:Special Ability	VISIBLE:NO								ABILITY:Special Ability|AUTOMATIC|Animal Traits Output|PRERULE:1,DISPLAYTYPETRAITS																																																																						VISION:Low-light				SOURCEPAGE:p.307
-Construct Traits			CATEGORY:Special Ability	VISIBLE:NO								ABILITY:Special Ability|AUTOMATIC|Construct Traits Output|PRERULE:1,DISPLAYTYPETRAITS	ABILITY:Special Ability|AUTOMATIC|Immunity to Death Effects|Immunity to Disease|Immunity to Mind-Affecting Effects|Immunity to Necromancy|Immunity to Paralysis|Immunity to Poison|Immunity to Sleep|Immunity to Stunning|Immunity to Ability Damage|Immunity to Ability Drain|Immunity to Nonlethal Damage|Immunity to Fatigue|Immunity to Exhaustion|Immunity to Energy Drain|Immunity to Death from Massive Damage	VISION:Darkvision (60')|Low-light	SOURCEPAGE:p.299
+Construct Traits			CATEGORY:Special Ability	VISIBLE:NO								ABILITY:Special Ability|AUTOMATIC|Construct Traits Output|PRERULE:1,DISPLAYTYPETRAITS	ABILITY:Special Ability|AUTOMATIC|Immunity to Death Effects|Immunity to Disease|Immunity to Mind-Affecting Effects|Immunity to Necromancy|Immunity to Paralysis|Immunity to Poison|Immunity to Sleep|Immunity to Stunning|Immunity to Ability Damage|Immunity to Ability Drain|Immunity to Nonlethal Damage|Immunity to Fatigue|Immunity to Exhaustion|Immunity to Energy Drain|Immunity to Death from Massive Damage	VISION:Darkvision (60')|Low-light	SOURCEPAGE:p.299	TEMPLATE:Construct
 Dragon Traits			CATEGORY:Special Ability	VISIBLE:NO								ABILITY:Special Ability|AUTOMATIC|Dragon Traits Output|PRERULE:1,DISPLAYTYPETRAITS	ABILITY:Special Ability|AUTOMATIC|Immunity to Magical Sleep|Immunity to Paralysis																																																								VISION:Darkvision (60')|Low-light	SOURCEPAGE:p.307
 Fey Traits				CATEGORY:Special Ability	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Simple			ABILITY:Special Ability|AUTOMATIC|Fey Traits Output|PRERULE:1,DISPLAYTYPETRAITS																																																																						VISION:Low-light				SOURCEPAGE:p.307
 Humanoid Traits			CATEGORY:Special Ability	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Simple			ABILITY:Special Ability|AUTOMATIC|Humanoid Traits Output|PRERULE:1,DISPLAYTYPETRAITS																																																																											SOURCEPAGE:p.308
@@ -16,14 +68,47 @@ Monstrous Humanoid Traits	CATEGORY:Special Ability	VISIBLE:NO	AUTO:WEAPONPROF|TY
 Ooze Traits				CATEGORY:Special Ability	VISIBLE:NO								ABILITY:Special Ability|AUTOMATIC|Ooze Traits Output|PRERULE:1,DISPLAYTYPETRAITS	ABILITY:Special Ability|AUTOMATIC|Immunity to Critical Hits|Immunity to Flanking|Immunity to Sneak Attacks|Immunity to Poison|Immunity to Sleep|Immunity to Paralysis|Immunity to Polymorph|Immunity to Stunning																																			VISION:Blind|Blindsight (60')		SOURCEPAGE:p.309
 Outsider Traits			CATEGORY:Special Ability	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Martial|TYPE.Simple	ABILITY:Special Ability|AUTOMATIC|Outsider Traits Output|PRERULE:1,DISPLAYTYPETRAITS																																																																					VISION:Darkvision (60')			SOURCEPAGE:p.309
 Plant Traits			CATEGORY:Special Ability	VISIBLE:NO								ABILITY:Special Ability|AUTOMATIC|Plant Traits Output|PRERULE:1,DISPLAYTYPETRAITS	ABILITY:Special Ability|AUTOMATIC|Immunity to Mind-Affecting Effects|Immunity to Paralysis|Immunity to Poison|Immunity to Polymorph|Immunity to Sleep|Immunity to Stunning																																									VISION:Low-light				SOURCEPAGE:p.301
-Undead Traits			CATEGORY:Special Ability	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Simple			ABILITY:Special Ability|AUTOMATIC|Undead Traits Output|PRERULE:1,DISPLAYTYPETRAITS	ABILITY:Special Ability|AUTOMATIC|Immunity to Death Effects|Immunity to Disease|Immunity to Mind-Affecting Effects|Immunity to Paralysis|Immunity to Poison|Immunity to Sleep|Immunity to Stunning|Immunity to Ability Drain|Immunity to Energy Drain|Immunity to Nonlethal Damage|Immunity to Fatigue|Immunity to Exhaustion|Immunity to Death from Massive Damage										VISION:Darkvision (60')			SOURCEPAGE:p.305
+Undead Traits			CATEGORY:Special Ability	VISIBLE:NO	AUTO:WEAPONPROF|TYPE.Simple			ABILITY:Special Ability|AUTOMATIC|Undead Traits Output|PRERULE:1,DISPLAYTYPETRAITS	ABILITY:Special Ability|AUTOMATIC|Immunity to Death Effects|Immunity to Disease|Immunity to Mind-Affecting Effects|Immunity to Paralysis|Immunity to Poison|Immunity to Sleep|Immunity to Stunning|Immunity to Ability Drain|Immunity to Energy Drain|Immunity to Nonlethal Damage|Immunity to Fatigue|Immunity to Exhaustion|Immunity to Death from Massive Damage										VISION:Darkvision (60')			SOURCEPAGE:p.305	TEMPLATE:Undead
 Vermin Traits			CATEGORY:Special Ability	VISIBLE:NO								ABILITY:Special Ability|AUTOMATIC|Vermin Traits Output|PRERULE:1,DISPLAYTYPETRAITS																																																																						VISION:Darkvision (60')			SOURCEPAGE:p.310
 
 ###Block: Creature Subtype Traits
-# Ability Name		Category of Ability		Visible	Ability																																														Source Page
-Elemental Traits		CATEGORY:Special Ability	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Elemental Traits Output|PRERULE:1,DISPLAYTYPETRAITS	ABILITY:Special Ability|AUTOMATIC|Immunity to Paralysis|Immunity to Poison|Immunity to Sleep|Immunity to Stunning|Immunity to Critical Hits|Immunity to Flanking|Immunity to Sneak Attacks	SOURCEPAGE:p.311
-Incorporeal Traits	CATEGORY:Special Ability	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Incorporeal Traits Output|PRERULE:1,DISPLAYTYPETRAITS																																	SOURCEPAGE:p.311
-Swarm Traits		CATEGORY:Special Ability	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Swarm Traits Output|PRERULE:1,DISPLAYTYPETRAITS	ABILITY:Special Ability|AUTOMATIC|Immunity to Critical Hits|Immunity to Flanking|Can't Be Tripped|Immunity to Weapon Damage													SOURCEPAGE:p.312
+Air Traits			CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Air
+Angel Traits		CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Angel
+Aquatic Traits		CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Aquatic
+Archon Traits		CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Archon
+Azata Traits		CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Azata
+Chaotic Traits		CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Chaotic
+Cold Traits			CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Cold
+Demon Traits		CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Demon
+Devil Traits		CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Devil
+Dwarf Traits		CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Dwarf
+Earth Traits		CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Earth
+Elemental Traits		CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Elemental	ABILITY:Special Ability|AUTOMATIC|Elemental Traits Output|PRERULE:1,DISPLAYTYPETRAITS	ABILITY:Special Ability|AUTOMATIC|Immunity to Paralysis|Immunity to Poison|Immunity to Sleep|Immunity to Stunning|Immunity to Critical Hits|Immunity to Flanking|Immunity to Sneak Attacks	SOURCEPAGE:p.311
+Elf Traits			CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Elf
+Evil Traits			CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Evil
+Extraplanar Traits	CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Extraplanar
+Fire Traits			CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Fire
+Giant Traits		CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Giant
+Gnome Traits		CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Gnome
+Gnoll Traits		CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Gnoll
+Goblinoid Traits		CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Goblinoid
+Good Traits			CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Good
+Halfling Traits		CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Halfling
+Human Traits		CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Human
+Incorporeal Traits	CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Incorporeal	ABILITY:Special Ability|AUTOMATIC|Incorporeal Traits Output|PRERULE:1,DISPLAYTYPETRAITS																																	SOURCEPAGE:p.311
+Lawful Traits		CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Lawful
+Native Traits		CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Native
+Oni Traits			CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Oni
+Orc Traits			CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Orc
+Reptilian Traits		CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Reptilian
+Shapechanger Traits	CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Shapechanger
+Swarm Traits		CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Swarm		ABILITY:Special Ability|AUTOMATIC|Swarm Traits Output|PRERULE:1,DISPLAYTYPETRAITS	ABILITY:Special Ability|AUTOMATIC|Immunity to Critical Hits|Immunity to Flanking|Can't Be Tripped|Immunity to Weapon Damage													SOURCEPAGE:p.312
+Water Traits		CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Water
+
+Mindless Traits		CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Mindless
+
+
+
 
 ###Block: Creature Type & Subtype Trait Output
 # Ability Name				Output Name						Category of Ability		Type						Description																																																																																																																																					Source Page
