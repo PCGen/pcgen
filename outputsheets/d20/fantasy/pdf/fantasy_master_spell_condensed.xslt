@@ -7586,7 +7586,7 @@
 									<xsl:with-param name="title" select="'AGE'"/>
 									<xsl:with-param name="value" select="age"/>
 								</xsl:call-template>
-										<fo:table-row>
+								<fo:table-row>
 			<fo:table-cell padding-top="1pt" height="9pt">
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'bio'"/>
@@ -7687,6 +7687,28 @@
 									<xsl:with-param name="title" select="'Race Sub Type'"/>
 									<xsl:with-param name="value" select="race/racesubtype"/>
 								</xsl:call-template>
+								<xsl:call-template name="bio.entry">
+									<xsl:with-param name="title" select="'Favored Class'"/>
+									<xsl:with-param name="value" select="race/racesubtype"/>
+								</xsl:call-template>
+								<fo:table-row>
+			<fo:table-cell padding-top="1pt" height="9pt">
+				<xsl:call-template name="attrib">
+					<xsl:with-param name="attribute" select="'bio'"/>
+				</xsl:call-template>
+				<fo:block font-size="9pt">
+					EXP Factor: <xsl:value-of select="experience/factor"/>;  EXP Penalty: <xsl:value-of select="experience/penalty"/> 
+				</fo:block>
+			</fo:table-cell>
+		</fo:table-row>
+		<fo:table-row>
+			<fo:table-cell padding-top="0.5pt">
+				<xsl:call-template name="attrib">
+					<xsl:with-param name="attribute" select="'bio.title'"/>
+				</xsl:call-template>
+				<fo:block font-size="6pt"></fo:block>
+			</fo:table-cell>
+		</fo:table-row>
 								<!-- Attempt to change Style -->
 				<fo:table-row>
 					<fo:table-cell>
