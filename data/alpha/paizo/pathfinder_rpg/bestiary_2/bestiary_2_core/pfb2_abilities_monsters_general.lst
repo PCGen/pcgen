@@ -4,6 +4,39 @@ SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompan
 # ORIGINAL ENTRY: Stefan Radermacher and Douglas Limmer
 # ORIGINAL ENTRY DATE: Unknown
 
+###Block: Racial Subtype Traits - Added by Andrew Maitland 7.28.2012
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Aeon Traits|PRERACE:1,RACESUBTYPE=Aeon
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Agathion Traits|PRERACE:1,RACESUBTYPE=Agathion
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Angel ~ Cassisian Traits|PRERACE:1,RACESUBTYPE=Angel ~ Cassisian
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Daemon Traits|PRERACE:1,RACESUBTYPE=Daemon
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Dark Folk Traits|PRERACE:1,RACESUBTYPE=Dark Folk
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Dhampir Traits|PRERACE:1,RACESUBTYPE=Dhampir
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Grippli Traits|PRERACE:1,RACESUBTYPE=Grippli
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Inevitable Traits|PRERACE:1,RACESUBTYPE=Inevitable
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Nightshade Traits|PRERACE:1,RACESUBTYPE=Nightshade
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Protean Traits|PRERACE:1,RACESUBTYPE=Protean
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Protean ~ Voidworm Traits|PRERACE:1,RACESUBTYPE=Protean ~ Voidworm
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Qlippoth Traits|PRERACE:1,RACESUBTYPE=Qlippoth
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Qlippoth ~ Cythnigot Traits|PRERACE:1,RACESUBTYPE=Qlippoth ~ Cythnigot
+
+
+Aeon Traits				CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Aeon
+Agathion Traits			CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Agathion
+Angel ~ Cassisian Traits	CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Angel ~ Cassisian
+Daemon Traits			CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Daemon
+Dark Folk Traits			CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Dark Folk
+Dhampir Traits			CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Dhampir
+Grippli Traits			CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Grippli
+Inevitable Traits			CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Inevitable
+Nightshade Traits			CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Nightshade
+Protean Traits			CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Protean
+Protean ~ Voidworm Traits	CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Protean ~ Voidworm
+Qlippoth Traits			CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Qlippoth
+Qlippoth ~ Cythnigot Traits	CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:Qlippoth ~ Cythnigot 
+
+
+
+
 # Ability Name						Unique Key							Category of Ability		Type								Visible	Define																					Description																																																																																																																																																							Ability																																																Combat bonus				Stat bonus					Modify VAR														Weapon prof. bonus																		Wield Category bonus		Source Page		Aspects																											Description of the Benefits
 Amorphous															CATEGORY:Special Ability	TYPE:Extraordinary.Defensive																												DESC:Your body is malleable and shapeless.																																																																																																																																																																																																																																																							SOURCEPAGE:p.294																													BENEFIT:Your body is malleable and shapeless. You are immune to precision damage (like sneak attacks) and critical hits, and can move through an area as small as one-quarter of your space without squeezing or one eighth of your space when squeezing.
 
