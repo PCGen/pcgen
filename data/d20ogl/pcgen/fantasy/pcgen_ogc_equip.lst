@@ -5,9 +5,9 @@ SOURCELONG:PCGen Open Gaming Content	SOURCESHORT:PCGen OGC	SOURCEWEB:../../../..
 
 ###Block: Weapon Accessories
 
-# Equipment Name	Type				Contains						Cost		Weight	Source Page
-Quiver		TYPE:Goods.Container	CONTAINS:UNLIM|Total=20|Arrow=20|Bolt=20	COST:0.1	WT:0.5	SOURCEPAGE:PCGen Docs - PCGen OGC
-Sheath		TYPE:Goods.Container	CONTAINS:UNLIM|Weapon=1				COST:0.1	WT:0.5	SOURCEPAGE:PCGen Docs - PCGen OGC
+# Equipment Name	Type				Contains														Cost		Weight	Source Page
+Quiver		TYPE:Goods.Container	CONTAINS:UNLIM|Total=20|Arrow=20|Bolt=20|SpecificArrow=20|SpecificBolt=20|Javelin=10	COST:0.1	WT:0.5	SOURCEPAGE:PCGen Docs - PCGen OGC
+Sheath		TYPE:Goods.Container	CONTAINS:UNLIM|Weapon=1												COST:0.1	WT:0.5	SOURCEPAGE:PCGen Docs - PCGen OGC
 
 ###Block: Armor Accessories
 
