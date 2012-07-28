@@ -5620,7 +5620,21 @@
 									</fo:block>
 								</xsl:if>
 								<!-- Display the ammunition as a series of checkboxes -->
-								<xsl:if test="contains(type, 'POTION') or contains(type, 'AMMUNITION') or contains(type, 'CONSUMABLE')">
+								<xsl:if test="contains(type, 'POTION') and quantity &gt; 1">
+									<fo:block font-size="7pt" font-family="ZapfDingbats">
+										<xsl:call-template name="for.loop">
+											<xsl:with-param name="count" select="checkbox"/>
+										</xsl:call-template>
+									</fo:block>
+								</xsl:if>
+								<xsl:if test="contains(type, 'AMMUNITION') and quantity &gt; 1">
+									<fo:block font-size="7pt" font-family="ZapfDingbats">
+										<xsl:call-template name="for.loop">
+											<xsl:with-param name="count" select="checkbox"/>
+										</xsl:call-template>
+									</fo:block>
+								</xsl:if>
+								<xsl:if test="contains(type, 'CONSUMABLE') and quantity &gt; 1">
 									<fo:block font-size="7pt" font-family="ZapfDingbats">
 										<xsl:call-template name="for.loop">
 											<xsl:with-param name="count" select="checkbox"/>
