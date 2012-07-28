@@ -102,7 +102,7 @@ $Date$
   <td colspan="1" class="h">|ALIGNMENT|</td>
   <td colspan="1" class="h">|DEITY|</td>
   <td class="h">|POOL.COST|</td>
-  <td rowspan="6" align="center" width="1%" class="border"><font style="font-size:10pt"><a href="#Bio"><img src="file://|PORTRAIT|" height="100" alt="Click for Bio" border="0" /></a><br /></font></td>
+  <td rowspan="6" align="center" width="1%" class="border"><font style="font-size:10pt"><a href="#Bio"><img src="file://|PORTRAIT.THUMB|" height="100" alt="Click for Bio" border="0" /></a><br /></font></td>
  </tr>
  <tr>
   <td colspan="2" class="topline">CHARACTER NAME</td>
@@ -1967,6 +1967,31 @@ Immune
 </table>
 <!-- STOP Feat Table -->
 <!-- ================================================================ -->
+
+<!-- Start of Temporary Bonuses table --> 
+|%COUNT[TEMPBONUSNAMES]| 
+<tr><td> 
+<table width="100%" cellspacing="0" cellpadding="2"> 
+<tr> 
+<td class="c9wB">Temporary Bonuses Applied</td> 
+</tr> 
+<tr> 
+<td width="100%" class="l8"> 
+|FOR,%temp,0,COUNT[TEMPBONUSNAMES]-1,1,0| 
+|IIF(%temp:0)| 
+|ELSE| 
+&bull;&nbsp; 
+|ENDIF| 
+|TEMPBONUS.%temp| 
+|ENDFOR| 
+</td> 
+</tr> 
+</table> 
+</td></tr> 
+|%| 
+
+
+
 <!-- Start Racial Innate Spells -->
 |FOR,%spellrace,COUNT[SPELLRACE],COUNT[SPELLRACE],1,0|
 |IIF(%spellrace:0)|
@@ -2389,7 +2414,7 @@ at will
   <td colspan="2"><font style="font-size: 14pt">|NAME| |%FOLLOWEROF|- |FOLLOWEROF| |%| |%BIO|</font></td>
  </tr>
  <tr>
-  <td class="border" height="400" width="1%"><img src="|NAME|_Full.jpg" height="400" alt="|NAME|'s portrait" /></td>
+  <td class="border" height="400" width="1%"><img src="file://localhost/|PORTRAIT|" height="400" alt="|NAME|'s portrait" /></td>
   <td valign="top" width="99%">
    <table width="100%" cellspacing="0" cellpadding="2">
     <tr><td class="biodata">|RACE|<br/></td></tr>
@@ -2433,6 +2458,7 @@ at will
 <!--<center><font size="-1">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE| <br>Player: |PLAYERNAME|; Character Name: |NAME|</font></center><br />
 -->
 <center><font size="-1">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE| <br>Player: |PLAYERNAME|; Character Name: |NAME|</font></center><br />
+
 
 <table width="100%" cellspacing="0" cellpadding="5">
 <tr>
