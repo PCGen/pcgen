@@ -2886,6 +2886,27 @@ Immune
 </table>
 <!-- STOP Feat Table -->
 
+<!-- Start of Temporary Bonuses table --> 
+|%COUNT[TEMPBONUSNAMES]| 
+<tr><td> 
+<table width="100%" cellspacing="0" cellpadding="2"> 
+<tr> 
+<td class="c9wB">Temporary Bonuses Applied</td> 
+</tr> 
+<tr> 
+<td width="100%" class="l8"> 
+|FOR,%temp,0,COUNT[TEMPBONUSNAMES]-1,1,0| 
+|IIF(%temp:0)| 
+|ELSE| 
+&bull;&nbsp; 
+|ENDIF| 
+|TEMPBONUS.%temp| 
+|ENDFOR| 
+</td> 
+</tr> 
+</table> 
+</td></tr> 
+|%| 
 
 
 <!-- ================================================================ -->
@@ -3298,7 +3319,7 @@ Spells
   <td colspan="2"><font style="font-size: 14pt">|NAME| |%FOLLOWEROF|- |FOLLOWEROF| |%| |%BIO|</font></td>
  </tr>
  <tr>
-  <td class="border" height="400" width="1%"><img src="|NAME|_Full.jpg" height="400" alt="|NAME|'s portrait" /></td>
+  <td class="border" height="400" width="1%"><img src="file://localhost/|PORTRAIT|" height="400" alt="|NAME|'s portrait" /></td>
   <td valign="top" width="99%">
 <table width="100%" cellspacing="0" cellpadding="2">
 <tr><td class="biodata">|RACE|<br/></td></tr>
