@@ -5604,10 +5604,10 @@
 								<fo:block space-before.optimum="1pt" font-size="5pt">
 									<xsl:value-of select="contents"/>
 								</fo:block>
-								<fo:block space-before.optimum="1pt" font-size="5pt">
+			<!-->					<fo:block space-before.optimum="1pt" font-size="5pt">
 									<xsl:value-of select="special_properties"/>
 									<xsl:value-of select="quality"/>
-								</fo:block>
+								</fo:block>	-->
 								<fo:block space-before.optimum="1pt" font-size="5pt">
 									<xsl:value-of select="note"/>
 								</fo:block>
@@ -5652,6 +5652,16 @@
 									<xsl:if test="quantity &gt; 1">
 										(<xsl:value-of select="format-number(cost * quantity, '####0.0#')"/>)
 									</xsl:if>
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+<!-- Special Properties Now Span entire row -->
+						<fo:table-row>
+							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('equipment.', $shade)"/></xsl:call-template>
+							<fo:table-cell number-columns-spanned="5">
+								<fo:block space-before.optimum="1pt" font-size="5pt">
+									<xsl:value-of select="special_properties"/>
+									<xsl:value-of select="quality"/>
 								</fo:block>
 							</fo:table-cell>
 						</fo:table-row>
