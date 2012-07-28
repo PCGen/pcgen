@@ -1247,11 +1247,10 @@ Immune
 	<rage>
 		<uses_per_day>|VAR.RageTimes.INTVAL|</uses_per_day>
 		<uses_per_day.title>Uses per day</uses_per_day.title>
-		<description>The Barbarian temporarily gains +|VAR.RageStrBonus.INTVAL| to Strength, +|VAR.RageConBonus.INTVAL| to Constitution, and a +|VAR.RageMorale.INTVAL| morale bonus on Will saves, but suffers a -2 penalty to AC. A fit of rage lasts for a number of rounds equal to 3 + the character's (newly improved) Constitution modifier. At the end of the rage, the barbarian is fatigued (-2 to Strength, -2 to Dexterity, can't charge or run) for the duration of that encounter (unless the barbarian is 20th level, when this limitation no longer applies). The barbarian can only fly into a rage once per encounter, and only a certain number of times per day (determined by level). Entering a rage takes no time itself, but the barbarian can only do it during his action.</description>
+		<description>|ABILITYALL.Special Ability.0.TYPE=RageDescription.ASPECT.RageDescription|</description>
 	</rage>
 	<!-- this stuff needs a bit of work to display correct info for both 3e and 3.5e properly. - Tir Gwaith -->
 |%|	<!-- Character Rage -->
-
 
 	<!-- Turning ability -->
 
