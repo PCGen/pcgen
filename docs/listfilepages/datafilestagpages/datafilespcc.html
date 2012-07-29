@@ -723,11 +723,20 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Tells PCGen to load additional pcc files along with the current pcc file.</li>
-		<li><strong>Note:</strong> It is recommended that you include this tag before any tags 
-		that load LST files.</li>
+		<li>If the campaign file to be loaded by this tag isn't located in the same folder as the current campaign file then file path must be included.
+			<ul>
+				<li>The &quot;@;&quot; symbol used at the beginning of the file path will set the <strong>data</strong> folder as the top folder in the path.</li>
+				<li>The &quot;&amp;&quot; symbol used at the beginning of the file path will set the <strong>vendor</strong> folder as the top folder in the path.</li>
+			</ul>
+		</li>
+		<li>It is recommended that this tag be placed before any tags that load LST files.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>PCC:../foodir/foobook.pcc</code></p>
+	<p class="indent2"><code>PCC:@/d20ogl/paizo/pathfinder_rpg/pathfinder_rpg_for_players_advanced.pcc</code></p>
+	<p class="indent3">Loads the campaign file <span class="lstfile">pathfinder_rpg_for_players_advanced.pcc</span> 
+		found in the <span class="lstfile">data/d20ogl/paizo/pathfinder_rpg/</span> folder.</p>
+	<p class="indent2"><code>PCC:&/foodir/foobook.pcc</code></p>
+	<p class="indent3">Loads the campaign file <span class="lstfile">foobook.pcc</span> found in the <span class="lstfile">vendor/foodir/</span> folder.</p>
 	<p></p>
 
 <hr>
