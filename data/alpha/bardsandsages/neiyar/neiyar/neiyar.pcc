@@ -40,7 +40,7 @@ CLASS:neiyar_classes.lst
 DEITY:neiyar_deities.lst
 FEAT:neiyar_feats.lst
 FEAT:neiyar_feats_flaws.lst
-FEAT:neiyar_feats_hidden.lst
+#FEAT:neiyar_feats_hidden.lst
 LANGUAGE:neiyar_languages.lst
 EQUIPMENT:neiyar_equip_magic_items.lst
 EQUIPMOD:neiyar_eqmods.lst
