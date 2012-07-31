@@ -32,6 +32,9 @@ URL:Amazon.com|http://www.amazon.com/gp/product/1903980305?ie=UTF8&tag=httppcgen
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:../fey_abilities_class.lst
+ABILITYCATEGORY:../fey_abilitycategories.lst
+
 CLASS:../fey_classes.lst
 DOMAIN:../fey_domains.lst
 EQUIPMENT:../fey_equip_armor.lst

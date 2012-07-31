@@ -26,10 +26,12 @@ COPYRIGHT:PCGen dataset conversion for Quests Copyright 2006, PCgen Data team (I
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:quests_abilities_class.lst
+ABILITYCATEGORY:quests_abilitycategories.lst
+
 CLASS:quests_class_prestige.lst
 EQUIPMOD:quests_equipmod.lst
 FEAT:quests_feat.lst
-FEAT:quests_feat_hidden.lst
 KIT:quests_kit.lst
 RACE:quests_race.lst
 SKILL:quests_skill.lst

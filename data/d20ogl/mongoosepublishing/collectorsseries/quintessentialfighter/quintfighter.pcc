@@ -28,6 +28,8 @@ URL:MongoosePublishing.com|http://www.mongoosepublishing.com/d20/detail.php?qsID
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
+ABILITY:quintfighter_abilities_class.lst
+ABILITYCATEGORY:quintfighter_abilitycategories.lst
 
 CLASS:quintfighterclasses.lst
 EQUIPMENT:quintfighterequiparmorshields.lst

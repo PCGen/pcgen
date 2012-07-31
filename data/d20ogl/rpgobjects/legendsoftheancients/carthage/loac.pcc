@@ -23,8 +23,8 @@ COPYRIGHT:PCGen dataset conversion for the Legends of the Ancients - Carthage Co
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:loac_abilities.lst
 CLASS:loac_class.lst
 FEAT:loac_feat.lst
-FEAT:loac_feat_hidden.lst
 SPELL:loac_spell.lst
 TEMPLATE:loac_template.lst

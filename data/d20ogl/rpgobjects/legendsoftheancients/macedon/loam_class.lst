@@ -7,18 +7,18 @@ CLASS:Cavalry	HD:10		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.3	BONUS:CHECKS|BASE.F
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cavalry	STARTSKILLPTS:2	CSKILL:Handle Animal|Intimidate|Jump|Knowledge (Tactics)|Ride|Spot|Survival
 ###Block: proficiencies
-1	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
+1	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: standard
-1	SAB:Mounted Combat +%|MountedCombat				BONUS:VAR|MountedCombat|(CL/4)+1		DEFINE:MountedCombat|0	VFEAT:Mounted Combat
-2	SAB:Mounted Mobility	SAB:Saddle Leap
-3	SAB:Cavalry Mount	SAB:Spur +%|CavalrySpur			BONUS:VAR|CavalrySpur|min(30,(10*(CL/3)))	DEFINE:CavalrySpur|0
-5	SAB:Harry +%|CavalryHarry					BONUS:VAR|CavalryHarry|CL/5			DEFINE:CavalryHarry|0	VFEAT:Ride By Attack
-7	SAB:Spur (nonlethal damage)	SAB:Mounted Endurance
+1	ABILITY:Special Ability|AUTOMATIC|Mounted Combat ~ Cavalry				BONUS:VAR|MountedCombat|(CL/4)+1			VFEAT:Mounted Combat
+2	ABILITY:Special Ability|AUTOMATIC|Mounted Mobility ~ Cavalry|Saddle Leap ~ Cavalry
+3	ABILITY:Special Ability|AUTOMATIC|Cavalry Mount ~ Cavalry|Spur ~ Cavalry			BONUS:VAR|CavalrySpur|min(30,(10*(CL/3)))	
+5	ABILITY:Special Ability|AUTOMATIC|Harry ~ Cavalry				BONUS:VAR|CavalryHarry|CL/5				VFEAT:Ride By Attack
+7	ABILITY:Special Ability|AUTOMATIC|Spur ~ Cavalry|Mounted Endurance ~ Cavalry	DEFINE:SpurLvl|1
 9																					VFEAT:Spirited Charge
-10	SAB:Mounted Agility
-11	SAB:Like the Wind +%|LikeTheWind				BONUS:VAR|LikeTheWind|(CL-8)/3		DEFINE:LikeTheWind|0
-13	SAB:Tall in the saddle
-18	SAB:Lightning Attack
-19	SAB:Companion Mount
+10	ABILITY:Special Ability|AUTOMATIC|Mounted Agility ~ Cavalry
+11	ABILITY:Special Ability|AUTOMATIC|Like the Wind ~ Cavalry				BONUS:VAR|LikeTheWind|(CL-8)/3		
+13	ABILITY:Special Ability|AUTOMATIC|Tall in the saddle ~ Cavalry
+18	ABILITY:Special Ability|AUTOMATIC|Lightning Attack ~ Cavalry
+19	ABILITY:Special Ability|AUTOMATIC|Companion Mount ~ Cavalry

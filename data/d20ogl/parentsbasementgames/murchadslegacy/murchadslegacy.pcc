@@ -27,6 +27,10 @@ URL:WEBSITE|http://murchadslegacy.pbwiki.com/|Visit the Murchad's Legacy wiki
 #EXTRAFILE:OGL.txt
 #EXTRAFILE:user_notes.txt
 
+ABILITY:murchadslegacy_abilities_class.lst
+ABILITYCATEGORY:murchadslegacy_abilitycategories.lst
+
+
 CLASS:murchadslegacy_classes.lst
 COMPANIONMOD:murchadslegacy_companionmods.lst
 DEITY:murchadslegacy_deities.lst
@@ -34,7 +38,6 @@ DOMAIN:murchadslegacy_domains.lst
 EQUIPMENT:murchadslegacy_equip.lst
 EQUIPMENT:murchadslegacy_equip_magicitems.lst
 FEAT:murchadslegacy_feats.lst
-FEAT:murchadslegacy_feats_hidden.lst
 LANGUAGE:murchadslegacy_languages.lst
 RACE:murchadslegacy_races.lst
 SKILL:murchadslegacy_skills.lst

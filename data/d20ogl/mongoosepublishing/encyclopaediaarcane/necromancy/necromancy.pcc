@@ -30,6 +30,8 @@ URL:Amazon.com|http://www.amazon.com/gp/product/1903980046?ie=UTF8&tag=httppcgen
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
+ABILITY:necromancy_abilities_class.lst
+ABILITYCATEGORY:necromancy_abilitycategories.lst
 
 SPELL:necromancy_spells.lst
 

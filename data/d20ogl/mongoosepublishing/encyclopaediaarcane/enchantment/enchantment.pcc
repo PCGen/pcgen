@@ -32,6 +32,9 @@ URL:Amazon.com|http://www.amazon.com/gp/product/1903980496?ie=UTF8&tag=httppcgen
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:enchantment_abilities_class.lst
+ABILITYCATEGORY:enchantment_abilitycategories.lst
+
 CLASS:enchantment_classes.lst
 FEAT:enchantment_feats.lst
 SPELL:enchantment_spells.lst

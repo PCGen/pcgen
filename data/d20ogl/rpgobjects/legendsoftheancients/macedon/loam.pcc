@@ -23,5 +23,6 @@ COPYRIGHT:PCGen dataset conversion for the Legends of the Ancients - Macedon Cop
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:loam_abilities_class.lst
 CLASS:loam_class.lst
 SKILL:loam_skills.lst

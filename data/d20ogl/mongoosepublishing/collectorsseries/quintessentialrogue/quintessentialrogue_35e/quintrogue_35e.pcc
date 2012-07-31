@@ -47,3 +47,5 @@ WEAPONPROF:../quintrogueweapprofs.lst
 ARMORPROF:../quintrogue_profs_armor.lst
 
 CLASS:quintrogueclasses_35e.lst
+ABILITY:../quintrogue_abilities_class.lst
+ABILITY:../quintrogue_abilities.lst

@@ -32,6 +32,7 @@ URL:Amazon.com|http://www.amazon.com/gp/product/1903980496?ie=UTF8&tag=httppcgen
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+
 #CLASS:../enchantment_classes.lst
 FEAT:../enchantment_feats.lst
 SPELL:../enchantment_spells.lst
@@ -44,3 +45,6 @@ EQUIPMENT:../enchantment_equip_rodsstaffswands.lst
 EQUIPMOD:../enchantment_equipmods.lst
 
 CLASS:enchantment_classes_35e.lst
+
+ABILITY:../enchantment_abilities_class.lst
+ABILITYCATEGORY:../enchantment_abilitycategories.lst

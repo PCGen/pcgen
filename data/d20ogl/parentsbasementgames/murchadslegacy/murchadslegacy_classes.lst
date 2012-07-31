@@ -9,14 +9,14 @@ CLASS:Chain Dancer	HD:10		TYPE:PC.Prestige	ABB:CnDcr		MAXLEVEL:5	SOURCEPAGE:p.23
 CLASS:Chain Dancer	PREATT:6	PREFEAT:1,Desolati	PRESKILL:1,Perform (Spiked Chain Dancing)=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Chain Dancer	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Jump|Listen|Move Silently|TYPE=Perform|Search|Sense Motive|Spot|Survival|Tumble|Use Rope
-###Block: Enthral
-2	SAB:Enthrall (Ex) %d4 creatures effected for % rounds|EnthralledCreatures|EnthrallDuration|PREVARLT:EnthralledCreatures,4			BONUS:VAR|EnthralledCreatures|CL	DEFINE:EnthralledCreatures|0
-2	SAB:Master Enthrall (Ex) - %d4 creatures effected for % rounds|EnthralledCreatures|EnthrallDuration|PREVARGTEQ:EnthralledCreatures,4	BONUS:VAR|EnthrallDuration|CL		DEFINE:EnthrallDuration|0
+###Block: Enthrall
+2	ABILITY:Special Ability|AUTOMATIC|Enthrall ~ Chain Dancer			BONUS:VAR|EnthralledCreatures|CL	DEFINE:EnthralledCreatures|0
+2	ABILITY:Special Ability|AUTOMATIC|Master Enthrall ~ Chain Dancer	BONUS:VAR|EnthrallDuration|CL		DEFINE:EnthrallDuration|0
 4																								BONUS:VAR|EnthrallDuration|CL
 ###Block: Normal Level Progression
-1	SAB:Chain Parry (Ex) +%|ChainParryAC		BONUS:COMBAT|AC|ChainParryAC|TYPE=Temporary|PREAPPLY:PC	BONUS:VAR|ChainParryAC|CL	TEMPDESC:when armed with a spiked chain or elongated spiked chain the chain dancer can use his weapon of choice to attempt to automatically parry other attacks. This will apply an AC bonus valid when the character has a spiked chain and is not flatfooted.	DEFINE:ChainParryAC|0	AUTO:FEAT|Weapon Specialization(Chain (Spiked))
-3	SAB:Weapon Use (Elongated Spiked Chain)
-5	SAB:Weapon Proficiency (Elongated Spiked Chain)
+1	ABILITY:Special Ability|AUTOMATIC|Chain Parry ~ Chain Dancer		BONUS:COMBAT|AC|ChainParryAC|TYPE=Temporary|PREAPPLY:PC	BONUS:VAR|ChainParryAC|CL	TEMPDESC:when armed with a spiked chain or elongated spiked chain the chain dancer can use his weapon of choice to attempt to automatically parry other attacks. This will apply an AC bonus valid when the character has a spiked chain and is not flatfooted.	DEFINE:ChainParryAC|0	AUTO:FEAT|Weapon Specialization(Chain (Spiked))
+3	ABILITY:Special Ability|AUTOMATIC|Weapon Use (Elongated Spiked Chain) ~ Chain Dancer
+5	ABILITY:Special Ability|AUTOMATIC|Weapon Proficiency (Elongated Spiked Chain) ~ Chain Dancer
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
@@ -28,10 +28,10 @@ CLASS:Homefront Guardian	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|D
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SAB:Poison Use																						ADD:FEAT|Homefront Guardian Skill Bonus
-2	SAB:+% Save vs. Poison|HomefrontPoisonSave	BONUS:VAR|SneakAttack|CL/2	BONUS:VAR|HomefrontPoisonSave|CL/2	DEFINE:HomefrontPoisonSave|0								ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-3	SAB:Homeblood use																						ADD:FEAT|Homefront Guardian Skill Bonus
-5	SAB:Homeblood Immunity (Ex)																				ADD:FEAT|Homefront Guardian Skill Bonus
+1	ABILITY:Special Ability|AUTOMATIC|Poison Use																						ADD:FEAT|Homefront Guardian Skill Bonus
+2	ABILITY:Special Ability|AUTOMATIC|Poison Save ~ Homefront Guardian	BONUS:VAR|SneakAttack|CL/2	BONUS:VAR|HomefrontPoisonSave|CL/2								ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+3	ABILITY:Special Ability|AUTOMATIC|Homeblood use ~ Homefront Guardian																						ADD:FEAT|Homefront Guardian Skill Bonus
+5	ABILITY:Special Ability|AUTOMATIC|Homeblood Immunity ~ Homefront Guardian																				ADD:FEAT|Homefront Guardian Skill Bonus
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
@@ -43,13 +43,13 @@ CLASS:Imperial Legionnaire	STARTSKILLPTS:3	CSKILL:Climb|TYPE=Craft|Handle Animal
 1	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 ###Block: Normal Progression
-1	SAB:Aid Soul (Su) +%|AidSoulHitPoints	SAB:Soulbind (Su)																								BONUS:HP|CURRENTMAX|AidSoulHitPoints*%CHOICE|TYPE=Temporary|PREAPPLY:PC	BONUS:VAR|AidSoulHitPoints|2*(1+floor((CL-1)/3))	TEMPDESC:At first level the Legionnaire gains 2 hit points per other Legionnaire that he is currently bound with, this benefit increases at higher levels. This temporary bonus will add these hit points.	DEFINE:AidSoulHitPoints|0	CHOOSE:NUMBER|MIN=1|MAX=7|TITLE=Number of bound Legionnaires
-2	SAB:Enhanced Defense (Ex) +%|EnhancedDefenseAC														BONUS:COMBAT|AC|EnhancedDefenseAC|TYPE=EnhancedDefense|PREAPPLY:PC													BONUS:VAR|EnhancedDefenseAC|((CL-2)/3)+1			TEMPDESC:The Legionnaire is more aware of the area around him, granting him a bonus to Armor Class, but it is dependent on being near the other members of the octus and being soulbound.				DEFINE:EnhancedDefenseAC|0
-3	SAB:Awareness (Su)
-4	SAB:Protect Comrade (Ex)
-6	SAB:Sight Through the Soul (Su)	SAB:Soul Enforcement (Su)	BONUS:CHECKS|BASE.Will|2
-9	SAB:True Awareness (Ex)								BONUS:CHECKS|BASE.Reflex|2|TYPE=TrueAwareness|PREAPPLY:PC																																		TEMPDESC:The Legionnaire gains a +2 bonus to all Reflex saving throws as long as he is within 100' of his leader (or 200' if the leader is a Primarch).
-10	SAB::Primarch (Su)
+1	ABILITY:Special Ability|AUTOMATIC|Aid Soul ~ Imperial Legionnaire|Soulbind ~ Imperial Legionnaire																								BONUS:HP|CURRENTMAX|AidSoulHitPoints*%CHOICE|TYPE=Temporary|PREAPPLY:PC	BONUS:VAR|AidSoulHitPoints|2*(1+floor((CL-1)/3))		DEFINE:AidSoulHitPoints|0	CHOOSE:NUMBER|MIN=1|MAX=7|TITLE=Number of bound Legionnaires
+2	ABILITY:Special Ability|AUTOMATIC|Enhanced Defense ~ Imperial Legionnaire													BONUS:COMBAT|AC|EnhancedDefenseAC|TYPE=EnhancedDefense|PREAPPLY:PC													BONUS:VAR|EnhancedDefenseAC|((CL-2)/3)+1							DEFINE:EnhancedDefenseAC|0
+3	ABILITY:Special Ability|AUTOMATIC|Awareness ~ Imperial Legionnaire
+4	ABILITY:Special Ability|AUTOMATIC|Protect Comrade ~ Imperial Legionnaire
+6	ABILITY:Special Ability|AUTOMATIC|Sight Through the Soul ~ Imperial Legionnaire|Soul Enforcement ~ Imperial Legionnaire	BONUS:CHECKS|BASE.Will|2
+9	ABILITY:Special Ability|AUTOMATIC|True Awareness ~ Imperial Legionnaire								BONUS:CHECKS|BASE.Reflex|2|TYPE=TrueAwareness|PREAPPLY:PC																																		
+10	ABILITY:Special Ability|AUTOMATIC|Primarch ~ Imperial Legionnaire
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
@@ -58,12 +58,12 @@ CLASS:Knight of Pure Heart	HD:10		TYPE:PC.Prestige	ABB:ImLgn		MAXLEVEL:10	SOURCE
 CLASS:Knight of Pure Heart	PREATT:5	PRESKILL:2,Diplomacy=5,Ride=5	PRETEXT:You must be considered to be of "noble worth" by the Calisian royal court.	PREWEAPONPROF:1,Longsword
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of Pure Heart	STARTSKILLPTS:2	CSKILL:Appraise|Diplomacy|Handle Animal|Heal|Knowledge (Local/Calisia)|TYPE=Perform|Ride|Speak Language
-1	SAB:Nobility	ADD:FEAT|TYPE=Passion
-3				ADD:FEAT|TYPE=PureHeart
-5				ADD:FEAT|TYPE=Passion
-6				ADD:FEAT|TYPE=PureHeart
-9				ADD:FEAT|TYPE=PureHeart
-10				ADD:FEAT|TYPE=Passion
+1	ABILITY:Special Ability|AUTOMATIC|Nobility	BONUS:ABILITYPOOL|Passion Feat|1
+3									BONUS:ABILITYPOOL|PureHeart|1
+5									BONUS:ABILITYPOOL|Passion|1
+6									BONUS:ABILITYPOOL|PureHeart|1
+9									BONUS:ABILITYPOOL|PureHeart|1
+10									BONUS:ABILITYPOOL|Passion|1
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -85,22 +85,18 @@ CLASS:Orc Skin Artist	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Skin Art
-1	SAB:Skin Art (Cantrips)|PREVAREQ:SkinArtProgression,1			BONUS:VAR|SkinArtProgression|(CL+1)/2	DEFINE:SkinArtProgression|0
-1	SAB:Skin Art (Level 1 Spells)|PREVAREQ:SkinArtProgression,2
-1	SAB:Skin Art (Level 2 Spells)|PREVAREQ:SkinArtProgression,3
-1	SAB:Skin Art (Level 3 Spells)|PREVAREQ:SkinArtProgression,4
-1	SAB:Skin Art (Level 4 Spells)|PREVARGTEQ:SkinArtProgression,5
+1	ABILITY:Special Ability|AUTOMATIC|Skin Art ~ Orc Skin Artist		BONUS:VAR|SkinArtProgression|(CL+1)/2	DEFINE:SkinArtProgression|0
 ###Block Normal Level progression
 1	CAST:3
-2	CAST:3,1		SAB:Remove Tattoo (Su)
+2	CAST:3,1		ABILITY:Special Ability|AUTOMATIC|Remove Tattoo ~ Orc Skin Artist
 3	CAST:3,1
-4	CAST:4,2,1		SAB:Augmentation (+%)|AugmentationBonus	BONUS:VAR|AugmentationBonus|2	DEFINE:AugmentationBonus|0
+4	CAST:4,2,1		ABILITY:Special Ability|AUTOMATIC|Augmentation ~ Orc Skin Artist	BONUS:VAR|AugmentationBonus|2	DEFINE:AugmentationBonus|0
 5	CAST:4,2,2
-6	CAST:4,3,2,1	SAB:Remove Magical Tattoo (Su)		BONUS:VAR|AugmentationBonus|2
+6	CAST:4,3,2,1	ABILITY:Special Ability|AUTOMATIC|Remove Magical Tattoo ~ Orc Skin Artist		BONUS:VAR|AugmentationBonus|2
 7	CAST:5,3,3,2
 8	CAST:5,4,3,2,1								BONUS:VAR|AugmentationBonus|2
 9	CAST:5,4,4,3,2
-10	CAST:6,5,4,3,2	SAB:Ward
+10	CAST:6,5,4,3,2	ABILITY:Special Ability|AUTOMATIC|Ward ~ Orc Skin Artist
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source Page		Save checks bonus											Combat bonus
@@ -110,34 +106,34 @@ CLASS:Stargazer	PRERACE:1,Elf%,Half-Elf,Halfling%,Human	PRESKILL:4,Concentration
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Stargazer	STARTSKILLPTS:3	CSKILL:Appraise|Concentration|Craft (Alchemy)|Decipher Script|Gather Information|Heal|Knowledge (Astronomy)|TYPE=Perform|TYPE=Profession|Speak Language|Spellcraft
 SUBCLASS:Stargazer (Bonfire)			COST:0
-SUBCLASSLEVEL:1	SAB:Opposing Sign - Polaris	SAB:May not cast Spells from the School of Necromancy			BONUS:VAR|SSBonfireLvl|1		AUTO:FEAT|Star Sign (Bonfire)
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Opposing Sign - Polaris			BONUS:VAR|SSBonfireLvl|1		ABILITY:Special Ability|AUTOMATIC|Star Sign (Bonfire)
 SUBCLASS:Stargazer (Rainbow Dragon)		COST:0
-SUBCLASSLEVEL:1	SAB:Opposing Sign - Forgotten Child	SAB:May not cast Spells from the School of Enchantment	BONUS:VAR|SSRainbowDragonLvl|1	AUTO:FEAT|Star Sign (Rainbow Dragon)
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Opposing Sign - Forgotten Child	BONUS:VAR|SSRainbowDragonLvl|1	ABILITY:Special Ability|AUTOMATIC|Star Sign (Rainbow Dragon)
 SUBCLASS:Stargazer (The Faceless)		COST:0
-SUBCLASSLEVEL:1	SAB:Opposing Sign - The Guide	SAB:May not cast Spells from the School of Divination			BONUS:VAR|SSFacelessLvl|1		AUTO:FEAT|Star Sign (The Faceless)
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Opposing Sign - The Guide			BONUS:VAR|SSFacelessLvl|1		ABILITY:Special Ability|AUTOMATIC|Star Sign (The Faceless)
 SUBCLASS:Stargazer (The Guide)		COST:0
-SUBCLASSLEVEL:1	SAB:Opposing Sign - The Faceless	SAB:May not cast Spells from the School of Illusion		BONUS:VAR|SSGuideLvl|1			AUTO:FEAT|Star Sign (The Guide)
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Opposing Sign - The Faceless			BONUS:VAR|SSGuideLvl|1			ABILITY:Special Ability|AUTOMATIC|Star Sign (The Guide)
 SUBCLASS:Stargazer (The Blacksmith)		COST:0
-SUBCLASSLEVEL:1	SAB:Opposing Sign - Imaginos the Grand	SAB:May not cast Spells from the School of Evocation	BONUS:VAR|SSBlacksmithLvl|1		AUTO:FEAT|Star Sign (The Blacksmith)
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Opposing Sign - Imaginos the Grand		BONUS:VAR|SSBlacksmithLvl|1		ABILITY:Special Ability|AUTOMATIC|Star Sign (The Blacksmith)
 SUBCLASS:Stargazer (Forgotten Child)	COST:0
-SUBCLASSLEVEL:1	SAB:Opposing Sign - Rainbow Dragon	SAB:May not cast Spells from the School of Conjuration	BONUS:VAR|SSForgottenLvl|1		AUTO:FEAT|Star Sign (Forgotten Child)
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Opposing Sign - Rainbow Dragon		BONUS:VAR|SSForgottenLvl|1		ABILITY:Special Ability|AUTOMATIC|Star Sign (Forgotten Child)
 SUBCLASS:Stargazer (Polaris)			COST:0
-SUBCLASSLEVEL:1	SAB:Opposing Sign - Bonfire	SAB:May not cast Spells from the School of Abjuration			BONUS:VAR|SSPolarisLvl|1		AUTO:FEAT|Star Sign (Polaris)
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Opposing Sign - Bonfire			BONUS:VAR|SSPolarisLvl|1		ABILITY:Special Ability|AUTOMATIC|Star Sign (Polaris)
 SUBCLASS:Stargazer (Imaginos the Grand)	COST:0
-SUBCLASSLEVEL:1	SAB:Opposing Sign - The Blacksmith	SAB:May not cast Spells from the School of Transmutation	BONUS:VAR|SSImaginosLvl|1		AUTO:FEAT|Star Sign (Imaginos the Grand)
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Opposing Sign - The Blacksmith		BONUS:VAR|SSImaginosLvl|1		ABILITY:Special Ability|AUTOMATIC|Star Sign (Imaginos the Grand)
 ###Block: Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Level Progression
-1	SAB:Navigation			ADD:SPELLCASTER|ANY
+1	ABILITY:Special Ability|AUTOMATIC|Navigation ~ Stargazer			ADD:SPELLCASTER|ANY
 2						ADD:SPELLCASTER|ANY
 3						ADD:SPELLCASTER|ANY
-4	SAB:Fortune Telling (Su)	ADD:SPELLCASTER|ANY
-5						ADD:FEAT|TYPE=StarSign
+4	ABILITY:Special Ability|AUTOMATIC|Fortune Telling ~ Stargazer	ADD:SPELLCASTER|ANY
+5											BONUS:ABILITYPOOL|Star Sign Choice|1
 6						ADD:SPELLCASTER|ANY
 7						ADD:SPELLCASTER|ANY
 9						ADD:SPELLCASTER|ANY
-10						ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=StarSign
+10						ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Star Sign Choice|1
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -153,13 +149,13 @@ CLASS:Steadfast Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=
 1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 ###Block: level progression
-1	CAST:0,0		SAB:Launhym Nobility	SAB:Oath (Su)	BONUS:VAR|SteadfastHitPoints|CL	AUTO:FEAT|Oath (Active)|Oath (Direct Action)
+1	CAST:0,0		ABILITY:Special Ability|AUTOMATIC|Launhym Nobility ~ Steadfast Knight|Oath ~ Steadfast Knight	BONUS:VAR|SteadfastHitPoints|CL	ABILITY:Special Ability|AUTOMATIC|Oath (Active)|Oath (Direct Action)
 2	CAST:0,1
 3	CAST:0,1,1
-4	CAST:0,1,1		SAB:Nobility
+4	CAST:0,1,1		ABILITY:Special Ability|AUTOMATIC|Nobility ~ Steadfast Knight
 5	CAST:0,1,1,0
 6	CAST:0,1,1,1
-7	CAST:0,2,1,1,0	SAB:Blood Oath (Su)										AUTO:FEAT|Blood Oath (Active)|Blood Oath (Direct Action)
+7	CAST:0,2,1,1,0	ABILITY:Special Ability|AUTOMATIC|Blood Oath ~ Steadfast Knight										ABILITY:Special Ability|AUTOMATIC|Blood Oath (Active)|Blood Oath (Direct Action)
 8	CAST:0,2,1,1,1
 9	CAST:0,2,2,1,1
 10	CAST:0,2,2,2,1
@@ -176,12 +172,12 @@ CLASS:Steel Dragons	STARTSKILLPTS:3	CSKILL:TYPE=Craft|Disable Device|TYPE=Knowle
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1																																AUTO:FEAT|Alertness
-2																												ADD:FEAT|TYPE=Gunnery
-4	SAB:Magical Alertness (Ex) +%|MagicalAlertnessBonus|PREVARLT:CL,10				BONUS:VAR|MagicalAlertnessBonus|4	DEFINE:MagicalAlertnessBonus|0
-5																												ADD:FEAT|TYPE=Gunnery
-7	SAB:Fear of Flame (Ex) +2 saving throw bonus versus any fire related attack or incident
-8																												ADD:FEAT|TYPE=Gunnery
-10	SAB:Improved Magical Alertness (Ex) +%|MagicalAlertnessBonus					BONUS:VAR|MagicalAlertnessBonus|4
+2																												BONUS:ABILITYPOOL|Gunnery Feat|1
+4	ABILITY:Special Ability|AUTOMATIC|Magical Alertness ~ Steel Dragons				BONUS:VAR|MagicalAlertnessBonus|4	DEFINE:MagicalAlertnessBonus|0
+5																												BONUS:ABILITYPOOL|Gunnery Feat|1
+7	ABILITY:Special Ability|AUTOMATIC|Fear of Flame ~ Steel Dragons
+8																												BONUS:ABILITYPOOL|Gunnery Feat|1
+10	ABILITY:Special Ability|AUTOMATIC|Improved Magical Alertness ~ Steel Dragons					BONUS:VAR|MagicalAlertnessBonus|4
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
@@ -190,11 +186,11 @@ CLASS:Shadowtamer	HD:6		TYPE:PC.Prestige	ABB:ShTmr		MAXLEVEL:5	SOURCEPAGE:p.37	B
 CLASS:Shadowtamer	PREATT:3	PREFEAT:1,Shintai	PRESKILL:4,Knowledge (Arcana)=8,Knowledge (The Planes)=8,Knowledge (Nature)=4,Knowledge (Local/Shintai)=2	PRESPELLSCHOOL:1,Necromancy=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shadowtamer	STARTSKILLPTS:3	CSKILL:Concentration|TYPE=Craft|Gather Information|TYPE=Knowledge|TYPE=Profession|Speak Language|Spellcraft
-1	SAB:Lure of the Dammed							BONUS:VAR|ShadowBeast|CL	ADD:SPELLCASTER|ANY							AUTO:FEAT|Summon Shadow Beast
+1	ABILITY:Special Ability|AUTOMATIC|Lure of the Dammed ~ Shadowtamer							BONUS:VAR|ShadowBeast|CL	ADD:SPELLCASTER|ANY							ABILITY:Special Ability|AUTOMATIC|Summon Shadow Beast
 2																ADD:SPELLCASTER|ANY
 3																ADD:SPELLCASTER|ANY
 4																ADD:SPELLCASTER|ANY
-5	SAB:Damned			BONUS:COMBAT|AC|2	BONUS:STAT|STR|2						ADD:SPELLCASTER|ANY	TEMPLATE:Damned Spell Resistance
+5	ABILITY:Special Ability|AUTOMATIC|Damned ~ Shadowtamer			BONUS:COMBAT|AC|2	BONUS:STAT|STR|2						ADD:SPELLCASTER|ANY	TEMPLATE:Damned Spell Resistance
 
 #
 # End

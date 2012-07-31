@@ -23,6 +23,8 @@ COPYRIGHT:PCGen dataset conversion for Masters and Minions Horde Book 1: A Swarm
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:swarmstirges_abilities_class.lst
+
 SPELL:swarmstirges_spells.lst
 
 RACE:swarmstirges_races.lst

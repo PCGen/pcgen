@@ -26,6 +26,7 @@ URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=1819&it=1?affilia
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
+ABILITY:demonology_abilities_class.lst
 
 CLASS:demonology_classes.lst
 EQUIPMENT:demonology_equip_artifacts.lst

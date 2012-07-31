@@ -8,3 +8,6 @@ Planar Turning	CATEGORY:Special Ability	TYPE:SpecialAttack.Turning.TurnPlanar	DE
 ###Block: Aspects
 # Ability Name						Aspects
 CATEGORY=Special Ability|Planar Turning.MOD	ASPECT:TurnType|Turn	ASPECT:TurnKind|Planar	ASPECT:TurnTimes|%1|TurnTimesPlanar	ASPECT:TurnLevel|%1|TurnLevelPlanar	ASPECT:TurnDamage|%1d%2+%3|TurnDicePlanar|TurnDieSizePlanar|TurnDamagePlusPlanar	ASPECT:TurnCheck|%1|TurnCheckPlanar	ASPECT:TurnNotes|You destroy Planar creatures with total hit dice up to %1.|TurnLevelPlanar/2
+
+# Planar Mage
+Well Learned	KEY:Well Learned ~ Planar Mage	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary

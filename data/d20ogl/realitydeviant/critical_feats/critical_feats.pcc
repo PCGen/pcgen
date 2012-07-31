@@ -24,10 +24,10 @@ COPYRIGHT:PCGen dataset conversion for Critical Feats Copyright 2007, PCgen Data
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-ABILITYCATEGORY:critical_ability_categories.lst
+ABILITY:critical_feats_abilities.lst
+ABILITYCATEGORY:critical_feats_ability_categories.lst
 EQUIPMENT:critical_feats_equipment_weapons.lst
 FEAT:critical_feats_feats.lst
-ABILITY:critical_feats_feats_hidden.lst
 SPELL:critical_feats_spells.lst
 WEAPONPROF:critical_feats_weaponprofs.lst
 

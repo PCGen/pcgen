@@ -30,6 +30,10 @@ URL:Amazon.com|http://www.amazon.com/gp/product/1903980089?ie=UTF8&tag=httppcgen
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+
+ABILITY:seablood_abilities.lst
+ABILITYCATEGORY:seablood_abilitycategories.lst
+
 CLASS:seabloodclasses.lst
 EQUIPMENT:seabloodequip.lst
 EQUIPMENT:seabloodequiprodstaffwands.lst

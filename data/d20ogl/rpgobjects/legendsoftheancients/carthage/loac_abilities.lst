@@ -1,0 +1,8 @@
+# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Legends of the Ancients - Carthage	SOURCESHORT:Carthage	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=99
+
+# Feat Name			
+Color of Money		CATEGORY:Special Ability	TYPE:SpecialQuality		DESC:Color of Money +%1 (%2/day)|ColorOfMoneyBonus|ColorOfMoneyTimes	DEFINE:ColorOfMoneyTimes|0	DEFINE:ColorOfMoneyBonus|0
+
+
+Mercenary's Revenge	CATEGORY:Special Ability	TYPE:SpecialQuality

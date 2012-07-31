@@ -20,10 +20,12 @@ COPYRIGHT:PCGen dataset conversion for Shadows of Shinobi Copyright 2007, PCGen 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITYCATEGORY:shadows_of_shinobi_abilitycategories.lst
+ABILITY:shadows_of_shinobi_abilities_class.lst
+
 CLASS:shadows_of_shinobi_class.lst
 EQUIPMENT:shadows_of_shinobi_equipment.lst
 FEAT:shadows_of_shinobi_feat.lst
-FEAT:shadows_of_shinobi_feat_hidden.lst
 FEAT:shadows_of_shinobi_feat_mod.lst
 SPELL:shadows_of_shinobi_spell.lst
 WEAPONPROF:shadows_of_shinobi_weaponprof.lst

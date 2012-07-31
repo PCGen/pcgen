@@ -1,0 +1,152 @@
+# CVS $Revision$ $Author$ -- Tue Nov 11 16:25:26 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://murchadslegacy.pbwiki.com/	SOURCEDATE:2005-07
+#Original Entry: Eddy Anthony (MoSaT)
+
+
+#Chain Dancer
+Enthrall							KEY:Enthrall ~ Chain Dancer							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:%1d4 creatures effected for % rounds|EnthralledCreatures|EnthrallDuration|PREVARLT:EnthralledCreatures,4			BONUS:VAR|EnthralledCreatures|CL	DEFINE:EnthralledCreatures|0
+Master Enthrall						KEY:Master Enthrall ~ Chain Dancer						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:%1d4 creatures effected for % rounds|EnthralledCreatures|EnthrallDuration|PREVARGTEQ:EnthralledCreatures,4	BONUS:VAR|EnthrallDuration|CL		DEFINE:EnthrallDuration|0
+Chain Parry							KEY:Chain Parry ~ Chain Dancer						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:+%1|ChainParryAC		BONUS:COMBAT|AC|ChainParryAC|TYPE=Temporary|PREAPPLY:PC	BONUS:VAR|ChainParryAC|CL	TEMPDESC:when armed with a spiked chain or elongated spiked chain the chain dancer can use his weapon of choice to attempt to automatically parry other attacks. This will apply an AC bonus valid when the character has a spiked chain and is not flatfooted.	DEFINE:ChainParryAC|0	AUTO:FEAT|Weapon Specialization(Chain (Spiked))
+Weapon Use (Elongated Spiked Chain)			KEY:Weapon Use (Elongated Spiked Chain) ~ Chain Dancer		CATEGORY:Special Ability	TYPE:SpecialQuality
+Weapon Proficiency (Elongated Spiked Chain)	KEY:Weapon Proficiency (Elongated Spiked Chain) ~ Chain Dancer	CATEGORY:Special Ability	TYPE:SpecialQuality
+
+
+#Homefront Guardian
+Posion Bonus			KEY:Poison Save ~ Homefront Guardian		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:+%1 Save vs. Poison|HomefrontPoisonSave	DEFINE:HomefrontPoisonSave|0							
+Homeblood use			KEY:Homeblood use ~ Homefront Guardian		CATEGORY:Special Ability	TYPE:SpecialQuality																		
+Homeblood Immunity		KEY:Homeblood Immunity ~ Homefront Guardian	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																	
+
+
+#Imperial Legionnaire
+Aid Soul			KEY:Aid Soul ~ Imperial Legionnaire				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:+%1|AidSoulHitPoints	
+Soulbind			KEY:Soulbind ~ Imperial Legionnaire				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:At first level the Legionnaire gains 2 hit points per other Legionnaire that he is currently bound with, this benefit increases at higher levels. This temporary bonus will add these hit points.	DEFINE:AidSoulHitPoints|0	CHOOSE:NUMBER|MIN=1|MAX=7|TITLE=Number of bound Legionnaires
+Enhanced Defense		KEY:Enhanced Defense ~ Imperial Legionnaire		CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:+%1|EnhancedDefenseAC	DESC:The Legionnaire is more aware of the area around him, granting him a bonus to Armor Class, but it is dependent on being near the other members of the octus and being soulbound.				DEFINE:EnhancedDefenseAC|0
+Awareness			KEY:Awareness ~ Imperial Legionnaire			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Protect Comrade		KEY:Protect Comrade ~ Imperial Legionnaire		CATEGORY:Special Ability	TYPE:SpecialQuality
+Sight Through the Soul	KEY:Sight Through the Soul ~ Imperial Legionnaire	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Soul Enforcement		KEY:Soul Enforcement ~ Imperial Legionnaire		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+True Awareness		KEY:True Awareness ~ Imperial Legionnaire			CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:The Legionnaire gains a +2 bonus to all Reflex saving throws as long as he is within 100' of his leader (or 200' if the leader is a Primarch).
+Primarch			KEY:Primarch ~ Imperial Legionnaire				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+
+
+#Knight of Pure Heart	
+Nobility			KEY:Nobility ~ Knight of Pure Heart			CATEGORY:Special Ability	TYPE:SpecialQuality
+
+
+#Orc Skin Artist
+Skin Art			KEY:Skin Art ~ Orc Skin Artist			CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Cantrips|PREVAREQ:SkinArtProgression,1		DEFINE:SkinArtProgression|0	DESC:Level 1 Spells|PREVAREQ:SkinArtProgression,2	DESC:Level 2 Spells|PREVAREQ:SkinArtProgression,3	DESC:Level 3 Spells|PREVAREQ:SkinArtProgression,4	DESC:Level 4 Spells|PREVARGTEQ:SkinArtProgression,5
+Remove Tattoo		KEY:Remove Tattoo ~ Orc Skin Artist			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Augmentation		KEY:Augmentation ~ Orc Skin Artist			CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:+%1|AugmentationBonus		DEFINE:AugmentationBonus|0
+Remove Magical Tattoo	KEY:Remove Magical Tattoo ~ Orc Skin Artist	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Ward				KEY:Ward ~ Orc Skin Artist				CATEGORY:Special Ability	TYPE:SpecialQuality
+
+
+
+
+
+Launhym Nobility	KEY:Launhym Nobility ~ Steadfast Knight	CATEGORY:Special Ability	TYPE:SpecialQuality
+Oath			KEY:Oath ~ Steadfast Knight			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Nobility		KEY:Nobility ~ Steadfast Knight		CATEGORY:Special Ability	TYPE:SpecialQuality
+Blood Oath		KEY:Blood Oath ~ Steadfast Knight		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+
+
+#Steel Dragons
+Magical Alertness			KEY:Magical Alertness ~ Steel Dragons		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:+%1|MagicalAlertnessBonus				DEFINE:MagicalAlertnessBonus|0
+Fear of Flame			KEY:Fear of Flame ~ Steel Dragons			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:+2 saving throw bonus versus any fire related attack or incident
+
+#Shadowtamer
+Lure of the Dammed	KEY:Lure of the Dammed ~ Shadowtamer	CATEGORY:Special Ability	TYPE:SpecialQuality
+Damned			KEY:Damned ~ Shadowtamer			CATEGORY:Special Ability	TYPE:SpecialQuality
+
+
+# Feat Name					Type				Visible	Req. Weapond Prof.				Prohibited Weapond Prof.		Special ABility					Stackable?	Multiple?	Choose																Automatically Gained Weapon Prof.	Add 			Automatic Languages	Bonus to skill						Weapon prof. bonus							Temporary effect description
+Military Longsword Proficiency		CATEGORY:Special Ability	TYPE:SpecialQuality.MilitaryWeapon									!PREWEAPONPROF:1,Longsword																														AUTO:WEAPONPROF|Longsword
+Military Shortsword Proficiency		CATEGORY:Special Ability	TYPE:SpecialQuality.MilitaryWeapon									!PREWEAPONPROF:1,Sword (Short)																													AUTO:WEAPONPROF|Sword (Short)
+Military Longsword Competence			CATEGORY:Special Ability	TYPE:SpecialQuality.MilitaryWeapon		PREWEAPONPROF:2,Longsword,Sword (Short)																																																								BONUS:WEAPONPROF=Longsword|DAMAGE|1|TYPE=Competence
+Military Shortsword Competence		CATEGORY:Special Ability	TYPE:SpecialQuality.MilitaryWeapon		PREWEAPONPROF:2,Longsword,Sword (Short)																																																								BONUS:WEAPONPROF=Sword (Short)|DAMAGE|1|TYPE=Competence
+
+Tutored Knowledge					CATEGORY:Special Ability	TYPE:SpecialQuality.BackgroundSupport																						STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE=Knowledge																							BONUS:SKILL|LIST|2|PREFEAT:1,Tutored
+Tutored Craft					CATEGORY:Special Ability	TYPE:SpecialQuality.BackgroundSupport																						STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE=Craft																							BONUS:SKILL|LIST|2|PREFEAT:1,Tutored
+
+Speaks Homish					CATEGORY:Special Ability	TYPE:SpecialQuality.HomeLanguage																																																					LANGAUTO:Homish
+Does not speak Homish				CATEGORY:Special Ability	TYPE:SpecialQuality.HomeLanguage		
+
+Fame - Standard Usage				CATEGORY:Special Ability	TYPE:SpecialQuality.FameSupport																SAB:+1 to Social skills when in %CHOICE	STACK:NO	MULT:YES	CHOOSE:STRING|Aeylamdyarian|Calisian|Desolati|Gadohig|Galkarnan|Home|Launhym|Launhym|Remarian|Shintai														BONUS:SKILL|TYPE=Social|1|TYPE=Fame|PREAPPLY:PC											TEMPDESC:Apply this temporary bonus when you are in the country you are famous in
+Fame - Optional Usage				CATEGORY:Special Ability	TYPE:SpecialQuality.FameSupport																SAB:+2 to Social skills when in %CHOICE	STACK:NO	MULT:YES	CHOOSE:STRING|Aeylamdyarian|Calisian|Desolati|Gadohig|Galkarnan|Home|Launhym|Launhym|Remarian|Shintai							ADD:FEAT|Infamous					BONUS:SKILL|TYPE=Social|2|TYPE=Fame|PREAPPLY:PC											TEMPDESC:Apply this temporary bonus when you are in the country you are famous in
+Infamous						CATEGORY:Special Ability	TYPE:SpecialQuality.Special																SAB:-1 to Charisma checks when in %CHOICE	STACK:NO	MULT:YES	CHOOSE:STRING|Aeylamdyarian|Calisian|Desolati|Gadohig|Galkarnan|Home|Launhym|Launhym|Remarian|Shintai
+
+###Block: Support for Reward Feats --------------------------------------------------------------------
+
+# Feat support for - Triumphant Hero of Launhym
+# Feat Name					Type				Visible		Description												Stackable?	Multiple?	Choose					Caster level				Bonus to skill		Stat bonus
+Triumphant Hero Ability Score Bonus		CATEGORY:Special Ability	TYPE:SpecialQuality.Special																	STACK:NO	MULT:YES	CHOOSE:STAT															BONUS:STAT|LIST|1
+
+# Feat support for - Damnation (aka Ylviuss' Wish)
+Damnation - Skill Mastery			CATEGORY:Special Ability	TYPE:SpecialQuality.DamnationReward	VISIBLE:EXPORT	DESC:You have effectively been granted a wish by Ylviuss.				STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|ALL							BONUS:SKILL|LIST|5
+Damnation - Arcane Power			CATEGORY:Special Ability	TYPE:SpecialQuality.DamnationReward	VISIBLE:EXPORT	DESC:You have effectively been granted a wish by Ylviuss.				STACK:NO	MULT:YES	CHOOSE:SCHOOLS				BONUS:CASTERLEVEL|SCHOOL.%LIST|1
+Damnation - Might					CATEGORY:Special Ability	TYPE:SpecialQuality.DamnationReward	VISIBLE:EXPORT	DESC:You have effectively been granted a wish by Ylviuss.				STACK:NO	MULT:YES	CHOOSE:STAT|INT|WIS|CHA													BONUS:STAT|LIST|2
+Damnation (Mystic Forces)			CATEGORY:Special Ability	TYPE:SpecialQuality.DamnationReward	VISIBLE:EXPORT	DESC:You may cast one arcane or divine spell once as a caster of 20th level.
+
+###Block: Racial Abilties --------------------------------------------------------------------------------
+
+## - Since this is an RSRD ability, this needs to be defined in RSRD set, and called from this set.
+## - Tir Gwaith
+
+# Feat Name			Type						Visible	Special ABility			Save checks bonus							Combat bonus				Bonus to skill																		Temporary effect description
+Light Blindness		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		BONUS:CHECKS|Fortitude,Reflex,Will|-1|PREAPPLY:PC	BONUS:COMBAT|TOHIT|-1|PREAPPLY:PC	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1|PREAPPLY:PC	TEMPDESC:Dark Elves suffer a -1 circumstance penalty to attack rolls, skill checks, and saving throws while in bright light.
+
+###Block: Class Abilities --------------------------------------------------------------------------------
+
+###Block: Homefront Guardian
+# Feat Name					Type			Visible	Stackable?	Multiple?	Choose													Bonus to skill
+Homefront Guardian Skill Bonus		CATEGORY:Special Ability	TYPE:SpecialQuality.ClassFeature		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|Alchemy|Bluff|Climb|Forgery|Hide|Sneak|Open Lock	BONUS:SKILL|LIST|2|TYPE=Class
+
+###Block: Knight of Pure Heart
+# Feat Name				Type				Visible	Required Feat					Special ABility								Define				Combat bonus									Stat bonus										Modify VAR					Temporary effect description
+Passion (King of Calisia)		CATEGORY:Special Ability	TYPE:SpecialQuality.Special.Passion									SAB:Passion (Ex) - King of Calisia +%|PassionKingBonus	DEFINE:PassionKingBonus|0	BONUS:COMBAT|AC|PassionKingBonus|TYPE=Passion|PREAPPLY:PC		BONUS:STAT|STR,CON|PassionKingBonus|TYPE=Passion|PREAPPLY:PC	BONUS:VAR|PassionKingBonus|2		TEMPDESC:Whenever the knight chooses he or she may dedicate an action to the King of Calisia.
+Passion (Calisia)				CATEGORY:Special Ability	TYPE:SpecialQuality.Special.Passion									SAB:Passion (Ex) - Calisia +%|PassionCalisiaBonus		DEFINE:PassionCalisiaBonus|0	BONUS:COMBAT|AC|PassionCalisiaBonus|TYPE=Passion|PREAPPLY:PC	BONUS:STAT|STR,CON|PassionCalisiaBonus|TYPE=Passion|PREAPPLY:PC	BONUS:VAR|PassionCalisiaBonus|2	TEMPDESC:Whenever the knight chooses he or she may dedicate an action to Calisia.
+Passion (Paramour)			CATEGORY:Special Ability	TYPE:SpecialQuality.Special.Passion									SAB:Passion (Ex) - Paramour +%|PassionParamourBonus		DEFINE:PassionParamourBonus|0	BONUS:COMBAT|AC|PassionParamourBonus|TYPE=Passion|PREAPPLY:PC	BONUS:STAT|STR,CON|PassionParamourBonus|TYPE=Passion|PREAPPLY:PC	BONUS:VAR|PassionParamourBonus|2	TEMPDESC:Whenever the knight chooses he or she may dedicate an action to his Paramour.
+Passion (King of Calisia +2)		CATEGORY:Special Ability	TYPE:SpecialQuality.Special.Passion		PREFEAT:1,Passion (King of Calisia)																																							BONUS:VAR|PassionKingBonus|2
+Passion (Calisia +2)			CATEGORY:Special Ability	TYPE:SpecialQuality.Special.Passion		PREFEAT:1,Passion (Calisia)																																								BONUS:VAR|PassionCalisiaBonus|2
+Passion (Paramour +2)			CATEGORY:Special Ability	TYPE:SpecialQuality.Special.Passion		PREFEAT:1,Passion (Paramour)																																								BONUS:VAR|PassionParamourBonus|2
+Passion (King of Calisia +3)		CATEGORY:Special Ability	TYPE:SpecialQuality.Special.Passion		PREFEAT:1,Passion (King of Calisia +2)																																						BONUS:VAR|PassionKingBonus|1
+Passion (Calisia +3)			CATEGORY:Special Ability	TYPE:SpecialQuality.Special.Passion		PREFEAT:1,Passion (Calisia +2)																																							BONUS:VAR|PassionCalisiaBonus|1
+Passion (Paramour +3)			CATEGORY:Special Ability	TYPE:SpecialQuality.Special.Passion		PREFEAT:1,Passion (Paramour +2)																																							BONUS:VAR|PassionParamourBonus|1
+
+###Block: Stargazer
+# Feat Name					Type				Visible	Special ABility																	Define				Bonus to skill							Modify VAR
+Star Sign (Bonfire)				CATEGORY:Special Ability	TYPE:SpecialQuality.Special.StarSign		SAB:Star Sign (Su) %d6 (Reflex save for half, DC %) for % minutes 1/day|SSBonfireLvl|SSBonfireLvl+10|SSBonfireLvl	DEFINE:SSBonfireLvl|0											BONUS:VAR|SSBonfireLvl|var("SKILLRANK=Knowledge {Astronomy}")
+Star Sign (Rainbow Dragon)			CATEGORY:Special Ability	TYPE:SpecialQuality.Special.StarSign		SAB:Star Sign (Su) % rounds 1/day|SSRainbowDragonLvl											DEFINE:SSRainbowDragonLvl|0										BONUS:VAR|SSRainbowDragonLvl|var("SKILLRANK=Knowledge {Astronomy}")
+Star Sign (The Faceless)			CATEGORY:Special Ability	TYPE:SpecialQuality.Special.StarSign		SAB:Star Sign (Su) % square feet for % minutes 1/day|SSFacelessLvl*5|var("CLASSLEVEL=Stargazer")			DEFINE:SSFacelessLvl|0											BONUS:VAR|SSFacelessLvl|var("SKILLRANK=Knowledge {Astronomy}")
+Star Sign (The Guide)				CATEGORY:Special Ability	TYPE:SpecialQuality.Special.StarSign		SAB:Star Sign (Su) % minutes 1/day|SSGuideLvl*10											DEFINE:SSGuideLvl|0											BONUS:VAR|SSGuideLvl|var("SKILLRANK=Knowledge {Astronomy}")
+Star Sign (The Blacksmith)			CATEGORY:Special Ability	TYPE:SpecialQuality.Special.StarSign		SAB:Star Sign (Su)																DEFINE:SSBlacksmithLvl|0	BONUS:SKILL|TYPE=Craft|max(0,(SSBlacksmithLvl-6))	BONUS:VAR|SSBlacksmithLvl|var("SKILLRANK=Knowledge {Astronomy}")
+Star Sign (Forgotten Child)			CATEGORY:Special Ability	TYPE:SpecialQuality.Special.StarSign		SAB:Star Sign (Su) % rounds (Will save to negate, DC %) 1/day|SSForgottenLvl|SSForgottenLvl+10				DEFINE:SSForgottenLvl|0											BONUS:VAR|SSForgottenLvl|var("SKILLRANK=Knowledge {Astronomy}")
+Star Sign (Polaris)				CATEGORY:Special Ability	TYPE:SpecialQuality.Special.StarSign		SAB:Star Sign (Su) 1/week															DEFINE:SSPolarisLvl|0											BONUS:VAR|SSPolarisLvl|var("SKILLRANK=Knowledge {Astronomy}")
+Star Sign (Imaginos the Grand)		CATEGORY:Special Ability	TYPE:SpecialQuality.Special.StarSign		SAB:Star Sign (Su) % square feet for % minutes 1/day|SSImaginosLvl*100|SSImaginosLvl					DEFINE:SSImaginosLvl|0											BONUS:VAR|SSImaginosLvl|var("SKILLRANK=Knowledge {Astronomy}")
+#
+Opposing Sign - Polaris				CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:May not cast Spells from the School of Necromancy	
+Opposing Sign - Forgotten Child		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:May not cast Spells from the School of Enchantment
+Opposing Sign - The Guide			CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:May not cast Spells from the School of Divination	
+Opposing Sign - The Faceless			CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:May not cast Spells from the School of Illusion	
+Opposing Sign - Imaginos the Grand		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:May not cast Spells from the School of Evocation	
+Opposing Sign - Rainbow Dragon		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:May not cast Spells from the School of Conjuration
+Opposing Sign - Bonfire				CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:May not cast Spells from the School of Abjuration	
+Opposing Sign - The Blacksmith		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:May not cast Spells from the School of Transmutation
+
+Navigation			KEY:Navigation ~ Stargazer			CATEGORY:Special Ability	TYPE:SpecialQuality
+Fortune Telling		KEY:Fortune Telling ~ Stargazer		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+
+###Block: Steadfast Knight
+# Feat Name				Type			Visible	Define				Choose										Save checks bonus					Combat bonus					Bonus to HP										Stat bonus													Temporary effect description
+Oath (Active)				CATEGORY:Special Ability	TYPE:SpecialQuality.Special		DEFINE:SteadfastHitPoints|0																										BONUS:HP|CURRENTMAX|SteadfastHitPoints|TYPE=Oath|PREAPPLY:PC															TEMPDESC:While an Oath is active the Steadfast Knight gains temporary hit points
+Oath (Direct Action)			CATEGORY:Special Ability	TYPE:SpecialQuality.Special																		BONUS:CHECKS|ALL|2|TYPE=Oath|PREAPPLY:PC	BONUS:COMBAT|AC|1|TYPE=Dodge|PREAPPLY:PC												BONUS:STAT|STR|1|TYPE=Oath|PREAPPLY:PC								TEMPDESC:Apply this bonus when undertaking any action that directly leads toward the resolution of the knight's task.
+Blood Oath (Active)			CATEGORY:Special Ability	TYPE:SpecialQuality.Special							CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Temporarily Lost Hit Points															BONUS:HP|CURRENTMAX|-1*(%CHOICE)|PREAPPLY:PC																		TEMPDESC:The Steadfast Knight loses one hit point per week until the Oath is fulfilled
+Blood Oath (Direct Action)		CATEGORY:Special Ability	TYPE:SpecialQuality.Special																									BONUS:COMBAT|AC|2|TYPE=Oath|PREAPPLY:PC												BONUS:STAT|STR|4|TYPE=Oath|PREAPPLY:PC	BONUS:STAT|DEX|2|TYPE=Oath|PREAPPLY:PC	TEMPDESC:Apply this bonus when undertaking any action that directly leads toward the resolution of the knight's task.
+
+###Block: Shadowtamer
+# Feat Name			Type			Visible	Special ABility		Define			Allow Follower			Allowed Companions
+Summon Shadow Beast		CATEGORY:Special Ability	TYPE:SpecialQuality.Special		DEFINE:ShadowBeast|0	FOLLOWERS:Shadow Beast|1	COMPANIONLIST:Shadow Beast|Baboon,Badger,Bat,Cat,Dog,Dog (Riding),Donkey,Eagle,Hawk,Hyena,Lizard,Monkey,Octopus,Owl,Pony,Pony (War),Porpoise,Rat,Raven,Snake (Viper/Medium),Snake (Viper/Small),Snake (Viper/Tiny),Toad,Weasel,Wolf,Wolverine
+
+#
+# End
+#

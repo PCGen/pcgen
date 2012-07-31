@@ -5,14 +5,15 @@ SOURCELONG:Legends of the Ancients - Carthage	SOURCESHORT:Carthage	SOURCEWEB:htt
 CLASS:Mercenary	HD:12		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mercenary	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Intimidate|Jump|Ride|Sense Motive|Survival|Swim
-1																									AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Martial Weapon Proficiency|Simple Weapon Proficiency|Weapon Focus	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1																									AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Martial Weapon Proficiency|Simple Weapon Proficiency		AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1	BONUS:ABILITYPOOL|Weapon Focus|1
 2																					VFEAT:Improved Feint
-3					BONUS:VAR|ColorOfMoneyTimes|CL/5+1	BONUS:VAR|ColorOfMoneyBonus|CL/3									AUTO:FEAT|Color of Money
-4																	ADD:FEAT|TYPE=Fighter
-7	SAB:Mercenary's Revenge
-8																	ADD:FEAT|TYPE=Fighter
-13																	ADD:FEAT|TYPE=Fighter
+3					BONUS:VAR|ColorOfMoneyTimes|CL/5+1	BONUS:VAR|ColorOfMoneyBonus|CL/3									ABILITY:Special Ability|AUTOMATIC|Color of Money
+4																	BONUS:ABILITYPOOL|Fighter Feat|1
+7	ABILITY:Special Ability|AUTOMATIC|Mercenary's Revenge
+8																	BONUS:ABILITYPOOL|Fighter Feat|1
+13																	BONUS:ABILITYPOOL|Fighter Feat|1
 15					BONUS:VAR|ColorOfMoneyBonus|-1
 16					BONUS:VAR|ColorOfMoneyBonus|1
-17																	ADD:FEAT|TYPE=Fighter
-19																	ADD:FEAT|TYPE=Fighter
+17																	BONUS:ABILITYPOOL|Fighter Feat|1
+19																	BONUS:ABILITYPOOL|Fighter Feat|1

@@ -27,6 +27,8 @@ INFOTEXT:Power names and other proper names from If Thoughts Could Kill are ©20
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 #EXTRAFILE:readme.txt
+ABILITY:itck_abilities_class.lst
+ABILITYCATEGORY:itck_abilitycategories.lst
 
 BIOSET:itck_biosettings.lst
 CLASS:itck_classes.lst

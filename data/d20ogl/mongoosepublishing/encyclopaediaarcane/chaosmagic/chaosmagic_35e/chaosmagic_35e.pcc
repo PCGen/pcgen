@@ -29,7 +29,7 @@ URL:Amazon.com|http://www.amazon.com/gp/product/1903980100?ie=UTF8&tag=httppcgen
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
-
+ABILITY:../chaosmagic_abilities_class.lst
 CLASS:../chaosmagic_classes.lst
 SKILL:../chaosmagic_skills.lst
 FEAT:../chaosmagic_feats.lst
