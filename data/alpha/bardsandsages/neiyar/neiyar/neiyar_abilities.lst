@@ -3,25 +3,92 @@ SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http
 
 ###Block: Special Abilities: Shalraeku & Zarakku
 # Ability Name			Unique Key							Category of Ability		Type											Visible		Innate Spells											Description									Ability									Save checks bonus		Combat bonus				Modify VAR						Vision			Spell Res.
-Immunity to natural poisons	KEY:ShalraekuZarakku_Imunity				CATEGORY:Special Ability	TYPE:Shalraeku.Zarakku.SpecialQuality.Extraordinary.Immunity	VISIBLE:YES															DESC:You never take poison damage from natural poisons
-Darkvision 60 ft			KEY:ShalraekuZarakku_Darkvision			CATEGORY:Special Ability	TYPE:Shalraeku.Zarakku								VISIBLE:DISPLAY																																																			VISION:Darkvision (60')
-Resistance to Fire 5		KEY:ShalraekuZarakku_Resistance_Fire		CATEGORY:Special Ability	TYPE:Shalraeku.Zarakku								VISIBLE:DISPLAY																								ABILITY:Special Ability|AUTOMATIC|Resistance To Fire												BONUS:VAR|AcidResistanceBonus|5
-Resistance to Electrical 5	KEY:ShalraekuZarakku_Resistance_Electrical	CATEGORY:Special Ability	TYPE:Shalraeku.Zarakku								VISIBLE:DISPLAY																								ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity											BONUS:VAR|ElectricityResistanceBonus|5
-Resistance to Cold 5		KEY:ShalraekuZarakku_Resistance_Cold		CATEGORY:Special Ability	TYPE:Shalraeku.Zarakku								VISIBLE:DISPLAY																								ABILITY:Special Ability|AUTOMATIC|Resistance To Cold												BONUS:VAR|ColdResistanceBonus|5
-Levitate				KEY:ShalraekuZarakku_Levitate				CATEGORY:Special Ability	TYPE:Shalraeku.Zarakku								VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Levitate
-Saving Throw +1			KEY:ShalraekuZarakku_SavingThrow			CATEGORY:Special Ability	TYPE:Shalraeku.Zarakku								VISIBLE:DISPLAY																																		BONUS:CHECKS|ALL|1
-Dimension Door			KEY:ShalraekuZarakku_Dimention_Door			CATEGORY:Special Ability	TYPE:Shalraeku.Zarakku								VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Dimension Door
-AC Bonus				KEY:Shalraeku_AC						CATEGORY:Special Ability	TYPE:Shalraeku									VISIBLE:DISPLAY																																						BONUS:COMBAT|AC|2|TYPE=Deflection
-AC Bonus				KEY:Zarakku_AC						CATEGORY:Special Ability	TYPE:Zarakku									VISIBLE:DISPLAY																																						BONUS:COMBAT|AC|2|TYPE=NaturalArmor
-Spell Resistance			KEY:Shalraeku_SR						CATEGORY:Special Ability	TYPE:Shalraeku									VISIBLE:DISPLAY																																																							SR:TL+WIS
-Spell Resistance			KEY:Zarakku_SR						CATEGORY:Special Ability	TYPE:Zarakku									VISIBLE:DISPLAY																																																							SR:TL+CON
-Cure Light Wounds			KEY:Shalraeku_CLW						CATEGORY:Special Ability	TYPE:Shalraeku									VISIBLE:DISPLAY	SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Cure Light Wounds,11+WIS
-Inflict Light Wounds		KEY:Zarakku_ILW						CATEGORY:Special Ability	TYPE:Zarakku									VISIBLE:DISPLAY	SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Inflict Light Wounds,11+WIS
+Immunity to natural poisons	KEY:ShalraekuZarakku_Imunity				CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku.SpecialQuality.Extraordinary.Immunity	VISIBLE:YES															DESC:You never take poison damage from natural poisons
+Darkvision 60 ft			KEY:ShalraekuZarakku_Darkvision			CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku.SpecialQuality								VISIBLE:DISPLAY																																																			VISION:Darkvision (60')
+Resistance to Fire 5		KEY:ShalraekuZarakku_Resistance_Fire		CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku.SpecialQuality								VISIBLE:DISPLAY																								ABILITY:Special Ability|AUTOMATIC|Resistance To Fire												BONUS:VAR|AcidResistanceBonus|5
+Resistance to Electrical 5	KEY:ShalraekuZarakku_Resistance_Electrical	CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku.SpecialQuality								VISIBLE:DISPLAY																								ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity											BONUS:VAR|ElectricityResistanceBonus|5
+Resistance to Cold 5		KEY:ShalraekuZarakku_Resistance_Cold		CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku.SpecialQuality								VISIBLE:DISPLAY																								ABILITY:Special Ability|AUTOMATIC|Resistance To Cold												BONUS:VAR|ColdResistanceBonus|5
+Levitate				KEY:ShalraekuZarakku_Levitate				CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku.SpecialQuality								VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Levitate
+Saving Throw +1			KEY:ShalraekuZarakku_SavingThrow			CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku.SpecialQuality								VISIBLE:DISPLAY																																		BONUS:CHECKS|ALL|1
+Dimension Door			KEY:ShalraekuZarakku_Dimention_Door			CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku.SpecialQuality								VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Dimension Door
+AC Bonus				KEY:Shalraeku_AC						CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.SpecialQuality									VISIBLE:DISPLAY																																						BONUS:COMBAT|AC|2|TYPE=Deflection
+AC Bonus				KEY:Zarakku_AC						CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Zarakku.SpecialQuality									VISIBLE:DISPLAY																																						BONUS:COMBAT|AC|2|TYPE=NaturalArmor
+Spell Resistance			KEY:Shalraeku_SR						CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.SpecialQuality									VISIBLE:DISPLAY																																																							SR:TL+WIS
+Spell Resistance			KEY:Zarakku_SR						CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Zarakku.SpecialQuality									VISIBLE:DISPLAY																																																							SR:TL+CON
+Cure Light Wounds			KEY:Shalraeku_CLW						CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.SpecialQuality									VISIBLE:DISPLAY	SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Cure Light Wounds,11+WIS
+Inflict Light Wounds		KEY:Zarakku_ILW						CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Zarakku.SpecialQuality									VISIBLE:DISPLAY	SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Inflict Light Wounds,11+WIS
 
 ###CLARIFY: Although in the Sourcebook Listed as Damage Reduction, I believe the intent is actually a RESISTANCE
-#DR 5 Fire									CATEGORY:Special Ability	TYPE:ShalraekuZarakku.SpecialQuality	VISIBLE:NO																																								DR:5/Fire
-#DR 5 Electrical								CATEGORY:Special Ability	TYPE:ShalraekuZarakku.SpecialQuality	VISIBLE:NO																																								DR:5/Electrical
-#DR 5 Cold									CATEGORY:Special Ability	TYPE:ShalraekuZarakku.SpecialQuality	VISIBLE:NO																																								DR:5/Cold
+#DR 5 Fire									CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.ShalraekuZarakku.SpecialQuality																																									DR:5/Fire
+#DR 5 Electrical								CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.ShalraekuZarakku.SpecialQuality																																									DR:5/Electrical
+#DR 5 Cold									CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.ShalraekuZarakku.SpecialQuality																																									DR:5/Cold
+
+
+
+###Block:Trapper Class Abilities
+# Feat Name		Type			Visible	Special ABility				Weapon prof. bonus
+Trapmaking				KEY:Trapmaking		CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden		
+Detect/Disarm Traps		KEY:DetectDisarm Traps	CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden		
+Net Use				KEY:NetUse			CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden							BONUS:WEAPONPROF=Net|TOHIT|2
+Detect Secret/Hidden Doors	KEY:DetectSecretDoors	CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden		
+Trapped Weapons			KEY:TrappedWeapons	CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden		
+Trap Potency			KEY:TrapPotency		CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden		
+Damage Reduction vs traps	KEY:DamageReduction	CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden		
+Master Trapmaker			KEY:MasterTrapMaker	CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden		
+Reveal Traps			KEY:RevealTraps		CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden		
+
+###Block:HEARTH MAGIC HIDDEN FEATS:
+# Feat Name							Product Identity?	Type			Visible	Special ABility								Source Page
+Hearth Magic (Clarity)					NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality.SpecialQuality								SOURCEPAGE:p.65
+Hearth Magic (Dedication)				NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality								SOURCEPAGE:p.66
+Hearth Magic (Ease Birth)				NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality								SOURCEPAGE:p.66
+Hearth Magic (Focus)					NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality								SOURCEPAGE:p.66
+Hearth Magic (Healing Rest)				NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality							SOURCEPAGE:p.67
+Hearth Magic (Lucky Break)				NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality							SOURCEPAGE:p.67
+Hearth Magic (Mending)					NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality								SOURCEPAGE:p.67
+Hearth Magic (Prosperity)				NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality								SOURCEPAGE:p.67
+Hearth Magic (Reduce Fever)				NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality							SOURCEPAGE:p.67
+Hearth Magic (Ritual Cleansing)			NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality							SOURCEPAGE:p.67
+Hearth Magic (Soul Binding)				NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality			ABILITY:Special Ability|AUTOMATIC|Share the Pain	SOURCEPAGE:p.68
+Hearth Magic (Ward Against Domestic Discord)	NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality				SOURCEPAGE:p.68
+Hearth Magic (Ward Against Magic)			NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality						SOURCEPAGE:p.68
+Hearth Magic (Ward Against Possession)		NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality						SOURCEPAGE:p.68
+Hearth Magic (Ward Against Undead)			NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality					SOURCEPAGE:p.68
+Hearth Magic (Ward To Protect Innocence)		NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality					SOURCEPAGE:p.69
+
+Share the Pain				CATEGORY:Special Ability	TYPE:SpecialQuality.SpecialQuality.Supernatural	SOURCEPAGE:p.68
+
+###Block: Monster Template - Feats
+# Feat Name			Type				Visible	Special ABility
+Alignment Shift		CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit.Supernatural		
+Healing Touch		CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit.Supernatural		
+Glare of Reckoning	CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit.Supernatural		
+Hand of Destiny		CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit.Supernatural		
+Answer Prayers		CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit		
+Blessings			CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit		
+Miracle			CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit		
+
+
+#
+Divine Knowledge	KEY:Divine Knowledge ~ Benevolent Spirit							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+
+Spell Resistance	KEY:Spell Resistance ~ Child of Kalla							CATEGORY:Special Ability	TYPE:SpecialQuality
+Aura of Fear	KEY:Aura of Fear ~ Child of Kalla							CATEGORY:Special Ability	TYPE:SpecialQuality
+
+Tanar'ri Qualities	KEY:Tanar'ri Qualities ~ Gate Guardian						CATEGORY:Special Ability	TYPE:SpecialQuality
+Dual Form	KEY:Dual Form ~ Gate Guardian								CATEGORY:Special Ability	TYPE:SpecialQuality
+Fast Healing	KEY:Fast Healing ~ Gate Guardian							CATEGORY:Special Ability	TYPE:SpecialQuality
+Spell Resistance	KEY:Spell Resistance ~ Gate Guardian	DESC:20					CATEGORY:Special Ability	TYPE:SpecialQuality
+Breath Weapon	KEY:Breath Weapon ~ Gate Guardian							CATEGORY:Special Ability	TYPE:SpecialQuality
+Unholy Aura	KEY:Unholy Aura ~ Gate Guardian								CATEGORY:Special Ability	TYPE:SpecialQuality
+Bounded	KEY:Bounded ~ Gate Guardian								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Final Fury	KEY:Final Fury ~ Gate Guardian								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+
+Eyes of Sorrow	KEY:Eyes of Sorrow ~ Totem Spirit							CATEGORY:Special Ability	TYPE:SpecialQuality
+Spell Immunity	KEY:Spell Immunity ~ Totem Spirit							CATEGORY:Special Ability	TYPE:SpecialQuality
+Telepathy	KEY:Telepathy ~ Totem Spirit								CATEGORY:Special Ability	TYPE:SpecialQuality
+
+
 
 #
 ## EOF

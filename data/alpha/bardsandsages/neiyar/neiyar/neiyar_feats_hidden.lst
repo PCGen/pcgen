@@ -4,30 +4,10 @@ SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http
 
 ###Block:FEATS
 # Feat Name			Visible	Special ABility							Define				Modify VAR
-Abyssal Smiting_1st	VISIBLE:NO	SAB:Abyssal Smiting (Su): +%|AbyssalSmitingLevel	DEFINE:AbyssalSmitingLevel|0	BONUS:VAR|AbyssalSmitingLevel|1
+Abyssal Smiting		KEY:Abyssal Smiting_1st	VISIBLE:NO	DESC:Abyssal Smiting (Su): +%|AbyssalSmitingLevel	DEFINE:AbyssalSmitingLevel|0	BONUS:VAR|AbyssalSmitingLevel|1
 Abyssal Smiting_2nd	VISIBLE:NO															BONUS:VAR|AbyssalSmitingLevel|1
 Abyssal Smiting_3rd	VISIBLE:NO															BONUS:VAR|AbyssalSmitingLevel|1
 
-###Block: Special Abilities: Shalraeku & Zarakku (Converted to abilities)
-# Feat Name				Output Name				Type				Visible	Required Template		Special ABility				Innate Spells											Save checks bonus		Combat bonus				Vision			Spell Res.
-#Immunity to natural poisons						TYPE:ShalraekuZarakku	VISIBLE:NO					SAB:Immunity to natural poisons
-#Darkvision 60 ft								TYPE:ShalraekuZarakku	VISIBLE:NO																																		VISION:Darkvision (60')
-###CLARIFY: Although in the Sourcebook Listed as Damage Reduction, I believe the intent is actually a RESISTANCE
-#DR 5 Fire									TYPE:ShalraekuZarakku	VISIBLE:NO																																								DR:5/Fire
-#DR 5 Electrical								TYPE:ShalraekuZarakku	VISIBLE:NO																																								DR:5/Electrical
-#DR 5 Cold									TYPE:ShalraekuZarakku	VISIBLE:NO																																								DR:5/Cold
-#Resistance to Fire 5							TYPE:ShalraekuZarakku	VISIBLE:NO					SAB:Resistance to Fire 5
-#Resistance to Electrical 5						TYPE:ShalraekuZarakku	VISIBLE:NO					SAB:Resistance to Electrical 5
-#Resistance to Cold 5							TYPE:ShalraekuZarakku	VISIBLE:NO					SAB:Resistance to Cold 5
-#Levitate									TYPE:ShalraekuZarakku	VISIBLE:NO					SAB:Levitate				SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Levitate
-#Saving Throw +1								TYPE:ShalraekuZarakku	VISIBLE:NO					SAB:Saving Throw +1																BONUS:CHECKS|ALL|1
-#Dimension Door								TYPE:ShalraekuZarakku	VISIBLE:NO					SAB:Dimension Door			SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Dimension Door
-#AC Bonus (Shalraeku)		OUTPUTNAME:AC Bonus		TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:1,Shalraeku	SAB:AC Bonus (Deflection)																			BONUS:COMBAT|AC|2|TYPE=Deflection
-#AC Bonus (Zarakku)		OUTPUTNAME:AC Bonus		TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:1,Zarakku	SAB:AC Bonus (Natural Armor)																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor
-#Spell Resistance (Shalraeku)	OUTPUTNAME:Spell Resistance	TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:1,Shalraeku	SAB:Spell Resistance																														SR:TL+WIS
-#Spell Resistance (Zarakku)	OUTPUTNAME:Spell Resistance	TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:1,Zarakku	SAB:Spell Resistance																														SR:TL+CON
-#Cure Light Wounds								TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:1,Shalraeku	SAB:Cure Light Wounds			SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Cure Light Wounds,11+WIS
-#Inflict Light Wounds							TYPE:ShalraekuZarakku	VISIBLE:NO	PRETEMPLATE:1,Zarakku	SAB:Inflict Light Wounds		SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Cause Light Wounds,11+WIS
 
 ###Block:Flaw Modifications:
 # Feat Name			Prohibited Feat

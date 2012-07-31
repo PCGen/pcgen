@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sat Feb 14 09:19:43 2009 -- reformated by prettylst.pl v1.39 (build 9329)
 SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2005-03
 ###Original Entry: Andrew Maitland
-
+# Updated Date: July 31st, 2012 - Updated to 6.0 Standards (Replaced ADD:FEAT, SAB and linked common abilities to core RSRD)
 
 ###Block: RACE TEMPLATES
 # Template Name	Product Identity?	Level Adjustment	Source Page		Required Race	Prohibited Template		Bonus to Ability Pool																																																																			Bonus to skill point/L					Stat bonus							Class Skill															Favored Class			Subrace
@@ -10,12 +10,15 @@ Zarakku		NAMEISPI:YES	LEVELADJUSTMENT:2	SOURCEPAGE:p.31	PRERACE:1,Neiyar	!PRETEM
 
 ###Block: RACE TEMPLATES - HIDDEN:
 # Template Name	Visible	Ability
-Abyssal Smiting	VISIBLE:NO	ABILITY:FEAT|AUTOMATIC|Abyssal Smiting_1st|PREPCLEVEL:MIN=5	ABILITY:FEAT|AUTOMATIC|Abyssal Smiting_2nd|PREPCLEVEL:MIN=9	ABILITY:FEAT|AUTOMATIC|Abyssal Smiting_3rd|PREPCLEVEL:MIN=13
+Abyssal Smiting	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Abyssal Smiting_1st|PREPCLEVEL:MIN=5	ABILITY:Special Ability|AUTOMATIC|Abyssal Smiting_2nd|PREPCLEVEL:MIN=9	ABILITY:Special Ability|AUTOMATIC|Abyssal Smiting_3rd|PREPCLEVEL:MIN=13
 
 
 ###Block: MONSTER TEMPLATES
 # Template Name	Product Identity?	Hit Dice Size	Challenge Rating	Damage Reduction	Source Page		Special ABility																																								Required AL		Required Race				Required Stat		Save checks bonus		Combat bonus					Bonus to skill												Stat bonus									Add 						Virtual Feat											Move		Spell Res.	Vision
-Benevolent Spirit				HITDIE:12		CR:5						SOURCEPAGE:p.128	SAB:Manifestation (Su)	SAB:Divine Knowledge (Su)	SAB:Incorporeal	SAB:Undead																													PREALIGN:LG,NG,CG	PRERACE:1,RACETYPE=Humanoid		PRESTAT:2,CHA=12,WIS=16					BONUS:COMBAT|AC|INT+WIS|TYPE=Deflection															BONUS:STAT|WIS,INT|4	BONUS:STAT|CHA|2				ADD:FEAT|TL/3|TYPE=BenevolentSpirit														MOVE:Fly,30
-Child of Kalla	NAMEISPI:YES				CR:3						SOURCEPAGE:p.129	SAB:Spell Resistance	SAB:Resistance to Cold 5, Acid 5, Electricity 5	SAB:Aura of Fear																												PREALIGN:LE,NE,CE	PRERACE:1,RACETYPE=Magical Beast					BONUS:CHECKS|ALL|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:SKILL|Hide,Move Silently,Intimidation|4|TYPE=Racial.STACK				BONUS:STAT|STR,CON|4	BONUS:STAT|DEX|2	BONUS:STAT|CHA|-2																								VISION:Darkvision (60')
-Gate Guardian										DR:15/Magic		SOURCEPAGE:p.130	SAB:Tanar'ri Qualities	SAB:Immune to Poison and Electricity	SAB:Resitance to Cold 20, Fire 20, Acid 20	SAB:Dual Form	SAB:Fast Healing	SAB:Spell Resistance:20	SAB:Breath Weapon	SAB:Unholy Aura	SAB:Bounded (Su)	SAB:Final Fury (Su)														BONUS:CHECKS|ALL|4	BONUS:COMBAT|AC|4|TYPE=NaturalArmor		BONUS:SKILL|Bluff,Hide,Listen,Move Silently,Search,Spot|10|TYPE=Racial			BONUS:STAT|STR|6	BONUS:STAT|DEX|5	BONUS:STAT|CON|4		ADD:FEAT|Weapon Focus			VFEAT:Whirlwind Attack	VFEAT:Alertness|Combat Reflexes|Improved Initiative	MOVE:Fly,40	SR:20
-Totem Spirit				HITDIE:12								SOURCEPAGE:p.131	SAB:Eyes of Sorrow	SAB:Spell Immunity	SAB:Telepathy																																PREALIGN:LG,NG,CG	PRERACE:1,RACETYPE=Animal										BONUS:COMBAT|AC|CHA				BONUS:SKILL|Survival,Knowledge (Nature),Knowledge (Geography),Intuit Direction|10	BONUS:STAT|CHA,INT|6	BONUS:STAT|WIS|8										VFEAT:Track
+Benevolent Spirit				HITDIE:12		CR:5						SOURCEPAGE:p.128	ABILITY:Special Ability|AUTOMATIC|Manifestation|Divine Knowledge ~ Benevolent Spirit	RACESUBTYPE:Incorporeal	RACETYPE:Undead																													PREALIGN:LG,NG,CG	PRERACE:1,RACETYPE=Humanoid		PRESTAT:2,CHA=12,WIS=16					BONUS:COMBAT|AC|INT+WIS|TYPE=Deflection															BONUS:STAT|WIS,INT|4	BONUS:STAT|CHA|2				BONUS:ABILITYPOOL|Benevolent Spirit Choice|TL/3														MOVE:Fly,30
+Child of Kalla	NAMEISPI:YES				CR:3						SOURCEPAGE:p.129	ABILITY:Special Ability|AUTOMATIC|Spell Resistance ~ Child of Kalla|Resistance to Cold|Resistance to Acid|Resistance to Electricity|Aura of Fear ~ Child of Kalla		BONUS:VAR|ColdResistanceBonus,AcidResistanceBonus,ElectricityResistanceBonus|5																										PREALIGN:LE,NE,CE	PRERACE:1,RACETYPE=Magical Beast					BONUS:CHECKS|ALL|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:SKILL|Hide,Move Silently,Intimidation|4|TYPE=Racial.STACK				BONUS:STAT|STR,CON|4	BONUS:STAT|DEX|2	BONUS:STAT|CHA|-2																								VISION:Darkvision (60')
+Gate Guardian										DR:15/Magic		SOURCEPAGE:p.130	RACESUBTYPE:Tanar'ri	ABILITY:Special Ability|AUTOMATIC|Immunity To Poison|Immune Electricity|Resistance to Cold|Resistance to Fire|Resistance to Acid|Tanar'ri Qualities ~ Gate Guardian|Dual Form ~ Gate Guardian|Fast Healing ~ Gate Guardian|Breath Weapon ~ Gate Guardian|Unholy Aura ~ Gate Guardian|Bounded ~ Gate Guardian|Final Fury ~ Gate Guardian	BONUS:VAR|ColdResistanceBonus,FireResistanceBonus,AcidResistanceBonus|20						BONUS:CHECKS|ALL|4	BONUS:COMBAT|AC|4|TYPE=NaturalArmor		BONUS:SKILL|Bluff,Hide,Listen,Move Silently,Search,Spot|10|TYPE=Racial			BONUS:STAT|STR|6	BONUS:STAT|DEX|5	BONUS:STAT|CON|4		BONUS:ABILITYPOOL|Weapon Focus|1			VFEAT:Whirlwind Attack	VFEAT:Alertness|Combat Reflexes|Improved Initiative	MOVE:Fly,40	SR:20
+Totem Spirit				HITDIE:12								SOURCEPAGE:p.131	ABILITY:Special Ability|AUTOMATIC|Eyes of Sorrow ~ Totem Spirit|Spell Immunity ~ Totem Spirit|Telepathy ~ Totem Spirit																																PREALIGN:LG,NG,CG	PRERACE:1,RACETYPE=Animal										BONUS:COMBAT|AC|CHA				BONUS:SKILL|Survival,Knowledge (Nature),Knowledge (Geography),Intuit Direction|10	BONUS:STAT|CHA,INT|6	BONUS:STAT|WIS|8										VFEAT:Track
+
+
+

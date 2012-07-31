@@ -2,9 +2,11 @@
 #SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2005-03
 
 # Ability Category	Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
-Shalraeku Ability		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Shalraeku	PLURAL:Shalraeku Abilities	DISPLAYLOCATION:Racial Abilities
-Zarakku Ability		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Zarakku	PLURAL:Zarakku Abilities	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Shalraeku Ability		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Shalraeku	PLURAL:Shalraeku Abilities	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Zarakku Ability		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Zarakku	PLURAL:Zarakku Abilities	DISPLAYLOCATION:Racial Abilities
 
+
+ABILITYCATEGORY:Benevolent Spirit		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BenevolentSpirit	PLURAL:Benevolent Spirit Choices	DISPLAYLOCATION:Racial Abilities
 #
 ## EOF
 #

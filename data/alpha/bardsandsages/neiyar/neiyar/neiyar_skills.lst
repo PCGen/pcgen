@@ -16,22 +16,22 @@ Profession (Trapmaker)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOUR
 
 ###Block: HEARTH MAGIC SECTION ###
 # Skill Name			Product Identity?	Untrained?		Classes	Type			Prohibited Skill						Source Page		Ability
-Clarity				NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Clarity=5					SOURCEPAGE:p.65	ABILITY:FEAT|VIRTUAL|HearthMagicClarity|PRESKILL:1,Clarity=5
-Dedication				NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Dedication=10				SOURCEPAGE:p.66	ABILITY:FEAT|VIRTUAL|HearthMagicDedication|PRESKILL:1,Dedication=10
-Ease Birth				NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Ease Birth=1				SOURCEPAGE:p.66	ABILITY:FEAT|VIRTUAL|HearthMagicEaseBirth|PRESKILL:1,Ease Birth=1
-Focus					NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Focus=6					SOURCEPAGE:p.66	ABILITY:FEAT|VIRTUAL|HearthMagicFocus|PRESKILL:1,Focus=6
-Healing Rest			NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Healing Rest=3				SOURCEPAGE:p.67	ABILITY:FEAT|VIRTUAL|HearthMagicHealingRest|PRESKILL:1,Healing Rest=3
-Lucky Break				NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Lucky Break=5				SOURCEPAGE:p.67	ABILITY:FEAT|VIRTUAL|HearthMagicLuckyBreak|PRESKILL:1,Lucky Break=5
-Mending				NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Mending=2					SOURCEPAGE:p.67	ABILITY:FEAT|VIRTUAL|HearthMagicMending|PRESKILL:1,Mending=2
-Prosperity				NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Prosperity=4				SOURCEPAGE:p.67	ABILITY:FEAT|VIRTUAL|HearthMagicProsperity|PRESKILL:1,Prosperity=4
-Reduce Fever			NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Reduce Fever=1				SOURCEPAGE:p.67	ABILITY:FEAT|VIRTUAL|HearthMagicReduceFever|PRESKILL:1,Reduce Fever=1
-Ritual Cleansing			NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Ritual Cleansing=3			SOURCEPAGE:p.67	ABILITY:FEAT|VIRTUAL|HearthMagicRitualCleansing|PRESKILL:1,Ritual Cleansing=3
-Soul Binding			NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Soul Binding=7				SOURCEPAGE:p.68	ABILITY:FEAT|VIRTUAL|HearthMagicSoulBinding|PRESKILL:1,Soul Binding=7
-Ward Against Domestic Discord	NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Ward Against Domestic Discord=1	SOURCEPAGE:p.68	ABILITY:FEAT|VIRTUAL|HearthMagicWardAgainstDomesticDiscord|PRESKILL:1,Ward Against Domestic Discord=1
-Ward Against Magic		NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Ward Against Magic=6			SOURCEPAGE:p.68	ABILITY:FEAT|VIRTUAL|HearthMagicWardAgainstMagic|PRESKILL:1,Ward Against Magic=6
-Ward Against Possession		NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Ward Against Possession=6		SOURCEPAGE:p.68	ABILITY:FEAT|VIRTUAL|HearthMagicWardAgainstPossession|PRESKILL:1,Ward Against Possession=6
-Ward Against Undead		NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Ward Against Undead=2			SOURCEPAGE:p.68	ABILITY:FEAT|VIRTUAL|HearthMagicWardAgainstUndead|PRESKILL:1,Ward Against Undead=2
-Ward to Protect Innocence	NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Ward to Protect Innocence=4		SOURCEPAGE:p.69	ABILITY:FEAT|VIRTUAL|HearthMagicWardToProtectInnocence|PRESKILL:1,Ward to Protect Innocence=4
+Clarity				NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Clarity=5					SOURCEPAGE:p.65	ABILITY:Special Ability|AUTOMATIC|Hearth Magic Clarity|PRESKILL:1,Clarity=5
+Dedication				NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Dedication=10				SOURCEPAGE:p.66	ABILITY:Special Ability|AUTOMATIC|Hearth Magic Dedication|PRESKILL:1,Dedication=10
+Ease Birth				NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Ease Birth=1				SOURCEPAGE:p.66	ABILITY:Special Ability|AUTOMATIC|Hearth Magic Ease Birth|PRESKILL:1,Ease Birth=1
+Focus					NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Focus=6					SOURCEPAGE:p.66	ABILITY:Special Ability|AUTOMATIC|Hearth Magic Focus|PRESKILL:1,Focus=6
+Healing Rest			NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Healing Rest=3				SOURCEPAGE:p.67	ABILITY:Special Ability|AUTOMATIC|Hearth Magic Healing Rest|PRESKILL:1,Healing Rest=3
+Lucky Break				NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Lucky Break=5				SOURCEPAGE:p.67	ABILITY:Special Ability|AUTOMATIC|Hearth Magic Lucky Break|PRESKILL:1,Lucky Break=5
+Mending				NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Mending=2					SOURCEPAGE:p.67	ABILITY:Special Ability|AUTOMATIC|Hearth Magic Mending|PRESKILL:1,Mending=2
+Prosperity				NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Prosperity=4				SOURCEPAGE:p.67	ABILITY:Special Ability|AUTOMATIC|Hearth Magic Prosperity|PRESKILL:1,Prosperity=4
+Reduce Fever			NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Reduce Fever=1				SOURCEPAGE:p.67	ABILITY:Special Ability|AUTOMATIC|Hearth Magic Reduce Fever|PRESKILL:1,Reduce Fever=1
+Ritual Cleansing			NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Ritual Cleansing=3			SOURCEPAGE:p.67	ABILITY:Special Ability|AUTOMATIC|Hearth Magic Ritual Cleansing|PRESKILL:1,Ritual Cleansing=3
+Soul Binding			NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Soul Binding=7				SOURCEPAGE:p.68	ABILITY:Special Ability|AUTOMATIC|Hearth Magic Soul Binding|PRESKILL:1,Soul Binding=7
+Ward Against Domestic Discord	NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Ward Against Domestic Discord=1	SOURCEPAGE:p.68	ABILITY:Special Ability|AUTOMATIC|Hearth Magic Ward Against Domestic Discord|PRESKILL:1,Ward Against Domestic Discord=1
+Ward Against Magic		NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Ward Against Magic=6			SOURCEPAGE:p.68	ABILITY:Special Ability|AUTOMATIC|Hearth Magic Ward Against Magic|PRESKILL:1,Ward Against Magic=6
+Ward Against Possession		NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Ward Against Possession=6		SOURCEPAGE:p.68	ABILITY:Special Ability|AUTOMATIC|Hearth Magic Ward Against Possession|PRESKILL:1,Ward Against Possession=6
+Ward Against Undead		NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Ward Against Undead=2			SOURCEPAGE:p.68	ABILITY:Special Ability|AUTOMATIC|Hearth Magic Ward Against Undead|PRESKILL:1,Ward Against Undead=2
+Ward to Protect Innocence	NAMEISPI:YES	USEUNTRAINED:NO	CLASSES:ALL	TYPE:HearthMagic	!PRESKILL:1,Ward to Protect Innocence=4		SOURCEPAGE:p.69	ABILITY:Special Ability|AUTOMATIC|Hearth Magic Ward To Protect Innocence|PRESKILL:1,Ward to Protect Innocence=4
 
 ###Block: Optional TO keep things Cleaner on the SKILLS Sheet:
 ###COMMENT: Will discuss about whether this should be used or not. It will keep the sheet neater. -AM
