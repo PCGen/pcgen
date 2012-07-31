@@ -24,6 +24,9 @@ DESC:Fight. Fight. Fight. Fight! AEG's latest in a long line of d20 System(TM) r
 URL:WEBSITE|http://www.alderac.com/|Visit Alderac Entertainment Group
 URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=24399&it=1?affiliate_id=200170|Buy this pdf from RPGNow.com!
 
+ABILITY:../war_abilities_class.lst
+ABILITYCATEGORY:../war_abilitycategories.lst
+
 DOMAIN:wardomains_35e.lst
 CLASS:warclasses_35e.lst
 

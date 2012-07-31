@@ -27,6 +27,9 @@ URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=24399&it=1?affili
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:war_abilities_class.lst
+ABILITYCATEGORY:war_abilitycategories.lst
+
 CLASS:warclasses.lst
 FEAT:warfeats.lst
 SKILL:warskills.lst
