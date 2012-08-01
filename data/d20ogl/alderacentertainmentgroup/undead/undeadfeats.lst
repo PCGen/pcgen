@@ -9,7 +9,3 @@ Show of Faith	NAMEISPI:YES	TYPE:General	PREALIGN:LG,NG,CG					PRESTAT:1,WIS=13	D
 Sixth Sense		NAMEISPI:YES	TYPE:General				PREFEAT:1,Alertness				DESC:You have an uncanny sense for detecting invisible or non-corporeal creatures.														SOURCEPAGE:p.28
 Stout Hearted	NAMEISPI:YES	TYPE:General	PREALIGN:LG,NG,CG					PRESTAT:1,WIS=14	DESC:You gain a +4 competence bonus on saves to shrug off the permanent effects of gaining a negative level and to resist any spells that deal negative levels.	SOURCEPAGE:p.28
 
-###Block: Hidden feats for Class Support
-# Feat Name					Type			Visible	Special ABility
-Wasteland Druid Destruction Domain	TYPE:Special	VISIBLE:NO	SAB:Destruction Domain
-Wasteland Druid Undead Domain		TYPE:Special	VISIBLE:NO	SAB:Undead Domain
