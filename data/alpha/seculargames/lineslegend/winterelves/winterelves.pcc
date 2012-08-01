@@ -22,6 +22,7 @@ COPYRIGHT:PCGen dataset conversion for Lines of Legend - Winter Elves Copyright 
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
+ABILITY:winterelves_abilities_class.lst
 
 CLASS:winterelves_classes.lst
 COMPANIONMOD:winterelves_companionmods.lst
@@ -29,7 +30,6 @@ DOMAIN:winterelves_domains.lst
 EQUIPMENT:winterelves_equip.lst
 EQUIPMOD:winterelves_equipmods.lst
 FEAT:winterelves_feats.lst
-FEAT:winterelves_feats_hidden.lst
 RACE:winterelves_race.lst
 SPELL:winterelves_spells.lst
 WEAPONPROF:winterelves_weaponprofs.lst

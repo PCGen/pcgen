@@ -14,15 +14,15 @@ CLASS:Heir of Balyk	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Scr
 9																										BONUS:DOMAIN|NUMBER|1	ADD:FEAT|TYPE=BalykDomain
 ###Block: Normal Level Progression
 1									ADD:SPELLCASTER|Divine
-1					BONUS:VAR|HeirBalyk|CL									AUTO:FEAT|Power of Deception
-2									ADD:SPELLCASTER|Divine					AUTO:FEAT|Dark Blessing
+1					BONUS:VAR|HeirBalyk|CL									ABILITY:Special Ability|AUTOMATIC|Power of Deception
+2									ADD:SPELLCASTER|Divine					ABILITY:Special Ability|AUTOMATIC|Dark Blessing
 3									ADD:SPELLCASTER|Divine
 4									ADD:FEAT|Heir of Balyk Leadership,Leadership
 5									ADD:SPELLCASTER|Divine
 6	BONUS:DOMAIN|NUMBER|1					ADD:SPELLCASTER|Divine
 8									ADD:SPELLCASTER|Divine
 9	BONUS:DOMAIN|NUMBER|1					ADD:SPELLCASTER|Divine
-10																	AUTO:FEAT|Extra Domain Spell
+10																	ABILITY:Special Ability|AUTOMATIC|Extra Domain Spell
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Keeper of the Ice	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2
@@ -30,15 +30,15 @@ CLASS:Keeper of the Ice	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.20	BONUS
 CLASS:Keeper of the Ice	PRECLASS:1,SPELLCASTER.Arcane=1	PREMULT:2,[PREFEAT:2,Spell Focus (Evocation),Endurance],[PREFEAT:2,TYPE.Metamagic]	PRERACE:1,Elf (Winter)	PRESKILL:2,Knowledge (Arcana)=10,Survival=4	PRESPELL:1,Ice Storm
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Keeper of the Ice	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft|Survival
-1	ADD:SPELLCASTER|Arcane	AUTO:FEAT|Cold Spell Mastery
+1	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Cold Spell Mastery
 2	ADD:SPELLCASTER|Arcane
-3					AUTO:FEAT|Cold Damage Specialization
+3					ABILITY:Special Ability|AUTOMATIC|Cold Damage Specialization
 4	ADD:SPELLCASTER|Arcane
-5	ADD:SPELLCASTER|Arcane	AUTO:FEAT|Cold Spell Conversion
-6					AUTO:FEAT|Icy Familiar
+5	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Cold Spell Conversion
+6					ABILITY:Special Ability|AUTOMATIC|Icy Familiar
 7	ADD:SPELLCASTER|Arcane
-8	ADD:SPELLCASTER|Arcane	AUTO:FEAT|Cold Spell Empowerment
-10	ADD:SPELLCASTER|Arcane	AUTO:FEAT|Supreme Cold Mastery
+8	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Cold Spell Empowerment
+10	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Supreme Cold Mastery
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Knight of the Frostfang	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
@@ -51,9 +51,9 @@ CLASS:Knight of the Frostfang	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Ani
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block:general
-1	BONUS:VAR|FrostfangKnight|CL	AUTO:FEAT|Winter Wolf Mount
-2	BONUS:VAR|SolidAsIce|CL/2	AUTO:FEAT|Solid as Ice
-5						AUTO:FEAT|Wolf Brotherhood
+1	BONUS:VAR|FrostfangKnight|CL	ABILITY:Special Ability|AUTOMATIC|Winter Wolf Mount
+2	BONUS:VAR|SolidAsIce|CL/2	ABILITY:Special Ability|AUTOMATIC|Solid as Ice
+5						ABILITY:Special Ability|AUTOMATIC|Wolf Brotherhood
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Thrall of Gaulgardos	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.25	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2
@@ -61,9 +61,9 @@ CLASS:Thrall of Gaulgardos	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.25	BO
 CLASS:Thrall of Gaulgardos	PREALIGN:LE,NE,CE	PRERACE:1,Elf (Winter)	PRESKILL:2,Knowledge (Arcana)=10,Knowledge (The Planes)=10	PRESPELL:1,Summon Monster IV	PRESPELLSCHOOL:2,Conjuration=3	PRESPELLSCHOOL:3,Conjuration=2
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Thrall of Gaulgardos	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Search|Spellcraft
-1												AUTO:FEAT|Bloodbond|Demon Ally I
-2	BONUS:VAR|FiendishCall|floor((CL+3)/5)*2	ADD:SPELLCASTER|Divine	AUTO:FEAT|Fiendish Call
-3	BONUS:VAR|ThrallGaul|CL								AUTO:FEAT|Strength of the Chosen
+1												ABILITY:Special Ability|AUTOMATIC|Bloodbond|Demon Ally I
+2	BONUS:VAR|FiendishCall|floor((CL+3)/5)*2	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Fiendish Call
+3	BONUS:VAR|ThrallGaul|CL								ABILITY:Special Ability|AUTOMATIC|Strength of the Chosen
 4								ADD:SPELLCASTER|Divine
 6								ADD:SPELLCASTER|Divine
 8								ADD:SPELLCASTER|Divine
@@ -98,7 +98,7 @@ CLASS:Wayjik Demon Hunter	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEV
 9	CAST:0,2,2,1,1
 10	CAST:0,2,2,2,1
 ###Block:general
-1	BONUS:VAR|SmiteOutsider|(CL+3)/4	AUTO:FEAT|Smite Outsider
-2							AUTO:FEAT|Weapons of the Hunt
-7							AUTO:FEAT|Improved Weapons of the Hunt
-10							AUTO:FEAT|Mark of the Slayer
+1	BONUS:VAR|SmiteOutsider|(CL+3)/4	ABILITY:Special Ability|AUTOMATIC|Smite Outsider
+2							ABILITY:Special Ability|AUTOMATIC|Weapons of the Hunt
+7							ABILITY:Special Ability|AUTOMATIC|Improved Weapons of the Hunt
+10							ABILITY:Special Ability|AUTOMATIC|Mark of the Slayer

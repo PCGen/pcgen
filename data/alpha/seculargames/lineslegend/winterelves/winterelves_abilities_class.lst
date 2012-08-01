@@ -1,0 +1,45 @@
+# CVS $Revision$ $Author$ -- Mon Feb 16 23:40:04 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+SOURCELONG:Lines of Legend - Winter Elves	SOURCESHORT:LoL-WE	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#we
+# Original Entry by: Paul W. King, Tir Gwaith
+
+###BLOCK: Heir of Balyk abilities
+# Feat Name					Type						Visible	Special ABility			Define			Save checks bonus			Bonus to skill							Modify VAR					Source Page
+Power of Deception				CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.Extraordinary		DESC:Power of Deception (Ex)	DEFINE:HeirBalyk|0						BONUS:SKILL|Bluff,Disguise|HeirBalyk|TYPE=Competence							SOURCEPAGE:p.18
+Dark Blessing					CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.Supernatural		DESC:Dark Blessing (Su)						BONUS:CHECKS|ALL|max(CHA,0)
+Heir of Balyk Leadership			CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility																												BONUS:VAR|LeadershipScore|HeirBalyk	SOURCEPAGE:p.18
+Extra Domain SPELL				CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility					DESC:Extra Domain Spell																										SOURCEPAGE:p.18
+
+# This part isn't working right.
+Heir of Balyk Treachery Domain		CATEGORY:Special Ability	TYPE:SpecialQuality.Internal.BalykDomain		VISIBLE:YES
+Heir of Balyk Hate Domain			CATEGORY:Special Ability	TYPE:SpecialQuality.Internal.BalykDomain		VISIBLE:YES
+Heir of Balyk Devil Domain			CATEGORY:Special Ability	TYPE:SpecialQuality.Internal.BalykDomain		VISIBLE:YES
+
+###Block: Keeper of the Ice abilities
+# Feat Name				Type			Visible	Special ABility				Source Page
+Cold Spell Mastery			CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility		DESC:Cold Spell Mastery (Ex)		SOURCEPAGE:p.20
+Cold Damage Specialization		CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility		DESC:Cold Damage Specialization	SOURCEPAGE:p.20
+Cold Spell Conversion			CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility		DESC:Cold Spell Conversion		SOURCEPAGE:p.20
+Icy Familiar				CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility		DESC:Icy Familiar				SOURCEPAGE:p.20
+Cold Spell Empowerment			CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility		DESC:Cold Spell Empowerment		SOURCEPAGE:p.20
+Supreme Cold Mastery			CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility		DESC:Supreme Cold Mastery		SOURCEPAGE:p.20
+
+
+###BLOCK:Knight of Frostfang abilities
+# Feat Name		Type						Visible	Special ABility					Define				Innate Spells													Allow Follower			Allowed Companions			Source Page
+Winter Wolf Mount		CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.Extraordinary		DESC:Winter Wolf Mount (Ex)			DEFINE:FrostfangKnight|0																FOLLOWERS:Special Mount|1	COMPANIONLIST:Mount|Winter Wolf	SOURCEPAGE:p.22
+Solid as Ice		CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.SpellLike			DESC:Solid as Ice %/day (Sp)|SolidAsIce	DEFINE:SolidAsIce|0		SPELLS:Innate|TIMES=0|CASTERLEVEL=1+FrostfangKnight|Bear's Endurance|Bull's Strength												SOURCEPAGE:p.22
+Wolf Brotherhood		CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.SpellLike			DESC:Wolf Brotherhood (Sp)																																		SOURCEPAGE:p.22
+
+###BLOCK:Thrall of Gaulgardos abilities
+# Feat Name			Type						Visible	Special ABility														Define			Damage Reduction							Source Page
+Fiendish Call			CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.Supernatural		DESC:Fiendish Call +% (Su)|FiendishCall										DEFINE:FiendishCall|0										SOURCEPAGE:p.25
+Strength of the Chosen		CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.Supernatural		DESC:Strength of the Chosen (Su)	DESC:Resistance to Electricity 15	DESC:Immunity to Poison	DEFINE:ThrallGaul|0	DR:5/Cold Iron and Good|PREVARGTEQ:ThrallGaul,10	SOURCEPAGE:p.25
+Bloodbond				CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility					DESC:Bloodbond																											SOURCEPAGE:p.25
+Demon Ally I			CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility					DESC:Demon Ally I																											SOURCEPAGE:p.25
+
+###BLOCK:Wayjik Demon Hunter abilities
+# Feat Name				Type						Visible	Special ABility						Define			Source Page
+Smite Outsider				CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.Supernatural		DESC:Smite Outsider (Su) %/day|SmiteOutsider	DEFINE:SmiteOutsider|0	SOURCEPAGE:p.27
+Weapons of the Hunt			CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.Supernatural		DESC:Weapons of the Hunt (Su)								SOURCEPAGE:p.27
+Improved Weapons of the Hunt		CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.Supernatural		DESC:Improved Weapons of the Hunt (Su)						SOURCEPAGE:p.27
+Mark of the Slayer			CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.Supernatural		DESC:Mark of the Slayer (Sp)								SOURCEPAGE:p.27

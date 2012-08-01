@@ -20,7 +20,7 @@ CLASS:Arcane Crossbowman	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Hide|Listen|Mov
 1																	AUTO:FEAT|Armor Proficiency (Light)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: standard
-1	SAB:Poison Use (Ex)	BONUS:VAR|EnhanceBolt|(CL+2)/3	ABILITY:Special Ability|AUTOMATIC|Enhance Bolt
+1					BONUS:VAR|EnhanceBolt|(CL+2)/3	ABILITY:Special Ability|AUTOMATIC|Enhance Bolt|Poison Use
 2					BONUS:VAR|SneakAttack|(CL+1)/3	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 3											ABILITY:Special Ability|AUTOMATIC|Imbue Bolt
 6					BONUS:VAR|SeekerBoltTimes|1		ABILITY:Special Ability|AUTOMATIC|Seeker Bolt
@@ -39,10 +39,10 @@ CLASS:Blizzard Archer	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Listen|Move Silentl
 ###Block: standard
 1						BONUS:VAR|ArrowEnhancement|(CL+3)/4						ABILITY:Special Ability|AUTOMATIC|Enhance Arrow
 2																	ABILITY:Special Ability|AUTOMATIC|Imbue Arrow
-3	SAB:Frost Arrow (Su)
-4	SAB:Winter Wolf Bite (Sp)
-6	SAB:Freezing Arrow (Sp)
-7	SAB:Icy Burst Arrow (Su)
+3	ABILITY:Special Ability|AUTOMATIC|Frost Arrow
+4	ABILITY:Special Ability|AUTOMATIC|Winter Wolf Bite
+6	ABILITY:Special Ability|AUTOMATIC|Freezing Arrow
+7	ABILITY:Special Ability|AUTOMATIC|Icy Burst Arrow
 8						BONUS:VAR|HailArrowsTargets|CL	BONUS:VAR|HailArrowsTimes|1	ABILITY:Special Ability|AUTOMATIC|Hail of Arrows
 10																	ABILITY:Special Ability|AUTOMATIC|Arrow of Death
 
@@ -59,9 +59,9 @@ CLASS:Deepwood Guardian	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Listen|Move Silen
 ###Block: standard
 1					BONUS:VAR|ArrowEnhancement|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Enhance Arrow
 2											ABILITY:Special Ability|AUTOMATIC|Imbue Arrow
-4	SAB:True Strike (Sp)																SPELLS:Class|TIMES=1|True Strike
-6	SAB:Arrow of Sleep (Sp)
-8	SAB:Arrow of Slow (Sp)
+4	ABILITY:Special Ability|AUTOMATIC|True Strike																SPELLS:Class|TIMES=1|True Strike
+6	ABILITY:Special Ability|AUTOMATIC|Arrow of Sleep
+8	ABILITY:Special Ability|AUTOMATIC|Arrow of Slow
 10											ABILITY:Special Ability|AUTOMATIC|Arrow of Death
 
 # Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus
@@ -77,10 +77,10 @@ CLASS:Divine Archer	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Ha
 ###Block: standard
 1						BONUS:VAR|ArrowEnhancement|(CL+3)/4						ABILITY:Special Ability|AUTOMATIC|Enhance Arrow
 2																	ABILITY:Special Ability|AUTOMATIC|Imbue Arrow
-3	SAB:Blessed Strike (Su)
-4	SAB:Sacred Power (SU)
-6	SAB:True Elf Shot (Su)
-7	SAB:Holy Enhancement (Su)
+3	ABILITY:Special Ability|AUTOMATIC|Blessed Strike
+4	ABILITY:Special Ability|AUTOMATIC|Sacred Power
+6	ABILITY:Special Ability|AUTOMATIC|True Elf Shot
+7	ABILITY:Special Ability|AUTOMATIC|Holy Enhancement
 8						BONUS:VAR|HailArrowsTargets|CL	BONUS:VAR|HailArrowsTimes|1	ABILITY:Special Ability|AUTOMATIC|Hail of Arrows
 10																	ABILITY:Special Ability|AUTOMATIC|Arrow of Death
 
@@ -95,12 +95,12 @@ CLASS:Eldritch Bow	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Knowledge (Arcana)|Lis
 1																	AUTO:FEAT|Armor Proficiency (Light)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: standard
-1	SAB:May wear light armor without incurring the normal arcane spell failure chance.	BONUS:VAR|ArrowEnhancement|(CL+3)/4										ABILITY:Special Ability|AUTOMATIC|Enhance Arrow
+1	ABILITY:Special Ability|AUTOMATIC|Eldritch Bow Class Ability	BONUS:VAR|ArrowEnhancement|(CL+3)/4										ABILITY:Special Ability|AUTOMATIC|Enhance Arrow
 2																										ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Imbue Arrow
 4															BONUS:VAR|SeekerArrowTimes|1							ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Seeker Arrow
 6															BONUS:VAR|PhaseArrowTimes|1							ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Phase Arrow
 8															BONUS:VAR|HailArrowsTargets|CL	BONUS:VAR|HailArrowsTimes|1	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Hail of Arrows
-10	SAB:Arrow of Negation																						ADD:SPELLCASTER|Arcane
+10	ABILITY:Special Ability|AUTOMATIC|Arrow of Negation																						ADD:SPELLCASTER|Arcane
 
 # Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Psychic Archer	HD:8		TYPE:PC.Prestige.ArcaneArcher	MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL
@@ -116,8 +116,8 @@ CLASS:Psychic Archer	STARTSKILLPTS:4	CSKILL:Autohypnosis|TYPE=Craft|Hide|Knowled
 1					BONUS:VAR|ArrowEnhancement|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Enhance Arrow
 2											ABILITY:Special Ability|AUTOMATIC|Imbue Arrow
 4					BONUS:VAR|PsychicStrike|CL/4		ABILITY:Special Ability|AUTOMATIC|MindBlade Psychic Strike
-6	SAB:Mind Burn (Su)
-10	SAB:Arrow of Coma (Sp)
+6	ABILITY:Special Ability|AUTOMATIC|Mind Burn
+10	ABILITY:Special Ability|AUTOMATIC|Arrow of Coma
 
 # Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Untamed Hunter	HD:10		TYPE:PC.Prestige.ArcaneArcher	MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
@@ -132,7 +132,7 @@ CLASS:Untamed Hunter	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Intimidate|Listen|Mo
 ###Block: standard
 1					BONUS:VAR|ArrowEnhancement|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Enhance Arrow
 2											ABILITY:Special Ability|AUTOMATIC|Imbue Arrow
-4	SAB:Dragon Arrow (Ex)
+4	ABILITY:Special Ability|AUTOMATIC|Dragon Arrow
 6					BONUS:VAR|SeekerArrowTimes|1		ABILITY:Special Ability|AUTOMATIC|Seeker Arrow
-8	SAB:Arrow Fury (Sp)
+8	ABILITY:Special Ability|AUTOMATIC|Arrow Fury
 10											ABILITY:Special Ability|AUTOMATIC|Arrow of Death
