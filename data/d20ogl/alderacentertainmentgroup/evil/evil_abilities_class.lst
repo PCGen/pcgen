@@ -20,3 +20,5 @@ Acid Blood		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Acid Blood ~ Blood 
 Blood Bow		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Blood Bow ~ Blood Archer		DESC: +%|BloodBow																			DEFINE:BloodBow|CL/3
 Regeneration	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Regeneration ~ Blood Archer		DESC: (1 hp/hour)|PREVARLT:BloodArcherLvl,7	DESC: (1 hp/minute)|PREVARGTEQ:BloodArcherLvl,7
 Sneak Attack	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Sneak Attack ~ Blood Archer		DESC: +%d% (Bow Only)|BowSneakAttack|SneakAttackDieDEFINE:BowSneakAttack|0	DEFINE:SneakAttackDie|6
+
+#
