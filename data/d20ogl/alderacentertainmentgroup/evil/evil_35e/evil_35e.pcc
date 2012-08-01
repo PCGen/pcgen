@@ -28,6 +28,9 @@ URL:Amazon.com|http://www.amazon.com/gp/product/1887953329?ie=UTF8&tag=httppcgen
 CLASS:evil_classes_35e.lst
 SPELL:evil_spells_35e.lst
 
+ABILITY:../evil_abilities_class.lst
+ABILITYCATEGORY:../evil_abilitycategories.lst
+
 LANGUAGE:../evil_languages.lst
 DEITY:../evil_deities.lst
 DOMAIN:../evil_domains.lst|(EXCLUDE:Darkness)
