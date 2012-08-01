@@ -31,6 +31,7 @@ CLASS:dungeonsclasses_35e.lst
 FEAT:dungeonsfeats_35e.lst
 
 ABILITY:../dungeons_abilities_class.lst
+ABILITYCATEGORY:../dungeons_abilitycategories.lst
 CLASS:../dungeonsclasses.lst
 FEAT:../dungeonsclassfeats.lst
 EQUIPMENT:../dungeonsequip.lst

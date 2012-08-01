@@ -1,58 +1,58 @@
 # CVS $Revision$ $Author$ -- Mon Feb  2 22:24:07 2009 -- reformated by prettylst.pl v1.39 (build 9132)
 SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20
 
-###Block: Air Lord
+###Block: ~ Air Lord
 # Ability Name		Category of Ability		Special ABility
-Improved Aerial Rider	CATEGORY:Special Ability	SAB:Improved Aerial Rider
-Aerial mount		CATEGORY:Special Ability	SAB:Aerial mount
-Swoop attack		CATEGORY:Special Ability	SAB:Swoop attack
-Feather fall		CATEGORY:Special Ability	SAB:Feather fall
-Aerial Awarness		CATEGORY:Special Ability	SAB:Aerial Awarness
-Summon Air Elemental	CATEGORY:Special Ability	SAB:Summon Air Elemental
-Improved Mount		CATEGORY:Special Ability	SAB:Improved Mount
+Improved Aerial Rider	CATEGORY:Special Ability	KEY:Improved Aerial Rider ~ Air Lord
+Aerial mount		CATEGORY:Special Ability	KEY:Aerial mount ~ Air Lord
+Swoop attack		CATEGORY:Special Ability	KEY:Swoop attack ~ Air Lord
+Feather fall		CATEGORY:Special Ability	KEY:Feather fall ~ Air Lord
+Aerial Awarness		CATEGORY:Special Ability	KEY:Aerial Awarness ~ Air Lord
+Summon Air Elemental	CATEGORY:Special Ability	KEY:Summon Air Elemental ~ Air Lord
+Improved Mount		CATEGORY:Special Ability	KEY:Improved Mount ~ Air Lord
 
-###Block: Dragon Slayer
+###Block: ~ Dragon Slayer
 # Ability Name			Category of Ability		Special ABility																		Define
-Improved Power Attack		CATEGORY:Special Ability	SAB:Improved Power Attack
-Latch Attack			CATEGORY:Special Ability	SAB:Latch Attack
-Fearless (+4 saves)		CATEGORY:Special Ability	SAB:Fearless (+4 saves)|PREVAREQ:DragonSlayerFearlessLVL,1	SAB:Fearless (Immune)|PREVAREQ:DragonSlayerFearlessLVL,2	DEFINE:DragonSlayerFearlessLVL|0
-Penetrating Blow			CATEGORY:Special Ability	SAB:Penetrating Blow
-Improved Critical vs. dragons	CATEGORY:Special Ability	SAB:Improved Critical vs. dragons
-Aura of Invincibility		CATEGORY:Special Ability	SAB:Aura of Invincibility
-Relentless Attack			CATEGORY:Special Ability	SAB:Relentless Attack
-Spot Vulnerability		CATEGORY:Special Ability	SAB:Spot Vulnerability
-Improved Penetrating Blow	CATEGORY:Special Ability	SAB:Improved Penetrating Blow
+Improved Power Attack		CATEGORY:Special Ability	KEY:Improved Power Attack ~ Dragon Slayer
+Latch Attack			CATEGORY:Special Ability	KEY:Latch Attack ~ Dragon Slayer
+Fearless				CATEGORY:Special Ability	KEY:Fearless ~ Dragon Slayer				DESC: (+4 saves)|PREVAREQ:DragonSlayerFearlessLVL,1	DESC:Fearless (Immune)|PREVAREQ:DragonSlayerFearlessLVL,2	DEFINE:DragonSlayerFearlessLVL|0
+Penetrating Blow			CATEGORY:Special Ability	KEY:Penetrating Blow ~ Dragon Slayer
+Improved Critical vs. dragons	CATEGORY:Special Ability	KEY:Improved Critical vs. dragons ~ Dragon Slayer
+Aura of Invincibility		CATEGORY:Special Ability	KEY:Aura of Invincibility ~ Dragon Slayer
+Relentless Attack			CATEGORY:Special Ability	KEY:Relentless Attack ~ Dragon Slayer
+Spot Vulnerability		CATEGORY:Special Ability	KEY:Spot Vulnerability ~ Dragon Slayer
+Improved Penetrating Blow	CATEGORY:Special Ability	KEY:Improved Penetrating Blow ~ Dragon Slayer
 
 
-###Block: Student of the Dragon
+###Block: ~ Student of the Dragon
 # Ability Name		Category of Ability		Special ABility
-Wings of the Dragon	CATEGORY:Special Ability	SAB:Wings of the Dragon
-Strength of the Dragon	CATEGORY:Special Ability	SAB:Strength of the Dragon
-Eyes of the Dragon	CATEGORY:Special Ability	SAB:Eyes of the Dragon
-Fist of the Dragon	CATEGORY:Special Ability	SAB:Fist of the Dragon
-Ki Strike (+2)		CATEGORY:Special Ability	SAB:Ki Strike (+2)|PREVARLT:CL,8
-Tactics of the Dragon	CATEGORY:Special Ability	SAB:Tactics of the Dragon
-Roar of the Dragon	CATEGORY:Special Ability	SAB:Roar of the Dragon
-Fury of the Dragon	CATEGORY:Special Ability	SAB:Fury of the Dragon
-Ki Strike (+3)		CATEGORY:Special Ability	SAB:Ki Strike (+3)
-Thunder of the Dragon	CATEGORY:Special Ability	SAB:Thunder of the Dragon
-Master of the Dragon	CATEGORY:Special Ability	SAB:Master of the Dragon
+Wings of the Dragon	CATEGORY:Special Ability	KEY:Wings of the Dragon ~ Student of the Dragon
+Strength of the Dragon	CATEGORY:Special Ability	KEY:Strength of the Dragon ~ Student of the Dragon
+Eyes of the Dragon	CATEGORY:Special Ability	KEY:Eyes of the Dragon ~ Student of the Dragon
+Fist of the Dragon	CATEGORY:Special Ability	KEY:Fist of the Dragon ~ Student of the Dragon
+Ki Strike (+2)		CATEGORY:Special Ability	KEY:Ki Strike ~ Student of the Dragon						DESC: (+2)|PREVARLT:StudentoftheDragonLvl,8		DESC:+3|PREVARGTEQ:StudentoftheDragonLvl,8
+Tactics of the Dragon	CATEGORY:Special Ability	KEY:Tactics of the Dragon ~ Student of the Dragon
+Roar of the Dragon	CATEGORY:Special Ability	KEY:Roar of the Dragon ~ Student of the Dragon
+Fury of the Dragon	CATEGORY:Special Ability	KEY:Fury of the Dragon ~ Student of the Dragon
+Ki Strike (+3)		CATEGORY:Special Ability	KEY:Ki Strike
+Thunder of the Dragon	CATEGORY:Special Ability	KEY:Thunder of the Dragon ~ Student of the Dragon
+Master of the Dragon	CATEGORY:Special Ability	KEY:Master of the Dragon ~ Student of the Dragon
 
-###Block: Wyrmfoe
+###Block: ~ Wyrmfoe
 # Ability Name				Category of Ability		Type					Visible		Special ABility														Define					Ability								Modify VAR
-Dragon Magic				CATEGORY:Special Ability									SAB:Dragon Magic (-% metamagic or +% casterlevel)|DragonMagicProgression|DragonMagicProgression	DEFINE:DragonMagicProgression|0
-Dragon Claws				CATEGORY:Special Ability									SAB:Dragon Claws
-Dragon Creature Type			CATEGORY:Special Ability									SAB:Dragon Creature Type
-Dragon Breath				CATEGORY:Special Ability									SAB:Dragon Breath
+Dragon Magic				CATEGORY:Special Ability									KEY:Dragon Magic ~ Wyrmfoe		DESC: (-%1 metamagic or +%2 casterlevel)|DragonMagicProgression|DragonMagicProgression	DEFINE:DragonMagicProgression|0
+Dragon Claws				CATEGORY:Special Ability									KEY:Dragon Claws ~ Wyrmfoe
+Dragon Creature Type			CATEGORY:Special Ability									KEY:Dragon Creature Type ~ Wyrmfoe
+Dragon Breath				CATEGORY:Special Ability									KEY:Dragon Breath ~ Wyrmfoe
 Wyrmfoe Damage Resistance (Acid)	CATEGORY:Special Ability	TYPE:WyrmfoeDamageResistance	VISIBLE:DISPLAY																	DEFINE:WyrmfoeDR|0			ABILITY:Special Ability|AUTOMATIC|Resistance To Acid	BONUS:VAR|AcidResistanceBonus|WyrmfoeDR
 Wyrmfoe Damage Resistance (Cold)	CATEGORY:Special Ability	TYPE:WyrmfoeDamageResistance	VISIBLE:DISPLAY																	DEFINE:WyrmfoeDR|0			ABILITY:Special Ability|AUTOMATIC|Resistance To Cold	BONUS:VAR|ColdResistanceBonus|WyrmfoeDR
 Wyrmfoe Damage Resistance (Fire)	CATEGORY:Special Ability	TYPE:WyrmfoeDamageResistance	VISIBLE:DISPLAY																	DEFINE:WyrmfoeDR|0			ABILITY:Special Ability|AUTOMATIC|Resistance To Fire	BONUS:VAR|FireResistanceBonus|WyrmfoeDR
 
-###Block: Wyrm Spawn
+###Block: ~ Wyrm Spawn
 # Ability Name		Category of Ability		Special ABility
-Draconic Blood		CATEGORY:Special Ability	SAB:Draconic Blood
-Resist Elements		CATEGORY:Special Ability	SAB:Resist Elements
-Immune to dragon fear	CATEGORY:Special Ability	SAB:Immune to dragon fear
-Innate Magic		CATEGORY:Special Ability	SAB:Innate Magic
-Draconic Hide +4		CATEGORY:Special Ability	SAB:Draconic Hide +4
-Longevity			CATEGORY:Special Ability	SAB:Longevity
+Draconic Blood		CATEGORY:Special Ability	KEY:Draconic Blood ~ Wyrm Spawn
+Resist Elements		CATEGORY:Special Ability	KEY:Resist Elements ~ Wyrm Spawn
+Immune to dragon fear	CATEGORY:Special Ability	KEY:Immune to dragon fear ~ Wyrm Spawn
+Innate Magic		CATEGORY:Special Ability	KEY:Innate Magic ~ Wyrm Spawn
+Draconic Hide		CATEGORY:Special Ability	KEY:Draconic Hide ~ Wyrm Spawn	DESC: +4
+Longevity			CATEGORY:Special Ability	KEY:Longevity ~ Wyrm Spawn

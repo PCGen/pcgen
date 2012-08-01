@@ -1,6 +1,8 @@
 # CVS $Revision$ $Author$ -- Sat Nov  7 20:38:11 2009 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Alderac Entertainment Group - Dungeons	SOURCESHORT:Dungeons	SOURCEWEB:http://alderac.com/d20
 
+# COMMENT: Need to review and see if the Crusader should be using the RANGER FAVORED ENEMY TABLE - If So, we do need to convert this to using the proper method.
+
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Crusader	HD:8		TYPE:PC.Prestige	ABB:ae1		MAXLEVEL:10	SOURCEPAGE:p.87	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat			Required Skill				Req. Spell Type
@@ -13,7 +15,7 @@ CLASS:Crusader	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Crusader|CL
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	ADD:SPELLCASTER|Divine	ADD:FEAT|TYPE=CrusaderFavored
+1	ADD:SPELLCASTER|Divine	BONUS:ABILITYPOOL|Crusader Favored Choice|1
 2	ADD:SPELLCASTER|Divine	ADD:LANGUAGE|3|Abyssal,Aquan,Auran,Celestial,Common,Draconic,Dwarven,Elven,Giant,Gnoll,Gnome,Goblin,Halfling,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon
 3	ADD:SPELLCASTER|Divine
 4	ADD:SPELLCASTER|Divine																											ABILITY:Special Ability|AUTOMATIC|Find the Path ~ Crusader
