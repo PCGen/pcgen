@@ -27,8 +27,11 @@ COPYRIGHT:PCGen dataset conversion for Alea Publishing Group Homor and Corruptio
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
+ABILITY:honorcorruption_abilities_template.lst
+ABILITYCATEGORY:honorcorruption_abilitycategories.lst
+
+
 FEAT:honorcorruption_feats.lst
-FEAT:honorcorruption_feats_hidden.lst
 RACE:honorcorruption_races.lst
 
 TEMPLATE:honorcorruption_templates.lst
