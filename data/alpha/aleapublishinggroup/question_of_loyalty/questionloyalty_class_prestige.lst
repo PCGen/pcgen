@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jul 26 17:28:56 2007 -- reformated by prettylst.pl v1.38 (build 2949)
+# CVS $Revision$ $Author$ -- Sat Aug  4 14:11:05 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:A Question of Loyalty: A Guidebook to Military Orders	SOURCESHORT:GuideMO	SOURCEWEB:http://www.aleapublishing.com
 # Original Entry: Andrew Maitland
 
@@ -9,11 +9,11 @@ CLASS:Knight Commander	PREATT:7	PREFEAT:1,Banneret,Preceptor,Leadership	PRESKILL
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Knight Commander	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Knowledge (Local)|Knowledge (Nobility and Royalty)|Profession (Soldier)|Ride|Sense Motive
 ### CLass Ability Block
-1	SAB:Sphere of Influence % ft.|SphereInfluenceArea	BONUS:VAR|SphereInfluenceArea|min((CL*10),100)				DEFINE:SphereInfluenceArea|0
-1	SAB:Combat Sense (Ex): +%|CombatSenseVar			BONUS:VAR|CombatSenseVar|(CL+1)/3	BONUS:VAR|CombatSenseVar|1	DEFINE:CombatSenseVar|0
+1	BONUS:VAR|SphereInfluenceArea|min((CL*10),100)				DEFINE:SphereInfluenceArea|0	ABILITY:Special Ability|AUTOMATIC|Sphere of Influence ~ Knight Commander
+1	BONUS:VAR|CombatSenseVar|(CL+1)/3	BONUS:VAR|CombatSenseVar|1	DEFINE:CombatSenseVar|0		ABILITY:Special Ability|AUTOMATIC|Combat Sense ~ Knight Commander
 ### Level Progression:
-2	SAB:Fearless (Ex)
-3	SAB:Despair (Ex)
-5	SAB:Hope (Ex)	SAB:Advanced Leadership (Ex)
-7	SAB:Instill Rage (Ex)
-10	SAB:Supreme Leadership (Ex)
+2																	ABILITY:Special Ability|AUTOMATIC|Fearless ~ Knight Commander
+3																	ABILITY:Special Ability|AUTOMATIC|Despair ~ Knight Commander
+5																	ABILITY:Special Ability|AUTOMATIC|Hope ~ Knight Commander|Advanced Leadership ~ Knight Commander
+7																	ABILITY:Special Ability|AUTOMATIC|Instill Rage ~ Knight Commander
+10																	ABILITY:Special Ability|AUTOMATIC|Supreme Leadership ~ Knight Commander
