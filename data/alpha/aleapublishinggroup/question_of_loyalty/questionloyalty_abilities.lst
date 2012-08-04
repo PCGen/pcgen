@@ -96,6 +96,11 @@ Divine Leadership		KEY:Divine Leadership ~ Grandmaster		CATEGORY:Special Ability
 
 
 
-
+# Vampire
 Alternate Form			KEY:Alternate Form ~ Vampire					CATEGORY:Special Ability											TYPE:SpecialQuality.Supernatural
 Dominate				KEY:Dominate ~ Vampire						CATEGORY:Special Ability											TYPE:SpecialQuality.Supernatural																								DESC:DC %1|VampireAbilityDC
+
+#  ~ Spawn of Anubis
+Blood Receptacle		KEY:Blood Receptacle ~ Spawn of Anubis		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+Despair			KEY:Despair ~ Spawn of Anubis				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Fast Healing		KEY:Fast Healing ~ Su					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
