@@ -3,5 +3,5 @@ SOURCELONG:Book of Iron Might	SOURCESHORT:BoIM	SOURCEWEB:http://www.montecook.co
 
 # Race Name		Favored Class			Size		Move			Face/Space	Reach		Stat bonus		Main Race Type	Template																Source Page		Add
 Ironborn ~ Small	FAVCLASS:HIGHESTLEVELCLASS	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5				RACETYPE:Ironborn	TEMPLATE:Ironborn Trait	TEMPLATE:CHOOSE:Ironborn Secondary Ability|Ironborn No Secondary Ability	SOURCEPAGE:p.25
-Ironborn ~ Medum	FAVCLASS:HIGHESTLEVELCLASS	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5				RACETYPE:Ironborn	TEMPLATE:Ironborn Trait														SOURCEPAGE:p.25	ADD:FEAT|TYPE=IronbornSecondaryAbility
+Ironborn ~ Medum	FAVCLASS:HIGHESTLEVELCLASS	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5				RACETYPE:Ironborn	TEMPLATE:Ironborn Trait														SOURCEPAGE:p.25	BONUS:ABILITYPOOL|Ironborn Secondary Ability Choice|1
 Ironborn ~ Large	FAVCLASS:HIGHESTLEVELCLASS	SIZE:L	MOVE:Walk,30	FACE:10	REACH:10	BONUS:STAT|DEX|-2	RACETYPE:Ironborn	TEMPLATE:Ironborn Trait														SOURCEPAGE:p.25

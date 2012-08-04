@@ -7,7 +7,7 @@ Automatic Arcane Battle Mastery	SOURCEPAGE:p.36	PREATT:1	PRECSKILL:3,Concentrati
 
 ###Block: ironborn
 # Template Name	Visible	Template																																																																							Special ABility					Combat bonus				Bonus to skill
-Ironborn Trait	VISIBLE:NO	TEMPLATE:Humanoid	TEMPLATE:CHOOSE:Ironborn No Stat Adjustment|Ironborn Str Stat Adjustment|Ironborn NonStr Stat Adjustment	TEMPLATE:CHOOSE:Ironborn Acrobat Ability Package|Ironborn Centurion Ability Package|Ironborn Divine Mark Ability Package|Ironborn Iron Heart Ability Package|Ironborn Shadow Friend Ability Package|Ironborn Slayer Ability Package|Ironborn Spellmaster Ability Package|Ironborn Trailblazer Ability Package	SAB:Immortal	SAB:Rust Vulnerability	BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:SKILL|Bluff,Diplomacy,Gather Information,Sense Motive|-2|TYPE=Racial
+Ironborn Trait	VISIBLE:NO	TEMPLATE:Humanoid	TEMPLATE:CHOOSE:Ironborn No Stat Adjustment|Ironborn Str Stat Adjustment|Ironborn NonStr Stat Adjustment	TEMPLATE:CHOOSE:Ironborn Acrobat Ability Package|Ironborn Centurion Ability Package|Ironborn Divine Mark Ability Package|Ironborn Iron Heart Ability Package|Ironborn Shadow Friend Ability Package|Ironborn Slayer Ability Package|Ironborn Spellmaster Ability Package|Ironborn Trailblazer Ability Package	ABILITY:Special Ability|AUTOMATIC|Immortal ~ Ironborn Trait|Rust Vulnerability ~ Ironborn Trait	BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:SKILL|Bluff,Diplomacy,Gather Information,Sense Motive|-2|TYPE=Racial
 
 ###Block: Ironborn Stat Adjustments
 # Template Name				Visible	Template																																							Stat bonus
@@ -28,16 +28,16 @@ Ironborn Plus Cha				VISIBLE:NO																																									BONUS:ST
 
 ###Block: Ironborn Packages
 # Template Name					Visible	Add
-Ironborn Acrobat Ability Package		VISIBLE:NO	ADD:FEAT|TYPE=IronbornPrimaryAbility
-Ironborn Centurion Ability Package		VISIBLE:NO	ADD:FEAT|TYPE=IronbornPrimaryAbility
-Ironborn Divine Mark Ability Package	VISIBLE:NO	ADD:FEAT|TYPE=IronbornPrimaryAbility
-Ironborn Iron Heart Ability Package		VISIBLE:NO	ADD:FEAT|TYPE=IronbornPrimaryAbility
-Ironborn Shadow Friend Ability Package	VISIBLE:NO	ADD:FEAT|TYPE=IronbornPrimaryAbility
-Ironborn Slayer Ability Package		VISIBLE:NO	ADD:FEAT|TYPE=IronbornPrimaryAbility
-Ironborn Spellmaster Ability Package	VISIBLE:NO	ADD:FEAT|TYPE=IronbornPrimaryAbility
-Ironborn Trailblazer Ability Package	VISIBLE:NO	ADD:FEAT|TYPE=IronbornPrimaryAbility
+Ironborn Acrobat Ability Package		VISIBLE:NO	BONUS:ABILITYPOOL|Ironborn Primary Ability Choice|1
+Ironborn Centurion Ability Package		VISIBLE:NO	BONUS:ABILITYPOOL|Ironborn Primary Ability Choice|1
+Ironborn Divine Mark Ability Package	VISIBLE:NO	BONUS:ABILITYPOOL|Ironborn Primary Ability Choice|1
+Ironborn Iron Heart Ability Package		VISIBLE:NO	BONUS:ABILITYPOOL|Ironborn Primary Ability Choice|1
+Ironborn Shadow Friend Ability Package	VISIBLE:NO	BONUS:ABILITYPOOL|Ironborn Primary Ability Choice|1
+Ironborn Slayer Ability Package		VISIBLE:NO	BONUS:ABILITYPOOL|Ironborn Primary Ability Choice|1
+Ironborn Spellmaster Ability Package	VISIBLE:NO	BONUS:ABILITYPOOL|Ironborn Primary Ability Choice|1
+Ironborn Trailblazer Ability Package	VISIBLE:NO	BONUS:ABILITYPOOL|Ironborn Primary Ability Choice|1
 
 ###Block: Ironborn Secondary Ability (Small Ironborn)
 # Template Name			Visible	Stat bonus		Add
-Ironborn Secondary Ability	VISIBLE:NO	BONUS:STAT|STR|-2	ADD:FEAT|TYPE=IronbornSecondaryAbility
+Ironborn Secondary Ability	VISIBLE:NO	BONUS:STAT|STR|-2	BONUS:ABILITYPOOL|Ironborn Secondary Ability Choice|1
 Ironborn No Secondary Ability	VISIBLE:NO

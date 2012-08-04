@@ -12,24 +12,6 @@ Spell Runes									TYPE:Ironborn	PRECLASS:1,SPELLCASTER.Arcane=1															
 Spring-Loaded Reflexes							TYPE:Ironborn							PREFEAT:2,Dodge,Improved Initiative												PRERACE:1,TYPE=Ironborn											PRESTAT:1,DEX=13	DESC:Your joints have a set of heavy springs and flexible, high-tension connections and lines. You react quickly to danger, allowing you to defend yourself even when an opponent has the drop on you.																									ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
 Weaponized Limb								TYPE:Ironborn																								PRERACE:1,TYPE=Ironborn														DESC:One of your arms has been replaced with a sword blade, axe, mace, or similar weapon. As an extension of your body, it is easier to wield than a standard weapon.																																														SOURCEPAGE:p.33
 
-###Block: ironborn hidden
-# Feat Name			Unique Key				Type					Visible	Required Template							Special ABility															Multiple?	Choose							Automatically Added to Inventory	Combat bonus				Add to base move			Bonus to skill							Modify VAR				Vision
-Enhanced Agility							TYPE:IronbornPrimaryAbility	VISIBLE:NO	PRETEMPLATE:1,Ironborn Acrobat Ability Package		SAB:Enhanced Agility																																									BONUS:SKILL|Escape Artist,Jump,Tumble|2|TYPE=Racial
-Enhanced Mobility							TYPE:IronbornSecondaryAbility	VISIBLE:NO	PRETEMPLATE:1,Ironborn Acrobat Ability Package		SAB:Enhanced Mobility																																				BONUS:MOVEADD|TYPE.Walk|5
-Armored Body							TYPE:IronbornPrimaryAbility	VISIBLE:NO	PRETEMPLATE:1,Ironborn Centurion Ability Package	SAB:Armored Body																									AUTO:EQUIP|Ironborn Armored Body
-Tough As Iron							TYPE:IronbornSecondaryAbility	VISIBLE:NO	PRETEMPLATE:1,Ironborn Centurion Ability Package	SAB:Tough as Iron
-Divine Vengeance		KEY:Divine Vengeance ~ BoIM	TYPE:IronbornPrimaryAbility	VISIBLE:NO	PRETEMPLATE:1,Ironborn Divine Mark Ability Package	SAB:Divine Vengeance (%CHOICE)												MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Good|Evil|Law|Chaos																											BONUS:VAR|TurnLevelBase|2
-Blessings of the Divine						TYPE:IronbornSecondaryAbility	VISIBLE:NO	PRETEMPLATE:1,Ironborn Divine Mark Ability Package	SAB:Blessings of the Divine
-Machine Body							TYPE:IronbornPrimaryAbility	VISIBLE:NO	PRETEMPLATE:1,Ironborn Iron Heart Ability Package	SAB:Machine Body																															BONUS:COMBAT|AC|2|TYPE=NaturalArmor
-Machine Mind							TYPE:IronbornSecondaryAbility	VISIBLE:NO	PRETEMPLATE:1,Ironborn Iron Heart Ability Package	SAB:Machine Mind
-Shadow Master							TYPE:IronbornPrimaryAbility	VISIBLE:NO	PRETEMPLATE:1,Ironborn Shadow Friend Ability Package	SAB:Shadow Master																																										BONUS:SKILL|Hide|2
-Darkvision								TYPE:IronbornSecondaryAbility	VISIBLE:NO	PRETEMPLATE:1,Ironborn Shadow Friend Ability Package	SAB:Darkvision																																																								VISION:Darkvision (60')
-Blood Seeker							TYPE:IronbornPrimaryAbility	VISIBLE:NO	PRETEMPLATE:1,Ironborn Slayer Ability Package		SAB:Blood Seeker
-Weapon Spike							TYPE:IronbornSecondaryAbility	VISIBLE:NO	PRETEMPLATE:1,Ironborn Slayer Ability Package		SAB:Weapon Spike
-Spell Precision							TYPE:IronbornPrimaryAbility	VISIBLE:NO	PRETEMPLATE:1,Ironborn Spellmaster Ability Package	SAB:Spell Precision
-Spell Durability							TYPE:IronbornSecondaryAbility	VISIBLE:NO	PRETEMPLATE:1,Ironborn Spellmaster Ability Package	SAB:Spell Durability
-Survivor								TYPE:IronbornPrimaryAbility	VISIBLE:NO	PRETEMPLATE:1,Ironborn Trailblazer Ability Package	SAB:Survivor	SAB:Cold Resistance 2	SAB:Fire Resistance 2	SAB:No longer need to eat or drink
-Scion of Nature							TYPE:IronbornSecondaryAbility	VISIBLE:NO	PRETEMPLATE:1,Ironborn Trailblazer Ability Package	SAB:Scion of Nature																																									BONUS:SKILL|Handle Animal,Survival|2
 
 ###Block: arcane battle feats
 # Feat Name				Output Name					Type						Visible	Req. Att.	Required Feat														Required Stat	Special ABility																	Define														Description																																																																				Add 					Class Skill								Source Page
