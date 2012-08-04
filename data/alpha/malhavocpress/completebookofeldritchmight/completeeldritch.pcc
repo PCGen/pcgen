@@ -35,6 +35,9 @@ INFOTEXT:Proper names from The Complete Book of Eldritch Might are ©2004 Monte 
 
 # Missing Monsters
 
+ABILITY:completeeldritch_abilities_class.lst
+ABILITYCATEGORY:completeeldritch_abilitycategories.lst
+
 RACE:completeeldritch_races.lst
 TEMPLATE:completeeldritch_templates.lst
 SKILL:completeeldritch_skills.lst
