@@ -45,8 +45,6 @@ BIOSET:dawnforge_biosettings.lst
 CLASS:dawnforge_classes.lst
 CLASS:dawnforge_classes_legendary.lst
 FEAT:dawnforge_feats.lst
-FEAT:dawnforge_feats_hidden.lst
-FEAT:dawnforge_feats_hidden_legendary.lst
 EQUIPMENT:dawnforge_equip_shields.lst
 EQUIPMENT:dawnforge_equip_weap.lst
 LANGUAGE:dawnforge_languages.lst
