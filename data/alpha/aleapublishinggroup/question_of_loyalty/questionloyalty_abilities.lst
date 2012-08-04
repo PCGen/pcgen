@@ -84,7 +84,14 @@ Instill Rage			KEY:Instill Rage ~ Knight Commander				CATEGORY:Special Ability		
 Supreme Leadership		KEY:Supreme Leadership ~ Knight Commander			CATEGORY:Special Ability											TYPE:SpecialQuality.Extraordinary
 
 
-
+#  ~ Grandmaster
+Sphere of Influence	KEY:Sphere of Influence ~ Grandmaster	CATEGORY:Special Ability	TYPE:SpecialQuality				DESC: %1 ft.|SphereInfluenceAreaGM																		BONUS:VAR|SphereInfluenceAreaGM|(CL*100)	DEFINE:SphereInfluenceAreaGM|0
+Epic Combat Sense		KEY:Epic Combat Sense ~ Grandmaster		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		DESC: +%1|EpicCombatSenseVar	DEFINE:EpicCombatSenseVar|0
+Epic Leadership Points	KEY:Epic Leadership Points ~ Grandmaster	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+Fanatical Aid		KEY:Fanatical Aid ~ Grandmaster		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		DESC:(Defense)	DESC: (Attack)|PREVARGTEQ:FanaticalAidGrandmasterLvl,3		DESC:(Loyalists)|PREVARGTEQ:FanaticalAidGrandmasterLvl,5			DEFINE:FanaticalAidGrandmasterLvl|0
+Order Knowledge		KEY:Order Knowledge ~ Grandmaster		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	
+Supernatural Leadership	KEY:Supernatural Leadership ~ Grandmaster	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	
+Divine Leadership		KEY:Divine Leadership ~ Grandmaster		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	
 
 
 

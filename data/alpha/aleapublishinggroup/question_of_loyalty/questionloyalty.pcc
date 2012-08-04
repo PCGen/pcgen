@@ -30,7 +30,6 @@ ABILITY:questionloyalty_abilities.lst
 CLASS:questionloyalty_class_prestige_epic.lst
 CLASS:questionloyalty_class_prestige.lst
 FEAT:questionloyalty_feats.lst
-FEAT:questionloyalty_feats_hidden.lst
 RACE:questionloyalty_races_monsters.lst
 SKILL:questionloyalty_skills.lst
 SPELL:questionloyalty_spells.lst
