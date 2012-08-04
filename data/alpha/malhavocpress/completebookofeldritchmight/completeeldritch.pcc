@@ -47,7 +47,6 @@ DOMAIN:completeeldritch_domain.lst
 SPELL:completeeldritch_spells.lst
 
 CLASS:completeeldritch_classes.lst
-FEAT:completeeldritch_feats_hidden.lst
 FEAT:completeeldritch_feats.lst
 
 EQUIPMENT:completeeldritch_equip_poisonspotions.lst

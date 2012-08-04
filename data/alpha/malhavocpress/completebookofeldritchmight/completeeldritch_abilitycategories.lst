@@ -9,3 +9,4 @@ ABILITYCATEGORY:Tattoo Of Power Choice	CATEGORY:Special Ability		TYPE:TattooofPo
 
 ABILITYCATEGORY:Imbue Vibration Choice	CATEGORY:Special Ability	TYPE:ImbueVibration		DISPLAYLOCATION:Class Abilities	EDITABLE:YES	EDITPOOL:YES	VISIBLE:QUALIFY
 
+ABILITYCATEGORY:Magical Construct Choice		CATEGORY:Special Ability	TYPE:MagicalConstructAbilities		DISPLAYLOCATION:Class Abilities	EDITABLE:YES	EDITPOOL:YES	VISIBLE:QUALIFY
