@@ -50,7 +50,7 @@ Minotrice Maze Mage Favored Class (Monster)	VISIBLE:NO																										
 ECL Adjuster	VISIBLE:NO	LEVELADJUSTMENT:LevelAdjustment						DEFINE:LevelAdjustment|0
 
 ### TODO: This should be a hidden feat but it doesn't add the feat if it is a feat
-Natural Cunning	VISIBLE:NO							SAB:Natural Cunning (Ex)						VFEAT:Track
+Natural Cunning	VISIBLE:NO							ABILITY:Special Ability|AUTOMATIC|Natural Cunning						VFEAT:Track
 
 #
 # End

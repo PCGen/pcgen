@@ -27,7 +27,6 @@ COPYRIGHT:PCGen dataset conversion for Masters and Minions Horde Book 2: Maze of
 ABILITY:mazeminotaur_abilities_class.lst
 
 CLASS:mazeminotaur_classes.lst
-#FEAT:mazeminotaur_feats_hidden.lst
 RACE:mazeminotaur_races.lst
 EQUIPMENT:mazeminotaur_equip.lst
 TEMPLATE:mazeminotaur_templates.lst

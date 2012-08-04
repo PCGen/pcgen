@@ -16,3 +16,6 @@ CATEGORY=Special Ability|Natural Cunning.MOD																		TEMPLATE:Natural C
 Pack Tactics						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Pack Tactics (Ex)						VFEAT:Improved Trip|PREAPPLY:PC	BONUS:COMBAT|TOHIT|1|PREAPPLY:PC	TEMPDESC:If two or more minotrice are in melee with the same opponent gain +1 to hit and Improved Trip feat.
 
 Tunneling							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Tunneling (Ex)
+
+
+Natural Cunning						TYPE:SpecialQuality.Extraordinary	CATEGORY:Special Ability
