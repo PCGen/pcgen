@@ -687,8 +687,8 @@ Zen Swordsmanship	TYPE:General.Fighter	PREATT:7	PREFEAT:3,Combat Reflexes,Expert
 
 ###Block: Hunter
 # Feat Name						Type			Visible	Special ABility								Innate Spells
-Hunter of the Accursed ~ Detect Evil	TYPE:SpellLike	VISIBLE:NO	SAB:Detect Evil (Sp): At will, detect evil as the spell.	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Detect Evil,11+WIS
-Hunter of the Damned ~ Detect Evil		TYPE:SpellLike	VISIBLE:NO	SAB:Detect Evil (Sp): At will, detect evil as the spell.	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Detect Evil,11+WIS
+Hunter of the Accursed ~ Detect Evil	TYPE:SpellLike	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Detect Evil	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Detect Evil,11+WIS
+Hunter of the Damned ~ Detect Evil		TYPE:SpellLike	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Detect Evil	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Detect Evil,11+WIS
 
 #
 ##EOF
