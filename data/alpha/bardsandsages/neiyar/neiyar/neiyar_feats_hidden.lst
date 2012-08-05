@@ -2,64 +2,6 @@
 SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2005-03
 ###Original Entry: Andrew Maitland
 
-###Block:FEATS
-# Feat Name			Visible	Special ABility							Define				Modify VAR
-Abyssal Smiting		KEY:Abyssal Smiting_1st	VISIBLE:NO	DESC:Abyssal Smiting (Su): +%|AbyssalSmitingLevel	DEFINE:AbyssalSmitingLevel|0	BONUS:VAR|AbyssalSmitingLevel|1
-Abyssal Smiting_2nd	VISIBLE:NO															BONUS:VAR|AbyssalSmitingLevel|1
-Abyssal Smiting_3rd	VISIBLE:NO															BONUS:VAR|AbyssalSmitingLevel|1
 
 
-###Block:Flaw Modifications:
-# Feat Name			Prohibited Feat
-Iron Will.MOD		!PREFEAT:1,Weak willed
-Investigator.MOD		!PREFEAT:1,Gullible
-Leadership.MOD		!PREFEAT:1,Creepy
-Lightning Reflexes.MOD	!PREFEAT:1,Skittish
-Combat Reflexes.MOD	!PREFEAT:1,Skittish
-Toughness.MOD		!PREFEAT:1,Easily Bruised
-###Flaws changed to Feats, redid the PRExxx -- Andrew
 
-
-###Block:Trapper Class Abilities
-# Feat Name		Type			Visible	Special ABility				Weapon prof. bonus
-Trapmaking		TYPE:Class.Hidden	VISIBLE:NO	SAB:Trapmaking
-DetectDisarmTraps	TYPE:Class.Hidden	VISIBLE:NO	SAB:Detect/Disarm Traps
-NetUse		TYPE:Class.Hidden	VISIBLE:NO	SAB:Net Use					BONUS:WEAPONPROF=Net|TOHIT|2
-DetectSecretDoors	TYPE:Class.Hidden	VISIBLE:NO	SAB:Detect Secret/Hidden Doors
-TrappedWeapons	TYPE:Class.Hidden	VISIBLE:NO	SAB:Trapped Weapons
-TrapPotency		TYPE:Class.Hidden	VISIBLE:NO	SAB:Trap Potency
-DamageReduction	TYPE:Class.Hidden	VISIBLE:NO	SAB:Damage Reduction vs traps
-MasterTrapMaker	TYPE:Class.Hidden	VISIBLE:NO	SAB:Master Trapmaker
-RevealTraps		TYPE:Class.Hidden	VISIBLE:NO	SAB:Reveal Traps
-
-###Block:HEARTH MAGIC HIDDEN FEATS:
-# Feat Name						Product Identity?	Type			Visible	Special ABility								Source Page
-HearthMagicClarity				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Clarity						SOURCEPAGE:p.65
-HearthMagicDedication				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Dedication						SOURCEPAGE:p.66
-HearthMagicEaseBirth				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Ease Birth						SOURCEPAGE:p.66
-HearthMagicFocus					NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Dedication						SOURCEPAGE:p.66
-HearthMagicHealingRest				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Healing Rest					SOURCEPAGE:p.67
-HearthMagicLuckyBreak				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Lucky Break						SOURCEPAGE:p.67
-HearthMagicMending				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Mending						SOURCEPAGE:p.67
-HearthMagicProsperity				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Prosperity						SOURCEPAGE:p.67
-HearthMagicReduceFever				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Reduce Fever					SOURCEPAGE:p.67
-HearthMagicRitualCleansing			NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Ritual Cleansing					SOURCEPAGE:p.67
-HearthMagicSoulBinding				NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Soul Binding	SAB:Share the Pain (Su)	SOURCEPAGE:p.68
-HearthMagicWardAgainstDomesticDiscord	NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Ward Against Domestic Discord			SOURCEPAGE:p.68
-HearthMagicWardAgainstMagic			NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Ward Against Magic				SOURCEPAGE:p.68
-HearthMagicWardAgainstPossession		NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Ward Against Possession				SOURCEPAGE:p.68
-HearthMagicWardAgainstUndead			NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Ward Against Undead				SOURCEPAGE:p.68
-HearthMagicWardToProtectInnocence		NAMEISPI:YES	TYPE:HearthMagic	VISIBLE:NO	SAB:Hearth Magic: Ward to Protect Innocence			SOURCEPAGE:p.69
-
-###Block: Monster Template - Feats
-# Feat Name			Type				Visible	Special ABility
-Alignment Shift		TYPE:BenevolentSpirit	VISIBLE:NO	SAB:Alignment Shift (Su)
-Healing Touch		TYPE:BenevolentSpirit	VISIBLE:NO	SAB:Healing Touch (Su)
-Glare of Reckoning	TYPE:BenevolentSpirit	VISIBLE:NO	SAB:Glare of Reckoning (Su)
-Hand of Destiny		TYPE:BenevolentSpirit	VISIBLE:NO	SAB:Hand of Destiny (Su)
-Answer Prayers		TYPE:BenevolentSpirit	VISIBLE:NO	SAB:Answer Prayers
-Blessings			TYPE:BenevolentSpirit	VISIBLE:NO	SAB:Blessings
-Miracle			TYPE:BenevolentSpirit	VISIBLE:NO	SAB:Miracle
-
-
-###Block: Mod section:

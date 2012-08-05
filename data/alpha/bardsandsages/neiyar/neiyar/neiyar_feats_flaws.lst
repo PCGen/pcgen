@@ -22,3 +22,14 @@ Traveling Circus									TYPE:Flaw	VISIBLE:YES														SAB:FLAW:Traveling C
 Vulnerability									TYPE:Flaw	VISIBLE:YES														SAB:FLAW:Vulnerability			COST:-1	SOURCEPAGE:p.47
 Weak willed						OUTPUTNAME:Weak-willed	TYPE:Flaw	VISIBLE:YES	!PREFEAT:1,Iron Will										SAB:FLAW:Weak-willed			COST:-1	SOURCEPAGE:p.48
 # End Flaws
+
+
+###Block:Flaw Modifications:
+# Feat Name			Prohibited Feat
+Iron Will.MOD		!PREFEAT:1,Weak willed
+Investigator.MOD		!PREFEAT:1,Gullible
+Leadership.MOD		!PREFEAT:1,Creepy
+Lightning Reflexes.MOD	!PREFEAT:1,Skittish
+Combat Reflexes.MOD	!PREFEAT:1,Skittish
+Toughness.MOD		!PREFEAT:1,Easily Bruised
+###Flaws changed to Feats, redid the PRExxx -- Andrew

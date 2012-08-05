@@ -41,10 +41,10 @@ CLASS:Tiger Shaman	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LE
 1																AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 1																AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Special Abilities:
-5	SAB:Tiger Form
-9	SAB:Dire Tiger Form
-15	SAB:Wrath of the Tiger Lord
-20	SAB:Blessing of the Tiger Lord
+5	ABILITY:Special Ability|AUTOMATIC|Tiger Form ~ Tiger Shaman
+9	ABILITY:Special Ability|AUTOMATIC|Dire Tiger Form ~ Tiger Shaman
+15	ABILITY:Special Ability|AUTOMATIC|Wrath of the Tiger Lord ~ Tiger Shaman
+20	ABILITY:Special Ability|AUTOMATIC|Blessing of the Tiger Lord ~ Tiger Shaman
 ###Block: Level progression
 1	CAST:3
 2	CAST:4,1
@@ -79,14 +79,14 @@ CLASS:Trapper	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Trapmaking)|Decipher S
 1	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Class Progression
-1	AUTO:FEAT|DetectDisarmTraps|Trapmaking
-3	AUTO:FEAT|NetUse
-5	AUTO:FEAT|DetectSecretDoors
-7	AUTO:FEAT|TrappedWeapons
-9	AUTO:FEAT|TrapPotency
-12	AUTO:FEAT|DamageReduction
-15	AUTO:FEAT|MasterTrapMaker
-20	AUTO:FEAT|RevealTraps
+1	ABILITY:Special Ability|AUTOMATIC|DetectDisarmTraps|Trapmaking
+3	ABILITY:Special Ability|AUTOMATIC|NetUse
+5	ABILITY:Special Ability|AUTOMATIC|DetectSecretDoors
+7	ABILITY:Special Ability|AUTOMATIC|TrappedWeapons
+9	ABILITY:Special Ability|AUTOMATIC|TrapPotency
+12	ABILITY:Special Ability|AUTOMATIC|DamageReduction
+15	ABILITY:Special Ability|AUTOMATIC|MasterTrapMaker
+20	ABILITY:Special Ability|AUTOMATIC|RevealTraps
 
 ##
 ### Prestige Classes ###
@@ -108,10 +108,10 @@ CLASS:Arcane Rogue	STARTSKILLPTS:6	CSKILL:Appraise|TYPE=Craft|Decipher Script|Es
 6						ADD:SPELLCASTER|Arcane
 8						ADD:SPELLCASTER|Arcane
 ### Special Abilities:
-1	SAB:Silent Caster
-3	SAB:Arcane Backstab
-5	SAB:Still Caster
-7	SAB:Dispel Traps and Locks
+1	ABILITY:Special Ability|AUTOMATIC|Silent Caster ~ Arcane Rogue
+3	ABILITY:Special Ability|AUTOMATIC|Arcane Backstab ~ Arcane Rogue
+5	ABILITY:Special Ability|AUTOMATIC|Still Caster ~ Arcane Rogue
+7	ABILITY:Special Ability|AUTOMATIC|Dispel Traps and Locks ~ Arcane Rogue
 
 #ARCANE WARRIOR (AW)
 
@@ -127,11 +127,11 @@ CLASS:Arcane Warrior	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Jump|Knowle
 4						ADD:SPELLCASTER|Arcane
 6						ADD:SPELLCASTER|Arcane
 ### Special Abilities:
-1	SAB:Steel Mind
-2	SAB:Armor Skill|PREVARLT:CL,5
-3	SAB:Enhanced Combat Casting
-5	SAB:Enhanced Armor Skill
-7	SAB:Mystic Weapon
+1	ABILITY:Special Ability|AUTOMATIC|Steel Mind ~ Arcane Warrior
+2	ABILITY:Special Ability|AUTOMATIC|Armor Skill ~ Arcane Warrior
+3	ABILITY:Special Ability|AUTOMATIC|Enhanced Combat Casting ~ Arcane Warrior
+5	ABILITY:Special Ability|AUTOMATIC|Enhanced Armor Skill ~ Arcane Warrior
+7	ABILITY:Special Ability|AUTOMATIC|Mystic Weapon ~ Arcane Warrior
 
 #CHOSEN OF AGRI (CA)
 
@@ -147,9 +147,9 @@ CLASS:Chosen of Agri	STARTSKILLPTS:4	CSKILL:Concentration|Climb|Diplomacy|Heal|K
 4										ADD:SPELLCASTER|Divine
 6										ADD:SPELLCASTER|Divine
 ### Special Abilities:
-3	SAB:Transport via Plants
-5	SAB:Command Plants
-6	SAB:Plantmorph
+3	ABILITY:Special Ability|AUTOMATIC|Transport via Plants ~ Chosen of Agri
+5	ABILITY:Special Ability|AUTOMATIC|Command Plants ~ Chosen of Agri
+6	ABILITY:Special Ability|AUTOMATIC|Plantmorph ~ Chosen of Agri
 
 #Chosen of Roarth (CR)
 
@@ -165,10 +165,10 @@ CLASS:Chosen of Roarth	STARTSKILLPTS:4	CSKILL:Concentration|Climb|Handle Animal|
 5	ADD:SPELLCASTER|Divine
 ###Block: Special Abilities:
 1													ABILITY:Special Ability|AUTOMATIC|Venom Immunity
-2	SAB:Speak with Animals
-4	SAB:Wild Shape %/day|WSTimes	BONUS:VAR|WSTimes|1	DEFINE:WSTimes|0
+2	ABILITY:Special Ability|AUTOMATIC|Speak with Animals ~ Chosen of Roarth
+4	ABILITY:Special Ability|AUTOMATIC|Wild Shape ~ Chosen of Roarth	BONUS:VAR|WSTimes|1	DEFINE:WSTimes|0
 6						BONUS:VAR|WSTimes|1
-7	SAB:Anima
+7	ABILITY:Special Ability|AUTOMATIC|Anima ~ Chosen of Roarth
 
 #HEALER (HLR)
 
@@ -179,11 +179,11 @@ CLASS:Healer	PREALIGN:LG,NG,CG	PREDEITY:1,Agri	PREFEAT:2,Brew Potion,Skill Focus
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Healer	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Heal|Knowledge (Nature)|Knowledge (Anatomy)|Profession (Doctor)|Spellcraft|Survival
 ###Block: Special Abilities:
-1	SAB:Agri's Touch
-2	SAB:Preemptive Healing
-3	SAB:Combat Healing
-4	SAB:Agri's Gift
-5	SAB:Regenerative Touch
+1	ABILITY:Special Ability|AUTOMATIC|Agri's Touch ~ Healer
+2	ABILITY:Special Ability|AUTOMATIC|Preemptive Healing ~ Healer
+3	ABILITY:Special Ability|AUTOMATIC|Combat Healing ~ Healer
+4	ABILITY:Special Ability|AUTOMATIC|Agri's Gift ~ Healer
+5	ABILITY:Special Ability|AUTOMATIC|Regenerative Touch ~ Healer
 
 #PRANKMASTER (PRM)
 
@@ -196,11 +196,11 @@ CLASS:Prankmaster	STARTSKILLPTS:8	CSKILL:Bluff|Decipher Script|Disguise|Escape A
 #Pick Pockets Read Lips
 ###Block: Special Abilities:
 1	DOMAIN:Trickery								BONUS:DOMAIN|NUMBER|1
-2				SAB:Sixth Sense
-3				SAB:Slight of Hand %d6|SlightOfHandDamage					BONUS:VAR|SlightOfHandDamage|1	DEFINE:SlightOfHandDamage|0
-4				SAB:Riddles
+2				ABILITY:Special Ability|AUTOMATIC|Sixth Sense ~ Prankmaster
+3				ABILITY:Special Ability|AUTOMATIC|Slight of Hand ~ Prankmaster					BONUS:VAR|SlightOfHandDamage|1	DEFINE:SlightOfHandDamage|0
+4				ABILITY:Special Ability|AUTOMATIC|Riddles ~ Prankmaster
 5															BONUS:VAR|SlightOfHandDamage|1
-6				SAB:Master Trickster
+6				ABILITY:Special Ability|AUTOMATIC|Master Trickster ~ Prankmaster
 #COMMENT: Slight of Hand is how they spelled it.
 
 ###Shadowblade
@@ -213,11 +213,11 @@ CLASS:Shadowblade	!PREALIGN:CG,LG,NG	PREATT:6	PREFEAT:3,Skill Focus,Weapon Fines
 CLASS:Shadowblade	STARTSKILLPTS:8	CSKILL:Bluff|Diplomacy|Disable Device|Forgery|Gather Information|Hide|Listen|Move Silently|Search|Spot
 ###Block: Special Abilities:
 1						BONUS:VAR|SneakAttack|1	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-2	SAB:Shadow Movement
-3	SAB:Vampiric Blade 1/day
+2	ABILITY:Special Ability|AUTOMATIC|Shadow Movement ~ Shadowblade
+3	ABILITY:Special Ability|AUTOMATIC|Vampiric Blade ~ Shadowblade
 4						BONUS:VAR|SneakAttack|1
-5	SAB:Shadow Form
-6	SAB:Death Resistance
+5	ABILITY:Special Ability|AUTOMATIC|Shadow Form ~ Shadowblade
+6	ABILITY:Special Ability|AUTOMATIC|Death Resistance ~ Shadowblade
 
 ###Soulreaper
 
@@ -228,13 +228,13 @@ CLASS:Soulreaper	!PREALIGN:LG,LN,LE	PREATT:8	PREFEAT:3,Power Attack,Cleave,Track
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soulreaper	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Disable Device|Hide|Intimidate|Knowledge (Religion)|Listen|Move Silently|Search|Spot|Swim|Tumble|Use Rope|Survival
 ###Block: Special Abilities:
-1	SAB:AC Bonus +%|SoulreaperAC			BONUS:COMBAT|AC|SoulreaperAC	BONUS:VAR|SoulreaperAC|1						DEFINE:SoulreaperAC|0
-2	SAB:DR %/+%|SoulreaperDR|SoulreaperDRPlus						BONUS:VAR|SoulreaperDRPlus|1	BONUS:VAR|SoulreaperDR|5	DEFINE:SoulreaperDRPlus|0	DEFINE:SoulreaperDR|0
+1	ABILITY:Special Ability|AUTOMATIC|AC Bonus ~ Soulreaper			BONUS:VAR|SoulreaperAC|1						DEFINE:SoulreaperAC|0
+2	ABILITY:Special Ability|AUTOMATIC|DR ~ Soulreaper						BONUS:VAR|SoulreaperDRPlus|1	BONUS:VAR|SoulreaperDR|5	DEFINE:SoulreaperDRPlus|0	DEFINE:SoulreaperDR|0
 3													BONUS:VAR|SoulreaperAC|1
 4													BONUS:VAR|SoulreaperDRPlus|1
 5													BONUS:VAR|SoulreaperAC|1
 6													BONUS:VAR|SoulreaperDR|5
-7	SAB:Reap Soul
+7	ABILITY:Special Ability|AUTOMATIC|Reap Soul ~ Soulreaper
 
 ###Swan Bard
 
@@ -247,10 +247,10 @@ CLASS:Swan Bard	STARTSKILLPTS:6	CSKILL:Bluff|TYPE=Craft|Diplomacy|Gather Informa
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level				Use Spell List
 CLASS:Swan Bard	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3	BONUS:CASTERLEVEL|Swan Bard|CL	SPELLLIST:1|Cleric
 ###Block: Special Abilities:
-1	SAB:Clerical Spells	CHOOSE:DOMAIN|Chaos,Air,Animal
-3	SAB:Divine Talent
-5	SAB:Divine Beauty
-7	SAB:Swanmorph
+1	ABILITY:Special Ability|AUTOMATIC|Clerical Spells	CHOOSE:DOMAIN|Chaos,Air,Animal
+3	ABILITY:Special Ability|AUTOMATIC|Divine Talent
+5	ABILITY:Special Ability|AUTOMATIC|Divine Beauty
+7	ABILITY:Special Ability|AUTOMATIC|Swanmorph
 ###Block: Spellcasting
 1	CAST:3,1
 2	CAST:4,2
@@ -263,18 +263,18 @@ CLASS:Swan Bard	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL
 ###WildWalker (WW)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:WildWalker	HD:10		TYPE:PC.Prestige	ABB:WW		MAXLEVEL:6	SOURCEPAGE:p.64	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|CL/2	BONUS:COMBAT|BAB|(CL+2)/2|TYPE=Base.REPLACE
+CLASS:Wild Walker	HD:10		TYPE:PC.Prestige	ABB:WW		MAXLEVEL:6	SOURCEPAGE:p.64	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|CL/2	BONUS:COMBAT|BAB|(CL+2)/2|TYPE=Base.REPLACE
 # Class Name	Required AL		Req. Att.	Required Deity		Required Race	Required Skill		Required Stat
-CLASS:WildWalker	PREALIGN:CG,CN,CE	PREATT:6	PREDEITY:1,Sophia Kalla	PRERACE:1,Neiyar	PRESKILL:1,Survival=12	PRESTAT:2,STR=14,CON=12
+CLASS:Wild Walker	PREALIGN:CG,CN,CE	PREATT:6	PREDEITY:1,Sophia Kalla	PRERACE:1,Neiyar	PRESKILL:1,Survival=12	PRESTAT:2,STR=14,CON=12
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:WildWalker	STARTSKILLPTS:2	CSKILL:Climb|Hide|Knowledge (Nature)|Knowledge (Geography)|Move Silently|Ride|Swim|Survival|Use Rope
+CLASS:Wild Walker	STARTSKILLPTS:2	CSKILL:Climb|Hide|Knowledge (Nature)|Knowledge (Geography)|Move Silently|Ride|Swim|Survival|Use Rope
 ###Block: Special Abilities:
 1										ABILITY:Special Ability|AUTOMATIC|Woodland Stride
-2	SAB:Charm Monster (Su)
-3	SAB:Fast Movement		BONUS:MOVEADD|TYPE.Walk|10
-4	SAB:Summon Monster (Su)
-5	SAB:Monstrous Companion
-6	SAB:Monstrous Form (Su)	BONUS:MOVEADD|TYPE.Walk|10
+2	ABILITY:Special Ability|AUTOMATIC|Charm Monster
+3	ABILITY:Special Ability|AUTOMATIC|Fast Movement		BONUS:MOVEADD|TYPE.Walk|10
+4	ABILITY:Special Ability|AUTOMATIC|Summon Monster
+5	ABILITY:Special Ability|AUTOMATIC|Monstrous Companion
+6	ABILITY:Special Ability|AUTOMATIC|Monstrous Form	BONUS:MOVEADD|TYPE.Walk|10
 
 #
 ## EOF
