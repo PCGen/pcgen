@@ -40,6 +40,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
+import pcgen.system.PCGenSettings;
 
 /**
  * This class is an extension of the LstFileLoader that loads items
@@ -363,7 +364,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 			return;
 		}
 
-		final String aString = dataBuffer.toString();
+		String aString = dataBuffer.toString();
 		if (context != null)
 		{
 			context.setSourceURI(uri);
@@ -371,6 +372,15 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		T target = null;
 		ArrayList<ModEntry> classModLines = null;
 
+		boolean allowMultiLine =
+				PCGenSettings.OPTIONS_CONTEXT.initBoolean(
+					PCGenSettings.OPTION_SOURCES_ALLOW_MULTI_LINE, false);
+		if (allowMultiLine)
+		{
+			// Support the new file type. All lines that start with a tab belong to the previous line.
+			aString = aString.replaceAll("\r?\n\t", "\t");
+		}
+		
 		String[] fileLines = aString.replaceAll("\r\n", "\r").split(
 				LstFileLoader.LINE_SEPARATOR_REGEXP);
 

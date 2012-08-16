@@ -65,6 +65,7 @@ public class SourcesPanel extends PCGenPrefsPanel
 	private static final String SOURCE_USE_BASIC_KEY = "SourceSelectionDialog.useBasic"; //$NON-NLS-1$
 	private static String in_sources =
 		LanguageBundle.getString("in_Prefs_sources"); //$NON-NLS-1$
+	
 	private JCheckBox campLoad = new JCheckBox();
 	private JCheckBox charCampLoad = new JCheckBox();
 	private JCheckBox allowOptsInSource = new JCheckBox();
@@ -77,6 +78,7 @@ public class SourcesPanel extends PCGenPrefsPanel
 	private JCheckBox loadURL = new JCheckBox();
 	private JCheckBox allowOverride = new JCheckBox();
 	private JCheckBox useAdvancedSourceSelect = new JCheckBox();
+	private JCheckBox allowMultiLineObjectsSelect = new JCheckBox();
 
 	/**
 	 * Instantiates a new monster panel.
@@ -212,6 +214,14 @@ public class SourcesPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(useAdvancedSourceSelect, c);
 		this.add(useAdvancedSourceSelect);
 
+		Utility.buildConstraints(c, 0, 12, 3, 1, 0, 0);
+		label = new JLabel(LanguageBundle.getString("in_Prefs_allowMultiLineObjectsSelect") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
+		gridbag.setConstraints(label, c);
+		this.add(label);
+		Utility.buildConstraints(c, 3, 12, 1, 1, 0, 0);
+		gridbag.setConstraints(allowMultiLineObjectsSelect, c);
+		this.add(allowMultiLineObjectsSelect);
+
 		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;
 		label = new JLabel(" ");
@@ -248,6 +258,9 @@ public class SourcesPanel extends PCGenPrefsPanel
 		SettingsHandler.setLoadURLs(loadURL.isSelected());
 		SettingsHandler.setAllowOverride(allowOverride.isSelected());
 		UIPropertyContext.getInstance().setBoolean(SOURCE_USE_BASIC_KEY, !useAdvancedSourceSelect.isSelected());
+		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
+			PCGenSettings.OPTION_SOURCES_ALLOW_MULTI_LINE,
+			allowMultiLineObjectsSelect.isSelected());
 
 		switch (sourceOptions.getSelectedIndex())
 		{
@@ -299,6 +312,8 @@ public class SourcesPanel extends PCGenPrefsPanel
 		loadURL.setSelected(SettingsHandler.isLoadURLs());
 		allowOverride.setSelected(SettingsHandler.isAllowOverride());
 		useAdvancedSourceSelect.setSelected(!UIPropertyContext.getInstance().getBoolean(SOURCE_USE_BASIC_KEY));
+		allowMultiLineObjectsSelect.setSelected(PCGenSettings.OPTIONS_CONTEXT
+			.getBoolean(PCGenSettings.OPTION_SOURCES_ALLOW_MULTI_LINE));
 		
 		switch (Globals.getSourceDisplay())
 		{
