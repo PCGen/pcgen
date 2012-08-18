@@ -35,6 +35,21 @@ import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
 import pcgen.cdom.reference.TransparentFactory;
 import pcgen.cdom.reference.UnconstructedValidator;
 
+/**
+ * The Class <code>GameReferenceContext</code> is a ReferenceContext which is 
+ * capable of delegating its transparent references to references built later 
+ * in the process.  Transparent references are a new concept, they are basically 
+ * references that allow later resolution to other references (meaning in the 
+ * long run, they delegate to another reference of the same general type, though 
+ * they can be created before the delegate target is created)
+ *
+ * <br/>
+ * Last Editor: $Author:  $
+ * Last Edited: $Date:  $
+ * 
+ * @author Tom Parker <thpr@users.sourceforge.net> on 12 Jun 2008
+ * @version $Revision:  $
+ */
 public class GameReferenceContext extends AbstractReferenceContext
 {
 	private final Map<Class<?>, ReferenceManufacturer<?>> map = new HashMap<Class<?>, ReferenceManufacturer<?>>();
