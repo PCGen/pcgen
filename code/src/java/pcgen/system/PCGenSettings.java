@@ -39,6 +39,7 @@ public class PCGenSettings extends PropertyContext
 	public static final PropertyContext OPTIONS_CONTEXT = instance.createChildContext("pcgen.options");
 	public static final String OPTION_SAVE_CUSTOM_EQUIPMENT = "saveCustomInLst";
 	public static final String OPTION_ALLOWED_IN_SOURCES = "optionAllowedInSources";
+	public static final String OPTION_SOURCES_ALLOW_MULTI_LINE = "optionSourcesAllowMultiLine";
 	public static final String OPTION_SHOW_LICENSE = "showLicense";
 	public static final String OPTION_SHOW_MATURE_ON_LOAD = "showMatureOnLoad";
 	public static final String OPTION_SHOW_SPONSORS_ON_LOAD = "showSponsorsOnLoad";
