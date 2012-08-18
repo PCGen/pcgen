@@ -35,6 +35,8 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
@@ -49,6 +51,7 @@ import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Campaign;
@@ -129,6 +132,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 				}
 			}
 		}
+		sortCampaignsByRank(totalCampaigns);
 		
 		new Thread(new Runnable()
 		{
@@ -154,6 +158,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 					numFiles += converter.getNumFilesInCampaign(campaign);
 				}
 				setTotalFileCount(numFiles);
+				converter.initCampaigns(totalCampaigns);
 				for (Campaign campaign : totalCampaigns)
 				{
 					converter.processCampaign(campaign);
@@ -464,6 +469,25 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 			Logging.errorPrint("Failed to display user choice, due to: ", e);
 		}
 		return ccd.getResult();
+	}
+
+	/**
+	 * This method sorts the provided listof Campaign objects by rank.
+	 *
+	 * @param aSelectedCampaignsList List of Campaign objects to sort
+	 */
+	private void sortCampaignsByRank(final List<Campaign> aSelectedCampaignsList)
+	{
+		Collections.sort(aSelectedCampaignsList, new Comparator<Campaign>()
+		{
+
+			public int compare(Campaign c1, Campaign c2)
+			{
+				return c1.getSafe(IntegerKey.CAMPAIGN_RANK) - c2.getSafe(IntegerKey.CAMPAIGN_RANK);
+			}
+
+		});
+
 	}
 
 }

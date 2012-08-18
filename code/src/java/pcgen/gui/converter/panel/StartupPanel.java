@@ -30,6 +30,8 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.converter.UnstretchingGridLayout;
 import pcgen.gui.converter.event.ProgressEvent;
+import pcgen.persistence.CampaignFileLoader;
+import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.lst.LstSystemLoader;
 
 public class StartupPanel extends ConvertSubPanel
@@ -37,21 +39,28 @@ public class StartupPanel extends ConvertSubPanel
 
 	private final JPanel message;
 	private final JProgressBar progressBar;
-	
-	private final LstSystemLoader loader;
+	private final GameModeFileLoader gameModeFileLoader;
+	private final CampaignFileLoader campaignFileLoader;
 
 	
-	public StartupPanel(LstSystemLoader sl)
+	/**
+	 * Create a new instance of StartupPanel
+	 * @param gameModeFileLoader
+	 * @param campaignFileLoader
+	 */
+	public StartupPanel(GameModeFileLoader gameModeFileLoader,
+		CampaignFileLoader campaignFileLoader)
 	{
-		loader = sl;
+		this.gameModeFileLoader = gameModeFileLoader;
+		this.campaignFileLoader = campaignFileLoader;
 		message = new JPanel();
 		message.setLayout(new UnstretchingGridLayout(0, 1));
-		message.add(new JLabel("Welcome to the PCGen 5.16 Data Converter..."));
+		message.add(new JLabel("Welcome to the PCGen 6.0 Data Converter..."));
 		message.add(new JLabel(" "));
 		message.add(new JLabel("Loading Game Modes and Campaign Information."));
 		message.add(new JLabel(" "));
 
-        progressBar = new JProgressBar(0, 4);
+        progressBar = new JProgressBar(0, 5);
         progressBar.setValue(0);
         progressBar.setStringPainted(true);
 
@@ -73,8 +82,10 @@ public class StartupPanel extends ConvertSubPanel
 				PluginLoader ploader = PluginLoader.inst();
 				ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
 		        progressBar.setValue(3);
-				loader.loadGameModes();
+		        gameModeFileLoader.execute();
 		        progressBar.setValue(4);
+		        campaignFileLoader.execute();
+		        progressBar.setValue(5);
 		        
 				message.add(new JLabel("Initialization complete, press next button to continue..."));
 				message.revalidate();

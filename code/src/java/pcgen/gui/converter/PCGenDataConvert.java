@@ -40,6 +40,8 @@ import pcgen.gui.converter.panel.StartupPanel;
 import pcgen.gui.converter.panel.SummaryPanel;
 import pcgen.gui.converter.panel.WriteDirectoryPanel;
 import pcgen.gui.utils.AWTUtilities;
+import pcgen.persistence.CampaignFileLoader;
+import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.lst.LstSystemLoader;
 
 public final class PCGenDataConvert extends JFrame
@@ -64,8 +66,9 @@ public final class PCGenDataConvert extends JFrame
 		PCGenDataConvert frame = new PCGenDataConvert();
 		frame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		List<ConvertSubPanel> panels = new ArrayList<ConvertSubPanel>();
-		LstSystemLoader loader = new LstSystemLoader();
-		panels.add(new StartupPanel(loader));
+		GameModeFileLoader gameModeFileLoader = new GameModeFileLoader();
+		CampaignFileLoader campaignFileLoader = new CampaignFileLoader();
+		panels.add(new StartupPanel(gameModeFileLoader, campaignFileLoader));
 
 		final ConvertPanel installPanel = new ConvertPanel(panels);
 		frame.addWindowListener(new WindowAdapter()
@@ -78,7 +81,7 @@ public final class PCGenDataConvert extends JFrame
 		});
 
 		panels.add(new SourceSelectionPanel());
-		panels.add(new GameModePanel(loader));
+		panels.add(new GameModePanel(gameModeFileLoader));
 		panels.add(new CampaignPanel());
 
 		panels.add(new WriteDirectoryPanel());

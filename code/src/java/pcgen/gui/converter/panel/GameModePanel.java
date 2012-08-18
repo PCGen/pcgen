@@ -33,8 +33,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.gui.converter.event.ProgressEvent;
 import pcgen.gui.utils.JComboBoxEx;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.LstSystemLoader;
+import pcgen.persistence.GameModeFileLoader;
 
 public class GameModePanel extends ConvertSubPanel
 {
@@ -43,9 +42,9 @@ public class GameModePanel extends ConvertSubPanel
 
 	private SpringLayout layout = new SpringLayout();
 
-	private final LstSystemLoader loader;
+	private final GameModeFileLoader loader;
 
-	public GameModePanel(LstSystemLoader sl)
+	public GameModePanel(GameModeFileLoader sl)
 	{
 		loader = sl;
 	}
@@ -67,16 +66,12 @@ public class GameModePanel extends ConvertSubPanel
 	@Override
 	public boolean performAnalysis(CDOMObject pc)
 	{
-		loader.loadPCCFilesInDirectory(pc.get(ObjectKey.DIRECTORY));
-		try
+		GameMode gameMode = pc.get(ObjectKey.GAME_MODE);
+		if (gameMode != null)
 		{
-			loader.initRecursivePccFiles();
+			SettingsHandler.setGame(gameMode.getName());
 		}
-		catch (PersistenceLayerException e)
-		{
-			e.printStackTrace();
-			return false;
-		}
+//		Globals.emptyLists();
 		Globals.sortPObjectListByName(Globals.getCampaignList());
 
 		Globals.createEmptyRace();

@@ -28,6 +28,7 @@ import pcgen.core.GameMode;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.AbilityCategoryLoader;
 import pcgen.persistence.lst.GameModeLstToken;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -50,6 +51,21 @@ public class AbilityCategoryToken implements GameModeLstToken
 		{
 			loader.parseLine(gameMode.getModeContext(), getTokenName() + ':'
 					+ value, source);
+		}
+		catch (PersistenceLayerException e)
+		{
+			Logging.errorPrint(e.getMessage());
+			return false;
+		}
+		return true;
+	}
+
+	public boolean parse(LoadContext context, String line, URI source)
+	{
+		final AbilityCategoryLoader loader = new AbilityCategoryLoader();
+		try
+		{
+			loader.parseLine(context, line, source);
 		}
 		catch (PersistenceLayerException e)
 		{

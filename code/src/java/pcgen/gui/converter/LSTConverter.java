@@ -59,13 +59,15 @@ import pcgen.gui.converter.loader.SelfCopyLoader;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.AbilityCategoryLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
+import pcgen.persistence.lst.GameModeLoader;
 import pcgen.persistence.lst.LstFileLoader;
 import pcgen.persistence.lst.SizeAdjustmentLoader;
 import pcgen.persistence.lst.StatsAndChecksLoader;
 import pcgen.rules.context.EditorLoadContext;
 import pcgen.rules.context.ReferenceContext;
-import pcgen.util.Logging;
+import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 public class LSTConverter extends Observable
 {
@@ -79,7 +81,7 @@ public class LSTConverter extends Observable
 	private final File rootDir;
 	private final DoubleKeyMapToList<Loader, URI, CDOMObject> injected = new DoubleKeyMapToList<Loader, URI, CDOMObject>();
 	private final ConversionDecider decider;
-
+	
 	public LSTConverter(EditorLoadContext lc, File root, String outputDir,
 			ConversionDecider cd)
 	{
@@ -107,21 +109,32 @@ public class LSTConverter extends Observable
 		return numFiles;
 	}
 	
+	/**
+	 * Initialise the list of campaigns. This will load the ability 
+	 * categories in advance of the conversion.
+	 * @param campaigns The campaigns or sources to be converted.
+	 */
+	public void initCampaigns(List<Campaign> campaigns)
+	{
+		for (Campaign campaign : campaigns)
+		{
+			// load ability categories first as they used to only be at the game
+			// mode
+			try
+			{
+				catLoader.loadLstFiles(context, campaign
+						.getSafeListFor(ListKey.FILE_ABILITY_CATEGORY));
+			}
+			catch (PersistenceLayerException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	public void processCampaign(Campaign campaign)
 	{
-		// load ability categories first as they used to only be at the game
-		// mode
-		try
-		{
-			catLoader.loadLstFiles(context, campaign
-					.getSafeListFor(ListKey.FILE_ABILITY_CATEGORY));
-		}
-		catch (PersistenceLayerException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
 		startItem(campaign);
 	}
 
@@ -327,7 +340,7 @@ public class LSTConverter extends Observable
 			// is no current gameMode, so just return
 			return;
 		}
-		File gameModeDir = new File(SettingsHandler.getPcgenSystemDir(),
+		File gameModeDir = new File(ConfigurationSettings.getSystemsDir(),
 				"gameModes");
 		File specificGameModeDir = new File(gameModeDir, gamemode
 				.getFolderName());
@@ -337,6 +350,9 @@ public class LSTConverter extends Observable
 		File sizes = new File(specificGameModeDir,
 				"sizeAdjustment.lst");
 		sizeLoader.loadLstFile(context, sizes.toURI());
+		File miscInfo = new File(specificGameModeDir,
+				"miscInfo.lst");
+		loadGameModeMiscInfo(gamemode, miscInfo.toURI());
 
 		ReferenceContext globalRef = Globals.getContext().ref;
 		for (PCAlignment al : context.ref.getOrderSortedCDOMObjects(PCAlignment.class))
@@ -353,6 +369,37 @@ public class LSTConverter extends Observable
 		{
 			globalRef.importObject(sz);
 			globalRef.registerAbbreviation(sz, sz.getAbbreviation());
+		}
+	}
+
+	private void loadGameModeMiscInfo(GameMode gameMode, URI uri)
+	{
+		String data;
+		try
+		{
+			data = LstFileLoader.readFromURI(uri).toString();
+		}
+		catch (PersistenceLayerException ple)
+		{
+			Logging.errorPrint(LanguageBundle.getFormattedString(
+					"Errors.LstSystemLoader.loadGameModeInfoFile", //$NON-NLS-1$
+					uri, ple.getMessage()));
+			return;
+		}
+
+		String[] fileLines = data.split(LstFileLoader.LINE_SEPARATOR_REGEXP);
+
+		for (int i = 0; i < fileLines.length; i++)
+		{
+			String aLine = fileLines[i];
+
+			// Ignore commented-out and empty lines
+			if (((aLine.length() > 0) && (aLine.charAt(0) == '#')) || (aLine.length() == 0))
+			{
+				continue;
+			}
+
+			GameModeLoader.loadAbilityCategories(gameMode, aLine, uri, i + 1, context);
 		}
 	}
 
