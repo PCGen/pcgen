@@ -23,15 +23,23 @@
 package pcgen.gui2.dialog;
 
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 
+import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.WindowConstants;
+
+import org.apache.commons.lang.StringUtils;
 
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.doomsdaybook.NameGenPanel;
 import pcgen.gui2.tools.Utility;
+import pcgen.system.LanguageBundle;
 
 /**
  * The Class <code>RandomNameDialog</code> is a dialog in which the user can 
@@ -48,25 +56,75 @@ import pcgen.gui2.tools.Utility;
 public class RandomNameDialog extends JDialog
 {
 	private NameGenPanel nameGenPanel;
+	private boolean cancelled;
 
 	/**
 	 * Create a new Random Name Dialog
 	 * @param frame The parent frame. The dialog will be centred on this frame
+	 * @param gender The current gender of the character.
 	 */
 	public RandomNameDialog(JFrame frame, String gender)
 	{
-		super(frame, "Generate Random Name", true);
-		getContentPane().setLayout(new BorderLayout());
-		nameGenPanel = new NameGenPanel(new File(getDataDir()), true);
+		super(frame, LanguageBundle.getString("in_rndNameTitle"), true); //$NON-NLS-1$
+		nameGenPanel = new NameGenPanel(new File(getDataDir()));
 		nameGenPanel.setGender(gender);
-		getContentPane().add(nameGenPanel, BorderLayout.CENTER);
+		initUserInterface();
 		pack();
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		setLocationRelativeTo(frame);
+		cancelled = false;
 		
 		Utility.installEscapeCloseOperation(this);
 	}
 
+	private void initUserInterface()
+	{
+		getContentPane().setLayout(new BorderLayout());
+
+		getContentPane().add(nameGenPanel, BorderLayout.CENTER);
+
+		// Build the control panel (OK/Cancel buttons)
+		JPanel controlPanel = new JPanel();
+		controlPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
+
+		JButton okButton = new JButton(LanguageBundle.getString("in_ok")); //$NON-NLS-1$
+		okButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_ok")); //$NON-NLS-1$
+		controlPanel.add(okButton);
+		okButton.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent evt)
+			{
+				okButtonActionPerformed();
+			}
+		});
+
+		JButton cancelButton =
+				new JButton(LanguageBundle.getString("in_cancel")); //$NON-NLS-1$
+		cancelButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel")); //$NON-NLS-1$
+		controlPanel.add(cancelButton);
+		cancelButton.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent evt)
+			{
+				cancelButtonActionPerformed();
+			}
+		});
+		getContentPane().add(controlPanel, BorderLayout.SOUTH);
+	}
+
+	private void okButtonActionPerformed()
+	{
+		setVisible(false);
+	}
+
+	private void cancelButtonActionPerformed()
+	{
+		cancelled = true;
+		setVisible(false);
+	}
+	
 	/**
 	 * @return The directory where the random name data is held
 	 */
@@ -82,6 +140,10 @@ public class RandomNameDialog extends JDialog
 	 */
 	public String getChosenName()
 	{
+		if (cancelled)
+		{
+			return StringUtils.EMPTY;
+		}
 		return nameGenPanel.getChosenName();
 	}
 
@@ -90,6 +152,10 @@ public class RandomNameDialog extends JDialog
 	 */
 	public String getGender()
 	{
+		if (cancelled)
+		{
+			return StringUtils.EMPTY;
+		}
 		return nameGenPanel.getGender();
 	}
 

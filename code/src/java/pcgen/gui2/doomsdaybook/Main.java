@@ -54,7 +54,7 @@ public class Main extends javax.swing.JFrame
 	private void initComponents()
 	{ //GEN-BEGIN:initComponents
 		nameGenPanel1 =
-				new pcgen.gui2.doomsdaybook.NameGenPanel(new File("./Data/"), false);
+				new pcgen.gui2.doomsdaybook.NameGenPanel(new File("./Data/"));
 		setTitle("The Doomsday Book Name Generator");
 		addWindowListener(new java.awt.event.WindowAdapter()
 		{

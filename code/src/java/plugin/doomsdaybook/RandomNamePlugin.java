@@ -59,7 +59,7 @@ public class RandomNamePlugin extends GMBPlugin
 	 */
 	public void start()
 	{
-		theView = new NameGenPanel(new File(getDataDir()), false);
+		theView = new NameGenPanel(new File(getDataDir()));
 		GMBus.send(new TabAddMessage(this, name, getView(), getPluginSystem()));
 		initMenus();
 	}
