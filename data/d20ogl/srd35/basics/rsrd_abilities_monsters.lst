@@ -139,7 +139,7 @@ Evil Gaze										CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				V
 Explosion										CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
 Extract Brains									CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike					VISIBLE:YES
 Eye Rays										CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
-Fast Healing									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC		VISIBLE:YES	DEFINE:FastHealing|0									DESC:You regain %1 hit points per round. Fast healing does not restore hit points lost from starvation, thirst, or suffocation, and it does not allow a creature to regrow lost body parts.|FastHealing																																				SOURCEPAGE:TypesSubtypesAbilities.rtf	ASPECT:Ability Benefit|%1
+Fast Healing									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC		VISIBLE:YES	DEFINE:FastHealing|0									DESC:You regain %1 hit points per round. Fast healing does not restore hit points lost from starvation, thirst, or suffocation, and it does not allow a creature to regrow lost body parts.|FastHealing																																				SOURCEPAGE:TypesSubtypesAbilities.rtf	ASPECT:Ability Benefit|%1|FastHealing
 Fear											CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
 Fear Aura										CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura			VISIBLE:YES	DEFINE:FearAuraDC|0	DEFINE:FearAuraRadius|0					DESC:%1 ft. radius, DC %2|FearAuraRadius|FearAuraDC|PREVARGT:FearAuraDC,0
 Fear Gaze										CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
