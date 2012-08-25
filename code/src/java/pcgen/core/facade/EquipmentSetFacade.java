@@ -96,6 +96,16 @@ public interface EquipmentSetFacade
 	 */
 	public String getPreferredLoc(EquipmentFacade equipment);
 
+	/**
+	 * Retrieve the name of a location in which the item of equipment
+	 * is either equipped or could be equipped. A currently equipped 
+	 * location is returned by preference. For items in multiple locations 
+	 * the first encountered location is reported.
+	 * @param equip The item of equipment.
+	 * @return The name of the location
+	 */
+	public String getLocation(EquipmentFacade equip);
+
 	public static interface EquipmentTreeListener extends EventListener
 	{
 

@@ -113,7 +113,7 @@ public class EquipmentTableModel extends FilteredListFacadeTableModel<EquipmentF
 			case 1:
 				return equipment.getTypes()[0];
 			case 2:
-				return equipmentSet.getPreferredLoc(equipment);
+				return equipmentSet.getLocation(equipment);
 			case 3:
 				return equipmentList.getQuantity(equipment);
 			case 4:

@@ -1176,6 +1176,30 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		}
 	}
 	
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getLocation(EquipmentFacade equip)
+	{
+		for (EquipNode node : nodeList)
+		{
+			if (equip.equals(node.getEquipment()))
+			{
+				switch (node.getNodeType())
+				{
+					case EQUIPMENT:
+					case PHANTOM_SLOT:
+						return getLocation(node);
+					default:
+						return node.getParent().toString();
+				}
+			}
+		}
+		
+		return getPreferredLoc(equip);
+	}
 	/**
 	 * Identify if the character has any natural weapons that have not been 
 	 * equipped yet.
