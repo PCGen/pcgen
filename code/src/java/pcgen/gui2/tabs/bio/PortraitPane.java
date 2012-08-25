@@ -34,6 +34,7 @@ import java.awt.image.BufferedImage;
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import pcgen.core.facade.CharacterFacade;
+import pcgen.gui2.tools.Utility;
 
 /**
  *
@@ -64,9 +65,9 @@ class PortraitPane extends JComponent
 		repaint();
 	}
 
-	public void setCropRectangle(Rectangle cropRect)
+	public void setCropRectangle(Rectangle newCropRect)
 	{
-		this.cropRect = cropRect;
+		this.cropRect = new Rectangle(newCropRect);
 		repaint();
 	}
 
@@ -167,10 +168,9 @@ class PortraitPane extends JComponent
 					y = e.getY() - cropOffset.y;
 				}
 				x = Math.max(x, 0);
-				x = Math.min(x, portrait.getWidth() - cropRect.width - 1);
 				y = Math.max(y, 0);
-				y = Math.min(y, portrait.getHeight() - cropRect.height - 1);
 				cropRect.setLocation(x, y);
+				Utility.adjustRectToFitImage(portrait, cropRect);
 				character.setThumbnailCrop(cropRect);
 			}
 		}
@@ -231,11 +231,10 @@ class PortraitPane extends JComponent
 
 			int x = cropRect.x;
 			int y = cropRect.y;
-			x = Math.min(x, portrait.getWidth() - cropRect.width - 1);
 			x = Math.max(x, 0);
-			y = Math.min(y, portrait.getHeight() - cropRect.height - 1);
 			y = Math.max(y, 0);
 			cropRect.setLocation(x, y);
+			Utility.adjustRectToFitImage(portrait, cropRect);
 			character.setThumbnailCrop(cropRect);
 		}
 

@@ -39,13 +39,17 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+
+import pcgen.cdom.base.Constants;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
-import pcgen.gui.utils.Utility;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tools.Icons;
+import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
@@ -241,7 +245,19 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			Utility.viewInBrowser("https://www.e-junkie.com/ecom/gb.php?cl=154598&c=ib&aff=154875"); //$NON-NLS-1$
+			try
+			{
+				Utility
+					.viewInBrowser("https://www.e-junkie.com/ecom/gb.php?cl=154598&c=ib&aff=154875"); //$NON-NLS-1$
+			}
+			catch (IOException ex)
+			{
+				Logging.errorPrint(
+					"Could not open affiliate site in external browser.", ex);
+				ShowMessageDelegate.showMessageDialog(
+					"Could not open affiliate site in external browser.",
+					Constants.APPLICATION_NAME, MessageType.ERROR);
+			}
 		}
 
 	}
@@ -251,6 +267,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 
 		private CharacterFacade character;
 		private PortraitPane.MouseHandler mouseHandler;
+		private BufferedImage image;
 
 		public PortraitHandler(CharacterFacade character)
 		{
@@ -288,7 +305,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 
 		private void setPortrait(File file)
 		{
-			BufferedImage image = null;
+			image = null;
 			try
 			{
 				if (file != null)
@@ -325,11 +342,19 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 			if (obj == null || obj instanceof File)
 			{
 				setPortrait((File) obj);
-				character.setThumbnailCrop(new Rectangle(1, 1, 100, 100));
+				Rectangle cropRect = new Rectangle(1, 1, 100, 100);
+				Utility.adjustRectToFitImage(image, cropRect);
+				character.setThumbnailCrop(cropRect);
 			}
 			else if (obj instanceof Rectangle)
 			{
 				Rectangle rect = (Rectangle) obj;
+				Rectangle cropRect = new Rectangle(rect);
+				Utility.adjustRectToFitImage(image, cropRect);
+				if (!rect.equals(cropRect))
+				{
+					character.setThumbnailCrop(cropRect);
+				}
 				portraitPane.setCropRectangle(rect);
 				tnPane.setCropRectangle(rect);
 			}

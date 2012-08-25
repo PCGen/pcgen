@@ -30,6 +30,7 @@ import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 import java.io.IOException;
@@ -315,4 +316,37 @@ public final class Utility
 			dispatchClosing);
 	}
 
+	/**
+	 * Adjust the crop rectangle to fit within the image it is cropping. Also 
+	 * ensure the area is square.
+	 * 
+	 * @param image The image being cropped
+	 * @param cropRect The rectangle defining the cropping area. This may be updated.
+	 */
+	public static void adjustRectToFitImage(BufferedImage image, Rectangle cropRect)
+	{
+		// Make sure the rectangle is not too big
+		if (cropRect.width > image.getWidth())
+		{
+			cropRect.width = image.getWidth();
+		}
+		if (cropRect.height > image.getHeight())
+		{
+			cropRect.height = image.getHeight();
+		}
+
+		// Make it square
+		int dimension = Math.min(cropRect.width, cropRect.height);
+		cropRect.setSize(dimension, dimension);
+
+		// Now adjust the origin point so the box is within the image 
+		if ((cropRect.x + cropRect.width) > image.getWidth())
+		{
+			cropRect.x = image.getWidth() - cropRect.width;
+		}
+		if ((cropRect.y + cropRect.height) > image.getHeight())
+		{
+			cropRect.y = image.getHeight() - cropRect.height;
+		}
+	}
 }

@@ -220,6 +220,15 @@ public class PortraitToken extends Token
             w = targetWidth;
             h = targetHeight;
         }
+
+        // If we are scaling up, just do the one pass.
+        if (w < targetWidth || h < targetWidth)
+        {
+            // Use one-step technique: scale directly from original
+            // size to target size with a single drawImage() call
+            w = targetWidth;
+            h = targetHeight;
+        }
         
         do {
             if (higherQuality && w > targetWidth) {
