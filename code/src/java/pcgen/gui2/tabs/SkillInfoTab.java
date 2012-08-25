@@ -381,6 +381,10 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			@Override
 			public boolean accept(CharacterFacade context, SkillFacade element)
 			{
+				if (context == null)
+				{
+					return false;
+				}
 				CharacterLevelsFacade levels = context.getCharacterLevelsFacade();
 				CharacterLevelFacade level = levels.getElementAt(model.getMinSelectionIndex());
 				return levels.getSkillCost(level, element) == SkillCost.CLASS;
@@ -394,6 +398,10 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			@Override
 			public boolean accept(CharacterFacade context, SkillFacade element)
 			{
+				if (context == null)
+				{
+					return false;
+				}
 				CharacterLevelsFacade levels = context.getCharacterLevelsFacade();
 				return levels.getSkillRanks(null, element) > 0.0f;
 			}
