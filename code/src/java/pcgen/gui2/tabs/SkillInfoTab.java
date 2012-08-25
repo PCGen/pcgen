@@ -296,6 +296,8 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 					if (i != model.getMinSelectionIndex())
 					{
 						model.setSelectionInterval(i, i);
+						skillpointTable.scrollRectToVisible(skillpointTable
+							.getCellRect(i, 0, true));
 					}
 					return;
 				}
@@ -305,6 +307,8 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			{
 				model.setSelectionInterval(levels.getSize() - 1,
 					levels.getSize() - 1);
+				skillpointTable.scrollRectToVisible(skillpointTable
+					.getCellRect(levels.getSize() - 1, 0, true));
 			}
 		}
 
