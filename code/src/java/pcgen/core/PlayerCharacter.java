@@ -431,7 +431,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		addSpellBook(new SpellBook(Globals.getDefaultSpellBook(), SpellBook.TYPE_KNOWN_SPELLS));
 		addSpellBook(new SpellBook(Globals.INNATE_SPELL_BOOK_NAME, SpellBook.TYPE_INNATE_SPELLS));
 		populateSkills(SettingsHandler.getSkillsTab_IncludeSkills());
-		setStringFor(StringKey.HANDED, LanguageBundle.getString("in_right")); //$NON-NLS-1$
+		setStringFor(StringKey.HANDED, LanguageBundle.getString("in_handRight")); //$NON-NLS-1$
 		if (load)
 		{
 			insertBonusLanguageAbility();
