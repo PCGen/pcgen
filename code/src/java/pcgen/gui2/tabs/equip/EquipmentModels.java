@@ -366,16 +366,7 @@ public class EquipmentModels
 					EquipmentFacade equipmentFacade = equipment.get(i);
 					data[i][0] = equipmentFacade;
 					data[i][1] = 1;
-					data[i][2] = equipMap.getElementInList(equipmentFacade, 0);
-					String preferredNodeName = equipSet.getPreferredLoc(equipmentFacade);
-					for (EquipNode node : equipMap.getListFor(equipmentFacade))
-					{
-						if (preferredNodeName.equals(node.toString()))
-						{
-							data[i][2] = node;
-							break;
-						}
-					} 
+					data[i][2] = getInitialNode(equipMap, equipSet, equipmentFacade); 
 				}
 				Object[] columns = new Object[]
 				{
@@ -433,6 +424,37 @@ public class EquipmentModels
 					}
 				}
 			}
+		}
+
+		private EquipNode getInitialNode(MapToList<EquipmentFacade, EquipNode> equipMap,
+			EquipmentSetFacade equipSet,
+			EquipmentFacade equipmentFacade)
+		{
+			// First see if the user has selected a suitable node in the equipped tree
+			List<EquipNode> possibleNodeList = equipMap.getListFor(equipmentFacade);
+			int[] rows = equipmentSetTable.getSelectedRows();
+			List<EquipNode> paths = new ArrayList<EquipNode>();
+			for (int i = 0; i < rows.length; i++)
+			{
+				EquipNode path = (EquipNode) equipmentSetTable.getValueAt(rows[i], 0);
+				if (possibleNodeList.contains(path))
+				{
+					return path;
+				}
+			}
+			
+			// Check if the preferred location can be found in the list
+			String preferredNodeName = equipSet.getPreferredLoc(equipmentFacade);
+			for (EquipNode node : possibleNodeList)
+			{
+				if (preferredNodeName.equals(node.toString()))
+				{
+					return node;
+				}
+			}
+			
+			// Fall back to the first item in the list
+			return equipMap.getElementInList(equipmentFacade, 0);
 		}
 		
 		public void install()
