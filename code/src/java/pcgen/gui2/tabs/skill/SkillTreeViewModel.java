@@ -44,6 +44,7 @@ import pcgen.gui2.util.treeview.DefaultDataViewColumn;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
+import pcgen.system.LanguageBundle;
 
 /**
  *
@@ -54,13 +55,13 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 {
 
 	private static final List<? extends DataViewColumn> columns = Arrays.asList(
-			new DefaultDataViewColumn("Total", Integer.class, true),
-			new DefaultDataViewColumn("Modifier", Integer.class, true),
-			new DefaultDataViewColumn("Ranks", Float.class, true, true),
-			new DefaultDataViewColumn("Class", String.class, true),
-			new DefaultDataViewColumn("Skill Cost", String.class,
+			new DefaultDataViewColumn("in_iskTotal", Integer.class, true),
+			new DefaultDataViewColumn("in_iskModifier", Integer.class, true),
+			new DefaultDataViewColumn("in_skillRanks", Float.class, true, true),
+			new DefaultDataViewColumn("in_classString", String.class, true),
+			new DefaultDataViewColumn("in_skillSkillCost", String.class,
 				SkillCost.CLASS.getCost() != SkillCost.CROSS_CLASS.getCost()),
-			new DefaultDataViewColumn("Source", String.class));
+			new DefaultDataViewColumn("in_source", String.class));
 	private final DefaultListFacade<TreeView<SkillFacade>> treeviews;
 	private final CharacterFacade character;
 	private final CharacterLevelsFacade levels;
@@ -144,7 +145,9 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 					levels.getSkillTotal(level, obj),
 					levels.getSkillModifier(level, obj),
 					levels.getSkillRanks(level, obj),
-					levels.getSkillCost(level, obj)==SkillCost.CLASS ? "Yes" : "No",
+					levels.getSkillCost(level, obj) == SkillCost.CLASS
+						? LanguageBundle.getString("in_yes") :  //$NON-NLS-1$
+						  LanguageBundle.getString("in_no"),    //$NON-NLS-1$
 					levels.getSkillCost(level, obj).getCost(),
 					obj.getSource());
 		}
@@ -198,15 +201,15 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 	private enum SkillTreeView implements TreeView<SkillFacade>
 	{
 
-		NAME("Name"),
-		TYPE_NAME("Type/Name"),
-		KEYSTAT_NAME("Key Stat/Name"),
-		KEYSTAT_TYPE_NAME("Key Stat/Type/Name");
+		NAME("in_Name"), //$NON-NLS-1$
+		TYPE_NAME("in_typeName"), //$NON-NLS-1$
+		KEYSTAT_NAME("in_keyStatName"), //$NON-NLS-1$
+		KEYSTAT_TYPE_NAME("in_keyStatTypeName"); //$NON-NLS-1$
 		private String name;
 
-		private SkillTreeView(String name)
+		private SkillTreeView(String nameKey)
 		{
-			this.name = name;
+			this.name = LanguageBundle.getString(nameKey);
 		}
 
 		@Override
@@ -251,7 +254,7 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		@Override
 		public String getViewName()
 		{
-			return "Cost/Name";
+			return LanguageBundle.getString("in_skillCost_Name"); //$NON-NLS-1$
 		}
 
 		@Override
@@ -275,7 +278,7 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		@Override
 		public String getViewName()
 		{
-			return "Cost/Type/Name";
+			return LanguageBundle.getString("in_skillCost_Type_Name"); //$NON-NLS-1$
 		}
 
 		@Override

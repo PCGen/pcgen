@@ -34,6 +34,7 @@ import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.CharacterLevelFacade;
 import pcgen.core.facade.CharacterLevelsFacade;
 import pcgen.gui2.tabs.Utilities;
+import pcgen.system.LanguageBundle;
 
 /**
  *
@@ -60,9 +61,15 @@ public class SkillCostTableModel extends AbstractTableModel implements ListSelec
 		JTableHeader header = table.getTableHeader();
 		TableColumnModel columns = new DefaultTableColumnModel();
 		TableCellRenderer headerRenderer = header.getDefaultRenderer();
-		columns.addColumn(Utilities.createTableColumn(0, "Skill Cost", headerRenderer, true));
-		columns.addColumn(Utilities.createTableColumn(1, "Rank Cost", headerRenderer, false));
-		columns.addColumn(Utilities.createTableColumn(2, "Max Ranks", headerRenderer, false));
+		columns.addColumn(Utilities.createTableColumn(0,
+			LanguageBundle.getString("in_skillSkillCost"), //$NON-NLS-1$
+			headerRenderer, true));
+		columns.addColumn(Utilities.createTableColumn(1,
+			LanguageBundle.getString("in_skillRankCost"), //$NON-NLS-1$
+			headerRenderer, false));
+		columns.addColumn(Utilities.createTableColumn(2,
+			LanguageBundle.getString("in_skillMaxRanks"), //$NON-NLS-1$
+			headerRenderer, false));
 		table.setColumnModel(columns);
 		table.setFocusable(false);
 		table.setCellSelectionEnabled(false);
@@ -110,11 +117,11 @@ public class SkillCostTableModel extends AbstractTableModel implements ListSelec
 		switch (column)
 		{
 			case 0:
-				return "Skill Cost";
+				return LanguageBundle.getString("in_skillSkillCost"); //$NON-NLS-1$
 			case 1:
-				return "Rank Cost";
+				return LanguageBundle.getString("in_skillRankCost"); //$NON-NLS-1$
 			case 2:
-				return "Max Ranks";
+				return LanguageBundle.getString("in_skillMaxRanks"); //$NON-NLS-1$
 			default:
 				throw new IndexOutOfBoundsException();
 		}
