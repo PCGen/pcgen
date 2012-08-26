@@ -609,7 +609,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		} 
 		if (!tobeSaved.isEmpty())
 		{
-			if (savingAll || showMessageConfirm("", "You have unsaved companions. Do you wish to save them now?"))
+			if (savingAll
+				|| showMessageConfirm(Constants.APPLICATION_NAME,
+					LanguageBundle.getString("in_unsavedCompanions"))) //$NON-NLS-1$
 			{
 				for (CompanionFacade companionFacade : tobeSaved)
 				{
@@ -623,7 +625,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			&& (master.getFileRef().getReference() == null || StringUtils
 				.isEmpty(master.getFileRef().getReference().getName())))
 		{
-			if (savingAll || showMessageConfirm("", "You have an unsaved master. Do you wish to save it now?"))
+			if (savingAll
+				|| showMessageConfirm(Constants.APPLICATION_NAME,
+					LanguageBundle.getString("in_unsavedMaster"))) //$NON-NLS-1$
 			{
 				CharacterFacade masterChar = CharacterManager.getCharacterMatching(master);
 				showSaveCharacterChooser(masterChar);
@@ -636,9 +640,12 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	{
 		if (character.isDirty())
 		{
-			int ret = JOptionPane.showConfirmDialog(this, "Do you want to save "
-					+ character.getNameRef().getReference() + "?",
-													Constants.APPLICATION_NAME, JOptionPane.YES_NO_CANCEL_OPTION);
+			int ret =
+					JOptionPane.showConfirmDialog(this, LanguageBundle
+						.getFormattedString("in_savePcChoice", character //$NON-NLS-1$
+							.getNameRef().getReference()),
+						Constants.APPLICATION_NAME,
+						JOptionPane.YES_NO_CANCEL_OPTION);
 			if (ret == JOptionPane.CANCEL_OPTION)
 			{
 				return;
@@ -677,12 +684,12 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		{
 			Object[] options = new Object[]
 			{
-				"Save All",
-				"Save None",
-				"Choose",
-				"Cancel"
+				LanguageBundle.getString("in_closeOptSaveAll"), //$NON-NLS-1$
+				LanguageBundle.getString("in_closeOptSaveNone"), //$NON-NLS-1$
+				LanguageBundle.getString("in_closeOptChoose"), //$NON-NLS-1$
+				LanguageBundle.getString("in_cancel") //$NON-NLS-1$
 			};
-			ret = JOptionPane.showOptionDialog(this, "<html>You have unsaved characters<br>Do you wish to save?</html>",
+			ret = JOptionPane.showOptionDialog(this, LanguageBundle.getString("in_closeOptSaveTitle"), //$NON-NLS-1$
 											   Constants.APPLICATION_NAME, JOptionPane.YES_NO_CANCEL_OPTION,
 											   JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 		}
@@ -702,9 +709,12 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 
 			if (ret == 2)
 			{
-				ret2 = JOptionPane.showConfirmDialog(this, "Do you want to save "
-						+ character.getNameRef().getReference() + "?",
-													 Constants.APPLICATION_NAME, JOptionPane.YES_NO_CANCEL_OPTION);
+				ret2 =
+						JOptionPane.showConfirmDialog(this, LanguageBundle
+							.getFormattedString("in_savePcChoice", character //$NON-NLS-1$
+								.getNameRef().getReference()),
+							Constants.APPLICATION_NAME,
+							JOptionPane.YES_NO_CANCEL_OPTION);
 			}
 
 			if (ret2 == JOptionPane.YES_OPTION)
@@ -757,14 +767,17 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		}
 		if (file.isDirectory())
 		{
-			showErrorMessage(Constants.APPLICATION_NAME, "You cannot overwrite a directory with a character.");
+			showErrorMessage(Constants.APPLICATION_NAME,
+				LanguageBundle.getString("in_savePcDirOverwrite")); //$NON-NLS-1$
 			return showSavePartyChooser();
 		}
 		if (file.exists())
 		{
-			boolean overwrite = showWarningConfirm("Confirm overwriting " + file.getName(),
-												   "The file " + file.getName()
-					+ " already exists, are you sure you want to overwrite it?");
+			boolean overwrite =
+					showWarningConfirm(LanguageBundle.getFormattedString(
+						"in_savePcConfirmOverTitle", file.getName()), //$NON-NLS-1$
+						LanguageBundle.getFormattedString(
+							"in_savePcConfirmOverMsg", file.getName())); //$NON-NLS-1$
 			if (!overwrite)
 			{
 				return showSavePartyChooser();
@@ -774,7 +787,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		context.setProperty(PCGenSettings.PCP_SAVE_PATH, file.getParent());
 		if (!saveAllCharacters())
 		{
-			showErrorMessage("Cannot save party", "One or more characters were not saved");
+			showErrorMessage(LanguageBundle.getString("in_savePartyFailTitle"), //$NON-NLS-1$
+				LanguageBundle.getString("in_savePartyFailMsg")); //$NON-NLS-1$
 			return false;
 		}
 		if (!CharacterManager.saveCurrentParty())
@@ -839,7 +853,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			if (file.isDirectory())
 			{
 				delegate.showErrorMessage(Constants.APPLICATION_NAME,
-										  "You cannot overwrite a directory with a character.");
+					LanguageBundle.getString("in_savePcDirOverwrite")); //$NON-NLS-1$
 				return showSaveCharacterChooser(character);
 			}
 
@@ -847,9 +861,11 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 					prevFile.getName())))
 			{
 				boolean overwrite =
-						delegate.showWarningConfirm("Confirm overwriting " + file.getName(),
-													"The file " + file.getName()
-						+ " already exists, are you sure you want to overwrite it?");
+						delegate.showWarningConfirm(LanguageBundle
+							.getFormattedString("in_savePcConfirmOverTitle", //$NON-NLS-1$
+								file.getName()), LanguageBundle
+							.getFormattedString("in_savePcConfirmOverMsg", //$NON-NLS-1$
+								file.getName()));
 
 				if (!overwrite)
 				{
@@ -942,24 +958,27 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		if (!PCGFile.isPCGenCharacterFile(pcgFile))
 		{
 			JOptionPane.showMessageDialog(this,
-										  "Invalid PCGen character file:" + pcgFile,
-										  "Unable To Load Character", JOptionPane.ERROR_MESSAGE);
+				LanguageBundle.getFormattedString("in_loadPcInvalid", pcgFile), //$NON-NLS-1$
+				LanguageBundle.getString("in_loadPcFailTtile"), //$NON-NLS-1$
+				JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 		if (!pcgFile.canRead())
 		{
 			JOptionPane.showMessageDialog(this,
-										  "The character file " + pcgFile + " cannot be read.",
-										  "Unable To Load Character", JOptionPane.ERROR_MESSAGE);
+				LanguageBundle.getFormattedString("in_loadPcNoRead", pcgFile), //$NON-NLS-1$
+				LanguageBundle.getString("in_loadPcFailTtile"), //$NON-NLS-1$
+				JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 
 		SourceSelectionFacade sources = CharacterManager.getRequiredSourcesForCharacter(pcgFile, this);
 		if (sources == null)
 		{
-			JOptionPane.showMessageDialog(this,
-										  "Could not find source files for character:" + pcgFile,
-										  "Unable To Load Character", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, LanguageBundle
+				.getFormattedString("in_loadPcNoSources", pcgFile), //$NON-NLS-1$
+				LanguageBundle.getString("in_loadPcFailTtile"), //$NON-NLS-1$
+				JOptionPane.ERROR_MESSAGE);
 		}
 		else if (!sources.getCampaigns().isEmpty())
 		{
@@ -996,15 +1015,16 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			else
 			{
 				JOptionPane.showMessageDialog(this,
-											  "Non-compatable sources are being loaded",
-											  "Unable To Load Character", JOptionPane.ERROR_MESSAGE);
+					LanguageBundle.getString("in_loadPcIncompatSource"), //$NON-NLS-1$
+					LanguageBundle.getString("in_loadPcFailTtile"), //$NON-NLS-1$
+					JOptionPane.ERROR_MESSAGE);
 			}
 		}
 		else
 		{
 			if (showWarningConfirm(Constants.APPLICATION_NAME,
-				"Source files could not be found for the character:\n" + pcgFile
-					+ "\nDo you still wish to load the character?"))
+				LanguageBundle.getFormattedString("in_loadPcSourcesLoadQuery", //$NON-NLS-1$
+					pcgFile)))
 			{
 				CharacterManager.openCharacter(pcgFile, PCGenFrame.this,
 					currentDataSetRef.getReference());
@@ -1016,24 +1036,27 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	{
 		if (!PCGFile.isPCGenPartyFile(pcpFile))
 		{
-			JOptionPane.showMessageDialog(this,
-										  "Invalid PCGen party file:" + pcpFile,
-										  "Unable To Load Party", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, LanguageBundle
+				.getFormattedString("in_loadPartyInvalid", pcpFile), //$NON-NLS-1$
+				LanguageBundle.getString("in_loadPartyFailTtile"), //$NON-NLS-1$
+				JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 		if (!pcpFile.canRead())
 		{
-			JOptionPane.showMessageDialog(this,
-										  "The party file " + pcpFile + " cannot be read.",
-										  "Unable To Load Party", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, LanguageBundle
+				.getFormattedString("in_loadPartyNoRead", pcpFile), //$NON-NLS-1$
+				LanguageBundle.getString("in_loadPartyFailTtile"), //$NON-NLS-1$
+				JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 		SourceSelectionFacade sources = CharacterManager.getRequiredSourcesForParty(pcpFile, this);
 		if (sources == null)
 		{
-			JOptionPane.showMessageDialog(this,
-										  "Could not find source files for party:" + pcpFile,
-										  "Unable To Load Character", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, LanguageBundle
+				.getFormattedString("in_loadPartyNoSources", pcpFile), //$NON-NLS-1$
+				LanguageBundle.getString("in_loadPartyFailTtile"), //$NON-NLS-1$
+				JOptionPane.ERROR_MESSAGE);
 		}
 		else if (!sources.getCampaigns().isEmpty())
 		{
@@ -1070,8 +1093,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			else
 			{
 				JOptionPane.showMessageDialog(this,
-											  "Non-compatable sources are being loaded",
-											  "Unable To Load Party", JOptionPane.ERROR_MESSAGE);
+					LanguageBundle.getString("in_loadPcIncompatSource"), //$NON-NLS-1$
+					LanguageBundle.getString("in_loadPartyFailTtile"), //$NON-NLS-1$
+					JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	}
@@ -1092,7 +1116,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			characterFile = currentCharacterRef.getReference().getFileRef().getReference();
 			if (characterFile == null || StringUtils.isEmpty(characterFile.getName()))
 			{
-				characterFileName = LanguageBundle.getString("in_unsaved_char");
+				characterFileName = LanguageBundle.getString("in_unsaved_char"); //$NON-NLS-1$
 			}
 			else
 			{
@@ -1303,7 +1327,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			pointTotal += (Integer) (dataRow[4] = levels.getGainedSkillPoints(level));
 		}
 		size -= oldLevel;
-		data[size][0] = "Total";
+		data[size][0] = LanguageBundle.getString("in_sumTotal"); //$NON-NLS-1$
 		StringBuilder builder = new StringBuilder();
 		Iterator<ClassFacade> classes = classLevelMap.keySet().iterator();
 		while (classes.hasNext())
@@ -1322,11 +1346,11 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		data[size][4] = pointTotal;
 		Object[] columns = new Object[]
 		{
-			"Level",
-			"Class",
-			"Gained HP",
-			"Rolled HP",
-			"Skill Points"
+			LanguageBundle.getString("in_level"), //$NON-NLS-1$
+			LanguageBundle.getString("in_classString"), //$NON-NLS-1$
+			LanguageBundle.getString("in_luGainedHp"), //$NON-NLS-1$
+			LanguageBundle.getString("in_luRolledHp"), //$NON-NLS-1$
+			LanguageBundle.getString("in_luSkillPoints") //$NON-NLS-1$
 		};
 		DefaultTableModel model = new DefaultTableModel(data, columns)
 		{
@@ -1355,7 +1379,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		header.setReorderingAllowed(false);
 		header.setResizingAllowed(false);
 		JScrollPane pane = new JScrollPane(table);
-		JOptionPane.showMessageDialog(this, pane, "Level-Up Info", JOptionPane.PLAIN_MESSAGE);
+		JOptionPane.showMessageDialog(this, pane, LanguageBundle.getString("in_luTitle"), JOptionPane.PLAIN_MESSAGE); //$NON-NLS-1$
 	}
 
 	/**
@@ -1388,7 +1412,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			this.sources = sources;
 			this.delegate = delegate;
 			loader = new SourceFileLoader(sources, delegate);
-			worker = statusBar.createWorker("Loading Sources", loader);
+			worker = statusBar.createWorker(LanguageBundle.getString("in_taskLoadSources"), loader); //$NON-NLS-1$
 		}
 
 		@Override
@@ -1440,11 +1464,11 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 					String licenses = loader.getLicenses();
 					if (licenses.trim().length() > 0)
 					{
-						showLicenseDialog("Special Licenses", licenses);
+						showLicenseDialog(LanguageBundle.getString("in_specialLicenses"), licenses); //$NON-NLS-1$
 					}
 					for (String license : loader.getOtherLicenses())
 					{
-						showLicenseDialog("Special Licenses", license);
+						showLicenseDialog(LanguageBundle.getString("in_specialLicenses"), license); //$NON-NLS-1$
 					}
 
 				}
@@ -1464,20 +1488,20 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 
 	public void showOGLDialog()
 	{
-		showLicenseDialog("OGL License 1.0a", section15);
+		showLicenseDialog(LanguageBundle.getString("in_oglTitle"), section15); //$NON-NLS-1$
 	}
 
 	private void showLicenseDialog(String title, String htmlString)
 	{
 		if (htmlString == null)
 		{
-			htmlString = "No license information found";
+			htmlString = LanguageBundle.getString("in_licNoInfo"); //$NON-NLS-1$
 		}
 		final PropertyContext context = PCGenSettings.getInstance();
 		final JDialog aFrame = new JDialog(this, title, true);
-		final JButton jClose = new JButton("Close");
+		final JButton jClose = new JButton(LanguageBundle.getString("in_close")); //$NON-NLS-1$
 		final JPanel jPanel = new JPanel();
-		final JCheckBox jCheckBox = new JCheckBox("Show on source load");
+		final JCheckBox jCheckBox = new JCheckBox(LanguageBundle.getString("in_licShowOnLoad")); //$NON-NLS-1$
 		jPanel.add(jCheckBox);
 		jCheckBox.setSelected(context.getBoolean(PCGenSettings.OPTION_SHOW_LICENSE));
 		jCheckBox.addItemListener(new ItemListener()
@@ -1520,14 +1544,18 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		Logging.errorPrint("Warning: The following datasets contains mature themes. User discretion is advised.");
 		Logging.errorPrint(text);
 
-		final JDialog aFrame = new JDialog(this, "Maturity Warning", true);
+		final JDialog aFrame = new JDialog(this, LanguageBundle.getString("in_matureTitle"), true);
 
 		final JPanel jPanel1 = new JPanel();
 		final JPanel jPanel3 = new JPanel();
-		final JLabel jLabel1 = new JLabel("Warning: The following datasets contains mature themes.", SwingConstants.CENTER);
-		final JLabel jLabel2 = new JLabel("User discretion is advised.", SwingConstants.CENTER);
-		final JCheckBox jCheckBox1 = new JCheckBox("Show on source load");
-		final JButton jClose = new JButton("Close");
+		final JLabel jLabel1 =
+				new JLabel(LanguageBundle.getString("in_matureWarningLine1"), //$NON-NLS-1$
+					SwingConstants.CENTER);
+		final JLabel jLabel2 =
+				new JLabel(LanguageBundle.getString("in_matureWarningLine2"), //$NON-NLS-1$
+					SwingConstants.CENTER);
+		final JCheckBox jCheckBox1 = new JCheckBox(LanguageBundle.getString("in_licShowOnLoad")); //$NON-NLS-1$
+		final JButton jClose = new JButton(LanguageBundle.getString("in_close")); //$NON-NLS-1$
 
 		jPanel1.setLayout(new BorderLayout());
 		jPanel1.add(jLabel1, BorderLayout.NORTH);
@@ -1584,12 +1612,12 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			return;
 		}
 
-		String title = "PCGen's sponsors";
+		String title = LanguageBundle.getString("in_sponsorTitle"); //$NON-NLS-1$
 
 		final JDialog aFrame = new JDialog(this, title, true);
-		final JButton jClose = new JButton("Close");
+		final JButton jClose = new JButton(LanguageBundle.getString("in_close")); //$NON-NLS-1$
 		final JPanel jPanel = new JPanel();
-		final JCheckBox jCheckBox = new JCheckBox("Show on source load");
+		final JCheckBox jCheckBox = new JCheckBox(LanguageBundle.getString("in_licShowOnLoad")); //$NON-NLS-1$
 		jPanel.add(jCheckBox);
 		final PropertyContext context = PCGenSettings.getInstance();
 		jCheckBox.setSelected(context.getBoolean(PCGenSettings.OPTION_SHOW_SPONSORS_ON_LOAD));
@@ -1632,7 +1660,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		{
 			s = "s";
 		}
-		sb.append("<H2><CENTER>Would like to thank our official sponsor").append(s).append(":</CENTER></h2>");
+		sb.append("<H2><CENTER>")
+			.append(LanguageBundle.getString("in_sponsorThanks")).append(s) //$NON-NLS-1$
+			.append(":</CENTER></h2>");
 		int size = 172;
 		for (Sponsor sponsor : sponsors)
 		{
@@ -1671,7 +1701,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		if (!aFile.exists())
 		{
 			Logging.errorPrint("Could not find license at " + fileName);
-			aString = "No license information found";
+			aString = LanguageBundle.getString("in_licNoInfo"); //$NON-NLS-1$
 
 			return aString;
 		}

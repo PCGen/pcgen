@@ -91,7 +91,7 @@ public class PluginClassLoader extends PCGenTask
 	@Override
 	public String getMessage()
 	{
-		return "Loading Plugins";
+		return LanguageBundle.getString("in_taskLoadPlugins"); //$NON-NLS-1$
 	}
 
 	public void addPluginLoader(PluginLoader loader)

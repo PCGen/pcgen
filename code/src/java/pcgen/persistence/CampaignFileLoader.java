@@ -31,6 +31,7 @@ import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.persistence.lst.CampaignLoader;
 import pcgen.system.ConfigurationSettings;
+import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenTask;
 import pcgen.util.Logging;
 
@@ -69,7 +70,7 @@ public class CampaignFileLoader extends PCGenTask
 	@Override
 	public String getMessage()
 	{
-		return "Loading Campaigns";
+		return LanguageBundle.getString("in_taskLoadCampaigns"); //$NON-NLS-1$
 	}
 
 	@Override

@@ -107,7 +107,7 @@ public class GameModeFileLoader extends PCGenTask
 	@Override
 	public String getMessage()
 	{
-		return "Loading Game Modes";
+		return LanguageBundle.getString("in_taskLoadGameModes"); //$NON-NLS-1$
 	}
 
 	@Override
