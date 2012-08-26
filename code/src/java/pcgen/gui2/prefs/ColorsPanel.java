@@ -66,10 +66,25 @@ public class ColorsPanel extends PCGenPrefsPanel
 	private static String in_colorVirtFeat =
 			LanguageBundle.getString("in_Prefs_colorVirtFeat");
 
+	private static String in_colorSourceRelease =
+			LanguageBundle.getString("in_Prefs_colorStatusRelease");
+	private static String in_colorSourceAlpha =
+			LanguageBundle.getString("in_Prefs_colorStatusAlpha");
+	private static String in_colorSourceBeta =
+			LanguageBundle.getString("in_Prefs_colorStatusBeta");
+	private static String in_colorSourceTest =
+			LanguageBundle.getString("in_Prefs_colorStatusTest");
+
 	private JButton featAutoColor;
 	private JButton featVirtualColor;
 	private JButton prereqFailColor;
 	private JButton prereqQualifyColor;
+
+	private JButton sourceStatusRelease;
+	private JButton sourceStatusAlpha;
+	private JButton sourceStatusBeta;
+	private JButton sourceStatusTest;
+
 	private PrefsButtonListener prefsButtonHandler = new PrefsButtonListener();
 
 	/**
@@ -109,6 +124,19 @@ public class ColorsPanel extends PCGenPrefsPanel
 				addColorsOption(col, c, gridbag, this, featVirtualColor =
 						new JButton(in_colorVirtFeat));
 
+		col =
+				addColorsOption(col, c, gridbag, this, sourceStatusRelease =
+						new JButton(in_colorSourceRelease));
+		col =
+				addColorsOption(col, c, gridbag, this, sourceStatusAlpha =
+						new JButton(in_colorSourceAlpha));
+		col =
+				addColorsOption(col, c, gridbag, this, sourceStatusBeta =
+						new JButton(in_colorSourceBeta));
+		col =
+				addColorsOption(col, c, gridbag, this, sourceStatusTest =
+						new JButton(in_colorSourceTest));
+		
 		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;
 		label = new JLabel(" ");
@@ -147,6 +175,11 @@ public class ColorsPanel extends PCGenPrefsPanel
 		UIPropertyContext.setNotQualifiedColor(prereqFailColor.getForeground());
 		UIPropertyContext.setAutomaticColor(featAutoColor.getForeground());
 		UIPropertyContext.setVirtualColor(featVirtualColor.getForeground());
+
+		UIPropertyContext.setSourceStatusReleaseColor(sourceStatusRelease.getForeground());
+		UIPropertyContext.setSourceStatusAlphaColor(sourceStatusAlpha.getForeground());
+		UIPropertyContext.setSourceStatusBetaColor(sourceStatusBeta.getForeground());
+		UIPropertyContext.setSourceStatusTestColor(sourceStatusTest.getForeground());
 	}
 
 	/* (non-Javadoc)
@@ -159,6 +192,11 @@ public class ColorsPanel extends PCGenPrefsPanel
 		prereqFailColor.setForeground(UIPropertyContext.getNotQualifiedColor());
 		featAutoColor.setForeground(UIPropertyContext.getAutomaticColor());
 		featVirtualColor.setForeground(UIPropertyContext.getVirtualColor());
+
+		sourceStatusRelease.setForeground(UIPropertyContext.getSourceStatusReleaseColor());
+		sourceStatusAlpha.setForeground(UIPropertyContext.getSourceStatusAlphaColor());
+		sourceStatusBeta.setForeground(UIPropertyContext.getSourceStatusBetaColor());
+		sourceStatusTest.setForeground(UIPropertyContext.getSourceStatusTestColor());
 	}
 
 	private final class PrefsButtonListener implements ActionListener

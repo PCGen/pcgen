@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.enumeration;
 
-import pcgen.core.SettingsHandler;
+import pcgen.gui2.UIPropertyContext;
 
 /**
  * Represents the Campaign Statuses available in PCGen.
@@ -37,7 +37,7 @@ public enum Status
 		@Override
 		public int getColor()
 		{
-			return SettingsHandler.getSourceStatusReleaseColor();
+			return UIPropertyContext.getSourceStatusReleaseColor().getRGB() & 0x00FFFFFF;
 		}
 	},
 
@@ -50,7 +50,7 @@ public enum Status
 		@Override
 		public int getColor()
 		{
-			return SettingsHandler.getSourceStatusAlphaColor();
+			return UIPropertyContext.getSourceStatusAlphaColor().getRGB() & 0x00FFFFFF;
 		}
 	},
 
@@ -63,7 +63,7 @@ public enum Status
 		@Override
 		public int getColor()
 		{
-			return SettingsHandler.getSourceStatusBetaColor();
+			return UIPropertyContext.getSourceStatusBetaColor().getRGB() & 0x00FFFFFF;
 		}
 	},
 
@@ -76,7 +76,7 @@ public enum Status
 		@Override
 		public int getColor()
 		{
-			return SettingsHandler.getSourceStatusTestColor();
+			return UIPropertyContext.getSourceStatusTestColor().getRGB() & 0x00FFFFFF;
 		}
 	};
 

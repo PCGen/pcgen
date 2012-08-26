@@ -38,6 +38,10 @@ public final class UIPropertyContext extends PropertyContext
 	public static final String AUTOMATIC_COLOR = "automaticColor";
 	public static final String VIRTUAL_COLOR = "virtualColor";
 	public static final String QUALIFIED_COLOR = "qualifiedColor";
+	public static final String SOURCE_STATUS_RELEASE_COLOR = "sourceStatusReleaseColor";
+	public static final String SOURCE_STATUS_ALPHA_COLOR = "sourceStatusAlphaColor";
+	public static final String SOURCE_STATUS_BETA_COLOR = "sourceStatusBetaColor";
+	public static final String SOURCE_STATUS_TEST_COLOR = "sourceStatusTestColor";
 	public static final String ALWAYS_OPEN_EXPORT_FILE = "alwaysOpenExportFile";
 	public static final String DEFAULT_OS_TYPE = "defaultOSType";
 	public static final String DEFAULT_PDF_OUTPUT_SHEET = "defaultPdfOutputSheet";
@@ -164,6 +168,46 @@ public final class UIPropertyContext extends PropertyContext
 	public static Color getVirtualColor()
 	{
 		return getInstance().getColor(VIRTUAL_COLOR);
+	}
+
+	public static void setSourceStatusReleaseColor(Color color)
+	{
+		getInstance().setColor(SOURCE_STATUS_RELEASE_COLOR, color);
+	}
+
+	public static Color getSourceStatusReleaseColor()
+	{
+		return getInstance().initColor(SOURCE_STATUS_RELEASE_COLOR, Color.black);
+	}
+
+	public static void setSourceStatusAlphaColor(Color color)
+	{
+		getInstance().setColor(SOURCE_STATUS_ALPHA_COLOR, color);
+	}
+
+	public static Color getSourceStatusAlphaColor()
+	{
+		return getInstance().initColor(SOURCE_STATUS_ALPHA_COLOR, Color.red);
+	}
+
+	public static void setSourceStatusBetaColor(Color color)
+	{
+		getInstance().setColor(SOURCE_STATUS_BETA_COLOR, color);
+	}
+
+	public static Color getSourceStatusBetaColor()
+	{
+		return getInstance().initColor(SOURCE_STATUS_BETA_COLOR, new Color(128, 0, 0));
+	}
+
+	public static void setSourceStatusTestColor(Color color)
+	{
+		getInstance().setColor(SOURCE_STATUS_TEST_COLOR, color);
+	}
+
+	public static Color getSourceStatusTestColor()
+	{
+		return getInstance().initColor(SOURCE_STATUS_TEST_COLOR, Color.magenta);
 	}
 
 	/**
