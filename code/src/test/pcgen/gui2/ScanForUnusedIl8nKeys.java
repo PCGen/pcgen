@@ -29,6 +29,7 @@ import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.Writer;
 import java.util.ArrayList;
@@ -43,7 +44,9 @@ import java.util.TreeSet;
 
 import org.apache.commons.io.DirectoryWalker;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.DateFormatUtils;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -67,10 +70,12 @@ public class ScanForUnusedIl8nKeys
 	private static final String PROPERTIES_PATH = "pcgen/resources/lang/";
 	private static final String PROPERTIES_FILE = "LanguageBundle.properties";
 	private static final String NEW_PROPERTIES_FILE = "cleaned.properties";
+	private static final String UNUSED_PROPERTIES_FILE = "unused.properties";
 	private static final String[] PACKAGES = new String[]{"pcgen/gui2",
 		"pcgen/core", "pcgen/system", "gmgen", "plugin", "pcgen/io",
 		"pcgen/persistence", "pcgen/cdom", "pcgen/rules/context", "pcgen/util", };
 	
+	@Ignore
 	@Test
 	public void scanForUnusedKeys() throws Exception
 	{
@@ -97,7 +102,7 @@ public class ScanForUnusedIl8nKeys
 		// Report all missing entries
 		for (String key : missingKeys)
 		{
-			System.out.println("Found unused key '" + key + "'.");
+			//System.out.println("Found unused key '" + key + "'.");
 		}
 		System.out.println("Total unused keys: " + missingKeys.size()
 			+ " from a set of " + keys.size() + " defined keys. "
@@ -107,6 +112,11 @@ public class ScanForUnusedIl8nKeys
 		outputCleanedProperties(new File(CODE_PATH + PROPERTIES_PATH
 			+ PROPERTIES_FILE), new File(CODE_PATH + PROPERTIES_PATH
 			+ NEW_PROPERTIES_FILE), missingKeys);
+
+		// Output the unused file
+		outputUnusedProperties(new File(CODE_PATH + PROPERTIES_PATH
+			+ PROPERTIES_FILE), new File(CODE_PATH + PROPERTIES_PATH
+			+ UNUSED_PROPERTIES_FILE), missingKeys);
 	}
 
 	/**
@@ -121,7 +131,7 @@ public class ScanForUnusedIl8nKeys
 		for (Iterator<String> iterator = missingKeys.iterator(); iterator.hasNext();)
 		{
 			String key = (String) iterator.next();
-			if (key.startsWith("in_mnu") || key.startsWith("in_mn_mnu"))
+			if (key.startsWith("in_mnu") || key.startsWith("in_mn_mnu") || key.startsWith("in_EqBuilder_"))
 			{
 				iterator.remove();
 			}
@@ -165,7 +175,7 @@ public class ScanForUnusedIl8nKeys
 		Reader reader = new BufferedReader(new FileReader(inputPropsFile));
 		List<String> lines = IOUtils.readLines(reader);
 		reader.close();
-		Writer writer = new BufferedWriter(new FileWriter(cleanPropsFile));
+		Writer writer = new BufferedWriter(new PrintWriter(cleanPropsFile, "ISO-8859-1"));
 		writer.write("# " + PROPERTIES_FILE
 			+ " with all unused keys removed as at "
 			+ DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.format(new Date())
@@ -190,6 +200,60 @@ public class ScanForUnusedIl8nKeys
 				}
 			}
 			if (!found)
+			{
+				lastLineBlank = line.trim().isEmpty();
+				if (!StringUtils.isAsciiPrintable(line))
+				{
+					System.out.println("Found a non adcii line " + line);
+				}
+
+				writer.write(line + "\n");
+			}
+		}
+		writer.close();
+	}
+
+	/**
+	 * @param inputPropsFile
+	 * @param unusedPropsFile
+	 * @param unusedKeys
+	 * @throws IOException 
+	 */
+	private void outputUnusedProperties(File inputPropsFile, File unusedPropsFile,
+		Set<String> unusedKeys) throws IOException
+	{
+		Reader reader = new BufferedReader(new FileReader(inputPropsFile));
+		List<String> lines = IOUtils.readLines(reader);
+		reader.close();
+		Writer writer = new BufferedWriter(new FileWriter(unusedPropsFile));
+		writer.write("# " + PROPERTIES_FILE
+			+ " with all used keys removed as at "
+			+ DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.format(new Date())
+			+ "\n");
+		boolean lastLineBlank = false;
+		for (String line : lines)
+		{
+			boolean found = false;
+			if (lastLineBlank && line.trim().isEmpty())
+			{
+				continue;
+			}
+			else if (line.trim().startsWith("#") || line.trim().isEmpty())
+			{
+				found = true;
+			}
+			else
+			{
+				for (String key : unusedKeys)
+				{
+					if (line.startsWith(key+"="))
+					{
+						found = true;
+						break;
+					}
+				}
+			}
+			if (found)
 			{
 				lastLineBlank = line.trim().isEmpty();
 				writer.write(line + "\n");
