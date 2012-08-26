@@ -21,7 +21,7 @@
  * $Id$
  */
 
-package pcgen.gui;
+package pcgen.gui2.dialog;
 
 import java.awt.Component;
 import java.awt.Dimension;

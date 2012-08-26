@@ -20,7 +20,7 @@
  *
  * $Id$
  */
-package pcgen.gui;
+package pcgen.gui2.dialog;
 
 import java.awt.Frame;
 import java.awt.GridBagConstraints;

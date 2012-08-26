@@ -42,6 +42,7 @@ import pcgen.gui.filter.FilterDialogFactory;
 import pcgen.gui.utils.BrowserLauncher;
 import pcgen.gui.utils.JOpenRecentMenu;
 import pcgen.gui.utils.Utility;
+import pcgen.gui2.dialog.DataInstaller;
 import pcgen.util.FOPResourceChecker;
 import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
