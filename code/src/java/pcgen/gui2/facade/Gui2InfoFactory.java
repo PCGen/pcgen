@@ -350,10 +350,14 @@ public class Gui2InfoFactory implements InfoFactory
 		infoText.appendTitleElement(OutputNameFormatting.piString(skill, false));
 
 		infoText.appendLineBreak();
-		infoText.appendI18nElement("in_igInfoLabelTextType", //$NON-NLS-1$
-			StringUtil.join(skill.getTrueTypeList(true), ". "));
+		String typeString = StringUtil.join(skill.getTrueTypeList(true), ". ");
+		if (StringUtils.isNotBlank(typeString))
+		{
+			infoText.appendI18nElement("in_igInfoLabelTextType", //$NON-NLS-1$
+				typeString);
+			infoText.appendLineBreak();
+		}
 
-		infoText.appendLineBreak();
 		String aString = SkillInfoUtilities.getKeyStatFromStats(pc, skill);
 		if (aString.length() != 0)
 		{
