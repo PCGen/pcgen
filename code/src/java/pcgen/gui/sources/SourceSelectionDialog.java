@@ -275,9 +275,7 @@ public class SourceSelectionDialog extends JDialog implements
 			if (SettingsHandler.getGame().equals(mode) && title == null
 				&& !mode.getDefaultDataSetList().isEmpty())
 			{
-				title =
-						LanguageBundle.getFormattedString(
-							"in_qsrc_game_default", mode.getDisplayName());
+				title = mode.getDisplayName();
 			}
 			if (title != null && !"".equals(title))
 			{

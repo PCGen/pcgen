@@ -110,8 +110,6 @@ public final class PreferencesDialog extends JDialog
 			LanguageBundle.getString("in_Prefs_character");
 	private static String in_dialogTitle =
 			LanguageBundle.getString("in_Prefs_title");
-	private static String in_pcgen =
-			LanguageBundle.getString("in_Prefs_pcgen");
 
 	private DefaultTreeModel settingsModel;
 	private FlippingSplitPane splitPane;
@@ -189,7 +187,7 @@ public final class PreferencesDialog extends JDialog
 		}
 		JTabbedPane tpane = new JTabbedPane();
 		tpane.add(pluginsPanel.toString(), pluginsPanel);
-		settingsPanel.add(tpane, "Plugins");
+		settingsPanel.add(tpane, LanguageBundle.getString("in_Prefs_plugins")); //$NON-NLS-1$
 		rootNode.add(pluginNode);
 	}
 
@@ -209,9 +207,9 @@ public final class PreferencesDialog extends JDialog
 
 		if (needsRestart)
 		{
-			JOptionPane.showMessageDialog(getParent(), LanguageBundle
-				.getString("in_Prefs_restartRequired"), LanguageBundle
-				.getString("in_Prefs_pcgen"), JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(getParent(),
+				LanguageBundle.getString("in_Prefs_restartRequired"), //$NON-NLS-1$
+				Constants.APPLICATION_NAME, JOptionPane.INFORMATION_MESSAGE);
 		}
 		
 		// Now get any panels affected to refresh
@@ -311,9 +309,10 @@ public final class PreferencesDialog extends JDialog
 //		addPanelToTree(appearanceNode, tabsPanel);
 		rootNode.add(appearanceNode);
 
-		pcGenNode = new DefaultMutableTreeNode(in_pcgen);
-		settingsPanel.add(buildEmptyPanel("", LanguageBundle
-			.getString("in_Prefs_pcgenTip")), in_pcgen);
+		pcGenNode = new DefaultMutableTreeNode(Constants.APPLICATION_NAME);
+		settingsPanel.add(
+			buildEmptyPanel("", LanguageBundle.getString("in_Prefs_pcgenTip")),
+			Constants.APPLICATION_NAME);
 
 		equipmentPanel = new EquipmentPanel();
 		addPanelToTree(pcGenNode, equipmentPanel);
@@ -520,7 +519,8 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 	}
 
 	@Override
-	public void initPreferences() {
+	public void initPreferences() 
+	{
 		for ( String key : pluginMap.keySet() )
 		{
 			pluginMap.get(key).initPreferences();
@@ -528,11 +528,13 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 	}
 
 	@Override
-	public String toString() {
-		return "Plugin Launch";
+	public String toString() 
+	{
+		return LanguageBundle.getString("in_Prefs_pluginsTitle"); //$NON-NLS-1$
 	}
 
-	private void initComponents() {
+	private void initComponents() 
+	{
 		jScrollPane1 = new JScrollPane();
 		mainPanel = new JPanel();
 
@@ -547,17 +549,19 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 
 		jScrollPane1.setViewportView(mainPanel);
 		add(jScrollPane1, BorderLayout.CENTER);
-		add(new JLabel("All changes will take effect the next time PCGen is restarted"), BorderLayout.SOUTH);
+		add(new JLabel(LanguageBundle.getString("in_Prefs_restartInfo")), BorderLayout.SOUTH); //$NON-NLS-1$
 	}
 
-	private void addPanel(String pluginName, String pluginTitle, String defaultSystem) {
+	private void addPanel(String pluginName, String pluginTitle, String defaultSystem) 
+	{
 		if(!pluginMap.containsKey(pluginName)) {
 			PluginRef pluginRef = new PluginRef(pluginName, pluginTitle, defaultSystem);
 			pluginMap.put(pluginName, pluginRef);
 		}
 	}
 
-	private static class PluginRef extends JPanel {
+	private static class PluginRef extends JPanel 
+	{
 		private String pluginName;
 		private String pluginTitle;
 		private String defaultSystem;
@@ -565,14 +569,16 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 		private JRadioButton pcgenButton;
 		private JRadioButton gmgenButton;
 
-		public PluginRef(String pluginName, String pluginTitle, String defaultSystem) {
+		public PluginRef(String pluginName, String pluginTitle, String defaultSystem) 
+		{
 			this.pluginName = pluginName;
 			this.pluginTitle = pluginTitle;
 			this.defaultSystem = defaultSystem;
 			initComponents();
 		}
 
-		private void initComponents() {
+		private void initComponents() 
+		{
 			checkBox = new JCheckBox();
 			pcgenButton = new JRadioButton();
 			gmgenButton = new JRadioButton();
@@ -583,32 +589,36 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 					TitledBorder.DEFAULT_JUSTIFICATION,
 					TitledBorder.DEFAULT_POSITION, new Font("Dialog", 1, 11)));
 
-			checkBox.setText("Run this plugin?");
+			checkBox.setText(LanguageBundle.getString("in_Prefs_pluginsRun")); //$NON-NLS-1$
 			add(checkBox);
 
-			pcgenButton.setText("PCGen Window");
+			pcgenButton.setText(LanguageBundle.getString("in_Prefs_pluginPcgenWin")); //$NON-NLS-1$
 			pcgenButton.setEnabled(false);
 			pluginGroup.add(pcgenButton);
 			add(pcgenButton);
 
-			gmgenButton.setText("GMGen Window");
+			gmgenButton.setText(LanguageBundle.getString("in_Prefs_pluginGMGenWin")); //$NON-NLS-1$
 			pluginGroup.add(gmgenButton);
 			add(gmgenButton);
 		}
 
-		public void initPreferences() {
+		public void initPreferences() 
+		{
 			checkBox.setSelected(SettingsHandler.getGMGenOption(pluginName + ".Load", true));
 			//String system = SettingsHandler.getGMGenOption(pluginName + ".System", defaultSystem);
 			String system = Constants.SYSTEM_GMGEN; 
-			if(system.equals(Constants.SYSTEM_PCGEN)) {
+			if(system.equals(Constants.SYSTEM_PCGEN)) 
+			{
 				pcgenButton.setSelected(true);
 			}
-			else {
+			else 
+			{
 				gmgenButton.setSelected(true);
 			}
 		}
 
-		public void applyPreferences() {
+		public void applyPreferences() 
+		{
 			SettingsHandler.setGMGenOption(pluginName + ".Load", checkBox.isSelected());
 			if(pcgenButton.isSelected()) {
 				SettingsHandler.setGMGenOption(pluginName + ".System", Constants.SYSTEM_PCGEN);

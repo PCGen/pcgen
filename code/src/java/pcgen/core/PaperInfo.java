@@ -25,7 +25,10 @@ package pcgen.core;
 
 import java.net.URI;
 
+import org.apache.commons.lang.StringUtils;
+
 import pcgen.cdom.base.Loadable;
+import pcgen.system.LanguageBundle;
 
 /**
  * The Paper information for output sheets
@@ -62,7 +65,14 @@ public final class PaperInfo implements Loadable
 			throw new IndexOutOfBoundsException("invalid index: " + infoType);
 		}
 
-		paperInfo[infoType] = info;
+		if (StringUtils.isNotBlank(info) && info.startsWith("in_"))
+		{
+			paperInfo[infoType] = LanguageBundle.getString(info);
+		}
+		else
+		{
+			paperInfo[infoType] = info;
+		}
 	}
 
 	String getName()
@@ -112,6 +122,10 @@ public final class PaperInfo implements Loadable
 
 	public void setName(String name)
 	{
+		if (StringUtils.isNotBlank(name) && name.startsWith("in_"))
+		{
+			name = LanguageBundle.getString(name);
+		}
 		infoName = name;
 		paperInfo[0] = name;
 	}

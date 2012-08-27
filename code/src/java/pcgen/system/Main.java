@@ -370,7 +370,7 @@ public final class Main
 		executor.execute();
 		if (splash != null)
 		{
-			splash.setMessage("Initializing UI");
+			splash.setMessage(LanguageBundle.getString("in_taskInitUi")); //$NON-NLS-1$
 		}
 		FacadeFactory.initialize();
 		PCGenUIManager.initializeGUI();
@@ -438,7 +438,7 @@ public final class Main
 				{
 					int result =
 							JOptionPane.showConfirmDialog(null, message
-								+ "\n\nDo you wish to conitnue?",
+								+ "\n\nDo you wish to continue?",
 								Constants.APPLICATION_NAME,
 								JOptionPane.OK_CANCEL_OPTION);
 					if (result != JOptionPane.OK_OPTION)

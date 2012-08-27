@@ -44,6 +44,7 @@ import javax.swing.filechooser.FileFilter;
 
 import org.apache.commons.lang.StringUtils;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.plaf.LookAndFeelManager;
@@ -71,8 +72,6 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 	private static String in_skinnedLAF =
 		LanguageBundle.getString("in_Prefs_skinnedLAF");
 	private static String in_choose = "...";
-	private static String in_pcgen =
-		LanguageBundle.getString("in_Prefs_pcgen");
 
 	private JRadioButton[] laf;
 	private JRadioButton skinnedLookFeel = new JRadioButton();
@@ -194,9 +193,9 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 			if (newTheme.isDirectory()
 				|| (!newTheme.getName().endsWith("themepack.zip")))
 			{
-				ShowMessageDelegate.showMessageDialog(LanguageBundle
-					.getString("in_Prefs_notAThemeErrorItem"), in_pcgen,
-					MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog(
+					LanguageBundle.getString("in_Prefs_notAThemeErrorItem"),
+					Constants.APPLICATION_NAME, MessageType.ERROR);
 			}
 			else
 			{

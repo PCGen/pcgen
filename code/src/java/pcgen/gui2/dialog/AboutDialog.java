@@ -75,7 +75,7 @@ public class AboutDialog extends JDialog
 
 	public AboutDialog(PCGenFrame frame)
 	{
-		super(frame, "About PCGen", true);
+		super(frame, LanguageBundle.getString("in_abt_title"), true); //$NON-NLS-1$
 		getContentPane().setLayout(new BorderLayout());
 		getContentPane().add(new MainAbout(), BorderLayout.CENTER);
 		pack();
@@ -431,7 +431,9 @@ final class MainAbout extends JPanel
 	private JPanel buildSponsorsPanel()
 	{
 		Border etched = null;
-		TitledBorder title = BorderFactory.createTitledBorder(etched, "Sponsor Info");
+		TitledBorder title =
+				BorderFactory.createTitledBorder(etched,
+					LanguageBundle.getString("in_abt_sponsorsTitle")); //$NON-NLS-1$
 		title.setTitleJustification(TitledBorder.CENTER);
 		JLabelPane sponsorLabel = new JLabelPane();
 		JScrollPane sp = new JScrollPane(sponsorLabel);
@@ -442,7 +444,8 @@ final class MainAbout extends JPanel
 
 		Collection<Sponsor> sponsors = Globals.getGlobalContext().ref.getConstructedCDOMObjects(Sponsor.class);
 		StringBuffer sb = new StringBuffer();
-		sb.append("<html><b>Our Sponsors</b><br>");
+		sb.append("<html><b>");
+		sb.append(LanguageBundle.getString("in_abt_ourSponsors")).append("</b><br>");
 		for (Sponsor sponsor : sponsors)
 		{
 			if ("PCGEN".equals(sponsor.getKeyName()))

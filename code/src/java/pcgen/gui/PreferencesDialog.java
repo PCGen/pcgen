@@ -229,8 +229,7 @@ final class PreferencesDialog extends JDialog
 			.getString("in_Prefs_printUnconstructed");
 	private static String in_outputSheetEqSet =
 			LanguageBundle.getString("in_Prefs_templateEqSet");
-	private static String in_pcgen =
-			LanguageBundle.getString("in_Prefs_pcgen");
+	private static String in_pcgen = Constants.APPLICATION_NAME;
 	private static String in_potionMax =
 			LanguageBundle.getString("in_Prefs_potionMax");
 	private static String in_paperType =

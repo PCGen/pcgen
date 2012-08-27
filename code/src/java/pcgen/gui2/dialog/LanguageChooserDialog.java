@@ -51,6 +51,7 @@ import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.DelegatingListFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.gui2.tools.Icons;
+import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.FacadeListModel;
 import pcgen.gui2.util.JListEx;
 import pcgen.gui2.util.JTreeViewTable;
@@ -59,6 +60,7 @@ import pcgen.gui2.util.treeview.DataViewColumn;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
+import pcgen.system.LanguageBundle;
 
 /**
  *
@@ -89,6 +91,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		chooser.getRemainingSelections().addReferenceListener(this);
 		initComponents();
 		pack();
+		Utility.installEscapeCloseOperation(this);
 	}
 
 	private void initComponents()
@@ -119,7 +122,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		leftPane.add(new JScrollPane(availTable), BorderLayout.CENTER);
 
 		JPanel buttonPane1 = new JPanel(new FlowLayout());
-		JButton addButton = new JButton("Add Language");
+		JButton addButton = new JButton(LanguageBundle.getString("in_sumLangAddLanguage")); //$NON-NLS-1$
 		addButton.setActionCommand("ADD");
 		addButton.addActionListener(this);
 		buttonPane1.add(addButton);
@@ -133,10 +136,11 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
-		labelPane.add(new JLabel("Languages Remaining:"), new GridBagConstraints());
+		labelPane.add(new JLabel(LanguageBundle.getString("in_sumLangRemain")), //$NON-NLS-1$
+			new GridBagConstraints());
 		remainingLabel.setText(chooser.getRemainingSelections().getReference().toString());
 		labelPane.add(remainingLabel, gbc);
-		labelPane.add(new JLabel("Selected Languages"), gbc);
+		labelPane.add(new JLabel(LanguageBundle.getString("in_sumSelectedLang")), gbc); //$NON-NLS-1$
 		rightPane.add(labelPane, BorderLayout.NORTH);
 
 		list.setModel(listModel);
@@ -146,7 +150,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 
 		JPanel buttonPane2 = new JPanel(new FlowLayout());
 		buttonPane2.add(new JLabel(Icons.Back16.getImageIcon()));
-		JButton removeButton = new JButton("Remove Language");
+		JButton removeButton = new JButton(LanguageBundle.getString("in_sumLangRemoveLanguage")); //$NON-NLS-1$
 		removeButton.setActionCommand("REMOVE");
 		removeButton.addActionListener(this);
 		buttonPane2.add(removeButton);
@@ -155,11 +159,13 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		split.setRightComponent(rightPane);
 		pane.add(split, BorderLayout.CENTER);
 		JPanel bottomPane = new JPanel(new FlowLayout());
-		JButton button = new JButton("Ok");
+		JButton button = new JButton(LanguageBundle.getString("in_ok")); //$NON-NLS-1$
+		button.setMnemonic(LanguageBundle.getMnemonic("in_mn_ok")); //$NON-NLS-1$
 		button.setActionCommand("OK");
 		button.addActionListener(this);
 		bottomPane.add(button);
-		button = new JButton("Cancel");
+		button = new JButton(LanguageBundle.getString("in_cancel")); //$NON-NLS-1$
+		button.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel")); //$NON-NLS-1$
 		button.setActionCommand("CANCEL");
 		button.addActionListener(this);
 		bottomPane.add(button);
@@ -253,7 +259,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		@Override
 		public String getViewName()
 		{
-			return "Available Languages";
+			return LanguageBundle.getString("in_sumLangAvailable"); //$NON-NLS-1$
 		}
 
 		/**

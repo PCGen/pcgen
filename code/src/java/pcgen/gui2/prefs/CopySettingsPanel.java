@@ -36,6 +36,7 @@ import javax.swing.JLabel;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.GameMode;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
@@ -211,9 +212,9 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 			}
 
 			// Let the user know it is done
-			ShowMessageDelegate.showMessageDialog(LanguageBundle
-				.getString("in_Prefs_copyDone"), LanguageBundle
-				.getString("in_Prefs_pcgen"), MessageType.INFORMATION);
+			ShowMessageDelegate.showMessageDialog(
+				LanguageBundle.getString("in_Prefs_copyDone"),
+				Constants.APPLICATION_NAME, MessageType.INFORMATION);
 			
 		}
 	}

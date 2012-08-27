@@ -28,6 +28,7 @@
  */
 package pcgen.gui2.util;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.facade.UIDelegate;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.MessageWrapper;
@@ -66,7 +67,7 @@ public class ShowMessageGuiObserver implements Observer
 				.getTitle();
 		if (title == null)
 		{
-			title = LanguageBundle.getString("in_Prefs_pcgen");
+			title = Constants.APPLICATION_NAME;
 		}
 			
 		String message = String.valueOf(messageWrapper.getMessage());

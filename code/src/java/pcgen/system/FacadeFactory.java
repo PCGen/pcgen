@@ -132,7 +132,7 @@ public class FacadeFactory
 			String title = mode.getDefaultSourceTitle();
 			if (SettingsHandler.getGame().equals(mode) && title == null && !mode.getDefaultDataSetList().isEmpty())
 			{
-				title = LanguageBundle.getFormattedString("in_qsrc_game_default", mode.getName());
+				title = mode.getName();
 			}
 			if (title != null && !"".equals(title))
 			{

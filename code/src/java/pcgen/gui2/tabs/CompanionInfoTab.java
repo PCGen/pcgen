@@ -177,7 +177,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 	@Override
 	public TabTitle getTabTitle()
 	{
-		return new TabTitle("Companions");
+		return new TabTitle(LanguageBundle.getString("in_companions")); //$NON-NLS-1$
 	}
 
 	private class TreeExpansionHandler implements TreeExpansionListener

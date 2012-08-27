@@ -51,6 +51,7 @@ import pcgen.gui2.dialog.LanguageChooserDialog;
 import pcgen.gui2.tabs.Utilities;
 import pcgen.gui2.util.SignIcon.Sign;
 import pcgen.gui2.util.table.TableCellUtilities;
+import pcgen.system.LanguageBundle;
 
 public class LanguageTableModel extends AbstractTableModel
 		implements MouseMotionListener, ListListener<LanguageFacade>
@@ -110,7 +111,7 @@ public class LanguageTableModel extends AbstractTableModel
 	@Override
 	public String getColumnName(int column)
 	{
-		return "Languages";
+		return LanguageBundle.getString("in_sumLanguages"); //$NON-NLS-1$
 	}
 
 	@Override
@@ -238,7 +239,9 @@ public class LanguageTableModel extends AbstractTableModel
 			{
 				addLabel.setForeground(jTable.getForeground());
 				addLabel.setFont(jTable.getFont());
-				addLabel.setText("Add " + ((LanguageChooserFacade) value).getName());
+				addLabel
+					.setText(LanguageBundle.getFormattedString("in_sumLangAdd", //$NON-NLS-1$
+						((LanguageChooserFacade) value).getName()));
 				cardLayout.show(cellPanel, ADD_ID);
 			}
 			else

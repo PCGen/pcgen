@@ -352,8 +352,7 @@ public class Logging
 		}
 
 		Logger l = getLogger();
-		if (l.isLoggable(ERROR)
-			&& SettingsHandler.outputDeprecationMessages())
+		if (l.isLoggable(ERROR))
 		{
 			if (context != null && context.getObjectContext() != null
 				&& context.getObjectContext().getSourceURI() != null)

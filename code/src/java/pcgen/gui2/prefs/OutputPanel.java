@@ -43,6 +43,8 @@ import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
 import org.apache.commons.lang.BooleanUtils;
+
+import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PaperInfo;
 import pcgen.core.SettingsHandler;
@@ -71,7 +73,6 @@ public class OutputPanel extends PCGenPrefsPanel
 {
 	private static String in_output =
 			LanguageBundle.getString("in_Prefs_output");
-	private static String in_pcgen = LanguageBundle.getString("in_Prefs_pcgen");
 
 	private static String in_alwaysOverwrite =
 			LanguageBundle.getString("in_Prefs_alwaysOverwrite");
@@ -504,7 +505,7 @@ public class OutputPanel extends PCGenPrefsPanel
 					{
 						ShowMessageDelegate.showMessageDialog(LanguageBundle
 							.getString("in_Prefs_outputSheetDefaultError"),
-							in_pcgen, MessageType.ERROR);
+							Constants.APPLICATION_NAME, MessageType.ERROR);
 					}
 					else
 					{
@@ -547,7 +548,7 @@ public class OutputPanel extends PCGenPrefsPanel
 					{
 						ShowMessageDelegate.showMessageDialog(LanguageBundle
 							.getString("in_Prefs_outputSheetDefaultError"),
-							in_pcgen, MessageType.ERROR);
+							Constants.APPLICATION_NAME, MessageType.ERROR);
 					}
 					else
 					{
@@ -589,7 +590,7 @@ public class OutputPanel extends PCGenPrefsPanel
 					{
 						ShowMessageDelegate.showMessageDialog(LanguageBundle
 							.getString("in_Prefs_templateEqSetError"),
-							in_pcgen, MessageType.ERROR);
+							Constants.APPLICATION_NAME, MessageType.ERROR);
 					}
 					else
 					{
@@ -621,7 +622,7 @@ public class OutputPanel extends PCGenPrefsPanel
 					{
 						ShowMessageDelegate.showMessageDialog(LanguageBundle
 							.getString("in_Prefs_outputSheetDefaultError"),
-							in_pcgen, MessageType.ERROR);
+							Constants.APPLICATION_NAME, MessageType.ERROR);
 					}
 					else
 					{
