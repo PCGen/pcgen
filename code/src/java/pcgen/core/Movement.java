@@ -24,6 +24,7 @@
 package pcgen.core;
 
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.StringTokenizer;
 
 import pcgen.util.Logging;
@@ -289,14 +290,15 @@ public class Movement
 		if (movementTypes != null && movementTypes.length > 0)
 		{
 			movelabel.append(movementTypes[0]);
+			NumberFormat numFmt = NumberFormat.getNumberInstance();
 			movelabel.append(' ').append(
-				Globals.getGameModeUnitSet().convertDistanceToUnitSet(
-					movements[0].doubleValue()));
+				numFmt.format(Globals.getGameModeUnitSet()
+					.convertDistanceToUnitSet(movements[0].doubleValue())));
 			movelabel.append(Globals.getGameModeUnitSet().getDistanceUnit());
 			if (movementMult[0].doubleValue() != 0)
 			{
-				movelabel.append('(').append(movementMultOp[0]).append(
-					movementMult[0]).append(')');
+				movelabel.append('(').append(movementMultOp[0])
+					.append(numFmt.format(movementMult[0])).append(')');
 			}
 
 			for (int i = 1; i < movementTypes.length; ++i)
@@ -304,14 +306,14 @@ public class Movement
 				movelabel.append(", ");
 				movelabel.append(movementTypes[i]);
 				movelabel.append(' ').append(
-					Globals.getGameModeUnitSet().convertDistanceToUnitSet(
-						movements[i].doubleValue()));
+					numFmt.format(Globals.getGameModeUnitSet()
+						.convertDistanceToUnitSet(movements[i].doubleValue())));
 				movelabel
 					.append(Globals.getGameModeUnitSet().getDistanceUnit());
 				if (movementMult[i].doubleValue() != 0)
 				{
-					movelabel.append('(').append(movementMultOp[i]).append(
-						movementMult[i]).append(')');
+					movelabel.append('(').append(movementMultOp[i])
+						.append(numFmt.format(movementMult[i])).append(')');
 				}
 			}
 		}
