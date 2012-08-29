@@ -57,7 +57,7 @@ import pcgen.system.LanguageBundle;
 public class SpellsPreparedTab extends FlippingSplitPane
 {
 
-	private final TabTitle tabTitle = new TabTitle("Prepared Spells");
+	private final TabTitle tabTitle = new TabTitle("in_InfoPrepared"); //$NON-NLS-1$
 	private final JTreeViewTable<SuperNode> availableTable;
 	private final JTreeViewTable<SuperNode> selectedTable;
 	private final JButton addMMSpellButton;

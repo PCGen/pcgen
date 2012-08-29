@@ -24,6 +24,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+
 import pcgen.core.facade.SpellSupportFacade.SpellNode;
 import pcgen.core.facade.SpellSupportFacade.SuperNode;
 import pcgen.core.facade.util.DefaultListFacade;
@@ -32,6 +33,7 @@ import pcgen.gui2.util.treeview.DataView;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
+import pcgen.system.LanguageBundle;
 
 /**
  *
@@ -78,12 +80,14 @@ public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 	private enum SpellTreeView implements TreeView<SuperNode>
 	{
 
-		CLASS_LEVEL_SPELL("Class/Level/Spell");
+		CLASS_LEVEL_SPELL("in_spellClassLevelSpell"), //$NON-NLS-1$
+		CLASS_LEVEL_SCHOOL_SPELL("in_spellClassLevelSchoolSpell"); //$NON-NLS-1$
+		
 		private String name;
 
 		private SpellTreeView(String name)
 		{
-			this.name = name;
+			this.name = LanguageBundle.getString(name);
 		}
 
 		@Override
@@ -100,11 +104,25 @@ public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 			if (node instanceof SpellNode)
 			{
 				SpellNode pobj = (SpellNode) node;
+				LinkedList<Object> pathList = new LinkedList<Object>();
 				switch (this)
 				{
 					case CLASS_LEVEL_SPELL:
-						LinkedList<Object> pathList = new LinkedList<Object>();
 						Collections.addAll(pathList, pobj.getRootNode(), pobj.getSpellcastingClass(), pobj.getSpellLevel());
+						pathList.removeAll(Collections.singleton(null));
+						if (pobj.getSpell() == null)
+						{
+							pathList.removeLast();
+						}
+						path = new TreeViewPath<SuperNode>(pobj, pathList.toArray());
+						break;
+					case CLASS_LEVEL_SCHOOL_SPELL:
+						Collections.addAll(pathList, pobj.getRootNode(),
+							pobj.getSpellcastingClass(), pobj.getSpellLevel());
+						if (pobj.getSpell() != null)
+						{
+							pathList.add(pobj.getSpell().getSchool());
+						}
 						pathList.removeAll(Collections.singleton(null));
 						if (pobj.getSpell() == null)
 						{

@@ -1134,13 +1134,13 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			Spell aSpell = (Spell) originObj; 
 			infoText.appendLineBreak();
-			infoText.appendI18nElement("in_itmInfoLabelTextDuration", //$NON-NLS-1$
+			infoText.appendI18nElement("in_spellDuration", //$NON-NLS-1$
 				aSpell.getListAsString(ListKey.DURATION));
 			infoText.appendSpacer();
-			infoText.appendI18nElement("in_itmInfoLabelTextRange", //$NON-NLS-1$
+			infoText.appendI18nElement("in_spellRange", //$NON-NLS-1$
 				aSpell.getListAsString(ListKey.RANGE));
 			infoText.appendSpacer();
-			infoText.appendI18nElement("in_itmInfoLabelTextTarget", //$NON-NLS-1$
+			infoText.appendI18nElement("in_spellTarget", //$NON-NLS-1$
 				aSpell.getSafe(StringKey.TARGET_AREA));
 		}
 
@@ -1399,35 +1399,60 @@ public class Gui2InfoFactory implements InfoFactory
 			b.appendLineBreak();
 			b.appendI18nElement("InfoSpells.level.title", Integer.toString(si.getOriginalLevel())); //$NON-NLS-1$
 		}
-		else
-		{
-			b.appendLineBreak();
-		}
+		b.appendLineBreak();
 
-		b.append(LanguageBundle.getFormattedString(
-			"InfoSpells.html.spell.details", //$NON-NLS-1$
-                aSpell.getListAsString(ListKey.SPELL_SCHOOL),
-                aSpell.getListAsString(ListKey.SPELL_SUBSCHOOL),
-                aSpell.getListAsString(ListKey.SPELL_DESCRIPTOR),
-                aSpell.getListAsString(ListKey.COMPONENTS),
-                aSpell.getListAsString(ListKey.CASTTIME),
-                pc.parseSpellString(cs, aSpell.getListAsString(ListKey.DURATION)),
-                pc.getSpellRange(cs, si),
-                pc.parseSpellString(cs, aSpell.getSafe(StringKey.TARGET_AREA)),
-                aSpell.getListAsString(ListKey.SAVE_INFO),
-                aSpell.getListAsString(ListKey.SPELL_RESISTANCE)));
+		b.appendI18nElement("in_spellSchool",
+			aSpell.getListAsString(ListKey.SPELL_SCHOOL));
+
+		String subSchool = aSpell.getListAsString(ListKey.SPELL_SUBSCHOOL);
+		if (StringUtils.isNotEmpty(subSchool))
+		{
+			b.append(" (").append(subSchool).append(")");
+		}
+		String spellDescriptor =
+				aSpell.getListAsString(ListKey.SPELL_DESCRIPTOR);
+		if (StringUtils.isNotEmpty(spellDescriptor))
+		{
+			b.append(" [").append(spellDescriptor).append("]");
+		}
+		b.appendLineBreak();
+
+		b.appendI18nElement("in_spellComponents",
+			aSpell.getListAsString(ListKey.COMPONENTS));
+		b.appendLineBreak();
+
+		b.appendI18nElement("in_spellCastTime",
+			aSpell.getListAsString(ListKey.CASTTIME));
+		b.appendLineBreak();
+
+		b.appendI18nElement("in_spellDuration",
+			pc.parseSpellString(cs, aSpell.getListAsString(ListKey.DURATION)));
+		b.appendLineBreak();
+
+		b.appendI18nElement("in_spellRange", pc.getSpellRange(cs, si));
+		b.appendSpacer();
+		b.appendI18nElement("in_spellTarget",
+			pc.parseSpellString(cs, aSpell.getSafe(StringKey.TARGET_AREA)));
+		b.appendLineBreak();
+
+		b.appendI18nElement("in_spellSavingThrow",
+			aSpell.getListAsString(ListKey.SAVE_INFO));
+		b.appendSpacer();
+		b.appendI18nElement("in_spellSpellResist",
+			aSpell.getListAsString(ListKey.SPELL_RESISTANCE));
+		b.appendLineBreak();
 		
 		if (Globals.hasSpellPPCost())
 		{
-			b.appendSpacer();
 			b.appendI18nElement("InfoSpellsSubTab.PPCost", String //$NON-NLS-1$
 				.valueOf(aSpell.getSafe(IntegerKey.PP_COST)));
+			b.appendLineBreak();
 		}
 		if (Spell.hasSpellPointCost())
 		{
-			b.appendSpacer();
 			b.appendI18nElement("InfoSpellsSubTab.SpellPointCost", String //$NON-NLS-1$
 				.valueOf(SpellPoint.getSPCostStrings(pc, aSpell)));
+			b.appendLineBreak();
 		}
 		b.appendLineBreak();
 		b.appendI18nElement("in_descrip", pc.parseSpellString(cs,  //$NON-NLS-1$
@@ -1440,6 +1465,7 @@ public class Gui2InfoFactory implements InfoFactory
 			b.appendLineBreak();
 			b.appendI18nElement("in_requirements", cString); //$NON-NLS-1$
 		}
+		b.appendLineBreak();
 
 		String spellSource = SourceFormat.getFormattedString(aSpell,
 		Globals.getSourceDisplay(), true);

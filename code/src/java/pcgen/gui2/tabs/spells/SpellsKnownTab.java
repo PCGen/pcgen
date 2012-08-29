@@ -56,7 +56,7 @@ import pcgen.system.PCGenSettings;
 public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
-	private final TabTitle tabTitle = new TabTitle("Known Spells");
+	private final TabTitle tabTitle = new TabTitle("in_InfoKnown"); //$NON-NLS-1$
 	private final JTreeViewTable<SuperNode> availableTable;
 	private final JTreeViewTable<SuperNode> selectedTable;
 	private final JButton addButton;

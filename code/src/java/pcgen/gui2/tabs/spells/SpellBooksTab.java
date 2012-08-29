@@ -57,7 +57,7 @@ import pcgen.system.LanguageBundle;
 public class SpellBooksTab extends FlippingSplitPane
 {
 
-	private final TabTitle tabTitle = new TabTitle("Spell Books");
+	private final TabTitle tabTitle = new TabTitle("in_InfoSpellbooks"); //$NON-NLS-1$
 	private final JTreeViewTable<SuperNode> availableTable;
 	private final JTreeViewTable<SuperNode> selectedTable;
 	private final JButton addButton;
