@@ -2040,8 +2040,10 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public void setHeight(int height)
 	{
+		int heightInInches =
+				Globals.getGameModeUnitSet().convertHeightFromUnitSet(height);
 		heightRef.setReference(height);
-		theCharacter.setHeight(height);
+		theCharacter.setHeight(heightInInches);
 	}
 
 	/**
@@ -2059,8 +2061,11 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public void setWeight(int weight)
 	{
+		int weightInPounds =
+				(int) Globals.getGameModeUnitSet().convertWeightFromUnitSet(
+					weight);
 		weightRef.setReference(weight);
-		theCharacter.setWeight(weight);
+		theCharacter.setWeight(weightInPounds);
 	}
 
 	/* (non-Javadoc)

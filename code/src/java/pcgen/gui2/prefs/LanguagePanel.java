@@ -88,6 +88,7 @@ public class LanguagePanel extends PCGenPrefsPanel
 	private JRadioButton langSystem;
 	private JComboBoxEx unitSetType = new JComboBoxEx();
 	private String origLanguage;
+	private String origUnitSet;
 
 	/**
 	 * Create a new LanguagePanel
@@ -146,11 +147,6 @@ public class LanguagePanel extends PCGenPrefsPanel
 		this.add(label);
 
 		Utility.buildConstraints(c, 0,  line++, 3, 1, 0, 0);
-		label = new JLabel(LanguageBundle.getString("in_Prefs_restartInfo"));
-		gridbag.setConstraints(label, c);
-		this.add(label);
-
-		Utility.buildConstraints(c, 0,  line++, 3, 1, 0, 0);
 		label = new JLabel("");
 		gridbag.setConstraints(label, c);
 		this.add(label);
@@ -176,6 +172,11 @@ public class LanguagePanel extends PCGenPrefsPanel
 		unitSetType = new JComboBoxEx(unitSetNames);
 		gridbag.setConstraints(unitSetType, c);
 		this.add(unitSetType);
+
+		Utility.buildConstraints(c, 0,  line++, 3, 1, 0, 0);
+		label = new JLabel(LanguageBundle.getString("in_Prefs_restartInfo"));
+		gridbag.setConstraints(label, c);
+		this.add(label);
 
 		Utility.buildConstraints(c, 5, line, 1, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;
@@ -245,6 +246,8 @@ public class LanguagePanel extends PCGenPrefsPanel
 			langSystem.setSelected(true);
 		}
 
+		origUnitSet = SettingsHandler.getGame().getUnitSet()
+				.getDisplayName();
 		if (unitSetType.getItemCount() > 0)
 		{
 			unitSetType.setSelectedIndex(0);
@@ -339,6 +342,14 @@ public class LanguagePanel extends PCGenPrefsPanel
 		String langCountry[] = getSelectedLangCountry();
 		
 		boolean needsRestart = !langCountry[0].equals(origLanguage);
+		
+		String unitSet = (String) unitSetType.getSelectedItem();
+		if (unitSet == null)
+		{
+			unitSet = "";
+		}
+		
+		needsRestart |= !unitSet.equals(origUnitSet);
 		
 		return needsRestart;
 	}
