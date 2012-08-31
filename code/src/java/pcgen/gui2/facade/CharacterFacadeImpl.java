@@ -2364,6 +2364,10 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			oldSet.getEquippedItems().removeListListener(this);
 			oldSet.getEquippedItems().removeEquipmentListListener(this);
 		}
+		if (set instanceof EquipmentSetFacadeImpl)
+		{
+			((EquipmentSetFacadeImpl)set).activateEquipSet();
+		}
 		equipSet.setReference(set);
 		set.getEquippedItems().addListListener(this);
 		set.getEquippedItems().addEquipmentListListener(this);

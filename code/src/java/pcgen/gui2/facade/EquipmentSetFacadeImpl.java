@@ -328,6 +328,19 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 	}
 
 	/**
+	 * Make this equipment set the active one. 
+	 */
+	protected void activateEquipSet()
+	{
+		theCharacter.setCalcEquipSetId(eqSet.getIdPath());
+		theCharacter.setCalcEquipmentList();
+		updateOutputOrder();
+		theCharacter.setUseTempMods(eqSet.getUseTempMods());
+		theCharacter.calcActiveBonuses();
+		theCharacter.setDirty(true);
+	}
+	
+	/**
 	 * Add the weight for the item to the total for the set.
 	 * 
 	 * @param equip The equipment item being added
@@ -502,10 +515,44 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 		updateTotalWeight(newItem, quantity, parent.getBodyStructure());
 		updateTotalQuantity(newItem, quantity);
 		updateNaturalWeaponSlots();
+		updateOutputOrder();
 		
 		return newItem;
 	}
 	
+	/**
+	 * Reorder the equipment for output to cater for any changes in the 
+	 * equipment list. Note this assumes this equipment set is the active one 
+	 * as it updates the character's master equipment list.
+	 */
+	private void updateOutputOrder()
+	{
+		List<EquipNode> orderedEquipNodes =
+				new ArrayList<EquipmentSetFacade.EquipNode>(
+					nodeList.getContents());
+		Collections.sort(orderedEquipNodes);
+		List<Equipment> processed =
+				new ArrayList<Equipment>(orderedEquipNodes.size());
+
+		int outputIndex = 1;
+		for (EquipNode equipNode : orderedEquipNodes)
+		{
+			if (equipNode.getEquipment() != null)
+			{
+				Equipment equip =
+						theCharacter.getEquipmentNamed(equipNode.getEquipment()
+							.toString());
+				// If an item is split in multiple places, don't overwrite its order
+				if (equip != null && !processed.contains(equip))
+				{
+					equip.setOutputIndex(outputIndex++);
+					processed.add(equip);
+				}
+			}
+		}
+
+	}
+
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.EquipmentSetFacade#removeEquipment(pcgen.core.facade.EquipmentSetFacade.EquipNode, int)
 	 */
