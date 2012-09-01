@@ -48,6 +48,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTree;
 import javax.swing.SwingConstants;
 import javax.swing.TransferHandler;
 import javax.swing.event.ListSelectionEvent;
@@ -118,6 +119,8 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private final JButton viewBrowserButton;
 	private final JButton exportFileButton;
 	private final JButton setNoteButton;
+	private final JButton expandAllButton;
+	private final JButton collapseAllButton;
 	private final JLabel weightLabel;
 	private final JLabel loadLabel;
 	private final JLabel limitLabel;
@@ -148,6 +151,8 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		this.viewBrowserButton = new JButton();
 		this.exportFileButton = new JButton();
 		this.setNoteButton = new JButton();
+		this.expandAllButton = new JButton();
+		this.collapseAllButton = new JButton();
 		this.weightLabel = new JLabel();
 		this.loadLabel = new JLabel();
 		this.limitLabel = new JLabel();
@@ -243,6 +248,10 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		box.add(Box.createHorizontalStrut(3));
 		box.add(setNoteButton);
 		setNoteButton.setEnabled(false);
+		box.add(Box.createHorizontalStrut(3));
+		box.add(expandAllButton);
+		box.add(Box.createHorizontalStrut(3));
+		box.add(collapseAllButton);
 		equipPane.add(box);
 		equipPane.add(Box.createVerticalStrut(3));
 
@@ -302,6 +311,8 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		state.put(EquipmentRenderer.class, new EquipmentRenderer(character));
 		state.put(EquipmentTransferHandler.class, new EquipmentTransferHandler(character));
 		state.put(EquipmentSetTransferHandler.class, new EquipmentSetTransferHandler(character));
+		state.put(ExpandAllAction.class, new ExpandAllAction());
+		state.put(CollapseAllAction.class, new CollapseAllAction());
 		return state;
 	}
 
@@ -320,6 +331,8 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		unequipAllButton.setAction((UnequipAllAction) state.get(UnequipAllAction.class));
 		newSetButton.setAction((AddSetAction) state.get(AddSetAction.class));
 		removeSetButton.setAction((RemoveSetAction) state.get(RemoveSetAction.class));
+		expandAllButton.setAction((ExpandAllAction) state.get(ExpandAllAction.class));
+		collapseAllButton.setAction((CollapseAllAction) state.get(CollapseAllAction.class));
 		equipSetBox.setModel((EquipSetBoxModel) state.get(EquipSetBoxModel.class));
 	}
 
@@ -397,6 +410,47 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		public void setSelectedItem(Object anItem)
 		{
 			character.setEquipmentSet((EquipmentSetFacade) anItem);
+		}
+
+	}
+
+	private class ExpandAllAction extends AbstractAction
+	{
+
+		public ExpandAllAction()
+		{
+			super("+"); //$NON-NLS-1$
+			putValue(SHORT_DESCRIPTION, LanguageBundle.getString("in_expandAllTip")); //$NON-NLS-1$
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			JTree tree = equipmentSetTable.getTree();
+			for (int i = 0; i < tree.getRowCount(); i++)
+			{
+				tree.expandRow(i);
+			}
+		}
+
+	}
+
+	private class CollapseAllAction extends AbstractAction
+	{
+
+		public CollapseAllAction()
+		{
+			super("-"); //$NON-NLS-1$
+			putValue(SHORT_DESCRIPTION, LanguageBundle.getString("in_collapseAllTip")); //$NON-NLS-1$
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			JTree tree = equipmentSetTable.getTree();
+			for (int i = tree.getRowCount() - 1; i >= 0; i--) {
+		         tree.collapseRow(i);
+			}
 		}
 
 	}
