@@ -2431,6 +2431,15 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		context = new RuntimeLoadContext(referenceContext, masterLCS);
 	}
 
+	/**
+	 * Takes references and abbreviations that have been placed into the
+	 * LoadContext for this GameMode and copies those references and
+	 * abbreviations into the given ReferenceContext
+	 * 
+	 * @param referenceContext
+	 *            The Reference Context into which the references from this
+	 *            GameMode should be copied.
+	 */
 	public void resolveInto(ReferenceContext referenceContext)
 	{
 		for (ReferenceManufacturer<?> rm : gameRefContext.getAllManufacturers())
