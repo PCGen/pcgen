@@ -184,7 +184,7 @@ public abstract class AbstractPreEqualConvertPlugin implements
 					choice.add(leftResult);
 					String decision = tpe.getDecider().getConversionDecision(
 							"Resolve ambiguity for " + getProcessedToken()
-									+ ":" + formula, descr, choice);
+									+ ":" + formula, descr, choice, 0);
 					tpe.append(decision);
 				}
 			}

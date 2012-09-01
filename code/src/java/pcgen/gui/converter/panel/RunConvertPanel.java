@@ -413,11 +413,12 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	 */
 	@Override
 	public String getConversionDecision(String overallDescription,
-		List<String> choiceDescriptions, List<String> choiceTokenResults)
+		List<String> choiceDescriptions, List<String> choiceTokenResults,
+		int defaultChoice)
 	{
 		final ConversionChoiceDialog ccd =
 				new ConversionChoiceDialog(null, overallDescription,
-					choiceDescriptions);
+					choiceDescriptions, defaultChoice);
 		int result = 0;
 
 		Runnable showDialog = new Runnable()

@@ -47,11 +47,11 @@ public interface ConversionDecider
 	 * @param overallDescription A user readable description of the decision required 
 	 * @param choiceDescriptions A user readable description of each choice
 	 * @param choiceTokenResults The syntax equivalent to each choice.
-	 * 
+	 * @param defaultChoice The index of the initially selected option.
 	 * @return the conversion decision
 	 */
 	public String getConversionDecision(String overallDescription,
-		List<String> choiceDescriptions, List<String> choiceTokenResults);
+		List<String> choiceDescriptions, List<String> choiceTokenResults, int defaultChoice);
 
 	public String getConversionInput(String overallDescription);
 }

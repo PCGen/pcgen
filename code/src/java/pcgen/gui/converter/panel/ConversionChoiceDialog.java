@@ -63,6 +63,7 @@ public class ConversionChoiceDialog extends JDialog implements
 	private int result = -1;
 
 	private JComboBox choiceCombo;
+	private int defaultChoice;
 	
 	/**
 	 * Instantiates a new decision dialog for the data converter.
@@ -70,13 +71,15 @@ public class ConversionChoiceDialog extends JDialog implements
 	 * @param parent the parent frame
 	 * @param introText the intro text to explain the dialogs purpose to the user.
 	 * @param choices The list of choices the user can make. The first item is the default.
+	 * @param defaultChoice The index of the initially selected option.
 	 */
-	public ConversionChoiceDialog(Frame parent, String introText, List<String> choices)
+	public ConversionChoiceDialog(Frame parent, String introText, List<String> choices, int defaultChoice)
 	{
 		super(parent, "PCGenDataConvert", true);
 
 		this.introText = introText;
 		this.choices = choices;
+		this.defaultChoice = defaultChoice;
 		
 		initComponents();
 		setLocationRelativeTo(parent); 
@@ -110,6 +113,10 @@ public class ConversionChoiceDialog extends JDialog implements
 		for (String choice : choices)
 		{
 			choiceCombo.addItem(choice);
+		}
+		if (defaultChoice >=0 && defaultChoice < choices.size())
+		{
+			choiceCombo.setSelectedIndex(defaultChoice);
 		}
 		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 0, 
 			GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);

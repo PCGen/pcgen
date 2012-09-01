@@ -183,7 +183,7 @@ public class PreVisionConvertPlugin implements TokenProcessorPlugin
 				{
 					String decision = tpe.getDecider().getConversionDecision(
 							"Resolve ambiguity for " + getProcessedToken()
-									+ ":" + formula, descr, choice);
+									+ ":" + formula, descr, choice, 0);
 					tpe.append(decision);
 				}
 			}
@@ -243,7 +243,7 @@ public class PreVisionConvertPlugin implements TokenProcessorPlugin
 			descr.add(zeroChoice + " ... " + SET_ZERO_ANY);
 			String decision = tpe.getDecider().getConversionDecision(
 					"Resolve ambiguity for " + getProcessedToken() + ":" + formula,
-					descr, choice);
+					descr, choice, 0);
 			tpe.append(decision);
 		}
 	}
