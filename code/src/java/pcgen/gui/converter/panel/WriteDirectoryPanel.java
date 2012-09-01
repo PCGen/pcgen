@@ -95,6 +95,7 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 		button.setMnemonic('r');
 		button.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent arg0)
 			{
 				JFileChooser chooser = new JFileChooser();

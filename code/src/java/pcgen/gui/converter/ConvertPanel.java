@@ -79,17 +79,20 @@ public class ConvertPanel extends JPanel
 
 			private long time;
 
+			@Override
 			public void processMessage(Object owner, String string)
 			{
 				JOptionPane.showMessageDialog(null, string);
 			}
 
+			@Override
 			public void processStatus(Object source, String string)
 			{
 				status = string;
 				statusLabel.setText(string);
 			}
 
+			@Override
 			public void processActiveItem(Object source, String string)
 			{
 				long currentTime = System.currentTimeMillis();
@@ -113,11 +116,13 @@ public class ConvertPanel extends JPanel
 		nextButton.setMnemonic('N');
 		pl = new ProgressListener()
 		{
+			@Override
 			public void progressAllowed(ProgressEvent pe)
 			{
 				nextButton.setEnabled(true);
 			}
 
+			@Override
 			public void progressNotAllowed(ProgressEvent pe)
 			{
 				nextButton.setEnabled(false);
@@ -125,10 +130,12 @@ public class ConvertPanel extends JPanel
 		};
 		nextButton.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent arg0)
 			{
 				Thread t = new Thread(new Runnable()
 				{
+					@Override
 					public void run()
 					{
 						CursorControlUtilities.startWaitCursor(basePanel);
@@ -143,6 +150,7 @@ public class ConvertPanel extends JPanel
 		cancelButton = new JButton("Cancel");
 		cancelButton.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent arg0)
 			{
 				checkExit();
@@ -152,6 +160,7 @@ public class ConvertPanel extends JPanel
 		finishButton = new JButton("Finish");
 		finishButton.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent arg0)
 			{
 				System.exit(0);
@@ -251,6 +260,7 @@ public class ConvertPanel extends JPanel
 		/* (non-Javadoc)
 		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 		 */
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			CursorControlUtilities.startWaitCursor(basePanel);

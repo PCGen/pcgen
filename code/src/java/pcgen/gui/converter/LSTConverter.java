@@ -54,8 +54,6 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.AbilityCategoryLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.LstFileLoader;
-import pcgen.persistence.lst.SizeAdjustmentLoader;
-import pcgen.persistence.lst.StatsAndChecksLoader;
 import pcgen.rules.context.EditorLoadContext;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
@@ -63,8 +61,6 @@ import pcgen.util.Logging;
 public class LSTConverter extends Observable
 {
 	private final AbilityCategoryLoader catLoader = new AbilityCategoryLoader();
-	private final StatsAndChecksLoader statCheckLoader = new StatsAndChecksLoader();
-	private final SizeAdjustmentLoader sizeLoader = new SizeAdjustmentLoader();
 	private final EditorLoadContext context;
 	private List<Loader> loaders;
 	private Set<URI> written = new HashSet<URI>();
@@ -192,44 +188,44 @@ public class LSTConverter extends Observable
 
 	private List<Loader> setupLoaders(EditorLoadContext context)
 	{
-		List<Loader> loaders = new ArrayList<Loader>();
-		loaders.add(new BasicLoader<WeaponProf>(context, WeaponProf.class,
+		List<Loader> loaderList = new ArrayList<Loader>();
+		loaderList.add(new BasicLoader<WeaponProf>(context, WeaponProf.class,
 				ListKey.FILE_WEAPON_PROF));
-		loaders.add(new BasicLoader<ArmorProf>(context, ArmorProf.class,
+		loaderList.add(new BasicLoader<ArmorProf>(context, ArmorProf.class,
 				ListKey.FILE_ARMOR_PROF));
-		loaders.add(new BasicLoader<ShieldProf>(context, ShieldProf.class,
+		loaderList.add(new BasicLoader<ShieldProf>(context, ShieldProf.class,
 				ListKey.FILE_SHIELD_PROF));
-		loaders.add(new BasicLoader<Skill>(context, Skill.class,
+		loaderList.add(new BasicLoader<Skill>(context, Skill.class,
 				ListKey.FILE_SKILL));
-		loaders.add(new BasicLoader<Language>(context, Language.class,
+		loaderList.add(new BasicLoader<Language>(context, Language.class,
 				ListKey.FILE_LANGUAGE));
-		loaders.add(new BasicLoader<Ability>(context, Ability.class,
+		loaderList.add(new BasicLoader<Ability>(context, Ability.class,
 				ListKey.FILE_FEAT));
-		loaders.add(new BasicLoader<Ability>(context, Ability.class,
+		loaderList.add(new BasicLoader<Ability>(context, Ability.class,
 				ListKey.FILE_ABILITY));
-		loaders.add(new BasicLoader<Race>(context, Race.class,
+		loaderList.add(new BasicLoader<Race>(context, Race.class,
 				ListKey.FILE_RACE));
-		loaders.add(new BasicLoader<Domain>(context, Domain.class,
+		loaderList.add(new BasicLoader<Domain>(context, Domain.class,
 				ListKey.FILE_DOMAIN));
-		loaders.add(new BasicLoader<Spell>(context, Spell.class,
+		loaderList.add(new BasicLoader<Spell>(context, Spell.class,
 				ListKey.FILE_SPELL));
-		loaders.add(new BasicLoader<Deity>(context, Deity.class,
+		loaderList.add(new BasicLoader<Deity>(context, Deity.class,
 				ListKey.FILE_DEITY));
-		loaders.add(new BasicLoader<PCTemplate>(context, PCTemplate.class,
+		loaderList.add(new BasicLoader<PCTemplate>(context, PCTemplate.class,
 				ListKey.FILE_TEMPLATE));
-		loaders.add(new EquipmentLoader(context, ListKey.FILE_EQUIP));
-		loaders.add(new BasicLoader<EquipmentModifier>(context,
+		loaderList.add(new EquipmentLoader(context, ListKey.FILE_EQUIP));
+		loaderList.add(new BasicLoader<EquipmentModifier>(context,
 				EquipmentModifier.class, ListKey.FILE_EQUIP_MOD));
-		loaders.add(new BasicLoader<CompanionMod>(context, CompanionMod.class,
+		loaderList.add(new BasicLoader<CompanionMod>(context, CompanionMod.class,
 				ListKey.FILE_COMPANION_MOD));
-		loaders.add(new ClassLoader(context));
-		loaders.add(new CopyLoader(ListKey.FILE_ABILITY_CATEGORY));
-		loaders.add(new CopyLoader(ListKey.LICENSE_FILE));
-		loaders.add(new CopyLoader(ListKey.FILE_KIT));
-		loaders.add(new CopyLoader(ListKey.FILE_BIO_SET));
-		loaders.add(new CopyLoader(ListKey.FILE_PCC));
-		loaders.add(new SelfCopyLoader());
-		return loaders;
+		loaderList.add(new ClassLoader(context));
+		loaderList.add(new CopyLoader(ListKey.FILE_ABILITY_CATEGORY));
+		loaderList.add(new CopyLoader(ListKey.LICENSE_FILE));
+		loaderList.add(new CopyLoader(ListKey.FILE_KIT));
+		loaderList.add(new CopyLoader(ListKey.FILE_BIO_SET));
+		loaderList.add(new CopyLoader(ListKey.FILE_PCC));
+		loaderList.add(new SelfCopyLoader());
+		return loaderList;
 	}
 
 	private void ensureParents(File parentFile)

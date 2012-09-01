@@ -28,6 +28,7 @@ import pcgen.util.Logging;
 
 public class DefaultTokenProcessor implements TokenProcessor
 {
+	@Override
 	public String process(TokenProcessEvent tpe)
 	{
 		try

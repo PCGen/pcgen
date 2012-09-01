@@ -66,11 +66,13 @@ public class TokenConverter
 		return new PluginLoader()
 		{
 
+			@Override
 			public void loadPlugin(Class<?> clazz) throws Exception
 			{
 				addToTokenMap((TokenProcessorPlugin) clazz.newInstance());
 			}
 
+			@Override
 			public Class[] getPluginClasses()
 			{
 				return new Class[]
@@ -129,6 +131,7 @@ public class TokenConverter
 			tokenKey = key;
 		}
 
+		@Override
 		public boolean hasNext()
 		{
 			setNextToken();
@@ -154,6 +157,7 @@ public class TokenConverter
 			return map.get(cl, key);
 		}
 
+		@Override
 		public TokenProcessorPlugin next()
 		{
 			setNextToken();
@@ -165,6 +169,7 @@ public class TokenConverter
 			return nextToken;
 		}
 
+		@Override
 		public void remove()
 		{
 			throw new UnsupportedOperationException(

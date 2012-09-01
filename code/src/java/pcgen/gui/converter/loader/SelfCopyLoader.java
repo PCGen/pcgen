@@ -30,6 +30,7 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 public class SelfCopyLoader implements Loader
 {
 
+	@Override
 	public List<CDOMObject> process(StringBuilder sb, int line,
 			String lineString, ConversionDecider decider)
 			throws PersistenceLayerException, InterruptedException
@@ -38,6 +39,7 @@ public class SelfCopyLoader implements Loader
 		return null;
 	}
 
+	@Override
 	public List<CampaignSourceEntry> getFiles(Campaign c)
 	{
 		return Collections.singletonList(new CampaignSourceEntry(c, c

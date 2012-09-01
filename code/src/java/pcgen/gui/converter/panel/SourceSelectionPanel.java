@@ -144,6 +144,7 @@ public class SourceSelectionPanel extends ConvertSubPanel
 		button.setMnemonic('r');
 		button.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent arg0)
 			{
 				JFileChooser chooser = new JFileChooser(SourceFolder.OTHER.getFile());
@@ -195,6 +196,7 @@ public class SourceSelectionPanel extends ConvertSubPanel
 			final SourceFolder buttonFolder = folder;
 			pathButton.addActionListener(new ActionListener() {
 
+				@Override
 				public void actionPerformed(ActionEvent e)
 				{
 					pc.put(ObjectKey.DIRECTORY, buttonFolder.getFile());

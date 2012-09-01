@@ -148,6 +148,7 @@ public class ConversionChoiceDialog extends JDialog implements
 	/* (non-Javadoc)
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
+	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		result = choiceCombo.getSelectedIndex();

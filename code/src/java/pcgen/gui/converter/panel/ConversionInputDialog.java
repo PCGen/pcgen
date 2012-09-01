@@ -139,6 +139,7 @@ public class ConversionInputDialog extends JDialog implements
 	/* (non-Javadoc)
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
+	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		result = field.getText();

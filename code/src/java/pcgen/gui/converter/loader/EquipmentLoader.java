@@ -49,6 +49,7 @@ public class EquipmentLoader implements Loader
 		listkey = lk;
 	}
 
+	@Override
 	public List<CDOMObject> process(StringBuilder sb, int line,
 			String lineString, ConversionDecider decider)
 			throws PersistenceLayerException, InterruptedException
@@ -129,6 +130,7 @@ public class EquipmentLoader implements Loader
 		return tpe.getInjected();
 	}
 
+	@Override
 	public List<CampaignSourceEntry> getFiles(Campaign c)
 	{
 		return c.getSafeListFor(listkey);

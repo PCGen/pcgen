@@ -33,7 +33,6 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.gui.converter.event.ProgressEvent;
 import pcgen.gui.utils.JComboBoxEx;
-import pcgen.persistence.GameModeFileLoader;
 
 public class GameModePanel extends ConvertSubPanel
 {
@@ -41,13 +40,6 @@ public class GameModePanel extends ConvertSubPanel
 	JComboBoxEx gameModeCombo;
 
 	private SpringLayout layout = new SpringLayout();
-
-	private final GameModeFileLoader loader;
-
-	public GameModePanel(GameModeFileLoader sl)
-	{
-		loader = sl;
-	}
 
 	@Override
 	public boolean autoAdvance(CDOMObject pc)
@@ -115,6 +107,7 @@ public class GameModePanel extends ConvertSubPanel
 		gameModeCombo = new JComboBoxEx(games.toArray());
 		gameModeCombo.addActionListener(new ActionListener()
 		{
+			@Override
 			public void actionPerformed(ActionEvent arg0)
 			{
 				getSelection(pc);

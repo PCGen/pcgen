@@ -80,7 +80,7 @@ public final class PCGenDataConvert extends JFrame
 		});
 
 		panels.add(new SourceSelectionPanel());
-		panels.add(new GameModePanel(gameModeFileLoader));
+		panels.add(new GameModePanel());
 		panels.add(new CampaignPanel());
 
 		panels.add(new WriteDirectoryPanel());

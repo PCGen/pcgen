@@ -136,6 +136,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		
 		new Thread(new Runnable()
 		{
+			@Override
 			public void run()
 			{
 				Logging.registerHandler( getHandler() );
@@ -311,6 +312,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		return messageArea;
 	}
 
+	@Override
 	public void update(Observable o, Object arg)
 	{
 		if (arg instanceof URI)
@@ -325,6 +327,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 			final Exception e = (Exception)arg;
 			Runnable doWork = new Runnable()
 			{
+				@Override
 				public void run()
 				{
 					addMessage(e.getMessage());
@@ -347,6 +350,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	{
 		totalFileCount = iFileCount;
 		Runnable doWork = new Runnable() {
+			@Override
 			public void run()
 			{
 				getProgressBar().setMaximum(iFileCount);
@@ -391,6 +395,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		{
 			Runnable doWork = new Runnable()
 			{
+				@Override
 				public void run()
 				{
 					addMessage(arg0.getLevel() + " " + arg0.getMessage());
@@ -406,6 +411,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	/* (non-Javadoc)
 	 * @see pcgen.gui.converter.ConversionDecider#getConversionDecision(java.lang.String, java.util.List, java.util.List)
 	 */
+	@Override
 	public String getConversionDecision(String overallDescription,
 		List<String> choiceDescriptions, List<String> choiceTokenResults)
 	{
@@ -416,6 +422,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 
 		Runnable showDialog = new Runnable()
 		{
+			@Override
 			public void run()
 			{
 				ccd.setVisible(true);
@@ -437,6 +444,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		return choiceTokenResults.get(result);
 	}
 
+	@Override
 	public String getConversionInput(String overallDescription)
 	{
 		final ConversionInputDialog ccd = new ConversionInputDialog(null,
@@ -444,6 +452,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 
 		Runnable showDialog = new Runnable()
 		{
+			@Override
 			public void run()
 			{
 				ccd.setVisible(true);
@@ -473,7 +482,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	{
 		Collections.sort(aSelectedCampaignsList, new Comparator<Campaign>()
 		{
-
+			@Override
 			public int compare(Campaign c1, Campaign c2)
 			{
 				return c1.getSafe(IntegerKey.CAMPAIGN_RANK) - c2.getSafe(IntegerKey.CAMPAIGN_RANK);

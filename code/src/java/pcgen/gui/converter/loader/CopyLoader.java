@@ -36,6 +36,7 @@ public class CopyLoader implements Loader
 		listkey = lk;
 	}
 
+	@Override
 	public List<CDOMObject> process(StringBuilder sb, int line,
 			String lineString, ConversionDecider decider)
 			throws PersistenceLayerException, InterruptedException
@@ -44,6 +45,7 @@ public class CopyLoader implements Loader
 		return null;
 	}
 
+	@Override
 	public List<CampaignSourceEntry> getFiles(Campaign c)
 	{
 		return c.getSafeListFor(listkey);

@@ -72,6 +72,7 @@ public class StartupPanel extends ConvertSubPanel
 	{
 		new Thread(new Runnable()
 		{
+			@Override
 			public void run()
 			{
 				SettingsHandler.readOptionsProperties();

@@ -48,6 +48,7 @@ public class ClassLoader implements Loader
 		context = lc;
 	}
 
+	@Override
 	public List<CDOMObject> process(StringBuilder sb, int line,
 			String lineString, ConversionDecider decider)
 			throws PersistenceLayerException, InterruptedException
@@ -160,6 +161,7 @@ public class ClassLoader implements Loader
 		return tpe.getInjected();
 	}
 
+	@Override
 	public List<CampaignSourceEntry> getFiles(Campaign c)
 	{
 		return c.getSafeListFor(ListKey.FILE_CLASS);
