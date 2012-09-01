@@ -30,8 +30,6 @@ import gmgen.pluginmgr.PluginManager;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.Enumeration;
-import java.util.Hashtable;
 import java.util.Locale;
 import java.util.Properties;
 import java.util.Set;

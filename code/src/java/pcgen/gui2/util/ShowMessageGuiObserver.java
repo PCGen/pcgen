@@ -32,7 +32,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.facade.UIDelegate;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.MessageWrapper;
-import pcgen.system.LanguageBundle;
 
 import java.util.Observable;
 import java.util.Observer;

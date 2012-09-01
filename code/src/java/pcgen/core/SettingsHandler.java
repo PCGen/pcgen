@@ -61,7 +61,6 @@ import pcgen.gui.utils.Utility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
 import pcgen.system.LanguageBundle;
-import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
 /**

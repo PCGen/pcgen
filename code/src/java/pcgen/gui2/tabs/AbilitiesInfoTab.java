@@ -21,7 +21,6 @@
 package pcgen.gui2.tabs;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Iterator;

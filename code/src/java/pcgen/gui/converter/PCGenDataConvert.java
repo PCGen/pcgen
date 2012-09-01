@@ -42,7 +42,6 @@ import pcgen.gui.converter.panel.WriteDirectoryPanel;
 import pcgen.gui.utils.AWTUtilities;
 import pcgen.persistence.CampaignFileLoader;
 import pcgen.persistence.GameModeFileLoader;
-import pcgen.persistence.lst.LstSystemLoader;
 
 public final class PCGenDataConvert extends JFrame
 {

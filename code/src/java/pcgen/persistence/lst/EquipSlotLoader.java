@@ -26,7 +26,6 @@
 package pcgen.persistence.lst;
 
 import java.net.URI;
-import java.net.URL;
 import java.util.Map;
 import java.util.StringTokenizer;
 

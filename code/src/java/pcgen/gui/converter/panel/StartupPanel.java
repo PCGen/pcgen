@@ -32,7 +32,6 @@ import pcgen.gui.converter.UnstretchingGridLayout;
 import pcgen.gui.converter.event.ProgressEvent;
 import pcgen.persistence.CampaignFileLoader;
 import pcgen.persistence.GameModeFileLoader;
-import pcgen.persistence.lst.LstSystemLoader;
 
 public class StartupPanel extends ConvertSubPanel
 {
