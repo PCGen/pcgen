@@ -31,6 +31,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -216,14 +217,16 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		dispose();
 	}
 
-	private class LangTreeViewModel extends DelegatingListFacade<LanguageFacade> implements TreeViewModel<LanguageFacade>,
-			DataView<LanguageFacade>, TreeView<LanguageFacade>
+	private static class LangTreeViewModel extends DelegatingListFacade<LanguageFacade> implements TreeViewModel<LanguageFacade>,
+			DataView<LanguageFacade>//, TreeView<LanguageFacade>
 	{
+		private static final ListFacade<TreeView<LanguageFacade>> views =
+				new DefaultListFacade<TreeView<LanguageFacade>>(Arrays.asList(LanguageTreeView.values()));
 
 		@Override
 		public ListFacade<? extends TreeView<LanguageFacade>> getTreeViews()
 		{
-			return new DefaultListFacade<TreeView<LanguageFacade>>(Collections.singletonList(this));
+			return views;
 		}
 
 		@Override
@@ -256,32 +259,53 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 			return Collections.emptyList();
 		}
 
-		@Override
-		public String getViewName()
-		{
-			return LanguageBundle.getString("in_sumLangAvailable"); //$NON-NLS-1$
-		}
-
 		/**
 		 * {@inheritDoc}
 		 */
 		@Override
 		public String getPrefsKey()
 		{
-			return getViewName();
+			return LanguageBundle.getString("in_sumLangAvailable"); //$NON-NLS-1$;
+		}
+
+	}
+
+	private enum LanguageTreeView implements TreeView<LanguageFacade>
+	{
+		NAME("in_nameLabel"), //$NON-NLS-1$
+		TYPE_NAME("in_typeName"); //$NON-NLS-1$
+		
+		private String name;
+
+		private LanguageTreeView(String name)
+		{
+			this.name = LanguageBundle.getString(name);
+		}
+
+		@Override
+		public String getViewName()
+		{
+			return name;
 		}
 
 		@Override
 		public List<TreeViewPath<LanguageFacade>> getPaths(LanguageFacade pobj)
 		{
 			List<TreeViewPath<LanguageFacade>> paths = new ArrayList<TreeViewPath<LanguageFacade>>();
-			for(String type : pobj.getTypes())
+			switch (this)
 			{
-				paths.add(new TreeViewPath<LanguageFacade>(pobj, type));
+				case NAME:
+					return Collections.singletonList(new TreeViewPath<LanguageFacade>(pobj));
+				case TYPE_NAME:
+					for(String type : pobj.getTypes())
+					{
+						paths.add(new TreeViewPath<LanguageFacade>(pobj, type));
+					}
+					return paths;
+				default:
+					throw new InternalError();
 			}
-			return paths;
 		}
-
+		
 	}
-
 }
