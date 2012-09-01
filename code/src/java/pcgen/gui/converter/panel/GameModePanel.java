@@ -68,7 +68,6 @@ public class GameModePanel extends ConvertSubPanel
 
 		Globals.createEmptyRace();
 
-		SettingsHandler.initGameModes();
 		return saveGameMode(pc);
 	}
 

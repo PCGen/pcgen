@@ -142,7 +142,10 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 				Logging.registerHandler( getHandler() );
 				SettingsHandler.setGame(pc.get(ObjectKey.GAME_MODE).getName());
 				GameMode mode = SettingsHandler.getGame();
+				//Necessary for "good" behavior
 				mode.resolveInto(context.ref);
+				//Necessary for those still using Globals.getContext
+				mode.resolveInto(mode.getContext().ref);
 				LSTConverter converter = new LSTConverter(context, rootDir,
 						outDir.getAbsolutePath(), RunConvertPanel.this);
 				converter.addObserver(RunConvertPanel.this);
