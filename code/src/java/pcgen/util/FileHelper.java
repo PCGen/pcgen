@@ -39,15 +39,25 @@ public class FileHelper
 	}
 
 	/**
-	 * Find the relative path
-	 * @param base
-	 * @param relative
-	 * @return relative path
+	 * Find the relative path between two files.
+	 * @param base The base file.
+	 * @param relative The file to be made relative. 
+	 * @return relative path 
 	 */
 	public static String findRelativePath(File base, File relative)
 	{
-		File testFile = base.getParentFile();
+		File testFile = base;
+		if (!base.isDirectory())
+		{
+			testFile = base.getParentFile();
+		}
 
+		// Cope with files on different drives in Windows.
+		if (!findRoot(base).equals(findRoot(relative)))
+		{
+			return relative.getAbsolutePath();
+		}
+		
 		String relativePath = stripOffRoot(relative);
 
 		StringBuffer dots = new StringBuffer();
@@ -70,7 +80,7 @@ public class FileHelper
 
 				return dots.append(pieceToKeep).toString();
 			}
-			dots.append("../"); //TODO Why does this have a hardcoded file separator? JK070115
+			dots.append(".." + File.separator);
 
 			testFile = testFile.getParentFile();
 		}

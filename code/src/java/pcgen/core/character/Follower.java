@@ -126,37 +126,6 @@ public final class Follower implements Comparable<Object>, Cloneable
 		return race;
 	}
 
-	/** 
-	 * Set relative path name
-	 * 
-	 * @param x - may be an absolute or relative path
-	 */
-	public void setRelativeFileName(final String x)
-	{
-		if (x.startsWith(PCGenSettings.getPcgDir()))
-		{
-			fileName = x;
-		}
-
-		fileName = PCGenSettings.getPcgDir() + x;
-	}
-
-	/**
-	 * Get the file name relative to filename
-	 * @return relative file name
-	 */
-	public String getRelativeFileName()
-	{
-		String result = fileName;
-
-		if (fileName.startsWith(PCGenSettings.getPcgDir()))
-		{
-			result = fileName.substring(PCGenSettings.getPcgDir().length());
-		}
-
-		return result;
-	}
-
 	/**
 	 * Set type
 	 * @param x

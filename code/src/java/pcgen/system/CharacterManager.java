@@ -154,6 +154,7 @@ public class CharacterManager
 		try
 		{
 			newPC = new PlayerCharacter(false, campaigns);
+			newPC.setFileName(file.getAbsolutePath());
 			ioHandler.read(newPC, file.getAbsolutePath());
 			newPC.insertBonusLanguageAbility();
 
@@ -172,8 +173,7 @@ public class CharacterManager
 				+ " - " + file.getAbsolutePath()); //$NON-NLS-1$
 	
 			// if it's not broken, then only warnings should have been generated, and we won't count those
-			// Set the filename so that future checks to see if file already loaded will work
-			newPC.setFileName(file.getAbsolutePath());
+			// Register the character so that future checks to see if file already loaded will work
 			Globals.getPCList().add(newPC);
 			GMBus.send(new PCLoadedMessage(null, newPC));
 	

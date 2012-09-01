@@ -31,6 +31,8 @@ import pcgen.PCGenTestCase;
 public class FileHelperTest extends PCGenTestCase
 {
 
+	final static String BACK_ONE = ".." + File.separator;
+			
 	/**
 	 * Constructs a new <code>FileHelperTest</code>.
 	 *
@@ -77,7 +79,8 @@ public class FileHelperTest extends PCGenTestCase
 
 		final File backOneDir = new File("/one/two/three/bar.txt");
 		final String path = FileHelper.findRelativePath(base, backOneDir);
-		assertEquals("wrong when back one directory", "../bar.txt", path);
+		assertEquals("wrong when back one directory", BACK_ONE
+			+ "bar.txt", path);
 	}
 
 	/**
@@ -90,7 +93,7 @@ public class FileHelperTest extends PCGenTestCase
 
 		final File backTwoDirs = new File("/one/two/bar.txt");
 		final String path = FileHelper.findRelativePath(base, backTwoDirs);
-		assertEquals("wrong when back two directories", "../../bar.txt", path);
+		assertEquals("wrong when back two directories", BACK_ONE+BACK_ONE+"bar.txt", path);
 	}
 
 	/**
@@ -133,7 +136,7 @@ public class FileHelperTest extends PCGenTestCase
 		final File onADifferentBranch = new File("/one/two/buckle/my/shoe.txt");
 		final String path =
 				FileHelper.findRelativePath(base, onADifferentBranch);
-		assertEquals("wrong when on a different branch", "../../buckle"
+		assertEquals("wrong when on a different branch", BACK_ONE+BACK_ONE+"buckle"
 			+ File.separator + "my" + File.separator + "shoe.txt", path);
 	}
 
@@ -149,9 +152,27 @@ public class FileHelperTest extends PCGenTestCase
 				new File("/and/now/for/something/completely/different.txt");
 		final String path =
 				FileHelper.findRelativePath(base, completelyUnrelated);
-		assertEquals("wrong when completely different", "../../../../and"
+		assertEquals("wrong when completely different", BACK_ONE+BACK_ONE+BACK_ONE+BACK_ONE+"and"
 			+ File.separator + "now" + File.separator + "for" + File.separator
 			+ "something" + File.separator + "completely" + File.separator
 			+ "different.txt", path);
+	}
+	
+	public void testWindowsDriveSame() throws Exception
+	{
+		final File base = new File("C:\\Temp\\foo.txt"); 
+		final File sameDir = new File("C:\\Temp\\bar\\baz.txt"); 
+		final String path =
+				FileHelper.findRelativePath(base, sameDir);
+		assertEquals("Incorrect relative path for same windows drive", "bar\\baz.txt", path);
+	}
+	
+	public void testWindowsDriveDifferent() throws Exception
+	{
+		final File base = new File("C:\\Temp\\foo.txt"); 
+		final File sameDir = new File("D:\\Temp\\bar.txt"); 
+		final String path =
+				FileHelper.findRelativePath(base, sameDir);
+		assertEquals("Incorrect relative path for different windows drive", "D:\\Temp\\bar.txt", path);
 	}
 }

@@ -26,6 +26,7 @@
 package pcgen.io;
 
 import java.awt.Rectangle;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -95,6 +96,7 @@ import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceManager;
 import pcgen.system.PCGenPropBundle;
+import pcgen.util.FileHelper;
 import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
 
@@ -1481,7 +1483,10 @@ final class PCGVer2Creator implements IOConstants
 			buffer.append(aMaster.getUsedHD());
 			buffer.append('|');
 			buffer.append(TAG_FILE).append(':');
-			buffer.append(EntityEncoder.encode(aMaster.getRelativeFileName()));
+			buffer
+				.append(EntityEncoder.encode(FileHelper.findRelativePath(
+					new File(thePC.getFileName()),
+					new File(aMaster.getFileName()))));
 			buffer.append('|');
 			buffer.append(TAG_ADJUSTMENT).append(':');
 			buffer.append(aMaster.getAdjustment());
@@ -1507,8 +1512,9 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append(follower.getUsedHD());
 				buffer.append('|');
 				buffer.append(TAG_FILE).append(':');
-				buffer.append(EntityEncoder.encode(follower
-					.getRelativeFileName()));
+				buffer.append(EntityEncoder.encode(FileHelper.findRelativePath(
+					new File(thePC.getFileName()), new File(
+						follower.getFileName()))));
 				buffer.append(LINE_SEP);
 			}
 		}

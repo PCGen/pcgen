@@ -26,6 +26,7 @@
 package pcgen.io;
 
 import java.awt.Rectangle;
+import java.io.File;
 import java.math.BigDecimal;
 import java.net.URI;
 import java.util.ArrayList;
@@ -130,6 +131,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.ReferenceContext;
 import pcgen.system.FacadeFactory;
 import pcgen.system.LanguageBundle;
+import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.ProhibitedSpellType;
 
@@ -3135,8 +3137,20 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (TAG_FILE.equals(tag))
 			{
-				aFollower.setRelativeFileName(EntityEncoder.decode(element
-					.getText()));
+				String inputFileName = EntityEncoder.decode(element.getText());
+				String masterFileName = makeFilenameAbsolute(inputFileName);
+				if (masterFileName == null)
+				{
+					final String msg =
+							LanguageBundle.getFormattedString(
+								"Warnings.PCGenParser.CantFindFollower", //$NON-NLS-1$
+								inputFileName);
+					warnings.add(msg);
+				}
+				else
+				{
+					aFollower.setFileName(masterFileName);
+				}
 			}
 		}
 
@@ -3410,14 +3424,20 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (TAG_FILE.equals(tag))
 			{
-				/*
-				 * quick and dirty way to handle ':'
-				 * need to come up with a clean solution before releasing
-				 *
-				 * author: Thomas Behr 09-09-02
-				 */
-				aMaster.setRelativeFileName(EntityEncoder.decode(element
-					.getText()));
+				String inputFileName = EntityEncoder.decode(element.getText());
+				String masterFileName = makeFilenameAbsolute(inputFileName);
+				if (masterFileName == null)
+				{
+					final String msg =
+							LanguageBundle.getFormattedString(
+								"Warnings.PCGenParser.CantFindMaster", //$NON-NLS-1$
+								inputFileName);
+					warnings.add(msg);
+				}
+				else
+				{
+					aMaster.setFileName(masterFileName);
+				}
 			}
 			else if (TAG_ADJUSTMENT.equals(tag))
 			{
@@ -3431,6 +3451,42 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			thePC.setMaster(aMaster);
 		}
+	}
+
+	/**
+	 * Convert the passed in file name to an absolute file name. The file name 
+	 * may be relative to the PCG file being loaded, to the PCG directory or 
+	 * it may be absolute.
+	 * @param inFileName The file name to be converted.
+	 * @return The absolute file name, or null if the file cannot be found.
+	 */
+	private String makeFilenameAbsolute(String inFileName)
+	{
+		// Is it relative to this character file?
+		File pcFile = new File(thePC.getFileName());
+		File inFile = new File(pcFile.getParentFile(), inFileName);
+		if (inFile.exists())
+		{
+			return inFile.getAbsolutePath();
+		}
+		
+		// Is it relative to the PCG directory?
+		File pcgDir = new File(PCGenSettings.getPcgDir());
+		inFile = new File(pcgDir, inFileName); 
+		if (inFile.exists())
+		{
+			return inFile.getAbsolutePath();
+		}
+		
+		// Is it absolute?
+		inFile = new File(inFileName);
+		if (inFile.exists())
+		{
+			return inFile.getAbsolutePath();
+		}
+		
+		// We can't find it!
+		return null;
 	}
 
 	/*
