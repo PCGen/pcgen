@@ -55,6 +55,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Campaign;
+import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.converter.ConversionDecider;
@@ -64,7 +65,6 @@ import pcgen.gui.converter.event.ProgressEvent;
 import pcgen.gui.converter.event.TaskStrategyMessage;
 import pcgen.gui.utils.Utility;
 import pcgen.io.PCGFile;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.EditorLoadContext;
 import pcgen.util.Logging;
@@ -140,18 +140,11 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 			{
 				Logging.registerHandler( getHandler() );
 				SettingsHandler.setGame(pc.get(ObjectKey.GAME_MODE).getName());
+				GameMode mode = SettingsHandler.getGame();
+				mode.resolveInto(context.ref);
 				LSTConverter converter = new LSTConverter(context, rootDir,
 						outDir.getAbsolutePath(), RunConvertPanel.this);
 				converter.addObserver(RunConvertPanel.this);
-				try
-				{
-					converter.doStartup();
-				}
-				catch (PersistenceLayerException e1)
-				{
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
 				int numFiles = 0;
 				for (Campaign campaign : totalCampaigns)
 				{

@@ -2427,12 +2427,17 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	{
 		masterLCS = new ConsolidatedListCommitStrategy();
 		ReferenceContext referenceContext = getRefContext();
+		resolveInto(referenceContext);
+		context = new RuntimeLoadContext(referenceContext, masterLCS);
+	}
+
+	public void resolveInto(ReferenceContext referenceContext)
+	{
 		for (ReferenceManufacturer<?> rm : gameRefContext.getAllManufacturers())
 		{
 			resolveReferenceManufacturer(referenceContext, rm);
 		}
 		referenceContext.copyAbbreviationsFrom(gameRefContext);
-		context = new RuntimeLoadContext(referenceContext, masterLCS);
 	}
 
 	private ReferenceContext getRefContext()

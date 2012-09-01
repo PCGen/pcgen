@@ -37,16 +37,10 @@ import pcgen.core.Campaign;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.EquipmentModifier;
-import pcgen.core.GameMode;
-import pcgen.core.Globals;
 import pcgen.core.Language;
-import pcgen.core.PCAlignment;
-import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
-import pcgen.core.SettingsHandler;
 import pcgen.core.ShieldProf;
-import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.WeaponProf;
 import pcgen.core.character.CompanionMod;
@@ -59,13 +53,10 @@ import pcgen.gui.converter.loader.SelfCopyLoader;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.AbilityCategoryLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
-import pcgen.persistence.lst.GameModeLoader;
 import pcgen.persistence.lst.LstFileLoader;
 import pcgen.persistence.lst.SizeAdjustmentLoader;
 import pcgen.persistence.lst.StatsAndChecksLoader;
 import pcgen.rules.context.EditorLoadContext;
-import pcgen.rules.context.ReferenceContext;
-import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
@@ -328,79 +319,4 @@ public class LSTConverter extends Observable
 	{
 		return injected.getListFor(l, uri);
 	}
-
-	public void doStartup() throws PersistenceLayerException
-	{
-		// The first thing we need to do is load the
-		// correct statsandchecks.lst file for this gameMode
-		GameMode gamemode = SettingsHandler.getGame();
-		if (gamemode == null)
-		{
-			// Autoload campaigns is set but there
-			// is no current gameMode, so just return
-			return;
-		}
-		File gameModeDir = new File(ConfigurationSettings.getSystemsDir(),
-				"gameModes");
-		File specificGameModeDir = new File(gameModeDir, gamemode
-				.getFolderName());
-		File statsAndChecks = new File(specificGameModeDir,
-		"statsandchecks.lst");
-		statCheckLoader.loadLstFile(context, statsAndChecks.toURI());
-		File sizes = new File(specificGameModeDir,
-				"sizeAdjustment.lst");
-		sizeLoader.loadLstFile(context, sizes.toURI());
-		File miscInfo = new File(specificGameModeDir,
-				"miscInfo.lst");
-		loadGameModeMiscInfo(gamemode, miscInfo.toURI());
-
-		ReferenceContext globalRef = Globals.getContext().ref;
-		for (PCAlignment al : context.ref.getOrderSortedCDOMObjects(PCAlignment.class))
-		{
-			globalRef.importObject(al);
-			globalRef.registerAbbreviation(al, al.getAbb());
-		}
-		for (PCStat st : context.ref.getOrderSortedCDOMObjects(PCStat.class))
-		{
-			globalRef.importObject(st);
-			globalRef.registerAbbreviation(st, st.getAbb());
-		}
-		for (SizeAdjustment sz : context.ref.getOrderSortedCDOMObjects(SizeAdjustment.class))
-		{
-			globalRef.importObject(sz);
-			globalRef.registerAbbreviation(sz, sz.getAbbreviation());
-		}
-	}
-
-	private void loadGameModeMiscInfo(GameMode gameMode, URI uri)
-	{
-		String data;
-		try
-		{
-			data = LstFileLoader.readFromURI(uri).toString();
-		}
-		catch (PersistenceLayerException ple)
-		{
-			Logging.errorPrint(LanguageBundle.getFormattedString(
-					"Errors.LstSystemLoader.loadGameModeInfoFile", //$NON-NLS-1$
-					uri, ple.getMessage()));
-			return;
-		}
-
-		String[] fileLines = data.split(LstFileLoader.LINE_SEPARATOR_REGEXP);
-
-		for (int i = 0; i < fileLines.length; i++)
-		{
-			String aLine = fileLines[i];
-
-			// Ignore commented-out and empty lines
-			if (((aLine.length() > 0) && (aLine.charAt(0) == '#')) || (aLine.length() == 0))
-			{
-				continue;
-			}
-
-			GameModeLoader.loadAbilityCategories(gameMode, aLine, uri, i + 1, context);
-		}
-	}
-
 }

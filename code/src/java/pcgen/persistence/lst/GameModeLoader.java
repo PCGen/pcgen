@@ -25,12 +25,10 @@
  */
 package pcgen.persistence.lst;
 
-import java.net.URI;
+ import java.net.URI;
 import java.util.Map;
 
 import pcgen.core.GameMode;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -90,39 +88,6 @@ public final class GameModeLoader
 			Logging.errorPrint("Illegal misc. game info " + gameMode.getName()
 				+ '/' + source + ':' + Integer.toString(lineNum)
 				+ " \"" + aLine + "\"");
-		}
-	}
-	
-	public static void loadAbilityCategories(GameMode gameMode, String aLine,
-		URI source, int lineNum, LoadContext context)
-	{
-		if (gameMode == null)
-		{
-			return;
-		}
-
-		final int idxColon = aLine.indexOf(':');
-		if (idxColon < 0)
-		{
-			return;
-		}
-
-		final String key = aLine.substring(0, idxColon);
-		try
-		{
-			if (key.startsWith("ABILITYCATEGORY"))
-			{
-				final AbilityCategoryLoader loader =
-						new AbilityCategoryLoader();
-				loader.parseLine(context, aLine, source);
-			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			Logging.errorPrint(
-				"Error parsing misc. game info " + gameMode.getName() + '/'
-					+ source + ':' + Integer.toString(lineNum) + " \"" + aLine
-					+ "\"", e);
 		}
 	}
 }
