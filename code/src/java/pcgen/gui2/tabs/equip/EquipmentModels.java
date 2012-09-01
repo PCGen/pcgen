@@ -60,6 +60,7 @@ import pcgen.gui2.tools.Icons;
 import pcgen.gui2.util.JTableEx;
 import pcgen.gui2.util.JTreeTable;
 import pcgen.gui2.util.table.TableCellUtilities;
+import pcgen.system.LanguageBundle;
 
 /**
  *
@@ -70,7 +71,6 @@ public class EquipmentModels
 
 	public enum EquipView
 	{
-
 		FULL,
 		UNEQUIPPED,
 		EQUIPPED;
@@ -81,11 +81,11 @@ public class EquipmentModels
 			switch (this)
 			{
 				case FULL:
-					return "Full Listing";
+					return LanguageBundle.getString("in_equipListFull"); //$NON-NLS-1$
 				case UNEQUIPPED:
-					return "Unequipped";
+					return LanguageBundle.getString("in_equipListUnequipped"); //$NON-NLS-1$
 				case EQUIPPED:
-					return "Equipped";
+					return LanguageBundle.getString("in_equipListEquipped"); //$NON-NLS-1$
 				default:
 					throw new InternalError();
 			}
@@ -237,7 +237,7 @@ public class EquipmentModels
 
 		public UnequipAction()
 		{
-			super("Unequip Selected");
+			super(LanguageBundle.getString("in_equipUnequipSel")); //$NON-NLS-1$
 			this.putValue(SMALL_ICON, Icons.Back16.getImageIcon());
 		}
 
@@ -266,8 +266,8 @@ public class EquipmentModels
 				}
 				Object[] columns = new Object[]
 				{
-					"Item",
-					"Qty",
+					LanguageBundle.getString("in_equipItem"), //$NON-NLS-1$
+					LanguageBundle.getString("in_equipQuantityAbbrev"), //$NON-NLS-1$
 				};
 				DefaultTableModel tableModel = new DefaultTableModel(data, columns)
 				{
@@ -331,7 +331,7 @@ public class EquipmentModels
 
 		public EquipAction()
 		{
-			super("Equip Selected");
+			super(LanguageBundle.getString("in_equipEquipSel")); //$NON-NLS-1$
 			this.putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
 		}
 
@@ -370,9 +370,9 @@ public class EquipmentModels
 				}
 				Object[] columns = new Object[]
 				{
-					"Item",
-					"Qty",
-					"Container"
+					LanguageBundle.getString("in_equipItem"), //$NON-NLS-1$
+					LanguageBundle.getString("in_equipQuantityAbbrev"), //$NON-NLS-1$
+					LanguageBundle.getString("in_equipContainer") //$NON-NLS-1$
 				};
 				DefaultTableModel tableModel = new DefaultTableModel(data, columns)
 				{
@@ -409,7 +409,7 @@ public class EquipmentModels
 				header.setReorderingAllowed(false);
 				JScrollPane pane = new JScrollPane(table);
 				JPanel panel = new JPanel(new BorderLayout());
-				JLabel help = new JLabel("Select the quantity and location for each item.");
+				JLabel help = new JLabel(LanguageBundle.getString("in_equipSelectQtyLoc")); //$NON-NLS-1$
 				panel.add(help, BorderLayout.NORTH);
 				panel.add(pane, BorderLayout.CENTER);
 				int res = JOptionPane.showConfirmDialog(JOptionPane.getFrameForComponent(equipmentTable),
