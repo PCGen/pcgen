@@ -25,6 +25,7 @@ import java.util.Comparator;
 import org.apache.commons.lang.ArrayUtils;
 import pcgen.core.facade.event.ListEvent;
 import pcgen.core.facade.event.ListListener;
+import pcgen.util.Logging;
 
 /**
  *
@@ -94,6 +95,7 @@ public class SortedListFacade<E> extends AbstractListFacade<E> implements ListLi
 	public void elementAdded(ListEvent<E> e)
 	{
 		transform = (Integer[]) ArrayUtils.add(transform, transform.length);
+		sanityCheck();
 		Arrays.sort(transform, indexComparator);
 		int index = Arrays.binarySearch(transform, e.getIndex(), indexComparator);
 		fireElementAdded(this, e.getElement(), index);
@@ -103,6 +105,7 @@ public class SortedListFacade<E> extends AbstractListFacade<E> implements ListLi
 	{
 		int index = ArrayUtils.indexOf(transform, e.getIndex());
 		transform = (Integer[]) ArrayUtils.removeElement(transform, transform.length - 1);
+		sanityCheck();
 		Arrays.sort(transform, indexComparator);
 		fireElementRemoved(this, e.getElement(), index);
 	}
@@ -114,6 +117,7 @@ public class SortedListFacade<E> extends AbstractListFacade<E> implements ListLi
 		{
 			transform[i] = i;
 		}
+		sanityCheck();
 		Arrays.sort(transform, indexComparator);
 		fireElementsChanged(this);
 	}
@@ -121,8 +125,24 @@ public class SortedListFacade<E> extends AbstractListFacade<E> implements ListLi
 	@Override
 	public void elementModified(ListEvent<E> e)
 	{
+		sanityCheck();
 		int index = Arrays.binarySearch(transform, e.getIndex(), indexComparator);
 		fireElementModified(this,e.getElement(), index);
 	}
 
+	private boolean sanityCheck()
+	{
+		if (delegate.getSize() != transform.length)
+		{ 
+			String msg =
+					String
+						.format(
+							"Mismatched sizes between sorted facade %d and base list %d. "
+								+ "Delegate is %s. Transform is %s.",
+							transform.length, delegate.getSize(), delegate, transform);
+			Logging.errorPrint(msg, new Throwable());
+			return false;
+		}
+		return true;
+	}
 }
