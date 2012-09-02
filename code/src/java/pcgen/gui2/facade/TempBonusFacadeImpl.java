@@ -157,7 +157,7 @@ public class TempBonusFacadeImpl implements TempBonusFacade, Comparable<TempBonu
 		}
 		if (getOriginObj() instanceof PCTemplate)
 		{
-			return LanguageBundle.getString("in_template"); //$NON-NLS-1$
+			return LanguageBundle.getString("in_condition"); //$NON-NLS-1$
 		}
 		if (getOriginObj() instanceof Skill)
 		{
