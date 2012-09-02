@@ -82,13 +82,4 @@ public final class Skill extends PObject implements SkillFacade
 		return StringUtil.join(trueTypeList, ".");
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString()
-	{
-		return getDisplayName();
-	}
-
 }

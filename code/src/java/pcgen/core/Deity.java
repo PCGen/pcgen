@@ -53,15 +53,6 @@ public final class Deity extends PObject implements DeityFacade
 		DOMAINLIST = CDOMDirectSingleRef.getRef(wpl);
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString()
-	{
-		return getDisplayName();
-	}
-
 	/**
 	 * {@inheritDoc}
 	 */

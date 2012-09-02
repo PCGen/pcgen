@@ -41,6 +41,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.utils.KeyedListContainer;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
+import pcgen.system.PCGenSettings;
 
 /**
  * <code>PObject</code><br>
@@ -229,6 +230,12 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	@Override
 	public String toString()
 	{
+		if (PCGenSettings.OPTIONS_CONTEXT.getBoolean(
+			PCGenSettings.OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS, false))
+		{
+			return getOutputName();
+		}
+
 		return getDisplayName();
 	}
 

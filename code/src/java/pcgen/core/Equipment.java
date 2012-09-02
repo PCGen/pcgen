@@ -3709,7 +3709,16 @@ public final class Equipment extends PObject implements Serializable,
 		{
 			// If we have modified the equipment details with
 			// respect to the name then rebuid the names
-			final StringBuffer buffer = new StringBuffer(getDisplayName());
+			final StringBuilder buffer = new StringBuilder();
+			
+			if (SettingsHandler.guiUsesOutputNameEquipment())
+			{
+				buffer.append(getOutputName());
+			}
+			else
+			{
+				buffer.append(getDisplayName());
+			}
 
 			if (modifiedName.length() > 0)
 			{

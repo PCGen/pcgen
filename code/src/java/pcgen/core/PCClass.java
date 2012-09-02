@@ -812,15 +812,6 @@ public class PCClass extends PObject implements ClassFacade
 	}
 
 	/*
-	 * PCCLASSANDLEVEL Since this is required in both places...
-	 */
-	@Override
-	public final String toString()
-	{
-		return getDisplayName();
-	}
-
-	/*
 	 * FINALPCCLASSLEVELONLY This is only part of the level, as the skill list is
 	 * calculated based on other factors, it is not a Tag
 	 */

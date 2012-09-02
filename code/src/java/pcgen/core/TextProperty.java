@@ -65,12 +65,6 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 		return getKeyName().compareToIgnoreCase(obj.toString());
 	}
 
-	@Override
-	public String toString()
-	{
-		return getDisplayName();
-	}
-
 	/**
 	 * Get the property text (name, value pair)
 	 * @return the property text (name, value pair)

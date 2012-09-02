@@ -30,6 +30,7 @@ import pcgen.cdom.list.SpellList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
+import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.SpellPoint;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 
@@ -122,5 +123,19 @@ public final class Spell extends PObject
 		boolean prohibited = Type.POTION.equals(t)
 				|| containsInList(ListKey.PROHIBITED_ITEM, t);
 		return allowed || !prohibited;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String toString()
+	{
+		if (SettingsHandler.guiUsesOutputNameSpells())
+		{
+			return getOutputName();
+		}
+
+		return getDisplayName();
 	}
 }

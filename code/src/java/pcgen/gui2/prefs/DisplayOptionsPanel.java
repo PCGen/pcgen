@@ -68,6 +68,8 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 			LanguageBundle.getString("in_Prefs_useOutputNamesEquipment"); //$NON-NLS-1$
 	private static String in_useOutputNamesSpells =
 			LanguageBundle.getString("in_Prefs_useOutputNamesSpells"); //$NON-NLS-1$
+	private static String in_useOutputNamesOther =
+			LanguageBundle.getString("in_Prefs_useOutputNamesOther"); //$NON-NLS-1$
 //	private static String in_showMemory =
 //			LanguageBundle.getString("in_Prefs_showMemory");
 //	private static String in_showImagePreview =
@@ -103,6 +105,7 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 
 	private JCheckBox useOutputNamesEquipment = new JCheckBox();
 	private JCheckBox useOutputNamesSpells = new JCheckBox();
+	private JCheckBox useOutputNamesOther = new JCheckBox();
 //	private JCheckBox waitCursor = new JCheckBox();
 	private JComboBoxEx cmbChoiceMethods = new JComboBoxEx(singleChoiceMethods);
 
@@ -143,7 +146,8 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 //		options.put(in_useAutoWaitCursor, waitCursor);
 		options.put(in_useOutputNamesEquipment, useOutputNamesEquipment);
 		options.put(in_useOutputNamesSpells, useOutputNamesSpells);
-
+		options.put(in_useOutputNamesOther, useOutputNamesOther);
+		
 		for (Map.Entry<String, JComponent> entry : options.entrySet())
 		{
 			line =
@@ -215,6 +219,9 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 			.isSelected());
 		SettingsHandler.setGUIUsesOutputNameSpells(useOutputNamesSpells
 			.isSelected());
+		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
+			PCGenSettings.OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS,
+			useOutputNamesOther.isSelected());
 		SettingsHandler.setSingleChoicePreference(cmbChoiceMethods
 			.getSelectedIndex());
 		SettingsHandler.setUseFeatBenefits(!featDescriptionShown.isSelected());
@@ -247,7 +254,10 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 			.guiUsesOutputNameEquipment());
 		useOutputNamesSpells.setSelected(SettingsHandler
 			.guiUsesOutputNameSpells());
-//		waitCursor.setSelected(SettingsHandler.getUseWaitCursor());
+		useOutputNamesOther.setSelected(PCGenSettings.OPTIONS_CONTEXT
+			.getBoolean(PCGenSettings.OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS,
+				false));
+		//		waitCursor.setSelected(SettingsHandler.getUseWaitCursor());
 	}
 
 }
