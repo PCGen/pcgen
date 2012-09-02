@@ -730,11 +730,11 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	private enum DeityTreeView implements TreeView<DeityFacade>
 	{
-		NAME("in_nameLabel"), //$NON-NLS-1$
-		ALIGNMENT_NAME("in_alignmentName"), //$NON-NLS-1$
-		DOMAIN_NAME("in_domainName"), //$NON-NLS-1$
-		PANTHEON_NAME("in_pantheonName"), //$NON-NLS-1$
-		SOURCE_NAME("in_sourceName"); //$NON-NLS-1$
+		NAME("in_deity"), //$NON-NLS-1$
+		ALIGNMENT_NAME("in_alignmentDeity"), //$NON-NLS-1$
+		DOMAIN_NAME("in_domainDeity"), //$NON-NLS-1$
+		PANTHEON_NAME("in_pantheonDeity"), //$NON-NLS-1$
+		SOURCE_NAME("in_sourceDeity"); //$NON-NLS-1$
 		
 		private String name;
 
