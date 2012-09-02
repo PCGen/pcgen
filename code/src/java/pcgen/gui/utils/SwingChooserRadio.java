@@ -27,6 +27,7 @@ package pcgen.gui.utils;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
+import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 import pcgen.util.chooser.ChooserRadio;
 
@@ -268,7 +269,9 @@ public final class SwingChooserRadio extends JDialog implements ChooserRadio
 
 		// Create buttons
 		okButton = new JButton(in_ok);
+		okButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_ok"));
 		cancelButton = new JButton(in_cancel);
+		cancelButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel"));
 
 		final ActionListener eventListener = new ActionListener()
 		{
@@ -309,22 +312,23 @@ public final class SwingChooserRadio extends JDialog implements ChooserRadio
 		avaScrollPane.setViewportView(avaPane);
 		contentPane.add(avaScrollPane, c);
 
-		// Add 'OK' button
+		// Add 'OK' and 'Cancel buttons
+		JPanel btnPanel = new JPanel();
+		btnPanel.setLayout(new BoxLayout(btnPanel, BoxLayout.X_AXIS));
+		btnPanel.add(Box.createHorizontalGlue());
+		btnPanel.add(okButton);
+		btnPanel.add(Box.createHorizontalStrut(3));
+		btnPanel.add(cancelButton);
 		c = new GridBagConstraints();
 		Utility.buildConstraints(c, 0, 2, 3, 1, 0, 0);
-		c.anchor = GridBagConstraints.WEST;
-		c.insets = new Insets(0, 4, 4, 4);
-		contentPane.add(okButton, c);
-
-		// Add 'cancel' button
-		c = new GridBagConstraints();
-		Utility.buildConstraints(c, 1, 2, 3, 1, 0, 0);
 		c.anchor = GridBagConstraints.EAST;
 		c.insets = new Insets(0, 4, 4, 4);
-		contentPane.add(cancelButton, c);
-
+		contentPane.add(btnPanel, c);
+		
 		okButton.setEnabled(true);
 		cancelButton.setEnabled(true);
+
+		Utility.installEscapeCloseOperation(this);
 	}
 
 	/**
