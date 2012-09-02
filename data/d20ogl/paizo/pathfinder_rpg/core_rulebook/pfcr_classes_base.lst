@@ -329,7 +329,7 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|
 19	CAST:0,4,3,3,2											ABILITY:Special Ability|AUTOMATIC|Improved Quarry|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerQuarry
 20	CAST:0,4,4,3,3	BONUS:VAR|MasterHunterLVL|CL						ABILITY:Special Ability|AUTOMATIC|Master Hunter|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerMasterHunter
 # Archetype Support
-16	ABILITY:Special Ability|AUTOMATIC|Evasion|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerEvasion
+16	ABILITY:Special Ability|AUTOMATIC|Evasion
 
 
 
@@ -348,7 +348,7 @@ CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE.Craft|D
 20	BONUS:VAR|MasterStrikeLVL|CL													ABILITY:Special Ability|AUTOMATIC|Master Strike|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueMasterStrike
 
 # Archetype Support
-3	BONUS:VAR|RogueSneakAttackLVL|-2|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueSneakAttack			ABILITY:Special Ability|AUTOMATIC|Sneak Attack|Sneak Attack ~ Rogue|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueSneakAttack
+3	BONUS:VAR|RogueSneakAttackLVL|-2|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueSneakAttack			ABILITY:Special Ability|AUTOMATIC|Sneak Attack|Sneak Attack ~ Rogue
 8	BONUS:VAR|UncannyDodgeLevel|-4|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueUncannyDodge,TYPE.RogueImprovedUncannyDodge	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueUncannyDodge,TYPE.RogueImprovedUncannyDodge
 
 
