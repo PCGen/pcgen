@@ -44,6 +44,7 @@ import javax.swing.SwingUtilities;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -226,4 +227,17 @@ public class IntegerEditor extends DefaultCellEditor
 		return false;
 	}
 
+	/**
+	 * @return The optimal size for this cell editor.
+	 */
+	public Dimension getPreferredSize()
+	{
+		Component comp = getComponent();
+		if (comp != null)
+		{
+			return comp.getPreferredSize();
+		}
+		
+		return new Dimension(40, 25);
+	}
 }
