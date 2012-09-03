@@ -7,7 +7,7 @@ BOOKTYPE:Core Rules
 SETTING:SRD
 TYPE:SRD.Campaign
 SHOWINMENU:YES
-!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[SRD 3.0 for  Players]
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[SRD 3.0 for Players]
 PUBNAMELONG:Wizards of the Coast
 PUBNAMESHORT:WotC
 PUBNAMEWEB:http://www.wizards.com/default.asp?x=dnd
