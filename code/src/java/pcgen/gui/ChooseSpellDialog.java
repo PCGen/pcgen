@@ -28,6 +28,7 @@ package pcgen.gui;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -46,7 +47,6 @@ import java.util.StringTokenizer;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
@@ -79,8 +79,8 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.JComboBoxEx;
-import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 /**
  * <code>ChooseSpellDialog</code>
@@ -132,7 +132,7 @@ final class ChooseSpellDialog extends JDialog
 	private int spellBooks = 0;
 	private PlayerCharacter pc;
 
-	ChooseSpellDialog(JFrame parent, PlayerCharacter pc, final int eqType, final boolean metaAllowed, final List<String> classList, final List<String> levelList, final int spellBooks, final String choiceString)
+	ChooseSpellDialog(Window parent, PlayerCharacter pc, final int eqType, final boolean metaAllowed, final List<String> classList, final List<String> levelList, final int spellBooks, final String choiceString)
 	{
 		super(parent);
 		IconUtilitities.maybeSetIcon(parent, IconUtilitities.RESOURCE_APP_ICON);
@@ -148,7 +148,7 @@ final class ChooseSpellDialog extends JDialog
 		setLocationRelativeTo(parent); // centre on parent (Canadian spelling eh?)
 	}
 
-	ChooseSpellDialog(JFrame parent, PlayerCharacter pc, final int eqType, final boolean metaAllowed, final List<String> classList, final List<String> levelList, final int spellBooks)
+	ChooseSpellDialog(Window parent, PlayerCharacter pc, final int eqType, final boolean metaAllowed, final List<String> classList, final List<String> levelList, final int spellBooks)
 	{
 		super(parent);
 		IconUtilitities.maybeSetIcon(parent, IconUtilitities.RESOURCE_APP_ICON);

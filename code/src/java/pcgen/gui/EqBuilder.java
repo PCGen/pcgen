@@ -32,6 +32,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
@@ -1294,7 +1295,7 @@ final class EqBuilder extends JPanel
 		}
 
 		ChooseSpellDialog csd = new ChooseSpellDialog(
-									(JFrame) Utility.getParentNamed(getParent(), EQFrame.class.getName()),
+									(Window) Utility.getParentNamed(getParent(), EQFrame.class.getName()),
 									aPC,
 									eqType,
 									metaAllowed, classList, levelList, spellBooks, eqMod.getSafe(StringKey.CHOICE_STRING));

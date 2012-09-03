@@ -25,6 +25,7 @@ package pcgen.gui.utils;
 import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import java.awt.Frame;
+import java.awt.Window;
 import java.net.URL;
 
 /**
@@ -156,7 +157,7 @@ public class IconUtilitities
 	 *
 	 * @return boolean was icon set?
 	 */
-	public static boolean maybeSetIcon(Frame frame, String iconName)
+	public static boolean maybeSetIcon(Window frame, String iconName)
 	{
 		if (iconName == null)
 		{
