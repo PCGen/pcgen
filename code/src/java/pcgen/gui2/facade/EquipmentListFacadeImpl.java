@@ -115,7 +115,6 @@ public class EquipmentListFacadeImpl extends AbstractListFacade<EquipmentFacade>
 			quantityMap.remove(equipment);
 			fireElementRemoved(this, equipment, index);
 		}
-
 	}
 
 	@Override
@@ -146,4 +145,12 @@ public class EquipmentListFacadeImpl extends AbstractListFacade<EquipmentFacade>
 		return equipmentList.size();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void modifyElement(EquipmentFacade equipment)
+	{
+		fireElementModified(this, equipment, equipmentList.indexOf(equipment));
+	}
 }

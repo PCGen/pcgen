@@ -105,6 +105,7 @@ import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 /**
  * A character tab providing the user with the ability to buy and sell 
@@ -1427,6 +1428,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			popupMenu.add(sellMenu);
 			popupMenu.add(new SellNumMenuItem(character, targets, 0));
 			popupMenu.add(new SellNumMenuItem(character, targets, SellNumMenuItem.SELL_ALL_QUANTITY));
+			popupMenu.addSeparator();
+			popupMenu.add(new ModifyChargesMenuItem(character, targets));
 			popupMenu.show(e.getComponent(), e.getX(), e.getY());
 		}
 
@@ -1516,6 +1519,29 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				availableTable.refilter();
 			}
 		}
+	}
+	
+	private class ModifyChargesMenuItem extends JMenuItem implements ActionListener
+	{
+		private final CharacterFacade character;
+		private final List<EquipmentFacade> targets;
 
+		ModifyChargesMenuItem(CharacterFacade character, List<EquipmentFacade> targets)
+		{
+			super(LanguageBundle.getString("in_igModifyCharges")); //$NON-NLS-1$
+			this.character = character;
+			this.targets = targets;
+
+			addActionListener(this);
+		}
+
+		/**
+		 * Action to modify the number of charges on the items.
+		 */
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			character.modifyCharges(targets);
+		}
 	}
 }

@@ -105,4 +105,13 @@ public interface UIDelegate
 	 * @return false if the user cancelled the choice, true if it was final.
 	 */
 	boolean showGeneralChooser(ChooserFacade chooserFacade);
+	
+	/**
+	 * Display a modal dialog requesting a value from the user.
+	 * @param title the title for the dialog box
+	 * @param message the message to display
+	 * @param initialValue The starting value of the dialog.
+	 * @return The entered value, or null if cancelled.
+	 */
+	String showInputDialog(String title, String message, String initialValue);
 }

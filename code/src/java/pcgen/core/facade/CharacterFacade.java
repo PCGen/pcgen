@@ -829,4 +829,10 @@ public interface CharacterFacade extends CompanionFacade
 	 * @return True if this is a facade for the supplied character, false otherwise.
 	 */
 	public boolean matchesCharacter(PlayerCharacter pc);
+
+	/**
+	 * Modify the number of charges of the items of equipment. 
+	 * @param targets The equipment to be updated.
+	 */
+	public void modifyCharges(List<EquipmentFacade> targets);
 }

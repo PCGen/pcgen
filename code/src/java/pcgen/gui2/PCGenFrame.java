@@ -1295,6 +1295,18 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		return ret == JOptionPane.OK_OPTION;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String showInputDialog(String title, String message, String initialValue)
+	{
+		Object ret =
+				JOptionPane.showInputDialog(this, message, title, JOptionPane.QUESTION_MESSAGE,
+					null, null, initialValue);
+		return ret == null ? null : String.valueOf(ret);
+	}
+
 	@Override
 	public void showLevelUpInfo(CharacterFacade character, int oldLevel)
 	{

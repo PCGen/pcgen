@@ -36,6 +36,12 @@ public interface EquipmentListFacade extends ListFacade<EquipmentFacade>
 
 	public void removeEquipmentListListener(EquipmentListListener listener);
 
+	/**
+	 * Signal that the equipment item has been updated in some way.
+	 * @param equipment The item of equipment that has been modified.
+	 */
+	public void modifyElement(EquipmentFacade equipment);
+
 	public static interface EquipmentListListener extends EventListener
 	{
 

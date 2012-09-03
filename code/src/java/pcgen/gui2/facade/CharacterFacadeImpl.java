@@ -153,6 +153,8 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.EQFrame;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.HtmlInfoBuilder;
@@ -3264,30 +3266,10 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 			if (updatedItem != null)
 			{
-				//TODO:  Calc the item's output order
-				//				if (autoSort.isSelected())
-				//				{
-				//					updatedItem.setOutputIndex(nextOutputIndex);
-				//				}
-				//				else
-				//				{
-				//					if (updatedItem.getOutputIndex() == 0)
-				//					{
-				//						updatedItem
-				//							.setOutputIndex(getHighestOutputIndex() + 1);
-				//						theCharacter.cacheOutputIndex(updatedItem);
-				//					}
-				//				}
-
 				// Set the number carried and add it to the character
 				Float qty = new Float(quantity);
 				updatedItem.setQty(qty);
 				theCharacter.addEquipment(updatedItem);
-				//				if (autoSort.isSelected())
-				//				{
-				//					resortSelected(ResortComparator.RESORT_NAME,
-				//						ResortComparator.RESORT_ASCENDING);
-				//				}
 			}
 			purchasedEquip.addElement(updatedItem, quantity);
 		}
@@ -4139,5 +4121,74 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	public boolean matchesCharacter(PlayerCharacter pc)
 	{
 		return theCharacter != null && theCharacter.equals(pc);
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void modifyCharges(List<EquipmentFacade> targets)
+	{
+		List<Equipment> chargedEquip = new ArrayList<Equipment>();
+		for (EquipmentFacade equipmentFacade : targets)
+		{
+			if (equipmentFacade instanceof Equipment && ((Equipment) equipmentFacade).getMaxCharges() > 0)
+			{
+				chargedEquip.add((Equipment) equipmentFacade);
+			}
+		}
+		
+		if (chargedEquip.isEmpty())
+		{
+			return;
+		}
+		
+		for (Equipment equip : chargedEquip)
+		{
+			int selectedCharges = getSelectedCharges(equip);
+			if (selectedCharges < 0)
+			{
+				return;
+			}
+			equip.setRemainingCharges(selectedCharges);
+			purchasedEquip.modifyElement(equip);	
+		}
+	}
+	
+	private int getSelectedCharges(Equipment equip)
+	{
+		int minCharges = equip.getMinCharges();
+		int maxCharges = equip.getMaxCharges();
+		
+		String selectedValue =
+				delegate.showInputDialog(equip.toString(), LanguageBundle
+					.getFormattedString("in_igNumCharges", //$NON-NLS-1$
+						Integer.toString(minCharges),
+						Integer.toString(maxCharges)), Integer.toString(equip
+					.getRemainingCharges()));
+		
+
+		if (selectedValue == null)
+		{
+			return -1;
+		}
+
+		int charges;
+		try
+		{
+			charges = Integer.parseInt(selectedValue.trim());
+		}
+		catch (NumberFormatException e) 
+		{
+			charges = minCharges-1;
+		}
+		if ((charges < minCharges) || (charges > maxCharges))
+		{
+			ShowMessageDelegate.showMessageDialog(LanguageBundle.getString("in_igValueOutOfRange"),
+				Constants.APPLICATION_NAME, MessageType.ERROR);
+			return getSelectedCharges(equip);
+		}
+
+		return charges;
 	}
 }
