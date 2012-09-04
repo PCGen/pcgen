@@ -277,13 +277,6 @@ java -Dswing.aatext=true -Xmx96m -jar ${jar.bin.file}
         <echo file="${bin.dir}/${bin.pcgen.sh}">#!/bin/sh
 cd `dirname $$0`
 
-pcgendir="$$HOME/.pcgen"
-
-if [ ! -d "$$pcgendir" ]
-then
-    mkdir "$$pcgendir" || exit 2
-fi
-
 if [ "x$$BROWSER" = x ]
 then
     case "$$WINDOWMANAGER" in
