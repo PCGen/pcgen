@@ -15,7 +15,7 @@ Iomedae.MOD			DOMAINS:Archon Subdomain (Good),Archon Subdomain (Law),Day Subdoma
 Irori.MOD			DOMAINS:Inevitable Subdomain,Language Subdomain,Memory Subdomain,Restoration Subdomain,Resolve Subdomain,Thought Subdomain|PREALIGN:LG,LN,TN,NG						SOURCEPAGE:p.91
 Lamashtu.MOD		DOMAINS:Deception Subdomain,Demon Subdomain (Chaos),Demon Subdomain (Evil),Ferocity Subdomain,Insanity Subdomain,Nightmare Subdomain,Thievery Subdomain|PREALIGN:NE,CN,CE	SOURCEPAGE:p.91
 Nethys.MOD			DOMAINS:Arcane Subdomain,Catastrophe Subdomain,Divine Subdomain,Defense Subdomain,Thought Subdomain,Wards Subdomain|PREALIGN:LN,NG,TN,NE,CN							SOURCEPAGE:p.91
-Norgorber.MOD		DOMAINS:Daemon Subdomain,Deception Subdomain,Memory Subdomain,Murder Subdomain,Thievery Subdomain,Thought SubdomainPREALIGN:TN,LE,NE,CE							SOURCEPAGE:p.91
+Norgorber.MOD		DOMAINS:Daemon Subdomain,Deception Subdomain,Memory Subdomain,Murder Subdomain,Thievery Subdomain,Thought Subdomain|PREALIGN:TN,LE,NE,CE							SOURCEPAGE:p.91
 Pharasma.MOD		DOMAINS:Ancestors Subdomain,Ice Subdomain,Memory Subdomain,Resurrection Subdomain,Souls Subdomain,Thought Subdomain|PREALIGN:LN,NG,TN,NE,CN							SOURCEPAGE:p.91
 Rovagug.MOD			DOMAINS:Blood Subdomain,Catastrophe Subdomain,Demon Subdomain (Chaos),Demon Subdomain (Evil),Protean Subdomain,Rage Subdomain,Storms Subdomain|PREALIGN:NE,CN,CE			SOURCEPAGE:p.91
 Sarenrae.MOD		DOMAINS:Agathion Subdomain,Day Subdomain,Heroism Subdomain,Light Subdomain,Restoration Subdomain,Resurrection Subdomain|PREALIGN:LG,NG,CG,TN							SOURCEPAGE:p.91
