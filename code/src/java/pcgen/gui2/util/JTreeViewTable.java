@@ -181,20 +181,31 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 		@SuppressWarnings("unchecked")
 		ListMap<Visibility, TableColumn, List<TableColumn>> listMap =
 				CollectionMaps.createListMap(HashMap.class, ArrayList.class);
-		PropertyContext context =
-				baseContext.createChildContext(
-					this.viewModel.getDataView().getPrefsKey())
-					.createChildContext("width"); //$NON-NLS-1$
+		PropertyContext viewPrefsContext =
+				baseContext.createChildContext(this.viewModel.getDataView()
+					.getPrefsKey());
+		PropertyContext colWidthCtx = viewPrefsContext.createChildContext("width"); //$NON-NLS-1$
+		PropertyContext colVisibleCtx = viewPrefsContext.createChildContext("visible"); //$NON-NLS-1$
 		int index = 1;
 		for (DataViewColumn column : dataView.getDataColumns())
 		{
 			TableColumn tableColumn = new TableColumn(index++);
 			tableColumn.setHeaderValue(column.getName());
-			listMap.add(column.getVisibility(), tableColumn);
-			tableColumn
-				.setPreferredWidth(context.initInt(
-					normalisePrefsKey(tableColumn.getHeaderValue().toString()),
-					75));
+			String prefsKey =
+					normalisePrefsKey(tableColumn.getHeaderValue().toString());
+			Visibility vis = column.getVisibility();
+			if (vis != Visibility.ALWAYS_VISIBLE)
+			{
+				boolean showCol =
+						colVisibleCtx.initBoolean(prefsKey,
+							vis == Visibility.INITIALLY_VISIBLE);
+				vis =
+						showCol ? Visibility.INITIALLY_VISIBLE
+							: Visibility.INITIALLY_INVISIBLE;
+			}
+			listMap.add(vis, tableColumn);
+
+			tableColumn.setPreferredWidth(colWidthCtx.initInt(prefsKey, 75));
 			tableColumn.addPropertyChangeListener(this);
 		}
 
@@ -207,7 +218,7 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 		TableColumn viewColumn = new TableColumn();
 		viewColumn.setHeaderValue(startingView.getViewName());
 		model.addColumn(viewColumn);
-		viewColumn.setPreferredWidth(context.initInt(
+		viewColumn.setPreferredWidth(colWidthCtx.initInt(
 			normalisePrefsKey(viewColumn.getHeaderValue().toString()), 150));
 		viewColumn.addPropertyChangeListener(this);
 
@@ -524,6 +535,12 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 		public void actionPerformed(ActionEvent e)
 		{
 			dynamicColumnModel.setVisible(column, visible = !visible);
+			PropertyContext context =
+					baseContext.createChildContext(
+						viewModel.getDataView().getPrefsKey())
+						.createChildContext("visible"); //$NON-NLS-1$
+			context.setBoolean(normalisePrefsKey(column.getHeaderValue()
+				.toString()), visible);
 		}
 
 	}
