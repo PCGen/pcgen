@@ -277,6 +277,7 @@ java -Dswing.aatext=true -Xmx96m -jar ${jar.bin.file}
         <echo file="${bin.dir}/${bin.pcgen.sh}">#!/bin/sh
 cd `dirname $$0`
 
+# java.awt.Desktop.browse should be available and setting BROWSER is not needed anymore
 if [ "x$$BROWSER" = x ]
 then
     case "$$WINDOWMANAGER" in
