@@ -395,6 +395,10 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 		viewColumn.setHeaderValue(view.getViewName());
 		sortModel();
 		getTableHeader().repaint();
+		PropertyContext context =
+				baseContext.createChildContext(
+					this.viewModel.getDataView().getPrefsKey());
+		context.setProperty("view", view.getViewName()); //$NON-NLS-1$
 	}
 
 	public TreeViewModel<?> getTreeViewModel()
@@ -406,6 +410,11 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 	{
 		ListFacade<? extends TreeView<T>> views = viewModel.getTreeViews();
 		TreeView<? super T> startingView = views.getElementAt(viewModel.getDefaultTreeViewIndex());
+		PropertyContext context =
+				baseContext.createChildContext(
+					viewModel.getDataView().getPrefsKey());
+		String viewName = context.initProperty("view", startingView.getViewName());
+		startingView = findViewByName(views, viewName);
 		if (treetableModel != null && treetableModel.getSelectedTreeView() != null)
 		{
 			startingView = treetableModel.getSelectedTreeView();
@@ -435,6 +444,25 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 			}
 
 		});
+	}
+
+	/**
+     * Find the named view.
+	 * @param views The list of TreeViews.
+	 * @param viewName The name of the desired view.
+	 * @return The matching view, or the first one if none match.
+	 */
+	private TreeView<? super T> findViewByName(
+		ListFacade<? extends TreeView<T>> views, String viewName)
+	{
+		for (TreeView<T> treeView : views)
+		{
+			if (treeView.getViewName().equals(viewName))
+			{
+				return treeView;
+			}
+		}
+		return views.getElementAt(0);
 	}
 
 	private class TreeViewsPopupMenu extends JPopupMenu implements ListListener<TreeView<T>>
