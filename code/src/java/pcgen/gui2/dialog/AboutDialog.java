@@ -57,7 +57,6 @@ import javax.swing.border.TitledBorder;
 import pcgen.cdom.content.Sponsor;
 import pcgen.core.Globals;
 import pcgen.gui2.PCGenFrame;
-import pcgen.gui2.tools.BrowserLauncher;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.GridBoxLayout;
@@ -257,7 +256,7 @@ final class MainAbout extends JPanel
 			{
 				try
 				{
-					BrowserLauncher.openURL(wwwSite.getText());
+					Utility.viewInBrowser(wwwSite.getText());
 				}
 				catch (IOException ioe)
 				{
@@ -279,7 +278,7 @@ final class MainAbout extends JPanel
 			{
 				try
 				{
-					BrowserLauncher.openURL(mailingList.getText());
+					Utility.viewInBrowser(mailingList.getText());
 				}
 				catch (IOException ioe)
 				{

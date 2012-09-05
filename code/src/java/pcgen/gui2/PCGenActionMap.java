@@ -49,11 +49,12 @@ import pcgen.gui2.dialog.DebugDialog;
 import pcgen.gui2.dialog.ExportDialog;
 import pcgen.gui2.dialog.KitSelectionDialog;
 import pcgen.gui2.dialog.PrintPreviewDialog;
-import pcgen.gui2.tools.BrowserLauncher;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.PCGenAction;
+import pcgen.gui2.tools.Utility;
 import pcgen.system.CharacterManager;
 import pcgen.system.ConfigurationSettings;
+import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 /**
@@ -937,15 +938,16 @@ public final class PCGenActionMap extends ActionMap
 		{
 			try
 			{
-				BrowserLauncher.openURL(
-						ConfigurationSettings.getDocsDir() + File.separator + "index.html");
+				Utility.viewInBrowser(new File(ConfigurationSettings
+					.getDocsDir(), "index.html"));
 			}
 			catch (IOException ex)
 			{
-				JOptionPane.showMessageDialog(frame,
-											  "Could not open docs in external browser. Have you set your default browser in the Preference menu? Sorry...",
-											  "Unable to open browser", JOptionPane.ERROR_MESSAGE);
 				Logging.errorPrint("Could not open docs in external browser", ex);
+				JOptionPane.showMessageDialog(frame,
+					LanguageBundle.getString("in_menuDocsNotOpenMsg"),
+					LanguageBundle.getString("in_menuDocsNotOpenTitle"),
+					JOptionPane.ERROR_MESSAGE);
 			}
 		}
 

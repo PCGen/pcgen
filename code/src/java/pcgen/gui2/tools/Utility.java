@@ -34,6 +34,10 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -43,6 +47,8 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
+
+import org.apache.commons.lang.SystemUtils;
 
 import pcgen.system.PCGenSettings;
 
@@ -272,12 +278,54 @@ public final class Utility
 	 *
 	 * @param url URL to display in browser.
 	 * @throws IOException 
-	 * @see pcgen.gui2.tools.BrowserLauncher
+	 * @see DesktopBrowserLauncher
 	 */
 	public static void viewInBrowser(String url) throws IOException
 	{
-		final String osName = System.getProperty("os.name");
-
+		viewInBrowser(new URL(url));
+	}
+	
+	/**
+	 * View a file (should be browsable) in a browser.
+	 *
+	 * @param f Path of the file to display in browser.
+	 * @throws IOException 
+	 * @see DesktopBrowserLauncher
+	 */
+	public static void viewInBrowser(File f) throws IOException
+	{
+		viewInBrowser(f.toURI());
+	}
+	
+	/**
+	 * View a URL in a browser
+	 *
+	 * @param url URL to display in browser.
+	 * @throws IOException if the URL is bad or the browser can not be launched
+	 * @see DesktopBrowserLauncher
+	 */
+	public static void viewInBrowser(URL url) throws IOException
+	{
+		try
+		{
+			viewInBrowser(url.toURI());
+		}
+		catch (URISyntaxException e)
+		{
+			throw new MalformedURLException(e.getMessage());
+		}
+	}
+	
+	
+	/**
+	 * View a URI in a browser.
+	 *
+	 * @param urI URI to display in browser.
+	 * @throws IOException if browser can not be launched
+	 * @see DesktopBrowserLauncher
+	 */
+	public static void viewInBrowser(URI uri) throws IOException
+	{
 		// Windows tends to lock up or not actually
 		// display anything unless we've specified a
 		// default browser, so at least make the user
@@ -285,12 +333,14 @@ public final class Utility
 		// pick one and it doesn't work, at least they
 		// might know enough to try selecting one the
 		// next time.
-		if (osName.startsWith("Windows ") && (PCGenSettings.getBrowserPath() == null))
+		if (!DesktopBrowserLauncher.isBrowseSupported()
+				&& SystemUtils.IS_OS_WINDOWS
+				&& PCGenSettings.getBrowserPath() == null)
 		{
 			Utility.selectDefaultBrowser(null);
 		}
 
-		BrowserLauncher.openURL(url);
+		DesktopBrowserLauncher.browse(uri);
 
 	}
 

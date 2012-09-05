@@ -56,7 +56,7 @@ public final class Hyperactive implements HyperlinkListener
 //			{
 			try
 			{
-				Utility.viewInBrowser(e.getURL().toString());
+				Utility.viewInBrowser(e.getURL());
 			}
 			catch (IOException t)
 			{
