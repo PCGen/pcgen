@@ -27,6 +27,7 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -48,10 +49,14 @@ import pcgen.core.facade.DataSetFacade;
 import pcgen.core.facade.DefaultReferenceFacade;
 import pcgen.core.facade.EquipmentFacade;
 import pcgen.core.facade.EquipmentListFacade;
+import pcgen.core.facade.EquipmentListFacade.EquipmentListEvent;
+import pcgen.core.facade.EquipmentListFacade.EquipmentListListener;
 import pcgen.core.facade.EquipmentSetFacade;
 import pcgen.core.facade.EquipmentSetFacade.EquipNode.NodeType;
 import pcgen.core.facade.ReferenceFacade;
 import pcgen.core.facade.UIDelegate;
+import pcgen.core.facade.event.ListEvent;
+import pcgen.core.facade.event.ListListener;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.system.LanguageBundle;
@@ -72,7 +77,8 @@ import pcgen.util.Logging;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class EquipmentSetFacadeImpl implements EquipmentSetFacade
+public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
+		EquipmentListListener, ListListener<EquipmentFacade>
 {
 	private PlayerCharacter theCharacter;
 	private EquipSet eqSet;
@@ -86,6 +92,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 	private DefaultListFacade<EquipNode> nodeList;
 	private Map<EquipSlot, EquipNode> equipSlotNodeMap;
 	private Map<String, EquipNodeImpl> naturalWeaponNodes;
+	private final EquipmentListFacadeImpl purchasedList;
 	
 	/**
 	 * Create a new Equipment Set Facade implementation for an existing 
@@ -95,30 +102,22 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 	 * @param pc The character the set belongs to.
 	 * @param eqSet The set.
 	 * @param dataSet The datasets that the character is using.
+	 * @param purchasedList The list of the charcter's purchased equipment.
 	 */
-	public EquipmentSetFacadeImpl(UIDelegate delegate, PlayerCharacter pc, EquipSet eqSet, DataSetFacade dataSet)
+	public EquipmentSetFacadeImpl(UIDelegate delegate, PlayerCharacter pc,
+		EquipSet eqSet, DataSetFacade dataSet,
+		EquipmentListFacadeImpl purchasedList)
 	{
 		this.delegate = delegate;
 		this.theCharacter = pc;
 		this.dataSet = dataSet;
+		this.purchasedList = purchasedList;
 		initForEquipSet(eqSet);
+		
+		purchasedList.addEquipmentListListener(this);
+		purchasedList.addListListener(this);
 	}
 
-	/**
-	 * Create a new Equipment Set Facade implementation for a new  
-	 * equipset.
-	 * 
-	 * @param delegate The user interface delegate for notifying the user. 
-	 * @param pc The character the set belongs to.
-	 * @param name The name of the equipment being added
-	 */
-	public EquipmentSetFacadeImpl(UIDelegate delegate, PlayerCharacter pc, String name)
-	{
-		this.delegate = delegate;
-		this.theCharacter = pc;
-		initForEquipSet(new EquipSet(getNewIdPath(pc, null), name));
-	}
-	
 
 	private void initForEquipSet(EquipSet equipSet)
 	{
@@ -1444,5 +1443,159 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade
 			return toString().compareTo(o.toString());
 		}
 		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void elementAdded(ListEvent<EquipmentFacade> e)
+	{
+		// We don't care about new equipment being added.
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void elementRemoved(ListEvent<EquipmentFacade> e)
+	{
+		EquipmentFacade equipmentFacade = e.getElement();
+		if (equippedItemsList.containsElement(equipmentFacade))
+		{
+			Logging.debugPrint("Currently equipped item " + equipmentFacade + " is being removed.");
+		}
+		List<EquipNodeImpl> affectedList = findEquipmentNodes(equipmentFacade);
+		for (EquipNodeImpl equipNode : affectedList)
+		{
+			EquipSet eSet = theCharacter.getEquipSetByIdPath(equipNode.getIdPath());
+			if (eSet != null)
+			{
+				removeEquipment(equipNode, eSet.getQty().intValue());
+			}
+		}
+	}
+
+
+	private List<EquipNodeImpl> findEquipmentNodes(EquipmentFacade equipmentFacade)
+	{
+		List<EquipNodeImpl> affectedList = new ArrayList<EquipNodeImpl>();
+		for (EquipNode node : nodeList)
+		{
+			if (equipmentFacade.equals(node.getEquipment()))
+			{
+				affectedList.add((EquipNodeImpl) node);
+			}
+		}
+		return affectedList;
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void elementsChanged(ListEvent<EquipmentFacade> e)
+	{
+		// We expect a refresh of the equipment set to follow an equipment changed 
+		// event, so we can ignore these.
+		Logging.debugPrint("Equip elementsChanged " + e);
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void elementModified(ListEvent<EquipmentFacade> e)
+	{
+		// We don't care about new equipment being modified.
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void quantityChanged(EquipmentListEvent e)
+	{
+		EquipmentFacade equipmentFacade = e.getEquipment();
+		if (equippedItemsList.containsElement(equipmentFacade))
+		{
+			int quantity = purchasedList.getQuantity(equipmentFacade) -
+					equippedItemsList.getQuantity(equipmentFacade);
+			if (quantity < 0)
+			{
+				Logging.debugPrint("Currently equipped item " + equipmentFacade
+					+ " is being partially removed " + quantity + " from "
+					+ equippedItemsList.getQuantity(equipmentFacade));
+
+				int numStillToRemove = -1*quantity;
+				List<EquipNodeImpl> affectedList = findEquipmentNodes(equipmentFacade);
+				Collections.sort(affectedList, new EquipLocImportantComparator()); // TODO: Custom sort order
+				for (EquipNodeImpl equipNode : affectedList)
+				{
+					EquipSet eSet = theCharacter.getEquipSetByIdPath(equipNode.getIdPath());
+					if (eSet != null)
+					{
+						int numToRemove = Math.min(eSet.getQty().intValue(),numStillToRemove);
+						removeEquipment(equipNode, numToRemove);
+						numStillToRemove -= numToRemove;
+					}
+					
+					if (numStillToRemove <= 0)
+					{
+						return;
+					}
+				}
+				
+			}
+		}
+	}
+
+	/**
+	 * The Class <code>EquipLocImportantComparator</code> compares EquipNodes based 
+	 * on their 'importance' to the character. The predefined order of the slots is 
+	 * not carried, carried, equipped, all others in alpha order.
+	 */
+
+	public static class EquipLocImportantComparator implements
+			Comparator<EquipNodeImpl>
+	{
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public int compare(EquipNodeImpl node1, EquipNodeImpl node2)
+		{
+			BodyStructureFacade bodyStruct1 = node1.getBodyStructure();
+			BodyStructureFacade bodyStruct2 = node2.getBodyStructure();
+			
+			if (bodyStruct1 != bodyStruct2)
+			{
+				String[] locOrder =
+						new String[]{Constants.EQUIP_LOCATION_NOTCARRIED,
+							Constants.EQUIP_LOCATION_CARRIED,
+							Constants.EQUIP_LOCATION_EQUIPPED};
+				for (String locName : locOrder)
+				{
+					if (locName.equals(bodyStruct1.toString()))
+					{
+						return -1;
+					}
+					if (locName.equals(bodyStruct2.toString()))
+					{
+						return 1;
+					}
+				}
+				
+				return bodyStruct1.toString().compareTo(bodyStruct2.toString());
+			}
+
+			return node1.compareTo(node2);
+		}
+	
 	}
 }

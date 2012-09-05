@@ -468,7 +468,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			if (es.getParentIdPath().equals("0"))
 			{
-				final EquipmentSetFacadeImpl facade = new EquipmentSetFacadeImpl(delegate, pc, es, dataSet);
+				final EquipmentSetFacadeImpl facade =
+						new EquipmentSetFacadeImpl(delegate, pc, es, dataSet,
+							purchasedEquip);
 				eqSetList.add(facade);
 				if (es.getIdPath().equals(currIdPath))
 				{
@@ -3353,7 +3355,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			final double prevQty = (updatedItem.qty() < 0) ? 0 : updatedItem.qty();
 			final double newQty = prevQty - quantity;
 
-			//TODO: Check for presence in equipset and offer to remove
 			if (newQty <= 0)
 			{
 				// completely remove item
@@ -3368,7 +3369,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				}
 
 				theCharacter.removeEquipment(updatedItem);
-				theCharacter.delEquipSetItem(updatedItem);
 				purchasedEquip.removeElement(updatedItem);
 			} else
 			{
@@ -3506,7 +3506,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		String id = EquipmentSetFacadeImpl.getNewIdPath(theCharacter, null);
 		EquipSet eSet = new EquipSet(id, setName);
 		theCharacter.addEquipSet(eSet);
-		final EquipmentSetFacadeImpl facade = new EquipmentSetFacadeImpl(delegate, theCharacter, eSet, dataSet);
+		final EquipmentSetFacadeImpl facade =
+				new EquipmentSetFacadeImpl(delegate, theCharacter, eSet,
+					dataSet, purchasedEquip);
 		equipmentSets.addElement(facade);
 
 		return facade;

@@ -35,6 +35,7 @@ import pcgen.core.facade.event.ListListener;
 import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
 import pcgen.core.facade.util.AbstractListFacade;
+import pcgen.util.Logging;
 
 public class UnequippedList extends AbstractListFacade<EquipmentFacade> implements EquipmentListFacade, EquipmentListListener, ListListener<EquipmentFacade>, ReferenceListener<EquipmentSetFacade>
 {
@@ -44,6 +45,7 @@ public class UnequippedList extends AbstractListFacade<EquipmentFacade> implemen
 	private final List<EquipmentFacade> equipmentList;
 	private final Map<EquipmentFacade, Integer> quantityMap;
 	private EquipmentListFacade equippedList;
+	private EquipmentFacade lastRemoved;
 
 	public UnequippedList(CharacterFacade character)
 	{
@@ -141,6 +143,7 @@ public class UnequippedList extends AbstractListFacade<EquipmentFacade> implemen
 		EquipmentFacade equipment = e.getElement();
 		if (e.getSource() == purchasedList)
 		{
+			lastRemoved = null;			
 			addEquipment(equipment, purchasedList.getQuantity(equipment));
 		}
 		else
@@ -165,9 +168,17 @@ public class UnequippedList extends AbstractListFacade<EquipmentFacade> implemen
 		if (e.getSource() == purchasedList)
 		{
 			removeEquipment(equipment);
+			// We remember this item has been removed as we could be getting a 
+			// message to say it has been unequipped shortly.
+			lastRemoved = equipment;
 		}
 		else
 		{
+			if (equipment.equals(lastRemoved))
+			{
+				Logging.debugPrint("Ignoring unequip of item just removed: " + equipment);
+				return;
+			}
 			int quantity = purchasedList.getQuantity(equipment) -
 					equippedList.getQuantity(equipment);
 			if (quantityMap.containsKey(equipment))

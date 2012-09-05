@@ -105,4 +105,13 @@ public class MockUIDelegate implements UIDelegate
 		return false;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String showInputDialog(String title, String message, String initialValue)
+	{
+		return null;
+	}
+
 }
