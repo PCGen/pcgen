@@ -10017,6 +10017,13 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 			Collection<AssociatedPrereqObject> assoc = cdo.getListAssociations(ref, objref);
 			for (Ability ab : objs)
 			{
+				if (ab == null)
+				{
+					Logging.log(Logging.LST_ERROR,
+						"Missing object referenced in the ability list for "
+							+ cdo + " list is " + ref);
+					continue;
+				}
 				for (AssociatedPrereqObject apo : assoc)
 				{
 					Nature nature = apo.getAssociation(AssociationKey.NATURE);
