@@ -23,6 +23,9 @@
 package pcgen.util;
 
 import java.io.File;
+
+import org.apache.commons.lang.SystemUtils;
+
 import pcgen.PCGenTestCase;
 
 /**
@@ -158,21 +161,38 @@ public class FileHelperTest extends PCGenTestCase
 			+ "different.txt", path);
 	}
 	
+	/**
+	 * Validate windows only relative paths on the same drive. 
+	 * Note the tests only run on Windows machines.
+	 * @throws Exception In some failure conditions.
+	 */
 	public void testWindowsDriveSame() throws Exception
 	{
 		final File base = new File("C:\\Temp\\foo.txt"); 
 		final File sameDir = new File("C:\\Temp\\bar\\baz.txt"); 
-		final String path =
-				FileHelper.findRelativePath(base, sameDir);
-		assertEquals("Incorrect relative path for same windows drive", "bar\\baz.txt", path);
+		if (SystemUtils.IS_OS_WINDOWS)
+		{
+			final String path = FileHelper.findRelativePath(base, sameDir);
+			assertEquals("Incorrect relative path for same windows drive",
+				"bar\\baz.txt", path);
+		}
 	}
 	
+	/**
+	 * Validate windows only relative paths on different drives. 
+	 * Note the tests only run on Windows machines.
+	 * @throws Exception In some failure conditions.
+	 */
 	public void testWindowsDriveDifferent() throws Exception
 	{
 		final File base = new File("C:\\Temp\\foo.txt"); 
-		final File sameDir = new File("D:\\Temp\\bar.txt"); 
-		final String path =
-				FileHelper.findRelativePath(base, sameDir);
-		assertEquals("Incorrect relative path for different windows drive", "D:\\Temp\\bar.txt", path);
+		final File sameDir = new File("D:\\Temp\\bar.txt");
+		
+		if (SystemUtils.IS_OS_WINDOWS)
+		{
+			final String path = FileHelper.findRelativePath(base, sameDir);
+			assertEquals("Incorrect relative path for different windows drive",
+				"D:\\Temp\\bar.txt", path);
+		}
 	}
 }
