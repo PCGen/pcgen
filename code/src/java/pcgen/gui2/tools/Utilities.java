@@ -82,25 +82,6 @@ public final class Utilities implements SwingConstants
         super();
     }
 
-    public static FlippingSplitPane createDefaultFlippingSplitPane()
-    {
-        FlippingSplitPane pane = new FlippingSplitPane();
-        pane.setContinuousLayout(true);
-        pane.setOneTouchExpandable(true);
-        pane.setDividerSize(7);
-        return pane;
-    }
-
-    public static FlippingSplitPane createDefaultDualFlippingSplitPane()
-    {
-        FlippingSplitPane pane = new FlippingSplitPane();
-        pane.setRightComponent(new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT));
-        pane.setContinuousLayout(true);
-        pane.setOneTouchExpandable(true);
-        pane.setDividerSize(7);
-        return pane;
-    }
-
     /**
      * Work around bug in W32; it returns false even on right-mouse
      * clicks.

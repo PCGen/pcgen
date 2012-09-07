@@ -35,7 +35,8 @@ public class ChooserPane extends FlippingSplitPane
 
     public ChooserPane()
     {
-        this.subSplitPane = new FlippingSplitPane(VERTICAL_SPLIT);
+		super("Chooser");
+        this.subSplitPane = new FlippingSplitPane(VERTICAL_SPLIT, "ChooserRight");
         this.infoPane = new InfoPane();
 
         subSplitPane.setBottomComponent(infoPane);

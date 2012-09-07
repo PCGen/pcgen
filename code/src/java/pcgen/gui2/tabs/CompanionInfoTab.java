@@ -89,6 +89,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 
 	public CompanionInfoTab()
 	{
+		super("Companion");
 		this.companionsTable = new JTreeTable()
 		{
 

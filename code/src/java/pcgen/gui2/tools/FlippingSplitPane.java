@@ -26,6 +26,7 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+
 import javax.swing.AbstractAction;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JMenu;
@@ -34,8 +35,11 @@ import javax.swing.JPopupMenu;
 import javax.swing.JSplitPane;
 import javax.swing.plaf.SplitPaneUI;
 import javax.swing.plaf.basic.BasicSplitPaneUI;
+
+import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.event.PopupMouseAdapter;
 import pcgen.system.LanguageBundle;
+import pcgen.system.PropertyContext;
 
 /**
  * <code>FlippingSplitPane</code> is an improved version of
@@ -73,16 +77,22 @@ import pcgen.system.LanguageBundle;
  */
 public class FlippingSplitPane extends JSplitPane
 {
+	/** Preferences key for storing the preferred divider location. */
+	private static final String DIVIDER_LOC_PREF_KEY = "location"; //$NON-NLS-1$
 
-	static final long serialVersionUID = -6343545558990369582L;
+	private static final long serialVersionUID = 735390251967305647L;
+
 	private final LockAction lockAction = new LockAction();
 	private JPopupMenu popupMenu = null;
+	private PropertyContext baseContext;
+	private final String prefsKey;
 
 	/**
 	 * Creates a new <code>FlippingSplitPane</code>.  Panes begin as unlocked
 	 */
-	public FlippingSplitPane()
+	public FlippingSplitPane(String prefsKey)
 	{
+		this.prefsKey = prefsKey;
 		initComponent();
 	}
 
@@ -90,10 +100,11 @@ public class FlippingSplitPane extends JSplitPane
 	 * Creates a new <code>FlippingSplitPane</code>.  Panes begin as unlocked, and
 	 * otherwise take the defaults of {@link JSplitPane#JSplitPane(int)}.
 	 */
-	public FlippingSplitPane(int newOrientation)
+	public FlippingSplitPane(int newOrientation, String prefsKey)
 	{
 		super(newOrientation);
 
+		this.prefsKey = prefsKey;
 		initComponent();
 	}
 
@@ -101,10 +112,12 @@ public class FlippingSplitPane extends JSplitPane
 	 * Creates a new <code>FlippingSplitPane</code>.  Panes begin as unlocked, and
 	 * otherwise take the defaults of {@link JSplitPane#JSplitPane(int, boolean)}.
 	 */
-	public FlippingSplitPane(int newOrientation, boolean newContinuousLayout)
+	public FlippingSplitPane(int newOrientation, boolean newContinuousLayout,
+		String prefsKey)
 	{
 		super(newOrientation, newContinuousLayout);
 
+		this.prefsKey = prefsKey;
 		initComponent();
 	}
 
@@ -114,10 +127,11 @@ public class FlippingSplitPane extends JSplitPane
 	 * Component)}.
 	 */
 	public FlippingSplitPane(int newOrientation, Component newLeftComponent,
-			Component newRightComponent)
+			Component newRightComponent, String prefsKey)
 	{
 		super(newOrientation, newLeftComponent, newRightComponent);
 
+		this.prefsKey = prefsKey;
 		initComponent();
 	}
 
@@ -128,14 +142,15 @@ public class FlippingSplitPane extends JSplitPane
 	 */
 	public FlippingSplitPane(int newOrientation, boolean newContinuousLayout,
 			Component newLeftComponent,
-			Component newRightComponent)
+			Component newRightComponent, String prefsKey)
 	{
 		super(newOrientation, newContinuousLayout, newLeftComponent,
 				newRightComponent);
 
+		this.prefsKey = prefsKey;
 		initComponent();
 	}
-
+	
 	/**
 	 * <code>setContinuousLayout</code> recursively calls {@link
 	 * JSplitPane#setContinuousLayout(boolean)} on <code>FlippingSplitPane</code>
@@ -158,6 +173,16 @@ public class FlippingSplitPane extends JSplitPane
 				newContinuousLayout);
 	}
 
+	private void setInitialDividerLocation()
+	{
+		PropertyContext context = baseContext.createChildContext(prefsKey);
+		int location = context.getInt(DIVIDER_LOC_PREF_KEY, -1);
+		if (location >= 0)
+		{
+			setDividerLocation(location);
+		}
+	}
+	
 	/**
 	 * <code>setDividerLocation</code> calls {@link JSplitPane#setDividerLocation(int)}
 	 * unless the <code>FlippingSplitPane</code> is locked.
@@ -167,6 +192,8 @@ public class FlippingSplitPane extends JSplitPane
 	@Override
 	public void setDividerLocation(int location)
 	{
+		PropertyContext context = baseContext.createChildContext(prefsKey);
+		context.setInt(DIVIDER_LOC_PREF_KEY, (Integer) location);
 		if (isLocked())
 		{
 			super.setDividerLocation(getLastDividerLocation());
@@ -455,6 +482,8 @@ public class FlippingSplitPane extends JSplitPane
 			((BasicSplitPaneUI) anUi).getDivider().addMouseListener(new PopupListener());
 		}
 		setResizeWeight(0.5);
+		baseContext = UIPropertyContext.createContext("dividerPrefs");
+		setInitialDividerLocation();
 	}
 
 	private class LockAction extends AbstractAction

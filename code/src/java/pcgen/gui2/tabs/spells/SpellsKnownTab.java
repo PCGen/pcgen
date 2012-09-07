@@ -72,6 +72,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 	public SpellsKnownTab()
 	{
+		super("SpellsKnown");
 		this.availableTable = new JTreeViewTable<SuperNode>();
 		this.selectedTable = new JTreeViewTable<SuperNode>();
 		this.addButton = new JButton();
@@ -86,7 +87,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 	private void initComponents()
 	{
-		FlippingSplitPane upperPane = new FlippingSplitPane();
+		FlippingSplitPane upperPane = new FlippingSplitPane("SpellsKnownTop");
 		Box box = Box.createVerticalBox();
 		JScrollPane pane = new JScrollPane(availableTable);
 		pane.setPreferredSize(new Dimension(250, 300));
@@ -159,7 +160,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		upperPane.setResizeWeight(0);
 		setTopComponent(upperPane);
 
-		FlippingSplitPane bottomPane = new FlippingSplitPane();
+		FlippingSplitPane bottomPane = new FlippingSplitPane("SpellsKnownBottom");
 		bottomPane.setLeftComponent(spellsPane);
 		bottomPane.setRightComponent(classPane);
 		setBottomComponent(bottomPane);

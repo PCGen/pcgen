@@ -96,6 +96,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 
 	public AbilityChooserTab()
 	{
+		super("ability");
 		this.availableTreeViewPanel = new FilteredTreeViewTable<CharacterFacade, AbilityFacade>();
 		this.selectedTreeViewPanel = new JTreeTable();
 		this.categoryTable = new JTable();
@@ -137,7 +138,8 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		FlippingSplitPane topPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT,
 														  true,
 														  availPanel,
-														  selPanel);
+														  selPanel,
+														  "abilityTop");
 
 		setTopComponent(topPane);
 
@@ -161,7 +163,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		filterPanel.add(categoryBar, BorderLayout.NORTH);
 		filterPanel.add(new JScrollPane(categoryTable), BorderLayout.CENTER);
 
-		FlippingSplitPane bottomPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT);
+		FlippingSplitPane bottomPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, "abilityBottom");
 		bottomPane.setLeftComponent(filterPanel);
 		bottomPane.setRightComponent(infoPane);
 		setBottomComponent(bottomPane);

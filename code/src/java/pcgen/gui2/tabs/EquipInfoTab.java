@@ -128,6 +128,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	public EquipInfoTab()
 	{
+		super("Equip");
 		this.equipmentTable = new JDynamicTable();
 		this.equipViewBox = new JComboBox(EquipView.values());
 		this.infoPane = new InfoPane();
@@ -173,7 +174,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 
 		setOrientation(HORIZONTAL_SPLIT);
-		FlippingSplitPane splitPane = new FlippingSplitPane(VERTICAL_SPLIT);
+		FlippingSplitPane splitPane = new FlippingSplitPane(VERTICAL_SPLIT, "EquipMain");
 
 		JPanel panel = new JPanel(new BorderLayout());
 

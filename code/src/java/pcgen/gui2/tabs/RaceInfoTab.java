@@ -93,6 +93,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	public RaceInfoTab()
 	{
+		super("Race");
 		this.raceTable = new FilteredTreeViewTable<Object, RaceFacade>();
 		this.selectedTable = new FilteredTreeViewTable<Object, RaceFacade>();
 		this.infoPane = new InfoPane(LanguageBundle.getString("in_irRaceInfo")); //$NON-NLS-1$
@@ -105,7 +106,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	private void initComponents()
 	{
-		FlippingSplitPane topPane = new FlippingSplitPane();
+		FlippingSplitPane topPane = new FlippingSplitPane("RaceTop");
 		setTopComponent(topPane);
 		setOrientation(VERTICAL_SPLIT);
 

@@ -141,6 +141,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	 */
 	public PurchaseInfoTab()
 	{
+		super("Purchase");
 		this.availableTable = new FilteredTreeViewTable<CharacterFacade, EquipmentFacade>();
 		this.purchasedTable = new FilteredTreeViewTable<CharacterFacade, EquipmentFacade>();
 		this.autoResizeBox = new JCheckBox();
@@ -163,7 +164,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private void initComponents()
 	{
 		setOrientation(VERTICAL_SPLIT);
-		FlippingSplitPane splitPane = new FlippingSplitPane();
+		FlippingSplitPane splitPane = new FlippingSplitPane("PurchaseTop");
 		splitPane.setOrientation(HORIZONTAL_SPLIT);
 		{// Top Left panel
 			FilterBar<CharacterFacade, EquipmentFacade> filterBar = new FilterBar<CharacterFacade, EquipmentFacade>();
@@ -240,7 +241,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			splitPane.setRightComponent(panel);
 		}
 		setTopComponent(splitPane);
-		splitPane = new FlippingSplitPane();
+		splitPane = new FlippingSplitPane("PurchaseBottom");
 		splitPane.setOrientation(HORIZONTAL_SPLIT);
 		{// Bottom Left Panel
 			JPanel panel = new JPanel();

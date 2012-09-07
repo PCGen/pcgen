@@ -410,7 +410,7 @@ public final class PreferencesDialog extends JDialog
 		// Build the split pane
 		splitPane =
 				new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT,
-					settingsScroll, settingsPanel);
+					settingsScroll, settingsPanel, "Prefs");
 		splitPane.setOneTouchExpandable(true);
 		splitPane.setDividerSize(10);
 

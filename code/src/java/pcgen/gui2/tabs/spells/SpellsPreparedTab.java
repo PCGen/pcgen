@@ -72,6 +72,7 @@ public class SpellsPreparedTab extends FlippingSplitPane
 
 	public SpellsPreparedTab()
 	{
+		super("SpellsPrepared");
 		this.availableTable = new JTreeViewTable<SuperNode>();
 		this.selectedTable = new JTreeViewTable<SuperNode>();
 		this.addMMSpellButton = new JButton();
@@ -88,7 +89,7 @@ public class SpellsPreparedTab extends FlippingSplitPane
 
 	private void initComponents()
 	{
-		FlippingSplitPane upperPane = new FlippingSplitPane();
+		FlippingSplitPane upperPane = new FlippingSplitPane("SpellsPreparedTop");
 		Box box = Box.createVerticalBox();
 		JScrollPane pane = new JScrollPane(availableTable);
 		pane.setPreferredSize(new Dimension(250, 300));
@@ -137,7 +138,7 @@ public class SpellsPreparedTab extends FlippingSplitPane
 		upperPane.setResizeWeight(0);
 		setTopComponent(upperPane);
 
-		FlippingSplitPane bottomPane = new FlippingSplitPane();
+		FlippingSplitPane bottomPane = new FlippingSplitPane("SpellsPreparedBottom");
 		bottomPane.setLeftComponent(spellsPane);
 		bottomPane.setRightComponent(classPane);
 		setBottomComponent(bottomPane);

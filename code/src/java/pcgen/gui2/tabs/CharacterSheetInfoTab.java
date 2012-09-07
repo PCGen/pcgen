@@ -90,6 +90,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 	@SuppressWarnings("serial")
 	public CharacterSheetInfoTab()
 	{
+		super("CharSheet");
 		this.csheet = new CharacterSheetPanel();
 		this.sheetBox = new JComboBox();
 		this.equipSetTable = TableUtils.createDefaultTable();
@@ -117,7 +118,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		});
 		box.add(sheetBox);
 		panel.add(box, BorderLayout.NORTH);
-		FlippingSplitPane subPane = new FlippingSplitPane();
+		FlippingSplitPane subPane = new FlippingSplitPane("CharSheetLeft");
 		subPane.setOrientation(VERTICAL_SPLIT);
 		equipSetTable.getTableHeader().setReorderingAllowed(false);
 		JScrollPane pane = TableUtils.createRadioBoxSelectionPane(equipSetTable, equipSetRowTable);

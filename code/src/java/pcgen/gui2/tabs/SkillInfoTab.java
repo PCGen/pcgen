@@ -95,6 +95,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 	public SkillInfoTab()
 	{
+		super("Skill");
 		this.skillTable = new FilteredTreeViewTable<CharacterFacade, SkillFacade>();
 		this.skillcostTable = new JTable();
 		this.skillpointTable = new JTable();
@@ -156,10 +157,11 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		FlippingSplitPane topPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT,
 			  true,
 			  availPanel,
-			  selScrollPane);
+			  selScrollPane,
+			  "SkillTop");
 		setTopComponent(topPane);
 
-		FlippingSplitPane bottomPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT);
+		FlippingSplitPane bottomPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, "SkillBottom");
 		bottomPane.setLeftComponent(tablePanel);
 		tablePanel.setPreferredSize(new Dimension(650, 100));
 		bottomPane.setRightComponent(infoPane);

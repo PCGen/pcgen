@@ -84,6 +84,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 	 */
 	public DescriptionInfoTab()
 	{
+		super("Desc");
 		this.portraitPane = new PortraitInfoPane();
 		this.bioPane = new BiographyInfoPane();
 		this.histPane = new CampaignHistoryInfoPane();
