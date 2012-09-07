@@ -246,8 +246,11 @@ public class LanguagePanel extends PCGenPrefsPanel
 			langSystem.setSelected(true);
 		}
 
-		origUnitSet = SettingsHandler.getGame().getUnitSet()
-				.getDisplayName();
+		origUnitSet =
+				SettingsHandler.getGame() != null
+					&& SettingsHandler.getGame().getUnitSet() != null
+					? SettingsHandler.getGame().getUnitSet().getDisplayName()
+					: "";
 		if (unitSetType.getItemCount() > 0)
 		{
 			unitSetType.setSelectedIndex(0);
