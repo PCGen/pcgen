@@ -251,7 +251,8 @@ public class SourcesPanel extends PCGenPrefsPanel
 		PCGenSettings.OPTIONS_CONTEXT
 			.setBoolean(PCGenSettings.OPTION_SAVE_CUSTOM_EQUIPMENT,
 				saveCustom.isSelected());
-		SettingsHandler.setShowLicense(showOGL.isSelected());
+		PCGenSettings.getInstance().setBoolean(
+			PCGenSettings.OPTION_SHOW_LICENSE, showOGL.isSelected());
 		SettingsHandler.setShowMature(showMature.isSelected());
 		SettingsHandler.setShowD20Info(showd20.isSelected());
 		SettingsHandler.setShowSponsors(showSponsors.isSelected());
@@ -305,7 +306,8 @@ public class SourcesPanel extends PCGenPrefsPanel
 			.isOptionAllowedInSources());
 		saveCustom.setSelected(PCGenSettings.OPTIONS_CONTEXT
 			.getBoolean(PCGenSettings.OPTION_SAVE_CUSTOM_EQUIPMENT));
-		showOGL.setSelected(SettingsHandler.showLicense());
+		showOGL.setSelected(PCGenSettings.getInstance().getBoolean(
+			PCGenSettings.OPTION_SHOW_LICENSE));
 		showMature.setSelected(SettingsHandler.showMature());
 		showd20.setSelected(SettingsHandler.showD20Info());
 		showSponsors.setSelected(SettingsHandler.showSponsors());
