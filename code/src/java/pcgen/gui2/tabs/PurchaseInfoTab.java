@@ -1470,7 +1470,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			}
 			else if (quantity == SELL_ALL_QUANTITY)
 			{
-				setToolTipText(LanguageBundle.getString("in_igSelAllMenuDesc")); //$NON-NLS-1$
+				setToolTipText(LanguageBundle.getString("in_igSellAllMenuDesc")); //$NON-NLS-1$
 			}
 			else
 			{
