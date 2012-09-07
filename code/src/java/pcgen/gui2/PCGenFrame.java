@@ -1548,6 +1548,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		aFrame.getContentPane().add(jPanel, BorderLayout.SOUTH);
 		aFrame.setSize(new Dimension(700, 500));
 		aFrame.setLocationRelativeTo(this);
+		aFrame.getRootPane().setDefaultButton(jClose);
 		aFrame.setVisible(true);
 	}
 

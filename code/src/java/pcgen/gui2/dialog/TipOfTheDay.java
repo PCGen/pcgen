@@ -157,6 +157,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 
 		tipText = new JLabelPane();
 		tipText.setBorder(null);
+		tipText.setFocusable(false);
 		tipText.addHyperlinkListener(new Hyperactive());
 
 		final JScrollPane pane = new JScrollPane(tipText);
@@ -194,6 +195,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 
 		panel.add(actions, BorderLayout.SOUTH);
 		setContentPane(panel);
+		getRootPane().setDefaultButton(btnClose);
 
 		addWindowListener(new WindowAdapter()
 		{
