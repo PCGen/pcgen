@@ -49,6 +49,8 @@ public final class UIPropertyContext extends PropertyContext
 	public static final String SAVE_OUTPUT_SHEET_WITH_PC = "saveOutputSheetWithPC";
 	/** Should we delete all temp files on exit that were generated during outputting character. */
 	public static final String CLEANUP_TEMP_FILES = "cleanupTempFiles";
+	/** Settings key for basic/advanced sources. */
+	public static final String SOURCE_USE_BASIC_KEY = "SourceSelectionDialog.useBasic"; //$NON-NLS-1$
 
 	/**
 	 * The character property for the initial tab to open

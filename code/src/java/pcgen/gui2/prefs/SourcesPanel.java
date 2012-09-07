@@ -61,8 +61,6 @@ import pcgen.util.Logging;
 @SuppressWarnings("serial")
 public class SourcesPanel extends PCGenPrefsPanel
 {
-	/** Settings key for basic/advanced sources. */
-	private static final String SOURCE_USE_BASIC_KEY = "SourceSelectionDialog.useBasic"; //$NON-NLS-1$
 	private static String in_sources =
 		LanguageBundle.getString("in_Prefs_sources"); //$NON-NLS-1$
 	
@@ -220,7 +218,9 @@ public class SourcesPanel extends PCGenPrefsPanel
 		SettingsHandler.setShowSponsors(showSponsors.isSelected());
 		SettingsHandler.setLoadURLs(loadURL.isSelected());
 		SettingsHandler.setAllowOverride(allowOverride.isSelected());
-		UIPropertyContext.getInstance().setBoolean(SOURCE_USE_BASIC_KEY, !useAdvancedSourceSelect.isSelected());
+		UIPropertyContext.getInstance().setBoolean(
+			UIPropertyContext.SOURCE_USE_BASIC_KEY,
+			!useAdvancedSourceSelect.isSelected());
 		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
 			PCGenSettings.OPTION_SOURCES_ALLOW_MULTI_LINE,
 			allowMultiLineObjectsSelect.isSelected());
@@ -275,7 +275,8 @@ public class SourcesPanel extends PCGenPrefsPanel
 		showSponsors.setSelected(SettingsHandler.showSponsors());
 		loadURL.setSelected(SettingsHandler.isLoadURLs());
 		allowOverride.setSelected(SettingsHandler.isAllowOverride());
-		useAdvancedSourceSelect.setSelected(!UIPropertyContext.getInstance().getBoolean(SOURCE_USE_BASIC_KEY));
+		useAdvancedSourceSelect.setSelected(!UIPropertyContext.getInstance()
+			.getBoolean(UIPropertyContext.SOURCE_USE_BASIC_KEY));
 		allowMultiLineObjectsSelect.setSelected(PCGenSettings.OPTIONS_CONTEXT
 			.getBoolean(PCGenSettings.OPTION_SOURCES_ALLOW_MULTI_LINE));
 		

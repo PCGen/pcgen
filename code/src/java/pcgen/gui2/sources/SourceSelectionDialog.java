@@ -40,6 +40,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -103,6 +104,7 @@ public class SourceSelectionDialog extends JDialog
 	private JButton deleteButton;
 	private JButton installDataButton;
 	private JButton saveButton;
+	private JCheckBox alwaysAdvancedCheck;
 
 	public SourceSelectionDialog(PCGenFrame frame)
 	{
@@ -119,6 +121,11 @@ public class SourceSelectionDialog extends JDialog
 		this.deleteButton = new JButton(LanguageBundle.getString("in_delete")); //$NON-NLS-1$
 		this.installDataButton = new JButton(LanguageBundle.getString("in_mnuSourcesInstallData")); //$NON-NLS-1$
 		this.saveButton = new JButton(LanguageBundle.getString("in_saveSelection")); //$NON-NLS-1$
+		this.alwaysAdvancedCheck =
+				new JCheckBox(
+					LanguageBundle.getString("in_sourceAlwaysAdvanced"), //$NON-NLS-1$
+					!UIPropertyContext.getInstance().initBoolean(
+						UIPropertyContext.SOURCE_USE_BASIC_KEY, true));
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		initComponents();
 		initDefaults();
@@ -226,6 +233,7 @@ public class SourceSelectionDialog extends JDialog
 	{
 		buttonPanel.removeAll();
 		buttonPanel.add(saveButton);
+		buttonPanel.add(alwaysAdvancedCheck);
 		buttonPanel.revalidate();
 	}
 
@@ -378,6 +386,12 @@ public class SourceSelectionDialog extends JDialog
 		if (visible)
 		{
 			advancedPanel.refreshDisplay();
+		}
+		else
+		{
+			UIPropertyContext.getInstance().setBoolean(
+				UIPropertyContext.SOURCE_USE_BASIC_KEY,
+				!alwaysAdvancedCheck.isSelected());
 		}
 		super.setVisible(visible);
 	}
