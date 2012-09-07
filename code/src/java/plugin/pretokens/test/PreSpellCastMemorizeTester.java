@@ -67,16 +67,19 @@ public class PreSpellCastMemorizeTester extends AbstractPrerequisiteTest
 	{
 		final boolean prereqMemorized =
 				prereq.getKey().toUpperCase().startsWith("Y"); //$NON-NLS-1$
+		final Object[] args =
+				new Object[]{prereq.getOperator().toDisplayString(),
+					prereq.getOperand()};
 
 		if (prereqMemorized)
 		{
 			return LanguageBundle
 				.getFormattedString(
-					"PreSpellCastMemorize.toHtml_does_memorise", prereq.getOperator().toDisplayString()); //$NON-NLS-1$
+					"PreSpellCastMemorize.toHtml_does_memorise", args); //$NON-NLS-1$
 		}
 		return LanguageBundle
 			.getFormattedString(
-				"PreSpellCastMemorize.toHtml_does_not_memorise", prereq.getOperator().toDisplayString()); //$NON-NLS-1$
+				"PreSpellCastMemorize.toHtml_does_not_memorise", args); //$NON-NLS-1$
 	}
 
 }
