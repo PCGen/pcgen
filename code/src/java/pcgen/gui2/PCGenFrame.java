@@ -107,6 +107,7 @@ import pcgen.gui2.dialog.TipOfTheDay;
 import pcgen.gui2.sources.SourceSelectionDialog;
 import pcgen.gui2.tabs.InfoTabbedPane;
 import pcgen.gui2.tools.Icons;
+import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.ShowMessageGuiObserver;
 import pcgen.gui2.util.SwingWorker;
 import pcgen.gui2.util.table.TableCellUtilities;
@@ -1549,6 +1550,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		aFrame.setSize(new Dimension(700, 500));
 		aFrame.setLocationRelativeTo(this);
 		aFrame.getRootPane().setDefaultButton(jClose);
+		Utility.installEscapeCloseOperation(aFrame);
 		aFrame.setVisible(true);
 	}
 
