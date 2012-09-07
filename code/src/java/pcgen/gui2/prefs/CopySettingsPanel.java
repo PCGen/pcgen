@@ -88,7 +88,7 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 		this.setLayout(gridbag);
 		c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.NORTHWEST;
+		c.anchor = GridBagConstraints.LINE_START;
 		c.insets = new Insets(2, 2, 2, 2);
 
 		gameModeSelect.setAllItems(SystemCollections

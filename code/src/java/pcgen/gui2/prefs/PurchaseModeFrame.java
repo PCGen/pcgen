@@ -61,6 +61,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.util.JComboBoxEx;
 import pcgen.rules.context.ReferenceContext;
+import pcgen.system.LanguageBundle;
 
 /**
  * The Class <code>PurchaseModeFrame</code> is responsible for displaying  
@@ -75,7 +76,7 @@ import pcgen.rules.context.ReferenceContext;
 public final class PurchaseModeFrame extends JDialog
 {
 	static final long serialVersionUID = -5244500546425680322L;
-	private static String s_TITLE = "Purchase Mode Configuration";
+	private static String s_TITLE = LanguageBundle.getString("in_Prefs_purModConf"); //$NON-NLS-1$
 	private static final int STANDARD_MIN_PURCHASE_SCORE = 8;
 	private static final int STANDARD_MAX_PURCHASE_SCORE = 18;
 	private JButton addMethodButton = null;
@@ -157,7 +158,7 @@ public final class PurchaseModeFrame extends JDialog
 			else
 			{
 				ShowMessageDelegate.showMessageDialog(
-					"Cannot add method. Name already exists.",
+					LanguageBundle.getString("in_Prefs_cannotAdd"), //$NON-NLS-1$
 					Constants.APPLICATION_NAME, MessageType.ERROR);
 			}
 		}
@@ -195,7 +196,7 @@ public final class PurchaseModeFrame extends JDialog
 		if (method == null)
 		{
 			removeMethodButton.setEnabled(false);
-			purchaseMethodPointsEdit.setText("");
+			purchaseMethodPointsEdit.setText(""); //$NON-NLS-1$
 		}
 		else
 		{
@@ -267,8 +268,8 @@ public final class PurchaseModeFrame extends JDialog
 
 		jPanel1.setLayout(new FlowLayout(FlowLayout.LEFT, 2, 5));
 
-		purchaseScoreMinLabel.setText("Purchase Score Min:");
-		purchaseScoreMinLabel.setToolTipText("The ability score can not go below this value");
+		purchaseScoreMinLabel.setText(LanguageBundle.getString("in_Prefs_purchMin")); //$NON-NLS-1$
+		purchaseScoreMinLabel.setToolTipText(LanguageBundle.getString("in_Prefs_purchMinTip")); //$NON-NLS-1$
 		purchaseScoreMinLabel.setPreferredSize(new Dimension(140, 15));
 		jPanel1.add(purchaseScoreMinLabel);
 
@@ -293,8 +294,8 @@ public final class PurchaseModeFrame extends JDialog
 		});
 		jPanel1.add(purchaseScoreMinEdit);
 
-		purchaseScoreMinIncreaseButton.setText("+");
-		purchaseScoreMinIncreaseButton.setToolTipText("Increase score minimum");
+		purchaseScoreMinIncreaseButton.setText(LanguageBundle.getString("in_Prefs_plus")); //$NON-NLS-1$
+		purchaseScoreMinIncreaseButton.setToolTipText(LanguageBundle.getString("in_Prefs_incMin")); //$NON-NLS-1$
 		purchaseScoreMinIncreaseButton.setMargin(new Insets(2, 2, 2, 2));
 		purchaseScoreMinIncreaseButton.setPreferredSize(new Dimension(30, 20));
 		purchaseScoreMinIncreaseButton.addActionListener(new ActionListener()
@@ -308,8 +309,8 @@ public final class PurchaseModeFrame extends JDialog
 
 		jPanel1.add(purchaseScoreMinIncreaseButton);
 
-		purchaseScoreMinDecreaseButton.setText("-");
-		purchaseScoreMinDecreaseButton.setToolTipText("Decrease score minimum");
+		purchaseScoreMinDecreaseButton.setText(LanguageBundle.getString("in_Prefs_minus")); //$NON-NLS-1$
+		purchaseScoreMinDecreaseButton.setToolTipText(LanguageBundle.getString("in_Prefs_decMin")); //$NON-NLS-1$
 		purchaseScoreMinDecreaseButton.setMargin(new Insets(2, 2, 2, 2));
 		purchaseScoreMinDecreaseButton.setPreferredSize(new Dimension(30, 20));
 		purchaseScoreMinDecreaseButton.addActionListener(new ActionListener()
@@ -333,8 +334,8 @@ public final class PurchaseModeFrame extends JDialog
 
 		jPanel2.setLayout(new FlowLayout(FlowLayout.LEFT, 2, 5));
 
-		purchaseScoreMaxLabel.setText("Purchase Score Max:");
-		purchaseScoreMaxLabel.setToolTipText("The ability score can not go above this value");
+		purchaseScoreMaxLabel.setText(LanguageBundle.getString("in_Prefs_purchMax")); //$NON-NLS-1$
+		purchaseScoreMaxLabel.setToolTipText(LanguageBundle.getString("in_Prefs_purchMaxTip")); //$NON-NLS-1$
 		purchaseScoreMaxLabel.setPreferredSize(new Dimension(140, 15));
 		jPanel2.add(purchaseScoreMaxLabel);
 
@@ -359,8 +360,8 @@ public final class PurchaseModeFrame extends JDialog
 		});
 		jPanel2.add(purchaseScoreMaxEdit);
 
-		purchaseScoreMaxIncreaseButton.setText("+");
-		purchaseScoreMaxIncreaseButton.setToolTipText("Increase score maximum");
+		purchaseScoreMaxIncreaseButton.setText(LanguageBundle.getString("in_Prefs_plus")); //$NON-NLS-1$
+		purchaseScoreMaxIncreaseButton.setToolTipText(LanguageBundle.getString("in_Prefs_incMax")); //$NON-NLS-1$
 		purchaseScoreMaxIncreaseButton.setMargin(new Insets(2, 2, 2, 2));
 		purchaseScoreMaxIncreaseButton.setPreferredSize(new Dimension(30, 20));
 		purchaseScoreMaxIncreaseButton.addActionListener(new ActionListener()
@@ -374,8 +375,8 @@ public final class PurchaseModeFrame extends JDialog
 
 		jPanel2.add(purchaseScoreMaxIncreaseButton);
 
-		purchaseScoreMaxDecreaseButton.setText("-");
-		purchaseScoreMaxDecreaseButton.setToolTipText("Decrease score maximum");
+		purchaseScoreMaxDecreaseButton.setText(LanguageBundle.getString("in_Prefs_minus")); //$NON-NLS-1$
+		purchaseScoreMaxDecreaseButton.setToolTipText(LanguageBundle.getString("in_Prefs_decMax")); //$NON-NLS-1$
 		purchaseScoreMaxDecreaseButton.setMargin(new Insets(2, 2, 2, 2));
 		purchaseScoreMaxDecreaseButton.setPreferredSize(new Dimension(30, 20));
 		purchaseScoreMaxDecreaseButton.addActionListener(new ActionListener()
@@ -398,7 +399,8 @@ public final class PurchaseModeFrame extends JDialog
 		getContentPane().add(jPanel2, gridBagConstraints);
 
 		purchaseMethodPanel.setLayout(new GridBagLayout());
-		purchaseMethodPanel.setBorder(BorderFactory.createTitledBorder("Allowed Points"));
+		purchaseMethodPanel.setBorder(BorderFactory.createTitledBorder(
+			LanguageBundle.getString("in_Prefs_allowPoints"))); //$NON-NLS-1$
 
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -409,7 +411,7 @@ public final class PurchaseModeFrame extends JDialog
 		getContentPane().add(purchaseMethodPanel, gridBagConstraints);
 
 		purchaseMethodNamePanel.setLayout(new FlowLayout(FlowLayout.LEFT, 2, 5));
-		savedMethodLabel.setText("Saved Methods:");
+		savedMethodLabel.setText(LanguageBundle.getString("in_Prefs_savedMethods")); //$NON-NLS-1$
 		savedMethodLabel.setPreferredSize(new Dimension(140, 15));
 		purchaseMethodNamePanel.add(savedMethodLabel);
 		purchaseMethodNamePanel.add(currentPurchaseMethods);
@@ -424,7 +426,7 @@ public final class PurchaseModeFrame extends JDialog
 		purchaseMethodPanel.add(purchaseMethodNamePanel, gridBagConstraints);
 
 		purchaseMethodPointsPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 2, 5));
-		methodPointsLabel.setText("Points:");
+		methodPointsLabel.setText(LanguageBundle.getString("in_Prefs_points")); //$NON-NLS-1$
 		methodPointsLabel.setPreferredSize(new Dimension(140, 15));
 		purchaseMethodPointsPanel.add(methodPointsLabel);
 		purchaseMethodPointsEdit.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -455,7 +457,7 @@ public final class PurchaseModeFrame extends JDialog
 			});
 
 		purchaseMethodButtonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
-		addMethodButton.setText("New");
+		addMethodButton.setText(LanguageBundle.getString("in_Prefs_new")); //$NON-NLS-1$
 		addMethodButton.addActionListener(new ActionListener()
 			{
 				@Override
@@ -465,7 +467,7 @@ public final class PurchaseModeFrame extends JDialog
 				}
 			});
 		purchaseMethodButtonPanel.add(addMethodButton);
-		removeMethodButton.setText("Remove");
+		removeMethodButton.setText(LanguageBundle.getString("in_Prefs_remove")); //$NON-NLS-1$
 		removeMethodButton.addActionListener(new ActionListener()
 			{
 				@Override
@@ -483,7 +485,7 @@ public final class PurchaseModeFrame extends JDialog
 		gridBagConstraints.weightx = 1.0;
 		purchaseMethodPanel.add(purchaseMethodButtonPanel, gridBagConstraints);
 
-		statusBar.setText("Set the cost for each ability score");
+		statusBar.setText(LanguageBundle.getString("in_Prefs_setCost")); //$NON-NLS-1$
 		statusBar.setBorder(new BevelBorder(BevelBorder.LOWERED));
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -498,8 +500,8 @@ public final class PurchaseModeFrame extends JDialog
 
 		jPanel3.setLayout(new FlowLayout(FlowLayout.RIGHT));
 
-		okButton.setText("OK");
-		okButton.setToolTipText("Accept these values");
+		okButton.setText(LanguageBundle.getString("in_Prefs_OK")); //$NON-NLS-1$
+		okButton.setToolTipText(LanguageBundle.getString("in_Prefs_OKTip")); //$NON-NLS-1$
 		okButton.addActionListener(new ActionListener()
 			{
 				@Override
@@ -511,8 +513,8 @@ public final class PurchaseModeFrame extends JDialog
 
 		jPanel3.add(okButton);
 
-		resetButton.setText("Reset");
-		resetButton.setToolTipText("Reset to saved values");
+		resetButton.setText(LanguageBundle.getString("in_Prefs_Reset")); //$NON-NLS-1$
+		resetButton.setToolTipText(LanguageBundle.getString("in_Prefs_ResetTip")); //$NON-NLS-1$
 		resetButton.addActionListener(new ActionListener()
 			{
 				@Override
@@ -523,8 +525,8 @@ public final class PurchaseModeFrame extends JDialog
 			});
 
 		jPanel3.add(resetButton);
-		cancelButton.setText("Cancel");
-		cancelButton.setToolTipText("Cancel Purchase Mode Configuration");
+		cancelButton.setText(LanguageBundle.getString("in_cancel")); //$NON-NLS-1$
+		cancelButton.setToolTipText(LanguageBundle.getString("in_Prefs_CancelTip")); //$NON-NLS-1$
 		cancelButton.addActionListener(new ActionListener()
 			{
 			@Override
@@ -601,7 +603,7 @@ public final class PurchaseModeFrame extends JDialog
 		if (value == -1)
 		{
 			// set a status message
-			statusBar.setText("Bad value for purchase maximum score, fixing...");
+			statusBar.setText(LanguageBundle.getString("in_Prefs_badMaxFixing")); //$NON-NLS-1$
 		}
 		else
 		{
@@ -609,7 +611,7 @@ public final class PurchaseModeFrame extends JDialog
 			if (!purchaseModel.setPurchaseScoreMax(value - 1))
 			{
 				// set a status message
-				statusBar.setText("Purchase Score Maximum value can no go below Purchase Score Minimum!");
+				statusBar.setText(LanguageBundle.getString("in_Prefs_maxBelowMin")); //$NON-NLS-1$
 			}
 		}
 
@@ -632,7 +634,8 @@ public final class PurchaseModeFrame extends JDialog
 		{
 			if (value >= STANDARD_MAX_PURCHASE_SCORE)
 			{
-				statusBar.setText("May not increase score past " + STANDARD_MAX_PURCHASE_SCORE + " in standard mode");
+				statusBar.setText(
+					LanguageBundle.getFormattedString("in_Prefs_mayNotInc", STANDARD_MAX_PURCHASE_SCORE)); //$NON-NLS-1$
 
 				return;
 			}
@@ -642,7 +645,7 @@ public final class PurchaseModeFrame extends JDialog
 		if (value == -1)
 		{
 			// set a status message
-			statusBar.setText("Bad value for purchase maximum score, fixing...");
+			statusBar.setText(LanguageBundle.getString("in_Prefs_badMaxFixing")); //$NON-NLS-1$
 		}
 		else
 		{
@@ -675,7 +678,9 @@ public final class PurchaseModeFrame extends JDialog
 		{
 			if (value > STANDARD_MAX_PURCHASE_SCORE)
 			{
-				statusBar.setText("May not increase score past " + STANDARD_MAX_PURCHASE_SCORE + " in standard mode");
+				statusBar.setText(
+					LanguageBundle.getFormattedString("in_Prefs_mayNotIncr", //$NON-NLS-1$
+						STANDARD_MAX_PURCHASE_SCORE));
 
 				return;
 			}
@@ -685,7 +690,7 @@ public final class PurchaseModeFrame extends JDialog
 		if (value == -1)
 		{
 			// set a status message
-			statusBar.setText("Bad value for purchase maximum score, fixing...");
+			statusBar.setText(LanguageBundle.getString("in_Prefs_badMaxFixing")); //$NON-NLS-1$
 		}
 		else
 		{
@@ -718,7 +723,9 @@ public final class PurchaseModeFrame extends JDialog
 		{
 			if (value == STANDARD_MIN_PURCHASE_SCORE)
 			{
-				statusBar.setText("May not decrease score past " + STANDARD_MIN_PURCHASE_SCORE + " in standard mode");
+				statusBar.setText(
+					LanguageBundle.getFormattedString("in_Prefs_mayNotDec", //$NON-NLS-1$
+						STANDARD_MIN_PURCHASE_SCORE));
 
 				return;
 			}
@@ -728,7 +735,7 @@ public final class PurchaseModeFrame extends JDialog
 		if (value == -1)
 		{
 			// set a status message
-			statusBar.setText("Bad value for purchase minimum score, fixing...");
+			statusBar.setText(LanguageBundle.getString("in_Prefs_badMinFixing")); //$NON-NLS-1$
 		}
 		else
 		{
@@ -736,7 +743,7 @@ public final class PurchaseModeFrame extends JDialog
 			if (!(updateOk = purchaseModel.setPurchaseScoreMin(value - 1)))
 			{
 				// set a status message
-				statusBar.setText("Purchase Score Minimum value is 0!");
+				statusBar.setText(LanguageBundle.getString("in_Prefs_noMinBelow0")); //$NON-NLS-1$
 			}
 		}
 
@@ -763,7 +770,7 @@ public final class PurchaseModeFrame extends JDialog
 		if (value == -1)
 		{
 			// set a status message
-			statusBar.setText("Bad value for purchase minimum score, fixing...");
+			statusBar.setText(LanguageBundle.getString("in_Prefs_badMinFixing")); //$NON-NLS-1$
 		}
 		else
 		{
@@ -771,7 +778,7 @@ public final class PurchaseModeFrame extends JDialog
 			if (!purchaseModel.setPurchaseScoreMin(value + 1))
 			{
 				// set a status message
-				statusBar.setText("Purchase Score Minimum value can not exceed Purchase Score Maximum Value!");
+				statusBar.setText(LanguageBundle.getString("in_Prefs_minExceedMax")); //$NON-NLS-1$
 			}
 		}
 
@@ -793,7 +800,7 @@ public final class PurchaseModeFrame extends JDialog
 		if (value == -1)
 		{
 			// set a status message
-			statusBar.setText("Bad value for purchase minimum score, fixing...");
+			statusBar.setText(LanguageBundle.getString("in_Prefs_badMinFixing")); //$NON-NLS-1$
 		}
 		else
 		{
@@ -801,7 +808,7 @@ public final class PurchaseModeFrame extends JDialog
 			if (!purchaseModel.setPurchaseScoreMin(value))
 			{
 				// set a status message
-				statusBar.setText("Purchase Score Minimum value can not exceed Purchase Score Maximum Value!");
+				statusBar.setText(LanguageBundle.getString("in_Prefs_minExceedMax")); //$NON-NLS-1$
 			}
 		}
 
@@ -828,7 +835,7 @@ public final class PurchaseModeFrame extends JDialog
 
 		abilityScoreCostTable.setBorder(new BevelBorder(BevelBorder.LOWERED));
 		abilityScoreCostTable.setModel(purchaseModel);
-		abilityScoreCostTable.setToolTipText("Set the cost for each ability score");
+		abilityScoreCostTable.setToolTipText(LanguageBundle.getString("in_Prefs_setCost")); //$NON-NLS-1$
 		jScrollPane1.setViewportView(abilityScoreCostTable);
 	}
 
@@ -871,7 +878,8 @@ public final class PurchaseModeFrame extends JDialog
 	private class PurchaseModel extends AbstractTableModel
 	{
 		private boolean[] canEdit = new boolean[]{ false, true };
-		private String[] columnHeaders = new String[]{ "Ability Score", "Cost" };
+		private String[] columnHeaders = new String[]{ LanguageBundle.getString("in_Prefs_abScore"), //$NON-NLS-1$
+			LanguageBundle.getString("in_Prefs_cost") }; //$NON-NLS-1$
 		private Object[][] currentValues = null;
 		private Object[][] savedValues = null;
 		private Class<?>[] types = new Class[]{ Integer.class, Integer.class };
@@ -884,7 +892,7 @@ public final class PurchaseModeFrame extends JDialog
 		{
 			super();
 
-			// initialise the saved values
+			// Initialize the saved values
 			initValues();
 
 			// copy the saved values to the current values
@@ -926,7 +934,8 @@ public final class PurchaseModeFrame extends JDialog
 		{
 			if ((row < 0) || (row >= currentValues.length))
 			{
-				throw new ArrayIndexOutOfBoundsException("Row index out of bounds: " + row);
+				throw new ArrayIndexOutOfBoundsException(
+					LanguageBundle.getFormattedString("in_Prefs_rowOutBound", row)); //$NON-NLS-1$
 			}
 
 			if ((column == 0) || (column == 1))
@@ -936,7 +945,8 @@ public final class PurchaseModeFrame extends JDialog
 			}
 			else
 			{
-				throw new ArrayIndexOutOfBoundsException("Column index out of bounds: " + column);
+				throw new ArrayIndexOutOfBoundsException(
+					LanguageBundle.getFormattedString("in_Prefs_columnOutBound", column)); //$NON-NLS-1$
 			}
 		}
 
@@ -945,14 +955,16 @@ public final class PurchaseModeFrame extends JDialog
 		{
 			if ((row < 0) || (row >= currentValues.length))
 			{
-				throw new ArrayIndexOutOfBoundsException("Row index out of bounds: " + row);
+				throw new ArrayIndexOutOfBoundsException(
+					LanguageBundle.getFormattedString("in_Prefs_rowOutBound", row)); //$NON-NLS-1$
 			}
 
 			if ((column == 0) || (column == 1))
 			{
 				return currentValues[row][column];
 			}
-			throw new ArrayIndexOutOfBoundsException("Column index out of bounds: " + column);
+			throw new ArrayIndexOutOfBoundsException(
+				LanguageBundle.getFormattedString("in_Prefs_columnOutBound", column)); //$NON-NLS-1$
 		}
 
 		/**

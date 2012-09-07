@@ -76,14 +76,13 @@ public class DefaultsPanel extends PCGenPrefsPanel
 		this.setLayout(gridbag);
 		c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.NORTHWEST;
+//		c.anchor = GridBagConstraints.NORTHWEST;
 		c.insets = new Insets(2, 2, 2, 2);
 
 		Utility.buildConstraints(c, 0, 0, 2, 1, 0, 0);
 		label =
 				new JLabel(LanguageBundle
-					.getString("in_Prefs_xpTable")
-					+ ": ");
+					.getString("in_Prefs_xpTable"));
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 2, 0, 1, 1, 0, 0);
@@ -93,8 +92,7 @@ public class DefaultsPanel extends PCGenPrefsPanel
 		Utility.buildConstraints(c, 0, 1, 2, 1, 0, 0);
 		label =
 				new JLabel(LanguageBundle
-					.getString("in_Prefs_characterType")
-					+ ": ");
+					.getString("in_Prefs_characterType"));
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 2, 1, 1, 1, 0, 0);

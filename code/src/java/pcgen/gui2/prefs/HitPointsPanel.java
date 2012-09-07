@@ -36,8 +36,8 @@ import javax.swing.border.TitledBorder;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
-import pcgen.gui2.util.WholeNumberField;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui2.util.WholeNumberField;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -95,14 +95,12 @@ public class HitPointsPanel extends PCGenPrefsPanel
 		this.setLayout(gridbag);
 		c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.NORTHWEST;
+		c.anchor = GridBagConstraints.LINE_START;
 		c.insets = new Insets(2, 2, 2, 2);
 
 		exclusiveGroup = new ButtonGroup();
-		Utility.buildConstraints(c, 0, iRow, 3, 1, 0, 0);
-		label =
-				new JLabel(LanguageBundle.getString("in_Prefs_hpGenLabel")
-					+ ": ");
+		Utility.buildConstraints(c, 0, iRow, GridBagConstraints.REMAINDER, 1, 0, 0);
+		label = new JLabel(LanguageBundle.getString("in_Prefs_hpGenLabel")); //$NON-NLS-1$
 		gridbag.setConstraints(label, c);
 		this.add(label);
 
@@ -110,26 +108,26 @@ public class HitPointsPanel extends PCGenPrefsPanel
 		// Insert a blank label to indent the HP rolling choices
 		//
 		Utility.buildConstraints(c, 0, iRow++, 1, 1, 0, 0);
-		label = new JLabel("  ");
+		label = new JLabel(BLANK_TEXT);
 		gridbag.setConstraints(label, c);
 		this.add(label);
 
-		Utility.buildConstraints(c, 1, iRow++, 2, 1, 0, 0);
+		Utility.buildConstraints(c, 1, iRow++, GridBagConstraints.REMAINDER, 1, 0, 0);
 		gridbag.setConstraints(hpUserRolled, c);
 		this.add(hpUserRolled);
 		exclusiveGroup.add(hpUserRolled);
 
-		Utility.buildConstraints(c, 1, iRow++, 2, 1, 0, 0);
+		Utility.buildConstraints(c, 1, iRow++, GridBagConstraints.REMAINDER, 1, 0, 0);
 		gridbag.setConstraints(hpStandard, c);
 		this.add(hpStandard);
 		exclusiveGroup.add(hpStandard);
 
-		Utility.buildConstraints(c, 1, iRow++, 2, 1, 0, 0);
+		Utility.buildConstraints(c, 1, iRow++, GridBagConstraints.REMAINDER, 1, 0, 0);
 		gridbag.setConstraints(hpAverage, c);
 		this.add(hpAverage);
 		exclusiveGroup.add(hpAverage);
 
-		Utility.buildConstraints(c, 1, iRow++, 2, 1, 0, 0);
+		Utility.buildConstraints(c, 1, iRow++, GridBagConstraints.REMAINDER, 1, 0, 0);
 		gridbag.setConstraints(hpAutomax, c);
 		this.add(hpAutomax);
 		exclusiveGroup.add(hpAutomax);
@@ -143,35 +141,22 @@ public class HitPointsPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(hpPct, c);
 		this.add(hpPct);
 
-		Utility.buildConstraints(c, 1, iRow++, 2, 1, 0, 0);
+		Utility.buildConstraints(c, 1, iRow++, GridBagConstraints.REMAINDER, 1, 0, 0);
 		gridbag.setConstraints(hpAverageRoundedUp, c);
 		this.add(hpAverageRoundedUp);
 		exclusiveGroup.add(hpAverageRoundedUp);
 
-		Utility.buildConstraints(c, 0, iRow, 2, 1, 0, 0);
-		label =
-				new JLabel(LanguageBundle.getString("in_Prefs_hpMaxAtFirst")
-					+ ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 2, iRow++, 1, 1, 0, 0);
-		gridbag.setConstraints(maxHpAtFirstLevel, c);
-		this.add(maxHpAtFirstLevel);
+		Utility.buildConstraints(c, 0, iRow++, GridBagConstraints.REMAINDER, 1, 0, 0);
+		maxHpAtFirstLevel.setText(LanguageBundle.getString("in_Prefs_hpMaxAtFirst")); //$NON-NLS-1$
+		this.add(maxHpAtFirstLevel, c);
 
-		Utility.buildConstraints(c, 0, iRow, 2, 1, 0, 0);
-		label =
-				new JLabel("      " 
-					+ LanguageBundle.getString("in_Prefs_hpMaxAtFirstClass")
-					+ ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 2, iRow, 1, 1, 0, 0);
-		gridbag.setConstraints(maxHpAtFirstClassLevel, c);
-		this.add(maxHpAtFirstClassLevel);
+		Utility.buildConstraints(c, 1, iRow++, GridBagConstraints.REMAINDER, 1, 0, 0);
+		maxHpAtFirstClassLevel.setText(LanguageBundle.getString("in_Prefs_hpMaxAtFirstClass")); //$NON-NLS-1$
+		this.add(maxHpAtFirstClassLevel, c);
 
-		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
+		Utility.buildConstraints(c, 0, iRow, 4, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;
-		label = new JLabel(" ");
+		label = new JLabel();
 		gridbag.setConstraints(label, c);
 		this.add(label);
 	}

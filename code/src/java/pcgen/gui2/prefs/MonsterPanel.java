@@ -97,15 +97,9 @@ public class MonsterPanel extends PCGenPrefsPanel
 //		this.add(hideMonsterClasses);
 
 		Utility.buildConstraints(c, 0, 2, 2, 1, 0, 0);
-		label =
-				new JLabel(LanguageBundle
-					.getString("in_Prefs_ignoreMonsterHDCap")
-					+ ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 2, 2, 1, 1, 0, 0);
-		gridbag.setConstraints(ignoreMonsterHDCap, c);
-		this.add(ignoreMonsterHDCap);
+		ignoreMonsterHDCap.setText(LanguageBundle
+					.getString("in_Prefs_ignoreMonsterHDCap"));
+		this.add(ignoreMonsterHDCap, c);
 
 		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;

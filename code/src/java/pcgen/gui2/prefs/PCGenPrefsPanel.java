@@ -38,6 +38,8 @@ import javax.swing.JPanel;
 public abstract class PCGenPrefsPanel extends JPanel
 {
 
+	static final String BLANK_TEXT = "    "; //$NON-NLS-1$
+
 	/**
 	 * Returns the title of the panel.
 	 */

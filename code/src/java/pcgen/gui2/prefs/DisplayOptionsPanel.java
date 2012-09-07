@@ -25,8 +25,6 @@ package pcgen.gui2.prefs;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -122,13 +120,13 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 				BorderFactory.createTitledBorder(etched, in_displayOpts);
 		int line = 0;
 
-		title1.setTitleJustification(TitledBorder.LEFT);
+		title1.setTitleJustification(TitledBorder.LEADING);
 		this.setBorder(title1);
 		gridbag = new GridBagLayout();
 		this.setLayout(gridbag);
 		c = new GridBagConstraints();
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.WEST;
+		//c.fill = GridBagConstraints.HORIZONTAL;
+		c.anchor = GridBagConstraints.LINE_START;
 		c.insets = new Insets(2, 2, 2, 2);
 
 		// Automatically sort the options alphabetically.
@@ -155,9 +153,9 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 						.getKey(), entry.getValue());
 		}
 
-		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
+		Utility.buildConstraints(c, 0, line, GridBagConstraints.REMAINDER, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;
-		label = new JLabel(" "); //$NON-NLS-1$
+		label = new JLabel();
 		gridbag.setConstraints(label, c);
 		this.add(label);
 	}
@@ -166,32 +164,22 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		final GridBagConstraints constraints, final GridBagLayout gridbag,
 		final JPanel panel, final String labelText, final JComponent c)
 	{
-		final JLabel label = new JLabel(labelText + ": "); //$NON-NLS-1$
-
-		Utility.buildConstraints(constraints, 0, line, 2, 1, 0, 0);
-		gridbag.setConstraints(label, constraints);
-		panel.add(label);
-
-		// Clicking on the label is just as good as clicking on the c.
-		// This is closer to how selection boxes work elsewhere as well.
 		if (c instanceof JCheckBox)
 		{
 			final JCheckBox checkbox = (JCheckBox) c;
-
-			label.addMouseListener(new MouseAdapter()
-			{
-				@Override
-				public void mouseClicked(final MouseEvent e)
-				{
-					checkbox.setSelected(!checkbox.isSelected());
-				}
-			});
+			checkbox.setText(labelText);
+			Utility.buildConstraints(constraints, 0, line,
+				GridBagConstraints.REMAINDER, 1, 0, 0);
 		}
-
-		Utility.buildConstraints(constraints, 2, line, 1, 1, 0, 0);
-		gridbag.setConstraints(c, constraints);
-		panel.add(c);
-
+		else
+		{
+			final JLabel label = new JLabel(labelText);
+			Utility.buildConstraints(constraints, 0, line, 1, 1, 0, 0);
+			panel.add(label, constraints);
+			Utility.buildConstraints(constraints, 1, line,
+				GridBagConstraints.REMAINDER, 1, 0, 0);
+		}
+		panel.add(c, constraints);
 		return line + 1;
 	}
 

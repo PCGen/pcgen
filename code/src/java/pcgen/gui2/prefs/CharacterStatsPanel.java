@@ -127,9 +127,8 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		exclusiveGroup = new ButtonGroup();
 		Utility.buildConstraints(c, 0, row++, 3, 1, 0, 0);
 		label =
-				new JLabel(LanguageBundle
-					.getString("in_Prefs_abilitiesGenLabel")
-					+ ": (" + gameMode.getDisplayName() + ")");
+				new JLabel(LanguageBundle.getFormattedString(
+					"in_Prefs_abilitiesGenLabel", gameMode.getDisplayName())); //$NON-NLS-1$
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 0, row, 1, 1, 0, 0);

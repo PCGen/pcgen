@@ -70,7 +70,7 @@ public class LevelUpPanel extends PCGenPrefsPanel
 	//	private JCheckBox featDialogShownAtLevelUp = new JCheckBox();
 	
 	/**
-	 * Instantiates a new levelling up panel.
+	 * Instantiates a new leveling up panel.
 	 */
 	public LevelUpPanel()
 	{
@@ -87,7 +87,7 @@ public class LevelUpPanel extends PCGenPrefsPanel
 		this.setLayout(gridbag);
 		c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.WEST;
+		c.anchor = GridBagConstraints.LINE_START;
 		c.insets = new Insets(2, 2, 2, 2);
 
 //		Utility.buildConstraints(c, 0, 0, 2, 1, 0, 0);
@@ -107,18 +107,12 @@ public class LevelUpPanel extends PCGenPrefsPanel
 		//		this.add(featDialogShownAtLevelUp);
 
 		Utility.buildConstraints(c, 0, 2, 2, 1, 0, 0);
-		label = new JLabel(in_statWindow + ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 2, 2, 1, 1, 0, 0);
+		statDialogShownAtLevelUp.setText(in_statWindow);
 		gridbag.setConstraints(statDialogShownAtLevelUp, c);
 		this.add(statDialogShownAtLevelUp);
 
 		Utility.buildConstraints(c, 0, 3, 2, 1, 0, 0);
-		label = new JLabel(in_warnFirstLevelUp + ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 2, 3, 1, 1, 0, 0);
+		showWarningAtFirstLevelUp.setText(in_warnFirstLevelUp);
 		gridbag.setConstraints(showWarningAtFirstLevelUp, c);
 		this.add(showWarningAtFirstLevelUp);
 

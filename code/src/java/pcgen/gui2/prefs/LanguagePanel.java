@@ -38,6 +38,7 @@ import javax.swing.JRadioButton;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
+import pcgen.core.GameMode;
 import pcgen.core.SettingsHandler;
 import pcgen.core.UnitSet;
 import pcgen.gui2.tools.Utility;
@@ -74,8 +75,6 @@ public class LanguagePanel extends PCGenPrefsPanel
 			LanguageBundle.getString("in_Prefs_langPortuguese");
 	private static String in_langSystem =
 			LanguageBundle.getString("in_Prefs_langSystem");
-	private static String in_unitSetType =
-			LanguageBundle.getString("in_Prefs_unitSetType");
 
 	private String[] unitSetNames = null;
 
@@ -103,11 +102,11 @@ public class LanguagePanel extends PCGenPrefsPanel
 		TitledBorder title1 =
 				BorderFactory.createTitledBorder(etched, in_language);
 
-		title1.setTitleJustification(TitledBorder.LEFT);
+		title1.setTitleJustification(TitledBorder.LEADING);
 		this.setBorder(title1);
 		this.setLayout(gridbag);
 		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.NORTHWEST;
+		c.anchor = GridBagConstraints.LINE_START;
 		c.insets = new Insets(2, 2, 2, 2);
 		exclusiveGroup = new ButtonGroup();
 
@@ -142,17 +141,18 @@ public class LanguagePanel extends PCGenPrefsPanel
 		}
 
 		Utility.buildConstraints(c, 0,  line++, 3, 1, 0, 0);
-		label = new JLabel("");
+		label = new JLabel();
 		gridbag.setConstraints(label, c);
 		this.add(label);
 
 		Utility.buildConstraints(c, 0,  line++, 3, 1, 0, 0);
-		label = new JLabel("");
+		label = new JLabel();
 		gridbag.setConstraints(label, c);
 		this.add(label);
 
 		Utility.buildConstraints(c, 0, line, 1, 1, 0, 0);
-		label = new JLabel(in_unitSetType + ": ");
+		final GameMode gameMode = SettingsHandler.getGame();
+		label = new JLabel(LanguageBundle.getFormattedString("in_Prefs_unitSetType", gameMode.getDisplayName())); //$NON-NLS-1$
 		gridbag.setConstraints(label, c);
 		this.add(label);
 
@@ -174,13 +174,13 @@ public class LanguagePanel extends PCGenPrefsPanel
 		this.add(unitSetType);
 
 		Utility.buildConstraints(c, 0,  line++, 3, 1, 0, 0);
-		label = new JLabel(LanguageBundle.getString("in_Prefs_restartInfo"));
+		label = new JLabel(LanguageBundle.getString("in_Prefs_restartInfo")); //$NON-NLS-1$
 		gridbag.setConstraints(label, c);
 		this.add(label);
 
 		Utility.buildConstraints(c, 5, line, 1, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;
-		label = new JLabel(" ");
+		label = new JLabel();
 		gridbag.setConstraints(label, c);
 		this.add(label);
 	}

@@ -31,12 +31,13 @@ import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
-import pcgen.gui2.util.JComboBoxEx;
 import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
@@ -55,7 +56,7 @@ import pcgen.system.LanguageBundle;
 public class EquipmentPanel extends PCGenPrefsPanel
 {
 	private static String in_equipment =
-		LanguageBundle.getString("in_Prefs_equipment");
+		LanguageBundle.getString("in_Prefs_equipment"); //$NON-NLS-1$
 
 	// Used to create the entries for the max spell level combos
 	private static final int SPELLLVLMIN = 0;
@@ -66,35 +67,38 @@ public class EquipmentPanel extends PCGenPrefsPanel
 	private static String[] wandSpellLevel =
 		new String[SPELLLVLMAX - SPELLLVLMIN + 1];
 	private static String in_allowMetamagic =
-		LanguageBundle.getString("in_Prefs_allowMetamagic");
+		LanguageBundle.getString("in_Prefs_allowMetamagic"); //$NON-NLS-1$
 	private static String in_anyAutoEquip =
-		LanguageBundle.getString("in_Prefs_anyAutoEquip");
+		LanguageBundle.getString("in_Prefs_anyAutoEquip"); //$NON-NLS-1$
 	private static String in_autoEquip =
-		LanguageBundle.getString("in_Prefs_autoEquip");
+		LanguageBundle.getString("in_Prefs_autoEquip"); //$NON-NLS-1$
 	private static String in_autoEquipRace =
-		LanguageBundle.getString("in_Prefs_autoEquipRace");
+		LanguageBundle.getString("in_Prefs_autoEquipRace"); //$NON-NLS-1$
 	private static String in_autoEquipMasterwork =
-		LanguageBundle.getString("in_Prefs_autoEquipMasterwork");
+		LanguageBundle.getString("in_Prefs_autoEquipMasterwork"); //$NON-NLS-1$
 	private static String in_autoEquipMagic =
-		LanguageBundle.getString("in_Prefs_autoEquipMagic");
+		LanguageBundle.getString("in_Prefs_autoEquipMagic"); //$NON-NLS-1$
 	private static String in_autoEquipExotic =
-		LanguageBundle.getString("in_Prefs_autoEquipExotic");
+		LanguageBundle.getString("in_Prefs_autoEquipExotic"); //$NON-NLS-1$
 	private static String in_noAutoEquip =
-		LanguageBundle.getString("in_Prefs_noAutoEquip");
+		LanguageBundle.getString("in_Prefs_noAutoEquip"); //$NON-NLS-1$
 	private static String in_potionMax =
-		LanguageBundle.getString("in_Prefs_potionMax");
+		LanguageBundle.getString("in_Prefs_potionMax"); //$NON-NLS-1$
 	private static String in_wandMax =
-		LanguageBundle.getString("in_Prefs_wandMax");
+		LanguageBundle.getString("in_Prefs_wandMax"); //$NON-NLS-1$
 
 	private JCheckBox allowMetamagicInEqBuilder = new JCheckBox();
 	private JCheckBox autoMethod1 = new JCheckBox();
 	private JCheckBox autoMethod2 = new JCheckBox();
 	private JCheckBox autoMethod3 = new JCheckBox();
 	private JCheckBox autoMethod4 = new JCheckBox();
-	private JComboBoxEx potionMaxLevel = new JComboBoxEx();
-	private JComboBoxEx wandMaxLevel = new JComboBoxEx();
+	private JSpinner potionMaxLevel = new JSpinner();
+	private SpinnerNumberModel potionModel;
+	private JSpinner wandMaxLevel = new JSpinner();
+	private SpinnerNumberModel wandModel;
 	private JRadioButton autoEquipCreate;
 	private JRadioButton noAutoEquipCreate;
+
 	
 	/**
 	 * Instantiates a new equipment panel.
@@ -113,105 +117,89 @@ public class EquipmentPanel extends PCGenPrefsPanel
 		this.setBorder(title1);
 		this.setLayout(gridbag);
 		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.NORTHWEST;
+		c.anchor = GridBagConstraints.LINE_START;
 		c.insets = new Insets(2, 2, 2, 2);
 		exclusiveGroup = new ButtonGroup();
 
-		Utility.buildConstraints(c, 0, 0, 3, 1, 0, 0);
-		label = new JLabel(in_allowMetamagic + ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 3, 0, 1, 1, 0, 0);
+		Utility.buildConstraints(c, 0, 0, GridBagConstraints.REMAINDER, 1, 0, 0);
+		allowMetamagicInEqBuilder.setText(in_allowMetamagic);
 		gridbag.setConstraints(allowMetamagicInEqBuilder, c);
 		this.add(allowMetamagicInEqBuilder);
 
-		Utility.buildConstraints(c, 0, 1, 3, 1, 0, 0);
-		label = new JLabel(in_potionMax + ": ");
+		Utility.buildConstraints(c, 0, 1, 2, 1, 0, 0);
+		label = new JLabel(in_potionMax);
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 3, 1, 1, 1, 0, 0);
-		Utility.buildConstraints(c, 3, 1, 1, 1, 0, 0);
 
-		for (int i = SPELLLVLMIN; i <= SPELLLVLMAX; ++i)
-		{
-			potionSpellLevel[i - SPELLLVLMIN] = String.valueOf(i) + "  ";
-		}
+		potionModel = new SpinnerNumberModel(SPELLLVLMIN, SPELLLVLMIN, SPELLLVLMAX, 1);
 
-		potionMaxLevel = new JComboBoxEx(potionSpellLevel);
+		potionMaxLevel.setModel(potionModel);
+		
 		gridbag.setConstraints(potionMaxLevel, c);
 		this.add(potionMaxLevel);
 
-		Utility.buildConstraints(c, 0, 2, 3, 1, 0, 0);
-		label = new JLabel(in_wandMax + ": ");
+		Utility.buildConstraints(c, 0, 2, 2, 1, 0, 0);
+		label = new JLabel(in_wandMax);
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 3, 2, 1, 1, 0, 0);
 
-		for (int i = SPELLLVLMIN; i <= SPELLLVLMAX; ++i)
-		{
-			wandSpellLevel[i - SPELLLVLMIN] = String.valueOf(i) + "	 ";
-		}
+//		for (int i = SPELLLVLMIN; i <= SPELLLVLMAX; ++i)
+//		{
+//			wandSpellLevel[i - SPELLLVLMIN] = String.valueOf(i) + "	 ";
+//		}
 
-		wandMaxLevel = new JComboBoxEx(wandSpellLevel);
+		wandModel = new SpinnerNumberModel(SPELLLVLMIN, SPELLLVLMIN, SPELLLVLMAX, 1);
+		wandMaxLevel.setModel(wandModel);
 		gridbag.setConstraints(wandMaxLevel, c);
 		this.add(wandMaxLevel);
 
-		Utility.buildConstraints(c, 0, 3, 3, 1, 0, 0);
-		label = new JLabel(in_anyAutoEquip + ": ");
+		Utility.buildConstraints(c, 0, 3, GridBagConstraints.REMAINDER, 1, 0, 0);
+		label = new JLabel(in_anyAutoEquip);
 		gridbag.setConstraints(label, c);
 		this.add(label);
 
-		Utility.buildConstraints(c, 0, 4, 2, 1, 0, 0);
+		Utility.buildConstraints(c, 1, 4, GridBagConstraints.REMAINDER, 1, 0, 0);
 		noAutoEquipCreate = new JRadioButton(in_noAutoEquip);
 		gridbag.setConstraints(noAutoEquipCreate, c);
 		this.add(noAutoEquipCreate);
 		exclusiveGroup.add(noAutoEquipCreate);
 
-		Utility.buildConstraints(c, 0, 5, 2, 1, 0, 0);
-		autoEquipCreate = new JRadioButton(in_autoEquip + ": ");
+		Utility.buildConstraints(c, 1, 5, GridBagConstraints.REMAINDER, 1, 0, 0);
+		autoEquipCreate = new JRadioButton(in_autoEquip);
 		gridbag.setConstraints(autoEquipCreate, c);
 		this.add(autoEquipCreate);
 		exclusiveGroup.add(autoEquipCreate);
 
 		Utility.buildConstraints(c, 0, 6, 1, 1, 0, 0);
-		label = new JLabel("	");
+		label = new JLabel(BLANK_TEXT);
 		gridbag.setConstraints(label, c);
 		this.add(label);
-		Utility.buildConstraints(c, 1, 6, 2, 1, 0, 0);
-		label = new JLabel(in_autoEquipRace + ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 3, 6, 1, 1, 0, 0);
+
+		Utility.buildConstraints(c, 1, 6, GridBagConstraints.REMAINDER, 1, 0, 0);
+		autoMethod1.setText(in_autoEquipRace);
 		gridbag.setConstraints(autoMethod1, c);
 		this.add(autoMethod1);
 
-		Utility.buildConstraints(c, 1, 7, 2, 1, 0, 0);
-		label = new JLabel(in_autoEquipMasterwork + ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 3, 7, 1, 1, 0, 0);
+		Utility.buildConstraints(c, 1, 7, GridBagConstraints.REMAINDER, 1, 0, 0);
+		autoMethod2.setText(in_autoEquipMasterwork);
 		gridbag.setConstraints(autoMethod2, c);
 		this.add(autoMethod2);
 
-		Utility.buildConstraints(c, 1, 8, 2, 1, 0, 0);
-		label = new JLabel(in_autoEquipMagic + ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 3, 8, 1, 1, 0, 0);
+		Utility.buildConstraints(c, 1, 8, GridBagConstraints.REMAINDER, 1, 0, 0);
+		autoMethod3.setText(in_autoEquipMagic);
 		gridbag.setConstraints(autoMethod3, c);
 		this.add(autoMethod3);
 
-		Utility.buildConstraints(c, 1, 9, 2, 1, 0, 0);
-		label = new JLabel(in_autoEquipExotic + ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 3, 9, 1, 1, 0, 0);
+		Utility.buildConstraints(c, 1, 9, GridBagConstraints.REMAINDER, 1, 0, 0);
+		autoMethod4.setText(in_autoEquipExotic);
 		gridbag.setConstraints(autoMethod4, c);
 		this.add(autoMethod4);
 
-		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
+		Utility.buildConstraints(c, 0, 20, 10, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;
-		label = new JLabel(" ");
+		label = new JLabel();
 		gridbag.setConstraints(label, c);
 		this.add(label);
 	}
@@ -234,11 +222,8 @@ public class EquipmentPanel extends PCGenPrefsPanel
 		SettingsHandler
 		.setMetamagicAllowedInEqBuilder(allowMetamagicInEqBuilder
 			.isSelected());
-	SettingsHandler.setMaxPotionSpellLevel(potionMaxLevel
-		.getSelectedIndex()
-		+ SPELLLVLMIN);
-	SettingsHandler.setMaxWandSpellLevel(wandMaxLevel.getSelectedIndex()
-		+ SPELLLVLMIN);
+	SettingsHandler.setMaxPotionSpellLevel(potionModel.getNumber().intValue());
+	SettingsHandler.setMaxWandSpellLevel(wandModel.getNumber().intValue());
 	SettingsHandler.setWantToLoadMasterworkAndMagic(false); // Turn it off temporarily so we can set the values
 	SettingsHandler.setAutogen(Constants.AUTOGEN_RACIAL, autoMethod1
 		.isSelected());
@@ -260,11 +245,9 @@ public class EquipmentPanel extends PCGenPrefsPanel
 	{
 		allowMetamagicInEqBuilder.setSelected(SettingsHandler
 			.isMetamagicAllowedInEqBuilder());
-		potionMaxLevel.setSelectedIndex(SettingsHandler
-			.getMaxPotionSpellLevel()
-			- SPELLLVLMIN);
-		wandMaxLevel.setSelectedIndex(SettingsHandler.getMaxWandSpellLevel()
-			- SPELLLVLMIN);
+		potionModel.setValue(SettingsHandler
+			.getMaxPotionSpellLevel());
+		wandModel.setValue(SettingsHandler.getMaxWandSpellLevel());
 
 		if (SettingsHandler.wantToLoadMasterworkAndMagic())
 		{

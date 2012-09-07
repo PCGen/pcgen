@@ -92,82 +92,56 @@ public class SourcesPanel extends PCGenPrefsPanel
 		TitledBorder title1 =
 				BorderFactory.createTitledBorder(etched, in_sources);
 
-		title1.setTitleJustification(TitledBorder.LEFT);
+		title1.setTitleJustification(TitledBorder.LEADING);
 		this.setBorder(title1);
 		this.setLayout(gridbag);
 		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.NORTHWEST;
+		c.anchor = GridBagConstraints.LINE_START;
 		c.insets = new Insets(2, 2, 2, 2);
 
-		Utility.buildConstraints(c, 0, 0, 3, 1, 0, 0);
-		label = new JLabel(LanguageBundle.getString("in_Prefs_autoLoadAtStart") + ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 3, 0, 1, 1, 0, 0);
+		Utility.buildConstraints(c, 0, 0, GridBagConstraints.REMAINDER, 1, 0, 0);
+		campLoad.setText(LanguageBundle.getString("in_Prefs_autoLoadAtStart")); //$NON-NLS-1$
 		gridbag.setConstraints(campLoad, c);
 		this.add(campLoad);
 
-		Utility.buildConstraints(c, 0, 1, 3, 1, 0, 0);
-		label = new JLabel(LanguageBundle.getString("in_Prefs_autoLoadWithPC") + ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 3, 1, 1, 1, 0, 0);
+		Utility.buildConstraints(c, 0, 1, GridBagConstraints.REMAINDER, 1, 0, 0);
+		charCampLoad.setText(LanguageBundle.getString("in_Prefs_autoLoadWithPC")); //$NON-NLS-1$
 		gridbag.setConstraints(charCampLoad, c);
 		this.add(charCampLoad);
 
-		Utility.buildConstraints(c, 0, 2, 3, 1, 0, 0);
-		label =
-				new JLabel(LanguageBundle
-					.getString("in_Prefs_allowOptionInSource")
-					+ ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 3, 2, 1, 1, 0, 0);
+		Utility.buildConstraints(c, 0, 2, GridBagConstraints.REMAINDER, 1, 0, 0);
+		allowOptsInSource.setText(LanguageBundle
+					.getString("in_Prefs_allowOptionInSource")); //$NON-NLS-1$
 		gridbag.setConstraints(allowOptsInSource, c);
 		this.add(allowOptsInSource);
 
-		Utility.buildConstraints(c, 0, 3, 3, 1, 0, 0);
-		label = new JLabel(LanguageBundle.getString("in_Prefs_saveCustom") + ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 3, 3, 1, 1, 0, 0);
+		Utility.buildConstraints(c, 0, 3, GridBagConstraints.REMAINDER, 1, 0, 0);
+		saveCustom.setText(LanguageBundle.getString("in_Prefs_saveCustom")); //$NON-NLS-1$
 		gridbag.setConstraints(saveCustom, c);
 		this.add(saveCustom);
 
-		Utility.buildConstraints(c, 0, 4, 3, 1, 0, 0);
-		label = new JLabel(LanguageBundle.getString("in_Prefs_displayOGL") + ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 3, 4, 1, 1, 0, 0);
+		Utility.buildConstraints(c, 0, 4, GridBagConstraints.REMAINDER, 1, 0, 0);
+		showOGL.setText(LanguageBundle.getString("in_Prefs_displayOGL")); //$NON-NLS-1$
 		gridbag.setConstraints(showOGL, c);
 		this.add(showOGL);
 
-		Utility.buildConstraints(c, 0, 5, 3, 1, 0, 0);
-		label = new JLabel(LanguageBundle.getString("in_Prefs_displayd20") + ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 3, 5, 1, 1, 0, 0);
+		Utility.buildConstraints(c, 0, 5, GridBagConstraints.REMAINDER, 1, 0, 0);
+		showd20.setText(LanguageBundle.getString("in_Prefs_displayd20")); //$NON-NLS-1$
 		gridbag.setConstraints(showd20, c);
 		this.add(showd20);
 
-		Utility.buildConstraints(c, 0, 6, 3, 1, 0, 0);
-		label = new JLabel(LanguageBundle.getString("in_Prefs_displaySponsors") + ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 3, 6, 1, 1, 0, 0);
+		Utility.buildConstraints(c, 0, 6, GridBagConstraints.REMAINDER, 1, 0, 0);
+		showSponsors.setText(LanguageBundle.getString("in_Prefs_displaySponsors")); //$NON-NLS-1$
 		gridbag.setConstraints(showSponsors, c);
 		this.add(showSponsors);
 
-		Utility.buildConstraints(c, 0, 7, 3, 1, 0, 0);
-		label = new JLabel(LanguageBundle.getString("in_Prefs_displayMature") + ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 3, 7, 1, 1, 0, 0);
+		Utility.buildConstraints(c, 0, 7, GridBagConstraints.REMAINDER, 1, 0, 0);
+		showMature.setText(LanguageBundle.getString("in_Prefs_displayMature")); //$NON-NLS-1$
 		gridbag.setConstraints(showMature, c);
 		this.add(showMature);
 
-		Utility.buildConstraints(c, 0, 8, 3, 1, 0, 0);
-		label = new JLabel(LanguageBundle.getString("in_Prefs_sourceDisplay") + ": ");
+		Utility.buildConstraints(c, 0, 8, 1, 1, 0, 0);
+		label = new JLabel(LanguageBundle.getString("in_Prefs_sourceDisplay")); //$NON-NLS-1$
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 3, 8, 1, 1, 0, 0);
@@ -177,11 +151,8 @@ public class SourcesPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(sourceOptions, c);
 		this.add(sourceOptions);
 
-		Utility.buildConstraints(c, 0, 9, 3, 1, 0, 0);
-		label = new JLabel(LanguageBundle.getString("in_Prefs_loadURLs") + ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 3, 9, 1, 1, 0, 0);
+		Utility.buildConstraints(c, 0, 9, GridBagConstraints.REMAINDER, 1, 0, 0);
+		loadURL.setText(LanguageBundle.getString("in_Prefs_loadURLs")); //$NON-NLS-1$
 		gridbag.setConstraints(loadURL, c);
 		this.add(loadURL);
 		loadURL.addActionListener(new ActionListener()
@@ -192,39 +163,30 @@ public class SourcesPanel extends PCGenPrefsPanel
 				if (((JCheckBox) evt.getSource()).isSelected())
 				{
 					ShowMessageDelegate.showMessageDialog(LanguageBundle
-						.getString("in_Prefs_urlBlocked"), Constants.APPLICATION_NAME,
+						.getString("in_Prefs_urlBlocked"), Constants.APPLICATION_NAME, //$NON-NLS-1$
 						MessageType.WARNING);
 				}
 			}
 		});
 
-		Utility.buildConstraints(c, 0, 10, 3, 1, 0, 0);
-		label = new JLabel(LanguageBundle.getString("in_Prefs_allowOverride") + ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 3, 10, 1, 1, 0, 0);
+		Utility.buildConstraints(c, 0, 10, GridBagConstraints.REMAINDER, 1, 0, 0);
+		allowOverride.setText(LanguageBundle.getString("in_Prefs_allowOverride")); //$NON-NLS-1$
 		gridbag.setConstraints(allowOverride, c);
 		this.add(allowOverride);
 
-		Utility.buildConstraints(c, 0, 11, 3, 1, 0, 0);
-		label = new JLabel(LanguageBundle.getString("in_Prefs_useAdvancedSourceSelect") + ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 3, 11, 1, 1, 0, 0);
+		Utility.buildConstraints(c, 0, 11, GridBagConstraints.REMAINDER, 1, 0, 0);
+		useAdvancedSourceSelect.setText(LanguageBundle.getString("in_Prefs_useAdvancedSourceSelect")); //$NON-NLS-1$
 		gridbag.setConstraints(useAdvancedSourceSelect, c);
 		this.add(useAdvancedSourceSelect);
 
-		Utility.buildConstraints(c, 0, 12, 3, 1, 0, 0);
-		label = new JLabel(LanguageBundle.getString("in_Prefs_allowMultiLineObjectsSelect") + ": "); //$NON-NLS-1$ //$NON-NLS-2$
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 3, 12, 1, 1, 0, 0);
+		Utility.buildConstraints(c, 0, 12, GridBagConstraints.REMAINDER, 1, 0, 0);
+		allowMultiLineObjectsSelect.setText(LanguageBundle.getString("in_Prefs_allowMultiLineObjectsSelect")); //$NON-NLS-1$
 		gridbag.setConstraints(allowMultiLineObjectsSelect, c);
 		this.add(allowMultiLineObjectsSelect);
 
-		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
+		Utility.buildConstraints(c, 5, 20, GridBagConstraints.REMAINDER, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;
-		label = new JLabel(" ");
+		label = new JLabel();
 		gridbag.setConstraints(label, c);
 		this.add(label);
 	}
