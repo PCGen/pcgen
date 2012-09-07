@@ -405,6 +405,7 @@
 						<xsl:apply-templates select="weapon_proficiencies"/>
 <!-->						<xsl:apply-templates select="proficiency_specials"/>-->
 						<xsl:apply-templates select="templates"/>
+						<xsl:apply-templates select="tempbonuses"/>
 						<xsl:apply-templates select="prohibited_schools"/>
 						<xsl:apply-templates select="companions"/>
 					</fo:block>
@@ -5980,6 +5981,23 @@
 					</fo:table-row>
 				</fo:table-body>
 			</fo:table>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Temporary Bonuses
+====================================
+====================================-->
+	<xsl:template match="tempbonuses">
+		<xsl:if test="count(tempbonus) &gt; 0">
+			<xsl:call-template name="stripped.list">
+				<xsl:with-param name="attribute" select="'tempbonuses'" />
+				<xsl:with-param name="title" select="'TEMPORARY BONUS'" />
+				<xsl:with-param name="list" select="tempbonus" />
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="''"/>
+			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
 	<!--

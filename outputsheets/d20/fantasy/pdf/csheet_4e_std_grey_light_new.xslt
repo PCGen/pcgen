@@ -199,6 +199,12 @@
 		<afflictions.lightline><subattrib light=""/></afflictions.lightline>
 		<afflictions.darkline><subattrib medium=""/></afflictions.darkline>
 
+		<tempbonuses.title><subattrib centre="" inverse=""/></tempbonuses.title>
+		<tempbonuses.border padding="0.5pt"><subattrib border="" inverse=""/></tempbonuses.border>
+		<tempbonuses.lightline><subattrib light=""/></tempbonuses.lightline>
+		<tempbonuses.darkline><subattrib medium=""/></tempbonuses.darkline>
+
+
 		<animal_tricks.title><subattrib centre="" inverse=""/></animal_tricks.title>
 		<animal_tricks.border padding="0.5pt"><subattrib border="" inverse=""/></animal_tricks.border>
 		<animal_tricks.lightline><subattrib light=""/></animal_tricks.lightline>

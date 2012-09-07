@@ -2946,6 +2946,20 @@ Immune
 |ENDFOR|
 	</afflictions>
 
+	<!--
+	====================================
+	  ====================================
+			Temporary Bonus
+	  ====================================
+	  ====================================-->
+	<tempbonuses>
+|FOR,%tempbonus,0,COUNT[TEMPBONUSNAMES]-1,1,0|
+		<tempbonus>
+			<name>|TEMPBONUS.%tempbonus.NAME|</name>
+			<description>|TEMPBONUS.%tempbonus.DESC|</description>
+		</tempbonus>
+|ENDFOR|
+	</tempbonuses> 
 
 	<!--
 	  ====================================
