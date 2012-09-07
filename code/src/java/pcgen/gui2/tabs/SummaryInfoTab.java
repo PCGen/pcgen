@@ -1049,10 +1049,13 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		rollMethodButton.setAction(rollMethodAction);
 		createMonsterButton.setAction((Action) state.get(Models.CreateMonsterAction));
 		addLevelsButton.setAction((Action) state.get(Models.AddLevelsAction));
+		addLevelsField.setAction((Action) state.get(Models.AddLevelsAction));
 		removeLevelsButton.setAction((Action) state.get(Models.RemoveLevelsAction));
+		removeLevelsField.setAction((Action) state.get(Models.RemoveLevelsAction));
 		xpTableComboBox.setModel((ComboBoxModel) state.get(Models.XPTableComboBoxModel));
 
 		expaddButton.setAction((Action) state.get(Models.ExpAddAction));
+		expmodField.setAction((Action) state.get(Models.ExpAddAction));
 		expsubtractButton.setAction((Action) state.get(Models.ExpSubtractAction));
 		((AddLevelsAction) state.get(Models.AddLevelsAction)).install();
 		resetBasicsPanel();
