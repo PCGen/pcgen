@@ -511,6 +511,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		Globals.emptyLists();
 		PersistenceManager pManager = PersistenceManager.getInstance();
 		pManager.clear();
+		updateTitle();
 	}
 	
 	/**

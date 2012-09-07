@@ -38,6 +38,7 @@ import pcgen.core.facade.KitFacade;
 import pcgen.core.facade.RaceFacade;
 import pcgen.core.facade.ReferenceFacade;
 import pcgen.core.facade.SkillFacade;
+import pcgen.core.facade.SourceSelectionFacade;
 import pcgen.core.facade.SpellFacade;
 import pcgen.core.facade.StatFacade;
 import pcgen.core.facade.TemplateFacade;
@@ -101,6 +102,8 @@ public final class PCGenActionMap extends ActionMap
 	public static final String SOURCES_COMMAND = "sources";
 	public static final String SOURCES_LOAD_COMMAND = SOURCES_COMMAND + ".load";
 	public static final String SOURCES_LOAD_SELECT_COMMAND = SOURCES_COMMAND + ".select";
+	public static final String SOURCES_RELOAD_COMMAND = SOURCES_COMMAND + ".reload";
+	public static final String SOURCES_UNLOAD_COMMAND = SOURCES_COMMAND + ".unload";
 	public static final String INSTALL_DATA_COMMAND = SOURCES_COMMAND + ".installData";
 	//the tools menu commands
 	public static final String TOOLS_COMMAND = "tools";
@@ -213,6 +216,8 @@ public final class PCGenActionMap extends ActionMap
 		put(SOURCES_COMMAND, new SourcesAction());
 		put(SOURCES_LOAD_COMMAND, new LoadSourcesAction());
 		put(SOURCES_LOAD_SELECT_COMMAND, new LoadSourcesSelectAction());
+		put(SOURCES_RELOAD_COMMAND, new ReloadSourcesAction());
+		put(SOURCES_UNLOAD_COMMAND, new UnloadSourcesAction());
 		put(GENERATORS_COMMAND, new GeneratorsAction());
 		put(TREASURE_GENERATORS_COMMAND, new TreasureGeneratorsAction());
 		put(STAT_GENERATORS_COMMAND,
@@ -833,6 +838,80 @@ public final class PCGenActionMap extends ActionMap
 		public void actionPerformed(ActionEvent e)
 		{
 			frame.showSourceSelectionDialog();
+		}
+
+	}
+
+	private class ReloadSourcesAction extends PCGenAction implements ReferenceListener<SourceSelectionFacade>
+	{
+
+		public ReloadSourcesAction()
+		{
+			super("mnuSourcesReload", SOURCES_RELOAD_COMMAND, "shift-shortcut R");
+			ReferenceFacade<SourceSelectionFacade> currentSourceSelectionRef =
+					frame.getCurrentSourceSelectionRef();
+			currentSourceSelectionRef.addReferenceListener(this);
+			checkEnabled(currentSourceSelectionRef.getReference());
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			SourceSelectionFacade sources =
+					frame.getCurrentSourceSelectionRef().getReference();
+			if (sources != null)
+			{
+				frame.unloadSources();
+				frame.loadSourceSelection(sources);
+			}
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void referenceChanged(ReferenceEvent<SourceSelectionFacade> e)
+		{
+			checkEnabled(e.getNewReference());
+		}
+
+		private void checkEnabled(SourceSelectionFacade sources)
+		{
+			setEnabled(sources != null && !sources.getCampaigns().isEmpty());
+		}
+
+	}
+
+	private class UnloadSourcesAction extends PCGenAction implements ReferenceListener<SourceSelectionFacade>
+	{
+
+		public UnloadSourcesAction()
+		{
+			super("mnuSourcesUnload", SOURCES_UNLOAD_COMMAND, "shortcut U");
+			ReferenceFacade<SourceSelectionFacade> currentSourceSelectionRef =
+					frame.getCurrentSourceSelectionRef();
+			currentSourceSelectionRef.addReferenceListener(this);
+			checkEnabled(currentSourceSelectionRef.getReference());
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			frame.unloadSources();
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void referenceChanged(ReferenceEvent<SourceSelectionFacade> e)
+		{
+			checkEnabled(e.getNewReference());
+		}
+
+		private void checkEnabled(SourceSelectionFacade sources)
+		{
+			setEnabled(sources != null && !sources.getCampaigns().isEmpty());
 		}
 
 	}

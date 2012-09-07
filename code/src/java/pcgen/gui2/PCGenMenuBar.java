@@ -97,6 +97,9 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 		menu.addSeparator();
 		menu.add(new QuickSourceMenu());
 		menu.addSeparator();
+		menu.add(new JMenuItem(actionMap.get(PCGenActionMap.SOURCES_RELOAD_COMMAND)));
+		menu.add(new JMenuItem(actionMap.get(PCGenActionMap.SOURCES_UNLOAD_COMMAND)));
+		menu.addSeparator();
 		menu.add(actionMap.get(PCGenActionMap.INSTALL_DATA_COMMAND));
 		
 		return menu;
