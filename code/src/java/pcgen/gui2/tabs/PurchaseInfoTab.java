@@ -104,8 +104,8 @@ import pcgen.gui2.util.treeview.DefaultDataViewColumn;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
+import pcgen.system.CharacterManager;
 import pcgen.system.LanguageBundle;
-import pcgen.util.Logging;
 
 /**
  * A character tab providing the user with the ability to buy and sell 
@@ -141,7 +141,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	 */
 	public PurchaseInfoTab()
 	{
-		super("Purchase");
+		super("Purchase"); //$NON-NLS-1$
 		this.availableTable = new FilteredTreeViewTable<CharacterFacade, EquipmentFacade>();
 		this.purchasedTable = new FilteredTreeViewTable<CharacterFacade, EquipmentFacade>();
 		this.autoResizeBox = new JCheckBox();
@@ -164,7 +164,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private void initComponents()
 	{
 		setOrientation(VERTICAL_SPLIT);
-		FlippingSplitPane splitPane = new FlippingSplitPane("PurchaseTop");
+		FlippingSplitPane splitPane = new FlippingSplitPane("PurchaseTop"); //$NON-NLS-1$
 		splitPane.setOrientation(HORIZONTAL_SPLIT);
 		{// Top Left panel
 			FilterBar<CharacterFacade, EquipmentFacade> filterBar = new FilterBar<CharacterFacade, EquipmentFacade>();
@@ -1430,6 +1430,29 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			popupMenu.add(new SellNumMenuItem(character, targets, 0));
 			popupMenu.add(new SellNumMenuItem(character, targets, SellNumMenuItem.SELL_ALL_QUANTITY));
 			popupMenu.addSeparator();
+			JMenu moveMenu = new JMenu(LanguageBundle.getString("in_igMoveItemMenuTitle")); //$NON-NLS-1$
+			moveMenu.setEnabled(false);
+			for (CharacterFacade dest : CharacterManager.getCharacters())
+			{
+				if (dest != character)
+				{
+					moveMenu.add(new MoveItemMenuItem(character, dest, targets));
+					moveMenu.setEnabled(true);
+				}
+			}
+			popupMenu.add(moveMenu);
+			JMenu copyMenu = new JMenu(LanguageBundle.getString("in_igCopyItemMenuTitle")); //$NON-NLS-1$
+			copyMenu.setEnabled(false);
+			for (CharacterFacade dest : CharacterManager.getCharacters())
+			{
+				if (dest != character)
+				{
+					copyMenu.add(new CopyItemMenuItem(character, dest, targets));
+					copyMenu.setEnabled(true);
+				}
+			}
+			popupMenu.add(copyMenu);
+			popupMenu.addSeparator();
 			popupMenu.add(new ModifyChargesMenuItem(character, targets));
 			popupMenu.show(e.getComponent(), e.getX(), e.getY());
 		}
@@ -1543,6 +1566,65 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		public void actionPerformed(ActionEvent e)
 		{
 			character.modifyCharges(targets);
+		}
+	}
+	
+	private class MoveItemMenuItem extends JMenuItem implements ActionListener
+	{
+		private final CharacterFacade character;
+		private final CharacterFacade destination;
+		private final List<EquipmentFacade> targets;
+
+		MoveItemMenuItem(CharacterFacade character, CharacterFacade destination, List<EquipmentFacade> targets)
+		{
+			super(destination.getNameRef().getReference());
+			this.character = character;
+			this.destination = destination;
+			this.targets = targets;
+
+			addActionListener(this);
+		}
+
+		/**
+		 * Action to modify the number of charges on the items.
+		 */
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			for (EquipmentFacade item : targets)
+			{
+				character.removePurchasedEquipment(item, 1);
+				destination.addPurchasedEquipment(item, 1, false);
+			}
+		}
+	}
+	
+	private class CopyItemMenuItem extends JMenuItem implements ActionListener
+	{
+		private final CharacterFacade character;
+		private final CharacterFacade destination;
+		private final List<EquipmentFacade> targets;
+
+		CopyItemMenuItem(CharacterFacade character, CharacterFacade destination, List<EquipmentFacade> targets)
+		{
+			super(destination.getNameRef().getReference());
+			this.character = character;
+			this.destination = destination;
+			this.targets = targets;
+
+			addActionListener(this);
+		}
+
+		/**
+		 * Action to modify the number of charges on the items.
+		 */
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			for (EquipmentFacade item : targets)
+			{
+				destination.addPurchasedEquipment(item, 1, false);
+			}
 		}
 	}
 }
