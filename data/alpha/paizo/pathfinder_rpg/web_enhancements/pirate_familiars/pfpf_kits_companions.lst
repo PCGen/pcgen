@@ -1,0 +1,38 @@
+# CVS $Revision$ $Author$ -- Sat Sep  8 05:03:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# $Revision$ $Author$
+SOURCELONG:Pirate Familiars	SOURCESHORT:Blog	SOURCEWEB:http://paizo.com/paizo/blog/v5748dyo5ldc5	SOURCEDATE:2012-04
+# ORIGINAL ENTRY: Vincent Lhote
+# ORIGINAL ENTRY DATE: 2012-08
+
+###Block: Familiars --------------------------------------
+
+STARTPACK:Familiar ~ Osprey	TYPE:Companion	VISIBLE:NO
+STAT:DEX=11|STR=10|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
+
+STARTPACK:Familiar ~ Snail kite	TYPE:Companion	VISIBLE:NO
+STAT:DEX=11|STR=10|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
+
+STARTPACK:Familiar ~ Toucan	TYPE:Companion	VISIBLE:NO
+STAT:DEX=11|STR=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
+
+STARTPACK:Familiar ~ Parrot	TYPE:Companion	VISIBLE:NO
+STAT:DEX=11|STR=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
+
+STARTPACK:Familiar ~ Sea krait	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
+
+STARTPACK:Familiar ~ Mongoose	TYPE:Companion	VISIBLE:NO
+STAT:STR=11|DEX=11|CHA=11|CON=10|INT=10|WIS=10
+SKILL:Escape Artist	RANK:1
+FEAT:Weapon Finesse
+

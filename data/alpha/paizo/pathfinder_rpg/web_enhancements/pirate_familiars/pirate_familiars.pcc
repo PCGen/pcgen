@@ -1,0 +1,46 @@
+# CVS $Revision$ $Author$ -- Sat Sep  8 05:03:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# $Revision$ $Author$
+CAMPAIGN:Paizo Blog — Pirate Familiars
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Pathfinder Web Enhancement
+STATUS:ALPHA
+RANK:3
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder Campaign Setting
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Pirate Familiars
+SOURCESHORT:Blog
+SOURCEWEB:http://paizo.com/paizo/blog/v5748dyo5ldc5
+SOURCEDATE:2012-04
+ISOGL:YES
+
+COVER:PZO9055-Familiars_180.jpeg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/paizo/blog/v5748dyo5ldc5|Read the blog entry at Paizo Publishing
+DESC:Pirate Familiars for all your pirate characters.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Paizo Blog — Pirate Familiars. Copyright 2012, Paizo Publishing, LLC; Authors: Rob McCreary
+COPYRIGHT:PCGen dataset conversion for "Paizo Blog — Pirate Familiars" Copyright 2012, PCGen Data Team (including, but not limited to Vincent Lhote, Andrew Maitland)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data files
+
+COMPANIONMOD:pfpf_companion_mods.lst
+RACE:pfpf_races_companions.lst
+KIT:pfpf_kits_companions.lst
+ABILITY:pfpf_abilities_class.lst
+
+#
+# End
+#

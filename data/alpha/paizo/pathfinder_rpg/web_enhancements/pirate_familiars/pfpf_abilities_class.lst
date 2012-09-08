@@ -1,0 +1,20 @@
+# CVS $Revision$ $Author$ -- Sat Sep  8 05:03:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# $Revision$ $Author$
+SOURCELONG:Pirate Familiars	SOURCESHORT:Blog	SOURCEWEB:http://paizo.com/paizo/blog/v5748dyo5ldc5	SOURCEDATE:2012-04
+# ORIGINAL ENTRY: Vincent Lhote
+# ORIGINAL ENTRY DATE: 2012-08
+
+###Block: Add new familiars
+#Block: Arcane Bond familiar
+# Ability Name								Allowed Companions
+CATEGORY=Special Ability|Arcane Bond ~ Familiar.MOD		COMPANIONLIST:Familiar|Familiar (Mongoose),Familiar (Osprey),Familiar (Parrot),Familiar (Toucan),Familiar (Sea krait),Familiar (Snail kite)
+#Block: Witch familiar
+CATEGORY=Special Ability|Witch ~ Familiar.MOD			COMPANIONLIST:Familiar|Familiar (Mongoose),Familiar (Osprey),Familiar (Parrot),Familiar (Toucan),Familiar (Sea krait),Familiar (Snail kite)
+#Block: Magus familiar (magus arcana)
+CATEGORY=Special Ability|Familiar ~ Magus Arcana.MOD		COMPANIONLIST:Familiar|Familiar (Mongoose),Familiar (Osprey),Familiar (Parrot),Familiar (Toucan),Familiar (Sea krait),Familiar (Snail kite)
+#Block: Tumor (alchemist) familiar
+CATEGORY=Special Ability|Discovery ~ Tumor Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Mongoose),Familiar (Osprey),Familiar (Parrot),Familiar (Toucan),Familiar (Sea krait),Familiar (Snail kite)
+
+#
+# End
+#

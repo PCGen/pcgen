@@ -1,0 +1,30 @@
+# CVS $Revision$ $Author$ -- Sat Sep  8 05:03:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# $Revision$ $Author$
+SOURCELONG:Pirate Familiars	SOURCESHORT:Blog	SOURCEWEB:http://paizo.com/paizo/blog/v5748dyo5ldc5	SOURCEDATE:2012-04
+# ORIGINAL ENTRY: Vincent Lhote
+# ORIGINAL ENTRY DATE: 2012-08
+
+# Not included because they are in Pathfinder Adventure Path #55
+#Dodo	Dodo	Master gains a +4 bonus on initiative checks
+#Dwarf caiman	Dwarf caiman	Master gains a +3 bonus on Stealth checks
+#Giant isopod	Giant isopod 	Master gains a +1 natural armor bonus to AC
+#Marine iguana    	Dwarf caiman	Master gains a +3 bonus on Swim checks
+#Seal	Seal	Master gains a +3 bonus on Swim checks
+
+###Block: Specific Familiars
+# Class of the Master	Type			Required Race			Apply Kit
+FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Familiar (Parrot)	KIT:1|Raven Familiar Language
+#
+
+###Block:Familiar Bonuses to Master
+# Race of familiar				Type			Save checks bonus			Bonus to skill			Virtual Feat
+MASTERBONUSRACE:Familiar (Mongoose)		TYPE:Familiar	BONUS:CHECKS|Fortitude|2						VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Osprey)		TYPE:Familiar						BONUS:SKILL|Survival|3		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Parrot)		TYPE:Familiar						BONUS:SKILL|Linguistics|3	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Toucan)		TYPE:Familiar						BONUS:SKILL|Diplomacy|3		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Sea krait)	TYPE:Familiar	BONUS:CHECKS|Fortitude|2						VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Snail kite)	TYPE:Familiar						BONUS:SKILL|Fly|3			VFEAT:Alertness
+
+#
+# End
+#
