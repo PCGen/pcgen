@@ -25,6 +25,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.File;
+import java.util.logging.Level;
+
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -35,6 +37,7 @@ import pcgen.core.facade.SourceSelectionFacade;
 import pcgen.core.facade.TempBonusFacade;
 import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
+import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.core.facade.util.SortedListFacade;
 import pcgen.gui2.tools.CharacterSelectionListener;
@@ -44,6 +47,7 @@ import pcgen.system.CharacterManager;
 import pcgen.system.FacadeFactory;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Comparators;
+import pcgen.util.Logging;
 
 /**
  *
@@ -138,6 +142,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 		menu.add(actionMap.get(PCGenActionMap.GMGEN_COMMAND));
 		menu.addSeparator();
 		menu.add(actionMap.get(PCGenActionMap.LOG_COMMAND));
+		menu.add(new LoggingLevelMenu());
 		menu.add(actionMap.get(PCGenActionMap.CONSOLE_COMMAND));
 		//menu.add(new ComboListMenu<File>(actionMap.get(PCGenActionMap.CSHEET_COMMAND),
 		//		frame.getCharacterSheets()));
@@ -337,6 +342,76 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 			{
 				character.removeTempBonus(bonus);
 			}
+		}
+		
+	}
+	
+	/**
+	 * The Class <code>LoggingLevelMenu</code> provides a menu to control the 
+	 * level of logging output.
+	 */
+	private class LoggingLevelMenu extends AbstractRadioListMenu<LoggingLevelWrapper>
+	{
+		public LoggingLevelMenu()
+		{
+			super(actionMap.get(PCGenActionMap.LOGGING_LEVEL_COMMAND));
+			DefaultListFacade<LoggingLevelWrapper> levels = new DefaultListFacade<LoggingLevelWrapper>();
+			Level currentLvl = Logging.getCurrentLoggingLevel();
+			LoggingLevelWrapper current = null;
+			for (Level level : Logging.getLoggingLevels())
+			{
+				LoggingLevelWrapper levelWrapper = new LoggingLevelWrapper(level);
+				levels.addElement(levelWrapper);
+				if (level == currentLvl)
+				{
+					current = levelWrapper;
+				}
+			}
+			setListModel(levels);
+			setSelectedItem(current);
+		}
+		
+		@Override
+		public void itemStateChanged(ItemEvent e)
+		{
+			if (e.getStateChange() == ItemEvent.SELECTED)
+			{
+				Object item = e.getItemSelectable().getSelectedObjects()[0];
+				Level level = ((LoggingLevelWrapper) item).getLevel();
+				Logging.setCurrentLoggingLevel(level);
+			}
+		}
+		
+	}
+	
+	/**
+	 * The Class <code>LoggingLevelWrapper</code> provides a display wrapper 
+	 * around a Level. 
+	 */
+	public static class LoggingLevelWrapper
+	{
+		private final Level level;
+
+		public LoggingLevelWrapper(Level level)
+		{
+			this.level = level;
+		}
+		
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String toString()
+		{
+			return LanguageBundle.getString("in_loglvl" + level.getName());
+		}
+
+		/**
+		 * @return the level
+		 */
+		public Level getLevel()
+		{
+			return level;
 		}
 		
 	}

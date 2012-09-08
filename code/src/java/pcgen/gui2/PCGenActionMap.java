@@ -129,6 +129,7 @@ public final class PCGenActionMap extends ActionMap
 	public static final String PREFERENCES_COMMAND = TOOLS_COMMAND + ".preferences";
 	public static final String GMGEN_COMMAND = TOOLS_COMMAND + ".gmgen";
 	public static final String LOG_COMMAND = TOOLS_COMMAND + ".log";
+	public static final String LOGGING_LEVEL_COMMAND = TOOLS_COMMAND + ".loggingLevel";
 	public static final String CONSOLE_COMMAND = TOOLS_COMMAND + ".console";
 	//the help menu commands
 	public static final String HELP_COMMAND = "help";
@@ -180,6 +181,7 @@ public final class PCGenActionMap extends ActionMap
 		put(PREFERENCES_COMMAND, new PreferencesAction());
 		put(GMGEN_COMMAND, new GMGenAction());
 		put(LOG_COMMAND, new DebugAction());
+		put(LOGGING_LEVEL_COMMAND, new LoggingLevelAction());
 		put(CONSOLE_COMMAND, new ConsoleAction());
 		put(INSTALL_DATA_COMMAND, new InstallDataAction());
 		put(FILTERS_COMMAND, new FiltersAction());
@@ -439,6 +441,16 @@ public final class PCGenActionMap extends ActionMap
 			}
 			dialog.setLocationRelativeTo(frame);
 			dialog.setVisible(true);
+		}
+
+	}
+
+	private class LoggingLevelAction extends PCGenAction
+	{
+
+		public LoggingLevelAction()
+		{
+			super("mnuLoggingLevel");
 		}
 
 	}
