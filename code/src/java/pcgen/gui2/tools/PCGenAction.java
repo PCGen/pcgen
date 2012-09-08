@@ -24,8 +24,10 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.InputEvent;
 import java.util.StringTokenizer;
+
 import javax.swing.AbstractAction;
 import javax.swing.KeyStroke;
+
 import pcgen.system.LanguageBundle;
 
 public class PCGenAction extends AbstractAction
@@ -100,7 +102,11 @@ public class PCGenAction extends AbstractAction
             {
                 iShortCut = menuShortcutKeyMask | InputEvent.SHIFT_MASK;
             }
-
+            else if (aString.matches("F[0-9]+"))
+            {
+            	iShortCut = 0;
+            }
+            
             if (aTok.hasMoreTokens())
             {
                 // get the second argument

@@ -1009,7 +1009,7 @@ public final class PCGenActionMap extends ActionMap
 
 		public DocsHelpAction()
 		{
-			super("mnuHelpDocumentation", HELP_DOCS_COMMAND, Icons.Help16);
+			super("mnuHelpDocumentation", HELP_DOCS_COMMAND, "F1", Icons.Help16);
 		}
 
 		@Override
