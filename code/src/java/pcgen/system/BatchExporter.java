@@ -31,6 +31,7 @@ import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.base.Constants;
@@ -39,6 +40,8 @@ import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.PartyFacade;
 import pcgen.core.facade.SourceSelectionFacade;
 import pcgen.core.facade.UIDelegate;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGFile;
@@ -300,6 +303,54 @@ public class BatchExporter
 		}
 	}
 
+	/**
+	 * Get a temporary file name for outputting a character using a particular 
+	 * output template.
+	 * @param templateFile The output template that will be used.
+	 * @return The temporary file, or null if it could not be created.
+	 */
+	public static File getTempOutputFilename(File templateFile)
+	{
+		String extension = FilenameUtils.getExtension(templateFile.getName());
+		
+		// Special case for templates processed into PDFs
+		if (isPdfTemplate(templateFile))
+		{
+			extension = "pdf";
+		}
+
+		try
+		{
+			// create a temporary file to view the character output
+			return
+					File.createTempFile(Constants.TEMPORARY_FILE_NAME, "."+extension,
+						SettingsHandler.getTempPath());
+		}
+		catch (IOException ioe)
+		{
+			ShowMessageDelegate.showMessageDialog(
+				"Could not create temporary preview file.", "PCGen",
+				MessageType.ERROR);
+			Logging.errorPrint("Could not create temporary preview file.", ioe);
+			return null;
+		}
+		
+	}
+	
+	/**
+	 * Identify if this template will result in a pdf file.
+	 * @param templateFile The output template.
+	 * @return true if this is a pdf template.
+	 */
+	public static boolean isPdfTemplate(File templateFile)
+	{
+		String extension = FilenameUtils.getExtension(templateFile.getName());
+		return (extension.equalsIgnoreCase("pdf")
+			|| extension.equalsIgnoreCase("fo")
+			|| extension.equalsIgnoreCase("xml") || extension
+				.equalsIgnoreCase("xslt"));
+	}
+	
 	/**
 	 * Write a PDF party sheet for the characters in the party to the output 
 	 * file. The party sheet will be built according to the template file. If  

@@ -22,10 +22,8 @@
  */
 package pcgen.gui2.facade;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -70,16 +68,17 @@ import pcgen.core.bonus.BonusUtilities;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
+import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.ClassFacade;
 import pcgen.core.facade.DataSetFacade;
 import pcgen.core.facade.DefaultReferenceFacade;
 import pcgen.core.facade.EquipmentFacade;
 import pcgen.core.facade.EquipmentListFacade.EquipmentListEvent;
 import pcgen.core.facade.EquipmentListFacade.EquipmentListListener;
-import pcgen.core.facade.TodoFacade.CharacterTab;
 import pcgen.core.facade.InfoFacade;
 import pcgen.core.facade.SpellFacade;
 import pcgen.core.facade.SpellSupportFacade;
+import pcgen.core.facade.TodoFacade.CharacterTab;
 import pcgen.core.facade.UIDelegate;
 import pcgen.core.facade.event.ListEvent;
 import pcgen.core.facade.event.ListListener;
@@ -88,8 +87,9 @@ import pcgen.core.facade.util.ListFacade;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.gui.utils.Utility;
+import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.HtmlInfoBuilder;
+import pcgen.system.BatchExporter;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.FOPHandler;
@@ -126,6 +126,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	private DefaultListFacade<String> spellBookNames;
 	private DefaultReferenceFacade<String> defaultSpellBook;
 	private TodoManager todoManager;
+	private CharacterFacade pcFacade;
 	
 
 	/**
@@ -136,13 +137,17 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	 * @param delegate The delegate class for UI display.
 	 * @param dataSet The current data being used.
 	 * @param todoManager The user tasks tracker.
+	 * @param pcFacade The character facade. 
 	 */
-	public SpellSupportFacadeImpl(PlayerCharacter pc, UIDelegate delegate, DataSetFacade dataSet, TodoManager todoManager)
+	public SpellSupportFacadeImpl(PlayerCharacter pc, UIDelegate delegate,
+		DataSetFacade dataSet, TodoManager todoManager,
+		CharacterFacade pcFacade)
 	{
 		this.pc = pc;
 		this.delegate = delegate;
 		this.dataSet = dataSet;
 		this.todoManager = todoManager;
+		this.pcFacade = pcFacade;
 		rootNodeMap = new HashMap<String, RootNodeImpl>();
 		
 		spellBookNames = new DefaultListFacade<String>();
@@ -1379,9 +1384,41 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	{
 		boolean aBool = SettingsHandler.getPrintSpellsWithPC();
 		SettingsHandler.setPrintSpellsWithPC(true);
-		Utility.previewInBrowser(
-			PCGenSettings.getInstance().getProperty(
-				PCGenSettings.SELECTED_SPELL_SHEET_PATH), pc);
+
+		String templateFileName = PCGenSettings.getInstance().getProperty(
+			PCGenSettings.SELECTED_SPELL_SHEET_PATH);
+		if (StringUtils.isEmpty(templateFileName))
+		{
+			delegate.showErrorMessage(Constants.APPLICATION_NAME,
+				LanguageBundle.getString("in_spellNoSheet")); //$NON-NLS-1$
+			return;
+		}
+		File templateFile = new File(templateFileName);
+
+		File outputFile = BatchExporter.getTempOutputFilename(templateFile);
+		
+		boolean success;
+		if (BatchExporter.isPdfTemplate(templateFile))
+		{
+			success = BatchExporter.exportCharacterToPDF(pcFacade, outputFile, templateFile);
+		}
+		else
+		{
+			success = BatchExporter.exportCharacterToNonPDF(pcFacade, outputFile, templateFile);
+		}
+		if (success)
+		{
+			try
+			{
+				Utility.viewInBrowser(outputFile);
+			}
+			catch (IOException e)
+			{
+				Logging.errorPrint("SpellSupportFacadeImpl.previewSpells failed", e);
+				delegate.showErrorMessage(Constants.APPLICATION_NAME,
+					LanguageBundle.getString("in_spellPreviewFail")); //$NON-NLS-1$
+			}
+		}
 		SettingsHandler.setPrintSpellsWithPC(aBool);
 	}
 
@@ -1401,9 +1438,9 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		}
 		String ext = template.substring(template.lastIndexOf('.'));
 
+		// Get the name of the file to output to.
 		JFileChooser fcExport = new JFileChooser();
 		fcExport.setCurrentDirectory(new File(PCGenSettings.getPcgDir()));
-
 		fcExport.setDialogTitle(LanguageBundle
 			.getString("InfoSpells.export.spells.for") + pc.getDisplayName()); //$NON-NLS-1$
 
@@ -1411,9 +1448,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		{
 			return;
 		}
-
 		final String aFileName = fcExport.getSelectedFile().getAbsolutePath();
-
 		if (aFileName.length() < 1)
 		{
 			delegate.showErrorMessage(Constants.APPLICATION_NAME,  
@@ -1451,38 +1486,15 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 				}
 			}
 
-			if (ext.equalsIgnoreCase(".htm") || ext.equalsIgnoreCase(".html")) //$NON-NLS-1$ //$NON-NLS-2$
+			// Output the file
+			File templateFile = new File(template);
+			if (BatchExporter.isPdfTemplate(templateFile))
 			{
-				BufferedWriter w =
-						new BufferedWriter(new OutputStreamWriter(
-							new FileOutputStream(outFile), "UTF-8")); //$NON-NLS-1$
-				Utility.printToWriter(w, template, pc);
+				BatchExporter.exportCharacterToPDF(pcFacade, outFile, templateFile);
 			}
-			else if (ext.equalsIgnoreCase(".fo") || ext.equalsIgnoreCase(".pdf")) //$NON-NLS-1$ //$NON-NLS-2$
+			else
 			{
-				File tmpFile = File.createTempFile("tempSpells_", ".fo"); //$NON-NLS-1$ //$NON-NLS-2$
-				BufferedWriter w =
-						new BufferedWriter(new OutputStreamWriter(
-							new FileOutputStream(tmpFile), "UTF-8")); //$NON-NLS-1$
-				Utility.printToWriter(w, template, pc);
-
-				pdfExport(outFile, tmpFile, null);
-			}
-			else if (ext.equalsIgnoreCase(".xslt") || ext.equalsIgnoreCase(".xsl")) //$NON-NLS-1$ //$NON-NLS-2$
-			{
-				Logging.debugPrint("Printing using XML/XSLT");
-				File tmpFile = File.createTempFile("tempSpells_", ".xml"); //$NON-NLS-1$ //$NON-NLS-2$
-				BufferedWriter w =
-					new BufferedWriter(new OutputStreamWriter(
-						new FileOutputStream(tmpFile), "UTF-8")); //$NON-NLS-1$
-				File baseTemplate = new File(SettingsHandler.getPcgenSystemDir() + File.separator + "gameModes" + File.separator + SettingsHandler.getGame().getName() + File.separator + "base.xml");
-				if(!baseTemplate.exists()) {
-					baseTemplate = new File(SettingsHandler.getPcgenOutputSheetDir() + File.separator + "base.xml");
-				}
-				Utility.printToWriter(w, baseTemplate.getAbsolutePath(), pc);
-
-				File xsltFile = new File(template);
-				pdfExport(outFile, tmpFile, xsltFile);
+				BatchExporter.exportCharacterToNonPDF(pcFacade, outFile, templateFile);
 			}
 		}
 		catch (Exception ex)

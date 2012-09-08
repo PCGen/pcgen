@@ -294,7 +294,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		infoFactory = new Gui2InfoFactory(pc);
 		characterAbilities = new CharacterAbilities(pc, delegate, dataSet, todoManager);
 		descriptionFacade = new DescriptionFacadeImpl(pc);
-		spellSupportFacade = new SpellSupportFacadeImpl(pc, delegate, dataSet, todoManager);
+		spellSupportFacade = new SpellSupportFacadeImpl(pc, delegate, dataSet, todoManager, this);
 
 		name = new DefaultReferenceFacade<String>(pc.getName());
 		file = new DefaultReferenceFacade<File>(new File(pc.getFileName()));
