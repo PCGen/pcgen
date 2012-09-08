@@ -181,7 +181,7 @@ public class LocationPanel extends PCGenPrefsPanel
 
 		Utility.buildConstraints(c, 0, 3, 1, 1, 0, 0);
 
-		//todo: i18n
+		//TODO i18n
 		label = new JLabel("PCGen Portraits Directory" + ": ");
 		gridbag.setConstraints(label, c);
 		this.add(label);
@@ -411,7 +411,8 @@ public class LocationPanel extends PCGenPrefsPanel
 			pcgenFilesDirRadio.setSelected(true);
 		}
 		else if (fType.equals(SettingsFilesPath.user.name())
-			|| fType.equals(SettingsFilesPath.mac_user.name()))
+			|| fType.equals(SettingsFilesPath.mac_user.name())
+			|| fType.equals(SettingsFilesPath.FD_USER.name()))
 		{
 			usersFilesDirRadio.setSelected(true);
 		}
@@ -437,7 +438,7 @@ public class LocationPanel extends PCGenPrefsPanel
 			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
-				pcgenFilesDir.setText(System.getProperty("user.dir"));
+				pcgenFilesDir.setText(SettingsFilesPath.pcgen.getSettingsDir());
 				pcgenFilesDirButton.setEnabled(false);
 			}
 		});
@@ -446,8 +447,7 @@ public class LocationPanel extends PCGenPrefsPanel
 			@Override
 			public void actionPerformed(ActionEvent evt)
 			{
-				pcgenFilesDir.setText(System.getProperty("user.home")
-					+ File.separator + ".pcgen");
+				pcgenFilesDir.setText(ConfigurationSettings.getUserSettingsDirFromFilePath());
 				pcgenFilesDirButton.setEnabled(false);
 			}
 		});

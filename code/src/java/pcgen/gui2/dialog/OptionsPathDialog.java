@@ -59,7 +59,7 @@ public class OptionsPathDialog extends JDialog
 		super(frame, true);
 		this.dirField = new JTextField();
 		this.dirButton = new JButton();
-		this.selectedDir = SettingsFilesPath.pcgen.name();
+		this.selectedDir = ConfigurationSettings.getDefaultSettingsFilesPath();
 		initComponents();
 	}
 
@@ -106,10 +106,16 @@ public class OptionsPathDialog extends JDialog
 		addRadioButton(
 				"<html><b>PCGen Dir</b>: This is the directory that PCGen is installed into (default)",
 				SettingsFilesPath.pcgen.name(), group, handler, gridBagConstraints);
+		// Remark: do mac user really need to be able to put the file either in a specific mac dir or home?
 		if (SystemUtils.IS_OS_MAC_OSX)
 		{
 			addRadioButton("<html><b>Mac User Dir</b>",
 						   SettingsFilesPath.mac_user.name(), group, handler, gridBagConstraints);
+		} else if (SystemUtils.IS_OS_UNIX)
+		{
+			// putting it the same way as mac. merging all and using a system config dir instead would be better IMHO.
+			addRadioButton("<html><b>Freedesktop configuration sub-directory</b> Use for most Linux/BSD",
+						   SettingsFilesPath.FD_USER.name(), group, handler, gridBagConstraints);
 		}
 		addRadioButton("<html><b>Home Dir</b>: This is your home directory",
 					   SettingsFilesPath.user.name(), group, handler, gridBagConstraints);
@@ -144,6 +150,7 @@ public class OptionsPathDialog extends JDialog
 
 		gridBagConstraints.insets = new Insets(4, 0, 4, 0);
 		getContentPane().add(okButton, gridBagConstraints);
+		getRootPane().setDefaultButton(okButton);
 
 		pack();
 		setLocationRelativeTo(null);

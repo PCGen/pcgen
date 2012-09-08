@@ -43,6 +43,8 @@ public final class ConfigurationSettings extends PropertyContext
 	public static final String PCC_FILES_DIR = "pccFilesPath";
 	public static final String CUSTOM_DATA_DIR = "customPath";
 	private static ConfigurationSettings instance = null;
+	/** APPLICATION directory name, used in <em>~/.&lt;APPLICATION&gt;</em>, etc. */
+	public static final String APPLICATION = "pcgen"; // $NON-NLS-1$
 
 	private ConfigurationSettings(String configFileName)
 	{
@@ -219,8 +221,13 @@ public final class ConfigurationSettings extends PropertyContext
 	public static enum SettingsFilesPath
 	{
 
+		/** User Directory */
 		user,
+		/** Indicates PCGen directory */
 		pcgen,
+		/** Freedesktop configuration directories */
+		FD_USER,
+		/** Indicate MAC specific directories */
 		mac_user;
 
 		public String getSettingsDir()
@@ -228,11 +235,18 @@ public final class ConfigurationSettings extends PropertyContext
 			switch (this)
 			{
 				case user:
-					return SystemUtils.USER_HOME + File.separator + ".pcgen";
+					return SystemUtils.USER_HOME + File.separator + "." + APPLICATION; // $NON-NLS-1$
 				case pcgen:
-					return SystemUtils.USER_DIR + File.separator + "settings";
+					return SystemUtils.USER_DIR + File.separator + "settings"; // $NON-NLS-1$
 				case mac_user:
-					return SystemUtils.USER_HOME + "/Library/Preferences/pcgen";
+					return SystemUtils.USER_HOME + "/Library/Preferences/" + APPLICATION; // $NON-NLS-1$
+				case FD_USER:
+					String config = System.getenv("XDG_CONFIG_HOME"); // $NON-NLS-1$
+					if (config == null || config.isEmpty())
+					{
+						config = SystemUtils.USER_HOME + File.separator + ".config"; // $NON-NLS-1$
+					}
+					return config + File.separator + APPLICATION;
 				default:
 					throw new InternalError();
 			}
@@ -271,11 +285,23 @@ public final class ConfigurationSettings extends PropertyContext
 		{
 			fType = SettingsFilesPath.mac_user.name();
 		}
+		else if (SystemUtils.IS_OS_UNIX)
+		{
+			fType = SettingsFilesPath.FD_USER.name();
+		}
 		else
 		{
 			fType = SettingsFilesPath.user.name();
 		}
 		return fType;
+	}
+
+	/**
+	 * @return "User Dir" dir Settings Files Path value.
+	 */
+	public static String getUserSettingsDirFromFilePath()
+	{
+		return getSettingsDirFromFilePath(getDefaultSettingsFilesPath());
 	}
 
 }

@@ -2040,7 +2040,9 @@ public final class SettingsHandler
 	 * as the PcgenFilesDir setting.
 	 *  
 	 * @return The directory in which the PCGen config is stored.
+	 * @deprecated Not used anymore, not updated fType="FD_USER"
 	 */
+	@Deprecated
 	public static File getDecodedPCGenFilesDir()
 	{
 		String fType = SettingsHandler.getFilePaths();
