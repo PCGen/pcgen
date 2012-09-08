@@ -44,6 +44,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.JButton;
@@ -52,6 +53,9 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+
+import org.apache.commons.lang.StringUtils;
+
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.UIPropertyContext;
@@ -246,39 +250,46 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 	{
 		tipList = new ArrayList<String>(20);
 		String systemDir = ConfigurationSettings.getSystemsDir();
-		final String tipsFilePath = systemDir + File.separator + "gameModes" +
-				File.separator + SettingsHandler.getGame().getName() + File.separator + "tips.lst";
-		final String tipsDefaultPath = systemDir + File.separator + "gameModes" +
-				File.separator + "default" + File.separator + "tips.lst";
+		String tipsFileName = LanguageBundle.getString("in_tipsFileName"); //$NON-NLS-1$
+		String tipsFileNameDefault = "tips.txt"; //$NON-NLS-1$
+		final String tipsFilePath =
+				systemDir + File.separator + "gameModes" + File.separator //$NON-NLS-1$
+					+ SettingsHandler.getGame().getName() + File.separator;
+		final String tipsDefaultPath =
+				systemDir + File.separator + "gameModes" + File.separator //$NON-NLS-1$
+					+ "default" + File.separator; //$NON-NLS-1$
+		String[] tipFiles =
+				new String[]{tipsFilePath + tipsFileName,
+					tipsDefaultPath + tipsFileName,
+					tipsFilePath + tipsFileNameDefault,
+					tipsDefaultPath + tipsFileNameDefault};
 
-		boolean tryDefault = false;
-
-		try
-		{
-			loadTipFile(tipsFilePath);
-		}
-		catch (FileNotFoundException e)
-		{
-			tryDefault = true;
-		}
-		catch (IOException e)
-		{
-			tryDefault = true;
-		}
-		if (tryDefault)
+		boolean loaded = false;
+		for (String path : tipFiles)
 		{
 			try
 			{
-				loadTipFile(tipsDefaultPath);
+				loadTipFile(path);
+				Logging.log(Logging.INFO, "Loaded tips from " + path); //$NON-NLS-1$
+				loaded = true;
+				break;
 			}
-			catch (FileNotFoundException e1)
+			catch (FileNotFoundException e)
 			{
-				Logging.errorPrint("Warning: game mode " + SettingsHandler.getGame().getName() + " is missing file tips.lst");
+				Logging.debugPrint("Unable to load tips file " + path, e); //$NON-NLS-1$
 			}
-			catch (IOException e1)
+			catch (IOException e)
 			{
-				Logging.errorPrint("Warning: game mode " + SettingsHandler.getGame().getName() + " is missing file tips.lst");
+				Logging.debugPrint("Unable to load tips file " + path, e); //$NON-NLS-1$
 			}
+		}
+
+		if (!loaded)
+		{
+			Logging.errorPrint("Warning: game mode "
+				+ SettingsHandler.getGame().getName()
+				+ " is missing tips. Tried all of "
+				+ StringUtils.join(tipFiles, "\n"));
 		}
 	}
 
