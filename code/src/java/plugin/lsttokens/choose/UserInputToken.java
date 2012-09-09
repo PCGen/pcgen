@@ -88,7 +88,7 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 					+ obj.getClass() + " " + obj.getKeyName()
 					+ " had invalid arguments: " + value, context);
 			}
-			String title = value.substring(6);
+			String title = titleString.substring(6);
 			if (title.startsWith("\""))
 			{
 				title = title.substring(1, title.length() - 1);
