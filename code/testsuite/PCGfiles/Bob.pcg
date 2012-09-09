@@ -166,7 +166,7 @@ CHARACTERDMNOTES:
 # Kits
 
 # Character Master/Follower
-FOLLOWER:Companion Mod|TYPE:Companion Mod|RACE:COMPANION|HITDICE:0|FILE:\Bob Companion.pcg
+FOLLOWER:Companion Mod|TYPE:Companion Mod|RACE:COMPANION|HITDICE:0|FILE:Bob Companion.pcg
 
 # Character Notes Tab
 NOTE:Character Sheet Notes|ID:1|PARENTID:-1|VALUE:

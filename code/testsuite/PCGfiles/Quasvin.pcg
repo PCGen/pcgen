@@ -239,7 +239,7 @@ CHARACTERDMNOTES:
 # Kits
 
 # Character Master/Follower
-FOLLOWER:Q-PsiCrystal|TYPE:Psicrystal|RACE:PSICRYSTAL (COWARD)|HITDICE:0|FILE:\Q-PsiCrystal.pcg
+FOLLOWER:Q-PsiCrystal|TYPE:Psicrystal|RACE:PSICRYSTAL (COWARD)|HITDICE:0|FILE:Q-PsiCrystal.pcg
 
 # Character Notes Tab
 NOTE:Character Sheet Notes|ID:1|PARENTID:-1|VALUE:
