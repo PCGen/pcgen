@@ -27,13 +27,14 @@ import java.awt.Dimension;
 import java.awt.GraphicsEnvironment;
 import java.awt.GridBagConstraints;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
-
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -248,7 +249,7 @@ public final class Utility
 		final JFileChooser fc = new JFileChooser();
 		fc.setDialogTitle("Find and select your preferred html browser.");
 
-		if (System.getProperty("os.name").startsWith("Mac OS"))
+		if (SystemUtils.IS_OS_MAC || SystemUtils.IS_OS_MAC_OSX)
 		{
 			// On MacOS X, do not traverse file bundles
 			fc.putClientProperty("JFileChooser.appBundleIsTraversable",
@@ -397,6 +398,33 @@ public final class Utility
 		if ((cropRect.y + cropRect.height) > image.getHeight())
 		{
 			cropRect.y = image.getHeight() - cropRect.height;
+		}
+	}
+
+	/**
+	 * This method is used to set the name of the application for the window manager, especially X11.
+	 * @param title Title to use
+	 */
+	public static final void setApplicationTitle(String title)
+	{
+		Toolkit xToolkit = Toolkit.getDefaultToolkit();
+
+		try
+		{
+			Field awtAppClassNameField =
+					xToolkit.getClass().getDeclaredField("awtAppClassName"); //$NON-NLS-1$
+			awtAppClassNameField.setAccessible(true);
+			awtAppClassNameField.set(xToolkit, title);
+		}
+		catch (NoSuchFieldException e)
+		{
+			// Rather than do a OS system condition, just ignore this expected exception
+			//Logging.log(Level.FINEST, "Can not set name of application for window manager", e);
+		}
+		catch (IllegalAccessException e)
+		{
+			// Rather than do a OS system condition, just ignore this expected exception
+			//Logging.log(Level.FINEST, "Can not set name of application for window manager", e);
 		}
 	}
 }

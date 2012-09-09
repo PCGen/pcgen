@@ -54,6 +54,7 @@ import pcgen.gui2.SplashScreen;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.dialog.OptionsPathDialog;
 import pcgen.gui2.plaf.LookAndFeelManager;
+import pcgen.gui2.tools.Utility;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGFile;
 import pcgen.persistence.CampaignFileLoader;
@@ -389,6 +390,7 @@ public final class Main
 		}
 		LanguageBundle.init();
 		LookAndFeelManager.initLookAndFeel();
+		Utility.setApplicationTitle(Constants.APPLICATION_NAME);
 
 		//TODO: Remove these registrations once the old choosers are fully replaced.
 		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());

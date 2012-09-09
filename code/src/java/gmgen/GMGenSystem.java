@@ -55,9 +55,13 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
+
+import org.apache.commons.lang.SystemUtils;
+
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.Icons;
+import pcgen.gui2.tools.Utility;
 import pcgen.util.Logging;
 import pcgen.util.SwingWorker;
 
@@ -82,8 +86,10 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     private GMGenSystemView theView;
 
     // Boolean true if this is a Mac OS X system.
-    private static final boolean MAC_OS_X = (System.getProperty("os.name")
-            .equals("Mac OS X"));
+    private static final boolean MAC_OS_X = SystemUtils.IS_OS_MAC_OSX;
+    
+    /** GMGen Application name */
+    public static final String APPLICATION_NAME = "GMGen";
 
     private JMenuBar systemMenuBar;
     
@@ -139,6 +145,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         if (MAC_OS_X) {
             initialiseMacOS();
         }
+        Utility.setApplicationTitle(APPLICATION_NAME);
 
         inst = this;
         initLogger();
