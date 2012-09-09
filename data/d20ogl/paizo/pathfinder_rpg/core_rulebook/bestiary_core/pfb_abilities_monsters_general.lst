@@ -1,6 +1,11 @@
 # CVS $Revision$ $Author$ -- Mon Nov 28 13:37:53 2011 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
+# Vision Modes
+Darkvision	KEY:Vision ~ Darkvision	CATEGORY:Special Ability	VISION:Darkvision	BONUS:VISION|Darkvision|DarkvisionRange	DEFINE:DarkvisionRange|0	
+Low-Light	KEY:Vision ~ Low-Light	CATEGORY:Special Ability	VISION:Low-Light
+
+
 # Added 3rd printing errata - SR
 ###Block: Creature Type Traits
 CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Aberration Traits|PRERACE:1,RACETYPE=Aberration

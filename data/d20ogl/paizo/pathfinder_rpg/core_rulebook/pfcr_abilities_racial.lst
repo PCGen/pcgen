@@ -12,13 +12,15 @@ Stability			KEY:Stability ~ Dwarf			CATEGORY:Special Ability	TYPE:RacialTraits.S
 Stonecunning		KEY:Stonecunning ~ Dwarf		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.DwarfRacialTrait.DwarfRacialDefault			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Stonecunning ~ Dwarf],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStonecunning]			DEFINE:DwarfStoneCunningBonus|0	DESC:Dwarves receive a +%1 bonus on Perception skill checks to notice unusual stonework, such as traps and hidden doors located in stone walls or floors. They receive a check to notice such features whenever they pass within 10 feet of them, regardless of whether or not they are actively looking.|DwarfStoneCunningBonus										BONUS:SKILL|Perception (Notice unusual stonework)|DwarfStoneCunningBonus|TYPE=Racial	BONUS:VAR|DwarfStoneCunningBonus|2																		SOURCEPAGE:p.21	ASPECT:SkillBonus|Dwarves receive a +%1 bonus on Perception skill checks to notice unusual stonework, such as traps and hidden doors located in stone walls or floors.|DwarfStoneCunningBonus
 Steady			KEY:Steady ~ Dwarf			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.DwarfRacialTrait.DwarfRacialDefault			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Steady ~ Dwarf],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfSteady]											DESC:Dwarves never have their speed reduced by armor or encumbrance.																																																																																										SOURCEPAGE:p.21																																	UNENCUMBEREDMOVE:HeavyLoad|HeavyArmor
 Weapon Familiarity	KEY:Weapon Familiarity ~ Dwarf	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.DwarfRacialTrait.DwarfRacialDefault			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Weapon Familiarity ~ Dwarf],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfWeaponFamiliarity]							DESC:Dwarves are proficient with battleaxes, heavy picks, and warhammers, and treat any weapon with the word "dwarven" in its name as a martial weapon.																													AUTO:WEAPONPROF|Battleaxe|Pick (Heavy)|Warhammer																								BONUS:WEAPONPROF=Waraxe (Dwarven)|WIELDCATEGORY|-1	CHANGEPROF:TYPE.Dwarven=Martial	SOURCEPAGE:p.21
+Darkvision			KEY:Darkvision ~ Dwarf			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.DwarfRacialTrait.DwarfRacialDefault.RacialVision	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Darkvision ~ Dwarf],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfRacialVision]																																												BONUS:VAR|RacialVision|1
 
 ###Block: Elf Abilities (POOL=4)
-# Ability Name		Unique Key				Category of Ability		Type															Multiple Requirements																					Description																																			Automatically Gained Weapon Prof.				Bonus to skill								Change Weapon Prof. Category	Source Page		Aspects
-Elven Immunities		KEY:Elven Immunities ~ Elf	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.ElfRacialTrait.ElfRacialDefault.SaveBonus	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Elven Immunities ~ Elf],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfImmunities]		DESC:Elves are immune to magic sleep effects and get a +2 racial saving throw bonus against enchantment spells and effects.																																								SOURCEPAGE:p.22	ASPECT:SaveBonus|+2 vs. enchantment spells and effects
-Elven Magic			KEY:Elven Magic ~ Elf		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.ElfRacialTrait.ElfRacialDefault		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Elven Magic ~ Elf],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfMagic]				DESC:Elves receive a +2 racial bonus on caster level checks made to overcome spell resistance. In addition, elves receive a +2 racial bonus on Spellcraft skill checks made to identify the properties of magic items.										BONUS:SKILL|Spellcraft (Identify magic item)|2|TYPE=Racial						SOURCEPAGE:p.22
-Weapon Familiarity	KEY:Weapon Familiarity ~ Elf	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.ElfRacialTrait.ElfRacialDefault		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Weapon Familiarity ~ Elf],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfWeaponFamiliarity]	DESC:Elves are proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), and treat any weapon with the word "elven" in its name as a martial weapon.	AUTO:WEAPONPROF|Longsword|Rapier|Longbow|Shortbow											CHANGEPROF:TYPE.Elven=Martial	SOURCEPAGE:p.22
-Keen Senses			KEY:Keen Senses ~ Elf		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.ElfRacialTrait.ElfRacialDefault.KeenSenses	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Keen Senses ~ Elf],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfSenses]				DESC:Elves receive a +2 bonus on Perception skill checks.																																				BONUS:SKILL|Perception|2|TYPE=Racial									SOURCEPAGE:p.22
+# Ability Name		Unique Key				Category of Ability		Type																Multiple Requirements																					Description																																			Automatically Gained Weapon Prof.				Bonus to skill								Change Weapon Prof. Category	Source Page		Aspects
+Elven Immunities		KEY:Elven Immunities ~ Elf	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.ElfRacialTrait.ElfRacialDefault.SaveBonus		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Elven Immunities ~ Elf],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfImmunities]		DESC:Elves are immune to magic sleep effects and get a +2 racial saving throw bonus against enchantment spells and effects.																																								SOURCEPAGE:p.22	ASPECT:SaveBonus|+2 vs. enchantment spells and effects
+Elven Magic			KEY:Elven Magic ~ Elf		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.ElfRacialTrait.ElfRacialDefault			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Elven Magic ~ Elf],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfMagic]				DESC:Elves receive a +2 racial bonus on caster level checks made to overcome spell resistance. In addition, elves receive a +2 racial bonus on Spellcraft skill checks made to identify the properties of magic items.										BONUS:SKILL|Spellcraft (Identify magic item)|2|TYPE=Racial						SOURCEPAGE:p.22
+Weapon Familiarity	KEY:Weapon Familiarity ~ Elf	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.ElfRacialTrait.ElfRacialDefault			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Weapon Familiarity ~ Elf],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfWeaponFamiliarity]	DESC:Elves are proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), and treat any weapon with the word "elven" in its name as a martial weapon.	AUTO:WEAPONPROF|Longsword|Rapier|Longbow|Shortbow											CHANGEPROF:TYPE.Elven=Martial	SOURCEPAGE:p.22
+Keen Senses			KEY:Keen Senses ~ Elf		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.ElfRacialTrait.ElfRacialDefault.KeenSenses		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Keen Senses ~ Elf],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfSenses]				DESC:Elves receive a +2 bonus on Perception skill checks.																																				BONUS:SKILL|Perception|2|TYPE=Racial									SOURCEPAGE:p.22
+Low-Light Vision		KEY:Low-Light Vision ~ Elf	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.ElfRacialTrait.ElfRacialDefault.RacialVision	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Low-Light Vision ~ Elf],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfRacialVision]																																												BONUS:VAR|RacialVision|1
 
 ###Block: Gnome Abilities (POOL=5 of possible 7)
 # Ability Name			Unique Key					Category of Ability		Type																				Visible		Multiple Requirements																						Innate Spells																							Description																											Stackable?	Multiple?	Choose					Bonus to Ability Pool			Bonus to DC				Bonus to skill					Change Weapon Prof. Category	Source Page		Aspects
@@ -29,9 +31,12 @@ Illusion Resistance		KEY:Illusion Resistance ~ Gnome	CATEGORY:Special Ability	TY
 Obsessive				KEY:Obsessive ~ Gnome			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.GnomeRacialTrait.GnomeRacialDefault										PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Obsessive ~ Gnome],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeObsessive]																													DESC:Gnomes receive a +2 racial bonus on a Craft or Profession skill of their choice.																								BONUS:ABILITYPOOL|Obsessive Bonus|1																		SOURCEPAGE:p.23
 Keen Senses				KEY:Keen Senses ~ Gnome			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.GnomeRacialTrait.GnomeRacialDefault.KeenSenses								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Keen Senses ~ Gnome],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeKeenSenses]																													DESC:Gnomes receive a +2 bonus on Perception skill checks.																																								BONUS:SKILL|Perception|2|TYPE=Racial						SOURCEPAGE:p.23
 Weapon Familiarity		KEY:Weapon Familiarity ~ Gnome	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.GnomeRacialTrait.GnomeRacialDefault										PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Weapon Familiarity ~ Gnome],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeWeaponFamiliarity]																										DESC:Gnomes treat any weapon with the word "gnome" in its name as a martial weapon.																																											CHANGEPROF:TYPE.Gnome=Martial	SOURCEPAGE:p.23
+Low-Light Vision			KEY:Low-Light Vision ~ Gnome		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.GnomeRacialTrait.GnomeRacialDefault.RacialVision								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Low-Light Vision ~ Gnome],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeRacialVision]																																												BONUS:VAR|RacialVision|1
+
 #
 Obsessive Craft Bonus								CATEGORY:Special Ability	TYPE:Internal.ObsessiveBonus																VISIBLE:DISPLAY																																																																															STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE=Craft													BONUS:SKILL|LIST|2|TYPE=Racial
 Obsessive Profession Bonus							CATEGORY:Special Ability	TYPE:Internal.ObsessiveBonus																VISIBLE:DISPLAY																																																																															STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE=Profession												BONUS:SKILL|LIST|2|TYPE=Racial
+
 
 ###Block: Half-Elf Abilities (POOL=4)
 # Ability Name	Unique Key					Category of Ability		Type																	Multiple Requirements																					Description																										Bonus to Ability Pool					Bonus to skill					Source Page		Aspects
@@ -41,6 +46,7 @@ Elven Immunities	KEY:Elven Immunities ~ Half-Elf	CATEGORY:Special Ability	TYPE:R
 Keen Senses		KEY:Keen Senses ~ Half-Elf		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.HalfElfRacialTrait.HalfElfRacialDefault.KeenSenses	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Keen Senses ~ Half-Elf],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfSenses]		DESC:Half-elves receive a +2 bonus on Perception skill checks.																									BONUS:SKILL|Perception|2|TYPE=Racial	SOURCEPAGE:p.24
 #
 Elf Blood		KEY:Elf Blood ~ Half-Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																							DESC:Half-elves count as both elves and humans for any effect related to race.																													SOURCEPAGE:p.24
+Low-Light Vision	KEY:Low-Light Vision ~ Half-Elf	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.HalfElfRacialTrait.HalfElfRacialDefault.RacialVision	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Low-Light Vision ~ Half-Elf],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfRacialVision]																																												BONUS:VAR|RacialVision|1
 
 ###Block: Half-Orc Abilities (POOL=3)
 # Ability Name		Unique Key				Category of Ability		Type																Multiple Requirements																							Description																																									Automatically Gained Weapon Prof.	Bonus to skill					Change Weapon Prof. Category	Source Page
@@ -49,6 +55,7 @@ Orc Ferocity		KEY:Orc Ferocity ~ Half-Orc	CATEGORY:Special Ability	TYPE:RacialTr
 Weapon Familiarity	KEY:Weapon Familiarity ~ Orc	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.HalfOrcRacialTrait.HalfOrcRacialDefault		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Weapon Familiarity ~ Orc],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcHalfOrcWeaponFamiliarity]	DESC:Half-orcs are proficient with greataxes and falchions, and treat any weapon with the word "orc" in its name as a martial weapon.																				AUTO:WEAPONPROF|Greataxe|Falchion								CHANGEPROF:TYPE.Orc=Martial	SOURCEPAGE:p.25
 #
 Orc Blood								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																								DESC:Half-orc count as both humans and orcs for any effect related to race.																																																SOURCEPAGE:p.25
+Darkvision			KEY:Darkvision ~ Half-Orc	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.HalfOrcRacialTrait.HalfOrcRacialDefault.RacialVision	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Darkvision ~ Half-Orc],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcRacialVision]																																												BONUS:VAR|RacialVision|1
 
 ###Block: Halfling Abilities (POOL=5)
 # Ability Name		Unique Key					Category of Ability		Type																	Multiple Requirements																							Description																					Automatically Gained Weapon Prof.	Save checks bonus				Bonus to skill						Change Weapon Prof. Category		Source Page		Aspects
@@ -95,7 +102,7 @@ CATEGORY=Internal|Select Racial Traits.MOD	ABILITY:Internal|AUTOMATIC|Human Raci
 
 
 #Block: Racial Traits
-Dwarf Racial Trait Default	CATEGORY:Internal		BONUS:ABILITYPOOL|Dwarf Racial Trait|-8
+Dwarf Racial Trait Default	CATEGORY:Internal		BONUS:ABILITYPOOL|Dwarf Racial Trait|-9
 #
 CATEGORY=Internal|Dwarf Racial Trait Default.MOD	ABILITY:Dwarf Racial Trait|AUTOMATIC|Defensive Training ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfDefensiveTraining
 CATEGORY=Internal|Dwarf Racial Trait Default.MOD	ABILITY:Dwarf Racial Trait|AUTOMATIC|Greed ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfGreed
@@ -105,15 +112,17 @@ CATEGORY=Internal|Dwarf Racial Trait Default.MOD	ABILITY:Dwarf Racial Trait|AUTO
 CATEGORY=Internal|Dwarf Racial Trait Default.MOD	ABILITY:Dwarf Racial Trait|AUTOMATIC|Stonecunning ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStonecunning
 CATEGORY=Internal|Dwarf Racial Trait Default.MOD	ABILITY:Dwarf Racial Trait|AUTOMATIC|Steady ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfSteady
 CATEGORY=Internal|Dwarf Racial Trait Default.MOD	ABILITY:Dwarf Racial Trait|AUTOMATIC|Weapon Familiarity ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfWeaponFamiliarity
+CATEGORY=Internal|Dwarf Racial Trait Default.MOD	ABILITY:Dwarf Racial Trait|AUTOMATIC|Darkvision ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfRacialVision
 
-Elf Racial Trait Default	CATEGORY:Internal		BONUS:ABILITYPOOL|Elf Racial Trait|-4
+Elf Racial Trait Default	CATEGORY:Internal		BONUS:ABILITYPOOL|Elf Racial Trait|-5
 #
 CATEGORY=Internal|Elf Racial Trait Default.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elven Immunities ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfImmunities
 CATEGORY=Internal|Elf Racial Trait Default.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elven Magic ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfMagic
 CATEGORY=Internal|Elf Racial Trait Default.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Weapon Familiarity ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfWeaponFamiliarity
 CATEGORY=Internal|Elf Racial Trait Default.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Keen Senses ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfSenses
+CATEGORY=Internal|Elf Racial Trait Default.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Low-Light Vision ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfRacialVision
 
-Gnome Racial Trait Default	CATEGORY:Internal		BONUS:ABILITYPOOL|Gnome Racial Trait|-7
+Gnome Racial Trait Default	CATEGORY:Internal		BONUS:ABILITYPOOL|Gnome Racial Trait|-8
 #
 CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Defensive Training ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeDefensiveTraining
 CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome Magic ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeMagic
@@ -122,19 +131,22 @@ CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTO
 CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Obsessive ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeObsessive
 CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Keen Senses ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeSenses
 CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Weapon Familiarity ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeWeaponFamiliarity
+CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Low-Light Vision ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeRacialVision
 
-Half Elf Racial Trait Default	CATEGORY:Internal		BONUS:ABILITYPOOL|Half Elf Racial Trait|-4
+Half Elf Racial Trait Default	CATEGORY:Internal		BONUS:ABILITYPOOL|Half Elf Racial Trait|-5
 #
 CATEGORY=Internal|Half Elf Racial Trait Default.MOD	ABILITY:Half Elf Racial Trait|AUTOMATIC|Adaptability ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfAdaptability
 CATEGORY=Internal|Half Elf Racial Trait Default.MOD	ABILITY:Half Elf Racial Trait|AUTOMATIC|Multitalented ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfMultitalented
 CATEGORY=Internal|Half Elf Racial Trait Default.MOD	ABILITY:Half Elf Racial Trait|AUTOMATIC|Elven Immunities ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfImmunities
 CATEGORY=Internal|Half Elf Racial Trait Default.MOD	ABILITY:Half Elf Racial Trait|AUTOMATIC|Keen Senses ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfSenses
+CATEGORY=Internal|Half Elf Racial Trait Default.MOD	ABILITY:Half Elf Racial Trait|AUTOMATIC|Low-Light Vision ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfRacialVision
 
 Half Orc Racial Trait Default	CATEGORY:Internal		BONUS:ABILITYPOOL|Half Orc Racial Trait|-3
 #
 CATEGORY=Internal|Half Orc Racial Trait Default.MOD	ABILITY:Half Orc Racial Trait|AUTOMATIC|Intimidating ~ Half-Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcIntimidating
 CATEGORY=Internal|Half Orc Racial Trait Default.MOD	ABILITY:Half Orc Racial Trait|AUTOMATIC|Orc Ferocity ~ Half-Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcFerocity
 CATEGORY=Internal|Half Orc Racial Trait Default.MOD	ABILITY:Half Orc Racial Trait|AUTOMATIC|Weapon Familiarity ~ Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcWeaponFamiliarity
+CATEGORY=Internal|Half Orc Racial Trait Default.MOD	ABILITY:Half Orc Racial Trait|AUTOMATIC|Darkvision ~ Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcRacialVision
 
 Halfling Racial Trait Default	CATEGORY:Internal		BONUS:ABILITYPOOL|Halfling Racial Trait|-5
 #
