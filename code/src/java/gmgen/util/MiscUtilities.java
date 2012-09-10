@@ -26,6 +26,9 @@ package gmgen.util;
 import pcgen.core.Globals;
 
 import javax.swing.JOptionPane;
+
+import org.apache.commons.lang.SystemUtils;
+
 import java.awt.Color;
 import java.awt.Cursor;
 import java.io.File;
@@ -74,7 +77,7 @@ public final class MiscUtilities
 		{
 			return true;
 		}
-		else if (OperatingSystem.isDOSDerived())
+		else if (SystemUtils.IS_OS_WINDOWS)
 		{
 			if ((path.length() == 2) && (path.charAt(1) == ':'))
 			{
@@ -91,7 +94,7 @@ public final class MiscUtilities
 				return true;
 			}
 		}
-		else if (OperatingSystem.isUnix())
+		else if (SystemUtils.IS_OS_UNIX)
 		{
 			// nice and simple
 			if ((path.length() > 0) && (path.charAt(0) == '/'))
@@ -442,6 +445,7 @@ public final class MiscUtilities
 	 *@return         the absolute path name
 	 *@since          GMGen 3.3
 	 */
+	// TODO There is probably a maintained method that does that in one of the Apache Commons libraries.
 	public static String constructPath(String parent, String path)
 	{
 		if (isAbsolutePath(path))
@@ -451,7 +455,7 @@ public final class MiscUtilities
 
 		// have to handle this case specially on windows.
 		// insert \ between, eg A: and myfile.txt.
-		if (OperatingSystem.isDOSDerived())
+		if (SystemUtils.IS_OS_WINDOWS)
 		{
 			if ((path.length() == 2) && (path.charAt(1) == ':'))
 			{
@@ -495,7 +499,7 @@ public final class MiscUtilities
 			}
 		}
 
-		if (OperatingSystem.isDOSDerived() && returnPath.startsWith("\\"))
+		if (SystemUtils.IS_OS_MAC && returnPath.startsWith("\\"))
 		{
 			returnParent = returnParent.substring(0, 2);
 		}

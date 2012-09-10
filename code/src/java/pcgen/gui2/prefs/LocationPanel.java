@@ -728,7 +728,7 @@ public class LocationPanel extends PCGenPrefsPanel
 			fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 			fc.setDialogTitle(dialogTitle);
 
-			if (System.getProperty("os.name").startsWith("Mac OS"))
+			if (SystemUtils.IS_OS_MAC)
 			{
 				// On MacOS X, do not traverse file bundles
 				fc.putClientProperty("JFileChooser.appBundleIsTraversable",

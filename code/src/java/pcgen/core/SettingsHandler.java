@@ -46,6 +46,8 @@ import java.util.StringTokenizer;
 
 import javax.swing.SwingConstants;
 
+import org.apache.commons.lang.SystemUtils;
+
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.SourceFormat;
@@ -2804,8 +2806,8 @@ public final class SettingsHandler
 		// handled in gui code pcGenGUI.java just after returning
 		// from this method.
 		if (((Globals.javaVersionMajor >= 1) && (Globals.javaVersionMinor >= 4))
-			|| (!System.getProperty("os.name").substring(0, 3).equalsIgnoreCase("MAC"))) //$NON-NLS-1$ //$NON-NLS-2$
-		//(! System.getProperty("os.name").substring(1,3).equalsIgnoreCase("LIN")))
+			|| !SystemUtils.IS_OS_MAC)
+		//(! SystemUtils.IS_OS_LINUX))
 		{
 			setToolTipTextShown(getPCGenOption("toolTipTextShown", isToolTipTextShown())); //$NON-NLS-1$
 

@@ -26,6 +26,9 @@ import plugin.notes.NotesPlugin;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+
+import org.apache.commons.lang.SystemUtils;
+
 import java.awt.Container;
 import java.awt.SystemColor;
 import java.awt.Color;
@@ -36,7 +39,7 @@ import java.io.IOException;
 import pcgen.gui2.tools.Icons;
 
 /**
- *  JIcon is a snall form that uses an image, a button and some text to
+ *  JIcon is a small form that uses an image, a button and some text to
  *  represent a file. You can launch files in supported operating systems from
  *  JIcon into their associated application.
  *
@@ -46,8 +49,7 @@ import pcgen.gui2.tools.Icons;
 public class JIcon extends JPanel
 {
 	/**  Boolean true if this is a Macintosh systems */
-	public static final boolean MAC_OS_X =
-			(System.getProperty("os.name").equals("Mac OS X"));
+	public static final boolean MAC_OS_X = SystemUtils.IS_OS_MAC_OSX;
 	File launch;
 	NotesPlugin plugin;
 

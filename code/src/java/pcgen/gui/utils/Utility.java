@@ -55,6 +55,8 @@ import javax.swing.JRadioButtonMenuItem;
 import javax.swing.KeyStroke;
 import javax.swing.ToolTipManager;
 
+import org.apache.commons.lang.SystemUtils;
+
 import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -805,7 +807,7 @@ public final class Utility
 		final JFileChooser fc = new JFileChooser();
 		fc.setDialogTitle("Find and select your preferred html browser.");
 
-		if (System.getProperty("os.name").startsWith("Mac OS"))
+		if (SystemUtils.IS_OS_MAC)
 		{
 			// On MacOS X, do not traverse file bundles
 			fc
@@ -861,8 +863,6 @@ public final class Utility
 	{
 		try
 		{
-			final String osName = System.getProperty("os.name");
-
 			// Windows tends to lock up or not actually
 			// display anything unless we've specified a
 			// default browser, so at least make the user
@@ -870,13 +870,13 @@ public final class Utility
 			// pick one and it doesn't work, at least they
 			// might know enough to try selecting one the
 			// next time.
-			if (osName.startsWith("Windows ")
+			if (SystemUtils.IS_OS_WINDOWS
 				&& (SettingsHandler.getBrowserPath() == null))
 			{
 				Utility.selectDefaultBrowser(null);
 			}
 
-			if (osName.startsWith("Mac OS"))
+			if (SystemUtils.IS_OS_MAC)
 			{
 				BrowserLauncher.openURL(url);
 			}

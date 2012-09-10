@@ -49,6 +49,8 @@ import java.util.regex.Pattern;
 
 import javax.swing.JFrame;
 
+import org.apache.commons.lang.SystemUtils;
+
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
@@ -194,7 +196,7 @@ public final class Globals
 	private static boolean useGUI = true;
 
 	/** whether or not we are running on a Mac */
-	public static final boolean isMacPlatform = System.getProperty("os.name").equals("Mac OS X");
+	public static final boolean isMacPlatform = SystemUtils.IS_OS_MAC;
 	/** default location for options.ini on a Mac */
 	public static final String defaultMacOptionsPath = System.getProperty("user.home") + "/Library/Preferences/pcgen";
 
