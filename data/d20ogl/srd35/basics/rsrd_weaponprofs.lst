@@ -115,3 +115,6 @@ Crossbow (Repeating Heavy)	TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow		
 Crossbow (Repeating Light)	TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow											HANDS:2
 Net					TYPE:Exotic.Thrown.Net
 Shuriken				TYPE:Exotic.Thrown.Piercing.RangedPiercing
+
+# Racial 
+Giant Rock				TYPE:Thrown.Giant

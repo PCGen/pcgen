@@ -284,7 +284,7 @@ Rend Armor															CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordina
 Resilient															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
 Roar																CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES	DEFINE:RoarDC|10+(HD/2)+CHA		DESC:DC %1|RoarDC																																										BONUS:VAR|RoarDC|2|PREFEAT:1,Ability Focus (Roar)
 Rock Catching														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
-Rock Throwing														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
+Rock Throwing														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES	AUTO:WEAPONPROF|Giant Rock
 Rotting Constriction													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
 Rush																CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
 Rust																CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
