@@ -146,7 +146,7 @@ Half Orc Racial Trait Default	CATEGORY:Internal		BONUS:ABILITYPOOL|Half Orc Raci
 CATEGORY=Internal|Half Orc Racial Trait Default.MOD	ABILITY:Half Orc Racial Trait|AUTOMATIC|Intimidating ~ Half-Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcIntimidating
 CATEGORY=Internal|Half Orc Racial Trait Default.MOD	ABILITY:Half Orc Racial Trait|AUTOMATIC|Orc Ferocity ~ Half-Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcFerocity
 CATEGORY=Internal|Half Orc Racial Trait Default.MOD	ABILITY:Half Orc Racial Trait|AUTOMATIC|Weapon Familiarity ~ Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcWeaponFamiliarity
-CATEGORY=Internal|Half Orc Racial Trait Default.MOD	ABILITY:Half Orc Racial Trait|AUTOMATIC|Darkvision ~ Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcRacialVision
+CATEGORY=Internal|Half Orc Racial Trait Default.MOD	ABILITY:Half Orc Racial Trait|AUTOMATIC|Darkvision ~ Half-Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcRacialVision
 
 Halfling Racial Trait Default	CATEGORY:Internal		BONUS:ABILITYPOOL|Halfling Racial Trait|-5
 #
