@@ -301,8 +301,17 @@ public class EquipmentModels
 				JTableHeader header = table.getTableHeader();
 				header.setReorderingAllowed(false);
 				JScrollPane pane = new JScrollPane(table);
-				int res = JOptionPane.showConfirmDialog(JOptionPane.getFrameForComponent(equipmentTable),
-					  pane, Constants.APPLICATION_NAME, JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+				JPanel panel = new JPanel(new BorderLayout());
+				JLabel help = new JLabel(LanguageBundle.getString("in_equipSelectUnequipQty")); //$NON-NLS-1$
+				panel.add(help, BorderLayout.NORTH);
+				panel.add(pane, BorderLayout.CENTER);
+				int res =
+						JOptionPane.showConfirmDialog(
+							JOptionPane.getFrameForComponent(equipmentTable),
+							panel,
+							LanguageBundle.getString("in_equipUnequipSel"), //$NON-NLS-1$
+							JOptionPane.OK_CANCEL_OPTION,
+							JOptionPane.PLAIN_MESSAGE);
 
 				if (res == JOptionPane.OK_OPTION)
 				{
@@ -412,8 +421,13 @@ public class EquipmentModels
 				JLabel help = new JLabel(LanguageBundle.getString("in_equipSelectQtyLoc")); //$NON-NLS-1$
 				panel.add(help, BorderLayout.NORTH);
 				panel.add(pane, BorderLayout.CENTER);
-				int res = JOptionPane.showConfirmDialog(JOptionPane.getFrameForComponent(equipmentTable),
-					panel, Constants.APPLICATION_NAME, JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+				int res =
+						JOptionPane.showConfirmDialog(
+							JOptionPane.getFrameForComponent(equipmentTable),
+							panel,
+							LanguageBundle.getString("in_equipEquipSel"), //$NON-NLS-1$
+							JOptionPane.OK_CANCEL_OPTION,
+							JOptionPane.PLAIN_MESSAGE);
 
 				if (res == JOptionPane.OK_OPTION)
 				{
