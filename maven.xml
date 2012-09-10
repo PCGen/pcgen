@@ -144,17 +144,6 @@
         <ant:exec dir="${basedir}/installers/win-installer" executable="perl">
           <arg line="gendigest.pl ${maven.build.dir}"/>
         </ant:exec>    
-
-        <i:ask question="Please sign the release files in ${maven.build.dir} now and press enter when completed."/>
-        
-        <!--  
-              # Upload zip, signature and windows installer files to SourceForge at
-              ftp://upload.sourceforge.net/incoming (anonymous access only)
-        -->
-        <attainGoal name="sourceforge:init"/>
-        <echo>Releasing package ${maven.sourceforge.project.packageName} version ${maven.sourceforge.project.version}</echo>
-        <attainGoal name="sourceforge:changes"/>
-        <attainGoal name="sourceforge:preparefiles"/>
     </goal>
     
     <!-- Simple report to copy the pcgen documentation into the published site -->
