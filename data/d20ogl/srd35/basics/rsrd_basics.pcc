@@ -78,6 +78,7 @@ HIDETYPE:EQUIP|Starting
 #Hiding specific tool types that are used in BONUSes
 HIDETYPE:EQUIP|ArmorsmithingTools|BowmakingTools|BlacksmithingTools|CarpentryTools|LeatherworkingTools|PaintingTools|PotteryTools|SculptingTools|ShipmakingTools|StonemasonryTools|TrapmakingTools|WeaponsmithingTools|WoodworkingTools|LightSource
 HIDETYPE:FEAT|SpecialQuality|SpecialAttack|Extraordinary|SpellLike|Supernatural|AttackOption|Aura|Immunity|ModifyAC|Resistance|Weakness
+HIDETYPE:FEAT|AnimalTrickAttack|AnimalTrickCome|AnimalTrickDefend|AnimalTrickDown|AnimalTrickGuard|AnimalTrickHeel|AnimalTrickStay|AnimalTrickFetch|AnimalTrickPerform|AnimalTrickSeek|AnimalTrickTrack|AnimalTrickWork
 
 # Hide key stat types for skills
 HIDETYPE:SKILL|Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma|Standard|None
