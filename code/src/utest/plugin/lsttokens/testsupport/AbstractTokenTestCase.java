@@ -44,6 +44,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
+@SuppressWarnings("nls")
 public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 		TestCase
 {

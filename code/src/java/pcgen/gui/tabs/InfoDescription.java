@@ -72,6 +72,7 @@ import javax.swing.tree.TreePath;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.Gender;
+import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.AgeSet;
 import pcgen.core.GameMode;
@@ -135,8 +136,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 			if ((handedComboBox != null)
 				&& (handedComboBox.getSelectedItem() != null))
 			{
-				pc.setDirty(true);
-				pc.setHanded(handedComboBox.getSelectedItem().toString());
+				pc.setHanded((Handed) handedComboBox.getSelectedItem());
 			}
 		}
 	};
@@ -599,7 +599,7 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		Utility.buildConstraints(c, 7, 2, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.EAST;
-		label = new JLabel(LanguageBundle.getString("in_handString") + ": ");
+		label = new JLabel(LanguageBundle.getString("in_handString")+": ");
 		gridbag.setConstraints(label, c);
 		northPanel.add(label);
 
@@ -609,11 +609,10 @@ public final class InfoDescription extends JPanel implements CharacterInfoTab
 		gridbag.setConstraints(handedComboBox, c);
 		northPanel.add(handedComboBox);
 
-		handedComboBox.addItem(LanguageBundle.getString("in_handRight"));
-		handedComboBox.addItem(LanguageBundle.getString("in_handLeft"));
-		handedComboBox.addItem(LanguageBundle.getString("in_handBoth"));
-		handedComboBox.addItem(LanguageBundle.getString("in_comboNone"));
-		handedComboBox.addItem(LanguageBundle.getString("in_comboOther"));
+		for(Handed h: Handed.values())
+		{
+			handedComboBox.addItem(h);
+		}
 
 		Utility.buildConstraints(c, 0, 2, 1, 1, 5, 10);
 		c.fill = GridBagConstraints.NONE;

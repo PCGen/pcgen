@@ -24,10 +24,13 @@
 package pcgen.io.exporttoken;
 
 import java.math.BigDecimal;
+import java.util.Locale;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.EnUsLocaleDependentTestCase;
+import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -409,12 +412,14 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		assertEquals("Name-H2", "*DoubleWpn (Head 2 only)", token.getToken(
 			"WEAPON.2.NAME", character, null));
 
+		LocaleDependentTestCase.before(Locale.US);
 		assertEquals("Hand", "Two-Weapons", token.getToken("WEAPON.0.HAND",
 			character, null));
 		assertEquals("Hand-H1", "Two-Weapons", token.getToken("WEAPON.1.HAND",
 			character, null));
 		assertEquals("Hand-H2", "Two-Weapons", token.getToken("WEAPON.2.HAND",
 			character, null));
+		EnUsLocaleDependentTestCase.after();
 
 		//	1H-P
 		assertEquals("1H-P - BASEHIT", "+14/+9/+4/-1", token.getToken(

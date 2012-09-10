@@ -125,13 +125,14 @@ public final class LanguageBundle
 		{
 			Logging.log(Logging.WARNING, "Reinitialising the language bundle."); //$NON-NLS-1$
 		}
-		Locale locale = Locale.getDefault();
-		Logging.log(Logging.INFO, "Initialising language bundle with locale '" + locale + "'."); //$NON-NLS-1$ //$NON-NLS-2$
+		Logging.log(Logging.INFO,
+				MessageFormat.format("Initialising language bundle with locale {0}.", //$NON-NLS-1$
+						Locale.getDefault()));
 		try
 		{
 			bundle =
 					ResourceBundle.getBundle(
-						BUNDLE_NAME + ".LanguageBundle", locale); //$NON-NLS-1$
+						BUNDLE_NAME + ".LanguageBundle"); //$NON-NLS-1$
 		}
 		catch (MissingResourceException mrex)
 		{
@@ -140,4 +141,18 @@ public final class LanguageBundle
 		}
 	}
 
+	/**
+	 * This method is meant to be used in tests to reload the bundle if the default locale has changed.
+	 * @param l the new locale
+	 */
+	public static final void reload()
+	{
+		Locale l=Locale.getDefault();
+		if (bundle != null
+			&& ((l == null && bundle.getLocale() == null) || !l.equals(bundle
+				.getLocale())))
+		{
+			bundle = null;
+		}
+	}
 }

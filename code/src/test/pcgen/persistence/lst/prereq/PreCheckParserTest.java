@@ -28,39 +28,24 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreCheckParser;
 
 /**
  * @author wardc
- *
  */
-public class PreCheckParserTest extends TestCase
+@SuppressWarnings("nls")
+public class PreCheckParserTest extends EnUsLocaleDependentTestCase
 {
-	/**
-	 * Main
-	 * @param args
-	 */
-	public static void main(String[] args)
-	{
-		TestRunner.run(PreCheckParserTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreCheckParserTest.class);
-	}
-
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testBaseFort4Will7() throws Exception
 	{
 		PreCheckParser parser = new PreCheckParser();
@@ -79,6 +64,7 @@ public class PreCheckParserTest extends TestCase
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testBaseWill7() throws Exception
 	{
 		PreCheckParser parser = new PreCheckParser();
@@ -94,6 +80,7 @@ public class PreCheckParserTest extends TestCase
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testFort3() throws Exception
 	{
 		PreCheckParser parser = new PreCheckParser();

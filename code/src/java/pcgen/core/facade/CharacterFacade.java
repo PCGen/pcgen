@@ -386,12 +386,12 @@ public interface CharacterFacade extends CompanionFacade
 	/**
 	 * @return a reference to this character's handedness string
 	 */
-	public ReferenceFacade<SimpleFacade> getHandedRef();
+	public ReferenceFacade<HandedFacade> getHandedRef();
 
 	/**
 	 * @param handedness The new handedness string for the character
 	 */
-	public void setHanded(SimpleFacade handedness);
+	public void setHanded(HandedFacade handedness);
 
 	/**
 	 * @see CharacterFacade#setFile(File)

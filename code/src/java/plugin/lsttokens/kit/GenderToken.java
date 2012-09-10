@@ -86,6 +86,12 @@ public class GenderToken extends AbstractTokenWithSeparator<KitBio> implements
 		{
 			return null;
 		}
-		return new String[]{StringUtil.join(genders, Constants.PIPE)};
+		String[] g = new String[genders.size()];
+		int i = 0;
+		for (Gender gender : genders)
+		{
+			g[i++] = gender.name();
+		}
+		return new String[]{StringUtil.join(g, Constants.PIPE)};
 	}
 }

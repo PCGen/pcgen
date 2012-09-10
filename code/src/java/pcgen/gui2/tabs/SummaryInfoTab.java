@@ -79,6 +79,7 @@ import pcgen.core.facade.ClassFacade;
 import pcgen.core.facade.DataSetFacade;
 import pcgen.core.facade.DeityFacade;
 import pcgen.core.facade.GenderFacade;
+import pcgen.core.facade.HandedFacade;
 import pcgen.core.facade.InfoFacade;
 import pcgen.core.facade.RaceFacade;
 import pcgen.core.facade.ReferenceFacade;
@@ -240,7 +241,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		gbc.gridheight = GridBagConstraints.REMAINDER;
 		add(todoPanel, gbc);
 
-		setPanelTitle(scoresPanel, LanguageBundle.getString("in_sumAbilityScores")); //$NON-NLS-1$
 		initMiddlePanel(scoresPanel);
 		gbc.gridy = GridBagConstraints.RELATIVE;
 		gbc.weightx = 1;
@@ -292,6 +292,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		middlePanel.setLayout(new GridLayout(2, 1));
 
 		JPanel statsPanel = new JPanel();
+		setPanelTitle(statsPanel, LanguageBundle.getString("in_sumAbilityScores")); //$NON-NLS-1$
 		statsPanel.setLayout(new BoxLayout(statsPanel, BoxLayout.Y_AXIS));
 
 		StatTableModel.initializeTable(statsTable);
@@ -344,7 +345,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		InfoPaneHandler.initializeEditorPane(infoPane);
 
 		pane = new JScrollPane(infoPane);
-		pane.setBorder(BorderFactory.createEmptyBorder());
+		setPanelTitle(pane, LanguageBundle.getString("in_sumStats")); //$NON-NLS-1$
 		middlePanel.add(pane);
 	}
 
@@ -661,7 +662,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	public Hashtable<Object, Object> createModels(final CharacterFacade character)
 	{
 		final CharacterComboBoxModel<GenderFacade> genderModel;
-		final CharacterComboBoxModel<SimpleFacade> handsModel;
+		final CharacterComboBoxModel<HandedFacade> handsModel;
 		final CharacterComboBoxModel<AlignmentFacade> alignmentModel;
 		final CharacterComboBoxModel<DeityFacade> deityModel;
 		final DeferredCharacterComboBoxModel<RaceFacade> raceModel;
@@ -690,13 +691,13 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			}
 
 		};
-		handsModel = new CharacterComboBoxModel<SimpleFacade>()
+		handsModel = new CharacterComboBoxModel<HandedFacade>()
 		{
 
 			@Override
 			public void setSelectedItem(Object anItem)
 			{
-				character.setHanded((SimpleFacade) anItem);
+				character.setHanded((HandedFacade) anItem);
 			}
 
 		};
@@ -806,7 +807,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 				else
 				{
 					genderModel.setListFacade(new DefaultListFacade<GenderFacade>());
-					handsModel.setListFacade(new DefaultListFacade<SimpleFacade>());
+					handsModel.setListFacade(new DefaultListFacade<HandedFacade>());
 				}
 			}
 

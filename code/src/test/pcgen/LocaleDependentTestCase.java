@@ -1,6 +1,5 @@
 /*
- * RaceFacade.java
- * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
+ * Copyright 2012 Vincent Lhote
  * 
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -15,39 +14,36 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
- * Created on Aug 8, 2008, 4:06:32 PM
  */
-package pcgen.core.facade;
+package pcgen;
 
-import java.util.List;
+import java.util.Locale;
 
-import pcgen.core.facade.util.ListFacade;
+import pcgen.system.LanguageBundle;
 
 /**
+ * Abstract TestCase framework for tests that are Locale dependent.
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Vincent Lhote
  */
-public interface RaceFacade extends InfoFacade
+public abstract class LocaleDependentTestCase
 {
-
-	public ListFacade<GenderFacade> getGenders();
-
-	public ListFacade<HandedFacade> getHands();
-
-	public String getSize();
-
-	public String getMovement();
-
-	public String getType();
+	static Locale PREVIOUS_LOCALE;
 
 	/**
-	 * @return The name of the race's racetype
+	 * Change locale to the new value, reloading the bundle and remembering the old value for {@link #after}.
+	 * @param l new locale
 	 */
-	public String getRaceType();
+	public static void before(Locale l)
+	{
+		PREVIOUS_LOCALE = Locale.getDefault();
+		Locale.setDefault(l);
+		LanguageBundle.reload();
+	}
 
-	/**
-	 * @return A list of the race's racesubtype names.
-	 */
-	public List<String> getRaceSubTypes();
+	public static void after()
+	{
+		Locale.setDefault(PREVIOUS_LOCALE);
+		LanguageBundle.reload();
+	}
 }

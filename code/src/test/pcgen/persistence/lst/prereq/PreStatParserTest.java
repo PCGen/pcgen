@@ -26,11 +26,13 @@
  */
 package pcgen.persistence.lst.prereq;
 
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Before;
+import org.junit.Test;
+
 import gmgen.pluginmgr.PluginLoader;
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreStatParser;
@@ -39,25 +41,10 @@ import plugin.pretokens.parser.PreStatParser;
  * @author wardc
  *
  */
-public class PreStatParserTest extends TestCase
+@SuppressWarnings("nls")
+public class PreStatParserTest extends EnUsLocaleDependentTestCase
 {
-	/**
-	 * Main
-	 * @param args
-	 */
-	public static void main(String[] args)
-	{
-		TestRunner.run(PreStatParserTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreStatParserTest.class);
-	}
-
+	@Before
 	public void setUp() throws Exception
 	{
 		try
@@ -74,6 +61,7 @@ public class PreStatParserTest extends TestCase
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testDex9() throws Exception
 	{
 		PreStatParser producer = new PreStatParser();
@@ -91,6 +79,7 @@ public class PreStatParserTest extends TestCase
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testDex9a() throws Exception
 	{
 		PreParserFactory parser = PreParserFactory.getInstance();

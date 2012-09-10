@@ -25,10 +25,12 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
@@ -38,24 +40,14 @@ import pcgen.persistence.lst.LstSystemLoader;
 import pcgen.util.TestHelper;
 import plugin.pretokens.parser.PreAlignParser;
 
-public class PreAlignParserTest extends TestCase
+@SuppressWarnings("nls")
+public class PreAlignParserTest extends EnUsLocaleDependentTestCase
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreAlignParserTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreAlignParserTest.class);
-	}
 
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void test1() throws Exception
 	{
 
@@ -71,8 +63,8 @@ public class PreAlignParserTest extends TestCase
 				+ "</prereq>\n" + "</prereq>\n" + "", prereq.toString());
 	}
 
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
 		Globals.setUseGUI(false);
 		Globals.emptyLists();

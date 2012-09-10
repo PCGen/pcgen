@@ -1,6 +1,5 @@
 /*
- * RaceFacade.java
- * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
+ * Copyright 2012 Vincent Lhote
  * 
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -15,39 +14,16 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
- * Created on Aug 8, 2008, 4:06:32 PM
  */
+
 package pcgen.core.facade;
 
-import java.util.List;
-
-import pcgen.core.facade.util.ListFacade;
-
 /**
- *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * Facade for Handedness.
+ * 
+ * @author Vincent Lhote
  */
-public interface RaceFacade extends InfoFacade
+public interface HandedFacade
 {
 
-	public ListFacade<GenderFacade> getGenders();
-
-	public ListFacade<HandedFacade> getHands();
-
-	public String getSize();
-
-	public String getMovement();
-
-	public String getType();
-
-	/**
-	 * @return The name of the race's racetype
-	 */
-	public String getRaceType();
-
-	/**
-	 * @return A list of the race's racesubtype names.
-	 */
-	public List<String> getRaceSubTypes();
 }

@@ -28,10 +28,12 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
+import org.junit.Test;
+
+import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreDamageReductionParser;
@@ -40,24 +42,13 @@ import plugin.pretokens.parser.PreDamageReductionParser;
  * @author wardc
  *
  */
-public class PreDamageReductionParserTest extends TestCase
+@SuppressWarnings("nls")
+public class PreDamageReductionParserTest extends EnUsLocaleDependentTestCase
 {
-	public static void main(String[] args)
-	{
-		TestRunner.run(PreDamageReductionParserTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreDamageReductionParserTest.class);
-	}
-
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testMultipleFails() throws Exception
 	{
 		PreDamageReductionParser parser = new PreDamageReductionParser();
@@ -78,6 +69,7 @@ public class PreDamageReductionParserTest extends TestCase
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testMultiplePasses() throws Exception
 	{
 		PreDamageReductionParser parser = new PreDamageReductionParser();
@@ -93,6 +85,7 @@ public class PreDamageReductionParserTest extends TestCase
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testNoValue() throws Exception
 	{
 		PreDamageReductionParser parser = new PreDamageReductionParser();

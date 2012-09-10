@@ -29,11 +29,16 @@
 package pcgen.core.prereq;
 
 import gmgen.pluginmgr.PluginLoader;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import pcgen.EnUsLocaleDependentTestCase;
+import pcgen.LocaleDependentTestCase;
 import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -95,10 +100,12 @@ public class PreReqHandlerTest extends PCGenTestCase
 		list.add(factory.parse("PREFEAT:2,TYPE=ItemCreation"));
 		list.add(factory.parse("PRESKILLTOT:TYPE.Knowledge=20"));
 
+		LocaleDependentTestCase.before(Locale.US);
 		final String htmlString = PrereqHandler.toHtmlString(list);
 		System.out.println(htmlString);
 		assertEquals(
 			"at least 15 ranks in Spellcraft and at least1 Arcane spell(s) of level 8 and at least 2 feat(s) of type Metamagic and at least 2 feat(s) of type ItemCreation and at least 20 of ( at least 1 ranks in TYPE.Knowledge )",
 			htmlString);
+		EnUsLocaleDependentTestCase.after();
 	}
 }

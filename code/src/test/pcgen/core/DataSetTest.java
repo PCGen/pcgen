@@ -60,10 +60,11 @@ public class DataSetTest extends PCGenTestCase
 	{
 		DataSet dataset = new DataSet(Globals.getContext(), SettingsHandler.getGame(), new DefaultListFacade<CampaignFacade>());
 		ListFacade<BodyStructureFacade> locations = dataset.getEquipmentLocations();
-		assertNotNull("Body Strcuture should not be null", locations);
+		assertNotNull("Body Structure should not be null", locations);
 		assertTrue("Expected to find Equipped", checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_EQUIPPED));
 		assertTrue("Expected to find Carried", checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_CARRIED));
 		assertTrue("Expected to find Not Carried", checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_NOTCARRIED));
+		// TODO This test fails on my system (value returned is 4)
 		assertEquals("Incorrect size of body structures list", 3, locations.getSize());
 	}
 

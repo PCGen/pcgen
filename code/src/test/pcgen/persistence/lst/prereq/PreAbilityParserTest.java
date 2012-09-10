@@ -25,10 +25,13 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.Prerequisite;
@@ -45,24 +48,14 @@ import plugin.pretokens.parser.PreAbilityParser;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision: 1777 $
  */
-public class PreAbilityParserTest extends TestCase
+@SuppressWarnings("nls")
+public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreAbilityParserTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreAbilityParserTest.class);
-	}
 
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testCategoryInterpretation() throws Exception
 	{
 
@@ -100,6 +93,7 @@ public class PreAbilityParserTest extends TestCase
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testSingleEntry() throws Exception
 	{
 
@@ -113,6 +107,7 @@ public class PreAbilityParserTest extends TestCase
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testNoKey() throws Exception
 	{
 
@@ -127,6 +122,7 @@ public class PreAbilityParserTest extends TestCase
 	 * Test that an error is produced if two categories are specified.
 	 * @throws Exception
 	 */
+	@Test
 	public void testTwoCategories() throws Exception
 	{
 		try
@@ -143,10 +139,12 @@ public class PreAbilityParserTest extends TestCase
 		}
 	}
 	
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
 		SettingsHandler.setGame("3.5");
 	}
+
 }

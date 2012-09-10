@@ -28,10 +28,11 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreClassParser;
 
@@ -39,21 +40,11 @@ import plugin.pretokens.parser.PreClassParser;
  * @author wardc
  *
  */
-public class PreClassTest extends TestCase
+@SuppressWarnings("nls")
+public class PreClassTest extends EnUsLocaleDependentTestCase
 {
-	public static void main(String[] args)
-	{
-		TestRunner.run(PreClassTest.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreClassTest.class);
-	}
-
+	@Test
 	public void testNoClassLevels() throws Exception
 	{
 		PreClassParser parser = new PreClassParser();

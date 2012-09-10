@@ -28,39 +28,25 @@
  */
 package pcgen.persistence.lst.prereq;
 
+import static org.junit.Assert.assertEquals;
 import gmgen.pluginmgr.PluginLoader;
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.core.prereq.Prerequisite;
 
-/**
+/*** Test
+	 * [PREARMORPROF:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]
  * @author wardc
  *
  */
-public class PreMultParserTest extends TestCase
+@SuppressWarnings("nls")
+public class PreMultParserTest extends EnUsLocaleDependentTestCase
 {
-	/**
-	 * Test
-	 * [PREARMORPROF:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]
-	 * 
-	 * @param args
-	 */
-	public static void main(String[] args)
-	{
-		TestRunner.run(PreMultParserTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreMultParserTest.class);
-	}
-
+	@Before
 	public void setUp() throws Exception
 	{
 		try
@@ -74,9 +60,7 @@ public class PreMultParserTest extends TestCase
 		}
 	}
 
-	/**
-	 * @throws Exception
-	 */
+	@Test
 	public void testFeat1() throws Exception
 	{
 		PreMultParser parser = new PreMultParser();

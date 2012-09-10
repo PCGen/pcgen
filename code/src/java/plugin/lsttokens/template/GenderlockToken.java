@@ -64,7 +64,7 @@ public class GenderlockToken extends AbstractNonEmptyToken<PCTemplate>
 		{
 			return null;
 		}
-		return new String[] { g.toString() };
+		return new String[] { g.name() };
 	}
 
 	@Override

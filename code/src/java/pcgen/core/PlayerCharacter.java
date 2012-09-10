@@ -78,6 +78,7 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Gender;
+import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
@@ -220,6 +221,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 	private AutoLanguageListFacet autoLangListFacet = FacetLibrary.getFacet(AutoLanguageListFacet.class);
 	private FreeLanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
 	private GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
+	private HandedFacet handedFacet = FacetLibrary.getFacet(HandedFacet.class);
 	private HeightFacet heightFacet = FacetLibrary.getFacet(HeightFacet.class);
 	private RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
 	private SkillLanguageFacet skillLangFacet = FacetLibrary.getFacet(SkillLanguageFacet.class);
@@ -431,7 +433,8 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		addSpellBook(new SpellBook(Globals.getDefaultSpellBook(), SpellBook.TYPE_KNOWN_SPELLS));
 		addSpellBook(new SpellBook(Globals.INNATE_SPELL_BOOK_NAME, SpellBook.TYPE_INNATE_SPELLS));
 		populateSkills(SettingsHandler.getSkillsTab_IncludeSkills());
-		setStringFor(StringKey.HANDED, LanguageBundle.getString("in_handRight")); //$NON-NLS-1$
+		// XXX do not set it, as for gender. Remark: not working, value is not set.
+//		setStringFor(StringKey.HANDED, Handed.getDefaultValue().toString());
 		if (load)
 		{
 			insertBonusLanguageAbility();
@@ -1536,8 +1539,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 	 * if there is one. This means the <tt>setGender()</tt> side effect is not
 	 * really required.
 	 * 
-	 * @return A <tt>String</tt> version of the character's gender. TODO -
-	 *         Gender should be an object so it can be i18n.
+	 * @return  the character's gender.
 	 */
 	public Gender getGenderObject()
 	{
@@ -1627,16 +1629,31 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 	/**
 	 * Sets the character's handedness.
 	 * 
-	 * @param aString
-	 *            A String to use as a handedness.
 	 * 
-	 * TODO - This should probably be an object as some systems may use the
-	 * information.
+	 * @param g
+	 *            A handedness to try and set.
 	 */
-	public void setHanded(final String aString)
+	public void setHanded(final Handed h)
 	{
-		setStringFor(StringKey.HANDED, aString);
+		handedFacet.setHanded(id, h);
+		setDirty(true);
 	}
+
+	/**
+	 * Returns a string for the character's handed.
+	 * 
+	 * <p>
+	 * This method will return the stored handed or the template locked handed
+	 * if there is one. This means the <tt>setHanded()</tt> side effect is not
+	 * really required.
+	 * 
+	 * @return A <tt>String</tt> version of the character's gender.
+	 */
+	public Handed getHandedObject()
+	{
+		return handedFacet.getHanded(id);
+	}
+
 
 	/**
 	 * Sets the character's height in inches.

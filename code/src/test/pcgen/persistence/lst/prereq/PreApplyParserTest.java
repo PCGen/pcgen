@@ -25,31 +25,21 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreApplyParser;
 
-public class PreApplyParserTest extends TestCase
+@SuppressWarnings("nls")
+public class PreApplyParserTest extends EnUsLocaleDependentTestCase
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreApplyParserTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreApplyParserTest.class);
-	}
-
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testAnyPc() throws Exception
 	{
 		PreApplyParser parser = new PreApplyParser();
@@ -64,6 +54,7 @@ public class PreApplyParserTest extends TestCase
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testRangedOrMelee() throws Exception
 	{
 		PreApplyParser parser = new PreApplyParser();
@@ -82,6 +73,7 @@ public class PreApplyParserTest extends TestCase
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testWoodenAndBlunt() throws Exception
 	{
 		PreApplyParser parser = new PreApplyParser();

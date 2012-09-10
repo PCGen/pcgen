@@ -8,11 +8,14 @@ package pcgen.core.prereq;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Locale;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.EnUsLocaleDependentTestCase;
+import pcgen.LocaleDependentTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -310,10 +313,13 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 
 		final Prerequisite prereq = factory.parse("!PREFEAT:1,Uncanny Dodge");
+		// Prerequisite.toString() is localized, so force other locale here.
+		LocaleDependentTestCase.before(Locale.US);
 		assertEquals(
 			"Inverted feat test parsing",
 			"<prereq kind=\"feat\" key=\"Uncanny Dodge\" operator=\"LT\" operand=\"1\" >\n</prereq>\n",
 			prereq.toString());
+		EnUsLocaleDependentTestCase.after();
 	}
 
 	/**

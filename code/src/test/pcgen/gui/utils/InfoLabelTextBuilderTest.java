@@ -22,6 +22,10 @@
  */
 package pcgen.gui.utils;
 
+import java.util.Locale;
+
+import pcgen.EnUsLocaleDependentTestCase;
+import pcgen.LocaleDependentTestCase;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -37,6 +41,7 @@ import junit.textui.TestRunner;
  * @author Koen Van Daele <vandaelek@users.sourceforge.net>
  * @version $Revision$
  */
+@SuppressWarnings("nls")
 public class InfoLabelTextBuilderTest extends TestCase
 {
 	public static void main(String args[])
@@ -82,10 +87,13 @@ public class InfoLabelTextBuilderTest extends TestCase
 	public void testAppendI18nElement()
 	{
 		InfoLabelTextBuilder b = new InfoLabelTextBuilder();
-		
+		LocaleDependentTestCase.before(Locale.FRENCH);
 		b.appendI18nElement("in_player" , "Koen");
+		LocaleDependentTestCase.after();
 		
+		LocaleDependentTestCase.before(Locale.US);
 		assertEquals("<html><b>Player:</b>&nbsp;Koen</html>" , b.toString());
+		EnUsLocaleDependentTestCase.after();
 	}
 	
 	/**
@@ -95,10 +103,14 @@ public class InfoLabelTextBuilderTest extends TestCase
 	{
 		InfoLabelTextBuilder b = new InfoLabelTextBuilder("Character");
 		
-		b.appendLineBreak().appendI18nElement("in_player" , "Koen");
+		LocaleDependentTestCase.before(Locale.FRENCH);
+		b.appendI18nElement("in_player" , "Koen");
+		LocaleDependentTestCase.after();
 		
+		LocaleDependentTestCase.before(Locale.US);
 		assertEquals("<html><b><font size=+1>Character</font></b>"+
 				"<br><b>Player:</b>&nbsp;Koen</html>" , b.toString());
+		EnUsLocaleDependentTestCase.after();
 	}
 	
 

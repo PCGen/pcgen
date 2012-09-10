@@ -28,16 +28,16 @@ import java.util.List;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Gender;
+import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.facade.GenderFacade;
+import pcgen.core.facade.HandedFacade;
 import pcgen.core.facade.RaceFacade;
-import pcgen.core.facade.SimpleFacade;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
-import pcgen.system.LanguageBundle;
 
 /**
  * <code>Race</code>.
@@ -51,8 +51,8 @@ public final class Race extends PObject implements RaceFacade
 
 	private static final DefaultListFacade<GenderFacade> genderList =
 			new DefaultListFacade<GenderFacade>();
-	private static final DefaultListFacade<SimpleFacade> handList =
-			new DefaultListFacade<SimpleFacade>();
+	private static final DefaultListFacade<HandedFacade> handList =
+			new DefaultListFacade<HandedFacade>();
 
 	static
 	{
@@ -61,16 +61,10 @@ public final class Race extends PObject implements RaceFacade
 		{
 			genderList.addElement(gender);
 		}
-		handList.addElement(new SimpleFacadeImpl(LanguageBundle
-			.getString("in_handRight")));
-		handList.addElement(new SimpleFacadeImpl(LanguageBundle
-			.getString("in_handLeft")));
-		handList.addElement(new SimpleFacadeImpl(LanguageBundle
-			.getString("in_handBoth")));
-		handList.addElement(new SimpleFacadeImpl(LanguageBundle
-			.getString("in_comboNone")));
-		handList.addElement(new SimpleFacadeImpl(LanguageBundle
-			.getString("in_comboOther")));
+		for (Handed handed : Handed.values())
+		{
+			handList.addElement(handed);
+		}
 	}
 
 	/**
@@ -106,7 +100,7 @@ public final class Race extends PObject implements RaceFacade
 		return genderList;
 	}
 
-	public ListFacade<SimpleFacade> getHands()
+	public ListFacade<HandedFacade> getHands()
 	{
 		return handList;
 	}

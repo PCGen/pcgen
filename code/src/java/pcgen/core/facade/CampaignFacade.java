@@ -51,4 +51,7 @@ public interface CampaignFacade
 	 */
 	public String getStatus();
 
+	// XXX that or extends loadable
+	public String getKeyName();
+
 }

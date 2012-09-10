@@ -23,10 +23,9 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreItemParser;
 
@@ -39,23 +38,10 @@ import plugin.pretokens.parser.PreItemParser;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-
-public class PreItemTest extends TestCase
+@SuppressWarnings("nls")
+public class PreItemTest extends EnUsLocaleDependentTestCase
 {
-
-	public static void main(String[] args)
-	{
-		TestRunner.run(PreEquipTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreItemTest.class);
-	}
-
+	@Test
 	public void testItemPresent() throws Exception
 	{
 		PreItemParser parser = new PreItemParser();
@@ -69,6 +55,7 @@ public class PreItemTest extends TestCase
 				+ "</prereq>\n", prereq.toString());
 	}
 
+	@Test
 	public void testItemNotPresent() throws Exception
 	{
 		PreItemParser parser = new PreItemParser();

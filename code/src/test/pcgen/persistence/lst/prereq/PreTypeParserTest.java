@@ -26,31 +26,21 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreTypeParser;
 
-public class PreTypeParserTest extends TestCase
+@SuppressWarnings("nls")
+public class PreTypeParserTest extends EnUsLocaleDependentTestCase
 {
-	public static void main(String[] args)
-	{
-		TestRunner.run(PreTypeParserTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreTypeParserTest.class);
-	}
-
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testNewStyle() throws Exception
 	{
 		PreTypeParser producer = new PreTypeParser();
@@ -73,6 +63,7 @@ public class PreTypeParserTest extends TestCase
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testNewStyle2() throws Exception
 	{
 		PreTypeParser producer = new PreTypeParser();

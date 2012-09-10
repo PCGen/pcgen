@@ -58,6 +58,7 @@ import pcgen.core.facade.AlignmentFacade;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.DeityFacade;
 import pcgen.core.facade.GenderFacade;
+import pcgen.core.facade.HandedFacade;
 import pcgen.core.facade.RaceFacade;
 import pcgen.core.facade.ReferenceFacade;
 import pcgen.core.facade.SimpleFacade;
@@ -413,18 +414,18 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class HandedItem extends BioItem implements ReferenceListener<RaceFacade>
 	{
 
-		private CharacterComboBoxModel<SimpleFacade> handsModel;
+		private CharacterComboBoxModel<HandedFacade> handsModel;
 
 		public HandedItem(final CharacterFacade character)
 		{
 			super("in_handString", BiographyField.HANDED, character); //$NON-NLS-1$
-			handsModel = new CharacterComboBoxModel<SimpleFacade>()
+			handsModel = new CharacterComboBoxModel<HandedFacade>()
 			{
 
 				@Override
 				public void setSelectedItem(Object anItem)
 				{
-					character.setHanded((SimpleFacade) anItem);
+					character.setHanded((HandedFacade) anItem);
 				}
 
 			};
@@ -437,7 +438,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			}
 			else
 			{
-				handsModel.setListFacade(new DefaultListFacade<SimpleFacade>());
+				handsModel.setListFacade(new DefaultListFacade<HandedFacade>());
 			}
 
 			setComboBoxModel(handsModel);
@@ -455,7 +456,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			}
 			else
 			{
-				handsModel.setListFacade(new DefaultListFacade<SimpleFacade>());
+				handsModel.setListFacade(new DefaultListFacade<HandedFacade>());
 			}
 			checkVisible();
 		}

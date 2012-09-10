@@ -6,10 +6,11 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreMoveParser;
 
@@ -19,29 +20,13 @@ import plugin.pretokens.parser.PreMoveParser;
  * To change the template for this generated type comment go to Window - Preferences - Java - Code Generation - Code
  * and Comments
  */
-public class PreMoveParserTest extends TestCase
+@SuppressWarnings("nls")
+public class PreMoveParserTest extends EnUsLocaleDependentTestCase
 {
-
-	/**
-	 * Main
-	 * @param args
-	 */
-	public static void main(String args[])
-	{
-		TestRunner.run(PreMoveParserTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreMoveParserTest.class);
-	}
-
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testFly1() throws Exception
 	{
 		PreMoveParser parser = new PreMoveParser();
@@ -55,6 +40,7 @@ public class PreMoveParserTest extends TestCase
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testFlyAndWalk() throws Exception
 	{
 		PreMoveParser parser = new PreMoveParser();
@@ -72,6 +58,7 @@ public class PreMoveParserTest extends TestCase
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testNotFly1() throws Exception
 	{
 		PreMoveParser parser = new PreMoveParser();
@@ -85,6 +72,7 @@ public class PreMoveParserTest extends TestCase
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testNotFlyAndWalk() throws Exception
 	{
 		PreMoveParser parser = new PreMoveParser();

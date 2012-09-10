@@ -28,10 +28,9 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreVisionParser;
 
@@ -39,28 +38,13 @@ import plugin.pretokens.parser.PreVisionParser;
  * @author wardc
  *
  */
-public class PreVisionParserTest extends TestCase
+@SuppressWarnings("nls")
+public class PreVisionParserTest extends EnUsLocaleDependentTestCase
 {
-	/**
-	 * Main
-	 * @param args
-	 */
-	public static void main(String[] args)
-	{
-		TestRunner.run(PreVisionParserTest.class);
-	}
-
-	/**
-	 * @return Test 
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreVisionParserTest.class);
-	}
-
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testMultiplePasses() throws Exception
 	{
 		PreVisionParser parser = new PreVisionParser();

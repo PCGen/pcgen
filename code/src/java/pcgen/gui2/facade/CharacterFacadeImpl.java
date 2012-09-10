@@ -55,6 +55,7 @@ import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.Gender;
+import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
@@ -105,6 +106,7 @@ import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.facade.AbilityCategoryFacade;
 import pcgen.core.facade.AbilityFacade;
 import pcgen.core.facade.AlignmentFacade;
+import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.CharacterLevelFacade;
 import pcgen.core.facade.CharacterLevelsFacade;
@@ -125,6 +127,7 @@ import pcgen.core.facade.EquipmentListFacade.EquipmentListListener;
 import pcgen.core.facade.EquipmentSetFacade;
 import pcgen.core.facade.GearBuySellFacade;
 import pcgen.core.facade.GenderFacade;
+import pcgen.core.facade.HandedFacade;
 import pcgen.core.facade.InfoFacade;
 import pcgen.core.facade.InfoFactory;
 import pcgen.core.facade.KitFacade;
@@ -207,7 +210,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private DefaultListFacade<LanguageFacade> languages;
 	private EquipmentListFacadeImpl purchasedEquip;
 	private DefaultReferenceFacade<File> file;
-	private DefaultReferenceFacade<SimpleFacade> handedness;
+	private DefaultReferenceFacade<HandedFacade> handedness;
 	private UIDelegate delegate;
 	private List<Language> autoLanguagesCache;
 	private CharacterLevelsFacadeImpl charLevelsFacade;
@@ -240,6 +243,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private DefaultReferenceFacade<File> portrait;
 	private RectangleReference cropRect;
 	private String selectedGender;
+	private String selectedHandedness; // XXX remove?
 	private List<Language> currBonusLangs;
 	private DefaultReferenceFacade<String> skinColor;
 	private DefaultReferenceFacade<String> hairColor;
@@ -327,13 +331,13 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			raceList.addElement(pc.getRace());
 		}
-		handedness = new DefaultReferenceFacade<SimpleFacade>();
+		handedness = new DefaultReferenceFacade<HandedFacade>();
 		gender = new DefaultReferenceFacade<GenderFacade>();
 		if (pc.getRace() != null)
 		{
-			for (SimpleFacade handsFacade : pc.getRace().getHands())
+			for (HandedFacade handsFacade : pc.getRace().getHands())
 			{
-				if (handsFacade.toString().equals(pc.getDisplay().getHanded()))
+				if (handsFacade.equals(pc.getHandedObject()))
 				{
 					handedness.setReference(handsFacade);
 					break;
@@ -1859,7 +1863,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 		if (theCharacter.getRace() != null)
 		{
-			for (SimpleFacade handsFacade : theCharacter.getRace().getHands())
+			for (HandedFacade handsFacade : theCharacter.getRace().getHands())
 			{
 				if (handsFacade.toString().equals(theCharacter.getDisplay().getHanded()))
 				{
@@ -2614,7 +2618,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * @see pcgen.core.facade.CharacterFacade#getHandedRef()
 	 */
 	@Override
-	public ReferenceFacade<SimpleFacade> getHandedRef()
+	public ReferenceFacade<HandedFacade> getHandedRef()
 	{
 		return handedness;
 	}
@@ -2623,10 +2627,14 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * @see pcgen.core.facade.CharacterFacade#setHanded(java.lang.String)
 	 */
 	@Override
-	public void setHanded(SimpleFacade handedness)
+	public void setHanded(HandedFacade handedness)
 	{
+		Logging.log(Logging.ERROR, "CharacterFacadeImpl @ setHanded to "+((Handed) handedness).name()); //$NON-NLS-1$
+		this.selectedHandedness = handedness.toString();
 		this.handedness.setReference(handedness);
-		theCharacter.setHanded(handedness.toString());
+		theCharacter.setHanded((Handed) handedness);
+		// XXX Needed? copied from #setGender
+		refreshLanguageList();
 	}
 
 	/* (non-Javadoc)
@@ -2678,12 +2686,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	public void save() throws NullPointerException, IOException
 	{
 		GameMode mode = (GameMode) dataSet.getGameMode();
-		/*
-		 * TODO This is a bug. This List receives a CampaignFacade and the
-		 * subsequent write assumes it receives a Campaign. Since this is not
-		 * checked, it is not guaranteed to work. - thpr
-		 */
-		List campaigns = ListFacades.wrap(dataSet.getCampaigns());
+		List<CampaignFacade> campaigns = ListFacades.wrap(dataSet.getCampaigns());
 		(new PCGIOHandler()).write(theCharacter, mode, campaigns, file.getReference().getAbsolutePath());
 		theCharacter.setDirty(false);
 	}

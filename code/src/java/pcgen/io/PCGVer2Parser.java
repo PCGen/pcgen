@@ -55,6 +55,7 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Gender;
+import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -1312,8 +1313,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		 * HEIGHT:75
 		 * WEIGHT:198
 		 * AGE:17
-		 * GENDER:text
-		 * HANDED:text
+		 * GENDER:enum name @see Gender
+		 * HANDED:enum name @see Handed
 		 * SKIN:text
 		 * EYECOLOR:text
 		 * HAIRCOLOR:text
@@ -3201,7 +3202,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			catch (IllegalArgumentException e)
 			{
-				gender = Gender.Male;
+				gender = Gender.getDefaultValue();
 				final String msg =
 						LanguageBundle.getFormattedString(
 							"Warnings.PCGenParser.IllegalGender", //$NON-NLS-1$
@@ -3247,8 +3248,24 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseHandedLine(final String line)
 	{
-		thePC
-			.setHanded(EntityEncoder.decode(line.substring(TAG_HANDED.length() + 1)));
+		String handed =
+				EntityEncoder.decode(line.substring(TAG_HANDED.length() + 1));
+		Handed h;
+		try
+		{
+			h = Handed.getHandedByName(handed);
+		}
+		catch (IllegalArgumentException e)
+		{
+			h = Handed.getDefaultValue();
+			final String msg =
+					LanguageBundle.getFormattedString(
+						"Warnings.PCGenParser.IllegalHandedness", //$NON-NLS-1$
+						line, h);
+			warnings.add(msg);
+
+		}
+		thePC.setHanded(h);
 	}
 
 	private void parseHeightLine(final String line)

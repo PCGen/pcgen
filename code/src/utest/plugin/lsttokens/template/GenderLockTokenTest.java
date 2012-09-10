@@ -17,8 +17,12 @@
  */
 package plugin.lsttokens.template;
 
+import java.util.Locale;
+
 import org.junit.Test;
 
+import pcgen.EnUsLocaleDependentTestCase;
+import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
@@ -103,19 +107,49 @@ public class GenderLockTokenTest extends AbstractTokenTestCase<PCTemplate>
 	@Test
 	public void testRoundRobinMale() throws PersistenceLayerException
 	{
+		LocaleDependentTestCase.before(Locale.US);
 		runRoundRobin("Male");
+		EnUsLocaleDependentTestCase.after();
+	}
+
+	@Test
+	public void testRoundRobinMaleI18N() throws PersistenceLayerException
+	{
+		EnUsLocaleDependentTestCase.before(Locale.FRENCH);
+		runRoundRobin("Male");
+		EnUsLocaleDependentTestCase.after();
 	}
 
 	@Test
 	public void testRoundRobinFemale() throws PersistenceLayerException
 	{
+		LocaleDependentTestCase.before(Locale.US);
 		runRoundRobin("Female");
+		EnUsLocaleDependentTestCase.after();
+	}
+	
+	@Test
+	public void testRoundRobinFemaleI18N() throws PersistenceLayerException
+	{
+		EnUsLocaleDependentTestCase.before(Locale.FRENCH);
+		runRoundRobin("Female");
+		EnUsLocaleDependentTestCase.after();
 	}
 
 	@Test
 	public void testRoundRobinNeuter() throws PersistenceLayerException
 	{
+		LocaleDependentTestCase.before(Locale.US);
 		runRoundRobin("Neuter");
+		EnUsLocaleDependentTestCase.after();
+	}
+	
+	@Test
+	public void testRoundRobinNeuterI18N() throws PersistenceLayerException
+	{
+		EnUsLocaleDependentTestCase.before(Locale.FRENCH);
+		runRoundRobin("Neuter");
+		EnUsLocaleDependentTestCase.after();
 	}
 
 	@Override
@@ -142,7 +176,12 @@ public class GenderLockTokenTest extends AbstractTokenTestCase<PCTemplate>
 	public void testUnparseLegal() throws PersistenceLayerException
 	{
 		primaryProf.put(ObjectKey.GENDER_LOCK, Gender.Male);
+		LocaleDependentTestCase.before(Locale.US);
 		expectSingle(getToken().unparse(primaryContext, primaryProf), "Male");
+		EnUsLocaleDependentTestCase.after();
+		EnUsLocaleDependentTestCase.before(Locale.FRENCH);
+		expectSingle(getToken().unparse(primaryContext, primaryProf), "Male");
+		EnUsLocaleDependentTestCase.after();
 	}
 
 	@Test

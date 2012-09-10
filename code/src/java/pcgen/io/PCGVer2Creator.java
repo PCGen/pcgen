@@ -91,6 +91,7 @@ import pcgen.core.character.EquipSet;
 import pcgen.core.character.Follower;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
+import pcgen.core.facade.CampaignFacade;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
@@ -126,13 +127,13 @@ final class PCGVer2Creator implements IOConstants
 
 	private PlayerCharacter thePC;
 	private GameMode mode;
-	private List<Campaign> campaigns;
+	private List<? extends CampaignFacade> campaigns;
 
 	/**
 	 * Constructor
 	 * @param aPC
 	 */
-	PCGVer2Creator(final PlayerCharacter aPC, GameMode mode, List<Campaign> campaigns)
+	PCGVer2Creator(final PlayerCharacter aPC, GameMode mode, List<? extends CampaignFacade> campaigns)
 	{
 		thePC = aPC;
 		this.mode = mode;
@@ -478,7 +479,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendCampaignLine(StringBuffer buffer)
 	{
 		String del = Constants.EMPTY_STRING;
-		Collection<Campaign> campList;
+		Collection<? extends CampaignFacade> campList;
 		if (campaigns != null)
 		{
 			campList = campaigns;
@@ -487,7 +488,7 @@ final class PCGVer2Creator implements IOConstants
 		{
 			campList = PersistenceManager.getInstance().getLoadedCampaigns();
 		}
-		for (Campaign campaign : campList)
+		for (CampaignFacade campaign : campList)
 		{
 			buffer.append(del);
 			buffer.append(TAG_CAMPAIGN).append(':');
@@ -1523,7 +1524,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendGenderLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_GENDER).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getGenderObject().toString()));
+		buffer.append(EntityEncoder.encode(thePC.getGenderObject().name()));
 		buffer.append(LINE_SEP);
 	}
 
@@ -1544,7 +1545,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendHandedLine(StringBuffer buffer)
 	{
 		buffer.append(TAG_HANDED).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.HANDED)));
+		buffer.append(EntityEncoder.encode(thePC.getHandedObject().name()));
 		buffer.append(LINE_SEP);
 	}
 

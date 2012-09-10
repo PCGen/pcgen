@@ -53,6 +53,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SpecialAbility;
+import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.SourceSelectionFacade;
 import pcgen.system.PCGenPropBundle;
 import pcgen.system.PCGenSettings;
@@ -327,7 +328,7 @@ public final class PCGIOHandler extends IOHandler
 	 * @param pcToBeWritten the PlayerCharacter to write
 	 * @param out           the stream to be written to
 	 */
-	public void write(PlayerCharacter pcToBeWritten, GameMode mode, List<Campaign> campaigns, OutputStream out)
+	public void write(PlayerCharacter pcToBeWritten, GameMode mode, List<CampaignFacade> campaigns, OutputStream out)
 	{
 		this.aPC = pcToBeWritten;
 

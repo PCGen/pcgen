@@ -28,10 +28,14 @@
  */
 package pcgen.core.prereq;
 
+import java.util.Locale;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.EnUsLocaleDependentTestCase;
+import pcgen.LocaleDependentTestCase;
 import plugin.pretokens.test.PreWieldTester;
 
 /**
@@ -61,11 +65,13 @@ public class AbstractPrerequisiteTestTest extends AbstractCharacterTestCase
 	/**
 	 * @throws Exception
 	 */
+	@SuppressWarnings("nls")
 	public void testVisionNotHandledFail() throws Exception
 	{
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("wield");
 
+		LocaleDependentTestCase.before(Locale.US);
 		try
 		{
 			final PreWieldTester test = new PreWieldTester();
@@ -78,6 +84,7 @@ public class AbstractPrerequisiteTestTest extends AbstractCharacterTestCase
 				+ " does not support prerequisites for Characters.", pe
 				.getMessage());
 		}
+		EnUsLocaleDependentTestCase.after();
 	}
 
 }

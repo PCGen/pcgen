@@ -6,10 +6,11 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreSkillParser;
 
@@ -19,24 +20,13 @@ import plugin.pretokens.parser.PreSkillParser;
  * To change the template for this generated type comment go to Window -
  * Preferences - Java - Code Generation - Code and Comments
  */
-public class PreSkillParserTest extends TestCase
+@SuppressWarnings("nls")
+public class PreSkillParserTest extends EnUsLocaleDependentTestCase
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreSkillParserTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreSkillParserTest.class);
-	}
-
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void test1() throws Exception
 	{
 		PreSkillParser producer = new PreSkillParser();
@@ -59,6 +49,7 @@ public class PreSkillParserTest extends TestCase
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void test2() throws Exception
 	{
 		PreSkillParser producer = new PreSkillParser();
@@ -73,6 +64,7 @@ public class PreSkillParserTest extends TestCase
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
+	@Test
 	public void test3() throws Exception
 	{
 		PreSkillParser producer = new PreSkillParser();

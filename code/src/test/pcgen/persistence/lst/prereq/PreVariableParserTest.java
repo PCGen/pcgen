@@ -28,10 +28,11 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreVariableParser;
 
@@ -39,28 +40,13 @@ import plugin.pretokens.parser.PreVariableParser;
  * @author wardc
  *
  */
-public class PreVariableParserTest extends TestCase
+@SuppressWarnings("nls")
+public class PreVariableParserTest extends EnUsLocaleDependentTestCase
 {
-	/**
-	 * Main
-	 * @param args
-	 */
-	public static void main(String[] args)
-	{
-		TestRunner.run(PreVariableParserTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreVariableParserTest.class);
-	}
-
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testNotEqual() throws Exception
 	{
 		PreVariableParser parser = new PreVariableParser();

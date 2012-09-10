@@ -26,10 +26,12 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
+import org.junit.Test;
+
+import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreFeatParser;
@@ -38,28 +40,13 @@ import plugin.pretokens.parser.PreFeatParser;
  * @author wardc
  *
  */
-public class PreFeatParserTest extends TestCase
+@SuppressWarnings("nls")
+public class PreFeatParserTest extends EnUsLocaleDependentTestCase
 {
-    /**
-     * Run the test from CL
-     * @param args
-     */
-	public static void main(String[] args)
-	{
-		TestRunner.run(PreFeatParserTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreFeatParserTest.class);
-	}
-
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testFeat1() throws Exception
 	{
 		PreFeatParser parser = new PreFeatParser();
@@ -76,6 +63,7 @@ public class PreFeatParserTest extends TestCase
 	 * Test the the PRE FEAT removed syntax fails utterly (throws a PersistenceLayerException)
 	 * @throws Exception
 	 */
+	@Test
 	public void testFeatOldStyle() throws Exception
 	{
 		PreFeatParser parser = new PreFeatParser();
@@ -95,6 +83,7 @@ public class PreFeatParserTest extends TestCase
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testSubFeat() throws Exception
 	{
 		PreFeatParser parser = new PreFeatParser();
@@ -110,6 +99,7 @@ public class PreFeatParserTest extends TestCase
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void test966023() throws Exception
 	{
 		PreFeatParser parser = new PreFeatParser();
@@ -125,6 +115,7 @@ public class PreFeatParserTest extends TestCase
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testTwoOfType() throws Exception
 	{
 		PreFeatParser parser = new PreFeatParser();
@@ -141,6 +132,7 @@ public class PreFeatParserTest extends TestCase
 	 * Test that exclusions are parsed properly.
 	 * @throws Exception
 	 */
+	@Test
 	public void testExclusions() throws Exception
 	{
 		PreFeatParser parser = new PreFeatParser();

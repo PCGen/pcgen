@@ -179,6 +179,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 				(age >= BASE_AGE[ageCat] && age <= MAX_AGE[ageCat]));
 		}
 		currBioSet.randomize("AGE.HT.WT.EYES.HAIR.SKIN", pc);
+		// TODO to make the height and weight tests work, the program must be using imperial system, not metric
 		assertTrue("Generated height " + pc.getHeight()
 			+ " is not in required range.", (pc.getHeight() >= 58 && pc
 			.getHeight() <= 78));

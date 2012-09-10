@@ -1,5 +1,5 @@
 /*
- * Copyright 2007 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2012 (C) Vincent Lhote
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -17,53 +17,63 @@
  */
 package pcgen.cdom.enumeration;
 
-import pcgen.core.facade.GenderFacade;
+import pcgen.core.facade.HandedFacade;
 import pcgen.system.LanguageBundle;
 
 /**
- * Represents the Genders available in PCGen.
+ * Represents the handedness available in PCGen.
  * 
  * It is designed to hold Genders in a type-safe fashion, so that they can be
  * quickly compared and use less memory when identical Genders exist in two
  * CDOMObjects.
+ * 
+ * @author Vincent Lhote
  */
-public enum Gender implements GenderFacade
+public enum Handed implements HandedFacade
 {
-	Male {
+	Right {
 		@Override
 		public String toString()
 		{
-			return LanguageBundle.getString("in_genderMale");
+			return LanguageBundle.getString("in_handRight");
 		}
 	},
 
-	Female {
+	Left {
 		@Override
 		public String toString()
 		{
-			return LanguageBundle.getString("in_genderFemale");
+			return LanguageBundle.getString("in_handLeft");
 		}
 	},
 
-	Neuter {
+	Ambidextrous {
 		@Override
 		public String toString()
 		{
-			return LanguageBundle.getString("in_genderNeuter");
+			return LanguageBundle.getString("in_handBoth");
 		}
 	},
 
-	Unknown {
+	None {
 		@Override
 		public String toString()
 		{
-			return LanguageBundle.getString("in_genderUnknown");
+			return LanguageBundle.getString("in_comboNone");
+		}
+	},
+
+	Other {
+		@Override
+		public String toString()
+		{
+			return LanguageBundle.getString("in_comboOther");
 		}
 	};
 
-	public static Gender getDefaultValue()
+	public static Handed getDefaultValue()
 	{
-		return Male;
+		return Right;
 	}
 	
 	/**
@@ -73,13 +83,13 @@ public enum Gender implements GenderFacade
 	 * @param name The localized display name of the Gender.
 	 * @return The matching Gender.
 	 */
-	public static Gender getGenderByName(String name)
+	public static Handed getHandedByName(String name)
 	{
-		for (Gender gender : values())
+		for (Handed hand : values())
 		{
-			if (gender.toString().equals(name))
+			if (hand.toString().equals(name))
 			{
-				return gender;
+				return hand;
 			}
 		}
 

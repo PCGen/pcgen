@@ -20,14 +20,19 @@
  */
 package pcgen.io;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.List;
+
+import pcgen.core.GameMode;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.facade.CampaignFacade;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
-
-import java.io.*;
-import java.util.List;
-import pcgen.core.Campaign;
-import pcgen.core.GameMode;
 
 /**
  * <code>IOHandler</code><br>
@@ -132,11 +137,13 @@ public abstract class IOHandler
 	 * @throws IOException
 	 * @throws NullPointerException
 	 */
-	public final void write(PlayerCharacter aPC, GameMode mode, List<Campaign> campaigns, String filename)
+	public final void write(PlayerCharacter aPC, GameMode mode, List<CampaignFacade> campaigns, String filename)
 		throws IOException, NullPointerException
 	{
 		OutputStream out = null;
 		File bakFile = null;
+		
+		final String BAK_PREFIX = ".bak"; //$NON-NLS-1$
 
 		try
 		{
@@ -147,15 +154,15 @@ public abstract class IOHandler
 			{
 				String file = outFile.getName();
 				String backupPcgPath = PCGenSettings.getBackupPcgDir(); 
-				if (backupPcgPath != null && !backupPcgPath.equals(""))
+				if (backupPcgPath != null && !backupPcgPath.isEmpty())
 				{
 					bakFile =
-							new File(backupPcgPath + File.separator + file
-								+ ".bak");
+							new File(backupPcgPath, file
+								+ BAK_PREFIX);
 				}
 				else
 				{
-					bakFile = new File(filename + ".bak");
+					bakFile = new File(filename + BAK_PREFIX);
 				}
 				if (bakFile.exists())
 				{
@@ -224,5 +231,5 @@ public abstract class IOHandler
 	 * @param aPC   the PlayerCharacter to write
 	 * @param out   the stream to be written to
 	 */
-	protected abstract void write(PlayerCharacter aPC, GameMode mode, List<Campaign> campaigns, OutputStream out);
+	protected abstract void write(PlayerCharacter aPC, GameMode mode, List<CampaignFacade> campaigns, OutputStream out);
 }

@@ -25,10 +25,9 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreRuleParser;
 
@@ -41,29 +40,14 @@ import plugin.pretokens.parser.PreRuleParser;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision: $
  */
-public class PreRuleParserTest extends TestCase
+@SuppressWarnings("nls")
+public class PreRuleParserTest extends EnUsLocaleDependentTestCase
 {
-
-	/**
-	 * Main
-	 * @param args
-	 */
-	public static void main(String args[])
-	{
-		TestRunner.run(PreRuleParserTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreRuleParserTest.class);
-	}
 
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testPositive() throws Exception
 	{
 		PreRuleParser parser = new PreRuleParser();
@@ -77,6 +61,7 @@ public class PreRuleParserTest extends TestCase
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testNegative() throws Exception
 	{
 		PreRuleParser parser = new PreRuleParser();
