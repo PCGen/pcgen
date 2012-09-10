@@ -5608,9 +5608,9 @@
 									</xsl:if>
 									<xsl:value-of select="name"/>
 								</fo:block>
-								<fo:block space-before.optimum="1pt" font-size="5pt">
+			<!-->					<fo:block space-before.optimum="1pt" font-size="5pt">
 									<xsl:value-of select="contents"/>
-								</fo:block>
+								</fo:block>	-->
 			<!-->					<fo:block space-before.optimum="1pt" font-size="5pt">
 									<xsl:value-of select="special_properties"/>
 									<xsl:value-of select="quality"/>
@@ -5683,6 +5683,7 @@
 								<fo:block space-before.optimum="1pt" font-size="5pt">
 									<xsl:value-of select="special_properties"/>
 									<xsl:value-of select="quality"/>
+									<xsl:value-of select="contents"/>
 								</fo:block>
 							</fo:table-cell>
 						</fo:table-row>
