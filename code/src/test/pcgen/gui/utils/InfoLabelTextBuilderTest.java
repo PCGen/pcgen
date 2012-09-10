@@ -92,7 +92,7 @@ public class InfoLabelTextBuilderTest extends TestCase
 		LocaleDependentTestCase.after();
 		
 		LocaleDependentTestCase.before(Locale.US);
-		assertEquals("<html><b>Player:</b>&nbsp;Koen</html>" , b.toString());
+		assertEquals("<html><b>Joueur:</b>&nbsp;Koen</html>" , b.toString());
 		EnUsLocaleDependentTestCase.after();
 	}
 	
@@ -104,12 +104,12 @@ public class InfoLabelTextBuilderTest extends TestCase
 		InfoLabelTextBuilder b = new InfoLabelTextBuilder("Character");
 		
 		LocaleDependentTestCase.before(Locale.FRENCH);
-		b.appendI18nElement("in_player" , "Koen");
+		b.appendLineBreak().appendI18nElement("in_player" , "Koen");
 		LocaleDependentTestCase.after();
 		
 		LocaleDependentTestCase.before(Locale.US);
 		assertEquals("<html><b><font size=+1>Character</font></b>"+
-				"<br><b>Player:</b>&nbsp;Koen</html>" , b.toString());
+				"<br><b>Joueur:</b>&nbsp;Koen</html>" , b.toString());
 		EnUsLocaleDependentTestCase.after();
 	}
 	
