@@ -70,8 +70,7 @@ import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>RaceInfoTab</code> is a placeholder for the yet
- * to be implemented Race tab.
+ * The Class <code>RaceInfoTab</code> is the component used in the Race tab.
  * <br/>
  * Last Editor: $Author: cpmeister $
  * Last Edited: $Date: 2011-02-16 12:20:14 -0800 (Wed, 16 Feb 2011) $
