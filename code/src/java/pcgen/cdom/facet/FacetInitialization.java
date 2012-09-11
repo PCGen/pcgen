@@ -108,6 +108,7 @@ public class FacetInitialization {
 		classFacet.addLevelChangeListener(classLevelFacet);
 		classFacet.addLevelChangeListener(levelFacet);
 		levelFacet.addLevelChangeListener(conditionalTemplateFacet);
+		levelFacet.addLevelChangeListener(sizeFacet);
 
 		directAbilityFacet.addDataFacetChangeListener(grantedAbilityFacet);
 		cabFacet.addDataFacetChangeListener(grantedAbilityFacet);
