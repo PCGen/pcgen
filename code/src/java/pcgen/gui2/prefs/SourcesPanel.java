@@ -205,7 +205,8 @@ public class SourcesPanel extends PCGenPrefsPanel
 	public void setOptionsBasedOnControls()
 	{
 		SettingsHandler.setLoadCampaignsAtStart(campLoad.isSelected());
-		SettingsHandler.setLoadCampaignsWithPC(charCampLoad.isSelected());
+		PCGenSettings.getInstance().setBoolean(
+			PCGenSettings.OPTION_AUTOLOAD_SOURCES_WITH_PC, charCampLoad.isSelected());
 		SettingsHandler.setOptionAllowedInSources(allowOptsInSource
 			.isSelected());
 		PCGenSettings.OPTIONS_CONTEXT
@@ -263,7 +264,8 @@ public class SourcesPanel extends PCGenPrefsPanel
 	public void applyOptionValuesToControls()
 	{
 		campLoad.setSelected(SettingsHandler.isLoadCampaignsAtStart());
-		charCampLoad.setSelected(SettingsHandler.isLoadCampaignsWithPC());
+		charCampLoad.setSelected(PCGenSettings.getInstance().initBoolean(
+			PCGenSettings.OPTION_AUTOLOAD_SOURCES_WITH_PC, true));
 		allowOptsInSource.setSelected(SettingsHandler
 			.isOptionAllowedInSources());
 		saveCustom.setSelected(PCGenSettings.OPTIONS_CONTEXT

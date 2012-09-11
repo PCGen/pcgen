@@ -55,6 +55,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SpecialAbility;
 import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.SourceSelectionFacade;
+import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenPropBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.FileHelper;
@@ -215,16 +216,6 @@ public final class PCGIOHandler extends IOHandler
 
 		pcToBeRead.setImporting(true);
 
-		// If not validating, disable user preference for loading the campaign.
-		// Otherwise, previewing will throw up a license for the campaign.
-		final boolean loadCampaignsWithPC =
-				SettingsHandler.isLoadCampaignsWithPC();
-
-		if (!validate)
-		{
-			SettingsHandler.setLoadCampaignsWithPC(false);
-		}
-
 		final String[] pcgLines = lines.toArray(new String[lines.size()]);
 		if (isPCGVersion2)
 		{
@@ -236,8 +227,9 @@ public final class PCGIOHandler extends IOHandler
 			}
 			catch (PCGParseException pcgex)
 			{
-				errors.add(pcgex.getMessage() + Constants.LINE_SEPARATOR + "Method: "
-						+ pcgex.getMethod() + '\n' + "Line: " + pcgex.getLine());
+				errors.add(LanguageBundle.getFormattedString(
+					"in_pcgIoErrorReport", pcgex.getMessage(), //$NON-NLS-1$
+					pcgex.getMethod(), pcgex.getLine()));
 			}
 
 			warnings.addAll(parser.getWarnings());
@@ -245,8 +237,6 @@ public final class PCGIOHandler extends IOHandler
 			// we are now all done with the import parsing, so turn off
 			// the Importing flag and then do some sanity checks
 			pcToBeRead.setImporting(false);
-			// Restore the original user preference
-			SettingsHandler.setLoadCampaignsWithPC(loadCampaignsWithPC);
 
 			try
 			{

@@ -1103,11 +1103,19 @@ public final class SettingsHandler
 		return loadCampaignsAtStart;
 	}
 
+	/**
+	 * @deprecated Use PCGenSettings.OPTION_AUTOLOAD_SOURCES_WITH_PC instead.
+	 */
+	@Deprecated
 	public static void setLoadCampaignsWithPC(final boolean aBool)
 	{
 		loadCampaignsWithPC = aBool;
 	}
 
+	/**
+	 * @deprecated Use PCGenSettings.OPTION_AUTOLOAD_SOURCES_WITH_PC instead.
+	 */
+	@Deprecated
 	public static boolean isLoadCampaignsWithPC()
 	{
 		return loadCampaignsWithPC;

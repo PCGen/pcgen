@@ -1539,7 +1539,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	private void parseCampaignLines(final List<String> lines)
 		throws PCGParseException
 	{
-
+		// Note: Campaigns are processed in advance by parsePCGSourceOnly now.
+		
 		if (!Globals.displayListsHappy())
 		{
 			throw new PCGParseException("parseCampaignLines", "N/A", //$NON-NLS-1$ //$NON-NLS-2$

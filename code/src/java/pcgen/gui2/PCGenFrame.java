@@ -973,35 +973,30 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		}
 		else if (!sources.getCampaigns().isEmpty())
 		{
-			if (loadSourceSelection(sources))
+			// Check if the user has asked that sources not be loaded with the character
+			boolean dontLoadSources =
+					currentSourceSelection.getReference() != null
+						&& !PCGenSettings.getInstance()
+							.initBoolean(
+								PCGenSettings.OPTION_AUTOLOAD_SOURCES_WITH_PC,
+								true);
+			if (dontLoadSources)
 			{
-				new Thread()
+				if (!checkSourceEquality(sources,
+					currentSourceSelection.getReference()))
 				{
-
-					@Override
-					public void run()
-					{
-						try
-						{
-							sourceLoader.join();
-							SwingUtilities.invokeLater(new Runnable()
-							{
-
-								@Override
-								public void run()
-								{
-									CharacterManager.openCharacter(pcgFile, PCGenFrame.this, currentDataSetRef.getReference());
-								}
-
-							});
-						}
-						catch (InterruptedException ex)
-						{
-							//Do nothing
-						}
-					}
-
-				}.start();
+					Logging.log(
+						Logging.WARNING,
+						"Loading character with different sources. Character: "
+							+ sources + " current: "
+							+ currentSourceSelection.getReference());
+				}
+				CharacterManager.openCharacter(pcgFile, PCGenFrame.this,
+					currentDataSetRef.getReference());
+			}
+			else if (loadSourceSelection(sources))
+			{
+				loadSourcesThenCharacter(pcgFile);
 			}
 			else
 			{
@@ -1021,6 +1016,41 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 					currentDataSetRef.getReference());
 			}
 		}
+	}
+
+	/**
+	 * Asynchronously load the sources required for a character and then load the character.
+	 * @param pcgFile The character to be loaded.
+	 */
+	private void loadSourcesThenCharacter(final File pcgFile)
+	{
+		new Thread()
+		{
+
+			@Override
+			public void run()
+			{
+				try
+				{
+					sourceLoader.join();
+					SwingUtilities.invokeLater(new Runnable()
+					{
+
+						@Override
+						public void run()
+						{
+							CharacterManager.openCharacter(pcgFile, PCGenFrame.this, currentDataSetRef.getReference());
+						}
+
+					});
+				}
+				catch (InterruptedException ex)
+				{
+					//Do nothing
+				}
+			}
+
+		}.start();
 	}
 
 	public void loadPartyFromFile(final File pcpFile)
@@ -1051,7 +1081,28 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		}
 		else if (!sources.getCampaigns().isEmpty())
 		{
-			if (loadSourceSelection(sources))
+			// Check if the user has asked that sources not be loaded with the character
+			boolean dontLoadSources =
+					currentSourceSelection.getReference() != null
+						&& !PCGenSettings.getInstance()
+							.initBoolean(
+								PCGenSettings.OPTION_AUTOLOAD_SOURCES_WITH_PC,
+								true);
+			if (dontLoadSources)
+			{
+				if (!checkSourceEquality(sources,
+					currentSourceSelection.getReference()))
+				{
+					Logging.log(
+						Logging.WARNING,
+						"Loading party with different sources. Party: "
+							+ sources + " current: "
+							+ currentSourceSelection.getReference());
+				}
+				CharacterManager.openParty(pcpFile, PCGenFrame.this,
+					currentDataSetRef.getReference());
+			}
+			else if (loadSourceSelection(sources))
 			{
 				new Thread()
 				{
