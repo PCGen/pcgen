@@ -30,10 +30,12 @@ package pcgen.core;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
@@ -178,8 +180,9 @@ public class BioSetTest extends AbstractCharacterTestCase
 				+ BASE_AGE[ageCat] + " and " + MAX_AGE[ageCat],
 				(age >= BASE_AGE[ageCat] && age <= MAX_AGE[ageCat]));
 		}
+		LocaleDependentTestCase.before(Locale.US);
 		currBioSet.randomize("AGE.HT.WT.EYES.HAIR.SKIN", pc);
-		// TODO to make the height and weight tests work, the program must be using imperial system, not metric
+		LocaleDependentTestCase.after();
 		assertTrue("Generated height " + pc.getHeight()
 			+ " is not in required range.", (pc.getHeight() >= 58 && pc
 			.getHeight() <= 78));
