@@ -44,10 +44,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Observer;
 import java.util.logging.LogRecord;
 
@@ -63,18 +60,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 import javax.swing.filechooser.FileFilter;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.mutable.MutableInt;
 import org.lobobrowser.html.HtmlRendererContext;
 import org.lobobrowser.html.gui.HtmlPanel;
 import org.lobobrowser.html.test.SimpleHtmlRendererContext;
@@ -85,11 +77,8 @@ import pcgen.cdom.content.Sponsor;
 import pcgen.core.Globals;
 import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.CharacterLevelFacade;
-import pcgen.core.facade.CharacterLevelsFacade;
 import pcgen.core.facade.CharacterStubFacade;
 import pcgen.core.facade.ChooserFacade;
-import pcgen.core.facade.ClassFacade;
 import pcgen.core.facade.CompanionFacade;
 import pcgen.core.facade.DataSetFacade;
 import pcgen.core.facade.DefaultReferenceFacade;
@@ -103,6 +92,7 @@ import pcgen.core.facade.util.ListFacade;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.dialog.AboutDialog;
 import pcgen.gui2.dialog.ChooserDialog;
+import pcgen.gui2.dialog.PostLevelUpDialog;
 import pcgen.gui2.dialog.TipOfTheDay;
 import pcgen.gui2.sources.SourceSelectionDialog;
 import pcgen.gui2.tabs.InfoTabbedPane;
@@ -110,7 +100,6 @@ import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.ShowMessageGuiObserver;
 import pcgen.gui2.util.SwingWorker;
-import pcgen.gui2.util.table.TableCellUtilities;
 import pcgen.io.PCGFile;
 import pcgen.persistence.PersistenceManager;
 import pcgen.persistence.SourceFileLoader;
@@ -1312,88 +1301,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	@Override
 	public void showLevelUpInfo(CharacterFacade character, int oldLevel)
 	{
-		CharacterLevelsFacade levels = character.getCharacterLevelsFacade();
-		//level-class-hp gained-hp rolled-skill points-abilities?
-		int size = levels.getSize();
-		if (size - oldLevel + 1 < 1)
-		{
-			return;
-		}
-		Object[][] data = new Object[size - oldLevel + 1][5];
-		Map<ClassFacade, MutableInt> classLevelMap = new HashMap<ClassFacade, MutableInt>();
-		int gainedTotal = 0;
-		int rolledTotal = 0;
-		int pointTotal = 0;
-		for (int i = oldLevel; i < size; i++)
-		{
-			CharacterLevelFacade level = levels.getElementAt(i);
-			Object[] dataRow = data[i - oldLevel];
-			dataRow[0] = i + 1;
-			ClassFacade c = levels.getClassTaken(level);
-			dataRow[1] = c;
-			if (!classLevelMap.containsKey(c))
-			{
-				classLevelMap.put(c, new MutableInt(0));
-			}
-			classLevelMap.get(c).increment();
-			gainedTotal += (Integer) (dataRow[2] = levels.getHPGained(level));
-			rolledTotal += (Integer) (dataRow[3] = levels.getHPRolled(level));
-			pointTotal += (Integer) (dataRow[4] = levels.getGainedSkillPoints(level));
-		}
-		size -= oldLevel;
-		data[size][0] = LanguageBundle.getString("in_sumTotal"); //$NON-NLS-1$
-		StringBuilder builder = new StringBuilder();
-		Iterator<ClassFacade> classes = classLevelMap.keySet().iterator();
-		while (classes.hasNext())
-		{
-			ClassFacade c = classes.next();
-			builder.append(c.getAbbrev()).append(' ');
-			builder.append('(').append(classLevelMap.get(c)).append(')');
-			if (classes.hasNext())
-			{
-				builder.append(", ");
-			}
-		}
-		data[size][1] = builder;
-		data[size][2] = gainedTotal;
-		data[size][3] = rolledTotal;
-		data[size][4] = pointTotal;
-		Object[] columns = new Object[]
-		{
-			LanguageBundle.getString("in_level"), //$NON-NLS-1$
-			LanguageBundle.getString("in_classString"), //$NON-NLS-1$
-			LanguageBundle.getString("in_luGainedHp"), //$NON-NLS-1$
-			LanguageBundle.getString("in_luRolledHp"), //$NON-NLS-1$
-			LanguageBundle.getString("in_luSkillPoints") //$NON-NLS-1$
-		};
-		DefaultTableModel model = new DefaultTableModel(data, columns)
-		{
-
-			@Override
-			public Class<?> getColumnClass(int columnIndex)
-			{
-				switch (columnIndex)
-				{
-					case 2:
-					case 3:
-					case 4:
-						return Integer.class;
-					default:
-						return Object.class;
-				}
-			}
-
-		};
-		JTable table = new JTable(model);
-		table.setFocusable(false);
-		table.setCellSelectionEnabled(false);
-		table.setPreferredScrollableViewportSize(table.getPreferredSize());
-		table.getColumnModel().getColumn(0).setCellRenderer(new TableCellUtilities.AlignRenderer(SwingConstants.RIGHT));
-		JTableHeader header = table.getTableHeader();
-		header.setReorderingAllowed(false);
-		header.setResizingAllowed(false);
-		JScrollPane pane = new JScrollPane(table);
-		JOptionPane.showMessageDialog(this, pane, LanguageBundle.getString("in_luTitle"), JOptionPane.PLAIN_MESSAGE); //$NON-NLS-1$
+		PostLevelUpDialog.showPostLevelUpDialog(this, character, oldLevel);
 	}
 
 	/**
@@ -1514,6 +1422,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		final PropertyContext context = PCGenSettings.getInstance();
 		final JDialog aFrame = new JDialog(this, title, true);
 		final JButton jClose = new JButton(LanguageBundle.getString("in_close")); //$NON-NLS-1$
+		jClose.setMnemonic(LanguageBundle.getMnemonic("in_mn_close")); //$NON-NLS-1$
 		final JPanel jPanel = new JPanel();
 		final JCheckBox jCheckBox = new JCheckBox(LanguageBundle.getString("in_licShowOnLoad")); //$NON-NLS-1$
 		jPanel.add(jCheckBox);
@@ -1572,6 +1481,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 					SwingConstants.CENTER);
 		final JCheckBox jCheckBox1 = new JCheckBox(LanguageBundle.getString("in_licShowOnLoad")); //$NON-NLS-1$
 		final JButton jClose = new JButton(LanguageBundle.getString("in_close")); //$NON-NLS-1$
+		jClose.setMnemonic(LanguageBundle.getMnemonic("in_mn_close")); //$NON-NLS-1$
 
 		jPanel1.setLayout(new BorderLayout());
 		jPanel1.add(jLabel1, BorderLayout.NORTH);
@@ -1632,6 +1542,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 
 		final JDialog aFrame = new JDialog(this, title, true);
 		final JButton jClose = new JButton(LanguageBundle.getString("in_close")); //$NON-NLS-1$
+		jClose.setMnemonic(LanguageBundle.getMnemonic("in_mn_close")); //$NON-NLS-1$
 		final JPanel jPanel = new JPanel();
 		final JCheckBox jCheckBox = new JCheckBox(LanguageBundle.getString("in_licShowOnLoad")); //$NON-NLS-1$
 		jPanel.add(jCheckBox);
