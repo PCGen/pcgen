@@ -93,6 +93,7 @@ public class PreStatParserTest extends EnUsLocaleDependentTestCase
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testDex9Str13() throws Exception
 	{
 		PreStatParser producer = new PreStatParser();
@@ -111,6 +112,7 @@ public class PreStatParserTest extends EnUsLocaleDependentTestCase
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testDexEqual9() throws Exception
 	{
 		PreStatParser producer = new PreStatParser();
@@ -128,6 +130,7 @@ public class PreStatParserTest extends EnUsLocaleDependentTestCase
 	/**
 	 * @throws Exception
 	 */
+	@Test
 	public void testEmpty() throws Exception
 	{
 		PreStatParser producer = new PreStatParser();
