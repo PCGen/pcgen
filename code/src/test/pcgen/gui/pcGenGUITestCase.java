@@ -10,9 +10,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.Locale;
+
 import org.custommonkey.xmlunit.XMLTestCase;
 import org.custommonkey.xmlunit.XMLUnit;
 
+import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.persistence.PersistenceManager;
@@ -76,6 +79,14 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 			.setSAXParserFactory("org.apache.xerces.jaxp.SAXParserFactoryImpl");
 		XMLUnit
 			.setTransformerFactory("org.apache.xalan.processor.TransformerFactoryImpl");
+		LocaleDependentTestCase.before(Locale.US);
+	}
+	
+	@Override
+	protected void tearDown() throws Exception
+	{
+		super.tearDown();
+		LocaleDependentTestCase.after();
 	}
 
 	/**
@@ -203,11 +214,16 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 				new BufferedReader(new InputStreamReader(new FileInputStream(
 					outputFile), "UTF-8"));
 		StringBuffer output = new StringBuffer();
-		String line = br.readLine();
-		while (line != null)
-		{
-			output.append(line).append("\n");
-			line = br.readLine();
+		try {
+			String line = br.readLine();
+			while (line != null)
+			{
+				output.append(line).append("\n");
+				line = br.readLine();
+			}
+		} catch (IOException e) {
+			br.close();
+			fail();
 		}
 		return output.toString();
 	}
