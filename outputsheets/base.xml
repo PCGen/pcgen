@@ -3287,6 +3287,7 @@ Immune
 					<castingtime>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|</castingtime>
 					<casterlevel>|SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|</casterlevel>
 					<concentration>|SPELLMEM.%class.%spellbook.%level.%spell.CONCENTRATION|</concentration>
+					<times_unit>|SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|</times_unit>
 					<dc>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</dc>
 					<duration>|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|</duration>
 					<effect>|SPELLMEM.%class.%spellbook.%level.%spell.EFFECT|</effect>
@@ -3329,6 +3330,7 @@ Immune
 						<range>|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|</range>
 						<components>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</components>
 						<castingtime>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|</castingtime>
+						<times_unit>|SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|</times_unit>
 						<casterlevel>|SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|</casterlevel>
 						<concentration>|SPELLMEM.%class.%spellbook.%level.%spell.CONCENTRATION|</concentration>
 						<dc>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</dc>
@@ -3440,6 +3442,7 @@ Immune
 					<range>|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|</range>
 					<components>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</components>
 					<castingtime>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|</castingtime>
+					<times_unit>|SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|</times_unit>
 					<casterlevel>|SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|</casterlevel>
 					<concentration>|SPELLMEM.%class.%spellbook.%level.%spell.CONCENTRATION|</concentration>
 					<dc>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</dc>
@@ -3485,6 +3488,7 @@ Immune
 						<range>|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|</range>
 						<components>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</components>
 						<castingtime>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|</castingtime>
+						<times_unit>|SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|</times_unit>
 						<casterlevel>|SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|</casterlevel>
 						<concentration>|SPELLMEM.%class.%spellbook.%level.%spell.CONCENTRATION|</concentration>
 						<dc>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</dc>
@@ -3545,6 +3549,7 @@ Immune
 							<range>|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|</range>
 							<components>|SPELLMEM.%class.%spellbook.%level.%spell.COMPONENTS|</components>
 							<castingtime>|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|</castingtime>
+							<times_unit>|SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|</times_unit>
 							<casterlevel>|SPELLMEM.%class.%spellbook.%level.%spell.CASTERLEVEL|</casterlevel>
 							<concentration>|SPELLMEM.%class.%spellbook.%level.%spell.CONCENTRATION|</concentration>
 							<dc>|SPELLMEM.%class.%spellbook.%level.%spell.DC|</dc>
