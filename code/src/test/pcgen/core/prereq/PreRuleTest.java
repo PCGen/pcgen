@@ -36,15 +36,13 @@ import pcgen.core.SettingsHandler;
 import plugin.pretokens.parser.PreRuleParser;
 
 /**
- * <code>PreRuleTest</code> checks the fucntion of the rule 
+ * <code>PreRuleTest</code> checks the function of the rule 
  * prereq tester.
  *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
- *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
+ * @version $Revision$
  */
+@SuppressWarnings("nls")
 public class PreRuleTest extends AbstractCharacterTestCase
 {
 	/**
@@ -90,13 +88,20 @@ public class PreRuleTest extends AbstractCharacterTestCase
 	{
 		return new TestSuite(PreRuleTest.class);
 	}
+	
+	public void testRule() throws Exception
+	{
+		// if ruleEnabled is launch before disabled, the disabled assert are wrong.
+		ruleDisabled();
+		ruleEnabled();
+	}
 
 	/**
 	 * Test to ensure that we return false when races don't match.
 	 * 
 	 * @throws Exception
 	 */
-	public void testRuleDisabled() throws Exception
+	public void ruleDisabled() throws Exception
 	{
 		assertFalse("Our rule should start as false", Globals
 			.checkRule("PRERULE"));
@@ -117,7 +122,7 @@ public class PreRuleTest extends AbstractCharacterTestCase
 	 * 
 	 * @throws Exception
 	 */
-	public void testRuleEnabled() throws Exception
+	public void ruleEnabled() throws Exception
 	{
 		RuleCheck preRule = SettingsHandler.getGame().getModeContext().ref
 				.silentlyGetConstructedCDOMObject(RuleCheck.class, "PRERULE");
