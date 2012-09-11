@@ -20,6 +20,7 @@
  */
 package gmgen;
 
+import static pcgen.system.LanguageBundle.getFormattedString;
 import gmgen.gui.PreferencesDialog;
 import gmgen.gui.PreferencesRootTreeNode;
 import gmgen.pluginmgr.GMBComponent;
@@ -38,6 +39,7 @@ import gmgen.pluginmgr.messages.ToolMenuItemAddMessage;
 import gmgen.pluginmgr.messages.WindowClosedMessage;
 import gmgen.util.LogUtilities;
 import gmgen.util.MiscUtilities;
+
 import java.awt.BorderLayout;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
@@ -46,6 +48,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.lang.reflect.Method;
 import java.util.EventObject;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -60,10 +63,13 @@ import org.apache.commons.lang.SystemUtils;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
+import pcgen.gui2.PCGenActionMap;
+import pcgen.gui2.tools.CommonMenuText;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
 import pcgen.util.Logging;
 import pcgen.util.SwingWorker;
+
 
 /**
  * <code>GMGenSystem</code> is the main class of the GMGen application.
@@ -72,10 +78,27 @@ import pcgen.util.SwingWorker;
  */
 public final class GMGenSystem extends JFrame implements ChangeListener,
         MenuListener, ActionListener, GMBComponent {
-
-    // Serial UID
+	
+	// Serial UID
     private static final long serialVersionUID = -7372446160499882872L;
 
+    // menu elements used with CommonMenuText.name(...)
+	private static final String MNU_SAVE = "mnuSave"; //$NON-NLS-1$
+	private static final String MNU_OPEN = "mnuOpen"; //$NON-NLS-1$
+	private static final String MNU_EXIT = "mnuExit"; //$NON-NLS-1$
+	private static final String MNU_NEW = "mnuNew"; //$NON-NLS-1$
+	private static final String MNU_CUT = "mnuCut"; //$NON-NLS-1$
+	private static final String MNU_COPY = "mnuCopy"; //$NON-NLS-1$
+	private static final String MNU_PASTE = "mnuPaste"; //$NON-NLS-1$
+
+	// Settings keys
+	private static final String SETTING_WINDOW_STATE = "WindowState"; //$NON-NLS-1$
+	private static final String SETTING_WINDOW_HEIGHT = "WindowHeight"; //$NON-NLS-1$
+	private static final String SETTING_WINDOW_WIDTH = "WindowWidth"; //$NON-NLS-1$
+	private static final String WINDOW_Y = "WindowY"; //$NON-NLS-1$
+	private static final String SETTING_WINDOW_X = "WindowX"; //$NON-NLS-1$
+	private static final String SETTING_LOGGING_ON = "Logging.On"; //$NON-NLS-1$
+	
     /**
      * Holds an instance of the top window, so components and windows can get
      * their parent frame.
@@ -85,11 +108,11 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     // The main <code>JPanel</code> view for the system.
     private GMGenSystemView theView;
 
-    // Boolean true if this is a Mac OS X system.
+    /** {@code true} if this is a Mac OS X system. */
     private static final boolean MAC_OS_X = SystemUtils.IS_OS_MAC_OSX;
     
     /** GMGen Application name */
-    public static final String APPLICATION_NAME = "GMGen";
+    public static final String APPLICATION_NAME = "GMGen"; //$NON-NLS-1$
 
     private JMenuBar systemMenuBar;
     
@@ -137,7 +160,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      * Starts the GMGen renderer
      */
     public GMGenSystem() {
-        super("GMGen System");
+        super(getFormattedString("in_gmgen_frameTitle", APPLICATION_NAME)); //$NON-NLS-1$
         new Renderer().start();
     }
 
@@ -163,14 +186,15 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     /*
      * Fixes for Mac OS X look-and-feel menu problems.sk4p 12 Dec 2002
      */
+    // TODO factorize. PCGen must be doing the same thing.
     private void initialiseMacOS() {
-        System.setProperty("com.apple.mrj.application.growbox.intrudes",
-                "false");
-        System.setProperty("com.apple.mrj.application.live-resize", "false");
-        System.setProperty("com.apple.macos.smallTabs", "true");
-        System.setProperty("apple.laf.useScreenMenuBar", "true");
-        System.setProperty("com.apple.mrj.application.apple.menu.about.name",
-                "GMGen");
+        System.setProperty("com.apple.mrj.application.growbox.intrudes",  //$NON-NLS-1$
+                "false"); //$NON-NLS-1$
+        System.setProperty("com.apple.mrj.application.live-resize", "false"); //$NON-NLS-1$ //$NON-NLS-2$
+        System.setProperty("com.apple.macos.smallTabs", "true"); //$NON-NLS-1$ //$NON-NLS-2$
+        System.setProperty("apple.laf.useScreenMenuBar", "true"); //$NON-NLS-1$ //$NON-NLS-2$
+        System.setProperty("com.apple.mrj.application.apple.menu.about.name", //$NON-NLS-1$
+                APPLICATION_NAME);
         macOSXRegistration();
     }
 
@@ -180,6 +204,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      * @return The build number
      * @since GMGen 3.3
      */
+    // XXX is there a reason this never changes?
     public static String getBuild() {
         return "03.03.99.01.00";
     }
@@ -233,7 +258,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
          */
         if (!MAC_OS_X) {
             editMenu.add(editSeparator1);
-            preferencesEditItem.setText("Preferences");
+            CommonMenuText.name(preferencesEditItem, PCGenActionMap.MNU_TOOLS_PREFERENCES);
             editMenu.add(preferencesEditItem);
             preferencesEditItem.setEnabled(true);
             ActionListener[] listenerArray = preferencesEditItem
@@ -352,6 +377,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
             // This will be thrown first if the OSXAdapter is loaded on a system
             // without the EAWT
             // because OSXAdapter extends ApplicationAdapter in its def
+        	// TODO Use Logging
             System.err
                     .println("This version of Mac OS X does not support the Apple EAWT.  Application Menu handling has been disabled ("
                             + e + ")");
@@ -359,10 +385,12 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
             // This shouldn't be reached; if there's a problem with the
             // OSXAdapter we should get the
             // above NoClassDefFoundError first.
+        	// TODO Use Logging
             System.err
                     .println("This version of Mac OS X does not support the Apple EAWT.  Application Menu handling has been disabled ("
                             + e + ")");
         } catch (Exception e) {
+        	// TODO Use Logging
             System.err.println("Exception while loading the OSXAdapter = ["
                     + e.getMessage() + "]");
         }
@@ -432,21 +460,21 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
 
     // Sets a bunch of properties based on the status of GMGen at close.
     private void setCloseSettings() {
-        SettingsHandler.setGMGenOption("WindowX", this.getX());
-        SettingsHandler.setGMGenOption("WindowY", this.getY());
-        SettingsHandler.setGMGenOption("WindowWidth", this.getSize().width);
-        SettingsHandler.setGMGenOption("WindowHeight", this.getSize().height);
+        SettingsHandler.setGMGenOption(SETTING_WINDOW_X, this.getX());
+        SettingsHandler.setGMGenOption(WINDOW_Y, this.getY());
+        SettingsHandler.setGMGenOption(SETTING_WINDOW_WIDTH, this.getSize().width);
+        SettingsHandler.setGMGenOption(SETTING_WINDOW_HEIGHT, this.getSize().height);
 
         // Maximized state of the window
         if ((getExtendedState() & Frame.MAXIMIZED_BOTH) != 0) {
-            SettingsHandler.setGMGenOption("WindowState", Frame.MAXIMIZED_BOTH);
+            SettingsHandler.setGMGenOption(SETTING_WINDOW_STATE, Frame.MAXIMIZED_BOTH);
         } else if ((getExtendedState() & Frame.MAXIMIZED_HORIZ) != 0) {
             SettingsHandler
-                    .setGMGenOption("WindowState", Frame.MAXIMIZED_HORIZ);
+                    .setGMGenOption(SETTING_WINDOW_STATE, Frame.MAXIMIZED_HORIZ);
         } else if ((getExtendedState() & Frame.MAXIMIZED_VERT) != 0) {
-            SettingsHandler.setGMGenOption("WindowState", Frame.MAXIMIZED_VERT);
+            SettingsHandler.setGMGenOption(SETTING_WINDOW_STATE, Frame.MAXIMIZED_VERT);
         } else {
-            SettingsHandler.setGMGenOption("WindowState", Frame.NORMAL);
+            SettingsHandler.setGMGenOption(SETTING_WINDOW_STATE, Frame.NORMAL);
         }
     }
 
@@ -471,7 +499,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         pack();
     }
 
-    // Enable or Disable menu items at initialisation time
+    // Enable or Disable menu items at initialization time
     private void setDefaultEnablementOfMenuItems() {
         openFileItem.setEnabled(true);
         saveFileItem.setEnabled(false);
@@ -489,12 +517,10 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         toolsSeparator1 = new JSeparator();
         versionToolsItem = new JMenuItem();
         
-        toolsMenu.setText("Tools");
-        toolsMenu.setMnemonic('T');
+        CommonMenuText.name(toolsMenu, PCGenActionMap.MNU_TOOLS);
         toolsMenu.addMenuListener(this);
 
-        versionToolsItem.setMnemonic('G');
-        versionToolsItem.setText("Get Newest Version");
+        CommonMenuText.name(versionToolsItem, "mnuGetNew"); //$NON-NLS-1$
         toolsMenu.add(versionToolsItem);
 
         toolsMenu.add(toolsSeparator1);
@@ -512,24 +538,23 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         preferencesEditItem = new JMenuItem();
         
         // EDIT MENU
-        editMenu.setText("Edit");
-        editMenu.setMnemonic('E');
+		CommonMenuText.name(editMenu, PCGenActionMap.MNU_EDIT);
         editMenu.addMenuListener(this);
 
-        cutEditItem.setText("Cut");
+        CommonMenuText.name(cutEditItem, MNU_CUT);
         editMenu.add(cutEditItem);
 
-        copyEditItem.setText("Copy");
+        CommonMenuText.name(copyEditItem, MNU_COPY);
         editMenu.add(copyEditItem);
 
-        pasteEditItem.setText("Paste");
+        CommonMenuText.name(pasteEditItem, MNU_PASTE);
         editMenu.add(pasteEditItem);
 
         // Preferences... on MAC OS X is in the application menu. See macOSXRegistration()
         if (!MAC_OS_X) {
             editMenu.add(editSeparator1);
 
-            preferencesEditItem.setText("Preferences");
+            CommonMenuText.name(preferencesEditItem, PCGenActionMap.MNU_TOOLS_PREFERENCES);
             editMenu.add(preferencesEditItem);
             preferencesEditItem.setEnabled(true);
 
@@ -560,8 +585,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         fileSeparator2 = new JSeparator();
         exitFileItem = new JMenuItem();
         
-        fileMenu.setText("File");
-        fileMenu.setMnemonic('F');
+        CommonMenuText.name(fileMenu, PCGenActionMap.MNU_FILE);
         fileMenu.addMenuListener(this);
 
         createFileNewMenuItem();
@@ -581,8 +605,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      * 
      */
     private void createFileSaveMenuItem() {
-        saveFileItem.setMnemonic('S');
-        saveFileItem.setText("Save");
+        CommonMenuText.name(saveFileItem, MNU_SAVE);
         fileMenu.add(saveFileItem);
         saveFileItem.addActionListener(this);
     }
@@ -591,8 +614,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      * 
      */
     private void createFileOpenMenuItem() {
-        openFileItem.setMnemonic('O');
-        openFileItem.setText("Open");
+        CommonMenuText.name(openFileItem, MNU_OPEN);
         fileMenu.add(openFileItem);
         openFileItem.addActionListener(this);
     }
@@ -601,8 +623,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      * 
      */
     private void createFileNewMenuItem() {
-        newFileItem.setMnemonic('N');
-        newFileItem.setText("New");
+    	CommonMenuText.name(newFileItem, MNU_NEW);
         newFileItem.addActionListener(this);
         fileMenu.add(newFileItem);
     }
@@ -612,8 +633,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      */
     private void exitForMacOSX() {
         fileMenu.add(fileSeparator2);
-        exitFileItem.setMnemonic('x');
-        exitFileItem.setText("Exit");
+    	CommonMenuText.name(exitFileItem, MNU_EXIT);
         fileMenu.add(exitFileItem);
         exitFileItem.addActionListener(this);
     }
@@ -665,26 +685,26 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         GMGenSystemView.getTabPane().addChangeListener(this);
         getContentPane().add(theView, BorderLayout.CENTER);
 
-        setIconImage(Icons.createImageIcon("gmgen_icon.png").getImage());
+        setIconImage(Icons.createImageIcon("gmgen_icon.png").getImage()); //$NON-NLS-1$
     }
 
     // Initializes the Logger component.
     private void initLogger() {
-        boolean logging = SettingsHandler.getGMGenOption("Logging.On", false);
+        boolean logging = SettingsHandler.getGMGenOption(SETTING_LOGGING_ON, false);
         LogUtilities.inst().setLogging(logging);
     }
 
     // Initializes the settings, and implements their commands.
     private void initSettings() {
-        int iWinX = SettingsHandler.getGMGenOption("WindowX", 0);
-        int iWinY = SettingsHandler.getGMGenOption("WindowY", 0);
+        int iWinX = SettingsHandler.getGMGenOption(SETTING_WINDOW_X, 0);
+        int iWinY = SettingsHandler.getGMGenOption(WINDOW_Y, 0);
         setLocation(iWinX, iWinY);
 
-        int iWinWidth = SettingsHandler.getGMGenOption("WindowWidth", 750);
-        int iWinHeight = SettingsHandler.getGMGenOption("WindowHeight", 580);
+        int iWinWidth = SettingsHandler.getGMGenOption(SETTING_WINDOW_WIDTH, 750);
+        int iWinHeight = SettingsHandler.getGMGenOption(SETTING_WINDOW_HEIGHT, 580);
         setSize(iWinWidth, iWinHeight);
 
-        int windowState = SettingsHandler.getGMGenOption("WindowState",
+        int windowState = SettingsHandler.getGMGenOption(SETTING_WINDOW_STATE,
                 Frame.NORMAL);
 
         if (windowState != Frame.NORMAL) {

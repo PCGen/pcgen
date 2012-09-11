@@ -121,7 +121,7 @@ public class GMGenSystemView extends JPanel implements ChangeListener
 	}
 
 	/**
-	 *  Initialises the GUI components and sets up the layout being used.
+	 *  Initializes the GUI components and sets up the layout being used.
 	 *
 	 *@since    GMGen 3.3
 	 */

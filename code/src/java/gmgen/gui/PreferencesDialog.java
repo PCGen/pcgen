@@ -235,7 +235,7 @@ public class PreferencesDialog extends javax.swing.JDialog
         this.setSize(iWinWidth, iWinHeight);
     }
 
-    /** Sets all the widgets to refelct the current preferences */
+    /** Sets all the widgets to reflect the current preferences */
     private void initPreferences()
     {
         for (PreferencesPanel panel : root.getPanelList())

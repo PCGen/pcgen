@@ -75,7 +75,10 @@ public final class LanguageBundle
 	 */
 	public static String getFormattedString(String aKey, Object... varargs)
 	{
-		return MessageFormat.format(getString(aKey), varargs);
+		String string = getString(aKey);
+		if (varargs != null && varargs.length > 0)
+			return MessageFormat.format(string, varargs);
+		return string;
 	}
 
 	private static char getMnemonic(String property, char def)
@@ -147,7 +150,7 @@ public final class LanguageBundle
 	 */
 	public static final void reload()
 	{
-		Locale l=Locale.getDefault();
+		Locale l = Locale.getDefault();
 		if (bundle != null
 			&& ((l == null && bundle.getLocale() == null) || !l.equals(bundle
 				.getLocale())))
@@ -155,4 +158,9 @@ public final class LanguageBundle
 			bundle = null;
 		}
 	}
+
+	/**
+	 * Standard bundle key prefix.
+	 */
+	public static final String KEY_PREFIX = "in_"; //$NON-NLS-1$
 }

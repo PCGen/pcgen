@@ -28,11 +28,8 @@ import java.util.StringTokenizer;
 import javax.swing.AbstractAction;
 import javax.swing.KeyStroke;
 
-import pcgen.system.LanguageBundle;
-
 public class PCGenAction extends AbstractAction
 {
-
     public PCGenAction(String prop)
     {
         this(prop, null, null, null);
@@ -59,12 +56,10 @@ public class PCGenAction extends AbstractAction
     }
 
     public PCGenAction(String prop, String command, String accelerator,
-                        Icons icon)
+                        Icons icon, Object... substitutes)
     {
-        putValue(NAME, LanguageBundle.getString("in_"+prop));
-        putValue(MNEMONIC_KEY, LanguageBundle.getMnemonic("in_mn_"+prop));
-        putValue(SHORT_DESCRIPTION, LanguageBundle.getString("in_"+prop+"Tip"));
-
+    	CommonMenuText.name(this, prop, substitutes);
+    	
         if (command != null)
         {
             putValue(ACTION_COMMAND_KEY, command);
@@ -128,6 +123,9 @@ public class PCGenAction extends AbstractAction
         }
     }
 
+    /**
+     * Does nothing.
+     */
 	@Override
     public void actionPerformed(ActionEvent e)
     {

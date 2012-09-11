@@ -20,6 +20,8 @@
  */
 package pcgen.gui2;
 
+import gmgen.GMGenSystem;
+
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
@@ -140,6 +142,11 @@ public final class PCGenActionMap extends ActionMap
 	public static final String HELP_TIPOFTHEDAY_COMMAND = HELP_COMMAND + ".tod";
 	public static final String HELP_ABOUT_COMMAND = HELP_COMMAND + ".about";
 	private final PCGenFrame frame;
+	
+	public static final String MNU_TOOLS = "mnuTools"; //$NON-NLS-1$
+	public static final String MNU_TOOLS_PREFERENCES = "mnuToolsPreferences"; //$NON-NLS-1$
+	public static final String MNU_EDIT = "mnuEdit"; //$NON-NLS-1$
+	public static final String MNU_FILE = "mnuFile"; //$NON-NLS-1$
 
 	public PCGenActionMap(PCGenFrame frame)
 	{
@@ -270,7 +277,7 @@ public final class PCGenActionMap extends ActionMap
 
 		public EditAction()
 		{
-			super("mnuEdit");
+			super(MNU_EDIT);
 		}
 
 	}
@@ -370,9 +377,10 @@ public final class PCGenActionMap extends ActionMap
 	private class PreferencesAction extends PCGenAction
 	{
 
+
 		public PreferencesAction()
 		{
-			super("mnuToolsPreferences", Icons.Preferences16);
+			super(MNU_TOOLS_PREFERENCES, Icons.Preferences16);
 		}
 
 		@Override
@@ -388,7 +396,7 @@ public final class PCGenActionMap extends ActionMap
 
 		public GMGenAction()
 		{
-			super("mnuToolsGMGen", GMGEN_COMMAND, Icons.gmgen_icon);
+			super("mnuToolsGMGen", GMGEN_COMMAND, null, Icons.gmgen_icon, GMGenSystem.APPLICATION_NAME);
 		}
 
 		@Override
@@ -480,7 +488,7 @@ public final class PCGenActionMap extends ActionMap
 
 		public FileAction()
 		{
-			super("mnuFile");
+			super(MNU_FILE);
 		}
 
 	}
@@ -978,7 +986,7 @@ public final class PCGenActionMap extends ActionMap
 
 		public ToolsAction()
 		{
-			super("mnuTools");
+			super(MNU_TOOLS);
 		}
 
 		@Override
