@@ -63,7 +63,7 @@ public class Logging
 	/** Logging level for code warnings. */
 	public static final Level WARNING = Level.WARNING;
 
-	/** Logging level for LST warnings such as deprectaed syntax use. */
+	/** Logging level for LST warnings such as deprecated syntax use. */
 	public static final Level LST_WARNING = PCGenLogLevel.LST_WARNING;
 
 	/** Logging level for code info. */
@@ -79,7 +79,7 @@ public class Logging
 	private static Logger pluginLogger;
 
 	/**
-	 * Do any required initialisation of the Logger.
+	 * Do any required initialization of the Logger.
 	 */
 	static
 	{

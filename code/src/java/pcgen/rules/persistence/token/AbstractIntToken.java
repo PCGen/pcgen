@@ -22,7 +22,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.rules.context.LoadContext;
 
 /**
- * Parses a token of the form: <Token Name>:<int>
+ * Parses a token of the form: &lt;Token Name&gt;:&lt;int&gt;
  */
 public abstract class AbstractIntToken<T extends CDOMObject>
 {
