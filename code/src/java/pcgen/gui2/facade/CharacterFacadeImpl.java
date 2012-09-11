@@ -172,7 +172,7 @@ import pcgen.util.enumeration.Load;
 
 /**
  * The Class <code>CharacterFacadeImpl</code> is an implementation of 
- * the CharacterFacade interface for the new user interface. It is 
+ * the {@link CharacterFacade} interface for the new user interface. It is 
  * intended to provide a full implementation of the new ui/core 
  * interaction layer.
  * <p>
@@ -243,7 +243,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private DefaultReferenceFacade<File> portrait;
 	private RectangleReference cropRect;
 	private String selectedGender;
-	private String selectedHandedness; // XXX remove?
 	private List<Language> currBonusLangs;
 	private DefaultReferenceFacade<String> skinColor;
 	private DefaultReferenceFacade<String> hairColor;
@@ -2630,7 +2629,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	public void setHanded(HandedFacade handedness)
 	{
 		Logging.log(Logging.ERROR, "CharacterFacadeImpl @ setHanded to "+((Handed) handedness).name()); //$NON-NLS-1$
-		this.selectedHandedness = handedness.toString();
 		this.handedness.setReference(handedness);
 		theCharacter.setHanded((Handed) handedness);
 		// XXX Needed? copied from #setGender
