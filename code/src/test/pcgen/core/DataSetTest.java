@@ -48,14 +48,22 @@ import plugin.pretokens.parser.PreAbilityParser;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
+@SuppressWarnings("nls")
 public class DataSetTest extends PCGenTestCase
 {
 
+	@Test
+	public final void testGetEquipmentLocationsAll()
+	{
+		// if testGetEquipmentLocationsAdd is done first, the defaultonly test fails.
+		testGetEquipmentLocationsDefaultOnly();
+		testGetEquipmentLocations();
+	}
+	
 	/**
 	 * Test method for {@link pcgen.core.DataSet#getEquipmentLocations()}. Validate 
 	 * that the default locations are added.
 	 */
-	@Test
 	public final void testGetEquipmentLocationsDefaultOnly()
 	{
 		DataSet dataset = new DataSet(Globals.getContext(), SettingsHandler.getGame(), new DefaultListFacade<CampaignFacade>());
@@ -64,7 +72,6 @@ public class DataSetTest extends PCGenTestCase
 		assertTrue("Expected to find Equipped", checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_EQUIPPED));
 		assertTrue("Expected to find Carried", checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_CARRIED));
 		assertTrue("Expected to find Not Carried", checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_NOTCARRIED));
-		// TODO This test fails on my system (value returned is 4)
 		assertEquals("Incorrect size of body structures list", 3, locations.getSize());
 	}
 
@@ -72,7 +79,6 @@ public class DataSetTest extends PCGenTestCase
 	 * Test method for {@link pcgen.core.DataSet#getEquipmentLocations()}. Validate 
 	 * that known body structures get added.
 	 */
-	@Test
 	public final void testGetEquipmentLocations()
 	{
 		final String structName = "TestStruct";
@@ -83,6 +89,7 @@ public class DataSetTest extends PCGenTestCase
 		ListFacade<BodyStructureFacade> locations =
 				dataset.getEquipmentLocations();
 		assertNotNull("Body Structure should not be null", locations);
+		// TODO i18n this. It should be the same value as structname, not the localized value.
 		assertTrue(
 			"Expected to find added body structure '" + structName + "'",
 			checkBodyStructurePresent(locations, "Teststruct"));

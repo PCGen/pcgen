@@ -197,6 +197,7 @@ public class DataSet implements DataSetFacade
 					.getUnmodifiableBodyStructureList().size() + 3);
 		for (String name : SystemCollections.getUnmodifiableBodyStructureList())
 		{
+			// TODO i18n the display name and correct the DataSetTest
 			String displayName =
 					name.substring(0, 1).toUpperCase()
 						+ name.substring(1).toLowerCase();
@@ -242,6 +243,7 @@ public class DataSet implements DataSetFacade
 		BigDecimal halfPrice = new BigDecimal(50.0);
 		BigDecimal free = BigDecimal.ZERO;
 		gearBuySellSchemes = new DefaultListFacade<GearBuySellFacade>();
+		// TODO i18n this
 		gearBuySellSchemes.addElement(new GearBuySellScheme("Market price", fullPrice, halfPrice, fullPrice));
 		gearBuySellSchemes.addElement(new GearBuySellScheme("Character build", fullPrice, fullPrice, fullPrice));
 		gearBuySellSchemes.addElement(new GearBuySellScheme("Cashless", free, free, free));
