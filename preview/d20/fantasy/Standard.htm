@@ -261,7 +261,12 @@ $Date$
   <td class="h">|SIZELONG| / |FACE|</td>
   <td class="h">|HEIGHT|</td>
   <td class="h">|WEIGHT|</td>
+|IIF(VAR.IF(var("COUNT[VISION]")>0;1;0):1)|
   <td colspan="1" class="h">|VISION|</td>
+|ELSE|
+  <td colspan="1" class="h">Normal</td>
+|ENDIF|
+
  </tr>
  <tr>
   <td colspan="1" class="topline">CLASS</td>
