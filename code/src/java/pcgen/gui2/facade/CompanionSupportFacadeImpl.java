@@ -181,7 +181,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 			Map<FollowerOption, CDOMObject> fMap = theCharacter.getAvailableFollowers(compList.getKeyName(), null);
 			for (FollowerOption followerOpt : fMap.keySet())
 			{
-				if (followerOpt.getRace() != Globals.s_EMPTYRACE)
+				if (followerOpt.getRace() != Globals.s_EMPTYRACE && followerOpt.qualifies(theCharacter, null))
 				{
 					companions.add(new CompanionStub(followerOpt.getRace(), compList.getKeyName()));
 				}
@@ -281,6 +281,13 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		if (followerOpt == null)
 		{
 			Logging.errorPrint("Unable to find follower option for companion " //$NON-NLS-1$
+				+ companion + " of race " + compRace); //$NON-NLS-1$
+			return;
+		}
+
+		if (!followerOpt.qualifies(theCharacter, null))
+		{
+			Logging.errorPrint("Not qualified to take companion " //$NON-NLS-1$
 				+ companion + " of race " + compRace); //$NON-NLS-1$
 			return;
 		}
