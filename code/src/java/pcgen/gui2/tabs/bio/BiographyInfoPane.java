@@ -274,7 +274,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			customFieldMap.put(field, bioItem);
 			bioItem.addComponents(itemsPanel);
 			bioItem.install(detailsPane);
-			detailsPane.invalidate();
+			detailsPane.validate();
 			detailsScroll.setPreferredSize(itemsPanel.getPreferredSize());
 			detailsScroll.repaint();
 		}

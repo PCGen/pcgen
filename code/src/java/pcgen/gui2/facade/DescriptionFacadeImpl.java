@@ -115,18 +115,18 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 			notes.addElement(item);
 		}
 
-		birthday = new DefaultReferenceFacade<String>();
-		location = new DefaultReferenceFacade<String>();
-		city = new DefaultReferenceFacade<String>();
-		region = new DefaultReferenceFacade<String>();
-		birthplace = new DefaultReferenceFacade<String>();
-		personalityTrait1 = new DefaultReferenceFacade<String>();
-		personalityTrait2 = new DefaultReferenceFacade<String>();
-		phobias = new DefaultReferenceFacade<String>();
-		interests = new DefaultReferenceFacade<String>();
-		catchPhrase = new DefaultReferenceFacade<String>();
-		hairStyle = new DefaultReferenceFacade<String>();
-		speechPattern = new DefaultReferenceFacade<String>();
+		birthday = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.BIRTHDAY));
+		location = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.LOCATION));
+		city = new DefaultReferenceFacade<String>(theCharacter.getResidence());
+		region = new DefaultReferenceFacade<String>(theCharacter.getRegionString());
+		birthplace = new DefaultReferenceFacade<String>(theCharacter.getBirthplace());
+		personalityTrait1 = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.TRAIT1));
+		personalityTrait2 = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.TRAIT2));
+		phobias = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.PHOBIAS));
+		interests = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.INTERESTS));
+		catchPhrase = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.CATCH_PHRASE));
+		hairStyle = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.HAIR_STYLE));
+		speechPattern = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.SPEECH_TENDENCY));
 		customBiographyFields = new DefaultListFacade<BiographyField>();
 		addCharacterCustomFields();
 	}
