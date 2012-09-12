@@ -3244,6 +3244,21 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				return;
 			}
 		}
+		else
+		{
+			if (equipItemToAdjust.getSafe(ObjectKey.MOD_CONTROL).getModifiersRequired())
+			{
+				if ((equipItemToAdjust.getEqModifierList(true).size() == 0)
+					&& (equipItemToAdjust.getEqModifierList(false).size() == 0))
+				{
+					delegate.showErrorMessage(Constants.APPLICATION_NAME,
+						LanguageBundle
+							.getString("in_igBuyMustCustomizeItemFirst")); //$NON-NLS-1$
+
+					return;
+				}
+			}
+		}
 		Equipment updatedItem = theCharacter.getEquipmentNamed(equipItemToAdjust.getName());
 
 		if (!canAfford(equipItemToAdjust, quantity, (GearBuySellScheme) gearBuySellSchemeRef.getReference()))
