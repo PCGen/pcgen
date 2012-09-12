@@ -24,8 +24,6 @@ package pcgen.core;
 
 import java.util.List;
 
-import org.junit.Test;
-
 import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.core.facade.AbilityFacade;
@@ -52,19 +50,18 @@ import plugin.pretokens.parser.PreAbilityParser;
 public class DataSetTest extends PCGenTestCase
 {
 
-	@Test
 	public final void testGetEquipmentLocationsAll()
 	{
-		// if testGetEquipmentLocationsAdd is done first, the defaultonly test fails.
-		testGetEquipmentLocationsDefaultOnly();
-		testGetEquipmentLocations();
+		// if getEquipmentLocations is done first, the defaultonly test fails.
+		getEquipmentLocationsDefaultOnly();
+		getEquipmentLocations();
 	}
 	
 	/**
 	 * Test method for {@link pcgen.core.DataSet#getEquipmentLocations()}. Validate 
 	 * that the default locations are added.
 	 */
-	public final void testGetEquipmentLocationsDefaultOnly()
+	public final void getEquipmentLocationsDefaultOnly()
 	{
 		DataSet dataset = new DataSet(Globals.getContext(), SettingsHandler.getGame(), new DefaultListFacade<CampaignFacade>());
 		ListFacade<BodyStructureFacade> locations = dataset.getEquipmentLocations();
@@ -79,7 +76,7 @@ public class DataSetTest extends PCGenTestCase
 	 * Test method for {@link pcgen.core.DataSet#getEquipmentLocations()}. Validate 
 	 * that known body structures get added.
 	 */
-	public final void testGetEquipmentLocations()
+	public final void getEquipmentLocations()
 	{
 		final String structName = "TestStruct";
 		SystemCollections.addToBodyStructureList(structName, SettingsHandler.getGame().getName());
@@ -107,7 +104,6 @@ public class DataSetTest extends PCGenTestCase
 	 * Verify the getPrereqAbilities method is functioning correctly.
 	 * @throws Exception
 	 */
-	@Test
 	public void testGetPrereqAbilities() throws Exception
 	{
 		Ability acrobatics = TestHelper.makeAbility("Acrobatics", AbilityCategory.FEAT, "general");
