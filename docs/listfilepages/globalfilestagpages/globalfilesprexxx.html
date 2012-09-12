@@ -1460,7 +1460,8 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Number
 		(The number of vision types that must match the specified requirements).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (The vision types required).</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> Number (The distance of the vision types - optional).</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Number (The distance of the vision types).</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> ANY</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">This sets the vision ability requirements.
 		If there is an value at the end, all Visions in the list must be that value or higher to be considered valid.</p>
@@ -1469,6 +1470,8 @@
 	<p class="indent3">Character must have both Normal and Darkvision.</p>
 	<p class="indent2"><code>PREVISION:1,Blindsight=30,Darkvision=30</code></p>
 	<p class="indent3">Character must have either Blindsight or Darkvision at at least 30.</p>
+	<p class="indent2"><code>PREVISION:1,Low-Light=ANY</code></p>
+	<p class="indent3">Character must have low-light vision to any distance.</p>
 	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
 	<p class="indent2"><code>PREVISION:x,y,y=z</code> - <span class="dep">Deprecated 5.15.4 - Remove 6.0</span></p>
 	<p class="indent3">The level (z) is now mandatory for all classes/class types (y) designated.</p>
