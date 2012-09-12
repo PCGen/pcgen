@@ -1,25 +1,21 @@
-<b>NEW USERS NOTE:</b> In the <i><b>Settings</i></b> menu the <i><b>Game/Mode Campaign Setting</i></b> determines what sources/books you can load.
-Make sure that <b>all</b> of your preferences are set to what you want for your campaign in the preferences dialog box. This is under the Settings--&gt;Preferences menu item.
-Trying to find how to output your character?  use the File--&gt;Print Preview command
-PCGEN doesn't always deal with leveling down perfectly.  So before you level up a character, make sure that you back up the pcg file first. That way if you choose the wrong class etc., you can go back and do it properly.
-Don't forget, in 3e and 35e mode, bonus skill points from intelligence are only applied at the time, not retroactively, so if you increase your intelligence later on, you will not get bonus skill points from your previous levels.
-If you have a positive Intelligence modifier remember to choose your bonus languages at first level, selecting them after first level is not allowed unless you enable the house rule to bypass this restriction. Click the 'Lang, Weap Prof &amp; SA' button on the Summary Tab to select Languages. See the preferences for House Rules options.
-The deity editor is in the Tools--&gt;List Editors menu.
-Confused about gold in your inventory?  Remember to purchase coins, gems etc. with your pooled gold to get them shown on your inventory. Ideally the pooled gold should always be at 0.
-Don't forget to choose your alignment straight away in the summary tab! That way all of the classes that you are eligible for will be available.
-On the summary tab, the abilities column is actually editable, you can enter your ability scores directly instead of using the +/- buttons.
-Using the Miscellaneous--&gt;Qualify option in a filter is often a great way to cut down a list to make it readable. But don't forget to switch the filter back off when you're looking for the prestige class you're trying to get to!
-PCGEN is not necessarily a real time tool. So it may be best to note changes on your character sheet and enter them into PCGEN after every session. DM's can have sheets handed to them if they can't trust their players ;p
-You will see small &gt;, &lt;, &lt;up&gt; and &lt;down&gt; arrows on the panes of the PCGEN windows. You can click on these to get one of the panes to expand to its full width/length.
-The -2 circumstance penalty for not having thieves tools is a temporary bonus you can apply in the Temporary Bonus Tab which is a subtab of the Inventory Tab. Other circumstantial bonuses such as riding without a saddle or having your familiar within 5' are available in this tab as well.
-The Barbarian Rage is a temporary bonus as well.
-Don't forget to spend <b>all</b> of your skill points when you go up a level (as per the rules).
-The Include Skills drop-down allows you to select the Untrained option which then shows all of the skills you are trained in and the skills that you don't need to be trained in but can still use.
-When you get to the domains tab you'll need to use the deity editor to create your specific deity first.
-On the Spell Tab you'll see SpellBook textbox.  You can add new spell books (in reality sets of spells you have memorized) by adding a new name in the text box and clicking on the Add button.
+<b>Welcome to PCGen!</b><br>If you ever need help, hit F1 or see the Documentation in the Help menu. The Character Creation Walkthrough is a great place to start.
+The "Things to be Done" list in the bottom left of the Summary tab will guide you on what needs to be done for your character. You can even click on an item to be taken to the appropriate tab and field. 
+PCGen supports a huge range of source books. Some of the most popular combinations have been set up for you in the Basic list of sources. However you can always create your own combinations on the Advanced sources tab and click Save Source Selection so they show up on the Basic list for you next time. 
+Use the File > Export or File > Print to output great character sheets. We support HTML and PDF output as well as output to files which can be loaded into real time tools.
+Using the Qualified toggle buttons on each tab will trim the list down to just the options that you can take.
+The Affordable toggle button on the Purchase tab only shows those items you have the funds for.
+At the top of each list is a search box - start typing to search for something, press the X button to clear the search.
+You can right-click the heading of the first column in most lists to choose how you want the contents grouped.
+Try right clicking on lists to see extra options, including bulk buy and sell of equipment.
+On the Spells > Prepared Spells Tab you'll see Spell List field.  You can add new spell lists (sets of spells you have memorized e.g City, Dungeoneering, Wilderness travel) by adding a new name in the text box and clicking on the Add button.
 On the Spell Tab to see the number of spells you can cast in a day you need to select your spell casting class in the left-hand pane.
-The Gear tab on the Inventory Tab shows all of the gear you own.  Use the Equipping tab to set up groups of equipment that you'd use (e.g. City, Party, Combat).  You can then print these sets out showing the changed affects on your movement and skills!
-Remember the help section (F1) can answer many of your questions!!
-To reduce the options in races and classes on the 'Summary' tab, you can use Filters (click on the magnifying glass icon) - Try TYPE&gt;PC and TYPE&gt;Humanoid with the Match&gt;Any option selected.
-Select Templates on the 'Race' tab
+The Inventory > Purchase tab shows all of the gear you own. You need to equip the gear on the Inventory > Equipping tab before it affects your character though. You can even set up groups of equipment that you'd use (e.g. City, Party, Combat).  You can then print these sets out showing the changed effects on your movement and skills!
 If you ever see something that doesn't make sense to you, look on the trouble-shooting preview. To get to that, click on the "Character Sheet" tab. Select the "Troubleshooting.htm" sheet. You will see all the various abilities, skills, hit points, saving throws, and the like all expanded with a tag in [] showing where it came from. Very useful for tracking down that strange -1 that shows up.
+You can save buffs with your character - just apply them on the Temporary Bonuses tab. The effects of the buffs will then be included when you output your character.  
+The -2 circumstance penalty for not having thieves tools is a temporary bonus you can apply in the Temporary Bonus Tab. Other circumstantial bonuses such as riding without a saddle or having your familiar within 5' are available in this tab as well.
+There are lots of ways to customize PCGen. Use the Tools > Preferences menu to access the Preferences dialog.
+The Barbarian Rage is a temporary bonus as well.
+PCGEN doesn't always deal with leveling down perfectly.  So before you level up a character, make sure that you back up the pcg file first. That way if you choose the wrong class etc., you can go back and do it properly.
+Confused about gold in your inventory?  Remember to purchase coins, gems etc. with your pooled gold to get them shown on your inventory. Ideally the pooled gold should always be at 0.
+You will see small &gt;, &lt;, &lt;up&gt; and &lt;down&gt; arrows on the panes of the PCGEN windows. You can click on these to get one of the panes to expand to its full width/length.
+PCGen is an Open Source project which means anyone can contribute. If you want to help drop a mail to <a href="mailto:PR@pcgen.org">PR@pcgen.org</a> or <a href="mailto:Content@pcgen.org">Content@pcgen.org</a>, or simply post a message with the title <strong>"I Want To Help"</strong> in one of the mailing lists.
