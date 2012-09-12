@@ -5581,6 +5581,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		String cTag = null;
 		String tName = null;
+		boolean active = true;
 
 		for (PCGElement element : tokens.getElements())
 		{
@@ -5593,6 +5594,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			else if (TAG_TEMPBONUSTARGET.equals(tag))
 			{
 				tName = EntityEncoder.decode(element.getText());
+			}
+			else if (TAG_TEMPBONUSACTIVE.equals(tag))
+			{
+				active = element.getText().endsWith(VALUE_Y);
 			}
 		}
 
@@ -5641,7 +5646,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				bonus = EntityEncoder.decode(element.getText());
 			}
-			else
+			else 
 			{
 				continue;
 			}
@@ -5755,17 +5760,24 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				return;
 			}
 
+			TempBonusInfo tempBonusInfo;
 			// Check to see if the target was the PC or an Item
 			if (tName.equals(TAG_PC))
 			{
 				thePC.setApplied(newB, true);
-				thePC.addTempBonus(newB, creator, thePC);
+				tempBonusInfo = thePC.addTempBonus(newB, creator, thePC);
 			}
 			else
 			{
 				thePC.setApplied(newB, true);
 				aEq.addTempBonus(newB);
-				thePC.addTempBonus(newB, creator, aEq);
+				tempBonusInfo = thePC.addTempBonus(newB, creator, aEq);
+			}
+			
+			if (!active)
+			{
+				String bonusName = new BonusManager(thePC).getBonusName(newB, tempBonusInfo);
+				thePC.setTempBonusFilter(bonusName);
 			}
 		}
 
@@ -5774,6 +5786,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			aEq.setAppliedName(cKey);
 			thePC.addTempBonusItemList(aEq);
 		}
+		
 	}
 
 	/*

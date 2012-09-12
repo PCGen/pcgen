@@ -432,6 +432,8 @@ interface IOConstants
 	String TAG_TEMPBONUS = "TEMPBONUS";
 	/** TBBONUS */
 	String TAG_TEMPBONUSBONUS = "TBBONUS";
+	/** Is the temporary bonus to be initially applied? */
+	String TAG_TEMPBONUSACTIVE = "TBACTIVE";
 
 	/** TBTARGET */
 	String TAG_TEMPBONUSTARGET = "TBTARGET";

@@ -62,7 +62,6 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.BonusManager;
 import pcgen.core.BonusManager.TempBonusInfo;
-import pcgen.core.Campaign;
 import pcgen.core.ChronicleEntry;
 import pcgen.core.Deity;
 import pcgen.core.Description;
@@ -2272,8 +2271,12 @@ final class PCGVer2Creator implements IOConstants
 	private void appendTempBonuses(StringBuffer buffer)
 	{
 		final List<String> trackList = new ArrayList<String>();
-		for (BonusManager.TempBonusInfo tbi : thePC.getTempBonusMap().values())
+		//for (BonusManager.TempBonusInfo tbi : thePC.getTempBonusMap().values())
+		for (Map.Entry<BonusObj, BonusManager.TempBonusInfo> me : thePC
+				.getTempBonusMap().entrySet())
 		{
+			BonusObj bonus = me.getKey();
+			TempBonusInfo tbi = me.getValue();
 			Object creObj = tbi.source;
 			Object tarObj = tbi.target;
 			final String outString = tempBonusName(creObj, tarObj);
@@ -2283,6 +2286,13 @@ final class PCGVer2Creator implements IOConstants
 			}
 			trackList.add(outString);
 			buffer.append(outString);
+			
+			String bonusName = new BonusManager(thePC).getBonusName(bonus, tbi);
+			if (thePC.getTempBonusFilters().contains(bonusName))
+			{
+				buffer.append('|');
+				buffer.append(TAG_TEMPBONUSACTIVE).append(":N");
+			}
 			
 			/*
 			 * Why do we loop through the bonuses again? It is looped through

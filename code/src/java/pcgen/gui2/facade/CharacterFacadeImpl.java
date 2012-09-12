@@ -1121,6 +1121,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			{
 				found.add(name);
 				TempBonusFacadeImpl facade = new TempBonusFacadeImpl((CDOMObject) aC, aT, name);
+				facade.setActive(!theCharacter.getTempBonusFilters().contains(
+					name));
 				appliedTempBonuses.addElement(facade);
 			}
 		}
