@@ -168,8 +168,9 @@ public class DataInstaller extends JFrame
 				if (installDataSource(currDataSet, getSelectedDestination()))
 				{
 					//PCGen_Frame1.getInst().getMainSource().refreshCampaigns();
-					PersistenceManager.getInstance().refreshCampaigns();
-					FacadeFactory.refresh();
+					//TODO: Refresh the data cleanly.
+//					PersistenceManager.getInstance().refreshCampaigns();
+//					FacadeFactory.refresh();
 					ShowMessageDelegate.showMessageDialog(LanguageBundle
 						.getFormattedString("in_diInstalled", campaign
 							.getDisplayName()), TITLE, MessageType.INFORMATION);
@@ -562,6 +563,7 @@ public class DataInstaller extends JFrame
 		installButton = new JButton(LanguageBundle.getString("in_diInstall"));
 		installButton.addActionListener(listener);
 		cancel = new JButton(LanguageBundle.getString("in_close"));
+		cancel.setMnemonic(LanguageBundle.getMnemonic("in_mn_close")); //$NON-NLS-1$
 		cancel.addActionListener(listener);
 
 		JPanel buttonsPanel = new JPanel();
