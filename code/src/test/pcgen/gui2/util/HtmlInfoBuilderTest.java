@@ -20,7 +20,7 @@
  *
  * $Id$
  */
-package pcgen.gui.utils;
+package pcgen.gui2.util;
 
 import java.util.Locale;
 
@@ -33,7 +33,7 @@ import junit.textui.TestRunner;
 
 
 /**
- * <code>InfoLabelTextBuilderTest</code> tests the InfoLabelTextBuilder.
+ * <code>InfoLabelTextBuilderTest</code> tests the HtmlInfoBuilder.
  *
  * Last Editor: $Author$
  * Last Edited: $Date$
@@ -42,11 +42,11 @@ import junit.textui.TestRunner;
  * @version $Revision$
  */
 @SuppressWarnings("nls")
-public class InfoLabelTextBuilderTest extends TestCase
+public class HtmlInfoBuilderTest extends TestCase
 {
 	public static void main(String args[])
 	{
-		TestRunner.run(InfoLabelTextBuilderTest.class);
+		TestRunner.run(HtmlInfoBuilderTest.class);
 	}
 
 	/**
@@ -54,7 +54,7 @@ public class InfoLabelTextBuilderTest extends TestCase
 	 */
 	public static Test suite()
 	{
-		return new TestSuite(InfoLabelTextBuilderTest.class);
+		return new TestSuite(HtmlInfoBuilderTest.class);
 	}
 	
 	/**
@@ -62,7 +62,7 @@ public class InfoLabelTextBuilderTest extends TestCase
 	 */
 	public void testAppendString()
 	{
-		InfoLabelTextBuilder b = new InfoLabelTextBuilder();
+		HtmlInfoBuilder b = new HtmlInfoBuilder();
 		
 		b.append("Test");
 		
@@ -74,7 +74,7 @@ public class InfoLabelTextBuilderTest extends TestCase
 	 */
 	public void testAppendElement()
 	{
-		InfoLabelTextBuilder b = new InfoLabelTextBuilder();
+		HtmlInfoBuilder b = new HtmlInfoBuilder();
 		
 		b.appendElement("HP" , "25");
 		
@@ -86,7 +86,7 @@ public class InfoLabelTextBuilderTest extends TestCase
 	 */
 	public void testAppendI18nElement()
 	{
-		InfoLabelTextBuilder b = new InfoLabelTextBuilder();
+		HtmlInfoBuilder b = new HtmlInfoBuilder();
 		LocaleDependentTestCase.before(Locale.US);
 		b.appendI18nElement("in_player", "Koen");
 		EnUsLocaleDependentTestCase.after();
@@ -98,7 +98,7 @@ public class InfoLabelTextBuilderTest extends TestCase
 	 */
 	public void testAppendComplex()
 	{
-		InfoLabelTextBuilder b = new InfoLabelTextBuilder("Character");
+		HtmlInfoBuilder b = new HtmlInfoBuilder("Character");
 		
 		LocaleDependentTestCase.before(Locale.US);
 		b.appendLineBreak().appendI18nElement("in_player" , "Koen");
