@@ -3021,7 +3021,7 @@ public final class Equipment extends PObject implements Serializable,
 		else
 		{
 			base = baseItem.resolvesTo();
-			sbuf.append(base);
+			sbuf.append(base.getKeyName());
 			sbuf.append(sep).append("NAME").append(endPart).append(
 				toString(false));
 		}
