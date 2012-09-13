@@ -1164,6 +1164,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 		
 		appliedTempBonuses.addElement(appliedTempBonus);
+		refreshStatScores();
 		postLevellingUpdates();
 	}
 
@@ -1188,6 +1189,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		TempBonusHelper.removeBonusFromCharacter(theCharacter, aEq, originObj);
 
 		appliedTempBonuses.removeElement(tempBonus);
+		refreshStatScores();
 		postLevellingUpdates();
 	}
 
@@ -1213,6 +1215,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 		tempBonus.setActive(active);
 		appliedTempBonuses.modifyElement(tempBonus);
+		refreshStatScores();
 	}
 	
 	/**
