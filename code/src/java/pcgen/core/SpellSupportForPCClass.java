@@ -861,7 +861,8 @@ public class SpellSupportForPCClass
 		}
 
 		List<? extends CDOMList<Spell>> lists = aPC.getSpellLists(source);
-
+		List<CharacterSpell> spellsToBeRemoved = new ArrayList<CharacterSpell>();
+		
 		for (Iterator<? extends CharacterSpell> iter = aPC.getCharacterSpells(source).iterator(); iter.hasNext();)
 		{
 			final CharacterSpell charSpell = iter.next();
@@ -884,9 +885,14 @@ public class SpellSupportForPCClass
 
 				if (!isKnownAtThisLevel)
 				{
-					iter.remove();
+					spellsToBeRemoved.add(charSpell);
 				}
 			}
+		}
+		
+		for (CharacterSpell characterSpell : spellsToBeRemoved)
+		{
+			aPC.removeCharacterSpell(source, characterSpell);
 		}
 	}
 

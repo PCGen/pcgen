@@ -853,6 +853,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	 */
 	private void buildAvailableNodes() 
 	{
+		availableSpellNodes.clearContents();
 		// Scan character classes for spell classes
 		List<PCClass> classList = getCharactersSpellcastingClasses();
 
@@ -929,6 +930,11 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	 */
 	private void buildKnownPreparedNodes() 
 	{
+		allKnownSpellNodes.clearContents();
+		knownSpellNodes.clearContents();
+		bookSpellNodes.clearContents();
+		preparedSpellNodes.clearContents();
+
 		// Ensure spell information is up to date
 		pc.getSpellList();
 
