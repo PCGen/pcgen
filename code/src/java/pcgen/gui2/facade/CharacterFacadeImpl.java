@@ -3811,7 +3811,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 		PCTemplate template = (PCTemplate) templateFacade;
 
-		if (theCharacter.hasTemplate(template))
+		if (theCharacter.hasTemplate(template) && template.isRemovable())
 		{
 			theCharacter.removeTemplate(template);
 			templates.removeElement(template);
