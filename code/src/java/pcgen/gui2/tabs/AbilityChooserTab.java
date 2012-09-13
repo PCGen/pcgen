@@ -675,6 +675,16 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 				AbilityCategoryFacade category = (AbilityCategoryFacade) categoryTable.getValueAt(index, 0);
 				character.addAbility(category, (AbilityFacade) data);
 				availableTreeViewPanel.refilter();
+				JTree tree = selectedTreeViewPanel.getTree();
+				for (int i = 0; i < tree.getRowCount(); i++)
+				{
+					TreePath pathForRow = tree.getPathForRow(i);
+					if (category.toString().equals(pathForRow.getLastPathComponent().toString()))
+					{
+						tree.expandRow(i);
+					}
+				}
+
 			}
 		}
 		
