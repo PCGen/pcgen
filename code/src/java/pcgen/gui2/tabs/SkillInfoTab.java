@@ -427,11 +427,8 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		public void install()
 		{
 			installed = true;
-			skillTable.setContext(null);
 			cFilterButton.setFilter(cFilter);
-			cFilterButton.setEnabled(model.getMinSelectionIndex() != -1);
 			trainedFilterButton.setFilter(gainedFilter);
-			trainedFilterButton.setEnabled(true);
 			skillTable.setContext(character);
 		}
 
