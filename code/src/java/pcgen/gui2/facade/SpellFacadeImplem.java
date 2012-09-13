@@ -148,6 +148,15 @@ public class SpellFacadeImplem implements SpellFacade
 	}
 
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getCastTime()
+	{
+		return spell.getListAsString(ListKey.CASTTIME);
+	}
+	
+	/**
 	 * @return the spell
 	 */
 	Spell getSpell()

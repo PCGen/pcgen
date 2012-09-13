@@ -24,7 +24,8 @@ class SpellNodeDataView implements DataView<SuperNode>
 								new DefaultDataViewColumn("Components", String.class, initiallyVisible),
 								new DefaultDataViewColumn("Range", String.class),
 								new DefaultDataViewColumn("Duration", String.class),
-								new DefaultDataViewColumn("Source", String.class));
+								new DefaultDataViewColumn("Source", String.class),
+								new DefaultDataViewColumn("Cast Time", String.class));
 	}
 
 	@Override
@@ -40,7 +41,8 @@ class SpellNodeDataView implements DataView<SuperNode>
 			return Arrays.asList(spell.getSchool(), spell.getSubschool(),
 								 StringUtils.join(spell.getDescriptors(), ", "),
 								 spell.getComponents(), spell.getRange(),
-								 spell.getDuration(), spell.getSource());
+								 spell.getDuration(), spell.getSource(),
+								 spell.getCastTime());
 		}
 		else
 		{

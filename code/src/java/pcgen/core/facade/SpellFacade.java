@@ -39,4 +39,9 @@ public interface SpellFacade extends InfoFacade
 
 	public String getDuration();
 
+	/**
+	 * @return The tme it takes to cast the spell.
+	 */
+	public String getCastTime();
+
 }
