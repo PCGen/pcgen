@@ -58,7 +58,7 @@ public class ColorToken extends AbstractExportToken
 
 		if ("COLOR.EYE".equals(tokenSource))
 		{
-			retString = display.getEyeColor();
+			retString = getEyeToken(display);
 		}
 		else if ("COLOR.HAIR".equals(tokenSource))
 		{
@@ -73,9 +73,23 @@ public class ColorToken extends AbstractExportToken
 	}
 
 	/**
+	 * Get the eye colour token 
+	 * @param display the display for the character being exported
+	 * @return eye colour
+	 */
+	private static String getEyeToken(CharacterDisplay display)
+	{
+		if (display.getSuppressBioField(BiographyField.EYE_COLOR))
+		{
+			return "";
+		}
+		return display.getEyeColor();
+	}
+
+	/**
 	 * Get the Hair token 
 	 * @param display the display for the character being exported
-	 * @return skin color
+	 * @return hair color
 	 */
 	private static String getHairToken(CharacterDisplay display)
 	{
