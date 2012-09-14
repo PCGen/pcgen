@@ -79,6 +79,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 	static final long serialVersionUID = 6109389084434712217L;
 	private static final UIPropertyContext propertyContext = UIPropertyContext.createContext("TipOfTheDay");
 	private static final String NEXT = "next";
+	private static final String PREV = "prev";
 	private static final String HTML_START = "<html><body style=\"margin-left: 5px;margin-right: 5px;margin-top: 5px\">";
 	private static final String HTML_END = "</body></html>";
 	private JCheckBox chkShowTips;
@@ -120,6 +121,12 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 		if (NEXT.equals(e.getActionCommand()))
 		{
 			showNextTip();
+
+			return;
+		}
+		else if (PREV.equals(e.getActionCommand()))
+		{
+			showPrevTip();
 
 			return;
 		}
@@ -180,6 +187,11 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 		btnClose.setMnemonic(LanguageBundle.getMnemonic("in_mn_close"));
 		btnClose.addActionListener(this);
 
+		final JButton btnPrevTip = new JButton(LanguageBundle.getString("in_tod_prevTip"));
+		btnPrevTip.setMnemonic(LanguageBundle.getMnemonic("in_mn_tod_prevTip"));
+		btnPrevTip.addActionListener(this);
+		btnPrevTip.setActionCommand(PREV);
+
 		final JButton btnNextTip = new JButton(LanguageBundle.getString("in_tod_nextTip"));
 		btnNextTip.setMnemonic(LanguageBundle.getMnemonic("in_mn_tod_nextTip"));
 		btnNextTip.addActionListener(this);
@@ -191,6 +203,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 		actions.add(chkShowTips, c);
 
 		final JPanel buttons = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+		buttons.add(btnPrevTip);
 		buttons.add(btnNextTip);
 		buttons.add(btnClose);
 		c.gridx = 1;
@@ -317,15 +330,37 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 
 			final String tip = tipList.get(lastNumber);
 
-			try
+			showTip(tip);
+		}
+	}
+
+	private void showPrevTip()
+	{
+		if (hasTips())
+		{
+			if (--lastNumber < 0)
 			{
-				tipText.setText(HTML_START + "<b>Tip#" + Integer.toString(lastNumber + 1) + "</b><br>" + tip + HTML_END);
-				repaint();
+				lastNumber = tipList.size()-1;
 			}
-			catch (Exception exc)
-			{
-				exc.printStackTrace(System.err);
-			}
+
+			final String tip = tipList.get(lastNumber);
+
+			showTip(tip);
+		}
+	}
+
+	private void showTip(final String tip)
+	{
+		try
+		{
+			tipText.setText(HTML_START
+				+ LanguageBundle.getFormattedString("in_tod_tipDisplay", //$NON-NLS-1$
+					Integer.toString(lastNumber + 1), tip) + HTML_END);
+			repaint();
+		}
+		catch (Exception exc)
+		{
+			exc.printStackTrace(System.err);
 		}
 	}
 

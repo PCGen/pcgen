@@ -309,11 +309,11 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 						@Override
 						public void run()
 						{
+							showSourceSelectionDialog();
 							if (TipOfTheDay.showTipOfTheDay())
 							{
 								showTipsOfTheDay();
 							}
-							showSourceSelectionDialog();
 						}
 
 					});
