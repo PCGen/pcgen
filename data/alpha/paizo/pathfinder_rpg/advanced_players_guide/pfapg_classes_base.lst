@@ -65,16 +65,16 @@ CLASS:Cavalier	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Diplomacy|Handle An
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
 ###Block: Level progression
-1								BONUS:VAR|CavalierChallengeLVL|CL	BONUS:VAR|CavalierChallengeTimes|1+(CL/3)	BONUS:VAR|CavalierLevel|CL	ABILITY:Special Ability|AUTOMATIC|Challenge ~ Cavalier|Mount ~ Cavalier|Order ~ Cavalier|Tactician ~ Cavalier
-3																										ABILITY:Special Ability|AUTOMATIC|Cavalier's Charge ~ Cavalier
-4																										ABILITY:Special Ability|AUTOMATIC|Expert Trainer ~ Cavalier
-5																										ABILITY:Special Ability|AUTOMATIC|Banner ~ Cavalier
-9																										ABILITY:Special Ability|AUTOMATIC|Greater Tactician  ~ Cavalier
-11																										ABILITY:Special Ability|AUTOMATIC|Mighty Charge ~ Cavalier
-12																										ABILITY:Special Ability|AUTOMATIC|Demanding Challenge ~ Cavalier
-14																										ABILITY:Special Ability|AUTOMATIC|Greater Banner ~ Cavalier
-17																										ABILITY:Special Ability|AUTOMATIC|Master Tactician ~ Cavalier
-20																										ABILITY:Special Ability|AUTOMATIC|Supreme Charge ~ Cavalier
+1								BONUS:VAR|CavalierChallengeLVL|CL	BONUS:VAR|CavalierChallengeTimes|1+(CL/3)	BONUS:VAR|CavalierLevel|CL	ABILITY:Special Ability|AUTOMATIC|Challenge ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierChallenge	ABILITY:Special Ability|AUTOMATIC|Mount ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierMount	ABILITY:Special Ability|AUTOMATIC|Order ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierOrder	ABILITY:Special Ability|AUTOMATIC|Tactician ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierTactician
+3																										ABILITY:Special Ability|AUTOMATIC|Cavalier's Charge ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierCavaliersCharge
+4																										ABILITY:Special Ability|AUTOMATIC|Expert Trainer ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierExpertTrainer
+5																										ABILITY:Special Ability|AUTOMATIC|Banner ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierBanner
+9																										ABILITY:Special Ability|AUTOMATIC|Greater Tactician  ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierGreaterTactician
+11																										ABILITY:Special Ability|AUTOMATIC|Mighty Charge ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierMightyCharge
+12																										ABILITY:Special Ability|AUTOMATIC|Demanding Challenge ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierDemandingChallenge
+14																										ABILITY:Special Ability|AUTOMATIC|Greater Banner ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierGreaterBanner
+17																										ABILITY:Special Ability|AUTOMATIC|Master Tactician ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierMasterTactician
+20																										ABILITY:Special Ability|AUTOMATIC|Supreme Charge ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierSupremeCharge
 6	BONUS:ABILITYPOOL|Cavalier Feat|CL/6
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page		Define							Save checks bonus											Combat bonus
@@ -172,9 +172,9 @@ CLASS:Oracle	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Oracle
 ###Block: Oracle Spell Choice
 1	BONUS:ABILITYPOOL|Oracle Spell Choice|1
 ###Block: Oracle's Curse
-1	ABILITY:Special Ability|AUTOMATIC|Oracle's Curse
+1	ABILITY:Special Ability|AUTOMATIC|Oracle's Curse|!PREABILITY:1,CATEGORY=Archetype,TYPE.OracleOraclesCurse
 ###Block: Oracular Mystery
-1	ABILITY:Special Ability|AUTOMATIC|Oracle's Mystery
+1	ABILITY:Special Ability|AUTOMATIC|Oracle's Mystery|!PREABILITY:1,CATEGORY=Archetype,TYPE.OracleOraclesMystery
 ###Block: Level progression
 1	CAST:0,3				KNOWN:4,2				ABILITY:Special Ability|AUTOMATIC|Orisons ~ Oracle
 2	CAST:0,4				KNOWN:5,2
