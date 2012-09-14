@@ -31,13 +31,9 @@ import gmgen.pluginmgr.PluginManager;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -45,9 +41,8 @@ import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
-import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JDialog;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -75,9 +70,9 @@ import pcgen.core.SettingsHandler;
 import pcgen.gui2.prefs.CharacterStatsPanel;
 import pcgen.gui2.prefs.ColorsPanel;
 import pcgen.gui2.prefs.CopySettingsPanel;
+import pcgen.gui2.prefs.DefaultsPanel;
 import pcgen.gui2.prefs.DisplayOptionsPanel;
 import pcgen.gui2.prefs.EquipmentPanel;
-import pcgen.gui2.prefs.DefaultsPanel;
 import pcgen.gui2.prefs.HitPointsPanel;
 import pcgen.gui2.prefs.HouseRulesPanel;
 import pcgen.gui2.prefs.InputPanel;
@@ -99,22 +94,22 @@ import pcgen.system.LanguageBundle;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public final class PreferencesDialog extends JDialog
+public final class PreferencesDialog extends AbstractPreferencesDialog
 {
 	private static final long serialVersionUID = 5042379023317257550L;
 
 	// Resource strings
 	private static String in_appearance =
-			LanguageBundle.getString("in_Prefs_appearance");
+			LanguageBundle.getString("in_Prefs_appearance"); //$NON-NLS-1$
 	private static String in_character =
-			LanguageBundle.getString("in_Prefs_character");
-	private static String in_dialogTitle =
-			LanguageBundle.getString("in_Prefs_title");
+			LanguageBundle.getString("in_Prefs_character"); //$NON-NLS-1$
+	public static final String LB_PREFS_PLUGINS_RUN = "in_Prefs_pluginsRun"; //$NON-NLS-1$
+	public static final String LB_PREFS_PLUGIN_PCGEN_WIN = "in_Prefs_pluginPcgenWin"; //$NON-NLS-1$
+	public static final String LB_PREFS_PLUGIN_GMGEN_WIN = "in_Prefs_pluginGMGenWin"; //$NON-NLS-1$
 
 	private DefaultTreeModel settingsModel;
 	private FlippingSplitPane splitPane;
 
-	private JPanel controlPanel;
 	private JPanel settingsPanel;
 
 	private JScrollPane settingsScroll;
@@ -153,28 +148,19 @@ public final class PreferencesDialog extends JDialog
 
 	private PreferencesDialog(JFrame parent, boolean modal)
 	{
-		super(parent, in_dialogTitle, modal);
-
-		buildSettingsTreeAndPanel();
-		this.getContentPane().setLayout(new BorderLayout());
-		this.getContentPane().add(splitPane, BorderLayout.CENTER);
-		this.getContentPane().add(controlPanel, BorderLayout.SOUTH);
+		super(parent, Constants.APPLICATION_NAME, modal);
 
 		applyOptionValuesToControls();
 		settingsTree.setSelectionRow(1);
 
 		pack();
-		
-		Utility.installEscapeCloseOperation(this);
+		setLocationRelativeTo(getParent());
 	}
 
 	public static void show(JFrame frame)
 	{
 		PreferencesDialog prefsDialog;
-
 		prefsDialog = new PreferencesDialog(frame, true);
-		prefsDialog.setLocationRelativeTo(frame);
-
 		prefsDialog.setVisible(true);
 	}
 
@@ -261,7 +247,7 @@ public final class PreferencesDialog extends JDialog
 		return panel;
 	}
 
-	private void buildSettingsTreeAndPanel()
+	protected JComponent getCenter()
 	{
 		DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode("Root");
 		DefaultMutableTreeNode characterNode;
@@ -414,34 +400,7 @@ public final class PreferencesDialog extends JDialog
 		splitPane.setOneTouchExpandable(true);
 		splitPane.setDividerSize(10);
 
-		// Build the control panel (OK/Cancel buttons)
-		controlPanel = new JPanel();
-		controlPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
-
-		JButton okButton = new JButton(LanguageBundle.getString("in_ok"));
-		okButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_ok"));
-		controlPanel.add(okButton);
-		okButton.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				okButtonActionPerformed();
-			}
-		});
-
-		JButton cancelButton =
-				new JButton(LanguageBundle.getString("in_cancel"));
-		cancelButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel"));
-		controlPanel.add(cancelButton);
-		cancelButton.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				cancelButtonActionPerformed();
-			}
-		});
+		return splitPane;
 	}
 
 	/**
@@ -461,12 +420,10 @@ public final class PreferencesDialog extends JDialog
 		settingsPanel.add(rightScroll, prefsPanel.getTitle());
 	}
 
-	private void cancelButtonActionPerformed()
+	public void cancelButtonActionPerformed()
 	{
 		resetOptionValues();
-		
-		setVisible(false);
-		this.dispose();
+		super.cancelButtonActionPerformed();
 	}
 	
 	private void resetOptionValues()
@@ -477,16 +434,14 @@ public final class PreferencesDialog extends JDialog
 		}
 	}
 
-	private void okButtonActionPerformed()
+	public void applyButtonActionPerformed()
 	{
 		setOptionsBasedOnControls();
 		applyPluginPreferences();
-		setVisible(false);
 
 		// We need to update the menus/toolbar since
 		// some of those depend on the options
 		//PCGen_Frame1.enableDisableMenuItems();
-		this.dispose();
 	}
 }
 
@@ -587,17 +542,17 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new TitledBorder(null, pluginTitle,
 					TitledBorder.DEFAULT_JUSTIFICATION,
-					TitledBorder.DEFAULT_POSITION, new Font("Dialog", 1, 11)));
+					TitledBorder.DEFAULT_POSITION));
 
-			checkBox.setText(LanguageBundle.getString("in_Prefs_pluginsRun")); //$NON-NLS-1$
+			checkBox.setText(LanguageBundle.getString(PreferencesDialog.LB_PREFS_PLUGINS_RUN));
 			add(checkBox);
 
-			pcgenButton.setText(LanguageBundle.getString("in_Prefs_pluginPcgenWin")); //$NON-NLS-1$
+			pcgenButton.setText(LanguageBundle.getString(PreferencesDialog.LB_PREFS_PLUGIN_PCGEN_WIN));
 			pcgenButton.setEnabled(false);
 			pluginGroup.add(pcgenButton);
 			add(pcgenButton);
 
-			gmgenButton.setText(LanguageBundle.getString("in_Prefs_pluginGMGenWin")); //$NON-NLS-1$
+			gmgenButton.setText(LanguageBundle.getString(PreferencesDialog.LB_PREFS_PLUGIN_GMGEN_WIN));
 			pluginGroup.add(gmgenButton);
 			add(gmgenButton);
 		}

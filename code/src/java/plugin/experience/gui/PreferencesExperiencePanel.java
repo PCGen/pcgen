@@ -26,6 +26,7 @@
 package plugin.experience.gui;
 
 import pcgen.core.SettingsHandler;
+import pcgen.system.LanguageBundle;
 import plugin.experience.ExperienceAdjusterPlugin;
 
 import javax.swing.*;
@@ -39,9 +40,10 @@ import java.awt.Font;
  */
 public class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
 {
-
 	public static final int EXPERIENCE_3 = 1;
 	public static final int EXPERIENCE_35 = 2;
+
+	private static final String OPTION_NAME_EXP_TYPE = ExperienceAdjusterPlugin.LOG_NAME + ".ExperienceType"; //$NON-NLS-1$
 
 	private JPanel mainPanel;
 	private JPanel expPanel;
@@ -86,21 +88,20 @@ public class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
 
 	public void applyPreferences()
 	{
-		SettingsHandler.setGMGenOption(ExperienceAdjusterPlugin.LOG_NAME
-			+ ".ExperienceType", getExperience());
+		SettingsHandler.setGMGenOption(OPTION_NAME_EXP_TYPE, getExperience());
 	}
 
 	public void initPreferences()
 	{
 		setExperience(SettingsHandler.getGMGenOption(
-			ExperienceAdjusterPlugin.LOG_NAME + ".ExperienceType",
+			OPTION_NAME_EXP_TYPE,
 			EXPERIENCE_35));
 	}
 
 	@Override
 	public String toString()
 	{
-		return "Experience";
+		return LanguageBundle.getString("in_plugin_xp"); //$NON-NLS-1$
 	}
 
 	/**
@@ -124,16 +125,16 @@ public class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
 		expPanel.setLayout(new BoxLayout(expPanel, BoxLayout.Y_AXIS));
 
 		expPanel.setBorder(new TitledBorder(null,
-			"Experience Calculation Type", TitledBorder.DEFAULT_JUSTIFICATION,
-			TitledBorder.DEFAULT_POSITION, new Font("Dialog", 1, 11)));
+			LanguageBundle.getString("in_plugin_xp_calc"), TitledBorder.DEFAULT_JUSTIFICATION, //$NON-NLS-1$
+			TitledBorder.DEFAULT_POSITION));
 		experienceRB1.setSelected(true);
 		experienceRB1
-			.setText("Calculate total experience by party level, divide equally (3rd Ed, Modern)");
+			.setText(LanguageBundle.getString("in_plugin_xp_byParty")); //$NON-NLS-1$
 		experienceGroup.add(experienceRB1);
 		expPanel.add(experienceRB1);
 
 		experienceRB2
-			.setText("Calculate experience by individual PC level, divide total by number of PCs (3.5 Ed)");
+			.setText(LanguageBundle.getString("in_plugin_xp_byPC")); //$NON-NLS-1$
 		experienceGroup.add(experienceRB2);
 		expPanel.add(experienceRB2);
 

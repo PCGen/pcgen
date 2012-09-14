@@ -25,16 +25,16 @@
  */
 package plugin.initiative.gui;
 
-import pcgen.core.SettingsHandler;
-import plugin.initiative.InitiativePlugin;
+import java.awt.BorderLayout;
 
 import javax.swing.BoxLayout;
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.border.TitledBorder;
-import java.awt.BorderLayout;
-import java.awt.Font;
+
+import pcgen.core.SettingsHandler;
+import pcgen.system.LanguageBundle;
+import plugin.initiative.InitiativePlugin;
 
 /**
  * Panel that tracks the misc preferences
@@ -44,8 +44,8 @@ import java.awt.Font;
  */
 public class PreferencesPerformancePanel extends gmgen.gui.PreferencesPanel
 {
-
-	private JPanel performancePanel;
+	private static final String OPTION_NAME = InitiativePlugin.LOG_NAME + ".refreshOnStateChange"; //$NON-NLS-1$
+	
 	private JPanel mainPanel;
 	private JCheckBox refreshOnStateChange;
 
@@ -58,14 +58,13 @@ public class PreferencesPerformancePanel extends gmgen.gui.PreferencesPanel
 
 	public void applyPreferences()
 	{
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
-			+ ".refreshOnStateChange", getRefreshOnStateChange());
+		SettingsHandler.setGMGenOption(OPTION_NAME, getRefreshOnStateChange());
 	}
 
 	public void initPreferences()
 	{
 		setRefreshOnStateChange(SettingsHandler.getGMGenOption(
-			InitiativePlugin.LOG_NAME + ".refreshOnStateChange", true));
+			OPTION_NAME, true));
 	}
 
 	/**
@@ -95,7 +94,7 @@ public class PreferencesPerformancePanel extends gmgen.gui.PreferencesPanel
 	@Override
 	public String toString()
 	{
-		return "Performance";
+		return LanguageBundle.getString("in_plugin_init_performance"); //$NON-NLS-1$
 	}
 
 	private void initComponents()
@@ -107,17 +106,9 @@ public class PreferencesPerformancePanel extends gmgen.gui.PreferencesPanel
 
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
-		performancePanel = new JPanel();
-		performancePanel.setLayout(new BoxLayout(performancePanel,
-			BoxLayout.Y_AXIS));
-		performancePanel.setBorder(new TitledBorder(null, "Performance",
-			TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION,
-			new Font("Dialog", 1, 11)));
+		refreshOnStateChange.setText(LanguageBundle.getString("in_plugin_init_refreshOnChange")); //$NON-NLS-1$
 
-		refreshOnStateChange.setText("Refresh tabs on state change");
-		performancePanel.add(refreshOnStateChange);
-
-		mainPanel.add(performancePanel);
+		mainPanel.add(refreshOnStateChange);
 
 		JScrollPane jScrollPane1 = new JScrollPane();
 		jScrollPane1.setViewportView(mainPanel);

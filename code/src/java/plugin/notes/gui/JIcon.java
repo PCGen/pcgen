@@ -30,6 +30,7 @@ import javax.swing.border.LineBorder;
 import org.apache.commons.lang.SystemUtils;
 
 import java.awt.Container;
+import java.awt.Desktop;
 import java.awt.SystemColor;
 import java.awt.Color;
 import java.awt.BorderLayout;
@@ -48,8 +49,6 @@ import pcgen.gui2.tools.Icons;
  */
 public class JIcon extends JPanel
 {
-	/**  Boolean true if this is a Macintosh systems */
-	public static final boolean MAC_OS_X = SystemUtils.IS_OS_MAC_OSX;
 	File launch;
 	NotesPlugin plugin;
 
@@ -93,7 +92,8 @@ public class JIcon extends JPanel
 	 */
 	public ImageIcon getIconForType(String filename)
 	{
-		// TODO: this blows, it's hardcoded.  This nees to be in a properties file.
+		// TODO: this blows, it's hardcoded.  This needs to be in a properties file.
+		// XXX ideally this should be use mime type
 		String ext = filename.replaceFirst(".*\\.", "");
 
 		if (ext.equalsIgnoreCase("html") || ext.equalsIgnoreCase("htm"))
@@ -187,42 +187,72 @@ public class JIcon extends JPanel
 		}
 		else
 		{
-			//Mac OS X
-			if (MAC_OS_X)
+			boolean opened = false;
+			
+			// Use desktop if available
+			if (Desktop.isDesktopSupported())
 			{
-				//
-				// From the command line, the open command acts as if the argument was double clicked from the finder
-				// (see: man open)
-				//
-				String openCmd = ("/usr/bin/open");
-				String filePath = (launch.getAbsolutePath());
-				String[] args = {openCmd, filePath};
-				System.err.println("Runtime.getRuntime().exec: [" + args[0]
-					+ "] [" + args[1] + "]");
-
-				try
+				Desktop d = Desktop.getDesktop();
+				if (d.isSupported(Desktop.Action.OPEN))
 				{
-					Runtime.getRuntime().exec(args);
-				}
-				catch (IOException e)
-				{
-					Logging.errorPrint(e.getMessage(), e);
+					try
+					{
+						d.open(launch);
+						opened = true;
+					}
+					catch (IOException e)
+					{
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			}
 
-			//Windows
-			else
+			if (!opened)
 			{
-				try
+				// Unix
+				if (SystemUtils.IS_OS_UNIX )
 				{
-					String start =
-							(" rundll32 url.dll,FileProtocolHandler file://" + launch
-								.getAbsoluteFile());
-					Runtime.getRuntime().exec(start);
+					String openCmd;
+					if (SystemUtils.IS_OS_MAC_OSX)
+					{
+						// From the command line, the open command acts as if the argument was double clicked from the finder
+						// (see: man open)
+						openCmd = "/usr/bin/open";
+					}
+					else
+					{
+						// Tries freedesktop.org xdg-open. Quite often installed on Linux/BSD
+						openCmd = "xdg-open";
+					}
+					String filePath = launch.getAbsolutePath();
+					String[] args = {openCmd, filePath};
+					Logging.debugPrintLocalised("Runtime.getRuntime().exec: [{0}] [{1}]", args[0], args[1]);
+	
+					try
+					{
+						Runtime.getRuntime().exec(args);
+					}
+					catch (IOException e)
+					{
+						Logging.errorPrint(e.getMessage(), e);
+					}
 				}
-				catch (Exception e)
+	
+				//Windows
+				if(SystemUtils.IS_OS_WINDOWS)
 				{
-					Logging.errorPrint(e.getMessage(), e);
+					try
+					{
+						String start =
+								(" rundll32 url.dll,FileProtocolHandler file://" + launch
+									.getAbsoluteFile());
+						Runtime.getRuntime().exec(start);
+					}
+					catch (Exception e)
+					{
+						Logging.errorPrint(e.getMessage(), e);
+					}
 				}
 			}
 		}

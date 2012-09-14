@@ -29,8 +29,10 @@ import gmgen.io.SimpleFileFilter;
 import gmgen.util.LogReceiver;
 import gmgen.util.LogUtilities;
 import gmgen.util.MiscUtilities;
+import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.panes.FlippingSplitPane;
+import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import plugin.notes.NotesPlugin;
 
@@ -42,6 +44,7 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.text.*;
 import javax.swing.text.html.HTML;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
@@ -57,11 +60,14 @@ import java.awt.dnd.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.io.*;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
+
+import pcgen.gui2.tools.CommonMenuText;
 import pcgen.gui2.tools.Icons;
 
 /**
@@ -73,6 +79,14 @@ import pcgen.gui2.tools.Icons;
  */
 public class NotesView extends JPanel
 {
+
+	/**
+	 * Extension with a point
+	 */
+	private static final String EXTENSION = "."+NotesPlugin.EXTENSION_NOTES; //$NON-NLS-1$
+
+	private static final String OPTION_NAME_LASTFILE = NotesPlugin.LOG_NAME + ".LastFile"; //$NON-NLS-1$
+
 	/**  Drop Target for the Edit Area */
 	protected DropTarget editAreaDT;
 
@@ -167,6 +181,7 @@ public class NotesView extends JPanel
 		initTree();
 		initFileBar(new ArrayList<File>());
 		initLogging();
+		notesTree.setSelectionRow(0);
 	}
 
 	/**
@@ -196,9 +211,9 @@ public class NotesView extends JPanel
 	 */
 	public void handleOpen()
 	{
+		// TODO fix
 		String sFile =
-				SettingsHandler.getGMGenOption(NotesPlugin.LOG_NAME
-					+ ".LastFile", System.getProperty("user.dir"));
+				SettingsHandler.getGMGenOption(OPTION_NAME_LASTFILE, System.getProperty("user.dir"));
 		File defaultFile = new File(sFile);
 		JFileChooser chooser = new JFileChooser();
 		chooser.setCurrentDirectory(defaultFile);
@@ -218,10 +233,9 @@ public class NotesView extends JPanel
 		{
 			for (File noteFile : chooser.getSelectedFiles())
 			{
-				SettingsHandler.setGMGenOption(NotesPlugin.LOG_NAME
-					+ ".LastFile", noteFile.toString());
+				SettingsHandler.setGMGenOption(OPTION_NAME_LASTFILE, noteFile.toString());
 
-				if (noteFile.toString().endsWith(".gmn"))
+				if (noteFile.toString().endsWith(EXTENSION))
 				{
 					openGMN(noteFile);
 				}
@@ -239,7 +253,8 @@ public class NotesView extends JPanel
 	 */
 	public void initEditMenu(JMenu editMenu)
 	{
-		JMenuItem paste = new JMenuItem("Paste");
+		JMenuItem paste = new JMenuItem();
+		CommonMenuText.name(paste, "mnuEditPaste"); //$NON-NLS-1$
 		paste.addActionListener(new java.awt.event.ActionListener()
 		{
 			public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -249,8 +264,9 @@ public class NotesView extends JPanel
 		});
 		editMenu.insert(paste, 0);
 
-		JMenuItem copy = new JMenuItem("Copy");
-		paste.addActionListener(new java.awt.event.ActionListener()
+		JMenuItem copy = new JMenuItem();
+		CommonMenuText.name(copy, "mnuEditCopy"); //$NON-NLS-1$
+		copy.addActionListener(new java.awt.event.ActionListener()
 		{
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
@@ -259,8 +275,9 @@ public class NotesView extends JPanel
 		});
 		editMenu.insert(copy, 0);
 
-		JMenuItem cut = new JMenuItem("Cut");
-		paste.addActionListener(new java.awt.event.ActionListener()
+		JMenuItem cut = new JMenuItem();
+		CommonMenuText.name(cut, "mnuEditCut"); //$NON-NLS-1$
+		cut.addActionListener(new java.awt.event.ActionListener()
 		{
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
@@ -372,12 +389,10 @@ public class NotesView extends JPanel
 	{
 		JFileChooser fLoad = new JFileChooser();
 		String sFile =
-				SettingsHandler.getGMGenOption(NotesPlugin.LOG_NAME
-					+ ".LastFile", "");
+				SettingsHandler.getGMGenOption(OPTION_NAME_LASTFILE, "");
 		new File(sFile);
-		String[] fileExt = new String[]{"gmn"};
-		SimpleFileFilter ff =
-				new SimpleFileFilter(fileExt, "GMGen Notes Export");
+		
+		FileFilter ff = NotesPlugin.getFileType();
 		fLoad.addChoosableFileFilter(ff);
 		fLoad.setFileFilter(ff);
 
@@ -389,15 +404,15 @@ public class NotesView extends JPanel
 			{
 				String fileName = fLoad.getSelectedFile().getName();
 				String dirName = fLoad.getSelectedFile().getParent();
-				String ext = "";
 
-				if (fileName.indexOf(".gmn") < 0)
+				String extension = EXTENSION;
+				if (fileName.indexOf(extension) < 0)
 				{
-					ext = ".gmn";
+					fileName += extension;
 				}
 
 				File expFile =
-						new File(dirName + File.separator + fileName + ext);
+						new File(dirName + File.separator + fileName);
 
 				if (expFile.exists())
 				{
@@ -413,8 +428,7 @@ public class NotesView extends JPanel
 					}
 				}
 
-				SettingsHandler.setGMGenOption(NotesPlugin.LOG_NAME
-					+ ".LastFile", expFile.toString());
+				SettingsHandler.setGMGenOption(OPTION_NAME_LASTFILE, expFile.toString());
 				writeNotesFile(expFile, node);
 			}
 		}
@@ -1871,7 +1885,7 @@ public class NotesView extends JPanel
 		}
 
 		/**
-		 *  Called when drag exit happens. override this id you need anythign to
+		 *  Called when drag exit happens. override this id you need anything to
 		 *  happen
 		 *
 		 *@param  dte  DropTargetEvent
@@ -1882,7 +1896,7 @@ public class NotesView extends JPanel
 		}
 
 		/**
-		 *  Accpets a drag over if the data flavor is javaFileListFlavor, otherwise
+		 *  Accepts a drag over if the data flavor is javaFileListFlavor, otherwise
 		 *  rejects it.
 		 *
 		 *@param  dtde  DropTargetDragEvent
@@ -1978,7 +1992,7 @@ public class NotesView extends JPanel
 		}
 
 		/**
-		 *  implements drop. if we accept it, pass the eventthe handler
+		 *  implements drop. if we accept it, pass the event to the handler
 		 *
 		 *@param  dtde  Description of the Parameter
 		 */
@@ -2019,14 +2033,14 @@ public class NotesView extends JPanel
 
 			try
 			{
-				List fileList =
-						((List) t
+				List<File> fileList =
+						((List<File>) t
 							.getTransferData(DataFlavor.javaFileListFlavor));
 				File dir = getCurrentDir();
 
 				for (int i = 0; i < fileList.size(); i++)
 				{
-					File newFile = (File) fileList.get(i);
+					File newFile = fileList.get(i);
 
 					if (newFile.exists())
 					{
@@ -2152,9 +2166,11 @@ public class NotesView extends JPanel
 
 			NotesTreeNode node = getChildNode(owner, log);
 
-			SimpleDateFormat dateFmt =
-					new SimpleDateFormat("MM-dd-yyyy hh.mm.ss a z");
-			node.appendText("<br>\n<b>"
+			// TODO add option
+			DateFormat dateFmt =
+//					new SimpleDateFormat("MM-dd-yyyy hh.mm.ss a z");
+					DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG);
+			node.appendText("<br>"+Constants.LINE_SEPARATOR+"<b>"
 				+ dateFmt.format(Calendar.getInstance().getTime()) + "</b> "
 				+ message);
 		}
@@ -2172,7 +2188,7 @@ public class NotesView extends JPanel
 
 		private NotesTreeNode getChildNode(String name, NotesTreeNode parentNode)
 		{
-			Enumeration newNodes = parentNode.children();
+			Enumeration<MutableTreeNode> newNodes = parentNode.children();
 
 			for (; newNodes.hasMoreElements();)
 			{
@@ -2196,9 +2212,10 @@ public class NotesView extends JPanel
 		/**  Constructor for the RedoAction object */
 		public RedoAction()
 		{
-			super("Redo");
+			super(getLocalizedRedo());
 			setEnabled(false);
 		}
+
 
 		/**
 		 *  Redo Action is preformed, run undo on the undo manager
@@ -2231,9 +2248,14 @@ public class NotesView extends JPanel
 			else
 			{
 				setEnabled(false);
-				putValue(Action.NAME, "Redo");
+				putValue(Action.NAME, getLocalizedRedo());
 			}
 		}
+	}
+
+	private static String getLocalizedRedo()
+	{
+		return LanguageBundle.getString("in_mnuEditRedo"); //$NON-NLS-1$
 	}
 
 	//Internal Classes
@@ -2246,7 +2268,7 @@ public class NotesView extends JPanel
 		/**  Constructor for the UndoAction object */
 		public UndoAction()
 		{
-			super("Undo");
+			super(getLocalizedUndo());
 			setEnabled(false);
 		}
 
@@ -2281,8 +2303,13 @@ public class NotesView extends JPanel
 			else
 			{
 				setEnabled(false);
-				putValue(Action.NAME, "Undo");
+				putValue(Action.NAME, getLocalizedUndo());
 			}
 		}
+	}
+
+	private static String getLocalizedUndo()
+	{
+		return LanguageBundle.getString("in_mnuEditUndo"); //$NON-NLS-1$
 	}
 }

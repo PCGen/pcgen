@@ -1,6 +1,22 @@
 package plugin.experience.gui;
 
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridLayout;
+
+import javax.swing.BorderFactory;
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import pcgen.system.LanguageBundle;
 
 /**
  * The View for the Experience Adjuster.  This view is independant and will be
@@ -12,8 +28,12 @@ import javax.swing.*;
  * @author  Expires 2003
  * @version 2.10
  */
+// TODO use multi colomn list rather than a single line
 public class ExperienceAdjusterView extends javax.swing.JPanel
 {
+	// TODO make this l&f / UIManager value dependent
+	private static final int BORDER_SIZE = 6;
+
 	/** Button to add an enemy to the experience calculation. */
 	private javax.swing.JButton addEnemyButton;
 
@@ -37,9 +57,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 
 	/** The Name for the eperience multiplier label. */
 	private javax.swing.JLabel experienceMultNameLabel;
-	private javax.swing.JLabel jLabel1;
-	private javax.swing.JLabel jLabel2;
-	private javax.swing.JLabel jLabel3;
+	private javax.swing.JLabel spCharLabel;
 
 	//Various components to shape the form properly
 	private javax.swing.JLabel jLabel4;
@@ -52,15 +70,13 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 	/** The GUI component that holds the list of enemy combatants. */
 	private javax.swing.JList enemyList;
 	private javax.swing.JPanel jPanel1;
-	private javax.swing.JPanel jPanel2;
-	private javax.swing.JPanel jPanel3;
-	private javax.swing.JPanel jPanel4;
+	private javax.swing.JPanel panelChar;
 	private javax.swing.JPanel jPanel5;
 	private javax.swing.JPanel jPanel6;
 	private javax.swing.JPanel jPanel7;
 	private javax.swing.JPanel jPanel8;
-	private javax.swing.JScrollPane jScrollPane1;
-	private javax.swing.JScrollPane jScrollPane2;
+	private javax.swing.JScrollPane scrollPaneChar;
+	private javax.swing.JScrollPane scrollPaneEnemy;
 
 	/** The <b>Experience Multiplier</b> slider. */
 	private javax.swing.JSlider experienceMultSlider;
@@ -183,7 +199,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 		return experienceMultLabel;
 	}
 
-	/** The Name for the eperience multiplier label.
+	/** The Name for the experience multiplier label.
 	 * @return JLabel*/
 	public javax.swing.JLabel getExperienceMultNameLabel()
 	{
@@ -252,20 +268,16 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 		java.awt.GridBagConstraints gridBagConstraints;
 
 		jPanel5 = new javax.swing.JPanel();
-		jPanel2 = new javax.swing.JPanel();
+		panelChar = new javax.swing.JPanel();
 		characterList = new javax.swing.JList();
-		jPanel3 = new javax.swing.JPanel();
-		jLabel1 = new javax.swing.JLabel();
-		jLabel2 = new javax.swing.JLabel();
+		spCharLabel = new javax.swing.JLabel();
 		jPanel1 = new javax.swing.JPanel();
-		jPanel4 = new javax.swing.JPanel();
-		jLabel3 = new javax.swing.JLabel();
 		jLabel4 = new javax.swing.JLabel();
 		enemyList = new javax.swing.JList();
 		jPanel6 = new javax.swing.JPanel();
 		jPanel7 = new javax.swing.JPanel();
 		jLabel7 = new javax.swing.JLabel();
-		experienceToAdd = new javax.swing.JTextField();
+		experienceToAdd = new javax.swing.JTextField(6);
 		addExperienceToCharButton = new javax.swing.JButton();
 		jPanel8 = new javax.swing.JPanel();
 		jLabel5 = new javax.swing.JLabel();
@@ -277,92 +289,83 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 		adjustCRButton = new javax.swing.JButton();
 		addEnemyButton = new javax.swing.JButton();
 		removeEnemyButton = new javax.swing.JButton();
-		jScrollPane1 = new JScrollPane(characterList);
-		jScrollPane2 = new JScrollPane(enemyList);
+		scrollPaneChar = new JScrollPane(characterList);
+		scrollPaneEnemy = new JScrollPane(enemyList);
 
-		setLayout(new java.awt.BorderLayout());
+		setLayout(new GridLayout(0, 1));
 
-		jPanel5.setLayout(new java.awt.GridLayout(0, 1));
+		jPanel5.setBorder(new TitledBorder(LanguageBundle.getString("in_plugin_xp_char"))); //$NON-NLS-1$
+		jPanel5.setLayout(new java.awt.GridLayout(1, 0));
 
-		jPanel2.setLayout(new java.awt.BorderLayout());
+		panelChar.setLayout(new java.awt.BorderLayout());
 
-		jPanel2.add(jScrollPane1, java.awt.BorderLayout.CENTER);
-
-		jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3,
-			javax.swing.BoxLayout.Y_AXIS));
-
-		jLabel1.setText("Characters");
-		jPanel3.add(jLabel1);
-
-		jLabel2.setText("Name (Level) Experience");
-		jLabel2.setToolTipText("null");
-		jPanel3.add(jLabel2);
-
-		jPanel2.add(jPanel3, java.awt.BorderLayout.NORTH);
-
-		jPanel5.add(jPanel2);
+		spCharLabel.setText(LanguageBundle.getString("in_plugin_xp_nameLvlXp")); //$NON-NLS-1$
+		panelChar.add(spCharLabel, BorderLayout.NORTH);
+		panelChar.add(scrollPaneChar, java.awt.BorderLayout.CENTER);
+		jPanel5.add(panelChar);
 
 		jPanel1.setLayout(new java.awt.BorderLayout());
 
-		jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4,
-			javax.swing.BoxLayout.Y_AXIS));
+		jLabel4.setText(LanguageBundle.getString("in_plugin_xp_nameCr")); //$NON-NLS-1$
+		jPanel1.add(jLabel4, java.awt.BorderLayout.NORTH);
+		jPanel1.add(scrollPaneEnemy, java.awt.BorderLayout.CENTER);
 
-		jLabel3.setText("Enemies");
-		jPanel4.add(jLabel3);
+		add(jPanel5);
 
-		jLabel4.setText("Name (CR)");
-		jPanel4.add(jLabel4);
-
-		jPanel1.add(jPanel4, java.awt.BorderLayout.NORTH);
-
-		jPanel1.add(jScrollPane2, java.awt.BorderLayout.CENTER);
-
-		jPanel5.add(jPanel1);
-
-		add(jPanel5, java.awt.BorderLayout.CENTER);
-
-		jPanel6.setLayout(new java.awt.GridLayout(0, 1));
+		jPanel6.setLayout(new java.awt.GridLayout(1, 0));
+		jPanel6.setBorder(new TitledBorder(LanguageBundle.getString("in_plugin_xp_enemies"))); //$NON-NLS-1$
+		jPanel6.add(jPanel1);
 
 		jPanel7.setLayout(new java.awt.GridBagLayout());
 
-		jLabel7.setText("Experience to Add:");
+		// the button is after to allow the use of Tab after entering a value then pressing the button
+		jLabel7.setText(LanguageBundle.getString("in_plugin_xp_xpTo")); //$NON-NLS-1$
+		addExperienceToCharButton.setText(LanguageBundle.getString("in_plugin_xp_selectedChar")); //$NON-NLS-1$
+		addExperienceToCharButton.setEnabled(false);
 		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 4);
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		jPanel7.add(jLabel7, gridBagConstraints);
-
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+		jPanel7.add(new JLabel(LanguageBundle.getString("in_plugin_xp_add")), gridBagConstraints); //$NON-NLS-1$
 		jPanel7.add(experienceToAdd, gridBagConstraints);
-
-		addExperienceToCharButton.setText("Add Experience to Character");
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = 1;
-		gridBagConstraints.gridwidth = 2;
-		gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+		jPanel7.add(jLabel7, gridBagConstraints);
 		jPanel7.add(addExperienceToCharButton, gridBagConstraints);
+		gridBagConstraints.weightx = 1.0;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		// add an empty horizontal glue like panel
+		jPanel7.add(new JPanel(), gridBagConstraints);
+		// Updates the button if there is a selected character
+		characterList.addListSelectionListener(new ListSelectionListener()
+		{
+			
+			@Override
+			public void valueChanged(ListSelectionEvent e)
+			{
+				if (!e.getValueIsAdjusting())
+				{
+					addExperienceToCharButton.setEnabled(!characterList.isSelectionEmpty());
+				}
+			}
+		});
 
-		jPanel6.add(jPanel7);
+		jPanel7.setBorder(BorderFactory.createEmptyBorder(0, BORDER_SIZE, 0, 0));
+		jPanel5.add(jPanel7);
 
 		jPanel8.setLayout(new java.awt.GridBagLayout());
 
-		jLabel5.setText("Experience From Combat");
+		jLabel5.setText(LanguageBundle.getString("in_plugin_xp_xpFromCombat")); //$NON-NLS-1$
 		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+		gridBagConstraints.gridwidth = 2;
 		jPanel8.add(jLabel5, gridBagConstraints);
 
-		experienceFromCombat.setText("0");
+		experienceFromCombat.setText(Integer.toString(0));
 		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
 		jPanel8.add(experienceFromCombat, gridBagConstraints);
 
-		experienceMultNameLabel.setText("Normal");
+		experienceMultNameLabel.setText(LanguageBundle.getString("in_plugin_xp_normal")); //$NON-NLS-1$
 		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 1;
+		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 1;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 4);
+		gridBagConstraints.weightx = 1.0;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
 		jPanel8.add(experienceMultNameLabel, gridBagConstraints);
 
@@ -372,53 +375,71 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 1;
+		gridBagConstraints.gridheight = 2;
+		gridBagConstraints.gridwidth = 2;
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 4);
 		jPanel8.add(experienceMultSlider, gridBagConstraints);
 
-		addExperienceToPartyButton.setText("Add Experience to Party");
+		addExperienceToPartyButton.setText(LanguageBundle.getString("in_plugin_xp_addXpToParty")); //$NON-NLS-1$
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 3;
 		gridBagConstraints.gridwidth = 2;
-		gridBagConstraints.insets = new java.awt.Insets(10, 5, 0, 140);
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
 		jPanel8.add(addExperienceToPartyButton, gridBagConstraints);
 
-		experienceMultLabel.setText("1x");
-		experienceMultLabel.setToolTipText("null");
+		experienceMultLabel.setText(LanguageBundle.getString("in_plugin_xp_1x")); //$NON-NLS-1$
 		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 1;
+		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 2;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
 		jPanel8.add(experienceMultLabel, gridBagConstraints);
 
-		adjustCRButton.setText("Adjust CR/Level");
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = 4;
-		gridBagConstraints.insets = new java.awt.Insets(15, 5, 0, 0);
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-		jPanel8.add(adjustCRButton, gridBagConstraints);
-
-		addEnemyButton.setText("Add Enemy");
+		adjustCRButton.setText(LanguageBundle.getString("in_plugin_xp_adjustCr")); //$NON-NLS-1$
+		adjustCRButton.setEnabled(false);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 5;
-		gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
+		gridBagConstraints.insets = new java.awt.Insets(12, 0, 0, 0);
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-		jPanel8.add(addEnemyButton, gridBagConstraints);
+		jPanel8.add(adjustCRButton, gridBagConstraints);
 
-		removeEnemyButton.setText("Remove Enemy");
+		addEnemyButton.setText(LanguageBundle.getString("in_plugin_xp_addEnemy")); //$NON-NLS-1$
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 6;
-		gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
+		gridBagConstraints.gridwidth = 2;
+		gridBagConstraints.insets = new java.awt.Insets(12, 0, 0, 0);
+		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+		jPanel8.add(addEnemyButton, gridBagConstraints);
+
+		removeEnemyButton.setText(LanguageBundle.getString("in_plugin_xp_removeEnemy")); //$NON-NLS-1$
+		removeEnemyButton.setEnabled(false);
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 1;
+		gridBagConstraints.gridy = 5;
+		gridBagConstraints.gridwidth = 2;
+		gridBagConstraints.insets = new java.awt.Insets(12, BORDER_SIZE, 0, 0);
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
 		jPanel8.add(removeEnemyButton, gridBagConstraints);
+		// Update buttons on selection change
+		enemyList.addListSelectionListener(new ListSelectionListener()
+		{
+			
+			@Override
+			public void valueChanged(ListSelectionEvent e)
+			{
+				if (!e.getValueIsAdjusting())
+				{
+					adjustCRButton.setEnabled(!enemyList.isSelectionEmpty());
+					removeEnemyButton.setEnabled(!enemyList.isSelectionEmpty());
+				}
+			}
+		});
 
+		jPanel8.setBorder(BorderFactory.createEmptyBorder(0, BORDER_SIZE, 0, 0));
 		jPanel6.add(jPanel8);
 
-		add(jPanel6, java.awt.BorderLayout.EAST);
+		add(jPanel6);
 	}
 }

@@ -32,6 +32,8 @@ import gmgen.plugin.SystemHP;
 import gmgen.plugin.SystemInitiative;
 import org.jdom.Element;
 
+import pcgen.system.LanguageBundle;
+
 import java.util.List;
 
 /**
@@ -85,7 +87,7 @@ public class DefeatedCombatant extends Combatant
 
 	public String getPlayer()
 	{
-		return "GM";
+		return LanguageBundle.getString("in_gm"); //$NON-NLS-1$
 	}
 
 	public Element getSaveElement()
@@ -110,6 +112,6 @@ public class DefeatedCombatant extends Combatant
 
 	public String toHtmlString()
 	{
-		return getName() + " (" + getPlayer() + ") Defeated";
+		return LanguageBundle.getFormattedString("in_plugin_xp_defeated", getName(), getPlayer()); //$NON-NLS-1$
 	}
 }

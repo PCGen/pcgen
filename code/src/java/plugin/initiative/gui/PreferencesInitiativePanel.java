@@ -25,16 +25,16 @@
  */
 package plugin.initiative.gui;
 
-import pcgen.core.SettingsHandler;
-import plugin.initiative.InitiativePlugin;
+import java.awt.BorderLayout;
 
 import javax.swing.BoxLayout;
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.border.TitledBorder;
-import java.awt.BorderLayout;
-import java.awt.Font;
+
+import pcgen.core.SettingsHandler;
+import pcgen.system.LanguageBundle;
+import plugin.initiative.InitiativePlugin;
 
 /**
  * Panel that tracks the misc preferences
@@ -95,7 +95,7 @@ public class PreferencesInitiativePanel extends gmgen.gui.PreferencesPanel
 	@Override
 	public String toString()
 	{
-		return "Initiative";
+		return LanguageBundle.getString("in_gmgen_init"); //$NON-NLS-1$
 	}
 
 	private void initComponents()
@@ -110,12 +110,8 @@ public class PreferencesInitiativePanel extends gmgen.gui.PreferencesPanel
 		performancePanel = new JPanel();
 		performancePanel.setLayout(new BoxLayout(performancePanel,
 			BoxLayout.Y_AXIS));
-		performancePanel.setBorder(new TitledBorder(null, "Initiative",
-			TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION,
-			new Font("Dialog", 1, 11)));
-
 		rollPCInitiatives
-			.setText("Automatically roll PC initiatives at combat start");
+			.setText(LanguageBundle.getString("in_gmgen_rollPcInit"));
 		performancePanel.add(rollPCInitiatives);
 
 		mainPanel.add(performancePanel);

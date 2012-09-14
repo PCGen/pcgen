@@ -5,13 +5,17 @@
  */
 package plugin.pcgtracker.gui;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JList;
+
+import pcgen.system.LanguageBundle;
 
 /**
  *
  * @author  Soulcatcher
  */
+// TODO Add some gap to buttons. Use icons on buttons?
 public class PCGTrackerView extends javax.swing.JPanel
 {
 	private javax.swing.JButton loadButton;
@@ -88,20 +92,19 @@ public class PCGTrackerView extends javax.swing.JPanel
 
 		setLayout(new java.awt.BorderLayout());
 
-		jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2,
-			javax.swing.BoxLayout.Y_AXIS));
+		jPanel2.setLayout(new BoxLayout(jPanel2, BoxLayout.Y_AXIS));
 
-		removeButton.setText("Remove");
-		jPanel2.add(removeButton);
+		loadButton.setText(LanguageBundle.getString("in_mnuFileOpen")); //$NON-NLS-1$
+		jPanel2.add(loadButton);
 
-		saveButton.setText("Save");
+		saveButton.setText(LanguageBundle.getString("in_mnuSave")); //$NON-NLS-1$
 		jPanel2.add(saveButton);
 
-		saveAsButton.setText("Save As");
+		saveAsButton.setText(LanguageBundle.getString("in_mnuFileSaveAs")); //$NON-NLS-1$
 		jPanel2.add(saveAsButton);
 
-		loadButton.setText("Load");
-		jPanel2.add(loadButton);
+		removeButton.setText(LanguageBundle.getString("in_remove")); //$NON-NLS-1$
+		jPanel2.add(removeButton);
 
 		add(jPanel2, java.awt.BorderLayout.EAST);
 

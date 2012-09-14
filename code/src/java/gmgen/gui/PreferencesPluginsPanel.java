@@ -25,14 +25,21 @@
  */
 package gmgen.gui;
 
+import java.awt.BorderLayout;
+import java.util.HashMap;
+
+import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.border.TitledBorder;
+
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
-
-import javax.swing.*;
-import javax.swing.border.TitledBorder;
-import java.awt.BorderLayout;
-import java.awt.Font;
-import java.util.HashMap;
+import pcgen.system.LanguageBundle;
 
 /**
  *
@@ -84,7 +91,7 @@ public class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 
 		jScrollPane1.setViewportView(mainPanel);
 		add(jScrollPane1, BorderLayout.CENTER);
-		add(new JLabel("All changes will take effect the next time PCGen is restarted"), BorderLayout.SOUTH);
+		add(new JLabel(LanguageBundle.getString("in_Prefs_restartInfo")), BorderLayout.SOUTH);
 	}
 
 	public static void addPanel(String pluginName, String pluginTitle, String defaultSystem) {
@@ -118,16 +125,16 @@ public class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			setBorder(new TitledBorder(null, pluginTitle,
 					TitledBorder.DEFAULT_JUSTIFICATION,
-					TitledBorder.DEFAULT_POSITION, new Font("Dialog", 1, 11)));
+					TitledBorder.DEFAULT_POSITION));
 
-			checkBox.setText("Run this plugin?");
+			checkBox.setText(LanguageBundle.getString(pcgen.gui2.dialog.PreferencesDialog.LB_PREFS_PLUGINS_RUN));
 			add(checkBox);
 
-			pcgenButton.setText("PCGen Window");
+			pcgenButton.setText(LanguageBundle.getString(pcgen.gui2.dialog.PreferencesDialog.LB_PREFS_PLUGIN_PCGEN_WIN));
 			pluginGroup.add(pcgenButton);
 			add(pcgenButton);
 
-			gmgenButton.setText("GMGen Window");
+			gmgenButton.setText(LanguageBundle.getString(pcgen.gui2.dialog.PreferencesDialog.LB_PREFS_PLUGIN_GMGEN_WIN));
 			pluginGroup.add(gmgenButton);
 			add(gmgenButton);
 		}

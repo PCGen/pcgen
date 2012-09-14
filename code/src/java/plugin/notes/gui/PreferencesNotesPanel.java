@@ -26,15 +26,25 @@
 package plugin.notes.gui;
 
 import gmgen.util.LogUtilities;
-import pcgen.core.SettingsHandler;
 
-import javax.swing.*;
-import javax.swing.border.TitledBorder;
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.border.TitledBorder;
+
+import pcgen.core.SettingsHandler;
+import pcgen.system.LanguageBundle;
 
 /**
  * Panel that tracks the misc preferences
@@ -45,6 +55,9 @@ import java.io.File;
 public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 {
 
+	private static final String OPTION_NAME_NOTES_DATA = "Notes.DataDir"; //$NON-NLS-1$
+	private static final String OPTION_NAME_LOG = "Logging.On"; //$NON-NLS-1$
+	
 	private JPanel dirPanel;
 	private JPanel loggingPanel;
 	private JTextField dataDirField;
@@ -60,17 +73,18 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 
 	public void applyPreferences()
 	{
-		SettingsHandler.setGMGenOption("Notes.DataDir", getDataDir());
-		SettingsHandler.setGMGenOption("Logging.On", isLogging());
+		SettingsHandler.setGMGenOption(OPTION_NAME_NOTES_DATA, getDataDir());
+		SettingsHandler.setGMGenOption(OPTION_NAME_LOG, isLogging());
 		LogUtilities.inst().setLogging(isLogging());
 	}
 
 	public void initPreferences()
 	{
-		setDataDir(SettingsHandler.getGMGenOption("Notes.DataDir",
+		// XXX change to another default?
+		setDataDir(SettingsHandler.getGMGenOption(OPTION_NAME_NOTES_DATA,
 			SettingsHandler.getGmgenPluginDir().toString() + File.separator
-				+ "Notes"));
-		setLogging(SettingsHandler.getGMGenOption("Logging.On", false));
+				+ "Notes")); //$NON-NLS-1$
+		setLogging(SettingsHandler.getGMGenOption(OPTION_NAME_LOG, false));
 	}
 
 	/**
@@ -110,7 +124,7 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 	@Override
 	public String toString()
 	{
-		return "General";
+		return LanguageBundle.getString("in_plugin_notes_general"); //$NON-NLS-1$
 	}
 
 	private void initComponents()
@@ -121,7 +135,7 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 		loggingPanel = new JPanel();
 		dataDirField = new JTextField();
 		logging = new JCheckBox();
-		browseButton = new JButton("Browse");
+		browseButton = new JButton(LanguageBundle.getString("...")); //$NON-NLS-1$
 
 		browseButton.addActionListener(new ActionListener()
 		{
@@ -133,43 +147,38 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 		});
 
 		JPanel borderPanel = new JPanel();
-		borderPanel.setLayout(new BorderLayout());
+		borderPanel.setLayout(new GridBagLayout());
 
-		JPanel topPanel = new JPanel();
-		topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.Y_AXIS));
+		dirPanel = new JPanel(new GridBagLayout());
+		dirPanel.setBorder(new TitledBorder(LanguageBundle.getString("in_plugin_notes_sourceDir"))); //$NON-NLS-1$
 
-		JPanel centerPanel = new JPanel();
-		centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
+		JLabel locationLabel = new JLabel(LanguageBundle.getString("in_plugin_notes_dataLocation")); //$NON-NLS-1$
 
-		dirPanel = new JPanel();
-		dirPanel.setLayout(new BoxLayout(dirPanel, BoxLayout.Y_AXIS));
-		dirPanel.setBorder(new TitledBorder("Source Directory"));
-
-		JLabel locationLabel = new JLabel();
-		locationLabel.setText("Notes Data Location");
-		dataDirField.setPreferredSize(new java.awt.Dimension(100, 21));
-
-		JPanel line1 = new JPanel();
-		line1.setLayout(new FlowLayout(FlowLayout.LEFT));
-		line1.add(locationLabel);
-		line1.add(dataDirField);
-		line1.add(browseButton);
-		dirPanel.add(line1);
-
-		topPanel.add(dirPanel);
+		GridBagConstraints c = new GridBagConstraints();
+		dirPanel.add(locationLabel, c);
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weightx = 1.0;
+		dirPanel.add(dataDirField, c);
+		c.fill = GridBagConstraints.NONE;
+		c.weightx = 0.0;
+		dirPanel.add(browseButton, c);
 
 		loggingPanel = new JPanel();
-		loggingPanel.setLayout(new BoxLayout(loggingPanel, BoxLayout.Y_AXIS));
-		loggingPanel.setBorder(new TitledBorder("Client"));
+		loggingPanel.setLayout(new BorderLayout());
+		loggingPanel.setBorder(new TitledBorder(LanguageBundle.getString("in_plugin_notes_client"))); //$NON-NLS-1$
 
-		logging.setText("Log game data?");
+		logging.setText(LanguageBundle.getString("in_plugin_notes_logGameData")); //$NON-NLS-1$
 
-		loggingPanel.add(logging);
+		loggingPanel.add(logging, BorderLayout.CENTER);
 
-		centerPanel.add(loggingPanel);
-
-		borderPanel.add(topPanel, BorderLayout.NORTH);
-		borderPanel.add(centerPanel, BorderLayout.CENTER);
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weightx = 1.0;
+		c.gridx = GridBagConstraints.REMAINDER;
+		borderPanel.add(dirPanel, c);
+		borderPanel.add(loggingPanel, c);
+		c.weighty = 1.0;
+		c.fill = GridBagConstraints.VERTICAL;
+		borderPanel.add(new JPanel(), c);
 		JScrollPane jScrollPane1 = new JScrollPane();
 		jScrollPane1.setViewportView(borderPanel);
 		add(jScrollPane1, BorderLayout.CENTER);

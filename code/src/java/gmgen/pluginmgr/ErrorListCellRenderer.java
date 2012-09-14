@@ -49,6 +49,7 @@ public class ErrorListCellRenderer extends JComponent implements ListCellRendere
 	public ErrorListCellRenderer()
 	{
 		plainFont = UIManager.getFont("Label.font");
+		// TODO i18n this. Depending on locale/font, bold can be non good looking (false bold). possibility of having label font already bold too.
 		boldFont = new Font(plainFont.getName(), Font.BOLD, plainFont.getSize());
 		plainFM = getFontMetrics(plainFont);
 		boldFM = getFontMetrics(boldFont);

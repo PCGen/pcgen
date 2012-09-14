@@ -6,12 +6,17 @@
 
 package plugin.network.gui;
 
+import pcgen.system.LanguageBundle;
+
 /**
  *
  * @author  ddjone3
  */
+// TODO remove the error panel from the toolbar, and put it in a message box at the bottom of the window.
 public class NetworkView extends javax.swing.JPanel
 {
+
+	private static final String DEFAULT_IP = "0.0.0.0"; //$NON-NLS-1$
 
 	/** Creates new form NetworkView */
 	public NetworkView()
@@ -32,11 +37,8 @@ public class NetworkView extends javax.swing.JPanel
 		rbClient = new javax.swing.JRadioButton();
 		clientPanel = new javax.swing.JPanel();
 		jLabel2 = new javax.swing.JLabel();
-		serverAddress = new javax.swing.JTextField();
+		serverAddress = new javax.swing.JTextField(15); // 255.255.255.255 = 15 chars
 		connectButton = new javax.swing.JButton();
-		localPanel = new javax.swing.JPanel();
-		jLabel3 = new javax.swing.JLabel();
-		localAddress = new javax.swing.JLabel();
 		connectionPanel = new javax.swing.JPanel();
 		noteTitle = new javax.swing.JLabel();
 		noteText = new javax.swing.JLabel();
@@ -50,51 +52,37 @@ public class NetworkView extends javax.swing.JPanel
 
 		setLayout(new java.awt.BorderLayout());
 
-		rbServer.setText("Server");
+		rbServer.setText(LanguageBundle.getString("in_plugin_network_server")); //$NON-NLS-1$
 		buttonGroup1.add(rbServer);
 		toolbar.add(rbServer);
 
-		rbClient.setText("Client");
+		rbClient.setText(LanguageBundle.getString("in_plugin_network_client")); //$NON-NLS-1$
 		buttonGroup1.add(rbClient);
 		toolbar.add(rbClient);
+		toolbar.addSeparator();
 
 		clientPanel.setLayout(new java.awt.FlowLayout(
 			java.awt.FlowLayout.CENTER, 5, 3));
 
-		jLabel2.setFont(new java.awt.Font("MS Sans Serif", 1, 11));
-		jLabel2.setText("Server Address: ");
-		clientPanel.add(jLabel2);
+		jLabel2.setText(LanguageBundle.getString("in_plugin_network_serverAddr")); //$NON-NLS-1$
+		toolbar.add(jLabel2);
 
-		serverAddress.setText("0.0.0.0");
-		serverAddress.setMinimumSize(new java.awt.Dimension(50, 20));
-		serverAddress.setPreferredSize(new java.awt.Dimension(100, 20));
+		serverAddress.setText(DEFAULT_IP);
 		clientPanel.add(serverAddress);
 
-		connectButton.setText("Connect");
+		connectButton.setText(LanguageBundle.getString("in_plugin_network_connect")); //$NON-NLS-1$
 		connectButton.setMargin(new java.awt.Insets(0, 10, 0, 10));
 		clientPanel.add(connectButton);
 
 		toolbar.add(clientPanel);
-
-		localPanel.setLayout(new java.awt.FlowLayout(
-			java.awt.FlowLayout.CENTER, 5, 6));
-
-		jLabel3.setFont(new java.awt.Font("MS Sans Serif", 1, 11));
-		jLabel3.setText("Local Address:");
-		localPanel.add(jLabel3);
-
-		localAddress.setFont(new java.awt.Font("Dialog", 0, 12));
-		localAddress.setText("0.0.0.0");
-		localPanel.add(localAddress);
-
-		toolbar.add(localPanel);
+		
+		toolbar.addSeparator();
 
 		connectionPanel.setLayout(new java.awt.FlowLayout(
 			java.awt.FlowLayout.CENTER, 5, 6));
 
 		connectionPanel.add(noteTitle);
 
-		noteText.setFont(new java.awt.Font("Dialog", 0, 12));
 		connectionPanel.add(noteText);
 
 		toolbar.add(connectionPanel);
@@ -107,7 +95,7 @@ public class NetworkView extends javax.swing.JPanel
 
 		messagePanel.add(messageBox, java.awt.BorderLayout.CENTER);
 
-		messageButton.setText("Send Message");
+		messageButton.setText(LanguageBundle.getString("in_plugin_network_sendMsg")); //$NON-NLS-1$
 		messagePanel.add(messageButton, java.awt.BorderLayout.EAST);
 
 		add(messagePanel, java.awt.BorderLayout.SOUTH);
@@ -134,8 +122,7 @@ public class NetworkView extends javax.swing.JPanel
 			.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 		connectedUsersPanel.add(userList, java.awt.BorderLayout.CENTER);
 
-		jLabel1.setFont(new java.awt.Font("MS Sans Serif", 1, 11));
-		jLabel1.setText(" Network: ");
+		jLabel1.setText(LanguageBundle.getString("in_plugin_network_spaced")); //$NON-NLS-1$
 		connectedUsersPanel.add(jLabel1, java.awt.BorderLayout.NORTH);
 
 		add(connectedUsersPanel, java.awt.BorderLayout.EAST);
@@ -150,9 +137,6 @@ public class NetworkView extends javax.swing.JPanel
 	private javax.swing.JPanel connectionPanel;
 	private javax.swing.JLabel jLabel1;
 	private javax.swing.JLabel jLabel2;
-	private javax.swing.JLabel jLabel3;
-	private javax.swing.JLabel localAddress;
-	private javax.swing.JPanel localPanel;
 	private javax.swing.JTabbedPane logPane;
 	private javax.swing.JTextField messageBox;
 	private javax.swing.JButton messageButton;
@@ -209,12 +193,12 @@ public class NetworkView extends javax.swing.JPanel
 
 	public void setLocalAddressText(String address)
 	{
-		localAddress.setText(address);
+		jLabel2.setText(LanguageBundle.getString("in_plugin_network_localAddr") + address); //$NON-NLS-1$
 	}
 
 	public void setConnectionText(String title, String text)
 	{
-		noteTitle.setText(title + ":");
+		noteTitle.setText(LanguageBundle.getFormattedString("{0}: ", title));
 		noteText.setText(text);
 	}
 
@@ -225,6 +209,7 @@ public class NetworkView extends javax.swing.JPanel
 
 	public void showClientPanel()
 	{
+		jLabel2.setText(LanguageBundle.getString("in_plugin_network_serverAddr")); //$NON-NLS-1$
 		clientPanel.setVisible(true);
 	}
 
@@ -236,15 +221,5 @@ public class NetworkView extends javax.swing.JPanel
 	public void showConnectionPanel()
 	{
 		connectionPanel.setVisible(true);
-	}
-
-	public void hideLocalPanel()
-	{
-		localPanel.setVisible(false);
-	}
-
-	public void showLocalPanel()
-	{
-		localPanel.setVisible(true);
 	}
 }

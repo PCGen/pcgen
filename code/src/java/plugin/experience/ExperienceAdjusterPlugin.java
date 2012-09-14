@@ -351,7 +351,7 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 		NumberFormat nf = java.text.NumberFormat.getNumberInstance();
 		nf.setMaximumFractionDigits(1);
 
-		eaView.getExperienceMultLabel().setText(nf.format(realValue) + "X");
+		eaView.getExperienceMultLabel().setText(nf.format(realValue) + "×");
 		handleGroupBox();
 	}
 

@@ -31,6 +31,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.utils.TabbedPaneUtilities;
 import pcgen.io.PCGFile;
+import pcgen.system.LanguageBundle;
 import plugin.notes.gui.NotesView;
 import plugin.notes.gui.PreferencesNotesPanel;
 
@@ -55,8 +56,14 @@ import java.io.File;
 public class NotesPlugin extends GMBPlugin
 {
 
+	public static final String EXTENSION_NOTES = "gmn"; //$NON-NLS-1$
+
 	/** The Log Name for the Logging system */
-	public static final String LOG_NAME = "Notes";
+	public static final String LOG_NAME = "Notes"; //$NON-NLS-1$
+
+	private static final String OPTION_NAME_SYSTEM = LOG_NAME + ".System"; //$NON-NLS-1$
+	private static final String OPTION_NAME_LOADORDER = LOG_NAME + ".LoadOrder"; //$NON-NLS-1$
+	private static final String OPTION_NAME_DATADIR = LOG_NAME + ".DataDir"; //$NON-NLS-1$
 
 	/** The plugin menu item in the tools menu. */
 	private JMenuItem notesToolsItem = new JMenuItem();
@@ -64,11 +71,11 @@ public class NotesPlugin extends GMBPlugin
 	/** The user interface for the encounter generator. */
 	private NotesView theView;
 
-	/** The English name of the plugin. */
-	private String name = "Notes";
+	/** Key for the name of the plugin. */
+	private final static String IN_NAME = "in_plugin_notes_name"; //$NON-NLS-1$
 
 	/** The version number of the plugin. */
-	private String version = "01.00.99.01.00";
+	private String version = "01.00.99.01.00"; //$NON-NLS-1$
 
 	/** Constructor for the NotesPlugin object */
 	public NotesPlugin()
@@ -76,10 +83,10 @@ public class NotesPlugin extends GMBPlugin
 		// Do Nothing
 	}
 
-	public FileFilter getFileType()
+	public static FileFilter getFileType()
 	{
-		String[] fileExt = new String[]{"gmn"};
-		return new SimpleFileFilter(fileExt, "GMGen Notes File");
+		String[] fileExt = new String[]{EXTENSION_NOTES};
+		return new SimpleFileFilter(fileExt, LanguageBundle.getString("in_plugin_notes_file")); //$NON-NLS-1$
 	}
 
 	public FileFilter[] getFileTypes()
@@ -94,6 +101,7 @@ public class NotesPlugin extends GMBPlugin
 	 */
 	public void start()
 	{
+		String name = getName();
 		GMBus.send(new PreferencesPanelAddMessage(this, name,
 			new PreferencesNotesPanel()));
 		theView = new NotesView(getDataDir(), this);
@@ -103,13 +111,13 @@ public class NotesPlugin extends GMBPlugin
 
 	public String getPluginSystem()
 	{
-		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
+		return SettingsHandler.getGMGenOption(OPTION_NAME_SYSTEM,
 			Constants.SYSTEM_GMGEN);
 	}
 
 	public int getPluginLoadOrder()
 	{
-		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 70);
+		return SettingsHandler.getGMGenOption(OPTION_NAME_LOADORDER, 70);
 	}
 
 	/**
@@ -119,7 +127,7 @@ public class NotesPlugin extends GMBPlugin
 	 */
 	public String getName()
 	{
-		return name;
+		return LanguageBundle.getString(IN_NAME);
 	}
 
 	public boolean isRecognizedFileType(File launch)
@@ -292,8 +300,8 @@ public class NotesPlugin extends GMBPlugin
 	/** Initializes the Menus on the menu bar */
 	private void initMenus()
 	{
-		notesToolsItem.setMnemonic('o');
-		notesToolsItem.setText("Notes");
+		notesToolsItem.setMnemonic(LanguageBundle.getMnemonic("in_mn_plugin_notes_name")); //$NON-NLS-1$
+		notesToolsItem.setText(getName());
 		notesToolsItem.addActionListener(new ActionListener()
 		{
 
@@ -313,6 +321,6 @@ public class NotesPlugin extends GMBPlugin
 	public String getDataDir()
 	{
 		return SettingsHandler.getGMGenOption(
-			NotesPlugin.LOG_NAME + ".DataDir", super.getDataDir());
+			OPTION_NAME_DATADIR, super.getDataDir());
 	}
 }

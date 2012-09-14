@@ -25,27 +25,46 @@
  */
 package gmgen.gui;
 
+import gmgen.GMGenSystem;
+
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Font;
+
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.UIManager;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+
 import pcgen.core.SettingsHandler;
 import pcgen.gui.panes.FlippingSplitPane;
-
-import javax.swing.tree.DefaultMutableTreeNode;
+import pcgen.gui2.dialog.AbstractPreferencesDialog;
 
 /**
  *@author     devon
  *@since    April 7, 2003
  */
-public class PreferencesDialog extends javax.swing.JDialog
+// TODO use constants instead of duplicated Strings values.
+public class PreferencesDialog extends AbstractPreferencesDialog
 {
-    private javax.swing.JButton bApply;
-    private javax.swing.JButton bCancel;
-    private javax.swing.JButton bOk;
-    private javax.swing.JPanel jPanel2;
+	private static final String OPTION_NAME_DIVIDER = "PreferencesDialog.PrefsDividerLocation"; //$NON-NLS-1$
+	private static final String OPTION_NAME_X = "PreferencesDialog.PrefsWindowX"; //$NON-NLS-1$
+	private static final String OPTION_NAME_Y = "PreferencesDialog.PrefsWindowY"; //$NON-NLS-1$
+	private static final String OPTION_NAME_WIDTH = "PreferencesDialog.PrefsWindowWidth"; //$NON-NLS-1$
+	private static final String OPTION_NAME_HEIGHT = "PreferencesDialog.PrefsWindowHeight"; //$NON-NLS-1$
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+	private static final String EMPTY = PreferencesDialog.class.getName();
+
     private FlippingSplitPane jSplitPane1;
-    private javax.swing.JTabbedPane prefsPane;
     private javax.swing.JTree prefsTree;
     private PreferencesRootTreeNode root;
+    private JPanel prefsPane;
+    private CardLayout cardLayout;
 
     /**
      *  Creates new form PreferencesDialog
@@ -54,11 +73,12 @@ public class PreferencesDialog extends javax.swing.JDialog
      *@param  modal       Description of the Parameter
      * @param root
      */
-    public PreferencesDialog(java.awt.Frame parent, boolean modal, PreferencesRootTreeNode root)
+    public PreferencesDialog(JFrame parent, boolean modal, PreferencesRootTreeNode root)
     {
-        super(parent, modal);
+        super(parent, GMGenSystem.APPLICATION_NAME, modal);
         this.root = root;
-        initComponents();
+        prefsTree.setModel(new DefaultTreeModel(root));
+		// TODO expand all leaf in prefsTree
         initLast();
         initPreferences();
     }
@@ -74,136 +94,62 @@ public class PreferencesDialog extends javax.swing.JDialog
         }
     }
 
-    //GEN-LAST:event_bCancelActionPerformed
     private void PrefsTreeActionPerformed()
     {
-        // Add your handling code here:
         Object obj = prefsTree.getLastSelectedPathComponent();
 
         if (obj instanceof DefaultMutableTreeNode)
         {
             DefaultMutableTreeNode node = (DefaultMutableTreeNode) obj;
             Object uobj = node.getUserObject();
-
-            if (uobj instanceof PreferencesPanel)
-            {
-                prefsPane.removeAll();
-                prefsPane.addTab(obj.toString(), (PreferencesPanel) uobj);
-            }
+            if(uobj instanceof PreferencesPanel)
+            	cardLayout.show(prefsPane, uobj.toString());
+            else
+            	cardLayout.show(prefsPane, EMPTY);
         }
     }
 
-    private void bApplyActionPerformed()
+    public void applyButtonActionPerformed()
     {
-        //GEN-FIRST:event_bApplyActionPerformed
-        // Add your handling code here:
         applyPreferences();
     }
 
-    //GEN-LAST:event_bOkActionPerformed
-    private void bCancelActionPerformed()
-    {
-        //GEN-FIRST:event_bCancelActionPerformed
-        // Add your handling code here:
-        setVisible(false);
-        dispose();
-    }
-
-    //GEN-LAST:event_bApplyActionPerformed
-    private void bOkActionPerformed()
-    {
-        //GEN-FIRST:event_bOkActionPerformed
-        // Add your handling code here:
-        applyPreferences();
-        setVisible(false);
-        dispose();
-    }
-
     /**
-     *  Closes the dialog
-     *
+     *  Closes the dialog. Saves prefs before closing.
      */
-    private void closeDialog()
+    protected void close()
     {
-        //GEN-FIRST:event_closeDialog
-        SettingsHandler.setGMGenOption("PreferencesDialog.PrefsDividerLocation", jSplitPane1.getDividerLocation());
+        SettingsHandler.setGMGenOption(OPTION_NAME_DIVIDER, jSplitPane1.getDividerLocation());
 
-        SettingsHandler.setGMGenOption("PreferencesDialog.PrefsWindowX", this.getX());
-        SettingsHandler.setGMGenOption("PreferencesDialog.PrefsWindowY", this.getY());
-        SettingsHandler.setGMGenOption("PreferencesDialog.PrefsWindowWidth", this.getSize().width);
-        SettingsHandler.setGMGenOption("PreferencesDialog.PrefsWindowHeight", this.getSize().height);
-        setVisible(false);
-        dispose();
+        SettingsHandler.setGMGenOption(OPTION_NAME_X, this.getX());
+        SettingsHandler.setGMGenOption(OPTION_NAME_Y, this.getY());
+        SettingsHandler.setGMGenOption(OPTION_NAME_WIDTH, this.getSize().width);
+        SettingsHandler.setGMGenOption(OPTION_NAME_HEIGHT, this.getSize().height);
+        super.close();
     }
 
-    /**
-     *  This method is called from within the constructor to initialize the form.
-     *  WARNING: Do NOT modify this code. The content of this method is always
-     *  regenerated by the Form Editor.
-     */
-    private void initComponents()
-    { //GEN-BEGIN:initComponents
-        jPanel2 = new javax.swing.JPanel();
-        bOk = new javax.swing.JButton();
-        bCancel = new javax.swing.JButton();
-        bApply = new javax.swing.JButton();
+    protected JComponent getCenter()
+    {
         jSplitPane1 = new FlippingSplitPane();
-        prefsTree = new javax.swing.JTree(root);
-        prefsPane = new javax.swing.JTabbedPane();
+        prefsTree = new javax.swing.JTree();
+        prefsTree.setRootVisible(false);
+		prefsTree.setShowsRootHandles(true);
+		cardLayout=new CardLayout();
+		prefsPane = new JPanel(cardLayout);
+		prefsPane.add(new JPanel(), EMPTY);
 
         addWindowListener(new java.awt.event.WindowAdapter()
             {
                 public void windowClosing(java.awt.event.WindowEvent evt)
                 {
-                    closeDialog();
+                    close();
                 }
             });
 
-        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.X_AXIS));
 
-        bOk.setText("Ok");
-        bOk.addActionListener(new java.awt.event.ActionListener()
-            {
-                public void actionPerformed(java.awt.event.ActionEvent evt)
-                {
-                    bOkActionPerformed();
-                }
-            });
-
-        jPanel2.add(bOk);
-
-        bCancel.setText("Cancel");
-        bCancel.addActionListener(new java.awt.event.ActionListener()
-            {
-                public void actionPerformed(java.awt.event.ActionEvent evt)
-                {
-                    bCancelActionPerformed();
-                }
-            });
-
-        jPanel2.add(bCancel);
-        bCancel.addActionListener(new java.awt.event.ActionListener()
-            {
-                public void actionPerformed(java.awt.event.ActionEvent evt)
-                {
-                    bCancelActionPerformed();
-                }
-            });
-
-        bApply.setText("Apply");
-        bApply.addActionListener(new java.awt.event.ActionListener()
-            {
-                public void actionPerformed(java.awt.event.ActionEvent evt)
-                {
-                    bApplyActionPerformed();
-                }
-            });
-
-        jPanel2.add(bApply);
-
-        getContentPane().add(jPanel2, java.awt.BorderLayout.SOUTH);
-
-        jSplitPane1.setLeftComponent(prefsTree);
+        jSplitPane1.setLeftComponent(new JScrollPane(prefsTree,
+			ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+			ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED));
         prefsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener()
             {
                 public void valueChanged(javax.swing.event.TreeSelectionEvent evt)
@@ -214,24 +160,23 @@ public class PreferencesDialog extends javax.swing.JDialog
 
         jSplitPane1.setRightComponent(prefsPane);
 
-        getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
+        return jSplitPane1;
     }
-     //GEN-END:initComponents
 
     //GEN-LAST:event_closeDialog
 
     /** Moves and resizes the preferences dialog based on your last opening of it */
     private void initLast()
     {
-        int iDividerLocation = SettingsHandler.getGMGenOption("PreferencesDialog.PrefsDividerLocation", 118);
+        int iDividerLocation = SettingsHandler.getGMGenOption(OPTION_NAME_DIVIDER, 118);
         jSplitPane1.setDividerLocation(iDividerLocation);
 
-        int iWinX = SettingsHandler.getGMGenOption("PreferencesDialog.PrefsWindowX", 0);
-        int iWinY = SettingsHandler.getGMGenOption("PreferencesDialog.PrefsWindowY", 0);
+        int iWinX = SettingsHandler.getGMGenOption(OPTION_NAME_X, 0);
+        int iWinY = SettingsHandler.getGMGenOption(OPTION_NAME_Y, 0);
         this.setLocation(iWinX, iWinY);
 
-        int iWinWidth = SettingsHandler.getGMGenOption("PreferencesDialog.PrefsWindowWidth", 550);
-        int iWinHeight = SettingsHandler.getGMGenOption("PreferencesDialog.PrefsWindowHeight", 385);
+        int iWinWidth = SettingsHandler.getGMGenOption(OPTION_NAME_WIDTH, 550);
+        int iWinHeight = SettingsHandler.getGMGenOption(OPTION_NAME_HEIGHT, 385);
         this.setSize(iWinWidth, iWinHeight);
     }
 
@@ -241,7 +186,17 @@ public class PreferencesDialog extends javax.swing.JDialog
         for (PreferencesPanel panel : root.getPanelList())
         {
             panel.initPreferences();
-        }
+            
+			// add panel to card layout
+			JPanel jp = new JPanel(new BorderLayout());
+			JLabel comp = new JLabel(panel.toString());
+			Font f = UIManager.getFont("TitledBorder.font"); //$NON-NLS-1$
+			comp.setFont(f);
+			jp.add(comp, BorderLayout.NORTH);
+			jp.add(panel, BorderLayout.CENTER);
+
+			prefsPane.add(jp, panel.toString());
+		}
     }
 
     // End of variables declaration//GEN-END:variables

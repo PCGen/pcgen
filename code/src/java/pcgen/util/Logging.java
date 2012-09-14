@@ -212,14 +212,13 @@ public class Logging
 	 * @param param1 Object information message (usually value)
 	 * @param param2 Object information message (usually value)
 	 */
-	public static void debugPrintLocalised(final String message, Object param1,
-		Object param2)
+	public static void debugPrintLocalised(final String message, Object... params)
 	{
 		Logger l = getLogger();
 		if (l.isLoggable(DEBUG))
 		{
 			String msg =
-					LanguageBundle.getFormattedString(message, param1, param2);
+					LanguageBundle.getFormattedString(message, params);
 			l.log(DEBUG, msg);
 		}
 	}

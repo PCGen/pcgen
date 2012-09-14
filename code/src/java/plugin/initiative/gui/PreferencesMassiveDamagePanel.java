@@ -30,15 +30,24 @@
  */
 package plugin.initiative.gui;
 
-import pcgen.core.SettingsHandler;
-import plugin.initiative.InitiativePlugin;
-
-import javax.swing.*;
-import javax.swing.border.TitledBorder;
 import java.awt.BorderLayout;
-import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.border.TitledBorder;
+
+import pcgen.core.SettingsHandler;
+import pcgen.system.LanguageBundle;
+import plugin.initiative.InitiativePlugin;
 
 /**
  *
@@ -46,6 +55,10 @@ import java.awt.event.ActionListener;
  */
 public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 {
+
+	private static final String OPTION_NAME_TYPE = InitiativePlugin.LOG_NAME + ".Damage.Massive.Type"; //$NON-NLS-1$
+	private static final String OPTION_NAME_EFFECT = InitiativePlugin.LOG_NAME + ".Damage.Massive.Effect"; //$NON-NLS-1$
+	private static final String OPTION_NAME_USESIZE = InitiativePlugin.LOG_NAME + ".Damage.Massive.SizeMod"; //$NON-NLS-1$
 
 	public static final int MASSIVE_OFF = 1;
 	public static final int MASSIVE_DND = 2;
@@ -85,28 +98,22 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 
 	public void applyPreferences()
 	{
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
-			+ ".Damage.Massive.Type", getType());
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
-			+ ".Damage.Massive.Effect", getEffect());
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
-			+ ".Damage.Massive.SizeMod", sizeCheck.isSelected());
+		SettingsHandler.setGMGenOption(OPTION_NAME_TYPE, getType());
+		SettingsHandler.setGMGenOption(OPTION_NAME_EFFECT, getEffect());
+		SettingsHandler.setGMGenOption(OPTION_NAME_USESIZE, sizeCheck.isSelected());
 	}
 
 	public void initPreferences()
 	{
-		setType(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
-			+ ".Damage.Massive.Type", MASSIVE_OFF));
-		setEffect(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
-			+ ".Damage.Massive.Effect", MASSIVE_EFFECT_KILL));
-		setSizeMod(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
-			+ ".Damage.Massive.SizeMod", true));
+		setType(SettingsHandler.getGMGenOption(OPTION_NAME_TYPE, MASSIVE_OFF));
+		setEffect(SettingsHandler.getGMGenOption(OPTION_NAME_EFFECT, MASSIVE_EFFECT_KILL));
+		setSizeMod(SettingsHandler.getGMGenOption(OPTION_NAME_USESIZE, true));
 	}
 
 	@Override
 	public String toString()
 	{
-		return "Massive Damage";
+		return LanguageBundle.getString("in_plugin_init_massive_massive"); //$NON-NLS-1$
 	}
 
 	private void setEffect(int choice)
@@ -227,15 +234,18 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 
 		setLayout(new BorderLayout());
 
-		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+		mainPanel.setLayout(new GridBagLayout());
+		GridBagConstraints c = new GridBagConstraints();
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = GridBagConstraints.REMAINDER;
+		c.weightx = 1.0;
 
 		massivePanel.setLayout(new BoxLayout(massivePanel, BoxLayout.Y_AXIS));
 
-		massivePanel.setBorder(new TitledBorder(null, "Massive Damage",
-			TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION,
-			new Font("Dialog", 1, 11)));
+		massivePanel.setBorder(new TitledBorder(null, LanguageBundle.getString("in_plugin_init_massive_massive"), //$NON-NLS-1$
+			TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION));
 		massive1.setSelected(true);
-		massive1.setText("Don't Track Massive Damage");
+		massive1.setText(LanguageBundle.getString("in_plugin_init_massive_noTrack")); //$NON-NLS-1$
 		massiveDamageGroup.add(massive1);
 		massive1.addActionListener(new ActionListener()
 		{
@@ -248,7 +258,7 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 
 		massivePanel.add(massive1);
 
-		massive2.setText("Roll Fort for more than 50 damage (3rd Ed)");
+		massive2.setText(LanguageBundle.getString("in_plugin_init_massive_50damage")); //$NON-NLS-1$
 		massiveDamageGroup.add(massive2);
 		massive2.addActionListener(new ActionListener()
 		{
@@ -261,7 +271,7 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 
 		massivePanel.add(massive2);
 
-		massive3.setText("Roll Fort for CON Damage (Modern)");
+		massive3.setText(LanguageBundle.getString("in_plugin_init_massive_ConDamage")); //$NON-NLS-1$
 		massiveDamageGroup.add(massive3);
 		massive3.addActionListener(new ActionListener()
 		{
@@ -275,7 +285,7 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 		massivePanel.add(massive3);
 
 		massive4
-			.setText("Roll Fort for more than half of total hit points (House)");
+			.setText(LanguageBundle.getString("in_plugin_init_massive_Half")); //$NON-NLS-1$
 		massiveDamageGroup.add(massive4);
 		massive4.addActionListener(new ActionListener()
 		{
@@ -288,55 +298,53 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 
 		massivePanel.add(massive4);
 
-		mainPanel.add(massivePanel);
+		mainPanel.add(massivePanel, c);
 
 		effectPanel.setLayout(new BoxLayout(effectPanel, BoxLayout.Y_AXIS));
 
-		effectPanel.setBorder(new TitledBorder(null, "Massive Damage Failure",
-			TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION,
-			new Font("Dialog", 1, 11)));
+		effectPanel.setBorder(new TitledBorder(null, LanguageBundle.getString("in_plugin_init_massive_failure"), //$NON-NLS-1$
+			TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION));
 		effect1.setSelected(true);
-		effect1.setText("Failure kills character (3rd Ed)");
+		effect1.setText(LanguageBundle.getString("in_plugin_init_massive_kill")); //$NON-NLS-1$
 		effectGroup.add(effect1);
 		effect1.setEnabled(false);
 		effectPanel.add(effect1);
 
-		effect2.setText("Failure takes character to -1 hit points (Modern)");
+		effect2.setText(LanguageBundle.getString("in_plugin_init_massive_minusOne")); //$NON-NLS-1$
 		effectGroup.add(effect2);
 		effect2.setEnabled(false);
 		effectPanel.add(effect2);
 
-		effect3.setText("Failure does half total hit points (House)");
+		effect3.setText(LanguageBundle.getString("in_plugin_init_massive_halfTotal")); //$NON-NLS-1$
 		effectGroup.add(effect3);
 		effect3.setEnabled(false);
 		effectPanel.add(effect3);
 
-		effect4.setText("Failure does half current hit points (House)");
+		effect4.setText(LanguageBundle.getString("in_plugin_init_massive_halfCurrent")); //$NON-NLS-1$
 		effectGroup.add(effect4);
 		effect4.setEnabled(false);
 		effectPanel.add(effect4);
 
-		mainPanel.add(effectPanel);
+		mainPanel.add(effectPanel, c);
 
 		miscPanel.setLayout(new BoxLayout(miscPanel, BoxLayout.Y_AXIS));
 
-		miscPanel.setBorder(new TitledBorder(null, "Misc",
-			TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION,
-			new Font("Dialog", 1, 11)));
+		miscPanel.setBorder(new TitledBorder(null, LanguageBundle.getString("in_plugin_init_misc"), //$NON-NLS-1$
+			TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION));
 		sizeCheck.setSelected(true);
-		sizeCheck.setText("Take size into account (3rd Ed)");
+		sizeCheck.setText(LanguageBundle.getString("in_plugin_init_massive_size")); //$NON-NLS-1$
 		sizeCheck.setEnabled(false);
 		miscPanel.add(sizeCheck);
 
-		sizeLabel1.setText("(+10 for each size category larger than Medium)");
+		sizeLabel1.setText(LanguageBundle.getString("in_plugin_init_massive_sizeL")); //$NON-NLS-1$
 		sizeLabel1.setEnabled(false);
 		miscPanel.add(sizeLabel1);
 
-		sizeLabel2.setText("(-10 for each size category smaller)");
+		sizeLabel2.setText(LanguageBundle.getString("in_plugin_init_massive_sizeS")); //$NON-NLS-1$
 		sizeLabel2.setEnabled(false);
 		miscPanel.add(sizeLabel2);
 
-		mainPanel.add(miscPanel);
+		mainPanel.add(miscPanel, c);
 
 		JScrollPane jScrollPane1 = new JScrollPane();
 		jScrollPane1.setViewportView(mainPanel);

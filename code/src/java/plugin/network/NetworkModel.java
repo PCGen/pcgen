@@ -156,7 +156,6 @@ public class NetworkModel
 	private void initView()
 	{
 		view.getClientRadioButton().setSelected(true);
-		view.hideLocalPanel();
 		view.getServerAddressTextField().setText(
 			SettingsHandler.getGMGenOption(NetworkPlugin.LOG_NAME
 				+ ".ipAddress", "0.0.0.0"));
@@ -185,13 +184,11 @@ public class NetworkModel
 	private void displayClientToolbar()
 	{
 		view.showClientPanel();
-		view.hideLocalPanel();
 		view.showConnectionPanel();
 	}
 
 	private void displayServerToolbar()
 	{
-		view.showLocalPanel();
 		view.hideClientPanel();
 	}
 

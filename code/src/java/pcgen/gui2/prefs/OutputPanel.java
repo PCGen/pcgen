@@ -106,7 +106,8 @@ public class OutputPanel extends PCGenPrefsPanel
 			LanguageBundle.getString("in_Prefs_skillChoiceAll");
 	private static String in_skillChoiceAsUI =
 			LanguageBundle.getString("in_Prefs_skillChoiceAsUI");
-	private static String in_choose = "...";
+	private static String in_choose =
+			LanguageBundle.getString("...");
 
 	private JCheckBox printSpellsWithPC = new JCheckBox();
 	private JCheckBox removeTempFiles = new JCheckBox(in_removeTemp);

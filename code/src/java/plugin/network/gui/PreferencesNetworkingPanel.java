@@ -26,6 +26,7 @@
 package plugin.network.gui;
 
 import pcgen.core.SettingsHandler;
+import pcgen.system.LanguageBundle;
 import plugin.network.NetworkModel;
 import plugin.network.NetworkPlugin;
 
@@ -101,13 +102,13 @@ public class PreferencesNetworkingPanel extends gmgen.gui.PreferencesPanel
 		setPortNumber(SettingsHandler.getGMGenOption(NetworkPlugin.LOG_NAME
 			+ ".port", 80));
 		setUserName(SettingsHandler.getGMGenOption(NetworkPlugin.LOG_NAME
-			+ ".username", "Player"));
+			+ ".username", LanguageBundle.getString("in_player"))); //$NON-NLS-2$
 	}
 
 	@Override
 	public String toString()
 	{
-		return "Network";
+		return LanguageBundle.getString("in_plugin_network"); //$NON-NLS-1$
 	}
 
 	/**
@@ -120,8 +121,8 @@ public class PreferencesNetworkingPanel extends gmgen.gui.PreferencesPanel
 	{
 		setLayout(new BorderLayout());
 
-		serverPort = new JTextField();
-		userName = new JTextField();
+		serverPort = new JTextField(4);
+		userName = new JTextField(10);
 
 		JPanel borderPanel = new JPanel();
 		borderPanel.setLayout(new BorderLayout());
@@ -131,11 +132,10 @@ public class PreferencesNetworkingPanel extends gmgen.gui.PreferencesPanel
 
 		serverPanel = new JPanel();
 		serverPanel.setLayout(new BoxLayout(serverPanel, BoxLayout.Y_AXIS));
-		serverPanel.setBorder(new TitledBorder("Server"));
+		serverPanel.setBorder(new TitledBorder(LanguageBundle.getString("in_plugin_network_server"))); //$NON-NLS-1$
 
 		JLabel portLabel = new JLabel();
-		portLabel.setText("Port");
-		serverPort.setPreferredSize(new java.awt.Dimension(35, 21));
+		portLabel.setText(LanguageBundle.getString("in_plugin_network_port")); //$NON-NLS-1$
 
 		JPanel line1 = new JPanel();
 		line1.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -147,11 +147,10 @@ public class PreferencesNetworkingPanel extends gmgen.gui.PreferencesPanel
 
 		clientPanel = new JPanel();
 		clientPanel.setLayout(new BoxLayout(clientPanel, BoxLayout.Y_AXIS));
-		clientPanel.setBorder(new TitledBorder("Client"));
+		clientPanel.setBorder(new TitledBorder(LanguageBundle.getString("in_plugin_network_client"))); //$NON-NLS-1$
 
 		JLabel userLabel = new JLabel();
-		userLabel.setText("User Name");
-		userName.setPreferredSize(new java.awt.Dimension(100, 21));
+		userLabel.setText(LanguageBundle.getString("in_plugin_network_username")); //$NON-NLS-1$
 
 		JPanel line2 = new JPanel();
 		line2.setLayout(new FlowLayout(FlowLayout.LEFT));

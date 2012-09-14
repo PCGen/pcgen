@@ -23,10 +23,17 @@ package gmgen.gui;
 import gmgen.util.LogReceiver;
 import gmgen.util.LogUtilities;
 
-import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
+
+import pcgen.cdom.base.Constants;
 
 /**
  * LogPanel holds the interface elements for the logging window.
@@ -133,7 +140,7 @@ public class LogPanel extends JPanel implements LogReceiver
 		 */
 		public void addString(String msg)
 		{
-			txtAreaDebug.append(msg + "\n");
+			txtAreaDebug.append(msg + Constants.LINE_SEPARATOR);
 		}
 		 // end addString
 

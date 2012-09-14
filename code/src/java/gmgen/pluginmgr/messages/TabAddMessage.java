@@ -42,7 +42,7 @@ public class TabAddMessage extends GMBMessage
 	/**
 	 * Constructor
 	 * @param comp
-	 * @param name
+	 * @param name localized {@link String}
 	 * @param pane
 	 * @param system
 	 */

@@ -26,6 +26,9 @@
 package gmgen.gui;
 
 import javax.swing.tree.DefaultMutableTreeNode;
+
+import pcgen.system.LanguageBundle;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +42,7 @@ public class PreferencesRootTreeNode extends DefaultMutableTreeNode
 
 	public PreferencesRootTreeNode()
 	{
-		super("Preferences");
+		super("Hide me"); //$NON-NLS-1$
 	}
 
 	public List<PreferencesPanel> getPanelList()

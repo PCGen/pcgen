@@ -36,7 +36,7 @@ public abstract class PreferencesPanel extends javax.swing.JPanel
 	/** Apply the preferences */ 
 	public abstract void applyPreferences();
 
-	/** Initialise Preferences */
+	/** Initialize Preferences */
 	public abstract void initPreferences();
 
 	@Override

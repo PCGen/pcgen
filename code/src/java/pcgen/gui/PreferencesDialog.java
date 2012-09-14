@@ -190,7 +190,7 @@ final class PreferencesDialog extends JDialog
 	private static String in_cmSelectExit =
 			LanguageBundle.getString("in_Prefs_cmSelectExit");
 	private static String in_dialogTitle =
-			LanguageBundle.getString("in_Prefs_title");
+			LanguageBundle.getFormattedString("in_Prefs_title", Constants.APPLICATION_NAME); //$NON-NLS-1$
 	private static String in_displayOpts =
 			LanguageBundle.getString("in_Prefs_displayOpts");
 	private static String in_expertGUI =

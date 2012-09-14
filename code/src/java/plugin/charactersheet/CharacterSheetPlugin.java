@@ -33,6 +33,7 @@ import gmgen.pluginmgr.messages.*;
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.utils.TabbedPaneUtilities;
+import pcgen.system.LanguageBundle;
 import plugin.charactersheet.gui.PreferencesDisplayPanel;
 
 import javax.swing.JMenuItem;
@@ -57,14 +58,17 @@ import java.awt.event.ActionListener;
 public class CharacterSheetPlugin extends GMBPlugin
 {
 
-	/** Name for logger. TODO: Should be exteranlized */
-	public static final String LOG_NAME = "CharacterSheet";
+	/** Name for logger. Do not internationalize, used as beginning of options. */
+	public static final String LOG_NAME = "CharacterSheet"; //$NON-NLS-1$
+
+	private static final String OPTION_NAME_LOADORDER = LOG_NAME + ".LoadOrder"; //$NON-NLS-1$
+	private static final String OPTION_NAME_SYSTEM = LOG_NAME + ".System"; //$NON-NLS-1$
 
 	/** Menu item for tools menu. Selects this tab. */
 	private JMenuItem csToolsItem = new JMenuItem();
 
-	/** Name of tab. TODO: Should be externalized. */
-	private String name = "Character Sheet";
+	/** Name of tab. */
+	private static final String IN_NAME = "in_plugin_charactersheet_name"; //$NON-NLS-1$
 
 	/** Version number. (NOTE: does this mean anything?) */
 	private String version = "00.00.00.01";
@@ -91,6 +95,7 @@ public class CharacterSheetPlugin extends GMBPlugin
 	public void start()
 	{
 		model = new CharacterSheetModel();
+		String name = getName();
 		GMBus.send(new PreferencesPanelAddMessage(this, name,
 			new PreferencesDisplayPanel(model)));
 		if (getPluginSystem().equals(Constants.SYSTEM_PCGEN))
@@ -116,7 +121,7 @@ public class CharacterSheetPlugin extends GMBPlugin
 	 */
 	public String getName()
 	{
-		return name;
+		return LanguageBundle.getString(IN_NAME);
 	}
 
 	/*
@@ -129,13 +134,13 @@ public class CharacterSheetPlugin extends GMBPlugin
 
 	public String getPluginSystem()
 	{
-		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
+		return SettingsHandler.getGMGenOption(OPTION_NAME_SYSTEM,
 			Constants.SYSTEM_GMGEN);
 	}
 
 	public int getPluginLoadOrder()
 	{
-		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 10);
+		return SettingsHandler.getGMGenOption(OPTION_NAME_LOADORDER, 10);
 	}
 
 	/**
@@ -301,8 +306,8 @@ public class CharacterSheetPlugin extends GMBPlugin
 	 */
 	public void initMenus()
 	{
-		csToolsItem.setMnemonic('S');
-		csToolsItem.setText("Character Sheet");
+		csToolsItem.setMnemonic(LanguageBundle.getMnemonic("in_mn_plugin_charactersheet_name")); //$NON-NLS-1$
+		csToolsItem.setText(LanguageBundle.getString(IN_NAME));
 		csToolsItem.addActionListener(new ActionListener()
 		{
 

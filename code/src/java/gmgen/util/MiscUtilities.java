@@ -24,6 +24,7 @@
 package gmgen.util;
 
 import pcgen.core.Globals;
+import pcgen.system.LanguageBundle;
 
 import javax.swing.JOptionPane;
 
@@ -114,7 +115,9 @@ public final class MiscUtilities
 	 *@param  args  The positional parameters
 	 *@return       The localization value
 	 *@since        GMGen 3.3
+	 * @deprecated Use {@link LanguageBundle#getFormattedString(String, Object...)}
 	 */
+	@Deprecated
 	public static final String getLocalization(String name, Object[] args)
 	{
 		if (name == null)

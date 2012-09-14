@@ -25,11 +25,16 @@
  */
 package plugin.initiative.gui;
 
-import pcgen.core.SettingsHandler;
-import plugin.initiative.InitiativePlugin;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.border.TitledBorder;
+
+import pcgen.core.SettingsHandler;
+import pcgen.system.LanguageBundle;
+import plugin.initiative.InitiativePlugin;
 
 /**
  *
@@ -309,20 +314,22 @@ public class PreferencesDamagePanel extends gmgen.gui.PreferencesPanel
 
 		setLayout(new java.awt.BorderLayout());
 
-		mainPanel.setLayout(new javax.swing.BoxLayout(mainPanel,
-			javax.swing.BoxLayout.Y_AXIS));
+		mainPanel.setLayout(new GridBagLayout());
+		GridBagConstraints c = new GridBagConstraints();
+		c.gridx = GridBagConstraints.REMAINDER;
+		c.weightx = 1.0;
+		c.fill = GridBagConstraints.HORIZONTAL;
 
 		dyingPanel.setLayout(new javax.swing.BoxLayout(dyingPanel,
 			javax.swing.BoxLayout.Y_AXIS));
 
-		dyingPanel.setBorder(new javax.swing.border.TitledBorder(null,
-			"Dying Damage",
+		dyingPanel.setBorder(new TitledBorder(null,
+			LanguageBundle.getString("in_gmgen_init_dying"), //$NON-NLS-1$
 			javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-			javax.swing.border.TitledBorder.DEFAULT_POSITION,
-			new java.awt.Font("Dialog", 1, 11)));
+			javax.swing.border.TitledBorder.DEFAULT_POSITION));
 		dyingRB1.setSelected(true);
 		dyingRB1
-			.setText("Dying damage happens at the end of each round (3rd Ed)");
+			.setText(LanguageBundle.getString("in_gmgen_init_dying_end")); //$NON-NLS-1$
 		dyingGroup.add(dyingRB1);
 		dyingPanel.add(dyingRB1);
 
@@ -336,7 +343,7 @@ public class PreferencesDamagePanel extends gmgen.gui.PreferencesPanel
 			.setText("Dying damage starts same round character started dying");
 		dyingPanel.add(dyingCB1);
 
-		mainPanel.add(dyingPanel);
+		mainPanel.add(dyingPanel, c);
 
 		//DISABLED OPTION
 		disabledPanel.setLayout(new javax.swing.BoxLayout(disabledPanel,
@@ -345,8 +352,7 @@ public class PreferencesDamagePanel extends gmgen.gui.PreferencesPanel
 		disabledPanel.setBorder(new javax.swing.border.TitledBorder(null,
 			"Disabled Behavior",
 			javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-			javax.swing.border.TitledBorder.DEFAULT_POSITION,
-			new java.awt.Font("Dialog", 1, 11)));
+			javax.swing.border.TitledBorder.DEFAULT_POSITION));
 		disabledRBZero.setSelected(true);
 		disabledRBZero
 			.setText("Character becomes disabled at 0 HP (Standard).");
@@ -357,7 +363,7 @@ public class PreferencesDamagePanel extends gmgen.gui.PreferencesPanel
 			.setText("Character becomes disabled at -CON Modifier HP (House).");
 		disabledGroup.add(disabledRBCon);
 		disabledPanel.add(disabledRBCon);
-		mainPanel.add(disabledPanel);
+		mainPanel.add(disabledPanel, c);
 		//END DISABLED OPTION
 
 		jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3,
@@ -365,8 +371,7 @@ public class PreferencesDamagePanel extends gmgen.gui.PreferencesPanel
 
 		jPanel3.setBorder(new javax.swing.border.TitledBorder(null, "Death",
 			javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-			javax.swing.border.TitledBorder.DEFAULT_POSITION,
-			new java.awt.Font("Dialog", 1, 11)));
+			javax.swing.border.TitledBorder.DEFAULT_POSITION));
 		deathRB1.setSelected(true);
 		deathRB1.setText("Death at -10 hit points (3rd Ed, Modern)");
 		deathGroup.add(deathRB1);
@@ -376,7 +381,7 @@ public class PreferencesDamagePanel extends gmgen.gui.PreferencesPanel
 		deathGroup.add(deathRB2);
 		jPanel3.add(deathRB2);
 
-		mainPanel.add(jPanel3);
+		mainPanel.add(jPanel3, c);
 
 		jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4,
 			javax.swing.BoxLayout.Y_AXIS));
@@ -384,8 +389,7 @@ public class PreferencesDamagePanel extends gmgen.gui.PreferencesPanel
 		jPanel4.setBorder(new javax.swing.border.TitledBorder(null,
 			"Auto Stabilize",
 			javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-			javax.swing.border.TitledBorder.DEFAULT_POSITION,
-			new java.awt.Font("Dialog", 1, 11)));
+			javax.swing.border.TitledBorder.DEFAULT_POSITION));
 		stableRB1.setSelected(true);
 		stableRB1.setText("10% chance/round (3rd Ed)");
 		stableGroup.add(stableRB1);
@@ -399,7 +403,7 @@ public class PreferencesDamagePanel extends gmgen.gui.PreferencesPanel
 		stableGroup.add(stableRB3);
 		jPanel4.add(stableRB3);
 
-		mainPanel.add(jPanel4);
+		mainPanel.add(jPanel4, c);
 
 		jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5,
 			javax.swing.BoxLayout.Y_AXIS));
@@ -407,8 +411,7 @@ public class PreferencesDamagePanel extends gmgen.gui.PreferencesPanel
 		jPanel5.setBorder(new javax.swing.border.TitledBorder(null,
 			"Subdual/Non Lethal Damage",
 			javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-			javax.swing.border.TitledBorder.DEFAULT_POSITION,
-			new java.awt.Font("Dialog", 1, 11)));
+			javax.swing.border.TitledBorder.DEFAULT_POSITION));
 		nonLethalRB1.setSelected(true);
 		nonLethalRB1.setText("Subdual Damage (3rd Ed)");
 		nonLethalRB1.setToolTipText("null");
@@ -419,7 +422,7 @@ public class PreferencesDamagePanel extends gmgen.gui.PreferencesPanel
 		nonLethalGroup.add(nonLethalRB2);
 		jPanel5.add(nonLethalRB2);
 
-		mainPanel.add(jPanel5);
+		mainPanel.add(jPanel5, c);
 
 		jScrollPane1.setViewportView(mainPanel);
 

@@ -25,6 +25,9 @@ import gmgen.util.MiscUtilities;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+
+import pcgen.system.LanguageBundle;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Frame;
@@ -92,12 +95,13 @@ public class ErrorListDialog extends EnhancedDialog
 		Box buttons = new Box(BoxLayout.X_AXIS);
 		buttons.add(Box.createGlue());
 
-		ok = new JButton(MiscUtilities.getLocalization("common.ok", null));
+		ok = new JButton(LanguageBundle.getString("in_ok")); //$NON-NLS-1$
+		ok.setMnemonic(LanguageBundle.getMnemonic("in_mn_ok")); //$NON-NLS-1$
 		ok.addActionListener(new ActionHandler());
 
 		if (showPluginMgrButton)
 		{
-			pluginMgr = new JButton(MiscUtilities.getLocalization("error-list.plugin-manager", null));
+			pluginMgr = new JButton(LanguageBundle.getString("error-list.plugin-manager"));
 			pluginMgr.addActionListener(new ActionHandler());
 			buttons.add(pluginMgr);
 			buttons.add(Box.createHorizontalStrut(6));
@@ -156,7 +160,7 @@ public class ErrorListDialog extends EnhancedDialog
 		{
 			this.path = path;
 
-			String message = MiscUtilities.getLocalization(messageProp, args);
+			String message = LanguageBundle.getFormattedString(messageProp, args);
 
 			if (message == null)
 			{

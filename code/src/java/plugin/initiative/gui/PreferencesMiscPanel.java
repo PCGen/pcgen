@@ -26,6 +26,7 @@
 package plugin.initiative.gui;
 
 import pcgen.core.SettingsHandler;
+import pcgen.system.LanguageBundle;
 import plugin.initiative.InitiativePlugin;
 
 /**
@@ -36,12 +37,14 @@ import plugin.initiative.InitiativePlugin;
  */
 public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 {
-	// End of variables declaration//GEN-END:variables
+	private static final String OPTION_NAME_MAXNUM = InitiativePlugin.LOG_NAME + ".dbMaxNum"; //$NON-NLS-1$
+	private static final String OPTION_NAME_DBMAXHP = InitiativePlugin.LOG_NAME + ".dbMaxHP"; //$NON-NLS-1$
+	
+	
 	private Initiative initiative;
 	private javax.swing.JLabel jLabel2;
 	private javax.swing.JLabel jLabel3;
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private javax.swing.JLabel jLabel4;
 	private javax.swing.JSeparator jSeparator1;
 	private javax.swing.JSeparator jSeparator2;
@@ -64,7 +67,7 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 	 */
 	public void setMaxHP(int value)
 	{
-		tbHitPoints.setText("" + value);
+		tbHitPoints.setText(Integer.toString(value));
 	}
 
 	/**
@@ -84,7 +87,7 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 	 */
 	public void setNumber(int value)
 	{
-		tbNumber.setText("" + value);
+		tbNumber.setText(Integer.toString(value));
 	}
 
 	/**
@@ -99,9 +102,9 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 
 	public void applyPreferences()
 	{
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".dbMaxHP",
+		SettingsHandler.setGMGenOption(OPTION_NAME_DBMAXHP,
 			getMaxHP());
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".dbMaxNum",
+		SettingsHandler.setGMGenOption(OPTION_NAME_MAXNUM,
 			getNumber());
 		initiative.applyPrefs();
 		initiative.refreshTable();
@@ -109,16 +112,14 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 
 	public void initPreferences()
 	{
-		setMaxHP(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
-			+ ".dbMaxHP", 100));
-		setNumber(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
-			+ ".dbMaxNum", 20));
+		setMaxHP(SettingsHandler.getGMGenOption(OPTION_NAME_DBMAXHP, 100));
+		setNumber(SettingsHandler.getGMGenOption(OPTION_NAME_MAXNUM, 20));
 	}
 
 	@Override
 	public String toString()
 	{
-		return "Misc";
+		return LanguageBundle.getString("in_plugin_init_misc"); //$NON-NLS-1$
 	}
 
 	/**
@@ -152,8 +153,7 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 		gridBagConstraints.insets = new java.awt.Insets(8, 17, 0, 0);
 		add(jSeparator1, gridBagConstraints);
 
-		jLabel2.setFont(new java.awt.Font("Dialog", 1, 18));
-		jLabel2.setText("Misc");
+		jLabel2.setText(LanguageBundle.getString("in_plugin_init_misc")); //$NON-NLS-1$
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 0;
@@ -172,7 +172,7 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 		gridBagConstraints.insets = new java.awt.Insets(6, 0, 0, 0);
 		add(jSeparator2, gridBagConstraints);
 
-		jLabel3.setText("Max Hit Points");
+		jLabel3.setText(LanguageBundle.getString("in_plugin_init_maxHp")); //$NON-NLS-1$
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 3;
@@ -180,7 +180,7 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 		gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
 		add(jLabel3, gridBagConstraints);
 
-		jLabel4.setText("Max Number to add");
+		jLabel4.setText(LanguageBundle.getString("in_plugin_init_maxNum")); //$NON-NLS-1$
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 4;

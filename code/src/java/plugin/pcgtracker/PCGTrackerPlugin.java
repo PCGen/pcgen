@@ -15,6 +15,7 @@ import pcgen.gui.utils.TabbedPaneUtilities;
 import pcgen.gui.ImagePreview;
 import pcgen.io.PCGIOHandler;
 import pcgen.io.PCGFile;
+import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import plugin.pcgtracker.gui.PCGTrackerView;
@@ -45,15 +46,23 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 {
 	public static final String LOG_NAME = "PCG_Tracker";
 
+	private static final String OPTION_NAME_SYSTEM = LOG_NAME + ".System"; //$NON-NLS-1$
+	private static final String OPTION_NAME_LOADORDER = LOG_NAME + ".LoadOrder"; //$NON-NLS-1$
+
+	private static final String FILENAME_PCP = "pcp"; //$NON-NLS-1$
+	private static final String FILENAME_PCG = "pcg"; //$NON-NLS-1$
+
 	/** The plugin menu item in the tools menu. */
 	private JMenuItem charToolsItem = new JMenuItem();
 	private PCGTrackerModel model = new PCGTrackerModel();
 	private PCGTrackerView theView;
 
 	/** The English name of the plugin. */
+	// TODO add static final?
 	private String name = "Character Tracker";
 
 	/** The version number of the plugin. */
+	// TODO add static final?
 	private String version = "01.00.99.01.00";
 
 	/**
@@ -84,13 +93,13 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 
 	public String getPluginSystem()
 	{
-		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
+		return SettingsHandler.getGMGenOption(OPTION_NAME_SYSTEM,
 			Constants.SYSTEM_GMGEN);
 	}
 
 	public int getPluginLoadOrder()
 	{
-		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 1000);
+		return SettingsHandler.getGMGenOption(OPTION_NAME_LOADORDER, 1000);
 	}
 
 	/**
@@ -255,8 +264,8 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 				ImagePreview.decorateWithImagePreview(new JFileChooser());
 		chooser.setCurrentDirectory(defaultFile);
 
-		String[] pcgs = new String[]{"pcg", "pcp"};
-		SimpleFileFilter ff = new SimpleFileFilter(pcgs, "PCGen File");
+		String[] pcgs = new String[]{FILENAME_PCG, FILENAME_PCP};
+		SimpleFileFilter ff = new SimpleFileFilter(pcgs, LanguageBundle.getString("in_pcgen_file")); //$NON-NLS-1$
 		chooser.addChoosableFileFilter(ff);
 		chooser.setFileFilter(ff);
 		chooser.setMultiSelectionEnabled(true);
@@ -312,8 +321,9 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 	 * @param aPC The PlayerCharacter to save
 	 * @param saveas boolean if <code>true</code>, ask for file name
 	 *
-	 * @return <code>true</code> if saved; <code>false</code> if saveas cancelled
+	 * @return <code>true</code> if saved; <code>false</code> if save as cancelled
 	 */
+	// TODO use pcgen save methods rather than implementing it again
 	public boolean savePC(PlayerCharacter aPC, boolean saveas)
 	{
 		boolean newPC = false;
@@ -321,7 +331,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 		File file = null;
 		String aPCFileName = aPC.getFileName();
 
-		if (aPCFileName.equals(""))
+		if (aPCFileName.isEmpty())
 		{
 			prevFile =
 					new File(PCGenSettings.getPcgDir(), aPC.getDisplayName()
@@ -338,8 +348,8 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 		{
 			JFileChooser fc =
 					ImagePreview.decorateWithImagePreview(new JFileChooser());
-			String[] pcgs = new String[]{"pcg"};
-			SimpleFileFilter ff = new SimpleFileFilter(pcgs, "PCGen Character");
+			String[] pcgs = new String[]{FILENAME_PCG};
+			SimpleFileFilter ff = new SimpleFileFilter(pcgs, LanguageBundle.getString("in_pcgen_file_char")); //$NON-NLS-1$
 			fc.setFileFilter(ff);
 			fc.setSelectedFile(prevFile);
 
@@ -365,7 +375,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 				if (file.isDirectory())
 				{
 					JOptionPane.showMessageDialog(null,
-						"You cannot overwrite a directory with a character.",
+						LanguageBundle.getString("in_savePcDirOverwrite"), //$NON-NLS-1$
 						Constants.APPLICATION_NAME, JOptionPane.ERROR_MESSAGE);
 
 					return false;
@@ -378,10 +388,9 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 							JOptionPane
 								.showConfirmDialog(
 									GMGenSystem.inst,
-									"The file "
-										+ file.getName()
-										+ " already exists, are you sure you want to overwrite it?",
-									"Confirm overwriting " + file.getName(),
+									LanguageBundle.getFormattedString("in_savePcConfirmOverMsg", //$NON-NLS-1$
+										file.getName()),
+										LanguageBundle.getFormattedString("in_savePcConfirmOverTitle", file.getName()), //$NON-NLS-1$
 									JOptionPane.YES_NO_OPTION);
 
 					if (reallyClose != JOptionPane.YES_OPTION)
@@ -410,10 +419,10 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 		}
 		catch (Exception ex)
 		{
-			JOptionPane.showMessageDialog(null, "Could not save "
-				+ aPC.getDisplayName(), Constants.APPLICATION_NAME,
+			String formattedString = LanguageBundle.getFormattedString("in_saveFailMsg", aPC.getDisplayName()); //$NON-NLS-1$
+			JOptionPane.showMessageDialog(null, formattedString, Constants.APPLICATION_NAME,
 				JOptionPane.ERROR_MESSAGE);
-			Logging.errorPrint("Could not save " + aPC.getDisplayName());
+			Logging.errorPrint(formattedString);
 			Logging.errorPrint(ex.getMessage(), ex);
 
 			return false;
@@ -437,8 +446,8 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 
 	private void initMenus()
 	{
-		charToolsItem.setMnemonic('C');
-		charToolsItem.setText("Character Tracker");
+		charToolsItem.setMnemonic(LanguageBundle.getMnemonic("in_mn_plugin_pcgtracker_name")); //$NON-NLS-1$
+		charToolsItem.setText(LanguageBundle.getString("in_plugin_pcgtracker_name")); //$NON-NLS-1$
 		charToolsItem.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent evt)

@@ -37,12 +37,12 @@ import gmgen.pluginmgr.messages.*;
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.utils.TabbedPaneUtilities;
+import pcgen.system.LanguageBundle;
 import plugin.dicebag.gui.DiceBagPluginController;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
 import java.io.File;
 import java.net.URL;
 
@@ -62,10 +62,10 @@ public class DiceBagPlugin extends GMBPlugin
 {
 
 	/** Menu item command string for tools menu item */
-	private static final String DICEBAG_TOOLS_COMMAND = "TOOLS_MENU_ENTRY";
+	private static final String DICEBAG_TOOLS_COMMAND = "TOOLS_MENU_ENTRY"; //$NON-NLS-1$
 
-	/** Name for logger. TODO: Should be exteranlized */
-	public static final String LOG_NAME = "DiceBag";
+	/** Name for logger.*/
+	public static final String LOG_NAME = "DiceBag"; //$NON-NLS-1$
 
 	/**
 	 * The controller object. Should handle only interface between this object and
@@ -76,8 +76,8 @@ public class DiceBagPlugin extends GMBPlugin
 	/** Menu item for tools menu. Selects this tab. */
 	private JMenuItem notesToolsItem;
 
-	/** Name of dice bag tab. TODO: Should be externalized. */
-	private String name = "DiceBag";
+	/** Key of dice bag tab. */
+	private static final String IN_NAME = "in_plugin_dicebag_name"; //$NON-NLS-1$
 
 	/** Version number. (NOTE: does this mean anything?) */
 	private String version = "00.00.00.01";
@@ -105,8 +105,8 @@ public class DiceBagPlugin extends GMBPlugin
 	 */
 	public FileFilter getFileType()
 	{
-		String[] fileExt = new String[]{"dbg"};
-		return new SimpleFileFilter(fileExt, "GMGen Dice Bag");
+		String[] fileExt = new String[]{"dbg"}; //$NON-NLS-1$
+		return new SimpleFileFilter(fileExt, LanguageBundle.getString("in_plugin_dicebag_filter")); //$NON-NLS-1$
 	}
 
 	/**
@@ -119,7 +119,7 @@ public class DiceBagPlugin extends GMBPlugin
 	public void start()
 	{
 		theController = new DiceBagPluginController();
-		GMBus.send(new TabAddMessage(this, name, theController.getComponent(),
+		GMBus.send(new TabAddMessage(this, getName(), theController.getComponent(),
 			getPluginSystem()));
 		initMenus();
 	}
@@ -140,7 +140,7 @@ public class DiceBagPlugin extends GMBPlugin
 	 */
 	public String getName()
 	{
-		return name;
+		return LanguageBundle.getString(IN_NAME);
 	}
 
 	/*
@@ -378,8 +378,9 @@ public class DiceBagPlugin extends GMBPlugin
 	private void initMenus()
 	{
 		notesToolsItem =
-				makeMenuItem("DiceBag", DICEBAG_TOOLS_COMMAND, null,
-					"Dice Bag Plugin", Integer.valueOf(KeyEvent.VK_G));
+				makeMenuItem(LanguageBundle.getString(IN_NAME), DICEBAG_TOOLS_COMMAND, null,
+					LanguageBundle.getString("in_plugin_dicebag_desc"), //$NON-NLS-1$
+					LanguageBundle.getMnemonic("in_mn_plugin_dicebag_name")); //$NON-NLS-1$
 		GMBus.send(new ToolMenuItemAddMessage(this, notesToolsItem));
 	}
 
