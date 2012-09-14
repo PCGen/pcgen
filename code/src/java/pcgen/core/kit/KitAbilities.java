@@ -126,6 +126,7 @@ public final class KitAbilities extends BaseKit
 		List<String> warnings)
 	{
 		abilitiesToAdd = new ArrayList<AbilitySelection>();
+		double minCost = Double.MAX_VALUE;
 		List<AbilitySelection> available = new ArrayList<AbilitySelection>();
 		for (Map.Entry<CDOMReference<Ability>, List<String>> me : abilityMap
 			.entrySet())
@@ -133,6 +134,10 @@ public final class KitAbilities extends BaseKit
 			List<String> choices = me.getValue();
 			for (Ability a : me.getKey().getContainedObjects())
 			{
+				if (a.getCost() < minCost)
+				{
+					minCost = a.getCost();
+				}
 				if (choices == null)
 				{
 					available.add(new AbilitySelection(a, ""));
@@ -162,12 +167,13 @@ public final class KitAbilities extends BaseKit
 
 		boolean tooManyAbilities = false;
 		// Don't allow choosing of more than allotted number of abilities
-		if (!isFree()
-			&& (numberOfChoices > (aPC.getAvailableAbilityPool(category)
-				.intValue())))
+		int maxChoices =
+				minCost > 0.0d ? aPC.getAvailableAbilityPool(category)
+					.divide(new BigDecimal(minCost)).intValue()
+					: numberOfChoices;
+		if (!isFree() && numberOfChoices > maxChoices)
 		{
-			numberOfChoices =
-					aPC.getAvailableAbilityPool(category).intValue();
+			numberOfChoices = maxChoices;
 			tooManyAbilities = true;
 		}
 
@@ -205,7 +211,6 @@ public final class KitAbilities extends BaseKit
 		// Add to list of things to add to the character
 		for (AbilitySelection as : selected)
 		{
-			abilitiesToAdd.add(as);
 			Ability ability = as.ability;
 			if (isFree())
 			{
@@ -215,7 +220,15 @@ public final class KitAbilities extends BaseKit
 					aPC.adjustAbilities(category, new BigDecimal(1));
 				}
 			}
-			AbilityUtilities.modAbility(aPC, ability, as.selection, category);
+			if (ability.getCost() > aPC.getAvailableAbilityPool(category).doubleValue())
+			{
+				tooManyAbilities = true;
+			}
+			else
+			{
+				abilitiesToAdd.add(as);
+				AbilityUtilities.modAbility(aPC, ability, as.selection, category);
+			}
 		}
 
 		if (tooManyAbilities)
