@@ -63,6 +63,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -567,6 +568,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		refreshKitList();
 		refreshTemplates();
 		refreshAvailableTempBonuses();
+		buildAvailableDomainsList();
 		companionSupportFacade.refreshCompanionData();
 	}
 
@@ -2136,6 +2138,15 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 					LanguageBundle.getFormattedString("in_errorNoMoreDomains"));
 
 			return;
+		}
+
+		if (!theCharacter.hasDefaultDomainSource())
+		{
+			// No source for the domain yet? Default to the last added class level
+			int level = theCharacter.getLevelInfoSize();
+			PCLevelInfo highestLevelInfo = theCharacter.getLevelInfo(level - 1);
+			PCClass cls = theCharacter.getClassKeyed(highestLevelInfo.getClassKeyName()); 
+			theCharacter.setDefaultDomainSource(new ClassSource(cls, highestLevelInfo.getClassLevel()));
 		}
 
 		domains.addElement(domainFI);
