@@ -51,6 +51,7 @@ public class PCGenSettings extends PropertyContext
 	public static final String OPTION_SHOW_SKILL_MOD_BREAKDOWN = "showSkillModBreakdown";
 	public static final String OPTION_SHOW_SKILL_RANK_BREAKDOWN = "showSkillRankBreakdown";
 	public static final String OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS = "showOutputNameForOtherItems";
+	public static final String OPTION_AUTOLOAD_SOURCES_AT_START = "autoloadSourcesAtStart";
 	public static final String OPTION_AUTOLOAD_SOURCES_WITH_PC = "autoloadSourcesWithPC";
 	public static final String BROWSER_PATH = "browserPath";
 	/**
@@ -63,6 +64,8 @@ public class PCGenSettings extends PropertyContext
 	public static final String SELECTED_SPELL_SHEET_PATH = "pcgen.files.selectedSpellOutputSheet";
 	public static final String RECENT_CHARACTERS = "recentCharacters";
 	public static final String RECENT_PARTIES = "recentParties";
+	public static final String LAST_LOADED_SOURCES = "lastLoadedSources";
+	public static final String LAST_LOADED_GAME = "lastLoadedGame";
 
 	private PCGenSettings()
 	{

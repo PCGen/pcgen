@@ -44,6 +44,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Observer;
 import java.util.logging.LogRecord;
@@ -82,6 +83,7 @@ import pcgen.core.facade.ChooserFacade;
 import pcgen.core.facade.CompanionFacade;
 import pcgen.core.facade.DataSetFacade;
 import pcgen.core.facade.DefaultReferenceFacade;
+import pcgen.core.facade.GameModeFacade;
 import pcgen.core.facade.PartyFacade;
 import pcgen.core.facade.ReferenceFacade;
 import pcgen.core.facade.SourceSelectionFacade;
@@ -299,6 +301,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 				alternateStartup |= maybeLoadOrCreateCharacter();
 				alternateStartup |= maybeStartInNPCGen();
 				alternateStartup |= maybeStartInGMGen();
+				alternateStartup |= maybeAutoLoadSources();
 
 				if (!alternateStartup)
 				{
@@ -329,6 +332,80 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			}
 		}
 
+		/**
+		 * If the preference to auto load sources at start is set, find the 
+		 * sources that were last loaded and load them now.
+		 * @return true if the sources have been loaded, false if not.
+		 * @throws InterruptedException If the load was interrupted.
+		 */
+		private boolean maybeAutoLoadSources() throws InterruptedException
+		{
+			boolean autoLoadSources =
+					PCGenSettings.getInstance().initBoolean(
+						PCGenSettings.OPTION_AUTOLOAD_SOURCES_AT_START, false);
+			if (autoLoadSources)
+			{
+				String gameModeName =
+						PCGenSettings.getInstance().getProperty(
+							PCGenSettings.LAST_LOADED_GAME);
+				String sourcesNameString =
+						PCGenSettings.getInstance().getProperty(
+							PCGenSettings.LAST_LOADED_SOURCES);
+				if (StringUtils.isEmpty(gameModeName)
+					|| StringUtils.isEmpty(sourcesNameString))
+				{
+					return false;
+				}
+				GameModeFacade gameMode = null;
+				for (Iterator<GameModeFacade> iterator =
+						FacadeFactory.getGameModes().iterator(); iterator
+					.hasNext();)
+				{
+					GameModeFacade facade = iterator.next();
+					if (gameModeName.equals(facade.toString()))
+					{
+						gameMode = facade;
+						break;
+					}
+
+				}
+				if (gameMode == null)
+				{
+					return false;
+				}
+
+				List<CampaignFacade> campaigns =
+						new ArrayList<CampaignFacade>();
+				String[] sourceNames = sourcesNameString.split("\\|"); //$NON-NLS-1$
+				for (Iterator<CampaignFacade> iterator =
+						FacadeFactory.getCampaigns().iterator(); iterator
+					.hasNext();)
+				{
+					CampaignFacade camp = iterator.next();
+					for (String name : sourceNames)
+					{
+						if (name.equals(camp.toString()))
+						{
+							campaigns.add(camp);
+							break;
+						}
+					}
+				}
+
+				SourceSelectionFacade selection =
+						FacadeFactory
+							.createSourceSelection(gameMode, campaigns);
+				if (selection != null)
+				{
+					loadSourceSelection(selection);
+					sourceLoader.join();
+					return true;
+				}
+			}
+
+			return false;
+		}
+
 		private boolean maybeLoadCampaign() throws InterruptedException
 		{
 			String camp = Main.getStartupCampaign();
@@ -353,7 +430,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 				else
 				{
 					//did not find source
-					//TODO: do something, complain, deal with it, anything
+					Logging
+						.errorPrint("Ignoring invalid campaign requested in -m flag: '"
+							+ camp + "'.");
 					return false;
 				}
 			}
@@ -1414,6 +1493,21 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			if (data != null)
 			{
 				currentSourceSelection.setReference(sources);
+
+				StringBuilder sourceString = new StringBuilder();
+				ListFacade<CampaignFacade> campaigns = sources.getCampaigns();
+				for (int i = 0; i < campaigns.getSize(); i++)
+				{
+					if (i > 0)
+					{
+						sourceString.append('|');
+					}
+					sourceString.append(campaigns.getElementAt(i));
+				}
+				PCGenSettings.getInstance().setProperty(
+					PCGenSettings.LAST_LOADED_GAME, sources.getGameMode().toString());
+				PCGenSettings.getInstance().setProperty(
+					PCGenSettings.LAST_LOADED_SOURCES, sourceString.toString());
 			}
 			else
 			{
