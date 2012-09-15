@@ -142,13 +142,13 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 
 ###Block: Nature Bond Choice
 1														BONUS:ABILITYPOOL|Nature Bond|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidNatureBond	BONUS:DOMAIN|NUMBER|1|PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain	BONUS:VAR|CompLevel|CL|PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Animal Companion	BONUS:VAR|DomainLVL|CL
-1	DOMAIN:Air[PREABILITY:1,CATEGORY=Special Ability,Druid Domain]
-1	DOMAIN:Animal[PREABILITY:1,CATEGORY=Special Ability,Druid Domain]
-1	DOMAIN:Earth[PREABILITY:1,CATEGORY=Special Ability,Druid Domain]
-1	DOMAIN:Fire[PREABILITY:1,CATEGORY=Special Ability,Druid Domain]
-1	DOMAIN:Plant[PREABILITY:1,CATEGORY=Special Ability,Druid Domain]
-1	DOMAIN:Water[PREABILITY:1,CATEGORY=Special Ability,Druid Domain]
-1	DOMAIN:Weather[PREABILITY:1,CATEGORY=Special Ability,Druid Domain]
+1	DOMAIN:Air[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVARLT:DruidAirNotAllowed,1]]
+1	DOMAIN:Animal[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVARLT:DruidAnimalNotAllowed,1]]
+1	DOMAIN:Earth[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVARLT:DruidEarthNotAllowed,1]]
+1	DOMAIN:Fire[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVARLT:DruidFireNotAllowed,1]]
+1	DOMAIN:Plant[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVARLT:DruidPlantNotAllowed,1]]
+1	DOMAIN:Water[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVARLT:DruidWaterNotAllowed,1]]
+1	DOMAIN:Weather[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVARLT:DruidWeatherNotAllowed,1]]
 ###Block: Wild Shape
 1	BONUS:VAR|DruidWildShape|CL	ABILITY:Special Ability|AUTOMATIC|Druid Wild Shape|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildShape	ABILITY:Special Ability|AUTOMATIC|Druid Wild Shape Times|Druid Wild Shape Progression|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildShape
 ###Block: Level progression
