@@ -96,7 +96,7 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClassLevel> implem
 			}
 			else
 			{
-				if (tok.indexOf(']') != tok.length() - 1)
+				if (tok.lastIndexOf(']') != tok.length() - 1)
 				{
 					return new ParseResult.Fail("Invalid " + getTokenName()
 							+ " must end with ']' if it contains a PREREQ tag", context);
