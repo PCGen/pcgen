@@ -570,19 +570,31 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 		public void setValue(Float value)
 		{
+			if (value == null)
+			{
+				return;
+			}
+
 			CharacterLevelsFacade levels = character.getCharacterLevelsFacade();
-			SkillCost cost = levels.getSkillCost(level, skill);
+			CharacterLevelFacade targetLevel =
+					levels.findNextLevelForSkill(skill, level, value);
+			if (targetLevel == null)
+			{
+				// No level where it can be raised.
+				return;
+			}
+			SkillCost cost = levels.getSkillCost(targetLevel, skill);
 			if (value < 0)
 			{
 				value = Float.valueOf(0);
 			}
-			float max = levels.getMaxRanks(level, cost);
+			float max = levels.getMaxRanks(targetLevel, cost);
 			if (value > max)
 			{
 				value = max;
 			}
 
-			int points = (int) ((value - getValue()) * levels.getSkillCost(level, skill).getCost());
+			int points = (int) ((value - getValue()) * levels.getSkillCost(targetLevel, skill).getCost());
 			if (points == 0)
 			{
 				// No change, ignore
@@ -590,7 +602,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			}
 
 
-			if (levels.investSkillPoints(level, skill, points))
+			if (levels.investSkillPoints(targetLevel, skill, points))
 			{
 				fireStateChanged();
 				//TODO: Remove this method when CharacterFacade's event system is created.
@@ -612,9 +624,15 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 				return null;
 			}
 			CharacterLevelsFacade levels = character.getCharacterLevelsFacade();
-			SkillCost cost = levels.getSkillCost(level, skill);
-
-			if (value == levels.getMaxRanks(level, cost))
+			CharacterLevelFacade targetLevel = levels.findNextLevelForSkill(skill, level, value);
+			if (targetLevel == null)
+			{
+				// No level where it can be raised.
+				return null;
+			}
+			
+			SkillCost cost = levels.getSkillCost(targetLevel, skill);
+			if (value == levels.getMaxRanks(levels.getElementAt(levels.getSize()-1), cost))
 			{
 				return null;
 			}

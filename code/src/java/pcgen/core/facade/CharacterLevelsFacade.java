@@ -93,6 +93,18 @@ public interface CharacterLevelsFacade extends ListFacade<CharacterLevelFacade>
 
 	void removeSkillPointListener(SkillPointListener listener);
 
+	/**
+	 * Identify the appropriate target level for setting the skill to a 
+	 * value.
+	 * 
+	 * @param skill The skill being changed.
+	 * @param baseLevel The level at which the user has requested the change.
+	 * @param ranks  The new number of ranks. 
+	 * @return The recommended level.
+	 */
+	public CharacterLevelFacade findNextLevelForSkill(SkillFacade skill,
+		CharacterLevelFacade baseLevel, float ranks);
+
 	public static interface ClassListener extends EventListener
 	{
 

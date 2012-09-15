@@ -552,6 +552,36 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	}
 
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public CharacterLevelFacade findNextLevelForSkill(SkillFacade skill,
+		CharacterLevelFacade baseLevel, float newRank)
+	{
+		Skill aSkill = (Skill) skill;
+		float testRank = theCharacter.getSkillRank(aSkill);
+		if (newRank < testRank)
+		{
+			// Removing ranks, so just pass back the top level
+			return getElementAt(getSize()-1);
+		}
+		
+		int baseLevelIndex = getLevelIndex(baseLevel);
+		for (int i = baseLevelIndex; i < charLevels.size(); i++)
+		{
+			CharacterLevelFacade testLevel = getElementAt(i);
+			SkillCost skillCost = getSkillCost(testLevel, aSkill);
+			float maxRanks = getMaxRanks(testLevel, skillCost);
+					
+			if (maxRanks != Float.NaN && maxRanks > testRank)
+			{
+				return testLevel;
+			}
+		}
+		return null;
+	}
+	
+	/**
 	 * Find a level which has a certain number of points spent.
 	 * @param points The negative number of points spent required.
 	 * @param skill 
