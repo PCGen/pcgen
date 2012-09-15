@@ -2565,7 +2565,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				return;
 			} catch (ConcurrentModificationException e)
 			{
-				Logging.log(Logging.INFO, "Retrying export after ConcurrentModificationException", e);
+				Logging.debugPrint("Retrying export after ConcurrentModificationException");
 				try
 				{
 					Thread.sleep(1000);
@@ -2577,6 +2577,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				}
 			}
 		}
+		Logging.errorPrint("Unable to export using "
+			+ theHandler.getTemplateFile()
+			+ " due to concurrent modifications.");
 	}
 
 	/**
