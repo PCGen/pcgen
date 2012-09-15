@@ -29,6 +29,18 @@ import pcgen.core.facade.EquipmentListFacade.EquipmentListListener;
 import pcgen.core.facade.event.ListEvent;
 import pcgen.gui2.filter.FilteredListFacadeTableModel;
 
+/**
+ * The model for the Equip View table. It shows a flat list of the equipment which 
+ * is either equipped, unequipped or of all gear owned. Each instance relates to 
+ * one type of view.
+ * 
+ * <br/>
+ * Last Editor: $Author:  $
+ * Last Edited: $Date:  $
+ * 
+ * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @version $Revision:  $
+ */
 public class EquipmentTableModel extends FilteredListFacadeTableModel<EquipmentFacade> implements EquipmentListListener
 {
 

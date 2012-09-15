@@ -26,6 +26,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.swing.AbstractAction;
 import javax.swing.AbstractCellEditor;
 import javax.swing.JButton;
@@ -42,9 +43,9 @@ import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellEditor;
+
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.MapToList;
-import pcgen.cdom.base.Constants;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.EquipmentFacade;
 import pcgen.core.facade.EquipmentListFacade;
@@ -63,8 +64,16 @@ import pcgen.gui2.util.table.TableCellUtilities;
 import pcgen.system.LanguageBundle;
 
 /**
+ * The container for equipping data for a character. It holds references to the 
+ * models for both the left and right tables of gear. It also contains the 
+ * processing to manage equipping and unequipping actions.
  *
+ * <br/>
+ * Last Editor: $Author:  $
+ * Last Edited: $Date:  $
+ *  
  * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @version $Revision:  $
  */
 public class EquipmentModels
 {

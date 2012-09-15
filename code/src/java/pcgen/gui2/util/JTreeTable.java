@@ -55,6 +55,8 @@ import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.DefaultTreeSelectionModel;
 import javax.swing.tree.TreeCellRenderer;
 import javax.swing.tree.TreePath;
+import javax.swing.tree.TreeSelectionModel;
+
 import pcgen.gui2.util.table.SortableTableModel;
 import pcgen.gui2.util.treetable.DefaultSortableTreeTableModel;
 import pcgen.gui2.util.treetable.SortableTreeTableModel;
@@ -470,7 +472,13 @@ public class JTreeTable extends JTableEx
 				@Override
 				public void run()
 				{
+					TreeSelectionModel selModel = tree.getSelectionModel();
+					TreePath leadSelectionPath = selModel.getLeadSelectionPath();
 					fireTableDataChanged();
+					if (leadSelectionPath != null)
+					{
+						selModel.setSelectionPath(leadSelectionPath);
+					}
 				}
 
 			});
