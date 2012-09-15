@@ -228,16 +228,16 @@ A Thousand Faces								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatura
 # Ability Name	Unique Key						Output Name					Category of Ability		Type								Visible		Define			Ability						Bonus to Ability Pool			Allow Follower			Allowed Companions						Source Page
 Animal Companion	KEY:Nature's Bond ~ Animal Companion							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.NatureBond				DEFINE:CompLevel|0														FOLLOWERS:Animal Companion|1	COMPANIONLIST:Animal Companion|RACETYPE=Companion	SOURCEPAGE:p.51
 #COMMENT - Old List if needed. >>	COMPANIONLIST:Animal Companion|Companion (Ape),Companion (Badger (Wolverine)),Companion (Bear),Companion (Bird (Eagle)),Companion (Bird (Hawk)),Companion (Bird (Owl)),Companion (Boar),Companion (Camel),Companion (Cat (Big (Lion))),Companion (Cat (Big (Tiger))),Companion (Cat (Small (Cheetah))),Companion (Cat (Small (Leopard))),Companion (Crocodile (Alligator)),Companion (Dinosaur (Deinonychus)),Companion (Dinosaur (Velociraptor)),Companion (Dog),Companion (Horse),Companion (Pony),Companion (Shark),Companion (Snake (Constrictor)),Companion (Snake (Viper)),Companion (Wolf)
-Druid Domain	KEY:Nature's Bond ~ Druid Domain								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.NatureBond	VISIBLE:DISPLAY					ABILITY:Special Ability|AUTOMATIC|Domains	BONUS:ABILITYPOOL|Druid Domain|1															SOURCEPAGE:p.50
+Druid Domain	KEY:Nature's Bond ~ Druid Domain								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.NatureBond	VISIBLE:DISPLAY					ABILITY:Special Ability|AUTOMATIC|Domains																SOURCEPAGE:p.50
 
 #Domain Choices
-Air			KEY:Druid Domain ~ Air				OUTPUTNAME:Druid Domain (Air)		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain																																			SOURCEPAGE:p.41
-Animal		KEY:Druid Domain ~ Animal			OUTPUTNAME:Druid Domain (Animal)	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain																																			SOURCEPAGE:p.41
-Earth			KEY:Druid Domain ~ Earth			OUTPUTNAME:Druid Domain (Earth)	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain																																			SOURCEPAGE:p.43
-Fire			KEY:Druid Domain ~ Fire				OUTPUTNAME:Druid Domain (Fire)	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain																																			SOURCEPAGE:p.44
-Plant			KEY:Druid Domain ~ Plant			OUTPUTNAME:Druid Domain (Plant)	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain																																			SOURCEPAGE:p.46
-Water			KEY:Druid Domain ~ Water			OUTPUTNAME:Druid Domain (Water)	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain																																			SOURCEPAGE:p.48
-Weather		KEY:Druid Domain ~ Weather			OUTPUTNAME:Druid Domain (Weather)	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain																																			SOURCEPAGE:p.48
+#Air			KEY:Druid Domain ~ Air				OUTPUTNAME:Druid Domain (Air)		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain																																			SOURCEPAGE:p.41
+#Animal		KEY:Druid Domain ~ Animal			OUTPUTNAME:Druid Domain (Animal)	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain																																			SOURCEPAGE:p.41
+#Earth			KEY:Druid Domain ~ Earth			OUTPUTNAME:Druid Domain (Earth)	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain																																			SOURCEPAGE:p.43
+#Fire			KEY:Druid Domain ~ Fire				OUTPUTNAME:Druid Domain (Fire)	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain																																			SOURCEPAGE:p.44
+#Plant			KEY:Druid Domain ~ Plant			OUTPUTNAME:Druid Domain (Plant)	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain																																			SOURCEPAGE:p.46
+#Water			KEY:Druid Domain ~ Water			OUTPUTNAME:Druid Domain (Water)	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain																																			SOURCEPAGE:p.48
+#Weather		KEY:Druid Domain ~ Weather			OUTPUTNAME:Druid Domain (Weather)	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain																																			SOURCEPAGE:p.48
 
 ###Block: Wild Shape
 # Ability Name	Category of Ability		Type						Define													Description																																																																			Source Page
