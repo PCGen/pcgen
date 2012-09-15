@@ -549,6 +549,11 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		public void setValueAt(Object value, int column)
 		{
 			List data = dataMap.get(userObject);
+			if (data == null)
+			{
+				return;
+			}
+					
 			data.set(column - 1, value);
 		}
 
