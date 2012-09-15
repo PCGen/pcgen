@@ -105,6 +105,7 @@ import pcgen.gui2.tabs.summary.InfoPaneHandler;
 import pcgen.gui2.tabs.summary.LanguageTableModel;
 import pcgen.gui2.tabs.summary.StatTableModel;
 import pcgen.gui2.tools.Icons;
+import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.FacadeComboBoxModel;
 import pcgen.gui2.util.SignIcon;
 import pcgen.gui2.util.SignIcon.Sign;
@@ -1346,7 +1347,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			CharacterStatsPanel charStatsPanel = new CharacterStatsPanel(null);
 			SinglePrefDialog prefsDialog = new SinglePrefDialog(parent, charStatsPanel);
 			charStatsPanel.setParent(prefsDialog);
-			prefsDialog.setLocationRelativeTo(parent);
+			Utility.setDialogRelativeLocation(parent, prefsDialog);
 			prefsDialog.setVisible(true);
 			character.refreshRollMethod();
 		}
@@ -1372,7 +1373,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		{
 			KitSelectionDialog kitDialog =
 					new KitSelectionDialog(frame, character);
-			kitDialog.setLocationRelativeTo(frame);
+			Utility.setDialogRelativeLocation(frame, kitDialog);
 			kitDialog.setVisible(true);			
 		}
 

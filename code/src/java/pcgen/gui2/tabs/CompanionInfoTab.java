@@ -528,7 +528,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 				String type = (String) selectedElement;
 				companionDialog.setCharacter(character);
 				companionDialog.setCompanionType(type);
-				companionDialog.setLocationRelativeTo(CompanionInfoTab.this);
+				Utility.setDialogRelativeLocation(CompanionInfoTab.this, companionDialog);
 				companionDialog.setVisible(true);
 			}
 			cancelCellEditing();

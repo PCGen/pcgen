@@ -96,7 +96,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 	public static void showPrintPreviewDialog(PCGenFrame frame)
 	{
 		JDialog dialog = new PrintPreviewDialog(frame);
-		dialog.setLocationRelativeTo(frame);
+		Utility.setDialogRelativeLocation(frame, dialog);
 		dialog.setVisible(true);
 	}
 

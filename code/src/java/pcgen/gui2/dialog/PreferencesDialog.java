@@ -154,7 +154,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		settingsTree.setSelectionRow(1);
 
 		pack();
-		setLocationRelativeTo(getParent());
+		Utility.setDialogRelativeLocation(getParent(), this);
 	}
 
 	public static void show(JFrame frame)

@@ -70,6 +70,7 @@ public class KitSelectionDialog extends JDialog
 		setTitle(LanguageBundle.getString("in_mnuSourcesLoadSelect")); //$NON-NLS-1$
 		this.buttonPanel = new JPanel();
 		this.closeButton = new JButton(LanguageBundle.getString("in_close")); //$NON-NLS-1$
+		this.closeButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_close")); //$NON-NLS-1$
 		this.kitPanel = new KitPanel(character);
 		setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
 		initComponents();

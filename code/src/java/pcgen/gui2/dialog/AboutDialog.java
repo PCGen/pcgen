@@ -79,7 +79,7 @@ public class AboutDialog extends JDialog
 		getContentPane().add(new MainAbout(), BorderLayout.CENTER);
 		pack();
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-		setLocationRelativeTo(frame);
+		Utility.setDialogRelativeLocation(frame, this);
 		
 		Utility.installEscapeCloseOperation(this);
 	}

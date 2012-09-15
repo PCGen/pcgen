@@ -1270,7 +1270,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	public void showTipsOfTheDay()
 	{
 		TipOfTheDay tips = new TipOfTheDay(this);
-		tips.setLocationRelativeTo(this);
+		Utility.setDialogRelativeLocation(this, tips);
 		tips.setVisible(true);
 	}
 
@@ -1283,7 +1283,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		{
 			sourceSelectionDialog = new SourceSelectionDialog(this);
 		}
-		sourceSelectionDialog.setLocationRelativeTo(this);
+		Utility.setDialogRelativeLocation(this, sourceSelectionDialog);
 		sourceSelectionDialog.setVisible(true);
 	}
 
@@ -1441,7 +1441,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	public boolean showGeneralChooser(ChooserFacade chooserFacade)
 	{
 		ChooserDialog dialog = new ChooserDialog(this, chooserFacade);
-		dialog.setLocationRelativeTo(this);
+		Utility.setDialogRelativeLocation(this, dialog);
 		dialog.setVisible(true);
 		return dialog.isCommitted();
 	}
@@ -1604,6 +1604,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		aFrame.getContentPane().add(jPanel, BorderLayout.SOUTH);
 		aFrame.setSize(new Dimension(700, 500));
 		aFrame.setLocationRelativeTo(this);
+		Utility.setDialogRelativeLocation(this, aFrame);
 		aFrame.getRootPane().setDefaultButton(jClose);
 		Utility.installEscapeCloseOperation(aFrame);
 		aFrame.setVisible(true);
@@ -1670,7 +1671,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		aFrame.getContentPane().add(jPanel3, BorderLayout.SOUTH);
 
 		aFrame.setSize(new Dimension(456, 176));
-		aFrame.setLocationRelativeTo(this);
+		Utility.setDialogRelativeLocation(this, aFrame);
 		aFrame.setVisible(true);
 	}
 
@@ -1756,7 +1757,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		aFrame.getContentPane().add(htmlPanel, BorderLayout.CENTER);
 		aFrame.getContentPane().add(jPanel, BorderLayout.SOUTH);
 		aFrame.setSize(new Dimension(505, size));
-		aFrame.setLocationRelativeTo(this);
+		Utility.setDialogRelativeLocation(this, aFrame);
 		aFrame.setVisible(true);
 	}
 

@@ -26,6 +26,7 @@ package pcgen.gui2.prefs;
 import pcgen.cdom.base.Constants;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.gui2.tools.Utility;
 
 import javax.swing.*;
 import java.awt.*;
@@ -60,7 +61,7 @@ class NewPurchaseMethodDialog extends JDialog
 	{
 		super(parent, modal);
 		initComponents();
-		setLocationRelativeTo(parent); // centre on parent
+		Utility.setDialogRelativeLocation(parent, this);
 	}
 
 	/** Creates new form JDialog
@@ -71,7 +72,7 @@ class NewPurchaseMethodDialog extends JDialog
 	{
 		super(parent, modal);
 		initComponents();
-		setLocationRelativeTo(parent); // centre on parent
+		Utility.setDialogRelativeLocation(parent, this);
 	}
 
 	public String getEnteredName()

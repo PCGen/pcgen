@@ -38,7 +38,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import pcgen.gui.utils.Utility;
+import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -82,7 +82,7 @@ public class DIWarningDialog extends JDialog implements
 		this.introText = introText;
 		
 		initComponents();
-		setLocationRelativeTo(parent); 
+		Utility.setDialogRelativeLocation(parent, this);
 	}
 	
 	/**

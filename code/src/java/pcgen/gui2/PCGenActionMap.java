@@ -331,7 +331,7 @@ public final class PCGenActionMap extends ActionMap
 			KitSelectionDialog kitDialog =
 					new KitSelectionDialog(frame, frame
 						.getSelectedCharacterRef().getReference());
-			kitDialog.setLocationRelativeTo(frame);
+			Utility.setDialogRelativeLocation(frame, kitDialog);
 			kitDialog.setVisible(true);			
 		}
 
@@ -424,7 +424,7 @@ public final class PCGenActionMap extends ActionMap
 			{
 				dialog = new DebugDialog(frame);
 			}
-			dialog.setLocationRelativeTo(frame);
+			Utility.setDialogRelativeLocation(frame, dialog);
 			dialog.setVisible(true);
 		}
 
@@ -447,7 +447,7 @@ public final class PCGenActionMap extends ActionMap
 			{
 				dialog = new ConsoleDialog(frame);
 			}
-			dialog.setLocationRelativeTo(frame);
+			Utility.setDialogRelativeLocation(frame, dialog);
 			dialog.setVisible(true);
 		}
 

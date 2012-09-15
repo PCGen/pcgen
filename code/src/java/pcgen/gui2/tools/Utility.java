@@ -26,6 +26,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GraphicsEnvironment;
 import java.awt.GridBagConstraints;
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -188,7 +189,10 @@ public final class Utility
 	 */
 	public static void resizeDialogToScreen(JDialog dialog)
 	{
-		Rectangle screenBounds = dialog.getGraphicsConfiguration().getBounds();
+		// Get the maximum window size to account for taskbars etc
+		Rectangle screenBounds =
+				GraphicsEnvironment.getLocalGraphicsEnvironment()
+					.getMaximumWindowBounds();
 
 		final Dimension dialogSize = dialog.getSize();
 
@@ -203,7 +207,57 @@ public final class Utility
 		}
 		dialog.setSize(dialogSize);
 	}
-	
+
+	/**
+	 * Centres the dialog over the component ensuring that the dialog will be 
+	 * within the usable area of the screen (i.e. excluding native task bars, 
+	 * menus bars etc).
+	 *    
+	 * @param parent The component over which the dialog should be centred.
+	 * @param dialog The dialog to be positioned.
+	 */
+	public static void setDialogRelativeLocation(Component parent, JDialog dialog)
+	{
+		// First make sure it is not too big
+		Utility.resizeDialogToScreen(dialog);
+		
+		// Get the maximum window size to account for taskbars etc
+		Rectangle screenBounds =
+				GraphicsEnvironment.getLocalGraphicsEnvironment()
+					.getMaximumWindowBounds();
+		Point centreOfParent =
+				new Point(parent.getX() + (parent.getWidth() / 2),
+					parent.getY() + (parent.getHeight() / 2));
+		// Default to centre of parent
+		Point location =
+				new Point(centreOfParent.x - (dialog.getWidth() / 2),
+					centreOfParent.y - (dialog.getHeight() / 2));
+		// Adjust so it fits on the screen
+		if (location.x + dialog.getWidth() > screenBounds.width
+			+ screenBounds.x)
+		{
+			location.x -=
+					(location.x + dialog.getWidth())
+						- (screenBounds.width + screenBounds.x);
+		}
+		if (location.x < screenBounds.x)
+		{
+			location.x = screenBounds.x;
+		}
+		if (location.y + dialog.getHeight() > screenBounds.height
+			+ screenBounds.y)
+		{
+			location.y -=
+					(location.y + dialog.getHeight())
+						- (screenBounds.height + screenBounds.y);
+		}
+		if (location.y < screenBounds.y)
+		{
+			location.y = screenBounds.y;
+		}
+		dialog.setLocation(location);
+	}
+
 	/**
 	 * Centers a <code>JFrame</code> to the screen.
 	 *
