@@ -410,7 +410,8 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		assertEquals("Equip name", "Falchion +1 (Small)", aEquip.getDisplayName());
 		assertEquals("Equip size", "S", aEquip.getSize());
 		assertEquals("Equip eqmod", "PLUS1W", aEquip.getEqModifierList(true).get(0).getKeyName());
-		assertEquals("Output", "Dummy$"+customProperties, aEquip.formatSaveLine('$', '=').trim());
+		assertEquals("Output", "OrigKey$"+customProperties, aEquip.formatSaveLine('$', '=').trim());
+		
 	}
 	
 	/**
