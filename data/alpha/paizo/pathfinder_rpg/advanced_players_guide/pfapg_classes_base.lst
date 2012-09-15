@@ -358,7 +358,26 @@ CLASS:Ex-Antipaladin	STARTSKILLPTS:2	CSKILL:Bluff|TYPE.Craft|Disguise|Handle Ani
 
 # Class Name
 CLASS:Druid.MOD
-1	DOMAIN:Darkness[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVARLT:DruidDarknessNotAllowed,1]]
+1	DOMAIN:Charm[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidCharmAllowed,1]]
+1	DOMAIN:Community[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidCommunityAllowed,1]]
+1	DOMAIN:Darkness[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidDarknessAllowed,1]]
+1	DOMAIN:Death[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidDeathAllowed,1]]
+1	DOMAIN:Destruction[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidDestructionAllowed,1]]
+1	DOMAIN:Glory[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidGloryAllowed,1]]
+1	DOMAIN:Knowledge[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidKnowledgeAllowed,1]]
+1	DOMAIN:Liberation[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidLiberationAllowed,1]]
+1	DOMAIN:Nobility[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidNobilityAllowed,1]]
+1	DOMAIN:Protection[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidProtectionAllowed,1]]
+1	DOMAIN:Repose[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidReposeAllowed,1]]
+1	DOMAIN:Rune[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidRuneAllowed,1]]
+1	DOMAIN:Strength[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidStrengthAllowed,1]]
+1	DOMAIN:Sun[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidSunAllowed,1]]
+1	DOMAIN:Travel[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidTravelAllowed,1]]
+1	DOMAIN:Trickery[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidTrickeryAllowed,1]]
+
+
+
+
 
 # Wizard
 
