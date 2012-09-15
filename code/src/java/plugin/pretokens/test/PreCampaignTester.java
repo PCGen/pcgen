@@ -78,7 +78,7 @@ public class PreCampaignTester extends AbstractPrerequisiteTest implements Prere
 		}
 		else
 		{
-			runningTotal += countCampaignByName(prereq.getKey());
+			runningTotal += countCampaignByName(prereq.getKey(), source);
 		}
 
 		runningTotal = prereq.getOperator().compare(runningTotal, number);
@@ -128,10 +128,10 @@ public class PreCampaignTester extends AbstractPrerequisiteTest implements Prere
 	 * @param key The key to be checked for
 	 * @return The number of matching campaigns
 	 */
-	private int countCampaignByName(final String key)
+	private int countCampaignByName(final String key, CDOMObject source)
 	{
 		int total = 0;
-		Campaign campaign = Globals.getCampaignKeyed(key);
+		Campaign campaign = Globals.getCampaignKeyedSilently(key);
 		if (campaign != null)
 		{
 			PersistenceManager pMan = PersistenceManager.getInstance();
@@ -153,6 +153,12 @@ public class PreCampaignTester extends AbstractPrerequisiteTest implements Prere
 					}
 				}
 			}
+		}
+		else
+		{
+			Logging.errorPrint("Unable to find campaign " + key //$NON-NLS-1$
+				+ " used in prereq for source " + source + " at " //$NON-NLS-1$ //$NON-NLS-2$
+				+ source.getSourceURI());
 		}
 		return total;
 	}
