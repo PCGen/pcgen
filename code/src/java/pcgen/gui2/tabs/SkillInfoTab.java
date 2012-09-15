@@ -277,7 +277,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			levels.addSkillPointListener(this);
 			levels.addListListener(this);
 			model.addListSelectionListener(this);
-			updateSelectedIndex();
+			updateSelectedIndex(false);
 		}
 
 		public void uninstall()
@@ -314,7 +314,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			}
 		}
 
-		private void updateSelectedIndex()
+		private void updateSelectedIndex(boolean forceChange)
 		{
 			if (levels.isEmpty())
 			{
@@ -322,7 +322,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			}
 			//if a level is already selected, don't change it
 			//unless all the skill points have been spent
-			if (!model.isSelectionEmpty())
+			if (!model.isSelectionEmpty() && !forceChange)
 			{
 				int index = model.getMinSelectionIndex();
 				CharacterLevelFacade level = levels.getElementAt(index);
@@ -340,31 +340,33 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		@Override
 		public void skillPointsChanged(CharacterLevelEvent e)
 		{
-			updateSelectedIndex();
+			int firstRow = e.getBaseLevelIndex();
+			boolean force = firstRow < model.getMinSelectionIndex();
+			updateSelectedIndex(force);
 		}
 
 		@Override
 		public void elementAdded(ListEvent<CharacterLevelFacade> e)
 		{
-			updateSelectedIndex();
+			updateSelectedIndex(false);
 		}
 
 		@Override
 		public void elementRemoved(ListEvent<CharacterLevelFacade> e)
 		{
-			updateSelectedIndex();
+			updateSelectedIndex(false);
 		}
 
 		@Override
 		public void elementsChanged(ListEvent<CharacterLevelFacade> e)
 		{
-			updateSelectedIndex();
+			updateSelectedIndex(false);
 		}
 
 		@Override
 		public void elementModified(ListEvent<CharacterLevelFacade> e)
 		{
-			updateSelectedIndex();
+			updateSelectedIndex(false);
 		}
 
 		/**
