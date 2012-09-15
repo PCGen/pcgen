@@ -43,8 +43,8 @@ RACE:kingmaker_players_guide_races_companions.lst
 SKILL:kingmaker_players_guide_skills_conditional.lst
 
 # Out Of Set Equipment
-EQUIPMENT:*\alpha\paizo\pathfinder_chronicles\pathfinder_campaign_setting\pathfinder_campaign_setting_equipment.lst|(INCLUDE:Dueling Sword (Aldori))
-WEAPONPROF:*\alpha\paizo\pathfinder_chronicles\pathfinder_campaign_setting\pathfinder_campaign_setting_profs_weapons.lst
+EQUIPMENT:*\alpha\paizo\pathfinder_campaign_setting\pathfinder_campaign_setting\pathfinder_campaign_setting_equipment.lst|(INCLUDE:Dueling Sword (Aldori))
+WEAPONPROF:*\alpha\paizo\pathfinder_campaign_setting\pathfinder_campaign_setting\pathfinder_campaign_setting_profs_weapons.lst
 
 #
 # End
