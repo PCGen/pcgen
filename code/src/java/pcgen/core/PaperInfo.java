@@ -122,10 +122,6 @@ public final class PaperInfo implements Loadable
 
 	public void setName(String name)
 	{
-		if (StringUtils.isNotBlank(name) && name.startsWith("in_"))
-		{
-			name = LanguageBundle.getString(name);
-		}
 		infoName = name;
 		paperInfo[0] = name;
 	}

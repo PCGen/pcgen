@@ -17,7 +17,10 @@
  */
 package pcgen.persistence.lst;
 
+import org.apache.commons.lang.StringUtils;
+
 import pcgen.cdom.base.Loadable;
+import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 public class SimplePrefixLoader<T extends Loadable> extends SimpleLoader<T>
@@ -70,6 +73,11 @@ public class SimplePrefixLoader<T extends Loadable> extends SimpleLoader<T>
 					+ getLoadClass().getSimpleName());
 			return null;
 		}
-		return super.processFirstToken(token.substring(colonLoc + 1));
+		String firstTokenValue = token.substring(colonLoc + 1);
+		if (StringUtils.isNotBlank(firstTokenValue) && firstTokenValue.startsWith("in_"))
+		{
+			firstTokenValue = LanguageBundle.getString(firstTokenValue);
+		}
+		return super.processFirstToken(firstTokenValue);
 	}
 }
