@@ -358,7 +358,7 @@ CLASS:Ex-Antipaladin	STARTSKILLPTS:2	CSKILL:Bluff|TYPE.Craft|Disguise|Handle Ani
 
 # Class Name
 CLASS:Druid.MOD
-1	DOMAIN:Darkness[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Darkness]
+1	DOMAIN:Darkness[PREABILITY:1,CATEGORY=Special Ability,Druid Domain]
 
 # Wizard
 
