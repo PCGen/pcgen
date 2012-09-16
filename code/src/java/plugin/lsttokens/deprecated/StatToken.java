@@ -99,6 +99,7 @@ public class StatToken implements CDOMSecondaryToken<CDOMObject>
 				all.append('|');
 			}
 			all.append(pcs.getAbb());
+			needPipe = true;
 		}
 		return context.processSubToken(obj, "CHOOSE", "PCSTAT", all.toString());
 	}
