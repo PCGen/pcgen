@@ -745,6 +745,31 @@
 
 <hr>
 
+	<p class="new"><a name="PCSTAT">*** New 5.16.x</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:PCSTAT|x|x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Stat abbreviation)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Stat type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Stat type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This will produce a list of all stats listed or otherwise meets the criteria included.</li>
+		<li>The stats listed, including the type, must be defined in the Game Mode file.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
+	<p class="sidebar0"><strong>NOTE:</strong> Most, if not all, game modes distributed with PCGen do not use stat types.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:STAT|DEX|CON</code></p>
+	<p class="indent3">This will produce a list of stats consisting of STR, DEX, and CON.</p>
+	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
+	<p class="indent2"><code>CHOOSE:STAT|STR|CON</code> becomes <code>CHOOSE:PCSTAT|DEX|INT|WIS|CHA</code></p>
+	<p class="indent1"><strong>Where it is Used:</strong></p>
+	<p class="indent2">Global except for Equipmod Files</p>
+	<p></p>
+
+<hr>
+
 	<p class="new"><a name="PROFICIENCY">*** Deprecated Syntax 5.17.4</a> - Use <a href="#WEAPONPROFICIENCY">CHOOSE:WEAPONPROFICIENCY</a> - Remove 6.2</p>
 	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:PROFICIENCY|x|y|z|z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> WEAPON (Choose Weapon Proficiencies)</p>
@@ -752,7 +777,7 @@
 	<p class="indent1"><strong>Variables Used (y):</strong> ALL (Choose from all proficiencies)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> UNIQUE (Choose from all proficiencies not already possessed by PC)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> Text (Proficiency to add to list)</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> TYPE= (Type of proficiency)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> TYPE=Text (Type of proficiency)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This will produce a list of all proficiencies that match the criteria specified.</li>
@@ -1249,7 +1274,7 @@
 
 <hr>
 
-	<p><a name="STAT"></a></p>
+	<p class="new"><a name="STAT">*** Deprecated</a> - Use <strong><a href="#PCSTS">CHOOSE:PCSTAT</a></strong> - Remove for 6.2</p>
 	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:STAT|x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Stat name. Optional)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
