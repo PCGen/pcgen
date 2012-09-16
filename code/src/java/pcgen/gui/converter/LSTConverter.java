@@ -140,6 +140,11 @@ public class LSTConverter extends Observable
 					continue;
 				}
 				written.add(uri);
+				if (!"file".equalsIgnoreCase(uri.getScheme()))
+				{
+					Logging.log(Logging.WARNING, "Skipping campaign " + uri + " as it is not a local file.");
+					continue;
+				}
 				File in = new File(uri);
 				File base = findSubRoot(rootDir, in);
 				if (base == null)
