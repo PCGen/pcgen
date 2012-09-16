@@ -74,8 +74,8 @@ Cross Training Selection	TYPE:CrossTraining	VISIBLE:NO	SAB:Cross Training (%CHOI
 
 ###Block:Cross Training Sub-Entries
 # Feat Name		Type			Visible	Special ABility				Stackable?	Multiple?	Choose	Selections	Bonus Number of Feats	Stat bonus			Source Page
-Raise Abilities	TYPE:X-Training	VISIBLE:NO	SAB:Cross Training (+1 to %CHOICE)	STACK:NO	MULT:YES	CHOOSE:STAT	SELECT:2					BONUS:STAT|%LIST|1	SOURCEPAGE:p.23
-Lower Ability	TYPE:X-Training	VISIBLE:NO	SAB:Cross Training (-2 to %CHOICE)	STACK:NO	MULT:YES	CHOOSE:STAT			BONUS:FEAT|POOL|1		BONUS:STAT|%LIST|-2	SOURCEPAGE:p.23
+Raise Abilities	TYPE:X-Training	VISIBLE:NO	SAB:Cross Training (+1 to %CHOICE)	STACK:NO	MULT:YES	CHOOSE:PCSTAT|ALL	SELECT:2					BONUS:STAT|%LIST|1	SOURCEPAGE:p.23
+Lower Ability	TYPE:X-Training	VISIBLE:NO	SAB:Cross Training (-2 to %CHOICE)	STACK:NO	MULT:YES	CHOOSE:PCSTAT|ALL			BONUS:FEAT|POOL|1		BONUS:STAT|%LIST|-2	SOURCEPAGE:p.23
 
 ###Block:Eclectic Selections
 # Feat Name					Type				Visible	Prohibited Class

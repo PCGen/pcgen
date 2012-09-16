@@ -24,12 +24,12 @@ Infamous						CATEGORY:Special Ability	TYPE:SpecialQuality.Special														
 
 # Feat support for - Triumphant Hero of Launhym
 # Feat Name					Type				Visible		Description												Stackable?	Multiple?	Choose					Caster level				Bonus to skill		Stat bonus
-Triumphant Hero Ability Score Bonus		CATEGORY:Special Ability	TYPE:SpecialQuality.Special																	STACK:NO	MULT:YES	CHOOSE:STAT															BONUS:STAT|LIST|1
+Triumphant Hero Ability Score Bonus		CATEGORY:Special Ability	TYPE:SpecialQuality.Special																	STACK:NO	MULT:YES	CHOOSE:PCSTAT|ALL															BONUS:STAT|LIST|1
 
 # Feat support for - Damnation (aka Ylviuss' Wish)
 Damnation - Skill Mastery			CATEGORY:Special Ability	TYPE:SpecialQuality.DamnationReward	VISIBLE:EXPORT	DESC:You have effectively been granted a wish by Ylviuss.				STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|ALL							BONUS:SKILL|LIST|5
 Damnation - Arcane Power			CATEGORY:Special Ability	TYPE:SpecialQuality.DamnationReward	VISIBLE:EXPORT	DESC:You have effectively been granted a wish by Ylviuss.				STACK:NO	MULT:YES	CHOOSE:SCHOOLS				BONUS:CASTERLEVEL|SCHOOL.%LIST|1
-Damnation - Might					CATEGORY:Special Ability	TYPE:SpecialQuality.DamnationReward	VISIBLE:EXPORT	DESC:You have effectively been granted a wish by Ylviuss.				STACK:NO	MULT:YES	CHOOSE:STAT|INT|WIS|CHA													BONUS:STAT|LIST|2
+Damnation - Might					CATEGORY:Special Ability	TYPE:SpecialQuality.DamnationReward	VISIBLE:EXPORT	DESC:You have effectively been granted a wish by Ylviuss.				STACK:NO	MULT:YES	CHOOSE:PCSTAT|STR|DEX|CON													BONUS:STAT|LIST|2
 Damnation (Mystic Forces)			CATEGORY:Special Ability	TYPE:SpecialQuality.DamnationReward	VISIBLE:EXPORT	DESC:You may cast one arcane or divine spell once as a caster of 20th level.
 
 ###Block: Racial Abilties --------------------------------------------------------------------------------

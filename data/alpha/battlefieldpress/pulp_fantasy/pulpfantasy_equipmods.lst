@@ -27,6 +27,10 @@ Base Invention Level				KEY:GDGT_INV_LVL				NAMEOPT:NOTHING	TYPE:Gadget	VISIBLE:
 
 # Weird Gadget Flaws
 Ability Loss Flaw					KEY:GDGT_LOSS_AB				NAMEOPT:NOTHING										SOURCEPAGE:p.89	PRETYPE:1,Weird	PREVARGTEQ:InventionLevel,1									BONUS:STAT|%CHOICE	BONUS:VAR|InventionLevel|-1										SPROP:Ability Loss (%Choice)											CHOOSE:STATBONUS|MIN=-6|MAX=-1|TITLE=Ability
+# COMMENT: This line is flawed - Missing Syntax 
+#	BONUS:STAT|STATABB|%CHOICE
+#	CHOOSE:STATBONUS|STATABB|MIN=-6|MAX=-1|TITLE=Ability
+
 Feedback Flaw					KEY:GDGT_FDBCK				NAMEOPT:NOTHING										SOURCEPAGE:p.89	PRETYPE:1,Weird	PREVARGTEQ:InventionLevel,1													BONUS:VAR|InventionLevel|-1	BONUS:VAR|FeedbackDamage|(BaseInventionLevel+3)/4+1	SPROP:Feedback (%)|FeedbackDamage																							DEFINE:FeedbackDamage|0
 Power Drain Flaw					KEY:GDGT_PWR_DRN				NAMEOPT:NOTHING										SOURCEPAGE:p.89	PRETYPE:1,Weird	PREVARGTEQ:InventionLevel,1													BONUS:VAR|InventionLevel|-1	BONUS:VAR|PowerDrainTime|BaseInventionLevel		SPROP:Power Drain (% min)|PowerDrainTime																						DEFINE:PowerDrainTime|0
 Sporadic Shut Down Flaw				KEY:GDGT_SPR_SHDN				NAMEOPT:NOTHING										SOURCEPAGE:p.90	PRETYPE:1,Weird	PREVARGTEQ:InventionLevel,1													BONUS:VAR|InventionLevel|-1										SPROP:Sporadic Shut Down %|BaseInventionLevel

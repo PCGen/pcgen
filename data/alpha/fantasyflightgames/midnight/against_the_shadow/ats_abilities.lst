@@ -23,7 +23,7 @@ Water Elemental Cohort	CATEGORY:Special Ability	TYPE:ElementalCohort	VISIBLE:DIS
 # Ability Name		Unique Key				Category of Ability		Type					Visible		Special ABility				Define				Multiple?	Choose							Save checks bonus		Bonus to skill		Stat bonus
 SpellLike Ability		KEY:ATS SpellLike Ability	CATEGORY:Special Ability	TYPE:ATS_SpellLikeAbility	VISIBLE:DISPLAY	SAB:SpellLike Ability (%CHOICE)	DEFINE:SpellChoiceLvl|0		MULT:YES	CHOOSE:SPELLLEVEL|1|CLASS=Channeler|1|MAXLEVEL
 Spontaneous Spell		KEY:ATS Spontaneous Spell	CATEGORY:Special Ability	TYPE:ATS_SpontaneousSpell	VISIBLE:DISPLAY	SAB:Spontaneous Spell (%CHOICE)	DEFINE:SpontaneousSpellLvl|0	MULT:YES	CHOOSE:SPELLLEVEL|1|CLASS=Channeler|1|MAXLEVEL
-Ability Boost		KEY:ATS Ability Boost		CATEGORY:Special Ability	TYPE:ATS_AbilityBoost		VISIBLE:DISPLAY												MULT:YES	CHOOSE:STAT															BONUS:STAT|%LIST|1
+Ability Boost		KEY:ATS Ability Boost		CATEGORY:Special Ability	TYPE:ATS_AbilityBoost		VISIBLE:DISPLAY												MULT:YES	CHOOSE:PCSTAT|ALL															BONUS:STAT|%LIST|1
 Save Boost			KEY:ATS Save Boost		CATEGORY:Special Ability	TYPE:ATS_SaveBoost		VISIBLE:DISPLAY												MULT:YES	CHOOSE:STRING|Fortitude|Reflex|Will			BONUS:CHECKS|%CHOICE|2
 Skill Boost			KEY:ATS Skill Boost		CATEGORY:Special Ability	TYPE:ATS_SkillBoost		VISIBLE:DISPLAY												MULT:YES	CHOOSE:SKILLS										BONUS:SKILL|%LIST|2
 Pureblood Skill Mastery						CATEGORY:Special Ability	TYPE:PurebloodSkillMastery	VISIBLE:DISPLAY	SAB:Skill Mastery (%CHOICE)							MULT:YES	CHOOSE:SKILLSNAMED|ALL
