@@ -5,14 +5,14 @@ SOURCELONG:Bastion Press - Into the Green	SOURCESHORT:ittg	SOURCEDATE:2003-01
 
 ###Block: Mundane Items
 # Equipment Name		Required Weapon Proficiency	Type						Cost		Weight	Critical Hit Multiplier	Damage	Source Page
-Bison Chips								TYPE:Goods					COST:.2									SOURCEPAGE:p.76
+Bison Chips								TYPE:Goods					COST:0.2									SOURCEPAGE:p.76
 Cold Compress							TYPE:Goods					COST:35									SOURCEPAGE:p.76
 Drunken Sloth Bile						TYPE:Goods					COST:10									SOURCEPAGE:p.76
 Glow Rod								TYPE:Goods					COST:60									SOURCEPAGE:p.76
 Juniper Oil								TYPE:Goods					COST:5									SOURCEPAGE:p.77
 Kapok Jacket							TYPE:Goods					COST:40									SOURCEPAGE:p.77
 Machete			PROFICIENCY:WEAPON|Machete	TYPE:Weapon.Melee.Simple.Slashing	COST:8	WT:1		CRITMULT:x3			DAMAGE:1d4	SOURCEPAGE:p.77
-Walking Stick							TYPE:Goods					COST:.2									SOURCEPAGE:p.77
+Walking Stick							TYPE:Goods					COST:0.2									SOURCEPAGE:p.77
 
 
 ###Block: Magic Items
@@ -30,7 +30,7 @@ Sphere of Tireless Trivia	TYPE:Magic.Wondrous			COST:48500	SOURCEPAGE:p.79
 ###Block: Substances
 # Equipment Name				Output Name		Type						Cost		Weight	Source Page		Special Property
 Substance (Aggression)			OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:30	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 20)
-Substance (Babanth)			OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:.5	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 15)
+Substance (Babanth)			OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:0.5	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 15)
 Substance (Bloodfrog Toxin)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:400	WT:0		SOURCEPAGE:p.91	SPROP:Alchemy or Herbalist (DC 20)
 Substance (Brown Snake Venom)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:1600	WT:0		SOURCEPAGE:p.91	SPROP:Alchemy (DC 15)
 Substance (Gravebane)			OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:10	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 15)
@@ -38,8 +38,8 @@ Substance (Illuminating Attract)	OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substan
 Substance (Itching Smoke)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:30	WT:0		SOURCEPAGE:p.91	SPROP:Alchemy (DC 25)
 Substance (Kaleidoscope Paint)	OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:25	WT:0		SOURCEPAGE:p.91	SPROP:Alchemy (DC 25)
 Substance (Lantana)			OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:25	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 17)
-Substance (Lover’s Horn)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:25	WT:0		SOURCEPAGE:p.91	SPROP:Alchemy (DC 20)
-Substance (Maidenhair Seeds)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:.3	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 10)
+Substance (Lover?s Horn)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:25	WT:0		SOURCEPAGE:p.91	SPROP:Alchemy (DC 20)
+Substance (Maidenhair Seeds)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:0.3	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 10)
 Substance (Mistletoe Antitoxin)	OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:30	WT:0		SOURCEPAGE:p.91	SPROP:Alchemy (DC 15)
 Substance (Narrow Escape)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:20	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 10)
 Substance (Opium)				OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:20	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 20)
@@ -50,7 +50,7 @@ Substance (Running Man)			OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST
 Substance (Salicin)			OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:40	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 20)
 Substance (Scatcat)			OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:40	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 20)
 Substance (Skunksong)			OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:20	WT:0		SOURCEPAGE:p.91	SPROP:Handle Animal (DC 20)
-Substance (Spillan Ointment)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:.4	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 5)
+Substance (Spillan Ointment)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:0.4	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 5)
 Substance (Sugarglue)			OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:20	WT:0		SOURCEPAGE:p.91	SPROP:Alchemy (DC 25)
 Substance (Sunberry Paste)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:20	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 20)
 Substance (Witch Hazel Extract)	OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:50	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 25)

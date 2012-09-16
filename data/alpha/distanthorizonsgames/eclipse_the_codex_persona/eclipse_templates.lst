@@ -5,7 +5,7 @@ SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.
 
 ###Block: Matches Level
 # Template Name						Visible		Template									Define									Multiple Requirements								Bonus to Ability Pool						Caster level					Modify VAR												Class Skill
-01 Point Buy Master Template for All Levels	VISIBLE:DISPLAY	TEMPLATE:CHOOSE:First Level Eclipse|Multiclass Eclipse	DEFINE:CharacterPoints|0	DEFINE:EclipseClassLvl|0												
+01 Point Buy Master Template for All Levels	VISIBLE:DISPLAY	TEMPLATE:CHOOSE:First Level Eclipse|Multiclass Eclipse	DEFINE:CharacterPoints|0	DEFINE:EclipseClassLvl|0
 #BONUS:ABILITYPOOL|Character Points|CharacterPoints
 #COMMENT: This Template chooses whether the Character is a True Eclipse or a Multiclass and controls how many "Character Points" the character gets (24 or 48 at 1st level)
 First Level Eclipse					VISIBLE:DISPLAY																					PREMULT:1,[PREPCLEVEL:MAX=1],[PREVARGTEQ:EclipseClassLvl,TL]																	BONUS:VAR|CharacterPoints,CharacterPointsTotal|24*EclipseClassLvl	BONUS:VAR|CharacterPoints,CharacterPointsTotal|24
@@ -54,10 +54,10 @@ Low Level Adventure Template
 
 01 Adept Skills (Half Cost Bypass)																DEFINE:SkillBuyBypass|1
 
-01 Class Skills Eclipse Point Buy			VISIBLE:DISPLAY																																																													CSKILL:TYPE.NormalSkill
+01 Class Skills Eclipse Point Buy			VISIBLE:DISPLAY																																																													CSKILL:TYPE=NormalSkill
 #01 Class Skills Eclipse Psychic			CSKILL:
 #CSKILL:TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma|Speak Language
-01 Class Skills Martial Art				VISIBLE:DISPLAY																																																													CSKILL:Martial Arts|TYPE.MartialArt
+01 Class Skills Martial Art				VISIBLE:DISPLAY																																																													CSKILL:Martial Arts|TYPE=MartialArt
 
 01 - World Law - All Companions Grant 6 CP
 
@@ -78,7 +78,7 @@ Low Level Adventure Template
 
 
 
-The Faithful Steed																																																																																																	ABILITY:Special Ability|AUTOMATIC|Superior Breeding ~ TFS|Furious Defense ~ TFS|Calling ~ TFS
+The Faithful Steed																																																																																																	ABILITY:Special Ability|AUTOMATIC|Calling ~ TFS|Furious Defense ~ TFS|Superior Breeding ~ TFS
 
 
 # Positive Levels grant +1 to AC, To Hit, and Saves along with 6 CP
@@ -105,7 +105,7 @@ Companion Bonus HP					VISIBLE:DISPLAY														BONUS:ABILITYPOOL|Companion 
 
 
 #COMMENT: Example of GM Granted Packages (typically 12 CP of GM assigned abilities)
-Josh's Military Life Package				VISIBLE:YES																																																																																											ABILITY:Character Points|AUTOMATIC|Legionary|Weapon Prof ~ All Simple Weapons|Armor ~ Light
+Josh's Military Life Package				VISIBLE:YES																																																																																											ABILITY:Character Points|AUTOMATIC|Armor ~ Light|Legionary|Weapon Prof ~ All Simple Weapons
 
 
 # Need to move all the Web Blog stuff into a 'Web Enhancement'. Also need to note which items are in the new 'Eclipse II' release.
@@ -150,8 +150,3 @@ Enlarge Self																		DEFINE:EnlargeSelf|0																														
 #Block: Support Templates -
 Eclipse Half-Celestial
 Eclipse Half-Fiend
-
-
-
-
-

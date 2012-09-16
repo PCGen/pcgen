@@ -18,8 +18,8 @@ Spirited Charge.COPY=Spirited Charge Aerial
 Spirited Charge Aerial.MOD																																																			DESC:.CLEARALL	DESC:Only applies to bonded aerial companion
 Spell Mastery.MOD											TYPE:SpellMast
 # Feat Name									Product Identity?	Type				Visible	Prohibited Class			Required Feat									Prohibited Race	Required Stat	Required Subclass			Required Template		Var. Min. Value			Clear Description	Description										Stackable?	Multiple?	Choose					Combat bonus																Add to base move											Bonus to skill												Weapon prof. bonus			Source Page
-Greater Weapon Focus.MOD									TYPE:General.Fighter								PREFEAT:1,Weapon Focus																							PREVARGTEQ:WeapSpecQualify,8				DESC:See Text									STACK:NO	MULT:YES	CHOOSE:FEAT=Weapon Focus																																															BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:Feats.rtf
-Greater Weapon Specialization.MOD								TYPE:General.Fighter								PREFEAT:3,Weapon Focus,Greater Weapon Focus,Weapon Specialization																PREVARGTEQ:WeapSpecQualify,12				DESC:See Text											MULT:YES	CHOOSE:FEAT=Greater Weapon Focus																																														BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:Feats.rtf
+Greater Weapon Focus.MOD									TYPE:General.Fighter								PREFEAT:1,Weapon Focus																							PREVARGTEQ:WeapSpecQualify,8				DESC:See Text									STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus																																															BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:Feats.rtf
+Greater Weapon Specialization.MOD								TYPE:General.Fighter								PREFEAT:3,Weapon Focus,Greater Weapon Focus,Weapon Specialization																PREVARGTEQ:WeapSpecQualify,12				DESC:See Text											MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Greater Weapon Focus																																														BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:Feats.rtf
 
 Improved Familiar.MOD
 # Use when axiomatic falcon coded - HC Illiir

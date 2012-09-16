@@ -27,11 +27,11 @@ ScoundrelSubClassBonusHP	CATEGORY:Special Ability	TYPE:Subclass.Hidden.Scoundrel
 #ScoundrelSubClassBonusHPlv20	TYPE:Subclass.Hidden.ScoundrelHP		STACK:YES	MULT:YES	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Choose number of bonus Subclass Hp.	BONUS:HP|CURRENTMAX|%CHOICE|PREAPPLY:ANYPC
 
 
-Cast Blackguard Spells	KEY:BlackguardSpellList		CATEGORY:Special Ability	TYPE:SpecialQuality						
+Cast Blackguard Spells	KEY:BlackguardSpellList		CATEGORY:Special Ability	TYPE:SpecialQuality
 ### TODO: Add blackguard spell list if CLERIC
 
 # ~ Knight Subclass
-Squire	KEY:Squire ~ Knight Subclass	
+Squire	KEY:Squire ~ Knight Subclass
 Honor		KEY:Honor ~ Knight Subclass		CATEGORY:Special Ability	TYPE:SpecialQuality		DESC:+%1|HonorScore|PREVARGTEQ:HonorScore,0	DESC:%1|HonorScore|PREVARLT:HonorScore,0	DEFINE:HonorScore|0
 Bonus HP	KEY:Bonus HP ~ Knight Subclass	CATEGORY:Special Ability	TYPE:SpecialQuality		DESC:%1d10 HP|KnightHitDieBonus													DEFINE:KnightHitDieBonus|0
 Sanctuary	KEY:Sanctuary ~ Knight Subclass	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
@@ -42,4 +42,3 @@ No Honor Amoung Thieves	KEY:No Honor Amoung Thieves ~ Scoundrel Subclass	CATEGOR
 Bonus Sneak Attack	KEY:Bonus Sneak Attack ~ Scoundrel Subclass		CATEGORY:Special Ability	TYPE:SpecialQuality				DESC:+%1d%2|ScoundrelSneakAttack|ScoundrelSneakAttackDie	DEFINE:ScoundrelSneakAttackDie|4	DEFINE:ScoundrelSneakAttack|0
 Impromptu Sneak Attack	KEY:Impromptu Sneak Attack ~ Scoundrel Subclass		CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:%1/day|ImpromptuSneakTimes										DEFINE:ImpromptuSneakTimes|0
 Bonus HP			KEY:Bonus HP ~ Scoundrel Subclass				CATEGORY:Special Ability	TYPE:SpecialQuality				DESC:%1d6 HP|ScoundrelHitDieBonus												DEFINE:ScoundrelHitDieBonus|0
-

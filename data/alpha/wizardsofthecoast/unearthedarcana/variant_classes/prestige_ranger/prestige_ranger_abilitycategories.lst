@@ -8,4 +8,3 @@
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
 ABILITYCATEGORY:Prestige Ranger Bonus Feats	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PrestigeRangerBonusFeat	PLURAL:Prestige Ranger Bonus Feats		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Prestige Ranger Unique Spells	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AddRangerSpellCasting	PLURAL:Prestige Ranger Unique Spells	DISPLAYLOCATION:Class Abilities
-

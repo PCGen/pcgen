@@ -65,7 +65,7 @@ Defender's Frenzy		TYPE:Cultural				PREABILITY:1,CATEGORY=Special Ability,Rage		
 Bloodlust			TYPE:Cultural.Fighter																PREFEAT:2,Cleave,Power Attack			PRESTAT:1,STR=13	PRETEMPLATE:1,Region (Foothills)					DESC:See Text																																							SOURCEPAGE:p.60
 Vision of Glory		TYPE:Cultural																											PRETEMPLATE:1,Region (Foothills)					DESC:An immortal has revealed to you the infinite reaches of the divine future																												SOURCEPAGE:p.60
 Whispers in the Dark	TYPE:Metamagic												PREALIGN:LE,NE,CE			PREFEAT:1,Empower Spell							PRETEMPLATE:1,Region (Foothills)					DESC:You have heard the voices of dark things among the root of the mountain																													SOURCEPAGE:p.60
-Corrupted Allegiance	TYPE:Cultural		VISIBLE:NO									PREALIGN:LN,LE,TN,NE,CN,CE											PRETEMPLATE:1,Region (Icehammer Front and the Frostfells)	DESC:You are a part of long-held pacts with the dark creatures of the mountains		MULT:YES	CHOOSE:STRING|incorporeal undead|evil fey|chaotic evil outsiders|neutral evil outsiders|lawful evil outsiders						SOURCEPAGE:p.60
+Corrupted Allegiance	TYPE:Cultural		VISIBLE:NO									PREALIGN:LN,LE,TN,NE,CN,CE											PRETEMPLATE:1,Region (Icehammer Front and the Frostfells)	DESC:You are a part of long-held pacts with the dark creatures of the mountains		MULT:YES	CHOOSE:STRING|chaotic evil outsiders|evil fey|incorporeal undead|lawful evil outsiders|neutral evil outsiders						SOURCEPAGE:p.60
 #Whispers in the Dark	TYPE:Metamagic																											PRETEMPLATE:1,Region (Icehammer Front and the Frostfells)	DESC:Your have learned the secrets of the ancient ice																																	SOURCEPAGE:p.60
 Iceforged Blood		TYPE:Cultural																											PRETEMPLATE:1,Region (Icehammer Front and the Frostfells)	DESC:You have mastered the use of iceforged weapons																																	SOURCEPAGE:p.60
 Iceforged Bone		TYPE:Cultural																											PRETEMPLATE:1,Region (Icehammer Front and the Frostfells)	DESC:You have mastered the unique properties of iceforged armor																															SOURCEPAGE:p.60
@@ -127,7 +127,7 @@ Craft Summoning Pit	TYPE:ItemCreation	PRECLASS:1,SPELLCASTER=12																	
 ###block: Regional Feats Chapter Six
 # Feat Name				Type					Required Class			Required Feat					Required Skill	Required Stat	Required Template										Required Text						Description																						Stackable?	Multiple?	Choose				Selections	Class Skill	Source Page
 Craft Greater Holy Weapon	TYPE:ItemCreation.Cultural	PRECLASS:1,SPELLCASTER=12	PREFEAT:1,Craft Magic Arms and Armor							PRETEMPLATE:1,Region (Kingsmarch)															DESC:See Text																																		SOURCEPAGE:p.105
-Innate Talent			TYPE:Cultural																					PRETEMPLATE:1,Region (Kingsmarch)															DESC:See Text																					STACK:YES	MULT:YES	CHOOSE:SKILLSNAMED|CROSSCLASS	SELECT:2	CSKILL:LIST	SOURCEPAGE:p.105
+Innate Talent			TYPE:Cultural																					PRETEMPLATE:1,Region (Kingsmarch)															DESC:See Text																					STACK:YES	MULT:YES	CHOOSE:SKILL|CROSSCLASS	SELECT:2	CSKILL:LIST	SOURCEPAGE:p.105
 #test test test
 Skilled Prodigy			TYPE:Cultural																					PRETEMPLATE:1,Region (Kingsmarch),Region (Emerlyn)												DESC:See Text																																		SOURCEPAGE:p.105
 #...probably not possible at the moment...

@@ -15,7 +15,7 @@ Jumping Blade				TYPE:Magic.Cursed.Sword	COST:50320	WT:10		SOURCEPAGE:p.11
 
 ###Block: New Entries
 # Equipment Name							Type												Cost		Weight	Move			Source Page		Bonus to skill						Stat bonus					Automatically Gained Feat			Slots		Eqmod
-Amulet of Creation						TYPE:Magic.Artifact.Amulet.Cursed									WT:3					SOURCEPAGE:p.5															ABILITY:FEAT|AUTOMATIC|TYPE.ItemCreation
+Amulet of Creation						TYPE:Magic.Artifact.Amulet.Cursed									WT:3					SOURCEPAGE:p.5															ABILITY:FEAT|AUTOMATIC|TYPE=ItemCreation
 Belt of Armor							TYPE:Magic.Wondrous.Belt.Cursed							COST:1000	WT:3					SOURCEPAGE:p.5
 Cape of the Fish							TYPE:Magic.Wondrous.Cape.Cloak.Cursed						COST:65000	WT:2		MOVE:Swim,30	SOURCEPAGE:p.6
 Circlet of the Learned						TYPE:Magic.Wondrous.Headgear.Circlet.Cursed					COST:47500	WT:1					SOURCEPAGE:p.7	BONUS:SKILL|TYPE.Knowledge|15|TYPE=Insight
@@ -28,7 +28,7 @@ Potion of Mutilate Self						TYPE:Magic.Potion.Cursed								COST:500						SOURC
 Razor Shield of Travel.MOD					TYPE:Magic.Cursed										COST:182650	WT:6					SOURCEPAGE:p.13
 Ring of Competence						TYPE:Magic.Ring.Cursed									COST:50000						SOURCEPAGE:p.14
 Ring of The Whole Truth						TYPE:Magic.Ring.Cursed									COST:120000						SOURCEPAGE:p.15
-Shadmar's Crystal Mask of Languages	NAMEISPI:YES	TYPE:Magic.Mask.Eyegear.Cursed							COST:2500	WT:.5					SOURCEPAGE:p.16
+Shadmar's Crystal Mask of Languages	NAMEISPI:YES	TYPE:Magic.Mask.Eyegear.Cursed							COST:2500	WT:0.5					SOURCEPAGE:p.16
 Spellbook of Research						TYPE:Magic.Cursed.Spellbook.Book							COST:26490	WT:2.5				SOURCEPAGE:p.16																														NUMPAGES:6	PAGEUSAGE:1
 Staff of Hateful Healing					TYPE:Magic.Cursed.Staff									COST:30600	WT:4					SOURCEPAGE:p.18
 Wand of Reciprocal Paralyzation				TYPE:Magic.Wand.Cursed									COST:57600						SOURCEPAGE:p.19																								EQMOD:CHARGED_ITEM_10|CHARGES[10]

@@ -14,6 +14,6 @@ CLASS:Knight Commander	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Knowl
 ### Level Progression:
 2																	ABILITY:Special Ability|AUTOMATIC|Fearless ~ Knight Commander
 3																	ABILITY:Special Ability|AUTOMATIC|Despair ~ Knight Commander
-5																	ABILITY:Special Ability|AUTOMATIC|Hope ~ Knight Commander|Advanced Leadership ~ Knight Commander
+5																	ABILITY:Special Ability|AUTOMATIC|Advanced Leadership ~ Knight Commander|Hope ~ Knight Commander
 7																	ABILITY:Special Ability|AUTOMATIC|Instill Rage ~ Knight Commander
 10																	ABILITY:Special Ability|AUTOMATIC|Supreme Leadership ~ Knight Commander

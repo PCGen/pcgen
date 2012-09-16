@@ -10,7 +10,7 @@ SOURCELONG:Honor and Corruption	SOURCESHORT:Honor	SOURCEWEB:www.aleapublishing.c
 # A random 1 to 10 hp need a mechanism to deal with this... Perhap a PREAPPLY:PC style tag in a feat call...
 
 # Template Name			Visible	Source Page		Special ABility																Define										Required Lvl	Required Template					Modify VAR													Choose								Add 						Ability								Temporary effect description
-Subclass (Knight Lvl 01)			SOURCEPAGE:p.22	ABILITY:Special Ability|AUTOMATIC|Squire ~ Knight Subclass|Honor ~ Knight Subclass	DEFINE:HonorScore|0																																															ABILITY:Special Ability|AUTOMATIC|Indomitable Will
+Subclass (Knight Lvl 01)			SOURCEPAGE:p.22	ABILITY:Special Ability|AUTOMATIC|Honor ~ Knight Subclass|Squire ~ Knight Subclass	DEFINE:HonorScore|0																																															ABILITY:Special Ability|AUTOMATIC|Indomitable Will
 Subclass (Knight Lvl 02)			SOURCEPAGE:p.22																														PRELEVEL:MIN=2	PRETEMPLATE:1,Subclass (Knight Lvl 1)
 Subclass (Knight Lvl 03)			SOURCEPAGE:p.22																														PRELEVEL:MIN=3	PRETEMPLATE:1,Subclass (Knight Lvl 2)
 Subclass (Knight Lvl 04)			SOURCEPAGE:p.22	ABILITY:Special Ability|AUTOMATIC|Bonus HP ~ Knight Subclass													DEFINE:KnightHitDieBonus|0							PRELEVEL:MIN=4	PRETEMPLATE:1,Subclass (Knight Lvl 3)	BONUS:VAR|KnightHitDieBonus|1																			BONUS:ABILITYPOOL|Knight Bonus HP|1
@@ -35,7 +35,7 @@ Subclass (Knight Lvl 20)			SOURCEPAGE:p.22																														PRELEVEL
 #BONUS Skill points 4 each level
 #Every 4 levels begining at 4 gain 1d6 additional hp
 
-Subclass (Scoundrel Lvl 01)			SOURCEPAGE:p.25	ABILITY:Special Ability|AUTOMATIC|No Honor Amoung Thieves ~ Scoundrel Subclass|Bonus Sneak Attack ~ Scoundrel Subclass	DEFINE:ScoundrelSneakAttackDie|4	DEFINE:ScoundrelSneakAttack|0											BONUS:VAR|ScoundrelSneakAttack|1
+Subclass (Scoundrel Lvl 01)			SOURCEPAGE:p.25	ABILITY:Special Ability|AUTOMATIC|Bonus Sneak Attack ~ Scoundrel Subclass|No Honor Amoung Thieves ~ Scoundrel Subclass	DEFINE:ScoundrelSneakAttackDie|4	DEFINE:ScoundrelSneakAttack|0											BONUS:VAR|ScoundrelSneakAttack|1
 Subclass (Scoundrel Lvl 02)			SOURCEPAGE:p.25																														PRELEVEL:MIN=2	PRETEMPLATE:1,Subclass (Scoundrel Lvl 1)
 Subclass (Scoundrel Lvl 03)			SOURCEPAGE:p.25	ABILITY:Special Ability|AUTOMATIC|Impromptu Sneak Attack ~ Scoundrel Subclass									DEFINE:ImpromptuSneakTimes|0							PRELEVEL:MIN=3	PRETEMPLATE:1,Subclass (Scoundrel Lvl 2)	BONUS:VAR|ImpromptuSneakTimes|1
 Subclass (Scoundrel Lvl 04)			SOURCEPAGE:p.25	ABILITY:Special Ability|AUTOMATIC|Bonus HP ~ Scoundrel Subclass												DEFINE:ScoundrelHitDieBonus|0							PRELEVEL:MIN=4	PRETEMPLATE:1,Subclass (Scoundrel Lvl 3)	BONUS:VAR|ScoundrelHitDieBonus|1																		BONUS:ABILITYPOOL|Scoundrel Bonus HP|1

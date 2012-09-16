@@ -189,7 +189,7 @@ CLASS:Exemplar	PREALIGN:CN,LN,NG,NE	PRECHECKBASE:1,Will=5	PREDOMAIN:1,Chaos,Law,
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Exemplar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (Religion)|Perform|Scry|Spellcraft
 ###Block: Class Features
-1	CHOOSE:WEAPONPROF|1|DEITYWEAPON
+1	CHOOSE:NUMCHOICES=1|WEAPONPROFICIENCY|DEITYWEAPON	SELECT:1
 ###Block: Normal Progression
 1						ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Strength of Purpose	AUTO:FEAT|Leadership
 2						ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Divine Wrath
@@ -297,7 +297,7 @@ CLASS:Master of the Swamp	PREALIGN:LN,TN	PREATT:6	PREFEAT:2,Iron Will,Track	PREF
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Master of the Swamp	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE=Craft|Heal|Hide|Intuit Direction|Jump|Listen|Move Silently|Search|Spot|Swim|Use Magic Device|Wilderness Lore
 ###Block: Weapon and Armor Proficiencies
-1	CHOOSE:WEAPONPROF|1|DEITYWEAPON
+1	CHOOSE:NUMCHOICES=1|WEAPONPROFICIENCY|DEITYWEAPON	SELECT:1
 ###Block: Normal Progression
 1	BONUS:VAR|LizardfolkAllyBonus|1							ABILITY:Special Ability|AUTOMATIC|Lizardfolk Ally|Water Breathing	SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Entangle,12+CHA
 2	BONUS:VAR|IncreasedAgilityBonus|1							ABILITY:Special Ability|AUTOMATIC|Increased Agility

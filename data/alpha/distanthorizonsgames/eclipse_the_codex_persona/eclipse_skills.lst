@@ -210,5 +210,3 @@ Thaumaturgy (Umbrancy ~ Spectrum Vision)		USEUNTRAINED:NO	ACHECK:YES			TYPE:Adep
 Thaumaturgy (Umbrancy ~ Gate of Shadow)		USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
 Thaumaturgy (Umbrancy ~ One with Shadow)		USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
 Thaumaturgy (Umbrancy ~ Wind)				USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
-
-

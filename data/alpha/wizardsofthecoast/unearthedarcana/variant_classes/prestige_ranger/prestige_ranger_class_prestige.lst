@@ -5,11 +5,11 @@ SOURCELONG:Unearthed Arcana	SOURCESHORT:UA	SOURCEDATE:2004-02
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Prestige Ranger	HD:8		TYPE:PC.Prestige	ABB:PRgr		MAXLEVEL:15	SOURCEPAGE:p.72	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|2+CL/2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat										Required Skill
-CLASS:Prestige Ranger	PREATT:4	PREFEAT:2,Endurance,Track	PREFEAT:1,Two Weapon Fighting,Rapid Shot	PRESKILL:2,Knowledge (Nature)=2,Survival=4	!PRECLASS:1,Ranger
+CLASS:Prestige Ranger	PREATT:4	PREFEAT:2,Endurance,Track	PREFEAT:1,Two Weapon Fighting,Rapid Shot	PRESKILL:2,Knowledge (Nature)=2,Survival=4	!PRECLASS:1,Ranger=1
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Prestige Ranger	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE.Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE.Profession|Ride|Search|Spot|Survival|Swim|Use Rope
+CLASS:Prestige Ranger	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Survival|Swim|Use Rope
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Favored Enemy level stacking

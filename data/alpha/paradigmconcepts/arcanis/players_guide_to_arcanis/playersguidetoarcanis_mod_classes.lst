@@ -203,7 +203,7 @@ SUBCLASSLEVEL:2																																														ADD:FEAT|Combat Fir
 SUBCLASSLEVEL:6																																														ADD:FEAT|Improved Disarm,Martial Weapon Technique (Flintlock (Pistol)),Martial Weapon Technique (Warhammer)
 SUBCLASS:Order of the Blade			COST:0	TEMPLATE:OrderofBladeFavClass
 SUBCLASSLEVEL:1													ABILITY:Special Ability|AUTOMATIC|.CLEAR.All Automatic Proficiencies|.CLEAR.Monk Weapon Proficiencies																	ADD:ABILITY|Special Ability|NORMAL|Longsword Weapon Focus,Stunning Fist																		VFEAT:Martial Weapon Proficiency(Longsword)																							AUTO:WEAPONPROF|Unarmed Strike
-SUBCLASSLEVEL:2																																														ADD:FEAT|Greater Weapon Focus(Longsword),Combat Reflexes
+SUBCLASSLEVEL:2																																														ADD:FEAT|Combat Reflexes,Greater Weapon Focus(Longsword)
 SUBCLASSLEVEL:6																																														ADD:FEAT|Improved Disarm,Martial Weapon Technique (Longsword)
 SUBCLASS:Order of the Bronze Sepulcher	COST:0	TEMPLATE:OrderBronzeSepulcherFavClass
 SUBCLASSLEVEL:1													ABILITY:Special Ability|NORMAL|Brothers of the Crypt

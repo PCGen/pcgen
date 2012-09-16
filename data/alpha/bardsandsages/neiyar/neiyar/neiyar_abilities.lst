@@ -27,15 +27,15 @@ Inflict Light Wounds		KEY:Zarakku_ILW						CATEGORY:Special Ability	CATEGORY:Spe
 
 ###Block:Trapper Class Abilities
 # Feat Name		Type			Visible	Special ABility				Weapon prof. bonus
-Trapmaking				KEY:Trapmaking		CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden		
-Detect/Disarm Traps		KEY:DetectDisarm Traps	CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden		
+Trapmaking				KEY:Trapmaking		CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden
+Detect/Disarm Traps		KEY:DetectDisarm Traps	CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden
 Net Use				KEY:NetUse			CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden							BONUS:WEAPONPROF=Net|TOHIT|2
-Detect Secret/Hidden Doors	KEY:DetectSecretDoors	CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden		
-Trapped Weapons			KEY:TrappedWeapons	CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden		
-Trap Potency			KEY:TrapPotency		CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden		
-Damage Reduction vs traps	KEY:DamageReduction	CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden		
-Master Trapmaker			KEY:MasterTrapMaker	CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden		
-Reveal Traps			KEY:RevealTraps		CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden		
+Detect Secret/Hidden Doors	KEY:DetectSecretDoors	CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden
+Trapped Weapons			KEY:TrappedWeapons	CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden
+Trap Potency			KEY:TrapPotency		CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden
+Damage Reduction vs traps	KEY:DamageReduction	CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden
+Master Trapmaker			KEY:MasterTrapMaker	CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden
+Reveal Traps			KEY:RevealTraps		CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden
 
 ###Block:HEARTH MAGIC HIDDEN FEATS:
 # Feat Name							Product Identity?	Type			Visible	Special ABility								Source Page
@@ -60,13 +60,13 @@ Share the Pain				CATEGORY:Special Ability	TYPE:SpecialQuality.SpecialQuality.Su
 
 ###Block: Monster Template - Feats
 # Feat Name			Type				Visible	Special ABility
-Alignment Shift		CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit.Supernatural		
-Healing Touch		CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit.Supernatural		
-Glare of Reckoning	CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit.Supernatural		
-Hand of Destiny		CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit.Supernatural		
-Answer Prayers		CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit		
-Blessings			CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit		
-Miracle			CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit		
+Alignment Shift		CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit.Supernatural
+Healing Touch		CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit.Supernatural
+Glare of Reckoning	CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit.Supernatural
+Hand of Destiny		CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit.Supernatural
+Answer Prayers		CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit
+Blessings			CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit
+Miracle			CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit
 
 
 #
@@ -86,72 +86,72 @@ Final Fury			KEY:Final Fury ~ Gate Guardian								CATEGORY:Special Ability	TYPE
 
 Eyes of Sorrow		KEY:Eyes of Sorrow ~ Totem Spirit							CATEGORY:Special Ability	TYPE:SpecialQuality
 Spell Immunity		KEY:Spell Immunity ~ Totem Spirit							CATEGORY:Special Ability	TYPE:SpecialQuality
-Telepathy			KEY:Telepathy ~ Totem Spirit								CATEGORY:Special Ability	TYPE:SpecialQuality	
+Telepathy			KEY:Telepathy ~ Totem Spirit								CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Tiger Shaman
-Tiger Form				KEY:Tiger Form ~ Tiger Shaman	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Dire Tiger Form			KEY:Dire Tiger Form ~ Tiger Shaman	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Wrath of the Tiger Lord		KEY:Wrath of the Tiger Lord ~ Tiger Shaman	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Blessing of the Tiger Lord	KEY:Blessing of the Tiger Lord ~ Tiger Shaman	CATEGORY:Special Ability	TYPE:SpecialQuality	
+Tiger Form				KEY:Tiger Form ~ Tiger Shaman	CATEGORY:Special Ability	TYPE:SpecialQuality
+Dire Tiger Form			KEY:Dire Tiger Form ~ Tiger Shaman	CATEGORY:Special Ability	TYPE:SpecialQuality
+Wrath of the Tiger Lord		KEY:Wrath of the Tiger Lord ~ Tiger Shaman	CATEGORY:Special Ability	TYPE:SpecialQuality
+Blessing of the Tiger Lord	KEY:Blessing of the Tiger Lord ~ Tiger Shaman	CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Arcane Rogue
-Silent Caster	KEY:Silent Caster ~ Arcane Rogue	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Arcane Backstab	KEY:Arcane Backstab ~ Arcane Rogue	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Still Caster	KEY:Still Caster ~ Arcane Rogue	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Dispel Traps and Locks	KEY:Dispel Traps and Locks ~ Arcane Rogue	CATEGORY:Special Ability	TYPE:SpecialQuality	
+Silent Caster	KEY:Silent Caster ~ Arcane Rogue	CATEGORY:Special Ability	TYPE:SpecialQuality
+Arcane Backstab	KEY:Arcane Backstab ~ Arcane Rogue	CATEGORY:Special Ability	TYPE:SpecialQuality
+Still Caster	KEY:Still Caster ~ Arcane Rogue	CATEGORY:Special Ability	TYPE:SpecialQuality
+Dispel Traps and Locks	KEY:Dispel Traps and Locks ~ Arcane Rogue	CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Arcane Warrior
-Steel Mind	KEY:Steel Mind ~ Arcane Warrior	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Armor Skill	KEY:Armor Skill ~ Arcane Warrior	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Enhanced Combat Casting	KEY:Enhanced Combat Casting ~ Arcane Warrior	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Enhanced Armor Skill	KEY:Enhanced Armor Skill ~ Arcane Warrior	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Mystic Weapon	KEY:Mystic Weapon ~ Arcane Warrior	CATEGORY:Special Ability	TYPE:SpecialQuality	
+Steel Mind	KEY:Steel Mind ~ Arcane Warrior	CATEGORY:Special Ability	TYPE:SpecialQuality
+Armor Skill	KEY:Armor Skill ~ Arcane Warrior	CATEGORY:Special Ability	TYPE:SpecialQuality
+Enhanced Combat Casting	KEY:Enhanced Combat Casting ~ Arcane Warrior	CATEGORY:Special Ability	TYPE:SpecialQuality
+Enhanced Armor Skill	KEY:Enhanced Armor Skill ~ Arcane Warrior	CATEGORY:Special Ability	TYPE:SpecialQuality
+Mystic Weapon	KEY:Mystic Weapon ~ Arcane Warrior	CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Chosen of Agri
-Transport via Plants	KEY:Transport via Plants ~ Chosen of Agri	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Command Plants	KEY:Command Plants ~ Chosen of Agri	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Plantmorph	KEY:Plantmorph ~ Chosen of Agri	CATEGORY:Special Ability	TYPE:SpecialQuality	
+Transport via Plants	KEY:Transport via Plants ~ Chosen of Agri	CATEGORY:Special Ability	TYPE:SpecialQuality
+Command Plants	KEY:Command Plants ~ Chosen of Agri	CATEGORY:Special Ability	TYPE:SpecialQuality
+Plantmorph	KEY:Plantmorph ~ Chosen of Agri	CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Chosen of Roarth
-Speak with Animals	KEY:Speak with Animals ~ Chosen of Roarth	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Wild Shape	KEY:Wild Shape ~ Chosen of Roarth					DESC: %1/day|WSTimes	DEFINE:WSTimes|0	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Anima	KEY:Anima ~ Chosen of Roarth	CATEGORY:Special Ability	TYPE:SpecialQuality	
+Speak with Animals	KEY:Speak with Animals ~ Chosen of Roarth	CATEGORY:Special Ability	TYPE:SpecialQuality
+Wild Shape	KEY:Wild Shape ~ Chosen of Roarth					DESC: %1/day|WSTimes	DEFINE:WSTimes|0	CATEGORY:Special Ability	TYPE:SpecialQuality
+Anima	KEY:Anima ~ Chosen of Roarth	CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Healer
-Agri's Touch	KEY:Agri's Touch ~ Healer	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Preemptive Healing	KEY:Preemptive Healing ~ Healer	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Combat Healing	KEY:Combat Healing ~ Healer	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Agri's Gift	KEY:Agri's Gift ~ Healer	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Regenerative Touch	KEY:Regenerative Touch ~ Healer	CATEGORY:Special Ability	TYPE:SpecialQuality	
+Agri's Touch	KEY:Agri's Touch ~ Healer	CATEGORY:Special Ability	TYPE:SpecialQuality
+Preemptive Healing	KEY:Preemptive Healing ~ Healer	CATEGORY:Special Ability	TYPE:SpecialQuality
+Combat Healing	KEY:Combat Healing ~ Healer	CATEGORY:Special Ability	TYPE:SpecialQuality
+Agri's Gift	KEY:Agri's Gift ~ Healer	CATEGORY:Special Ability	TYPE:SpecialQuality
+Regenerative Touch	KEY:Regenerative Touch ~ Healer	CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Prankmaster
-Sixth Sense				KEY:Sixth Sense ~ Prankmaster	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Sleight of Hand				KEY:Slight of Hand ~ Prankmaster		DESC: %1d6|SlightOfHandDamage	DEFINE:SlightOfHandDamage|0	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Riddles				KEY:Riddles ~ Prankmaster	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Master Trickster				KEY:Master Trickster ~ Prankmaster	CATEGORY:Special Ability	TYPE:SpecialQuality	
+Sixth Sense				KEY:Sixth Sense ~ Prankmaster	CATEGORY:Special Ability	TYPE:SpecialQuality
+Sleight of Hand				KEY:Slight of Hand ~ Prankmaster		DESC: %1d6|SlightOfHandDamage	DEFINE:SlightOfHandDamage|0	CATEGORY:Special Ability	TYPE:SpecialQuality
+Riddles				KEY:Riddles ~ Prankmaster	CATEGORY:Special Ability	TYPE:SpecialQuality
+Master Trickster				KEY:Master Trickster ~ Prankmaster	CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Shadowblade
-Shadow Movement	KEY:Shadow Movement ~ Shadowblade	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Vampiric Blade	KEY:Vampiric Blade ~ Shadowblade	DESC: 1/day	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Shadow Form	KEY:Shadow Form ~ Shadowblade	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Death Resistance	KEY:Death Resistance ~ Shadowblade	CATEGORY:Special Ability	TYPE:SpecialQuality	
+Shadow Movement	KEY:Shadow Movement ~ Shadowblade	CATEGORY:Special Ability	TYPE:SpecialQuality
+Vampiric Blade	KEY:Vampiric Blade ~ Shadowblade	DESC: 1/day	CATEGORY:Special Ability	TYPE:SpecialQuality
+Shadow Form	KEY:Shadow Form ~ Shadowblade	CATEGORY:Special Ability	TYPE:SpecialQuality
+Death Resistance	KEY:Death Resistance ~ Shadowblade	CATEGORY:Special Ability	TYPE:SpecialQuality
 
 #  ~ Soulreaper
-AC Bonus	KEY:AC Bonus ~ Soulreaper			DESC: +%1|SoulreaperAC			BONUS:COMBAT|AC|SoulreaperAC		DEFINE:SoulreaperAC|0	CATEGORY:Special Ability	TYPE:SpecialQuality	
-DR	KEY:DR ~ Soulreaper				DESC: %1/+%2|SoulreaperDR|SoulreaperDRPlus		DEFINE:SoulreaperDRPlus|0	DEFINE:SoulreaperDR|0	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Reap Soul	KEY:Reap Soul ~ Soulreaper	CATEGORY:Special Ability	TYPE:SpecialQuality	
+AC Bonus	KEY:AC Bonus ~ Soulreaper			DESC: +%1|SoulreaperAC			BONUS:COMBAT|AC|SoulreaperAC		DEFINE:SoulreaperAC|0	CATEGORY:Special Ability	TYPE:SpecialQuality
+DR	KEY:DR ~ Soulreaper				DESC: %1/+%2|SoulreaperDR|SoulreaperDRPlus		DEFINE:SoulreaperDRPlus|0	DEFINE:SoulreaperDR|0	CATEGORY:Special Ability	TYPE:SpecialQuality
+Reap Soul	KEY:Reap Soul ~ Soulreaper	CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Swan Bard
-Clerical Spells	KEY:Clerical Spells	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Divine Talent	KEY:Divine Talent	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Divine Beauty	KEY:Divine Beauty	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Swanmorph	KEY:Swanmorph	CATEGORY:Special Ability	TYPE:SpecialQuality	
+Clerical Spells	KEY:Clerical Spells	CATEGORY:Special Ability	TYPE:SpecialQuality
+Divine Talent	KEY:Divine Talent	CATEGORY:Special Ability	TYPE:SpecialQuality
+Divine Beauty	KEY:Divine Beauty	CATEGORY:Special Ability	TYPE:SpecialQuality
+Swanmorph	KEY:Swanmorph	CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Wild Walker
 Charm Monster	KEY:Charm Monster	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Fast Movement	KEY:Fast Movement	CATEGORY:Special Ability	TYPE:SpecialQuality	
+Fast Movement	KEY:Fast Movement	CATEGORY:Special Ability	TYPE:SpecialQuality
 Summon Monster	KEY:Summon Monster	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Monstrous Companion	KEY:Monstrous Companion	CATEGORY:Special Ability	TYPE:SpecialQuality	
+Monstrous Companion	KEY:Monstrous Companion	CATEGORY:Special Ability	TYPE:SpecialQuality
 Monstrous Form	KEY:Monstrous Form	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
 

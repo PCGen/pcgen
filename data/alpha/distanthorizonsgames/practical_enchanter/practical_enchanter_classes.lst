@@ -6,9 +6,9 @@ SOURCELONG:DHG - The Practical Enchanter	SOURCESHORT:TPE	SOURCEWEB:http://www.lu
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Prophet	HD:8		TYPE:Base.PC	ABB:Prp		MAXLEVEL:20	SOURCEPAGE:p.219	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Prophet	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Knowledge (Religion)|TYPE.Profession|Spellcraft
+CLASS:Prophet	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Knowledge (Religion)|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level			Use Spell List
-CLASS:Prophet	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Prophet|CL	SPELLLIST:2|Druid|Cleric
+CLASS:Prophet	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Prophet|CL	SPELLLIST:2|Cleric|Druid
 1	BONUS:DOMAIN|NUMBER|2
 1																AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 1					ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
@@ -35,4 +35,3 @@ CLASS:Prophet	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Proph
 18	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1
 19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
 20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
-

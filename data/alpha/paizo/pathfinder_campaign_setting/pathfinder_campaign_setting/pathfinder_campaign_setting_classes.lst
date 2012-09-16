@@ -72,7 +72,7 @@ CLASS:Red Mantis Assassin	STARTSKILLPTS:6
 # Class Name			Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Red Mantis Assassin	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Red Mantis Assassin|CL
 ###Block: Ability Progression
-1	BONUS:VAR|SneakAttack|(CL+2)/3	ABILITY:Special Ability|AUTOMATIC|Sneak Attack|Sawtooth Mastery
+1	BONUS:VAR|SneakAttack|(CL+2)/3	ABILITY:Special Ability|AUTOMATIC|Sawtooth Mastery|Sneak Attack
 2							ABILITY:Special Ability|AUTOMATIC|Prayer Attack
 3							ABILITY:Special Ability|AUTOMATIC|Red Shroud
 4							ABILITY:Special Ability|AUTOMATIC|Call Mantis
@@ -81,10 +81,10 @@ CLASS:Red Mantis Assassin	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTE
 8							ABILITY:Special Ability|AUTOMATIC|Fading
 9							ABILITY:Special Ability|AUTOMATIC|Mantis Doom
 ###Block: Red Mantis Assassin Spell List
-1	SPELLLEVEL:CLASS|Red Mantis Assassin=1|Animate Rope,Cause Fear,Disguise Self,Darkvision,Detect Magic,Expeditious Retreat,Feather Fall,Ghost Sound,Inflict Light Wounds,Jump,Magic Fang,Obscuring Mist,Silent Image,Spider Climb,True Strike
+1	SPELLLEVEL:CLASS|Red Mantis Assassin=1|Animate Rope,Cause Fear,Darkvision,Detect Magic,Disguise Self,Expeditious Retreat,Feather Fall,Ghost Sound,Inflict Light Wounds,Jump,Magic Fang,Obscuring Mist,Silent Image,Spider Climb,True Strike
 1	SPELLLEVEL:CLASS|Red Mantis Assassin=2|Alter Self,Blur,Cat's Grace,Darkness,Fog Cloud,Hold Person,Inflict Moderate Wounds,Invisibility,Keen Edge,Levitate,Minor Image,Scare,See Invisibility,Summon Swarm
 1	SPELLLEVEL:CLASS|Red Mantis Assassin=3|Clairaudience/Clairvoyance,Deeper Darkness,Fear,Fly,Gaseous Form,Giant Vermin,Inflict Serious Wounds,Major Image,Rage,Scrying
-1	SPELLLEVEL:CLASS|Red Mantis Assassin=4|Dimension Door,Invisibility (Greater),Inflict Critical Wounds,Insect Plague,Modify Memory,Phantasmal Killer,Polymorph,Solid Fog
+1	SPELLLEVEL:CLASS|Red Mantis Assassin=4|Dimension Door,Inflict Critical Wounds,Insect Plague,Invisibility (Greater),Modify Memory,Phantasmal Killer,Polymorph,Solid Fog
 1	SPELLLEVEL:CLASS|Red Mantis Assassin=5|Mark of Justice,Nightmare,Prying Eyes,Slay Living,Word of Recall
 ###Block: Spell progression
 1	CAST:0,0		KNOWN:0,2
@@ -119,5 +119,3 @@ CLASS:Shackles Pirate	STARTSKILLPTS:8
 #
 # End
 #
-
-

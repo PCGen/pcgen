@@ -54,7 +54,7 @@ CLASS:Paladin of Slaughter	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LE
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Level progression
 1				BONUS:VAR|AuraEvil,DetectGoodLVL,PaladinSmiteGoodLVL|CL	DEFINE:AllowUnholyAvenger|1	ABILITY:Special Ability|AUTOMATIC|Aura of Evil|Detect Good|Paladin of Slaughter Smite Good|Smite Good
-2				BONUS:VAR|DeadlyTouchLVL|CL											ABILITY:Special Ability|AUTOMATIC|Divine Grace|Deadly Touch
+2				BONUS:VAR|DeadlyTouchLVL|CL											ABILITY:Special Ability|AUTOMATIC|Deadly Touch|Divine Grace
 3																			ABILITY:Special Ability|AUTOMATIC|Debilitating Aura|Divine Health
 4	CAST:0,0		BONUS:VAR|PaladinTurnLVL|CL											ABILITY:Special Ability|AUTOMATIC|Basic Turning|Paladin of Slaughter Rebuke Undead|Rebuke Undead
 5	CAST:0,0		BONUS:VAR|SMLevel|CL												ABILITY:Special Ability|AUTOMATIC|Special Mount
@@ -88,7 +88,7 @@ CLASS:Paladin of Tyranny	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVE
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Level progression
 1				BONUS:VAR|AuraEvil,DetectGoodLVL,PaladinSmiteGoodLVL|CL	DEFINE:AllowUnholyAvenger|1	ABILITY:Special Ability|AUTOMATIC|Aura of Evil|Detect Good|Paladin of Tyranny Smite Good|Smite Good
-2				BONUS:VAR|DeadlyTouchLVL|CL											ABILITY:Special Ability|AUTOMATIC|Divine Grace|Deadly Touch
+2				BONUS:VAR|DeadlyTouchLVL|CL											ABILITY:Special Ability|AUTOMATIC|Deadly Touch|Divine Grace
 3																			ABILITY:Special Ability|AUTOMATIC|Aura of Despair|Divine Health
 4	CAST:0,0		BONUS:VAR|PaladinTurnLVL|CL											ABILITY:Special Ability|AUTOMATIC|Basic Turning|Paladin of Tyranny Rebuke Undead|Rebuke Undead
 5	CAST:0,0		BONUS:VAR|SMLevel|CL												ABILITY:Special Ability|AUTOMATIC|Special Mount

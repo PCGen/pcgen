@@ -14,5 +14,3 @@ Chaotic Burst	CLASSES:Sorcerer,Wizard=6		SCHOOL:Transmutation					DESCRIPTOR:Cha
 Form Binding	CLASSES:Sorcerer,Wizard=4		SCHOOL:Abjuration											TYPE:Arcane	COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:1 living creature, special (see below)	DURATION:(CASTERLEVEL) rounds	SAVEINFO:Will negates		SPELLRES:Yes	DESC:See text.	SOURCEPAGE:p.17
 Longevity		CLASSES:Sorcerer,Wizard=9		SCHOOL:Necromancy						DESCRIPTOR:Evil			TYPE:Arcane	COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Living creature touched				DURATION:Instantaneous		SAVEINFO:Will negates		SPELLRES:Yes	DESC:See text.	SOURCEPAGE:p.17
 Spell Restore	CLASSES:Sorcerer,Wizard=8		SCHOOL:Transmutation										TYPE:Arcane	COMPS:V		CASTTIME:10 minutes		RANGE:Personal			TARGETAREA:You							DURATION:Instantaneous										DESC:See text.	SOURCEPAGE:p.18
-
-

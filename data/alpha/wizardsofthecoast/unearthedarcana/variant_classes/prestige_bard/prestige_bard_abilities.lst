@@ -8,6 +8,5 @@ SOURCELONG:Unearthed Arcana	SOURCESHORT:UA	SOURCEDATE:2004-02
 #Note that these are only the core classes, and when using sources with additional (arcane casting) classes, the appropriate abilities would need to be added.
 #Note that these are only the spells from the RSRD.
 # Ability Name				Category of Ability		Type					Visible		Required Class		List of Class Spells by Level
-Add Bard Spellcasting to Wizard	CATEGORY:Special Ability	TYPE:AddBardSpellCasting	VISIBLE:DISPLAY	PRECLASS:1,Wizard		SPELLLEVEL:CLASS|Wizard=0|Lullaby,Summon Instrument|Wizard=1|Confusion (Lesser)|Wizard=3|Glibness,Good Hope,Sculpt Sound|Wizard=4|Modify Memory,Zone of Silence|Wizard=5|Song of Discord|Wizard=6|Sympathetic Vibration
-Add Bard Spellcasting to Sorcerer	CATEGORY:Special Ability	TYPE:AddBardSpellCasting	VISIBLE:DISPLAY	PRECLASS:1,Sorcerer	SPELLLEVEL:CLASS|Sorcerer=0|Lullaby,Summon Instrument|Sorcerer=1|Confusion (Lesser)|Sorcerer=3|Glibness,Good Hope,Sculpt Sound|Sorcerer=4|Modify Memory,Zone of Silence|Sorcerer=5|Song of Discord|Sorcerer=6|Sympathetic Vibration
-
+Add Bard Spellcasting to Wizard	CATEGORY:Special Ability	TYPE:AddBardSpellCasting	VISIBLE:DISPLAY	PRECLASS:1,Wizard=1		SPELLLEVEL:CLASS|Wizard=0|Lullaby,Summon Instrument|Wizard=1|Confusion (Lesser)|Wizard=3|Glibness,Good Hope,Sculpt Sound|Wizard=4|Modify Memory,Zone of Silence|Wizard=5|Song of Discord|Wizard=6|Sympathetic Vibration
+Add Bard Spellcasting to Sorcerer	CATEGORY:Special Ability	TYPE:AddBardSpellCasting	VISIBLE:DISPLAY	PRECLASS:1,Sorcerer=1	SPELLLEVEL:CLASS|Sorcerer=0|Lullaby,Summon Instrument|Sorcerer=1|Confusion (Lesser)|Sorcerer=3|Glibness,Good Hope,Sculpt Sound|Sorcerer=4|Modify Memory,Zone of Silence|Sorcerer=5|Song of Discord|Sorcerer=6|Sympathetic Vibration

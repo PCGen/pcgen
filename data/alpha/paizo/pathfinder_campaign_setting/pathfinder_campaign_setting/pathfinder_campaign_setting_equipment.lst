@@ -58,8 +58,8 @@ Scattergun		PROFICIENCY:WEAPON|Firearms	TYPE:Weapon.Exotic.Ranged.Standard.Firea
 
 ###Block: Ammunition
 # Equipment Name	Type								Cost		Weight	Base Quantity	Modifier	Requires Modification?	Source Page
-Blowgun Dart	TYPE:Ammunition.Standard.Dart.Individual		COST:.05	WT:0		BASEQTY:1		EQMOD:WOOD					SOURCEPAGE:p.211
-Bullet		TYPE:Ammunition.Standard.Bullet.Individual	COST:.1	WT:0		BASEQTY:1		EQMOD:STEEL					SOURCEPAGE:p.211
+Blowgun Dart	TYPE:Ammunition.Standard.Dart.Individual		COST:0.05	WT:0		BASEQTY:1		EQMOD:WOOD					SOURCEPAGE:p.211
+Bullet		TYPE:Ammunition.Standard.Bullet.Individual	COST:0.1	WT:0		BASEQTY:1		EQMOD:STEEL					SOURCEPAGE:p.211
 Smoke Bullet	TYPE:Ammunition.Standard.Bullet.Individual	COST:100	WT:0		BASEQTY:1		EQMOD:STEEL					SOURCEPAGE:p.211
 Thistle Arrow	TYPE:Ammunition.Standard.Arrow.Individual		COST:1	WT:0.15	BASEQTY:1		EQMOD:WOOD	MODS:YES			SOURCEPAGE:p.211
 
@@ -89,7 +89,7 @@ Necrotic Talisman								TYPE:Goods							COST:500	WT:1		SOURCEPAGE:p.213
 Perfume (Common)			OUTPUTNAME:Perfume, Common	TYPE:Goods.Consumable					COST:1	WT:0		SOURCEPAGE:p.213
 Perfume (Rare)			OUTPUTNAME:Perfume, Rare	TYPE:Goods.Consumable					COST:10	WT:0		SOURCEPAGE:p.213
 Perfume (Exotic)			OUTPUTNAME:Perfume, Exotic	TYPE:Goods.Consumable					COST:100	WT:0		SOURCEPAGE:p.213
-Scarf (Pocketed)			OUTPUTNAME:Scarf, Pocketed	TYPE:Goods.Container	CONTAINS:UNLIM|Any	COST:8	WT:.5		SOURCEPAGE:p.213
+Scarf (Pocketed)			OUTPUTNAME:Scarf, Pocketed	TYPE:Goods.Container	CONTAINS:UNLIM|Any	COST:8	WT:0.5		SOURCEPAGE:p.213
 Scarf (Reinforced)		OUTPUTNAME:Scarf, Reinforced	TYPE:Goods							COST:10	WT:1		SOURCEPAGE:p.213
 Unguent of Revivification						TYPE:Goods.Consumable					COST:50	WT:0		SOURCEPAGE:p.213
 

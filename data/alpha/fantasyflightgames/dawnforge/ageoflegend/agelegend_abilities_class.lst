@@ -41,7 +41,7 @@ Extend Spirit			CATEGORY:Special Ability	TYPE:DiscipleMysteryDiscipline	VISIBLE:
 Focus Self				CATEGORY:Special Ability	TYPE:DiscipleMysteryDiscipline	VISIBLE:DISPLAY					SAB:Focus Self																SOURCEPAGE:p.56
 
 
-Orc Adapter Cultural Study	CATEGORY:Special Ability	TYPE:Special.OrcAdapterCultural	VISIBLE:DISPLAY	PRERACE:1,Orc (DF)	SAB:Cultural Study (%CHOICE)	MULT:YES	CHOOSE:STRING|Doppelganger|Dwarf|Dawn Elf|Ghost Elf|Wood Elf	SOURCEPAGE:p.70
+Orc Adapter Cultural Study	CATEGORY:Special Ability	TYPE:Special.OrcAdapterCultural	VISIBLE:DISPLAY	PRERACE:1,Orc (DF)	SAB:Cultural Study (%CHOICE)	MULT:YES	CHOOSE:STRING|Dawn Elf|Doppelganger|Dwarf|Ghost Elf|Wood Elf	SOURCEPAGE:p.70
 
 
 ###Block: Circle Walker's Gift

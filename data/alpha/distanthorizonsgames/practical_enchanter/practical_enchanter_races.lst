@@ -4,9 +4,5 @@ SOURCELONG:DHG - The Practical Enchanter	SOURCESHORT:TPE	SOURCEWEB:http://www.lu
 
 
 # Race Name		Size		Move						Face/Space	Reach		Vision					Combat bonus										Stat bonus									Ability															Natural Attacks								Damage Reduction	Monster Class Name and Starting Level	Main Race Type		Template			Challenge Rating	Apply Kit
-Animated Caravan	SIZE:H	MOVE:Walk,80,Wheels,120,Swim,80	FACE:15	REACH:10	VISION:Low-light|Darkvision (60')	BONUS:COMBAT|AC|2|TYPE=Dodge	BONUS:COMBAT|AC|14|TYPE=NaturalArmor	BONUS:STAT|STR|18	BONUS:STAT|DEX|-2	BONUS:STAT|CHA|-10	ABILITY:Special Ability|AUTOMATIC|Animated Caravan ~ Rock Hurling|Animated Caravan ~ Resistance	NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,3d6	DR:6/Adamantium	MONSTERCLASS:Construct:16			RACETYPE:Construct	TEMPLATE:Construct	CR:12			KIT:1|Default Animated Caravan
-Pinata Golem	SIZE:L	MOVE:Walk,100				FACE:10	REACH:0	VISION:Low-light|Darkvision (60')	BONUS:COMBAT|AC|1|TYPE=Dodge	BONUS:COMBAT|AC|13|TYPE=NaturalArmor	BONUS:STAT|STR|16	BONUS:STAT|DEX|2	BONUS:STAT|CHA|-10	ABILITY:Special Ability|AUTOMATIC|Immunity to Magic								NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,2d8	DR:8/Adamantium	MONSTERCLASS:Construct:12			RACETYPE:Construct	TEMPLATE:Construct	CR:6			KIT:1|Default Pinata Golem
-
-
-
-
+Animated Caravan	SIZE:H	MOVE:Walk,80,Wheels,120,Swim,80	FACE:15	REACH:10	VISION:Darkvision (60')|Low-light	BONUS:COMBAT|AC|2|TYPE=Dodge	BONUS:COMBAT|AC|14|TYPE=NaturalArmor	BONUS:STAT|STR|18	BONUS:STAT|DEX|-2	BONUS:STAT|CHA|-10	ABILITY:Special Ability|AUTOMATIC|Animated Caravan ~ Resistance|Animated Caravan ~ Rock Hurling	NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,3d6	DR:6/Adamantium	MONSTERCLASS:Construct:16			RACETYPE:Construct	TEMPLATE:Construct	CR:12			KIT:1|Default Animated Caravan
+Pinata Golem	SIZE:L	MOVE:Walk,100				FACE:10	REACH:0	VISION:Darkvision (60')|Low-light	BONUS:COMBAT|AC|1|TYPE=Dodge	BONUS:COMBAT|AC|13|TYPE=NaturalArmor	BONUS:STAT|STR|16	BONUS:STAT|DEX|2	BONUS:STAT|CHA|-10	ABILITY:Special Ability|AUTOMATIC|Immunity to Magic								NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,2d8	DR:8/Adamantium	MONSTERCLASS:Construct:12			RACETYPE:Construct	TEMPLATE:Construct	CR:6			KIT:1|Default Pinata Golem

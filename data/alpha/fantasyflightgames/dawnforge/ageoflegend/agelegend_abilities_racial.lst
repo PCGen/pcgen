@@ -316,7 +316,7 @@ Thoughtful		CATEGORY:Special Ability	TYPE:HighlanderRacialTransformation.Special
 Elnaria		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES																										BONUS:SKILL|Knowledge (Geography)|2|TYPE=Talent		CSKILL:Knowledge (Geography)		SOURCEPAGE:p.47
 #+ a Knowledge skill of his choice...
 Larakis		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES																																									SOURCEPAGE:p.47
-Ironwall		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES	MULT:YES	CHOOSE:WEAPONPROFS|TYPE=Simple|TYPE=Martial	SELECT:3								BONUS:COMBAT|TOHIT.%LIST|1|TYPE=Talent																SOURCEPAGE:p.47
+Ironwall		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES	MULT:YES	CHOOSE:WEAPONPROFICIENCY|EQUIPMENT[TYPE=Martial]|EQUIPMENT[TYPE=Simple]	SELECT:3								BONUS:COMBAT|TOHIT.%LIST|1|TYPE=Talent																SOURCEPAGE:p.47
 #TODO:zzzzz Ironwall...
 Riversend		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES																																									SOURCEPAGE:p.47
 Seaward		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES												BONUS:CHECKS|Fortitude|2|TYPE=Talent																							SOURCEPAGE:p.47

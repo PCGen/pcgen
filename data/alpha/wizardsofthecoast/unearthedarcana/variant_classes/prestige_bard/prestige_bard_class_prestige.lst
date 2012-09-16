@@ -5,11 +5,11 @@ SOURCELONG:Unearthed Arcana	SOURCESHORT:UA	SOURCEDATE:2004-02
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Prestige Bard	HD:6		TYPE:PC.Prestige	ABB:PBrd		MAXLEVEL:15	SOURCEPAGE:p.69	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Restricted AL		Req. Att.	Required Skill						Required Spell School
-CLASS:Prestige Bard	!PREALIGN:LG,LN,LE	PREATT:3	PRESKILL:2,TYPE.Knowledge=4,TYPE.Perform=8	PRESPELLSCHOOL:1,Divination=1	PRESPELLSCHOOL:1,Enchantment=1	PRESPELLSCHOOL:1,Illusion=1	!PRECLASS:1,Bard
+CLASS:Prestige Bard	!PREALIGN:LG,LN,LE	PREATT:3	PRESKILL:2,TYPE.Knowledge=4,TYPE.Perform=8	PRESPELLSCHOOL:1,Divination=1	PRESPELLSCHOOL:1,Enchantment=1	PRESPELLSCHOOL:1,Illusion=1	!PRECLASS:1,Bard=1
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Prestige Bard	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE.Knowledge|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Swim|Tumble|Use Magic Device
+CLASS:Prestige Bard	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Swim|Tumble|Use Magic Device
 ###Block:Proficiencies
-1																												ABILITY:Special Ability|AUTOMATIC|Bard Weapon Proficiencies|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1																												ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Bard Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1																																											AUTO:FEAT|Armor Proficiency (Light)
 1																																											AUTO:FEAT|Shield Proficiency
 # caster level adjustments for spells
@@ -23,14 +23,14 @@ CLASS:Prestige Bard	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentr
 #NB: need to adjust inspire courage progression:
 1	BONUS:VAR|InspireCourageSaves,InspireCourageAttack,InspireCourageDamage|1+floor(InspireCourageLVL/5)-max(floor((InspireCourageLVL+4)/6),1)
 ###Block: Bardic Music Abilities by level
-1					ABILITY:Special Ability|VIRTUAL|Bardic Countersong|Bardic Fascinate|Bardic Inspire Courage|PREVARGTEQ:BardicMusicLvl,1|PRESKILL:1,TYPE.Perform=8
-1					ABILITY:Special Ability|VIRTUAL|Bardic Inspire Competence|PREVARGTEQ:BardicMusicLvl,3|PRESKILL:1,TYPE.Perform=11
-1					ABILITY:Special Ability|VIRTUAL|Bardic Inspire Greatness|PREVARGTEQ:BardicMusicLvl,7|PRESKILL:1,TYPE.Perform=17
-1					ABILITY:Special Ability|VIRTUAL|Bardic Song of Freedom|PREVARGTEQ:BardicMusicLvl,9|PRESKILL:1,TYPE.Perform=20
-1					ABILITY:Special Ability|VIRTUAL|Bardic Inspire Heroics|PREVARGTEQ:BardicMusicLvl,11|PRESKILL:1,TYPE.Perform=23
+1					ABILITY:Special Ability|VIRTUAL|Bardic Countersong|Bardic Fascinate|Bardic Inspire Courage|PRESKILL:1,TYPE.Perform=8|PREVARGTEQ:BardicMusicLvl,1
+1					ABILITY:Special Ability|VIRTUAL|Bardic Inspire Competence|PRESKILL:1,TYPE.Perform=11|PREVARGTEQ:BardicMusicLvl,3
+1					ABILITY:Special Ability|VIRTUAL|Bardic Inspire Greatness|PRESKILL:1,TYPE.Perform=17|PREVARGTEQ:BardicMusicLvl,7
+1					ABILITY:Special Ability|VIRTUAL|Bardic Song of Freedom|PRESKILL:1,TYPE.Perform=20|PREVARGTEQ:BardicMusicLvl,9
+1					ABILITY:Special Ability|VIRTUAL|Bardic Inspire Heroics|PRESKILL:1,TYPE.Perform=23|PREVARGTEQ:BardicMusicLvl,11
 #NB: prestige bard does not get suggestion, but mass suggestion refers to suggestion, so include it at the same lvl 
-1					ABILITY:Special Ability|VIRTUAL|Bardic Suggestion|PREVARGTEQ:BardicMusicLvl,13|PRESKILL:1,TYPE.Perform=26
-1					ABILITY:Special Ability|VIRTUAL|Bardic Mass Suggestion|PREVARGTEQ:BardicMusicLvl,13|PRESKILL:1,TYPE.Perform=26
+1					ABILITY:Special Ability|VIRTUAL|Bardic Suggestion|PRESKILL:1,TYPE.Perform=26|PREVARGTEQ:BardicMusicLvl,13
+1					ABILITY:Special Ability|VIRTUAL|Bardic Mass Suggestion|PRESKILL:1,TYPE.Perform=26|PREVARGTEQ:BardicMusicLvl,13
 #caster level progression
 2	ADD:SPELLCASTER|Arcane
 4	ADD:SPELLCASTER|Arcane
@@ -43,4 +43,3 @@ CLASS:Prestige Bard	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentr
 12	ADD:SPELLCASTER|Arcane
 14	ADD:SPELLCASTER|Arcane
 15	ADD:SPELLCASTER|Arcane
-

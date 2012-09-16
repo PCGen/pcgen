@@ -98,10 +98,10 @@ SUBCLASSLEVEL:3																																																																	
 1	ABILITY:Special Ability|VIRTUAL|Aura of Good|PREALIGN:LG,NG,CG
 1	ABILITY:Special Ability|VIRTUAL|Aura of Law|PREALIGN:LG,LN,LE
 ###Block: Prohibited Spells
-1	PROHIBITSPELL:ALIGNMENT.Good|PREMULT:2,[PREALIGN:LE,NE,CE],[!PRECLASS:1,Priest (Priest of Sarish)=1]
-1	PROHIBITSPELL:ALIGNMENT.Evil|PREMULT:2,[PREALIGN:LG,NG,CG],[!PRECLASS:1,Priest (Priest of Sarish)=1]
-1	PROHIBITSPELL:ALIGNMENT.Lawful|PREMULT:2,[PREALIGN:CG,CN,CE],[!PRECLASS:1,Priest (Priest of Sarish)=1]
-1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREMULT:2,[PREALIGN:LG,LN,LE],[!PRECLASS:1,Priest (Priest of Sarish)=1]
+1	PROHIBITSPELL:ALIGNMENT.Good|PREMULT:2,[PREALIGN:LE,NE,CE],[!PRECLASS:1,Priest (Priest of Sarish)=1]	PROHIBITSPELL:ALIGNMENT.Good|PREMULT:2,[PREALIGN:LE,NE,CE],[!PRECLASS:1,Priest (Priest of Sarish)=1]
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREMULT:2,[PREALIGN:LG,NG,CG],[!PRECLASS:1,Priest (Priest of Sarish)=1]	PROHIBITSPELL:ALIGNMENT.Evil|PREMULT:2,[PREALIGN:LG,NG,CG],[!PRECLASS:1,Priest (Priest of Sarish)=1]
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREMULT:2,[PREALIGN:CG,CN,CE],[!PRECLASS:1,Priest (Priest of Sarish)=1]	PROHIBITSPELL:ALIGNMENT.Lawful|PREMULT:2,[PREALIGN:CG,CN,CE],[!PRECLASS:1,Priest (Priest of Sarish)=1]
+1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREMULT:2,[PREALIGN:LG,LN,LE],[!PRECLASS:1,Priest (Priest of Sarish)=1]	PROHIBITSPELL:ALIGNMENT.Chaotic|PREMULT:2,[PREALIGN:LG,LN,LE],[!PRECLASS:1,Priest (Priest of Sarish)=1]
 ###Block: Spontaneous casting
 1																			ABILITY:Special Ability|VIRTUAL|Spontaneous casting - Cure spells|PREABILITY:1,CATEGORY=Special Ability,Turn Undead
 1																			ABILITY:Special Ability|VIRTUAL|Spontaneous casting - Inflict spells|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead
@@ -163,7 +163,7 @@ CLASS:Urban Sentinel	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source, Long Desc.				Automatic Languages	Bonus Languages			Combat bonus
 CLASS:Holy Champion (Philosophic Warrior)	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:HC	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+2)/2+1	TEMPLATE:AltherianTriggermageFavClass	BONUS:CHECKS|BASE.Reflex|CL/3		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	LANGAUTO:Literacy		LANGBONUS:Celestial,Infernal	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE																																																																																											SOURCEPAGE:p.70
 # Class Name		Required Deity	Prohibited Subclass
-CLASS:Holy Champion (Philosophic Warrior)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	PREALIGN:LG,LN,LE	PREDEITY:1,Althares	!PRERACE:1,Elorii,Dwarf,Ss'ressen	
+CLASS:Holy Champion (Philosophic Warrior)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	PREALIGN:LG,LN,LE	PREDEITY:1,Althares	!PRERACE:1,Elorii,Dwarf,Ss'ressen
 # Class Name		Class Skill
 CLASS:Holy Champion (Philosophic Warrior)	CSKILL:Examine Martial Technique	NAMEISPI:YES	LANGAUTO:Ancient Altharin(Imperial)	STARTSKILLPTS:6
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
@@ -195,9 +195,9 @@ CLASS:Holy Champion (Philosophic Warrior)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSP
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Good|PREALIGN:LG,NG,CG
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Law|PREALIGN:LG,LN,LE
 1																																															AUTO:FEAT|Simple Weapon Proficiency
-1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
-1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
-1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
+1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
 1
 1										BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE							ABILITY:Special Ability|AUTOMATIC|Basic Turning|Cleric Turning
 1																			BONUS:VAR|TurnLevelBase|CL-3|PREDEITY:1,Althares,Cadic,Fire Dragon,Larissa,Sarish
@@ -216,7 +216,7 @@ CLASS:Holy Champion (Philosophic Warrior)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSP
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source, Long Desc.				Automatic Languages	Bonus Languages			Combat bonus
 CLASS:Holy Champion (Bearer of Woe)	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:HC		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	LANGAUTO:Literacy		LANGBONUS:Celestial,Infernal	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3					TEMPLATE:BearerofWoeFavClass			STARTSKILLPTS:4											CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|TYPE=Arcana|TYPE=Religion|TYPE=Geography|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble											SOURCEPAGE:p.73
 # Class Name		Required Deity	Prohibited Subclass
-CLASS:Holy Champion (Bearer of Woe)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	PREALIGN:LG		PREDEITY:1,Anshar		!PRERACE:1,Elorii,Dwarf,Ss'ressen				
+CLASS:Holy Champion (Bearer of Woe)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	PREALIGN:LG		PREDEITY:1,Anshar		!PRERACE:1,Elorii,Dwarf,Ss'ressen
 # Class Name		Class Skill
 CLASS:Holy Champion (Bearer of Woe)	CSKILL:Examine Martial Technique	LANGAUTO:Ancient Altharin(Imperial)
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
@@ -247,9 +247,9 @@ CLASS:Holy Champion (Bearer of Woe)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:L
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Good|PREALIGN:LG,NG,CG
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Law|PREALIGN:LG,LN,LE
 1																																															AUTO:FEAT|Simple Weapon Proficiency
-1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
-1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
-1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
+1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
 1
 1										BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE							ABILITY:Special Ability|AUTOMATIC|Basic Turning|Cleric Turning
 1																			BONUS:VAR|TurnLevelBase|CL-3|PREDEITY:1,Althares,Cadic,Fire Dragon,Larissa,Sarish
@@ -268,7 +268,7 @@ CLASS:Holy Champion (Bearer of Woe)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:L
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source, Long Desc.				Automatic Languages	Bonus Languages			Combat bonus
 CLASS:Holy Champion (Twelve Oaks)	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:HC		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	LANGAUTO:Literacy		LANGBONUS:Celestial,Infernal	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	LANGAUTO:Literacy							BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3		BONUS:HD|MIN|2	TEMPLATE:TwelveOaksFavClass			STARTSKILLPTS:2		CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|TYPE=Nature|TYPE=Nobility|TYPE=Religion|TYPE=Profession|Ride|Sense Motive|Survival																			SOURCEPAGE:p.77
 # Class Name		Required Deity	Prohibited Subclass
-CLASS:Holy Champion (Twelve Oaks)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	PREALIGN:LG,NG,CG	PREDEITY:1,Belisarda	PRERACE:1,Elorii																
+CLASS:Holy Champion (Twelve Oaks)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	PREALIGN:LG,NG,CG	PREDEITY:1,Belisarda	PRERACE:1,Elorii
 # Class Name		Class Skill
 CLASS:Holy Champion (Twelve Oaks)	CSKILL:Examine Martial Technique
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
@@ -299,9 +299,9 @@ CLASS:Holy Champion (Twelve Oaks)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEV
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Good|PREALIGN:LG,NG,CG
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Law|PREALIGN:LG,LN,LE
 1																																															AUTO:FEAT|Simple Weapon Proficiency
-1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
-1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
-1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
+1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
 1
 1										BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE							ABILITY:Special Ability|AUTOMATIC|Basic Turning|Cleric Turning
 1																			BONUS:VAR|TurnLevelBase|CL-3|PREDEITY:1,Althares,Cadic,Fire Dragon,Larissa,Sarish
@@ -320,7 +320,7 @@ CLASS:Holy Champion (Twelve Oaks)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEV
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source, Long Desc.				Automatic Languages	Bonus Languages			Combat bonus
 CLASS:Holy Champion (Hospitaler)	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:HC		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	LANGAUTO:Literacy		LANGBONUS:Celestial,Infernal	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	LANGAUTO:Ancient Altharin(Imperial)	LANGAUTO:Literacy	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3					TEMPLATE:BeltinianHospitalerFavClass	STARTSKILLPTS:2							CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|TYPE=Nobility|TYPE=Religion|TYPE=Profession|Ride|Sense Motive																								SOURCEPAGE:p.79
 # Class Name		Required Deity	Prohibited Subclass
-CLASS:Holy Champion (Hospitaler)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	PREALIGN:LN		PREDEITY:1,Beltine	!PRERACE:1,Elorii,Dwarf,Ss'ressen		
+CLASS:Holy Champion (Hospitaler)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	PREALIGN:LN		PREDEITY:1,Beltine	!PRERACE:1,Elorii,Dwarf,Ss'ressen
 # Class Name		Class Skill
 CLASS:Holy Champion (Hospitaler)	CSKILL:Examine Martial Technique
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
@@ -351,9 +351,9 @@ CLASS:Holy Champion (Hospitaler)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVE
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Good|PREALIGN:LG,NG,CG
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Law|PREALIGN:LG,LN,LE
 1																																															AUTO:FEAT|Simple Weapon Proficiency
-1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
-1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
-1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
+1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
 1
 1										BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE							ABILITY:Special Ability|AUTOMATIC|Basic Turning|Cleric Turning
 1																			BONUS:VAR|TurnLevelBase|CL-3|PREDEITY:1,Althares,Cadic,Fire Dragon,Larissa,Sarish
@@ -404,9 +404,9 @@ CLASS:Holy Champion (Twilight Warrior)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELL
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Good|PREALIGN:LG,NG,CG
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Law|PREALIGN:LG,LN,LE
 1																																															AUTO:FEAT|Simple Weapon Proficiency
-1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
-1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
-1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
+1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
 1
 1										BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE							ABILITY:Special Ability|AUTOMATIC|Basic Turning|Cleric Turning
 1																			BONUS:VAR|TurnLevelBase|CL-3|PREDEITY:1,Althares,Cadic,Fire Dragon,Larissa,Sarish
@@ -426,7 +426,7 @@ CLASS:Holy Champion (Twilight Warrior)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELL
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source, Long Desc.				Automatic Languages	Bonus Languages			Combat bonus
 CLASS:Holy Champion (Blazing Wyrm)	NAMEISPI:YES	HD:8		TYPE:Base.PC	ABB:HC		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	LANGAUTO:Literacy		LANGBONUS:Celestial,Infernal	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE										BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3					TEMPLATE:BlazingWyrmFavClass			STARTSKILLPTS:2																							PRERACE:1,Ss'ressen									PRETEMPLATE:1,Black Talon,Ashen Hide	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Examine Martial Technique|Handle Animal|Heal|Jump|Knowledge (Geography/Ssethregore)|Knowledge (Nature/Ssethregore)|TYPE=Religion|TYPE=Profession|Ride|Sense Motive|Swim							SOURCEPAGE:p.83
 # Class Name		Required Deity	Prohibited Subclass
-CLASS:Holy Champion (Blazing Wyrm)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	PREALIGN:LG,LN	PREDEITY:1,Fire Dragon	
+CLASS:Holy Champion (Blazing Wyrm)	PREDEITY:1,Y	!PRESUBCLASS:1,Priest of Beltine	PREALIGN:LG,LN	PREDEITY:1,Fire Dragon
 # Need PRERACE
 # Class Name		Class Skill
 CLASS:Holy Champion (Blazing Wyrm)	CSKILL:Examine Martial Technique
@@ -457,9 +457,9 @@ CLASS:Holy Champion (Blazing Wyrm)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LE
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Good|PREALIGN:LG,NG,CG
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Law|PREALIGN:LG,LN,LE
 1																																															AUTO:FEAT|Simple Weapon Proficiency
-1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
-1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
-1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
+1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
 1
 1										BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE							ABILITY:Special Ability|AUTOMATIC|Basic Turning|Cleric Turning
 1																			BONUS:VAR|TurnLevelBase|CL-3|PREDEITY:1,Althares,Cadic,Fire Dragon,Larissa,Sarish
@@ -510,9 +510,9 @@ CLASS:Holy Champion (Storm Lord)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVE
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Good|PREALIGN:LG,NG,CG
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Law|PREALIGN:LG,LN,LE
 1																																															AUTO:FEAT|Simple Weapon Proficiency
-1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
-1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
-1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
+1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
 1
 1										BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE							ABILITY:Special Ability|AUTOMATIC|Basic Turning|Cleric Turning
 1																			BONUS:VAR|TurnLevelBase|CL-3|PREDEITY:1,Althares,Cadic,Fire Dragon,Larissa,Sarish
@@ -563,9 +563,9 @@ CLASS:Holy Champion (Harbingers)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVE
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Good|PREALIGN:LG,NG,CG
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Law|PREALIGN:LG,LN,LE
 1																																															AUTO:FEAT|Simple Weapon Proficiency
-1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
-1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
-1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
+1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
 1
 1										BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE							ABILITY:Special Ability|AUTOMATIC|Basic Turning|Cleric Turning
 1																			BONUS:VAR|TurnLevelBase|CL-3|PREDEITY:1,Althares,Cadic,Fire Dragon,Larissa,Sarish
@@ -615,9 +615,9 @@ CLASS:Holy Champion (Fate Spinner)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LE
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Good|PREALIGN:LG,NG,CG
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Law|PREALIGN:LG,LN,LE
 1																																															AUTO:FEAT|Simple Weapon Proficiency
-1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
-1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
-1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
+1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
 1
 1										BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE							ABILITY:Special Ability|AUTOMATIC|Basic Turning|Cleric Turning
 1																			BONUS:VAR|TurnLevelBase|CL-3|PREDEITY:1,Althares,Cadic,Fire Dragon,Larissa,Sarish
@@ -669,9 +669,9 @@ CLASS:Holy Champion (Deathbringer)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LE
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Good|PREALIGN:LG,NG,CG
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Law|PREALIGN:LG,LN,LE
 1																																															AUTO:FEAT|Simple Weapon Proficiency
-1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
-1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
-1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
+1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
 1
 1										BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE							ABILITY:Special Ability|AUTOMATIC|Basic Turning|Cleric Turning
 1																			BONUS:VAR|TurnLevelBase|CL-3|PREDEITY:1,Althares,Cadic,Fire Dragon,Larissa,Sarish
@@ -722,14 +722,14 @@ CLASS:Holy Champion (Holy Judge)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVE
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Good|PREALIGN:LG,NG,CG
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Law|PREALIGN:LG,LN,LE
 1																																															AUTO:FEAT|Simple Weapon Proficiency
-1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
-1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
-1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
+1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
 1										BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE							ABILITY:Special Ability|AUTOMATIC|Basic Turning|Cleric Turning
 1																			BONUS:VAR|TurnLevelBase|CL|PREDEITY:1,Belisarda,Nier
 4																			BONUS:VAR|ChannelDamagePlusBase|CL|TYPE=Level.REPLACE									ABILITY:Special Ability|VIRTUAL|Basic Channeling|Channeling
 4																			BONUS:VAR|ChannelLevelBase|CL|PREDEITY:1,Nier
-4																			
+4
 # Order of the Verdant Champions - Saluwe #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source, Long Desc.				Automatic Languages	Bonus Languages			Combat bonus
@@ -767,9 +767,9 @@ CLASS:Holy Champion (Verdant Champion)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELL
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Good|PREALIGN:LG,NG,CG
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Law|PREALIGN:LG,LN,LE
 1																																															AUTO:FEAT|Simple Weapon Proficiency
-1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
-1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
-1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
+1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
 1
 1										BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE							ABILITY:Special Ability|AUTOMATIC|Basic Turning|Cleric Turning
 1																			BONUS:VAR|TurnLevelBase|CL-1|PREDEITY:1,Anshar,Belisarda,Illiir,Saluwe
@@ -812,9 +812,9 @@ CLASS:Holy Champion (Inner Demon)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEV
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Good|PREALIGN:LG,NG,CG
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Law|PREALIGN:LG,LN,LE
 1																																															AUTO:FEAT|Simple Weapon Proficiency
-1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
-1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
-1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
+1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
 1
 1										BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE							ABILITY:Special Ability|AUTOMATIC|Basic Turning|Cleric Turning
 1																			BONUS:VAR|TurnLevelBase|CL-3|PREDEITY:1,Althares,Cadic,Fire Dragon,Larissa,Sarish
@@ -866,9 +866,9 @@ CLASS:Holy Champion (Sea Lord)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Good|PREALIGN:LG,NG,CG
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Law|PREALIGN:LG,LN,LE
 1																																															AUTO:FEAT|Simple Weapon Proficiency
-1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
-1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
-1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
+1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
 1
 1										BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE							ABILITY:Special Ability|AUTOMATIC|Basic Turning|Cleric Turning
 1																			BONUS:VAR|TurnLevelBase|CL-3|PREDEITY:1,Althares,Cadic,Fire Dragon,Larissa,Sarish
@@ -1225,9 +1225,9 @@ SUBCLASSLEVEL:20																																						CAST:0,3,3,3,3												
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Good|PREALIGN:LG,NG,CG
 1																																				ABILITY:Special Ability|VIRTUAL|Aura of Law|PREALIGN:LG,LN,LE
 1																																															AUTO:FEAT|Simple Weapon Proficiency
-1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
-1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
-1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
+1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
 1
 1										BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE							ABILITY:Special Ability|AUTOMATIC|Basic Turning|Cleric Turning
 1																			BONUS:VAR|TurnLevelBase|CL-3|PREDEITY:1,Althares,Cadic,Fire Dragon,Larissa,Sarish

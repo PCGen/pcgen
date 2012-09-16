@@ -7,5 +7,3 @@ SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.
 # Ability Name			Category of Ability		Type
 Remove Human Skill Bonus	CATEGORY:Special Ability	TYPE:HumanSkillBonus
 #COMMENT: This makes humans work correctly in eclipse
-
-

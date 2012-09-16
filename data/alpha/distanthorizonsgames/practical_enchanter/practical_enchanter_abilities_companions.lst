@@ -85,7 +85,5 @@ Companion Bonus HP ~ Total Levels added Max d12	CATEGORY:Special Ability	TYPE:Bo
 
 Companion Bonus HP ~ Con Bonus			CATEGORY:Special Ability	TYPE:BonusHPAll.Companion.Ability.General																																			BONUS:VAR|FamiliarBonusHP|(TL-1)*CON
 
-Companion Bonus HP ~ Input HP String		CATEGORY:Special Ability	TYPE:BonusHPAll.Companion.Ability.General											STACK:NO	MULT:YES	CHOOSE:STRING|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|24|28|36|54|72							BONUS:VAR|FamiliarBonusHP|CHOICE
-Companion Bonus HP ~ Input HP User Input		CATEGORY:Special Ability	TYPE:BonusHPAll.Companion.Ability.General											STACK:NO	MULT:YES	CHOOSE:USERINPUT|TITLE="Enter ONLY the Number of Bonus HP Including CON bonus No Symbols"						BONUS:VAR|FamiliarBonusHP|CHOICE
-
-
+Companion Bonus HP ~ Input HP String		CATEGORY:Special Ability	TYPE:BonusHPAll.Companion.Ability.General											STACK:NO	MULT:YES	CHOOSE:STRING|1|10|11|12|13|14|15|16|17|18|19|2|20|24|28|3|36|4|5|54|6|7|72|8|9							BONUS:VAR|FamiliarBonusHP|CHOICE
+Companion Bonus HP ~ Input HP User Input		CATEGORY:Special Ability	TYPE:BonusHPAll.Companion.Ability.General											STACK:NO	MULT:YES	CHOOSE:USERINPUT|TITLE=Enter ONLY the Number of Bonus HP Including CON bonus No Symbols						BONUS:VAR|FamiliarBonusHP|CHOICE

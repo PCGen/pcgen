@@ -29,7 +29,7 @@ Enrune Flesh	KEY:Enrune Flesh ~ Eldritch Warrior			CATEGORY:Special Ability	TYPE
 Ritual of Potency (Sense Magic)			CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT																									SPELLS:Class|TIMES=1|Detect Magic			MULT:NO																																				SOURCEPAGE:p.28
 Ritual of Potency (Darksight)				CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),3																									MULT:NO																																VISION:Darkvision (30')	SOURCEPAGE:p.28
 Ritual of Potency (The Sparkling Shield)		CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),5																									MULT:NO						BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK																								SOURCEPAGE:p.28
-Ritual of Potency (Arcane Puissance)		CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),7																							STACK:NO	MULT:YES	CHOOSE:PCSTAT|STR|DEX|CON													BONUS:STAT|%LIST|1|TYPE=Inherent													SOURCEPAGE:p.28
+Ritual of Potency (Arcane Puissance)		CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),7																							STACK:NO	MULT:YES	CHOOSE:PCSTAT|CON|DEX|STR													BONUS:STAT|%LIST|1|TYPE=Inherent													SOURCEPAGE:p.28
 Ritual of Potency (Speed of Magic)			CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),9																									MULT:NO													BONUS:MOVEADD|TYPE.Walk|10																			SOURCEPAGE:p.28
 Ritual of Potency (Slice Through Wards)		CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),10	DESC:Ignore all magical protections of foes (%1 times/day)|SliceWards	DEFINE:SliceWards|0									MULT:NO																								BONUS:VAR|SliceWards|var("CL=Eldritch Warrior")					SOURCEPAGE:p.28
 Ritual of Potency (Destroy Spell)			CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),11	DESC:Dispel Magic with melee weapon strike (1 times/day)															MULT:NO																																				SOURCEPAGE:p.28
@@ -46,7 +46,7 @@ Eyes of Fire		KEY:Eyes of Fire ~ Embermage			CATEGORY:Special Ability	TYPE:Speci
 Internal Explosion	KEY:Internal Explosion ~ Embermage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 
 # ~ Graven One
-Flesh Rune		KEY:Flesh Rune ~ Graven One		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																						
+Flesh Rune		KEY:Flesh Rune ~ Graven One		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Graven Image	KEY:Graven Image ~ Graven One		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		DESC: %1HD|GravenImageHD											DEFINE:GravenImageHD|0
 
 # ~ Knight of the Chord
@@ -55,42 +55,42 @@ Battle Dance	KEY:Battle Dance ~ Knight of the Chord			CATEGORY:Special Ability	T
 Armor Song		KEY:Armor Song ~ Knight of the Chord			CATEGORY:Special Ability	TYPE:SpecialQuality
 Singblade		KEY:Singblade ~ Knight of the Chord			CATEGORY:Special Ability	TYPE:SpecialQuality
 Sonic Protection	KEY:Sonic Protection ~ Knight of the Chord		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Song of Smiting	KEY:Song of Smiting ~ Knight of the Chord		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																													
+Song of Smiting	KEY:Song of Smiting ~ Knight of the Chord		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 
 # ~ Mirror Master
 Mirror Thoughts		KEY:Mirror Thoughts ~ Mirror Master			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Mirrored Eyes		KEY:Mirrored Eyes ~ Mirror Master			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	
+Mirrored Eyes		KEY:Mirrored Eyes ~ Mirror Master			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Bonus Spells		KEY:Bonus Spells ~ Mirror Master	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:(1st and 2nd)	DESC:(3rd and 4th)|PREVARGTEQ:MirrorMasterLvl,4	DESC:(5th)|PREVARGTEQ:MirrorMasterLvl,6	DESC:(6th)|PREVARGTEQ:MirrorMasterLvl,8	DESC:(7th)|PREVARGTEQ:MirrorMasterLvl,10
-Piercing Gaze		KEY:Piercing Gaze ~ Mirror Master				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	
+Piercing Gaze		KEY:Piercing Gaze ~ Mirror Master				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Mirror Step			KEY:Mirror Step ~ Mirror Master	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		DESC:(Teleport)|PREVARGTEQ:MirrorMasterLvl,8	DESC:(Plane Shift)|PREVARGTEQ:MirrorMasterLvl,10
 
 # ~ Song Mage	
 Song Magic			KEY:Song Magic ~ Song Mage			CATEGORY:Special Ability	TYPE:SpecialQuality	DESC: (%1/day)|SongMagic					DEFINE:SongMagic|0
-Song as Sustenance	KEY:Song as Sustenance ~ Song Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																		
-Songshield			KEY:Songshield ~ Song Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																			
-Divine Music		KEY:Divine Music ~ Song Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																			
-Songburst			KEY:Songburst ~ Song Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																			
+Song as Sustenance	KEY:Song as Sustenance ~ Song Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Songshield			KEY:Songshield ~ Song Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Divine Music		KEY:Divine Music ~ Song Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Songburst			KEY:Songburst ~ Song Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Noble Music			KEY:Noble Music ~ Song Mage			CATEGORY:Special Ability	TYPE:SpecialQuality
-Sonic Protection		KEY:Sonic Protection ~ Song Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																		
-Forbid the Silence	KEY:Forbid the Silence ~ Song Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																		
-Wings of Song		KEY:Wings of Song ~ Song Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike													
-Clarity of Music		KEY:Clarity of Music ~ Song Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																		
+Sonic Protection		KEY:Sonic Protection ~ Song Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Forbid the Silence	KEY:Forbid the Silence ~ Song Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Wings of Song		KEY:Wings of Song ~ Song Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Clarity of Music		KEY:Clarity of Music ~ Song Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 
 # ~ Starlight Mage
 Spell Appearance Change	KEY:Spell Appearance Change ~ Starlight Mage	CATEGORY:Special Ability	TYPE:SpecialQuality
-Handle Starlight		KEY:Handle Starlight ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	
-Radiance			KEY:Radiance ~ Starlight Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	
+Handle Starlight		KEY:Handle Starlight ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+Radiance			KEY:Radiance ~ Starlight Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Summon Starlight		KEY:Summon Starlight ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike			DESC: %1/day|SummonStarlight						BONUS:VAR|SummonStarlight|CL	DEFINE:SummonStarlight|0
-Nightscrying		KEY:Nightscrying ~ Starlight Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	
-Starlight Shield		KEY:Starlight Shield ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike														
+Nightscrying		KEY:Nightscrying ~ Starlight Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Starlight Shield		KEY:Starlight Shield ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Starlight Weapon		KEY:Starlight Weapon ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Starlight Weaving		KEY:Starlight Weaving ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																		
+Starlight Weaving		KEY:Starlight Weaving ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Starlight Beam		KEY:Starlight Beam ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Age of the Stars		KEY:Age of the Stars ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																		
+Age of the Stars		KEY:Age of the Stars ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Stardust			KEY:Stardust ~ Starlight Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Starskin			KEY:Starskin ~ Starlight Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Starlight Elixir		KEY:Starlight Elixir ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																		
-Temporal Womb		KEY:Temporal Womb ~ Starlight Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																			
+Starlight Elixir		KEY:Starlight Elixir ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Temporal Womb		KEY:Temporal Womb ~ Starlight Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 
 
 ###Block: Tattoos of Power

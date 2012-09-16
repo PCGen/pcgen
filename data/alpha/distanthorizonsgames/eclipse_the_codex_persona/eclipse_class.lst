@@ -12,7 +12,7 @@ CLASS:Eclipse Point Buy (Template)	STARTSKILLPTS:0
 ###Block:
 1																																														TEMPLATE:01 Point Buy Master Template for All Levels	DONOTADD:HITDIE|SKILLPOINTS
 1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9	BONUS:HP|CURRENTMAX|-1
-1																															ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Automatic Abilities
+1																															ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities|All Automatic Proficiencies
 1																			BONUS:VAR|CharacterPointsLevelOffSet|8*CL	BONUS:VAR|EclipseClassLvl|CL
 
 
@@ -23,7 +23,7 @@ CLASS:Eclipse Point Buy (d0)	STARTSKILLPTS:0
 ###Block:
 1																																									TEMPLATE:01 Point Buy Master Template for All Levels
 1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9	BONUS:HP|CURRENTMAX|-1													ABILITY:Internal|AUTOMATIC|HD Taken d0
-1																										ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Automatic Abilities
+1																										ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities|All Automatic Proficiencies
 1														BONUS:VAR|CharacterPointsLevelOffSet|4*CL	BONUS:VAR|EclipseClassLvl|CL
 
 # Class Name			Output Name		Hit Dice	Type				Abbreviation	Max Level	Define			Combat bonus
@@ -33,7 +33,7 @@ CLASS:Eclipse Point Buy (d02)	STARTSKILLPTS:0
 ###Block:
 1																																					TEMPLATE:01 Point Buy Master Template for All Levels
 1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9													ABILITY:Internal|AUTOMATIC|HD Taken d2																		DONOTADD:SKILLPOINTS
-1																						ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Automatic Abilities
+1																						ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities|All Automatic Proficiencies
 1										BONUS:VAR|CharacterPointsLevelOffSet|2*CL	BONUS:VAR|EclipseClassLvl|CL
 
 
@@ -66,7 +66,7 @@ CLASS:Eclipse Point Buy (d04)	STARTSKILLPTS:0
 #
 1																														TEMPLATE:01 Point Buy Master Template for All Levels
 1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9						ABILITY:Internal|AUTOMATIC|HD Taken d4																		DONOTADD:SKILLPOINTS
-1															ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Automatic Abilities
+1															ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities|All Automatic Proficiencies
 1										BONUS:VAR|EclipseClassLvl|CL
 
 # Class Name			Output Name		Hit Dice	Type				Abbreviation	Max Level	Define			Combat bonus
@@ -76,7 +76,7 @@ CLASS:Eclipse Point Buy (d06)	STARTSKILLPTS:0
 ###Block:
 1																																						TEMPLATE:01 Point Buy Master Template for All Levels
 1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9														ABILITY:Internal|AUTOMATIC|HD Taken d6																		DONOTADD:SKILLPOINTS
-1																							ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Automatic Abilities
+1																							ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities|All Automatic Proficiencies
 1										BONUS:VAR|CharacterPointsLevelOffSet|-2*CL	BONUS:VAR|EclipseClassLvl|CL
 # No Skill Points Added During Level Progression
 1																																															DONOTADD:SKILLPOINTS
@@ -108,7 +108,7 @@ CLASS:Eclipse Point Buy (d08)	STARTSKILLPTS:0
 ###Block:
 1																																						TEMPLATE:01 Point Buy Master Template for All Levels
 1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9														ABILITY:Internal|AUTOMATIC|HD Taken d8																		DONOTADD:SKILLPOINTS
-1																							ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Automatic Abilities
+1																							ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities|All Automatic Proficiencies
 1										BONUS:VAR|CharacterPointsLevelOffSet|-4*CL	BONUS:VAR|EclipseClassLvl|CL
 # No Skill Points Added During Level Progression
 1																																															DONOTADD:SKILLPOINTS
@@ -141,7 +141,7 @@ CLASS:Eclipse Point Buy (d10)	STARTSKILLPTS:0
 ###Block:
 1																																						TEMPLATE:01 Point Buy Master Template for All Levels
 1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9														ABILITY:Internal|AUTOMATIC|HD Taken d10																		DONOTADD:SKILLPOINTS
-1																							ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Automatic Abilities
+1																							ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities|All Automatic Proficiencies
 1										BONUS:VAR|CharacterPointsLevelOffSet|-6*CL	BONUS:VAR|EclipseClassLvl|CL
 # No Skill Points Added During Level Progression
 1																																															DONOTADD:SKILLPOINTS
@@ -173,7 +173,7 @@ CLASS:Eclipse Point Buy (d12)	STARTSKILLPTS:0
 ###Block:
 1																																						TEMPLATE:01 Point Buy Master Template for All Levels
 1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9														ABILITY:Internal|AUTOMATIC|HD Taken d12																		DONOTADD:SKILLPOINTS
-1																							ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Automatic Abilities
+1																							ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities|All Automatic Proficiencies
 1										BONUS:VAR|CharacterPointsLevelOffSet|-8*CL	BONUS:VAR|EclipseClassLvl|CL
 # No Skill Points Added During Level Progression
 1																																															DONOTADD:SKILLPOINTS
@@ -205,7 +205,7 @@ CLASS:Eclipse Point Buy (d20)	STARTSKILLPTS:0
 ###Block:
 1																																						TEMPLATE:01 Point Buy Master Template for All Levels
 1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9														ABILITY:Internal|AUTOMATIC|HD Taken d20																		DONOTADD:SKILLPOINTS
-1																							ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Automatic Abilities
+1																							ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities|All Automatic Proficiencies
 1										BONUS:VAR|CharacterPointsLevelOffSet|-16*CL	BONUS:VAR|EclipseClassLvl|CL
 # No Skill Points Added During Level Progression
 1																																															DONOTADD:SKILLPOINTS
@@ -377,7 +377,7 @@ SUBSTITUTIONLEVEL:19	DONOTADD:SKILLPOINTS
 SUBSTITUTIONLEVEL:20	DONOTADD:SKILLPOINTS
 SUBSTITUTIONCLASS:d20	HD:20	BONUS:VAR|CharacterPointsLevelOffSet|-16*CL
 ##Block:
-1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9	DONOTADD:SKILLPOINTS	
+1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9	DONOTADD:SKILLPOINTS
 
 
 ###Block: Original Demo Class
@@ -390,7 +390,7 @@ CLASS:Point Buy	STARTSKILLPTS:0
 1										BONUS:HD|MAX|var("HD Bonus")	ABILITY:Internal|AUTOMATIC|Grants All Hidden Abilities
 1															BONUS:ABILITYPOOL|Character Points|var("CharacterPoints")	BONUS:VAR|CharacterPointsLevelOffSet|24+(24*CL)	DEFINE:CharacterPoints|0
 1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9																																												DONOTADD:SKILLPOINTS
-1																																						ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Automatic Abilities
+1																																						ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities|All Automatic Proficiencies
 # No Skill Points Added During Level Progression
 1																																																					DONOTADD:SKILLPOINTS
 2																																																					DONOTADD:SKILLPOINTS
@@ -445,7 +445,7 @@ CLASS:Classless Point Buy	STARTSKILLPTS:0
 1															BONUS:ABILITYPOOL|Character Points|48
 1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9																													DONOTADD:SKILLPOINTS
 2															BONUS:ABILITYPOOL|Character Points|24*(CL-1)
-1																							ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Automatic Abilities
+1																							ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities|All Automatic Proficiencies
 # No Skill Points Added During Level Progression
 1																																						DONOTADD:SKILLPOINTS
 2																																						DONOTADD:SKILLPOINTS
@@ -583,11 +583,3 @@ CLASS:Companion ~ Eclipse	STARTSKILLPTS:0
 19														DONOTADD:SKILLPOINTS
 20														DONOTADD:SKILLPOINTS
 #
-
-
-
-
-
-
-
-

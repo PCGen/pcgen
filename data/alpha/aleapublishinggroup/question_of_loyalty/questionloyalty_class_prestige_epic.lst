@@ -8,7 +8,7 @@ CLASS:Grandmaster	HD:10		TYPE:PC.Prestige	ABB:GrMstr		MAXLEVEL:10	SOURCEPAGE:p.2
 CLASS:Grandmaster	PREATT:15	PREFEAT:1,Marshal	PRESKILL:2,Diplomacy=24,Knowledge (Nobility and Royalty)=15
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Grandmaster	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Intimidate|Knowledge (Local)|Knowledge (Nobility and Royalty)|Profession (Soldier)|Ride|Sense Motive
-1	ABILITY:Special Ability|AUTOMATIC|Sphere of Influence ~ Grandmaster|Epic Combat Sense ~ Grandmaster|Epic Leadership Points ~ Grandmaster|Order Knowledge ~ Grandmaster	BONUS:VAR|FanaticalAidGrandmasterLvl|CL																	BONUS:VAR|SphereInfluenceAreaGM|(CL*100)	DEFINE:SphereInfluenceAreaGM|0		BONUS:VAR|EpicCombatSenseVar|(CL+1)/3+1	DEFINE:EpicCombatSenseVar|0
+1	ABILITY:Special Ability|AUTOMATIC|Epic Combat Sense ~ Grandmaster|Epic Leadership Points ~ Grandmaster|Order Knowledge ~ Grandmaster|Sphere of Influence ~ Grandmaster	BONUS:VAR|FanaticalAidGrandmasterLvl|CL																	BONUS:VAR|SphereInfluenceAreaGM|(CL*100)	DEFINE:SphereInfluenceAreaGM|0		BONUS:VAR|EpicCombatSenseVar|(CL+1)/3+1	DEFINE:EpicCombatSenseVar|0
 3	ABILITY:Special Ability|AUTOMATIC|Fanatical Aid ~ Grandmaster
 5	ABILITY:Special Ability|AUTOMATIC|Supernatural Leadership ~ Grandmaster
 10	ABILITY:Special Ability|AUTOMATIC|Divine Leadership ~ Grandmaster

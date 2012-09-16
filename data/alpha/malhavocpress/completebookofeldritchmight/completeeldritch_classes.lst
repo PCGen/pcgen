@@ -102,7 +102,7 @@ CLASS:Eldritch Warrior	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:
 CLASS:Eldritch Warrior	PREATT:5	PREFEAT:2,Magical Talent,Weapon Focus	PRESKILL:3,Craft (Alchemy)=3,Knowledge (Arcana)=3,Spellcraft=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eldritch Warrior	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Hide|Jump|Knowledge (Arcana)|Knowledge (The Planes)|Move Silently|Ride|Spellcraft
-1	AUTO:FEAT|Simple Weapon Proficiency										ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies				
+1	AUTO:FEAT|Simple Weapon Proficiency										ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression
@@ -189,7 +189,7 @@ CLASS:Mirror Master	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (A
 10	SPELLLEVEL:CLASS|SPELLCASTER.Arcane=7|Mirror Portal,Simulacrum,Spell Turning
 ###Block: Normal Progression
 1	ABILITY:Special Ability|AUTOMATIC|Mirror Thoughts ~ Mirror Master	DEFINE:MirrorMasterLvl|CL																	ADD:SPELLCASTER|ANY	SPELLS:Class|TIMES=1|Detect Thoughts
-2	ABILITY:Special Ability|AUTOMATIC|Mirrored Eyes ~ Mirror Master|Bonus Spells ~ Mirror Master
+2	ABILITY:Special Ability|AUTOMATIC|Bonus Spells ~ Mirror Master|Mirrored Eyes ~ Mirror Master
 3																							ADD:SPELLCASTER|ANY
 4	ABILITY:Special Ability|AUTOMATIC|Piercing Gaze ~ Mirror Master		BONUS:SKILL|Spot,Search,Intimidate,Sense Motive|2|TYPE=Competence
 5																							ADD:SPELLCASTER|ANY
@@ -221,7 +221,7 @@ CLASS:Starlight Mage	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.40	BONUS:CH
 CLASS:Starlight Mage	PREFEAT:2,Alertness,Spell Focus	PRERACE:1,Elf%	PRESKILL:2,Knowledge (Arcana)=8,Knowledge (Astronomy)=8	PRESPELL:3,Dancing Lights,Glitterdust,Temporal Venom
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Starlight Mage	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|TYPE=Knowledge|Search|Spellcraft|Spot
-1	ABILITY:Special Ability|AUTOMATIC|Spell Appearance Change ~ Starlight Mage|Handle Starlight ~ Starlight Mage|Radiance ~ Starlight Mage											ADD:SPELLCASTER|ANY
+1	ABILITY:Special Ability|AUTOMATIC|Handle Starlight ~ Starlight Mage|Radiance ~ Starlight Mage|Spell Appearance Change ~ Starlight Mage											ADD:SPELLCASTER|ANY
 2	ABILITY:Special Ability|AUTOMATIC|Summon Starlight ~ Starlight Mage						BONUS:VAR|SummonStarlight|CL	DEFINE:SummonStarlight|0
 3	ABILITY:Special Ability|AUTOMATIC|Nightscrying ~ Starlight Mage|Starlight Shield ~ Starlight Mage															ADD:SPELLCASTER|ANY
 4	ABILITY:Special Ability|AUTOMATIC|Starlight Weapon ~ Starlight Mage

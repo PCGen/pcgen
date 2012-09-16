@@ -13,9 +13,9 @@ Greater Two Weapon Fighting		CATEGORY:Special Ability	TYPE:PrestigeRangerBonusFe
 #Note that we actually might want to add this in a more appropriate fashion, with a chooser, but that is not possible with the current tags.
 #Note that these are only the core classes, and when using sources with additional (divine casting) classes, the appropriate abilities would need to be added.
 #Note that there are NO (unique) ranger spells in the RSRD, which means these abilities do not actually DO anything at this point....
-Add Ranger Spellcasting to Druid	CATEGORY:Special Ability	TYPE:AddRangerSpellCasting	VISIBLE:DISPLAY													PRECLASS:1,Druid
+Add Ranger Spellcasting to Druid	CATEGORY:Special Ability	TYPE:AddRangerSpellCasting	VISIBLE:DISPLAY													PRECLASS:1,Druid=1
 #SPELLLEVEL:CLASS|Druid=1|
-Add Ranger Spellcasting to Cleric	CATEGORY:Special Ability	TYPE:AddRangerSpellCasting	VISIBLE:DISPLAY													PRECLASS:1,Cleric
+Add Ranger Spellcasting to Cleric	CATEGORY:Special Ability	TYPE:AddRangerSpellCasting	VISIBLE:DISPLAY													PRECLASS:1,Cleric=1
 #SPELLLEVEL:CLASS|Cleric=1|
-Add Ranger Spellcasting to Paladin	CATEGORY:Special Ability	TYPE:AddRangerSpellCasting	VISIBLE:DISPLAY													PRECLASS:1,Ranger
+Add Ranger Spellcasting to Paladin	CATEGORY:Special Ability	TYPE:AddRangerSpellCasting	VISIBLE:DISPLAY													PRECLASS:1,Ranger=1
 #SPELLLEVEL:CLASS|Paladin=1|

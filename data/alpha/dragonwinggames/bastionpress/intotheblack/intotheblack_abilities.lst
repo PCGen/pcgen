@@ -18,7 +18,7 @@ Throw Stalactites									CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordin
 Life Drain										CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural																																			DESC:Will DC %1|10+WIS+TL/2																														SOURCEPAGE:p.23
 
 # Mal'Orm (Cricket Men of the Deep) ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Spell-like Abilities	KEY:Spell Like Abilities ~ Mal'Orm		CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike					SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=5|Magic Stone,10+WIS|Soften Earth And Stone|Stone Shape	SPELLS:Innate|TIMES=1|CASTERLEVEL=5|Stoneskin|Stone Tell																																								SOURCEPAGE:p.24
+Spell-like Abilities	KEY:Spell Like Abilities ~ Mal'Orm		CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike					SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=5|Magic Stone,10+WIS|Soften Earth And Stone|Stone Shape	SPELLS:Innate|TIMES=1|CASTERLEVEL=5|Stone Tell|Stoneskin																																								SOURCEPAGE:p.24
 Earth Friend									CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																																					SOURCEPAGE:p.24
 Lucky											CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																								BONUS:CHECKS|ALL|2|TYPE=Luck									SOURCEPAGE:p.24
 

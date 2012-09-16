@@ -8,8 +8,5 @@ Feat Conversion to CP ~ 6	TYPE:PointBuySystem			STACK:YES	MULT:YES	CHOOSE:NOCHOI
 
 
 # Work Around till ABILITYSELECTION is actually up and running.
-Adept					TYPE:Adept			VISIBLE:YES			MULT:YES	CHOOSE:SKILL|TYPE=AdeptChoice|CLASS
+Adept					TYPE:Adept			VISIBLE:YES			MULT:YES	CHOOSE:SKILL|CLASS|TYPE=AdeptChoice
 # COMMENT: This works by being a hold feat to pull Adept Skills from.
-
-
-
