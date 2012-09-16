@@ -283,6 +283,9 @@ public class SourceSelectionDialog extends JDialog
 			if (ret == JOptionPane.OK_OPTION)
 			{
 				String name = nameField.getText();
+				List<CampaignFacade> selectedCampaigns = advancedPanel.getSelectedCampaigns();
+				GameModeFacade selectedGameMode = advancedPanel.getSelectedGameMode();
+
 				SourceSelectionFacade selection = null;
 				for (SourceSelectionFacade sourceSelectionFacade : sources)
 				{
@@ -297,8 +300,9 @@ public class SourceSelectionDialog extends JDialog
 				{
 					selection = FacadeFactory.createCustomSourceSelection(name);
 				}
-				selection.setCampaigns(advancedPanel.getSelectedCampaigns());
-				selection.setGameMode(advancedPanel.getSelectedGameMode());
+				selection.setCampaigns(selectedCampaigns);
+				selection.setGameMode(selectedGameMode);
+				basicPanel.setSourceSelection(selection);
 			}
 		}
 		else if (command.equals(DELETE_COMMAND))
@@ -565,6 +569,11 @@ public class SourceSelectionDialog extends JDialog
 		public SourceSelectionFacade getSourceSelection()
 		{
 			return (SourceSelectionFacade) sourceList.getSelectedValue();
+		}
+
+		void setSourceSelection(SourceSelectionFacade source)
+		{
+			sourceList.setSelectedValue(source, true);
 		}
 
 		@Override
