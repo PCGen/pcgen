@@ -1548,13 +1548,22 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Gets the name attribute of the Equipment object
+	 * Gets the name attribute of the Equipment object. Note 
+	 * this is separate from toStirng to avoid side effects on keys.
 	 * 
 	 * @return The name value
 	 */
 	public String getName()
 	{
-		return toString();
+		final StringBuilder buffer = new StringBuilder();
+	
+		buffer.append(getDisplayName());
+		if (modifiedName.length() > 0)
+		{
+			buffer.append(" (").append(modifiedName).append(")");
+		}
+
+		return buffer.toString();
 	}
 
 	/**
@@ -3922,6 +3931,10 @@ public final class Equipment extends PObject implements Serializable,
 			if (eq != null)
 			{
 				put(ObjectKey.BASE_ITEM, CDOMDirectSingleRef.getRef(eq));
+			}
+			else
+			{
+				Logging.errorPrint("Unable to find base item for " + this.getDisplayName() + " with key " + getKeyName());
 			}
 		}
 
