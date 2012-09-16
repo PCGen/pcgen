@@ -1097,7 +1097,14 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		{
 			progress++;
 			URI uri = (URI) arg;
-			setProgress(new File(uri).getName(), progress);
+			if ("file".equalsIgnoreCase(uri.getScheme()))
+			{
+				setProgress(new File(uri).getName(), progress);
+			}
+			else
+			{
+				setProgress(String.valueOf(uri), progress);
+			}
 			//setProgress(progress);
 		}
 		else if (arg instanceof Exception)
