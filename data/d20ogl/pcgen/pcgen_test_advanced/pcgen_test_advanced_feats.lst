@@ -72,7 +72,7 @@ Add Feat PCC			TYPE:Test
 #Class - part of the ADD:CLASSSKILLS test
 #Class Level - Part of the 
 
-Test Spells of Sorcerer vs. Bard	TYPE:OutsiderTest	CHOOSE:SPELLS|CLASSLIST=Bard[KNOWN=YES][pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive$Restriction@6f5853]	MULT:YES
+Test Spells of Sorcerer vs. Bard	TYPE:OutsiderTest	CHOOSE:SPELLS|CLASSLIST=Bard[KNOWN=YES]	MULT:YES
 # Fails - leaks over.
 #
 Bonus PCLEVEL Wizard 10				TYPE:OutsiderTest	BONUS:PCLEVEL|Wizard|10
@@ -151,7 +151,7 @@ Weapon Specialization									TYPE:Special.Fighter																	PREFEAT:1,Wea
 
 
 
-Bob Test Feat Choose Spells Monkee							TYPE:General.Tests.BobTest		CHOOSE:SPELLS|CLASSLIST=MonKee[LEVELMAX=3;LEVELMIN=1][pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive$Restriction@e8e1c4]					MULT:YES
+Bob Test Feat Choose Spells Monkee							TYPE:General.Tests.BobTest		CHOOSE:SPELLS|CLASSLIST=MonKee[LEVELMAX=3;LEVELMIN=1]					MULT:YES
 Bob Test Feat Choose Spelllevel Arcane						TYPE:General.Tests.BobTest		BONUS:SPELLCAST|%LIST|1	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|0|MAXLEVEL	MULT:YES
 
 Bob Testing Type Group A								TYPE:GroupA		DESC:Freebie to Add B

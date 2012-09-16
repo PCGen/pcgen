@@ -81,17 +81,17 @@ Armored Casting ~ Holder	CATEGORY:Internal																						BONUS:MISC|SPELL
 #
 Blood Magic						CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES																								SOURCEPAGE:p.54
 Fellblade Magic					CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES																								SOURCEPAGE:p.55
-Signature Metaspell ~ Empower Spell		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES][pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive$Restriction@bed571]													SOURCEPAGE:p.55
-Signature Metaspell ~ Enlarge Spell		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES][pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive$Restriction@5222ae]													SOURCEPAGE:p.55
-Signature Metaspell ~ Extend Spell		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES][pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive$Restriction@17507b7]													SOURCEPAGE:p.55
-Signature Metaspell ~ Heighten Spell	CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES][pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive$Restriction@b38584]													SOURCEPAGE:p.55
-Signature Metaspell ~ Maximize Spell	CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES][pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive$Restriction@edf7d5]													SOURCEPAGE:p.55
-Signature Metaspell ~ Quicken Spell		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES][pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive$Restriction@ba50a8]													SOURCEPAGE:p.55
-Signature Metaspell ~ Silent Spell		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES][pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive$Restriction@db7b90]													SOURCEPAGE:p.55
-Signature Metaspell ~ Still Spell		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES][pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive$Restriction@18e47b1]													SOURCEPAGE:p.55
-Signature Spell Focus				CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES][pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive$Restriction@b293cb]													SOURCEPAGE:p.55
-Signature Spell Immunity			CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES][pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive$Restriction@164001c]													SOURCEPAGE:p.55
-Signature Spell Penetration			CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES][pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive$Restriction@1f71047]													SOURCEPAGE:p.55
+Signature Metaspell ~ Empower Spell		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:p.55
+Signature Metaspell ~ Enlarge Spell		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:p.55
+Signature Metaspell ~ Extend Spell		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:p.55
+Signature Metaspell ~ Heighten Spell	CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:p.55
+Signature Metaspell ~ Maximize Spell	CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:p.55
+Signature Metaspell ~ Quicken Spell		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:p.55
+Signature Metaspell ~ Silent Spell		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:p.55
+Signature Metaspell ~ Still Spell		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:p.55
+Signature Spell Focus				CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:p.55
+Signature Spell Immunity			CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:p.55
+Signature Spell Penetration			CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:p.55
 
 ###Block: Slayer Hidden Class Feats
 # Ability Name		Output Name				Category of Ability		Type				Visible		Required Class			Stackable?	Multiple?	Choose

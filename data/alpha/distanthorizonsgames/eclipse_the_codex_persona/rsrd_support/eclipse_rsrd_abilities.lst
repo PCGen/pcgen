@@ -188,15 +188,15 @@ Sorcerer Known Level 8	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES
 Sorcerer Known Level 9	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES	MULT:YES	CHOOSE:NOCHOICE							BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=9|1	COST:2
 #
 #- No 0th as Wizards get all 0th for free
-Wizard Learn Level 1	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Wizard[LEVELMAX=1;LEVELMIN=1][pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive$Restriction@d6db9a]								COST:1
-Wizard Learn Level 2	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Wizard[LEVELMAX=2;LEVELMIN=2][pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive$Restriction@1df5649]								COST:1
-Wizard Learn Level 3	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Wizard[LEVELMAX=3;LEVELMIN=3][pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive$Restriction@8b5d2d]								COST:1
-Wizard Learn Level 4	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Wizard[LEVELMAX=4;LEVELMIN=4][pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive$Restriction@d8856e]								COST:1
-Wizard Learn Level 5	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Wizard[LEVELMAX=5;LEVELMIN=5][pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive$Restriction@170e827]								COST:1
-Wizard Learn Level 6	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Wizard[LEVELMAX=6;LEVELMIN=6][pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive$Restriction@1cebc20]								COST:1
-Wizard Learn Level 7	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Wizard[LEVELMAX=7;LEVELMIN=7][pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive$Restriction@17812c8]								COST:1
-Wizard Learn Level 8	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Wizard[LEVELMAX=8;LEVELMIN=8][pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive$Restriction@752bd0]								COST:1
-Wizard Learn Level 9	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Wizard[LEVELMAX=9;LEVELMIN=9][pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive$Restriction@10c4878]								COST:1
+Wizard Learn Level 1	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Wizard[LEVELMAX=1;LEVELMIN=1]								COST:1
+Wizard Learn Level 2	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Wizard[LEVELMAX=2;LEVELMIN=2]								COST:1
+Wizard Learn Level 3	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Wizard[LEVELMAX=3;LEVELMIN=3]								COST:1
+Wizard Learn Level 4	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Wizard[LEVELMAX=4;LEVELMIN=4]								COST:1
+Wizard Learn Level 5	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Wizard[LEVELMAX=5;LEVELMIN=5]								COST:1
+Wizard Learn Level 6	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Wizard[LEVELMAX=6;LEVELMIN=6]								COST:1
+Wizard Learn Level 7	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Wizard[LEVELMAX=7;LEVELMIN=7]								COST:1
+Wizard Learn Level 8	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Wizard[LEVELMAX=8;LEVELMIN=8]								COST:1
+Wizard Learn Level 9	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Wizard[LEVELMAX=9;LEVELMIN=9]								COST:1
 #
 Cleric Learn Level 1	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES	MULT:YES	CHOOSE:NOCHOICE														COST:1
 Cleric Learn Level 2	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES	MULT:YES	CHOOSE:NOCHOICE														COST:1
