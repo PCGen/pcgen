@@ -154,7 +154,13 @@ public class LSTConverter extends Observable
 				}
 				String relative = in.toString().substring(
 						base.toString().length() + 1);
-
+				if (!in.exists())
+				{
+					Logging.log(Logging.WARNING, "Skipping campaign " + uri
+						+ " as it does not exist. Campaign is "
+						+ cse.getCampaign().getSourceURI());
+					continue;
+				}
 				File outFile = new File(outDir, File.separator + relative);
 				if (outFile.exists())
 				{
