@@ -1,0 +1,35 @@
+# CVS $Revision$ $Author$ -- Thu Feb 22 13:04:59 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+#SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPFC	SOURCEWEB:http://www.mywebsite.com
+
+#insert your data here
+
+#Every line that starts with a '#' is a comment. You may want to remove these comments, if you use this file to set up
+#your own data. Remember not to put the '#' at the start of your own data, as PCGen would see it as a comment only.
+#
+#When Running PCGen, you can select "Help > Documentation > List Files > List File Tag Index > Feat File tags" to find
+#out how the tags in the feats file work. Some of the tags used here are global tags. You will see an alphabetical
+#listing of all PCGen tags to the left of the documentation window. You can find the global tags there as well.
+#
+
+#
+# Ability Categories
+#Example of a SuperSet or Parent
+#ABILITYCATEGORY:Special Ability	CATEGORY:Special Ability	EDITABLE:YES	EDITPOOL:NO	FRACTIONALPOOL:NO	VISIBLE:NO
+#ABILITYCATEGORY:AbilitybySkill	CATEGORY:AbilitybySkill		EDITABLE:YES	EDITPOOL:NO	FRACTIONALPOOL:NO	POOL:AbilitybySkillPool		VISIBLE:QUALIFY	PLURAL:AbilitybySkills
+# No TYPE and Matching ABILITYCATEGORY and CATEGORY names designates these as SUPERSET/PARENT.
+
+
+
+#Examples of a Subset or Child
+#ABILITYCATEGORY:My Class Ability	CATEGORY:Special Ability	EDITABLE:YES	EDITPOOL:NO	FRACTIONALPOOL:NO	VISIBLE:QUALIFY	TYPE:MyClass	DISPLAYLOCATION:Class Abilities	PLURAL:My Class Abilities
+
+# VISIBLE TAG will take YES, NO or QUALIFY - QUALIFY won't display the Category unless it has one valid selection or the number is 1 or higher in the pool.
+# New tag - DISPLAYLOCATION:<user defined> will allow you to group ABILITIES together in the same "tab"
+# New tag - DISPLAYNAME:<user defined> serves the same function as OUTPUTNAME is showing what is displayed
+# Using TYPE will populate the category with any ABILITY with a matching type. Example:
+# ABILITYCATEGORY:Fighter Feats	CATEGORY:FEAT	TYPE:Fighter
+# That will make all the Feats with TYPE:Fighter appear
+# The POOL tag allows you to set a variable that will be added to the pool, this must be a valid variable DEFINEd or hardcoded elsewhere
+
+# DONE
+#
