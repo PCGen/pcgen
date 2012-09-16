@@ -6,6 +6,6 @@ SOURCELONG:Gunpowder Plots	SOURCESHORT:GunPlots	SOURCEWEB:http://www.enworld.org
 
 # Feat Name		Type			Required Feat			Required Stat	Description																												Multiple?	Choose					% bonus to range			Source Page
 Steady Aim		TYPE:General	PREFEAT:1,Marksman		PRESTAT:1,WIS=13	DESC:The character has steady hands and eagle eyes when taking the time to aim a gunpowder weapon.																										SOURCEPAGE:p.4
-Deft Loader		TYPE:General	PREFEAT:1,Deft Hands					DESC:The character has trained long or has had extensive experience loading gunpowder weapons, and so is capable of loading a weapon with such skill that it rarely misfires.	MULT:YES	CHOOSE:WEAPONPROFS|TYPE.Gunpowder						SOURCEPAGE:p.4
+Deft Loader		TYPE:General	PREFEAT:1,Deft Hands					DESC:The character has trained long or has had extensive experience loading gunpowder weapons, and so is capable of loading a weapon with such skill that it rarely misfires.	MULT:YES	CHOOSE:WEAPONPROFICIENCY|EQUIPMENT[TYPE=Gunpowder]						SOURCEPAGE:p.4
 Marksman		TYPE:General	PREFEAT:1,Point Blank Shot				DESC:The character has natural skill with gunpowder weapons.																											BONUS:RANGEMULT|PROJECTILE|50	SOURCEPAGE:p.4
-Rapid Loader	TYPE:General						PRESTAT:1,DEX=13	DESC:The character has trained long or has had extensive experience loading gunpowder weapons. The character is capable of loading a weapon with speed but without .		MULT:YES	CHOOSE:WEAPONPROFS|TYPE.Gunpowder						SOURCEPAGE:p.5
+Rapid Loader	TYPE:General						PRESTAT:1,DEX=13	DESC:The character has trained long or has had extensive experience loading gunpowder weapons. The character is capable of loading a weapon with speed but without .		MULT:YES	CHOOSE:WEAPONPROFICIENCY|EQUIPMENT[TYPE=Gunpowder]						SOURCEPAGE:p.5

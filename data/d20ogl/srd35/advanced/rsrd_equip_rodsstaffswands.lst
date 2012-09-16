@@ -161,5 +161,3 @@ Wand (Unholy Blight/8th level caster)				OUTPUTNAME:Wand of Unholy Blight (8th l
 Wand (Wall of Fire)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:0.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Wall of Fire]SPELLLEVEL[4]CASTERLEVEL[7]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
 Wand (Wall of Ice)							OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:0.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Wall of Ice]SPELLLEVEL[4]CASTERLEVEL[7]CHARGES[50]			SOURCEPAGE:MagicItemsIV.rtf
 Wand (Web)									OUTPUTNAME:Wand of [NAME]								TYPE:Magic.Wand	WT:0.0625	BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Web]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]				SOURCEPAGE:MagicItemsIV.rtf
-
-

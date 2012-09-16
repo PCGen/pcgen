@@ -2,7 +2,7 @@
 SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com
 
 # Class Name			Remove Class Skill														Class Skill
-CLASS:Agent of the Crown.MOD	CSKILL:.CLEAR.Innuendo	CSKILL:.CLEAR.Perform	CSKILL:.CLEAR.Pick Pocket	CSKILL:.CLEAR.Read Lips	CSKILL:TYPE.Perform|Sleight of Hand
+CLASS:Agent of the Crown.MOD	CSKILL:.CLEAR.Innuendo	CSKILL:.CLEAR.Perform	CSKILL:.CLEAR.Pick Pocket	CSKILL:.CLEAR.Read Lips	CSKILL:TYPE=Perform|Sleight of Hand
 
 # Class Name		Remove Class Skill								Class Skill
 CLASS:Commando.MOD	CSKILL:.CLEAR.Intuit Direction	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival

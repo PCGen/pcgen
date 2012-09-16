@@ -6,5 +6,3 @@ ABILITYCATEGORY:Wyrmfoe Damage Resistance	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL
 
 
 ABILITYCATEGORY:Air Lord Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT	DISPLAYLOCATION:Class Abilities	ABILITYLIST:Alertness|Cleave|Far Shot|Great Cleave|Improved Bull Rush|Improved Critical|Improved Initiative|Mounted Archery|Point Blank Shot|Power Attack|Precise Shot|Quick Draw|Rapid Shot|Ride-By Attack|Shot on the Run|Skill Focus|Spirited Charge|Sunder|Trample|Weapon Finesse|Weapon Focus|Weapon Specialization
-
-

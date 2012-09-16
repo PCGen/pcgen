@@ -9,7 +9,7 @@ Rebuke Snakes	CATEGORY:Special Ability	TYPE:SpecialAttack.Turning.RebukeSnakes		
 # Mist Dragon
 Create Water												CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:YES
 Mist Form													CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES
-Breath Weapon ~ Cone of Cloudy Scalding Vapor	OUTPUTNAME:Breath Weapon		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES												DEFINE:BreathWeaponCone|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON	DESC:%1' Cone of cloudy scalding vapor %2d%3 fire DC %4.|BreathWeaponCone|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC		BONUS:VAR|BreathWeaponDC|2|PREFEAT:1,Ability Focus(Breath Weapon)
+Breath Weapon ~ Cone of Cloudy Scalding Vapor	OUTPUTNAME:Breath Weapon		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES												DEFINE:BreathWeaponCone|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0	DEFINE:BreathWeaponDC|10+(HD/2)+CON	DESC:%1' Cone of cloudy scalding vapor %2d%3 fire DC %4.|BreathWeaponCone|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC		BONUS:VAR|BreathWeaponDC|2|PREFEAT:1,Ability Focus (Breath Weapon)
 Fog Cloud													CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:YES	SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Fog Cloud,12+CHA
 Wind Wall													CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:YES	SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Wind Wall,12+CHA
 Solid Fog													CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:YES	SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Solid Fog,14+CHA

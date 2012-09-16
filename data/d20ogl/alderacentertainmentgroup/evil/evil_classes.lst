@@ -46,7 +46,7 @@ CLASS:Blood Archer	STARTSKILLPTS:2	CSKILL:Animal Empathy|Balance|Climb|Craft (Bo
 3	ABILITY:Special Ability|AUTOMATIC|Blood Bow ~ Blood Archer																			DEFINE:BloodBow|CL/3
 4	ABILITY:Special Ability|AUTOMATIC|Regeneration ~ Blood Archer
 5	ABILITY:Special Ability|AUTOMATIC|Sneak Attack ~ Blood Archer								BONUS:VAR|BowSneakAttack|1	DEFINE:BowSneakAttack|0	DEFINE:SneakAttackDie|6
-6	
-7	
+6
+7
 8																			BONUS:VAR|BowSneakAttack|1
 10																			BONUS:VAR|BowSneakAttack|1

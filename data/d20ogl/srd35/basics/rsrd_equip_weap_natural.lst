@@ -17,4 +17,3 @@ Touch Attack (Ray)	PROFICIENCY:WEAPON|Spells(Ray)		TYPE:Weapon.Ranged.Unarmed			
 #Special ---->(Flurry of Blows)
 # This workaround is here until we can get it to work w/o equipment,
 #	or we redo Natural Attacks and Unarmed attacks. - Tir Gwaith
-

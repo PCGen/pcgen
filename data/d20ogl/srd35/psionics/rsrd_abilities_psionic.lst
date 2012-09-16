@@ -46,7 +46,7 @@ Volatile Mind		CATEGORY:Special Ability	TYPE:SpecialQuality		VISIBLE:YES	DEFINE:
 
 ###Block: Elocator abilities
 # Ability Name		Category of Ability		Type									Visible	Define				Description										Stackable?	Multiple?	Choose			Bonus to spell known/L				Aspects							List of Class Spells by Level
-Elocator Transporter	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ElocatorTransporter	VISIBLE:YES																	STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=3|2									SPELLLEVEL:CLASS|SPELLCASTER.Psionic=3|Plane Shift (Psionic),Teleport (Psionic)
+Elocator Transporter	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ElocatorTransporter	VISIBLE:YES																	STACK:NO	MULT:YES	CHOOSE:CLASS|SPELLCASTER	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=3|2									SPELLLEVEL:CLASS|SPELLCASTER.Psionic=3|Plane Shift (Psionic),Teleport (Psionic)
 Scorn Earth			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
 Opportunistic Strike	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES	DEFINE:OpportunisticStrike|0	DESC:+%1|OpportunisticStrike																						ASPECT:Ability Benefit|+%1|OpportunisticStrike
 Dimension Step		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ModifyMovement		VISIBLE:YES
@@ -101,8 +101,8 @@ Conflagration		CATEGORY:Special Ability	TYPE:SpecialQuality.PsiLike		VISIBLE:YES
 
 ###Block: Thrallherd abilities
 # Ability Name			Category of Ability		Type						Visible	Define				Description						Stackable?	Multiple?	Choose			Bonus to spell known/L				List of Class Spells by Level
-Thrallherd Charm			CATEGORY:Special Ability	TYPE:Special.ThrallherdCharm		VISIBLE:YES													STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=1|1	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=1|Charm (Psionic)
-Thrallherd Dominate		CATEGORY:Special Ability	TYPE:Special.ThrallherdDominate	VISIBLE:YES													STACK:NO	MULT:YES	CHOOSE:SPELLCLASSES	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=4|1	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=4|Dominate (Psionic)
+Thrallherd Charm			CATEGORY:Special Ability	TYPE:Special.ThrallherdCharm		VISIBLE:YES													STACK:NO	MULT:YES	CHOOSE:CLASS|SPELLCASTER	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=1|1	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=1|Charm (Psionic)
+Thrallherd Dominate		CATEGORY:Special Ability	TYPE:Special.ThrallherdDominate	VISIBLE:YES													STACK:NO	MULT:YES	CHOOSE:CLASS|SPELLCASTER	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=4|1	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=4|Dominate (Psionic)
 Thrallherd				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:ThrallherdScore|0	DESC:Leadership score: %1|ThrallherdScore
 Thrallherd Greater Dominate	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES
 Thrallherd Superior Dominate	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES
@@ -124,7 +124,7 @@ Cleave				KEY:Astral_Cleave					CATEGORY:Special Ability	TYPE:SpecialQuality.Ast
 Deflection				KEY:Astral_Deflection				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES																																					BONUS:COMBAT|AC|1|TYPE=Deflection
 Fly					KEY:Astral_Fly					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES										MOVE:Fly,20							ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability																															BONUS:VAR|Maneuverability|3
 Improved Bull Rush		KEY:Astral_Improved Bull Rush			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY												AUTO:FEAT|Improved Bull Rush
-Improved Slam Attack		KEY:Astral_Improved Slam Attack		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY	SERVESAS:ABILITY=FEAT|Improved Natural Attack
+Improved Slam Attack		KEY:Astral_Improved Slam Attack		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY	SERVESAS:FEAT|Improved Natural Attack
 Mobility				KEY:Astral_Mobility				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY												AUTO:FEAT|Mobility
 Power Attack			KEY:Astral_Power Attack				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY												AUTO:FEAT|Power Attack
 Resistance				KEY:Astral_Resistance				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY																	ABILITY:Special Ability|AUTOMATIC|Resistance
@@ -142,7 +142,7 @@ Extra Attack			KEY:Astral_Extra Attack				CATEGORY:Special Ability	TYPE:SpecialQ
 Fast Healing			KEY:Astral_Fast Healing				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																	ABILITY:Special Ability|AUTOMATIC|Fast Healing																																	BONUS:VAR|FastHealing|2
 Heavy Deflection			KEY:Astral_Heavy Deflection			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:YES																																					BONUS:COMBAT|AC|4|TYPE=Deflection
 Improved Buff			KEY:Astral_Improved Buff			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:YES																																														BONUS:HP|CURRENTMAX|15
-Improved Critical			KEY:Astral_Improved Critical			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY	SERVESAS:ABILITY=FEAT|Improved Critical
+Improved Critical			KEY:Astral_Improved Critical			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY	SERVESAS:FEAT|Improved Critical
 Improved Damage Reduction	KEY:Astral_Improved Damage Reduction	CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																																										BONUS:DR|Magic|3																								DR:0/Magic
 Improved Fly			KEY:Astral_Improved Fly				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY									MOVE:Fly,40							ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability																															BONUS:VAR|Maneuverability|3
 Improved Grab			KEY:Astral_Improved Grab			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																	ABILITY:Special Ability|AUTOMATIC|Improved Grab

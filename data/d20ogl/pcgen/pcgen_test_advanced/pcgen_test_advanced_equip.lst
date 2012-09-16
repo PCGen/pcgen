@@ -35,7 +35,7 @@ Test Gear.MOD	TYPE:Gear
 Medium Armor		PROFICIENCY:ARMOR|Medium				TYPE:Armor.Medium			BONUS:COMBAT|AC|2|TYPE=Armor
 Leather			PROFICIENCY:ARMOR|Leather				TYPE:Armor.Light.Leather	BONUS:COMBAT|AC|2|TYPE=Armor
 Moon Cloth			PROFICIENCY:ARMOR|Moon Cloth				TYPE:Armor.Light.Moon Cloth	BONUS:COMBAT|AC|2|TYPE=Armor
-Heavy Armor			PROFICIENCY:ARMOR|Heavy					TYPE:Armor.Heavy			BONUS:COMBAT|AC|2|TYPE=Armor	
+Heavy Armor			PROFICIENCY:ARMOR|Heavy					TYPE:Armor.Heavy			BONUS:COMBAT|AC|2|TYPE=Armor
 Light Armor			PROFICIENCY:ARMOR|Light					TYPE:Armor.Light			BONUS:COMBAT|AC|2|TYPE=Armor
 
 # Shield Basic Test
@@ -44,4 +44,3 @@ Buckler Shield		PROFICIENCY:SHIELD|Light				TYPE:Shield.Light			BONUS:COMBAT|AC|
 Heavy Shield		PROFICIENCY:SHIELD|Heavy				TYPE:Shield.Heavy			BONUS:COMBAT|AC|2|TYPE=Shield
 
 Test Equip Feat		TYPE:FeatTestEquip.Any.Misc		ADD:FEAT|Add Feat Equip
-

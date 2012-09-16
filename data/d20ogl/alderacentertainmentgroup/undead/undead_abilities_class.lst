@@ -22,10 +22,10 @@ Brain Graft			KEY:Brain Graft ~ Chirurgeon			CATEGORY:Special Ability	TYPE:Speci
 # ~ The Dying	
 Incurable			KEY:Incurable ~ The Dying				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Resist Taint			KEY:Resist Taint ~ The Dying			CATEGORY:Special Ability	TYPE:SpecialQuality
-Fervor			KEY:Fervor ~ The Dying							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	
+Fervor			KEY:Fervor ~ The Dying							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Tireless			KEY:Tireless ~ The Dying								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Improved Turn Undead	KEY:Improved Turn Undead ~ The Dying					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Doom				KEY:Doom ~ The Dying	
+Doom				KEY:Doom ~ The Dying
 # ~	KEY:Incurable				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Protection from Evil	KEY:Protection from Evil ~ The Dying	CATEGORY:Special Ability	TYPE:SpecialQuality
 Regeneration		KEY:Regeneration ~ The Dying	CATEGORY:Special Ability	TYPE:SpecialQuality
@@ -86,7 +86,7 @@ Protection from Evil	KEY:Protection from Evil ~ Paladin of the Pale					CATEGORY
 Holy Terror	KEY:Holy Terror ~ Paladin of the Pale							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
 # ~ Puppet
-Thy Master's Will	KEY:Thy Master's Will ~ Puppet			CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:- %1 Ability|ThyMastersWill|PREVARGTEQ:PuppetLvl,7		DEFINE:ThyMastersWill|1	
+Thy Master's Will	KEY:Thy Master's Will ~ Puppet			CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:- %1 Ability|ThyMastersWill|PREVARGTEQ:PuppetLvl,7		DEFINE:ThyMastersWill|1
 Empathic Link		KEY:Empathic Link ~ Puppet			DESC:- %1 Miles(Su)|EmpLink						DEFINE:EmpLink|10		CATEGORY:Special Ability	TYPE:SpecialQuality
 Strengthened Resolve	KEY:Strengthened Resolve ~ Puppet		CATEGORY:Special Ability	TYPE:SpecialQuality
 Corruptive Influence	KEY:Corruptive Influence ~ Puppet			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
@@ -139,5 +139,5 @@ Lifeless Pallor	KEY:Lifeless Pallor ~ Wasteland Druid			CATEGORY:Special Ability
 Companions of the Grave	KEY:Companions of the Grave ~ Wasteland Druid		CATEGORY:Special Ability	TYPE:SpecialQuality
 # ~
 
-Destruction Domain	KEY:Wasteland Druid Destruction Domain	TYPE:WastelandDruidDomainChoice	
-Undead Domain		KEY:Wasteland Druid Undead Domain		TYPE:WastelandDruidDomainChoice	
+Destruction Domain	KEY:Wasteland Druid Destruction Domain	TYPE:WastelandDruidDomainChoice
+Undead Domain		KEY:Wasteland Druid Undead Domain		TYPE:WastelandDruidDomainChoice

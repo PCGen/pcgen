@@ -18,15 +18,15 @@ The Veil Parted			KEY:The Veil Parted ~ Spectral Loremaster	CATEGORY:Special Abi
 
 # Deathseeker
 Deathseeker Casting		KEY:Deathseeker Casting ~ Deathseeker	CATEGORY:Special Ability	TYPE:SpecialQuality
-Proximity to Death		KEY:Proximity to Death ~ Deathseeker	CATEGORY:Special Ability	TYPE:SpecialQuality		DESC: (%1')|DeathProx		DEFINE:DeathProx|0	
-Unleash Negativity		KEY:Unleash Negativity ~ Deathseeker	CATEGORY:Special Ability	TYPE:SpecialQuality		DESC: %1/Day|UnleashNeg						DEFINE:UnleashNeg|0	
+Proximity to Death		KEY:Proximity to Death ~ Deathseeker	CATEGORY:Special Ability	TYPE:SpecialQuality		DESC: (%1')|DeathProx		DEFINE:DeathProx|0
+Unleash Negativity		KEY:Unleash Negativity ~ Deathseeker	CATEGORY:Special Ability	TYPE:SpecialQuality		DESC: %1/Day|UnleashNeg						DEFINE:UnleashNeg|0
 
 # Necrophage
-Grafting				KEY:Grafting ~ Necrophage	CATEGORY:Special Ability	TYPE:SpecialQuality			
+Grafting				KEY:Grafting ~ Necrophage	CATEGORY:Special Ability	TYPE:SpecialQuality
 Body Enhancement			KEY:Body Enhancement ~ Necrophage	CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:BodyEnhancementNecrophageLvl|0	DESC:I|PREVAREQ:BodyEnhancementNecrophageLvl,1	DESC:II|PREVAREQ:BodyEnhancementNecrophageLvl,2	DESC:III|PREVAREQ:BodyEnhancementNecrophageLvl,3
-Enhanced Grafting			KEY:Enhanced Grafting ~ Necrophage	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Augmentation			KEY:Augmentation ~ Necrophage	CATEGORY:Special Ability	TYPE:SpecialQuality		
-Advanced Grafting			KEY:Advanced Grafting ~ Necrophage	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Enhanced Augmentation		KEY:Enhanced Augmentation ~ Necrophage	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Master Grafting			KEY:Master Grafting ~ Necrophage	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Body Tranformation		KEY:Body Tranformation ~ Necrophage	CATEGORY:Special Ability	TYPE:SpecialQuality		
+Enhanced Grafting			KEY:Enhanced Grafting ~ Necrophage	CATEGORY:Special Ability	TYPE:SpecialQuality
+Augmentation			KEY:Augmentation ~ Necrophage	CATEGORY:Special Ability	TYPE:SpecialQuality
+Advanced Grafting			KEY:Advanced Grafting ~ Necrophage	CATEGORY:Special Ability	TYPE:SpecialQuality
+Enhanced Augmentation		KEY:Enhanced Augmentation ~ Necrophage	CATEGORY:Special Ability	TYPE:SpecialQuality
+Master Grafting			KEY:Master Grafting ~ Necrophage	CATEGORY:Special Ability	TYPE:SpecialQuality
+Body Tranformation		KEY:Body Tranformation ~ Necrophage	CATEGORY:Special Ability	TYPE:SpecialQuality

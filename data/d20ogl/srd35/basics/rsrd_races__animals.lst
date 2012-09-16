@@ -134,4 +134,3 @@ Wolf						KEY:Animal Companion ~ Wolf		OUTPUTNAME:Wolf (Companion)		STARTFEATS:1
 Animal Companion ~ Dog.MOD																																																											BONUS:VAR|BiteDamageDice|1	BONUS:VAR|BiteDamageSize|4	BONUS:VAR|BiteAttackBonus|BAB+STR	BONUS:VAR|BiteDamageBonus|STR+max(0,(STR/2))															AUTO:WEAPONPROF|Bite			ABILITY:Natural Attack|AUTOMATIC|Bite
 Animal Companion ~ Dog Riding.MOD																																																										BONUS:VAR|BiteDamageDice|1	BONUS:VAR|BiteDamageSize|6	BONUS:VAR|BiteAttackBonus|BAB+STR	BONUS:VAR|BiteDamageBonus|STR+max(0,(STR/2))															AUTO:WEAPONPROF|Bite			ABILITY:Natural Attack|AUTOMATIC|Bite
 Animal Companion ~ Wolf.MOD																																																											BONUS:VAR|BiteDamageDice|1	BONUS:VAR|BiteDamageSize|6	BONUS:VAR|BiteAttackBonus|BAB+STR	BONUS:VAR|BiteDamageBonus|STR+max(0,(STR/2))															AUTO:WEAPONPROF|Bite			ABILITY:Natural Attack|AUTOMATIC|Bite
-

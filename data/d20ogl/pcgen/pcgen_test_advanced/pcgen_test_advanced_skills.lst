@@ -27,14 +27,14 @@ TestMasterSkill	USEUNTRAINED:NO	TYPE:ClassSkill		BONUS:SKILLRANK|TestSubSkill|sk
 TestSubSkill	USEUNTRAINED:NO	TYPE:Test	CLASSES:ALL
 
 
-Athletics.MOD	BONUS:SKILL|Athletics (Jump)|max(floor((var("MOVE[Walk]")-30)/10)*4,0)|TYPE=Speed.STACK	
-Athletics.MOD	BONUS:SKILL|Athletics (Jump)|min(ceil((var("MOVE[Walk]")-30)/10)*6,0)|TYPE=Speed.STACK	
-Athletics.MOD	BONUS:SKILL|Acrobatics|SynergyBonus|PRESKILL:1,Althetics=5|TYPE=Synergy.STACK		
+Athletics.MOD	BONUS:SKILL|Athletics (Jump)|max(floor((var("MOVE[Walk]")-30)/10)*4,0)|TYPE=Speed.STACK
+Athletics.MOD	BONUS:SKILL|Athletics (Jump)|min(ceil((var("MOVE[Walk]")-30)/10)*6,0)|TYPE=Speed.STACK
+Athletics.MOD	BONUS:SKILL|Acrobatics|SynergyBonus|PRESKILL:1,Althetics=5|TYPE=Synergy.STACK
 Athletics.MOD	BONUS:SKILL|Athletics (Jump)|skillinfo("MODIFIER","Athletics")
-Athletics.MOD	BONUS:SKILLRANK|Athletics (Jump)|skillinfo("TOTALRANK","Athletics")|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREMULT:1,[PREVARGT:skillinfo("TOTAL","Athletics (Jump)"),skillinfo("TOTAL","Athletics")],[PREVARNEQ:skillinfo("MODIFIER","Athletics (Jump)"),skillinfo("MODIFIER","Athletics")]	
+Athletics.MOD	BONUS:SKILLRANK|Athletics (Jump)|skillinfo("TOTALRANK","Athletics")|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREMULT:1,[PREVARGT:skillinfo("TOTAL","Athletics (Jump)"),skillinfo("TOTAL","Athletics")],[PREVARNEQ:skillinfo("MODIFIER","Athletics (Jump)"),skillinfo("MODIFIER","Athletics")]
 
 
-Athletics (Jump)	KEYSTAT:STR	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	
+Athletics (Jump)	KEYSTAT:STR	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse
 #VISIBLE:EXPORT
 
 
@@ -58,11 +58,11 @@ Poetry				KEYSTAT:CHA	TYPE:Charisma.Performance.Poetry
 
 #Conditional Skills
 Uber Scripting from five ranks in Test Coding Script		KEYSTAT:INT	BONUS:SKILL|Uber Scripting from five ranks in Test Coding Script|CHA	BONUS:SKILLRANK|Uber Scripting from five ranks in Test Coding Script|SKILLRANK=Poetry
-Poetry Recitation Specialty						KEYSTAT:CHA	
+Poetry Recitation Specialty						KEYSTAT:CHA
 
-Monkey Building			
+Monkey Building
 
-Linguistics				TYPE:TestSkills			
+Linguistics				TYPE:TestSkills
 
 Test Skill (Class Level)	TYPE:ClassLevelTest	CHOOSE:SKILL|ALL
 Test Skill (Sub)			TYPE:Test							USEUNTRAINED:NO	KEY:Test Skill_Sub
@@ -86,7 +86,7 @@ Spot			KEYSTAT:WIS	USEUNTRAINED:NO
 
 
 
-Ability Skill 1		USEUNTRAINED:NO	
+Ability Skill 1		USEUNTRAINED:NO
 Ability Skill 2		USEUNTRAINED:NO
 Ability Skill 3		USEUNTRAINED:NO
 Ability Skill 4		USEUNTRAINED:NO

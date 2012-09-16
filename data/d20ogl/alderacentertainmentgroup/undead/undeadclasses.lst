@@ -97,13 +97,13 @@ CLASS:Faith Hunter	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Escape Artist
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	ABILITY:Special Ability|AUTOMATIC|Indominable Will ~ Faith Hunter|Cure Infection ~ Faith Hunter
+1	ABILITY:Special Ability|AUTOMATIC|Cure Infection ~ Faith Hunter|Indominable Will ~ Faith Hunter
 2	ABILITY:Special Ability|AUTOMATIC|Stake Attack ~ Faith Hunter						BONUS:VAR|StakeAttack|CL/2	DEFINE:StakeAttack|0
 3	ABILITY:Special Ability|AUTOMATIC|Detect Undead ~ Faith Hunter
 4	ABILITY:Special Ability|AUTOMATIC|Undead Foe ~ Faith Hunter
 5	ABILITY:Special Ability|AUTOMATIC|Unpalatable Blood ~ Faith Hunter
 6	ABILITY:Special Ability|AUTOMATIC|Ranged Stake Attack ~ Faith Hunter
-7	ABILITY:Special Ability|AUTOMATIC|Undead Foe ~ Faith Hunter|Repel Vampires ~ Faith Hunter						DEFINE:RepelVampires|1
+7	ABILITY:Special Ability|AUTOMATIC|Repel Vampires ~ Faith Hunter|Undead Foe ~ Faith Hunter						DEFINE:RepelVampires|1
 8
 9	ABILITY:Special Ability|AUTOMATIC|Compel Solid Form ~ Faith Hunter			BONUS:VAR|CompelSolidForm|CL	DEFINE:CompelSolidForm|CHA+10
 10	ABILITY:Special Ability|AUTOMATIC|Undead Foe ~ Faith Hunter
@@ -169,7 +169,7 @@ CLASS:Puppet	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.49-50
 CLASS:Puppet	PREALIGN:LN,LE,TN,NE,CN,CE	PRETEXT:Special (see text)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Puppet	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Decipher Script|Disguise|Gather Information|Intimidate|Listen|Read Lips|Search|Sense Motive|Spellcraft|Spot
-1	ABILITY:Special Ability|AUTOMATIC|Thy Master's Will ~ Puppet|Empathic Link ~ Puppet		DEFINE:PuppetLvl|CL				DEFINE:EmpLink|10
+1	ABILITY:Special Ability|AUTOMATIC|Empathic Link ~ Puppet|Thy Master's Will ~ Puppet		DEFINE:PuppetLvl|CL				DEFINE:EmpLink|10
 2	ABILITY:Special Ability|AUTOMATIC|Strengthened Resolve ~ Puppet
 3																					AUTO:FEAT|Toughness
 4	ABILITY:Special Ability|AUTOMATIC|Corruptive Influence ~ Puppet

@@ -54,16 +54,16 @@ CLASS:Elf Treerunner	STARTSKILLPTS:4	CSKILL:Balance|Climb|Handle Animal|Hide|Int
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1		DEFINE:ElfTreerunnerLvl|CL			ABILITY:Special Ability|AUTOMATIC|Treewalking ~ Elf Treerunner|PREVARLT:ElfTreerunnerLvl,3
-2																					ABILITY:Special Ability|AUTOMATIC|Trackless Step
-3					ABILITY:Special Ability|AUTOMATIC|Treewalking (Su) ~ Elf Treerunner|PREVARGTEQ:ElfTreerunnerLvl,3
-4					ABILITY:Special Ability|AUTOMATIC|Speak with Plants  ~ Elf Treerunner		BONUS:VAR|SpeakPlants|3	DEFINE:SpeakPlants|WIS
-5					ABILITY:Special Ability|AUTOMATIC|Arboreal Ally ~ Elf Treerunner
-6					ABILITY:Special Ability|AUTOMATIC|Arboreal Ambush ~ Elf Treerunner
+1	DEFINE:ElfTreerunnerLvl|CL	ABILITY:Special Ability|AUTOMATIC|Treewalking ~ Elf Treerunner|PREVARLT:ElfTreerunnerLvl,3
+2						ABILITY:Special Ability|AUTOMATIC|Trackless Step
+3						ABILITY:Special Ability|AUTOMATIC|Treewalking (Su) ~ Elf Treerunner|PREVARGTEQ:ElfTreerunnerLvl,3
+4						ABILITY:Special Ability|AUTOMATIC|Speak with Plants ~ Elf Treerunner		BONUS:VAR|SpeakPlants|3	DEFINE:SpeakPlants|WIS
+5						ABILITY:Special Ability|AUTOMATIC|Arboreal Ally ~ Elf Treerunner
+6						ABILITY:Special Ability|AUTOMATIC|Arboreal Ambush ~ Elf Treerunner
 7	VISION:Darkvision (60')
-8					ABILITY:Special Ability|AUTOMATIC|Arboreal Gate ~ Elf Treerunner
-9					
-10					
+8						ABILITY:Special Ability|AUTOMATIC|Arboreal Gate ~ Elf Treerunner
+9
+10
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Epic Athlete	HD:12		TYPE:PC.Prestige	ABB:Ath		MAXLEVEL:10	SOURCEPAGE:p.56	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -94,7 +94,7 @@ CLASS:Footman	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Jump|TYPE=Profession|Ride|
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	ABILITY:Special Ability|AUTOMATIC|Shield Ally ~ Footman|Support Ally ~ Footman|Coordinated Strike ~ Footman	DEFINE:Coordinated|(CL+1)/2
+1	ABILITY:Special Ability|AUTOMATIC|Coordinated Strike ~ Footman|Shield Ally ~ Footman|Support Ally ~ Footman	DEFINE:Coordinated|(CL+1)/2
 2	ABILITY:Special Ability|AUTOMATIC|Protect Ally ~ Footman
 4	ABILITY:Special Ability|AUTOMATIC|Defend Ally ~ Footman
 
@@ -201,11 +201,11 @@ CLASS:Rake		STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Gather Information|Innuen
 1		DEFINE:RakeLvl|CL								BONUS:VAR|SneakAttack|(CL+1)/2					ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 2	ABILITY:Special Ability|AUTOMATIC|Taunt ~ Rake
 3																BONUS:ABILITYPOOL|Fighter Feat|1
-4	
+4
 6	ABILITY:Special Ability|AUTOMATIC|Humiliating Strike ~ Rake												BONUS:ABILITYPOOL|Fighter Feat|1
-8	
+8
 9																BONUS:ABILITYPOOL|Fighter Feat|1
-10	
+10
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Sharpshooter	HD:8		TYPE:PC.Prestige	ABB:Shp		MAXLEVEL:10	SOURCEPAGE:p.72	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE

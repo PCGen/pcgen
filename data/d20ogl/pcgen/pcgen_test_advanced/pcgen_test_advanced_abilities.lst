@@ -4,7 +4,7 @@
 
 
 
-Rune Weaver (30 CP)	CATEGORY:Special Ability	TYPE:Extra.EclipseAbilityOutput	ABILITY:Character Points|AUTOMATIC|Shaping ~ Rune Weaver|Mana ~ Rune Weaver|Ritual of Chi ~ Rune Weaver|Create Relic ~ Rune Weaver
+Rune Weaver (30 CP)	CATEGORY:Special Ability	TYPE:Extra.EclipseAbilityOutput	ABILITY:Character Points|AUTOMATIC|Create Relic ~ Rune Weaver|Mana ~ Rune Weaver|Ritual of Chi ~ Rune Weaver|Shaping ~ Rune Weaver
 
 Shaping (Rune Weaver)			KEY:Shaping ~ Rune Weaver		CATEGORY:Special Ability	TYPE:Extra.EclipseAbilityOutput	DESC:Specialized and Corrupted (for double effect and two thirds cost) / the user may only choose a limited number of relatively narrow themes linked to a particular attribute to use rather than being able to produce any desired effect within his or her limits; the user may select two attributes, gaining (Attribute Mod) themes from each, to start with. Additional attributes may be "opened" at a cost of 6 CP each at levels 3, 6, 9, and 12. The themes chosen will be represented by symbols on the user's skin, which will be revealing to any knowledgeable observer. Sadly, without boosting, this is effectively limited to level zero effects - and cumulative effects (such as healing) lose effectiveness on any given target after 2d6 uses per day (4 CP).	COST:4
 2d6 (8) Mana				KEY:Mana ~ Rune Weaver			CATEGORY:Special Ability	TYPE:Extra.EclipseAbilityOutput	DESC:(Spell Enhancement Option), Specialized and Corrupted for triple effect (24 Mana)/only for use with Shaping, only to reduce spell levels (not for caster level enhancement), use of more than half the reserve will fatigue the user, using it up will exhaust him or her (12 CP).	COST:12
@@ -25,7 +25,7 @@ Martial Arts Basic / Attack				KEY:Martial Arts Skill ~ Attack				SORTKEY:Martia
 Martial Arts Basic / Defenses				KEY:Martial Arts Skill ~ Defenses				SORTKEY:Martial Arts_1b		CATEGORY:Special Ability	TYPE:MartialArtsOutput.MartialArtsSkill.BasicTechnique	!PREABILITY:4,CATEGORY=Special Ability,Martial Arts Skill ~ Defenses	DEFINE:MartialArtsDefense|0		DESC:Gain additional +1 each time taken [currently +%1] bonus to AC when you are unarmored or lightly armored.|MartialArtsDefense									STACK:YES	MULT:YES	CHOOSE:NOCHOICE																							BONUS:COMBAT|AC|MartialArtsDefense|TYPE=MartialArts|PREVARLT:var("COUNT[EQTYPE.ARMOR.IS.MEDIUM]"),1										BONUS:VAR|MartialArtsDefense|1												SOURCEPAGE:p.81
 Martial Arts Basic / Power				KEY:Martial Arts Skill ~ Power				SORTKEY:Martial Arts_1c1	CATEGORY:Special Ability	TYPE:MartialArtsOutput.MartialArtsSkill.BasicTechnique	!PREABILITY:4,CATEGORY=Special Ability,Martial Arts Skill ~ Power								DESC:Increase your unarmed damage by +1 or increase your weapon die type by 1 step, up to a d12 maximum. Weapons that cause multiple dice of damage increase them independently.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE														BONUS:ABILITYPOOL|Martial Art Skill Power Choice|1																																												SOURCEPAGE:p.81
 Martial Arts Basic / Strike				KEY:Martial Arts Skill ~ Strike				SORTKEY:Martial Arts_1d		CATEGORY:Special Ability	TYPE:MartialArtsOutput.MartialArtsSkill.BasicTechnique													DEFINE:UseMartialArts|1			DESC:You may deal lethal or nonlethal damage at will without penalty. Your base damage is at least 1d4. This may only be taken once.																		ABILITY:Special Ability|AUTOMATIC|Martial Arts Counter																																				BONUS:VAR|MartialArtsDieSize|2|!PREABILITY:1,CATEGORY=Special Ability,Martial Arts				SOURCEPAGE:p.81
-Martial Arts Basic / Synergy				KEY:Martial Arts Skill ~ Synergy				SORTKEY:Martial Arts_1e		CATEGORY:Special Ability	TYPE:MartialArtsOutput.MartialArtsSkill.BasicTechnique	!PREABILITY:4,CATEGORY=Special Ability,Martial Arts Skill ~ Synergy							DESC:You gain +2 on any related skill. Each time this is taken it applies to a different skill. Common synergies include Tumble, Heal, and Move Silently, but others are possible.	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE=AdeptChoice																																					BONUS:SKILL|%LIST|SynergyBonus|TYPE=Synergy.STACK																		SOURCEPAGE:p.81
+Martial Arts Basic / Synergy				KEY:Martial Arts Skill ~ Synergy				SORTKEY:Martial Arts_1e		CATEGORY:Special Ability	TYPE:MartialArtsOutput.MartialArtsSkill.BasicTechnique	!PREABILITY:4,CATEGORY=Special Ability,Martial Arts Skill ~ Synergy							DESC:You gain +2 on any related skill. Each time this is taken it applies to a different skill. Common synergies include Tumble, Heal, and Move Silently, but others are possible.	STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=AdeptChoice																																					BONUS:SKILL|%LIST|SynergyBonus|TYPE=Synergy.STACK																		SOURCEPAGE:p.81
 Martial Arts Basic / Toughness			KEY:Martial Arts Skill ~ Toughness				SORTKEY:Martial Arts_1f		CATEGORY:Special Ability	TYPE:MartialArtsOutput.MartialArtsSkill.BasicTechnique	!PREABILITY:4,CATEGORY=Special Ability,Martial Arts Skill ~ Toughness	DEFINE:MAToughness|0			DESC:You gain DR 1/- each time you take this [Current DR %1/-]. This stacks with itself.|MAToughness																					STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																	BONUS:VAR|MAToughness|1											DR:MAToughness/-	SOURCEPAGE:p.81
 #COMMENT:Two choices in the same ability warrant a separate pool to play in. Especially since they're only supposed to be taken max of four times.
 Martial Arts Basic / Power / Improve Die Size	KEY:Martial Arts Skill ~ Power ~ Improve Die Size	SORTKEY:Martial Arts_1c2	CATEGORY:Special Ability	TYPE:MartialArtsOutput.MASpower					!PREABILITY:4,CATEGORY=Special Ability,TYPE.MASpower										DESC:Increase your weapon die type by 1 step, up to a d12 maximum. Weapons that cause multiple dice of damage increase them independently.							STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																																		SOURCEPAGE:p.81
@@ -83,16 +83,23 @@ Martial Arts Occult / Wrath			KEY:Martial Arts Skill ~ Wrath			SORTKEY:Martial A
 
 
 # MArtial Arts Stuff -
-Hiten Mitsurugi Ryuu (Dex)	SORTKEY:A1	CATEGORY:Special Ability	TYPE:MartialArtsOutput																																									DESC:This is the style made up with no cool description, hopefully this will prompt the player to make something nice and fancy instead of ugly. &nl; [Requires] Finesse, Reflex Training(Quick Draw/Quick Sheathe)&nl; [Basic Techniques] Attack IV, Defenses IV, Power&nl; [Advanced Techniques] Mighty Blow, Reach, Instant Stand, Versatility, Sneak Attack&nl; [Occult Techniques] Ki Block, Paralyze, Overburden, Touch Strike
+Hiten Mitsurugi Ryuu (Dex)	SORTKEY:A1	CATEGORY:Special Ability	TYPE:MartialArtsOutput																																									DESC:This is the style made up with no cool description, hopefully this will prompt the player to make something nice and fancy instead of ugly. 
+ [Requires] Finesse, Reflex Training(Quick Draw/Quick Sheathe)
+ [Basic Techniques] Attack IV, Defenses IV, Power
+ [Advanced Techniques] Mighty Blow, Reach, Instant Stand, Versatility, Sneak Attack
+ [Occult Techniques] Ki Block, Paralyze, Overburden, Touch Strike
 
-Hiten Mitsurugi Ryuu Basic Chooser						KEY:MA ~ Hiten Mitsurugi Ryuu ~ BC	CATEGORY:Special Ability	TYPE:MA ~ Hiten Mitsurugi Ryuu																																																																																																																																																																																																																												MULT:YES	CHOOSE:STRING|Attack 1|Attack 2|Attack 3|Attack 4|Power 1|Defenses 1|Defenses 2|Defenses 3|Defenses 4
-CATEGORY=Special Ability|Hiten Mitsurugi Ryuu (Dex).MOD																																																												DESC:&nl;Known Basic Techniques|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ BC		DESC:Power 1|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ BC(Power 1)		DESC:Attack 1|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ BC(Attack 1)		DESC:Attack 2|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ BC(Attack 2)	DESC:Attack 3|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ BC(Attack 3)	DESC:Attack 4|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ BC(Attack 4)	DESC:Defenses 1|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ BC(Defenses 1)		DESC:Defenses 2|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ BC(Defenses 2)	DESC:Defenses 3|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ BC(Defenses 3)	DESC:Defenses 4|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ BC(Defenses 4)
+Hiten Mitsurugi Ryuu Basic Chooser						KEY:MA ~ Hiten Mitsurugi Ryuu ~ BC	CATEGORY:Special Ability	TYPE:MA ~ Hiten Mitsurugi Ryuu																																																																																																																																																																																																																												MULT:YES	CHOOSE:STRING|Attack 1|Attack 2|Attack 3|Attack 4|Defenses 1|Defenses 2|Defenses 3|Defenses 4|Power 1
+CATEGORY=Special Ability|Hiten Mitsurugi Ryuu (Dex).MOD																																																												DESC:
+Known Basic Techniques|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ BC		DESC:Power 1|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ BC (Power 1)		DESC:Attack 1|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ BC (Attack 1)		DESC:Attack 2|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ BC (Attack 2)	DESC:Attack 3|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ BC (Attack 3)	DESC:Attack 4|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ BC (Attack 4)	DESC:Defenses 1|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ BC (Defenses 1)		DESC:Defenses 2|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ BC (Defenses 2)	DESC:Defenses 3|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ BC (Defenses 3)	DESC:Defenses 4|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ BC (Defenses 4)
 
-Hiten Mitsurugi Ryuu Advanced Chooser					KEY:MA ~ Hiten Mitsurugi Ryuu ~ AC	CATEGORY:Special Ability	TYPE:MA ~ Hiten Mitsurugi Ryuu			PREABILITY:3,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ BC								!PREABILITY:4,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ AC																																																																																																																																																																																													MULT:YES	CHOOSE:STRING|Mighty Blow|Reach|Instant Stand|Versatility|Sneak Attack 1
-CATEGORY=Special Ability|Hiten Mitsurugi Ryuu (Dex).MOD																																																												DESC:&nl;Known Advanced Techniques|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ AC		DESC:Mighty Blow|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ AC(Mighty Blow)	DESC:Reach|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ AC(Reach)	DESC:Instant Stand|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ AC(Instant Stand)	DESC:Versatility|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ AC(Versatility)	DESC:Sneak Attack I|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ AC(Sneak Attack 1)
+Hiten Mitsurugi Ryuu Advanced Chooser					KEY:MA ~ Hiten Mitsurugi Ryuu ~ AC	CATEGORY:Special Ability	TYPE:MA ~ Hiten Mitsurugi Ryuu			PREABILITY:3,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ BC								!PREABILITY:4,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ AC																																																																																																																																																																																													MULT:YES	CHOOSE:STRING|Instant Stand|Mighty Blow|Reach|Sneak Attack 1|Versatility
+CATEGORY=Special Ability|Hiten Mitsurugi Ryuu (Dex).MOD																																																												DESC:
+Known Advanced Techniques|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ AC		DESC:Mighty Blow|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ AC (Mighty Blow)	DESC:Reach|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ AC (Reach)	DESC:Instant Stand|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ AC (Instant Stand)	DESC:Versatility|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ AC (Versatility)	DESC:Sneak Attack I|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ AC (Sneak Attack 1)
 
-Hiten Mitsurugi Ryuu Occult Chooser					KEY:MA ~ Hiten Mitsurugi Ryuu ~ OC		CATEGORY:Special Ability	TYPE:MA ~ Hiten Mitsurugi Ryuu			PREABILITY:5,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ AC,MA ~ Hiten Mitsurugi Ryuu ~ BC			MULT:YES	CHOOSE:STRING|One Finger|Inner Strength|Ki Focus|Touch Strike
-CATEGORY=Special Ability|Hiten Mitsurugi Ryuu (Dex).MOD		DESC:&nl;Known Occult Techniques|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ OC		DESC:One Finger|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ OC(One Finger)		DESC:Inner Strength|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ OC(Inner Strength)		DESC:Ki Focus|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ OC(Ki Focus)		DESC:Touch Strike|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ OC(Touch Strike)
+Hiten Mitsurugi Ryuu Occult Chooser					KEY:MA ~ Hiten Mitsurugi Ryuu ~ OC		CATEGORY:Special Ability	TYPE:MA ~ Hiten Mitsurugi Ryuu			PREABILITY:5,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ AC,MA ~ Hiten Mitsurugi Ryuu ~ BC			MULT:YES	CHOOSE:STRING|Inner Strength|Ki Focus|One Finger|Touch Strike
+CATEGORY=Special Ability|Hiten Mitsurugi Ryuu (Dex).MOD		DESC:
+Known Occult Techniques|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ OC		DESC:One Finger|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ OC (One Finger)		DESC:Inner Strength|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ OC (Inner Strength)		DESC:Ki Focus|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ OC (Ki Focus)		DESC:Touch Strike|PREABILITY:1,CATEGORY=Special Ability,MA ~ Hiten Mitsurugi Ryuu ~ OC (Touch Strike)
 
 
 
@@ -105,9 +112,9 @@ CODE-1145 b				CATEGORY:FEAT			COST:0	TYPE:CODE	DESC:Cost 0
 
 # TEST-64
 # Please give SPELLS (the token) to a character that grants the exact same spell twice, but from different sources. The spell, spell book, timeunit, caster level (if any), DC (if any) must all be the same (the times may be different if you so choose) 
-TEST-64	CATEGORY:FEAT	TYPE:Test	KEY:TEST-64A	SPELLS:Innate|TIMEUNIT=Hour|TIMES=2|CASTERLEVEL=10|Magic Missile,20	DESC:Please give SPELLS (the token) to a character that grants the exact same spell twice, but from different sources. The spell, spell book, timeunit, caster level (if any), DC (if any) must all be the same (the times may be different if you so choose)	DESC:Add Template of Same Name to Complete Test.
+TEST-64	CATEGORY:FEAT	TYPE:Test	KEY:TEST-64A	SPELLS:Innate|TIMES=2|TIMEUNIT=Hour|CASTERLEVEL=10|Magic Missile,20	DESC:Please give SPELLS (the token) to a character that grants the exact same spell twice, but from different sources. The spell, spell book, timeunit, caster level (if any), DC (if any) must all be the same (the times may be different if you so choose)	DESC:Add Template of Same Name to Complete Test.
 
-TEST-65	CATEGORY:FEAT	TYPE:Test	KEY:TEST-65	SPELLS:Innate|TIMEUNIT=Hour|TIMES=5|CASTERLEVEL=10|Fireball,20	DESC:Use SPELLS in such a way that it provides a Spell to which the character already has access (Such as an Innate Fireball to a mid level Sorcerer). Ensure that the output is correct across the different conditions (caster level, DC, etc.). Ensure you are using a fixed caster level for the Innate spell that is different than the caster level of the PC.
+TEST-65	CATEGORY:FEAT	TYPE:Test	KEY:TEST-65	SPELLS:Innate|TIMES=5|TIMEUNIT=Hour|CASTERLEVEL=10|Fireball,20	DESC:Use SPELLS in such a way that it provides a Spell to which the character already has access (Such as an Innate Fireball to a mid level Sorcerer). Ensure that the output is correct across the different conditions (caster level, DC, etc.). Ensure you are using a fixed caster level for the Innate spell that is different than the caster level of the PC.
 
 #Grant two SPELLS entries to a PC, but with different Caster Level. Ensure they are the same spell book, but times, timeunit, DC may be different if you so choose.
 
@@ -116,16 +123,16 @@ TEST-65	CATEGORY:FEAT	TYPE:Test	KEY:TEST-65	SPELLS:Innate|TIMEUNIT=Hour|TIMES=5|
 
 TEST-66a	CATEGORY:FEAT	TYPE:Test	TEMPLATE:TEST-66A	ABILITY:Special Ability|AUTOMATIC|TEST-66A
 
-TEST-66A	CATEGORY:Special Ability	TYPE:Test.SpecialQuality			SPELLS:TestSixSix|CASTERLEVEL=7|Magic Missile
+TEST-66A	CATEGORY:Special Ability	TYPE:Test.SpecialQuality			SPELLS:TestSixSix|TIMES=1|CASTERLEVEL=7|Magic Missile
 
 
-TEST-66b	CATEGORY:FEAT	TYPE:Test	SPELLS:TestSixSix|CASTERLEVEL=7|Magic Missile	SPELLS:TestSixSix|CASTERLEVEL=8|Magic Missile
+TEST-66b	CATEGORY:FEAT	TYPE:Test	SPELLS:TestSixSix|TIMES=1|CASTERLEVEL=7|Magic Missile	SPELLS:TestSixSix|TIMES=1|CASTERLEVEL=8|Magic Missile
 
 
-TEST-67	CATEGORY:FEAT	TYPE:Test	SPELLS:Innate|Light	SPELLS:Innate|Detect Magic	DESC:Put two SPELLS tokens that apply to the same Spell Book (e.g. Innate) into an object and grant that object to a PC. (This ensures that multiple entries work)
+TEST-67	CATEGORY:FEAT	TYPE:Test	SPELLS:Innate|TIMES=1|Light	SPELLS:Innate|TIMES=1|Detect Magic	DESC:Put two SPELLS tokens that apply to the same Spell Book (e.g. Innate) into an object and grant that object to a PC. (This ensures that multiple entries work)
 
 
-Test Current	CATEGORY:Special Ability	MULT:YES	CHOOSE:SKILL|TYPE.Craft	BONUS:SKILL|%LIST|10
+Test Current	CATEGORY:Special Ability	MULT:YES	CHOOSE:SKILL|TYPE=Craft	BONUS:SKILL|%LIST|10
 
 
 #
@@ -159,7 +166,7 @@ OS 139 Display	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Should be seein
 #Preview and Export report 10/Cold and Acid; 15/Electricity
 
 
-Natural Attack ~ Test	KEY:Test Attack	CATEGORY:Natural Attack	TYPE:NaturalAttack	DEFINE:NaturalShieldReach|REACH.VAL	ASPECT:NaturalAttackName|PASSES|PREVARNEQ:ShieldThreatRange,20	ASPECT:NaturalAttackName| Test Output|PREVARNEQ:ShieldThreatRange,20	ASPECT:NaturalAttackName|PASSES Req|PREVAREQ:ShieldThreatRange,20	ASPECT:NaturalAttackName| Test Output|PREVAREQ:ShieldThreatRange,20	ASPECT:NaturalAttackToHit|%1|BAB+STR	ASPECT:NaturalAttackDamage|%1d%2|1|8|PREFEAT:1,Dont Display 1d6	ASPECT:NaturalAttackDamage|%1d%2|1|6|!PREFEAT:1,Dont Display 1d6	ASPECT:NaturalAttackDamageBonus|%1|STR+ShieldBashDamageBonus	ASPECT:NaturalAttackDamageBonus|%1|STR+ShieldBashDamageBonus		DEFINE:ShieldBashDamageBonus|0		ASPECT:NaturalAttackReach|%1|NaturalShieldReach				ASPECT:NaturalAttackType|Lethal		ASPECT:NaturalAttackThreatRange|%1|ShieldThreatRange										DEFINE:ShieldThreatRange|0	BONUS:VAR|ShieldThreatRange|20|TYPE=Base	ABILITY:Internal|AUTOMATIC|Shield Bash Stats
+Natural Attack ~ Test	KEY:Test Attack	CATEGORY:Natural Attack	TYPE:NaturalAttack	DEFINE:NaturalShieldReach|REACH.VAL	ASPECT:NaturalAttackName|PASSES	ASPECT:NaturalAttackName| Test Output	ASPECT:NaturalAttackName|PASSES Req	ASPECT:NaturalAttackName| Test Output	ASPECT:NaturalAttackToHit|%1|BAB+STR	ASPECT:NaturalAttackDamage|%1d%2|1|8	ASPECT:NaturalAttackDamage|%1d%2|1|6	ASPECT:NaturalAttackDamageBonus|%1|STR+ShieldBashDamageBonus	ASPECT:NaturalAttackDamageBonus|%1|STR+ShieldBashDamageBonus		DEFINE:ShieldBashDamageBonus|0		ASPECT:NaturalAttackReach|%1|NaturalShieldReach				ASPECT:NaturalAttackType|Lethal		ASPECT:NaturalAttackThreatRange|%1|ShieldThreatRange										DEFINE:ShieldThreatRange|0	BONUS:VAR|ShieldThreatRange|20|TYPE=Base	ABILITY:Internal|AUTOMATIC|Shield Bash Stats
 Dont Display 1d6	CATEGORY:FEAT	SORTKEY:NEWTAG-252_2	TYPE:NEWTAG
 
 NEWTAG-252 Aspect Tag	KEY:NEWTAG-252	SORTKEY:NEWTAG-252_1	CATEGORY:FEAT	TYPE:NEWTAG	ABILITY:Natural Attack|AUTOMATIC|Test Attack
@@ -178,7 +185,7 @@ CATEGORY=Internal|Shield Bash Stats.MOD	BONUS:VAR|ShieldBashingDieSizeStep|3|TYP
 # COMMENT: Size is Small 
 CATEGORY=Internal|Shield Bash Stats.MOD	BONUS:VAR|ShieldBashingDieSizeStep|2|TYPE=ShieldSize|PREMULT:2,[PRESIZEEQ:S],[PREEQUIP:1,TYPE=Shield.Light]	BONUS:VAR|ShieldBashingDieSizeStep|3|TYPE=ShieldSize|PREMULT:2,[PRESIZEEQ:S],[PREEQUIP:1,TYPE=Shield.Heavy]
 
-	
+
 
 CATEGORY=Internal|Shield Bash Stats.MOD	ABILITY:Internal|AUTOMATIC|Shield Bash 1d1|PREVAREQ:ShieldBashingDieSizeStep,1
 CATEGORY=Internal|Shield Bash Stats.MOD	ABILITY:Internal|AUTOMATIC|Shield Bash 1d2|PREVAREQ:ShieldBashingDieSizeStep,2
@@ -211,14 +218,14 @@ CODE-883- Test Encumberance 1			KEY:CODE-883B	SORTKEY:CODE-883b	CATEGORY:FEAT	DE
 
 CODE-883- Test Encumberance 2			KEY:CODE-883C	SORTKEY:CODE-883C	CATEGORY:FEAT	DESC:This will test the encumberance if Encumbrance EQUAL 0 then Initiative will increase by 15.	DESC:Encumbrance = %1|ENCUMBERANCE	BONUS:COMBAT|INITIATIVE|15|TYPE=Competence|PREVAREQ:ENCUMBERANCE,0
 
-	
+
 
 # TODO: All Tests should now match up with a tracker ID, example 'TEST-43', if a multipart 'TEST-43-A', include a description, or note on what the test is doing.
 Low-light Vision			KEY:Low light Vision					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision		DEFINE:LowLightRange|2		DESC:You can see %1x as far as humans in low illumination.|LowLightRange
 
 Grant Master Traits	CATEGORY:FEAT	COST:0	ABILITY:Internal|AUTOMATIC|Master Traits
 
-Master Traits			CATEGORY:Internal			TYPE:Internal		VISIBLE:NO	
+Master Traits			CATEGORY:Internal			TYPE:Internal		VISIBLE:NO
 #COMMENT: Assigns the Trait based upon RACETYPE
 CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Aberration Traits|PRERACE:1,RACETYPE=Aberration
 CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Animal Traits|PRERACE:1,RACETYPE=Animal
@@ -243,7 +250,7 @@ Dragon Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Darkvision (60
 Elemental Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Darkvision (60')			SOURCEPAGE:TypesSubtypesAbilities.rtf
 Fey Traits				CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Low-light	ABILITY:Special Ability|AUTOMATIC|Low light Vision				SOURCEPAGE:TypesSubtypesAbilities.rtf
 Giant Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Low-light	ABILITY:Special Ability|AUTOMATIC|Low light Vision				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Humanoid Traits			CATEGORY:Special Ability	TYPE:TraitAbility	
+Humanoid Traits			CATEGORY:Special Ability	TYPE:TraitAbility
 Magical Beast Traits		CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Darkvision (60')|Low-light	ABILITY:Special Ability|AUTOMATIC|Low light Vision	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Monstrous Humanoid Traits	CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Darkvision (60')			SOURCEPAGE:TypesSubtypesAbilities.rtf
 Ooze Traits				CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Blind				SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:OozeObjectAcidDamageAmount|0	DEFINE:OozeHasObjectAcidDamage|0																											BONUS:VAR|OozeObjectAcidDamageAmount|10+(HD/2)+CON	TEMPLATE:Ooze
@@ -260,12 +267,12 @@ Test Application of Ability by Pretype 2		CATEGORY:Special Ability	TYPE:SpecialQ
 #
 
 
-CODE-371 Display Mult			CATEGORY:FEAT			COST:10	TYPE:General.SpecialQuality	DESC:This is taken a few times	CHOOSE:NOCHOICE	STACK:YES	MULT:YES	
-CODE-371 Take for Free Feats		CATEGORY:FEAT			COST:-10	TYPE:General.SpecialQuality	DESC:Should grant 10 Feat Points	CHOOSE:NOCHOICE	STACK:YES	MULT:YES	
+CODE-371 Display Mult			CATEGORY:FEAT			COST:10	TYPE:General.SpecialQuality	DESC:This is taken a few times	CHOOSE:NOCHOICE	STACK:YES	MULT:YES
+CODE-371 Take for Free Feats		CATEGORY:FEAT			COST:-10	TYPE:General.SpecialQuality	DESC:Should grant 10 Feat Points	CHOOSE:NOCHOICE	STACK:YES	MULT:YES
 
 #
-CODE-1099 PRESKILL not working with TYPE.Blah	KEY:CODE-1099A		CATEGORY:FEAT			COST:0	TYPE:General.SpecialQuality	DESC:Test TYPE.SkillName=5	PRESKILL:1,TYPE.Knowledge=5	CHOOSE:NOCHOICE	STACK:YES	MULT:YES	
-CODE-1099 PRESKILL not working with TYPE=Blah	KEY:CODE-1099B		CATEGORY:FEAT			COST:0	TYPE:General.SpecialQuality	DESC:Test TYPE=SkillName=5	PRESKILL:1,TYPE=Knowledge=5	CHOOSE:NOCHOICE	STACK:YES	MULT:YES	
+CODE-1099 PRESKILL not working with TYPE.Blah	KEY:CODE-1099A		CATEGORY:FEAT			COST:0	TYPE:General.SpecialQuality	DESC:Test TYPE.SkillName=5	PRESKILL:1,TYPE.Knowledge=5	CHOOSE:NOCHOICE	STACK:YES	MULT:YES
+CODE-1099 PRESKILL not working with TYPE=Blah	KEY:CODE-1099B		CATEGORY:FEAT			COST:0	TYPE:General.SpecialQuality	DESC:Test TYPE=SkillName=5	PRESKILL:1,TYPE=Knowledge=5	CHOOSE:NOCHOICE	STACK:YES	MULT:YES
 
 #TEST-13
 
@@ -303,10 +310,10 @@ ALICE ~ Class Skill		CATEGORY:FEAT	TYPE:AliceTests	CSKILL:LIST					CHOOSE:SKILL|
 ALICE ~ Cross Class Test	CATEGORY:FEAT	TYPE:AliceTests	CCSKILL:LIST				CHOOSE:SKILL|EXCLUSIVE			MULT:YES
 #
 ALICE ~ SPELLLEVEL Test		CATEGORY:FEAT	TYPE:AliceTests		SPELLLEVEL:CLASS|Alice Class=5|Alice Adds Spell Through SPELLLEVEL|Alice Class=8|Alice Adds Spell Through SPELLLEVEL Lv8
-ALICE ~ SPELLKNOWN Test		CATEGORY:FEAT	TYPE:AliceTests		SPELLKNOWN:CLASS|Alice Class=1|Alice Known Spell	
+ALICE ~ SPELLKNOWN Test		CATEGORY:FEAT	TYPE:AliceTests		SPELLKNOWN:CLASS|Alice Class=1|Alice Known Spell
 
 
-ALICE ~ TEST 31			CATEGORY:FEAT	TYPE:AliceTests	ABILITY:Special Ability|AUTOMATIC|TYPE.Test31A
+ALICE ~ TEST 31			CATEGORY:FEAT	TYPE:AliceTests	ABILITY:Special Ability|AUTOMATIC|TYPE=Test31A
 #Have the following in a third PC:
 
 ALICE ~ MOVECLONE Swim div 2			CATEGORY:Special Ability	TYPE:SpecialQuality.Test31a	MOVECLONE:Walk,Swim,/2
@@ -319,8 +326,8 @@ ALICE ~ Add Feat			CATEGORY:FEAT	TYPE:AliceTests	ADD:FEAT|Add Feat Ability
 
 
 
-GLOBAL ~ COMPANIONLIST WITHOUT MATCH	CATEGORY:FEAT	TYPE:GlobalTests	COMPANIONLIST:Test|Companion	FOLLOWERS:Test|1	
-GLOBAL ~ MOVE by Walk 30			CATEGORY:FEAT	TYPE:GlobalTests	MOVE:Walk,30	
+GLOBAL ~ COMPANIONLIST WITHOUT MATCH	CATEGORY:FEAT	TYPE:GlobalTests	COMPANIONLIST:Test|Companion	FOLLOWERS:Test|1
+GLOBAL ~ MOVE by Walk 30			CATEGORY:FEAT	TYPE:GlobalTests	MOVE:Walk,30
 
 GLOBAL ~ Same Spells Test		CATEGORY:FEAT	TYPE:GlobalTests		SPELLS:YourTest|TIMES=5|CASTERLEVEL=1|Same Spell Test
 
@@ -347,9 +354,9 @@ CHARLIE ~ TEST 32		CATEGORY:FEAT	TYPE:CharlieTests	TEMPLATE:Test32	TEMPLATE:Remo
 
 ###Test 31
 
-CHARLIE ~ TEST 31		CATEGORY:FEAT	TYPE:CharlieTests	ABILITY:Special Ability|AUTOMATIC|TYPE.Test31C
+CHARLIE ~ TEST 31		CATEGORY:FEAT	TYPE:CharlieTests	ABILITY:Special Ability|AUTOMATIC|TYPE=Test31C
 #
-CHARLIE ~ MOVECLONE Trot +5				CATEGORY:Special Ability	TYPE:SpecialQuality.Test31c		MOVECLONE:Walk,Trot,+5
+CHARLIE ~ MOVECLONE Trot +5				CATEGORY:Special Ability	TYPE:SpecialQuality.Test31c		MOVECLONE:Walk,Trot,5
 CHARLIE ~ Bonus MoveAdd Crawl			CATEGORY:Special Ability	TYPE:SpecialQuality.Test31c		BONUS:MOVEADD|TYPE.Crawl|5
 #   (this type of movement should be added)
 CHARLIE ~ Bonus Movemult Shuffle		CATEGORY:Special Ability	TYPE:SpecialQuality.Test31c		BONUS:MOVEMULT|TYPE.Shuffle|10
@@ -360,7 +367,7 @@ CHARLIE ~ Bonus Post Move Add Scramble	CATEGORY:Special Ability	TYPE:SpecialQual
 
 
 
-BOB ~ TEST 31	CATEGORY:FEAT	TYPE:BobTest	ABILITY:Special Ability|AUTOMATIC|TYPE.Test31b
+BOB ~ TEST 31	CATEGORY:FEAT	TYPE:BobTest	ABILITY:Special Ability|AUTOMATIC|TYPE=Test31b
 
 BOB ~ MoveClone Fly times 2	CATEGORY:Special Ability	TYPE:SpecialQuality.Test31b		MOVECLONE:Walk,Fly,*2
 #using a * with a new movement type (e.g. Fly)
@@ -392,9 +399,9 @@ Chooser ~ Choose SHIELDPROFICIENCY	CHOOSE:SHIELDPROFICIENCY|ALL			MULT:YES	CATEG
 Chooser ~ Choose SIZE			CHOOSE:SIZE|ALL					MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
 Chooser ~ Choose SKILL			CHOOSE:SKILL|ALL					MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
 Chooser ~ Choose SPELLS			CHOOSE:SPELLS|ALL					MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
-Chooser ~ Choose STRING			CHOOSE:STRING|ALL|NONE|Maybe			MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
+Chooser ~ Choose STRING			CHOOSE:STRING|ALL|Maybe|NONE			MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
 Chooser ~ Choose TEMPLATE		CHOOSE:TEMPLATE|ALL				MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
-Chooser ~ Choose USERINPUT		CHOOSE:USERINPUT|TITLE="User Input Test"	MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
+Chooser ~ Choose USERINPUT		CHOOSE:USERINPUT|TITLE=User Input Test	MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
 Chooser ~ Choose WEAPONPROFICIENCY	CHOOSE:WEAPONPROFICIENCY|ALL			MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality
 #
 Chooser ~ Choose NOCHOICE		CHOOSE:NOCHOICE					MULT:YES	CATEGORY:Special Ability	TYPE:Chooser.Test.SpecialQuality	STACK:YES
@@ -482,7 +489,7 @@ Template Test Bonus Viewer	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:%1 
 Ability That Grants Two		CATEGORY:Special Ability	TYPE:Racial.SpecialQuality	ABILITY:Special Ability|AUTOMATIC|Ability Grant One|Ability Grant Two	DESC:[Desc]This Ability Grants Two More Abilities	BENEFIT:[Benefit] This ability Greants Two More Abilities
 
 Tentacles of the Fey		CATEGORY:Special Ability	TYPE:AliceTestAdditional.Racial.SpecialAttack	NATURALATTACKS:Tentacles of the Fey,Weapon.Melee.Ranged.Slashing.Bludgeoning.Piercing.Natural,*6,1d3	DESC:Grants Six Attacks %1d%2 each [Display should be 1d3]|1|1+1+1+1+var("TentaclesOfTheFey")	DEFINE:TentaclesOfTheFey|0	BONUS:VAR|TentaclesOfTheFey|-1
-Fey Dust Test			CATEGORY:Special Ability	TYPE:Racial.SpecialQuality	DESC:Fey Dust Test ~ Grants the ability to fly, no aspect granted			MOVE:Fly,30	
+Fey Dust Test			CATEGORY:Special Ability	TYPE:Racial.SpecialQuality	DESC:Fey Dust Test ~ Grants the ability to fly, no aspect granted			MOVE:Fly,30
 
 
 Ability Grant One			CATEGORY:Special Ability	TYPE:Racial.SpecialQuality	DESC:This ability Grants a Template Called "Snowman"									TEMPLATE:Snowman
@@ -508,18 +515,18 @@ Choose String Stack No	CATEGORY:Special Ability		TYPE:TestMonkey.Chooser.Special
 
 ###Block: OS Tests
 
-Test OS Output Displays		CATEGORY:Special Ability	TYPE:SpecialAttack.SpecialQuality				DESC:Grabs Multiple Abilities and loads them to display in the various OS blocks that we have.	ABILITY:Special Ability|AUTOMATIC|SRD Master OS|MSRD Talent Support|FourE Master OS|SWSE Master OS|WoD Master OS|Eclipse Master OS		ABILITY:Natural Attack|AUTOMATIC|TYPE=NaturalAttack
+Test OS Output Displays		CATEGORY:Special Ability	TYPE:SpecialAttack.SpecialQuality				DESC:Grabs Multiple Abilities and loads them to display in the various OS blocks that we have.	ABILITY:Special Ability|AUTOMATIC|Eclipse Master OS|FourE Master OS|MSRD Talent Support|SRD Master OS|SWSE Master OS|WoD Master OS		ABILITY:Natural Attack|AUTOMATIC|TYPE=NaturalAttack
 
 Test OS Output Display - Natural Attacks		CATEGORY:Internal	ABILITY:Natural Attack|AUTOMATIC|TYPE=NaturalAttack
 
 # SRD / RSRD (Ex, Su, Sp, Ps; Salient Ability, Mutation Ability)
-SRD Master OS			CATEGORY:Special Ability	ABILITY:Special Ability|AUTOMATIC|SRD Test Master OS|Extraordinary Ability|Supernatural Ability|Spell Like Ability|Psi Ability	ABILITY:Salient Divine Ability|AUTOMATIC|Salient Divine Ability	ABILITY:Mutation|AUTOMATIC|Mutation
+SRD Master OS			CATEGORY:Special Ability	ABILITY:Special Ability|AUTOMATIC|Extraordinary Ability|Psi Ability|Spell Like Ability|SRD Test Master OS|Supernatural Ability	ABILITY:Salient Divine Ability|AUTOMATIC|Salient Divine Ability	ABILITY:Mutation|AUTOMATIC|Mutation
 #
 SRD Test Master OS		CATEGORY:Special Ability		TYPE:SpecialQuality.SpecialAttack.Extraordinary.SpellLike.PsiLike.Supernatural.AttackOption.Aura.Immunity.ModifyAC.Resistance.Weakness.AnimalTrick
-Extraordinary Ability		CATEGORY:Special Ability		TYPE:SpecialAttack.SpecialQuality.Extraordinary		DESC:Testing	
-Supernatural Ability		CATEGORY:Special Ability		TYPE:SpecialAttack.SpecialQuality.Supernatural		DESC:Testing	
-Spell Like Ability		CATEGORY:Special Ability		TYPE:SpecialAttack.SpecialQuality.SpellLike		DESC:Testing	
-Psi Ability				CATEGORY:Special Ability		TYPE:SpecialAttack.SpecialQuality.PsiLike			DESC:Testing	
+Extraordinary Ability		CATEGORY:Special Ability		TYPE:SpecialAttack.SpecialQuality.Extraordinary		DESC:Testing
+Supernatural Ability		CATEGORY:Special Ability		TYPE:SpecialAttack.SpecialQuality.Supernatural		DESC:Testing
+Spell Like Ability		CATEGORY:Special Ability		TYPE:SpecialAttack.SpecialQuality.SpellLike		DESC:Testing
+Psi Ability				CATEGORY:Special Ability		TYPE:SpecialAttack.SpecialQuality.PsiLike			DESC:Testing
 Salient Divine Ability		CATEGORY:Salient Divine Ability	TYPE:SalientDivineAbility					DESC:Testing
 Mutation				CATEGORY:Mutation				TYPE:Mutation							DESC:Testing
 
@@ -528,20 +535,20 @@ Natural Attack Block (Ranged)	CATEGORY:Natural Attack			TYPE:NaturalAttack	DEFIN
 
 
 # MSRD Support
-MSRD Talent Support		CATEGORY:Special Ability													ABILITY:Talent|AUTOMATIC|Extraordinary Ability|Supernatural Ability|Spell Like Ability|Psi Ability
+MSRD Talent Support		CATEGORY:Special Ability													ABILITY:Talent|AUTOMATIC|Extraordinary Ability|Psi Ability|Spell Like Ability|Supernatural Ability
 #
-Extraordinary Ability		CATEGORY:Talent			TYPE:Talent.SpecialAttack.SpecialQuality.Extraordinary		DESC:Testing	
-Supernatural Ability		CATEGORY:Talent			TYPE:Talent.SpecialAttack.SpecialQuality.Supernatural		DESC:Testing	
-Spell Like Ability		CATEGORY:Talent			TYPE:Talent.SpecialAttack.SpecialQuality.SpellLike		DESC:Testing	
-Psi Ability				CATEGORY:Talent			TYPE:Talent.SpecialAttack.SpecialQuality.PsiLike			DESC:Testing	
+Extraordinary Ability		CATEGORY:Talent			TYPE:Talent.SpecialAttack.SpecialQuality.Extraordinary		DESC:Testing
+Supernatural Ability		CATEGORY:Talent			TYPE:Talent.SpecialAttack.SpecialQuality.Supernatural		DESC:Testing
+Spell Like Ability		CATEGORY:Talent			TYPE:Talent.SpecialAttack.SpecialQuality.SpellLike		DESC:Testing
+Psi Ability				CATEGORY:Talent			TYPE:Talent.SpecialAttack.SpecialQuality.PsiLike			DESC:Testing
 
 # 4e Support (Daily, Encounter, At-Will, Utility)
-FourE Master OS			CATEGORY:Special Ability				ABILITY:Special Ability|AUTOMATIC|Daily Power|Encounter Power|At Will Power|Utility Power|Test Aspects
+FourE Master OS			CATEGORY:Special Ability				ABILITY:Special Ability|AUTOMATIC|At Will Power|Daily Power|Encounter Power|Test Aspects|Utility Power
 #
-Daily Power				CATEGORY:Special Ability	TYPE:Daily		DESC:Testing	
-Encounter Power			CATEGORY:Special Ability	TYPE:Encounter	DESC:Testing	
-At Will Power			CATEGORY:Special Ability	TYPE:AtWill		DESC:Testing	
-Utility Power			CATEGORY:Special Ability	TYPE:Utility	DESC:Testing	
+Daily Power				CATEGORY:Special Ability	TYPE:Daily		DESC:Testing
+Encounter Power			CATEGORY:Special Ability	TYPE:Encounter	DESC:Testing
+At Will Power			CATEGORY:Special Ability	TYPE:AtWill		DESC:Testing
+Utility Power			CATEGORY:Special Ability	TYPE:Utility	DESC:Testing
 Test Aspects			CATEGORY:Special Ability	TYPE:Daily		DESC:Aspect Testing			ASPECT:Power Type|Cleric Attack	ASPECT:Power Use|Daily . Divine, Healing, Radiant, Zone	ASPECT:Action Type|Standard Action Close burst 1	ASPECT:Special|Yup, it's special	ASPECT:Trigger|Trigger Deal	ASPECT:Target|You can target stuff	ASPECT:Attack|You better believe it	ASPECT:Hit|Hit Batter	ASPECT:Miss|Strike One	ASPECT:Effect|The burst creates a zone. take 1d6 + %1 radiant damage. regain hit points equal to 1 + %1 modifier.|CHA	ASPECT:Sustain|Minor. The zone persists.
 
 # Starwars / Saga edition homebrew Support
@@ -579,7 +586,7 @@ Test Climb 40 25 with Size Type		CATEGORY:FEAT	TYPE:General.Testing.Test1	BONUS:
 
 # Chooser Testing
 # Proficiencies
-Test Choose ArmorProf				CATEGORY:FEAT	COST:0	TYPE:TestTomChoose	DESC:Test ArmorProf  %1|%CHOICE	CHOOSE:ARMORPROFICIENCY|Leather|EQUIPMENT[TYPE=Medium]	MULT:YES	SELECT:1
+Test Choose ArmorProf				CATEGORY:FEAT	COST:0	TYPE:TestTomChoose	DESC:Test ArmorProf  %1|%CHOICE	CHOOSE:ARMORPROFICIENCY|EQUIPMENT[TYPE=Medium]|Leather	MULT:YES	SELECT:1
 
 # Deity
 Test Choose Deity Align LG		CATEGORY:FEAT	COST:0	TYPE:TestTomChoose	DESC:Test Deity LG  %1|%CHOICE	CHOOSE:DEITY|ALIGN=LG	MULT:YES	SELECT:1
@@ -587,11 +594,11 @@ Test Choose Deity Pantheon Elf	CATEGORY:FEAT	COST:0	TYPE:TestTomChoose	DESC:Test
 Test Choose DEITY PC			CATEGORY:FEAT	COST:0	TYPE:TestTomChoose	DESC:Test Deity PC %1|%CHOICE		CHOOSE:DEITY|PC[ALIGN=LG]	MULT:YES	SELECT:1
 
 # Conflict CHOOSE:FEAT outputs differently than CHOOSE:ABILITY - Need code team to make Ability the same as FEAT
-Test Choose Weapon Focus Feat				CATEGORY:FEAT	COST:0	TYPE:TestTomChoose.ChooserTest	MULT:YES	CHOOSE:WEAPONPROFS|LIST	
-Test Choose Weapon Specialization Feat		CATEGORY:FEAT	COST:0	TYPE:TestTomChoose.ChooserTest	MULT:YES	CHOOSE:FEAT=Test Choose Weapon Focus Feat
+Test Choose Weapon Focus Feat				CATEGORY:FEAT	COST:0	TYPE:TestTomChoose.ChooserTest	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC
+Test Choose Weapon Specialization Feat		CATEGORY:FEAT	COST:0	TYPE:TestTomChoose.ChooserTest	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Test Choose Weapon Focus Feat
 #
-Test Choose Weapon Focus Ability			CATEGORY:FEAT	COST:0	TYPE:TestTomChoose.ChooserTest	MULT:YES	CHOOSE:WEAPONPROFS|LIST
-Test Choose Weapon Specialization Ability		CATEGORY:FEAT	COST:0	TYPE:TestTomChoose.ChooserTest	MULT:YES	CHOOSE:ABILITY|FEAT|Test Choose Weapon Focus Ability
+Test Choose Weapon Focus Ability			CATEGORY:FEAT	COST:0	TYPE:TestTomChoose.ChooserTest	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC
+Test Choose Weapon Specialization Ability		CATEGORY:FEAT	COST:0	TYPE:TestTomChoose.ChooserTest	MULT:YES	CHOOSE:ABILITY|Feat|Test Choose Weapon Focus Ability
 
 
 
@@ -600,7 +607,7 @@ Test Choose Weapon Specialization Ability		CATEGORY:FEAT	COST:0	TYPE:TestTomChoo
 
 MAX DEX Adds 5 to feat pool too	CATEGORY:FEAT	COST:0	TYPE:TestTomChoose	BONUS:MISC|MAXDEX|TestVar	DEFINE:TestVar|0	BONUS:VAR|TestVar|5	BONUS:ABILITYPOOL|FEAT|TestVar
 #
-MAX DEX Var					CATEGORY:FEAT	COST:0	TYPE:TestTomChoose		
+MAX DEX Var					CATEGORY:FEAT	COST:0	TYPE:TestTomChoose
 
 
 Add Flight Maneuverability Chooser	CATEGORY:FEAT	COST:0	TYPE:Chooser.Test.SpecialQuality	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability
@@ -628,7 +635,7 @@ Maneuverability(Clumsy)		CATEGORY:Special Ability	TYPE:Maneuverability	VISIBLE:N
 
 Ability A	CATEGORY:FEAT	TYPE:ATest	ABILITY:FEAT|AUTOMATIC|Ability B
 Ability B	CATEGORY:FEAT	TYPE:ATest	ABILITY:FEAT|AUTOMATIC|Ability C
-Ability C	CATEGORY:FEAT	TYPE:ATest	
+Ability C	CATEGORY:FEAT	TYPE:ATest
 Ability D	CATEGORY:FEAT	TYPE:ATest	TEMPLATE:Template A
 Ability E	CATEGORY:FEAT	TYPE:ATest
 Ability F	CATEGORY:FEAT	TYPE:ATest	VFEAT:Feat G
@@ -783,14 +790,14 @@ ParentThingyType6		CATEGORY:FEAT		TYPE:Test47		VFEAT:GivingThingy(StackNoChoiceF
 ParentThingyType7		CATEGORY:FEAT		TYPE:Test47		VFEAT:GivingThingy(StackChoiceFeat(Ride))|GivingThingy(StackChoiceFeat(Ride))|GivingThingy(StackChoiceFeat(Tumble))
 
 GivingThingy		CATEGORY:FEAT		TYPE:Test47				CHOOSE:FEATSELECTION|TYPE=TestThing		MULT:YES		STACK:YES		AUTO:FEAT|%LIST
-NoChooseFeat		CATEGORY:FEAT		TYPE:Test47.TestThing	
+NoChooseFeat		CATEGORY:FEAT		TYPE:Test47.TestThing
 NoStackFeat			CATEGORY:FEAT		TYPE:Test47.TestThing		CHOOSE:NOCHOICE		MULT:YES
 NoStackChoiceFeat		CATEGORY:FEAT		TYPE:Test47.TestThing		CHOOSE:SKILL|ANY		MULT:YES
 StackNoChoiceFeat		CATEGORY:FEAT		TYPE:Test47.TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:YES
 StackChoiceFeat		CATEGORY:FEAT		TYPE:Test47.TestThing		CHOOSE:SKILL|ANY		MULT:YES		STACK:YES
 
 NoStackNoChoiceFeat	CATEGORY:FEAT		TYPE:Test47.TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:NO
-Naturally Something (comment)	CATEGORY:FEAT		TYPE:Test47.TestThing	
+Naturally Something (comment)	CATEGORY:FEAT		TYPE:Test47.TestThing
 
 
 #The other similar test requests follow a similar pattern. all that is changing is VFEAT vs. other tokens.
@@ -801,18 +808,18 @@ Naturally Something (comment)	CATEGORY:FEAT		TYPE:Test47.TestThing
 # Choose Spells Issue
 
 
-CODE-358 Spell Test			CATEGORY:FEAT		TYPE:CODE-358		CHOOSE:SPELLS|ALL[LEVELMAX=1]		MULT:YES
+CODE-358 Spell Test			CATEGORY:FEAT		TYPE:CODE-358		CHOOSE:SPELLS|ALL[LEVELMAX=1][pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive$Restriction@1305001]		MULT:YES
 
-CODE-362 A					CATEGORY:FEAT		TYPE:CODE-362.CODE-362A	
-CODE-362 B					CATEGORY:FEAT		TYPE:CODE-362.CODE-362A	
-CODE-362 C					CATEGORY:FEAT		TYPE:CODE-362.CODE-362A	
-CODE-362 D					CATEGORY:FEAT		TYPE:CODE-362.CODE-362A	
+CODE-362 A					CATEGORY:FEAT		TYPE:CODE-362.CODE-362A
+CODE-362 B					CATEGORY:FEAT		TYPE:CODE-362.CODE-362A
+CODE-362 C					CATEGORY:FEAT		TYPE:CODE-362.CODE-362A
+CODE-362 D					CATEGORY:FEAT		TYPE:CODE-362.CODE-362A
 CODE-362 E Single				CATEGORY:FEAT		TYPE:CODE-362A
 
 
 CODE-362 Assign One Feat				CATEGORY:FEAT		TYPE:CODE-362	ABILITY:CODE-362|AUTOMATIC|CODE-362 E Single
 CODE-362 Assign ALL Feats TYPE Equals		CATEGORY:FEAT		TYPE:CODE-362	ABILITY:CODE-362|AUTOMATIC|TYPE=CODE-362A
-CODE-362 Assign ALL Feats TYPE Period		CATEGORY:FEAT		TYPE:CODE-362	ABILITY:CODE-362|AUTOMATIC|TYPE.CODE-362A
+CODE-362 Assign ALL Feats TYPE Period		CATEGORY:FEAT		TYPE:CODE-362	ABILITY:CODE-362|AUTOMATIC|TYPE=CODE-362A
 
 
 
@@ -826,7 +833,7 @@ Alertness	CATEGORY:FEAT	TYPE:General
 Run		CATEGORY:FEAT	TYPE:General
 Track		CATEGORY:FEAT	TYPE:General
 
-Test Weapon Proficiency	CATEGORY:FEAT	TYPE:General	CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE=Simple|TYPE=Martial|TYPE=Exotic	MULT:YES
+Test Weapon Proficiency	CATEGORY:FEAT	TYPE:General	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Exotic|TYPE=Martial|TYPE=Simple]	MULT:YES
 
 
 #Test Weapon Proficiency(Dagger)
@@ -835,16 +842,16 @@ Test Weapon Proficiency	CATEGORY:FEAT	TYPE:General	CHOOSE:PROFICIENCY|WEAPON|UNI
 
 
 #TEST46
-	
+
 GivingThingyAuto				CATEGORY:FEAT		TYPE:Test46				CHOOSE:FEATSELECTION|TYPE=TestThing46		MULT:YES		STACK:YES		AUTO:FEAT|%LIST
-NoChooseFeatAuto				CATEGORY:FEAT		TYPE:Test46.TestThing46	
+NoChooseFeatAuto				CATEGORY:FEAT		TYPE:Test46.TestThing46
 NoStackFeatAuto				CATEGORY:FEAT		TYPE:Test46.TestThing46		CHOOSE:NOCHOICE		MULT:YES
 NoStackChoiceFeatAuto			CATEGORY:FEAT		TYPE:Test46.TestThing46		CHOOSE:SKILL|ANY		MULT:YES
 StackNoChoiceFeatAuto			CATEGORY:FEAT		TYPE:Test46.TestThing46		CHOOSE:NOCHOICE		MULT:YES		STACK:YES
 StackChoiceFeatAuto			CATEGORY:FEAT		TYPE:Test46.TestThing46		CHOOSE:SKILL|ANY		MULT:YES		STACK:YES
 
 NoStackNoChoiceFeatAuto			CATEGORY:FEAT		TYPE:Test46.TestThing46		CHOOSE:NOCHOICE		MULT:YES		STACK:NO
-Naturally Something Auto (comment)	CATEGORY:FEAT		TYPE:Test46.TestThing46	
+Naturally Something Auto (comment)	CATEGORY:FEAT		TYPE:Test46.TestThing46
 
 #Test47
 AutoFeat_ParentThingyType1			CATEGORY:FEAT		TYPE:Test48.A		AUTO:FEAT|AutoFeat_GivingThingy(AutoFeat_NoChooseFeat)
@@ -860,28 +867,28 @@ AutoFeat_ParentThingyType6			CATEGORY:FEAT		TYPE:Test48.C		AUTO:FEAT|AutoFeat_Gi
 AutoFeat_ParentThingyType7			CATEGORY:FEAT		TYPE:Test48.C		AUTO:FEAT|AutoFeat_GivingThingy(AutoFeat_StackChoiceFeat(Ride))|AutoFeat_GivingThingy(AutoFeat_StackChoiceFeat(Ride))|AutoFeat_GivingThingy(AutoFeat_StackChoiceFeat(Tumble))
 
 AutoFeat_GivingThingy				CATEGORY:FEAT		TYPE:Test48				CHOOSE:FEATSELECTION|TYPE=AutoFeat_TestThing		MULT:YES		STACK:YES		AUTO:FEAT|%LIST
-AutoFeat_NoChooseFeat				CATEGORY:FEAT		TYPE:Test48.AutoFeat_TestThing	
+AutoFeat_NoChooseFeat				CATEGORY:FEAT		TYPE:Test48.AutoFeat_TestThing
 AutoFeat_NoStackFeat				CATEGORY:FEAT		TYPE:Test48.AutoFeat_TestThing		CHOOSE:NOCHOICE		MULT:YES
 AutoFeat_NoStackChoiceFeat			CATEGORY:FEAT		TYPE:Test48.AutoFeat_TestThing		CHOOSE:SKILL|ANY		MULT:YES		STACK:NO
 AutoFeat_StackNoChoiceFeat			CATEGORY:FEAT		TYPE:Test48.AutoFeat_TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:YES
 AutoFeat_StackChoiceFeat			CATEGORY:FEAT		TYPE:Test48.AutoFeat_TestThing		CHOOSE:SKILL|ANY		MULT:YES		STACK:YES
 
 AutoFeat_NoStackNoChoiceFeat			CATEGORY:FEAT		TYPE:Test48.AutoFeat_TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:NO
-AutoFeat_Naturally Something (comment)	CATEGORY:FEAT		TYPE:Test48.AutoFeat_TestThing	
+AutoFeat_Naturally Something (comment)	CATEGORY:FEAT		TYPE:Test48.AutoFeat_TestThing
 
 
 
 #TEST45
 Choose Feat Selection					CATEGORY:FEAT		TYPE:Test45				CHOOSE:FEATSELECTION|TYPE=ChooseSelection_TestThing		MULT:YES		STACK:YES		AUTO:FEAT|%LIST
 #
-ChooseSelection_NoChooseFeat				CATEGORY:FEAT		TYPE:Test45.ChooseSelection_TestThing	
+ChooseSelection_NoChooseFeat				CATEGORY:FEAT		TYPE:Test45.ChooseSelection_TestThing
 ChooseSelection_NoStackFeat				CATEGORY:FEAT		TYPE:Test45.ChooseSelection_TestThing		CHOOSE:NOCHOICE		MULT:YES
 ChooseSelection_NoStackChoiceFeat			CATEGORY:FEAT		TYPE:Test45.ChooseSelection_TestThing		CHOOSE:SKILL|ANY		MULT:YES		STACK:NO
 ChooseSelection_StackNoChoiceFeat			CATEGORY:FEAT		TYPE:Test45.ChooseSelection_TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:YES
 ChooseSelection_StackChoiceFeat			CATEGORY:FEAT		TYPE:Test45.ChooseSelection_TestThing		CHOOSE:SKILL|ANY		MULT:YES		STACK:YES
 
 ChooseSelection_NoStackNoChoiceFeat			CATEGORY:FEAT		TYPE:Test45.ChooseSelection_TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:NO
-ChooseSelection_Naturally Something (comment)	CATEGORY:FEAT		TYPE:Test45.ChooseSelection_TestThing	
+ChooseSelection_Naturally Something (comment)	CATEGORY:FEAT		TYPE:Test45.ChooseSelection_TestThing
 
 #Request 7 instances of CHOOSE:FEATSELECTION used in the test PCs (Alice, Bob, Charlie)
 
@@ -911,23 +918,23 @@ ChooseSelection_Naturally Something (comment)	CATEGORY:FEAT		TYPE:Test45.ChooseS
 #H: 2, 5
 #I: 6 
 
-DirectApplication_NoChooseFeat			CATEGORY:FEAT		TYPE:Test45.DirectApplication_TestThing	
+DirectApplication_NoChooseFeat			CATEGORY:FEAT		TYPE:Test45.DirectApplication_TestThing
 DirectApplication_NoStackFeat				CATEGORY:FEAT		TYPE:Test45.DirectApplication_TestThing		CHOOSE:NOCHOICE		MULT:YES
 DirectApplication_NoStackChoiceFeat			CATEGORY:FEAT		TYPE:Test45.DirectApplication_TestThing		CHOOSE:SKILL|ANY		MULT:YES
 DirectApplication_StackNoChoiceFeat			CATEGORY:FEAT		TYPE:Test45.DirectApplication_TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:YES
 DirectApplication_StackChoiceFeat			CATEGORY:FEAT		TYPE:Test45.DirectApplication_TestThing		CHOOSE:SKILL|ANY		MULT:YES		STACK:YES
 
 DirectApplication_NoStackNoChoiceFeat		CATEGORY:FEAT		TYPE:Test45.DirectApplication_TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:NO
-DirectApplication_Naturally Something (comment)	CATEGORY:FEAT		TYPE:Test45.DirectApplication_TestThing	
+DirectApplication_Naturally Something (comment)	CATEGORY:FEAT		TYPE:Test45.DirectApplication_TestThing
 
 
 #TEST50
 
-Ability That Chooses Equip and AUTO Equip		CATEGORY:FEAT	TYPE:TEST50		CHOOSE:EQUIPMENT|Longsword|Cool Sword	AUTO:EQUIP|%LIST	MULT:YES
+Ability That Chooses Equip and AUTO Equip		CATEGORY:FEAT	TYPE:TEST50		CHOOSE:EQUIPMENT|Cool Sword|Longsword	AUTO:EQUIP|%LIST	MULT:YES
 
 #CODE-424
 
-Cosmopolitan Replace Feat	CATEGORY:FEAT	TYPE:CODE424	MULT:YES	CHOOSE:NUMCHOICES=2|SKILLSNAMED|TYPE=Intelligence|TYPE=Wisdom|TYPE=Charisma	SELECT:2	CSKILL:LIST	SOURCEPAGE:p.87	BONUS:LANGUAGES|NUMBER|2
+Cosmopolitan Replace Feat	CATEGORY:FEAT	TYPE:CODE424	MULT:YES	CHOOSE:NUMCHOICES=2|SKILL|TYPE=Charisma|TYPE=Intelligence|TYPE=Wisdom	SELECT:2	CSKILL:LIST	SOURCEPAGE:p.87	BONUS:LANGUAGES|NUMBER|2
 
 
 #Test 57
@@ -940,18 +947,18 @@ ADDVFEAT_ParentThingyType4			CATEGORY:FEAT		TYPE:Test57.B		ADD:VFEAT|ADDVFEAT_Gi
 ADDVFEAT_ParentThingyType5			CATEGORY:FEAT		TYPE:Test57.B		ADD:VFEAT|ADDVFEAT_GivingThingy(ADDVFEAT_StackChoiceFeat(Ride)),ADDVFEAT_GivingThingy(ADDVFEAT_StackChoiceFeat(Tumble))
 ADDVFEAT_ParentThingyType9			CATEGORY:FEAT		TYPE:Test57.B		ADD:VFEAT|ADDVFEAT_Naturally Something (comment)
 
-ADDVFEAT_ParentThingyType6			CATEGORY:FEAT		TYPE:Test57.C		ADD:VFEAT|ADDVFEAT_GivingThingy(ADDVFEAT_StackNoChoiceFeat),ADDVFEAT_GivingThingy(ADDVFEAT_StackNoChoiceFeat)
-ADDVFEAT_ParentThingyType7			CATEGORY:FEAT		TYPE:Test57.C		ADD:VFEAT|ADDVFEAT_GivingThingy(ADDVFEAT_StackChoiceFeat(Ride)),ADDVFEAT_GivingThingy(ADDVFEAT_StackChoiceFeat(Ride)),ADDVFEAT_GivingThingy(ADDVFEAT_StackChoiceFeat(Tumble))
+ADDVFEAT_ParentThingyType6			CATEGORY:FEAT		TYPE:Test57.C		ADD:VFEAT|ADDVFEAT_GivingThingy(ADDVFEAT_StackNoChoiceFeat)
+ADDVFEAT_ParentThingyType7			CATEGORY:FEAT		TYPE:Test57.C		ADD:VFEAT|ADDVFEAT_GivingThingy(ADDVFEAT_StackChoiceFeat(Ride)),ADDVFEAT_GivingThingy(ADDVFEAT_StackChoiceFeat(Tumble))
 
 ADDVFEAT_GivingThingy				CATEGORY:FEAT		TYPE:Test57				CHOOSE:FEATSELECTION|TYPE=ADDVFEAT_TestThing		MULT:YES		STACK:YES		AUTO:FEAT|%LIST
-ADDVFEAT_NoChooseFeat				CATEGORY:FEAT		TYPE:Test57.ADDVFEAT_TestThing	
+ADDVFEAT_NoChooseFeat				CATEGORY:FEAT		TYPE:Test57.ADDVFEAT_TestThing
 ADDVFEAT_NoStackFeat				CATEGORY:FEAT		TYPE:Test57.ADDVFEAT_TestThing		CHOOSE:NOCHOICE		MULT:YES
 ADDVFEAT_NoStackChoiceFeat			CATEGORY:FEAT		TYPE:Test57.ADDVFEAT_TestThing		CHOOSE:SKILL|ANY		MULT:YES
 ADDVFEAT_StackNoChoiceFeat			CATEGORY:FEAT		TYPE:Test57.ADDVFEAT_TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:YES
 ADDVFEAT_StackChoiceFeat			CATEGORY:FEAT		TYPE:Test57.ADDVFEAT_TestThing		CHOOSE:SKILL|ANY		MULT:YES		STACK:YES
 
 ADDVFEAT_NoStackNoChoiceFeat			CATEGORY:FEAT		TYPE:Test57.ADDVFEAT_TestThing		CHOOSE:NOCHOICE		MULT:YES		STACK:NO
-ADDVFEAT_Naturally Something (comment)	CATEGORY:FEAT		TYPE:Test57.ADDVFEAT_TestThing	
+ADDVFEAT_Naturally Something (comment)	CATEGORY:FEAT		TYPE:Test57.ADDVFEAT_TestThing
 
 # TEST 61
 
@@ -975,7 +982,7 @@ Code-453 Add Skill to Athletic (Jump)	CATEGORY:FEAT	TYPE:Code453	BONUS:SKILL|Ath
 #
 
 # Eclipse Abilities for Testing Complexities and Order of Op issues ---
-Character Class Skill Choice																	CATEGORY:Special Ability	TYPE:ClassSkillsChoice																																																									MULT:YES	CHOOSE:SKILLSNAMED|TYPE.NormalSkill	SELECT:1																																																																																																																																																																																																				CSKILL:LIST
+Character Class Skill Choice																	CATEGORY:Special Ability	TYPE:ClassSkillsChoice																																																									MULT:YES	CHOOSE:SKILL|TYPE=NormalSkill	SELECT:1																																																																																																																																																																																																				CSKILL:LIST
 
 
 
@@ -1015,13 +1022,13 @@ Manipulation / Puppet Master		KEY:Manipulation ~ Puppet Master			OUTPUTNAME:Mani
 
 
 #
-All Automatic Abilities																		CATEGORY:Special Ability																																																																							ABILITY:Internal|AUTOMATIC|Class Skills|Min Skill|Eclipse HD	ABILITY:Special Ability|AUTOMATIC|Warcraft Output	
+All Automatic Abilities																		CATEGORY:Special Ability																																																																							ABILITY:Internal|AUTOMATIC|Class Skills|Eclipse HD|Min Skill	ABILITY:Special Ability|AUTOMATIC|Warcraft Output
 Warcraft					KEY:Warcraft Output											CATEGORY:Special Ability	TYPE:SpecialAttack															DEFINE:Warcraft Bonus|0	DESC:+%1 BAB|Warcraft Bonus																		BONUS:COMBAT|BAB|var("Warcraft Bonus")|TYPE=Base.REPLACE	BONUS:VAR|Warcraft Bonus|count("ABILITIES","CATEGORY=Special Ability","NAME=Warcraft / Increase by one")									SOURCEPAGE:p.10
 
 Eclipse HD																				CATEGORY:Internal														DEFINE:EclipseHD|0	DEFINE:EclipseClassLvl|0																																																																																																																																																																																															BONUS:VAR|EclipseHD|EclipseClassLvl
 Class Skills																			CATEGORY:Internal																																																																																																																																												BONUS:ABILITYPOOL|Character Class Skill Choice|15
 
-Negate Min 1 Skill Point					KEY:Min Skill										CATEGORY:Internal														DEFINE:CharacterSkillPts|0																																																																																																																										BONUS:VAR|CharacterSkillPts|TL+3|PRERACE:1,Human	BONUS:ABILITYPOOL|Character Skills|CharacterSkillPts	BONUS:VAR|CharacterSkillPts|INT*3		BONUS:VAR|CharacterSkillPts|EclipseClassLvl*INT																																		
+Negate Min 1 Skill Point					KEY:Min Skill										CATEGORY:Internal														DEFINE:CharacterSkillPts|0																																																																																																																										BONUS:VAR|CharacterSkillPts|TL+3|PRERACE:1,Human	BONUS:ABILITYPOOL|Character Skills|CharacterSkillPts	BONUS:VAR|CharacterSkillPts|INT*3		BONUS:VAR|CharacterSkillPts|EclipseClassLvl*INT
 
 Character Points Total						KEY:Character Points Total								CATEGORY:Special Ability	TYPE:EclipseAbilityOutput							DEFINE:CharacterPointsTotal|0																		DESC:Character Points Total %1|CharacterPointsTotal																																																																																																																																																																																																																																									BENEFIT:Character Points Total %1|CharacterPointsTotal																							SORTKEY:01_A
 HD Taken d0																				CATEGORY:Internal																																																													STACK:YES	MULT:YES	CHOOSE:NOCHOICE
@@ -1040,7 +1047,7 @@ HD Taken d20																			CATEGORY:Internal																																
 Shapeshift Tracker																		CATEGORY:Internal														DEFINE:ShapeshiftGrowth|0	DEFINE:ShapeshiftShrink|0																																																																																																																																																																																										BONUS:VAR|ShapeshiftGrowth|1*count("ABILITIES","CATEGORY=Special Ability","NAME=Shapeshift / Growth")	BONUS:VAR|ShapeshiftShrink|1*count("ABILITIES","CATEGORY=Special Ability","NAME=Shapeshift / Shrink")
 Mana Tracker																			CATEGORY:Internal														DEFINE:ManaDice|0	DEFINE:ManaSize|6	DEFINE:SpellLevelSize|4	DEFINE:SpellLevelDice|0	DEFINE:PowerDice|0	DEFINE:PowerSize|6																																																																																																																																																																																																																							SOURCEPAGE:p.36
 Spirit Weapon Tracker Output																	CATEGORY:Internal																																																																																																																																																																																																																	BONUS:VAR|SpiritWeaponMeleeDieSize|2*count("ABILITIES","CATEGORY=Special Ability","NAME=Spirit Weapon / Damage Upgrade / Melee")|TYPE=SpiritDamage	BONUS:VAR|SpiritWeaponRangedDieSize|2*count("ABILITIES","CATEGORY=Special Ability","NAME=Spirit Weapon / Damage Upgrade / Ranged")|TYPE=SpiritDamage
-Witchcraft Tracker																		CATEGORY:Internal														DEFINE:WitchcraftPowerPoints|(STRSCORE+DEXSCORE+CONSCORE)/3	DEFINE:WitchcraftWillDC|CHA+13																																																																																																															
+Witchcraft Tracker																		CATEGORY:Internal														DEFINE:WitchcraftPowerPoints|(STRSCORE+DEXSCORE+CONSCORE)/3	DEFINE:WitchcraftWillDC|CHA+13
 # This tracker is added only when the Witchcraft Ability is first taken, it then allows the character to
 
 
@@ -1050,16 +1057,16 @@ Drow Racial II				CATEGORY:Special Ability	TYPE:DrowRacial.SaveBonus			ASPECT:Sa
 Drow Racial III				CATEGORY:Special Ability	TYPE:DrowRacial.SaveBonus			ASPECT:SaveBonus|Immune to Sleep Effects.
 Occult Sense / Detect Secret Doors	KEY:Occult Sense ~ Detect Secret Doors	CATEGORY:Special Ability	TYPE:Extra.EclipseAbilityOutput	DESC:(Specialized: requires a Search check and passing within 5 feet, 3 CP)	SOURCEPAGE:p.38
 Immunity / Sleep Effects		KEY:Immunity ~ Sleep Effects			CATEGORY:Special Ability	TYPE:Extra.EclipseAbilityOutput	DESC:(Uncommon/Minor/Major, 3 CP)	SOURCEPAGE:p.34
-Inherent Spell / Drow		SOURCEPAGE:p.33	KEY:Inherent Spell ~ Drow			CATEGORY:Special Ability	TYPE:Extra.EclipseAbilityOutput	SPELLS:Innate|CASTERLEVEL=var("EclipseHD")|Darkness|Dancing Lights|Faerie Fire	DESC:Darkness (L2, Corrupted/only usable once per day, 4 CP), Dancing lights (L0) and Faerie Fire (L1), taken as a pair of L0-L1 effects normally usable twice per day each, Specialized/only usable once per day each (3 CP).
-Outcast						KEY:Disadvantage ~ Outcast						CATEGORY:Special Ability	TYPE:Disadvantage.DisadvantageCounter													DESCISPI:YES	DESC:You are socially unacceptable in a large area or with a large and important group. You might be noted as an oathbreaker, an "untouchable," a kinslayer, or an ex-slave, belong to a despised ethnic group, believe in a heretical faith, or simply have numerous obnoxious habits. In any case, a sizable segment of the people in the campaign setting will have nothing to do with you.																						MULT:YES	CHOOSE:USERINPUT|TITLE="Outcast"																																		COST:1	SOURCEPAGE:p.19	BENEFIT:You are outcast.
+Inherent Spell / Drow		SOURCEPAGE:p.33	KEY:Inherent Spell ~ Drow			CATEGORY:Special Ability	TYPE:Extra.EclipseAbilityOutput	SPELLS:Innate|TIMES=1|CASTERLEVEL=var("EclipseHD")|Dancing Lights|Darkness|Faerie Fire	DESC:Darkness (L2, Corrupted/only usable once per day, 4 CP), Dancing lights (L0) and Faerie Fire (L1), taken as a pair of L0-L1 effects normally usable twice per day each, Specialized/only usable once per day each (3 CP).
+Outcast						KEY:Disadvantage ~ Outcast						CATEGORY:Special Ability	TYPE:Disadvantage.DisadvantageCounter													DESCISPI:YES	DESC:You are socially unacceptable in a large area or with a large and important group. You might be noted as an oathbreaker, an "untouchable," a kinslayer, or an ex-slave, belong to a despised ethnic group, believe in a heretical faith, or simply have numerous obnoxious habits. In any case, a sizable segment of the people in the campaign setting will have nothing to do with you.																						MULT:YES	CHOOSE:USERINPUT|TITLE=Outcast																																		COST:1	SOURCEPAGE:p.19	BENEFIT:You are outcast.
 Occult Sense / Extended Darkvision			KEY:Occult Sense ~ Darkvision Extended														CATEGORY:Special Ability	TYPE:General.EclipseAbilityOutput.Abilities.Corruptable																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																										VISION:Darkvision (120')								COST:6	SOURCEPAGE:p.38	BENEFIT:You have Darkvision (120'), Specialized/user is susceptible to light blindness. Abrupt exposure to bright light will blind him or her for one round and leave them dazzled as long as they remain exposed (6 CP).
 Spell Resistance						KEY:Spell Resistance ~ Base																CATEGORY:Special Ability	TYPE:General.EclipseAbilityOutput.Abilities.Corruptable																																																																														DEFINE:EclipseSpellResistance|0																						DESC:(6 CP). The character gains Spell Resistance which rises with his or her level, rated at (5 + character level).	DESC:Spell Resistance = %1|EclipseSpellResistance																																																																																																																																																																																																																																																																																																																																																																																																																																																																														BONUS:VAR|EclipseSpellResistance|TL+5																																																					SR:EclipseSpellResistance				COST:6	SOURCEPAGE:p.45																																																										SORTKEY:Spell Resistance_1a
 Spell Resistance / Improved				KEY:Spell Resistance ~ Improved															CATEGORY:Special Ability	TYPE:General.EclipseAbilityOutput.Abilities.Corruptable																																																			!PREABILITY:2,CATEGORY=Special Ability,Spell Resistance ~ Improved																																											DESC:(+6 CP) increases the resistance by +5. This may be bought twice.																																																																																																																																																																																																																																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																																																																																																																																																																																																																BONUS:VAR|EclipseSpellResistance|5|TYPE=NoStack																																																												COST:6	SOURCEPAGE:p.45																																																										SORTKEY:Spell Resistance_1b
 
 
 
-~ Adept Skill Buy	KEY:Adept Skill Buy			OUTPUTNAME:~ Adept Skill Buy Choice	CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	STACK:YES	MULT:YES	CHOOSE:SKILLSNAMED|TYPE=AdeptChoice	SELECT:2	BONUS:SKILLRANK|%LIST|1	COST:1
-~ Full Skill Buy	KEY:Full Skill Buy			OUTPUTNAME:~ Skill Buy Choice		CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	STACK:YES	MULT:YES	CHOOSE:SKILLSNAMED|TYPE=AdeptChoice			BONUS:SKILLRANK|%LIST|1	COST:1
+~ Adept Skill Buy	KEY:Adept Skill Buy			OUTPUTNAME:~ Adept Skill Buy Choice	CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=AdeptChoice	SELECT:2	BONUS:SKILLRANK|%LIST|1	COST:1
+~ Full Skill Buy	KEY:Full Skill Buy			OUTPUTNAME:~ Skill Buy Choice		CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=AdeptChoice			BONUS:SKILLRANK|%LIST|1	COST:1
 
 
 Buy Skill Point ~ 8	CATEGORY:Special Ability	TYPE:General.Character Creation.Conversion Stuff																																												STACK:YES	MULT:YES	CHOOSE:NOCHOICE							BONUS:VAR|CharacterSkillPts|8		COST:0	SOURCEPAGE:p.9

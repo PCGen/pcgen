@@ -24,4 +24,3 @@ FOLLOWER:PCrystalLevel=49	TYPE:Psicrystal												BONUS:COMBAT|AC|1|TYPE=Natu
 FOLLOWER:PCrystalLevel=51	TYPE:Psicrystal												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
 FOLLOWER:PCrystalLevel=53	TYPE:Psicrystal												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
 FOLLOWER:PCrystalLevel=55	TYPE:Psicrystal												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|1
-

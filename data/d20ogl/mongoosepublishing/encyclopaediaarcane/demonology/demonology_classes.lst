@@ -41,4 +41,4 @@ CLASS:Possessed	HD:4		TYPE:PC.Prestige	ABB:Pos		MAXLEVEL:10	SOURCEPAGE:p.11-12	B
 CLASS:Possessed	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:1,Strength of Personality	PRESKILL:1,Knowledge (Demonology)=11
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Possessed	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft
-1	ABILITY:Special Ability|AUTOMATIC|Demonic Possession ~ Possessed|Additional Demonic Trait ~ Possessed	DEFINE:DemonPos|CL*2	DEFINE:DemonicTrait|CL/3+1
+1	ABILITY:Special Ability|AUTOMATIC|Additional Demonic Trait ~ Possessed|Demonic Possession ~ Possessed	DEFINE:DemonPos|CL*2	DEFINE:DemonicTrait|CL/3+1

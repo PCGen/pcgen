@@ -78,7 +78,7 @@ Ride							KEYSTAT:DEX								TYPE:Dexterity.Standard							SOURCEPAGE:SkillsII.
 Search						KEYSTAT:INT								TYPE:Intelligence.Standard						SOURCEPAGE:SkillsII.rtf
 Sense Motive					KEYSTAT:WIS								TYPE:Wisdom.Standard							SOURCEPAGE:SkillsII.rtf								BONUS:SKILL|Diplomacy|SynergyBonus|PRESKILL:1,Sense Motive=5|TYPE=Synergy.STACK
 Sleight of Hand					KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			TYPE:Dexterity.Standard							SOURCEPAGE:SkillsII.rtf
-Speak Language							USEUNTRAINED:NO					TYPE:None.Language							SOURCEPAGE:SkillsII.rtf				CHOOSE:LANGUAGE|Spoken
+Speak Language							USEUNTRAINED:NO					TYPE:None.Language							SOURCEPAGE:SkillsII.rtf				AUTO:LANG|%LIST	CHOOSE:LANG|TYPE=Spoken
 Spellcraft						KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Standard						SOURCEPAGE:SkillsII.rtf
 Spot							KEYSTAT:WIS								TYPE:Wisdom.Standard							SOURCEPAGE:SkillsII.rtf
 Survival						KEYSTAT:WIS								TYPE:Wisdom.Standard							SOURCEPAGE:SkillsII.rtf								BONUS:SKILL|Knowledge (Nature)|SynergyBonus|PRESKILL:1,Survival=5|TYPE=Synergy.STACK

@@ -1,20 +1,20 @@
 # RACE
-Hughpert Case Won		SIZE:T	RACETYPE:Fey	RACESUBTYPE:Blizzard|Rain	ABILITY:Special Ability|AUTOMATIC|Fey Dust Test|Tentacles of the Fey		BONUS:STAT|STR|-8	BONUS:STAT|DEX|24	BONUS:STAT|CHA|34		AUTO:WEAPONPROF|Light Blades		TEMPLATE:Test One Situation	
-Loughbotton Case Due	SIZE:G	RACETYPE:Humaniod	RACESUBTYPE:Froggy|Water	FAVCLASS:MonKee	ABILITY:Special Ability|AUTOMATIC|Ability That Grants Two				
+Hughpert Case Won		SIZE:T	RACETYPE:Fey	RACESUBTYPE:Blizzard|Rain	ABILITY:Special Ability|AUTOMATIC|Fey Dust Test|Tentacles of the Fey		BONUS:STAT|STR|-8	BONUS:STAT|DEX|24	BONUS:STAT|CHA|34		AUTO:WEAPONPROF|Light Blades		TEMPLATE:Test One Situation
+Loughbotton Case Due	SIZE:G	RACETYPE:Humaniod	RACESUBTYPE:Froggy|Water	FAVCLASS:MonKee	ABILITY:Special Ability|AUTOMATIC|Ability That Grants Two
 
 Human		FAVCLASS:HIGHESTLEVELCLASS	XTRASKILLPTSPERLVL:1	STARTFEATS:2	SIZE:M	MOVE:Walk,30								FACE:5	REACH:5	LANGAUTO:Common	LANGBONUS:ALL	RACETYPE:Humanoid	RACESUBTYPE:Human		TYPE:Humanoid	CR:1/2		SOURCEPAGE:races.rtf
 
 Companion	FAVCLASS:HIGHESTLEVELCLASS	RACETYPE:Companion	SIZE:T	MOVE:Walk,20
 
 #RACE LST
-Alice Race		FAVCLASS:%LIST		CHOOSE:CLASS|ALL			XTRASKILLPTSPERLVL:1	STARTFEATS:2	SIZE:M	MOVE:Walk,30								FACE:5	REACH:5	LANGAUTO:Common	LANGBONUS:ALL	RACETYPE:Humanoid	RACESUBTYPE:Human		TYPE:Humanoid	CR:1/2		SOURCEPAGE:races.rtf						ABILITY:Special Ability|AUTOMATIC|TYPE.AliceTestAdditional
+Alice Race		FAVCLASS:%LIST		CHOOSE:CLASS|ALL			XTRASKILLPTSPERLVL:1	STARTFEATS:2	SIZE:M	MOVE:Walk,30								FACE:5	REACH:5	LANGAUTO:Common	LANGBONUS:ALL	RACETYPE:Humanoid	RACESUBTYPE:Human		TYPE:Humanoid	CR:1/2		SOURCEPAGE:races.rtf						ABILITY:Special Ability|AUTOMATIC|TYPE=AliceTestAdditional
 Bob Race		STARTFEATS:2																								SIZE:M	MOVE:Walk,30								FACE:5	REACH:5	LANGAUTO:Common	LANGBONUS:ALL	RACETYPE:Humanoid	RACESUBTYPE:Human		TYPE:Humanoid	CR:1/2		SOURCEPAGE:races.rtf		WEAPONBONUS:Bob Racial Weapon|Bob Racial Weapon Two		CHANGEPROF:Longsword=Simple	CHANGEPROF:TYPE.Jim=Simple	CHOOSE:LANG|Choose Lang Persistence Race|Choose Lang Persistence Race Two		AUTO:LANG|%LIST
 Charlie Race	MONCSKILL:LIST		CHOOSE:SKILL|Athletics|Combat Focus		XTRASKILLPTSPERLVL:1	STARTFEATS:2	SIZE:M	MOVE:Walk,30								FACE:5	REACH:5	LANGAUTO:Common	LANGBONUS:ALL	RACETYPE:Humanoid	RACESUBTYPE:Human		TYPE:Humanoid	CR:1/2		SOURCEPAGE:races.rtf	ADD:FEAT|Add Feat Race
 #
 Colossal Race		SIZE:C	STARTFEATS:1																							FACE:25	REACH:25	RACETYPE:Humanoid																			SOURCEPAGE:custom
 
 # Andrew's Inclusion for testing cases:
-Companion (Not (Working))		OUTPUTNAME:Works, Not			BONUS:VAR|IntelligenceLockNumber|3			SIZE:L	MOVE:Walk,40				FACE:10	REACH:5	VISION:Darkvision (60')|Low-light							LANGAUTO:Draconic,Sylvan	BONUS:COMBAT|AC|8|TYPE=NaturalArmor								BONUS:SKILL|Survival (Find or follow tracks)|4|TYPE=Racial		BONUS:STAT|STR|10	BONUS:STAT|DEX|4	BONUS:STAT|CON|4	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-2										BONUS:WEAPONPROF=Spikes|DAMAGE|max(0,(STR))	MONCSKILL:Athletics|Climb|Intimidate|Listen|Perception|Search|Spot|Survival																		LEGS:4	HANDS:4	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,2d6|Claws,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*2,1d8	NATURALATTACKS:Spikes,Weapon.Natural.Ranged.Finesseable.Piercing,*1,1d8	ABILITY:Special Ability|AUTOMATIC|Scent|Immunity to Magic Sleep effects and Paralysis																																																																																																																																					MONSTERCLASS:Companion:6				RACETYPE:Dragon				TYPE:Dragon			TEMPLATE:Dragon|Dragon HD	SOURCEPAGE:p.160	
+Companion (Not (Working))		OUTPUTNAME:Works, Not			BONUS:VAR|IntelligenceLockNumber|3			SIZE:L	MOVE:Walk,40				FACE:10	REACH:5	VISION:Darkvision (60')|Low-light							LANGAUTO:Draconic,Sylvan	BONUS:COMBAT|AC|8|TYPE=NaturalArmor								BONUS:SKILL|Survival (Find or follow tracks)|4|TYPE=Racial		BONUS:STAT|STR|10	BONUS:STAT|DEX|4	BONUS:STAT|CON|4	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-2										BONUS:WEAPONPROF=Spikes|DAMAGE|max(0,(STR))	MONCSKILL:Athletics|Climb|Intimidate|Listen|Perception|Search|Spot|Survival																		LEGS:4	HANDS:4	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,2d6|Claws,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*2,1d8	NATURALATTACKS:Spikes,Weapon.Natural.Ranged.Finesseable.Piercing,*1,1d8	ABILITY:Special Ability|AUTOMATIC|Immunity to Magic Sleep effects and Paralysis|Scent																																																																																																																																					MONSTERCLASS:Companion:6				RACETYPE:Dragon				TYPE:Dragon			TEMPLATE:Dragon|Dragon HD	SOURCEPAGE:p.160
 #BONUS:HP|CURRENTMAX|(CON*4)+24
 
 # Default Critter
@@ -23,12 +23,11 @@ Companion (Not (Working)).MOD		BONUS:COMBAT|BAB|6	BONUS:CHECKS|BASE.Fortitude,BA
 
 # New Example ------
 Companion (Dire Wolf)		BONUS:COMBAT|BAB|4		HANDS:2		SIZE:L	MOVE:Walk,50				FACE:10,5	REACH:5	VISION:Low-light																											BONUS:SKILL|Perception,Stealth|2|TYPE=Racial					BONUS:COMBAT|AC|3|TYPE=NaturalArmor		BONUS:STAT|STR|14	BONUS:STAT|DEX|4	BONUS:STAT|CON|6	BONUS:STAT|INT|-8	BONUS:STAT|WIS|2																																																																ABILITY:Special Ability|AUTOMATIC|Scent	RACETYPE:Companion	CR:3	MONSTERCLASS:Companion:6	NATURALATTACKS:Bite,Weapon.Melee.Natural.Piercing.Slashing.Bludgeoning,*1,1d8	SOURCEPAGE:Custom	KIT:1|Companion ~ Dire Wolf	AUTO:FEAT|Track
-Companion (Dire Wolf).MOD	BONUS:SKILLPOOL|CLASS=Companion;LEVEL=1|4		BONUS:SKILLPOOL|CLASS=Companion;LEVEL=2|1	BONUS:SKILLPOOL|CLASS=Companion;LEVEL=3|1	BONUS:SKILLPOOL|CLASS=Companion;LEVEL=4|1	BONUS:SKILLPOOL|CLASS=Companion;LEVEL=5|1	BONUS:SKILLPOOL|CLASS=Companion;LEVEL=6|1	
+Companion (Dire Wolf).MOD	BONUS:SKILLPOOL|CLASS=Companion;LEVEL=1|4		BONUS:SKILLPOOL|CLASS=Companion;LEVEL=2|1	BONUS:SKILLPOOL|CLASS=Companion;LEVEL=3|1	BONUS:SKILLPOOL|CLASS=Companion;LEVEL=4|1	BONUS:SKILLPOOL|CLASS=Companion;LEVEL=5|1	BONUS:SKILLPOOL|CLASS=Companion;LEVEL=6|1
 
 
 # Fun Eclipse Race
-Elf (Drow)		OUTPUTNAME:Elf, Drow	KEY:Drow ~ Eclipse	STARTFEATS:1	LANGBONUS:ALL	MOVE:Walk,30	LEVELADJUSTMENT:1	RACETYPE:Humanoid	RACESUBTYPE:Drow|EclipseRace	SIZE:M	REACH:5	BONUS:STAT|DEX|2	BONUS:STAT|INT|2	BONUS:STAT|CHA|2	ABILITY:Character Points|AUTOMATIC|Spell Resistance ~ Base|Spell Resistance ~ Improved|Occult Sense ~ Darkvision Extended|Occult Sense ~ Detect Secret Doors|Immunity ~ Sleep Effects|Inherent Spell ~ Drow	ABILITY:Special Ability|AUTOMATIC|TYPE.DrowRacial	AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sword (Short)	LANGAUTO:Common,Elven,Undercommon	BONUS:SKILL|Perception|2	ABILITY:Disadvantages|AUTOMATIC|Disadvantage ~ Outcast(Drow Elf)
+Elf (Drow)		OUTPUTNAME:Elf, Drow	KEY:Drow ~ Eclipse	STARTFEATS:1	LANGBONUS:ALL	MOVE:Walk,30	LEVELADJUSTMENT:1	RACETYPE:Humanoid	RACESUBTYPE:Drow|EclipseRace	SIZE:M	REACH:5	BONUS:STAT|DEX|2	BONUS:STAT|INT|2	BONUS:STAT|CHA|2	ABILITY:Character Points|AUTOMATIC|Immunity ~ Sleep Effects|Inherent Spell ~ Drow|Occult Sense ~ Darkvision Extended|Occult Sense ~ Detect Secret Doors|Spell Resistance ~ Base|Spell Resistance ~ Improved	ABILITY:Special Ability|AUTOMATIC|TYPE=DrowRacial	AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sword (Short)	LANGAUTO:Common,Elven,Undercommon	BONUS:SKILL|Perception|2	ABILITY:Disadvantages|AUTOMATIC|Disadvantage ~ Outcast(Drow Elf)
 
 
 Rat (Dire)		BONUS:VAR|SystemHands|2		OUTPUTNAME:[NAME] Rat				LEGS:4	HANDS:0	SOURCEPAGE:p.232	CR:1/3		SIZE:S	RACETYPE:Animal	TYPE:Animal.ImprovedFamiliar	MONSTERCLASS:Animal:1	HITDICEADVANCEMENT:1,2,4,7,11,*	MOVE:Walk,0	FACE:5	REACH:5	BONUS:STAT|DEX|6	BONUS:STAT|CON,WIS|2	BONUS:STAT|INT|-8	BONUS:STAT|CHA|-6							STARTFEATS:1	BONUS:SKILL|Climb,Swim|DEX|TYPE=Dex	BONUS:SKILL|Climb,Swim|-1*STR|TYPE=NotStr										ABILITY:Internal|AUTOMATIC|Default	KIT:1|Racial Traits ~ Rat ~ Dire
-

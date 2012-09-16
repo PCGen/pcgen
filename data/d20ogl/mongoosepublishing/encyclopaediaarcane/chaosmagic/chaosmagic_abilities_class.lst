@@ -2,23 +2,22 @@
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Chaos Magic	SOURCESHORT:ChaosMagic	SOURCEWEB:http://www.mongoosepublishing.com
 
 # ~ Chaos Mage
-Chaos Magic Casting	KEY:Chaos Magic Casting ~ Chaos Mage			DESC: +%1|ChaosCasting		DEFINE:ChaosCasting|0	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Chaos Familiar		KEY:Chaos Familiar ~ Chaos Mage	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Multiple Effects		KEY:Multiple Effects ~ Chaos Mage			DESC: %1|MultipleEffects		CATEGORY:Special Ability	TYPE:SpecialQuality	
-Countermagic		KEY:Countermagic ~ Chaos Mage	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Purge Chaos			KEY:Purge Chaos ~ Chaos Mage	CATEGORY:Special Ability	TYPE:SpecialQuality	
+Chaos Magic Casting	KEY:Chaos Magic Casting ~ Chaos Mage			DESC: +%1|ChaosCasting		DEFINE:ChaosCasting|0	CATEGORY:Special Ability	TYPE:SpecialQuality
+Chaos Familiar		KEY:Chaos Familiar ~ Chaos Mage	CATEGORY:Special Ability	TYPE:SpecialQuality
+Multiple Effects		KEY:Multiple Effects ~ Chaos Mage			DESC: %1|MultipleEffects		CATEGORY:Special Ability	TYPE:SpecialQuality
+Countermagic		KEY:Countermagic ~ Chaos Mage	CATEGORY:Special Ability	TYPE:SpecialQuality
+Purge Chaos			KEY:Purge Chaos ~ Chaos Mage	CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Bloodcarver
-Bloodletting			KEY:Bloodletting ~ Bloodcarver	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Ignore Pain				KEY:Ignore Pain ~ Bloodcarver			CATEGORY:Special Ability	TYPE:SpecialQuality	
-Damage Reduction 1		KEY:Damage Reduction 1 ~ Bloodcarver	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Armour of Scars			KEY:Armour of Scars ~ Bloodcarver		CATEGORY:Special Ability	TYPE:SpecialQuality	
-Bloodcarving			KEY:Bloodcarving ~ Bloodcarver	CATEGORY:Special Ability	TYPE:SpecialQuality	
+Bloodletting			KEY:Bloodletting ~ Bloodcarver	CATEGORY:Special Ability	TYPE:SpecialQuality
+Ignore Pain				KEY:Ignore Pain ~ Bloodcarver			CATEGORY:Special Ability	TYPE:SpecialQuality
+Damage Reduction 1		KEY:Damage Reduction 1 ~ Bloodcarver	CATEGORY:Special Ability	TYPE:SpecialQuality
+Armour of Scars			KEY:Armour of Scars ~ Bloodcarver		CATEGORY:Special Ability	TYPE:SpecialQuality
+Bloodcarving			KEY:Bloodcarving ~ Bloodcarver	CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Doomringer	
-Corpse Pact		KEY:Corpse Pact ~ Doomringer	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Preserve Corpse	KEY:Preserve Corpse ~ Doomringer	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Blood Shunt		KEY:Blood Shunt ~ Doomringer	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Walking Death	KEY:Walking Death ~ Doomringer	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Avatar of Death	KEY:Avatar of Death ~ Doomringer	CATEGORY:Special Ability	TYPE:SpecialQuality	
-
+Corpse Pact		KEY:Corpse Pact ~ Doomringer	CATEGORY:Special Ability	TYPE:SpecialQuality
+Preserve Corpse	KEY:Preserve Corpse ~ Doomringer	CATEGORY:Special Ability	TYPE:SpecialQuality
+Blood Shunt		KEY:Blood Shunt ~ Doomringer	CATEGORY:Special Ability	TYPE:SpecialQuality
+Walking Death	KEY:Walking Death ~ Doomringer	CATEGORY:Special Ability	TYPE:SpecialQuality
+Avatar of Death	KEY:Avatar of Death ~ Doomringer	CATEGORY:Special Ability	TYPE:SpecialQuality

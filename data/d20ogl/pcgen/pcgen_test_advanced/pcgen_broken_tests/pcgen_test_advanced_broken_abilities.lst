@@ -1,6 +1,3 @@
 # Ability
 
-Ability Grant Spell that produces false alert			CATEGORY:Special Ability	TYPE:Racial.SpecialQuality	DESC:This ability Grants a Spell incorrectly producing a false report for caster level [Fireball, level 7, 1/beehive with a DC of 80+ Charisma]		SPELLS:Innate|TIMES=1|TIMESUNIT=Behive|CASTERLEVEL=7|Fireball,80+CHA
-
-
-
+Ability Grant Spell that produces false alert			CATEGORY:Special Ability	TYPE:Racial.SpecialQuality	DESC:This ability Grants a Spell incorrectly producing a false report for caster level [Fireball, level 7, 1/beehive with a DC of 80+ Charisma]		

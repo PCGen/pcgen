@@ -3,8 +3,8 @@
 
 
 
-Chooser UserInput		TYPE:Test	CHOOSE:USERINPUT|TITLE="Test Case Usage"	MULT:YES
-Fast Learner (Focused on Skills /Human)						KEY:Fast Learner ~ 2 Skills ~ Human						SORTKEY:Character Creation Fast Learner / Specialized for Skills		TYPE:Character Creation.CharCreation.General																		DEFINE:HumanOffsetBonus|0	DESC:(+2) This ability grants 2 Skills per eclipse character level.																																																																																																									MULT:YES	CHOOSE:STRING|Child|Youth																													BONUS:VAR|CharacterSkillPts|HumanOffsetBonus+(2*var("EclipseClassLvl"))	BONUS:VAR|HumanOffsetBonus|6|PREABILITY:1,CATEGORY=Special Ability,Fast Learner ~ 2 Skills ~ Human(Child)	BONUS:VAR|HumanOffsetBonus|4|PREABILITY:1,CATEGORY=Special Ability,Fast Learner ~ 2 Skills ~ Human(Youth)																			COST:2						SOURCEPAGE:p.17	BENEFIT:+2 CP towards Skills per level. [+%1 total Skill Points Granted].|HumanOffsetBonus+(2*var("EclipseClassLvl"))
+Chooser UserInput		TYPE:Test	CHOOSE:USERINPUT|TITLE=Test Case Usage	MULT:YES
+Fast Learner (Focused on Skills /Human)						KEY:Fast Learner ~ 2 Skills ~ Human						SORTKEY:Character Creation Fast Learner / Specialized for Skills		TYPE:Character Creation.CharCreation.General																		DEFINE:HumanOffsetBonus|0	DESC:(+2) This ability grants 2 Skills per eclipse character level.																																																																																																									MULT:YES	CHOOSE:STRING|Child|Youth																													BONUS:VAR|CharacterSkillPts|HumanOffsetBonus+(2*var("EclipseClassLvl"))	BONUS:VAR|HumanOffsetBonus|6|PREABILITY:1,CATEGORY=Special Ability,Fast Learner ~ 2 Skills ~ Human (Child)	BONUS:VAR|HumanOffsetBonus|4|PREABILITY:1,CATEGORY=Special Ability,Fast Learner ~ 2 Skills ~ Human (Youth)																			COST:2						SOURCEPAGE:p.17	BENEFIT:+2 CP towards Skills per level. [+%1 total Skill Points Granted].|HumanOffsetBonus+(2*var("EclipseClassLvl"))
 Power Gained ~ 1		TYPE:Test	CHOOSE:STRING|1|2|3|4|5|6|TITLE="1d6 Result"	MULT:YES	STACK:NO	BONUS:VAR|PowerPoints|%LIST	DEFINE:PowerDieSelectLevel|0	BONUS:VAR|PowerDieSelectLevel|1
 
 
@@ -24,17 +24,17 @@ Give 5 Deflection AC			TYPE:Test	COST:0	BONUS:COMBAT|AC|5|TYPE=Deflection
 
 
 
-Test-xx Spell Level 2 Divine Test	PRESPELLTYPE:1,Divine=2	TYPE:Test-xx	
-Test-xx Spell Level 1 Divine Test	PRESPELLTYPE:1,Divine=1	TYPE:Test-xx	
-Test-xx Spell Level 0 Divine Test	PRESPELLTYPE:1,Divine=0	TYPE:Test-xx	
+Test-xx Spell Level 2 Divine Test	PRESPELLTYPE:1,Divine=2	TYPE:Test-xx
+Test-xx Spell Level 1 Divine Test	PRESPELLTYPE:1,Divine=1	TYPE:Test-xx
+Test-xx Spell Level 0 Divine Test	PRESPELLTYPE:1,Divine=0	TYPE:Test-xx
 
-Test-xx Spell Level 2 Arcane Test	PRESPELLTYPE:1,Arcane=2	TYPE:Test-xx	
-Test-xx Spell Level 1 Arcane Test	PRESPELLTYPE:1,Arcane=1	TYPE:Test-xx	
-Test-xx Spell Level 0 Arcane Test	PRESPELLTYPE:1,Arcane=0	TYPE:Test-xx	
+Test-xx Spell Level 2 Arcane Test	PRESPELLTYPE:1,Arcane=2	TYPE:Test-xx
+Test-xx Spell Level 1 Arcane Test	PRESPELLTYPE:1,Arcane=1	TYPE:Test-xx
+Test-xx Spell Level 0 Arcane Test	PRESPELLTYPE:1,Arcane=0	TYPE:Test-xx
 
-Test-xx Spell Level 2 Psionic Test	PRESPELLTYPE:1,Psionic=2	TYPE:Test-xx	
-Test-xx Spell Level 1 Psionic Test	PRESPELLTYPE:1,Psionic=1	TYPE:Test-xx	
-Test-xx Spell Level 0 Psionic Test	PRESPELLTYPE:1,Psionic=0	TYPE:Test-xx	
+Test-xx Spell Level 2 Psionic Test	PRESPELLTYPE:1,Psionic=2	TYPE:Test-xx
+Test-xx Spell Level 1 Psionic Test	PRESPELLTYPE:1,Psionic=1	TYPE:Test-xx
+Test-xx Spell Level 0 Psionic Test	PRESPELLTYPE:1,Psionic=0	TYPE:Test-xx
 
 
 
@@ -72,7 +72,7 @@ Add Feat PCC			TYPE:Test
 #Class - part of the ADD:CLASSSKILLS test
 #Class Level - Part of the 
 
-Test Spells of Sorcerer vs. Bard	TYPE:OutsiderTest	CHOOSE:SPELLS|CLASSLIST=Bard[KNOWN=YES]	MULT:YES
+Test Spells of Sorcerer vs. Bard	TYPE:OutsiderTest	CHOOSE:SPELLS|CLASSLIST=Bard[KNOWN=YES][pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive$Restriction@6f5853]	MULT:YES
 # Fails - leaks over.
 #
 Bonus PCLEVEL Wizard 10				TYPE:OutsiderTest	BONUS:PCLEVEL|Wizard|10
@@ -140,19 +140,19 @@ Armor Proficiency (Light)								TYPE:General																																			
 Armor Proficiency (Medium)								TYPE:General																																PREMULT:1,[PREPROFWITHARMOR:1,TYPE.Light],[PREFEAT:1,Armor Proficiency (Light)]																																DESC:See Text																																AUTO:ARMORPROF|ARMORTYPE=Medium																																																																																																																																																		SOURCEPAGE:Feats.rtf
 
 Simple Weapon Proficiency								TYPE:General																																																																													DESC:See Text																																																		AUTO:WEAPONPROF|TYPE=Simple																																																																																																																																	SOURCEPAGE:Feats.rtf
-Martial Weapon Proficiency								TYPE:General																																																																													DESC:See Text			MULT:YES	CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.Martial																																						AUTO:WEAPONPROF|%LIST																																																																																																																																		SOURCEPAGE:Feats.rtf
-Exotic Weapon Proficiency								TYPE:General.Fighter					PREATT:1																																																																						DESC:See Text			MULT:YES	CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.Exotic																																						AUTO:WEAPONPROF|%LIST																																																																																																																																		SOURCEPAGE:Feats.rtf
+Martial Weapon Proficiency								TYPE:General																																																																													DESC:See Text			MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Martial]																																						AUTO:WEAPONPROF|%LIST																																																																																																																																		SOURCEPAGE:Feats.rtf
+Exotic Weapon Proficiency								TYPE:General.Fighter					PREATT:1																																																																						DESC:See Text			MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Exotic]																																						AUTO:WEAPONPROF|%LIST																																																																																																																																		SOURCEPAGE:Feats.rtf
 
 
 
 Weapon Finesse										TYPE:General.Fighter					PREATT:1																																																																						DESC:See Text																																																																												BONUS:COMBAT|TOHIT.Finesseable|(max(STR,DEX+SHIELDACCHECK)-STR)|TYPE=NotRanged																																																																																														SOURCEPAGE:Feats.rtf
-Weapon Focus										TYPE:General.Fighter					PREATT:1																																																																						DESC:See Text			MULT:YES	CHOOSE:WEAPONPROFS|LIST																																																																																																																																																				BONUS:WEAPONPROF=%LIST|TOHIT|1																						SOURCEPAGE:Feats.rtf
-Weapon Specialization									TYPE:Special.Fighter																	PREFEAT:1,Weapon Focus																																			PREVARGTEQ:WeapSpecQualify,1																	DESC:See Text			MULT:YES	CHOOSE:FEAT=Weapon Focus																																																																																																																																																			BONUS:WEAPONPROF=%LIST|DAMAGE|2																						SOURCEPAGE:Feats.rtf
+Weapon Focus										TYPE:General.Fighter					PREATT:1																																																																						DESC:See Text			MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC																																																																																																																																																				BONUS:WEAPONPROF=%LIST|TOHIT|1																						SOURCEPAGE:Feats.rtf
+Weapon Specialization									TYPE:Special.Fighter																	PREFEAT:1,Weapon Focus																																			PREVARGTEQ:WeapSpecQualify,1																	DESC:See Text			MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus																																																																																																																																																			BONUS:WEAPONPROF=%LIST|DAMAGE|2																						SOURCEPAGE:Feats.rtf
 
 
 
-Bob Test Feat Choose Spells Monkee							TYPE:General.Tests.BobTest		CHOOSE:SPELLS|CLASSLIST=MonKee[LEVELMIN=1;LEVELMAX=3]					MULT:YES
-Bob Test Feat Choose Spelllevel Arcane						TYPE:General.Tests.BobTest		CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]	MULT:YES
+Bob Test Feat Choose Spells Monkee							TYPE:General.Tests.BobTest		CHOOSE:SPELLS|CLASSLIST=MonKee[LEVELMAX=3;LEVELMIN=1][pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive$Restriction@e8e1c4]					MULT:YES
+Bob Test Feat Choose Spelllevel Arcane						TYPE:General.Tests.BobTest		BONUS:SPELLCAST|%LIST|1	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|0|MAXLEVEL	MULT:YES
 
 Bob Testing Type Group A								TYPE:GroupA		DESC:Freebie to Add B
 Bob Testing Type Group B								TYPE:GroupB		DESC:B added by A

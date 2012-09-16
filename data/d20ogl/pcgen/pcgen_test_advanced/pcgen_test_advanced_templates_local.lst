@@ -8,7 +8,7 @@ TL~CHOOSELANGAUTO_Terestial Alpha_Terestial_Beta					CHOOSE:LANGAUTO|Terestial A
 TL~CR_9								CR:9
 TL~FAVOREDCLASS_MonKee							FAVOREDCLASS:MonKee
 TL~FACE_20x40								FACE:20,40
-TL~FEAT_DodgeBall_MonkeyFu								FEAT:DodgeBall|MonkeyFu
+TL~FEAT_DodgeBall_MonkeyFu								FEAT:Dodgeball|MonkeyFu
 TL~GENDERLOCK_Female							GENDERLOCK:Female
 TL~HD_1-3_DR_5/1									HD:1-3:DR:5/1
 TL~HANDS_8								HANDS:8
@@ -33,7 +33,7 @@ TL~TEMPLATE_ADDCHOICE_Choices_OneTwoThree			TEMPLATE:ADDCHOICE:ChoiceOne|ChoiceT
 TL~TEMPLATE_CHOOSE_Choices_OneTwoThree							TEMPLATE:CHOOSE:ChoiceOne|ChoiceTwo|ChoiceThree
 TL~TYPE_Alien							TYPE:Alien
 TL~VISIBLE_DISPLAY							VISIBLE:DISPLAY
-TL~WEAPONBONUS							WEAPONBONUS:Suns Weapon Of Choice|Fine Wine Blade
+TL~WEAPONBONUS							WEAPONBONUS:Fine Wine Blade|Suns Weapon Of Choice
 
 #TL~<template>.COPY (Global)							
 #TL~<template>.FORGET (Global)							
@@ -41,13 +41,12 @@ TL~WEAPONBONUS							WEAPONBONUS:Suns Weapon Of Choice|Fine Wine Blade
 
 TL~ModifyOneTemplate
 TL~ModifyOneTemplate.COPY=TL~ModifyTwoTemplate
-TL~ModifyTwoTemplate.MOD		
+TL~ModifyTwoTemplate.MOD
 TL~ModifyOneTemplate.FORGET
 
 # Extras to Test functionality
-SomeOtherTemplate		VISIBLE:NO	
+SomeOtherTemplate		VISIBLE:NO
 
 ChoiceOne		VISIBLE:NO
 ChoiceTwo		VISIBLE:NO
 ChoiceThree		VISIBLE:NO
-

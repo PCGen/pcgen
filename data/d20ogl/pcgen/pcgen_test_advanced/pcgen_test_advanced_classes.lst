@@ -9,7 +9,7 @@ SUBCLASSLEVEL:1	SAB:Sab Test for MonKee Junior	ABILITY:Special Ability|AUTOMATIC
 CLASS:Animal	HD:8	TYPE:Monster
 
 CLASS:KeePer of Knowledge	TYPE:PC.Base
-CLASS:KeePer of Knowledge	CSKILL:Test Crafting|Craft (Two)|TYPE.Craft	SPELLTYPE:Divine	BONUS:CASTERLEVEL|KeePer of Knowledge|CL
+CLASS:KeePer of Knowledge	CSKILL:Test Crafting|Craft (Two)|TYPE=Craft	SPELLTYPE:Divine	BONUS:CASTERLEVEL|KeePer of Knowledge|CL
 SUBSTITUTIONCLASS:KeePer of Knowledge (Stars)
 SUBSTITUTIONLEVEL:1		ABILITY:Special Ability|AUTOMATIC|SubstitutionLevelTracker		BONUS:VAR|SubstitutionLevelTracker|CL+25
 SUBSTITUTIONCLASS:KeePer of Knowledge (Suns)
@@ -17,7 +17,7 @@ SUBSTITUTIONLEVEL:1		AUTO:WEAPONPROF|Suns Weapon Of Choice
 SUBSTITUTIONCLASS:KeePer of Knowledge (Moons)
 SUBSTITUTIONLEVEL:1		AUTO:ARMORPROF|Moon Cloth
 SUBSTITUTIONCLASS:KeePer of Knowledge (Celestial Events)
-SUBSTITUTIONLEVEL:1		ADD:FEAT|Dodge,Toughness,Test Case Extreme
+SUBSTITUTIONLEVEL:1		ADD:FEAT|Dodge,Test Case Extreme,Toughness
 SUBSTITUTIONCLASS:KeePer of Knowledge (Cosmic Master)
 SUBSTITUTIONLEVEL:1		AUTO:FEAT|Dodge
 1	AUTO:FEAT|Not Dodge
@@ -29,7 +29,7 @@ CLASS:Running With Scissors	CSKILL:Monkey Building Sensation
 
 
 # Older Testing Stuff
-CLASS:Tom Test Copy Deal	HD:1	TYPE:Base.PC	
+CLASS:Tom Test Copy Deal	HD:1	TYPE:Base.PC
 #SAB:Tom Test Works
 #SAB:Tom Test Works|PREVARGTEQ:CL,2
 1	SAB:Tom Test Works|PREFEAT:1,Dodge
@@ -37,26 +37,26 @@ CLASS:Tom Test Copy Deal	HD:1	TYPE:Base.PC
 CLASS:Tom Test Copy Deal.COPY=Testing the Copy
 
 
-CLASS:SpellCaster One		TYPE:Base.PC	SPELLTYPE:Arcane	SPELLSTAT:INT		MEMORIZE:YES	BONUS:COMBAT|BAB|1	BONUS:CHECKS|ALL|1		SPELLS:Not Innate|CASTERLEVEL=1|Fireball,18	SPELLS:Not Innate|CASTERLEVEL=1|Magic Missile,80
+CLASS:SpellCaster One		TYPE:Base.PC	SPELLTYPE:Arcane	SPELLSTAT:INT		MEMORIZE:YES	BONUS:COMBAT|BAB|1	BONUS:CHECKS|ALL|1		SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Fireball,18	SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Magic Missile,80
 1	CAST:6,6	BONUS:SKILL|Athletics|25|PREVARGTEQ:CL,BASESPELLSTAT	BONUS:SKILL|Acrobatics|25|PREVARGTEQ:CL,1	DEFINE:MyVar|0	BONUS:VAR|MyVar|10
-2	SPELLS:Not Innate|CASTERLEVEL=1|Fireball	SPELLS:Not Innate|CASTERLEVEL=1|Magic Missile,80
+2	SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Fireball	SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Magic Missile,80
 
-CLASS:SpellCaster Two		TYPE:Base.PC	SPELLTYPE:Arcane	SPELLSTAT:INT	PREVARGT:2,BASESPELLSTAT	MEMORIZE:YES	BONUS:COMBAT|BAB|1	BONUS:CHECKS|ALL|1	
-1	CAST:6,6	BONUS:SKILL|Athletics|25|PREVARGTEQ:MyVar,BASESPELLSTAT		BONUS:SKILL|Acrobatics|25|PREVARGTEQ:CL,1	
-
-
-CLASS:SpellCaster Three		PREVARGTEQ:MyVar,1	TYPE:Base.PC	SPELLTYPE:Arcane	SPELLSTAT:INT	MEMORIZE:YES	BONUS:COMBAT|BAB|1	BONUS:CHECKS|ALL|1	
-1	CAST:6,6	
+CLASS:SpellCaster Two		TYPE:Base.PC	SPELLTYPE:Arcane	SPELLSTAT:INT	PREVARGT:2,BASESPELLSTAT	MEMORIZE:YES	BONUS:COMBAT|BAB|1	BONUS:CHECKS|ALL|1
+1	CAST:6,6	BONUS:SKILL|Athletics|25|PREVARGTEQ:MyVar,BASESPELLSTAT		BONUS:SKILL|Acrobatics|25|PREVARGTEQ:CL,1
 
 
-CLASS:Basic Fighter	HD:10		TYPE:Base.PC	BONUS:COMBAT|BAB|TL|TYPE=Base.REPLACE	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	
-CLASS:Basic Fighter	CSKILL:TYPE.TestSkills	STARTSKILLPTS:2
+CLASS:SpellCaster Three		PREVARGTEQ:MyVar,1	TYPE:Base.PC	SPELLTYPE:Arcane	SPELLSTAT:INT	MEMORIZE:YES	BONUS:COMBAT|BAB|1	BONUS:CHECKS|ALL|1
+1	CAST:6,6
+
+
+CLASS:Basic Fighter	HD:10		TYPE:Base.PC	BONUS:COMBAT|BAB|TL|TYPE=Base.REPLACE	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3
+CLASS:Basic Fighter	CSKILL:TYPE=TestSkills	STARTSKILLPTS:2
 1	AUTO:FEAT|Simple Weapon Proficiency		AUTO:WEAPONPROF|Extra Blade
 
 
 
 # Alice and Charlie Classes -
-CLASS:Alice Class	HD:10		TYPE:Base.PC	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	
+CLASS:Alice Class	HD:10		TYPE:Base.PC	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3
 CLASS:Alice Class	STARTSKILLPTS:2	KNOWNSPELLS:Alice Class Known Spell|LEVEL=5	SPELLTYPE:Arcane	MEMORIZE:YES	BONUS:DOMAIN|NUMBER|2	BONUS:CASTERLEVEL|Alice Class|CL
 CLASS:Alice Class	ADD:CLASSSKILLS|Exclusing Skill_2,Exclusing Skill_3	CSKILL:Class Skill 1	ADD:FEAT|Add Feat Class Line
 1	CAST:1,1,1,1,1,1,1,1,1,1,1
@@ -95,7 +95,7 @@ CLASS:PreReq Class Two	PREVARGT:1,CL
 
 
 CLASS:Test Spell DC	HD:4
-1	SPELLS:Not Innate|CASTERLEVEL=1|Spell Control DC,11
+1	SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Spell Control DC,11
 
 #CLASS:Cleric.MOD	SPELLLIST:1|Druid
 
@@ -121,7 +121,7 @@ CLASS:Bard		STARTSKILLPTS:6	CSKILL:TYPE=Knowledge
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 ###Block: Level progression
-1	CAST:2			KNOWN:4			
+1	CAST:2			KNOWN:4
 2	CAST:3,0			KNOWN:5,2
 3	CAST:3,1			KNOWN:6,3
 4	CAST:3,2,0			KNOWN:6,3,2
@@ -146,7 +146,7 @@ CLASS:Wizard	VISIBLE:NO
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus
 CLASS:Sorcerer	HD:4		TYPE:Base.PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Sorcerer	STARTSKILLPTS:2	
+CLASS:Sorcerer	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|CL
 ###Block:Proficiencies
@@ -177,8 +177,8 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 
 CLASS:Test Nothing	HD:4	TYPE:PC.Base
 
-CLASS:Test13	
-CLASS:Test13	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Test13|CL	
+CLASS:Test13
+CLASS:Test13	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Test13|CL
 #	SPELLLIST:1|Druid
 1	CAST:5,3				KNOWN:4,2
 2	CAST:6,4				KNOWN:5,2
@@ -196,12 +196,12 @@ CLASS:Test46a
 
 CLASS:Test46b
 1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(StackNoChoiceFeatAuto)|PRECLASS:1,Test46b=2
-1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(StackChoiceFeatAuto(Ride))|GivingThingy(StackChoiceFeatAuto(Tumble))|PRECLASS:1,Test46b=2
+1				ABILITY:FEAT|AUTOMATIC|GivingThingy(StackChoiceFeatAuto(Tumble))|GivingThingyAuto(StackChoiceFeatAuto(Ride))|PRECLASS:1,Test46b=2
 1				ABILITY:FEAT|AUTOMATIC|Naturally Something Auto (comment)|PRECLASS:1,Test46b=2
 
 CLASS:Test46c
-1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(StackNoChoiceFeatAuto)|GivingThingy(StackNoChoiceFeatAuto)|PRECLASS:1,Test46c=2
-1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(StackChoiceFeatAuto(Ride))|GivingThingyAuto(StackChoiceFeat(Ride))|GivingThingyAuto(StackChoiceFeat(Tumble))|PRECLASS:1,Test46c=2
+1				ABILITY:FEAT|AUTOMATIC|GivingThingy(StackNoChoiceFeatAuto)|GivingThingyAuto(StackNoChoiceFeatAuto)|PRECLASS:1,Test46c=2
+1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(StackChoiceFeat(Ride))|GivingThingyAuto(StackChoiceFeat(Tumble))|GivingThingyAuto(StackChoiceFeatAuto(Ride))|PRECLASS:1,Test46c=2
 
 #TEST 51
 
@@ -279,5 +279,3 @@ CLASS:Test Current	HD:4	TYPE:PC.Base
 CLASS:Test Current	CSKILL:Speak Language
 #1		ADD:ABILITY|1|Special Ability|VIRTUAL|Test Current
 #1	AUTO:FEAT|Dodge|PRESTAT:1,DEX=11|PRESTAT:1,WIS=12
-
-

@@ -14,9 +14,9 @@ CLASS:Igasaki Disciple	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Decipher Sc
 1	BONUS:ABILITYPOOL|Igasaki Disciple Proficiencies|3	AUTO:FEAT|Simple Weapon Proficiency
 1								AUTO:FEAT|Armor Proficiency (Light)
 ###Block: class abilities
-1	ABILITY:Special Ability|AUTOMATIC|Poison Use|Explosive Use
+1	ABILITY:Special Ability|AUTOMATIC|Explosive Use|Poison Use
 2														BONUS:VAR|ArtOfTrickery|((CL+1)/3)*2									ABILITY:Special Ability|AUTOMATIC|Art of Trickery
-3					BONUS:VAR|SneakAttack|CL/3			ABILITY:Special Ability|AUTOMATIC|Sneak Attack|Saboteur
+3					BONUS:VAR|SneakAttack|CL/3			ABILITY:Special Ability|AUTOMATIC|Saboteur|Sneak Attack
 4														ABILITY:Special Ability|AUTOMATIC|Still Mind
 7	ABILITY:Special Ability|AUTOMATIC|Igasaki Poison
 10	ABILITY:Special Ability|AUTOMATIC|Face in the Shadows

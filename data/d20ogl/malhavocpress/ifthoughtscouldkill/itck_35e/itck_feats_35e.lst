@@ -7,4 +7,3 @@ Continual Power		TYPE:Metapsionic							PREFEAT:1,TYPE=Metapsionic	DESC:You can 
 Creature Capacitor	TYPE:Psionic							PREFEAT:1,Psionic Talent	DESC:You can store part of your daily unused power points per day (equal to manifester level) in an internal crystal capacitor.	SOURCEPAGE:p.42
 Sequester Power		TYPE:Psionic	PRECLASS:1,SPELLCASTER.Psionic=3	PREFEAT:1,Psionic Talent	DESC:You get additional power points per day for every power you sequester.										SOURCEPAGE:p.42
 Transcend Limits		TYPE:Psionic	PRECLASS:1,SPELLCASTER.Psionic=3	PREFEAT:1,Overchannel		DESC:Increase spending limit on metapsionically enhanced powers												SOURCEPAGE:p.42
-

@@ -18,4 +18,3 @@ Taunt									TYPE:General																																				DESC:You can taunt
 
 # COMMENT: This is the method to grant fame.
 Grant Fame +1	TYPE:Fame.General	COST:0	DESC:This is how to gain fame - take this any time you have earned fame.	BONUS:VAR|Fame|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TEMPLATE:Gladiator
-

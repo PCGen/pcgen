@@ -86,5 +86,3 @@ CLASS:Treasure Hunter	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Climb|Decipher Scr
 7	BONUS:VAR|DangerSense|1
 9						ABILITY:Special Ability|VIRTUAL|Improved Evasion
 10	BONUS:VAR|DangerSense|1		ABILITY:Special Ability|AUTOMATIC|Uncanny Sense ~ Treasure Hunter
-
-

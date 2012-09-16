@@ -5,7 +5,7 @@ SOURCELONG:Mongoose Publishing - Slayer's Guide to Hobgoblins	SOURCESHORT:SGtHob
 # MM monsters do not speak that language.
 # Entered to allow LANGBONUS in slayershobgobraces.lst.
 # --------------------------
-# Éric Beaudoin - 2002.11.16
+# ?ric Beaudoin - 2002.11.16
 
 # Language	Type
 Goblinoid	TYPE:Spoken

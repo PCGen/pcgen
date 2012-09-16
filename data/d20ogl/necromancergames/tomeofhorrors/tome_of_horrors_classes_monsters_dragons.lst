@@ -48,9 +48,9 @@ CLASS:Mist Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p. 165	BONUS:C
 # Class Name	Required Race		Reg. Race Type
 CLASS:Mist Dragon	PRERACE:1,Dragon (Mist%		PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Mist Dragon	STARTSKILLPTS:6		MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device
+CLASS:Mist Dragon	STARTSKILLPTS:6		MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 1	BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
+1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
 ###Block: Breath Weapon and other SA's
 1	BONUS:VAR|BreathWeaponDamageDie|6	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDice|(2*DragonAge)				ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Cloudy Scalding Vapor
 1	ABILITY:Special Ability|AUTOMATIC|Mist Form
@@ -58,7 +58,7 @@ CLASS:Mist Dragon	STARTSKILLPTS:6		MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
-1			DEFINE:DragonAge|1	
+1			DEFINE:DragonAge|1
 9			DEFINE:DragonAge|2	ABILITY:Special Ability|AUTOMATIC|Water Breathing
 12			DEFINE:DragonAge|3	ABILITY:Special Ability|AUTOMATIC|Fog Cloud
 15			DEFINE:DragonAge|4	ABILITY:Special Ability|AUTOMATIC|Create Water	ADD:SPELLCASTER|Sorcerer	BONUS:PCLEVEL|Sorcerer|3

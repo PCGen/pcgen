@@ -13,12 +13,12 @@ CLASS:Cavalry	STARTSKILLPTS:2	CSKILL:Handle Animal|Intimidate|Jump|Knowledge (Ta
 ###Block: standard
 1	ABILITY:Special Ability|AUTOMATIC|Mounted Combat ~ Cavalry				BONUS:VAR|MountedCombat|(CL/4)+1			VFEAT:Mounted Combat
 2	ABILITY:Special Ability|AUTOMATIC|Mounted Mobility ~ Cavalry|Saddle Leap ~ Cavalry
-3	ABILITY:Special Ability|AUTOMATIC|Cavalry Mount ~ Cavalry|Spur ~ Cavalry			BONUS:VAR|CavalrySpur|min(30,(10*(CL/3)))	
+3	ABILITY:Special Ability|AUTOMATIC|Cavalry Mount ~ Cavalry|Spur ~ Cavalry			BONUS:VAR|CavalrySpur|min(30,(10*(CL/3)))
 5	ABILITY:Special Ability|AUTOMATIC|Harry ~ Cavalry				BONUS:VAR|CavalryHarry|CL/5				VFEAT:Ride By Attack
-7	ABILITY:Special Ability|AUTOMATIC|Spur ~ Cavalry|Mounted Endurance ~ Cavalry	DEFINE:SpurLvl|1
+7	ABILITY:Special Ability|AUTOMATIC|Mounted Endurance ~ Cavalry|Spur ~ Cavalry	DEFINE:SpurLvl|1
 9																					VFEAT:Spirited Charge
 10	ABILITY:Special Ability|AUTOMATIC|Mounted Agility ~ Cavalry
-11	ABILITY:Special Ability|AUTOMATIC|Like the Wind ~ Cavalry				BONUS:VAR|LikeTheWind|(CL-8)/3		
+11	ABILITY:Special Ability|AUTOMATIC|Like the Wind ~ Cavalry				BONUS:VAR|LikeTheWind|(CL-8)/3
 13	ABILITY:Special Ability|AUTOMATIC|Tall in the saddle ~ Cavalry
 18	ABILITY:Special Ability|AUTOMATIC|Lightning Attack ~ Cavalry
 19	ABILITY:Special Ability|AUTOMATIC|Companion Mount ~ Cavalry

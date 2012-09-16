@@ -3,7 +3,7 @@ SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:h
 
 # Feat Name			Product Identity?	Type			Required Class			Required Feat			Required Language		Required Non-Monster Lvl	Maximum Size	Required Stat		Description																									Multiple?	Choose					Bonus to skill			Source Page
 Animal Friend		NAMEISPI:NO		TYPE:General																							PRESTAT:1,CHA=13		DESC:You quickly form an empathic relationship with unintelligent animals																						BONUS:SKILL|Animal Empathy|2	SOURCEPAGE:p.28
-Area of Expertise		NAMEISPI:NO		TYPE:General																							PRESTAT:1,INT=13		DESC:You have done tremendous amounts of research in a single area.															MULT:NO	CHOOSE:SKILLSNAMED|Knowledge %	BONUS:SKILL|LIST|2		SOURCEPAGE:p.28
+Area of Expertise		NAMEISPI:NO		TYPE:General																							PRESTAT:1,INT=13		DESC:You have done tremendous amounts of research in a single area.															MULT:NO	CHOOSE:SKILL|Knowledge %	BONUS:SKILL|LIST|2		SOURCEPAGE:p.28
 Conceal Weapon		NAMEISPI:NO		TYPE:General																							PRESTAT:1,INT=13		DESC:You are adept at keeping a weapon hidden on your person in such a way that you can draw it without any undue trouble.																			SOURCEPAGE:p.29
 Contortionist		NAMEISPI:NO		TYPE:General																							PRESTAT:1,DEX=13		DESC:You are adept at contorting yourself in order to escape the grasp of others.																										SOURCEPAGE:p.29
 Dragon Friend		NAMEISPI:NO		TYPE:General											PRELANG:1,Draconic	PREPCLEVEL:MAX=1						PRESTAT:2,CHA=13,INT=13	DESC:You, your ancestors, your relatives, or an ally has a strong, friendly relationship with a dragon.																						SOURCEPAGE:p.29

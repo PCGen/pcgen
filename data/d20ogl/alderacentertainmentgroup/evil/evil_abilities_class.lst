@@ -3,8 +3,8 @@
 SOURCELONG:Alderac Entertainment Group (AEG) - Evil	SOURCESHORT:Evil	SOURCEWEB:http://alderac.com/d20
 
 # ~ Demon Summoner
-Special Metamagic feat	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Special Metamagic feat ~ Demon Summoner		DESC: x%|SpecialMeta					DEFINE:SpecialMeta|1
-Apprentice			CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Apprentice ~ Demon Summoner		DESC: x%|DemonApp							DEFINE:DemonApp|1
+Special Metamagic feat	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Special Metamagic feat ~ Demon Summoner		DESC: x%%|SpecialMeta					DEFINE:SpecialMeta|1
+Apprentice			CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Apprentice ~ Demon Summoner		DESC: x%%|DemonApp							DEFINE:DemonApp|1
 Servitor			CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Servitor ~ Demon Summoner		DESC: (Quasit or Imp)
 
 # ~ Bargainer
@@ -14,9 +14,9 @@ Infernal Will	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Infernal Will ~ B
 Wild Shape		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Wild Shape ~ Bargainer
 
 # ~ Blood Archer
-Poison Blood	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Poison Blood ~ Blood Archer	
+Poison Blood	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Poison Blood ~ Blood Archer
 Title			CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Title ~ Blood Archer			DESC: - Initiate of the Path|PREVARLT:BloodArcherLvl,2			DESC: - Initiate of the 1st Fletching|PREVARLT:BloodArcherLvl,4			DESC: - Initiate of the 2nd Fletching|PREVARLT:BloodArcherLvl,6			DESC: - Initiate of the 3rd Fletching|PREVARGTEQ:BloodArcherLvl,6
-Acid Blood		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Acid Blood ~ Blood Archer	
+Acid Blood		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Acid Blood ~ Blood Archer
 Blood Bow		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Blood Bow ~ Blood Archer		DESC: +%1|BloodBow																			DEFINE:BloodBow|CL/3
 Regeneration	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Regeneration ~ Blood Archer		DESC: (1 hp/hour)|PREVARLT:BloodArcherLvl,7	DESC: (1 hp/minute)|PREVARGTEQ:BloodArcherLvl,7
 Sneak Attack	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Sneak Attack ~ Blood Archer		DESC: +%1d%2 (Bow Only)|BowSneakAttack|SneakAttackDie	DEFINE:BowSneakAttack|0	DEFINE:SneakAttackDie|6

@@ -3,12 +3,12 @@ SOURCELONG:A Swarm of Stirges	SOURCESHORT:ASoS	SOURCEWEB:http://www.behemoth3.co
 
 Mount Affinity		KEY:Mount Affinity ~ Wing Jockey					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																BONUS:SKILL|Handle Animal,Ride|2|TYPE=MountAffinity|PREAPPLY:PC											SOURCEPAGE:p.21	DESC:A Wing Jockey chooses to develop a special affinity for one type of flying creature. She gains a +2 bonus on all Handle Animal checks and Ride checks related to her chosen creature.
 
-Empathic Bonding		KEY:Empathic Bonding ~ Wing Jockey		DESC: +%|EmpathicBonding	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		DEFINE:EmpathicBonding|CHA	
-Mounted Defense I		KEY:Mounted Defense I ~ Wing Jockey				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary											DEFINE:MountedDefenseAC|1	
-Mounted Evasion		KEY:Mounted Evasion ~ Wing Jockey				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	
-Riding Style		KEY:Riding Style ~ Wing Jockey					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary											
-Mounted Defense II	KEY:Mounted Defense II ~ Wing Jockey				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																
-Riding Style Mastery	KEY:Riding Style Mastery ~ Wing Jockey				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																
+Empathic Bonding		KEY:Empathic Bonding ~ Wing Jockey		DESC: +%%|EmpathicBonding	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		DEFINE:EmpathicBonding|CHA
+Mounted Defense I		KEY:Mounted Defense I ~ Wing Jockey				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary											DEFINE:MountedDefenseAC|1
+Mounted Evasion		KEY:Mounted Evasion ~ Wing Jockey				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+Riding Style		KEY:Riding Style ~ Wing Jockey					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+Mounted Defense II	KEY:Mounted Defense II ~ Wing Jockey				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+Riding Style Mastery	KEY:Riding Style Mastery ~ Wing Jockey				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 #
 
 Wing Jockey (Mounted Defense)		CATEGORY:Special Ability		DEFINE:MountedDefenseAC|1												BONUS:COMBAT|AC|MountedDefenseAC|TYPE=Insight|PREAPPLY:PC																						SOURCEPAGE:p.21	TEMPDESC:When a Wing Jockey is riding a mount with which she has established an empathic link they both gain a +1 insight bonus to their ACs.

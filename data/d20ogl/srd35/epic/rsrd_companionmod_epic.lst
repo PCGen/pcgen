@@ -71,5 +71,3 @@ FOLLOWER:CompLevel=53	TYPE:Animal Companion	HD:2																							BONUS:STA
 FOLLOWER:CompLevel=56	TYPE:Animal Companion	HD:2																							BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:CompLevel=59	TYPE:Animal Companion	HD:2																							BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:CompLevel=62	TYPE:Animal Companion	HD:2																							BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
-
-

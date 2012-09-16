@@ -2,5 +2,5 @@
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Enchantment	SOURCESHORT:Enchantment	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-09
 
 # Template Name		Challenge Rating	Visible	Source Page		Special ABility											Define			Damage reduction	Bonus to skill																	Stat bonus		Feat							Removable?		Type
-Thrall			CR:1					SOURCEPAGE:p. 49	SAB:Mind Leech	SAB:Master	SAB:Limited Mindlessness	SAB:Tireless	DEFINE:LOCK.WIS|10	BONUS:DR|+1|5	BONUS:SKILL|TYPE=Intelligence|-1*(INT)	BONUS:SKILL|TYPE=Wisdom|-1*(WIS)	BONUS:SKILL|TYPE=Charisma|-1*(CHA)	BONUS:STAT|DEX|2	AUTO:FEAT|Great Fortitude|Toughness|Endurance	REMOVABLE:YES
+Thrall			CR:1					SOURCEPAGE:p. 49	SAB:Mind Leech	SAB:Master	SAB:Limited Mindlessness	SAB:Tireless	DEFINE:LOCK.WIS|10	BONUS:DR|+1|5	BONUS:SKILL|TYPE=Intelligence|-1*(INT)	BONUS:SKILL|TYPE=Wisdom|-1*(WIS)	BONUS:SKILL|TYPE=Charisma|-1*(CHA)	BONUS:STAT|DEX|2	AUTO:FEAT|Endurance|Great Fortitude|Toughness	REMOVABLE:YES
 Dark Temptress Level 10				VISIBLE:NO																																																								TYPE:Outsider
