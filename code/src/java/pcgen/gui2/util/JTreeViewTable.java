@@ -494,26 +494,19 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 		public void elementsChanged(ListEvent<TreeView<T>> e)
 		{
 			ListFacade<? extends TreeView<T>> views = viewModel.getTreeViews();
-			TreeView<? super T> startingView = views.getElementAt(viewModel.getDefaultTreeViewIndex());
-			for (Component child : getComponents())
-			{
-				if (child instanceof JMenuItem)
-				{
-					JMenuItem menuItem = (JMenuItem) child;
-					if (menuItem.isSelected()
-							&& menuItem.getAction() instanceof JTreeViewTable.ChangeViewAction)
-					{
-						ChangeViewAction changeViewAction = (JTreeViewTable.ChangeViewAction) menuItem.getAction();
-						startingView = changeViewAction.view;
-					}
-				}
-			}
+			TreeView<? super T> startingView =
+					views.getElementAt(viewModel.getDefaultTreeViewIndex());
+			PropertyContext context =
+					baseContext.createChildContext(viewModel.getDataView()
+						.getPrefsKey());
+			String viewName =
+					context.initProperty("view", startingView.getViewName());
 			group = new ButtonGroup();
 			removeAll();
 			for (TreeView<T> treeview : views)
 			{
 				JMenuItem item = new JRadioButtonMenuItem(new ChangeViewAction(treeview));
-				item.setSelected(treeview == startingView);
+				item.setSelected(treeview.getViewName().equals(viewName));
 				group.add(item);
 				add(item);
 			}
