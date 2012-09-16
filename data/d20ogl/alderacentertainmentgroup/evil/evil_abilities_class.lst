@@ -17,8 +17,8 @@ Wild Shape		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Wild Shape ~ Bargai
 Poison Blood	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Poison Blood ~ Blood Archer	
 Title			CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Title ~ Blood Archer			DESC: - Initiate of the Path|PREVARLT:BloodArcherLvl,2			DESC: - Initiate of the 1st Fletching|PREVARLT:BloodArcherLvl,4			DESC: - Initiate of the 2nd Fletching|PREVARLT:BloodArcherLvl,6			DESC: - Initiate of the 3rd Fletching|PREVARGTEQ:BloodArcherLvl,6
 Acid Blood		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Acid Blood ~ Blood Archer	
-Blood Bow		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Blood Bow ~ Blood Archer		DESC: +%|BloodBow																			DEFINE:BloodBow|CL/3
+Blood Bow		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Blood Bow ~ Blood Archer		DESC: +%1|BloodBow																			DEFINE:BloodBow|CL/3
 Regeneration	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Regeneration ~ Blood Archer		DESC: (1 hp/hour)|PREVARLT:BloodArcherLvl,7	DESC: (1 hp/minute)|PREVARGTEQ:BloodArcherLvl,7
-Sneak Attack	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Sneak Attack ~ Blood Archer		DESC: +%d% (Bow Only)|BowSneakAttack|SneakAttackDieDEFINE:BowSneakAttack|0	DEFINE:SneakAttackDie|6
+Sneak Attack	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Sneak Attack ~ Blood Archer		DESC: +%1d%2 (Bow Only)|BowSneakAttack|SneakAttackDie	DEFINE:BowSneakAttack|0	DEFINE:SneakAttackDie|6
 
 #

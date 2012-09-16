@@ -97,10 +97,11 @@ CATEGORY=Special Ability|Hiten Mitsurugi Ryuu (Dex).MOD		DESC:&nl;Known Occult T
 
 
 CODE-1145	KEY:CODE-1145	CATEGORY:Special Ability	COST:2	TYPE:CODE.CODEOneOneFourFive.SpecialQuality	DESC:Cost 2 Ability kit work.	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
-CODE-1145				CATEGORY:FEAT			COST:0	TYPE:CODE	BONUS:ABILITYPOOL|CodeOneOneFourFive|2
+CODE-1145				CATEGORY:FEAT			COST:0	TYPE:CODE	BONUS:ABILITYPOOL|CodeOneOneFourFive|5
 
-CODE-1145 b	KEY:CODE-1145b	CATEGORY:Special Ability	COST:1	TYPE:CODE.CODEOneOneFourFive.SpecialQuality	DESC:Cost 2 Ability kit work.
-CODE-1145 c	KEY:CODE-1145c	CATEGORY:Special Ability	COST:0	TYPE:CODE.CODEOneOneFourFive.SpecialQuality	DESC:Cost 2 Ability kit work.
+CODE-1145 b	KEY:CODE-1145b	CATEGORY:Special Ability	COST:1	TYPE:CODE.CODEOneOneFourFive.SpecialQuality	DESC:Cost 1 Ability kit work.
+CODE-1145 c	KEY:CODE-1145c	CATEGORY:Special Ability	COST:0	TYPE:CODE.CODEOneOneFourFive.SpecialQuality	DESC:Cost 0 Ability kit work.
+CODE-1145 b				CATEGORY:FEAT			COST:0	TYPE:CODE	DESC:Cost 0
 
 # TEST-64
 # Please give SPELLS (the token) to a character that grants the exact same spell twice, but from different sources. The spell, spell book, timeunit, caster level (if any), DC (if any) must all be the same (the times may be different if you so choose) 

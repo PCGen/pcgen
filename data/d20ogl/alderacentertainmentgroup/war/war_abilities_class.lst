@@ -1,11 +1,11 @@
 # ~ Beast Handler
 Ward Animal		KEY:Ward Animal ~ Beast Handler	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Animal Training	KEY:Animal Training ~ Beast Handler		CATEGORY:Special Ability	TYPE:SpecialQuality	 DESC:(% total)|AnimalTraining	DEFINE:AnimalTraining|0
+Animal Training	KEY:Animal Training ~ Beast Handler		CATEGORY:Special Ability	TYPE:SpecialQuality	 DESC:(%1 total)|AnimalTraining	DEFINE:AnimalTraining|0
 Rally Beast		KEY:Rally Beast ~ Beast Handler	CATEGORY:Special Ability	TYPE:SpecialQuality	
 
 # ~ Brute
 Improved Power Attack	KEY:Improved Power Attack ~ Brute	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Battle Cry			KEY:Battle Cry ~ Brute		CATEGORY:Special Ability	TYPE:SpecialQuality			DESC: %/day|BattleCry		DEFINE:BattleCry|0
+Battle Cry			KEY:Battle Cry ~ Brute		CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:%1/day|BattleCry		DEFINE:BattleCry|0
 Shield Breaker		KEY:Shield Breaker ~ Brute	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Relentless Assault	KEY:Relentless Assault ~ Brute	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Onslaught			KEY:Onslaught ~ Brute	CATEGORY:Special Ability	TYPE:SpecialQuality	
@@ -16,7 +16,7 @@ Brutal Assault		KEY:Brutal Assault ~ Brute	CATEGORY:Special Ability	TYPE:Special
 # ~ Elf Treerunner
 Treewalking		KEY:Treewalking ~ Elf Treerunner			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Treewalking		KEY:Treewalking (Su) ~ Elf Treerunner	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Speak with Plants	KEY:Speak with Plants ~ Elf Treerunner		CATEGORY:Special Ability	TYPE:SpecialQuality			DESC: %/day|SpeakPlants			DEFINE:SpeakPlants|WIS
+Speak with Plants	KEY:Speak with Plants ~ Elf Treerunner		CATEGORY:Special Ability	TYPE:SpecialQuality			DESC: %1/day|SpeakPlants			DEFINE:SpeakPlants|WIS
 Arboreal Ally	KEY:Arboreal Ally ~ Elf Treerunner			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Arboreal Ambush	KEY:Arboreal Ambush ~ Elf Treerunner		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Arboreal Gate	KEY:Arboreal Gate	 ~ Elf Treerunner	CATEGORY:Special Ability	TYPE:SpecialQuality		DESC: (1d6 rounds)|PREVARLT:ElfTreerunnerLvl,9	DESC: (1d4 rounds)|PREVARLT:ElfTreerunnerLvl,10	DESC: (1 round)|PREVARGTEQ:ElfTreerunnerLvl,10
@@ -30,12 +30,12 @@ Giant Killer				KEY:Giant Killer ~ Epic Athlete	CATEGORY:Special Ability	TYPE:Sp
 Bear Hug					KEY:Bear Hug ~ Epic Athlete	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Hearty Constitution			KEY:Hearty Constitution ~ Epic Athlete	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Immunity to disease and poison	KEY:Immunity to disease and poison ~ Epic Athlete		CATEGORY:Special Ability	TYPE:SpecialQuality	
-Regeneration				KEY:Regeneration ~ Epic Athlete		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				DESC: % HP/ Hour|Regen			DEFINE:Regen|0
+Regeneration				KEY:Regeneration ~ Epic Athlete		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				DESC: %1 HP/ Hour|Regen			DEFINE:Regen|0
 
 # ~ Footman
 Shield Ally			KEY:Shield Ally ~ Footman	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Support Ally		KEY:Support Ally ~ Footman	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Coordinated Strike	KEY:Coordinated Strike ~ Footman	CATEGORY:Special Ability	TYPE:SpecialQuality				DESC: +%|Coordinated	DEFINE:Coordinated|0
+Coordinated Strike	KEY:Coordinated Strike ~ Footman	CATEGORY:Special Ability	TYPE:SpecialQuality				DESC: +%1|Coordinated	DEFINE:Coordinated|0
 Protect Ally		KEY:Protect Ally ~ Footman	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Defend Ally			KEY:Defend Ally ~ Footman	CATEGORY:Special Ability	TYPE:SpecialQuality	
 
@@ -57,7 +57,7 @@ Combat Healing		KEY:Combat Healing ~ Knight Chaplain	CATEGORY:Special Ability	TY
 # ~ Lancer
 Close Combat	KEY:Close Combat ~ Lancer	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Pole-Vault		KEY:Pole-Vault ~ Lancer	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Extra Critical	KEY:Extra Critical ~ Lancer		CATEGORY:Special Ability	TYPE:SpecialQuality			DESC: +%|ExtraCritical	DEFINE:ExtraCritical|0
+Extra Critical	KEY:Extra Critical ~ Lancer		CATEGORY:Special Ability	TYPE:SpecialQuality			DESC: +%1|ExtraCritical	DEFINE:ExtraCritical|0
 Defensive Spin	KEY:Defensive Spin ~ Lancer	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Extended Reach	KEY:Extended Reach ~ Lancer	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Set for Blood	KEY:Set for Blood ~ Lancer	CATEGORY:Special Ability	TYPE:SpecialQuality	
@@ -68,8 +68,8 @@ Spin Attack		KEY:Spin Attack ~ Lancer	CATEGORY:Special Ability	TYPE:SpecialQuali
 # ~ Mercenary Captain
 Grizzled			KEY:Grizzled ~ Mercenary Captain	CATEGORY:Special Ability	TYPE:SpecialQuality	
 War Cry			KEY:War Cry ~ Mercenary Captain	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Attack Drill		KEY:Attack Drill ~ Mercenary Captain	CATEGORY:Special Ability	TYPE:SpecialQuality					DESC: %/day|Drill						DEFINE:Drill|0
-Battle Music		KEY:Battle Music ~ Mercenary Captain	CATEGORY:Special Ability	TYPE:SpecialQuality					DESC: %|BattleMusic		DEFINE:BattleMusic|0
+Attack Drill		KEY:Attack Drill ~ Mercenary Captain	CATEGORY:Special Ability	TYPE:SpecialQuality					DESC: %1/day|Drill						DEFINE:Drill|0
+Battle Music		KEY:Battle Music ~ Mercenary Captain	CATEGORY:Special Ability	TYPE:SpecialQuality					DESC: %1|BattleMusic		DEFINE:BattleMusic|0
 Tactical Superiority	KEY:Tactical Superiority ~ Mercenary Captain	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Strategic Mastery		KEY:Strategic Mastery ~ Mercenary Captain	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Without Hesitation	KEY:Without Hesitation ~ Mercenary Captain	CATEGORY:Special Ability	TYPE:SpecialQuality	
@@ -81,7 +81,7 @@ Taunt				KEY:Taunt ~ Rake		CATEGORY:Special Ability	TYPE:SpecialQuality		DESC: (
 Humiliating Strike	KEY:Humiliating Strike ~ Rake	CATEGORY:Special Ability	TYPE:SpecialQuality	
 
 # ~ Sharpshooter
-Eagle Eye Shot	KEY:Eagle Eye Shot ~ Sharpshooter		CATEGORY:Special Ability	TYPE:SpecialQuality		DESC: % x DEX|Eagle				DEFINE:Eagle|2
+Eagle Eye Shot	KEY:Eagle Eye Shot ~ Sharpshooter		CATEGORY:Special Ability	TYPE:SpecialQuality		DESC: %1 x DEX|Eagle				DEFINE:Eagle|2
 Low-light Vision	KEY:Low-light Vision ~ Sharpshooter	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Disarming Shot	KEY:Disarming Shot ~ Sharpshooter	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Stumbling Shot	KEY:Stumbling Shot ~ Sharpshooter	CATEGORY:Special Ability	TYPE:SpecialQuality	
@@ -91,7 +91,7 @@ Immobilizing Shot	KEY:Immobilizing Shot ~ Sharpshooter	CATEGORY:Special Ability	
 Killing Shot	KEY:Killing Shot ~ Sharpshooter	CATEGORY:Special Ability	TYPE:SpecialQuality	
 
 # ~ Shieldbearer
-Shield Another		KEY:Shield Another ~ Shieldbearer		CATEGORY:Special Ability	TYPE:SpecialQuality			DESC: %|ShieldAnother	DEFINE:ShieldAnother|0
+Shield Another		KEY:Shield Another ~ Shieldbearer		CATEGORY:Special Ability	TYPE:SpecialQuality			DESC: %1|ShieldAnother	DEFINE:ShieldAnother|0
 Hinder Enemy		KEY:Hinder Enemy ~ Shieldbearer	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Shield Push			KEY:Shield Push ~ Shieldbearer	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Stand Ground		KEY:Stand Ground ~ Shieldbearer	CATEGORY:Special Ability	TYPE:SpecialQuality	
@@ -100,9 +100,9 @@ Retributive Strike	KEY:Retributive Strike ~ Shieldbearer	CATEGORY:Special Abilit
 Fortify			KEY:Fortify ~ Shieldbearer	CATEGORY:Special Ability	TYPE:SpecialQuality	
 
 # ~ Spellbreaker
-Neutralize Magic		KEY:Neutralize Magic ~ Spellbreaker		CATEGORY:Special Ability	TYPE:SpecialQuality			DESC: %/day|Neutralize				DEFINE:Neutralize|0
+Neutralize Magic		KEY:Neutralize Magic ~ Spellbreaker		CATEGORY:Special Ability	TYPE:SpecialQuality			DESC: %1/day|Neutralize				DEFINE:Neutralize|0
 Disrupt Spellcaster	KEY:Disrupt Spellcaster ~ Spellbreaker	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Empty Mind			KEY:Empty Mind ~ Spellbreaker			CATEGORY:Special Ability	TYPE:SpecialQuality			DESC: %/day|EmptyMind				DEFINE:EmptyMind|0
+Empty Mind			KEY:Empty Mind ~ Spellbreaker			CATEGORY:Special Ability	TYPE:SpecialQuality			DESC: %1/day|EmptyMind				DEFINE:EmptyMind|0
 Disruptive Strike		KEY:Disruptive Strike ~ Spellbreaker	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Disruptive Fist		KEY:Disruptive Fist ~ Spellbreaker	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Empty Mind			KEY:Empty Mind ~ Spellbreaker			CATEGORY:Special Ability	TYPE:SpecialQuality			DESC: (10' radius)
@@ -110,7 +110,7 @@ Shattering Strike		KEY:Shattering Strike ~ Spellbreaker	CATEGORY:Special Ability
 
 # ~ Wandering Squire
 Staff Expert	KEY:Staff Expert ~ Wandering Squire			CATEGORY:Special Ability	TYPE:SpecialQuality	
-Stunning Attack	KEY:Stunning Attack ~ Wandering Squire		CATEGORY:Special Ability	TYPE:SpecialQuality			DESC: %/day|Stun	DEFINE:Stun|1
+Stunning Attack	KEY:Stunning Attack ~ Wandering Squire		CATEGORY:Special Ability	TYPE:SpecialQuality			DESC: %1/day|Stun	DEFINE:Stun|1
 Deflect Arrows	KEY:Deflect Arrows ~ Wandering Squire	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Defensive Stance	KEY:Defensive Stance ~ Wandering Squire	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Warding Attack	KEY:Warding Attack ~ Wandering Squire	CATEGORY:Special Ability	TYPE:SpecialQuality	
@@ -121,12 +121,12 @@ Lead Counsel		KEY:Lead Counsel ~ Warleader	CATEGORY:Special Ability	TYPE:Special
 Inspire Bravery		KEY:Inspire Bravery ~ Warleader	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Concerted Attack		KEY:Concerted Attack ~ Warleader	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Snap to Attention		KEY:Snap to Attention ~ Warleader	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Motivate the Troops	KEY:Motivate the Troops ~ Warleader		CATEGORY:Special Ability	TYPE:SpecialQuality			DESC: %/day|Motivate					DEFINE:Motivate|0
+Motivate the Troops	KEY:Motivate the Troops ~ Warleader		CATEGORY:Special Ability	TYPE:SpecialQuality			DESC: %1/day|Motivate					DEFINE:Motivate|0
 Rally the Troops		KEY:Rally the Troops ~ Warleader	CATEGORY:Special Ability	TYPE:SpecialQuality	
 
 # ~ Warmage
 Arcane Accuracy		KEY:Arcane Accuracy ~ Warmage			CATEGORY:Special Ability	TYPE:SpecialQuality		DESC: +1 / level
-Armored Mage		KEY:Armored Mage ~ Warmage		CATEGORY:Special Ability	TYPE:SpecialQuality				DESC: -% Failure Chance|ArmoredMage		DEFINE:ArmoredMage|0
+Armored Mage		KEY:Armored Mage ~ Warmage		CATEGORY:Special Ability	TYPE:SpecialQuality				DESC: -%1 Failure Chance|ArmoredMage		DEFINE:ArmoredMage|0
 Dodge Missile Fire	KEY:Dodge Missile Fire ~ Warmage		CATEGORY:Special Ability	TYPE:SpecialQuality			DESC: +1
 Arcane Tactician		KEY:Arcane Tactician ~ Warmage	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Arcane Warrior		KEY:Arcane Warrior ~ Warmage	CATEGORY:Special Ability	TYPE:SpecialQuality	
@@ -136,8 +136,8 @@ Improved Mounted Archery	KEY:Improved Mounted Archery ~ Wild Rider	CATEGORY:Spec
 Inspired Horsemanship		KEY:Inspired Horsemanship ~ Wild Rider	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Wild Rider				KEY:Wild Rider ~ Wild Rider	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Furious Fire			KEY:Furious Fire ~ Wild Rider	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Spirited Mount			KEY:Spirited Mount ~ Wild Rider	CATEGORY:Special Ability	TYPE:SpecialQuality				DESC: +%HD|Spirited	DEFINE:Spirited|0
+Spirited Mount			KEY:Spirited Mount ~ Wild Rider	CATEGORY:Special Ability	TYPE:SpecialQuality				DESC: +%1HD|Spirited	DEFINE:Spirited|0
 Incite Rage				KEY:Incite Rage ~ Wild Rider	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Exotic Mount			KEY:Exotic Mount ~ Wild Rider		CATEGORY:Special Ability	TYPE:SpecialQuality				DESC: %|ExoticMount	DEFINE:ExoticMount|0
+Exotic Mount			KEY:Exotic Mount ~ Wild Rider		CATEGORY:Special Ability	TYPE:SpecialQuality				DESC: %1|ExoticMount	DEFINE:ExoticMount|0
 Ride Like the Wind		KEY:Ride Like the Wind ~ Wild Rider	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Ferocious Charge			KEY:Ferocious Charge ~ Wild Rider	CATEGORY:Special Ability	TYPE:SpecialQuality	

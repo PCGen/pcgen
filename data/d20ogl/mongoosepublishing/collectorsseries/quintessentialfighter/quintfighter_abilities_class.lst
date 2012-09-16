@@ -37,12 +37,12 @@ Furious Strike	KEY:Furious Strike ~ Living Blade	CATEGORY:Special Ability	TYPE:S
 # ~ Master Bowman
 Master Shot		KEY:Master shot ~ Master Bowman	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Shoot the Opening	KEY:Shoot the Opening ~ Master Bowman	CATEGORY:Special Ability	TYPE:SpecialQuality	
-Master Aim		KEY:Master Aim ~ Master Bowman					DESC: +%d6|MasterAim	DEFINE:MasterAim|0	CATEGORY:Special Ability	TYPE:SpecialQuality	
+Master Aim		KEY:Master Aim ~ Master Bowman					DESC: +%1d6|MasterAim	DEFINE:MasterAim|0	CATEGORY:Special Ability	TYPE:SpecialQuality	
 All Seeing Eyes	KEY:All Seeing Eyes ~ Master Bowman	CATEGORY:Special Ability	TYPE:SpecialQuality	
 All Seeing Aim	KEY:All Seeing Aim ~ Master Bowman	CATEGORY:Special Ability	TYPE:SpecialQuality	
 
 # ~ Noble Defender
-Noble Command	KEY:Noble Command ~ Noble Defender				DESC: +%|NobleCommand		DEFINE:NobleCommand|0	CATEGORY:Special Ability	TYPE:SpecialQuality	
+Noble Command	KEY:Noble Command ~ Noble Defender				DESC: +%1|NobleCommand		DEFINE:NobleCommand|0	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Noble Renown	KEY:Noble Renown ~ Noble Defender	CATEGORY:Special Ability	TYPE:SpecialQuality	
 Castle		KEY:Castle ~ Noble Defender	CATEGORY:Special Ability	TYPE:SpecialQuality	
 

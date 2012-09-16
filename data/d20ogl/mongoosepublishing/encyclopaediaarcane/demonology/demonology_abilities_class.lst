@@ -11,5 +11,5 @@ Full Instruction		KEY:Full Instruction ~ Demonologist		CATEGORY:Special Ability	
 Greater Control		KEY:Greater Control ~ Demonologist		CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # Possessed
-Demonic Possession		KEY:Demonic Possession ~ Possessed		DESC %1/day|DemonPos	CATEGORY:Special Ability	TYPE:SpecialQuality
-Additional Demonic Trait	KEY:Additional Demonic Trait ~ Possessed	DESC %1|DemonicTrait	CATEGORY:Special Ability	TYPE:SpecialQuality
+Demonic Possession		KEY:Demonic Possession ~ Possessed		DESC:%1/day|DemonPos	CATEGORY:Special Ability	TYPE:SpecialQuality
+Additional Demonic Trait	KEY:Additional Demonic Trait ~ Possessed	DESC:%1|DemonicTrait	CATEGORY:Special Ability	TYPE:SpecialQuality

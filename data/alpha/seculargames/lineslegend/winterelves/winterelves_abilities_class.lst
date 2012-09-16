@@ -27,19 +27,19 @@ Supreme Cold Mastery			CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility
 ###BLOCK:Knight of Frostfang abilities
 # Feat Name		Type						Visible	Special ABility					Define				Innate Spells													Allow Follower			Allowed Companions			Source Page
 Winter Wolf Mount		CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.Extraordinary		DESC:Winter Wolf Mount (Ex)			DEFINE:FrostfangKnight|0																FOLLOWERS:Special Mount|1	COMPANIONLIST:Mount|Winter Wolf	SOURCEPAGE:p.22
-Solid as Ice		CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.SpellLike			DESC:Solid as Ice %/day (Sp)|SolidAsIce	DEFINE:SolidAsIce|0		SPELLS:Innate|TIMES=0|CASTERLEVEL=1+FrostfangKnight|Bear's Endurance|Bull's Strength												SOURCEPAGE:p.22
+Solid as Ice		CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.SpellLike			DESC:Solid as Ice %1/day (Sp)|SolidAsIce	DEFINE:SolidAsIce|0		SPELLS:Innate|TIMES=0|CASTERLEVEL=1+FrostfangKnight|Bear's Endurance|Bull's Strength												SOURCEPAGE:p.22
 Wolf Brotherhood		CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.SpellLike			DESC:Wolf Brotherhood (Sp)																																		SOURCEPAGE:p.22
 
 ###BLOCK:Thrall of Gaulgardos abilities
 # Feat Name			Type						Visible	Special ABility														Define			Damage Reduction							Source Page
-Fiendish Call			CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.Supernatural		DESC:Fiendish Call +% (Su)|FiendishCall										DEFINE:FiendishCall|0										SOURCEPAGE:p.25
+Fiendish Call			CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.Supernatural		DESC:Fiendish Call +%1 (Su)|FiendishCall										DEFINE:FiendishCall|0										SOURCEPAGE:p.25
 Strength of the Chosen		CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.Supernatural		DESC:Strength of the Chosen (Su)	DESC:Resistance to Electricity 15	DESC:Immunity to Poison	DEFINE:ThrallGaul|0	DR:5/Cold Iron and Good|PREVARGTEQ:ThrallGaul,10	SOURCEPAGE:p.25
 Bloodbond				CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility					DESC:Bloodbond																											SOURCEPAGE:p.25
 Demon Ally I			CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility					DESC:Demon Ally I																											SOURCEPAGE:p.25
 
 ###BLOCK:Wayjik Demon Hunter abilities
 # Feat Name				Type						Visible	Special ABility						Define			Source Page
-Smite Outsider				CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.Supernatural		DESC:Smite Outsider (Su) %/day|SmiteOutsider	DEFINE:SmiteOutsider|0	SOURCEPAGE:p.27
+Smite Outsider				CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.Supernatural		DESC:Smite Outsider (Su) %1/day|SmiteOutsider	DEFINE:SmiteOutsider|0	SOURCEPAGE:p.27
 Weapons of the Hunt			CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.Supernatural		DESC:Weapons of the Hunt (Su)								SOURCEPAGE:p.27
 Improved Weapons of the Hunt		CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.Supernatural		DESC:Improved Weapons of the Hunt (Su)						SOURCEPAGE:p.27
 Mark of the Slayer			CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.Supernatural		DESC:Mark of the Slayer (Sp)								SOURCEPAGE:p.27

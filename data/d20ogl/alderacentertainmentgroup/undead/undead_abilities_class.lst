@@ -10,8 +10,8 @@ Unholy Radiance		KEY:Unholy Radiance ~ Champion of the Dead		CATEGORY:Special Ab
 Warlord of the Dead	KEY:Warlord of the Dead ~ Champion of the Dead		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
 # ~ Chirurgeon
-Touch of Repose		KEY:Touch of Repose ~ Chirurgeon		DESC: %1/day|TouchofRepose	DEFINE:TouchofRepose|0				CATEGORY:Special Ability	TYPE:SpecialQuality
-Flesh Repair		KEY:Flesh Repair ~ Chirurgeon			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC: (light)|PREVARLT:ChirurgeonLvl,5	DESC: (moderate)|PREVARLT:ChirurgeonLvl,5	DESC: (serious)|PREVARGTEQ:ChirurgeonLvl,5
+Touch of Repose		KEY:Touch of Repose ~ Chirurgeon		DESC:%1/day|TouchofRepose	DEFINE:TouchofRepose|0				CATEGORY:Special Ability	TYPE:SpecialQuality
+Flesh Repair		KEY:Flesh Repair ~ Chirurgeon			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:(light)|PREVARLT:ChirurgeonLvl,5	DESC:(moderate)|PREVARLT:ChirurgeonLvl,5	DESC:(serious)|PREVARGTEQ:ChirurgeonLvl,5
 Lesser Graft		KEY:Lesser Graft ~ Chirurgeon		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Sense Graft			KEY:Sense Graft ~ Chirurgeon		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Greater Graft		KEY:Greater Graft ~ Chirurgeon			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
@@ -48,46 +48,46 @@ Touch of the Holy	KEY:Touch of the Holy ~ Exorcist		CATEGORY:Special Ability	TYP
 # ~ Faith Hunter
 Indominable Will	KEY:Indominable Will ~ Faith Hunter							CATEGORY:Special Ability	TYPE:SpecialQuality
 Cure Infection	KEY:Cure Infection ~ Faith Hunter							CATEGORY:Special Ability	TYPE:SpecialQuality
-Stake Attack	KEY:Stake Attack ~ Faith Hunter		DESC: +%1d6|StakeAttack	DEFINE:StakeAttack|0	CATEGORY:Special Ability	TYPE:SpecialQuality
+Stake Attack	KEY:Stake Attack ~ Faith Hunter		DESC:+%1d6|StakeAttack	DEFINE:StakeAttack|0	CATEGORY:Special Ability	TYPE:SpecialQuality
 Detect Undead	KEY:Detect Undead ~ Faith Hunter							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Undead Foe	KEY:Undead Foe								CATEGORY:Special Ability	TYPE:SpecialQuality
 Unpalatable Blood		KEY:Unpalatable Blood ~ Faith Hunter						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Ranged Stake Attack	KEY:Ranged Stake Attack ~ Faith Hunter							CATEGORY:Special Ability	TYPE:SpecialQuality
 # ~	KEY:Undead Foe								CATEGORY:Special Ability	TYPE:SpecialQuality
-Repel Vampires	KEY:Repel Vampires ~ Faith Hunter		DESC: %1/day|RepelVampires	DEFINE:RepelVampires|1				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Compel Solid Form	KEY:Compel Solid Form ~ Faith Hunter		DESC: (DC %1)|CompelSolidForm				DEFINE:CompelSolidForm|CHA+10		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Repel Vampires	KEY:Repel Vampires ~ Faith Hunter		DESC:%1/day|RepelVampires	DEFINE:RepelVampires|1				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Compel Solid Form	KEY:Compel Solid Form ~ Faith Hunter		DESC:(DC %1)|CompelSolidForm				DEFINE:CompelSolidForm|CHA+10		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 # ~	KEY:Undead Foe		CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Hunter of the Fallen	
-Favored Enemy		KEY:Favored Enemy ~ Hunter of the Fallen		DESC: Lvl. %1|FavoredEnemy			DEFINE:FavoredEnemy|1		CATEGORY:Special Ability	TYPE:SpecialQuality
-Sense Undead		KEY:Sense Undead ~ Hunter of the Fallen		DESC: Lvl. %1|SenseUndead			DEFINE:SenseUndead|1		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Hardened Soul		KEY:Hardened Soul ~ Hunter of the Fallen		DESC: Lvl. %1|HardenedSoul				DEFINE:HardenedSoul|0		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+Favored Enemy		KEY:Favored Enemy ~ Hunter of the Fallen		DESC:Lvl. %1|FavoredEnemy			DEFINE:FavoredEnemy|1		CATEGORY:Special Ability	TYPE:SpecialQuality
+Sense Undead		KEY:Sense Undead ~ Hunter of the Fallen		DESC:Lvl. %1|SenseUndead			DEFINE:SenseUndead|1		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Hardened Soul		KEY:Hardened Soul ~ Hunter of the Fallen		DESC:Lvl. %1|HardenedSoul				DEFINE:HardenedSoul|0		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Hand of the Hunter	KEY:Hand of the Hunter ~ Hunter of the Fallen		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Track the Dead		KEY:Track the Dead ~ Hunter of the Fallen		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Banished			KEY:Banished ~ Hunter of the Fallen			DESC: Lvl. % |Banished	DEFINE:Banished|0		CATEGORY:Special Ability	TYPE:SpecialQuality
+Banished			KEY:Banished ~ Hunter of the Fallen			DESC:Lvl. %1|Banished	DEFINE:Banished|0		CATEGORY:Special Ability	TYPE:SpecialQuality
 True Death			KEY:True Death ~ Hunter of the Fallen			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
 # ~ Knight of the Eternal Eye
 Lure of Darkness		KEY:Lure of Darkness ~ Knight of the Eternal Eye			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Undying Loyalty		KEY:Undying Loyalty ~ Knight of the Eternal Eye			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Turn Resistance					KEY:Turn Resistance ~ Knight of the Eternal Eye		DESC: %1|TurnResistance	DEFINE:TurnResistance|2			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Turn Resistance					KEY:Turn Resistance ~ Knight of the Eternal Eye		DESC:%1|TurnResistance	DEFINE:TurnResistance|2			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Bonds of Death					KEY:Bonds of Death ~ Knight of the Eternal Eye			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Aura of Doom					KEY:Aura of Doom ~ Knight of the Eternal Eye			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Energy Drain					KEY:Energy Drain ~ Knight of the Eternal Eye		DESC: 3/day		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Energy Drain					KEY:Energy Drain ~ Knight of the Eternal Eye		DESC:3/day		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Incorporeality					KEY:Incorporeality ~ Knight of the Eternal Eye			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Darkness form Darkness					KEY:Darkness form Darkness ~ Knight of the Eternal Eye			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
 # ~ Paladin of the Pale
 Atonement	KEY:Atonement ~ Paladin of the Pale		CATEGORY:Special Ability	TYPE:SpecialQuality
-Searing Light	KEY:Searing Light ~ Paladin of the Pale			DESC: %1/day|SearingLight	DEFINE:SearingLight|0		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Searing Light	KEY:Searing Light ~ Paladin of the Pale			DESC:%1/day|SearingLight	DEFINE:SearingLight|0		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Last Rites	KEY:Last Rites ~ Paladin of the Pale		DESC:(Advanced)|PREVARGTEQ:PaladinofthePaleLvl,8			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Life from Death	KEY:Life from Death ~ Paladin of the Pale					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Protection from Evil	KEY:Protection from Evil ~ Paladin of the Pale					CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Holy Terror	KEY:Holy Terror ~ Paladin of the Pale							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
 # ~ Puppet
-Thy Master's Will	KEY:Thy Master's Will ~ Puppet			CATEGORY:Special Ability	TYPE:SpecialQuality	DESC: - %1 Ability|ThyMastersWill|PREVARGTEQ:PuppetLvl,7		DEFINE:ThyMastersWill|1	
-Empathic Link		KEY:Empathic Link ~ Puppet			DESC: - %1 Miles(Su)|EmpLink						DEFINE:EmpLink|10		CATEGORY:Special Ability	TYPE:SpecialQuality
+Thy Master's Will	KEY:Thy Master's Will ~ Puppet			CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:- %1 Ability|ThyMastersWill|PREVARGTEQ:PuppetLvl,7		DEFINE:ThyMastersWill|1	
+Empathic Link		KEY:Empathic Link ~ Puppet			DESC:- %1 Miles(Su)|EmpLink						DEFINE:EmpLink|10		CATEGORY:Special Ability	TYPE:SpecialQuality
 Strengthened Resolve	KEY:Strengthened Resolve ~ Puppet		CATEGORY:Special Ability	TYPE:SpecialQuality
 Corruptive Influence	KEY:Corruptive Influence ~ Puppet			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
@@ -106,10 +106,10 @@ Escape Certain Doom	KEY:Escape Certain Doom ~ Raider		CATEGORY:Special Ability	T
 # ~ Risen	
 Lure of Darkness	KEY:Lure of Darkness ~ Risen				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Undead	KEY:Undead ~ Risen			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Vampiric Touch	KEY:Vampiric Touch ~ Risen	DESC: %1/day|VampiricTouch		DEFINE:VampiricTouch|0		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Vampiric Touch	KEY:Vampiric Touch ~ Risen	DESC:%1/day|VampiricTouch		DEFINE:VampiricTouch|0		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Death of the Body	KEY:Death of the Body ~ Risen			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Weapons of the Grave	KEY:Weapons of the Grave ~ Risen	DESC: +%1|WotG						DEFINE:WotG|0			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Damned Blood	KEY:Damned Blood ~ Risen	DESC: %1d8|Blood							DEFINE:Blood|0			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Weapons of the Grave	KEY:Weapons of the Grave ~ Risen	DESC:+%1|WotG						DEFINE:WotG|0			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Damned Blood	KEY:Damned Blood ~ Risen	DESC:%1d8|Blood							DEFINE:Blood|0			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Rejecting the Crypt	KEY:Rejecting the Crypt ~ Risen							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
 # ~ Sacred Theurgist
@@ -133,7 +133,7 @@ Beyond the Veil					KEY:Beyond the Veil ~ Unbeating Heart						CATEGORY:Special 
 Beyond Death					KEY:Beyond Death ~ Unbeating Heart							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
 # ~ Wasteland Druid
-Undead Form	KEY:Undead Form ~ Wasteland Druid		DESC: %1/day|UndeadForm		DEFINE:UndeadForm|0		CATEGORY:Special Ability	TYPE:SpecialQuality
+Undead Form	KEY:Undead Form ~ Wasteland Druid		DESC:%1/day|UndeadForm		DEFINE:UndeadForm|0		CATEGORY:Special Ability	TYPE:SpecialQuality
 Sustenance	KEY:Sustenance ~ Wasteland Druid						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Lifeless Pallor	KEY:Lifeless Pallor ~ Wasteland Druid			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Companions of the Grave	KEY:Companions of the Grave ~ Wasteland Druid		CATEGORY:Special Ability	TYPE:SpecialQuality

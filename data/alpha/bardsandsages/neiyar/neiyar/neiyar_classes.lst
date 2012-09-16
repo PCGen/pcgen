@@ -247,7 +247,7 @@ CLASS:Swan Bard	STARTSKILLPTS:6	CSKILL:Bluff|TYPE=Craft|Diplomacy|Gather Informa
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level				Use Spell List
 CLASS:Swan Bard	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3	BONUS:CASTERLEVEL|Swan Bard|CL	SPELLLIST:1|Cleric
 ###Block: Special Abilities:
-1	ABILITY:Special Ability|AUTOMATIC|Clerical Spells	CHOOSE:DOMAIN|Chaos,Air,Animal
+1	ABILITY:Special Ability|AUTOMATIC|Clerical Spells	CHOOSE:DOMAIN|Chaos|Air|Animal
 3	ABILITY:Special Ability|AUTOMATIC|Divine Talent
 5	ABILITY:Special Ability|AUTOMATIC|Divine Beauty
 7	ABILITY:Special Ability|AUTOMATIC|Swanmorph

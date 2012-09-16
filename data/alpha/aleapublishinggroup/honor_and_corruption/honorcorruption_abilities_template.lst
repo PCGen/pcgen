@@ -32,14 +32,14 @@ Cast Blackguard Spells	KEY:BlackguardSpellList		CATEGORY:Special Ability	TYPE:Sp
 
 # ~ Knight Subclass
 Squire	KEY:Squire ~ Knight Subclass	
-Honor		KEY:Honor ~ Knight Subclass		CATEGORY:Special Ability	TYPE:SpecialQuality		DESC: +%1|HonorScore|PREVARGTEQ:HonorScore,0	DESC: %1|HonorScore|PREVARLT:HonorScore,0	DEFINE:HonorScore|0
-Bonus HP	KEY:Bonus HP ~ Knight Subclass	CATEGORY:Special Ability	TYPE:SpecialQuality		DESC: %1d10 HP|KnightHitDieBonus													DEFINE:KnightHitDieBonus|0
+Honor		KEY:Honor ~ Knight Subclass		CATEGORY:Special Ability	TYPE:SpecialQuality		DESC:+%1|HonorScore|PREVARGTEQ:HonorScore,0	DESC:%1|HonorScore|PREVARLT:HonorScore,0	DEFINE:HonorScore|0
+Bonus HP	KEY:Bonus HP ~ Knight Subclass	CATEGORY:Special Ability	TYPE:SpecialQuality		DESC:%1d10 HP|KnightHitDieBonus													DEFINE:KnightHitDieBonus|0
 Sanctuary	KEY:Sanctuary ~ Knight Subclass	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 
 
 # ~ Scoundrel Subclass
 No Honor Amoung Thieves	KEY:No Honor Amoung Thieves ~ Scoundrel Subclass	CATEGORY:Special Ability	TYPE:SpecialQuality
-Bonus Sneak Attack	KEY:Bonus Sneak Attack ~ Scoundrel Subclass		CATEGORY:Special Ability	TYPE:SpecialQuality				DESC: +%d%|ScoundrelSneakAttack|ScoundrelSneakAttackDie	DEFINE:ScoundrelSneakAttackDie|4	DEFINE:ScoundrelSneakAttack|0
-Impromptu Sneak Attack	KEY:Impromptu Sneak Attack ~ Scoundrel Subclass		CATEGORY:Special Ability	TYPE:SpecialQuality			DESC: %/day|ImpromptuSneakTimes										DEFINE:ImpromptuSneakTimes|0
-Bonus HP			KEY:Bonus HP ~ Scoundrel Subclass				CATEGORY:Special Ability	TYPE:SpecialQuality				DESC: %d6 HP|ScoundrelHitDieBonus												DEFINE:ScoundrelHitDieBonus|0
+Bonus Sneak Attack	KEY:Bonus Sneak Attack ~ Scoundrel Subclass		CATEGORY:Special Ability	TYPE:SpecialQuality				DESC:+%1d%2|ScoundrelSneakAttack|ScoundrelSneakAttackDie	DEFINE:ScoundrelSneakAttackDie|4	DEFINE:ScoundrelSneakAttack|0
+Impromptu Sneak Attack	KEY:Impromptu Sneak Attack ~ Scoundrel Subclass		CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:%1/day|ImpromptuSneakTimes										DEFINE:ImpromptuSneakTimes|0
+Bonus HP			KEY:Bonus HP ~ Scoundrel Subclass				CATEGORY:Special Ability	TYPE:SpecialQuality				DESC:%1d6 HP|ScoundrelHitDieBonus												DEFINE:ScoundrelHitDieBonus|0
 

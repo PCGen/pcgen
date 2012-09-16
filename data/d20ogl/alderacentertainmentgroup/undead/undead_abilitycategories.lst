@@ -1,5 +1,5 @@
 
-ABILITYCATEGORY:The Undying Feat	CATEGORY:FEAT	VISIBLE:QUALIFY	DISPLAYLOCATION:Class Abilities	ABILITYLIST:Cleave|Death Angel|Fearless|Great Cleave|Great Fortitude|Improved Critical|Improved Endurance|Invincible|Iron Will|Pure Hearted|Sixth Sense|Stout Hearted|Thick Skin(Cold)|Thick Skin(Hot)|Toughness|Turn Outsider	TYPE:Fighter
-ABILITYCATEGORY:Wasteland Druid Domain Choice	CATEGORY:FEAT	VISIBLE:QUALIFY	DISPLAYLOCATION:Class Abilities	ABILITYLIST:Cleave|Death Angel|Fearless|Great Cleave|Great Fortitude|Improved Critical|Improved Endurance|Invincible|Iron Will|Pure Hearted|Sixth Sense|Stout Hearted|Thick Skin(Cold)|Thick Skin(Hot)|Toughness|Turn Outsider	TYPE:Fighter
+ABILITYCATEGORY:The Undying Feat			CATEGORY:FEAT	VISIBLE:QUALIFY	DISPLAYLOCATION:Class Abilities	ABILITYLIST:Cleave|Death Angel|Fearless|Great Cleave|Great Fortitude|Improved Critical|Improved Endurance|Invincible|Iron Will|Pure Hearted|Sixth Sense|Stout Hearted|Thick Skin(Cold)|Thick Skin(Hot)|Toughness|Turn Outsider	TYPE:Fighter
+ABILITYCATEGORY:Wasteland Druid Domain Choice	CATEGORY:FEAT	VISIBLE:QUALIFY	DISPLAYLOCATION:Class Abilities	ABILITYLIST:Wasteland Druid Destruction Domain|Wasteland Druid Undead Domain	
 
-		ADD:FEAT|Wasteland Druid Destruction Domain,Wasteland Druid Undead Domain
+#		ADD:FEAT|Wasteland Druid Destruction Domain,Wasteland Druid Undead Domain

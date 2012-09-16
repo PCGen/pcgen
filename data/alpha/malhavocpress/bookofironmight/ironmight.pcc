@@ -25,7 +25,7 @@ INFOTEXT:Proper names from The Book of Iron Might are Copyright 2004-2005 Monte 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-ABILITY:ironmight_abilities.race.lst
+ABILITY:ironmight_abilities_race.lst
 ABILITYCATEGORY:ironmight_abilitycategories.lst
 
 BIOSET:ironmight_biosettings.lst

@@ -14,7 +14,7 @@ Ooze				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.INT|10
 Undead			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.CON|10
 
 
-
+f
 CODE-8a	BONUS:SKILL|Climb|5|TYPE=ClimbingBonus
 #works
 CODE-8b	BONUS:SKILL|Climb|INT*2|TYPE=AnotherBonus
@@ -56,6 +56,7 @@ TEMPLATE ~ TEST~24		LEVEL:2:ADD:FEAT|Feat For Test 24	ADD:FEAT|Add Feat Template
 
 TEMPLATE ~ Bonus Test		DEFINE:TestVar|0	LEVEL:1:BONUS:VAR|TestVar|1	ABILITY:Special Ability|AUTOMATIC|Template Test Bonus Viewer
 
+TEMPLATE ~ TEST~69		REMOVABLE:NO
 
 TEST32		TEMPDESC:This is an applied Template
 

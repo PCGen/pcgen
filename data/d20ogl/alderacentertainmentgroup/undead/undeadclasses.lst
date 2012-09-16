@@ -275,5 +275,5 @@ CLASS:Wasteland Druid	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE=C
 9	ABILITY:Special Ability|AUTOMATIC|Companions of the Grave ~ Wasteland Druid	DOMAIN:Fire		BONUS:PCLEVEL|Druid|1
 10									BONUS:PCLEVEL|Druid|1	BONUS:VAR|UndeadForm|1
 # Domain Support
-7	DOMAIN:Destruction|PREABILITY:1,CATEGORY=Special Ability,Wasteland Druid Destruction Domain
-7	DOMAIN:Undead||PREABILITY:1,CATEGORY=Special Ability,Wasteland Druid Undead Domain
+7	DOMAIN:Destruction[PREABILITY:1,CATEGORY=Special Ability,Wasteland Druid Destruction Domain]
+7	DOMAIN:Undead[PREABILITY:1,CATEGORY=Special Ability,Wasteland Druid Undead Domain]
