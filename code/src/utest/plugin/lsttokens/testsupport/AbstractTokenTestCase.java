@@ -186,7 +186,7 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 		// Set value
 		for (String s : str)
 		{
-			assertTrue(parse(s));
+			assertTrue("Failed to parse " + s, parse(s));
 		}
 	}
 
@@ -208,7 +208,7 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 
 	public void isCDOMEqual(T cdo1, T cdo2)
 	{
-		assertTrue(cdo1.isCDOMEqual(cdo2));
+		assertTrue("Not equal " + cdo1 + " and " + cdo2, cdo1.isCDOMEqual(cdo2));
 	}
 
 	public void assertNoSideEffects()

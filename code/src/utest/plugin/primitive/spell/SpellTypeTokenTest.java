@@ -144,4 +144,10 @@ public class SpellTypeTokenTest extends
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMIN=3+]");
 	}
+	
+	public void testRestriction() throws PersistenceLayerException
+	{
+		runRoundRobin(getSubTokenName() + '|' + "SPELLTYPE=SampleType[KNOWN=YES]");
+		
+	}
 }

@@ -141,6 +141,83 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 			}
 			return sb.toString();
 		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public int hashCode()
+		{
+			final int prime = 31;
+			int result = 1;
+			result =
+					prime
+						* result
+						+ ((knownRequired == null) ? 0 : knownRequired
+							.hashCode());
+			result =
+					prime * result
+						+ ((maxLevel == null) ? 0 : maxLevel.hashCode());
+			result =
+					prime * result
+						+ ((minLevel == null) ? 0 : minLevel.hashCode());
+			return result;
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public boolean equals(Object obj)
+		{
+			if (this == obj)
+			{
+				return true;
+			}
+			if (obj == null)
+			{
+				return false;
+			}
+			if (getClass() != obj.getClass())
+			{
+				return false;
+			}
+			Restriction other = (Restriction) obj;
+			if (knownRequired == null)
+			{
+				if (other.knownRequired != null)
+				{
+					return false;
+				}
+			}
+			else if (!knownRequired.equals(other.knownRequired))
+			{
+				return false;
+			}
+			if (maxLevel == null)
+			{
+				if (other.maxLevel != null)
+				{
+					return false;
+				}
+			}
+			else if (!maxLevel.equals(other.maxLevel))
+			{
+				return false;
+			}
+			if (minLevel == null)
+			{
+				if (other.minLevel != null)
+				{
+					return false;
+				}
+			}
+			else if (!minLevel.equals(other.minLevel))
+			{
+				return false;
+			}
+			return true;
+		}
 	}
 
 	@Override
@@ -154,10 +231,6 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append(getPrimitiveLST());
-		if (restriction != null)
-		{
-			sb.append('[').append(restriction.toString()).append(']');
-		}
 		return sb.toString();
 	}
 
