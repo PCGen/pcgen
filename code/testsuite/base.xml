@@ -48,7 +48,7 @@
 			<description>|DEITY.DESCRIPTION|</description>
 			<domainlist>|DEITY.DOMAINLIST|</domainlist>
 			<favoredweapon>|DEITY.FAVOREDWEAPON|</favoredweapon>
-			<followeralignment>|DEITY.FOLLOWERALIGNMENT|</followeralignment>
+<!-->			<followeralignment>|DEITY.FOLLOWERALIGNMENT|</followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem>|DEITY.HOLYITEM|</holyitem>
 			<pantheonlist>|DEITY.PANTHEONLIST|</pantheonlist>
 			<source>|DEITY.SOURCE|</source>
