@@ -308,7 +308,7 @@ FEAT:Improved Overrun
 FEAT:Intimidating Prowess
 FEAT:Iron Will
 FEAT:Power Attack
-ABILITY:CATEGORY=Cloud Giant Oversized Weapon|Oversized Weapon ~ Cloud Giant (Morningstar)
+#ABILITY:CATEGORY=Cloud Giant Oversized Weapon|Oversized Weapon ~ Cloud Giant (Morningstar)
 GEAR:Morningstar		SIZE:G	LOCATION:Both Hands
 GEAR:Chain Shirt		SIZE:H	LOCATION:Equipped
 GEAR:Rock (Medium)			LOCATION:Not Carried

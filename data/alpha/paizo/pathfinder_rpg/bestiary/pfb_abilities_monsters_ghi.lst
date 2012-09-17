@@ -51,7 +51,10 @@ Stench		KEY:Stench ~ Ghast	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraord
 
 ###Block: Giant (Cloud) abilities
 # Ability Name	Unique Key					Category of Ability		Type									Multiple?	Choose			Weapon prof. bonus
-Oversized Weapon	KEY:Oversized Weapon ~ Cloud Giant	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.OversizedWeapon	MULT:YES	CHOOSE:WEAPONPROFS|LIST	BONUS:WEAPONPROF=%LIST|PCSIZE|1
+# COMMENT: Oversized Weapon Made a Core Ability for Further add on.
+#Oversized Weapon	KEY:Oversized Weapon ~ Cloud Giant	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.OversizedWeapon	BONUS:WIELDCATEGORY|ALL|-1
+#MULT:YES	CHOOSE:WEAPONPROFS|LIST	BONUS:WEAPONPROF=TYPE.Simple|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Martial|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Exotic|PCSIZE|1
+#BONUS:WEAPONPROF=TYPE.Simple|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Martial|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Exotic|PCSIZE|1
 
 ###Block: Giant (Fire) abilities
 # Ability Name	Unique Key				Category of Ability		Type								Description																		Source Page		Aspects				Description of the Benefits
