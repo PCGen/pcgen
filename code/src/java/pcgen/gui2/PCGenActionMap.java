@@ -414,7 +414,7 @@ public final class PCGenActionMap extends ActionMap
 
 		public DebugAction()
 		{
-			super("mnuToolsLog", LOG_COMMAND, "shortcut L");
+			super("mnuToolsLog", LOG_COMMAND, "F10");
 		}
 
 		@Override
@@ -437,7 +437,7 @@ public final class PCGenActionMap extends ActionMap
 
 		public ConsoleAction()
 		{
-			super("mnuToolsConsole", CONSOLE_COMMAND, "shortcut C");
+			super("mnuToolsConsole", CONSOLE_COMMAND, "F11");
 		}
 
 		@Override
