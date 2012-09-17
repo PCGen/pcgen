@@ -101,19 +101,20 @@ RACE:Genie (Efreeti/Noble)	!PRERACE:1,%
 NAME:Noble Efreeti
 ALIGN:LE
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
-SKILL:Bluff			RANK:10
-SKILL:TYPE=Craft		RANK:10
-SKILL:Disguise		RANK:3
-SKILL:Fly			RANK:2
+SKILL:Bluff			RANK:13
+SKILL:TYPE=Craft		RANK:13
+SKILL:Disguise		RANK:6
+SKILL:Fly			RANK:4
 SKILL:Intimidate		RANK:10
-SKILL:Perception		RANK:10
-SKILL:Sense Motive	RANK:10
-SKILL:Spellcraft		RANK:10
+SKILL:Perception		RANK:13
+SKILL:Sense Motive	RANK:13
+SKILL:Spellcraft		RANK:13
 SKILL:Stealth		RANK:6
 FEAT:Combat Casting
 FEAT:Combat Reflexes
 FEAT:Deceitful
 FEAT:Dodge
+FEAT:Power Attack
 FEAT:Quicken Spell-Like Ability ~ Spell (Scorching Ray)
 GEAR:Falchion	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
 

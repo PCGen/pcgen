@@ -1,5 +1,7 @@
-# CVS $Revision$ $Author$ -- Wed Jun  2 13:19:31 2010 -- reformated by prettylst.pl v1.39 (build 11455)
-SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
+# CVS $Revision$ $Author$ -- Mon Nov 28 13:37:33 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+# Added 3rd printing errata - SR
 
 ###Block: Manticore abilities
 # Ability Name	Unique Key			Category of Ability		Type						Description																																																			Source Page
@@ -82,21 +84,21 @@ Despair		KEY:Despair ~ Mummy	CATEGORY:Special Ability	TYPE:SpecialAttack.Superna
 Mummy Rot		KEY:Mummy Rot ~ Mummy	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DEFINE:MummyRotDC|10+(HD/2)+CHA	DEFINE:MummyRotCurseRemoveDC|20	DEFINE:MummyRotHealDC|20	DESC:Curse and disease, make fortitude save (DC %1) every day or loose 1d6 consitition and charisma. Make succesful remove curse (DC %2) and magical heal (DC %3)|MummyRotDC|MummyRotRemoveDC|MummyRotHealDC	BONUS:VAR|MummyRotDC|2|PREFEAT:1,Ability Focus (Mummy Rot)		SOURCEPAGE:p.210																					BENEFIT:Mummy rot is both a curse and disease and can only be cured if the curse is first removed, at which point the disease can be magically removed. Even after the curse element of mummy rot is lifted, a creature suffering from it cannot recover naturally over time. Anyone casting a conjuration (healing) spell on the afflicted creature must succeed on a DC %4 caster level check, or the spell is wasted and the healing has no effect. Anyone who dies from mummy rot turns to dust and cannot be raised without a resurrection or greater magic. The save DC is Charisma-based.|MummyRotDC
 
 ###Block: Naga, Dark abilities
-# Ability Name	Unique Key					Category of Ability		Type								Description																Source Page		Description of the Benefits
-Guarded Thoughts	KEY:Guarded Thoughts ~ Dark Naga	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Defensive	DESC:Dark nagas are immune to any form of mind reading.								SOURCEPAGE:p.211	BENEFIT:Dark nagas are immune to any form of mind reading, such as that granted by detect thoughts. This ability also grants a +2 racial bonus on all saves against charm effects.
-Poison		KEY:Poison ~ Dark Naga			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			DESC:Sting-injury; save Fort DC 19; frequency 1 round; effect sleep for 2d4 minutes; cure 1 save.	SOURCEPAGE:p.211
+# Ability Name	Unique Key					Category of Ability		Type								Define		Description																	Modify VAR					Source Page		Description of the Benefits
+Guarded Thoughts	KEY:Guarded Thoughts ~ Dark Naga	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Defensive				DESC:Dark nagas are immune to any form of mind reading.															SOURCEPAGE:p.211	BENEFIT:Dark nagas are immune to any form of mind reading, such as that granted by detect thoughts. This ability also grants a +2 racial bonus on all saves against charm effects.
+Poison		KEY:Poison ~ Dark Naga			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			DEFINE:PoisonDC|0	DESC:Sting-injury; save Fort DC %1; frequency 1 round; effect sleep for 2d4 minutes; cure 1 save.|PoisonDC	BONUS:VAR|PoisonDC|10+(HD/2)+CON	SOURCEPAGE:p.211
 
 ###Block: Naga, Guardian abilities
-# Ability Name	Unique Key				Category of Ability		Type						Description																																				Source Page
-Poison		KEY:Poison ~ Guardian Naga	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Bite-injury or spit-contact; save Fort DC 19; frequency 1/round for 6 rounds; effect 1d4 Con damage; cure 2 consecutive saves. The save DC is Constitution-based.										SOURCEPAGE:p.215
-Spit			KEY:Spit ~ Guardian Naga	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:A guardian naga can spit its venom up to 30 feet as a standard action. This is a ranged touch attack with no range increment. Opponents hit by this attack must make successful saves (see above) to avoid the effect.	SOURCEPAGE:p.215
-Spells		KEY:Spells ~ Guardian Naga	CATEGORY:Special Ability	TYPE:SpecialQuality.Spells		DESC:A guardian naga casts spells as a 9th-level sorcerer, and can cast spells from the cleric list as well as those normally available to a sorcerer. Cleric spells are considered arcane spells for a guardian naga.		SOURCEPAGE:p.215
+# Ability Name	Unique Key				Category of Ability		Type						Define		Description																																				Modify VAR					Source Page
+Poison		KEY:Poison ~ Guardian Naga	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:PoisonDC|0	DESC:Bite-injury or spit-contact; save Fort DC %1; frequency 1/round for 6 rounds; effect 1d4 Con damage; cure 2 consecutive saves.|PoisonDC														BONUS:VAR|PoisonDC|10+(HD/2)+CON	SOURCEPAGE:p.215
+Spit			KEY:Spit ~ Guardian Naga	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				DESC:A guardian naga can spit its venom up to 30 feet as a standard action. This is a ranged touch attack with no range increment. Opponents hit by this attack must make successful saves (see above) to avoid the effect.							SOURCEPAGE:p.215
+Spells		KEY:Spells ~ Guardian Naga	CATEGORY:Special Ability	TYPE:SpecialQuality.Spells					DESC:A guardian naga casts spells as a 9th-level sorcerer, and can cast spells from the cleric list as well as those normally available to a sorcerer. Cleric spells are considered arcane spells for a guardian naga.								SOURCEPAGE:p.215
 
 ###Block: Naga, Spirit abilities
-# Ability Name	Unique Key					Category of Ability		Type						Description																																			Source Page
-Charming Gaze	KEY:Charming Gaze ~ Spirit Naga	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:As charm person, 30 feet, Will DC 20 negates. The save DC is Charisma-based.																							SOURCEPAGE:p.213
-Poison		KEY:Poison ~ Spirit Naga		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Bite-injury; save Fort DC 20; frequency 1/round for 6 rounds; effect 1d4 Con damage; cure 1 save.																			SOURCEPAGE:p.213
-Spells		KEY:Spells ~ Spirit Naga		CATEGORY:Special Ability	TYPE:SpecialQuality.Spells		DESC:A spirit naga casts spells as a 7th-level sorcerer, and can cast spells from the cleric list as well as those normally available to a sorcerer. Cleric spells are considered arcane spells for a spirit naga.	SOURCEPAGE:p.213
+# Ability Name	Unique Key					Category of Ability		Type						Define		Description																																			Modify VAR					Source Page
+Charming Gaze	KEY:Charming Gaze ~ Spirit Naga	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				DESC:As charm person, 30 feet, Will DC 20 negates. The save DC is Charisma-based.																													SOURCEPAGE:p.213
+Poison		KEY:Poison ~ Spirit Naga		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:PoisonDC|0	DESC:Bite-injury; save Fort DC %1; frequency 1/round for 6 rounds; effect 1d4 Con damage; cure 1 save.|PoisonDC																		BONUS:VAR|PoisonDC|10+(HD/2)+CON	SOURCEPAGE:p.213
+Spells		KEY:Spells ~ Spirit Naga		CATEGORY:Special Ability	TYPE:SpecialQuality.Spells					DESC:A spirit naga casts spells as a 7th-level sorcerer, and can cast spells from the cleric list as well as those normally available to a sorcerer. Cleric spells are considered arcane spells for a spirit naga.							SOURCEPAGE:p.213
 
 ###Block: Neothelid abilities
 # Ability Name	Unique Key					Category of Ability		Type								Define							Description																															Modify VAR												Source Page		Aspects																												Description of the Benefits

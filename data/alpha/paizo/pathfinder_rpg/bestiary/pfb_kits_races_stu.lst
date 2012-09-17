@@ -1,6 +1,8 @@
 # CVS $Revision$ $Author$ -- Tue Feb  2 12:49:26 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
 
+# Added 3rd printing errata - SR
+
 STARTPACK:Sahuagin Default	TYPE:DefaultMonster.MonsterousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sahuagin]	SOURCEPAGE:p.239
 RACE:Sahuagin	!PRERACE:1,%
 NAME:Sahuagin
@@ -251,7 +253,7 @@ FEAT:Cleave
 FEAT:Great Cleave
 FEAT:Improved Sunder
 FEAT:Critical Focus
-FEAT:Stunning Critical
+FEAT:Staggering Critical
 
 STARTPACK:Skeleton (Human) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Human)]	SOURCEPAGE:p.251
 RACE:Skeleton (Human)	!PRERACE:1,%
@@ -504,7 +506,7 @@ FEAT:Improved Initiative
 FEAT:Lightning Reflexes
 FEAT:Power Attack
 FEAT:Run
-FEAT:Stunning Critical
+FEAT:Staggering Critical
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
 
 STARTPACK:Tengu Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tengu]	SOURCEPAGE:p.263

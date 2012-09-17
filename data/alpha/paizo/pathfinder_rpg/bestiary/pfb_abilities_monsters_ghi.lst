@@ -1,6 +1,8 @@
 # CVS $Revision$ $Author$ -- Thu Jun  3 23:25:08 2010 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
 
+# Added 3rd printing errata - SR
+
 ###Block: Gargoyle abilities
 # Ability Name	Unique Key			Category of Ability		Type						Description																												Source Page
 Freeze		KEY:Freeze ~ Gargoyle	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:A gargoyle can hold itself so still it appears to be a statue. A gargoyle that uses freeze can take 20 on its Stealth check to hide in plain sight as a stone statue.	SOURCEPAGE:p.137
@@ -151,8 +153,8 @@ Fire			KEY:Fire ~ Hell Hound			CATEGORY:Special Ability	TYPE:SpecialAttack			DEF
 #Telepathic Link	KEY:Telepathic Link ~ Homunculus	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communicate								DESC:A homunculus cannot speak, but the process of creating one links it telepathically with its creator.																SOURCEPAGE:p.176										BENEFIT:A homunculus cannot speak, but the process of creating one links it telepathically with its creator. A homunculus knows what its master knows and can convey to him or her everything it sees and hears, out to a distance of 1,500 feet.
 
 ###Block: Horse abilities
-# Ability Name		Unique Key			Category of Ability		Type						Visible	Description															Source Page
-Docile			KEY:Docile ~ Horse	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Unless specifically trained for combat, a horse's hooves are treated as secondary attacks.	SOURCEPAGE:p.177	BONUS:WEAPONPROF=Hoof|TOHIT|-5	BONUS:WEAPONPROF=Hoof|DAMAGE|-ceil(STR/2)	
+# Ability Name	Unique Key			Category of Ability		Type						Visible	Description															Weapon prof. bonus										Source Page
+Docile		KEY:Docile ~ Horse	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Unless specifically trained for combat, a horse's hooves are treated as secondary attacks.	BONUS:WEAPONPROF=Hoof|TOHIT|-5	BONUS:WEAPONPROF=Hoof|DAMAGE|-ceil(STR/2)	SOURCEPAGE:p.177
 
 ###Block: Hydra Abilities
 # Ability Name	Unique Key				Category of Ability		Type								Define				Description																												Choose												Modify VAR						Source Page		Aspects							Description of the Benefits																																																																																																													Temporary effect description

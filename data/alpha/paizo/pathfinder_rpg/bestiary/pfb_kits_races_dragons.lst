@@ -1,6 +1,7 @@
 # CVS $Revision$ $Author$ -- Wed Jan 20 22:08:27 2010 -- reformated by prettylst.pl v1.39 (build 10232)
 SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
 
+# Added 3rd printing errata - SR
 
 STARTPACK:Dragon (Black/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Black/Young)],[!PRERACE:1,%]	SOURCEPAGE:p.92
 ALIGN:CE
@@ -437,7 +438,7 @@ FEAT:Iron Will
 FEAT:Multiattack
 FEAT:Power Attack
 FEAT:Quicken Spell
-FEAT:Stunning Critical
+FEAT:Staggering Critical
 FEAT:Vital Strike
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Abyssal|Common|Dwarven|Giant|Orc
@@ -1074,7 +1075,7 @@ FEAT:Iron Will
 FEAT:Multiattack
 FEAT:Power Attack
 FEAT:Quicken Spell
-FEAT:Stunning Critical
+FEAT:Staggering Critical
 FEAT:Vital Strike
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common|Elven|Halfling|Celestial
