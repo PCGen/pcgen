@@ -2771,10 +2771,17 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					ChoiceManagerList<Object> controller =
 							ChooserUtilities.getConfiguredController(ability,
 								thePC, category, new ArrayList<String>());
-					String[] assoc = appliedToKey.split(Constants.COMMA, -1);
-					for (String string : assoc)
+					if (controller != null)
 					{
-						controller.restoreChoice(thePC, ability, string);
+						String[] assoc = appliedToKey.split(Constants.COMMA, -1);
+						for (String string : assoc)
+						{
+							controller.restoreChoice(thePC, ability, string);
+						}
+					}
+					else
+					{
+						warnings.add("Failed to find choose controller for ability " + ability);
 					}
 				}
 			}
