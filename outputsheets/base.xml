@@ -780,7 +780,7 @@ Immune
 |IIF(WEAPON.%weap.ISTYPE.Thrown)| <!-- Valid only if we find the Thrown Value -->
 			<ranges>
 				<rangetype>Thrown</rangetype>
-|FOR,%range,0,4,1,0|
+|FOR,%range,0,5,1,0|
 				<range>
 					<distance>|WEAPON.%weap.RANGELIST.%range|</distance>
 					<to_hit>|WEAPON.%weap.RANGELIST.%range.TOTALHIT|</to_hit>
@@ -882,7 +882,7 @@ Immune
 |IIF(WEAPON.%weap.ISTYPE.Thrown)|
 			
 				<rangetype>Thrown</rangetype>
-|FOR,%range,0,4,1,0|
+|FOR,%range,0,5,1,0|
 				<range>
 					<distance>|WEAPON.%weap.RANGELIST.%range|</distance>
 					<to_hit>|WEAPON.%weap.RANGELIST.%range.TOTALHIT|</to_hit>
@@ -922,7 +922,7 @@ Immune
 				</ammunition>
 |IIF(WEAPON.%weap.ISTYPE.Thrown)|
 				<rangetype>Thrown</rangetype>
-|FOR,%range,0,4,1,0|
+|FOR,%range,0,5,1,0|
 				<range>
 					<distance>|WEAPON.%weap.RANGELIST.%range|</distance>
 					<to_hit>|WEAPON.%weap.RANGELIST.%range.CONTENTS.%ammo.TOTALHIT|</to_hit>
