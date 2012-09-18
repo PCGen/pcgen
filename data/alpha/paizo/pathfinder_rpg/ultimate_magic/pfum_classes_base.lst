@@ -1,0 +1,60 @@
+# CVS $Revision$ $Author$ -- Sun Apr 22 08:08:02 2012 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Ultimate Magic	SOURCESHORT:PFUM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
+# ORIGINAL ENTRY: Stefan Radermacher and Eric Smith (Maredudd)
+# ORIGINAL ENTRY DATE: Unknown
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Magus		HD:8		TYPE:Base.PC	ABB:Mag		MAXLEVEL:20	SOURCEPAGE:p.9	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Magus		STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Fly|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (Planes)|TYPE.Profession|Ride|Spellcraft|Swim|Use Magic Device
+# Class Name	Spell Stat		Spell Type		Memorize		Automatically Known Spell Levels	Spellbook		Caster level
+CLASS:Magus		SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Magus|CL
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusWeaponProficiency	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusWeaponProficiency
+###Block: Class features
+1									BONUS:VAR|MagusArmorProficiencyLVL|CL	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency
+1									BONUS:VAR|MagusArcanePoolLVL|CL		ABILITY:Special Ability|AUTOMATIC|Arcane Pool ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcanePool
+1																ABILITY:Special Ability|AUTOMATIC|Spell Combat ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellCombat
+1																ABILITY:Special Ability|AUTOMATIC|Cantrips ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusCantrips
+2																ABILITY:Special Ability|AUTOMATIC|Spellstrike ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellstrike
+3									BONUS:VAR|MagusArcanaLVL|CL			ABILITY:Special Ability|AUTOMATIC|Magus Arcana ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcana
+4																ABILITY:Special Ability|AUTOMATIC|Spell Recall ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellRecall
+5	BONUS:ABILITYPOOL|Magus Bonus Feat|(CL+1)/6
+7																ABILITY:Special Ability|AUTOMATIC|Knowledge Pool ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusKnowledgePool
+8																ABILITY:Special Ability|AUTOMATIC|Improved Spell Combat ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusImprovedSpellCombat
+10									BONUS:VAR|MagusFighterTrainingLVL|CL	ABILITY:Special Ability|AUTOMATIC|Fighter Training ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusFighterTraining
+11																ABILITY:Special Ability|AUTOMATIC|Improved Spell Recall ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusImprovedSpellRecall
+14																ABILITY:Special Ability|AUTOMATIC|Greater Spell Combat ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusGreaterSpellCombat
+16																ABILITY:Special Ability|AUTOMATIC|Counterstrike ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusCounterstrike
+19																ABILITY:Special Ability|AUTOMATIC|Greater Spell Access ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusGreaterSpellAccess
+20																ABILITY:Special Ability|AUTOMATIC|True Magus ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusTrueMagus
+###Block: Spell progression
+1	CAST:3,1
+2	CAST:4,2
+3	CAST:4,3
+4	CAST:4,3,1
+5	CAST:4,4,2
+6	CAST:5,4,3
+7	CAST:5,4,3,1
+8	CAST:5,4,4,2
+9	CAST:5,5,4,3
+10	CAST:5,5,4,3,1
+11	CAST:5,5,4,4,2
+12	CAST:5,5,5,4,3
+13	CAST:5,5,5,4,3,1
+14	CAST:5,5,5,4,4,2
+15	CAST:5,5,5,5,4,3
+16	CAST:5,5,5,5,4,3,1
+17	CAST:5,5,5,5,4,4,2
+18	CAST:5,5,5,5,5,4,3
+19	CAST:5,5,5,5,5,5,4
+20	CAST:5,5,5,5,5,5,5
+
+# COMMENT: Modify Monk to allow monk vows.  Move this to Core?
+
+# Class Name	Ability
+CLASS:Monk.MOD	ABILITY:Internal|AUTOMATIC|Allow Vows
+
+#
+# End
+#
