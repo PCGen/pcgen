@@ -1,0 +1,33 @@
+May not be an exhaustive list...
+
+Basically not done
+
+The whole Wordcaster thing
+
+
+Basically done
+
+Magus (some abilities need implementing) & Archetypes (some abilities need implementing)
+Alchemist Discoveries & Archetypes
+Bardic Masterpieces & Archetypes (some further finishing off rqd)
+Cleric Variant & Versatile Channeling (needs extending to other channeling classes) & Archetypes (lots of dependency on CODE freqs)
+Druid Domains, Vermin Companions & Archetypes
+Inquisitor Inquisitions & Archetypes
+Monk Vows (? needs extending to Ninja ?), Ki Powers & Archetypes
+Oracle Mysteries & Archetypes
+Paladin Archetypes
+Ranger Traps & Archetypes
+Sorcerer Bloodlines
+Summoner Eidolon Evolutions & Archetypes
+Witch Patrons & Hexes & Archetypes
+Sorcerer Archetypes
+Wizard Arcane Discoveries, Schools & Archetypes
+
+Spellblights (afflictions)
+Animated Object abilities
+New Familiars & Improved Familiars
+Spellbooks
+
+Feats (although a load need properly implementing)
+
+Spells
