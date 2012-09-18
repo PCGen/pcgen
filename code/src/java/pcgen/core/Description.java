@@ -28,6 +28,7 @@ import java.util.List;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
+import pcgen.io.EntityEncoder;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.util.Logging;
 
@@ -288,7 +289,7 @@ public class Description extends ConcretePrereqObject
 			}
 			else
 			{
-				buf.append(str);
+				buf.append(EntityEncoder.encode(str));
 			}
 		}
 		if ( theVariables != null )

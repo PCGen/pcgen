@@ -167,6 +167,12 @@ public class DescLstTest extends AbstractGlobalTokenTestCase
 	{
 		runRoundRobin("SA Number %1 before %2|Var|TwoVar|PRECLASS:1,Fighter=1|PRERACE:1,Human");
 	}
+	
+	@Test
+	public void testNewLine() throws PersistenceLayerException
+	{
+		runRoundRobin("First Line&nl;Second Line.");
+	}
 
 	@Test
 	public void testRoundRobinCompound() throws PersistenceLayerException

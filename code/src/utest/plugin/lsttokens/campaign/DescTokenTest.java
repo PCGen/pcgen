@@ -17,8 +17,11 @@
  */
 package plugin.lsttokens.campaign;
 
+import org.junit.Test;
+
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractStringTokenTestCase;
@@ -59,5 +62,11 @@ public class DescTokenTest extends AbstractStringTokenTestCase<Campaign>
 	public StringKey getStringKey()
 	{
 		return StringKey.DESCRIPTION;
+	}
+	
+	@Test
+	public void testNewLine() throws PersistenceLayerException
+	{
+		runRoundRobin("First Line&nl;Second Line.");
 	}
 }
