@@ -17,6 +17,7 @@ Runebinding					KEY:Create Relic ~ Rune Weaver	CATEGORY:Special Ability	TYPE:Ext
 #-------------------------#
 ###	MARTIAL ARTS	###
 #-------------------------#
+Martial Arts Tracker																					CATEGORY:Internal														DEFINE:MartialArtsSkillCounter|0	DEFINE:MartialArtsSkillTotal|0	DEFINE:ImbuementUnarmedPool|0	DEFINE:BaseImbuementUnarmedBonus|0	DEFINE:TestVarPreReq|1	DEFINE:TestVarPre|0																																																																																																									BONUS:ABILITYPOOL|Martial Art Techniques|MartialArtsSkillCounter	BONUS:ABILITYPOOL|Imbuement Unarmed Enhancement|var("ImbuementUnarmedPool")																																						BONUS:VAR|MartialArtsBonusDamage|BaseImbuementUnarmedBonus|TYPE=Enhancement	BONUS:VAR|TestVarPre|floor(TL/2)|PREVAREQ:TestVarPreReq,1																																									BONUS:WEAPONPROF=TYPE.Unarmed|TOHIT,DAMAGE|BaseImbuementUnarmedBonus|TYPE=Enhancement
 
 ###Block: Martial Arts Skill Abilities -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #Basic Techniques
