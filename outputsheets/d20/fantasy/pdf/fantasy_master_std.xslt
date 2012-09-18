@@ -3959,6 +3959,8 @@
 					</fo:table-row>
 				</xsl:if>
 				<xsl:choose>
+				<xsl:when test="range[position()=6 and distance='']">
+				</xsl:when>
 				<xsl:when test="range[position()=11 and distance='']">
 				</xsl:when>
 				<xsl:otherwise>
