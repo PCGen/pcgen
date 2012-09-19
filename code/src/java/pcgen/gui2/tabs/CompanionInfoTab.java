@@ -74,6 +74,7 @@ import pcgen.system.CharacterManager;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Comparators;
+import pcgen.util.Logging;
 
 /**
  *
@@ -945,6 +946,12 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			{
 				String type = companion.getCompanionType();
 				int index = Collections.binarySearch(types, type, Comparators.toStringIgnoreCaseCollator());
+				if (index < 0)
+				{
+					Logging.errorPrint("Unable to add companion " + companion
+						+ " as the type " + type + " could not be found.");
+					return;
+				}
 				CompanionTypeNode child = (CompanionTypeNode) getChildAt(index);
 				child.addCompanion(companion, silently);
 			}

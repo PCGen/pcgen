@@ -268,16 +268,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		CharacterFacadeImpl compFacadeImpl = (CharacterFacadeImpl) companion;
 		CompanionList compList = keyToCompanionListMap.get(companionType);
 		Race compRace = (Race) compFacadeImpl.getRaceRef().getReference();
-		FollowerOption followerOpt = null; 
-		Map<FollowerOption, CDOMObject> fMap = theCharacter.getAvailableFollowers(compList.getKeyName(), null);
-		for (FollowerOption fOpt : fMap.keySet())
-		{
-			if (compRace == fOpt.getRace())
-			{
-				followerOpt = fOpt;
-				break;
-			}
-		}
+		FollowerOption followerOpt = getFollowerOpt(compList, compRace);
 		if (followerOpt == null)
 		{
 			Logging.errorPrint("Unable to find follower option for companion " //$NON-NLS-1$
@@ -320,6 +311,21 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		companion.getNameRef().addReferenceListener(new DelegateNameListener(follower));
 
 		updateCompanionTodo(companionType);
+	}
+
+	private FollowerOption getFollowerOpt(CompanionList compList, Race compRace)
+	{
+		FollowerOption followerOpt = null; 
+		Map<FollowerOption, CDOMObject> fMap = theCharacter.getAvailableFollowers(compList.getKeyName(), null);
+		for (FollowerOption fOpt : fMap.keySet())
+		{
+			if (compRace == fOpt.getRace())
+			{
+				followerOpt = fOpt;
+				break;
+			}
+		}
+		return followerOpt;
 	}
 
 	/**
@@ -365,7 +371,19 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 			if (file.equals(character.getFileRef().getReference())
 				&& name.equals(character.getNameRef().getReference()))
 			{
+				String companionType = delegate.getCompanionType();
 				delegate.setCompanionFacade(character);
+				if (character.getMaster() == null)
+				{
+					CompanionList compList = keyToCompanionListMap.get(companionType);
+					final Follower newMaster =
+							new Follower(theCharacter.getFileName(), theCharacter.getName(), compList);
+					FollowerOption followerOpt =
+							getFollowerOpt(compList, (Race) character
+								.getRaceRef().getReference());
+					newMaster.setAdjustment(followerOpt.getAdjustment());
+					((CharacterFacadeImpl)character).getTheCharacter().setMaster(newMaster);
+				}
 				return;
 			}
 		}
