@@ -178,6 +178,10 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
 		boolean foundAny = false;
 		boolean foundOther = false;
+		if (changes.includesGlobalClear())
+		{
+			sb.append(Constants.LST_DOT_CLEAR);
+		}
 		if (listAdded != null && !listAdded.isEmpty())
 		{
 			for (ChooseResultActor cra : listAdded)
@@ -186,6 +190,10 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 				{
 					try
 					{
+						if (sb.length() > 0)
+						{
+							sb.append('|');
+						}
 						sb.append(cra.getLstFormat());
 						foundOther = true;
 					} catch (PersistenceLayerException e)
