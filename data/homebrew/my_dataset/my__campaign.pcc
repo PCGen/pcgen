@@ -18,25 +18,25 @@ COPYRIGHT:My Campaign, Copyright 2005 by me
 
 #INFOTEXT:To display an Information in the Source Info section on the Source Materials tab, replace the text after 'INFOTEXT:' with your text and remove the '#'
 
-#ABILITY:my_abilities.lst
-#ABILITYCATEGORY:my_ability_categories.lst
-#ARMORPROF:my_armorprofs.lst
-#BIOSET:my_biosettings.lst
-#CLASS:my_classes.lst
-#COMPANIONMOD:my_companionmods.lst
-#DEITY:my_deities.lst
-#DOMAIN:my_domains.lst
-#EQUIPMENT:my_equipment.lst
-#EQUIPMOD:my_equipmods.lst
-#FEAT:my_feats.lst
-#KIT:my_kits.lst
-#LANGUAGE:my_languages.lst
-#RACE:my_races.lst
-#SHIELDPROF:my_shieldprofs.lst
-#SKILL:my_skills.lst
-#SPELL:my_spells.lst
-#TEMPLATE:my_templates.lst
-#WEAPONPROF:my_weaponprofs.lst
+ABILITY:my_abilities.lst
+ABILITYCATEGORY:my_ability_categories.lst
+ARMORPROF:my_armorprofs.lst
+BIOSET:my_biosettings.lst
+CLASS:my_classes.lst
+COMPANIONMOD:my_companionmods.lst
+DEITY:my_deities.lst
+DOMAIN:my_domains.lst
+EQUIPMENT:my_equipment.lst
+EQUIPMOD:my_equipmods.lst
+FEAT:my_feats.lst
+KIT:my_kits.lst
+LANGUAGE:my_languages.lst
+RACE:my_races.lst
+SHIELDPROF:my_shieldprofs.lst
+SKILL:my_skills.lst
+SPELL:my_spells.lst
+TEMPLATE:my_templates.lst
+WEAPONPROF:my_weaponprofs.lst
 
 ### You can hide TYPEs in the GUI - TYPEs are handy for organization, but some are only used for internal functions.
 #HIDETYPE:EQUIP|SpecialSuppressor
