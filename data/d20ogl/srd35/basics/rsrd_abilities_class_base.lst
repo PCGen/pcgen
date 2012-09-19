@@ -144,15 +144,15 @@ Druid Wild Shape Progression		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	
 
 ###Block: Druid abilities
 # Ability Name		Category of Ability		Type									Visible	Bonus to skill					Source Page
-Nature Sense		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES	BONUS:SKILL|Knowledge (Nature),Survival|2	SOURCEPAGE:ClassesI.rtf
-Trackless Step		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement	VISIBLE:YES								SOURCEPAGE:ClassesI.rtf
-Resist Nature's Lure	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES								SOURCEPAGE:ClassesI.rtf
-Venom Immunity		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity		VISIBLE:YES								SOURCEPAGE:ClassesI.rtf
-A Thousand Faces		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES								SOURCEPAGE:ClassesI.rtf
+Nature Sense		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES	BONUS:SKILL|Knowledge (Nature),Survival|2	SOURCEPAGE:ClassesI.rtf	DESC:A druid gains a +2 bonus on Knowledge (nature) and Survival checks.
+Trackless Step		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement	VISIBLE:YES								SOURCEPAGE:ClassesI.rtf	DESC:Starting at 3rd level, a druid leaves no trail in natural surroundings and cannot be tracked. She may choose to leave a trail if so desired.
+Resist Nature's Lure	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES								SOURCEPAGE:ClassesI.rtf	DESC:Starting at 4th level, a druid gains a +4 bonus on saving throws against the spell-like abilities of fey.
+Venom Immunity		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity		VISIBLE:YES								SOURCEPAGE:ClassesI.rtf	DESC:At 9th level, a druid gains immunity to all poisons.
+A Thousand Faces		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES								SOURCEPAGE:ClassesI.rtf	DESC:At 13th level, a druid gains the ability to change her appearance at will, as if using the disguise self spell, but only while in her normal form. This affects the druid's body but not her possessions. It is not an illusory effect, but a minor physical alteration of the druid's appearance, within the limits described for the spell.
 
 ###Block: Timeless Body For Druid and Monk (the actual benefits of this class feature are implemented with a template by the same name)
 # Ability Name	Category of Ability		Type						Visible	Source Page
-Timeless Body	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	SOURCEPAGE:ClassesI.rtf
+Timeless Body	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	SOURCEPAGE:ClassesI.rtf	DESC:After attaining 15th level, a druid no longer takes ability score penalties for aging and cannot be magically aged. Any penalties she may have already incurred, however, remain in place. Bonuses still accrue, and the druid still dies of old age when her time is up.
 
 #
 #	##############################
