@@ -41,7 +41,7 @@ BIO
 			<description>Goddess of the sun, redemption, honesty, healing</description>
 			<domainlist>Fire, Glory, Good, Healing, Sun</domainlist>
 			<favoredweapon>Scimitar</favoredweapon>
-			<followeralignment></followeralignment>
+<!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem></holyitem>
 			<pantheonlist>Pathfinder Chronicles</pantheonlist>
 			<source>Paizo Publishing - Core Rulebook, p.45</source>

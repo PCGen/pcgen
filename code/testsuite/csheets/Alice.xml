@@ -48,7 +48,7 @@ BIO
 			<description></description>
 			<domainlist>Bar Ball, Domain Add Feat, Domain Test Skill, Domain Test Skill List, Dungeon Crawl, Foo Ball, Test Spells Domain</domainlist>
 			<favoredweapon>Fine Wine Blade|Deity Weapon Second Puni|Deity Weapon Puni</favoredweapon>
-			<followeralignment></followeralignment>
+<!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem></holyitem>
 			<pantheonlist></pantheonlist>
 			<source>PCGen Team - PCGen Testing Set</source>

@@ -41,7 +41,7 @@ BIO
 			<description>Due to closed content PCGEN cannot provide a list of deities, sorry but you need to homebrew your own list; Please see the Documentation for how to do so.</description>
 			<domainlist>Air, Animal, Chaos, Death, Destruction, Earth, Evil, Fire, Good, Healing, Knowledge, Law, Luck, Magic, Plant, Protection, Strength, Sun, Travel, Trickery, War, Water</domainlist>
 			<favoredweapon>ANY</favoredweapon>
-			<followeralignment></followeralignment>
+<!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem>None</holyitem>
 			<pantheonlist></pantheonlist>
 			<source>Wizards of the Coast - System Reference Document, srdbasiccharacterclassesi.rtf</source>

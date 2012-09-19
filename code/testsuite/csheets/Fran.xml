@@ -62,7 +62,7 @@ BIO
 			<description></description>
 			<domainlist></domainlist>
 			<favoredweapon></favoredweapon>
-			<followeralignment></followeralignment>
+<!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem></holyitem>
 			<pantheonlist></pantheonlist>
 			<source></source>
@@ -1231,10 +1231,10 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>GivingThingyAuto (StackNoChoiceFeatAuto, StackChoiceFeatAuto(Ride), StackChoiceFeat(Ride), StackChoiceFeat(Tumble))</name>
+			<name>GivingThingyAuto (StackNoChoiceFeatAuto, StackChoiceFeat(Ride), StackChoiceFeat(Tumble), StackChoiceFeatAuto(Ride))</name>
 			<description></description>
 			<type>TEST46</type>
-			<associated>StackNoChoiceFeatAuto,StackChoiceFeatAuto(Ride),StackChoiceFeat(Ride),StackChoiceFeat(Tumble)</associated>
+			<associated>StackNoChoiceFeatAuto,StackChoiceFeat(Ride),StackChoiceFeat(Tumble),StackChoiceFeatAuto(Ride)</associated>
 			<count>4</count>
 			<auto>T</auto>
 			<hidden>F</hidden>

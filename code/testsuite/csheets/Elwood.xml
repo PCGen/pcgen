@@ -48,7 +48,7 @@ BIO
 			<description></description>
 			<domainlist></domainlist>
 			<favoredweapon></favoredweapon>
-			<followeralignment></followeralignment>
+<!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem></holyitem>
 			<pantheonlist></pantheonlist>
 			<source></source>
