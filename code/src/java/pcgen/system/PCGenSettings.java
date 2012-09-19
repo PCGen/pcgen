@@ -62,6 +62,7 @@ public class PCGenSettings extends PropertyContext
 	public static final String CHAR_PORTRAITS_PATH = "pcgen.files.portaits";
 	public static final String BACKUP_PCG_PATH = "pcgen.files.characters.backup";
 	public static final String SELECTED_SPELL_SHEET_PATH = "pcgen.files.selectedSpellOutputSheet";
+	public static final String CONVERT_OUTPUT_SAVE_PATH = "pcgen.files.convertOutput";
 	public static final String RECENT_CHARACTERS = "recentCharacters";
 	public static final String RECENT_PARTIES = "recentParties";
 	public static final String LAST_LOADED_SOURCES = "lastLoadedSources";

@@ -27,6 +27,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
+import org.apache.commons.lang.SystemUtils;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.gui.converter.event.ProgressEvent;
@@ -42,12 +44,17 @@ import pcgen.gui.converter.panel.WriteDirectoryPanel;
 import pcgen.gui.utils.AWTUtilities;
 import pcgen.persistence.CampaignFileLoader;
 import pcgen.persistence.GameModeFileLoader;
+import pcgen.system.ConfigurationSettings;
+import pcgen.system.Main;
+import pcgen.system.PropertyContextFactory;
 
 public final class PCGenDataConvert extends JFrame
 {
 	private static final long serialVersionUID = 3921586726890440663L;
 
 	private final JPanel contentPanel = new JPanel(new CardLayout());
+
+	private static PropertyContextFactory configFactory;
 
 	public void addNamedPanel(String name, JPanel panel)
 	{
@@ -99,6 +106,15 @@ public final class PCGenDataConvert extends JFrame
 
 	public static void main(String[] args) throws InterruptedException
 	{
+		configFactory = new PropertyContextFactory(SystemUtils.USER_DIR);
+		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance());
+		Main.loadProperties(true);
 		getConverter(new ObjectCache()).setVisible(true);
+	}
+	
+	static void savePrefs()
+	{
+		configFactory.savePropertyContexts();
+		PropertyContextFactory.getDefaultFactory().savePropertyContexts();
 	}
 }

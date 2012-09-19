@@ -39,7 +39,7 @@ public class PropertyContextFactory
 	private final Map<String, PropertyContext> contextMap = new HashMap<String, PropertyContext>();
 	private final String dir;
 
-	PropertyContextFactory(String dir)
+	public PropertyContextFactory(String dir)
 	{
 		this.dir = dir;
 	}
@@ -54,7 +54,7 @@ public class PropertyContextFactory
 		DEFAULT_FACTORY = new PropertyContextFactory(dir);
 	}
 
-	void registerAndLoadPropertyContext(PropertyContext context)
+	public void registerAndLoadPropertyContext(PropertyContext context)
 	{
 		registerPropertyContext(context);
 		String filePath;
@@ -187,7 +187,7 @@ public class PropertyContextFactory
 		}
 	}
 
-	void savePropertyContexts()
+	public void savePropertyContexts()
 	{
 		File settingsDir;
 		if (dir == null)

@@ -450,7 +450,7 @@ public final class Main
 		}
 	}
 
-	private static void loadProperties(boolean useGui)
+	public static void loadProperties(boolean useGui)
 	{
 		if (settingsDir == null && getSystemProperty(SETTINGS_FILES_PATH) == null)
 		{

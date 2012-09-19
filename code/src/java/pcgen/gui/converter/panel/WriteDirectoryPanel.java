@@ -28,10 +28,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 
+import org.apache.commons.lang.SystemUtils;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.gui.converter.event.ProgressEvent;
 import pcgen.gui.converter.event.TaskStrategyMessage;
+import pcgen.system.PCGenSettings;
 
 public class WriteDirectoryPanel extends ConvertSubPanel
 {
@@ -63,7 +66,13 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 		}
 		else
 		{
-			path = new File(".");
+			PCGenSettings context = PCGenSettings.getInstance();
+			String outputPathName =
+					context.initProperty(
+						PCGenSettings.CONVERT_OUTPUT_SAVE_PATH,
+						SystemUtils.USER_DIR);
+			path =
+					new File(outputPathName);
 		}
 		pc.put(ObjectKey.WRITE_DIRECTORY, path);
 		fireProgressEvent(ProgressEvent.ALLOWED);
@@ -101,6 +110,7 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 				JFileChooser chooser = new JFileChooser();
 				chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 				chooser.setDialogType(JFileChooser.OPEN_DIALOG);
+				chooser.setCurrentDirectory(path.getParentFile());
 				chooser.setSelectedFile(path);
 				while (true)
 				{
@@ -114,12 +124,16 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 							path = fileToOpen;
 							pc.put(ObjectKey.WRITE_DIRECTORY, path);
 							fileLabel.setText(path.getAbsolutePath());
+							PCGenSettings context = PCGenSettings.getInstance();
+							context.setProperty(
+								PCGenSettings.CONVERT_OUTPUT_SAVE_PATH,
+								path.getAbsolutePath());
 							break;
 						}
 						JOptionPane.showMessageDialog(null,
 								"Selection must be a valid "
 										+ "(readable & writeable) Directory");
-						chooser.setSelectedFile(path);
+						chooser.setCurrentDirectory(path.getParentFile());
 					}
 					else if (open == JFileChooser.CANCEL_OPTION)
 					{

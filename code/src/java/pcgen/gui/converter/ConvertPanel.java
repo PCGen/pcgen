@@ -163,6 +163,7 @@ public class ConvertPanel extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent arg0)
 			{
+				PCGenDataConvert.savePrefs();
 				System.exit(0);
 			}
 		});
@@ -206,14 +207,12 @@ public class ConvertPanel extends JPanel
 
 	public void checkExit()
 	{
-		// FINALCLEAN this is temporary, so it doesn't annoy me
-		System.exit(0);
-
 		int response = JOptionPane.showConfirmDialog(this,
 				"Are you sure you wish to cancel and exit?", "Confirm Exit",
 				JOptionPane.OK_CANCEL_OPTION);
 		if (response == JOptionPane.OK_OPTION)
 		{
+			PCGenDataConvert.savePrefs();
 			System.exit(0);
 		}
 	}
