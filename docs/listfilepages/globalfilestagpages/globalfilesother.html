@@ -120,7 +120,7 @@
 		<p class="indent3">Leather armor is given as a free armor proficiency.</p>
 		<p class="indent2"><code>AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium</code></p>
 		<p class="indent3">Light and Medium Armor is given as a free armor proficiency.</p>
-		<p class="indent2"><code>AUTO:ARMORPROF|Dwarven Plate[PRERACE:1,Dwarf]</code></p>
+		<p class="indent2"><code>AUTO:ARMORPROF|Dwarven Plate|PRERACE:1,Dwarf</code></p>
 		<p class="indent3">Dwarven Plate is given as a free armor proficiency if the character is a Dwarf.</p>
 		<p class="indent1"><strong>Deprecated Syntax:</strong> <span class="dep">*** Deprecated 5.17.11 - Remove for 6.2</span></p>
 		<p class="indent2"><code>AUTO:ARMORPROF|ARMORTYPE=Light[PRExxx]</code></p>
@@ -135,21 +135,21 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>This is a pipe-delimited (|) list of equipment that is granted to the character for free.</li>
-			<li>The equipment added is marked on the GUI just as feats added by the <code>AUTO:FEAT</code> tag, 
-				i.e. are yellow, and can't be removed.</li>
-			<li>The equipment must be added to the Equipment Set just as any other Equipment the PC has to come out on the OS.</li>
 			<li>PRExxx tags are allowed with this tag and use the pipe-delimited (|) syntax.</li>
-			<li><code>AUTO:EQUIP</code> won't take (%)LIST or (%)CHOICE for substitution. See futureequipment_equipmods_gadgets.lst.</li>
+			<li><code>AUTO:EQUIP</code> won't take (%)LIST or (%)CHOICE for substitution.</li>
 		</ul>
-		<p class="sidebar0"><strong>CAUTION:</strong> Some trouble has been found when attempting to add two of the same item. Additionally, 
+		<p class="sidebar1"><strong>NOTE:</strong> The equipment added is marked on the GUI just as feats added by the 
+			<code>AUTO:FEAT</code> tag, i.e. are yellow, and can't be removed. Additionally, the equipment must be added 
+			to the Equipment Set just as any other Equipment the PC has to come out on the OS.</P>
+		<p class="sidebar1"><strong>CAUTION:</strong> Some trouble has been found when attempting to add two of the same item. Additionally, 
 			you should not use items which have math operators (such as + and -) in their names.</p>
         <p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Global, however AUTO:EQUIP is not supported in class level lines. It can be used on a class line.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>AUTO:EQUIP|Flurry of Blows[PRECLASS:1,Monk=1]</code></p>
+		<p class="indent2"><code>AUTO:EQUIP|Flurry of Blows|PRECLASS:1,Monk=1|</code></p>
 		<p class="indent3">The item &quot;Flurry of Blows&quot; is granted as a free equipment item if the
 		character has a level of Monk.</p>
-		<p class="indent2"><code>AUTO:EQUIP|Flurry of Blows[PREMULT:2,[PRESTAT:1,DEX=15],[PRECLASS:1,Monk=1]]</code></p>
+		<p class="indent2"><code>AUTO:EQUIP|Flurry of Blows|PREMULT:2,[PRESTAT:1,DEX=15],[PRECLASS:1,Monk=1]</code></p>
 		<p class="indent3">The item &quot;Flurry of Blows&quot; is granted as a free equipment item if the
 		character has a level of Monk and a DEX score of 15 or better.</p>
 	<p class="indent1"><strong>Deprecated Syntax:</strong> <span class="dep">*** Deprecated 5.17.11 - Remove for 6.2</span></p>
