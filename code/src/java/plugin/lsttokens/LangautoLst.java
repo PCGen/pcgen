@@ -65,7 +65,8 @@ public class LangautoLst extends AbstractTokenWithSeparator<CDOMObject> implemen
 		boolean foundOther = false;
 
 		final StringTokenizer tok = new StringTokenizer(value, Constants.COMMA);
-
+		StringBuilder sb = new StringBuilder();
+		
 		while (tok.hasMoreTokens())
 		{
 			String tokText = tok.nextToken();
@@ -76,7 +77,7 @@ public class LangautoLst extends AbstractTokenWithSeparator<CDOMObject> implemen
 					return new ParseResult.Fail("Non-sensical situation was " + "encountered while parsing "
 							+ getTokenName() + ": When used, .CLEAR must be the first argument", context);
 				}
-				context.getObjectContext().removeList(obj, ListKey.AUTO_LANGUAGES);
+				//context.getObjectContext().removeList(obj, ListKey.AUTO_LANGUAGES);
 			} else
 			{
 				CDOMReference<Language> ref;
@@ -93,9 +94,14 @@ public class LangautoLst extends AbstractTokenWithSeparator<CDOMObject> implemen
 				{
 					return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName(), context);
 				}
-				context.getObjectContext().addToList(obj, ListKey.AUTO_LANGUAGES,
-						new QualifiedObject<CDOMReference<Language>>(ref));
+//				context.getObjectContext().addToList(obj, ListKey.AUTO_LANGUAGES,
+//						new QualifiedObject<CDOMReference<Language>>(ref));
 			}
+			if (!firstToken)
+			{
+				sb.append(Constants.PIPE);
+			}
+			sb.append(tokText);
 			firstToken = false;
 		}
 		if (foundAny && foundOther)
@@ -103,7 +109,9 @@ public class LangautoLst extends AbstractTokenWithSeparator<CDOMObject> implemen
 			return new ParseResult.Fail("Non-sensical " + getTokenName() + ": Contains ANY and a specific reference: "
 					+ value, context);
 		}
-		return ParseResult.SUCCESS;
+		// After checking for the old syntax we use the new token to do the actual parsing
+		return context.processSubToken(obj, "AUTO", "LANG", sb.toString());
+//		return ParseResult.SUCCESS;
 	}
 
 	@Override
