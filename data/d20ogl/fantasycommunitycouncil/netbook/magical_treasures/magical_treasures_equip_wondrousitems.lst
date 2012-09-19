@@ -119,7 +119,7 @@ Nalee's Magic Cover of Replication			TYPE:Magic.Wondrous															COST:9000
 Nails of the Shrew					TYPE:Magic.Wondrous.Gauntlets														COST:58000	WT:2		SLOTS:2													SOURCEPAGE:pg. 60, Wondrous Items																	BONUS:SKILL|Open Lock|10|TYPE=Competence										SPROP:See text
 Never Empty Canteen					TYPE:Magic.Wondrous															COST:500	WT:2																SOURCEPAGE:pg. 60, Wondrous Items																																	SPROP:See text
 Pack Saddle of Holding					TYPE:Magic.Wondrous.Container									CONTAINS:*500			COST:6000	WT:25																SOURCEPAGE:pg. 60-61, Wondrous Items																																SPROP:See text
-Pebble of Doom						TYPE:Magic.Wondrous.Thrown.Weapon.Simple.Bludgeoning.Ranged									COST:40000	WT:2												DAMAGE:8D6	RANGE:10	SOURCEPAGE:pg. 61, Wondrous Items																																	SPROP:See text
+Pebble of Doom						TYPE:Magic.Wondrous.Thrown.Weapon.Simple.Bludgeoning.Ranged									COST:40000	WT:2												DAMAGE:8d6	RANGE:10	SOURCEPAGE:pg. 61, Wondrous Items																																	SPROP:See text
 Pellets of Smokey Disappearance			TYPE:Magic.Wondrous.Thrown.Weapon.Simple.Bludgeoning.Ranged									COST:1250	WT:0.01													RANGE:10	SOURCEPAGE:pg. 61-62, Wondrous Items								BONUS:COMBAT|TOHIT|-4|TYPE=Enhancement																		SPROP:See text
 Pouch of Magical Stones					TYPE:Magic.Wondrous.Container									CONTAINS:3|3			COST:720	WT:3																SOURCEPAGE:pg. 62, Wondrous Items																																	SPROP:See text
 Pouch of the Silk Worm					TYPE:Magic.Wondrous															COST:1200	WT:1																SOURCEPAGE:pg. 62, Wondrous Items																																	SPROP:See text
