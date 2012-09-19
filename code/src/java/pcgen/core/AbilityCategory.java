@@ -53,6 +53,7 @@ import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.UnconstructedValidator;
 import pcgen.core.facade.AbilityCategoryFacade;
+import pcgen.core.utils.LastGroupSeparator.GroupingMismatchException;
 import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.View;
@@ -643,8 +644,15 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		if (activeObj == null)
 		{
 			List<String> choices = new ArrayList<String>();
-			String reduced = AbilityUtilities.getUndecoratedName(name, choices);
-			activeObj = rm.getObject(reduced);
+			try
+			{
+				String reduced = AbilityUtilities.getUndecoratedName(name, choices);
+				activeObj = rm.getObject(reduced);
+			}
+			catch (GroupingMismatchException e)
+			{
+				Logging.log(Logging.LST_ERROR, e.getMessage());
+			}
 			if (activeObj == null)
 			{
 				// Really not constructed...

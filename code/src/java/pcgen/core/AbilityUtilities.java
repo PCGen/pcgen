@@ -38,6 +38,7 @@ import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.LastGroupSeparator;
+import pcgen.core.utils.LastGroupSeparator.GroupingMismatchException;
 
 /**
  * General utilities related to the Ability class.
@@ -333,10 +334,11 @@ public class AbilityUtilities
 	 *                  completed
 	 *
 	 * @return the name with sub-choices stripped from it
+	 * @throws GroupingMismatchException If there are mismatched brackets
 	 */
 	public static String getUndecoratedName(
 			final String name, 
-			final Collection<String> specifics)
+			final Collection<String> specifics) throws GroupingMismatchException
 	{
 		LastGroupSeparator lgs = new LastGroupSeparator(name);
 		String subName = lgs.process();

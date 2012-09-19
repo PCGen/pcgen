@@ -36,7 +36,7 @@ public class LastGroupSeparator
 		startingString = baseString;
 	}
 
-	public String process()
+	public String process() throws GroupingMismatchException
 	{
 		StringTokenizer base = new StringTokenizer(startingString, "()", true);
 		root = new StringBuilder();
