@@ -22,7 +22,7 @@ Elemental Charms				TYPE:Magic.Wondrous.Bracer		COST:1250	WT:0.02	SOURCEPAGE:p.1
 Everwarm Blanket				TYPE:Magic.Wondrous			COST:1200	WT:1		SOURCEPAGE:p.176
 Fancy Platter				TYPE:Magic.Wondrous			COST:800	WT:1		SOURCEPAGE:p.176
 Flaming Cloak				TYPE:Magic.Wondrous.Cape		COST:1000	WT:1		SOURCEPAGE:p.176																																																			BONUS:SKILL|Intimidate|1|TYPE=Circumstance
-Gauntlet of Arthanath			TYPE:Magic.Wondrous.Glove		COST:5500	WT:0.02	SOURCEPAGE:p.176	VFEAT:Dragon Magic																																																													LANGAUTO:Draconic
+Gauntlet of Arthanath			TYPE:Magic.Wondrous.Glove		COST:5500	WT:0.02	SOURCEPAGE:p.176	VFEAT:Dragon Magic																																																													AUTO:LANG|Draconic
 Glass of Clarity				TYPE:Magic.Wondrous			COST:2000	WT:0.02	SOURCEPAGE:p.176
 Glass of Frozen Dreams			TYPE:Magic.Wondrous			COST:1500	WT:0.02	SOURCEPAGE:p.176
 Glass of Mist				TYPE:Magic.Wondrous			COST:9000	WT:1		SOURCEPAGE:p.176										SPELLS:Magic Item|TIMES=3|Obscuring Mist	SPELLS:Magic Item|TIMES=3|Mirror Shield

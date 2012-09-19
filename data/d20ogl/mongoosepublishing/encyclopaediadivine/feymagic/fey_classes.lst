@@ -22,7 +22,7 @@ CLASS:Feydancer	STARTSKILLPTS:4	CSKILL:Animal Empathy|TYPE=Craft|Knowledge (Fey)
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
 CLASS:Spellbinder	HD:4		TYPE:PC.Prestige	ABB:Spb		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL/2
 # Class Name	Required Feat					Multiple Requirements											Req. Spell Type
-CLASS:Spellbinder	PREFEAT:2,Craft Token,TYPE.ItemCreation	PREMULT:2,[PRESKILL:2,TYPE.Craft=8,TYPE.Craft=8],[PRESKILL:1,Knowledge (Reverie)=6]	PRESPELLTYPE:1,Arcane=2Divine=2=1=1
+CLASS:Spellbinder	PREFEAT:2,Craft Token,TYPE.ItemCreation	PREMULT:2,[PRESKILL:2,TYPE.Craft=8,TYPE.Craft=8],[PRESKILL:1,Knowledge (Reverie)=6]	PRESPELLTYPE:1,Arcane=2Divine=2=1=1=1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Spellbinder	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|Knowledge (Reverie)|TYPE=Profession|Spellcraft|Wilderness Lore
 1	ABILITY:Special Ability|AUTOMATIC|Sense Token ~ Spellbinder																							BONUS:ABILITYPOOL|Craft Focus|1

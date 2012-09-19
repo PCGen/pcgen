@@ -3,7 +3,7 @@
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
 # Race Name		Favored Class			Skills/Level		Clear Automatic Languages	Automatic Languages		Clear Bonus Languages	Bonus Languages	Bonus to skill																												Stat bonus						Special ABility			Template						Source Page
-Dwarf.MOD											LANGAUTO:.CLEAR			LANGAUTO:Low Coryani,Dwarven	LANGBONUS:.CLEAR					BONUS:SKILL|TYPE.Craft|2|TYPE=Racial	BONUS:SKILL|Craft (Armorsmithing),Craft (Blacksmithing),Craft (Metalworking),Craft (Stonemasonry),Craft (Weaponsmithing)|-2|TYPE=Racial								SAB:Weight of the Curse (Ex)	TEMPLATE:Dwarven Subraces|Arcanis Regions	SOURCEPAGE:p.161
-Gnome.MOD		FAVCLASS:Wizard.Illusionist	XTRASKILLPTSPERLVL:1	LANGAUTO:.CLEAR								LANGBONUS:.CLEAR																																			BONUS:STAT|STR|-2	BONUS:STAT|CON|2							TEMPLATE:Arcanis Regions			SOURCEPAGE:p.161
-Half-Orc.MOD										LANGAUTO:.CLEAR			LANGAUTO:Low Coryani		LANGBONUS:.CLEAR		LANGBONUS:Orc																															BONUS:STAT|STR|2	BONUS:STAT|INT,CHA|-2						TEMPLATE:Arcanis Regions			SOURCEPAGE:p.18
-Human.MOD											LANGAUTO:.CLEAR			LANGAUTO:Low Coryani		LANGBONUS:.CLEAR		LANGBONUS:ALL																																											TEMPLATE:Arcanis Regions			SOURCEPAGE:p.12
+Dwarf.MOD														AUTO:LANG|Low Coryani|Dwarven	LANGBONUS:.CLEAR					BONUS:SKILL|TYPE.Craft|2|TYPE=Racial	BONUS:SKILL|Craft (Armorsmithing),Craft (Blacksmithing),Craft (Metalworking),Craft (Stonemasonry),Craft (Weaponsmithing)|-2|TYPE=Racial								SAB:Weight of the Curse (Ex)	TEMPLATE:Dwarven Subraces|Arcanis Regions	SOURCEPAGE:p.161
+Gnome.MOD		FAVCLASS:Wizard.Illusionist	XTRASKILLPTSPERLVL:1									LANGBONUS:.CLEAR																																			BONUS:STAT|STR|-2	BONUS:STAT|CON|2							TEMPLATE:Arcanis Regions			SOURCEPAGE:p.161
+Half-Orc.MOD													AUTO:LANG|Low Coryani		LANGBONUS:.CLEAR		LANGBONUS:Orc																															BONUS:STAT|STR|2	BONUS:STAT|INT,CHA|-2						TEMPLATE:Arcanis Regions			SOURCEPAGE:p.18
+Human.MOD														AUTO:LANG|Low Coryani		LANGBONUS:.CLEAR		LANGBONUS:ALL																																											TEMPLATE:Arcanis Regions			SOURCEPAGE:p.12

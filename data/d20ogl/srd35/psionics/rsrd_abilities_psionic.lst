@@ -103,7 +103,7 @@ Conflagration		CATEGORY:Special Ability	TYPE:SpecialQuality.PsiLike		VISIBLE:YES
 # Ability Name			Category of Ability		Type						Visible	Define				Description						Stackable?	Multiple?	Choose			Bonus to spell known/L				List of Class Spells by Level
 Thrallherd Charm			CATEGORY:Special Ability	TYPE:Special.ThrallherdCharm		VISIBLE:YES													STACK:NO	MULT:YES	CHOOSE:CLASS|SPELLCASTER	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=1|1	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=1|Charm (Psionic)
 Thrallherd Dominate		CATEGORY:Special Ability	TYPE:Special.ThrallherdDominate	VISIBLE:YES													STACK:NO	MULT:YES	CHOOSE:CLASS|SPELLCASTER	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=4|1	SPELLLEVEL:CLASS|SPELLCASTER.Psionic=4|Dominate (Psionic)
-Thrallherd				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:ThrallherdScore|0	DESC:Leadership score: %1|ThrallherdScore
+Thrallherd				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:ThrallherdScore|0	DESC:Leadership score&colon; %1|ThrallherdScore
 Thrallherd Greater Dominate	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES
 Thrallherd Superior Dominate	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES
 Twofold Master			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES

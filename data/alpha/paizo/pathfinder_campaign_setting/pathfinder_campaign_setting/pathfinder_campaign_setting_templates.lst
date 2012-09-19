@@ -3,7 +3,7 @@ SOURCELONG:Pathfinder Chronicles: Campaign Setting	SOURCESHORT:PFCS	SOURCEWEB:ht
 
 
 # Template Name			Hit Dice Size		Visible		Required Language	Automatic Languages
-Taldane as Common Language					VISIBLE:DISPLAY	PRELANG:1,Common	LANGAUTO:Taldane
+Taldane as Common Language					VISIBLE:DISPLAY	PRELANG:1,Common	AUTO:LANG|Taldane
 Holy Warrior Hit Dice		HITDIE:10|CLASS=Cleric	VISIBLE:NO
 
 ###Block: Human Ethnicities

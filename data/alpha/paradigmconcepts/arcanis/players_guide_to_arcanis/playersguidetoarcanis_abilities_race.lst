@@ -30,10 +30,10 @@ Bloodrank 6										CATEGORY:Special Ability	TYPE:ValBloodRank			VISIBLE:DISPLA
 Bloodrank 7										CATEGORY:Special Ability	TYPE:ValBloodRank			VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Racial Ability,Bloodrank 6																																																																																							PRERACE:1,Val																																																																				STACK:NO	MULT:NO																															BONUS:ABILITYPOOL|Val Bloodline Power|1																											BONUS:VAR|ValBloodrank|1
 
 #Hybrid Dellenov Animal Choices
-Hybrid Bear										CATEGORY:Special Ability	TYPE:HybridDellenov		VISIBLE:NO																																																																																																																						DESC:Hybrid Bear Atk Abilities - +4 Strength, +2 Constitution, -2 Dexterity; +1 natural armor; attacks: 2 claws 1d6, bite 1d8; increase size to Large (-1 to attack and armor class.)
-Hybrid Boar										CATEGORY:Special Ability	TYPE:HybridDellenov		VISIBLE:NO																																																																																																																						DESC:Hybrid Boar Atk Abilities - +2 Strength, +4 Constitution; +2 natural armor; attacks: Ram (on charge only) 2d8, gore 2d4; Ferocity (Ex) as per boar (see Core Rulebook III.)
-Hybrid Shadow Lion								CATEGORY:Special Ability	TYPE:HybridDellenov		VISIBLE:NO																																																																																																																						DESC:Hybrid Shadow Lion Atk Abilities - +2 Constitution, +4 Dexterity; +1 natural armor; attacks: 2 claws 1d8, bite 1d4; Improved Grab (Ex) as per lion (see Core Rulebook III.)
-Hybrid Wolf										CATEGORY:Special Ability	TYPE:HybridDellenov		VISIBLE:NO																																																																																																																						DESC:Hybrid Wolf Atk Abilities - +2 Strength, +2 Constitution, +2 Dexterity, +1 natural armor; attack: Bite 2d6; Trip (Ex) asper wolf (see Core Rulebook III.)
+Hybrid Bear										CATEGORY:Special Ability	TYPE:HybridDellenov		VISIBLE:NO																																																																																																																						DESC:Hybrid Bear Atk Abilities - +4 Strength, +2 Constitution, -2 Dexterity; +1 natural armor; attacks&colon; 2 claws 1d6, bite 1d8; increase size to Large (-1 to attack and armor class.)
+Hybrid Boar										CATEGORY:Special Ability	TYPE:HybridDellenov		VISIBLE:NO																																																																																																																						DESC:Hybrid Boar Atk Abilities - +2 Strength, +4 Constitution; +2 natural armor; attacks&colon; Ram (on charge only) 2d8, gore 2d4; Ferocity (Ex) as per boar (see Core Rulebook III.)
+Hybrid Shadow Lion								CATEGORY:Special Ability	TYPE:HybridDellenov		VISIBLE:NO																																																																																																																						DESC:Hybrid Shadow Lion Atk Abilities - +2 Constitution, +4 Dexterity; +1 natural armor; attacks&colon; 2 claws 1d8, bite 1d4; Improved Grab (Ex) as per lion (see Core Rulebook III.)
+Hybrid Wolf										CATEGORY:Special Ability	TYPE:HybridDellenov		VISIBLE:NO																																																																																																																						DESC:Hybrid Wolf Atk Abilities - +2 Strength, +2 Constitution, +2 Dexterity, +1 natural armor; attack&colon; Bite 2d6; Trip (Ex) asper wolf (see Core Rulebook III.)
 
 ###############  VAL BLOODLINE POWERS  #############
 #
@@ -195,7 +195,7 @@ Grace of the Cat Lord								CATEGORY:Special Ability	TYPE:ValBloodline.MehanBL	
 Know the Work of Sarish					NAMEISPI:YES	CATEGORY:Special Ability	TYPE:ValBloodline.MehanBL	VISIBLE:DISPLAY										PREMULT:2,[PREVAREQ:Mehan2,2],[PREMULT:1,[PREMULT:2,[PREVAREQ:ValBloodrank,5],[PREABILITY:4,CATEGORY=Racial Ability,TYPE=ValBloodline]],[PREMULT:2,[PREVAREQ:ValBloodrank,6],[PREABILITY:5,CATEGORY=Racial Ability,TYPE=ValBloodline]],[PREMULT:2,[PREVAREQ:ValBloodrank,7],[PREABILITY:6,CATEGORY=Racial Ability,TYPE=ValBloodline]]]																																																					DESC:Know the Work of Sarish (Sp/BL3)																																																																																																														BONUS:VAR|Mehan3|1																																													SOURCEPAGE:p.280
 Stone Guardian									CATEGORY:Special Ability	TYPE:ValBloodline.MehanBL	VISIBLE:DISPLAY										PREMULT:2,[PREVAREQ:Mehan2,2],[PREMULT:1,[PREMULT:2,[PREVAREQ:ValBloodrank,5],[PREABILITY:4,CATEGORY=Racial Ability,TYPE=ValBloodline]],[PREMULT:2,[PREVAREQ:ValBloodrank,6],[PREABILITY:5,CATEGORY=Racial Ability,TYPE=ValBloodline]],[PREMULT:2,[PREVAREQ:ValBloodrank,7],[PREABILITY:6,CATEGORY=Racial Ability,TYPE=ValBloodline]]]																																																					DESC:Stone Guardian (Su/BL3)																																																																																																																BONUS:VAR|Mehan3|1																																													SOURCEPAGE:p.280
 #Level 4
-Brothers in Blood									CATEGORY:Special Ability	TYPE:ValBloodline.MehanBL	VISIBLE:DISPLAY																																																																																																															PREVAREQ:Mehan3,2,ValBloodrank,7	DESC:A:Brothers in Blood (Su/BL4)																																																																																																																																																															SOURCEPAGE:p.280
+Brothers in Blood									CATEGORY:Special Ability	TYPE:ValBloodline.MehanBL	VISIBLE:DISPLAY																																																																																																															PREVAREQ:Mehan3,2,ValBloodrank,7	DESC:A&colon;Brothers in Blood (Su/BL4)																																																																																																																																																															SOURCEPAGE:p.280
 
 #val'Mordane Bloodline Powers
 # Ability Name							Product Identity?	Category of Ability		Type								Visible		Required Ability													Restricted Ability								Multiple Requirements																																																																																															Req. Casting Type			Required Template				Special ABility													Define								Innate Spells																Stackable?	Multiple?	Choose					Template																Add									Combat bonus			Add to base move			Bonus to skill						Add to vision			Modify VAR																							Class Skill			Damage Reduction			Source Page		ABILITY
@@ -317,14 +317,14 @@ The Blazing Swarm									CATEGORY:Special Ability	TYPE:ValBloodline.VirdanBL	VI
 
 ###Block: Language Support for regional templates
 # Ability Name			Category of Ability		Visible	Automatic Languages
-Altheria Languages		CATEGORY:Special Ability	VISIBLE:NO	LANGAUTO:Altharin
-Canceri Languages			CATEGORY:Special Ability	VISIBLE:NO	LANGAUTO:Cancerese
-Coryani Empire Languages	CATEGORY:Special Ability	VISIBLE:NO	LANGAUTO:Low Coryani
-Hinterlands Languages		CATEGORY:Special Ability	VISIBLE:NO	LANGAUTO:Yhing Hir
-Khitani Empire Languages	CATEGORY:Special Ability	VISIBLE:NO	LANGAUTO:Low Khitani,High Khitani
-Milandir Languages		CATEGORY:Special Ability	VISIBLE:NO	LANGAUTO:Milandisian
-Pirate Isles Languages		CATEGORY:Special Ability	VISIBLE:NO	LANGAUTO:Low Coryani
-Western Lands Languages		CATEGORY:Special Ability	VISIBLE:NO	LANGAUTO:Kio,Unden
-Satrapy of Eppion Languages	CATEGORY:Special Ability	VISIBLE:NO	LANGAUTO:Low Coryani
+Altheria Languages		CATEGORY:Special Ability	VISIBLE:NO	AUTO:LANG|Altharin
+Canceri Languages			CATEGORY:Special Ability	VISIBLE:NO	AUTO:LANG|Cancerese
+Coryani Empire Languages	CATEGORY:Special Ability	VISIBLE:NO	AUTO:LANG|Low Coryani
+Hinterlands Languages		CATEGORY:Special Ability	VISIBLE:NO	AUTO:LANG|Yhing Hir
+Khitani Empire Languages	CATEGORY:Special Ability	VISIBLE:NO	AUTO:LANG|Low Khitani|High Khitani
+Milandir Languages		CATEGORY:Special Ability	VISIBLE:NO	AUTO:LANG|Milandisian
+Pirate Isles Languages		CATEGORY:Special Ability	VISIBLE:NO	AUTO:LANG|Low Coryani
+Western Lands Languages		CATEGORY:Special Ability	VISIBLE:NO	AUTO:LANG|Kio|Unden
+Satrapy of Eppion Languages	CATEGORY:Special Ability	VISIBLE:NO	AUTO:LANG|Low Coryani
 
 # EOF

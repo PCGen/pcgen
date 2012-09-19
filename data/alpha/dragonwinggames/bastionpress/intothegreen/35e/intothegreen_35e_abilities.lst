@@ -110,7 +110,7 @@ Telepathy						KEY:Elderwitch ~ Telepathy				CATEGORY:Special Ability	TYPE:Speci
 They understand but do not speak Sylvan.	KEY:Fierling ~ Language					CATEGORY:Special Ability	TYPE:SpecialQuality
 Embersmash						KEY:Fierling ~ Embersmash				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
 Flameleap						KEY:Fierling ~ Flameleap				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Resistances ~ Fierling				KEY:Fierling ~ Resistances				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																																										ABILITY:Special Ability|AUTOMATIC|Resistance to Acid							BONUS:VAR|AcidResistanceBonus|20
+Resistances ~ Fierling				KEY:Fierling ~ Resistances				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																																										ABILITY:Special Ability|AUTOMATIC|Resistance To Acid							BONUS:VAR|AcidResistanceBonus|20
 
 # Lostling------------------------------------
 Understand Common					KEY:Lostling ~ Understand Common			CATEGORY:Special Ability	TYPE:SpecialQuality

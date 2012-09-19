@@ -30,8 +30,8 @@ Shape Master			TYPE:General																								PREFEAT:1,Natural Spell						
 
 ###Block:Item Creation Feats
 # Feat Name			Type			Required Class							Required Feat				Required Skill			Req. Spell Type				Required Stat		Description																											Source Page
-Craft Magic Candle	TYPE:ItemCreation	PRECLASS:1,SPELLCASTER.Arcane=3,SPELLCASTER.Divine=3																						DESC:You can create magic candles that hold spells until triggered [by burning out on their own or being snuffed out].  Magic candles function similar to potions.	SOURCEPAGE:p.10
-Craft Magic Talisman	TYPE:ItemCreation	PRECLASS:1,SPELLCASTER.Arcane=3,SPELLCASTER.Divine=3																						DESC:You can create magic fetishes [also called charms] that hold spells until triggered.  A talisman is a single use magic item and functions like a scroll.		SOURCEPAGE:p.10
+Craft Magic Candle	TYPE:ItemCreation	PRECLASS:1,SPELLCASTER.Arcane=3,SPELLCASTER.Divine=3																						DESC:You can create magic candles that hold spells until triggered &lbracket;by burning out on their own or being snuffed out&rbracket;.  Magic candles function similar to potions.	SOURCEPAGE:p.10
+Craft Magic Talisman	TYPE:ItemCreation	PRECLASS:1,SPELLCASTER.Arcane=3,SPELLCASTER.Divine=3																						DESC:You can create magic fetishes &lbracket;also called charms&rbracket; that hold spells until triggered.  A talisman is a single use magic item and functions like a scroll.		SOURCEPAGE:p.10
 Master Alchemist		TYPE:ItemCreation										PREFEAT:2,Brew Potion,Herbalist	PRESKILL:1,Craft (Alchemy)=15	PRESPELLTYPE:1,Arcane=4,Divine=4	PRESTAT:1,INT=15,CHA=15	DESC:You can easily identify and collect the herbs and materials necessary for your potions.													SOURCEPAGE:p.10
 
 ###Block: Metamagic Feats

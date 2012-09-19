@@ -13,7 +13,7 @@ TL~GENDERLOCK_Female							GENDERLOCK:Female
 TL~HD_1-3_DR_5/1									HD:1-3:DR:5/1
 TL~HANDS_8								HANDS:8
 TL~HITDIE_20								HITDIE:20
-TL~LANGAUTO_LangAutoOne								LANGAUTO:LangAutoOne
+TL~LANGAUTO_LangAutoOne								AUTO:LANG|LangAutoOne
 TL~LANGBONUS_LangBonusTwo							LANGBONUS:LangBonusTwo
 TL~LEGS_8							LEGS:8
 TL~LEVEL_2_SR_15							LEVEL:2:SR:15

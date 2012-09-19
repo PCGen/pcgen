@@ -68,7 +68,7 @@ Military Shortsword Competence		CATEGORY:Special Ability	TYPE:SpecialQuality.Mil
 Tutored Knowledge					CATEGORY:Special Ability	TYPE:SpecialQuality.BackgroundSupport																						STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Knowledge																							BONUS:SKILL|LIST|2|PREFEAT:1,Tutored
 Tutored Craft					CATEGORY:Special Ability	TYPE:SpecialQuality.BackgroundSupport																						STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Craft																							BONUS:SKILL|LIST|2|PREFEAT:1,Tutored
 
-Speaks Homish					CATEGORY:Special Ability	TYPE:SpecialQuality.HomeLanguage																																																					LANGAUTO:Homish
+Speaks Homish					CATEGORY:Special Ability	TYPE:SpecialQuality.HomeLanguage																																																					AUTO:LANG|Homish
 Does not speak Homish				CATEGORY:Special Ability	TYPE:SpecialQuality.HomeLanguage
 
 Fame - Standard Usage				CATEGORY:Special Ability	TYPE:SpecialQuality.FameSupport																SAB:+1 to Social skills when in %CHOICE	STACK:NO	MULT:YES	CHOOSE:STRING|Aeylamdyarian|Calisian|Desolati|Gadohig|Galkarnan|Home|Launhym|Remarian|Shintai														BONUS:SKILL|TYPE=Social|1|TYPE=Fame|PREAPPLY:PC											TEMPDESC:Apply this temporary bonus when you are in the country you are famous in

@@ -20,7 +20,7 @@ Undead		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.CON|10
 
 ###Block: Creature Subtypes
 # Template Name		Visible	Source Page						Define			Required AL	Required Race			Var. Max. Value		Automatic Languages
-Goblinoid			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																LANGAUTO:Goblin
+Goblinoid			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																AUTO:LANG|Goblin
 Incorporeal			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.STR|10
 
 #DEPRECATED:

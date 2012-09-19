@@ -4,9 +4,9 @@ SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RotRPG	SOURCEWEB:htt
 
 ###Block: Human Ethnicities
 # Ability Name	Product Identity?	Category of Ability	Type				Visible		Template						Automatic Languages	Bonus to Ability Pool			Source Page
-Chelaxian		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Chelaxian)	LANGAUTO:Chelaxian							SOURCEPAGE:p.3
-Varisian		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Varisian)		LANGAUTO:Varisian								SOURCEPAGE:p.3
-Shoanti		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Shoanti)		LANGAUTO:Shoanti		BONUS:ABILITYPOOL|Shoanti Clan|1	SOURCEPAGE:p.3
+Chelaxian		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Chelaxian)	AUTO:LANG|Chelaxian							SOURCEPAGE:p.3
+Varisian		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Varisian)		AUTO:LANG|Varisian								SOURCEPAGE:p.3
+Shoanti		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Shoanti)		AUTO:LANG|Shoanti		BONUS:ABILITYPOOL|Shoanti Clan|1	SOURCEPAGE:p.3
 
 ###Block: Regional Affinities
 # Ability Name	Product Identity?	Category of Ability	Type		Visible		Description				Template						Source Page

@@ -46,7 +46,7 @@ CLASS:Minotaur	STARTSKILLPTS:2
 ### This is implemented by adding a Bull Lord template with SUBRACE:YES, the race will now output Minotaur (Bull Lord)
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Automatic Languages
-CLASS:Bull Lord	HD:8		TYPE:PC.Prestige	MAXLEVEL:9	SOURCEPAGE:p. 17	LANGAUTO:Common
+CLASS:Bull Lord	HD:8		TYPE:PC.Prestige	MAXLEVEL:9	SOURCEPAGE:p. 17	AUTO:LANG|Common
 # Class Name	Required Class
 CLASS:Bull Lord	PRECLASS:1,Minotaur=8
 # Class Name	Skill Pts/Lvl	Class Skill
