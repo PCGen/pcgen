@@ -13,7 +13,7 @@
  autobuild and only grab the full distribution if a missing library is reported.
  </p><p>
  For details on the changes in this autobuild, see 
- <a href="http://ci.pcgen.org/jenkins/job/PCGen%20Nightly%20Build%20%28Trunk%29/changes" target="_blank">Nightly Build Changelog</a>
+ <a href="http://ci.pcgen.org/jenkins/job/PCGen%20Nightly%20Build%20%28Trunk%29%20via%20Shell/changes" target="_blank">Nightly Build Changelog</a>
  <ul>
    <li><a href="downloads/pcgen-${project.version}-full.zip">PCGen Autobuild - Full Distribution</a> (35Mb)</li>
    <li><a href="downloads/pcgen-${project.version}-program.zip">PCGen Autobuild - Program</a></li>
