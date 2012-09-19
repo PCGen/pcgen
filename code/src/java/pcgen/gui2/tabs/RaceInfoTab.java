@@ -450,7 +450,8 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 									  new DefaultDataViewColumn("in_movement", String.class, true), //$NON-NLS-1$
 									  new DefaultDataViewColumn("in_vision", String.class), //$NON-NLS-1$
 									  new DefaultDataViewColumn("in_favoredClass", String.class, true), //$NON-NLS-1$
-									  new DefaultDataViewColumn("in_lvlAdj", String.class, true)); //$NON-NLS-1$
+									  new DefaultDataViewColumn("in_lvlAdj", String.class, true), //$NON-NLS-1$
+				                      new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 			else
 			{
@@ -460,7 +461,8 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 										new DefaultDataViewColumn("in_movement", String.class, false), //$NON-NLS-1$
 										new DefaultDataViewColumn("in_vision", String.class, false), //$NON-NLS-1$
 										new DefaultDataViewColumn("in_favoredClass", String.class, false), //$NON-NLS-1$
-										new DefaultDataViewColumn("in_lvlAdj", String.class, false)); //$NON-NLS-1$
+										new DefaultDataViewColumn("in_lvlAdj", String.class, false), //$NON-NLS-1$
+                                        new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 		}
 
@@ -504,7 +506,8 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 								 obj.getMovement(),
 								 infoFactory.getVision(obj),
 								 infoFactory.getFavoredClass(obj),
-								 infoFactory.getLevelAdjustment(obj));
+								 infoFactory.getLevelAdjustment(obj),
+								 obj.getSource());
 		}
 
 		@Override

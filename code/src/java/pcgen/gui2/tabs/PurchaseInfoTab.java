@@ -821,7 +821,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				new DefaultListFacade<TreeView<EquipmentFacade>>(Arrays.asList(EquipmentTreeView.values()));
 		private static final List<DefaultDataViewColumn> columns =
 				Arrays.asList(new DefaultDataViewColumn("in_igEqModelColCost", Float.class, true), //$NON-NLS-1$
-							  new DefaultDataViewColumn("in_igEqModelColWeight", Float.class, true)); //$NON-NLS-1$
+							  new DefaultDataViewColumn("in_igEqModelColWeight", Float.class, true), //$NON-NLS-1$
+				              new DefaultDataViewColumn("in_igEqModelColSource", String.class, false)); //$NON-NLS-1$
 		private final CharacterFacade character;
 		private final ListFacade<EquipmentFacade> equipmentList;
 
@@ -871,7 +872,10 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		@Override
 		public List<?> getData(EquipmentFacade obj)
 		{
-			return Arrays.asList(character.getInfoFactory().getCost(obj), character.getInfoFactory().getWeight(obj));
+			return Arrays.asList(character.getInfoFactory().getCost(obj),
+					character.getInfoFactory().getWeight(obj),
+					obj.getSource()
+					);
 		}
 
 		@Override
