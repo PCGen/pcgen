@@ -60,6 +60,11 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 {
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
+	/** 
+	 * We use a specific source string so we can split our choice actor entries 
+	 * from other FEAT tag entries. */
+	private static final String SOURCE = "AUTO:FEAT";
+
 	@Override
 	public String getParentToken()
 	{
@@ -135,7 +140,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 			else if (Constants.LST_PERCENT_LIST.equals(token))
 			{
 				ConditionalChoiceActor cca = new ConditionalChoiceActor(
-						new AbilitySelector(getTokenName(),
+						new AbilitySelector(SOURCE,
 								AbilityCategory.FEAT, Nature.AUTOMATIC));
 				edgeList.add(cca);
 				context.obj.addToList(obj, ListKey.CHOOSE_ACTOR, cca);
@@ -161,7 +166,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 						{
 							CDOMSingleRef<Ability> ref = (CDOMSingleRef<Ability>) ability;
 							AbilityTargetSelector ats = new AbilityTargetSelector(
-									getTokenName(), category, ref, nature);
+								SOURCE, category, ref, nature);
 							context.obj.addToList(obj, ListKey.CHOOSE_ACTOR,
 									ats);
 							edgeList.add(ats);
@@ -258,7 +263,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			for (ChooseResultActor csa : listAdded)
 			{
-				if (csa.getSource().equals(getTokenName()))
+				if (csa.getSource().equals(SOURCE))
 				{
 					try
 					{
