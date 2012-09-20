@@ -37,7 +37,7 @@
 	<p class="indent1"><strong><a href="#CampaignBuilding">Campaign File Building 101</a></strong></p>
 	<p class="indent2">This section covers a few basic points to keep in mind when building your own PCC file.</p>
 	<p class="indent1"><strong><a href="#TagList">PCC File Tag List</a></strong></p>
-	<p class="indent2">This section covers the syntax and function provided by the tags used in the PCGen Campaign (PCC) files.L/p>
+	<p class="indent2">This section covers the syntax and function provided by the tags used in the PCGen Campaign (PCC) files.</p>
 	<p></p>
 
 <hr>
@@ -49,8 +49,22 @@
 	<p class="indent1">LST file loading order is enforced by PCGen's loading system so it is important to keep the following 
 		issues in mind when building a custom PCC file:</p>
 	<ul class="indent1">
-		<li>Ability Category files will be loaded before Ability files</li>
-		<li>All other files (e.g. Ability, Deity, Equipment, etc., but excluding embeded PCC files.) will be loaded in the order listed in the PCC file.</li>
+		<li>PCC files will be loaded in the order of their appearance.</li>
+		<li>All LST files (e.g. Ability, Deity, Equipment, etc., but excluding embeded PCC files.) will be loaded in the order 
+			listed in the PCC file with the exception that Ability Category files will be loaded before Ability files.</li>
+		<li>Embedded PCC files, i.e. those contained within other PCC files, will be loaded after the files contained in the embedding PCC file. As an example:
+			<ul>
+				<li>Given two PCC files, <span class="lstfile">a.pcc</span> and <span class="lstfile">b.pcc</span>, each containing an embedded PCC file 
+					<span class="lstfile">aa.pcc</span> and <span class="lstfile">ba.pcc</span> respectively, the order of processing is as follows:
+					<ul>
+						<li>All LST files contained in <span class="lstfile">a.pcc</span> are loaded with any Ability Category files being loaded before Ability files.</i>
+						<li>All LST files contained in <span class="lstfile">aa.pcc</span> are loaded with any Ability Category files being loaded before Ability files.</i>
+						<li>All LST files contained in <span class="lstfile">b.pcc</span> are loaded with any Ability Category files being loaded before Ability files.</li>
+						<li>All LST files contained in <span class="lstfile">ba.pcc</span> are loaded with any Ability Category files being loaded before Ability files.</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
 	</ul>
 
 	<p class="sidebar0"><strong>Note:</strong> You cannot use a colon (:) in the PCC file anywhere other 
