@@ -17,7 +17,14 @@
  */
 package plugin.lsttokens.deprecated;
 
+import java.util.StringTokenizer;
+
+import org.apache.commons.lang.StringUtils;
+
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -41,8 +48,47 @@ public class ArmorProfToken implements CDOMSecondaryToken<CDOMObject>
 	{
 		Logging.deprecationPrint("CHOOSE:ARMORPROF has been deprecated, "
 			+ "please use CHOOSE:ARMORPROFICIENCY|EQUIPMENT[x]", context);
+		String newValue = processMagicalWords(context, obj, value);
 		return context.processSubToken(obj, getParentToken(),
-			"ARMORPROFICIENCY", "EQUIPMENT[" + value + "]");
+			"ARMORPROFICIENCY", newValue);
+	}
+
+	private String processMagicalWords(LoadContext context, CDOMObject obj, String value)
+	{
+		StringTokenizer st = new StringTokenizer(value, "|", true);
+		StringBuilder sb = new StringBuilder();
+		boolean first = true;
+		while (st.hasMoreTokens())
+		{
+			String tok = st.nextToken();
+
+			if (first && StringUtils.isNumeric(tok))
+			{
+				Formula f = FormulaFactory.getFormulaFor(tok);
+				context.obj.put(obj, FormulaKey.NUMCHOICES, f);
+				context.obj.put(obj, FormulaKey.SELECT, f);
+				if (st.hasMoreTokens())
+				{
+					// Consume the pipe that is no longer needed.
+					st.nextToken();
+				}
+				first = false;
+				continue;
+			}
+
+			if ("TYPE.".regionMatches(true, 0, tok, 0, 5)
+				|| "TYPE=".regionMatches(true, 0, tok, 0, 5))
+			{
+				// No change
+			}
+			else if (!"|".equals(tok))
+			{
+				tok = "EQUIPMENT[" + tok + "]";
+			}
+			sb.append(tok);
+			first = false;
+		}
+		return sb.toString();
 	}
 
 	public String[] unparse(LoadContext context, CDOMObject cdo)
