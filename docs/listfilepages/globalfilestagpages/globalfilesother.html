@@ -196,12 +196,14 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Language type)</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> %LIST</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> .CLEAR</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>This is a pipe-delimited (|) list of languages, by name or type, that are granted as free language.</li>
 			<li>When including the <code>TYPE=</code> sub-tag you may use a period-delimited (.) list of language types. 
 				This will grant the character any Language with the listed types.</li>
 			<li>Use of <code>%LIST</code> will insert the result of a <code>CHOOSE</code> tag.</li>
+			<li><code>.CLEAR</code> will clear all languages granted by previous <code>AUTO:LANG</code> tags.</li>
 			<li>PRExxx tags are allowed with this tag and use the pipe-delimited (|) syntax.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
@@ -300,10 +302,12 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> .CLEAR</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> .CLEAR.Text</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Grants the listed skills as class skills. When used in a classes.lst,
-  			it grants the class skills only to the class it is actually in. When used in
-  			a domains.lst, it grants the class skills only to the classes that grant the
-  			domain. When used anywhere else it grants the class skills to all classes the character possesses.</p>
+	<ul class="indent2">
+		<li>Grants the listed skills as class skills.</li>
+		<li>When used in a Class LST object it grants the class skills only to the class it is actually in.</li>
+		<li>When used in a Domain LST object it grants the class skills only to the classes that grant the domain.</li>
+		<li>When used anywhere else it grants the class skills to all classes the character possesses.</li>
+	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>CSKILL:Listen|Spot</code></p>
 	<p class="indent3">The &quot;Listen&quot; and &quot;Spot&quot; skills are made class skills.</p>
@@ -599,9 +603,9 @@
 		racial and class languages, and the languages &quot;Aeylamdyarian&quot;, &quot;Calisian&quot;, &quot;Desolati&quot;, &quot;Galkarnic&quot;, &quot;Homish&quot;, 
 		and &quot;Launhymian&quot; are granted by the <code>LANGBONUS</code> tag. Note that the >CLEAR should be performed first.</p>
 	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
-	<p class="indent2"><code>LANGAUTO:Common,Gnome</code> becomes <code>AUTO:LANG|Common,Gnome</code></p>
+	<p class="indent2"><code>LANGAUTO:Common,Gnome</code> becomes <code>AUTO:LANG|Common|Gnome</code></p>
 	<p class="indent2"><code>Gnome.MOD &lt;tab&gt; LANGAUTO:.CLEAR &lt;tab&gt; LANGAUTO:Low Coryani,Gnome</code> becomes</p>
-	<p class="indent3"> <code>Gnome.MOD &lt;tab&gt; LANGAUTO:.CLEAR &lt;tab&gt; AUTO:LANG|.CLEAR &lt;tab&gt; AUTO:LANG|Low Coryani,Gnome</code></p>
+	<p class="indent3"> <code>Gnome.MOD &lt;tab&gt; LANGAUTO:.CLEAR &lt;tab&gt; AUTO:LANG|.CLEAR &lt;tab&gt; AUTO:LANG|Low Coryani|Gnome</code></p>
 	<p></p>
 
 <hr>
