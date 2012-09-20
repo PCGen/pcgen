@@ -50,6 +50,9 @@ public class CskillLst extends AbstractTokenWithSeparator<CDOMObject> implements
 {
 	private static final Class<Skill> SKILL_CLASS = Skill.class;
 
+	/** Unique source for a token name that occurs in multiple places. */
+	private static final String SOURCE = "CSKILLLST";
+	
 	@Override
 	public String getTokenName()
 	{
@@ -217,7 +220,7 @@ public class CskillLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			for (ChooseResultActor cra : listAdded)
 			{
-				if (cra.getSource().equals(getTokenName()))
+				if (cra.getSource().equals(SOURCE))
 				{
 					try
 					{
@@ -270,7 +273,7 @@ public class CskillLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	@Override
 	public String getSource()
 	{
-		return getTokenName();
+		return SOURCE;
 	}
 
 	@Override
