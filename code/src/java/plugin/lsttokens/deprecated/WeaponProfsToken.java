@@ -19,7 +19,12 @@ package plugin.lsttokens.deprecated;
 
 import java.util.StringTokenizer;
 
+import org.apache.commons.lang.StringUtils;
+
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -71,7 +76,7 @@ public class WeaponProfsToken implements CDOMSecondaryToken<CDOMObject>
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 				+ " arguments uses double separator || : " + value, context);
 		}
-		String newValue = processMagicalWords(context, value);
+		String newValue = processMagicalWords(context, obj, value);
 		Logging.deprecationPrint("CHOOSE:WEAPONPROFS"
 			+ " has been deprecated, "
 			+ "please use CHOOSE:WEAPONPROFICIENCY|", context);
@@ -79,10 +84,11 @@ public class WeaponProfsToken implements CDOMSecondaryToken<CDOMObject>
 			newValue);
 	}
 
-	private String processMagicalWords(LoadContext context, String value)
+	private String processMagicalWords(LoadContext context, CDOMObject obj, String value)
 	{
 		StringTokenizer st = new StringTokenizer(value, "|", true);
 		StringBuilder sb = new StringBuilder();
+		boolean first = true;
 		while (st.hasMoreTokens())
 		{
 			String tok = st.nextToken();
@@ -148,7 +154,22 @@ public class WeaponProfsToken implements CDOMSecondaryToken<CDOMObject>
 			{
 				tok = "SPELLCASTER[" + tok.substring(12) + "]";
 			}
-			sb.append(tok);
+			if (first && StringUtils.isNumeric(tok))
+			{
+				Formula f = FormulaFactory.getFormulaFor(tok);
+				context.obj.put(obj, FormulaKey.NUMCHOICES, f);
+				context.obj.put(obj, FormulaKey.SELECT, f);
+				if (st.hasMoreTokens())
+				{
+					// Consume the pipe that is no longer needed.
+					st.nextToken();
+				}
+			}
+			else
+			{
+				sb.append(tok);
+			}
+			first = false;
 		}
 		return sb.toString();
 	}
