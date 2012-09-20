@@ -44,6 +44,7 @@ import java.util.logging.Handler;
 import java.util.logging.LogRecord;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
@@ -67,6 +68,7 @@ import pcgen.gui.utils.Utility;
 import pcgen.io.PCGFile;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.EditorLoadContext;
+import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 /**
@@ -185,6 +187,14 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 				}
 				setCurrentFilename("");
 				addMessage("\nConversion complete, press next button to finish...");
+				if (getHandler().getNumErrors() > 0)
+				{
+					JOptionPane.showMessageDialog(null, LanguageBundle
+						.getFormattedString("in_lstConvErrorsFound", //$NON-NLS-1$
+							getHandler().getNumErrors()), LanguageBundle
+						.getString("in_lstConvErrorsTitle"), //$NON-NLS-1$
+						JOptionPane.ERROR_MESSAGE);
+				}
 				progressBar.setValue(progressBar.getMaximum());
 		        
 				fireProgressEvent(ProgressEvent.ALLOWED);
@@ -227,7 +237,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 
 	private LoadHandler handler = null;
 
-	private Handler getHandler()
+	private LoadHandler getHandler()
 	{
 		if (handler == null)
 		{
@@ -375,6 +385,8 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	 */
 	private class LoadHandler extends Handler
 	{
+		int numErrors = 0;
+		int numWarnings = 0;
 
 		public LoadHandler()
 		{
@@ -394,18 +406,42 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		}
 
 		@Override
-		public void publish(final LogRecord arg0)
+		public void publish(final LogRecord logRecord)
 		{
 			Runnable doWork = new Runnable()
 			{
 				@Override
 				public void run()
 				{
-					addMessage(arg0.getLevel() + " " + arg0.getMessage());
+					if (logRecord.getLevel().intValue() > Logging.WARNING.intValue())
+					{
+						numErrors++;
+					}
+					else if (logRecord.getLevel().intValue() > Logging.INFO.intValue())
+					{
+						numWarnings++;
+					}
+					addMessage(logRecord.getLevel() + " " + logRecord.getMessage());
 					setErrorState(true);
 				}
 			};
 			SwingUtilities.invokeLater(doWork);
+		}
+
+		/**
+		 * @return the numErrors
+		 */
+		public int getNumErrors()
+		{
+			return numErrors;
+		}
+
+		/**
+		 * @return the numWarnings
+		 */
+		public int getNumWarnings()
+		{
+			return numWarnings;
 		}
 		
 	}
