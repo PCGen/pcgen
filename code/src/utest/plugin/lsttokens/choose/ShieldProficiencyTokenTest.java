@@ -21,8 +21,11 @@ package plugin.lsttokens.choose;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
+import pcgen.core.Equipment;
 import pcgen.core.ShieldProf;
-import pcgen.core.WeaponProf;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -30,6 +33,9 @@ import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.testsupport.AbstractChooseTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.TokenRegistration;
+import plugin.qualifier.shieldprof.EquipmentToken;
+import plugin.qualifier.shieldprof.PCToken;
 
 public class ShieldProficiencyTokenTest extends
 		AbstractChooseTokenTestCase<CDOMObject, ShieldProf>
@@ -88,9 +94,9 @@ public class ShieldProficiencyTokenTest extends
 	}
 
 	@Override
-	protected QualifierToken<WeaponProf> getPCQualifier()
+	protected QualifierToken<ShieldProf> getPCQualifier()
 	{
-		return null;
+		return new PCToken();
 	}
 
 	@Override
@@ -105,4 +111,29 @@ public class ShieldProficiencyTokenTest extends
 		return true;
 	}
 
+	/**
+	 * Check that a PC qualifier with a restriction is parsed correctly.
+	 * @throws PersistenceLayerException If an error occurs.
+	 */
+	public void testValidPc() throws PersistenceLayerException
+	{
+		CDOMObject a = (CDOMObject) construct(primaryContext, "DwarvenShield");
+		a.addToListFor(ListKey.TYPE, Type.getConstant("Exotic"));
+		CDOMObject c = (CDOMObject) construct(secondaryContext, "Typed1");
+		c.addToListFor(ListKey.TYPE, Type.getConstant("Exotic"));
+		runRoundRobin("SHIELDPROFICIENCY|PC[TYPE=Exotic]");
+	}
+
+	/**
+	 * Check that an EQUIPMENT qualifier with a restriction to a single piece 
+	 * of equipment is parsed correctly.
+	 * @throws PersistenceLayerException If an error occurs.
+	 */
+	public void testValidEquipment() throws PersistenceLayerException
+	{
+		TokenRegistration.register(new EquipmentToken());
+		CDOMObject a = (CDOMObject) construct(primaryContext, Equipment.class, "Buckler");
+		CDOMObject c = (CDOMObject) construct(secondaryContext, Equipment.class, "Buckler");
+		runRoundRobin("SHIELDPROFICIENCY|EQUIPMENT[Buckler]");
+	}
 }

@@ -6563,6 +6563,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${lstplugins.dir}/ShieldProfQualifier-PCTOKEN.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/qualifier/shieldprof/PCToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 	</target>
 	
 	<target name="jar-qualifier-weaponprof-plugins" depends="makeplugindirs" description="Build (Link) Weapon Prof Qualifier Token plugin jar files">
