@@ -18,10 +18,17 @@
 package plugin.lsttokens.choose;
 
 
+import java.net.URISyntaxException;
+
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.identifier.SpellSchool;
+import pcgen.cdom.list.ClassSpellList;
+import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.spell.Spell;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -29,7 +36,28 @@ import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.testsupport.AbstractChooseTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.TokenRegistration;
+import plugin.primitive.spell.AllToken;
+import plugin.primitive.spell.ClassListToken;
+import plugin.primitive.spell.DescriptorToken;
+import plugin.primitive.spell.DomainListToken;
+import plugin.primitive.spell.ProhibitedToken;
+import plugin.primitive.spell.SchoolToken;
+import plugin.primitive.spell.SpellBookToken;
+import plugin.primitive.spell.SpellTypeToken;
+import plugin.primitive.spell.SubSchoolToken;
 
+/**
+ * The Class <code>SpellsTokenTest</code> verifies the parsing and 
+ * unparsing of the CHOOSE:SPELLS subtoken.
+ *
+ * <br/>
+ * Last Editor: $Author:  $
+ * Last Edited: $Date:  $
+ * 
+ * @author Tom Parker
+ * @version $Revision:  $
+ */
 public class SpellsTokenTest extends
 		AbstractChooseTokenTestCase<CDOMObject, Spell>
 {
@@ -39,6 +67,14 @@ public class SpellsTokenTest extends
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
 			CDOMObject.class);
 
+	@Override
+	public void setUp() throws PersistenceLayerException, URISyntaxException
+	{
+		super.setUp();
+		TokenRegistration.register(new SubSchoolToken());
+		TokenRegistration.register(new AllToken());
+	}
+	
 	@Override
 	public Class<Spell> getCDOMClass()
 	{
@@ -104,4 +140,203 @@ public class SpellsTokenTest extends
 	{
 		return true;
 	}
+
+	/**
+	 * Check that a School qualifier is parsed correctly.
+	 * @throws PersistenceLayerException If an error occurs.
+	 */
+	public void testValidSchool() throws PersistenceLayerException
+	{
+		TokenRegistration.register(new SchoolToken());
+		SpellSchool schoolA =
+				primaryContext.ref.constructNowIfNecessary(SpellSchool.class,
+					"Abjuration");
+		SpellSchool schoolB =
+				secondaryContext.ref.constructNowIfNecessary(SpellSchool.class,
+					"Abjuration");
+		CDOMObject a =
+				(CDOMObject) construct(primaryContext, "Endure Elements");
+		a.addToListFor(ListKey.SPELL_SCHOOL, schoolA);
+		CDOMObject c = (CDOMObject) construct(secondaryContext, "Remove Curse");
+		c.addToListFor(ListKey.SPELL_SCHOOL, schoolB);
+		runRoundRobin("SPELLS|SCHOOL=Abjuration");
+	}
+
+	/**
+	 * Check that a SubSchool qualifier is parsed correctly.
+	 * @throws PersistenceLayerException If an error occurs.
+	 */
+	public void testValidSubSchool() throws PersistenceLayerException
+	{
+		CDOMObject a =
+				(CDOMObject) construct(primaryContext, "Endure Elements");
+		a.addToListFor(ListKey.SPELL_SUBSCHOOL, "Summoning");
+		CDOMObject c = (CDOMObject) construct(secondaryContext, "Remove Curse");
+		c.addToListFor(ListKey.SPELL_SUBSCHOOL, "Summoning");
+		runRoundRobin("SPELLS|SUBSCHOOL=Summoning");
+	}
+
+	/**
+	 * Check that a Descriptor qualifier is parsed correctly.
+	 * @throws PersistenceLayerException If an error occurs.
+	 */
+	public void testValidDescriptor() throws PersistenceLayerException
+	{
+		TokenRegistration.register(new DescriptorToken());
+		runRoundRobin("SPELLS|DESCRIPTOR=mind-affecting");
+	}
+
+	/**
+	 * Check that a Prohibited qualifier is parsed correctly.
+	 * @throws PersistenceLayerException If an error occurs.
+	 */
+	public void testValidProhibited() throws PersistenceLayerException
+	{
+		TokenRegistration.register(new ProhibitedToken());
+		runRoundRobin("SPELLS|PROHIBITED=YES");
+	}
+
+	/**
+	 * Check that a SpellBook qualifier is parsed correctly.
+	 * @throws PersistenceLayerException If an error occurs.
+	 */
+	public void testValidSpellBook() throws PersistenceLayerException
+	{
+		TokenRegistration.register(new SpellBookToken());
+		runRoundRobin("SPELLS|SPELLBOOK=City spells");
+	}
+
+	/**
+	 * Check that a ClassList qualifier is parsed correctly.
+	 * @throws PersistenceLayerException If an error occurs.
+	 */
+	public void testValidClassList() throws PersistenceLayerException
+	{
+		TokenRegistration.register(new ClassListToken());
+		ClassSpellList spellListA =
+				primaryContext.ref.constructNowIfNecessary(ClassSpellList.class,
+					"Wizard");
+		ClassSpellList spellListB =
+				secondaryContext.ref.constructNowIfNecessary(ClassSpellList.class,
+					"Wizard");
+		runRoundRobin("SPELLS|CLASSLIST=Wizard");
+	}
+
+	/**
+	 * Check that a DomainList qualifier is parsed correctly.
+	 * @throws PersistenceLayerException If an error occurs.
+	 */
+	public void testValidDomainList() throws PersistenceLayerException
+	{
+		TokenRegistration.register(new DomainListToken());
+		CDOMObject a =
+				(CDOMObject) construct(primaryContext, "Endure Elements");
+		DomainSpellList domainA =
+				primaryContext.ref.constructNowIfNecessary(DomainSpellList.class,
+					"Good");
+		DomainSpellList domainB =
+				secondaryContext.ref.constructNowIfNecessary(DomainSpellList.class,
+					"Good");
+		runRoundRobin("SPELLS|DOMAINLIST=Good");
+	}
+
+	/**
+	 * Check that a SpellType qualifier is parsed correctly.
+	 * @throws PersistenceLayerException If an error occurs.
+	 */
+	public void testValidSpellType() throws PersistenceLayerException
+	{
+		TokenRegistration.register(new SpellTypeToken());
+		runRoundRobin("SPELLS|SPELLTYPE=Arcane");
+	}
+
+	/**
+	 * Check that an All qualifier with a Known restriction is parsed 
+	 * correctly.
+	 * @throws PersistenceLayerException If an error occurs.
+	 */
+	public void testValidAllKnown() throws PersistenceLayerException
+	{
+		CDOMObject a =
+				(CDOMObject) construct(primaryContext, "Endure Elements");
+		a.addToListFor(ListKey.SPELL_SUBSCHOOL, "Summoning");
+		CDOMObject c = (CDOMObject) construct(secondaryContext, "Remove Curse");
+		c.addToListFor(ListKey.SPELL_SUBSCHOOL, "Summoning");
+		runRoundRobin("SPELLS|ALL[KNOWN=YES],SUBSCHOOL=Summoning");
+	}
+
+	/**
+	 * Check that a All qualifier with a LevelMin restriction is parsed 
+	 * correctly.
+	 * @throws PersistenceLayerException If an error occurs.
+	 */
+	public void testValidAllLevelMin() throws PersistenceLayerException
+	{
+		runRoundRobin("SPELLS|ALL[LEVELMIN=MAXCASTABLE]");
+	}
+
+	/**
+	 * Check that a All qualifier with a LevelMax restriction is parsed 
+	 * correctly.
+	 * @throws PersistenceLayerException If an error occurs.
+	 */
+	public void testValidAllLevelMax() throws PersistenceLayerException
+	{
+		runRoundRobin("SPELLS|ALL[LEVELMAX=7]");
+	}
+
+	/**
+	 * Check that a All qualifier with multiple restrictions is parsed 
+	 * correctly.
+	 * @throws PersistenceLayerException If an error occurs.
+	 */
+	public void testValidAllMultiple() throws PersistenceLayerException
+	{
+		runRoundRobin("SPELLS|ALL[LEVELMIN=3,LEVELMAX=MAXCASTABLE,KNOWN]");
+	}
+
+	/**
+	 * Check that a ANY qualifier with multiple restrictions is parsed 
+	 * correctly and migrated to ALL.
+	 * @throws PersistenceLayerException If an error occurs.
+	 */
+	public void testMigrationAny() throws PersistenceLayerException
+	{
+		runMigrationRoundRobin(
+			"SPELLS|ANY[LEVELMIN=3,LEVELMAX=MAXCASTABLE,KNOWN]",
+			"SPELLS|ALL[LEVELMIN=3,LEVELMAX=MAXCASTABLE,KNOWN]");
+	}
+
+	/**
+	 * Check that an ANY qualifier with a Known restriction is parsed 
+	 * correctly and migrated to ALL.
+	 * @throws PersistenceLayerException If an error occurs.
+	 */
+	public void testValidAnyKnown() throws PersistenceLayerException
+	{
+		CDOMObject a =
+				(CDOMObject) construct(primaryContext, "Endure Elements");
+		a.addToListFor(ListKey.SPELL_SUBSCHOOL, "Summoning");
+		CDOMObject c = (CDOMObject) construct(secondaryContext, "Remove Curse");
+		c.addToListFor(ListKey.SPELL_SUBSCHOOL, "Summoning");
+		runMigrationRoundRobin("SPELLS|ANY[KNOWN=YES],SUBSCHOOL=Summoning",
+			"SPELLS|ALL[KNOWN=YES],SUBSCHOOL=Summoning");
+	}
+
+	/**
+	 * Check that an ANY qualifier with a Known restriction is parsed 
+	 * correctly and migrated to ALL.
+	 * @throws PersistenceLayerException If an error occurs.
+	 */
+	public void testValidAllKnownRev() throws PersistenceLayerException
+	{
+		CDOMObject a =
+				(CDOMObject) construct(primaryContext, "Endure Elements");
+		a.addToListFor(ListKey.SPELL_SUBSCHOOL, "Summoning");
+		CDOMObject c = (CDOMObject) construct(secondaryContext, "Remove Curse");
+		c.addToListFor(ListKey.SPELL_SUBSCHOOL, "Summoning");
+		runMigrationRoundRobin("SPELLS|SUBSCHOOL=Summoning,ALL[KNOWN=YES]",
+			"SPELLS|ALL[KNOWN=YES],SUBSCHOOL=Summoning");
+	}
+	
 }

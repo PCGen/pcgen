@@ -145,6 +145,28 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 		isCDOMEqual(primaryProf, secondaryProf);
 		validateUnparse(unparsed);
 	}
+	
+	/**
+	 * Run a test for conversion of a deprecated format to a supported format.
+	 * @param deprecated The old token format.
+	 * @param target The expected new token format.
+	 * @throws PersistenceLayerException If the parsing 
+	 */
+	public void runMigrationRoundRobin(String deprecated, String target) 
+			throws PersistenceLayerException
+	{
+		// Default is not to write out anything
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+
+		parse(deprecated);
+		primaryProf.setSourceURI(testCampaign.getURI());
+		String[] unparsed = validateUnparsed(primaryContext, primaryProf, target);
+		parseSecondary(unparsed);
+		// Ensure the objects are the same
+		isCDOMEqual(primaryProf, secondaryProf);
+		validateUnparse(unparsed);
+		
+	}
 
 	protected void validateUnparse(String... unparsed)
 	{

@@ -90,6 +90,10 @@ public class SchoolToken implements PrimitiveToken<Spell>, PrimitiveFilter<Spell
 		if (obj instanceof SchoolToken)
 		{
 			SchoolToken other = (SchoolToken) obj;
+			if (school == null)
+			{
+				return other.school == null;
+			}
 			return school.equals(other.school);
 		}
 		return false;
