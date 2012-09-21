@@ -70,9 +70,18 @@ public class TokenSupport
 					"Failed in parsing typeStr: " + typeStr + " " + argument);
 			}
 		}
-		Logging.addParseMessage(Logging.LST_ERROR, "Illegal Token '" + typeStr
-			+ "' '" + argument + "' for " + cl.getName() + " "
-			+ derivative.getDisplayName() + " in " + context.getObjectContext().getSourceURI());
+		if (typeStr.startsWith(" "))
+		{
+			Logging.addParseMessage(Logging.LST_ERROR, "Illegal whitespace at start of token '" + typeStr
+				+ "' '" + argument + "' for " + cl.getName() + " "
+				+ derivative.getDisplayName() + " in " + context.getObjectContext().getSourceURI());
+		}
+		else
+		{
+			Logging.addParseMessage(Logging.LST_ERROR, "Illegal Token '" + typeStr
+				+ "' '" + argument + "' for " + cl.getName() + " "
+				+ derivative.getDisplayName() + " in " + context.getObjectContext().getSourceURI());
+		}
 		return false;
 	}
 
