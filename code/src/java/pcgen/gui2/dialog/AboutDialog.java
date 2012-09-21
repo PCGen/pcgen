@@ -228,7 +228,7 @@ final class MainAbout extends JPanel
 		aCreditsPanel.add(releaseDate, gridBagConstraints1);
 
 		javaVersion.setEditable(false);
-		javaVersion.setText(System.getProperty("java.vm.version") + " (" +
+		javaVersion.setText(System.getProperty("java.runtime.version") + " (" +
 				System.getProperty("java.vm.vendor") + ")");
 		javaVersion.setBorder(new EmptyBorder(new Insets(1, 1, 1, 1)));
 		javaVersion.setOpaque(false);
