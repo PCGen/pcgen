@@ -139,17 +139,32 @@ public class LSTConverter extends Observable
 				final URI uri = cse.getURI();
 				setChanged();
 				notifyObservers(uri);
-				if (written.contains(uri))
-				{
-					continue;
-				}
-				written.add(uri);
 				if (!"file".equalsIgnoreCase(uri.getScheme()))
 				{
 					Logging.log(Logging.WARNING, "Skipping campaign " + uri + " as it is not a local file.");
 					continue;
 				}
 				File in = new File(uri);
+				// Use canonical name to stop reruns for the same file referred to using .. 
+				URI canonicalUri;
+				try
+				{
+					canonicalUri = in.getCanonicalFile().toURI();
+				}
+				catch (IOException e1)
+				{
+					Logging.log(
+						Logging.WARNING,
+						"Skipping campaign " + uri
+							+ " as it could not be made canonical. "
+							+ e1.getMessage());
+					continue;
+				}
+				if (written.contains(canonicalUri))
+				{
+					continue;
+				}
+				written.add(canonicalUri);
 				File base = findSubRoot(rootDir, in);
 				if (base == null)
 				{
