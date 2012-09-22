@@ -35,6 +35,19 @@ public class SpellLevel implements Comparable<SpellLevel>
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder();
+		sb.append(pcclass.toString());
+		sb.append(" ");
+		sb.append(level);
+		return sb.toString();
+	}
+
+	/**
+	 * Provide a machine readable encoding of this SpellLevel for use in storing choices.
+	 * @return The encoded spell level.
+	 */
+	public String encodeChoice()
+	{
+		StringBuilder sb = new StringBuilder();
 		sb.append("CLASS.");
 		sb.append(pcclass.getKeyName());
 		sb.append(";LEVEL.");

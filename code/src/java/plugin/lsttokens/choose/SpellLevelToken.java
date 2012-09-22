@@ -401,7 +401,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 	@Override
 	public String encodeChoice(SpellLevel choice)
 	{
-		return choice.toString();
+		return choice.encodeChoice();
 	}
 
 }
