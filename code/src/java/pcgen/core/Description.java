@@ -289,7 +289,7 @@ public class Description extends ConcretePrereqObject
 			}
 			else
 			{
-				buf.append(EntityEncoder.encode(str));
+				buf.append(EntityEncoder.encodeLight(str));
 			}
 		}
 		if ( theVariables != null )

@@ -182,6 +182,13 @@ public class DescLstTest extends AbstractGlobalTokenTestCase
 			"SA Number One|PRECLASS:1,Fighter=1");
 	}
 
+	@Test
+	public void testRoundRobinEncode() throws PersistenceLayerException
+	{
+		runRoundRobin(
+			"SA Number &pipe; &nl; %1 [before:] %2|Var|TwoVar|PRECLASS:1,Fighter=1|PRERACE:1,Human");
+	}
+
 	@Override
 	protected String getLegalValue()
 	{

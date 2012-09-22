@@ -37,6 +37,8 @@ public final class EntityEncoder
 {
 	private static final String ENCODE = "\\\n\r\f:|[]&";
 	private static final EntityMap ENTITIES;
+	private static final String ENCODE_LIGHT = "\\\n\r\f|&";
+	private static final EntityMap ENTITIES_LIGHT;
 
 	static
 	{
@@ -49,6 +51,13 @@ public final class EntityEncoder
 		ENTITIES.put("[", "&lbracket;");
 		ENTITIES.put("]", "&rbracket;");
 		ENTITIES.put("&", "&amp;");
+
+		ENTITIES_LIGHT = new EntityMap();
+		ENTITIES_LIGHT.put("\n", "&nl;");
+		ENTITIES_LIGHT.put("\r", "&cr;");
+		ENTITIES_LIGHT.put("\f", "&lf;");
+		ENTITIES_LIGHT.put("|", "&pipe;");
+		ENTITIES_LIGHT.put("&", "&amp;");
 	}
 
 	/**
@@ -147,6 +156,35 @@ public final class EntityEncoder
 			while (tokens.hasMoreTokens())
 			{
 				buffer.append(ENTITIES.get(tokens.nextToken()));
+			}
+		}
+		return buffer.toString();
+	}
+
+	/**
+	 * Encode the characters.
+	 * "\n" -> "&nl;"
+	 * "\r" -> "&cr;"
+	 * "\f" -> "&lf;"
+	 * "|" -> "&pipe;"
+	 * "&" -> "&amp;"
+	 *
+	 *Note that this must be a subset of the encode function as 
+	 *the same decode function is used to decode these values.
+	 *
+	 * @param s   the String to encode
+	 * @return the encoded String
+	 */
+	public static String encodeLight(String s)
+	{
+		final StringBuffer buffer = new StringBuffer();
+		if (s != null)
+		{
+			final StringTokenizer tokens = new StringTokenizer(s, ENCODE_LIGHT, true);
+	
+			while (tokens.hasMoreTokens())
+			{
+				buffer.append(ENTITIES_LIGHT.get(tokens.nextToken()));
 			}
 		}
 		return buffer.toString();
