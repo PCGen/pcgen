@@ -342,7 +342,19 @@ public abstract class AbstractPrerequisiteListParser
 											+ kind
 											+ " require a target value, e.g. Key=Value");
 						}
-						subreq.setOperand(elements[0]);
+						String assumed = getAssumedValue();
+						if (assumed == null)
+						{
+							subreq.setOperand(elements[0]);
+						}
+						else
+						{
+							Logging.deprecationPrint("Old syntax detected: "
+									+ "Prerequisites of kind " + kind
+									+ " now require a target value, "
+									+ "e.g. Key=Value.  Assuming Value=" + assumed);
+							subreq.setOperand(assumed);
+						}
 						subreq.setKey(elements[i]);
 					}
 					break;
