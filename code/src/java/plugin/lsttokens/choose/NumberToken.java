@@ -22,6 +22,7 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.EquipmentModifier;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -114,7 +115,8 @@ public class NumberToken implements CDOMSecondaryToken<CDOMObject>
 		String chooseString = context.getObjectContext().getString(cdo,
 				StringKey.CHOICE_STRING);
 		if (chooseString == null
-				|| chooseString.indexOf(getTokenName() + '|') != 0)
+			|| chooseString.indexOf(getTokenName() + '|') != 0
+			|| cdo instanceof EquipmentModifier)
 		{
 			return null;
 		}
