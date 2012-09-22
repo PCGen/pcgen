@@ -5,7 +5,7 @@ SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress
 
 ###Block:Psicrystal
 # Class of the Master		Type			Spell Res.	Ability																	Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Move		Combat bonus						Stat bonus		Modify VAR
-FOLLOWER:PCrystalLevel=1	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Self Propulsion|Telepathic Link|Share Powers|Improved Evasion|Sighted	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2		USEMASTERSKILL:YES			BONUS:COMBAT|AC|0|TYPE=NaturalArmor.STACK
+FOLLOWER:PCrystalLevel=1	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Improved Evasion|Self Propulsion|Share Powers|Sighted|Telepathic Link	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2		USEMASTERSKILL:YES			BONUS:COMBAT|AC|0|TYPE=NaturalArmor.STACK
 FOLLOWER:PCrystalLevel=3	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Deliver Touch Powers																												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|INT|1
 FOLLOWER:PCrystalLevel=5	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Telepathic Speech																													BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|INT|1
 FOLLOWER:PCrystalLevel=7	TYPE:Psicrystal																																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|INT|1

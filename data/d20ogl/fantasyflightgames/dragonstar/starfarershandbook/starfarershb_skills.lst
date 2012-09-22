@@ -4,15 +4,15 @@ SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:
 #note: need to come back and add integrated toolkits from soulmech/robot upgrades to all kits so neg goes away when the have kit
 
 # Skill Name	Key Stat	Untrained?		Skill Penalty Apply	Classes																			Type			Required Feat				Source Page		Bonus to skill
-Cryptography	KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:Rogue|Loremaster																TYPE:Intelligence							SOURCEPAGE:p.78
-Demolitions		KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:Fighter|Rogue|Assassin|Blackguard|Dwarven Defender|Shadowdancer|Warrior							TYPE:Intelligence	PREFEAT:1,Technical Proficiency	SOURCEPAGE:p.79	BONUS:SKILL|Demolitions|-2|!PREITEM:1,RU_Integral Toolkit (Demolitions),RU_Integral Toolkit (Masterwork Demolitions),Demolitions kit,Demolitions kit (masterwork)
-Freefall		KEYSTAT:DEX				ACHECK:YES			CLASSES:Barbarian|Druid|Fighter|Monk|Paladin|Ranger|Rogue|Assassin|Blackguard|Dwarven Defender|Shadowdancer|Warrior	TYPE:Dexterity							SOURCEPAGE:p.79
-Pilot			KEYSTAT:DEX				ACHECK:YES			CLASSES:Fighter|Paladin|Ranger|Rogue|Blackguard|Aristocrat|Warrior									TYPE:Dexterity	PREFEAT:1,Technical Proficiency	SOURCEPAGE:p.80
+Cryptography	KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:Loremaster|Rogue																TYPE:Intelligence							SOURCEPAGE:p.78
+Demolitions		KEYSTAT:INT	USEUNTRAINED:NO					CLASSES:Assassin|Blackguard|Dwarven Defender|Fighter|Rogue|Shadowdancer|Warrior							TYPE:Intelligence	PREFEAT:1,Technical Proficiency	SOURCEPAGE:p.79	BONUS:SKILL|Demolitions|-2|!PREITEM:1,RU_Integral Toolkit (Demolitions),RU_Integral Toolkit (Masterwork Demolitions),Demolitions kit,Demolitions kit (masterwork)
+Freefall		KEYSTAT:DEX				ACHECK:YES			CLASSES:Assassin|Barbarian|Blackguard|Druid|Dwarven Defender|Fighter|Monk|Paladin|Ranger|Rogue|Shadowdancer|Warrior	TYPE:Dexterity							SOURCEPAGE:p.79
+Pilot			KEYSTAT:DEX				ACHECK:YES			CLASSES:Aristocrat|Blackguard|Fighter|Paladin|Ranger|Rogue|Warrior									TYPE:Dexterity	PREFEAT:1,Technical Proficiency	SOURCEPAGE:p.80
 Navigate		KEYSTAT:INT								CLASSES:Bard|Druid|Ranger|Rogue|Wizard														TYPE:Intelligence							SOURCEPAGE:p.81
 Repair		KEYSTAT:INT	USEUNTRAINED:NO																									TYPE:Intelligence	PREFEAT:1,Technical Proficiency	SOURCEPAGE:p.82
-Research		KEYSTAT:WIS								CLASSES:Bard|Cleric|Wizard|Loremaster														TYPE:Wisdom								SOURCEPAGE:p.82
-Urban Lore		KEYSTAT:WIS								CLASSES:Bard|Rogue|Aristocrat																TYPE:Wisdom								SOURCEPAGE:p.83
-Use Device		KEYSTAT:INT								CLASSES:Bard|Rogue|Loremaster																TYPE:Intelligence	PREFEAT:1,Technical Proficiency	SOURCEPAGE:p.84
+Research		KEYSTAT:WIS								CLASSES:Bard|Cleric|Loremaster|Wizard														TYPE:Wisdom								SOURCEPAGE:p.82
+Urban Lore		KEYSTAT:WIS								CLASSES:Aristocrat|Bard|Rogue																TYPE:Wisdom								SOURCEPAGE:p.83
+Use Device		KEYSTAT:INT								CLASSES:Bard|Loremaster|Rogue																TYPE:Intelligence	PREFEAT:1,Technical Proficiency	SOURCEPAGE:p.84
 
 ###Block: New Crafts, Knowledge, and Professions
 # Skill Name																					Key Stat	Untrained?		Type						Required Feat				Source Page

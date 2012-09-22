@@ -18,7 +18,7 @@ Aklys			PROFICIENCY:WEAPON|Club		TYPE:Weapon.Melee.OneHanded.Ranged.Thrown.Simpl
 
 ###Block: Night Hag's Heartstone
 # Equipment Name		Output Name			Type					Cost		Weight	Source Page		Ability								Save checks bonus		Special Property
-Heartstone (Night Hag)	OUTPUTNAME:Heartstone	TYPE:Magic.Monster.Periapt	COST:0	WT:0		SOURCEPAGE:p.215	ABILITY:Special ability|AUTOMATIC|Immunity to Disease	BONUS:CHECKS|ALL|2	SPROP:Gemstone worth 1800gp
+Heartstone (Night Hag)	OUTPUTNAME:Heartstone	TYPE:Magic.Monster.Periapt	COST:0	WT:0		SOURCEPAGE:p.215	ABILITY:Special Ability|AUTOMATIC|Immunity to Disease	BONUS:CHECKS|ALL|2	SPROP:Gemstone worth 1800gp
 
 ###Block: Skeleton Equipment
 # Equipment Name		Output Name					Required Weapon Proficiency			Type																	Alternative Type					Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier						Alternative Modifier		Wield Category	Range		Reach		Reach Multiplier	Size		Source Page		Bonus Equipment Modifiers																Weapon prop. bonus											Special Property

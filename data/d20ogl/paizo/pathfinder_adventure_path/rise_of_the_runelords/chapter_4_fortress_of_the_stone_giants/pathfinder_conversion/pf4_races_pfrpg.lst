@@ -6,7 +6,7 @@ SOURCELONG:Rise of the Runelords - Chapter 4: Fortress of the Stone Giants	SOURC
 Deathweb.MOD										MONCSKILL:.CLEAR
 Redcap.MOD					BONUS:VAR|FastHealingRate|3		MONCSKILL:.CLEAR
 Hound of Tindalos.MOD									MONCSKILL:.CLEAR														ABILITY:Special Ability|AUTOMATIC|.CLEAR.Immunity To Mind-Affecting|Immunity to Mind-Affecting Effects								MONSTERCLASS:Outsider (Ref/Will):10
-Giant (Tiaga).MOD				BONUS:VAR|RockThrowingRange|140	MONCSKILL:.CLEAR														ABILITY:Special Ability|AUTOMATIC|Rock Throwing|Rock Catching															MONSTERCLASS:Humanoid:14			RACETYPE:Humanoid
+Giant (Tiaga).MOD				BONUS:VAR|RockThrowingRange|140	MONCSKILL:.CLEAR														ABILITY:Special Ability|AUTOMATIC|Rock Catching|Rock Throwing															MONSTERCLASS:Humanoid:14			RACETYPE:Humanoid
 Scanderig.MOD										MONCSKILL:.CLEAR	MONCSKILL:Acrobatics|Disable Device|Escape Artist|Knowledge (Dungeoneering)	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Earth Glide|Earth Glide ~ Scanderig													MONSTERCLASS:Outsider (Fort/Ref):11
 Shining Child of Thassilon.MOD							MONCSKILL:.CLEAR	MONCSKILL:Diplomacy|Intimidate|Knowledge (Arcana)|Use Magic Device		ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability									DEFINE:Maneuverability|5	SR:26		MONSTERCLASS:Outsider (Fort/Ref):18
 

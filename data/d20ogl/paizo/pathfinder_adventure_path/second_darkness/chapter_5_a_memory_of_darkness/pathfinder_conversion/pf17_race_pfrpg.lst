@@ -3,11 +3,11 @@ SOURCELONG:Second Darkness - Chapter 5: A Memory of Darkness	SOURCESHORT:PF17	SO
 # Original Entry by Eddy Anthony (MoSaT)
 
 # Race Name		Clear Prereq.	Bonus to skill					Modify VAR				Racial HD Class Skills								Ability																																			Define				Monster Class Name and Starting Level	Apply Kit
-Banshee.MOD		PRE:.CLEAR		BONUS:SKILL|Perception|2|TYPE=Racial						MONCSKILL:.CLEAR									ABILITY:Special Ability|AUTOMATIC|.CLEAR.Fear|Fear ~ Banshee|.CLEAR.Immunity To Mind-Affecting|Immunity to Mind-Affecting Effects|.CLEAR.Sunlight Powerlessness|Sunlight Powerlessness ~ Banshee|Flight Maneuverability	DEFINE:Maneuverability|5								KIT:1|CE
-Leucrotta.MOD				BONUS:SKILL|Perception|8|TYPE=Racial						MONCSKILL:.CLEAR									ABILITY:Special Ability|AUTOMATIC|Immunity to Disease|Immunity to Poison
-Mandragora.MOD	PRE:.CLEAR		BONUS:SKILL|Stealth|8|TYPE=Racial		BONUS:VAR|FastHealingRate|3	MONCSKILL:.CLEAR									ABILITY:Special Ability|AUTOMATIC|.CLEAR.Blood Drain|Blood Drain ~ Mandragora|.CLEAR.Immunity To Mind-Affecting|Immunity to Mind-Affecting Effects|.CLEAR.Shriek|Shriek ~ Mandragora																		KIT:1|CE
+Banshee.MOD		PRE:.CLEAR		BONUS:SKILL|Perception|2|TYPE=Racial						MONCSKILL:.CLEAR									ABILITY:Special Ability|AUTOMATIC|.CLEAR.Fear|.CLEAR.Immunity To Mind-Affecting|.CLEAR.Sunlight Powerlessness|Fear ~ Banshee|Flight Maneuverability|Immunity to Mind-Affecting Effects|Sunlight Powerlessness ~ Banshee	DEFINE:Maneuverability|5								KIT:1|CE
+Leucrotta.MOD				BONUS:SKILL|Perception|8|TYPE=Racial						MONCSKILL:.CLEAR									ABILITY:Special Ability|AUTOMATIC|Immunity To Disease|Immunity To Poison
+Mandragora.MOD	PRE:.CLEAR		BONUS:SKILL|Stealth|8|TYPE=Racial		BONUS:VAR|FastHealingRate|3	MONCSKILL:.CLEAR									ABILITY:Special Ability|AUTOMATIC|.CLEAR.Blood Drain|.CLEAR.Immunity To Mind-Affecting|.CLEAR.Shriek|Blood Drain ~ Mandragora|Immunity to Mind-Affecting Effects|Shriek ~ Mandragora																		KIT:1|CE
 Menotherian.MOD	PRE:.CLEAR														MONCSKILL:.CLEAR	MONCSKILL:Diplomacy|Heal|Intimidate|Spellcraft	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Alternate Form|Alternate Form ~ Menotherian|Flight Maneuverability																			DEFINE:Maneuverability|2	MONSTERCLASS:Outsider (Fort/Ref):14		KIT:1|CN
-Treerazer.MOD	PRE:.CLEAR									BONUS:VAR|SLA_CL|20		MONCSKILL:.CLEAR	MONCSKILL:Fly|Intimidate|Spellcraft|Survival	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Freedom of Movement|Freedom of Movement ~ Treerazer|.CLEAR.Summon Demon|Summon Demon ~ Treerazer|.CLEAR.True Seeing|True Seeing ~ Constant												MONSTERCLASS:Outsider (Fort/Ref):31		KIT:1|CE
+Treerazer.MOD	PRE:.CLEAR									BONUS:VAR|SLA_CL|20		MONCSKILL:.CLEAR	MONCSKILL:Fly|Intimidate|Spellcraft|Survival	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Freedom of Movement|.CLEAR.Summon Demon|.CLEAR.True Seeing|Freedom of Movement ~ Treerazer|Summon Demon ~ Treerazer|True Seeing ~ Constant												MONSTERCLASS:Outsider (Fort/Ref):31		KIT:1|CE
 
 #
 # End

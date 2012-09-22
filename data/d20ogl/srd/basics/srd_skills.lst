@@ -91,7 +91,7 @@ Ride							KEYSTAT:DEX				ACHECK:NONPROF					TYPE:Dexterity						SOURCEPAGE:srds
 Scry							KEYSTAT:INT								EXCLUSIVE:YES	TYPE:Intelligence						SOURCEPAGE:srdskillsii.rtf
 Search						KEYSTAT:INT											TYPE:Intelligence						SOURCEPAGE:srdskillsii.rtf
 Sense Motive					KEYSTAT:WIS											TYPE:Wisdom							SOURCEPAGE:srdskillsii.rtf
-Speak Language							USEUNTRAINED:NO								TYPE:None.Language					SOURCEPAGE:srdskillsii.rtf	CHOOSE:LANGUAGE|Spoken
+Speak Language							USEUNTRAINED:NO								TYPE:None.Language					SOURCEPAGE:srdskillsii.rtf	AUTO:LANG|%LIST	CHOOSE:LANG|TYPE=Spoken
 Spellcraft						KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence						SOURCEPAGE:srdskillsii.rtf
 Spot							KEYSTAT:WIS											TYPE:Wisdom							SOURCEPAGE:srdskillsii.rtf
 Swim							KEYSTAT:STR				ACHECK:WEIGHT					TYPE:Strength						SOURCEPAGE:srdskillsii.rtf

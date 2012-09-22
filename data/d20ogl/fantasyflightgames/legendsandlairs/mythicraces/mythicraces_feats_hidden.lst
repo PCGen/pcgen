@@ -12,5 +12,5 @@ Animan Atavist Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger
 
 ###Block: Soulless Resistance and Immunity
 # Feat Name			Type			Visible	Special ABility			Stackable?	Multiple?	Choose
-Soulless Resistance	TYPE:Special	VISIBLE:NO	SAB:Resistance 20/%CHOISE	STACK:NO	MULT:YES	CHOOSE:STRING|Cold|Fire|Acid
-Soulless Immunity		TYPE:Special	VISIBLE:NO	SAB:Immunity 20/%CHOISE		STACK:NO	MULT:YES	CHOOSE:STRING|Poison|Fire|Electricity
+Soulless Resistance	TYPE:Special	VISIBLE:NO	SAB:Resistance 20/%CHOISE	STACK:NO	MULT:YES	CHOOSE:STRING|Acid|Cold|Fire
+Soulless Immunity		TYPE:Special	VISIBLE:NO	SAB:Immunity 20/%CHOISE		STACK:NO	MULT:YES	CHOOSE:STRING|Electricity|Fire|Poison

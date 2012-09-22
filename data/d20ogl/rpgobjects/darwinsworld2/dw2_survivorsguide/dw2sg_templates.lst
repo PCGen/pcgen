@@ -13,16 +13,16 @@ PApocSkills		VISIBLE:NO	PRECLASS:1,Post Apocalyptic Hero=1
 ###Block: Backgrounds
 # Template Name				Visible	Bonus to Ability Pool																			Automatically Gained Feat			Apply Kit								Automatic Languages
 Background (Feral)			VISIBLE:NO	BONUS:ABILITYPOOL|Feral Background Skills|3	BONUS:ABILITYPOOL|Feral Background Feat|1															KIT:1|Equipment_AnySimpleWeapon
-Background (Tribal)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Tribal Background Skills|1	BONUS:ABILITYPOOL|Tribal Background Feat|1	AUTO:FEAT|Primitive Technology		KIT:1|Equipment_MWArchaicWeapon				LANGAUTO:Unislang
-Background (Ritual Preservationist)	VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Ritual Preservationist Background Skills|1						AUTO:FEAT|Post-Apocalyptic Technology	KIT:1|Equipment_ArtifactOfAncientsI				LANGAUTO:Gutter Talk
-Background (Resentful)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Resentful Background Skills|1	BONUS:ABILITYPOOL|Resentful Background Feat|1	AUTO:FEAT|Primitive Technology											LANGAUTO:Unislang
-Background (Radical)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Radical Background Skills|1	BONUS:ABILITYPOOL|Radical Background Feat|1	AUTO:FEAT|Post-Apocalyptic Technology										LANGAUTO:Unislang
-Background (Degenerate)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Degenerate Background Skills|1								AUTO:FEAT|Post-Apocalyptic Technology	KIT:1|Equipment_ArtifactOfAncientsI				LANGAUTO:Gutter Talk
-Background (Resurrector)		VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Resurrector Background Skills|1								AUTO:FEAT|Post-Apocalyptic Technology	KIT:1|Equipment_ArtifactOfAncientsI				LANGAUTO:Unislang
-Background (Visionary Reinventor)	VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Visionary Reinventor Background Skills|1							AUTO:FEAT|Post-Apocalyptic Technology	KIT:1|Equipment_ArtifactOfAncientsI				LANGAUTO:Unislang
-Background (Guardian)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Guardian Background Skills|3																KIT:1|Equipment_WeaponOfAncients				LANGAUTO:Ancient
-Background (Hedonist)			VISIBLE:NO	BONUS:ABILITYPOOL|Hedonist Background Skills|1	BONUS:ABILITYPOOL|Hedonist Background Feat|1							AUTO:FEAT|Post-Apocalyptic Technology	KIT:2|Equipment_ArtifactOfAncientsII|Funds_6d6_10	LANGAUTO:Ancient
-Background (Advanced)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Advanced Background Skills|1																KIT:1|Equipment_ArtifactOfAncientsIII			LANGAUTO:Ancient
+Background (Tribal)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Tribal Background Skills|1	BONUS:ABILITYPOOL|Tribal Background Feat|1	AUTO:FEAT|Primitive Technology		KIT:1|Equipment_MWArchaicWeapon				AUTO:LANG|Unislang
+Background (Ritual Preservationist)	VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Ritual Preservationist Background Skills|1						AUTO:FEAT|Post-Apocalyptic Technology	KIT:1|Equipment_ArtifactOfAncientsI				AUTO:LANG|Gutter Talk
+Background (Resentful)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Resentful Background Skills|1	BONUS:ABILITYPOOL|Resentful Background Feat|1	AUTO:FEAT|Primitive Technology											AUTO:LANG|Unislang
+Background (Radical)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Radical Background Skills|1	BONUS:ABILITYPOOL|Radical Background Feat|1	AUTO:FEAT|Post-Apocalyptic Technology										AUTO:LANG|Unislang
+Background (Degenerate)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Degenerate Background Skills|1								AUTO:FEAT|Post-Apocalyptic Technology	KIT:1|Equipment_ArtifactOfAncientsI				AUTO:LANG|Gutter Talk
+Background (Resurrector)		VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Resurrector Background Skills|1								AUTO:FEAT|Post-Apocalyptic Technology	KIT:1|Equipment_ArtifactOfAncientsI				AUTO:LANG|Unislang
+Background (Visionary Reinventor)	VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Visionary Reinventor Background Skills|1							AUTO:FEAT|Post-Apocalyptic Technology	KIT:1|Equipment_ArtifactOfAncientsI				AUTO:LANG|Unislang
+Background (Guardian)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Guardian Background Skills|3																KIT:1|Equipment_WeaponOfAncients				AUTO:LANG|Ancient
+Background (Hedonist)			VISIBLE:NO	BONUS:ABILITYPOOL|Hedonist Background Skills|1	BONUS:ABILITYPOOL|Hedonist Background Feat|1							AUTO:FEAT|Post-Apocalyptic Technology	KIT:2|Equipment_ArtifactOfAncientsII|Funds_6d6_10	AUTO:LANG|Ancient
+Background (Advanced)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Advanced Background Skills|1																KIT:1|Equipment_ArtifactOfAncientsIII			AUTO:LANG|Ancient
 
 ###Block: Mutant
 # Template Name		Visible	Template							Special ABility						Define						Bonus to Ability Pool							Modify VAR							Subrace

@@ -2,14 +2,12 @@ SOURCELONG:Guide to Pathfinder Society Organised Play		SOURCESHORT:GTPOP	SOURCEW
 # Original Entry by: Jeff Baril
 # Updated by: Andrew Wilson
 
-Awaken.MOD				PRECLASS:1,NPC,Monster
-Permanency.MOD		PRECLASS:1,NPC,Monster
-Reincarnate.MOD		PRECLASS:1,NPC,Monster
+Awaken.MOD				PRECLASS:1,NPC=1,Monster=1
+Permanency.MOD		PRECLASS:1,NPC=1,Monster=1
+Reincarnate.MOD		PRECLASS:1,NPC=1,Monster=1
 
-Heroic Fortune.MOD		PRECLASS:1,NPC,Monster
-Heroic Fortune (Mass).MOD		PRECLASS:1,NPC,Monster
-Malediction.MOD		PRECLASS:1,NPC,Monster
-Severed Fate.MOD		PRECLASS:1,NPC,Monster
-Unravel Destiny.MOD		PRECLASS:1,NPC,Monster
-
-
+Heroic Fortune.MOD		PRECLASS:1,NPC=1,Monster=1
+Heroic Fortune (Mass).MOD		PRECLASS:1,NPC=1,Monster=1
+Malediction.MOD		PRECLASS:1,NPC=1,Monster=1
+Severed Fate.MOD		PRECLASS:1,NPC=1,Monster=1
+Unravel Destiny.MOD		PRECLASS:1,NPC=1,Monster=1

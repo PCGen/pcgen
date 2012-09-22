@@ -69,7 +69,7 @@ Pilot (Aircraft/Small)			KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity.Pilot
 Pilot (Aircraft/Large)			KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity.Pilot									SOURCEPAGE:p.
 Pilot (Spacecraft/Small)		KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity.Pilot									SOURCEPAGE:p.
 Profession (Gunsmith)			KEYSTAT:WIS	USEUNTRAINED:NO								TYPE:Wisdom.Profession									SOURCEPAGE:p.
-Read/Write Language					USEUNTRAINED:NO								TYPE:None.Language									SOURCEPAGE:p.	CHOOSE:LANGUAGE|Written
+Read/Write Language					USEUNTRAINED:NO								TYPE:None.Language									SOURCEPAGE:p.	AUTO:LANG|%LIST	CHOOSE:LANG|TYPE=Written
 Repair					KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence										SOURCEPAGE:p.
 Research					KEYSTAT:INT											TYPE:Intelligence										SOURCEPAGE:p.
 Ritual Casting				KEYSTAT:CON	USEUNTRAINED:NO	ACHECK:YES						TYPE:Constitution										SOURCEPAGE:p.					BONUS:SKILL|Ritual Casting|SynergyBonus|PRESKILL:1,Concentration=5|TYPE=Synergy.STACK

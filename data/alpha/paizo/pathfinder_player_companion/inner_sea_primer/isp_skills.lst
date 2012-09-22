@@ -8,7 +8,7 @@ Profession (Fortune-teller)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession	S
 
 ###Block: Skill Focus implementation
 # Skill Name				Bonus to skill
-Profession (Fortune-teller).MOD	BONUS:SKILL|Profession (Fortune-teller)|3|TYPE=SkillFocus|PREFEAT:1,Skill Focus(Profession (Fortune-teller))	BONUS:SKILL|Profession (Fortune-teller)|6|TYPE=SkillFocus|PREFEAT:1,Skill Focus(Profession (Fortune-teller))|PRESKILL:1,Profession (Fortune-teller)=10
+Profession (Fortune-teller).MOD	BONUS:SKILL|Profession (Fortune-teller)|3|TYPE=SkillFocus|PREFEAT:1,Skill Focus (Profession (Fortune-teller))	BONUS:SKILL|Profession (Fortune-teller)|6|TYPE=SkillFocus|PREFEAT:1,Skill Focus (Profession (Fortune-teller))|PRESKILL:1,Profession (Fortune-teller)=10
 
 #
 # End

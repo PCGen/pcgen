@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Tue Nov 11 14:25:56 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 SOURCELONG:Malhavoc Press - Book of Eldritch Might	SOURCESHORT:BoEM1	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2001-12
 #Spell names and other proper names from The Book of Eldritch Might are
-#	©2001-2003 Monte J. Cook and are used here with his permission.
+#	Â©2001-2003 Monte J. Cook and are used here with his permission.
 
 
 # Feat Name					Type			Required Class			Required Stat	Description																														Multiple?	Choose																																								Source Page
@@ -9,9 +9,9 @@ Conjure Mastery				TYPE:Eldritch	PRECLASS:1,Spellcaster=7	PRESTAT:1,CHA=17	DESC:
 Etch Object Rune				TYPE:ItemCreation	PRECLASS:1,Spellcaster=5				DESC:You can etch objects like scrolls																																																																				SOURCEPAGE:p.4
 Item Image					TYPE:Eldritch	PRECLASS:1,Spellcaster=7	PRESTAT:1,INT=17	DESC:You can create a tattoo on your body to store magical items.  Process takes 8 hours and costs 1/10 of the item's value.																																																						SOURCEPAGE:p.4
 Lace Spell (Elemental Energies)	TYPE:Eldritch	PRECLASS:1,Spellcaster=5	PRESTAT:1,INT=17	DESC:You can lace your spells that target a single creature with elemental energy, of your choosing, that deals an additional 1d6 damage if target takes damage from the original spell.																																												SOURCEPAGE:p.5
-Lace Spell (Enemy Bane)			TYPE:Eldritch	PRECLASS:1,Spellcaster=5	PRESTAT:1,INT=17	DESC:You give your spells extra damage against a particular type of creature.  If damage occurs, target creature type takes an additional 20%% of damage.						MULT:YES	CHOOSE:STRING|Aberrations|Animals|Beasts|Constructs|Dragons|Elementals|Fey|Giants|Magical Beasts|Monstrous Humanoid|Oozes|Outsiders (Chaotic)|Outsiders (Evil)|Outsiders (Good)|Outsiders (Lawful)|Plants|Shapechangers|Undead|Vermin|Humanoid type	SOURCEPAGE:p.5
+Lace Spell (Enemy Bane)			TYPE:Eldritch	PRECLASS:1,Spellcaster=5	PRESTAT:1,INT=17	DESC:You give your spells extra damage against a particular type of creature.  If damage occurs, target creature type takes an additional 20%% of damage.						MULT:YES	CHOOSE:STRING|Aberrations|Animals|Beasts|Constructs|Dragons|Elementals|Fey|Giants|Humanoid type|Magical Beasts|Monstrous Humanoid|Oozes|Outsiders (Chaotic)|Outsiders (Evil)|Outsiders (Good)|Outsiders (Lawful)|Plants|Shapechangers|Undead|Vermin	SOURCEPAGE:p.5
 Lace Spell (Holy/Unholy)		TYPE:Eldritch	PRECLASS:1,Spellcaster=5	PRESTAT:1,INT=17	DESC:You lace your spells with holy or unholy energy.  The spell DC increases by 2 against the opposite alignment.												MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Holy|Unholy																																			SOURCEPAGE:p.5
-Lace Spell (Lawful/Chaotic)		TYPE:Eldritch	PRECLASS:1,Spellcaster=5	PRESTAT:1,INT=17	DESC:You lace your spells with lawful or chaotic energy.  The spell DC increases by 2 against the opposite alignment.												MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Lawful|Chaotic																																			SOURCEPAGE:p.5
+Lace Spell (Lawful/Chaotic)		TYPE:Eldritch	PRECLASS:1,Spellcaster=5	PRESTAT:1,INT=17	DESC:You lace your spells with lawful or chaotic energy.  The spell DC increases by 2 against the opposite alignment.												MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Chaotic|Lawful																																			SOURCEPAGE:p.5
 Manufacture Magic Poison		TYPE:ItemCreation	PRECLASS:1,Spellcaster=5				DESC:Can create magical poisons																																																																					SOURCEPAGE:p.6
 Mirror Sight				TYPE:Eldritch	PRECLASS:1,Spellcaster=1	PRESTAT:1,CHA=19	DESC:Can use a mirror for a special sort of scrying																																																																		SOURCEPAGE:p.6
 

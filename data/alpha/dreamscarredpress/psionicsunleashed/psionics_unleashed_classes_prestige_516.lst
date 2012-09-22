@@ -30,10 +30,10 @@ CLASS:Elocater	PREATT:3	PREFEAT:2,Dodge,Mobility	PREMULT:1,[PREFEAT:1,Spring Att
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Elocater	STARTSKILLPTS:6	CSKILL:Acrobatics|Climb|Escape Artist|Fly|Knowledge (Psionics)|Perception|Sleight of Hand|Spellcraft|Stealth|Use Magic Device
 ###Block:Proficiencies
-1																													ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies																		AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1																													ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies																		AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 1																																																										AUTO:FEAT|Armor Proficiency (Light)
 1																													ABILITY:Special Ability|AUTOMATIC|Aerial Acrobatics|Personal Gravity|Scorn Earth|Terminal Velocity
-2								BONUS:VAR|SpatialAwareness|2	BONUS:VAR|MndBladeLVL|(CL*3/4)	BONUS:VAR|FreerunningSpeedBonus|10	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Spatial Awareness|Freerunning
+2								BONUS:VAR|SpatialAwareness|2	BONUS:VAR|MndBladeLVL|(CL*3/4)	BONUS:VAR|FreerunningSpeedBonus|10	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Freerunning|Spatial Awareness
 3								BONUS:VAR|DimensionStep|1													ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Dimension Step									SPELLS:Innate|TIMES=DimensionStep|CASTERLEVEL=CL|Fold Space,14+INT
 4																									ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Flanker
 5								BONUS:VAR|SpatialAwareness|2	BONUS:VAR|FreerunningSpeedBonus|10
@@ -67,10 +67,10 @@ CLASS:Phrenic Slayer	PREATT:4	PREMULT:1,[PREFEAT:1,Skill Focus (Survival)],[PREA
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Phrenic Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Knowledge (Psionics)|Perception|Sense Motive|Spellcraft|Survival
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
-1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Class Info
-1	BONUS:VAR|SlayerFavoredEnemy|2															ABILITY:Special Ability|AUTOMATIC|Favored Enemy ~ Slayer|Enemy Sense
+1	BONUS:VAR|SlayerFavoredEnemy|2															ABILITY:Special Ability|AUTOMATIC|Enemy Sense|Favored Enemy ~ Slayer
 2	BONUS:VAR|BrainNauseaDC|10+(CL/2)+WIS	BONUS:VAR|BrainNausea|1	BONUS:VAR|MndBladeLVL|(CL-1)	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Brain Nausea
 3	BONUS:VAR|LucidBuffer|2													ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Lucid Buffer
 4	BONUS:VAR|SlayerFavoredEnemy|2											ADD:SPELLCASTER|Psionic
@@ -165,7 +165,7 @@ CLASS:Pyrokineticist	PREALIGN:CG,CN,CE	PRESKILL:3,Autohypnosis=5,Craft (Alchemy)
 CLASS:Pyrokineticist	STARTSKILLPTS:2	CSKILL:Acrobatics|Autohypnosis|Climb|Intimidate|Spellcraft
 ###Block: Class Info
 1	BONUS:VAR|ManipulateBlazeRange|(25+5*floor(CL/2))							ABILITY:Special Ability|AUTOMATIC|Fire Lash|Manipulate Blaze
-2	BONUS:VAR|FireAdaptation|4	BONUS:VAR|FireResistanceBonus|10	BONUS:VAR|HandAfire|2	ABILITY:Special Ability|AUTOMATIC|Hand Afire|Fire Adaptation
+2	BONUS:VAR|FireAdaptation|4	BONUS:VAR|FireResistanceBonus|10	BONUS:VAR|HandAfire|2	ABILITY:Special Ability|AUTOMATIC|Fire Adaptation|Hand Afire
 3	BONUS:VAR|BoltFire|CL												ABILITY:Special Ability|AUTOMATIC|Bolt of Fire
 4	BONUS:VAR|WeaponAfire|2												ABILITY:Special Ability|AUTOMATIC|Weapon Afire
 5	BONUS:VAR|NimbusDuration|CL	BONUS:VAR|Nimbus|2							ABILITY:Special Ability|AUTOMATIC|Nimbus
@@ -178,7 +178,7 @@ CLASS:Pyrokineticist	STARTSKILLPTS:2	CSKILL:Acrobatics|Autohypnosis|Climb|Intimi
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
 CLASS:Thrallherd	HD:6		TYPE:PC.Prestige.Psionic	ABB:Thr		MAXLEVEL:10	SOURCEPAGE:p.170	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Required Class				Required Feat						Multiple Requirements																Required Skill
-CLASS:Thrallherd	PRECLASS:1,SPELLCASTER.Psionic=5	PREFEAT:1,Inquisitor,Skill Focus(Diplomacy)	PREMULT:1,[PRESPELL:1,Mindlink,Mind Control],[PREABILITY:1,CATEGORY=Special Ability,TYPE.ThrallherdLinkMinds]	PRESKILL:2,Knowledge (Psionics)=5,Diplomacy=4
+CLASS:Thrallherd	PRECLASS:1,SPELLCASTER.Psionic=5	PREFEAT:1,Inquisitor,Skill Focus (Diplomacy)	PREMULT:1,[PRESPELL:1,Mindlink,Mind Control],[PREABILITY:1,CATEGORY=Special Ability,TYPE.ThrallherdLinkMinds]	PRESKILL:2,Knowledge (Psionics)=5,Diplomacy=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Thrallherd	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Diplomacy|Knowledge (Psionics)|Sense Motive|Spellcraft
 ###Block: Class Info
@@ -191,7 +191,7 @@ CLASS:Thrallherd	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Diplomacy|Knowledge (
 7											BONUS:VAR|MndBladeLVL|1				ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Greater Mind Control
 8											BONUS:VAR|MndBladeLVL|1				ADD:SPELLCASTER|Psionic
 9											BONUS:VAR|MndBladeLVL|1				ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Superior Mind Control
-10																						ABILITY:Special Ability|AUTOMATIC|Twofold Master|Expanded Call
+10																						ABILITY:Special Ability|AUTOMATIC|Expanded Call|Twofold Master
 
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
 CLASS:War Mind	HD:10		TYPE:PC.Prestige.Psionic	ABB:WMnd		MAXLEVEL:10	SOURCEPAGE:p.173	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity

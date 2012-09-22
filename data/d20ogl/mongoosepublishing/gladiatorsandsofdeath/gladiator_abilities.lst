@@ -3,7 +3,7 @@ SOURCELONG:Mongoose Publishing - Gladiators - Sand of Death	SOURCESHORT:Gladiato
 # Updated Entry: Andrew Maitland
 
 
-Slave Weapon			CATEGORY:Special Ability			MULT:YES	CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.Simple														SOURCEPAGE:p.35
+Slave Weapon			CATEGORY:Special Ability			MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Simple]														SOURCEPAGE:p.35
 
 
 #Block: Gladiator Champion ------------------------------------------
@@ -28,4 +28,3 @@ Superb Control	KEY:Superb Control ~ Charioteer	CATEGORY:Special Ability	TYPE:Spe
 Survivor		KEY:Survivor ~ Charioteer		CATEGORY:Special Ability	TYPE:SpecialQuality
 Love of the Crowd	KEY:Love of the Crowd ~ Charioteer	CATEGORY:Special Ability	TYPE:SpecialQuality
 Lethal Sideswipe	KEY:Lethal Sideswipe ~ Charioteer	CATEGORY:Special Ability	TYPE:SpecialQuality
-

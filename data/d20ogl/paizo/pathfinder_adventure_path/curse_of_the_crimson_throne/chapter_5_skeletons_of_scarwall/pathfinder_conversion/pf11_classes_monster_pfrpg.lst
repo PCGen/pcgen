@@ -3,6 +3,6 @@ SOURCELONG:Curse of the Crimson Throne: Skeletons of Scarwall	SOURCESHORT:CotCT:
 
 
 # Class Name		Remove Class Skill	Class Skill
-CLASS:Umbral Dragon.MOD	CSKILL:.CLEAR		CSKILL:Appraise|Bluff|Climb|TYPE.Craft|Diplomacy|Fly|Heal|Intimidate|TYPE.Knowledge|Linguistics|Perception|Sense Motive|Spellcraft|Stealth|Survival|Swim|Use Magic Device
+CLASS:Umbral Dragon.MOD	CSKILL:.CLEAR		CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Fly|Heal|Intimidate|TYPE=Knowledge|Linguistics|Perception|Sense Motive|Spellcraft|Stealth|Survival|Swim|Use Magic Device
 
 18	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Basic Turning|.CLEAR.Rebuke Undead|Channel Energy|Channel Negative Energy

@@ -4,9 +4,9 @@ SOURCELONG:eFaeries	SOURCESHORT:eFaeries	SOURCEWEB:http://dragonwing.net/Faeries
 
 ###eFAERIES
 # Ability Name				Output Name					Category of Ability		Type						Visible	Special ABility																			Define			Source Page
-Call of the Wild Hunt								CATEGORY:Special Ability	TYPE:Supernatural.SpecialQuality		
-See Invisible									CATEGORY:Special Ability	TYPE:Supernatural.SpecialQuality		
-Preferred Enemy									CATEGORY:Special Ability	TYPE:SpecialAttack				
+Call of the Wild Hunt								CATEGORY:Special Ability	TYPE:Supernatural.SpecialQuality
+See Invisible									CATEGORY:Special Ability	TYPE:Supernatural.SpecialQuality
+Preferred Enemy									CATEGORY:Special Ability	TYPE:SpecialAttack
 Breath Weapon		KEY:Faerie Dragon Breath Weapon		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DESC:Cloud of Euphoric Gas ~ Fortitude save DC %1 or wanders around blissfully for the 3d4 minutes|BreathWeaponDC	DEFINE:BreathWeaponDC|0
 Natural Invisibility	KEY:Faerie Dragon Natural Invisibility	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																											SOURCEPAGE:p. 13
 Telepathy			KEY:Faerie Dragon Telepathy			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																											SOURCEPAGE:p. 13

@@ -4,5 +4,5 @@ SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCE
 
 # Feat Name					Type			Visible	Multiple?	Choose
 All Exotic Weapon Proficiencies	TYPE:Special	VISIBLE:NO
-Craft Class Skills			TYPE:Special	VISIBLE:NO	MULT:YES	CHOOSE:SKILLSNAMEDTOCSKILL|TYPE=Craft
-Knowledge Class Skills			TYPE:Special	VISIBLE:NO	MULT:YES	CHOOSE:SKILLSNAMEDTOCSKILL|TYPE=Knowledge
+Craft Class Skills			TYPE:Special	VISIBLE:NO	MULT:YES	CHOOSE:SKILL|TYPE=Craft	CSKILL:LIST
+Knowledge Class Skills			TYPE:Special	VISIBLE:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	CSKILL:LIST

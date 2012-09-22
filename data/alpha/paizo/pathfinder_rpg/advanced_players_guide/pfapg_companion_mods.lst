@@ -173,7 +173,7 @@ FOLLOWER:CavalierMountHP=20	TYPE:Cavalier Mount																																	
 
 ###Block:Companion for Cavalier
 # Class of the Master		Type				Hit Dice	Ability													Automatically Gained Feat		Required Race			Define												Bonus to Ability Pool					Combat bonus					Bonus to HP							Stat bonus			Modify VAR							Main Race Type
-FOLLOWER:CavalierLevel=1	TYPE:Cavalier Mount			ABILITY:Special Ability|AUTOMATIC|Link|Bonus Tricks|Animal Tricks and Training												DEFINE:MasterLevel|0	DEFINE:BonusTricks|0	DEFINE:CavalierMountHP|0																BONUS:HP|CURRENTMAX|var("CavalierMountHP")					BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:CavalierLevel=1	TYPE:Cavalier Mount			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link												DEFINE:MasterLevel|0	DEFINE:BonusTricks|0	DEFINE:CavalierMountHP|0																BONUS:HP|CURRENTMAX|var("CavalierMountHP")					BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
 FOLLOWER:CavalierLevel=2	TYPE:Cavalier Mount	HD:1																																																																			BONUS:VAR|MasterLevel|1
 FOLLOWER:CavalierLevel=3	TYPE:Cavalier Mount			ABILITY:Special Ability|AUTOMATIC|Evasion																																								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK									BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:CavalierLevel=4	TYPE:Cavalier Mount	HD:1																																								BONUS:ABILITYPOOL|Companion Stat Increase|1																				BONUS:VAR|MasterLevel|1
@@ -217,7 +217,7 @@ MASTERBONUSRACE:Familiar (Spider (Scarlet))		TYPE:Familiar										BONUS:SKILL|
 
 # COMPANION ADD-ON FOR RANGER BEAST MASTER
 # Class of the Master	Type					Hit Dice	Ability															Define							Bonus to Ability Pool					Combat bonus					Stat bonus			Modify VAR							Main Race Type
-FOLLOWER:CompLvlA=1	TYPE:Animal Companion				ABILITY:Special Ability|AUTOMATIC|Link|Share Spells|Bonus Tricks|Animal Tricks and Training	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:CompLvlA=1	TYPE:Animal Companion				ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link|Share Spells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
 FOLLOWER:CompLvlA=2	TYPE:Animal Companion		HD:1																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlA=3	TYPE:Animal Companion				ABILITY:Special Ability|AUTOMATIC|Evasion																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:CompLvlA=4	TYPE:Animal Companion		HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
@@ -238,7 +238,7 @@ FOLLOWER:CompLvlA=18	TYPE:Animal Companion		HD:1																																
 FOLLOWER:CompLvlA=19	TYPE:Animal Companion																																															BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlA=20	TYPE:Animal Companion		HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 
-FOLLOWER:CompLvlB=1	TYPE:Animal Companion 2				ABILITY:Special Ability|AUTOMATIC|Link|Share Spells|Bonus Tricks|Animal Tricks and Training	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:CompLvlB=1	TYPE:Animal Companion 2				ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link|Share Spells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
 FOLLOWER:CompLvlB=2	TYPE:Animal Companion 2		HD:1																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlB=3	TYPE:Animal Companion 2				ABILITY:Special Ability|AUTOMATIC|Evasion																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:CompLvlB=4	TYPE:Animal Companion 2		HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
@@ -259,7 +259,7 @@ FOLLOWER:CompLvlB=18	TYPE:Animal Companion 2		HD:1																														
 FOLLOWER:CompLvlB=19	TYPE:Animal Companion 2																																															BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlB=20	TYPE:Animal Companion 2		HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 
-FOLLOWER:CompLvlC=1	TYPE:Animal Companion 3				ABILITY:Special Ability|AUTOMATIC|Link|Share Spells|Bonus Tricks|Animal Tricks and Training	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:CompLvlC=1	TYPE:Animal Companion 3				ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link|Share Spells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
 FOLLOWER:CompLvlC=2	TYPE:Animal Companion 3		HD:1																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlC=3	TYPE:Animal Companion 3				ABILITY:Special Ability|AUTOMATIC|Evasion																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:CompLvlC=4	TYPE:Animal Companion 3		HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
@@ -280,7 +280,7 @@ FOLLOWER:CompLvlC=18	TYPE:Animal Companion 3		HD:1																														
 FOLLOWER:CompLvlC=19	TYPE:Animal Companion 3																																															BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlC=20	TYPE:Animal Companion 3		HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 
-FOLLOWER:CompLvlD=1	TYPE:Animal Companion 4				ABILITY:Special Ability|AUTOMATIC|Link|Share Spells|Bonus Tricks|Animal Tricks and Training	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:CompLvlD=1	TYPE:Animal Companion 4				ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link|Share Spells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
 FOLLOWER:CompLvlD=2	TYPE:Animal Companion 4		HD:1																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlD=3	TYPE:Animal Companion 4				ABILITY:Special Ability|AUTOMATIC|Evasion																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:CompLvlD=4	TYPE:Animal Companion 4		HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
@@ -301,7 +301,7 @@ FOLLOWER:CompLvlD=18	TYPE:Animal Companion 4		HD:1																														
 FOLLOWER:CompLvlD=19	TYPE:Animal Companion 4																																															BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlD=20	TYPE:Animal Companion 4		HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 
-FOLLOWER:CompLvlE=1	TYPE:Animal Companion 5				ABILITY:Special Ability|AUTOMATIC|Link|Share Spells|Bonus Tricks|Animal Tricks and Training	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:CompLvlE=1	TYPE:Animal Companion 5				ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link|Share Spells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
 FOLLOWER:CompLvlE=2	TYPE:Animal Companion 5		HD:1																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlE=3	TYPE:Animal Companion 5				ABILITY:Special Ability|AUTOMATIC|Evasion																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:CompLvlE=4	TYPE:Animal Companion 5		HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
@@ -322,7 +322,7 @@ FOLLOWER:CompLvlE=18	TYPE:Animal Companion 5		HD:1																														
 FOLLOWER:CompLvlE=19	TYPE:Animal Companion 5																																															BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlE=20	TYPE:Animal Companion 5		HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 
-FOLLOWER:CompLvlF=1	TYPE:Animal Companion 6				ABILITY:Special Ability|AUTOMATIC|Link|Share Spells|Bonus Tricks|Animal Tricks and Training	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:CompLvlF=1	TYPE:Animal Companion 6				ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link|Share Spells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
 FOLLOWER:CompLvlF=2	TYPE:Animal Companion 6		HD:1																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlF=3	TYPE:Animal Companion 6				ABILITY:Special Ability|AUTOMATIC|Evasion																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:CompLvlF=4	TYPE:Animal Companion 6		HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
@@ -343,7 +343,7 @@ FOLLOWER:CompLvlF=18	TYPE:Animal Companion 6		HD:1																														
 FOLLOWER:CompLvlF=19	TYPE:Animal Companion 6																																															BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlF=20	TYPE:Animal Companion 6		HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 
-FOLLOWER:CompLvlG=1	TYPE:Animal Companion 7				ABILITY:Special Ability|AUTOMATIC|Link|Share Spells|Bonus Tricks|Animal Tricks and Training	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:CompLvlG=1	TYPE:Animal Companion 7				ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link|Share Spells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
 FOLLOWER:CompLvlG=2	TYPE:Animal Companion 7		HD:1																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlG=3	TYPE:Animal Companion 7				ABILITY:Special Ability|AUTOMATIC|Evasion																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:CompLvlG=4	TYPE:Animal Companion 7		HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
@@ -364,7 +364,7 @@ FOLLOWER:CompLvlG=18	TYPE:Animal Companion 7		HD:1																														
 FOLLOWER:CompLvlG=19	TYPE:Animal Companion 7																																															BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlG=20	TYPE:Animal Companion 7		HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 
-FOLLOWER:CompLvlH=1	TYPE:Animal Companion 8				ABILITY:Special Ability|AUTOMATIC|Link|Share Spells|Bonus Tricks|Animal Tricks and Training	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:CompLvlH=1	TYPE:Animal Companion 8				ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link|Share Spells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
 FOLLOWER:CompLvlH=2	TYPE:Animal Companion 8		HD:1																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlH=3	TYPE:Animal Companion 8				ABILITY:Special Ability|AUTOMATIC|Evasion																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:CompLvlH=4	TYPE:Animal Companion 8		HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
@@ -385,7 +385,7 @@ FOLLOWER:CompLvlH=18	TYPE:Animal Companion 8		HD:1																														
 FOLLOWER:CompLvlH=19	TYPE:Animal Companion 8																																															BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlH=20	TYPE:Animal Companion 8		HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 
-FOLLOWER:CompLvlI=1	TYPE:Animal Companion 9				ABILITY:Special Ability|AUTOMATIC|Link|Share Spells|Bonus Tricks|Animal Tricks and Training	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:CompLvlI=1	TYPE:Animal Companion 9				ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link|Share Spells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
 FOLLOWER:CompLvlI=2	TYPE:Animal Companion 9		HD:1																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlI=3	TYPE:Animal Companion 9				ABILITY:Special Ability|AUTOMATIC|Evasion																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:CompLvlI=4	TYPE:Animal Companion 9		HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
@@ -406,7 +406,7 @@ FOLLOWER:CompLvlI=18	TYPE:Animal Companion 9		HD:1																														
 FOLLOWER:CompLvlI=19	TYPE:Animal Companion 9																																															BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlI=20	TYPE:Animal Companion 9		HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 
-FOLLOWER:CompLvlJ=1	TYPE:Animal Companion 10			ABILITY:Special Ability|AUTOMATIC|Link|Share Spells|Bonus Tricks|Animal Tricks and Training	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:CompLvlJ=1	TYPE:Animal Companion 10			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link|Share Spells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
 FOLLOWER:CompLvlJ=2	TYPE:Animal Companion 10	HD:1																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlJ=3	TYPE:Animal Companion 10			ABILITY:Special Ability|AUTOMATIC|Evasion																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:CompLvlJ=4	TYPE:Animal Companion 10	HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
@@ -427,7 +427,7 @@ FOLLOWER:CompLvlJ=18	TYPE:Animal Companion 10	HD:1																														
 FOLLOWER:CompLvlJ=19	TYPE:Animal Companion 10																																														BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlJ=20	TYPE:Animal Companion 10	HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 
-FOLLOWER:CompLvlK=1	TYPE:Animal Companion 11			ABILITY:Special Ability|AUTOMATIC|Link|Share Spells|Bonus Tricks|Animal Tricks and Training	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:CompLvlK=1	TYPE:Animal Companion 11			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link|Share Spells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
 FOLLOWER:CompLvlK=2	TYPE:Animal Companion 11	HD:1																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlK=3	TYPE:Animal Companion 11			ABILITY:Special Ability|AUTOMATIC|Evasion																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:CompLvlK=4	TYPE:Animal Companion 11	HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
@@ -448,7 +448,7 @@ FOLLOWER:CompLvlK=18	TYPE:Animal Companion 11	HD:1																														
 FOLLOWER:CompLvlK=19	TYPE:Animal Companion 11																																														BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlK=20	TYPE:Animal Companion 11	HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 
-FOLLOWER:CompLvlL=1	TYPE:Animal Companion 12			ABILITY:Special Ability|AUTOMATIC|Link|Share Spells|Bonus Tricks|Animal Tricks and Training	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:CompLvlL=1	TYPE:Animal Companion 12			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link|Share Spells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
 FOLLOWER:CompLvlL=2	TYPE:Animal Companion 12	HD:1																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlL=3	TYPE:Animal Companion 12			ABILITY:Special Ability|AUTOMATIC|Evasion																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:CompLvlL=4	TYPE:Animal Companion 12	HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
@@ -469,7 +469,7 @@ FOLLOWER:CompLvlL=18	TYPE:Animal Companion 12	HD:1																														
 FOLLOWER:CompLvlL=19	TYPE:Animal Companion 12																																														BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlL=20	TYPE:Animal Companion 12	HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 
-FOLLOWER:CompLvlM=1	TYPE:Animal Companion 13			ABILITY:Special Ability|AUTOMATIC|Link|Share Spells|Bonus Tricks|Animal Tricks and Training	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:CompLvlM=1	TYPE:Animal Companion 13			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link|Share Spells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
 FOLLOWER:CompLvlM=2	TYPE:Animal Companion 13	HD:1																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlM=3	TYPE:Animal Companion 13			ABILITY:Special Ability|AUTOMATIC|Evasion																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:CompLvlM=4	TYPE:Animal Companion 13	HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
@@ -490,7 +490,7 @@ FOLLOWER:CompLvlM=18	TYPE:Animal Companion 13	HD:1																														
 FOLLOWER:CompLvlM=19	TYPE:Animal Companion 13																																														BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlM=20	TYPE:Animal Companion 13	HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 
-FOLLOWER:CompLvlN=1	TYPE:Animal Companion 14			ABILITY:Special Ability|AUTOMATIC|Link|Share Spells|Bonus Tricks|Animal Tricks and Training	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:CompLvlN=1	TYPE:Animal Companion 14			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link|Share Spells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
 FOLLOWER:CompLvlN=2	TYPE:Animal Companion 14	HD:1																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlN=3	TYPE:Animal Companion 14			ABILITY:Special Ability|AUTOMATIC|Evasion																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:CompLvlN=4	TYPE:Animal Companion 14	HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
@@ -511,7 +511,7 @@ FOLLOWER:CompLvlN=18	TYPE:Animal Companion 14	HD:1																														
 FOLLOWER:CompLvlN=19	TYPE:Animal Companion 14																																														BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlN=20	TYPE:Animal Companion 14	HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 
-FOLLOWER:CompLvlO=1	TYPE:Animal Companion 15			ABILITY:Special Ability|AUTOMATIC|Link|Share Spells|Bonus Tricks|Animal Tricks and Training	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:CompLvlO=1	TYPE:Animal Companion 15			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link|Share Spells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
 FOLLOWER:CompLvlO=2	TYPE:Animal Companion 15	HD:1																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlO=3	TYPE:Animal Companion 15			ABILITY:Special Ability|AUTOMATIC|Evasion																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:CompLvlO=4	TYPE:Animal Companion 15	HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
@@ -532,7 +532,7 @@ FOLLOWER:CompLvlO=18	TYPE:Animal Companion 15	HD:1																														
 FOLLOWER:CompLvlO=19	TYPE:Animal Companion 15																																														BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlO=20	TYPE:Animal Companion 15	HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 
-FOLLOWER:CompLvlP=1	TYPE:Animal Companion 16			ABILITY:Special Ability|AUTOMATIC|Link|Share Spells|Bonus Tricks|Animal Tricks and Training	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:CompLvlP=1	TYPE:Animal Companion 16			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link|Share Spells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
 FOLLOWER:CompLvlP=2	TYPE:Animal Companion 16	HD:1																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlP=3	TYPE:Animal Companion 16			ABILITY:Special Ability|AUTOMATIC|Evasion																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:CompLvlP=4	TYPE:Animal Companion 16	HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
@@ -553,7 +553,7 @@ FOLLOWER:CompLvlP=18	TYPE:Animal Companion 16	HD:1																														
 FOLLOWER:CompLvlP=19	TYPE:Animal Companion 16																																														BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlP=20	TYPE:Animal Companion 16	HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 
-FOLLOWER:CompLvlQ=1	TYPE:Animal Companion 17			ABILITY:Special Ability|AUTOMATIC|Link|Share Spells|Bonus Tricks|Animal Tricks and Training	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:CompLvlQ=1	TYPE:Animal Companion 17			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link|Share Spells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
 FOLLOWER:CompLvlQ=2	TYPE:Animal Companion 17	HD:1																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlQ=3	TYPE:Animal Companion 17			ABILITY:Special Ability|AUTOMATIC|Evasion																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:CompLvlQ=4	TYPE:Animal Companion 17	HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
@@ -574,7 +574,7 @@ FOLLOWER:CompLvlQ=18	TYPE:Animal Companion 17	HD:1																														
 FOLLOWER:CompLvlQ=19	TYPE:Animal Companion 17																																														BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlQ=20	TYPE:Animal Companion 17	HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 
-FOLLOWER:CompLvlR=1	TYPE:Animal Companion 18			ABILITY:Special Ability|AUTOMATIC|Link|Share Spells|Bonus Tricks|Animal Tricks and Training	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:CompLvlR=1	TYPE:Animal Companion 18			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link|Share Spells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
 FOLLOWER:CompLvlR=2	TYPE:Animal Companion 18	HD:1																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlR=3	TYPE:Animal Companion 18			ABILITY:Special Ability|AUTOMATIC|Evasion																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:CompLvlR=4	TYPE:Animal Companion 18	HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
@@ -595,7 +595,7 @@ FOLLOWER:CompLvlR=18	TYPE:Animal Companion 18	HD:1																														
 FOLLOWER:CompLvlR=19	TYPE:Animal Companion 18																																														BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlR=20	TYPE:Animal Companion 18	HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 
-FOLLOWER:CompLvlS=1	TYPE:Animal Companion 19			ABILITY:Special Ability|AUTOMATIC|Link|Share Spells|Bonus Tricks|Animal Tricks and Training	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:CompLvlS=1	TYPE:Animal Companion 19			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link|Share Spells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
 FOLLOWER:CompLvlS=2	TYPE:Animal Companion 19	HD:1																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlS=3	TYPE:Animal Companion 19			ABILITY:Special Ability|AUTOMATIC|Evasion																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:CompLvlS=4	TYPE:Animal Companion 19	HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
@@ -616,7 +616,7 @@ FOLLOWER:CompLvlS=18	TYPE:Animal Companion 19	HD:1																														
 FOLLOWER:CompLvlS=19	TYPE:Animal Companion 19																																														BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlS=20	TYPE:Animal Companion 19	HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 
-FOLLOWER:CompLvlT=1	TYPE:Animal Companion 20			ABILITY:Special Ability|AUTOMATIC|Link|Share Spells|Bonus Tricks|Animal Tricks and Training	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:CompLvlT=1	TYPE:Animal Companion 20			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link|Share Spells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
 FOLLOWER:CompLvlT=2	TYPE:Animal Companion 20	HD:1																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:CompLvlT=3	TYPE:Animal Companion 20			ABILITY:Special Ability|AUTOMATIC|Evasion																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:CompLvlT=4	TYPE:Animal Companion 20	HD:1																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1

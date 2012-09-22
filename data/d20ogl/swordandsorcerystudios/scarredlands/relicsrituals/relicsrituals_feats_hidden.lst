@@ -8,7 +8,7 @@ Alter Self		TYPE:ClassAbility	VISIBLE:NO	SAB:Alter Self 1/day									SPELLS:Cla
 Minor Sacrifice	TYPE:ClassAbility	VISIBLE:NO	SAB:Minor Sacrifice|!PREFEAT:1,Major Sacrifice																									SOURCEPAGE:p.8
 Wildshape		TYPE:ClassAbility	VISIBLE:NO	SAB:Wildshape %/day|Wildshape				DEFINE:Wildshape|0	SPELLS:Class|TIMES=1|CASTERLEVEL=TL|Polymorph Self,14+INT											SOURCEPAGE:p.8
 Major Sacrifice	TYPE:ClassAbility	VISIBLE:NO	SAB:Major Sacrifice																													SOURCEPAGE:p.8
-Blood Enhancement	TYPE:ClassAbility	VISIBLE:NO	SAB:Blood Enhancement (%CHOICE)																	STACK:NO	MULT:YES	CHOOSE:FEATLIST|TYPE=Metamagic	SOURCEPAGE:p.8
+Blood Enhancement	TYPE:ClassAbility	VISIBLE:NO	SAB:Blood Enhancement (%CHOICE)																	STACK:NO	MULT:YES	CHOOSE:FEAT|PC[TYPE=Metamagic]	SOURCEPAGE:p.8
 
 ###Block: Crypt Lord class features
 # Feat Name			Type			Visible	Special ABility													Define					Template		Source Page
@@ -28,8 +28,8 @@ Fixed Alignment			TYPE:ClassAbility	VISIBLE:NO	SAB:Fixed Alignment														
 #Venom Imunity			TYPE:ClassAbility	VISIBLE:NO	SAB:Venom Immunity																													SOURCEPAGE:p.12
 #Timeless Body			TYPE:ClassAbility	VISIBLE:NO	SAB:Timeless Body																								TEMPLATE:Timeless Body ~ Adult	SOURCEPAGE:p.12
 Designate Life Form		TYPE:ClassAbility	VISIBLE:NO	SAB:Designate Life Form																							SOURCEPAGE:p.12
-Pastlife Form			TYPE:ClassAbility	VISIBLE:NO	SAB:Pastlife Form (%CHOICE)			STACK:NO	MULT:YES	CHOOSE:RACE|RACETYPE=Animal|RACETYPE=Vermin|RACETYPE=Beast|RACETYPE=Fey|RACETYPE=Humanoid	SOURCEPAGE:p.12
-Baseform				TYPE:ClassAbility	VISIBLE:NO	SAB:Baseform (%CHOICE)				STACK:NO	MULT:YES	CHOOSE:FEAT=Pastlife Form											SOURCEPAGE:p.12
+Pastlife Form			TYPE:ClassAbility	VISIBLE:NO	SAB:Pastlife Form (%CHOICE)			STACK:NO	MULT:YES	CHOOSE:RACE|RACETYPE=Animal|RACETYPE=Beast|RACETYPE=Fey|RACETYPE=Humanoid|RACETYPE=Vermin	SOURCEPAGE:p.12
+Baseform				TYPE:ClassAbility	VISIBLE:NO	SAB:Baseform (%CHOICE)				STACK:NO	MULT:YES	CHOOSE:FEAT|FEAT=Pastlife Form											SOURCEPAGE:p.12
 Incarnate Spontaneous Casting	TYPE:ClassAbility	VISIBLE:NO	SAB:Spontaneous Casting (%CHOICE domain)	STACK:NO	MULT:YES	CHOOSE:STRING|Air|Animal|Earth|Healing|Plant|Strength|Sun|Water					SOURCEPAGE:p.12	SPELLLEVEL:CLASS|Druid=1|Obscuring Mist|Druid=2|Wind Wall|Druid=3|Gaseous Form|Druid=4|Air Walk|Druid=5|Control Winds|Druid=6|Chain Lightning|Druid=7|Control Weather|Druid=8|Whirlwind|Druid=9|Elemental Swarm|PREFEAT:1,Incarnate Spontaneous Casting (Air)	SPELLLEVEL:CLASS|Druid=1|Calm Animals|Druid=2|Hold Animal|Druid=3|Dominate Animal|Druid=4|Repel Vermin|Druid=5|Commune with Nature|Druid=6|Antilife Shell|Druid=7|Animal Shapes|Druid=8|Creeping Doom|Druid=9|Shapechange|PREFEAT:1,Incarnate Spontaneous Casting (Animal)	SPELLLEVEL:CLASS|Druid=1|Magic Stone|Druid=2|Soften Earth and Stone|Druid=3|Stone Shape|Druid=4|Spike Stones|Druid=5|Wall of Stone|Druid=6|Stoneskin|Druid=7|Earthquake|Druid=8|Iron Body|Druid=9|Elemental Swarm|PREFEAT:1,Incarnate Spontaneous Casting (Earth)	SPELLLEVEL:CLASS|Druid=1|Cure Light Wounds|Druid=2|Cure Moderate Wounds|Druid=3|Cure Serious Wounds|Druid=4|Cure Critical Wounds|Druid=5|Healing Circle|Druid=6|Heal|Druid=7|Regenerate|Druid=8|Mass Heal|Druid=9|True Resurrection|PREFEAT:1,Incarnate Spontaneous Casting (Healing)	SPELLLEVEL:CLASS|Druid=1|Entangle|Druid=2|Barkskin|Druid=3|Plant Growth|Druid=4|Control Plants|Druid=5|Wall of Thorns|Druid=6|Repel Wood|Druid=7|Changestaff|Druid=8|Command Plants|Druid=9|Shambler|PREFEAT:1,Incarnate Spontaneous Casting (Plant)	SPELLLEVEL:CLASS|Druid=1|Endure Elements|Druid=2|Bull's Strength|Druid=3|Magic Vestment|Druid=4|Spell Immunity|Druid=5|Righteous Might|Druid=6|Stoneskin|Druid=7|Grasping Hand|Druid=8|Clenched Fist|Druid=9|Crushing Hand|PREFEAT:1,Incarnate Spontaneous Casting (Strength)	SPELLLEVEL:CLASS|Druid=1|Endure Elements|Druid=2|Heat Metal|Druid=3|Searing Light|Druid=4|Fire Shield|Druid=5|Flame Strike|Druid=6|Fire Seeds|Druid=7|Sunbeam|Druid=8|Sunburst|Druid=9|Prismatic Sphere|PREFEAT:1,Incarnate Spontaneous Casting (Sun)	SPELLLEVEL:CLASS|Druid=1|Obscuring Mist|Druid=2|Fog Cloud|Druid=3|Water Breathing|Druid=4|Control Water|Druid=5|Ice Storm|Druid=6|Cone of Cold|Druid=7|Acid Fog|Druid=8|Horrid Wilting|Druid=9|Elemental Swarm|PREFEAT:1,Incarnate Spontaneous Casting (Water)
 
 ###Block: Penumbral Lord class features
@@ -50,7 +50,7 @@ Aquatic Wildshape			TYPE:ClassAbility	VISIBLE:NO	SAB:Aquatic Wildshape %/day|Wil
 
 ###Block: Summoner class features
 # Feat Name							Type			Visible	Multiple?	Choose																						Source Page
-Gain a Summoning spell at highest casting level	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Arcane|1|MAXLEVEL|TYPE=Divine|1|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1][BONUS:SPELLKNOWN|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.20
+Gain a Summoning spell at highest casting level	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLCAST|%LIST|1	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|1|MAXLEVEL|SPELLTYPE=Divine|1|MAXLEVEL	SOURCEPAGE:p.20
 
 ###Block: Vigilant Class Feats
 # Feat Name			Type			Visible	Special ABility						Define					Multiple?	Choose																											Source Page

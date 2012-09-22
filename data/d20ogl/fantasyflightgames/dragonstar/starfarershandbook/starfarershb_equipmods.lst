@@ -27,7 +27,7 @@ Spellware_6th_lev	KEY:SF_SPELLWARE_6	TYPE:Spells		COST:(1200*%CHOICE)	VISIBLE:QU
 Spellware_7th_lev	KEY:SF_SPELLWARE_7	TYPE:Spells		COST:(1400*%CHOICE)	VISIBLE:QUALIFY	ITYPE:Spellbook	SOURCEPAGE:p.106	PRETYPE:1,Spells								SPROP:user gets 14*%Choice number of page in spellbook software	CHOOSE:NUMBER|MIN=1|MAX=99|TITLE=Number of Spells
 Spellware_8th_lev	KEY:SF_SPELLWARE_8	TYPE:Spells		COST:(1600*%CHOICE)	VISIBLE:QUALIFY	ITYPE:Spellbook	SOURCEPAGE:p.106	PRETYPE:1,Spells								SPROP:user gets 16*%Choice number of page in spellbook software	CHOOSE:NUMBER|MIN=1|MAX=99|TITLE=Number of Spells
 Spellware_9th_lev	KEY:SF_SPELLWARE_9	TYPE:Spells		COST:(1800*%CHOICE)	VISIBLE:QUALIFY	ITYPE:Spellbook	SOURCEPAGE:p.106	PRETYPE:1,Spells								SPROP:user gets 18*%Choice number of page in spellbook software	CHOOSE:NUMBER|MIN=1|MAX=99|TITLE=Number of Spells
-Sevurity Upgrade	KEY:SF_SECURITY		TYPE:Datapad	COST:(500*%CHOICE)	VISIBLE:QUALIFY				SOURCEPAGE:p.106	PRETYPE:1,Datapad								SPROP:Datapad DC is upgraded from a 30 to (30+%Choice)		CHOOSE:NUMBER|MIN=1|MAX=99|TITLE=Amount to increase datapad security DC
+Security Upgrade	KEY:SF_SECURITY		TYPE:Datapad	COST:(500*%CHOICE)	VISIBLE:QUALIFY				SOURCEPAGE:p.106	PRETYPE:1,Datapad								SPROP:Datapad DC is upgraded from a 30 to (30+%Choice)		CHOOSE:NUMBER|MIN=1|MAX=99|TITLE=Amount to increase datapad security DC
 
 ###Block:Skill Tools
 # Modifier Name		Unique Key		Type		Cost		Type granted			Source Page			Bonus to skill							Special Property												Choose

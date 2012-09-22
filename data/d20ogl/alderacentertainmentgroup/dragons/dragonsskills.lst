@@ -11,7 +11,7 @@ Diplomacy (Dragon Protocol)		NAMEISPI:NO		KEYSTAT:CHA											TYPE:Charisma.Di
 Jump (Leap into the Saddle)		NAMEISPI:NO		KEYSTAT:STR				ACHECK:YES						TYPE:Strength.Jump			SOURCEPAGE:p.28						BONUS:SKILL|Jump (Leap into the Saddle)|SynergyBonus|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK
 Pick Pocket (Plant Object)		NAMEISPI:NO		KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES						TYPE:Dexterity.Pick Pocket		SOURCEPAGE:p.28						BONUS:SKILL|Pick Pocket (Plant Object)|SynergyBonus|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK
 Search (Stash Item)			NAMEISPI:NO		KEYSTAT:INT											TYPE:Intelligence.Search		SOURCEPAGE:p.28
-Speak Language (Speak Dialect)	NAMEISPI:NO				USEUNTRAINED:NO								TYPE:None.Language			SOURCEPAGE:p.28		CHOOSE:LANGUAGE|Spoken
+Speak Language (Speak Dialect)	NAMEISPI:NO				USEUNTRAINED:NO								TYPE:None.Language			SOURCEPAGE:p.28		AUTO:LANG|%LIST	CHOOSE:LANG|TYPE=Spoken
 
 ###Block:Type .MODs
 # Skill Name		Type

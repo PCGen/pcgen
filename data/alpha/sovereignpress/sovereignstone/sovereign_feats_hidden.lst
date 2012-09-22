@@ -3,7 +3,7 @@ SOURCELONG:Sovereign Stone Campaign Sourcebook	SOURCESHORT:SovereignS	SOURCEWEB:
 
 ###Block: Hidden Racial Feats
 # Feat Name		Type			Visible	Required Race			Var. Min. Value			Multiple?	Choose							Bonus to skill		Cost		Source Page
-Unhorsed Dwarf	TYPE:General	VISIBLE:NO	PRERACE:1,Dwarf (Unhorsed)	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:SKILLSNAMED|TYPE=Craft|TYPE=Profession	BONUS:SKILL|LIST|2	COST:0.5	SOURCEPAGE:p.
+Unhorsed Dwarf	TYPE:General	VISIBLE:NO	PRERACE:1,Dwarf (Unhorsed)	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:SKILL|TYPE=Craft|TYPE=Profession	BONUS:SKILL|LIST|2	COST:0.5	SOURCEPAGE:p.
 
 ###Block: Proficiencies
 # Feat Name				Type			Visible	Automatically Gained Weapon Prof.
@@ -12,7 +12,7 @@ Sailor Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Rapier|Net|S
 
 ###Block: Archer Class abilities
 # Feat Name				Type			Visible	Special ABility				Define			Stackable?	Multiple?	Choose											Weapon prof. bonus				Source Page
-Primary Weapon			TYPE:ClassAbility	VISIBLE:NO	SAB:Primary Weapon +%|PrimaryWeap	DEFINE:PrimaryWeap|0	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFS|Crossbow (Heavy)|Crossbow (Light)|Shortbow|Longbow	BONUS:WEAPONPROF=%LIST|TOHIT|PrimaryWeap	SOURCEPAGE:p.
+Primary Weapon			TYPE:ClassAbility	VISIBLE:NO	SAB:Primary Weapon +%|PrimaryWeap	DEFINE:PrimaryWeap|0	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|Crossbow (Heavy)|Crossbow (Light)|Longbow|Shortbow	BONUS:WEAPONPROF=%LIST|TOHIT|PrimaryWeap	SOURCEPAGE:p.
 Extra Shot				TYPE:ClassAbility	VISIBLE:NO	SAB:Extra Shot																															SOURCEPAGE:p.
 Improved Point Blank Shot	TYPE:ClassAbility	VISIBLE:NO	SAB:Improved Point Blank Shot																													SOURCEPAGE:p.
 Long Distance Accuracy		TYPE:ClassAbility	VISIBLE:NO	SAB:Long Distance Accuracy																													SOURCEPAGE:p.
@@ -33,7 +33,7 @@ Devastating Trample	TYPE:ClassAbility	VISIBLE:NO	SAB:Devastating Trample	SOURCEP
 
 ###Block: Sailor class abilities
 # Feat Name				Type			Visible	Special ABility				Define			Stackable?	Multiple?	Choose										Weapon prof. bonus				Source Page
-Sailor Weapon Bonus		TYPE:Internal	VISIBLE:NO											STACK:YES	MULT:YES	CHOOSE:PROFICIENCY|WEAPON|PC|TYPE=Simple|TYPE=Martial|TYPE=Exotic	BONUS:WEAPONPROF=%LIST|TOHIT,DAMAGE|1	SOURCEPAGE:p.41
+Sailor Weapon Bonus		TYPE:Internal	VISIBLE:NO											STACK:YES	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC[TYPE=Exotic|TYPE=Martial|TYPE=Simple]	BONUS:WEAPONPROF=%LIST|TOHIT,DAMAGE|1	SOURCEPAGE:p.41
 Dirty Blow				TYPE:ClassAbility	VISIBLE:NO	SAB:Dirty Blow +%d4|DirtyBlow		DEFINE:DirtyBlow|0																							SOURCEPAGE:p.41
 Extraordinary Tolerance		TYPE:ClassAbility	VISIBLE:NO	SAB:Extraordinary Tolerance																												SOURCEPAGE:p.41
 Superior Improvised Weapon	TYPE:ClassAbility	VISIBLE:NO	SAB:Superior Improvised Weapon																											SOURCEPAGE:p.41

@@ -70,7 +70,7 @@ Improved Rock Catching	KEY:Improved Rock Catching ~ Stone Giant	CATEGORY:Special
 
 ###Block: Giant (Storm) abilities
 # Ability Name	Unique Key					Category of Ability		Type						Description												Automatically Gained Weapon Prof.		Source Page
-Militant		KEY:Militant ~ Storm Giant		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Storm giants are proficient with all simple and all martial weapons.	AUTO:WEAPONPROF|TYPE.Martial|TYPE.Simple	SOURCEPAGE:p.152
+Militant		KEY:Militant ~ Storm Giant		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Storm giants are proficient with all simple and all martial weapons.	AUTO:WEAPONPROF|TYPE=Martial|TYPE=Simple	SOURCEPAGE:p.152
 Water Breathing	KEY:Water Breathing ~ Storm Giant	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Storm giants can breathe water as well as air.												SOURCEPAGE:p.152
 
 ###Block: Gibbering Mouther abilities

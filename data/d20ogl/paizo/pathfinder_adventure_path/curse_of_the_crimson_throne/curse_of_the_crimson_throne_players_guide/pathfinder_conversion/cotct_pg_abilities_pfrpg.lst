@@ -6,7 +6,7 @@ SOURCELONG:Curse of the Crimson Throne Player's Guide	SOURCESHORT:CCTPG	SOURCEWE
 Companion Advancement (Hippogriff)	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Hippogriff)	ABILITY:Special Ability|AUTOMATIC|War Trained	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR,CON|2	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
 
 # Ranger Mods
-CATEGORY=Special Ability|Manyshot.MOD																							!PREFEAT:1,Manyshot,Crossbow Mastery	
+CATEGORY=Special Ability|Manyshot.MOD																							!PREFEAT:1,Manyshot,Crossbow Mastery
 Crossbow Mastery					CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Archery			!PREFEAT:1,Manyshot,Crossbow Mastery		PREVARGTEQ:CombatStyleLVL,6	VFEAT:Crossbow Mastery	SOURCEPAGE:p.130	DESC:You can load crossbows with blinding speed and even fire them in melee with little fear of reprisal.	SOURCEPAGE:p.10
 
 #

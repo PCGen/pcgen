@@ -82,7 +82,3 @@ Int Item / Dedicated 6th-level spell at will		KEY:PurposePower_CastSixAtWill	NAM
 Int Item / Dedicated 7th-level spell at will		KEY:PurposePower_CastSevenAtWill	NAMEOPT:NOTHING					COST:182000	VISIBLE:QUALIFY																															PRETYPE:2,EQMOD=IntItemBase,EQMOD=IntItemPurpose	BONUS:VAR|MagicItemEgo|2		ABILITY:Intelligent Item|AUTOMATIC|EQMOD ~ PurposePower_CastSevenAtWill
 Int Item / Dedicated True resurrection on wielder	KEY:PurposePower_TrueRes		NAMEOPT:NOTHING					COST:200000	VISIBLE:QUALIFY																															PRETYPE:2,EQMOD=IntItemBase,EQMOD=IntItemPurpose	BONUS:VAR|MagicItemEgo|2		ABILITY:Intelligent Item|AUTOMATIC|Dedicated Power ~ True Resurrection
 # End EQMODs
-
-
-
-

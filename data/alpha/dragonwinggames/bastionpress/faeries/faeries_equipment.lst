@@ -71,7 +71,7 @@ Leather.COPY=Pine Needle Armor of Anadahrl
 Leather.COPY=Scurry's Dampending Mushroom Armor
 Leather Armor of the Sprite.MOD											TYPE:MediumItem					COST:16160						EQMOD:PLUS2A																	SPELLS:Item|TIMES=1|TIMEUNIT=Week|CASTERLEVEL=6|Fly
 Pine Needle Armor of Anadahrl.MOD											TYPE:MinorItem					COST:40800																									SPELLS:Item|TIMES=1|TIMEUNIT=Week|CASTERLEVEL=11|Wall of Thorns
-Scurry's Dampending Mushroom Armor.MOD		NAMEISPI:YES						TYPE:MinorItem					COST:35000						EQMOD:FAERIES_PLNT_LEAF.FAERIES_DAMPEN																								BONUS:COMBAT|AC|2|TYPE=Armor
+Scurry's Dampending Mushroom Armor.MOD		NAMEISPI:YES						TYPE:MinorItem					COST:35000						EQMOD:FAERIES_DAMPEN.FAERIES_PLNT_LEAF																								BONUS:COMBAT|AC|2|TYPE=Armor
 
 ###Block: Misc
 # Equipment Name				Output Name				Type					Cost		Modifier				Save checks bonus				Combat bonus			Special Property
@@ -105,5 +105,4 @@ Self-Loading Blowgun.MOD												COST:2000
 Staff of the Fey									TYPE:Staff.Magic			COST:200000						BONUS:CHECKS|ALL|1|TYPE=Sacred	BONUS:COMBAT|AC|1|TYPE=Sacred	SPROP:+10 sacred bonus to any Crossing Over checks
 
 Longsword.COPY=Foul Feyslayer
-Foul Feyslayer.MOD								TYPE:MajorItem.Artifact		COST:115145	EQMOD:PLUS2W.FAERIES_BANE_FEY
-
+Foul Feyslayer.MOD								TYPE:MajorItem.Artifact		COST:115145	EQMOD:FAERIES_BANE_FEY.PLUS2W

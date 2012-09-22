@@ -2,11 +2,9 @@ SOURCELONG:Guide to Pathfinder Society Organised Play		SOURCESHORT:GTPOP	SOURCEW
 # Original Entry by: Jeff Baril
 # Updated by: Andrew Wilson
 
-Cloak of Immolation.MOD			PRECLASS:1,NPC,Monster
-Crown of Blindness.MOD			PRECLASS:1,NPC,Monster
-Hat of Hatreds.MOD			PRECLASS:1,NPC,Monster
-Girdle of Opposite Gender.MOD			PRECLASS:1,NPC,Monster
-Riot Pipes.MOD			PRECLASS:1,NPC,Monster
-Buffoon's Sword.MOD		PRECLASS:1,NPC,Monster
-
-
+Cloak of Immolation.MOD			PRECLASS:1,NPC=1,Monster=1
+Crown of Blindness.MOD			PRECLASS:1,NPC=1,Monster=1
+Hat of Hatreds.MOD			PRECLASS:1,NPC=1,Monster=1
+Girdle of Opposite Gender.MOD			PRECLASS:1,NPC=1,Monster=1
+Riot Pipes.MOD			PRECLASS:1,NPC=1,Monster=1
+Buffoon's Sword.MOD		PRECLASS:1,NPC=1,Monster=1

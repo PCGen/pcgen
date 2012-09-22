@@ -4,4 +4,4 @@ SOURCELONG:Fantasy Flight Games - Traps and Treachery	SOURCESHORT:TrapTreach	SOU
 
 ###Block: Proficiencies
 # Feat Name					Type			Visible	Automatically Gained Weapon Prof.
-Guildmaster Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dart|Mace|Sap|Sword (Short)	AUTO:WEAPONPROF|Club|Morningstar|Quarterstaff|Rapier[PRESIZEGTEQ:M]
+Guildmaster Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dart|Mace|Sap|Sword (Short)	AUTO:WEAPONPROF|Club|Morningstar|Quarterstaff|Rapier|PRESIZEGTEQ:M

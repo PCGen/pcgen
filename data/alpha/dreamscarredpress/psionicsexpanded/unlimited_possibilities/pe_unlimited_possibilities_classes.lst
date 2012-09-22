@@ -8,10 +8,10 @@ SOURCELONG:Psionics Expanded - Unlimited Possibilities	SOURCESHORT:PEUP	SOURCEWE
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Aegis		HD:10		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Aegis		STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE.Craft|Fly|Intimidate|Knowledge (Engineering)|Knowledge (Psionics)|TYPE.Profession|Spellcraft|Swim|Use Magic Device
+CLASS:Aegis		STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|Fly|Intimidate|Knowledge (Engineering)|Knowledge (Psionics)|TYPE=Profession|Spellcraft|Swim|Use Magic Device
 
 #Block: Proficiencies
-1																																						ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:ARMORPROF|Astral Suit	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output	AUTO:FEAT|Armor Proficiency (Light)	AUTO:FEAT|Shield Proficiency
+1																																						ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:ARMORPROF|Astral Suit	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)	AUTO:FEAT|Shield Proficiency
 
 #Block: Psionic Ability
 1	BONUS:VAR|IsPsionic|1																								DEFINE:IsPsionic|0							ABILITY:Special Ability|AUTOMATIC|Psionic
@@ -32,8 +32,8 @@ CLASS:Aegis		STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE.Craft|Fly
 
 #Block: Class Info
 1																																						ABILITY:Special Ability|AUTOMATIC|Astral Repair ~ Aegis|Form Astral Suit ~ Aegis
-2	BONUS:VAR|CraftsmanBonus|floor((CL+2)/4)	BONUS:VAR|AegisDR|floor((AegisDRLVL+4)/3)																		ADD:FEAT|Craftsman Skill Bonus	ABILITY:Special Ability|AUTOMATIC|Damage Reduction ~ Aegis|Craftsman ~ Aegis
-3	BONUS:VAR|ReconfigureTimes|floor((CL-1)/2)																														ABILITY:Special Ability|AUTOMATIC|Reconfigure ~ Aegis|Invigorating Suit ~ Aegis
+2	BONUS:VAR|CraftsmanBonus|floor((CL+2)/4)	BONUS:VAR|AegisDR|floor((AegisDRLVL+4)/3)																		ADD:FEAT|Craftsman Skill Bonus	ABILITY:Special Ability|AUTOMATIC|Craftsman ~ Aegis|Damage Reduction ~ Aegis
+3	BONUS:VAR|ReconfigureTimes|floor((CL-1)/2)																														ABILITY:Special Ability|AUTOMATIC|Invigorating Suit ~ Aegis|Reconfigure ~ Aegis
 4	BONUS:VAR|AugmentSuitMax|floor(CL/4)																															ABILITY:Special Ability|AUTOMATIC|Augment Suit ~ Aegis
 5																																ADD:FEAT|Master Craftsman
 12	BONUS:VAR|CannibalizeTimes|floor((CL-10)/2)																														ABILITY:Special Ability|AUTOMATIC|Cannibalize Suit ~ Aegis
@@ -45,11 +45,11 @@ CLASS:Aegis		STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE.Craft|Fly
 
 # Class Name
 CLASS:Psion.MOD
-SUBCLASS:Constructor	COST:0	PROHIBITCOST:0	SPELLLIST:2|Shaper|Psion	CSKILL:Autohypnosis|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft|Bluff|Disguise|Use Magic Device
+SUBCLASS:Constructor	COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Shaper	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Bluff|Disguise|Use Magic Device
 SUBCLASSLEVEL:1	BONUS:VAR|MetacreativityDisciplineLVL|CL	ABILITY:Special Ability|AUTOMATIC|Constructor Advanced Discipline
 
 ###Block: Erudite
-SUBCLASS:Erudite	COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	CSKILL:Autohypnosis|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft|Use Magic Device
+SUBCLASS:Erudite	COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Use Magic Device
 SUBCLASSLEVEL:1	BONUS:VAR|GeneralistDisciplineLVL|CL	ABILITY:Special Ability|AUTOMATIC|Erudite Advanced Discipline
 
 
@@ -60,7 +60,7 @@ SUBCLASSLEVEL:1	BONUS:VAR|GeneralistDisciplineLVL|CL	ABILITY:Special Ability|AUT
 # Class Name		Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR									Serves As
 CLASS:Gifted Blade	HD:10		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity	SERVESAS:CLASS|Soulknife
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Gifted Blade	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE.Craft|Intimidate|Knowledge (Psionics)|Perception|TYPE.Profession|Stealth|Swim
+CLASS:Gifted Blade	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|Intimidate|Knowledge (Psionics)|Perception|TYPE=Profession|Stealth|Swim
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Gifted Blade	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Gifted Blade|CL-2
 

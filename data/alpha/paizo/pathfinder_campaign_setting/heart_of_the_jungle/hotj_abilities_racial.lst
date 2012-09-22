@@ -4,7 +4,7 @@ SOURCELONG:Heart of the Jungle	SOURCESHORT:HotJ	SOURCEWEB:http://paizo.com/pathf
 
 ###Block: Angazhani Abilities
 # Ability Name	Unique Key					Category of Ability		Type						Description																								Automatically Gained Feat											Bonus to Ability Pool							Source Page
-Martial Training	KEY:Martial Training ~ Angazhani	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Because of their high intelligence, angazhani are proficient with light and medium armors, simple weapons, and one martial weapon of choice.	AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)	BONUS:ABILITYPOOL|Angazhani Martial Weapon Proficiency|1	SOURCEPAGE:p.58
+Martial Training	KEY:Martial Training ~ Angazhani	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Because of their high intelligence, angazhani are proficient with light and medium armors, simple weapons, and one martial weapon of choice.	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Simple Weapon Proficiency	BONUS:ABILITYPOOL|Angazhani Martial Weapon Proficiency|1	SOURCEPAGE:p.58
 
 ###Block: Botfly Abilities
 # Ability Name	Unique Key					Category of Ability		Type						Define							Description																																																																																																																																																														Source Page
@@ -28,4 +28,3 @@ Treespeech				KEY:Treespeech ~ Tobongo		CATEGORY:Special Ability	TYPE:SpecialQua
 #
 # End
 #
-

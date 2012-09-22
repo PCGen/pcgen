@@ -7,7 +7,7 @@ SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http:/
 
 ###Block: Specific varients
 # Template Name				Challenge Rating	Source Page		Define				Required Race					Combat bonus					Stat bonus						Modify VAR				Ability
-Advanced Creature (Pegasus)		CR:1			SOURCEPAGE:p.225	DEFINE:FireResistanceBonus|10	PRERACE:1,Pegasus					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|4	BONUS:VAR|Maneuverability|2	ABILITY:Special Ability|AUTOMATIC|Resistance to Fire|Immunity to Petrification|Resistance to Poison ~ Pegasus
+Advanced Creature (Pegasus)		CR:1			SOURCEPAGE:p.225	DEFINE:FireResistanceBonus|10	PRERACE:1,Pegasus					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|4	BONUS:VAR|Maneuverability|2	ABILITY:Special Ability|AUTOMATIC|Immunity to Petrification|Resistance to Fire|Resistance to Poison ~ Pegasus
 
 # Add NATURALATTACKS and BONUS:WEAPONPROF tags.
 

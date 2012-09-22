@@ -13,8 +13,8 @@ Charge of the Righteous	TYPE:Combat													PREATT:1																								
 Protector's Strike	TYPE:General	PREABILITY:1,CATEGORY=Special Ability,Smite Evil			PREATT:5																																				DESC:When you smite evil, your divine power protects a creature within line of sight.															SOURCEPAGE:p.25
 Bestow Hope			TYPE:General	PREABILITY:1,CATEGORY=Special Ability,Channel Positive Energy								PREFEAT:1,Improved Channel																										DESC:Upon healing a creature with positive energy, you also give it hope.																	SOURCEPAGE:p.25
 Glorious Heat		TYPE:General														PRECLASS:1,SPELLCASTER=5																						PRESPELLCAST:TYPE=Divine					DESC:When you cast divine fire spells, their heat empowers nearby allies.																	SOURCEPAGE:p.25
-Spear Dancer		TYPE:General																			PREFEAT:1,Weapon Focus(TYPE=TwoHanded.Reach)		PRESKILL:1,TYPE.Perform=4																	DESC:You incorporate a two-handed reach weapon into a dizzying martial dance.																	SOURCEPAGE:p.25
-Stone Read			TYPE:General																												PRESKILL:1,Knowledge (Dungeoneering)=4											DEFINE:StoneReadBonus|2	DESC:Even the faint movement and vibrations of stone can alert you to trouble.				BONUS:VAR|StoneReadBonus|2|PRESKILL:1,Knowledge (Dungeoneering),10	SOURCEPAGE:p.25
+Spear Dancer		TYPE:General																			PREFEAT:1,Weapon Focus (TYPE=TwoHanded.Reach)		PRESKILL:1,TYPE.Perform=4																	DESC:You incorporate a two-handed reach weapon into a dizzying martial dance.																	SOURCEPAGE:p.25
+Stone Read			TYPE:General																												PRESKILL:1,Knowledge (Dungeoneering)=4											DEFINE:StoneReadBonus|2	DESC:Even the faint movement and vibrations of stone can alert you to trouble.				BONUS:VAR|StoneReadBonus|2|PRESKILL:1,Knowledge (Dungeoneering)=1,10=1	SOURCEPAGE:p.25
 Undermining Exploit	TYPE:General																												PRESKILL:1,Knowledge (Dungeoneering)=4															DESC:Your familiarity with earth and stone gives you a distinct advantage on rocky battlefields.													SOURCEPAGE:p.25
 
 ###Block: Feat benefits

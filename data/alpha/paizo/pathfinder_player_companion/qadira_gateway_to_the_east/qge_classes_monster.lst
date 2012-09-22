@@ -7,4 +7,4 @@ CLASS:Outsider (Zhyen)	OUTPUTNAME:Outsider	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	S
 # Class Name		Reg. Race Type
 CLASS:Outsider (Zhyen)	PRERACETYPE:Outsider
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Outsider (Zhyen)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Bluff|TYPE.Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
+CLASS:Outsider (Zhyen)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth

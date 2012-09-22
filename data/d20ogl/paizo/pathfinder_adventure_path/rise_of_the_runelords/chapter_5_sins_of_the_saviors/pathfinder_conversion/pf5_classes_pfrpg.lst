@@ -2,12 +2,8 @@
 SOURCELONG:Rise of the Runelords - Chapter 5: Sins of the Saviors	SOURCESHORT:PF5	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8029	SOURCEDATE:2007-10
 
 # Class Name	Substitution levels?
-CLASS:Druid.MOD	HASSUBSTITUTIONLEVEL:YES
-SUBSTITUTIONCLASS:Ashvawg Tamer Druid	CSKILL:Intimidate|Knowledge (Arcana)|TYPE.Craft|Handle Animal|Knowledge (Nature)|Perception|TYPE.Profession|Ride|Spellcraft|Survival|Swim
+CLASS:Druid.MOD	
+SUBSTITUTIONCLASS:Ashvawg Tamer Druid	CSKILL:Intimidate|Knowledge (Arcana)|TYPE=Craft|Handle Animal|Knowledge (Nature)|Perception|TYPE=Profession|Ride|Spellcraft|Survival|Swim
 SUBSTITUTIONLEVEL:4						ABILITY:Special Ability|AUTOMATIC|Bestial Bond-RotRL|Variant Companion-RotRL
 SUBSTITUTIONLEVEL:6	BONUS:VAR|WildShapeTimes|-1	ABILITY:Special Ability|AUTOMATIC|Undying Bond-RotRL
 SUBSTITUTIONLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Exotic Companion-RotRL
-
-
-
-

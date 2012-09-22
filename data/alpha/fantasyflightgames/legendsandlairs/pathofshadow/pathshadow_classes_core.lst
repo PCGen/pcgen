@@ -107,7 +107,7 @@ CLASS:Psychic Thief	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 1	SPELLLEVEL:CLASS|Psychic Thief=5|Adapt Body,Clairtangency,Mind Probe,Sending,Sense Psionics,Teleport
 1	SPELLLEVEL:CLASS|Psychic Thief=6|Aura Alteration,Ethereal Jaunt,Retrieve,Suspend Life,True Seeing
 ###Block: Weapon and Armor Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dagger (Punching)|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Sword (Short)	AUTO:WEAPONPROF|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier[PRESIZEGTEQ:M]
+1	AUTO:FEAT|Armor Proficiency (Light)	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dagger (Punching)|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Sword (Short)	AUTO:WEAPONPROF|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier|PRESIZEGTEQ:M
 ###Block: sneak attack
 1	BONUS:VAR|SneakAttack|(CL+3)/4	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ###Block: Manifester stuff

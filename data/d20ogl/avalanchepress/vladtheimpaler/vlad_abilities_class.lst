@@ -26,5 +26,5 @@ Major Poultice	OUTPUTNAME:Brew Minour Poultice	CATEGORY:Special Ability	TYPE:Spe
 
 ###Block:Lautar -----------------------------------------------------------------------------------------------
 # Ability Name	Category of Ability		Type						Visible	Define				Description																								Multiple?	Choose
-Song of Power	CATEGORY:Special Ability	TYPE:SpecialQuality.LautaurSongs	VISIBLE:YES																															MULT:YES	CHOOSE:STRING|Allure|Bring the Rain|Call the Storm|Call the Herd|Calm Animal|Prowess|The Well Runs Dry
+Song of Power	CATEGORY:Special Ability	TYPE:SpecialQuality.LautaurSongs	VISIBLE:YES																															MULT:YES	CHOOSE:STRING|Allure|Bring the Rain|Call the Herd|Call the Storm|Calm Animal|Prowess|The Well Runs Dry
 Create Talisman	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DEFINE:TalismanProgression|0	DESC:Standard|PREVAREQ:TalismanProgression,1	DESC:Reliable|PREVAREQ:TalismanProgression,2	DESC:Dependable|PREVARGTEQ:TalismanProgression,3

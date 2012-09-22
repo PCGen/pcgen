@@ -17,4 +17,3 @@ STAT:STR=10|DEX=10|CON=10|INT=10|WIS=19|CHA=10
 CLASS:Oracle	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Oracle
 ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-

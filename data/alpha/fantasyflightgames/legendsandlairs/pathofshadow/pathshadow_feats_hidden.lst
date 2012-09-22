@@ -66,7 +66,7 @@ PackratBardIncrease	TYPE:PackratLevelIncrease	VISIBLE:NO	PRECLASS:1,Bard=1		STAC
 
 ###Block:Queen's Coronet
 # Feat Name				Type						Visible		Required Class			Description				Stackable?	Multiple?	Choose																										Selections		Source Page
-Skill Mastery Queen's Coronet	TYPE:QueensCoronetSpecialAbilities	VISIBLE:EXPORT	PRECLASS:1,Queen's Coronet=10	DESC:Take 10 on listed skills	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Hide|Innuendo|Intimidate|TYPE.Knowledge|Listen|Move Silently|Read Lips|Sense Motive|Spot	SELECT:3+INT	SOURCEPAGE:Chap.3, Rogue, Special Abilities
+Skill Mastery Queen's Coronet	TYPE:QueensCoronetSpecialAbilities	VISIBLE:EXPORT	PRECLASS:1,Queen's Coronet=10	DESC:Take 10 on listed skills	STACK:NO	MULT:YES	CHOOSE:SKILL|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Hide|Innuendo|Intimidate|Listen|Move Silently|Read Lips|Sense Motive|Spot|TYPE=Knowledge	SELECT:3+INT	SOURCEPAGE:Chap.3, Rogue, Special Abilities
 
 ###Block:Questioner special abilities (similar to the rogue)
 # Feat Name		Type						Visible	Special ABility		Source Page

@@ -44,7 +44,7 @@ Thundering Power			TYPE:Metasionic																																														
 Toppling Power			TYPE:Metapsionic																																																																																																		DESC:Knock creatures prone with force power.																															SOURCEPAGE:p.17
 # NEEDS CODE WORK: Doesn't add power to the powers known list.
 # NEEDS CODE WORK:   The character may not have a powers known list.
-Unlocked Talent			TYPE:General																							PREFEAT:1,Wild Talent		!PREFEAT:1,Unlocked Talent																																																																		DESC:You gain 2 power points and one 1st-level power.												MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Psionic[LEVELMIN=1;LEVELMAX=1]	BONUS:VAR|BonusPowerPoints|2		SOURCEPAGE:p.17
+Unlocked Talent			TYPE:General																							PREFEAT:1,Wild Talent		!PREFEAT:1,Unlocked Talent																																																																		DESC:You gain 2 power points and one 1st-level power.												MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Psionic[LEVELMAX=1;LEVELMIN=1]	BONUS:VAR|BonusPowerPoints|2		SOURCEPAGE:p.17
 
 
 ###Block: Pseudo-feats (ADD:ABILITY doesn't load correctly; JIRA CODE-1117)

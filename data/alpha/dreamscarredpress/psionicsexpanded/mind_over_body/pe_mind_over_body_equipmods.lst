@@ -3,7 +3,7 @@ SOURCELONG:Psionics Expanded - Mind over Body	SOURCESHORT:PEMoB	SOURCEWEB:http:/
 #Original Entry: Douglas Limmer
 
 # Modifier Name	Unique Key			Type		Plus		Visible		Source Page		Multiple Requirements									Bonus Armor Modifiers						Special Property										Change Armor Type
-Fusing		KEY:FUSE_ARMR_LT		TYPE:Armor	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.21	PREMULT:3,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor],[PRETYPE:1,Light]	BONUS:EQMARMOR|ACCHECK|1	BONUS:EQMARMOR|MAXDEX|1	SPROP:Armor Check reduced, Max Dex increased, one category lighter
-Fusing		KEY:FUSE_ARMR_MED		TYPE:Armor	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.21	PREMULT:3,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor],[PRETYPE:1,Medium]	BONUS:EQMARMOR|ACCHECK|1	BONUS:EQMARMOR|MAXDEX|1	SPROP:Armor Check reduced, Max Dex increased, one category lighter	ARMORTYPE:Medium|Light
-Fusing		KEY:FUSE_ARMR_HVY		TYPE:Armor	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.21	PREMULT:3,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor],[PRETYPE:1,Heavy]	BONUS:EQMARMOR|ACCHECK|1	BONUS:EQMARMOR|MAXDEX|1	SPROP:Armor Check reduced, Max Dex increased, one category lighter	ARMORTYPE:Heavy|Medium
-Fusing		KEY:FUSE_ARMR_SHLD	TYPE:Shield	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.21	PREMULT:3,[PRETYPE:1,Enhancement],[PRETYPE:1,Shield]				BONUS:EQMARMOR|ACCHECK|1	BONUS:EQMARMOR|MAXDEX|1	SPROP:Armor Check reduced, Max Dex increased, one category lighter
+Fusing		KEY:FUSE_ARMR_LT		TYPE:Armor	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.21	PRETYPE:3,Enhancement,Armor,Light	BONUS:EQMARMOR|ACCHECK|1	BONUS:EQMARMOR|MAXDEX|1	SPROP:Armor Check reduced, Max Dex increased, one category lighter
+Fusing		KEY:FUSE_ARMR_MED		TYPE:Armor	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.21	PRETYPE:3,Enhancement,Armor,Medium	BONUS:EQMARMOR|ACCHECK|1	BONUS:EQMARMOR|MAXDEX|1	SPROP:Armor Check reduced, Max Dex increased, one category lighter	ARMORTYPE:Medium|Light
+Fusing		KEY:FUSE_ARMR_HVY		TYPE:Armor	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.21	PRETYPE:3,Enhancement,Armor,Heavy	BONUS:EQMARMOR|ACCHECK|1	BONUS:EQMARMOR|MAXDEX|1	SPROP:Armor Check reduced, Max Dex increased, one category lighter	ARMORTYPE:Heavy|Medium
+Fusing		KEY:FUSE_ARMR_SHLD	TYPE:Shield	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.21	PRETYPE:3,Enhancement,Shield				BONUS:EQMARMOR|ACCHECK|1	BONUS:EQMARMOR|MAXDEX|1	SPROP:Armor Check reduced, Max Dex increased, one category lighter

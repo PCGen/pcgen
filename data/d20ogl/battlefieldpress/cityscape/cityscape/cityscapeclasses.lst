@@ -148,7 +148,7 @@ CLASS:Dataman	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Computer Use|Concentration|C
 20																		BONUS:VAR|Interface1|1	BONUS:VAR|Interface2|1	BONUS:VAR|Interface3|1	BONUS:VAR|Interface4|1	BONUS:VAR|Interface5|1
 
 # Class Name	Output Name		Hit Dice	Type			Abbreviation	Ex Class			Source Page		Automatic Languages	Bonus Languages	Save checks bonus											Combat bonus
-CLASS:Druid (CS)	OUTPUTNAME:Druid	HD:8		TYPE:Base.PC	ABB:Drd		EXCLASS:Ex Druid (CS)	SOURCEPAGE:p.33	LANGAUTO:Druidic		LANGBONUS:Sylvan	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Druid (CS)	OUTPUTNAME:Druid	HD:8		TYPE:Base.PC	ABB:Drd		EXCLASS:Ex Druid (CS)	SOURCEPAGE:p.33	AUTO:LANG|Druidic		LANGBONUS:Sylvan	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL
 CLASS:Druid (CS)	PREALIGN:LN,NG,TN,NE,CN
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -182,7 +182,7 @@ CLASS:Druid (CS)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 20	CAST:6,5,5,5,5,5,4,4,4,4
 
 # Class Name		Output Name			Hit Dice	Type			Abbreviation	Source Page		Automatic Languages	Bonus Languages	Visible	Save checks bonus											Combat bonus
-CLASS:Ex Druid (CS)	OUTPUTNAME:Ex Druid	HD:8		TYPE:Base.PC	ABB:XDrd		SOURCEPAGE:p.33	LANGAUTO:Druidic		LANGBONUS:Sylvan	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Ex Druid (CS)	OUTPUTNAME:Ex Druid	HD:8		TYPE:Base.PC	ABB:XDrd		SOURCEPAGE:p.33	AUTO:LANG|Druidic		LANGBONUS:Sylvan	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ex Druid (CS)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Intuit Direction|Knowledge (Nature)|Listen|Medical (First Aid)|TYPE=Profession|Scry|Scent/Taste|Spellcraft|Spot|Swim|Wilderness Lore
 ###Block: Proficiencies

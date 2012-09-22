@@ -8,8 +8,8 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/
 A Tools Vest		TYPE:Magic.Wondrous.Vest	COST:1800	WT:5		SOURCEPAGE:p.300	SPROP:As a standard action, the wearer can speak its command word and order it to bring forth all the standard tools required to make checks for any one Craft skill.
 Amulet of Magecraft	TYPE:Magic.Wondrous.Amulet	COST:20000	WT:2		SOURCEPAGE:p.300	SPROP:Allows a universalist wizard to choose one school of spells each day when he prepares spells. He then can use the necklace to spontaneously convert any prepared wizard spell of that school into any other wizard spell of that school he knows; the desired spell must be of the same level or lower than the prepared spell.|PRETYPE:1,EQMOD=BONDED_OBJECT
 Amulet of Spell Cunning	TYPE:Magic.Wondrous.Amulet	COST:10000	WT:1		SOURCEPAGE:p.300	SPROP:Allows a wizard to prepare an additional 3 levels of spells per day.|PRETYPE:1,EQMOD=BONDED_OBJECT
-Annihilation Spectacles	TYPE:Magic.Wondrous.Eyes	COST:2500	WT:0.25	SOURCEPAGE:p.300	SPROP:Once per day, he may use the spectacles to spontaneously cast disintegrate in place of one of his prepared transmutation wizard spells of 6th level or higher, even if he doesn’t know that spell.
-Apple of Eternal Sleep	TYPE:Magic.Wondrous		COST:2500	WT:.01	SOURCEPAGE:p.300
+Annihilation Spectacles	TYPE:Magic.Wondrous.Eyes	COST:2500	WT:0.25	SOURCEPAGE:p.300	SPROP:Once per day, he may use the spectacles to spontaneously cast disintegrate in place of one of his prepared transmutation wizard spells of 6th level or higher, even if he doesn't know that spell.
+Apple of Eternal Sleep	TYPE:Magic.Wondrous		COST:2500	WT:0.01	SOURCEPAGE:p.300
 Assisting Glove		TYPE:Magic.Wondrous.Glove	COST:180	WT:1		SOURCEPAGE:p.300
 
 ###Block:B
@@ -76,7 +76,7 @@ Ioun Torch		TYPE:Magic.Wondrous	COST:75	SOURCEPAGE:p.306
 
 ###Block:K
 # Equipment Name			Type						Cost		Weight	Source Page
-Key of Lock Jamming		TYPE:Magic.Wondrous.Consumable	COST:400	WT:.5		SOURCEPAGE:p.306
+Key of Lock Jamming		TYPE:Magic.Wondrous.Consumable	COST:400	WT:0.5		SOURCEPAGE:p.306
 Ki Mat				TYPE:Magic.Wondrous			COST:10000	WT:3		SOURCEPAGE:p.306
 Knight's Pennon (Battle)	TYPE:Magic.Wondrous			COST:4500	WT:1		SOURCEPAGE:p.307
 Knight's Pennon (Honor)		TYPE:Magic.Wondrous			COST:2200	WT:1		SOURCEPAGE:p.307
@@ -95,7 +95,7 @@ Manacles of Cooperation		TYPE:Magic.Wondrous.Wrist	COST:2000	WT:2		SOURCEPAGE:p.
 Mask of Giants (Lesser)		TYPE:Magic.Wondrous.Mask	COST:30000	WT:1		SOURCEPAGE:p.307
 Mask of Giants (Greater)	TYPE:Magic.Wondrous.Mask	COST:90000	WT:1		SOURCEPAGE:p.307
 Moon Circlet			TYPE:Magic.Wondrous.Circlet	COST:20000			SOURCEPAGE:p.308	VISION:Darkvision (60')
-Muleback Cords			TYPE:Magic.Wondrous.Shoulders	COST:1000	WT:.25	SOURCEPAGE:p.308					BONUS:VAR|LOADSCORE|8
+Muleback Cords			TYPE:Magic.Wondrous.Shoulders	COST:1000	WT:0.25	SOURCEPAGE:p.308					BONUS:VAR|LOADSCORE|8
 
 ###Block:N
 # Equipment Name		Type					Cost		Weight	Source Page		Modify VAR

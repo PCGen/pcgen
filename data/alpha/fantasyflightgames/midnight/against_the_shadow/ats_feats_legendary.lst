@@ -46,7 +46,7 @@ Evolution III			TYPE:AvatarOfTheWitchQueenAbility.Evolution						VISIBLE:NO	!PRE
 Evolution IV			TYPE:AvatarOfTheWitchQueenAbility.Evolution						VISIBLE:NO	!PREFEAT:1,TYPE.Evolution			PREVAREQ:var("CL=Avatar of the Witch Queen"),4																																					ADD:FEAT|4|Melee Bonus,Ranged Bonus,Skill Bonus,TYPE=SaveBonus
 Evolution V				TYPE:AvatarOfTheWitchQueenAbility.Evolution						VISIBLE:NO	!PREFEAT:1,TYPE.Evolution			PREVAREQ:var("CL=Avatar of the Witch Queen"),5																																					ADD:FEAT|5|Melee Bonus,Ranged Bonus,Skill Bonus,TYPE=SaveBonus
 
-Skill Bonus				TYPE:Special											VISIBLE:NO																															MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma																															BONUS:SKILL|LIST|2
+Skill Bonus				TYPE:Special											VISIBLE:NO																															MULT:YES	CHOOSE:SKILL|TYPE=Charisma|TYPE=Constitution|TYPE=Dexterity|TYPE=Intelligence|TYPE=Strength|TYPE=Wisdom																															BONUS:SKILL|LIST|2
 ### TODO: Couldn't get this to work.
 #Save Bonus						TYPE:Special																																		VISIBLE:NO	MULT:YES	CHOOSE:Fortitude|Reflex|Will	BONUS:CHECKS|%CHOICE|2
 Fortitude Bonus			TYPE:SaveBonus											VISIBLE:NO																																																															BONUS:CHECKS|Fortitude|2

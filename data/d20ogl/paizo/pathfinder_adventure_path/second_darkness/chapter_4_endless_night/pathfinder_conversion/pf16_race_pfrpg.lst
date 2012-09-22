@@ -2,7 +2,7 @@
 SOURCELONG:Second Darkness - Chapter 4: Endless Night	SOURCESHORT:PF16	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy81tq	SOURCEDATE:2008-11
 
 # Race Name		Clear Prereq.	Bonus to skill					Racial HD Class Skills								Automatically Gained Feat	Ability																				Define				Spell Res.	Monster Class Name and Starting Level	Apply Kit
-Deep Crow.MOD	PRE:.CLEAR		BONUS:SKILL|Perception|6|TYPE=Racial	MONCSKILL:.CLEAR														ABILITY:Special Ability|AUTOMATIC|.CLEAR.Improved Grab|Grab|.CLEAR.Deep Crow Hide|Deep Crow Stealth|Flight Maneuverability	DEFINE:Maneuverability|3										KIT:1|TN
+Deep Crow.MOD	PRE:.CLEAR		BONUS:SKILL|Perception|6|TYPE=Racial	MONCSKILL:.CLEAR														ABILITY:Special Ability|AUTOMATIC|.CLEAR.Deep Crow Hide|.CLEAR.Improved Grab|Deep Crow Stealth|Flight Maneuverability|Grab	DEFINE:Maneuverability|3										KIT:1|TN
 Demon (Omox).MOD	PRE:.CLEAR		BONUS:SKILL|Perception|8|TYPE=Racial	MONCSKILL:.CLEAR	MONCSKILL:Acrobatics|Knowledge (Dungeoneering)																																		MONSTERCLASS:Outsider (Fort/Ref):12		KIT:1|CE
 Ghonhatine.MOD	PRE:.CLEAR		BONUS:SKILL|Stealth|6|TYPE=Racial		MONCSKILL:.CLEAR									AUTO:FEAT|.CLEAR.Track		ABILITY:Special Ability|AUTOMATIC|.CLEAR.Feed|Ghonhatine Feed																									KIT:1|CE
 Irnakurse.MOD											MONCSKILL:.CLEAR

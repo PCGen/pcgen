@@ -6,7 +6,7 @@ CLASS:Aberration	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.306	ABILITY:Sp
 # Class Name	Reg. Race Type
 CLASS:Aberration	PRERACETYPE:Aberration
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Aberration	STARTSKILLPTS:4	MODTOSKILLS:YES			CSKILL:Acrobatics|Climb|Escape Artist|Fly|Intimidate|TYPE.Knowledge|Perception|Spellcraft|Stealth|Survival|Swim
+CLASS:Aberration	STARTSKILLPTS:4	MODTOSKILLS:YES			CSKILL:Acrobatics|Climb|Escape Artist|Fly|Intimidate|TYPE=Knowledge|Perception|Spellcraft|Stealth|Survival|Swim
 
 # Class Name	Hit Dice	Type			Max Level		Source Page		Ability																	Save checks bonus											Combat bonus
 CLASS:Animal	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.306	ABILITY:Special Ability|AUTOMATIC|Animal Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -34,7 +34,7 @@ CLASS:Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.307	ABILITY:Speci
 # Class Name	Reg. Race Type
 CLASS:Dragon	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Appraise|Bluff|Climb|TYPE.Craft|Diplomacy|Fly|Heal|Intimidate|TYPE.Knowledge|Linguistics|Perception|Sense Motive|Spellcraft|Stealth|Survival|Swim|Use Magic Device
+CLASS:Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Fly|Heal|Intimidate|TYPE=Knowledge|Linguistics|Perception|Sense Motive|Spellcraft|Stealth|Survival|Swim|Use Magic Device
 
 
 # Class Name	Hit Dice	Type			Max Level		Source Page		Ability																	Save checks bonus											Combat bonus
@@ -42,28 +42,28 @@ CLASS:Fey		HD:6		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.307	ABILITY:Special 
 # Class Name	Reg. Race Type
 CLASS:Fey		PRERACETYPE:Fey
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Fey		STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Acrobatics|Bluff|Climb|TYPE.Craft|Diplomacy|Disguise|Escape Artist|Fly|Knowledge (Geography)|Knowledge (Local)|Knowledge (Nature)|Perception|TYPE.Perform|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device
+CLASS:Fey		STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Fly|Knowledge (Geography)|Knowledge (Local)|Knowledge (Nature)|Perception|TYPE=Perform|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device
 
 # Class Name	Hit Dice	Type			Max Level		Source Page		Ability																		Save checks bonus											Combat bonus
 CLASS:Humanoid	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.308	ABILITY:Special Ability|AUTOMATIC|Humanoid Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Reg. Race Type
 CLASS:Humanoid	PRERACETYPE:Humanoid
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Humanoid	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Climb|TYPE.Craft|Handle Animal|Heal|TYPE.Profession|Ride|Survival
+CLASS:Humanoid	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Climb|TYPE=Craft|Handle Animal|Heal|TYPE=Profession|Ride|Survival
 
 # Class Name		Output Name			Hit Dice	Type			Max Level		Source Page		Ability																		Save checks bonus												Combat bonus
 CLASS:Humanoid (Reflex)	OUTPUTNAME:Humanoid	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.308	ABILITY:Special Ability|AUTOMATIC|Humanoid Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Reg. Race Type
 CLASS:Humanoid (Reflex)	PRERACETYPE:Humanoid
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Humanoid (Reflex)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Climb|TYPE.Craft|Handle Animal|Heal|TYPE.Profession|Ride|Survival
+CLASS:Humanoid (Reflex)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Climb|TYPE=Craft|Handle Animal|Heal|TYPE=Profession|Ride|Survival
 
 # Class Name		Output Name			Hit Dice	Type			Max Level		Source Page		Ability																		Save checks bonus											Combat bonus
 CLASS:Humanoid (Will)	OUTPUTNAME:Humanoid	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.308	ABILITY:Special Ability|AUTOMATIC|Humanoid Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Reg. Race Type
 CLASS:Humanoid (Will)	PRERACETYPE:Humanoid
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Humanoid (Will)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Climb|TYPE.Craft|Handle Animal|Heal|TYPE.Profession|Ride|Survival
+CLASS:Humanoid (Will)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Climb|TYPE=Craft|Handle Animal|Heal|TYPE=Profession|Ride|Survival
 
 # Class Name		Hit Dice	Type			Max Level		Source Page		Ability																			Save checks bonus											Combat bonus
 CLASS:Magical Beast	HD:10		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.308	ABILITY:Special Ability|AUTOMATIC|Magical Beast Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -77,7 +77,7 @@ CLASS:Monstrous humanoid	HD:10		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.308	A
 # Class Name			Reg. Race Type
 CLASS:Monstrous humanoid	PRERACETYPE:Monstrous humanoid
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Monstrous humanoid	STARTSKILLPTS:4	MODTOSKILLS:YES			CSKILL:Climb|TYPE.Craft|Fly|Intimidate|Perception|Ride|Stealth|Survival|Swim
+CLASS:Monstrous humanoid	STARTSKILLPTS:4	MODTOSKILLS:YES			CSKILL:Climb|TYPE=Craft|Fly|Intimidate|Perception|Ride|Stealth|Survival|Swim
 
 # Class Name	Hit Dice	Type			Max Level		Source Page		Levels per Feat	Ability																	Save checks bonus								Combat bonus					Template
 CLASS:Ooze		HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.308	LEVELSPERFEAT:0	ABILITY:Special Ability|AUTOMATIC|Ooze Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	TEMPLATE:Mindless
@@ -98,27 +98,27 @@ CLASS:Outsider (Fort/Ref)	OUTPUTNAME:Outsider	HD:10		TYPE:Monster	MAXLEVEL:NOLIM
 # Class Name			Reg. Race Type
 CLASS:Outsider (Fort/Ref)	PRERACETYPE:Outsider
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Outsider (Fort/Ref)	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE.Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
+CLASS:Outsider (Fort/Ref)	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 
 # Class Name			Output Name			Hit Dice	Type			Max Level		Source Page		Ability																		Save checks bonus											Combat bonus
 CLASS:Outsider (Fort/Will)	OUTPUTNAME:Outsider	HD:10		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:Special Ability|AUTOMATIC|Outsider Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Reg. Race Type
 CLASS:Outsider (Fort/Will)	PRERACETYPE:Outsider
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Outsider (Fort/Will)	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE.Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
+CLASS:Outsider (Fort/Will)	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 
 # Class Name			Output Name			Hit Dice	Type			Max Level		Source Page		Ability																		Save checks bonus											Combat bonus
 CLASS:Outsider (Ref/Will)	OUTPUTNAME:Outsider	HD:10		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:Special Ability|AUTOMATIC|Outsider Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Reg. Race Type
 CLASS:Outsider (Ref/Will)	PRERACETYPE:Outsider
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Outsider (Ref/Will)	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE.Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
+CLASS:Outsider (Ref/Will)	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 
 # Class Name	Hit Dice	Type			Max Level		Source Page		Ability																	Save checks bonus											Combat bonus
 CLASS:Plant		HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:Special Ability|AUTOMATIC|Plant Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE

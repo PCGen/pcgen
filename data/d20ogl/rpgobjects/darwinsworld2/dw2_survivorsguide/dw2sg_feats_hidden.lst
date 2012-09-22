@@ -8,8 +8,8 @@ Extra Arm Feat	TYPE:MutantAbility.Limb		VISIBLE:NO	PREABILITY:1,CATEGORY=Mutatio
 Extra Leg Feat	TYPE:MutantAbility.Limb		VISIBLE:NO	PREABILITY:1,CATEGORY=Mutation,Additional Limb Development (Leg)											SAB:Extra Leg (x%) (+5' to Base Speed, +2 to Balance each)|AdditionalLimbLeg					DEFINE:AdditionalLimbLeg|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:MOVEADD|TYPE.Walk|(5*AdditionalLimbLeg)	BONUS:SKILL|Balance|(2*AdditionalLimbLeg)					BONUS:VAR|AdditionalLimbLeg|1	SOURCEPAGE:p. 77
 
 #Hidden Feats for Diurnal/Nocturnal
-Diurnal		TYPE:MutantAbility.DiNoc	VISIBLE:NO												!PREABILITY:1,CATEGORY=Mutation,Diurnal/Nocturnal (Night)	SAB:+% to %CHOICE during Daytime hours (6am to 6pm)|dayBonus							DEFINE:dayBonus|0			STACK:YES	MULT:YES	CHOOSE:STRING|Strength|Dexterity																								BONUS:VAR|dayBonus|2
-Nocturnal		TYPE:MutantAbility.DiNoc	VISIBLE:NO												!PREABILITY:1,CATEGORY=Mutation,Diurnal/Nocturnal (Day)	SAB:+% to %CHOICE during Nighttime hours (6pm to 6am)|nightBonus							DEFINE:nightBonus|0		STACK:YES	MULT:YES	CHOOSE:STRING|Strength|Dexterity																								BONUS:VAR|nightBonus|2
+Diurnal		TYPE:MutantAbility.DiNoc	VISIBLE:NO												!PREABILITY:1,CATEGORY=Mutation,Diurnal/Nocturnal (Night)	SAB:+% to %CHOICE during Daytime hours (6am to 6pm)|dayBonus							DEFINE:dayBonus|0			STACK:YES	MULT:YES	CHOOSE:STRING|Dexterity|Strength																								BONUS:VAR|dayBonus|2
+Nocturnal		TYPE:MutantAbility.DiNoc	VISIBLE:NO												!PREABILITY:1,CATEGORY=Mutation,Diurnal/Nocturnal (Day)	SAB:+% to %CHOICE during Nighttime hours (6pm to 6am)|nightBonus							DEFINE:nightBonus|0		STACK:YES	MULT:YES	CHOOSE:STRING|Dexterity|Strength																								BONUS:VAR|nightBonus|2
 
 ###Block: Barbarian Rage
 # Feat Name	Type			Visible	Special ABility																																			Define																										Save checks bonus					Combat bonus						Stat bonus													Modify VAR
@@ -21,7 +21,7 @@ Sneak Attack	TYPE:Special	VISIBLE:NO	SAB:Sneak Attack +%d%|SneakAttack|SneakAtta
 
 ###Block: Skill Mastery
 # Feat Name		Type			Visible	Special ABility			Multiple?	Choose				Selections
-Skill Mastery	TYPE:Special	VISIBLE:NO	SAB:Skill Mastery (%CHOICE)	MULT:YES	CHOOSE:SKILLSNAMED|CLASS	SELECT:3+INT
+Skill Mastery	TYPE:Special	VISIBLE:NO	SAB:Skill Mastery (%CHOICE)	MULT:YES	CHOOSE:SKILL|CLASS	SELECT:3+INT
 
 ###Block: Evasion/Improved Evasion
 # Feat Name		Type							Visible	Required Feat	Special ABility						Define					Modify VAR																													Source Page

@@ -4,7 +4,7 @@ SOURCELONG:Malhavoc Press - If Thoughts Could Kill	SOURCESHORT:ITCK	SOURCEWEB:ht
 
 ###Block: character races
 # Race Name	Product Identity?	Favored Class	Starting Feats	Size		Move			Face/Space	Reach		Vision		Automatic Languages	Bonus Languages	Save checks bonus						Bonus to skill							Special ABility						Main Race Type	Challenge Rating	Source Page		Add
-Kuresh	NAMEISPI:YES	FAVCLASS:Psion	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	VISION:Low-light	LANGAUTO:Common		LANGBONUS:ALL	BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Luck	BONUS:SKILL|Spot,Search,Sense Motive|2|TYPE=Racial	SAB:+2 save vs psionic combat attack modes	RACETYPE:Humanoid	CR:1/2		SOURCEPAGE:p.40	ADD:FEAT|TYPE=Metapsionic,TYPE=Psionic
+Kuresh	NAMEISPI:YES	FAVCLASS:Psion	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	VISION:Low-light	AUTO:LANG|Common		LANGBONUS:ALL	BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Luck	BONUS:SKILL|Spot,Search,Sense Motive|2|TYPE=Racial	SAB:+2 save vs psionic combat attack modes	RACETYPE:Humanoid	CR:1/2		SOURCEPAGE:p.40	ADD:FEAT|TYPE=Metapsionic,TYPE=Psionic
 
 ###Block: monsters
 # Race Name			Product Identity?	Size		Move				Face/Space	Reach		Vision				Combat bonus						Stat bonus																	Ability															Nb Legs	Natural Attacks																	Special ABility					Define			Spell Res.	Skill Multiplier	Monster Class Name and Starting Level	Main Race Type		Template		Hit Dice Advancement		Challenge Rating	Source Page		Innate Spells

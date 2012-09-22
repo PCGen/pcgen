@@ -14,9 +14,9 @@ CLASS:Battle Herald	HD:10		TYPE:PC.Prestige	ABB:BH		MAXLEVEL:10	SOURCEPAGE:p.260
 # Class Name		Required Ability											Req. Att.	Required Skill
 CLASS:Battle Herald	PREABILITY:2,CATEGORY=Special Ability,Challenge ~ Cavalier,Inspire Courage	PREATT:4	PRESKILL:4,Diplomacy=5,Intimidate=5,Perform (Oratory)=5,Profession(soldier)=2
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Battle Herald	STARTSKILLPTS:4	CSKILL:Bluff|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (Engineering)|Knowledge (History)|Knowledge (Local)|Knowledge (Nobility)|Perception|TYPE.Profession|Ride|Sense Motive
+CLASS:Battle Herald	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (Engineering)|Knowledge (History)|Knowledge (Local)|Knowledge (Nobility)|Perception|TYPE=Profession|Ride|Sense Motive
 ##Block: Normal Level Progression
-1	BONUS:ABILITYPOOL|Inspiring Command Selection|CL+1/2	BONUS:VAR|InspiringCommandLVL|CL	ABILITY:Special Ability|AUTOMATIC|Inspiring Command ~ Battle Herald|Improved Leadership ~ Battle Herald|Improved Leadership ~ Battle Herald|Voice of Authority ~ Battle Herald
+1	BONUS:ABILITYPOOL|Inspiring Command Selection|CL+1/2	BONUS:VAR|InspiringCommandLVL|CL	ABILITY:Special Ability|AUTOMATIC|Improved Leadership ~ Battle Herald|Improved Leadership ~ Battle Herald|Inspiring Command ~ Battle Herald|Voice of Authority ~ Battle Herald
 2																ABILITY:Special Ability|AUTOMATIC|Easy March ~ Battle Herald
 4																ABILITY:Special Ability|AUTOMATIC|Inspire Greatness ~ Battle Herald
 5	BONUS:ABILITYPOOL|Teamwork Feat|1										ABILITY:Special Ability|AUTOMATIC|Banner ~ Battle Herald
@@ -35,8 +35,8 @@ CLASS:Holy Vindicator	PREABILITY:1,CATEGORY=Special Ability,Channel Energy	PREAT
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Holy Vindicator	STARTSKILLPTS:2	CSKILL:Climb|Heal|Intimidate|Knowledge (Planes)|Knowledge (Religion)|Ride|Sense Motive|Spellcraft|Swim
 ###Block:  Weapon/Armor Proficiencies
-1										ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies					AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
-1																										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1										ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies					AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1																										AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																										AUTO:FEAT|Shield Proficiency
 ##Block: Normal Level Progression
 1	BONUS:VAR|PrestigeClassChannelEnergyLVL|CL		ABILITY:Special Ability|AUTOMATIC|Channel Energy ~ Prestige Class|Vindicator's Shield ~ Holy Vindicator
@@ -90,7 +90,7 @@ CLASS:Master Spy	HD:8		TYPE:PC.Prestige	ABB:MS		MAXLEVEL:10	SOURCEPAGE:p.270	BON
 # Class Name	Required Feat			Required Skill
 CLASS:Master Spy	PREFEAT:2,Deceitful,Iron Will	PRESKILL:4,Bluff=7,Disguise=7,Perception=5,Sense Motive=5
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Master Spy	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Disable Device|Disguise|Escape Artist|TYPE.Knowledge|Linguistics|Perception|Sense Motive|Sleight of Hand|Stealth|Use Magic Device
+CLASS:Master Spy	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Disable Device|Disguise|Escape Artist|TYPE=Knowledge|Linguistics|Perception|Sense Motive|Sleight of Hand|Stealth|Use Magic Device
 ##Block: Normal Level Progression
 1	BONUS:VAR|SneakAttack|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Art of Deception ~ Master Spy|Master of Disguise ~ Master Spy|Sneak Attack ~ Master Spy
 2							ABILITY:Special Ability|AUTOMATIC|Glib Lie ~ Master Spy|Mask Alignment ~ Master Spy

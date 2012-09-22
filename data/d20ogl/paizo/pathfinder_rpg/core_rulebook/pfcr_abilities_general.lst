@@ -24,7 +24,7 @@ CATEGORY=Internal|Shield Bash Stats.MOD	BONUS:VAR|ShieldBashingDieSizeStep|3|TYP
 # COMMENT: Size is Small 
 CATEGORY=Internal|Shield Bash Stats.MOD	BONUS:VAR|ShieldBashingDieSizeStep|2|TYPE=ShieldSize|PREMULT:2,[PRESIZEEQ:S],[PREEQUIP:1,TYPE=Shield.Light]	BONUS:VAR|ShieldBashingDieSizeStep|3|TYPE=ShieldSize|PREMULT:2,[PRESIZEEQ:S],[PREEQUIP:1,TYPE=Shield.Heavy]
 
-	
+
 
 CATEGORY=Internal|Shield Bash Stats.MOD	ABILITY:Internal|AUTOMATIC|Shield Bash 1d1|PREVAREQ:ShieldBashingDieSizeStep,1
 CATEGORY=Internal|Shield Bash Stats.MOD	ABILITY:Internal|AUTOMATIC|Shield Bash 1d2|PREVAREQ:ShieldBashingDieSizeStep,2
@@ -43,6 +43,3 @@ Shield Bash 1d6	CATEGORY:Internal	BONUS:VAR|ShieldDamageSize|6
 Shield Bash 1d8	CATEGORY:Internal	BONUS:VAR|ShieldDamageSize|8
 Shield Bash 1d10	CATEGORY:Internal	BONUS:VAR|ShieldDamageSize|10
 Shield Bash 1d12	CATEGORY:Internal	BONUS:VAR|ShieldDamageSize|12
-
-
-

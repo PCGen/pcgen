@@ -8,8 +8,8 @@ CLASS:The Master of the Hunt	HD:10		TYPE:Monster	MAXLEVEL:15	SOURCEPAGE:p. 10	BO
 # Class Name			Reg. Race Type
 CLASS:The Master of the Hunt	PRERACE:1,RACETYPE=Fey
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:The Master of the Hunt	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Climb|TYPE.Craft|Handle Animal|Hide|Intimidate|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|Profession (Hunter/Tracker)|Spot|Tumble|Use Rope|Wilderness Lore
-1	BONUS:CASTERLEVEL|Ranger|19	BONUS:PCLEVEL|Ranger|20	ADD:SPELLCASTER|Ranger	AUTO:FEAT|Armor Proficiency (Light)|Simple Weapon Proficiency|Martial Weapon Proficiency
+CLASS:The Master of the Hunt	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Climb|TYPE=Craft|Handle Animal|Hide|Intimidate|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|Profession (Hunter/Tracker)|Spot|Tumble|Use Rope|Wilderness Lore
+1	BONUS:CASTERLEVEL|Ranger|19	BONUS:PCLEVEL|Ranger|20	ADD:SPELLCASTER|Ranger	AUTO:FEAT|Armor Proficiency (Light)|Martial Weapon Proficiency|Simple Weapon Proficiency
 
 
 #

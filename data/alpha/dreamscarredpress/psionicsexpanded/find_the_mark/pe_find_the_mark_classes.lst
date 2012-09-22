@@ -4,12 +4,12 @@
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
 CLASS:Marksman	HD:10		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Marksman	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE.Craft|Escape Artist|Intimidate|Knowledge (Psionics)|Perception|TYPE.Perform|TYPE.Profession|Sense Motive|Stealth|Survival|Use Magic Device
+CLASS:Marksman	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|Escape Artist|Intimidate|Knowledge (Psionics)|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Stealth|Survival|Use Magic Device
 # Class Name	Spell Stat		Stat for Bonus Spells	Spell Type		Memorize	Caster level
 CLASS:Marksman	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Marksman|CL
 
 ## Proficiencies
-1																																																								ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)	AUTO:SHIELDPROF|SHIELDTYPE=Buckler	AUTO:WEAPONPROF|TYPE.Light.Martial|TYPE.Ranged.Martial|TYPE.Thrown.Martial
+1																																																								ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)	AUTO:SHIELDPROF|SHIELDTYPE=Buckler	AUTO:WEAPONPROF|TYPE=Light.Martial|TYPE=Martial.Ranged|TYPE=Martial.Thrown
 
 ## Psionic Ability
 1											BONUS:VAR|MarksmanML|CL	BONUS:VAR|MarksmanML|var("BL=Marksman")	BONUS:VAR|IsPsionic|1																						DEFINE:MarksmanML|0	DEFINE:IsPsionic|0		ABILITY:Special Ability|AUTOMATIC|Psionic
@@ -51,7 +51,7 @@ CLASS:Marksman	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Psionic	MEMORIZE:NO	B
 
 # Class Name
 CLASS:Psion.MOD
-SUBCLASS:Unseen Hand	COST:0	PROHIBITCOST:0	SPELLLIST:2|Kineticist|Psion	CSKILL:Autohypnosis|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft|Acrobatics|Heal
+SUBCLASS:Unseen Hand	COST:0	PROHIBITCOST:0	SPELLLIST:2|Kineticist|Psion	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Acrobatics|Heal
 SUBCLASSLEVEL:1	BONUS:VAR|PsychokinesisDisciplineLVL|CL	ABILITY:Special Ability|AUTOMATIC|Unseen Hand Advanced Discipline
 
 

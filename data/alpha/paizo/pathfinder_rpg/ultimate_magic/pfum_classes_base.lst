@@ -6,11 +6,11 @@ SOURCELONG:Ultimate Magic	SOURCESHORT:PFUM	SOURCEWEB:http://paizo.com/pathfinder
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Magus		HD:8		TYPE:Base.PC	ABB:Mag		MAXLEVEL:20	SOURCEPAGE:p.9	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Magus		STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Fly|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (Planes)|TYPE.Profession|Ride|Spellcraft|Swim|Use Magic Device
+CLASS:Magus		STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Fly|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (Planes)|TYPE=Profession|Ride|Spellcraft|Swim|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize		Automatically Known Spell Levels	Spellbook		Caster level
 CLASS:Magus		SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Magus|CL
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusWeaponProficiency	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusWeaponProficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusWeaponProficiency	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusWeaponProficiency
 ###Block: Class features
 1									BONUS:VAR|MagusArmorProficiencyLVL|CL	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency
 1									BONUS:VAR|MagusArcanePoolLVL|CL		ABILITY:Special Ability|AUTOMATIC|Arcane Pool ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcanePool

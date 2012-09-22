@@ -10,4 +10,4 @@ Knowledge (Psionics)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowl
 Psicraft				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Psionic		SOURCEPAGE:srdpsionicskills.rtf	BONUS:SKILL|Psicraft|SynergyBonus|PRESKILL:1,Use Psionic Device=5|TYPE=Synergy.STACK
 Remote View				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Psionic		SOURCEPAGE:srdpsionicskills.rtf
 Stabilize Self			KEYSTAT:CON	USEUNTRAINED:NO								TYPE:Constitution.Psionic		SOURCEPAGE:srdpsionicskills.rtf
-Use Psionic Device		KEYSTAT:CHA	USEUNTRAINED:NO	EXCLUSIVE:YES	CLASSES:Rogue|Bard	TYPE:Charisma				SOURCEPAGE:srdpsionicskills.rtf	BONUS:SKILL|Use Psionic Device|SynergyBonus|PRESKILL:1,Psicraft=5|TYPE=Synergy.STACK
+Use Psionic Device		KEYSTAT:CHA	USEUNTRAINED:NO	EXCLUSIVE:YES	CLASSES:Bard|Rogue	TYPE:Charisma				SOURCEPAGE:srdpsionicskills.rtf	BONUS:SKILL|Use Psionic Device|SynergyBonus|PRESKILL:1,Psicraft=5|TYPE=Synergy.STACK

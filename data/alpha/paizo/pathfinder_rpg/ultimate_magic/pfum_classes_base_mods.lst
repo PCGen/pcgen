@@ -29,7 +29,7 @@ CLASS:Cleric.MOD
 ###Block: Animal and Terrain Domains
 
 # Class Name
-CLASS:Druid.MOD	
+CLASS:Druid.MOD
 1	DOMAIN:Aquatic[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVARLT:DruidAquaticNotAllowed,1]]
 1	DOMAIN:Arctic[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVARLT:DruidArcticNotAllowed,1]]
 1	DOMAIN:Cave[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVARLT:DruidCaveNotAllowed,1]]

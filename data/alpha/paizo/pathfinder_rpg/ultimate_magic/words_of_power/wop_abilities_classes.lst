@@ -5,7 +5,7 @@ SOURCELONG:Ultimate Magic	SOURCESHORT:PFUM	SOURCEWEB:http://paizo.com/pathfinder
 
 ###Block: Words of Power class abilities
 #Block: Bard abilities by level
-WOP Bard 1	CATEGORY:Internal	ABILITY:Words of Power|AUTOMATIC|Personal|Selected|Barrier|Burst|Cone|Line|Boost	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=0|-4	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|-2	BONUS:ABILITYPOOL|0-Level Bard Word|4	BONUS:ABILITYPOOL|1st-Level Bard Word|2
+WOP Bard 1	CATEGORY:Internal	ABILITY:Words of Power|AUTOMATIC|Barrier|Boost|Burst|Cone|Line|Personal|Selected	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=0|-4	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|-2	BONUS:ABILITYPOOL|0-Level Bard Word|4	BONUS:ABILITYPOOL|1st-Level Bard Word|2
 WOP Bard 2	CATEGORY:Internal	BONUS:ABILITYPOOL|0-Level Bard Word|1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=0|-1	BONUS:ABILITYPOOL|1st-Level Bard Word|1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|-1
 WOP Bard 3	CATEGORY:Internal	BONUS:ABILITYPOOL|0-Level Bard Word|1		BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=0|-1	BONUS:ABILITYPOOL|1st-Level Bard Word|1		BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|-1
 WOP Bard 4	CATEGORY:Internal	BONUS:ABILITYPOOL|2nd-Level Bard Word|2		BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=2|-2
@@ -27,7 +27,7 @@ WOP Bard 19	CATEGORY:Internal	BONUS:ABILITYPOOL|5th-Level Bard Word|1	BONUS:SPEL
 WOP Bard 20	CATEGORY:Internal	BONUS:ABILITYPOOL|4th-Level Bard Word|1		BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=4|-1	BONUS:ABILITYPOOL|6th-Level Bard Word|1		BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=6|-1
 
 #Block: Inquisitor abilities by level
-WOP Inquisitor 1	CATEGORY:Internal	ABILITY:Words of Power|AUTOMATIC|Personal|Selected|Barrier|Burst|Cone|Line|Boost	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=0|-4	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=1|-2	BONUS:ABILITYPOOL|0-Level Inquisitor Word|4	BONUS:ABILITYPOOL|1st-Level Inquisitor Word|2
+WOP Inquisitor 1	CATEGORY:Internal	ABILITY:Words of Power|AUTOMATIC|Barrier|Boost|Burst|Cone|Line|Personal|Selected	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=0|-4	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=1|-2	BONUS:ABILITYPOOL|0-Level Inquisitor Word|4	BONUS:ABILITYPOOL|1st-Level Inquisitor Word|2
 WOP Inquisitor 2	CATEGORY:Internal	BONUS:ABILITYPOOL|0-Level Inquisitor Word|1	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=0|-1	BONUS:ABILITYPOOL|1st-Level Inquisitor Word|1	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=1|-1
 WOP Inquisitor 3	CATEGORY:Internal	BONUS:ABILITYPOOL|0-Level Inquisitor Word|1		BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=0|-1	BONUS:ABILITYPOOL|1st-Level Inquisitor Word|1		BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=1|-1
 WOP Inquisitor 4	CATEGORY:Internal	BONUS:ABILITYPOOL|2nd-Level Inquisitor Word|2		BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=2|-2
@@ -49,7 +49,7 @@ WOP Inquisitor 19	CATEGORY:Internal	BONUS:ABILITYPOOL|5th-Level Inquisitor Word|
 WOP Inquisitor 20	CATEGORY:Internal	BONUS:ABILITYPOOL|4th-Level Inquisitor Word|1		BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=4|-1	BONUS:ABILITYPOOL|6th-Level Inquisitor Word|1		BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=6|-1
 
 #Block: Oracle abilities by level
-WOP Oracle 1	CATEGORY:Internal	ABILITY:Words of Power|AUTOMATIC|Personal|Selected|Barrier|Burst|Cone|Line|Boost	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=0|-4	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=1|-2	BONUS:ABILITYPOOL|0-Level Oracle Word|4	BONUS:ABILITYPOOL|1st-Level Oracle Word|2
+WOP Oracle 1	CATEGORY:Internal	ABILITY:Words of Power|AUTOMATIC|Barrier|Boost|Burst|Cone|Line|Personal|Selected	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=0|-4	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=1|-2	BONUS:ABILITYPOOL|0-Level Oracle Word|4	BONUS:ABILITYPOOL|1st-Level Oracle Word|2
 WOP Oracle 2	CATEGORY:Internal	BONUS:ABILITYPOOL|0-Level Oracle Word|1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=0|-1
 WOP Oracle 3	CATEGORY:Internal	BONUS:ABILITYPOOL|1st-Level Oracle Word|1		BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=1|-1
 WOP Oracle 4	CATEGORY:Internal	BONUS:ABILITYPOOL|0-Level Oracle Word|1	BONUS:ABILITYPOOL|2nd-Level Oracle Word|1		BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=0|-1		BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=2|-1
@@ -71,7 +71,7 @@ WOP Oracle 19	CATEGORY:Internal	BONUS:ABILITYPOOL|8th-Level Oracle Word|1	BONUS:
 WOP Oracle 20	CATEGORY:Internal	BONUS:ABILITYPOOL|9th-Level Oracle Word|1		BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=9|-1
 
 #Block: Sorcerer abilities by level
-WOP Sorcerer 1	CATEGORY:Internal	ABILITY:Words of Power|AUTOMATIC|Personal|Selected|Barrier|Burst|Cone|Line|Boost	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=0|-4	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=1|-2	BONUS:ABILITYPOOL|0-Level Sorcerer Word|4	BONUS:ABILITYPOOL|1st-Level Sorcerer Word|2
+WOP Sorcerer 1	CATEGORY:Internal	ABILITY:Words of Power|AUTOMATIC|Barrier|Boost|Burst|Cone|Line|Personal|Selected	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=0|-4	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=1|-2	BONUS:ABILITYPOOL|0-Level Sorcerer Word|4	BONUS:ABILITYPOOL|1st-Level Sorcerer Word|2
 WOP Sorcerer 2	CATEGORY:Internal	BONUS:ABILITYPOOL|0-Level Sorcerer Word|1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=0|-1
 WOP Sorcerer 3	CATEGORY:Internal	BONUS:ABILITYPOOL|1st-Level Sorcerer Word|1		BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=1|-1
 WOP Sorcerer 4	CATEGORY:Internal	BONUS:ABILITYPOOL|0-Level Sorcerer Word|1	BONUS:ABILITYPOOL|2nd-Level Sorcerer Word|1		BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=0|-1		BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=2|-1
@@ -93,7 +93,7 @@ WOP Sorcerer 19	CATEGORY:Internal	BONUS:ABILITYPOOL|8th-Level Sorcerer Word|1	BO
 WOP Sorcerer 20	CATEGORY:Internal	BONUS:ABILITYPOOL|9th-Level Sorcerer Word|1		BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=9|-1
 
 #Block: Summoner abilities by level
-WOP Summoner 1	CATEGORY:Internal	ABILITY:Words of Power|AUTOMATIC|Personal|Selected|Barrier|Burst|Cone|Line|Boost	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=0|-4	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=1|-2	BONUS:ABILITYPOOL|0-Level Summoner Word|4	BONUS:ABILITYPOOL|1st-Level Summoner Word|2
+WOP Summoner 1	CATEGORY:Internal	ABILITY:Words of Power|AUTOMATIC|Barrier|Boost|Burst|Cone|Line|Personal|Selected	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=0|-4	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=1|-2	BONUS:ABILITYPOOL|0-Level Summoner Word|4	BONUS:ABILITYPOOL|1st-Level Summoner Word|2
 WOP Summoner 2	CATEGORY:Internal	BONUS:ABILITYPOOL|0-Level Summoner Word|1	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=0|-1	BONUS:ABILITYPOOL|1st-Level Summoner Word|1	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=1|-1
 WOP Summoner 3	CATEGORY:Internal	BONUS:ABILITYPOOL|0-Level Summoner Word|1		BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=0|-1	BONUS:ABILITYPOOL|1st-Level Summoner Word|1		BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=1|-1
 WOP Summoner 4	CATEGORY:Internal	BONUS:ABILITYPOOL|2nd-Level Summoner Word|2		BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=2|-2

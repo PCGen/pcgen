@@ -3,9 +3,8 @@ SOURCELONG:Pathfinder Chronicles: Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURC
 
 ###Block: Creature Subtypes
 # Template Name	Visible	Race Subtype				Vision
-Kitsune		VISIBLE:NO	RACESUBTYPE:Kitsune|Shapechanger	VISION:Low-Light
-Nagaji		VISIBLE:NO	RACESUBTYPE:Reptilian			VISION:Low-Light
-Samsaran		VISIBLE:NO	RACESUBTYPE:Samsaran			VISION:Low-Light
-Tengu			VISIBLE:NO	RACESUBTYPE:Tengu				VISION:Low-Light
+Kitsune		VISIBLE:NO	RACESUBTYPE:Kitsune|Shapechanger	VISION:Low-light
+Nagaji		VISIBLE:NO	RACESUBTYPE:Reptilian			VISION:Low-light
+Samsaran		VISIBLE:NO	RACESUBTYPE:Samsaran			VISION:Low-light
+Tengu			VISIBLE:NO	RACESUBTYPE:Tengu				VISION:Low-light
 Wayang		VISIBLE:NO	RACESUBTYPE:Wayang			VISION:Darkvision (60')
-

@@ -16,4 +16,3 @@ Mind Bolt (Medium Range Slashing)		OUTPUTNAME:Mind Bolt, Medium Range Slashing	P
 Mind Bolt (Short Range Bludgeoning)		OUTPUTNAME:Mind Bolt, Short Range Bludgeoning	PROFICIENCY:WEAPON|Mind Bolt	TYPE:Weapon.Ranged.Projectile.Bludgeoning.MindBolt	COST:0	WT:0		SLOTS:2	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:PSIBLADE	RANGE:20	SIZE:M	SOURCEPAGE:p.8
 Mind Bolt (Short Range Piercing)		OUTPUTNAME:Mind Bolt, Short Range Piercing	PROFICIENCY:WEAPON|Mind Bolt	TYPE:Weapon.Ranged.Projectile.Piercing.MindBolt		COST:0	WT:0		SLOTS:2	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:PSIBLADE	RANGE:20	SIZE:M	SOURCEPAGE:p.8
 Mind Bolt (Short Range Slashing)		OUTPUTNAME:Mind Bolt, Short Range Slashing	PROFICIENCY:WEAPON|Mind Bolt	TYPE:Weapon.Ranged.Projectile.Slashing.MindBolt		COST:0	WT:0		SLOTS:2	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:PSIBLADE	RANGE:20	SIZE:M	SOURCEPAGE:p.8
-

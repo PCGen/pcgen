@@ -75,14 +75,14 @@ Up the Walls								TYPE:Psionic																																																
 Wounding Attack								TYPE:Psionic																																						PREMULT:1,[PREATT:8],[PREVARGTEQ:PrereqBAB,8]															PREVARGT:IsPsionic,0																	DESC:Wound opponents with your attack																																																																																																																																																	SOURCEPAGE:p.53
 
 #Ghost Psionic Talent used for Naturally Psionic ability
-Ghost Psionic Talent		OUTPUTNAME:Psionic Talent	TYPE:Psionic			VISIBLE:EXPORT																																																			PRESTAT:1,STR=999										SERVESAS:ABILITY=FEAT|Psionic Talent						DESC:Gain additional power points																																																																																																																																																		SOURCEPAGE:p.51
+Ghost Psionic Talent		OUTPUTNAME:Psionic Talent	TYPE:Psionic			VISIBLE:EXPORT																																																			PRESTAT:1,STR=999										SERVESAS:FEAT|Psionic Talent						DESC:Gain additional power points																																																																																																																																																		SOURCEPAGE:p.51
 
 ###Block: Metapsionics
 # Feat Name			Type			Required Feat			Required Skill		Var. Must Be Grater	Description									Source Page
 Burrowing Power		TYPE:Metapsionic						PRESKILL:1,Spellcraft=8	PREVARGT:IsPsionic,0	DESC:Bypass barrier with power					SOURCEPAGE:p.42
 Chain Power			TYPE:Metapsionic										PREVARGT:IsPsionic,0	DESC:Choose additional targets with power				SOURCEPAGE:p.43
 Delay Power			TYPE:Metapsionic										PREVARGT:IsPsionic,0	DESC:Delay effect of power up to 5 rounds				SOURCEPAGE:p.43
-Empower Power		TYPE:Metapsionic										PREVARGT:IsPsionic,0	DESC:Increase power's variable, numeric effects by 50%	SOURCEPAGE:p.43
+Empower Power		TYPE:Metapsionic										PREVARGT:IsPsionic,0	DESC:Increase power's variable, numeric effects by 50%%	SOURCEPAGE:p.43
 Endowed Mind		TYPE:Metapsionic										PREVARGT:IsPsionic,0	DESC:Increase power's save DC for augmentation			SOURCEPAGE:p.45
 Enlarge Power		TYPE:Metapsionic										PREVARGT:IsPsionic,0	DESC:Double power's range						SOURCEPAGE:p.45
 Extend Power		TYPE:Metapsionic										PREVARGT:IsPsionic,0	DESC:Double power's duration						SOURCEPAGE:p.46

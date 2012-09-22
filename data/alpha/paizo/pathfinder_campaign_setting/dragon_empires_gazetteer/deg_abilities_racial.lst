@@ -83,4 +83,3 @@ CATEGORY=Internal|Wayang Racial Trait Default.MOD																															
 CATEGORY=Internal|Wayang Racial Trait Default.MOD																																																																																																																					ABILITY:Wayang Racial Trait|AUTOMATIC|Lurker ~ Wayang|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangLurker
 CATEGORY=Internal|Wayang Racial Trait Default.MOD																																																																																																																					ABILITY:Wayang Racial Trait|AUTOMATIC|Shadow Magic ~ Wayang|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangShadowMagic
 CATEGORY=Internal|Wayang Racial Trait Default.MOD																																																																																																																					ABILITY:Wayang Racial Trait|AUTOMATIC|Shadow Resistance ~ Wayang|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangShadowResistance
-

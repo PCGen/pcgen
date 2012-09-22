@@ -9,7 +9,7 @@ Boots (Stomping)			TYPE:Psionic.Universal.Boot		COST:1200	SLOTS:2									SOURCE
 Brain Lock Pearl			TYPE:Psionic.Universal			COST:1000											SOURCEPAGE:srdpsionicitems.rtf
 Crystal Mask (Detection)	TYPE:Psionic.Universal.Mask		COST:12000											SOURCEPAGE:srdpsionicitems.rtf						SPROP:Make search checks for traps like a rogue
 Crystal Mask (Fear)		TYPE:Psionic.Universal.Mask		COST:56000											SOURCEPAGE:srdpsionicitems.rtf						SPROP:Make gaze attack (Will DC 16) to Panick a target
-Crystal Mask (Knowledge)	TYPE:Psionic.Universal.Mask		COST:500			CHOOSE:SKILLSNAMED|Knowledge %			SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|5
+Crystal Mask (Knowledge)	TYPE:Psionic.Universal.Mask		COST:500			CHOOSE:SKILL|Knowledge %			SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|5
 Crystal Mask (Language)		TYPE:Psionic.Universal.Mask		COST:500											SOURCEPAGE:srdpsionicitems.rtf
 Crystal Mask (Mindarmour)	TYPE:Psionic.Universal.Mask		COST:4000											SOURCEPAGE:srdpsionicitems.rtf						SPROP:+4 on all saves vs. Compulsions
 Eyes of Powerleech		TYPE:Psionic.Universal.Eyegear	COST:7200											SOURCEPAGE:srdpsionicitems.rtf
@@ -82,4 +82,3 @@ Third Eye (Open)		TYPE:Psionic.Universal.ThirdEye	COST:12000	SOURCEPAGE:srdpsion
 Third Eye (Penetrate)	TYPE:Psionic.Universal.ThirdEye	COST:4000	SOURCEPAGE:srdpsionicitems.rtf									SPROP:+2 on manifester levels to beat Psionic Resistance.
 Third Eye (Perceive)	TYPE:Psionic.Universal.ThirdEye	COST:2000	SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|Sense Motive|10
 Third Eye (View)		TYPE:Psionic.Universal.ThirdEye	COST:42000	SOURCEPAGE:srdpsionicitems.rtf									SPROP:Remote View at will
-

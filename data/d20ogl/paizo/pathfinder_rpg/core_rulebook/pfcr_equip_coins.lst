@@ -5,7 +5,7 @@ SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downl
 
 ###Block: Coins
 # Equipment Name		Type		Cost		Weight	Source Page
-Coin (Copper Piece)	TYPE:Coin	COST:.01	WT:.02	SOURCEPAGE:p.140
-Coin (Silver Piece)	TYPE:Coin	COST:.1	WT:.02	SOURCEPAGE:p.140
-Coin (Gold Piece)		TYPE:Coin	COST:1	WT:.02	SOURCEPAGE:p.140
-Coin (Platinum Piece)	TYPE:Coin	COST:10	WT:.02	SOURCEPAGE:p.140
+Coin (Copper Piece)	TYPE:Coin	COST:0.01	WT:0.02	SOURCEPAGE:p.140
+Coin (Silver Piece)	TYPE:Coin	COST:0.1	WT:0.02	SOURCEPAGE:p.140
+Coin (Gold Piece)		TYPE:Coin	COST:1	WT:0.02	SOURCEPAGE:p.140
+Coin (Platinum Piece)	TYPE:Coin	COST:10	WT:0.02	SOURCEPAGE:p.140

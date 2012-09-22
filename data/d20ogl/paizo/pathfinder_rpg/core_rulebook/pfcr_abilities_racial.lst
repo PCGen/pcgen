@@ -34,8 +34,8 @@ Weapon Familiarity		KEY:Weapon Familiarity ~ Gnome	CATEGORY:Special Ability	TYPE
 Low-Light Vision			KEY:Low-Light Vision ~ Gnome		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.GnomeRacialTrait.GnomeRacialDefault.RacialVision								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Low-Light Vision ~ Gnome],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeRacialVision]																																												BONUS:VAR|RacialVision|1
 
 #
-Obsessive Craft Bonus								CATEGORY:Special Ability	TYPE:Internal.ObsessiveBonus																VISIBLE:DISPLAY																																																																															STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE=Craft													BONUS:SKILL|LIST|2|TYPE=Racial
-Obsessive Profession Bonus							CATEGORY:Special Ability	TYPE:Internal.ObsessiveBonus																VISIBLE:DISPLAY																																																																															STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE=Profession												BONUS:SKILL|LIST|2|TYPE=Racial
+Obsessive Craft Bonus								CATEGORY:Special Ability	TYPE:Internal.ObsessiveBonus																VISIBLE:DISPLAY																																																																															STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Craft													BONUS:SKILL|LIST|2|TYPE=Racial
+Obsessive Profession Bonus							CATEGORY:Special Ability	TYPE:Internal.ObsessiveBonus																VISIBLE:DISPLAY																																																																															STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Profession												BONUS:SKILL|LIST|2|TYPE=Racial
 
 
 ###Block: Half-Elf Abilities (POOL=4)
@@ -83,14 +83,14 @@ Skilled					KEY:Skilled ~ Human			CATEGORY:Special Ability	TYPE:RacialTraits.Spe
 
 ###Block: Default Ability that should be applied to all races/classes eventually
 
-Default		CATEGORY:Internal	
+Default		CATEGORY:Internal
 # 
 CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Select Racial Traits
 #|PREMULT:1,[PRERACE:1,Dwarf],[PRERACE:1,Elf],[PRERACE:1,Halfling],[PRERACE:1,Human],[PRERACE:1,Half-Elf],[PRERACE:1,Half-Orc],[PRERACE:1,Gnome]
 
 
 
-Select Racial Traits		CATEGORY:Internal	
+Select Racial Traits		CATEGORY:Internal
 # COMMENT: This selects the correct racial traits based upon chosen race
 CATEGORY=Internal|Select Racial Traits.MOD	ABILITY:Internal|AUTOMATIC|Dwarf Racial Trait Default|PRERACE:1,Dwarf
 CATEGORY=Internal|Select Racial Traits.MOD	ABILITY:Internal|AUTOMATIC|Elf Racial Trait Default|PRERACE:1,Elf

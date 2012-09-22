@@ -2,14 +2,14 @@
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 
 # Oracle Tongues granting Language:
-Oracle Tongues Choice ~ Abyssal	LANGAUTO:Abyssal
-Oracle Tongues Choice ~ Aklo		LANGAUTO:Aklo
-Oracle Tongues Choice ~ Aquan		LANGAUTO:Aquan
-Oracle Tongues Choice ~ Auran		LANGAUTO:Auran
-Oracle Tongues Choice ~ Celestial	LANGAUTO:Celestial
-Oracle Tongues Choice ~ Ignan		LANGAUTO:Ignan
-Oracle Tongues Choice ~ Infernal	LANGAUTO:Infernal
-Oracle Tongues Choice ~ Terran	LANGAUTO:Terran
+Oracle Tongues Choice ~ Abyssal	AUTO:LANG|Abyssal
+Oracle Tongues Choice ~ Aklo		AUTO:LANG|Aklo
+Oracle Tongues Choice ~ Aquan		AUTO:LANG|Aquan
+Oracle Tongues Choice ~ Auran		AUTO:LANG|Auran
+Oracle Tongues Choice ~ Celestial	AUTO:LANG|Celestial
+Oracle Tongues Choice ~ Ignan		AUTO:LANG|Ignan
+Oracle Tongues Choice ~ Infernal	AUTO:LANG|Infernal
+Oracle Tongues Choice ~ Terran	AUTO:LANG|Terran
 
 
 
@@ -68,7 +68,7 @@ Small Claws																	PRESIZELTEQ:S																																							
 Medium Claws													PRESIZEGTEQ:M																																															NATURALATTACKS:Claws,Weapon.Natural.Melee.Slashing,*2,1d4
 
 
-Vision Normal																								!PREVISION:1,Darkvision=1 !PREVISION:1,Low-Light=ANY																											VISION:Low-Light
+Vision Normal																								!PREVISION:1,Darkvision=1	!PREVISION:1,Low-Light=ANY																											VISION:Low-Light
 Vision Lowlight																			PREVISION:1,Low-Light=ANY																		BONUS:VISION|Darkvision|30
 Vision Darkvision																			PREVISION:1,Darkvision=1																		BONUS:VISION|Darkvision|30
 # TODO: Test these thoroughly, I recall an issue with Low-Light having a NULL value.

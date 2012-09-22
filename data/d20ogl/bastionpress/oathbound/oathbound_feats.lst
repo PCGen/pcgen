@@ -8,8 +8,8 @@ Evolve						TYPE:General		VISIBLE:YES																										DESC:See Text				
 Exotic Weapon Proficiency II (Rang Blade)	TYPE:General.Fighter	VISIBLE:YES	PREATT:6					PREFEAT:1,Exotic Weapon Proficiency (Rang Blade)	PRESTAT:1,INT=12								DESC:See Text																		SOURCEPAGE:p.329
 
 # Special hidden feats for Gift workarounds (xxxtemplate.lst)
-Talented ~ Gift					TYPE:Gift.Hidden		VISIBLE:NO																													MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE.Craft|TYPE.Profession	BONUS:SKILL|LIST|6|TYPE=Competence
-Focused						TYPE:Gift.Hidden		VISIBLE:NO																			SAB:+1 caster level for %CHOICE spells				MULT:YES	CHOOSE:NUMCHOICES=1|SCHOOLS
+Talented ~ Gift					TYPE:Gift.Hidden		VISIBLE:NO																													MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Craft|TYPE=Profession	BONUS:SKILL|LIST|6|TYPE=Competence
+Focused						TYPE:Gift.Hidden		VISIBLE:NO																			SAB:+1 caster level for %CHOICE spells				MULT:YES	CHOOSE:NUMCHOICES=1|SCHOOLS|ALL
 
 # Special hidden feats for Prestige Race workarounds (xxxtemplate.lst) - does not seem to work
 #WildCreatureBite		TYPE:PrestigeRace.Hidden	VISIBLE:NO	DESC:See Text																				BONUS:WEAPONPROF=Bite%|CRITMULTADD|1	MULT:YES																																																																																																		SOURCEPAGE:p.63

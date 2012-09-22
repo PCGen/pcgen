@@ -20,12 +20,12 @@ Tree Gate						KEY:Dark Woodsman ~ Tree Gate				CATEGORY:Special Ability	TYPE:Sp
 Wounding						KEY:Greenfeeder ~ Wounding				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
 
 # Grovenger
-Spell-like Abilities				KEY:Grovenger ~ Spell-Like Abilities		CATEGORY:Special Ability									SPELLS:Innate|CASTERLEVEL=9|Awaken|Control Plants|Detect Animals or Plants|Diminish Plants|Entangle|Plant Growth|Spike Growth|Spike Stones	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=9|Speak with Plants
+Spell-like Abilities				KEY:Grovenger ~ Spell-Like Abilities		CATEGORY:Special Ability									SPELLS:Innate|TIMES=1|CASTERLEVEL=9|Awaken|Control Plants|Detect Animals or Plants|Diminish Plants|Entangle|Plant Growth|Spike Growth|Spike Stones	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=9|Speak with Plants
 #These Abilities Are As The Spells Cast By A 9th-Level Druid (Save Dc 13 + Spell Level). Grovengers  At Will.
 Withering Cloud					KEY:Grovenger ~ Withering Cloud			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
 
 # Horned Man
-Spell-like Abilities				KEY:Horned Man ~ Spell-like Abilities		CATEGORY:Special Ability									SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=13|Speak with Plants|Speak with Animals|Dominate Animal	SPELLS:Innate|TIMES=3|CASTERLEVEL=9|Charm Person or Animal|Control Plants	SPELLS:Innate|CASTERLEVEL=13|Control Weather|Summon Nature's Ally VII
+Spell-like Abilities				KEY:Horned Man ~ Spell-like Abilities		CATEGORY:Special Ability									SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=13|Dominate Animal|Speak with Animals|Speak with Plants	SPELLS:Innate|TIMES=3|CASTERLEVEL=9|Charm Person or Animal|Control Plants	SPELLS:Innate|TIMES=1|CASTERLEVEL=13|Control Weather|Summon Nature's Ally VII
 #These Abilities Are As The Spells Cast By A 13thlevel Druid.
 Wisdom Damage					KEY:Horned Man ~ Wisdom Damage			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
 
@@ -69,7 +69,7 @@ Animate Trees					KEY:Treell ~ Animate Trees				CATEGORY:Special Ability	TYPE:Sp
 Entangle						KEY:Treell ~ Entangle					CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
 
 # Verdant Guardian
-Spell-Like Abilities				KEY:Verdant Guardian ~ Spell-Like Abilities	CATEGORY:Special Ability									SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=10|Calm Animals|Detect Animals or Plants|Pass Without Trace|Warp Wood|Water Breathing (Self Only)|Wood Shape	SPELLS:Innate|CASTERLEVEL=10|Dominate Animal|Snare|Spike Growth	SPELLS:Innate|TIMES=3|CASTERLEVEL=10|Animal Messenger|Barkskin|Entangle|Goodberry|Hold Animal|Magic Fang|Protection From Elements|Quench|Summon Nature's Ally II
+Spell-Like Abilities				KEY:Verdant Guardian ~ Spell-Like Abilities	CATEGORY:Special Ability									SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=10|Calm Animals|Detect Animals or Plants|Pass Without Trace|Warp Wood|Water Breathing (Self Only)|Wood Shape	SPELLS:Innate|TIMES=1|CASTERLEVEL=10|Dominate Animal|Snare|Spike Growth	SPELLS:Innate|TIMES=3|CASTERLEVEL=10|Animal Messenger|Barkskin|Entangle|Goodberry|Hold Animal|Magic Fang|Protection From Elements|Quench|Summon Nature's Ally II
 #. These Abilities Are As The Spells Cast By A 10thlevel Druid (Save Dc 14 + Spell Level).
 Whip							KEY:Verdant Guardian ~ Whip				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
 Forest Tongue					KEY:Verdant Guardian ~ Forest Tongue		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
@@ -92,7 +92,7 @@ Falling Shield					KEY:Autumnal Mourners ~ Falling Shield		CATEGORY:Special Abil
 
 # Bedwen------------------------------------
 Blindsight						KEY:Bedwen ~ Blindsight					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
-Spell-like Abilities				KEY:Bedwen ~ Spell-like Abilities			CATEGORY:Special Ability									SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=7|Augury	SPELLS:Innate|CASTERLEVEL=7|Divination
+Spell-like Abilities				KEY:Bedwen ~ Spell-like Abilities			CATEGORY:Special Ability									SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=7|Augury	SPELLS:Innate|TIMES=1|CASTERLEVEL=7|Divination
 Symbiosis						KEY:Bedwen ~ Symbiosis					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
 # Bracken Corpse ------------------------------------
@@ -116,16 +116,16 @@ Resistances ~ Fierling				KEY:Fierling ~ Resistances				CATEGORY:Special Ability
 Understand Common					KEY:Lostling ~ Understand Common			CATEGORY:Special Ability	TYPE:SpecialQuality
 Aura of Confusion					KEY:Lostling ~ Aura of Confusion			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
 Divination Suppression				KEY:Lostling ~ Divination Suppression		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Control Weather					KEY:Lostling ~ Control Weather			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				SPELLS:Innate|CASTERLEVEL=12|Control Weather
+Control Weather					KEY:Lostling ~ Control Weather			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				SPELLS:Innate|TIMES=1|CASTERLEVEL=12|Control Weather
 
 #Magpine------------------------------------
 Sap							KEY:Magpine ~ Sap						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
-Spell-Like Abilities				KEY:Magpine ~ Spell-Like Abilities			CATEGORY:Special Ability									SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=4|Speak with Plants	SPELLS:Innate|CASTERLEVEL=4|Charm Person|Forest Invisibility
+Spell-Like Abilities				KEY:Magpine ~ Spell-Like Abilities			CATEGORY:Special Ability									SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=4|Speak with Plants	SPELLS:Innate|TIMES=1|CASTERLEVEL=4|Charm Person|Forest Invisibility
 #(see Spells & Magic) as cast by a 4th-level druid, saving throws (DC 12 + spell level).
 Fire Vulnerability				KEY:Magpine ~ Fire Vulnerability			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vulnerability
 
 # ~ Onnen------------------------------------
-Spell-Like Abilities ~ Onnen			KEY:Onnen ~ Spell-Like Abilities			CATEGORY:Special Ability									SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=15|Entangle|Speak With Plants	SPELLS:Innate|CASTERLEVEL=15|Plant Growth
+Spell-Like Abilities ~ Onnen			KEY:Onnen ~ Spell-Like Abilities			CATEGORY:Special Ability									SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=15|Entangle|Speak with Plants	SPELLS:Innate|TIMES=1|CASTERLEVEL=15|Plant Growth
 #These Abilities Are As The Spells Cast By A 15th-Level Sorcerer (Save Dc 11 + Spell Level).
 Ethereal Jaunt					KEY:Onnen ~ Ethereal Jaunt				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Symbiosis						KEY:Onnen ~ Symbiosis					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
@@ -134,7 +134,7 @@ Symbiosis						KEY:Onnen ~ Symbiosis					CATEGORY:Special Ability	TYPE:SpecialQu
 Absorb Magical Energy				KEY:Unfamiliar ~ Absorb Magical Energy		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Discharge Magical Energy			KEY:Unfamiliar ~ Discharge Magical Energy		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
 Sensory Overload					KEY:Unfamiliar ~ Sensory Overload			CATEGORY:Special Ability
-Spell-Like Abilities				KEY:Unfamiliar ~ Spell-Like Abilities		CATEGORY:Special Ability									SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=16|Detect Magic	SPELLS:Innate|CASTERLEVEL=16|Plane Shift
+Spell-Like Abilities				KEY:Unfamiliar ~ Spell-Like Abilities		CATEGORY:Special Ability									SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=16|Detect Magic	SPELLS:Innate|TIMES=1|CASTERLEVEL=16|Plane Shift
 #Unfamiliars employ these abilities as if cast by a 16thlevel sorcerer (DC 12 + spell level).
 Magic Immunity					KEY:Unfamiliar ~ Magic Immunity			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Natural Vulnerability				KEY:Unfamiliar ~ Natural Vulnerability		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary

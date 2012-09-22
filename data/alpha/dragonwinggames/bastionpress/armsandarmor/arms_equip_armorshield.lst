@@ -56,4 +56,3 @@ Buckler Blade																		PROFICIENCY:SHIELD|Buckler Blade	TYPE:Shield.Stan
 Dust Shield																			PROFICIENCY:SHIELD|Dust Shield	TYPE:Shield.Standard.Metal			COST:65	WT:20		ACCHECK:-2					SOURCEPAGE:p.61	SPELLFAILURE:20											BONUS:COMBAT|AC|2|TYPE=Armor								SPROP:If attacker misses attack roll by AC bonus of shield, cloud of dust is released.
 Ring Blade																			PROFICIENCY:SHIELD|Ring Blade		TYPE:Shield.Standard.Metal			COST:25	WT:4		ACCHECK:-1					SOURCEPAGE:p.56	SPELLFAILURE:5											BONUS:COMBAT|AC|1|TYPE=Armor
 Targe																				PROFICIENCY:SHIELD|Targe		TYPE:Shield.Standard.Metal			COST:3	WT:7		ACCHECK:-1					SOURCEPAGE:p.61	SPELLFAILURE:5											BONUS:COMBAT|AC|1|TYPE=Armor								SPROP:Grants cover
-

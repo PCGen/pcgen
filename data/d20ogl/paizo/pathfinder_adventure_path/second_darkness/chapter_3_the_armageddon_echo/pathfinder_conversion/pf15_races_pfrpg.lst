@@ -5,7 +5,7 @@ SOURCELONG:Second Darkness - Chapter 3: The Armageddon Echo	SOURCESHORT:PF15	SOU
 # Race Name			Starting Feats	Clear Prereq.	Stat bonus		Racial HD Class Skills	Ability										Define				Apply Kit
 Blast Shadow.MOD					PRE:.CLEAR					MONCSKILL:.CLEAR																		KIT:1|CE
 Cutlass Spider.MOD	STARTFEATS:-1	PRE:.CLEAR					MONCSKILL:.CLEAR																		KIT:1|TN
-Forest Drake.MOD											MONCSKILL:.CLEAR		ABILITY:Special Ability|AUTOMATIC|Scent|Flight Maneuverability	DEFINE:Maneuverability|3
+Forest Drake.MOD											MONCSKILL:.CLEAR		ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|Scent	DEFINE:Maneuverability|3
 Maftet.MOD									BONUS:STAT|DEX|-4	MONCSKILL:.CLEAR		ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability		DEFINE:Maneuverability|2
 
 #

@@ -4,7 +4,7 @@ SOURCELONG:Second Darkness - Chapter 2: Children of the Void	SOURCESHORT:PF14	SO
 # Race Name		Clear Prereq.	Bonus to skill				Modify VAR					Racial HD Class Skills												Ability																																		Define				Monster Class Name and Starting Level	Apply Kit
 Akata.MOD		PRE:.CLEAR														MONCSKILL:.CLEAR																																																												KIT:1|TN
 Moonflower.MOD	PRE:.CLEAR		BONUS:SKILL|Stealth|4|TYPE=Racial							MONCSKILL:.CLEAR													ABILITY:Special Ability|AUTOMATIC|.CLEAR.Improved Grab|Grab																																						KIT:1|TN
-Siren.MOD											BONUS:VAR|BardicPerformanceLVL|HD/2	MONCSKILL:.CLEAR													ABILITY:Special Ability|AUTOMATIC|.CLEAR.Bardic Music|.CLEAR.Bardic Countersong|.CLEAR.Bardic Fascinate|.CLEAR.Bardic Inspire Competence|.CLEAR.Bardic Inspire Courage|Bardic Performance|Flight Maneuverability	DEFINE:Maneuverability|4
+Siren.MOD											BONUS:VAR|BardicPerformanceLVL|HD/2	MONCSKILL:.CLEAR													ABILITY:Special Ability|AUTOMATIC|.CLEAR.Bardic Countersong|.CLEAR.Bardic Fascinate|.CLEAR.Bardic Inspire Competence|.CLEAR.Bardic Inspire Courage|.CLEAR.Bardic Music|Bardic Performance|Flight Maneuverability	DEFINE:Maneuverability|4
 Thais.MOD																	MONCSKILL:.CLEAR	MONCSKILL:Acrobatics|Diplomacy|Knowledge (Local)|Knowledge (Religion)	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability																										DEFINE:Maneuverability|4	MONSTERCLASS:Outsider (Fort/Ref):17
 Witchwyrd.MOD																MONCSKILL:.CLEAR													ABILITY:Special Ability|AUTOMATIC|.CLEAR.Improved Grab|Grab
 Zombie (Void).MOD	PRE:.CLEAR														MONCSKILL:.CLEAR																																																												KIT:1|NE

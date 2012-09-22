@@ -47,7 +47,7 @@ Background (Sandman)	VISIBLE:NO	CSKILL:Hide|Listen|Move Silently	ABILITY:FEAT|AU
 ###Block: Shadow People
 # Template Name			Visible	Bonus to Ability Pool			Ability
 Background (Shadow People)	VISIBLE:NO							ABILITY:FEAT|AUTOMATIC|Primitive Technology
-Shadow People Abilities		VISIBLE:NO	BONUS:ABILITYPOOL|Background|1	ABILITY:MUTATION|AUTOMATIC|Neural Mutation - Telepathy	ABILITY:FEAT|AUTOMATIC|Flight Trigger|Mental Communication|Mind Stun
+Shadow People Abilities		VISIBLE:NO	BONUS:ABILITYPOOL|Background|1	ABILITY:Mutation|AUTOMATIC|Neural Mutation - Telepathy	ABILITY:FEAT|AUTOMATIC|Flight Trigger|Mental Communication|Mind Stun
 
 #
 # End

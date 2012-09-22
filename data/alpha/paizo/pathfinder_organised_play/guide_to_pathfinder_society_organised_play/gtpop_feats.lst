@@ -4,18 +4,18 @@ SOURCELONG:Guide to Pathfinder Society Organised Play		SOURCESHORT:GTPOP	SOURCEW
 
 Spell Focus.MOD			TYPE:FocusReplacement
 
-Brew Potion.MOD		PRECLASS:1,NPC,Monster
-Craft Magic Arms and Armor.MOD		PRECLASS:1,NPC,Monster
-Craft Rod.MOD		PRECLASS:1,NPC,Monster
-Craft Staff.MOD		PRECLASS:1,NPC,Monster
-Craft Wand.MOD		PRECLASS:1,NPC,Monster
-Forge Ring.MOD		PRECLASS:1,NPC,Monster
-Leadership.MOD		PRECLASS:1,NPC,Monster
-Scribe Scroll.MOD		PRECLASS:1,NPC,Monster
-Cooperative Crafting.MOD		PRECLASS:1,NPC,Monster
+Brew Potion.MOD		PRECLASS:1,NPC=1,Monster=1
+Craft Magic Arms and Armor.MOD		PRECLASS:1,NPC=1,Monster=1
+Craft Rod.MOD		PRECLASS:1,NPC=1,Monster=1
+Craft Staff.MOD		PRECLASS:1,NPC=1,Monster=1
+Craft Wand.MOD		PRECLASS:1,NPC=1,Monster=1
+Forge Ring.MOD		PRECLASS:1,NPC=1,Monster=1
+Leadership.MOD		PRECLASS:1,NPC=1,Monster=1
+Scribe Scroll.MOD		PRECLASS:1,NPC=1,Monster=1
+Cooperative Crafting.MOD		PRECLASS:1,NPC=1,Monster=1
 
-Blood of Heroes.MOD		PRECLASS:1,NPC,Monster	
-Hero's Fortune.MOD		PRECLASS:1,NPC,Monster	
-Luck of Heroes.MOD		PRECLASS:1,NPC,Monster	
+Blood of Heroes.MOD		PRECLASS:1,NPC=1,Monster=1
+Hero's Fortune.MOD		PRECLASS:1,NPC=1,Monster=1
+Luck of Heroes.MOD		PRECLASS:1,NPC=1,Monster=1
 
 #

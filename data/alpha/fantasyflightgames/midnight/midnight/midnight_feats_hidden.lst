@@ -4,7 +4,7 @@ SOURCELONG:Midnight Campaign Source Book	SOURCESHORT:MDNT	SOURCEWEB:http://www.f
 
 ###Block: Erenlander
 # Feat Name				Type			Visible		Required Race			Multiple?	Choose									Bonus to skill rank	Source Page
-Erenlander Craft/Profession	TYPE:Special	VISIBLE:DISPLAY	PRERACE:1,Human (Erenlander)	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE.Craft|TYPE.Profession	BONUS:SKILLRANK|LIST|4	SOURCEPAGE:p.28
+Erenlander Craft/Profession	TYPE:Special	VISIBLE:DISPLAY	PRERACE:1,Human (Erenlander)	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Craft|TYPE=Profession	BONUS:SKILLRANK|LIST|4	SOURCEPAGE:p.28
 
 ###Block: Defender Abilities
 # Feat Name			Type					Visible	Special ABility			Source Page

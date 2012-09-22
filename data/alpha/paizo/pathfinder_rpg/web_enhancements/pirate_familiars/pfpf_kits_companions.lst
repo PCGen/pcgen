@@ -35,4 +35,3 @@ STARTPACK:Familiar ~ Mongoose	TYPE:Companion	VISIBLE:NO
 STAT:STR=11|DEX=11|CHA=11|CON=10|INT=10|WIS=10
 SKILL:Escape Artist	RANK:1
 FEAT:Weapon Finesse
-

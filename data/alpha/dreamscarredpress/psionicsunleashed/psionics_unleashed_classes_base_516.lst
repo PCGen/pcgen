@@ -10,19 +10,19 @@ CLASS:Psion		HD:6		TYPE:Base.Psionic.PC	MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAG
 CLASS:Psion		STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Psion		SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion|CL
-SUBCLASS:Egoist			COST:0	PROHIBITCOST:0	SPELLLIST:2|Egoist|Psion	CSKILL:Autohypnosis|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft|Acrobatics|Heal
+SUBCLASS:Egoist			COST:0	PROHIBITCOST:0	SPELLLIST:2|Egoist|Psion	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Acrobatics|Heal
 SUBCLASSLEVEL:1	BONUS:VAR|PsychometabolismDisciplineLVL|CL	ABILITY:Special Ability|AUTOMATIC|Psychometabolism Discipline
-SUBCLASS:Kineticist		COST:0	PROHIBITCOST:0	SPELLLIST:2|Kineticist|Psion	CSKILL:Autohypnosis|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft|Disable Device|Intimidate
+SUBCLASS:Kineticist		COST:0	PROHIBITCOST:0	SPELLLIST:2|Kineticist|Psion	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Disable Device|Intimidate
 SUBCLASSLEVEL:1	BONUS:VAR|PsychokinesisDisciplineLVL|CL		ABILITY:Special Ability|AUTOMATIC|Psychokinesis Discipline
-SUBCLASS:Nomad			COST:0	PROHIBITCOST:0	SPELLLIST:2|Nomad|Psion		CSKILL:Autohypnosis|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft|Climb|Fly|Survival|Swim
+SUBCLASS:Nomad			COST:0	PROHIBITCOST:0	SPELLLIST:2|Nomad|Psion		CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Climb|Fly|Survival|Swim
 SUBCLASSLEVEL:1	BONUS:VAR|PsychoportationDisciplineLVL|CL		ABILITY:Special Ability|AUTOMATIC|Psychoportation Discipline
-SUBCLASS:Seer			COST:0	PROHIBITCOST:0	SPELLLIST:2|Seer|Psion		CSKILL:Autohypnosis|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft|Diplomacy|Perception
+SUBCLASS:Seer			COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Seer		CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Diplomacy|Perception
 SUBCLASSLEVEL:1	BONUS:VAR|ClairsentienceDisciplineLVL|CL		ABILITY:Special Ability|AUTOMATIC|Clairsentience Discipline
-SUBCLASS:Shaper			COST:0	PROHIBITCOST:0	SPELLLIST:2|Shaper|Psion	CSKILL:Autohypnosis|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft|Bluff|Disguise|Use Magic Device
+SUBCLASS:Shaper			COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Shaper	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Bluff|Disguise|Use Magic Device
 SUBCLASSLEVEL:1	BONUS:VAR|MetacreativityDisciplineLVL|CL		ABILITY:Special Ability|AUTOMATIC|Metacreativity Discipline
-SUBCLASS:Telepath			COST:0	PROHIBITCOST:0	SPELLLIST:2|Telepath|Psion	CSKILL:Autohypnosis|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft|Bluff|Diplomacy|Sense Motive
+SUBCLASS:Telepath			COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Telepath	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Bluff|Diplomacy|Sense Motive
 SUBCLASSLEVEL:1	BONUS:VAR|TelepathyDisciplineLVL|CL			ABILITY:Special Ability|AUTOMATIC|Telepathy Discipline
-SUBCLASS:Generalist Psion	COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion			CSKILL:Autohypnosis|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft|Use Magic Device
+SUBCLASS:Generalist Psion	COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion			CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Use Magic Device
 SUBCLASSLEVEL:1	BONUS:VAR|GeneralistDisciplineLVL|CL		ABILITY:Special Ability|AUTOMATIC|Generalist Discipline
 
 ###Block:Proficiencies
@@ -63,13 +63,13 @@ SUBCLASSLEVEL:1	BONUS:VAR|GeneralistDisciplineLVL|CL		ABILITY:Special Ability|AU
 # Class Name		Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
 CLASS:Psychic Warrior	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.25	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Psychic Warrior	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE.Craft|Knowledge (Psionics)|Perception|TYPE.Profession|Ride|Spellcraft|Swim
+CLASS:Psychic Warrior	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|Knowledge (Psionics)|Perception|TYPE=Profession|Ride|Spellcraft|Swim
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychic Warrior|CL
 
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
@@ -109,7 +109,7 @@ CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
 CLASS:Soulknife	HD:10		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE.Craft|Intimidate|Knowledge (Psionics)|Perception|TYPE.Profession|Stealth|Swim
+CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|Intimidate|Knowledge (Psionics)|Perception|TYPE=Profession|Stealth|Swim
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1												AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
@@ -130,7 +130,7 @@ CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE.Craft|
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
 CLASS:Wilder	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.33	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Wilder	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Bluff|Climb|TYPE.Craft|Diplomacy|Escape Artist|Intimidate|Knowledge (Psionics)|Perception|TYPE.Profession|Sense Motive|Spellcraft|Swim|Use Magic Device
+CLASS:Wilder	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Bluff|Climb|TYPE=Craft|Diplomacy|Escape Artist|Intimidate|Knowledge (Psionics)|Perception|TYPE=Profession|Sense Motive|Spellcraft|Swim|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Wilder	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Wilder|CL
 
@@ -150,7 +150,7 @@ CLASS:Wilder	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Wilde
 1	BONUS:VAR|BonusPowerPoints|(CHA*WilderPL)/2|TYPE=WilderBonusPP
 
 ###Block: Class Info
-1	KNOWN:0,1				BONUS:ABILITYPOOL|Surge Type|1	BONUS:VAR|PsychicEnervation|1	BONUS:VAR|WildSurge|1	BONUS:VAR|SurgeLVL|WilderML	ABILITY:Special Ability|AUTOMATIC|Psychic Enervation|Wild Surge|Surge Blast|Surge Bond
+1	KNOWN:0,1				BONUS:ABILITYPOOL|Surge Type|1	BONUS:VAR|PsychicEnervation|1	BONUS:VAR|WildSurge|1	BONUS:VAR|SurgeLVL|WilderML	ABILITY:Special Ability|AUTOMATIC|Psychic Enervation|Surge Blast|Surge Bond|Wild Surge
 2	KNOWN:0,2										BONUS:VAR|EludeAttack|1											ABILITY:Special Ability|AUTOMATIC|Elude Attack
 3	KNOWN:0,2										BONUS:VAR|WildSurge|1
 4	KNOWN:0,2,1										BONUS:VAR|SurgingEuphoria|1										ABILITY:Special Ability|AUTOMATIC|Surging Euphoria

@@ -2,7 +2,7 @@ SOURCELONG:Guide to Pathfinder Society Organised Play		SOURCESHORT:GTPOP	SOURCEW
 # Original Entry by: Jeff Baril
 # Updated by: Andrew Wilson
 
-CLASS:Wizard.MOD	
+CLASS:Wizard.MOD
 ###Block: Level progression
 1			AUTO:FEAT|.CLEAR.Scribe Scroll		BONUS:ABILITYPOOL|Spell Focus Replacement|1
 
@@ -16,8 +16,7 @@ CLASS:Cleric.MOD
 1		AUTO:FEAT|Improved Unarmed Strike|PREDEITY:1,Irori
 
 
-CLASS:Antipaladin.MOD		PRECLASS:1,NPC,Monster
+CLASS:Antipaladin.MOD		PRECLASS:1,NPC=1,Monster=1
 
 CLASS:Cavalier.MOD
 4												ABILITY:Special Ability|AUTOMATIC|.CLEAR.Expert Trainer ~ Cavalier			AUTO:FEAT|Skill Focus (Handle Animal)
-

@@ -47,10 +47,10 @@ Negative Levels	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:
 ###Block: Class Proficiencies
 # Ability Name				Category of Ability		Type			Visible	Automatically Gained Weapon Prof.
 All Automatic Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Gauntlet|Unarmed Strike|Spells(Ray)|Grapple
-All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|TYPE=Martial																																								SERVESAS:ABILITY=FEAT|Martial Weapon Proficiency
+All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|TYPE=Martial																																								SERVESAS:FEAT|Martial Weapon Proficiency
 Druid Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Dart|Halfspear|Longspear|Quarterstaff|Scimitar|Sickle|Shortspear|Sling
 Monk Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Unarmed Strike|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Shuriken|Siangham|Sling
-Rogue Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dagger (Punching)|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Sword (Short)	AUTO:WEAPONPROF|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier[PRESIZEGTEQ:M]
+Rogue Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dagger (Punching)|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Sword (Short)	AUTO:WEAPONPROF|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier|PRESIZEGTEQ:M
 Wizard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
 Shadowdancer Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier
 Assassin Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Crossbow (Heavy)|Dart|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)|TYPE=Dagger
@@ -58,19 +58,19 @@ Assassin Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO
 Martial Weapon Proficiency	KEY:Martial Weapon Proficiency Output	CATEGORY:FEAT			TYPE:Internal	VISIBLE:EXPORT	DESC:You understand how to use all types of martial weapons in combat.
 
 #BLOCK: Where to store Abilities
-Grants All Hidden Abilities		CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|Defines Required	
+Grants All Hidden Abilities		CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|Defines Required
 #COMMENT: This allows further expansion without having to MOD characters. It will grant abilities as needed
 
 # Bardic Abilities for Non-Bard Use
 #CATEGORY=Internal|Grants All Hidden Abilities.MOD	ABILITY:Internal|AUTOMATIC|Master Traits
-CATEGORY=Internal|Grants All Hidden Abilities.MOD	ABILITY:Special Ability|AUTOMATIC|Low Light Vision|PREVISION:1,Low-Light,Low Light
+CATEGORY=Internal|Grants All Hidden Abilities.MOD	ABILITY:Special Ability|AUTOMATIC|Low Light Vision|PREVISION:1,Low-Light=1,Low Light=1
 
 Defines Required				CATEGORY:Internal		DEFINE:EnableBardicInspireCourage|0	DEFINE:EnableBardicInspireCompetence|0	DEFINE:LowLightRange|2
 Low-light Vision			KEY:Low light Vision					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision		DEFINE:LowLightRange|2		DESC:You can see %1x as far as humans in low illumination.|LowLightRange
 
 ###Block: Creature Type Traits
 # Ability Name			Category of Ability		Type				Visible	Description																																																																																																																																																					Vision					Source Page
-Master Traits			CATEGORY:Internal			TYPE:Internal		VISIBLE:NO	
+Master Traits			CATEGORY:Internal			TYPE:Internal		VISIBLE:NO
 #COMMENT: Assigns the Trait based upon RACETYPE
 CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Aberration Traits|PRERACE:1,RACETYPE=Aberration
 CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Animal Traits|PRERACE:1,RACETYPE=Animal
@@ -151,18 +151,18 @@ CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Out
 
 #Block: RACE TRAITS
 Aberration Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Darkvision (60')			SOURCEPAGE:TypesSubtypesAbilities.rtf
-Animal Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Low-light	ABILITY:Special Ability|AUTOMATIC|Low light Vision				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Construct Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Darkvision (60')|Low-light	ABILITY:Special Ability|AUTOMATIC|Low light Vision	SOURCEPAGE:TypesSubtypesAbilities.rtf	TEMPLATE:Construct	BONUS:HP|CURRENTMAX|max(SIZE-2,0)*10	BONUS:HP|CURRENTMAX|max(SIZE-6,0)*10
-Dragon Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Darkvision (60')|Low-light	ABILITY:Special Ability|AUTOMATIC|Low light Vision	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Animal Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Low-light	ABILITY:Special Ability|AUTOMATIC|Low Light Vision				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Construct Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Darkvision (60')|Low-light	ABILITY:Special Ability|AUTOMATIC|Low Light Vision	SOURCEPAGE:TypesSubtypesAbilities.rtf	TEMPLATE:Construct	BONUS:HP|CURRENTMAX|max(SIZE-2,0)*10	BONUS:HP|CURRENTMAX|max(SIZE-6,0)*10
+Dragon Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Darkvision (60')|Low-light	ABILITY:Special Ability|AUTOMATIC|Low Light Vision	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Elemental Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Darkvision (60')			SOURCEPAGE:TypesSubtypesAbilities.rtf
-Fey Traits				CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Low-light	ABILITY:Special Ability|AUTOMATIC|Low light Vision				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Giant Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Low-light	ABILITY:Special Ability|AUTOMATIC|Low light Vision				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Humanoid Traits			CATEGORY:Special Ability	TYPE:TraitAbility	
-Magical Beast Traits		CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Darkvision (60')|Low-light	ABILITY:Special Ability|AUTOMATIC|Low light Vision	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Fey Traits				CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Low-light	ABILITY:Special Ability|AUTOMATIC|Low Light Vision				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Giant Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Low-light	ABILITY:Special Ability|AUTOMATIC|Low Light Vision				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Humanoid Traits			CATEGORY:Special Ability	TYPE:TraitAbility
+Magical Beast Traits		CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Darkvision (60')|Low-light	ABILITY:Special Ability|AUTOMATIC|Low Light Vision	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Monstrous Humanoid Traits	CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Darkvision (60')			SOURCEPAGE:TypesSubtypesAbilities.rtf
 Ooze Traits				CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Blind				SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:OozeObjectAcidDamageAmount|0	DEFINE:OozeHasObjectAcidDamage|0																											BONUS:VAR|OozeObjectAcidDamageAmount|10+(HD/2)+CON	TEMPLATE:Ooze
 Outsider Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Darkvision (60')			SOURCEPAGE:TypesSubtypesAbilities.rtf
-Plant Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Low-light	ABILITY:Special Ability|AUTOMATIC|Low light Vision				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Plant Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Low-light	ABILITY:Special Ability|AUTOMATIC|Low Light Vision				SOURCEPAGE:TypesSubtypesAbilities.rtf
 Undead Traits			CATEGORY:Special Ability	TYPE:TraitAbility	TEMPLATE:Undead	BONUS:SKILL|Concentration|CHA-CON
 Vermin Traits			CATEGORY:Special Ability	TYPE:TraitAbility	VISION:Darkvision (60')			SOURCEPAGE:TypesSubtypesAbilities.rtf
 
@@ -208,10 +208,10 @@ Water Traits		KEY:Traits Output ~ Water		CATEGORY:Special Ability	TYPE:SpecialQu
 # Ability Name		Category of Ability		Type				
 Air Traits			CATEGORY:Special Ability	TYPE:SubTraitAbility
 Angel Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility	ABILITY:Special Ability|AUTOMATIC|Immunity To Acid|Immunity To Cold|Immunity To Petrification|Protective Aura|Tongues					VISION:Darkvision (60')|Low-light	ABILITY:Special Ability|AUTOMATIC|Low light Vision
-Aquatic Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility	
+Aquatic Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Archon Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility	ABILITY:Special Ability|AUTOMATIC|Aura of Menace|Magic Circle against Evil|Teleport										VISION:Darkvision (60')|Low-light	ABILITY:Special Ability|AUTOMATIC|Low light Vision
 Augmented Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
-Chaotic Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility	
+Chaotic Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Cold Traits			CATEGORY:Special Ability	TYPE:SubTraitAbility	ABILITY:Special Ability|AUTOMATIC|Immunity To Cold|Vulnerability To Fire
 Earth Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Evil Traits			CATEGORY:Special Ability	TYPE:SubTraitAbility
@@ -219,12 +219,12 @@ Extraplanar Traits	CATEGORY:Special Ability	TYPE:SubTraitAbility
 Fire Traits			CATEGORY:Special Ability	TYPE:SubTraitAbility	ABILITY:Special Ability|AUTOMATIC|Immunity To Fire|Vulnerability To Cold
 Goblinoid Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Good Traits			CATEGORY:Special Ability	TYPE:SubTraitAbility
-Incorporeal Traits	CATEGORY:Special Ability	TYPE:SubTraitAbility	DEFINE:CanNotGrapple|1	BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT.MELEE|DEX	
+Incorporeal Traits	CATEGORY:Special Ability	TYPE:SubTraitAbility	DEFINE:CanNotGrapple|1	BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT.MELEE|DEX
 Lawful Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Native Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Reptilian Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Shapechanger Traits	CATEGORY:Special Ability	TYPE:SubTraitAbility
-Swarm Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility	DEFINE:CanNotGrapple|1	
+Swarm Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility	DEFINE:CanNotGrapple|1
 #	ABILITY:Special Ability|AUTOMATIC|Distraction
 Water Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 #
@@ -341,11 +341,11 @@ Remove Disease	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DEFINE
 
 ###Block: Ranger Favored Enemies
 # Ability Name	Category of Ability		Type								Visible	Required Ability																Define									Description						Multiple?	Choose																																																																											Modify VAR
-Favored Enemy I	CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption.FavoredEnemy	VISIBLE:YES																			DEFINE:FavoredEnemy1|FavoredEnemies	DEFINE:FavoredEnemies|0	DESC:+%1 vs. %2|FavoredEnemy1|%CHOICE	MULT:YES	CHOOSE:STRING|NUMCHOICES=1|Aberration|Animal|Beast|Construct|Dragon|Elemental|Fey|Giant|Magical Beast|Ooze|Plant|Shapechanger|Undead|Vermin|Outsider (Air)|Outsider (Earth)|Outsider (Fire)|Outsider (Water)|Outsider (Lawful)|Outsider (Chaotic)|Outsider (Good)|Outsider (Evil)|Humanoid (Human)|Humanoid (Dwarf)|Humanoid (Elf)|Humanoid (Gnome)|Humanoid (Halfling)|Humanoid (Orc)|Humanoid (Gnoll)|Humanoid (Goblinoid)|Humanoid (Aquatic)|Humanoid (Reptilian)	BONUS:VAR|FavoredEnemies|1
-Favored Enemy II	CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption.FavoredEnemy	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Favored Enemy I										DEFINE:FavoredEnemy2|FavoredEnemies-1				DESC:+%1 vs. %2|FavoredEnemy2|%CHOICE	MULT:YES	CHOOSE:STRING|NUMCHOICES=1|Aberration|Animal|Beast|Construct|Dragon|Elemental|Fey|Giant|Magical Beast|Ooze|Plant|Shapechanger|Undead|Vermin|Outsider (Air)|Outsider (Earth)|Outsider (Fire)|Outsider (Water)|Outsider (Lawful)|Outsider (Chaotic)|Outsider (Good)|Outsider (Evil)|Humanoid (Human)|Humanoid (Dwarf)|Humanoid (Elf)|Humanoid (Gnome)|Humanoid (Halfling)|Humanoid (Orc)|Humanoid (Gnoll)|Humanoid (Goblinoid)|Humanoid (Aquatic)|Humanoid (Reptilian)	BONUS:VAR|FavoredEnemies|1
-Favored Enemy III	CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption.FavoredEnemy	VISIBLE:YES	PREABILITY:2,CATEGORY=Special Ability,Favored Enemy I,Favored Enemy II							DEFINE:FavoredEnemy3|FavoredEnemies-2				DESC:+%1 vs. %2|FavoredEnemy3|%CHOICE	MULT:YES	CHOOSE:STRING|NUMCHOICES=1|Aberration|Animal|Beast|Construct|Dragon|Elemental|Fey|Giant|Magical Beast|Ooze|Plant|Shapechanger|Undead|Vermin|Outsider (Air)|Outsider (Earth)|Outsider (Fire)|Outsider (Water)|Outsider (Lawful)|Outsider (Chaotic)|Outsider (Good)|Outsider (Evil)|Humanoid (Human)|Humanoid (Dwarf)|Humanoid (Elf)|Humanoid (Gnome)|Humanoid (Halfling)|Humanoid (Orc)|Humanoid (Gnoll)|Humanoid (Goblinoid)|Humanoid (Aquatic)|Humanoid (Reptilian)	BONUS:VAR|FavoredEnemies|1
-Favored Enemy IV	CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption.FavoredEnemy	VISIBLE:YES	PREABILITY:3,CATEGORY=Special Ability,Favored Enemy I,Favored Enemy II,Favored Enemy III				DEFINE:FavoredEnemy4|FavoredEnemies-3				DESC:+%1 vs. %2|FavoredEnemy4|%CHOICE	MULT:YES	CHOOSE:STRING|NUMCHOICES=1|Aberration|Animal|Beast|Construct|Dragon|Elemental|Fey|Giant|Magical Beast|Ooze|Plant|Shapechanger|Undead|Vermin|Outsider (Air)|Outsider (Earth)|Outsider (Fire)|Outsider (Water)|Outsider (Lawful)|Outsider (Chaotic)|Outsider (Good)|Outsider (Evil)|Humanoid (Human)|Humanoid (Dwarf)|Humanoid (Elf)|Humanoid (Gnome)|Humanoid (Halfling)|Humanoid (Orc)|Humanoid (Gnoll)|Humanoid (Goblinoid)|Humanoid (Aquatic)|Humanoid (Reptilian)	BONUS:VAR|FavoredEnemies|1
-Favored Enemy V	CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption.FavoredEnemy	VISIBLE:YES	PREABILITY:4,CATEGORY=Special Ability,Favored Enemy I,Favored Enemy II,Favored Enemy III,Favored Enemy IV	DEFINE:FavoredEnemy5|FavoredEnemies-4				DESC:+%1 vs. %2|FavoredEnemy5|%CHOICE	MULT:YES	CHOOSE:STRING|NUMCHOICES=1|Aberration|Animal|Beast|Construct|Dragon|Elemental|Fey|Giant|Magical Beast|Ooze|Plant|Shapechanger|Undead|Vermin|Outsider (Air)|Outsider (Earth)|Outsider (Fire)|Outsider (Water)|Outsider (Lawful)|Outsider (Chaotic)|Outsider (Good)|Outsider (Evil)|Humanoid (Human)|Humanoid (Dwarf)|Humanoid (Elf)|Humanoid (Gnome)|Humanoid (Halfling)|Humanoid (Orc)|Humanoid (Gnoll)|Humanoid (Goblinoid)|Humanoid (Aquatic)|Humanoid (Reptilian)	BONUS:VAR|FavoredEnemies|1
+Favored Enemy I	CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption.FavoredEnemy	VISIBLE:YES																			DEFINE:FavoredEnemy1|FavoredEnemies	DEFINE:FavoredEnemies|0	DESC:+%1 vs. %2|FavoredEnemy1|%CHOICE	MULT:YES	CHOOSE:STRING|Aberration|Animal|Beast|Construct|Dragon|Elemental|Fey|Giant|Humanoid (Aquatic)|Humanoid (Dwarf)|Humanoid (Elf)|Humanoid (Gnoll)|Humanoid (Gnome)|Humanoid (Goblinoid)|Humanoid (Halfling)|Humanoid (Human)|Humanoid (Orc)|Humanoid (Reptilian)|Magical Beast|Ooze|Outsider (Air)|Outsider (Chaotic)|Outsider (Earth)|Outsider (Evil)|Outsider (Fire)|Outsider (Good)|Outsider (Lawful)|Outsider (Water)|Plant|Shapechanger|Undead|Vermin	BONUS:VAR|FavoredEnemies|1
+Favored Enemy II	CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption.FavoredEnemy	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Favored Enemy I										DEFINE:FavoredEnemy2|FavoredEnemies-1				DESC:+%1 vs. %2|FavoredEnemy2|%CHOICE	MULT:YES	CHOOSE:STRING|Aberration|Animal|Beast|Construct|Dragon|Elemental|Fey|Giant|Humanoid (Aquatic)|Humanoid (Dwarf)|Humanoid (Elf)|Humanoid (Gnoll)|Humanoid (Gnome)|Humanoid (Goblinoid)|Humanoid (Halfling)|Humanoid (Human)|Humanoid (Orc)|Humanoid (Reptilian)|Magical Beast|Ooze|Outsider (Air)|Outsider (Chaotic)|Outsider (Earth)|Outsider (Evil)|Outsider (Fire)|Outsider (Good)|Outsider (Lawful)|Outsider (Water)|Plant|Shapechanger|Undead|Vermin	BONUS:VAR|FavoredEnemies|1
+Favored Enemy III	CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption.FavoredEnemy	VISIBLE:YES	PREABILITY:2,CATEGORY=Special Ability,Favored Enemy I,Favored Enemy II							DEFINE:FavoredEnemy3|FavoredEnemies-2				DESC:+%1 vs. %2|FavoredEnemy3|%CHOICE	MULT:YES	CHOOSE:STRING|Aberration|Animal|Beast|Construct|Dragon|Elemental|Fey|Giant|Humanoid (Aquatic)|Humanoid (Dwarf)|Humanoid (Elf)|Humanoid (Gnoll)|Humanoid (Gnome)|Humanoid (Goblinoid)|Humanoid (Halfling)|Humanoid (Human)|Humanoid (Orc)|Humanoid (Reptilian)|Magical Beast|Ooze|Outsider (Air)|Outsider (Chaotic)|Outsider (Earth)|Outsider (Evil)|Outsider (Fire)|Outsider (Good)|Outsider (Lawful)|Outsider (Water)|Plant|Shapechanger|Undead|Vermin	BONUS:VAR|FavoredEnemies|1
+Favored Enemy IV	CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption.FavoredEnemy	VISIBLE:YES	PREABILITY:3,CATEGORY=Special Ability,Favored Enemy I,Favored Enemy II,Favored Enemy III				DEFINE:FavoredEnemy4|FavoredEnemies-3				DESC:+%1 vs. %2|FavoredEnemy4|%CHOICE	MULT:YES	CHOOSE:STRING|Aberration|Animal|Beast|Construct|Dragon|Elemental|Fey|Giant|Humanoid (Aquatic)|Humanoid (Dwarf)|Humanoid (Elf)|Humanoid (Gnoll)|Humanoid (Gnome)|Humanoid (Goblinoid)|Humanoid (Halfling)|Humanoid (Human)|Humanoid (Orc)|Humanoid (Reptilian)|Magical Beast|Ooze|Outsider (Air)|Outsider (Chaotic)|Outsider (Earth)|Outsider (Evil)|Outsider (Fire)|Outsider (Good)|Outsider (Lawful)|Outsider (Water)|Plant|Shapechanger|Undead|Vermin	BONUS:VAR|FavoredEnemies|1
+Favored Enemy V	CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption.FavoredEnemy	VISIBLE:YES	PREABILITY:4,CATEGORY=Special Ability,Favored Enemy I,Favored Enemy II,Favored Enemy III,Favored Enemy IV	DEFINE:FavoredEnemy5|FavoredEnemies-4				DESC:+%1 vs. %2|FavoredEnemy5|%CHOICE	MULT:YES	CHOOSE:STRING|Aberration|Animal|Beast|Construct|Dragon|Elemental|Fey|Giant|Humanoid (Aquatic)|Humanoid (Dwarf)|Humanoid (Elf)|Humanoid (Gnoll)|Humanoid (Gnome)|Humanoid (Goblinoid)|Humanoid (Halfling)|Humanoid (Human)|Humanoid (Orc)|Humanoid (Reptilian)|Magical Beast|Ooze|Outsider (Air)|Outsider (Chaotic)|Outsider (Earth)|Outsider (Evil)|Outsider (Fire)|Outsider (Good)|Outsider (Lawful)|Outsider (Water)|Plant|Shapechanger|Undead|Vermin	BONUS:VAR|FavoredEnemies|1
 
 
 ###Block:Rogue special abilities
@@ -354,7 +354,7 @@ Crippling Strike	CATEGORY:Special Ability	TYPE:SpecialAttack.RogueAbilities					
 Defensive Roll	CATEGORY:Special Ability	TYPE:SpecialQuality.RogueAbilities.ModifyAC			VISIBLE:YES		DESC:You can roll with a potentially lethal blow to take less damage from it than you otherwise would.																				SOURCEPAGE:srdbasiccharacterclassesii.rtf
 Improved Evasion	CATEGORY:Special Ability	TYPE:SpecialQuality.RogueAbilities.Extraordinary.ModifyAC	VISIBLE:YES		DESC:You take only half damage on a failed save.																													SOURCEPAGE:srdbasiccharacterclassesii.rtf
 Opportunist		CATEGORY:Special Ability	TYPE:SpecialAttack.RogueAbilities					VISIBLE:YES		DESC:You can make an attack of opportunity against an opponent who has just been struck for damage in melee by another character.																SOURCEPAGE:srdbasiccharacterclassesii.rtf
-Skill Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality.RogueAbilities					VISIBLE:YES		DESC:You may take 10 on the following skills even if stress and distractions would normally prevent her from doing so, %1|%LIST	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|ALL	SELECT:3+INT					SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Skill Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality.RogueAbilities					VISIBLE:YES		DESC:You may take 10 on the following skills even if stress and distractions would normally prevent her from doing so, %1|%LIST	STACK:NO	MULT:YES	CHOOSE:SKILL|ALL	SELECT:3+INT					SOURCEPAGE:srdbasiccharacterclassesii.rtf
 Slippery Mind	CATEGORY:Special Ability	TYPE:SpecialQuality.RogueAbilities.ModifyAC			VISIBLE:YES		DESC:You can wriggle free from magical effects that would otherwise control or compel you.																						SOURCEPAGE:srdbasiccharacterclassesii.rtf
 Rogue Bonus Feat	CATEGORY:Special Ability	TYPE:Internal.RogueAbilities						VISIBLE:DISPLAY																							STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:FEAT|POOL|1		SOURCEPAGE:srdbasiccharacterclassesii.rtf
 
@@ -364,8 +364,8 @@ Free Spell Book		CATEGORY:Internal	TEMPLATE:Spellbook
 
 ###Block: Expert Class Skills
 # Ability Name		Category of Ability		Type						Visible		Stackable?	Multiple?	Choose						Class Skill
-Expert Class Skills	CATEGORY:Special Ability	TYPE:Internal.ExpertClassSkills	VISIBLE:DISPLAY	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|CLASS|CROSSCLASS		CSKILL:LIST
-Expert Exclusive Skills	CATEGORY:Special Ability	TYPE:Internal.ExpertClassSkills	VISIBLE:DISPLAY	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=2|SKILLSNAMED|EXCLUSIVE	CSKILL:LIST
+Expert Class Skills	CATEGORY:Special Ability	TYPE:Internal.ExpertClassSkills	VISIBLE:DISPLAY	STACK:NO	MULT:YES	CHOOSE:SKILL|CLASS|CROSSCLASS		CSKILL:LIST
+Expert Exclusive Skills	CATEGORY:Special Ability	TYPE:Internal.ExpertClassSkills	VISIBLE:DISPLAY	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=2|SKILL|EXCLUSIVE	CSKILL:LIST
 
 
 ###Block: Arcane Archer Abilities
@@ -421,7 +421,7 @@ Lore					CATEGORY:Special Ability	TYPE:SpecialQuality				VISIBLE:YES
 Greater Lore			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		VISIBLE:YES
 True Lore				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		VISIBLE:YES
 # Loremaster Secrets
-Instant Mastery			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,1										STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|NORANK																												BONUS:SKILLRANK|LIST|4	SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Instant Mastery			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,1										STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|NORANK																												BONUS:SKILLRANK|LIST|4	SOURCEPAGE:srdbasiccharacterclassesi.rtf
 Secret Health			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,2																																												BONUS:HP|CURRENTMAX|3					SOURCEPAGE:srdbasiccharacterclassesi.rtf
 Secrets of Inner Strength	CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,3																																		BONUS:CHECKS|BASE.Will|2														SOURCEPAGE:srdbasiccharacterclassesi.rtf
 The Lore of True Stamina	CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,4																																		BONUS:CHECKS|BASE.Fortitude|2														SOURCEPAGE:srdbasiccharacterclassesi.rtf
@@ -429,8 +429,8 @@ Secret Knowledge of Avoidance	CATEGORY:Special Ability	TYPE:SpecialQuality.Lorem
 Weapon Trick			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,6																																							BONUS:COMBAT|BAB|1										SOURCEPAGE:srdbasiccharacterclassesi.rtf
 Dodge Trick				CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,7																																							BONUS:COMBAT|AC|1|TYPE=Dodge									SOURCEPAGE:srdbasiccharacterclassesi.rtf
 Applicable Knowledge		CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,8																													BONUS:ABILITYPOOL|FEAT|1																			SOURCEPAGE:srdbasiccharacterclassesi.rtf
-Newfound Arcana			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,9										STACK:NO	MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Arcane|1|1|TYPE=Divine|1|1[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																								SOURCEPAGE:srdbasiccharacterclassesii.rtf
-More Newfound Arcana		CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,10									STACK:NO	MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Arcane|2|2|TYPE=Divine|2|2[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]																								SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Newfound Arcana			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,9										STACK:NO	MULT:YES	BONUS:SPELLCAST|%LIST|1	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|1|1|SPELLTYPE=Divine|1|1																								SOURCEPAGE:srdbasiccharacterclassesii.rtf
+More Newfound Arcana		CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,10									STACK:NO	MULT:YES	BONUS:SPELLCAST|%LIST|1	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|2|2|SPELLTYPE=Divine|2|2																								SOURCEPAGE:srdbasiccharacterclassesii.rtf
 
 ###Block: Shadowdancer Abilities
 # Ability Name		Category of Ability		Type						Visible	Define				Description			Aspects

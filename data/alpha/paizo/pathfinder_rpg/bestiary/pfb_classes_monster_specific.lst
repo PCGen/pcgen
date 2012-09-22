@@ -7,11 +7,11 @@ CLASS:Couatl Outsider	OUTPUTNAME:Outsider	HD:10		TYPE:Monster	MAXLEVEL:NOLIMIT	S
 # Class Name		Required Race	Reg. Race Type
 CLASS:Couatl Outsider	PRERACE:1,Couatl	PRERACETYPE:Outsider
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Couatl Outsider	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE.Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
+CLASS:Couatl Outsider	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
-CLASS:Couatl Outsider	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:2|Sorcerer|Cleric
+CLASS:Couatl Outsider	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:2|Cleric|Sorcerer
 ###Block:Proficiencies
-1							ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
+1							ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 #9	CAST:0,6,6,6,4	KNOWN:8,5,4,3,2	
 1						ADD:SPELLCASTER|Sorcerer
 2	BONUS:PCLEVEL|Sorcerer|8
@@ -30,23 +30,23 @@ CLASS:Drider	OUTPUTNAME:Aberration	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAG
 # Class Name	Reg. Race Type
 CLASS:Drider	PRERACETYPE:Aberration
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Drider	STARTSKILLPTS:4	MODTOSKILLS:YES			CSKILL:Acrobatics|Climb|Escape Artist|Fly|Intimidate|TYPE.Knowledge|Perception|Spellcraft|Stealth|Survival|Swim
+CLASS:Drider	STARTSKILLPTS:4	MODTOSKILLS:YES			CSKILL:Acrobatics|Climb|Escape Artist|Fly|Intimidate|TYPE=Knowledge|Perception|Spellcraft|Stealth|Survival|Swim
 ###Block:Spell Casting
 SUBSTITUTIONCLASS:Drider Cleric
-SUBSTITUTIONLEVEL:1	BONUS:PCLEVEL|Cleric|5		DEFINE:IsDriderCleric|1		ADD:SPELLCASTER|1|Cleric
+SUBSTITUTIONLEVEL:1	BONUS:PCLEVEL|Cleric|5		DEFINE:IsDriderCleric|1		ADD:SPELLCASTER|Cleric
 SUBSTITUTIONCLASS:Drider Sorcerer
-SUBSTITUTIONLEVEL:1	BONUS:PCLEVEL|Sorcerer|5	DEFINE:IsDriderSorcerer|1	ADD:SPELLCASTER|1|Sorcerer
+SUBSTITUTIONLEVEL:1	BONUS:PCLEVEL|Sorcerer|5	DEFINE:IsDriderSorcerer|1	ADD:SPELLCASTER|Sorcerer
 SUBSTITUTIONCLASS:Drider Wizard
-SUBSTITUTIONLEVEL:1	BONUS:PCLEVEL|Wizard|5		DEFINE:IsDriderWizard|1		ADD:SPELLCASTER|1|Wizard
+SUBSTITUTIONLEVEL:1	BONUS:PCLEVEL|Wizard|5		DEFINE:IsDriderWizard|1		ADD:SPELLCASTER|Wizard
 
 # Class Name		Hit Dice	Type			Max Level		Source Page		Ability					Save checks bonus											Combat bonus
 CLASS:Guardian Naga	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.213	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required Race			Reg. Race Type
 CLASS:Guardian Naga	PRERACE:1,Naga (Guardian)	PRERACETYPE:Aberration
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Guardian Naga	STARTSKILLPTS:4	MODTOSKILLS:YES			CSKILL:Acrobatics|Climb|Escape Artist|Fly|Intimidate|TYPE.Knowledge|Perception|Spellcraft|Stealth|Survival|Swim
+CLASS:Guardian Naga	STARTSKILLPTS:4	MODTOSKILLS:YES			CSKILL:Acrobatics|Climb|Escape Artist|Fly|Intimidate|TYPE=Knowledge|Perception|Spellcraft|Stealth|Survival|Swim
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
-CLASS:Guardian Naga	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Guardian Naga|9	SPELLLIST:2|Sorcerer|Cleric
+CLASS:Guardian Naga	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Guardian Naga|9	SPELLLIST:2|Cleric|Sorcerer
 12	CAST:0,6,6,6,4	KNOWN:8,5,4,3,2
 
 # Class Name	Hit Dice	Type			Max Level		Source Page		Ability					Save checks bonus											Combat bonus
@@ -54,9 +54,9 @@ CLASS:Spirit Naga	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.215	ABILITY:F
 # Class Name	Required Race		Reg. Race Type
 CLASS:Spirit Naga	PRERACE:1,Naga (Spirit)	PRERACETYPE:Aberration
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Spirit Naga	STARTSKILLPTS:4	MODTOSKILLS:YES			CSKILL:Acrobatics|Climb|Escape Artist|Fly|Intimidate|TYPE.Knowledge|Perception|Spellcraft|Stealth|Survival|Swim
+CLASS:Spirit Naga	STARTSKILLPTS:4	MODTOSKILLS:YES			CSKILL:Acrobatics|Climb|Escape Artist|Fly|Intimidate|TYPE=Knowledge|Perception|Spellcraft|Stealth|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
-CLASS:Spirit Naga	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Spirit Naga|7	SPELLLIST:2|Sorcerer|Cleric
+CLASS:Spirit Naga	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Spirit Naga|7	SPELLLIST:2|Cleric|Sorcerer
 10	CAST:0,6,6,4	KNOWN:7,5,3,2
 
 #

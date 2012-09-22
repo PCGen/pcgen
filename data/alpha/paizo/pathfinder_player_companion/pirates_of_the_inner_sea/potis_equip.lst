@@ -4,11 +4,11 @@ SOURCELONG:Pirates of the Inner Sea	SOURCESHORT:PotIS	SOURCEWEB:http://paizo.com
 
 ###Block: Adventuring Gear
 # Equipment Name				Output Name							Type					Contains				Cost		Weight	Source Page
-Chest (Small Treasure)			OUTPUTNAME:Chest, Small Treasure			TYPE:Goods.Container.General	CONTAINS:UNLIM|Any=UNLIM	COST:3	WT:25		SOURCEPAGE:p.19
-Chest (Medium Treasure)			OUTPUTNAME:Chest, Medium Treasure			TYPE:Goods.Container.General	CONTAINS:UNLIM|Any=UNLIM	COST:7	WT:50		SOURCEPAGE:p.19
-Chest (Large Treasure)			OUTPUTNAME:Chest, Large Treasure			TYPE:Goods.Container.General	CONTAINS:UNLIM|Any=UNLIM	COST:15	WT:100	SOURCEPAGE:p.19
-Chest (Huge Treasure)			OUTPUTNAME:Chest, Huge Treasure			TYPE:Goods.Container.General	CONTAINS:UNLIM|Any=UNLIM	COST:37	WT:250	SOURCEPAGE:p.19
-Eye Patch													TYPE:Goods									COST:.1			SOURCEPAGE:p.19
+Chest (Small Treasure)			OUTPUTNAME:Chest, Small Treasure			TYPE:Goods.Container.General	CONTAINS:UNLIM|Any	COST:3	WT:25		SOURCEPAGE:p.19
+Chest (Medium Treasure)			OUTPUTNAME:Chest, Medium Treasure			TYPE:Goods.Container.General	CONTAINS:UNLIM|Any	COST:7	WT:50		SOURCEPAGE:p.19
+Chest (Large Treasure)			OUTPUTNAME:Chest, Large Treasure			TYPE:Goods.Container.General	CONTAINS:UNLIM|Any	COST:15	WT:100	SOURCEPAGE:p.19
+Chest (Huge Treasure)			OUTPUTNAME:Chest, Huge Treasure			TYPE:Goods.Container.General	CONTAINS:UNLIM|Any	COST:37	WT:250	SOURCEPAGE:p.19
+Eye Patch													TYPE:Goods									COST:0.1			SOURCEPAGE:p.19
 Flag (Ensign of Courtesy/Small)	OUTPUTNAME:Flag, Ensign of Courtesy, Small	TYPE:Goods									COST:2			SOURCEPAGE:p.20
 Flag (Ensign of Courtesy/Large)	OUTPUTNAME:Flag, Ensign of Courtesy, Large	TYPE:Goods									COST:5	WT:1		SOURCEPAGE:p.20
 Flag (Personal Signal/Small)		OUTPUTNAME:Flag, Personal Signal, Small		TYPE:Goods									COST:4			SOURCEPAGE:p.20
@@ -32,7 +32,7 @@ Sextant		TYPE:Goods.Tools				COST:500	WT:2		SOURCEPAGE:p.20
 ###Block: Clothing
 # Equipment Name		Output Name					Type							Cost		Weight	Source Page
 Hat (Pirate)		OUTPUTNAME:Hat, Pirate			TYPE:Goods.Clothing.Resizable							SOURCEPAGE:p.20
-Pirate Clothes (Basic)	OUTPUTNAME:Pirate Clothes, Basic	TYPE:Goods.Clothing.Resizable.Starting	COST:.1	WT:2		SOURCEPAGE:p.20
+Pirate Clothes (Basic)	OUTPUTNAME:Pirate Clothes, Basic	TYPE:Goods.Clothing.Resizable.Starting	COST:0.1	WT:2		SOURCEPAGE:p.20
 Pirate Clothes (Fancy)	OUTPUTNAME:Pirate Clothes, Fancy	TYPE:Goods.Clothing.Resizable			COST:30	WT:6		SOURCEPAGE:p.20
 
 ###Block:Food, Drink, and Lodging

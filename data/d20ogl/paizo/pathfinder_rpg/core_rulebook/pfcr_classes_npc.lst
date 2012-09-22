@@ -5,7 +5,7 @@ SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downl
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Adept		HD:6		TYPE:Base.NPC	ABB:Adp		MAXLEVEL:20	SOURCEPAGE:p.448	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Adept		STARTSKILLPTS:2	CSKILL:TYPE.Craft|Handle Animal|Heal|TYPE.Knowledge|TYPE.Profession|Spellcraft|Survival
+CLASS:Adept		STARTSKILLPTS:2	CSKILL:TYPE=Craft|Handle Animal|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft|Survival
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level
 CLASS:Adept		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Adept|CL
 ###Block: Spell list
@@ -42,16 +42,16 @@ CLASS:Adept		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Aristocrat	HD:8		TYPE:Base.NPC	ABB:Ari		MAXLEVEL:20	SOURCEPAGE:p.449	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Aristocrat	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE.Craft|Diplomacy|Disguise|Handle Animal|Intimidate|TYPE.Knowledge|Linguistics|Perception|TYPE.Perform|TYPE.Profession|Ride|Sense Motive|Swim|Survival
+CLASS:Aristocrat	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Disguise|Handle Animal|Intimidate|TYPE=Knowledge|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Swim|Survival
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
-1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Optionnal Weapon Prof.	Save checks bonus								Combat bonus
-CLASS:Commoner	HD:6		TYPE:Base.NPC	ABB:Com		MAXLEVEL:20	SOURCEPAGE:p.449	WEAPONBONUS:TYPE.Simple	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+CLASS:Commoner	HD:6		TYPE:Base.NPC	ABB:Com		MAXLEVEL:20	SOURCEPAGE:p.449	WEAPONBONUS:TYPE=Simple	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Commoner	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Perception|TYPE.Profession|Ride|Swim
+CLASS:Commoner	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Perception|TYPE=Profession|Ride|Swim
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 
@@ -68,8 +68,8 @@ CLASS:Expert	STARTSKILLPTS:6
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Warrior	HD:10		TYPE:Base.NPC	ABB:War		MAXLEVEL:20	SOURCEPAGE:p.450	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Warrior	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Handle Animal|Intimidate|TYPE.Profession|Ride|Swim
+CLASS:Warrior	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|TYPE=Profession|Ride|Swim
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
-1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency

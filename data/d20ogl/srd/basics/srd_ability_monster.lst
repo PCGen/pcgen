@@ -488,7 +488,7 @@ Lernaean Immunities			OUTPUTNAME:Body immune to all attacks (Ex) except Disinteg
 Mephit Breath Weapon			OUTPUTNAME:Breath Weapon																CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES																							MULT:YES	CHOOSE:STRING|Cone of Caustic Liquid|Cone of Dust and Grit|Cone of Fire|Cone of Ice Shards|Cone of Irritating Particles|Cone of Magma|Cone of Pebbles|Cone of Salt Crystals|Cone of Steam
 Phasm Disguise				OUTPUTNAME:+10 Circumstance to Disguise in Alternate Form											CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES
 Shambling Mound Hide			OUTPUTNAME:+12 Hide in Swampy or Forested areas													CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES
-Stone Giant Elder Abilities		OUTPUTNAME:Elder Abilities																CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES	SPELLS:Innate|TIMES=1|CASTERLEVEL=10|Stone Shape,15+CHA|Stone Tell,16+CHA|Transmute Rock to Mud,15+CHA|Transmute Mud to Rock,15+CHA
+Stone Giant Elder Abilities		OUTPUTNAME:Elder Abilities																CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES	SPELLS:Innate|TIMES=1|CASTERLEVEL=10|Stone Shape,15+CHA|Stone Tell,16+CHA|Transmute Mud to Rock,15+CHA|Transmute Rock to Mud,15+CHA
 Succubus Disguise				OUTPUTNAME:+10 to Disguise in Alternate Form													CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES
 Unicorn Immunities																							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
 Unicorn Wilderness Lore Checks	OUTPUTNAME:+3 competence bonus on Wilderness Lore checks within forest									CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES

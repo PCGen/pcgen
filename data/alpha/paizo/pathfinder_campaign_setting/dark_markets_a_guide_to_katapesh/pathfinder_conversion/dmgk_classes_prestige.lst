@@ -6,10 +6,10 @@ CLASS:Balanced Scale of Abadar	HD:6		TYPE:PC.Prestige	ABB:BSA		MAXLEVEL:6	SOURCE
 # Class Name				Required Deity	Required Skill					Req. Spell Type
 CLASS:Balanced Scale of Abadar	PREDEITY:1,Abadar	PRESKILL:2,Appraise=4,Disable Device=4	PRESPELLTYPE:1,Divine=3
 # Class Name				Skill Pts/Lvl	Class Skill
-CLASS:Balanced Scale of Abadar	STARTSKILLPTS:2	CSKILL:Appraise|TYPE.Craft|Diplomacy|Disable Device|Heal|Knowledge (Dungeoneering)|Knowledge (Local)|Knowledge (Religion)|Perception|TYPE.Profession|Spellcraft
+CLASS:Balanced Scale of Abadar	STARTSKILLPTS:2	CSKILL:Appraise|TYPE=Craft|Diplomacy|Disable Device|Heal|Knowledge (Dungeoneering)|Knowledge (Local)|Knowledge (Religion)|Perception|TYPE=Profession|Spellcraft
 1																		ABILITY:Special Ability|AUTOMATIC|Bypass Ward ~ Balanced Scale
 2														ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Appraising Eye ~ Balanced Scale
-3	BONUS:VAR|BalancedScaleBottomlessBagLVL,BalancedScaleAccessTheVaultLVL|CL	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Bottomless Bag ~ Balanced Scale|Access the Vault ~ Balanced Scale
+3	BONUS:VAR|BalancedScaleBottomlessBagLVL,BalancedScaleAccessTheVaultLVL|CL	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Access the Vault ~ Balanced Scale|Bottomless Bag ~ Balanced Scale
 4														ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Eloquent Bargainer ~ Balanced Scale
 5														ADD:SPELLCASTER|Divine
 6														ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Vault Jump ~ Balanced Scale

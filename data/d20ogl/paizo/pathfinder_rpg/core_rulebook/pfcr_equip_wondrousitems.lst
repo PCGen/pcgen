@@ -5,14 +5,14 @@ SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downl
 
 ###Block:A
 # Equipment Name						Type								Cost		Weight	Modifier	Requires Modification?	Source Page		Combat bonus						Special Property
-Amulet of Mighty Fists					TYPE:Magic.Wondrous.Amulet.AmuletOfMightyFists	COST:0	WT:.02	EQMOD:AMF	MODS:REQUIRED		SOURCEPAGE:p.496
-Amulet of Natural Armor +1				TYPE:Magic.Wondrous.Amulet				COST:2000	WT:.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|1|TYPE=NaturalArmorEnhancement
-Amulet of Natural Armor +2				TYPE:Magic.Wondrous.Amulet				COST:8000	WT:.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|2|TYPE=NaturalArmorEnhancement
-Amulet of Natural Armor +3				TYPE:Magic.Wondrous.Amulet				COST:18000	WT:.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|3|TYPE=NaturalArmorEnhancement
-Amulet of Natural Armor +4				TYPE:Magic.Wondrous.Amulet				COST:32000	WT:.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|4|TYPE=NaturalArmorEnhancement
-Amulet of Natural Armor +5				TYPE:Magic.Wondrous.Amulet				COST:50000	WT:.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|5|TYPE=NaturalArmorEnhancement
-Amulet of the Planes					TYPE:Magic.Wondrous.Amulet				COST:120000	WT:.02							SOURCEPAGE:p.500									SPROP:This amulet allows its wearer to utilize Plane Shift.
-Amulet of Proof Against Detection and Location	TYPE:Magic.Wondrous.Amulet				COST:35000	WT:.02							SOURCEPAGE:p.500									SPROP:Protects the wearer from scrying and magical location as Nondetection.
+Amulet of Mighty Fists					TYPE:Magic.Wondrous.Amulet.AmuletOfMightyFists	COST:0	WT:0.02	EQMOD:AMF	MODS:REQUIRED		SOURCEPAGE:p.496
+Amulet of Natural Armor +1				TYPE:Magic.Wondrous.Amulet				COST:2000	WT:0.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|1|TYPE=NaturalArmorEnhancement
+Amulet of Natural Armor +2				TYPE:Magic.Wondrous.Amulet				COST:8000	WT:0.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|2|TYPE=NaturalArmorEnhancement
+Amulet of Natural Armor +3				TYPE:Magic.Wondrous.Amulet				COST:18000	WT:0.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|3|TYPE=NaturalArmorEnhancement
+Amulet of Natural Armor +4				TYPE:Magic.Wondrous.Amulet				COST:32000	WT:0.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|4|TYPE=NaturalArmorEnhancement
+Amulet of Natural Armor +5				TYPE:Magic.Wondrous.Amulet				COST:50000	WT:0.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|5|TYPE=NaturalArmorEnhancement
+Amulet of the Planes					TYPE:Magic.Wondrous.Amulet				COST:120000	WT:0.02							SOURCEPAGE:p.500									SPROP:This amulet allows its wearer to utilize Plane Shift.
+Amulet of Proof Against Detection and Location	TYPE:Magic.Wondrous.Amulet				COST:35000	WT:0.02							SOURCEPAGE:p.500									SPROP:Protects the wearer from scrying and magical location as Nondetection.
 Apparatus of the Crab					TYPE:Magic.Wondrous					COST:90000	WT:500							SOURCEPAGE:p.500
 
 ###Block:B
@@ -25,8 +25,8 @@ Bag of Tricks (Gray)										TYPE:Magic.Wondrous														COST:3400								
 Bag of Tricks (Rust)										TYPE:Magic.Wondrous														COST:8500											SOURCEPAGE:p.501																																																																																																																																									SPROP:Animals produced are always random, and only one may exist at a time. Up to ten animals can be drawn from the bag each week, but no more than two per day.
 Bag of Tricks (Tan)										TYPE:Magic.Wondrous														COST:16000											SOURCEPAGE:p.501																																																																																																																																									SPROP:Animals produced are always random, and only one may exist at a time. Up to ten animals can be drawn from the bag each week, but no more than two per day.
 # Weight not listed for Bag of Tricks
-Bead of Force											TYPE:Magic.Wondrous.Consumable												COST:3000	WT:.02									SOURCEPAGE:p.501																																																																																																																																									SPROP:Upon sharp impact, the bead explodes, sending forth a burst that deals 5d6 points of force damage to all creatures within a 10-foot radius.
-Belt of Dwarvenkind										TYPE:Magic.Wondrous.Belt													COST:14900	WT:1										SOURCEPAGE:p.501	ABILITY:Special Ability|VIRTUAL|Stonecunning ~ Dwarf	VISION:Darkvision (60')																																	BONUS:STAT|CON|2|TYPE=Enhancement|!PRERACE:1,Dwarf%																																																																															LANGAUTO:Dwarven		SPROP:+4 competence bonus on Charisma checks and Charisma-based skill checks as they relate to dealing with dwarves, a +2 competence bonus on similar checks when dealing with gnomes and halfings, a -2 competence penalty on similar checks when dealing with anyone else, and a +2 resistance bonus on saves against poison, spells, and spell-like effects.
+Bead of Force											TYPE:Magic.Wondrous.Consumable												COST:3000	WT:0.02									SOURCEPAGE:p.501																																																																																																																																									SPROP:Upon sharp impact, the bead explodes, sending forth a burst that deals 5d6 points of force damage to all creatures within a 10-foot radius.
+Belt of Dwarvenkind										TYPE:Magic.Wondrous.Belt													COST:14900	WT:1										SOURCEPAGE:p.501	ABILITY:Special Ability|VIRTUAL|Stonecunning ~ Dwarf	VISION:Darkvision (60')																																	BONUS:STAT|CON|2|TYPE=Enhancement|!PRERACE:1,Dwarf%																																																																															AUTO:LANG|Dwarven		SPROP:+4 competence bonus on Charisma checks and Charisma-based skill checks as they relate to dealing with dwarves, a +2 competence bonus on similar checks when dealing with gnomes and halfings, a -2 competence penalty on similar checks when dealing with anyone else, and a +2 resistance bonus on saves against poison, spells, and spell-like effects.
 Belt of Giant Strength +2									TYPE:Magic.Wondrous.Belt													COST:4000	WT:1										SOURCEPAGE:p.502																																														BONUS:STAT|STR|2|TYPE=Enhancement
 Belt of Giant Strength +4									TYPE:Magic.Wondrous.Belt													COST:16000	WT:1										SOURCEPAGE:p.502																																														BONUS:STAT|STR|4|TYPE=Enhancement
 Belt of Giant Strength +6									TYPE:Magic.Wondrous.Belt													COST:36000	WT:1										SOURCEPAGE:p.502																																														BONUS:STAT|STR|6|TYPE=Enhancement
@@ -58,7 +58,7 @@ Boots of Teleportation										TYPE:Magic.Wondrous.Boot													COST:49000	
 Boots of the Winterlands									TYPE:Magic.Wondrous.Boot													COST:2500	WT:1		SLOTS:2							SOURCEPAGE:p.505																																																																																																																																									SPROP:Travel across snow and slippery ice at normal speed leaving no tracks.
 Boots (Winged)				OUTPUTNAME:Boots, [NAME]			TYPE:Magic.Wondrous.Boot													COST:16000	WT:1		SLOTS:2							SOURCEPAGE:p.505																																																																																																																																									SPROP:3/day on command, allows user to Fly, as spell for up to 5 minutes
 Bottle of Air											TYPE:Magic.Wondrous														COST:7250	WT:2										SOURCEPAGE:p.505																																																																																																																																									SPROP:Retains air within it at all times, continually renewing its contents.
-Bracelet of Friends										TYPE:Magic.Wondrous.Bracer													COST:19000	WT:.02	SLOTS:1	EQMOD:CHARGED_ITEM_4|CHARGES[4]	SOURCEPAGE:p.505																																																																																																																																									SPROP:When a charm is grasped and the name of the keyed individual is spoken, that person is called to the spot (a standard action)
+Bracelet of Friends										TYPE:Magic.Wondrous.Bracer													COST:19000	WT:0.02	SLOTS:1	EQMOD:CHARGED_ITEM_4|CHARGES[4]	SOURCEPAGE:p.505																																																																																																																																									SPROP:When a charm is grasped and the name of the keyed individual is spoken, that person is called to the spot (a standard action)
 Bracers of Archery (Greater)		OUTPUTNAME:Bracers of Archery, [NAME]	TYPE:Magic.Wondrous.Bracer													COST:25000	WT:1		SLOTS:2							SOURCEPAGE:p.505																																																							BONUS:WEAPONPROF=Longbow|TOHIT|4|!PREWEAPONPROF:1,Longbow|TYPE=Proficiency	BONUS:WEAPONPROF=Shortbow|TOHIT|4|!PREWEAPONPROF:1,Shortbow|TYPE=Proficiency	BONUS:WEAPONPROF=Longbow|TOHIT|2|PREWEAPONPROF:1,Longbow|TYPE=Competence	BONUS:WEAPONPROF=Longbow|DAMAGE|1|PREWEAPONPROF:1,Longbow|TYPE=Competence	BONUS:WEAPONPROF=Shortbow|TOHIT|2|PREWEAPONPROF:1,Shortbow|TYPE=Competence	BONUS:WEAPONPROF=Shortbow|DAMAGE|1|PREWEAPONPROF:1,Shortbow|TYPE=Competence
 Bracers of Archery (Lesser)		OUTPUTNAME:Bracers of Archery, [NAME]	TYPE:Magic.Wondrous.Bracer													COST:5000	WT:1		SLOTS:2							SOURCEPAGE:p.505																																																							BONUS:WEAPONPROF=Longbow|TOHIT|4|!PREWEAPONPROF:1,Longbow|TYPE=Proficiency	BONUS:WEAPONPROF=Shortbow|TOHIT|4|!PREWEAPONPROF:1,Shortbow|TYPE=Proficiency	BONUS:WEAPONPROF=Longbow|TOHIT|1|PREWEAPONPROF:1,Longbow|TYPE=Competence	BONUS:WEAPONPROF=Shortbow|TOHIT|1|PREWEAPONPROF:1,Shortbow|TYPE=Competence
 Bracers of Armor +1										TYPE:Magic.Wondrous.Bracer													COST:1000	WT:1		SLOTS:2							SOURCEPAGE:p.505																									BONUS:COMBAT|AC|1|TYPE=Armor
@@ -70,22 +70,22 @@ Bracers of Armor +6										TYPE:Magic.Wondrous.Bracer													COST:36000	W
 Bracers of Armor +7										TYPE:Magic.Wondrous.Bracer													COST:49000	WT:1		SLOTS:2							SOURCEPAGE:p.505																									BONUS:COMBAT|AC|7|TYPE=Armor
 Bracers of Armor +8										TYPE:Magic.Wondrous.Bracer													COST:64000	WT:1		SLOTS:2							SOURCEPAGE:p.505																									BONUS:COMBAT|AC|8|TYPE=Armor
 #Bracers of Armor: Need to make modifier for this. COST=PLUS*PLUS*1000, max PLUS w/o Epic is +8, must have +1 minimum.
-Brooch of Shielding										TYPE:Magic.Wondrous.Amulet													COST:1500	WT:.02			EQMOD:CHARGED_ITEM_101|CHARGES[101]	SOURCEPAGE:p.505
+Brooch of Shielding										TYPE:Magic.Wondrous.Amulet													COST:1500	WT:0.02			EQMOD:CHARGED_ITEM_101|CHARGES[101]	SOURCEPAGE:p.505
 Broom of Flying											TYPE:Magic.Wondrous														COST:17000	WT:3										SOURCEPAGE:p.505																																																																																																																																									SPROP:9 hrs/day Overland Flight
 
 ###Block:C
 # Equipment Name					Output Name							Type						Cost		Weight	Modifier					Source Page		Innate Spells										Save checks bonus				Combat bonus						Bonus to skill						Special Property
-Candle of Invocation (Lawful-Good)		OUTPUTNAME:Candle of Invocation, [NAME]		TYPE:Magic.Wondrous.Consumable	COST:8400	WT:.5								SOURCEPAGE:p.505																																			SPROP:+2 morale bonus on attack rolls, saving throws, and skill checks while within 30 feet of the flame if lawful-good.
-Candle of Invocation (Neutral-Good)		OUTPUTNAME:Candle of Invocation, [NAME]		TYPE:Magic.Wondrous.Consumable	COST:8400	WT:.5								SOURCEPAGE:p.505																																			SPROP:+2 morale bonus on attack rolls, saving throws, and skill checks while within 30 feet of the flame if neutral-good.
-Candle of Invocation (Chaotic-Good)		OUTPUTNAME:Candle of Invocation, [NAME]		TYPE:Magic.Wondrous.Consumable	COST:8400	WT:.5								SOURCEPAGE:p.505																																			SPROP:+2 morale bonus on attack rolls, saving throws, and skill checks while within 30 feet of the flame if chaotic-good.
-Candle of Invocation (Lawful-Neutral)	OUTPUTNAME:Candle of Invocation, [NAME]		TYPE:Magic.Wondrous.Consumable	COST:8400	WT:.5								SOURCEPAGE:p.505																																			SPROP:+2 morale bonus on attack rolls, saving throws, and skill checks while within 30 feet of the flame if lawful-neutral.
-Candle of Invocation (Neutral)		OUTPUTNAME:Candle of Invocation, [NAME]		TYPE:Magic.Wondrous.Consumable	COST:8400	WT:.5								SOURCEPAGE:p.505																																			SPROP:+2 morale bonus on attack rolls, saving throws, and skill checks while within 30 feet of the flame if neutral.
-Candle of Invocation (Chaotic-Neutral)	OUTPUTNAME:Candle of Invocation, [NAME]		TYPE:Magic.Wondrous.Consumable	COST:8400	WT:.5								SOURCEPAGE:p.505																																			SPROP:+2 morale bonus on attack rolls, saving throws, and skill checks while within 30 feet of the flame if chaotic-neutral.
-Candle of Invocation (Lawful-Evil)		OUTPUTNAME:Candle of Invocation, [NAME]		TYPE:Magic.Wondrous.Consumable	COST:8400	WT:.5								SOURCEPAGE:p.505																																			SPROP:+2 morale bonus on attack rolls, saving throws, and skill checks while within 30 feet of the flame if lawful-evil.
-Candle of Invocation (Neutral-Evil)		OUTPUTNAME:Candle of Invocation, [NAME]		TYPE:Magic.Wondrous.Consumable	COST:8400	WT:.5								SOURCEPAGE:p.505																																			SPROP:+2 morale bonus on attack rolls, saving throws, and skill checks while within 30 feet of the flame if neutral-evil.
-Candle of Invocation (Chaotic-Evil)		OUTPUTNAME:Candle of Invocation, [NAME]		TYPE:Magic.Wondrous.Consumable	COST:8400	WT:.5								SOURCEPAGE:p.505																																			SPROP:+2 morale bonus on attack rolls, saving throws, and skill checks while within 30 feet of the flame if chaotic-evil.
+Candle of Invocation (Lawful-Good)		OUTPUTNAME:Candle of Invocation, [NAME]		TYPE:Magic.Wondrous.Consumable	COST:8400	WT:0.5								SOURCEPAGE:p.505																																			SPROP:+2 morale bonus on attack rolls, saving throws, and skill checks while within 30 feet of the flame if lawful-good.
+Candle of Invocation (Neutral-Good)		OUTPUTNAME:Candle of Invocation, [NAME]		TYPE:Magic.Wondrous.Consumable	COST:8400	WT:0.5								SOURCEPAGE:p.505																																			SPROP:+2 morale bonus on attack rolls, saving throws, and skill checks while within 30 feet of the flame if neutral-good.
+Candle of Invocation (Chaotic-Good)		OUTPUTNAME:Candle of Invocation, [NAME]		TYPE:Magic.Wondrous.Consumable	COST:8400	WT:0.5								SOURCEPAGE:p.505																																			SPROP:+2 morale bonus on attack rolls, saving throws, and skill checks while within 30 feet of the flame if chaotic-good.
+Candle of Invocation (Lawful-Neutral)	OUTPUTNAME:Candle of Invocation, [NAME]		TYPE:Magic.Wondrous.Consumable	COST:8400	WT:0.5								SOURCEPAGE:p.505																																			SPROP:+2 morale bonus on attack rolls, saving throws, and skill checks while within 30 feet of the flame if lawful-neutral.
+Candle of Invocation (Neutral)		OUTPUTNAME:Candle of Invocation, [NAME]		TYPE:Magic.Wondrous.Consumable	COST:8400	WT:0.5								SOURCEPAGE:p.505																																			SPROP:+2 morale bonus on attack rolls, saving throws, and skill checks while within 30 feet of the flame if neutral.
+Candle of Invocation (Chaotic-Neutral)	OUTPUTNAME:Candle of Invocation, [NAME]		TYPE:Magic.Wondrous.Consumable	COST:8400	WT:0.5								SOURCEPAGE:p.505																																			SPROP:+2 morale bonus on attack rolls, saving throws, and skill checks while within 30 feet of the flame if chaotic-neutral.
+Candle of Invocation (Lawful-Evil)		OUTPUTNAME:Candle of Invocation, [NAME]		TYPE:Magic.Wondrous.Consumable	COST:8400	WT:0.5								SOURCEPAGE:p.505																																			SPROP:+2 morale bonus on attack rolls, saving throws, and skill checks while within 30 feet of the flame if lawful-evil.
+Candle of Invocation (Neutral-Evil)		OUTPUTNAME:Candle of Invocation, [NAME]		TYPE:Magic.Wondrous.Consumable	COST:8400	WT:0.5								SOURCEPAGE:p.505																																			SPROP:+2 morale bonus on attack rolls, saving throws, and skill checks while within 30 feet of the flame if neutral-evil.
+Candle of Invocation (Chaotic-Evil)		OUTPUTNAME:Candle of Invocation, [NAME]		TYPE:Magic.Wondrous.Consumable	COST:8400	WT:0.5								SOURCEPAGE:p.505																																			SPROP:+2 morale bonus on attack rolls, saving throws, and skill checks while within 30 feet of the flame if chaotic-evil.
 # Candle of Invocation: Need on for each alignment plus cleric level bonus as it relates to spells per day.
-Candle of Truth													TYPE:Magic.Wondrous.Consumable	COST:2500	WT:.5								SOURCEPAGE:p.505
+Candle of Truth													TYPE:Magic.Wondrous.Consumable	COST:2500	WT:0.5								SOURCEPAGE:p.505
 Cape of the Mountebank												TYPE:Magic.Wondrous.Cloak		COST:10080	WT:1								SOURCEPAGE:p.505	SPELLS:Cape of the Mountebank|TIMES=1|CASTERLEVEL=9|Dimension Door
 Carpet of Flying (5 ft by 5 ft)		OUTPUTNAME:Carpet of Flying, 5 ft. by 5 ft.	TYPE:Magic.Wondrous			COST:20000	WT:8								SOURCEPAGE:p.505
 Carpet of Flying (5 ft by 10 ft)		OUTPUTNAME:Carpet of Flying, 5 ft. by 10 ft.	TYPE:Magic.Wondrous			COST:35000	WT:10								SOURCEPAGE:p.505
@@ -93,7 +93,7 @@ Carpet of Flying (10 ft by 10 ft)		OUTPUTNAME:Carpet of Flying, 10 ft. by 10 ft.
 # Carpet of Flying: include +5 Fly check bonus or not?
 Chime of Interruption												TYPE:Magic.Wondrous			COST:16800	WT:1								SOURCEPAGE:p.506																																			SPROP:This instrument can be struck once every 10 minutes, and its resonant tone lasts for 3 full minutes.
 Chime of Opening													TYPE:Magic.Wondrous			COST:3000	WT:1		EQMOD:CHARGED_ITEM_10|CHARGES[10]	SOURCEPAGE:p.506
-Circlet of Persuasion												TYPE:Magic.Wondrous.Headgear		COST:4500	WT:.02							SOURCEPAGE:p.506																											BONUS:SKILL|TYPE.Charisma|3|TYPE=Competence
+Circlet of Persuasion												TYPE:Magic.Wondrous.Headgear		COST:4500	WT:0.02							SOURCEPAGE:p.506																											BONUS:SKILL|TYPE.Charisma|3|TYPE=Competence
 # Any other "Charisma based checks" besides Skills?
 Cloak of Arachnida												TYPE:Magic.Wondrous.Cloak		COST:14000	WT:1								SOURCEPAGE:p.506	SPELLS:Cloak of Archnida|TIMES=1|CASTERLEVEL=6|Web																										SPROP:Move as Spider Climb, immunity to web spells, +2 luck bonus on Fortitude saves against poison from spiders
 Cloak of the Bat													TYPE:Magic.Wondrous.Cloak		COST:26000	WT:1								SOURCEPAGE:p.506																											BONUS:SKILL|Stealth|5|TYPE=Competence		SPROP:Fly as spell in near darkness for up to 7 minutes
@@ -115,7 +115,7 @@ Crystal Ball (See Invisibility)										TYPE:Magic.Wondrous			COST:50000	WT:7		
 Crystal Ball (Detect Thoughts)										TYPE:Magic.Wondrous			COST:51000	WT:7								SOURCEPAGE:p.507
 Crystal Ball (Telepathy)											TYPE:Magic.Wondrous			COST:70000	WT:7								SOURCEPAGE:p.507
 Crystal Ball (True Seeing)											TYPE:Magic.Wondrous			COST:80000	WT:7								SOURCEPAGE:p.507
-Cube of Force													TYPE:Magic.Wondrous			COST:62000	WT:.5		EQMOD:CHARGED_ITEM_36|CHARGES[36]	SOURCEPAGE:p.508
+Cube of Force													TYPE:Magic.Wondrous			COST:62000	WT:0.5		EQMOD:CHARGED_ITEM_36|CHARGES[36]	SOURCEPAGE:p.508
 Cube of Frost Resistance											TYPE:Magic.Wondrous			COST:27000	WT:2								SOURCEPAGE:p.508																																			SPROP:Absorbes all cold-based attacks in area when activated.
 Cubic Gate														TYPE:Magic.Wondrous			COST:164000	WT:2								SOURCEPAGE:p.508
 
@@ -124,43 +124,43 @@ Cubic Gate														TYPE:Magic.Wondrous			COST:164000	WT:2								SOURCEPAGE
 Darkskull				TYPE:Magic.Wondrous			COST:60000	WT:5										SOURCEPAGE:p.508
 # Darskull: Spell effects - aid, bane, bless, cause fear, darkness, daylight, death ward, deeper darkness, detect magic, detect good, dimensional anchor, discern lies, dispel magic, endure elements, freedom of movement, invisibility purge, protection from energy, remove fear, resist energy, silence, tongues, and zone of truth
 Decanter of Endless Water	TYPE:Magic.Wondrous			COST:9000	WT:2										SOURCEPAGE:p.509
-Deck of Illusions			TYPE:Magic.Wondrous			COST:8100	WT:.5				EQMOD:CHARGED_ITEM_34|CHARGES[34]	SOURCEPAGE:p.509
+Deck of Illusions			TYPE:Magic.Wondrous			COST:8100	WT:0.5				EQMOD:CHARGED_ITEM_34|CHARGES[34]	SOURCEPAGE:p.509
 Dimensional Shackles		TYPE:Magic.Wondrous.Bracer		COST:28000	WT:5		SLOTS:2							SOURCEPAGE:p.510								SPROP:Fits Small to Large creatures
 Drums of Panic			TYPE:Magic.Wondrous			COST:30000	WT:10										SOURCEPAGE:p.510
-Dust of Appearance		TYPE:Magic.Wondrous.Consumable	COST:1800	WT:.02									SOURCEPAGE:p.510	BONUS:SKILL|Stealth|-30|PREAPPLY:ANYPC	SPROP:Lasts for 5 minutes
-Dust of Disappearance		TYPE:Magic.Wondrous.Consumable	COST:3500	WT:.02									SOURCEPAGE:p.510								SPROP:Lasts for 2d6 rounds
-Dust of Dryness			TYPE:Magic.Wondrous.Consumable	COST:850	WT:.02									SOURCEPAGE:p.510
-Dust of Illusion			TYPE:Magic.Wondrous.Consumable	COST:1200	WT:.02									SOURCEPAGE:p.510								SPROP:Lasts 2 hours
-Dust of Tracelessness		TYPE:Magic.Wondrous.Consumable	COST:250	WT:.02									SOURCEPAGE:p.510
+Dust of Appearance		TYPE:Magic.Wondrous.Consumable	COST:1800	WT:0.02									SOURCEPAGE:p.510	BONUS:SKILL|Stealth|-30|PREAPPLY:ANYPC	SPROP:Lasts for 5 minutes
+Dust of Disappearance		TYPE:Magic.Wondrous.Consumable	COST:3500	WT:0.02									SOURCEPAGE:p.510								SPROP:Lasts for 2d6 rounds
+Dust of Dryness			TYPE:Magic.Wondrous.Consumable	COST:850	WT:0.02									SOURCEPAGE:p.510
+Dust of Illusion			TYPE:Magic.Wondrous.Consumable	COST:1200	WT:0.02									SOURCEPAGE:p.510								SPROP:Lasts 2 hours
+Dust of Tracelessness		TYPE:Magic.Wondrous.Consumable	COST:250	WT:0.02									SOURCEPAGE:p.510
 
 ###Block:E
 # Equipment Name		Output Name					Type							Contains										Cost		Weight	Source Page		Bonus to skill								Special Property
 Efficient Quiver								TYPE:Magic.Wondrous.Container			CONTAINS:*UNLIM|Arrow=60|Javelin=18|Total=6|Bow=6|Spear=6|Staff=6	COST:1800	WT:2		SOURCEPAGE:p.511
 Efreeti Bottle								TYPE:Magic.Wondrous															COST:145000	WT:1		SOURCEPAGE:p.511											SPROP:Can only be opened 1/day.
-Elemental Gem (Air)	OUTPUTNAME:Elemental Gem, [NAME]	TYPE:Magic.Wondrous.Consumable													COST:2250	WT:.02	SOURCEPAGE:p.511											SPROP:Summons Large Air Elemental
-Elemental Gem (Earth)	OUTPUTNAME:Elemental Gem, [NAME]	TYPE:Magic.Wondrous.Consumable													COST:2250	WT:.02	SOURCEPAGE:p.511											SPROP:Summons Large Earth Elemental
-Elemental Gem (Fire)	OUTPUTNAME:Elemental Gem, [NAME]	TYPE:Magic.Wondrous.Consumable													COST:2250	WT:.02	SOURCEPAGE:p.511											SPROP:Summons Large Fire Elemental
-Elemental Gem (Water)	OUTPUTNAME:Elemental Gem, [NAME]	TYPE:Magic.Wondrous.Consumable													COST:2250	WT:.02	SOURCEPAGE:p.511											SPROP:Summons Large Water Elemental
-Elixir of Fire Breath							TYPE:Magic.Wondrous.Elixir.Consumable												COST:1100	WT:.02	SOURCEPAGE:p.511											SPROP:3 blasts, 4d6 fire damage up to 25 ft. away.
-Elixir of Hiding								TYPE:Magic.Wondrous.Elixir.Consumable												COST:250	WT:.02	SOURCEPAGE:p.511	BONUS:SKILL|Stealth|10|TYPE=Competence|PREAPPLY:ANYPC
-Elixir of Love								TYPE:Magic.Wondrous.Elixir.Consumable												COST:150	WT:.02	SOURCEPAGE:p.511											SPROP:Lasts 1d3 hours
-Elixir of Swimming							TYPE:Magic.Wondrous.Elixir.Consumable												COST:250	WT:.02	SOURCEPAGE:p.511	BONUS:SKILL|Swim|10|TYPE=Competence|PREAPPLY:ANYPC		SPROP:Lasts 1 hour
-Elixir of Truth								TYPE:Magic.Wondrous.Elixir.Consumable												COST:500	WT:.02	SOURCEPAGE:p.512											SPROP:Lasts 10 minutes
-Elixir of Tumbling							TYPE:Magic.Wondrous.Elixir.Consumable												COST:250	WT:.02	SOURCEPAGE:p.512	BONUS:SKILL|Acrobatics|10|TYPE=Competence|PREAPPLY:ANYPC	SPROP:Lasts 1 hour
-Elixir of Vision								TYPE:Magic.Wondrous.Elixir.Consumable												COST:250	WT:.02	SOURCEPAGE:p.512	BONUS:SKILL|Perception|10|TYPE=Competence|PREAPPLY:ANYPC	SPROP:Lasts 1 hour
+Elemental Gem (Air)	OUTPUTNAME:Elemental Gem, [NAME]	TYPE:Magic.Wondrous.Consumable													COST:2250	WT:0.02	SOURCEPAGE:p.511											SPROP:Summons Large Air Elemental
+Elemental Gem (Earth)	OUTPUTNAME:Elemental Gem, [NAME]	TYPE:Magic.Wondrous.Consumable													COST:2250	WT:0.02	SOURCEPAGE:p.511											SPROP:Summons Large Earth Elemental
+Elemental Gem (Fire)	OUTPUTNAME:Elemental Gem, [NAME]	TYPE:Magic.Wondrous.Consumable													COST:2250	WT:0.02	SOURCEPAGE:p.511											SPROP:Summons Large Fire Elemental
+Elemental Gem (Water)	OUTPUTNAME:Elemental Gem, [NAME]	TYPE:Magic.Wondrous.Consumable													COST:2250	WT:0.02	SOURCEPAGE:p.511											SPROP:Summons Large Water Elemental
+Elixir of Fire Breath							TYPE:Magic.Wondrous.Elixir.Consumable												COST:1100	WT:0.02	SOURCEPAGE:p.511											SPROP:3 blasts, 4d6 fire damage up to 25 ft. away.
+Elixir of Hiding								TYPE:Magic.Wondrous.Elixir.Consumable												COST:250	WT:0.02	SOURCEPAGE:p.511	BONUS:SKILL|Stealth|10|TYPE=Competence|PREAPPLY:ANYPC
+Elixir of Love								TYPE:Magic.Wondrous.Elixir.Consumable												COST:150	WT:0.02	SOURCEPAGE:p.511											SPROP:Lasts 1d3 hours
+Elixir of Swimming							TYPE:Magic.Wondrous.Elixir.Consumable												COST:250	WT:0.02	SOURCEPAGE:p.511	BONUS:SKILL|Swim|10|TYPE=Competence|PREAPPLY:ANYPC		SPROP:Lasts 1 hour
+Elixir of Truth								TYPE:Magic.Wondrous.Elixir.Consumable												COST:500	WT:0.02	SOURCEPAGE:p.512											SPROP:Lasts 10 minutes
+Elixir of Tumbling							TYPE:Magic.Wondrous.Elixir.Consumable												COST:250	WT:0.02	SOURCEPAGE:p.512	BONUS:SKILL|Acrobatics|10|TYPE=Competence|PREAPPLY:ANYPC	SPROP:Lasts 1 hour
+Elixir of Vision								TYPE:Magic.Wondrous.Elixir.Consumable												COST:250	WT:0.02	SOURCEPAGE:p.512	BONUS:SKILL|Perception|10|TYPE=Competence|PREAPPLY:ANYPC	SPROP:Lasts 1 hour
 Eversmoking Bottle							TYPE:Magic.Wondrous															COST:5400	WT:1		SOURCEPAGE:p.512
-Eyes of Charming								TYPE:Magic.Wondrous.Eyes														COST:56000	WT:.02	SOURCEPAGE:p.512
-Eyes of Doom								TYPE:Magic.Wondrous.Eyes														COST:25000	WT:.02	SOURCEPAGE:p.512
-Eyes of the Eagle								TYPE:Magic.Wondrous.Eyes														COST:2500	WT:.02	SOURCEPAGE:p.512	BONUS:SKILL|Perception|5|TYPE=Competence
+Eyes of Charming								TYPE:Magic.Wondrous.Eyes														COST:56000	WT:0.02	SOURCEPAGE:p.512
+Eyes of Doom								TYPE:Magic.Wondrous.Eyes														COST:25000	WT:0.02	SOURCEPAGE:p.512
+Eyes of the Eagle								TYPE:Magic.Wondrous.Eyes														COST:2500	WT:0.02	SOURCEPAGE:p.512	BONUS:SKILL|Perception|5|TYPE=Competence
 
 ###Block:F
 # Equipment Name						Output Name							Type						Cost		Weight	Modifier					Source Page		Special Property
-Feather Token (Anchor)					OUTPUTNAME:Feather Token, [NAME]			TYPE:Magic.Wondrous.Consumable	COST:50	WT:.02							SOURCEPAGE:p.512
-Feather Token (Bird)					OUTPUTNAME:Feather Token, [NAME]			TYPE:Magic.Wondrous.Consumable	COST:300	WT:.02							SOURCEPAGE:p.512
-Feather Token (Fan)					OUTPUTNAME:Feather Token, [NAME]			TYPE:Magic.Wondrous.Consumable	COST:200	WT:.02							SOURCEPAGE:p.512
-Feather Token (Swan Boat)				OUTPUTNAME:Feather Token, [NAME]			TYPE:Magic.Wondrous.Consumable	COST:450	WT:.02							SOURCEPAGE:p.512
-Feather Token (Tree)					OUTPUTNAME:Feather Token, [NAME]			TYPE:Magic.Wondrous.Consumable	COST:400	WT:.02							SOURCEPAGE:p.512
-Feather Token (Whip)					OUTPUTNAME:Feather Token, [NAME]			TYPE:Magic.Wondrous.Consumable	COST:500	WT:.02							SOURCEPAGE:p.512
+Feather Token (Anchor)					OUTPUTNAME:Feather Token, [NAME]			TYPE:Magic.Wondrous.Consumable	COST:50	WT:0.02							SOURCEPAGE:p.512
+Feather Token (Bird)					OUTPUTNAME:Feather Token, [NAME]			TYPE:Magic.Wondrous.Consumable	COST:300	WT:0.02							SOURCEPAGE:p.512
+Feather Token (Fan)					OUTPUTNAME:Feather Token, [NAME]			TYPE:Magic.Wondrous.Consumable	COST:200	WT:0.02							SOURCEPAGE:p.512
+Feather Token (Swan Boat)				OUTPUTNAME:Feather Token, [NAME]			TYPE:Magic.Wondrous.Consumable	COST:450	WT:0.02							SOURCEPAGE:p.512
+Feather Token (Tree)					OUTPUTNAME:Feather Token, [NAME]			TYPE:Magic.Wondrous.Consumable	COST:400	WT:0.02							SOURCEPAGE:p.512
+Feather Token (Whip)					OUTPUTNAME:Feather Token, [NAME]			TYPE:Magic.Wondrous.Consumable	COST:500	WT:0.02							SOURCEPAGE:p.512
 Figurine of Wondrous Power (Bronze Griffon)	OUTPUTNAME:Figurine of Wondrous Power, [NAME]	TYPE:Magic.Wondrous			COST:10000	WT:1								SOURCEPAGE:p.513	SPROP:Can be used twice per week for up to 6 hours per use.
 Figurine of Wondrous Power (Ebony Fly)		OUTPUTNAME:Figurine of Wondrous Power, [NAME]	TYPE:Magic.Wondrous			COST:10000	WT:1								SOURCEPAGE:p.513	SPROP:Can be used three times per week for up to 12 hours per use.
 Figurine of Wondrous Power (Golden Lions)		OUTPUTNAME:Figurine of Wondrous Power, [NAME]	TYPE:Magic.Wondrous			COST:16500	WT:1								SOURCEPAGE:p.513	SPROP:Can be used once per day for up to 1 hour per use.
@@ -174,13 +174,13 @@ Figurine of Wondrous Power (Silver Raven)		OUTPUTNAME:Figurine of Wondrous Power
 ###Block:G
 # Equipment Name				Type						Contains			Cost		Weight	Slot Needed	Modifier					Source Page		Vision			Bonus to skill						Special Property
 Gauntlet of Rust				TYPE:Magic.Wondrous.Glove						COST:11500	WT:2		SLOTS:1							SOURCEPAGE:p.514													SPROP:Once per day, it can affect an object as with the rusting grasp spell.
-Gem of Brightness				TYPE:Magic.Wondrous							COST:13000	WT:.02			EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:p.514
-Gem of Seeing				TYPE:Magic.Wondrous							COST:75000	WT:.02									SOURCEPAGE:p.514													SPROP:Up to 30 min/day
-Gloves of Arrow Snaring			TYPE:Magic.Wondrous.Glove						COST:4000	WT:.02	SLOTS:2	EQMOD:USES_PER_DAY_2|CHARGES[2]	SOURCEPAGE:p.514
-Glove of Storing				TYPE:Magic.Wondrous.Container.Glove	CONTAINS:*20|Any=1	COST:10000	WT:.02	SLOTS:1							SOURCEPAGE:p.515
-Gloves of Swimming and Climbing	TYPE:Magic.Wondrous.Glove						COST:6250	WT:.02	SLOTS:2							SOURCEPAGE:p.515					BONUS:SKILL|Swim,Climb|5|TYPE=Competence
-Goggles of Minute Seeing		TYPE:Magic.Wondrous.Eyegear						COST:2500	WT:.02									SOURCEPAGE:p.515					BONUS:SKILL|Disable Device|5|TYPE=Competence
-Goggles of Night				TYPE:Magic.Wondrous.Eyegear						COST:12000	WT:.02									SOURCEPAGE:p.515	VISION:Darkvision (60')
+Gem of Brightness				TYPE:Magic.Wondrous							COST:13000	WT:0.02			EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:p.514
+Gem of Seeing				TYPE:Magic.Wondrous							COST:75000	WT:0.02									SOURCEPAGE:p.514													SPROP:Up to 30 min/day
+Gloves of Arrow Snaring			TYPE:Magic.Wondrous.Glove						COST:4000	WT:0.02	SLOTS:2	EQMOD:USES_PER_DAY_2|CHARGES[2]	SOURCEPAGE:p.514
+Glove of Storing				TYPE:Magic.Wondrous.Container.Glove	CONTAINS:*20|Any=1	COST:10000	WT:0.02	SLOTS:1							SOURCEPAGE:p.515
+Gloves of Swimming and Climbing	TYPE:Magic.Wondrous.Glove						COST:6250	WT:0.02	SLOTS:2							SOURCEPAGE:p.515					BONUS:SKILL|Swim,Climb|5|TYPE=Competence
+Goggles of Minute Seeing		TYPE:Magic.Wondrous.Eyegear						COST:2500	WT:0.02									SOURCEPAGE:p.515					BONUS:SKILL|Disable Device|5|TYPE=Competence
+Goggles of Night				TYPE:Magic.Wondrous.Eyegear						COST:12000	WT:0.02									SOURCEPAGE:p.515	VISION:Darkvision (60')
 Golem Manual (Clay)			TYPE:Magic.Wondrous							COST:12000	WT:5										SOURCEPAGE:p.515
 Golem Manual (Flesh)			TYPE:Magic.Wondrous							COST:8000	WT:5										SOURCEPAGE:p.515
 Golem Manual (Iron)			TYPE:Magic.Wondrous							COST:35000	WT:5										SOURCEPAGE:p.515
@@ -189,11 +189,11 @@ Golem Manual (Stone/Greater)		TYPE:Magic.Wondrous							COST:44000	WT:5									
 
 ###Block:H
 # Equipment Name						Output Name					Type							Contains		Cost		Weight	Slot Needed	Source Page		Innate Spells																														Add to magical move					Bonus to skill												Bonus to nb of slots	Stat bonus						Special Property
-Hand of Glory												TYPE:Magic.Wondrous.Amulet						COST:8000	WT:2				SOURCEPAGE:p.516	SPELLS:Hand of Glory|CASTERLEVEL=5|TIMES=1|Daylight|See Invisibility																																											BONUS:SLOTS|RING|1
+Hand of Glory												TYPE:Magic.Wondrous.Amulet						COST:8000	WT:2				SOURCEPAGE:p.516	SPELLS:Hand of Glory|TIMES=1|CASTERLEVEL=5|Daylight|See Invisibility																																											BONUS:SLOTS|RING|1
 Hand of the Mage												TYPE:Magic.Wondrous.Amulet						COST:900	WT:2				SOURCEPAGE:p.516	SPELLS:Hand of the Mage|TIMES=ATWILL|CASTERLEVEL=2|Mage Hand
 Handy Haversack												TYPE:Magic.Wondrous.Container			CONTAINS:*120	COST:2000	WT:5				SOURCEPAGE:p.516
 Harp of Charming												TYPE:Magic.Wondrous.Instrument					COST:7500	WT:5				SOURCEPAGE:p.516
-Hat of Disguise												TYPE:Magic.Wondrous.Headgear						COST:1800	WT:.02			SOURCEPAGE:p.516
+Hat of Disguise												TYPE:Magic.Wondrous.Headgear						COST:1800	WT:0.02			SOURCEPAGE:p.516
 Headband of Alluring Charisma +2									TYPE:Magic.Wondrous.Headband						COST:4000	WT:1				SOURCEPAGE:p.516																																																											BONUS:STAT|CHA|2|TYPE=Enhancement
 Headband of Alluring Charisma +4									TYPE:Magic.Wondrous.Headband						COST:16000	WT:1				SOURCEPAGE:p.516																																																											BONUS:STAT|CHA|4|TYPE=Enhancement
 Headband of Alluring Charisma +6									TYPE:Magic.Wondrous.Headband						COST:36000	WT:1				SOURCEPAGE:p.516																																																											BONUS:STAT|CHA|6|TYPE=Enhancement
@@ -237,22 +237,22 @@ Horseshoes of a Zephyr											TYPE:Magic.Wondrous.Feet						COST:6000	WT:4		S
 # Equipment Name					Output Name				Type							Cost		Weight	Modifier					Source Page		Ability					Caster level						Save checks bonus				Combat bonus					Bonus to skill				Stat bonus					Special Property
 Incense of Meditation									TYPE:Magic.Wondrous.Consumable		COST:4900	WT:1								SOURCEPAGE:p.520
 Instant Fortress										TYPE:Magic.Wondrous				COST:55000	WT:1								SOURCEPAGE:p.520
-Ioun Stone (Clear Spindle)			OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:4000	WT:.02							SOURCEPAGE:p.520																																								SPROP:Sustains creature without food or water
-Ioun Stone (Dusty rose Prism)			OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:5000	WT:.02							SOURCEPAGE:p.520																					BONUS:COMBAT|AC|1|TYPE=Insight
-Ioun Stone (Deep red Sphere)			OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:8000	WT:.02							SOURCEPAGE:p.520																																		BONUS:STAT|DEX|2|TYPE=Enhancement
-Ioun Stone (Incandescent blue Sphere)	OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:8000	WT:.02							SOURCEPAGE:p.520																																		BONUS:STAT|WIS|2|TYPE=Enhancement
-Ioun Stone (Pale blue Rhomboid)		OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:8000	WT:.02							SOURCEPAGE:p.520																																		BONUS:STAT|STR|2|TYPE=Enhancement
-Ioun Stone (Pink Rhomboid)			OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:8000	WT:.02							SOURCEPAGE:p.520																																		BONUS:STAT|CON|2|TYPE=Enhancement
-Ioun Stone (Pink and green Sphere)		OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:8000	WT:.02							SOURCEPAGE:p.520																																		BONUS:STAT|CHA|2|TYPE=Enhancement
-Ioun Stone (Scarlet and blue Sphere)	OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun.Intelligence	COST:8000	WT:.02							SOURCEPAGE:p.520																																		BONUS:STAT|INT|2|TYPE=Enhancement
-Ioun Stone (Dark blue Rhomboid)		OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:10000	WT:.02							SOURCEPAGE:p.520	ABILITY:FEAT|VIRTUAL|Alertness
-Ioun Stone (Iridescent Spindle)		OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:18000	WT:.02							SOURCEPAGE:p.520																																								SPROP:Sustains creature without air
-Ioun Stone (Pale lavender Ellipsoid)	OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:20000	WT:.02	EQMOD:CHARGED_ITEM_20|CHARGES[20]	SOURCEPAGE:p.520																																								SPROP:Absorbs spells of 4th level or lower
-Ioun Stone (Pearly white Spindle)		OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:20000	WT:.02							SOURCEPAGE:p.520																																								SPROP:Regenerate 1 point of damage per 10 minutes
-Ioun Stone (Pale green Prism)			OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:30000	WT:.02							SOURCEPAGE:p.520															BONUS:CHECKS|ALL|1|TYPE=Competence	BONUS:COMBAT|TOHIT|1|TYPE=Competence	BONUS:SKILL|ALL|1|TYPE=Competence							SPROP:+1 to ability checks
-Ioun Stone (Orange Prism)			OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:30000	WT:.02							SOURCEPAGE:p.520							BONUS:CASTERLEVEL|TYPE.Arcane,TYPE.Divine|1
-Ioun Stone (Vibrant purple Prism)		OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:36000	WT:.02							SOURCEPAGE:p.520																																								SPROP:Stores three levels of spells, as a ring of spell storing
-Ioun Stone (Lavender and green Ellipsoid)	OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:40000	WT:.02	EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:p.520																																								SPROP:Absorbs spells of 8th level or lower
+Ioun Stone (Clear Spindle)			OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:4000	WT:0.02							SOURCEPAGE:p.520																																								SPROP:Sustains creature without food or water
+Ioun Stone (Dusty rose Prism)			OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:5000	WT:0.02							SOURCEPAGE:p.520																					BONUS:COMBAT|AC|1|TYPE=Insight
+Ioun Stone (Deep red Sphere)			OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:8000	WT:0.02							SOURCEPAGE:p.520																																		BONUS:STAT|DEX|2|TYPE=Enhancement
+Ioun Stone (Incandescent blue Sphere)	OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:8000	WT:0.02							SOURCEPAGE:p.520																																		BONUS:STAT|WIS|2|TYPE=Enhancement
+Ioun Stone (Pale blue Rhomboid)		OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:8000	WT:0.02							SOURCEPAGE:p.520																																		BONUS:STAT|STR|2|TYPE=Enhancement
+Ioun Stone (Pink Rhomboid)			OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:8000	WT:0.02							SOURCEPAGE:p.520																																		BONUS:STAT|CON|2|TYPE=Enhancement
+Ioun Stone (Pink and green Sphere)		OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:8000	WT:0.02							SOURCEPAGE:p.520																																		BONUS:STAT|CHA|2|TYPE=Enhancement
+Ioun Stone (Scarlet and blue Sphere)	OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun.Intelligence	COST:8000	WT:0.02							SOURCEPAGE:p.520																																		BONUS:STAT|INT|2|TYPE=Enhancement
+Ioun Stone (Dark blue Rhomboid)		OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:10000	WT:0.02							SOURCEPAGE:p.520	ABILITY:FEAT|VIRTUAL|Alertness
+Ioun Stone (Iridescent Spindle)		OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:18000	WT:0.02							SOURCEPAGE:p.520																																								SPROP:Sustains creature without air
+Ioun Stone (Pale lavender Ellipsoid)	OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:20000	WT:0.02	EQMOD:CHARGED_ITEM_20|CHARGES[20]	SOURCEPAGE:p.520																																								SPROP:Absorbs spells of 4th level or lower
+Ioun Stone (Pearly white Spindle)		OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:20000	WT:0.02							SOURCEPAGE:p.520																																								SPROP:Regenerate 1 point of damage per 10 minutes
+Ioun Stone (Pale green Prism)			OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:30000	WT:0.02							SOURCEPAGE:p.520															BONUS:CHECKS|ALL|1|TYPE=Competence	BONUS:COMBAT|TOHIT|1|TYPE=Competence	BONUS:SKILL|ALL|1|TYPE=Competence							SPROP:+1 to ability checks
+Ioun Stone (Orange Prism)			OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:30000	WT:0.02							SOURCEPAGE:p.520							BONUS:CASTERLEVEL|TYPE.Arcane,TYPE.Divine|1
+Ioun Stone (Vibrant purple Prism)		OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:36000	WT:0.02							SOURCEPAGE:p.520																																								SPROP:Stores three levels of spells, as a ring of spell storing
+Ioun Stone (Lavender and green Ellipsoid)	OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun			COST:40000	WT:0.02	EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:p.520																																								SPROP:Absorbs spells of 8th level or lower
 Iron Bands of Binding									TYPE:Magic.Wondrous				COST:26000	WT:1		EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.521
 Iron Flask											TYPE:Magic.Wondrous				COST:170000	WT:1		EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.521
 
@@ -272,8 +272,8 @@ Lyre of Building		TYPE:Magic.Wondrous.Instrument	COST:13000	WT:5		SOURCEPAGE:p.5
 
 ###Block:M
 # Equipment Name				Required Weapon Proficiency	Type																Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	Size		Source Page		Spell Res.	Damage Reduction	Weapon prop. bonus																Special Property
-Mantle of Faith									TYPE:Magic.Wondrous.Shirt												COST:76000	WT:.02																SOURCEPAGE:p.522			DR:5/Evil
-Mantle of Spell Resistance							TYPE:Magic.Wondrous.Shirt												COST:90000	WT:.02																SOURCEPAGE:p.522	SR:21
+Mantle of Faith									TYPE:Magic.Wondrous.Shirt												COST:76000	WT:0.02																SOURCEPAGE:p.522			DR:5/Evil
+Mantle of Spell Resistance							TYPE:Magic.Wondrous.Shirt												COST:90000	WT:0.02																SOURCEPAGE:p.522	SR:21
 Manual of Bodily Health (+1)							TYPE:Magic.Wondrous													COST:27500	WT:5																	SOURCEPAGE:p.522
 Manual of Bodily Health (+2)							TYPE:Magic.Wondrous													COST:55000	WT:5																	SOURCEPAGE:p.522
 Manual of Bodily Health (+3)							TYPE:Magic.Wondrous													COST:82500	WT:5																	SOURCEPAGE:p.522
@@ -293,7 +293,7 @@ Marvelous Pigments								TYPE:Magic.Wondrous													COST:4000	WT:0.02					
 Mask of the Skull									TYPE:Magic.Wondrous.Headgear												COST:22000	WT:3																	SOURCEPAGE:p.523
 Mattock of the Titans			PROFICIENCY:WEAPON|Warhammer	TYPE:Magic.Wondrous.Tool.Weapon.Martial.Melee.OneHanded.Bludgeoning.Adamantine.Specific.Hammer	COST:23348	WT:120	CRITMULT:x3			CRITRANGE:1			DAMAGE:4d6	WIELD:OneHanded	SIZE:G	SOURCEPAGE:p.523						BONUS:WEAPON|TOHIT,DAMAGE|3|TYPE=Enhancement
 Maul of the Titans			PROFICIENCY:WEAPON|Greatclub	TYPE:Magic.Wondrous.Tool.Weapon.Martial.Melee.TwoHanded.Bludgeoning.Specific.Club.Hammer		COST:25305	WT:160	CRITMULT:x2			CRITRANGE:1			DAMAGE:4d6	WIELD:TwoHanded	SIZE:G	SOURCEPAGE:p.523						BONUS:WEAPON|TOHIT,DAMAGE|3|TYPE=Enhancement	BONUS:WEAPON|TOHIT|-4|TYPE=StrengthPenalty|!PRESTAT:1,STR=18
-Medallion of Thoughts								TYPE:Magic.Wondrous.Amulet												COST:12000	WT:.02																SOURCEPAGE:p.523																									SPROP:allows the wearer to read the thoughts of others, as with the spell detect thoughts.
+Medallion of Thoughts								TYPE:Magic.Wondrous.Amulet												COST:12000	WT:0.02																SOURCEPAGE:p.523																									SPROP:allows the wearer to read the thoughts of others, as with the spell detect thoughts.
 Mirror of Life Trapping								TYPE:Magic.Wondrous													COST:200000	WT:50																	SOURCEPAGE:p.523
 Mirror of Opposition								TYPE:Magic.Wondrous													COST:92000	WT:45																	SOURCEPAGE:p.524																									SPROP:Up to 4/day.
 
@@ -311,29 +311,29 @@ Necklace of Fireballs VII	TYPE:Magic.Wondrous.Amulet	COST:8700	WT:1		SOURCEPAGE:
 
 ###Block:O
 # Equipment Name	Type				Cost		Weight	Source Page		Innate Spells																					Special Property
-Orb of Storms	TYPE:Magic.Wondrous	COST:48000	WT:6		SOURCEPAGE:p.524	SPELLS:Orb of Storms|TIMES=1|CASTERLEVEL=18|Control Weather	SPELLS:Orb of Storms|TIMES=1|CASTERLEVEL=18|TIMEUNIT=Month|Storm of Vengeance	SPROP:Endure Elements on possessor
+Orb of Storms	TYPE:Magic.Wondrous	COST:48000	WT:6		SOURCEPAGE:p.524	SPELLS:Orb of Storms|TIMES=1|CASTERLEVEL=18|Control Weather	SPELLS:Orb of Storms|TIMES=1|TIMEUNIT=Month|CASTERLEVEL=18|Storm of Vengeance	SPROP:Endure Elements on possessor
 
 ###Block:P
 # Equipment Name				Type						Contains		Cost		Weight	Modifier					Source Page		Ability						Modify VAR																																					Special Property
-Pearl of Power (1st Level)		TYPE:Magic.Wondrous						COST:1000	WT:.02	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.525
-Pearl of Power (2nd Level)		TYPE:Magic.Wondrous						COST:4000	WT:.02	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.525
-Pearl of Power (3rd Level)		TYPE:Magic.Wondrous						COST:9000	WT:.02	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.525
-Pearl of Power (4th Level)		TYPE:Magic.Wondrous						COST:16000	WT:.02	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.525
-Pearl of Power (5th Level)		TYPE:Magic.Wondrous						COST:25000	WT:.02	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.525
-Pearl of Power (6th Level)		TYPE:Magic.Wondrous						COST:36000	WT:.02	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.525
-Pearl of Power (7th Level)		TYPE:Magic.Wondrous						COST:49000	WT:.02	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.525
-Pearl of Power (8th Level)		TYPE:Magic.Wondrous						COST:64000	WT:.02	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.525
-Pearl of Power (9th Level)		TYPE:Magic.Wondrous						COST:81000	WT:.02	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.525
-Pearl of Power (2 spells)		TYPE:Magic.Wondrous						COST:70000	WT:.02	EQMOD:USES_PER_DAY_2|CHARGES[2]	SOURCEPAGE:p.525																																														SPROP:Spells of 6th level or lower
-Pearl of the Sirines			TYPE:Magic.Wondrous						COST:15300	WT:.02							SOURCEPAGE:p.525	ABILITY:Internal|AUTOMATIC|Siren Move																																							SPROP:Breathe in water, swim speed is 60ft, cast spells and act underwater without hindrance.
+Pearl of Power (1st Level)		TYPE:Magic.Wondrous						COST:1000	WT:0.02	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.525
+Pearl of Power (2nd Level)		TYPE:Magic.Wondrous						COST:4000	WT:0.02	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.525
+Pearl of Power (3rd Level)		TYPE:Magic.Wondrous						COST:9000	WT:0.02	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.525
+Pearl of Power (4th Level)		TYPE:Magic.Wondrous						COST:16000	WT:0.02	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.525
+Pearl of Power (5th Level)		TYPE:Magic.Wondrous						COST:25000	WT:0.02	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.525
+Pearl of Power (6th Level)		TYPE:Magic.Wondrous						COST:36000	WT:0.02	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.525
+Pearl of Power (7th Level)		TYPE:Magic.Wondrous						COST:49000	WT:0.02	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.525
+Pearl of Power (8th Level)		TYPE:Magic.Wondrous						COST:64000	WT:0.02	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.525
+Pearl of Power (9th Level)		TYPE:Magic.Wondrous						COST:81000	WT:0.02	EQMOD:USES_PER_DAY_1|CHARGES[1]	SOURCEPAGE:p.525
+Pearl of Power (2 spells)		TYPE:Magic.Wondrous						COST:70000	WT:0.02	EQMOD:USES_PER_DAY_2|CHARGES[2]	SOURCEPAGE:p.525																																														SPROP:Spells of 6th level or lower
+Pearl of the Sirines			TYPE:Magic.Wondrous						COST:15300	WT:0.02							SOURCEPAGE:p.525	ABILITY:Internal|AUTOMATIC|Siren Move																																							SPROP:Breathe in water, swim speed is 60ft, cast spells and act underwater without hindrance.
 # removed MOVE:Swim,60 from Pearl of the Sirines, MOVE not so global, we'll need another way to do this, perhaps SPROP? -Eddy
 # - Fixed via ABILITY outside as MOVE will work in ABILITY objects. -AM
-Periapt of Health				TYPE:Magic.Wondrous.Amulet					COST:7500	WT:.02							SOURCEPAGE:p.525																																														SPROP:Immune to Disease, including supernatural deseases
-Periapt of Proof Against Poison	TYPE:Magic.Wondrous.Amulet					COST:27000	WT:.02							SOURCEPAGE:p.525																																														SPROP:Immune to poison
-Periapt of Wound Closure		TYPE:Magic.Wondrous.Amulet					COST:15000	WT:.02							SOURCEPAGE:p.525																																														SPROP:Automatically becomes stable if hit-points drop below 0 and doubles the wearer's normal rate of healing
-Phylactery of Faithfulness		TYPE:Magic.Wondrous.Headband					COST:1000	WT:.02							SOURCEPAGE:p.525																																														SPROP:Wearer is aware of any action or item that could adversely afect his alignment and his standing with his deity
-Phylactery of Negative Channeling	TYPE:Magic.Wondrous.Headband					COST:11000	WT:.02							SOURCEPAGE:p.525								BONUS:VAR|ClericChannelNegativeEnergyDice|2|PREABILITY:1,CATEGORY=Special Ability,Channel Negative Energy ~ Cleric
-Phylactery of Positive Channeling	TYPE:Magic.Wondrous.Headband					COST:11000	WT:.02							SOURCEPAGE:p.526								BONUS:VAR|ClericChannelPositiveEnergyDice|2|PREABILITY:1,CATEGORY=Special Ability,Channel Positive Energy ~ Cleric	BONUS:VAR|PaladinChannelDice|2|PREABILITY:1,CATEGORY=Special Ability,Channel Positive Energy ~ Paladin
+Periapt of Health				TYPE:Magic.Wondrous.Amulet					COST:7500	WT:0.02							SOURCEPAGE:p.525																																														SPROP:Immune to Disease, including supernatural deseases
+Periapt of Proof Against Poison	TYPE:Magic.Wondrous.Amulet					COST:27000	WT:0.02							SOURCEPAGE:p.525																																														SPROP:Immune to poison
+Periapt of Wound Closure		TYPE:Magic.Wondrous.Amulet					COST:15000	WT:0.02							SOURCEPAGE:p.525																																														SPROP:Automatically becomes stable if hit-points drop below 0 and doubles the wearer's normal rate of healing
+Phylactery of Faithfulness		TYPE:Magic.Wondrous.Headband					COST:1000	WT:0.02							SOURCEPAGE:p.525																																														SPROP:Wearer is aware of any action or item that could adversely afect his alignment and his standing with his deity
+Phylactery of Negative Channeling	TYPE:Magic.Wondrous.Headband					COST:11000	WT:0.02							SOURCEPAGE:p.525								BONUS:VAR|ClericChannelNegativeEnergyDice|2|PREABILITY:1,CATEGORY=Special Ability,Channel Negative Energy ~ Cleric
+Phylactery of Positive Channeling	TYPE:Magic.Wondrous.Headband					COST:11000	WT:0.02							SOURCEPAGE:p.526								BONUS:VAR|ClericChannelPositiveEnergyDice|2|PREABILITY:1,CATEGORY=Special Ability,Channel Positive Energy ~ Cleric	BONUS:VAR|PaladinChannelDice|2|PREABILITY:1,CATEGORY=Special Ability,Channel Positive Energy ~ Paladin
 Pipes of Haunting				TYPE:Magic.Wondrous.Instrument				COST:6000	WT:3		EQMOD:USES_PER_DAY_2|CHARGES[2]	SOURCEPAGE:p.526
 Pipes of the Sewers			TYPE:Magic.Wondrous.Instrument				COST:1150	WT:3								SOURCEPAGE:p.526
 Pipes of Sounding				TYPE:Magic.Wondrous.Instrument				COST:1800	WT:3								SOURCEPAGE:p.526
@@ -345,7 +345,7 @@ Portable Hole				TYPE:Magic.Wondrous.Container		CONTAINS:*UNLIM	COST:20000	WT:0.
 
 ###Block:R
 # Equipment Name			Output Name						Type							Cost		Weight	Modifier					Source Page		Ability											Vision				Spell Res.					Save checks bonus										Combat bonus									Bonus to skill					Unarmed Damage Level bonus	Modify VAR													Quality and value																		Special Property
-Restorative Ointment									TYPE:Magic.Wondrous				COST:4000	WT:.5		EQMOD:CHARGED_ITEM_5|CHARGES[5]	SOURCEPAGE:p.526																																																																																													SPROP:Each dose neutralizes poison, cures disease, or 1d8+5 Hp.
+Restorative Ointment									TYPE:Magic.Wondrous				COST:4000	WT:0.5		EQMOD:CHARGED_ITEM_5|CHARGES[5]	SOURCEPAGE:p.526																																																																																													SPROP:Each dose neutralizes poison, cures disease, or 1d8+5 Hp.
 Ring Gates											TYPE:Magic.Wondrous				COST:40000	WT:1								SOURCEPAGE:p.526
 Robe of the Archmagi (White)	OUTPUTNAME:Robe of the Archmage, [NAME]	TYPE:Magic.Wondrous.Robe			COST:75000	WT:1								SOURCEPAGE:p.527	ABILITY:Special Ability|VIRTUAL|Negative Levels|!PREALIGN:LG,NG,CG						SR:18*(min(1,SPELLCASTER.Arcane))	BONUS:CHECKS|ALL|4|TYPE=Resistance|PRECLASS:1,SPELLCASTER.Arcane=1	BONUS:COMBAT|AC|5|TYPE=Armor|PRECLASS:1,SPELLCASTER.Arcane=1													BONUS:VAR|NegLevels|2|!PREALIGN:LG,NG,CG	BONUS:VAR|NegLevels|1|PREALIGN:LE,NE,CE																					SPROP:+2 enhancement bonus to overcome spell resistance.|PRECLASS:1,SPELLCASTER.Arcane=1
 Robe of the Archmagi (Grey)	OUTPUTNAME:Robe of the Archmage, [NAME]	TYPE:Magic.Wondrous.Robe			COST:75000	WT:1								SOURCEPAGE:p.527	ABILITY:Special Ability|VIRTUAL|Negative Levels|!PREALIGN:LN,TN,CN						SR:18*(min(1,SPELLCASTER.Arcane))	BONUS:CHECKS|ALL|4|TYPE=Resistance|PRECLASS:1,SPELLCASTER.Arcane=1	BONUS:COMBAT|AC|5|TYPE=Armor|PRECLASS:1,SPELLCASTER.Arcane=1													BONUS:VAR|NegLevels|2|!PREALIGN:LN,TN,CN																												SPROP:+2 enhancement bonus to overcome spell resistance.|PRECLASS:1,SPELLCASTER.Arcane=1
@@ -368,21 +368,21 @@ Rope of Entanglement									TYPE:Magic.Wondrous				COST:21000	WT:5								SOURC
 
 ###Block:S
 # Equipment Name				Output Name						Type						Contains				Cost		Weight	Slot Needed	Modifier					Source Page		Spell Res.	Innate Spells							Save checks bonus			Bonus to skill																		Modify VAR									Special Property
-Salve of Slipperiness										TYPE:Magic.Wondrous.Consumable						COST:1000	WT:.02									SOURCEPAGE:p.529																	BONUS:SKILL|Escape Artist|20|PREAPPLY:ANYPC													BONUS:VAR|CMB_Grapple_DEF|10|TYPE=Competence|PREAPPLY:ANYPC
+Salve of Slipperiness										TYPE:Magic.Wondrous.Consumable						COST:1000	WT:0.02									SOURCEPAGE:p.529																	BONUS:SKILL|Escape Artist|20|PREAPPLY:ANYPC													BONUS:VAR|CMB_Grapple_DEF|10|TYPE=Competence|PREAPPLY:ANYPC
 Scabbard of Keen Edges										TYPE:Magic.Wondrous.Container		CONTAINS:UNLIM|Slashing=1	COST:16000	WT:1				EQMOD:USES_PER_DAY_3|CHARGES[3]	SOURCEPAGE:p.529
-Scarab of Protection										TYPE:Magic.Wondrous.Amulet							COST:38000	WT:.02			EQMOD:CHARGED_ITEM_12|CHARGES[12]	SOURCEPAGE:p.529	SR:20
-Scarab (Golembane)			OUTPUTNAME:Scarab, [NAME]			TYPE:Magic.Wondrous.Amulet							COST:2500	WT:.02									SOURCEPAGE:p.529																																															SPROP:Bypass DR of Golems
-Silversheen												TYPE:Magic.Wondrous.Consumable						COST:250	WT:.02									SOURCEPAGE:p.529
-Slippers of Spider Climbing									TYPE:Magic.Wondrous.Boot							COST:4800	WT:.5		SLOTS:2							SOURCEPAGE:p.530																																															SPROP:Up to 10 minutes per day.
-Sovereign Glue (Ounce)			OUTPUTNAME:[NAME] of Sovereign Glue		TYPE:Magic.Wondrous.Consumable						COST:2400	WT:.02									SOURCEPAGE:p.530
+Scarab of Protection										TYPE:Magic.Wondrous.Amulet							COST:38000	WT:0.02			EQMOD:CHARGED_ITEM_12|CHARGES[12]	SOURCEPAGE:p.529	SR:20
+Scarab (Golembane)			OUTPUTNAME:Scarab, [NAME]			TYPE:Magic.Wondrous.Amulet							COST:2500	WT:0.02									SOURCEPAGE:p.529																																															SPROP:Bypass DR of Golems
+Silversheen												TYPE:Magic.Wondrous.Consumable						COST:250	WT:0.02									SOURCEPAGE:p.529
+Slippers of Spider Climbing									TYPE:Magic.Wondrous.Boot							COST:4800	WT:0.5		SLOTS:2							SOURCEPAGE:p.530																																															SPROP:Up to 10 minutes per day.
+Sovereign Glue (Ounce)			OUTPUTNAME:[NAME] of Sovereign Glue		TYPE:Magic.Wondrous.Consumable						COST:2400	WT:0.02									SOURCEPAGE:p.530
 Sovereign Glue (Flask)			OUTPUTNAME:[NAME] of Sovereign Glue		TYPE:Magic.Wondrous								COST:16800	WT:1.5			EQMOD:CHARGED_ITEM_7|CHARGES[7]	SOURCEPAGE:p.530
 Stone of Alarm											TYPE:Magic.Wondrous								COST:2700	WT:2										SOURCEPAGE:p.530
-Stone of Good Luck (Luckstone)								TYPE:Magic.Wondrous								COST:20000	WT:.02									SOURCEPAGE:p.530												BONUS:CHECKS|ALL|1|TYPE=Luck	BONUS:SKILL|TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma|1|TYPE=Luck											SPROP:+1 Luck bonus to ability checks
-Stone Salve (Ounce)										TYPE:Magic.Wondrous.Consumable						COST:4000	WT:.02									SOURCEPAGE:p.530
+Stone of Good Luck (Luckstone)								TYPE:Magic.Wondrous								COST:20000	WT:0.02									SOURCEPAGE:p.530												BONUS:CHECKS|ALL|1|TYPE=Luck	BONUS:SKILL|TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma|1|TYPE=Luck											SPROP:+1 Luck bonus to ability checks
+Stone Salve (Ounce)										TYPE:Magic.Wondrous.Consumable						COST:4000	WT:0.02									SOURCEPAGE:p.530
 Strand of Prayer Beads (Lesser)	OUTPUTNAME:[NAME] Strand of Prayer Beads	TYPE:Magic.Wondrous								COST:9600	WT:0.5									SOURCEPAGE:p.530			SPELLS:Magic Item|TIMES=1|CASTERLEVEL=1|Bless																																					SPROP:Bead of Blessing 1/day -- Wearer can cast bless.  Bead of Healing 1/day -- Wearer can cast his choice of Cure Serious Wounds, Remove Blindness/Deafness, or Remove Disease.
 Strand of Prayer Beads										TYPE:Magic.Wondrous								COST:25800	WT:0.5									SOURCEPAGE:p.530																																															SPROP:Bead of Healing 1/day -- Wearer can cast his choice of cure serious wounds, remove blindness/deafness, or remove disease.  Bead of Karma 1/ day -- Wearer casts his spells at +4 caster level. Effect lasts 10 minutes.  Bead of Smiting 1/day -- Wearer can cast chaos hammer, holy smite, order's wrath, or unholy blight (Will DC 17 partial).
 Strand of Prayer Beads (Greater)	OUTPUTNAME:[NAME] Strand of Prayer Beads	TYPE:Magic.Wondrous								COST:95800	WT:0.5									SOURCEPAGE:p.530			SPELLS:Magic Item|TIMES=1|CASTERLEVEL=11|Wind Walk																																				SPROP:Bead of Healing 1/day -- Wearer can cast his choice of cure serious wounds, remove blindness/deafness, or remove disease.  Bead of Karma 1/ day -- Wearer casts his spells at +4 caster level. Effect lasts 10 minutes.  Bead of Summons 1 time only -- Summons a powerful creature of appropriate alignment from the Outer Planes (an angel, devil, etc.) to aid the wearer for one day. (If the wearer uses the bead of summons to summon a deity's emissary frivolously, the deity takes that character''s items and places a geas/quest upon him as punishment in the very least.)  Bead of Wind Walk 1/day -- Wearer can cast Wind Walk
-Sustaining Spoon											TYPE:Magic.Wondrous								COST:5400	WT:.02									SOURCEPAGE:p.531																																															SPROP:Feeds up to 4 humans / day.
+Sustaining Spoon											TYPE:Magic.Wondrous								COST:5400	WT:0.02									SOURCEPAGE:p.531																																															SPROP:Feeds up to 4 humans / day.
 
 ###Block:T
 # Equipment Name					Type				Cost		Weight	Source Page
@@ -404,18 +404,18 @@ Tome of Understanding (+5)			TYPE:Magic.Wondrous	COST:137500	WT:5		SOURCEPAGE:p.
 
 ###Block:U
 # Equipment Name		Type						Cost		Weight	Modifier					Source Page
-Unguent of Timelessness	TYPE:Magic.Wondrous.Consumable	COST:150	WT:.02	EQMOD:CHARGED_ITEM_8|CHARGES[8]	SOURCEPAGE:p.531
-Universal Solvent		TYPE:Magic.Wondrous.Consumable	COST:50	WT:.02							SOURCEPAGE:p.532
+Unguent of Timelessness	TYPE:Magic.Wondrous.Consumable	COST:150	WT:0.02	EQMOD:CHARGED_ITEM_8|CHARGES[8]	SOURCEPAGE:p.531
+Universal Solvent		TYPE:Magic.Wondrous.Consumable	COST:50	WT:0.02							SOURCEPAGE:p.532
 
 ###Block:V
 # Equipment Name		Output Name				Type					Cost		Weight	Source Page		Bonus to skill														Modify VAR
-Vest of Escape							TYPE:Magic.Wondrous.Shirt	COST:5200	WT:.02	SOURCEPAGE:p.532	BONUS:SKILL|Disable Device|4|TYPE=Competence	BONUS:SKILL|Escape Artist|6|TYPE=Competence
-Vestment (Druid's)	OUTPUTNAME:Vestment, [NAME]	TYPE:Magic.Wondrous.Robe	COST:3750	WT:.02	SOURCEPAGE:p.532																	BONUS:VAR|WildShapeTimes|1
+Vest of Escape							TYPE:Magic.Wondrous.Shirt	COST:5200	WT:0.02	SOURCEPAGE:p.532	BONUS:SKILL|Disable Device|4|TYPE=Competence	BONUS:SKILL|Escape Artist|6|TYPE=Competence
+Vestment (Druid's)	OUTPUTNAME:Vestment, [NAME]	TYPE:Magic.Wondrous.Robe	COST:3750	WT:0.02	SOURCEPAGE:p.532																	BONUS:VAR|WildShapeTimes|1
 
 ###Block:W
 # Equipment Name		Type					Cost		Weight	Source Page		Bonus to skill						Special Property
-Well of Many Worlds	TYPE:Magic.Wondrous		COST:82000	WT:.02	SOURCEPAGE:p.532
-Wind Fan			TYPE:Magic.Wondrous		COST:5500	WT:.02	SOURCEPAGE:p.532									SPROP:20%% cumulative chance of desctruction after first use each day.
+Well of Many Worlds	TYPE:Magic.Wondrous		COST:82000	WT:0.02	SOURCEPAGE:p.532
+Wind Fan			TYPE:Magic.Wondrous		COST:5500	WT:0.02	SOURCEPAGE:p.532									SPROP:20%% cumulative chance of desctruction after first use each day.
 Wings of Flying		TYPE:Magic.Wondrous.Cloak	COST:54000	WT:2		SOURCEPAGE:p.532	BONUS:SKILL|Fly|5|TYPE=Competance|PREAPPLY:PC	SPROP:Fly speed of 60 ft with average maneuverability.
 
 ###Block:X
@@ -428,5 +428,3 @@ Wings of Flying		TYPE:Magic.Wondrous.Cloak	COST:54000	WT:2		SOURCEPAGE:p.532	BON
 
 ###Block:Z
 # Equipment Name						Type					Cost		Weight	Source Page		Combat bonus						Weapon prof. bonus																			Special Property
-
-

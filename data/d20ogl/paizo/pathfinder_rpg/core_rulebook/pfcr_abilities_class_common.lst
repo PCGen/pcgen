@@ -5,7 +5,7 @@ SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downl
 ###Block: Weapon Proficiencies
 # Ability Name				Category of Ability		Type			Visible	Serves As						Automatically Gained Weapon Prof.																									Ability
 All Automatic Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Unarmed Strike|Spells (Ray)|Spells (Touch)																					ABILITY:FEAT|AUTOMATIC|CMB Output		ABILITY:Natural Attack|AUTOMATIC|Natural Attack ~ Shield Bash|PREEQUIP:1,TYPE=Shield
-All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SERVESAS:FEAT|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE.Martial
+All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SERVESAS:FEAT|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
 Bard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Whip
 Cleric Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|DEITYWEAPONS
 Druid Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Scythe|Sickle|Shortspear|Sling|Spear
@@ -76,7 +76,7 @@ CATEGORY=FEAT|CMB Output.MOD																		BONUS:VAR|CM_SizeMod|-8|PRESIZEEQ:
 CATEGORY=FEAT|CMB Output.MOD																		BONUS:VAR|CMB|CMB_BAB+CMB_STAT+CM_SizeMod	BONUS:VAR|CMD|10+CMD_BAB+STR+DEX+CM_SizeMod+var("AC.CMD")
 CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_BullRush|0	DEFINE:CMD_BullRush|0										BONUS:VAR|CMB_BullRush|CMB	BONUS:VAR|CMD_BullRush|CMD
 CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Disarm|0	DEFINE:CMD_Disarm|0										BONUS:VAR|CMB_Disarm|CMB	BONUS:VAR|CMD_Disarm|CMD
-CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Grapple|0	DEFINE:CMD_Grapple|0										BONUS:VAR|CMB_Grapple|CMB	BONUS:VAR|CMD_Grapple|CMD	BONUS:VAR|CMB_Grapple|1|PREFEAT:1,Weapon Focus(Grapple)	BONUS:VAR|CMB_Grapple|1|PREFEAT:1,Greater Weapon Focus(Grapple)
+CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Grapple|0	DEFINE:CMD_Grapple|0										BONUS:VAR|CMB_Grapple|CMB	BONUS:VAR|CMD_Grapple|CMD	BONUS:VAR|CMB_Grapple|1|PREFEAT:1,Weapon Focus (Grapple)	BONUS:VAR|CMB_Grapple|1|PREFEAT:1,Greater Weapon Focus (Grapple)
 CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Overrun|0	DEFINE:CMD_Overrun|0										BONUS:VAR|CMB_Overrun|CMB	BONUS:VAR|CMD_Overrun|CMD
 CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Sunder|0	DEFINE:CMD_Sunder|0										BONUS:VAR|CMB_Sunder|CMB	BONUS:VAR|CMD_Sunder|CMD
 CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Trip|0	DEFINE:CMD_Trip|0												BONUS:VAR|CMB_Trip|CMB	BONUS:VAR|CMD_Trip|CMD	BONUS:VAR|CMD_Trip|(var("LEGS")-2)*2|PRELEGSGT:2

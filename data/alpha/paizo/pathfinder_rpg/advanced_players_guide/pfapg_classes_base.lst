@@ -9,11 +9,11 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Alchemist	HD:8		TYPE:Base.PC	ABB:Alc		MAXLEVEL:20	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	DEFINE:AlchemistLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Alchemist	STARTSKILLPTS:4	CSKILL:Appraise|TYPE.Craft|Disable Device|Fly|Heal|Knowledge (Arcana)|Knowledge (Nature)|Perception|TYPE.Profession|Sleight of Hand|Spellcraft|Survival|Use Magic Device
+CLASS:Alchemist	STARTSKILLPTS:4	CSKILL:Appraise|TYPE=Craft|Disable Device|Fly|Heal|Knowledge (Arcana)|Knowledge (Nature)|Perception|TYPE=Profession|Sleight of Hand|Spellcraft|Survival|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
-CLASS:Alchemist	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Alchemist|CL	
+CLASS:Alchemist	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Alchemist|CL
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Alchemist Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Alchemist Weapon Proficiencies|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Class features
 1	BONUS:VAR|AlchemistAlchemyLVL|CL			ABILITY:Special Ability|AUTOMATIC|Alchemy ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistAlchemy
@@ -58,12 +58,12 @@ CLASS:Alchemist	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source Page		Define			Save checks bonus											Combat bonus
 CLASS:Cavalier	HD:10		TYPE:Base.PC	ABB:Cav		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:p.32	DEFINE:CavalierLvl|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Cavalier	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE.Craft|Diplomacy|Handle Animal|Intimidate|TYPE.Profession|Ride|Sense Motive|Swim
+CLASS:Cavalier	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|TYPE=Profession|Ride|Sense Motive|Swim
 #
 1	BONUS:ABILITYPOOL|Cavalier Order|1
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
-1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 ###Block: Level progression
 1								BONUS:VAR|CavalierChallengeLVL|CL	BONUS:VAR|CavalierChallengeTimes|1+(CL/3)	BONUS:VAR|CavalierLevel|CL	ABILITY:Special Ability|AUTOMATIC|Challenge ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierChallenge	ABILITY:Special Ability|AUTOMATIC|Mount ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierMount	ABILITY:Special Ability|AUTOMATIC|Order ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierOrder	ABILITY:Special Ability|AUTOMATIC|Tactician ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierTactician
 3																										ABILITY:Special Ability|AUTOMATIC|Cavalier's Charge ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierCavaliersCharge
@@ -82,7 +82,7 @@ CLASS:Inquisitor	HD:8		TYPE:Base.PC	ABB:Inq		MAXLEVEL:20	EXCLASS:Ex-Inquisitor	S
 # Class Name	Var. Must Be Lower
 CLASS:Inquisitor	PREVARLT:ExInquisitor,1
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Inquisitor	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE.Craft|Diplomacy|Disguise|Heal|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (Nature)|Knowledge (Planes)|Knowledge (Religion)|Perception|TYPE.Profession|Ride|Sense Motive|Spellcraft|Stealth|Survival|Swim
+CLASS:Inquisitor	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Heal|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (Nature)|Knowledge (Planes)|Knowledge (Religion)|Perception|TYPE=Profession|Ride|Sense Motive|Spellcraft|Stealth|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Inquisitor	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Inquisitor|CL
 #COMMENT: Unable to enact properly for the Domain, Inquisitor does not get a domain slot, or bonus spells from it
@@ -91,10 +91,10 @@ CLASS:Inquisitor	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|In
 1																																											AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 1																																																									AUTO:WEAPONPROF|Crossbow (Hand)|Longbow|Crossbow (Repeating Heavy)|Crossbow (Repeating Light)|Shortbow|DEITYWEAPONS
 #Block: Alignment Restrictions
-1	PROHIBITSPELL:ALIGNMENT.Good|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LE,NE,CE],[PREDEITYALIGN:LE,NE,CE]]
-1	PROHIBITSPELL:ALIGNMENT.Evil|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LG,NG,CG],[PREDEITYALIGN:LG,NG,CG]]
-1	PROHIBITSPELL:ALIGNMENT.Lawful|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:CG,CN,CE],[PREDEITYALIGN:CG,CN,CE]]
-1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LG,LN,LE],[PREDEITYALIGN:LG,LN,LE]]
+1	PROHIBITSPELL:ALIGNMENT.Good|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LE,NE,CE],[PREDEITYALIGN:LE,NE,CE]]	PROHIBITSPELL:ALIGNMENT.Good|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LE,NE,CE],[PREDEITYALIGN:LE,NE,CE]]
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LG,NG,CG],[PREDEITYALIGN:LG,NG,CG]]	PROHIBITSPELL:ALIGNMENT.Evil|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LG,NG,CG],[PREDEITYALIGN:LG,NG,CG]]
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:CG,CN,CE],[PREDEITYALIGN:CG,CN,CE]]	PROHIBITSPELL:ALIGNMENT.Lawful|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:CG,CN,CE],[PREDEITYALIGN:CG,CN,CE]]
+1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LG,LN,LE],[PREDEITYALIGN:LG,LN,LE]]	PROHIBITSPELL:ALIGNMENT.Chaotic|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LG,LN,LE],[PREDEITYALIGN:LG,LN,LE]]
 1																				BONUS:ABILITYPOOL|Inquisitor Domain Choice|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDomain	BONUS:VAR|DomainLVL|CL|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDomain	ABILITY:Special Ability|AUTOMATIC|Domains|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDomain
 ###Block: Level progression
 1									BONUS:ABILITYPOOL|Inquisitor Judgment Effect|1	BONUS:VAR|TrackLVL|CL|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTrack
@@ -140,11 +140,11 @@ CLASS:Inquisitor	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|In
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Visible	Define			Save checks bonus											Combat bonus
 CLASS:Ex-Inquisitor	HD:8		TYPE:Base.PC	ABB:Inq		MAXLEVEL:20	VISIBLE:NO	DEFINE:InquisitorLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Ex-Inquisitor	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE.Craft|Diplomacy|Disguise|Heal|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (Nature)|Knowledge (Planes)|Knowledge (Religion)|Perception|TYPE.Profession|Ride|Sense Motive|Spellcraft|Stealth|Survival|Swim
+CLASS:Ex-Inquisitor	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Heal|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (Nature)|Knowledge (Planes)|Knowledge (Religion)|Perception|TYPE=Profession|Ride|Sense Motive|Spellcraft|Stealth|Survival|Swim
 #Block:
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
-1												AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
-1																														AUTO:WEAPONPROF|Crossbow (Hand)|Longbow|Crossbow (Repeating Heavy)|Crossbow (Repeating Light)|Shortbow|DEITYWEAPONS
+1												AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
+1																														AUTO:WEAPONPROF|Crossbow (Hand)|Longbow|Crossbow (Repeating Heavy)|Crossbow (Repeating Light)|Shortbow	AUTO:WEAPONPROF|DEITYWEAPONS
 #Block:
 1	ABILITY:Special Ability|AUTOMATIC|Monster Lore ~ Inquisitor
 1	ABILITY:Special Ability|AUTOMATIC|Stern Gaze ~ Inquisitor
@@ -162,7 +162,7 @@ CLASS:Ex-Inquisitor	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE.Craft|Diplomacy|Disg
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
 CLASS:Oracle	HD:8		TYPE:Base.PC	ABB:Ocl		MAXLEVEL:20	SOURCEPAGE:p.42	DEFINE:OracleLvl|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Oracle	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Diplomacy|Heal|Knowledge (History)|Knowledge (Planes)|Knowledge (Religion)|TYPE.Profession|Sense Motive|Spellcraft
+CLASS:Oracle	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Diplomacy|Heal|Knowledge (History)|Knowledge (Planes)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level			Use Spell List
 CLASS:Oracle	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Oracle|CL	SPELLLIST:2|Cleric|Oracle
 ###Block:Proficiencies
@@ -203,11 +203,11 @@ CLASS:Oracle	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Oracle
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
 CLASS:Summoner	HD:8		TYPE:Base.PC	ABB:Sum		MAXLEVEL:20	SOURCEPAGE:p.54	DEFINE:SummonerLvl|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Summoner	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Fly|Handle Animal|TYPE.Knowledge|Linguistics|TYPE.Profession|Ride|Spellcraft|Use Magic Device
+CLASS:Summoner	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Fly|Handle Animal|TYPE=Knowledge|Linguistics|TYPE=Profession|Ride|Spellcraft|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Summoner	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Summoner|CL
 ###Block:Proficiencies
-1									ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies																																				AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)
+1									ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies																																				AUTO:FEAT|Armor Proficiency (Light)|Simple Weapon Proficiency
 1									ABILITY:Special Ability|AUTOMATIC|Cantrips ~ Summoner	ABILITY:Special Ability|AUTOMATIC|Eidolon ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerEidolon	ABILITY:Special Ability|AUTOMATIC|Life Link ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerLifeLink
 1									ABILITY:Special Ability|AUTOMATIC|Summon Monster ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSummonMonster
 1	CAST:0,1			KNOWN:4,2
@@ -235,12 +235,12 @@ CLASS:Summoner	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Summ
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
 CLASS:Witch		HD:6		TYPE:Base.PC	ABB:Wit		MAXLEVEL:20	SOURCEPAGE:p.65	DEFINE:WitchLvl|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Witch		STARTSKILLPTS:2	CSKILL:TYPE.Craft|Fly|Heal|Intimidate|Knowledge (Arcana)|Knowledge (History)|Knowledge (Nature)|Knowledge (Planes)|TYPE.Profession|Spellcraft|Use Magic Device
+CLASS:Witch		STARTSKILLPTS:2	CSKILL:TYPE=Craft|Fly|Heal|Intimidate|Knowledge (Arcana)|Knowledge (History)|Knowledge (Nature)|Knowledge (Planes)|TYPE=Profession|Spellcraft|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Caster level
 CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Witch|CL
 #
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Witch Weapon Proficiencies|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Witch Weapon Proficiencies
 ###Block: Level progression
 1	CAST:3,1				BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex1	BONUS:ABILITYPOOL|Witch Patron|1	BONUS:VAR|FMLevel|CL	DEFINE:SpellMasteryQualify|1	ABILITY:Special Ability|AUTOMATIC|Witch ~ Familiar|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchFamiliar
 1						ABILITY:Special Ability|AUTOMATIC|Cantrips ~ Witch|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchCantrips
@@ -274,35 +274,35 @@ CLASS:Eidolon (Fort/Ref)	OUTPUTNAME:Eidolon	HD:10		TYPE:Monster.Companion	MAXLEV
 # Class Name			Reg. Race Type
 CLASS:Eidolon (Fort/Ref)	PRERACETYPE:Eidolon
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Eidolon (Fort/Ref)	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE.Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
+CLASS:Eidolon (Fort/Ref)	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
 
 # Class Name			Output Name			Hit Dice	Type				Max Level		Source Page		Ability					Save checks bonus											Combat bonus
 CLASS:Eidolon (Fort/Will)	OUTPUTNAME:Eidolon	HD:10		TYPE:Monster.Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Reg. Race Type
 CLASS:Eidolon (Fort/Will)	PRERACETYPE:Eidolon
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Eidolon (Fort/Will)	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE.Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
+CLASS:Eidolon (Fort/Will)	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
 
 # Class Name			Output Name			Hit Dice	Type				Max Level		Source Page		Ability					Save checks bonus											Combat bonus
 CLASS:Eidolon (Ref/Will)	OUTPUTNAME:Eidolon	HD:10		TYPE:Monster.Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Reg. Race Type
 CLASS:Eidolon (Ref/Will)	PRERACETYPE:Eidolon
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Eidolon (Ref/Will)	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE.Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
+CLASS:Eidolon (Ref/Will)	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
 
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page		Define									Save checks bonus											Combat bonus
 CLASS:Antipaladin	HD:10		TYPE:Base.PC	ABB:Apl		MAXLEVEL:20	EXCLASS:Ex-Antipaladin	SOURCEPAGE:p.118	DEFINE:AntipaladinLVL|CL	DEFINE:AntiPaladinLvl|CL	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required AL
-CLASS:Antipaladin	PREALIGN:1,CE
+CLASS:Antipaladin	PREALIGN:LN,CE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Antipaladin	STARTSKILLPTS:2	CSKILL:Bluff|TYPE.Craft|Disguise|Handle Animal|Intimidate|Knowledge (Religion)|TYPE.Profession|Ride|Sense Motive|Spellcraft|Stealth
+CLASS:Antipaladin	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Disguise|Handle Animal|Intimidate|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive|Spellcraft|Stealth
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Craft Level Mult.	Caster level
 CLASS:Antipaladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Antipaladin|CL|PRECLASS:1,Antipaladin=4
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
-1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Level progression
 1				BONUS:VAR|DetectGoodLVL,SmiteGoodLVL|CL	ABILITY:Special Ability|AUTOMATIC|Aura of Evil|Detect Good|Smite Good
@@ -331,10 +331,10 @@ CLASS:Antipaladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEV
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Visible	Define									Save checks bonus											Combat bonus
 CLASS:Ex-Antipaladin	HD:10		TYPE:Base.PC	ABB:X-Apl		MAXLEVEL:20	SOURCEPAGE:p.118	VISIBLE:NO	DEFINE:AntipaladinLVL|CL	DEFINE:AntiPaladinLvl|CL	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Ex-Antipaladin	STARTSKILLPTS:2	CSKILL:Bluff|TYPE.Craft|Disguise|Handle Animal|Intimidate|Knowledge (Religion)|TYPE.Profession|Ride|Sense Motive|Spellcraft|Stealth
+CLASS:Ex-Antipaladin	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Disguise|Handle Animal|Intimidate|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive|Spellcraft|Stealth
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
-1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 
 
@@ -391,6 +391,3 @@ SUBCLASS:Fire	CHOICE:DESCRIPTOR|FireSchool	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASSLEVEL:1	BONUS:VAR|FireSchoolLVL|CL	ABILITY:Special Ability|AUTOMATIC|Fire School
 SUBCLASS:Water	CHOICE:DESCRIPTOR|WaterSchool	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASSLEVEL:1	BONUS:VAR|WaterSchoolLVL|CL	ABILITY:Special Ability|AUTOMATIC|Water School
-
-
-

@@ -7,7 +7,7 @@ SOURCELONG:Qadira, Gateway to the East	SOURCESHORT:QGE	SOURCEWEB:http://paizo.co
 
 ###Block: Human Ethnicities
 # Ability Name	Product Identity?	Category of Ability	Type			Visible		Template					Automatic Languages	Source Page
-Qadiran		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanSubrace	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Qadiran)	LANGAUTO:Kelish		SOURCEPAGE:p.14
+Qadiran		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanSubrace	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Qadiran)	AUTO:LANG|Kelish		SOURCEPAGE:p.14
 
 ###Block: Regional Affinities
 # Ability Name	Product Identity?	Category of Ability	Type		Visible		Description				Template					Source Page
@@ -17,5 +17,3 @@ Qadira		NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Desert
 # Ability Name	Category of Ability	Type
 None			CATEGORY:Background	TYPE:HumanSubrace.Region
 Unknown		CATEGORY:Background	TYPE:HumanSubrace.Region
-
-

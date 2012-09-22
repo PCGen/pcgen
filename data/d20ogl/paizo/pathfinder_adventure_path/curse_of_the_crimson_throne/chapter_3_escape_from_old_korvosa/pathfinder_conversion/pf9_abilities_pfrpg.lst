@@ -8,7 +8,7 @@ Freedom of Movement	KEY:Freedom of Movement ~ Achaekekis	CATEGORY:Special Abilit
 
 ###Block: Beatific One Racial Abilities
 # Ability Name	Unique Key					Category of Ability		Type				Define							Ability															Modify VAR
-Monk Qualities	KEY:Monk Qualities ~ Pathfinder	CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:MonkLVL|0	DEFINE:MonkBonusFeatLVL|0	ABILITY:Special Ability|AUTOMATIC|Diamond Body|AC Bonus ~ Monk|Fast Movement ~ Monk|Still Mind	BONUS:VAR|MonkLVL,MonkACLVL,MonkFastMovementLVL,StunningFistMonkLVL|HD	BONUS:VAR|FlurryLVL|MonkLVL-HD
+Monk Qualities	KEY:Monk Qualities ~ Pathfinder	CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:MonkLVL|0	DEFINE:MonkBonusFeatLVL|0	ABILITY:Special Ability|AUTOMATIC|AC Bonus ~ Monk|Diamond Body|Fast Movement ~ Monk|Still Mind	BONUS:VAR|MonkLVL,MonkACLVL,MonkFastMovementLVL,StunningFistMonkLVL|HD	BONUS:VAR|FlurryLVL|MonkLVL-HD
 
 
 ###Block: Rajput Ambari Racial Abilities

@@ -19,8 +19,5 @@ Aspect of the Predator	VISIBLE:YES	SOURCEPAGE:p.43																				BONUS:SKIL
 Aspect of the Prey	VISIBLE:YES	SOURCEPAGE:p.43															BONUS:MOVEMULT|TYPE.Walk|1.2	BONUS:SKILL|Listen,Spot|2
 Aspect of the Spring	VISIBLE:YES	SOURCEPAGE:p.44																				BONUS:SKILL|Hide|2|TYPE=Circumstance|PREAPPLY:ANYPC													TEMPDESC:Bonus to hide in natural surroundings
 Aspect of the Summer	VISIBLE:YES	SOURCEPAGE:p.44									BONUS:COMBAT|AC|1|TYPE=Luck							BONUS:SKILL|Intimidate|2|TYPE=Circumstance
-Aspect of the Water	VISIBLE:YES	SOURCEPAGE:p.44	ABILITY:Special Ability|AUTOMATIC|Plus Two Resistance to Cold|Hold Breath
+Aspect of the Water	VISIBLE:YES	SOURCEPAGE:p.44	ABILITY:Special Ability|AUTOMATIC|Hold Breath|Plus Two Resistance to Cold
 Aspect of the Winter	VISIBLE:YES	SOURCEPAGE:p.44	ABILITY:Special Ability|AUTOMATIC|Plus Two Resistance to Cold
-
-
-

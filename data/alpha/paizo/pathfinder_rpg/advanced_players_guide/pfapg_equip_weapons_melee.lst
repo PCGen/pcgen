@@ -13,7 +13,7 @@ Stake (Wood)		OUTPUTNAME:Wooden Stake			PROFICIENCY:WEAPON|Stake			TYPE:Weapon.M
 #------two-handed---------
 # Equipment Name		Output Name					Required Weapon Proficiency			Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Modifier			Wield Category	Range		Size		Source Page		Weapon prop. bonus
 Bayonet									PROFICIENCY:WEAPON|Bayonet			TYPE:Weapon.Melee.TwoHanded.Simple.Standard.Piercing.Bayonet.Close			COST:5	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6					EQMOD:STEEL			WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.177
-Spear (Boar)		OUTPUTNAME:Boar Spear			PROFICIENCY:WEAPON|Spear			TYPE:Weapon.Melee.TwoHanded.Ranged.Thrown.Simple.Standard.Piercing.Spear		COST:5	WT:8		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8					EQMOD:WOOD.BRACE		WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.177
+Spear (Boar)		OUTPUTNAME:Boar Spear			PROFICIENCY:WEAPON|Spear			TYPE:Weapon.Melee.TwoHanded.Ranged.Thrown.Simple.Standard.Piercing.Spear		COST:5	WT:8		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8					EQMOD:BRACE.WOOD		WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.177
 
 ####Block: Martial Weapons
 #------one-handed---------
@@ -22,22 +22,22 @@ Sword Cane									PROFICIENCY:WEAPON|Sword Cane			TYPE:Weapon.Melee.OneHanded.M
 
 #------two-handed---------
 # Equipment Name		Output Name					Required Weapon Proficiency			Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Modifier			Wield Category	Range		Size		Source Page		Weapon prop. bonus
-Bardiche									PROFICIENCY:WEAPON|Bardiche			TYPE:Weapon.Melee.TwoHanded.Martial.Reach.Standard.Slashing.Polearm			COST:13	WT:14		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10					EQMOD:WOOD.BRACE		WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.177
-Bec de Corbin								PROFICIENCY:WEAPON|Bec de corbin		TYPE:Weapon.Melee.TwoHanded.Martial.Reach.Standard.Bludgeoning.Piercing.Polearm	COST:15	WT:12		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10					EQMOD:WOOD.BRACE		WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.177
-Bill										PROFICIENCY:WEAPON|Bill				TYPE:Weapon.Melee.TwoHanded.Martial.Reach.Standard.Slashing.Polearm			COST:11	WT:11		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8					EQMOD:WOOD.BRACE.DISARM	WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.177
-Glaive-Guisarme								PROFICIENCY:WEAPON|Glaive-Guisarme		TYPE:Weapon.Melee.TwoHanded.Martial.Reach.Standard.Slashing.Polearm			COST:12	WT:10		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10					EQMOD:WOOD.BRACE		WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.177
-Lucern Hammer								PROFICIENCY:WEAPON|Lucern Hammer		TYPE:Weapon.Melee.TwoHanded.Martial.Reach.Standard.Bludgeoning.Piercing.Polearm	COST:15	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d12					EQMOD:WOOD.BRACE		WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.177
+Bardiche									PROFICIENCY:WEAPON|Bardiche			TYPE:Weapon.Melee.TwoHanded.Martial.Reach.Standard.Slashing.Polearm			COST:13	WT:14		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10					EQMOD:BRACE.WOOD		WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.177
+Bec de Corbin								PROFICIENCY:WEAPON|Bec de corbin		TYPE:Weapon.Melee.TwoHanded.Martial.Reach.Standard.Bludgeoning.Piercing.Polearm	COST:15	WT:12		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10					EQMOD:BRACE.WOOD		WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.177
+Bill										PROFICIENCY:WEAPON|Bill				TYPE:Weapon.Melee.TwoHanded.Martial.Reach.Standard.Slashing.Polearm			COST:11	WT:11		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8					EQMOD:BRACE.DISARM.WOOD	WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.177
+Glaive-Guisarme								PROFICIENCY:WEAPON|Glaive-Guisarme		TYPE:Weapon.Melee.TwoHanded.Martial.Reach.Standard.Slashing.Polearm			COST:12	WT:10		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10					EQMOD:BRACE.WOOD		WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.177
+Lucern Hammer								PROFICIENCY:WEAPON|Lucern Hammer		TYPE:Weapon.Melee.TwoHanded.Martial.Reach.Standard.Bludgeoning.Piercing.Polearm	COST:15	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d12					EQMOD:BRACE.WOOD		WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.177
 
 ####Block: Exotic Weapons
 #------light---------
 # Equipment Name		Output Name					Required Weapon Proficiency			Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Modifier			Wield Category	Range		Size		Source Page		Weapon prop. bonus
-Dagger (Swordbreaker)	OUTPUTNAME:Swordbreaker Dagger	PROFICIENCY:WEAPON|Dagger (Swordbreaker)	TYPE:Weapon.Melee.Light.Finesseable.Exotic.Standard.Dagger					COST:10	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4					EQMOD:STEEL.DISARM	WIELD:Light				SIZE:M	SOURCEPAGE:p.177
+Dagger (Swordbreaker)	OUTPUTNAME:Swordbreaker Dagger	PROFICIENCY:WEAPON|Dagger (Swordbreaker)	TYPE:Weapon.Melee.Light.Finesseable.Exotic.Standard.Dagger					COST:10	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4					EQMOD:DISARM.STEEL	WIELD:Light				SIZE:M	SOURCEPAGE:p.177
 
 #------one-handed---------
 # Equipment Name		Output Name					Required Weapon Proficiency			Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Modifier			Wield Category	Range		Size		Source Page		Weapon prop. bonus
 Falcata									PROFICIENCY:WEAPON|Falcata			TYPE:Weapon.Melee.OneHanded.Exotic.Standard.Slashing.HeavyBlade				COST:18	WT:4		CRITMULT:x3			CRITRANGE:2			DAMAGE:1d8					EQMOD:STEEL			WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.177
 Khopesh									PROFICIENCY:WEAPON|Khopesh			TYPE:Weapon.Melee.OneHanded.Exotic.Standard.Slashing.HeavyBlade				COST:20	WT:8		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8					EQMOD:STEEL.TRIP		WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.177
-Sword (Temple)		OUTPUTNAME:Temple Sword			PROFICIENCY:WEAPON|Sword (Temple)		TYPE:Weapon.Melee.OneHanded.Exotic.Standard.Slashing.HeavyBlade				COST:30	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8					EQMOD:STEEL.TRIP.MONK	WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.177
+Sword (Temple)		OUTPUTNAME:Temple Sword			PROFICIENCY:WEAPON|Sword (Temple)		TYPE:Weapon.Melee.OneHanded.Exotic.Standard.Slashing.HeavyBlade				COST:30	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8					EQMOD:MONK.STEEL.TRIP	WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.177
 
 #------two-handed---------
 # Equipment Name		Output Name					Required Weapon Proficiency			Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Modifier			Wield Category	Range		Size		Source Page		Weapon prop. bonus

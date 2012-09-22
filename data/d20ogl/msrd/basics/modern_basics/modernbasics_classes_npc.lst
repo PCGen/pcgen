@@ -98,7 +98,7 @@ CLASS:Giant		HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:4
 # Class Name	Reg. Race Type
 CLASS:Giant		PRERACETYPE:Giant
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
-CLASS:Giant		STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:6+max(1,INT)
+CLASS:Giant		STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:6+MAX(1,INT)
 
 # Class Name	Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus												Combat bonus					Modify VAR
 CLASS:Humanoid	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|MonsterLevel|CL

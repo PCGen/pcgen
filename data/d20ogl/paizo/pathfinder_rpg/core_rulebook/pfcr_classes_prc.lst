@@ -11,7 +11,7 @@ CLASS:Arcane Archer	HD:10		TYPE:PC.Prestige	ABB:Arc		MAXLEVEL:10	SOURCEPAGE:p.37
 CLASS:Arcane Archer	PREATT:6	PREFEAT:2,Point-Blank Shot,Precise Shot	PREFEAT:1,Weapon Focus (Longbow),Weapon Focus (Shortbow)	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:Perception|Ride|Stealth|Survival
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
@@ -37,7 +37,7 @@ CLASS:Arcane Trickster	HD:6		TYPE:PC.Prestige	ABB:Art		MAXLEVEL:10	SOURCEPAGE:p.
 # Class Name		Required AL				Required Skill									Req. Known Spell		Req. Spell Type		Var. Min. Value
 CLASS:Arcane Trickster	PREALIGN:NG,TN,NE,CG,CN,CE	PRESKILL:3,Disable Device=4,Escape Artist=4,Knowledge (Arcana)=4	PRESPELL:1,Mage Hand	PRESPELLTYPE:1,Arcane=2	PREVARGTEQ:SneakAttack,2
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Arcane Trickster	STARTSKILLPTS:4	CSKILL:Acrobatics|Appraise|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|TYPE.Knowledge|Perception|Sense Motive|Sleight of Hand|Spellcraft|Stealth|Swim
+CLASS:Arcane Trickster	STARTSKILLPTS:4	CSKILL:Acrobatics|Appraise|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|TYPE=Knowledge|Perception|Sense Motive|Sleight of Hand|Spellcraft|Stealth|Swim
 1	BONUS:VAR|RangedLegermain|(CL+3)/4	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Ranged Legerdemain
 2	BONUS:VAR|SneakAttack|CL/2		ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 3	BONUS:VAR|ImpromptuSneak|(CL+1)/4	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Impromptu Sneak Attack
@@ -61,7 +61,7 @@ CLASS:Assassin	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|Diplomacy|Disable D
 1	ABILITY:Special Ability|AUTOMATIC|Assassin Weapon Proficiencies
 1												AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	BONUS:VAR|DeathAttack|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|SneakAttack|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack|Death Attack|Poison Use
+1	BONUS:VAR|DeathAttack|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|SneakAttack|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Death Attack|Poison Use|Sneak Attack
 2	BONUS:VAR|AssassinPoisonSave|CL/2	BONUS:VAR|UncannyDodgeLevel|1												ABILITY:Special Ability|AUTOMATIC|Save against Poisons|Uncanny Dodge ~ Base
 3
 4																							ABILITY:Special Ability|AUTOMATIC|Hidden Weapons|True Death
@@ -78,9 +78,9 @@ CLASS:Assassin	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|Diplomacy|Disable D
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source Page		Save checks bonus												Combat bonus
 CLASS:Dragon Disciple	HD:12		TYPE:PC.Prestige	ABB:DrD		MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:p.380	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required Language		Multiple Requirements																														Prohibited Race			Required Skill				Prohibited Template
-CLASS:Dragon Disciple	PRELANG:1,Draconic	PREMULT:1,[PREMULT:3,[PRESPELLCAST:MEMORIZE=NO],[PRESPELLCAST:TYPE.Arcane],[!PRECLASS:1,Sorcerer=1]],[PREMULT:2,[PRECLASS:1,Sorcerer=1],[PREABILITY:1,CATEGORY=Special Ability,Draconic Bloodline]]	!PRERACE:1,RACETYPE=Dragon	PRESKILL:1,Knowledge (Arcana)=5	!PRETEMPLATE:1,Half Dragon
+CLASS:Dragon Disciple	PRELANG:1,Draconic	PREMULT:1,[PREMULT:3,[PRESPELLCAST:MEMORIZE=N],[PRESPELLCAST:TYPE=Arcane],[!PRECLASS:1,Sorcerer=1]],[PREMULT:2,[PRECLASS:1,Sorcerer=1],[PREABILITY:1,CATEGORY=Special Ability,Draconic Bloodline]]	!PRERACE:1,RACETYPE=Dragon	PRESKILL:1,Knowledge (Arcana)=5	!PRETEMPLATE:1,Half Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Dragon Disciple	STARTSKILLPTS:2	CSKILL:Diplomacy|Escape Artist|Fly|TYPE.Knowledge|Perception|Spellcraft
+CLASS:Dragon Disciple	STARTSKILLPTS:2	CSKILL:Diplomacy|Escape Artist|Fly|TYPE=Knowledge|Perception|Spellcraft
 ###Block: Progression
 1																						BONUS:VAR|DragonDiscipleArmorBonus|(CL+2)/3					ABILITY:Special Ability|AUTOMATIC|Blood of Dragons ~ DD|Natural Armor Increase ~ DD
 2	BONUS:ABILITYPOOL|Draconic Bloodline Feat|(CL+1)/3										BONUS:STAT|STR|2	BONUS:VAR|BloodlineCasterLVL|CL-1			ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Dragon Bite ~ DD
@@ -101,8 +101,8 @@ CLASS:Duelist	HD:10		TYPE:PC.Prestige	ABB:Dul		MAXLEVEL:10	SOURCEPAGE:p.382	BONU
 # Class Name	Req. Att.	Required Feat					Required Skill
 CLASS:Duelist	PREATT:6	PREFEAT:3,Dodge,Mobility,Weapon Finesse	PRESKILL:2,Acrobatics=2,TYPE.Perform=2
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Escape Artist|Perception|TYPE.Perform|Sense Motive
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
+CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Escape Artist|Perception|TYPE=Perform|Sense Motive
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 ###Block: Normal Level Progression
 1	BONUS:VAR|CannyDefenseLVL|CL	BONUS:VAR|PreciseStrike|CL	ABILITY:Special Ability|AUTOMATIC|Canny Defense|Precise Strike
 2	BONUS:VAR|ImprovedReaction|floor((CL+4)/6)*2			ABILITY:Special Ability|AUTOMATIC|Improved Reaction|Parry
@@ -111,7 +111,7 @@ CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Escape Artist|Perception|T
 5											ABILITY:Special Ability|AUTOMATIC|Riposte
 6											ABILITY:Special Ability|AUTOMATIC|Acrobatic Charge
 7	BONUS:VAR|ElaborateParryLVL|CL					ABILITY:Special Ability|AUTOMATIC|Elaborate Defense
-9											ABILITY:Special Ability|AUTOMATIC|No Retreat|Deflect Arrows ~ Duelist	VFEAT:Deflect Arrows|PREEQUIP:1,WIELDCATEGORY=Light,WIELDCATEGORY=OneHanded|PREEQUIP:1,TYPE=Piercing
+9											ABILITY:Special Ability|AUTOMATIC|Deflect Arrows ~ Duelist|No Retreat	VFEAT:Deflect Arrows|PREEQUIP:1,TYPE=Piercing|PREEQUIP:1,WIELDCATEGORY=Light,WIELDCATEGORY=OneHanded
 10											ABILITY:Special Ability|AUTOMATIC|Crippling Critical
 
 ###Block: Eldritch Knight (Complete)
@@ -137,17 +137,17 @@ CLASS:Eldritch Knight	STARTSKILLPTS:2	CSKILL:Climb|Knowledge (Arcana)|Knowledge 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
 CLASS:Loremaster	HD:6		TYPE:PC.Prestige	ABB:Lor		MAXLEVEL:10	SOURCEPAGE:p.385	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+1)/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat												Required Skill						Required Spell School
-CLASS:Loremaster	PREFEAT:1,Skill Focus(Knowledge%)	PREFEAT:3,TYPE=Metamagic,TYPE=ItemCreation	PRESKILL:2,TYPE.Knowledge=7,TYPE.Knowledge=7	PRESPELLSCHOOL:1,Divination=3	PRESPELLSCHOOL:7,Divination=0
+CLASS:Loremaster	PREFEAT:1,Skill Focus (Knowledge%)	PREFEAT:3,TYPE=Metamagic,TYPE=ItemCreation	PRESKILL:2,TYPE.Knowledge=7,TYPE.Knowledge=7	PRESPELLSCHOOL:1,Divination=3	PRESPELLSCHOOL:7,Divination=0
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Loremaster	STARTSKILLPTS:4	CSKILL:Appraise|Diplomacy|Handle Animal|Heal|TYPE.Knowledge|Linguistics|TYPE.Perform|Spellcraft|Use Magic Device
+CLASS:Loremaster	STARTSKILLPTS:4	CSKILL:Appraise|Diplomacy|Handle Animal|Heal|TYPE=Knowledge|Linguistics|TYPE=Perform|Spellcraft|Use Magic Device
 1	BONUS:ABILITYPOOL|Loremaster Secret|(CL+1)/2	BONUS:VAR|SecretLore|CL+INT	DEFINE:SecretLore|0	ADD:SPELLCASTER|ANY
 2																		ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Secret Lore
 3																		ADD:SPELLCASTER|ANY
-4																		ADD:SPELLCASTER|ANY	ADD:LANGUAGE|1|TYPE=Spoken
+4																		ADD:SPELLCASTER|ANY	ADD:LANGUAGE|TYPE=Spoken
 5																		ADD:SPELLCASTER|ANY
 6																		ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Greater Lore
 7																		ADD:SPELLCASTER|ANY
-8																		ADD:SPELLCASTER|ANY	ADD:LANGUAGE|1|TYPE=Spoken
+8																		ADD:SPELLCASTER|ANY	ADD:LANGUAGE|TYPE=Spoken
 9																		ADD:SPELLCASTER|ANY
 10																		ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|True Lore
 
@@ -175,7 +175,7 @@ CLASS:Pathfinder Chronicler	HD:8		TYPE:PC.Prestige	ABB:PfC		MAXLEVEL:10	SOURCEPA
 # Class Name			Required Skill
 CLASS:Pathfinder Chronicler	PRESKILL:3,Linguistics=3,Perform (Oratory)=5,Profession (Scribe)=5
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Pathfinder Chronicler	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Escape Artist|Intimidate|TYPE.Knowledge|Linguistics|Perception|TYPE.Perform|Ride|Sense Motive|Sleight of Hand|Survival|Use Magic Device
+CLASS:Pathfinder Chronicler	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Escape Artist|Intimidate|TYPE=Knowledge|Linguistics|Perception|TYPE=Perform|Ride|Sense Motive|Sleight of Hand|Survival|Use Magic Device
 1												ABILITY:Special Ability|AUTOMATIC|Bardic Knowledge|Deep Pockets|Master Scribe
 2												ABILITY:Special Ability|AUTOMATIC|Live to Tell the Tale|Pathfinding
 3	BONUS:VAR|BardicPerformanceDuration,BardicPerformanceLVL|CL-2	ABILITY:Special Ability|AUTOMATIC|Bardic Performance|Bardic Performance ~ PFC|Improved Aid
@@ -193,13 +193,13 @@ CLASS:Shadowdancer	HD:8		TYPE:PC.Prestige	ABB:Shd		MAXLEVEL:10	SOURCEPAGE:p.391	
 # Class Name		Required Feat					Required Skill
 CLASS:Shadowdancer	PREFEAT:3,Combat Reflexes,Dodge,Mobility	PRESKILL:2,Stealth=5,Perform (Dance)=2
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Shadowdancer	STARTSKILLPTS:6	CSKILL:Acrobatics|Bluff|Diplomacy|Disguise|Escape Artist|Perception|TYPE.Perform|Sleight of Hand|Stealth
+CLASS:Shadowdancer	STARTSKILLPTS:6	CSKILL:Acrobatics|Bluff|Diplomacy|Disguise|Escape Artist|Perception|TYPE=Perform|Sleight of Hand|Stealth
 1	ABILITY:Special Ability|AUTOMATIC|Shadowdancer Weapon Proficiencies
 1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1																								ABILITY:Special Ability|AUTOMATIC|Hide in Plain Sight ~ SD
 2	VISION:Darkvision (60')	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3		ABILITY:Special Ability|AUTOMATIC|Evasion|Uncanny Dodge ~ Base
-3					BONUS:VAR|ShadowIllusionLVL,ShadowCompanion|CL	BONUS:VAR|ShadowDancerTalentLVL|CL	BONUS:VAR|ShadowCompanion|CL	ABILITY:Special Ability|AUTOMATIC|Shadow Illusion|Summon Shadow|Rogue Talents ~ SD
+3					BONUS:VAR|ShadowIllusionLVL,ShadowCompanion|CL	BONUS:VAR|ShadowDancerTalentLVL|CL	BONUS:VAR|ShadowCompanion|CL	ABILITY:Special Ability|AUTOMATIC|Rogue Talents ~ SD|Shadow Illusion|Summon Shadow
 4					BONUS:VAR|ShadowJump|20																ABILITY:Special Ability|AUTOMATIC|Shadow Call ~ SD|Shadow Jump
 5																								ABILITY:Special Ability|AUTOMATIC|Defensive Roll|Defensive Roll ~ SD
 6					BONUS:VAR|ShadowJump|20

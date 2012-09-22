@@ -12,7 +12,7 @@ Milani		NAMEISPI:YES	DOMAINS:Chaos,Good,Healing,Liberation,Protection|PREALIGN:N
 # Deity Name	Product Identity?	Domains									Desciption of Deity/Title						Deity Weapon			Alignment	Pantheon			Source Page
 Andoletta		NAMEISPI:YES	DOMAINS:Good,Knowledge,Law,Protection|PREALIGN:LG,LN,NG	DESC:Empyreal lord of consolation, respect, security		DEITYWEAP:Quarterstaff		ALIGN:LG	PANTHEON:Empyreal Lords	SOURCEPAGE:p.21
 Arshea		NAMEISPI:YES	DOMAINS:Charm,Good,Liberation,Strength|PREALIGN:LG,NG,CG,TN	DESC:Empyreal lord of freedom, physical beauty, sexuality	DEITYWEAP:Flail			ALIGN:NG	PANTHEON:Empyreal Lords	SOURCEPAGE:p.21
-Korada		NAMEISPI:YES	DOMAINS:Good,Magic,Healing,Protection|PREALIGN:LG,NG,CG,TN	DESC:Empyreal lord of foresight, forgiveness, peace		DEITYWEAP:Unarmed Strike	ALIGN:NG	PANTHEON:Empyreal Lords	SOURCEPAGE:p.21
+Korada		NAMEISPI:YES	DOMAINS:Good,Healing,Magic,Protection|PREALIGN:LG,NG,CG,TN	DESC:Empyreal lord of foresight, forgiveness, peace		DEITYWEAP:Unarmed Strike	ALIGN:NG	PANTHEON:Empyreal Lords	SOURCEPAGE:p.21
 Ragathiel		NAMEISPI:YES	DOMAINS:Destruction,Good,Law,Nobility|PREALIGN:LG,LN,NG	DESC:Empyreal lord of chivalry, duty, vengeance			DEITYWEAP:Sword (Bastard)	ALIGN:LG	PANTHEON:Empyreal Lords	SOURCEPAGE:p.21
 Sinashakti		NAMEISPI:YES	DOMAINS:Chaos,Good,Luck,Travel|PREALIGN:NG,CG,CN		DESC:Empyreal lord of journeys, joy, messengers			DEITYWEAP:Shortbow		ALIGN:CG	PANTHEON:Empyreal Lords	SOURCEPAGE:p.21
 Valani		NAMEISPI:YES	DOMAINS:Chaos,Earth,Good,Weather|PREALIGN:NG,CG,CN		DESC:Empyreal lord of change, growth, primality			DEITYWEAP:Club			ALIGN:CG	PANTHEON:Empyreal Lords	SOURCEPAGE:p.21

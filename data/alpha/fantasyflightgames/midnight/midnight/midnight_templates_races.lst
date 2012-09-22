@@ -4,11 +4,11 @@ SOURCELONG:Midnight Campaign Source Book	SOURCESHORT:MDNT	SOURCEWEB:http://www.f
 
 ###Block: Dwarven clans
 # Template Name	Visible	Source Page		Automatic Languages	Subrace
-Clan Thedron	VISIBLE:NO	SOURCEPAGE:p.187	LANGAUTO:Thedron		SUBRACE:YES
-Clan Fodrin		VISIBLE:NO	SOURCEPAGE:p.187	LANGAUTO:Fodrin		SUBRACE:YES
-Clan Durgis		VISIBLE:NO	SOURCEPAGE:p.187	LANGAUTO:Durgis		SUBRACE:YES
-Clan Gorand		VISIBLE:NO	SOURCEPAGE:p.187	LANGAUTO:Gorand		SUBRACE:YES
-Clan Black Blood	VISIBLE:NO	SOURCEPAGE:p.187	LANGAUTO:Black Blood	SUBRACE:YES
+Clan Thedron	VISIBLE:NO	SOURCEPAGE:p.187	AUTO:LANG|Thedron		SUBRACE:YES
+Clan Fodrin		VISIBLE:NO	SOURCEPAGE:p.187	AUTO:LANG|Fodrin		SUBRACE:YES
+Clan Durgis		VISIBLE:NO	SOURCEPAGE:p.187	AUTO:LANG|Durgis		SUBRACE:YES
+Clan Gorand		VISIBLE:NO	SOURCEPAGE:p.187	AUTO:LANG|Gorand		SUBRACE:YES
+Clan Black Blood	VISIBLE:NO	SOURCEPAGE:p.187	AUTO:LANG|Black Blood	SUBRACE:YES
 
 ###Block: Halfling cultures
 # Template Name	Visible	Source Page		Special ABility										Bonus to skill						Subrace
@@ -17,8 +17,8 @@ Agrarian Halfling	VISIBLE:NO	SOURCEPAGE:p.24	SAB:+2 racial bonus on all non-meta
 
 ###Block:Dwarrow raisings
 # Template Name		Visible	Source Page		Special ABility																																																																						Bonus to skill												Class Skill						Add 																						Favored Class		Change Weapon Prof. Category			Automatic Languages				Bonus Languages
-Raised among Dwarves	VISIBLE:NO	SOURCEPAGE:p.30	SAB:Stonecunning	SAB:+1 dodge bonus to Armor Class against orcs	SAB:+2 racial bonus on Appraise and Craft checks that are related to stone or metal items	SAB:+2 racial bonus on Wilderness Lore checks in mountains and dwarven holdfasts																																	BONUS:SKILL|Climb|2											CSKILL:Knowledge (Kaladrun Mountains)	ADD:LANGUAGE|TYPE=ClanDialect																		FAVOREDCLASS:Fighter	CHANGEPROF:TYPE.DwarvenExotic=Martial	LANGAUTO:Old Dwarven Pidgin,Orcish Pidgin	LANGBONUS:Old Dwarven,Orcish,Trader's Tongue,TYPE=ClanDialect
-Raised among Gnomes	VISIBLE:NO	SOURCEPAGE:p.30	SAB:Can hold breath for % rounds|3*(CONSCORE)	SAB:+2 racial bonus on Wilderness Lore checks when on rivers	SAB:+2 racial bonus on Appraise, Bluff, Diplomacy, and Profession checks when made during trading activities	SAB:+2 racial bonus on Bluff, Forgery, and Gather Information checks when made during smuggling activities	SAB:+2 racial bonus on Perform checks for singing, storytelling, or playing musical instruments	BONUS:SKILL|Profession (Boater),Profession (Sailor),Swim,Use Rope|2|TYPE=Racial	CSKILL:Knowledge (Eren River Valley)	ADD:LANGUAGE|Colonial Pidgin,Erenlander Pidgin,Halfling Pidgin,High Elven Pidgin,Norther Pidgin,Old Dwarven Pidgin,Orcish Pidgin	FAVOREDCLASS:Rogue								LANGAUTO:Trader's Tongue			LANGBONUS:ALL
+Raised among Dwarves	VISIBLE:NO	SOURCEPAGE:p.30	SAB:Stonecunning	SAB:+1 dodge bonus to Armor Class against orcs	SAB:+2 racial bonus on Appraise and Craft checks that are related to stone or metal items	SAB:+2 racial bonus on Wilderness Lore checks in mountains and dwarven holdfasts																																	BONUS:SKILL|Climb|2											CSKILL:Knowledge (Kaladrun Mountains)	ADD:LANGUAGE|TYPE=ClanDialect																		FAVOREDCLASS:Fighter	CHANGEPROF:TYPE.DwarvenExotic=Martial	AUTO:LANG|Old Dwarven Pidgin|Orcish Pidgin	LANGBONUS:Old Dwarven,Orcish,Trader's Tongue,TYPE=ClanDialect
+Raised among Gnomes	VISIBLE:NO	SOURCEPAGE:p.30	SAB:Can hold breath for % rounds|3*(CONSCORE)	SAB:+2 racial bonus on Wilderness Lore checks when on rivers	SAB:+2 racial bonus on Appraise, Bluff, Diplomacy, and Profession checks when made during trading activities	SAB:+2 racial bonus on Bluff, Forgery, and Gather Information checks when made during smuggling activities	SAB:+2 racial bonus on Perform checks for singing, storytelling, or playing musical instruments	BONUS:SKILL|Profession (Boater),Profession (Sailor),Swim,Use Rope|2|TYPE=Racial	CSKILL:Knowledge (Eren River Valley)	ADD:LANGUAGE|Colonial Pidgin,Erenlander Pidgin,Halfling Pidgin,High Elven Pidgin,Norther Pidgin,Old Dwarven Pidgin,Orcish Pidgin	FAVOREDCLASS:Rogue								AUTO:LANG|Trader's Tongue			LANGBONUS:ALL
 
 ###Block:Elfling raisings
 # Template Name	Visible	Source Page		Special ABility								Class Skill

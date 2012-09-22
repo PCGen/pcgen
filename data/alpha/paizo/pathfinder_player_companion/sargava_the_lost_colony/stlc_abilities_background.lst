@@ -4,9 +4,9 @@ SOURCELONG:Sargava, the Lost Colony	SOURCESHORT:StLC	SOURCEWEB:http://paizo.com/
 
 ###Block: Human Ethnicities
 # Ability Name	Product Identity?	Category of Ability	Type				Visible		Template							Automatic Languages
-Chelaxian		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Chelaxian)		LANGAUTO:Chelaxian
-Colonial Sargavan	NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Colonial Sargavan)	LANGAUTO:Chelaxian
-Mwangi		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Mwangi)			LANGAUTO:Polyglot
+Chelaxian		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Chelaxian)		AUTO:LANG|Chelaxian
+Colonial Sargavan	NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Colonial Sargavan)	AUTO:LANG|Chelaxian
+Mwangi		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Mwangi)			AUTO:LANG|Polyglot
 
 ###Block: Mwangi Tribes
 # Ability Name	Product Identity?	Category of Ability	Type			Visible		Required Race		Template
