@@ -1,10 +1,10 @@
 # CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
 CAMPAIGN:PCGen Advanced Testing Set - Code & Data Team Use Only
 RANK:1
-GAMEMODE:35e|MSRD|3e|Modern|Pathfinder
-SHOWINMENU:NO
+GAMEMODE:35e
+#|MSRD|3e|Modern|Pathfinder
 #COMMENT: Will need to break it out into each gamemode eventually
-STATUS:ALPHA
+STATUS:BETA
 GENRE:Any
 BOOKTYPE:Supplement
 SETTING:Any
@@ -15,7 +15,6 @@ PUBNAMEWEB:http://pcgen.sourceforge.net
 SOURCELONG:PCGen Testing Set
 SOURCESHORT:PTS
 SOURCEWEB:http://pcgen.sourceforge.net
-SOURCEDATE:12-2010
 ISOGL:YES
 
 
@@ -59,7 +58,10 @@ TEMPLATE:pcgen_test_advanced_templates_local.lst
 # Universal tags
 COMPANIONLIST:Mount|ANY
 COMPANIONLIST:Follower|ANY
-COMPANIONLIST:Special Mount|ANY
+
 #
 # DONE
 #
+
+
+
