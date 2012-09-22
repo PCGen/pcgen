@@ -77,7 +77,14 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 			if (lastToken.startsWith("PRE") || lastToken.startsWith("!PRE"))
 			{
 				workingValue = workingValue.substring(0, lastPipeLoc);
-				prereqs.add(getPrerequisite(lastToken));
+				Prerequisite prerequisite = getPrerequisite(lastToken);
+				if (prerequisite == null)
+				{
+					return new ParseResult.Fail("Invalid prerequisite "
+							+ lastToken + " in " + getTokenName() + " tag: "
+							+ value, context);
+				}
+				prereqs.add(prerequisite);
 			}
 			else
 			{
