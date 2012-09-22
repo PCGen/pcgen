@@ -17,9 +17,13 @@
  */
 package pcgen.gui.converter;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -173,9 +177,11 @@ public class LSTConverter extends Observable
 					String result = load(uri, loader);
 					if (result != null)
 					{
-						FileWriter fis = new FileWriter(outFile);
-						fis.write(result);
-						fis.close();
+						Writer out =
+								new BufferedWriter(new OutputStreamWriter(
+									new FileOutputStream(outFile), "UTF-8"));
+						out.write(result);
+						out.close();
 					}
 				}
 				catch (PersistenceLayerException e)
