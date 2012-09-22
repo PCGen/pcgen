@@ -5,7 +5,7 @@ SOURCELONG:Mongoose Publishing - Slayer's Guide to Gnolls	SOURCESHORT:SGtGnolls	
 # MM monsters do not speak that language.
 # Entered to allow LANGBONUS in slayersgnollraces.lst.
 # --------------------------
-# ?ric Beaudoin - 2002.11.16
+# Eric Beaudoin - 2002.11.16
 
 # Language	Type
 Goblinoid	TYPE:Spoken

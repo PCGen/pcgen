@@ -39,7 +39,7 @@ Silver		KEY:SILVER		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Sh
 ###Block: Strength Bow
 
 # Modifier Name	Unique Key	Naming Option	Type				Cost		Visible		Source Page				Required Type		Modify the item cost																	Weapon prop. bonus												Special Property			Choose							Apply to both heads
-Bow_STR		KEY:BOWSTR	NAMEOPT:NONAME	TYPE:Bow.Composite	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:1,Composite	BONUS:ITEMCOST|TYPE.Shortbow|75*%CHOICE|PREVARGT:%CHOICE,0	BONUS:ITEMCOST|TYPE.Longbow|100*%CHOICE|PREVARGT:%CHOICE,0	BONUS:WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR	BONUS:WEAPON|DAMAGE|min(%CHOICE,STR)	SPROP:STR bonus to damage	CHOOSE:NUMBER|MIN=-5|MAX=100|TITLE=STR mod	CHOOSE:NUMBER|MIN=-5|MAX=100|TITLE=STR mod	CHOOSE:NUMBER|MIN=-5|MAX=100|TITLE=STR mod	CHOOSE:NUMBER|MIN=-5|MAX=100|TITLE=STR mod	ASSIGNTOALL:YES
+Bow_STR		KEY:BOWSTR	NAMEOPT:NONAME	TYPE:Bow.Composite	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:1,Composite	BONUS:ITEMCOST|TYPE.Shortbow|75*%CHOICE|PREVARGT:%CHOICE,0	BONUS:ITEMCOST|TYPE.Longbow|100*%CHOICE|PREVARGT:%CHOICE,0	BONUS:WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR	BONUS:WEAPON|DAMAGE|min(%CHOICE,STR)	SPROP:STR bonus to damage	CHOOSE:NUMBER|MIN=-5|MAX=100|TITLE=STR mod	CHOOSE:NUMBER|MIN=-5|MAX=100|TITLE=STR mod	ASSIGNTOALL:YES
 
 
 ###Block: Armor Accesories
@@ -62,8 +62,8 @@ Thrown Ammunition	KEY:THROWN_AMMO	COST:0	VISIBLE:NO	BONUS:ITEMCOST|TYPE.Masterwo
 
 ###Block Spell Component stuff
 # Modifier Name				Unique Key		Naming Option	Type				Cost		Visible		Source Page				Required Type			Modify the item cost					Choose
-Spell Material Component Value	KEY:SPELLMATERIAL	NAMEOPT:NOTHING	TYPE:MaterialComponent	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:MagicOverview.rtf	PRETYPE:1,MaterialComponent	BONUS:ITEMCOST|TYPE.MaterialComponent|%CHOICE	CHOOSE:NUMBER|MIN=0|MAX=50000|TITLE=Material Component Value	CHOOSE:NUMBER|MIN=0|MAX=50000|TITLE=Material Component Value	CHOOSE:NUMBER|MIN=0|MAX=50000|TITLE=Material Component Value	CHOOSE:NUMBER|MIN=0|MAX=50000|TITLE=Material Component Value
-Spell Focus Value				KEY:SPELLFOCUS	NAMEOPT:NOTHING	TYPE:SpellFocus		COST:0	VISIBLE:QUALIFY	SOURCEPAGE:MagicOverview.rtf	PRETYPE:1,SpellFocus		BONUS:ITEMCOST|TYPE.SpellFocus|%CHOICE		CHOOSE:NUMBER|MIN=0|MAX=10000|TITLE=Spell Focus Value	CHOOSE:NUMBER|MIN=0|MAX=10000|TITLE=Spell Focus Value	CHOOSE:NUMBER|MIN=0|MAX=10000|TITLE=Spell Focus Value	CHOOSE:NUMBER|MIN=0|MAX=10000|TITLE=Spell Focus Value
+Spell Material Component Value	KEY:SPELLMATERIAL	NAMEOPT:NOTHING	TYPE:MaterialComponent	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:MagicOverview.rtf	PRETYPE:1,MaterialComponent	BONUS:ITEMCOST|TYPE.MaterialComponent|%CHOICE	CHOOSE:NUMBER|MIN=0|MAX=50000|TITLE=Material Component Value	CHOOSE:NUMBER|MIN=0|MAX=50000|TITLE=Material Component Value
+Spell Focus Value				KEY:SPELLFOCUS	NAMEOPT:NOTHING	TYPE:SpellFocus		COST:0	VISIBLE:QUALIFY	SOURCEPAGE:MagicOverview.rtf	PRETYPE:1,SpellFocus		BONUS:ITEMCOST|TYPE.SpellFocus|%CHOICE		CHOOSE:NUMBER|MIN=0|MAX=10000|TITLE=Spell Focus Value	CHOOSE:NUMBER|MIN=0|MAX=10000|TITLE=Spell Focus Value
 
 ###Block Mechanical Traps
 # Modifier Name					Unique Key					Type		Cost		Visible		Type granted				Keys to replace																																																																									Source Page				Multiple Requirements							Required Type			Modify VAR			Special Property						Define

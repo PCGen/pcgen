@@ -38,7 +38,7 @@ Substance (Illuminating Attract)	OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substan
 Substance (Itching Smoke)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:30	WT:0		SOURCEPAGE:p.91	SPROP:Alchemy (DC 25)
 Substance (Kaleidoscope Paint)	OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:25	WT:0		SOURCEPAGE:p.91	SPROP:Alchemy (DC 25)
 Substance (Lantana)			OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:25	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 17)
-Substance (Lover?s Horn)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:25	WT:0		SOURCEPAGE:p.91	SPROP:Alchemy (DC 20)
+Substance (Lover's Horn)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:25	WT:0		SOURCEPAGE:p.91	SPROP:Alchemy (DC 20)
 Substance (Maidenhair Seeds)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:0.3	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 10)
 Substance (Mistletoe Antitoxin)	OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:30	WT:0		SOURCEPAGE:p.91	SPROP:Alchemy (DC 15)
 Substance (Narrow Escape)		OUTPUTNAME:[NAME]	TYPE:Goods.Consumable.Substance	COST:20	WT:0		SOURCEPAGE:p.91	SPROP:Herbalist (DC 10)

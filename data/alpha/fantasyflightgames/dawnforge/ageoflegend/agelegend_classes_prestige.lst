@@ -455,7 +455,7 @@ CLASS:The Unbroken	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Concentration|Escape Artist
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Binder	HD:6		TYPE:PC.Prestige	ABB:Bind		MAXLEVEL:10	SOURCEPAGE:p.124	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Required Feat										Required Skill		Req. Spell Type
-CLASS:Binder	PREFEAT:1,TYPE=ItemCreation	PREFEAT:2,CHECKMULT,Skill Focus (Craft%)	PRESKILL:1,Spellcraft=8	PRESPELLTYPE:1,Arcane=3Divine=3=1=1=1=1
+CLASS:Binder	PREFEAT:1,TYPE=ItemCreation	PREFEAT:2,CHECKMULT,Skill Focus (Craft%)	PRESKILL:1,Spellcraft=8	PRESPELLTYPE:1,Arcane=3Divine=3=1=1=1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Binder	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE=Craft|Decipher Script|Gather Information|TYPE=Knowledge|TYPE=Profession|Spellcraft|Use Magic Device
 1	AUTO:FEAT|Armor Proficiency (Light)|Martial Weapon Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial

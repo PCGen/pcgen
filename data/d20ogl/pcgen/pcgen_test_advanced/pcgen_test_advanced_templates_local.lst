@@ -8,7 +8,7 @@ TL~CHOOSELANGAUTO_Terestial Alpha_Terestial_Beta					CHOOSE:LANGAUTO|Terestial A
 TL~CR_9								CR:9
 TL~FAVOREDCLASS_MonKee							FAVOREDCLASS:MonKee
 TL~FACE_20x40								FACE:20,40
-TL~FEAT_DodgeBall_MonkeyFu								FEAT:Dodgeball|MonkeyFu
+TL~FEAT_DodgeBall_MonkeyFu								FEAT:DodgeBall|MonkeyFu
 TL~GENDERLOCK_Female							GENDERLOCK:Female
 TL~HD_1-3_DR_5/1									HD:1-3:DR:5/1
 TL~HANDS_8								HANDS:8

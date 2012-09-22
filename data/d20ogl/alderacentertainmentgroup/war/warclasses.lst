@@ -54,14 +54,14 @@ CLASS:Elf Treerunner	STARTSKILLPTS:4	CSKILL:Balance|Climb|Handle Animal|Hide|Int
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	DEFINE:ElfTreerunnerLvl|CL	ABILITY:Special Ability|AUTOMATIC|Treewalking ~ Elf Treerunner|PREVARLT:ElfTreerunnerLvl,3
-2						ABILITY:Special Ability|AUTOMATIC|Trackless Step
-3						ABILITY:Special Ability|AUTOMATIC|Treewalking (Su) ~ Elf Treerunner|PREVARGTEQ:ElfTreerunnerLvl,3
-4						ABILITY:Special Ability|AUTOMATIC|Speak with Plants ~ Elf Treerunner		BONUS:VAR|SpeakPlants|3	DEFINE:SpeakPlants|WIS
-5						ABILITY:Special Ability|AUTOMATIC|Arboreal Ally ~ Elf Treerunner
-6						ABILITY:Special Ability|AUTOMATIC|Arboreal Ambush ~ Elf Treerunner
+1		DEFINE:ElfTreerunnerLvl|CL			ABILITY:Special Ability|AUTOMATIC|Treewalking ~ Elf Treerunner|PREVARLT:ElfTreerunnerLvl,3
+2																					ABILITY:Special Ability|AUTOMATIC|Trackless Step
+3					ABILITY:Special Ability|AUTOMATIC|Treewalking (Su) ~ Elf Treerunner|PREVARGTEQ:ElfTreerunnerLvl,3
+4					ABILITY:Special Ability|AUTOMATIC|Speak with Plants ~ Elf Treerunner		BONUS:VAR|SpeakPlants|3	DEFINE:SpeakPlants|WIS
+5					ABILITY:Special Ability|AUTOMATIC|Arboreal Ally ~ Elf Treerunner
+6					ABILITY:Special Ability|AUTOMATIC|Arboreal Ambush ~ Elf Treerunner
 7	VISION:Darkvision (60')
-8						ABILITY:Special Ability|AUTOMATIC|Arboreal Gate ~ Elf Treerunner
+8					ABILITY:Special Ability|AUTOMATIC|Arboreal Gate ~ Elf Treerunner
 9
 10
 

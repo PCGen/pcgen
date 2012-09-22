@@ -69,7 +69,7 @@ CLASS:Knight of Pure Heart	STARTSKILLPTS:2	CSKILL:Appraise|Diplomacy|Handle Anim
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Orc Skin Artist	HD:6		TYPE:PC.Prestige	ABB:SnArt		MAXLEVEL:10	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL-1|TYPE=Base.REPLACE
 # Class Name		Required Feat		Required Race					Required Skill					Req. Spell Type
-CLASS:Orc Skin Artist	PREFEAT:1,Scribe Scroll	PRERACE:1,Half-Orc,Orc (Gadohig),Orc%	PRESKILL:1,Profession (Skin Art/Tattoo)=8	PRESPELLTYPE:1,Arcane=1Divine=1=1=1=1
+CLASS:Orc Skin Artist	PREFEAT:1,Scribe Scroll	PRERACE:1,Half-Orc,Orc (Gadohig),Orc%	PRESKILL:1,Profession (Skin Art/Tattoo)=8	PRESPELLTYPE:1,Arcane=1,Divine=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Orc Skin Artist	STARTSKILLPTS:3	CSKILL:Concentration|TYPE=Craft|Handle Animal|Heal|TYPE=Profession|Spellcraft|Use Magic Device
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level

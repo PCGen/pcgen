@@ -3,13 +3,12 @@
 
 Foo Ball													TYPE:TestDomainExtra	DESC:This is the Foo Ball Domain	SPELLLEVEL:DOMAIN|Foo Ball=1|Magic Missile|Foo Ball=2|Fireball
 
-Bar Ball		CHOOSE:WEAPONPROF|1|DEITYWEAPON[WEAPONPROF][FEAT=Weapon Focus]	TYPE:TestDomain		DESC:This is the Bar Ball Domain		SPELLLEVEL:DOMAIN|Bar Ball=1|Fireball|Bar Ball=2|Identify
+Bar Ball		AUTO:FEAT|Weapon Focus(%LIST)	AUTO:WEAPONPROF|%LIST	CHOOSE:NUMCHOICES=1|WEAPONPROFICIENCY|DEITYWEAPON	SELECT:1	TYPE:TestDomain		DESC:This is the Bar Ball Domain		SPELLLEVEL:DOMAIN|Bar Ball=1|Fireball|Bar Ball=2|Identify
 
-Dungeon Crawl												TYPE:TestDomainExtra	DESC:This is the Dungeon Crawl Domain				
+Dungeon Crawl												TYPE:TestDomainExtra	DESC:This is the Dungeon Crawl Domain
 
-Test Spells Domain																	DESC:This has a Spells															SPELLS:Innate|CASTERLEVEL=1|Spells Test,20	SPELLS:YourTest|TIMES=3|CASTERLEVEL=1|Same Spell Test
+Test Spells Domain																	DESC:This has a Spells															SPELLS:Innate|TIMES=1|CASTERLEVEL=1|Spells Test,20	SPELLS:YourTest|TIMES=3|CASTERLEVEL=1|Same Spell Test
 
 Domain Test Skill				CSKILL:Domain Skill 1
 Domain Test Skill List			CSKILL:LIST	CHOOSE:SKILL|Domain Skill 2|Domain Skill 3
 Domain Add Feat				ADD:FEAT|Add Feat Domain
-
