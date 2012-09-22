@@ -20,14 +20,21 @@
  */
 package pcgen.gui2;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+
 import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
 import javax.swing.JComponent;
 import javax.swing.JEditorPane;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.TitledBorder;
 import javax.swing.plaf.UIResource;
+
 import pcgen.cdom.base.Constants;
 import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.CharacterFacade;
@@ -35,8 +42,10 @@ import pcgen.core.facade.SourceSelectionFacade;
 import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
 import pcgen.gui2.tools.Icons;
+import pcgen.gui2.tools.TipOfTheDayHandler;
 import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 /**
  * This class provides a guide for first time 
@@ -52,16 +61,20 @@ public class InfoGuidePane extends JComponent implements UIResource
 	private final PCGenFrame frame;
 	private final JEditorPane gameModeLabel;
 	private final JEditorPane campaignList;
+	private final JEditorPane tipPane;
+	private JPanel mainPanel;
 
 	public InfoGuidePane(PCGenFrame frame)
 	{
 		this.frame = frame;
 		this.gameModeLabel = createHtmlPane();
 		this.campaignList = createHtmlPane();
+		this.tipPane = createHtmlPane();
+		TipOfTheDayHandler.getInstance().loadTips();
 		initComponents();
 		initListeners();
 	}
-
+	
 	private static JEditorPane createHtmlPane()
 	{
 		JEditorPane htmlPane = new JEditorPane();
@@ -74,12 +87,18 @@ public class InfoGuidePane extends JComponent implements UIResource
 
 	private void initComponents()
 	{
-		setLayout(new GridBagLayout());
+		mainPanel = new JPanel();
+		mainPanel.setBorder(BorderFactory.createTitledBorder(null,
+			 "",
+			 TitledBorder.CENTER,
+			 TitledBorder.DEFAULT_POSITION,
+			 null));
+		
+		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+		mainPanel.setPreferredSize(new Dimension(650, 450));
 		setOpaque(false);
 
 		JPanel sourcesPanel = new JPanel(new GridBagLayout());
-		sourcesPanel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEtchedBorder(),
-																  BorderFactory.createEmptyBorder(4, 4, 4, 4)));
 
 		GridBagConstraints gbc1 = new GridBagConstraints();
 		gbc1.anchor = GridBagConstraints.EAST;
@@ -98,9 +117,15 @@ public class InfoGuidePane extends JComponent implements UIResource
 															Icons.New16.getImageIcon(),
 															Icons.Open16.getImageIcon()));
 
-		add(sourcesPanel, gbc2);
-		add(guidePane, gbc2);
+		mainPanel.add(sourcesPanel);
+		mainPanel.add(guidePane);
+		mainPanel.add(tipPane);
 		refreshDisplayedSources(null);
+
+        JPanel outerPanel = new JPanel(new FlowLayout());
+        outerPanel.add(mainPanel);
+		setLayout(new BorderLayout());
+		add(outerPanel, BorderLayout.CENTER);
 	}
 
 	private void initListeners()
@@ -151,6 +176,8 @@ public class InfoGuidePane extends JComponent implements UIResource
 			}
 			campaignList.setText(builder.toString());
 		}
+		tipPane.setText(LanguageBundle.getFormattedString("in_si_tip",
+			TipOfTheDayHandler.getInstance().getNextTip()));
 	}
 
 }

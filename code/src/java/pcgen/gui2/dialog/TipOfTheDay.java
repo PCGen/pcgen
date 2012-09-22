@@ -35,15 +35,6 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
 
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
@@ -54,18 +45,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import org.apache.commons.lang.StringUtils;
 
-import pcgen.core.SettingsHandler;
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.tools.Hyperactive;
 import pcgen.gui2.tools.Icons;
+import pcgen.gui2.tools.TipOfTheDayHandler;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.JLabelPane;
-import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
-import pcgen.util.Logging;
 
 /**
  *
@@ -85,8 +73,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 	private JCheckBox chkShowTips;
 	// the pane to display the text
 	private JLabelPane tipText;
-	private List<String> tipList = null;
-	private int lastNumber = -1;
+	private final TipOfTheDayHandler tipHandler;
 
 	/** Creates new TipOfTheDay */
 	public TipOfTheDay(PCGenFrame frame)
@@ -99,14 +86,13 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 		// initialize the interface
 		initUI();
 
-		// load tips
-		loadTips();
+		tipHandler = TipOfTheDayHandler.getInstance();
+		tipHandler.loadTips();
 
 		pack();
 		
 		Utility.installEscapeCloseOperation(this);
 
-		lastNumber = propertyContext.initInt("lastTip", -1);
 		showNextTip();
 	}
 
@@ -136,7 +122,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 
 	private boolean hasTips()
 	{
-		return (tipList != null) && (tipList.size() > 0);
+		return tipHandler.hasTips();
 	}
 
 	//
@@ -239,73 +225,6 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 		});
 	}
 
-	private void loadTipFile(String tipsFilePath) throws FileNotFoundException, IOException
-	{
-		final File tipsFile = new File(tipsFilePath);
-
-		//final BufferedReader tipsReader = new BufferedReader(new FileReader(tipsFile));
-		final BufferedReader tipsReader = new BufferedReader(new InputStreamReader(new FileInputStream(tipsFile),
-				"UTF-8"));
-		final int length = (int) tipsFile.length();
-		final char[] inputLine = new char[length];
-		tipsReader.read(inputLine, 0, length);
-		tipsReader.close();
-
-		final StringTokenizer aTok = new StringTokenizer(new String(inputLine), "\r\n", false);
-
-		while (aTok.hasMoreTokens())
-		{
-			tipList.add(aTok.nextToken());
-		}
-	}
-
-	private void loadTips()
-	{
-		tipList = new ArrayList<String>(20);
-		String systemDir = ConfigurationSettings.getSystemsDir();
-		String tipsFileName = LanguageBundle.getString("in_tipsFileName"); //$NON-NLS-1$
-		String tipsFileNameDefault = "tips.txt"; //$NON-NLS-1$
-		final String tipsFilePath =
-				systemDir + File.separator + "gameModes" + File.separator //$NON-NLS-1$
-					+ SettingsHandler.getGame().getName() + File.separator;
-		final String tipsDefaultPath =
-				systemDir + File.separator + "gameModes" + File.separator //$NON-NLS-1$
-					+ "default" + File.separator; //$NON-NLS-1$
-		String[] tipFiles =
-				new String[]{tipsFilePath + tipsFileName,
-					tipsDefaultPath + tipsFileName,
-					tipsFilePath + tipsFileNameDefault,
-					tipsDefaultPath + tipsFileNameDefault};
-
-		boolean loaded = false;
-		for (String path : tipFiles)
-		{
-			try
-			{
-				loadTipFile(path);
-				Logging.log(Logging.INFO, "Loaded tips from " + path); //$NON-NLS-1$
-				loaded = true;
-				break;
-			}
-			catch (FileNotFoundException e)
-			{
-				Logging.debugPrint("Unable to load tips file " + path, e); //$NON-NLS-1$
-			}
-			catch (IOException e)
-			{
-				Logging.debugPrint("Unable to load tips file " + path, e); //$NON-NLS-1$
-			}
-		}
-
-		if (!loaded)
-		{
-			Logging.errorPrint("Warning: game mode "
-				+ SettingsHandler.getGame().getName()
-				+ " is missing tips. Tried all of "
-				+ StringUtils.join(tipFiles, "\n"));
-		}
-	}
-
 	/**
 	 * close the dialog and save the settings.
 	 */
@@ -313,7 +232,6 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 	{
 		setVisible(false);
 
-		propertyContext.setInt("lastTip", lastNumber);
 		propertyContext.setBoolean("showTipOfTheDay", chkShowTips.isSelected());
 
 		dispose();
@@ -323,14 +241,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 	{
 		if (hasTips())
 		{
-			if (++lastNumber >= tipList.size())
-			{
-				lastNumber = 0;
-			}
-
-			final String tip = tipList.get(lastNumber);
-
-			showTip(tip);
+			showTip(tipHandler.getNextTip());
 		}
 	}
 
@@ -338,14 +249,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 	{
 		if (hasTips())
 		{
-			if (--lastNumber < 0)
-			{
-				lastNumber = tipList.size()-1;
-			}
-
-			final String tip = tipList.get(lastNumber);
-
-			showTip(tip);
+			showTip(tipHandler.getPrevTip());
 		}
 	}
 
@@ -355,7 +259,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 		{
 			tipText.setText(HTML_START
 				+ LanguageBundle.getFormattedString("in_tod_tipDisplay", //$NON-NLS-1$
-					Integer.toString(lastNumber + 1), tip) + HTML_END);
+					Integer.toString(tipHandler.getLastNumber() + 1), tip) + HTML_END);
 			repaint();
 		}
 		catch (Exception exc)
@@ -363,5 +267,4 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 			exc.printStackTrace(System.err);
 		}
 	}
-
 }
