@@ -88,6 +88,10 @@ public class DescriptorToken implements PrimitiveToken<Spell>, PrimitiveFilter<S
 		if (obj instanceof DescriptorToken)
 		{
 			DescriptorToken other = (DescriptorToken) obj;
+			if (school == null)
+			{
+				return other.school == null;
+			}
 			return school.equals(other.school);
 		}
 		return false;

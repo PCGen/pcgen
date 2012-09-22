@@ -81,6 +81,10 @@ public class ClassListToken extends AbstractRestrictedSpellPrimitive
 		if (obj instanceof ClassListToken)
 		{
 			ClassListToken other = (ClassListToken) obj;
+			if (spelllist == null)
+			{
+				return other.spelllist == null;
+			}
 			return spelllist.equals(other.spelllist)
 					&& equalsRestrictedPrimitive(other);
 		}

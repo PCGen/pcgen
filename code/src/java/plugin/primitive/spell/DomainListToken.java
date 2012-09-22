@@ -81,6 +81,10 @@ public class DomainListToken extends AbstractRestrictedSpellPrimitive
 		if (obj instanceof DomainListToken)
 		{
 			DomainListToken other = (DomainListToken) obj;
+			if (spelllist == null)
+			{
+				return other.spelllist == null;
+			}
 			return spelllist.equals(other.spelllist)
 					&& equalsRestrictedPrimitive(other);
 		}
