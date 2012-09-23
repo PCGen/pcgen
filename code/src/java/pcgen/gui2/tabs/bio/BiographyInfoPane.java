@@ -657,7 +657,9 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			super("in_region", BiographyField.REGION, character); //$NON-NLS-1$
 			final JTextField regionField = new JTextField();
 			regionField.setEditable(false);
-			setTextFieldHandler(new TextFieldHandler(regionField, character.getEyeColorRef())
+			setTextFieldHandler(new TextFieldHandler(regionField, character
+				.getDescriptionFacade()
+				.getBiographyField(BiographyField.REGION))
 			{
 				@Override
 				protected void textChanged(String text)

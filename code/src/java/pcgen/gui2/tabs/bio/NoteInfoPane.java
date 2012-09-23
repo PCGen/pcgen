@@ -97,6 +97,9 @@ public class NoteInfoPane extends JPanel implements CharacterInfoTab
 		hbox.add(removeButton);
 		hbox.add(Box.createHorizontalGlue());
 
+		noteField.setLineWrap(true);
+		noteField.setWrapStyleWord(true);
+		
 		add(hbox, BorderLayout.NORTH);
 		JScrollPane pane =
 				new JScrollPane(noteField,
