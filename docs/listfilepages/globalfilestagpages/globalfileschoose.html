@@ -1217,7 +1217,7 @@
 	<p class="indent1"><strong>Variables Used (y):</strong> CLASSLIST=Text (Class name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> DOMAINLIST=Text (Domain name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> SPELLTYPE=Text (Spell type)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> ANY</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ALL</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> KNOWN=Boolean (Optional)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> LEVELMIN=Number, Variable, Formula, or MAXCASTABLE (Minimum spell level, Optional)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> LEVELMAX=Number, Variable, Formula, or MAXCASTABLE (Maximum spell level, Optional)</p>
@@ -1268,6 +1268,10 @@
 		maximum level of Psionic &quot;Spell&quot; castable by the PC. Notice the common case between the
 		<code>KNOWN</code>, <code>LEVELMIN</code>, and <code>LEVELMAX</code> subtags can be done with one set
 		of square brackets ([ ]).</p>
+	<p class="indent1"><strong>Deprecated Syntax:</strong> <span class="new">Deprecated 5.17.18 - Remove 6.2</span></p>
+	<p class="indent2"><code>CHOOSE:SPELLS|ANY</code> has been deprecated in favor of <code>CHOOSE:SPELLS|ALL</code>.</p>
+	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
+	<p class="indent2"><code>CHOOSE:SPELLS|ANY</code> becomes <code>CHOOSE:SPELLS|ALL</code></p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
 	<p></p>
