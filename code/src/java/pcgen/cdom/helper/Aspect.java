@@ -32,6 +32,7 @@ import pcgen.cdom.enumeration.AspectName;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.util.Logging;
 
 /**
@@ -373,6 +374,13 @@ public class Aspect extends ConcretePrereqObject
 				buf.append(Constants.PIPE);
 				buf.append(var);
 			}
+		}
+		
+		if (hasPrerequisites())
+		{
+			buf.append(Constants.PIPE);
+			buf.append(new PrerequisiteWriter().getPrerequisiteString(
+					getPrerequisiteList(), Constants.PIPE));
 		}
 
 		return buf.toString();
