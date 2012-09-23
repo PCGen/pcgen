@@ -32,12 +32,9 @@ import java.util.Set;
 
 import javax.swing.SwingUtilities;
 
-import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.Category;
-import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -208,14 +205,14 @@ public class CharacterAbilities
 		{
 			AbilityCategory cat = (AbilityCategory) category;
 			boolean found = false;
-			for (Ability ability : theCharacter.getAbilityList(cat, Nature.AUTOMATIC))
-			{
-				addCategorisedAbility(cat, ability, Nature.AUTOMATIC, workingAbilityListMap);
-				found = true;
-			}
 			for (Ability ability : theCharacter.getAbilityList(cat, Nature.NORMAL))
 			{
 				addCategorisedAbility(cat, ability, Nature.NORMAL, workingAbilityListMap);
+				found = true;
+			}
+			for (Ability ability : theCharacter.getAbilityList(cat, Nature.AUTOMATIC))
+			{
+				addCategorisedAbility(cat, ability, Nature.AUTOMATIC, workingAbilityListMap);
 				found = true;
 			}
 			for (Ability ability : theCharacter.getAbilityList(cat, Nature.VIRTUAL))
@@ -377,7 +374,7 @@ public class CharacterAbilities
 		List<CategorizedAbilitySelection> cas = new ArrayList<CategorizedAbilitySelection>();
 		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
-			List<String> choices = theCharacter.getAssoc(ability, AssociationKey.ASSOC_CHOICES);
+			List<String> choices = theCharacter.getAssociationList(ability);
 			if (choices == null || choices.isEmpty())
 			{
 				cas.add(new CategorizedAbilitySelection(cat, ability, nature,
@@ -700,40 +697,6 @@ public class CharacterAbilities
 		}
 		return abList.containsElement(ability);
 
-	}
-
-	/**
-	 * Retrieves the choices the character has made for an ability. 
-	 * 
-	 * @param abilityFacade The ability to be reported.
-	 * @return The human readable string of the choices made.
-	 */
-	public String getChoices(AbilityFacade abilityFacade)
-	{
-		if (!(abilityFacade instanceof Ability))
-		{
-			return "";
-		}
-
-		final Ability ability = (Ability) abilityFacade;
-		StringBuilder result = new StringBuilder();
-
-		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-		{
-			ChooseInformation<?> chooseInfo =
-					ability.get(ObjectKey.CHOOSE_INFO);
-
-			if (chooseInfo != null)
-			{
-				result.append(chooseInfo.getDisplay(theCharacter, ability));
-			}
-			else
-			{
-				result.append(StringUtil.joinToStringBuffer(
-					theCharacter.getExpandedAssociations(ability), ","));
-			}
-		}
-		return result.toString();
 	}
 
 	/**

@@ -57,6 +57,7 @@ import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.BenefitFormatting;
 import pcgen.core.BonusManager.TempBonusInfo;
 import pcgen.core.Deity;
@@ -1698,24 +1699,43 @@ public class Gui2InfoFactory implements InfoFactory
 			return EMPTY_STRING;
 		}
 		final Ability ability = (Ability) abilityFacade;
-		final StringBuilder choices = new StringBuilder();
-
-		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		final StringBuilder result = new StringBuilder();
+		AbilityCategory cat = (AbilityCategory) ability.getCDOMCategory();
+		
+		List<Ability> targetAbilities = new ArrayList<Ability>();
+		targetAbilities.add(ability);
+		final List<Ability> abilities = pc.getAggregateAbilityList(cat);
+		for (final Ability ab : abilities)
 		{
-			ChooseInformation<?> chooseInfo =
-					ability.get(ObjectKey.CHOOSE_INFO);
-
-			if (chooseInfo != null)
+			if (ability.equals(ab) && ability != ab)
 			{
-				choices.append(chooseInfo.getDisplay(pc, ability));
-			}
-			else
-			{
-				choices.append(StringUtil.joinToStringBuffer(
-					pc.getExpandedAssociations(ability), ",")); //$NON-NLS-1$
+				targetAbilities.add(ab);
 			}
 		}
-		return choices.toString();
+		
+		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		{
+			List<String> choices = new ArrayList<String>();
+			for (Ability ab : targetAbilities)
+			{
+				ChooseInformation<?> chooseInfo =
+						ab.get(ObjectKey.CHOOSE_INFO);
+
+				if (chooseInfo != null)
+				{
+					choices.add(chooseInfo.getDisplay(pc, ab)
+						.toString());
+				}
+				else
+				{
+					choices.addAll(pc
+						.getExpandedAssociations(ab));
+				}
+			}
+
+			result.append(StringUtil.joinToStringBuffer(choices, ","));
+		}
+		return result.toString();
 	}
 
 

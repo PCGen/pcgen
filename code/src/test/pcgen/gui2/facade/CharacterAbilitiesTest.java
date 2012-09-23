@@ -113,32 +113,6 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 		assertEquals("Should have found reading", reading, abilityFromList);
 		
 	}
-
-	/**
-	 * Test the getChoices method with text choices. 
-	 */
-	public void testGetChoices()
-	{
-		PlayerCharacter pc = getCharacter();
-		CharacterAbilities ca = new CharacterAbilities(pc, uiDelegate, dataset, todoManager);
-
-		Ability choiceAbility =
-				TestHelper.makeAbility("Skill Focus", AbilityCategory.FEAT,
-					"General");
-		choiceAbility.put(ObjectKey.MULTIPLE_ALLOWED, true);
-		Ability pcAbility =
-				pc.addAbilityNeedCheck(AbilityCategory.FEAT, choiceAbility);
-		AbilityUtilities.finaliseAbility(pcAbility, "Perception", pc,
-			AbilityCategory.FEAT);
-		assertEquals("Incorrect single choice", "Perception",
-			ca.getChoices(pcAbility));
-
-		AbilityUtilities.finaliseAbility(pcAbility, "Acrobatics", pc,
-			AbilityCategory.FEAT);
-		assertEquals("Incorrect multiple choice", "Perception,Acrobatics",
-			ca.getChoices(pcAbility));
-
-	}
 	
 	/* (non-Javadoc)
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
