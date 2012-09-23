@@ -29,6 +29,7 @@
 package pcgen.persistence.lst.prereq;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 import gmgen.pluginmgr.PluginLoader;
 
 import org.junit.Before;
@@ -37,6 +38,7 @@ import org.junit.Test;
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 
 /*** Test
 	 * [PREARMORPROF:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]
@@ -78,5 +80,28 @@ public class PreMultParserTest extends EnUsLocaleDependentTestCase
 				+ "</prereq>\n"
 				+ "<prereq kind=\"feat\" key=\"Armor Proficiency\" sub-key=\"Medium\" operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
+	}
+
+	@Test
+	public void testUnbalancedBracket()
+	{
+		PreMultParser parser = new PreMultParser();
+
+		try
+		{
+			Prerequisite prereq =
+					parser
+						.parse(
+							"mult",
+							"1,[PREPROFWITHARMOR:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)",
+							false, false);
+			fail("Expected unbalanced bracket to be detected.");
+		}
+		catch (PersistenceLayerException e)
+		{
+			assertEquals(
+				"Unbalanced [] in PREMULT '[PREPROFWITHARMOR:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)'.",
+				e.getMessage());
+		}
 	}
 }

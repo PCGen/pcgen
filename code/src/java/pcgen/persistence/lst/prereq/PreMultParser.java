@@ -81,7 +81,7 @@ public class PreMultParser extends AbstractPrerequisiteParser implements
 	}
 
 	protected List<String> splitOnTopLevelToken(String input,
-		char startDelimiter, char endDelimiter)
+		char startDelimiter, char endDelimiter) throws PersistenceLayerException
 	{
 		int nesting = 0;
 		int startIndex = 0;
@@ -112,6 +112,11 @@ public class PreMultParser extends AbstractPrerequisiteParser implements
 			}
 		}
 
+		if (nesting != 0)
+		{
+			throw new PersistenceLayerException("Unbalanced " + startDelimiter
+				+ endDelimiter + " in PREMULT '" + input + "'.");
+		}
 		subList.add(input.substring(startIndex + 1, currIndex - 1));
 
 		return subList;
