@@ -324,7 +324,7 @@ public class PrerequisiteWriterTest extends TestCase
 		"!PRESTATLT:1,STR=18",															"PRESTAT:1,STR=18",
 		"!PRESTATLTEQ:1,STR=18",														"PRESTATGT:1,STR=18",
 		"!PRESTATGT:1,STR=18",															"PRESTATLTEQ:1,STR=18",
-		"!PREVISION:1,Blindsight",														"!PREVISION:1,Blindsight=1",
+		"!PREVISION:1,Blindsight",														"!PREVISION:1,Blindsight=ANY",
 		"!PREPOINTBUYMETHOD:1,Standard",												"!PREPOINTBUYMETHOD:1,Standard",
 		"!PRESKILLTOT:Spot,Listen,Search=30",											"!PRESKILLTOT:Spot,Listen,Search=30",
 		"!PREFEAT:1,Dodge",																"!PREFEAT:1,Dodge",
