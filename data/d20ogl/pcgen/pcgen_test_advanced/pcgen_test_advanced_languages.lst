@@ -5,8 +5,8 @@ Evilhaasness			TYPE:Written.Read
 Terestial Alpha			TYPE:Spoken.Read.Written
 Terestial Beta			TYPE:Spoken.Read.Written
 
-Evil Language need Evil Align	TYPE:Spoken.Read.Written	PREALIGN:LN,LE,NE,CE
-Good Language need Good Align	TYPE:Spoken.Read.Written	PREALIGN:LN,LG,NG,CG
+Evil Language need Evil Align	TYPE:Spoken.Read.Written	PREALIGN:LE,NE,CE
+Good Language need Good Align	TYPE:Spoken.Read.Written	PREALIGN:LG,NG,CG
 
 MonKee Language			TYPE:Spoken.Read.Written	PRECLASS:1,MonKee=1
 
