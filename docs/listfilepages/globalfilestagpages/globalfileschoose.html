@@ -1135,20 +1135,20 @@
 	<p class="indent1"><strong>Variables Used (z):</strong> MAXLEVEL</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>Display a list of character's castable spells for the specified class or type.</li>
-		<li>Spells will only be included if they fall between the range of Minimum Level and Maximum Level.</li>
-		<li>MAXLEVEL will include spells up to the highest level the character can cast.</li>
-		<li>A bonus can be associated with the choice by appending it in square brackets ([]).</li>
-		<li>NUMCHOICES= cannot be used with CHOOSE:SPELLLEVEL, as it has an integrated choice count</li>
+		<li>Display a list of character's spell levels for the specified class or type.</li>
+		<li>Spell levels will only be included if they fall between the range of Minimum Level and Maximum Level.</li>
+		<li><code>MAXLEVEL</code> will include spell leves up to the highest level the character can cast.</li>
+		<li><code>NUMCHOICES</code> cannot be used with <code>CHOOSE:SPELLLEVEL</code>, as it has an integrated choice count</li>
+		<li>A bonus can be associated with the choice by appending it in square brackets ([]), providing a bonus based upon the spell level.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:SPELLLEVEL|2|CLASS=Wizard|0|MAXLEVEL|TYPE=Divine|1|3</code></p>
-	<p class="indent3">Would present a list of the character's castable Wizard levels of spells (e.g.
-		Wizard 0 Wizard 1 Wizard 2 for a 5th level Wizard) and Cleric 1 Cleric 2 Cleric 3 if the character
+	<p class="indent3">Would present a list of the character's castable Wizard levels of spells, e.g.
+		Wizard 0, Wizard 1, and Wizard 2 for a 5th level Wizard, and Cleric 1, Cleric 2, and Cleric 3 if the character
 		had Cleric as a class and allow two to be chosen.</p>
 	<p class="indent2"><code>CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]</code></p>
-	<p class="indent3">Would present a list of the character's castable Arcane spells and allow one to be chosen
-		as a bonus spell per day.</p>
+	<p class="indent3">Would present a list of the character's castable levels of Arcane spells and allow one level to be chosen
+		to get as a bonus spell per day.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
 	<p></p>
