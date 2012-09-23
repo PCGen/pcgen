@@ -33,6 +33,7 @@ import pcgen.base.util.ListSet;
 import pcgen.base.util.MapToList;
 import pcgen.base.util.TreeMapToList;
 import pcgen.base.util.TripleKeyMap;
+import pcgen.base.util.TripleKeyMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
@@ -192,12 +193,16 @@ public abstract class AbstractListContext
 		for (URI uri : edits.globalClearSet.getKeySet())
 		{
 			for (CDOMObject owner : edits.globalClearSet
-					.getSecondaryKeySet(uri))
+				.getSecondaryKeySet(uri))
 			{
-				for (CDOMReference<? extends CDOMList<?>> list : edits.globalClearSet
-						.getListFor(uri, owner))
+				for (String tokenName : edits.globalClearSet.getTertiaryKeySet(
+					uri, owner))
 				{
-					commit.removeAllFromList("FOO", owner, list);
+					for (CDOMReference<? extends CDOMList<?>> list : edits.globalClearSet
+						.getListFor(uri, owner, tokenName))
+					{
+						commit.removeAllFromList(tokenName, owner, list);
+					}
 				}
 			}
 		}
@@ -565,7 +570,9 @@ public abstract class AbstractListContext
 
 		private final DoubleKeyMap<URI, CDOMObject, CDOMObject> negativeMap = new DoubleKeyMap<URI, CDOMObject, CDOMObject>(HashMap.class, IdentityHashMap.class);
 
-		private final DoubleKeyMapToList<URI, CDOMObject, CDOMReference<? extends CDOMList<?>>> globalClearSet = new DoubleKeyMapToList<URI, CDOMObject, CDOMReference<? extends CDOMList<?>>>(HashMap.class, IdentityHashMap.class);
+		private final TripleKeyMapToList<URI, CDOMObject, String, CDOMReference<? extends CDOMList<?>>> globalClearSet =
+				new TripleKeyMapToList<URI, CDOMObject, String, CDOMReference<? extends CDOMList<?>>>(
+					HashMap.class, IdentityHashMap.class, HashMap.class);
 
 		private CDOMObject getPositive(URI source, CDOMObject cdo)
 		{
@@ -634,15 +641,20 @@ public abstract class AbstractListContext
 					list.add(ref);
 				}
 			}
-			List<CDOMReference<? extends CDOMList<?>>> globalClearList = globalClearSet
-					.getListFor(extractURI, owner);
-			if (globalClearList != null)
+			
+			Set<String> globalClearTokenKeys = globalClearSet.getTertiaryKeySet(extractURI, owner);
+			for (String key : globalClearTokenKeys)
 			{
-				for (CDOMReference<? extends CDOMList<? extends PrereqObject>> ref : globalClearList)
+				List<CDOMReference<? extends CDOMList<?>>> globalClearList = globalClearSet
+						.getListFor(extractURI, owner, key);
+				if (globalClearList != null)
 				{
-					if (cl.equals(ref.getReferenceClass()))
+					for (CDOMReference<? extends CDOMList<? extends PrereqObject>> ref : globalClearList)
 					{
-						list.add(ref);
+						if (cl.equals(ref.getReferenceClass()))
+						{
+							list.add(ref);
+						}
 					}
 				}
 			}
@@ -653,7 +665,7 @@ public abstract class AbstractListContext
 		public void removeAllFromList(String tokenName, CDOMObject owner,
 				CDOMReference<? extends CDOMList<?>> swl)
 		{
-			globalClearSet.addToListFor(sourceURI, owner, swl);
+			globalClearSet.addToListFor(sourceURI, owner, tokenName, swl);
 		}
 
 		@Override
@@ -661,10 +673,15 @@ public abstract class AbstractListContext
 				String tokenName, CDOMObject owner,
 				CDOMReference<? extends CDOMList<T>> swl)
 		{
+			boolean hasGlobalClear =
+					globalClearSet
+						.containsListFor(extractURI, owner, tokenName)
+						&& globalClearSet.getListFor(extractURI, owner,
+							tokenName).contains(swl);
+			
 			return new ListChanges<T>(tokenName,
-					getPositive(extractURI, owner), getNegative(extractURI,
-							owner), swl, globalClearSet.containsInList(
-							extractURI, owner, swl));
+				getPositive(extractURI, owner), getNegative(extractURI, owner),
+				swl, hasGlobalClear);
 		}
 
 		@Override
@@ -703,7 +720,7 @@ public abstract class AbstractListContext
 		{
 			positiveMap.remove(sourceURI, cdo);
 			negativeMap.remove(sourceURI, cdo);
-			globalClearSet.removeListFor(sourceURI, cdo);
+			globalClearSet.removeListsFor(sourceURI, cdo);
 		}
 	}
 
