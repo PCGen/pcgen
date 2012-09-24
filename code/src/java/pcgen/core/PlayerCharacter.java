@@ -8645,7 +8645,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 	 * @return a new deep copy of the <code>PlayerCharacter</code>
 	 */
 	@Override
-	public Object clone()
+	public PlayerCharacter clone()
 	{
 		PlayerCharacter aClone = null;
 
@@ -8654,9 +8654,17 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		// be able to reset them. Need to call new PlayerCharacter()
 		// aClone = (PlayerCharacter)super.clone();
 		aClone = new PlayerCharacter(true, campaignFacet.getSet(id));
+		try
+		{
+			aClone.assocSupt = assocSupt.clone();
+		}
+		catch (CloneNotSupportedException e)
+		{
+			Logging.errorPrint("PlayerCharacter.clone failed", e);
+		}
 		for (NoteItem n : getNotesList())
 		{
-			aClone.addNotesItem(n);
+			aClone.addNotesItem(n.clone());
 		}
 		Collection<AbstractStorageFacet> beans = SpringHelper.getStorageBeans();
 		for (AbstractStorageFacet bean : beans)
@@ -8676,13 +8684,16 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		{
 			aClone.masterFacet.remove(id);
 		}
+		aClone.equipSetFacet.removeAll(aClone.id);
 		for (EquipSet eqSet : equipSetFacet.getSet(id))
 		{
 			aClone.addEquipSet((EquipSet) eqSet.clone());
 		}
+		aClone.levelInfoFacet.removeAll(aClone.id);
 		for (PCLevelInfo info : getLevelInfo())
 		{
-			aClone.levelInfoFacet.add(aClone.id, info.clone());
+			PCLevelInfo newLvlInfo = info.clone();
+			aClone.levelInfoFacet.add(aClone.id, newLvlInfo);
 		}
 		aClone.spellBookFacet.removeAll(aClone.id);
 		for (String book : spellBookFacet.getBookNames(id))
@@ -8723,7 +8734,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		aClone.adjustMoveRates();
 		aClone.calcActiveBonuses();
 		//Just to be safe
-		aClone.equippedFacet.reset(id);
+		aClone.equippedFacet.reset(aClone.id);
 
 		return aClone;
 	}

@@ -35,7 +35,7 @@ import pcgen.core.facade.ChronicleEntryFacade;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class ChronicleEntry implements ChronicleEntryFacade
+public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 {
 	private boolean outputEntry = true;
 	private String campaign = "";
@@ -157,6 +157,15 @@ public class ChronicleEntry implements ChronicleEntryFacade
 	public void setChronicle(String chronicle)
 	{
 		this.chronicle = chronicle;
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public ChronicleEntry clone() throws CloneNotSupportedException
+	{
+		return (ChronicleEntry) super.clone();
 	}
 	
 

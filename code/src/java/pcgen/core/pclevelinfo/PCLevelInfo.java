@@ -338,6 +338,9 @@ public final class PCLevelInfo implements Cloneable
 				clone.statsPreModified.add(stat);
 			}
 		}
+		clone.classLevel = classLevel;
+		clone.skillPointsGained = skillPointsGained;
+		clone.skillPointsRemaining = skillPointsRemaining;
 		return clone;
 	}
 

@@ -275,7 +275,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		theCharacter = pc;
 		dataSet = dataSetFacade;
 		buildAgeCategories();
-		initForCharacter(theCharacter);
+		initForCharacter();
 		undoManager = new UndoManager();
 	}
 
@@ -291,17 +291,20 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	/**
 	 * 
 	 */
-	private void initForCharacter(PlayerCharacter pc)
+	private void initForCharacter()
 	{
+		// Calculate any active bonuses
+		theCharacter.preparePCForOutput();
+
 		todoManager = new TodoManager();
 
-		infoFactory = new Gui2InfoFactory(pc);
-		characterAbilities = new CharacterAbilities(pc, delegate, dataSet, todoManager);
-		descriptionFacade = new DescriptionFacadeImpl(pc);
-		spellSupportFacade = new SpellSupportFacadeImpl(pc, delegate, dataSet, todoManager, this);
+		infoFactory = new Gui2InfoFactory(theCharacter);
+		characterAbilities = new CharacterAbilities(theCharacter, delegate, dataSet, todoManager);
+		descriptionFacade = new DescriptionFacadeImpl(theCharacter);
+		spellSupportFacade = new SpellSupportFacadeImpl(theCharacter, delegate, dataSet, todoManager, this);
 
-		name = new DefaultReferenceFacade<String>(pc.getName());
-		file = new DefaultReferenceFacade<File>(new File(pc.getFileName()));
+		name = new DefaultReferenceFacade<String>(theCharacter.getName());
+		file = new DefaultReferenceFacade<File>(new File(theCharacter.getFileName()));
 		
 		companionSupportFacade = new CompanionSupportFacadeImpl(theCharacter, todoManager, name, file);
 		
@@ -321,23 +324,23 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 		portrait = new DefaultReferenceFacade<File>(portraitFile);
 		cropRect = new RectangleReference(theCharacter.getPortraitThumbnailRect());
-		characterType = new DefaultReferenceFacade<String>(pc.getCharacterType());
+		characterType = new DefaultReferenceFacade<String>(theCharacter.getCharacterType());
 
-		tabName = new DefaultReferenceFacade<String>(pc.getDisplay().getTabName());
-		playersName = new DefaultReferenceFacade<String>(pc.getPlayersName());
-		race = new DefaultReferenceFacade<RaceFacade>(pc.getRace());
+		tabName = new DefaultReferenceFacade<String>(theCharacter.getDisplay().getTabName());
+		playersName = new DefaultReferenceFacade<String>(theCharacter.getPlayersName());
+		race = new DefaultReferenceFacade<RaceFacade>(theCharacter.getRace());
 		raceList = new DefaultListFacade<RaceFacade>();
-		if (pc.getRace() != null && pc.getRace() != Globals.s_EMPTYRACE)
+		if (theCharacter.getRace() != null && theCharacter.getRace() != Globals.s_EMPTYRACE)
 		{
-			raceList.addElement(pc.getRace());
+			raceList.addElement(theCharacter.getRace());
 		}
 		handedness = new DefaultReferenceFacade<HandedFacade>();
 		gender = new DefaultReferenceFacade<GenderFacade>();
-		if (pc.getRace() != null)
+		if (theCharacter.getRace() != null)
 		{
-			for (HandedFacade handsFacade : pc.getRace().getHands())
+			for (HandedFacade handsFacade : theCharacter.getRace().getHands())
 			{
-				if (handsFacade.equals(pc.getHandedObject()))
+				if (handsFacade.equals(theCharacter.getHandedObject()))
 				{
 					handedness.setReference(handsFacade);
 					break;
@@ -345,7 +348,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			}
 			for (GenderFacade pcGender : race.getReference().getGenders())
 			{
-				if (pcGender.equals(pc.getGenderObject()))
+				if (pcGender.equals(theCharacter.getGenderObject()))
 				{
 					gender.setReference(pcGender);
 					break;
@@ -353,42 +356,42 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			}
 		}
 
-		alignment = new DefaultReferenceFacade<AlignmentFacade>(pc.getPCAlignment());
-		age = new DefaultReferenceFacade<Integer>(pc.getAge());
+		alignment = new DefaultReferenceFacade<AlignmentFacade>(theCharacter.getPCAlignment());
+		age = new DefaultReferenceFacade<Integer>(theCharacter.getAge());
 		ageCategory = new DefaultReferenceFacade<SimpleFacade>();
 		updateAgeCategoryForAge();
-		currentXP = new DefaultReferenceFacade<Integer>(pc.getXP());
-		xpForNextlevel = new DefaultReferenceFacade<Integer>(pc.minXPForNextECL());
-		xpTableName = new DefaultReferenceFacade<String>(pc.getXPTableName());
-		hpRef = new DefaultReferenceFacade<Integer>(pc.hitPoints());
+		currentXP = new DefaultReferenceFacade<Integer>(theCharacter.getXP());
+		xpForNextlevel = new DefaultReferenceFacade<Integer>(theCharacter.minXPForNextECL());
+		xpTableName = new DefaultReferenceFacade<String>(theCharacter.getXPTableName());
+		hpRef = new DefaultReferenceFacade<Integer>(theCharacter.hitPoints());
 
-		skinColor = new DefaultReferenceFacade<String>(pc.getDisplay().getSkinColor());
-		hairColor = new DefaultReferenceFacade<String>(pc.getDisplay().getHairColor());
-		eyeColor = new DefaultReferenceFacade<String>(pc.getDisplay().getEyeColor());
-		weightRef = new DefaultReferenceFacade<Integer>(pc.getWeight());
-		heightRef = new DefaultReferenceFacade<Integer>(pc.getHeight());
+		skinColor = new DefaultReferenceFacade<String>(theCharacter.getDisplay().getSkinColor());
+		hairColor = new DefaultReferenceFacade<String>(theCharacter.getDisplay().getHairColor());
+		eyeColor = new DefaultReferenceFacade<String>(theCharacter.getDisplay().getEyeColor());
+		weightRef = new DefaultReferenceFacade<Integer>(theCharacter.getWeight());
+		heightRef = new DefaultReferenceFacade<Integer>(theCharacter.getHeight());
 
-		purchasedEquip = new EquipmentListFacadeImpl(pc.getEquipmentMasterList());
+		purchasedEquip = new EquipmentListFacadeImpl(theCharacter.getEquipmentMasterList());
 		carriedWeightRef = new DefaultReferenceFacade<String>();
 		loadRef = new DefaultReferenceFacade<String>();
 		weightLimitRef = new DefaultReferenceFacade<String>();
 		equipSet = new DefaultReferenceFacade<EquipmentSetFacade>();
 		equipmentSets = new DefaultListFacade<EquipmentSetFacade>();
-		initEquipSet(pc);
+		initEquipSet(theCharacter);
 
 		GameMode game = (GameMode) dataSet.getGameMode();
 		rollMethodRef = new DefaultReferenceFacade<Integer>(game.getRollMethod());
 
-		charLevelsFacade = new CharacterLevelsFacadeImpl(pc, delegate, todoManager);
+		charLevelsFacade = new CharacterLevelsFacadeImpl(theCharacter, delegate, todoManager);
 		pcClasses = new ArrayList<ClassFacade>();
 		pcClassLevels = new DefaultListFacade<CharacterLevelFacade>();
 		refreshClassLevelModel();
 		charLevelsFacade.addHitPointListener(this);
 
-		deity = new DefaultReferenceFacade<DeityFacade>(pc.getDeity());
+		deity = new DefaultReferenceFacade<DeityFacade>(theCharacter.getDeity());
 		domains = new DefaultListFacade<DomainFacade>();
-		maxDomains = new DefaultReferenceFacade<Integer>(pc.getMaxCharacterDomains());
-		remainingDomains = new DefaultReferenceFacade<Integer>(pc.getMaxCharacterDomains() - domains.getSize());
+		maxDomains = new DefaultReferenceFacade<Integer>(theCharacter.getMaxCharacterDomains());
+		remainingDomains = new DefaultReferenceFacade<Integer>(theCharacter.getMaxCharacterDomains() - domains.getSize());
 		availDomains = new DefaultListFacade<DomainFacade>();
 		buildAvailableDomainsList();
 
@@ -708,6 +711,10 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			pcClassLevels.addElement(cl);
 			charLevelsFacade.addLevelOfClass(cl);
 		}
+
+		// Calculate any active bonuses
+		theCharacter.calcActiveBonuses();
+		
 		postLevellingUpdates();
 		delegate.showLevelUpInfo(this, oldLevel);
 	}
@@ -2561,11 +2568,12 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			try
 			{
-				theHandler.write(theCharacter, buf);
+				PlayerCharacter exportPc = (PlayerCharacter) theCharacter.clone();
+				theHandler.write(exportPc, buf);
 				return;
 			} catch (ConcurrentModificationException e)
 			{
-				Logging.debugPrint("Retrying export after ConcurrentModificationException");
+				Logging.log(Logging.WARNING, "Retrying export after ConcurrentModificationException");
 				try
 				{
 					Thread.sleep(1000);

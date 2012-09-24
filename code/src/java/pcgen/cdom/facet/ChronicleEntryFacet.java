@@ -17,7 +17,12 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import pcgen.core.ChronicleEntry;
+import pcgen.util.Logging;
 
 /**
  * ChronicleEntryFacet is a Facet that tracks the chronicle entries that have 
@@ -32,5 +37,22 @@ import pcgen.core.ChronicleEntry;
  */
 public class ChronicleEntryFacet extends AbstractListFacet<ChronicleEntry> 
 {
+
+	protected Collection<ChronicleEntry> getCopyForNewOwner(Collection<ChronicleEntry> componentSet)
+	{
+		List<ChronicleEntry> newCopies = new ArrayList<ChronicleEntry>();
+		for (ChronicleEntry entry : componentSet)
+		{
+			try
+			{
+				newCopies.add(entry.clone());
+			}
+			catch (CloneNotSupportedException e)
+			{
+				Logging.errorPrint("ChronicleEntryFacet.getCopyForNewOwner failed for " + entry, e);
+			}
+		}
+		return newCopies;
+	}
 
 }

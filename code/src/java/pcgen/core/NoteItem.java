@@ -24,6 +24,7 @@ package pcgen.core;
 
 import pcgen.core.facade.NoteFacade;
 import pcgen.io.FileAccess;
+import pcgen.util.Logging;
 
 
 /**
@@ -32,7 +33,7 @@ import pcgen.io.FileAccess;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public final class NoteItem implements NoteFacade
+public final class NoteItem implements NoteFacade, Cloneable
 {
 	private String name = "";
 	private String value = "";
@@ -126,5 +127,22 @@ public final class NoteItem implements NoteFacade
 	public String toString()
 	{
 		return name;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected NoteItem clone()
+	{
+		try
+		{
+			return (NoteItem) super.clone();
+		}
+		catch (CloneNotSupportedException e)
+		{
+			Logging.errorPrint("NoteItem.clone failed", e);
+			return null;
+		}
 	}
 }

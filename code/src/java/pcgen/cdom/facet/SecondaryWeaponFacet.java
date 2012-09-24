@@ -17,6 +17,10 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import pcgen.core.Equipment;
 
 /**
@@ -30,5 +34,19 @@ import pcgen.core.Equipment;
  */
 public class SecondaryWeaponFacet extends AbstractListFacet<Equipment>
 {
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Collection<Equipment> getCopyForNewOwner(Collection<Equipment> componentSet)
+	{
+		List<Equipment> newCopies = new ArrayList<Equipment>();
+		for (Equipment entry : componentSet)
+		{
+			newCopies.add(entry.clone());
+		}
+		return newCopies;
+	}
 
 }

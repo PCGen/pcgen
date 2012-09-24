@@ -384,10 +384,22 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 		Collection<T> componentSet = getCachedSet(source);
 		if (componentSet != null)
 		{
-			getConstructingCachedSet(copy).addAll(componentSet);
+			getConstructingCachedSet(copy).addAll(getCopyForNewOwner(componentSet));
 		}
 	}
 
+	/**
+	 * Create a new copy of this list facet's data. This defaults to a return of the 
+	 * same set, but subclasses may need to do deep cloning of their objects as part 
+	 * of the copy. Note: The returned collection is directly saved, only its contents.
+	 * @param componentSet The collection of data held by the facet for a character.
+	 * @return The data ready to be saved to a new collection for a new character.
+	 */
+	protected Collection<T> getCopyForNewOwner(Collection<T> componentSet)
+	{
+		return componentSet;
+	}
+	
 	/**
 	 * Replaces an item in this AbstractListFacet with another object.
 	 * 
