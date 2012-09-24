@@ -80,7 +80,6 @@ public final class PCGenStatusBar extends JPanel
 	{
 		if (errors != null && !errors.isEmpty())
 		{
-			loadStatusLabel.setIcon(Icons.Stop16.getImageIcon());
 			int nerrors = 0;
 			int nwarnings = 0;
 			for (LogRecord logRecord : errors)
@@ -93,6 +92,18 @@ public final class PCGenStatusBar extends JPanel
 				{
 					nwarnings++;
 				}
+			}
+			if (nerrors > 0)
+			{
+				loadStatusLabel.setIcon(Icons.Stop16.getImageIcon());
+			}
+			else if (nwarnings > 0)
+			{
+				loadStatusLabel.setIcon(Icons.Ok16.getImageIcon());
+			}
+			else
+			{
+				loadStatusLabel.setIcon(Icons.Ok16.getImageIcon());
 			}
 			loadStatusLabel.setToolTipText(nerrors + " errors and " + nwarnings +
 					" warnings occured while loading the sources");

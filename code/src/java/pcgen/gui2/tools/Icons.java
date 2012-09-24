@@ -34,6 +34,7 @@ public enum Icons
 
 	About16(".gif"),
 	Add16(".gif"),
+	Alert16(".gif"),
 	AlignBottom16(".gif"),
 	AlignCenter16(".gif"),
 	AlignJustifyHorizontal16(".gif"),
@@ -77,6 +78,7 @@ public enum Icons
 	New16(".gif"),
 	NewEnvelope(".gif"),
 	NewNPC16(".gif"),
+	Ok16(".gif"),
 	Open16(".gif"),
 	PageSetup16(".gif"),
 	Paste16(".gif"),
