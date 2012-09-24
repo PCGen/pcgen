@@ -126,6 +126,9 @@ public class InfoGuidePane extends JComponent implements UIResource
         outerPanel.add(mainPanel);
 		setLayout(new BorderLayout());
 		add(outerPanel, BorderLayout.CENTER);
+
+		tipPane.setText(LanguageBundle.getFormattedString("in_si_tip",
+			TipOfTheDayHandler.getInstance().getNextTip()));
 	}
 
 	private void initListeners()
@@ -136,7 +139,13 @@ public class InfoGuidePane extends JComponent implements UIResource
 			@Override
 			public void referenceChanged(ReferenceEvent<CharacterFacade> e)
 			{
-				setVisible(e.getNewReference() == null);
+				boolean show = e.getNewReference() == null;
+				if (show)
+				{
+					tipPane.setText(LanguageBundle.getFormattedString("in_si_tip",
+						TipOfTheDayHandler.getInstance().getNextTip()));
+				}
+				setVisible(show);
 			}
 
 		});
@@ -176,8 +185,6 @@ public class InfoGuidePane extends JComponent implements UIResource
 			}
 			campaignList.setText(builder.toString());
 		}
-		tipPane.setText(LanguageBundle.getFormattedString("in_si_tip",
-			TipOfTheDayHandler.getInstance().getNextTip()));
 	}
 
 }
