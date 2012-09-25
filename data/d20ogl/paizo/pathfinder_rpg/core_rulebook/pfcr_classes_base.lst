@@ -255,32 +255,54 @@ CLASS:Paladin	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|Handle Animal|Heal|Kno
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Craft Level Mult.	Caster level
 CLASS:Paladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Paladin|CL-3|PRECLASS:1,Paladin=4
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	AUTO:FEAT|Shield Proficiency
-###Block: Aura strength
-1	BONUS:VAR|AlignmentAuraLVL|CL	ABILITY:Special Ability|VIRTUAL|Aura of Good
-###Block: Level progression
-1				BONUS:VAR|DetectEvilLVL,SmiteEvilLVL|CL	DEFINE:AllowHolyAvenger|1	ABILITY:Special Ability|AUTOMATIC|Detect Evil|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDetectEvil	ABILITY:Special Ability|AUTOMATIC|Smite Evil|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinSmiteEvil
-2				BONUS:VAR|LayOnHandsLVL|CL								ABILITY:Special Ability|AUTOMATIC|Divine Grace|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDivineGrace	ABILITY:Special Ability|AUTOMATIC|Lay on Hands|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinLayOnHands
-3				BONUS:VAR|MercyLVL|CL									ABILITY:Special Ability|AUTOMATIC|Aura of Courage|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfCourage	ABILITY:Special Ability|AUTOMATIC|Divine Health|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDivineHealth	ABILITY:Special Ability|AUTOMATIC|Mercy|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinMercy
-4	CAST:0,0		BONUS:VAR|PaladinChannelLVL|CL							ABILITY:Special Ability|AUTOMATIC|Channel Positive Energy ~ Paladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinChannel
-5	CAST:0,1		BONUS:VAR|DivineBondLVL|CL								ABILITY:Special Ability|AUTOMATIC|Divine Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDivineBond
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
+###Block:
+1	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Heavy)|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyHeavy
+1	AUTO:FEAT|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyLight
+1	AUTO:FEAT|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyMedium
+1	AUTO:FEAT|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinArmorProficiency,TYPE.PaladinShieldProf,TYPE.PaladinShieldProfinciency
+###Block: Vars
+1	BONUS:VAR|AlignmentAuraLVL|CL	BONUS:VAR|DetectEvilLVL,SmiteEvilLVL|CL	DEFINE:AllowHolyAvenger|1
+2	BONUS:VAR|LayOnHandsLVL|CL
+3	BONUS:VAR|MercyLVL|CL
+4	BONUS:VAR|PaladinChannelLVL|CL
+5	BONUS:VAR|DivineBondLVL|CL
+20	BONUS:VAR|HolyChampionLVL|CL
+###Block:
+1	ABILITY:Special Ability|VIRTUAL|Aura of Good
+1	ABILITY:Special Ability|AUTOMATIC|Detect Evil|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDetectEvil
+1	ABILITY:Special Ability|AUTOMATIC|Smite Evil|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinSmiteEvil
+2	ABILITY:Special Ability|AUTOMATIC|Divine Grace|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDivineGrace
+2	ABILITY:Special Ability|AUTOMATIC|Lay on Hands|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinLayOnHands
+3	ABILITY:Special Ability|AUTOMATIC|Aura of Courage|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfCourage
+3	ABILITY:Special Ability|AUTOMATIC|Divine Health|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDivineHealth
+3	ABILITY:Special Ability|AUTOMATIC|Mercy|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinMercy
+4	ABILITY:Special Ability|AUTOMATIC|Channel Positive Energy ~ Paladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinChannel,TYPE.PaladinChannelPositiveEnergy
+5	ABILITY:Special Ability|AUTOMATIC|Divine Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDivineBond
+8	ABILITY:Special Ability|AUTOMATIC|Aura of Resolve|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfResolve
+11	ABILITY:Special Ability|AUTOMATIC|Aura of Justice|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfJustice
+14	ABILITY:Special Ability|AUTOMATIC|Aura of Faith|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfFaith
+17	ABILITY:Special Ability|AUTOMATIC|Aura of Righteousness|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfRighteousness
+20	ABILITY:Special Ability|AUTOMATIC|Holy Champion|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinHolyChampion			
+###Block: Spell Level progression
+4	CAST:0,0							
+5	CAST:0,1								
 6	CAST:0,1
 7	CAST:0,1,0
-8	CAST:0,1,1														ABILITY:Special Ability|AUTOMATIC|Aura of Resolve|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfResolve
+8	CAST:0,1,1													
 9	CAST:0,2,1
 10	CAST:0,2,1,0
-11	CAST:0,2,1,1													ABILITY:Special Ability|AUTOMATIC|Aura of Justice|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfJustice
+11	CAST:0,2,1,1											
 12	CAST:0,2,2,1
 13	CAST:0,3,2,1,0
-14	CAST:0,3,2,1,1													ABILITY:Special Ability|AUTOMATIC|Aura of Faith|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfFaith
+14	CAST:0,3,2,1,1												
 15	CAST:0,3,2,2,1
 16	CAST:0,3,3,2,1
-17	CAST:0,4,3,2,1													ABILITY:Special Ability|AUTOMATIC|Aura of Righteousness|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfRighteousness
+17	CAST:0,4,3,2,1												
 18	CAST:0,4,3,2,2
 19	CAST:0,4,3,3,2
-20	CAST:0,4,4,3,3													ABILITY:Special Ability|AUTOMATIC|Holy Champion|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinHolyChampion				BONUS:VAR|HolyChampionLVL|CL
+20	CAST:0,4,4,3,3												
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Visible	Define			Save checks bonus											Combat bonus
 CLASS:Ex-Paladin	HD:10		TYPE:Base.PC	ABB:XPal		MAXLEVEL:20	VISIBLE:NO	DEFINE:PaladinLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE

@@ -409,6 +409,14 @@ CATEGORY=Special Ability|Ki Pool.MOD		BENEFIT:You have a pool of %1 ki points, s
 CATEGORY=Special Ability|Slow Fall.MOD		BENEFIT:If you are within arm's reach of a wall, you can use it to slow your descent. You takes damage as if the fall were %1 feet shorter than it actually is.|SlowFall|PREVARLT:SlowFallLVL,20
 CATEGORY=Special Ability|Slow Fall.MOD		BENEFIT:You can use a nearby wall to slow your descent and fall any distance without harm.|PREVAREQ:SlowFallLVL,20
 
+###Block: Archetype Support 
+CATEGORY=Special Ability|Monk Bonus Feat.MOD					DEFINE:MonkBonusFeatCount|0	BONUS:VAR|MonkBonusFeatCount|1+max((MonkBonusFeatLVL+2)/4,0)
+CATEGORY=Special Ability|Monk Bonus Feat.MOD	BONUS:ABILITYPOOL|Monk Bonus Feat|-1|PREVARGTEQ:MonkBonusFeatCount,1|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkBonusFeat2
+CATEGORY=Special Ability|Monk Bonus Feat.MOD	BONUS:ABILITYPOOL|Monk Bonus Feat|-1|PREVARGTEQ:MonkBonusFeatCount,2|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkBonusFeat6
+CATEGORY=Special Ability|Monk Bonus Feat.MOD	BONUS:ABILITYPOOL|Monk Bonus Feat|-1|PREVARGTEQ:MonkBonusFeatCount,3|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkBonusFeat10
+CATEGORY=Special Ability|Monk Bonus Feat.MOD	BONUS:ABILITYPOOL|Monk Bonus Feat|-1|PREVARGTEQ:MonkBonusFeatCount,4|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkBonusFeat14
+CATEGORY=Special Ability|Monk Bonus Feat.MOD	BONUS:ABILITYPOOL|Monk Bonus Feat|-1|PREVARGTEQ:MonkBonusFeatCount,5|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkBonusFeat18
+
 ###Block: Monk Bonus Feats
 # Ability Name		Category of Ability		Type				Visible		Prohibited Feat			Var. Min. Value				Stackable?	Multiple?	Choose			Virtual Feat			Weapon prof. bonus
 Catch Off-Guard		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREFEAT:1,Catch Off-Guard	PREVARGTEQ:MonkBonusFeatLVL,1										VFEAT:Catch Off-Guard
@@ -441,6 +449,12 @@ Divine Health									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Mercy											CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO													DEFINE:Mercies|0	DEFINE:MercyLVL|0																																																						BONUS:ABILITYPOOL|Mercy|Mercies									BONUS:VAR|Mercies|min(MercyLVL/3,4)
 Channel Positive Energy	KEY:Channel Positive Energy ~ Paladin	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural					SERVESAS:ABILITY=Special Ability|Channel Energy|Channel Positive Energy	DEFINE:PaladinChannelDC|0	DEFINE:PaladinChannelDice|0	DEFINE:PaladinChannelDieSize|6	DEFINE:PaladinChannelLVL|0															DESC:You can unleash a wave of positive energy dealing %1d%2 (DC %3 for half) %4/day.|PaladinChannelDice|PaladinChannelDieSize|PaladinChannelDC															BONUS:VAR|PaladinChannelDice|(PaladinChannelLVL+1)/2	BONUS:VAR|PaladinChannelDC|10+(PaladinChannelLVL/2)+CHA												ASPECT:Ability Benefit|(%1d%2, DC %3)|PaladinChannelDice|PaladinChannelDieSize|PaladinChannelDC	BENEFIT:You can unleash a wave of positive energy. You must choose to deal %1d%2 points of positive energy damage to undead creatures or to heal living creatures of %1d%2 points of damage. Creatures that take damage from channeled energy receive a DC %3 Will save to halve the damage. Using this ability consumes two uses of her lay on hands ability.|PaladinChannelDice|PaladinChannelDieSize|PaladinChannelDC
 Holy Champion									CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																	DEFINE:HolyChampionCasterLevel|0	DEFINE:HolyChampionLVL|0																									DESC:You are a conduit for the power of your god.																											BONUS:DR|Evil|5	BONUS:VAR|HolyChampionCasterLevel|HolyChampionLVL																			SOURCEPAGE:p.63																	BENEFIT:You are a conduit for the power of your god. Your DR increases to 10/Evil. Whenever you use Smite Evil and successfully strike an evil outsider, the outsider is also subject to a Banishment at caster level %1 (your weapon and holy symbol automatically count as objects that the subject hates). After the Banishment effect and the damage from the attack is resolved, the smite immediately ends. In addition, whenever you channel positive energy or uses Lay on Hands to heal a creature, you heal the maximum possible amount.|HolyChampionCasterLevel
+
+###Block: Archetype Support - Mercy
+CATEGORY=Special Ability|Mercy.MOD	BONUS:ABILITYPOOL|Mercy|-1|PREVARGTEQ:Mercies,1|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinMercy3
+CATEGORY=Special Ability|Mercy.MOD	BONUS:ABILITYPOOL|Mercy|-1|PREVARGTEQ:Mercies,2|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinMercy6
+CATEGORY=Special Ability|Mercy.MOD	BONUS:ABILITYPOOL|Mercy|-1|PREVARGTEQ:Mercies,3|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinMercy9
+CATEGORY=Special Ability|Mercy.MOD	BONUS:ABILITYPOOL|Mercy|-1|PREVARGTEQ:Mercies,4|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinMercy12
 
 
 ###Block: Paladin Aura abilities
@@ -498,13 +512,28 @@ Master Hunter					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Att
 # Ability Name		Unique Key				Category of Ability		Type								Visible	Define			Description								Bonus to Ability Pool			Allow Follower			Allowed Companions																																																														Source Page		Description of the Benefits
 Hunter's Bond							CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO	DEFINE:HuntersBondLVL|0										BONUS:ABILITYPOOL|Hunter's Bond|1
 Hunting Companions						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.HuntersBond							DESC:You form a powerful band with your companions.																																																																													SOURCEPAGE:p.66	BENEFIT:You form a powerful band with your companions. You may spend a move action to grant half your favored enemy bonus against a single target to all allies within 30 feet who can see or hear you for %1 rounds. This bonus does not stack with any favored enemy bonuses possessed by your allies; they use whichever bonus is higher.|max(1,WIS)
-Animal Companion		KEY:Companion ~ Hunter's Bond	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.HuntersBond			DEFINE:CompLevel|0	DESC:You form a close bond with an animal companion.							FOLLOWERS:Animal Companion|1	COMPANIONLIST:Animal Companion|Companion (Badger (Wolverine)),Companion (Bird (Eagle)),Companion (Bird (Hawk)),Companion (Bird (Owl)),Companion (Camel),Companion (Cat (Small (Cheetah))),Companion (Cat (Small (Leopard))),Companion (Dire Rat),Companion (Dog),Companion (Horse),Companion (Pony),Companion (Shark),Companion (Snake (Constrictor)),Companion (Snake (Viper)),Companion (Wolf)	SOURCEPAGE:p.51
+Animal Companion		KEY:Companion ~ Hunter's Bond	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.HuntersBond			DEFINE:CompLevel|0	DESC:You form a close bond with an animal companion.|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerAnimalCompanion	DESC:This is not Allowed with the Archetype you selected.|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerAnimalCompanion						FOLLOWERS:Animal Companion|1	COMPANIONLIST:Animal Companion|Companion (Badger (Wolverine)),Companion (Bird (Eagle)),Companion (Bird (Hawk)),Companion (Bird (Owl)),Companion (Camel),Companion (Cat (Small (Cheetah))),Companion (Cat (Small (Leopard))),Companion (Dire Rat),Companion (Dog),Companion (Horse),Companion (Pony),Companion (Shark),Companion (Snake (Constrictor)),Companion (Snake (Viper)),Companion (Wolf)|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerAnimalCompanion	SOURCEPAGE:p.51	!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerAnimalCompanion
 
 ###Block: Ranger Internals
 # Ability Name		Category of Ability		Type			Visible	Define									Ability									Bonus to Ability Pool																		Modify VAR									Source Page
-Combat Style		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:CombatStyleLVL|0	DEFINE:RangerDefaultCombatStyle|0											BONUS:ABILITYPOOL|Combat Style|1	BONUS:ABILITYPOOL|Ranger Bonus Feat|(CombatStyleLVL+2)/4						BONUS:VAR|RangerDefaultCombatStyle|1				SOURCEPAGE:p.65
-Ranger Favored Enemy	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:RangerFavoredEnemyLVL|0															BONUS:ABILITYPOOL|Favored Enemy|RangerFavoredEnemyLVL/5+1	BONUS:ABILITYPOOL|Favored Enemy Bonus|RangerFavoredEnemyLVL/5
+Combat Style		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:CombatStyleLVL|0	DEFINE:RangerDefaultCombatStyle|0											BONUS:ABILITYPOOL|Combat Style|1	BONUS:ABILITYPOOL|Ranger Bonus Feat|RangerBonusFeatCount	DEFINE:RangerBonusFeatCount|0	BONUS:VAR|RangerBonusFeatCount|(CombatStyleLVL+2)/4						BONUS:VAR|RangerDefaultCombatStyle|1				SOURCEPAGE:p.65
+Ranger Favored Enemy	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:RangerFavoredEnemyLVL|0															BONUS:ABILITYPOOL|Favored Enemy|RangerFavoredEnemyCount	DEFINE:RangerFavoredEnemyCount|0	BONUS:VAR|RangerFavoredEnemyCount|RangerFavoredEnemyLVL/5+1	BONUS:ABILITYPOOL|Favored Enemy Bonus|FavoredEnemyBonusCount	DEFINE:FavoredEnemyBonusCount|0	BONUS:VAR|FavoredEnemyBonusCount|RangerFavoredEnemyLVL/5
 Ranger Favored Terrain	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:RangerFavoredTerrainLVL|0					ABILITY:Special Ability|AUTOMATIC|Common Favored Terrain																						BONUS:VAR|FavoredTerrainPool|(RangerFavoredTerrainLVL+2)/5
+
+###Block: Archetype Support
+# Ranger Combat Style
+CATEGORY=Special Ability|Combat Style.MOD	BONUS:ABILITYPOOL|Ranger Bonus Feat|-1|PREVARGTEQ:RangerBonusFeatCount,1|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCombatStyleFeat2
+CATEGORY=Special Ability|Combat Style.MOD	BONUS:ABILITYPOOL|Ranger Bonus Feat|-1|PREVARGTEQ:RangerBonusFeatCount,2|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCombatStyleFeat6
+CATEGORY=Special Ability|Combat Style.MOD	BONUS:ABILITYPOOL|Ranger Bonus Feat|-1|PREVARGTEQ:RangerBonusFeatCount,3|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCombatStyleFeat10
+CATEGORY=Special Ability|Combat Style.MOD	BONUS:ABILITYPOOL|Ranger Bonus Feat|-1|PREVARGTEQ:RangerBonusFeatCount,4|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCombatStyleFeat14
+CATEGORY=Special Ability|Combat Style.MOD	BONUS:ABILITYPOOL|Ranger Bonus Feat|-1|PREVARGTEQ:RangerBonusFeatCount,5|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCombatStyleFeat18
+
+# Ranger Favored Enemy
+CATEGORY=Special Ability|Ranger Favored Enemy.MOD	BONUS:ABILITYPOOL|Favored Enemy|-1|PREVARGTEQ:RangerFavoredEnemyCount,1|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy1	BONUS:ABILITYPOOL|Favored Enemy Bonus|-1|PREVARGTEQ:FavoredEnemyBonusCount,1|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy1
+CATEGORY=Special Ability|Ranger Favored Enemy.MOD	BONUS:ABILITYPOOL|Favored Enemy|-1|PREVARGTEQ:RangerFavoredEnemyCount,2|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy2	BONUS:ABILITYPOOL|Favored Enemy Bonus|-1|PREVARGTEQ:FavoredEnemyBonusCount,2|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy2
+CATEGORY=Special Ability|Ranger Favored Enemy.MOD	BONUS:ABILITYPOOL|Favored Enemy|-1|PREVARGTEQ:RangerFavoredEnemyCount,3|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy3	BONUS:ABILITYPOOL|Favored Enemy Bonus|-1|PREVARGTEQ:FavoredEnemyBonusCount,3|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy3
+CATEGORY=Special Ability|Ranger Favored Enemy.MOD	BONUS:ABILITYPOOL|Favored Enemy|-1|PREVARGTEQ:RangerFavoredEnemyCount,4|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy4	BONUS:ABILITYPOOL|Favored Enemy Bonus|-1|PREVARGTEQ:FavoredEnemyBonusCount,4|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy4
+CATEGORY=Special Ability|Ranger Favored Enemy.MOD	BONUS:ABILITYPOOL|Favored Enemy|-1|PREVARGTEQ:RangerFavoredEnemyCount,5|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy5	BONUS:ABILITYPOOL|Favored Enemy Bonus|-1|PREVARGTEQ:FavoredEnemyBonusCount,5|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy5
 
 ###Block: Ranger Combat Styles
 # Ability Name	Category of Ability		Type				Visible		Source Page
