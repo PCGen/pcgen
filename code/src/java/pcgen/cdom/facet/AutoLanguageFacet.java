@@ -121,7 +121,6 @@ public class AutoLanguageFacet extends AbstractQualifiedListFacet<QualifiedObjec
 			Collection<Language> langList = qo.getRawObject().getContainedObjects();
 			for (Language l : langList)
 			{
-				l = l.clone();
 				list.add(l);
 			}
 		}

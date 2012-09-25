@@ -25,6 +25,7 @@ package pcgen.gui2.facade;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Ability;
@@ -120,6 +121,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 			selLangs, false, theCharacter, false,
 				AbilityCategory.LANGBONUS);
 		
+		availLangs.removeAll(theCharacter.getLanguageSet());
 		refreshLangListContents(availLangs, availableList);
 		refreshLangListContents(selLangs, selectedList);
 		refreshLangListContents(selLangs, originalSelectedList);
@@ -140,6 +142,8 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		ChooserUtilities.modChoices(source, availLangs,
 			selLangs, false, theCharacter, false, null);
 		
+		Set<Language> languageSet = theCharacter.getLanguageSet();
+		availLangs.removeAll(languageSet);
 		refreshLangListContents(availLangs, availableList);
 		refreshLangListContents(selLangs, selectedList);
 		refreshLangListContents(selLangs, originalSelectedList);
