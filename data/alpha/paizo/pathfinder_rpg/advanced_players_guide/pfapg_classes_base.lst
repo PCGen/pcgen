@@ -15,23 +15,29 @@ CLASS:Alchemist	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Alchemist Weapon Proficiencies|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)
-###Block: Class features
-1	BONUS:VAR|AlchemistAlchemyLVL|CL			ABILITY:Special Ability|AUTOMATIC|Alchemy ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistAlchemy
-1	BONUS:VAR|AlchemistBombLVL|CL				ABILITY:Special Ability|AUTOMATIC|Bomb ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistBomb
-1									ABILITY:Special Ability|AUTOMATIC|Brew Potion ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistBrewPotion
-1	BONUS:VAR|AlchemistMutagenLVL|CL			ABILITY:Special Ability|AUTOMATIC|Mutagen ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistMutagen
-1									ABILITY:Special Ability|AUTOMATIC|Throw Anything ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistThrowAnything
-2	BONUS:VAR|AlchemistDiscoveryLVL|CL			ABILITY:Special Ability|AUTOMATIC|Discovery ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistDiscovery
-2									ABILITY:Special Ability|AUTOMATIC|Poison Resistance ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonResistance
-2									ABILITY:Special Ability|AUTOMATIC|Poison Use ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonUse
-3									ABILITY:Special Ability|AUTOMATIC|Swift Alchemy ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistSwiftAlchemy
-5									ABILITY:Special Ability|AUTOMATIC|Poison Resistance 4 ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonResistance4
-6									ABILITY:Special Ability|AUTOMATIC|Swift Poisoning ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistSwiftPoisoning
-8									ABILITY:Special Ability|AUTOMATIC|Poison Resistance 6 ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonResistance6
-10									ABILITY:Special Ability|AUTOMATIC|Poison Immunity ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonImmunity
-14	BONUS:VAR|AlchemistPersistentMutagenLVL|CL	ABILITY:Special Ability|AUTOMATIC|Persistent Mutagen ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPersistentMutagen
-18									ABILITY:Special Ability|AUTOMATIC|Instant Alchemy ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistInstantAlchemy
-20									ABILITY:Special Ability|AUTOMATIC|Grand Discovery ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistGrandDiscovery
+###Block: Vars
+1	BONUS:VAR|AlchemistAlchemyLVL|CL
+1	BONUS:VAR|AlchemistBombLVL|CL	
+1	BONUS:VAR|AlchemistMutagenLVL|CL
+2	BONUS:VAR|AlchemistDiscoveryLVL|CL
+14	BONUS:VAR|AlchemistPersistentMutagenLVL|CL
+###Block: Class Abilities
+1	ABILITY:Special Ability|AUTOMATIC|Alchemy ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistAlchemy
+1	ABILITY:Special Ability|AUTOMATIC|Bomb ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistBomb
+1	ABILITY:Special Ability|AUTOMATIC|Brew Potion ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistBrewPotion
+1	ABILITY:Special Ability|AUTOMATIC|Mutagen ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistMutagen
+1	ABILITY:Special Ability|AUTOMATIC|Throw Anything ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistThrowAnything
+2	ABILITY:Special Ability|AUTOMATIC|Discovery ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistDiscovery
+2	ABILITY:Special Ability|AUTOMATIC|Poison Resistance ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonResistance
+2	ABILITY:Special Ability|AUTOMATIC|Poison Use ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonUse
+3	ABILITY:Special Ability|AUTOMATIC|Swift Alchemy ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistSwiftAlchemy
+5	ABILITY:Special Ability|AUTOMATIC|Poison Resistance 4 ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonResistance4
+6	ABILITY:Special Ability|AUTOMATIC|Swift Poisoning ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistSwiftPoisoning
+8	ABILITY:Special Ability|AUTOMATIC|Poison Resistance 6 ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonResistance6
+10	ABILITY:Special Ability|AUTOMATIC|Poison Immunity ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonImmunity
+14	ABILITY:Special Ability|AUTOMATIC|Persistent Mutagen ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPersistentMutagen
+18	ABILITY:Special Ability|AUTOMATIC|Instant Alchemy ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistInstantAlchemy
+20	ABILITY:Special Ability|AUTOMATIC|Grand Discovery ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistGrandDiscovery
 ###Block: Spellcasting
 1	CAST:0,1
 2	CAST:0,2
@@ -59,23 +65,34 @@ CLASS:Alchemist	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:
 CLASS:Cavalier	HD:10		TYPE:Base.PC	ABB:Cav		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:p.32	DEFINE:CavalierLvl|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cavalier	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|TYPE=Profession|Ride|Sense Motive|Swim
-#
-1	BONUS:ABILITYPOOL|Cavalier Order|1
+###Block:
+1	BONUS:ABILITYPOOL|Cavalier Order|1	DEFINE:CavaliarLvl|CL
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
+###Block: Vars
+1	BONUS:VAR|CavalierChallengeLVL|CL	BONUS:VAR|CavalierChallengeTimes|1+(CL/3)	BONUS:VAR|CavalierLevel|CL	
 ###Block: Level progression
-1								BONUS:VAR|CavalierChallengeLVL|CL	BONUS:VAR|CavalierChallengeTimes|1+(CL/3)	BONUS:VAR|CavalierLevel|CL	ABILITY:Special Ability|AUTOMATIC|Challenge ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierChallenge	ABILITY:Special Ability|AUTOMATIC|Mount ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierMount	ABILITY:Special Ability|AUTOMATIC|Order ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierOrder	ABILITY:Special Ability|AUTOMATIC|Tactician ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierTactician
-3																										ABILITY:Special Ability|AUTOMATIC|Cavalier's Charge ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierCavaliersCharge
-4																										ABILITY:Special Ability|AUTOMATIC|Expert Trainer ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierExpertTrainer
-5																										ABILITY:Special Ability|AUTOMATIC|Banner ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierBanner
-9																										ABILITY:Special Ability|AUTOMATIC|Greater Tactician  ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierGreaterTactician
-11																										ABILITY:Special Ability|AUTOMATIC|Mighty Charge ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierMightyCharge
-12																										ABILITY:Special Ability|AUTOMATIC|Demanding Challenge ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierDemandingChallenge
-14																										ABILITY:Special Ability|AUTOMATIC|Greater Banner ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierGreaterBanner
-17																										ABILITY:Special Ability|AUTOMATIC|Master Tactician ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierMasterTactician
-20																										ABILITY:Special Ability|AUTOMATIC|Supreme Charge ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierSupremeCharge
-6	BONUS:ABILITYPOOL|Cavalier Feat|CL/6
+1	ABILITY:Special Ability|AUTOMATIC|Challenge ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierChallenge	
+1	ABILITY:Special Ability|AUTOMATIC|Mount ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierMount	
+1	ABILITY:Special Ability|AUTOMATIC|Order ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierOrder	
+1	ABILITY:Special Ability|AUTOMATIC|Tactician ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierTactician
+3	ABILITY:Special Ability|AUTOMATIC|Cavalier's Charge ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierCavaliersCharge
+4	ABILITY:Special Ability|AUTOMATIC|Expert Trainer ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierExpertTrainer
+5	ABILITY:Special Ability|AUTOMATIC|Banner ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierBanner
+9	ABILITY:Special Ability|AUTOMATIC|Greater Tactician  ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierGreaterTactician
+11	ABILITY:Special Ability|AUTOMATIC|Mighty Charge ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierMightyCharge
+12	ABILITY:Special Ability|AUTOMATIC|Demanding Challenge ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierDemandingChallenge
+14	ABILITY:Special Ability|AUTOMATIC|Greater Banner ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierGreaterBanner
+17	ABILITY:Special Ability|AUTOMATIC|Master Tactician ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierMasterTactician
+20	ABILITY:Special Ability|AUTOMATIC|Supreme Charge ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierSupremeCharge
+###Block: Archetype Support
+# Comment: TYPE.CavalierBonusFeat - Disables ALL 3 Cavalier Feats
+# Comment: TYPE.CavalierBonusFeat# with # being 6, 12 or 18 will disable the feat gained at that level.
+6	BONUS:ABILITYPOOL|Cavalier Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierBonusFeat,TYPE.CavalierCavaliersBonusFeat6
+12	BONUS:ABILITYPOOL|Cavalier Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierBonusFeat,TYPE.CavalierCavaliersBonusFeat12
+18	BONUS:ABILITYPOOL|Cavalier Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierBonusFeat,TYPE.CavalierCavaliersBonusFeat18
+
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page		Define							Save checks bonus											Combat bonus
 CLASS:Inquisitor	HD:8		TYPE:Base.PC	ABB:Inq		MAXLEVEL:20	EXCLASS:Ex-Inquisitor	SOURCEPAGE:p.38	DEFINE:ExInquisitor|0	DEFINE:InquisitorLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -87,34 +104,39 @@ CLASS:Inquisitor	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Disguis
 CLASS:Inquisitor	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Inquisitor|CL
 #COMMENT: Unable to enact properly for the Domain, Inquisitor does not get a domain slot, or bonus spells from it
 ###Block:Proficiencies
-1																																ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
-1																																											AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
-1																																																									AUTO:WEAPONPROF|Crossbow (Hand)|Longbow|Crossbow (Repeating Heavy)|Crossbow (Repeating Light)|Shortbow|DEITYWEAPONS
+1												ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1			AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
+1																	AUTO:WEAPONPROF|Crossbow (Hand)|Longbow|Crossbow (Repeating Heavy)|Crossbow (Repeating Light)|Shortbow|DEITYWEAPONS
 #Block: Alignment Restrictions
 1	PROHIBITSPELL:ALIGNMENT.Good|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LE,NE,CE],[PREDEITYALIGN:LE,NE,CE]]	PROHIBITSPELL:ALIGNMENT.Good|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LE,NE,CE],[PREDEITYALIGN:LE,NE,CE]]
 1	PROHIBITSPELL:ALIGNMENT.Evil|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LG,NG,CG],[PREDEITYALIGN:LG,NG,CG]]	PROHIBITSPELL:ALIGNMENT.Evil|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LG,NG,CG],[PREDEITYALIGN:LG,NG,CG]]
 1	PROHIBITSPELL:ALIGNMENT.Lawful|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:CG,CN,CE],[PREDEITYALIGN:CG,CN,CE]]	PROHIBITSPELL:ALIGNMENT.Lawful|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:CG,CN,CE],[PREDEITYALIGN:CG,CN,CE]]
 1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LG,LN,LE],[PREDEITYALIGN:LG,LN,LE]]	PROHIBITSPELL:ALIGNMENT.Chaotic|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LG,LN,LE],[PREDEITYALIGN:LG,LN,LE]]
-1																				BONUS:ABILITYPOOL|Inquisitor Domain Choice|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDomain	BONUS:VAR|DomainLVL|CL|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDomain	ABILITY:Special Ability|AUTOMATIC|Domains|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDomain
+###Block: Vars
+1	BONUS:VAR|DomainLVL|CL|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDomain
+1	BONUS:VAR|TrackLVL|CL|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTrack
 ###Block: Level progression
-1									BONUS:ABILITYPOOL|Inquisitor Judgment Effect|1	BONUS:VAR|TrackLVL|CL|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTrack
-1																					ABILITY:Special Ability|AUTOMATIC|Monster Lore ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorMonsterLore
-1																					ABILITY:Special Ability|AUTOMATIC|Stern Gaze ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSternGaze
-2																					ABILITY:Special Ability|AUTOMATIC|Cunning Initiative ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorCunningInitiative
-2																					ABILITY:Special Ability|AUTOMATIC|Detect Alignment ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDetectAlignment
-2																					ABILITY:Special Ability|AUTOMATIC|Track ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTrack
-3																					ABILITY:Special Ability|AUTOMATIC|Solo Tactics ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSoloTactics
-5																					ABILITY:Special Ability|AUTOMATIC|Bane ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorBane
-5																					ABILITY:Special Ability|AUTOMATIC|Discern Lies ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDiscernLies
-8																					ABILITY:Special Ability|AUTOMATIC|Second Judgment ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSecondJudgment
-11																					ABILITY:Special Ability|AUTOMATIC|Stalwart ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorStalwart
-12																					ABILITY:Special Ability|AUTOMATIC|Greater Bane ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorGreaterBane
-14																					ABILITY:Special Ability|AUTOMATIC|Exploit Weakness ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorExploitWeakness
-16																					ABILITY:Special Ability|AUTOMATIC|Third Judgment ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorThirdJudgment
-17																					ABILITY:Special Ability|AUTOMATIC|Slayer ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSlayer
-20																					ABILITY:Special Ability|AUTOMATIC|True Judgment ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTrueJudgment
+1	BONUS:ABILITYPOOL|Inquisitor Domain Choice|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDomain
+1	BONUS:ABILITYPOOL|Inquisitor Judgment Effect|1
+3	BONUS:ABILITYPOOL|Teamwork Feat|CL/3|PREMULT:1,[!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTeamworkFeat],[!PREABILITY:1,CATEGORY=Special Ability,Determination ~ Preacher]
+###Block: Class Abilities
+	ABILITY:Special Ability|AUTOMATIC|Domains|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDomain
+1	ABILITY:Special Ability|AUTOMATIC|Monster Lore ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorMonsterLore
+1	ABILITY:Special Ability|AUTOMATIC|Stern Gaze ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSternGaze
+2	ABILITY:Special Ability|AUTOMATIC|Cunning Initiative ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorCunningInitiative
+2	ABILITY:Special Ability|AUTOMATIC|Detect Alignment ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDetectAlignment
+2	ABILITY:Special Ability|AUTOMATIC|Track ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTrack
+3	ABILITY:Special Ability|AUTOMATIC|Solo Tactics ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSoloTactics
+5	ABILITY:Special Ability|AUTOMATIC|Bane ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorBane
+5	ABILITY:Special Ability|AUTOMATIC|Discern Lies ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDiscernLies
+8	ABILITY:Special Ability|AUTOMATIC|Second Judgment ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSecondJudgment
+11	ABILITY:Special Ability|AUTOMATIC|Stalwart ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorStalwart
+12	ABILITY:Special Ability|AUTOMATIC|Greater Bane ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorGreaterBane
+14	ABILITY:Special Ability|AUTOMATIC|Exploit Weakness ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorExploitWeakness
+16	ABILITY:Special Ability|AUTOMATIC|Third Judgment ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorThirdJudgment
+17	ABILITY:Special Ability|AUTOMATIC|Slayer ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSlayer
+20	ABILITY:Special Ability|AUTOMATIC|True Judgment ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTrueJudgment
 #
-3									BONUS:ABILITYPOOL|Teamwork Feat|CL/3|!PREABILITY:1,CATEGORY=Special Ability,Determination ~ Preacher
 #Block: Casting
 1	CAST:0,1			KNOWN:4,2
 2	CAST:0,2			KNOWN:5,3
@@ -144,20 +166,20 @@ CLASS:Ex-Inquisitor	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Disg
 #Block:
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1												AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
-1																														AUTO:WEAPONPROF|Crossbow (Hand)|Longbow|Crossbow (Repeating Heavy)|Crossbow (Repeating Light)|Shortbow	AUTO:WEAPONPROF|DEITYWEAPONS
+1										AUTO:WEAPONPROF|Crossbow (Hand)|Longbow|Crossbow (Repeating Heavy)|Crossbow (Repeating Light)|Shortbow	AUTO:WEAPONPROF|DEITYWEAPONS
 #Block:
-1	ABILITY:Special Ability|AUTOMATIC|Monster Lore ~ Inquisitor
-1	ABILITY:Special Ability|AUTOMATIC|Stern Gaze ~ Inquisitor
-2	ABILITY:Special Ability|AUTOMATIC|Cunning Initiative ~ Inquisitor
-2	ABILITY:Special Ability|AUTOMATIC|Detect Alignment ~ Inquisitor
-2	ABILITY:Special Ability|AUTOMATIC|Track ~ Inquisitor
-3	ABILITY:Special Ability|AUTOMATIC|Solo Tactics ~ Inquisitor
-5	ABILITY:Special Ability|AUTOMATIC|Bane ~ Inquisitor
-5	ABILITY:Special Ability|AUTOMATIC|Discern Lies ~ Inquisitor
-11	ABILITY:Special Ability|AUTOMATIC|Stalwart ~ Inquisitor
-12	ABILITY:Special Ability|AUTOMATIC|Greater Bane ~ Inquisitor
-14	ABILITY:Special Ability|AUTOMATIC|Exploit Weakness ~ Inquisitor
-17	ABILITY:Special Ability|AUTOMATIC|Slayer ~ Inquisitor
+1	ABILITY:Special Ability|AUTOMATIC|Monster Lore ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorMonsterLore
+1	ABILITY:Special Ability|AUTOMATIC|Stern Gaze ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSternGaze
+2	ABILITY:Special Ability|AUTOMATIC|Cunning Initiative ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorCunningInitiative
+2	ABILITY:Special Ability|AUTOMATIC|Detect Alignment ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDetectAlignment
+2	ABILITY:Special Ability|AUTOMATIC|Track ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTrack
+3	ABILITY:Special Ability|AUTOMATIC|Solo Tactics ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSoloTactics
+5	ABILITY:Special Ability|AUTOMATIC|Bane ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorBane
+5	ABILITY:Special Ability|AUTOMATIC|Discern Lies ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDiscernLies
+11	ABILITY:Special Ability|AUTOMATIC|Stalwart ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorStalwart
+12	ABILITY:Special Ability|AUTOMATIC|Greater Bane ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorGreaterBane
+14	ABILITY:Special Ability|AUTOMATIC|Exploit Weakness ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorExploitWeakness
+17	ABILITY:Special Ability|AUTOMATIC|Slayer ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSlayer
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
 CLASS:Oracle	HD:8		TYPE:Base.PC	ABB:Ocl		MAXLEVEL:20	SOURCEPAGE:p.42	DEFINE:OracleLvl|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -171,12 +193,12 @@ CLASS:Oracle	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Oracle
 1												AUTO:FEAT|Shield Proficiency
 ###Block: Oracle Spell Choice
 1	BONUS:ABILITYPOOL|Oracle Spell Choice|1
-###Block: Oracle's Curse
+###Block: Oracle's Class Abilities
+1	ABILITY:Special Ability|AUTOMATIC|Orisons ~ Oracle
 1	ABILITY:Special Ability|AUTOMATIC|Oracle's Curse|!PREABILITY:1,CATEGORY=Archetype,TYPE.OracleOraclesCurse
-###Block: Oracular Mystery
 1	ABILITY:Special Ability|AUTOMATIC|Oracle's Mystery|!PREABILITY:1,CATEGORY=Archetype,TYPE.OracleOraclesMystery
 ###Block: Level progression
-1	CAST:0,3				KNOWN:4,2				ABILITY:Special Ability|AUTOMATIC|Orisons ~ Oracle
+1	CAST:0,3				KNOWN:4,2			
 2	CAST:0,4				KNOWN:5,2
 3	CAST:0,5				KNOWN:5,3
 4	CAST:0,6,3				KNOWN:6,3,1
@@ -198,8 +220,6 @@ CLASS:Oracle	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Oracle
 20	CAST:0,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
 
-
-
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
 CLASS:Summoner	HD:8		TYPE:Base.PC	ABB:Sum		MAXLEVEL:20	SOURCEPAGE:p.54	DEFINE:SummonerLvl|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -207,29 +227,44 @@ CLASS:Summoner	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Fly|Handle Animal|TYPE=Knowledg
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Summoner	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Summoner|CL
 ###Block:Proficiencies
-1									ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies																																				AUTO:FEAT|Armor Proficiency (Light)|Simple Weapon Proficiency
-1									ABILITY:Special Ability|AUTOMATIC|Cantrips ~ Summoner	ABILITY:Special Ability|AUTOMATIC|Eidolon ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerEidolon	ABILITY:Special Ability|AUTOMATIC|Life Link ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerLifeLink
-1									ABILITY:Special Ability|AUTOMATIC|Summon Monster ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSummonMonster
+1									ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies																AUTO:FEAT|Armor Proficiency (Light)|Simple Weapon Proficiency
+###Block: Class Abilities
+1	ABILITY:Special Ability|AUTOMATIC|Cantrips ~ Summoner	
+1	ABILITY:Special Ability|AUTOMATIC|Eidolon ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerEidolon	
+1	ABILITY:Special Ability|AUTOMATIC|Life Link ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerLifeLink
+1	ABILITY:Special Ability|AUTOMATIC|Summon Monster ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSummonMonster
+2	ABILITY:Special Ability|AUTOMATIC|Bond Senses ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerBondSenses
+4	ABILITY:Special Ability|AUTOMATIC|Shield Ally ~ Summoner|PREMULT:2,[PREVARLT:CL,12],[!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerShieldAlly]
+6	ABILITY:Special Ability|AUTOMATIC|Maker's Call ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerMakersCall
+8	ABILITY:Special Ability|AUTOMATIC|Transposition ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerTransposition
+10	ABILITY:Special Ability|AUTOMATIC|Aspect ~ Summoner|PREVARLT:CL,18
+12	ABILITY:Special Ability|AUTOMATIC|Greater Shield Ally ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerGreaterShieldAlly
+14	ABILITY:Special Ability|AUTOMATIC|Life Bond ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerLifeBond
+16	ABILITY:Special Ability|AUTOMATIC|Merge Forms ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerMergeForms
+18	ABILITY:Special Ability|AUTOMATIC|Greater Aspect ~ Summoner
+19	ABILITY:Special Ability|AUTOMATIC|Gate ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSummonMonster
+20	ABILITY:Special Ability|AUTOMATIC|Twin Eidolon ~ Summoner
+###Block: Casting Progression
 1	CAST:0,1			KNOWN:4,2
-2	CAST:0,2			KNOWN:5,3			ABILITY:Special Ability|AUTOMATIC|Bond Senses ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerBondSenses
+2	CAST:0,2			KNOWN:5,3		
 3	CAST:0,3			KNOWN:6,4
-4	CAST:0,3,1			KNOWN:6,4,2			ABILITY:Special Ability|AUTOMATIC|Shield Ally ~ Summoner|PREMULT:2,[PREVARLT:CL,12],[!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerShieldAlly]
+4	CAST:0,3,1			KNOWN:6,4,2		
 5	CAST:0,4,2			KNOWN:6,4,3
-6	CAST:0,4,3			KNOWN:6,4,4			ABILITY:Special Ability|AUTOMATIC|Maker's Call ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerMakersCall
+6	CAST:0,4,3			KNOWN:6,4,4		
 7	CAST:0,4,3,1		KNOWN:6,5,4,2
-8	CAST:0,4,4,2		KNOWN:6,5,4,3		ABILITY:Special Ability|AUTOMATIC|Transposition ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerTransposition
+8	CAST:0,4,4,2		KNOWN:6,5,4,3	
 9	CAST:0,5,4,3		KNOWN:6,5,4,4
-10	CAST:0,5,4,3,1		KNOWN:6,5,5,4,2		ABILITY:Special Ability|AUTOMATIC|Aspect ~ Summoner|PREVARLT:CL,18
+10	CAST:0,5,4,3,1		KNOWN:6,5,5,4,2	
 11	CAST:0,5,4,4,2		KNOWN:6,6,5,4,3
-12	CAST:0,5,5,4,3		KNOWN:6,6,5,4,4		ABILITY:Special Ability|AUTOMATIC|Greater Shield Ally ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerGreaterShieldAlly
+12	CAST:0,5,5,4,3		KNOWN:6,6,5,4,4	
 13	CAST:0,5,5,4,3,1		KNOWN:6,6,5,5,4,2
-14	CAST:0,5,5,4,4,2		KNOWN:6,6,6,5,4,3		ABILITY:Special Ability|AUTOMATIC|Life Bond ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerLifeBond
+14	CAST:0,5,5,4,4,2		KNOWN:6,6,6,5,4,3	
 15	CAST:0,5,5,5,4,3		KNOWN:6,6,6,5,4,4
-16	CAST:0,5,5,5,4,3,1	KNOWN:6,6,6,5,5,4,2	ABILITY:Special Ability|AUTOMATIC|Merge Forms ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerMergeForms
+16	CAST:0,5,5,5,4,3,1	KNOWN:6,6,6,5,5,4,2
 17	CAST:0,5,5,5,4,4,2	KNOWN:6,6,6,6,5,4,3
-18	CAST:0,5,5,5,5,4,3	KNOWN:6,6,6,6,5,4,4	ABILITY:Special Ability|AUTOMATIC|Greater Aspect ~ Summoner
-19	CAST:0,5,5,5,5,5,4	KNOWN:6,6,6,6,5,5,4	ABILITY:Special Ability|AUTOMATIC|Gate ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSummonMonster
-20	CAST:0,5,5,5,5,5,5	KNOWN:6,6,6,6,6,5,5	ABILITY:Special Ability|AUTOMATIC|Twin Eidolon ~ Summoner
+18	CAST:0,5,5,5,5,4,3	KNOWN:6,6,6,6,5,4,4
+19	CAST:0,5,5,5,5,5,4	KNOWN:6,6,6,6,5,5,4
+20	CAST:0,5,5,5,5,5,5	KNOWN:6,6,6,6,6,5,5
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
@@ -238,31 +273,48 @@ CLASS:Witch		HD:6		TYPE:Base.PC	ABB:Wit		MAXLEVEL:20	SOURCEPAGE:p.65	DEFINE:Witc
 CLASS:Witch		STARTSKILLPTS:2	CSKILL:TYPE=Craft|Fly|Heal|Intimidate|Knowledge (Arcana)|Knowledge (History)|Knowledge (Nature)|Knowledge (Planes)|TYPE=Profession|Spellcraft|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Caster level
 CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Witch|CL
-#
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Witch Weapon Proficiencies
+
 ###Block: Level progression
-1	CAST:3,1				BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex1	BONUS:ABILITYPOOL|Witch Patron|1	BONUS:VAR|FMLevel|CL	DEFINE:SpellMasteryQualify|1	ABILITY:Special Ability|AUTOMATIC|Witch ~ Familiar|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchFamiliar
-1						ABILITY:Special Ability|AUTOMATIC|Cantrips ~ Witch|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchCantrips
-2	CAST:4,2				BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex2
-3	CAST:4,2,1																																ABILITY:Special Ability|AUTOMATIC|Witch ~ Familiar Touch Spells|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchFamiliar,TYPE.WitchFamiliarTouchSpells
-4	CAST:4,3,2				BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex4
+1	BONUS:VAR|FMLevel|CL	DEFINE:SpellMasteryQualify|1	
+###Block: Witch Class Abilities
+1	ABILITY:Special Ability|AUTOMATIC|Witch ~ Familiar|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchFamiliar
+1	ABILITY:Special Ability|AUTOMATIC|Cantrips ~ Witch|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchCantrips
+###Block: Witch Pool Progressions
+1	BONUS:ABILITYPOOL|Witch Patron|1	
+1	BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex1
+2	BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex2
+4	BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex4
+6	BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex6
+8	BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex8
+10	BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex10
+12	BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex12
+14	BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex14
+16	BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex16
+18	BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex18
+20	BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex20
+###Block: Spell Progression
+1	CAST:3,1			
+2	CAST:4,2			
+3	CAST:4,2,1												ABILITY:Special Ability|AUTOMATIC|Witch ~ Familiar Touch Spells|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchFamiliar,TYPE.WitchFamiliarTouchSpells
+4	CAST:4,3,2			
 5	CAST:4,3,2,1
-6	CAST:4,3,3,2			BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex6
+6	CAST:4,3,3,2		
 7	CAST:4,4,3,2,1
-8	CAST:4,4,3,3,2			BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex8
+8	CAST:4,4,3,3,2		
 9	CAST:4,4,4,3,2,1
-10	CAST:4,4,4,3,3,2			BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex10
+10	CAST:4,4,4,3,3,2		
 11	CAST:4,4,4,4,3,2,1
-12	CAST:4,4,4,4,3,3,2		BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex12
+12	CAST:4,4,4,4,3,3,2	
 13	CAST:4,4,4,4,4,3,2,1
-14	CAST:4,4,4,4,4,3,3,2		BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex14
+14	CAST:4,4,4,4,4,3,3,2	
 15	CAST:4,4,4,4,4,4,3,2,1
-16	CAST:4,4,4,4,4,4,3,3,2		BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex16
+16	CAST:4,4,4,4,4,4,3,3,2	
 17	CAST:4,4,4,4,4,4,4,3,2,1
-18	CAST:4,4,4,4,4,4,4,3,3,2	BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex18
+18	CAST:4,4,4,4,4,4,4,3,3,2
 19	CAST:4,4,4,4,4,4,4,4,3,3
-20	CAST:4,4,4,4,4,4,4,4,4,4	BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex20
+20	CAST:4,4,4,4,4,4,4,4,4,4
 
 
 ##
@@ -304,27 +356,46 @@ CLASS:Antipaladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEV
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
+###Block: Var Trackers
+1	BONUS:VAR|DetectGoodLVL|CL
+1	BONUS:VAR|SmiteGoodLVL|CL
+2	BONUS:VAR|TouchOfCorruptionLVL|CL
+3	BONUS:VAR|CrueltyLVL|CL
+4	BONUS:VAR|AntipaladinChannelLVL|CL
 ###Block: Level progression
-1				BONUS:VAR|DetectGoodLVL,SmiteGoodLVL|CL	ABILITY:Special Ability|AUTOMATIC|Aura of Evil|Detect Good|Smite Good
-2				BONUS:VAR|TouchOfCorruptionLVL|CL		ABILITY:Special Ability|AUTOMATIC|Touch of Corruption ~ Antipaladin|Unholy Resilience ~ Antipaladin
-3				BONUS:VAR|CrueltyLVL|CL				ABILITY:Special Ability|AUTOMATIC|Aura of Cowardice ~ Antipaladin|Cruelty ~ Antipaladin|Plague Bringer ~ Antipaladin
-4	CAST:0,0		BONUS:VAR|AntipaladinChannelLVL|CL		ABILITY:Special Ability|AUTOMATIC|Channel Negative Energy ~ Antipaladin
-5	CAST:0,1									ABILITY:Special Ability|AUTOMATIC|Fiendish Boon ~ Antipaladin
+1	ABILITY:Special Ability|AUTOMATIC|Aura of Evil|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfEvil
+1	ABILITY:Special Ability|AUTOMATIC|Detect Good|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDetectGood
+1	ABILITY:Special Ability|AUTOMATIC|Smite Good|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinSmiteGood
+2	ABILITY:Special Ability|AUTOMATIC|Touch of Corruption ~ Antipaladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinTouchOfCorruption
+2	ABILITY:Special Ability|AUTOMATIC|Unholy Resilience ~ Antipaladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinUnholyResilience
+3	ABILITY:Special Ability|AUTOMATIC|Aura of Cowardice ~ Antipaladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfCowardice
+3	ABILITY:Special Ability|AUTOMATIC|Cruelty ~ Antipaladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinCruelty
+3	ABILITY:Special Ability|AUTOMATIC|Plague Bringer ~ Antipaladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinPlagueBringer
+4	ABILITY:Special Ability|AUTOMATIC|Channel Negative Energy ~ Antipaladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinChannelNegativeEnergy
+5	ABILITY:Special Ability|AUTOMATIC|Fiendish Boon ~ Antipaladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinFiendishBoon
+8	ABILITY:Special Ability|AUTOMATIC|Aura of Despair ~ Antipaladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfDespair
+11	ABILITY:Special Ability|AUTOMATIC|Aura of Vengeance ~ Antipaladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfVengeance
+14	ABILITY:Special Ability|AUTOMATIC|Aura of Sin ~ Antipaladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfSin
+17	ABILITY:Special Ability|AUTOMATIC|Aura of Depravity ~ Antipaladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfDepravity
+20	ABILITY:Special Ability|AUTOMATIC|Unholy Champion ~ Antipaladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinUnholyChampion
+###Block: Casting Progression
+4	CAST:0,0
+5	CAST:0,1
 6	CAST:0,1
 7	CAST:0,1,0
-8	CAST:0,1,1									ABILITY:Special Ability|AUTOMATIC|Aura of Despair ~ Antipaladin
+8	CAST:0,1,1
 9	CAST:0,2,1
 10	CAST:0,2,1,0
-11	CAST:0,2,1,1								ABILITY:Special Ability|AUTOMATIC|Aura of Vengeance ~ Antipaladin
+11	CAST:0,2,1,1
 12	CAST:0,2,2,1
 13	CAST:0,3,2,1,0
-14	CAST:0,3,2,1,1								ABILITY:Special Ability|AUTOMATIC|Aura of Sin ~ Antipaladin
+14	CAST:0,3,2,1,1
 15	CAST:0,3,2,2,1
 16	CAST:0,3,3,2,1
-17	CAST:0,4,3,2,1								ABILITY:Special Ability|AUTOMATIC|Aura of Depravity ~ Antipaladin
+17	CAST:0,4,3,2,1
 18	CAST:0,4,3,2,2
 19	CAST:0,4,3,3,2
-20	CAST:0,4,4,3,3								ABILITY:Special Ability|AUTOMATIC|Unholy Champion ~ Antipaladin
+20	CAST:0,4,4,3,3
 
 # Ex-Antipaladin
 
@@ -342,7 +413,7 @@ CLASS:Ex-Antipaladin	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Disguise|Handle Ani
 ##
 ## Block: Core Base Class Modifications
 ##
-# Race Name	Bonus to Ability Pool																																																	Ability																																																							Apply Kit
+# Race Name	Bonus to Ability Pool									Ability															Apply Kit
 #CLASS:Bard.MOD
 #1	BONUS:ABILITYPOOL|Bard Archetypes|1
 #1	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Bardic Knowledge
@@ -354,7 +425,7 @@ CLASS:Ex-Antipaladin	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Disguise|Handle Ani
 #1	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Lore Master
 #1	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Jack of All Trades
 
-# Druid
+###Block: Druid -------------
 
 # Class Name
 CLASS:Druid.MOD
@@ -375,15 +446,11 @@ CLASS:Druid.MOD
 1	DOMAIN:Travel[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidTravelAllowed,1]]
 1	DOMAIN:Trickery[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidTrickeryAllowed,1]]
 
-
-
-
-
-# Wizard
+###Block: Wizard ---------------
 
 # Class Name
 CLASS:Wizard.MOD
-SUBCLASS:Air	CHOICE:DESCRIPTOR|AirSchool		KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASS:Air	CHOICE:DESCRIPTOR|AirSchool	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASSLEVEL:1	BONUS:VAR|AirSchoolLVL|CL	ABILITY:Special Ability|AUTOMATIC|Air School
 SUBCLASS:Earth	CHOICE:DESCRIPTOR|EarthSchool	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASSLEVEL:1	BONUS:VAR|EarthSchoolLVL|CL	ABILITY:Special Ability|AUTOMATIC|Earth School
