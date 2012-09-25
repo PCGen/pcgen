@@ -212,7 +212,7 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE=Craft|Escape Artist|Int
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Monk Weapon Proficiencies
 ###Block: Flurry of Blows
-1	BONUS:VAR|FlurryLVL|MonkLVL	BONUS:VAR|MonkBAB|CL*3/4	ABILITY:Special Ability|AUTOMATIC|Flurry of Blows
+1	BONUS:VAR|FlurryLVL|MonkLVL	BONUS:VAR|MonkBAB|CL*3/4	ABILITY:Special Ability|AUTOMATIC|Flurry of Blows|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkFlurryOfBlows
 #KIT:1|Monk Flurry of Blows
 # MonkLVL tracks both Stunning Fist and all Flurry of Blows aspects for backwards compatibility.
 # Monk bonus feats are taken as CATEGORY=Special Ability objects of the same name because the Monk can ignore the feats prerequisites,
