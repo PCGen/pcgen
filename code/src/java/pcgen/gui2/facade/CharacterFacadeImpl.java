@@ -573,6 +573,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		refreshAvailableTempBonuses();
 		buildAvailableDomainsList();
 		companionSupportFacade.refreshCompanionData();
+		refreshEquipment();
 	}
 
 	/* (non-Javadoc)
