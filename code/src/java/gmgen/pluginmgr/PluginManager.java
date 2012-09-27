@@ -121,7 +121,7 @@ public final class PluginManager implements pcgen.system.PluginLoader
 		String plVersion = pl.getVersion();
 
 		boolean required = RequiredPlugin.class.isAssignableFrom(clazz);
-		boolean load = PCGenSettings.getInstance().getBoolean(logName + ".Load", true);
+		boolean load = PCGenSettings.GMGEN_OPTIONS_CONTEXT.getBoolean(logName + ".Load", true);
 
 		if ((logName == null || plVersion == null) || (plName == null))
 		{

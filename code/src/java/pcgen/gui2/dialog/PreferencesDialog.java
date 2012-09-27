@@ -87,6 +87,7 @@ import pcgen.gui2.prefs.SourcesPanel;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
+import pcgen.system.PCGenSettings;
 
 /**
  *  PCGen preferences dialog
@@ -559,8 +560,8 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 
 		public void initPreferences() 
 		{
-			checkBox.setSelected(SettingsHandler.getGMGenOption(pluginName + ".Load", true));
-			//String system = SettingsHandler.getGMGenOption(pluginName + ".System", defaultSystem);
+			checkBox.setSelected(PCGenSettings.GMGEN_OPTIONS_CONTEXT.initBoolean(pluginName + ".Load", true));
+			//String system = PCGenSettings.GMGEN_OPTIONS_CONTEXT.initProperty(pluginName + ".System", defaultSystem);
 			String system = Constants.SYSTEM_GMGEN; 
 			if(system.equals(Constants.SYSTEM_PCGEN)) 
 			{
@@ -574,12 +575,17 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 
 		public void applyPreferences() 
 		{
-			SettingsHandler.setGMGenOption(pluginName + ".Load", checkBox.isSelected());
-			if(pcgenButton.isSelected()) {
-				SettingsHandler.setGMGenOption(pluginName + ".System", Constants.SYSTEM_PCGEN);
+			PCGenSettings.GMGEN_OPTIONS_CONTEXT.setBoolean(
+				pluginName + ".Load", checkBox.isSelected());
+			if (pcgenButton.isSelected())
+			{
+				PCGenSettings.GMGEN_OPTIONS_CONTEXT.setProperty(pluginName
+					+ ".System", Constants.SYSTEM_PCGEN);
 			}
-			else {
-				SettingsHandler.setGMGenOption(pluginName + ".System", Constants.SYSTEM_GMGEN);
+			else
+			{
+				PCGenSettings.GMGEN_OPTIONS_CONTEXT.setProperty(pluginName
+					+ ".System", Constants.SYSTEM_GMGEN);
 			}
 		}
 	}

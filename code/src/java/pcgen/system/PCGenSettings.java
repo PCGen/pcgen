@@ -68,6 +68,8 @@ public class PCGenSettings extends PropertyContext
 	public static final String LAST_LOADED_SOURCES = "lastLoadedSources";
 	public static final String LAST_LOADED_GAME = "lastLoadedGame";
 
+	public static final PropertyContext GMGEN_OPTIONS_CONTEXT = instance.createChildContext("gmgen.options");
+	
 	private PCGenSettings()
 	{
 		super("options.ini");
