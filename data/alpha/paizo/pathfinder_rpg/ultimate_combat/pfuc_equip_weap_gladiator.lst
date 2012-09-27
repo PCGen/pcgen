@@ -1,0 +1,35 @@
+# CVS $Revision$ $Author$ -- Tue Sep  4 07:13:30 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+
+# Martial Weapons
+
+# Light
+# Equipment Name	Required Weapon Proficiency			Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range
+Gladius		PROFICIENCY:WEAPON|Gladius			TYPE:Weapon.GladiatorWeapon.Melee.Martial.Piercing.Performance				COST:15	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6
+
+# One-Handed
+Scizore		PROFICIENCY:WEAPON|Scizore			TYPE:Weapon.GladiatorWeapon.Melee.Martial.Piercing.Performance				COST:20	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10
+
+# Ranged Weapons
+Amentum (Javelin)	PROFICIENCY:WEAPON|Amentum (Javelin)	TYPE:Weapon.GladiatorWeapon.Melee.Martial.Piercing.Performance.Thrown.Ranged				WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	RANGE:50
+
+
+
+# EXOTIC WEAPONS
+# Light
+Aklys (Gladiator)	PROFICIENCY:WEAPON|Aklys (Gladiator)	TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Bludgeoning.Ranged.Thrown.Performance.Trip	COST:5	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	RANGE:20
+Knuckle Axe		PROFICIENCY:WEAPON|Knuckle Axe		TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Slashing.Performance.Monk			COST:9	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6
+Madu (Leather)	PROFICIENCY:WEAPON|Madu				TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Piercing.Performance				COST:40	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4
+Madu (Steel)	PROFICIENCY:WEAPON|Madu				TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Piercing.Performance				COST:40	WT:6		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4
+Pata			PROFICIENCY:WEAPON|Pata				TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Piercing.Performance				COST:14	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6
+Quadrens		PROFICIENCY:WEAPON|Quadrens			TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Piercing.Performance				COST:8	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6
+Scorpion Whip	PROFICIENCY:WEAPON|Scorpion Whip		TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Slashing.Performance				COST:5	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4
+Sica			PROFICIENCY:WEAPON|Sica				TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Slashing.Performance				COST:10	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6
+
+# One-Handed
+Hooked Axe		PROFICIENCY:WEAPON|Hooked Axe			TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Slashing.Performance.Disarm.Trip		COST:20	WT:7		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8
+Shotel		PROFICIENCY:WEAPON|Shotel			TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Piercing.Performance				COST:30	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8
+# Two-Handed
+Flying Blade	PROFICIENCY:WEAPON|Flying Blade		TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Slashing.Performance.Reach			COST:40	WT:12		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d12
+# RANGED
+Throwing Shield	PROFICIENCY:WEAPON|Throwing Shield		TYPE:Weapon.GladiatorWeapon.Melee.Ranged.Thrown.Exotic.Bludgeoning.Performance.Trip	COST:50			CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	RANGE:20
+

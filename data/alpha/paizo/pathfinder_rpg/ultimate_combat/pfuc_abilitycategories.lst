@@ -1,0 +1,27 @@
+# CVS $Revision$ $Author$ -- Wed Sep 26 20:57:18 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
+# ORIGINAL ENTRY DATE: 2012-02-03
+
+
+# Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list					Plural description for UI			Display Location
+ABILITYCATEGORY:Spellslinger Gun Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability						ABILITYLIST:Arcane Gun ~ Display										DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Spellslinger Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability						ABILITYLIST:School of the Gun ~ Display									DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Unarmed Fighter Bonus Style Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:UnarmedFighterStyle									PLURAL:Unarmed Fighter Bonus Style Feats	DISPLAYLOCATION:Feats
+
+
+# Gunslinger
+ABILITYCATEGORY:Gun Training Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Gun Training Choice ~ Gunslinger	PLURAL:Gun Training Choices			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Gunslinger Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:GunslingerFeat										PLURAL:Gunslinger Feats				DISPLAYLOCATION:Class Abilities
+
+# Samurai
+ABILITYCATEGORY:Samurai Order					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SamuraiOrderSelection									PLURAL:Samurai Orders				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Samurai Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:SamuraiFeat											PLURAL:Samurai Feats				DISPLAYLOCATION:Class Abilities
+
+# Ninja
+ABILITYCATEGORY:Ninja Trick					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Ninjatrick											PLURAL:Ninja Tricks				DISPLAYLOCATION:Class Abilities
+
+
+# Archetype Support
+ABILITYCATEGORY:Gunslinger Archetype			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:GunslingerArchetype									PLURAL:Gunslinger Archetypes			DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Samurai Archetype				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:SamuraiArchetype										PLURAL:Samurai Archetypes			DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Ninja Archetype				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:NinjaArchetype										PLURAL:Ninja Archetypes				DISPLAYLOCATION:Archetype

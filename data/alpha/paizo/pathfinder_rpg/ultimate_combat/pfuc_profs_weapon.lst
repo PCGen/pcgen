@@ -1,0 +1,228 @@
+# CVS $Revision$ $Author$ -- Wed Sep 26 12:21:11 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# All Material Used from this Web Site - http://www.d20pfsrd.com/
+# ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
+# ORIGINAL ENTRY DATE: 2012-02-03
+
+# Dummy Proficiency to Trigger granting all Firearms Profs
+# Name			Type
+# Weapon Name			Type							Nb Hands
+Firearms				TYPE:Exotic
+
+#-(Early) One-Handed Firearms
+Bukler Gun				TYPE:Ranged.Piercing.Bludgeoning.Firearm
+Pepperbox				TYPE:Ranged.Piercing.Bludgeoning.Firearm
+Pistol				TYPE:Ranged.Piercing.Bludgeoning.Firearm
+Pistol (Coat)			TYPE:Ranged.Piercing.Bludgeoning.Firearm
+Pistol (Dagger)			TYPE:Ranged.Piercing.Bludgeoning.Firearm
+Pistol (Double-Barreled)	TYPE:Ranged.Piercing.Bludgeoning.Firearm
+Pistol (Dragon)			TYPE:Ranged.Piercing.Bludgeoning.Firearm
+Pistol (Sword Cane)		TYPE:Ranged.Piercing.Bludgeoning.Firearm
+
+# Early Two-Handed Firearms
+Blunderbuss				TYPE:Ranged.Piercing.Bludgeoning.Firearm	HANDS:2
+Culverin				TYPE:Ranged.Piercing.Bludgeoning.Firearm	HANDS:2
+Double Hackbut			TYPE:Ranged.Piercing.Bludgeoning.Firearm	HANDS:2
+Fire Lance				TYPE:Ranged.Piercing.Bludgeoning.Firearm	HANDS:2
+Musket				TYPE:Ranged.Piercing.Bludgeoning.Firearm	HANDS:2
+Musket (Axe)			TYPE:Ranged.Piercing.Bludgeoning.Firearm	HANDS:2
+Musket (Double-Barreled)	TYPE:Ranged.Piercing.Bludgeoning.Firearm	HANDS:2
+Musket (Warhammer)		TYPE:Ranged.Piercing.Bludgeoning.Firearm	HANDS:2
+
+###Block: Advanced Firearms
+# One-Handed
+# Name	Type
+# Weapon Name	Type										Nb Hands
+Revolver		TYPE:Ranged.Piercing.Bludgeoning.Firearm.Revolver
+
+# Two-Handed
+Rifle			TYPE:Ranged.Piercing.Bludgeoning.Firearm.Rifle			HANDS:2
+Shotgun		TYPE:Ranged.Piercing.Bludgeoning.Firearm.Shotgun.Scatter	HANDS:2
+
+
+
+# NOTE: Expanded Groups p.45
+
+
+
+# IN PROGRESS
+
+#	COST:	DAMAGE:	CRITRANGE:	CRITMULT:x2		WT:	TYPE:
+
+###Block: Eastern  - Martial
+# Light
+# Name				Type
+# Weapon Name				Type
+Butterfly Sword				TYPE:EasternEastern.Melee.Martial.Monk
+Iron Brush					TYPE:EasternEastern.Melee.Martial
+Jutte						TYPE:EasternEastern.Melee.Martial.Disarm.Monk
+Kerambit					TYPE:EasternEastern.Melee.Martial
+Lungchuan Tamo				TYPE:EasternEastern.Melee.Martial.Monk
+Shang Gou					TYPE:EasternEastern.Melee.Martial.Disarm.Trip.Monk
+Tonfa						TYPE:EasternEastern.Melee.Martial.Blocking.Monk
+Wushu Dart					TYPE:EasternEastern.Melee.Martial.Monk
+
+# One-Handed Melee
+Broadsword (Nine Ring)			TYPE:EasternEastern.Melee.Martial.Monk
+Double Chicken Saber			TYPE:EasternEastern.Melee.Martial.Disarm.Monk
+Sibat						TYPE:EasternEastern.Melee.Martial
+
+# Two-Handed Melee
+Hooked Lance				TYPE:EasternEastern.Melee.Martial.Reach.Trip
+Monk's Spade				TYPE:EasternEastern.Melee.Martial.Double.Monk
+Naginata					TYPE:EasternEastern.Melee.Martial.Reach
+Nodachi					TYPE:EasternEastern.Melee.Martial.Brace
+Sansetsukon					TYPE:EasternEastern.Melee.Martial.Blocking.Disarm.Monk
+Sword (Tri-Point Double-Edged)	TYPE:EasternEastern.Melee.Martial.Reach
+Tiger Fork					TYPE:EasternEastern.Melee.Martial.Brace.Monk
+
+
+
+
+
+
+# Ranged
+Tube Arrow Shooter			TYPE:EasternEastern.Ranged.Martial
+Poisoned Sand Tube			TYPE:EasternEastern.Ranged.Martial
+
+
+
+###Block: Eastern  - Exotic
+# Light
+# Name			Type
+# Weapon Name			Type
+Dan Bong				TYPE:EasternEastern.Melee.Exotic.Bludgeoning.Blocking.Monk.Ranged.Thrown
+Emei Piercer			TYPE:EasternEastern.Melee.Exotic.Piercing.Monk
+Fighting Fan			TYPE:EasternEastern.Melee.Exotic.Slashing.Piercing.Distracting.Monk
+Tekko-Kagi (Iron Claw)		TYPE:EasternEastern.Melee.Exotic.Piercing.Disarm
+Wakizashi				TYPE:EasternEastern.Melee.Exotic.Piercing.Slashing.Deadly
+# One-Handed
+Katana				TYPE:EasternEastern.Melee.Exotic.Slashing.Deadly
+Nine-Section Whip			TYPE:EasternEastern.Melee.Exotic.Bludgeoning.Blocking.Distracting.Monk.Trip
+Urumi					TYPE:EasternEastern.Melee.Exotic.Slashing.Distracting
+
+# Two-Handed
+Bo Staff				TYPE:EasternEastern.Melee.Exotic.Bludgeoning.Blocking.Double.Monk
+Kama (Double-Chained)		TYPE:EasternEastern.Melee.Exotic.Slashing.Double.Monk.Reach.Trip
+Katana (Double Walking Stick)	TYPE:EasternEastern.Melee.Exotic.Bludgeoning.Double
+Kusarigama (Sickle and Chain)	TYPE:EasternEastern.Melee.Exotic.Slashing.Bludgeoning.Double.Monk.Reach.Trip.Grapple
+Kyoketsu Shoge			TYPE:EasternEastern.Melee.Exotic.Slashing.Piercing.Disarm.Grapple.Monk.Reach.Ranged.Thrown
+Meteor Hammer			TYPE:EasternEastern.Melee.Exotic.Bludgeoning.Reach.Trip
+Sword (Seven-Branched)		TYPE:EasternEastern.Melee.Exotic.Slashing.Disarm.Monk
+Tetsubo				TYPE:EasternEastern.Melee.Exotic.Bludgeoning
+
+
+# Ranged
+Rope Dart				TYPE:EasternEastern.Ranged.Exotic.Piercing.Blocking.Distracting.Monk
+
+
+# Samurai
+Katana.MOD				TYPE:Samurai.HeavyBlade
+Naginata.MOD			TYPE:Samurai.Polearm
+Wakizashi.MOD			TYPE:Samurai.LightBlade
+
+
+###Block: Gladiator
+# Martial
+
+# Light
+# Name		Type
+# Weapon Name		Type
+Gladius			TYPE:GladiatorMelee.Martial.Piercing.Performance
+
+# One-Handed
+Scizore			TYPE:GladiatorMelee.Martial.Piercing.Performance
+
+# Ranged
+Amentum (Javelin)		TYPE:GladiatorMelee.Martial.Piercing.Performance.Thrown.Ranged
+
+
+
+# EXOTIC
+# Light
+Aklys (Gladiator)		TYPE:GladiatorMelee.Exotic.Bludgeoning.Ranged.Thrown.Performance.Trip
+# COMMENT: Conflicts with Pathfinder Bestiary version which is a Simple Weapon for Derro.
+Knuckle Axe			TYPE:GladiatorMelee.Exotic.Slashing.Performance.Monk
+Madu				TYPE:GladiatorMelee.Exotic.Piercing.Performance
+Pata				TYPE:GladiatorMelee.Exotic.Piercing.Performance
+Quadrens			TYPE:GladiatorMelee.Exotic.Piercing.Performance
+Scorpion Whip		TYPE:GladiatorMelee.Exotic.Slashing.Performance
+Sica				TYPE:GladiatorMelee.Exotic.Slashing.Performance
+
+# One-Handed
+Hooked Axe			TYPE:GladiatorMelee.Exotic.Slashing.Performance.Disarm.Trip
+Shotel			TYPE:GladiatorMelee.Exotic.Piercing.Performance
+# Two-Handed
+Flying Blade		TYPE:GladiatorMelee.Exotic.Slashing.Performance.Reach
+# RANGED
+Throwing Shield		TYPE:GladiatorMelee.Ranged.Thrown.Exotic.Bludgeoning.Performance.Trip
+
+
+# Bronze Age
+# Two-Handed Melee
+Mattock			TYPE:Piercing.Martial.Fragile
+Rhomphaia			TYPE:Piercing.Slashing.Martial.Brace.Fragile.Reach
+
+#Exotic
+#Two-Handed Melee
+Harpoon			TYPE:Piercing.Ranged.Thrown.Exotic.Fragile.Grapple
+
+#Ranged
+Kestros			TYPE:Piercing.Exotic.Ranged
+
+
+# Stone Age
+#Simple
+#One-Handed Melee
+Mere Club			TYPE:StoneAge.Simple.Bludgeoning.Piercing.Fragile
+
+#Martial
+#One-Handed Melee
+Terbutje			TYPE:StoneAge.Martial.Slashing.Fragile
+
+#Two-Handed Melee
+Tepoztopilli		TYPE:StoneAge.Martial.Piercing.Slashing.Fragile.Reach
+
+#Ranged
+Atlatl			TYPE:StoneAge.Martial.Piercing.Ranged.Thrown
+
+#Exotic
+#One-Handed Melee
+Taiaha			TYPE:StoneAge.Exotic.Bludgeoning.Piercing.Double
+Terbutje (Great)		TYPE:StoneAge.Exotic.Slashing.Fragile
+Wahaika			TYPE:StoneAge.Exotic.Bludgeoning.Disarm
+
+
+# Siege Engines
+
+
+#Direct-Fire Engines	 Cost		Dmg		Critical			Range		Type1 Crew Aim Load Speed
+# Large Siege Engines
+Ballista (Light)		TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Piercing
+Cannon			TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
+# Huge Siege Engines
+Ballista (Heavy)		TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Piercing
+Cannon (Fiend's Mouth)	TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
+Firedrake			TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Fire
+# Gargantuan Siege Engines
+Ballista (Gate Breaker)	TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Firewyrm			TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Fire
+
+#Indirect-Fire Engines Cost Dmg Critical Range Type Crew Aim Load Speed
+
+# Large Siege Engines
+Bombard (Light)		TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
+Catapult (Light)		TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Trebuchet (Light)		TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+
+# Huge Siege Engines
+Bombard (Standard)	TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
+Catapult (Standard)	TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Springal (Arrow)		TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Piercing
+Springal (Rocket)		TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Fire
+Trebuchet (Standard)	TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+
+#Gargantuan Siege Engines
+Bombard (Heavy)		TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
+Catapult (Heavy)		TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Trebuchet (Heavy)		TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+

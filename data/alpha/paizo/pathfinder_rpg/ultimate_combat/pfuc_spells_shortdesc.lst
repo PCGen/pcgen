@@ -1,0 +1,153 @@
+# CVS $Revision$ $Author$ -- Tue Sep  4 07:13:30 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# Spell Descriptions - Shortened Version
+# Spell Name					Description
+Ablative Barrier.MOD				DESC:Surrounds the target with layers of force.|PREVAREQ:DisplayFullSpell,0
+Absorb Toxicity.MOD				DESC:You become immune to diseases and toxins, absorb one, and then spread it to others.|PREVAREQ:DisplayFullSpell,0
+Abundant Ammunition.MOD				DESC:Replaces nonmagical ammunition every round.|PREVAREQ:DisplayFullSpell,0
+Adjuring Step.MOD					DESC:You can move slowly and safely and still cast spells, until you move quickly, make an attack, or cast a harmful spell.|PREVAREQ:DisplayFullSpell,0
+Adoration.MOD					DESC:You gain a bonus on Diplomacy checks and performance combat checks.|PREVAREQ:DisplayFullSpell,0
+Air Bubble.MOD					DESC:Creates a small pocket of air around your head or an object.|PREVAREQ:DisplayFullSpell,0
+Air Walk (Communal).MOD				DESC:As air walk, but you may divide the duration among creatures touched.|PREVAREQ:DisplayFullSpell,0
+Animal Aspect (Greater).MOD			DESC:As animal aspect, but you gain two animal qualities.|PREVAREQ:DisplayFullSpell,0
+Animal Aspect.MOD					DESC:You gain some of the beneficial qualities of an animal.|PREVAREQ:DisplayFullSpell,0
+Ant Haul (Communal).MOD				DESC:As ant haul, but you may divide the duration among creatures touched.|PREVAREQ:DisplayFullSpell,0
+Arcane Cannon.MOD					DESC:Your focus becomes a magical cannon that fires on its own.|PREVAREQ:DisplayFullSpell,0
+Bestow Weapon Proficiency.MOD			DESC:Grant a creature proficiency in a single weapon for short period of time.|PREVAREQ:DisplayFullSpell,0
+Blistering Invective.MOD			DESC:Make an Intimidate check against all foes within 30 feet; those demoralized also take fire damage.|PREVAREQ:DisplayFullSpell,0
+Bowstaff.MOD					DESC:A shortbow may double as a club, or a longbow as a quarterstaff.|PREVAREQ:DisplayFullSpell,0
+Brow Gasher.MOD					DESC:Slashing weapon deals bleed damage to an opponent's head.|PREVAREQ:DisplayFullSpell,0
+Bullet Shield.MOD					DESC:You gain a +4 def lection bonus to AC against firearm attacks.|PREVAREQ:DisplayFullSpell,0
+Burst of Speed.MOD				DESC:You gain increased speed, and your movement ignores attacks of opportunity and allows you to move through the space of creatures larger than you are.|PREVAREQ:DisplayFullSpell,0
+Caging Bomb Admixture.MOD			DESC:Your bombs create a cage of force that traps creatures inside the bomb's splash radius.|PREVAREQ:DisplayFullSpell,0
+Certain Grip.MOD					DESC:You gain a +4 competence bonus on Acrobatics and Climb checks and to CMD.|PREVAREQ:DisplayFullSpell,0
+Chain of Perdition.MOD				DESC:Creates a floating chain of force.|PREVAREQ:DisplayFullSpell,0
+Companion Mind Link.MOD				DESC:You can talk with your animal companion, and can handle it with supernatural ease.|PREVAREQ:DisplayFullSpell,0
+Compel Hostility.MOD				DESC:Compels opponents to attack you instead of your allies.|PREVAREQ:DisplayFullSpell,0
+Damp Powder.MOD					DESC:Ruins ammunition loaded in the targeted firearm.|PREVAREQ:DisplayFullSpell,0
+Darkvision (Communal).MOD			DESC:As darkvision, but you may divide the duration among creatures touched.|PREVAREQ:DisplayFullSpell,0
+Daybreak Arrow.MOD				DESC:Targeted ammunition exudes radiant energy.|PREVAREQ:DisplayFullSpell,0
+Deadeye's Lore.MOD				DESC:Gain a +4 bonus on Survival and move full speed while tracking.|PREVAREQ:DisplayFullSpell,0
+Deadly Juggernaut.MOD				DESC:Your might increases with every kill you make.|PREVAREQ:DisplayFullSpell,0
+Debilitating Portent.MOD			DESC:Inflicts an ill fate on a creature, halving its damage when it attacks or casts a spell.|PREVAREQ:DisplayFullSpell,0
+Named Bullet.MOD					DESC:Imbues ammunition with accuracy against a specific creature type.|PREVAREQ:DisplayFullSpell,0
+Delay Poison (Communal).MOD			DESC:As delay poison, but you may divide the duration among creatures touched.|PREVAREQ:DisplayFullSpell,0
+Destabilize Powder.MOD				DESC:Ammunition in the targeted firearm is prone to misfire.|PREVAREQ:DisplayFullSpell,0
+Discovery Torch.MOD				DESC:Touched object emanates bright light, granting Perception and Sense Motive bonuses.|PREVAREQ:DisplayFullSpell,0
+Divine Arrow.MOD					DESC:Imbues a projectile with holy energy.|PREVAREQ:DisplayFullSpell,0
+Dust Form.MOD					DESC:You become an incorporeal creature of dust for a short period of time.|PREVAREQ:DisplayFullSpell,0
+Effortless Armor.MOD				DESC:Armor you wear no longer slows your speed.|PREVAREQ:DisplayFullSpell,0
+Endure Elements (Communal).MOD		DESC:As endure elements, but you may divide the duration among creatures touched.|PREVAREQ:DisplayFullSpell,0
+Energy Siege Shot (Greater).MOD		DESC:As energy siege shot, but you can affect any size siege engine.|PREVAREQ:DisplayFullSpell,0
+Energy Siege Shot.MOD				DESC:A Large siege engine deals energy damage that you designate with other effects depending on the type of energy you choose.|PREVAREQ:DisplayFullSpell,0
+Fabricate Bullets.MOD				DESC:Converts 1 pound of metal into ammunition.|PREVAREQ:DisplayFullSpell,0
+Fiery Shuriken.MOD				DESC:Calls forth several fiery projectiles ready to be flung at opponents.|PREVAREQ:DisplayFullSpell,0
+Find Quarry.MOD					DESC:You can sense whether a particular creature is within 20 miles of your location.|PREVAREQ:DisplayFullSpell,0
+Flash Fire.MOD					DESC:Ammunition in the targeted firearm creates a tremendous flash capable of blinding the weapon's bearer and those around him.|PREVAREQ:DisplayFullSpell,0
+Forest Friend.MOD					DESC:Plants in a forested area become helpful instead of hindering you and your allies.|PREVAREQ:DisplayFullSpell,0
+Frightful Aspect.MOD				DESC:You take on a terrifying, Large-sized form of yourself and emit an aura that causes creatures to become shaken or frightened.|PREVAREQ:DisplayFullSpell,0
+Frost Fall.MOD					DESC:The area is covered in a chilling frost.|PREVAREQ:DisplayFullSpell,0
+Haunted Fey Aspect.MOD				DESC:You surround yourself with disturbing illusions.|PREVAREQ:DisplayFullSpell,0
+Healing Thief.MOD					DESC:You siphon half of all magical healing that the targeted creature receives.|PREVAREQ:DisplayFullSpell,0
+Heroic Invocation.MOD				DESC:Grants a number of creatures bonuses on attacks and damage, temporary hit points, and immunity to fear and charm effects.|PREVAREQ:DisplayFullSpell,0
+Hostile Juxtaposition (Greater).MOD		DESC:You may target one creature for every four of your caster levels.|PREVAREQ:DisplayFullSpell,0
+Hostile Juxtaposition.MOD			DESC:You create a dimensional link with a targeted creature, and switch spots with it.|PREVAREQ:DisplayFullSpell,0
+Hostile Levitation.MOD				DESC:Levitates the targeted creature up off the ground.|PREVAREQ:DisplayFullSpell,0
+Illusion of Calm.MOD				DESC:You appear to be standing still, even when you take some actions.|PREVAREQ:DisplayFullSpell,0
+Instrument of Agony.MOD				DESC:Weapon exudes divine fury, granting a bonus on Intimidate checks.|PREVAREQ:DisplayFullSpell,0
+Jolting Portent.MOD				DESC:You inf lict a vengeful fate on a creature, dealing electricity damage each time it attacks or casts a spell.|PREVAREQ:DisplayFullSpell,0
+Judgment Light.MOD				DESC:You gain an additional effect while a judgment is active.|PREVAREQ:DisplayFullSpell,0
+Jury-Rig.MOD					DESC:Removes the broken condition from the targeted object.|PREVAREQ:DisplayFullSpell,0
+Kinetic Reverberation.MOD			DESC:Channels the force of an enemy's attack back into its weapon.|PREVAREQ:DisplayFullSpell,0
+Languid Bomb Admixture.MOD			DESC:Empowers bombs you throw to cause fatigue in those directly hit or splashed by the bomb.|PREVAREQ:DisplayFullSpell,0
+Liberating Command.MOD				DESC:Target makes an Escape Artist check as an immediate action and gains a bonus on it.|PREVAREQ:DisplayFullSpell,0
+Life Conduit (Greater).MOD			DESC:You transfer 3d6 hit points to your eidolon as a swift action.|PREVAREQ:DisplayFullSpell,0
+Life Conduit (Improved).MOD			DESC:Transfers 2d6 hit points to your eidolon as a swift action.|PREVAREQ:DisplayFullSpell,0
+Life Conduit.MOD					DESC:You are bound even tighter to your eidolon than normal, and may share hit points with it through your life link ability.|PREVAREQ:DisplayFullSpell,0
+Lightning Lash Bomb Admixture.MOD		DESC:Empowers bombs you throw with a ward that deals lightning damage each time those damaged by the bomb move more than 5 feet.|PREVAREQ:DisplayFullSpell,0
+Litany of Defense.MOD				DESC:Doubles armor's enhancement bonus.|PREVAREQ:DisplayFullSpell,0
+Litany of Eloquence.MOD				DESC:Fascinates a single creature for 1 round.|PREVAREQ:DisplayFullSpell,0
+Litany of Entanglement.MOD			DESC:Entangles a creature for 1 round.|PREVAREQ:DisplayFullSpell,0
+Litany of Escape.MOD				DESC:Teleports a friend out of a grapple.|PREVAREQ:DisplayFullSpell,0
+Litany of Madness.MOD				DESC:A single target is confused for at least 1 round.|PREVAREQ:DisplayFullSpell,0
+Litany of Righteousness.MOD			DESC:A single evil creature takes more damage from creatures with a good aura.|PREVAREQ:DisplayFullSpell,0
+Litany of Sight.MOD				DESC:You can see invisible creatures and objects within 30 feet of you.|PREVAREQ:DisplayFullSpell,0
+Litany of Sloth.MOD				DESC:Single target cannot make attacks of opportunity for 1 round.|PREVAREQ:DisplayFullSpell,0
+Litany of Thunder.MOD				DESC:A single target is deafened until the condition is removed, and is confused for 1 round.|PREVAREQ:DisplayFullSpell,0
+Litany of Vengeance.MOD				DESC:Allies attacking the target of the spell gain a +5 bonus on damage rolls for 1 round.|PREVAREQ:DisplayFullSpell,0
+Litany of Warding.MOD				DESC:You gain two additional attacks of opportunity for 1 round.|PREVAREQ:DisplayFullSpell,0
+Litany of Weakness.MOD				DESC:Single target is fatigued for 1 round.|PREVAREQ:DisplayFullSpell,0
+Locate Weakness.MOD				DESC:You roll damage twice when you roll damage for a critical hit and take the best damage.|PREVAREQ:DisplayFullSpell,0
+Lock Gaze.MOD					DESC:Compels the target to look only at you for the duration of the spell.|PREVAREQ:DisplayFullSpell,0
+Longshot.MOD					DESC:Grants a +10 foot bonus to the range increment for any ranged weapon fired.|PREVAREQ:DisplayFullSpell,0
+Magic Siege Engine (Greater).MOD		DESC:Siege engine gains +1 on targeting and damage rolls for every four caster levels.|PREVAREQ:DisplayFullSpell,0
+Magic Siege Engine.MOD				DESC:Siege engine gains +1 on targeting and damage rolls.|PREVAREQ:DisplayFullSpell,0
+Mask Dweomer (Communal).MOD			DESC:As mask dweomer, but you may divide the duration among creatures touched.|PREVAREQ:DisplayFullSpell,0
+Mind Blank (Communal).MOD			DESC:As mind blank, but you may divide the duration among creatures touched.|PREVAREQ:DisplayFullSpell,0
+Mirror Strike.MOD					DESC:You may strike multiple opponents with a single attack.|PREVAREQ:DisplayFullSpell,0
+Moment of Greatness.MOD				DESC:Doubles a morale bonus.|PREVAREQ:DisplayFullSpell,0
+Mount (Communal).MOD				DESC:As mount, but you may divide the duration among creatures touched.|PREVAREQ:DisplayFullSpell,0
+Mutagenic Touch.MOD				DESC:You can pass a weaker version of your mutagen to another creature.|PREVAREQ:DisplayFullSpell,0
+Named Bullet (Greater).MOD			DESC:As named bullet, but deals 2 points of damage for every caster level.|PREVAREQ:DisplayFullSpell,0
+Named Bullet.MOD					DESC:Imbues ammunition with accuracy against a specific creature type.|PREVAREQ:DisplayFullSpell,0
+Negative Reaction.MOD				DESC:Targeted creature may not positively inf luence anyone.|PREVAREQ:DisplayFullSpell,0
+Nondetection (Communal).MOD			DESC:As nondetection, but you may divide the duration among creatures touched.|PREVAREQ:DisplayFullSpell,0
+Obsidian Flow.MOD					DESC:Converts the surface of the ground into molten glass.|PREVAREQ:DisplayFullSpell,0
+Peacebond.MOD					DESC:Locks a weapon in place on the target's body.|PREVAREQ:DisplayFullSpell,0
+Pellet Blast.MOD					DESC:Creates an explosion of conjured metal pellets.|PREVAREQ:DisplayFullSpell,0
+Phantom Chariot.MOD				DESC:Conjures a quasi-real heavy chariot pulled by four horses.|PREVAREQ:DisplayFullSpell,0
+Phantom Driver.MOD				DESC:Conjures a phantom to drive vehicles.|PREVAREQ:DisplayFullSpell,0
+Phantom Steed (Communal).MOD			DESC:As phantom steed, but you may divide the duration among creatures touched.|PREVAREQ:DisplayFullSpell,0
+Pilfering Hand.MOD				DESC:You may seize an object or manipulate it from afar.|PREVAREQ:DisplayFullSpell,0
+Protection from Arrows (Communal).MOD	DESC:As protection from arrows, but you may divide the duration among creatures touched.|PREVAREQ:DisplayFullSpell,0
+Protection from Chaos (Communal).MOD	DESC:As protection from chaos, but you may divide the duration among creatures touched.|PREVAREQ:DisplayFullSpell,0
+Protection from Energy (Communal).MOD	DESC:As protection from energy, but you may divide the duration among creatures touched.|PREVAREQ:DisplayFullSpell,0
+Protection from Evil (Communal).MOD		DESC:As protection from evil, but you may divide the duration among creatures touched.|PREVAREQ:DisplayFullSpell,0
+Protection from Good (Communal).MOD		DESC:As protection from good, but you may divide the duration among creatures touched.|PREVAREQ:DisplayFullSpell,0
+Protection from Law (Communal).MOD		DESC:As protection from law, but you may divide the duration among creatures touched.|PREVAREQ:DisplayFullSpell,0
+Pup Shape.MOD					DESC:Transforms a single animal or magical beast into a younger and cuter version of itself for a short period of time.|PREVAREQ:DisplayFullSpell,0
+Qualm.MOD						DESC:Target gains penalties on ability checks, skill checks, and concentration checks until it spends an entire round doing nothing.|PREVAREQ:DisplayFullSpell,0
+Recoil Fire.MOD					DESC:Ammunition in the targeted firearm generates excessive recoil.|PREVAREQ:DisplayFullSpell,0
+Reinforce Armaments (Communal).MOD		DESC:As reinforce armaments, but you may divide the spell's duration among objects touched.|PREVAREQ:DisplayFullSpell,0
+Reinforce Armaments.MOD				DESC:Temporarily mitigates the fragile quality in targeted weapon or armor.|PREVAREQ:DisplayFullSpell,0
+Reloading Hands.MOD				DESC:Loads a single shot into your weapon every round.|PREVAREQ:DisplayFullSpell,0
+Resinous Skin.MOD					DESC:You gain DR 5/piercing and +4 to CMD against disarm attempts.|PREVAREQ:DisplayFullSpell,0
+Resist Energy (Communal).MOD			DESC:As resist energy, but you may divide the duration among creatures touched.|PREVAREQ:DisplayFullSpell,0
+Returning Weapon (Communal).MOD		DESC:As returning weapon, but you may divide the duration among weapons touched.|PREVAREQ:DisplayFullSpell,0
+Returning Weapon.MOD				DESC:Grants a weapon the returning special weapon quality.|PREVAREQ:DisplayFullSpell,0
+Ricochet Shot.MOD					DESC:Imbues a projectile weapon to give its ammunition the ability to ricochet.|PREVAREQ:DisplayFullSpell,0
+See Alignment.MOD					DESC:Pick an alignment; in your sight, creatures and items with that alignment emit a ghostly radiance.|PREVAREQ:DisplayFullSpell,0
+Shadow Bomb Admixture.MOD			DESC:Empowers bombs you throw to cover the target with a shadowy substance that grants it concealment and limits its vision.|PREVAREQ:DisplayFullSpell,0
+Share Language (Communal).MOD			DESC:As share language, but you may divide the duration among creatures touched.|PREVAREQ:DisplayFullSpell,0
+Shock Shield.MOD					DESC:A shield of force protects you until you dismiss it in an explosion of electricity.|PREVAREQ:DisplayFullSpell,0
+Shocking Image.MOD				DESC:As mirror image, but the duplicates emit electrical damage when destroyed.|PREVAREQ:DisplayFullSpell,0
+Siege of Trees (Greater).MOD			DESC:As siege of trees, but can transform Huge and Gargantuan trees into arboreal catapults of the same size.|PREVAREQ:DisplayFullSpell,0
+Siege of Trees.MOD				DESC:Transforms Large trees into arboreal catapults of the same size.|PREVAREQ:DisplayFullSpell,0
+Spell Immunity (Communal).MOD			DESC:As spell immunity, but you may divide the duration among creatures touched.|PREVAREQ:DisplayFullSpell,0
+Spell Immunity (Greater/Communal).MOD	DESC:As greater spell immunity, but you may divide the duration among creatures touched.|PREVAREQ:DisplayFullSpell,0
+Spider Climb (Communal).MOD			DESC:As spider climb, but you may divide the duration among creatures touched.|PREVAREQ:DisplayFullSpell,0
+Spontaneous Immolation.MOD			DESC:Target takes 3d6 points of fire damage and catches on fire.|PREVAREQ:DisplayFullSpell,0
+Stabilize Powder.MOD				DESC:Ammunition in the targeted firearm is less likely to misfire.|PREVAREQ:DisplayFullSpell,0
+Stoneskin (Communal).MOD			DESC:As stoneskin, but you may divide the duration among creatures touched.|PREVAREQ:DisplayFullSpell,0
+Summoner Conduit.MOD				DESC:The target eidolon's summoner takes damage whenever the eidolon does.|PREVAREQ:DisplayFullSpell,0
+Sun Metal.MOD					DESC:Weapon touched bursts into flames.|PREVAREQ:DisplayFullSpell,0
+Symbol of Striking.MOD				DESC:As symbol of death, but fills a 5-foot square.|PREVAREQ:DisplayFullSpell,0
+Tactical Acumen.MOD				DESC:You gain an additional +1 on attack rolls or to AC due to battlefield positioning.|PREVAREQ:DisplayFullSpell,0
+Tar Pool.MOD					DESC:Converts the top layer of the ground into hot tar.|PREVAREQ:DisplayFullSpell,0
+Targeted Bomb Admixture.MOD			DESC:Empowers bombs you throw to deal more damage to a single creature.|PREVAREQ:DisplayFullSpell,0
+Telekinetic Assembly.MOD			DESC:Assembles a siege engine using 1 fewer worker for every two caster levels.|PREVAREQ:DisplayFullSpell,0
+Telekinetic Charge.MOD				DESC:Launches an ally through the air.|PREVAREQ:DisplayFullSpell,0
+Terrain Bond.MOD					DESC:Treat the terrain you are in as a favored terrain for the spell's duration.|PREVAREQ:DisplayFullSpell,0
+Thunder Fire.MOD					DESC:Ammunition in the targeted firearm deafens opponents.|PREVAREQ:DisplayFullSpell,0
+Tongues (Communal).MOD				DESC:As tongues, but you may divide the duration among creatures touched.|PREVAREQ:DisplayFullSpell,0
+Touch Injection.MOD				DESC:You can deliver an infusion, elixir, poison, or potion as a touch attack.|PREVAREQ:DisplayFullSpell,0
+Twisted Space.MOD					DESC:Targeted creature's attacks target a random square instead of the intended target.|PREVAREQ:DisplayFullSpell,0
+Unerring Weapon.MOD				DESC:Grants a +2 bonus, +1 per four caster levels, on attack rolls to confirm a critical hit.|PREVAREQ:DisplayFullSpell,0
+Viper Bomb Admixture.MOD			DESC:Empowers bombs you throw to summon poisonous biting vipers that bite those hit or splashed by the bomb.|PREVAREQ:DisplayFullSpell,0
+Walk through Space.MOD				DESC:You can spend a move action to teleport 30 feet or to stand while prone without provoking attacks of opportunity.|PREVAREQ:DisplayFullSpell,0
+Warding Weapon.MOD				DESC:The weapon you use for the focus of this spell defends you, allowing you to cast spells without provoking attacks of opportunity.|PREVAREQ:DisplayFullSpell,0
+Water Walk (Communal).MOD			DESC:As water walk, but you may divide the duration among creatures touched.|PREVAREQ:DisplayFullSpell,0
+Weaken Powder.MOD					DESC:Targeted firearm's ammunition halves the firearm's range and imposes a -2 penalty on damage rolls.|PREVAREQ:DisplayFullSpell,0
+Wilderness Soldiers.MOD				DESC:Nearby plants aid you in combat.|PREVAREQ:DisplayFullSpell,0
+Wreath of Blades.MOD				DESC:Four mithral daggers speed around you, attacking nearby creatures and protecting your spellcasting from attacks of opportunity.|PREVAREQ:DisplayFullSpell,0
+
+# EOF

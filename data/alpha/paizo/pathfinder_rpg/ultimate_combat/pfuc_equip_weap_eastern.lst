@@ -1,0 +1,74 @@
+# CVS $Revision$ $Author$ -- Wed Sep 26 12:21:11 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+
+
+
+###Block: Eastern Weapons - Martial
+# Light
+# Equipment Name				Required Weapon Proficiency					Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Wield Category	Range		Size
+Butterfly Sword				PROFICIENCY:WEAPON|Butterfly Sword				TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Monk				COST:20	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4					WIELD:Light				SIZE:M
+Iron Brush					PROFICIENCY:WEAPON|Iron Brush					TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial					COST:2			CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3					WIELD:Light		RANGE:10	SIZE:M
+Jutte						PROFICIENCY:WEAPON|Jutte					TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Disarm.Monk			COST:8	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6					WIELD:Light				SIZE:M
+Kerambit					PROFICIENCY:WEAPON|Kerambit					TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial					COST:2	WT:1		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d3					WIELD:Light				SIZE:M
+Lungchuan Tamo				PROFICIENCY:WEAPON|Lungchuan Tamo				TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Monk				COST:5	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4					WIELD:Light		RANGE:10	SIZE:M
+Shang Gou					PROFICIENCY:WEAPON|Shang Gou					TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Disarm.Trip.Monk		COST:6	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4					WIELD:Light				SIZE:M
+Tonfa						PROFICIENCY:WEAPON|Tonfa					TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Blocking.Monk		COST:1	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6					WIELD:Light				SIZE:M
+Wushu Dart (5)				PROFICIENCY:WEAPON|Wushu Dart					TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Monk				COST:1			CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3					WIELD:Light		RANGE:10	SIZE:M
+
+# One-Handed Melee Weapons
+Broadsword (Nine Ring)			PROFICIENCY:WEAPON|Broadsword (Nine Ring)			TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Monk				COST:15	WT:4		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8					WIELD:OneHanded			SIZE:M
+Double Chicken Saber			PROFICIENCY:WEAPON|Double Chicken Saber			TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Disarm.Monk			COST:12	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6					WIELD:OneHanded			SIZE:M
+Sibat						PROFICIENCY:WEAPON|Sibat					TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial					COST:2	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6					WIELD:OneHanded			SIZE:M
+
+# Two-Handed Melee Weapons
+Hooked Lance				PROFICIENCY:WEAPON|Hooked Lance				TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Reach.Trip			COST:3	WT:10		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d8					WIELD:TwoHanded			SIZE:M
+Monk's Spade				PROFICIENCY:WEAPON|Monk's Spade				TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Double.Monk			COST:20	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		WIELD:TwoHanded			SIZE:M
+Naginata					PROFICIENCY:WEAPON|Naginata					TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Reach				COST:35	WT:9		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d8					WIELD:TwoHanded			SIZE:M
+Nodachi					PROFICIENCY:WEAPON|Nodachi					TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Brace				COST:60	WT:8		CRITMULT:x2			CRITRANGE:3			DAMAGE:1d10					WIELD:TwoHanded			SIZE:M
+Sansetsukon					PROFICIENCY:WEAPON|Sansetsukon				TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Blocking.Disarm.Monk	COST:8	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10					WIELD:TwoHanded			SIZE:M
+Sword (Tri-Point Double-Edged)	PROFICIENCY:WEAPON|Sword (Tri-Point Double-Edged)	TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Reach				COST:12	WT:14		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10					WIELD:TwoHanded			SIZE:M
+Tiger Fork					PROFICIENCY:WEAPON|Tiger Fork					TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Brace.Monk			COST:5	WT:8		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8					WIELD:TwoHanded			SIZE:M
+
+
+
+
+
+
+# Ranged Weapons
+Tube Arrow Shooter												TYPE:Weapon.EasternWeapon.Eastern.Ranged						COST:3	WT:.5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4										SIZE:M
+Poisoned Sand Tube												TYPE:Weapon.EasternWeapon.Eastern.Ranged						COST:1	WT:1																					SIZE:M
+
+# Ammo
+Bamboo Shaft (10)																									COST:10	WT:.5																					SIZE:M
+Arrow (Iron-tipped Distance/20)
+Arrow (Whistling)
+
+
+###Block: Eastern Weapons - Exotic
+# Light
+# Equipment Name			Required Weapon Proficiency					Type																		Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Wield Category	Range		Size
+Dan Bong				PROFICIENCY:WEAPON|Dan Bong					TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Bludgeoning.Blocking.Monk.Ranged.Thrown				COST:1			CRITMULT:x2			CRITRANGE:2			DAMAGE:1d3					WIELD:Light		RANGE:10	SIZE:M
+Emei Piercer			PROFICIENCY:WEAPON|Emei Piercer				TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Piercing.Monk								COST:3			CRITMULT:x2			CRITRANGE:2			DAMAGE:1d3					WIELD:Light				SIZE:M
+Fighting Fan			PROFICIENCY:WEAPON|Fighting Fan				TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Slashing.Piercing.Distracting.Monk					COST:5			CRITMULT:x3			CRITRANGE:1			DAMAGE:1d4					WIELD:Light				SIZE:M
+Tekko-Kagi (Iron Claw)		PROFICIENCY:WEAPON|Tekko-Kagi (Iron Claw)			TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Piercing.Disarm								COST:3			CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3					WIELD:Light				SIZE:M
+Wakizashi				PROFICIENCY:WEAPON|Wakizashi					TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Piercing.Slashing.Deadly							COST:35	WT:2		CRITMULT:x2			CRITRANGE:3			DAMAGE:1d6					WIELD:Light				SIZE:M
+# One-Handed
+Katana				PROFICIENCY:WEAPON|Katana					TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Slashing.Deadly								COST:50	WT:6		CRITMULT:x2			CRITRANGE:3			DAMAGE:1d8					WIELD:OneHanded			SIZE:M
+Nine-Section Whip			PROFICIENCY:WEAPON|Nine-Section Whip			TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Bludgeoning.Blocking.Distracting.Monk.Trip				COST:8	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8					WIELD:OneHanded			SIZE:M
+Urumi					PROFICIENCY:WEAPON|Urumi					TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Slashing.Distracting							COST:30	WT:6		CRITMULT:x2			CRITRANGE:3			DAMAGE:1d8					WIELD:OneHanded			SIZE:M
+
+# Two-Handed
+Bo Staff				PROFICIENCY:WEAPON|Bo Staff					TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Bludgeoning.Blocking.Double.Monk					COST:1	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6					WIELD:TwoHanded			SIZE:M
+Kama (Double-Chained)		PROFICIENCY:WEAPON|Kama (Double-Chained)			TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Slashing.Double.Monk.Reach.Trip					COST:8	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		WIELD:TwoHanded			SIZE:M
+Katana (Double Walking Stick)	PROFICIENCY:WEAPON|Katana (Double Walking Stick)	TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Bludgeoning.Double								COST:50	WT:6		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		WIELD:TwoHanded			SIZE:M
+Kusarigama (Sickle and Chain)	PROFICIENCY:WEAPON|Kusarigama (Sickle and Chain)	TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Slashing.Bludgeoning.Double.Monk.Reach.Trip.Grapple		COST:12	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	ALTDAMAGE:1d6		WIELD:TwoHanded			SIZE:M
+Kyoketsu Shoge			PROFICIENCY:WEAPON|Kyoketsu Shoge				TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Slashing.Piercing.Disarm.Grapple.Monk.Reach.Ranged.Thrown	COST:6	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4					WIELD:TwoHanded	RANGE:20	SIZE:M
+Meteor Hammer			PROFICIENCY:WEAPON|Meteor Hammer				TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Bludgeoning.Reach.Trip							COST:10	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8					WIELD:TwoHanded			SIZE:M
+Sword (Seven-Branched)		PROFICIENCY:WEAPON|Sword (Seven-Branched)			TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Slashing.Disarm.Monk							COST:50	WT:7		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10					WIELD:TwoHanded			SIZE:M
+Tetsubo				PROFICIENCY:WEAPON|Tetsubo					TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Bludgeoning									COST:20	WT:10		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d10					WIELD:TwoHanded			SIZE:M
+
+
+# Ranged
+Rope Dart				PROFICIENCY:WEAPON|Rope Dart					TYPE:Weapon.EasternWeapon.Eastern.Ranged.Exotic.Piercing.Blocking.Distracting.Monk					COST:1			CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4								RANGE:20	SIZE:M
+
+
+

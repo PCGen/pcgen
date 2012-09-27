@@ -1,0 +1,32 @@
+# CVS $Revision$ $Author$ -- Tue Sep  4 07:13:30 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+
+
+# Close Assault Engines Cost Dmg Critical Type Crew Speed
+# Bridge (Assault/
+# Equipment Name			Cost		Special Property
+Bridge (Assault/Large)		COST:1
+Bridge (Assault/Huge)		COST:10
+Bridge (Assault/Gargantuan)	COST:50
+Bridge (Assault/Colossal)	COST:250
+Corvus				COST:100	SPROP:Crew 1, Speed Special
+# Gallery (
+Gallery (Large)			COST:250	SPROP:Crew 3, Speed 15 ft.
+Gallery (Huge)			COST:500	SPROP:Crew 6, Speed 15 ft.
+Gallery (Gargantuan)		COST:1000	SPROP:Crew 9, Speed 15 ft.
+Gallery (Colossal)		COST:2000	SPROP:Crew 18, Speed 15 ft.
+# Ladder (Escalade/
+Ladder (Escalade/Large)		COST:5	SPROP:Crew 2, Speed as crew speed
+Ladder (Escalade/Huge)		COST:10	SPROP:Crew 4, Speed as crew speed
+Ladder (Escalade/Gargantuan)	COST:50	SPROP:Crew 6, Speed as crew speed
+Ladder (Escalade/Colossal)	COST:250	SPROP:Crew 8, Speed as crew speed
+# Ram (
+Ram (Large)				COST:500	SPROP:Damage 2d6 20/x3 Bludgeoning; Crew 5, Speed 15 ft.
+Ram (Huge)				COST:1000	SPROP:Damage 3d6 20/x3 Bludgeoning; Crew 10, Speed 15 ft.
+Ram (Gargantuan)			COST:2000	SPROP:Damage 6d6 20/x3 Bludgeoning; Crew 20, Speed 15 ft.
+Ram (Colossal)			COST:5000	SPROP:Damage 10d6 20/x3 Bludgeoning; Crew 40, Speed 15 ft.
+# Siege Tower
+Siege Tower (Large)		COST:1000	SPROP:Crew 6, Speed 15 ft.
+Siege Tower (Huge)		COST:2000	SPROP:Crew 12, Speed 15 ft.
+Siege Tower (Gargantuan)	COST:5000	SPROP:Crew 24, Speed 15 ft.
+Siege Tower (Colossal)		COST:10000	SPROP:Crew 48, Speed 15 ft.
+

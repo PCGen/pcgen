@@ -1,0 +1,73 @@
+# CVS $Revision$ $Author$ -- Tue Sep  4 07:13:30 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+CAMPAIGN:Paizo - Pathfinder Roleplaying Game Ultimate Combat
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Pathfinder Roleplaying Game
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PUBNAMELONG:Paizo Publishing LLC
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SETTING:Pathfinder Chronicles
+SOURCELONG:Ultimate Combat
+SOURCESHORT:PFUC
+#SOURCEWEB:
+#SOURCEDATE:2011-01
+ISOGL:YES
+
+COVER:ultimate_combat.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8mcz?Pathfinder-Roleplaying-Game-Ultimate-Combat|Buy this publication from Paizo Publishing!
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Roleplaying Game Core Rulebook. Copyright 2010, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Marid from the Tome of Horrors III. Copyright 2005, Necromancer Games, Inc.; Author: Scott Greene.
+COPYRIGHT:Pathfinder Roleplaying Game Ultimate Combat. Copyright 2011, Paizo Publishing, LLC; Authors: Jason Bulmahn, Tim Hitchcock, Colin McComb, Rob McCreary, Jason Nelson, Stephen Radney-MacFarland, Sean K Reynolds, Owen K.C. Stephens, and Russ Taylor.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Ultimate Combat" Copyright 2011, PCGen Data team (Including, but not limited to Andrew Maitland).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data files
+ABILITY:pfuc_abilities.lst
+ABILITY:pfuc_abilities_archetypes.lst
+ABILITY:pfuc_abilities_racial.lst
+
+ABILITYCATEGORY:pfuc_abilitycategories.lst
+
+CLASS:pfuc_classes.lst
+
+EQUIPMENT:pfuc_equip.lst
+EQUIPMENT:pfuc_equip_close_assault_siege.lst
+EQUIPMENT:pfuc_equip_magic.lst
+
+EQUIPMENT:pfuc_equip_weap_bronzeage.lst
+EQUIPMENT:pfuc_equip_weap_eastern.lst
+EQUIPMENT:pfuc_equip_weap_firearms.lst
+EQUIPMENT:pfuc_equip_weap_gladiator.lst
+EQUIPMENT:pfuc_equip_weap_siege.lst
+EQUIPMENT:pfuc_equip_weap_stoneage.lst
+EQUIPMENT:pfuc_equip_wondrous.lst
+
+EQUIPMOD:pfuc_equipmods.lst
+
+EQUIPMENT:pfuc_equip_magic.lst
+
+FEAT:pfuc_feats.lst
+#KIT:pfuc_kits_class.lst
+
+WEAPONPROF:pfuc_profs_weapon.lst
+ARMORPROF:pfuc_profs_armor.lst
+
+SPELL:pfuc_spells.lst
+SPELL:pfuc_spells_shortdesc.lst
+
+SKILL:pfuc_skills.lst
+#
+# End
+#
