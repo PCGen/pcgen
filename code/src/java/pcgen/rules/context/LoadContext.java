@@ -214,6 +214,7 @@ public abstract class LoadContext
 			{
 				for (T po : rm.getAllObjects())
 				{
+					this.setSourceURI(po.getSourceURI());
 					token.process(this, po);
 				}
 			}
