@@ -16,6 +16,7 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.Map;
 import java.util.Set;
 
 import pcgen.base.test.InequalityTester;
@@ -32,6 +33,13 @@ import pcgen.util.Logging;
  */
 public abstract class AbstractStorageFacet
 {
+	/** 
+	 * This is a non static copy of the last used character's cache entry. It is 
+	 * purely for use with runtime debuggers that do not allow access to static 
+	 * fields. 
+	 */
+	private Map<Class<?>, Object> lastCharacterDebugCache;
+	
 	/**
 	 * Copies the contents of the AbstractStorageFacet from one Player Character
 	 * to another Player Character, based on the given CharIDs representing
@@ -82,6 +90,7 @@ public abstract class AbstractStorageFacet
 	 */
 	public Object removeCache(CharID id, Class<?> cl)
 	{
+		lastCharacterDebugCache = CACHE.getMapFor(id);
 		return CACHE.remove(id, cl);
 	}
 
@@ -103,6 +112,7 @@ public abstract class AbstractStorageFacet
 	 */
 	public Object setCache(CharID id, Class<?> cl, Object o)
 	{
+		lastCharacterDebugCache = CACHE.getMapFor(id);
 		return CACHE.put(id, cl, o);
 	}
 
@@ -121,6 +131,7 @@ public abstract class AbstractStorageFacet
 	 */
 	public Object getCache(CharID id, Class<?> cl)
 	{
+		lastCharacterDebugCache = CACHE.getMapFor(id);
 		return CACHE.get(id, cl);
 	}
 

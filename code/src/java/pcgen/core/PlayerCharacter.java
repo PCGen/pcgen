@@ -8486,6 +8486,9 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 			includeSkills = SettingsHandler.getSkillsTab_IncludeSkills();
 		}
 
+		// Calculate any active bonuses
+		calcActiveBonuses();
+
 		populateSkills(includeSkills);
 
 		// Determine which hands weapons are currently being wielded in
@@ -8689,6 +8692,16 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		{
 			aClone.addEquipSet((EquipSet) eqSet.clone());
 		}
+		List<Equipment> equipmentMasterList = aClone.getEquipmentMasterList();
+		aClone.userEquipmentFacet.removeAll(aClone.id);
+		aClone.equipmentFacet.removeAll(aClone.id);
+		aClone.equippedFacet.removeAll(aClone.id);
+		FacetLibrary.getFacet(SourcedEquipmentFacet.class).removeAll(aClone.id);
+		for (Equipment equip : equipmentMasterList)
+		{
+			aClone.addEquipment(equip.clone());
+		}
+		
 		aClone.levelInfoFacet.removeAll(aClone.id);
 		for (PCLevelInfo info : getLevelInfo())
 		{

@@ -165,4 +165,12 @@ public class EquippedEquipmentFacet extends AbstractDataFacet<Equipment>
 		}
 	}
 
+	/**
+	 * Remove all entries for a single character.
+	 * @param id  The CharID representing the Player Character. 
+	 */
+	public void removeAll(CharID id)
+	{
+		removeCache(id, thisClass);		
+	}
 }

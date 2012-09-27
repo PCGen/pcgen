@@ -22,11 +22,15 @@
  */
 package pcgen.core;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.core.bonus.BonusObj;
 import pcgen.core.facade.SkillFacade;
 
 /**
@@ -82,4 +86,73 @@ public final class Skill extends PObject implements SkillFacade
 		return StringUtil.join(trueTypeList, ".");
 	}
 
+	@Override
+	public List<BonusObj> getRawBonusList(PlayerCharacter pc)
+	{
+		List<BonusObj> list = new ArrayList<BonusObj>(super.getRawBonusList(pc));
+		Collections.sort(list, new SkillBonusComparator(this));
+		return list;
+	}
+
+	/**
+	 * A comparator for sorting bonuses which puts the bonuses in the order
+	 * bonuses to this skill, bonuses without prereqs, bonuses with prereqs.  
+	 *
+	 * @author James Dempsey <jdempsey@users.sourceforge.net>
+	 */
+	public class SkillBonusComparator implements Comparator<BonusObj>
+	{
+
+		private final Skill skill;
+
+		private SkillBonusComparator(Skill skill)
+		{
+			this.skill = skill;
+			
+		}
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public int compare(BonusObj arg0, BonusObj arg1)
+		{
+			boolean arg0BonusThisSkill = bonusToThisSkill(arg0); 
+			boolean arg1BonusThisSkill = bonusToThisSkill(arg1); 
+			if (arg0BonusThisSkill != arg1BonusThisSkill)
+			{
+				if (arg0BonusThisSkill)
+				{
+					return -1;
+				}
+				return 1;
+			}
+			if (arg0.hasPrerequisites() != arg1.hasPrerequisites())
+			{
+				if (arg1.hasPrerequisites())
+				{
+					return -1;
+				}
+				return 1;
+			}
+			
+			return arg0.toString().compareTo(arg1.toString());
+		}
+		
+		private boolean bonusToThisSkill(BonusObj bonus)
+		{
+			if (!"SKILL".equals(bonus.getBonusName()))
+			{
+				return false;
+			}
+			for (Object target : bonus.getBonusInfoList())
+			{
+				if (String.valueOf(target).equalsIgnoreCase(skill.getKeyName()))
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+		
+	}
 }
