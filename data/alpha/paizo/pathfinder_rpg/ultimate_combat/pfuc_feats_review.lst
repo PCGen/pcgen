@@ -1,9 +1,10 @@
 # TODO: PREABILITY: DR?  Qwep?
-Bolstered Resilience
-	SOURCEPAGE:p.90
-	DESC:You can dramatically increase your damage reduction in exchange for its temporary loss.
-	PRETEXT:Damage reduction
-	BENEFIT:As an immediate action, you can double your DR against a single attack, to a maximum of DR 20. The type of the DR remains unchanged. If the attack you are guarding against is not successful, the increased damage reduction persists until you are hit with an attack or until the start of your next turn, whichever happens first. At the start of your next turn, you become fatigued. You cannot use this feat while you are fatigued.
+#Bolstered Resilience
+#	SOURCEPAGE:p.90
+#	DESC:You can dramatically increase your damage reduction in exchange for its temporary loss.
+#	PRETEXT:Damage reduction
+#	PREDR:1,ANY=1
+#	BENEFIT:As an immediate action, you can double your DR against a single attack, to a maximum of DR 20. The type of the DR remains unchanged. If the attack you are guarding against is not successful, the increased damage reduction persists until you are hit with an attack or until the start of your next turn, whichever happens first. At the start of your next turn, you become fatigued. You cannot use this feat while you are fatigued.
 
 # This now does not work for other classes that have a similar Bane ability
 # The Bane ~ Inquisitor ability should probably have a type anyway, so it can be archetyped
