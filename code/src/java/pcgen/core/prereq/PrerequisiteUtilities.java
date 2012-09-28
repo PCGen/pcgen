@@ -31,6 +31,7 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -287,7 +288,7 @@ public final class PrerequisiteUtilities
 
 	 * The subKey may be prefixed with TYPE(=|.) in which case the Choice string from the
 	 * ability will be used to check for the type of chooser.  Possibilities are SKILL,
-	 * WEAPONPROFS, DOMAIN, or SPELL.  A list of keys will be retrieved from the ability's
+	 * WEAPONPROFICIENCY, DOMAIN, or SPELL.  A list of keys will be retrieved from the ability's
 	 * associated object list.  The objects matching these keys are retrieved and checked
 	 * for type against subKey.  A count is returned (respects countMults).
 	 *
@@ -410,13 +411,14 @@ public final class PrerequisiteUtilities
 	{
 		final List<String> selectedList = aPC.getAssociationList(ability);
 
-		final String aChoiceString = ability.getSafe(StringKey.CHOICE_STRING);
-
+		ChooseInformation<?> chooseInformation = ability.getSafe(ObjectKey.CHOOSE_INFO);
+		final String aChoiceString = chooseInformation.getName();
+		
 		if (aChoiceString.startsWith("SKILL")) //$NON-NLS-1$
 		{
 			return subKeySkill(countMults, type, selectedList);
 		}
-		else if (aChoiceString.startsWith("WEAPONPROFS")) //$NON-NLS-1$
+		else if (aChoiceString.startsWith("WEAPONPROFICIENCY")) //$NON-NLS-1$
 		{
 			return subKeyWeaponProf(countMults, type, selectedList);
 		}
