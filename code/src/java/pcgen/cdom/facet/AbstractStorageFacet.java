@@ -39,6 +39,8 @@ public abstract class AbstractStorageFacet
 	 * fields. 
 	 */
 	private Map<Class<?>, Object> lastCharacterDebugCache;
+	private DoubleKeyMap<CharID, Class<?>, Object> debugCache =
+			new DoubleKeyMap<CharID, Class<?>, Object>();
 	
 	/**
 	 * Copies the contents of the AbstractStorageFacet from one Player Character
@@ -90,7 +92,8 @@ public abstract class AbstractStorageFacet
 	 */
 	public Object removeCache(CharID id, Class<?> cl)
 	{
-		lastCharacterDebugCache = CACHE.getMapFor(id);
+		//lastCharacterDebugCache = CACHE.getMapFor(id);
+		debugCache = CACHE;
 		return CACHE.remove(id, cl);
 	}
 
@@ -112,7 +115,8 @@ public abstract class AbstractStorageFacet
 	 */
 	public Object setCache(CharID id, Class<?> cl, Object o)
 	{
-		lastCharacterDebugCache = CACHE.getMapFor(id);
+		//lastCharacterDebugCache = CACHE.getMapFor(id);
+		debugCache = CACHE;
 		return CACHE.put(id, cl, o);
 	}
 
@@ -131,7 +135,8 @@ public abstract class AbstractStorageFacet
 	 */
 	public Object getCache(CharID id, Class<?> cl)
 	{
-		lastCharacterDebugCache = CACHE.getMapFor(id);
+		//lastCharacterDebugCache = CACHE.getMapFor(id);
+		debugCache = CACHE;
 		return CACHE.get(id, cl);
 	}
 
