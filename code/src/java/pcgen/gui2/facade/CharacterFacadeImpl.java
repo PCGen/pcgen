@@ -262,6 +262,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private TodoManager todoManager;
 	private boolean allowDebt;
 
+	private int lastExportCharSerial = 0;
+	private PlayerCharacter lastExportChar = null;
+	
 	/**
 	 * Create a new character facade for an existing character.
 	 * 
@@ -2558,6 +2561,27 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		theCharacter.setFileName(file.getName());
 	}
 
+	
+	/**
+	 * Retrieve a copy of the current character suitable for export. This 
+	 * attempts to minimise the expensive cloning function, by returning the 
+	 * previously cloned character if the base character has not changed in 
+	 * the meantime. 
+	 * @return A copy of the current character.
+	 */
+	private synchronized PlayerCharacter getExportCharacter()
+	{
+		PlayerCharacter exportPc = lastExportChar;
+		if (exportPc == null
+			|| theCharacter.getSerial() != lastExportCharSerial)
+		{
+			exportPc = (PlayerCharacter) theCharacter.clone();
+			lastExportChar = exportPc;
+			lastExportCharSerial = theCharacter.getSerial();
+		}
+		return exportPc;
+	}
+	
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#export(pcgen.io.ExportHandler, java.io.BufferedWriter)
 	 */
@@ -2569,8 +2593,10 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			try
 			{
-				PlayerCharacter exportPc = (PlayerCharacter) theCharacter.clone();
+				Logging.log(Logging.INFO, "Starting export at serial " + theCharacter.getSerial() + " to " + theHandler.getTemplateFile());
+				PlayerCharacter exportPc =  getExportCharacter();
 				theHandler.write(exportPc, buf);
+				Logging.log(Logging.INFO, "Finished export at serial " + theCharacter.getSerial() + " to " + theHandler.getTemplateFile());
 				return;
 			} catch (ConcurrentModificationException e)
 			{
