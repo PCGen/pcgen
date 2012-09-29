@@ -575,11 +575,15 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	 */
 	public void unloadSources()
 	{
-		currentSourceSelection.setReference(null);
-		Globals.emptyLists();
-		PersistenceManager pManager = PersistenceManager.getInstance();
-		pManager.clear();
-		updateTitle();
+		//make sure all characters are closed before unloading sources.
+		if (closeAllCharacters())
+		{
+			currentSourceSelection.setReference(null);
+			Globals.emptyLists();
+			PersistenceManager pManager = PersistenceManager.getInstance();
+			pManager.clear();
+			updateTitle();
+		}
 	}
 	
 	/**

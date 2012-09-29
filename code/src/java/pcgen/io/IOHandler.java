@@ -164,7 +164,7 @@ public abstract class IOHandler
 				{
 					bakFile = new File(filename + BAK_PREFIX);
 				}
-				if (bakFile.exists())
+				if (bakFile.exists() && outFile.exists() && outFile.length() > 0)
 				{
 					bakFile.delete();
 				}
