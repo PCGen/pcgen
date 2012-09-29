@@ -36,6 +36,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
 
 import pcgen.gui.utils.Utility;
 import pcgen.system.LanguageBundle;
@@ -100,8 +101,10 @@ public class ConversionChoiceDialog extends JDialog implements
 	{
 		setLayout(new GridBagLayout());
 
-		JLabel introLabel =
-				new JLabel(introText);
+		JTextArea introLabel = new JTextArea(introText, 5, 40);
+		introLabel.setEditable(false);
+		introLabel.setWrapStyleWord(true);
+		introLabel.setLineWrap(true);
 		GridBagConstraints gbc = new GridBagConstraints();
 		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
 			1.0, 1.0);

@@ -60,7 +60,9 @@ public class ChooseConvertPlugin implements TokenProcessorPlugin
 			decision =
 					tpe.getDecider().getConversionDecision(
 						"Need help with underlying type for "
-							+ getProcessedToken() + ":" + value,
+							+ getProcessedToken() + ":" + value
+							+ " which is used in " + tpe.getObjectName()
+							+ " in file " + tpe.getPrimary().getSourceURI(),
 						buildDescriptions(feat), CHOICES, CHOICES.size() - 1);
 			featAnswered.put(feat, decision);
 		}
