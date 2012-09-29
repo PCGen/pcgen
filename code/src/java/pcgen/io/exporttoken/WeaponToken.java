@@ -2085,8 +2085,6 @@ public class WeaponToken extends Token
 		if (range > -1)
 		{
 			int rangeSize = getRangeList(eq, true, pc).size();
-			int thisRange =
-					Integer.parseInt(getRangeList(eq, true, pc).get(range));
 			int shortRange = SettingsHandler.getGame().getShortRangeDistance();
 
 			/* range here is an index that represents a number of range
@@ -2094,6 +2092,9 @@ public class WeaponToken extends Token
 
 			if (range < rangeSize)
 			{
+				int thisRange =
+						Integer.parseInt(getRangeList(eq, true, pc).get(range));
+
 				// at short range, add SHORTRANGE bonus
 				if (thisRange <= shortRange)
 				{
