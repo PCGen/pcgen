@@ -6,7 +6,7 @@ RANK:3
 STATUS:Alpha
 GENRE:Fantasy
 BOOKTYPE:Supplement
-PRECAMPAIGN:2,BOOKTYPE=Core Rules,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide
+PREMULT:2,[PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core],[PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder Character Traits Web Enhancement,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide]
 PUBNAMELONG:Paizo Publishing LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com

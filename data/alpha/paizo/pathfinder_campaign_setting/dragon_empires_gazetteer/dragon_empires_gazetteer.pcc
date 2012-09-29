@@ -6,7 +6,7 @@ STATUS:ALPHA
 RANK:4
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
-PRECAMPAIGN:1,BOOKTYPE=Core Rules,[Pathfinder RPG for Game Masters (includes Monsters)]
+PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core,[Pathfinder RPG for Game Masters (includes Monsters)]
 
 # ENABLE THESE AND REMOVE FORWARDREFS ONCE INCLUDED
 #PRECAMPAIGN:1,Paizo - Inner Sea World Guide
