@@ -836,10 +836,10 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				for (int i = 0; i < equipmentList.getSize(); i++)
 				{
 					EquipmentFacade eq = equipmentList.getElementAt(i);
-					String[] types = eq.getTypes();
-					if (types.length > 0)
+					List<String> types = eq.getTypesForDisplay();
+					if (types.size() > 0)
 					{
-						primaryTypes.add(types[0]);
+						primaryTypes.add(types.get(0));
 					}
 				}
 			}
@@ -996,16 +996,16 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			switch (this)
 			{
 				case TYPE_SUBTYPE_NAME:
-					String[] types = pobj.getTypes();
-					if (types != null && types.length > 1)
+					List<String> types = pobj.getTypesForDisplay();
+					if (types != null && types.size() > 1)
 					{
 						List<TreeViewPath<EquipmentFacade>> paths =
 								new ArrayList<TreeViewPath<EquipmentFacade>>();
-						for (String type : pobj.getTypes())
+						for (String type : types)
 						{
 							if (primaryTypes.contains(type))
 							{
-								for (String subType : pobj.getTypes())
+								for (String subType : types)
 								{
 									if (!type.equals(subType))
 									{
@@ -1020,12 +1020,12 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 					}
 					// Less then two types, fall through to treat it as a type tree.
 				case TYPE_NAME:
-					types = pobj.getTypes();
-					if (types != null && types.length > 0)
+					types = pobj.getTypesForDisplay();
+					if (types != null && types.size() > 0)
 					{
 						List<TreeViewPath<EquipmentFacade>> paths = new ArrayList<TreeViewPath<EquipmentFacade>>(
-								types.length);
-						for(String type : pobj.getTypes())
+								types.size());
+						for(String type : types)
 						{
 							if (primaryTypes.contains(type))
 							{

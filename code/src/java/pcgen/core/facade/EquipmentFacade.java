@@ -21,6 +21,7 @@
 package pcgen.core.facade;
 
 import java.io.File;
+import java.util.List;
 
 /**
  *
@@ -39,5 +40,10 @@ public interface EquipmentFacade extends InfoFacade
 	 * @return The icon for this equipment item, or null if none
 	 */
 	File getIcon();
+
+	/**
+	 * @return A list of the equipment's types suitable for display.
+	 */
+	List<String> getTypesForDisplay();
 
 }

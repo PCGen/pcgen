@@ -6855,6 +6855,20 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
+	 * {@inheritDoc}
+	 */
+	public List<String> getTypesForDisplay()
+	{
+		List<Type> trueTypeList = getTrueTypeList(true);
+		List<String> result = new ArrayList<String>(trueTypeList.size());
+		for (Type type : trueTypeList)
+		{
+			result.add(type.toString());
+		}
+		return result;
+	}
+	
+	/**
 	 * Retrieve the icon for this equipment item. This may be directly set for 
 	 * the item, or it may be for one of the item's types. The types are 
 	 * checked from right to left.
