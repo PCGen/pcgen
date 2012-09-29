@@ -48,6 +48,7 @@ import pcgen.core.facade.event.ListListener;
 import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
 import pcgen.core.facade.util.ListFacades;
+import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.csheet.CharacterSheetPanel;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilteredListFacadeTableModel;
@@ -151,8 +152,8 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
-		((CSheetHandler) state.get(CSheetHandler.class)).install();
 		((BoxHandler) state.get(BoxHandler.class)).install();
+		((CSheetHandler) state.get(CSheetHandler.class)).install();
 		equipSetTable.setModel((EquipSetTableModel) state.get(EquipSetTableModel.class));
 		equipSetRowTable.setModel((EquipSetTableModel) state.get(EquipSetTableModel.class));
 		tempBonusTable.setModel((TempBonusTableModel) state.get(TempBonusTableModel.class));
@@ -184,6 +185,8 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 	private class BoxHandler extends ListDataAdapter
 	{
 
+		/** Prefs key for the character sheet for a game mode. */
+		private static final String DEFAULT_CHAR_SHEET_KEY = "CharacterSheetInfoTab.defaultCharSheet.";
 		private CharacterFacade character;
 		private ComboBoxModel model;
 
@@ -219,7 +222,11 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 				}
 				if (file == null || !file.isFile())
 				{
-					file = new File(sheetDir, game.getDefaultCharSheet());
+					String sheet =
+							UIPropertyContext.getInstance().initProperty(
+								DEFAULT_CHAR_SHEET_KEY + game.getName(),
+								game.getDefaultCharSheet());
+					file = new File(sheetDir, sheet);
 				}
 				model.setSelectedItem(file);
 			}
@@ -241,8 +248,12 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		{
 			if (e.getIndex0() == -1 && e.getIndex1() == -1)
 			{
-				csheet.setCharacterSheet((File) sheetBox.getSelectedItem());
+				File outputSheet = (File) sheetBox.getSelectedItem();
+				csheet.setCharacterSheet(outputSheet);
 				csheet.refresh();
+				UIPropertyContext.getInstance().setProperty(
+					DEFAULT_CHAR_SHEET_KEY + character.getDataSet().getGameMode().getName()
+						, outputSheet.getName());
 			}
 		}
 
