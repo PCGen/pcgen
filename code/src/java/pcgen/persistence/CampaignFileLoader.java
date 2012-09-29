@@ -42,6 +42,8 @@ import pcgen.util.Logging;
 public class CampaignFileLoader extends PCGenTask
 {
 
+	private File alternateSourceFolder = null;
+	
 	private final FilenameFilter pccFileFilter = new FilenameFilter()
 	{
 
@@ -77,11 +79,18 @@ public class CampaignFileLoader extends PCGenTask
 	public void execute()
 	{
 		// Load the initial campaigns
-		findPCCFiles(new File(ConfigurationSettings.getPccFilesDir()));
-		final String vendorDataDir = ConfigurationSettings.getVendorDataDir();
-		if (vendorDataDir != null)
+		if (alternateSourceFolder != null)
 		{
-			findPCCFiles(new File(vendorDataDir));
+			findPCCFiles(alternateSourceFolder);
+		}
+		else
+		{
+			findPCCFiles(new File(ConfigurationSettings.getPccFilesDir()));
+			final String vendorDataDir = ConfigurationSettings.getVendorDataDir();
+			if (vendorDataDir != null)
+			{
+				findPCCFiles(new File(vendorDataDir));
+			}
 		}
 		setMaximum(campaignFiles.size());
 		loadCampaigns();
@@ -140,6 +149,22 @@ public class CampaignFileLoader extends PCGenTask
 		{
 			campaignLoader.initRecursivePccFiles(c);
 		}
+	}
+
+	/**
+	 * @return the alternateSourceFolder
+	 */
+	public File getAlternateSourceFolder()
+	{
+		return alternateSourceFolder;
+	}
+
+	/**
+	 * @param alternateSourceFolder the alternateSourceFolder to set
+	 */
+	public void setAlternateSourceFolder(File alternateSourceFolder)
+	{
+		this.alternateSourceFolder = alternateSourceFolder;
 	}
 
 }

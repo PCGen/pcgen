@@ -22,6 +22,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -46,7 +47,9 @@ import pcgen.persistence.CampaignFileLoader;
 import pcgen.persistence.GameModeFileLoader;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.Main;
+import pcgen.system.PCGenPropBundle;
 import pcgen.system.PropertyContextFactory;
+import pcgen.util.Logging;
 
 public final class PCGenDataConvert extends JFrame
 {
@@ -87,7 +90,7 @@ public final class PCGenDataConvert extends JFrame
 		});
 
 		panels.add(new SourceSelectionPanel());
-		panels.add(new GameModePanel());
+		panels.add(new GameModePanel(campaignFileLoader));
 		panels.add(new CampaignPanel());
 
 		panels.add(new WriteDirectoryPanel());
@@ -106,6 +109,7 @@ public final class PCGenDataConvert extends JFrame
 
 	public static void main(String[] args) throws InterruptedException
 	{
+		Logging.log(Level.INFO, "Starting PCGen Data Converter v" + PCGenPropBundle.getVersionNumber()); //$NON-NLS-1$
 		configFactory = new PropertyContextFactory(SystemUtils.USER_DIR);
 		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance());
 		Main.loadProperties(true);

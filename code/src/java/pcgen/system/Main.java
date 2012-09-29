@@ -472,7 +472,11 @@ public final class Main
 		defaultFactory.loadPropertyContexts();
 	}
 
-	private static PCGenTask createLoadPluginTask()
+	/**
+	 * Create a task to load all system plugins. 
+	 * @return The task to load plugins.
+	 */
+	public static PCGenTask createLoadPluginTask()
 	{
 		String pluginsDir = getPluginsDir();
 		PluginClassLoader loader = new PluginClassLoader(new File(pluginsDir));

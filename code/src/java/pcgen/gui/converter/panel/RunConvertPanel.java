@@ -130,7 +130,10 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 				if (PCGFile.isPCGenCampaignFile(uri))
 				{
 					Campaign c = Globals.getCampaignByURI(uri, false);
-					totalCampaigns.add(c);
+					if (c != null)
+					{
+						totalCampaigns.add(c);
+					}
 				}
 			}
 		}

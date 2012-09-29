@@ -17,8 +17,6 @@
  */
 package pcgen.gui.converter.panel;
 
-import gmgen.pluginmgr.PluginLoader;
-
 import java.awt.Dimension;
 
 import javax.swing.JLabel;
@@ -26,12 +24,12 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Constants;
-import pcgen.core.SettingsHandler;
 import pcgen.gui.converter.UnstretchingGridLayout;
 import pcgen.gui.converter.event.ProgressEvent;
 import pcgen.persistence.CampaignFileLoader;
 import pcgen.persistence.GameModeFileLoader;
+import pcgen.system.Main;
+import pcgen.system.PCGenTask;
 
 public class StartupPanel extends ConvertSubPanel
 {
@@ -59,7 +57,7 @@ public class StartupPanel extends ConvertSubPanel
 		message.add(new JLabel("Loading Game Modes and Campaign Information."));
 		message.add(new JLabel(" "));
 
-        progressBar = new JProgressBar(0, 5);
+        progressBar = new JProgressBar(0, 3);
         progressBar.setValue(0);
         progressBar.setStringPainted(true);
 
@@ -75,17 +73,13 @@ public class StartupPanel extends ConvertSubPanel
 			@Override
 			public void run()
 			{
-				SettingsHandler.readOptionsProperties();
+				PCGenTask loadPluginTask = Main.createLoadPluginTask();
+				loadPluginTask.execute();
 		        progressBar.setValue(1);
-				SettingsHandler.getOptionsFromProperties(null);
-		        progressBar.setValue(2);
-				PluginLoader ploader = PluginLoader.inst();
-				ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
-		        progressBar.setValue(3);
 		        gameModeFileLoader.execute();
-		        progressBar.setValue(4);
+		        progressBar.setValue(2);
 		        campaignFileLoader.execute();
-		        progressBar.setValue(5);
+		        progressBar.setValue(3);
 		        
 				message.add(new JLabel("Initialization complete, press next button to continue..."));
 				message.revalidate();

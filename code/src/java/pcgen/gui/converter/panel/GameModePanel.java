@@ -19,6 +19,7 @@ package pcgen.gui.converter.panel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.List;
 
 import javax.swing.JLabel;
@@ -33,6 +34,9 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.gui.converter.event.ProgressEvent;
 import pcgen.gui.utils.JComboBoxEx;
+import pcgen.persistence.CampaignFileLoader;
+import pcgen.system.ConfigurationSettings;
+import pcgen.util.Logging;
 
 public class GameModePanel extends ConvertSubPanel
 {
@@ -40,6 +44,17 @@ public class GameModePanel extends ConvertSubPanel
 	JComboBoxEx gameModeCombo;
 
 	private SpringLayout layout = new SpringLayout();
+
+	private final CampaignFileLoader campaignFileLoader;
+
+	/**
+	 * Create a new instance of GameModePanel
+	 * @param campaignFileLoader The loader to read in campaigns
+	 */
+	public GameModePanel(CampaignFileLoader campaignFileLoader)
+	{
+		this.campaignFileLoader = campaignFileLoader;
+	}
 
 	@Override
 	public boolean autoAdvance(CDOMObject pc)
@@ -58,6 +73,18 @@ public class GameModePanel extends ConvertSubPanel
 	@Override
 	public boolean performAnalysis(CDOMObject pc)
 	{
+		File sourceDir = pc.get(ObjectKey.DIRECTORY);
+		String name = sourceDir.getAbsolutePath();
+		if (!name.equals(ConfigurationSettings.getPccFilesDir())
+			&& !name.equals(ConfigurationSettings.getVendorDataDir()))
+		{
+			// User has selected another path - we need to load the sources from there.
+			Logging.log(Logging.INFO, "Loading campaigns from " + sourceDir);
+			Globals.clearCampaignsForRefresh();
+			campaignFileLoader.setAlternateSourceFolder(sourceDir);
+			campaignFileLoader.execute();
+		}
+		
 		GameMode gameMode = pc.get(ObjectKey.GAME_MODE);
 		if (gameMode != null)
 		{

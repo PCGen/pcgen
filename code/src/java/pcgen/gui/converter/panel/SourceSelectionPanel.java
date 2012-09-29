@@ -35,9 +35,9 @@ import javax.swing.JRadioButton;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.SettingsHandler;
 import pcgen.gui.converter.event.ProgressEvent;
 import pcgen.gui.utils.Utility;
+import pcgen.system.ConfigurationSettings;
 
 /**
  * The Class <code>SourceSelectionPanel</code> gathers the source 
@@ -57,18 +57,18 @@ public class SourceSelectionPanel extends ConvertSubPanel
 	private JRadioButton radioButtons[];
 	
 	private enum SourceFolder {
-		DATA ("Data directory", SettingsHandler.getPccFilesLocation()),
-		VENDORDATA ("Vendor data directory", SettingsHandler.getPcgenVendorDataDir()),
-		OTHER ("Other directory", new File("."));
+		DATA ("Data directory", ConfigurationSettings.getPccFilesDir()),
+		VENDORDATA ("Vendor data directory", ConfigurationSettings.getVendorDataDir()),
+		OTHER ("Other directory", ".");
 		
 		private final String title;
 
 		private File file;
 		
-		SourceFolder(String title, File file)
+		SourceFolder(String title, String fileName)
 		{
 			this.title = title;
-			this.file = file;
+			this.file = new File(fileName);
 		}
 		
 		/**
