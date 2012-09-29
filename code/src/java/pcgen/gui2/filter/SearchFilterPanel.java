@@ -34,6 +34,7 @@ import javax.swing.event.DocumentListener;
 
 import org.apache.commons.lang.StringUtils;
 
+import pcgen.core.facade.InfoFacade;
 import pcgen.gui2.tools.Icons;
 import pcgen.system.LanguageBundle;
 
@@ -95,7 +96,14 @@ public class SearchFilterPanel extends JPanel
 	@Override
 	public boolean accept(Object context, Object element)
 	{
-		return StringUtils.containsIgnoreCase(element.toString(), searchField.getText());
+		String typeStr = ""; //$NON-NLS-1$
+		if (element instanceof InfoFacade)
+		{
+			typeStr = ((InfoFacade)element).getType();
+		}
+		final String searchText = searchField.getText();
+		return StringUtils.containsIgnoreCase(element.toString(), searchText)
+			|| StringUtils.containsIgnoreCase(typeStr, searchText);
 	}
 
 	@Override

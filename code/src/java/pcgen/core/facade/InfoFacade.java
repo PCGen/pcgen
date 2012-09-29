@@ -39,4 +39,9 @@ public interface InfoFacade
      * @return true if the name of this item is Product Identity (i.e owned by the publisher)
      */
     public boolean isNamePI();
+    
+    /**
+     * @return The types for this object as a single string separated by .
+     */
+    public String getType();
 }

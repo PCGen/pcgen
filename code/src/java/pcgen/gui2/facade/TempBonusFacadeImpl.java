@@ -23,13 +23,17 @@
 package pcgen.gui2.facade;
 
 import java.text.Collator;
+import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Ability;
 import pcgen.core.Equipment;
@@ -288,5 +292,15 @@ public class TempBonusFacadeImpl implements TempBonusFacade, Comparable<TempBonu
 			return false;
 		}
 		return true;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getType()
+	{
+		final List<Type> types = originObj.getSafeListFor(ListKey.TYPE);
+		return StringUtil.join(types, ".");
 	}
 }

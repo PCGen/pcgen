@@ -25,7 +25,9 @@ package pcgen.core.chooser;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.Type;
@@ -425,6 +427,16 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		{
 			return cdomObj;
 		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String getType()
+		{
+			final List<Type> types = cdomObj.getSafeListFor(ListKey.TYPE);
+			return StringUtil.join(types, ".");
+		}
 	}
 
 	private class InfoWrapper implements InfoFacade
@@ -488,6 +500,20 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		public Object getObj()
 		{
 			return obj;
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String getType()
+		{
+			if (obj instanceof CDOMObject)
+			{
+				final List<Type> types = ((CDOMObject)obj).getSafeListFor(ListKey.TYPE);
+				return StringUtil.join(types, ".");
+			}
+			return "";
 		}
 	}
 }

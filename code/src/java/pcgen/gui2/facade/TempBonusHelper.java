@@ -581,5 +581,14 @@ public class TempBonusHelper
 			return LanguageBundle.getFormattedString("in_itmCharacterName", //$NON-NLS-1$
 				theCharacter.getName());
 		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String getType()
+		{
+			return "";
+		}
 	}
 }
