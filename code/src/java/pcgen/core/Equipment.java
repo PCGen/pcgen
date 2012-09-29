@@ -2992,17 +2992,50 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Description of the Method
-	 * 
-	 * @param o
-	 *            Description of the Parameter
-	 * @return Description of the Return Value
+	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean equals(final Object o)
+	public boolean equals(Object obj)
 	{
-		return (o != null) && (o instanceof Equipment)
-			&& ((o == this) || getName().equals(((Equipment) o).getName()));
+		if (this == obj)
+		{
+			return true;
+		}
+		if (!super.equals(obj))
+		{
+			return false;
+		}
+		if (getClass() != obj.getClass())
+		{
+			return false;
+		}
+		Equipment other = (Equipment) obj;
+		
+		String displayName = getDisplayName();
+		if (displayName == null)
+		{
+			if (other.getDisplayName() != null)
+			{
+				return false;
+			}
+		}
+		else if (!displayName.equals(other.getDisplayName()))
+		{
+			return false;
+		}
+		
+		if (modifiedName == null)
+		{
+			if (other.modifiedName != null)
+			{
+				return false;
+			}
+		}
+		else if (!modifiedName.equals(other.modifiedName))
+		{
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -3089,14 +3122,21 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * Description of the Method
-	 * 
-	 * @return Description of the Return Value
+	 * {@inheritDoc}
 	 */
 	@Override
 	public int hashCode()
 	{
-		return getName().hashCode();
+		final int prime = 31;
+		int result = 1;
+		String displayName = getDisplayName();
+		result =
+				prime * result
+					+ ((displayName == null) ? 0 : displayName.hashCode());
+		result =
+				prime * result
+					+ ((modifiedName == null) ? 0 : modifiedName.hashCode());
+		return result;
 	}
 
 	/**
