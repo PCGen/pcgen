@@ -1408,9 +1408,22 @@ public final class Globals
 		Campaign oldCampaign = campaignNameMap.put(campaign.getName(), campaign);
 		if (oldCampaign != null)
 		{
-			Logging.errorPrint("Loaded Campaigns with matching names ("
+			if (oldCampaign.getSourceURI().toString()
+				.equalsIgnoreCase(campaign.getSourceURI().toString()))
+			{
+				Logging.errorPrint("The campaign ("
+					+ campaign.getName()
+					+ ") was referenced with the incorrect case: "
+					+ oldCampaign.getSourceURI() + " vs "
+					+ campaign.getSourceURI());
+			}
+			else
+			{
+				Logging.errorPrint("Loaded Campaigns with matching names ("
 					+ campaign.getName() + ") at different Locations: "
-					+ oldCampaign.getSourceURI() + " " + campaign.getSourceURI());
+					+ oldCampaign.getSourceURI() + " "
+					+ campaign.getSourceURI());
+			}
 		}
 	}
 
