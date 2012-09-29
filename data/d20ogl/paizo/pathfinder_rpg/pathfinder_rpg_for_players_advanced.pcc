@@ -6,7 +6,7 @@ STATUS:BETA
 # Note: Game mode must be a match for the game mode folder name to ensure the right gamemode gets loaded when using the basic source loading screen
 GAMEMODE:Pathfinder_RPG
 GENRE:Fantasy
-BOOKTYPE:Core Rules
+BOOKTYPE:Complete Core
 TYPE:Paizo Publishing.Pathfinder Roleplaying Game
 SHOWINMENU:YES
 

@@ -5,7 +5,7 @@ STATUS:RELEASE
 # Note: Game mode must be a match for the game mode folder name to ensure the right gamemode gets loaded when using the basic source loading screen
 GAMEMODE:Pathfinder_RPG
 GENRE:Fantasy
-BOOKTYPE:Complete Core
+BOOKTYPE:Core Rules
 SETTING:Pathfinder Chronicles
 TYPE:Paizo Publishing.Pathfinder Roleplaying Game
 SHOWINMENU:YES
