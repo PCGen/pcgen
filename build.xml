@@ -72,7 +72,7 @@ These files can be renamed and used for releases.
     <!-- For writing the jar -->
     <property name="jar.bin.file" value="pcgen.jar" />
     <property name="manifest.file" value="code/manifest" />
-    <property name="manifest.main.class" value="pcgen.core.Main" />
+    <property name="manifest.main.class" value="pcgen.system.Main" />
     <property name="default.main.class" value="pcgen.gui.pcGenGUI" />
     <property name="manifest.extra.jars" value="
         ${lib.dir}/apache/commons-lang-2.4.jar 
