@@ -111,11 +111,14 @@ public class KitStat extends BaseKit
 					final PCLevelInfo pcl = aPC.getLevelInfo(j);
 					if (pcl.getClassKeyName().equals(pcClass.getKeyName()))
 					{
-						final int spMod = pcClass.recalcSkillPointMod(aPC,
-								j + 1);
+						final int spMod =
+								pcClass.recalcSkillPointMod(aPC, j + 1);
+						int alreadySpent =
+								pcl.getSkillPointsGained(aPC)
+									- pcl.getSkillPointsRemaining();
 						pcl.setSkillPointsGained(aPC, spMod);
 						pcl.setSkillPointsRemaining(pcl
-								.getSkillPointsGained(aPC));
+							.getSkillPointsGained(aPC) - alreadySpent);
 						Integer currentPool = aPC.getAssoc(pcClass, AssociationKey.SKILL_POOL);
 						int newSkillPool = (currentPool == null ? 0 : currentPool) + spMod;
 						aPC.setAssoc(pcClass, AssociationKey.SKILL_POOL, newSkillPool);
