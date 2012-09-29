@@ -178,7 +178,6 @@ RACE:@/d20ogl/srd35/monsters/rsrd_races_y_z.lst
 RACE:@/d20ogl/srd35/monsters/rsrd_races_y_z.lst
 TEMPLATE:@/d20ogl/srd35/monsters/rsrd_templates_monsters.lst
 TEMPLATE:@/d20ogl/srd35/monsters/rsrd_templates.lst
-WEAPONPROF:@/d20ogl/srd35/monsters/rsrd_profs_racial.lst
 
 # RSRD Imports -  Psionics
 ABILITY:@/d20ogl/srd35/psionics/rsrd_abilities_psionic.lst

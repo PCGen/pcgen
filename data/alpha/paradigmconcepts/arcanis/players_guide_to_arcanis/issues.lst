@@ -7,3 +7,593 @@ LSTERROR Illegal Token 'PROHIBITSPELL' 'SPELL.Searing Light,Sunbeam,Sunburst' fo
 LSTERROR Data used token: DESCRIPTOR.Darkness.Shadow which is a Class token, but it was used in a class level for a SubClass
 LSTERROR Illegal Token 'PROHIBITSPELL' 'DESCRIPTOR.Darkness.Shadow' for pcgen.cdom.inst.PCClassLevel Priest of Illiir(1)
 All Done
+
+
+
+
+
+11:34:18.821 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: The Tempest
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_prestige.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_race.lst
+WARNING: Not loading duplicate.
+11:34:19.697 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Exploit Flaw
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_base.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:19.707 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Summon Familiar
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_base.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:19.747 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Poison Use
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_prestige.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:19.762 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Channeling
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_base.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:19.808 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Parry
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_prestige.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:19.822 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Uncanny Dodge
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_base.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:19.835 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Improved Uncanny Dodge
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_base.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:19.849 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Arcane Fire
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_prestige.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:19.862 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Arcane Reach
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_prestige.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:19.872 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Mastery of Counterspelling
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_prestige.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:19.882 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Mastery of Elements
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_prestige.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:19.895 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Mastery of Shaping
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_prestige.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:19.904 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Spell-Like Ability
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_prestige.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:19.918 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Inner Strength
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_base.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:19.945 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Evasion
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_base.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:19.980 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Arcane Reserve
+Original: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:19.995 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Frightful Presence
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_monsters.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:20.7 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Arcane Reserve
+Original: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:20.16 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Arcane Strike
+Original: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:20.35 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Additional Rage
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_prestige.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:20.61 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Perfected Control
+Original: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:20.76 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Ritualistic Casting
+Original: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:20.83 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Metamagic Mastery
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_prestige.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:20.96 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Bardic Music
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_base.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:20.113 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Storm Domain
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_prestige.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:20.131 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Dedication
+Original: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:20.140 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Brew Potion
+Original: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:20.161 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Rebuke Corporeal Undead
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_base.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:20.179 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Improved Uncanny Dodge
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_base.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:20.198 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Improved Tracking
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_monsters.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:20.234 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Riposte
+Original: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:20.245 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Guard
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_monsters.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:20.255 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Stabilize
+Original: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+WARNING: Not loading duplicate.
+11:34:27.53 LSTERROR Thread-20 SpellLoader:112 Invalid CLASSES must end with ']' if it contains a PREREQ tag (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.55 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Cleric=6[PRESUBCLASS:1,Beltine]|Priest=6' for pcgen.core.spell.Spell Beltine's Baneful Threnody in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.93 LSTERROR Thread-20 SpellLoader:112 Invalid CLASSES must end with ']' if it contains a PREREQ tag (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.98 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Cleric=2[PRESUBCLASS:1,Neroth]|Priest=2[PRESUBCLASS:1,Neroth]|Sorcerer=2|Wizard=2' for pcgen.core.spell.Spell Dead Man's Shackles in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.108 LSTERROR Thread-20 SpellLoader:112 Invalid CLASSES must end with ']' if it contains a PREREQ tag (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.127 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Cleric=1[PREDEITY:1,Sarish]|Priest=1[PREDEITY:1,Sarish]|Paladin=1|Holy Champion=1|Sorcerer=1|Wizard=1' for pcgen.core.spell.Spell Detect Infernals in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.136 LSTERROR Thread-20 SpellLoader:112 Invalid CLASSES must end with ']' if it contains a PREREQ tag (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.139 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Cleric=1[PREDEITY:1,Sarish]|Sorcerer=1|Wizard=1' for pcgen.core.spell.Spell Diabolical Treasurer in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.170 LSTERROR Thread-20 SpellLoader:112 'Hawk' is not a valid integer (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.173 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'PRETEMPLATE' 'Hawk,Shield,Ymandragore)' for pcgen.core.spell.Spell Distract the Eldritch Eye in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.184 LSTERROR Thread-20 SpellLoader:112 Invalid CLASSES must end with ']' if it contains a PREREQ tag (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.193 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Cleric=2[PREDEITY:1,Sarish]|Priest=2[PREDEITY:1,Sarish]|Sorcerer=2|Wizard=2' for pcgen.core.spell.Spell Eldritch Dagger in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.197 LSTERROR Thread-20 SpellLoader:112 Invalid CLASSES must end with ']' if it contains a PREREQ tag (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.201 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Cleric=4[PREDEITY:1,Sarish]|Priest=4[PREDEITY:1,Sarish]|Sorcerer=5|Wizard=5,' for pcgen.core.spell.Spell Eldritch Sword in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.227 LSTERROR Thread-20 SpellLoader:112 Invalid CLASSES must end with ']' if it contains a PREREQ tag (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.231 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Cleric=6[PREDEITY:1,Neroth]|Priest=6[PREDEITY:1,Neroth]|Sorcerer=5|Wizard=5' for pcgen.core.spell.Spell Entropic Gaze in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.240 LSTERROR Thread-20 SpellLoader:112 Invalid CLASSES must end with ']' if it contains a PREREQ tag (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.242 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Cleric=3[!PREDEITY:1,Neroth)|Priest=3[!PREDEITY:1,Neroth)|Druid=3|Sorcerer=3|Wizard=3|Shaman=3' for pcgen.core.spell.Spell Favor of Life in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.264 LSTERROR Thread-20 SpellLoader:112 Malformed CLASSES Token (expecting an =): Cleric 5 (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.269 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Bard=5|Cleric 5|Druid=5|Sorcerer=5|Wizard=5' for pcgen.core.spell.Spell Gaze Trigger in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.277 LSTERROR Thread-20 SpellLoader:112 Invalid CLASSES must end with ']' if it contains a PREREQ tag (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.281 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Druid=6|Cleric=7[PREDEITY:1,Sarish]|Priest=7[PREDEITY:1,Sarish]|Ehtzara=5' for pcgen.core.spell.Spell Gout of Vermin (Hellish) in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.295 LSTERROR Thread-20 SpellLoader:112 Invalid CLASSES must end with ']' if it contains a PREREQ tag (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.297 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Cleric=1[PREDEITY:1,Anshar]|Priest=1[PREDEITY:1,Anshar]|Sorcerer=1|Wizard=1' for pcgen.core.spell.Spell Inflict Cramps in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.304 LSTERROR Thread-20 SpellLoader:112 Invalid CLASSES must end with ']' if it contains a PREREQ tag (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.306 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Bard=3|Cleric=2[PREDEITY:1,Larissa]|Priest=2[PREDEITY:1,Larissa]|Sorcerer=3|Wizard=3' for pcgen.core.spell.Spell Larissa's Kiss of Narcissism in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.316 LSTERROR Thread-20 SpellLoader:112 Invalid CLASSES must end with ']' if it contains a PREREQ tag (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.320 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Bard=3|Cleric=3[PREDEITY:1,Larissa,Cadic]|Priest=3[PREDEITY:1,Larissa,Cadic]|Sorcerer=3|Wizard=3' for pcgen.core.spell.Spell Luck of Fools in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.324 LSTERROR Thread-20 SpellLoader:112 Invalid CLASSES must end with ']' if it contains a PREREQ tag (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.328 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Cleric=4[PREDEITY:1,Sarish]|Priest=4[PREDEITY:1,Sarish]|Hedge Mage=3|Sorcerer=4|Wizard=4' for pcgen.core.spell.Spell Magic Circle against Infernals in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.333 LSTERROR Thread-20 SpellLoader:112 Invalid CLASSES must end with ']' if it contains a PREREQ tag (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.336 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Cleric=3|Priest=3[PREDEITY:1,Neroth,Beltine,Belisarda]|Hedge Mage=3|Sorcerer=3|Wizard=3' for pcgen.core.spell.Spell Magic Circle against Undead in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.356 LSTERROR Thread-20 SpellLoader:112 Invalid CLASSES must end with ']' if it contains a PREREQ tag (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.360 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Priest=2[PREDEITY:1,Anshar]|Cleric=2[PREDEITY:1,Anshar]|Holy Champion=2[PREDEITY:1,Anshar]|Sorcerer=2|Wizard=2' for pcgen.core.spell.Spell Pain Shards in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.365 LSTERROR Thread-20 SpellLoader:112 Invalid CLASSES must end with ']' if it contains a PREREQ tag (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.368 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Cleric=4[PREDEITY:1,Yarris]|Sorcerer=4|Wizard=4' for pcgen.core.spell.Spell Phantom Sails in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.376 LSTERROR Thread-20 SpellLoader:112 Invalid CLASSES must end with ']' if it contains a PREREQ tag (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.387 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Sorcerer=6|Wizard=6|Cleric 7[PREDEITY:1,Hurrian]|Druid=7' for pcgen.core.spell.Spell Power Word (Thunder) in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.392 LSTERROR Thread-20 SpellLoader:112 Invalid CLASSES must end with ']' if it contains a PREREQ tag (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.396 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Adept=2|Druid=2|Ranger=2|Cleric 3[PREDEITY:1,Hurrian,Saluwe)|Holy Champion=2[PREDEITY:1,Hurrian,Saluwe)' for pcgen.core.spell.Spell Predict Weather (Greater) in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.402 LSTERROR Thread-20 SpellLoader:112 Invalid CLASSES must end with ']' if it contains a PREREQ tag (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.405 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Sorcerer=8|Wizard=8|Cleric=8[PREDEITY:1,Belisarda,Larissa' for pcgen.core.spell.Spell Prophecy in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.447 LSTERROR Thread-20 SpellLoader:112 Malformed CLASSES Token (expecting an =): Assassin 1 (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.450 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Assassin 1|Cleric=2[PREDEITY:1,Cadic]|Sorcerer=1|Wizard=1[PREDEITY:1,Cadic]|Holy Champion=2[PREDEITY:1,Cadic]' for pcgen.core.spell.Spell Shadow Darts in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.461 LSTERROR Thread-20 SpellLoader:112 Malformed Level in CLASSES (expected an Integer):  (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.464 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Cleric=[PREDEITY:1,Sarish] 2, Priest=[PREDEITY:1,Sarish] 2, Bard=3, Sorcerer=3|Wizard=3, Holy Champion=3[PREDEITY:1,Sarish]' for pcgen.core.spell.Spell Speak with Sarish's Pets (Greater) in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.470 LSTERROR Thread-20 SpellLoader:112 Malformed Level in CLASSES (expected an Integer): 4. (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.472 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Cleric=2|Priest=2|Paladin=3|Holy Champion=3|Spb=4|Sorcerer=4|Wizard=4.' for pcgen.core.spell.Spell Spirit Bane in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.483 LSTERROR Thread-20 SpellLoader:112 Malformed CLASSES Token (expecting an =): Eth 3 (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.487 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Druid=3|Sorcerer=3|Wizard=3|Eth 3' for pcgen.core.spell.Spell Sting of the Scorpion in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.494 LSTERROR Thread-20 SpellLoader:112 Invalid CLASSES must end with ']' if it contains a PREREQ tag (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.498 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Cleric=4[PREDEITY:1,Beltine]|Priest=4[PREDEITY:1,Beltine]|Smn 4|Sorcerer=3|Wizard=3' for pcgen.core.spell.Spell Touch of Beltine's Cauldron in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.509 LSTERROR Thread-20 SpellLoader:112 Malformed CLASSES Token (expecting an =): Cleric 5 (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.514 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Druid=4|Ehtzara=4|Cleric 5[PREDEITY:1,Anshar,Fire Dragon,Saluwe]' for pcgen.core.spell.Spell Wall of Serpents in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.523 LSTERROR Thread-20 SpellLoader:112 Invalid CLASSES must end with ']' if it contains a PREREQ tag (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst)
+11:34:27.526 LSTERROR Thread-20 SpellLoader:112 Illegal Token 'CLASSES' 'Druid=4|Cleric=4[PREDEITY:1,Saluwe]|Priest=4[PREDEITY:1,Saluwe]|Sorcerer=4|Wizard=4' for pcgen.core.spell.Spell Wings of the Phoenix in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:34:27.715 LSTERROR Thread-20 LstObjectFileLoader:622 file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells_mods.lst (23): PObject Detect not found; .MOD skipped.
+11:34:27.719 LSTERROR Thread-20 LstObjectFileLoader:622 file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells_mods.lst (40): PObject Charm not found; .MOD skipped.
+11:34:27.723 LSTERROR Thread-20 LstObjectFileLoader:622 file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells_mods.lst (41): PObject Person not found; .MOD skipped.
+11:34:27.728 LSTERROR Thread-20 LstObjectFileLoader:622 file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells_mods.lst (63): PObject Reduce not found; .MOD skipped.
+11:34:27.733 LSTERROR Thread-20 LstObjectFileLoader:622 file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells_mods.lst (86): PObject Endurance not found; .MOD skipped.
+11:34:27.738 LSTERROR Thread-20 LstObjectFileLoader:622 file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells_mods.lst (111): PObject Call Lighting not found; .MOD skipped.
+11:34:27.741 LSTERROR Thread-20 LstObjectFileLoader:622 file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells_mods.lst (113): PObject Diminish not found; .MOD skipped.
+11:34:27.744 LSTERROR Thread-20 LstObjectFileLoader:622 file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells_mods.lst (114): PObject Plants not found; .MOD skipped.
+11:34:27.748 LSTERROR Thread-20 LstObjectFileLoader:622 file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells_mods.lst (129): PObject Lesser Restoration not found; .MOD skipped.
+11:34:27.752 LSTERROR Thread-20 LstObjectFileLoader:622 file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells_mods.lst (136): PObject Snake Sigil not found; .MOD skipped.
+11:34:27.758 LSTERROR Thread-20 LstObjectFileLoader:622 file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells_mods.lst (164): PObject Improved Invisibility not found; .MOD skipped.
+11:34:27.761 LSTERROR Thread-20 LstObjectFileLoader:622 file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells_mods.lst (165): PObject Lesser Geas not found; .MOD skipped.
+11:34:27.827 LSTERROR Thread-20 LstObjectFileLoader:622 file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells_mods.lst (169): PObject Polymorph Other not found; .MOD skipped.
+11:34:27.830 LSTERROR Thread-20 LstObjectFileLoader:622 file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells_mods.lst (170): PObject Polymorph Self not found; .MOD skipped.
+11:34:30.290 LSTERROR Thread-20 PCClassLoader:371 Illegal Token 'HASSUBCLASS' 'YES' for pcgen.core.PCClass Via Sapientia in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst
+11:34:30.336 SEVERE Thread-20 PCClassLoader:79 Expected SUBCLASS to have additional Tags in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst (e.g. COST is a required Tag in a SUBCLASS)
+11:34:30.340 SEVERE Thread-20 LstObjectFileLoader:481 Error parsing file file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst line 549: String index out of range: -10
+11:34:30.343 SEVERE Thread-20 LstObjectFileLoader:483 Errors.LstFileLoader.Ignoring: String index out of range: -10 not defined.
+11:34:30.346 SEVERE Thread-20 PCClassLoader:79 Expected SUBCLASS to have additional Tags in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst (e.g. COST is a required Tag in a SUBCLASS)
+11:34:30.414 SEVERE Thread-20 LstObjectFileLoader:481 Error parsing file file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst line 554: String index out of range: -10
+11:34:30.417 SEVERE Thread-20 LstObjectFileLoader:483 Errors.LstFileLoader.Ignoring: String index out of range: -10 not defined.
+11:34:30.419 SEVERE Thread-20 PCClassLoader:79 Expected SUBCLASS to have additional Tags in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst (e.g. COST is a required Tag in a SUBCLASS)
+11:34:30.422 SEVERE Thread-20 LstObjectFileLoader:481 Error parsing file file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst line 559: String index out of range: -10
+11:34:30.425 SEVERE Thread-20 LstObjectFileLoader:483 Errors.LstFileLoader.Ignoring: String index out of range: -10 not defined.
+11:34:30.526 LSTERROR Thread-20 PCClassLoader:371 'Will=4' is not a valid integer (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst)
+11:34:30.528 LSTERROR Thread-20 PCClassLoader:371 Illegal Token 'PRECHECKBASE' 'Will=4' for pcgen.core.PCClass Knowledge Warden of Althares in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst
+11:34:30.533 LSTERROR Thread-20 PCClassLoader:323 Illegal Token 'ABILITY|Special Ability|AUTOMATIC|Monk Proficiencies|Knowledge Warden of Althares Proficiencies' 'null' for pcgen.cdom.inst.PCClassLevel Knowledge Warden of Althares(1) in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst
+11:34:30.561 SEVERE Thread-20 Bonus:180 Unrecognized bonus: COMABT|BAB|CL*3/4|TYPE=Base.REPLACE
+11:34:30.566 LSTERROR Thread-20 PCClassLoader:371 BONUS was given invalid bonus: COMABT|BAB|CL*3/4|TYPE=Base.REPLACE (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst)
+11:34:30.573 LSTERROR Thread-20 PCClassLoader:371 Illegal Token 'BONUS' 'COMABT|BAB|CL*3/4|TYPE=Base.REPLACE' for pcgen.core.PCClass Ordainer in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst
+11:34:30.586 SEVERE Thread-20 Bonus:180 Unrecognized bonus: COMABT|BAB|CL*1/2|TYPE=Base.REPLACE
+11:34:30.589 LSTERROR Thread-20 PCClassLoader:371 BONUS was given invalid bonus: COMABT|BAB|CL*1/2|TYPE=Base.REPLACE (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst)
+11:34:30.592 LSTERROR Thread-20 PCClassLoader:371 Illegal Token 'BONUS' 'COMABT|BAB|CL*1/2|TYPE=Base.REPLACE' for pcgen.core.PCClass Shard Shaper in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst
+11:34:30.598 SEVERE Thread-20 Bonus:180 Unrecognized bonus: COMABT|BAB|CL|TYPE=Base.REPLACE
+11:34:30.608 LSTERROR Thread-20 PCClassLoader:371 BONUS was given invalid bonus: COMABT|BAB|CL|TYPE=Base.REPLACE (Source: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst)
+11:34:30.612 LSTERROR Thread-20 PCClassLoader:371 Illegal Token 'BONUS' 'COMABT|BAB|CL|TYPE=Base.REPLACE' for pcgen.core.PCClass Wine Drinker in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst
+11:34:35.400 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Altherian Signal Rocket (Flare)
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_equip.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_equipment.lst
+WARNING: Not loading duplicate.
+11:34:35.407 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Altherian Signal Rocket (Flash)
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_equip.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_equipment.lst
+WARNING: Not loading duplicate.
+11:34:35.417 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Altherian Signal Rocket (Whistle)
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_equip.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_equipment.lst
+WARNING: Not loading duplicate.
+11:34:35.432 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Smokestick
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_equip.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_equipment.lst
+WARNING: Not loading duplicate.
+11:34:35.443 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Sunrod
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_equip.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_equipment.lst
+WARNING: Not loading duplicate.
+11:34:35.468 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Tanglefoot Bag
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_equip.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_equipment.lst
+WARNING: Not loading duplicate.
+11:34:35.478 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Thunderstone
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_equip.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_equipment.lst
+WARNING: Not loading duplicate.
+11:34:35.499 SEVERE Thread-20 LstObjectFileLoader:243 WARNING: Duplicate object name: Tindertwig
+Original: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_equip.lst
+Duplicate: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_equipment.lst
+WARNING: Not loading duplicate.
+11:34:35.756 LSTERROR Thread-20 CompanionModLoader:115 Illegal Token 'RACESUBTYPE' 'Augmented Animal' for pcgen.core.character.CompanionMod FOLLOWER:EagleCompanionLvl=10 in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_compmods.lst
+11:35:54.176 LSTWARN Thread-20 AbstractReferenceManufacturer:851 Found SpellSchool with KEY: Necromancy [Death] which contains a bracket  (prohibited character in a key)
+11:35:54.182 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Equipment with key/name Smokestick was built
+11:35:54.185 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_equip.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_equipment.lst
+11:35:54.188 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Equipment with key/name Tindertwig was built
+11:35:54.191 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_equip.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_equipment.lst
+11:35:54.194 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Equipment with key/name Altherian Signal Rocket (Flare) was built
+11:35:54.225 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_equip.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_equipment.lst
+11:35:54.229 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Equipment with key/name Altherian Signal Rocket (Flash) was built
+11:35:54.242 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_equip.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_equipment.lst
+11:35:54.245 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Equipment with key/name Altherian Signal Rocket (Whistle) was built
+11:35:54.248 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_equip.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_equipment.lst
+11:35:54.250 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Equipment with key/name Sunrod was built
+11:35:54.253 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_equip.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_equipment.lst
+11:35:54.256 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Equipment with key/name Tanglefoot Bag was built
+11:35:54.258 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_equip.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_equipment.lst
+11:35:54.260 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Equipment with key/name Thunderstone was built
+11:35:54.269 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_equip.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_equipment.lst
+11:35:54.286 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Spell with key/name Aura of Faith was built
+11:35:54.289 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_spells.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:35:54.292 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Spell with key/name Divine Word was built
+11:35:54.295 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_spells.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:35:54.298 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Spell with key/name Divine Smite was built
+11:35:54.306 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_spells.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:35:54.324 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category FEAT with key/name Arcane Knack was built
+11:35:54.326 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_feats.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats.lst
+11:35:54.330 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category FEAT with key/name Elemental Affinity was built
+11:35:54.346 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_feats.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats.lst
+11:35:54.351 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category FEAT with key/name Domain Focus was built
+11:35:54.353 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats_mod.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats.lst
+11:35:54.356 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category FEAT with key/name Altherian Craftsman was built
+11:35:54.359 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_feats.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats.lst
+11:35:54.370 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category FEAT with key/name Potent Blood was built
+11:35:54.372 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_feats.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats.lst
+11:35:54.376 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category FEAT with key/name Master Craftsman was built
+11:35:54.380 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_feats.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats.lst
+11:35:54.382 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category FEAT with key/name Imbue with Essence was built
+11:35:54.385 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_feats.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats.lst
+11:35:54.388 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category FEAT with key/name Sculpt Runic Item was built
+11:35:54.390 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_feats.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats.lst
+11:35:54.393 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category FEAT with key/name Scholar's Soul was built
+11:35:54.405 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_feats.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats.lst
+11:35:54.408 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category FEAT with key/name Craft Fetish was built
+11:35:54.411 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_feats.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats.lst
+11:35:54.415 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category FEAT with key/name Improved Familiar (Onaran) was built
+11:35:54.417 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_feats.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats.lst
+11:35:54.420 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category FEAT with key/name Prodigy was built
+11:35:54.422 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_feats.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats.lst
+11:35:54.426 LSTWARN Thread-20 AbstractReferenceManufacturer:788 Found Ability Category FEAT with KEY: Arcane Training, Focused which contains a comma (prohibited character in a key)
+11:35:54.442 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Arcane Reserve was built
+11:35:54.447 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.450 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Arcane Reach was built
+11:35:54.453 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_prestige.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.455 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Dedication was built
+11:35:54.457 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.471 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Unnatural Aura was built
+11:35:54.473 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_monsters.lst, file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_race.lst
+11:35:54.476 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Ritualistic Casting was built
+11:35:54.478 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.481 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Perfected Control was built
+11:35:54.484 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.487 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Scent was built
+11:35:54.490 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_monsters.lst, file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_race.lst
+11:35:54.492 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Frightful Presence was built
+11:35:54.503 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_monsters.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.510 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Uncanny Dodge was built
+11:35:54.513 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_base.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.516 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Walk the Web of Fate was built
+11:35:54.519 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_base.lst, file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_race.lst
+11:35:54.521 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Arcane Strike was built
+11:35:54.523 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.535 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Mastery of Elements was built
+11:35:54.540 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_prestige.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.543 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Arcane Fire was built
+11:35:54.548 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_prestige.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.550 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Additional Rage was built
+11:35:54.553 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_prestige.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.557 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Guard was built
+11:35:54.559 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_monsters.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.571 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Parry was built
+11:35:54.573 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_prestige.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.577 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Improved Tracking was built
+11:35:54.579 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_monsters.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.582 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Exploit Flaw was built
+11:35:54.589 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_base.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.593 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Poison Use was built
+11:35:54.604 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_prestige.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.607 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Bardic Music was built
+11:35:54.610 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_base.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.613 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name The Tempest was built
+11:35:54.616 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_prestige.lst, file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_race.lst
+11:35:54.619 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Stabilize was built
+11:35:54.621 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.624 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Channeling was built
+11:35:54.636 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_base.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.639 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Rebuke Corporeal Undead was built
+11:35:54.642 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_base.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.645 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Improved Uncanny Dodge was built
+11:35:54.649 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_base.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.651 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Inner Strength was built
+11:35:54.655 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_base.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.657 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Metamagic Mastery was built
+11:35:54.659 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_prestige.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.672 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Storm Domain was built
+11:35:54.675 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_prestige.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.679 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Riposte was built
+11:35:54.682 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.686 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Evasion was built
+11:35:54.689 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.691 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Spell-Like Ability was built
+11:35:54.694 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_prestige.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.697 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Mastery of Shaping was built
+11:35:54.701 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_prestige.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.703 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Brew Potion was built
+11:35:54.706 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.709 SEVERE Thread-20 AbstractReferenceManufacturer:921 More than one Ability Category Special Ability with key/name Mastery of Counterspelling was built
+11:35:54.712 SEVERE Thread-20 AbstractReferenceManufacturer:931 Sources: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_prestige.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:54.731 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: ShieldProf Totem Shield
+11:35:54.735 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst in tokens: [plugin.lsttokens.auto.ShieldProfToken]
+11:35:54.741 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: WeaponProf Altherian Flintlock Pistols
+11:35:54.744 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst in tokens: [plugin.lsttokens.auto.WeaponProfToken]
+11:35:54.747 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: WeaponProf Altherian Flintlock Rifles
+11:35:54.750 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst in tokens: [plugin.lsttokens.auto.WeaponProfToken]
+11:35:54.753 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: WeaponProf Flintlock Pistol
+11:35:54.756 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst in tokens: [plugin.lsttokens.auto.WeaponProfToken]
+11:35:54.758 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: WeaponProf Flintlock Rifle
+11:35:54.760 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst in tokens: [plugin.lsttokens.auto.WeaponProfToken]
+11:35:54.763 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: WeaponProf Shortbow (Composite)
+11:35:54.765 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst in tokens: [plugin.lsttokens.auto.WeaponProfToken]
+11:35:54.773 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: Race Altherian Construct Companion
+11:35:54.785 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_compmods.lst in tokens: [plugin.lsttokens.companionmod.MasterbonusraceToken]
+11:35:54.790 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: Skill Alchemy
+11:35:54.792 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst in tokens: [plugin.lsttokens.choose.SkillToken]
+11:35:54.795 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: Skill and Swim.
+11:35:54.798 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst in tokens: [plugin.lsttokens.pcclass.CskillToken]
+11:35:54.802 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: Skill Armorsmith
+11:35:54.805 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst in tokens: [plugin.lsttokens.choose.SkillToken]
+11:35:54.808 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: Skill Craft
+11:35:54.820 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst in tokens: [plugin.lsttokens.pcclass.CskillToken]
+11:35:54.823 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: Skill Craft (Gemsmith)
+11:35:54.825 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst in tokens: [plugin.lsttokens.pcclass.CskillToken]
+11:35:54.828 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: Skill Flintlocks
+11:35:54.831 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst in tokens: [plugin.lsttokens.choose.SkillToken]
+11:35:54.834 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: Skill Knowledge
+11:35:54.839 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst in tokens: [plugin.lsttokens.pcclass.CskillToken]
+11:35:54.842 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: Skill Knowledge (Geology)
+11:35:54.853 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst in tokens: [plugin.lsttokens.pcclass.CskillToken]
+11:35:54.856 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: Skill Knowledge (History: Ancient)
+11:35:54.859 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst in tokens: [plugin.lsttokens.pcclass.CskillToken]
+11:35:54.861 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: Skill Knowledge (Local: Ymandragore)
+11:35:54.864 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst in tokens: [plugin.lsttokens.pcclass.CskillToken]
+11:35:54.867 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: Skill Knowledge (Religion: Neroth)
+11:35:54.870 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst in tokens: [plugin.lsttokens.pcclass.CskillToken]
+11:35:54.874 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: Skill Knowledge (The Planes: Earth)
+11:35:54.881 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst in tokens: [plugin.lsttokens.pcclass.CskillToken]
+11:35:54.884 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: Skill Knowledge (Warfare and Tactics)
+11:35:54.888 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst in tokens: [plugin.lsttokens.pcclass.CskillToken]
+11:35:54.891 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: Skill None
+11:35:54.894 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst in tokens: [plugin.lsttokens.pcclass.CskillToken]
+11:35:54.897 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: Skill Trapmaking
+11:35:54.900 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst in tokens: [plugin.lsttokens.choose.SkillToken]
+11:35:54.903 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: Skill Weaponsmithing
+11:35:54.905 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst in tokens: [plugin.lsttokens.choose.SkillToken]
+11:35:54.927 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Equipment Smokestick is ambiguous
+11:35:54.930 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_equip.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_equipment.lst
+11:35:54.934 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Equipment Tanglefoot Bag is ambiguous
+11:35:54.938 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_equip.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_equipment.lst
+11:35:54.941 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Equipment Thunderstone is ambiguous
+11:35:54.951 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_equip.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_equipment.lst
+11:35:55.11 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: ClassSpellList Sumonner
+11:35:55.14 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst in tokens: [plugin.lsttokens.spell.ClassesToken]
+11:35:55.17 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Spell Aura of Faith is ambiguous
+11:35:55.20 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_spells.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:35:55.24 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: Spell Chain Lighting
+11:35:55.28 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats.lst in tokens: [plugin.lsttokens.SpellknownLst]
+11:35:55.31 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: Spell Cold Fire
+11:35:55.34 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats.lst in tokens: [plugin.lsttokens.SpellknownLst]
+11:35:55.36 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Spell Divine Smite is ambiguous
+11:35:55.39 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_spells.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:35:55.52 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Spell Divine Word is ambiguous
+11:35:55.54 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_spells.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_spells.lst
+11:35:55.57 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: Spell Explosive Pellet
+11:35:55.61 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats.lst in tokens: [plugin.lsttokens.SpellknownLst]
+11:35:55.66 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: Spell Holy Weapon
+11:35:55.70 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst in tokens: [plugin.lsttokens.SpelllevelLst]
+11:35:55.74 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: Spell Spike Stone
+11:35:55.80 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats.lst in tokens: [plugin.lsttokens.SpellknownLst]
+11:35:55.89 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: Spell Transfer Life Essence
+11:35:55.91 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats.lst in tokens: [plugin.lsttokens.SpellknownLst]
+11:35:55.96 SEVERE Thread-20 CDOMFactory:124 Unconstructed Reference: Kit Wizard Spell Book
+11:35:55.101 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_templates_hidden.lst in tokens: [plugin.lsttokens.KitLst]
+11:35:55.153 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category FEAT Altherian Craftsman is ambiguous
+11:35:55.155 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_feats.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats.lst
+11:35:55.158 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category FEAT Craft Fetish is ambiguous
+11:35:55.160 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_feats.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats.lst
+11:35:55.163 SEVERE Thread-20 AbilityCategory:698 Invalid use of MULT:YES Ability Deadly Aim where a target [parens] is required
+11:35:55.166 SEVERE Thread-20 AbilityCategory:701 PLEASE TAKE NOTE: If usage locations are reported, not all usages are necessary illegal (at least one is)
+11:35:55.170 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_prestige.lst in tokens: [plugin.lsttokens.auto.FeatToken]
+11:35:55.173 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category FEAT Domain Focus is ambiguous
+11:35:55.183 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats_mod.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats.lst
+11:35:55.187 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category FEAT Domain Focus is ambiguous
+11:35:55.191 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats_mod.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats.lst
+11:35:55.196 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category FEAT Domain Focus is ambiguous
+11:35:55.198 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats_mod.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats.lst
+11:35:55.202 SEVERE Thread-20 AbilityCategory:698 Invalid use of MULT:YES Ability Martial Weapon Proficiency where a target [parens] is required
+11:35:55.204 SEVERE Thread-20 AbilityCategory:701 PLEASE TAKE NOTE: If usage locations are reported, not all usages are necessary illegal (at least one is)
+11:35:55.217 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst in tokens: [plugin.lsttokens.add.FeatToken]
+11:35:55.220 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_base.lst in tokens: [plugin.lsttokens.ServesAsToken]
+11:35:55.223 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst in tokens: [plugin.lsttokens.auto.FeatToken]
+11:35:55.227 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category FEAT Master Craftsman is ambiguous
+11:35:55.231 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_feats.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats.lst
+11:35:55.234 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category FEAT Master Craftsman is ambiguous
+11:35:55.237 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_feats.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats.lst
+11:35:55.240 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category FEAT Master Craftsman is ambiguous
+11:35:55.251 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_feats.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_feats.lst
+11:35:55.257 SEVERE Thread-20 AbilityCategory:662 Unconstructed Reference: Ability Category FEAT Weapon Finesse,
+11:35:55.259 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_kits.lst in tokens: [plugin.lsttokens.kit.ability.FeatToken]
+11:35:55.724 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Additional Rage is ambiguous
+11:35:55.726 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_prestige.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:55.729 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Arcane Reserve is ambiguous
+11:35:55.731 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:55.733 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Arcane Strike is ambiguous
+11:35:55.736 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:55.740 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Bardic Music is ambiguous
+11:35:55.743 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_base.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:55.747 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Brew Potion is ambiguous
+11:35:55.750 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:55.753 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Channeling is ambiguous
+11:35:55.757 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_base.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:55.762 SEVERE Thread-20 AbilityCategory:662 Unconstructed Reference: Ability Category Special Ability Clockwork Construct traits
+11:35:55.765 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_races.lst in tokens: [plugin.lsttokens.AbilityLst]
+11:35:55.768 SEVERE Thread-20 AbilityCategory:662 Unconstructed Reference: Ability Category Special Ability Command
+11:35:55.787 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_compmods.lst in tokens: [plugin.lsttokens.AbilityLst]
+11:35:55.791 SEVERE Thread-20 AbilityCategory:662 Unconstructed Reference: Ability Category Special Ability Craft Esters & Salves
+11:35:55.793 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst in tokens: [plugin.lsttokens.AbilityLst]
+11:35:55.797 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Dedication is ambiguous
+11:35:55.799 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:55.803 SEVERE Thread-20 AbilityCategory:662 Unconstructed Reference: Ability Category Special Ability Druid Proficiencies
+11:35:55.817 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst in tokens: [plugin.lsttokens.AbilityLst]
+11:35:55.820 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Evasion is ambiguous
+11:35:55.823 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:55.825 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Exploit Flaw is ambiguous
+11:35:55.828 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_base.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:55.831 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Frightful Presence is ambiguous
+11:35:55.834 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_monsters.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:55.838 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Guard is ambiguous
+11:35:55.852 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_monsters.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:55.854 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Improved Tracking is ambiguous
+11:35:55.857 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_monsters.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:55.860 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Improved Uncanny Dodge is ambiguous
+11:35:55.863 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_base.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:55.867 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Inner Strength is ambiguous
+11:35:55.870 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_base.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:55.884 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Metamagic Mastery is ambiguous
+11:35:55.886 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_prestige.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:55.889 SEVERE Thread-20 AbilityCategory:662 Unconstructed Reference: Ability Category Special Ability Multiattack
+11:35:55.894 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_compmods.lst in tokens: [plugin.lsttokens.AbilityLst]
+11:35:55.897 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Parry is ambiguous
+11:35:55.900 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_prestige.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:55.905 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Perfected Control is ambiguous
+11:35:55.918 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:55.921 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Poison Use is ambiguous
+11:35:55.923 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_prestige.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:55.927 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Rebuke Corporeal Undead is ambiguous
+11:35:55.931 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_base.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:55.934 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Riposte is ambiguous
+11:35:55.938 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:55.952 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Ritualistic Casting is ambiguous
+11:35:55.955 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:55.957 SEVERE Thread-20 AbilityCategory:662 Unconstructed Reference: Ability Category Special Ability Sapienti Ability I - Empowered Evocation
+11:35:55.963 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst in tokens: [plugin.lsttokens.AbilityLst]
+11:35:55.967 SEVERE Thread-20 AbilityCategory:662 Unconstructed Reference: Ability Category Special Ability Sapienti Ability II - Evocation Breakthrough
+11:35:55.972 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst in tokens: [plugin.lsttokens.AbilityLst]
+11:35:55.977 SEVERE Thread-20 AbilityCategory:662 Unconstructed Reference: Ability Category Special Ability Sapienti Ability II - Master of Shadows
+11:35:55.980 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst in tokens: [plugin.lsttokens.AbilityLst]
+11:35:55.984 SEVERE Thread-20 AbilityCategory:662 Unconstructed Reference: Ability Category Special Ability Sapienti Ability IV - Mastery of Shaping
+11:35:55.987 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst in tokens: [plugin.lsttokens.AbilityLst]
+11:35:55.991 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Scent is ambiguous
+11:35:55.995 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_monsters.lst, file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_race.lst
+11:35:56.1 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Stabilize is ambiguous
+11:35:56.3 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:56.6 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Storm Domain is ambiguous
+11:35:56.9 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_prestige.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:56.13 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability The Tempest is ambiguous
+11:35:56.16 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_prestige.lst, file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_race.lst
+11:35:56.19 SEVERE Thread-20 AbilityCategory:662 Unconstructed Reference: Ability Category Special Ability Track
+11:35:56.22 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst in tokens: [plugin.lsttokens.AbilityLst]
+11:35:56.26 SEVERE Thread-20 AbilityCategory:662 Unconstructed Reference: Ability Category Special Ability Trap Sense
+11:35:56.30 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst in tokens: [plugin.lsttokens.AbilityLst]
+11:35:56.37 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Uncanny Dodge is ambiguous
+11:35:56.48 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_class_base.lst, file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst
+11:35:56.51 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Unnatural Aura is ambiguous
+11:35:56.54 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_abilities_monsters.lst, file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_race.lst
+11:35:56.58 SEVERE Thread-20 AbstractReferenceManufacturer:452 Reference to Constructed Ability Category Special Ability Walk the Web of Fate is ambiguous
+11:35:56.61 SEVERE Thread-20 AbstractReferenceManufacturer:463 Locations: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_base.lst, file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_race.lst
+11:35:56.673 SEVERE Thread-20 MultToken:106 Ability (Special Ability) Homeland Defense Choice II had MULT:YES but no CHOOSE (Source: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_classes_base.lst)
+11:35:56.678 SEVERE Thread-20 MultToken:106 Ability (Special Ability) Homeland Defense Choice III had MULT:YES but no CHOOSE (Source: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_classes_base.lst)
+11:35:56.681 SEVERE Thread-20 MultToken:106 Ability (Special Ability) Homeland Defense Choice IV had MULT:YES but no CHOOSE (Source: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_classes_base.lst)
+11:35:56.684 SEVERE Thread-20 MultToken:106 Ability (Special Ability) Homeland Defense Choice V had MULT:YES but no CHOOSE (Source: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_classes_base.lst)
+11:35:56.687 SEVERE Thread-20 MultToken:106 Ability (Special Ability) Homeland Defense Choice II had MULT:YES but no CHOOSE (Source: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_classes_base.lst)
+11:35:56.689 SEVERE Thread-20 MultToken:106 Ability (Special Ability) Homeland Defense Choice III had MULT:YES but no CHOOSE (Source: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_classes_base.lst)
+11:35:56.693 SEVERE Thread-20 MultToken:106 Ability (Special Ability) Homeland Defense Choice IV had MULT:YES but no CHOOSE (Source: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_classes_base.lst)
+11:35:56.697 SEVERE Thread-20 MultToken:106 Ability (Special Ability) Homeland Defense Choice V had MULT:YES but no CHOOSE (Source: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/basics/rsrd_classes_base.lst)
+11:35:56.722 SEVERE Thread-20 LoadContext:636 Found Ability Category FEAT Improved Critical  that had association: Wind Staff but no such WeaponProf was ever defined
+11:35:56.725 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_prestige.lst in tokens: [plugin.lsttokens.AbilityLst]
+11:35:56.728 SEVERE Thread-20 LoadContext:612 Found Ability Category FEAT Master Craftsman  that had association: Armorsmithing but was not an object with CHOOSE
+11:35:56.732 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst in tokens: [plugin.lsttokens.VFeatLst]
+11:35:56.735 SEVERE Thread-20 LoadContext:612 Found Ability Category FEAT Master Craftsman  that had association: Weaponsmithing but was not an object with CHOOSE
+11:35:56.747 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_abilities.lst in tokens: [plugin.lsttokens.VFeatLst]
+11:35:56.754 SEVERE Thread-20 LoadContext:636 Found Ability Category FEAT Quicken Spell Like Ability  that had association: Unholy Blight but no such Spell was ever defined
+11:35:56.758 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/srd35/monsters/rsrd_kits_races_m_n.lst in tokens: [plugin.lsttokens.kit.ability.FeatToken]
+11:35:56.760 SEVERE Thread-20 LoadContext:636 Found Ability Category FEAT Skill Focus  that had association: TYPE=Nobility but no such Skill was ever defined
+11:35:56.765 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_classes_prestige.lst in tokens: [plugin.lsttokens.add.FeatToken]
+11:35:56.768 SEVERE Thread-20 LoadContext:636 Found Ability Category FEAT Skill Focus  that had association: TYPE=Religion but no such Skill was ever defined
+11:35:56.785 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_classes_prestige.lst in tokens: [plugin.lsttokens.add.FeatToken]
+11:35:56.788 SEVERE Thread-20 LoadContext:636 Found Ability Category FEAT Weapon Focus  that had association: rapier-arm but no such WeaponProf was ever defined
+11:35:56.792 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_kits.lst in tokens: [plugin.lsttokens.kit.ability.FeatToken]
+11:35:56.795 SEVERE Thread-20 LoadContext:636 Found Ability Category FEAT Weapon Focus  that had association: TYPE=Sword but no such WeaponProf was ever defined
+11:35:56.797 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_prestige.lst in tokens: [plugin.lsttokens.auto.FeatToken]
+11:35:56.800 SEVERE Thread-20 LoadContext:636 Found Ability Category FEAT Weapon Focus  that had association: Wind Staff but no such WeaponProf was ever defined
+11:35:56.802 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_prestige.lst in tokens: [plugin.lsttokens.auto.FeatToken]
+11:35:56.813 SEVERE Thread-20 LoadContext:636 Found Ability Category FEAT Weapon Specialization  that had association: TYPE=Sword but no such WeaponProf was ever defined
+11:35:56.817 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/alpha/paradigmconcepts/arcanis/players_guide_to_arcanis/playersguidetoarcanis_abilities_class_prestige.lst in tokens: [plugin.lsttokens.auto.FeatToken]
+11:35:56.822 SEVERE Thread-20 LoadContext:612 Found Ability Category Special Ability Weapon Focus  that had association: Warhammer but was not an object with CHOOSE
+11:35:56.825 SEVERE Thread-20 TrackingReferenceContext:143   Was used in file:/D:/pcgen/pcgen_dev/Trunk/content/notfordistribution/paradigmconcepts/magicofarcanis/moa_classes.lst in tokens: [plugin.lsttokens.AbilityLst]

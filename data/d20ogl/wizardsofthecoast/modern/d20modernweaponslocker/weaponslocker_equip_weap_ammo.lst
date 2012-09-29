@@ -1505,19 +1505,19 @@ Bullet (23mm S Slug Penetrator)		OUTPUTNAME:23mm S Slug Penetrator					TYPE:Ammu
 # Grenade Launcher Ammumition
 # Equipment Name			Type								Cost	Weight	Base Quantity	Source Page		CRITRANGE	DAMAGE		Special Property
 
-20mm OICW burst shell (6)													TYPE:Ammunition.Ranged.Standard.Metal.Shell.Slashing			COST:18	WT:3		CRITRANGE:1			DAMAGE:3D6		SOURCEPAGE:p.76			SPROP:Burst Range 5 ft.,Mil(+3),box of 6 rounds, see text
-20mm burst shell															TYPE:Ammunition.Ranged.Standard.Metal.Shell.Slashing			COST:18	WT:0.5	CRITRANGE:1			DAMAGE:3D6		SOURCEPAGE:p.176			SPROP:Burst Range 5 ft.,Mil(+3), see text
-30mm HEAT shell															TYPE:Ammunition.Ranged.Standard.Metal.Shell.Slashing			COST:19	WT:1		CRITRANGE:1			DAMAGE:3D6		SOURCEPAGE:p.176			SPROP:Burst Range 10 ft.,Mil(+3), see text
-35mm incendiary cartridge													TYPE:Ammunition.Ranged.Standard.Metal.Shell.Fire			COST:15	WT:1		CRITRANGE:1			DAMAGE:2D6		SOURCEPAGE:p.176			SPROP:Burst Range 20 ft.,Mil(+3), see text
-37mm rubber bullet														TYPE:Ammunition.Ranged.Standard.Metal.Shell.Bludgeoning		COST:15	WT:1		CRITRANGE:1			DAMAGE:3d6S		SOURCEPAGE:p.176			SPROP:Burst Range 0 ft.,Res(+2), see text
+20mm OICW burst shell (6)													TYPE:Ammunition.Ranged.Standard.Metal.Shell.Slashing			COST:18	WT:3		CRITRANGE:1			DAMAGE:3d6		SOURCEPAGE:p.76			SPROP:Burst Range 5 ft.,Mil(+3),box of 6 rounds, see text
+20mm burst shell															TYPE:Ammunition.Ranged.Standard.Metal.Shell.Slashing			COST:18	WT:0.5	CRITRANGE:1			DAMAGE:3d6		SOURCEPAGE:p.176			SPROP:Burst Range 5 ft.,Mil(+3), see text
+30mm HEAT shell															TYPE:Ammunition.Ranged.Standard.Metal.Shell.Slashing			COST:19	WT:1		CRITRANGE:1			DAMAGE:3d6		SOURCEPAGE:p.176			SPROP:Burst Range 10 ft.,Mil(+3), see text
+35mm incendiary cartridge													TYPE:Ammunition.Ranged.Standard.Metal.Shell.Fire			COST:15	WT:1		CRITRANGE:1			DAMAGE:2d6		SOURCEPAGE:p.176			SPROP:Burst Range 20 ft.,Mil(+3), see text
+37mm rubber bullet														TYPE:Ammunition.Ranged.Standard.Metal.Shell.Bludgeoning		COST:15	WT:1		CRITRANGE:1			DAMAGE:3d6		SOURCEPAGE:p.176			SPROP:Burst Range 0 ft.,Res(+2), see text; 'S'
 37mm tear gas shell														TYPE:Ammunition.Ranged.Standard.Metal.Shell.Chemical			COST:15	WT:1		CRITRANGE:1						SOURCEPAGE:p.176			SPROP:Burst Range Special ft.,Mil(+3), see text
 40mm shotgun/"Beehive" round													TYPE:Ammunition.Ranged.Standard.Metal.Shell.Ballistic			COST:14	WT:1		CRITRANGE:1			DAMAGE:4d10		SOURCEPAGE:p.176			SPROP:Burst Range 0 ft.,Mil(+3), see text
 40mm smoke grenade														TYPE:Ammunition.Ranged.Standard.Metal.Shell.Chemical			COST:10	WT:1		CRITRANGE:1						SOURCEPAGE:p.176			SPROP:Burst Range Special ft., see text
 40mm white phosphorus grenade													TYPE:Ammunition.Ranged.Standard.Metal.Shell.Fire			COST:16	WT:1		CRITRANGE:1			DAMAGE:2d6		SOURCEPAGE:p.176			SPROP:Burst Range 20 ft.,Mil(+3), see text
 43mm flare grenade														TYPE:Ammunition.Ranged.Standard.Metal.Shell.Chemical			COST:10	WT:1		CRITRANGE:1						SOURCEPAGE:p.176			SPROP:Burst Range Special ft., see text
-43mm flash bomb															TYPE:Ammunition.Ranged.Standard.Metal.Shell.Bludgeoning		COST:19	WT:1		CRITRANGE:1			DAMAGE:3D6		SOURCEPAGE:p.176			SPROP:Burst Range 20 ft.,Mil(+3), see text
-43mm fragmentation grenade													TYPE:Ammunition.Ranged.Standard.Metal.Shell.Slashing			COST:16	WT:1		CRITRANGE:1			DAMAGE:3D6		SOURCEPAGE:p.176			SPROP:Burst Range 10 ft.,Mil(+3), see text
-76.2mm HE shell															TYPE:Ammunition.Ranged.Standard.Metal.Shell.Slashing			COST:19	WT:2		CRITRANGE:1			DAMAGE:4D6		SOURCEPAGE:p.176			SPROP:Burst Range 30 ft.,Mil(+3), see text
+43mm flash bomb															TYPE:Ammunition.Ranged.Standard.Metal.Shell.Bludgeoning		COST:19	WT:1		CRITRANGE:1			DAMAGE:3d6		SOURCEPAGE:p.176			SPROP:Burst Range 20 ft.,Mil(+3), see text
+43mm fragmentation grenade													TYPE:Ammunition.Ranged.Standard.Metal.Shell.Slashing			COST:16	WT:1		CRITRANGE:1			DAMAGE:3d6		SOURCEPAGE:p.176			SPROP:Burst Range 10 ft.,Mil(+3), see text
+76.2mm HE shell															TYPE:Ammunition.Ranged.Standard.Metal.Shell.Slashing			COST:19	WT:2		CRITRANGE:1			DAMAGE:4d6		SOURCEPAGE:p.176			SPROP:Burst Range 30 ft.,Mil(+3), see text
 
 
 40mm shotgun/"Beehive" round (6)												TYPE:Ammunition.Ranged.Standard.Metal.Shell.Ballistic			COST:14	WT:6		CRITRANGE:1			DAMAGE:4d10		SOURCEPAGE:p.176			SPROP:Burst Range 0 ft.,Mil(+3), see text
