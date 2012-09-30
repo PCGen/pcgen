@@ -173,7 +173,7 @@
 				<li>Feats that contain conditional or situational bonuses.</li>
 				<li>Skills that contain conditional or situational bonuses.</li>
 				<li>Templates that contain conditional or situational bonuses.</li>
-			</ul
+			</ul>
 		</li>
 		<li>Spells with <code>PREAPPLY</code> tags with weapon types will be treated as containing <code>ANYPC</code> subtag and will appear in the 
 				<em>Temporary Bonuses Tab</em> with such bonuses applied only to a weapon that meets the type requirements specified.</li>
@@ -1466,16 +1466,17 @@
 <hr>
 
 	<p class="indent0"><strong><a name="PREVISION">Tag Name:</a></strong> PREVISION:x,y=z,y=z</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number
-		(The number of vision types that must match the specified requirements).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (The vision types required).</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> Number (The distance of the vision types).</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of matching vision types)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Vision type)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Number (Distance for related vision type)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> ANY</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This sets the vision ability requirements.
-		If there is an value at the end, all Visions in the list must be that value or higher to be considered valid.</p>
+	<ul class="indent2">
+		<li>Sets the vision requirements by type and distance.</li>
+		<li>The variable (z) is required for each vision type (y) provided and determines the minimum distance required for the related vision type.</li>
+	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>PREVISION:2,Normal,Darkvision</code></p>
+	<p class="indent2"><code>PREVISION:2,Normal=ANY,Darkvision=ANY</code></p>
 	<p class="indent3">Character must have both Normal and Darkvision.</p>
 	<p class="indent2"><code>PREVISION:1,Blindsight=30,Darkvision=30</code></p>
 	<p class="indent3">Character must have either Blindsight or Darkvision at at least 30.</p>
