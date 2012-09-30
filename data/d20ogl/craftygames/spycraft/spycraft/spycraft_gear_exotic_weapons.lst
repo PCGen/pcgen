@@ -39,7 +39,7 @@ Katana		PROFICIENCY:WEAPON|Katana		TYPE:Gear.Standard.Weapon.Melee.Exotic.Bludge
 
 # Large
 
-Bo Stick		PROFICIENCY:WEAPON|Bo Stick		TYPE:Gear.Standard.Weapon.Melee.Exotic.Bludgeoning	COST:7	WT:4		CRITRANGE:2			FUMBLERANGE:1	DAMAGE:1d6/1d6			SIZE:L	SOURCEPAGE:p.122
+Bo Stick		PROFICIENCY:WEAPON|Bo Stick		TYPE:Gear.Standard.Weapon.Melee.Exotic.Bludgeoning	COST:7	WT:4		CRITRANGE:2			FUMBLERANGE:1	DAMAGE:1d6				SIZE:L	SOURCEPAGE:p.122	ALTDAMAGE:1d6	ALTTYPE:Gear.Standard.Weapon.Melee.Exotic.Bludgeoning	ALTCRITRANGE:2
 
 #
 # End -------------------------------------------------------------------------------

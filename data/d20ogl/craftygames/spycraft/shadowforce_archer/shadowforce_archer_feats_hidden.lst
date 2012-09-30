@@ -20,9 +20,9 @@ Telepath Core Ability			TYPE:CoreAbility				VISIBLE:NO									PREVARLTEQ:TL,1		
 
 # Psion Class Abilities
 
-Mentalist Psi Mastery			TYPE:MentalistAbility			VISIBLE:EXPORT																									MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Mental	BONUS:SKILL|LIST|2|TYPE=Psionic
-Physical Adept Psi Mastery		TYPE:PhysicalAdeptAbility		VISIBLE:EXPORT																									MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Physical	BONUS:SKILL|LIST|2|TYPE=Psionic
-Telepath Psi Mastery			TYPE:TelepathAbility			VISIBLE:EXPORT																									MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Telepathic	BONUS:SKILL|LIST|2|TYPE=Psionic
+Mentalist Psi Mastery			TYPE:MentalistAbility			VISIBLE:EXPORT																									MULT:YES	CHOOSE:SKILL|TYPE=Mental	BONUS:SKILL|LIST|2|TYPE=Psionic
+Physical Adept Psi Mastery		TYPE:PhysicalAdeptAbility		VISIBLE:EXPORT																									MULT:YES	CHOOSE:SKILL|TYPE=Physical	BONUS:SKILL|LIST|2|TYPE=Psionic
+Telepath Psi Mastery			TYPE:TelepathAbility			VISIBLE:EXPORT																									MULT:YES	CHOOSE:SKILL|TYPE=Telepathic	BONUS:SKILL|LIST|2|TYPE=Psionic
 
 Strength Ability Bonus			TYPE:PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:NOCHOICE																		BONUS:STAT|STR|1
 Dexterity Ability Bonus			TYPE:PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:NOCHOICE																		BONUS:STAT|DEX|1

@@ -40,7 +40,7 @@ Weapon Group Proficiency (Rifle)										TYPE:BasicCombat																						
 Weapon Group Proficiency (Tactical)										TYPE:BasicCombat																								DESC:You are proficient with tactical weapons.																																							AUTO:WEAPONPROF|TYPE=Tactical																																SOURCEPAGE:p.71
 Weapon Group Proficiency (Exotic/Archaic)									TYPE:BasicCombat																								DESC:You are proficient with Archaic weapons.																																							AUTO:WEAPONPROF|TYPE=Archaic																																SOURCEPAGE:p.71
 Weapon Group Proficiency (Exotic/Martial Arts)								TYPE:BasicCombat																								DESC:You are proficient with Martial Arts weapons.																																						AUTO:WEAPONPROF|TYPE=Martial Arts																															SOURCEPAGE:p.71
-Weapon Focus													TYPE:BasicCombat	PREATT:1																						DESC:You are highly proficient with this weapon.																				MULT:YES	CHOOSE:WEAPONPROFS|ADD.Grapple|ADD.Unarmed Strike|LIST																																					BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:p.71
+Weapon Focus													TYPE:BasicCombat	PREATT:1																						DESC:You are highly proficient with this weapon.																				MULT:YES	CHOOSE:WEAPONPROFICIENCY|Grapple|PC|Unarmed Strike																																					BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:p.71
 Zen Focus														TYPE:BasicCombat																				PRESTAT:1,WIS=13		DESC:You can sense the approximate location of foes without being able to see them.																																																																					SOURCEPAGE:p.71
 Zen Shot														TYPE:BasicCombat	PREATT:4	PREFEAT:1,Zen Focus																		DESC:You have the uncanny ability to precisely track your enemies when firing at them.																																																																				SOURCEPAGE:p.71
 Zen Mastery														TYPE:BasicCombat	PREATT:9	PREFEAT:1,Zen Shot																		DESC:You may use your inner clarity to guide an attack more accurately to its target.																																																																				SOURCEPAGE:p.71
@@ -57,17 +57,17 @@ Darting Weapon						TYPE:MeleeCombat	PREATT:3	PREFEAT:1,Expertise							DESC:You
 Double Blow							TYPE:MeleeCombat	PREATT:12	PREFEAT:1,Snake Strike							DESC:You attack quicker than most when using a melee weapon.																																												SOURCEPAGE:p.73
 Flashing Weapon						TYPE:MeleeCombat													DESC:You are able to wield a melee weapon with increased speed, but decreased accuracy.																																								SOURCEPAGE:p.73
 Great Cleave						TYPE:MeleeCombat													DESC:You are able to wield a melee weapon with great force, allowing you to strike multiple times when dropping opponents.																																		SOURCEPAGE:p.73
-Improved Weapon Focus					TYPE:MeleeCombat	PREATT:3	PREFEAT:1,Weapon Focus							DESC:You have greatly improved your training with this weapon.												MULT:YES	CHOOSE:FEAT=Weapon Focus								BONUS:WEAPONPROF=%LIST|DAMAGE|2|TYPE=NotRanged.STACK										SOURCEPAGE:p.73
+Improved Weapon Focus					TYPE:MeleeCombat	PREATT:3	PREFEAT:1,Weapon Focus							DESC:You have greatly improved your training with this weapon.												MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus								BONUS:WEAPONPROF=%LIST|DAMAGE|2|TYPE=NotRanged.STACK										SOURCEPAGE:p.73
 Improvised Weapon						TYPE:MeleeCombat										PRESTAT:1,WIS=13	DESC:You are able to turn ordinary items in your vicinity into brutally efficient combat tools.																																							SOURCEPAGE:p.73
 Master Assassin						TYPE:MeleeCombat	PREATT:12	PREFEAT:1,Assassin							DESC:You are expert at striking at your opponents weak spots with a weapon.																								BONUS:WEAPONPROF=TYPE.Melee|CRITRANGEADD|2											SOURCEPAGE:p.73
-Master Duelist						TYPE:MeleeCombat	PREATT:12	PREFEAT:1,Weapon Master							DESC:You are an expert with this weapon.																MULT:YES	CHOOSE:FEAT=Weapon Master								BONUS:WEAPONPROF=%LIST|TOHIT|1|TYPE=NotRanged.STACK	BONUS:WEAPONPROF=%LIST|DAMAGE|2|TYPE=NotRanged.STACK	SOURCEPAGE:p.73
+Master Duelist						TYPE:MeleeCombat	PREATT:12	PREFEAT:1,Weapon Master							DESC:You are an expert with this weapon.																MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Master								BONUS:WEAPONPROF=%LIST|TOHIT|1|TYPE=NotRanged.STACK	BONUS:WEAPONPROF=%LIST|DAMAGE|2|TYPE=NotRanged.STACK	SOURCEPAGE:p.73
 Power Attack						TYPE:MeleeCombat										PRESTAT:1,STR=13	DESC:Your melee attacks are incredibly powerful.																																														SOURCEPAGE:p.74
 Snake Strike						TYPE:MeleeCombat	PREATT:6	PREFEAT:2,Flashing Weapon,Quick Draw				DESC:You are so fast at drawing your weapon that you consistently take your opponents by surprise.																																						SOURCEPAGE:p.74
 Swift Strike						TYPE:MeleeCombat	PREATT:6	PREFEAT:2,Mobility,Sidestep						DESC:You may move while making a melee attack.																																															SOURCEPAGE:p.74
 Trail of Blood						TYPE:MeleeCombat	PREATT:12	PREFEAT:1,Cleaving Charge						DESC:You can mow down your enemies, leaving a swath of death behind you.																																										SOURCEPAGE:p.74
-Ultimate Duelist						TYPE:MeleeCombat	PREATT:18	PREFEAT:1,Master Duelist						DESC:You have mastered this weapon.																	MULT:YES	CHOOSE:FEAT=Master Duelist								BONUS:WEAPONPROF=%LIST|TOHIT|1|TYPE=NotRanged.STACK	BONUS:WEAPONPROF=%LIST|DAMAGE|4|TYPE=NotRanged.STACK	SOURCEPAGE:p.73
-Weapon Finesse						TYPE:MeleeCombat	PREATT:1											DESC:By relying more on your dexterity than your strength, you have mastered one weapon.								MULT:YES	CHOOSE:WEAPONPROFS|TYPE.Natural|TYPE.Finesseable|WSize.Light.Melee	BONUS:WEAPONPROF=%LIST|TOHIT|(max(STR,DEX)+SHIELDACCHECK)-STR|TYPE=NotRanged						SOURCEPAGE:p.74
-Weapon Master						TYPE:MeleeCombat	PREATT:6	PREFEAT:1,Improved Weapon Focus					DESC:You have great mastery with this weapon.															MULT:YES	CHOOSE:FEAT=Improved Weapon Focus							BONUS:WEAPONPROF=%LIST|TOHIT|1|TYPE=NotRanged.STACK	BONUS:WEAPONPROF=%LIST|DAMAGE|2|TYPE=NotRanged.STACK	SOURCEPAGE:p.74
+Ultimate Duelist						TYPE:MeleeCombat	PREATT:18	PREFEAT:1,Master Duelist						DESC:You have mastered this weapon.																	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Master Duelist								BONUS:WEAPONPROF=%LIST|TOHIT|1|TYPE=NotRanged.STACK	BONUS:WEAPONPROF=%LIST|DAMAGE|4|TYPE=NotRanged.STACK	SOURCEPAGE:p.73
+Weapon Finesse						TYPE:MeleeCombat	PREATT:1											DESC:By relying more on your dexterity than your strength, you have mastered one weapon.								MULT:YES	CHOOSE:WEAPONPROFICIENCY|EQUIPMENT[TYPE=Finesseable]|EQUIPMENT[TYPE=Melee,WIELD=Light],PC|EQUIPMENT[TYPE=Natural]	BONUS:WEAPONPROF=%LIST|TOHIT|(max(STR,DEX)+SHIELDACCHECK)-STR|TYPE=NotRanged						SOURCEPAGE:p.74
+Weapon Master						TYPE:MeleeCombat	PREATT:6	PREFEAT:1,Improved Weapon Focus					DESC:You have great mastery with this weapon.															MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Improved Weapon Focus							BONUS:WEAPONPROF=%LIST|TOHIT|1|TYPE=NotRanged.STACK	BONUS:WEAPONPROF=%LIST|DAMAGE|2|TYPE=NotRanged.STACK	SOURCEPAGE:p.74
 Whirlwind Attack						TYPE:MeleeCombat			PREFEAT:2,Expertise,Swift Strike					DESC:You can enter a controlled state of frenzy, during which you can attack all opponents within your reach with one melee attack.																																	SOURCEPAGE:p.75
 
 ###Block: Ranged Combat Feats
@@ -162,7 +162,7 @@ Traceless			TYPE:Covert																	PRESTAT:1,INT=13																								
 
 # Feat Name				Type		Description																	Stackable?	Multiple?	Choose				Modify VAR				Source Page
 Extra Budget			TYPE:Gear	DESC:You have a friend in the equipment dispensary who can provide you with extra equipment.			STACK:NO	MULT:YES	CHOOSE:STRING|1st|2nd|3rd|4th	BONUS:VAR|BUDGETPOINTS|5	SOURCEPAGE:p.86
-Extra R and D Support		TYPE:Gear	DESC:You have a friend in the Research & Development department who can provide you with extra gadgets.	STACK:NO	MULT:YES	CHOOSE:STRING|1st|2nd|3rd|4th	BONUS:VAR|GADGETPOINTS|2	SOURCEPAGE:p.86
+Extra R and D Support		TYPE:Gear	DESC:You have a friend in the Research &amp; Development department who can provide you with extra gadgets.	STACK:NO	MULT:YES	CHOOSE:STRING|1st|2nd|3rd|4th	BONUS:VAR|GADGETPOINTS|2	SOURCEPAGE:p.86
 Signature Gear			TYPE:Gear	DESC:You carry a signature piece of gear.																										SOURCEPAGE:p.86
 Signature Gadget or Vehicle	TYPE:Gear	DESC:You own and use a signature gadget or vehicle.																								SOURCEPAGE:p.87
 
@@ -190,19 +190,19 @@ World Traveler		TYPE:BasicSkill	PRESKILL:3,Cultures=1,Languages=1,First Aid=1			
 ###Block: Advanced Skill Feats
 
 # Feat Name			Type				Required Feat				Required Lvl	Required Non-Monster Lvl	Description																		Stackable?	Multiple?	Choose																		Bonus to skill		Class Skill	Source Page
-Advanced Skill Mastery	TYPE:AdvancedSkill	PREFEAT:1,TYPE.BasicSkill		PRELEVEL:MIN=6						DESC:You have worked diligently to improve one of your basic skill feats.									MULT:YES	CHOOSE:FEATLIST|TYPE.BasicSkill																				SOURCEPAGE:p.89
-False Start			TYPE:AdvancedSkill	PREFEAT:1,TYPE.BasicSkill										DESC:You have become so accustomed to using your skills that you automatically know your use of them is flawed.			MULT:YES	CHOOSE:FEATLIST|TYPE.BasicSkill																				SOURCEPAGE:p.89
-Grand Skill Mastery	TYPE:AdvancedSkill	PREFEAT:1,Advanced Skill Mastery	PRELEVEL:MIN=12						DESC:You excel with one particular skill.															MULT:YES	CHOOSE:FEAT=Advanced Skill Mastery																				SOURCEPAGE:p.90
-Perfect Skill Mastery	TYPE:AdvancedSkill	PREFEAT:1,Grand Skill Mastery		PRELEVEL:MIN=18						DESC:You have become one of the world's greatest experts in a particular field.								MULT:YES	CHOOSE:FEAT=Grand Skill Mastery																				SOURCEPAGE:p.90
-Quick Use			TYPE:AdvancedSkill															DESC:You are very quick and efficient with a particular skill.											MULT:YES	CHOOSE:SKILLSNAMED|RANKS=1																					SOURCEPAGE:p.90
-Talented			TYPE:AdvancedSkill										PREPCLEVEL:MAX=1			DESC:You are extraordinarily gifted in the use of a single skill.											MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma	BONUS:SKILL|LIST|1	CSKILL:LIST	SOURCEPAGE:p.90
+Advanced Skill Mastery	TYPE:AdvancedSkill	PREFEAT:1,TYPE.BasicSkill		PRELEVEL:MIN=6						DESC:You have worked diligently to improve one of your basic skill feats.									MULT:YES	CHOOSE:FEAT|PC[TYPE=BasicSkill]																				SOURCEPAGE:p.89
+False Start			TYPE:AdvancedSkill	PREFEAT:1,TYPE.BasicSkill										DESC:You have become so accustomed to using your skills that you automatically know your use of them is flawed.			MULT:YES	CHOOSE:FEAT|PC[TYPE=BasicSkill]																				SOURCEPAGE:p.89
+Grand Skill Mastery	TYPE:AdvancedSkill	PREFEAT:1,Advanced Skill Mastery	PRELEVEL:MIN=12						DESC:You excel with one particular skill.															MULT:YES	CHOOSE:SKILL|FEAT=Advanced Skill Mastery																				SOURCEPAGE:p.90
+Perfect Skill Mastery	TYPE:AdvancedSkill	PREFEAT:1,Grand Skill Mastery		PRELEVEL:MIN=18						DESC:You have become one of the world's greatest experts in a particular field.								MULT:YES	CHOOSE:SKILL|FEAT=Grand Skill Mastery																				SOURCEPAGE:p.90
+Quick Use			TYPE:AdvancedSkill															DESC:You are very quick and efficient with a particular skill.											MULT:YES	CHOOSE:SKILL|RANKS=1																					SOURCEPAGE:p.90
+Talented			TYPE:AdvancedSkill										PREPCLEVEL:MAX=1			DESC:You are extraordinarily gifted in the use of a single skill.											MULT:YES	CHOOSE:SKILL|TYPE=Charisma|TYPE=Constitution|TYPE=Dexterity|TYPE=Intelligence|TYPE=Strength|TYPE=Wisdom	BONUS:SKILL|LIST|1	CSKILL:LIST	SOURCEPAGE:p.90
 Track				TYPE:AdvancedSkill															DESC:You can follow the trail of pray - human and animal - across nearly any type of terrain.																																	SOURCEPAGE:p.90
 
 #TODO: Training is non functional at this time, need to find a way to add 4 points to the skill pool
 Training			TYPE:AdvancedSkill															DESC:You have devoted a great deal of your spare time to improving your skills.						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																							SOURCEPAGE:p.91
 
 #TODO: Unlocked Potential is non functional at this time, need a way to raise the max ranks for a class skill
-Unlocked Potential	TYPE:AdvancedSkill															DESC:You have incredible potential for improvement with one of your skills.									MULT:YES	CHOOSE:CSKILLS																							SOURCEPAGE:p.91
+Unlocked Potential	TYPE:AdvancedSkill															DESC:You have incredible potential for improvement with one of your skills.									MULT:YES	CHOOSE:SKILL|CLASS																							SOURCEPAGE:p.91
 
 ###Block: Style Feats
 
