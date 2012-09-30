@@ -31,7 +31,7 @@ Profession (Stage Magician)			KEYSTAT:WIS	USEUNTRAINED:NO								TYPE:Wisdom.Pro
 Ridicule						KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence			SOURCEPAGE:p.48
 Ritual						KEYSTAT:INT	USEUNTRAINED:NO					EXCLUSIVE:YES	TYPE:Intelligence			SOURCEPAGE:p.49
 Sleight o' Hand					KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity			SOURCEPAGE:p.49
-Speak Language							USEUNTRAINED:NO								TYPE:None.Language		SOURCEPAGE:p.44	CHOOSE:LANGUAGE|Spoken
+Speak Language							USEUNTRAINED:NO								TYPE:None.Language		SOURCEPAGE:p.44	AUTO:LANG|%LIST	CHOOSE:LANG|TYPE=Spoken
 Speed Load						KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity			SOURCEPAGE:p.49
 Tale Tellin'					KEYSTAT:CHA	USEUNTRAINED:NO								TYPE:Charisma			SOURCEPAGE:p.50
 Tinkerin'						KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence			SOURCEPAGE:p.50					BONUS:SKILL|Tinkerin'|SynergyBonus|PRESKILL:1,Mad Science=5|TYPE=Synergy.STACK

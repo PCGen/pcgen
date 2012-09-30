@@ -6,4 +6,4 @@ SOURCELONG:The Way of the Huckster	SOURCESHORT:Huckster	SOURCEWEB:http://www.peg
 Mad Science				TYPE:ClassAbility	VISIBLE:NO	SAB:Mad Science																		SOURCEPAGE:p.13
 S and R Catalog 1876 Edition	TYPE:ClassAbility	VISIBLE:NO	SAB:S and R Catalog 1876 Edition															SOURCEPAGE:p.13
 Alchemy				TYPE:ClassAbility	VISIBLE:NO	SAB:Alchemy																			SOURCEPAGE:p.13
-Diffusionist Spell increase	TYPE:ClassAbility	VISIBLE:NO							MULT:YES	CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|9[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]	SOURCEPAGE:p.13
+Diffusionist Spell increase	TYPE:ClassAbility	VISIBLE:NO							MULT:YES	BONUS:SPELLCAST|%LIST|1	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|0|9	SOURCEPAGE:p.13
