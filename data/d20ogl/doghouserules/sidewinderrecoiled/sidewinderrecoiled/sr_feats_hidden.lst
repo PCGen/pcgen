@@ -4,7 +4,7 @@ SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserul
 
 ###Block: Class Features (pseudofeats)
 # Feat Name			Type			Visible	Special ABility					Description		Multiple?	Choose
-Terrain Specialization	TYPE:Special	VISIBLE:NO	SAB:Terrain Specialization (%CHOICE)	DESC:See Text	MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Chaparral|Desert|Grassland|Forest|Mountains|Swamp
+Terrain Specialization	TYPE:Special	VISIBLE:NO	SAB:Terrain Specialization (%CHOICE)	DESC:See Text	MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Chaparral|Desert|Forest|Grassland|Mountains|Swamp
 
 
 ###Block: Professor abilities
@@ -12,8 +12,8 @@ Terrain Specialization	TYPE:Special	VISIBLE:NO	SAB:Terrain Specialization (%CHOI
 Smart Defense		TYPE:ClassAbility	VISIBLE:NO	SAB:Smart Defense																																			BONUS:COMBAT|AC|INT|TYPE=ClassFeature						SOURCEPAGE:p.182
 Quick Wits			TYPE:ClassAbility	VISIBLE:NO	SAB:Quick Wits																																															SOURCEPAGE:p.182
 Book Learnin'		TYPE:ClassAbility	VISIBLE:NO	SAB:Book Learnin'																																										BONUS:SKILL|TYPE.Knowledge|4	SOURCEPAGE:p.182
-Academic Breakthrough	TYPE:ClassAbility	VISIBLE:NO	SAB:Academic Breakthrough (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Technology)													SOURCEPAGE:p.182
-Smart Weapon		TYPE:ClassAbility	VISIBLE:NO	SAB:Smart Weapon (%CHOICE)		MULT:YES	CHOOSE:WEAPONPROFS|LIST																																						SOURCEPAGE:p.182
+Academic Breakthrough	TYPE:ClassAbility	VISIBLE:NO	SAB:Academic Breakthrough (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Technology)													SOURCEPAGE:p.182
+Smart Weapon		TYPE:ClassAbility	VISIBLE:NO	SAB:Smart Weapon (%CHOICE)		MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC																																						SOURCEPAGE:p.182
 Real World Applications	TYPE:ClassAbility	VISIBLE:NO	SAB:Real-World Applications																																													SOURCEPAGE:p.182
 
 ###Block: Mountain Man Favored Prey
