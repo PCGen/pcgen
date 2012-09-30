@@ -30,7 +30,7 @@ Craft (Shoes)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft					SOU
 Craft (Stonemasonry)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft					SOURCEPAGE:p.91					BONUS:SKILL|Craft (Stonemasonry)|3|TYPE=ClassSkill|PRECSKILL:1,Craft (Stonemasonry)|PRESKILL:1,Craft (Stonemasonry)=1	BONUS:SKILL|Craft (Stonemasonry)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=CraftToolsStonemasonry|PREAPPLY:PC		TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used
 Craft (Traps)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft					SOURCEPAGE:p.91					BONUS:SKILL|Craft (Traps)|3|TYPE=ClassSkill|PRECSKILL:1,Craft (Traps)|PRESKILL:1,Craft (Traps)=1	BONUS:SKILL|Craft (Traps)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=CraftTools|PREAPPLY:PC								TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used
 Craft (Weapons)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft					SOURCEPAGE:p.91					BONUS:SKILL|Craft (Weapons)|3|TYPE=ClassSkill|PRECSKILL:1,Craft (Weapons)|PRESKILL:1,Craft (Weapons)=1	BONUS:SKILL|Craft (Weapons)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=CraftToolsWeapons|PREAPPLY:PC						TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used
-Craft (Untrained)				KEYSTAT:INT								TYPE:Intelligence.Craft		VISIBLE:EXPORT	SOURCEPAGE:p.91
+Craft (Untrained)				KEYSTAT:INT								TYPE:Intelligence.Craft		VISIBLE:EXPORT	SOURCEPAGE:p.91					ABILITY:Internal|AUTOMATIC|Default
 Diplomacy					KEYSTAT:CHA								TYPE:Charisma						SOURCEPAGE:p.93					BONUS:SKILL|Diplomacy|3|TYPE=ClassSkill|PRECSKILL:1,Diplomacy|PRESKILL:1,Diplomacy=1
 Disable Device				KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			TYPE:Dexterity						SOURCEPAGE:p.94					BONUS:SKILL|Disable Device|3|TYPE=ClassSkill|PRECSKILL:1,Disable Device|PRESKILL:1,Disable Device=1	BONUS:SKILL|Disable Device|-2|TYPE=Circumstance|!PREITEM:1,TYPE=ThiefTools|PREAPPLY:PC								TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used
 Disguise					KEYSTAT:CHA								TYPE:Charisma						SOURCEPAGE:p.95					BONUS:SKILL|Disguise|3|TYPE=ClassSkill|PRECSKILL:1,Disguise|PRESKILL:1,Disguise=1
@@ -202,3 +202,6 @@ Stealth.MOD						BONUS:SKILL|Stealth|3|TYPE=SkillFocus|PREFEAT:1,Skill Focus (St
 Survival.MOD					BONUS:SKILL|Survival|3|TYPE=SkillFocus|PREFEAT:1,Skill Focus (Survival)	BONUS:SKILL|Survival|6|TYPE=SkillFocus|PREFEAT:1,Skill Focus (Survival)|PRESKILL:1,Survival=10
 Swim.MOD						BONUS:SKILL|Swim|3|TYPE=SkillFocus|PREFEAT:1,Skill Focus (Swim)	BONUS:SKILL|Swim|6|TYPE=SkillFocus|PREFEAT:1,Skill Focus (Swim)|PRESKILL:1,Swim=10
 Use Magic Device.MOD				BONUS:SKILL|Use Magic Device|3|TYPE=SkillFocus|PREFEAT:1,Skill Focus (Use Magic Device)	BONUS:SKILL|Use Magic Device|6|TYPE=SkillFocus|PREFEAT:1,Skill Focus (Use Magic Device)|PRESKILL:1,Use Magic Device=10
+#
+# EOF
+#
