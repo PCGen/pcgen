@@ -215,7 +215,7 @@
     <dependency>
       <groupId>cobra</groupId>
       <artifactId>cobra</artifactId>
-      <version>0.98.4</version>
+      <version>0.98.4-pcgen</version>
     </dependency>
     <dependency>
       <groupId>commons-lang</groupId>
