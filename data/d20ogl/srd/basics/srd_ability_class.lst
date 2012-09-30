@@ -207,9 +207,9 @@ Water Traits		KEY:Traits Output ~ Water		CATEGORY:Special Ability	TYPE:SpecialQu
 ###Block: Creature Subtype Traits
 # Ability Name		Category of Ability		Type				
 Air Traits			CATEGORY:Special Ability	TYPE:SubTraitAbility
-Angel Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility	ABILITY:Special Ability|AUTOMATIC|Immunity To Acid|Immunity To Cold|Immunity To Petrification|Protective Aura|Tongues					VISION:Darkvision (60')|Low-light	ABILITY:Special Ability|AUTOMATIC|Low light Vision
+Angel Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility	ABILITY:Special Ability|AUTOMATIC|Immunity To Acid|Immunity To Cold|Immunity To Petrification|Protective Aura|Tongues					VISION:Darkvision (60')|Low-light	ABILITY:Special Ability|AUTOMATIC|Low Light Vision
 Aquatic Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
-Archon Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility	ABILITY:Special Ability|AUTOMATIC|Aura of Menace|Magic Circle against Evil|Teleport										VISION:Darkvision (60')|Low-light	ABILITY:Special Ability|AUTOMATIC|Low light Vision
+Archon Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility	ABILITY:Special Ability|AUTOMATIC|Aura of Menace|Magic Circle against Evil|Teleport										VISION:Darkvision (60')|Low-light	ABILITY:Special Ability|AUTOMATIC|Low Light Vision
 Augmented Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Chaotic Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Cold Traits			CATEGORY:Special Ability	TYPE:SubTraitAbility	ABILITY:Special Ability|AUTOMATIC|Immunity To Cold|Vulnerability To Fire

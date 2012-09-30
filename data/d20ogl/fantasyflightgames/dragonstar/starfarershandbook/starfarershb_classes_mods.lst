@@ -85,7 +85,7 @@ CLASS:Ranger.MOD	CSKILL:Freefall|Navigate|Pilot
 # Class Name	Class Skill
 CLASS:Rogue.MOD	CSKILL:Cryptography|Demolitions|Freefall|Navigate|Pilot|Urban Lore|Use Device
 1	ABILITY:FEAT|AUTOMATIC|Technical Deficiency|!PREFEAT:1,Technical Proficiency
-1	ABILITY:FEAT|AUTOMATIC|WeaponThiefMedium|WeaponThiefSmall|PREMULT:2,[PREFEAT:1,Technical Proficiency],[PREBASESIZEGTEQ:Medium]]
+1	ABILITY:FEAT|AUTOMATIC|WeaponThiefMedium|WeaponThiefSmall|PREMULT:2,[PREFEAT:1,Technical Proficiency],[PREBASESIZEGTEQ:Medium]
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechLight)|PREFEAT:1,Technical Proficiency
 
 # Class Name

@@ -59,7 +59,7 @@ CLASS:Master Celebrity	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|TYPE=
 ###Block: Normal Level Progression
 1	SAB:Make It Look Natural	SAB:Eminence
 2	SAB:Work the Media
-3	SAB:Therefore I Am					BONUS:SKILL|LIST|4	CHOOSE:SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma
+3	SAB:Therefore I Am					BONUS:SKILL|LIST|4	CHOOSE:SKILL|TYPE=Charisma|TYPE=Constitution|TYPE=Dexterity|TYPE=Intelligence|TYPE=Strength|TYPE=Wisdom
 4	SAB:Crossover
 5	SAB:Reinvention
 
