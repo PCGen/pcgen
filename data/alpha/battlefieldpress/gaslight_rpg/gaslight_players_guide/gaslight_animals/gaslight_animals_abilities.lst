@@ -5,7 +5,7 @@ SOURCELONG:Gaslight - Animals	SOURCESHORT:GLA	SOURCEWEB:www.battlefieldpress.com
 
 # Ability Name							Modify VAR							Allow Follower			Allowed Companions
 ABILITY:CATEGORY=Special Ability|Summon Familiar.MOD									FOLLOWERS:Familiar|1		COMPANIONLIST:Familiar|Bat,Cat,Ferret,Hawk,Owl,Rat,Raven,Snake (Viper/Tiny),Toad
-ABILITY:CATEGORY=Talent|Animal Companion.MOD		BONUS:VAR|CompLevel|classlevel("Explorer")	FOLLOWERS:Animal Companion|1	COMPANIONLIST:Animal Companion|Ape,Badger,Bear,Camel,Cat,Crocodile,Dog,Eagle,Elephant,Hawk,Herd Animal,Horse,Lizard,Monkey,Octopus,Owl,Pony,Porpoise,Rat,Raven,Shark,Snake (Viper/Small),Snake (Viper/Medium),Squid,Tiger,Wolf
+ABILITY:CATEGORY=Talent|Animal Companion.MOD		BONUS:VAR|CompLevel|classlevel("Explorer")	FOLLOWERS:Animal Companion|1	COMPANIONLIST:Animal Companion|Ape,Badger,Bear,Camel,Cat,Crocodile,Dog,Eagle,Elephant,Hawk,Herd Animal,Horse,Lizard,Monkey,Octopus,Owl,Pony,Porpoise,Rat,Raven,Shark,Snake (Viper/Medium),Snake (Viper/Small),Squid,Tiger,Wolf
 
 ###Block: Animal Abilities
 # Ability Name		Output Name									Category of Ability		Type								Visible	Define				Description																																																																				Modify VAR															Source Page

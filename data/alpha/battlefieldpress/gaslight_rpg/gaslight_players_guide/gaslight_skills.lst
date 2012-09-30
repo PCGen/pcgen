@@ -57,14 +57,14 @@ Perform (Vaudeville)			KEYSTAT:CHA											TYPE:Charisma.LevelMod.Perform			SO
 Perform (Wind Instruments)		KEYSTAT:CHA											TYPE:Charisma.LevelMod.Perform			SOURCEPAGE:p.144
 Persuasion					KEYSTAT:CHA											TYPE:Charisma.LevelMod				SOURCEPAGE:p.144
 Profession					KEYSTAT:WIS											TYPE:Wisdom.LevelMod					SOURCEPAGE:p.146
-Read/Write Language					USEUNTRAINED:NO								TYPE:None.Language			SOURCEPAGE:p.147	CHOOSE:LANGUAGE|Written
+Read/Write Language					USEUNTRAINED:NO								TYPE:None.Language			SOURCEPAGE:p.147	AUTO:LANG|%LIST	CHOOSE:LANG|TYPE=Written
 Repair					KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.LevelMod				SOURCEPAGE:p.147
 Research					KEYSTAT:INT											TYPE:Intelligence.LevelMod				SOURCEPAGE:p.148
 Ride						KEYSTAT:DEX											TYPE:Dexterity.LevelMod				SOURCEPAGE:p.148
 Search					KEYSTAT:INT											TYPE:Intelligence.LevelMod				SOURCEPAGE:p.149
 Sense Motive				KEYSTAT:WIS											TYPE:Wisdom.LevelMod					SOURCEPAGE:p.149
 Sleight of Hand				KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES						TYPE:Dexterity.LevelMod				SOURCEPAGE:p.150
-Speak Language						USEUNTRAINED:NO								TYPE:None.Language			SOURCEPAGE:p.150	CHOOSE:LANGUAGE|Spoken
+Speak Language						USEUNTRAINED:NO								TYPE:None.Language			SOURCEPAGE:p.150	AUTO:LANG|%LIST	CHOOSE:LANG|TYPE=Spoken
 Stealth					KEYSTAT:DEX				ACHECK:YES						TYPE:Dexterity.LevelMod				SOURCEPAGE:p.151
 Survival					KEYSTAT:WIS											TYPE:Wisdom.LevelMod					SOURCEPAGE:p.152
 Treat Injury				KEYSTAT:WIS											TYPE:Wisdom.LevelMod					SOURCEPAGE:p.153

@@ -257,7 +257,7 @@ Improved Initiative.MOD				TYPE:Investigator
 Knockout Punch.MOD				TYPE:Investigator
 Personal Firearms Proficiency.MOD		TYPE:Investigator
 Point Blank Shot.MOD				TYPE:Investigator
-Skill Focus ~ Investigator Knowledge	TYPE:Investigator	PRECLASS:1,Investigator=1	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Knowledge	SELECT:2	BONUS:SKILL|LIST|2
+Skill Focus ~ Investigator Knowledge	TYPE:Investigator	PRECLASS:1,Investigator=1	STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	SELECT:2	BONUS:SKILL|LIST|2
 
 #Scholar
 Combat Expertise.MOD				TYPE:Scholar
@@ -291,7 +291,7 @@ Skill Focus.MOD										TYPE:Craftperson
 Skill Focus +2 to Two Skills.MOD							TYPE:Craftperson
 
 # Heir
-Heir ~ Skill Focus									TYPE:Heir							STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Knowledge	SELECT:2														BONUS:SKILL|%LIST|2|TYPE=SkillFocus
+Heir ~ Skill Focus									TYPE:Heir							STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	SELECT:2														BONUS:SKILL|%LIST|2|TYPE=SkillFocus
 
 
 # Escape Artist
@@ -325,7 +325,7 @@ Stage Magician ~ Skill Focus (Sleight of Hand)					TYPE:Stage_Magician		VISIBLE:
 
 # World Traveler
 Renown
-Skill Focus (any two Knowledge skills)						TYPE:World_Traveler					STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Knowledge	SELECT:2														BONUS:SKILL|%LIST|2|TYPE=SkillFocus
+Skill Focus (any two Knowledge skills)						TYPE:World_Traveler					STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	SELECT:2														BONUS:SKILL|%LIST|2|TYPE=SkillFocus
 Skill Focus (Investigate and Sense Motive)					TYPE:World_Traveler		VISIBLE:DISPLAY													AUTO:FEAT|Skill Focus +2 to Two Skills(Investigate,Sense Motive)
 Skill Focus (Gamble and Intimidate)							TYPE:World_Traveler		VISIBLE:DISPLAY													AUTO:FEAT|Skill Focus +2 to Two Skills(Gamble,Intimidate)
 Skill Focus (Survival)									TYPE:World_Traveler		VISIBLE:DISPLAY													AUTO:FEAT|Skill Focus(Survival)

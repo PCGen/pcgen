@@ -43,10 +43,10 @@ Healing Touch 1		CATEGORY:Talent		TYPE:Talent.AcolyteTalent	PREABILITY:1,CATEGOR
 Healing Touch 2		CATEGORY:Talent		TYPE:Talent.AcolyteTalent	PREABILITY:2,CATEGORY=Talent,Healing Knack,Healing Touch 1						DESC:The Acolyte's ability to restore damage with a medical kit or perform surgery with a surgery kit increases by +2 hit points, which stacks with healing touch 1 for a total of +4 hit points.																																											SOURCEPAGE:p.79
 
 # Insightful Talent Tree
-Skill Emphasis		CATEGORY:Talent		TYPE:Talent.AcolyteTalent																DESC:The Acolyte chooses a skill and receives a +3 bonus on all checks with that skill.																			STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma				BONUS:SKILL|LIST|3											SOURCEPAGE:p.79
+Skill Emphasis		CATEGORY:Talent		TYPE:Talent.AcolyteTalent																DESC:The Acolyte chooses a skill and receives a +3 bonus on all checks with that skill.																			STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Charisma|TYPE=Constitution|TYPE=Dexterity|TYPE=Intelligence|TYPE=Strength|TYPE=Wisdom				BONUS:SKILL|LIST|3											SOURCEPAGE:p.79
 Aware				CATEGORY:Talent		TYPE:Talent.AcolyteTalent	PREABILITY:1,CATEGORY=Talent,Skill Emphasis								DESC:The Acolyte is intuitively aware of her surroundings.																																																																		SOURCEPAGE:p.80
 Faith				CATEGORY:Talent		TYPE:Talent.AcolyteTalent	PREABILITY:1,CATEGORY=Talent,Skill Emphasis								DESC:The Acolyte has a great deal of faith.																																																																				SOURCEPAGE:p.80
-Cool Under Pressure	CATEGORY:Talent		TYPE:Talent.AcolyteTalent	PREABILITY:1,CATEGORY=Talent,Aware,Faith									DESC:When making a check with %1, the Acolyte can take 10 even when distracted or under duress.|%LIST																	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma	SELECT:3+WIS															SOURCEPAGE:p.80
+Cool Under Pressure	CATEGORY:Talent		TYPE:Talent.AcolyteTalent	PREABILITY:1,CATEGORY=Talent,Aware,Faith									DESC:When making a check with %1, the Acolyte can take 10 even when distracted or under duress.|%LIST																	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|SKILL|TYPE=Charisma|TYPE=Constitution|TYPE=Dexterity|TYPE=Intelligence|TYPE=Strength|TYPE=Wisdom	SELECT:3+WIS															SOURCEPAGE:p.80
 
 
 ###Block:   Apprentice class abilities   =======================================
@@ -79,7 +79,7 @@ Mastery of All Schools		CATEGORY:Talent			TYPE:Talent.ApprenticeTalent				PREABI
 ###Block:   Everyman class abilities   =========================================
 
 # Ability Name		Category of Ability		Type					Visible		Stackable?	Multiple?	Choose			Class Skill
-Everyman Class Skills	CATEGORY:Special Ability	TYPE:EverymanClassSkills	VISIBLE:DISPLAY	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|ALL	CSKILL:LIST
+Everyman Class Skills	CATEGORY:Special Ability	TYPE:EverymanClassSkills	VISIBLE:DISPLAY	STACK:NO	MULT:YES	CHOOSE:SKILL|ALL	CSKILL:LIST
 
 ###Block: Everyman Talents
 #Attentive Talent Tree
@@ -103,14 +103,14 @@ CATEGORY=Talent|Inherited Treasure.MOD									TYPE:EverymanTalent
 Fast Learner									CATEGORY:Talent		TYPE:Talent.EverymanTalent											DESC:When the character takes this talent and every time he gains a level as an Everyman thereafter, he gains 2 additional skill points to divide up among his various skills as he sees fit.																									SOURCEPAGE:p.86
 Improved Learning									CATEGORY:Talent		TYPE:Talent.EverymanTalent	PREABILITY:1,CATEGORY=Talent,Fast Learner				DESC:Characters with this talent are always one-step ahead of their peers when it comes to education.																																								SOURCEPAGE:p.86
 Broad Knowledge									CATEGORY:Talent		TYPE:Talent.EverymanTalent	PREABILITY:1,CATEGORY=Talent,Fast Learner				DESC:Heroes with this talent are familiar with a wide range of topics, making them capable of greater proficiency in unfamiliar areas.																																		SOURCEPAGE:p.86
-Cross Training									CATEGORY:Talent		TYPE:Talent.EverymanTalent	PREABILITY:2,CATEGORY=Talent,Fast Learner,Broad Knowledge	DESC:The Everyman may pick any three cross class skills, such as Stealth, or Sense Motive. These skills thereafter become class skills for the Everyman.							STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|SKILLSNAMED|CROSSCLASS	SELECT:3									CSKILL:LIST	SOURCEPAGE:p.86
+Cross Training									CATEGORY:Talent		TYPE:Talent.EverymanTalent	PREABILITY:2,CATEGORY=Talent,Fast Learner,Broad Knowledge	DESC:The Everyman may pick any three cross class skills, such as Stealth, or Sense Motive. These skills thereafter become class skills for the Everyman.							STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|SKILL|CROSSCLASS	SELECT:3									CSKILL:LIST	SOURCEPAGE:p.86
 
 
 ###Block:   Explorer class abilities   =========================================
 
 # Ability Name	Category of Ability		Type						Description																																										Stackable?	Multiple?	Choose										Source Page
 Pathfinder		CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:An Explorer gains the ability to make a Survival check to locate or blaze a trail through trackless terrain while traveling overland.																																			SOURCEPAGE:p.87
-Favored Terrain	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredTerrain	DESC:Due to his extensive training and experience operating in this terrain, the Explorer gains a +1 circumstance bonus to Knowledge (physical sciences), Notice, Stealth, and Survival checks when using these skills in this type of terrain.				STACK:NO	MULT:YES	CHOOSE:STRING|Arctic|Aquatic|Desert|Forest|Hill|Marsh|Mountains	SOURCEPAGE:p.87
+Favored Terrain	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredTerrain	DESC:Due to his extensive training and experience operating in this terrain, the Explorer gains a +1 circumstance bonus to Knowledge (physical sciences), Notice, Stealth, and Survival checks when using these skills in this type of terrain.				STACK:NO	MULT:YES	CHOOSE:STRING|Aquatic|Arctic|Desert|Forest|Hill|Marsh|Mountains	SOURCEPAGE:p.87
 By the Bootstraps	CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:When a roll fails to meet the target DC by 5 points plus the characters INT bonus, he may then spend an Action point to consider the roll a flat out success, this takes the place of the additional die normally added to rolls by spending action points.																SOURCEPAGE:p.87
 Heroic Surge	CATEGORY:Special Ability	TYPE:SpecialQuality																																																													SOURCEPAGE:p.87
 
@@ -126,7 +126,7 @@ Greater Animal Friendship		CATEGORY:Talent		TYPE:Talent.ExplorerTalent	PREABILIT
 Animal Companion				CATEGORY:Talent		TYPE:Talent.ExplorerTalent	PREABILITY:1,CATEGORY=Talent,Animal Affinity,Wild Empathy,Calm Animals,Feral Bond,Animal Friendship,Greater Animal Friendship,Wilderness Awareness,Trackless Step,Swift Tracker,Wilderness Attunement,Camouflage,Hide in Plain Sight																						SOURCEPAGE:p.
 
 #Favored Enemy Talent Tree
-Favored Enemy				CATEGORY:Talent		TYPE:Talent.ExplorerTalent																																														STACK:NO	MULT:YES	CHOOSE:USERINPUT|TITLE="Allegiance"						SOURCEPAGE:p.
+Favored Enemy				CATEGORY:Talent		TYPE:Talent.ExplorerTalent																																														STACK:NO	MULT:YES	CHOOSE:USERINPUT|TITLE=Allegiance						SOURCEPAGE:p.
 Improved Favored Enemy			CATEGORY:Talent		TYPE:Talent.ExplorerTalent																																																													SOURCEPAGE:p.
 Implacable Foe				CATEGORY:Talent		TYPE:Talent.ExplorerTalent	PREABILITY:1,CATEGORY=Talent,Favored Enemy																																																					SOURCEPAGE:p.
 Focused Resolve				CATEGORY:Talent		TYPE:Talent.ExplorerTalent	PREABILITY:1,CATEGORY=Talent,Favored Enemy																																																					SOURCEPAGE:p.
@@ -152,7 +152,7 @@ Camel's Endurance				CATEGORY:Talent		TYPE:Talent.ExplorerTalent	PREABILITY:1,CA
 
 # Ability Name		Category of Ability		Type							Define				Multiple?	Choose					Modify VAR				Weapon prof. bonus
 Close Combat Shot		CATEGORY:Special Ability	TYPE:SpecialQuality
-Weapon Focus		CATEGORY:Special Ability	TYPE:SpecialQuality.GunslingerWeaponFocus	DEFINE:GunslingerWFBonus|0	MULT:YES	CHOOSE:WEAPONPROFS|TYPE=Firearm	BONUS:VAR|GunslingerWFBonus|1	BONUS:WEAPONPROF=%LIST|TOHIT|GunslingerWFBonus
+Weapon Focus		CATEGORY:Special Ability	TYPE:SpecialQuality.GunslingerWeaponFocus	DEFINE:GunslingerWFBonus|0	MULT:YES	CHOOSE:WEAPONPROFICIENCY|EQUIPMENT[TYPE=Firearm]	BONUS:VAR|GunslingerWFBonus|1	BONUS:WEAPONPROF=%LIST|TOHIT|GunslingerWFBonus
 Defensive Position	CATEGORY:Special Ability	TYPE:SpecialQuality
 Lightning Shot		CATEGORY:Special Ability	TYPE:SpecialQuality
 Sharp-Shooting		CATEGORY:Special Ability	TYPE:SpecialQuality
@@ -225,7 +225,7 @@ Talk a Good Game (Streetwise)				CATEGORY:Talent		TYPE:Talent.InvestigatorTalent
 Talk a Good Game (Military Science)			CATEGORY:Talent		TYPE:Talent.InvestigatorTalent	PREABILITY:1,CATEGORY=Talent,Logical (Military Science)																																										SOURCEPAGE:p.
 Talk a Good Game (Technology)				CATEGORY:Talent		TYPE:Talent.InvestigatorTalent	PREABILITY:1,CATEGORY=Talent,Logical (Technology)																																											SOURCEPAGE:p.
 Talk a Good Game (Theology and Philosophy)	CATEGORY:Talent		TYPE:Talent.InvestigatorTalent	PREABILITY:1,CATEGORY=Talent,Logical (Theology and Philosophy)																																									SOURCEPAGE:p.
-Implacable							CATEGORY:Talent		TYPE:Talent.InvestigatorTalent	PREABILITY:1,CATEGORY=Talent,Logical%														STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE=Intelligence	SELECT:3+INT																		SOURCEPAGE:p.
+Implacable							CATEGORY:Talent		TYPE:Talent.InvestigatorTalent	PREABILITY:1,CATEGORY=Talent,Logical%														STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Intelligence	SELECT:3+INT																		SOURCEPAGE:p.
 
 # Chameleon Talent Tree
 Improvise Disguise					CATEGORY:Talent		TYPE:Talent.InvestigatorTalent

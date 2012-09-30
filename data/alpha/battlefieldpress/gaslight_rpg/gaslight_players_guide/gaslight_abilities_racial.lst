@@ -42,7 +42,7 @@ Natural Enemy		KEY:Natural Enemy ~ Wildling	CATEGORY:Special Ability	TYPE:Specia
 Mist Form		CATEGORY:Talent		TYPE:Talent.VampireTalent																																																				SOURCEPAGE:p.55
 Swarm			CATEGORY:Talent		TYPE:Talent.VampireTalent	PREABILITY:1,CATEGORY=Talent,Wild Shape	PREPCLEVEL:MIN=8																																										SOURCEPAGE:p.55
 Wall-Crawling	CATEGORY:Talent		TYPE:Talent.VampireTalent								PREPCLEVEL:MIN=3																																		MOVE:Climb,20						SOURCEPAGE:p.55
-Wild Shape		CATEGORY:Talent		TYPE:Talent.VampireTalent													DEFINE:WildShapeTimes|0	DESC:%1 times per day you can assume the shape of a %2|WildShapeTimes|%CHOICE	STACK:NO	MULT:YES	CHOOSE:STRING|Bat|Dire Bat|Rat|Dire Rat|Wolf|Dire Wolf				BONUS:VAR|WildShapeTimes|1	SOURCEPAGE:p.55
+Wild Shape		CATEGORY:Talent		TYPE:Talent.VampireTalent													DEFINE:WildShapeTimes|0	DESC:%1 times per day you can assume the shape of a %2|WildShapeTimes|%CHOICE	STACK:NO	MULT:YES	CHOOSE:STRING|Bat|Dire Bat|Dire Rat|Dire Wolf|Rat|Wolf				BONUS:VAR|WildShapeTimes|1	SOURCEPAGE:p.55
 
 ###Block: Amazing Constitution Tree
 # Ability Name		Category of Ability	Type			Required Ability						Source Page
@@ -156,7 +156,7 @@ Significant Other	CATEGORY:Talent		TYPE:Talent.MultiRacial						SOURCEPAGE:p.62
 Animal Magnetism		CATEGORY:Talent		TYPE:Talent.HumanTalent.BeastManTalent.WildlingTalent	PREPCLEVEL:MAX=1			PRESTAT:1,CHA=13																																																																																	SOURCEPAGE:p.62
 Magical Potency		CATEGORY:Talent		TYPE:Talent.HumanTalent.BeastManTalent.WildlingTalent	PREPCLEVEL:MAX=1			PRESTAT:3,INT=11,WIS=11,CHA=11																																																																														SOURCEPAGE:p.62
 Pact with Darkness	CATEGORY:Talent		TYPE:Talent.HumanTalent.BeastManTalent.WildlingTalent	PREPCLEVEL:MAX=1																																																																																						SOURCEPAGE:p.62
-Magical Potency		CATEGORY:Talent		TYPE:Talent.HumanTalent.BeastManTalent.WildlingTalent	PREPCLEVEL:MAX=1			PRESTAT:3,INT=11,WIS=11,CHA=11	DESC:The character's blood burns with the power of magic. The character chooses one of the following skills, which becomes a class skill for him; in addition, the character's maximum number of skill ranks for that skill increases by 2.  The character may choose either Craft (mechanical), Knowledge (occult science) or Research.	MULT:YES	CHOOSE:NUMCHOICES=1|SKILLSNAMED|Craft (Mechanical)|Knowledge (Occult Science)|Research	SELECT:1	CSKILL:%LIST	SOURCEPAGE:p.63
+Magical Potency		CATEGORY:Talent		TYPE:Talent.HumanTalent.BeastManTalent.WildlingTalent	PREPCLEVEL:MAX=1			PRESTAT:3,INT=11,WIS=11,CHA=11	DESC:The character's blood burns with the power of magic. The character chooses one of the following skills, which becomes a class skill for him; in addition, the character's maximum number of skill ranks for that skill increases by 2.  The character may choose either Craft (mechanical), Knowledge (occult science) or Research.	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|Craft (Mechanical)|Knowledge (Occult Science)|Research	SELECT:1	CSKILL:LIST		SOURCEPAGE:p.63
 #TODO: No Method to Increase the Max Ranks for Selected Skill without changing All Skills currently
 
 
