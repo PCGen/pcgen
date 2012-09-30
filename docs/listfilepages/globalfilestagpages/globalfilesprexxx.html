@@ -157,31 +157,38 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (A type name).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>Requires included qualifications must be met before the associated BONUS will be applied to the target.</li>
-		<li>The Temporary Bonus tab uses this tag as a flag to identify which objects should be listed on that tab.</li>
-		<li>PREAPPLY works ONLY at the end of a BONUS tag.</li>
-		<li>Bonuses with PREAPPLY tags will only appear in the Temporary Bonuses Tab.</li>
-		<li>Use a comma (,) delimiter to indicate AND (both  conditions must be met).</li>
-		<li>Use a semi-colon (;) delimiter to indicate OR (either condition needs to be met).</li>
-		<li>All feats, spells or templates with ANYPC as the target of the PREAPPLY tag will always
-		show up on the Temp Bonuses tab. This allows for Spells that can be cast on any character and
-		Feats and Templates which act as holders for conditional bonuses any character can get (given
-		the right circumstances of course) without the character needing to have added those objects
-		to his character.</li>
-		<li>Spells with weapon type PREAPPLY tags will also show in the tab. The PREAPPLY:ANYPC is
-		assumed in this case but the bonus can only be applied to a weapon.</li>
+		<li>Requires that the included qualifications be met by the target before the associated <code>BONUS</code> will be applied to that target.</li>
+		<li><code>PREAPPLY</code> works <strong>ONLY</strong> at the end of a <code>BONUS</code> tag.</li>
+		<li>Bonuses with <code>PREAPPLY</code> tags will only appear in the <em>Temporary Bonuses Tab</em>.</li>
+		<li>Use a comma-delimiter (,) to indicate a logical <strong>AND</strong>, i.e. both conditions must be met.</li>
+		<li>Use a semi-colon delimiter (;) to indicate a logical <strong>OR</strong>, i.e. either condition must to be met.</li>
+		<li>All LST objects containing <code>BONUS</code> tags with <code>ANYPC</code> as the target of a <code>PREAPPLY</code> tag will always
+			show up on the <em>Temporary Bonus Tab</em>.</li>
+		<li>Use of the <code>ANYPC</code> subtag allows for bonuses to be granted without the character needing to have added the containing object 
+			to his character, or to allow for conditional/situational bonuses on LST objects that have been added to the character.</li>
+		<li>LST objects that can include a <code>PREAPPLY:ANYPC</code> tag include:
+			<ul>
+				<li>Spells that can be cast on any character.</li>
+				<li>Abilities that contain conditional or situational bonuses.</li>
+				<li>Feats that contain conditional or situational bonuses.</li>
+				<li>Skills that contain conditional or situational bonuses.</li>
+				<li>Templates that contain conditional or situational bonuses.</li>
+			</ul
+		</li>
+		<li>Spells with <code>PREAPPLY</code> tags with weapon types will be treated as containing <code>ANYPC</code> subtag and will appear in the 
+				<em>Temporary Bonuses Tab</em> with such bonuses applied only to a weapon that meets the type requirements specified.</li>
 		<li>See the documentation for the <a href="../../tabpages/players/inventory/inventorytempbonus.html">Temporary
-		Bonus Tab</a> for more information on using this tag.</li>
+			Bonus Tab</a> for more information on using this tag.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>PREAPPLY:ANYPC</code></p>
-	<p class="indent3">This would apply the bonus to the PC (such as spells that can be cast on a  character).</p>
+	<p class="indent3">This allows the bonus granted to be applied to any character.</p>
 	<p class="indent2"><code>PREAPPLY:PC</code></p>
-	<p class="indent3">This would apply the bonus to the PC, so long as the element is part of the  character (such as caster only spells).</p>
+	<p class="indent3">This allows the bonus granted to be applied to the PC to which the granting LST object is attached.</p>
 	<p class="indent2"><code>PREAPPLY:Ranged;Melee</code></p>
-	<p class="indent3">This would apply the bonus to Ranged OR Melee weapons.</p>
+	<p class="indent3">This allows the bonus granted to be applied to either ranged or melee weapons.</p>
 	<p class="indent2"><code>PREAPPLY:Weapon,Blunt</code></p>
-	<p class="indent3">This would apply the bonus to Wooden Blunt weapons.</p>
+	<p class="indent3">This allows the bonus granted to be applied to blunt weapons only.</p>
 	<p></p>
 
 <hr>
