@@ -150,7 +150,7 @@ public abstract class VariableProcessor
 					spellLevelTemp);
 			
 			String cacheString =
-					makeCacheString(aSpell == null ? null : aSpell.getSpell(), varString, src, spellLevelTemp);
+					makeCacheString(aSpell == null ? null : aSpell, varString, src, spellLevelTemp);
 
 			addCachedVariable(cacheString, result);
 		}
@@ -186,7 +186,7 @@ public abstract class VariableProcessor
 		}
 
 		String cacheString =
-				makeCacheString(aSpell == null ? null : aSpell.getSpell(), varString, src, spellLevelTemp);
+				makeCacheString(aSpell == null ? null : aSpell, varString, src, spellLevelTemp);
 
 		Float total = getCachedVariable(cacheString);
 		if (total != null)
@@ -206,14 +206,18 @@ public abstract class VariableProcessor
 		return null;
 	}
 
-	private String makeCacheString(
-			Spell aSpell, String varString, String src, int spellLevelTemp)
+	private String makeCacheString(CharacterSpell aSpell, String varString,
+		String src, int spellLevelTemp)
 	{
 		StringBuilder cS = new StringBuilder(varString).append("#").append(src);
 		
 		if (aSpell != null)
 		{
-			cS.append(aSpell.getKeyName());
+			if (aSpell.getSpell() != null)
+			{
+				cS.append(aSpell.getSpell().getKeyName());
+			}
+			cS.append(aSpell.getFixedCasterLevel());
 		}
 
 		if (spellLevelTemp > 0)
