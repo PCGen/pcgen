@@ -22,6 +22,7 @@ package pcgen.core.facade;
 
 import java.util.EventListener;
 import java.util.EventObject;
+
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.facade.util.ListFacade;
 
@@ -74,6 +75,15 @@ public interface CharacterLevelsFacade extends ListFacade<CharacterLevelFacade>
 	public int getSkillModifier(CharacterLevelFacade level, SkillFacade skill);
 
 	public float getSkillRanks(CharacterLevelFacade level, SkillFacade skill);
+
+	/**
+	 * Retrieve a breakdown of the skill details at a particular level.
+	 * @param level The level to retrieve.
+	 * @param skill The skill to retrieve
+	 * @return A SkillBreakdown containing the modifier, ranks and total for the skill at the level.
+	 */
+	public SkillBreakdown getSkillBreakdown(CharacterLevelFacade level,
+		SkillFacade skill);
 
 	public float getMaxRanks(CharacterLevelFacade level, SkillCost cost);
 
@@ -159,6 +169,17 @@ public interface CharacterLevelsFacade extends ListFacade<CharacterLevelFacade>
 			return stacks;
 		}
 
+	}
+
+	/**
+	 * The Class <code>SkillBreakdown</code> holds the modifier, rank and total
+	 * for a skill.
+	 */
+	public static class SkillBreakdown
+	{
+		public float ranks = 0.0f;
+		public int modifier = 0;
+		public int total = 0;
 	}
 
 }

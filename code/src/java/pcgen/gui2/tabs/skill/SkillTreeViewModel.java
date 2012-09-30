@@ -34,6 +34,7 @@ import pcgen.core.facade.CharacterLevelFacade;
 import pcgen.core.facade.CharacterLevelsFacade;
 import pcgen.core.facade.CharacterLevelsFacade.CharacterLevelEvent;
 import pcgen.core.facade.CharacterLevelsFacade.SkillBonusListener;
+import pcgen.core.facade.CharacterLevelsFacade.SkillBreakdown;
 import pcgen.core.facade.SkillFacade;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
@@ -141,10 +142,11 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		{
 			int index = selectionModel.getMinSelectionIndex();
 			CharacterLevelFacade level = levels.getElementAt(index);
+			SkillBreakdown skillBreakdown = levels.getSkillBreakdown(level, obj);
 			return Arrays.asList(
-					levels.getSkillTotal(level, obj),
-					levels.getSkillModifier(level, obj),
-					levels.getSkillRanks(level, obj),
+				skillBreakdown.total,
+				skillBreakdown.modifier,
+				skillBreakdown.ranks,
 					levels.getSkillCost(level, obj) == SkillCost.CLASS
 						? LanguageBundle.getString("in_yes") :  //$NON-NLS-1$
 						  LanguageBundle.getString("in_no"),    //$NON-NLS-1$

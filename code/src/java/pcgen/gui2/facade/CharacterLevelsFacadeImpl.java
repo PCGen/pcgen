@@ -404,7 +404,25 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		
 		return 0;
 	}
-
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public SkillBreakdown getSkillBreakdown(CharacterLevelFacade level, SkillFacade skill)
+	{
+		SkillBreakdown sb = new SkillBreakdown();
+		// TODO Ranks aren't stored by level - have compromised by returning the total. Further discussion needed 
+		if (skill instanceof Skill)
+		{
+			sb.ranks =
+					SkillRankControl.getTotalRank(theCharacter, (Skill) skill);
+			sb.modifier = SkillModifier.modifier((Skill) skill, theCharacter);
+			sb.total = sb.modifier + (int) sb.ranks;
+		}
+		return sb;
+	}
+	
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#getSpentSkillPoints(int)
 	 */
