@@ -2187,6 +2187,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	public void removeDomain(DomainFacade domain)
 	{
 		domains.removeElement(domain);
+		Domain dom = ((DomainFacadeImpl)domain).getRawObject();
+		DomainApplication.removeDomain(theCharacter, dom);
 		theCharacter.removeDomain(((DomainFacadeImpl) domain).getRawObject());
 		remainingDomains.setReference(theCharacter.getMaxCharacterDomains() - theCharacter.getDomainCount());
 		updateDomainTodo();

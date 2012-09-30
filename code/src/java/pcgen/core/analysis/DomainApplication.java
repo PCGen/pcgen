@@ -130,6 +130,83 @@ public class DomainApplication
 		}
 	}
 
+	/**
+	 * Remove a domain from the character.
+	 * @param pc The character
+	 * @param domain The domain.
+	 */
+	public static void removeDomain(PlayerCharacter pc, Domain domain)
+	{
+		ClassSource source = pc.getDomainSource(domain);
+		PCClass aClass = pc.getClassKeyed(source.getPcclass().getKeyName());
+
+		if (aClass != null)
+		{
+			int maxLevel;
+
+			for (maxLevel = 0; maxLevel < 10; maxLevel++)
+			{
+				if (pc.getSpellSupport(aClass).getCastForLevel(maxLevel, pc) == 0)
+				{
+					break;
+				}
+			}
+
+			if (maxLevel > 0)
+			{
+				removeSpellsFromClassForLevels(pc, domain, aClass);
+			}
+
+			if ((maxLevel > 1)
+					&& (aClass.getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY) == 0))
+			{
+				DomainSpellList domainSpellList = domain
+						.get(ObjectKey.DOMAIN_SPELLLIST);
+				final List<Spell> aList = Globals.getSpellsIn(-1, Collections
+						.singletonList(domainSpellList), pc);
+
+				for (Spell gcs : aList)
+				{
+					if (SpellLevel.getFirstLvlForKey(gcs, domainSpellList, pc) < maxLevel)
+					{
+						pc.removeAssoc(aClass, AssociationKey.DOMAIN_SPELL_COUNT);
+						break;
+					}
+				}
+			}
+		}
+
+		if (!pc.isImporting())
+		{
+			AddObjectActions.globalChecks(domain, pc);
+			BonusActivation.activateBonuses(domain, pc);
+		}
+	}
+	
+	/**
+	 * Remove any spells granted by the domain to the class.
+	 * @param pc The character.
+	 * @param domain The domain.
+	 * @param aClass The class which would have the spells allocated.
+	 */
+	public static void removeSpellsFromClassForLevels(PlayerCharacter pc, Domain domain,
+			PCClass aClass)
+	{
+		if (aClass == null)
+		{
+			return;
+		}
+
+		Collection<? extends CharacterSpell> characterSpells = pc.getCharacterSpells(aClass);
+		for (CharacterSpell characterSpell : characterSpells)
+		{
+			if (characterSpell.getOwner() == domain)
+			{
+				pc.removeCharacterSpell(aClass, characterSpell);
+			}
+		}
+	}
+	
 	public static void addSpellsToClassForLevels(PlayerCharacter pc, Domain d,
 			PCClass aClass, int minLevel, int maxLevel)
 	{
