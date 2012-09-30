@@ -223,6 +223,12 @@ public class SkillRankControl
 				}
 			}
 		}
+		if (active == null)
+		{
+			active = new NamedValue(
+				classKey, 0.0);
+			aPC.addAssoc(sk, AssociationListKey.SKILL_RANK, active);
+		}
 
 		if (currentRank <= 0)
 		{
