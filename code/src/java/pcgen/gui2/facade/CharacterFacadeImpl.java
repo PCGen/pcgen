@@ -2560,7 +2560,15 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	public void setFile(File file)
 	{
 		this.file.setReference(file);
-		theCharacter.setFileName(file.getName());
+		try
+		{
+			theCharacter.setFileName(file.getCanonicalPath());
+		}
+		catch (IOException e)
+		{
+			Logging.errorPrint("CharacterFacadeImpl.setFile failed for " + file, e);
+			theCharacter.setFileName(file.getPath());
+		}
 	}
 
 	
