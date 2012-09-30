@@ -85,7 +85,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     // menu elements used with CommonMenuText.name(...)
 	private static final String MNU_SAVE = "mnuSave"; //$NON-NLS-1$
 	private static final String MNU_OPEN = "mnuOpen"; //$NON-NLS-1$
-	private static final String MNU_EXIT = "mnuExit"; //$NON-NLS-1$
+	private static final String MNU_EXIT = "mnuClose"; //$NON-NLS-1$
 	private static final String MNU_NEW = "mnuNew"; //$NON-NLS-1$
 	private static final String MNU_CUT = "mnuCut"; //$NON-NLS-1$
 	private static final String MNU_COPY = "mnuCopy"; //$NON-NLS-1$

@@ -30,7 +30,7 @@ import java.awt.event.ActionListener;
  */
 public class OverlandPlugin extends GMBPlugin
 {
-	/** Log name */
+	/** Log name / plugin id */
 	public static final String LOG_NAME = "Overland_Travel";
 
 	/** The plugin menu item in the tools menu. */

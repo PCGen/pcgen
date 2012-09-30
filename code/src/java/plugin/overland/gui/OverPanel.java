@@ -5,44 +5,68 @@
  */
 package plugin.overland.gui;
 
-import java.io.File;
+import java.awt.BorderLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.text.NumberFormat;
-import java.text.ParseException;
+import java.util.EventObject;
+import java.util.Vector;
 
-import javax.swing.JOptionPane;
+import javax.swing.BorderFactory;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
-import org.jdom.DocType;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.input.SAXBuilder;
-
-import pcgen.util.Logging;
-import plugin.overland.util.PairList;
-import plugin.overland.util.RBCost;
-import plugin.overland.util.TravelMethod;
+import pcgen.system.LanguageBundle;
+import plugin.overland.model.RoomBoard;
+import plugin.overland.model.RoomBoardFactory;
+import plugin.overland.model.TravelMethod;
+import plugin.overland.model.TravelMethodFactory;
+import plugin.overland.model.TravelMethodListener;
+import plugin.overland.model.TravelSpeedEvent;
 
 /**
  *
  * @author  Juliean Galak
+ * @author Vincent Lhote
  */
 public class OverPanel extends javax.swing.JPanel
 {
-	// Variables declaration - do not modify//GEN-BEGIN:variables
+	// ### Constants ###
+
+	/** Value property used in {@link JFormattedTextField#addPropertyChangeListener(String, PropertyChangeListener)} */
+	private static final String VALUE_PROPERTY = "value"; //$NON-NLS-1$
+
+	protected static enum TravelMethodTextField { IMPERIAL_DISTANCE, METRIC_DISTANCE, TIME };
+	
+	// ### Fields ###
+
+	private TravelMethodTextField lastEdited = null;
+
 	private javax.swing.JButton butToDist;
 	private javax.swing.JButton butToMap;
 	private javax.swing.JButton butToReal;
 	private javax.swing.JButton butToTime;
+	private JButton butToTime2;
 	private javax.swing.JComboBox cmbAnimal;
 	private javax.swing.JComboBox cmbFood;
 	private javax.swing.JComboBox cmbInn;
-	private javax.swing.JComboBox cmbMethod;
-	private javax.swing.JLabel jLabel1;
-	private javax.swing.JLabel jLabel10;
+	private JComboBox cmbFile;
 	private javax.swing.JLabel jLabel11;
-	private javax.swing.JLabel jLabel12;
-	private javax.swing.JLabel jLabel13;
-	private javax.swing.JLabel jLabel14;
 	private javax.swing.JLabel jLabel15;
 	private javax.swing.JLabel jLabel16;
 	private javax.swing.JLabel jLabel17;
@@ -57,58 +81,53 @@ public class OverPanel extends javax.swing.JPanel
 	private javax.swing.JLabel jLabel3;
 	private javax.swing.JLabel jLabel4;
 	private javax.swing.JLabel jLabel5;
-	private javax.swing.JLabel jLabel6;
-	private javax.swing.JLabel jLabel7;
-	private javax.swing.JLabel jLabel8;
-	private javax.swing.JLabel jLabel9;
-	private javax.swing.JLabel lblDebug;
-	private javax.swing.JPanel jPanel1;
-	private javax.swing.JPanel jPanel2;
-	private javax.swing.JPanel jPanel3;
-	private javax.swing.JPanel jPanel4;
-	private javax.swing.JPanel jPanel5;
-	private javax.swing.JPanel jPanel6;
+	private javax.swing.JLabel imperialSpeedLabel;
+	private javax.swing.JPanel panelScaleConv;
+	private javax.swing.JPanel panelTravelTime;
+	private javax.swing.JPanel panelRoomBoard;
 	private javax.swing.JSeparator jSeparator1;
-	private javax.swing.JTextField lblSpeed;
-	private javax.swing.JTextField textMap;
-	private javax.swing.JTextField textReal;
-	private javax.swing.JTextField textScale;
-	private javax.swing.JTextField txtAnim;
-	private javax.swing.JTextField txtDayAnimal;
-	private javax.swing.JTextField txtDayFood;
-	private javax.swing.JTextField txtDayInn;
-	private javax.swing.JTextField txtDayTotal;
-	private javax.swing.JTextField txtDays;
-	private javax.swing.JTextField txtDist;
-	private javax.swing.JTextField txtPeop;
-	private javax.swing.JTextField txtTime;
-	private javax.swing.JTextField txtTotal;
-	private javax.swing.JTextField txtWeekAnimal;
-	private javax.swing.JTextField txtWeekFood;
-	private javax.swing.JTextField txtWeekInn;
-	private javax.swing.JTextField txtWeekTotal;
+	private JLabel lblSpeed;
+	private JFormattedTextField textMap;
+	private JFormattedTextField textReal;
+	private JFormattedTextField textScale;
+	private JFormattedTextField txtAnim;
+	private JFormattedTextField txtDayAnimal;
+	private JFormattedTextField txtDayFood;
+	private JFormattedTextField txtDayInn;
+	private JFormattedTextField txtDayTotal;
+	private JFormattedTextField txtDays;
+	private JFormattedTextField txtDist;
+	private JFormattedTextField txtPeop;
+	private JLabel imperialSpeed;
+	private JLabel metricSpeed;
+	private JFormattedTextField txtDistMetric;
+	private JFormattedTextField txtTime;
+	private JLabel txtTotal;
+	private JLabel txtWeekAnimal;
+	private JLabel txtWeekFood;
+	private JLabel txtWeekInn;
+	private JLabel txtWeekTotal;
+	private JTextArea ruleComment;
+	private JLabel metricSpeedLabel;
+	 
+	private JComboBox terrain;
+	private JComboBox route;
+	private JLabel percent;
+	private JComboBox method;
+	private JComboBox pace;
+	private JComboBox choice;
+	
+	private DefaultComboBoxModel aModel;
+	private TravelMethod selectedTM;
 	private NumberFormat gp = NumberFormat.getNumberInstance();
 	private NumberFormat nf = NumberFormat.getNumberInstance();
-	private PairList<RBCost> animals; //holds animal costs
-	private PairList<RBCost> foods; //holds inn costs
-	private PairList<RBCost> inns; //holds inn costs
 
-	// End of variables declaration//GEN-END:variables
+	private RoomBoard rb;
 
-	/* public Preferences namePrefs = Preferences.userNodeForPackage(NameGenPanel.class);
-	 private HashMap categories = new HashMap();
-	 private VariableHashMap allVars = new VariableHashMap();
-	 */
-	private PairList<TravelMethod> tms; //holds the travel methods list
-	private boolean StupidKludge = true; /* This is a stupid kludge!
-	 * the room & board combo boxes fire events when changed,
-	 * and these events trigger updateTopUI
-	 * Unfortunately, when I first populate the
-	 * comboboxes, the same event gets triggeresd, meessing
-	 * things up.  Since I can't find a way to differentiate
-	 * Between a "changed selection" event and a
-	 * "adding things to the combo box" event, I
-	 * have to use this. */
+	/** holds the travel methods */
+	private Vector<TravelMethod> tms;
+
+	// ### Constructors ###
 
 	/** Creates new form NameGenPanel
 	 * @param DataDir
@@ -120,168 +139,103 @@ public class OverPanel extends javax.swing.JPanel
 		initData();
 	}
 
-	private void butToDistActionPerformed(java.awt.event.ActionEvent evt)
-	{ //GEN-FIRST:event_butToDistActionPerformed
+	private void butToDistActionPerformed()
+	{
+		if (selectedTM == null)
+			return;
+		lastEdited = TravelMethodTextField.TIME;
+		Object o = txtTime.getValue();
+		if (o != null && o instanceof Number)
+		{
+			double time = ((Number) o).doubleValue();
 
-		int i;
-		i = cmbMethod.getSelectedIndex();
-
-		try
-		{
-			float time = nf.parse(txtTime.getText()).floatValue();
-			int speed = tms.get(i).getSpeed();
-			float result = 0;
-			result = time * speed;
-			txtDist.setText(nf.format(result));
-		}
-		catch (NumberFormatException e1)
-		{
-			JOptionPane.showMessageDialog(null,
-				"Invalid number format, try again.");
-		}
-		catch (ParseException e1)
-		{
-			JOptionPane.showMessageDialog(null,
-				"Invalid number format, try again.");
+			txtDist.setValue(selectedTM.convertToMiles(time));
+			txtDistMetric.setValue(selectedTM.convertToKm(time));
 		}
 	}
 
-	//GEN-LAST:event_butToDistActionPerformed
 
+	private void butImperialToTimeActionPerformed()
+	{
+		if (selectedTM == null)
+			return;
+		lastEdited = TravelMethodTextField.IMPERIAL_DISTANCE;
+		Object o = txtDist.getValue();
+		if (o != null && o instanceof Number)
+		{
+			double miles = ((Number) o).doubleValue();
+
+			txtTime.setValue(selectedTM.convertToTimeFromImperial(miles));
+		}
+	}
+
+	private void butMetricToTimeActionPerformed()
+	{
+		if (selectedTM == null)
+			return;
+		lastEdited = TravelMethodTextField.METRIC_DISTANCE;
+		Object o = txtDistMetric.getValue();
+		if (o != null && o instanceof Number)
+		{
+			double km = ((Number) o).doubleValue();
+			txtTime.setValue(selectedTM.convertToTimeFromMetric(km));
+		}
+	}
+
+	/** Converts from real units to map units */
 	private void butToMapActionPerformed(java.awt.event.ActionEvent evt)
-	{ //GEN-FIRST:event_butToMapActionPerformed
-
-		//Converts from real units to map units
-		try
-		{
-			float scale = nf.parse(textScale.getText()).floatValue();
-			float realUnits = nf.parse(textReal.getText()).floatValue();
-			float result = 0;
-			result = realUnits / scale;
-			textMap.setText(nf.format(result));
-		}
-		catch (NumberFormatException e1)
-		{
-			JOptionPane.showMessageDialog(null,
-				"Invalid number format, try again.");
-		}
-		catch (ParseException e1)
-		{
-			JOptionPane.showMessageDialog(null,
-				"Invalid number format, try again.");
-		}
+	{
+		float scale = ((Number) textScale.getValue()).floatValue();
+		float realUnits = ((Number) textReal.getValue()).floatValue();
+		float result = 0;
+		result = realUnits / scale;
+		textMap.setValue(result);
 	}
 
-	//GEN-LAST:event_butToMapActionPerformed
-
+	/** Converts from map units to real units */
 	private void butToRealActionPerformed(java.awt.event.ActionEvent evt) //GEN-FIRST:event_butToRealActionPerformed
-	{ //GEN-HEADEREND:event_butToRealActionPerformed
-
-		//Converts from map units to real units
-		try
-		{
-			float scale = nf.parse(textScale.getText()).floatValue();
-			float mapUnits = nf.parse(textMap.getText()).floatValue();
-			float result = 0;
-			result = scale * mapUnits;
-			textReal.setText(nf.format(result));
-		}
-		catch (NumberFormatException e1)
-		{
-			JOptionPane.showMessageDialog(null,
-				"Invalid number format, try again.");
-		}
-		catch (ParseException e1)
-		{
-			JOptionPane.showMessageDialog(null,
-				"Invalid number format, try again.");
-		}
+	{
+		float scale = ((Number) textScale.getValue()).floatValue();
+		float mapUnits = ((Number) textMap.getValue()).floatValue();
+		float result = 0;
+		result = scale * mapUnits;
+		textReal.setValue(result);
 	}
-
-	//GEN-LAST:event_butToRealActionPerformed
-
-	private void butToTimeActionPerformed(java.awt.event.ActionEvent evt)
-	{ //GEN-FIRST:event_butToTimeActionPerformed
-
-		int i;
-		i = cmbMethod.getSelectedIndex();
-
-		try
-		{
-			float dist = nf.parse(txtDist.getText()).floatValue();
-			int speed = tms.get(i).getSpeed();
-			float result = 0;
-			result = dist / speed;
-			txtTime.setText(nf.format(result));
-		}
-		catch (NumberFormatException e1)
-		{
-			JOptionPane.showMessageDialog(null,
-				"Invalid number format, try again.");
-		}
-		catch (ParseException e1)
-		{
-			JOptionPane.showMessageDialog(null,
-				"Invalid number format, try again.");
-		}
-	}
-
-	//GEN-LAST:event_butToTimeActionPerformed
-
-	private void cmbMethodActionPerformed(java.awt.event.ActionEvent evt)
-	{ //GEN-FIRST:event_cmbMethodActionPerformed
-
-		// This is for debugging purposes only
-		int speed;
-		int i;
-		i = cmbMethod.getSelectedIndex();
-		speed = tms.get(i).getSpeed();
-		lblSpeed.setText(Integer.toString(speed));
-	}
-
-	//GEN-LAST:event_cmbMethodActionPerformed
 
 	/**
 	 * This method is called from within the constructor to
 	 * initialize the form.
-	 * WARNING: Do NOT modify this code. The content of this method is
-	 * always regenerated by the Form Editor.
 	 */
-	private void initComponents() //GEN-BEGIN:initComponents
+	private void initComponents()
 	{
 		java.awt.GridBagConstraints gridBagConstraints;
 
-		jPanel5 = new javax.swing.JPanel();
-		jPanel1 = new javax.swing.JPanel();
-		jLabel1 = new javax.swing.JLabel();
+		panelScaleConv = new javax.swing.JPanel();
 		jLabel2 = new javax.swing.JLabel();
 		jLabel3 = new javax.swing.JLabel();
-		textScale = new javax.swing.JTextField();
+		textScale = new JFormattedTextField(nf);
+		textScale.setColumns(3);
 		jLabel4 = new javax.swing.JLabel();
 		jLabel5 = new javax.swing.JLabel();
-		jLabel6 = new javax.swing.JLabel();
-		textReal = new javax.swing.JTextField();
-		textMap = new javax.swing.JTextField();
-		jPanel2 = new javax.swing.JPanel();
+		textReal = new JFormattedTextField(nf);
+		textMap = new JFormattedTextField(nf);
 		butToMap = new javax.swing.JButton();
 		butToReal = new javax.swing.JButton();
-		jLabel7 = new javax.swing.JLabel();
-		jPanel3 = new javax.swing.JPanel();
-		jLabel8 = new javax.swing.JLabel();
-		jLabel9 = new javax.swing.JLabel();
-		cmbMethod = new javax.swing.JComboBox();
-		jLabel10 = new javax.swing.JLabel();
-		txtDist = new javax.swing.JTextField();
+		panelTravelTime = new javax.swing.JPanel();
+		imperialSpeedLabel = new javax.swing.JLabel();
+		metricSpeedLabel = new JLabel();
+		cmbFile = new javax.swing.JComboBox();
+		txtDist = new JFormattedTextField(nf);
+		txtDist.setColumns(4);
+		txtDistMetric = new JFormattedTextField(nf);
 		jLabel11 = new javax.swing.JLabel();
-		txtTime = new javax.swing.JTextField();
-		jPanel4 = new javax.swing.JPanel();
+		txtTime = new JFormattedTextField(nf);
+		txtTime.setColumns(4);
 		butToTime = new javax.swing.JButton();
+		butToTime2 = new JButton();
 		butToDist = new javax.swing.JButton();
-		jLabel12 = new javax.swing.JLabel();
-		jLabel13 = new javax.swing.JLabel();
-		lblSpeed = new javax.swing.JTextField();
-		jPanel6 = new javax.swing.JPanel();
-		jLabel14 = new javax.swing.JLabel();
+		lblSpeed = new JLabel();
+		panelRoomBoard = new javax.swing.JPanel();
 		jLabel15 = new javax.swing.JLabel();
 		jLabel16 = new javax.swing.JLabel();
 		jLabel17 = new javax.swing.JLabel();
@@ -289,113 +243,92 @@ public class OverPanel extends javax.swing.JPanel
 		jLabel20 = new javax.swing.JLabel();
 		jLabel21 = new javax.swing.JLabel();
 		jLabel22 = new javax.swing.JLabel();
-		txtDayFood = new javax.swing.JTextField();
-		txtDayInn = new javax.swing.JTextField();
-		txtDayAnimal = new javax.swing.JTextField();
-		txtWeekFood = new javax.swing.JTextField();
-		txtWeekInn = new javax.swing.JTextField();
-		txtWeekAnimal = new javax.swing.JTextField();
-		txtDays = new javax.swing.JTextField();
-		txtTotal = new javax.swing.JTextField();
+		txtDayFood = new JFormattedTextField(gp);
+		txtDayInn = new JFormattedTextField(gp);
+		txtDayAnimal = new JFormattedTextField(gp);
+		txtWeekFood = new JLabel();
+		txtWeekInn = new JLabel();
+		txtWeekAnimal = new JLabel();
+		txtDays = new JFormattedTextField(nf);
+		txtTotal = new JLabel();
 		cmbFood = new javax.swing.JComboBox();
 		cmbInn = new javax.swing.JComboBox();
 		cmbAnimal = new javax.swing.JComboBox();
 		jSeparator1 = new javax.swing.JSeparator();
 		jLabel23 = new javax.swing.JLabel();
 		jLabel24 = new javax.swing.JLabel();
-		txtPeop = new javax.swing.JTextField();
-		txtAnim = new javax.swing.JTextField();
-		txtDayTotal = new javax.swing.JTextField();
-		txtWeekTotal = new javax.swing.JTextField();
+		txtPeop = new JFormattedTextField(nf);
+		txtAnim = new JFormattedTextField(nf);
+		txtDayTotal = new JFormattedTextField(nf);
+		txtWeekTotal = new JLabel();
 		jLabel25 = new javax.swing.JLabel();
-		lblDebug = new javax.swing.JLabel();
+		JPanel panel = new JPanel(new java.awt.GridBagLayout());
 
-		setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+		int gap = 3;
+		Insets stdInsets = new Insets(gap, gap, gap, gap);
 
-		jPanel5.setLayout(new java.awt.GridBagLayout());
+		panelScaleConv.setLayout(new java.awt.GridBagLayout());
 
-		jPanel1.setLayout(new java.awt.GridBagLayout());
+		panelScaleConv.setBorder(BorderFactory.createTitledBorder(LanguageBundle.getString("in_plugin_overland_scaleConverter"))); //$NON-NLS-1$
 
-		jPanel1.setBorder(new javax.swing.border.EtchedBorder());
-		jLabel1.setFont(new java.awt.Font("Dialog", 1, 18));
-		jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		jLabel1.setText("Scale Converter");
+		jLabel2.setText(LanguageBundle.getString("in_plugin_overland_realUnits")); //$NON-NLS-1$
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 2;
+		gridBagConstraints.gridy = 0;
+		gridBagConstraints.insets = stdInsets;
+		panelScaleConv.add(jLabel2, gridBagConstraints);
+
+		jLabel3.setText("1"); //$NON-NLS-1$
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = 0;
-		gridBagConstraints.gridwidth = 4;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-		jPanel1.add(jLabel1, gridBagConstraints);
-
-		jLabel2.setFont(new java.awt.Font("Dialog", 0, 12));
-		jLabel2.setText("Real Units");
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 3;
 		gridBagConstraints.gridy = 1;
-		gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 3);
-		jPanel1.add(jLabel2, gridBagConstraints);
-
-		jLabel3.setText("Real Units");
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 3;
-		gridBagConstraints.gridy = 4;
-		gridBagConstraints.insets = new java.awt.Insets(3, 3, 0, 3);
-		jPanel1.add(jLabel3, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		panelScaleConv.add(jLabel3, gridBagConstraints);
 
 		textScale.setHorizontalAlignment(SwingConstants.CENTER);
-		textScale.setText("1");
+		textScale.setValue(1);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 1;
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.insets = new java.awt.Insets(0, 3, 3, 3);
-		jPanel1.add(textScale, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		panelScaleConv.add(textScale, gridBagConstraints);
 
-		jLabel4.setFont(new java.awt.Font("Dialog", 0, 12));
-		jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-		jLabel4.setText("1 Map Unit =");
+		jLabel4.setText("="); //$NON-NLS-1$
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 1;
-		gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 0);
-		jPanel1.add(jLabel4, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		panelScaleConv.add(jLabel4, gridBagConstraints);
 
-		jLabel5.setText("Map Units");
+		jLabel5.setText(LanguageBundle.getString("in_plugin_overland_mapUnits")); //$NON-NLS-1$
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = 4;
-		gridBagConstraints.insets = new java.awt.Insets(3, 3, 0, 3);
-		jPanel1.add(jLabel5, gridBagConstraints);
+		gridBagConstraints.gridy = 0;
+		gridBagConstraints.insets = stdInsets;
+		panelScaleConv.add(jLabel5, gridBagConstraints);
 
-		jLabel6.setText("Scale:");
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = 1;
-		gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-		jPanel1.add(jLabel6, gridBagConstraints);
-
+		textReal.addKeyListener(new KeyListenerImplementation(butToMap));
 		textReal.setHorizontalAlignment(SwingConstants.CENTER);
 		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 3;
-		gridBagConstraints.gridy = 5;
+		gridBagConstraints.gridx = 2;
+		gridBagConstraints.gridy = 2;
+		gridBagConstraints.gridheight = 2;
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-		gridBagConstraints.insets = new java.awt.Insets(0, 3, 3, 3);
-		jPanel1.add(textReal, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		panelScaleConv.add(textReal, gridBagConstraints);
 
+		textMap.addKeyListener(new KeyListenerImplementation(butToReal));
 		textMap.setHorizontalAlignment(SwingConstants.CENTER);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = 5;
+		gridBagConstraints.gridy = 2;
+		gridBagConstraints.gridheight = 2;
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-		gridBagConstraints.insets = new java.awt.Insets(0, 3, 3, 3);
-		jPanel1.add(textMap, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		panelScaleConv.add(textMap, gridBagConstraints);
 
-		jPanel2.setLayout(new java.awt.GridBagLayout());
-
-		butToMap.setText("<-");
+		butToMap.setText(LanguageBundle.getString("in_plugin_overland_leftArrow")); //$NON-NLS-1$
 		butToMap.addActionListener(new java.awt.event.ActionListener()
 		{
 			public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -405,11 +338,11 @@ public class OverPanel extends javax.swing.JPanel
 		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = 1;
-		jPanel2.add(butToMap, gridBagConstraints);
+		gridBagConstraints.gridx = 1;
+		gridBagConstraints.gridy = 2;
+		panelScaleConv.add(butToMap, gridBagConstraints);
 
-		butToReal.setText("->");
+		butToReal.setText(LanguageBundle.getString("in_plugin_overland_rightArrow")); //$NON-NLS-1$
 		butToReal.addActionListener(new java.awt.event.ActionListener()
 		{
 			public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -419,258 +352,319 @@ public class OverPanel extends javax.swing.JPanel
 		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = 0;
-		jPanel2.add(butToReal, gridBagConstraints);
-
-		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
-		gridBagConstraints.gridy = 4;
-		gridBagConstraints.gridwidth = 2;
-		gridBagConstraints.gridheight = 2;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		jPanel1.add(jPanel2, gridBagConstraints);
+		gridBagConstraints.gridy = 3;
+		panelScaleConv.add(butToReal, gridBagConstraints);
 
-		jLabel7.setText("                   ");
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 2;
-		gridBagConstraints.gridy = 2;
-		gridBagConstraints.insets = new java.awt.Insets(3, 3, 0, 3);
-		jPanel1.add(jLabel7, gridBagConstraints);
-
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-		jPanel5.add(jPanel1, gridBagConstraints);
-
-		jPanel3.setLayout(new java.awt.GridBagLayout());
-
-		jPanel3.setBorder(new javax.swing.border.EtchedBorder());
-		jLabel8.setFont(new java.awt.Font("Dialog", 1, 18));
-		jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		jLabel8.setText("Travel Time");
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 1;
-		gridBagConstraints.gridwidth = 5;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.insets = new java.awt.Insets(3, 3, 5, 3);
-		jPanel3.add(jLabel8, gridBagConstraints);
+		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+		panel.add(panelScaleConv, gridBagConstraints);
 
-		jLabel9.setText("Method");
+		// Travel time panel
+
+		panelTravelTime.setLayout(new java.awt.GridBagLayout());
+
+		panelTravelTime.setBorder(BorderFactory.createTitledBorder(LanguageBundle.getString("in_plugin_overland_travelTime"))); //$NON-NLS-1$
+
+		gridBagConstraints = new GridBagConstraints();
+		gridBagConstraints.gridx = 0;
+		gridBagConstraints.gridy = 0;
+		gridBagConstraints.gridwidth = GridBagConstraints.REMAINDER;
+		gridBagConstraints.insets = new Insets(0, 2*gap, 2*gap, 2*gap);
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		panelTravelTime.add(cmbFile, gridBagConstraints);
+
+		method = new JComboBox();
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = 2;
-		gridBagConstraints.insets = new java.awt.Insets(0, 3, 4, 3);
-		jPanel3.add(jLabel9, gridBagConstraints);
-
-		cmbMethod.addActionListener(new java.awt.event.ActionListener()
-		{
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				cmbMethodActionPerformed(evt);
-			}
-		});
-
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 1;
-		gridBagConstraints.gridy = 2;
+		gridBagConstraints.gridy = 1;
+		gridBagConstraints.insets = stdInsets;
 		gridBagConstraints.gridwidth = 2;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 4, 0);
-		jPanel3.add(cmbMethod, gridBagConstraints);
+		panelTravelTime.add(method, gridBagConstraints);
+		
+		JPanel terrainRoute = new JPanel(new GridBagLayout());
+		
+		terrain = new JComboBox();
+		gridBagConstraints = new GridBagConstraints();
+		gridBagConstraints.insets = stdInsets;
+		terrainRoute.add(terrain, gridBagConstraints);
 
-		jLabel10.setText("Dist (Miles)");
+		route = new JComboBox();
+		terrainRoute.add(route, gridBagConstraints);
+
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = 3;
-		gridBagConstraints.insets = new java.awt.Insets(0, 3, 0, 3);
-		jPanel3.add(jLabel10, gridBagConstraints);
+		gridBagConstraints.gridy = 5;
+		gridBagConstraints.gridwidth = 2;
+		panelTravelTime.add(terrainRoute, gridBagConstraints);
 
+		percent = new JLabel();
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 2;
+		gridBagConstraints.gridy = 5;
+		gridBagConstraints.insets = stdInsets;
+		panelTravelTime.add(percent, gridBagConstraints);
+
+		JPanel paceChoice = new JPanel(new GridBagLayout());
+		pace = new JComboBox();
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.insets = stdInsets;
+		paceChoice.add(pace, gridBagConstraints);
+		choice = new JComboBox();
+		paceChoice.add(choice, gridBagConstraints);
+		
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 0;
+		gridBagConstraints.gridy = 2;
+		gridBagConstraints.anchor = GridBagConstraints.LINE_START;
+		gridBagConstraints.gridwidth = 2;
+		gridBagConstraints.gridheight = 2;
+		panelTravelTime.add(paceChoice, gridBagConstraints);
+
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 2;
+		gridBagConstraints.gridy = 2;
+		gridBagConstraints.insets = stdInsets;
+		panelTravelTime.add(imperialSpeedLabel, gridBagConstraints);
+
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 2;
+		gridBagConstraints.gridy = 3;
+		gridBagConstraints.insets = stdInsets;
+		panelTravelTime.add(metricSpeedLabel, gridBagConstraints);
+
+		// "Special rules stuff will go there. This is used as default column name."
+		ruleComment = new JTextArea();
+		ruleComment.setRows(3);
+		ruleComment.setEditable(false);
+		ruleComment.setFocusable(false);
+		ruleComment.setLineWrap(true);
+		// TODO i18n this. this is not correct in non spaced language like Japanese, unless it is done correctly by Java?
+		ruleComment.setWrapStyleWord(true);
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 0;
+		gridBagConstraints.gridy = 4;
+		gridBagConstraints.gridwidth = 2;
+		gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		panelTravelTime.add(new JScrollPane(ruleComment), gridBagConstraints);
+
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 2;
+		gridBagConstraints.gridy = 6;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		// XXX use a line or a component that make more sense than this menu component
+		panelTravelTime.add(new JSeparator(), gridBagConstraints);
+
+		imperialSpeed = new JLabel();
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 2;
+		gridBagConstraints.gridy = 7;
+		panelTravelTime.add(imperialSpeed, gridBagConstraints);
+
+		metricSpeed = new JLabel();
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 2;
+		gridBagConstraints.gridy = 8;
+		panelTravelTime.add(metricSpeed, gridBagConstraints);
+
+		JPanel conversion = new JPanel(new GridBagLayout());
+		
+		txtDist.addKeyListener(new KeyListenerImplementation(butToTime));
 		txtDist.setHorizontalAlignment(SwingConstants.CENTER);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = 4;
+		gridBagConstraints.gridy = 0;
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-		gridBagConstraints.insets = new java.awt.Insets(0, 3, 0, 3);
-		jPanel3.add(txtDist, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		conversion.add(txtDist, gridBagConstraints);
 
-		jLabel11.setText("Time (Days)");
+		JLabel miles = new JLabel(LanguageBundle.getString("in_plugin_overland_fieldMiles")); //$NON-NLS-1$
 		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 3;
-		gridBagConstraints.gridy = 3;
-		gridBagConstraints.gridwidth = 2;
-		gridBagConstraints.insets = new java.awt.Insets(0, 3, 0, 3);
-		jPanel3.add(jLabel11, gridBagConstraints);
+		gridBagConstraints.gridx = 1;
+		gridBagConstraints.gridy = 0;
+		gridBagConstraints.insets = new java.awt.Insets(gap, 0, gap, gap);
+		conversion.add(miles, gridBagConstraints);
 
-		txtTime.setHorizontalAlignment(SwingConstants.CENTER);
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 3;
-		gridBagConstraints.gridy = 4;
-		gridBagConstraints.gridwidth = 2;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-		gridBagConstraints.insets = new java.awt.Insets(0, 3, 0, 3);
-		jPanel3.add(txtTime, gridBagConstraints);
-
-		jPanel4.setLayout(new java.awt.GridBagLayout());
-
-		butToTime.setText("->");
+		butToTime.setText(LanguageBundle.getString("in_plugin_overland_rightArrow")); //$NON-NLS-1$
+		butToTime.setEnabled(false);
 		butToTime.addActionListener(new java.awt.event.ActionListener()
 		{
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				butToTimeActionPerformed(evt);
+				butImperialToTimeActionPerformed();
 			}
 		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 1;
-		gridBagConstraints.gridy = 3;
-		gridBagConstraints.insets = new java.awt.Insets(0, 3, 0, 3);
-		jPanel4.add(butToTime, gridBagConstraints);
+		gridBagConstraints.gridx = 2;
+		gridBagConstraints.gridy = 0;
+		conversion.add(butToTime, gridBagConstraints);
 
-		butToDist.setText("<-");
+		txtDistMetric.addKeyListener(new KeyListenerImplementation(butToTime2));
+		txtDistMetric.setHorizontalAlignment(SwingConstants.CENTER);
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 0;
+		gridBagConstraints.gridy = 1;
+		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.insets = stdInsets;
+		conversion.add(txtDistMetric, gridBagConstraints);
+
+		lblSpeed.setText(LanguageBundle.getString("in_plugin_overland_fieldKm")); //$NON-NLS-1$
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 1;
+		gridBagConstraints.gridy = 1;
+		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.gridwidth = GridBagConstraints.REMAINDER;
+		gridBagConstraints.insets = new java.awt.Insets(gap, gap, gap, gap);
+		conversion.add(lblSpeed, gridBagConstraints);
+
+		butToTime2.setText(LanguageBundle.getString("in_plugin_overland_rightArrow")); //$NON-NLS-1$
+		butToTime2.setEnabled(false);
+		butToTime.addActionListener(new java.awt.event.ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent evt)
+			{
+				butMetricToTimeActionPerformed();
+			}
+		});
+
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 2;
+		gridBagConstraints.gridy = 1;
+		conversion.add(butToTime2, gridBagConstraints);
+
+		txtTime.addKeyListener(new KeyListenerImplementation(butToDist));
+		txtTime.setHorizontalAlignment(SwingConstants.CENTER);
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 4;
+		gridBagConstraints.gridy = 0;
+		gridBagConstraints.gridheight = 2;
+		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.insets = new java.awt.Insets(gap, gap, gap, 0);
+		conversion.add(txtTime, gridBagConstraints);
+
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 5;
+		gridBagConstraints.gridy = 0;
+		gridBagConstraints.gridheight = 2;
+		gridBagConstraints.insets = stdInsets;
+		conversion.add(jLabel11, gridBagConstraints);
+
+		butToDist.setText(LanguageBundle.getString("in_plugin_overland_leftArrow")); //$NON-NLS-1$
 		butToDist.addActionListener(new java.awt.event.ActionListener()
 		{
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				butToDistActionPerformed(evt);
+				butToDistActionPerformed();
 			}
 		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 1;
-		gridBagConstraints.gridy = 4;
-		gridBagConstraints.insets = new java.awt.Insets(0, 3, 0, 3);
-		jPanel4.add(butToDist, gridBagConstraints);
-
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 1;
-		gridBagConstraints.gridy = 3;
-		gridBagConstraints.gridwidth = 2;
-		gridBagConstraints.gridheight = 2;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		jPanel3.add(jPanel4, gridBagConstraints);
-
-		jLabel12.setText("                   ");
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 1;
-		gridBagConstraints.gridy = 2;
-		gridBagConstraints.insets = new java.awt.Insets(3, 3, 0, 3);
-		jPanel3.add(jLabel12, gridBagConstraints);
-
-		jLabel13.setFont(new java.awt.Font("Dialog", 0, 12));
-		jLabel13.setText("mpd");
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 4;
-		gridBagConstraints.gridy = 2;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 4, 3);
-		jPanel3.add(jLabel13, gridBagConstraints);
-
-		lblSpeed.setEditable(false);
-		lblSpeed.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSpeed.setText("         ");
-		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 3;
-		gridBagConstraints.gridy = 2;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.ipadx = 2;
-		gridBagConstraints.insets = new java.awt.Insets(0, 5, 4, 2);
-		jPanel3.add(lblSpeed, gridBagConstraints);
-
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridy = 0;
+		gridBagConstraints.gridheight = 2;
+		conversion.add(butToDist, gridBagConstraints);
+		
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = 1;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		jPanel5.add(jPanel3, gridBagConstraints);
+		gridBagConstraints.gridy = 8;
+		gridBagConstraints.gridwidth = 2;
+		gridBagConstraints.gridheight = 4;
+		panelTravelTime.add(conversion, gridBagConstraints);
 
-		jPanel6.setLayout(new java.awt.GridBagLayout());
-
-		jPanel6.setBorder(new javax.swing.border.EtchedBorder());
-		jLabel14.setFont(new java.awt.Font("Dialog", 1, 18));
-		jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		jLabel14.setText("Room and Board");
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 0;
-		gridBagConstraints.gridwidth = 4;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.insets = new java.awt.Insets(3, 3, 5, 3);
-		jPanel6.add(jLabel14, gridBagConstraints);
+		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		panel.add(panelTravelTime, gridBagConstraints);
 
-		jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		jLabel15.setText("  Per Day  ");
+		// Room and board
+
+		panelRoomBoard.setLayout(new java.awt.GridBagLayout());
+
+		panelRoomBoard.setBorder(BorderFactory.createTitledBorder(LanguageBundle.getString("in_plugin_overland_roomAndBoard"))); //$NON-NLS-1$
+
+		jLabel15.setText(LanguageBundle.getString("in_plugin_overland_perDay")); //$NON-NLS-1$
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 3;
-		jPanel6.add(jLabel15, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(jLabel15, gridBagConstraints);
 
-		jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-		jLabel16.setText("Food");
+		jLabel16.setText(LanguageBundle.getString("in_plugin_overland_food")); //$NON-NLS-1$
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 4;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 3, 0, 2);
-		jPanel6.add(jLabel16, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(jLabel16, gridBagConstraints);
 
-		jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		jLabel17.setText(" Per Week ");
+		jLabel17.setText(LanguageBundle.getString("in_plugin_overland_perWeek")); //$NON-NLS-1$
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 3;
 		gridBagConstraints.gridy = 3;
-		jPanel6.add(jLabel17, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(jLabel17, gridBagConstraints);
 
-		jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-		jLabel18.setText("Inn");
+		jLabel18.setText(LanguageBundle.getString("in_plugin_overland_lodging")); //$NON-NLS-1$
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 5;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 3, 0, 2);
-		jPanel6.add(jLabel18, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(jLabel18, gridBagConstraints);
 
-		jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-		jLabel20.setText("Animals ");
+		// some space between top and middle
+		gridBagConstraints = new GridBagConstraints();
+		gridBagConstraints.gridx = 0;
+		gridBagConstraints.gridy = 2;
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(new JPanel(), gridBagConstraints);
+
+		jLabel20.setText(LanguageBundle.getString("in_plugin_overland_animals")); //$NON-NLS-1$
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 7;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 3, 0, 2);
-		jPanel6.add(jLabel20, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(jLabel20, gridBagConstraints);
 
-		jLabel21.setText("Days:");
+		jLabel21.setText(LanguageBundle.getString("in_plugin_overland_days")); //$NON-NLS-1$
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 10;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 2);
-		jPanel6.add(jLabel21, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(jLabel21, gridBagConstraints);
 
-		jLabel22.setText("Total");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 11;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+		gridBagConstraints.gridwidth = 2;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		panelRoomBoard.add(new JSeparator(), gridBagConstraints);
+
+		jLabel22.setText(LanguageBundle.getString("in_plugin_overland_total")); //$NON-NLS-1$
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 1;
+		gridBagConstraints.gridy = 12;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 2);
-		jPanel6.add(jLabel22, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(jLabel22, gridBagConstraints);
 
 		txtDayFood.setHorizontalAlignment(SwingConstants.CENTER);
-		txtDayFood.setText("0");
-		txtDayFood.addActionListener(new java.awt.event.ActionListener()
+		txtDayFood.addPropertyChangeListener(VALUE_PROPERTY, new PropertyChangeListener()
 		{
-			public void actionPerformed(java.awt.event.ActionEvent evt)
+			
+			@Override
+			public void propertyChange(PropertyChangeEvent evt)
 			{
-				txtDayFoodActionPerformed(evt);
+				txtDayFoodActionPerformed();
 			}
 		});
 
@@ -678,15 +672,17 @@ public class OverPanel extends javax.swing.JPanel
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 4;
 		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		jPanel6.add(txtDayFood, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(txtDayFood, gridBagConstraints);
 
 		txtDayInn.setHorizontalAlignment(SwingConstants.CENTER);
-		txtDayInn.setText("0");
-		txtDayInn.addActionListener(new java.awt.event.ActionListener()
+		txtDayInn.addPropertyChangeListener(VALUE_PROPERTY, new PropertyChangeListener()
 		{
-			public void actionPerformed(java.awt.event.ActionEvent evt)
+			
+			@Override
+			public void propertyChange(PropertyChangeEvent evt)
 			{
-				txtDayFoodActionPerformed(evt);
+				txtDayFoodActionPerformed();
 			}
 		});
 
@@ -694,15 +690,17 @@ public class OverPanel extends javax.swing.JPanel
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 5;
 		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		jPanel6.add(txtDayInn, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(txtDayInn, gridBagConstraints);
 
 		txtDayAnimal.setHorizontalAlignment(SwingConstants.CENTER);
-		txtDayAnimal.setText("0");
-		txtDayAnimal.addActionListener(new java.awt.event.ActionListener()
+		txtDayAnimal.addPropertyChangeListener(VALUE_PROPERTY, new PropertyChangeListener()
 		{
-			public void actionPerformed(java.awt.event.ActionEvent evt)
+			
+			@Override
+			public void propertyChange(PropertyChangeEvent evt)
 			{
-				txtDayFoodActionPerformed(evt);
+				txtDayFoodActionPerformed();
 			}
 		});
 
@@ -710,39 +708,38 @@ public class OverPanel extends javax.swing.JPanel
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 7;
 		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		jPanel6.add(txtDayAnimal, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(txtDayAnimal, gridBagConstraints);
 
-		txtWeekFood.setEditable(false);
 		txtWeekFood.setHorizontalAlignment(SwingConstants.CENTER);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 3;
 		gridBagConstraints.gridy = 4;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		jPanel6.add(txtWeekFood, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(txtWeekFood, gridBagConstraints);
 
-		txtWeekInn.setEditable(false);
 		txtWeekInn.setHorizontalAlignment(SwingConstants.CENTER);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 3;
 		gridBagConstraints.gridy = 5;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		jPanel6.add(txtWeekInn, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(txtWeekInn, gridBagConstraints);
 
-		txtWeekAnimal.setEditable(false);
 		txtWeekAnimal.setHorizontalAlignment(SwingConstants.CENTER);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 3;
 		gridBagConstraints.gridy = 7;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		jPanel6.add(txtWeekAnimal, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(txtWeekAnimal, gridBagConstraints);
 
 		txtDays.setHorizontalAlignment(SwingConstants.CENTER);
-		txtDays.setText("1");
-		txtDays.addActionListener(new java.awt.event.ActionListener()
+		txtDays.addPropertyChangeListener(VALUE_PROPERTY, new PropertyChangeListener()
 		{
-			public void actionPerformed(java.awt.event.ActionEvent evt)
+			
+			@Override
+			public void propertyChange(PropertyChangeEvent evt)
 			{
-				txtDaysActionPerformed(evt);
+				txtDaysActionPerformed();
 			}
 		});
 
@@ -750,22 +747,22 @@ public class OverPanel extends javax.swing.JPanel
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 10;
 		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		jPanel6.add(txtDays, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(txtDays, gridBagConstraints);
 
-		txtTotal.setEditable(false);
 		txtTotal.setHorizontalAlignment(SwingConstants.CENTER);
-		txtTotal.setText("1");
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 2;
-		gridBagConstraints.gridy = 11;
+		gridBagConstraints.gridy = 12;
 		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		jPanel6.add(txtTotal, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(txtTotal, gridBagConstraints);
 
 		cmbFood.addActionListener(new java.awt.event.ActionListener()
 		{
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				txtPeopActionPerformed(evt);
+				txtPeopActionPerformed();
 			}
 		});
 
@@ -773,13 +770,14 @@ public class OverPanel extends javax.swing.JPanel
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 4;
 		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		jPanel6.add(cmbFood, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(cmbFood, gridBagConstraints);
 
 		cmbInn.addActionListener(new java.awt.event.ActionListener()
 		{
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				txtPeopActionPerformed(evt);
+				txtPeopActionPerformed();
 			}
 		});
 
@@ -787,13 +785,14 @@ public class OverPanel extends javax.swing.JPanel
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 5;
 		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		jPanel6.add(cmbInn, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(cmbInn, gridBagConstraints);
 
 		cmbAnimal.addActionListener(new java.awt.event.ActionListener()
 		{
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				txtPeopActionPerformed(evt);
+				txtPeopActionPerformed();
 			}
 		});
 
@@ -801,369 +800,272 @@ public class OverPanel extends javax.swing.JPanel
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 7;
 		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		jPanel6.add(cmbAnimal, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(cmbAnimal, gridBagConstraints);
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
-		gridBagConstraints.gridy = 9;
-		gridBagConstraints.gridwidth = 2;
+		gridBagConstraints.gridy = 8;
+		gridBagConstraints.gridwidth = 3;
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 0);
-		jPanel6.add(jSeparator1, gridBagConstraints);
+		panelRoomBoard.add(jSeparator1, gridBagConstraints);
 
-		jLabel23.setText("People:");
+		jLabel23.setText(LanguageBundle.getString("in_plugin_overland_people")); //$NON-NLS-1$
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 0;
+		gridBagConstraints.gridy = 0;
+		gridBagConstraints.anchor = GridBagConstraints.LINE_START;
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(jLabel23, gridBagConstraints);
+
+		jLabel24.setText(LanguageBundle.getString("in_plugin_overland_animals")); //$NON-NLS-1$
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 1;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		gridBagConstraints.insets = new java.awt.Insets(0, 3, 0, 2);
-		jPanel6.add(jLabel23, gridBagConstraints);
-
-		jLabel24.setText("Animals:");
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = 2;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		gridBagConstraints.insets = new java.awt.Insets(0, 3, 0, 2);
-		jPanel6.add(jLabel24, gridBagConstraints);
+		gridBagConstraints.anchor = GridBagConstraints.LINE_START;
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(jLabel24, gridBagConstraints);
 
 		txtPeop.setHorizontalAlignment(SwingConstants.CENTER);
-		txtPeop.setText("1");
-		txtPeop.addActionListener(new java.awt.event.ActionListener()
+		txtPeop.setColumns(3);
+		txtPeop.addPropertyChangeListener(VALUE_PROPERTY, new PropertyChangeListener()
 		{
-			public void actionPerformed(java.awt.event.ActionEvent evt)
+			
+			@Override
+			public void propertyChange(PropertyChangeEvent evt)
 			{
-				txtPeopActionPerformed(evt);
+				txtPeopActionPerformed();
+			}
+		});
+
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 1;
+		gridBagConstraints.gridy = 0;
+		gridBagConstraints.anchor = GridBagConstraints.LINE_START;
+		gridBagConstraints.gridwidth = GridBagConstraints.REMAINDER;
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(txtPeop, gridBagConstraints);
+
+		txtAnim.setHorizontalAlignment(SwingConstants.CENTER);
+		txtAnim.setColumns(3);
+		txtAnim.addPropertyChangeListener(VALUE_PROPERTY, new PropertyChangeListener()
+		{
+			
+			@Override
+			public void propertyChange(PropertyChangeEvent evt)
+			{
+				txtPeopActionPerformed();
 			}
 		});
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 1;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		jPanel6.add(txtPeop, gridBagConstraints);
-
-		txtAnim.setHorizontalAlignment(SwingConstants.CENTER);
-		txtAnim.setText("1");
-		txtAnim.addActionListener(new java.awt.event.ActionListener()
-		{
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				txtPeopActionPerformed(evt);
-			}
-		});
-
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 1;
-		gridBagConstraints.gridy = 2;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		jPanel6.add(txtAnim, gridBagConstraints);
+		gridBagConstraints.anchor = GridBagConstraints.LINE_START;
+		gridBagConstraints.gridwidth = GridBagConstraints.REMAINDER;
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(txtAnim, gridBagConstraints);
 
 		txtDayTotal.setHorizontalAlignment(SwingConstants.CENTER);
-		txtDayTotal.setText("0");
-		txtDayTotal.addActionListener(new java.awt.event.ActionListener()
+		txtDayTotal.addPropertyChangeListener(VALUE_PROPERTY, new PropertyChangeListener()
 		{
-			public void actionPerformed(java.awt.event.ActionEvent evt)
+			
+			@Override
+			public void propertyChange(PropertyChangeEvent evt)
 			{
-				txtDaysActionPerformed(evt);
+				txtDaysActionPerformed();
 			}
 		});
 
+		txtDayTotal.setEditable(false);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 2;
-		gridBagConstraints.gridy = 8;
+		gridBagConstraints.gridy = 9;
 		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		gridBagConstraints.insets = new java.awt.Insets(3, 0, 0, 0);
-		jPanel6.add(txtDayTotal, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(txtDayTotal, gridBagConstraints);
 
-		txtWeekTotal.setEditable(false);
 		txtWeekTotal.setHorizontalAlignment(SwingConstants.CENTER);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 3;
-		gridBagConstraints.gridy = 8;
+		gridBagConstraints.gridy = 9;
 		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		gridBagConstraints.insets = new java.awt.Insets(3, 0, 0, 0);
-		jPanel6.add(txtWeekTotal, gridBagConstraints);
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(txtWeekTotal, gridBagConstraints);
 
-		jLabel25.setText("Totals");
+		jLabel25.setText(LanguageBundle.getString("in_plugin_overland_total")); //$NON-NLS-1$
 		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = 8;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		gridBagConstraints.insets = new java.awt.Insets(3, 3, 0, 2);
-		jPanel6.add(jLabel25, gridBagConstraints);
-
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		jPanel5.add(jPanel6, gridBagConstraints);
+		gridBagConstraints.gridx = 1;
+		gridBagConstraints.gridy = 9;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
+		gridBagConstraints.insets = stdInsets;
+		panelRoomBoard.add(jLabel25, gridBagConstraints);
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
-		gridBagConstraints.gridy = 1;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		jPanel5.add(lblDebug, gridBagConstraints);
+		gridBagConstraints.gridy = 0;
+		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		panel.add(panelRoomBoard, gridBagConstraints);
 
-		add(jPanel5);
+		setLayout(new BorderLayout());
+		add(new JScrollPane(panel), BorderLayout.CENTER);
 	}
-
-	//GEN-END:initComponents
 
 	private void initData()
 	{
-		StupidKludge = false; //prevent updating of ui for now
-
 		nf.setMaximumFractionDigits(2); //This will display other numbers
-		gp.setMaximumFractionDigits(2); //This will correctly display currency
+		gp.setMaximumFractionDigits(3); //This will correctly display currency
 
-		for (int i = 0; i < tms.getCount(); i++)
+		aModel = new DefaultComboBoxModel(tms);
+		cmbFile.setModel(aModel);
+		cmbFile.addItemListener(new ItemListener()
 		{
-			cmbMethod.addItem(tms.get(i).getName());
-		}
 
-		//End travel methods setup
+			@Override
+			public void itemStateChanged(ItemEvent e)
+			{
+				if (e.getStateChange() == ItemEvent.DESELECTED)
+					return;
+				changedTM();
+			}
+		});
+		cmbFile.setSelectedItem(tms.get(0));
+		// For some reason the panel is not updated by calling setSelectedItem
+		changedTM();
+
+		txtPeop.setValue(1);
+		txtAnim.setValue(1);
+		txtDays.setValue(1);
 		//Begin costs setup
 		//the data is loaded into the data structures, now just load the combo boxes
-		for (int i = 0; i < inns.getCount(); i++)
+		for (int i = 0; i < rb.getInns().getCount(); i++)
 		{
-			cmbInn.addItem(inns.get(i).getName());
+			cmbInn.addItem(rb.getInns().get(i).getName());
 		}
+		cmbInn.setSelectedIndex(0);
 
-		for (int i = 0; i < foods.getCount(); i++)
+		for (int i = 0; i < rb.getFoods().getCount(); i++)
 		{
-			cmbFood.addItem(foods.get(i).getName());
+			cmbFood.addItem(rb.getFoods().get(i).getName());
 		}
+		cmbFood.setSelectedIndex(0);
 
-		for (int i = 0; i < animals.getCount(); i++)
+		for (int i = 0; i < rb.getAnimals().getCount(); i++)
 		{
-			cmbAnimal.addItem(animals.get(i).getName());
+			cmbAnimal.addItem(rb.getAnimals().get(i).getName());
 		}
-
-		//End costs setup
-		StupidKludge = true; //reenable updating
-		updateTopUI(); //force an update.
+		cmbAnimal.setSelectedIndex(0);
 	}
+
+	private void changedTM()
+	{
+		// remove previous listener
+		if (selectedTM != null)
+			selectedTM.removeTravelMethodListener(listener);
+		selectedTM = (TravelMethod) aModel.getSelectedItem();
+		// XXX correct?
+		if (selectedTM == null)
+			return;
+
+		method.setModel(selectedTM.getMethodsModel());
+		method.setSelectedIndex(0);
+		pace.setModel(selectedTM.getPaceModel());
+		choice.setModel(selectedTM.getChoiceModel());
+		terrain.setModel(selectedTM.getTerrainsModel());
+		route.setModel(selectedTM.getRoutesModel());
+		selectedTM.addTravelMethodListener(listener);
+
+		pace.setSelectedIndex(0);
+		choice.setSelectedIndex(0);
+		terrain.setSelectedIndex(0);
+		route.setSelectedIndex(0);
+	}
+	
+	private TravelMethodListener listener =  new TravelMethodListener()
+	{
+		private static final String NEWLINE = "\n"; //$NON-NLS-1$
+		
+		@Override
+		public void multUpdated(TravelSpeedEvent e)
+		{
+			String changed = e.getChanged();
+			// HTMLize the string
+			if(changed!=null && changed.contains(NEWLINE))
+			{
+				changed = "<html>"+changed.replaceAll(NEWLINE, "<br>")+"</html>";  //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			}
+			percent.setText(changed);
+		}
+
+		@Override
+		public void unmodifiedSpeedUpdated(EventObject e)
+		{
+			imperialSpeedLabel.setText(selectedTM.getUnmodifiedImperialSpeedString());
+			metricSpeedLabel.setText(selectedTM.getUnmodifiedMetricSpeedString());
+		}
+
+		@Override
+		public void speedUpdated(EventObject e)
+		{
+			String imperialSpeedString = selectedTM.getImperialSpeedString();
+			imperialSpeed.setText(imperialSpeedString);
+			butToTime.setEnabled(imperialSpeedString != null);
+			String metricSpeedString = selectedTM.getMetricSpeedString();
+			metricSpeed.setText(metricSpeedString);
+			butToTime2.setEnabled(metricSpeedString != null);
+			butToDist.setEnabled(imperialSpeedString != null && metricSpeedString != null);
+			// Updates other text fields based on the last edited one
+			if (lastEdited != null)
+				switch (lastEdited)
+				{
+					case IMPERIAL_DISTANCE:
+						butImperialToTimeActionPerformed();
+						break;
+					case METRIC_DISTANCE:
+						butMetricToTimeActionPerformed();
+						break;
+					case TIME:
+						butToDistActionPerformed();
+						break;
+				}
+		}
+
+		@Override
+		public void useDaysChanged(TravelSpeedEvent e)
+		{
+			jLabel11.setText(e.getChanged());
+		}
+
+		@Override
+		public void commentChanged(TravelSpeedEvent e)
+		{
+			ruleComment.setText(e.getChanged());
+		}
+	};
 
 	private void loadData(String aDataDir)
 	{
 		//Populate Travel Methods
-		loadTM(aDataDir + "/travel_methods");
-
+		tms = TravelMethodFactory.load(aDataDir);
+		
 		//Populate Room and Board
-		loadRB(aDataDir + "/rnbprice");
+		rb = RoomBoardFactory.load(aDataDir);
 	}
 
-	private void loadRB(String DataPath)
+	private void txtDayFoodActionPerformed()
 	{
-		//Create a new list for the room and board
-		inns = new PairList<RBCost>();
-		foods = new PairList<RBCost>();
-		animals = new PairList<RBCost>();
-
-		File path = new File(DataPath);
-
-		if (path.isDirectory())
-		{
-			File[] dataFiles = path.listFiles(new XMLFilter());
-			SAXBuilder builder = new SAXBuilder();
-
-			for (int i = 0; i < dataFiles.length; i++)
-			{
-				try
-				{
-					Document methodSet = builder.build(dataFiles[i]);
-					DocType dt = methodSet.getDocType();
-
-					if (dt.getElementName().equals("RNBPRICE"))
-					{
-						//Do work here
-						loadRBData(methodSet);
-					}
-
-					methodSet = null;
-					dt = null;
-				}
-				catch (Exception e)
-				{
-					JOptionPane.showMessageDialog(this, "XML Error with file "
-						+ dataFiles[i].getName());
-					Logging.errorPrint(e.getMessage(), e);
-				}
-			}
-		}
-		else
-		{
-			JOptionPane.showMessageDialog(this, "No data files in directory "
-				+ path.getPath());
-		}
-	}
-
-	private void loadRBData(Document methodSet)
-	{
-		Element table = methodSet.getRootElement();
-
-		String type;
-		String name;
-		String priceS;
-		float priceF = 999; //999 is the debugging value
-
-		for (Object methodObj : table.getChildren("item"))
-		{
-			Element method = (Element) methodObj;
-
-			if (method.getName().equals("item"))
-			{
-				type = method.getChild("type").getTextTrim();
-				name = method.getChild("name").getTextTrim();
-				priceS = method.getChild("price").getTextTrim();
-
-				try
-				{
-					priceF = nf.parse(priceS).floatValue();
-				}
-				catch (NumberFormatException e1)
-				{
-					JOptionPane.showMessageDialog(null,
-						"Invalid number formating XML File");
-				}
-				catch (ParseException e1)
-				{
-					JOptionPane.showMessageDialog(null,
-						"Invalid number formating XML File");
-				}
-
-				/*
-				 * These if-else statements are OK for now.  Eventually, I would
-				 * like to make it so that if new types are present in the data
-				 * file, the system will automatically add new drop-down boxes.
-				 * That, however, is a long-term project.
-				 */
-				if (type.equals("Inn"))
-				{
-					inns.add(new RBCost(name, priceF));
-				}
-				else if (type.equals("Food"))
-				{
-					foods.add(new RBCost(name, priceF));
-				}
-				else if (type.equals("Animal"))
-				{
-					animals.add(new RBCost(name, priceF));
-				}
-			}
-		}
-	}
-
-	private void loadTM(String DataPath)
-	{
-		//Create a new list for the travel methods
-		tms = new PairList<TravelMethod>();
-
-		File path = new File(DataPath);
-
-		if (path.isDirectory())
-		{
-			File[] dataFiles = path.listFiles(new XMLFilter());
-			SAXBuilder builder = new SAXBuilder();
-
-			for (int i = 0; i < dataFiles.length; i++)
-			{
-				try
-				{
-					Document methodSet = builder.build(dataFiles[i]);
-					DocType dt = methodSet.getDocType();
-
-					if (dt.getElementName().equals("TRMETHOD"))
-					{
-						//Do work here
-						loadTMData(methodSet);
-					}
-
-					methodSet = null;
-					dt = null;
-				}
-				catch (Exception e)
-				{
-					JOptionPane.showMessageDialog(this, "XML Error with file "
-						+ dataFiles[i].getName());
-					Logging.errorPrint(e.getMessage(), e);
-				}
-			}
-		}
-		else
-		{
-			JOptionPane.showMessageDialog(this, "No data files in directory "
-				+ path.getPath());
-		}
-	}
-
-	private void loadTMData(Document methodSet)
-	{
-		Element table = methodSet.getRootElement();
-
-		String name;
-		String speedS;
-		int speedI = 999; //999 is the debugging value
-
-		for (Object methodObj : table.getChildren("item"))
-		{
-			Element method = (Element) methodObj;
-
-			if (method.getName().equals("item"))
-			{
-				name = method.getChild("name").getTextTrim();
-				speedS = method.getChild("speed").getTextTrim();
-
-				try
-				{
-					speedI = nf.parse(speedS).intValue();
-				}
-				catch (NumberFormatException e1)
-				{
-					JOptionPane.showMessageDialog(null,
-						"Invalid number formatin XML File");
-				}
-				catch (ParseException e1)
-				{
-					JOptionPane.showMessageDialog(null,
-						"Invalid number formatin XML File");
-				}
-
-				tms.add(new TravelMethod(name, speedI));
-			}
-		}
-	}
-
-	private void txtDayFoodActionPerformed(java.awt.event.ActionEvent evt)
-	{ //GEN-FIRST:event_txtDayFoodActionPerformed
 		updateMidUI();
 	}
 
-	//GEN-LAST:event_txtDayFoodActionPerformed
-
-	private void txtDaysActionPerformed(java.awt.event.ActionEvent evt)
-	{ //GEN-FIRST:event_txtDaysActionPerformed
+	private void txtDaysActionPerformed()
+	{
 		updateBottomUI();
 	}
 
-	//GEN-LAST:event_txtDaysActionPerformed
-
-	private void txtPeopActionPerformed(java.awt.event.ActionEvent evt)
-	{ //GEN-FIRST:event_txtPeopActionPerformed
-
-		/*    int i,j;
-		 String er;
-		 er=evt.getActionCommand();
-		 i=evt.getID();
-		 j=15;
-		 */
-		if (StupidKludge)
-		{
-			updateTopUI();
-		}
+	private void txtPeopActionPerformed()
+	{
+		updateTopUI();
 	}
-
-	//GEN-LAST:event_txtPeopActionPerformed
 
 	/** This method updates the Bottom portions of the UI based on changes in the total cost
 	 *  and number of days.  It sets the value into the total box
@@ -1171,23 +1073,18 @@ public class OverPanel extends javax.swing.JPanel
 	 */
 	private void updateBottomUI()
 	{
-		try
+		float DayTotal = ((Number) txtDayTotal.getValue()).floatValue();
+		Object value = txtDays.getValue();
+		if (value instanceof Number)
 		{
-			float DayTotal = gp.parse(txtDayTotal.getText()).floatValue();
-			float Days = gp.parse(txtDays.getText()).floatValue();
+			float Days = ((Number) value).floatValue();
 			float result = DayTotal * Days;
 
 			txtTotal.setText(gp.format(result));
 		}
-		catch (NumberFormatException e1)
+		else
 		{
-			JOptionPane.showMessageDialog(null,
-				"Invalid number format, try again.");
-		}
-		catch (ParseException e1)
-		{
-			JOptionPane.showMessageDialog(null,
-				"Invalid number format, try again.");
+			txtTotal.setText(""); //$NON-NLS-1$
 		}
 	}
 
@@ -1197,27 +1094,17 @@ public class OverPanel extends javax.swing.JPanel
 	 */
 	private void updateMidUI()
 	{
-		try
-		{
-			float DayInn = gp.parse(txtDayInn.getText()).floatValue();
-			float DayFood = gp.parse(txtDayFood.getText()).floatValue();
-			float DayAnimal = gp.parse(txtDayAnimal.getText()).floatValue();
-			float result = DayInn + DayFood + DayAnimal;
+		Object inn = txtDayInn.getValue();
+		float DayInn = inn instanceof Number ? ((Number) inn).floatValue() : 0f;
+		Object food = txtDayFood.getValue();
+		float DayFood = food instanceof Number ? ((Number) food).floatValue() : 0f;
+		Object animal = txtDayAnimal.getValue();
+		float DayAnimal = animal instanceof Number ? ((Number) txtDayAnimal.getValue()).floatValue() : 0f;
+		float result = DayInn + DayFood + DayAnimal;
 
-			txtDayTotal.setText(gp.format(result));
-			result *= 7; //Compute weekly
-			txtWeekTotal.setText(gp.format(result));
-		}
-		catch (NumberFormatException e1)
-		{
-			JOptionPane.showMessageDialog(null,
-				"Invalid number format, try again.");
-		}
-		catch (ParseException e1)
-		{
-			JOptionPane.showMessageDialog(null,
-				"Invalid number format, try again.");
-		}
+		txtDayTotal.setValue(result);
+		result *= 7; //Compute weekly
+		txtWeekTotal.setText(gp.format(result));
 
 		updateBottomUI(); //propagate changes down
 	}
@@ -1229,59 +1116,85 @@ public class OverPanel extends javax.swing.JPanel
 	private void updateTopUI()
 	{
 		//First, retrieve the costs of everything
-		int i1;
+		int i1, i2, i3;
 
-		//First, retrieve the costs of everything
-		int i2;
-
-		//First, retrieve the costs of everything
-		int i3;
 		i1 = cmbFood.getSelectedIndex();
 
-		float food = foods.get(i1).getCost();
+		float food = i1 >= 0 ? rb.getFoods().get(i1).getCost() : 0;
 
 		i2 = cmbInn.getSelectedIndex();
 
-		float inn = inns.get(i2).getCost();
+		float inn = i2 >= 0 ? rb.getInns().get(i2).getCost() : 0;
 
 		i3 = cmbAnimal.getSelectedIndex();
 
-		float animal = animals.get(i3).getCost();
+		float animal = i3 >= 0 ? rb.getAnimals().get(i3).getCost() : 0;
 
-		try
+		float result = 0;
+
+		Number people = (Number) txtPeop.getValue();
+		Number value = (Number) txtAnim.getValue();
+		//now set them all
+		if (people != null && people instanceof Number)
 		{
-			int numPeople = nf.parse(txtPeop.getText()).intValue(); //note using nf, not gp
-			int numAnimal = nf.parse(txtAnim.getText()).intValue();
-
-			//now set them all
-			float result = 0;
+			int numPeople = people.intValue();
 
 			result = food * numPeople;
-			txtDayFood.setText(gp.format(result)); //but here we use gp
+			txtDayFood.setValue(result);
 			result *= 7;
 			txtWeekFood.setText(gp.format(result)); //but here we use gp
 
 			result = inn * numPeople;
-			txtDayInn.setText(gp.format(result)); //but here we use gp
+			txtDayInn.setValue(result);
 			result *= 7;
 			txtWeekInn.setText(gp.format(result)); //but here we use gp
+		}
+		if (value != null && value instanceof Number)
+		{
+			int numAnimal = value.intValue();
 
 			result = animal * numAnimal;
-			txtDayAnimal.setText(gp.format(result)); //but here we use gp
+			txtDayAnimal.setValue(result);
 			result *= 7;
 			txtWeekAnimal.setText(gp.format(result)); //but here we use gp
-		}
-		catch (NumberFormatException e1)
-		{
-			JOptionPane.showMessageDialog(null,
-				"Invalid number format, try again.");
-		}
-		catch (ParseException e1)
-		{
-			JOptionPane.showMessageDialog(null,
-				"Invalid number format, try again.");
 		}
 
 		updateMidUI(); //propagate changes down
 	}
+
+	private final class KeyListenerImplementation implements KeyListener
+	{
+		private JButton button;
+
+		/**
+		 * @param button
+		 */
+		public KeyListenerImplementation(JButton button)
+		{
+			this.button = button;
+		}
+
+		@Override
+		public void keyTyped(KeyEvent e)
+		{
+			// nothing to do
+		}
+
+		@Override
+		public void keyReleased(KeyEvent e)
+		{
+			if (KeyEvent.VK_ENTER == e.getKeyCode())
+			{
+				button.doClick();
+			}
+		}
+
+		@Override
+		public void keyPressed(KeyEvent e)
+		{
+			// nothing to do
+		}
+
+	}
+
 }

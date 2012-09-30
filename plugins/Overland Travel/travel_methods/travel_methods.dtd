@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT travel (loc*, way+, method+)>
+<!ATTLIST travel name CDATA #REQUIRED>
+<!ATTLIST travel numberFormat CDATA #IMPLIED>
 
-<!--
-    Document   : travel_methods.dtd
-    Created on : July 28, 2003, 12:55 PM
-    Author     : Juliean Galak
-    Description:
-        DTD for a document holding travel methods and associated speeds
--->
+<!ELEMENT loc EMPTY>
+<!ATTLIST loc
+	language CDATA #REQUIRED
+	name CDATA #REQUIRED
+	comment CDATA #IMPLIED
+>
 
-<!ELEMENT table (item*)>
-<!ELEMENT item (name, speed)>
-<!ELEMENT name (#PCDATA)>
-<!ELEMENT speed (#PCDATA)>
+<!ELEMENT way (terrain+, route+)>
+<!ATTLIST way id ID #REQUIRED>
+
+<!ELEMENT terrain (loc*)>
+<!ATTLIST terrain id ID #REQUIRED>
+<!ATTLIST terrain name CDATA #REQUIRED>
+
+<!ELEMENT route (loc*, combo+)>
+<!ATTLIST route id ID #REQUIRED>
+<!ATTLIST route name CDATA #REQUIRED>
+
+<!ELEMENT combo EMPTY>
+<!ATTLIST combo terrain IDREF #REQUIRED>
+<!ATTLIST combo mult CDATA #REQUIRED>
+<!ATTLIST combo addMph CDATA "0">
+<!ATTLIST combo addKmh CDATA "0">
+
+<!ELEMENT terrain (loc*)>
+<!ATTLIST terrain id ID #REQUIRED>
+<!ATTLIST terrain name CDATA #REQUIRED>
+
+<!ELEMENT method (loc*, pace+, chooseFrom+)>
+<!ATTLIST method name CDATA #REQUIRED>
+<!ATTLIST method way IDREF #REQUIRED>
+
+<!ELEMENT pace (loc*)>
+<!ATTLIST pace name CDATA #REQUIRED>
+<!ATTLIST pace days (true|false) "false">
+<!ATTLIST pace mult CDATA "1">
+<!ATTLIST pace comment CDATA #IMPLIED>
+
+<!ELEMENT chooseFrom (loc*, choice+)>
+<!ATTLIST chooseFrom name CDATA #IMPLIED>
+<!ATTLIST chooseFrom kmh CDATA #REQUIRED>
+<!ATTLIST chooseFrom mph CDATA #REQUIRED>
+<!ATTLIST chooseFrom hoursInDay CDATA #REQUIRED>
+
+<!ELEMENT choice (loc*)>
+<!ATTLIST choice name CDATA #REQUIRED>
+<!ATTLIST choice mult CDATA #REQUIRED>

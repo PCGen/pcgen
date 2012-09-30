@@ -9,6 +9,7 @@
 -->
 
 <!ELEMENT table (item*)>
+<!ATTLIST table numberFormat CDATA #IMPLIED>
 <!ELEMENT item (type, name, price)>
 <!ELEMENT name (#PCDATA)>
 <!ELEMENT type (#PCDATA)>

@@ -12,9 +12,10 @@ package plugin.overland.util;
  */
 public class RBCost extends Pair<String, Float>
 {
-	/** Creates a new instance of TravelMethod
-	 * @param name - String containing name
-	 * @param cost - float containing cost
+	/**
+	 * Creates a new instance of RMCost
+	 * @param name String containing name
+	 * @param cost float containing cost
 	 */
 	public RBCost(String name, float cost)
 	{

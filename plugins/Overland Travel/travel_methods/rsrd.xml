@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE travel SYSTEM "travel_methods.dtd">
+<travel name="RSRD">
+	<loc language="fr" name="RSRD" />
+
+	<way id="1">
+		<terrain id="1" name="Desert, sandy">
+			<loc language="fr" name="Désert de sable" />
+		</terrain>
+		<terrain id="2" name="Forest">
+			<loc language="fr" name="Forêt" />
+		</terrain>
+		<terrain id="3" name="Hills">
+			<loc language="fr" name="Collines" />
+		</terrain>
+		<terrain id="4" name="Jungle">
+			<loc language="fr" name="Jungle" />
+		</terrain>
+		<terrain id="5" name="Moor">
+			<loc language="fr" name="Broussailles" />
+		</terrain>
+		<terrain id="6" name="Mountains">
+			<loc language="fr" name="Montagnes" />
+			<loc language="ja" name="山" />
+		</terrain>
+		<terrain id="7" name="Plains">
+			<loc language="fr" name="Plaine" />
+		</terrain>
+		<terrain id="8" name="Swamp">
+			<loc language="fr" name="Marais" />
+		</terrain>
+		<terrain id="9" name="Tundra, frozen">
+			<loc language="fr" name="Toundra gelée" />
+		</terrain>
+
+		<route id="10" name="Highway">
+			<loc language="fr" name="Grande route" />
+
+			<combo terrain="1" mult="1" />
+			<combo terrain="2" mult="1" />
+			<combo terrain="3" mult="1" />
+			<combo terrain="4" mult="1" />
+			<combo terrain="5" mult="1" />
+			<combo terrain="6" mult="0.75" />
+			<combo terrain="7" mult="1" />
+			<combo terrain="8" mult="1" />
+			<combo terrain="9" mult="1" />
+		</route>
+		<route id="11" name="Road or Trail">
+			<loc language="fr" name="Chemin ou route" />
+
+			<combo terrain="1" mult="0.5" />
+			<combo terrain="2" mult="1" />
+			<combo terrain="3" mult="0.75" />
+			<combo terrain="4" mult="0.75" />
+			<combo terrain="5" mult="1" />
+			<combo terrain="6" mult="0.75" />
+			<combo terrain="7" mult="1" />
+			<combo terrain="8" mult="0.75" />
+			<combo terrain="9" mult="0.75" />
+		</route>
+		<route id="12" name="Trackless">
+			<loc language="fr" name="Terrain vierge" />
+
+			<combo terrain="1" mult="0.5" />
+			<combo terrain="2" mult="0.5" />
+			<combo terrain="3" mult="0.5" />
+			<combo terrain="4" mult="0.25" />
+			<combo terrain="5" mult="0.75" />
+			<combo terrain="6" mult="0.5" />
+			<combo terrain="7" mult="0.75" />
+			<combo terrain="8" mult="0.5" />
+			<combo terrain="9" mult="0.75" />
+		</route>
+	</way>
+
+	<way id="sea">
+		<terrain id="21" name="—" />
+		<route id="30" name="—">
+			<combo terrain="21" mult="1" />
+		</route>
+	</way>
+
+	<way id="lake, rivers">
+		<terrain id="41" name="—" />
+		<route id="50" name="—">
+			<combo terrain="41" mult="1" />
+		</route>
+		<route id="51" name="Downstream (typical current)">
+			<combo terrain="41" mult="1" addMph="3" addKmh="5" />
+		</route>
+	</way>
+
+	<method name="On Foot" way="1">
+		<loc language="fr" name="À pied" />
+		<loc language="ja" name="歩いて" />
+
+		<pace name="Walk" days="true">
+			<loc language="fr" name="Marche" />
+		</pace>
+		<pace name="Hustle" days="false" mult="2"
+			comment="After second hour without sleep, 1 point of non-lethal, and fatigued. Double damage for each subsequent hours.">
+			<loc language="fr" name="Footing"
+				comment="Pour chaque heure sans sommeil, 1 point de dégâts non-létal et fatigué. Les dégâts sont doublés à chaque heure." />
+		</pace>
+		<pace name="Forced March" days="false"
+			comment="Per Hour on top of 8 without sleep, Constitution check (DC 10, +2 per extra hour). Failure is 1d6 non-lethal damage and fatigued.">
+			<loc language="fr" name="Marche forcée"
+				comment="Pour chaque heure en plus de huit sans sommeil, jet de Constitution (DD 10, +2 pour chaque heure supplémentaire). Échec : 1d6 dégâts non-létal et fatigué." />
+		</pace>
+
+		<chooseFrom kmh="0.75" mph="0.5" hoursInDay="8" name="Speed">
+			<loc language="fr" name="Vitesse de déplacement" />
+			<choice name="15 feet (4.5 m)" mult="3">
+				<loc language="fr" name="4,5 m (3 cases, 15 pieds)" />
+			</choice>
+			<choice name="20 feet (6 m)" mult="4">
+				<loc language="fr" name="6 m (4 cases, 20 pieds)" />
+			</choice>
+			<choice name="30 feet (9 m)" mult="6">
+				<loc language="fr" name="9 m (6 cases, 30 pied)" />
+			</choice>
+			<choice name="40 feet (12 m)" mult="8">
+				<loc language="fr" name="12 m (8 cases, 30 pied)" />
+			</choice>
+		</chooseFrom>
+	</method>
+	<method name="Mounted" way="1">
+		<loc language="fr" name="Monté" />
+		<pace name="Walk" days="true">
+			<loc language="fr" name="Marche" />
+		</pace>
+		<pace name="Hustle" days="false" mult="2"
+			comment="After second hour without sleep, 1 point of damage, and fatigued. Double damage for each subsequent hours.">
+			<loc language="fr" name="Trot"
+				comment="Pour chaque heure sans sommeil, 1 point de dégâts et fatigué. Les dégâts sont doublés à chaque heure." />
+		</pace>
+		<pace name="Forced March" days="false"
+			comment="Per Hour on top of 8 without sleep, 1d6 damage and fatigued.">
+			<loc language="fr" name="Marche forcée"
+				comment="Par heure en plus de 8 sans sommeil, 1d6 dégâts et fatigué" />
+		</pace>
+
+		<chooseFrom kmh="0.75" mph="0.5" hoursInDay="8" name="Mounts">
+			<loc language="fr" name="Monture" />
+			<choice name="Light horse" mult="12">
+				<loc language="fr" name="Cheval léger" />
+			</choice>
+			<choice name="Light warhorse" mult="12">
+				<loc language="fr" name="Cheval de guerre léger" />
+			</choice>
+			<choice name="Light horse (151–450 lbs.)" mult="8">
+			</choice>
+			<choice name="Light warhorse (231–690 lbs.)" mult="8">
+			</choice>
+			<choice name="Heavy horse" mult="10">
+				<loc language="fr" name="Cheval lourd" />
+			</choice>
+			<choice name="Heavy warhorse" mult="10">
+				<loc language="fr" name="Cheval de guerre lourd" />
+			</choice>
+			<choice name="Heavy horse (201–600 lbs.)" mult="7">
+			</choice>
+			<choice name="Heavy warhorse (301–900 lbs.)" mult="7">
+			</choice>
+			<choice name="Pony" mult="8">
+				<loc language="fr" name="Poney" />
+			</choice>
+			<choice name="Warpony" mult="8">
+				<loc language="fr" name="Poney de guerre" />
+			</choice>
+			<choice name="Pony (76–225 lbs.)" mult="6">
+			</choice>
+			<choice name="Warpony (101–300 lbs.)" mult="6">
+			</choice>
+			<choice name="Donkey or mule" mult="6">
+			</choice>
+			<choice name="Donkey (51–150 lbs.)" mult="4">
+			</choice>
+			<choice name="Mule (231–690 lbs.)" mult="4">
+			</choice>
+			<choice name="Dog, riding" mult="8">
+				<loc language="fr" name="Chien de selle" />
+			</choice>
+			<choice name="Dog, riding (101–300 lbs.)" mult="6">
+				<loc language="fr" name="Chien de selle (50,5–150 kg)" />
+			</choice>
+		</chooseFrom>
+	</method>
+	<method name="Vehicles" way="1">
+		<loc language="fr" name="Véhicules" />
+		<pace name="Walk" days="true">
+			<loc language="fr" name="Marche" />
+		</pace>
+		<!-- pace name="Hustle" days="false" mult="2" comment=""> <loc language="fr" 
+			name="Trot" comment="damage létal par heure après la première" /> </pace> 
+			<pace name="Forced March" days="false" comment=""> <loc language="fr" name="Marche 
+			forcée" comment="" /> </pace -->
+
+		<chooseFrom mph="0.5" kmh="0.75" hoursInDay="8">
+			<choice name="Cart or wagon" mult="4">
+				<loc language="fr" name="Chariot ou charrette" />
+			</choice>
+		</chooseFrom>
+	</method>
+	<method name="Rowed boat" way="lake, rivers">
+		<loc language="fr" name="Bateau à rames" />
+		<pace name="By day" days="true"
+			comment="Can be guided for 14 hours to follow current speed.">
+			<loc language="fr" name="Par jour" />
+		</pace>
+		<pace name="By hour" days="false">
+			<loc language="fr" name="Par heure" />
+		</pace>
+
+		<chooseFrom kmh="0.75" mph="0.5" hoursInDay="10"
+			name="rowed watercraft">
+			<loc language="fr" name="embarcation à rames" />
+			<choice name="Raft or barge (poled or towed)" mult="1">
+				<loc language="fr" name="Radeau ou barge (perche ou tracté)" />
+			</choice>
+			<choice name="Keelboat (rowed)" mult="2">
+				<loc language="fr" name="Bateau à fond plat (rames)" />
+			</choice>
+			<choice name="Rowboat (rowed)" mult="3">
+				<loc language="fr" name="Barque (rames)" />
+			</choice>
+		</chooseFrom>
+
+	</method>
+
+	<method name="Sailed boat" way="sea">
+		<loc language="fr" name="Bateau à voile" />
+		<pace name="By day" days="true">
+			<loc language="fr" name="Par jour" />
+		</pace>
+		<pace name="By hour" days="false">
+			<loc language="fr" name="Par heure" />
+		</pace>
+
+		<chooseFrom kmh="0.75" mph="0.5" hoursInDay="24" name="sailing ship">
+			<loc language="fr" name="navire à voiles" />
+			<choice name="Sailing ship (sailed)" mult="4">
+				<loc language="fr" name="Navire de haute mer (voiles)" />
+			</choice>
+			<choice name="Warship (sailed and rowed)" mult="5">
+				<loc language="fr" name="Vaisseau de guerre (voiles ou rames)" />
+			</choice>
+			<choice name="Longship (sailed and rowed)" mult="6">
+				<loc language="fr" name="Drakkar (voiles ou rames)" />
+			</choice>
+			<choice name="Galley (rowed and sailed)" mult="8">
+				<loc language="fr" name="Trirème (voiles ou rames)" />
+			</choice>
+		</chooseFrom>
+	</method>
+</travel>

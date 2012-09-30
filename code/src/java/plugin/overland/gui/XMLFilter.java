@@ -25,6 +25,6 @@ public class XMLFilter implements java.io.FilenameFilter
 	 */
 	public boolean accept(java.io.File file, String str)
 	{
-		return str.matches(".*\\.xml$");
+		return str.matches(".*\\.xml$"); //$NON-NLS-1$
 	}
 }

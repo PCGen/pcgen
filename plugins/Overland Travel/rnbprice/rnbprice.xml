@@ -8,7 +8,7 @@
         Stores room and board prices
 -->
 
-<table>
+<table numberFormat="en_US">
     <item>
     	<type>Inn</type>
         <name>Poor</name>
