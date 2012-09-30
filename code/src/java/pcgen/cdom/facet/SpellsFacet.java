@@ -116,7 +116,7 @@ public class SpellsFacet extends AbstractQualifiedListFacet<SpellLikeAbility>
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
-		removeAll(dfce.getCharID(), dfce.getSource());
+		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
 
 	public void setCdomSourceFacet(CDOMObjectSourceFacet cdomSourceFacet)
