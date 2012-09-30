@@ -23,6 +23,7 @@
 package pcgen.util;
 
 import java.io.File;
+import java.io.IOException;
 
 /**
  * Assorted path and filename methods.
@@ -46,19 +47,30 @@ public class FileHelper
 	 */
 	public static String findRelativePath(File base, File relative)
 	{
-		File testFile = base;
-		if (!base.isDirectory())
+		File testFile;
+		File relativeCanon;
+		try
 		{
-			testFile = base.getParentFile();
+			testFile = base.getCanonicalFile();
+			relativeCanon = relative.getCanonicalFile();
+		}
+		catch (IOException e)
+		{
+			// The file can't be worked with so return it as is.
+			return relative.getAbsolutePath();
+		}
+		if (!testFile.isDirectory())
+		{
+			testFile = testFile.getParentFile();
 		}
 
 		// Cope with files on different drives in Windows.
-		if (!findRoot(base).equals(findRoot(relative)))
+		if (!findRoot(testFile).equals(findRoot(relativeCanon)))
 		{
-			return relative.getAbsolutePath();
+			return relativeCanon.getAbsolutePath();
 		}
 		
-		String relativePath = stripOffRoot(relative);
+		String relativePath = stripOffRoot(relativeCanon);
 
 		StringBuffer dots = new StringBuffer();
 
