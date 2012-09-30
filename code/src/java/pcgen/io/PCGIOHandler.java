@@ -299,7 +299,9 @@ public final class PCGIOHandler extends IOHandler
 		{
 			try
 			{
-				br.close();
+				if (br != null) {
+					br.close();
+				}
 			}
 			catch (IOException e)
 			{
@@ -309,7 +311,7 @@ public final class PCGIOHandler extends IOHandler
 		}
 		return lines;
 	}
-	
+
 	/**
 	 * Writes the contents of the given PlayerCharacter to a stream
 	 * <p/>
@@ -343,7 +345,9 @@ public final class PCGIOHandler extends IOHandler
 		{
 			try
 			{
-				bw.close();
+				if (bw != null) {
+					bw.close();
+				}
 			}
 			catch (IOException e)
 			{
@@ -467,7 +471,7 @@ public final class PCGIOHandler extends IOHandler
 	}
 
 	/**
-	 * reads from the given partyFile and returns the list of 
+	 * reads from the given partyFile and returns the list of
 	 * character files for this party
 	 * @param partyFile a .pcp party file
 	 * @return a list of files containing the characters in this party
@@ -516,7 +520,7 @@ public final class PCGIOHandler extends IOHandler
 		}
 		return fileList;
 	}
-	
+
 	public void write(File partyFile, List<File> characterFiles)
 	{
 		String versionLine = "VERSION:" + PCGenPropBundle.getVersionNumber();
