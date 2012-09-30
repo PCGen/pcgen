@@ -5,7 +5,7 @@ SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOU
 # Feat Name			Type			Visible	Special ABility			Stackable?	Multiple?	Choose				Bonus to skill			Stat bonus
 Aura of Knighthood	TYPE:Special	VISIBLE:NO	SAB:Aura of Knighthood (Ex)							BONUS:SKILL|Intimidate|NOB/2
 
-CSStatBonus			TYPE:Special	VISIBLE:NO								MULT:YES	CHOOSE:PCSTAT|STR|CON						BONUS:STAT|LIST|2
+CSStatBonus			TYPE:Special	VISIBLE:NO								MULT:YES	CHOOSE:PCSTAT|CON|STR						BONUS:STAT|LIST|2
 
 ###Block: Power Source
 # Feat Name						Type			Visible	Prohibited Class					Special ABility
@@ -26,7 +26,7 @@ Knight's Warhorse	TYPE:Special	VISIBLE:NO	SAB:Knight's Warhorse (Ex)	DEFINE:Knig
 
 ###Block: Literacy
 # Feat Name	Type			Visible	Automatic Languages
-Literacy	TYPE:Special	VISIBLE:NO	LANGAUTO:Literacy
+Literacy	TYPE:Special	VISIBLE:NO	AUTO:LANG|Literacy
 
 #
 # End
