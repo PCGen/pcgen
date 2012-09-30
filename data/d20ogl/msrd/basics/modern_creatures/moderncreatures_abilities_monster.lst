@@ -4,8 +4,8 @@ SOURCELONG:Modern System Reference Document - Creatures	SOURCESHORT:MSRD	SOURCEW
 
 ###Block: Fiend Knowledge
 # Ability Name		Category of Ability		Type				Visible		Stackable?	Multiple?	Choose					Selections	Bonus to skill rank	Source Page
-High Fiend Knowledge	CATEGORY:Special Ability	TYPE:HighFiendKnowledge	VISIBLE:DISPLAY	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Knowledge	SELECT:3	BONUS:SKILLRANK|LIST|15	SOURCEPAGE:Internal pcgen
-Low Fiend Knowledge	CATEGORY:Special Ability	TYPE:LowFiendKnowledge	VISIBLE:DISPLAY	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|TYPE.Knowledge			BONUS:SKILLRANK|LIST|5	SOURCEPAGE:Internal pcgen
+High Fiend Knowledge	CATEGORY:Special Ability	TYPE:HighFiendKnowledge	VISIBLE:DISPLAY	STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	SELECT:3	BONUS:SKILLRANK|LIST|15	SOURCEPAGE:Internal pcgen
+Low Fiend Knowledge	CATEGORY:Special Ability	TYPE:LowFiendKnowledge	VISIBLE:DISPLAY	STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge			BONUS:SKILLRANK|LIST|5	SOURCEPAGE:Internal pcgen
 
 ###Block: Fiend Immunity
 # Ability Name					Category of Ability		Type				Visible		Special ABility					Bonus to Ability Pool			Source Page

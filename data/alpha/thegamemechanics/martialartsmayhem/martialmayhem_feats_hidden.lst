@@ -30,7 +30,7 @@ SOURCELONG:Martial Arts Mayhem	SOURCESHORT:Mayhem	SOURCEWEB:http://www.thegameme
 
 ###Block:Workarounds for Schools
 # Feat Name		Type				Visible	Special ABility					Stackable?	Multiple?	Choose									Cost
-The Five Elements	TYPE:SchoolWorkaround	VISIBLE:NO	SAB:Five Elements Energy Types - %CHOICE	STACK:NO	MULT:YES	CHOOSE:STRING|Cold|Electricity|Fire|Sonic/Concussion|Acid	COST:0.5
+The Five Elements	TYPE:SchoolWorkaround	VISIBLE:NO	SAB:Five Elements Energy Types - %CHOICE	STACK:NO	MULT:YES	CHOOSE:STRING|Acid|Cold|Electricity|Fire|Sonic/Concussion	COST:0.5
 
 # Frank, these Combinations are NASTY.
 #	Really need a way to simplify thise (code or data)

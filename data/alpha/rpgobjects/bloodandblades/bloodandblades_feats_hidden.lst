@@ -40,7 +40,7 @@ Transsexualism				TYPE:Psychosexual			VISIBLE:NO	SAB:Mental Disorder - Psychosex
 Impaired Sexual Desire or Function	TYPE:Psychosexual			VISIBLE:NO	SAB:Mental Disorder - Psychosexual(Impaired Sexual Desire or Function)																																																												SOURCEPAGE:p.32
 Nymphomania/Satyriasis			TYPE:Psychosexual			VISIBLE:NO	SAB:Mental Disorder - Psychosexual(Nymphomania/Satyriasis)																																																														SOURCEPAGE:p.32
 Paraphilia					TYPE:Psychosexual			VISIBLE:NO	SAB:Mental Disorder - Psychosexual(Paraphilia)																																																																SOURCEPAGE:p.32
-Schizophrenia				TYPE:Psychotic			VISIBLE:NO	SAB:Mental Disorder - Schizophrenia(%CHOICE)													STACK:NO	MULT:YES	CHOOSE:STRING|Undifferentiated|Disorganized|Catatonic|Paranoid																																					SOURCEPAGE:p.32
+Schizophrenia				TYPE:Psychotic			VISIBLE:NO	SAB:Mental Disorder - Schizophrenia(%CHOICE)													STACK:NO	MULT:YES	CHOOSE:STRING|Catatonic|Disorganized|Paranoid|Undifferentiated																																					SOURCEPAGE:p.32
 Other Psychotic Disorders		TYPE:Psychotic			VISIBLE:NO	SAB:Mental Disorder - Psychotic(%CHOICE)														STACK:NO	MULT:YES	CHOOSE:STRING|Amok running|Boufee Detirant|Brain Fag|Ghost Sickness|Piblofeio|Susro|Taijin Kyofusho|Voodoo Death|Wacinko|Wendigo Syndrome																									SOURCEPAGE:p.32
 Shared Paranoid Disorder		TYPE:Psychotic			VISIBLE:NO	SAB:Mental Disorder - Psychotic(Shared Paranoid Disorder)																																																														SOURCEPAGE:p.32
 Insomnia					TYPE:SleepDisorder		VISIBLE:NO	SAB:Mental Disorder - Sleep(Insomnia)																																																																	SOURCEPAGE:p.33
@@ -50,6 +50,6 @@ Somnambulism				TYPE:SleepDisorder		VISIBLE:NO	SAB:Mental Disorder - Sleep(Somna
 
 ###Block:Class Abilities
 # Feat Name		Type				Visible	Prohibited Damage Resistance	Special ABility			Stackable?	Multiple?	Choose						Damage reduction	Weapon prof. bonus													Damage Reduction	Source Page
-Smart Weapon	TYPE:MadGeniusAbility	VISIBLE:NO						SAB:Smart Weapon (%CHOICE)	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFS|LIST|TYPE.NOT.2 handed				BONUS:WEAPONPROF=%LIST|TOHIT.MELEE|INT-STR	BONUS:WEAPONPROF=%LIST|TOHIT.RANGED|INT-DEX				SOURCEPAGE:p.49
+Smart Weapon	TYPE:MadGeniusAbility	VISIBLE:NO						SAB:Smart Weapon (%CHOICE)	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|EQUIPMENT[!TYPE=2 handed]|PC				BONUS:WEAPONPROF=%LIST|TOHIT.MELEE|INT-STR	BONUS:WEAPONPROF=%LIST|TOHIT.RANGED|INT-DEX				SOURCEPAGE:p.49
 
 Initiate DR		TYPE:Workaround		VISIBLE:NO	!PREDR:1,-=1																BONUS:DR|-|-1																	DR:1/-

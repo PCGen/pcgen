@@ -6,8 +6,8 @@ SOURCELONG:Modern Magic - Volume 1	SOURCESHORT:ModMag1	SOURCEWEB:http://www.theg
 
 ###BLOCK: Ritualist abilities
 # Feat Name			Type			Visible	Special ABility				Multiple?	Choose						Caster level
-Elemental Affinity	TYPE:ClassAbility	VISIBLE:NO	SAB:Elemental Affinity (%)|%CHOICE	MULT:YES	CHOOSE:STRING|Air|Earth|Fire|Water|Spirit
-Elemental Mastery		TYPE:ClassAbility	VISIBLE:NO	SAB:Elemental Mastery (%)|%CHOICE	MULT:YES	CHOOSE:STRING|Air|Earth|Fire|Water|Spirit	BONUS:CASTERLEVEL|DESCRIPTOR.%CHOICE|2
+Elemental Affinity	TYPE:ClassAbility	VISIBLE:NO	SAB:Elemental Affinity (%)|%CHOICE	MULT:YES	CHOOSE:STRING|Air|Earth|Fire|Spirit|Water
+Elemental Mastery		TYPE:ClassAbility	VISIBLE:NO	SAB:Elemental Mastery (%)|%CHOICE	MULT:YES	CHOOSE:STRING|Air|Earth|Fire|Spirit|Water	BONUS:CASTERLEVEL|DESCRIPTOR.%CHOICE|2
 
 ###BLOCK: Arcane Spec Op abilities
 # Feat Name			Type			Visible	Special ABility		Combat bonus			Add to base move			Bonus to skill

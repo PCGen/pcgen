@@ -10,8 +10,8 @@ Word of Slaying	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	S
 
 ###Block:Shadow Slayer Favored Enemies
 # Ability Name	Category of Ability		Type			Visible		Required Ability							Required Class			Special ABility			Multiple?	Choose
-Shadow Enemy I	CATEGORY:Special Ability	TYPE:ShadowEnemy	VISIBLE:DISPLAY										PRECLASS:1,Shadow Slayer=5	SAB:favored enemy (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Aberration|Construct|Dragon|Elemental|Fey|Giant|Humanoid (Goblinoid)|Humanoid (Gnoll)|Humanoid (Reptilian)|Lycanthrope|Magical Beast|Monsterous Humanoid|Outsider|Undead
-Shadow Enemy II	CATEGORY:Special Ability	TYPE:ShadowEnemy	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Shadow Enemy I	PRECLASS:1,Shadow Slayer=7	SAB:favored enemy (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Aberration|Construct|Dragon|Elemental|Fey|Giant|Humanoid (Goblinoid)|Humanoid (Gnoll)|Humanoid (Reptilian)|Lycanthrope|Magical Beast|Monsterous Humanoid|Outsider|Undead
+Shadow Enemy I	CATEGORY:Special Ability	TYPE:ShadowEnemy	VISIBLE:DISPLAY										PRECLASS:1,Shadow Slayer=5	SAB:favored enemy (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Aberration|Construct|Dragon|Elemental|Fey|Giant|Humanoid (Gnoll)|Humanoid (Goblinoid)|Humanoid (Reptilian)|Lycanthrope|Magical Beast|Monsterous Humanoid|Outsider|Undead
+Shadow Enemy II	CATEGORY:Special Ability	TYPE:ShadowEnemy	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Shadow Enemy I	PRECLASS:1,Shadow Slayer=7	SAB:favored enemy (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Aberration|Construct|Dragon|Elemental|Fey|Giant|Humanoid (Gnoll)|Humanoid (Goblinoid)|Humanoid (Reptilian)|Lycanthrope|Magical Beast|Monsterous Humanoid|Outsider|Undead
 
 
 ###Block:Occultist ----------------------------------------------------------------------------------------------------------------------
@@ -35,8 +35,8 @@ Maximize Power		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	S
 # Ability Name		Category of Ability		Type					Visible	Special ABility		Define								Automatically Added to Inventory				Automatically Gained Weapon Prof.
 Imprint Tattoo		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Imprint Tattoo
 #Concentration ~ Psionic	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:+4 to Concentration while manifesting defensively
-Battle Mind PsiBlade	CATEGORY:Special Ability						VISIBLE:NO					DEFINE:PsiBladeEnhancement|0	DEFINE:PsiBladeDamage|0	AUTO:EQUIP|Psi-Blade[PREVARGTEQ:BattlemindML,2]		AUTO:WEAPONPROF|Psi-Blade
-Battle Mind PsiShield	CATEGORY:Special Ability						VISIBLE:NO					DEFINE:PsiShieldDefense|0					AUTO:EQUIP|Psi-Shield[PREVARGTEQ:BattlemindML,4]
+Battle Mind PsiBlade	CATEGORY:Special Ability						VISIBLE:NO					DEFINE:PsiBladeEnhancement|0	DEFINE:PsiBladeDamage|0	AUTO:EQUIP|Psi-Blade|PREVARGTEQ:BattlemindML,2		AUTO:WEAPONPROF|Psi-Blade
+Battle Mind PsiShield	CATEGORY:Special Ability						VISIBLE:NO					DEFINE:PsiShieldDefense|0					AUTO:EQUIP|Psi-Shield|PREVARGTEQ:BattlemindML,4
 
 
 ###Block:Mage -----------------------------------------------------------------------------------------------------------------------------------

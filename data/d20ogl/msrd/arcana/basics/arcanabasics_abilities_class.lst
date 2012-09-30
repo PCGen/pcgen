@@ -114,7 +114,7 @@ Fast Climb			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO		SAB
 Resist Venom		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO		SAB:Resist Venom
 Call Companion		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO		SAB:Call Companion
 Transform Companion	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO		SAB:Transform Companion
-Wildlord Skill Mastery	CATEGORY:Special Ability	TYPE:WildlordSkillMastery	VISIBLE:DISPLAY	SAB:Skill Mastery (%CHOICE)	MULT:YES	CHOOSE:STRING|Climb|Concentration|Drive|Diplomacy|Handle Animal|Hide|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Move Silently|Navigate|Pilot|Profession|Ride|Spot|Survival|Swim|Treat Injury
+Wildlord Skill Mastery	CATEGORY:Special Ability	TYPE:WildlordSkillMastery	VISIBLE:DISPLAY	SAB:Skill Mastery (%CHOICE)	MULT:YES	CHOOSE:STRING|Climb|Concentration|Diplomacy|Drive|Handle Animal|Hide|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Move Silently|Navigate|Pilot|Profession|Ride|Spot|Survival|Swim|Treat Injury
 
 
 ###Block: Prestige ----------------------------------------------------------------------------------------------------------------

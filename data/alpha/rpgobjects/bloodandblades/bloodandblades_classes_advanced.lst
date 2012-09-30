@@ -75,7 +75,7 @@ CLASS:Arawnite Guardian	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	KNOWNSPELLS:L
 1	SPELLLEVEL:CLASS|Arawnite Guardian=4|Bestow Curse,Confusion,Cure Critical Wounds,Divination,Fear,Scrying,Wire Walk
 1	SPELLLEVEL:CLASS|Arawnite Guardian=5|Flaming Wrath,Greater Command,Hold Monster,Passwall,Secret Vault,Synchronicity
 ###Block:Standard Block
-1	CAST:3,2		VISION:Darkvision (60')																					LANGAUTO:Ogham
+1	CAST:3,2		VISION:Darkvision (60')																					AUTO:LANG|Ogham
 2	CAST:4,3						SAB:Dark Blessing(Su)		BONUS:CHECKS|ALL|max(0,CHA)
 3	CAST:4,3,2						SAB:Trackless Step(Ex)
 4	CAST:5,4,3						SAB:Aura of Despair(Su)

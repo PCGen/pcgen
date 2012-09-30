@@ -20,7 +20,7 @@ Armor ~ Shield Use ~ Smooth																				OUTPUTNAME:Armor Proficiency (Shi
 Smooth	SORTKEY:Armor	KEY:Eclipse Armor ~ Smooth Output	CATEGORY:Special Ability	TYPE:SpecialQuality		DESC:Smooth doubles the total cost of any armor or shield proficiency (6 CP in total for Light, 18 for Light and Medium, etc) and allows the user to ignore armor check penalties and spell failure checks. You must buy Smooth for Light before Medium, and Medium before Heavy. It may also be applied to Shield Use.
 
 Armor ~ Powered Armor																																CATEGORY:Special Ability	TYPE:Proficiencies.Corruptable.SpecialQuality						DESC: (+6 CP) allows the proper use of armor that has built-in strength amplification, movement modes, weapons, and other systems if you have proficiency with that armor's basic type. Do not include the cost for Powered Armor when purchasing Smooth.											COST:6	SOURCEPAGE:p.49
-Armor ~ Fast																																	CATEGORY:Special Ability	TYPE:Proficiencies.Corruptable.SpecialQuality						DESC: (+6 CP) allows the user to don or remove armor in one round, regardless of its type.																																					COST:6	SOURCEPAGE:p.49													
+Armor ~ Fast																																	CATEGORY:Special Ability	TYPE:Proficiencies.Corruptable.SpecialQuality						DESC: (+6 CP) allows the user to don or remove armor in one round, regardless of its type.																																					COST:6	SOURCEPAGE:p.49
 
 
 

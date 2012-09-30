@@ -7,11 +7,11 @@ SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http:/
 
 
 # Class Name	Prohibited Class
-CLASS:Animal.MOD	!PRECLASS:1,Animal (Low Reflex)
+CLASS:Animal.MOD	!PRECLASS:1,Animal (Low Reflex)=1
 
 # Class Name			Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus											Combat bonus
 CLASS:Animal (Low Reflex)	HD:8		TYPE:Monster	SOURCEPAGE:p.149	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Prohibited Class		Reg. Race Type
-CLASS:Animal (Low Reflex)	!PRECLASS:1,Animal	PRERACETYPE:Animal
+CLASS:Animal (Low Reflex)	!PRECLASS:1,Animal=1	PRERACETYPE:Animal
 # Class Name			Add INT to Skill Points?	Monster Initial Skill Points
 CLASS:Animal (Low Reflex)	MODTOSKILLS:NO			MONSKILL:10

@@ -8,7 +8,7 @@ Advanced Combat Martial Arts.MOD	TYPE:Mystic_PF
 Advanced Firearms Proficiency.MOD	TYPE:Brawler.Detective.Mystery_Man.Soldier
 Advanced Two-Weapon Fighting.MOD	TYPE:Explorer																																																																																																									SOURCEPAGE:p.41
 Agile Riposte.MOD																												PRE:.CLEAR				PREFEAT:1,Dodge,Fancy Footwork										PRESTAT:1,DEX=13																																																													SOURCEPAGE:p.41
-Aircraft Operation.MOD			TYPE:CombatAce.Explorer.G_Man																																																																																													MULT:YES	CHOOSE:STRING|Heavy Aircraft|Autogyro|Airship	SOURCEPAGE:p.42
+Aircraft Operation.MOD			TYPE:CombatAce.Explorer.G_Man																																																																																													MULT:YES	CHOOSE:STRING|Airship|Autogyro|Heavy Aircraft	SOURCEPAGE:p.42
 Alertness.MOD				TYPE:Gangster.Relic_Hunter.Shadowy_Avenger
 Animal Affinity.MOD																																																																																																														SOURCEPAGE:p.42
 Archaic Weapons Proficiency.MOD	TYPE:Adventurer.Athlete.Circus_Performer.Explorer.Mystic_PF.Scientist.Soldier
@@ -90,5 +90,5 @@ Vehicle Dodge.MOD				TYPE:Daredevil.Driver.G_Man
 Vehicle Expert.MOD			TYPE:Daredevil.G_Man
 Weapon Finesse.MOD			TYPE:Operator
 Weapon Focus.MOD				TYPE:Brawler.G_Man.Operator
-Whirlwind Attack.MOD			TYPE:Operator																						PRE:.CLEAR		PREATT:4	PREFEAT:3,Mobility,Spring Attack,Combat Expertise	PREFEAT:1,Dodge,Fancy Footwork	PRESTAT:2,DEX=13|INT=13
+Whirlwind Attack.MOD			TYPE:Operator																						PRE:.CLEAR		PREATT:4	PREFEAT:3,Mobility,Spring Attack,Combat Expertise	PREFEAT:1,Dodge,Fancy Footwork	PRESTAT:2,DEX=13,INT=13
 Windfall.MOD				TYPE:Politician.Gangster.Relic_Hunter

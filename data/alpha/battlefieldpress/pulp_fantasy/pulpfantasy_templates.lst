@@ -11,4 +11,3 @@ Living Weapon Dice		VISIBLE:NO				BONUS:VAR|LivingWeaponDice|6+2*(var("COUNT[FEA
 ###Block: Fractional Hit Die Adjustments for Monster classes
 # Template Name	Hit Dice Size			Visible
 Quarter Hitdie	HITDIE:%/4|CLASS.TYPE=Monster	VISIBLE:NO
-

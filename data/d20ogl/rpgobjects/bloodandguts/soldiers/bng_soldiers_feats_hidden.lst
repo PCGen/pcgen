@@ -6,4 +6,4 @@ Smart Resilience (Fortitude)	TYPE:SmartResilience	VISIBLE:NO	SAB:Smart Resilienc
 Smart Resilience (Reflex)	TYPE:SmartResilience	VISIBLE:NO	SAB:Smart Resilience (Reflex)										BONUS:CHECKS|Reflex|INT
 Smart Resilience (Will)		TYPE:SmartResilience	VISIBLE:NO	SAB:Smart Resilience (Will)										BONUS:CHECKS|Will|INT
 
-Speed of the Essence		TYPE:Special		VISIBLE:NO	SAB:Speed of the Essence (%CHOICE)	MULT:YES	CHOOSE:SKILLSNAMED|ALL	SELECT:1
+Speed of the Essence		TYPE:Special		VISIBLE:NO	SAB:Speed of the Essence (%CHOICE)	MULT:YES	CHOOSE:SKILL|ALL	SELECT:1

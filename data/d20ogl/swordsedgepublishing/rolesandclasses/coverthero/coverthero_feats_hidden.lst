@@ -15,7 +15,7 @@ Sneak Attack				CATEGORY:Talent		TYPE:CovertHeroTalent.OffensiveTalent	VISIBLE:Y
 
 ###Block: Scout Talent Tree
 # Ability Name	Category of Ability	Type						Visible	Required Feat		Special ABility					Define			Description				Stackable?	Multiple?	Choose		Selections		Modify VAR			Source Page
-Skill Mastery	CATEGORY:Talent		TYPE:CovertHeroTalent.ScoutTalent	VISIBLE:YES					SAB:Skill Mastery (Take 10 on %CHOICE)					DESC:Take 10 on listed skills	STACK:NO	MULT:YES	CHOOSE:SKILLS	SELECT:3+INT					SOURCEPAGE:p.3
+Skill Mastery	CATEGORY:Talent		TYPE:CovertHeroTalent.ScoutTalent	VISIBLE:YES					SAB:Skill Mastery (Take 10 on %CHOICE)					DESC:Take 10 on listed skills	STACK:NO	MULT:YES	CHOOSE:SKILL|PC	SELECT:3+INT					SOURCEPAGE:p.3
 Trap Finding	CATEGORY:Talent		TYPE:CovertHeroTalent.ScoutTalent	VISIBLE:YES					SAB:Trap Finding
 Trap Sense		CATEGORY:Talent		TYPE:CovertHeroTalent.ScoutTalent	VISIBLE:YES	PREFEAT:1,Trap Finding	SAB:Trap Sense (Ex) +%|TrapSense		DEFINE:TrapSense|0						STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:VAR|TrapSense|1
 
