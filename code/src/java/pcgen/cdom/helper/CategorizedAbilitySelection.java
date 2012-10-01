@@ -38,7 +38,7 @@ import pcgen.core.SettingsHandler;
  * made from a token like ADD:FEAT
  */
 public class CategorizedAbilitySelection extends ConcretePrereqObject implements
-		QualifyingObject
+		QualifyingObject, Comparable<CategorizedAbilitySelection>
 {
 
 	private final Object owner;
@@ -424,6 +424,77 @@ public class CategorizedAbilitySelection extends ConcretePrereqObject implements
 	public boolean containsAssociation(String assoc)
 	{
 		return assoc == null ? selection == null : assoc.equals(selection);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int compareTo(CategorizedAbilitySelection other)
+	{
+	    final int BEFORE = -1;
+	    final int EQUAL = 0;
+	    final int AFTER = 1;
+
+		if (this == other)
+		{
+			return EQUAL;
+		}
+		
+		// ability details
+		int compare = this.ability.compareTo(other.ability);
+		if (compare != EQUAL)
+		{
+			return compare;
+		}
+		compare = this.category.toString().compareTo(other.category.toString());
+		if (compare != EQUAL)
+		{
+			return compare;
+		}
+		compare = this.nature.compareTo(other.nature);
+		if (compare != EQUAL)
+		{
+			return compare;
+		}
+		
+		// Selection
+		if (selection != null)
+		{
+			if (other.selection == null)
+			{
+				return AFTER;
+			}
+			compare = this.selection.compareTo(other.selection);
+			if (compare != EQUAL)
+			{
+				return compare;
+			}
+		}
+		else if (other.selection != null)
+		{
+			return BEFORE;
+		}
+		
+		// Owner
+		if (owner != null)
+		{
+			if (other.owner == null)
+			{
+				return AFTER;
+			}
+			compare = this.owner.toString().compareTo(other.owner.toString());
+			if (compare != EQUAL)
+			{
+				return compare;
+			}
+		}
+		else if (other.owner != null)
+		{
+			return BEFORE;
+		}
+
+		return EQUAL;
 	}
 
 }
