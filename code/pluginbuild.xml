@@ -90,6 +90,7 @@ jar-all-plugins - Generate the plugin jar files
 					<include name="plugin/overland/*.class" />
 					<include name="plugin/overland/gui/*.class" />
 					<include name="plugin/overland/util/*.class" />
+					<include name="plugin/overland/model/*.class" />
 				</patternset>
 			</fileset>
 		</jar>
