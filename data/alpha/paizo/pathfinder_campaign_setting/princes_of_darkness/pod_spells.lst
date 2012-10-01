@@ -1,4 +1,4 @@
-# CVS $Revision: 14430 $ $Author: zaister $ -- Sat Sep 29 06:25:42 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision: 14430 $ $Author: zaister $ -- Mon Oct  1 00:17:05 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Princes of Darkness	SOURCESHORT:PoD	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8a6f	SOURCEDATE:2009-10
 # Original Entry by: Stefan Radermacher
 
@@ -12,9 +12,10 @@ Vision of Hell	CLASSES:Bard,Cleric,Sorcerer,Wizard=3	SCHOOL:Illusion		SUBSCHOOL:
 
 ###Block: Monster Support
 
+# Spell Name
 Teleport (Greater).COPY=Greater Teleport (Self Plus 50 Lbs. Of Objects Only)
 
- 
+
 #
 # End
 #

@@ -1,3 +1,4 @@
+# CVS $Revision$ $Author$ -- Mon Oct  1 00:17:05 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Princes of Darkness	SOURCESHORT:PoD	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8a6f	SOURCEDATE:2009-10
 ### Original Entry by: Andrew Maitland
 ### Entry Date: 09-2012
@@ -35,13 +36,13 @@ FEAT:Improved Disarm
 FEAT:Improved Initiative
 FEAT:Iron Will
 FEAT:Persuasive
-FEAT:Weapon Focus (Claw)		FREE:YES
+FEAT:Weapon Focus (Claw)	FREE:YES
 
 #GEAR:Scale Mail			SIZE:PC	LOCATION:Equipped
 #GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped
 #GEAR:Waraxe (Dwarven)		SIZE:PC	LOCATION:Primary Hand
 #GEAR:Shortbow			SIZE:PC	LOCATION:Carried
-GEAR:Full Plate	EQMOD:PLUS5A.SHDW	LOCATION:Equipped	SIZE:PC
+GEAR:Full Plate	SIZE:PC	LOCATION:Equipped	EQMOD:PLUS5A.SHDW
 #Treasure double (+5 shadow full plate, other treasure)
 
 
@@ -95,7 +96,7 @@ SKILL:Fly			RANK:2
 SKILL:Perception		RANK:4
 SKILL:Stealth		RANK:4	FREE:YES
 #
-GEAR:Spear	EQMOD:MWORKW	LOCATION:Equipped
+GEAR:Spear	LOCATION:Equipped	EQMOD:MWORKW
 
 
 STARTPACK:Devil (Host Greater) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Greater Host)]
@@ -115,7 +116,7 @@ SKILL:Fly			RANK:7
 SKILL:Intimidate		RANK:7
 SKILL:Perception		RANK:7
 SKILL:Stealth		RANK:7
-GEAR:Ranseur		EQMOD:MWORKW	LOCATION:Equipped
+GEAR:Ranseur	LOCATION:Equipped	EQMOD:MWORKW
 #Languages Celestial, Draconic, Infernal; telepathy 100 ft.
 
 
@@ -143,8 +144,8 @@ SKILL:Knowledge (engineering)		RANK:7
 SKILL:Knowledge (planes)		RANK:7
 SKILL:Perception				RANK:8
 SKILL:Stealth				RANK:8
-GEAR:Trident	EQMOD:MWORKW	LOCATION:Equipped
-GEAR:Net		SIZE:PC		LOCATION:Equipped
+GEAR:Trident			LOCATION:Equipped	EQMOD:MWORKW
+GEAR:Net		SIZE:PC	LOCATION:Equipped
 
 #Languages Celestial, Draconic, Infernal; telepathy 100 ft.
 
