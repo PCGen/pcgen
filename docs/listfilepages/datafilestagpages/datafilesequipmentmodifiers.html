@@ -693,6 +693,23 @@
 
 <hr>
 
+	<p class="indent0"><strong><a name="PREWIELD">Tag Name:</a></strong> PREWIELD:x,y,y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of the wield categories that must match)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Light, OneHanded or TwoHanded)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Makes specific wield categories prerequisites. (See <a href="../datafilestagpages/datafilesequipment.html#WIELD">WIELD</a>).</li>
+		<li>Wield categories are defined in the <a href="../systemfilestagpages/gamemodemiscinfolist.html">miscinfo.lst</a>
+  		gamemode file by the <a href="../systemfilestagpages/gamemodemiscinfolist.html#WIELDCATEGORY">WIELDCATEGORY</a> tag.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>PREWIELD:1,Light,OneHanded</code></p>
+	<p class="indent3">Weapon must be either Light or OneHanded.</p>
+	<p class="indent2"><code>PREWIELD:1,TwoHanded</code></p>
+	<p class="indent3">Weapon must be TwoHanded.</p>
+
+<hr>
+
 	<p class="indent0"><strong><a name="REPLACES">Tag Name:</a></strong> REPLACES:x,x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Key Name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
