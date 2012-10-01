@@ -684,6 +684,204 @@ Poison.MOD										CLASSES:Antipaladin=4
 Slay Living.MOD									CLASSES:Antipaladin=4
 Summon Monster IV.MOD								CLASSES:Antipaladin=4
 
+###Block: Elemtalist Wizard Spells
+
+# 0-Level Elementalist Wizard Spells:
+# AIR	
+Message.MOD	SCHOOL:Air
+# Earth
+Acid Splash.MOD	SCHOOL:Earth
+# Fire
+Spark.MOD	SCHOOL:Fire
+#	Water
+Ray of Frost.MOD	SCHOOL:Water
+# 1st-Level Elementalist Wizard Spells:
+# AIR	
+Alter Winds.MOD	SCHOOL:Air
+Feather Fall.MOD	SCHOOL:Air
+Shocking Grasp.MOD	SCHOOL:Air
+# EARTH:Earth
+Expeditious Excavation.MOD	SCHOOL:Earth
+Grease.MOD	SCHOOL:Earth
+Stone Fist.MOD	SCHOOL:Earth
+# FIRE
+Burning Hands.MOD	SCHOOL:Fire
+Dancing Lantern.MOD	SCHOOL:Fire
+# WATER
+Hydraulic Push.MOD	SCHOOL:Water
+Obscuring Mist.MOD	SCHOOL:Water
+Touch of the Sea.MOD	SCHOOL:Water
+# 2nd-Level Elementalist Wizard Spells:
+# ALL
+Elemental Speech.MOD	SCHOOL:Air|Earth|Fire|Water
+Elemental Touch.MOD	SCHOOL:Air|Earth|Fire|Water
+Resist Energy.MOD	SCHOOL:Air|Earth|Fire|Water
+Summon Monster II.MOD	SCHOOL:Air|Earth|Fire|Water
+# AIR
+Glide.MOD	SCHOOL:Air
+Gust of Wind.MOD	SCHOOL:Air
+Levitate.MOD	SCHOOL:Air
+Whispering Wind.MOD	SCHOOL:Air
+# EARTH:Air
+Acid Arrow.MOD	SCHOOL:Earth
+Create Pit.MOD	SCHOOL:Earth
+Glitterdust.MOD	SCHOOL:Earth
+Shatter.MOD	SCHOOL:Earth
+Stone Call.MOD	SCHOOL:Earth
+# FIRE
+Burning Gaze.MOD	SCHOOL:Fire
+Fire Breath.MOD	SCHOOL:Fire
+Flaming Sphere.MOD	SCHOOL:Fire
+Pyrotechnics.MOD	SCHOOL:Fire
+Scorching Ray.MOD	SCHOOL:Fire
+# WATER
+Accelerate Poison.MOD	SCHOOL:Water
+Fog Cloud.MOD	SCHOOL:Water
+Slipstream.MOD	SCHOOL:Water
+#3rd-Level Elementalist Wizard Spells:
+# All
+Draconic Reservoir.MOD	SCHOOL:Air|Earth|Fire|Water
+Elemental Aura.MOD	SCHOOL:Air|Earth|Fire|Water
+Protection From Energy.MOD	SCHOOL:Air|Earth|Fire|Water
+# AIR	
+Cloak of Winds.MOD	SCHOOL:Air
+Fly.MOD	SCHOOL:Air
+Gaseous Form.MOD	SCHOOL:Air
+Lightning Bolt.MOD	SCHOOL:Air
+Wind Wall.MOD	SCHOOL:Air
+# EARTH:	
+Shifting Sand.MOD	SCHOOL:Earth
+Spiked Pit.MOD	SCHOOL:Earth
+Stinking Cloud.MOD	SCHOOL:Earth
+# FIRE
+Campfire Wall.MOD	SCHOOL:Fire
+Fireball.MOD	SCHOOL:Fire
+Flame Arrow.MOD	SCHOOL:Fire
+# WATER
+Aqueous Orb.MOD	SCHOOL:Water
+Hydraulic Torrent.MOD	SCHOOL:Water
+Sleet Storm.MOD	SCHOOL:Water
+Water Breathing.MOD	SCHOOL:Water
+# 4th-Level Elementalist Wizard Spells:
+# ALL
+Detonate.MOD	SCHOOL:Air|Earth|Fire|Water
+Dragon's Breath.MOD	SCHOOL:Air|Earth|Fire|Water
+Elemental Body I.MOD	SCHOOL:Air|Earth|Fire|Water
+Summon Monster IV.MOD	SCHOOL:Air|Earth|Fire|Water
+# AIR	
+Ball Lightning.MOD	SCHOOL:Air
+River of Wind.MOD	SCHOOL:Air
+Shout.MOD	SCHOOL:Air
+# EARTH:	
+Acid Pit.MOD	SCHOOL:Earth
+Calcific Touch.MOD	SCHOOL:Earth
+Stone Shape.MOD	SCHOOL:Earth
+Stoneskin.MOD	SCHOOL:Earth
+# FIRE
+Fire Shield.MOD	SCHOOL:Fire
+Fire Trap.MOD	SCHOOL:Fire
+Firefall.MOD	SCHOOL:Fire
+Wall of Fire.MOD	SCHOOL:Fire
+# WATER
+Ice Storm.MOD	SCHOOL:Water
+Solid Fog.MOD	SCHOOL:Water
+Wall of Ice.MOD	SCHOOL:Water
+# 5th-Level Elementalist Wizard Spells:
+# ALL
+Elemental Body II.MOD	SCHOOL:Air|Earth|Fire|Water
+Planar Adaptation.MOD	SCHOOL:Air|Earth|Fire|Water
+Planar Binding (Lesser).MOD	SCHOOL:Air|Earth|Fire|Water
+Summon Monster V.MOD	SCHOOL:Air|Earth|Fire|Water
+# AIR	
+Overland Flight.MOD	SCHOOL:Air
+Suffocation.MOD	SCHOOL:Air
+# EARTH:	
+Hungry Pit.MOD	SCHOOL:Earth
+Passwall.MOD	SCHOOL:Earth
+Transmute Mud to Rock.MOD	SCHOOL:Earth
+Transmute Rock to Mud.MOD	SCHOOL:Earth
+Wall of Stone.MOD	SCHOOL:Earth
+# FIRE
+Fire Snake.MOD	SCHOOL:Fire
+Geyser.MOD	SCHOOL:Fire
+# WATER
+Cloudkill.MOD	SCHOOL:Water
+Cone of Cold.MOD	SCHOOL:Water
+Geyser.MOD	SCHOOL:Water
+# 6th-Level Elementalist Wizard Spells:
+# ALL
+Elemental Body III.MOD	SCHOOL:Air|Earth|Fire|Water
+Planar Binding.MOD	SCHOOL:Air|Earth|Fire|Water
+Summon Monster VI.MOD	SCHOOL:Air|Earth|Fire|Water
+# AIR	
+Chain Lightning.MOD	SCHOOL:Air
+Sirocco.MOD	SCHOOL:Air
+# EARTH:	
+Acid Fog.MOD	SCHOOL:Earth
+Flesh to Stone.MOD	SCHOOL:Earth
+Move Earth.MOD	SCHOOL:Earth
+Stone to Flesh.MOD	SCHOOL:Earth
+Wall of Iron.MOD	SCHOOL:Earth
+# FIRE
+Contagious Flame.MOD	SCHOOL:Fire
+Sirocco.MOD	SCHOOL:Fire
+# WATER
+Fluid Form.MOD	SCHOOL:Water
+Freezing Sphere.MOD	SCHOOL:Water
+# 7th-Level Elementalist Wizard Spells:
+# ALL
+Elemental Body IV.MOD	SCHOOL:Air|Earth|Fire|Water
+Planar Adaptation (Mass).MOD	SCHOOL:Air|Earth|Fire|Water
+Summon Monster VII.MOD	SCHOOL:Air|Earth|Fire|Water
+# AIR	
+Control Weather.MOD	SCHOOL:Air
+Fly (Mass).MOD	SCHOOL:Air
+# EARTH:	
+Rampart.MOD	SCHOOL:Earth
+Reverse Gravity.MOD	SCHOOL:Earth
+Statue.MOD	SCHOOL:Earth
+# FIRE
+Delayed Blast Fireball.MOD	SCHOOL:Fire
+Firebrand.MOD	SCHOOL:Fire
+# WATER
+Control Weather.MOD	SCHOOL:Water
+Vortex.MOD	SCHOOL:Water
+# 8th-Level Elementalist Wizard Spells:
+# ALL
+Planar Binding (Greater).MOD	SCHOOL:Air|Earth|Fire|Water
+Summon Monster VIII.MOD	SCHOOL:Air|Earth|Fire|Water
+# AIR	
+Shout (Greater).MOD	SCHOOL:Air
+Stormbolts.MOD	SCHOOL:Air
+# EARTH:	
+Iron Body.MOD	SCHOOL:Earth
+Wall of Lava.MOD	SCHOOL:Earth
+# FIRE
+Incendiary Cloud.MOD	SCHOOL:Fire
+Wall of Lava.MOD	SCHOOL:Fire
+## WATER
+Horrid Wilting.MOD	SCHOOL:Water
+Polar Ray.MOD	SCHOOL:Water
+Seamantle.MOD	SCHOOL:Water
+# 9th-Level Elementalist Wizard Spells:
+## ALL
+Gate.MOD	SCHOOL:Air|Earth|Fire|Water
+## AIR	
+Suffocation (Mass).MOD	SCHOOL:Air
+Winds of Vengeance.MOD	SCHOOL:Air
+## EARTH:	
+Clashing Rocks.MOD	SCHOOL:Earth
+World Wave.MOD	SCHOOL:Earth
+## FIRE
+Fiery Body.MOD	SCHOOL:Fire
+Meteor Swarm.MOD	SCHOOL:Fire
+## WATER
+Tsunami.MOD	SCHOOL:Water
+
+
+
+###Block: Other Misc & Domains
+
 # COPY being used temporarily till the proper hidden spells are done - drb 2011/02/04
 Blindness/Deafness.COPY=Blindness/Deafness (Only Cause Blindness)
 Summon Monster V.COPY=Summon Monster V (Summons 1d3 Shadows)
