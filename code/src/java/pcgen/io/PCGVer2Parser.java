@@ -1106,64 +1106,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 
 		/*
-		 * Contains information about PC's equipment
-		 * Money goes here as well
-		 *
-		 * #Character Equipment
-		 * EQUIPNAME:Longsword|OUTPUTORDER:1|COST:5|WT:5|NOTE:It's very sharp!|>other info<
-		 * EQUIPNAME:Backpack|OUTPUTORDER:-1|COST:5|WT:5|NOTE:on my back
-		 * EQUIPNAME:Rope (Silk)|OUTPUTORDER:3|COST:5|WT:5
-		 */
-		if (cache.containsKey(TAG_MONEY))
-		{
-			for (final String line : cache.get(TAG_MONEY))
-			{
-				parseMoneyLine(line);
-			}
-		}
-
-		if (cache.containsKey(TAG_EQUIPNAME))
-		{
-			for (final String line : cache.get(TAG_EQUIPNAME))
-			{
-				parseEquipmentLine(line);
-			}
-		}
-
-		if (cache.containsKey(TAG_EQUIPSET))
-		{
-			/*
-			 * strangely enough this works even if we create a
-			 * EquipSet for content whose container EquipSet
-			 * has not been created yet
-			 * author: Thomas Behr 10-09-02
-			 *
-			 * Comment from EquipSet author:
-			 * It only works because I've already sorted on output
-			 * in PCGVer2Creator
-			 * author: Jayme Cox 01-16-03
-			 *
-			 */
-
-			//Collections.sort(cache.get(TAG_EQUIPSET), new EquipSetLineComparator());
-			for (final String line : cache.get(TAG_EQUIPSET))
-			{
-				parseEquipmentSetLine(line);
-			}
-		}
-
-		/**
-		 * CALCEQUIPSET line contains the "working" equipment list
-		 **/
-		if (cache.containsKey(TAG_CALCEQUIPSET))
-		{
-			for (final String line : cache.get(TAG_CALCEQUIPSET))
-			{
-				parseCalcEquipSet(line);
-			}
-		}
-
-		/*
 		 * #Character Deity/Domain
 		 * DEITY:Yondalla|DEITYDOMAINS:[DOMAIN:Good|DOMAIN:Law|DOMAIN:Protection]|ALIGNALLOW:013|DESC:Halflings, Protection, Fertility|SYMBOL:None|DEITYFAVWEAP:Sword (Short)|DEITYALIGN:ALIGN:LG
 		 * DOMAIN:GOOD|DOMAINGRANTS:>list of abilities<
@@ -1291,6 +1233,72 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			for (final String line : cache.get(TAG_FOLLOWER))
 			{
 				parseFollowerLine(line);
+			}
+		}
+
+		/*
+		 * Contains information about PC's equipment
+		 * Money goes here as well
+		 *
+		 * #Character Equipment
+		 * EQUIPNAME:Longsword|OUTPUTORDER:1|COST:5|WT:5|NOTE:It's very sharp!|>other info<
+		 * EQUIPNAME:Backpack|OUTPUTORDER:-1|COST:5|WT:5|NOTE:on my back
+		 * EQUIPNAME:Rope (Silk)|OUTPUTORDER:3|COST:5|WT:5
+		 */
+		if (cache.containsKey(TAG_MONEY))
+		{
+			for (final String line : cache.get(TAG_MONEY))
+			{
+				parseMoneyLine(line);
+			}
+		}
+
+
+		if (cache.containsKey(TAG_EQUIPNAME))
+		{
+			// We process the bonuses loaded so far so that natural weapons from 
+			// conditional abilities can be found. 
+			thePC.setImporting(false);
+			thePC.setCalcFollowerBonus(thePC);
+			thePC.calcActiveBonuses();
+			thePC.setImporting(true);
+
+			for (final String line : cache.get(TAG_EQUIPNAME))
+			{
+				parseEquipmentLine(line);
+			}
+		}
+
+		if (cache.containsKey(TAG_EQUIPSET))
+		{
+			/*
+			 * strangely enough this works even if we create a
+			 * EquipSet for content whose container EquipSet
+			 * has not been created yet
+			 * author: Thomas Behr 10-09-02
+			 *
+			 * Comment from EquipSet author:
+			 * It only works because I've already sorted on output
+			 * in PCGVer2Creator
+			 * author: Jayme Cox 01-16-03
+			 *
+			 */
+
+			//Collections.sort(cache.get(TAG_EQUIPSET), new EquipSetLineComparator());
+			for (final String line : cache.get(TAG_EQUIPSET))
+			{
+				parseEquipmentSetLine(line);
+			}
+		}
+
+		/**
+		 * CALCEQUIPSET line contains the "working" equipment list
+		 **/
+		if (cache.containsKey(TAG_CALCEQUIPSET))
+		{
+			for (final String line : cache.get(TAG_CALCEQUIPSET))
+			{
+				parseCalcEquipSet(line);
 			}
 		}
 
