@@ -6,6 +6,7 @@ RANK:3
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder Campaign Setting
+STATUS:BETA
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
