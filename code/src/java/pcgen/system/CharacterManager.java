@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Level;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.ObjectUtils;
@@ -210,14 +211,18 @@ public class CharacterManager
 		}
 
 		HtmlInfoBuilder warningMsg = new HtmlInfoBuilder();
-		
+		Level lvl;
 		if (errors)
 		{
 			warningMsg.append(LanguageBundle.getString("in_cmErrorStart")); //$NON-NLS-1$
+			Logging.errorPrint("The following errors were encountered while loading " + fileName);
+			lvl = Logging.ERROR;
 		}
 		else
 		{
 			warningMsg.append(LanguageBundle.getString("in_cmWarnStart")); //$NON-NLS-1$
+			Logging.log(Logging.WARNING, "The following warnings were encountered while loading " + fileName);
+			lvl = Logging.WARNING;
 		}
 		warningMsg.appendLineBreak();
 		warningMsg.append("<UL>"); //$NON-NLS-1$
@@ -227,6 +232,7 @@ public class CharacterManager
 			warningMsg.append("<li>"); //$NON-NLS-1$
 			warningMsg.append(string);
 			warningMsg.append("</li>"); //$NON-NLS-1$
+			Logging.log(lvl, "* " + string); //$NON-NLS-1$
 		}
 		warningMsg.append("</UL>"); //$NON-NLS-1$
 		warningMsg.appendLineBreak();
