@@ -229,14 +229,14 @@ Nightmare Weaver
 	BENEFIT:By spending a full-round action to cast darkness, you can also make Intimidate checks to demoralize all foes in the spell's initial area. &nl; [Special]This feat counts as Dazzling Display for purposes of qualifying for Deadly Stroke and Shatter Defenses.
 
 # TODO PREDR on ANY DR.
-Rebuffing Reduction
-	SOURCEPAGE:p.115
-	TYPE:Combat
-	DESC:Your damage reduction can turn the force of blows back on your enemies.
-	PRESTAT:1,STR=13
-	PREFEAT:2,Improved Bull Rush, Power Attack
-	PREATT:1
-	BENEFIT:Whenever an opponent that is adjacent to you fails to penetrate your DR with a melee attack, you can spend an immediate action to attempt a bull rush combat maneuver against that opponent. If you succeed, you cannot move with the opponent. &nl; [Normal] A bull rush combat maneuver is a standard action.
+#Rebuffing Reduction
+#	SOURCEPAGE:p.115
+#	TYPE:Combat
+#	DESC:Your damage reduction can turn the force of blows back on your enemies.
+#	PRESTAT:1,STR=13
+#	PREFEAT:2,Improved Bull Rush, Power Attack
+#	PREATT:1
+#	BENEFIT:Whenever an opponent that is adjacent to you fails to penetrate your DR with a melee attack, you can spend an immediate action to attempt a bull rush combat maneuver against that opponent. If you succeed, you cannot move with the opponent. &nl; [Normal] A bull rush combat maneuver is a standard action.
 
 # PS: Depends on Oracle's Mystery instead of a revelation class feature. This works the same as Extra Revelation
 # We'll leave the chooser. It's too difficult
@@ -266,13 +266,16 @@ Shapeshifter Foil
 	PRETEXT:Ability to use any polymorph effect
 	BENEFIT:A creature you deal damage to has difficulty using or maintaining polymorph effects until the end your next turn. To use a polymorph effect it must make a concentration check (DC 15 + twice the level of the effect). If you deal damage to an opponent under a polymorph effect, that opponent must succeed at a Will saving throw (DC 10 + 1/2 your character level + your Wisdom modifier) or be forced back to its original form. If you score a critical hit against such an opponent, no saving throw is allowed.
 
-Shapeshifting Hunter
-	SOURCEPAGE:p.118
-	TYPE:General
-	DESC:You blend your knowledge of foes and your shapeshifting abilities together.
-	PREABILITY:1,CATEGORY=Special Ability,TYPE=FavoredEnemy
-	PREABILITY:1,CATEGORY=Special Ability,Wild Shape
-	BENEFIT:Your levels of druid stack with your ranger levels for determining when you select your next favored enemy. Also, your ranger levels stack with your druid levels in determining the number of times per day you can use your wild shape class feature, up to a maximum of eight times per day.
+# TODO: Changes when favored enemy is selected by combining druid level + ranger level. Isn't this hard-coded into the ranger class?
+#
+#Shapeshifting Hunter
+#	SOURCEPAGE:p.118
+#	TYPE:General
+#	DESC:You blend your knowledge of foes and your shapeshifting abilities together.
+#	PREABILITY:1,CATEGORY=Special Ability,TYPE=FavoredEnemy
+#	PREABILITY:1,CATEGORY=Special Ability,Wild Shape
+#	BONUS:VAR|WildShapeTimes|classlevel("Ranger")
+#	BENEFIT:Your levels of druid stack with your ranger levels for determining when you select your next favored enemy. Also, your ranger levels stack with your druid levels in determining the number of times per day you can use your wild shape class feature, up to a maximum of eight times per day (currently %1).|WildShapeTimes
 
 # TODO: The user must choose one deed when taking this feat. how to do?
 Signature Deed
