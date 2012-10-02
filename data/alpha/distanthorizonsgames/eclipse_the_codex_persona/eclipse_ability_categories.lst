@@ -2,6 +2,8 @@
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
+ABILITYCATEGORY:Domain Choice				CATEGORY:Special Ability	TYPE:Domain		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	PLURAL:Domain Choices	DISPLAYLOCATION:Character Creation Pool
+
 ABILITYCATEGORY:Domain Path Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:DomainSelection																																																																							PLURAL:Domain or Path Selection			DISPLAYLOCATION:Character Creation Pool
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object																																					Specific choices list																																Plural description for UI				Display Location
 ABILITYCATEGORY:Hit Die Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:HitDieSelection																																																																							PLURAL:Hitdie Selections					DISPLAYLOCATION:Character Creation Pool
