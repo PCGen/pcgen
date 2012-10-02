@@ -156,7 +156,13 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 			// Add locations for this body structure
 			for (EquipSlot slot : SystemCollections.getUnmodifiableEquipSlotList())
 			{
-				if (slot.getBodyStructureName().equalsIgnoreCase(structString))
+				String bodyStructureName = slot.getBodyStructureName();
+				final String hands = "HANDS";
+				if ("Ring".equalsIgnoreCase(slot.getSlotName()) || "Fingers".equalsIgnoreCase(slot.getSlotName()))
+				{
+					bodyStructureName = hands;
+				}
+				if (bodyStructureName.equalsIgnoreCase(structString))
 				{
 					if (slot.canContainType("WEAPON"))
 					{
