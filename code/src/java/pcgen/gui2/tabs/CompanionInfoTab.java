@@ -140,7 +140,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		JPanel rightPane = new JPanel(new BorderLayout());
 		infoPane.setOpaque(false);
 		infoPane.setEditable(false);
-		infoPane.setFocusable(false);
+		infoPane.setFocusable(true);
 		infoPane.setContentType("text/html"); //$NON-NLS-1$
 		rightPane.add(new JScrollPane(infoPane), BorderLayout.CENTER);
 		JPanel buttonPane = new JPanel(new FlowLayout());
