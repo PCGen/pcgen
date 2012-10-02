@@ -20,6 +20,7 @@
  */
 package pcgen.gui2.filter;
 
+import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.util.Collections;
 import java.util.List;
@@ -68,6 +69,7 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 	{
 		filteredModel.refilter();
 		updateDisplay();
+		this.scrollRectToVisible(new Rectangle(getCellRect(0, 0, true)));
 	}
 
 	public void setContext(C context)
