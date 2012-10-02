@@ -13,15 +13,14 @@ Branded for Retribution
 	PREABILITY:1,CATEGORY=Special Ability,Bane ~ Inquisitor
 	BENEFIT:As a standard action, expend 3 rounds of your bane class feature and make a melee touch attack with the weapon affected by bane. If you hit, your target takes no damage but is branded until the start of your next turn. While this brand remains, your allies' weapons are considered to have the bane ability with which your weapon is imbued when they attack the branded creature.
 
-# Oooh, hard. Are these all people who channel positive energy? Cleric, Paladin and Oracle? (Henk)
-# What if the Cleric does not cast with d6 but with d4? Let's not go there. (Henk)
-Channeled Revival
-	SOURCEPAGE:p.92
-	TYPE:General
-	DESC:You can expend a large portion of your channeling power to reverse death itself.
-	PREABILITY:1,CATEGORY=Special Ability,Channel Positive Energy
-	PREMULT:1,[PREVARGTEQ:OracleChannelDice,6],[PREVARGTEQ:ClericChannelPositiveEnergyDice,6],[PREVARGTEQ:PaladinChannelDice,6]
-	BENEFIT:As a full-round action that provokes attacks of opportunity, you can expend three uses of your channel energy class feature to restore a dead creature to life as if you had cast the breath of life spell (Core Rulebook 251).
+
+#Channeled Revival
+#	SOURCEPAGE:p.92
+#	TYPE:General
+#	DESC:You can expend a large portion of your channeling power to reverse death itself.
+#	PREABILITY:1,CATEGORY=Special Ability,Channel Positive Energy
+#	PREMULT:1,[PREVARGTEQ:OracleChannelDice,6],[PREVARGTEQ:ClericChannelPositiveEnergyDice,6],[PREVARGTEQ:PaladinChannelDice,6]
+#	BENEFIT:As a full-round action that provokes attacks of opportunity, you can expend three uses of your channel energy class feature to restore a dead creature to life as if you had cast the breath of life spell (Core Rulebook 251).
 
 # http://paizo.com/paizo/faq/v5748nruor1g1#v5748eaic9okt
 # "...change the Prerequisite entry "Inquisitori channel energy class feature" to "channel energy class feature, inquisitor level 1st."
