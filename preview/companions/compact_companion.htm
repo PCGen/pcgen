@@ -50,7 +50,7 @@ th
 |ENDIF|<!--rd-->
 |ENDIF|<!--nd-->
 |ENDIF|<!--st-->
--Level&nbsp;|CLASS.%class|
+-Level|MANUALWHITESPACE||CLASS.%class|
 |ENDIF|
 |ENDIF|<!--TYPE != Monster-->
 |ENDFOR|
@@ -164,20 +164,20 @@ Tower Shield,
 |IIF(VAR.IF(VAR("CMD")>0;1;0):1)|
   <tr valign="top">
     <td width="25%"><b>Base Attack/CMB/CMD: </b></td>
-    <td width="75%">|VAR.BAB.INTVAL.SIGN|/|VAR.CMB.INTVAL.SIGN|/|VAR.CMD.INTVAL.SIGN|
+    <td width="75%">|VAR.BAB.INTVAL.SIGN|; |VAR.CMB.INTVAL.SIGN| ; |VAR.CMD.INTVAL|
     </td>
   </tr>
 |ELSE|
   <tr valign="top">
     <td width="25%"><b>Base Attack/CMB: </b></td>
-    <td width="75%">|VAR.BAB.INTVAL.SIGN|/|VAR.CMB.INTVAL.SIGN|
+    <td width="75%">|VAR.BAB.INTVAL.SIGN|; |VAR.CMB.INTVAL.SIGN|
     </td>
   </tr>
 |ENDIF|
 |ELSE|
   <tr valign="top">
     <td width="25%"><b>Base Attack/Grapple: </b></td>
-    <td width="75%">|VAR.BAB.INTVAL.SIGN|/
+    <td width="75%">|VAR.BAB.INTVAL.SIGN|; 
 |IIF(VAR.IF(var("CanNotGrapple")==0;1;0):1)|
 |VAR.(STR+BAB+(SIZE-4)+(SIZE-4)+(SIZE-4)+(SIZE-4)+(ATTACK.GRAPPLE.MISC)).INTVAL.SIGN|
 |ELSE|
@@ -190,11 +190,11 @@ Tower Shield,
   <tr valign="top">
     <td width="25%"><b>Full Attack: </b></td>
     <td width="75%">
-|MANUALWHITESPACE|
+
 |FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,0|
 <strong>|WEAPON.%weap.NAME.NOSTAR|</strong>
 |IIF(WEAPON.%weap.BASEHIT:N/A)|
-|WEAPON.%weap.THHIT|&nbsp;melee&nbsp;(|WEAPON.%weap.THDAMAGE|
+|WEAPON.%weap.THHIT|  melee |MANUALWHITESPACE|(|WEAPON.%weap.THDAMAGE|
 |FOR,%CritTest,STRLEN[WEAPON.%weap.CRIT],STRLEN[WEAPON.%weap.CRIT],1,0|
 |IIF(%CritTest:2)|
 |ELSE|
@@ -209,9 +209,9 @@ Tower Shield,
 |ELSE|
 |WEAPON.%weap.BASEHIT| 
 |IIF(WEAPON.%weap.ISTYPE.Ranged)|
-ranged
+ ranged
 |ELSE|
-melee
+ melee
 |ENDIF|
  (
 |IIF(WEAPON.%weap.ISTYPE.Ranged)|
@@ -232,17 +232,17 @@ melee
 ); 
 |ENDIF|
 |ENDFOR|
-|ENDMANUALWHITESPACE|
+
     </td>
   </tr>
   <tr valign="top">
     <td width="25%"><b>Attack: </b></td>
     <td width="75%">
-|MANUALWHITESPACE|
+
 |FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,0|
 <strong>|WEAPON.%weap.NAME.NOSTAR| </strong>
 |IIF(WEAPON.%weap.BASEHIT:N/A)|
-|WEAPON.%weap.THHIT.0|&nbsp;melee&nbsp;(|WEAPON.%weap.THDAMAGE|
+|WEAPON.%weap.THHIT.0| |MANUALWHITESPACE| melee |MANUALWHITESPACE| (|WEAPON.%weap.THDAMAGE|
 |FOR,%CritTest,STRLEN[WEAPON.%weap.CRIT],STRLEN[WEAPON.%weap.CRIT],1,0|
 |IIF(%CritTest:2)|
 |ELSE|
@@ -257,9 +257,9 @@ melee
 |ELSE|
 |WEAPON.%weap.BASEHIT.0| 
 |IIF(WEAPON.%weap.ISTYPE.Ranged)|
-ranged
+ ranged
 |ELSE|
-melee
+ melee
 |ENDIF|
  (
 |IIF(WEAPON.%weap.ISTYPE.Ranged)|
@@ -267,6 +267,7 @@ melee
 |ELSE|
 |WEAPON.%weap.DAMAGE|
 |ENDIF|
+|MANUALWHITESPACE|
 |FOR,%CritTest,STRLEN[WEAPON.%weap.CRIT],STRLEN[WEAPON.%weap.CRIT],1,0|
 |IIF(%CritTest:2)|
 |ELSE|
@@ -587,38 +588,7 @@ at will)
 |ENDFOR| 
 |%| 
 
-<!--   Trouble-shooting stuff   -->
- 
-<hr />
 
-|IIF(VAR.IF(var("FEATPOINTS")==0;1;0):1)|
-|ELSE|
-<font color="#FF0000" size="+1"><strong>Unspent Feat Points: |FEATPOINTS.INTVAL|</strong></font>
-|ENDIF|
-
-|IIF(VAR.IF(var("SKILLPOINTS.UNUSED")==0;1;0):1)|
-|ELSE|
-  <br /><font color="#FF0000" size="+1"><strong>Unspent Skill Points: |SKILLPOINTS.UNUSED.INTVAL|</strong></font>  
-|ENDIF|
-
-
-<p>Skill Breakdown</p>
-<p>
-|FOR,%skill,0,COUNT[SKILLS]-1,1,0|
-|IIF(VAR.IF(var("SKILL.%skill.RANK")==0;1;0):1)|
-|IIF(VAR.IF(var("SKILL.%skill.TOTAL")==0;1;0):1)|
-|ELSE|
-<font color="#FF6600"><b>|SKILL.%skill| |SKILL.%skill.TOTAL.INTVAL.SIGN| =</b> |SKILL.%skill.EXPLAIN_LONG| </font><br />
-|ENDIF|
-|ELSE|
-<b>|SKILL.%skill| |SKILL.%skill.TOTAL.INTVAL.SIGN| =</b> |SKILL.%skill.RANK.INTVAL.SIGN|[RANK] |SKILL.%skill.EXPLAIN_LONG| <br />
-|ENDIF|
-|ENDFOR|
-</p>
-<font size="-2">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE| </font>
-
-
-<!--   End Trouble-shooting stuff   -->
 
 </blockquote>
 </body>
