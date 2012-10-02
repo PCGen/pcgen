@@ -34,6 +34,7 @@ import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.facade.AbilityCategoryFacade;
 import pcgen.core.facade.AbilityFacade;
@@ -205,7 +206,8 @@ public class DataSet implements DataSetFacade
 			bodyStructures.addElement(bodyStructure);
 			structMap.put(name, bodyStructure);
 		}
-		bodyStructures.addElement(new BodyStructure(Constants.EQUIP_LOCATION_EQUIPPED, true));
+		bodyStructures.addElement(new BodyStructure(
+			Constants.EQUIP_LOCATION_EQUIPPED, true, Type.WEAPON, Type.SHIELD));
 		bodyStructures.addElement(new BodyStructure(Constants.EQUIP_LOCATION_CARRIED, true));
 		bodyStructures.addElement(new BodyStructure(Constants.EQUIP_LOCATION_NOTCARRIED, true));
 		

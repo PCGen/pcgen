@@ -973,7 +973,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 			BodyStructure root = (BodyStructure) node.getBodyStructure();
 			if (root.isHoldsAnyType())
 			{
-				return true;
+				return !root.isForbidden(item.getTrueTypeList(false));
 			}
 		}
 

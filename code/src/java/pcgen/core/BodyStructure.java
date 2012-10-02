@@ -23,9 +23,14 @@
 package pcgen.core;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.facade.BodyStructureFacade;
 
@@ -46,6 +51,7 @@ public class BodyStructure implements BodyStructureFacade
 	private String name;
 	private List<EquipSlot> slots;
 	private boolean holdsAnyType;
+	private Set<Type> forbiddenTypes;
 
 	/**
 	 * Create a new BodyStructure instance.
@@ -63,10 +69,13 @@ public class BodyStructure implements BodyStructureFacade
 	 * 
 	 * @param name The name of the body structure.
 	 * @param holdsAnyType Can this item hold anything at all
+	 * @param forbiddenTypes The exceptions to the 'holds any type' rule.
 	 */
-	public BodyStructure(String name, boolean holdsAnyType)
+	public BodyStructure(String name, boolean holdsAnyType, Type... forbiddenTypes)
 	{
 		this.name = name;
+		this.forbiddenTypes = new HashSet<Type>();
+		this.forbiddenTypes.addAll(Arrays.asList(forbiddenTypes));
 		slots = new ArrayList<EquipSlot>();
 		this.holdsAnyType = holdsAnyType;
 	}
@@ -114,5 +123,23 @@ public class BodyStructure implements BodyStructureFacade
 	public boolean isHoldsAnyType()
 	{
 		return holdsAnyType;
+	}
+
+	/**
+	 * Identify if the set of types contains any forbidden ones.
+	 * 
+	 * @param types the types to be checked
+	 * @return true if any type is not allowed, false otherwise
+	 */
+	public boolean isForbidden(Collection<Type> types)
+	{
+		for (Type type : types)
+		{
+			if (forbiddenTypes.contains(type))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 }
