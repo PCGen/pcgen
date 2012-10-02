@@ -71,6 +71,12 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 		updateDisplay();
 	}
 
+	@Override
+	public void scrollToTop()
+	{
+		this.scrollRectToVisible(new Rectangle(getCellRect(0, 0, true)));
+	}
+
 	public void setContext(C context)
 	{
 		this.context = context;

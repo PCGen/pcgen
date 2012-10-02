@@ -181,6 +181,12 @@ public class EquipmentModels
 			//do nothing
 		}
 
+		@Override
+		public void scrollToTop()
+		{
+			// do nothing
+		}
+
 	}
 
 	private class EquipViewHandler extends AbstractAction

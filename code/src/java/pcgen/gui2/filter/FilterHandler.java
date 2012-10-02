@@ -31,4 +31,8 @@ public interface FilterHandler
 
 	public void setSearchEnabled(boolean enable);
 
+	/**
+	 * Scroll the table being filtered to the top row.
+	 */
+	public void scrollToTop();
 }

@@ -91,6 +91,7 @@ public class SearchFilterPanel extends JPanel
 		String text = searchField.getText();
 		filterHandler.setSearchEnabled(text != null && text.length() > 0);
 		filterHandler.refilter();
+		filterHandler.scrollToTop();
 	}
 
 	@Override

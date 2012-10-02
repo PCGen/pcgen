@@ -462,6 +462,12 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		}
 
 		@Override
+		public void scrollToTop()
+		{
+			// do nothing
+		}
+
+		@Override
 		public void setSearchEnabled(boolean enable)
 		{
 		}

@@ -796,6 +796,12 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		}
 
 		@Override
+		public void scrollToTop()
+		{
+			// do nothing
+		}
+
+		@Override
 		public void setSearchEnabled(boolean enable)
 		{
 			//do nothing as there is no search bar
