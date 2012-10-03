@@ -542,24 +542,24 @@ Xeph Power Resistance			OUTPUTNAME:+1 saves vs. powers, spells, and spell-like e
 
 ###Block: Companion Modifier Abilities
 # Ability Name			Output Name											Category of Ability		Type						Visible
-Blood Bond																CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES
-Cannot be Turned			OUTPUTNAME:Cannot be Turned or Rebuked						CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Cannot be Turned by Other	OUTPUTNAME:Cannot be turned, rebuked, or commanded by any third party	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Cannot Create Spawn														CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Command Own Kind			OUTPUTNAME:Command creatures of its kind						CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Communiate with Master														CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Deliver Touch Spells														CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES
-Devotion																CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES
-Empathic Link															CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Improved Speed															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES
-Link																	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES
-Scry on Familiar															CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Share saving throws														CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Share Spells															CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES
-Speak One Language														CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Speak with Own Kind		OUTPUTNAME:Speak with animals of its kind						CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Speak with Blackguard														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES
-Speak with Master															CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Blood Bond																CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	BENEFIT:If the blackguard's character level is 16th or higher, the servant gains a +2 bonus on all attack rolls, checks, and saves if it witnesses the blackguard being threatened or harmed. This bonus lasts as long as the threat is immediate and apparent.
+Cannot be Turned			OUTPUTNAME:Cannot be Turned or Rebuked						CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	
+Cannot be Turned by Other	OUTPUTNAME:Cannot be turned, rebuked, or commanded by any third party	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	BENEFIT:The summoned shadow cannot be turned, rebuked, or commanded by any third party.
+Cannot Create Spawn														CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	BENEFIT:The creature cannot create spawn
+Command Own Kind			OUTPUTNAME:Command creatures of its kind						CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	BENEFIT:Once per day per two paladin levels of its master, a mount can use this ability to command other any normal animal of approximately the same kind as itself (for warhorses and warponies, this category includes donkeys, mules, and ponies), as long as the target creature has fewer Hit Dice than the mount. This ability functions like the command spell, but the mount must make a DC 21 Concentration check to succeed if it's being ridden at the time. If the check fails, the ability does not work that time, but it still counts against the mount's daily uses. Each target may attempt a Will save (DC 10 + 1/2 paladin's level + paladin's Cha modifier) to negate the effect.
+Communiate with Master														CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	
+Deliver Touch Spells														CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	BENEFIT:If the master is 3rd level or higher, a familiar can deliver touch spells for him. If the master and the familiar are in contact at the time the master casts a touch spell, he can designate his familiar as the "toucher." The familiar can then deliver the touch spell just as the master could. As usual, if the master casts another spell before the touch is delivered, the touch spell dissipates.
+Devotion																CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	BENEFIT:An animal companion gains a +4 morale bonus on Will saves against enchantment spells and effects.
+Empathic Link															CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	BENEFIT:The master has an empathic link with her companion out to a distance of up to 1 mile. The master cannot see through the companion's eyes, but they can communicate empathically. Because of the limited nature of the link, only general emotional content can be communicated. Because of this empathic link, the master has the same connection to an item or place that his companion does.
+Improved Speed															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	
+Link																	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	BENEFIT:A character can handle her animal companion as a free action, or push it as a move action, even if she doesn't have any ranks in the Handle Animal skill. The character gains a +4 circumstance bonus on all wild empathy checks and Handle Animal checks made regarding an animal companion.
+Scry on Familiar															CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	BENEFIT:If the master is 13th level or higher, he may scry on his familiar (as if casting the scrying spell) once per day.
+Share saving throws														CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	
+Share Spells															CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	BENEFIT:At the character's option, she may have any spell (but not any spell-like ability) she casts upon herself also affect the companion. The companion must be within 5 feet of her at the time of casting to receive the benefit. If the spell or effect has a duration other than instantaneous, it stops affecting the companion if the companion moves farther than 5 feet away and will not affect the animal again, even if it returns to the character before the duration expires. Additionally, you may cast a spell with a target of "You" on your companion (as a touch range spell) instead of on herself. A character and her companion can share spells even if the spells normally do not affect creatures of the companion's type (animal).
+Speak One Language														CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	
+Speak with Own Kind		OUTPUTNAME:Speak with animals of its kind						CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	BENEFIT:If the master is 7th level or higher, a familiar can communicate with animals of approximately the same kind as itself (including dire varieties): bats with bats, rats with rodents, cats with felines, hawks and owls and ravens with birds, lizards and snakes with reptiles, toads with amphibians, weasels with similar creatures (weasels, minks, polecats, ermines, skunks, wolverines, and badgers). Such communication is limited by the intelligence of the conversing creatures.
+Speak with Blackguard														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	BENEFIT:If the blackguard's character level is 13th or higher, the blackguard and servant can communicate verbally as if they were using a common language. Other creatures do not understand the communication without magical help.
+Speak with Master															CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	BENEFIT:If the master is 5th level or higher, a familiar and the master can communicate verbally as if they were using a common language. Other creatures do not understand the communication without magical help.
 
 
 ###Block: Psionic Companion Modifier Abilities
