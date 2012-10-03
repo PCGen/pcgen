@@ -190,43 +190,43 @@ Masterful Display
 	STACK:NO
 
 # TODO: Calculate bonus to unarmed strike damage
-Monastic Legacy
-	SOURCEPAGE:p.109
-	TYPE:Combat
-	DESC:Your formal unarmed training continues to bolster your training in other areas.
-	PREABILITY:1,CATEGORY=Special Ability,Still Mind
-	PREFEAT:1,Improved Unarmed Strike
-	BENEFIT:Add half the levels you have in classes other than monk to your monk level to determine your effective monk level for your base unarmed strike damage. This feat does not make levels in classes other than monk count toward any other monk class features.
+#Monastic Legacy
+#	SOURCEPAGE:p.109
+#	TYPE:Combat
+#	DESC:Your formal unarmed training continues to bolster your training in other areas.
+#	PREABILITY:1,CATEGORY=Special Ability,Still Mind
+#	PREFEAT:1,Improved Unarmed Strike
+#	BENEFIT:Add half the levels you have in classes other than monk to your monk level to determine your effective monk level for your base unarmed strike damage. This feat does not make levels in classes other than monk count toward any other monk class features.
 
 # TODO: Many, many possibilities of creating magical darkness?
 # TODO: Let's keep it at being able to cast darkness and friends
-Nightmare Fist
-	SOURCEPAGE:p.111
-	TYPE:Combat
-	DESC:You are even more deadly in magical darkness.
-	PREFEAT:1,Improved Unarmed Strike
-	PRESKILL:1,Intimidate=1
-	PRESPELL:1,Darkness,Deeper Darkness
-	BENEFIT:While fighting within an area of magical darkness, you gain a +2 bonus on damage rolls with unarmed strikes, or a +4 bonus against opponents that are shaken, frightened, or panicked. You also gain a +2 morale bonus on Acrobatics and Intimidate checks.
+#Nightmare Fist
+#	SOURCEPAGE:p.111
+#	TYPE:Combat
+#	DESC:You are even more deadly in magical darkness.
+#	PREFEAT:1,Improved Unarmed Strike
+#	PRESKILL:1,Intimidate=1
+#	PRESPELL:1,Darkness,Deeper Darkness
+#	BENEFIT:While fighting within an area of magical darkness, you gain a +2 bonus on damage rolls with unarmed strikes, or a +4 bonus against opponents that are shaken, frightened, or panicked. You also gain a +2 morale bonus on Acrobatics and Intimidate checks.
 
-Nightmare Striker
-	SOURCEPAGE:p.111
-	TYPE:Combat
-	DESC:Your faerie fire not only illuminates your foes, but it also shows you their weaknesses.
-	PREFEAT:4,Improved Unarmed Strike,Nightmare Fist,Nightmare Weaver,Stunning Fist
-	PRESKILL:1,Heal=5
-	PRESPELL:1,Faerie Fire
-	BENEFIT:While a faerie fire you have cast (not one cast from a spell completion or spell trigger item) outlines an opponent, the DC for that opponent to resist your Stunning Fist attempts increases by +2. If you hit an opponent with a Stunning Fist attempt, and that opponent fails her saving throw, you can render the target shaken for 1d2 rounds plus 1 round for every 5 by which the opponent failed her save.
+#Nightmare Striker
+#	SOURCEPAGE:p.111
+#	TYPE:Combat
+#	DESC:Your faerie fire not only illuminates your foes, but it also shows you their weaknesses.
+#	PREFEAT:4,Improved Unarmed Strike,Nightmare Fist,Nightmare Weaver,Stunning Fist
+#	PRESKILL:1,Heal=5
+#	PRESPELL:1,Faerie Fire
+#	BENEFIT:While a faerie fire you have cast (not one cast from a spell completion or spell trigger item) outlines an opponent, the DC for that opponent to resist your Stunning Fist attempts increases by +2. If you hit an opponent with a Stunning Fist attempt, and that opponent fails her saving throw, you can render the target shaken for 1d2 rounds plus 1 round for every 5 by which the opponent failed her save.
 
 # This requires the spell Darkness, unline Nightmare Fist
-Nightmare Weaver
-	SOURCEPAGE:p.112
-	TYPE:Combat
-	DESC:You can use your ability to create magical darkness to terrorize enemies.
-	PREFEAT:2,Improved Unarmed Strike,Nightmare Fist
-	PRESKILL:1,Intimidate=2
-	PRESPELL:1,Darkness
-	BENEFIT:By spending a full-round action to cast darkness, you can also make Intimidate checks to demoralize all foes in the spell's initial area. &nl; [Special]This feat counts as Dazzling Display for purposes of qualifying for Deadly Stroke and Shatter Defenses.
+#Nightmare Weaver
+#	SOURCEPAGE:p.112
+#	TYPE:Combat
+#	DESC:You can use your ability to create magical darkness to terrorize enemies.
+#	PREFEAT:2,Improved Unarmed Strike,Nightmare Fist
+#	PRESKILL:1,Intimidate=2
+#	PRESPELL:1,Darkness
+#	BENEFIT:By spending a full-round action to cast darkness, you can also make Intimidate checks to demoralize all foes in the spell's initial area. &nl; [Special]This feat counts as Dazzling Display for purposes of qualifying for Deadly Stroke and Shatter Defenses.
 
 # TODO PREDR on ANY DR.
 #Rebuffing Reduction
@@ -258,13 +258,13 @@ School Strike
 	BENEFIT:When you gain this feat, choose one arcane school power that you can use to affect no more than one opponent. If you make a successful unarmed strike against an opponent, in addition to dealing your unarmed strike damage, you can use a swift action to deliver the effects of the chosen school power to that opponent. Doing so provokes no attacks of opportunity. &nl; [Special]You can take this feat multiple times. Each time you take it, you apply it to a different qualifying arcane school power.
 
 # TODO: Implement PRETEXT. This can be a spell, but can also be a spell-like ability or an extraordinary or supernatural ability
-Shapeshifter Foil
-	SOURCEPAGE:p.118
-	TYPE:General
-	DESC:Your command of shapeshifting magic can disrupt similar effects in others.
-	PRESKILL:1,Knowledge (arcana)=5,Knowledge (nature)=5
-	PRETEXT:Ability to use any polymorph effect
-	BENEFIT:A creature you deal damage to has difficulty using or maintaining polymorph effects until the end your next turn. To use a polymorph effect it must make a concentration check (DC 15 + twice the level of the effect). If you deal damage to an opponent under a polymorph effect, that opponent must succeed at a Will saving throw (DC 10 + 1/2 your character level + your Wisdom modifier) or be forced back to its original form. If you score a critical hit against such an opponent, no saving throw is allowed.
+#Shapeshifter Foil
+#	SOURCEPAGE:p.118
+#	TYPE:General
+#	DESC:Your command of shapeshifting magic can disrupt similar effects in others.
+#	PRESKILL:1,Knowledge (arcana)=5,Knowledge (nature)=5
+#	PRETEXT:Ability to use any polymorph effect
+#	BENEFIT:A creature you deal damage to has difficulty using or maintaining polymorph effects until the end your next turn. To use a polymorph effect it must make a concentration check (DC 15 + twice the level of the effect). If you deal damage to an opponent under a polymorph effect, that opponent must succeed at a Will saving throw (DC 10 + 1/2 your character level + your Wisdom modifier) or be forced back to its original form. If you score a critical hit against such an opponent, no saving throw is allowed.
 
 # TODO: Changes when favored enemy is selected by combining druid level + ranger level. Isn't this hard-coded into the ranger class?
 #
