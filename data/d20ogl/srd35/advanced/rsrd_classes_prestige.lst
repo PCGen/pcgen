@@ -245,8 +245,8 @@ CLASS:Horizon Walker	HD:8		TYPE:PC.Prestige	ABB:How		MAXLEVEL:10	SOURCEPAGE:Pres
 CLASS:Horizon Walker	PREFEAT:1,Endurance	PRESKILL:1,Knowledge (Geography)=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Horizon Walker	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Handle Animal|Hide|Knowledge (Geography)|Listen|Move Silently|TYPE=Profession|Ride|Speak Language|Spot|Survival
-1	BONUS:ABILITYPOOL|Terrain Mastery|min(CL,5)
-6	BONUS:ABILITYPOOL|Advanced Terrain Mastery|min(CL-5,5)
+1	BONUS:ABILITYPOOL|Terrain Mastery|min(CL,5)			ABILITY:Special Ability|AUTOMATIC|Terrain Mastery
+6	BONUS:ABILITYPOOL|Advanced Terrain Mastery|min(CL-5,5)	ABILITY:Special Ability|AUTOMATIC|Planar Terrain Mastery
 
 # Modified: 10-19-2003
 # Change: Changed PREMULT:6,[PRESPELLSCHOOL:1,Divination=1],[PRESPELLSCHOOL:1,Divination=2],[PRESPELLSCHOOL:1,Divination=4],[PRESPELLSCHOOL:1,Divination=5],[PRESPELLSCHOOL:1,Divination=6],[PRESPELLSCHOOL:1,Divination=7],[PRESPELLSCHOOL:1,Divination=8],[PRESPELLSCHOOL:1,Divination=9] to PRESPELLSCHOOL:7,Divination=0
@@ -258,8 +258,8 @@ CLASS:Loremaster	HD:4		TYPE:PC.Prestige	ABB:Lor		MAXLEVEL:10	SOURCEPAGE:Prestige
 CLASS:Loremaster	PREFEAT:1,Skill Focus (Knowledge%)	PREFEAT:3,TYPE=Metamagic,TYPE=ItemCreation	PRESKILL:2,TYPE.Knowledge=10,TYPE.Knowledge=10	PRESPELLSCHOOL:1,Divination=3	PRESPELLSCHOOL:7,Divination=0
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Loremaster	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|Craft (Alchemy)|Decipher Script|Gather Information|Handle Animal|Heal|TYPE=Knowledge|TYPE=Perform|TYPE=Profession|Speak Language|Spellcraft|Use Magic Device
-1	BONUS:ABILITYPOOL|Loremaster Secret|(CL+1)/2	BONUS:VAR|SecretLore|CL+INT	DEFINE:SecretLore|0	ADD:SPELLCASTER|ANY
-2																		ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Secret Lore
+1	BONUS:ABILITYPOOL|Loremaster Secret|(CL+1)/2	BONUS:VAR|SecretLore|CL+INT	DEFINE:SecretLore|0	ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Secret ~ Loremaster
+2																		ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Lore ~ Loremaster
 3																		ADD:SPELLCASTER|ANY
 4																		ADD:SPELLCASTER|ANY	ADD:LANGUAGE|TYPE=Spoken
 5																		ADD:SPELLCASTER|ANY
@@ -299,7 +299,7 @@ CLASS:Shadowdancer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Decipher Script|Diplomac
 2	VISION:Darkvision (60')	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3	BONUS:VAR|EvasionUsable,ImprovedEvasionUsable|1|PREVAREQ:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0	ABILITY:Special Ability|AUTOMATIC|Evasion|Uncanny Dodge ~ Base
 3					BONUS:VAR|ShadowIllusionLVL,ShadowCompanion|CL																																					ABILITY:Special Ability|AUTOMATIC|Shadow Illusion|Summon Shadow
 4					BONUS:VAR|ShadowJump|20																																									ABILITY:Special Ability|AUTOMATIC|Shadow Jump
-5																																																	ABILITY:Special Ability|AUTOMATIC|Defensive Roll
+5																																																	ABILITY:Special Ability|AUTOMATIC|Defensive Roll ~ Shadowdancer
 6					BONUS:VAR|ShadowJump|20
 7																																																	ABILITY:Special Ability|AUTOMATIC|Slippery Mind
 8					BONUS:VAR|ShadowJump|40
