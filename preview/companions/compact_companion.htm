@@ -288,30 +288,53 @@ Tower Shield,
     <td width="75%">|FACE|/|REACH| </td>
   </tr>
   
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
   <tr valign="top">
-    <td width="25%"><b>Special Attacks/Qualities: </b></td>
+    <td width="25%"><b>Special Attacks: </b></td>
     <td width="75%"> 
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT")>0)|
-|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability")-1,1,0| 
-|IIF(ABILITYALL.Special Ability.%specialAbilities.TYPE:Extraordinary)|
-|ABILITYALL.Special Ability.%specialAbilities| (Ex), 
-|ELSE|
-|IIF(ABILITYALL.Special Ability.%specialAbilities.TYPE:Supernatural)|
-|ABILITYALL.Special Ability.%specialAbilities| (Su), 
-|ELSE|
-|IIF(ABILITYALL.Special Ability.%specialAbilities.TYPE:SpellLike)|
-|ABILITYALL.Special Ability.%specialAbilities| (Sp), 
-|ELSE|
-|IIF(ABILITYALL.Special Ability.%specialAbilities.TYPE:PsiLike)|
-|ABILITYALL.Special Ability.%specialAbilities| (Ps), 
-|ELSE|
-|ABILITYALL.Special Ability.%specialAbilities|, 
+|FOR,%specialAttack,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialQuality|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialQuality.TYPE:Extraordinary)|
+ (Ex)|MANUALWHITESPACE|
 |ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialQuality.TYPE:Supernatural)|
+ (Su)|MANUALWHITESPACE|
 |ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialQuality.TYPE:SpellLike)|
+ (Sp)|MANUALWHITESPACE|
 |ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialQuality.TYPE:PsiLike)|
+ (Ps)|MANUALWHITESPACE|
 |ENDIF|
+,|ENDMANUALWHITESPACE|
 |ENDFOR|
 |ENDIF|
+
+
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+  <tr valign="top">
+    <td width="25%"><b>Special Qualities: </b></td>
+    <td width="75%"> 
+|FOR,%specialQuality,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.TYPE:Extraordinary)|
+ (Ex)|MANUALWHITESPACE|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.TYPE:Supernatural)|
+ (Su)|MANUALWHITESPACE|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.TYPE:SpellLike)|
+ (Sp)|MANUALWHITESPACE|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.TYPE:PsiLike)|
+ (Ps)|MANUALWHITESPACE|
+|ENDIF|
+,|ENDMANUALWHITESPACE|
+|ENDFOR|
+|ENDIF|
+
+
+
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=AnimalTrick";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
   <tr valign="top">
     <td width="25%"><b>Animal Tricks:</b></td>
@@ -328,6 +351,8 @@ Damage Reduction |DR|,
 |ELSE|
 Spell Resistance |SR|, 
 |ENDIF|
+  <tr valign="top">
+    <td width="25%"><b>Vision:</b></td>
 |FOR,%vision,0,COUNT[VISION]-1,1,0|
 |VISION.%vision|, 
 |ENDFOR|
@@ -357,7 +382,8 @@ Str |STAT.0|, Dex |STAT.1|, Con |STAT.2|, Int |STAT.3|, Wis |STAT.4|, Cha |STAT.
 |IIF(VAR.IF(var("SKILL.%skill.RANK")==0;1;0):1)|
 |IIF(VAR.IF(var("SKILL.%skill.TOTAL")==0;1;0):1)|
 |ELSE|
-<font color="#FF6600">|SKILL.%skill| |SKILL.%skill.TOTAL.INTVAL.SIGN|; </font>
+|SKILL.%skill| |SKILL.%skill.TOTAL.INTVAL.SIGN|; 
+<!--><font color="#FF6600"></font>-->
 |ENDIF|
 |ELSE|
 |SKILL.%skill| |SKILL.%skill.TOTAL.INTVAL.SIGN|; 
