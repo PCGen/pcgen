@@ -418,88 +418,113 @@ Monstrous Humanoid Proficiencies	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:
 Outsider Proficiencies			CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	VFEAT:Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Undead Proficiencies			CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	VFEAT:Simple Weapon Proficiency													SOURCEPAGE:TypesSubtypesAbilities.rtf
 
+
+#BLOCK: Where to store Abilities
+Grants All Hidden Abilities																								CATEGORY:Internal																																																																																										ABILITY:Internal|AUTOMATIC|Defines Required
+#COMMENT: This allows further expansion without having to MOD characters. It will grant abilities as needed
+
+# Bardic Abilities for Non-Bard Use
+CATEGORY=Internal|Grants All Hidden Abilities.MOD																																																																																																																ABILITY:Internal|AUTOMATIC|Bardic Inspire Courage (For Others)|PREMULT:2,[PREVAREQ:EnableBardicInspireCourage,1],[!PREABILITY:1,CATEGORY=Special Ability,Bardic Inspire Courage]	ABILITY:Internal|AUTOMATIC|Bardic Inspire Competence (For Others)|PREMULT:2,[PREVAREQ:EnableBardicInspireCompetence,1],[!PREABILITY:1,CATEGORY=Special Ability,Bardic Inspire Competence]
+CATEGORY=Internal|Grants All Hidden Abilities.MOD																																																																																																																ABILITY:Internal|AUTOMATIC|Master Traits
+CATEGORY=Internal|Grants All Hidden Abilities.MOD																																																																																																																ABILITY:Special Ability|AUTOMATIC|Low light Vision|PREVISION:1,Low-Light=1,Low Light=1
+
+
+#COMMENT: Holds Global DEFINES
+
+# All Hidden Abilities ~ Granted Abilities:
+Defines Required																										CATEGORY:Internal											DEFINE:EnableBardicInspireCourage|0	DEFINE:EnableBardicInspireCompetence|0	DEFINE:LowLightRange|2
+
+
+Bardic Inspire Courage						KEY:Bardic Inspire Courage (For Others)													CATEGORY:Internal											DEFINE:OtherInspireCourageLVL|0	DEFINE:OtherInspireCourageSaves|0	DEFINE:OtherInspireCourageAttack|0	DEFINE:OtherInspireCourageDamage|0	DEFINE:OtherInspireCourageLVL|0	DEFINE:OtherInspireCourageSaves|0	DEFINE:OtherInspireCourageAttack|0	DEFINE:OtherInspireCourageDamage|0																								CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Bard Level																																																														BONUS:CHECKS|ALL|OtherInspireCourageSaves|TYPE=BardicInspireCourage|PREAPPLY:ANYPC	BONUS:COMBAT|TOHIT|OtherInspireCourageAttack|TYPE=BardicInspireCourage|PREAPPLY:ANYPC	BONUS:COMBAT|DAMAGE.Melee,DAMAGE.Ranged|OtherInspireCourageDamage|TYPE=BardicInspireCourage|PREAPPLY:ANYPC										BONUS:VAR|OtherInspireCourageSaves,OtherInspireCourageAttack,OtherInspireCourageDamage|max(floor((OtherInspireCourageLVL+4)/6),1)|PREAPPLY:ANYPC	BONUS:VAR|OtherInspireCourageLVL|%CHOICE|PREAPPLY:ANYPC
+Bardic Inspire Competence					KEY:Bardic Inspire Competence (For Others)												CATEGORY:Internal											DEFINE:OtherInspireCompetenceBonus|0																																																																																																																																																																																					BONUS:SKILL|TYPE.Standard|OtherInspireCompetenceBonus	BONUS:VAR|OtherInspireCompetenceBonus|2
 ###Block: Creature Type Traits
-# Ability Name				Unique Key						Category of Ability		Type						Visible	Define											Description																																																																																																																																																					Template			Ability																								Bonus to HP													Bonus to skill				Modify VAR								Vision					Source Page
+
+
 Master Traits											CATEGORY:Internal			TYPE:Internal				VISIBLE:NO
-#COMMENT: Assigns the Trait based upon RACETYPE
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Aberration Traits|PRERACE:1,RACETYPE=Aberration
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Animal Traits|PRERACE:1,RACETYPE=Animal
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Construct Traits|PRERACE:1,RACETYPE=Construct
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Dragon Traits|PRERACE:1,RACETYPE=Dragon
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Elemental Traits|PRERACE:1,RACETYPE=Elemental
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Fey Traits|PRERACE:1,RACETYPE=Fey
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Giant Traits|PRERACE:1,RACETYPE=Giant
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Humanoid Traits|PRERACE:1,RACETYPE=Humanoid
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Magical Beast Traits|PRERACE:1,RACETYPE=Magical Beast
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Monstrous Humanoid Traits|PRERACE:1,RACETYPE=Monstrous Humanoid
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Ooze Traits|PRERACE:1,RACETYPE=Ooze
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Outsider Traits|PRERACE:1,RACETYPE=Outsider
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Plant Traits|PRERACE:1,RACETYPE=Plant
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Undead Traits|PRERACE:1,RACETYPE=Undead
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Vermin Traits|PRERACE:1,RACETYPE=Vermin
+# COMMENT: Assigns the Trait based upon RACETYPE
+###Block:
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Aberration Traits|PRERACE:1,RACETYPE=Aberration
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Animal Traits|PRERACE:1,RACETYPE=Animal
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Construct Traits|PRERACE:1,RACETYPE=Construct
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Dragon Traits|PRERACE:1,RACETYPE=Dragon
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Elemental Traits|PRERACE:1,RACETYPE=Elemental
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Fey Traits|PRERACE:1,RACETYPE=Fey
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Giant Traits|PRERACE:1,RACETYPE=Giant
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Humanoid Traits|PRERACE:1,RACETYPE=Humanoid
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Magical Beast Traits|PRERACE:1,RACETYPE=Magical Beast
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Monstrous Humanoid Traits|PRERACE:1,RACETYPE=Monstrous Humanoid
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Ooze Traits|PRERACE:1,RACETYPE=Ooze
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Outsider Traits|PRERACE:1,RACETYPE=Outsider
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Plant Traits|PRERACE:1,RACETYPE=Plant
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Undead Traits|PRERACE:1,RACETYPE=Undead
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Vermin Traits|PRERACE:1,RACETYPE=Vermin
+
 #COMMENT: Assigns the Subtype Trait based upon RACESUBTYPE:
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Air Traits|PRERACE:1,RACESUBTYPE=Air
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Angel Traits|PRERACE:1,RACESUBTYPE=Angel
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Aquatic Traits|PRERACE:1,RACESUBTYPE=Aquatic
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Archon Traits|PRERACE:1,RACESUBTYPE=Archon
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Augmented Traits|PRERACE:1,RACESUBTYPE=Augmented
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Chaotic Traits|PRERACE:1,RACESUBTYPE=Chaotic
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Cold Traits|PRERACE:1,RACESUBTYPE=Cold
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Earth Traits|PRERACE:1,RACESUBTYPE=Earth
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Evil Traits|PRERACE:1,RACESUBTYPE=Evil
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Extraplanar Traits|PRERACE:1,RACESUBTYPE=Extraplanar
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Fire Traits|PRERACE:1,RACESUBTYPE=Fire
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Goblinoid Traits|PRERACE:1,RACESUBTYPE=Goblinoid
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Good Traits|PRERACE:1,RACESUBTYPE=Good
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Incorporeal Traits|PRERACE:1,RACESUBTYPE=Incorporeal
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Lawful Traits|PRERACE:1,RACESUBTYPE=Lawful
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Native Traits|PRERACE:1,RACESUBTYPE=Native
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Reptilian Traits|PRERACE:1,RACESUBTYPE=Reptilian
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Shapechanger Traits|PRERACE:1,RACESUBTYPE=Shapechanger
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Swarm Traits|PRERACE:1,RACESUBTYPE=Swarm
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Water Traits|PRERACE:1,RACESUBTYPE=Water
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Mindless|PRERACE:1,RACESUBTYPE=Mindless
+###Block:
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Air Traits|PRERACE:1,RACESUBTYPE=Air
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Angel Traits|PRERACE:1,RACESUBTYPE=Angel
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Aquatic Traits|PRERACE:1,RACESUBTYPE=Aquatic
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Archon Traits|PRERACE:1,RACESUBTYPE=Archon
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Augmented Traits|PRERACE:1,RACESUBTYPE=Augmented
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Chaotic Traits|PRERACE:1,RACESUBTYPE=Chaotic
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Cold Traits|PRERACE:1,RACESUBTYPE=Cold
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Earth Traits|PRERACE:1,RACESUBTYPE=Earth
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Evil Traits|PRERACE:1,RACESUBTYPE=Evil
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Extraplanar Traits|PRERACE:1,RACESUBTYPE=Extraplanar
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Fire Traits|PRERACE:1,RACESUBTYPE=Fire
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Goblinoid Traits|PRERACE:1,RACESUBTYPE=Goblinoid
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Good Traits|PRERACE:1,RACESUBTYPE=Good
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Incorporeal Traits|PRERACE:1,RACESUBTYPE=Incorporeal
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Lawful Traits|PRERACE:1,RACESUBTYPE=Lawful
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Native Traits|PRERACE:1,RACESUBTYPE=Native
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Reptilian Traits|PRERACE:1,RACESUBTYPE=Reptilian
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Shapechanger Traits|PRERACE:1,RACESUBTYPE=Shapechanger
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Swarm Traits|PRERACE:1,RACESUBTYPE=Swarm
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Water Traits|PRERACE:1,RACESUBTYPE=Water
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Mindless|PRERACE:1,RACESUBTYPE=Mindless
 
 
-#Block: Displays the Actual Trait on the OS - Unless triggered not to display
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Aberration|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Aberration]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Animal|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Animal]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Construct|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Construct]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Dragon|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Dragon]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Elemental|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Elemental]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Fey|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Fey]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Giant|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Giant]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Humanoid|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Humanoid]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Magical Beast|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Magical Beast]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Monstrous Humanoid|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Monstrous Humanoid]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Ooze|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Ooze]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Outsider|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Outsider]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Plant|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Plant]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Undead|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Undead]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Vermin|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Vermin]
-#COMMENT: Assigns the Sub Trait based upon RACESUBTYPE:
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Air|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Air]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Angel|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Angel]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Aquatic|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Aquatic]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Archon|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Archon]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Augmented|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Augmented]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Chaotic|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Chaotic]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Cold|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Cold]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Earth|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Earth]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Evil|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Evil]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Extraplanar|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Extraplanar]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Fire|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Fire]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Goblinoid|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Goblinoid]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Good|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Good]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Incorporeal|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Incorporeal]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Lawful|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Lawful]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Native|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Native]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Reptilian|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Reptilian]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Shapechanger|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Shapechanger]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Swarm|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Swarm]
-CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Water|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Water]
+###Block: Displays the Actual Trait on the OS - Unless triggered not to display
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Aberration|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Aberration]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Animal|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Animal]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Construct|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Construct]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Dragon|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Dragon]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Elemental|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Elemental]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Fey|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Fey]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Giant|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Giant]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Humanoid|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Humanoid]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Magical Beast|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Magical Beast]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Monstrous Humanoid|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Monstrous Humanoid]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Ooze|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Ooze]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Outsider|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Outsider]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Plant|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Plant]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Undead|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Undead]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Vermin|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Vermin]
 
-#Block: RACE TRAITS
+# COMMENT: Assigns the Sub Trait based upon RACESUBTYPE:
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Air|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Air]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Angel|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Angel]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Aquatic|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Aquatic]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Archon|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Archon]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Augmented|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Augmented]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Chaotic|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Chaotic]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Cold|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Cold]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Earth|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Earth]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Evil|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Evil]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Extraplanar|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Extraplanar]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Fire|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Fire]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Goblinoid|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Goblinoid]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Good|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Good]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Incorporeal|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Incorporeal]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Lawful|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Lawful]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Native|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Native]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Reptilian|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Reptilian]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Shapechanger|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Shapechanger]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Swarm|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Swarm]
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Water|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Water]
+
+###Block: RACE TRAITS
+# Ability Name				Unique Key						Category of Ability		Type						Visible	Define											Description																																																																																																																																																					Template			Ability																								Bonus to HP													Bonus to skill				Modify VAR								Vision					Source Page
 Aberration Traits											CATEGORY:Special Ability	TYPE:TraitAbility																																																																																																																																																																																																																																		VISION:Darkvision (60')			SOURCEPAGE:TypesSubtypesAbilities.rtf
 Animal Traits											CATEGORY:Special Ability	TYPE:TraitAbility																																																																																																																																																																												ABILITY:Special Ability|AUTOMATIC|Low light Vision																																														VISION:Low-light				SOURCEPAGE:TypesSubtypesAbilities.rtf
 Construct Traits											CATEGORY:Special Ability	TYPE:TraitAbility																																																																																																																																																																								TEMPLATE:Construct	ABILITY:Special Ability|AUTOMATIC|Low light Vision																	BONUS:HP|CURRENTMAX|max(SIZE-2,0)*10	BONUS:HP|CURRENTMAX|max(SIZE-6,0)*10																VISION:Darkvision (60')|Low-light	SOURCEPAGE:TypesSubtypesAbilities.rtf
@@ -609,24 +634,6 @@ Remove Scribe Scroll																									CATEGORY:Special Ability	TYPE:Wizar
 Remove Summon Familiar (Wizard)																							CATEGORY:Special Ability	TYPE:WizardSummonFamiliar.ACF
 Remove Summon Familiar (Sorcerer)																							CATEGORY:Special Ability	TYPE:SorcererSummonFamiliar.ACF
 
-#BLOCK: Where to store Abilities
-Grants All Hidden Abilities																								CATEGORY:Internal																																																																																										ABILITY:Internal|AUTOMATIC|Defines Required
-#COMMENT: This allows further expansion without having to MOD characters. It will grant abilities as needed
-
-# Bardic Abilities for Non-Bard Use
-CATEGORY=Internal|Grants All Hidden Abilities.MOD																																																																																																																ABILITY:Internal|AUTOMATIC|Bardic Inspire Courage (For Others)|PREMULT:2,[PREVAREQ:EnableBardicInspireCourage,1],[!PREABILITY:1,CATEGORY=Special Ability,Bardic Inspire Courage]	ABILITY:Internal|AUTOMATIC|Bardic Inspire Competence (For Others)|PREMULT:2,[PREVAREQ:EnableBardicInspireCompetence,1],[!PREABILITY:1,CATEGORY=Special Ability,Bardic Inspire Competence]
-CATEGORY=Internal|Grants All Hidden Abilities.MOD																																																																																																																ABILITY:Internal|AUTOMATIC|Master Traits
-CATEGORY=Internal|Grants All Hidden Abilities.MOD																																																																																																																ABILITY:Special Ability|AUTOMATIC|Low light Vision|PREVISION:1,Low-Light=1,Low Light=1
-
-
-#COMMENT: Holds Global DEFINES
-
-# All Hidden Abilities ~ Granted Abilities:
-Defines Required																										CATEGORY:Internal											DEFINE:EnableBardicInspireCourage|0	DEFINE:EnableBardicInspireCompetence|0	DEFINE:LowLightRange|2
-
-
-Bardic Inspire Courage						KEY:Bardic Inspire Courage (For Others)													CATEGORY:Internal											DEFINE:OtherInspireCourageLVL|0	DEFINE:OtherInspireCourageSaves|0	DEFINE:OtherInspireCourageAttack|0	DEFINE:OtherInspireCourageDamage|0	DEFINE:OtherInspireCourageLVL|0	DEFINE:OtherInspireCourageSaves|0	DEFINE:OtherInspireCourageAttack|0	DEFINE:OtherInspireCourageDamage|0																								CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Bard Level																																																														BONUS:CHECKS|ALL|OtherInspireCourageSaves|TYPE=BardicInspireCourage|PREAPPLY:ANYPC	BONUS:COMBAT|TOHIT|OtherInspireCourageAttack|TYPE=BardicInspireCourage|PREAPPLY:ANYPC	BONUS:COMBAT|DAMAGE.Melee,DAMAGE.Ranged|OtherInspireCourageDamage|TYPE=BardicInspireCourage|PREAPPLY:ANYPC										BONUS:VAR|OtherInspireCourageSaves,OtherInspireCourageAttack,OtherInspireCourageDamage|max(floor((OtherInspireCourageLVL+4)/6),1)|PREAPPLY:ANYPC	BONUS:VAR|OtherInspireCourageLVL|%CHOICE|PREAPPLY:ANYPC
-Bardic Inspire Competence					KEY:Bardic Inspire Competence (For Others)												CATEGORY:Internal											DEFINE:OtherInspireCompetenceBonus|0																																																																																																																																																																																					BONUS:SKILL|TYPE.Standard|OtherInspireCompetenceBonus	BONUS:VAR|OtherInspireCompetenceBonus|2
 #
 #EOF
 #
