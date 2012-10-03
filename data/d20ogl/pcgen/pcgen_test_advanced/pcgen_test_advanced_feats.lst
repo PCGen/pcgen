@@ -1,5 +1,18 @@
 
 
+CODE-1712A		TYPE:BugReport.Test.CODE	STACK:NO	MULT:YES	CHOOSE:SKILL|ALL			DESC:Select Skills
+CODE-1712B		TYPE:BugReport.Test.CODE	STACK:NO	MULT:YES	CHOOSE:SKILL|FEAT=CODE-1712A	DESC:Select Skills Taken
+
+
+
+A NEW CHOOSE SELECTION ISSUE	TYPE:Hi.Test.Chooser	STACK:NO	MULT:YES		CHOOSE:FEATSELECTION|Evasion|Extreme Effort|Increased Speed|Remain Conscious|Robust|Stamina|TITLE=Add a Feat																																																																		AUTO:FEAT|%LIST
+
+Evasion			TYPE:Hi		DESC:Hi, test
+Extreme Effort			TYPE:Hi		DESC:Hi, test
+Increased Speed			TYPE:Hi		DESC:Hi, test
+Remain Conscious			TYPE:Hi		DESC:Hi, test
+Robust			TYPE:Hi		DESC:Hi, test
+Stamina			TYPE:Hi		DESC:Hi, test
 
 
 
@@ -176,3 +189,6 @@ Grant Auto Feat	TYPE:TestFeat	AUTO:FEAT|Toughness
 Test63a	TYPE:TEST-63	CHOOSE:STRING|One|Two		MULT:YES	STACK:NO
 Test63b	TYPE:TEST-63	CHOOSE:STRING|One|Two		MULT:YES	STACK:YES
 Test63c	TYPE:TEST-63	CHOOSE:NOCHOICE			MULT:YES	STACK:YES
+
+
+

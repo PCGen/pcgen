@@ -1,9 +1,14 @@
 
+
+# TEST-26
+TEST-26			FEAT:Toughness|Weapon Focus (DEITYWEAPON)
+
+
 TEST-69	REMOVABLE:NO
 
 TEST-64	SPELLS:Innate|TIMES=3|TIMEUNIT=Hour|CASTERLEVEL=10|Magic Missile,20
 
-TEST-66A		SPELLS:TestSixSix|TIMES=1|CASTERLEVEL=5|Magic Missile
+TEST-66A		SPELLS:TestSixSix|TIMES=1|CASTERLEVEL=5|Fireball
 
 Add one language		BONUS:LANGUAGES|NUMBER|1
 
@@ -14,7 +19,7 @@ Ooze				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.INT|10
 Undead			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.CON|10
 
 
-f
+
 CODE-8a	BONUS:SKILL|Climb|5|TYPE=ClimbingBonus
 #works
 CODE-8b	BONUS:SKILL|Climb|INT*2|TYPE=AnotherBonus
@@ -57,6 +62,8 @@ TEMPLATE ~ TEST~24		LEVEL:2:ADD:FEAT|Feat For Test 24	ADD:FEAT|Add Feat Template
 TEMPLATE ~ Bonus Test		DEFINE:TestVar|0	LEVEL:1:BONUS:VAR|TestVar|1	ABILITY:Special Ability|AUTOMATIC|Template Test Bonus Viewer
 
 TEMPLATE ~ TEST~69		REMOVABLE:NO
+TEMPLATE ~ TEST~68A		FEAT:Weapon Focus
+TEMPLATE ~ TEST~68B		LEVEL:1:FEAT:Weapon Focus|Dodge	
 
 TEST32		TEMPDESC:This is an applied Template
 
@@ -207,3 +214,15 @@ Multiclass Eclipse					VISIBLE:DISPLAY																					PREMULT:1,[PREPCLEVEL
 # Tom Test's
 Template Choice for Bob ~ 1
 Template Choice for Bob ~ 2
+
+
+
+
+###Block: TEST SECTION - STRICTLY TESTS
+
+
+
+
+
+
+

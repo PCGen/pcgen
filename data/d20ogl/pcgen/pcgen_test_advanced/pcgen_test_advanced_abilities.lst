@@ -2,7 +2,9 @@
 # Bob Tests - PCG Bob needs only the simple addition of the 'Template ~ Bob Tests' Template and it will take care of testing Bob.
 # The Template has an Ability granted but only if Bob meets the requirements; the Test Includes the Requirements, so ALL tests should = True.
 
+CODE-1712C	CATEGORY:Special Ability		TYPE:BugReport.Test.CODE.SpecialQuality	STACK:NO	MULT:YES	CHOOSE:SKILL|FEAT=CODE-1712A	DESC:Select Skills Taken
 
+CODE-1712AA	CATEGORY:Special Ability		TYPE:BugReport.Test.CODE.SpecialQuality	STACK:NO	MULT:YES	CHOOSE:SKILL|ALL	AUTO:FEAT|CODE-1712A (%LIST)	DESC:Select Skills Taken GRANTED TO FEAT
 
 Rune Weaver (30 CP)	CATEGORY:Special Ability	TYPE:Extra.EclipseAbilityOutput	ABILITY:Character Points|AUTOMATIC|Create Relic ~ Rune Weaver|Mana ~ Rune Weaver|Ritual of Chi ~ Rune Weaver|Shaping ~ Rune Weaver
 
@@ -103,6 +105,8 @@ CODE-1145 b	KEY:CODE-1145b	CATEGORY:Special Ability	COST:1	TYPE:CODE.CODEOneOneF
 CODE-1145 c	KEY:CODE-1145c	CATEGORY:Special Ability	COST:0	TYPE:CODE.CODEOneOneFourFive.SpecialQuality	DESC:Cost 0 Ability kit work.
 CODE-1145 b				CATEGORY:FEAT			COST:0	TYPE:CODE	DESC:Cost 0
 
+
+
 # TEST-64
 # Please give SPELLS (the token) to a character that grants the exact same spell twice, but from different sources. The spell, spell book, timeunit, caster level (if any), DC (if any) must all be the same (the times may be different if you so choose) 
 TEST-64	CATEGORY:FEAT	TYPE:Test	KEY:TEST-64A	SPELLS:Innate|TIMES=2|TIMEUNIT=Hour|CASTERLEVEL=10|Magic Missile,20	DESC:Please give SPELLS (the token) to a character that grants the exact same spell twice, but from different sources. The spell, spell book, timeunit, caster level (if any), DC (if any) must all be the same (the times may be different if you so choose)	DESC:Add Template of Same Name to Complete Test.
@@ -116,10 +120,10 @@ TEST-65	CATEGORY:FEAT	TYPE:Test	KEY:TEST-65	SPELLS:Innate|TIMES=5|TIMEUNIT=Hour|
 
 TEST-66a	CATEGORY:FEAT	TYPE:Test	TEMPLATE:TEST-66A	ABILITY:Special Ability|AUTOMATIC|TEST-66A
 
-TEST-66A	CATEGORY:Special Ability	TYPE:Test.SpecialQuality			SPELLS:TestSixSix|TIMES=1|CASTERLEVEL=7|Magic Missile
+TEST-66A	CATEGORY:Special Ability	TYPE:Test.SpecialQuality			SPELLS:TestSixSix|TIMES=1|CASTERLEVEL=7|Fireball,19
 
 
-TEST-66b	CATEGORY:FEAT	TYPE:Test	SPELLS:TestSixSix|TIMES=1|CASTERLEVEL=7|Magic Missile	SPELLS:TestSixSix|TIMES=1|CASTERLEVEL=8|Magic Missile
+TEST-66b	CATEGORY:FEAT	TYPE:Test	SPELLS:TestSixSix|TIMES=1|CASTERLEVEL=7|Fireball,20	SPELLS:TestSixSix|TIMES=1|CASTERLEVEL=8|Fireball,22
 
 
 TEST-67	CATEGORY:FEAT	TYPE:Test	SPELLS:Innate|TIMES=1|Light	SPELLS:Innate|TIMES=1|Detect Magic	DESC:Put two SPELLS tokens that apply to the same Spell Book (e.g. Innate) into an object and grant that object to a PC. (This ensures that multiple entries work)
