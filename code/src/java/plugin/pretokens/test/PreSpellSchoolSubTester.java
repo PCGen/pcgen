@@ -81,6 +81,6 @@ public class PreSpellSchoolSubTester extends AbstractPrerequisiteTest implements
 		return LanguageBundle.getFormattedString(
 			"PreSpellSchoolSub.toHtml_spell_sub_school", //$NON-NLS-1$
 			new Object[]{prereq.getOperator().toDisplayString(),
-				prereq.getOperand(), prereq.getKey(), prereq.getSubKey()});
+				prereq.getOperand(), prereq.getKey()});
 	}
 }
