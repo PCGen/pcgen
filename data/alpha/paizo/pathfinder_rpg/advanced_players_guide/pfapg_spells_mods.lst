@@ -684,200 +684,6 @@ Poison.MOD										CLASSES:Antipaladin=4
 Slay Living.MOD									CLASSES:Antipaladin=4
 Summon Monster IV.MOD								CLASSES:Antipaladin=4
 
-###Block: Elemtalist Wizard Spells
-
-# 0-Level Elementalist Wizard Spells:
-# AIR	
-Message.MOD	SCHOOL:Air
-# Earth
-Acid Splash.MOD	SCHOOL:Earth
-# Fire
-Spark.MOD	SCHOOL:Fire
-#	Water
-Ray of Frost.MOD	SCHOOL:Water
-# 1st-Level Elementalist Wizard Spells:
-# AIR	
-Alter Winds.MOD	SCHOOL:Air
-Feather Fall.MOD	SCHOOL:Air
-Shocking Grasp.MOD	SCHOOL:Air
-# EARTH:Earth
-Expeditious Excavation.MOD	SCHOOL:Earth
-Grease.MOD	SCHOOL:Earth
-Stone Fist.MOD	SCHOOL:Earth
-# FIRE
-Burning Hands.MOD	SCHOOL:Fire
-Dancing Lantern.MOD	SCHOOL:Fire
-# WATER
-Hydraulic Push.MOD	SCHOOL:Water
-Obscuring Mist.MOD	SCHOOL:Water
-Touch of the Sea.MOD	SCHOOL:Water
-# 2nd-Level Elementalist Wizard Spells:
-# ALL
-Elemental Speech.MOD	SCHOOL:Air|Earth|Fire|Water
-Elemental Touch.MOD	SCHOOL:Air|Earth|Fire|Water
-Resist Energy.MOD	SCHOOL:Air|Earth|Fire|Water
-Summon Monster II.MOD	SCHOOL:Air|Earth|Fire|Water
-# AIR
-Glide.MOD	SCHOOL:Air
-Gust of Wind.MOD	SCHOOL:Air
-Levitate.MOD	SCHOOL:Air
-Whispering Wind.MOD	SCHOOL:Air
-# EARTH:Air
-Acid Arrow.MOD	SCHOOL:Earth
-Create Pit.MOD	SCHOOL:Earth
-Glitterdust.MOD	SCHOOL:Earth
-Shatter.MOD	SCHOOL:Earth
-Stone Call.MOD	SCHOOL:Earth
-# FIRE
-Burning Gaze.MOD	SCHOOL:Fire
-Fire Breath.MOD	SCHOOL:Fire
-Flaming Sphere.MOD	SCHOOL:Fire
-Pyrotechnics.MOD	SCHOOL:Fire
-Scorching Ray.MOD	SCHOOL:Fire
-# WATER
-Accelerate Poison.MOD	SCHOOL:Water
-Fog Cloud.MOD	SCHOOL:Water
-Slipstream.MOD	SCHOOL:Water
-#3rd-Level Elementalist Wizard Spells:
-# All
-Draconic Reservoir.MOD	SCHOOL:Air|Earth|Fire|Water
-Elemental Aura.MOD	SCHOOL:Air|Earth|Fire|Water
-Protection From Energy.MOD	SCHOOL:Air|Earth|Fire|Water
-# AIR	
-Cloak of Winds.MOD	SCHOOL:Air
-Fly.MOD	SCHOOL:Air
-Gaseous Form.MOD	SCHOOL:Air
-Lightning Bolt.MOD	SCHOOL:Air
-Wind Wall.MOD	SCHOOL:Air
-# EARTH:	
-Shifting Sand.MOD	SCHOOL:Earth
-Spiked Pit.MOD	SCHOOL:Earth
-Stinking Cloud.MOD	SCHOOL:Earth
-# FIRE
-Campfire Wall.MOD	SCHOOL:Fire
-Fireball.MOD	SCHOOL:Fire
-Flame Arrow.MOD	SCHOOL:Fire
-# WATER
-Aqueous Orb.MOD	SCHOOL:Water
-Hydraulic Torrent.MOD	SCHOOL:Water
-Sleet Storm.MOD	SCHOOL:Water
-Water Breathing.MOD	SCHOOL:Water
-# 4th-Level Elementalist Wizard Spells:
-# ALL
-Detonate.MOD	SCHOOL:Air|Earth|Fire|Water
-Dragon's Breath.MOD	SCHOOL:Air|Earth|Fire|Water
-Elemental Body I.MOD	SCHOOL:Air|Earth|Fire|Water
-Summon Monster IV.MOD	SCHOOL:Air|Earth|Fire|Water
-# AIR	
-Ball Lightning.MOD	SCHOOL:Air
-River of Wind.MOD	SCHOOL:Air
-Shout.MOD	SCHOOL:Air
-# EARTH:	
-Acid Pit.MOD	SCHOOL:Earth
-Calcific Touch.MOD	SCHOOL:Earth
-Stone Shape.MOD	SCHOOL:Earth
-Stoneskin.MOD	SCHOOL:Earth
-# FIRE
-Fire Shield.MOD	SCHOOL:Fire
-Fire Trap.MOD	SCHOOL:Fire
-Firefall.MOD	SCHOOL:Fire
-Wall of Fire.MOD	SCHOOL:Fire
-# WATER
-Ice Storm.MOD	SCHOOL:Water
-Solid Fog.MOD	SCHOOL:Water
-Wall of Ice.MOD	SCHOOL:Water
-# 5th-Level Elementalist Wizard Spells:
-# ALL
-Elemental Body II.MOD	SCHOOL:Air|Earth|Fire|Water
-Planar Adaptation.MOD	SCHOOL:Air|Earth|Fire|Water
-Planar Binding (Lesser).MOD	SCHOOL:Air|Earth|Fire|Water
-Summon Monster V.MOD	SCHOOL:Air|Earth|Fire|Water
-# AIR	
-Overland Flight.MOD	SCHOOL:Air
-Suffocation.MOD	SCHOOL:Air
-# EARTH:	
-Hungry Pit.MOD	SCHOOL:Earth
-Passwall.MOD	SCHOOL:Earth
-Transmute Mud to Rock.MOD	SCHOOL:Earth
-Transmute Rock to Mud.MOD	SCHOOL:Earth
-Wall of Stone.MOD	SCHOOL:Earth
-# FIRE
-Fire Snake.MOD	SCHOOL:Fire
-Geyser.MOD	SCHOOL:Fire
-# WATER
-Cloudkill.MOD	SCHOOL:Water
-Cone of Cold.MOD	SCHOOL:Water
-Geyser.MOD	SCHOOL:Water
-# 6th-Level Elementalist Wizard Spells:
-# ALL
-Elemental Body III.MOD	SCHOOL:Air|Earth|Fire|Water
-Planar Binding.MOD	SCHOOL:Air|Earth|Fire|Water
-Summon Monster VI.MOD	SCHOOL:Air|Earth|Fire|Water
-# AIR	
-Chain Lightning.MOD	SCHOOL:Air
-Sirocco.MOD	SCHOOL:Air
-# EARTH:	
-Acid Fog.MOD	SCHOOL:Earth
-Flesh to Stone.MOD	SCHOOL:Earth
-Move Earth.MOD	SCHOOL:Earth
-Stone to Flesh.MOD	SCHOOL:Earth
-Wall of Iron.MOD	SCHOOL:Earth
-# FIRE
-Contagious Flame.MOD	SCHOOL:Fire
-Sirocco.MOD	SCHOOL:Fire
-# WATER
-Fluid Form.MOD	SCHOOL:Water
-Freezing Sphere.MOD	SCHOOL:Water
-# 7th-Level Elementalist Wizard Spells:
-# ALL
-Elemental Body IV.MOD	SCHOOL:Air|Earth|Fire|Water
-Planar Adaptation (Mass).MOD	SCHOOL:Air|Earth|Fire|Water
-Summon Monster VII.MOD	SCHOOL:Air|Earth|Fire|Water
-# AIR	
-Control Weather.MOD	SCHOOL:Air
-Fly (Mass).MOD	SCHOOL:Air
-# EARTH:	
-Rampart.MOD	SCHOOL:Earth
-Reverse Gravity.MOD	SCHOOL:Earth
-Statue.MOD	SCHOOL:Earth
-# FIRE
-Delayed Blast Fireball.MOD	SCHOOL:Fire
-Firebrand.MOD	SCHOOL:Fire
-# WATER
-Control Weather.MOD	SCHOOL:Water
-Vortex.MOD	SCHOOL:Water
-# 8th-Level Elementalist Wizard Spells:
-# ALL
-Planar Binding (Greater).MOD	SCHOOL:Air|Earth|Fire|Water
-Summon Monster VIII.MOD	SCHOOL:Air|Earth|Fire|Water
-# AIR	
-Shout (Greater).MOD	SCHOOL:Air
-Stormbolts.MOD	SCHOOL:Air
-# EARTH:	
-Iron Body.MOD	SCHOOL:Earth
-Wall of Lava.MOD	SCHOOL:Earth
-# FIRE
-Incendiary Cloud.MOD	SCHOOL:Fire
-Wall of Lava.MOD	SCHOOL:Fire
-## WATER
-Horrid Wilting.MOD	SCHOOL:Water
-Polar Ray.MOD	SCHOOL:Water
-Seamantle.MOD	SCHOOL:Water
-# 9th-Level Elementalist Wizard Spells:
-## ALL
-Gate.MOD	SCHOOL:Air|Earth|Fire|Water
-## AIR	
-Suffocation (Mass).MOD	SCHOOL:Air
-Winds of Vengeance.MOD	SCHOOL:Air
-## EARTH:	
-Clashing Rocks.MOD	SCHOOL:Earth
-World Wave.MOD	SCHOOL:Earth
-## FIRE
-Fiery Body.MOD	SCHOOL:Fire
-Meteor Swarm.MOD	SCHOOL:Fire
-## WATER
-Tsunami.MOD	SCHOOL:Water
-
 
 
 ###Block: Other Misc & Domains
@@ -1401,141 +1207,141 @@ Sunburst.MOD													DOMAINS:Seasons Subdomain=8
 Whirlwind.MOD													DOMAINS:Storms Subdomain=8
 Storm of Vengeance.MOD												DOMAINS:Seasons Subdomain,Storms Subdomain=9
 
-
-Accelerate Poison.MOD		DESCRIPTOR:WaterSchool
-Acid Arrow.MOD			DESCRIPTOR:EarthSchool
-Acid Fog.MOD			DESCRIPTOR:EarthSchool
-Acid Pit.MOD			DESCRIPTOR:EarthSchool
-Acid Splash.MOD			DESCRIPTOR:EarthSchool
-Alter Winds.MOD			DESCRIPTOR:AirSchool
-Aqueous Orb.MOD			DESCRIPTOR:WaterSchool
-Ball Lightning.MOD		DESCRIPTOR:AirSchool
-Burning Gaze.MOD			DESCRIPTOR:FireSchool
-Burning Hands.MOD			DESCRIPTOR:FireSchool
-Calcific Touch.MOD		DESCRIPTOR:EarthSchool
-Campfire Wall.MOD			DESCRIPTOR:FireSchool
-Chain Lightning.MOD		DESCRIPTOR:AirSchool
-Clashing Rocks.MOD		DESCRIPTOR:EarthSchool
-Cloak of Winds.MOD		DESCRIPTOR:AirSchool
-Cloudkill.MOD			DESCRIPTOR:WaterSchool
-Cone of Cold.MOD			DESCRIPTOR:WaterSchool
-Contagious Flame.MOD		DESCRIPTOR:FireSchool
-Control Weather.MOD		DESCRIPTOR:AirSchool
-Control Weather.MOD		DESCRIPTOR:WaterSchool
-Create Pit.MOD			DESCRIPTOR:EarthSchool
-Dancing Lantern.MOD		DESCRIPTOR:FireSchool
-Delayed Blast Fireball.MOD	DESCRIPTOR:FireSchool
-Detonate.MOD			DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
-Draconic Reservoir.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
-Dragon's Breath.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
-Elemental Aura.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
-Elemental Body I.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
-Elemental Body II.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
-Elemental Body III.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
-Elemental Body IV.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
-Elemental Speech.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
-Elemental Touch.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
-Expeditious Excavation.MOD	DESCRIPTOR:EarthSchool
-Feather Fall.MOD			DESCRIPTOR:AirSchool
-Fiery Body.MOD			DESCRIPTOR:FireSchool
-Fire Breath.MOD			DESCRIPTOR:FireSchool
-Fire Shield.MOD			DESCRIPTOR:FireSchool
-Fire Snake.MOD			DESCRIPTOR:FireSchool
-Fire Trap.MOD			DESCRIPTOR:FireSchool
-Fireball.MOD			DESCRIPTOR:FireSchool
-Firebrand.MOD			DESCRIPTOR:FireSchool
-Firefall.MOD			DESCRIPTOR:FireSchool
-Flame Arrow.MOD			DESCRIPTOR:FireSchool
-Flaming Sphere.MOD		DESCRIPTOR:FireSchool
-Flesh to Stone.MOD		DESCRIPTOR:EarthSchool
-Fluid Form.MOD			DESCRIPTOR:WaterSchool
-Fly (Mass).MOD			DESCRIPTOR:AirSchool
-Fly.MOD				DESCRIPTOR:AirSchool
-Fog Cloud.MOD			DESCRIPTOR:WaterSchool
-Freezing Sphere.MOD		DESCRIPTOR:WaterSchool
-Gaseous Form.MOD			DESCRIPTOR:AirSchool
-Gate.MOD				DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
-Geyser.MOD				DESCRIPTOR:FireSchool
-Geyser.MOD				DESCRIPTOR:WaterSchool
-Glide.MOD				DESCRIPTOR:AirSchool
-Glitterdust.MOD			DESCRIPTOR:EarthSchool
-Grease.MOD				DESCRIPTOR:EarthSchool
-Gust of Wind.MOD			DESCRIPTOR:AirSchool
-Horrid Wilting.MOD		DESCRIPTOR:WaterSchool
-Hungry Pit.MOD			DESCRIPTOR:EarthSchool
-Hydraulic Push.MOD		DESCRIPTOR:WaterSchool
-Hydraulic Torrent.MOD		DESCRIPTOR:WaterSchool
-Ice Storm.MOD			DESCRIPTOR:WaterSchool
-Incendiary Cloud.MOD		DESCRIPTOR:FireSchool
-Iron Body.MOD			DESCRIPTOR:EarthSchool
-Levitate.MOD			DESCRIPTOR:AirSchool
-Lightning Bolt.MOD		DESCRIPTOR:AirSchool
-Message.MOD				DESCRIPTOR:AirSchool
-Meteor Swarm.MOD			DESCRIPTOR:FireSchool
-Move Earth.MOD			DESCRIPTOR:EarthSchool
-Obscuring Mist.MOD		DESCRIPTOR:WaterSchool
-Overland Flight.MOD		DESCRIPTOR:AirSchool
-Passwall.MOD			DESCRIPTOR:EarthSchool
-Planar Adaptation (Mass).MOD	DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
-Planar Adaptation.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
-Planar Binding (Greater).MOD	DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
-Planar Binding (Lesser).MOD	DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
-Planar Binding.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
-Polar Ray.MOD			DESCRIPTOR:WaterSchool
-Protection from Energy.MOD	DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
-Pyrotechnics.MOD			DESCRIPTOR:FireSchool
-Rampart.MOD				DESCRIPTOR:EarthSchool
-Ray of Frost.MOD			DESCRIPTOR:WaterSchool
-Resist Energy.MOD			DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
-Reverse Gravity.MOD		DESCRIPTOR:EarthSchool
-River of Wind.MOD			DESCRIPTOR:AirSchool
-Scorching Ray.MOD			DESCRIPTOR:FireSchool
-Seamantle.MOD			DESCRIPTOR:WaterSchool
-Shatter.MOD				DESCRIPTOR:EarthSchool
-Shifting Sand.MOD			DESCRIPTOR:EarthSchool
-Shocking Grasp.MOD		DESCRIPTOR:AirSchool
-Shout (Greater).MOD		DESCRIPTOR:AirSchool
-Shout.MOD				DESCRIPTOR:AirSchool
-Sirocco.MOD				DESCRIPTOR:AirSchool
-Sirocco.MOD				DESCRIPTOR:FireSchool
-Sleet Storm.MOD			DESCRIPTOR:WaterSchool
-Slipstream.MOD			DESCRIPTOR:WaterSchool
-Solid Fog.MOD			DESCRIPTOR:WaterSchool
-Spark.MOD				DESCRIPTOR:FireSchool
-Spiked Pit.MOD			DESCRIPTOR:EarthSchool
-Statue.MOD				DESCRIPTOR:EarthSchool
-Stinking Cloud.MOD		DESCRIPTOR:EarthSchool
-Stone Call.MOD			DESCRIPTOR:EarthSchool
-Stone Fist.MOD			DESCRIPTOR:EarthSchool
-Stone Shape.MOD			DESCRIPTOR:EarthSchool
-Stone to Flesh.MOD		DESCRIPTOR:EarthSchool
-Stoneskin.MOD			DESCRIPTOR:EarthSchool
-Stormbolts.MOD			DESCRIPTOR:AirSchool
-Suffocation (Mass).MOD		DESCRIPTOR:AirSchool
-Suffocation.MOD			DESCRIPTOR:AirSchool
-Summon Monster II.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
-Summon Monster IV.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
-Summon Monster V.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
-Summon Monster VI.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
-Summon Monster VII.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
-Summon Monster VIII.MOD		DESCRIPTOR:AirSchool,EarthSchool,FireSchool,WaterSchool
-Touch of the Sea.MOD		DESCRIPTOR:WaterSchool
-Transmute Mud to Rock.MOD	DESCRIPTOR:EarthSchool
-Transmute Rock to Mud.MOD	DESCRIPTOR:EarthSchool
-Tsunami.MOD				DESCRIPTOR:WaterSchool
-Vortex.MOD				DESCRIPTOR:WaterSchool
-Wall of Fire.MOD			DESCRIPTOR:FireSchool
-Wall of Ice.MOD			DESCRIPTOR:WaterSchool
-Wall of Iron.MOD			DESCRIPTOR:EarthSchool
-Wall of Lava.MOD			DESCRIPTOR:EarthSchool
-Wall of Lava.MOD			DESCRIPTOR:FireSchool
-Wall of Stone.MOD			DESCRIPTOR:EarthSchool
-Water Breathing.MOD		DESCRIPTOR:WaterSchool
-Whispering Wind.MOD		DESCRIPTOR:AirSchool
-Wind Wall.MOD			DESCRIPTOR:AirSchool
-Winds of Vengeance.MOD		DESCRIPTOR:AirSchool
-World Wave.MOD			DESCRIPTOR:EarthSchool
-World Wave.MOD			DESCRIPTOR:WaterSchool
+###Block: Elemtalist Wizard Spells
+Accelerate Poison.MOD		SCHOOL:WaterSchool
+Acid Arrow.MOD			SCHOOL:EarthSchool
+Acid Fog.MOD			SCHOOL:EarthSchool
+Acid Pit.MOD			SCHOOL:EarthSchool
+Acid Splash.MOD			SCHOOL:EarthSchool
+Alter Winds.MOD			SCHOOL:AirSchool
+Aqueous Orb.MOD			SCHOOL:WaterSchool
+Ball Lightning.MOD		SCHOOL:AirSchool
+Burning Gaze.MOD			SCHOOL:FireSchool
+Burning Hands.MOD			SCHOOL:FireSchool
+Calcific Touch.MOD		SCHOOL:EarthSchool
+Campfire Wall.MOD			SCHOOL:FireSchool
+Chain Lightning.MOD		SCHOOL:AirSchool
+Clashing Rocks.MOD		SCHOOL:EarthSchool
+Cloak of Winds.MOD		SCHOOL:AirSchool
+Cloudkill.MOD			SCHOOL:WaterSchool
+Cone of Cold.MOD			SCHOOL:WaterSchool
+Contagious Flame.MOD		SCHOOL:FireSchool
+Control Weather.MOD		SCHOOL:AirSchool
+Control Weather.MOD		SCHOOL:WaterSchool
+Create Pit.MOD			SCHOOL:EarthSchool
+Dancing Lantern.MOD		SCHOOL:FireSchool
+Delayed Blast Fireball.MOD	SCHOOL:FireSchool
+Detonate.MOD			SCHOOL:AirSchool|EarthSchool|FireSchool|WaterSchool
+Draconic Reservoir.MOD		SCHOOL:AirSchool|EarthSchool|FireSchool|WaterSchool
+Dragon's Breath.MOD		SCHOOL:AirSchool|EarthSchool|FireSchool|WaterSchool
+Elemental Aura.MOD		SCHOOL:AirSchool|EarthSchool|FireSchool|WaterSchool
+Elemental Body I.MOD		SCHOOL:AirSchool|EarthSchool|FireSchool|WaterSchool
+Elemental Body II.MOD		SCHOOL:AirSchool|EarthSchool|FireSchool|WaterSchool
+Elemental Body III.MOD		SCHOOL:AirSchool|EarthSchool|FireSchool|WaterSchool
+Elemental Body IV.MOD		SCHOOL:AirSchool|EarthSchool|FireSchool|WaterSchool
+Elemental Speech.MOD		SCHOOL:AirSchool|EarthSchool|FireSchool|WaterSchool
+Elemental Touch.MOD		SCHOOL:AirSchool|EarthSchool|FireSchool|WaterSchool
+Expeditious Excavation.MOD	SCHOOL:EarthSchool
+Feather Fall.MOD			SCHOOL:AirSchool
+Fiery Body.MOD			SCHOOL:FireSchool
+Fire Breath.MOD			SCHOOL:FireSchool
+Fire Shield.MOD			SCHOOL:FireSchool
+Fire Snake.MOD			SCHOOL:FireSchool
+Fire Trap.MOD			SCHOOL:FireSchool
+Fireball.MOD			SCHOOL:FireSchool
+Firebrand.MOD			SCHOOL:FireSchool
+Firefall.MOD			SCHOOL:FireSchool
+Flame Arrow.MOD			SCHOOL:FireSchool
+Flaming Sphere.MOD		SCHOOL:FireSchool
+Flesh to Stone.MOD		SCHOOL:EarthSchool
+Fluid Form.MOD			SCHOOL:WaterSchool
+Fly (Mass).MOD			SCHOOL:AirSchool
+Fly.MOD				SCHOOL:AirSchool
+Fog Cloud.MOD			SCHOOL:WaterSchool
+Freezing Sphere.MOD		SCHOOL:WaterSchool
+Gaseous Form.MOD			SCHOOL:AirSchool
+Gate.MOD				SCHOOL:AirSchool|EarthSchool|FireSchool|WaterSchool
+Geyser.MOD				SCHOOL:FireSchool
+Geyser.MOD				SCHOOL:WaterSchool
+Glide.MOD				SCHOOL:AirSchool
+Glitterdust.MOD			SCHOOL:EarthSchool
+Grease.MOD				SCHOOL:EarthSchool
+Gust of Wind.MOD			SCHOOL:AirSchool
+Horrid Wilting.MOD		SCHOOL:WaterSchool
+Hungry Pit.MOD			SCHOOL:EarthSchool
+Hydraulic Push.MOD		SCHOOL:WaterSchool
+Hydraulic Torrent.MOD		SCHOOL:WaterSchool
+Ice Storm.MOD			SCHOOL:WaterSchool
+Incendiary Cloud.MOD		SCHOOL:FireSchool
+Iron Body.MOD			SCHOOL:EarthSchool
+Levitate.MOD			SCHOOL:AirSchool
+Lightning Bolt.MOD		SCHOOL:AirSchool
+Message.MOD				SCHOOL:AirSchool
+Meteor Swarm.MOD			SCHOOL:FireSchool
+Move Earth.MOD			SCHOOL:EarthSchool
+Obscuring Mist.MOD		SCHOOL:WaterSchool
+Overland Flight.MOD		SCHOOL:AirSchool
+Passwall.MOD			SCHOOL:EarthSchool
+Planar Adaptation (Mass).MOD	SCHOOL:AirSchool|EarthSchool|FireSchool|WaterSchool
+Planar Adaptation.MOD		SCHOOL:AirSchool|EarthSchool|FireSchool|WaterSchool
+Planar Binding (Greater).MOD	SCHOOL:AirSchool|EarthSchool|FireSchool|WaterSchool
+Planar Binding (Lesser).MOD	SCHOOL:AirSchool|EarthSchool|FireSchool|WaterSchool
+Planar Binding.MOD		SCHOOL:AirSchool|EarthSchool|FireSchool|WaterSchool
+Polar Ray.MOD			SCHOOL:WaterSchool
+Protection from Energy.MOD	SCHOOL:AirSchool|EarthSchool|FireSchool|WaterSchool
+Pyrotechnics.MOD			SCHOOL:FireSchool
+Rampart.MOD				SCHOOL:EarthSchool
+Ray of Frost.MOD			SCHOOL:WaterSchool
+Resist Energy.MOD			SCHOOL:AirSchool|EarthSchool|FireSchool|WaterSchool
+Reverse Gravity.MOD		SCHOOL:EarthSchool
+River of Wind.MOD			SCHOOL:AirSchool
+Scorching Ray.MOD			SCHOOL:FireSchool
+Seamantle.MOD			SCHOOL:WaterSchool
+Shatter.MOD				SCHOOL:EarthSchool
+Shifting Sand.MOD			SCHOOL:EarthSchool
+Shocking Grasp.MOD		SCHOOL:AirSchool
+Shout (Greater).MOD		SCHOOL:AirSchool
+Shout.MOD				SCHOOL:AirSchool
+Sirocco.MOD				SCHOOL:AirSchool
+Sirocco.MOD				SCHOOL:FireSchool
+Sleet Storm.MOD			SCHOOL:WaterSchool
+Slipstream.MOD			SCHOOL:WaterSchool
+Solid Fog.MOD			SCHOOL:WaterSchool
+Spark.MOD				SCHOOL:FireSchool
+Spiked Pit.MOD			SCHOOL:EarthSchool
+Statue.MOD				SCHOOL:EarthSchool
+Stinking Cloud.MOD		SCHOOL:EarthSchool
+Stone Call.MOD			SCHOOL:EarthSchool
+Stone Fist.MOD			SCHOOL:EarthSchool
+Stone Shape.MOD			SCHOOL:EarthSchool
+Stone to Flesh.MOD		SCHOOL:EarthSchool
+Stoneskin.MOD			SCHOOL:EarthSchool
+Stormbolts.MOD			SCHOOL:AirSchool
+Suffocation (Mass).MOD		SCHOOL:AirSchool
+Suffocation.MOD			SCHOOL:AirSchool
+Summon Monster II.MOD		SCHOOL:AirSchool|EarthSchool|FireSchool|WaterSchool
+Summon Monster IV.MOD		SCHOOL:AirSchool|EarthSchool|FireSchool|WaterSchool
+Summon Monster V.MOD		SCHOOL:AirSchool|EarthSchool|FireSchool|WaterSchool
+Summon Monster VI.MOD		SCHOOL:AirSchool|EarthSchool|FireSchool|WaterSchool
+Summon Monster VII.MOD		SCHOOL:AirSchool|EarthSchool|FireSchool|WaterSchool
+Summon Monster VIII.MOD		SCHOOL:AirSchool|EarthSchool|FireSchool|WaterSchool
+Touch of the Sea.MOD		SCHOOL:WaterSchool
+Transmute Mud to Rock.MOD	SCHOOL:EarthSchool
+Transmute Rock to Mud.MOD	SCHOOL:EarthSchool
+Tsunami.MOD				SCHOOL:WaterSchool
+Vortex.MOD				SCHOOL:WaterSchool
+Wall of Fire.MOD			SCHOOL:FireSchool
+Wall of Ice.MOD			SCHOOL:WaterSchool
+Wall of Iron.MOD			SCHOOL:EarthSchool
+Wall of Lava.MOD			SCHOOL:EarthSchool
+Wall of Lava.MOD			SCHOOL:FireSchool
+Wall of Stone.MOD			SCHOOL:EarthSchool
+Water Breathing.MOD		SCHOOL:WaterSchool
+Whispering Wind.MOD		SCHOOL:AirSchool
+Wind Wall.MOD			SCHOOL:AirSchool
+Winds of Vengeance.MOD		SCHOOL:AirSchool
+World Wave.MOD			SCHOOL:EarthSchool
+World Wave.MOD			SCHOOL:WaterSchool
 
 
 #
