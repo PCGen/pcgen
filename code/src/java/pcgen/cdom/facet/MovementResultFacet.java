@@ -206,9 +206,13 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 			{
 				for (int i1 = 0; i1 < mv.getNumberOfMovements(); i1++)
 				{
-					setMyMoveRates(mv.getMovementType(i1), mv.getMovement(i1)
-							.doubleValue(), mv.getMovementMult(i1), mv
-							.getMovementMultOp(i1), mv.getMoveRatesFlag());
+					if (mv.getMovementType(i1) != null)
+					{
+						setMyMoveRates(mv.getMovementType(i1),
+							mv.getMovement(i1).doubleValue(),
+							mv.getMovementMult(i1), mv.getMovementMultOp(i1),
+							mv.getMoveRatesFlag());
+					}
 				}
 			}
 
