@@ -1096,7 +1096,7 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>DirectApplication_StackNoChoiceFeat</name>
+			<name>DirectApplication_StackNoChoiceFeat (4x)</name>
 			<description></description>
 			<type>TEST45.DIRECTAPPLICATION_TESTTHING</type>
 			<associated>,,,</associated>

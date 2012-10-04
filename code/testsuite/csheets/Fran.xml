@@ -1181,7 +1181,7 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>AutoFeat_StackNoChoiceFeat</name>
+			<name>AutoFeat_StackNoChoiceFeat (2x)</name>
 			<description></description>
 			<type>TEST48.AUTOFEAT_TESTTHING</type>
 			<associated>,</associated>
@@ -1201,7 +1201,7 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>ChooseSelection_StackNoChoiceFeat</name>
+			<name>ChooseSelection_StackNoChoiceFeat (2x)</name>
 			<description></description>
 			<type>TEST45.CHOOSESELECTION_TESTTHING</type>
 			<associated>,</associated>
