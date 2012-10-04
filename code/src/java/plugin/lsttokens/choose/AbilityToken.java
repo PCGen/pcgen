@@ -22,11 +22,11 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedChooseInformation;
+import pcgen.cdom.base.CategorizedPersistentChoiceActor;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.choiceset.CollectionToChoiceSet;
@@ -51,7 +51,7 @@ import pcgen.rules.persistence.token.ParseResult;
 
 public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMSecondaryToken<CDOMObject>,
-		PersistentChoiceActor<Ability>
+		CategorizedPersistentChoiceActor<Ability>
 {
 	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS =
 			AbilityCategory.class;
@@ -313,11 +313,46 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 	public String encodeChoice(Ability choice)
 	{
 		StringBuilder sb = new StringBuilder();
-		sb.append("CATEGORY=");
-		sb.append(choice.getCategory());
-		sb.append('|');
 		sb.append(choice.getKeyName());
 		return sb.toString();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Ability decodeChoice(String encoded, Category<?> category)
+	{
+		String key;
+		AbilityCategory abilityCat = (AbilityCategory) category;
+		StringTokenizer st = new StringTokenizer(encoded, Constants.PIPE);
+		if (st.countTokens() > 1)
+		{
+			String catString = st.nextToken();
+			if (!catString.startsWith("CATEGORY="))
+			{
+				throw new IllegalArgumentException(
+					"Ability cvhoice must be key name or CATEGORY=category|ability" +
+					" found: " + encoded);
+			}
+			String cat = catString.substring(9);
+			abilityCat = SettingsHandler.getGame().getAbilityCategory(cat);
+			key = st.nextToken();
+		}
+		else
+		{
+			key = encoded;
+		}
+		Ability a =
+				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Ability.class, abilityCat, key);
+		if (a == null)
+		{
+			throw new IllegalArgumentException(
+				"String in decodeChoice "
+					+ "must be an Ability, but it was not found: " + encoded);
+		}
+		return a;
 	}
 
 }

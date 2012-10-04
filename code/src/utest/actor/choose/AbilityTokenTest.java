@@ -17,56 +17,80 @@
  */
 package actor.choose;
 
+import java.net.URISyntaxException;
+
+import junit.framework.TestCase;
+
+import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.choose.AbilityToken;
-import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
 
-public class AbilityTokenTest extends
-		AbstractPersistentCDOMChoiceActorTestCase<Ability>
+/**
+ * The Class <code>AbilityTokenTest</code> verifies the AbilityToken
+ * class is working correctly.
+ *
+ * <br/>
+ * Last Editor: $Author:  $
+ * Last Edited: $Date:  $
+ * 
+ * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @version $Revision:  $
+ */
+public class AbilityTokenTest extends TestCase
 {
+	/** */
+	private static final AbilityCategory CATEGORY = AbilityCategory.FEAT;
+	private static final AbilityToken pca = new AbilityToken();
+	private static final String ITEM_NAME = "ItemName";
 
-	static AbilityToken pca = new AbilityToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
+	private LoadContext context;
 
 	@Override
-	public PersistentChoiceActor<Ability> getActor()
+	@Before
+	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		return pca;
+		SettingsHandler.getGame().clearLoadContext();
+		context = Globals.getContext();
+		context.ref.importObject(CATEGORY);
 	}
 
-	@Override
-	public Class<Ability> getCDOMClass()
+	private Ability getObject()
 	{
-		return Ability.class;
-	}
-
-	@Override
-	protected Ability getObject()
-	{
-		Ability obj = super.getObject();
-		context.ref.reassociateCategory(AbilityCategory.FEAT, obj);
+		Ability obj = context.ref.constructCDOMObject(Ability.class, ITEM_NAME);
+		//In case
+		context.ref.registerAbbreviation(obj, ITEM_NAME);
+		context.ref.reassociateCategory(CATEGORY, obj);
 		return obj;
 	}
 
-	@Override
-	protected String getExpected()
+	@Test
+	public void testEncodeChoice()
 	{
-		return "CATEGORY=FEAT|" + super.getExpected();
+		assertEquals(getExpected(), pca.encodeChoice(getObject()));
 	}
 
-	@Override
-	protected boolean requiresConstruction()
+	protected String getExpected()
 	{
-		return false;
+		return ITEM_NAME;
+	}
+
+	@Test
+	public void testDecodeChoice()
+	{
+		assertEquals(getObject(), pca.decodeChoice(getExpected(), CATEGORY));
+	}
+
+	@Test
+	public void testLegacyDecodeChoice()
+	{
+		assertEquals(getObject(), pca.decodeChoice("CATEGORY=FEAT|" +ITEM_NAME, CATEGORY));
 	}
 
 }

@@ -1773,10 +1773,10 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Chooser ~ Choose CLASS (Monkee.MonKee Junior, Basic Fighter)</name>
+			<name>Chooser ~ Choose CLASS (MonKee.MonKee Junior, Basic Fighter)</name>
 			<description></description>
 			<type>CHOOSER.TEST.SPECIALQUALITY</type>
-			<associated>Monkee.MonKee Junior,Basic Fighter</associated>
+			<associated>MonKee.MonKee Junior,Basic Fighter</associated>
 			<count>2</count>
 			<auto>T</auto>
 			<hidden>F</hidden>
@@ -1883,10 +1883,10 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Chooser ~ Choose SIZE (M)</name>
+			<name>Chooser ~ Choose SIZE (Medium)</name>
 			<description></description>
 			<type>CHOOSER.TEST.SPECIALQUALITY</type>
-			<associated>M</associated>
+			<associated>Medium</associated>
 			<count>1</count>
 			<auto>T</auto>
 			<hidden>F</hidden>

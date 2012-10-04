@@ -137,6 +137,10 @@ public class BatchExporter
 		CharacterFacade character =
 				CharacterManager.openCharacter(file, uiDelegate,
 					loader.getDataSetFacade());
+		if (character == null)
+		{
+			return false;
+		}
 
 		// Export character
 		File templateFile = new File(exportTemplateFilename);

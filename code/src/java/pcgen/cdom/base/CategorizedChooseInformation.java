@@ -158,7 +158,12 @@ public class CategorizedChooseInformation<T extends Loadable & CategorizedCDOMOb
 	@Override
 	public T decodeChoice(String persistentFormat)
 	{
-		return choiceActor.decodeChoice(persistentFormat);
+		String choiceStr = persistentFormat;
+		if (choiceActor instanceof CategorizedPersistentChoiceActor)
+		{
+			return ((CategorizedPersistentChoiceActor<T>)choiceActor).decodeChoice(choiceStr, category);
+		}
+		return choiceActor.decodeChoice(choiceStr);
 	}
 
 	@Override

@@ -34,6 +34,8 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.chooser.ChoiceManagerList;
+import pcgen.core.chooser.ChooserUtilities;
 
 /**
  * A GrantedAbilityFacet is a DataFacet that contains information about Ability
@@ -774,7 +776,11 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 		String selection = cas.getSelection();
 		if (selection != null)
 		{
-			pc.addAssociation(ability, selection);
+			ChoiceManagerList<?> choiceManager = ChooserUtilities.getChoiceManager(ability, pc);
+			if (choiceManager != null)
+			{
+				choiceManager.restoreChoice(pc, ability, selection);
+			}
 		}
 	}
 

@@ -19,8 +19,10 @@ package plugin.lsttokens.choose;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
+import pcgen.core.SubClass;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -32,6 +34,7 @@ public class ClassToken extends AbstractQualifiedChooseToken<PCClass>
 {
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
+	private static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
 
 	@Override
 	public String getTokenName()
@@ -54,14 +57,25 @@ public class ClassToken extends AbstractQualifiedChooseToken<PCClass>
 	@Override
 	public PCClass decodeChoice(String s)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				PCCLASS_CLASS, s);
+		int dotLoc = s.indexOf('.');
+		if (dotLoc == -1)
+		{
+			// Primitive
+			return Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCCLASS_CLASS, s);
+		}
+
+		// SubClass
+		String parent = s.substring(0, dotLoc);
+		String subclass = s.substring(dotLoc + 1);
+		SubClassCategory scc = SubClassCategory.getConstant(parent);
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(SUBCLASS_CLASS, scc,
+				subclass);
 	}
 
 	@Override
 	public String encodeChoice(PCClass choice)
 	{
-		return choice.getKeyName();
+		return choice.getFullKey();
 	}
 
 	@Override
