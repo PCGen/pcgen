@@ -164,25 +164,26 @@ Chosen Destiny			KEY:Chosen Destiny ~ Ronin				SORTKEY:Ronin_3				CATEGORY:Speci
 
 
 # Monk Unarmed Damage
-Monk Unarmed Damage Level01				KEY:MUD01					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6
-Monk Unarmed Damage Level02				KEY:MUD02					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6
-Monk Unarmed Damage Level03				KEY:MUD03					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6
-Monk Unarmed Damage Level04				KEY:MUD04					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
-Monk Unarmed Damage Level05				KEY:MUD05					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
-Monk Unarmed Damage Level06				KEY:MUD06					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
-Monk Unarmed Damage Level07				KEY:MUD07					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
-Monk Unarmed Damage Level08				KEY:MUD08					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-Monk Unarmed Damage Level09				KEY:MUD09					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-Monk Unarmed Damage Level10				KEY:MUD10					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-Monk Unarmed Damage Level11				KEY:MUD11					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-Monk Unarmed Damage Level12				KEY:MUD12					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
-Monk Unarmed Damage Level13				KEY:MUD13					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
-Monk Unarmed Damage Level14				KEY:MUD14					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
-Monk Unarmed Damage Level15				KEY:MUD15					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
-Monk Unarmed Damage Level16				KEY:MUD16					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-Monk Unarmed Damage Level17				KEY:MUD17					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-Monk Unarmed Damage Level18				KEY:MUD18					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-Monk Unarmed Damage Level19				KEY:MUD19					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-Monk Unarmed Damage Level20				KEY:MUD20					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8
+#Monk Unarmed Damage Level01				KEY:MUD01					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6
+#Monk Unarmed Damage Level02				KEY:MUD02					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6
+#Monk Unarmed Damage Level03				KEY:MUD03					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6
+#Monk Unarmed Damage Level04				KEY:MUD04					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
+#Monk Unarmed Damage Level05				KEY:MUD05					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
+#Monk Unarmed Damage Level06				KEY:MUD06					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
+#Monk Unarmed Damage Level07				KEY:MUD07					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
+#Monk Unarmed Damage Level08				KEY:MUD08					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
+#Monk Unarmed Damage Level09				KEY:MUD09					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
+#Monk Unarmed Damage Level10				KEY:MUD10					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
+#Monk Unarmed Damage Level11				KEY:MUD11					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
+#Monk Unarmed Damage Level12				KEY:MUD12					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
+#Monk Unarmed Damage Level13				KEY:MUD13					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
+#Monk Unarmed Damage Level14				KEY:MUD14					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
+#Monk Unarmed Damage Level15				KEY:MUD15					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
+#Monk Unarmed Damage Level16				KEY:MUD16					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
+#Monk Unarmed Damage Level17				KEY:MUD17					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
+#Monk Unarmed Damage Level18				KEY:MUD18					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
+#Monk Unarmed Damage Level19				KEY:MUD19					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
+#Monk Unarmed Damage Level20				KEY:MUD20					CATEGORY:Special Ability	TYPE:SpecialQuality							VISIBLE:YES		UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8
+
 
 
