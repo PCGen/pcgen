@@ -86,7 +86,7 @@ CLASS:Samurai	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle An
 
 ###Block: Monk (for adjusting unarmed damage when a feat or something adjusts the effective monk level)
 # level 1
-#CLASS:Monk.MOD		DEFINE:NonMonkLevels|TL-classlevel("Monk")		DEFINE:MonkLevelsAdjusted|classlevel("Monk")		
+CLASS:Monk.MOD		DEFINE:NonMonkLevels|TL-classlevel("Monk")		DEFINE:MonkLevelsAdjusted|classlevel("Monk")		
 #CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD01|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD01],[PREVAREQ:MonkLevelsAdjusted,1]
 #CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD02|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD02],[PREVAREQ:MonkLevelsAdjusted,2]
 #CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD03|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD03],[PREVAREQ:MonkLevelsAdjusted,3]
