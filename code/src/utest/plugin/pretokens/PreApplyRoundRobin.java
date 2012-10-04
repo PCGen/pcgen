@@ -71,4 +71,9 @@ public class PreApplyRoundRobin extends AbstractPreRoundRobin
 	{
 		runRoundRobin("PREAPPLY:Ranged;Melee");
 	}
+
+	public void testAndOr()
+	{
+		runRoundRobin("PREAPPLY:Weapon,Melee,TwoHanded;OneHanded;Natural");
+	}
 }

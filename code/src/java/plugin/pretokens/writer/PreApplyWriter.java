@@ -84,31 +84,14 @@ public class PreApplyWriter extends AbstractPrerequisiteWriter implements
 						writer.write(',');
 					}
 					needComma = true;
-					writer.write(subreq.getOperand());
+					writeOredPrereqs(writer, subreq);
 				}
 			}
 			else
 			{
 				for (Prerequisite subreq : prereq.getPrerequisites())
 				{
-					if (subreq.getKind() == null)
-					{
-						// must be an "A or B" operation
-						boolean needSemi = false;
-						for (Prerequisite subsubreq : subreq.getPrerequisites())
-						{
-							if (needSemi)
-							{
-								writer.write(';');
-							}
-							needSemi = true;
-							writer.write(subsubreq.getOperand());
-						}
-					}
-					else
-					{
-						writer.write(subreq.getOperand());
-					}
+					writeOredPrereqs(writer, subreq);
 				}
 			}
 		}
@@ -120,6 +103,29 @@ public class PreApplyWriter extends AbstractPrerequisiteWriter implements
 		catch (IOException e)
 		{
 			throw new PersistenceLayerException(e.getMessage());
+		}
+	}
+
+	private void writeOredPrereqs(Writer writer, Prerequisite subreq)
+		throws IOException
+	{
+		if (subreq.getKind() == null)
+		{
+			// must be an "A or B" operation
+			boolean needSemi = false;
+			for (Prerequisite subsubreq : subreq.getPrerequisites())
+			{
+				if (needSemi)
+				{
+					writer.write(';');
+				}
+				needSemi = true;
+				writer.write(subsubreq.getOperand());
+			}
+		}
+		else
+		{
+			writer.write(subreq.getOperand());
 		}
 	}
 
