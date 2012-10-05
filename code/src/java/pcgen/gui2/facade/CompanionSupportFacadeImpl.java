@@ -381,7 +381,17 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 					FollowerOption followerOpt =
 							getFollowerOpt(compList, (Race) character
 								.getRaceRef().getReference());
-					newMaster.setAdjustment(followerOpt.getAdjustment());
+					if (followerOpt != null)
+					{
+						newMaster.setAdjustment(followerOpt.getAdjustment());
+					}
+					else
+					{
+						Logging.log(Logging.WARNING,
+							"Failed to find FollowerOption for complist "
+								+ compList + " and race "
+								+ character.getRaceRef().getReference());
+					}
 					((CharacterFacadeImpl)character).getTheCharacter().setMaster(newMaster);
 				}
 				return;
