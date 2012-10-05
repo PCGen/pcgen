@@ -190,10 +190,10 @@ Leadership Score	TYPE:Special.Internal	VISIBLE:NO	CHOOSE:NUMBER|MIN=-10|MAX=10|T
 
 ###Block: Power Attack helper feats for temporary bonuses
 # Feat Name				Visible	Weapon prop. bonus
-Power Attack (Off-Hand)		VISIBLE:NO	BONUS:WEAPON|TOHIT|-PowerAttackModifier|TYPE=Temporary|PREAPPLY:Weapon,Melee,1	BONUS:WEAPON|DAMAGE|PowerAttackModifier|TYPE=Temporary|PREAPPLY:Weapon,Melee,1
-Power Attack (Light)		VISIBLE:NO	BONUS:WEAPON|TOHIT|-PowerAttackModifier|TYPE=Temporary|PREAPPLY:Weapon,Melee,1	BONUS:WEAPON|DAMAGE|2*PowerAttackModifier|TYPE=Temporary|PREAPPLY:Weapon,Melee,1
-Power Attack (One-Handed)	VISIBLE:NO	BONUS:WEAPON|TOHIT|-PowerAttackModifier|TYPE=Temporary|PREAPPLY:Weapon,Melee,1	BONUS:WEAPON|DAMAGE|2*PowerAttackModifier|TYPE=Temporary|PREAPPLY:Weapon,Melee,1
-Power Attack (Two-Handed)	VISIBLE:NO	BONUS:WEAPON|TOHIT|-PowerAttackModifier|TYPE=Temporary|PREAPPLY:Weapon,Melee,1	BONUS:WEAPON|DAMAGE|3*PowerAttackModifier|TYPE=Temporary|PREAPPLY:Weapon,Melee,1
+Power Attack (Off-Hand)		VISIBLE:NO	BONUS:WEAPON|TOHIT|-PowerAttackModifier|TYPE=Temporary|PREAPPLY:Weapon,Melee,Light;Natural;OneHanded	BONUS:WEAPON|DAMAGE|PowerAttackModifier|TYPE=Temporary|PREAPPLY:Weapon,Melee,Light;Natural;OneHanded
+Power Attack (Light)		VISIBLE:NO	BONUS:WEAPON|TOHIT|-PowerAttackModifier|TYPE=Temporary|PREAPPLY:Weapon,Melee,Light;Natural	BONUS:WEAPON|DAMAGE|2*PowerAttackModifier|TYPE=Temporary|PREAPPLY:Weapon,Melee,Light;Natural
+Power Attack (One-Handed)	VISIBLE:NO	BONUS:WEAPON|TOHIT|-PowerAttackModifier|TYPE=Temporary|PREAPPLY:Weapon,Melee,OneHanded;Natural	BONUS:WEAPON|DAMAGE|2*PowerAttackModifier|TYPE=Temporary|PREAPPLY:Weapon,Melee,OneHanded;Natural
+Power Attack (Two-Handed)	VISIBLE:NO	BONUS:WEAPON|TOHIT|-PowerAttackModifier|TYPE=Temporary|PREAPPLY:Weapon,Melee,TwoHanded;OneHanded;Natural	BONUS:WEAPON|DAMAGE|3*PowerAttackModifier|TYPE=Temporary|PREAPPLY:Weapon,Melee,TwoHanded;OneHanded;Natural
 
 ###Block: Modified Feats for Sorcerer Bloodlines
 # Feat Name				Type
