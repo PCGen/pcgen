@@ -1,36 +1,39 @@
-# What's new for v5.17.18
+# What's new for v5.17.19
 
-PCGen v5.17.18 is our second beta in the lead-up to our 6.0 release. Thank-you for the fantastic feedback from the first beta - you've given us lots to work on! In the last 2 weeks we've addressed over 100 issues, bringing a huge improvement in stability for our new architecture and user interface in particular. 
+PCGen v5.17.19 is our third beta in the lead-up to our 6.0 release. We've continued to squash bugs and improve the stability of PCGen. Thanks again for the great feedback and reports of issues!
 
 A word about what a beta release is for the PCGen team. This is a build that has all of the new features that we plan shipping with v6.0. The beta cycle is where we focus on bug fixing and generally getting the program solid. An essential part of this is of course you trying it out and letting us know of any issues you find. Our trained monkeys are ready and waiting for your email to the PCGen mailing list!
+
+In particular it would be great to get your feedback and issue reports on the Ultimate Magic and Ultimate Combat sources we added last time. Also, now would be a great time to try out your old characters and custom sources and let us know if there any problems. 
 
 ## Notable Changes
 
 
-* Pathfinder, 3e and 35e data has been brought up to 6.0 syntax compliance using the Data Converter
-* Many minor tweaks and fixes to the Data Converter
-* Tips of the Day have been revamped for the new user interface
+* All data has been brought up to 6.0 syntax compliance using the Data Converter
+* Fix to a performance issue in 5.17.18
+* Data converter can now be run against external data
+* Followers are once again properly linked to their masters (affected loading and bonuses)
+
 
 ## New Sources
 
-The following new sources were added in 5.17.18
+The following new source was added in 5.17.19
 
-* [Paizo] Pathfinder RPG: Ultimate Magic
-* [Paizo] Pathfinder RPG: Ultimate Combat
+* [Paizo] Pathfinder Chronices: Princes of Darkness, Book of the Damned, Vol. I
 
 
 For full details of the new changes in this release, see the 
-[Release Notes](https://sourceforge.net/projects/pcgen/files/PCGen%20Unstable/5.17.18%20Beta/pcgen-release-notes-51718.html/download) in the list above.
+[Release Notes](https://sourceforge.net/projects/pcgen/files/PCGen%20Unstable/5.17.19%20Beta/pcgen-release-notes-51719.html/download) in the list above.
 
-*James Dempsey* for the PCGEN Team -- 27 September, 2012.
+*James Dempsey* for the PCGEN Team -- 5 October, 2012.
 
 
 
-SHA1 digest for pcgen-5.17.18-sources.jar:
-a8070095f9c8167ce52d5d827acc9e177a471831 
+SHA1 digest for pcgen-5.17.19-sources.jar:
+81c47e9c2360b19fd99673ad24ea70a87edf7f97 
 
-SHA1 digest for pcgen51718_full.zip:
-070abe9707425f8419e8a27145ba1373359ef613 
+SHA1 digest for pcgen51719_full.zip:
+d8d6aaade8285428f95579549aecdbda7ccdd2ff 
 
-SHA1 digest for pcgen51718_win_install.exe:
-eb7d9d84fd7868e4d90e546b10127c082caa2171 
+SHA1 digest for pcgen51719_win_install.exe:
+3e4a530fafed3d4244bbe7ff0970f6a9b06b1df8 
