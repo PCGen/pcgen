@@ -292,18 +292,18 @@ Tower Shield,
   <tr valign="top">
     <td width="25%"><b>Special Attacks: </b></td>
     <td width="75%"> 
-|FOR,%specialAttack,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
-|ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialQuality|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialQuality.TYPE:Extraordinary)|
+|FOR,%specialAttack,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=specialAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=specialAttack|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=specialAttack.TYPE:Extraordinary)|
  (Ex)|MANUALWHITESPACE|
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialQuality.TYPE:Supernatural)|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=specialAttack.TYPE:Supernatural)|
  (Su)|MANUALWHITESPACE|
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialQuality.TYPE:SpellLike)|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=specialAttack.TYPE:SpellLike)|
  (Sp)|MANUALWHITESPACE|
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialQuality.TYPE:PsiLike)|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=specialAttack.TYPE:PsiLike)|
  (Ps)|MANUALWHITESPACE|
 |ENDIF|
 ,|ENDMANUALWHITESPACE|
