@@ -54,6 +54,8 @@ EQUIPMENT:pfuc_equip_weap_siege.lst
 EQUIPMENT:pfuc_equip_weap_stoneage.lst
 EQUIPMENT:pfuc_equip_wondrous.lst
 
+EQUIPMENT:pfuc_equip_vehicles.lst
+
 EQUIPMOD:pfuc_equipmods.lst
 
 EQUIPMENT:pfuc_equip_magic.lst
