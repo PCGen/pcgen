@@ -203,6 +203,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	@Override
 	public void execute()
 	{
+		Globals.emptyLists();
 		SettingsHandler.setGame(selectedGame.getName());
 		Globals.emptyLists();
 
