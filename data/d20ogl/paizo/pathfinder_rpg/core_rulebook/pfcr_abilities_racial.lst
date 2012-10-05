@@ -48,7 +48,7 @@ Keen Senses		KEY:Keen Senses ~ Half-Elf		CATEGORY:Special Ability	TYPE:RacialTra
 Elf Blood		KEY:Elf Blood ~ Half-Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																							DESC:Half-elves count as both elves and humans for any effect related to race.																													SOURCEPAGE:p.24
 Low-Light Vision	KEY:Low-Light Vision ~ Half-Elf	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.HalfElfRacialTrait.HalfElfRacialDefault.RacialVision	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Low-Light Vision ~ Half-Elf],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfRacialVision]																																												BONUS:VAR|RacialVision|1
 
-###Block: Half-Orc Abilities (POOL=3)
+###Block: Half-Orc Abilities (POOL=4)
 # Ability Name		Unique Key				Category of Ability		Type																Multiple Requirements																							Description																																									Automatically Gained Weapon Prof.	Bonus to skill					Change Weapon Prof. Category	Source Page
 Intimidating		KEY:Intimidating ~ Half-Orc	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.HalfOrcRacialTrait.HalfOrcRacialDefault		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Intimidating ~ Half-Orc],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcIntimidating]			DESC:Half-orc receive a +2 racial bonus on Intimidate skill checks due to their fearsome nature.																																BONUS:SKILL|Intimidate|2|TYPE=Racial						SOURCEPAGE:p.25
 Orc Ferocity		KEY:Orc Ferocity ~ Half-Orc	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.HalfOrcRacialTrait.HalfOrcRacialDefault		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Orc Ferocity ~ Half-Orc],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcFerocity]				DESC:Once per day, when a half-orc is brought below 0 hit points, but not killed, he can fight on for one more round as if disabled. At the end of his next turn, unless brought to above 0 hit points, he immediately falls unconscious and begins dying.																			SOURCEPAGE:p.25
@@ -141,7 +141,7 @@ CATEGORY=Internal|Half Elf Racial Trait Default.MOD	ABILITY:Half Elf Racial Trai
 CATEGORY=Internal|Half Elf Racial Trait Default.MOD	ABILITY:Half Elf Racial Trait|AUTOMATIC|Keen Senses ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfSenses
 CATEGORY=Internal|Half Elf Racial Trait Default.MOD	ABILITY:Half Elf Racial Trait|AUTOMATIC|Low-Light Vision ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfRacialVision
 
-Half Orc Racial Trait Default	CATEGORY:Internal		BONUS:ABILITYPOOL|Half Orc Racial Trait|-3
+Half Orc Racial Trait Default	CATEGORY:Internal		BONUS:ABILITYPOOL|Half Orc Racial Trait|-4
 #
 CATEGORY=Internal|Half Orc Racial Trait Default.MOD	ABILITY:Half Orc Racial Trait|AUTOMATIC|Intimidating ~ Half-Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcIntimidating
 CATEGORY=Internal|Half Orc Racial Trait Default.MOD	ABILITY:Half Orc Racial Trait|AUTOMATIC|Orc Ferocity ~ Half-Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcFerocity
