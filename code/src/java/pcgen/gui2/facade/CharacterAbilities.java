@@ -972,9 +972,9 @@ public class CharacterAbilities
 		{
 			if (dfce.getCharID() != charID)
 			{
-					Logging.debugPrint("CA for " + theCharacter.getName()
-						+ ". Ignoring active ability added for character "
-						+ dfce.getCharID());
+//					Logging.debugPrint("CA for " + theCharacter.getName()
+//						+ ". Ignoring active ability added for character "
+//						+ dfce.getCharID());
 				return;
 			}
 			Logging.debugPrint("Got active ability added of " + dfce.getCDOMObject());

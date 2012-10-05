@@ -33,8 +33,13 @@ import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.facet.DataFacetChangeEvent;
+import pcgen.cdom.facet.DataFacetChangeListener;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.SkillFacet;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -69,7 +74,9 @@ import pcgen.util.Logging;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevelFacade> implements CharacterLevelsFacade
+public class CharacterLevelsFacadeImpl extends
+		AbstractListFacade<CharacterLevelFacade> implements
+		CharacterLevelsFacade, DataFacetChangeListener<Skill>
 {
 	private PlayerCharacter theCharacter;
 	private UIDelegate delegate;
@@ -77,6 +84,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	private List<ClassFacade> classLevels;
 	private List<CharacterLevelFacade> charLevels;
 	private final TodoManager todoManager;
+	private CharID charID;
 	
 	/**
 	 * Create a new CharacterLevelsFacadeImpl instance for a character.
@@ -92,6 +100,15 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	}
 
 	/**
+	 * Tidy up character listeners when closing the character. 
+	 */
+	protected void closeCharacter()
+	{
+		SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
+		skillFacet.removeDataFacetChangeListener(this);
+	}
+
+	/**
 	 * Initialise the instance for the current character. 
 	 */
 	private void initForCharacter()
@@ -99,6 +116,10 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		classLevels = new ArrayList<ClassFacade>();
 		charLevels = new ArrayList<CharacterLevelFacade>();
 		refreshClassList();
+
+		charID = theCharacter.getCharID();
+		SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
+		skillFacet.addDataFacetChangeListener(this);
 	}
 
 	@Override
@@ -957,6 +978,34 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 				((SkillBonusListener) listeners[i + 1]).skillBonusChanged(e);
 			}
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void dataAdded(DataFacetChangeEvent<Skill> dfce)
+	{
+		if (dfce.getCharID() != charID)
+		{
+			return;
+		}
+		//Skill skill = dfce.getCDOMObject();
+		fireSkillBonusEvent(this, 0, true);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void dataRemoved(DataFacetChangeEvent<Skill> dfce)
+	{
+		if (dfce.getCharID() != charID)
+		{
+			return;
+		}
+		//Skill skill = dfce.getCDOMObject();
+		fireSkillBonusEvent(this, 0, true);
 	}
 
 }

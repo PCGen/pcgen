@@ -193,6 +193,7 @@ public class AbilityUtilities
 			 * association is added. - thpr
 			 */
 			aPC.calcActiveBonuses();
+			aPC.refreshSkillList();
 		}
 	}
 

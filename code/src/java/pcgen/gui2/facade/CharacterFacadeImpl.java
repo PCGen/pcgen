@@ -288,6 +288,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	public void closeCharacter()
 	{
 		characterAbilities.closeCharacter();
+		charLevelsFacade.closeCharacter();
 		GMBus.send(new PCClosedMessage(null, theCharacter));
 	}
 	
