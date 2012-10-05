@@ -28,6 +28,9 @@ NAME:ClericDomainBonus			VAR:SYS_DOMAIN		DEFAULT:Yes					DESC:Apply Casterlevel 
 NAME:DisplayTypeTraits			VAR:DISPLAYTYPETRAITS	DEFAULT:No					DESC:Display full text of Type Traits on output
 NAME:DisplayConditionalSkills		VAR:DISPLAYSKILLUSE	DEFAULT:Yes					DESC:Display conditional skill uses on output
 
+NAME:Outsider0HDGainMartialWeapons	VAR:OutsiderZeroHDGainMartialWeapons	DEFAULT:No					DESC:Grant Martial Weapons to all 0 HD outsiders as House Rule.
+
+
 NAME:HitPointDamage			VAR:DAMAGE_HP		DEFAULT:Yes	EXCLUDE:DAMAGE_VW		DESC:Use Hit Points
 NAME:VitalityDamage			VAR:DAMAGE_VW		DEFAULT:No	EXCLUDE:DAMAGE_HP		DESC:Use Vitality and Wound Points
 

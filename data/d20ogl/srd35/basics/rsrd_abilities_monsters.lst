@@ -676,6 +676,9 @@ Trained for Riding		KEY:Animal Training ~ Riding		CATEGORY:Special Ability	TYPE:
 # DATA-330
 Low-light Vision			KEY:Low light Vision			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision														DEFINE:LowLightRange|2	DESC:You can see %1x as far as humans in low illumination.|LowLightRange
 
+# DATA-401
+Martial Weapons			KEY:Outsider House Rule ~ Martial Weapons	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:0 HD Outsider gains all Martial Weapon Proficiencies	AUTO:WEAPONPROF|TYPE=Martial|PREHD:MAX=0
+
 ###Block: Natural Attack
 # Ability Name	Category of Ability	Type				Define																																	Automatically Gained Weapon Prof.	Modify VAR																									Cost		Aspects
 Bite			CATEGORY:Natural Attack	TYPE:NaturalAttack	DEFINE:NaturalBiteReach|REACH.VAL	DEFINE:BiteAttackBonus|0	DEFINE:BiteDamageDice|0	DEFINE:BiteDamageSize|0	DEFINE:BiteDamageBonus|0	DEFINE:BiteThreatRange|0						AUTO:WEAPONPROF|Bite			BONUS:VAR|BiteAttackBonus|1|PREFEAT:1,Weapon Focus (Bite)	BONUS:VAR|BiteThreatRange|20	BONUS:VAR|BiteThreatRange|-1|PREFEAT:1,Improved Critical (Bite)	COST:0	ASPECT:NaturalAttackName|Bite	ASPECT:NaturalAttackToHit|+%1|BiteAttackBonus	ASPECT:NaturalAttackToHit|+%1/+%2|BiteAttackBonus|BiteAttackBonus-5	ASPECT:NaturalAttackDamage|%1d%2+%3|BiteDamageDice|BiteDamageSize|BiteDamageBonus	ASPECT:NaturalAttackReach|%1|NaturalBiteReach	ASPECT:NaturalAttackType|Lethal	ASPECT:NaturalAttackThreatRange|%1|BiteThreatRange
