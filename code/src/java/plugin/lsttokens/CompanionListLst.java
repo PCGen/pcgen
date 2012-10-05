@@ -189,6 +189,11 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 						context.ref.getCDOMAllReference(Race.class),
 						ListKey.RACESUBTYPE, RaceSubType.getConstant(raceSubType)));
 			}
+			else if (tokString.startsWith("PRE") || tokString.startsWith("!PRE"))
+			{
+				return new ParseResult.Fail(getTokenName()
+					+ " Error: " + tokString + " found where companion race expected.", context);
+			}
 			else
 			{
 				races.add(context.ref.getCDOMReference(Race.class, tokString));
