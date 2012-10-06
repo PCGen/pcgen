@@ -25,6 +25,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -41,6 +42,8 @@ import javax.swing.JSplitPane;
 import javax.swing.JTree;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.HyperlinkEvent;
+import javax.swing.event.HyperlinkListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -48,6 +51,7 @@ import javax.swing.tree.DefaultTreeCellRenderer;
 
 import org.apache.commons.lang.StringUtils;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.GameModeFacade;
 import pcgen.core.facade.SourceSelectionFacade;
@@ -56,6 +60,9 @@ import pcgen.core.facade.event.ListListener;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.core.facade.util.ListFacades;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.gui.utils.BrowserLauncher;
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.filter.FilterBar;
@@ -75,6 +82,7 @@ import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.FacadeFactory;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 /**
  *
@@ -194,6 +202,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		topPane.setRightComponent(selPanel);
 		mainPane.setTopComponent(topPane);
 
+		new SourceLinkAction().install();
 		infoPane.setPreferredSize(new Dimension(800, 150));
 		mainPane.setBottomComponent(infoPane);
 		mainPane.setResizeWeight(0.7);
@@ -695,6 +704,60 @@ class AdvancedSourceSelectionPanel extends JPanel
 				}
 			}
 			return this;
+		}
+
+	}
+
+	/**
+	 * The Class <code>SourceLinkAction</code> acts on the user clicking on hyperlinks 
+	 * in the source info pane.
+	 */
+	private class SourceLinkAction
+			implements HyperlinkListener
+	{
+
+		/**
+		 * Create a new instance.
+		 */
+		public SourceLinkAction()
+		{
+		}
+
+		/**
+		 * Attach the handler to the on-screen field. 
+		 */
+		public void install()
+		{
+			infoPane.addHyperlinkListener(this);
+		}
+
+		/**
+		 * Detach the handler from the on-screen field. 
+		 */
+		public void uninstall()
+		{
+			infoPane.removeHyperlinkListener(this);
+		}
+
+		@Override
+		public void hyperlinkUpdate(HyperlinkEvent e)
+		{
+			if (e.getEventType() == HyperlinkEvent.EventType.ACTIVATED)
+			{
+				try
+				{
+					BrowserLauncher.openURL(e.getURL());
+				}
+				catch (IOException e1)
+				{
+					Logging.errorPrint("Failed to open URL " //$NON-NLS-1$
+						+ e.getURL() + " due to ", e1); //$NON-NLS-1$
+					ShowMessageDelegate.showMessageDialog(LanguageBundle
+						.getFormattedString("in_Src_browser", e //$NON-NLS-1$
+							.getURL().toString()), Constants.APPLICATION_NAME,
+						MessageType.ERROR);
+				}
+			}
 		}
 
 	}

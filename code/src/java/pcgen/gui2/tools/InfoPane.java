@@ -28,6 +28,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.HyperlinkListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import javax.swing.text.EditorKit;
@@ -105,6 +106,26 @@ public class InfoPane extends JScrollPane
 			throw new UnreachableError(ex);
 		}
 		textPane.setDocument(newDoc);
+	}
+
+	/**
+	 * Adds a hyperlink listener for notification of any changes, for example when a 
+	 * link is selected and entered.
+	 *  
+	 * @param linkListener The listener.
+	 */
+	public void addHyperlinkListener(HyperlinkListener linkListener)
+	{
+		textPane.addHyperlinkListener(linkListener);
+	}
+
+	/**
+	 * Removes a hyperlink listener.
+	 * @param linkListener The listener.
+	 */
+	public void removeHyperlinkListener(HyperlinkListener linkListener)
+	{
+		textPane.removeHyperlinkListener(linkListener);
 	}
 
 }
