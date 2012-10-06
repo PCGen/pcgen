@@ -195,12 +195,12 @@ FOLLOWER:CavalierLevel=19	TYPE:Cavalier Mount																																			
 FOLLOWER:CavalierLevel=20	TYPE:Cavalier Mount	HD:1																																								BONUS:ABILITYPOOL|Companion Stat Increase|1																				BONUS:VAR|MasterLevel|1
 #
 
-FOLLOWER:CavalierLevel=1	TYPE:Cavalier Mount			ABILITY:Animal Trick|AUTOMATIC|Animal Training ~ Combat Riding				AUTO:FEAT|Armor Proficiency (Light)	PRERACE:1,Companion (Camel)
-FOLLOWER:CavalierLevel=1	TYPE:Cavalier Mount			ABILITY:Animal Trick|AUTOMATIC|Animal Training ~ Combat Riding				AUTO:FEAT|Armor Proficiency (Light)	PRERACE:1,Companion (Horse)
-FOLLOWER:CavalierLevel=1	TYPE:Cavalier Mount			ABILITY:Animal Trick|AUTOMATIC|Animal Training ~ Combat Riding				AUTO:FEAT|Armor Proficiency (Light)	PRERACE:1,Companion (Pony)
-FOLLOWER:CavalierLevel=1	TYPE:Cavalier Mount			ABILITY:Animal Trick|AUTOMATIC|Animal Training ~ Combat Riding				AUTO:FEAT|Armor Proficiency (Light)	PRERACE:1,Companion (Wolf)
-FOLLOWER:CavalierLevel=1	TYPE:Cavalier Mount			ABILITY:Animal Trick|AUTOMATIC|Animal Training ~ Combat Riding				AUTO:FEAT|Armor Proficiency (Light)	PRERACE:1,Companion (Boar)
-FOLLOWER:CavalierLevel=1	TYPE:Cavalier Mount			ABILITY:Animal Trick|AUTOMATIC|Animal Training ~ Combat Riding				AUTO:FEAT|Armor Proficiency (Light)	PRERACE:1,Companion (Dog)
+FOLLOWER:CavalierLevel=1	TYPE:Cavalier Mount			ABILITY:Animal Trick|NORMAL|Animal Training ~ Combat Riding				AUTO:FEAT|Armor Proficiency (Light)	PRERACE:1,Companion (Camel)
+FOLLOWER:CavalierLevel=1	TYPE:Cavalier Mount			ABILITY:Animal Trick|NORMAL|Animal Training ~ Combat Riding				AUTO:FEAT|Armor Proficiency (Light)	PRERACE:1,Companion (Horse)
+FOLLOWER:CavalierLevel=1	TYPE:Cavalier Mount			ABILITY:Animal Trick|NORMAL|Animal Training ~ Combat Riding				AUTO:FEAT|Armor Proficiency (Light)	PRERACE:1,Companion (Pony)
+FOLLOWER:CavalierLevel=1	TYPE:Cavalier Mount			ABILITY:Animal Trick|NORMAL|Animal Training ~ Combat Riding				AUTO:FEAT|Armor Proficiency (Light)	PRERACE:1,Companion (Wolf)
+FOLLOWER:CavalierLevel=1	TYPE:Cavalier Mount			ABILITY:Animal Trick|NORMAL|Animal Training ~ Combat Riding				AUTO:FEAT|Armor Proficiency (Light)	PRERACE:1,Companion (Boar)
+FOLLOWER:CavalierLevel=1	TYPE:Cavalier Mount			ABILITY:Animal Trick|NORMAL|Animal Training ~ Combat Riding				AUTO:FEAT|Armor Proficiency (Light)	PRERACE:1,Companion (Dog)
 
 #The mount is always considered combat trained and begins play with Light Armor Proficiency as a bonus feat
 #
