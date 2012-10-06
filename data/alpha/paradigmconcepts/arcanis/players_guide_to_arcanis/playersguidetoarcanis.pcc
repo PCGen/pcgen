@@ -149,7 +149,8 @@ KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_g_h_extras.lst
 KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_i_j.lst
 KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_k_l.lst
 KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_k_l_extras.lst
-KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_m_n.lst|(EXCLUDE:Nightshade (Nightwalker) Default)
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_m_n.lst
+#|(EXCLUDE:Nightshade (Nightwalker) Default)
 KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_m_n_extras.lst
 KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_o_p.lst
 KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_o_p_extras.lst
