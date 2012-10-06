@@ -810,12 +810,12 @@ Form Lock				KEY:Form Lock ~ TETORI					CATEGORY:Special Ability	TYPE:Supernatur
 Iron Body				KEY:Iron Body ~ TETORI					CATEGORY:Special Ability	TYPE:Supernatural.ArchetypeAbility.SpecialQuality	DESC:At 19th level, as a move action, a tetori can make his tissues ultra-dense for 1 minute as the iron body spell (Core Rulebook 302) by spending 3 points from his ki pool. This ability replaces empty body.																																																																																																																																																																																												SOURCEPAGE:p.61
 
 ###Block: Bonus Feat ~ TETORI
-Improved Grapple		!PREFEAT:1,Improved Grapple	VFEAT:Improved Grapple	CATEGORY:Special Ability	TYPE:TetoriBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1	
-Crushing Embrace		!PREFEAT:1,Crushing Embrace	VFEAT:Crushing Embrace	CATEGORY:Special Ability	TYPE:TetoriBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,2	
-Greater Grapple		!PREFEAT:1,Greater Grapple	VFEAT:Greater Grapple	CATEGORY:Special Ability	TYPE:TetoriBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,6
-Twin Lock			!PREFEAT:1,Twin Lock	VFEAT:Twin Lock	CATEGORY:Special Ability	TYPE:TetoriBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10	
-Choke Hold			!PREFEAT:1,Choke Hold	VFEAT:Choke Hold	CATEGORY:Special Ability	TYPE:TetoriBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,14	
-Backbreaker			!PREFEAT:1,Backbreaker	VFEAT:Backbreaker	CATEGORY:Special Ability	TYPE:TetoriBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,18	
+Improved Grapple		KEY:Improved Grapple ~ Tetori	!PREFEAT:1,Improved Grapple	VFEAT:Improved Grapple	CATEGORY:Special Ability	TYPE:TetoriBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1	
+Crushing Embrace		KEY:Crushing Embrace ~ Tetori	!PREFEAT:1,Crushing Embrace	VFEAT:Crushing Embrace	CATEGORY:Special Ability	TYPE:TetoriBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,2	
+Greater Grapple		KEY:Greater Grapple ~ Tetori	!PREFEAT:1,Greater Grapple	VFEAT:Greater Grapple	CATEGORY:Special Ability	TYPE:TetoriBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,6
+Twin Lock			KEY:Twin Lock ~ Tetori	!PREFEAT:1,Twin Lock	VFEAT:Twin Lock	CATEGORY:Special Ability	TYPE:TetoriBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10	
+Choke Hold			KEY:Choke Hold ~ Tetori	!PREFEAT:1,Choke Hold	VFEAT:Choke Hold	CATEGORY:Special Ability	TYPE:TetoriBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,14	
+Backbreaker			KEY:Backbreaker ~ Tetori	!PREFEAT:1,Backbreaker	VFEAT:Backbreaker	CATEGORY:Special Ability	TYPE:TetoriBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,18	
 
 ###Block: Paladin Archetype ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

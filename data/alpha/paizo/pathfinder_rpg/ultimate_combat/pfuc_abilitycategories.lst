@@ -28,8 +28,8 @@ ABILITYCATEGORY:Ninja Archetype				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FR
 
 
 # Monk
-ABILITYCATEGORY:Flowing Monk Bonus Feat				CATEGORY:Special Ability	TYPE:FlowingMonkBonusFeat		
-ABILITYCATEGORY:Maneuver Master Bonus Feat			CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat.MonkBonusFeat		DESC:In addition to normal monk bonus feats, a maneuver master may select any Improved combat maneuver feat (such as Improved Overrun) as a bonus feat. At 6th level and above, he may select any Greater combat maneuver feat (such as Greater Grapple) as a bonus feat. At 10th level and above, he may select any maneuver Strike feat (such as Tripping Strike) as a bonus feat.																																																																																																																																																																SOURCEPAGE:p.58
-ABILITYCATEGORY:Master Of Many Styles Bonus Feat		CATEGORY:Special Ability	TYPE:MasterOfManyStylesBonusFeat
-ABILITYCATEGORY:Sohei Bonus Feat					CATEGORY:Special Ability	TYPE:SoheiBonusFeat			
-ABILITYCATEGORY:Tetori Bonus Feat					CATEGORY:Special Ability	TYPE:TetoriBonusFeat
+ABILITYCATEGORY:Flowing Monk Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO	CATEGORY:Special Ability	TYPE:FlowingMonkBonusFeat			DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Maneuver Master Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat.MonkBonusFeat	DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Master Of Many Styles Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO	CATEGORY:Special Ability	TYPE:MasterOfManyStylesBonusFeat	DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Sohei Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO	CATEGORY:Special Ability	TYPE:SoheiBonusFeat				DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Tetori Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO	CATEGORY:Special Ability	TYPE:TetoriBonusFeat	DISPLAYLOCATION:Archetype
