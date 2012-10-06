@@ -13,7 +13,7 @@ Fire Resistance									CATEGORY:Special Ability	TYPE:DarkKinTrait.FirstTaint	VI
 Immune to Charm									CATEGORY:Special Ability	TYPE:DarkKinTrait.FirstTaint	VISIBLE:DISPLAY																																																																																																																					DESC:Immune to Charm Spells																																															MULT:NO
 Natural Armor									CATEGORY:Special Ability	TYPE:DarkKinTrait.FirstTaint	VISIBLE:DISPLAY																																																																																																																					DESC:Natural Armor																																																	MULT:NO																																						BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:COMBAT|AC|-1|TYPE=InfernalPenalty
 Poison Resistance									CATEGORY:Special Ability	TYPE:DarkKinTrait.FirstTaint	VISIBLE:DISPLAY																																																																																																																					DESC:Poison Resistance 4																																																MULT:NO
-CATEGORY=Special Ability|Scent.MOD						CATEGORY:Special Ability	TYPE:DarkKinTrait.FirstTaint																																																																																																																																																					MULT:NO
+CATEGORY=Special Ability|Scent.MOD											TYPE:DarkKinTrait.FirstTaint
 Vision of Darkness								CATEGORY:Special Ability	TYPE:DarkKinTrait.FirstTaint	VISIBLE:DISPLAY																																																																																																																					DESC:Vision of Darkness																																																MULT:NO
 
 # Dark-Kin Abilities

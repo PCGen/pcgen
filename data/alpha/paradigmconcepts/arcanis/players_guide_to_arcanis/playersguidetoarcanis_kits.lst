@@ -2,6 +2,9 @@
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
+STARTPACK:Wizard Spell Book	EQUIPBUY:0	PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Wizard=1]
+GEAR:Spellbook (Wizard's/Blank)	LOCATION:Carried
+
 ###Block: Alignment Kits ------------------
 STARTPACK:LG	VISIBLE:NO	APPLY:INSTANT
 ALIGN:LG

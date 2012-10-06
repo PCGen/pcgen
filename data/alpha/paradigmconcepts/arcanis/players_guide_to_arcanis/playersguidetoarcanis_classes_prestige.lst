@@ -36,7 +36,7 @@ CLASS:Altherian Triggermage	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craf
 # Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Save checks bonus											Combat bonus
 CLASS:Ansharan Gatekeeper	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:AGk		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.167	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Required Deity	Required Feat																			Required Skill													Req. Spell Type		Required Text
-CLASS:Ansharan Gatekeeper	PREDEITY:1,Anshar	PREFEAT:1,Endurance,Great Fortitude	PREFEAT:1,Skill Focus (TYPE.Arcana),Skill Focus (TYPE.Religion),Skill Focus (Spellcraft)	PRESKILL:1,TYPE.Religion=8	PRESKILL:1,TYPE.Arcana=6	PRESKILL:1,Spellcraft=10	PRESPELLTYPE:1,Arcane=2	PRETEXT:Must be able to activate a portal of Anshar.  Must be attuned to at least 15 portals.
+CLASS:Ansharan Gatekeeper	PREDEITY:1,Anshar	PREFEAT:1,Endurance,Great Fortitude	PREFEAT:1,Skill Focus (Knowledge (Arcana%)),Skill Focus (Knowledge (Religion%)),Skill Focus (Spellcraft)	PRESKILL:1,TYPE.Religion=8	PRESKILL:1,TYPE.Arcana=6	PRESKILL:1,Spellcraft=10	PRESPELLTYPE:1,Arcane=2	PRETEXT:Must be able to activate a portal of Anshar.  Must be attuned to at least 15 portals.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Ansharan Gatekeeper	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Gather Information|TYPE=Arcana|TYPE=Geography|TYPE=Planes|TYPE=Religion|Listen|Open Lock|TYPE=Profession|Search|Sense Motive|Spellcraft
 1:REPEATLEVEL:1	ADD:SPELLCASTER|Divine,Arcane
@@ -97,7 +97,7 @@ CLASS:Blackchanter	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE
 1:REPEATLEVEL:1									ADD:SPELLCASTER|Arcane
 1			BONUS:ABILITYPOOL|Blackchanter Skill Focus|1
 2																						ABILITY:Special Ability|AUTOMATIC|Requiem
-3											ADD:FEAT|Skill Focus (TYPE=Nobility),Skill Focus (TYPE=Religion)
+3			BONUS:ABILITYPOOL|Blackchanter Skill Focus|1								
 4																						ABILITY:Special Ability|AUTOMATIC|Elemental Savant (Positive Energy)
 5																						ABILITY:Special Ability|AUTOMATIC|Dance Macabre
 
@@ -449,7 +449,7 @@ CLASS:Order of the Thundering Storm	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|
 2	BONUS:VAR|LayOnHandsLVL|max(CHA,0)*CL	ABILITY:Special Ability|AUTOMATIC|Lay On Hands|!PREABILITY:1,CATEGORY=Special Ability,Lay On Hands
 3								ABILITY:Special Ability|AUTOMATIC|Way of the Wind
 4								ABILITY:Special Ability|AUTOMATIC|Force of the Storm
-5								ABILITY:Special Ability|AUTOMATIC|The Tempest
+5								ABILITY:Special Ability|AUTOMATIC|The Tempest ~ Order of the Thundering Storm
 6								ABILITY:Special Ability|AUTOMATIC|Sword Mastery
 7								ABILITY:Special Ability|AUTOMATIC|Eye of the Storm Lord
 9								ABILITY:Special Ability|AUTOMATIC|Fury of the Storm Lord
@@ -597,7 +597,7 @@ CLASS:Ulfilan Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Ulfilan Ra
 
 # Resist Elements listed as a spell - doesn't exist anywhere, not mentioned in errata
 1																																													SPELLLEVEL:CLASS|Ulfilan Ranger=1|Alarm,Detect Animals or Plants,Detect Snares and Pits,Feather Fall,Jump,Pass without Trace,Shillelagh UR
-1	CAST:0,1		ABILITY:Special Ability|AUTOMATIC|Homeland Advantage	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Simple Weapon Proficiency	AUTO:WEAPONPROF|Wind Staff	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1	CAST:0,1		ABILITY:Special Ability|AUTOMATIC|Homeland Advantage	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Simple Weapon Proficiency	AUTO:WEAPONPROF|Quarterstaff	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
 2	CAST:0,1		ABILITY:Special Ability|AUTOMATIC|Hurrian's Might
 # Protection from Elements listed as a spell - doesn't exist anywhere, not mentioned in errata
 3																																													SPELLLEVEL:CLASS|Ulfilan Ranger=2|Cure Light Wounds,Delay Poison,Heat Metal,Shocking Grasp,Spider Climb
