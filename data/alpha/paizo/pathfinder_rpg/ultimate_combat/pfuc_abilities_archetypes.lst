@@ -723,7 +723,7 @@ Greater Snap Shot			KEY:Greater Snap Shot ~ Maneuver Master	!PREFEAT:1,Greater S
 Adder Strike			KEY:Adder Strike ~ Maneuver Master	!PREFEAT:1,Adder Strike	VFEAT:Adder Strike	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10
 Arcane Strike			KEY:Arcane Strike ~ Maneuver Master	!PREFEAT:1,Arcane Strike	VFEAT:Arcane Strike	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10
 Devastating Strike		KEY:Devastating Strike ~ Maneuver Master	!PREFEAT:1,Devastating Strike	VFEAT:Devastating Strike	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10
-Improved Devastating Strike	KEY:Improved Devastating Strike ~ Maneuver Master	!PREFEAT:1,Improved Devastating Strike	VFEAT:Improved Devastating Strike	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10
+#Improved Devastating Strike	KEY:Improved Devastating Strike ~ Maneuver Master	!PREFEAT:1,Improved Devastating Strike	VFEAT:Improved Devastating Strike	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10
 #Improved Unarmed Strike	KEY: ~ Maneuver Master	!PREFEAT:1,Mobility	VFEAT:Mobility	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10
 #Improved Vital Strike		KEY: ~ Maneuver Master	!PREFEAT:1,Mobility	VFEAT:Mobility	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10
 Kirin Strike			KEY:Kirin Strike ~ Maneuver Master	!PREFEAT:1,Kirin Strike	VFEAT:Kirin Strike	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10
@@ -811,8 +811,8 @@ Iron Body				KEY:Iron Body ~ TETORI					CATEGORY:Special Ability	TYPE:Supernatur
 
 ###Block: Bonus Feat ~ TETORI
 Improved Grapple		KEY:Improved Grapple ~ Tetori	!PREFEAT:1,Improved Grapple	VFEAT:Improved Grapple	CATEGORY:Special Ability	TYPE:TetoriBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1	
-Crushing Embrace		KEY:Crushing Embrace ~ Tetori	!PREFEAT:1,Crushing Embrace	VFEAT:Crushing Embrace	CATEGORY:Special Ability	TYPE:TetoriBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,2	
 Greater Grapple		KEY:Greater Grapple ~ Tetori	!PREFEAT:1,Greater Grapple	VFEAT:Greater Grapple	CATEGORY:Special Ability	TYPE:TetoriBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,6
+Crushing Embrace		KEY:Crushing Embrace ~ Tetori	!PREFEAT:1,Crushing Embrace	VFEAT:Crushing Embrace	CATEGORY:Special Ability	TYPE:TetoriBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,2	
 Twin Lock			KEY:Twin Lock ~ Tetori	!PREFEAT:1,Twin Lock	VFEAT:Twin Lock	CATEGORY:Special Ability	TYPE:TetoriBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10	
 Choke Hold			KEY:Choke Hold ~ Tetori	!PREFEAT:1,Choke Hold	VFEAT:Choke Hold	CATEGORY:Special Ability	TYPE:TetoriBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,14	
 Backbreaker			KEY:Backbreaker ~ Tetori	!PREFEAT:1,Backbreaker	VFEAT:Backbreaker	CATEGORY:Special Ability	TYPE:TetoriBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,18	
