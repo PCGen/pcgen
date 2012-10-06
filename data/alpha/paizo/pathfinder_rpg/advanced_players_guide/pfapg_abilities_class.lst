@@ -85,6 +85,10 @@ Sticky Bomb			KEY:Discovery ~ Sticky Bomb		CATEGORY:Special Ability	TYPE:Special
 Sticky Poison		KEY:Discovery ~ Sticky Poison		CATEGORY:Special Ability	TYPE:SpecialAttack.AlchemistDiscovery												PREVARGTEQ:AlchemistLVL,6	DESC:Any poison the alchemist creates is sticky - when the alchemist applies it to a weapon, the weapon remains poisoned for a number of strikes equal to the alchemist's Intelligence modifier.
 Stink Bomb*			KEY:Discovery ~ Stink Bomb		CATEGORY:Special Ability	TYPE:SpecialAttack.AlchemistDiscovery	PREABILITY:1,CATEGORY=Special Ability,Discovery ~ Smoke Bomb						DESC:The effects of the smoke created by an alchemist's bomb can duplicate the effects of stinking cloud instead of fog cloud, f illing an area equal to twice the bomb's splash radius for 1 round. An alchemist must possess the smoke bomb discovery before selecting this discovery.
 
+###Block: Mutagen Templates
+
+
+
 ###Block: Alchemist grand discoveries
 # Ability Name		Unique Key					Category of Ability		Type								Required Ability									Description																																												Stat bonus
 Awakened Intellect	KEY:Discovery ~ Awakened Intellect	CATEGORY:Special Ability	TYPE:SpecialQuality.AlchemistGrandDiscovery												DESC:The alchemist's constant exposure to strange chemicals has expanded his mind. His Intelligence score permanently increases by 2 points.																						BONUS:STAT|INT|2
