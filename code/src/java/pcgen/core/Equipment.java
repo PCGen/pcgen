@@ -3547,8 +3547,8 @@ public final class Equipment extends PObject implements Serializable,
 		if (!hasAssociations(aMod)
 			|| !EquipmentChoiceDriver.getChoice(0, this, aMod, false, pc))
 		{
-			getEquipmentHead(bPrimary ? 1 : 2).removeFromListFor(ListKey.EQMOD,
-				aMod);
+			EquipmentHead head = getEquipmentHead(bPrimary ? 1 : 2);
+			head.removeFromListFor(ListKey.EQMOD, aMod);
 			if (bPrimary)
 			{
 				usePrimaryCache = false;
@@ -3558,7 +3558,74 @@ public final class Equipment extends PObject implements Serializable,
 				useSecondaryCache = false;
 			}
 
+			restoreEqModsAfterRemove(eqMod, bPrimary, head);
+			
 			setDirty(true);
+		}
+	}
+
+	/**
+	 * Add back in modifiers that this one previously removed.
+	 * 
+	 * @param eqMod The equipment modifier being removed.
+	 * @param bPrimary Which head is this for?
+	 * @param head The head being updated.
+	 */
+	private void restoreEqModsAfterRemove(final EquipmentModifier eqMod,
+		final boolean bPrimary, EquipmentHead head)
+	{
+		CDOMSingleRef<Equipment> baseItem = get(ObjectKey.BASE_ITEM);
+		if (baseItem == null)
+		{
+			return;
+		}
+
+		List<CDOMSingleRef<EquipmentModifier>> replaces =
+				eqMod.getListFor(ListKey.REPLACED_KEYS);
+		if (replaces != null)
+		{
+			//
+			// Add back in modifiers that this one previously removed
+			//
+			for (CDOMSingleRef<EquipmentModifier> ref : replaces)
+			{
+				EquipmentModifier mod = ref.resolvesTo();
+				String key = mod.getKeyName();
+				for (EquipmentModifier baseMod : baseItem.resolvesTo()
+					.getEquipmentHead(bPrimary ? 1 : 2)
+					.getSafeListFor(ListKey.EQMOD))
+				{
+					if (key.equalsIgnoreCase(baseMod.getKeyName()))
+					{
+						head.addToListFor(ListKey.EQMOD, baseMod);
+					}
+				}
+			}
+		}
+
+		if (eqMod.isType("BaseMaterial"))
+		{
+			for (EquipmentModifier baseMod : baseItem.resolvesTo()
+				.getEquipmentHead(bPrimary ? 1 : 2)
+				.getSafeListFor(ListKey.EQMOD))
+			{
+				if (baseMod.isType("BaseMaterial"))
+				{
+					head.addToListFor(ListKey.EQMOD, baseMod);
+				}
+			}
+		}
+		else if (eqMod.isType("MagicalEnhancement"))
+		{
+			for (EquipmentModifier baseMod : baseItem.resolvesTo()
+				.getEquipmentHead(bPrimary ? 1 : 2)
+				.getSafeListFor(ListKey.EQMOD))
+			{
+				if (baseMod.isType("MagicalEnhancement"))
+				{
+					head.addToListFor(ListKey.EQMOD, baseMod);
+				}
+			}
 		}
 	}
 
