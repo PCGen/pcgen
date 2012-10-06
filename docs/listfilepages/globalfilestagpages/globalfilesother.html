@@ -366,41 +366,32 @@
 
 	<p class="status"><a name="COMPANIONLIST">*** New 5.11.0</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> COMPANIONLIST:x|y,y|z</p>
-        <p class="indent1"><strong class="indent0">Variables used (x): </strong>Text (The type of companion list
-        to add to).</p>
-        <p class="indent1"><strong class="indent0">Variables used (y): </strong>Text (A race of companion to
-        allow to the character).</p>
-        <p class="indent1"><strong class="indent0">Variables used (y): </strong>RACETYPE=Text (all races with
-        the specified RACETYPE are available as this type of companion).</p>
-        <p class="indent1"><strong class="indent0">Variables used (y): </strong>RACESUBTYPE=Text (all races with
-        the specified RACESUBTYPE are available as this type of companion).</p>
-        <p class="indent1"><strong class="indent0">Variables used (y): </strong>ANY (Any race can be a companion
-        of this type).</p>
-        <p class="indent1"><strong class="indent0">Variables used (z): </strong> FOLLOWERADJUSTMENT=(number)
-        (Adjustment to the follower level variable).</p>
-		<p class="indent1"><strong>What it does:</strong> </p>
-        <ul class="indent2">
-        	<li>Adds a specific race or races to the list of available companions for the specified 
-				companion type.</li>
-    		<li>PRExxx tags can be added at the end of COMPANIONLIST tags, PRExxx tags are checked 
-				against the master.</li>
-			<li>If the master does not meet the prereqs the companion will be displayed in the list
-				but will be listed in red and cannot be added as a companion.</li>
-		</ul>
-         <p class="indent1"><strong>Example:</strong> </p>
-        <p class="indent2"><code>COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake(Tiny/Viper),Toad,
-        Weasel</code> </p>
-        <p class="indent3">Would build the list of standard familiars available to a Sorcerer or Wizard.</p>
-        <p class="indent2"><code>COMPANIONLIST:Pet|RACETYPE=Animal</code> </p>
-        <p class="indent3">Would build a list of all animals to available as a Pet.</p>
-        <p class="indent2"><code>COMPANIONLIST:Pet|RACESUBTYPE=Fire</code> </p>
-        <p class="indent3">Would build a list of all 'Fire' RACESUBTYPEs to available as a Pet.</p>
-        <p class="indent2"><code>COMPANIONLIST:Familiar|Quasit|PREFEAT:1,Special Familiar|PREALIGN:CE</code> </p>
-        <p class="indent3">A Quasit can be chosen as a Familiar but only if the master is evil and has the
-        Special Familiar feat.</p>
-        <p class="indent2"><code>COMPANIONLIST:Animal Companion|Ape|FOLLOWERADJUSTMENT:-3</code> </p>
-        <p class="indent3">An Ape companion to a 4th level Druid gains the benefits normally granted to a
-        companion of a 1st level Druid..</p>
+    <p class="indent1"><strong>Variables used (x): </strong>Text (Companion Type)</p>
+    <p class="indent1"><strong>Variables used (y): </strong>Text (Companion Race)</p>
+    <p class="indent1"><strong>Variables used (y): </strong>RACETYPE=Text (Companion Race Type)</p>
+    <p class="indent1"><strong>Variables used (y): </strong>RACESUBTYPE=Text (Companion Race Subtype)</p>
+    <p class="indent1"><strong>Variables used (y): </strong>ANY</p>
+    <p class="indent1"><strong>Variables used (z): </strong>FOLLOWERADJUSTMENT:Number (Level Adjustment)</p>
+	<p class="indent1"><strong>What it does:</strong> </p>
+    <ul class="indent2">
+    	<li>Adds a specific race or races to the list of available companions for the specified companion type.</li>
+    	<li>PRExxx tags can be added at the end of <code>COMPANIONLIST</code> tags, PRExxx tags are checked against the master.</li>
+    	<li><code>FOLLOWERADJUSTMENT</code> will modify the masters effective level when determining the benefits gained from the companion creature.</li>  
+	</ul>
+    <p class="indent1"><strong>Example:</strong> </p>
+    <p class="indent2"><code>COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake(Tiny/Viper),Toad,Weasel</code> </p>
+    <p class="indent3">Would build the list consisting of the Bat, Cat, Hawk, Lizard, Owl, Rat, Raven, Snake(Tiny/Viper), Toad, 
+    	and Weasel and make them available to be familiars.</p>
+    <p class="indent2"><code>COMPANIONLIST:Pet|RACETYPE=Animal</code> </p>
+    <p class="indent3">Would build a list of all animals and make them available to be a Pet.</p>
+    <p class="indent2"><code>COMPANIONLIST:Pet|RACESUBTYPE=Fire</code> </p>
+    <p class="indent3">Would build a list of all creatures with a race subtype of 'Fire' and make them available to be a Pet.</p>
+    <p class="indent2"><code>COMPANIONLIST:Familiar|Quasit|PREFEAT:1,Special Familiar|PREALIGN:CE</code> </p>
+    <p class="indent3">A Quasit can be chosen as a Familiar but only if the master is evil and has the
+    	Special Familiar feat.</p>
+    <p class="indent2"><code>COMPANIONLIST:Animal Companion|Ape|FOLLOWERADJUSTMENT:-3</code> </p>
+    <p class="indent3">An Ape companion to a 4th level master gains the benefits normally granted to a
+    	companion of a 1st level master.</p>
 	<p></p>
 
 <hr>
