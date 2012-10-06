@@ -206,7 +206,7 @@ CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|K
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define						Save checks bonus								Combat bonus
 CLASS:Monk		HD:8		TYPE:Base.PC	ABB:Mnk		MAXLEVEL:20	SOURCEPAGE:p.56	DEFINE:FlurryOfBlows|1	DEFINE:MonkLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL
-CLASS:Monk		PREALIGN:LG,LN,LE
+CLASS:Monk		PREMULT:1,[PREALIGN:LG,LN,LE],[PREABILITY:1,CATEGORY=Archetype,TYPE.MonkAlignment]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Monk		STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE=Craft|Escape Artist|Intimidate|Knowledge (History)|Knowledge (Religion)|Perception|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Stealth|Swim
 ###Block:Proficiencies
