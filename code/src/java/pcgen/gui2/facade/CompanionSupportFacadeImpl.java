@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.list.CompanionList;
 import pcgen.core.FollowerOption;
 import pcgen.core.Globals;
@@ -373,7 +374,13 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 			{
 				String companionType = delegate.getCompanionType();
 				delegate.setCompanionFacade(character);
-				if (character.getMaster() == null)
+				
+				// Check for a companion being loaded that is not properly linked to the master.
+				// Note: When creating a companion we leave the linking to the create code.  
+				if (character.getMaster() == null
+					&& character.getRaceRef().getReference() != null
+					&& !Constants.NONESELECTED.equals(character.getRaceRef()
+						.getReference().getKeyName()))
 				{
 					CompanionList compList = keyToCompanionListMap.get(companionType);
 					final Follower newMaster =
