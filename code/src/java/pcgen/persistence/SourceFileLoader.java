@@ -737,6 +737,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 					if (aEq != null)
 					{
 						aEq = aEq.clone();
+						aEq.setBase(null);
 						aEq.load(aLine);
 						if (!aEq.isType(Constants.TYPE_CUSTOM))
 						{

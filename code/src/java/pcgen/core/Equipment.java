@@ -3279,6 +3279,7 @@ public final class Equipment extends PObject implements Serializable,
 			if (aString.startsWith("NAME" + endPart))
 			{
 				setName(aString.substring(4 + endPartLen));
+				put(StringKey.OUTPUT_NAME, getDisplayName());
 			}
 			else if (aString.startsWith("KEY" + endPart))
 			{
