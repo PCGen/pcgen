@@ -52,7 +52,7 @@ public class KitTemplate extends BaseKit
 	public void apply(PlayerCharacter aPC)
 	{
 		HashMapToList<PCTemplate, PCTemplate> selectedMap =
-			buildSelectedTemplateMap(aPC);
+			buildSelectedTemplateMap(aPC, true);
 
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
@@ -85,7 +85,7 @@ public class KitTemplate extends BaseKit
 		List<String> warnings)
 	{
 		HashMapToList<PCTemplate, PCTemplate> selectedMap =
-				buildSelectedTemplateMap(aPC);
+				buildSelectedTemplateMap(aPC, false);
 
 		if (selectedMap.size() > 0)
 		{
@@ -97,16 +97,20 @@ public class KitTemplate extends BaseKit
 	/**
 	 * Extract the templates to be applied and their choices
 	 * @param aPC The PC the kit is being applied to.
+	 * @param apply Is this a real application, false if a test run. 
 	 * @return The map of templates and child templates to be added
 	 */
 	private HashMapToList<PCTemplate, PCTemplate> buildSelectedTemplateMap(
-		PlayerCharacter aPC)
+		PlayerCharacter aPC, boolean apply)
 	{
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
 		final String oldChooser = ChooserFactory.getInterfaceClassname();
-		ChooserFactory.setInterfaceClassname(
-			"pcgen.util.chooser.RandomChooser"); //$NON-NLS-1$
+		if (!apply)
+		{
+			ChooserFactory.setInterfaceClassname(
+				"pcgen.util.chooser.RandomChooser"); //$NON-NLS-1$
+		}
 		HashMapToList<PCTemplate, PCTemplate> selectedMap =
 			new HashMapToList<PCTemplate, PCTemplate>();
 
@@ -131,7 +135,10 @@ public class KitTemplate extends BaseKit
 			selectedMap.addAllToListFor(templateToAdd, subAdded);
 		}
 
-		ChooserFactory.setInterfaceClassname(oldChooser);
+		if (!apply)
+		{
+			ChooserFactory.setInterfaceClassname(oldChooser);
+		}
 		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
 		return selectedMap;
 	}
