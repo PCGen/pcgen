@@ -18,6 +18,8 @@ SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo
 SOURCEDATE:2010-08
 ISOGL:YES
 
+# COMMENT: Updated to Errata 2nd Printing - Last Updated - 12/01/2010 on Oct 6th, 2012 - LegacyKing
+
 # Remove this once we're no longer in Beta Testing
 ISLICENSED:YES
 #LICENSE:FILE=pathfinderapgwip.html

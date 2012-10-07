@@ -130,7 +130,7 @@ Vest of the Cockroach	TYPE:Magic.Wondrous.Vest	COST:1600	WT:2		SOURCEPAGE:p.310	
 
 ###Block:W
 # Equipment Name				Type						Cost		Weight	Source Page
-War Paint of the Terrible Visage	TYPE:Magic.Wondrous.Consumable	COST:100	WT:0.01	SOURCEPAGE:p.310
+War Paint of the Terrible Visage	TYPE:Magic.Wondrous.Consumable	COST:100	WT:0.01	SOURCEPAGE:p.310	SPROP:(DC 11)
 
 ###Block: Cursed Items
 # Equipment Name			Type							Cost		Weight	Source Page
