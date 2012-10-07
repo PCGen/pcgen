@@ -1911,6 +1911,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		hpRef.setReference(theCharacter.hitPoints());
 		refreshTemplates();
 		refreshAvailableTempBonuses();
+		companionSupportFacade.refreshCompanionData();
 
 		updateLevelTodo();
 		buildAvailableDomainsList();
