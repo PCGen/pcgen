@@ -33,11 +33,17 @@ URL:RPG Now|http://rpg.drivethrustuff.com/index.php?cPath=562&affiliate_id=71282
 #EXTRAFILE:OGL.txt
 #EXTRAFILE:help_spycraft.html
 
+ABILITY:spycraft_abilities.lst
+ABILITY:spycraft_abilities_class.lst
+ABILITY:spycraft_abilities_skill.lst
+ABILITYCATEGORY:spycraft_abilitycategory.lst
+
 BIOSET:spycraft_biosettings.lst
 CLASS:spycraft_classes.lst
 RACE:spycraft_departments.lst
 FEAT:spycraft_feats.lst
-FEAT:spycraft_feats_hidden.lst
+#FEAT:spycraft_feats_hidden.lst
+# COMMENT: Moved to Abilities_Class
 LANGUAGE:spycraft_languages.lst
 SKILL:spycraft_skills.lst
 SKILL:spycraft_skills_languages.lst
@@ -60,6 +66,12 @@ EQUIPMENT:spycraft_vehicles.lst
 EQUIPMOD:spycraft_vehicle_mods.lst
 
 HELP:data/permissioned/alderacentgroup/spycraft/spycraft/help_spycraft.html
+
+
+SKILL:spycraft_skills_mod.lst
+
+
+HIDETYPE:SKILL|UnlockedPotential
 
 #
 # End

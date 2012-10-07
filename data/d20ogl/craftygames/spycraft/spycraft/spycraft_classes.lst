@@ -11,18 +11,25 @@ SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.crafty-games.c
 CLASS:Faceman	HD:10		TYPE:Base.PC	ABB:Fac		MAXLEVEL:20	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(((CL+3)*2)/5)-(CL==15)-(CL==17)	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(((CL+4)*3)/5)-2|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|CL/2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Faceman	STARTSKILLPTS:6	CSKILL:Bluff|TYPE=Craft|Cultures|Diplomacy|Disguise|Driver|Forgery|Gather Information|TYPE=Hobby|Innuendo|TYPE=Knowledge|Languages|TYPE=Language|Open Lock|Perform|TYPE=Profession|Read Lips|Search|Sense Motive|Sleight of Hand|Spot
-
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Linguist ~ Faceman
+2	ABILITY:Special Ability|AUTOMATIC|Cold Read ~ Faceman
+3	ABILITY:Special Ability|AUTOMATIC|Quick Change ~ Faceman
+4	ABILITY:Special Ability|AUTOMATIC|Backup ~ Faceman
+6	ABILITY:Special Ability|AUTOMATIC|Fake it ~ Faceman
+10	ABILITY:Special Ability|AUTOMATIC|1000 Faces ~ Faceman
+14	ABILITY:Special Ability|AUTOMATIC|Bald-Faced Lie ~ Faceman
+###Block:
 1																											AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)
-1	SAB:Linguist +%|FaceLinguist							DEFINE:FaceLinguist|(CL/4)+2	ADD:LANGUAGE|2|TYPE=Spoken	ADD:FEAT|Faceman Core Ability
-2	SAB:Cold Read (%/session)|ColdRead						DEFINE:ColdRead|1
-3	SAB:Quick Change (%/session)|QuickChange					DEFINE:QuickChange|(CL-1)/2
-4	SAB:Backup (%/session)|Backup							DEFINE:Backup|CL/4		ADD:LANGUAGE|TYPE=Spoken
-6	SAB:Fake it (%/session)|Fakeit						DEFINE:Fakeit|(CL-3)/3
+1								BONUS:VAR|FaceLinguist|(CL/4)+2	ADD:LANGUAGE|2|TYPE=Spoken	TEMPLATE:Class Core Ability
+2							BONUS:VAR|ColdRead|1
+3					BONUS:VAR|QuickChange|(CL-1)/2
+4							BONUS:VAR|Backup|CL/4		ADD:LANGUAGE|TYPE=Spoken
+6							BONUS:VAR|Fakeit|(CL-3)/3
 8																	ADD:LANGUAGE|TYPE=Spoken
-10	SAB:1,000 Faces (%/session)|ThousandFaces					DEFINE:ThousandFaces|CL/10
+10						BONUS:VAR|ThousandFaces|CL/10
 11								BONUS:VAR|ColdRead|1
 12																	ADD:LANGUAGE|TYPE=Spoken
-14	SAB:Bald-Faced Lie (1/session)
 16																	ADD:LANGUAGE|TYPE=Spoken
 19								BONUS:VAR|ColdRead|1
 20																	ADD:LANGUAGE|TYPE=Spoken
@@ -33,19 +40,27 @@ CLASS:Faceman	STARTSKILLPTS:6	CSKILL:Bluff|TYPE=Craft|Cultures|Diplomacy|Disguis
 CLASS:Fixer		HD:8		TYPE:Base.PC	ABB:Fix		MAXLEVEL:20	SOURCEPAGE:p.24	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|(((CL+3)*2)/5)	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(floor((CL*3)/5))-(floor(CL/5))	BONUS:VAR|BUDGETPOINTS|CL	BONUS:VAR|GADGETPOINTS|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fixer		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Boating|Climb|TYPE=Craft|Demolitions|Driver|Electronics|Escape Artist|Forgery|Hide|TYPE=Hobby|Innuendo|Jump|TYPE=Knowledge|Languages|TYPE=Language|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sleight of Hand|Spot|Tumble
-
-1	SAB:Procure																																		ADD:FEAT|Fixer Core Ability						AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)
-2																		BONUS:VAR|EvasionFactor|1+(CL>=11)+(CL>=19)																					AUTO:FEAT|Evasion
-3																		BONUS:VAR|SneakAttack|(CL-1)/2																							AUTO:FEAT|Sneak Attack
-4																		BONUS:VAR|UncannyDodge|CL/4																								AUTO:FEAT|Uncanny Dodge
-5	SAB:Improvisation (%/session)|FixerImprovisation	SAB:Master Thief (%/session)|FixerMasterThief									DEFINE:FixerImprovisation|0	DEFINE:FixerMasterThief|0
-6																																				ADD:FEAT|TYPE=Covert,TYPE=FixerSpecialAbility,TYPE=Gear
-9																																				ADD:FEAT|TYPE=Covert,TYPE=FixerSpecialAbility,TYPE=Gear
-10	SAB:Defensive Roll (%/session)|DefensiveRoll																		DEFINE:DefensiveRoll|CL/10
-12																																				ADD:FEAT|TYPE=Covert,TYPE=FixerSpecialAbility,TYPE=Gear
-14	SAB:Wildcard Gadget (1/session)
-15																																				ADD:FEAT|TYPE=Covert,TYPE=FixerSpecialAbility,TYPE=Gear
-18																																				ADD:FEAT|TYPE=Covert,TYPE=FixerSpecialAbility,TYPE=Gear
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Procure ~ Fixer
+2	ABILITY:Special Ability|AUTOMATIC|Evasion
+3	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+4	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
+5	ABILITY:Special Ability|AUTOMATIC|Improvisation ~ Fixer
+5	ABILITY:Special Ability|AUTOMATIC|Master Thief ~ Fixer
+10	ABILITY:Special Ability|AUTOMATIC|Defensive Roll ~ Fixer
+14	ABILITY:Special Ability|AUTOMATIC|Wildcard Gadget ~ Fixer
+###Block:
+1	TEMPLATE:Class Core Ability				AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)
+2	BONUS:VAR|EvasionFactor|1+(CL>=11)+(CL>=19)	
+3	BONUS:VAR|SneakAttack|(CL-1)/2		
+4	BONUS:VAR|UncannyDodge|CL/4			
+5	DEFINE:FixerImprovisation|0	DEFINE:FixerMasterThief|0
+6	BONUS:ABILITYPOOL|Fixer Class Ability|1
+9	BONUS:ABILITYPOOL|Fixer Class Ability|1
+10	BONUS:VAR|DefensiveRoll|CL/10
+12	BONUS:ABILITYPOOL|Fixer Class Ability|1
+15	BONUS:ABILITYPOOL|Fixer Class Ability|1
+18	BONUS:ABILITYPOOL|Fixer Class Ability|1
 
 ### Pointman ------------------------------------------------------------------------------------------------------
 
@@ -53,28 +68,28 @@ CLASS:Fixer		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Boating|Climb|TYPE=Cr
 CLASS:Pointman	HD:10		TYPE:Base.PC	ABB:Ptm		MAXLEVEL:20	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(((CL+3)*2)/5)	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(floor((CL*3)/5))-(floor(CL/5))|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(floor((CL*3)/5))-(floor(CL/5))	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|(CL*3)/4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Pointman	STARTSKILLPTS:6	CSKILL:Bluff|Bureaucracy|TYPE=Craft|Diplomacy|Driver|First Aid|TYPE=Knowledge|TYPE=Profession|Sense Motive|TYPE=Sport
-
+###Block:
+2	ABILITY:Special Ability|AUTOMATIC|Assistance ~ Pointman
+3	ABILITY:Special Ability|AUTOMATIC|Lead ~ Pointman
+4	ABILITY:Special Ability|AUTOMATIC|Tactics ~ Pointman
+10	ABILITY:Special Ability|AUTOMATIC|Serendipity ~ Pointman
+14	ABILITY:Special Ability|AUTOMATIC|Strategy ~ Pointman
+###Block:
 1																																																								AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)
-1																										ADD:FEAT|Pointman Core Ability	ADD:FEAT|Versatility	ADD:FEAT|Versatility	ADD:FEAT|Versatility	ADD:FEAT|Versatility	ADD:FEAT|Versatility	ADD:FEAT|Versatility
-2	SAB:Assistance (1/% time)|Assistance										DEFINE:Assistance|2
-3	SAB:Lead (%/session)|PointmanLead											DEFINE:PointmanLead|(CL-1)/2					ADD:FEAT|Versatility
-4	SAB:Tactics (+% bonus %/session)|TacticsBonus|TacticsPerSession						DEFINE:TacticsBonus|1	DEFINE:TacticsPerSession|CL/4
-5
-6																										ADD:FEAT|TYPE=CrossClassAbility	ADD:FEAT|Versatility
-7
+1																										TEMPLATE:Class Core Ability	BONUS:ABILITYPOOL|Versatility Choice|6
+2											BONUS:VAR|Assistance|2
+3												BONUS:VAR|PointmanLead|(CL-1)/2					BONUS:ABILITYPOOL|Versatility Choice Choice|1
+4							BONUS:VAR|TacticsBonus|1	BONUS:VAR|TacticsPerSession|CL/4
+6																										BONUS:ABILITYPOOL|Pointman Crossclass Choice|1	BONUS:ABILITYPOOL|Versatility Choice|1
 8												BONUS:VAR|TacticsBonus|1
-9																										ADD:FEAT|TYPE=CrossClassAbility	ADD:FEAT|Versatility
-10	SAB:Serendipity (%/session)|Serendipity										DEFINE:Serendipity|CL/10
+9																										BONUS:ABILITYPOOL|Pointman Crossclass Choice|1	BONUS:ABILITYPOOL|Versatility Choice|1
+10											BONUS:VAR|Serendipity|CL/10
 11												BONUS:VAR|Assistance|2
-12																										ADD:FEAT|TYPE=CrossClassAbility	ADD:FEAT|Versatility
-13
-14	SAB:Strategy (1/session)
-15																										ADD:FEAT|TYPE=CrossClassAbility	ADD:FEAT|Versatility
+12																										BONUS:ABILITYPOOL|Pointman Crossclass Choice|1	BONUS:ABILITYPOOL|Versatility Choice|1
+15																										BONUS:ABILITYPOOL|Pointman Crossclass Choice|1	BONUS:ABILITYPOOL|Versatility Choice|1
 16												BONUS:VAR|TacticsBonus|1
-17
-18																										ADD:FEAT|TYPE=CrossClassAbility	ADD:FEAT|Versatility
+18																										BONUS:ABILITYPOOL|Pointman Crossclass Choice|1	BONUS:ABILITYPOOL|Versatility Choice|1
 19												BONUS:VAR|Assistance|6
-20
 
 ### Snoop ---------------------------------------------------------------------------------------------------------
 
@@ -82,27 +97,26 @@ CLASS:Pointman	STARTSKILLPTS:6	CSKILL:Bluff|Bureaucracy|TYPE=Craft|Diplomacy|Dri
 CLASS:Snoop		HD:8		TYPE:Base.PC	ABB:Snp		MAXLEVEL:20	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(((CL+3)*2)/5)	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(CL/2)+2	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Snoop		STARTSKILLPTS:8	CSKILL:Appraise|Bureaucracy|Computers|Concentration|TYPE=Craft|Cryptography|Cultures|Diplomacy|Driver|Electronics|First Aid|Gather Information|Hide|TYPE=Hobby|TYPE=Knowledge|Languages|TYPE=Language|Listen|Mechanics|Move Silently|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Surveillance
-
-1	SAB:Flawless Search														ADD:FEAT|Snoop Core Ability								AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)
-2	SAB:Intuition (%/session)|Intuition							DEFINE:Intuition|1
-3	SAB:Jury-rig (+%)|Juryrig								DEFINE:Juryrig|(CL+1)/2
-4	SAB:Back Door (% systems)|BackDoor							DEFINE:BackDoor|CL/4
-5
-6																		ADD:FEAT|TYPE=AdvancedSkill,TYPE=BasicSkill,TYPE=Gear,TYPE=SnoopAbility
-7
-8
-9																		ADD:FEAT|TYPE=AdvancedSkill,TYPE=BasicSkill,TYPE=Gear,TYPE=SnoopAbility
-10	SAB:Master Cracker (%/session)|MasterCracker					DEFINE:MasterCracker|CL/10
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Flawless Search ~ Snoop
+2	ABILITY:Special Ability|AUTOMATIC|Intuition ~ Snoop
+3	ABILITY:Special Ability|AUTOMATIC|Jury-rig ~ Snoop
+4	ABILITY:Special Ability|AUTOMATIC|Back Door ~ Snoop
+10	ABILITY:Special Ability|AUTOMATIC|Master Cracker ~ Snoop
+14	ABILITY:Special Ability|AUTOMATIC|Global Search ~ Snoop
+###Block:
+1															TEMPLATE:Class Core Ability								AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)
+2								BONUS:VAR|Intuition|1
+3									BONUS:VAR|Juryrig|(CL+1)/2
+4								BONUS:VAR|BackDoor|CL/4
+6																		BONUS:ABILITYPOOL|Snoop Class Ability|1
+9																		BONUS:ABILITYPOOL|Snoop Class Ability|1
+10						BONUS:VAR|MasterCracker|CL/10
 11									BONUS:VAR|Intuition|1
-12																		ADD:FEAT|TYPE=AdvancedSkill,TYPE=BasicSkill,TYPE=Gear,TYPE=SnoopAbility
-13
-14	SAB:Global Search (1/session)
-15																		ADD:FEAT|TYPE=AdvancedSkill,TYPE=BasicSkill,TYPE=Gear,TYPE=SnoopAbility
-16
-17
-18																		ADD:FEAT|TYPE=AdvancedSkill,TYPE=BasicSkill,TYPE=Gear,TYPE=SnoopAbility
+12																		BONUS:ABILITYPOOL|Snoop Class Ability|1
+15																		BONUS:ABILITYPOOL|Snoop Class Ability|1
+18																		BONUS:ABILITYPOOL|Snoop Class Ability|1
 19									BONUS:VAR|Intuition|1
-20
 
 
 ### Soldier -------------------------------------------------------------------------------------------------------
@@ -111,27 +125,28 @@ CLASS:Snoop		STARTSKILLPTS:8	CSKILL:Appraise|Bureaucracy|Computers|Concentration
 CLASS:Soldier	HD:12		TYPE:Base.PC	ABB:Sol		MAXLEVEL:20	SOURCEPAGE:p.30	BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|(((CL+3)*2)/5)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(floor((CL*3)/5))-(floor(CL/5))|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|CL/2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Demolitions|Driver|First Aid|Intimidate|Jump|TYPE=Profession|TYPE=Sport|Spot|Survival|Swim|Tumble|Use Rope
-
+###Block:
+4	ABILITY:Special Ability|AUTOMATIC|Armor Use ~ Soldier
+10	ABILITY:Special Ability|AUTOMATIC|Portable Cover ~ Soldier
+14	ABILITY:Special Ability|AUTOMATIC|One in a Million ~ Soldier
+###Block:
 1																																																												AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Tactical)
-1																																								ADD:FEAT|Soldier Core Ability	ADD:FEAT|TYPE=BasicCombat,TYPE=MeleeCombat,TYPE=RangedCombat,TYPE=UnarmedCombat
+1																																								TEMPLATE:Class Core Ability	BONUS:ABILITYPOOL|Solder Class Ability|1
 2	DR:1/-
-3																																								ADD:FEAT|TYPE=BasicCombat,TYPE=MeleeCombat,TYPE=RangedCombat,TYPE=UnarmedCombat
-4			SAB:Armor Use +%|ArmorUse				BONUS:COMBAT|AC|ArmorUse|PREEQUIP:1,TYPE=Armor				BONUS:MISC|ACCCHECK|0-ArmorUse|PREEQUIP:1,TYPE=Armor						DEFINE:ArmorUse|CL/4
-5																																								ADD:FEAT|TYPE=BasicCombat,TYPE=MeleeCombat,TYPE=RangedCombat,TYPE=UnarmedCombat
-6																																								ADD:FEAT|Weapon Specialization
-7																																								ADD:FEAT|TYPE=BasicCombat,TYPE=MeleeCombat,TYPE=RangedCombat,TYPE=UnarmedCombat
-8
-9																																								ADD:FEAT|Weapon Specialization	ADD:FEAT|TYPE=BasicCombat,TYPE=MeleeCombat,TYPE=RangedCombat,TYPE=UnarmedCombat
-10			SAB:Portable Cover (1/% cover)|PortableCover																										DEFINE:PortableCover|4
-11																			BONUS:DR|-|1																			ADD:FEAT|TYPE=BasicCombat,TYPE=MeleeCombat,TYPE=RangedCombat,TYPE=UnarmedCombat
-12																																								ADD:FEAT|Weapon Specialization
-13																																								ADD:FEAT|TYPE=BasicCombat,TYPE=MeleeCombat,TYPE=RangedCombat,TYPE=UnarmedCombat
-14			SAB:One in a Million (1/session)
-15																																								ADD:FEAT|Weapon Specialization	ADD:FEAT|TYPE=BasicCombat,TYPE=MeleeCombat,TYPE=RangedCombat,TYPE=UnarmedCombat
-16
-17																																								ADD:FEAT|TYPE=BasicCombat,TYPE=MeleeCombat,TYPE=RangedCombat,TYPE=UnarmedCombat
-18																																								ADD:FEAT|Weapon Specialization
-19																			BONUS:DR|-|1																			ADD:FEAT|TYPE=BasicCombat,TYPE=MeleeCombat,TYPE=RangedCombat,TYPE=UnarmedCombat
+3																																								BONUS:ABILITYPOOL|Solder Class Ability|1
+4								BONUS:VAR|ArmorUse|CL/4
+5																																								BONUS:ABILITYPOOL|Solder Class Ability|1
+6																																								BONUS:ABILITYPOOL|Weapon Specialization|1
+7																																								BONUS:ABILITYPOOL|Solder Class Ability|1
+9																																								BONUS:ABILITYPOOL|Weapon Specialization|1	BONUS:ABILITYPOOL|Solder Class Ability|1
+10																													BONUS:VAR|PortableCover|4
+11																			BONUS:DR|-|1																			BONUS:ABILITYPOOL|Solder Class Ability|1
+12																																								BONUS:ABILITYPOOL|Weapon Specialization|1
+13																																								BONUS:ABILITYPOOL|Solder Class Ability|1
+15																																								BONUS:ABILITYPOOL|Weapon Specialization|1	BONUS:ABILITYPOOL|Solder Class Ability|1
+17																																								BONUS:ABILITYPOOL|Solder Class Ability|1
+18																																								BONUS:ABILITYPOOL|Weapon Specialization|1
+19																			BONUS:DR|-|1																			BONUS:ABILITYPOOL|Solder Class Ability|1
 20																															BONUS:VAR|PortableCover|-2
 
 ### Wheelman ------------------------------------------------------------------------------------------------------
@@ -140,28 +155,29 @@ CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Demolitions|Driver
 CLASS:Wheelman	HD:12		TYPE:Base.PC	ABB:Whl		MAXLEVEL:20	SOURCEPAGE:p.32	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(((CL+4)*3)/5)-2|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(((CL+4)*3)/5)-2	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|(CL*3)/4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wheelman	STARTSKILLPTS:6	CSKILL:Balance|Boating|TYPE=Craft|Demolitions|Disguise|Driver|Escape Artist|Handle Animal|Intimidate|Jump|Mechanics|Open Lock|Perform|Pilot|TYPE=Profession|TYPE=Sport|Spot|Surveillance|Survival|Swim
-
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Daredevil ~ Wheelman
+2	ABILITY:Special Ability|AUTOMATIC|Kick Start ~ Wheelman
+4	ABILITY:Special Ability|AUTOMATIC|Familiarity ~ Wheelman
+6	ABILITY:Special Ability|AUTOMATIC|Elbow Grease ~ Wheelman
+10	ABILITY:Special Ability|AUTOMATIC|Soup Her Up ~ Wheelman
+14	ABILITY:Special Ability|AUTOMATIC|That's Impossible ~ Wheelman
+###Block:
 1																									AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Tactical)
-1	SAB:Daredevil																ADD:FEAT|Wheelman Core Ability
-2	SAB:Kick Start (%/session)|KickStart					DEFINE:KickStart|1
-3																			ADD:FEAT|Speed Demon,TYPE=Chase
-4	SAB:Familiarity +%|Familiarity						DEFINE:Familiarity|CL/4
-5																			ADD:FEAT|Speed Demon,TYPE=Chase
-6	SAB:Elbow Grease +%|ElbowGrease						DEFINE:ElbowGrease|(floor((CL-3)/3))*2
-7																			ADD:FEAT|Speed Demon,TYPE=Chase
-8
-9																			ADD:FEAT|Speed Demon,TYPE=Chase
-10	SAB:Soup Her Up (% percent)|SoupHerUp					DEFINE:SoupHerUp|(floor(CL/10))*25
-11								BONUS:VAR|KickStart|1								ADD:FEAT|Speed Demon,TYPE=Chase
-12
-13																			ADD:FEAT|Speed Demon,TYPE=Chase
-14	SAB:That's Impossible (1/session)
-15																			ADD:FEAT|Speed Demon,TYPE=Chase
-16
-17																			ADD:FEAT|Speed Demon,TYPE=Chase
-18
-19								BONUS:VAR|KickStart|1								ADD:FEAT|Speed Demon,TYPE=Chase
-20
+1	BONUS:VAR|CustomRide|(CL/4)+4																TEMPLATE:Class Core Ability
+2						BONUS:VAR|KickStart|1
+3																			BONUS:ABILITYPOOL|Wheelman Class Ability|1
+4							BONUS:VAR|Familiarity|CL/4
+5																			BONUS:ABILITYPOOL|Wheelman Class Ability|1
+6							BONUS:VAR|ElbowGrease|(floor((CL-3)/3))*2
+7																			BONUS:ABILITYPOOL|Wheelman Class Ability|1
+9																			BONUS:ABILITYPOOL|Wheelman Class Ability|1
+10						BONUS:VAR|SoupHerUp|(floor(CL/10))*25
+11								BONUS:VAR|KickStart|1								BONUS:ABILITYPOOL|Wheelman Class Ability|1
+13																			BONUS:ABILITYPOOL|Wheelman Class Ability|1
+15																			BONUS:ABILITYPOOL|Wheelman Class Ability|1
+17																			BONUS:ABILITYPOOL|Wheelman Class Ability|1
+19								BONUS:VAR|KickStart|1								BONUS:ABILITYPOOL|Wheelman Class Ability|1
 
 ### Non-Player Classes ------------------------------------------------------------------------------------------------------
 
@@ -169,7 +185,7 @@ CLASS:Wheelman	STARTSKILLPTS:6	CSKILL:Balance|Boating|TYPE=Craft|Demolitions|Dis
 CLASS:Minion	HD:4		TYPE:Base.NPC	ABB:Min		MAXLEVEL:20	SOURCEPAGE:p.244	BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|(((CL+3)*2)/5)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Minion	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Demolitions|Driver|First Aid|Intimidate|Jump|TYPE=Profession|TYPE=Sport|Spot|Survival|Swim|Tumble|Use Rope
-
+###Block:
 1	TEMPLATE:Minion Vitality Dice	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:WEAPONPROF|TYPE=Melee|TYPE=Hurled|TYPE=Handgun|TYPE=Rifle|TYPE=Archaic|TYPE=Martial Arts|TYPE=Tactical
 
 #

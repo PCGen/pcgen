@@ -9,7 +9,7 @@ SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.crafty-games.c
 
 # Weapon Name			Type			Nb Hands
 Unarmed Strike			TYPE:Melee
-
+Grapple				TYPE:Melee.Unarmed.Bludgeoning
 # Melee Weapons
 
 Axe					TYPE:Melee
