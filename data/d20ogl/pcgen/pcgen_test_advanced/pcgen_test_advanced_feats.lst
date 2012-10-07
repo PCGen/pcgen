@@ -1,4 +1,23 @@
 
+MyTest ~ No Prexxx		TYPE:Code1730
+MyTest ~ Yes Prexxx		TYPE:Code1730	PREFEAT:1,MyTest ~ No Prexxx
+MyTest ~ Yes x2 Prexxx		TYPE:Code1730	PREFEAT:2,MyTest ~ No Prexxx,MyTest ~ Yes Prexxx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 CODE-1712A		TYPE:BugReport.Test.CODE	STACK:NO	MULT:YES	CHOOSE:SKILL|ALL			DESC:Select Skills
 CODE-1712B		TYPE:BugReport.Test.CODE	STACK:NO	MULT:YES	CHOOSE:SKILL|FEAT=CODE-1712A	DESC:Select Skills Taken
