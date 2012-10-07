@@ -597,7 +597,11 @@ public abstract class LoadContext
 		}
 	}
 
-	public void validateAssociations()
+	/**
+	 * Check the associations now that all the data is loaded.
+	 * @param validator The helper object to track things such as FORWARDREF instances.
+	 */
+	public void validateAssociations(LoadValidator validator)
 	{
 		for (ReferenceManufacturer<?> rm : ref.getAllManufacturers())
 		{
@@ -632,7 +636,8 @@ public abstract class LoadContext
 						if (!mfg.containsObject(choice)
 							&& (ref.getAbbreviatedObject(
 								clIdentity.getChoiceClass(), choice) == null)
-							&& (TokenLibrary.getPrimitive(cl, choice) == null))
+							&& (TokenLibrary.getPrimitive(cl, choice) == null)
+							&& !report(validator, clIdentity.getChoiceClass(), choice))
 						{
 							Logging.errorPrint("Found "
 								+ rm.getReferenceDescription() + " "
@@ -649,4 +654,11 @@ public abstract class LoadContext
 			}
 		}
 	}
+	
+
+	private boolean report(UnconstructedValidator validator, Class<?> cl, String key)
+	{
+		return validator != null && validator.allow(cl, key);
+	}
+	
 }
