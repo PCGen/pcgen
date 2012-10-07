@@ -3228,7 +3228,7 @@
 	TEMPLATE - Misc Magic
 ====================================
 ====================================-->
-<xsl:template match="misc/magics">
+	<xsl:template match="misc/magics">
 		<xsl:if test="count(magic) &gt; 0" >
 			<fo:table table-layout="fixed" space-before="2mm">
 				<fo:table-column column-width="94mm"/>
@@ -3271,7 +3271,7 @@
 		<fo:table-row xsl:use-attribute-sets="magic.lightline" keep-with-next.within-column="always">
 			<xsl:copy-of select="$content"/>
 		</fo:table-row>
-</xsl:template>
+	</xsl:template>
 
 
 
@@ -3426,7 +3426,7 @@
 		<fo:table-row xsl:use-attribute-sets="special_qualities.lightline" keep-with-next.within-column="always">
 			<xsl:copy-of select="$content"/>
 		</fo:table-row>
-</xsl:template>
+	</xsl:template>
 
 <!--
 ====================================

@@ -12,6 +12,20 @@
 
 	<xsl:output indent="yes"/>
 
+	<!-- Include all of the output attributes -->
+	<!-- vAttribs will be set up in the stylesheet that calls this one -->
+	<xsl:template name="attrib">
+		<xsl:param name="attribute"/>
+		<xsl:copy-of select="$vAttribs_all/*/*[name() = $attribute]/@*"/>
+		<xsl:for-each select="$vAttribs_all/*/*[name() = $attribute]/subattrib/@*">
+			<xsl:variable name="bar" select="name()"/>
+			<xsl:call-template name="attrib">
+				<xsl:with-param name="attribute" select="$bar"/>
+			</xsl:call-template>
+		</xsl:for-each>
+	</xsl:template>
+
+
 	<xsl:variable name="vAttribs_tree">
 		<myAttribs:myAttribs>
 			<xsl:copy-of select="$vAttribs/*"/>
@@ -1200,14 +1214,14 @@
 								<xsl:call-template name="attrib">
 									<xsl:with-param name="attribute" select="'hp.subdual'"/>
 								</xsl:call-template>
-								<fo:block font-size="10pt"/>
+							<fo:block font-size="10pt"/>
 							</fo:table-cell>
-								<fo:table-cell display-align="center">
+							<fo:table-cell display-align="center">
 								<xsl:call-template name="attrib">
 									<xsl:with-param name="attribute" select="'damage.threshold'"/>
-										<fo:block font-size="8pt">
-										<xsl:value-of select="hit_points/damage_threshold"/>
-									</fo:block>
+<!-->										<fo:block font-size="8pt">
+											<xsl:value-of select="hit_points/damage_threshold"/>
+										</fo:block>	-->
 								</xsl:call-template>
 								<fo:block font-size="10pt"/>
 							</fo:table-cell>
@@ -1215,9 +1229,10 @@
 							<fo:table-cell display-align="center">
 								<xsl:call-template name="attrib">
 									<xsl:with-param name="attribute" select="'damage.reduction'"/>
-								<fo:block font-size="8pt">
+<!-->								<fo:block font-size="8pt">
 									<xsl:value-of select="hit_points/damage_reduction"/>
-								</fo:block>
+								</fo:block>	-->
+								</xsl:call-template>
 							</fo:table-cell>
 							<fo:table-cell/>
 							<fo:table-cell display-align="center">

@@ -5,8 +5,462 @@
 	2006/02/28 implemented FREQ [ 1411525 ] [MSRD] display offhand penalties for ranged weap - Frank Kliewe
  -->
 
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format">
+
+
+<xsl:stylesheet version="1.0"
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+	xmlns:fo="http://www.w3.org/1999/XSL/Format"
+	xmlns:xalan="http://xml.apache.org/xalan"
+	xmlns:str="http://xsltsl.sourceforge.net/string.html"
+	xmlns:Psionics="my:Psionics"
+	xmlns:myAttribs="my:Attribs"
+	exclude-result-prefixes="myAttribs Psionics">
+
+
 	<xsl:output indent="yes"/>
+	<!-- Include all of the output attributes -->
+	<!-- vAttribs will be set up in the stylesheet that calls this one -->
+	<xsl:template name="attrib">
+		<xsl:param name="attribute"/>
+		<xsl:copy-of select="$vAttribs_all/*/*[name() = $attribute]/@*"/>
+		<xsl:for-each select="$vAttribs_all/*/*[name() = $attribute]/subattrib/@*">
+			<xsl:variable name="bar" select="name()"/>
+			<xsl:call-template name="attrib">
+				<xsl:with-param name="attribute" select="$bar"/>
+			</xsl:call-template>
+		</xsl:for-each>
+	</xsl:template>
+
+	<xsl:variable name="vAttribs_tree">
+		<myAttribs:myAttribs>
+			<xsl:copy-of select="$vAttribs/*"/>
+			<xsl:copy-of select="document('leadership.xsl')/*/myAttribs:*/*"/>
+		</myAttribs:myAttribs>
+	</xsl:variable>
+	<xsl:variable name="vAttribs_all" select="xalan:nodeset($vAttribs_tree)"/>
+	<xsl:variable name="pageHeight">
+		<xsl:choose>
+			<xsl:when test="contains(/character/export/paperinfo/height, 'in')">
+				<xsl:value-of select="25.4 * substring-before(/character/export/paperinfo/height, 'in')"/>
+			</xsl:when>
+			<xsl:when test="contains(/character/export/paperinfo/height, 'cm')">
+				<xsl:value-of select="10 * substring-before(/character/export/paperinfo/height, 'cm')"/>
+			</xsl:when>
+			<xsl:when test="contains(/character/export/paperinfo/height, 'mm')">
+				<xsl:value-of select="substring-before(/character/export/paperinfo/height, 'mm')"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:choose>
+					<xsl:when test="contains(/character/export/paperinfo/name, 'Letter')">
+						<xsl:value-of select="25.4 * 11.0"/>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:value-of select="297"/>
+					</xsl:otherwise>
+				</xsl:choose>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:variable>
+	<xsl:variable name="pageWidth">
+		<xsl:choose>
+			<xsl:when test="contains(/character/export/paperinfo/width, 'in')">
+				<xsl:value-of select="25.4 * substring-before(/character/export/paperinfo/width, 'in')"/>
+			</xsl:when>
+			<xsl:when test="contains(/character/export/paperinfo/width, 'cm')">
+				<xsl:value-of select="10 * substring-before(/character/export/paperinfo/width, 'cm')"/>
+			</xsl:when>
+			<xsl:when test="contains(/character/export/paperinfo/width, 'mm')">
+				<xsl:value-of select="substring-before(/character/export/paperinfo/width, 'mm')"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:choose>
+					<xsl:when test="contains(/character/export/paperinfo/name, 'Letter')">
+						<xsl:value-of select="25.4 * 8.5"/>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:value-of select="210"/>
+					</xsl:otherwise>
+				</xsl:choose>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:variable>
+	<xsl:variable name="pageMarginTop">
+		<xsl:choose>
+			<xsl:when test="contains(/character/export/paperinfo/margins/top, 'in')">
+				<xsl:value-of select="25.4 * substring-before(/character/export/paperinfo/margins/top, 'in')"/>
+			</xsl:when>
+			<xsl:when test="contains(/character/export/paperinfo/margins/top, 'cm')">
+				<xsl:value-of select="10 * substring-before(/character/export/paperinfo/margins/top, 'cm')"/>
+			</xsl:when>
+			<xsl:when test="contains(/character/export/paperinfo/margins/top, 'mm')">
+				<xsl:value-of select="substring-before(/character/export/paperinfo/margins/top, 'mm')"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="10"/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:variable>
+	<xsl:variable name="pageMarginBottom">
+		<xsl:choose>
+			<xsl:when test="contains(/character/export/paperinfo/margins/bottom, 'in')">
+				<xsl:value-of select="25.4 * substring-before(/character/export/paperinfo/margins/bottom, 'in')"/>
+			</xsl:when>
+			<xsl:when test="contains(/character/export/paperinfo/margins/bottom, 'cm')">
+				<xsl:value-of select="10 * substring-before(/character/export/paperinfo/margins/bottom, 'cm')"/>
+			</xsl:when>
+			<xsl:when test="contains(/character/export/paperinfo/margins/bottom, 'mm')">
+				<xsl:value-of select="substring-before(/character/export/paperinfo/margins/bottom, 'mm')"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="10"/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:variable>
+	<xsl:variable name="pageMarginLeft">
+		<xsl:choose>
+			<xsl:when test="contains(/character/export/paperinfo/margins/left, 'in')">
+				<xsl:value-of select="25.4 * substring-before(/character/export/paperinfo/margins/left, 'in')"/>
+			</xsl:when>
+			<xsl:when test="contains(/character/export/paperinfo/margins/left, 'cm')">
+				<xsl:value-of select="10 * substring-before(/character/export/paperinfo/margins/left, 'cm')"/>
+			</xsl:when>
+			<xsl:when test="contains(/character/export/paperinfo/margins/left, 'mm')">
+				<xsl:value-of select="substring-before(/character/export/paperinfo/margins/left, 'mm')"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="10"/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:variable>
+	<xsl:variable name="pageMarginRight">
+		<xsl:choose>
+			<xsl:when test="contains(/character/export/paperinfo/margins/right, 'in')">
+				<xsl:value-of select="25.4 * substring-before(/character/export/paperinfo/margins/right, 'in')"/>
+			</xsl:when>
+			<xsl:when test="contains(/character/export/paperinfo/margins/right, 'cm')">
+				<xsl:value-of select="10 * substring-before(/character/export/paperinfo/margins/right, 'cm')"/>
+			</xsl:when>
+			<xsl:when test="contains(/character/export/paperinfo/margins/right, 'mm')">
+				<xsl:value-of select="substring-before(/character/export/paperinfo/margins/right, 'mm')"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="10"/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:variable>
+	<xsl:variable name="pagePrintableWidth">
+		<xsl:value-of select="($pageWidth - $pageMarginLeft - $pageMarginRight)"/>
+	</xsl:variable>
+	<xsl:variable name="pagePrintableHeight">
+		<xsl:value-of select="($pageHeight - $pageMarginTop - $pageMarginBottom)"/>
+	</xsl:variable>
+	<xsl:variable name="skillmastery">
+		<xsl:for-each select="/character/special_qualities/special_quality">
+			<xsl:if test="substring(name,1,13)='Skill Mastery'">
+				<xsl:value-of select="associated"/>
+			</xsl:if>
+		</xsl:for-each>
+	</xsl:variable>
+
+	<!--
+====================================
+====================================
+	TEMPLATE - PARAGRAGH LIST
+====================================
+====================================-->
+	<xsl:template name="paragraghlist">
+		<xsl:param name="tag"/>
+		<xsl:if test="count(./*[name()=$tag]/*[name()='para']) = 0">
+			<xsl:value-of select="./*[name()=$tag]"/>
+		</xsl:if>
+		<xsl:if test="count(./*[name()=$tag]/*[name()='para']) &gt; 0">
+			<xsl:for-each select="./*[name()=$tag]/*[name()='para']">
+				<xsl:if test="count(./*[name()='table']) &gt; 0">
+					<xsl:call-template name="paragraghlist.table"/>
+				</xsl:if>
+				<xsl:if test="count(./*[name()='table']) = 0">
+					<xsl:if test="string-length(.) &gt; 0">
+						<fo:block text-indent="5pt">
+							<xsl:value-of select="." />
+						</fo:block> 
+					</xsl:if>
+					<xsl:if test="string-length(.) = 0">
+						<fo:block text-indent="5pt">
+							&#160;
+						</fo:block> 
+					</xsl:if>
+				</xsl:if>
+			</xsl:for-each>
+		</xsl:if>
+	</xsl:template>
+
+	<!--
+====================================
+====================================
+	TEMPLATE - PARAGRAGH LIST
+====================================
+====================================-->
+	<xsl:template name="paragraghlist.table">
+		<xsl:for-each select="./table">
+			<fo:table table-layout="fixed" inline-progression-dimension="auto">
+				<xsl:for-each select="./table-column">
+					<fo:table-column>
+						<xsl:attribute name="column-width">
+							<xsl:value-of select="@column-width" />
+						</xsl:attribute> 
+					</fo:table-column>
+				</xsl:for-each>
+				<xsl:for-each select="./table-body">
+					<fo:table-body>
+						<xsl:for-each select="./table-row">
+							<fo:table-row>
+								<xsl:for-each select="./table-cell">
+									<fo:table-cell>
+										<fo:block text-indent="5pt">
+											<xsl:value-of select="." />
+										</fo:block> 
+									</fo:table-cell>
+								</xsl:for-each>
+							</fo:table-row>
+						</xsl:for-each>
+					</fo:table-body>
+				</xsl:for-each>
+			</fo:table>
+		</xsl:for-each>
+	</xsl:template>
+
+
+	<myAttribs:myAttribs>
+		<border border-width="0.5pt" border-style="solid" />
+		<centre text-align="center" />
+		<border.temp border-width="2pt" border-style="solid" border-color="lightgrey"><subattrib centre=""/></border.temp>
+
+		<normal color="black" background-color="white" border-color="black"/>
+		<light color="black" background-color="white" border-color="black"/>
+		<medium color="black" background-color="lightgrey" border-color="black"/>
+		<dark color="black" background-color="lightgrey" border-color="black"/>
+		<very.dark color="black" background-color="lightgrey" border-color="black"/>
+		<inverse color="black" background-color="#999999" border-color="black"/>
+
+		<bio display-align="after" color="black" background-color="transparent" border-color="black"></bio>
+		<bio.title border-top-width="0.5pt" border-top-style="solid"><subattrib normal=""/></bio.title>
+
+		<picture><subattrib normal="" border=""/></picture>
+
+		<stat.title><subattrib border="" centre="" inverse="" /></stat.title>
+		<stat.score><subattrib border="" centre="" light="" /></stat.score>
+		<stat.modifier><subattrib stat.score="" /></stat.modifier>
+		<stat.base.score><subattrib border="" centre="" normal="" /></stat.base.score>
+		<stat.base.modifier><subattrib stat.base.score="" /></stat.base.modifier>
+		<stat.temp.score color="lightgrey"><subattrib  centre="" border.temp=""/></stat.temp.score>
+		<stat.temp.modifier><subattrib stat.temp.score=""/></stat.temp.modifier>
+
+		<hp.title><subattrib border="" centre="" inverse=""/></hp.title>
+		<hp.total><subattrib border="" centre="" light=""/></hp.total>
+		<hp.current><subattrib border="" centre="" normal=""/></hp.current>
+		<hp.subdual><subattrib border="" centre="" normal=""/></hp.subdual>
+		<damage.reduction><subattrib hp.current=""/></damage.reduction>
+		<speed><subattrib border="" centre="" normal=""/></speed>
+
+		<ac.title><subattrib border="" centre="" inverse=""/></ac.title>
+		<ac.total><subattrib border="" centre="" light=""/></ac.total>
+		<ac.flatfooted><subattrib border="" centre="" light=""/></ac.flatfooted>
+		<ac.touch><subattrib border="" centre="" light=""/></ac.touch>
+		<ac><subattrib border="" centre="" normal=""/></ac>
+		<miss_chance><subattrib border="" centre="" normal=""/></miss_chance>
+		<spell_failure><subattrib border="" centre="" light=""/></spell_failure>
+		<ac_check><subattrib border="" centre="" light=""/></ac_check>
+		<spell_resistance><subattrib border="" centre="" light=""/></spell_resistance>
+
+		<initiative.title><subattrib border="" centre="" inverse=""/></initiative.title>
+		<initiative.total><subattrib border="" centre="" light=""/></initiative.total>
+		<initiative.general><subattrib border="" centre="" normal=""/></initiative.general>
+
+		<bab.title><subattrib border="" centre="" inverse=""/></bab.title>
+		<bab.total><subattrib border="" centre="" light=""/></bab.total>
+
+		<skills.header><subattrib centre="" inverse=""/></skills.header>
+		<skills.border><subattrib border="" inverse=""/></skills.border>
+		<skills.darkline><subattrib medium="" /></skills.darkline>
+		<skills.lightline><subattrib light="" /></skills.lightline>
+		<skills.darkline.total><subattrib dark="" /></skills.darkline.total>
+		<skills.lightline.total><subattrib medium="" /></skills.lightline.total>
+		<skills.footer border-bottom-width="0.5pt" border-bottom-style="solid"></skills.footer>
+
+		<saves.title><subattrib border="" centre="" inverse=""/></saves.title>
+		<saves.total><subattrib border="" centre="" light=""/></saves.total>
+		<saves><subattrib border="" centre="" normal=""/></saves>
+
+		<tohit.title><subattrib border="" centre="" inverse=""/></tohit.title>
+		<tohit.total><subattrib border="" centre="" light=""/></tohit.total>
+		<tohit><subattrib border="" centre="" normal=""/></tohit>
+
+		<weapon.title><subattrib border="" centre="" inverse=""/></weapon.title>
+		<weapon.border><subattrib border="" inverse=""/></weapon.border>
+		<weapon.hilight><subattrib border="" centre="" light=""/></weapon.hilight>
+		<weapon><subattrib border="" centre="" normal=""/></weapon>
+
+		<protection.title><subattrib border="" centre="" inverse=""/></protection.title>
+		<protection.border padding="0.5pt"><subattrib border="" inverse=""/></protection.border>
+		<protection.darkline><subattrib  centre="" medium="" /></protection.darkline>
+		<protection.lightline><subattrib  centre="" light="" /></protection.lightline>
+
+		<rage.title><subattrib  centre="" inverse=""/></rage.title>
+		<rage.border padding="0.5pt"><subattrib border="" inverse=""/></rage.border>
+		<rage><subattrib normal=""/></rage>
+
+		<checklist.title><subattrib  centre="" inverse=""/></checklist.title>
+		<checklist.border padding="0.5pt"><subattrib border="" inverse=""/></checklist.border>
+		<checklist><subattrib normal=""/></checklist>
+
+		<wildshape.title><subattrib centre="" inverse=""/></wildshape.title>
+		<wildshape.border padding="0.5pt"><subattrib border="" inverse=""/></wildshape.border>
+		<wildshape><subattrib normal=""/></wildshape>
+
+		<bard.title><subattrib centre="" inverse=""/></bard.title>
+		<bard.border padding="0.5pt"><subattrib border="" inverse=""/></bard.border>
+		<bard><subattrib  normal=""/></bard>
+
+		<psionics.title><subattrib  centre="" inverse=""/></psionics.title>
+		<psionics.border padding="0.5pt"><subattrib border="" inverse=""/></psionics.border>
+		<psionics><subattrib border="" centre="" normal=""/></psionics>
+
+		<turning.title><subattrib centre="" inverse=""/></turning.title>
+		<turning.border padding="0.5pt"><subattrib border="" inverse=""/></turning.border>
+		<turning><subattrib  centre="" normal=""/></turning>
+		<turning.lightline><subattrib centre="" light=""/></turning.lightline>
+		<turning.darkline><subattrib centre="" medium=""/></turning.darkline>
+
+		<stunningfist.title><subattrib centre="" inverse=""/></stunningfist.title>
+		<stunningfist.border padding="0.5pt"><subattrib border="" inverse=""/></stunningfist.border>
+		<stunningfist><subattrib normal=""/></stunningfist>
+
+		<wholeness.title><subattrib  centre="" inverse=""/></wholeness.title>
+		<wholeness.border padding="0.5pt"><subattrib border="" inverse=""/></wholeness.border>
+		<wholeness><subattrib  normal=""/></wholeness>
+
+		<layonhands.title><subattrib centre="" inverse=""/></layonhands.title>
+		<layonhands.border padding="0.5pt"><subattrib border="" inverse=""/></layonhands.border>
+		<layonhands><subattrib  normal=""/></layonhands>
+
+		<domains.title><subattrib  centre="" inverse=""/></domains.title>
+		<domains.border padding="0.5pt"><subattrib border="" inverse=""/></domains.border>
+		<domains.lightline><subattrib  light=""/></domains.lightline>
+		<domains.darkline><subattrib  medium=""/></domains.darkline>
+
+		<proficiencies.title><subattrib centre="" inverse=""/></proficiencies.title>
+		<proficiencies.border padding="0.5pt"><subattrib border="" inverse=""/></proficiencies.border>
+		<proficiencies><subattrib centre="" normal=""/></proficiencies>
+
+		<prohibited.title><subattrib centre="" inverse=""/></prohibited.title>
+		<prohibited.border padding="0.5pt"><subattrib border="" inverse=""/></prohibited.border>
+		<prohibited><subattrib centre="" normal=""/></prohibited>
+
+		<languages.title><subattrib centre="" inverse=""/></languages.title>
+		<languages.border padding="0.5pt"><subattrib border="" inverse=""/></languages.border>
+		<languages><subattrib  centre="" normal=""/></languages>
+
+		<templates.title><subattrib centre="" inverse=""/></templates.title>
+		<templates.border padding="0.5pt"><subattrib border="" inverse=""/></templates.border>
+		<templates.lightline><subattrib light=""/></templates.lightline>
+		<templates.darkline><subattrib medium=""/></templates.darkline>
+
+		<companions.title><subattrib border="" centre="" inverse=""/></companions.title>
+		<companions><subattrib border="" centre="" normal=""/></companions>
+
+		<equipment.title><subattrib centre="" inverse=""/></equipment.title>
+		<equipment.border padding="0.5pt"><subattrib border="" inverse=""/></equipment.border>
+		<equipment.lightline><subattrib light=""/></equipment.lightline>
+		<equipment.darkline><subattrib medium=""/></equipment.darkline>
+
+		<weight.title><subattrib centre="" inverse=""/></weight.title>
+		<weight.border padding="0.5pt"><subattrib border="" inverse=""/></weight.border>
+		<weight.lightline><subattrib light=""/></weight.lightline>
+		<weight.darkline><subattrib  medium=""/></weight.darkline>
+
+		<money.title><subattrib  centre="" inverse=""/></money.title>
+		<money.border padding="0.5pt"><subattrib border="" inverse=""/></money.border>
+		<money.lightline><subattrib light=""/></money.lightline>
+		<money.darkline><subattrib medium=""/></money.darkline>
+
+		<magic.title><subattrib centre="" inverse=""/></magic.title>
+		<magic.border padding="0.5pt"><subattrib border="" inverse=""/></magic.border>
+		<magic.lightline><subattrib light=""/></magic.lightline>
+		<magic.darkline><subattrib medium=""/></magic.darkline>
+
+		<special_abilities.title><subattrib centre="" inverse=""/></special_abilities.title>
+		<special_abilities.border padding="0.5pt"><subattrib border="" inverse=""/></special_abilities.border>
+		<special_abilities.lightline><subattrib light=""/></special_abilities.lightline>
+		<special_abilities.darkline><subattrib medium=""/></special_abilities.darkline>
+
+		<special_attacks.title><subattrib centre="" inverse=""/></special_attacks.title>
+		<special_attacks.border padding="0.5pt"><subattrib border="" inverse=""/></special_attacks.border>
+		<special_attacks.lightline><subattrib light=""/></special_attacks.lightline>
+		<special_attacks.darkline><subattrib medium=""/></special_attacks.darkline>
+
+		<archetypes.title><subattrib centre="" inverse=""/></archetypes.title>
+		<archetypes.border padding="0.5pt"><subattrib border="" inverse=""/></archetypes.border>
+		<archetypes.lightline><subattrib light=""/></archetypes.lightline>
+		<archetypes.darkline><subattrib medium=""/></archetypes.darkline>
+
+		<animal_tricks.title><subattrib centre="" inverse=""/></animal_tricks.title>
+		<animal_tricks.border padding="0.5pt"><subattrib border="" inverse=""/></animal_tricks.border>
+		<animal_tricks.lightline><subattrib light=""/></animal_tricks.lightline>
+		<animal_tricks.darkline><subattrib medium=""/></animal_tricks.darkline>
+
+		<special_qualities.title><subattrib centre="" inverse=""/></special_qualities.title>
+		<special_qualities.border padding="0.5pt"><subattrib border="" inverse=""/></special_qualities.border>
+		<special_qualities.lightline><subattrib light=""/></special_qualities.lightline>
+		<special_qualities.darkline><subattrib medium=""/></special_qualities.darkline>
+
+		<afflictions.title><subattrib centre="" inverse=""/></afflictions.title>
+		<afflictions.border padding="0.5pt"><subattrib border="" inverse=""/></afflictions.border>
+		<afflictions.lightline><subattrib light=""/></afflictions.lightline>
+		<afflictions.darkline><subattrib medium=""/></afflictions.darkline>
+
+		<tempbonuses.title><subattrib centre="" inverse=""/></tempbonuses.title>
+		<tempbonuses.border padding="0.5pt"><subattrib border="" inverse=""/></tempbonuses.border>
+		<tempbonuses.lightline><subattrib light=""/></tempbonuses.lightline>
+		<tempbonuses.darkline><subattrib medium=""/></tempbonuses.darkline>
+
+
+
+		<intelligent_items.title><subattrib centre="" inverse=""/></intelligent_items.title>
+		<intelligent_items.border padding="0.5pt"><subattrib border="" inverse=""/></intelligent_items.border>
+		<intelligent_items.lightline><subattrib light=""/></intelligent_items.lightline>
+		<intelligent_items.darkline><subattrib medium=""/></intelligent_items.darkline>
+
+		<traits.title><subattrib centre="" inverse=""/></traits.title>
+		<traits.border padding="0.5pt"><subattrib border="" inverse=""/></traits.border>
+		<traits.lightline><subattrib light=""/></traits.lightline>
+		<traits.darkline><subattrib medium=""/></traits.darkline>
+
+		<salient_divine_abilities.title><subattrib centre="" inverse=""/></salient_divine_abilities.title>
+		<salient_divine_abilities.border padding="0.5pt"><subattrib border="" inverse=""/></salient_divine_abilities.border>
+		<salient_divine_abilities.lightline><subattrib light=""/></salient_divine_abilities.lightline>
+		<salient_divine_abilities.darkline><subattrib medium=""/></salient_divine_abilities.darkline>
+
+		<feats.title><subattrib centre="" inverse=""/></feats.title>
+		<feats.border padding="0.5pt"><subattrib border="" inverse=""/></feats.border>
+		<feats.lightline><subattrib light=""/></feats.lightline>
+		<feats.darkline><subattrib medium=""/></feats.darkline>
+
+		<spelllist.known.header><subattrib border="" inverse="" very.dark=""/></spelllist.known.header>
+		<spelllist.known.header.centre><subattrib border="" inverse="" very.dark="" centre="" /></spelllist.known.header.centre>
+		<spelllist.known.known><subattrib border="" centre="" dark=""/></spelllist.known.known>
+		<spelllist.known.perday><subattrib border="" centre="" light=""/></spelllist.known.perday>
+		<spelllist.header><subattrib centre="" inverse=""/></spelllist.header>
+		<spelllist.footer><subattrib centre="" inverse=""/></spelllist.footer>
+		<spelllist.levelheader><subattrib centre="" dark=""/></spelllist.levelheader>
+		<spelllist.darkline><subattrib medium=""/></spelllist.darkline>
+		<spelllist.lightline><subattrib light=""/></spelllist.lightline>
+		<spells.memorized.header><subattrib centre="" very.dark=""/></spells.memorized.header>
+		<spells.memorized.level border-bottom-width="0.5pt" border-bottom-style="solid"><subattrib centre="" normal=""/></spells.memorized.level>
+		<spells.memorized><subattrib normal=""/></spells.memorized>
+
+	</myAttribs:myAttribs>
+	<xsl:variable name="vAttribs" select="document('')/*/myAttribs:*"/>
+
 
 	<xsl:attribute-set name="border">
 		<xsl:attribute name="border-width">0.5pt</xsl:attribute>
@@ -224,245 +678,245 @@
 	</xsl:attribute-set>
 
 
-<xsl:attribute-set name="tohit.title" use-attribute-sets="border centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">black</xsl:attribute>
-	<xsl:attribute name="color">white</xsl:attribute>
-</xsl:attribute-set>
+	<xsl:attribute-set name="tohit.title" use-attribute-sets="border centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">black</xsl:attribute>
+		<xsl:attribute name="color">white</xsl:attribute>
+	</xsl:attribute-set>
 
-<xsl:attribute-set name="tohit.total" use-attribute-sets="border centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">white</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
-
-
-<xsl:attribute-set name="tohit" use-attribute-sets="border centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">white</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
+	<xsl:attribute-set name="tohit.total" use-attribute-sets="border centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">white</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
 
 
-
-<xsl:attribute-set name="weapon.title" use-attribute-sets="border centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">black</xsl:attribute>
-	<xsl:attribute name="color">white</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="weapon" use-attribute-sets="border centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">white</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="weapon.hilight" use-attribute-sets="border centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">white</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="protection.title" use-attribute-sets="border centre">
-	<xsl:attribute name="background-color">black</xsl:attribute>
-	<xsl:attribute name="color">white</xsl:attribute>
-	<xsl:attribute name="border-color">black</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="protection" use-attribute-sets="border centre">
-	<xsl:attribute name="background-color">white</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-	<xsl:attribute name="border-color">black</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="protection.darkline" use-attribute-sets="centre">
-	<xsl:attribute name="background-color">lightgrey</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="protection.lightline" use-attribute-sets="centre">
-	<xsl:attribute name="background-color">white</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="domains.title" use-attribute-sets="border centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">black</xsl:attribute>
-	<xsl:attribute name="color">white</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="domains.lightline" use-attribute-sets="border">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">white</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="domains.darkline" use-attribute-sets="border">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">lightgrey</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
-
-
-<xsl:attribute-set name="proficiencies.title" use-attribute-sets="border centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">black</xsl:attribute>
-	<xsl:attribute name="color">white</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="proficiencies" use-attribute-sets="border centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">white</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="languages.title" use-attribute-sets="border centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">black</xsl:attribute>
-	<xsl:attribute name="color">white</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="languages" use-attribute-sets="border centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">white</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
-
-
-<xsl:attribute-set name="templates.title" use-attribute-sets="border centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">black</xsl:attribute>
-	<xsl:attribute name="color">white</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="templates.lightline" use-attribute-sets="border">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">white</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="templates.darkline" use-attribute-sets="border">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">lightgrey</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="companions.title" use-attribute-sets="border centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">black</xsl:attribute>
-	<xsl:attribute name="color">white</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="companions" use-attribute-sets="border centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">white</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="equipment.title" use-attribute-sets="centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">black</xsl:attribute>
-	<xsl:attribute name="color">white</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="equipment.lightline" use-attribute-sets="border">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">white</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="equipment.darkline" use-attribute-sets="border">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">lightgrey</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="weight.title" use-attribute-sets="centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">black</xsl:attribute>
-	<xsl:attribute name="color">white</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="weight" use-attribute-sets="border">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">white</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="weight.solid" use-attribute-sets="border">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">lightgrey</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="money.title" use-attribute-sets="centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">black</xsl:attribute>
-	<xsl:attribute name="color">white</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="money.lightline">
-	<xsl:attribute name="background-color">white</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="money.darkline">
-	<xsl:attribute name="background-color">lightgrey</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
-
-
-<xsl:attribute-set name="magic.title" use-attribute-sets="centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">black</xsl:attribute>
-	<xsl:attribute name="color">white</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="magic.lightline">
-	<xsl:attribute name="background-color">white</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
-
-<xsl:attribute-set name="magic.darkline">
-	<xsl:attribute name="background-color">lightgrey</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
+	<xsl:attribute-set name="tohit" use-attribute-sets="border centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">white</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
 
 
 
-<xsl:attribute-set name="special_abilities.title" use-attribute-sets="centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">black</xsl:attribute>
-	<xsl:attribute name="color">white</xsl:attribute>
-</xsl:attribute-set>
+	<xsl:attribute-set name="weapon.title" use-attribute-sets="border centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">black</xsl:attribute>
+		<xsl:attribute name="color">white</xsl:attribute>
+	</xsl:attribute-set>
 
-<xsl:attribute-set name="special_abilities.lightline">
-	<xsl:attribute name="background-color">white</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
+	<xsl:attribute-set name="weapon" use-attribute-sets="border centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">white</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
 
-<xsl:attribute-set name="special_abilities.darkline">
-	<xsl:attribute name="background-color">lightgrey</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
+	<xsl:attribute-set name="weapon.hilight" use-attribute-sets="border centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">white</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="protection.title" use-attribute-sets="border centre">
+		<xsl:attribute name="background-color">black</xsl:attribute>
+		<xsl:attribute name="color">white</xsl:attribute>
+		<xsl:attribute name="border-color">black</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="protection" use-attribute-sets="border centre">
+		<xsl:attribute name="background-color">white</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+		<xsl:attribute name="border-color">black</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="protection.darkline" use-attribute-sets="centre">
+		<xsl:attribute name="background-color">lightgrey</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="protection.lightline" use-attribute-sets="centre">
+		<xsl:attribute name="background-color">white</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="domains.title" use-attribute-sets="border centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">black</xsl:attribute>
+		<xsl:attribute name="color">white</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="domains.lightline" use-attribute-sets="border">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">white</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="domains.darkline" use-attribute-sets="border">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">lightgrey</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
+
+
+	<xsl:attribute-set name="proficiencies.title" use-attribute-sets="border centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">black</xsl:attribute>
+		<xsl:attribute name="color">white</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="proficiencies" use-attribute-sets="border centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">white</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="languages.title" use-attribute-sets="border centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">black</xsl:attribute>
+		<xsl:attribute name="color">white</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="languages" use-attribute-sets="border centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">white</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
+
+
+	<xsl:attribute-set name="templates.title" use-attribute-sets="border centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">black</xsl:attribute>
+		<xsl:attribute name="color">white</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="templates.lightline" use-attribute-sets="border">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">white</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="templates.darkline" use-attribute-sets="border">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">lightgrey</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="companions.title" use-attribute-sets="border centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">black</xsl:attribute>
+		<xsl:attribute name="color">white</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="companions" use-attribute-sets="border centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">white</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="equipment.title" use-attribute-sets="centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">black</xsl:attribute>
+		<xsl:attribute name="color">white</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="equipment.lightline" use-attribute-sets="border">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">white</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="equipment.darkline" use-attribute-sets="border">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">lightgrey</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="weight.title" use-attribute-sets="centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">black</xsl:attribute>
+		<xsl:attribute name="color">white</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="weight" use-attribute-sets="border">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">white</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="weight.solid" use-attribute-sets="border">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">lightgrey</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="money.title" use-attribute-sets="centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">black</xsl:attribute>
+		<xsl:attribute name="color">white</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="money.lightline">
+		<xsl:attribute name="background-color">white</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="money.darkline">
+		<xsl:attribute name="background-color">lightgrey</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
+
+
+	<xsl:attribute-set name="magic.title" use-attribute-sets="centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">black</xsl:attribute>
+		<xsl:attribute name="color">white</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="magic.lightline">
+		<xsl:attribute name="background-color">white</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="magic.darkline">
+		<xsl:attribute name="background-color">lightgrey</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
 
 
 
-<xsl:attribute-set name="feats.title" use-attribute-sets="centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">black</xsl:attribute>
-	<xsl:attribute name="color">white</xsl:attribute>
-</xsl:attribute-set>
+	<xsl:attribute-set name="special_abilities.title" use-attribute-sets="centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">black</xsl:attribute>
+		<xsl:attribute name="color">white</xsl:attribute>
+	</xsl:attribute-set>
 
-<xsl:attribute-set name="feats.lightline">
-	<xsl:attribute name="background-color">white</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
+	<xsl:attribute-set name="special_abilities.lightline">
+		<xsl:attribute name="background-color">white</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
 
-<xsl:attribute-set name="feats.darkline">
-	<xsl:attribute name="background-color">lightgrey</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
+	<xsl:attribute-set name="special_abilities.darkline">
+		<xsl:attribute name="background-color">lightgrey</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
+
+
+
+	<xsl:attribute-set name="feats.title" use-attribute-sets="centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">black</xsl:attribute>
+		<xsl:attribute name="color">white</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="feats.lightline">
+		<xsl:attribute name="background-color">white</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
+
+	<xsl:attribute-set name="feats.darkline">
+		<xsl:attribute name="background-color">lightgrey</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
 
 
 
@@ -525,41 +979,41 @@
 	</xsl:attribute-set>
 
 
-<xsl:attribute-set name="reputation.title" use-attribute-sets="border centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">black</xsl:attribute>
-	<xsl:attribute name="color">white</xsl:attribute>
-</xsl:attribute-set>
+	<xsl:attribute-set name="reputation.title" use-attribute-sets="border centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">black</xsl:attribute>
+		<xsl:attribute name="color">white</xsl:attribute>
+	</xsl:attribute-set>
 
-<xsl:attribute-set name="reputation" use-attribute-sets="border centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">white</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
+	<xsl:attribute-set name="reputation" use-attribute-sets="border centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">white</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
 
-<xsl:attribute-set name="occupation.title" use-attribute-sets="border centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">black</xsl:attribute>
-	<xsl:attribute name="color">white</xsl:attribute>
-</xsl:attribute-set>
+	<xsl:attribute-set name="occupation.title" use-attribute-sets="border centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">black</xsl:attribute>
+		<xsl:attribute name="color">white</xsl:attribute>
+	</xsl:attribute-set>
 
-<xsl:attribute-set name="occupation" use-attribute-sets="border centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">white</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
+	<xsl:attribute-set name="occupation" use-attribute-sets="border centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">white</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
 
-<xsl:attribute-set name="allegiances.title" use-attribute-sets="border centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">black</xsl:attribute>
-	<xsl:attribute name="color">white</xsl:attribute>
-</xsl:attribute-set>
+	<xsl:attribute-set name="allegiances.title" use-attribute-sets="border centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">black</xsl:attribute>
+		<xsl:attribute name="color">white</xsl:attribute>
+	</xsl:attribute-set>
 
-<xsl:attribute-set name="allegiances" use-attribute-sets="border centre">
-	<xsl:attribute name="border-color">black</xsl:attribute>
-	<xsl:attribute name="background-color">white</xsl:attribute>
-	<xsl:attribute name="color">black</xsl:attribute>
-</xsl:attribute-set>
+	<xsl:attribute-set name="allegiances" use-attribute-sets="border centre">
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="background-color">white</xsl:attribute>
+		<xsl:attribute name="color">black</xsl:attribute>
+	</xsl:attribute-set>
 
 
 
@@ -684,6 +1138,7 @@
 						<xsl:call-template name="money" />
 						<xsl:apply-templates select="misc/magics" />
 						<xsl:apply-templates select="special_abilities" />
+						<xsl:apply-templates select="special_qualities" />
 						<xsl:apply-templates select="feats" />
 						<xsl:apply-templates select="feats/feat[contains(., 'OCCUPATION')]" mode="starting_occupation" />
 						<xsl:apply-templates select="mutations" />
@@ -703,7 +1158,23 @@
 		</fo:root>
 	</xsl:template>
 
-
+<!-->
+====================================
+====================================
+	TEMPLATE - SPECIAL QUALITIES
+====================================
+====================================-->
+	<xsl:template match="special_qualities">
+		<xsl:if test="count(special_quality) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'special_qualities'" />
+				<xsl:with-param name="title" select="'Special Qualities'" />
+				<xsl:with-param name="list" select="special_quality"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
 
 	<!--
 ====================================
@@ -4467,7 +4938,5 @@
 		</fo:table>
 	</xsl:template>
 
-
-
-
 </xsl:stylesheet>
+
