@@ -71,7 +71,10 @@ public class Campaign extends PObject implements CampaignFacade
 		for ( final CampaignSourceEntry fileName : pccFiles )
 		{
 			final Campaign campaign = Globals.getCampaignByURI(fileName.getURI(), true);
-			ret.add(campaign);
+			if (campaign != null)
+			{
+				ret.add(campaign);
+			}
 		}
 		return ret;
 	}
