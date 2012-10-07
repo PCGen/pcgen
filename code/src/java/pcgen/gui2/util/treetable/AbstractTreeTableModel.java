@@ -91,6 +91,6 @@ public abstract class AbstractTreeTableModel extends DefaultTreeModel implements
 	@Override
     public Object getValueAt(Object node, int column)
     {
-        return ((TreeTableNode)node).getValueAt(column);
+        return node == null ? null : ((TreeTableNode)node).getValueAt(column);
     }
 }

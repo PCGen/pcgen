@@ -63,6 +63,10 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.facet.DataFacetChangeEvent;
+import pcgen.cdom.facet.DataFacetChangeListener;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.LanguageFacet;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -264,6 +268,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 	private int lastExportCharSerial = 0;
 	private PlayerCharacter lastExportChar = null;
+	private LanguageListener langListener;
 	
 	/**
 	 * Create a new character facade for an existing character.
@@ -287,6 +292,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 */
 	public void closeCharacter()
 	{
+		FacetLibrary.getFacet(LanguageFacet.class).removeDataFacetChangeListener(langListener);
 		characterAbilities.closeCharacter();
 		charLevelsFacade.closeCharacter();
 		GMBus.send(new PCClosedMessage(null, theCharacter));
@@ -413,6 +419,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		numBonusLang = new DefaultReferenceFacade<Integer>(0);
 		numSkillLang = new DefaultReferenceFacade<Integer>(0);
 		refreshLanguageList();
+		langListener = new LanguageListener();
+		FacetLibrary.getFacet(LanguageFacet.class).addDataFacetChangeListener(langListener);
 
 		purchasedEquip.addListListener(spellSupportFacade);
 		purchasedEquip.addEquipmentListListener(spellSupportFacade);
@@ -571,7 +579,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	public void addAbility(AbilityCategoryFacade category, AbilityFacade ability)
 	{
 		characterAbilities.addAbility(category, ability);
-		refreshLanguageList();
 		refreshKitList();
 		refreshTemplates();
 		refreshAvailableTempBonuses();
@@ -587,7 +594,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	public void removeAbility(AbilityCategoryFacade category, AbilityFacade ability)
 	{
 		characterAbilities.removeAbility(category, ability);
-		refreshLanguageList();
 		refreshKitList();
 		companionSupportFacade.refreshCompanionData();
 	}
@@ -731,7 +737,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	{
 		characterAbilities.rebuildAbilityLists();
 		companionSupportFacade.refreshCompanionData();
-		refreshLanguageList();
 		refreshKitList();
 		refreshTemplates();
 		refreshAvailableTempBonuses();
@@ -2414,7 +2419,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 	/**
 	 * Regenerate the character's list of languages.
-	 * TODO: This needs to be invoked after a rank of speak language is added or removed to trigger the todo 
 	 */
 	void refreshLanguageList()
 	{
@@ -2525,9 +2529,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		choiceManager.getChoices(theCharacter, availLangs, selLangs);
 		selLangs.remove(lang);
 		choiceManager.applyChoices(theCharacter, selLangs);
-
-		// Update list on character facade
-		refreshLanguageList();
 	}
 
 	/**
@@ -2697,8 +2698,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		Logging.log(Logging.ERROR, "CharacterFacadeImpl @ setHanded to "+((Handed) handedness).name()); //$NON-NLS-1$
 		this.handedness.setReference(handedness);
 		theCharacter.setHanded((Handed) handedness);
-		// XXX Needed? copied from #setGender
-		refreshLanguageList();
 	}
 
 	/* (non-Javadoc)
@@ -4274,5 +4273,39 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 
 		return charges;
+	}
+	
+	/**
+	 * The Class <code>LanguageListener</code> tracks adding and removal of 
+	 * languages to the character.
+	 */
+	public class LanguageListener implements DataFacetChangeListener<Language>
+	{
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void dataAdded(DataFacetChangeEvent<Language> dfce)
+		{
+			if (dfce.getCharID() != theCharacter.getCharID())
+			{
+				return;
+			}
+			refreshLanguageList();
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void dataRemoved(DataFacetChangeEvent<Language> dfce)
+		{
+			if (dfce.getCharID() != theCharacter.getCharID())
+			{
+				return;
+			}
+			refreshLanguageList();
+		}
+		
 	}
 }
