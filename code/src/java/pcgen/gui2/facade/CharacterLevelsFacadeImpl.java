@@ -36,6 +36,9 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.facet.BonusChangeFacet;
+import pcgen.cdom.facet.BonusChangeFacet.BonusChangeEvent;
+import pcgen.cdom.facet.BonusChangeFacet.BonusChangeListener;
 import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.DataFacetChangeListener;
 import pcgen.cdom.facet.FacetLibrary;
@@ -52,6 +55,7 @@ import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.facade.CharacterLevelFacade;
 import pcgen.core.facade.CharacterLevelsFacade;
 import pcgen.core.facade.ClassFacade;
+import pcgen.core.facade.DataSetFacade;
 import pcgen.core.facade.SkillFacade;
 import pcgen.core.facade.TodoFacade.CharacterTab;
 import pcgen.core.facade.UIDelegate;
@@ -76,7 +80,7 @@ import pcgen.util.Logging;
  */
 public class CharacterLevelsFacadeImpl extends
 		AbstractListFacade<CharacterLevelFacade> implements
-		CharacterLevelsFacade, DataFacetChangeListener<Skill>
+		CharacterLevelsFacade, DataFacetChangeListener<Skill>, BonusChangeListener
 {
 	private PlayerCharacter theCharacter;
 	private UIDelegate delegate;
@@ -85,17 +89,22 @@ public class CharacterLevelsFacadeImpl extends
 	private List<CharacterLevelFacade> charLevels;
 	private final TodoManager todoManager;
 	private CharID charID;
+	private final DataSetFacade dataSetFacade;
 	
 	/**
 	 * Create a new CharacterLevelsFacadeImpl instance for a character.
 	 * @param pc The character we are creating the instance for 
-	 * @param delegate
+	 * @param delegate The user interface delegate that can do dialogs and choosers for us.
+	 * @param todoManager The user tasks tracker.
+	 * @param dataSetFacade The datasets that the character is using.
 	 */
-	CharacterLevelsFacadeImpl(PlayerCharacter pc, UIDelegate delegate, TodoManager todoManager)
+	CharacterLevelsFacadeImpl(PlayerCharacter pc, UIDelegate delegate,
+		TodoManager todoManager, DataSetFacade dataSetFacade)
 	{
 		this.theCharacter = pc;
 		this.delegate = delegate;
 		this.todoManager = todoManager;
+		this.dataSetFacade = dataSetFacade;
 		initForCharacter();
 	}
 
@@ -106,6 +115,12 @@ public class CharacterLevelsFacadeImpl extends
 	{
 		SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
 		skillFacet.removeDataFacetChangeListener(this);
+		BonusChangeFacet bcf = FacetLibrary.getFacet(BonusChangeFacet.class);
+		for (SkillFacade skillFacade : dataSetFacade.getSkills())
+		{
+			bcf.removeBonusChangeListener(this, "SKILLRANK", skillFacade
+				.getKeyName().toUpperCase());
+		}
 	}
 
 	/**
@@ -120,6 +135,13 @@ public class CharacterLevelsFacadeImpl extends
 		charID = theCharacter.getCharID();
 		SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
 		skillFacet.addDataFacetChangeListener(this);
+		BonusChangeFacet bcf = FacetLibrary.getFacet(BonusChangeFacet.class);
+		for (SkillFacade skillFacade : dataSetFacade.getSkills())
+		{
+			bcf.addBonusChangeListener(this, "SKILLRANK", skillFacade
+				.getKeyName().toUpperCase());
+		}
+		
 	}
 
 	@Override
@@ -598,7 +620,7 @@ public class CharacterLevelsFacadeImpl extends
 		CharacterLevelFacade baseLevel, float newRank)
 	{
 		Skill aSkill = (Skill) skill;
-		float testRank = theCharacter.getSkillRank(aSkill);
+		float testRank = SkillRankControl.getTotalRank(theCharacter, aSkill);
 		if (newRank < testRank)
 		{
 			// Removing ranks, so just pass back the top level
@@ -1005,6 +1027,19 @@ public class CharacterLevelsFacadeImpl extends
 			return;
 		}
 		//Skill skill = dfce.getCDOMObject();
+		fireSkillBonusEvent(this, 0, true);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void bonusChange(BonusChangeEvent bce)
+	{
+		if (bce.getCharID() != charID || bce.getOldVal() == null)
+		{
+			return;
+		}
 		fireSkillBonusEvent(this, 0, true);
 	}
 

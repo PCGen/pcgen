@@ -392,16 +392,23 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		GameMode game = (GameMode) dataSet.getGameMode();
 		rollMethodRef = new DefaultReferenceFacade<Integer>(game.getRollMethod());
 
-		charLevelsFacade = new CharacterLevelsFacadeImpl(theCharacter, delegate, todoManager);
+		charLevelsFacade =
+				new CharacterLevelsFacadeImpl(theCharacter, delegate,
+					todoManager, dataSet);
 		pcClasses = new ArrayList<ClassFacade>();
 		pcClassLevels = new DefaultListFacade<CharacterLevelFacade>();
 		refreshClassLevelModel();
 		charLevelsFacade.addHitPointListener(this);
 
-		deity = new DefaultReferenceFacade<DeityFacade>(theCharacter.getDeity());
+		deity =
+				new DefaultReferenceFacade<DeityFacade>(theCharacter.getDeity());
 		domains = new DefaultListFacade<DomainFacade>();
-		maxDomains = new DefaultReferenceFacade<Integer>(theCharacter.getMaxCharacterDomains());
-		remainingDomains = new DefaultReferenceFacade<Integer>(theCharacter.getMaxCharacterDomains() - domains.getSize());
+		maxDomains =
+				new DefaultReferenceFacade<Integer>(
+					theCharacter.getMaxCharacterDomains());
+		remainingDomains =
+				new DefaultReferenceFacade<Integer>(
+					theCharacter.getMaxCharacterDomains() - domains.getSize());
 		availDomains = new DefaultListFacade<DomainFacade>();
 		buildAvailableDomainsList();
 
