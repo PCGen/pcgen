@@ -1128,7 +1128,7 @@ BIO
 		<item>
 			<longname>Outfit (Artisan&#39;s)</longname>
 			<id></id>
-			<name>Artisan&#39;s Outfit</name>
+			<name>Outfit (Artisan&#39;s)</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1224,7 +1224,7 @@ BIO
 					<bonuslist></bonuslist>
 				</item>
 		<item>
-					<name>Artisan&#39;s Outfit</name>
+					<name>Outfit (Artisan&#39;s)</name>
 					<carried>1.0</carried>
 					<charges></charges>
 					<charges_used></charges_used>
