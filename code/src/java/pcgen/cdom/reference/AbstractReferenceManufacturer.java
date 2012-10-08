@@ -540,6 +540,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 		{
 			Logging.debugPrint("Worthless Key change encountered: "
 					+ item.getDisplayName() + " " + oldKey);
+			Logging.reportSource(Logging.DEBUG, item.getSourceURI());
 		}
 		forgetObject(item);
 		addObject(item, key);

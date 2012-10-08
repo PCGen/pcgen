@@ -27,6 +27,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.net.URI;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -314,6 +315,50 @@ public class Logging
 			else
 			{
 				l.log(LST_WARNING, s);
+			}
+		}
+	}
+
+	/**
+	 * Report where an issue was encountered.
+	 *
+	 * @param context the LoadContext containing the resource 
+	 */
+	public static void reportSource(final Level lvl, final LoadContext context)
+	{
+		Logger l = getLogger();
+		if (l.isLoggable(lvl))
+		{
+			if (context != null && context.getObjectContext() != null
+				&& context.getObjectContext().getSourceURI() != null)
+			{
+				l.log(lvl, " (Source: "
+					+ context.getObjectContext().getSourceURI() + ")");
+			}
+			else
+			{
+				l.log(lvl, " (Source unknown)");
+			}
+		}
+	}
+
+	/**
+	 * Report where an issue was encountered.
+	 *
+	 * @param sourceUri the source containing the resource 
+	 */
+	public static void reportSource(final Level lvl, final URI sourceUri)
+	{
+		Logger l = getLogger();
+		if (l.isLoggable(lvl))
+		{
+			if (sourceUri != null)
+			{
+				l.log(lvl, " (Source: " + sourceUri + ")");
+			}
+			else
+			{
+				l.log(lvl, " (Source unknown)");
 			}
 		}
 	}

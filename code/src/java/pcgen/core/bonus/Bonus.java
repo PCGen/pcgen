@@ -238,6 +238,7 @@ public class Bonus
 				catch (PersistenceLayerException ple)
 				{
 					Logging.errorPrint(ple.getMessage(), ple);
+					Logging.reportSource(Logging.ERROR, context);
 				}
 			}
 			else if (aString.startsWith("TYPE=") || aString.startsWith("TYPE."))
@@ -267,6 +268,7 @@ public class Bonus
 							"Could not add type ").append(aString.substring(5))
 							.append(" to bonusType ").append(typeOfBonus)
 							.append(" in Bonus.newBonus").toString());
+					Logging.reportSource(Logging.DEBUG, context);
 				}
 			}
 		}
@@ -290,6 +292,7 @@ public class Bonus
 						"Could not parse token ").append(token).append(
 						" from bonusInfo ").append(bonusInfo).append(
 						" in BonusObj.newBonus.").toString());
+				Logging.reportSource(Logging.DEBUG, context);
 			}
 		}
 
