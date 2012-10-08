@@ -31,10 +31,14 @@ import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilteredListFacadeTableModel;
 
 /**
- *
+ * The model for the bottom left table showing the ability categories and 
+ * their pool points.
+ * 
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public class CategoryTableModel extends FilteredListFacadeTableModel<AbilityCategoryFacade> implements ChangeListener
+public class CategoryTableModel extends
+		FilteredListFacadeTableModel<AbilityCategoryFacade> implements
+		ChangeListener
 {
 
 	boolean installed = false;

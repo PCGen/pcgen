@@ -1850,7 +1850,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 			// Check all the masters classes
 			for (PCClass mClass : mPC.getClassSet())
 			{
-				final int mLev = getLevel(mClass) + aM.getAdjustment();
+				final int mLev = mPC.getLevel(mClass) + aM.getAdjustment();
 				final int compLev = cMod.getLevelApplied(mClass);
 
 				if (compLev < 0)
@@ -2007,6 +2007,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 				kit.act(kit.driveChoice(this), cMod, this);
 			}
 		}
+		calcActiveBonuses();
 		setDirty(true);
 	}
 
