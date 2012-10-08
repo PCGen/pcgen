@@ -315,7 +315,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 				}
 			}
 		}
-		return true;
+		return pc.canSelectAbility(choice.getAbility(), false);
 	}
 
 	private boolean hasAssoc(List<String> associationList,

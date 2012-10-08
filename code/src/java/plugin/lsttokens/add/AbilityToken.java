@@ -423,7 +423,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 				}
 			}
 		}
-		return true;
+		return pc.canSelectAbility(choice.getAbility(), isVirtual);
 	}
 
 	private boolean hasAssoc(List<String> associationList,
