@@ -248,6 +248,7 @@ public class SpellCasterToken extends AbstractToken implements
 		{
 			pc.incrementClassLevel(0, choice);
 			theClass = pc.getClassKeyed(choice.getKeyName());
+			pc.setSpellLists(theClass);
 		}
 
 		BonusAddition.applyBonus("PCLEVEL|" + theClass.getKeyName() + "|1", "",

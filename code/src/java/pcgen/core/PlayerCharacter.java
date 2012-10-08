@@ -4425,6 +4425,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 			raceFacet.set(id, newRace);
 		}
 
+		calcActiveBonuses();
 		setDirty(true);
 	}
 
