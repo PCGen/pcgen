@@ -472,13 +472,7 @@ public class JTreeTable extends JTableEx
 				@Override
 				public void run()
 				{
-					TreeSelectionModel selModel = tree.getSelectionModel();
-					TreePath leadSelectionPath = selModel.getLeadSelectionPath();
-					fireTableDataChanged();
-					if (leadSelectionPath != null)
-					{
-						selModel.setSelectionPath(leadSelectionPath);
-					}
+					fireTableDataChangedPreservingSelection();					
 				}
 
 			});
@@ -508,13 +502,24 @@ public class JTreeTable extends JTableEx
 		@Override
 		public void treeExpanded(TreeExpansionEvent event)
 		{
-			fireTableDataChanged();
+			fireTableDataChangedPreservingSelection();
 		}
 
 		@Override
 		public void treeCollapsed(TreeExpansionEvent event)
 		{
+			fireTableDataChangedPreservingSelection();
+		}
+
+		private void fireTableDataChangedPreservingSelection()
+		{
+			TreeSelectionModel selModel = tree.getSelectionModel();
+			TreePath leadSelectionPath = selModel.getLeadSelectionPath();
 			fireTableDataChanged();
+			if (leadSelectionPath != null)
+			{
+				selModel.setSelectionPath(leadSelectionPath);
+			}
 		}
 
 	}
