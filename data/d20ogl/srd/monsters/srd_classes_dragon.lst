@@ -49,32 +49,55 @@ CLASS:Blue Dragon	HD:12		TYPE:Monster	ABB:BlDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdm
 CLASS:Blue Dragon	PRERACE:1,Dragon (Blue%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blue Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE=Knowledge
+CLASS:Blue Dragon		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Air|DOMAIN.Evil|DOMAIN.Law
+#*Can also cast cleric spells and those from the Air, Evil, and Law domains as arcane spells.
 1	BONUS:VAR|BreathWeaponDC|14	BONUS:VAR|BreathWeaponDamageDie|2	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Lightning
 ###Block: Normal Progression
 1																																					ABILITY:Special Ability|AUTOMATIC|Create/Destroy Water
 2		BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.STACK
 9																							BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|2
 12																							BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|3
-15															BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|4	ADD:SPELLCASTER|Sorcerer	ABILITY:Special Ability|AUTOMATIC|Sound Imitation
-17										BONUS:PCLEVEL|Sorcerer|1
-18	SR:19									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|5						ABILITY:Special Ability|AUTOMATIC|Frightful Presence
-20										BONUS:PCLEVEL|Sorcerer|1
-21	SR:21									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|6																SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Ventriloquism,11+CHA
-23										BONUS:PCLEVEL|Sorcerer|1
-24	SR:22									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|7
-26										BONUS:PCLEVEL|Sorcerer|1
-27	SR:24									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|8																SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Hallucinatory Terrain,14+CHA
-29										BONUS:PCLEVEL|Sorcerer|1
-30	SR:25									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|9
-32										BONUS:PCLEVEL|Sorcerer|1
-33	SR:27									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|10																SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Veil,16+CHA
-35										BONUS:PCLEVEL|Sorcerer|1
-36	SR:29									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|11
-38										BONUS:PCLEVEL|Sorcerer|1
-39	SR:31									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|12																SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Mirage Arcana,15+CHA
-41										BONUS:PCLEVEL|Sorcerer|1
-42										BONUS:PCLEVEL|Sorcerer|1
-44										BONUS:PCLEVEL|Sorcerer|1
+15															BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|4		ABILITY:Special Ability|AUTOMATIC|Sound Imitation
+18	SR:19																		BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|5						ABILITY:Special Ability|AUTOMATIC|Frightful Presence
+21	SR:21																		BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|6																SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Ventriloquism,11+CHA
+24	SR:22																		BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|7
+27	SR:24																		BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|8																SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Hallucinatory Terrain,14+CHA
+30	SR:25																		BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|9
+33	SR:27																		BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|10																SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Veil,16+CHA
+36	SR:29																		BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|11
+39	SR:31																		BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|12																SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Mirage Arcana,15+CHA
+###Block: Casting Block
+15	BONUS:CASTERLEVEL|Blue Dragon|((DragonAge-3)*2)-1
+15	CAST:5,3				KNOWN:4,2
+16	CAST:5,3				KNOWN:4,2
+17	CAST:6,4				KNOWN:5,2
+18	CAST:6,5				KNOWN:5,3
+19	CAST:6,5				KNOWN:5,3
+20	CAST:6,6,3				KNOWN:6,3,1
+21	CAST:6,6,4				KNOWN:6,4,2
+22	CAST:6,6,4				KNOWN:6,4,2
+23	CAST:6,6,5,3			KNOWN:7,4,2,1
+24	CAST:6,6,6,4			KNOWN:7,5,3,2
+25	CAST:6,6,6,4			KNOWN:7,5,3,2
+26	CAST:6,6,6,5,3			KNOWN:8,5,3,2,1
+27	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+28	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+29	CAST:6,6,6,6,5,3			KNOWN:9,5,4,3,2,1
+30	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+31	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+32	CAST:6,6,6,6,6,4,3		KNOWN:9,5,5,4,3,2,1
+33	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+34	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+35	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1
+36	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+37	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+38	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,2,1
+39	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+40	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+41	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1
+42	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+43	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+44	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level		Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:Green Dragon	HD:12		TYPE:Monster	ABB:GnDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -116,31 +139,55 @@ CLASS:Red Dragon	HD:12		TYPE:Monster	ABB:RdDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmo
 CLASS:Red Dragon	PRERACE:1,Dragon (Red%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Red Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE=Knowledge
+CLASS:Red Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Chaos|DOMAIN.Evil|DOMAIN.Fire
+#*Can also cast cleric spells and those from the Chaos, Evil, and Fire domains as arcane spells.
 1	BONUS:VAR|BreathWeaponDC|15	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Fire
 ###Block: Normal Progression
 1															BONUS:SKILLRANK|Jump|CL|TYPE=Racial
 2		BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.STACK
 10																							BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|2
-13															BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|3	ADD:SPELLCASTER|Sorcerer
-15										BONUS:PCLEVEL|Sorcerer|1
-16										BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|4															SPELLS:Innate|TIMES=DragonAge|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Locate Object,12+CHA
-18										BONUS:PCLEVEL|Sorcerer|1
-19	SR:19									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|5						ABILITY:Special Ability|AUTOMATIC|Frightful Presence
-21										BONUS:PCLEVEL|Sorcerer|1
-22	SR:21									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|6
-24										BONUS:PCLEVEL|Sorcerer|1
-25	SR:23									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|7
-27										BONUS:PCLEVEL|Sorcerer|1
-28	SR:24									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|8															SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Suggestion,13+CHA
-30										BONUS:PCLEVEL|Sorcerer|1
-31	SR:26									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|9
-33										BONUS:PCLEVEL|Sorcerer|1
-34	SR:28									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|10															SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Find the Path,16+CHA
-36										BONUS:PCLEVEL|Sorcerer|1
-37	SR:30									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|11
-39										BONUS:PCLEVEL|Sorcerer|1
-40	SR:32									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|12															SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Discern Location,18+CHA
-42										BONUS:PCLEVEL|Sorcerer|1
+13															BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|3	
+16																			BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|4															SPELLS:Innate|TIMES=DragonAge|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Locate Object,12+CHA
+19	SR:19																		BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|5						ABILITY:Special Ability|AUTOMATIC|Frightful Presence
+22	SR:21																		BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|6
+25	SR:23																		BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|7
+28	SR:24																		BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|8															SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Suggestion,13+CHA
+31	SR:26																		BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|9
+34	SR:28																		BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|10															SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Find the Path,16+CHA
+37	SR:30																		BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|11
+40	SR:32																		BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|12															SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Discern Location,18+CHA
+###Block: Casting Block
+13	BONUS:CASTERLEVEL|Red Dragon|((DragonAge-2)*2)-1
+13	CAST:5,3				KNOWN:4,2
+14	CAST:5,3				KNOWN:4,2
+15	CAST:6,4				KNOWN:5,2
+16	CAST:6,5				KNOWN:5,3
+17	CAST:6,5				KNOWN:5,3
+18	CAST:6,6,3				KNOWN:6,3,1
+19	CAST:6,6,4				KNOWN:6,4,2
+20	CAST:6,6,4				KNOWN:6,4,2
+21	CAST:6,6,5,3			KNOWN:7,4,2,1
+22	CAST:6,6,6,4			KNOWN:7,5,3,2
+23	CAST:6,6,6,4			KNOWN:7,5,3,2
+24	CAST:6,6,6,5,3			KNOWN:8,5,3,2,1
+25	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+26	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+27	CAST:6,6,6,6,5,3			KNOWN:9,5,4,3,2,1
+28	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+29	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+30	CAST:6,6,6,6,6,5,3		KNOWN:9,5,5,4,3,2,1
+31	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+32	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+33	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1
+34	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+35	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+36	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,2,1
+37	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+38	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+39	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1
+40	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+41	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+42	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level		Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:White Dragon	HD:12		TYPE:Monster	ABB:WhDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -185,32 +232,56 @@ CLASS:Brass Dragon	HD:12		TYPE:Monster	ABB:BsDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srd
 CLASS:Brass Dragon	PRERACE:1,Dragon (Brass%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Brass Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE=Knowledge
+CLASS:Brass Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:4|Sorcerer|Cleric|DOMAIN.Chaos|DOMAIN.Knowledge
+#*Can also cast cleric spells and those from the Chaos and Knowledge domains as arcane spells.
 1	BONUS:VAR|BreathWeaponDC|13	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Sleep
 1						ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Fire
 ###Block: Normal Progression
 1																																														SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Speak with Animals,12+CHA
 2		BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.STACK
 7																							BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|2
-10															BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|3	ADD:SPELLCASTER|Sorcerer
-12										BONUS:PCLEVEL|Sorcerer|1
-13										BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|4						ABILITY:Special Ability|AUTOMATIC|Endure Elements
-15										BONUS:PCLEVEL|Sorcerer|1
-16	SR:18									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|5						ABILITY:Special Ability|AUTOMATIC|Frightful Presence
-18										BONUS:PCLEVEL|Sorcerer|1
-19	SR:20									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|6															SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Suggestion,13+CHA
-21										BONUS:PCLEVEL|Sorcerer|1
-22	SR:22									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|7
-24										BONUS:PCLEVEL|Sorcerer|1
-25	SR:24									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|8															SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Control Winds,15+CHA
-27										BONUS:PCLEVEL|Sorcerer|1
-28	SR:25									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|9
-30										BONUS:PCLEVEL|Sorcerer|1
-31	SR:27									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|10															SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Control Weather,16+CHA
-33										BONUS:PCLEVEL|Sorcerer|1
-34	SR:28									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|11
-36										BONUS:PCLEVEL|Sorcerer|1
-37	SR:30									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|12															SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Summon Djinni,17+CHA
-39										BONUS:PCLEVEL|Sorcerer|1
+10															BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|3
+13																			BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|4						ABILITY:Special Ability|AUTOMATIC|Endure Elements
+16	SR:18																		BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|5						ABILITY:Special Ability|AUTOMATIC|Frightful Presence
+19	SR:20																		BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|6															SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Suggestion,13+CHA
+22	SR:22																		BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|7
+25	SR:24																		BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|8															SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Control Winds,15+CHA
+28	SR:25																		BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|9
+31	SR:27																		BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|10															SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Control Weather,16+CHA
+34	SR:28																		BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|11
+37	SR:30																		BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|12															SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Summon Djinni,17+CHA
+###Block: Casting Block
+10	BONUS:CASTERLEVEL|Brass Dragon|((DragonAge-2)*2)-1
+10	CAST:5,3				KNOWN:4,2
+11	CAST:5,3				KNOWN:4,2
+12	CAST:6,4				KNOWN:5,2
+13	CAST:6,5				KNOWN:5,3
+14	CAST:6,5				KNOWN:5,3
+15	CAST:6,6,3				KNOWN:6,3,1
+16	CAST:6,6,4				KNOWN:6,4,2
+17	CAST:6,6,4				KNOWN:6,4,2
+18	CAST:6,6,5,3			KNOWN:7,4,2,1
+19	CAST:6,6,6,4			KNOWN:7,5,3,2
+20	CAST:6,6,6,4			KNOWN:7,5,3,2
+21	CAST:6,6,6,5,3			KNOWN:8,5,3,2,1
+22	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+23	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+24	CAST:6,6,6,6,5,3			KNOWN:9,5,4,3,2,1
+25	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+26	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+27	CAST:6,6,6,6,6,5,3		KNOWN:9,5,5,4,3,2,1
+28	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+29	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+30	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1
+31	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+32	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+33	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,2,1
+34	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+35	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+36	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1
+37	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+38	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+39	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level		Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:Bronze Dragon	HD:12		TYPE:Monster	ABB:BzDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -218,32 +289,56 @@ CLASS:Bronze Dragon	HD:12		TYPE:Monster	ABB:BzDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:sr
 CLASS:Bronze Dragon	PRERACE:1,Dragon (Bronze%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Bronze Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE=Knowledge
+CLASS:Bronze Dragon		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO		SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Animal|DOMAIN.Law|DOMAIN.Water
+#*Can also cast cleric spells and those from the Animal, Law, and Water domains as arcane spells.
 1	BONUS:VAR|BreathWeaponDC|14	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Lightning
 1						ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Repulsion Gas
 ###Block: Normal Progression
 1																																																SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Speak with Animals,12+CHA
 2		BONUS:COMBAT|AC|CL=Bronze Dragon|TYPE=NaturalArmor.STACK
 9																									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|2
-12																	BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|3	ADD:SPELLCASTER|Sorcerer	ABILITY:Special Ability|AUTOMATIC|Polymorph Self
-14												BONUS:PCLEVEL|Sorcerer|1
-15												BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|4
-17												BONUS:PCLEVEL|Sorcerer|1
-18	SR:20											BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|5						ABILITY:Special Ability|AUTOMATIC|Frightful Presence
-20												BONUS:PCLEVEL|Sorcerer|1
-21	SR:22											BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|6															SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Create Food and Water,13+CHA|Fog Cloud,12+CHA
-23												BONUS:PCLEVEL|Sorcerer|1
-24	SR:23											BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|7
-26												BONUS:PCLEVEL|Sorcerer|1
-27	SR:25											BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|8															SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Detect Thoughts,12+CHA
-29												BONUS:PCLEVEL|Sorcerer|1
-30	SR:26											BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|9
-32												BONUS:PCLEVEL|Sorcerer|1
-33	SR:28											BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|10															SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Control Water,16+CHA
-35												BONUS:PCLEVEL|Sorcerer|1
-36	SR:29											BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|11
-38												BONUS:PCLEVEL|Sorcerer|1
-39	SR:31											BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|12															SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Control Weather,16+CHA
-41												BONUS:PCLEVEL|Sorcerer|1
+12																	BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|3		ABILITY:Special Ability|AUTOMATIC|Polymorph Self
+15																					BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|4
+18	SR:20																				BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|5						ABILITY:Special Ability|AUTOMATIC|Frightful Presence
+21	SR:22																				BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|6															SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Create Food and Water,13+CHA|Fog Cloud,12+CHA
+24	SR:23																				BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|7
+27	SR:25																				BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|8															SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Detect Thoughts,12+CHA
+30	SR:26																				BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|9
+33	SR:28																				BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|10															SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Control Water,16+CHA
+36	SR:29																				BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|11
+39	SR:31																				BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|12															SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Control Weather,16+CHA
+###Block: Casting Block
+12	BONUS:CASTERLEVEL|Bronze Dragon|((DragonAge-2)*2)-1
+12	CAST:5,3				KNOWN:4,2
+13	CAST:5,3				KNOWN:4,2
+14	CAST:6,4				KNOWN:5,2
+15	CAST:6,5				KNOWN:5,3
+16	CAST:6,5				KNOWN:5,3
+17	CAST:6,6,3				KNOWN:6,3,1
+18	CAST:6,6,4				KNOWN:6,4,2
+19	CAST:6,6,4				KNOWN:6,4,2
+20	CAST:6,6,5,3			KNOWN:7,4,2,1
+21	CAST:6,6,6,4			KNOWN:7,5,3,2
+22	CAST:6,6,6,4			KNOWN:7,5,3,2
+23	CAST:6,6,6,5,3			KNOWN:8,5,3,2,1
+24	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+25	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+26	CAST:6,6,6,6,5,3			KNOWN:9,5,4,3,2,1
+27	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+28	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+29	CAST:6,6,6,6,6,5,3		KNOWN:9,5,5,4,3,2,1
+30	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+31	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+32	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1
+33	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+34	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+35	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,2,1
+36	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+37	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+38	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1
+39	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+40	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+41	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level		Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:Copper Dragon	HD:12		TYPE:Monster	ABB:CuDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -251,31 +346,55 @@ CLASS:Copper Dragon	HD:12		TYPE:Monster	ABB:CuDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:sr
 CLASS:Copper Dragon	PRERACE:1,Dragon (Copper%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Copper Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE=Knowledge
+CLASS:Copper Dragon		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO		SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Chaos|DOMAIN.Earth|DOMAIN.Trickery
+#*Can also cast cleric spells and those from the Chaos, Earth, and Trickery domains as arcane spells.
 1	BONUS:VAR|BreathWeaponDC|13	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Slow
 1						ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Acid
 ###Block: Normal Progression
 2		BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.STACK
 8																							BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|2
-11															BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|3	ADD:SPELLCASTER|Sorcerer
-13										BONUS:PCLEVEL|Sorcerer|1
-14										BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|4
-16										BONUS:PCLEVEL|Sorcerer|1
-17	SR:19									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|5						ABILITY:Special Ability|AUTOMATIC|Frightful Presence
-19										BONUS:PCLEVEL|Sorcerer|1
-20	SR:21									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|6															SPELLS:Innate|TIMES=2|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Stone Shape,15+CHA
-22										BONUS:PCLEVEL|Sorcerer|1
-23	SR:23									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|7
-25										BONUS:PCLEVEL|Sorcerer|1
-26	SR:25									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|8															SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Transmute Mud to Rock,15+CHA|Transmute Rock to Mud,15+CHA
-28										BONUS:PCLEVEL|Sorcerer|1
-29	SR:26									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|9
-31										BONUS:PCLEVEL|Sorcerer|1
-32	SR:28									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|10															SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Wall of Stone,15+CHA
-34										BONUS:PCLEVEL|Sorcerer|1
-35	SR:29									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|11
-37										BONUS:PCLEVEL|Sorcerer|1
-38	SR:31									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|12															SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Move Earth,16+CHA
-40										BONUS:PCLEVEL|Sorcerer|1
+11															BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|3	
+14																			BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|4
+17	SR:19																		BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|5						ABILITY:Special Ability|AUTOMATIC|Frightful Presence
+20	SR:21																		BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|6															SPELLS:Innate|TIMES=2|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Stone Shape,15+CHA
+23	SR:23																		BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|7
+26	SR:25																		BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|8															SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Transmute Mud to Rock,15+CHA|Transmute Rock to Mud,15+CHA
+29	SR:26																		BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|9
+32	SR:28																		BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|10															SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Wall of Stone,15+CHA
+35	SR:29																		BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|11
+38	SR:31																		BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|12															SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Move Earth,16+CHA
+###Block: Casting Block
+11	BONUS:CASTERLEVEL|Copper Dragon|((DragonAge-2)*2)-1
+11	CAST:5,3				KNOWN:4,2
+12	CAST:5,3				KNOWN:4,2
+13	CAST:6,4				KNOWN:5,2
+14	CAST:6,5				KNOWN:5,3
+15	CAST:6,5				KNOWN:5,3
+16	CAST:6,6,3				KNOWN:6,3,1
+17	CAST:6,6,4				KNOWN:6,4,2
+18	CAST:6,6,4				KNOWN:6,4,2
+19	CAST:6,6,5,3			KNOWN:7,4,2,1
+20	CAST:6,6,6,4			KNOWN:7,5,3,2
+21	CAST:6,6,6,4			KNOWN:7,5,3,2
+22	CAST:6,6,6,5,3			KNOWN:8,5,3,2,1
+23	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+24	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+25	CAST:6,6,6,6,5,3			KNOWN:9,5,4,3,2,1
+26	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+27	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+28	CAST:6,6,6,6,6,5,3		KNOWN:9,5,5,4,3,2,1
+29	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+30	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+31	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1
+32	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+33	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+34	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,2,1
+35	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+36	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+37	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1
+38	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+39	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+40	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level		Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:Gold Dragon	HD:12		TYPE:Monster	ABB:GlDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -283,32 +402,56 @@ CLASS:Gold Dragon	HD:12		TYPE:Monster	ABB:GlDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdm
 CLASS:Gold Dragon	PRERACE:1,Dragon (Gold%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gold Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE=Knowledge
+CLASS:Gold Dragon		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO		SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Law|DOMAIN.Luck|DOMAIN.Good
+#*Can also cast cleric spells and those from the Law, Luck, and Good domains as arcane spells.
 1	BONUS:VAR|BreathWeaponDC|16	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Fire
 1						ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Weakening Gas
 ###Block: Normal Progression
 1															BONUS:SKILLRANK|Jump|CL|TYPE=Racial																	ABILITY:Special Ability|AUTOMATIC|Polymorph Self
 2		BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.STACK
 11																							BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|2
-14															BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|3	ADD:SPELLCASTER|Sorcerer
-16										BONUS:PCLEVEL|Sorcerer|1
-17										BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|4															SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Bless,11+CHA
-19										BONUS:PCLEVEL|Sorcerer|1
-20	SR:21									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|5						ABILITY:Special Ability|AUTOMATIC|Frightful Presence
-22										BONUS:PCLEVEL|Sorcerer|1
-23	SR:23									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|6						ABILITY:Special Ability|AUTOMATIC|Luck Bonus
-25										BONUS:PCLEVEL|Sorcerer|1
-26	SR:25									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|7
-28										BONUS:PCLEVEL|Sorcerer|1
-29	SR:27									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|8						ABILITY:Special Ability|AUTOMATIC|Detect Gems		SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Geas/Quest,16+CHA
-31										BONUS:PCLEVEL|Sorcerer|1
-32	SR:28									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|9
-34										BONUS:PCLEVEL|Sorcerer|1
-35	SR:30									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|10															SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Sunburst,18+CHA
-37										BONUS:PCLEVEL|Sorcerer|1
-38	SR:31									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|11
-40										BONUS:PCLEVEL|Sorcerer|1
-41	SR:33									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|12															SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Foresight,19+CHA
-43										BONUS:PCLEVEL|Sorcerer|1
+14															BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|3	
+17																			BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|4															SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Bless,11+CHA
+20	SR:21																		BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|5						ABILITY:Special Ability|AUTOMATIC|Frightful Presence
+23	SR:23																		BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|6						ABILITY:Special Ability|AUTOMATIC|Luck Bonus
+26	SR:25																		BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|7
+29	SR:27																		BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|8						ABILITY:Special Ability|AUTOMATIC|Detect Gems		SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Geas/Quest,16+CHA
+32	SR:28																		BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|9
+35	SR:30																		BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|10															SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Sunburst,18+CHA
+38	SR:31																		BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|11
+41	SR:33																		BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|12															SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Foresight,19+CHA
+###Block: Casting Block
+14	BONUS:CASTERLEVEL|Gold Dragon|((DragonAge-2)*2)-1
+14	CAST:5,3				KNOWN:4,2
+15	CAST:5,3				KNOWN:4,2
+16	CAST:6,4				KNOWN:5,2
+17	CAST:6,5				KNOWN:5,3
+18	CAST:6,5				KNOWN:5,3
+19	CAST:6,6,3				KNOWN:6,3,1
+20	CAST:6,6,4				KNOWN:6,4,2
+21	CAST:6,6,4				KNOWN:6,4,2
+22	CAST:6,6,5,3			KNOWN:7,4,2,1
+23	CAST:6,6,6,4			KNOWN:7,5,3,2
+24	CAST:6,6,6,4			KNOWN:7,5,3,2
+25	CAST:6,6,6,5,3			KNOWN:8,5,3,2,1
+26	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+27	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+28	CAST:6,6,6,6,5,3			KNOWN:9,5,4,3,2,1
+29	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+30	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+31	CAST:6,6,6,6,6,5,3		KNOWN:9,5,5,4,3,2,1
+32	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+33	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+34	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1
+35	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+36	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+37	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,2,1
+38	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+39	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+40	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1
+41	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+42	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+43	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level		Source Page					Levels per Feat	Define			Save checks bonus								Combat bonus
 CLASS:Silver Dragon	HD:12		TYPE:Monster	ABB:SlDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:srdmonstersdragons.rtf	LEVELSPERFEAT:4	DEFINE:DragonAge|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -316,29 +459,55 @@ CLASS:Silver Dragon	HD:12		TYPE:Monster	ABB:SlDr		MAXLEVEL:NOLIMIT	SOURCEPAGE:sr
 CLASS:Silver Dragon	PRERACE:1,Dragon (Silver%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Silver Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE=Knowledge
+CLASS:Silver Dragon		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO		SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Air|DOMAIN.Law|DOMAIN.Sun
+#*Can also cast cleric spells and those from the Air, Good, Law, and Sun domains as arcane spells.
 1	BONUS:VAR|BreathWeaponDamageDie|2	BONUS:VAR|BreathWeaponDC|15	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Cold
 1												ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Paralyzing Gas
 ###Block: Normal Progression
 1															BONUS:SKILLRANK|Jump|CL|TYPE=Racial																	ABILITY:Special Ability|AUTOMATIC|Cloudwalking|Polymorph Self
 2		BONUS:COMBAT|AC|CL|TYPE=NaturalArmor.STACK
 10																							BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|2
-13															BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|3	ADD:SPELLCASTER|Sorcerer
-15										BONUS:PCLEVEL|Sorcerer|1
-16										BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|4																	SPELLS:Innate|TIMES=2|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Feather Fall,11+CHA
-18										BONUS:PCLEVEL|Sorcerer|1
-19	SR:20									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|5						ABILITY:Special Ability|AUTOMATIC|Frightful Presence
-21										BONUS:PCLEVEL|Sorcerer|1
-22	SR:22									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|6																	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Fog Cloud,12+CHA
-24										BONUS:PCLEVEL|Sorcerer|1
-25	SR:24									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|7
-27										BONUS:PCLEVEL|Sorcerer|1
-28	SR:26									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|8																	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Control Winds,15+CHA
-30										BONUS:PCLEVEL|Sorcerer|1
-31	SR:27									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|9
-33										BONUS:PCLEVEL|Sorcerer|1
-34	SR:29									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|10																	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Control Weather,16+CHA
-36										BONUS:PCLEVEL|Sorcerer|1
-37	SR:30									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|11
-39										BONUS:PCLEVEL|Sorcerer|1
-40	SR:32									BONUS:PCLEVEL|Sorcerer|1									BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|12																	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Reverse Gravity,17+CHA
-42										BONUS:PCLEVEL|Sorcerer|1
+13															BONUS:SKILLRANK|Spellcraft|CL|PRESTAT:1,INT=12	BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|3	
+16																			BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|4																	SPELLS:Innate|TIMES=2|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Feather Fall,11+CHA
+19	SR:20																		BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|5						ABILITY:Special Ability|AUTOMATIC|Frightful Presence
+22	SR:22																		BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|6																	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Fog Cloud,12+CHA
+25	SR:24																		BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|7
+28	SR:26																		BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|8																	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Control Winds,15+CHA
+31	SR:27																		BONUS:VAR|BreathWeaponDC|1	DEFINE:DragonAge|9
+34	SR:29																		BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|10																	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Control Weather,16+CHA
+37	SR:30																		BONUS:VAR|BreathWeaponDC|2	DEFINE:DragonAge|11
+40	SR:32																		BONUS:VAR|BreathWeaponDC|3	DEFINE:DragonAge|12																	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(DragonAge,var("BL=Sorcerer")+var("CL=Sorcerer"))|Reverse Gravity,17+CHA
+###Block: Casting Block
+13	BONUS:CASTERLEVEL|Silver Dragon|((DragonAge-2)*2)-1
+13	CAST:5,3				KNOWN:4,2
+14	CAST:5,3				KNOWN:4,2
+15	CAST:6,4				KNOWN:5,2
+16	CAST:6,5				KNOWN:5,3
+17	CAST:6,5				KNOWN:5,3
+18	CAST:6,6,3				KNOWN:6,3,1
+19	CAST:6,6,4				KNOWN:6,4,2
+20	CAST:6,6,4				KNOWN:6,4,2
+21	CAST:6,6,5,3			KNOWN:7,4,2,1
+22	CAST:6,6,6,4			KNOWN:7,5,3,2
+23	CAST:6,6,6,4			KNOWN:7,5,3,2
+24	CAST:6,6,6,5,3			KNOWN:8,5,3,2,1
+25	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+26	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+27	CAST:6,6,6,6,5,3			KNOWN:9,5,4,3,2,1
+28	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+29	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+30	CAST:6,6,6,6,6,5,3		KNOWN:9,5,5,4,3,2,1
+31	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+32	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+33	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1
+34	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+35	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+36	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,2,1
+37	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+38	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+39	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1
+40	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+41	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+42	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
+
+#
