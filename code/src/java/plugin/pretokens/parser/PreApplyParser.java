@@ -68,7 +68,7 @@ public class PreApplyParser extends AbstractPrerequisiteParser implements
 		Prerequisite prereq = new Prerequisite();
 		prereq.setOperator(PrerequisiteOperator.EQ);
 		prereq.setOperand(Integer.toString(andTokens.length));
-		prereq.setKind("APPLY");
+		prereq.setKind(Prerequisite.APPLY_KIND);
 
 		for (int i = 0; i < andTokens.length; i++)
 		{
@@ -89,7 +89,7 @@ public class PreApplyParser extends AbstractPrerequisiteParser implements
 
 					Prerequisite orPrereq = new Prerequisite();
 					andPrereq.addPrerequisite(orPrereq);
-					orPrereq.setKind("APPLY");
+					orPrereq.setKind(Prerequisite.APPLY_KIND);
 					if (orToken.startsWith("["))
 					{
 						orPrereq.setOperand(orToken.substring(1, orToken
@@ -105,7 +105,7 @@ public class PreApplyParser extends AbstractPrerequisiteParser implements
 			}
 			else
 			{
-				andPrereq.setKind("APPLY");
+				andPrereq.setKind(Prerequisite.APPLY_KIND);
 				if (andToken.startsWith("["))
 				{
 					andPrereq.setOperand(andToken.substring(1, andToken

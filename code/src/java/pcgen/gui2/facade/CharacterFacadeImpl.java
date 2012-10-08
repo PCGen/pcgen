@@ -1028,14 +1028,14 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 
 		//
-		// Next do all spells to get PREAPPLY:ANYPC
+		// Next do all spells to get PREAPPLY:ANYPC or PREAPPLY:type
 		for (Iterator<?> fI = Globals.getSpellMap().values().iterator(); fI.hasNext();)
 		{
 			final Object obj = fI.next();
 			if (obj instanceof Spell)
 			{
 				Spell aSpell = (Spell) obj;
-				scanForAnyPcTempBonuses(tempBonuses, aSpell);
+				scanForNonPcTempBonuses(tempBonuses, aSpell);
 			}
 		}
 
@@ -1095,6 +1095,22 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		for (BonusObj aBonus : obj.getRawBonusList(theCharacter))
 		{
 			if (aBonus.isTempBonus() && aBonus.isTempBonusTarget(BonusObj.TempBonusTarget.ANYPC))
+			{
+				tempBonuses.add(new TempBonusFacadeImpl(obj));
+				return;
+			}
+		}
+	}
+
+	private void scanForNonPcTempBonuses(List<TempBonusFacadeImpl> tempBonuses, PObject obj)
+	{
+		if (obj == null)
+		{
+			return;
+		}
+		for (BonusObj aBonus : obj.getRawBonusList(theCharacter))
+		{
+			if (aBonus.isTempBonus() && !aBonus.isTempBonusTarget(BonusObj.TempBonusTarget.PC))
 			{
 				tempBonuses.add(new TempBonusFacadeImpl(obj));
 				return;
