@@ -3879,6 +3879,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			delegate.showErrorMessage(Constants.APPLICATION_NAME, LanguageBundle.getString("in_irNotRemovable"));
 		}
+		refreshTemplates();
 	}
 
 	private void refreshTemplates()

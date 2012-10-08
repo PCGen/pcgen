@@ -30,6 +30,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
+import pcgen.util.Logging;
 
 /**
  * AddedTemplateFacet is a Facet that tracks the Templates that have been added
@@ -66,9 +67,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 	public Collection<PCTemplate> select(CharID id, CDOMObject po)
 	{
 		List<PCTemplate> list = new ArrayList<PCTemplate>();
-		// older version of this cleared the
-		// templateAdded list, so this may have to do that as well?
-		removeCache(id, getClass());
+		removeAll(id, po);
 		PlayerCharacter pc = trackingFacet.getPC(id);
 		if (!pc.isImporting())
 		{
@@ -291,6 +290,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 				pc.removeTemplate(pct);
 			}
 		}
+		removeAll(id, cdo);
 
 		Collection<CDOMReference<PCTemplate>> refList =
 				cdo.getListFor(ListKey.TEMPLATE);

@@ -885,9 +885,9 @@ public class CharacterAbilities
 			if (dfce.getCharID() != charID)
 			{
 				// The change notification is not for this character, so ignore it.
-				Logging.debugPrint("CA for " + theCharacter.getName() 
-					+ ". Ignoring direct ability added for character " 
-					+ dfce.getCharID());
+//				Logging.debugPrint("CA for " + theCharacter.getName() 
+//					+ ". Ignoring direct ability added for character " 
+//					+ dfce.getCharID());
 				return;
 			}
 			CategorizedAbilitySelection cas = dfce.getCDOMObject();
@@ -930,9 +930,9 @@ public class CharacterAbilities
 		{
 			if (dfce.getCharID() != charID)
 			{
-					Logging.debugPrint("CA for " + theCharacter.getName()
-						+ ". Ignoring granted ability added for character "
-						+ dfce.getCharID());
+//					Logging.debugPrint("CA for " + theCharacter.getName()
+//						+ ". Ignoring granted ability added for character "
+//						+ dfce.getCharID());
 				return;
 			}
 			Logging.debugPrint("Got granted ability added of " + dfce.getCDOMObject());
