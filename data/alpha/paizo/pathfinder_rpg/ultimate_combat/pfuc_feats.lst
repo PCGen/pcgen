@@ -241,14 +241,14 @@ Field Repair			TYPE:General																																																					
 
 #
 # TODO:Race from Naga (Dark) doesn't match. How to check for unarmed strike or primary natural melee?
-#      Constrict starts with empty diesize and bonus - how to determine? Constrict says that it is
+#      Constrict starts with empty diesize and bonus if from racial trait - how to determine? Constrict says that it is
 #      "typically equal to the amount of damage caused by the creature’s melee attack."
 Final Embrace			TYPE:Combat			PRESTAT:2,STR=13,INT=3			PREMULT:1,[PRERACE:1,Naga,Serpentfolk],[PREABILITY:1,CATEGORY=Special Ability,Constrict]			PREATT:3			ABILITY:Special Ability|AUTOMATIC|Grab			ABILITY:Special Ability|AUTOMATIC|Constrict|!PREABILITY:1,CATEGORY=Special Ability,Constrict			DESC:Your coils are particularly deadly, allowing you to constrict opponents of your size or smaller.			SOURCEPAGE:p.101			BENEFIT:You gain the constrict and grab special attacks. Your constrict attack deals damage equal to your unarmed strike or primary natural weapon melee attack. Further, you can grab and constrict opponents up to your size. &nl; [Normal] You can grab and constrict creatures one size smaller than you.
 #(%1 %2).|ConstrictDice|ConstrictDieSize			BONUS:VAR|ConstrictDice|1|PREVARLT:ConstrictDice,1		BONUS:VAR|ConstrictDieSize|6|PREVARLT:ConstrictDieSize,1	
 
 Final Embrace Horror			TYPE:Combat			PRESTAT:2,STR=15,INT=3			PREMULT:1,[PRERACE:1,Naga,Serpentfolk],[PREABILITY:1,CATEGORY=Special Ability,Constrict]			PREFEAT:2,Ability Focus (constrict),Final Embrace			PREATT:6			DESC:Your constricting attack has become stronger and more lethal.			SOURCEPAGE:p.101			BENEFIT:A creature that takes damage from your constrict attack is also shaken until the start of your next turn.
 
-# TODO:Not tested
+# TODO:As long as the Constrict is defined correctly, this works.
 Final Embrace Master			TYPE:Combat			PRESTAT:2,STR=17,INT=3			PREMULT:1,[PRERACE:1,Naga,Serpentfolk],[PREABILITY:1,CATEGORY=Special Ability,Constrict]			PREFEAT:2,Ability Focus (constrict),Final Embrace,Final Embrace Horror			PREATT:9			DEFINE:FEMConstrictBaseDice|ConstrictDice			BONUS:VAR|ConstrictDice|FEMConstrictBaseDice			DESC:Few creatures can survive the crushing horror of your Final Embrace.			SOURCEPAGE:p.102			BENEFIT:Double the number of damage dice for your constrict special attack.
 
 Flanking Foil			TYPE:Combat																																																																																																																																																																											DESC:Fighting multiple foes is easy for you.																																																																																																	SOURCEPAGE:p.102	BENEFIT:Whenever you hit an adjacent opponent with a melee attack, until the start of your next turn, that opponent does not gain any flanking bonus on attack rolls while it is flanking you and cannot deal sneak attack damage to you. It can still provide a flank for its allies.
