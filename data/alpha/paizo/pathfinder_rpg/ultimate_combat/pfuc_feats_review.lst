@@ -67,49 +67,49 @@
 #	STACK:NO
 
 # TODO: Check the chooser to see if it works
-Feral Combat Training
-	SOURCEPAGE:p.101
-	TYPE:Combat
-	DESC:You were taught a style of martial arts that relies on the natural weapons from your racial ability or class feature.
-	PREFEAT:2,Improved Unarmed Strike,Weapon Focus (TYPE=Natural)
-	CHOOSE:WEAPONPROFICIENCY|TYPE=Natural,PC,FEAT=Weapon Focus
-	BENEFIT:Choose one of your natural weapons. While using the selected natural weapon, you can apply the effects of feats that have Improved Unarmed Strike as a prerequisite, as well as effects that augment an unarmed strike. &nl; [Special]If you are a monk, you can use the selected natural weapon with your flurry of blows class feature.
-	MULT:YES
-	STACK:NO
+#Feral Combat Training
+#	SOURCEPAGE:p.101
+#	TYPE:Combat
+#	DESC:You were taught a style of martial arts that relies on the natural weapons from your racial ability or class feature.
+#	PREFEAT:2,Improved Unarmed Strike,Weapon Focus (TYPE=Natural)
+#	CHOOSE:WEAPONPROFICIENCY|TYPE=Natural,PC,FEAT=Weapon Focus
+#	BENEFIT:Choose one of your natural weapons. While using the selected natural weapon, you can apply the effects of feats that have Improved Unarmed Strike as a prerequisite, as well as effects that augment an unarmed strike. &nl; [Special]If you are a monk, you can use the selected natural weapon with your flurry of blows class feature.
+#	MULT:YES
+#	STACK:NO
 
 # TODO: There are loads of Naga and Serpentfolk that are not in one specific subtype
 # TODO: There are loads of different constrict abilities
 # TODO: Constrict damage
-Final Embrace
-	SOURCEPAGE:p.101
-	TYPE:Combat
-	DESC:Your coils are particularly deadly, allowing you to constrict opponents of your size or smaller.
-	PRESTAT:2,STR=13,INT=3
-	PREMULT:1,[PRERACE:1,Naga,Serpentfolk],[PREABILITY:1,CATEGORY=Special Ability,Constrict]
-	PREATT:3
-	ABILITY:Special Ability|AUTOMATIC|Constrict|Grab
-	BENEFIT:You gain the constrict and grab special attacks. Your constrict attack deals damage equal to your unarmed strike or primary natural weapon melee attack. Further, you can grab and constrict opponents up to your size. &nl; [Normal] You can grab and constrict creatures one size smaller than you.
+#Final Embrace
+#	SOURCEPAGE:p.101
+#	TYPE:Combat
+#	DESC:Your coils are particularly deadly, allowing you to constrict opponents of your size or smaller.
+#	PRESTAT:2,STR=13,INT=3
+#	PREMULT:1,[PRERACE:1,Naga,Serpentfolk],[PREABILITY:1,CATEGORY=Special Ability,Constrict]
+#	PREATT:3
+#	ABILITY:Special Ability|AUTOMATIC|Constrict|Grab
+#	BENEFIT:You gain the constrict and grab special attacks. Your constrict attack deals damage equal to your unarmed strike or primary natural weapon melee attack. Further, you can grab and constrict opponents up to your size. &nl; [Normal] You can grab and constrict creatures one size smaller than you.
 
-Final Embrace Horror
-	SOURCEPAGE:p.101
-	TYPE:Combat
-	DESC:Your constricting attack has become stronger and more lethal.
-	PRESTAT:2,STR=15,INT=3
-	PREMULT:1,[PRERACE:1,Naga,Serpentfolk],[PREABILITY:1,CATEGORY=Special Ability,Constrict]
-	PREFEAT:2,Ability Focus (constrict),Final Embrace
-	PREATT:6
-	BENEFIT:A creature that takes damage from your constrict attack is also shaken until the start of your next turn.
+#Final Embrace Horror
+#	SOURCEPAGE:p.101
+#	TYPE:Combat
+#	DESC:Your constricting attack has become stronger and more lethal.
+#	PRESTAT:2,STR=15,INT=3
+#	PREMULT:1,[PRERACE:1,Naga,Serpentfolk],[PREABILITY:1,CATEGORY=Special Ability,Constrict]
+#	PREFEAT:2,Ability Focus (constrict),Final Embrace
+#	PREATT:6
+#	BENEFIT:A creature that takes damage from your constrict attack is also shaken until the start of your next turn.
 
 # TODO: Double damage dice
-Final Embrace Master
-	SOURCEPAGE:p.102
-	TYPE:Combat
-	DESC:Few creatures can survive the crushing horror of your Final Embrace.
-	PRESTAT:2,STR=17,INT=3
-	PREMULT:1,[PRERACE:1,Naga,Serpentfolk],[PREABILITY:1,CATEGORY=Special Ability,Constrict]
-	PREFEAT:2,Ability Focus (constrict),Final Embrace,Final Embrace Horror
-	PREATT:9
-	BENEFIT:Double the number of damage dice for your constrict special attack.
+#Final Embrace Master
+#	SOURCEPAGE:p.102
+#	TYPE:Combat
+#	DESC:Few creatures can survive the crushing horror of your Final Embrace.
+#	PRESTAT:2,STR=17,INT=3
+#	PREMULT:1,[PRERACE:1,Naga,Serpentfolk],[PREABILITY:1,CATEGORY=Special Ability,Constrict]
+#	PREFEAT:2,Ability Focus (constrict),Final Embrace,Final Embrace Horror
+#	PREATT:9
+#	BENEFIT:Double the number of damage dice for your constrict special attack.
 
 # TODO: Could be more efficient with ALL, but is not in the docs?
 Fortified Armor Training

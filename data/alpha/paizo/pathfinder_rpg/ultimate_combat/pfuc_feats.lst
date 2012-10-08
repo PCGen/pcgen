@@ -7,7 +7,7 @@
 
 #  TODO: Sorcerous Strike, Siege Engineer, Arc Slinger, Close-Quarters Thrower, Contingent Channeling, Defensive Weapon Training
 #        Distance Thrower, Domain Strike, Dragon Ferocity, Earth Child Style, Hex Strike, Impaling Critical, Improved Impaling Critical, Amateur Gunslinger
-#        Rebuffing Reduction, Shapeshifter Foil, Masterful Display, Skilled Driver
+#        Rebuffing Reduction, Shapeshifter Foil, Masterful Display, Skilled Driver, Feral Combat Training, Final Embrace, Final Embrace Master
 
 # the following feats have been reviewed and either fully work, or have a TODO comment which will require someone more qualified to
 # assist with the fix
@@ -233,7 +233,23 @@ Felling Escape			TYPE:Combat																																											PREFEAT:2
 
 Felling Smash			TYPE:Combat																																				PREATT:6						PREFEAT:3,Combat Expertise,Improved Trip,Power Attack																																																																																													PRESTAT:2,INT=13,STR=13																								DESC:You commit all your focus to a devastating blow, trying to crush your opponent to the ground.																																																																																								SOURCEPAGE:p.101	BENEFIT:If you use the attack action to make a single melee attack at your highest base attack bonus while using Power Attack and you hit an opponent, you can spend a swift action to attempt a trip combat maneuver against that opponent.
 
+#		TODO: Weapon Focus type natural not being recognized, tested on bite attack (half-orc w/ toothy racial trait)
+Feral Combat Training			TYPE:Combat			PREFEAT:2,Improved Unarmed Strike,Weapon Focus (TYPE=Natural)			MULT:YES			STACK:NO			CHOOSE:WEAPONPROFICIENCY|TYPE=Natural,PC,FEAT=Weapon Focus			DESC:You were taught a style of martial arts that relies on the natural weapons from your racial ability or class feature.			SOURCEPAGE:p.101			BENEFIT:Choose one of your natural weapons. While using the selected natural weapon, you can apply the effects of feats that have Improved Unarmed Strike as a prerequisite, as well as effects that augment an unarmed strike. &nl; [Special]If you are a monk, you can use the selected natural weapon with your flurry of blows class feature.
+
+
 Field Repair			TYPE:General																																																																																																												PRESKILL:1,Craft=4																																																											DESC:You can repair your broken weapon or armor to serviceability even without the benefits of artisan tools.																																																																																						SOURCEPAGE:p.101	BENEFIT:If you are trained in a Craft skill appropriate to a broken item, you can repair that item with no raw material cost and no penalty on your Craft skill check for using improvised tools. If you spend a day, the item regains 1 hit point plus one-quarter of its original hit points. Alternatively, if the item gained the broken condition because it is a firearm that has misfired or a siege engine that suffered a mishap, or has the broken condition because it has the fragile weapon quality (or some similar quality), you can make a Craft check with the DC it takes to craft that item (see Table 2-2, below). If the check succeeds, the item loses the broken condition. &nl; [Normal] Improvised tools impose a -2 penalty on Craft checks. Items require raw materials to repair.
+
+#
+# TODO:Race from Naga (Dark) doesn't match. How to check for unarmed strike or primary natural melee?
+#      Constrict starts with empty diesize and bonus - how to determine? Constrict says that it is
+#      "typically equal to the amount of damage caused by the creature’s melee attack."
+Final Embrace			TYPE:Combat			PRESTAT:2,STR=13,INT=3			PREMULT:1,[PRERACE:1,Naga,Serpentfolk],[PREABILITY:1,CATEGORY=Special Ability,Constrict]			PREATT:3			ABILITY:Special Ability|AUTOMATIC|Grab			ABILITY:Special Ability|AUTOMATIC|Constrict|!PREABILITY:1,CATEGORY=Special Ability,Constrict			DESC:Your coils are particularly deadly, allowing you to constrict opponents of your size or smaller.			SOURCEPAGE:p.101			BENEFIT:You gain the constrict and grab special attacks. Your constrict attack deals damage equal to your unarmed strike or primary natural weapon melee attack. Further, you can grab and constrict opponents up to your size. &nl; [Normal] You can grab and constrict creatures one size smaller than you.
+#(%1 %2).|ConstrictDice|ConstrictDieSize			BONUS:VAR|ConstrictDice|1|PREVARLT:ConstrictDice,1		BONUS:VAR|ConstrictDieSize|6|PREVARLT:ConstrictDieSize,1	
+
+Final Embrace Horror			TYPE:Combat			PRESTAT:2,STR=15,INT=3			PREMULT:1,[PRERACE:1,Naga,Serpentfolk],[PREABILITY:1,CATEGORY=Special Ability,Constrict]			PREFEAT:2,Ability Focus (constrict),Final Embrace			PREATT:6			DESC:Your constricting attack has become stronger and more lethal.			SOURCEPAGE:p.101			BENEFIT:A creature that takes damage from your constrict attack is also shaken until the start of your next turn.
+
+# TODO:Not tested
+Final Embrace Master			TYPE:Combat			PRESTAT:2,STR=17,INT=3			PREMULT:1,[PRERACE:1,Naga,Serpentfolk],[PREABILITY:1,CATEGORY=Special Ability,Constrict]			PREFEAT:2,Ability Focus (constrict),Final Embrace,Final Embrace Horror			PREATT:9			DEFINE:FEMConstrictBaseDice|ConstrictDice			BONUS:VAR|ConstrictDice|FEMConstrictBaseDice			DESC:Few creatures can survive the crushing horror of your Final Embrace.			SOURCEPAGE:p.102			BENEFIT:Double the number of damage dice for your constrict special attack.
 
 Flanking Foil			TYPE:Combat																																																																																																																																																																											DESC:Fighting multiple foes is easy for you.																																																																																																	SOURCEPAGE:p.102	BENEFIT:Whenever you hit an adjacent opponent with a melee attack, until the start of your next turn, that opponent does not gain any flanking bonus on attack rolls while it is flanking you and cannot deal sneak attack damage to you. It can still provide a flank for its allies.
 
