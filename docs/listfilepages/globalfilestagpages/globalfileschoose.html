@@ -1444,14 +1444,14 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Weapon proficiency)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> DEITYWEAPON (Feat, by name or key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> ABILITY=Text (Ability, by name or key)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> WIELD=Text (Weapon wield type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> WIELD=Text (Weapon wield type. Used in <code>EQUIPMENT</code> qualifier only.)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Weapon proficiency type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited weapon proficiency type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> ANY (Default)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> PC</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> QUALIFIED</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> EQUIPMENT[x] (Special qualifier)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> SPELLCASTER[x] (Special qualifier)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
@@ -1459,12 +1459,15 @@
 		<li>Using the <code>DEITYWEAPON</code> sub-tag will provide the weapon listed as the favored weapon for the player character's selected deity.</li>
 		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of weapon proficiencies selected by the referenced feat. The feat 
 			referenced must contain a <code>CHOOSE:WEAPONPROFICIENCY</code> tag.</li>
-		<li>Using the <code>ABILITY=Text</code> sub-tag will provide a list of weapon proficiencies selected by the referenced ability which must contain a 
-			<code>CHOOSE:WEAPONPROFICIENCY</code> tag.</li>
 		<li>Using the <code>WIELD=Text</code> sub-tag will provide a list of weapon proficiencies for weapons of the referenced wield type. The wield type must one of the 
 			following three types: Light, One-Handed, Two-Handed. <strong>WIELD</strong> type is set for each weapon in the equipment LST file.</li>
+		<li>Using the <code>WIELD=Text</code> sub-tag in an <code>EQUIPMENT</code> qualifier will provide a list of weapon proficiencies for weapons of the referenced wield 
+			type. The wield type must one of the following three types: Light, One-Handed, Two-Handed. Wield type is set for each weapon in the equipment LST file. Note: 
+			Not all game modes support <code>WIELD</code>.</li>
+		<li>Using the <code>EQUIPMENT</code> qualifier will allow the selection of proficiencies based on weapons. It can be combined with <code>TYPE=Text</code> and 
+			<code>WIELD=Text</code> criteria, contained in square-brackets ([x]) to restrict the proficiencies offered.</li>
 		<li>When using the <code>SPELLCASTER</code> qualifier will provide a list of proficiencies matching the included criteria as long as the player character is a spellcaster.</li>
-		<li>Global qualifiers work for armor proficiencies. Use of the qualifiers has the following effect:
+		<li>Global qualifiers work for weapon proficiencies. Use of the qualifiers has the following effect:
 			<ul>
 				<li><strong>ANY</strong> - Will return a list of all weapon proficiencies.</li>
 				<li><strong>PC</strong> - Will return a list of all weapon proficiencies already taken by the Player Character.</li>
@@ -1484,6 +1487,10 @@
 	<p class="indent3">Will display a list of weapon proficiencies of the <strong>Ranged</strong> type that the PC is already proficient with.</p>
 	<p class="indent2"><code>CHOOSE:WEAPONPROFICIENCY|SPELLCASTER[Ray] </code></p>
 	<p class="indent3">Will add proficiency with the <strong>Ray</strong> if the PC is a spellcaster.</p>
+	<p class="indent2"><code>CHOOSE:WEAPONPROFICIENCY|EQUIPMENT[TYPE=Finesseable]</code></p>
+	<p class="indent3">Will display a list of weapon proficiencies for all weapons with a type of <strong>Finesseable</strong>.</p>
+	<p class="indent2"><code>CHOOSE:WEAPONPROFICIENCY|EQUIPMENT[TYPE=Melee,WIELD=Light]</code></p>
+	<p class="indent3">Will display a list of weapon proficiencies for all weapons with a type of Melee that also have a wield type of <strong>Light</strong>.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
 	<p></p>
