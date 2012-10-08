@@ -559,8 +559,3 @@ Vicious Stomp			TYPE:Combat																																											PREFEAT:2,
 Exotic Weapon Proficiency.MOD																																																																																																																																																																																																																																					ABILITY:Internal|AUTOMATIC|Exotic Weapon Proficiency ~ Firearms|PREFEAT:1,Exotic Weapon Proficiency (Firearms)
 
 
-###Block: Missing from Book, PRD Website and repo search - Dummy Place Holders
-Crushing Embrace		DESC:No Info [Not Implemented]
-Twin Lock			DESC:No Info [Not Implemented]
-Choke Hold			DESC:No Info [Not Implemented]
-Backbreaker			DESC:No Info [Not Implemented]
