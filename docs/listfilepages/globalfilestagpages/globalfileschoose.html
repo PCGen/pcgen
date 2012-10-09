@@ -1254,9 +1254,9 @@
 	<p class="indent3">Choose from Arcane Evocation spells</p>
 	<p class="indent2"><code>CHOOSE:SPELLS|DESCRIPTOR=Good</code></p>
 	<p class="indent3">Choose from spells with the Good descriptor</p>
-	<p class="indent2"><code>CHOOSE:SPELLS|ANY[KNOWN=YES]</code></p>
+	<p class="indent2"><code>CHOOSE:SPELLS|ALL[KNOWN=YES]</code></p>
 	<p class="indent3">Choose from spells known by the PC.</p>
-	<p class="indent2"><code>CHOOSE:SPELLS|ANY[LEVELMAX=MAXCASTABLE-1],SPELLTYPE=Arcane</code></p>
+	<p class="indent2"><code>CHOOSE:SPELLS|ALL[LEVELMAX=MAXCASTABLE-1],SPELLTYPE=Arcane</code></p>
 	<p class="indent3">Choose from spells that are both up to the maximum castable (of any spell) level minus 1 
 		AND <code>SPELLTYPE=Arcane</code>.</p>
 	<p class="indent2"><code>CHOOSE:SPELLS|CLASSLIST=Sorcerer[LEVELMIN=1;LEVELMAX=MAXCASTABLE-1]</code></p>
