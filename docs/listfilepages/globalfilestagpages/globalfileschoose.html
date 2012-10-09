@@ -1125,8 +1125,43 @@
 
 <hr>
 
+	<p class="new"><a name="SPELLLEVEL">*** New 5.17.4</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SPELLLEVEL|w|x|y|z|x|y|z</p>
+	<p class="indent1"><strong>Variables Used (w):</strong> TITLE=Text (Chooser title. Optional)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spellcaster class)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SPELLTYPE=Text (Spell type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Class type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Class type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Number (Minimum level)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Number or formula (Maximum level)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Display a list of a character's spell levels for the specified class or type.</li>
+		<li>Levels will only be included if they fall between the range of minimum Level (y) and maximum Level (z), inclusive.</li>
+		<li><code>SPELLTYPE</code> will include spell levels of the designated spell type.</li>
+		<li><code>TITLE</code> provides a descriptive title for the chooser.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:SPELLLEVEL|CLASS=Wizard|0|MAXLEVEL|SPELLTYPE=Divine|1|3</code></p>
+	<p class="indent3">Would present a list of the character's castable Wizard levels of spells (e.g.
+		Wizard 0 Wizard 1 Wizard 2 for a 5th level Wizard) and Cleric 1 Cleric 2 Cleric 3 if the character
+		had Cleric as a class.</p>
+	<p class="indent2"><code>CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|0|MAXLEVEL &lt;tab&gt; BONUS:SPELLCAST|%LIST|1</code></p>
+	<p class="indent3">Would present a list of the character's castable Arcane spells and allow one to be chosen
+		as a bonus spell per day.</p>
+	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
+	<p class="indent2"><code>CHOOSE:SPELLLEVEL||2|TYPE.Arcane|4|MAXLEVEL+30[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]</code> becomes</p>
+	<p class="indent3"><code>SELECT:2 &lt;tab&gt; CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|4|MAXLEVEL+30 &lt;tab&gt; BONUS:SPELLCAST|%LIST|1</code></p>
+	<p class="indent1"><strong>Where it is Used:</strong></p>
+	<p class="indent2">Global except for Equipmod Files</p>
+	<p></p>
 
-	<p class="dep"><a name="SPELLLEVEL">*** Deprecated Syntax 5.17.4</a> - Use <a href="#SPELLLEVEL2">CHOOSE:SPELLLEVEL</a> - Remove 6.2</p>
+<hr>
+
+	<p class="dep"><a name="SPELLLEVEL2">*** Deprecated Syntax 5.17.4</a> - Use <a href="#SPELLLEVEL2">CHOOSE:SPELLLEVEL</a> - Remove 6.2</p>
 	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SPELLLEVEL|w|x|y|z|x|y|z</p>
 	<p class="indent1"><strong>Variables Used (w):</strong> Number (Number of choices)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> CLASS=Text (Spellcaster class)</p>
@@ -1150,41 +1185,6 @@
 	<p class="indent2"><code>CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]</code></p>
 	<p class="indent3">Would present a list of the character's castable levels of Arcane spells and allow one level to be chosen
 		to get as a bonus spell per day.</p>
-	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
-
-<hr>
-
-	<p class="new"><a name="SPELLLEVEL2">*** New 5.17.4</a></p>
-	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SPELLLEVEL|w|x|y|z|x|y|z</p>
-	<p class="indent1"><strong>Variables Used (w):</strong> TITLE=Text (Chooser title. Optional)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spellcaster class)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> SPELLTYPE=Text (Spell type)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Class type)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Class type)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number (Minimum level)</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> Number or formula (Maximum level)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>Display a list of a character's castable spells for the specified class or type.</li>
-		<li>Spells will only be included if they fall between the range of Minimum Level and Maximum Level, inclusive.</li>
-		<li><code>MAXLEVEL</code> will include spells up to the highest level the character can cast.</li>
-		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
-			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:SPELLLEVEL|CLASS=Wizard|0|MAXLEVEL|SPELLTYPE=Divine|1|3</code></p>
-	<p class="indent3">Would present a list of the character's castable Wizard levels of spells (e.g.
-		Wizard 0 Wizard 1 Wizard 2 for a 5th level Wizard) and Cleric 1 Cleric 2 Cleric 3 if the character
-		had Cleric as a class.</p>
-	<p class="indent2"><code>CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|0|MAXLEVEL &lt;tab&gt; BONUS:SPELLCAST|%LIST|1</code></p>
-	<p class="indent3">Would present a list of the character's castable Arcane spells and allow one to be chosen
-		as a bonus spell per day.</p>
-	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
-	<p class="indent2"><code>CHOOSE:SPELLLEVEL||2|TYPE.Arcane|4|MAXLEVEL+30[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]</code> becomes</p>
-	<p class="indent3"><code>SELECT:2 &lt;tab&gt; CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|4|MAXLEVEL+30 &lt;tab&gt; BONUS:SPELLCAST|%LIST|1</code></p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
 	<p></p>
