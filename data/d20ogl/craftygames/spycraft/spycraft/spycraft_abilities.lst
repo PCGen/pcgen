@@ -65,8 +65,8 @@ Snoop Back Door					CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbili
 Snoop Jury-rig					CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility									DESC:Jury-rig +%1|PointmanJuryrig				DEFINE:PointmanJuryrig|2
 Snoop Jury-rig +1					CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility			PREABILITY:1,CATEGORY=Special Ability,Snoop Jury-rig																																																				BONUS:VAR|PointmanJuryrig|1
 
-Soldier Bonus Feat x1				CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility																														ADD:FEAT|TYPE=BasicCombat,TYPE=MeleeCombat,TYPE=RangedCombat,TYPE=UnarmedCombat
-Soldier Bonus Feat x2				CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility			PREABILITY:1,CATEGORY=Special Ability,Soldier Bonus Feat x1																						ADD:FEAT|TYPE=BasicCombat,TYPE=MeleeCombat,TYPE=RangedCombat,TYPE=UnarmedCombat
+Soldier Bonus Feat x1				CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility																														BONUS:ABILITYPOOL|Solder Class Ability|1
+Soldier Bonus Feat x2				CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility			PREABILITY:1,CATEGORY=Special Ability,Soldier Bonus Feat x1																						BONUS:ABILITYPOOL|Solder Class Ability|1
 Soldier Damage Reduction			CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility																																																																			DR:1/-
 Soldier Armor Use					CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility																																												BONUS:COMBAT|AC|1|PREEQUIP:1,TYPE=Armor	BONUS:MISC|ACCCHECK|-1|PREEQUIP:1,TYPE=Armor
 

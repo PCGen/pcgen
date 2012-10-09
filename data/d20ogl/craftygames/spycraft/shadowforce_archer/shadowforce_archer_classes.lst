@@ -12,18 +12,17 @@ CLASS:Cat Burglar	HD:10		TYPE:Prestige.PC	ABB:Cat		MAXLEVEL:10	SOURCEPAGE:p.163	
 # Class Name	Required Feat				Required Lvl	Required Skill
 CLASS:Cat Burglar	PREFEAT:2,Acrobatic,Master Fence	PRELEVEL:MIN=5	PRESKILL:2,Climb=8,Open Lock=8
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Cat Burglar	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Boating|Climb|Concentration|TYPE=Craft|Driver|Electronics|Escape Artist|Hide|TYPE=Hobby|Jump|TYPE=Knowledge|Listen|Move Silently|Open Lock|Pilot|TYPE=Profession|Search|Sleight of Hand|Spot|Surveillance|Tumble|Use Rope
+CLASS:Cat Burglar	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Boating|Climb|Concentration|TYPE=Craft|Driver|Electronics|Escape Artist|Hide|TYPE=Hobby|Jump|TYPE=Knowledge|Listen|Move Silently|Open Lock|Pilot|TYPE=Profession|Search|Sleight of Hand|Spot|Surveillance|Tumble|Use Rope	DEFINE:CatBurglarLvl|CL
 
-1	SAB:Case (scout)|PREVARLT:CL,5						BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0		ADD:FEAT|Cat Burglar Core Ability					AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)
-2	SAB:Honor Among Thieves +%|HonorAmongThieves										DEFINE:HonorAmongThieves|((CL-1)/6)+1
-3																									ADD:FEAT|TYPE=AdvancedSkill,TYPE=BasicSkill,TYPE=Covert
-4	SAB:Go to ground (hiding)|PREVARLT:CL,8	SAB:Improvised Tools
-5	SAB:Case (foil)|PREVARLT:CL,9																				ADD:FEAT|TYPE=AdvancedSkill,TYPE=BasicSkill,TYPE=Covert
-6	SAB:Do I want to know?
-7																									ADD:FEAT|TYPE=AdvancedSkill,TYPE=BasicSkill,TYPE=Covert
-8	SAB:Sucker Punch	SAB:Go to ground (chases)
-9	SAB:Case (penetrate)																					ADD:FEAT|TYPE=AdvancedSkill,TYPE=BasicSkill,TYPE=Covert
-10
+1	ABILITY:Special Ability|AUTOMATIC|Case ~ Cat Burglar						BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0		TEMPLATE:Prestige Class Core Ability					AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)
+2	ABILITY:Special Ability|AUTOMATIC|Honor Among Thieves ~ Cat Burglar										BONUS:VAR|HonorAmongThieves|((CL-1)/6)+1
+3																									BONUS:ABILITYPOOL|Cat Burglar Feat|1
+4	ABILITY:Special Ability|AUTOMATIC|Go to ground ~ Cat Burglar|Improvised Tools ~ Cat Burglar
+5																					BONUS:ABILITYPOOL|Cat Burglar Feat|1
+6	ABILITY:Special Ability|AUTOMATIC|Do I want to know? ~ Cat Burglar
+7																									BONUS:ABILITYPOOL|Cat Burglar Feat|1
+8	ABILITY:Special Ability|AUTOMATIC|Sucker Punch ~ Cat Burglar	
+9																						BONUS:ABILITYPOOL|Cat Burglar Feat|1
 
 
 # Class Name		Output Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus																													Modify VAR
@@ -31,35 +30,35 @@ CLASS:Counter Terrorist	OUTPUTNAME:Counter-Terrorist	HD:10		TYPE:Prestige.PC	ABB
 # Class Name		Req. Att.	Required Feat		Required Skill
 CLASS:Counter Terrorist	PREATT:5	PREFEAT:1,Precise Shot	PRESKILL:1,Spot=8	PRESKILL:1,Sense Motive=4
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Counter Terrorist	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Demolitions|Diplomacy|Driver|First Aid|TYPE=Hobby|Intimidate|Jump|TYPE=Knowledge|Move Silently|TYPE=Profession|Search|Sense Motive|Spot|Surveillance|Swim|Use Rope
-1	SAB:Special Tactics (locate)|PREVARLT:CL,5			BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	ADD:FEAT|Counter Terrorist Core Ability	ADD:FEAT|Counter Terrorist Core Ability	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Tactical)
-2	SAB:Precision Takedown (-25% cover)|PREVARLT:CL,7
-3																							ADD:FEAT|TYPE=BasicCombat,TYPE=Covert
-4	SAB:Safe Attack	SAB:Crowd control (% level)|CrowdControl							DEFINE:CrowdControl|CL/4
-5	SAB:Special Tactics (subdue)|PREVARLT:CL,9															ADD:FEAT|TYPE=BasicCombat,TYPE=Covert
-6	SAB:Negotiator
-7	SAB:Precision Takedown (-50% cover)																	ADD:FEAT|TYPE=BasicCombat,TYPE=Covert
-8	SAB:Tactical Commander
-9	SAB:Special Tactics (improved locate)																ADD:FEAT|TYPE=BasicCombat,TYPE=Covert
-10	SAB:Moment of truth
+CLASS:Counter Terrorist	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Demolitions|Diplomacy|Driver|First Aid|TYPE=Hobby|Intimidate|Jump|TYPE=Knowledge|Move Silently|TYPE=Profession|Search|Sense Motive|Spot|Surveillance|Swim|Use Rope	DEFINE:CounterTerroristLvl|CL
+1	ABILITY:Special Ability|AUTOMATIC|Special Tactics ~ Counter Terrorist			BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	TEMPLATE:Prestige Class Core Ability	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Tactical)
+2	ABILITY:Special Ability|AUTOMATIC|Precision Takedown ~ Counter Terrorist
+3																							BONUS:ABILITYPOOL|Counter Terrorist Feat|1
+4	ABILITY:Special Ability|AUTOMATIC|Safe Attack ~ Counter Terrorist|Crowd control ~ Counter Terrorist							BONUS:VAR|CrowdControl|CL/4
+5																BONUS:ABILITYPOOL|Counter Terrorist Feat|1
+6	ABILITY:Special Ability|AUTOMATIC|Negotiator ~ Counter Terrorist
+7																		BONUS:ABILITYPOOL|Counter Terrorist Feat|1
+8	ABILITY:Special Ability|AUTOMATIC|Tactical Commander ~ Counter Terrorist
+9																	BONUS:ABILITYPOOL|Counter Terrorist Feat|1
+10	ABILITY:Special Ability|AUTOMATIC|Moment of truth ~ Counter Terrorist
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																		Combat bonus																												Modify VAR
-CLASS:Hacker	HD:8		TYPE:Prestige.PC	ABB:Hac		MAXLEVEL:10	SOURCEPAGE:p.167	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will,BASE.Reflex|(((CL+2)*2)/5)+(floor(CL/5))+(floor((CL+3)/5))	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=2)-(CL>=4)-(CL>=7)-(CL>=9)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=2)-(CL>=4)-(CL>=7)-(CL>=9)	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|CL
+CLASS:Hacker	HD:8		TYPE:Prestige.PC	ABB:Hac		MAXLEVEL:10	SOURCEPAGE:p.167	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will,BASE.Reflex|(((CL+2)*2)/5)+(floor(CL/5))+(floor((CL+3)/5))	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|CL-(CL>=2)-(CL>=4)-(CL>=7)-(CL>=9)|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=2)-(CL>=4)-(CL>=7)-(CL>=9)	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|CL	DEFINE:HackerLvl|CL
 # Class Name	Required Feat			Required Lvl	Required Skill
 CLASS:Hacker	PREFEAT:1,Mathematical Genius	PRELEVEL:MIN=5	PRESKILL:2,Computers=8,Cryptography=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hacker	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Bureaucracy|Computers|Concentration|TYPE=Craft|Cryptography|Cultures|Diplomacy|Driver|Electronics|Forgery|Gather Information|TYPE=Hobby|Innuendo|TYPE=Knowledge|Languages|Listen|Mechanics|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spot|Surveillance
-1	SAB:Hard-wired (Concentrate)|PREVARLT:CL,5	BONUS:SKILL|Concentration|4	BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	ADD:FEAT|Hacker Core Ability
-2	SAB:Synchronize (Solo)|PREVARLT:CL,7
+1	ABILITY:Special Ability|AUTOMATIC|Hard-wired ~ Hacker	BONUS:SKILL|Concentration|4	BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	TEMPLATE:Prestige Class Core Ability
+2	ABILITY:Special Ability|AUTOMATIC|Synchronize ~ Hacker
 3																															AUTO:FEAT|Advanced Skill Mastery(Mathematical Genius)
-4	SAB:Lockout (Single)|PREVARLT:CL,8	SAB:Sift
-5	SAB:Hard-wired (All-Nighter)|PREVARLT:CL,9																							AUTO:FEAT|Quick Use(Computers)
-6	SAB:Fingerprints
-7	SAB:Synchronize (Team)																											AUTO:FEAT|Grand Skill Mastery(Mathematical Genius)
-8	SAB:Lockout (All)
-9	SAB:Hard-wired (Persevere)																										AUTO:FEAT|Perfect Skill Mastery(Mathematical Genius)
-10	SAB:Ghost in the Machine
+4	ABILITY:Special Ability|AUTOMATIC|Lockout ~ Hacker|Sift ~ Hacker
+5																								AUTO:FEAT|Quick Use(Computers)
+6	ABILITY:Special Ability|AUTOMATIC|Fingerprints ~ Hacker
+7																												AUTO:FEAT|Grand Skill Mastery(Mathematical Genius)
+8	
+9																											AUTO:FEAT|Perfect Skill Mastery(Mathematical Genius)
+10	ABILITY:Special Ability|AUTOMATIC|Ghost in the Machine ~ Hacker
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus																													Modify VAR
@@ -68,36 +67,36 @@ CLASS:Sniper	HD:10		TYPE:Prestige.PC	ABB:Snpr		MAXLEVEL:10	SOURCEPAGE:p.170	BONU
 CLASS:Sniper	PREFEAT:2,Far Shot,Marksman	PRELEVEL:MIN=5	PRESKILL:2,Hide=6,Surveillance=6	PRESTAT:1,DEX=13
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sniper	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Disguise|Driver|Hide|TYPE=Hobby|Intimidate|Jump|Move Silently|Open Lock|TYPE=Profession|Search|Sleight of Hand|Spot|Surveillance|Tumble|Use Rope
-1										BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	ADD:FEAT|Sniper Core Ability			AUTO:FEAT|Armor Proficiency (Light)|Run|Weapon Group Proficiency (Rifle)
-2	SAB:Magic Touch (+%)|MagicTouch										DEFINE:MagicTouch|1+(CL>=7)
-3																						ADD:FEAT|TYPE=Covert,TYPE=RangedCombat
-4	SAB:One Shot	SAB:Deadly Aim (%d6)|DeadlyAim							DEFINE:DeadlyAim|CL/4
-5																						ADD:FEAT|TYPE=Covert,TYPE=RangedCombat	AUTO:FEAT|Mobility
-6	SAB:Surprise Shot
-7																						ADD:FEAT|TYPE=Covert,TYPE=RangedCombat
-8	SAB:Disappear
-9																						ADD:FEAT|TYPE=Covert,TYPE=RangedCombat	AUTO:FEAT|Increased Speed
-10	SAB:Million Dollar Skill
+1										BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	TEMPLATE:Prestige Class Core Ability			AUTO:FEAT|Armor Proficiency (Light)|Run|Weapon Group Proficiency (Rifle)
+2	ABILITY:Special Ability|AUTOMATIC|Magic Touch ~ Sniper										BONUS:VAR|MagicTouch|1+(CL>=7)
+3																						BONUS:ABILITYPOOL|Sniper Feat|1
+4	ABILITY:Special Ability|AUTOMATIC|One Shot ~ Sniper|Deadly Aim ~ Sniper							BONUS:VAR|DeadlyAim|CL/4
+5																						BONUS:ABILITYPOOL|Sniper Feat|1	AUTO:FEAT|Mobility
+6	ABILITY:Special Ability|AUTOMATIC|Surprise Shot ~ Sniper
+7																						BONUS:ABILITYPOOL|Sniper Feat|1
+8	ABILITY:Special Ability|AUTOMATIC|Disappear ~ Sniper
+9																						BONUS:ABILITYPOOL|Sniper Feat|1	AUTO:FEAT|Increased Speed
+10	ABILITY:Special Ability|AUTOMATIC|Million Dollar Skill ~ Sniper
 
 
 ### The Shadespeaker -------------------------------------------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																	Combat bonus																									Modify VAR
-CLASS:Shadespeaker	HD:10		TYPE:Prestige.PC	ABB:ShSpk		MAXLEVEL:10	SOURCEPAGE:p.216	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|(((CL+1)*5)/13)+1	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(CL/2)+1|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:VAR|BUDGETPOINTS|CL	BONUS:VAR|GADGETPOINTS|CL/2
+CLASS:Shadespeaker	HD:10		TYPE:Prestige.PC	ABB:ShSpk		MAXLEVEL:10	SOURCEPAGE:p.216	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|(((CL+1)*5)/13)+1	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(CL/2)+1|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:VAR|BUDGETPOINTS|CL	BONUS:VAR|GADGETPOINTS|CL/2	DEFINE:ShadespeakerLvl|CL
 # Class Name		Required Feat		Required Lvl	Required Stat	Required Template
 CLASS:Shadespeaker	PREFEAT:1,Sixth Sense	PRELEVEL:MIN=5	PRESTAT:1,WIS=13	PRETEMPLATE:1,Chamber - Guardians of the Whispering Knife
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadespeaker	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|First Aid|Gather Information|Handle Animal|TYPE=Hobby|Jump|TYPE=Knowledge|Languages|Listen|Sense Motive|Spot|Survival|Tumble
-1	SAB:The Call (Questions)|PREVARLT:CL,5				BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	ADD:FEAT|Shadespeaker Core Ability		AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)
-2	SAB:Deathwatch (Corpse Sense)|PREVARLT:CL,7
-3																							ADD:FEAT|TYPE=MeleeCombat,TYPE=Mystic
-4	SAB:The Sleep	SAB:Washaif Blade (Marking)|PREVARLT:CL,8
-5	SAB:The Call (Converse)|PREVARLT:CL,9																ADD:FEAT|TYPE=MeleeCombat,TYPE=Mystic
-6	SAB:Resolute Aura
-7	SAB:Deathwatch (Death Sense)																		ADD:FEAT|TYPE=MeleeCombat,TYPE=Mystic
-8	SAB:Washaif Blade (Blooding)
-9	SAB:The Call (Appear)																			ADD:FEAT|TYPE=MeleeCombat,TYPE=Mystic
-10	SAB:Channel
+1	ABILITY:Special Ability|AUTOMATIC|The Call ~ Shadespeaker				BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	TEMPLATE:Prestige Class Core Ability		AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)
+2	ABILITY:Special Ability|AUTOMATIC|Deathwatch ~ Shadespeaker
+3																							BONUS:ABILITYPOOL|Shadespeaker Feat|1
+4	ABILITY:Special Ability|AUTOMATIC|The Sleep ~ Shadespeaker|Washaif Blade ~ Shadespeaker
+5																	BONUS:ABILITYPOOL|Shadespeaker Feat|1
+6	ABILITY:Special Ability|AUTOMATIC|Resolute Aura ~ Shadespeaker
+7																			BONUS:ABILITYPOOL|Shadespeaker Feat|1
+8	
+9																				BONUS:ABILITYPOOL|Shadespeaker Feat|1
+10	ABILITY:Special Ability|AUTOMATIC|Channel ~ Shadespeaker
 
 
 ### Base Psion Classes -------------------------------------------------------------------------------------------------------------
@@ -106,75 +105,75 @@ CLASS:Shadespeaker	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|First
 CLASS:Mentalist	HD:8		TYPE:Base.PC	ABB:Men		MAXLEVEL:20	SOURCEPAGE:p.179	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|((CL+2)/2)-(CL==4)-(CL==6)-(CL>=8)-(CL>=14)	BONUS:CHECKS|BASE.Will|(CL+4)/2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(((CL+4)*3)/5)-2|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(((CL+4)*3)/5)-2	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mentalist	STARTSKILLPTS:8	CSKILL:Computers|Concentration|TYPE=Craft|Cryptography|Electronics|TYPE=Hobby|TYPE=Knowledge|Mechanics|TYPE=Profession|Sense Motive
-1													BONUS:VAR|PSIONLEVEL|CL										ADD:FEAT|TYPE=Gear,TYPE=MentalPsion	ADD:FEAT|Mentalist Core Ability	AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)
-2	SAB:Mental Leap (%/session)|MentalLeap												DEFINE:MentalLeap|1+(CL>=11)+(CL>=19)
-3																										ADD:FEAT|Mentalist Psi Mastery
-4																										ADD:FEAT|TYPE=Gear,TYPE=MentalPsion
-5																										ADD:FEAT|Mentalist Psi Mastery
+1													BONUS:VAR|PSIONLEVEL|CL										BONUS:ABILITYPOOL|Mentalist Feat|1	TEMPLATE:Psion Class Core Ability	AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)
+2	ABILITY:Special Ability|AUTOMATIC|Mental Leap ~ Mentalist												BONUS:VAR|MentalLeap|1+(CL>=11)+(CL>=19)
+3																										BONUS:ABILITYPOOL|Mentalist Psi Mastery|1
+4																										BONUS:ABILITYPOOL|Mentalist Feat|1
+5																										BONUS:ABILITYPOOL|Mentalist Psi Mastery|1
 6								BONUS:SKILLPOOL|NUMBER|4
-7																										ADD:FEAT|Mentalist Psi Mastery
-8																										ADD:FEAT|TYPE=Gear,TYPE=MentalPsion
-9								BONUS:SKILLPOOL|NUMBER|4														ADD:FEAT|Mentalist Psi Mastery
-10	SAB:More Toys (+%)|MoreToys								BONUS:VAR|GADGETPOINTS|MoreToys	DEFINE:MoreToys|(CL/10)*3
-11																										ADD:FEAT|Mentalist Psi Mastery
-12								BONUS:SKILLPOOL|NUMBER|4														ADD:FEAT|TYPE=Gear,TYPE=MentalPsion
-13																										ADD:FEAT|Mentalist Psi Mastery
-14	SAB:Masterpiece
-15								BONUS:SKILLPOOL|NUMBER|4														ADD:FEAT|Mentalist Psi Mastery
-16																										ADD:FEAT|TYPE=Gear,TYPE=MentalPsion
-17																										ADD:FEAT|Mentalist Psi Mastery
+7																										BONUS:ABILITYPOOL|Mentalist Psi Mastery|1
+8																										BONUS:ABILITYPOOL|Mentalist Feat|1
+9								BONUS:SKILLPOOL|NUMBER|4														BONUS:ABILITYPOOL|Mentalist Psi Mastery|1
+10	ABILITY:Special Ability|AUTOMATIC|More Toys ~ Mentalist								BONUS:VAR|MoreToys|(CL/10)*3
+11																										BONUS:ABILITYPOOL|Mentalist Psi Mastery|1
+12								BONUS:SKILLPOOL|NUMBER|4														BONUS:ABILITYPOOL|Mentalist Feat|1
+13																										BONUS:ABILITYPOOL|Mentalist Psi Mastery|1
+14	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Mentalist
+15								BONUS:SKILLPOOL|NUMBER|4														BONUS:ABILITYPOOL|Mentalist Psi Mastery|1
+16																										BONUS:ABILITYPOOL|Mentalist Feat|1
+17																										BONUS:ABILITYPOOL|Mentalist Psi Mastery|1
 18								BONUS:SKILLPOOL|NUMBER|4
-19																										ADD:FEAT|Mentalist Psi Mastery
-20																										ADD:FEAT|TYPE=Gear,TYPE=MentalPsion
+19																										BONUS:ABILITYPOOL|Mentalist Psi Mastery|1
+20																										BONUS:ABILITYPOOL|Mentalist Feat|1
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus																										Modify VAR
 CLASS:Physical Adept	HD:10		TYPE:Base.PC	ABB:Phy		MAXLEVEL:20	SOURCEPAGE:p.189	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+4)/2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(((CL+4)*3)/5)-2|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|(floor((CL*3)/5))-(floor(CL/5))	BONUS:VAR|BUDGETPOINTS|CL*2	BONUS:VAR|GADGETPOINTS|(CL*3)/4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Physical Adept	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Driver|Handle Animal|TYPE=Hobby|Intimidate|Jump|TYPE=Knowledge|Move Silently|TYPE=Profession|Sense Motive|TYPE=Sport|Swim
-1									BONUS:VAR|PSIONLEVEL|CL								ADD:FEAT|TYPE=BasicCombat,TYPE=PhysicalPsion	ADD:FEAT|Physical Adept Core Ability	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Exotic/Archaic)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Rifle)
-2	SAB:Superhuman (%/session)|PhySuperhuman						DEFINE:PhySuperhuman|1+(CL>=11)+(CL>=19)
-3																				ADD:FEAT|Physical Adept Psi Mastery
-4																				ADD:FEAT|TYPE=BasicCombat,TYPE=PhysicalPsion
-5																				ADD:FEAT|Physical Adept Psi Mastery
-6																				ADD:FEAT|TYPE=PhysicalAdeptAbilityBonus
-7																				ADD:FEAT|Physical Adept Psi Mastery
-8																				ADD:FEAT|TYPE=BasicCombat,TYPE=PhysicalPsion
-9																				ADD:FEAT|Physical Adept Psi Mastery	ADD:FEAT|TYPE=PhysicalAdeptAbilityBonus
-10	SAB:Complete Focus (%/session)|CompleteFocus					DEFINE:CompleteFocus|CL/10
-11																				ADD:FEAT|Physical Adept Psi Mastery
-12																				ADD:FEAT|TYPE=BasicCombat,TYPE=PhysicalPsion	ADD:FEAT|TYPE=PhysicalAdeptAbilityBonus
-13																				ADD:FEAT|Physical Adept Psi Mastery
-14	SAB:Reduced Vitality Cost (-2)
-15																				ADD:FEAT|Physical Adept Psi Mastery	ADD:FEAT|TYPE=PhysicalAdeptAbilityBonus
-16																				ADD:FEAT|TYPE=BasicCombat,TYPE=PhysicalPsion
-17																				ADD:FEAT|Physical Adept Psi Mastery
-18																				ADD:FEAT|TYPE=PhysicalAdeptAbilityBonus
-19																				ADD:FEAT|Physical Adept Psi Mastery
-20																				ADD:FEAT|TYPE=BasicCombat,TYPE=PhysicalPsion
+1									BONUS:VAR|PSIONLEVEL|CL								BONUS:ABILITYPOOL|Physical Adept Feat|1	TEMPLATE:Psion Class Core Ability	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Exotic/Archaic)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Rifle)
+2	ABILITY:Special Ability|AUTOMATIC|Superhuman ~ Physical Adept						BONUS:VAR|PhySuperhuman|1+(CL>=11)+(CL>=19)
+3																				BONUS:ABILITYPOOL|Physical Adept Psi Mastery|1
+4																				BONUS:ABILITYPOOL|Physical Adept Feat|1
+5																				BONUS:ABILITYPOOL|Physical Adept Psi Mastery|1
+6																				BONUS:ABILITYPOOL|Physical Adept Ability Bonus|1
+7																				BONUS:ABILITYPOOL|Physical Adept Psi Mastery|1
+8																				BONUS:ABILITYPOOL|Physical Adept Feat|1
+9																				BONUS:ABILITYPOOL|Physical Adept Psi Mastery|1	BONUS:ABILITYPOOL|Physical Adept Ability Bonus|1
+10	ABILITY:Special Ability|AUTOMATIC|Complete Focus ~ Physical Adept					BONUS:VAR|CompleteFocus|CL/10
+11																				BONUS:ABILITYPOOL|Physical Adept Psi Mastery|1
+12																				BONUS:ABILITYPOOL|Physical Adept Feat|1	BONUS:ABILITYPOOL|Physical Adept Ability Bonus|1
+13																				BONUS:ABILITYPOOL|Physical Adept Psi Mastery|1
+14	ABILITY:Special Ability|AUTOMATIC|Reduced Vitality Cost ~ Physical Adept
+15																				BONUS:ABILITYPOOL|Physical Adept Psi Mastery|1	BONUS:ABILITYPOOL|Physical Adept Ability Bonus|1
+16																				BONUS:ABILITYPOOL|Physical Adept Feat|1
+17																				BONUS:ABILITYPOOL|Physical Adept Psi Mastery|1
+18																				BONUS:ABILITYPOOL|Physical Adept Ability Bonus|1
+19																				BONUS:ABILITYPOOL|Physical Adept Psi Mastery|1
+20																				BONUS:ABILITYPOOL|Physical Adept Feat|1
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																						Combat bonus																													Modify VAR
 CLASS:Telepath	HD:10		TYPE:Base.PC	ABB:Tel		MAXLEVEL:20	SOURCEPAGE:p.196	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+4)/2	BONUS:CHECKS|BASE.Will|((CL+2)/2)-(CL==4)-(CL==6)-(CL>=8)-(CL>=14)	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(floor((CL*3)/5))-(floor(CL/5))|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|(CL*3)/4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Telepath	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Driver|Electronics|Gather Information|Handle Animal|TYPE=Hobby|Intimidate|TYPE=Knowledge|Languages|TYPE=Profession|Sense Motive|TYPE=Sport
-1														BONUS:VAR|PSIONLEVEL|CL								ADD:FEAT|TYPE=BasicCombat,TYPE=TelepathicPsion	ADD:FEAT|Telepath Core Ability	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)
-2	SAB:Force of Will (%/session)|ForceOfWill											DEFINE:ForceOfWill|1+(CL>=11)+(CL>=19)
-3																									ADD:FEAT|Telepath Psi Mastery
-4																									ADD:FEAT|TYPE=BasicCombat,TYPE=TelepathicPsion
-5																									ADD:FEAT|Telepath Psi Mastery
-6	SAB:Psychic Escape (+%)|PsychicEscape	BONUS:CHECKS|ALL|PsychicEscape					DEFINE:PsychicEscape|(CL-3)/3
-7																									ADD:FEAT|Telepath Psi Mastery
-8																									ADD:FEAT|TYPE=BasicCombat,TYPE=TelepathicPsion
-9																									ADD:FEAT|Telepath Psi Mastery
-10	SAB:Blind Spot (%/session)|BlindSpot											DEFINE:BlindSpot|CL/10
-11																									ADD:FEAT|Telepath Psi Mastery
-12																									ADD:FEAT|TYPE=BasicCombat,TYPE=TelepathicPsion
-13																									ADD:FEAT|Telepath Psi Mastery
-14	SAB:Mind Wipe
-15																									ADD:FEAT|Telepath Psi Mastery
-16																									ADD:FEAT|TYPE=BasicCombat,TYPE=TelepathicPsion
-17																									ADD:FEAT|Telepath Psi Mastery
-19																									ADD:FEAT|Telepath Psi Mastery
-20																									ADD:FEAT|TYPE=BasicCombat,TYPE=TelepathicPsion
+1														BONUS:VAR|PSIONLEVEL|CL								BONUS:ABILITYPOOL|Telepath Feat|1	TEMPLATE:Psion Class Core Ability	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)
+2	ABILITY:Special Ability|AUTOMATIC|Force of Will ~ Telepath											BONUS:VAR|ForceOfWill|1+(CL>=11)+(CL>=19)
+3																									BONUS:ABILITYPOOL|Telepath Psi Mastery|1
+4																									BONUS:ABILITYPOOL|Telepath Feat|1
+5																									BONUS:ABILITYPOOL|Telepath Psi Mastery|1
+6	ABILITY:Special Ability|AUTOMATIC|Psychic Escape ~ Telepath											BONUS:VAR|PsychicEscape|(CL-3)/3
+7																									BONUS:ABILITYPOOL|Telepath Psi Mastery|1
+8																									BONUS:ABILITYPOOL|Telepath Feat|1
+9																									BONUS:ABILITYPOOL|Telepath Psi Mastery|1
+10	ABILITY:Special Ability|AUTOMATIC|Blind Spot ~ Telepath											BONUS:VAR|BlindSpot|CL/10
+11																									BONUS:ABILITYPOOL|Telepath Psi Mastery|1
+12																									BONUS:ABILITYPOOL|Telepath Feat|1
+13																									BONUS:ABILITYPOOL|Telepath Psi Mastery|1
+14	ABILITY:Special Ability|AUTOMATIC|Mind Wipe ~ Telepath
+15																									BONUS:ABILITYPOOL|Telepath Psi Mastery|1
+16																									BONUS:ABILITYPOOL|Telepath Feat|1
+17																									BONUS:ABILITYPOOL|Telepath Psi Mastery|1
+19																									BONUS:ABILITYPOOL|Telepath Psi Mastery|1
+20																									BONUS:ABILITYPOOL|Telepath Feat|1
 
 ### Base Psion Classes -------------------------------------------------------------------------------------------------------------
 
