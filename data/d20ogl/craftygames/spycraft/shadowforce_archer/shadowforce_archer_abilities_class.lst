@@ -1,0 +1,134 @@
+# CVS $Revision$ $Author$ -- Thu Jul 16 23:47:06 2009 -- reformated by prettylst.pl v1.39 (build 9548)
+#
+# Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
+#
+
+SOURCELONG:Shadowforce Archer	SOURCESHORT:Shadowforce Archer	SOURCEWEB:http://www.crafty-games.com/node/54	SOURCEDATE:2002-07
+
+### Prestige Classes -------------------------------------------------------------------------------------------------------------
+
+# ~ Cat Burglar	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Boating|Climb|Concentration|TYPE=Craft|Driver|Electronics|Escape Artist|Hide|TYPE=Hobby|Jump|TYPE=Knowledge|Listen|Move Silently|Open Lock|Pilot|TYPE=Profession|Search|Sleight of Hand|Spot|Surveillance|Tumble|Use Rope
+Case		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Case ~ Cat Burglar							DESC: (scout)|PREVARLT:CatBurglarLvl,5	DESC: (foil)|PREVARGTEQ:CatBurglarLvl,5|PREVARLT:CatBurglarLvl,9	DESC:(penetrate)|PREVARGTEQ:CatBurglarLvl,9
+Honor Among Thieves		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Honor Among Thieves ~ Cat Burglar					DESC: +%1|HonorAmongThieves										DEFINE:HonorAmongThieves|0
+Go to ground		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Go to ground ~ Cat Burglar						DESC: (hiding)|PREVARLT:CatBurglarLvl,8	DESC: (chases)|PREVARGTEQ:CatBurglarLvl,8	
+Improvised Tools		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Improvised Tools ~ Cat Burglar
+Do I want to know?		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Do I want to know? ~ Cat Burglar
+Sucker Punch		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Sucker Punch ~ Cat Burglar
+
+
+# ~ Counter Terrorist	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Demolitions|Diplomacy|Driver|First Aid|TYPE=Hobby|Intimidate|Jump|TYPE=Knowledge|Move Silently|TYPE=Profession|Search|Sense Motive|Spot|Surveillance|Swim|Use Rope
+Special Tactics		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Special Tactics ~ Counter Terrorist		DESC: (locate)|PREVARLT:CounterTerroristLvl,5		DESC: (subdue)|PREVARGTEQ:CounterTerroristLvl,5|PREVARLT:CounterTerroristLvl,9	DESC: (improved locate)|PREVARGTEQ:CounterTerroristLvl,9	
+Precision Takedown		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Precision Takedown ~ Counter Terrorist		DESC: (-25%% cover)|PREVARLT:CounterTerroristLvl,7		DESC: (-50%% cover)|PREVARGTEQ:CounterTerroristLvl,7
+Safe Attack		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Safe Attack ~ Counter Terrorist
+Crowd control		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Crowd control ~ Counter Terrorist			DESC: (%1 level)|CrowdControl							DEFINE:CrowdControl|0
+Negotiator		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Negotiator ~ Counter Terrorist
+Tactical Commander		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Tactical Commander ~ Counter Terrorist
+Moment of truth		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Moment of truth ~ Counter Terrorist
+
+# ~ Hacker	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Bureaucracy|Computers|Concentration|TYPE=Craft|Cryptography|Cultures|Diplomacy|Driver|Electronics|Forgery|Gather Information|TYPE=Hobby|Innuendo|TYPE=Knowledge|Languages|Listen|Mechanics|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spot|Surveillance
+Hard-wired		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Hard-wired ~ Hacker	DESC: (Concentrate)|PREVARLT:HackerLvl,5		DESC: (All-Nighter)|PREVARGTEQ:HackerLvl,5|PREVARLT:HackerLvl,9		DESC: (Persevere)|PREVARGTEQ:HackerLvl,9
+Synchronize		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Synchronize ~ Hacker	DESC: (Solo)|PREVARLT:HackerLvl,7			DESC: (Team)|PREVARGTEQ:HackerLvl,7
+Lockout		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Lockout ~ Hacker		DESC: (Single)|PREVARLT:HackerLvl,8			DESC: (All)|PREVARGTEQ:HackerLvl,8
+Sift		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Sift ~ Hacker
+Fingerprints		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Fingerprints ~ Hacker
+Ghost in the Machine		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Ghost in the Machine ~ Hacker
+
+# ~ Sniper	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Disguise|Driver|Hide|TYPE=Hobby|Intimidate|Jump|Move Silently|Open Lock|TYPE=Profession|Search|Sleight of Hand|Spot|Surveillance|Tumble|Use Rope
+Magic Touch		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Magic Touch ~ Sniper	DESC: (+%1)|MagicTouch										DEFINE:MagicTouch|0
+One Shot		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:One Shot ~ Sniper	
+Deadly Aim		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Deadly Aim ~ Sniper	DESC: (%1d6)|DeadlyAim							DEFINE:DeadlyAim|0
+Surprise Shot		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Surprise Shot ~ Sniper
+Disappear		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Disappear ~ Sniper
+Million Dollar Skill		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Million Dollar Skill ~ Sniper
+
+# ~ Shadespeaker	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|First Aid|Gather Information|Handle Animal|TYPE=Hobby|Jump|TYPE=Knowledge|Languages|Listen|Sense Motive|Spot|Survival|Tumble
+The Call		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:The Call ~ Shadespeaker	DESC: (Questions)|PREVARLT:ShadespeakerLvl,5	DESC: (Converse)|PREVARGTEQ:ShadespeakerLvl,5|PREVARLT:ShadespeakerLvl,9	DESC: (Appear)|PREVARGTEQ:ShadespeakerLvl,9
+Deathwatch		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Deathwatch ~ Shadespeaker	DESC: (Corpse Sense)|PREVARLT:ShadespeakerLvl,7	DESC: (Death Sense)|PREVARGTEQ:ShadespeakerLvl,7
+The Sleep		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:The Sleep ~ Shadespeaker	
+Washaif Blade		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Washaif Blade ~ Shadespeaker	DESC: (Marking)|PREVARLT:ShadespeakerLvl,8	DESC: (Blooding)|PREVARGTEQ:ShadespeakerLvl,8
+Resolute Aura		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Resolute Aura ~ Shadespeaker
+Channel		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Channel ~ Shadespeaker
+
+# ~ Mentalist	STARTSKILLPTS:8	CSKILL:Computers|Concentration|TYPE=Craft|Cryptography|Electronics|TYPE=Hobby|TYPE=Knowledge|Mechanics|TYPE=Profession|Sense Motive
+Mental Leap		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Mental Leap ~ Mentalist	DESC: (%1/session)|MentalLeap												DEFINE:MentalLeap|0
+More Toys		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:More Toys ~ Mentalist	DESC: (+%1)|MoreToys								BONUS:VAR|GADGETPOINTS|MoreToys	DEFINE:MoreToys|0
+Masterpiece		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Masterpiece ~ Mentalist
+
+# ~ Physical Adept	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Driver|Handle Animal|TYPE=Hobby|Intimidate|Jump|TYPE=Knowledge|Move Silently|TYPE=Profession|Sense Motive|TYPE=Sport|Swim
+Superhuman		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Superhuman ~ Physical Adept	DESC: (%1/session)|PhySuperhuman						DEFINE:PhySuperhuman|0
+Complete Focus		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Complete Focus ~ Physical Adept	DESC: (%1/session)|CompleteFocus					DEFINE:CompleteFocus|0
+Reduced Vitality Cost		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Reduced Vitality Cost ~ Physical Adept	DESC: (-2)
+
+# ~ Telepath	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Driver|Electronics|Gather Information|Handle Animal|TYPE=Hobby|Intimidate|TYPE=Knowledge|Languages|TYPE=Profession|Sense Motive|TYPE=Sport
+Force of Will		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Force of Will ~ Telepath	DESC: (%1/session)|ForceOfWill										DEFINE:ForceOfWill|0
+Psychic Escape		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Psychic Escape ~ Telepath	DESC: (+%1)|PsychicEscape	BONUS:CHECKS|ALL|PsychicEscape					DEFINE:PsychicEscape|0
+Blind Spot		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Blind Spot ~ Telepath	DESC: (%1/session)|BlindSpot											DEFINE:BlindSpot|0
+Mind Wipe		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Mind Wipe ~ Telepath
+
+### Base Psion Classes -------------------------------------------------------------------------------------------------------------
+
+#
+# End
+#
+
+
+
+# CVS $Revision$ $Author$ -- Mon Nov 10 23:40:38 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+#
+# Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
+#
+
+SOURCELONG:Shadowforce Archer	SOURCESHORT:Shadowforce Archer	SOURCEWEB:http://www.crafty-games.com/node/54	SOURCEDATE:2002-07
+
+# Feat Name					Type						Visible		Required Var. value				Var. Max. Value				Special ABility		Description				Stackable?	Multiple?	Choose					Bonus to skill				Bonus to skill point for a level			Stat bonus								Modify VAR
+Nimble			KEY:Cat Burglar Core Ability			CATEGORY:Special Ability	TYPE:SpecialQuality.CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1						DESC:Nimble														BONUS:SKILL|STAT.DEX|1
+Quick-Thinking		KEY:Counter Terrorist Core Ability		CATEGORY:Special Ability	TYPE:SpecialQuality.CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1				DESC:Quick-Thinking
+Custom-Built System	KEY:Hacker Core Ability				CATEGORY:Special Ability	TYPE:SpecialQuality.CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1			
+Precise			KEY:Sniper Core Ability				CATEGORY:Special Ability	TYPE:SpecialQuality.CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1			
+Dedication			KEY:Shadespeaker Core Ability			CATEGORY:Special Ability	TYPE:SpecialQuality.CoreAbility				VISIBLE:NO									PREVARLTEQ:NumberPrestigeClasses,1				DESC:Dedication																																				BONUS:VAR|ACTIONDICE|1
+
+# Psion Core Abilities
+
+Insightful	KEY:Mentalist Core Ability				CATEGORY:Special Ability	TYPE:SpecialQuality.CoreAbility				VISIBLE:NO									PREVARLTEQ:TL,1						
+Zen		KEY:Physical Adept Core Ability			CATEGORY:Special Ability	TYPE:SpecialQuality.CoreAbility				VISIBLE:NO									PREVARLTEQ:TL,1						
+Sensitive	KEY:Telepath Core Ability				CATEGORY:Special Ability	TYPE:SpecialQuality.CoreAbility				VISIBLE:NO									PREVARLTEQ:TL,1						
+
+# Psion Class Abilities
+
+Mentalist Psi Mastery				CATEGORY:Special Ability	TYPE:SpecialQuality.MentalistAbility			VISIBLE:EXPORT																									MULT:YES	CHOOSE:SKILL|TYPE=Mental	BONUS:SKILL|LIST|2|TYPE=Psionic
+Physical Adept Psi Mastery			CATEGORY:Special Ability	TYPE:SpecialQuality.PhysicalAdeptAbility		VISIBLE:EXPORT																									MULT:YES	CHOOSE:SKILL|TYPE=Physical	BONUS:SKILL|LIST|2|TYPE=Psionic
+Telepath Psi Mastery				CATEGORY:Special Ability	TYPE:SpecialQuality.TelepathAbility			VISIBLE:EXPORT																									MULT:YES	CHOOSE:SKILL|TYPE=Telepathic	BONUS:SKILL|LIST|2|TYPE=Psionic
+
+Strength Ability Bonus				CATEGORY:Special Ability	TYPE:SpecialQuality.PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:NOCHOICE																		BONUS:STAT|STR|1
+Dexterity Ability Bonus				CATEGORY:Special Ability	TYPE:SpecialQuality.PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:NOCHOICE																		BONUS:STAT|DEX|1
+Constitution Ability Bonus			CATEGORY:Special Ability	TYPE:SpecialQuality.PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:NOCHOICE																		BONUS:STAT|CON|1
+Intelligence Ability Bonus			CATEGORY:Special Ability	TYPE:SpecialQuality.PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:NOCHOICE																		BONUS:STAT|INT|1
+Wisdom Ability Bonus				CATEGORY:Special Ability	TYPE:SpecialQuality.PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:NOCHOICE																		BONUS:STAT|WIS|1
+Charisma Ability Bonus				CATEGORY:Special Ability	TYPE:SpecialQuality.PhysicalAdeptAbilityBonus	VISIBLE:NO																								STACK:YES	MULT:YES	CHOOSE:NOCHOICE																		BONUS:STAT|CHA|1
+
+# Psionic Feat Support
+
+Evolved Mind - Mentalist Level 12		CATEGORY:Special Ability	TYPE:SpecialQuality.EvolvedMindPoints			VISIBLE:NO		PREVAREQ:EvolvedMindMentalistLevel,12																																BONUS:SKILLPOOL|CLASS=Mentalist;LEVEL=12|12
+Evolved Mind - Mentalist Level 13		CATEGORY:Special Ability	TYPE:SpecialQuality.EvolvedMindPoints			VISIBLE:NO		PREVAREQ:EvolvedMindMentalistLevel,13																																BONUS:SKILLPOOL|CLASS=Mentalist;LEVEL=13|12
+Evolved Mind - Mentalist Level 14		CATEGORY:Special Ability	TYPE:SpecialQuality.EvolvedMindPoints			VISIBLE:NO		PREVAREQ:EvolvedMindMentalistLevel,14																																BONUS:SKILLPOOL|CLASS=Mentalist;LEVEL=14|12
+Evolved Mind - Mentalist Level 15		CATEGORY:Special Ability	TYPE:SpecialQuality.EvolvedMindPoints			VISIBLE:NO		PREVAREQ:EvolvedMindMentalistLevel,15																																BONUS:SKILLPOOL|CLASS=Mentalist;LEVEL=15|12
+Evolved Mind - Mentalist Level 16		CATEGORY:Special Ability	TYPE:SpecialQuality.EvolvedMindPoints			VISIBLE:NO		PREVAREQ:EvolvedMindMentalistLevel,16																																BONUS:SKILLPOOL|CLASS=Mentalist;LEVEL=16|12
+Evolved Mind - Mentalist Level 17		CATEGORY:Special Ability	TYPE:SpecialQuality.EvolvedMindPoints			VISIBLE:NO		PREVAREQ:EvolvedMindMentalistLevel,17																																BONUS:SKILLPOOL|CLASS=Mentalist;LEVEL=17|12
+Evolved Mind - Mentalist Level 18		CATEGORY:Special Ability	TYPE:SpecialQuality.EvolvedMindPoints			VISIBLE:NO		PREVAREQ:EvolvedMindMentalistLevel,18																																BONUS:SKILLPOOL|CLASS=Mentalist;LEVEL=18|12
+Evolved Mind - Mentalist Level 19		CATEGORY:Special Ability	TYPE:SpecialQuality.EvolvedMindPoints			VISIBLE:NO		PREVAREQ:EvolvedMindMentalistLevel,19																																BONUS:SKILLPOOL|CLASS=Mentalist;LEVEL=19|12
+Evolved Mind - Mentalist Level 20		CATEGORY:Special Ability	TYPE:SpecialQuality.EvolvedMindPoints			VISIBLE:NO		PREVAREQ:EvolvedMindMentalistLevel,20																																BONUS:SKILLPOOL|CLASS=Mentalist;LEVEL=20|12
+
+Ultimate Mentalist Level 18			CATEGORY:Special Ability	TYPE:SpecialQuality.UltimateMentalistPoints		VISIBLE:NO		PREVAREQ:UltimateMentalistLevel,18																																	BONUS:SKILLPOOL|CLASS=Mentalist;LEVEL=18|24
+Ultimate Mentalist Level 19			CATEGORY:Special Ability	TYPE:SpecialQuality.UltimateMentalistPoints		VISIBLE:NO		PREVAREQ:UltimateMentalistLevel,19																																	BONUS:SKILLPOOL|CLASS=Mentalist;LEVEL=19|24
+Ultimate Mentalist Level 20			CATEGORY:Special Ability	TYPE:SpecialQuality.UltimateMentalistPoints		VISIBLE:NO		PREVAREQ:UltimateMentalistLevel,20																																	BONUS:SKILLPOOL|CLASS=Mentalist;LEVEL=20|24
+
+Heightened Strength Bonus			CATEGORY:Special Ability	TYPE:SpecialQuality.HeightenedInnerStrength		VISIBLE:NO																								STACK:NO	MULT:YES	CHOOSE:STRING|+1|+2																	BONUS:STAT|STR|1|PREFEAT:1,Heightened Inner Strength
+Heightened Dexterity Bonus			CATEGORY:Special Ability	TYPE:SpecialQuality.HeightenedInnerStrength		VISIBLE:NO																								STACK:NO	MULT:YES	CHOOSE:STRING|+1|+2																	BONUS:STAT|DEX|1|PREFEAT:1,Heightened Inner Strength
+Heightened Constitution Bonus			CATEGORY:Special Ability	TYPE:SpecialQuality.HeightenedInnerStrength		VISIBLE:NO																								STACK:NO	MULT:YES	CHOOSE:STRING|+1|+2																	BONUS:STAT|CON|1|PREFEAT:1,Heightened Inner Strength
+Heightened Intelligence Bonus			CATEGORY:Special Ability	TYPE:SpecialQuality.HeightenedInnerStrength		VISIBLE:NO																								STACK:NO	MULT:YES	CHOOSE:STRING|+1|+2																	BONUS:STAT|INT|1|PREFEAT:1,Heightened Inner Strength
+Heightened Wisdom Bonus				CATEGORY:Special Ability	TYPE:SpecialQuality.HeightenedInnerStrength		VISIBLE:NO																								STACK:NO	MULT:YES	CHOOSE:STRING|+1|+2																	BONUS:STAT|WIS|1|PREFEAT:1,Heightened Inner Strength
+Heightened Charisma Bonus			CATEGORY:Special Ability	TYPE:SpecialQuality.HeightenedInnerStrength		VISIBLE:NO																								STACK:NO	MULT:YES	CHOOSE:STRING|+1|+2																	BONUS:STAT|CHA|1|PREFEAT:1,Heightened Inner Strength
+
+#
+# End
+#
