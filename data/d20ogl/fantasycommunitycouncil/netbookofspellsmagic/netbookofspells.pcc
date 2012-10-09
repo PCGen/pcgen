@@ -13,6 +13,8 @@ PUBNAMEWEB:http://fancc.net/
 SOURCELONG:Netbook of Spells and Magic
 SOURCESHORT:NboSpellsM
 SOURCEWEB:http://nbospells.fancc.net/
+SOURCEDATE:2002-01
+# COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:a) Open Game License v 1.0 Copyright © 2000, Wizards of the Coast, Inc.
 COPYRIGHT:b) Elemental Aura, Elemental Sagitta, Freeze Bolt, Lightning Arrow, Metamagic Sphere, Piercer Arrow, Thunderclap Arrow - Copyright © 2002 by Francisco A. Sucre.

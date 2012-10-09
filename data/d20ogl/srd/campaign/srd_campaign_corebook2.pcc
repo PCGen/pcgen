@@ -13,6 +13,8 @@ PUBNAMEWEB:http://www.wizards.com/default.asp?x=dnd
 SOURCELONG:System Reference Document
 SOURCESHORT:SRD
 SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+SOURCEDATE:2000-01
+# COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.

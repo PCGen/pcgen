@@ -14,6 +14,8 @@ PRECAMPAIGN:2,BOOKTYPE=Core Rules,FFG - Midnight - Campaign Source Book
 SOURCELONG:Midnight - Against the Shadow
 SOURCESHORT:AtS
 SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
+SOURCEDATE:2003-01
+# COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

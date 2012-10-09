@@ -31,6 +31,9 @@ Metaspell	CATEGORY:Special Ability	SORTKEY:Domain Path	TYPE:DomainSelection.Ecli
 
 Adept Skill Buy	KEY:Adept Skill Buy ~ Feat Pull							CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	STACK:YES	MULT:YES	CHOOSE:SKILL|FEAT=Adept				SELECT:2	BONUS:SKILLRANK|%LIST|1	COST:1
 
+Adept Skill Buy2	KEY:Adept Skill Buy ~ Feat Pull2							CATEGORY:FEAT	TYPE:SkillBuy.HalfCost	STACK:YES	MULT:YES	CHOOSE:SKILL|FEAT=Adept				SELECT:2	BONUS:SKILLRANK|%LIST|1	COST:1
+
+
 
 #######################################
 ###		SPIRIT WEAPONS		###

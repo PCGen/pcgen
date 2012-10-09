@@ -14,6 +14,8 @@ PUBNAMEWEB:http://www.peginc.com/
 SOURCELONG:The Way of the Gun
 SOURCESHORT:WayotGun
 SOURCEWEB:http://www.peginc.com/index.htm
+SOURCEDATE:2003-01
+# COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:PCGen dataset conversion for Way of the Gun Copyright 2003-2005, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King, wizoffice2001, Eddy Anthony (MoSaT))

@@ -13,6 +13,8 @@ PUBNAMEWEB:http://www.doghouserules.net/
 SOURCELONG:Fort Griffin Echo Vol. 1 No. 1
 SOURCESHORT:FGE1-1
 SOURCEWEB:http://www.doghouserules.net/echo/index.html
+SOURCEDATE:2002-01
+# COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.

@@ -14,6 +14,8 @@ PUBNAMEWEB:http://www.rpgobjects.com/
 SOURCELONG:RPGObjects - Darwin's World - Denizens of the Twisted Earth
 SOURCESHORT:DenizensTE
 SOURCEWEB:http://www.darwinrpg.com
+SOURCEDATE:2001-01
+# COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Rules Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson

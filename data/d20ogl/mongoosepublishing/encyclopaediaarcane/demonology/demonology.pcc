@@ -13,6 +13,8 @@ PUBNAMEWEB:http://mongoosepublishing.com
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Demonology
 SOURCESHORT:Demonology
 SOURCEWEB:http://www.mongoosepublishing.com
+SOURCEDATE:2003-01
+# COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:PCGen dataset conversion for Encyclopaedia Arcane - Demonology Copyright 2003, PCGen Data Team (including, but not limited to: Andrew McDougall (Tir Gwaith), Paul W. King, wizoffice2001)
