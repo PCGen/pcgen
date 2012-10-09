@@ -6,7 +6,7 @@ ABILITYCATEGORY:Weapon Finesse Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPO
 ABILITYCATEGORY:Increased Weapon Critical Selection		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Increased Weapon Critical		PLURAL:Increased Weapon Critical Selections		DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Spell Focus Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Spell Focus					PLURAL:Spell Focus Selections					DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Exotic Melee Weapon Proficiency Selection	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Exotic Melee Weapon Proficiency	PLURAL:Exotic Melee Weapon Proficiency Selections	DISPLAYLOCATION:Feats
-
+ABILITYCATEGORY:Find the Mark						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Find the Mark				PLURAL:Find the Mark						DISPLAYLOCATION:Class Abilities
 
 # Ability Category							Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list					Plural description for UI					Display Location
 ABILITYCATEGORY:Apothecary Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Apothecary_Skills										PLURAL:Apothecary Occupation Skills				DISPLAYLOCATION:Background

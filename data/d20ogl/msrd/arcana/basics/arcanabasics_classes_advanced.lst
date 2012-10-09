@@ -163,7 +163,7 @@ CLASS:Swashbuckler	STARTSKILLPTS:4	CSKILL:Balance|Climb|Escape Artist|Hide|Jump|
 2															ABILITY:Special Ability|AUTOMATIC|Quick Weapon Draw
 3	BONUS:ABILITYPOOL|Swashbuckler Feat|1
 4	BONUS:ABILITYPOOL|Weapon Specialization|1			DEFINE:WeapSpecQualify|1
-5															ABILITY:Special Ability|AUTOMATIC|Find the Mark
+5															BONUS:ABILITYPOOL|Find the Mark|1
 6	BONUS:ABILITYPOOL|Swashbuckler Feat|1
 7	BONUS:ABILITYPOOL|Greater Weapon Specialization|1
 8															ABILITY:Special Ability|AUTOMATIC|Deflect Missiles
