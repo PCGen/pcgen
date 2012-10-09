@@ -165,22 +165,28 @@ a img {
 	font-weight: bold;
 	margin-bottom: -10px;
 }
-.dep {
+.lstnew {
 	color: #FF0000;
 	font-weight: bold;
 	margin-bottom: -10px;
 }
-.status {
+.lstdep {
+	color: #FF0000;
+	font-weight: bold;
+	margin-bottom: -10px;
+}
+.lstupnew {
+	color: #FF0000;
+	font-weight: bold;
+	margin-bottom: -10px
+}
+.lststatus {
 	color: #000000;
+	font-weight: bold;
 	margin-bottom: -10px;
 }
 .underline {
 	text-decoration: underline;
-}
-.upnew {
-	color: #FF0000;
-	font-size: larger;
-	font-weight: bold;
 }
 .sidebar {
 	background: #CCCCCC;
