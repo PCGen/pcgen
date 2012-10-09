@@ -680,58 +680,34 @@ Whirlwind Maneuver		KEY:Whirlwind Maneuver ~ MANEUVER MASTER		CATEGORY:Special A
 
 ###Block: Bonus Feat ~ MANEUVER MASTER
 #ManeuverMasterBonusFeat		DESC:In addition to normal monk bonus feats, a maneuver master may select any Improved combat maneuver feat (such as Improved Overrun) as a bonus feat. 
-
+# As for the maneuver master's selectable bonus feats, here's the list I've compiled:
+# Improved feats: Improved Bull Rush, Improved Dirty Trick, Improved Disarm, Improved Drag,
+# Improved Grapple, Improved Overrun, Improved Reposition, Improved Steal, Improved Sunder, Improved Trip
 Improved Bull Rush		KEY:Improved Bull Rush ~ Maneuver Master	!PREFEAT:1,Improved Bull Rush	VFEAT:Improved Bull Rush	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1
-Improved Charging Hurler	KEY:Improved Charging Hurler ~ Maneuver Master	!PREFEAT:1,Improved Charging Hurler	VFEAT:Improved Charging Hurler	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1
-Improved Cleaving Finish	KEY:Improved Cleaving Finish ~ Maneuver Master	!PREFEAT:1,Improved Cleaving Finish	VFEAT:Improved Cleaving Finish	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1
-Improved Critical			KEY:Improved Critical ~ Maneuver Master	!PREFEAT:1,Improved Critical	VFEAT:Improved Critical (%LIST)	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1	CHOOSE:WEAPONPROFICIENCY|PC	MULT:YES
-Improved Devastating Strike	KEY:Improved Devastating Strike ~ Maneuver Master	!PREFEAT:1,Improved Devastating Strike	VFEAT:Improved Devastating Strike	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1
+Improved Dirty Trick		KEY:Improved Dirty Trick ~ Maneuver Master	!PREFEAT:1,Improved Dirty Trick	VFEAT:Improved Dirty Trick	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1
 Improved Disarm			KEY:Improved Disarm ~ Maneuver Master	!PREFEAT:1,Improved Disarm	VFEAT:Improved Disarm	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1
-Improved Feint			KEY:Improved Feint ~ Maneuver Master	!PREFEAT:1,Improved Feint	VFEAT:Improved Feint	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1
-Improved Feint Partner		KEY:Improved Feint Partner ~ Maneuver Master	!PREFEAT:1,Improved Feint Partner	VFEAT:Improved Feint Partner	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1
 Improved Grapple			KEY:Improved Grapple ~ Maneuver Master	!PREFEAT:1,Improved Grapple	VFEAT:Improved Grapple	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1
-Improved Impaling Critical	KEY:Improved Impaling Critical ~ Maneuver Master	!PREFEAT:1,Improved Impaling Critical	VFEAT:Improved Impaling Critical	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1
-Improved Initiative		KEY:Improved Initiative ~ Maneuver Master	!PREFEAT:1,Improved Initiative	VFEAT:Improved Initiative	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1
 Improved Overrun			KEY:Improved Overrun ~ Maneuver Master	!PREFEAT:1,Improved Overrun	VFEAT:Improved Overrun	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1
-Improved Precise Shot		KEY:Improved Precise Shot ~ Maneuver Master	!PREFEAT:1,Improved Precise Shot	VFEAT:Improved Precise Shot	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1
-Improved Rending Fury		KEY:Improved Rending Fury ~ Maneuver Master	!PREFEAT:1,Improved Rending Fury	VFEAT:Improved Rending Fury	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1
-Improved Shield Bash		KEY:Improved Shield Bash ~ Maneuver Master	!PREFEAT:1,Improved Shield Bash	VFEAT:Improved Shield Bash	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1
-Improved Snap Shot		KEY:Improved Snap Shot ~ Maneuver Master	!PREFEAT:1,Improved Snap Shot	VFEAT:Improved Snap Shot	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1
 Improved Sunder			KEY:Improved Sunder ~ Maneuver Master	!PREFEAT:1,Improved Sunder	VFEAT:Improved Sunder	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1
 Improved Trip			KEY:Improved Trip ~ Maneuver Master	!PREFEAT:1,Improved Trip	VFEAT:Improved Trip	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1
-Improved Two-Weapon Feint	KEY:Improved Two-Weapon Feint ~ Maneuver Master	!PREFEAT:1,Improved Two-Weapon Feint	VFEAT:Improved Two-Weapon Feint	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1
-Improved Two-Weapon Fighting	KEY:Improved Two-Weapon Fighting ~ Maneuver Master	!PREFEAT:1,Improved Two-Weapon Fighting	VFEAT:Improved Two-Weapon Fighting	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1
-Improved Unarmed Strike		KEY:Improved Unarmed Strike ~ Maneuver Master	!PREFEAT:1,Improved Unarmed Strike	VFEAT:Improved Unarmed Strike	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1
-Improved Vital Strike		KEY:Improved Vital Strike ~ Maneuver Master	!PREFEAT:1,Improved Vital Strike	VFEAT:Improved Vital Strike	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,1
 # At 6th level and above, he may select any Greater combat maneuver feat (such as Greater Grapple) as a bonus feat. 
+# Greater Feats: Greater Bull Rush, Greater Dirty Trick, Greater Disarm, Greater Drag, Greater Grapple,
+# Greater Overrun, Greater Reposition, Greater Steal, Greater Sunder, Greater Trip
 Greater Bull Rush			KEY:Greater Bull Rush ~ Maneuver Master	!PREFEAT:1,Greater Bull Rush	VFEAT:Greater Bull Rush	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,6
+Greater Dirty Trick		KEY:Greater Dirty Trick ~ Maneuver Master	!PREFEAT:1,Greater Dirty Trick	VFEAT:Greater Dirty Trick	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,6
 Greater Disarm			KEY:Greater Disarm ~ Maneuver Master	!PREFEAT:1,Greater Disarm	VFEAT:Greater Disarm	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,6
-Greater Feint			KEY:Greater Feint ~ Maneuver Master	!PREFEAT:1,Greater Feint	VFEAT:Greater Feint	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,6
+Greater Drag			KEY:Greater Drag ~ Maneuver Master	!PREFEAT:1,Greater Drag	VFEAT:Greater Drag	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,6
 Greater Grapple			KEY:Greater Grapple ~ Maneuver Master	!PREFEAT:1,Greater Grapple	VFEAT:Greater Grapple	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,6
 Greater Overrun			KEY:Greater Overrun ~ Maneuver Master	!PREFEAT:1,Greater Overrun	VFEAT:Greater Overrun	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,6
-Greater Penetrating Strike	KEY:Greater Penetrating Strike ~ Maneuver Master	!PREFEAT:1,Greater Penetrating Strike	VFEAT:Greater Penetrating Strike	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,6
-Greater Shield Focus		KEY:Greater Shield Focus ~ Maneuver Master	!PREFEAT:1,Greater Shield Focus	VFEAT:Greater Shield Focus	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,6
 Greater Sunder			KEY:Greater Sunder ~ Maneuver Master	!PREFEAT:1,Greater Sunder	VFEAT:Greater Sunder	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,6
 Greater Trip			KEY:Greater Trip ~ Maneuver Master	!PREFEAT:1,Greater Trip	VFEAT:Greater Trip	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,6
-Greater Two-Weapon Fighting	KEY:Greater Two-Weapon Fighting ~ Maneuver Master	!PREFEAT:1,Greater Two-Weapon Fighting	VFEAT:Greater Two-Weapon Fighting	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,6
-Greater Vital Strike		KEY:Greater Vital Strike ~ Maneuver Master	!PREFEAT:1,Greater Vital Strike	VFEAT:Greater Vital Strike	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,6
-Greater Weapon Focus		KEY:Greater Weapon Focus ~ Maneuver Master	!PREFEAT:1,Greater Weapon Focus	VFEAT:Greater Weapon Focus (%LIST)	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,6	CHOOSE:WEAPONPROFICIENCY|PC	MULT:YES
-Greater Weapon Specialization	KEY:Greater Weapon Specialization ~ Maneuver Master	!PREFEAT:1,Greater Weapon Specialization	VFEAT:Greater Weapon Specialization (%LIST)	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,6	CHOOSE:WEAPONPROFICIENCY|PC	MULT:YES
-Greater Rending Fury		KEY:Greater Rending Fury ~ Maneuver Master	!PREFEAT:1,Greater Rending Fury	VFEAT:Greater Rending Fury	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,6
-Greater Snap Shot			KEY:Greater Snap Shot ~ Maneuver Master	!PREFEAT:1,Greater Snap Shot	VFEAT:Greater Snap Shot	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,6
 # At 10th level and above, he may select any maneuver Strike feat (such as Tripping Strike) as a bonus feat
-Adder Strike			KEY:Adder Strike ~ Maneuver Master	!PREFEAT:1,Adder Strike	VFEAT:Adder Strike	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10
-Arcane Strike			KEY:Arcane Strike ~ Maneuver Master	!PREFEAT:1,Arcane Strike	VFEAT:Arcane Strike	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10
-Devastating Strike		KEY:Devastating Strike ~ Maneuver Master	!PREFEAT:1,Devastating Strike	VFEAT:Devastating Strike	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10
-#Improved Devastating Strike	KEY:Improved Devastating Strike ~ Maneuver Master	!PREFEAT:1,Improved Devastating Strike	VFEAT:Improved Devastating Strike	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10
-#Improved Unarmed Strike	KEY: ~ Maneuver Master	!PREFEAT:1,Mobility	VFEAT:Mobility	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10
-#Improved Vital Strike		KEY: ~ Maneuver Master	!PREFEAT:1,Mobility	VFEAT:Mobility	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10
-Kirin Strike			KEY:Kirin Strike ~ Maneuver Master	!PREFEAT:1,Kirin Strike	VFEAT:Kirin Strike	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10
-Penetrating Strike		KEY:Penetrating Strike ~ Maneuver Master	!PREFEAT:1,Penetrating Strike	VFEAT:Penetrating Strike	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10
-Vital Strike			KEY:Vital Strike ~ Maneuver Master	!PREFEAT:1,Vital Strike	VFEAT:Vital Strike	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10
-Wave Strike				KEY:Wave Strike ~ Maneuver Master	!PREFEAT:1,Wave Strike	VFEAT:Wave Strike	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10
-
-
+# Strike feats: Bull Rush Strike, Disarming Strike, Repositioning Strike, Sundering Strike, Tripping Strike
+Bull Rush Strike			KEY:Bull Rush Strike ~ Maneuver Master	!PREFEAT:1,Bull Rush Strike	VFEAT:Bull Rush Strike	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10
+Disarming Strike			KEY:Disarming Strike ~ Maneuver Master	!PREFEAT:1,Disarming Strike	VFEAT:Disarming Strike	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10
+Repositioning Strike			KEY:Repositioning Strike ~ Maneuver Master	!PREFEAT:1,Repositioning Strike	VFEAT:Repositioning Strike	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10
+Sundering Strike			KEY:Sundering Strike ~ Maneuver Master	!PREFEAT:1,Sundering Strike	VFEAT:Sundering Strike	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10
+Tripping Strike			KEY:Tripping Strike ~ Maneuver Master	!PREFEAT:1,Tripping Strike	VFEAT:Tripping Strike	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeatLVL,10
 
 ###Block: MARTIAL ARTIST
 Alignment				KEY:Alignment ~ MARTIAL ARTIST			CATEGORY:Special Ability	TYPE:ArchetypeAbility.SpecialQuality			DESC:A martial artist may be of any alignment.																																																																																																																																																																																																																							SOURCEPAGE:p.59
