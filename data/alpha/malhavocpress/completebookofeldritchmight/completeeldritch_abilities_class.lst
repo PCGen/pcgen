@@ -6,13 +6,13 @@ SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEM
 Armored Casting	KEY:Armored Casting ~ Light	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:May wear light armor without incurring the normal arcane spell failure chance.
 Weave Notes		KEY:Weave Notes ~ Bard (Monte Cook's)	CATEGORY:Special Ability	TYPE:SpecialQuality
 Weave Melodies	KEY:Weave Melodies ~ Bard (Monte Cook's)	CATEGORY:Special Ability	TYPE:SpecialQuality
-
+Weave Chords	KEY:Weave Chords ~ Bard (Monte Cook's)	CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Diplomancer
-Charm						KEY:Charm ~ Diplomancer
+Charm						KEY:Charm ~ Diplomancer						CATEGORY:Special Ability	TYPE:SpecialQuality
 Enchantment Affinity			KEY:Enchantment Affinity ~ Diplomancer				DESC: +%1|EnchantAffinity		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:EnchantAffinity|1
 Magical Seduction/Attractiveness	KEY:Magical Seduction/Attractiveness ~ Diplomancer		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		TYPE:Supernatural
-Protection from Evocations		KEY:Protection from Evocations ~ Diplomancer				DESC: +%1|ProtectionEvocations	DEFINE:ProtectionEvocations|1
+Protection from Evocations		KEY:Protection from Evocations ~ Diplomancer		CATEGORY:Special Ability		DESC: +%1|ProtectionEvocations	DEFINE:ProtectionEvocations|1
 Insight into Secrets			KEY:Insight into Secrets ~ Diplomancer		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Charisma Gift				KEY:Charisma Gift ~ Diplomancer		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Word Cunning				KEY:Word Cunning ~ Diplomancer		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
@@ -52,7 +52,6 @@ Graven Image	KEY:Graven Image ~ Graven One		CATEGORY:Special Ability	TYPE:Specia
 # ~ Knight of the Chord
 Armor Song		KEY:Armor Song ~ Knight of the Chord			CATEGORY:Special Ability	TYPE:SpecialQuality	DESC: (Medium)|PREVARLT:KnightoftheChordLvl,5	DESC: (Heavy)|PREVARGTEQ:KnightoftheChordLvl,5
 Battle Dance	KEY:Battle Dance ~ Knight of the Chord			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Armor Song		KEY:Armor Song ~ Knight of the Chord			CATEGORY:Special Ability	TYPE:SpecialQuality
 Singblade		KEY:Singblade ~ Knight of the Chord			CATEGORY:Special Ability	TYPE:SpecialQuality
 Sonic Protection	KEY:Sonic Protection ~ Knight of the Chord		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Song of Smiting	KEY:Song of Smiting ~ Knight of the Chord		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
@@ -125,6 +124,6 @@ Imbue Vibration IX		CATEGORY:Special Ability	TYPE:SpecialQuality.ImbueVibration	
 
 ###Block: Magical Construct Abilities
 # Feat Name		Type												Source Page
-Breath Weapon	TYPE:SpecialQuality.Supernatural.MagicalConstructAbilities			SOURCEPAGE:p.200
-Slow			TYPE:SpecialQuality.Supernatural.MagicalConstructAbilities			SOURCEPAGE:p.200
-Haste			TYPE:SpecialQuality.Supernatural.MagicalConstructAbilities			SOURCEPAGE:p.200
+CATEGORY=Special Ability|Breath Weapon.MOD	TYPE:MagicalConstructAbilities			SOURCEPAGE:p.200
+CATEGORY=Special Ability|Slow.MOD			TYPE:MagicalConstructAbilities			SOURCEPAGE:p.200
+CATEGORY=Special Ability|Haste.MOD			TYPE:MagicalConstructAbilities			SOURCEPAGE:p.200

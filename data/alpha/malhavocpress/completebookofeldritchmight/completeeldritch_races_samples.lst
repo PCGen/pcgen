@@ -1,0 +1,10 @@
+
+
+Wyvern.COPY=Mist Wyvern
+Mist Wyvern.MOD	TEMPLATE:Creature of the Mist
+
+Dire Animal (Dire Tiger).COPY=Stone (Dire) Tiger
+Stone (Dire) Tiger.MOD	TEMPLATE:Magical Construct|Magical Construct (Stone)
+
+Hydra (Eleven Headed).COPY=Eleven-Headed Brass Hydra
+Eleven-Headed Brass Hydra.MOD	TEMPLATE:Magical Construct|Magical Construct (Metal)

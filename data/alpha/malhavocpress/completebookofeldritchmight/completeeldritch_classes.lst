@@ -35,7 +35,7 @@ CLASS:Bard (Monte Cook's)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTE
 17	CAST:0,11,0,8,0,4	KNOWN:0,10,0,7,0,3																			ABILITY:Special Ability|AUTOMATIC|Improved Evasion
 18	CAST:0,12,0,8,0,5	KNOWN:0,10,0,7,0,4
 19	CAST:0,12,0,9,0,6	KNOWN:0,11,0,8,0,4
-20	CAST:0,12,0,9,0,7	KNOWN:0,11,0,8,0,5	ABILITY:Special Ability|AUTOMATIC|Weave Melodies
+20	CAST:0,12,0,9,0,7	KNOWN:0,11,0,8,0,5	ABILITY:Special Ability|AUTOMATIC|Weave Melodies ~ Bard (Monte Cook's)
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Sorcerer (Monte Cook's)	HD:6		TYPE:Base.PC	ABB:Sor(MC)		MAXLEVEL:20	SOURCEPAGE:p.10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
