@@ -5,10 +5,9 @@
 
 #  The following feats are considered reviewed, but also need fixes and modifications to complete their use
 
-#  TODO: Sorcerous Strike, Siege Engineer, Arc Slinger, Contingent Channeling, Defensive Weapon Training
-#        Distance Thrower, Domain Strike, Dragon Ferocity, Hex Strike, Impaling Critical, Improved Impaling Critical
-#        Rebuffing Reduction, Shapeshifter Foil, Masterful Display, Skilled Driver, Feral Combat Training, Final Embrace, Final Embrace Master,
-#        Haunted Gnome Shroud, Haunted Gnome Assault, Revelation Strike, School Strike
+#  TODO: Sorcerous Strike, Arc Slinger, Defensive Weapon Training, Distance Thrower, Dragon Ferocity, Hex Strike, 
+#        Impaling Critical, Improved Impaling Critical, Rebuffing Reduction, Masterful Display, Skilled Driver,
+#        Feral Combat Training, Final Embrace, Final Embrace Master, Revelation Strike, School Strike, Bolstered Resilience
 
 # the following feats have been reviewed and either fully work, or have a TODO comment which will require someone more qualified to
 # assist with the fix
@@ -106,9 +105,7 @@ Djinni Spirit			TYPE:Combat																																											PREFEAT:3,
 
 Djinni Style			TYPE:Combat.Style																																										PREFEAT:2,Elemental Fist,Improved Unarmed Strike																		PREMULT:1,[PREATT:9],[PRECLASS:1,Monk=5]																																																																					PRESTAT:2,CON=13,WIS=15																								DESC:Your hands sheathed in an auras of lightning, you move like the wind.																																																																													BONUS:VAR|ElementalFistUses|1	BONUS:VAR|ElementalFistDamageBonus|WIS|TYPE=Electricity	SOURCEPAGE:p.97	BENEFIT:You gain one additional Elemental Fist (Advanced Player's Guide 158) attempt per day. While you are in this style you must use Elemental Fist to deal electricity damage and you gain a bonus on electricity damage rolls equal to your Wisdom bonus (%1). Further, while you are using this style and have remaining Elemental Fist attempts, you also gain a +2 dodge bonus to Armor Class against attacks of opportunity. A condition that makes you lose your Dexterity bonus to AC also makes you lose this dodge bonus.|WIS
 
-#
-# TODO: Requires the user to select one of their selected domain powers
-Domain Strike			TYPE:Combat			PREABILITY:1,CATEGORY=Special Ability,Domains																																	PREFEAT:1,Improved Unarmed Strike																																																																																																																											DESC:You unleash a domain power upon your enemy as part of your unarmed strike.																			MULT:YES	CHOOSE:ABILITY|Special Ability|PC[TYPE=DomainPower]																																																														SOURCEPAGE:p.98	BENEFIT:When you gain this feat, choose one domain-granted power that you can use to affect no more than one opponent. If you make a successful unarmed strike against an opponent, in addition to dealing your unarmed strike damage, you can use a swift action to deliver the effects of the chosen granted power to that opponent. Doing so provokes no attacks of opportunity. &nl; [Special]You can take this feat multiple times. Each time you take it, you apply it to a different qualifying domain power.
+Domain Strike			TYPE:Combat			PREABILITY:1,CATEGORY=Special Ability,Domains																																	PREFEAT:1,Improved Unarmed Strike																																																																																													DESC:You unleash a domain power upon your enemy as part of your unarmed strike.																STACK:NO			MULT:YES	CHOOSE:ABILITY|Special Ability|PC[TYPE=DomainPower]																																																														SOURCEPAGE:p.98	BENEFIT:When you gain this feat, choose one domain-granted power that you can use to affect no more than one opponent. If you make a successful unarmed strike against an opponent, in addition to dealing your unarmed strike damage, you can use a swift action to deliver the effects of the chosen granted power to that opponent. Doing so provokes no attacks of opportunity. &nl; [Special]You can take this feat multiple times. Each time you take it, you apply it to a different qualifying domain power.
 
 Double Bane				TYPE:General		PREABILITY:1,CATEGORY=Special Ability,Bane ~ Inquisitor																															PREFEAT:1,Two-Weapon Fighting																																																																																																																												DESC:You extend your bane effect to two weapons.																																																																																																SOURCEPAGE:p.98	BENEFIT:You can apply your bane to a second weapon you are wielding. While your bane class feature is active, at the start of each of your turns as a free action, you choose whether to apply the ability to one weapon or the other, or both. For each round you apply your bane class feature to two weapons, you expend 2 rounds of that feature.
 
@@ -121,28 +118,36 @@ Drag Down				TYPE:Combat																																											PREFEAT:2,Com
 #      4 winds archetype - doesn't mean he has the feat, only that he can use it. How to do?
 Dragon Ferocity			TYPE:Combat																																											PREFEAT:3,Improved Unarmed Strike,Dragon Style,Stunning Fist																																																								PRESKILL:1,Acrobatics=5																																PRESTAT:1,STR=15																								DESC:You attack with the strength of a dragon, your telling blows striking fear into your enemies.																																																																																								SOURCEPAGE:p.98	BENEFIT:While using Dragon Style, you gain a bonus on unarmed strike damage rolls equal to half your Strength bonus. When you score a critical hit or a successful Stunning Fist attempt against an opponent while using this style, that opponent is also shaken for a number of rounds equal to 1d4 + your Strength bonus. &nl; [Special]Taking this feat allows you to qualify for the Elemental Fist feat (Advanced Player's Guide 158) even if you do not meet that feat's prerequisites. If you do not meet that feat's prerequisites, you must choose one of the damage types that feat offers, and you can use only that damage type with your Elemental Fist attacks until you meet the feat's normal prerequisites. A monk with this feat can use Elemental Fist as if he were a monk of the four winds (Advanced Player's Guide 112).
 
-# TODO: Working on the alternative version of elemental fist that has limited functionality when Dragon Ferocity is the prequalifier
-#Elemental Fist DF
-#		TYPE:Combat
-#		PREMULT:1,[PREMULT:3,[PREATT:8],[PREFEAT:1,Improved Unarmed Strike],[PRESTAT:2,CON=13,WIS=13]],[PREFEAT:1,Dragon Ferocity]
-#		DEFINE:ElementalFistDamage|0
-#		DEFINE:ElementalFistUses|0
-#		DEFINE:ElementalFistDF|0
-#		DEFINE:ElementalFistType|pick one of the following energy types: acid, cold, electricity, or fire
-#		DESC:You empower your strike with elemental energy
-#		BONUS:VAR|ElementalFistDamage|1
-#		BONUS:VAR|ElementalFistUses|classlevel("Monk")
-#		BONUS:VAR|ElementalFistUses|((ECL - classlevel("Monk"))/4)
-#		BONUS:VAR|ElementalFistDF|1|PREMULT:2,[PREFEAT:1,Dragon Ferocity],[!PREMULT:3,[PREATT:8],[PREFEAT:1,Improved Unarmed Strike],[PRESTAT:2,CON=13,WIS=13]]
-#		STACK:NO
-#		MULT:YES
-#		CHOOSE:NUMCHOICES=1|STRING|Acid|Cold|Electricity|Fire|PREVAREQ:ElementalFistDF,1
-#		BONUS:VAR|ElementalFistType|use the %LIST energy type.REPLACE|PREVAREQ:ElementalFistDF,1
-#		SOURCEPAGE:p.158
-#		BENEFIT:When you use Elemental Strike %5. On a successful hit, the attack deals damage normally plus %1d6+%3 points of damage of the chosen type. You must declare that you are using this feat before you make your attack roll (thus a failed attack roll ruins the attempt). You may attempt an elemental fist attack %2 times per day, but no more than once per round (EFDF=%4).|ElementalFistDamage|ElementalFistUses|ElementalFistDamageBonus|ElementalFistDF|ElementalFistType
-#		DEFINE:ElementalFistDamageBonus|0	BENEFIT:&nl;When you use Elemental Strike with Djinni Style, on a successful hit, the attack deals damage normally plus %1d6+%2 points of electrical damage.|ElementalFistDamage|ElementalFistDamageBonus|PREABILITY:1,CATEGORY=FEAT,Djinni Style
-#
-		
+# When you use Elemental Strike pick one of the following energy types: acid, cold, electricity, or fire. 
+# On a successful hit, the attack deals damage normally plus 1d6 points of damage of the chosen type. You
+# must declare that you are using this feat before you make your attack roll (thus a failed attack roll
+# ruins the attempt). You may attempt an elemental fist attack once per day for every four levels you have
+# attained (see Special), and no more than once per round.
+# Special: A monk of the four winds receives Elemental Fist as a bonus feat at 1st level, even if he does
+# not meet the prerequisites. A monk may attempt an Elemental Fist attack a number of times per day equal
+# to his monk level, plus one more time per day for every four levels he has in classes other than monk.
+
+Elemental Fist (Dragon Ferocity)
+			TYPE:Combat
+			PREFEAT:1,Dragon Ferocity
+			!PREMULT:3,[PREATT:8],[PREFEAT:1,Improved Unarmed Strike],[PRESTAT:2,CON=13,WIS=13]
+			DEFINE:ElementalFistDamage|0
+			DEFINE:ElementalFistUses|0
+			DEFINE:ElementalFistDamageBonus|0
+			DEFINE:NonMonkLevels|TL-classlevel("Monk")
+			BONUS:VAR|ElementalFistDamage|1
+			DESC:You empower your strike with elemental energy
+			STACK:NO
+			MULT:YES
+			SELECT:1
+			CHOOSE:NUMCHOICES=1|STRING|Acid|Cold|Electricity|Fire
+			BONUS:VAR|ElementalFistUses|TL/4|PREVARLT:classlevel("Monk"),1 # = levels / 4 if not monk
+			BONUS:VAR|ElementalFistUses|classlevel("Monk")|PREVARGT:classlevel("Monk"),0 # = monk level + non-monk levels / 4 if monk
+			BONUS:VAR|ElementalFistUses|NonMonkLevels/4|PREVARGT:classlevel("Monk"),0
+			SOURCEPAGE:p.158
+			BENEFIT:When you use Elemental Strike pick one of the following energy types: acid, cold, electricity, or fire. On a successful hit, the attack deals damage normally plus %1d6+%3 points of damage of the chosen type. You must declare that you are using this feat before you make your attack roll (thus a failed attack roll ruins the attempt). You may attempt an elemental fist attack %2 times per day, but no more than once per round.|ElementalFistDamage|ElementalFistUses|ElementalFistDamageBonus
+			BENEFIT:&nl;When you use Elemental Strike with Djinni Style, on a successful hit, the attack deals damage normally plus %1d6+%2 points of electrical damage.|ElementalFistDamage|ElementalFistDamageBonus|PREABILITY:1,CATEGORY=FEAT,Djinni Style
+	
 		
 
 
@@ -154,7 +159,7 @@ Dramatic Display			TYPE:Combat.Performance																																						
 
 Earth Child Binder		TYPE:Combat			PREABILITY:1,CATEGORY=Special Ability,Defensive Training ~ Dwarf,Defensive Training ~ Gnome																									PREFEAT:6,Earth Child Style,Earth Child Topple,Greater Trip,Improved Trip,Improved Unarmed Strike,Stunning Fist																																			PRERACE:1,Dwarf,RACESUBTYPE=Dwarf,Gnome,RACESUBTYPE=Gnome				PRESKILL:1,Acrobatics=9																																PRESTAT:1,WIS=13																									DESC:Even the greatest giants fear your technique.																																																																																																SOURCEPAGE:p.98	BENEFIT:You can trip a creature of the giant subtype no matter its size. While you are using Earth Child Style, when a prone creature of the giant subtype stands up and provokes an attack of opportunity from you, if you make an unarmed strike, you can declare you are making a Stunning Fist attempt after the attack hits. You gain a +4 bonus to the DC of any Stunning Fist effect you deliver in this way. &nl; [Normal] You can only trip opponents who are one size category larger than you.
 
-Earth Child Style			TYPE:Combat.Style		PREABILITY:1,CATEGORY=Special Ability,Defensive Training ~ Dwarf,Defensive Training ~ Gnome																									PREFEAT:1,Improved Unarmed Strike																																																PRERACE:1,Dwarf,RACESUBTYPE=Dwarf,Gnome,RACESUBTYPE=Gnome				PRESKILL:1,Acrobatics=3																																PRESTAT:1,WIS=13																									DESC:Your martial training makes you a dangerous and elusive target for giants.																																																																								BONUS:RacialDefensiveTrainingBonus|2																			SOURCEPAGE:p.99	BENEFIT:While using this style, your defensive training dodge bonus to AC increases to +6. Further, against creatures of the giant subtype, you can add your Wisdom bonus (%1) on your unarmed strike damage rolls.|WIS
+Earth Child Style			TYPE:Combat.Style		PREABILITY:1,CATEGORY=Special Ability,Defensive Training ~ Dwarf,Defensive Training ~ Gnome																									PREFEAT:1,Improved Unarmed Strike																																																PRERACE:1,Dwarf,RACESUBTYPE=Dwarf,Gnome,RACESUBTYPE=Gnome				PRESKILL:1,Acrobatics=3																																PRESTAT:1,WIS=13																									DESC:Your martial training makes you a dangerous and elusive target for giants.																																																																								BONUS:VAR|RacialDefensiveTrainingBonus|2																			SOURCEPAGE:p.99	BENEFIT:While using this style, your defensive training dodge bonus to AC increases to +6. Further, against creatures of the giant subtype, you can add your Wisdom bonus (%1) on your unarmed strike damage rolls.|WIS
 
 Earth Child Topple						PREABILITY:1,CATEGORY=Special Ability,Defensive Training ~ Dwarf,Defensive Training ~ Gnome																									PREFEAT:3,Improved Unarmed Strike,Earth Child Style,Improved Trip																																											PRERACE:1,Dwarf,RACESUBTYPE=Dwarf,Gnome,RACESUBTYPE=Gnome				PRESKILL:1,Acrobatics=6																																PRESTAT:1,WIS=13																									DESC:Your mastery of balance and momentum allows you to bring down giants with your bare hands.																																																																																												BENEFIT:You can trip a creature of the giant subtype of up to Huge size. While using Earth Child Style, you add your Wisdom bonus on combat maneuver checks made to trip a creature of the giant subtype, as well as on attack rolls to confirm a critical hit against such a creature. &nl; [Normal] You can trip only those opponents that are one size category larger than you.
 
@@ -250,13 +255,9 @@ Harmonic Sage			TYPE:General		PREABILITY:1,CATEGORY=Special Ability,Bardic Perfo
 
 Haunted Gnome			TYPE:Combat			PRESTAT:1,CHA=13			PREABILITY:1,CATEGORY=Special Ability,Gnome Magic ~ Gnome			PRESKILL:1,Knowledge (arcana)=1			DESC:You use your gnome magic to take on an eerie illusory appearance.			SOURCEPAGE:p.104			SPELLS:Innate|TIMES=2|CASTERLEVEL=TL|Haunted Fey Aspect,10+CHA			BENEFIT:You add haunted fey aspect (page 230) to your list of gnome magic spell-like abilities, and you can use this spell-like ability twice per day.
 
-#
-# TODO:Right now this just adds more innate spells of the same name. need to fix it so it replaces them
-Haunted Gnome Assault			TYPE:Combat			PRESTAT:1,CHA=13			PREABILITY:1,CATEGORY=Special Ability,Gnome Magic ~ Gnome			PREFEAT:1,Haunted Gnome			PRESKILL:1,Knowledge (arcana)=3			DESC:Discharging your disturbing glamer as you strike a telling blow, you haunt a foe with lingering fear.			SOURCEPAGE:p.104			SPELLS:Innate|TIMES=3|CASTERLEVEL=TL|Haunted Fey Aspect,10+CHA			SPELLS:Innate|TIMES=2|CASTERLEVEL=TL|Dancing Lights,10+CHA|Ghost Sound,10+CHA|Prestidigitation,10+CHA|Speak with Animals,11+CHA			BENEFIT:You gain one use of your gnome magic that is independent of your gnome magic spell-like abilities. When you wish to cast a gnome magic spell-like ability for which you have no daily uses remaining, you can expend this independent use to do so. Further, while you are under the effect of haunted fey aspect (page 230), you can discharge that spell as a free action after you hit an opponent with a charge attack or score a critical hit against an opponent. If you do, that opponent becomes shaken for 1 round.
+Haunted Gnome Assault			TYPE:Combat			PRESTAT:1,CHA=13			PREABILITY:1,CATEGORY=Special Ability,Gnome Magic ~ Gnome			PREFEAT:1,Haunted Gnome			PRESKILL:1,Knowledge (arcana)=3			DESC:Discharging your disturbing glamer as you strike a telling blow, you haunt a foe with lingering fear.			SOURCEPAGE:p.104			BONUS:VAR|GnomeHauntedFeyAspectTimes,GnomeDancingLightsTimes,GnomeGhostSoundTimes,GnomePrestidigitationTimes,GnomeSpeakWithAnimalsTimes|1			BENEFIT:You gain one use of your gnome magic that is independent of your gnome magic spell-like abilities. When you wish to cast a gnome magic spell-like ability for which you have no daily uses remaining, you can expend this independent use to do so. Further, while you are under the effect of haunted fey aspect (page 230), you can discharge that spell as a free action after you hit an opponent with a charge attack or score a critical hit against an opponent. If you do, that opponent becomes shaken for 1 round.
 
-#
-# TODO:Right now this just adds more innate spells of the same name. need to fix it so it replaces them
-Haunted Gnome Shroud			TYPE:Combat			PRESTAT:1,CHA=13			PREABILITY:1,CATEGORY=Special Ability,Gnome Magic ~ Gnome			PREFEAT:2,Haunted Gnome,Haunted Gnome Assault			PRESKILL:1,Knowledge (arcana)=6			DESC:Your disturbing glamer expands to make your exact location hard to pinpoint.			SPELLS:Innate|TIMES=4|CASTERLEVEL=TL|Haunted Fey Aspect,10+CHA			SPELLS:Innate|TIMES=3|CASTERLEVEL=TL|Dancing Lights,10+CHA|Ghost Sound,10+CHA|Prestidigitation,10+CHA|Speak with Animals,11+CHA			SOURCEPAGE:p.104			BENEFIT:You gain another independent use of your gnome magic like that which Haunted Gnome Assault grants. Further, while you are under the effect of haunted fey aspect, you also have concealment (20%% miss chance) against an opponent until that opponent deals you damage.
+Haunted Gnome Shroud			TYPE:Combat			PRESTAT:1,CHA=13			PREABILITY:1,CATEGORY=Special Ability,Gnome Magic ~ Gnome			PREFEAT:2,Haunted Gnome,Haunted Gnome Assault			PRESKILL:1,Knowledge (arcana)=6			DESC:Your disturbing glamer expands to make your exact location hard to pinpoint.			BONUS:VAR|GnomeHauntedFeyAspectTimes,GnomeDancingLightsTimes,GnomeGhostSoundTimes,GnomePrestidigitationTimes,GnomeSpeakWithAnimalsTimes|1			SOURCEPAGE:p.104			BENEFIT:You gain another independent use of your gnome magic like that which Haunted Gnome Assault grants. Further, while you are under the effect of haunted fey aspect, you also have concealment (20%% miss chance) against an opponent until that opponent deals you damage.
 
 Hero's Display			TYPE:Combat.Performance			PREFEAT:2,Dazzling Display,Weapon Focus			DESC:With a dramatic flourish you display your weapons to the crowd. Onlookers are elated, and your enemies are demoralized.			SOURCEPAGE:p.104			STACK:NO			MULT:YES			CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus			BENEFIT:When you spend a swift action to make a performance combat check, you present the weapon in which you have Weapon Focus in a triumphant display. You gain a +2 bonus on the performance combat check and make an Intimidate check to demoralize all foes within 30 feet who can see your display.
 
