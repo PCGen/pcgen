@@ -36,6 +36,8 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
+import org.apache.commons.lang.StringUtils;
+
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.FixedStringList;
 import pcgen.base.util.NamedValue;
@@ -1512,9 +1514,12 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append(follower.getUsedHD());
 				buffer.append('|');
 				buffer.append(TAG_FILE).append(':');
-				buffer.append(EntityEncoder.encode(FileHelper.findRelativePath(
-					new File(thePC.getFileName()), new File(
-						follower.getFileName()))));
+				if (StringUtils.isNotEmpty(follower.getFileName()))
+				{
+					buffer.append(EntityEncoder.encode(FileHelper
+						.findRelativePath(new File(thePC.getFileName()),
+							new File(follower.getFileName()))));
+				}
 				buffer.append(LINE_SEP);
 			}
 		}

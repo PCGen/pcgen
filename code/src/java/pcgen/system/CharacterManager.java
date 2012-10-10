@@ -337,6 +337,28 @@ public class CharacterManager
 	}
 
 	/**
+	 * Check if the character's filename is ready to be saved to.    
+	 * @param character The character to be checked.
+	 * @return true if the file can be written to, false otherwise.
+	 */
+	public static boolean characterFilenameValid(CharacterFacade character)
+	{
+		if (character.getFileRef().getReference() == null
+			|| StringUtils.isEmpty(character.getFileRef().getReference()
+				.getName()))
+		{
+			return false;
+		}
+
+		File file = character.getFileRef().getReference();
+		if (StringUtils.isBlank(file.getName()))
+		{
+			return false;
+		}
+		return !file.isDirectory() && (!file.exists() || file.canWrite());
+	}
+	
+	/**
 	 * Saves this character to the character's file specified
 	 * by character.getFileRef().getReference()
 	 * This is expected to be called before a character is to

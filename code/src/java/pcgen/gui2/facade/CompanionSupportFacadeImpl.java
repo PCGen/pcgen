@@ -26,6 +26,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.list.CompanionList;
@@ -296,9 +298,10 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		compFacadeImpl.postLevellingUpdates();
 		
 		// Update the master with the new companion
+		File compFile = compFacadeImpl.getFileRef().getReference();
+		String compFilename = StringUtils.isEmpty(compFile.getPath()) ? "" : compFile.getAbsolutePath();
 		Follower follower =
-				new Follower(compFacadeImpl.getFileRef().getReference()
-					.getAbsolutePath(), compFacadeImpl.getNameRef()
+				new Follower(compFilename, compFacadeImpl.getNameRef()
 					.getReference(), compList);
 		follower.setRace(compRace);
 		theCharacter.addFollower(follower);

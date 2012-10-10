@@ -651,8 +651,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 
 	public boolean saveCharacter(CharacterFacade character)
 	{
-		File file = character.getFileRef().getReference();
-		if (StringUtils.isBlank(file.getName()) || !CharacterManager.saveCharacter(character))
+		if (!CharacterManager.characterFilenameValid(character))
 		{
 			return showSaveCharacterChooser(character);
 		}
@@ -676,7 +675,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		List<CompanionFacade> tobeSaved = new ArrayList<CompanionFacade>(); 
 		for (CompanionFacade comp : character.getCompanionSupport().getCompanions())
 		{
-			if (StringUtils.isEmpty(comp.getFileRef().getReference().getName()))
+			if (StringUtils.isEmpty(comp.getFileRef().getReference().getName())
+				&& CharacterManager.getCharacterMatching(comp) != null)
 			{
 				tobeSaved.add(comp);
 			}
