@@ -6,7 +6,7 @@
 # Dummy Proficiency to Trigger granting all Firearms Profs
 # Name			Type
 # Weapon Name			Type							Nb Hands
-Firearms				TYPE:Exotic
+Firearms				TYPE:Exotic.Exotic
 
 #-(Early) One-Handed Firearms
 Bukler Gun				TYPE:Ranged.Piercing.Bludgeoning.Firearm
@@ -197,32 +197,32 @@ Wahaika			TYPE:StoneAge.Exotic.Bludgeoning.Disarm
 
 #Direct-Fire Engines	 Cost		Dmg		Critical			Range		Type1 Crew Aim Load Speed
 # Large Siege Engines
-Ballista (Light)		TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Piercing
-Cannon			TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
+Ballista (Light)		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Piercing
+Cannon			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
 # Huge Siege Engines
-Ballista (Heavy)		TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Piercing
-Cannon (Fiend's Mouth)	TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
-Firedrake			TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Fire
+Ballista (Heavy)		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Piercing
+Cannon (Fiend's Mouth)	TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
+Firedrake			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Fire
 # Gargantuan Siege Engines
-Ballista (Gate Breaker)	TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
-Firewyrm			TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Fire
+Ballista (Gate Breaker)	TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Firewyrm			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Fire
 
 #Indirect-Fire Engines Cost Dmg Critical Range Type Crew Aim Load Speed
 
 # Large Siege Engines
-Bombard (Light)		TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
-Catapult (Light)		TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
-Trebuchet (Light)		TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Bombard (Light)		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
+Catapult (Light)		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Trebuchet (Light)		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
 
 # Huge Siege Engines
-Bombard (Standard)	TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
-Catapult (Standard)	TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
-Springal (Arrow)		TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Piercing
-Springal (Rocket)		TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Fire
-Trebuchet (Standard)	TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Bombard (Standard)	TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
+Catapult (Standard)	TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Springal (Arrow)		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Piercing
+Springal (Rocket)		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Fire
+Trebuchet (Standard)	TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
 
 #Gargantuan Siege Engines
-Bombard (Heavy)		TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
-Catapult (Heavy)		TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
-Trebuchet (Heavy)		TYPE:Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Bombard (Heavy)		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
+Catapult (Heavy)		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Trebuchet (Heavy)		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
 
