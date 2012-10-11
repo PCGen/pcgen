@@ -84,6 +84,7 @@ RACE:pfum_races_companions.lst
 TEMPLATE:pfum_templates.lst
 WEAPONPROF:pfum_weaponprofs.lst
 
+HIDETYPE:FEAT|RevelationTargetOneOnly
 #
 # End
 #
