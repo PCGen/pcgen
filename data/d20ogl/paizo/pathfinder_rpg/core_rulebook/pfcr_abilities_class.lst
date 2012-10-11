@@ -294,6 +294,20 @@ Armor Training ~ Heavy Armor	CATEGORY:Special Ability	TYPE:Internal						VISIBLE
 Armor Mastery			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary														DESC:You gain DR 5/-- whenever you are wearing armor or using a shield.																																																																																																																															DR:5/-|PREEQUIP:1,TYPE=Armor,TYPE=Shield	SOURCEPAGE:p.56
 Weapon Mastery			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.WeaponMastery												DESC:Any attacks made a %1 automatically confirm all critical threats and have their damage multiplier increased by 1 (x2 becomes x3, for example). In addition, you cannot be disarmed while wielding a weapon of this type.|%CHOICE	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC																																																																																																			SOURCEPAGE:p.56                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                a
 
+Bonus Feats				CATEGORY:Special Ability	TYPE:Internal	KEY:Bonus Feats ~ Fighter	BONUS:ABILITYPOOL|Fighter Bonus Feat|FighterLvl/2+1
+###Block:
+CATEGORY=Special Ability|Bonus Feats ~ Fighter.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeat1
+CATEGORY=Special Ability|Bonus Feats ~ Fighter.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,2|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeat2
+CATEGORY=Special Ability|Bonus Feats ~ Fighter.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,4|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeat4
+CATEGORY=Special Ability|Bonus Feats ~ Fighter.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,6|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeat6
+CATEGORY=Special Ability|Bonus Feats ~ Fighter.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,8|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeat8
+CATEGORY=Special Ability|Bonus Feats ~ Fighter.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,10|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeat10
+CATEGORY=Special Ability|Bonus Feats ~ Fighter.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,12|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeat12
+CATEGORY=Special Ability|Bonus Feats ~ Fighter.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,14|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeat14
+CATEGORY=Special Ability|Bonus Feats ~ Fighter.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,16|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeat16
+CATEGORY=Special Ability|Bonus Feats ~ Fighter.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,18|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeat18
+CATEGORY=Special Ability|Bonus Feats ~ Fighter.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,20|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeat20
+
 
 ###Block: Fighter Weapon Training Abilities
 # Ability Name		Category of Ability		Type						Visible		Define					Description																																																																																																																																																																																																						Bonus to Ability Pool																																																		Modify VAR																Source Page

@@ -178,7 +178,7 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
 CLASS:Fighter	HD:10		TYPE:Base.PC	ABB:Ftr		MAXLEVEL:20	SOURCEPAGE:p.55	DEFINE:FighterLvl|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Knowledge (Dungeoneering)|Knowledge (Engineering)|TYPE=Profession|Ride|Survival|Swim
+CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Knowledge (Dungeoneering)|Knowledge (Engineering)|TYPE=Profession|Ride|Survival|Swim	DEFINE:FighterLvl|CL
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponProficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponProficiencies
 1												AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies
@@ -195,11 +195,16 @@ CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|K
 1	ABILITY:Special Ability|AUTOMATIC|Critical Mastery Qualify
 1	ABILITY:Special Ability|AUTOMATIC|Greater Penetrating Strike Qualify
 ###Block: Level progression
-1	BONUS:ABILITYPOOL|Fighter Bonus Feat|CL/2+1|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeats
-2									BONUS:VAR|BraveryLVL|CL				ABILITY:Special Ability|AUTOMATIC|Bravery|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBravery
-3									BONUS:VAR|ArmorTrainingLVL|CL			ABILITY:Special Ability|AUTOMATIC|Armor Training|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorTraining_ALL
-5									BONUS:VAR|FighterWeaponTrainingLVL|CL	ABILITY:Special Ability|AUTOMATIC|Fighter Weapon Training|Weapon Training|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponTraining_ALL
-19																ABILITY:Special Ability|AUTOMATIC|Armor Mastery|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorMastery
+2	BONUS:VAR|BraveryLVL|CL
+3	BONUS:VAR|ArmorTrainingLVL|CL
+5	BONUS:VAR|FighterWeaponTrainingLVL|CL
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Bonus Feats ~ Fighter|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeats	
+2	ABILITY:Special Ability|AUTOMATIC|Bravery|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBravery
+3	ABILITY:Special Ability|AUTOMATIC|Armor Training|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorTraining_ALL
+5	ABILITY:Special Ability|AUTOMATIC|Fighter Weapon Training|Weapon Training|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponTraining_ALL
+19	ABILITY:Special Ability|AUTOMATIC|Armor Mastery|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorMastery
+###Block:
 20	BONUS:ABILITYPOOL|Weapon Mastery|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponMastery
 
 
