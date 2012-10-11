@@ -586,6 +586,16 @@ public final class PrerequisiteUtilities
 				continue;
 			}
 
+			if (wp.isType(cType))
+			{
+				returnTotal++;
+				if (!countMults)
+				{
+					break;
+				}
+				continue;
+			}
+
 			final Equipment eq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				Equipment.class, wp.getKeyName());
 
