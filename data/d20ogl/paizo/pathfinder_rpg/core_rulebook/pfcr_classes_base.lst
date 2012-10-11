@@ -438,13 +438,25 @@ SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|TransmutationS
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Wizard Weapon Proficiencies
 ###Block: Wizard School
-1	BONUS:VAR|UniversalSchoolLVL|CL|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ArcaneSchool	ABILITY:Special Ability|AUTOMATIC|Universal School|PREVARGT:UniversalSchoolLVL,0
+1	BONUS:VAR|UniversalSchoolLVL|CL|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ArcaneSchool|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+1	BONUS:VAR|FMLevel|CL
+###Block:
+1	AUTO:FEAT|Scribe Scroll|!PREABILITY:1,CATEGORY=Archetype,TYPE.ScribeScroll
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Universal School|PREVARGT:UniversalSchoolLVL,0|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+1	ABILITY:Special Ability|AUTOMATIC|Arcane Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneBond
+1	ABILITY:Special Ability|AUTOMATIC|Cantrips ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardCantrips
+5	ABILITY:Special Ability|AUTOMATIC|Bonus Feats ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardBonusFeats
+1	ABILITY:Internal|AUTOMATIC|Free Spell Book|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Wizard=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Wizard=1]]
+###Block:
+1	DEFINE:SpellMasteryQualify|1
+1	DEFINE:WizardLvl|CL
 ###Block: Level progression
-1	CAST:3,1											BONUS:VAR|FMLevel|CL	DEFINE:SpellMasteryQualify|1	ABILITY:Special Ability|AUTOMATIC|Arcane Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneBond	ABILITY:Special Ability|AUTOMATIC|Cantrips ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardCantrips	AUTO:FEAT|Scribe Scroll|!PREABILITY:1,CATEGORY=Archetype,TYPE.ScribeScroll	ABILITY:Internal|AUTOMATIC|Free Spell Book|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Wizard=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Wizard=1]]
+1	CAST:3,1
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:4,3,2
-5	CAST:4,3,2,1			BONUS:ABILITYPOOL|Wizard Bonus Feat|CL/5
+5	CAST:4,3,2,1
 6	CAST:4,3,3,2
 7	CAST:4,4,3,2,1
 8	CAST:4,4,3,3,2
