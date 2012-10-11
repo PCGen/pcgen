@@ -70,6 +70,8 @@ SPELL:pfuc_spells.lst
 SPELL:pfuc_spells_shortdesc.lst
 
 SKILL:pfuc_skills.lst
+
+FORWARDREF:CLASSSPELLLIST|Magus
 #
 # End
 #
