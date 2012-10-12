@@ -1967,14 +1967,6 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 			}
 		}
 
-		// Setup the default EquipSet if not already present
-		if (!hasEquipSet())
-		{
-			String idPath = getNewIdPath(null);
-			EquipSet eSet = new EquipSet(idPath, LanguageBundle.getString("in_ieDefault"));
-			addEquipSet(eSet);
-		}
-
 		oldCompanionMods.removeAll(companionModFacet.getSet(id));
 		for (CompanionMod cMod : oldCompanionMods)
 		{
