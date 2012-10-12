@@ -1829,7 +1829,7 @@ final class PCGVer2Creator implements IOConstants
 				}
 			}
 		}
-
+		appendAddTokenInfo(buffer, thePC.getRace());
 		buffer.append(LINE_SEP);
 	}
 

@@ -3833,7 +3833,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				chooseDriverFacet.addAssociation(thePC.getCharID(), aRace,
 					aString.substring(TAG_APPLIEDTO.length() + 1));
 			}
-			else
+			else if (!aString.startsWith(TAG_ADDTOKEN))
 			{
 				final String msg =
 						LanguageBundle.getFormattedString(
@@ -3843,6 +3843,16 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 		}
 		thePC.setRace(aRace);
+
+		//Must process ADD after RACE is added to the PC
+		for (PCGElement e : new PCGTokenizer(line).getElements())
+		{
+			String tag = e.getName();
+			if (tag.equals(TAG_ADDTOKEN))
+			{
+				parseAddTokenInfo(e, aRace);
+			}
+		}
 
 		// TODO
 		// adjust for more information according to

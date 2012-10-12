@@ -280,7 +280,7 @@ public class SpellCasterToken extends AbstractToken implements
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
 			PCClass choice)
 	{
-		// No action required
+		applyChoice(owner, choice, pc);
 	}
 
 	@Override
