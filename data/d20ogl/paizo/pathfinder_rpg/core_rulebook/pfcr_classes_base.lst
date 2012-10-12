@@ -355,28 +355,31 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|
 18	CAST:0,4,3,2,2
 19	CAST:0,4,3,3,2											ABILITY:Special Ability|AUTOMATIC|Improved Quarry|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerQuarry
 20	CAST:0,4,4,3,3	BONUS:VAR|MasterHunterLVL|CL						ABILITY:Special Ability|AUTOMATIC|Master Hunter|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerMasterHunter
-# Archetype Support
-16	ABILITY:Special Ability|AUTOMATIC|Evasion
 
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus												Combat bonus
 CLASS:Rogue		HD:8		TYPE:Base.PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:p.67	DEFINE:RogueLvl|CL	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (Dungeoneering)|Knowledge (Local)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device
+CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (Dungeoneering)|Knowledge (Local)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device	DEFINE:RogueLvl|CL
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:Special Ability|AUTOMATIC|Rogue Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueWeaponProficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1																																	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Level progression
-1	BONUS:VAR|RogueSneakAttackLVL|CL	BONUS:VAR|TrapfindingLVL|CL							ABILITY:Special Ability|AUTOMATIC|Sneak Attack|Sneak Attack ~ Rogue|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueSneakAttack	ABILITY:Special Ability|AUTOMATIC|Trapfinding|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTrapfinding
-2	BONUS:VAR|RogueTalentLVL|CL													ABILITY:Special Ability|AUTOMATIC|Evasion|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueEvasion	ABILITY:Special Ability|AUTOMATIC|Rogue Talents|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalents
-3	BONUS:VAR|RogueTrapSenseLVL|CL												ABILITY:Special Ability|AUTOMATIC|Trap Sense ~ Rogue|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTrapSense
-4	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|CL/4	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueUncannyDodge,TYPE.RogueImprovedUncannyDodge
-20	BONUS:VAR|MasterStrikeLVL|CL													ABILITY:Special Ability|AUTOMATIC|Master Strike|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueMasterStrike
-
-# Archetype Support
-3	BONUS:VAR|RogueSneakAttackLVL|-2|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueSneakAttack			ABILITY:Special Ability|AUTOMATIC|Sneak Attack|Sneak Attack ~ Rogue
-8	BONUS:VAR|UncannyDodgeLevel|-4|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueUncannyDodge,TYPE.RogueImprovedUncannyDodge	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueUncannyDodge,TYPE.RogueImprovedUncannyDodge
+1	BONUS:VAR|RogueSneakAttackLVL|CL	BONUS:VAR|TrapfindingLVL|CL						
+2	BONUS:VAR|RogueTalentLVL|CL												
+3	BONUS:VAR|RogueTrapSenseLVL|CL											
+4	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueUncannyDodge
+8	BONUS:VAR|UncannyDodgeLevel|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueImprovedUncannyDodge
+20	BONUS:VAR|MasterStrikeLVL|CL													
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Sneak Attack|Sneak Attack ~ Rogue|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueSneakAttack
+1	ABILITY:Special Ability|AUTOMATIC|Trapfinding|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTrapfinding
+2	ABILITY:Special Ability|AUTOMATIC|Evasion|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueEvasion	
+2	ABILITY:Special Ability|AUTOMATIC|Rogue Talents|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalents
+3	ABILITY:Special Ability|AUTOMATIC|Trap Sense ~ Rogue|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTrapSense
+4	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
+20	ABILITY:Special Ability|AUTOMATIC|Master Strike|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueMasterStrike
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
