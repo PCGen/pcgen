@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# CVS $Revision$ $Author$ -- Sat Oct 13 01:30:35 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Original Entry by: Merton Monk and Glddragon35
 
 ###Block: Monk Outsider change at level 20.
@@ -19,7 +19,7 @@ Ooze			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.INT|10
 Undead		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.CON|10
 
 ###Block: Creature Subtypes
-# Template Name		Visible	Source Page						Define			Required AL	Required Race			Var. Max. Value		Automatic Languages
+# Template Name		Visible	Source Page						Define			Required AL	Required Race			Var. Max. Value		Automatically Gained Language
 Goblinoid			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																AUTO:LANG|Goblin
 Incorporeal			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.STR|10
 
@@ -110,49 +110,49 @@ Assign Subtype ~ Swarm														RACESUBTYPE:Swarm
 Assign Subtype ~ Water														RACESUBTYPE:Water
 
 ###Block: Inherent ability bonuses
-# Template Name					Visible		Source Page		Choose
-Inherent Ability Bonus (Strength)		VISIBLE:DISPLAY	SOURCEPAGE:p.370	TEMPLATE:CHOOSE:Inherent Strength Bonus +1|Inherent Strength Bonus +2|Inherent Strength Bonus +3|Inherent Strength Bonus +4|Inherent Strength Bonus +5
-Inherent Ability Bonus (Dexterity)		VISIBLE:DISPLAY	SOURCEPAGE:p.370	TEMPLATE:CHOOSE:Inherent Dexterity Bonus +1|Inherent Dexterity Bonus +2|Inherent Dexterity Bonus +3|Inherent Dexterity Bonus +4|Inherent Dexterity Bonus +5
-Inherent Ability Bonus (Constitution)	VISIBLE:DISPLAY	SOURCEPAGE:p.370	TEMPLATE:CHOOSE:Inherent Constitution Bonus +1|Inherent Constitution Bonus +2|Inherent Constitution Bonus +3|Inherent Constitution Bonus +4|Inherent Constitution Bonus +5
-Inherent Ability Bonus (Intelligence)	VISIBLE:DISPLAY	SOURCEPAGE:p.370	TEMPLATE:CHOOSE:Inherent Intelligence Bonus +1|Inherent Intelligence Bonus +2|Inherent Intelligence Bonus +3|Inherent Intelligence Bonus +4|Inherent Intelligence Bonus +5
-Inherent Ability Bonus (Wisdom)		VISIBLE:DISPLAY	SOURCEPAGE:p.370	TEMPLATE:CHOOSE:Inherent Wisdom Bonus +1|Inherent Wisdom Bonus +2|Inherent Wisdom Bonus +3|Inherent Wisdom Bonus +4|Inherent Wisdom Bonus +5
-Inherent Ability Bonus (Charisma)		VISIBLE:DISPLAY	SOURCEPAGE:p.370	TEMPLATE:CHOOSE:Inherent Charisma Bonus +1|Inherent Charisma Bonus +2|Inherent Charisma Bonus +3|Inherent Charisma Bonus +4|Inherent Charisma Bonus +5
+# Template Name					Visible		Template																												Source Page		Stat bonus
+Inherent Ability Bonus (Strength)		VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Inherent Strength Bonus +1|Inherent Strength Bonus +2|Inherent Strength Bonus +3|Inherent Strength Bonus +4|Inherent Strength Bonus +5				SOURCEPAGE:p.370
+Inherent Ability Bonus (Dexterity)		VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Inherent Dexterity Bonus +1|Inherent Dexterity Bonus +2|Inherent Dexterity Bonus +3|Inherent Dexterity Bonus +4|Inherent Dexterity Bonus +5				SOURCEPAGE:p.370
+Inherent Ability Bonus (Constitution)	VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Inherent Constitution Bonus +1|Inherent Constitution Bonus +2|Inherent Constitution Bonus +3|Inherent Constitution Bonus +4|Inherent Constitution Bonus +5	SOURCEPAGE:p.370
+Inherent Ability Bonus (Intelligence)	VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Inherent Intelligence Bonus +1|Inherent Intelligence Bonus +2|Inherent Intelligence Bonus +3|Inherent Intelligence Bonus +4|Inherent Intelligence Bonus +5	SOURCEPAGE:p.370
+Inherent Ability Bonus (Wisdom)		VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Inherent Wisdom Bonus +1|Inherent Wisdom Bonus +2|Inherent Wisdom Bonus +3|Inherent Wisdom Bonus +4|Inherent Wisdom Bonus +5						SOURCEPAGE:p.370
+Inherent Ability Bonus (Charisma)		VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Inherent Charisma Bonus +1|Inherent Charisma Bonus +2|Inherent Charisma Bonus +3|Inherent Charisma Bonus +4|Inherent Charisma Bonus +5				SOURCEPAGE:p.370
 # Strength
-Inherent Strength Bonus +1		VISIBLE:NO	BONUS:STAT|STR|1|TYPE=Inherent
-Inherent Strength Bonus +2		VISIBLE:NO	BONUS:STAT|STR|2|TYPE=Inherent
-Inherent Strength Bonus +3		VISIBLE:NO	BONUS:STAT|STR|3|TYPE=Inherent
-Inherent Strength Bonus +4		VISIBLE:NO	BONUS:STAT|STR|4|TYPE=Inherent
-Inherent Strength Bonus +5		VISIBLE:NO	BONUS:STAT|STR|5|TYPE=Inherent
+Inherent Strength Bonus +1			VISIBLE:NO																																		BONUS:STAT|STR|1|TYPE=Inherent
+Inherent Strength Bonus +2			VISIBLE:NO																																		BONUS:STAT|STR|2|TYPE=Inherent
+Inherent Strength Bonus +3			VISIBLE:NO																																		BONUS:STAT|STR|3|TYPE=Inherent
+Inherent Strength Bonus +4			VISIBLE:NO																																		BONUS:STAT|STR|4|TYPE=Inherent
+Inherent Strength Bonus +5			VISIBLE:NO																																		BONUS:STAT|STR|5|TYPE=Inherent
 # Dexterity
-Inherent Dexterity Bonus +1		VISIBLE:NO	BONUS:STAT|DEX|1|TYPE=Inherent
-Inherent Dexterity Bonus +2		VISIBLE:NO	BONUS:STAT|DEX|2|TYPE=Inherent
-Inherent Dexterity Bonus +3		VISIBLE:NO	BONUS:STAT|DEX|3|TYPE=Inherent
-Inherent Dexterity Bonus +4		VISIBLE:NO	BONUS:STAT|DEX|4|TYPE=Inherent
-Inherent Dexterity Bonus +5		VISIBLE:NO	BONUS:STAT|DEX|5|TYPE=Inherent
+Inherent Dexterity Bonus +1			VISIBLE:NO																																		BONUS:STAT|DEX|1|TYPE=Inherent
+Inherent Dexterity Bonus +2			VISIBLE:NO																																		BONUS:STAT|DEX|2|TYPE=Inherent
+Inherent Dexterity Bonus +3			VISIBLE:NO																																		BONUS:STAT|DEX|3|TYPE=Inherent
+Inherent Dexterity Bonus +4			VISIBLE:NO																																		BONUS:STAT|DEX|4|TYPE=Inherent
+Inherent Dexterity Bonus +5			VISIBLE:NO																																		BONUS:STAT|DEX|5|TYPE=Inherent
 # Constitution
-Inherent Constitution Bonus +1	VISIBLE:NO	BONUS:STAT|CON|1|TYPE=Inherent
-Inherent Constitution Bonus +2	VISIBLE:NO	BONUS:STAT|CON|2|TYPE=Inherent
-Inherent Constitution Bonus +3	VISIBLE:NO	BONUS:STAT|CON|3|TYPE=Inherent
-Inherent Constitution Bonus +4	VISIBLE:NO	BONUS:STAT|CON|4|TYPE=Inherent
-Inherent Constitution Bonus +5	VISIBLE:NO	BONUS:STAT|CON|5|TYPE=Inherent
+Inherent Constitution Bonus +1		VISIBLE:NO																																		BONUS:STAT|CON|1|TYPE=Inherent
+Inherent Constitution Bonus +2		VISIBLE:NO																																		BONUS:STAT|CON|2|TYPE=Inherent
+Inherent Constitution Bonus +3		VISIBLE:NO																																		BONUS:STAT|CON|3|TYPE=Inherent
+Inherent Constitution Bonus +4		VISIBLE:NO																																		BONUS:STAT|CON|4|TYPE=Inherent
+Inherent Constitution Bonus +5		VISIBLE:NO																																		BONUS:STAT|CON|5|TYPE=Inherent
 # Intelligence
-Inherent Intelligence Bonus +1	VISIBLE:NO	BONUS:STAT|INT|1|TYPE=Inherent
-Inherent Intelligence Bonus +2	VISIBLE:NO	BONUS:STAT|INT|2|TYPE=Inherent
-Inherent Intelligence Bonus +3	VISIBLE:NO	BONUS:STAT|INT|3|TYPE=Inherent
-Inherent Intelligence Bonus +4	VISIBLE:NO	BONUS:STAT|INT|4|TYPE=Inherent
-Inherent Intelligence Bonus +5	VISIBLE:NO	BONUS:STAT|INT|5|TYPE=Inherent
+Inherent Intelligence Bonus +1		VISIBLE:NO																																		BONUS:STAT|INT|1|TYPE=Inherent
+Inherent Intelligence Bonus +2		VISIBLE:NO																																		BONUS:STAT|INT|2|TYPE=Inherent
+Inherent Intelligence Bonus +3		VISIBLE:NO																																		BONUS:STAT|INT|3|TYPE=Inherent
+Inherent Intelligence Bonus +4		VISIBLE:NO																																		BONUS:STAT|INT|4|TYPE=Inherent
+Inherent Intelligence Bonus +5		VISIBLE:NO																																		BONUS:STAT|INT|5|TYPE=Inherent
 # Wisdom
-Inherent Wisdom Bonus +1		VISIBLE:NO	BONUS:STAT|WIS|1|TYPE=Inherent
-Inherent Wisdom Bonus +2		VISIBLE:NO	BONUS:STAT|WIS|2|TYPE=Inherent
-Inherent Wisdom Bonus +3		VISIBLE:NO	BONUS:STAT|WIS|3|TYPE=Inherent
-Inherent Wisdom Bonus +4		VISIBLE:NO	BONUS:STAT|WIS|4|TYPE=Inherent
-Inherent Wisdom Bonus +5		VISIBLE:NO	BONUS:STAT|WIS|5|TYPE=Inherent
+Inherent Wisdom Bonus +1			VISIBLE:NO																																		BONUS:STAT|WIS|1|TYPE=Inherent
+Inherent Wisdom Bonus +2			VISIBLE:NO																																		BONUS:STAT|WIS|2|TYPE=Inherent
+Inherent Wisdom Bonus +3			VISIBLE:NO																																		BONUS:STAT|WIS|3|TYPE=Inherent
+Inherent Wisdom Bonus +4			VISIBLE:NO																																		BONUS:STAT|WIS|4|TYPE=Inherent
+Inherent Wisdom Bonus +5			VISIBLE:NO																																		BONUS:STAT|WIS|5|TYPE=Inherent
 # Wisdom
-Inherent Charisma Bonus +1		VISIBLE:NO	BONUS:STAT|CHA|1|TYPE=Inherent
-Inherent Charisma Bonus +2		VISIBLE:NO	BONUS:STAT|CHA|2|TYPE=Inherent
-Inherent Charisma Bonus +3		VISIBLE:NO	BONUS:STAT|CHA|3|TYPE=Inherent
-Inherent Charisma Bonus +4		VISIBLE:NO	BONUS:STAT|CHA|4|TYPE=Inherent
-Inherent Charisma Bonus +5		VISIBLE:NO	BONUS:STAT|CHA|5|TYPE=Inherent
+Inherent Charisma Bonus +1			VISIBLE:NO																																		BONUS:STAT|CHA|1|TYPE=Inherent
+Inherent Charisma Bonus +2			VISIBLE:NO																																		BONUS:STAT|CHA|2|TYPE=Inherent
+Inherent Charisma Bonus +3			VISIBLE:NO																																		BONUS:STAT|CHA|3|TYPE=Inherent
+Inherent Charisma Bonus +4			VISIBLE:NO																																		BONUS:STAT|CHA|4|TYPE=Inherent
+Inherent Charisma Bonus +5			VISIBLE:NO																																		BONUS:STAT|CHA|5|TYPE=Inherent
 
 #
 # EOF

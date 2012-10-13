@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sat Sep 26 16:44:39 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# CVS $Revision$ $Author$ -- Sat Oct 13 01:30:35 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 
 ###Block: Masterwork
 
@@ -38,7 +38,7 @@ Silver		KEY:SILVER		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Sh
 
 ###Block: Strength Bow
 
-# Modifier Name	Unique Key	Naming Option	Type				Cost		Visible		Source Page				Required Type		Modify the item cost																	Weapon prop. bonus												Special Property			Choose							Apply to both heads
+# Modifier Name	Unique Key	Naming Option	Type				Cost		Visible		Source Page				Required Type		Modify the item cost																	Weapon prop. bonus												Special Property			Choose															Apply to both heads
 Bow_STR		KEY:BOWSTR	NAMEOPT:NONAME	TYPE:Bow.Composite	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:1,Composite	BONUS:ITEMCOST|TYPE.Shortbow|75*%CHOICE|PREVARGT:%CHOICE,0	BONUS:ITEMCOST|TYPE.Longbow|100*%CHOICE|PREVARGT:%CHOICE,0	BONUS:WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR	BONUS:WEAPON|DAMAGE|min(%CHOICE,STR)	SPROP:STR bonus to damage	CHOOSE:NUMBER|MIN=-5|MAX=100|TITLE=STR mod	CHOOSE:NUMBER|MIN=-5|MAX=100|TITLE=STR mod	ASSIGNTOALL:YES
 
 

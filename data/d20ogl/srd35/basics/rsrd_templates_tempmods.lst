@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# CVS $Revision$ $Author$ -- Sat Oct 13 01:30:35 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Original Entry by: Devon Jones and Tir Gwaith
 
 # Reworked off of current (v 1.68) rsrd_races__animals.lst and Devon's examples of A-C. - Tir Gwaith
@@ -140,46 +140,47 @@ Wild Shape (Elemental (Water Huge))		OUTPUTNAME:Wild Shape (Huge Water Elemental
 #Wild Shape (Elemental (Water Greater))	OUTPUTNAME:Wild Shape (Greater Water Elemental)	SIZE:H	DR:10/-		ABILITY:Special Ability|AUTOMATIC|Water Mastery|Drench|Vortex					PREVARGTEQ:WildShapeProgression,7,DruidWildshape,21	BONUS:COMBAT|AC|9|TYPE=NaturalArmor.STACK	BONUS:MOVEADD|TYPE.Walk|30-MOVEBASE	BONUS:STAT|STR|26-STRSCORE.BASE	BONUS:STAT|DEX|20-DEXSCORE.BASE	BONUS:STAT|CON|21-CONSCORE.BASE									AUTO:FEAT|Alertness|Cleave|Great Cleave|Improved Bull Rush|Improved Sunder|Iron Will|Lightning Reflexes|Power Attack									MOVE:Swim,120	VISION:Darkvision (60')	NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d10	FACE:15	LEGS:0	REACH:15
 #Wild Shape (Elemental (Water Elder))	OUTPUTNAME:Wild Shape (Elder Water Elemental)	SIZE:H	DR:10/-		ABILITY:Special Ability|AUTOMATIC|Water Mastery|Drench|Vortex					PREVARGTEQ:WildShapeProgression,7,DruidWildshape,24	BONUS:COMBAT|AC|9|TYPE=NaturalArmor.STACK	BONUS:MOVEADD|TYPE.Walk|30-MOVEBASE	BONUS:STAT|STR|28-STRSCORE.BASE	BONUS:STAT|DEX|22-DEXSCORE.BASE	BONUS:STAT|CON|21-CONSCORE.BASE									AUTO:FEAT|Alertness|Cleave|Great Cleave|Improved Bull Rush|Improved Critical(Slam)|Improved Sunder|Iron Will|Lightning Reflexes|Power Attack					MOVE:Swim,120	VISION:Darkvision (60')	NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d10	FACE:15	LEGS:0	REACH:15
 
-###Block: Racial Skill Mods	
+###Block: Racial Skill Mods
 #Wild Shape (Ape).MOD	BONUS:SKILL|Climb|8
 #Wild Shape (Baboon).MOD	BONUS:SKILL|Climb|8
-Wild Shape (Badger).MOD	BONUS:SKILL|Escape Artist|4
+# Template Name				Bonus to skill
+Wild Shape (Badger).MOD			BONUS:SKILL|Escape Artist|4
 #Wild Shape (Bat).MOD
-Wild Shape (Bear (Black)).MOD	BONUS:SKILL|Swim|4
-Wild Shape (Bear (Brown)).MOD	BONUS:SKILL|Swim|4
+Wild Shape (Bear (Black)).MOD		BONUS:SKILL|Swim|4
+Wild Shape (Bear (Brown)).MOD		BONUS:SKILL|Swim|4
 #Wild Shape (Bear (Polar)).MOD	BONUS:SKILL|Swim|8
 Wild Shape (Bison).MOD
 #Wild Shape (Boar).MOD
 #Wild Shape (Camel).MOD
-Wild Shape (Cat).MOD	BONUS:SKILL|Climb,Hide,Move Silently|4	BONUS:SKILL|Balance,Jump|8
+Wild Shape (Cat).MOD			BONUS:SKILL|Climb,Hide,Move Silently|4	BONUS:SKILL|Balance,Jump|8
 #Wild Shape (Cheetah).MOD
 #Wild Shape (Crocodile).MOD	BONUS:SKILL|Swim|8
 #Wild Shape (Crocodile (Giant)).MOD	BONUS:SKILL|Swim|8
-Wild Shape (Dog).MOD	BONUS:SKILL|Jump|4
-Wild Shape (Dog (Riding)).MOD	BONUS:SKILL|Jump|4
-Wild Shape (Donkey).MOD	BONUS:SKILL|Balance|2
-Wild Shape (Eagle).MOD	BONUS:SKILL|Spot|8
+Wild Shape (Dog).MOD			BONUS:SKILL|Jump|4
+Wild Shape (Dog (Riding)).MOD		BONUS:SKILL|Jump|4
+Wild Shape (Donkey).MOD			BONUS:SKILL|Balance|2
+Wild Shape (Eagle).MOD			BONUS:SKILL|Spot|8
 #Wild Shape (Elephant).MOD
-Wild Shape (Hawk).MOD	BONUS:SKILL|Spot|8
+Wild Shape (Hawk).MOD			BONUS:SKILL|Spot|8
 #Wild Shape (Horse (Heavy)).MOD
 #Wild Shape (Horse (Light)).MOD
 #Wild Shape (Horse (Warhorse Heavy)).MOD
 #Wild Shape (Horse (Warhorse Light)).MOD
 #Wild Shape (Hyena).MOD
-Wild Shape (Leopard).MOD	BONUS:SKILL|Balance,Jump|8	BONUS:SKILL|Hide,Move Silently|4
-Wild Shape (Lion).MOD	BONUS:SKILL|Balance,Hide,Move Silently|4
-Wild Shape (Lizard).MOD	BONUS:SKILL|Balance|8
+Wild Shape (Leopard).MOD		BONUS:SKILL|Balance,Jump|8	BONUS:SKILL|Hide,Move Silently|4
+Wild Shape (Lion).MOD			BONUS:SKILL|Balance,Hide,Move Silently|4
+Wild Shape (Lizard).MOD			BONUS:SKILL|Balance|8
 Wild Shape (Lizard (Monitor)).MOD	BONUS:SKILL|Hide,Move Silently|4
-#Wild Shape (Manta Ray).MOD	
-Wild Shape (Monkey).MOD	BONUS:SKILL|Balance|8
+#Wild Shape (Manta Ray).MOD
+Wild Shape (Monkey).MOD			BONUS:SKILL|Balance|8
 #Wild Shape (Mule).MOD
-Wild Shape (Octopus).MOD	BONUS:SKILL|Hide|4	BONUS:SKILL|Escape Artist|10
+Wild Shape (Octopus).MOD		BONUS:SKILL|Hide|4	BONUS:SKILL|Escape Artist|10
 Wild Shape (Octopus (Giant)).MOD	BONUS:SKILL|Hide|4	BONUS:SKILL|Escape Artist|10
-Wild Shape (Owl).MOD	BONUS:SKILL|Listen|8	BONUS:SKILL|Move Silently|14
+Wild Shape (Owl).MOD			BONUS:SKILL|Listen|8	BONUS:SKILL|Move Silently|14
 #Wild Shape (Pony).MOD
 #Wild Shape (Pony (War)).MOD
 #Wild Shape (Porpoise).MOD	BONUS:SKILL|Swim|8
-Wild Shape (Rat).MOD	BONUS:SKILL|Hide,Move Silently|4	BONUS:SKILL|Balance|8
+Wild Shape (Rat).MOD			BONUS:SKILL|Hide,Move Silently|4	BONUS:SKILL|Balance|8
 #Wild Shape (Raven).MOD
 #Wild Shape (Rhinoceros).MOD
 #Wild Shape (Shark (Medium)).MOD	BONUS:SKILL|Swim|8
@@ -194,9 +195,9 @@ Wild Shape (Rat).MOD	BONUS:SKILL|Hide,Move Silently|4	BONUS:SKILL|Balance|8
 #Wild Shape (Snake (Viper/Huge)).MOD
 #Wild Shape (Squid).MOD	BONUS:SKILL|Swim|8
 #Wild Shape (Squid (Giant)).MOD	BONUS:SKILL|Swim|8
-Wild Shape (Tiger).MOD	BONUS:SKILL|Balance,Hide,Move Silently|4
+Wild Shape (Tiger).MOD			BONUS:SKILL|Balance,Hide,Move Silently|4
 #Wild Shape (Toad).MOD	BONUS:SKILL|Hide|4
-Wild Shape (Weasel).MOD	BONUS:SKILL|Move Silently|4	BONUS:SKILL|Balance,Climb|4
+Wild Shape (Weasel).MOD			BONUS:SKILL|Move Silently|4	BONUS:SKILL|Balance,Climb|4
 # COMMENT: Weasel has a CLimb which should grant +8, why another +4?
 #Wild Shape (Whale (Baleen)).MOD	BONUS:SKILL|Swim|8
 #Wild Shape (Whale (Cachalot)).MOD	BONUS:SKILL|Swim|8
@@ -205,7 +206,7 @@ Wild Shape (Weasel).MOD	BONUS:SKILL|Move Silently|4	BONUS:SKILL|Balance,Climb|4
 #Wild Shape (Wolverine).MOD	BONUS:SKILL|Climb|8
 
 ###Block: Other Animals
-# Template Name.MOD	BONUS:SKILL||
+# Template Name					Bonus to skill
 Wild Shape (Dinosaur (Deinonychus)).MOD	BONUS:SKILL|Hide,Jump,Listen,Spot,Survival|8
 #Wild Shape (Dinosaur (Elasmosaurus)).MOD
 Wild Shape (Dinosaur (Megaraptor)).MOD	BONUS:SKILL|Hide,Jump,Listen,Spot,Survival|8
@@ -216,12 +217,12 @@ Wild Shape (Dinosaur (Tyrannosaurus)).MOD	BONUS:SKILL|Listen,Spot|2
 #Wild Shape (Dire Bat).MOD
 #Wild Shape (Dire Bear).MOD
 #Wild Shape (Dire Boar).MOD
-Wild Shape (Dire Lion).MOD	BONUS:SKILL|Hide,Move Silently|4
+Wild Shape (Dire Lion).MOD			BONUS:SKILL|Hide,Move Silently|4
 #Wild Shape (Dire Rat).MOD	BONUS:SKILL|Climb,Swim|8
 #Wild Shape (Dire Shark).MOD	BONUS:SKILL|Swim|8
-Wild Shape (Dire Tiger).MOD	BONUS:SKILL|Hide,Move Silently|4
+Wild Shape (Dire Tiger).MOD			BONUS:SKILL|Hide,Move Silently|4
 #Wild Shape (Dire Weasel).MOD
-Wild Shape (Dire Wolf).MOD	BONUS:SKILL|Hide,Listen,Move Silently,Spot|2
+Wild Shape (Dire Wolf).MOD			BONUS:SKILL|Hide,Listen,Move Silently,Spot|2
 #Wild Shape (Dire Wolverine).MOD	BONUS:SKILL|Climb|8
 #Wild Shape (Roc).MOD	BONUS:SKILL|Spot|4
 #Wild Shape (Swarm (Bat)).MOD
@@ -232,6 +233,7 @@ Wild Shape (Dire Wolf).MOD	BONUS:SKILL|Hide,Listen,Move Silently,Spot|2
 #Wild Shape (Assassin Vine).MOD
 #Wild Shape (Fungus (Shrieker).MOD
 #Wild Shape (Fungus (Violet).MOD
+# Template Name				Bonus to skill
 Wild Shape (Phantom Fungus).MOD	BONUS:SKILL|Move Silently|5
 Wild Shape (Shambling Mound).MOD	BONUS:SKILL|Hide,Listen,Move Silently|4
 #Wild Shape (Tendriculos).MOD

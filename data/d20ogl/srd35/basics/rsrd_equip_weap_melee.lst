@@ -1,16 +1,16 @@
-# CVS $Revision$ $Author$ -- Sat Sep 26 16:44:39 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Sat Oct 13 01:30:35 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 # $Author$ -- Wed Jul 23 2003
-SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 
 ####Block: Simple Weapons
 #------light---------
-# Equipment Name		Output Name					Required Weapon Proficiency			Type															Alternative Type					Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier		Alternative Modifier	Wield Category	Range		Reach		Reach Multiplier	Size		Bonus Equipment Modifiers																Weapon prop. bonus												Special Property
-Armor Spikes								PROFICIENCY:WEAPON|Spiked Armor		TYPE:Weapon.Martial.Melee.Standard.Piercing.Metal.Unarmed.Accessories											COST:0	WT:0		SLOTS:0	CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL						WIELD:Light																																														SPROP:deals extra piercing damage on a successful grapple attack
+# Equipment Name		Output Name					Required Weapon Proficiency			Type															Alternative Type					Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier		Alternative Modifier	Wield Category	Range		Reach		Reach Multiplier	Size		Bonus Equipment Modifiers																Weapon prop. bonus														Special Property
+Armor Spikes								PROFICIENCY:WEAPON|Spiked Armor		TYPE:Weapon.Martial.Melee.Standard.Piercing.Metal.Unarmed.Accessories											COST:0	WT:0		SLOTS:0	CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL						WIELD:Light																																																SPROP:deals extra piercing damage on a successful grapple attack
 Dagger									PROFICIENCY:WEAPON|Dagger			TYPE:Weapon.Melee.Finesseable.Ranged.Thrown.Simple.Standard.Piercing.Slashing.Dagger								COST:2	WT:1				CRITMULT:x2			CRITRANGE:2												DAMAGE:1d4					EQMOD:STEEL						WIELD:Light		RANGE:10						SIZE:M
 Dagger (Punching)		OUTPUTNAME:Dagger, [NAME]		PROFICIENCY:WEAPON|Dagger (Punching)	TYPE:Weapon.Melee.Finesseable.Simple.Standard.Piercing.Dagger												COST:2	WT:1				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d4					EQMOD:STEEL						WIELD:Light									SIZE:M
 Mace (Light)		OUTPUTNAME:Mace, Light			PROFICIENCY:WEAPON|Mace (Light)		TYPE:Weapon.Melee.Finesseable.Simple.Standard.Bludgeoning.Mace												COST:5	WT:4				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL						WIELD:Light									SIZE:M
 Gauntlet (Spiked)		OUTPUTNAME:Gauntlet, [NAME]		PROFICIENCY:WEAPON|Gauntlet (Spiked)	TYPE:Weapon.Melee.Finesseable.Simple.Standard.Piercing.Unarmed.Gauntlet											COST:5	WT:1				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4					EQMOD:STEEL						WIELD:Light									SIZE:M	BONUS:EQM|WEIGHTADD|-1|PREMULT:3,[PREEQUIP:1,TYPE.Armor],[PREEQUIP:1,TYPE.Medium,TYPE.Heavy],[!PREEQUIP:1,Breastplate]
-Gauntlet (Locked)		OUTPUTNAME:Gauntlet, [NAME]		PROFICIENCY:WEAPON|Gauntlet			TYPE:Weapon.Melee.Finesseable.Simple.Standard.Bludgeoning.Unarmed.Gauntlet										COST:8	WT:5				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3					EQMOD:STEEL						WIELD:Light									SIZE:M																																				SPROP:+10 vs. disarm
+Gauntlet (Locked)		OUTPUTNAME:Gauntlet, [NAME]		PROFICIENCY:WEAPON|Gauntlet			TYPE:Weapon.Melee.Finesseable.Simple.Standard.Bludgeoning.Unarmed.Gauntlet										COST:8	WT:5				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3					EQMOD:STEEL						WIELD:Light									SIZE:M																																						SPROP:+10 vs. disarm
 
 Sickle									PROFICIENCY:WEAPON|Sickle			TYPE:Weapon.Melee.Light.Finesseable.Simple.Standard.Slashing.Sickle											COST:6	WT:2				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL						WIELD:Light									SIZE:M
 #-----one handed -------

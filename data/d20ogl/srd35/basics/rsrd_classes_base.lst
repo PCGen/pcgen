@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# CVS $Revision$ $Author$ -- Sat Oct 13 01:30:35 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Original Entry by: dlm1065
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page			Save checks bonus											Combat bonus
@@ -148,8 +148,8 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 19	CAST:6,5,5,5,5,5,4,4,3,3
 20	CAST:6,5,5,5,5,5,4,4,4,4
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class		Source Page			Automatic Languages	Bonus Languages	Save checks bonus											Combat bonus
-CLASS:Druid		HD:8		TYPE:Base.PC	ABB:Drd		MAXLEVEL:20	EXCLASS:Ex Druid	SOURCEPAGE:ClassesI.rtf	AUTO:LANG|Druidic		LANGBONUS:Sylvan	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class		Source Page			Bonus Languages	Automatically Gained Language	Save checks bonus											Combat bonus
+CLASS:Druid		HD:8		TYPE:Base.PC	ABB:Drd		MAXLEVEL:20	EXCLASS:Ex Druid	SOURCEPAGE:ClassesI.rtf	LANGBONUS:Sylvan	AUTO:LANG|Druidic			BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL
 CLASS:Druid		PREALIGN:LN,NG,TN,NE,CN
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -192,8 +192,8 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 19	CAST:6,5,5,5,5,5,4,4,3,3
 20	CAST:6,5,5,5,5,5,4,4,4,4
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page			Automatic Languages	Bonus Languages	Visible	Save checks bonus											Combat bonus
-CLASS:Ex Druid	HD:8		TYPE:Base.PC	ABB:XDrd		SOURCEPAGE:ClassesI.rtf	AUTO:LANG|Druidic		LANGBONUS:Sylvan	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page			Bonus Languages	Visible	Automatically Gained Language	Save checks bonus											Combat bonus
+CLASS:Ex Druid	HD:8		TYPE:Base.PC	ABB:XDrd		SOURCEPAGE:ClassesI.rtf	LANGBONUS:Sylvan	VISIBLE:NO	AUTO:LANG|Druidic			BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ex Druid	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
 ###Block:Proficiencies
