@@ -50,9 +50,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
 import org.apache.commons.lang.StringUtils;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.core.facade.AlignmentFacade;
 import pcgen.core.facade.CharacterFacade;
@@ -114,8 +116,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	{
 		this.allButton = new JButton();
 		this.noneButton = new JButton();
-		this.itemsPanel = new ScrollablePanel(15);
-		itemsPanel.setLayout(new GridBagLayout());
+		this.itemsPanel = new ScrollablePanel(20);
 		initComponents();
 	}
 
@@ -136,6 +137,9 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		hbox.add(Box.createRigidArea(new Dimension(3, 0)));
 		hbox.add(noneButton);
 		vbox.add(hbox);
+
+		itemsPanel.setLayout(new GridBagLayout());
+		itemsPanel.setBorder(new EmptyBorder(8, 5, 8, 5) );
 
 		vbox.add(Box.createVerticalStrut(10));
 		detailsScroll = new JScrollPane(itemsPanel);
@@ -937,6 +941,17 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			{
 				availFields.remove(field);
 			}
+			if (availFields.isEmpty())
+			{
+				JOptionPane
+					.showMessageDialog(
+						JOptionPane.getFrameForComponent(addCustomItemButton),
+						LanguageBundle.getString("in_descNoMoreDetails"), //$NON-NLS-1$
+						Constants.APPLICATION_NAME,
+						JOptionPane.INFORMATION_MESSAGE);
+				return;
+			}
+
 			String fieldNames[] = new String[availFields.size()];
 			int i = 0;		
 			for (BiographyField biographyField : availFields)
@@ -947,8 +962,8 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			// Show dialog to choose fields
 			String s = (String)JOptionPane.showInputDialog(
 				JOptionPane.getFrameForComponent(addCustomItemButton),
-			                    "Which field would you like to add?",
-			                    "Add Custom Detail Field",
+			                    LanguageBundle.getString("in_descAddFieldMsg"), //$NON-NLS-1$
+			                    LanguageBundle.getString("in_descAddFieldTitle"), //$NON-NLS-1$
 			                    JOptionPane.QUESTION_MESSAGE,
 			                    null,
 			                    fieldNames,
