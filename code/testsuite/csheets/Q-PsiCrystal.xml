@@ -118,8 +118,10 @@ BIO
 		<speechtendency></speechtendency>
 		<type>Construct</type>
 		<vision>
+			<vision>Darkvision (60 ft.)</vision>
+			<vision>Low-light</vision>
 			<vision>Sighted (40 ft.)</vision>
-			<all>Sighted (40 ft.)</all>
+			<all>Darkvision (60 ft.), Low-light, Sighted (40 ft.)</all>
 		</vision>
 		<wealth>0</wealth>
 		<weight>
@@ -953,6 +955,39 @@ BIO
 	<ability_objects>
 	<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
+			<name>Construct Traits</name>
+			<description>Constructs do not eat/sleep/breathe. Constructs are Immune to poison/ sleep effects/ paralysis/ stunning/ disease/ death effects/ and necromancy effects. Constructs cannot heal damage on own but can be repaired by exposure to certain kind of effect (see description for details) or through use of Craft Construct feat (does benefit from Fast Healing special ability). Not subject to critical hits/ nonlethal damage/ ability damage/ ability drain/ fatigue/ exhaustion/ or energy drain. Immune to effects requiring a Fortitude save (unless it affects objects or is harmless). Not at risk from death from massive damage (but destroyed when reduced to 0 hp). Constructs cannot be raised/resurrected.</description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Construct Traits</name>
+			<description></description>
+			<type>TRAITABILITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Low-light Vision</name>
+			<description>You can see 2x as far as humans in low illumination.</description>
+			<type>SPECIALQUALITY.EXTRAORDINARY.VISION</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Sighted</name>
 			<description>Although it has no physical sensory organs, a psicrystal can telepathically sense its environment as well as a creature with normal vision and hearing. Darkness (even supernatural darkness) is irrelevant, as are areas of supernatural silence, though a psicrystal still can&#39;t discern invisible or ethereal beings. A psicrystal&#39;s sighted range is 40 feet.</description>
 			<type>SPECIALQUALITY.EXTRAORDINARY</type>
@@ -962,6 +997,41 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
+		</ability_object>
+	<!-- Visible Automatic "Internal" Ability Objects -->
+		<ability_object>
+			<name>Default</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Defines Required</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+	<!-- Hidden Automatic "Internal" Ability Objects -->
+		<ability_object>
+			<name>Master Traits</name>
+			<description></description>
+			<type>INTERNAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
 		</ability_object>
 	</ability_objects>
 	<!--
@@ -973,6 +1043,25 @@ BIO
 	<!-- Domains -->
 	<weapon_proficiencies></weapon_proficiencies>
 	<languages></languages>
+
+	<templates>
+		<list></list>
+		<template>
+			<name></name>
+			<strmod></strmod>
+			<dexmod></dexmod>
+			<conmod></conmod>
+			<intmod></intmod>
+			<wismod></wismod>
+			<chamod></chamod>
+			<cr></cr>
+			<dr></dr>
+			<feat></feat>
+			<sa></sa>
+			<sr></sr>
+			<bonuslist></bonuslist>
+		</template>
+	</templates>
 
 
 	<misc>
