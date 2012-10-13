@@ -707,8 +707,11 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			b.appendLineBreak();
 			final WieldCategory wCat = equip.getEffectiveWieldCategory(pc);
-			b.appendI18nElement("in_igInfoLabelTextWield", //$NON-NLS-1$
-				wCat.getDisplayName());
+			if (wCat != null)
+			{
+				b.appendI18nElement("in_igInfoLabelTextWield", //$NON-NLS-1$
+					wCat.getDisplayName());
+			}
 		}
 
 		//

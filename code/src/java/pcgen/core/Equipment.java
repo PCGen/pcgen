@@ -5511,8 +5511,8 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public boolean isFinessable(final PlayerCharacter pc)
 	{
-		return isType("Finesseable")
-			|| getEffectiveWieldCategory(pc).isFinessable();
+		WieldCategory wCat = getEffectiveWieldCategory(pc);
+		return isType("Finesseable") || (wCat != null && wCat.isFinessable());
 	}
 
 	/**
@@ -5548,7 +5548,8 @@ public final class Equipment extends PObject implements Serializable,
 			return false;
 		}
 
-		return getEffectiveWieldCategory(pc).getHandsRequired() == 1;
+		WieldCategory wCat = getEffectiveWieldCategory(pc);
+		return wCat != null && wCat.getHandsRequired() == 1;
 	}
 
 	/**
@@ -5568,7 +5569,7 @@ public final class Equipment extends PObject implements Serializable,
 
 		final WieldCategory wCat = getEffectiveWieldCategory(pc);
 
-		return (wCat.getHandsRequired() > 2 || wCat.getHandsRequired() < 0);
+		return wCat != null && (wCat.getHandsRequired() > 2 || wCat.getHandsRequired() < 0);
 	}
 
 	/**
@@ -5584,8 +5585,9 @@ public final class Equipment extends PObject implements Serializable,
 		{
 			return false;
 		}
-
-		return getEffectiveWieldCategory(pc).getHandsRequired() > 2;
+		
+		WieldCategory wieldCategory = getEffectiveWieldCategory(pc);
+		return wieldCategory != null && wieldCategory.getHandsRequired() > 2;
 	}
 
 	/**
@@ -5603,7 +5605,8 @@ public final class Equipment extends PObject implements Serializable,
 			return false;
 		}
 
-		return getEffectiveWieldCategory(pc).getHandsRequired() == 2;
+		WieldCategory wieldCategory = getEffectiveWieldCategory(pc);
+		return wieldCategory != null && wieldCategory.getHandsRequired() == 2;
 	}
 
 	/**

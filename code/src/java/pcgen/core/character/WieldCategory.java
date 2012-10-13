@@ -144,8 +144,8 @@ public final class WieldCategory implements Loadable
 
 	public WieldCategory getWieldCategoryStep(int steps)
 	{
-		// TODO What is there is no wcStep for the given steps??
-		return wcSteps.get(steps).resolvesTo();
+		CDOMSingleRef<WieldCategory> wcRef = wcSteps.get(steps);
+		return wcRef == null ? null : wcRef.resolvesTo();
 	}
 
 	public void addCategorySwitch(
