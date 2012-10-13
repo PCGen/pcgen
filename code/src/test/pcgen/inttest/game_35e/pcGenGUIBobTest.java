@@ -1,5 +1,6 @@
-package pcgen.gui;
+package pcgen.inttest.game_35e;
 
+import pcgen.inttest.pcGenGUITestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -8,13 +9,13 @@ import junit.framework.TestSuite;
  * See the PCG file for details
  */
 @SuppressWarnings("nls")
-public class pcGenGUIAliceTest extends pcGenGUITestCase
+public class pcGenGUIBobTest extends pcGenGUITestCase
 {
 
 	/**
 	 * 
 	 */
-	public pcGenGUIAliceTest()
+	public pcGenGUIBobTest()
 	{
 		// Empty Constructor
 	}
@@ -24,7 +25,7 @@ public class pcGenGUIAliceTest extends pcGenGUITestCase
 	 * 
 	 * @param name
 	 */
-	public pcGenGUIAliceTest(String name)
+	public pcGenGUIBobTest(String name)
 	{
 		super(name);
 	}
@@ -34,7 +35,7 @@ public class pcGenGUIAliceTest extends pcGenGUITestCase
 	 */
 	public static Test suite()
 	{
-		return new TestSuite(pcGenGUIAliceTest.class);
+		return new TestSuite(pcGenGUIBobTest.class);
 	}
 
 	/**
@@ -44,6 +45,6 @@ public class pcGenGUIAliceTest extends pcGenGUITestCase
 	 */
 	public void testCode() throws Exception
 	{
-		runTest("Alice", "35e");
+		runTest("Bob", "35e");
 	}
 }

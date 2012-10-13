@@ -935,7 +935,7 @@ pcgen.filepaths=user
             </classpath>
             <batchtest todir="${build.dir}/test-results/xml">
                 <fileset dir="${basedir}/code/src/test">
-                  <include name="pcgen/gui/*Test.java"/>
+                  <include name="pcgen/inttest/**/*Test.java"/>
                 </fileset>
             </batchtest>
         </junit>

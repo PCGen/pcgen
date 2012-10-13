@@ -1,20 +1,21 @@
-package pcgen.gui;
+package pcgen.inttest.game_35e;
 
+import pcgen.inttest.pcGenGUITestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
 /**
- * Tests a 35e Psion.
+ * Tests a Unit Test Case designed to hit many features of PCGen
  * See the PCG file for details
  */
 @SuppressWarnings("nls")
-public class pcGenGUIQuasvinTest extends pcGenGUITestCase
+public class pcGenGUIFranTest extends pcGenGUITestCase
 {
 
 	/**
 	 * 
 	 */
-	public pcGenGUIQuasvinTest()
+	public pcGenGUIFranTest()
 	{
 		// Empty Constructor
 	}
@@ -24,7 +25,7 @@ public class pcGenGUIQuasvinTest extends pcGenGUITestCase
 	 * 
 	 * @param name
 	 */
-	public pcGenGUIQuasvinTest(String name)
+	public pcGenGUIFranTest(String name)
 	{
 		super(name);
 	}
@@ -34,7 +35,7 @@ public class pcGenGUIQuasvinTest extends pcGenGUITestCase
 	 */
 	public static Test suite()
 	{
-		return new TestSuite(pcGenGUIQuasvinTest.class);
+		return new TestSuite(pcGenGUIFranTest.class);
 	}
 
 	/**
@@ -42,8 +43,8 @@ public class pcGenGUIQuasvinTest extends pcGenGUITestCase
 	 * 
 	 * @throws Exception If an error occurs.
 	 */
-	public void testQuasvin() throws Exception
+	public void testCode() throws Exception
 	{
-		runTest("Quasvin", "35e");
+		runTest("Fran", "35e");
 	}
 }

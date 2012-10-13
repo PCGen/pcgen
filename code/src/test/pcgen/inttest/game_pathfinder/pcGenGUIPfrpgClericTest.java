@@ -1,20 +1,21 @@
-package pcgen.gui;
+package pcgen.inttest.game_pathfinder;
 
+import pcgen.inttest.pcGenGUITestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
 /**
- * Tests a Unit Test Case designed to hit many features of PCGen
+ * Tests a Unit Test Case of a pathfinder cleric.
  * See the PCG file for details
  */
 @SuppressWarnings("nls")
-public class pcGenGUIHaroldTest extends pcGenGUITestCase
+public class pcGenGUIPfrpgClericTest extends pcGenGUITestCase
 {
 
 	/**
 	 * 
 	 */
-	public pcGenGUIHaroldTest()
+	public pcGenGUIPfrpgClericTest()
 	{
 		// Empty Constructor
 	}
@@ -24,7 +25,7 @@ public class pcGenGUIHaroldTest extends pcGenGUITestCase
 	 * 
 	 * @param name
 	 */
-	public pcGenGUIHaroldTest(String name)
+	public pcGenGUIPfrpgClericTest(String name)
 	{
 		super(name);
 	}
@@ -34,7 +35,7 @@ public class pcGenGUIHaroldTest extends pcGenGUITestCase
 	 */
 	public static Test suite()
 	{
-		return new TestSuite(pcGenGUIHaroldTest.class);
+		return new TestSuite(pcGenGUIPfrpgClericTest.class);
 	}
 
 	/**
@@ -44,6 +45,6 @@ public class pcGenGUIHaroldTest extends pcGenGUITestCase
 	 */
 	public void testCode() throws Exception
 	{
-		runTest("Harold", "35e");
+		runTest("PFRPGCleric", "Pathfinder_RPG");
 	}
 }

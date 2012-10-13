@@ -1,20 +1,21 @@
-package pcgen.gui;
+package pcgen.inttest.game_35e;
 
+import pcgen.inttest.pcGenGUITestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
 /**
- * Tests a Unit Test Case designed to hit many features of PCGen
+ * Tests a 35e Psion's PsiCrystal.
  * See the PCG file for details
  */
 @SuppressWarnings("nls")
-public class pcGenGUIDaveTest extends pcGenGUITestCase
+public class pcGenGUIQPsiCrystalTest extends pcGenGUITestCase
 {
 
 	/**
 	 * 
 	 */
-	public pcGenGUIDaveTest()
+	public pcGenGUIQPsiCrystalTest()
 	{
 		// Empty Constructor
 	}
@@ -24,7 +25,7 @@ public class pcGenGUIDaveTest extends pcGenGUITestCase
 	 * 
 	 * @param name
 	 */
-	public pcGenGUIDaveTest(String name)
+	public pcGenGUIQPsiCrystalTest(String name)
 	{
 		super(name);
 	}
@@ -34,7 +35,7 @@ public class pcGenGUIDaveTest extends pcGenGUITestCase
 	 */
 	public static Test suite()
 	{
-		return new TestSuite(pcGenGUIDaveTest.class);
+		return new TestSuite(pcGenGUIQPsiCrystalTest.class);
 	}
 
 	/**
@@ -42,8 +43,8 @@ public class pcGenGUIDaveTest extends pcGenGUITestCase
 	 * 
 	 * @throws Exception If an error occurs.
 	 */
-	public void testCode() throws Exception
+	public void testQPsiCrystal() throws Exception
 	{
-		runTest("Dave", "35e");
+		runTest("Q-PsiCrystal", "35e");
 	}
 }

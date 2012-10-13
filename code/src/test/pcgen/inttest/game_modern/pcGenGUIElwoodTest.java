@@ -1,20 +1,21 @@
-package pcgen.gui;
+package pcgen.inttest.game_modern;
 
+import pcgen.inttest.pcGenGUITestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
 /**
- * Tests a Unit Test Case designed to hit many features of PCGen
+ * Tests a Modern Fast Hero 3/Infiltrator 3.
  * See the PCG file for details
  */
 @SuppressWarnings("nls")
-public class pcGenGUIFranTest extends pcGenGUITestCase
+public class pcGenGUIElwoodTest extends pcGenGUITestCase
 {
 
 	/**
 	 * 
 	 */
-	public pcGenGUIFranTest()
+	public pcGenGUIElwoodTest()
 	{
 		// Empty Constructor
 	}
@@ -24,7 +25,7 @@ public class pcGenGUIFranTest extends pcGenGUITestCase
 	 * 
 	 * @param name
 	 */
-	public pcGenGUIFranTest(String name)
+	public pcGenGUIElwoodTest(String name)
 	{
 		super(name);
 	}
@@ -34,7 +35,7 @@ public class pcGenGUIFranTest extends pcGenGUITestCase
 	 */
 	public static Test suite()
 	{
-		return new TestSuite(pcGenGUIFranTest.class);
+		return new TestSuite(pcGenGUIElwoodTest.class);
 	}
 
 	/**
@@ -42,8 +43,8 @@ public class pcGenGUIFranTest extends pcGenGUITestCase
 	 * 
 	 * @throws Exception If an error occurs.
 	 */
-	public void testCode() throws Exception
+	public void testElwood() throws Exception
 	{
-		runTest("Fran", "35e");
+		runTest("Elwood", "Modern");
 	}
 }

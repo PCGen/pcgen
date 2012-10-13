@@ -1,4 +1,4 @@
-package pcgen.gui;
+package pcgen.inttest;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
