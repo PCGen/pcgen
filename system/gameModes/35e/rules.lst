@@ -29,6 +29,7 @@ NAME:DisplayTypeTraits			VAR:DISPLAYTYPETRAITS	DEFAULT:No					DESC:Display full 
 NAME:DisplayConditionalSkills		VAR:DISPLAYSKILLUSE	DEFAULT:Yes					DESC:Display conditional skill uses on output
 
 NAME:Outsider0HDGainMartialWeapons	VAR:OutsiderZeroHDGainMartialWeapons	DEFAULT:No					DESC:Grant Martial Weapons to all 0 HD outsiders as House Rule.
+NAME:UseFullSpellDescriptions		VAR:DisplayFullSpell	DEFAULT:No					DESC:Use Full Spell Descriptions from the Core Books
 
 
 NAME:HitPointDamage			VAR:DAMAGE_HP		DEFAULT:Yes	EXCLUDE:DAMAGE_VW		DESC:Use Hit Points
