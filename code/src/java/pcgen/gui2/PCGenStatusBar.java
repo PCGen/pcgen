@@ -99,7 +99,7 @@ public final class PCGenStatusBar extends JPanel
 			}
 			else if (nwarnings > 0)
 			{
-				loadStatusLabel.setIcon(Icons.Ok16.getImageIcon());
+				loadStatusLabel.setIcon(Icons.Alert16.getImageIcon());
 			}
 			else
 			{
