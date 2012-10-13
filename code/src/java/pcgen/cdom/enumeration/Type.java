@@ -92,6 +92,8 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 	
 	public static final Type SHIELD = getConstant("Shield");
 
+	public static final Type ARMOR = getConstant("Armor");
+
 
 	/**
 	 * This is used to provide a unique ordinal to each constant in this class

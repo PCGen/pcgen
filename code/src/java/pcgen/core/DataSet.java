@@ -207,7 +207,7 @@ public class DataSet implements DataSetFacade
 			structMap.put(name, bodyStructure);
 		}
 		bodyStructures.addElement(new BodyStructure(
-			Constants.EQUIP_LOCATION_EQUIPPED, true, Type.WEAPON, Type.SHIELD));
+			Constants.EQUIP_LOCATION_EQUIPPED, true, Type.WEAPON, Type.SHIELD, Type.ARMOR));
 		bodyStructures.addElement(new BodyStructure(Constants.EQUIP_LOCATION_CARRIED, true));
 		bodyStructures.addElement(new BodyStructure(Constants.EQUIP_LOCATION_NOTCARRIED, true));
 		
