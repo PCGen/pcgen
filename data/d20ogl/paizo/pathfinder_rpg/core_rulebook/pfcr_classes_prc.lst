@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Nov 28 13:37:53 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Sat Oct 13 02:22:45 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher, Andrew Maitland
 #poor (CL+1)/3  OR  good (CL+1)/2
@@ -86,11 +86,11 @@ CLASS:Dragon Disciple	STARTSKILLPTS:2	CSKILL:Diplomacy|Escape Artist|Fly|TYPE=Kn
 2	BONUS:ABILITYPOOL|Draconic Bloodline Feat|(CL+1)/3										BONUS:STAT|STR|2	BONUS:VAR|BloodlineCasterLVL|CL-1			ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Dragon Bite ~ DD
 3																						BONUS:VAR|BreathWeaponTimes|1				ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Breath Weapon
 4																			BONUS:STAT|STR|2									ADD:SPELLCASTER|Arcane
-5																						BONUS:VAR|BloodlineCasterLVL|-1												ABILITY:Special Ability|AUTOMATIC|Blindsense ~ DD
+5																						BONUS:VAR|BloodlineCasterLVL|-1							ABILITY:Special Ability|AUTOMATIC|Blindsense ~ DD
 6																			BONUS:STAT|CON|2									ADD:SPELLCASTER|Arcane
 7																						BONUS:VAR|DragonFormTimes|(CL-4)/3			ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Dragon Form ~ DD
 8																			BONUS:STAT|INT|2									ADD:SPELLCASTER|Arcane
-9										BONUS:MOVEADD|TYPE.Fly|30|PREVARGTEQ:BloodlineLVL,15				BONUS:VAR|BloodlineCasterLVL|-1												ABILITY:Special Ability|AUTOMATIC|Wings
+9										BONUS:MOVEADD|TYPE.Fly|30|PREVARGTEQ:BloodlineLVL,15				BONUS:VAR|BloodlineCasterLVL|-1							ABILITY:Special Ability|AUTOMATIC|Wings
 10																														ADD:SPELLCASTER|Arcane
 
 

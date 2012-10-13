@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Sat Oct 13 02:22:45 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Maredudd (Eric C Smith)
 
 ###Block: MINOR ARTIFACTS
-# Equipment Name			Output Name					Required Weapon Proficiency		Type															Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier						Wield Category	Size		Source Page		Ability								Innate Spells																															Misc bonus		Stat bonus					Modify VAR							Add to vision						Weapon prop. bonus											Special Property
+# Equipment Name			Output Name					Required Weapon Proficiency		Type															Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier						Wield Category	Size		Source Page		Ability								Innate Spells																															Misc bonus		Stat bonus					Modify VAR							Add to vision						Weapon prop. bonus												Special Property
 Book of Infinite Spells														TYPE:Artifact.Minor												COST:0	WT:3																								SOURCEPAGE:p.543	ABILITY:Special Ability|AUTOMATIC|Negative Levels																																											BONUS:VAR|NegLevels|1|!PRECLASS:1,SPELLCASTER=1
 Deck of Many Things														TYPE:Artifact.Minor												COST:0	WT:0																								SOURCEPAGE:p.544
 Philosopher's Stone														TYPE:Artifact.Minor												COST:0	WT:3																								SOURCEPAGE:p.545
@@ -27,7 +27,7 @@ Orb of Dragonkind (Green)	OUTPUTNAME:The [NAME] Dragon Orb							TYPE:Artifact.M
 Orb of Dragonkind (Red)		OUTPUTNAME:The [NAME] Dragon Orb							TYPE:Artifact.Major												COST:0	WT:5																								SOURCEPAGE:p.548										SPELLS:Orb of Dragonkind|TIMES=1|TIMEUNIT=Round|CASTERLEVEL=10|Wall of Fire
 Orb of Dragonkind (Silver)	OUTPUTNAME:The [NAME] Dragon Orb							TYPE:Artifact.Major												COST:0	WT:5																								SOURCEPAGE:p.548										SPELLS:Orb of Dragonkind|TIMES=1|TIMEUNIT=Round|CASTERLEVEL=10|Cure Critical Wounds,18
 Orb of Dragonkind (White)	OUTPUTNAME:The [NAME] Dragon Orb							TYPE:Artifact.Major												COST:0	WT:5																								SOURCEPAGE:p.548										SPELLS:Orb of Dragonkind|TIMES=1|TIMEUNIT=Round|CASTERLEVEL=10|Protection from Energy,17
-Shadowstaff				OUTPUTNAME:The Shadowstaff								TYPE:Artifact.Major												COST:0	WT:1																								SOURCEPAGE:p.548																																																																																		SPROP:Shadow Bolt ~ ray attack-range 100 ft. 10d6 cold damage 3/day
+Shadowstaff				OUTPUTNAME:The Shadowstaff								TYPE:Artifact.Major												COST:0	WT:1																								SOURCEPAGE:p.548																																																																																			SPROP:Shadow Bolt ~ ray attack-range 100 ft. 10d6 cold damage 3/day
 
 #
 # End

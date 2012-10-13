@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Sat Oct 13 02:22:45 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
@@ -42,11 +42,11 @@ Trip			KEY:TRIP		NAMEOPT:NOTHING	TYPE:SpecialWeaponQualities	COST:0	VISIBLE:NO	I
 
 ###Block: Armor Accesories
 
-# Modifier Name	Unique Key		Type			Cost													Visible		Type granted		Source Page				Required Type		Bonus Equipment Modifiers	Bonus Weapon Modifiers		Special Property	Automatically Added to Inventory
-Armor Spikes	KEY:SPIKE_A		TYPE:Armor		COST:50												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:1,Shield,Armor											SPROP:Spiked	AUTO:EQUIP|Armor Spikes
-Shield Spikes	KEY:SPIKE_S		TYPE:Shield		COST:10												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:1,Shield,Armor	BONUS:EQM|WEIGHTADD|5		BONUS:EQMWEAPON|DAMAGESIZE|1	SPROP:Spiked						BONUS:VAR|ShieldBashingDieSizeStep|1
-Shield Spikes	KEY:SPIKE_SB	TYPE:Shieldbash	COST:0												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf										BONUS:EQMWEAPON|DAMAGESIZE|1	SPROP:Spiked
-Locked Gauntlets	KEY:Lock_G		TYPE:Gauntlet	COST:8												VISIBLE:QUALIFY	ITYPE:GauntletLock	SOURCEPAGE:RSRD Equipment.rtf					BONUS:EQM|WEIGHTADD|5							SPROP:Locked
+# Modifier Name	Unique Key		Type			Cost													Visible		Type granted		Source Page				Required Type		Modify VAR						Bonus Equipment Modifiers	Bonus Weapon Modifiers		Special Property	Automatically Added to Inventory
+Armor Spikes	KEY:SPIKE_A		TYPE:Armor		COST:50												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:1,Shield,Armor																		SPROP:Spiked	AUTO:EQUIP|Armor Spikes
+Shield Spikes	KEY:SPIKE_S		TYPE:Shield		COST:10												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:1,Shield,Armor	BONUS:VAR|ShieldBashingDieSizeStep|1	BONUS:EQM|WEIGHTADD|5		BONUS:EQMWEAPON|DAMAGESIZE|1	SPROP:Spiked
+Shield Spikes	KEY:SPIKE_SB	TYPE:Shieldbash	COST:0												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf																	BONUS:EQMWEAPON|DAMAGESIZE|1	SPROP:Spiked
+Locked Gauntlets	KEY:Lock_G		TYPE:Gauntlet	COST:8												VISIBLE:QUALIFY	ITYPE:GauntletLock	SOURCEPAGE:RSRD Equipment.rtf												BONUS:EQM|WEIGHTADD|5							SPROP:Locked
 Nonhumanoid		KEY:NONHUMANOID	TYPE:Armor		COST:BASECOST*(((SIZE<=2)*.5)+(SIZE==3)+(SIZE==4)+((SIZE>=5)*(2^(SIZE-4))))	VISIBLE:QUALIFY					SOURCEPAGE:RSRD Equipment.rtf
 
 ###Block: Masterwork

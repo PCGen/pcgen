@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Mon Nov 28 13:37:53 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Sat Oct 13 02:22:45 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
-# Deity Name	Product Identity?	Domains												Description of Deity/Title					Holy Item	Deity Weapon				Alignment	Pantheon					Source Page
+# Deity Name	Product Identity?	Domains												Desciption of Deity/Title					Holy Item	Deity Weapon				Alignment	Pantheon					Source Page
 Erastil		NAMEISPI:YES	DOMAINS:Animal,Community,Good,Law,Plant|PREALIGN:LG,LN,NG				DESC:God of farming, hunting, trade, family				DEITYWEAP:Longbow				ALIGN:LG	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.45
 Iomedae		NAMEISPI:YES	DOMAINS:Glory,Good,Law,Sun,War|PREALIGN:LG,LN,NG					DESC:Goddess of valor, rulership, justice, honor			DEITYWEAP:Longsword			ALIGN:LG	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.45
 Torag			NAMEISPI:YES	DOMAINS:Artifice,Earth,Good,Law,Protection|PREALIGN:LG,LN,NG			DESC:God of the forge, protection, strategy				DEITYWEAP:Warhammer			ALIGN:LG	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.45
@@ -24,5 +24,5 @@ Norgorber		NAMEISPI:YES	DOMAINS:Charm,Death,Evil,Knowledge,Trickery|PREALIGN:TN,
 Lamashtu		NAMEISPI:YES	DOMAINS:Chaos,Evil,Madness,Strength,Trickery|PREALIGN:NE,CN,CE			DESC:Goddess of madness, monsters, nightmares				DEITYWEAP:Falchion			ALIGN:CE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.45
 Rovagug		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,War,Weather|PREALIGN:NE,CN,CE			DESC:God of wrath, disaster, destruction					DEITYWEAP:Greataxe			ALIGN:CE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.45
 
-# Deity Name	Product Identity?	Domains												Description of Deity/Title					Holy Item	Deity Weapon				Alignment	Pantheon					Source Page
+# Deity Name	Product Identity?	Domains												Desciption of Deity/Title					Holy Item	Deity Weapon				Alignment	Pantheon					Source Page
 None						DOMAINS:ANY|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE						DESC:None								SYMBOL:None	DEITYWEAP:ANY

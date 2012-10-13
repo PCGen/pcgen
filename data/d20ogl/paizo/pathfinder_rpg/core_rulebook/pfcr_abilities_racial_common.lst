@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Sat Oct 13 02:22:45 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
@@ -33,6 +33,6 @@ Expert		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT
 Warrior		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Warrior")
 
 ###Block: Favored Class Bonuses
-# Ability Name	Category of Ability		Type				Visible		Stackable?	Multiple?	Choose															Bonus to HP			Bonus to skill rank
-Bonus Hit Point	CATEGORY:Special Ability	TYPE:FavoredClassBonus	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE														BONUS:HP|CURRENTMAX|1
+# Ability Name	Category of Ability		Type				Visible		Stackable?	Multiple?	Choose														Bonus to HP			Bonus to skill rank
+Bonus Hit Point	CATEGORY:Special Ability	TYPE:FavoredClassBonus	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE													BONUS:HP|CURRENTMAX|1
 Bonus Skill Point	CATEGORY:Special Ability	TYPE:FavoredClassBonus	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Charisma|TYPE=Dexterity|TYPE=Intelligence|TYPE=Strength|TYPE=Wisdom					BONUS:SKILLRANK|LIST|1

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Sat Oct 13 02:22:45 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 ###Block: Creature Types
@@ -7,39 +7,39 @@ Construct		VISIBLE:NO	DEFINE:LOCK.CON|10							BONUS:HP|CURRENTMAX|max(SIZE-2,0)
 Undead		VISIBLE:NO	DEFINE:LOCK.CON|10	BONUS:CHECKS|BASE.Fortitude|CHA	BONUS:HP|CURRENTMAX|TL*CHA
 
 ###Block: Creature Subtypes
-# Template Name	Visible	Template		Source Page		Define														Combat bonus											Modify VAR		Class Skill				Ability																																Automatic Languages				Race Subtype			Vision
-Air			VISIBLE:NO				SOURCEPAGE:p.310																																CSKILL:Fly																																												RACESUBTYPE:Air
-Angel			VISIBLE:NO				SOURCEPAGE:p.310	DEFINE:ElectricityResistanceBonus|10	DEFINE:FireResistanceBonus|10																									ABILITY:Special Ability|AUTOMATIC|Immunity to Acid|Immunity to Cold|Immunity to Petrification|Protective Aura ~ Angel|Resistance to Electricity|Resistance to Fire|Save vs Poison|Truespeech ~ Angel								RACESUBTYPE:Angel			ABILITY:Special Ability|AUTOMATIC|Vision ~ Darkvision|Vision ~ Low-Light|PREVAREQ:RacialVision,1	BONUS:VAR|DarkvisionRange|60|TYPE=Racial
-Aquatic		VISIBLE:NO				SOURCEPAGE:p.310																																CSKILL:Swim																																												RACESUBTYPE:Aquatic
-Archon		VISIBLE:NO				SOURCEPAGE:p.310																																					ABILITY:Special Ability|AUTOMATIC|Aura of Menace ~ Archon|Immunity to Electricity|Immunity to Petrification|Save vs Poison|Teleport ~ Archon|Truespeech ~ Archon														RACESUBTYPE:Archon		ABILITY:Special Ability|AUTOMATIC|Vision ~ Darkvision|Vision ~ Low-Light|PREVAREQ:RacialVision,1	BONUS:VAR|DarkvisionRange|60|TYPE=Racial
-Azata			VISIBLE:NO				SOURCEPAGE:p.311																																					ABILITY:Special Ability|AUTOMATIC|Immunity to Electricity|Immunity to Petrification|Truespeech ~ Azata																							RACESUBTYPE:Azata			ABILITY:Special Ability|AUTOMATIC|Vision ~ Darkvision|Vision ~ Low-Light|PREVAREQ:RacialVision,1	BONUS:VAR|DarkvisionRange|60|TYPE=Racial
-Chaotic		VISIBLE:NO				SOURCEPAGE:p.311																																					ABILITY:Special Ability|AUTOMATIC|Aligned (Chaotic)																																RACESUBTYPE:Chaotic
-Cold			VISIBLE:NO				SOURCEPAGE:p.311																																					ABILITY:Special Ability|AUTOMATIC|Immunity to Cold|Vulnerability to Fire																												RACESUBTYPE:Cold
-Demon			VISIBLE:NO				SOURCEPAGE:p.311	DEFINE:AcidResistanceBonus|10	DEFINE:ColdResistanceBonus|10	DEFINE:FireResistanceBonus|10																						ABILITY:Special Ability|AUTOMATIC|Aligned (Chaotic)|Aligned (Evil)|Immunity to Electricity|Immunity to Poison|Resistance to Acid|Resistance to Cold|Resistance to Fire|Telepathy				AUTO:LANG|Abyssal|Celestial|Draconic		RACESUBTYPE:Demon
-Devil			VISIBLE:NO				SOURCEPAGE:p.311	DEFINE:AcidResistanceBonus|10	DEFINE:ColdResistanceBonus|10																											ABILITY:Special Ability|AUTOMATIC|Aligned (Evil)|Aligned (Lawful)|Immunity to Fire|Immunity to Poison|Resistance to Acid|Resistance to Cold|See in Darkness ~ Devil|Telepathy					AUTO:LANG|Infernal|Celestial|Draconic	RACESUBTYPE:Devil
-Dwarf			VISIBLE:NO				SOURCEPAGE:p.311																																																																													RACESUBTYPE:Dwarf			ABILITY:Special Ability|AUTOMATIC|Vision ~ Darkvision|PREVAREQ:RacialVision,1	BONUS:VAR|DarkvisionRange|60|TYPE=Racial
-Earth			VISIBLE:NO				SOURCEPAGE:p.311																																																																													RACESUBTYPE:Earth
-Elemental		VISIBLE:NO				SOURCEPAGE:p.311																																					ABILITY:Special Ability|AUTOMATIC|Elemental Traits																																RACESUBTYPE:Elemental
-Elf			VISIBLE:NO				SOURCEPAGE:p.311																																																																													RACESUBTYPE:Elf			ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light|PREVAREQ:RacialVision,1
-Evil			VISIBLE:NO				SOURCEPAGE:p.312																																					ABILITY:Special Ability|AUTOMATIC|Aligned (Evil)																																RACESUBTYPE:Evil
-Extraplanar		VISIBLE:NO				SOURCEPAGE:p.312																																																																													RACESUBTYPE:Extraplanar
-Fire			VISIBLE:NO				SOURCEPAGE:p.312																																					ABILITY:Special Ability|AUTOMATIC|Immunity to Fire|Vulnerability to Cold																												RACESUBTYPE:Fire
-Giant			VISIBLE:NO				SOURCEPAGE:p.312																																CSKILL:Intimidate|Perception																																									RACESUBTYPE:Giant			ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light|PREVAREQ:RacialVision,1
-Gnome			VISIBLE:NO				SOURCEPAGE:p.312																																																																													RACESUBTYPE:Gnome			ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light|PREVAREQ:RacialVision,1
-Gnoll			VISIBLE:NO				SOURCEPAGE:p.155																																																																													RACESUBTYPE:Gnoll
-Goblinoid		VISIBLE:NO				SOURCEPAGE:p.312																																CSKILL:Stealth																																											RACESUBTYPE:Goblinoid
-Good			VISIBLE:NO				SOURCEPAGE:p.312																																					ABILITY:Special Ability|AUTOMATIC|Aligned (Good)																																RACESUBTYPE:Good
-Halfling		VISIBLE:NO				SOURCEPAGE:p.312																																																																													RACESUBTYPE:Halfling
-Human			VISIBLE:NO				SOURCEPAGE:p.312																																																																													RACESUBTYPE:Human
-Incorporeal		VISIBLE:NO				SOURCEPAGE:p.312	DEFINE:LOCK.STR|10	DEFINE:CanNotGrapple|1								BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT.MELEE|DEX	BONUS:VAR|CMB|DEX						ABILITY:Special Ability|AUTOMATIC|Incorporeal																																	RACESUBTYPE:Incorporeal
-Lawful		VISIBLE:NO				SOURCEPAGE:p.312																																					ABILITY:Special Ability|AUTOMATIC|Aligned (Lawful)																																RACESUBTYPE:Lawful
-Native		VISIBLE:NO				SOURCEPAGE:p.312																																																																													RACESUBTYPE:Native
-Oni			VISIBLE:NO	TEMPLATE:Native	SOURCEPAGE:p.221																																					ABILITY:Special Ability|AUTOMATIC|Change Shape ~ Oni|Regeneration ~ Acid/Fire																												RACESUBTYPE:Oni
-Orc			VISIBLE:NO				SOURCEPAGE:p.312																																					ABILITY:Special Ability|AUTOMATIC|Light Sensitivity|!PRERACE:1,Half-Orc																													RACESUBTYPE:Orc			ABILITY:Special Ability|AUTOMATIC|Vision ~ Darkvision|PREVAREQ:RacialVision,1	BONUS:VAR|DarkvisionRange|60|TYPE=Racial
-Reptilian		VISIBLE:NO				SOURCEPAGE:p.312																																																																													RACESUBTYPE:Reptilian
-Shapechanger	VISIBLE:NO				SOURCEPAGE:p.312																																																																													RACESUBTYPE:Shapechanger
-Swarm			VISIBLE:NO				SOURCEPAGE:p.312																																					ABILITY:Special Ability|AUTOMATIC|Distraction ~ Swarm|Swarm Traits																													RACESUBTYPE:Swarm
-Water			VISIBLE:NO				SOURCEPAGE:p.313																																																																													RACESUBTYPE:Water
+# Template Name	Visible	Template		Source Page		Define														Combat bonus											Modify VAR						Class Skill				Ability																																																	Automatically Gained Language			Race Subtype
+Air			VISIBLE:NO				SOURCEPAGE:p.310																																				CSKILL:Fly																																																													RACESUBTYPE:Air
+Angel			VISIBLE:NO				SOURCEPAGE:p.310	DEFINE:ElectricityResistanceBonus|10	DEFINE:FireResistanceBonus|10																	BONUS:VAR|DarkvisionRange|60|TYPE=Racial						ABILITY:Special Ability|AUTOMATIC|Immunity to Acid|Immunity to Cold|Immunity to Petrification|Protective Aura ~ Angel|Resistance to Electricity|Resistance to Fire|Save vs Poison|Truespeech ~ Angel	ABILITY:Special Ability|AUTOMATIC|Vision ~ Darkvision|Vision ~ Low-Light|PREVAREQ:RacialVision,1								RACESUBTYPE:Angel
+Aquatic		VISIBLE:NO				SOURCEPAGE:p.310																																				CSKILL:Swim																																																													RACESUBTYPE:Aquatic
+Archon		VISIBLE:NO				SOURCEPAGE:p.310																													BONUS:VAR|DarkvisionRange|60|TYPE=Racial						ABILITY:Special Ability|AUTOMATIC|Aura of Menace ~ Archon|Immunity to Electricity|Immunity to Petrification|Save vs Poison|Teleport ~ Archon|Truespeech ~ Archon	ABILITY:Special Ability|AUTOMATIC|Vision ~ Darkvision|Vision ~ Low-Light|PREVAREQ:RacialVision,1														RACESUBTYPE:Archon
+Azata			VISIBLE:NO				SOURCEPAGE:p.311																													BONUS:VAR|DarkvisionRange|60|TYPE=Racial						ABILITY:Special Ability|AUTOMATIC|Immunity to Electricity|Immunity to Petrification|Truespeech ~ Azata	ABILITY:Special Ability|AUTOMATIC|Vision ~ Darkvision|Vision ~ Low-Light|PREVAREQ:RacialVision,1																							RACESUBTYPE:Azata
+Chaotic		VISIBLE:NO				SOURCEPAGE:p.311																																									ABILITY:Special Ability|AUTOMATIC|Aligned (Chaotic)																																																	RACESUBTYPE:Chaotic
+Cold			VISIBLE:NO				SOURCEPAGE:p.311																																									ABILITY:Special Ability|AUTOMATIC|Immunity to Cold|Vulnerability to Fire																																													RACESUBTYPE:Cold
+Demon			VISIBLE:NO				SOURCEPAGE:p.311	DEFINE:AcidResistanceBonus|10	DEFINE:ColdResistanceBonus|10	DEFINE:FireResistanceBonus|10																										ABILITY:Special Ability|AUTOMATIC|Aligned (Chaotic)|Aligned (Evil)|Immunity to Electricity|Immunity to Poison|Resistance to Acid|Resistance to Cold|Resistance to Fire|Telepathy																					AUTO:LANG|Abyssal|Celestial|Draconic	RACESUBTYPE:Demon
+Devil			VISIBLE:NO				SOURCEPAGE:p.311	DEFINE:AcidResistanceBonus|10	DEFINE:ColdResistanceBonus|10																															ABILITY:Special Ability|AUTOMATIC|Aligned (Evil)|Aligned (Lawful)|Immunity to Fire|Immunity to Poison|Resistance to Acid|Resistance to Cold|See in Darkness ~ Devil|Telepathy																						AUTO:LANG|Infernal|Celestial|Draconic	RACESUBTYPE:Devil
+Dwarf			VISIBLE:NO				SOURCEPAGE:p.311																													BONUS:VAR|DarkvisionRange|60|TYPE=Racial						ABILITY:Special Ability|AUTOMATIC|Vision ~ Darkvision|PREVAREQ:RacialVision,1																																													RACESUBTYPE:Dwarf
+Earth			VISIBLE:NO				SOURCEPAGE:p.311																																																																																																		RACESUBTYPE:Earth
+Elemental		VISIBLE:NO				SOURCEPAGE:p.311																																									ABILITY:Special Ability|AUTOMATIC|Elemental Traits																																																	RACESUBTYPE:Elemental
+Elf			VISIBLE:NO				SOURCEPAGE:p.311																																									ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light|PREVAREQ:RacialVision,1																																													RACESUBTYPE:Elf
+Evil			VISIBLE:NO				SOURCEPAGE:p.312																																									ABILITY:Special Ability|AUTOMATIC|Aligned (Evil)																																																	RACESUBTYPE:Evil
+Extraplanar		VISIBLE:NO				SOURCEPAGE:p.312																																																																																																		RACESUBTYPE:Extraplanar
+Fire			VISIBLE:NO				SOURCEPAGE:p.312																																									ABILITY:Special Ability|AUTOMATIC|Immunity to Fire|Vulnerability to Cold																																													RACESUBTYPE:Fire
+Giant			VISIBLE:NO				SOURCEPAGE:p.312																																				CSKILL:Intimidate|Perception	ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light|PREVAREQ:RacialVision,1																																													RACESUBTYPE:Giant
+Gnome			VISIBLE:NO				SOURCEPAGE:p.312																																									ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light|PREVAREQ:RacialVision,1																																													RACESUBTYPE:Gnome
+Gnoll			VISIBLE:NO				SOURCEPAGE:p.155																																																																																																		RACESUBTYPE:Gnoll
+Goblinoid		VISIBLE:NO				SOURCEPAGE:p.312																																				CSKILL:Stealth																																																												RACESUBTYPE:Goblinoid
+Good			VISIBLE:NO				SOURCEPAGE:p.312																																									ABILITY:Special Ability|AUTOMATIC|Aligned (Good)																																																	RACESUBTYPE:Good
+Halfling		VISIBLE:NO				SOURCEPAGE:p.312																																																																																																		RACESUBTYPE:Halfling
+Human			VISIBLE:NO				SOURCEPAGE:p.312																																																																																																		RACESUBTYPE:Human
+Incorporeal		VISIBLE:NO				SOURCEPAGE:p.312	DEFINE:LOCK.STR|10	DEFINE:CanNotGrapple|1								BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT.MELEE|DEX	BONUS:VAR|CMB|DEX										ABILITY:Special Ability|AUTOMATIC|Incorporeal																																																		RACESUBTYPE:Incorporeal
+Lawful		VISIBLE:NO				SOURCEPAGE:p.312																																									ABILITY:Special Ability|AUTOMATIC|Aligned (Lawful)																																																	RACESUBTYPE:Lawful
+Native		VISIBLE:NO				SOURCEPAGE:p.312																																																																																																		RACESUBTYPE:Native
+Oni			VISIBLE:NO	TEMPLATE:Native	SOURCEPAGE:p.221																																									ABILITY:Special Ability|AUTOMATIC|Change Shape ~ Oni|Regeneration ~ Acid/Fire																																													RACESUBTYPE:Oni
+Orc			VISIBLE:NO				SOURCEPAGE:p.312																													BONUS:VAR|DarkvisionRange|60|TYPE=Racial						ABILITY:Special Ability|AUTOMATIC|Light Sensitivity|!PRERACE:1,Half-Orc	ABILITY:Special Ability|AUTOMATIC|Vision ~ Darkvision|PREVAREQ:RacialVision,1																																	RACESUBTYPE:Orc
+Reptilian		VISIBLE:NO				SOURCEPAGE:p.312																																																																																																		RACESUBTYPE:Reptilian
+Shapechanger	VISIBLE:NO				SOURCEPAGE:p.312																																																																																																		RACESUBTYPE:Shapechanger
+Swarm			VISIBLE:NO				SOURCEPAGE:p.312																																									ABILITY:Special Ability|AUTOMATIC|Distraction ~ Swarm|Swarm Traits																																														RACESUBTYPE:Swarm
+Water			VISIBLE:NO				SOURCEPAGE:p.313																																																																																																		RACESUBTYPE:Water
 
 ###Block: Variable Type Traits
 # Template Name	Visible	Define			Ability

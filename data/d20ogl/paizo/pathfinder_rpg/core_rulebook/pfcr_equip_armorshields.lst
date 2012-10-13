@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Sat Oct 13 02:22:45 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
@@ -6,7 +6,7 @@ SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downl
 
 ###Block: Armor
 #------light---------
-# Equipment Name	Required Armor Proficiency		Type							Cost		Weight	AC Penalty Check	Modifier			Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
+# Equipment Name	Required Armor Proficiency		Type							Cost		Weight	AC Penalty Check	Modifier			Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus			Automatically Added to Inventory
 Padded		PROFICIENCY:ARMOR|Padded		TYPE:Armor.Light.Suit.Standard.Nonmetal	COST:5	WT:10		ACCHECK:0		EQMOD:CLOTH			MAXDEX:8		SOURCEPAGE:p.151	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor
 Leather		PROFICIENCY:ARMOR|Leather		TYPE:Armor.Light.Suit.Standard.Nonmetal	COST:10	WT:15		ACCHECK:0		EQMOD:LEATHER		MAXDEX:6		SOURCEPAGE:p.151	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor
 Studded Leather	PROFICIENCY:ARMOR|Studded Leather	TYPE:Armor.Light.Suit.Standard		COST:25	WT:20		ACCHECK:-1		EQMOD:LEATHER|STEEL	MAXDEX:5		SOURCEPAGE:p.153	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor
