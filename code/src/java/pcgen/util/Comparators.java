@@ -225,6 +225,10 @@ public final class Comparators
 					key = co.getDisplayName();
 				}
 			}
+			else if (obj1 instanceof SortKeyAware)
+			{
+				key = ((SortKeyAware) obj1).getSortKey();
+			}
 			else
 			{
 				key = obj1.toString();

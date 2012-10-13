@@ -26,6 +26,7 @@ import java.util.List;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -33,9 +34,11 @@ import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.facade.SpellFacade;
 import pcgen.core.spell.Spell;
+import pcgen.util.SortKeyAware;
 
 /**
- * The Class <code>SpellFacadeImplem</code> is ...
+ * The Class <code>SpellFacadeImplem</code> is a proxy for a spell used for 
+ * displaying the spell on the UI. 
  *
  * <br/>
  * Last Editor: $Author$
@@ -44,7 +47,7 @@ import pcgen.core.spell.Spell;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class SpellFacadeImplem implements SpellFacade
+public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 {
 	private final PlayerCharacter pc;
 	private final Spell spell;
@@ -307,6 +310,20 @@ public class SpellFacadeImplem implements SpellFacade
 	public String getType()
 	{
 		return spell.getType();
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getSortKey()
+	{
+		String sortKey = spell.get(StringKey.SORT_KEY);
+		if (sortKey == null)
+		{
+			sortKey = spell.getDisplayName();
+		}
+		return sortKey;
 	}
 
 }

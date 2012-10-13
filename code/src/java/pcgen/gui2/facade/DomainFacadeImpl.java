@@ -25,11 +25,13 @@ package pcgen.gui2.facade;
 import java.util.List;
 
 import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.QualifiedObject;
 import pcgen.core.facade.DomainFacade;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.util.SortKeyAware;
 
 /**
  * The Class <code>DomainFacadeImpl</code> groups the prereqs for gaining access 
@@ -43,7 +45,8 @@ import pcgen.core.prereq.Prerequisite;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class DomainFacadeImpl extends QualifiedObject<Domain> implements DomainFacade
+public class DomainFacadeImpl extends QualifiedObject<Domain> implements
+		DomainFacade, SortKeyAware
 {
 
     /**
@@ -128,6 +131,20 @@ public class DomainFacadeImpl extends QualifiedObject<Domain> implements DomainF
 	public String getType()
 	{
 		return getRawObject().getType();
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getSortKey()
+	{
+		String sortKey = getRawObject().get(StringKey.SORT_KEY);
+		if (sortKey == null)
+		{
+			sortKey = getRawObject().getDisplayName();
+		}
+		return sortKey;
 	}
 
 }

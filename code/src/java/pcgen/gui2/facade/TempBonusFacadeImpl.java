@@ -44,9 +44,11 @@ import pcgen.core.Skill;
 import pcgen.core.facade.TempBonusFacade;
 import pcgen.core.spell.Spell;
 import pcgen.system.LanguageBundle;
+import pcgen.util.SortKeyAware;
 
 /**
- * The Class <code>TempBonusFacadeImpl</code> ...
+ * The Class <code>TempBonusFacadeImpl</code> a proxy for a TempBonus used for 
+ * displaying the temporary bonus on the UI. 
  *
  * <br/>
  * Last Editor: $Author$
@@ -56,7 +58,8 @@ import pcgen.system.LanguageBundle;
  * @version $Revision$
  */
 
-public class TempBonusFacadeImpl implements TempBonusFacade, Comparable<TempBonusFacadeImpl>
+public class TempBonusFacadeImpl implements TempBonusFacade,
+		Comparable<TempBonusFacadeImpl>, SortKeyAware
 {
 	
 	private final CDOMObject originObj;
@@ -302,5 +305,19 @@ public class TempBonusFacadeImpl implements TempBonusFacade, Comparable<TempBonu
 	{
 		final List<Type> types = originObj.getSafeListFor(ListKey.TYPE);
 		return StringUtil.join(types, ".");
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getSortKey()
+	{
+		String sortKey = this.getOriginObj().get(StringKey.SORT_KEY);
+		if (sortKey == null)
+		{
+			sortKey = this.getOriginObj().getDisplayName();
+		}
+		return sortKey;
 	}
 }
