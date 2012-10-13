@@ -478,7 +478,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private void initEquipSet(PlayerCharacter pc)
 	{
 		// Setup the default EquipSet if not already present
-		if (pc.getEquipSet().size() == 0)
+		if (!pc.hasEquipSet())
 		{
 			String id = EquipmentSetFacadeImpl.getNewIdPath(pc, null);
 			EquipSet eSet = new EquipSet(id, LanguageBundle.getString("in_ieDefault"));
@@ -2629,14 +2629,14 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			try
 			{
-				Logging.log(Logging.INFO, "Starting export at serial " + theCharacter.getSerial() + " to " + theHandler.getTemplateFile());
+				Logging.log(Logging.DEBUG, "Starting export at serial " + theCharacter.getSerial() + " to " + theHandler.getTemplateFile());
 				PlayerCharacter exportPc =  getExportCharacter();
 				theHandler.write(exportPc, buf);
-				Logging.log(Logging.INFO, "Finished export at serial " + theCharacter.getSerial() + " to " + theHandler.getTemplateFile());
+				Logging.log(Logging.DEBUG, "Finished export at serial " + theCharacter.getSerial() + " to " + theHandler.getTemplateFile());
 				return;
 			} catch (ConcurrentModificationException e)
 			{
-				Logging.log(Logging.WARNING, "Retrying export after ConcurrentModificationException");
+				Logging.log(Logging.DEBUG, "Retrying export after ConcurrentModificationException");
 				try
 				{
 					Thread.sleep(1000);
