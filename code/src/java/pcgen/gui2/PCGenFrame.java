@@ -61,6 +61,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
@@ -1385,38 +1386,84 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	@Override
 	public boolean showWarningConfirm(String title, String message)
 	{
-		int ret = JOptionPane.showConfirmDialog(this, message, title, JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+		JComponent msgComp = getComponentForMessage(message);
+		int ret =
+				JOptionPane.showConfirmDialog(this, msgComp, title,
+					JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 		return ret == JOptionPane.YES_OPTION;
+	}
+
+	/**
+	 * Create a component to display the message within the bounds of the 
+	 * screen. If the message is too big for the screen a suitably sized 
+	 * scroll pane will be returned.
+	 * @param message The text of the message.
+	 * @return The component containing the text.
+	 */
+	private JComponent getComponentForMessage(String message)
+	{
+		JLabel jLabel = new JLabel(message);
+		JScrollPane scroller = new JScrollPane(jLabel);
+		Dimension size = jLabel.getPreferredSize();
+		final int decorationHeight = 80;
+		final int decorationWidth = 70;
+		Rectangle screenBounds =
+				GraphicsEnvironment.getLocalGraphicsEnvironment()
+					.getMaximumWindowBounds();
+		boolean scrollerNeeded = false;
+		if (size.height > screenBounds.height - decorationHeight)
+		{
+			size.height = screenBounds.height - decorationHeight;
+			scrollerNeeded = true;
+		}
+		if (size.width > screenBounds.width - decorationWidth)
+		{
+			size.width = screenBounds.width - decorationWidth;
+			scrollerNeeded = true;
+		}
+		else if (scrollerNeeded)
+		{
+			scroller.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		}
+		scroller.setPreferredSize(size);
+		return scrollerNeeded ? scroller : jLabel;
 	}
 
 	private boolean showMessageConfirm(String title, String message)
 	{
-		int ret = JOptionPane.showConfirmDialog(this, message, title, JOptionPane.YES_NO_OPTION);
+		JComponent msgComp = getComponentForMessage(message);
+		int ret = JOptionPane.showConfirmDialog(this, msgComp, title, JOptionPane.YES_NO_OPTION);
 		return ret == JOptionPane.YES_OPTION;
 	}
 
 	@Override
 	public void showErrorMessage(String title, String message)
 	{
-		JOptionPane.showMessageDialog(this, message, title, JOptionPane.ERROR_MESSAGE);
+		JComponent msgComp = getComponentForMessage(message);
+		JOptionPane.showMessageDialog(this, msgComp, title, JOptionPane.ERROR_MESSAGE);
 	}
 
 	@Override
 	public void showInfoMessage(String title, String message)
 	{
-		JOptionPane.showMessageDialog(this, message, title, JOptionPane.INFORMATION_MESSAGE);
+		JComponent msgComp = getComponentForMessage(message);
+		JOptionPane.showMessageDialog(this, msgComp, title, JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	@Override
 	public void showWarningMessage(String title, String message)
 	{
-		JOptionPane.showMessageDialog(this, message, title, JOptionPane.WARNING_MESSAGE);
+		JComponent msgComp = getComponentForMessage(message);
+		JOptionPane.showMessageDialog(this, msgComp, title, JOptionPane.WARNING_MESSAGE);
 	}
 
 	@Override
 	public boolean showWarningPrompt(String title, String message)
 	{
-		int ret = JOptionPane.showConfirmDialog(this, message, title, JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
+		JComponent msgComp = getComponentForMessage(message);
+		int ret =
+				JOptionPane.showConfirmDialog(this, msgComp, title,
+					JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
 		return ret == JOptionPane.OK_OPTION;
 	}
 
