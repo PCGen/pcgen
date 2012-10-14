@@ -329,8 +329,8 @@ public class SpellBooksTab extends FlippingSplitPane
 
 		public TreeViewModelHandler(CharacterFacade character)
 		{
-			availableModel = new SpellTreeViewModel(character.getSpellSupport().getKnownSpellNodes(), false);
-			selectedModel = new SpellTreeViewModel(character.getSpellSupport().getBookSpellNodes(), true);
+			availableModel = new SpellTreeViewModel(character.getSpellSupport().getKnownSpellNodes(), false, "SpellBooksAva");
+			selectedModel = new SpellTreeViewModel(character.getSpellSupport().getBookSpellNodes(), true, "SpellBooksSel");
 		}
 
 		public void install()

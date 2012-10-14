@@ -14,10 +14,12 @@ class SpellNodeDataView implements DataView<SuperNode>
 {
 
 	private final List<? extends DataViewColumn> columns;
+	private final String prefsKey;
 
-	public SpellNodeDataView(boolean initiallyVisible)
+	public SpellNodeDataView(boolean initiallyVisible, String prefsKey)
 	{
 		super();
+		this.prefsKey = prefsKey;
 		columns = Arrays.asList(new DefaultDataViewColumn("School", String.class, initiallyVisible),
 								new DefaultDataViewColumn("Subschool", String.class, initiallyVisible),
 								new DefaultDataViewColumn("Descriptors", String.class, initiallyVisible),
@@ -62,7 +64,7 @@ class SpellNodeDataView implements DataView<SuperNode>
 	@Override
 	public String getPrefsKey()
 	{
-		return "SpellTree";  //$NON-NLS-1$
+		return prefsKey;
 	}
 
 }

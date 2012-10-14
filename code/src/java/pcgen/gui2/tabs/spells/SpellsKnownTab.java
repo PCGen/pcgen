@@ -417,8 +417,8 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 		public TreeViewModelHandler(CharacterFacade character)
 		{
-			availableModel = new SpellTreeViewModel(character.getSpellSupport().getAvailableSpellNodes(), false);
-			selectedModel = new SpellTreeViewModel(character.getSpellSupport().getAllKnownSpellNodes(), true);
+			availableModel = new SpellTreeViewModel(character.getSpellSupport().getAvailableSpellNodes(), false, "SpellsKnownAva");
+			selectedModel = new SpellTreeViewModel(character.getSpellSupport().getAllKnownSpellNodes(), true, "SpellsKnownSel");
 		}
 
 		public void install()

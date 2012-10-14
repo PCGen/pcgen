@@ -71,6 +71,7 @@ import pcgen.gui2.util.treeview.TreeViewTableModel;
 import pcgen.system.PropertyContext;
 import pcgen.util.CollectionMaps;
 import pcgen.util.ListMap;
+import pcgen.util.Logging;
 
 /**
  * This class is a reimplementation of JTreeViewPane
@@ -91,6 +92,8 @@ import pcgen.util.ListMap;
 public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListener
 {
 
+	/** The preferences key for the selected tree view index. */
+	private static final String VIEW_INDEX_PREFS_KEY = "viewIdx";
 	private final DynamicTableColumnModelListener listener = new DynamicTableColumnModelListener()
 	{
 
@@ -398,7 +401,33 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 		PropertyContext context =
 				baseContext.createChildContext(
 					this.viewModel.getDataView().getPrefsKey());
-		context.setProperty("view", view.getViewName()); //$NON-NLS-1$
+		
+		int index = getIndex(viewModel.getTreeViews(), view);
+		if (index >= 0)
+		{
+			context.setInt(VIEW_INDEX_PREFS_KEY, index); //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * get the index of the view.
+	 * @param treeViews The list of tree views.
+	 * @param view The view to be found
+	 * @return The index or -1 if not found.
+	 */
+	private int getIndex(ListFacade<? extends TreeView<T>> treeViews,
+		TreeView<? super T> view)
+	{
+		for (int i = 0; i < treeViews.getSize(); i++)
+		{
+			TreeView<T> treeView = treeViews.getElementAt(i);
+			if (treeView.equals(view))
+			{
+				return i;
+			}
+		}
+		Logging.errorPrint("Unable to find view " + view + " in " + treeViews);
+		return -1;
 	}
 
 	public TreeViewModel<?> getTreeViewModel()
@@ -409,16 +438,11 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 	public void setTreeViewModel(TreeViewModel<T> viewModel)
 	{
 		ListFacade<? extends TreeView<T>> views = viewModel.getTreeViews();
-		TreeView<? super T> startingView = views.getElementAt(viewModel.getDefaultTreeViewIndex());
 		PropertyContext context =
 				baseContext.createChildContext(
 					viewModel.getDataView().getPrefsKey());
-		String viewName = context.initProperty("view", startingView.getViewName());
-		startingView = findViewByName(views, viewName);
-		if (treetableModel != null && treetableModel.getSelectedTreeView() != null)
-		{
-			startingView = treetableModel.getSelectedTreeView();
-		}
+		int viewIndex = context.initInt(VIEW_INDEX_PREFS_KEY, viewModel.getDefaultTreeViewIndex());
+		TreeView<? super T> startingView = views.getElementAt(viewIndex);
 		DataView<T> dataView = viewModel.getDataView();
 		final TreeViewTableModel<T> model = createDefaultTreeViewTableModel(dataView);
 		this.treetableModel = model;
@@ -494,19 +518,18 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 		public void elementsChanged(ListEvent<TreeView<T>> e)
 		{
 			ListFacade<? extends TreeView<T>> views = viewModel.getTreeViews();
-			TreeView<? super T> startingView =
-					views.getElementAt(viewModel.getDefaultTreeViewIndex());
 			PropertyContext context =
 					baseContext.createChildContext(viewModel.getDataView()
 						.getPrefsKey());
-			String viewName =
-					context.initProperty("view", startingView.getViewName());
+			int viewIndex = context.initInt(VIEW_INDEX_PREFS_KEY, viewModel.getDefaultTreeViewIndex());
+			TreeView<? super T> startingView =
+					views.getElementAt(viewIndex);
 			group = new ButtonGroup();
 			removeAll();
 			for (TreeView<T> treeview : views)
 			{
 				JMenuItem item = new JRadioButtonMenuItem(new ChangeViewAction(treeview));
-				item.setSelected(treeview.getViewName().equals(viewName));
+				item.setSelected(startingView == treeview);
 				group.add(item);
 				add(item);
 			}
