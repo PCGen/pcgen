@@ -25,6 +25,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -52,7 +54,7 @@ import pcgen.system.LanguageBundle;
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
-		DataView<SkillFacade>, SkillBonusListener
+		DataView<SkillFacade>, SkillBonusListener, ListSelectionListener
 {
 
 	private static final List<? extends DataViewColumn> columns = Arrays.asList(
@@ -90,12 +92,14 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		this.table = ftvt;
 		ftvt.setTreeViewModel(this);
 		levels.addSkillBonusListener(this);
+		selectionModel.addListSelectionListener(this);
 	}
 
 	public void uninstall()
 	{
 		table = null;
 		levels.removeSkillBonusListener(this);
+		selectionModel.removeListSelectionListener(this);
 	}
 
 	@Override
@@ -304,4 +308,26 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		}
 
 	};
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void valueChanged(ListSelectionEvent arg0)
+	{
+		if (arg0.getValueIsAdjusting())
+		{
+			return;
+		}
+		
+		if (table.getSelectedTreeView() == COST_NAME
+			|| table.getSelectedTreeView() == COST_TYPE_NAME)
+		{
+			table.setTreeViewModel(this);
+		}
+		else
+		{
+			table.refreshModelData();
+		}
+	}
 }

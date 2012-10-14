@@ -471,6 +471,14 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 	}
 
 	/**
+	 * @return The currently selected tree view.
+	 */
+	public TreeView<? super T> getSelectedTreeView()
+	{
+		return treetableModel.getSelectedTreeView();
+	}
+	
+	/**
      * Find the named view.
 	 * @param views The list of TreeViews.
 	 * @param viewName The name of the desired view.
