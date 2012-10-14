@@ -9,9 +9,11 @@ CLASS:Barbarian	!PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE=Craft|Handle Animal|Intimidate|Knowledge (Nature)|Perception|Ride|Survival|Swim
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	
+###Block:
+1	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies
+1	AUTO:FEAT|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies
 ###Block: Level Progression
 1	BONUS:VAR|RageLVL|CL																				ABILITY:Special Ability|AUTOMATIC|Rage	ABILITY:Special Ability|AUTOMATIC|Fast Movement ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianFastMovement
 2	BONUS:VAR|RagePowersLVL|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3	ABILITY:Special Ability|AUTOMATIC|Rage Powers	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianUncannyDodge,TYPE.BarbarianImprovedUncannyDodge
