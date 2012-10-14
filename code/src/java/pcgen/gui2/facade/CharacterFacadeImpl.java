@@ -486,6 +486,14 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			pc.setCalcEquipSetId(id);
 		}
 
+		// Detach listeners from old set
+		if (equipSet.getReference() != null)
+		{
+			EquipmentListFacade equippedItems = equipSet.getReference().getEquippedItems();
+			equippedItems.removeListListener(this);
+			equippedItems.removeEquipmentListListener(this);
+		}
+		
 		// Make facades for each root equipset.
 		List<EquipmentSetFacade> eqSetList = new ArrayList<EquipmentSetFacade>();
 		EquipmentSetFacade currSet = null;

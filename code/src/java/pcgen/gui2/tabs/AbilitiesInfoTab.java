@@ -110,7 +110,6 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 				}
 				typeMap.get(type).categoryList.addElement(category);
 			}
-			activeCategories.addListListener(this);
 			selectedTitle = tabs.get(0).title;
 		}
 
@@ -229,6 +228,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 
 		public void install()
 		{
+			activeCategories.addListListener(this);
 			for (TabInfo tabInfo : tabs)
 			{
 				addTab(tabInfo.title);
@@ -244,6 +244,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 			abilityTab.storeState(typeMap.get(selectedTitle).tabData);
 			removeChangeListener(this);
 			removeAll();
+			activeCategories.removeListListener(this);
 			isInstalled = false;
 		}
 

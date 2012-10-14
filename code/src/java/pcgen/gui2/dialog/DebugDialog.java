@@ -29,6 +29,7 @@ import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;
 import java.lang.management.MemoryUsage;
 import java.text.DecimalFormat;
+import java.text.MessageFormat;
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;
 import javax.swing.BorderFactory;
@@ -192,6 +193,8 @@ public class DebugDialog extends JDialog
 			if ("COLLECT".equals(e.getActionCommand()))
 			{
 				memoryBean.gc();
+				Logging.log(Logging.INFO, MessageFormat.format("Memory used after manual GC, Heap: {0}, Non heap: {1}", 
+					 memoryBean.getHeapMemoryUsage().getUsed(), memoryBean.getNonHeapMemoryUsage().getUsed()));
 			}
 			else
 			{
