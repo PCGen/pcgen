@@ -34,7 +34,7 @@ public class PreClassTester extends AbstractPrerequisiteTest implements Prerequi
 	public int passes(final Prerequisite prereq, final Equipment equipment,
 		PlayerCharacter aPC)
 	{
-		Logging.errorPrint("PreClass on equipment: " + equipment.getName()
+		Logging.debugPrint("PreClass on equipment: " + equipment.getName()
 			+ "  pre: " + toHtmlString(prereq));
 		if (aPC == null)
 		{
