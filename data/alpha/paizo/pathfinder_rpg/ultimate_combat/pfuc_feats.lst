@@ -520,3 +520,15 @@ Vicious Stomp			TYPE:Combat																																											PREFEAT:2,
 Exotic Weapon Proficiency.MOD																																																																																																																																																																																																																																					ABILITY:Internal|AUTOMATIC|Exotic Weapon Proficiency ~ Firearms|PREFEAT:1,Exotic Weapon Proficiency (Firearms)
 
 
+###Block: Wounds and Vigor Variant Feats
+# COMMENT: Need Sourcepage #
+Deathless Initiate (Vigor/Wounds)	PRERULE:1,DAMAGE_VW	SOURCEPAGE:p.207	TYPE:Combat	PRESTAT:2,STR=13,CON=13	PREFEAT:2,Diehard (Vigor/Wound),Endurance	PREATT:6	PRERACE:1,Orc,Half-Orc	DESC:For you, impending death is a call to wrath.	BENEFIT:You are not staggered when your wound points reach your wound threshold, but you lose 1 wound point if you take any action during your turn. You only take 1 wound point each round when you take actions. Furthermore, you gain a +2 bonus on melee attacks and damage rolls when your wound points are at or below your wound threshold.
+Deathless Master (Vigor/Wounds)	PRERULE:1,DAMAGE_VW	SOURCEPAGE:p.207	TYPE:Combat	PRESTAT:2,STR=13,CON=15	PREFEAT:4,Deathless Initiate (Vigor/Wound),Diehard (Vigor/Wound),Endurance,Ironhide	PREATT:9	PRERACE:1,Orc,Half-Orc
+Diehard (Vigor/Wounds)			PRERULE:1,DAMAGE_VW	SOURCEPAGE:p.207	TYPE:General	DESC:You keep on going, even when your wound points are lower than your wound threshold.	BENEFIT:When your current wound point total is below your wound threshold, you do not need to succeed at the DC 10 Constitution check to stay conscious.
+Toughness (Vigor/Wounds)		PRERULE:1,DAMAGE_VW	SOURCEPAGE:p.207	TYPE:General	DESC:You have enhanced physical stamina.	BONUS:HP|ALTHP|TL|PRERULE:1,DAMAGE_VW	BENEFIT:You gain 1 wound point for every level or Hit Die your character has.		
+
+###Block: Mods to Alt. Feats
+Deathless Initiate.MOD			PRERULE:1,DAMAGE_HP
+Deathless Master.MOD			PRERULE:1,DAMAGE_HP
+Diehard.MOD					PRERULE:1,DAMAGE_HP
+Toughness.MOD				PRERULE:1,DAMAGE_HP
