@@ -773,16 +773,16 @@ Feat								CATEGORY:Special Ability	TYPE:RogueTalent								VISIBLE:DISPLAY				
 Cantrips							KEY:Cantrips ~ Sorcerer	CATEGORY:Special Ability	TYPE:SpecialQuality																	DESC:You learn a number of cantrips, or 0-level spells. These spells are cast like any other spells, but they do not consume any slots and may be used again.																											SOURCEPAGE:p.71
 Sorcerer Bloodline									CATEGORY:Special Ability	TYPE:Internal		VISIBLE:NO	DEFINE:BloodlineLVL|0	DEFINE:BloodlineCasterLVL|0	DEFINE:BloodlinePowerTimes|0																												BONUS:ABILITYPOOL|Sorcerer Bloodline|1														BONUS:VAR|BloodlinePowerTimes|3+CHA	SOURCEPAGE:p.71
 
-#Block: Make sure Bonus Spell Doesn't take from a Known Spell Slot
-CATEGORY=Special Ability|Sorcerer Bloodline.MOD																																																																BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=1|1|PREVARGTEQ:BloodlineCasterLVL,3
-CATEGORY=Special Ability|Sorcerer Bloodline.MOD																																																																BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=2|1|PREVARGTEQ:BloodlineCasterLVL,5
-CATEGORY=Special Ability|Sorcerer Bloodline.MOD																																																																BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=3|1|PREVARGTEQ:BloodlineCasterLVL,7
-CATEGORY=Special Ability|Sorcerer Bloodline.MOD																																																																BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=4|1|PREVARGTEQ:BloodlineCasterLVL,9
-CATEGORY=Special Ability|Sorcerer Bloodline.MOD																																																																BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=5|1|PREVARGTEQ:BloodlineCasterLVL,11
-CATEGORY=Special Ability|Sorcerer Bloodline.MOD																																																																BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=6|1|PREVARGTEQ:BloodlineCasterLVL,13
-CATEGORY=Special Ability|Sorcerer Bloodline.MOD																																																																BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=7|1|PREVARGTEQ:BloodlineCasterLVL,15
-CATEGORY=Special Ability|Sorcerer Bloodline.MOD																																																																BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=8|1|PREVARGTEQ:BloodlineCasterLVL,17
-CATEGORY=Special Ability|Sorcerer Bloodline.MOD																																																																BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=9|1|PREVARGTEQ:BloodlineCasterLVL,19
+###Block: Make sure Bonus Spell Doesn't take from a Known Spell Slot
+CATEGORY=Special Ability|Sorcerer Bloodline.MOD		BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=1|1|PREVARGTEQ:BloodlineCasterLVL,3
+CATEGORY=Special Ability|Sorcerer Bloodline.MOD		BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=2|1|PREVARGTEQ:BloodlineCasterLVL,5
+CATEGORY=Special Ability|Sorcerer Bloodline.MOD		BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=3|1|PREVARGTEQ:BloodlineCasterLVL,7
+CATEGORY=Special Ability|Sorcerer Bloodline.MOD		BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=4|1|PREVARGTEQ:BloodlineCasterLVL,9
+CATEGORY=Special Ability|Sorcerer Bloodline.MOD		BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=5|1|PREVARGTEQ:BloodlineCasterLVL,11
+CATEGORY=Special Ability|Sorcerer Bloodline.MOD		BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=6|1|PREVARGTEQ:BloodlineCasterLVL,13
+CATEGORY=Special Ability|Sorcerer Bloodline.MOD		BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=7|1|PREVARGTEQ:BloodlineCasterLVL,15
+CATEGORY=Special Ability|Sorcerer Bloodline.MOD		BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=8|1|PREVARGTEQ:BloodlineCasterLVL,17
+CATEGORY=Special Ability|Sorcerer Bloodline.MOD		BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=9|1|PREVARGTEQ:BloodlineCasterLVL,19
 
 ###Block: Sorcerer Bloodlines
 # Ability Name		Category of Ability		Type										Description																						Multiple?	Choose												Ability																																																																																											Bonus to Ability Pool																											Modify VAR					Class Skill					Source Page		Description of the Benefits
