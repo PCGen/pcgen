@@ -236,7 +236,7 @@ BIO
 	  ====================================-->
 	<hit_points>
 		<points>25</points>
-		<alternate>11</alternate>
+		<alternate>22</alternate>
 		<die>(3d8)+1</die>
 		<current/>
 		<subdual/>
