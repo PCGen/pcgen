@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Apr 22 08:08:02 2012 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Sun Oct 14 21:10:22 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
 # ORIGINAL ENTRY: Stefan Radermacher, Eric Smith (Maredudd), and Douglas Limmer
 # ORIGINAL ENTRY DATE: Unknown
@@ -51,14 +51,14 @@ ABILITYCATEGORY:Vow		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:N
 ABILITYCATEGORY:Ki Power	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:KiPower	PLURAL:Ki Powers			DISPLAYLOCATION:Class Abilities
 
 ###Block: Sorcerer Bloodline Bonus Feat Categories
-# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object		Specific choices list													Plural description for UI		Display Location
-ABILITYCATEGORY:Accursed Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:AccursedBloodline																	PLURAL:Accursed Bloodline Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Djinni Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:DjinniBloodline	ABILITYLIST:Skill Focus (Knowledge (Planes))									PLURAL:Djinni Bloodline Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Efreeti Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:EfreetiBloodline	ABILITYLIST:Skill Focus (Knowledge (Planes))									PLURAL:Efreeti Bloodline Feats	DISPLAYLOCATION:Feats
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object		Specific choices list																																																																Plural description for UI		Display Location
+ABILITYCATEGORY:Accursed Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:AccursedBloodline																																																																				PLURAL:Accursed Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Djinni Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:DjinniBloodline	ABILITYLIST:Skill Focus (Knowledge (Planes))																																																												PLURAL:Djinni Bloodline Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Efreeti Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:EfreetiBloodline	ABILITYLIST:Skill Focus (Knowledge (Planes))																																																												PLURAL:Efreeti Bloodline Feats	DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Maestro Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:MaestroBloodline	ABILITYLIST:Spell Focus (Enchantment)|Greater Spell Focus (Enchantment)|Skill Focus (Perform (Act))|Skill Focus (Perform (Comedy))|Skill Focus (Perform (Dance))|Skill Focus (Perform (Keyboard Instruments))|Skill Focus (Perform (Oratory))|Skill Focus (Perform (Percussion Instruments))|Skill Focus (Perform (Sing))|Skill Focus (Perform (String Instruments))|Skill Focus (Perform (Wind Instruments))	PLURAL:Maestro Bloodline Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Marid Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:MaridBloodline	ABILITYLIST:Skill Focus (Knowledge (Planes))									PLURAL:Marid Bloodline Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Rakshasa Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:RakshasaBloodline																	PLURAL:Rakshasa Bloodline Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Shaitan Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:ShaitanBloodline	ABILITYLIST:Skill Focus (Knowledge (Planes))									PLURAL:Shaitan Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Marid Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:MaridBloodline	ABILITYLIST:Skill Focus (Knowledge (Planes))																																																												PLURAL:Marid Bloodline Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Rakshasa Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:RakshasaBloodline																																																																				PLURAL:Rakshasa Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Shaitan Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:ShaitanBloodline	ABILITYLIST:Skill Focus (Knowledge (Planes))																																																												PLURAL:Shaitan Bloodline Feats	DISPLAYLOCATION:Feats
 
 ###Block: Oracle Revelations ability categories
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object						Plural description for UI			Display Location
@@ -86,13 +86,13 @@ ABILITYCATEGORY:Split Slot	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONAL
 ABILITYCATEGORY:Flexible Enhancement Bonus	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FlexibleEnhancementBonus	PLURAL:Flexible Enhancement Bonuses	DISPLAYLOCATION:Class Abilities
 
 ###Block: Wizard Elemental School Opposition Choice ability categories
-# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI			Display Location
-ABILITYCATEGORY:Metal Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MetalOpposedSchool	PLURAL:Metal Opposition School Choice	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Wood Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WoodOpposedSchool	PLURAL:Wood Opposition School Choice	DISPLAYLOCATION:Class Abilities
+# Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
+ABILITYCATEGORY:Metal Opposition School Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MetalOpposedSchool			PLURAL:Metal Opposition School Choice	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Wood Opposition School Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WoodOpposedSchool			PLURAL:Wood Opposition School Choice	DISPLAYLOCATION:Class Abilities
 
 
 
-ABILITYCATEGORY:Eldritch Heritage Bloodline Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EldritchHeritageSelection					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Eldritch Heritage Bloodline Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EldritchHeritageSelection								DISPLAYLOCATION:Feats
 
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 14 March 2012

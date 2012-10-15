@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sun Apr 22 08:08:02 2012 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision: $ $Author: $ -- Sun Oct 14 21:10:22 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
 # ORIGINAL ENTRY: ? and Douglas Limmer
 # ORIGINAL ENTRY DATE: Unknown
@@ -22,8 +22,8 @@ Companion (Wasp (Giant))	OUTPUTNAME:Giant Wasp		STARTFEATS:1	SIZE:M	MOVE:Walk,20
 
 ###Block: Black Blade
 # WORKAROUND: To overcome max skill rank based on HD, Black Blade is given 5 HD.
-# Race Name	Output Name			Starting Feats	Automatic Languages	Bonus Languages	Bonus Number of Feats	Stat bonus			Define											Monster Class Name and Starting Level	Main Race Type		Source Page		Apply Kit
-Black Blade	OUTPUTNAME:Black Blade	STARTFEATS:0	AUTO:LANG|Common		LANGBONUS:ALL	BONUS:FEAT|POOL|-2	BONUS:STAT|WIS,CHA|-4	DEFINE:LOCK.STR|10	DEFINE:LOCK.DEX|10	DEFINE:LOCK.CON|10	MONSTERCLASS:Black Blade:5			RACETYPE:Companion	SOURCEPAGE:p.47	KIT:1|Black Blade
+# Race Name	Output Name			Starting Feats	Bonus Languages	Bonus Number of Feats	Stat bonus			Automatically Gained Language	Define											Monster Class Name and Starting Level	Main Race Type		Source Page		Apply Kit
+Black Blade	OUTPUTNAME:Black Blade	STARTFEATS:0	LANGBONUS:ALL	BONUS:FEAT|POOL|-2	BONUS:STAT|WIS,CHA|-4	AUTO:LANG|Common			DEFINE:LOCK.STR|10	DEFINE:LOCK.DEX|10	DEFINE:LOCK.CON|10	MONSTERCLASS:Black Blade:5			RACETYPE:Companion	SOURCEPAGE:p.47	KIT:1|Black Blade
 
 ###Block: Familiars
 # Race Name					Output Name		Starting Feats	Size		Move					Face/Space	Reach		Combat bonus				Bonus to skill																				Stat bonus																	Weapon prof. bonus					Automatically Gained Feat	Ability																							Nb Legs	Natural Attacks																									Define				Monster Class Name and Starting Level	Main Race Type	Race Subtype		Template		Challenge Rating	Source Page		Apply Kit
