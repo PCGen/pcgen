@@ -276,16 +276,6 @@ public final class ExportHandler
 
 		// TODO Not sure
 		csheetTag2 = "\\";
-
-		// Reset the EquipmentList without Temporary Bonus equipment
-		// TODO Probably should not be altering the PC after Output!
-		// See corresponding TODO higher up
-		aPC.setCalcEquipmentList(false);
-
-		// Reset the skills back to the display prefs.
-		// TODO Probably should not be altering the PC after Output!
-		// See corresponding TODO higher up		
-		aPC.populateSkills(SettingsHandler.getSkillsTab_IncludeSkills());
 	}
 
 	/**
