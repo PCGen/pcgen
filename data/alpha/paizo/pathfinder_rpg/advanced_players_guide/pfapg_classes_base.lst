@@ -71,7 +71,10 @@ CLASS:Cavalier	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle An
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierWeaponProficiencies
 1	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierWeaponProficiencies
-1	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies
+1	AUTO:FEAT|Armor Proficiency (Heavy)|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies,TYPE.CavalierHeavyArmorProficiency
+1	AUTO:FEAT|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies,TYPE.CavalierLightArmorProficiency
+1	AUTO:FEAT|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies,TYPE.CavalierMediumArmorProficiency
+1	AUTO:FEAT|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies,TYPE.CavalierShieldProficiency
 ###Block: Vars
 1	BONUS:VAR|CavalierChallengeLVL|CL	BONUS:VAR|CavalierChallengeTimes|1+(CL/3)	BONUS:VAR|CavalierLevel|CL	
 ###Block: Level progression
