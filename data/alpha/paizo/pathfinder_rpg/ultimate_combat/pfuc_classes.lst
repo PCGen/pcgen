@@ -59,7 +59,7 @@ CLASS:Ninja		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|D
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Samurai	HD:10		TYPE:Base.PC	ABB:Gnslr		MAXLEVEL:20	SOURCEPAGE:p.9	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Samurai	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle Animal|Heal|Intimidate|Knowledge (engineering)|Knowledge (local)|Perception|TYPE=Profession|Ride|Sleight of Hand|Survival|Swim
+CLASS:Samurai	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle Animal|Heal|Intimidate|Knowledge (engineering)|Knowledge (local)|Perception|TYPE=Profession|Ride|Sleight of Hand|Survival|Swim	DEFINE:FighterWeaponQualifyLVL|CL	DEFINE:SamuraiLvl|CL
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|Samurai Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponProficiencies
@@ -86,6 +86,17 @@ CLASS:Samurai	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle An
 20	ABILITY:Special Ability|AUTOMATIC|Last Stand ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiLastStand
 ###Block:
 6	BONUS:VAR|SamuraiBonusFeat|CL/6
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker
+1	ABILITY:Special Ability|AUTOMATIC|Weapon Specialization Qualify
+1	ABILITY:Special Ability|AUTOMATIC|Disruptive Qualify
+1	ABILITY:Special Ability|AUTOMATIC|Greater Shield Focus Qualify
+1	ABILITY:Special Ability|AUTOMATIC|Greater Weapon Focus Qualify
+1	ABILITY:Special Ability|AUTOMATIC|Spellbreaker Qualify
+1	ABILITY:Special Ability|AUTOMATIC|Greater Weapon Specialization Qualify
+1	ABILITY:Special Ability|AUTOMATIC|Penetrating Strike Qualify
+1	ABILITY:Special Ability|AUTOMATIC|Critical Mastery Qualify
+1	ABILITY:Special Ability|AUTOMATIC|Greater Penetrating Strike Qualify
 
 ###Block: Monk (for adjusting unarmed damage when a feat or something adjusts the effective monk level)
 # level 1
