@@ -180,9 +180,12 @@ CLASS:Fighter	HD:10		TYPE:Base.PC	ABB:Ftr		MAXLEVEL:20	SOURCEPAGE:p.55	DEFINE:Fi
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Knowledge (Dungeoneering)|Knowledge (Engineering)|TYPE=Profession|Ride|Survival|Swim
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponProficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponProficiencies
-1																																		AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies
-1																																		AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponProficiencies
+###Block:
+1	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponProficiencies
+1	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies
+1	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies
 ###Block: Advanced Weapon Feat qualifications
 1	ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker
 1	ABILITY:Special Ability|AUTOMATIC|Weapon Specialization Qualify
