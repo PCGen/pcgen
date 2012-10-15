@@ -175,8 +175,8 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 20	CAST:4,4,4,4,4,4,4,4,4,4
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define							Save checks bonus											Combat bonus
-CLASS:Fighter	HD:10		TYPE:Base.PC	ABB:Ftr		MAXLEVEL:20	SOURCEPAGE:p.55	DEFINE:FighterLvl|CL	DEFINE:FighterLvl|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
+CLASS:Fighter	HD:10		TYPE:Base.PC	ABB:Ftr		MAXLEVEL:20	SOURCEPAGE:p.55	DEFINE:FighterLvl|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Knowledge (Dungeoneering)|Knowledge (Engineering)|TYPE=Profession|Ride|Survival|Swim
 ###Block:Proficiencies
