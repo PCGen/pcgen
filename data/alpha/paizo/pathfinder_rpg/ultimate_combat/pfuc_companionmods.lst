@@ -1,0 +1,23 @@
+
+
+
+FOLLOWER:SamuraiMountLevel=1	TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks									DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:SamuraiMountLevel=2	TYPE:Animal Companion	HD:1																																																		BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLevel=3	TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Evasion																															BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:SamuraiMountLevel=4	TYPE:Animal Companion	HD:1																															BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLevel=5	TYPE:Animal Companion	HD:1																																																		BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLevel=6	TYPE:Animal Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Devotion																														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:SamuraiMountLevel=7	TYPE:Animal Companion																																																			BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLevel=8	TYPE:Animal Companion	HD:1																																																		BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLevel=9	TYPE:Animal Companion	HD:1																		AUTO:FEAT|Multiattack										BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:SamuraiMountLevel=10	TYPE:Animal Companion	HD:1																																																		BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLevel=11	TYPE:Animal Companion																																																			BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLevel=12	TYPE:Animal Companion	HD:1																																							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:SamuraiMountLevel=13	TYPE:Animal Companion	HD:1																																																		BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLevel=14	TYPE:Animal Companion	HD:1																															BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLevel=15	TYPE:Animal Companion																																								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:SamuraiMountLevel=16	TYPE:Animal Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																																								BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLevel=17	TYPE:Animal Companion	HD:1																																																		BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLevel=18	TYPE:Animal Companion	HD:1																																							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:SamuraiMountLevel=19	TYPE:Animal Companion																																																			BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLevel=20	TYPE:Animal Companion	HD:1																															BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1

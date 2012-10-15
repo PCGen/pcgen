@@ -42,6 +42,8 @@ ABILITYCATEGORY:pfuc_abilitycategories.lst
 
 CLASS:pfuc_classes.lst
 
+COMPANIONMOD:pfuc_companionmods.lst
+
 EQUIPMENT:pfuc_equip.lst
 EQUIPMENT:pfuc_equip_close_assault_siege.lst
 EQUIPMENT:pfuc_equip_magic.lst
