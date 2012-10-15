@@ -199,10 +199,6 @@ public final class ExportHandler
 	 */
 	public void write(PlayerCharacter aPC, BufferedWriter out)
 	{
-		// Get the PC all up to date, (equipment and active bonuses etc)
-		// TODO Probably should not be altering the PC directly for Output!
-		aPC.preparePCForOutput();
-
 		// TODO Not sure why this is here, it sets the outputfilter to 
 		// be that of the character sheet template, makes no sense?
 		FileAccess.setCurrentOutputFilter(templateFile.getName());
