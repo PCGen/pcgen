@@ -66,10 +66,12 @@ CLASS:Cavalier	HD:10		TYPE:Base.PC	ABB:Cav		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURC
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cavalier	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|TYPE=Profession|Ride|Sense Motive|Swim
 ###Block:
-1	BONUS:ABILITYPOOL|Cavalier Order|1	DEFINE:CavaliarLvl|CL
+1	BONUS:ABILITYPOOL|Cavalier Order|1
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierWeaponProficiencies
+1	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierWeaponProficiencies
+1	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies
 ###Block: Vars
 1	BONUS:VAR|CavalierChallengeLVL|CL	BONUS:VAR|CavalierChallengeTimes|1+(CL/3)	BONUS:VAR|CavalierLevel|CL	
 ###Block: Level progression
@@ -79,6 +81,7 @@ CLASS:Cavalier	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle An
 1	ABILITY:Special Ability|AUTOMATIC|Tactician ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierTactician
 3	ABILITY:Special Ability|AUTOMATIC|Cavalier's Charge ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierCavaliersCharge
 4	ABILITY:Special Ability|AUTOMATIC|Expert Trainer ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierExpertTrainer
+6	ABILITY:Special Ability|AUTOMATIC|Bonus Feat ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierBonusFeat
 5	ABILITY:Special Ability|AUTOMATIC|Banner ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierBanner
 9	ABILITY:Special Ability|AUTOMATIC|Greater Tactician  ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierGreaterTactician
 11	ABILITY:Special Ability|AUTOMATIC|Mighty Charge ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierMightyCharge
@@ -86,12 +89,6 @@ CLASS:Cavalier	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle An
 14	ABILITY:Special Ability|AUTOMATIC|Greater Banner ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierGreaterBanner
 17	ABILITY:Special Ability|AUTOMATIC|Master Tactician ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierMasterTactician
 20	ABILITY:Special Ability|AUTOMATIC|Supreme Charge ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierSupremeCharge
-###Block: Archetype Support
-# Comment: TYPE.CavalierBonusFeat - Disables ALL 3 Cavalier Feats
-# Comment: TYPE.CavalierBonusFeat# with # being 6, 12 or 18 will disable the feat gained at that level.
-6	BONUS:ABILITYPOOL|Cavalier Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierBonusFeat,TYPE.CavalierCavaliersBonusFeat6
-12	BONUS:ABILITYPOOL|Cavalier Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierBonusFeat,TYPE.CavalierCavaliersBonusFeat12
-18	BONUS:ABILITYPOOL|Cavalier Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierBonusFeat,TYPE.CavalierCavaliersBonusFeat18
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page		Define							Save checks bonus											Combat bonus

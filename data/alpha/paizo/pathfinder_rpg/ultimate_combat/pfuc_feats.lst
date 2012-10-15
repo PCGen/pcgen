@@ -520,6 +520,10 @@ Vicious Stomp			TYPE:Combat																																											PREFEAT:2,
 Exotic Weapon Proficiency.MOD																																																																																																																																																																																																																																					ABILITY:Internal|AUTOMATIC|Exotic Weapon Proficiency ~ Firearms|PREFEAT:1,Exotic Weapon Proficiency (Firearms)
 
 
+###Block: Support Feat
+Gundarme Bonus Feat		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Archetype,Cavalier Archetype ~ Gundarme	PREFEAT:7,Improved Bull Rush,Mounted Combat,Power Attack,Ride-By Attack,Spirited Charge,Spring Attack,Unseat	CHOOSE:FEAT|TYPE=Combat	MULT:YES	AUTO:FEAT|%LIST
+
+
 ###Block: Wounds and Vigor Variant Feats
 # COMMENT: Need Sourcepage #
 Deathless Initiate (Vigor/Wounds)	PRERULE:1,DAMAGE_VW	SOURCEPAGE:p.207	TYPE:Combat	PRESTAT:2,STR=13,CON=13	PREFEAT:2,Diehard (Vigor/Wound),Endurance	PREATT:6	PRERACE:1,Orc,Half-Orc	DESC:For you, impending death is a call to wrath.	BENEFIT:You are not staggered when your wound points reach your wound threshold, but you lose 1 wound point if you take any action during your turn. You only take 1 wound point each round when you take actions. Furthermore, you gain a +2 bonus on melee attacks and damage rolls when your wound points are at or below your wound threshold.
@@ -532,3 +536,6 @@ Deathless Initiate.MOD			PRERULE:1,DAMAGE_HP
 Deathless Master.MOD			PRERULE:1,DAMAGE_HP
 Diehard.MOD					PRERULE:1,DAMAGE_HP
 Toughness.MOD				PRERULE:1,DAMAGE_HP
+
+
+
