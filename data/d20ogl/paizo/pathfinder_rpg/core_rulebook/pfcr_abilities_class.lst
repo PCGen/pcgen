@@ -310,7 +310,7 @@ Druid Wild Shape Progression	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO		
 
 ###Block: Fighter Internal Abilities
 # Ability Name					Category of Ability		Type			Visible	Define													Modify VAR
-Fighter Level Advanced Feat Tracker		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:FighterLVL|0											BONUS:VAR|WeaponSpecQualifyLVL,DisruptiveQualifyLVL,GreatShieldFocusQualifyLVL,GreatWeapFocusQualifyLVL,SpellbreakerQualifyLVL,GreatWeapSpecQualifyLVL,PenetratingStrikeQualifyLVL,CriticalMasteryQualifyLVL,GreatPenetratingStrikeQualifyLVL|FighterLVL
+Fighter Level Advanced Feat Tracker		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:FighterWeaponQualifyLVL|0									BONUS:VAR|WeaponSpecQualifyLVL,DisruptiveQualifyLVL,GreatShieldFocusQualifyLVL,GreatWeapFocusQualifyLVL,SpellbreakerQualifyLVL,GreatWeapSpecQualifyLVL,PenetratingStrikeQualifyLVL,CriticalMasteryQualifyLVL,GreatPenetratingStrikeQualifyLVL|FighterWeaponQualifyLVL
 Weapon Specialization Qualify			CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:WeapSpecQualify|0	DEFINE:WeaponSpecQualifyLVL|0					BONUS:VAR|WeapSpecQualify|1|PREVARGTEQ:WeaponSpecQualifyLVL,4
 Disruptive Qualify				CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:DisruptiveQualify|0	DEFINE:DisruptiveQualifyLVL|0					BONUS:VAR|DisruptiveQualify|1|PREVARGTEQ:DisruptiveQualifyLVL,6
 Greater Shield Focus Qualify			CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:GreatShieldFocusQualify|0	DEFINE:GreatShieldFocusQualifyLVL|0			BONUS:VAR|GreatShieldFocusQualify|1|PREVARGTEQ:GreatShieldFocusQualifyLVL,8

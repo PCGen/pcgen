@@ -204,6 +204,7 @@ CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|K
 2	BONUS:VAR|BraveryLVL|CL
 3	BONUS:VAR|ArmorTrainingLVL|CL
 5	BONUS:VAR|FighterWeaponTrainingLVL|CL
+1	BONUS:VAR|FighterWeaponQualifyLVL|CL
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Bonus Feats ~ Fighter|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeats
 2	ABILITY:Special Ability|AUTOMATIC|Bravery|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBravery
