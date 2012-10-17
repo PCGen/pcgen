@@ -141,7 +141,17 @@ public class FacadeFactory
 				for (String string : sources)
 				{
 					Campaign camp = Globals.getCampaignKeyed(string);
-					qcamps.addElement(camp);
+					if (camp != null)
+					{
+						qcamps.addElement(camp);
+					}
+					else
+					{
+						Logging.errorPrint("Unable to find source " + string
+							+ " used in default source " + title
+							+ " for game mode " + mode + ". " + title
+							+ " might not work correctly.");
+					}
 				}
 				quickSources.addElement(new BasicSourceSelectionFacade(mode.getDefaultSourceTitle(), qcamps, mode));
 			}
