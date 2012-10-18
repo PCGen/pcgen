@@ -147,11 +147,18 @@ public class FacadeFactory
 					}
 					else
 					{
-						Logging.errorPrint("Unable to find source " + string
-							+ " used in default source " + title
+						Logging.log(Logging.WARNING, "Unable to find source "
+							+ string + " used in default source " + title
 							+ " for game mode " + mode + ". " + title
 							+ " might not work correctly.");
 					}
+				}
+				if (qcamps.isEmpty())
+				{
+					Logging.log(Logging.WARNING,
+						"Unable to load default source '" + title
+							+ "'. All of its sources are missing.");
+					continue;
 				}
 				quickSources.addElement(new BasicSourceSelectionFacade(mode.getDefaultSourceTitle(), qcamps, mode));
 			}
@@ -206,6 +213,12 @@ public class FacadeFactory
 							" campaign not found, custom quick source '" + name +
 							"' might not work correctly.");
 				}
+			}
+			if (sources.isEmpty())
+			{
+				Logging.errorPrint("Unable to load quick source '" + name +
+					"'. All of its sources are missing");
+				continue;
 			}
 			CustomSourceSelectionFacade selection = new CustomSourceSelectionFacade(name);
 			selection.setGameMode(mode);
