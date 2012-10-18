@@ -600,6 +600,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		buildAvailableDomainsList();
 		companionSupportFacade.refreshCompanionData();
 		refreshEquipment();
+		hpRef.setReference(theCharacter.hitPoints());
 	}
 
 	/* (non-Javadoc)
@@ -611,6 +612,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		characterAbilities.removeAbility(category, ability);
 		refreshKitList();
 		companionSupportFacade.refreshCompanionData();
+		hpRef.setReference(theCharacter.hitPoints());
 	}
 
 	/* (non-Javadoc)
