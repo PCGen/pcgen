@@ -72,6 +72,7 @@ import pcgen.core.analysis.EqModAttachment;
 import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.DataSetFacade;
+import pcgen.core.facade.GameModeFacade;
 import pcgen.core.facade.SourceSelectionFacade;
 import pcgen.core.facade.UIDelegate;
 import pcgen.core.facade.util.DefaultListFacade;
@@ -90,6 +91,7 @@ import pcgen.persistence.lst.SpellLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.LoadValidator;
 import pcgen.system.ConfigurationSettings;
+import pcgen.system.FacadeFactory;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.system.PCGenTask;
@@ -1037,6 +1039,14 @@ public class SourceFileLoader extends PCGenTask implements Observer
 				}
 				// Note: This is just until we transition all settings from the legacy settings
 				SettingsHandler.setPCGenOption(key, value);
+			}
+			// Make sure any game mode settings are applied.
+			for (GameModeFacade gmFacade : FacadeFactory.getGameModes())
+			{
+				if (gmFacade instanceof GameMode)
+				{
+					((GameMode)gmFacade).applyPreferences();
+				}
 			}
 		}
 	}
