@@ -948,13 +948,24 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 				}
 			}
 
-			character.setFile(file);
-			prepareForSave(character, false);
-			if (!CharacterManager.saveCharacter(character))
+			try 
 			{
-				return showSaveCharacterChooser(character);
+				character.setFile(file);
+				prepareForSave(character, false);
+				if (!CharacterManager.saveCharacter(character))
+				{
+					return showSaveCharacterChooser(character);
+				}
+				return true;
 			}
-			return true;
+			catch (Exception e) 
+			{
+				Logging.errorPrint("Error saving character to new file " + file, e); //$NON-NLS-1$
+				delegate.showErrorMessage(
+					Constants.APPLICATION_NAME,
+					LanguageBundle.getFormattedString(
+						"in_saveFailMsg", file.getName())); //$NON-NLS-1$
+			}
 		}
 		return false;
 	}
