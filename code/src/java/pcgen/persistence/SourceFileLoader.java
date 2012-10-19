@@ -489,7 +489,8 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			verifyWeaponsMeleeOrRanged();
 
 			//  Auto-gen additional equipment
-			if (!PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_ALLOWED_IN_SOURCES))
+			if (PCGenSettings.OPTIONS_CONTEXT.initBoolean(
+				PCGenSettings.OPTION_AUTOCREATE_MW_MAGIC_EQUIP, false))
 			{
 				EquipmentList.autoGenerateEquipment();
 			}
@@ -967,7 +968,8 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			bioSetFileList.addAll(campaign.getSafeListFor(ListKey.FILE_BIO_SET));
 			loadedSet.add(campaign);
 
-			if (PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_ALLOWED_IN_SOURCES))
+			if (PCGenSettings.OPTIONS_CONTEXT.initBoolean(
+				PCGenSettings.OPTION_ALLOWED_IN_SOURCES, true))
 			{
 				setCampaignOptions(campaign);
 			}
@@ -1025,7 +1027,16 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			for (String key : keys)
 			{
 				String value = aCamp.get(MapKey.PROPERTY, key);
-				PCGenSettings.OPTIONS_CONTEXT.setProperty(key, value);
+				if (key.contains("."))
+				{
+					PCGenSettings.getInstance().setProperty(key, value);
+				}
+				else
+				{
+					PCGenSettings.OPTIONS_CONTEXT.setProperty(key, value);
+				}
+				// Note: This is just until we transition all settings from the legacy settings
+				SettingsHandler.setPCGenOption(key, value);
 			}
 		}
 	}

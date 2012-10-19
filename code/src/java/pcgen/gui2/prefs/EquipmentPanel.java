@@ -40,6 +40,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
+import pcgen.system.PCGenSettings;
 
 /**
  * The Class <code>EquipmentPanel</code> is responsible for 
@@ -220,21 +221,26 @@ public class EquipmentPanel extends PCGenPrefsPanel
 	public void setOptionsBasedOnControls()
 	{
 		SettingsHandler
-		.setMetamagicAllowedInEqBuilder(allowMetamagicInEqBuilder
-			.isSelected());
-	SettingsHandler.setMaxPotionSpellLevel(potionModel.getNumber().intValue());
-	SettingsHandler.setMaxWandSpellLevel(wandModel.getNumber().intValue());
-	SettingsHandler.setWantToLoadMasterworkAndMagic(false); // Turn it off temporarily so we can set the values
-	SettingsHandler.setAutogen(Constants.AUTOGEN_RACIAL, autoMethod1
-		.isSelected());
-	SettingsHandler.setAutogen(Constants.AUTOGEN_MASTERWORK, autoMethod2
-		.isSelected());
-	SettingsHandler.setAutogen(Constants.AUTOGEN_MAGIC, autoMethod3
-		.isSelected());
-	SettingsHandler.setAutogen(Constants.AUTOGEN_EXOTIC_MATERIAL,
-		autoMethod4.isSelected());
-	SettingsHandler.setWantToLoadMasterworkAndMagic(noAutoEquipCreate
-		.isSelected()); // Now set it properly
+			.setMetamagicAllowedInEqBuilder(allowMetamagicInEqBuilder
+				.isSelected());
+		SettingsHandler.setMaxPotionSpellLevel(potionModel.getNumber()
+			.intValue());
+		SettingsHandler.setMaxWandSpellLevel(wandModel.getNumber().intValue());
+		SettingsHandler.setWantToLoadMasterworkAndMagic(false); // Turn it off temporarily so we can set the values
+		SettingsHandler.setAutogen(Constants.AUTOGEN_RACIAL,
+			autoMethod1.isSelected());
+		SettingsHandler.setAutogen(Constants.AUTOGEN_MASTERWORK,
+			autoMethod2.isSelected());
+		SettingsHandler.setAutogen(Constants.AUTOGEN_MAGIC,
+			autoMethod3.isSelected());
+		SettingsHandler.setAutogen(Constants.AUTOGEN_EXOTIC_MATERIAL,
+			autoMethod4.isSelected());
+
+		SettingsHandler.setWantToLoadMasterworkAndMagic(noAutoEquipCreate
+			.isSelected()); // Now set it properly
+		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
+			PCGenSettings.OPTION_AUTOCREATE_MW_MAGIC_EQUIP,
+			autoEquipCreate.isSelected());
 	}
 
 	/* (non-Javadoc)
@@ -249,13 +255,14 @@ public class EquipmentPanel extends PCGenPrefsPanel
 			.getMaxPotionSpellLevel());
 		wandModel.setValue(SettingsHandler.getMaxWandSpellLevel());
 
-		if (SettingsHandler.wantToLoadMasterworkAndMagic())
+		if (PCGenSettings.OPTIONS_CONTEXT.initBoolean(
+			PCGenSettings.OPTION_AUTOCREATE_MW_MAGIC_EQUIP, false))
 		{
-			noAutoEquipCreate.setSelected(true);
+			autoEquipCreate.setSelected(true);
 		}
 		else
 		{
-			autoEquipCreate.setSelected(true);
+			noAutoEquipCreate.setSelected(true);
 		}
 
 		SettingsHandler.setWantToLoadMasterworkAndMagic(false); // Turn off temporarily so we get current setting

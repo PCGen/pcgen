@@ -204,21 +204,23 @@ public class SourcesPanel extends PCGenPrefsPanel
 	@Override
 	public void setOptionsBasedOnControls()
 	{
-		PCGenSettings.getInstance().setBoolean(
+		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
 			PCGenSettings.OPTION_AUTOLOAD_SOURCES_AT_START,
 			campLoad.isSelected());
-		PCGenSettings.getInstance().setBoolean(
+		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
 			PCGenSettings.OPTION_AUTOLOAD_SOURCES_WITH_PC, charCampLoad.isSelected());
-		SettingsHandler.setOptionAllowedInSources(allowOptsInSource
-			.isSelected());
+		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
+			PCGenSettings.OPTION_ALLOWED_IN_SOURCES, allowOptsInSource.isSelected());
 		PCGenSettings.OPTIONS_CONTEXT
 			.setBoolean(PCGenSettings.OPTION_SAVE_CUSTOM_EQUIPMENT,
 				saveCustom.isSelected());
-		PCGenSettings.getInstance().setBoolean(
+		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
 			PCGenSettings.OPTION_SHOW_LICENSE, showOGL.isSelected());
-		SettingsHandler.setShowMature(showMature.isSelected());
+		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
+			PCGenSettings.OPTION_SHOW_MATURE_ON_LOAD, showMature.isSelected());
 		SettingsHandler.setShowD20Info(showd20.isSelected());
-		SettingsHandler.setShowSponsors(showSponsors.isSelected());
+		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
+			PCGenSettings.OPTION_SHOW_SPONSORS_ON_LOAD, showSponsors.isSelected());
 		SettingsHandler.setLoadURLs(loadURL.isSelected());
 		SettingsHandler.setAllowOverride(allowOverride.isSelected());
 		UIPropertyContext.getInstance().setBoolean(
@@ -265,19 +267,22 @@ public class SourcesPanel extends PCGenPrefsPanel
 	@Override
 	public void applyOptionValuesToControls()
 	{
-		campLoad.setSelected(PCGenSettings.getInstance().initBoolean(
+		campLoad.setSelected(PCGenSettings.OPTIONS_CONTEXT.initBoolean(
 			PCGenSettings.OPTION_AUTOLOAD_SOURCES_AT_START, false));
-		charCampLoad.setSelected(PCGenSettings.getInstance().initBoolean(
+		charCampLoad.setSelected(PCGenSettings.OPTIONS_CONTEXT.initBoolean(
 			PCGenSettings.OPTION_AUTOLOAD_SOURCES_WITH_PC, true));
-		allowOptsInSource.setSelected(SettingsHandler
-			.isOptionAllowedInSources());
+		allowOptsInSource.setSelected(PCGenSettings.OPTIONS_CONTEXT.initBoolean(
+			PCGenSettings.OPTION_ALLOWED_IN_SOURCES, true));
+		
 		saveCustom.setSelected(PCGenSettings.OPTIONS_CONTEXT
 			.getBoolean(PCGenSettings.OPTION_SAVE_CUSTOM_EQUIPMENT));
-		showOGL.setSelected(PCGenSettings.getInstance().getBoolean(
+		showOGL.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(
 			PCGenSettings.OPTION_SHOW_LICENSE));
-		showMature.setSelected(SettingsHandler.showMature());
+		showMature.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(
+			PCGenSettings.OPTION_SHOW_MATURE_ON_LOAD));
 		showd20.setSelected(SettingsHandler.showD20Info());
-		showSponsors.setSelected(SettingsHandler.showSponsors());
+		showSponsors.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(
+			PCGenSettings.OPTION_SHOW_SPONSORS_ON_LOAD));
 		loadURL.setSelected(SettingsHandler.isLoadURLs());
 		allowOverride.setSelected(SettingsHandler.isAllowOverride());
 		useAdvancedSourceSelect.setSelected(!UIPropertyContext.getInstance()

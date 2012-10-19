@@ -342,7 +342,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		private boolean maybeAutoLoadSources() throws InterruptedException
 		{
 			boolean autoLoadSources =
-					PCGenSettings.getInstance().initBoolean(
+					PCGenSettings.OPTIONS_CONTEXT.initBoolean(
 						PCGenSettings.OPTION_AUTOLOAD_SOURCES_AT_START, false);
 			if (autoLoadSources)
 			{
@@ -1060,7 +1060,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			// Check if the user has asked that sources not be loaded with the character
 			boolean dontLoadSources =
 					currentSourceSelection.getReference() != null
-						&& !PCGenSettings.getInstance()
+						&& !PCGenSettings.OPTIONS_CONTEXT
 							.initBoolean(
 								PCGenSettings.OPTION_AUTOLOAD_SOURCES_WITH_PC,
 								true);
@@ -1168,7 +1168,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			// Check if the user has asked that sources not be loaded with the character
 			boolean dontLoadSources =
 					currentSourceSelection.getReference() != null
-						&& !PCGenSettings.getInstance()
+						&& !PCGenSettings.OPTIONS_CONTEXT
 							.initBoolean(
 								PCGenSettings.OPTION_AUTOLOAD_SOURCES_WITH_PC,
 								true);
@@ -1570,7 +1570,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 
 		private void showLicenses()
 		{
-			PropertyContext context = PCGenSettings.getInstance();
+			PropertyContext context = PCGenSettings.OPTIONS_CONTEXT;
 			if (context.initBoolean(PCGenSettings.OPTION_SHOW_LICENSE, true))
 			{
 				if (loader.hasOGLCampaign())
@@ -1615,7 +1615,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		{
 			htmlString = LanguageBundle.getString("in_licNoInfo"); //$NON-NLS-1$
 		}
-		final PropertyContext context = PCGenSettings.getInstance();
+		final PropertyContext context = PCGenSettings.OPTIONS_CONTEXT;
 		final JDialog aFrame = new JDialog(this, title, true);
 		final JButton jClose = new JButton(LanguageBundle.getString("in_close")); //$NON-NLS-1$
 		jClose.setMnemonic(LanguageBundle.getMnemonic("in_mn_close")); //$NON-NLS-1$
@@ -1691,7 +1691,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		jPanel3.add(jCheckBox1);
 		jPanel3.add(jClose);
 
-		final PropertyContext context = PCGenSettings.getInstance();
+		final PropertyContext context = PCGenSettings.OPTIONS_CONTEXT;
 		jCheckBox1.setSelected(context.getBoolean(PCGenSettings.OPTION_SHOW_MATURE_ON_LOAD));
 
 		jClose.addActionListener(new ActionListener()
@@ -1743,7 +1743,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		final JPanel jPanel = new JPanel();
 		final JCheckBox jCheckBox = new JCheckBox(LanguageBundle.getString("in_licShowOnLoad")); //$NON-NLS-1$
 		jPanel.add(jCheckBox);
-		final PropertyContext context = PCGenSettings.getInstance();
+		final PropertyContext context = PCGenSettings.OPTIONS_CONTEXT;
 		jCheckBox.setSelected(context.getBoolean(PCGenSettings.OPTION_SHOW_SPONSORS_ON_LOAD));
 		jCheckBox.addItemListener(new ItemListener()
 		{
