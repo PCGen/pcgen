@@ -87,7 +87,11 @@ public class UnequippedList extends AbstractListFacade<EquipmentFacade> implemen
 	@Override
 	public int getQuantity(EquipmentFacade equipment)
 	{
-		return quantityMap.get(equipment);
+		if (quantityMap.containsKey(equipment))
+		{
+			return quantityMap.get(equipment);
+		}
+		return 0;
 	}
 
 	@Override
