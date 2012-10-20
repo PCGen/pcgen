@@ -5736,17 +5736,17 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 							</fo:table-cell>
 							<fo:table-cell>
 								<fo:block text-align="center" space-before.optimum="1pt" font-size="7pt">
-									<xsl:value-of select="format-number(weight, '####0.0#')"/>
+									<xsl:value-of select="format-number(weight, '####0.#')"/>
 									<xsl:if test="quantity &gt; 1">
-										(<xsl:value-of select="format-number(weight * quantity, '####0.0#')"/>)
+										(<xsl:value-of select="format-number(weight * quantity, '####0.#')"/>)
 									</xsl:if>
 								</fo:block>
 							</fo:table-cell>
 							<fo:table-cell>
 								<fo:block text-align="center" space-before.optimum="1pt" font-size="7pt">
-									<xsl:value-of select="format-number(cost, '####0.0#')"/>
+									<xsl:value-of select="format-number(cost, '####0.#')"/>
 									<xsl:if test="quantity &gt; 1">
-										(<xsl:value-of select="format-number(cost * quantity, '####0.0#')"/>)
+										(<xsl:value-of select="format-number(cost * quantity, '####0.#')"/>)
 									</xsl:if>
 								</fo:block>
 							</fo:table-cell>

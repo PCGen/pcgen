@@ -1413,16 +1413,18 @@ Immune
 
 	<!-- Proficiency lists -->
 	<proficiency_specials>
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=ProficiencyOutputDisplay")-1,1,0|
-|IIF(ABILITYALL.Special Ability.%ability.TYPE=ProficiencyOutputDisplay)|
-		<proficiency>
-			<name>|ABILITYALL.Special Ability.%ability.TYPE=ProficiencyOutputDisplay|</name>
-			<proficient>|ABILITYALL.Special Ability.%ability.TYPE=ProficiencyOutputDisplay.ASPECT.Proficiency|</proficient>
-			<forte>|ABILITYALL.Special Ability.%ability.TYPE=ProficiencyOutputDisplay.ASPECT.Forte|</forte>
-		</proficiency>
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=ProfOutput")==0)|
+|ELSE|
+	<!--  -->
 |ENDIF|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=ProfOutput")-1,1,0|
+		<proficiency>
+			<name>|ABILITYALL.Special Ability.%ability.TYPE=ProfOutput|</name>
+			<proficient>|ABILITYALL.Special Ability.%ability.TYPE=ProfOutput.ASPECT.Proficiency|</proficient>
+			<forte>|ABILITYALL.Special Ability.%ability.TYPE=ProfOutput.ASPECT.Forte|</forte>
+		</proficiency>
 |ENDFOR|
-</proficiency_specials>
+	</proficiency_specials>
 
 <!--
 	  ====================================
