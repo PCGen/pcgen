@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Sat Oct  2 19:33:06 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Stefan Radermacher & Andrew Maitland
 
 
 ###Block: Mods
-# Feat Name					Type
+# Feat Name					Type					Modify VAR
 Martial Weapon Proficiency.MOD	TYPE:MartialWeaponProficiency
 
 #Aquatic Bonus Feats:
@@ -142,7 +142,7 @@ Trample.MOD					TYPE:MountedMastery
 Unseat.MOD					TYPE:MountedMastery
 
 # Channel Feats
-Improved Channel.MOD			BONUS:VAR|OracleChannelDC|2	BONUS:VAR|UndeadServitudeDC|2
+Improved Channel.MOD								BONUS:VAR|OracleChannelDC|2	BONUS:VAR|UndeadServitudeDC|2
 
 #
 # End

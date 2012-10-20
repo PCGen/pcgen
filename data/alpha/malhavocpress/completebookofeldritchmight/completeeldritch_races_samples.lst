@@ -1,10 +1,12 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
 
+# Race Name								Template
 Wyvern.COPY=Mist Wyvern
-Mist Wyvern.MOD	TEMPLATE:Creature of the Mist
+Mist Wyvern.MOD							TEMPLATE:Creature of the Mist
 
 Dire Animal (Dire Tiger).COPY=Stone (Dire) Tiger
-Stone (Dire) Tiger.MOD	TEMPLATE:Magical Construct|Magical Construct (Stone)
+Stone (Dire) Tiger.MOD						TEMPLATE:Magical Construct|Magical Construct (Stone)
 
 Hydra (Eleven Headed).COPY=Eleven-Headed Brass Hydra
-Eleven-Headed Brass Hydra.MOD	TEMPLATE:Magical Construct|Magical Construct (Metal)
+Eleven-Headed Brass Hydra.MOD					TEMPLATE:Magical Construct|Magical Construct (Metal)

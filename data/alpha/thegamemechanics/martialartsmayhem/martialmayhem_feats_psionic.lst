@@ -1,15 +1,15 @@
-# CVS $Revision$ $Author$ -- Fri Apr  4 21:41:43 2008 -- reformated by prettylst.pl v1.38 (build 5225)
-SOURCELONG:Martial Arts Mayhem	SOURCESHORT:Mayhem	SOURCEWEB:http://www.thegamemechanics.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Martial Arts Mayhem	SOURCESHORT:Mayhem	SOURCEWEB:http://www.thegamemechanics.com	SOURCEDATE:2003-01
 #Original Entry by: Frank Kliewe
 
 ###Block:Psionic Feats
-# Feat Name			Type						Required Feat						Required Non-Monster Lvl	Required Stat	Required Text											Define		Description													Stackable?	Multiple?	Choose				Bonus to HP				Bonus to spell cast/day				Modify VAR															Source Page
-Body Fuel			TYPE:Psionic.Battlemind.Telepath	PREFEAT:3,Wild Talent,Inner Strength,Talented																									DESC:Psionic Feat																																																	SOURCEPAGE:p.24
-Inner Strength		TYPE:Psionic.Battlemind.Telepath	PREFEAT:1,Wild Talent																										DEFINE:ISCount|0	DESC:Psionic Feat												STACK:YES	MULT:YES	CHOOSE:NOCHOICE															BONUS:VAR|BonusPowerPoints|(ISCount+1)*ISCount/2|TYPE=NonStackingBonus	BONUS:VAR|ISCount|1	SOURCEPAGE:p.26
+# Feat Name			Type						Required Feat						Required Non-Monster Lvl	Required Stat	Required Text											Define		Description													Stackable?	Multiple?	Choose							Bonus to HP				Bonus to spell cast/day				Modify VAR															Source Page
+Body Fuel			TYPE:Psionic.Battlemind.Telepath	PREFEAT:3,Wild Talent,Inner Strength,Talented																									DESC:Psionic Feat																																																				SOURCEPAGE:p.24
+Inner Strength		TYPE:Psionic.Battlemind.Telepath	PREFEAT:1,Wild Talent																										DEFINE:ISCount|0	DESC:Psionic Feat												STACK:YES	MULT:YES	CHOOSE:NOCHOICE																		BONUS:VAR|BonusPowerPoints|(ISCount+1)*ISCount/2|TYPE=NonStackingBonus	BONUS:VAR|ISCount|1	SOURCEPAGE:p.26
 Psionic Body		TYPE:Psionic				PREFEAT:1,Wild Talent					PREPCLEVEL:MAX=1																						DESC:Psionic Feat												STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|PCSTAT|CHA|DEX|INT|STR|WIS	BONUS:HP|CURRENTMAX|%LIST-CON																								SOURCEPAGE:p.28
-Psionic Dodge		TYPE:Psionic.Battlemind.Telepath	PREFEAT:2,Wild Talent,Dodge									PRESTAT:1,DEX=13	PRETEXT:You must have 5 or more reserve power points to use this feat.					DESC:Psionic Feat																																																	SOURCEPAGE:p.28
-Psionic Metabolism	TYPE:Psionic.Battlemind.Telepath	PREFEAT:2,Wild Talent,Rapid Metabolism							PRESTAT:1,CON=13																	DESC:Psionic Feat																																																	SOURCEPAGE:p.28
-Rapid Metabolism		TYPE:Psionic.Battlemind.Telepath	PREFEAT:1,Wild Talent										PRESTAT:1,CON=13																	DESC:Psionic Feat																																																	SOURCEPAGE:p.28
-Stand Still			TYPE:Psionic.Battlemind.Telepath	PREFEAT:1,Wild Talent										PRESTAT:1,STR=13	PRETEXT:You must have at least 1 reserve power point left to use this feat.				DESC:Psionic Feat																																																	SOURCEPAGE:p.29
-Talented			TYPE:Psionic.Battlemind.Telepath	PREFEAT:2,Wild Talent,Inner Strength																										DESC:Psionic Feat																										BONUS:SPELLCAST|TYPE=Psionic;LEVEL=0|3																	SOURCEPAGE:p.29
-Unfettered Eye		TYPE:Psionic.Battlemind.Telepath	PREFEAT:2,Wild Talent,Alertness											PRETEXT:You must have at least 3 reserve power points left to use this feat.				DESC:Your keen perceptions give you insight into your opponent's psychic abilities																																						SOURCEPAGE:p.29
+Psionic Dodge		TYPE:Psionic.Battlemind.Telepath	PREFEAT:2,Wild Talent,Dodge									PRESTAT:1,DEX=13	PRETEXT:You must have 5 or more reserve power points to use this feat.					DESC:Psionic Feat																																																				SOURCEPAGE:p.28
+Psionic Metabolism	TYPE:Psionic.Battlemind.Telepath	PREFEAT:2,Wild Talent,Rapid Metabolism							PRESTAT:1,CON=13																	DESC:Psionic Feat																																																				SOURCEPAGE:p.28
+Rapid Metabolism		TYPE:Psionic.Battlemind.Telepath	PREFEAT:1,Wild Talent										PRESTAT:1,CON=13																	DESC:Psionic Feat																																																				SOURCEPAGE:p.28
+Stand Still			TYPE:Psionic.Battlemind.Telepath	PREFEAT:1,Wild Talent										PRESTAT:1,STR=13	PRETEXT:You must have at least 1 reserve power point left to use this feat.				DESC:Psionic Feat																																																				SOURCEPAGE:p.29
+Talented			TYPE:Psionic.Battlemind.Telepath	PREFEAT:2,Wild Talent,Inner Strength																										DESC:Psionic Feat																													BONUS:SPELLCAST|TYPE=Psionic;LEVEL=0|3																	SOURCEPAGE:p.29
+Unfettered Eye		TYPE:Psionic.Battlemind.Telepath	PREFEAT:2,Wild Talent,Alertness											PRETEXT:You must have at least 3 reserve power points left to use this feat.				DESC:Your keen perceptions give you insight into your opponent's psychic abilities																																									SOURCEPAGE:p.29

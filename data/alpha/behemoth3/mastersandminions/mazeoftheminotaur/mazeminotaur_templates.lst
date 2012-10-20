@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Feb 14 09:37:38 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.com/	SOURCEDATE:2004-08
 #Original Entry by: Aaron Divinsky
 
@@ -46,11 +46,11 @@ Minotrice Maze Mage Favored Class (Monster)	VISIBLE:NO																										
 
 ###Block: Misc templates
 
-# Template Name	Visible	Level Adjustment				Special ABility			Define				Virtual Feat
-ECL Adjuster	VISIBLE:NO	LEVELADJUSTMENT:LevelAdjustment						DEFINE:LevelAdjustment|0
+# Template Name	Visible	Level Adjustment				Define				Ability								Virtual Feat
+ECL Adjuster	VISIBLE:NO	LEVELADJUSTMENT:LevelAdjustment	DEFINE:LevelAdjustment|0
 
 ### TODO: This should be a hidden feat but it doesn't add the feat if it is a feat
-Natural Cunning	VISIBLE:NO							ABILITY:Special Ability|AUTOMATIC|Natural Cunning						VFEAT:Track
+Natural Cunning	VISIBLE:NO												ABILITY:Special Ability|AUTOMATIC|Natural Cunning	VFEAT:Track
 
 #
 # End

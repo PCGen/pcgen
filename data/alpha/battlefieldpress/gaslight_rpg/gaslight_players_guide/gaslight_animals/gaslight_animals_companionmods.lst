@@ -1,4 +1,4 @@
-# CVS $Revision: 11298 $ $Author: amaitland $ -- Sun Feb 28 11:56:53 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision: 11298 $ $Author: amaitland $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Gaslight - Animals	SOURCESHORT:GLA	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
 #Original Entry: Andrew Maitland
 
@@ -32,8 +32,8 @@ MASTERBONUSRACE:Snake (Viper/Tiny)	TYPE:Familiar										BONUS:SKILL|Deception|
 MASTERBONUSRACE:Toad			TYPE:Familiar						BONUS:HP|CURRENTMAX|3
 
 ###Block:Animal Companion
-# Class of the Master	Type				Hit Dice	Ability										Define			Combat bonus						Stat bonus					Modify VAR
+# Class of the Master	Type				Hit Dice	Ability														Define			Combat bonus						Stat bonus					Modify VAR
 FOLLOWER:CompLevel=1	TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Share Spells
-FOLLOWER:CompLevel=3	TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Evasion									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1		BONUS:VAR|BonusTricks|1	DEFINE:BonusTricks|0
-FOLLOWER:CompLevel=6	TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Devotion								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1		BONUS:VAR|BonusTricks|1
-FOLLOWER:CompLevel=9	TYPE:Animal Companion	HD:2																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1		BONUS:VAR|BonusTricks|1
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Evasion									DEFINE:BonusTricks|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:CompLevel=6	TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Devotion												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:CompLevel=9	TYPE:Animal Companion	HD:2																					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Feb 16 22:33:24 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Eldritch Sorcery	SOURCESHORT:EldSor	SOURCEWEB:http://www.necromancergames.com/	SOURCEDATE:2005-06
 # Original Entry by: Tir Gwaith
 
@@ -9,12 +9,12 @@ SOURCELONG:Eldritch Sorcery	SOURCESHORT:EldSor	SOURCEWEB:http://www.necromancerg
 
 ###Block: General Feats
 # Feat Name				Type			Required Ability									Required Class							Required Deity	Required Feat				Req. Spell Type		Required Stat	Required Text								Var. Min. Value					Description																	Stackable?	Multiple?	Choose										Caster level					Save checks bonus		Bonus to DC				Bonus to skill				Modify VAR										Source Page
-Arcane Affinity			TYPE:General																																																						DESC:You have a knack for learning the mysteries of arcane magic.								STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|CLASS|SPELLCASTER																																							SOURCEPAGE:p.7
+Arcane Affinity			TYPE:General																																																						DESC:You have a knack for learning the mysteries of arcane magic.								STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|CLASS|SPELLCASTER																																						SOURCEPAGE:p.7
 Atheist				TYPE:General																					PREDEITY:1,N																															DESC:You disbelieve the existence of all gods to the point that divine magic has little effect on you.																																																	SOURCEPAGE:p.7
 Augment Undead			TYPE:General																								PREFEAT:1,Spell Focus (Necromancy)																									DESC:Your created or animated undead are more powerful than normal																																																							SOURCEPAGE:p.7
 Ceremonial Turning		TYPE:General	PREABILITY:1,CATEGORY=Special Ability,Turn Undead,Rebuke Undead																																											DESC:You and several others can combine your turning attempts for greater effect.																																																					SOURCEPAGE:p.7
 Disciplined				TYPE:General																																																						DESC:You have a strong mind and determination.  You are difficult to distract from your task.																									BONUS:CHECKS|Will|1						BONUS:SKILL|Concentration|2													SOURCEPAGE:p.7
-Divine Affinity			TYPE:General																																																						DESC:You have a knack for learning the mysteries of divine magic.								STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|CLASS|SPELLCASTER																																							SOURCEPAGE:p.7
+Divine Affinity			TYPE:General																																																						DESC:You have a knack for learning the mysteries of divine magic.								STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|CLASS|SPELLCASTER																																						SOURCEPAGE:p.7
 Divine Focus			TYPE:General	PREABILITY:1,CATEGORY=Special Ability,Turn Undead																									PRESTAT:1,CHA=13																		DESC:You are in tune with your deity and can affect undead more easily.																																												BONUS:VAR|TurnCheckUndead,TurnDamagePlusUndead|2|TYPE=Sacred	SOURCEPAGE:p.8
 Domain Affinity			TYPE:General																					PREDEITY:1,Y														PRETEXT:Must have alignment within one step of your deity.								DESC:You are in tune with the aspects of your patron deity, even if you are not a divine spellcaster.																																																		SOURCEPAGE:p.8
 Elemental Focus			TYPE:General																																																						DESC:Your spells with the chosen elemental descriptor are more potent than usual.					STACK:NO	MULT:YES	CHOOSE:STRING|Air|Earth|Fire|Water																	BONUS:DC|DESCRIPTOR.LIST|2																		SOURCEPAGE:p.8
@@ -29,10 +29,10 @@ Seductive Magic			TYPE:General																								PREFEAT:1,Spell Focus (Enc
 Shape Master			TYPE:General																								PREFEAT:1,Natural Spell																				PREVARGTEQ:WildShapeElementalTimes,1	DESC:Your training allows you to wild shape faster than usual																																																								SOURCEPAGE:p.9
 
 ###Block:Item Creation Feats
-# Feat Name			Type			Required Class							Required Feat				Required Skill			Req. Spell Type				Required Stat		Description																											Source Page
+# Feat Name			Type			Required Class							Required Feat				Required Skill			Req. Spell Type				Required Stat		Description																														Source Page
 Craft Magic Candle	TYPE:ItemCreation	PRECLASS:1,SPELLCASTER.Arcane=3,SPELLCASTER.Divine=3																						DESC:You can create magic candles that hold spells until triggered &lbracket;by burning out on their own or being snuffed out&rbracket;.  Magic candles function similar to potions.	SOURCEPAGE:p.10
 Craft Magic Talisman	TYPE:ItemCreation	PRECLASS:1,SPELLCASTER.Arcane=3,SPELLCASTER.Divine=3																						DESC:You can create magic fetishes &lbracket;also called charms&rbracket; that hold spells until triggered.  A talisman is a single use magic item and functions like a scroll.		SOURCEPAGE:p.10
-Master Alchemist		TYPE:ItemCreation										PREFEAT:2,Brew Potion,Herbalist	PRESKILL:1,Craft (Alchemy)=15	PRESPELLTYPE:1,Arcane=4,Divine=4	PRESTAT:1,INT=15,CHA=15	DESC:You can easily identify and collect the herbs and materials necessary for your potions.													SOURCEPAGE:p.10
+Master Alchemist		TYPE:ItemCreation										PREFEAT:2,Brew Potion,Herbalist	PRESKILL:1,Craft (Alchemy)=15	PRESPELLTYPE:1,Arcane=4,Divine=4	PRESTAT:1,INT=15,CHA=15	DESC:You can easily identify and collect the herbs and materials necessary for your potions.																SOURCEPAGE:p.10
 
 ###Block: Metamagic Feats
 # Feat Name		Required Class							Required Casting Type	Required Spell School		Req. Spell Type		Required Stat	Description													Add Spell Lvl	Source Page

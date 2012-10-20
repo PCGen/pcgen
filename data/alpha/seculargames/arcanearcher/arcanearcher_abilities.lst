@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Mon Feb 16 23:26:25 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#aa
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#aa	SOURCEDATE:2005-01
 #Originally done by Paul W. King
 
 ###Block: .MOD
@@ -8,38 +8,38 @@ SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOU
 
 ###Block: Arcane Crossbowman
 # Feat Name		Type				Visible	Special ABility					Define
-# Ability Name	Category of Ability		Type								Visible	Define				Description
-Enhance Bolt	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.ArcaneCrossbowman	VISIBLE:YES	DEFINE:EnhanceBolt|0		DESC:+%1|EnhanceBolt
-Imbue Bolt		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.ArcaneCrossbowman	VISIBLE:YES
-Phase Bolt		CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike.ArcaneCrossbowman	VISIBLE:YES	DEFINE:PhaseBoltTimes|0		DESC:%1/day|PhaseBoltTimes
-Seeker Bolt		CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike.ArcaneCrossbowman	VISIBLE:YES	DEFINE:SeekerBoltTimes|0	DESC:%1/day|SeekerBoltTimes
+# Ability Name											Unique Key					Category of Ability		Type								Visible	Define				Description
+Enhance Bolt																	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.ArcaneCrossbowman	VISIBLE:YES	DEFINE:EnhanceBolt|0		DESC:+%1|EnhanceBolt
+Imbue Bolt																		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.ArcaneCrossbowman	VISIBLE:YES
+Phase Bolt																		CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike.ArcaneCrossbowman	VISIBLE:YES	DEFINE:PhaseBoltTimes|0		DESC:%1/day|PhaseBoltTimes
+Seeker Bolt																		CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike.ArcaneCrossbowman	VISIBLE:YES	DEFINE:SeekerBoltTimes|0	DESC:%1/day|SeekerBoltTimes
 
 # Blizzard Archer
-Frost Arrow		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
-Winter Wolf Bite	CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
-Freezing Arrow	CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
-Icy Burst Arrow	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
+Frost Arrow																		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
+Winter Wolf Bite																	CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
+Freezing Arrow																	CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
+Icy Burst Arrow																	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
 
 # Deepwood Guardian
-True Strike		CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
-Arrow of Sleep	CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
-Arrow of Slow	CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
+True Strike																		CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
+Arrow of Sleep																	CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
+Arrow of Slow																	CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
 
 # Divine Archer
-Blessed Strike	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
-Sacred Power	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
-True Elf Shot	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
-Holy Enhancement	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
+Blessed Strike																	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
+Sacred Power																	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
+True Elf Shot																	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
+Holy Enhancement																	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
 
 # Eldritch Bow
 May wear light armor without incurring the normal arcane spell failure chance	KEY:Eldritch Bow Class Ability	CATEGORY:Special Ability	TYPE:SpecialQuality
 Arrow of Negation																	CATEGORY:Special Ability	TYPE:SpecialAttack
 
 # Psychic Archer
-MindBlade Psychic Strike	CATEGORY:Special Ability	TYPE:SpecialAttack			DESC:%1|PsychicStrike	DEFINE:PsychicStrike|0
-Mind Burn				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
-Arrow of Coma			CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
+MindBlade Psychic Strike															CATEGORY:Special Ability	TYPE:SpecialAttack							DEFINE:PsychicStrike|0		DESC:%1|PsychicStrike
+Mind Burn																		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
+Arrow of Coma																	CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
 
 # Untamed Hunter
-Dragon Arrow	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
-Arrow Fury		CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
+Dragon Arrow																	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
+Arrow Fury																		CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike

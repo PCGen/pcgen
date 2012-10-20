@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Mon Feb 16 22:50:33 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Forged in Magic	SOURCESHORT:FiM	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2006-06
 #Original Entry:E. C. Smith (Maredudd), 2007, Andrew Maitland
 
 ###Block: Items of Power - Unique Armor and Shields ---------------------------------------------------------------------
-# Equipment Name		Output Name						Required Armor Proficiency		Required Shield Proficiency		Type									Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier							Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Vision			Innate Spells											Combat bonus					Special Property
+# Equipment Name		Output Name						Required Armor Proficiency		Required Shield Proficiency		Type									Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier							Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Vision			Innate Spells											Combat bonus			Special Property
 Cradok Morket		OUTPUTNAME:Cradok Morket "Earthwall"							PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Magic.Heavy.Specific.Unique			COST:117594	WT:10		ACCHECK:-2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	EQMOD:GMWORKA.PLUS2S.RST_ACD_IMP			WIELD:OneHanded				SIZE:L	SOURCEPAGE:p.122	SPELLFAILURE:15						SPELLS:Shield|TIMES=2|TIMEUNIT=Day|CASTERLEVEL=11|Stone Shape|Wall of Stone	BONUS:COMBAT|AC|2|TYPE=Shield
 Crystal Armor									PROFICIENCY:ARMOR|Half-Plate								TYPE:Armor.Heavy.Suit.Specific				COST:100750	WT:50		ACCHECK:-7												EQMOD:CRYS_MUN.FIM_SCINTILL.PLUS1A.STEEL					MAXDEX:0				SOURCEPAGE:p.123	SPELLFAILURE:40																			BONUS:COMBAT|AC|7|TYPE=Armor	SPROP:Stores 17 power points. 1/day DC 20 + Power Level Psicraft check to absorb a power targeting wearer. Scintillating power.
-Lord Khidath's Guard																				TYPE:Amulet.Magic							COST:108000																																SOURCEPAGE:p.123					VISION:Darkvision (60')														BONUS:COMBAT|AC|8|TYPE=Armor			SPROP:Takes the Neck and Eye slots.
+Lord Khidath's Guard																				TYPE:Amulet.Magic							COST:108000																																SOURCEPAGE:p.123					VISION:Darkvision (60')														BONUS:COMBAT|AC|8|TYPE=Armor	SPROP:Takes the Neck and Eye slots.
 Lorica of the Black Sun								PROFICIENCY:ARMOR|Lorica Segmentata							TYPE:Armor.Medium.Suit.Specific.ExoticArmor.Lorica	COST:28600	WT:25		ACCHECK:-3												EQMOD:FRT_LGHT.GMWORKA.PLUS2A.RST_FR.STEEL				MAXDEX:4				SOURCEPAGE:p.123	SPELLFAILURE:25																			BONUS:COMBAT|AC|5|TYPE=Armor
 #
 ##EOF

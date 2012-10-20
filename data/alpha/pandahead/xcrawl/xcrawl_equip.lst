@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
-SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League	SOURCESHORT:XCrawl	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League	SOURCESHORT:XCrawl	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php	SOURCEDATE:2002-01
 
 # Equipment Name				Output Name							Type								Contains			Number of Pages	Page Usage				Cost		Weight
 Backpack (waterproof)			OUTPUTNAME:Backpack, waterproof			TYPE:Goods.Container.Resizable.AdventureGear	CONTAINS:100|Any:100									COST:15	WT:2

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct  1 00:28:13 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Eric C. Smith (Maredudd)
 
@@ -46,12 +46,12 @@ Lance (Shieldsplitter)	OUTPUTNAME:Shieldsplitter Lance	PROFICIENCY:WEAPON|Lance	
 #------Ranged---------
 
 ###Block: Ammunition
-# Equipment Name		Output Name				Type								Cost		Weight	Base Quantity	Modifier					Source Page		Special Property
-Arrow (Searing)		OUTPUTNAME:Arrow, Searing	TYPE:Ammunition.Specific.Arrow.Individual		COST:1350	WT:0.15	BASEQTY:1		EQMOD:PLUS1M.STEEL.WOOD			SOURCEPAGE:p.291	SPROP:A successful attack deals 1d6 fire damage for 3 rounds.
-Arrow (Sizzling)		OUTPUTNAME:Arrow, Sizzling	TYPE:Ammunition.Specific.Arrow.Individual		COST:1350	WT:0.15	BASEQTY:1		EQMOD:PLUS1M.STEEL.WOOD			SOURCEPAGE:p.291	SPROP:A successful attack deals 1d6 acid damage for 3 rounds.
+# Equipment Name		Output Name				Type								Cost		Weight	Base Quantity	Modifier				Source Page		Special Property
+Arrow (Searing)		OUTPUTNAME:Arrow, Searing	TYPE:Ammunition.Specific.Arrow.Individual		COST:1350	WT:0.15	BASEQTY:1		EQMOD:PLUS1M.STEEL.WOOD		SOURCEPAGE:p.291	SPROP:A successful attack deals 1d6 fire damage for 3 rounds.
+Arrow (Sizzling)		OUTPUTNAME:Arrow, Sizzling	TYPE:Ammunition.Specific.Arrow.Individual		COST:1350	WT:0.15	BASEQTY:1		EQMOD:PLUS1M.STEEL.WOOD		SOURCEPAGE:p.291	SPROP:A successful attack deals 1d6 acid damage for 3 rounds.
 
-Bolt (Tangle)		OUTPUTNAME:Bolt, Tangle		TYPE:Ammunition.Specific.Bolt.Individual		COST:60	WT:0.1	BASEQTY:1		EQMOD:PLUS1M.SEEK.STEEL.WOOD		SOURCEPAGE:p.291	SPROP:Target is entangled as if it had been hit by a tanglefoot bag.
-Bullet (Dustburst)	OUTPUTNAME:Bullet, Dustburst	TYPE:Ammunition.Specific.Bullet.Individual	COST:0.01	WT:0.5	BASEQTY:1		EQMOD:PLUS1M.STEEL			SOURCEPAGE:p.290	SPROP:Explodes into a cloud of choking dust when it strikes its target.
+Bolt (Tangle)		OUTPUTNAME:Bolt, Tangle		TYPE:Ammunition.Specific.Bolt.Individual		COST:60	WT:0.1	BASEQTY:1		EQMOD:PLUS1M.SEEK.STEEL.WOOD	SOURCEPAGE:p.291	SPROP:Target is entangled as if it had been hit by a tanglefoot bag.
+Bullet (Dustburst)	OUTPUTNAME:Bullet, Dustburst	TYPE:Ammunition.Specific.Bullet.Individual	COST:0.01	WT:0.5	BASEQTY:1		EQMOD:PLUS1M.STEEL		SOURCEPAGE:p.290	SPROP:Explodes into a cloud of choking dust when it strikes its target.
 
 
 ###Block: Cursed Weapons

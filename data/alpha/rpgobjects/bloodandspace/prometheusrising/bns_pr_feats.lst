@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Feb 17 21:52:10 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59	SOURCEDATE:2004-01
 
 # Feat Name			Type						Required Feat								Multiple Requirements						Required Skill			Required Text											Description																																					Add 			Modify VAR			Source Page
 Axe Kick			TYPE:General.MartialArtsManeuver	PREFEAT:1,Hopboxing																																		DESC:A vicious kick in which you bring your leg up above your head, then bring your heel down on your target.																											SOURCEPAGE:p.16

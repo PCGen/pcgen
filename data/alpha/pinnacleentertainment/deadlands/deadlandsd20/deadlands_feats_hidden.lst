@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Mon Jan 19 23:17:03 2009 -- reformated by prettylst.pl v1.38 (build 8180)
-SOURCELONG:Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
 
 ###Block: Agency Operative class features
 # Feat Name			Type			Visible	Special ABility					Define			Source Page
@@ -11,16 +11,16 @@ Requisition Equipment	TYPE:ClassAbility	VISIBLE:NO	SAB:Requisition Equipment				
 Black Magician Black Magic Points	TYPE:Internal	VISIBLE:NO	SAB:Black Magician max Black Magic Points (%)|BlackMagicPoints	DEFINE:BlackMagicPoints|0	SOURCEPAGE:p.124
 
 ###Block: Black Magician spells known
-# Feat Name							Type			Visible	Multiple?	Choose													Source Page
-Black Magician up to 1st level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|1	SOURCEPAGE:p.124
-Black Magician up to 2nd level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|2	SOURCEPAGE:p.124
-Black Magician up to 3rd level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|3	SOURCEPAGE:p.124
-Black Magician up to 4th level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|4	SOURCEPAGE:p.124
-Black Magician up to 5th level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|5	SOURCEPAGE:p.124
-Black Magician up to 6th level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|6	SOURCEPAGE:p.124
-Black Magician up to 7th level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|7	SOURCEPAGE:p.124
-Black Magician up to 8th level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|8	SOURCEPAGE:p.124
-Black Magician up to 9th level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|9	SOURCEPAGE:p.124
+# Feat Name							Type			Visible	Multiple?	Choose							Bonus to spell known/L		Source Page
+Black Magician up to 1st level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|1	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
+Black Magician up to 2nd level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|2	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
+Black Magician up to 3rd level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|3	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
+Black Magician up to 4th level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|4	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
+Black Magician up to 5th level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|5	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
+Black Magician up to 6th level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|6	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
+Black Magician up to 7th level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|7	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
+Black Magician up to 8th level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|8	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
+Black Magician up to 9th level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|9	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
 
 ###Block: Blessed class features
 # Feat Name			Type			Visible	Special ABility								Define					Source Page
@@ -28,16 +28,16 @@ Divine Intervention	TYPE:ClassAbility	VISIBLE:NO	SAB:Divine Intervention %/week|
 Blessed Miracle Points	TYPE:Internal	VISIBLE:NO	SAB:Blessed max Miracle Points (%)|BlessedMiraclesPoints	DEFINE:BlessedMiraclesPoints|0	SOURCEPAGE:p.24
 
 ###Block: Blessed spells known
-# Feat Name					Type			Visible	Multiple?	Choose												Source Page
-Blessed up to 1st level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|1	SOURCEPAGE:p.24
-Blessed up to 2nd level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|2	SOURCEPAGE:p.24
-Blessed up to 3rd level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|3	SOURCEPAGE:p.24
-Blessed up to 4th level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|4	SOURCEPAGE:p.24
-Blessed up to 5th level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|5	SOURCEPAGE:p.24
-Blessed up to 6th level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|6	SOURCEPAGE:p.24
-Blessed up to 7th level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|7	SOURCEPAGE:p.24
-Blessed up to 8th level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|8	SOURCEPAGE:p.24
-Blessed up to 9th level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|9	SOURCEPAGE:p.24
+# Feat Name					Type			Visible	Multiple?	Choose					Bonus to spell known/L		Source Page
+Blessed up to 1st level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|1	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.24
+Blessed up to 2nd level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|2	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.24
+Blessed up to 3rd level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|3	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.24
+Blessed up to 4th level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|4	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.24
+Blessed up to 5th level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|5	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.24
+Blessed up to 6th level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|6	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.24
+Blessed up to 7th level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|7	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.24
+Blessed up to 8th level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|8	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.24
+Blessed up to 9th level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|9	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.24
 
 
 ###Block: Brave class features
@@ -56,16 +56,16 @@ Blood Magic			TYPE:ClassAbility	VISIBLE:NO	SAB:Blood Magic									SOURCEPAGE:p.
 Huckster Hex Points	TYPE:Internal	VISIBLE:NO	SAB:Huckster max Hex Points (%)|HexPoints	DEFINE:HexPoints|0	SOURCEPAGE:p.30
 
 ###Block: Huckster spells known
-# Feat Name					Type			Visible	Multiple?	Choose												Source Page
-Huckster up to 1st level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|1	SOURCEPAGE:p.30
-Huckster up to 2nd level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|2	SOURCEPAGE:p.30
-Huckster up to 3rd level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|3	SOURCEPAGE:p.30
-Huckster up to 4th level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|4	SOURCEPAGE:p.30
-Huckster up to 5th level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|5	SOURCEPAGE:p.30
-Huckster up to 6th level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|6	SOURCEPAGE:p.30
-Huckster up to 7th level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|7	SOURCEPAGE:p.30
-Huckster up to 8th level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|8	SOURCEPAGE:p.30
-Huckster up to 9th level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|9	SOURCEPAGE:p.30
+# Feat Name					Type			Visible	Multiple?	Choose						Bonus to spell known/L		Source Page
+Huckster up to 1st level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|1	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.30
+Huckster up to 2nd level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|2	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.30
+Huckster up to 3rd level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|3	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.30
+Huckster up to 4th level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|4	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.30
+Huckster up to 5th level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|5	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.30
+Huckster up to 6th level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|6	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.30
+Huckster up to 7th level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|7	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.30
+Huckster up to 8th level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|8	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.30
+Huckster up to 9th level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|9	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.30
 
 ###Block: Mad Scientist class features
 # Feat Name		Type			Visible	Special ABility		Define		Source Page
@@ -97,16 +97,16 @@ Open Portal			TYPE:ClassAbility				VISIBLE:NO	SAB:Open Portal												SOURCEP
 Shaman Favor Points	TYPE:Internal				VISIBLE:NO	SAB:Shaman max Favor Points (%)|ShamanFavorPoints	DEFINE:ShamanFavorPoints|0	SOURCEPAGE:p.40
 
 ###Block: Shaman spells known
-# Feat Name				Type			Visible	Multiple?	Choose												Source Page
-Shaman up to 1st level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|1	SOURCEPAGE:p.40
-Shaman up to 2nd level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|2	SOURCEPAGE:p.40
-Shaman up to 3rd level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|3	SOURCEPAGE:p.40
-Shaman up to 4th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|4	SOURCEPAGE:p.40
-Shaman up to 5th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|5	SOURCEPAGE:p.40
-Shaman up to 6th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|6	SOURCEPAGE:p.40
-Shaman up to 7th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|7	SOURCEPAGE:p.40
-Shaman up to 8th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|8	SOURCEPAGE:p.40
-Shaman up to 9th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|9	SOURCEPAGE:p.40
+# Feat Name				Type			Visible	Multiple?	Choose						Bonus to spell known/L		Source Page
+Shaman up to 1st level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|1	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.40
+Shaman up to 2nd level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|2	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.40
+Shaman up to 3rd level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|3	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.40
+Shaman up to 4th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|4	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.40
+Shaman up to 5th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|5	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.40
+Shaman up to 6th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|6	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.40
+Shaman up to 7th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|7	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.40
+Shaman up to 8th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|8	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.40
+Shaman up to 9th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|9	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.40
 
 ###Block: Texas Ranger class abilities
 # Feat Name				Type			Visible	Special ABility					Define			Bonus to skill								Source Page
@@ -121,9 +121,9 @@ Chapter 13				TYPE:ClassAbility	VISIBLE:NO	SAB:Chapter 13									BONUS:SKILL|Kn
 Defensive Roll	TYPE:RogueSpecialAbilities	VISIBLE:NO		SAB:Defensive Roll																																																																														SOURCEPAGE:srdbasiccharacterclassesii.rtf
 Evasion							VISIBLE:NO		SAB:Evasion (Ex)|PHBFeatEvasion																							DEFINE:PHBFeatEvasion|var("COUNT[FEATNAME=Improved Evasion]")-1																																											SOURCEPAGE:srdbasiccharacterclassesii.rtf
 Improved Evasion	TYPE:RogueSpecialAbilities	VISIBLE:NO		SAB:Improved Evasion (Ex)																																																																													SOURCEPAGE:srdbasiccharacterclassesii.rtf
-Leadership Score	TYPE:Special			VISIBLE:NO																																																												CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Leadership Score Adjustment				BONUS:VAR|LeadershipScore|%CHOICE|PREAPPLY:PC								TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.
+Leadership Score	TYPE:Special			VISIBLE:NO																																																													CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Leadership Score Adjustment				BONUS:VAR|LeadershipScore|%CHOICE|PREAPPLY:PC								TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.
 Sneak Attack	TYPE:Special			VISIBLE:NO		SAB:Sneak Attack %1d%2|SneakAttack|SneakAttackDie																				DEFINE:SneakAttack|0	DEFINE:SneakAttackDie|6																																														SOURCEPAGE:srdbasiccharacterclassesii.rtf
-Skill Mastery	TYPE:RogueSpecialAbilities	VISIBLE:EXPORT																																																	DESC:Take 10 on listed skills, %1|%LIST	STACK:NO	MULT:YES	CHOOSE:SKILL|ALL								SELECT:3+INT									SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Skill Mastery	TYPE:RogueSpecialAbilities	VISIBLE:EXPORT																																																	DESC:Take 10 on listed skills, %1|%LIST	STACK:NO	MULT:YES	CHOOSE:SKILL|ALL									SELECT:3+INT									SOURCEPAGE:srdbasiccharacterclassesii.rtf
 Uncanny Dodge						VISIBLE:NO		SAB:Uncanny Dodge (Dex bonus to AC)|UncannyDodge	SAB:Uncanny Dodge (can't be flanked)|ImprovedUncannyDodge	SAB:Uncanny Dodge (+% against traps)|UncannyTraps	DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|max(UncannyDodge-1,0)	DEFINE:UncannyTraps|max(UncannyDodge-2,0)
 
 ###Block: Turning

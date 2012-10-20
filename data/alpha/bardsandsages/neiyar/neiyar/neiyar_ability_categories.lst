@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 11:10:13 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 #SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2005-03
 
-# Ability Category	Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
-ABILITYCATEGORY:Shalraeku Ability		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Shalraeku	PLURAL:Shalraeku Abilities	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Zarakku Ability		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Zarakku	PLURAL:Zarakku Abilities	DISPLAYLOCATION:Racial Abilities
+# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI		Display Location
+ABILITYCATEGORY:Shalraeku Ability	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Shalraeku		PLURAL:Shalraeku Abilities		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Zarakku Ability	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Zarakku		PLURAL:Zarakku Abilities		DISPLAYLOCATION:Racial Abilities
 
 
-ABILITYCATEGORY:Benevolent Spirit		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BenevolentSpirit	PLURAL:Benevolent Spirit Choices	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Benevolent Spirit	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BenevolentSpirit	PLURAL:Benevolent Spirit Choices	DISPLAYLOCATION:Racial Abilities
 #
 ## EOF
 #

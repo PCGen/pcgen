@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Tue Feb  3 00:37:38 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 # Original Entry: Andrew Maitland
 SOURCELONG:Alderac Entertainment Group (AEG) - Feats	SOURCESHORT:Feats	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-07
 
-# Template Name				Visible	Weapon prof. bonus																																					Choose								Automatically Gained Weapon Prof.												Type
-Grace Of The Fey ~ Proficient		VISIBLE:NO	BONUS:WEAPONPROF=Longsword|TOHIT|1	BONUS:WEAPONPROF=Rapier|TOHIT|1	BONUS:WEAPONPROF=Shortbow|TOHIT|1	BONUS:WEAPONPROF=Longbow|TOHIT|1	BONUS:WEAPONPROF=Shortbow (Composite)|TOHIT|1	BONUS:WEAPONPROF=Longbow (Composite)|TOHIT|1																											TYPE:FeatChoice.Internal
+# Template Name				Visible	Weapon prof. bonus																																					Choose							Automatically Gained Weapon Prof.												Type
+Grace Of The Fey ~ Proficient		VISIBLE:NO	BONUS:WEAPONPROF=Longsword|TOHIT|1	BONUS:WEAPONPROF=Rapier|TOHIT|1	BONUS:WEAPONPROF=Shortbow|TOHIT|1	BONUS:WEAPONPROF=Longbow|TOHIT|1	BONUS:WEAPONPROF=Shortbow (Composite)|TOHIT|1	BONUS:WEAPONPROF=Longbow (Composite)|TOHIT|1																										TYPE:FeatChoice.Internal
 Grace Of The Fey ~ Not Proficient	VISIBLE:NO																																									CHOOSE:WEAPONPROFICIENCY|!PC[Longsword|Rapier]	AUTO:WEAPONPROF|%LIST	AUTO:WEAPONPROF|Shortbow|Longbow|Shortbow (Composite)|Longbow (Composite)	TYPE:FeatChoice.Internal
 
 ###Block: FAVORED CLASS ADD-ON

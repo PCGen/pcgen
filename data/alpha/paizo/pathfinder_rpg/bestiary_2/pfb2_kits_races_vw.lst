@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Aug 15 01:09:39 2011 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
 
 # ORIGINAL ENTRY: Stefan Radermacher and Douglas Limmer
@@ -168,7 +168,7 @@ FEAT:Mobility
 # COMMENT: My version has an Intimidate bonus that is 3 smaller;
 # COMMENT:   did the Bestiary 2 thought Intimidate was a class skill?
 # COMMENT: The Bestiary lists CMD of 24 instead of 26.  No insight bonus?
-# NEEDS CODE WORK: The SUBCLASS tag doesn't seem to work.  
+# NEEDS CODE WORK: The SUBCLASS tag doesn't seem to work.
 # NEEDS CODE WORK:   And, it asks for the subclass twice.
 STARTPACK:Witchwyrd Default	TYPE:DefaultMonster.Witchwyrd	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Witchwyrd]	SOURCEPAGE:p.285
 RACE:Witchwyrd	!PRERACE:1,%

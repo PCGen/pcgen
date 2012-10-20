@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct  9 00:17:44 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
@@ -35,7 +35,7 @@ CLASS:Altherian Triggermage	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craf
 
 # Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Save checks bonus											Combat bonus
 CLASS:Ansharan Gatekeeper	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:AGk		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.167	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name			Required Deity	Required Feat																			Required Skill													Req. Spell Type		Required Text
+# Class Name			Required Deity	Required Feat																						Required Skill													Req. Spell Type		Required Text
 CLASS:Ansharan Gatekeeper	PREDEITY:1,Anshar	PREFEAT:1,Endurance,Great Fortitude	PREFEAT:1,Skill Focus (Knowledge (Arcana%)),Skill Focus (Knowledge (Religion%)),Skill Focus (Spellcraft)	PRESKILL:1,TYPE.Religion=8	PRESKILL:1,TYPE.Arcana=6	PRESKILL:1,Spellcraft=10	PRESPELLTYPE:1,Arcane=2	PRETEXT:Must be able to activate a portal of Anshar.  Must be attuned to at least 15 portals.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Ansharan Gatekeeper	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Gather Information|TYPE=Arcana|TYPE=Geography|TYPE=Planes|TYPE=Religion|Listen|Open Lock|TYPE=Profession|Search|Sense Motive|Spellcraft
@@ -80,9 +80,9 @@ CLASS:Beltinian Exorcist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diploma
 3												ABILITY:Special Ability|AUTOMATIC|To Rip the Spirit from the Flesh
 4												ABILITY:Special Ability|AUTOMATIC|Sanctified Ward
 5												ABILITY:Special Ability|AUTOMATIC|To Banish the Restless
-6																							AUTO:FEAT|Extra Turning
+6																								AUTO:FEAT|Extra Turning
 7												ABILITY:Special Ability|AUTOMATIC|Holy Presence
-8																							AUTO:FEAT|Extra Turning
+8																								AUTO:FEAT|Extra Turning
 9												ABILITY:Special Ability|AUTOMATIC|Greater Sanctified Ward
 10												ABILITY:Special Ability|AUTOMATIC|Rend the Spirit
 
@@ -96,10 +96,10 @@ CLASS:Blackchanter	PREABILITY:1,CATEGORY=Special Ability,Bardic Music	!PREALIGN:
 CLASS:Blackchanter	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Diplomacy|Gather Information|Jump|TYPE=Knowledge|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Speak Language|Spellcraft|Swim|Tumble
 1:REPEATLEVEL:1									ADD:SPELLCASTER|Arcane
 1			BONUS:ABILITYPOOL|Blackchanter Skill Focus|1
-2																						ABILITY:Special Ability|AUTOMATIC|Requiem
-3			BONUS:ABILITYPOOL|Blackchanter Skill Focus|1								
-4																						ABILITY:Special Ability|AUTOMATIC|Elemental Savant (Positive Energy)
-5																						ABILITY:Special Ability|AUTOMATIC|Dance Macabre
+2															ABILITY:Special Ability|AUTOMATIC|Requiem
+3			BONUS:ABILITYPOOL|Blackchanter Skill Focus|1
+4															ABILITY:Special Ability|AUTOMATIC|Elemental Savant (Positive Energy)
+5															ABILITY:Special Ability|AUTOMATIC|Dance Macabre
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
@@ -109,11 +109,11 @@ CLASS:Bowman	HD:8		TYPE:PC.Prestige	ABB:Bow		MAXLEVEL:10	SOURCELONG:Player's Gui
 CLASS:Bowman	PREATT:5	PREFEAT:4,Iron Will,Precise Shot,Point Blank Shot,Rapid Shot	PREFEAT:1,Weapon Focus (TYPE=Bow)	PRESKILL:2,Balance=4,Spot=4	PRESKILL:1,Craft (Fletcher)=4,Craft (Bowmaking)=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bowman	STARTSKILLPTS:2	CSKILL:Climb|Craft (Bowmaking)|Craft (Fletcher)|Jump|Listen|TYPE=Profession|Ride|Search|Spot|Survival|Swim|Use Rope
-1									ABILITY:Special Ability|AUTOMATIC|Arrow Stab|Lightning Draw|Warrior's Path	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1									ABILITY:Special Ability|AUTOMATIC|Arrow Stab|Lightning Draw|Warrior's Path	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
 2:REPEATLEVEL:3	BONUS:VAR|RangedSneakAttack|1
 2			BONUS:VAR|RangedSneakDistance|60	ABILITY:Special Ability|AUTOMATIC|Ranged Sneak Attack
 3									ABILITY:Special Ability|AUTOMATIC|Focused Training BM
-4																																		AUTO:FEAT|Improved Precise Shot
+4																																														AUTO:FEAT|Improved Precise Shot
 6									ABILITY:Special Ability|AUTOMATIC|Hold the Line
 7									ABILITY:Special Ability|AUTOMATIC|Inner Focus
 9									ABILITY:Special Ability|AUTOMATIC|Hail of Arrows
@@ -127,7 +127,7 @@ CLASS:Brethren of the Order of St. Theomund	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	
 CLASS:Brethren of the Order of St. Theomund	PREALIGN:LG,LN,NG,TN	PREATT:4	PREFEAT:2,Iron Will,Combat Expertise	PRESKILL:1,TYPE.Religion=4	PRETEXT:Must follow the teachings of the Church of Coryan and must be accepted by the order.  Must swear an oath of fealty to the and faith to the Mother Church.
 # Class Name						Skill Pts/Lvl	Class Skill
 CLASS:Brethren of the Order of St. Theomund	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Jump|TYPE=Arcana|TYPE=History|TYPE=Religion|TYPE=Profession|Ride|Sense Motive|Spellcraft|Swim
-1			BONUS:ABILITYPOOL|Fighter Feat|1										ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker	ABILITY:Special Ability|AUTOMATIC|Unshakable Dogma	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1			BONUS:ABILITYPOOL|Fighter Feat|1										ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker	ABILITY:Special Ability|AUTOMATIC|Unshakable Dogma	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency
 2:REPEATLEVEL:1												ADD:SPELLCASTER|Divine
 2:REPEATLEVEL:2							BONUS:VAR|StewardBonus|2
 2																		ABILITY:Special Ability|AUTOMATIC|Divine Stewardship
@@ -142,7 +142,7 @@ CLASS:Cantenari	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:Cant		MAXLEVEL:10	SOURCE
 CLASS:Cantenari	PREABILITY:1,CATEGORY=Special Ability,Favored Enemy (Tainted Creatures)	PREALIGN:LG,LN,LE	PREATT:6	PREFEAT:2,Iron Will,Track	PREITEM:1,TYPE=Sarishan	PRESKILL:2,TYPE.Planes=5,Survival=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cantenari	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Gather Information|Hide|TYPE=Planes|Listen|Move Silently|Ride|Spot|Search|Sense Motive|Survival
-1										ABILITY:Special Ability|AUTOMATIC|Infernal Enemy|Presence of the Infernal	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1										ABILITY:Special Ability|AUTOMATIC|Infernal Enemy|Presence of the Infernal	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency
 2:REPEATLEVEL:2		BONUS:VAR|ResilienceLevel|1
 2										ABILITY:Special Ability|AUTOMATIC|Resilience Ex
 3										ABILITY:Special Ability|AUTOMATIC|Mark of My Brother
@@ -162,7 +162,7 @@ CLASS:Centurion	HD:10		TYPE:PC.Prestige	ABB:Cent		MAXLEVEL:10	SOURCELONG:Player'
 CLASS:Centurion	PREALIGN:LG,LN,LE,NG,TN,NE	PREATT:5	PREFEAT:2,Leadership,Legionnaire	PREREGION:Coryan	PRESKILL:1,Concentration=2	PRESKILL:2,Intimidate=5,TYPE.History=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Centurion	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Jump|TYPE=History|TYPE=Profession|Ride|Sense Motive|Spot|Swim
-1								BONUS:ABILITYPOOL|Fighter Feat|CL/3														ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1								BONUS:ABILITYPOOL|Fighter Feat|CL/3														ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency
 1																											ABILITY:Special Ability|AUTOMATIC|Strength Coryani Heart Ability
 2																											ABILITY:Special Ability|AUTOMATIC|Aura of Courage
 3:REPEATLEVEL:3															BONUS:VAR|FighterLVL|CL							ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker
@@ -182,7 +182,7 @@ CLASS:Emerald Society Archaeologist	!PREABILITY:1,CATEGORY=Special Ability,Illit
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Emerald Society Archaeologist	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Gather Information|Hide|TYPE=Knowledge|Listen|Open Lock|TYPE=Profession|Research|Ride|Search|Sense Motive|Speak Language|Survival|Swim|Use Magic Device|Use Rope
 1			BONUS:ABILITYPOOL|Special Ability|Emerald Proficiency|1						ABILITY:Special Ability|AUTOMATIC|Ancient Lore
-1:REPEATLEVEL:2																BONUS:ABILITYPOOL|Subject Specialization|1
+1:REPEATLEVEL:2	BONUS:ABILITYPOOL|Subject Specialization|1
 2																		ABILITY:Special Ability|AUTOMATIC|Investigator
 3													BONUS:VAR|TrapSense|CL/3	ABILITY:Special Ability|AUTOMATIC|Find the Past|Trap Sense Ability
 4																		ABILITY:Special Ability|AUTOMATIC|Knowledge Mastery
@@ -223,7 +223,7 @@ SUBCLASS:Thracian		COST:0
 SUBCLASSLEVEL:1										ABILITY:Special Ability|AUTOMATIC|Thracian CS
 SUBCLASSLEVEL:4										ABILITY:Special Ability|AUTOMATIC|Thracian ICS
 SUBCLASSLEVEL:8										ABILITY:Special Ability|AUTOMATIC|Thracian CSM
-1												ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies																																																																																AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1												ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies																																																																				AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency
 1												ABILITY:Special Ability|AUTOMATIC|GladiatorUDAM1
 2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
 3																																																														VFEAT:Endurance|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
@@ -264,12 +264,12 @@ CLASS:Hurrianic Aegis	PREALIGN:LG,LN,NG,TN,CG,CN	PRECHECKBASE:1,Fortitude=5	PRED
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Hurrianic Aegis	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion/Hurrian)|TYPE=Nature|TYPE=Profession|Sense Motive|Spellcraft|Survival
 1:REPEATLEVEL:2	BONUS:COMBAT|AC|1|TYPE=Deflection
-1													ABILITY:Special Ability|AUTOMATIC|Hurrian's Shield					AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Tower Shield Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1													ABILITY:Special Ability|AUTOMATIC|Hurrian's Shield	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Tower Shield Proficiency
 2:REPEATLEVEL:1							ADD:SPELLCASTER|Divine
 2													ABILITY:Special Ability|AUTOMATIC|Grtr Domain Focus(Refuge)|Toughness Ability
 3													ABILITY:Special Ability|AUTOMATIC|Spontaneous Shield Other
 4													ABILITY:Special Ability|AUTOMATIC|Hurrian's Wall
-5:REPEATLEVEL:3																								AUTO:FEAT|Improved Toughness
+5:REPEATLEVEL:3																																AUTO:FEAT|Improved Toughness
 5													ABILITY:Special Ability|AUTOMATIC|Extra Protection Domain Spell
 6													ABILITY:Special Ability|AUTOMATIC|Mass Shield Other Ability
 7													ABILITY:Special Ability|AUTOMATIC|Hurrian's Fortress
@@ -305,7 +305,7 @@ CLASS:Man-at-Arms	PREALIGN:LG,LN,NG,TN	PREATT:4	PREFEAT:2,Alertness,Lightning Re
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Man-at-Arms	STARTSKILLPTS:4	CSKILL:Climb|Diplomacy|Jump|Handle Animal|Intimidate|TYPE=Geography|TYPE=History|TYPE=Local|TYPE=Nobility|Listen|TYPE=Profession|Ride|Sense Motive|Spot|Swim
 1									ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker
-1									ABILITY:Special Ability|AUTOMATIC|Respected Authority	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1									ABILITY:Special Ability|AUTOMATIC|Respected Authority	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency
 2									ABILITY:Special Ability|AUTOMATIC|Organize
 3:REPEATLEVEL:3	BONUS:ABILITYPOOL|Fighter Feat|1
 3									ABILITY:Special Ability|AUTOMATIC|Faithful Bodyguard
@@ -325,17 +325,17 @@ CLASS:Master of the Hounds	PREATT:5	PREFEAT:1,Track	PREFEAT:1,Gentry (Val),Gentr
 CLASS:Master of the Hounds	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Jump|TYPE=Nature|TYPE=Nobility|Listen|TYPE=Profession|Ride|Search|Spellcraft|Spot|Survival|Swim|Use Rope
 # Class Name			Spell Stat		Spell Type		Caster level
 CLASS:Master of the Hounds	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Master of the Hounds|CL
-1																								SPELLLEVEL:CLASS|Master of the Hounds=1|Calm Animals,Charm Animal,Command,Cure Light Wounds,Jump,Longstrider,Mage Armor,Magic Fang,Summon Nature's Ally I (MoH)
+1																									SPELLLEVEL:CLASS|Master of the Hounds=1|Calm Animals,Charm Animal,Command,Cure Light Wounds,Jump,Longstrider,Mage Armor,Magic Fang,Summon Nature's Ally I (MoH)
 1			CAST:0,0							ABILITY:Special Ability|AUTOMATIC|Hound Companion|Status|Wild Empathy (Canines)
 2			CAST:0,1							ABILITY:Special Ability|AUTOMATIC|Head of the Pack
-3																								SPELLLEVEL:CLASS|Master of the Hounds=2|Aid,Bear's Endurance,Bull's Strength,Cure Moderate Wounds,Daze Monster,Heroism,Hold Animal,Summon Nature's Ally II (MoH)
+3																									SPELLLEVEL:CLASS|Master of the Hounds=2|Aid,Bear's Endurance,Bull's Strength,Cure Moderate Wounds,Daze Monster,Heroism,Hold Animal,Summon Nature's Ally II (MoH)
 3			CAST:0,1,0
 4			CAST:0,2,1							ABILITY:Special Ability|AUTOMATIC|Augment Summoning Ability (Canines)
-5																								SPELLLEVEL:CLASS|Master of the Hounds=3|Blink,Deep Slumber,Dominate Animal,Haste,Magic Fang (Greater),Summon Nature's Ally III (MoH)
+5																									SPELLLEVEL:CLASS|Master of the Hounds=3|Blink,Deep Slumber,Dominate Animal,Haste,Magic Fang (Greater),Summon Nature's Ally III (MoH)
 5			CAST:0,2,1,0						ABILITY:Special Ability|AUTOMATIC|Hamstring
 5:REPEATLEVEL:5				BONUS:VAR|HamstringBonus|1
 6			CAST:0,3,2,1						ABILITY:Special Ability|AUTOMATIC|Unwavering Devotion
-7																								SPELLLEVEL:CLASS|Master of the Hounds=4|Animal Growth,Charm Monster,Cure Serious Wounds,Freedom of Movement,Mage's Faithful Hound,Summon Nature's Ally IV (MoH)
+7																									SPELLLEVEL:CLASS|Master of the Hounds=4|Animal Growth,Charm Monster,Cure Serious Wounds,Freedom of Movement,Mage's Faithful Hound,Summon Nature's Ally IV (MoH)
 7			CAST:0,3,2,1,0						ABILITY:Special Ability|AUTOMATIC|Superior Breed
 8			CAST:0,4,3,2,1						ABILITY:Special Ability|AUTOMATIC|Pack Tactics
 9			CAST:0,4,3,2,2						ABILITY:Special Ability|AUTOMATIC|Lone Wolf
@@ -367,7 +367,7 @@ CLASS:Myrmidon	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:Myr		MAXLEVEL:10	SOURCEL
 CLASS:Myrmidon	PREATT:5	PREFEAT:5,Armor Proficiency (Medium),Cleave,Dodge,Iron Will,Power Attack,Weapon Focus (TYPE=Melee)	PREWEAPONPROF:10,TYPE.Martial
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Myrmidon	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Examine Martial Technique|Handle Animal|Heal|Intimidate|Jump|Listen|Ride|Swim
-1				ABILITY:Special Ability|AUTOMATIC|Great Cleave Ability	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1				ABILITY:Special Ability|AUTOMATIC|Great Cleave Ability	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
 2				ABILITY:Special Ability|AUTOMATIC|Aggressive Negotiations Ability|Heedless Assault Ability
 3				ABILITY:Special Ability|AUTOMATIC|Dedicated Training
 4				ABILITY:Special Ability|AUTOMATIC|Relentless
@@ -403,16 +403,16 @@ CLASS:Onaran Templar	PREATT:5	PREFEAT:2,Iron Will,Church Education	PRESKILL:1,TY
 CLASS:Onaran Templar	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Jump|TYPE=History|TYPE=Religion|TYPE=Profession|Ride|Sense Motive|Spellcraft|Swim
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels																																											Caster level
 CLASS:Onaran Templar	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:Aid|Bear's Endurance|Beltine's Blessed Strike|Bless|Bless Weapon|Bull's Strength|Cat's Grace|Cure Light Wounds|Cure Moderate Wounds|Death Ward|Dispel Magic|Divine Favor|Divine Smite|Magic Weapon|Magic Weapon (Greater)|Prayer|Restoration|Restoration (Lesser)|Sword of Faith	BONUS:CASTERLEVEL|Onaran Templar|CL
-1																																																																													SPELLLEVEL:CLASS|Onaran Templar=1|Bless,Bless Weapon,Cure Light Wounds,Divine Favor,Magic Weapon,Restoration (Lesser)
-1					CAST:0,1																				ABILITY:Special Ability|AUTOMATIC|Relentless	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-2																																																																													SPELLLEVEL:CLASS|Onaran Templar=2|Aid,Bear's Endurance,Bull's Strength,Cat's Grace
+1																																																																																					SPELLLEVEL:CLASS|Onaran Templar=1|Bless,Bless Weapon,Cure Light Wounds,Divine Favor,Magic Weapon,Restoration (Lesser)
+1					CAST:0,1																				ABILITY:Special Ability|AUTOMATIC|Relentless	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency
+2																																																																																					SPELLLEVEL:CLASS|Onaran Templar=2|Aid,Bear's Endurance,Bull's Strength,Cat's Grace
 2					CAST:0,1,0																				ABILITY:Special Ability|AUTOMATIC|Religious Fury
 2:REPEATLEVEL:4|SKIP=0|MAX=6										BONUS:VAR|ReligiousFuryTimes|1
 3					CAST:0,1,1																				ABILITY:Special Ability|AUTOMATIC|Strength of the Spirit
-4																																																																													SPELLLEVEL:CLASS|Onaran Templar=3|Cure Moderate Wounds,Dispel Magic,Magic Weapon (Greater),Prayer
+4																																																																																					SPELLLEVEL:CLASS|Onaran Templar=3|Cure Moderate Wounds,Dispel Magic,Magic Weapon (Greater),Prayer
 4					CAST:0,1,1,0	DOMAIN:War	BONUS:DOMAIN|NUMBER|1													ABILITY:Special Ability|AUTOMATIC|Unshakable Dogma
 5					CAST:0,2,1,1
-6																																																																													SPELLLEVEL:CLASS|Onaran Templar=4|Beltine's Blessed Strike,Death Ward,Divine Smite,Restoration,Sword of Faith
+6																																																																																					SPELLLEVEL:CLASS|Onaran Templar=4|Beltine's Blessed Strike,Death Ward,Divine Smite,Restoration,Sword of Faith
 6					CAST:0,2,2,1,0
 7					CAST:0,3,2,1,1													ADD:FEAT|Weapon Specialization
 8					CAST:0,3,3,2,2
@@ -430,12 +430,12 @@ CLASS:Order of the Still Heart	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|D
 1											ABILITY:Special Ability|AUTOMATIC|Path Taken									AUTO:FEAT|Toughness
 2:REPEATLEVEL:1					ADD:SPELLCASTER|ANY
 2											ABILITY:Special Ability|AUTOMATIC|Lure of Darkness|Morbidity OSH|Tireless OSH
-3											ABILITY:Special Ability|AUTOMATIC|My Kin Feed Elsewhere								AUTO:FEAT|Improved Toughness
+3											ABILITY:Special Ability|AUTOMATIC|My Kin Feed Elsewhere							AUTO:FEAT|Improved Toughness
 4			BONUS:VAR|FastHealing|2					ABILITY:Special Ability|AUTOMATIC|Fast Healing
 5											ABILITY:Special Ability|AUTOMATIC|Daughter of Death								AUTO:FEAT|Improved Toughness
 6																								TEMPLATE:Undead
 8																											AUTO:FEAT|Improved Toughness
-10											ABILITY:Special Ability|AUTOMATIC|Angel of Death									AUTO:FEAT|Improved Toughness
+10											ABILITY:Special Ability|AUTOMATIC|Angel of Death								AUTO:FEAT|Improved Toughness
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
@@ -463,7 +463,7 @@ CLASS:Pistoleer	HD:8		TYPE:PC.Prestige	ABB:Pstlr		MAXLEVEL:5	SOURCELONG:Player's
 CLASS:Pistoleer	PREATT:5	PREFEAT:3,Point Blank Shot,Two Weapon Fighting,Weapon Focus (Altherian Flintlock (Pistol))	PRESKILL:2,Concentration=5,Craft (Flintlocks)=5	PREWEAPONPROF:1,Altherian Flintlock (Pistol)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Pistoleer	STARTSKILLPTS:2	CSKILL:Balance|Climb|Craft (Flintlocks)|Intimidate|Jump|Listen|TYPE=Profession|Ride|Sense Motive|Spot|Swim|Tumble
-1	ABILITY:Special Ability|AUTOMATIC|Two-Handed Quick Draw	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Two-Handed Quick Draw	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
 2	ABILITY:Special Ability|AUTOMATIC|Focused Training PL
 3	ABILITY:Special Ability|AUTOMATIC|Lightning Hands|Steady Hands
 4	ABILITY:Special Ability|AUTOMATIC|Dead Shot
@@ -477,12 +477,12 @@ CLASS:Royal Marine of Milandir	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:RMoM		MA
 CLASS:Royal Marine of Milandir	PREALIGN:LG,LN,LE	PREATT:7	PREFEAT:3,Armor Proficiency (Heavy),Improved Bull Rush,Iron Will	PREREGION:Milandir	PRESKILL:1,Diplomacy=4	PRESKILL:1,Swim=8	PRETEXT:Must be an Officer in the Royal Navy.	PREWEAPONPROF:1,Trident
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Royal Marine of Milandir	STARTSKILLPTS:2	CSKILL:Balance|Climb|Diplomacy|Jump|TYPE=Local|TYPE=Geography|TYPE=Profession|Swim|Use Rope
-1								ABILITY:Special Ability|AUTOMATIC|Distinction	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Weapon Focus(Trident)	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1								ABILITY:Special Ability|AUTOMATIC|Distinction	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Weapon Focus(Trident)
 1:REPEATLEVEL:4	BONUS:VAR|DistinctionLevel|1
 2								ABILITY:Special Ability|AUTOMATIC|Shake Off Armor
 3								ABILITY:Special Ability|AUTOMATIC|Superior Bull Rush
 4								ABILITY:Special Ability|AUTOMATIC|Armor Mobility|Pillar of Courage
-5								ABILITY:Special Ability|AUTOMATIC|Martyr's Heart													AUTO:FEAT|Weapon Specialization(Trident)
+5								ABILITY:Special Ability|AUTOMATIC|Martyr's Heart																								AUTO:FEAT|Weapon Specialization(Trident)
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
@@ -532,7 +532,7 @@ CLASS:Sky Knight	PREATT:5	PREFEAT:3,Mounted Combat,Lightning Reflexes,Ride By At
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sky Knight	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE=Craft|Handle Animal|TYPE=Nature|TYPE=Profession|Ride|Spot|Tumble
 # bonded companion updates NOT coded
-1	ABILITY:Special Ability|AUTOMATIC|Bonded Companion	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Bonded Companion	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency
 3	ABILITY:Special Ability|AUTOMATIC|Gifted Mount|Masterful Rider
 4	ABILITY:Special Ability|AUTOMATIC|Falcon's Grace
 5	ABILITY:Special Ability|AUTOMATIC|Call Bonded Companion
@@ -560,7 +560,7 @@ CLASS:Tal Kanath	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:TalK		MAXLEVEL:5	SOURCE
 CLASS:Tal Kanath	PREABILITY:1,CATEGORY=Special Ability,Evasion	PREALIGN:LG,LN,LE	PREATT:8	PREFEAT:4,Combat Expertise,Dodge,Mobility,Spring Attack,Whirlwind Attack	PREFEAT:1,Weapon Focus (TYPE=Sword)	PRERACE:1,Elorii	PRESKILL:3,Jump=4,Tumble=4,Perform (Dance)=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Tal Kanath	STARTSKILLPTS:4	CSKILL:Balance|Jump|Hide|Listen|Move Silently|TYPE=Perform|Spot|Tumble
-1	ABILITY:Special Ability|AUTOMATIC|Armor Bonus Ability|The First Steps	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Armor Bonus Ability|The First Steps	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)
 2	ABILITY:Special Ability|AUTOMATIC|Dance of Air
 3	ABILITY:Special Ability|AUTOMATIC|Dance of Fire
 4	ABILITY:Special Ability|AUTOMATIC|Dance of Water
@@ -574,10 +574,10 @@ CLASS:Talon of the Hawk	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:TotHk		MAXLEVEL:
 CLASS:Talon of the Hawk	PREABILITY:1,CATEGORY=Special Ability,Favored Enemy (Ymandrakes)	PREATT:5	PREFEAT:2,Spell Penetration,Improved Counterspell	PRESKILL:1,Concentration=8	PRESKILL:2,TYPE.Arcana=5,Spellcraft=5	PRESKILL:1,Survival=4	PRETEMPLATE:1,Hawk
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Talon of the Hawk	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Diplomacy|Examine Martial Technique|Gather Information|Hide|Intimidate|Jump|TYPE=Arcana|TYPE=History|Listen|Move Silently|TYPE=Profession|Ride|Sense Motive|Survival|Spot|Swim|Tumble|Use Magic Device
-1			BONUS:VAR|SneakAttack|1+(CL>=2)+(CL>=5)+(CL>=10)	BONUS:VAR|DispelFocus|2+(2*(CL>=8))	DEFINE:DispelFocus|0					ABILITY:Special Ability|AUTOMATIC|Dispel Focus	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|Sneak Attack	AUTO:FEAT|Armor Proficiency (Light)|Shield Proficiency|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1			BONUS:VAR|SneakAttack|1+(CL>=2)+(CL>=5)+(CL>=10)	BONUS:VAR|DispelFocus|2+(2*(CL>=8))	DEFINE:DispelFocus|0					ABILITY:Special Ability|AUTOMATIC|Dispel Focus	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|Sneak Attack	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Shield Proficiency|Simple Weapon Proficiency
 1:REPEATLEVEL:1																				ADD:SPELLCASTER|Arcane
 1:REPEATLEVEL:8	BONUS:VAR|DispelFocus|2
-2																																																AUTO:FEAT|Armored Caster
+2																																																												AUTO:FEAT|Armored Caster
 4																										ABILITY:Special Ability|AUTOMATIC|Favored Enemy (Ymandrakes)
 4:REPEATLEVEL:2	BONUS:VAR|FavoredYmandrakes|2
 5																										ABILITY:Special Ability|AUTOMATIC|Arcane Savant (Dispel Magic)
@@ -596,14 +596,14 @@ CLASS:Ulfilan Ranger	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Handl
 CLASS:Ulfilan Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Ulfilan Ranger|CL
 
 # Resist Elements listed as a spell - doesn't exist anywhere, not mentioned in errata
-1																																													SPELLLEVEL:CLASS|Ulfilan Ranger=1|Alarm,Detect Animals or Plants,Detect Snares and Pits,Feather Fall,Jump,Pass without Trace,Shillelagh UR
-1	CAST:0,1		ABILITY:Special Ability|AUTOMATIC|Homeland Advantage	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Simple Weapon Proficiency	AUTO:WEAPONPROF|Quarterstaff	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1																																																					SPELLLEVEL:CLASS|Ulfilan Ranger=1|Alarm,Detect Animals or Plants,Detect Snares and Pits,Feather Fall,Jump,Pass without Trace,Shillelagh UR
+1	CAST:0,1		ABILITY:Special Ability|AUTOMATIC|Homeland Advantage	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Simple Weapon Proficiency	AUTO:WEAPONPROF|Quarterstaff
 2	CAST:0,1		ABILITY:Special Ability|AUTOMATIC|Hurrian's Might
 # Protection from Elements listed as a spell - doesn't exist anywhere, not mentioned in errata
-3																																													SPELLLEVEL:CLASS|Ulfilan Ranger=2|Cure Light Wounds,Delay Poison,Heat Metal,Shocking Grasp,Spider Climb
+3																																																					SPELLLEVEL:CLASS|Ulfilan Ranger=2|Cure Light Wounds,Delay Poison,Heat Metal,Shocking Grasp,Spider Climb
 3	CAST:0,2,1
-4	CAST:0,2,1		ABILITY:Special Ability|AUTOMATIC|Storm Domain																																		SPELLLEVEL:CLASS|Ulfilan Ranger=1|Alter Wind|Ulfilan Ranger=2|Endure Elements|Ulfilan Ranger=3|Lightning Bolt|Ulfilan Ranger=4|Call Lightning Storm|Ulfilan Ranger=5|Control Winds|Ulfilan Ranger=6|Wind Walk|Ulfilan Ranger=7|Control Weather|Ulfilan Ranger=8|Whirlwind|Ulfilan Ranger=9|Storm of Vengeance
-5																																													SPELLLEVEL:CLASS|Ulfilan Ranger=3|Call Lightning,Commune with Nature,Gust of Wind
+4	CAST:0,2,1		ABILITY:Special Ability|AUTOMATIC|Storm Domain																																										SPELLLEVEL:CLASS|Ulfilan Ranger=1|Alter Wind|Ulfilan Ranger=2|Endure Elements|Ulfilan Ranger=3|Lightning Bolt|Ulfilan Ranger=4|Call Lightning Storm|Ulfilan Ranger=5|Control Winds|Ulfilan Ranger=6|Wind Walk|Ulfilan Ranger=7|Control Weather|Ulfilan Ranger=8|Whirlwind|Ulfilan Ranger=9|Storm of Vengeance
+5																																																					SPELLLEVEL:CLASS|Ulfilan Ranger=3|Call Lightning,Commune with Nature,Gust of Wind
 5	CAST:0,2,2,1	ABILITY:Special Ability|AUTOMATIC|Craft Wind Staff
 
 ##############################################################################################################################################################################################################################################################################################################################################
@@ -614,7 +614,7 @@ CLASS:Val'Mehan Emissary	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:VME		MAXLEVEL:5
 CLASS:Val'Mehan Emissary	PREALIGN:LG,LN,LE	PREFEAT:2,Judge of Character,Honeyed Tongue	PRESKILL:1,Bluff=4	PRESKILL:3,Diplomacy=8,TYPE.Nobility=8,Sense Motive=8	PRESTAT:1,CHA=16	PRETEMPLATE:1,Mehan
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Val'Mehan Emissary	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Disguise|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Speak Language|Spellcraft|Spot|Swim
-1	ABILITY:Special Ability|AUTOMATIC|Heart of Stone|Silver Tongue	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Heart of Stone|Silver Tongue	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 2	ABILITY:Special Ability|AUTOMATIC|Irresistible Aura
 3	ABILITY:Special Ability|AUTOMATIC|Confidante
 4	ABILITY:Special Ability|AUTOMATIC|Uncanny Judgement
@@ -630,7 +630,7 @@ CLASS:Warped Ones	HD:12		TYPE:PC.Prestige	ABB:WrpO		MAXLEVEL:10	SOURCELONG:Playe
 CLASS:Warped Ones	PREABILITY:1,CATEGORY=Special Ability,Rage	PREALIGN:CG,CN,CE	PREATT:6	PREFEAT:2,Iron Will,Endurance	PREREGION:Hinterlands
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Warped Ones	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Intimidate|Jump|Listen|Spot|Survival|Swim
-1	ABILITY:Special Ability|AUTOMATIC|Path of Rage|Twisted Form	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Path of Rage|Twisted Form	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
 2	ABILITY:Special Ability|AUTOMATIC|Unnatural Endurance
 4	ABILITY:Special Ability|AUTOMATIC|Burst of Strength
 5	ABILITY:Special Ability|AUTOMATIC|Twisted Visage
@@ -649,16 +649,16 @@ CLASS:Warrior of the Eternal Flame	PREALIGN:LG,LN,LE	PREATT:7	PREDEITY:1,Nier	PR
 CLASS:Warrior of the Eternal Flame	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Examine Martial Technique|Handle Animal|Heal|TYPE=Nobility|TYPE=Religion|TYPE=Profession|Ride|Sense Motive|Spellcraft
 # Class Name				Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Warrior of the Eternal Flame	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Warrior of the Eternal Flame|CL|PRECLASS:1,Warrior of the Eternal Flame=2
-1											BONUS:ABILITYPOOL|Blessings of Flame|1						ABILITY:Special Ability|AUTOMATIC|Child of Nier	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-2																																																																										SPELLLEVEL:CLASS|Warrior of the Eternal Flame=1|Bless Weapon,Cause Fear,Dancing Lights,Magic Weapon,Pyrotechnics,Spiritual Weapon
+1											BONUS:ABILITYPOOL|Blessings of Flame|1						ABILITY:Special Ability|AUTOMATIC|Child of Nier	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency
+2																																																																																		SPELLLEVEL:CLASS|Warrior of the Eternal Flame=1|Bless Weapon,Cause Fear,Dancing Lights,Magic Weapon,Pyrotechnics,Spiritual Weapon
 2					CAST:0,0		KNOWN:0,1														ABILITY:Special Ability|AUTOMATIC|To Tap the Fire Within
 3					CAST:0,1		KNOWN:0,1														ABILITY:Special Ability|AUTOMATIC|Call Forth His Servants
-4					CAST:0,1,0		KNOWN:0,2,1														ABILITY:Special Ability|AUTOMATIC|Bonus Domain WEF																																											SPELLLEVEL:CLASS|Warrior of the Eternal Flame=1|Burning Hands|Warrior of the Eternal Flame=2|Continual Flame,Flame Blade,Flaming Sphere,Magic Vestment,Produce Flame,Resist Energy (Fire)|Warrior of the Eternal Flame=3|Resist Energy|Warrior of the Eternal Flame=4|Wall of Fire|Warrior of the Eternal Flame=5|Fire Shield|Warrior of the Eternal Flame=6|Fire Seeds|Warrior of the Eternal Flame=7|Fire Storm|Warrior of the Eternal Flame=8|Incendiary Cloud|Warrior of the Eternal Flame=9|Elemental Swarm
+4					CAST:0,1,0		KNOWN:0,2,1														ABILITY:Special Ability|AUTOMATIC|Bonus Domain WEF																																																			SPELLLEVEL:CLASS|Warrior of the Eternal Flame=1|Burning Hands|Warrior of the Eternal Flame=2|Continual Flame,Flame Blade,Flaming Sphere,Magic Vestment,Produce Flame,Resist Energy (Fire)|Warrior of the Eternal Flame=3|Resist Energy|Warrior of the Eternal Flame=4|Wall of Fire|Warrior of the Eternal Flame=5|Fire Shield|Warrior of the Eternal Flame=6|Fire Seeds|Warrior of the Eternal Flame=7|Fire Storm|Warrior of the Eternal Flame=8|Incendiary Cloud|Warrior of the Eternal Flame=9|Elemental Swarm
 4:REPEATLEVEL:2|SKIP=0|MAX=10							BONUS:ABILITYPOOL|Blessings of Flame|1
 5					CAST:0,1,1		KNOWN:0,2,1
-6					CAST:0,1,1,0	KNOWN:0,2,2,1								BONUS:VAR|SmiteAnyTimes|1																																																				SPELLLEVEL:CLASS|Warrior of the Eternal Flame=1|Inflict Light Wounds|Warrior of the Eternal Flame=2|Shatter|Warrior of the Eternal Flame=3|Contagion,Fire Trap,Flame Arrow,Magic Weapon (Greater),Mantle of Unassailable Flame,Scorching Ray|Warrior of the Eternal Flame=4|Inflict Critical Wounds|Warrior of the Eternal Flame=5|Inflict Light Wounds (Mass)|Warrior of the Eternal Flame=6|Harm|Warrior of the Eternal Flame=7|Disintegrate|Warrior of the Eternal Flame=8|Earthquake|Warrior of the Eternal Flame=9|Implosion
+6					CAST:0,1,1,0	KNOWN:0,2,2,1								BONUS:VAR|SmiteAnyTimes|1																																																												SPELLLEVEL:CLASS|Warrior of the Eternal Flame=1|Inflict Light Wounds|Warrior of the Eternal Flame=2|Shatter|Warrior of the Eternal Flame=3|Contagion,Fire Trap,Flame Arrow,Magic Weapon (Greater),Mantle of Unassailable Flame,Scorching Ray|Warrior of the Eternal Flame=4|Inflict Critical Wounds|Warrior of the Eternal Flame=5|Inflict Light Wounds (Mass)|Warrior of the Eternal Flame=6|Harm|Warrior of the Eternal Flame=7|Disintegrate|Warrior of the Eternal Flame=8|Earthquake|Warrior of the Eternal Flame=9|Implosion
 7					CAST:0,2,1,1	KNOWN:0,3,2,1													ABILITY:Special Ability|AUTOMATIC|Fury of Nier
-8																																																																										SPELLLEVEL:CLASS|Warrior of the Eternal Flame=4|Fireball,Fire Shield,Flame Strike,Wall of Fire
+8																																																																																		SPELLLEVEL:CLASS|Warrior of the Eternal Flame=4|Fireball,Fire Shield,Flame Strike,Wall of Fire
 8					CAST:0,2,2,1,0	KNOWN:0,3,2,2,1
 9					CAST:0,3,2,1,1	KNOWN:0,3,3,2,2													ABILITY:Special Ability|AUTOMATIC|Nier's Embrace
 10					CAST:0,3,3,2,2	KNOWN:0,3,3,2,2													ABILITY:Special Ability|AUTOMATIC|Fire from the Gates of Heaven|Nier's Gift
@@ -730,7 +730,7 @@ SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Pressing Attack					AUTO:
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|A Thousand Cuts
 SUBCLASSLEVEL:5						ABILITY:Special Ability|AUTOMATIC|Flowing Sand Ability
 SUBCLASS:Sword That Believes		ABB:StBlv	PREFEAT:4,Improved Quick Draw,Quick Draw,Pureblood Kio,Weapon Focus (Sword (Kio)),Exotic Weapon Proficiency (Sword (Kio))																																																																				PREITEM:1,Sword (Kio)
-SUBCLASSLEVEL:1																		AUTO:FEAT|Blind Fight
+SUBCLASSLEVEL:1																			AUTO:FEAT|Blind Fight
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|Impeccable Expertise
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|A Thousand Cuts|Instinctual Defense
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|Strike Without Thought
@@ -814,12 +814,12 @@ CLASS:Elemental Path of Stone	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration
 1	BONUS:UDAM|CLASS.Monk|CL	BONUS:VAR|MonkACLVL|CL		ABILITY:Special Ability|AUTOMATIC|Monk AC
 1						BONUS:VAR|MonkMoveLVL|CL	ABILITY:Special Ability|AUTOMATIC|Monk Movement
 ###Block: Normal progression
-1														ABILITY:Special Ability|AUTOMATIC|Damage Reduction Ability|Natural Armor Ability
-2														ABILITY:Special Ability|AUTOMATIC|Hands of Stone
+1													ABILITY:Special Ability|AUTOMATIC|Damage Reduction Ability|Natural Armor Ability
+2													ABILITY:Special Ability|AUTOMATIC|Hands of Stone
 2:REPEATLEVEL:2	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-3:REPEATLEVEL:2									BONUS:DR|-|1
-4														ABILITY:Special Ability|AUTOMATIC|Absorb Blow
-5														ABILITY:Special Ability|AUTOMATIC|Iron Skin Ability
+3:REPEATLEVEL:2								BONUS:DR|-|1
+4													ABILITY:Special Ability|AUTOMATIC|Absorb Blow
+5													ABILITY:Special Ability|AUTOMATIC|Iron Skin Ability
 
 ##############################################################################################################################################################################################################################################################################################################################################
 

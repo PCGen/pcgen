@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Feb 10 22:05:57 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-SOURCELONG:Paradigm - Codex Arcanis	SOURCESHORT:Codex Arcanis	SOURCEWEB:http://www.paradigmconcepts.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Paradigm - Codex Arcanis	SOURCESHORT:Codex Arcanis	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2001-01
 #Original entry by Greg G (Phantom of Krankor)
 
 # Martial Melee Weapons
@@ -21,7 +21,7 @@ Crossbow Disk (6)				TYPE:Ammunition.Exotic.Metal	COST:3	WT:1		BASEQTY:6		SOURCE
 Shot and Powder (Flintlock/10)	TYPE:Ammunition.Exotic		COST:50	WT:1		BASEQTY:10		SOURCEPAGE:p.177
 
 ###Block: Armor
-# Equipment Name			Type							Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus					Add to base move
+# Equipment Name			Type							Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus			Add to base move
 Sicarite Leather			TYPE:Armor.Light.Suit.Standard.Nonmetal	COST:40	WT:15		ACCHECK:-1		MAXDEX:6		SOURCEPAGE:p.177	SPELLFAILURE:5		BONUS:COMBAT|AC|3|TYPE=Armor
 Sicarite Studded Leather	TYPE:Armor.Light.Suit.Standard.Metal	COST:100	WT:20		ACCHECK:-2		MAXDEX:5		SOURCEPAGE:p.177	SPELLFAILURE:15		BONUS:COMBAT|AC|4|TYPE=Armor
 Andrean Plate			TYPE:Armor.Heavy.Suit.Standard.Metal	COST:7500	WT:65		ACCHECK:-4		MAXDEX:1		SOURCEPAGE:p.177	SPELLFAILURE:30		BONUS:COMBAT|AC|9|TYPE=Armor

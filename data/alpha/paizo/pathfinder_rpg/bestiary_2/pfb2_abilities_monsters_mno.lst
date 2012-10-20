@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Oct 22 14:51:19 2011 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
 
 # ORIGINAL ENTRY: Stefan Radermacher and Douglas Limmer
@@ -133,9 +133,9 @@ Stunted Legs	KEY:Stunted Legs ~ Ogrekin		CATEGORY:Special Ability	TYPE:SpecialQu
 Weak Mind		KEY:Weak Mind ~ Ogrekin			CATEGORY:Special Ability	TYPE:SpecialQuality.OgrekinDisadvantageousDeformity	DESC:The ogrekin's head is huge and misshapen.  It gains a -2 penalty on Will saving throws.																BONUS:CHECKS|Will|-2																																		SOURCEPAGE:p.204
 
 ###Block: Oread Abilities
-# NEEDS DATA WORK: Need to be able to add 1/2 (?) to the damage of the 
+# NEEDS DATA WORK: Need to be able to add 1/2 (?) to the damage of the
 # NEEDS DATA WORK:   Acid Dart ~ Earth Domain ability.
-# NEEDS DATA WORK: Caves subdomain - add 1 to minutes/day of tunnel runner 
+# NEEDS DATA WORK: Caves subdomain - add 1 to minutes/day of tunnel runner
 # NEEDS DATA WORK:   and +1 insight to Stealth
 # COMMENT: Metal subdomain - no modification to metal fist needed
 # Ability Name					Unique Key					Category of Ability		Type						Visible	Define				Innate Spells							Description																																						Ability																							Caster level																																											Bonus to DC															Bonus to spell cast/day																																																																																																																																								Modify VAR																																											Source Page

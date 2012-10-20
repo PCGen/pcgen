@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Jul 19 16:47:19 2009 -- reformated by prettylst.pl v1.39 (build 9548)
-SOURCELONG:The Way of the Gun	SOURCESHORT:WayotGun	SOURCEWEB:http://www.peginc.com/index.htm
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:The Way of the Gun	SOURCESHORT:WayotGun	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
 
 # Equipment Name				Type					Cost		Weight	Slot Needed	Source Page		Combat bonus							Bonus to skill
 Allison's Holster				TYPE:Magic.Wondrous		COST:32003	WT:1				SOURCEPAGE:p.41

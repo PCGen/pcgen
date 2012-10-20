@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 17 20:35:47 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
 #Original Entry: Andrew Maitland
 
@@ -14,51 +14,51 @@ Stat Boost +2 (Wis)	CATEGORY:Special Ability	TYPE:BonusStat	VISIBLE:DISPLAY	BONU
 Stat Boost +2 (Cha)	CATEGORY:Special Ability	TYPE:BonusStat	VISIBLE:DISPLAY	BONUS:STAT|CHA|2
 
 ###Block: Racial Abilities -----------------------------------------------------
-# Ability Name		Unique Key				Category of Ability		Type				Description																																																																													Template				Ability						Bonus to skill				Stat bonus																			Source Page		Natural Attacks
-Scent									CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Werewolf can detect opponents by sense of smell, generally within 30 feet. If the opponent is upwind, the range is 60 feet. If it is downwind, the range is 15 feet. Strong scents, such as smoke or rotting garbage, can be detected at twice the ranges noted above. Overpowering scents, such as skunk musk, can be detected at three times these ranges. A creature with the scent ability can follow tracks by smell, making a Survival check to find or follow a track.
+# Ability Name		Unique Key				Category of Ability		Type				Define			Description																																																																													Template				Ability						Bonus to skill				Modify VAR			Source Page		Natural Attacks
+Scent									CATEGORY:Special Ability	TYPE:SpecialQuality					DESC:Werewolf can detect opponents by sense of smell, generally within 30 feet. If the opponent is upwind, the range is 60 feet. If it is downwind, the range is 15 feet. Strong scents, such as smoke or rotting garbage, can be detected at twice the ranges noted above. Overpowering scents, such as skunk musk, can be detected at three times these ranges. A creature with the scent ability can follow tracks by smell, making a Survival check to find or follow a track.
 
 # Beastman
-Bear Racial Traits						CATEGORY:Special Ability	TYPE:BeastManRacial																																																																															TEMPLATE:Bear Racial Traits															SOURCEPAGE:p.48	NATURALATTACKS:Claws,Melee.Natural.Slashing,*2,1d6
-Cat Racial Traits							CATEGORY:Special Ability	TYPE:BeastManRacial																																																																															TEMPLATE:Cat Racial Traits								BONUS:SKILL|Athletics|4|TYPE=Racial		SOURCEPAGE:p.48	NATURALATTACKS:Claws,Melee.Natural.Slashing,*2,1d4
-Dog Racial Traits							CATEGORY:Special Ability	TYPE:BeastManRacial																																																																															TEMPLATE:Dog Racial Traits	ABILITY:Talent|AUTOMATIC|Improved Scent								SOURCEPAGE:p.48
+Bear Racial Traits						CATEGORY:Special Ability	TYPE:BeastManRacial																																																																																			TEMPLATE:Bear Racial Traits																		SOURCEPAGE:p.48	NATURALATTACKS:Claws,Melee.Natural.Slashing,*2,1d6
+Cat Racial Traits							CATEGORY:Special Ability	TYPE:BeastManRacial																																																																																			TEMPLATE:Cat Racial Traits								BONUS:SKILL|Athletics|4|TYPE=Racial					SOURCEPAGE:p.48	NATURALATTACKS:Claws,Melee.Natural.Slashing,*2,1d4
+Dog Racial Traits							CATEGORY:Special Ability	TYPE:BeastManRacial																																																																																			TEMPLATE:Dog Racial Traits	ABILITY:Talent|AUTOMATIC|Improved Scent											SOURCEPAGE:p.48
 
 # Vampire
-Limited Immortality						CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Vampires are as close to being immortal as any race could be. They appear any age because they stop aging at the point where they became a vampire.																																																																																											SOURCEPAGE:p.51
-Blood Requirement							CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Every morning, a vampire suffers 2 points of damage per character level as he uses up the blood within his system to remain alive.																																																																																														SOURCEPAGE:p.51
-Blood Drain								CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:A vampire can suck blood from a living victim with its fangs by making a successful grapple check. If the vampire pins his foe, he drains blood, dealing 1 point of Constitution drain each round the grapple is maintained.																																																																															SOURCEPAGE:p.51
-Daylight Vulnerability						CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:When the sun rises and until it sets, the vampire loses its powers, including all racial ability and skill modifiers, and becomes a normal human being.																																																																																										SOURCEPAGE:p.51
+Limited Immortality						CATEGORY:Special Ability	TYPE:SpecialQuality					DESC:Vampires are as close to being immortal as any race could be. They appear any age because they stop aging at the point where they became a vampire.																																																																											SOURCEPAGE:p.51
+Blood Requirement							CATEGORY:Special Ability	TYPE:SpecialQuality					DESC:Every morning, a vampire suffers 2 points of damage per character level as he uses up the blood within his system to remain alive.																																																																														SOURCEPAGE:p.51
+Blood Drain								CATEGORY:Special Ability	TYPE:SpecialQuality					DESC:A vampire can suck blood from a living victim with its fangs by making a successful grapple check. If the vampire pins his foe, he drains blood, dealing 1 point of Constitution drain each round the grapple is maintained.																																																															SOURCEPAGE:p.51
+Daylight Vulnerability						CATEGORY:Special Ability	TYPE:SpecialQuality					DESC:When the sun rises and until it sets, the vampire loses its powers, including all racial ability and skill modifiers, and becomes a normal human being.																																																																										SOURCEPAGE:p.51
 
 #Werewolf
-Alternate Form							CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																																																					SOURCEPAGE:p.52
-Damage Reduction							CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:The werewolf gains damage reduction, werewolf has damage reduction %1/silver in werewolf form.|WerewolfDR	DEFINE:WerewolfDR|0	BONUS:VAR|WerewolfDR|5																																																																																										SOURCEPAGE:p.53
+Alternate Form							CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																																									SOURCEPAGE:p.52
+Damage Reduction							CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:WerewolfDR|0	DESC:The werewolf gains damage reduction, werewolf has damage reduction %1/silver in werewolf form.|WerewolfDR																																																																														BONUS:VAR|WerewolfDR|5	SOURCEPAGE:p.53
 
 #Wildling
-Natural Enemy		KEY:Natural Enemy ~ Wildling	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Ratlings and Wildlings have been at war for time immemorial. When facing a Ratling the Wildling gains the following additional bonuses: +2 bonus on Deception, Sense Motive, and Survival checks when using these skills against the Ratling. Likewise, he gets a +2 bonus on weapon damage rolls against such creatures.																																																															SOURCEPAGE:p.55
+Natural Enemy		KEY:Natural Enemy ~ Wildling	CATEGORY:Special Ability	TYPE:SpecialQuality					DESC:Ratlings and Wildlings have been at war for time immemorial. When facing a Ratling the Wildling gains the following additional bonuses: +2 bonus on Deception, Sense Motive, and Survival checks when using these skills against the Ratling. Likewise, he gets a +2 bonus on weapon damage rolls against such creatures.																																															SOURCEPAGE:p.55
 
 
 
 ###Block: Alternate Form Tree
-# Ability Name	Category of Ability	Type				Required Ability					Required Non-Monster Lvl	Define			Description												Stackable?	Multiple?	Choose									Move			Modify VAR				Source Page
+# Ability Name	Category of Ability	Type					Required Ability					Required Non-Monster Lvl	Define			Description												Stackable?	Multiple?	Choose									Move			Modify VAR				Source Page
 Mist Form		CATEGORY:Talent		TYPE:Talent.VampireTalent																																																				SOURCEPAGE:p.55
 Swarm			CATEGORY:Talent		TYPE:Talent.VampireTalent	PREABILITY:1,CATEGORY=Talent,Wild Shape	PREPCLEVEL:MIN=8																																										SOURCEPAGE:p.55
 Wall-Crawling	CATEGORY:Talent		TYPE:Talent.VampireTalent								PREPCLEVEL:MIN=3																																		MOVE:Climb,20						SOURCEPAGE:p.55
 Wild Shape		CATEGORY:Talent		TYPE:Talent.VampireTalent													DEFINE:WildShapeTimes|0	DESC:%1 times per day you can assume the shape of a %2|WildShapeTimes|%CHOICE	STACK:NO	MULT:YES	CHOOSE:STRING|Bat|Dire Bat|Dire Rat|Dire Wolf|Rat|Wolf				BONUS:VAR|WildShapeTimes|1	SOURCEPAGE:p.55
 
 ###Block: Amazing Constitution Tree
-# Ability Name		Category of Ability	Type			Required Ability						Source Page
+# Ability Name		Category of Ability	Type				Required Ability						Source Page
 Resilient Organism	CATEGORY:Talent		TYPE:Talent.MultiRacial									SOURCEPAGE:p.55
 Second Wind			CATEGORY:Talent		TYPE:Talent.MultiRacial									SOURCEPAGE:p.56
 Stamina			CATEGORY:Talent		TYPE:Talent.MultiRacial	PREABILITY:1,CATEGORY=Talent,Resilient Organism	SOURCEPAGE:p.56
 
 ###Block: Animal Senses Tree
-# Ability Name	Category of Ability	Type				Required Ability					Vision		Source Page
+# Ability Name	Category of Ability	Type					Required Ability					Vision		Source Page
 Darkvision		CATEGORY:Talent		TYPE:Talent.BeastManTalent								VISION:Darkvision	SOURCEPAGE:p.56
 Hawk's Eyes		CATEGORY:Talent		TYPE:Talent.BeastManTalent	PREABILITY:1,CATEGORY=Talent,Darkvision				SOURCEPAGE:p.56
 Improved Scent	CATEGORY:Talent		TYPE:Talent.BeastManTalent											SOURCEPAGE:p.56
 Keen Hearing	CATEGORY:Talent		TYPE:Talent.BeastManTalent											SOURCEPAGE:p.56
 
 ###Block: Charm Talent Tree
-# Ability Name	Category of Ability	Type				Required Ability					Description																Source Page
+# Ability Name	Category of Ability	Type					Required Ability					Description																Source Page
 Charm			CATEGORY:Talent		TYPE:Talent.WildlingTalent								DESC:+%1 bonus on all Charisma-based skill checks made to influence members of his chosen gender|TL	SOURCEPAGE:p.56
 Favor			CATEGORY:Talent		TYPE:Talent.WildlingTalent	PREABILITY:1,CATEGORY=Talent,Charm																			SOURCEPAGE:p.56
 Captivate		CATEGORY:Talent		TYPE:Talent.WildlingTalent	PREABILITY:2,CATEGORY=Talent,Charm,Favor																		SOURCEPAGE:p.56
@@ -79,37 +79,38 @@ Savage Bite				CATEGORY:Talent		TYPE:WerewolfTalent.Talent.InnerBeastTalent					
 ###Block: Hybrid Damage Reduction Talent Tree
 # Ability Name			Category of Ability	Type							Required Ability																		Source Page
 #Damage Reduction 5/Silver	CATEGORY:Talent		TYPE:HybridDamageReductionTalent.Talent	PREABILITY:2,CATEGORY=Talent,Greater Lycanthrope,Regenerative Transformation								SOURCEPAGE:p.58
-Damage Reduction 10/Silver	CATEGORY:Talent		TYPE:HybridDamageReductionTalent.Talent	PREABILITY:1,CATEGORY=Talent,Damage Reduction 5/Silver	PREABILITY:1,CATEGORY=Talent,TYPE.GreaterLycanthropeTalent	SOURCEPAGE:p.58	BONUS:VAR|WerewolfDR|5
-Damage Reduction 15/Silver	CATEGORY:Talent		TYPE:HybridDamageReductionTalent.Talent	PREABILITY:1,CATEGORY=Talent,Damage Reduction 10/Silver	PREABILITY:1,CATEGORY=Talent,TYPE.GreaterLycanthropeTalent	SOURCEPAGE:p.58	BONUS:VAR|WerewolfDR|5
+# Ability Name			Category of Ability	Type							Required Ability																		Modify VAR			Source Page
+Damage Reduction 10/Silver	CATEGORY:Talent		TYPE:HybridDamageReductionTalent.Talent	PREABILITY:1,CATEGORY=Talent,Damage Reduction 5/Silver	PREABILITY:1,CATEGORY=Talent,TYPE.GreaterLycanthropeTalent	BONUS:VAR|WerewolfDR|5	SOURCEPAGE:p.58
+Damage Reduction 15/Silver	CATEGORY:Talent		TYPE:HybridDamageReductionTalent.Talent	PREABILITY:1,CATEGORY=Talent,Damage Reduction 10/Silver	PREABILITY:1,CATEGORY=Talent,TYPE.GreaterLycanthropeTalent	BONUS:VAR|WerewolfDR|5	SOURCEPAGE:p.58
 
 
 ###Block: Instinctive Response Talent Tree
-# Ability Name		Category of Ability	Type				Required Ability												Combat bonus						Source Page
+# Ability Name		Category of Ability	Type					Required Ability												Combat bonus						Source Page
 Full Alert			CATEGORY:Talent		TYPE:Talent.WildlingTalent															BONUS:COMBAT|INITIATIVE|4|TYPE=Circumstance	SOURCEPAGE:p.58
 Improved Evasion		CATEGORY:Talent		TYPE:Talent.WildlingTalent	PREABILITY:3,CATEGORY=Talent,Full Alert,Evasion,Increased Speed												SOURCEPAGE:p.58
 Heightened Reflexes	CATEGORY:Talent		TYPE:Talent.WildlingTalent	PREABILITY:4,CATEGORY=Talent,Full Alert,Evasion,Improved Evasion,Increased Speed									SOURCEPAGE:p.58
 
 ###Block: Increased Speed Talent Tree
-# Ability Name			Category of Ability	Type				Required Ability										Add to base move			Source Page
+# Ability Name			Category of Ability	Type					Required Ability										Add to base move			Source Page
 Increased Speed			CATEGORY:Talent		TYPE:Talent.WildlingTalent													BONUS:MOVEADD|TYPE.Walk|5	SOURCEPAGE:p.58
 Improved Increased Speed	CATEGORY:Talent		TYPE:Talent.WildlingTalent	PREABILITY:1,CATEGORY=Talent,Increased Speed					BONUS:MOVEADD|TYPE.Walk|5	SOURCEPAGE:p.58
 Advanced Increased Speed	CATEGORY:Talent		TYPE:Talent.WildlingTalent	PREABILITY:2,CATEGORY=Talent,Increased Speed,Improved Increased Speed	BONUS:MOVEADD|TYPE.Walk|5	SOURCEPAGE:p.58
 
 ###Block: Dominion Tree
-# Ability Name		Category of Ability	Type				Required Ability								Required Stat	Source Page
+# Ability Name		Category of Ability	Type					Required Ability								Required Stat	Source Page
 Children of the Night	CATEGORY:Talent		TYPE:Talent.VampireTalent	PREABILITY:2,CATEGORY=Talent,Animal Magnetism,Wild Shape				SOURCEPAGE:p.58
 Command			CATEGORY:Talent		TYPE:Talent.VampireTalent	PREABILITY:2,CATEGORY=Talent,Animal Magnetism,Suggestion				SOURCEPAGE:p.59
 Psychic Link		CATEGORY:Talent		TYPE:Talent.VampireTalent	PREABILITY:2,CATEGORY=Talent,Animal Magnetism,Suggestion	PRESTAT:1,CHA=15	SOURCEPAGE:p.59
 Suggestion			CATEGORY:Talent		TYPE:Talent.VampireTalent	PREABILITY:1,CATEGORY=Talent,Animal Magnetism						SOURCEPAGE:p.59
 
 ###Block: Fortune Tree
-# Ability Name		Category of Ability	Type			Required Ability						Required Non-Monster Lvl	Modify VAR			Source Page
+# Ability Name		Category of Ability	Type				Required Ability						Required Non-Monster Lvl	Modify VAR			Source Page
 Inherited Fortune		CATEGORY:Talent		TYPE:Talent.HumanTalent									PREPCLEVEL:MAX=1			BONUS:VAR|WealthBonus|2	SOURCEPAGE:p.59
 Heirloom			CATEGORY:Talent		TYPE:Talent.HumanTalent	PREABILITY:1,CATEGORY=Talent,Inherited Fortune										SOURCEPAGE:p.59
 Inherited Treasure	CATEGORY:Talent		TYPE:Talent.HumanTalent	PREABILITY:1,CATEGORY=Talent,Inherited Fortune						BONUS:VAR|WealthBonus|4	SOURCEPAGE:p.59
 
 ###Block: Natural Weaponry Tree
-# Ability Name		Category of Ability	Type						Required Ability									Template		Combat bonus			Source Page
+# Ability Name		Category of Ability	Type							Required Ability									Template		Combat bonus			Source Page
 Claws				CATEGORY:Talent		TYPE:Talent.VampireTalent.BeastManTalent												TEMPLATE:Claws						SOURCEPAGE:p.60
 Fangs				CATEGORY:Talent		TYPE:Talent.VampireTalent.BeastManTalent												TEMPLATE:Fangs						SOURCEPAGE:p.60
 Horns				CATEGORY:Talent		TYPE:Talent.BeastManTalent														TEMPLATE:Horns						SOURCEPAGE:p.60
@@ -119,7 +120,7 @@ Improved Melee Smash	CATEGORY:Talent		TYPE:Talent.VampireTalent.BeastManTalent	P
 Advanced Melee Smash	CATEGORY:Talent		TYPE:Talent.VampireTalent.BeastManTalent	PREABILITY:1,CATEGORY=Talent,Melee Smash								BONUS:COMBAT|DAMAGE.Melee|1	SOURCEPAGE:p.60
 
 ###Block: Personal Background Tree
-# Ability Name	Category of Ability	Type								Required Non-Monster Lvl	Bonus to skill		Modify VAR			Source Page
+# Ability Name	Category of Ability	Type									Required Non-Monster Lvl	Bonus to skill		Modify VAR			Source Page
 Legendary Beauty	CATEGORY:Talent		TYPE:Talent.HumanTalent.VampireTalent			PREPCLEVEL:MAX=1							BONUS:VAR|Reputation|1	SOURCEPAGE:p.60
 Enigmatic		CATEGORY:Talent		TYPE:Talent.HumanTalent.VampireTalent.BeastManTalent	PREPCLEVEL:MAX=1											SOURCEPAGE:p.60
 Raised by Beasts	CATEGORY:Talent		TYPE:Talent.HumanTalent.BeastManTalent.WildlingTalent	PREPCLEVEL:MAX=1			BONUS:SKILL|Survival|2					SOURCEPAGE:p.60
@@ -127,13 +128,13 @@ Spokesperson	CATEGORY:Talent		TYPE:Talent.MultiRacial						PREPCLEVEL:MAX=1					
 Monstrous		CATEGORY:Talent		TYPE:Talent.MultiRacial						PREPCLEVEL:MAX=1											SOURCEPAGE:p.60
 
 ###Block: Privilege Talent Tree
-# Ability Name	Output Name				Category of Ability	Type			Required Non-Monster Lvl	Var. Must Be Grater				Source Page
+# Ability Name	Output Name				Category of Ability	Type				Required Non-Monster Lvl	Var. Must Be Grater				Source Page
 Upgrade							CATEGORY:Talent		TYPE:Talent.MultiRacial	PREPCLEVEL:MIN=2			PREVARGT:(Reputation+WealthBonus),11	SOURCEPAGE:p.61
 He's With Me	OUTPUTNAME:"He's With Me"	CATEGORY:Talent		TYPE:Talent.MultiRacial	PREPCLEVEL:MIN=3										SOURCEPAGE:p.61
 Undue Influence						CATEGORY:Talent		TYPE:Talent.MultiRacial						PREVARGT:(Reputation+WealthBonus),16	SOURCEPAGE:p.61
 
 ###Block: Prodigy Tree
-# Ability Name		Category of Ability	Type			Required Ability						Required Non-Monster Lvl	Bonus to skill			Source Page
+# Ability Name		Category of Ability	Type				Required Ability						Required Non-Monster Lvl	Bonus to skill			Source Page
 Additional Training	CATEGORY:Talent		TYPE:Talent.HumanTalent	PREABILITY:1,CATEGORY=Talent,Cultural Legacy											SOURCEPAGE:p.61
 #TODO: Additional Training benefit - unable to implement till CDOM comes.
 Cultural Legacy		CATEGORY:Talent		TYPE:Talent.HumanTalent									PREPCLEVEL:MAX=1								SOURCEPAGE:p.61
@@ -143,7 +144,7 @@ Skill Mimic			CATEGORY:Talent		TYPE:Talent.HumanTalent	PREABILITY:1,CATEGORY=Tal
 Superior Intuition	CATEGORY:Talent		TYPE:Talent.HumanTalent	PREABILITY:1,CATEGORY=Talent,Prodigious Gift						BONUS:SKILL|Investigate|TL	SOURCEPAGE:p.61
 
 ###Block: Social Ties Tree
-# Ability Name	Category of Ability	Type			Required Non-Monster Lvl	Source Page
+# Ability Name	Category of Ability	Type				Required Non-Monster Lvl	Source Page
 Ally			CATEGORY:Talent		TYPE:Talent.MultiRacial	PREPCLEVEL:MIN=4			SOURCEPAGE:p.62
 Contacts		CATEGORY:Talent		TYPE:Talent.MultiRacial						SOURCEPAGE:p.62
 Family Ties		CATEGORY:Talent		TYPE:Talent.MultiRacial	PREPCLEVEL:MAX=1			SOURCEPAGE:p.62
@@ -152,11 +153,11 @@ Organisation Ties	CATEGORY:Talent		TYPE:Talent.MultiRacial	PREPCLEVEL:MAX=1			SO
 Significant Other	CATEGORY:Talent		TYPE:Talent.MultiRacial						SOURCEPAGE:p.62
 
 ###Block: Supernatural Talent tree
-# Ability Name		Category of Ability	Type								Required Non-Monster Lvl	Required Stat				Description																																																						Multiple?	Choose														Selections	Class Skill		Source Page
-Animal Magnetism		CATEGORY:Talent		TYPE:Talent.HumanTalent.BeastManTalent.WildlingTalent	PREPCLEVEL:MAX=1			PRESTAT:1,CHA=13																																																																																	SOURCEPAGE:p.62
-Magical Potency		CATEGORY:Talent		TYPE:Talent.HumanTalent.BeastManTalent.WildlingTalent	PREPCLEVEL:MAX=1			PRESTAT:3,INT=11,WIS=11,CHA=11																																																																														SOURCEPAGE:p.62
-Pact with Darkness	CATEGORY:Talent		TYPE:Talent.HumanTalent.BeastManTalent.WildlingTalent	PREPCLEVEL:MAX=1																																																																																						SOURCEPAGE:p.62
-Magical Potency		CATEGORY:Talent		TYPE:Talent.HumanTalent.BeastManTalent.WildlingTalent	PREPCLEVEL:MAX=1			PRESTAT:3,INT=11,WIS=11,CHA=11	DESC:The character's blood burns with the power of magic. The character chooses one of the following skills, which becomes a class skill for him; in addition, the character's maximum number of skill ranks for that skill increases by 2.  The character may choose either Craft (mechanical), Knowledge (occult science) or Research.	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|Craft (Mechanical)|Knowledge (Occult Science)|Research	SELECT:1	CSKILL:LIST		SOURCEPAGE:p.63
+# Ability Name		Category of Ability	Type									Required Non-Monster Lvl	Required Stat				Description																																																						Multiple?	Choose													Selections	Class Skill	Source Page
+Animal Magnetism		CATEGORY:Talent		TYPE:Talent.HumanTalent.BeastManTalent.WildlingTalent	PREPCLEVEL:MAX=1			PRESTAT:1,CHA=13																																																																															SOURCEPAGE:p.62
+Magical Potency		CATEGORY:Talent		TYPE:Talent.HumanTalent.BeastManTalent.WildlingTalent	PREPCLEVEL:MAX=1			PRESTAT:3,INT=11,WIS=11,CHA=11																																																																												SOURCEPAGE:p.62
+Pact with Darkness	CATEGORY:Talent		TYPE:Talent.HumanTalent.BeastManTalent.WildlingTalent	PREPCLEVEL:MAX=1																																																																																				SOURCEPAGE:p.62
+Magical Potency		CATEGORY:Talent		TYPE:Talent.HumanTalent.BeastManTalent.WildlingTalent	PREPCLEVEL:MAX=1			PRESTAT:3,INT=11,WIS=11,CHA=11	DESC:The character's blood burns with the power of magic. The character chooses one of the following skills, which becomes a class skill for him; in addition, the character's maximum number of skill ranks for that skill increases by 2.  The character may choose either Craft (mechanical), Knowledge (occult science) or Research.	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|Craft (Mechanical)|Knowledge (Occult Science)|Research	SELECT:1	CSKILL:LIST	SOURCEPAGE:p.63
 #TODO: No Method to Increase the Max Ranks for Selected Skill without changing All Skills currently
 
 

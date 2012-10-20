@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb 25 16:34:39 2011 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Joseph (Sensai) Caubo
 
@@ -35,20 +35,20 @@ CLASS:Holy Vindicator	PREABILITY:1,CATEGORY=Special Ability,Channel Energy	PREAT
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Holy Vindicator	STARTSKILLPTS:2	CSKILL:Climb|Heal|Intimidate|Knowledge (Planes)|Knowledge (Religion)|Ride|Sense Motive|Spellcraft|Swim
 ###Block:  Weapon/Armor Proficiencies
-1										ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies					AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1																										AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																										AUTO:FEAT|Shield Proficiency
+1													ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies							AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1																															AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																															AUTO:FEAT|Shield Proficiency
 ##Block: Normal Level Progression
-1	BONUS:VAR|PrestigeClassChannelEnergyLVL|CL		ABILITY:Special Ability|AUTOMATIC|Channel Energy ~ Prestige Class|Vindicator's Shield ~ Holy Vindicator
-2	BONUS:VAR|StigmataLVL|CL	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Stigmata ~ Holy Vindicator
-3	BONUS:VAR|Faith HealingLVL|CL	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Faith Healing ~ Holy Vindicator
-4						ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Divine Wrath ~ Holy Vindicator
-5										ABILITY:Special Ability|AUTOMATIC|Bloodfire ~ Holy Vindicator|Channel Smite ~ Holy Vindicator	AUTO:FEAT|Channel Smite
-6						ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Versatile Channel ~ Holy Vindicator
-7						ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Divine Judgment ~ Holy Vindicator
-8						ADD:SPELLCASTER|Divine
-9										ABILITY:Special Ability|AUTOMATIC|Bloodrain ~ Holy Vindicator
-10						ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Divine Retribution ~ Holy Vindicator
+1	BONUS:VAR|PrestigeClassChannelEnergyLVL|CL					ABILITY:Special Ability|AUTOMATIC|Channel Energy ~ Prestige Class|Vindicator's Shield ~ Holy Vindicator
+2	BONUS:VAR|StigmataLVL|CL				ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Stigmata ~ Holy Vindicator
+3	BONUS:VAR|Faith HealingLVL|CL				ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Faith Healing ~ Holy Vindicator
+4									ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Divine Wrath ~ Holy Vindicator
+5													ABILITY:Special Ability|AUTOMATIC|Bloodfire ~ Holy Vindicator|Channel Smite ~ Holy Vindicator			AUTO:FEAT|Channel Smite
+6									ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Versatile Channel ~ Holy Vindicator
+7									ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Divine Judgment ~ Holy Vindicator
+8									ADD:SPELLCASTER|Divine
+9													ABILITY:Special Ability|AUTOMATIC|Bloodrain ~ Holy Vindicator
+10									ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Divine Retribution ~ Holy Vindicator
 
 ###Block: Horizon Walker --------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -111,20 +111,20 @@ CLASS:Nature Warden	PREABILITY:1,CATEGORY=Special Ability,TYPE.FavoredTerrain	PR
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Nature Warden	STARTSKILLPTS:4	CSKILL:Handle Animal|Heal|Knowledge (Geography)|Knowledge (Nature)|Perception|Ride|Sense Motive|Survival|Swim
 ##Block: Normal Level Progression
-1	BONUS:VAR|CompanionBondLVL|CL	BONUS:VAR|CompLevel|CL	BONUS:VAR|NaturalEmpathyLVL|CL	ABILITY:Special Ability|AUTOMATIC|Companion Bond ~ Nature Warden|Natural Empathy ~ Nature Warden
-2	ADD:SPELLCASTER|Divine												ABILITY:Special Ability|AUTOMATIC|Mystic Harmony ~ Nature Warden|Wild Stride ~ Nature Warden
-3	ADD:SPELLCASTER|Divine												ABILITY:Special Ability|AUTOMATIC|Animal Speech ~ Nature Warden
-4	ADD:SPELLCASTER|Divine												ABILITY:Special Ability|AUTOMATIC|Silverclaw ~ Nature Warden
+1	BONUS:VAR|CompanionBondLVL|CL	BONUS:VAR|CompLevel|CL	BONUS:VAR|NaturalEmpathyLVL|CL					ABILITY:Special Ability|AUTOMATIC|Companion Bond ~ Nature Warden|Natural Empathy ~ Nature Warden
+2																ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Mystic Harmony ~ Nature Warden|Wild Stride ~ Nature Warden
+3																ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Animal Speech ~ Nature Warden
+4																ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Silverclaw ~ Nature Warden
 #5	BONUS:VAR|FavoredTerrainLVL|CL	BONUS:VAR|SurvivalistLVL|CL					ABILITY:Special Ability|AUTOMATIC|Favored Terrain ~ Nature Warden|Survivalist ~ Nature Warden
 #
 #  Since "This ability is identical to and stacks with the ranger class ability.", it's easier just to advance the ranger variable.
 #
-5	BONUS:VAR|RangerFavoredTerrainLVL|CL	BONUS:VAR|SurvivalistLVL|CL				ABILITY:Special Ability|AUTOMATIC|Basic Favored Terrain|Ranger Favored Terrain|Survivalist ~ Nature Warden
-6	ADD:SPELLCASTER|Divine												ABILITY:Special Ability|AUTOMATIC|Woodforging ~ Nature Warden
-7	ADD:SPELLCASTER|Divine												ABILITY:Special Ability|AUTOMATIC|Companion Walk ~ Nature Warden
-8	ADD:SPELLCASTER|Divine												ABILITY:Special Ability|AUTOMATIC|Ironpaw ~ Nature Warden
-9																ABILITY:Special Ability|AUTOMATIC|Guarded Lands ~ Nature Warden
-10	ADD:SPELLCASTER|Divine												ABILITY:Special Ability|AUTOMATIC|Companion Soul ~ Nature Warden
+5	BONUS:VAR|RangerFavoredTerrainLVL|CL	BONUS:VAR|SurvivalistLVL|CL								ABILITY:Special Ability|AUTOMATIC|Basic Favored Terrain|Ranger Favored Terrain|Survivalist ~ Nature Warden
+6																ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Woodforging ~ Nature Warden
+7																ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Companion Walk ~ Nature Warden
+8																ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Ironpaw ~ Nature Warden
+9																				ABILITY:Special Ability|AUTOMATIC|Guarded Lands ~ Nature Warden
+10																ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Companion Soul ~ Nature Warden
 
 ###Block: Rage Prophet --------------------------------------------------------------------------------------------------------------------------------------------
 

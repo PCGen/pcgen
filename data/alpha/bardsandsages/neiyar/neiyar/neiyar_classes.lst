@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Feb 14 09:19:43 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2005-03
 ###Original Entry: Andrew Maitland
 
@@ -103,15 +103,15 @@ CLASS:Arcane Rogue	STARTSKILLPTS:6	CSKILL:Appraise|TYPE=Craft|Decipher Script|Es
 ###3e - Alchemy, Read Lips
 ###Max Level 8?
 ###Block: Caster Level
-2						ADD:SPELLCASTER|Arcane
-4						ADD:SPELLCASTER|Arcane
-6						ADD:SPELLCASTER|Arcane
-8						ADD:SPELLCASTER|Arcane
+2	ADD:SPELLCASTER|Arcane
+4	ADD:SPELLCASTER|Arcane
+6	ADD:SPELLCASTER|Arcane
+8	ADD:SPELLCASTER|Arcane
 ### Special Abilities:
-1	ABILITY:Special Ability|AUTOMATIC|Silent Caster ~ Arcane Rogue
-3	ABILITY:Special Ability|AUTOMATIC|Arcane Backstab ~ Arcane Rogue
-5	ABILITY:Special Ability|AUTOMATIC|Still Caster ~ Arcane Rogue
-7	ABILITY:Special Ability|AUTOMATIC|Dispel Traps and Locks ~ Arcane Rogue
+1					ABILITY:Special Ability|AUTOMATIC|Silent Caster ~ Arcane Rogue
+3					ABILITY:Special Ability|AUTOMATIC|Arcane Backstab ~ Arcane Rogue
+5					ABILITY:Special Ability|AUTOMATIC|Still Caster ~ Arcane Rogue
+7					ABILITY:Special Ability|AUTOMATIC|Dispel Traps and Locks ~ Arcane Rogue
 
 #ARCANE WARRIOR (AW)
 
@@ -123,15 +123,15 @@ CLASS:Arcane Warrior	PREATT:6	PREFEAT:4,Quicken Spell,Weapon Focus,Combat Castin
 CLASS:Arcane Warrior	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Jump|Knowledge (Arcana)|TYPE=Profession|Search|Spellcraft|Swim|Tumble
 ###3e - Scry
 ###Block: Caster Level
-2						ADD:SPELLCASTER|Arcane
-4						ADD:SPELLCASTER|Arcane
-6						ADD:SPELLCASTER|Arcane
+2	ADD:SPELLCASTER|Arcane
+4	ADD:SPELLCASTER|Arcane
+6	ADD:SPELLCASTER|Arcane
 ### Special Abilities:
-1	ABILITY:Special Ability|AUTOMATIC|Steel Mind ~ Arcane Warrior
-2	ABILITY:Special Ability|AUTOMATIC|Armor Skill ~ Arcane Warrior
-3	ABILITY:Special Ability|AUTOMATIC|Enhanced Combat Casting ~ Arcane Warrior
-5	ABILITY:Special Ability|AUTOMATIC|Enhanced Armor Skill ~ Arcane Warrior
-7	ABILITY:Special Ability|AUTOMATIC|Mystic Weapon ~ Arcane Warrior
+1					ABILITY:Special Ability|AUTOMATIC|Steel Mind ~ Arcane Warrior
+2					ABILITY:Special Ability|AUTOMATIC|Armor Skill ~ Arcane Warrior
+3					ABILITY:Special Ability|AUTOMATIC|Enhanced Combat Casting ~ Arcane Warrior
+5					ABILITY:Special Ability|AUTOMATIC|Enhanced Armor Skill ~ Arcane Warrior
+7					ABILITY:Special Ability|AUTOMATIC|Mystic Weapon ~ Arcane Warrior
 
 #CHOSEN OF AGRI (CA)
 
@@ -142,14 +142,14 @@ CLASS:Chosen of Agri	PREALIGN:LN,TN,NG	PREATT:5	PREDEITY:1,Agri	PRESKILL:2,Survi
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Chosen of Agri	STARTSKILLPTS:4	CSKILL:Concentration|Climb|Diplomacy|Heal|Knowledge (Geography)|Knowledge (Nature)|Knowledge (Religion)|Listen|Search|Spot|Spellcraft|Survival
 ###Block: Caster Level
-1						BONUS:DOMAIN|NUMBER|1
-2										ADD:SPELLCASTER|Divine
-4										ADD:SPELLCASTER|Divine
-6										ADD:SPELLCASTER|Divine
+1	BONUS:DOMAIN|NUMBER|1
+2					ADD:SPELLCASTER|Divine
+4					ADD:SPELLCASTER|Divine
+6					ADD:SPELLCASTER|Divine
 ### Special Abilities:
-3	ABILITY:Special Ability|AUTOMATIC|Transport via Plants ~ Chosen of Agri
-5	ABILITY:Special Ability|AUTOMATIC|Command Plants ~ Chosen of Agri
-6	ABILITY:Special Ability|AUTOMATIC|Plantmorph ~ Chosen of Agri
+3									ABILITY:Special Ability|AUTOMATIC|Transport via Plants ~ Chosen of Agri
+5									ABILITY:Special Ability|AUTOMATIC|Command Plants ~ Chosen of Agri
+6									ABILITY:Special Ability|AUTOMATIC|Plantmorph ~ Chosen of Agri
 
 #Chosen of Roarth (CR)
 
@@ -164,11 +164,11 @@ CLASS:Chosen of Roarth	STARTSKILLPTS:4	CSKILL:Concentration|Climb|Handle Animal|
 3	ADD:SPELLCASTER|Divine
 5	ADD:SPELLCASTER|Divine
 ###Block: Special Abilities:
-1													ABILITY:Special Ability|AUTOMATIC|Venom Immunity
-2	ABILITY:Special Ability|AUTOMATIC|Speak with Animals ~ Chosen of Roarth
-4	ABILITY:Special Ability|AUTOMATIC|Wild Shape ~ Chosen of Roarth	BONUS:VAR|WSTimes|1	DEFINE:WSTimes|0
-6						BONUS:VAR|WSTimes|1
-7	ABILITY:Special Ability|AUTOMATIC|Anima ~ Chosen of Roarth
+1								ABILITY:Special Ability|AUTOMATIC|Venom Immunity
+2								ABILITY:Special Ability|AUTOMATIC|Speak with Animals ~ Chosen of Roarth
+4	BONUS:VAR|WSTimes|1	DEFINE:WSTimes|0	ABILITY:Special Ability|AUTOMATIC|Wild Shape ~ Chosen of Roarth
+6	BONUS:VAR|WSTimes|1
+7								ABILITY:Special Ability|AUTOMATIC|Anima ~ Chosen of Roarth
 
 #HEALER (HLR)
 
@@ -195,12 +195,12 @@ CLASS:Prankmaster	PREALIGN:CG,CN,CE	PREATT:4	PREFEAT:2,Alertness,Improved Initia
 CLASS:Prankmaster	STARTSKILLPTS:8	CSKILL:Bluff|Decipher Script|Disguise|Escape Artist|Forgery|Gather Information|Hide|Listen|Move Silently|Sleight of Hand|Search|Sense Motive
 #Pick Pockets Read Lips
 ###Block: Special Abilities:
-1	DOMAIN:Trickery								BONUS:DOMAIN|NUMBER|1
-2				ABILITY:Special Ability|AUTOMATIC|Sixth Sense ~ Prankmaster
-3				ABILITY:Special Ability|AUTOMATIC|Slight of Hand ~ Prankmaster					BONUS:VAR|SlightOfHandDamage|1	DEFINE:SlightOfHandDamage|0
-4				ABILITY:Special Ability|AUTOMATIC|Riddles ~ Prankmaster
-5															BONUS:VAR|SlightOfHandDamage|1
-6				ABILITY:Special Ability|AUTOMATIC|Master Trickster ~ Prankmaster
+1	DOMAIN:Trickery	BONUS:DOMAIN|NUMBER|1
+2																			ABILITY:Special Ability|AUTOMATIC|Sixth Sense ~ Prankmaster
+3								BONUS:VAR|SlightOfHandDamage|1	DEFINE:SlightOfHandDamage|0	ABILITY:Special Ability|AUTOMATIC|Slight of Hand ~ Prankmaster
+4																			ABILITY:Special Ability|AUTOMATIC|Riddles ~ Prankmaster
+5								BONUS:VAR|SlightOfHandDamage|1
+6																			ABILITY:Special Ability|AUTOMATIC|Master Trickster ~ Prankmaster
 #COMMENT: Slight of Hand is how they spelled it.
 
 ###Shadowblade
@@ -212,12 +212,12 @@ CLASS:Shadowblade	!PREALIGN:CG,LG,NG	PREATT:6	PREFEAT:3,Skill Focus,Weapon Fines
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shadowblade	STARTSKILLPTS:8	CSKILL:Bluff|Diplomacy|Disable Device|Forgery|Gather Information|Hide|Listen|Move Silently|Search|Spot
 ###Block: Special Abilities:
-1						BONUS:VAR|SneakAttack|1	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-2	ABILITY:Special Ability|AUTOMATIC|Shadow Movement ~ Shadowblade
-3	ABILITY:Special Ability|AUTOMATIC|Vampiric Blade ~ Shadowblade
-4						BONUS:VAR|SneakAttack|1
-5	ABILITY:Special Ability|AUTOMATIC|Shadow Form ~ Shadowblade
-6	ABILITY:Special Ability|AUTOMATIC|Death Resistance ~ Shadowblade
+1	BONUS:VAR|SneakAttack|1	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+2					ABILITY:Special Ability|AUTOMATIC|Shadow Movement ~ Shadowblade
+3					ABILITY:Special Ability|AUTOMATIC|Vampiric Blade ~ Shadowblade
+4	BONUS:VAR|SneakAttack|1
+5					ABILITY:Special Ability|AUTOMATIC|Shadow Form ~ Shadowblade
+6					ABILITY:Special Ability|AUTOMATIC|Death Resistance ~ Shadowblade
 
 ###Soulreaper
 
@@ -228,13 +228,13 @@ CLASS:Soulreaper	!PREALIGN:LG,LN,LE	PREATT:8	PREFEAT:3,Power Attack,Cleave,Track
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soulreaper	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Disable Device|Hide|Intimidate|Knowledge (Religion)|Listen|Move Silently|Search|Spot|Swim|Tumble|Use Rope|Survival
 ###Block: Special Abilities:
-1	ABILITY:Special Ability|AUTOMATIC|AC Bonus ~ Soulreaper			BONUS:VAR|SoulreaperAC|1						DEFINE:SoulreaperAC|0
-2	ABILITY:Special Ability|AUTOMATIC|DR ~ Soulreaper						BONUS:VAR|SoulreaperDRPlus|1	BONUS:VAR|SoulreaperDR|5	DEFINE:SoulreaperDRPlus|0	DEFINE:SoulreaperDR|0
-3													BONUS:VAR|SoulreaperAC|1
-4													BONUS:VAR|SoulreaperDRPlus|1
-5													BONUS:VAR|SoulreaperAC|1
-6													BONUS:VAR|SoulreaperDR|5
-7	ABILITY:Special Ability|AUTOMATIC|Reap Soul ~ Soulreaper
+1	BONUS:VAR|SoulreaperAC|1						DEFINE:SoulreaperAC|0						ABILITY:Special Ability|AUTOMATIC|AC Bonus ~ Soulreaper
+2	BONUS:VAR|SoulreaperDRPlus|1	BONUS:VAR|SoulreaperDR|5	DEFINE:SoulreaperDRPlus|0	DEFINE:SoulreaperDR|0	ABILITY:Special Ability|AUTOMATIC|DR ~ Soulreaper
+3	BONUS:VAR|SoulreaperAC|1
+4	BONUS:VAR|SoulreaperDRPlus|1
+5	BONUS:VAR|SoulreaperAC|1
+6	BONUS:VAR|SoulreaperDR|5
+7																				ABILITY:Special Ability|AUTOMATIC|Reap Soul ~ Soulreaper
 
 ###Swan Bard
 
@@ -247,10 +247,10 @@ CLASS:Swan Bard	STARTSKILLPTS:6	CSKILL:Bluff|TYPE=Craft|Diplomacy|Gather Informa
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level				Use Spell List
 CLASS:Swan Bard	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3	BONUS:CASTERLEVEL|Swan Bard|CL	SPELLLIST:1|Cleric
 ###Block: Special Abilities:
-1	ABILITY:Special Ability|AUTOMATIC|Clerical Spells	CHOOSE:DOMAIN|Air|Animal|Chaos
-3	ABILITY:Special Ability|AUTOMATIC|Divine Talent
-5	ABILITY:Special Ability|AUTOMATIC|Divine Beauty
-7	ABILITY:Special Ability|AUTOMATIC|Swanmorph
+1	CHOOSE:DOMAIN|Air|Animal|Chaos	ABILITY:Special Ability|AUTOMATIC|Clerical Spells
+3							ABILITY:Special Ability|AUTOMATIC|Divine Talent
+5							ABILITY:Special Ability|AUTOMATIC|Divine Beauty
+7							ABILITY:Special Ability|AUTOMATIC|Swanmorph
 ###Block: Spellcasting
 1	CAST:3,1
 2	CAST:4,2
@@ -269,12 +269,12 @@ CLASS:Wild Walker	PREALIGN:CG,CN,CE	PREATT:6	PREDEITY:1,Sophia Kalla	PRERACE:1,N
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wild Walker	STARTSKILLPTS:2	CSKILL:Climb|Hide|Knowledge (Nature)|Knowledge (Geography)|Move Silently|Ride|Swim|Survival|Use Rope
 ###Block: Special Abilities:
-1										ABILITY:Special Ability|AUTOMATIC|Woodland Stride
-2	ABILITY:Special Ability|AUTOMATIC|Charm Monster
-3	ABILITY:Special Ability|AUTOMATIC|Fast Movement		BONUS:MOVEADD|TYPE.Walk|10
-4	ABILITY:Special Ability|AUTOMATIC|Summon Monster
-5	ABILITY:Special Ability|AUTOMATIC|Monstrous Companion
-6	ABILITY:Special Ability|AUTOMATIC|Monstrous Form	BONUS:MOVEADD|TYPE.Walk|10
+1						ABILITY:Special Ability|AUTOMATIC|Woodland Stride
+2						ABILITY:Special Ability|AUTOMATIC|Charm Monster
+3	BONUS:MOVEADD|TYPE.Walk|10	ABILITY:Special Ability|AUTOMATIC|Fast Movement
+4						ABILITY:Special Ability|AUTOMATIC|Summon Monster
+5						ABILITY:Special Ability|AUTOMATIC|Monstrous Companion
+6	BONUS:MOVEADD|TYPE.Walk|10	ABILITY:Special Ability|AUTOMATIC|Monstrous Form
 
 #
 ## EOF

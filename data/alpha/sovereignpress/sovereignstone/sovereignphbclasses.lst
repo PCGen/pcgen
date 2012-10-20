@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 26 22:10:57 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 # Players Handbook Classes modified for use in Sovereign Stone d20.
 SOURCELONG:Sovereign Stone Campaign Sourcebook	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com	SOURCEDATE:2002-04
 # This NEEDS to be changed to .MODs.  -- Tir Gwaith
@@ -21,20 +21,20 @@ CLASS:Barbarian	STARTSKILLPTS:4
 1	BONUS:VAR|TirelessRage|1|PREVARGTEQ:BarbRagePowerLVL,20	DEFINE:TirelessRage|0
 1	BONUS:VAR|RageTimes|(BarbRageTimesLVL)/4+1			DEFINE:RageTimes|0
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																	AUTO:FEAT|Shield Proficiency
 ###Block: Level Progression
-1								BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2|TYPE=FastMovement
-2			BONUS:VAR|UncannyDodge|1													ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
-5			BONUS:VAR|UncannyDodge|1
-10			BONUS:VAR|UncannyDodge|1
+1			BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2|TYPE=FastMovement
+2															BONUS:VAR|UncannyDodge|1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
+5															BONUS:VAR|UncannyDodge|1
+10															BONUS:VAR|UncannyDodge|1
 11	DR:1/-
-13			BONUS:VAR|UncannyDodge|1
+13															BONUS:VAR|UncannyDodge|1
 14	DR:2/-
-16			BONUS:VAR|UncannyDodge|1
+16															BONUS:VAR|UncannyDodge|1
 17	DR:3/-
-19			BONUS:VAR|UncannyDodge|1
+19															BONUS:VAR|UncannyDodge|1
 20	DR:4/-
 
 # Class Name	Hit Dice	Abbreviation	Source URI			Save checks bonus											Combat bonus
@@ -42,9 +42,9 @@ CLASS:Fighter	HD:10		ABB:Ftr		SOURCEWEB:PHB (WOTC)	BONUS:CHECKS|BASE.Fortitude|C
 # Class Name	Skill Pts/Lvl
 CLASS:Fighter	STARTSKILLPTS:2
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1																	AUTO:FEAT|Shield Proficiency
 ###Block: Level progression
 1						ADD:FEAT|1|TYPE=Fighter
 2						ADD:FEAT|1|TYPE=Fighter
@@ -64,11 +64,11 @@ CLASS:Rogue		HD:6		ABB:Rog		SOURCEWEB:PHB (WOTC)	BONUS:CHECKS|BASE.Fortitude,BAS
 CLASS:Rogue		STARTSKILLPTS:8
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Rogue Weapon Proficiencies|All Automatic Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)
+1																AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Level progression
-1	BONUS:VAR|SneakAttack|(CL+1)/2																		ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-2																								ABILITY:Special Ability|AUTOMATIC|Evasion
-3	BONUS:VAR|UncannyDodge|1																			ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
+1	BONUS:VAR|SneakAttack|(CL+1)/2															ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+2																					ABILITY:Special Ability|AUTOMATIC|Evasion
+3	BONUS:VAR|UncannyDodge|1																ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
 6	BONUS:VAR|UncannyDodge|1
 10							ADD:FEAT|1|TYPE=RogueSpecialAbilities,TYPE=General,TYPE=Metamagic,TYPE=ItemCreation
 11	BONUS:VAR|UncannyDodge|1

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Sep  8 18:10:03 2011 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
 
 # ORIGINAL ENTRY: Douglas Limmer
@@ -322,7 +322,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Ranger|Detect Poison
 # COMMENT:  The Bestiary gives full STR damage on the bite in beast mode.
 # COMMENT:  The Bestiary hybrid mode seems to have used average hp on all dice,
 # COMMENT:    rather than maximum hp on the first class die.
-# NEEDS DATA WORK:  PCGen doesn't give the bite attack from the rage power 
+# NEEDS DATA WORK:  PCGen doesn't give the bite attack from the rage power
 # NEEDS DATA WORK:    Animal Fury.
 STARTPACK:Lycanthrope (Wereboar/Human Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.182
 ALIGN:CN

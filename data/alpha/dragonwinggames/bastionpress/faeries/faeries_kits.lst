@@ -1,5 +1,5 @@
-# CVS $Revision: 9359 $ $Author: eddyanthony $ -- Thu Feb 12 13:03:11 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-SOURCELONG:Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://dragonwing.net/Faeries.htm
+# CVS $Revision: 9359 $ $Author: eddyanthony $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://dragonwing.net/Faeries.htm	SOURCEDATE:2003-01
 #Original Entry: Andrew Maitland
 
 STARTPACK:Doorway Guardian Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Doorway Guardian]
@@ -41,8 +41,8 @@ ALIGN:CG
 
 STARTPACK:Faerie Dragon Default	TYPE:Creature	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Faerie Dragon]
 RACE:Faerie Dragon	!PRERACE:1,%
-FEAT:Alertness		FREE:YES
-FEAT:Dodge			FREE:YES
+FEAT:Alertness			FREE:YES
+FEAT:Dodge				FREE:YES
 FEAT:Improved Initiative
 #Skills: Bluff +7, Escape Artist +8, Hide +12, Intuit Direction+3, Listen +5, Move Silently +8, Search +3, Sense Motive +5, Spot +5
 SKILL:Bluff			RANK:0
@@ -95,7 +95,7 @@ STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 #Skills:Intimidate +8, Listen +13, Move Silently +9, Spot +13
 FEAT:Alertness
 FEAT:Flyby Attack
-FEAT:Multiattack		FREE:YES
+FEAT:Multiattack	FREE:YES
 SKILL:Intimidate		RANK:8
 SKILL:Listen		RANK:10
 SKILL:Move Silently	RANK:8
@@ -108,15 +108,15 @@ STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 #Str 9, Dex 13, Con 10,Int 12, Wis 15, Cha 14
 RACE:Faun (Lesser Satyr)	!PRERACE:1,%
 FEAT:Alertness
-FEAT:Dodge		
+FEAT:Dodge
 FEAT:Mobility	FREE:YES
 #Hide +12, Jump +8, Listen +12,Move Silently +15, Spot +15
 # COMMENT: Ranks max 9, can't achieve what the publisher listed.
-SKILL:Hide				RANK:9
-SKILL:Jump				RANK:4
-SKILL:Listen			RANK:8
-SKILL:Move Silently		RANK:9
-SKILL:Spot				RANK:9
+SKILL:Hide			RANK:9
+SKILL:Jump			RANK:4
+SKILL:Listen		RANK:8
+SKILL:Move Silently	RANK:9
+SKILL:Spot			RANK:9
 
 
 STARTPACK:Korred (Greater Satyr) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Korred (Greater Satyr)]

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Jan 14 13:16:52 2009 -- reformated by prettylst.pl v1.38 (build 8180)
-SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League	SOURCESHORT:XCrawl	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League	SOURCESHORT:XCrawl	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php	SOURCEDATE:2002-01
 
 # Domain Name	Class Skill		Add 				Bonus to skill					Description
 Art			CSKILL:Appraise					BONUS:SKILL|TYPE.Craft|4|TYPE=Confidence	DESC:Appraisal is a class skill. All craft skills receive a +4 confidence bonus

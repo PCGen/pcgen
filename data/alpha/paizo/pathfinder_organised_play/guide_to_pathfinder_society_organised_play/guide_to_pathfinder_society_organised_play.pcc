@@ -1,3 +1,4 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 CAMPAIGN:Paizo - Guide To Pathfinder Society Organised Play 4.0
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Society Organised Play
@@ -14,7 +15,7 @@ SOURCELONG:Guide to Pathfinder Society Organised Play
 SOURCESHORT:GTPOP
 SOURCEWEB:http://paizo.com/pathfinderSociety/scenarios/v5748btpy84k4
 SOURCEDATE:2011-08
-ISOGL:Yes
+ISOGL:YES
 
 COVER:PFOrganized_play.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png

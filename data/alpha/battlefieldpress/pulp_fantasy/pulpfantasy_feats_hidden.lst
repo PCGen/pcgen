@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Feb 18 00:27:04 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2006-01
 #Original entry by: Frank Kliewe
 
 #Improved Learning should raise the Max. Ranks of Smart Hero class skills to 4+TL, this is not possible yet.
@@ -56,7 +56,7 @@ Category [Theology and philosophy]	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1
 Category [Weird Science]		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Weird Science]			SAB:Talk a Good Game (Weird Science)		SOURCEPAGE:p.22
 
 ###Block: Fast Learner Level Selections
-# Feat Name				Type				Visible	Multiple Requirements								Bonus to skill point for a level
+# Feat Name				Type				Visible	Multiple Requirements							Bonus to skill point for a level
 Fast Learner (Smart Lvl 1)	TYPE:FastLearnerLevel	VISIBLE:NO	PREMULT:2,[PRECLASS:1,Smart=1],[!PRECLASS:1,Smart=2]		BONUS:SKILLPOOL|CLASS=Smart;LEVEL=1|2	BONUS:SKILLPOOL|CLASS=Smart;LEVEL=2|2|PRECLASS:1,Smart=2	BONUS:SKILLPOOL|CLASS=Smart;LEVEL=3|2|PRECLASS:1,Smart=3	BONUS:SKILLPOOL|CLASS=Smart;LEVEL=4|2|PRECLASS:1,Smart=4	BONUS:SKILLPOOL|CLASS=Smart;LEVEL=5|2|PRECLASS:1,Smart=5	BONUS:SKILLPOOL|CLASS=Smart;LEVEL=6|2|PRECLASS:1,Smart=6	BONUS:SKILLPOOL|CLASS=Smart;LEVEL=7|2|PRECLASS:1,Smart=7	BONUS:SKILLPOOL|CLASS=Smart;LEVEL=8|2|PRECLASS:1,Smart=8	BONUS:SKILLPOOL|CLASS=Smart;LEVEL=9|2|PRECLASS:1,Smart=9	BONUS:SKILLPOOL|CLASS=Smart;LEVEL=10|2|PRECLASS:1,Smart=10
 Fast Learner (Smart Lvl 2)	TYPE:FastLearnerLevel	VISIBLE:NO	PREMULT:2,[PRECLASS:1,Smart=2],[!PRECLASS:1,Smart=3]		BONUS:SKILLPOOL|CLASS=Smart;LEVEL=2|2|PRECLASS:1,Smart=2	BONUS:SKILLPOOL|CLASS=Smart;LEVEL=3|2|PRECLASS:1,Smart=3	BONUS:SKILLPOOL|CLASS=Smart;LEVEL=4|2|PRECLASS:1,Smart=4	BONUS:SKILLPOOL|CLASS=Smart;LEVEL=5|2|PRECLASS:1,Smart=5	BONUS:SKILLPOOL|CLASS=Smart;LEVEL=6|2|PRECLASS:1,Smart=6	BONUS:SKILLPOOL|CLASS=Smart;LEVEL=7|2|PRECLASS:1,Smart=7	BONUS:SKILLPOOL|CLASS=Smart;LEVEL=8|2|PRECLASS:1,Smart=8	BONUS:SKILLPOOL|CLASS=Smart;LEVEL=9|2|PRECLASS:1,Smart=9	BONUS:SKILLPOOL|CLASS=Smart;LEVEL=10|2|PRECLASS:1,Smart=10
 Fast Learner (Smart Lvl 3)	TYPE:FastLearnerLevel	VISIBLE:NO	PREMULT:2,[PRECLASS:1,Smart=3],[!PRECLASS:1,Smart=4]		BONUS:SKILLPOOL|CLASS=Smart;LEVEL=3|2|PRECLASS:1,Smart=3	BONUS:SKILLPOOL|CLASS=Smart;LEVEL=4|2|PRECLASS:1,Smart=4	BONUS:SKILLPOOL|CLASS=Smart;LEVEL=5|2|PRECLASS:1,Smart=5	BONUS:SKILLPOOL|CLASS=Smart;LEVEL=6|2|PRECLASS:1,Smart=6	BONUS:SKILLPOOL|CLASS=Smart;LEVEL=7|2|PRECLASS:1,Smart=7	BONUS:SKILLPOOL|CLASS=Smart;LEVEL=8|2|PRECLASS:1,Smart=8	BONUS:SKILLPOOL|CLASS=Smart;LEVEL=9|2|PRECLASS:1,Smart=9	BONUS:SKILLPOOL|CLASS=Smart;LEVEL=10|2|PRECLASS:1,Smart=10
@@ -69,11 +69,11 @@ Fast Learner (Smart Lvl 9)	TYPE:FastLearnerLevel	VISIBLE:NO	PREMULT:2,[PRECLASS:
 Fast Learner (Smart Lvl 10)	TYPE:FastLearnerLevel	VISIBLE:NO	PREMULT:2,[PRECLASS:1,Smart=10],[!PRECLASS:1,Smart=11]	BONUS:SKILLPOOL|CLASS=Smart;LEVEL=10|2|PRECLASS:1,Smart=10
 
 ###Block:Cross Training
-# Feat Name				Type				Visible	Special ABility			Stackable?	Multiple?	Choose				Class Skill	Cost		Source Page
+# Feat Name				Type				Visible	Special ABility			Stackable?	Multiple?	Choose			Class Skill	Cost		Source Page
 Cross Training Selection	TYPE:CrossTraining	VISIBLE:NO	SAB:Cross Training (%CHOICE)	STACK:NO	MULT:YES	CHOOSE:SKILL|CROSSCLASS	CSKILL:LIST	COST:0	SOURCEPAGE:p.23
 
 ###Block:Cross Training Sub-Entries
-# Feat Name		Type			Visible	Special ABility				Stackable?	Multiple?	Choose	Selections	Bonus Number of Feats	Stat bonus			Source Page
+# Feat Name		Type			Visible	Special ABility				Stackable?	Multiple?	Choose		Selections	Bonus Number of Feats	Stat bonus			Source Page
 Raise Abilities	TYPE:X-Training	VISIBLE:NO	SAB:Cross Training (+1 to %CHOICE)	STACK:NO	MULT:YES	CHOOSE:PCSTAT|ALL	SELECT:2					BONUS:STAT|%LIST|1	SOURCEPAGE:p.23
 Lower Ability	TYPE:X-Training	VISIBLE:NO	SAB:Cross Training (-2 to %CHOICE)	STACK:NO	MULT:YES	CHOOSE:PCSTAT|ALL			BONUS:FEAT|POOL|1		BONUS:STAT|%LIST|-2	SOURCEPAGE:p.23
 
@@ -182,13 +182,13 @@ Reputation (Public ID -19 / 3rd Secret ID +19)	TYPE:MoveReputationThree	VISIBLE:
 Reputation (Public ID -20 / 3rd Secret ID +20)	TYPE:MoveReputationThree	VISIBLE:NO	PREVARGTEQ:Reputation,20	BONUS:VAR|Reputation|-20	BONUS:VAR|SecretReputationThree|20
 
 ###Block:Ambassador Class Abilities
-# Feat Name			Type				Visible	Special ABility						Define			Multiple?	Choose		Bonus to skill						Modify VAR					Source Page
-Diplomatic Immunity	TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Diplomatic Immunity																												SOURCEPAGE:p.92
-Open Arms			TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Open Arms															BONUS:SKILL|Diplomacy|var("CL=Ambassador")/2							SOURCEPAGE:p.93
-Information Access	TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Information Access																												SOURCEPAGE:p.93
+# Feat Name			Type				Visible	Special ABility						Define			Stackable?	Multiple?	Choose		Bonus to skill						Modify VAR					Source Page
+Diplomatic Immunity	TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Diplomatic Immunity																														SOURCEPAGE:p.92
+Open Arms			TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Open Arms																	BONUS:SKILL|Diplomacy|var("CL=Ambassador")/2							SOURCEPAGE:p.93
+Information Access	TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Information Access																														SOURCEPAGE:p.93
 Stipend			TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Stipend x%|StipendCount				DEFINE:StipendCount|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE									BONUS:VAR|StipendCount|1		SOURCEPAGE:p.93
-Restricted Access		TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Restricted Access														BONUS:SKILL|Gather Information,Research|5								SOURCEPAGE:p.93
-Select Consuls		TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Select Consuls (up to %)|SelectConsuls	DEFINE:SelectConsuls|0														BONUS:VAR|SelectConsuls|Reputation	SOURCEPAGE:p.93
+Restricted Access		TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Restricted Access																BONUS:SKILL|Gather Information,Research|5								SOURCEPAGE:p.93
+Select Consuls		TYPE:AmbassadorAbility	VISIBLE:NO	SAB:Select Consuls (up to %)|SelectConsuls	DEFINE:SelectConsuls|0																BONUS:VAR|SelectConsuls|Reputation	SOURCEPAGE:p.93
 
 ###Block:Brawler Class Abilities
 # Feat Name				Type							Visible	Special ABility			Define			Modify VAR						Source Page
@@ -207,14 +207,14 @@ To the Max			TYPE:CombatAceAbility	VISIBLE:NO	SAB:To the Max!																			
 Keep it Together		TYPE:CombatAceAbility	VISIBLE:NO	SAB:Keep it Together																									SOURCEPAGE:p.96
 
 ###Block:Detective Class Abilities
-# Feat Name			Type				Visible	Special ABility																														Define				Stackable?	Multiple?	Choose					Bonus to skill					Modify VAR									Source Page
-Profile			TYPE:DetectiveAbility	VISIBLE:NO	SAB:Profile																																																															SOURCEPAGE:p.98
+# Feat Name			Type				Visible	Special ABility																														Define				Stackable?	Multiple?	Choose				Bonus to skill					Modify VAR									Source Page
+Profile			TYPE:DetectiveAbility	VISIBLE:NO	SAB:Profile																																																														SOURCEPAGE:p.98
 Reference Material	TYPE:DetectiveAbility	VISIBLE:NO	SAB:Reference Material (%CHOICE)																																STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	BONUS:SKILL|LIST|2|TYPE=Circumstance											SOURCEPAGE:p.99
-Contact - Detective	TYPE:DetectiveAbility	VISIBLE:NO	SAB:Contact (low level)	SAB:Contact (mid level)|PREVARGTEQ:var("Count[FEATNAME=Contact - Detective]"),2	SAB:Contact (high level)|PREVARGTEQ:var("Count[FEATNAME=Contact - Detective]"),3						STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|NOCHOICE																			SOURCEPAGE:p.98
-Eye for Clues		TYPE:DetectiveAbility	VISIBLE:NO	SAB:Eye for Clues																																																														SOURCEPAGE:p.98
-Second Thought		TYPE:DetectiveAbility	VISIBLE:NO	SAB:Second Thought (x%)|SecondThoughtNum																										DEFINE:SecondThoughtNum|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE											BONUS:VAR|SecondThoughtNum|floor(var("CL=Detective")/3)	SOURCEPAGE:p.99
-Discern Lie			TYPE:DetectiveAbility	VISIBLE:NO	SAB:Discern Lie																																																														SOURCEPAGE:p.99
-Sixth Sense			TYPE:DetectiveAbility	VISIBLE:NO	SAB:Sixth Sense																																																														SOURCEPAGE:p.99
+Contact - Detective	TYPE:DetectiveAbility	VISIBLE:NO	SAB:Contact (low level)	SAB:Contact (mid level)|PREVARGTEQ:var("Count[FEATNAME=Contact - Detective]"),2	SAB:Contact (high level)|PREVARGTEQ:var("Count[FEATNAME=Contact - Detective]"),3						STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|NOCHOICE																		SOURCEPAGE:p.98
+Eye for Clues		TYPE:DetectiveAbility	VISIBLE:NO	SAB:Eye for Clues																																																													SOURCEPAGE:p.98
+Second Thought		TYPE:DetectiveAbility	VISIBLE:NO	SAB:Second Thought (x%)|SecondThoughtNum																										DEFINE:SecondThoughtNum|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|SecondThoughtNum|floor(var("CL=Detective")/3)	SOURCEPAGE:p.99
+Discern Lie			TYPE:DetectiveAbility	VISIBLE:NO	SAB:Discern Lie																																																													SOURCEPAGE:p.99
+Sixth Sense			TYPE:DetectiveAbility	VISIBLE:NO	SAB:Sixth Sense																																																													SOURCEPAGE:p.99
 
 ###Block:Driver Class Abilities
 # Feat Name			Type				Visible	Special ABility			Define			Modify VAR					Source Page
@@ -238,14 +238,14 @@ Extra Step		TYPE:ExplorerAbility	VISIBLE:NO				SAB:Extra Step|PREVAREQ:var("COUN
 Improved Evasion	TYPE:ExplorerAbility	VISIBLE:NO	PREFEAT:1,Evasion	SAB:Improved Evasion																																								SOURCEPAGE:p.106
 
 ###Block:G-man Class Abilities
-# Feat Name				Type				Visible	Special ABility						Multiple?	Choose								Add 																										Source Page
+# Feat Name				Type				Visible	Special ABility						Multiple?	Choose									Add 																									Source Page
 Jurisdiction			TYPE:GManAbility		VISIBLE:NO	SAB:Jurisdiction																																											SOURCEPAGE:p.103
 Big Brother				TYPE:GManAbility		VISIBLE:NO	SAB:Big Brother																																											SOURCEPAGE:p.103
-Signature Kit			TYPE:GManAbility		VISIBLE:NO																				ADD:FEAT|Signature Kit - Firearm	ADD:FEAT|Signature Kit - Melee weapon	ADD:FEAT|Signature Kit - Equipment	ADD:FEAT|Signature Kit - Vehicle	SOURCEPAGE:p.104
-Signature Kit - Firearm		TYPE:SignatureKitChoice	VISIBLE:NO	SAB:Signature Kit Personal Firearm (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|EQUIPMENT|TYPE=Firearm.Personal.Weapon																											SOURCEPAGE:p.104
+Signature Kit			TYPE:GManAbility		VISIBLE:NO																					ADD:FEAT|Signature Kit - Firearm	ADD:FEAT|Signature Kit - Melee weapon	ADD:FEAT|Signature Kit - Equipment	ADD:FEAT|Signature Kit - Vehicle	SOURCEPAGE:p.104
+Signature Kit - Firearm		TYPE:SignatureKitChoice	VISIBLE:NO	SAB:Signature Kit Personal Firearm (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|EQUIPMENT|TYPE=Firearm.Personal.Weapon																										SOURCEPAGE:p.104
 Signature Kit - Melee weapon	TYPE:SignatureKitChoice	VISIBLE:NO	SAB:Signature Kit Melee Weapon (%CHOICE)		MULT:YES	CHOOSE:NUMCHOICES=1|EQUIPMENT|TYPE=Melee.Weapon																												SOURCEPAGE:p.104
-Signature Kit - Equipment	TYPE:SignatureKitChoice	VISIBLE:NO	SAB:Signature Kit Special Equipment (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|EQUIPMENT|TYPE=Goods.Tools																													SOURCEPAGE:p.104
-Signature Kit - Vehicle		TYPE:SignatureKitChoice	VISIBLE:NO	SAB:Signature Kit Vehicle (%CHOICE)			MULT:YES	CHOOSE:NUMCHOICES=1|EQUIPMENT|TYPE=Goods.Transportation																											SOURCEPAGE:p.104
+Signature Kit - Equipment	TYPE:SignatureKitChoice	VISIBLE:NO	SAB:Signature Kit Special Equipment (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|EQUIPMENT|TYPE=Goods.Tools																												SOURCEPAGE:p.104
+Signature Kit - Vehicle		TYPE:SignatureKitChoice	VISIBLE:NO	SAB:Signature Kit Vehicle (%CHOICE)			MULT:YES	CHOOSE:NUMCHOICES=1|EQUIPMENT|TYPE=Goods.Transportation																										SOURCEPAGE:p.104
 Only the Best			TYPE:GManAbility		VISIBLE:NO	SAB:Only the Best																																											SOURCEPAGE:p.103
 Team Effort				TYPE:GManAbility		VISIBLE:NO	SAB:Team Effort																																											SOURCEPAGE:p.104
 Safe House				TYPE:GManAbility		VISIBLE:NO	SAB:Safe House																																											SOURCEPAGE:p.104
@@ -258,17 +258,17 @@ Underworld Contact	TYPE:GangsterAbility	VISIBLE:NO	SAB:Underworld Contact (x%)|U
 Crippling Strike		TYPE:GangsterAbility	VISIBLE:NO	SAB:Crippling Strike																								SOURCEPAGE:p.105
 
 ###Block:Mystery Man Class Abilities
-# Feat Name				Type				Visible	Special ABility																														Define					Stackable?	Multiple?	Choose									Combat bonus																																																																			Bonus to skill			Modify VAR									Source Page
-Charming				TYPE:MysteryManAbility	VISIBLE:NO	SAB:Charming																																																																																																																							BONUS:SKILL|TYPE=Charisma|2											SOURCEPAGE:p.106
+# Feat Name				Type				Visible	Special ABility																														Define					Stackable?	Multiple?	Choose													Combat bonus																																																																			Bonus to skill			Modify VAR									Source Page
+Charming				TYPE:MysteryManAbility	VISIBLE:NO	SAB:Charming																																																																																																																											BONUS:SKILL|TYPE=Charisma|2											SOURCEPAGE:p.106
 Two Fisted Action			TYPE:MysteryManAbility	VISIBLE:NO	SAB:Two Fisted Action Chosen weapon (%CHOICE)																																	MULT:YES	CHOOSE:NUMCHOICES=1|WEAPONPROFICIENCY|EQUIPMENT[TYPE=Melee]|EQUIPMENT[TYPE=Ranged]	BONUS:COMBAT|TOHIT-PRIMARY|6|PREMULT:2,[PREEQUIPTWOWEAPON:2,%LIST],[!PREFEAT:1,Two-Weapon Fighting]	BONUS:COMBAT|TOHIT-SECONDARY|10|PREMULT:2,[PREEQUIPTWOWEAPON:2,%LIST],[!PREFEAT:1,Two-Weapon Fighting]	BONUS:COMBAT|TOHIT-PRIMARY|4|PREMULT:2,[PREEQUIPTWOWEAPON:2,%LIST],[PREFEAT:1,Two-Weapon Fighting]	BONUS:COMBAT|TOHIT-SECONDARY|4|PREMULT:2,[PREEQUIPTWOWEAPON:2,%LIST],[PREFEAT:1,Two-Weapon Fighting]																SOURCEPAGE:p.106
-Over Sight				TYPE:MysteryManAbility	VISIBLE:NO	SAB:Over Sight																																																																																																																																						SOURCEPAGE:p.106
-Art of Evasion			TYPE:MysteryManAbility	VISIBLE:NO	SAB:Art of Evasion																																																																																																																																					SOURCEPAGE:p.106
-Improved Investigation		TYPE:MysteryManAbility	VISIBLE:NO	SAB:Improved Investigation																																																																																																																																				SOURCEPAGE:p.107
-Esoteric Knowledge		TYPE:MysteryManAbility	VISIBLE:NO	SAB:Esoteric Knowledge +%|EsotericKnowledgeValue																								DEFINE:EsotericKnowledgeValue|0																																																																																									BONUS:VAR|EsotericKnowledgeValue|var("CL=Mystery Man")+INT	SOURCEPAGE:p.107
-Contact - Mystery Man		TYPE:MysteryManAbility	VISIBLE:NO	SAB:Contact (low level)	SAB:Contact (mid level)|PREVARGTEQ:var("Count[FEATNAME=Contact - Mystery Man]"),2	SAB:Contact (high level)|PREVARGTEQ:var("Count[FEATNAME=Contact - Mystery Man]"),3							STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|NOCHOICE																																																																																										SOURCEPAGE:p.107
-Action Boost - Mystery Man	TYPE:MysteryManAbility	VISIBLE:NO	SAB:Action Boost (Mystery Man Ability)																																																																																																																																		SOURCEPAGE:p.107
-Secret Headquarters		TYPE:MysteryManAbility	VISIBLE:NO	SAB:Secret Headquarters																																																																																																																																					SOURCEPAGE:p.107
-Debonair				TYPE:MysteryManAbility	VISIBLE:NO	SAB:Debonair																																																																																																																																						SOURCEPAGE:p.107
+Over Sight				TYPE:MysteryManAbility	VISIBLE:NO	SAB:Over Sight																																																																																																																																										SOURCEPAGE:p.106
+Art of Evasion			TYPE:MysteryManAbility	VISIBLE:NO	SAB:Art of Evasion																																																																																																																																									SOURCEPAGE:p.106
+Improved Investigation		TYPE:MysteryManAbility	VISIBLE:NO	SAB:Improved Investigation																																																																																																																																								SOURCEPAGE:p.107
+Esoteric Knowledge		TYPE:MysteryManAbility	VISIBLE:NO	SAB:Esoteric Knowledge +%|EsotericKnowledgeValue																								DEFINE:EsotericKnowledgeValue|0																																																																																													BONUS:VAR|EsotericKnowledgeValue|var("CL=Mystery Man")+INT	SOURCEPAGE:p.107
+Contact - Mystery Man		TYPE:MysteryManAbility	VISIBLE:NO	SAB:Contact (low level)	SAB:Contact (mid level)|PREVARGTEQ:var("Count[FEATNAME=Contact - Mystery Man]"),2	SAB:Contact (high level)|PREVARGTEQ:var("Count[FEATNAME=Contact - Mystery Man]"),3							STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|NOCHOICE																																																																																														SOURCEPAGE:p.107
+Action Boost - Mystery Man	TYPE:MysteryManAbility	VISIBLE:NO	SAB:Action Boost (Mystery Man Ability)																																																																																																																																						SOURCEPAGE:p.107
+Secret Headquarters		TYPE:MysteryManAbility	VISIBLE:NO	SAB:Secret Headquarters																																																																																																																																									SOURCEPAGE:p.107
+Debonair				TYPE:MysteryManAbility	VISIBLE:NO	SAB:Debonair																																																																																																																																										SOURCEPAGE:p.107
 
 ###Block:Mystic Class Abilities
 # Feat Name		Type				Visible	Special ABility																						Define				Stackable?	Multiple?	Choose				Template				Automatically Added to Inventory	Source Page
@@ -304,10 +304,10 @@ Connected - Operator Ability	TYPE:OperatorAbility	VISIBLE:NO	SAB:Connected (Oper
 # Feat Name				Type				Visible	Special ABility				Stackable?	Multiple?	Choose																								Selections		Combat bonus						Modify VAR			Source Page
 Smart Defense			TYPE:ScientistAbility	VISIBLE:NO	SAB:Smart Defense																																				BONUS:COMBAT|AC|max(0,INT)|TYPE=Ability.STACK					SOURCEPAGE:p.117
 Scientific Improvisation	TYPE:ScientistAbility	VISIBLE:NO	SAB:Scientific Improvisation																																														SOURCEPAGE:p.117
-Scientist Skill Mastery		TYPE:ScientistAbility	VISIBLE:NO	SAB:Skill Mastery (%CHOICE)		STACK:NO	MULT:YES	CHOOSE:SKILL|CLASS																							SELECT:INT+3													SOURCEPAGE:p.118
+Scientist Skill Mastery		TYPE:ScientistAbility	VISIBLE:NO	SAB:Skill Mastery (%CHOICE)		STACK:NO	MULT:YES	CHOOSE:SKILL|CLASS																						SELECT:INT+3													SOURCEPAGE:p.118
 Minor Breakthrough		TYPE:ScientistAbility	VISIBLE:NO	SAB:Minor Breakthrough (%CHOICE)	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Technology)												BONUS:VAR|WealthBonus|3	SOURCEPAGE:p.118
 Smart Survival			TYPE:ScientistAbility	VISIBLE:NO	SAB:Smart Survival																																															SOURCEPAGE:p.118
-Smart Weapon			TYPE:ScientistAbility	VISIBLE:NO	SAB:Smart Weapon (%CHOICE)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|WEAPONPROFICIENCY|EQUIPMENT[!TYPE=2 handed]|PC																															SOURCEPAGE:p.118
+Smart Weapon			TYPE:ScientistAbility	VISIBLE:NO	SAB:Smart Weapon (%CHOICE)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|WEAPONPROFICIENCY|EQUIPMENT[!TYPE=2 handed]|PC																													SOURCEPAGE:p.118
 Major Breakthrough		TYPE:ScientistAbility	VISIBLE:NO	SAB:Major Breakthrough																																											BONUS:VAR|WealthBonus|3	SOURCEPAGE:p.118
 
 ###Block:Shadowy Avenger Class Abilities

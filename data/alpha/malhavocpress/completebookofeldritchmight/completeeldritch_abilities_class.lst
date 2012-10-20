@@ -1,129 +1,134 @@
-# ~ CVS $Revision$ $Author$ -- Mon Feb 16 12:56:39 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2004-01
 # ~ Original Entry by: Felipe Diniz
 
 # ~ Bard (Monte Cook's)	HD:6		TYPE:Base.PC	ABB:Brd(MC)		MAXLEVEL:20	SOURCEPAGE:p.5	WEAPONBONUS:Longbow|Longsword|Rapier|Sap|Shortbow|Sword (Short)|Whip	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-Armored Casting	KEY:Armored Casting ~ Light	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:May wear light armor without incurring the normal arcane spell failure chance.
-Weave Notes		KEY:Weave Notes ~ Bard (Monte Cook's)	CATEGORY:Special Ability	TYPE:SpecialQuality
-Weave Melodies	KEY:Weave Melodies ~ Bard (Monte Cook's)	CATEGORY:Special Ability	TYPE:SpecialQuality
-Weave Chords	KEY:Weave Chords ~ Bard (Monte Cook's)	CATEGORY:Special Ability	TYPE:SpecialQuality
+# Ability Name				Unique Key								Category of Ability		Type									Define				Description
+Armored Casting				KEY:Armored Casting ~ Light					CATEGORY:Special Ability	TYPE:SpecialQuality											DESC:May wear light armor without incurring the normal arcane spell failure chance.
+Weave Notes					KEY:Weave Notes ~ Bard (Monte Cook's)			CATEGORY:Special Ability	TYPE:SpecialQuality
+Weave Melodies				KEY:Weave Melodies ~ Bard (Monte Cook's)			CATEGORY:Special Ability	TYPE:SpecialQuality
+Weave Chords				KEY:Weave Chords ~ Bard (Monte Cook's)			CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Diplomancer
 Charm						KEY:Charm ~ Diplomancer						CATEGORY:Special Ability	TYPE:SpecialQuality
-Enchantment Affinity			KEY:Enchantment Affinity ~ Diplomancer				DESC: +%1|EnchantAffinity		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:EnchantAffinity|1
-Magical Seduction/Attractiveness	KEY:Magical Seduction/Attractiveness ~ Diplomancer		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		TYPE:Supernatural
-Protection from Evocations		KEY:Protection from Evocations ~ Diplomancer		CATEGORY:Special Ability		DESC: +%1|ProtectionEvocations	DEFINE:ProtectionEvocations|1
-Insight into Secrets			KEY:Insight into Secrets ~ Diplomancer		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Charisma Gift				KEY:Charisma Gift ~ Diplomancer		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Word Cunning				KEY:Word Cunning ~ Diplomancer		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Enchantment Affinity			KEY:Enchantment Affinity ~ Diplomancer			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				DEFINE:EnchantAffinity|1	DESC: +%1|EnchantAffinity
+Magical Seduction/Attractiveness	KEY:Magical Seduction/Attractiveness ~ Diplomancer	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	TYPE:Supernatural
+Protection from Evocations		KEY:Protection from Evocations ~ Diplomancer		CATEGORY:Special Ability										DEFINE:ProtectionEvocations|1	DESC: +%1|ProtectionEvocations
+Insight into Secrets			KEY:Insight into Secrets ~ Diplomancer			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Charisma Gift				KEY:Charisma Gift ~ Diplomancer				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Word Cunning				KEY:Word Cunning ~ Diplomancer				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
 # ~ Eldritch Warrior
-Enrune Armor	KEY:Enrune Armor ~ Eldritch Warrior			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Infuse with Power	KEY:Infuse with Power ~ Eldritch Warrior		CATEGORY:Special Ability	TYPE:SpecialQuality
-Enrune Weapon	KEY:Enrune Weapon ~ Eldritch Warrior			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Enrune Flesh	KEY:Enrune Flesh ~ Eldritch Warrior			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Enrune Armor				KEY:Enrune Armor ~ Eldritch Warrior				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Infuse with Power				KEY:Infuse with Power ~ Eldritch Warrior			CATEGORY:Special Ability	TYPE:SpecialQuality
+Enrune Weapon				KEY:Enrune Weapon ~ Eldritch Warrior			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Enrune Flesh				KEY:Enrune Flesh ~ Eldritch Warrior				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
 ###Block: Rituals of Potency
 
 # Feat Name						Type				Visible		Var. Min. Value						Special ABility										Define			Innate Spells				Stackable?	Multiple?	Choose				Combat bonus					Add to base move			Stat bonus					Modify VAR							Vision			Source Page
-Ritual of Potency (Sense Magic)			CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT																									SPELLS:Class|TIMES=1|Detect Magic			MULT:NO																																				SOURCEPAGE:p.28
-Ritual of Potency (Darksight)				CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),3																									MULT:NO																																VISION:Darkvision (30')	SOURCEPAGE:p.28
-Ritual of Potency (The Sparkling Shield)		CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),5																									MULT:NO						BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK																								SOURCEPAGE:p.28
-Ritual of Potency (Arcane Puissance)		CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),7																							STACK:NO	MULT:YES	CHOOSE:PCSTAT|CON|DEX|STR													BONUS:STAT|%LIST|1|TYPE=Inherent													SOURCEPAGE:p.28
-Ritual of Potency (Speed of Magic)			CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),9																									MULT:NO													BONUS:MOVEADD|TYPE.Walk|10																			SOURCEPAGE:p.28
-Ritual of Potency (Slice Through Wards)		CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),10	DESC:Ignore all magical protections of foes (%1 times/day)|SliceWards	DEFINE:SliceWards|0									MULT:NO																								BONUS:VAR|SliceWards|var("CL=Eldritch Warrior")					SOURCEPAGE:p.28
-Ritual of Potency (Destroy Spell)			CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),11	DESC:Dispel Magic with melee weapon strike (1 times/day)															MULT:NO																																				SOURCEPAGE:p.28
+# Ability Name					Unique Key							Category of Ability		Type						Visible		Var. Min. Value						Define				Innate Spells				Description																																Stackable?	Multiple?	Choose				Combat bonus					Add to base move			Stat bonus					Modify VAR							Vision			Source Page
+Ritual of Potency (Sense Magic)										CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT														SPELLS:Class|TIMES=1|Detect Magic																																				MULT:NO																																				SOURCEPAGE:p.28
+Ritual of Potency (Darksight)											CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),3																																															MULT:NO																																VISION:Darkvision (30')	SOURCEPAGE:p.28
+Ritual of Potency (The Sparkling Shield)									CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),5																																															MULT:NO						BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK																								SOURCEPAGE:p.28
+Ritual of Potency (Arcane Puissance)									CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),7																																													STACK:NO	MULT:YES	CHOOSE:PCSTAT|CON|DEX|STR													BONUS:STAT|%LIST|1|TYPE=Inherent													SOURCEPAGE:p.28
+Ritual of Potency (Speed of Magic)										CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),9																																															MULT:NO													BONUS:MOVEADD|TYPE.Walk|10																			SOURCEPAGE:p.28
+Ritual of Potency (Slice Through Wards)									CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),10	DEFINE:SliceWards|0								DESC:Ignore all magical protections of foes (%1 times/day)|SliceWards																								MULT:NO																								BONUS:VAR|SliceWards|var("CL=Eldritch Warrior")					SOURCEPAGE:p.28
+Ritual of Potency (Destroy Spell)										CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),11												DESC:Dispel Magic with melee weapon strike (1 times/day)																										MULT:NO																																				SOURCEPAGE:p.28
 
 
 
 # ~ Embermage
-Burning Touch		KEY:Burning Touch ~ Embermage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Burning Blood		KEY:Burning Blood ~ Embermage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Fingers of Fire		KEY:Fingers of Fire ~ Embermage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Burning Blood Backlash	KEY:Burning Blood Backlash ~ Embermage	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Tongue of Fire		KEY:Tongue of Fire ~ Embermage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Eyes of Fire		KEY:Eyes of Fire ~ Embermage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Internal Explosion	KEY:Internal Explosion ~ Embermage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Burning Touch					KEY:Burning Touch ~ Embermage				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Burning Blood					KEY:Burning Blood ~ Embermage				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Fingers of Fire					KEY:Fingers of Fire ~ Embermage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Burning Blood Backlash				KEY:Burning Blood Backlash ~ Embermage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Tongue of Fire					KEY:Tongue of Fire ~ Embermage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Eyes of Fire					KEY:Eyes of Fire ~ Embermage				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Internal Explosion				KEY:Internal Explosion ~ Embermage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 
 # ~ Graven One
-Flesh Rune		KEY:Flesh Rune ~ Graven One		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Graven Image	KEY:Graven Image ~ Graven One		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		DESC: %1HD|GravenImageHD											DEFINE:GravenImageHD|0
+Flesh Rune						KEY:Flesh Rune ~ Graven One				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Graven Image					KEY:Graven Image ~ Graven One				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike													DEFINE:GravenImageHD|0								DESC: %1HD|GravenImageHD
 
 # ~ Knight of the Chord
-Armor Song		KEY:Armor Song ~ Knight of the Chord			CATEGORY:Special Ability	TYPE:SpecialQuality	DESC: (Medium)|PREVARLT:KnightoftheChordLvl,5	DESC: (Heavy)|PREVARGTEQ:KnightoftheChordLvl,5
-Battle Dance	KEY:Battle Dance ~ Knight of the Chord			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Singblade		KEY:Singblade ~ Knight of the Chord			CATEGORY:Special Ability	TYPE:SpecialQuality
-Sonic Protection	KEY:Sonic Protection ~ Knight of the Chord		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Song of Smiting	KEY:Song of Smiting ~ Knight of the Chord		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Armor Song						KEY:Armor Song ~ Knight of the Chord		CATEGORY:Special Ability	TYPE:SpecialQuality																									DESC: (Medium)|PREVARLT:KnightoftheChordLvl,5	DESC: (Heavy)|PREVARGTEQ:KnightoftheChordLvl,5
+Battle Dance					KEY:Battle Dance ~ Knight of the Chord		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Singblade						KEY:Singblade ~ Knight of the Chord			CATEGORY:Special Ability	TYPE:SpecialQuality
+Sonic Protection					KEY:Sonic Protection ~ Knight of the Chord	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Song of Smiting					KEY:Song of Smiting ~ Knight of the Chord		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 
 # ~ Mirror Master
-Mirror Thoughts		KEY:Mirror Thoughts ~ Mirror Master			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Mirrored Eyes		KEY:Mirrored Eyes ~ Mirror Master			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Bonus Spells		KEY:Bonus Spells ~ Mirror Master	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:(1st and 2nd)	DESC:(3rd and 4th)|PREVARGTEQ:MirrorMasterLvl,4	DESC:(5th)|PREVARGTEQ:MirrorMasterLvl,6	DESC:(6th)|PREVARGTEQ:MirrorMasterLvl,8	DESC:(7th)|PREVARGTEQ:MirrorMasterLvl,10
-Piercing Gaze		KEY:Piercing Gaze ~ Mirror Master				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
-Mirror Step			KEY:Mirror Step ~ Mirror Master	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		DESC:(Teleport)|PREVARGTEQ:MirrorMasterLvl,8	DESC:(Plane Shift)|PREVARGTEQ:MirrorMasterLvl,10
+Mirror Thoughts					KEY:Mirror Thoughts ~ Mirror Master			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Mirrored Eyes					KEY:Mirrored Eyes ~ Mirror Master			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Bonus Spells					KEY:Bonus Spells ~ Mirror Master			CATEGORY:Special Ability	TYPE:SpecialQuality																									DESC:(1st and 2nd)	DESC:(3rd and 4th)|PREVARGTEQ:MirrorMasterLvl,4	DESC:(5th)|PREVARGTEQ:MirrorMasterLvl,6	DESC:(6th)|PREVARGTEQ:MirrorMasterLvl,8	DESC:(7th)|PREVARGTEQ:MirrorMasterLvl,10
+Piercing Gaze					KEY:Piercing Gaze ~ Mirror Master			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+Mirror Step						KEY:Mirror Step ~ Mirror Master			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																								DESC:(Teleport)|PREVARGTEQ:MirrorMasterLvl,8	DESC:(Plane Shift)|PREVARGTEQ:MirrorMasterLvl,10
 
-# ~ Song Mage	
-Song Magic			KEY:Song Magic ~ Song Mage			CATEGORY:Special Ability	TYPE:SpecialQuality	DESC: (%1/day)|SongMagic					DEFINE:SongMagic|0
-Song as Sustenance	KEY:Song as Sustenance ~ Song Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Songshield			KEY:Songshield ~ Song Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Divine Music		KEY:Divine Music ~ Song Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Songburst			KEY:Songburst ~ Song Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Noble Music			KEY:Noble Music ~ Song Mage			CATEGORY:Special Ability	TYPE:SpecialQuality
-Sonic Protection		KEY:Sonic Protection ~ Song Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Forbid the Silence	KEY:Forbid the Silence ~ Song Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Wings of Song		KEY:Wings of Song ~ Song Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Clarity of Music		KEY:Clarity of Music ~ Song Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+# ~ Song Mage
+Song Magic						KEY:Song Magic ~ Song Mage				CATEGORY:Special Ability	TYPE:SpecialQuality														DEFINE:SongMagic|0								DESC: (%1/day)|SongMagic
+Song as Sustenance				KEY:Song as Sustenance ~ Song Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Songshield						KEY:Songshield ~ Song Mage				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Divine Music					KEY:Divine Music ~ Song Mage				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Songburst						KEY:Songburst ~ Song Mage				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Noble Music						KEY:Noble Music ~ Song Mage				CATEGORY:Special Ability	TYPE:SpecialQuality
+Sonic Protection					KEY:Sonic Protection ~ Song Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Forbid the Silence				KEY:Forbid the Silence ~ Song Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Wings of Song					KEY:Wings of Song ~ Song Mage				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Clarity of Music					KEY:Clarity of Music ~ Song Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 
 # ~ Starlight Mage
-Spell Appearance Change	KEY:Spell Appearance Change ~ Starlight Mage	CATEGORY:Special Ability	TYPE:SpecialQuality
-Handle Starlight		KEY:Handle Starlight ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
-Radiance			KEY:Radiance ~ Starlight Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Summon Starlight		KEY:Summon Starlight ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike			DESC: %1/day|SummonStarlight						BONUS:VAR|SummonStarlight|CL	DEFINE:SummonStarlight|0
-Nightscrying		KEY:Nightscrying ~ Starlight Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Starlight Shield		KEY:Starlight Shield ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Starlight Weapon		KEY:Starlight Weapon ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Starlight Weaving		KEY:Starlight Weaving ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Starlight Beam		KEY:Starlight Beam ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Age of the Stars		KEY:Age of the Stars ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Stardust			KEY:Stardust ~ Starlight Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Starskin			KEY:Starskin ~ Starlight Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Starlight Elixir		KEY:Starlight Elixir ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Temporal Womb		KEY:Temporal Womb ~ Starlight Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Spell Appearance Change				KEY:Spell Appearance Change ~ Starlight Mage	CATEGORY:Special Ability	TYPE:SpecialQuality
+Handle Starlight					KEY:Handle Starlight ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+Radiance						KEY:Radiance ~ Starlight Mage				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Summon Starlight					KEY:Summon Starlight ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike													DEFINE:SummonStarlight|0							DESC: %1/day|SummonStarlight																																																								BONUS:VAR|SummonStarlight|CL
+Nightscrying					KEY:Nightscrying ~ Starlight Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Starlight Shield					KEY:Starlight Shield ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Starlight Weapon					KEY:Starlight Weapon ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Starlight Weaving					KEY:Starlight Weaving ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Starlight Beam					KEY:Starlight Beam ~ Starlight Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Age of the Stars					KEY:Age of the Stars ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Stardust						KEY:Stardust ~ Starlight Mage				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Starskin						KEY:Starskin ~ Starlight Mage				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Starlight Elixir					KEY:Starlight Elixir ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Temporal Womb					KEY:Temporal Womb ~ Starlight Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 
 
 ###Block: Tattoos of Power
 # Feat Name					Type				Visible	Var. Min. Value					Special ABility						Innate Spells											Multiple?	Combat bonus					Misc bonus						Bonus to skill							Stat bonus					Damage Reduction	Source Page
-Tattoo of Power (Endurance)			CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),1																	MULT:NO																								BONUS:STAT|CON|2|TYPE=Enhancement				SOURCEPAGE:p.33
-Tattoo of Power (Strength)			CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),2																	MULT:NO																								BONUS:STAT|STR|2|TYPE=Enhancement				SOURCEPAGE:p.33
-Tattoo of Power (Dexterity)			CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),3																	MULT:NO																								BONUS:STAT|DEX|2|TYPE=Enhancement				SOURCEPAGE:p.33
-Tattoo of Power (Defense)			CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),4																	MULT:NO	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK																										SOURCEPAGE:p.33
-Tattoo of Power (Silent Shadow)		CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),5																MULT:NO															BONUS:SKILL|Move Silently,Hide|10|TYPE=Enhancement										SOURCEPAGE:p.33
-Tattoo of Power (Fortification)		CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),6																MULT:NO																																	SOURCEPAGE:p.33
-Tattoo of Power (Disguise Self)		CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),7			SPELLS:Class|TIMES=1|CASTERLEVEL=var("CL=Graven One")|Disguise Self,11+INT	MULT:NO																																	SOURCEPAGE:p.33
-Tattoo of Power (Wounding)			CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),8																	MULT:NO																																	SOURCEPAGE:p.33
-Tattoo of Power (Holy)				CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),9																	MULT:NO																																	SOURCEPAGE:p.33
-Tattoo of Power (Unholy)			CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),9																	MULT:NO																																	SOURCEPAGE:p.33
-Tattoo of Power (Lawful)			CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),10																	MULT:NO																																	SOURCEPAGE:p.33
-Tattoo of Power (Chaotic)			CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),10																MULT:NO																																	SOURCEPAGE:p.33
-Tattoo of Power (Spell Resistance)		CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),11															MULT:NO								BONUS:MISC|SR|11+var("CL=Graven One")																			SOURCEPAGE:p.33
-Tattoo of Power (Damage Reduction)		CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),12															MULT:NO																														DR:10/Magic		SOURCEPAGE:p.33
+# Ability Name				Category of Ability		Type								Var. Min. Value					Innate Spells											Multiple?	Combat bonus					Misc bonus						Bonus to skill							Stat bonus					Damage Reduction	Source Page
+Tattoo of Power (Endurance)		CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),1														MULT:NO																								BONUS:STAT|CON|2|TYPE=Enhancement				SOURCEPAGE:p.33
+Tattoo of Power (Strength)		CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),2														MULT:NO																								BONUS:STAT|STR|2|TYPE=Enhancement				SOURCEPAGE:p.33
+Tattoo of Power (Dexterity)		CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),3														MULT:NO																								BONUS:STAT|DEX|2|TYPE=Enhancement				SOURCEPAGE:p.33
+Tattoo of Power (Defense)		CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),4														MULT:NO	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK																										SOURCEPAGE:p.33
+Tattoo of Power (Silent Shadow)	CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),5														MULT:NO															BONUS:SKILL|Move Silently,Hide|10|TYPE=Enhancement										SOURCEPAGE:p.33
+Tattoo of Power (Fortification)	CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),6														MULT:NO																																	SOURCEPAGE:p.33
+Tattoo of Power (Disguise Self)	CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),7	SPELLS:Class|TIMES=1|CASTERLEVEL=var("CL=Graven One")|Disguise Self,11+INT	MULT:NO																																	SOURCEPAGE:p.33
+Tattoo of Power (Wounding)		CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),8														MULT:NO																																	SOURCEPAGE:p.33
+Tattoo of Power (Holy)			CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),9														MULT:NO																																	SOURCEPAGE:p.33
+Tattoo of Power (Unholy)		CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),9														MULT:NO																																	SOURCEPAGE:p.33
+Tattoo of Power (Lawful)		CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),10														MULT:NO																																	SOURCEPAGE:p.33
+Tattoo of Power (Chaotic)		CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),10														MULT:NO																																	SOURCEPAGE:p.33
+Tattoo of Power (Spell Resistance)	CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),11														MULT:NO								BONUS:MISC|SR|11+var("CL=Graven One")																			SOURCEPAGE:p.33
+Tattoo of Power (Damage Reduction)	CATEGORY:Special Ability	TYPE:SpecialQuality.TattooofPower.Supernatural	PREVARGTEQ:INT+var("CL=Graven One"),12														MULT:NO																														DR:10/Magic		SOURCEPAGE:p.33
 
 
 ###Block: Imbue Vibration
 # Feat Name			Type				Visible	Var. Min. Value						Special ABility			Multiple?	Source Page
-Imbue Vibration I			CATEGORY:Special Ability	TYPE:SpecialQuality.ImbueVibration	PREVARGTEQ:CHA+var("CL=Knight of the Chord"),2			MULT:NO	SOURCEPAGE:p.35
-Imbue Vibration II		CATEGORY:Special Ability	TYPE:SpecialQuality.ImbueVibration	PREVARGTEQ:CHA+var("CL=Knight of the Chord"),3			MULT:NO	SOURCEPAGE:p.35
-Imbue Vibration III		CATEGORY:Special Ability	TYPE:SpecialQuality.ImbueVibration	PREVARGTEQ:CHA+var("CL=Knight of the Chord"),5			MULT:NO	SOURCEPAGE:p.35
-Imbue Vibration IV		CATEGORY:Special Ability	TYPE:SpecialQuality.ImbueVibration	PREVARGTEQ:CHA+var("CL=Knight of the Chord"),7			MULT:NO	SOURCEPAGE:p.35
-Imbue Vibration V			CATEGORY:Special Ability	TYPE:SpecialQuality.ImbueVibration	PREVARGTEQ:CHA+var("CL=Knight of the Chord"),8			MULT:NO	SOURCEPAGE:p.35
-Imbue Vibration VI		CATEGORY:Special Ability	TYPE:SpecialQuality.ImbueVibration	PREVARGTEQ:CHA+var("CL=Knight of the Chord"),9			MULT:NO	SOURCEPAGE:p.35
-Imbue Vibration VII		CATEGORY:Special Ability	TYPE:SpecialQuality.ImbueVibration	PREVARGTEQ:CHA+var("CL=Knight of the Chord"),10			MULT:NO	SOURCEPAGE:p.35
-Imbue Vibration VIII		CATEGORY:Special Ability	TYPE:SpecialQuality.ImbueVibration	PREVARGTEQ:CHA+var("CL=Knight of the Chord"),11			MULT:NO	SOURCEPAGE:p.35
-Imbue Vibration IX		CATEGORY:Special Ability	TYPE:SpecialQuality.ImbueVibration	PREVARGTEQ:CHA+var("CL=Knight of the Chord"),12			MULT:NO	SOURCEPAGE:p.35
+# Ability Name		Category of Ability		Type						Var. Min. Value						Multiple?	Source Page
+Imbue Vibration I		CATEGORY:Special Ability	TYPE:SpecialQuality.ImbueVibration	PREVARGTEQ:CHA+var("CL=Knight of the Chord"),2	MULT:NO	SOURCEPAGE:p.35
+Imbue Vibration II	CATEGORY:Special Ability	TYPE:SpecialQuality.ImbueVibration	PREVARGTEQ:CHA+var("CL=Knight of the Chord"),3	MULT:NO	SOURCEPAGE:p.35
+Imbue Vibration III	CATEGORY:Special Ability	TYPE:SpecialQuality.ImbueVibration	PREVARGTEQ:CHA+var("CL=Knight of the Chord"),5	MULT:NO	SOURCEPAGE:p.35
+Imbue Vibration IV	CATEGORY:Special Ability	TYPE:SpecialQuality.ImbueVibration	PREVARGTEQ:CHA+var("CL=Knight of the Chord"),7	MULT:NO	SOURCEPAGE:p.35
+Imbue Vibration V		CATEGORY:Special Ability	TYPE:SpecialQuality.ImbueVibration	PREVARGTEQ:CHA+var("CL=Knight of the Chord"),8	MULT:NO	SOURCEPAGE:p.35
+Imbue Vibration VI	CATEGORY:Special Ability	TYPE:SpecialQuality.ImbueVibration	PREVARGTEQ:CHA+var("CL=Knight of the Chord"),9	MULT:NO	SOURCEPAGE:p.35
+Imbue Vibration VII	CATEGORY:Special Ability	TYPE:SpecialQuality.ImbueVibration	PREVARGTEQ:CHA+var("CL=Knight of the Chord"),10	MULT:NO	SOURCEPAGE:p.35
+Imbue Vibration VIII	CATEGORY:Special Ability	TYPE:SpecialQuality.ImbueVibration	PREVARGTEQ:CHA+var("CL=Knight of the Chord"),11	MULT:NO	SOURCEPAGE:p.35
+Imbue Vibration IX	CATEGORY:Special Ability	TYPE:SpecialQuality.ImbueVibration	PREVARGTEQ:CHA+var("CL=Knight of the Chord"),12	MULT:NO	SOURCEPAGE:p.35
 
 ###Block: Magical Construct Abilities
 # Feat Name		Type												Source Page
-CATEGORY=Special Ability|Breath Weapon.MOD	TYPE:MagicalConstructAbilities			SOURCEPAGE:p.200
-CATEGORY=Special Ability|Slow.MOD			TYPE:MagicalConstructAbilities			SOURCEPAGE:p.200
-CATEGORY=Special Ability|Haste.MOD			TYPE:MagicalConstructAbilities			SOURCEPAGE:p.200
+# Ability Name						Type						Source Page
+CATEGORY=Special Ability|Breath Weapon.MOD	TYPE:MagicalConstructAbilities	SOURCEPAGE:p.200
+CATEGORY=Special Ability|Slow.MOD			TYPE:MagicalConstructAbilities	SOURCEPAGE:p.200
+CATEGORY=Special Ability|Haste.MOD			TYPE:MagicalConstructAbilities	SOURCEPAGE:p.200

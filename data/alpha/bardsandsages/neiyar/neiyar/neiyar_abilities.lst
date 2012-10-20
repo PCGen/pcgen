@@ -1,22 +1,22 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 11:16:09 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2005-03
 
 ###Block: Special Abilities: Shalraeku & Zarakku
-# Ability Name			Unique Key							Category of Ability		Type											Visible		Innate Spells											Description									Ability									Save checks bonus		Combat bonus				Modify VAR						Vision			Spell Res.
+# Ability Name			Unique Key							Category of Ability							Type													Visible		Innate Spells											Description									Ability									Save checks bonus		Combat bonus				Modify VAR						Vision			Spell Res.
 Immunity to natural poisons	KEY:ShalraekuZarakku_Imunity				CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku.SpecialQuality.Extraordinary.Immunity	VISIBLE:YES															DESC:You never take poison damage from natural poisons
-Darkvision 60 ft			KEY:ShalraekuZarakku_Darkvision			CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku.SpecialQuality								VISIBLE:DISPLAY																																																			VISION:Darkvision (60')
-Resistance to Fire 5		KEY:ShalraekuZarakku_Resistance_Fire		CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku.SpecialQuality								VISIBLE:DISPLAY																								ABILITY:Special Ability|AUTOMATIC|Resistance To Fire												BONUS:VAR|AcidResistanceBonus|5
-Resistance to Electrical 5	KEY:ShalraekuZarakku_Resistance_Electrical	CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku.SpecialQuality								VISIBLE:DISPLAY																								ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity											BONUS:VAR|ElectricityResistanceBonus|5
-Resistance to Cold 5		KEY:ShalraekuZarakku_Resistance_Cold		CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku.SpecialQuality								VISIBLE:DISPLAY																								ABILITY:Special Ability|AUTOMATIC|Resistance To Cold												BONUS:VAR|ColdResistanceBonus|5
-Levitate				KEY:ShalraekuZarakku_Levitate				CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku.SpecialQuality								VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Levitate
-Saving Throw +1			KEY:ShalraekuZarakku_SavingThrow			CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku.SpecialQuality								VISIBLE:DISPLAY																																		BONUS:CHECKS|ALL|1
-Dimension Door			KEY:ShalraekuZarakku_Dimention_Door			CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku.SpecialQuality								VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Dimension Door
-AC Bonus				KEY:Shalraeku_AC						CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.SpecialQuality									VISIBLE:DISPLAY																																						BONUS:COMBAT|AC|2|TYPE=Deflection
-AC Bonus				KEY:Zarakku_AC						CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Zarakku.SpecialQuality									VISIBLE:DISPLAY																																						BONUS:COMBAT|AC|2|TYPE=NaturalArmor
-Spell Resistance			KEY:Shalraeku_SR						CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.SpecialQuality									VISIBLE:DISPLAY																																																							SR:TL+WIS
-Spell Resistance			KEY:Zarakku_SR						CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Zarakku.SpecialQuality									VISIBLE:DISPLAY																																																							SR:TL+CON
-Cure Light Wounds			KEY:Shalraeku_CLW						CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.SpecialQuality									VISIBLE:DISPLAY	SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Cure Light Wounds,11+WIS
-Inflict Light Wounds		KEY:Zarakku_ILW						CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Zarakku.SpecialQuality									VISIBLE:DISPLAY	SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Inflict Light Wounds,11+WIS
+Darkvision 60 ft			KEY:ShalraekuZarakku_Darkvision			CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku.SpecialQuality					VISIBLE:DISPLAY																																																			VISION:Darkvision (60')
+Resistance to Fire 5		KEY:ShalraekuZarakku_Resistance_Fire		CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku.SpecialQuality					VISIBLE:DISPLAY																								ABILITY:Special Ability|AUTOMATIC|Resistance To Fire												BONUS:VAR|AcidResistanceBonus|5
+Resistance to Electrical 5	KEY:ShalraekuZarakku_Resistance_Electrical	CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku.SpecialQuality					VISIBLE:DISPLAY																								ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity											BONUS:VAR|ElectricityResistanceBonus|5
+Resistance to Cold 5		KEY:ShalraekuZarakku_Resistance_Cold		CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku.SpecialQuality					VISIBLE:DISPLAY																								ABILITY:Special Ability|AUTOMATIC|Resistance To Cold												BONUS:VAR|ColdResistanceBonus|5
+Levitate				KEY:ShalraekuZarakku_Levitate				CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku.SpecialQuality					VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Levitate
+Saving Throw +1			KEY:ShalraekuZarakku_SavingThrow			CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku.SpecialQuality					VISIBLE:DISPLAY																																		BONUS:CHECKS|ALL|1
+Dimension Door			KEY:ShalraekuZarakku_Dimention_Door			CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku.SpecialQuality					VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Dimension Door
+AC Bonus				KEY:Shalraeku_AC						CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.SpecialQuality						VISIBLE:DISPLAY																																						BONUS:COMBAT|AC|2|TYPE=Deflection
+AC Bonus				KEY:Zarakku_AC						CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Zarakku.SpecialQuality						VISIBLE:DISPLAY																																						BONUS:COMBAT|AC|2|TYPE=NaturalArmor
+Spell Resistance			KEY:Shalraeku_SR						CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.SpecialQuality						VISIBLE:DISPLAY																																																							SR:TL+WIS
+Spell Resistance			KEY:Zarakku_SR						CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Zarakku.SpecialQuality						VISIBLE:DISPLAY																																																							SR:TL+CON
+Cure Light Wounds			KEY:Shalraeku_CLW						CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.SpecialQuality						VISIBLE:DISPLAY	SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Cure Light Wounds,11+WIS
+Inflict Light Wounds		KEY:Zarakku_ILW						CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.Zarakku.SpecialQuality						VISIBLE:DISPLAY	SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Inflict Light Wounds,11+WIS
 
 ###CLARIFY: Although in the Sourcebook Listed as Damage Reduction, I believe the intent is actually a RESISTANCE
 #DR 5 Fire									CATEGORY:Special Ability	CATEGORY:Special Ability	TYPE:SpecialQuality.ShalraekuZarakku.SpecialQuality																																									DR:5/Fire
@@ -27,9 +27,10 @@ Inflict Light Wounds		KEY:Zarakku_ILW						CATEGORY:Special Ability	CATEGORY:Spe
 
 ###Block:Trapper Class Abilities
 # Feat Name		Type			Visible	Special ABility				Weapon prof. bonus
+# Ability Name			Unique Key			Category of Ability		Type						Weapon prof. bonus
 Trapmaking				KEY:Trapmaking		CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden
 Detect/Disarm Traps		KEY:DetectDisarm Traps	CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden
-Net Use				KEY:NetUse			CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden							BONUS:WEAPONPROF=Net|TOHIT|2
+Net Use				KEY:NetUse			CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden	BONUS:WEAPONPROF=Net|TOHIT|2
 Detect Secret/Hidden Doors	KEY:DetectSecretDoors	CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden
 Trapped Weapons			KEY:TrappedWeapons	CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden
 Trap Potency			KEY:TrapPotency		CATEGORY:Special Ability	TYPE:SpecialQuality.Class.Hidden
@@ -39,127 +40,130 @@ Reveal Traps			KEY:RevealTraps		CATEGORY:Special Ability	TYPE:SpecialQuality.Cla
 
 ###Block:HEARTH MAGIC HIDDEN FEATS:
 # Feat Name							Product Identity?	Type			Visible	Special ABility								Source Page
-Hearth Magic (Clarity)					NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality.SpecialQuality								SOURCEPAGE:p.65
-Hearth Magic (Dedication)				NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality								SOURCEPAGE:p.66
-Hearth Magic (Ease Birth)				NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality								SOURCEPAGE:p.66
-Hearth Magic (Focus)					NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality								SOURCEPAGE:p.66
-Hearth Magic (Healing Rest)				NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality							SOURCEPAGE:p.67
-Hearth Magic (Lucky Break)				NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality							SOURCEPAGE:p.67
-Hearth Magic (Mending)					NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality								SOURCEPAGE:p.67
-Hearth Magic (Prosperity)				NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality								SOURCEPAGE:p.67
-Hearth Magic (Reduce Fever)				NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality							SOURCEPAGE:p.67
-Hearth Magic (Ritual Cleansing)			NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality							SOURCEPAGE:p.67
-Hearth Magic (Soul Binding)				NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality			ABILITY:Special Ability|AUTOMATIC|Share the Pain	SOURCEPAGE:p.68
-Hearth Magic (Ward Against Domestic Discord)	NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality				SOURCEPAGE:p.68
-Hearth Magic (Ward Against Magic)			NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality						SOURCEPAGE:p.68
-Hearth Magic (Ward Against Possession)		NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality						SOURCEPAGE:p.68
-Hearth Magic (Ward Against Undead)			NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality					SOURCEPAGE:p.68
-Hearth Magic (Ward To Protect Innocence)		NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality					SOURCEPAGE:p.69
+# Ability Name						Product Identity?	Category of Ability		Type											Ability								Source Page
+Hearth Magic (Clarity)					NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality.SpecialQuality										SOURCEPAGE:p.65
+Hearth Magic (Dedication)				NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality													SOURCEPAGE:p.66
+Hearth Magic (Ease Birth)				NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality													SOURCEPAGE:p.66
+Hearth Magic (Focus)					NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality													SOURCEPAGE:p.66
+Hearth Magic (Healing Rest)				NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality													SOURCEPAGE:p.67
+Hearth Magic (Lucky Break)				NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality													SOURCEPAGE:p.67
+Hearth Magic (Mending)					NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality													SOURCEPAGE:p.67
+Hearth Magic (Prosperity)				NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality													SOURCEPAGE:p.67
+Hearth Magic (Reduce Fever)				NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality													SOURCEPAGE:p.67
+Hearth Magic (Ritual Cleansing)			NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality													SOURCEPAGE:p.67
+Hearth Magic (Soul Binding)				NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality				ABILITY:Special Ability|AUTOMATIC|Share the Pain	SOURCEPAGE:p.68
+Hearth Magic (Ward Against Domestic Discord)	NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality													SOURCEPAGE:p.68
+Hearth Magic (Ward Against Magic)			NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality													SOURCEPAGE:p.68
+Hearth Magic (Ward Against Possession)		NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality													SOURCEPAGE:p.68
+Hearth Magic (Ward Against Undead)			NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality													SOURCEPAGE:p.68
+Hearth Magic (Ward To Protect Innocence)		NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality.HearthMagic.SpecialQuality													SOURCEPAGE:p.69
 
-Share the Pain				CATEGORY:Special Ability	TYPE:SpecialQuality.SpecialQuality.Supernatural	SOURCEPAGE:p.68
+Share the Pain									CATEGORY:Special Ability	TYPE:SpecialQuality.SpecialQuality.Supernatural													SOURCEPAGE:p.68
 
 ###Block: Monster Template - Feats
 # Feat Name			Type				Visible	Special ABility
-Alignment Shift		CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit.Supernatural
-Healing Touch		CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit.Supernatural
-Glare of Reckoning	CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit.Supernatural
-Hand of Destiny		CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit.Supernatural
-Answer Prayers		CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit
-Blessings			CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit
-Miracle			CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit
+# Ability Name			Unique Key							Category of Ability		Type									Define								Description							Combat bonus
+Alignment Shift											CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit.Supernatural
+Healing Touch											CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit.Supernatural
+Glare of Reckoning										CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit.Supernatural
+Hand of Destiny											CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit.Supernatural
+Answer Prayers											CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit
+Blessings												CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit
+Miracle												CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit
 
 
 #
-Divine Knowledge	KEY:Divine Knowledge ~ Benevolent Spirit							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Divine Knowledge			KEY:Divine Knowledge ~ Benevolent Spirit		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
-Spell Resistance	KEY:Spell Resistance ~ Child of Kalla							CATEGORY:Special Ability	TYPE:SpecialQuality
-Aura of Fear	KEY:Aura of Fear ~ Child of Kalla							CATEGORY:Special Ability	TYPE:SpecialQuality
+Spell Resistance			KEY:Spell Resistance ~ Child of Kalla		CATEGORY:Special Ability	TYPE:SpecialQuality
+Aura of Fear			KEY:Aura of Fear ~ Child of Kalla			CATEGORY:Special Ability	TYPE:SpecialQuality
 
-Tanar'ri Qualities	KEY:Tanar'ri Qualities ~ Gate Guardian						CATEGORY:Special Ability	TYPE:SpecialQuality
-Dual Form			KEY:Dual Form ~ Gate Guardian								CATEGORY:Special Ability	TYPE:SpecialQuality
-Fast Healing		KEY:Fast Healing ~ Gate Guardian							CATEGORY:Special Ability	TYPE:SpecialQuality
-Spell Resistance		KEY:Spell Resistance ~ Gate Guardian	DESC:20					CATEGORY:Special Ability	TYPE:SpecialQuality
-Breath Weapon		KEY:Breath Weapon ~ Gate Guardian							CATEGORY:Special Ability	TYPE:SpecialQuality
-Unholy Aura			KEY:Unholy Aura ~ Gate Guardian								CATEGORY:Special Ability	TYPE:SpecialQuality
-Bounded			KEY:Bounded ~ Gate Guardian								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Final Fury			KEY:Final Fury ~ Gate Guardian								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Tanar'ri Qualities		KEY:Tanar'ri Qualities ~ Gate Guardian		CATEGORY:Special Ability	TYPE:SpecialQuality
+Dual Form				KEY:Dual Form ~ Gate Guardian				CATEGORY:Special Ability	TYPE:SpecialQuality
+Fast Healing			KEY:Fast Healing ~ Gate Guardian			CATEGORY:Special Ability	TYPE:SpecialQuality
+Spell Resistance			KEY:Spell Resistance ~ Gate Guardian		CATEGORY:Special Ability	TYPE:SpecialQuality															DESC:20
+Breath Weapon			KEY:Breath Weapon ~ Gate Guardian			CATEGORY:Special Ability	TYPE:SpecialQuality
+Unholy Aura				KEY:Unholy Aura ~ Gate Guardian			CATEGORY:Special Ability	TYPE:SpecialQuality
+Bounded				KEY:Bounded ~ Gate Guardian				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Final Fury				KEY:Final Fury ~ Gate Guardian			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
-Eyes of Sorrow		KEY:Eyes of Sorrow ~ Totem Spirit							CATEGORY:Special Ability	TYPE:SpecialQuality
-Spell Immunity		KEY:Spell Immunity ~ Totem Spirit							CATEGORY:Special Ability	TYPE:SpecialQuality
-Telepathy			KEY:Telepathy ~ Totem Spirit								CATEGORY:Special Ability	TYPE:SpecialQuality
+Eyes of Sorrow			KEY:Eyes of Sorrow ~ Totem Spirit			CATEGORY:Special Ability	TYPE:SpecialQuality
+Spell Immunity			KEY:Spell Immunity ~ Totem Spirit			CATEGORY:Special Ability	TYPE:SpecialQuality
+Telepathy				KEY:Telepathy ~ Totem Spirit				CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Tiger Shaman
-Tiger Form				KEY:Tiger Form ~ Tiger Shaman	CATEGORY:Special Ability	TYPE:SpecialQuality
-Dire Tiger Form			KEY:Dire Tiger Form ~ Tiger Shaman	CATEGORY:Special Ability	TYPE:SpecialQuality
+Tiger Form				KEY:Tiger Form ~ Tiger Shaman				CATEGORY:Special Ability	TYPE:SpecialQuality
+Dire Tiger Form			KEY:Dire Tiger Form ~ Tiger Shaman			CATEGORY:Special Ability	TYPE:SpecialQuality
 Wrath of the Tiger Lord		KEY:Wrath of the Tiger Lord ~ Tiger Shaman	CATEGORY:Special Ability	TYPE:SpecialQuality
 Blessing of the Tiger Lord	KEY:Blessing of the Tiger Lord ~ Tiger Shaman	CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Arcane Rogue
-Silent Caster	KEY:Silent Caster ~ Arcane Rogue	CATEGORY:Special Ability	TYPE:SpecialQuality
-Arcane Backstab	KEY:Arcane Backstab ~ Arcane Rogue	CATEGORY:Special Ability	TYPE:SpecialQuality
-Still Caster	KEY:Still Caster ~ Arcane Rogue	CATEGORY:Special Ability	TYPE:SpecialQuality
-Dispel Traps and Locks	KEY:Dispel Traps and Locks ~ Arcane Rogue	CATEGORY:Special Ability	TYPE:SpecialQuality
+Silent Caster			KEY:Silent Caster ~ Arcane Rogue			CATEGORY:Special Ability	TYPE:SpecialQuality
+Arcane Backstab			KEY:Arcane Backstab ~ Arcane Rogue			CATEGORY:Special Ability	TYPE:SpecialQuality
+Still Caster			KEY:Still Caster ~ Arcane Rogue			CATEGORY:Special Ability	TYPE:SpecialQuality
+Dispel Traps and Locks		KEY:Dispel Traps and Locks ~ Arcane Rogue		CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Arcane Warrior
-Steel Mind	KEY:Steel Mind ~ Arcane Warrior	CATEGORY:Special Ability	TYPE:SpecialQuality
-Armor Skill	KEY:Armor Skill ~ Arcane Warrior	CATEGORY:Special Ability	TYPE:SpecialQuality
-Enhanced Combat Casting	KEY:Enhanced Combat Casting ~ Arcane Warrior	CATEGORY:Special Ability	TYPE:SpecialQuality
-Enhanced Armor Skill	KEY:Enhanced Armor Skill ~ Arcane Warrior	CATEGORY:Special Ability	TYPE:SpecialQuality
-Mystic Weapon	KEY:Mystic Weapon ~ Arcane Warrior	CATEGORY:Special Ability	TYPE:SpecialQuality
+Steel Mind				KEY:Steel Mind ~ Arcane Warrior			CATEGORY:Special Ability	TYPE:SpecialQuality
+Armor Skill				KEY:Armor Skill ~ Arcane Warrior			CATEGORY:Special Ability	TYPE:SpecialQuality
+Enhanced Combat Casting		KEY:Enhanced Combat Casting ~ Arcane Warrior	CATEGORY:Special Ability	TYPE:SpecialQuality
+Enhanced Armor Skill		KEY:Enhanced Armor Skill ~ Arcane Warrior		CATEGORY:Special Ability	TYPE:SpecialQuality
+Mystic Weapon			KEY:Mystic Weapon ~ Arcane Warrior			CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Chosen of Agri
-Transport via Plants	KEY:Transport via Plants ~ Chosen of Agri	CATEGORY:Special Ability	TYPE:SpecialQuality
-Command Plants	KEY:Command Plants ~ Chosen of Agri	CATEGORY:Special Ability	TYPE:SpecialQuality
-Plantmorph	KEY:Plantmorph ~ Chosen of Agri	CATEGORY:Special Ability	TYPE:SpecialQuality
+Transport via Plants		KEY:Transport via Plants ~ Chosen of Agri		CATEGORY:Special Ability	TYPE:SpecialQuality
+Command Plants			KEY:Command Plants ~ Chosen of Agri			CATEGORY:Special Ability	TYPE:SpecialQuality
+Plantmorph				KEY:Plantmorph ~ Chosen of Agri			CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Chosen of Roarth
-Speak with Animals	KEY:Speak with Animals ~ Chosen of Roarth	CATEGORY:Special Ability	TYPE:SpecialQuality
-Wild Shape	KEY:Wild Shape ~ Chosen of Roarth					DESC: %1/day|WSTimes	DEFINE:WSTimes|0	CATEGORY:Special Ability	TYPE:SpecialQuality
-Anima	KEY:Anima ~ Chosen of Roarth	CATEGORY:Special Ability	TYPE:SpecialQuality
+Speak with Animals		KEY:Speak with Animals ~ Chosen of Roarth		CATEGORY:Special Ability	TYPE:SpecialQuality
+Wild Shape				KEY:Wild Shape ~ Chosen of Roarth			CATEGORY:Special Ability	TYPE:SpecialQuality						DEFINE:WSTimes|0							DESC: %1/day|WSTimes
+Anima					KEY:Anima ~ Chosen of Roarth				CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Healer
-Agri's Touch	KEY:Agri's Touch ~ Healer	CATEGORY:Special Ability	TYPE:SpecialQuality
-Preemptive Healing	KEY:Preemptive Healing ~ Healer	CATEGORY:Special Ability	TYPE:SpecialQuality
-Combat Healing	KEY:Combat Healing ~ Healer	CATEGORY:Special Ability	TYPE:SpecialQuality
-Agri's Gift	KEY:Agri's Gift ~ Healer	CATEGORY:Special Ability	TYPE:SpecialQuality
-Regenerative Touch	KEY:Regenerative Touch ~ Healer	CATEGORY:Special Ability	TYPE:SpecialQuality
+Agri's Touch			KEY:Agri's Touch ~ Healer				CATEGORY:Special Ability	TYPE:SpecialQuality
+Preemptive Healing		KEY:Preemptive Healing ~ Healer			CATEGORY:Special Ability	TYPE:SpecialQuality
+Combat Healing			KEY:Combat Healing ~ Healer				CATEGORY:Special Ability	TYPE:SpecialQuality
+Agri's Gift				KEY:Agri's Gift ~ Healer				CATEGORY:Special Ability	TYPE:SpecialQuality
+Regenerative Touch		KEY:Regenerative Touch ~ Healer			CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Prankmaster
-Sixth Sense				KEY:Sixth Sense ~ Prankmaster	CATEGORY:Special Ability	TYPE:SpecialQuality
-Sleight of Hand				KEY:Slight of Hand ~ Prankmaster		DESC: %1d6|SlightOfHandDamage	DEFINE:SlightOfHandDamage|0	CATEGORY:Special Ability	TYPE:SpecialQuality
-Riddles				KEY:Riddles ~ Prankmaster	CATEGORY:Special Ability	TYPE:SpecialQuality
-Master Trickster				KEY:Master Trickster ~ Prankmaster	CATEGORY:Special Ability	TYPE:SpecialQuality
+Sixth Sense				KEY:Sixth Sense ~ Prankmaster				CATEGORY:Special Ability	TYPE:SpecialQuality
+Sleight of Hand			KEY:Slight of Hand ~ Prankmaster			CATEGORY:Special Ability	TYPE:SpecialQuality						DEFINE:SlightOfHandDamage|0					DESC: %1d6|SlightOfHandDamage
+Riddles				KEY:Riddles ~ Prankmaster				CATEGORY:Special Ability	TYPE:SpecialQuality
+Master Trickster			KEY:Master Trickster ~ Prankmaster			CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Shadowblade
-Shadow Movement	KEY:Shadow Movement ~ Shadowblade	CATEGORY:Special Ability	TYPE:SpecialQuality
-Vampiric Blade	KEY:Vampiric Blade ~ Shadowblade	DESC: 1/day	CATEGORY:Special Ability	TYPE:SpecialQuality
-Shadow Form	KEY:Shadow Form ~ Shadowblade	CATEGORY:Special Ability	TYPE:SpecialQuality
-Death Resistance	KEY:Death Resistance ~ Shadowblade	CATEGORY:Special Ability	TYPE:SpecialQuality
+Shadow Movement			KEY:Shadow Movement ~ Shadowblade			CATEGORY:Special Ability	TYPE:SpecialQuality
+Vampiric Blade			KEY:Vampiric Blade ~ Shadowblade			CATEGORY:Special Ability	TYPE:SpecialQuality															DESC: 1/day
+Shadow Form				KEY:Shadow Form ~ Shadowblade				CATEGORY:Special Ability	TYPE:SpecialQuality
+Death Resistance			KEY:Death Resistance ~ Shadowblade			CATEGORY:Special Ability	TYPE:SpecialQuality
 
 #  ~ Soulreaper
-AC Bonus	KEY:AC Bonus ~ Soulreaper			DESC: +%1|SoulreaperAC			BONUS:COMBAT|AC|SoulreaperAC		DEFINE:SoulreaperAC|0	CATEGORY:Special Ability	TYPE:SpecialQuality
-DR	KEY:DR ~ Soulreaper				DESC: %1/+%2|SoulreaperDR|SoulreaperDRPlus		DEFINE:SoulreaperDRPlus|0	DEFINE:SoulreaperDR|0	CATEGORY:Special Ability	TYPE:SpecialQuality
-Reap Soul	KEY:Reap Soul ~ Soulreaper	CATEGORY:Special Ability	TYPE:SpecialQuality
+AC Bonus				KEY:AC Bonus ~ Soulreaper				CATEGORY:Special Ability	TYPE:SpecialQuality						DEFINE:SoulreaperAC|0						DESC: +%1|SoulreaperAC					BONUS:COMBAT|AC|SoulreaperAC
+DR					KEY:DR ~ Soulreaper					CATEGORY:Special Ability	TYPE:SpecialQuality						DEFINE:SoulreaperDRPlus|0	DEFINE:SoulreaperDR|0	DESC: %1/+%2|SoulreaperDR|SoulreaperDRPlus
+Reap Soul				KEY:Reap Soul ~ Soulreaper				CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Swan Bard
-Clerical Spells	KEY:Clerical Spells	CATEGORY:Special Ability	TYPE:SpecialQuality
-Divine Talent	KEY:Divine Talent	CATEGORY:Special Ability	TYPE:SpecialQuality
-Divine Beauty	KEY:Divine Beauty	CATEGORY:Special Ability	TYPE:SpecialQuality
-Swanmorph	KEY:Swanmorph	CATEGORY:Special Ability	TYPE:SpecialQuality
+Clerical Spells			KEY:Clerical Spells					CATEGORY:Special Ability	TYPE:SpecialQuality
+Divine Talent			KEY:Divine Talent						CATEGORY:Special Ability	TYPE:SpecialQuality
+Divine Beauty			KEY:Divine Beauty						CATEGORY:Special Ability	TYPE:SpecialQuality
+Swanmorph				KEY:Swanmorph						CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Wild Walker
-Charm Monster	KEY:Charm Monster	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Fast Movement	KEY:Fast Movement	CATEGORY:Special Ability	TYPE:SpecialQuality
-Summon Monster	KEY:Summon Monster	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Monstrous Companion	KEY:Monstrous Companion	CATEGORY:Special Ability	TYPE:SpecialQuality
-Monstrous Form	KEY:Monstrous Form	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Charm Monster			KEY:Charm Monster						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Fast Movement			KEY:Fast Movement						CATEGORY:Special Ability	TYPE:SpecialQuality
+Summon Monster			KEY:Summon Monster					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Monstrous Companion		KEY:Monstrous Companion					CATEGORY:Special Ability	TYPE:SpecialQuality
+Monstrous Form			KEY:Monstrous Form					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
 
 ###Block:FEATS
 # Feat Name			Visible	Special ABility							Define				Modify VAR
-Abyssal Smiting		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	KEY:Abyssal Smiting_1st		DESC:+%1|AbyssalSmitingLevel	DEFINE:AbyssalSmitingLevel|0	BONUS:VAR|AbyssalSmitingLevel|1
-Abyssal Smiting_2nd	CATEGORY:Special Ability		VISIBLE:NO															BONUS:VAR|AbyssalSmitingLevel|1
-Abyssal Smiting_3rd	CATEGORY:Special Ability		VISIBLE:NO															BONUS:VAR|AbyssalSmitingLevel|1
+# Ability Name		Unique Key			Category of Ability		Type						Visible	Define				Description				Modify VAR
+Abyssal Smiting		KEY:Abyssal Smiting_1st	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			DEFINE:AbyssalSmitingLevel|0	DESC:+%1|AbyssalSmitingLevel	BONUS:VAR|AbyssalSmitingLevel|1
+Abyssal Smiting_2nd					CATEGORY:Special Ability							VISIBLE:NO											BONUS:VAR|AbyssalSmitingLevel|1
+Abyssal Smiting_3rd					CATEGORY:Special Ability							VISIBLE:NO											BONUS:VAR|AbyssalSmitingLevel|1
 
 
 

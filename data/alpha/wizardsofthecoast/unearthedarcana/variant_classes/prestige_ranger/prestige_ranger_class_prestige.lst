@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Mon Dec 19 23:39:40 2011 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Unearthed Arcana	SOURCESHORT:UA	SOURCEDATE:2004-02
 # Original Entry by: Jasper-Spaans
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Prestige Ranger	HD:8		TYPE:PC.Prestige	ABB:PRgr		MAXLEVEL:15	SOURCEPAGE:p.72	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|2+CL/2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Req. Att.	Required Feat										Required Skill
-CLASS:Prestige Ranger	PREATT:4	PREFEAT:2,Endurance,Track	PREFEAT:1,Two Weapon Fighting,Rapid Shot	PRESKILL:2,Knowledge (Nature)=2,Survival=4	!PRECLASS:1,Ranger=1
+# Class Name		Req. Att.	Prohibited Class		Required Feat										Required Skill
+CLASS:Prestige Ranger	PREATT:4	!PRECLASS:1,Ranger=1	PREFEAT:2,Endurance,Track	PREFEAT:1,Two Weapon Fighting,Rapid Shot	PRESKILL:2,Knowledge (Nature)=2,Survival=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Prestige Ranger	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Survival|Swim|Use Rope
 ###Block:Proficiencies

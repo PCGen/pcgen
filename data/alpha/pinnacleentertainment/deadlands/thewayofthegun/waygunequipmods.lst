@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Mon Jan 19 23:44:35 2009 -- reformated by prettylst.pl v1.38 (build 8180)
-SOURCELONG:The Way of the Gun	SOURCESHORT:WayotGun	SOURCEWEB:http://www.peginc.com/index.htm
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:The Way of the Gun	SOURCESHORT:WayotGun	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
 
 # Modifier Name			Type		Cost			Source Page		Required Type		Bonus Equipment Modifiers	Bonus Weapon Modifiers		Weapon prop. bonus
 Cylinder stop			TYPE:Weapon	COST:10		SOURCEPAGE:p.33	PRETYPE:1,Pistol

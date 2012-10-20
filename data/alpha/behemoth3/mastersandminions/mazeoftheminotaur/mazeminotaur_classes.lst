@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Feb 14 09:37:38 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.com/	SOURCEDATE:2004-08
 # Original Entry by: Aaron Divinsky
 
@@ -45,7 +45,7 @@ CLASS:Minotaur	STARTSKILLPTS:2
 ### The source implies that the characters race changes to Bull Lord once he takes a level in this class.
 ### This is implemented by adding a Bull Lord template with SUBRACE:YES, the race will now output Minotaur (Bull Lord)
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Automatic Languages
+# Class Name	Hit Dice	Type			Max Level	Source Page		Automatically Gained Language
 CLASS:Bull Lord	HD:8		TYPE:PC.Prestige	MAXLEVEL:9	SOURCEPAGE:p. 17	AUTO:LANG|Common
 # Class Name	Required Class
 CLASS:Bull Lord	PRECLASS:1,Minotaur=8

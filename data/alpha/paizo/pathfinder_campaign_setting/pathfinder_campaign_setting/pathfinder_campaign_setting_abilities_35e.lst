@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Feb 18 16:45:07 2010 -- reformated by prettylst.pl v1.39 (build 11455)
-SOURCELONG:Pathfinder Chronicles: Campaign Setting	SOURCESHORT:PFCS	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search	SOURCEDATE:2008-08
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Pathfinder Campaign Setting	SOURCESHORT:PFCS	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search	SOURCEDATE:2008-08
 
 
 # Ability Name						Unique Key					Category of Ability		Type						Visible		Restricted Ability								Var. Min. Value			Description																									Virtual Feat		Modify VAR														Source Page		Description of the Benefits
@@ -36,9 +36,9 @@ CATEGORY=Special Ability|Improved Disarm.MOD													!PREABILITY:1,CATEGORY=
 CATEGORY=Special Ability|Improved Trip.MOD													!PREABILITY:1,CATEGORY=Special Ability,Blade Binder,Secret of Steel-Shattering Spirit
 
 ###Block: Alternate Ranger Combat Styles
-# Ability Name								Output Name					Category of Ability		Type							Visible	Restricted Ability								Required Template						Virtual Feat
-Archery Combat Style ~ Parting Shot Pathfinder Variant		KEY:Archery Combat Style ~ Parting Shot Pathfinder varient		CATEGORY:Special Ability	TYPE:SpecialQuality.RangerCombatStyle	VISIBLE:YES	!PREABILITY:1,CATEGORY=Special Ability,TYPE=RangerCombatStyle	PRETEMPLATE:1,Regional Affinity (Nirmathas)	VFEAT:Rapid Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Parting Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,2],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Improved Precise Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,3],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]
-Archery Combat Style ~ Crossbow Mastery Pathfinder Variant		KEY:Archery Combat Style ~ Crossbow Mastery Pathfinder varient	CATEGORY:Special Ability	TYPE:SpecialQuality.RangerCombatStyle	VISIBLE:YES	!PREABILITY:1,CATEGORY=Special Ability,TYPE=RangerCombatStyle									VFEAT:Rapid Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Crossbow Mastery|PREMULT:2,[PREVARGTEQ:RangerCombatTree,2],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Improved Precise Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,3],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]
+# Ability Name								Unique Key										Category of Ability		Type							Visible	Restricted Ability								Required Template						Virtual Feat
+Archery Combat Style ~ Parting Shot Pathfinder Variant	KEY:Archery Combat Style ~ Parting Shot Pathfinder varient		CATEGORY:Special Ability	TYPE:SpecialQuality.RangerCombatStyle	VISIBLE:YES	!PREABILITY:1,CATEGORY=Special Ability,TYPE=RangerCombatStyle	PRETEMPLATE:1,Regional Affinity (Nirmathas)	VFEAT:Rapid Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Parting Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,2],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Improved Precise Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,3],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]
+Archery Combat Style ~ Crossbow Mastery Pathfinder Variant	KEY:Archery Combat Style ~ Crossbow Mastery Pathfinder varient	CATEGORY:Special Ability	TYPE:SpecialQuality.RangerCombatStyle	VISIBLE:YES	!PREABILITY:1,CATEGORY=Special Ability,TYPE=RangerCombatStyle									VFEAT:Rapid Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Crossbow Mastery|PREMULT:2,[PREVARGTEQ:RangerCombatTree,2],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Improved Precise Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,3],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]
 
 #
 # End

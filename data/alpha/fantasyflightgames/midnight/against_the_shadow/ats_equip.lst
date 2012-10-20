@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Aug 21 21:00:33 2007 -- reformated by prettylst.pl v1.38 (build 2788)
-SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html	SOURCEDATE:2003-01
 
 # Equipment Name			Type							Contains				Cost		Weight	Source Page		Special Property
 Harvesting sickle and spade	TYPE:Goods.Tools										COST:500	WT:5		SOURCEPAGE:p. 87

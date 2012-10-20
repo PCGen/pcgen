@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Sun Apr 18 18:55:21 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
 #Original Entry: Andrew Maitland
 
 ###Block: Gasllight Skills
-# Skill Name				Key Stat	Untrained?		Skill Penalty Apply	Exclusive?		Type						Source Page		Choose
-Acrobatics					KEYSTAT:DEX				ACHECK:YES						TYPE:Dexterity.LevelMod				SOURCEPAGE:p.122
-Athletics					KEYSTAT:STR				ACHECK:YES						TYPE:Strength.LevelMod				SOURCEPAGE:p.122
+# Skill Name				Key Stat	Untrained?		Skill Penalty Apply	Exclusive?		Type								Source Page		Choose				Bonus to skill									Bonus to skill rank											Automatically Gained Language
+Acrobatics					KEYSTAT:DEX				ACHECK:YES						TYPE:Dexterity.LevelMod					SOURCEPAGE:p.122
+Athletics					KEYSTAT:STR				ACHECK:YES						TYPE:Strength.LevelMod					SOURCEPAGE:p.122
 Benchthumping				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.LevelMod				SOURCEPAGE:p.125
 Concentration				KEYSTAT:CON											TYPE:Constitution.LevelMod				SOURCEPAGE:p.125
 # Craft
@@ -13,15 +13,15 @@ Craft (Chemical)				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Craft.L
 Craft (Expression)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Craft.LevelMod			SOURCEPAGE:p.127
 Craft (Mechanical)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Craft.LevelMod			SOURCEPAGE:p.128
 Craft (Structural)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Craft.LevelMod			SOURCEPAGE:p.128
-Deception					KEYSTAT:CHA											TYPE:Charisma.LevelMod				SOURCEPAGE:p.129
+Deception					KEYSTAT:CHA											TYPE:Charisma.LevelMod					SOURCEPAGE:p.129
 Decipher Script				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.LevelMod				SOURCEPAGE:p.131
 Demolitions					KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.LevelMod				SOURCEPAGE:p.132
 Disable Device				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.LevelMod				SOURCEPAGE:p.132
-Escape Artist				KEYSTAT:DEX				ACHECK:YES						TYPE:Dexterity.LevelMod				SOURCEPAGE:p.133
+Escape Artist				KEYSTAT:DEX				ACHECK:YES						TYPE:Dexterity.LevelMod					SOURCEPAGE:p.133
 Forgery					KEYSTAT:INT											TYPE:Intelligence.LevelMod				SOURCEPAGE:p.134
 Gamble					KEYSTAT:WIS											TYPE:Wisdom.LevelMod					SOURCEPAGE:p.135
-Gather Information			KEYSTAT:CHA											TYPE:Charisma.LevelMod				SOURCEPAGE:p.135
-Handle Animal				KEYSTAT:CHA	USEUNTRAINED:NO								TYPE:Charisma.LevelMod				SOURCEPAGE:p.137
+Gather Information			KEYSTAT:CHA											TYPE:Charisma.LevelMod					SOURCEPAGE:p.135
+Handle Animal				KEYSTAT:CHA	USEUNTRAINED:NO								TYPE:Charisma.LevelMod					SOURCEPAGE:p.137
 Investigate					KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.LevelMod				SOURCEPAGE:p.138
 Knowledge (Art)				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge.LevelMod		SOURCEPAGE:p.139
 Knowledge (Behavioral Sciences)	KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge.Science.LevelMod	SOURCEPAGE:p.139
@@ -55,64 +55,64 @@ Perform (Stand-Up)			KEYSTAT:CHA											TYPE:Charisma.LevelMod.Perform			SOUR
 Perform (Stringed Instruments)	KEYSTAT:CHA											TYPE:Charisma.LevelMod.Perform			SOURCEPAGE:p.144
 Perform (Vaudeville)			KEYSTAT:CHA											TYPE:Charisma.LevelMod.Perform			SOURCEPAGE:p.144
 Perform (Wind Instruments)		KEYSTAT:CHA											TYPE:Charisma.LevelMod.Perform			SOURCEPAGE:p.144
-Persuasion					KEYSTAT:CHA											TYPE:Charisma.LevelMod				SOURCEPAGE:p.144
+Persuasion					KEYSTAT:CHA											TYPE:Charisma.LevelMod					SOURCEPAGE:p.144
 Profession					KEYSTAT:WIS											TYPE:Wisdom.LevelMod					SOURCEPAGE:p.146
-Read/Write Language					USEUNTRAINED:NO								TYPE:None.Language			SOURCEPAGE:p.147	AUTO:LANG|%LIST	CHOOSE:LANG|TYPE=Written
+Read/Write Language					USEUNTRAINED:NO								TYPE:None.Language					SOURCEPAGE:p.147	CHOOSE:LANG|TYPE=Written																										AUTO:LANG|%LIST
 Repair					KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.LevelMod				SOURCEPAGE:p.147
 Research					KEYSTAT:INT											TYPE:Intelligence.LevelMod				SOURCEPAGE:p.148
-Ride						KEYSTAT:DEX											TYPE:Dexterity.LevelMod				SOURCEPAGE:p.148
+Ride						KEYSTAT:DEX											TYPE:Dexterity.LevelMod					SOURCEPAGE:p.148
 Search					KEYSTAT:INT											TYPE:Intelligence.LevelMod				SOURCEPAGE:p.149
 Sense Motive				KEYSTAT:WIS											TYPE:Wisdom.LevelMod					SOURCEPAGE:p.149
-Sleight of Hand				KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES						TYPE:Dexterity.LevelMod				SOURCEPAGE:p.150
-Speak Language						USEUNTRAINED:NO								TYPE:None.Language			SOURCEPAGE:p.150	AUTO:LANG|%LIST	CHOOSE:LANG|TYPE=Spoken
-Stealth					KEYSTAT:DEX				ACHECK:YES						TYPE:Dexterity.LevelMod				SOURCEPAGE:p.151
+Sleight of Hand				KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES						TYPE:Dexterity.LevelMod					SOURCEPAGE:p.150
+Speak Language						USEUNTRAINED:NO								TYPE:None.Language					SOURCEPAGE:p.150	CHOOSE:LANG|TYPE=Spoken																											AUTO:LANG|%LIST
+Stealth					KEYSTAT:DEX				ACHECK:YES						TYPE:Dexterity.LevelMod					SOURCEPAGE:p.151
 Survival					KEYSTAT:WIS											TYPE:Wisdom.LevelMod					SOURCEPAGE:p.152
 Treat Injury				KEYSTAT:WIS											TYPE:Wisdom.LevelMod					SOURCEPAGE:p.153
-Use Device					KEYSTAT:CHA	USEUNTRAINED:NO					EXCLUSIVE:YES	TYPE:Charisma.LevelMod				SOURCEPAGE:p.154
+Use Device					KEYSTAT:CHA	USEUNTRAINED:NO					EXCLUSIVE:YES	TYPE:Charisma.LevelMod					SOURCEPAGE:p.154
 
-Notice.MOD		BONUS:SKILLRANK|Notice (Locate Traps)|skillinfo("RANK","Notice")|PRECLASS:1,Rogue=1	BONUS:SKILL|Notice (Locate Traps)|skillinfo("MODIFIER","Notice")
+Notice.MOD																																	BONUS:SKILL|Notice (Locate Traps)|skillinfo("MODIFIER","Notice")	BONUS:SKILLRANK|Notice (Locate Traps)|skillinfo("RANK","Notice")|PRECLASS:1,Rogue=1
 
 ###Block: Psychic Skills:
-# Skill Name			Key Stat	Untrained?		Exclusive?		Type											Multiple Requirements																											Source Page
-Psychic (Adaptation)		KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Wisdom.Psychometabolism.Psychic.PsychicWildTalent				PREMULT:1,[PREVARGTEQ:PsychometabolismBypass,1],[PREFEAT:1,Psychometabolism,Wild Talent Psychic (Psychic (Adaptation))]											SOURCEPAGE:p.342
-Psychic (Combat Sense)		KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Wisdom.Clairsentience.Psychic.PsychicWildTalent				PREMULT:1,[PREVARGTEQ:ClairsentienceBypass,1],[PREFEAT:1,Clairsentience,Wild Talent Psychic (Psychic (Combat Sense))]											SOURCEPAGE:p.343
-Psychic (Domination)		KEYSTAT:CHA	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Charisma.Telepathy.Psychic.PsychicWildTalent					PREMULT:1,[PREVARGTEQ:TelepathyBypass,1],[PREFEAT:1,Telepathy,Wild Talent Psychic (Psychic (Domination))]													SOURCEPAGE:p.343
-Psychic (Drain Ability (STR))	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Wisdom.Psychometabolism.Psychic.PsychicWildTalent				PREMULT:1,[PREVARGTEQ:PsychometabolismBypass,1],[PREFEAT:1,Psychometabolism,Wild Talent Psychic (Psychic (Drain Ability (STR)))]									SOURCEPAGE:p.343
-Psychic (Drain Ability (DEX))	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Wisdom.Psychometabolism.Psychic.PsychicWildTalent				PREMULT:1,[PREVARGTEQ:PsychometabolismBypass,1],[PREFEAT:1,Psychometabolism,Wild Talent Psychic (Psychic (Drain Ability (DEX)))]									SOURCEPAGE:p.343
-Psychic (Drain Ability (CON))	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Wisdom.Psychometabolism.Psychic.PsychicWildTalent				PREMULT:1,[PREVARGTEQ:PsychometabolismBypass,1],[PREFEAT:1,Psychometabolism,Wild Talent Psychic (Psychic (Drain Ability (CON)))]									SOURCEPAGE:p.343
-Psychic (Drain Ability (INT))	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Wisdom.Psychometabolism.Psychic.PsychicWildTalent				PREMULT:1,[PREVARGTEQ:PsychometabolismBypass,1],[PREFEAT:1,Psychometabolism,Wild Talent Psychic (Psychic (Drain Ability (INT)))]									SOURCEPAGE:p.343
-Psychic (Drain Ability (WIS))	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Wisdom.Psychometabolism.Psychic.PsychicWildTalent				PREMULT:1,[PREVARGTEQ:PsychometabolismBypass,1],[PREFEAT:1,Psychometabolism,Wild Talent Psychic (Psychic (Drain Ability (WIS)))]									SOURCEPAGE:p.343
-Psychic (Drain Ability (CHA))	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Wisdom.Psychometabolism.Psychic.PsychicWildTalent				PREMULT:1,[PREVARGTEQ:PsychometabolismBypass,1],[PREFEAT:1,Psychometabolism,Wild Talent Psychic (Psychic (Drain Ability (CHA)))]									SOURCEPAGE:p.343
-Psychic (Drain Emotion)		KEYSTAT:CHA	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Charisma.Telepathy.Psychic.PsychicWildTalent					PREMULT:1,[PREVARGTEQ:TelepathyBypass,1],[PREFEAT:1,Telepathy,Wild Talent Psychic (Psychic (Drain Emotion))]												SOURCEPAGE:p.343
-Psychic (Drain Vitality)	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Wisdom.Psychometabolism.Psychic.PsychicWildTalent				PREMULT:1,[PREVARGTEQ:PsychometabolismBypass,1],[PREFEAT:1,Psychometabolism,Wild Talent Psychic (Psychic (Drain Vitality))]										SOURCEPAGE:p.344
-Psychic (Enhance Ability)	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Wisdom.Psychometabolism.Psychic.PsychicWildTalent				PREMULT:1,[PREVARGTEQ:PsychometabolismBypass,1],[PREFEAT:1,Psychometabolism,Wild Talent Psychic (Psychic (Enhance Ability))]										SOURCEPAGE:p.344
-Psychic (Enhance Senses)	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Wisdom.Clairsentience.Psychic.Psychometabolism.PsychicWildTalent	PREMULT:1,[PREVARGTEQ:ClairsentienceBypass,1],[PREVARGTEQ:PsychometabolismBypass,1],[PREFEAT:1,Clairsentience,Wild Talent Psychic (Psychic (Enhance Senses)),Psychometabolism]	SOURCEPAGE:p.344
-Psychic (Illusion)		KEYSTAT:CHA	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Charisma.Telepathy.Psychic.PsychicWildTalent					PREMULT:1,[PREVARGTEQ:IllusionBypass,1],[PREFEAT:1,Telepathy,Wild Talent Psychic (Psychic (Illusion))]													SOURCEPAGE:p.341
-Psychic (Life Extension)	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Wisdom.Psychometabolism.Psychic.PsychicWildTalent				PREMULT:1,[PREVARGTEQ:PsychometabolismBypass,1],[PREFEAT:1,Psychometabolism,Wild Talent Psychic (Psychic (Life Extension))]										SOURCEPAGE:p.345
-Psychic (Mental Contact)	KEYSTAT:CHA	USEUNTRAINED:YES	EXCLUSIVE:YES	TYPE:Charisma.Telepathy.Psychic.PsychicWildTalent					PREMULT:1,[PREVARGTEQ:TelepathyBypass,1],[PREFEAT:1,Telepathy,Wild Talent Psychic (Psychic (Mental Contact))]												SOURCEPAGE:p.345
-Psychic (Mind Reading)		KEYSTAT:CHA	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Charisma.Telepathy.Psychic.PsychicWildTalent					PREMULT:1,[PREVARGTEQ:TelepathyBypass,1],[PREFEAT:1,Telepathy,Wild Talent Psychic (Psychic (Mind Reading))]													SOURCEPAGE:p.346
-Psychic (Mind Switch)		KEYSTAT:CHA	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Charisma.MindShift.Psychic								PREMULT:1,[PREVARGTEQ:MindSwitchBypass,1],[PREFEAT:1,Mind Switch]																				SOURCEPAGE:p.346
-Psychic (Precognition)		KEYSTAT:WIS	USEUNTRAINED:YES	EXCLUSIVE:YES	TYPE:Wisdom.Clairsentience.Psychic.PsychicWildTalent				PREMULT:1,[PREVARGTEQ:ClairsentienceBypass,1],[PREFEAT:1,Clairsentience,Wild Talent Psychic (Psychic (Precognition))]											SOURCEPAGE:p.347
-Psychic (Psychic Blast)		KEYSTAT:CHA	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Charisma.Telepathy.Psychic.PsychicWildTalent					PREMULT:1,[PREVARGTEQ:TelepathyBypass,1],[PREFEAT:1,Telepathy,Wild Talent Psychic (Psychic (Psychic Blast))]												SOURCEPAGE:p.347
-Psychic (Psychic Sense)		KEYSTAT:WIS	USEUNTRAINED:YES	EXCLUSIVE:YES	TYPE:Wisdom.PsychicAbility.Psychic.PsychicWildTalent				PREMULT:1,[PREVARGTEQ:PsychicBypass,1],[PREFEAT:1,Psychic Ability,Wild Talent Psychic (Psychic (Psychic Sense))]												SOURCEPAGE:p.347
-Psychic (Psychic Shield)	KEYSTAT:WIS	USEUNTRAINED:YES	EXCLUSIVE:YES	TYPE:Wisdom.PsychicAbility.Psychic.PsychicWildTalent				PREMULT:1,[PREVARGTEQ:PsychicBypass,1],[PREFEAT:1,Psychic Ability,Wild Talent Psychic (Psychic (Psychic Shield))]												SOURCEPAGE:p.348
-Psychic (Psychic Static)	KEYSTAT:CHA	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Charisma.Telepathy.Psychic.PsychicWildTalent					PREMULT:1,[PREVARGTEQ:TelepathyBypass,1],[PREFEAT:1,Telepathy,Wild Talent Psychic (Psychic (Psychic Static))]												SOURCEPAGE:p.349
-Psychic (Psychic Surgery)	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Wisdom.Telepathy.Psychic.PsychicWildTalent					PREMULT:1,[PREVARGTEQ:TelepathyBypass,1],[PREFEAT:1,Telepathy,Wild Talent Psychic (Psychic (Psychic Surgery))]												SOURCEPAGE:p.349
-Psychic (Psychometry)		KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Wisdom.Clairsentience.Psychic.PsychicWildTalent				PREMULT:1,[PREVARGTEQ:ClairsentienceBypass,1],[PREFEAT:1,Clairsentience,Wild Talent Psychic (Psychic (Psychometry))]											SOURCEPAGE:p.350
-Psychic (Remote Viewing)	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Wisdom.Clairsentience.Psychic.PsychicWildTalent				PREMULT:1,[PREVARGTEQ:ClairsentienceBypass,1],[PREFEAT:1,Clairsentience,Wild Talent Psychic (Psychic (Remote Viewing))]											SOURCEPAGE:p.351
-Psychic (Sense Minds)		KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Wisdom.Telepathy.Psychic.PsychicWildTalent					PREMULT:1,[PREVARGTEQ:TelepathyBypass,1],[PREFEAT:1,Telepathy,Wild Talent Psychic (Psychic (Sense Minds))]													SOURCEPAGE:p.351
-Psychic (Sleep)			KEYSTAT:CHA	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Charisma.Telepathy.Psychic.PsychicWildTalent					PREMULT:1,[PREVARGTEQ:TelepathyBypass,1],[PREFEAT:1,Telepathy,Wild Talent Psychic (Psychic (Sleep))]														SOURCEPAGE:p.351
-Psychic (Suggestion)		KEYSTAT:CHA	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Charisma.Telepathy.Psychic.PsychicWildTalent					PREMULT:1,[PREVARGTEQ:TelepathyBypass,1],[PREFEAT:1,Telepathy,Wild Talent Psychic (Psychic (Suggestion))]													SOURCEPAGE:p.352
-Psychic (Telekinesis)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Intelligence.Psychokinesis.Psychic.PsychicWildTalent				PREMULT:1,[PREVARGTEQ:PsychokinesisBypass,1],[PREFEAT:1,Psychokinesis,Wild Talent Psychic (Psychic (Telekinesis))]											SOURCEPAGE:p.352
-Psychic (Telekinetic Blast)	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Intelligence.Psychokinesis.Psychic.PsychicWildTalent				PREMULT:1,[PREVARGTEQ:PsychokinesisBypass,1],[PREFEAT:1,Psychokinesis,Wild Talent Psychic (Psychic (Telekinetic Blast))]										SOURCEPAGE:p.353
-Psychic (Telekinetic Grip)	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Intelligence.Psychokinesis.Psychic.PsychicWildTalent				PREMULT:1,[PREVARGTEQ:PsychokinesisBypass,1],[PREFEAT:1,Psychokinesis,Wild Talent Psychic (Psychic (Telekinetic Grip))]											SOURCEPAGE:p.353
-Psychic (Telekinetic Shield)	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Intelligence.Psychokinesis.Psychic.PsychicWildTalent				PREMULT:1,[PREVARGTEQ:PsychokinesisBypass,1],[PREFEAT:1,Psychokinesis,Wild Talent Psychic (Psychic (Telekinetic Shield))]										SOURCEPAGE:p.353
+# Skill Name			Key Stat	Untrained?		Exclusive?		Classes	Type												Visible		Multiple Requirements																											Source Page
+Psychic (Adaptation)		KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Wisdom.Psychometabolism.Psychic.PsychicWildTalent						PREMULT:1,[PREVARGTEQ:PsychometabolismBypass,1],[PREFEAT:1,Psychometabolism,Wild Talent Psychic (Psychic (Adaptation))]											SOURCEPAGE:p.342
+Psychic (Combat Sense)		KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Wisdom.Clairsentience.Psychic.PsychicWildTalent							PREMULT:1,[PREVARGTEQ:ClairsentienceBypass,1],[PREFEAT:1,Clairsentience,Wild Talent Psychic (Psychic (Combat Sense))]											SOURCEPAGE:p.343
+Psychic (Domination)		KEYSTAT:CHA	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Charisma.Telepathy.Psychic.PsychicWildTalent							PREMULT:1,[PREVARGTEQ:TelepathyBypass,1],[PREFEAT:1,Telepathy,Wild Talent Psychic (Psychic (Domination))]													SOURCEPAGE:p.343
+Psychic (Drain Ability (STR))	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Wisdom.Psychometabolism.Psychic.PsychicWildTalent						PREMULT:1,[PREVARGTEQ:PsychometabolismBypass,1],[PREFEAT:1,Psychometabolism,Wild Talent Psychic (Psychic (Drain Ability (STR)))]									SOURCEPAGE:p.343
+Psychic (Drain Ability (DEX))	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Wisdom.Psychometabolism.Psychic.PsychicWildTalent						PREMULT:1,[PREVARGTEQ:PsychometabolismBypass,1],[PREFEAT:1,Psychometabolism,Wild Talent Psychic (Psychic (Drain Ability (DEX)))]									SOURCEPAGE:p.343
+Psychic (Drain Ability (CON))	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Wisdom.Psychometabolism.Psychic.PsychicWildTalent						PREMULT:1,[PREVARGTEQ:PsychometabolismBypass,1],[PREFEAT:1,Psychometabolism,Wild Talent Psychic (Psychic (Drain Ability (CON)))]									SOURCEPAGE:p.343
+Psychic (Drain Ability (INT))	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Wisdom.Psychometabolism.Psychic.PsychicWildTalent						PREMULT:1,[PREVARGTEQ:PsychometabolismBypass,1],[PREFEAT:1,Psychometabolism,Wild Talent Psychic (Psychic (Drain Ability (INT)))]									SOURCEPAGE:p.343
+Psychic (Drain Ability (WIS))	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Wisdom.Psychometabolism.Psychic.PsychicWildTalent						PREMULT:1,[PREVARGTEQ:PsychometabolismBypass,1],[PREFEAT:1,Psychometabolism,Wild Talent Psychic (Psychic (Drain Ability (WIS)))]									SOURCEPAGE:p.343
+Psychic (Drain Ability (CHA))	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Wisdom.Psychometabolism.Psychic.PsychicWildTalent						PREMULT:1,[PREVARGTEQ:PsychometabolismBypass,1],[PREFEAT:1,Psychometabolism,Wild Talent Psychic (Psychic (Drain Ability (CHA)))]									SOURCEPAGE:p.343
+Psychic (Drain Emotion)		KEYSTAT:CHA	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Charisma.Telepathy.Psychic.PsychicWildTalent							PREMULT:1,[PREVARGTEQ:TelepathyBypass,1],[PREFEAT:1,Telepathy,Wild Talent Psychic (Psychic (Drain Emotion))]												SOURCEPAGE:p.343
+Psychic (Drain Vitality)	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Wisdom.Psychometabolism.Psychic.PsychicWildTalent						PREMULT:1,[PREVARGTEQ:PsychometabolismBypass,1],[PREFEAT:1,Psychometabolism,Wild Talent Psychic (Psychic (Drain Vitality))]										SOURCEPAGE:p.344
+Psychic (Enhance Ability)	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Wisdom.Psychometabolism.Psychic.PsychicWildTalent						PREMULT:1,[PREVARGTEQ:PsychometabolismBypass,1],[PREFEAT:1,Psychometabolism,Wild Talent Psychic (Psychic (Enhance Ability))]										SOURCEPAGE:p.344
+Psychic (Enhance Senses)	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Wisdom.Clairsentience.Psychic.Psychometabolism.PsychicWildTalent				PREMULT:1,[PREVARGTEQ:ClairsentienceBypass,1],[PREVARGTEQ:PsychometabolismBypass,1],[PREFEAT:1,Clairsentience,Wild Talent Psychic (Psychic (Enhance Senses)),Psychometabolism]	SOURCEPAGE:p.344
+Psychic (Illusion)		KEYSTAT:CHA	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Charisma.Telepathy.Psychic.PsychicWildTalent							PREMULT:1,[PREVARGTEQ:IllusionBypass,1],[PREFEAT:1,Telepathy,Wild Talent Psychic (Psychic (Illusion))]													SOURCEPAGE:p.341
+Psychic (Life Extension)	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Wisdom.Psychometabolism.Psychic.PsychicWildTalent						PREMULT:1,[PREVARGTEQ:PsychometabolismBypass,1],[PREFEAT:1,Psychometabolism,Wild Talent Psychic (Psychic (Life Extension))]										SOURCEPAGE:p.345
+Psychic (Mental Contact)	KEYSTAT:CHA	USEUNTRAINED:YES	EXCLUSIVE:YES			TYPE:Charisma.Telepathy.Psychic.PsychicWildTalent							PREMULT:1,[PREVARGTEQ:TelepathyBypass,1],[PREFEAT:1,Telepathy,Wild Talent Psychic (Psychic (Mental Contact))]												SOURCEPAGE:p.345
+Psychic (Mind Reading)		KEYSTAT:CHA	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Charisma.Telepathy.Psychic.PsychicWildTalent							PREMULT:1,[PREVARGTEQ:TelepathyBypass,1],[PREFEAT:1,Telepathy,Wild Talent Psychic (Psychic (Mind Reading))]													SOURCEPAGE:p.346
+Psychic (Mind Switch)		KEYSTAT:CHA	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Charisma.MindShift.Psychic										PREMULT:1,[PREVARGTEQ:MindSwitchBypass,1],[PREFEAT:1,Mind Switch]																				SOURCEPAGE:p.346
+Psychic (Precognition)		KEYSTAT:WIS	USEUNTRAINED:YES	EXCLUSIVE:YES			TYPE:Wisdom.Clairsentience.Psychic.PsychicWildTalent							PREMULT:1,[PREVARGTEQ:ClairsentienceBypass,1],[PREFEAT:1,Clairsentience,Wild Talent Psychic (Psychic (Precognition))]											SOURCEPAGE:p.347
+Psychic (Psychic Blast)		KEYSTAT:CHA	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Charisma.Telepathy.Psychic.PsychicWildTalent							PREMULT:1,[PREVARGTEQ:TelepathyBypass,1],[PREFEAT:1,Telepathy,Wild Talent Psychic (Psychic (Psychic Blast))]												SOURCEPAGE:p.347
+Psychic (Psychic Sense)		KEYSTAT:WIS	USEUNTRAINED:YES	EXCLUSIVE:YES			TYPE:Wisdom.PsychicAbility.Psychic.PsychicWildTalent							PREMULT:1,[PREVARGTEQ:PsychicBypass,1],[PREFEAT:1,Psychic Ability,Wild Talent Psychic (Psychic (Psychic Sense))]												SOURCEPAGE:p.347
+Psychic (Psychic Shield)	KEYSTAT:WIS	USEUNTRAINED:YES	EXCLUSIVE:YES			TYPE:Wisdom.PsychicAbility.Psychic.PsychicWildTalent							PREMULT:1,[PREVARGTEQ:PsychicBypass,1],[PREFEAT:1,Psychic Ability,Wild Talent Psychic (Psychic (Psychic Shield))]												SOURCEPAGE:p.348
+Psychic (Psychic Static)	KEYSTAT:CHA	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Charisma.Telepathy.Psychic.PsychicWildTalent							PREMULT:1,[PREVARGTEQ:TelepathyBypass,1],[PREFEAT:1,Telepathy,Wild Talent Psychic (Psychic (Psychic Static))]												SOURCEPAGE:p.349
+Psychic (Psychic Surgery)	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Wisdom.Telepathy.Psychic.PsychicWildTalent								PREMULT:1,[PREVARGTEQ:TelepathyBypass,1],[PREFEAT:1,Telepathy,Wild Talent Psychic (Psychic (Psychic Surgery))]												SOURCEPAGE:p.349
+Psychic (Psychometry)		KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Wisdom.Clairsentience.Psychic.PsychicWildTalent							PREMULT:1,[PREVARGTEQ:ClairsentienceBypass,1],[PREFEAT:1,Clairsentience,Wild Talent Psychic (Psychic (Psychometry))]											SOURCEPAGE:p.350
+Psychic (Remote Viewing)	KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Wisdom.Clairsentience.Psychic.PsychicWildTalent							PREMULT:1,[PREVARGTEQ:ClairsentienceBypass,1],[PREFEAT:1,Clairsentience,Wild Talent Psychic (Psychic (Remote Viewing))]											SOURCEPAGE:p.351
+Psychic (Sense Minds)		KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Wisdom.Telepathy.Psychic.PsychicWildTalent								PREMULT:1,[PREVARGTEQ:TelepathyBypass,1],[PREFEAT:1,Telepathy,Wild Talent Psychic (Psychic (Sense Minds))]													SOURCEPAGE:p.351
+Psychic (Sleep)			KEYSTAT:CHA	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Charisma.Telepathy.Psychic.PsychicWildTalent							PREMULT:1,[PREVARGTEQ:TelepathyBypass,1],[PREFEAT:1,Telepathy,Wild Talent Psychic (Psychic (Sleep))]														SOURCEPAGE:p.351
+Psychic (Suggestion)		KEYSTAT:CHA	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Charisma.Telepathy.Psychic.PsychicWildTalent							PREMULT:1,[PREVARGTEQ:TelepathyBypass,1],[PREFEAT:1,Telepathy,Wild Talent Psychic (Psychic (Suggestion))]													SOURCEPAGE:p.352
+Psychic (Telekinesis)		KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Intelligence.Psychokinesis.Psychic.PsychicWildTalent						PREMULT:1,[PREVARGTEQ:PsychokinesisBypass,1],[PREFEAT:1,Psychokinesis,Wild Talent Psychic (Psychic (Telekinesis))]											SOURCEPAGE:p.352
+Psychic (Telekinetic Blast)	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Intelligence.Psychokinesis.Psychic.PsychicWildTalent						PREMULT:1,[PREVARGTEQ:PsychokinesisBypass,1],[PREFEAT:1,Psychokinesis,Wild Talent Psychic (Psychic (Telekinetic Blast))]										SOURCEPAGE:p.353
+Psychic (Telekinetic Grip)	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Intelligence.Psychokinesis.Psychic.PsychicWildTalent						PREMULT:1,[PREVARGTEQ:PsychokinesisBypass,1],[PREFEAT:1,Psychokinesis,Wild Talent Psychic (Psychic (Telekinetic Grip))]											SOURCEPAGE:p.353
+Psychic (Telekinetic Shield)	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:YES			TYPE:Intelligence.Psychokinesis.Psychic.PsychicWildTalent						PREMULT:1,[PREVARGTEQ:PsychokinesisBypass,1],[PREFEAT:1,Psychokinesis,Wild Talent Psychic (Psychic (Telekinetic Shield))]										SOURCEPAGE:p.353
 
 
 # Sub Skills
-Notice (Locate Traps)			VISIBLE:EXPORT	USEUNTRAINED:NO	CLASSES:ALL
-Persuasion (Intimidate)			VISIBLE:EXPORT	USEUNTRAINED:NO	CLASSES:ALL
-Persuasion (Diplomacy)			VISIBLE:EXPORT	USEUNTRAINED:NO	CLASSES:ALL
+Notice (Locate Traps)				USEUNTRAINED:NO				CLASSES:ALL													VISIBLE:EXPORT
+Persuasion (Intimidate)				USEUNTRAINED:NO				CLASSES:ALL													VISIBLE:EXPORT
+Persuasion (Diplomacy)				USEUNTRAINED:NO				CLASSES:ALL													VISIBLE:EXPORT
 
 #
 # End

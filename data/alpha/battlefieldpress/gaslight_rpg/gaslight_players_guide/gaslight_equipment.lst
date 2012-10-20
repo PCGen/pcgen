@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Apr 18 19:24:04 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
 #Original Entry: Andrew Maitland
 # Source page is to the master chart as that is where all the details are held.
@@ -7,8 +7,8 @@ SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefie
 # Equipment Name			Output Name				Required Weapon Proficiency				Required Armor Proficiency		Required Shield Proficiency		Type																Alternative Type				Contains			Cost		Weight	Slot Needed	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier	Wield Category	Maximum DEX Bonus	Requires Modification?	Range		Reach Multiplier	Size		Source Page				% of Spell Failure	Combat bonus																											Weapon prop. bonus					Special Property								Rate of Fire
 # Muzzleloaders & Breechloaders
 # Equipment Name			Output Name				Required Weapon Proficiency				Required Armor Proficiency		Type																Alternative Type				Contains			Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Maximum DEX Bonus	Requires Modification?	Range		Reach Multiplier	Size		Source Page		Combat bonus																Weapon prop. bonus					Special Property								Rate of Fire
-Pocket Deringer								PROFICIENCY:WEAPON|Pocket Deringer									TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.Container.Projectile							CONTAINS:1|Bullet=1	COST:13	WT:0.5									CRITRANGE:1												DAMAGE:2d6												RANGE:10				SIZE:M	SOURCEPAGE:p.206																											SPROP:1 mzl									RATEOFFIRE:S
-Remington Double Derringer						PROFICIENCY:WEAPON|Remington Double Derringer							TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.Container.Projectile							CONTAINS:1|Bullet=1	COST:12	WT:0.5									CRITRANGE:1												DAMAGE:2d6												RANGE:10				SIZE:M	SOURCEPAGE:p.205																											SPROP:2 int.								RATEOFFIRE:SS
+Pocket Deringer								PROFICIENCY:WEAPON|Pocket Deringer									TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.Container.Projectile							CONTAINS:1|Bullet=1	COST:13	WT:0.5								CRITRANGE:1												DAMAGE:2d6												RANGE:10				SIZE:M	SOURCEPAGE:p.206																											SPROP:1 mzl									RATEOFFIRE:S
+Remington Double Derringer						PROFICIENCY:WEAPON|Remington Double Derringer							TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.Container.Projectile							CONTAINS:1|Bullet=1	COST:12	WT:0.5								CRITRANGE:1												DAMAGE:2d6												RANGE:10				SIZE:M	SOURCEPAGE:p.205																											SPROP:2 int.								RATEOFFIRE:SS
 Sharps Pepperbox								PROFICIENCY:WEAPON|Sharps Pepperbox									TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.Container.Projectile							CONTAINS:1|Bullet=1	COST:13	WT:1.5								CRITRANGE:1												DAMAGE:2d4												RANGE:10				SIZE:M	SOURCEPAGE:p.205																											SPROP:4 int.								RATEOFFIRE:SS
 
 # Single-Action Revolvers
@@ -57,7 +57,7 @@ Maxim Machine Gun								PROFICIENCY:WEAPON|Maxim Machine Gun								TYPE:Weapon
 Bow										PROFICIENCY:WEAPON|Bow											TYPE:Weapon.Archaic.Ranged.Standard.Piercing.Wooden.Container												CONTAINS:UNLIM|Arrow=1	COST:10	WT:3					CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6												RANGE:40				SIZE:L	SOURCEPAGE:p.206																			BONUS:WEAPON|DAMAGE|STR					SPROP:1 Arrow								RATEOFFIRE:1
 Crossbow									PROFICIENCY:WEAPON|Crossbow										TYPE:Weapon.Simple.Ranged.Standard.Piercing.Wooden.Container												CONTAINS:UNLIM|Bolt=1	COST:9	WT:7					CRITMULT:x2			CRITRANGE:2												DAMAGE:1d10												RANGE:40				SIZE:M	SOURCEPAGE:p.206																											SPROP:1 Bolt								RATEOFFIRE:1
 Javelin									PROFICIENCY:WEAPON|Javelin										TYPE:Weapon.Simple.Ranged.Standard.Thrown.Piercing.Wooden																	COST:4	WT:2					CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6												RANGE:30				SIZE:M	SOURCEPAGE:p.206																																					RATEOFFIRE:1
-Shuriken									PROFICIENCY:WEAPON|Shuriken										TYPE:Weapon.Archaic.Ranged.Piercing.Thrown.Standard.Metal																	COST:3	WT:0.5					CRITMULT:x2			CRITRANGE:1												DAMAGE:1												RANGE:10				SIZE:T	SOURCEPAGE:p.206																			BONUS:WEAPON|DAMAGE|-STR														RATEOFFIRE:1
+Shuriken									PROFICIENCY:WEAPON|Shuriken										TYPE:Weapon.Archaic.Ranged.Piercing.Thrown.Standard.Metal																	COST:3	WT:0.5				CRITMULT:x2			CRITRANGE:1												DAMAGE:1												RANGE:10				SIZE:T	SOURCEPAGE:p.206																			BONUS:WEAPON|DAMAGE|-STR														RATEOFFIRE:1
 Whip										PROFICIENCY:WEAPON|Whip											TYPE:Weapon.Simple.Ranged.Slashing.Standard																			COST:4	WT:2					CRITMULT:x2			CRITRANGE:1												DAMAGE:1d2												RANGE:15				SIZE:S	SOURCEPAGE:p.206																			BONUS:WEAPON|TOHIT|1|PREFEAT:1,Point Blank Shot											RATEOFFIRE:1
 
 # Equipment Name			Output Name				Required Weapon Proficiency				Required Armor Proficiency		Type																Alternative Type				Contains			Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Maximum DEX Bonus	Requires Modification?	Range		Reach Multiplier	Size		Source Page		Combat bonus																Weapon prop. bonus					Special Property								Rate of Fire
@@ -75,7 +75,7 @@ Bolt (Crossbow)			OUTPUTNAME:[NAME] Bolt																TYPE:Ammunition.Standard
 # Explosives
 Dynamite																							TYPE:Explosive.Concussion																						COST:12	WT:1					CRITMULT:-			CRITRANGE:0												DAMAGE:2d6												RANGE:10				SIZE:T	SOURCEPAGE:p.212																											SPROP:Burst Radius 5', Lic(+1), 2d6 Concussion Damage
 Black Powder																						TYPE:Explosive.Concussion																						COST:12	WT:5					CRITMULT:-			CRITRANGE:0												DAMAGE:1d6																	SIZE:M	SOURCEPAGE:p.212																											SPROP:Burst Radius 5', Lic(+1), 1d6 Concussion Damage
-Nitroglycerin Vial																					TYPE:Explosive.Concussion																						COST:12	WT:0.5					CRITMULT:-			CRITRANGE:0												DAMAGE:6d6												RANGE:10				SIZE:T	SOURCEPAGE:p.212																											SPROP:Burst Radius 15', Lic(+1), 6d6 Concussion Damage
+Nitroglycerin Vial																					TYPE:Explosive.Concussion																						COST:12	WT:0.5				CRITMULT:-			CRITRANGE:0												DAMAGE:6d6												RANGE:10				SIZE:T	SOURCEPAGE:p.212																											SPROP:Burst Radius 15', Lic(+1), 6d6 Concussion Damage
 #
 Acid (mild)				OUTPUTNAME:Acid, mild																TYPE:Splash.Acid																								COST:6	WT:1					CRITMULT:-			CRITRANGE:1												DAMAGE:1d6												RANGE:10				SIZE:T	SOURCEPAGE:p.212																											SPROP:1d6 Acid Damage
 Incendiary Bomb																						TYPE:Splash.Fire																								COST:3	WT:1					CRITMULT:-			CRITRANGE:1												DAMAGE:1d6												RANGE:10				SIZE:S	SOURCEPAGE:p.212																											SPROP:1d6 Fire Damage
@@ -103,7 +103,7 @@ Longsword									PROFICIENCY:WEAPON|Longsword										TYPE:Weapon.Archaic.Mele
 Machete									PROFICIENCY:WEAPON|Machete										TYPE:Weapon.Archaic.Melee.Standard.Slashing.Metal																		COST:5	WT:2					CRITMULT:x2			CRITRANGE:2												DAMAGE:1d6																	SIZE:S	SOURCEPAGE:p.214
 Rapier									PROFICIENCY:WEAPON|Rapier										TYPE:Weapon.Archaic.Melee.Standard.Piercing.Metal.Finesseable.Sword															COST:10	WT:3					CRITMULT:x2			CRITRANGE:3												DAMAGE:1d6																	SIZE:M	SOURCEPAGE:p.214
 Spear										PROFICIENCY:WEAPON|Spear										TYPE:Weapon.Archaic.Melee.Standard.Piercing.Wooden.Reach																	COST:6	WT:9					CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8														REACHMULT:2		SIZE:L	SOURCEPAGE:p.214
-Straight Razor								PROFICIENCY:WEAPON|Straight Razor									TYPE:Weapon.Archaic.Melee.Standard.Slashing.Metal																		COST:4	WT:0.5					CRITMULT:x2			CRITRANGE:2												DAMAGE:1d4																	SIZE:T	SOURCEPAGE:p.214
+Straight Razor								PROFICIENCY:WEAPON|Straight Razor									TYPE:Weapon.Archaic.Melee.Standard.Slashing.Metal																		COST:4	WT:0.5				CRITMULT:x2			CRITRANGE:2												DAMAGE:1d4																	SIZE:T	SOURCEPAGE:p.214
 Sword Cane									PROFICIENCY:WEAPON|Sword Cane										TYPE:Weapon.Archaic.Melee.Piercing.Standard.Metal.Sword																	COST:9	WT:3					CRITMULT:x2			CRITRANGE:3												DAMAGE:1d6																	SIZE:M	SOURCEPAGE:p.214
 
 
@@ -145,11 +145,11 @@ Boots (Custom)			TYPE:Goods.Clothing	COST:16	WT:3.5	SOURCEPAGE:p.218
 Cap (Broadcloth)			TYPE:Goods.Clothing	COST:5			SOURCEPAGE:p.218
 Dress					TYPE:Goods.Clothing	COST:7	WT:4		SOURCEPAGE:p.218
 Gloves				TYPE:Goods.Clothing	COST:7			SOURCEPAGE:p.218
-Hat (Derby)				TYPE:Goods.Clothing	COST:7	WT:0.5		SOURCEPAGE:p.218
+Hat (Derby)				TYPE:Goods.Clothing	COST:7	WT:0.5	SOURCEPAGE:p.218
 Hat (Cowboy)			TYPE:Goods.Clothing	COST:8	WT:1		SOURCEPAGE:p.218
 Hat (Stetson)			TYPE:Goods.Clothing	COST:15	WT:1		SOURCEPAGE:p.218
 Hat (Lady's Feathered)		TYPE:Goods.Clothing	COST:9	WT:1		SOURCEPAGE:p.218
-Hat (Sombrero)			TYPE:Goods.Clothing	COST:9	WT:0.5		SOURCEPAGE:p.218
+Hat (Sombrero)			TYPE:Goods.Clothing	COST:9	WT:0.5	SOURCEPAGE:p.218
 Overcoat (Cloth)			TYPE:Goods.Clothing	COST:12	WT:10		SOURCEPAGE:p.218
 Overcoat (Fur)			TYPE:Goods.Clothing	COST:14	WT:20		SOURCEPAGE:p.218
 Shirt (Average)			TYPE:Goods.Clothing	COST:5			SOURCEPAGE:p.218
@@ -221,7 +221,7 @@ Veterinary bag with instruments															COST:16	WT:20		SOURCEPAGE:p.224
 Detonator (Blasting cap)	OUTPUTNAME:Detonator, [NAME]	TYPE:Goods.WeaponAccessory.Consumable						COST:4	WT:0.5	SOURCEPAGE:p.222
 Detonator (Wired)			OUTPUTNAME:Detonator, [NAME]	TYPE:Goods.WeaponAccessory.Consumable						COST:6	WT:1		SOURCEPAGE:p.222
 Holster (Hip)			OUTPUTNAME:Holster, [NAME]	TYPE:Goods.WeaponAccessory.Container	CONTAINS:UNLIM|Firearm=1	COST:5	WT:1		SOURCEPAGE:p.222
-Scope (Standard)			OUTPUTNAME:Scope, [NAME]	TYPE:Goods.WeaponAccessory								COST:11	WT:0.5		SOURCEPAGE:p.222
+Scope (Standard)			OUTPUTNAME:Scope, [NAME]	TYPE:Goods.WeaponAccessory								COST:11	WT:0.5	SOURCEPAGE:p.222
 
 #
 # End

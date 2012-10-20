@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Feb 17 21:32:44 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-SOURCELONG:Blood and Relics 2nd Edition	SOURCESHORT:BnR2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=53
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Relics 2nd Edition	SOURCESHORT:BnR2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=53	SOURCEDATE:2004-01
 
 # Race Name					Output Name				Size		Move				Face/Space	Reach		Vision			Save checks bonus					Combat bonus					Stat bonus																	Racial HD Class Skills																																						Natural Attacks												Special ABility																																						Damage Reduction			Monster Class Name and Starting Level	Main Race Type				Template		Challenge Rating	Source Page		Innate Spells
 Absolla (Lord of Vanity)							SIZE:M	MOVE:Walk,30,Fly,60	FACE:5	REACH:10	VISION:Darkvision (60')								BONUS:COMBAT|AC|9|TYPE=NaturalArmor		BONUS:STAT|STR,CON|4	BONUS:STAT|DEX|6	BONUS:STAT|WIS|2	BONUS:STAT|CHA|20						MONCSKILL:Bluff|Diplomacy|Gather Information|Intimidate|Knowledge (Arcane Lore)|Knowledge (Theology and Philosophy)																						NATURALATTACKS:Slam,Weapon.Melee.Bludgeoning,*1,1d6						SAB:Telepathy (Su)	SAB:Immunity to Poison (Ex)	SAB:Fire Resistance 20 (Ex)	SAB:Fascinate (Su)																							DR:5/+1				MONSTERCLASS:Outsider:8				RACETYPE:Fiend.Caeder.Outsider	TEMPLATE:Outsider	CR:7			SOURCEPAGE:p.75

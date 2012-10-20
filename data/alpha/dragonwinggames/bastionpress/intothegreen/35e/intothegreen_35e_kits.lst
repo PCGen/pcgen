@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Oct 31 23:13:55 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Bastion Press - Into the Green	SOURCESHORT:ittg	SOURCEDATE:2003-01
 #Original Entry: Andrew (LegacyKing) Maitland
 
@@ -17,7 +17,7 @@ SKILL:Knowledge (Nature)	RANK:7
 SKILL:Listen			RANK:7
 SKILL:Sense Motive		RANK:7
 SKILL:Spot				RANK:6
-SKILL:Survival		RANK:7
+SKILL:Survival			RANK:7
 FEAT:Cleave
 FEAT:Great Fortitude
 FEAT:Iron Will
@@ -29,7 +29,7 @@ RACE:Dark Woodsman	!PRERACE:1,%
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Hide			RANK:2
 SKILL:Move Silently	RANK:2
-SKILL:Survival	RANK:4
+SKILL:Survival		RANK:4
 FEAT:Track
 GEAR:Greataxe	SIZE:PC	LOCATION:Primary Hand
 
@@ -55,7 +55,7 @@ SKILL:Hide			RANK:3
 SKILL:Listen		RANK:3
 SKILL:Move Silently	RANK:2
 SKILL:Spot			RANK:3
-SKILL:Survival	RANK:2
+SKILL:Survival		RANK:2
 
 ###Block: Grovenger-------------------------------
 STARTPACK:Grovenger	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Grovenger],[!PRERACE:1,%]
@@ -67,7 +67,7 @@ SKILL:Hide				RANK:13
 SKILL:Knowledge (Nature)	RANK:6
 SKILL:Listen			RANK:6
 SKILL:Move Silently		RANK:6
-SKILL:Survival		RANK:2
+SKILL:Survival			RANK:2
 FEAT:Cleave
 FEAT:Iron Will
 FEAT:Power Attack
@@ -84,7 +84,7 @@ SKILL:Listen		RANK:8
 SKILL:Move Silently	RANK:3
 SKILL:Sense Motive	RANK:4
 SKILL:Spot			RANK:8
-SKILL:Survival	RANK:8
+SKILL:Survival		RANK:8
 FEAT:Power Attack
 FEAT:Track
 FEAT:Weapon Focus (Shortspear)
@@ -99,7 +99,7 @@ SKILL:Climb			RANK:1
 SKILL:Hide			RANK:1
 SKILL:Move Silently	RANK:1
 SKILL:Spot			RANK:1
-SKILL:Survival	RANK:1
+SKILL:Survival		RANK:1
 FEAT:Alertness
 GEAR:Studded Leather	SIZE:PC	LOCATION:Equipped
 GEAR:Flail			SIZE:PC	LOCATION:Primary Hand
@@ -121,7 +121,7 @@ FEAT:Weapon Focus (Claw)
 STARTPACK:Ubi	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ubi],[!PRERACE:1,%]
 RACE:Ubi	!PRERACE:1,%
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
-SKILL:Craft (Alchemy)		RANK:5
+SKILL:Craft (Alchemy)	RANK:5
 SKILL:Bluff			RANK:4
 SKILL:Disable Device	RANK:2
 SKILL:Escape Artist	RANK:1
@@ -180,7 +180,7 @@ SKILL:TYPE=Knowledge	RANK:7
 SKILL:Listen		RANK:6
 SKILL:Sense Motive	RANK:7
 SKILL:Spot			RANK:6
-SKILL:Survival	RANK:7
+SKILL:Survival		RANK:7
 FEAT:Alertness
 FEAT:Improved Initiative
 
@@ -197,7 +197,7 @@ SKILL:Hide				RANK:9
 SKILL:Spellcraft			RANK:14
 SKILL:Spot				RANK:12
 SKILL:Swim				RANK:8
-SKILL:Survival		RANK:13
+SKILL:Survival			RANK:13
 FEAT:Alertness
 FEAT:Improved Initiative
 FEAT:Power Attack
@@ -207,8 +207,8 @@ FEAT:Improved Sunder
 STARTPACK:Spindleshank	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Spindleshank],[!PRERACE:1,%]
 RACE:Spindleshank	!PRERACE:1,%
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=10
-SKILL:Jump			RANK:2
-SKILL:Spot			RANK:3
+SKILL:Jump		RANK:2
+SKILL:Spot		RANK:3
 SKILL:Survival	RANK:5
 FEAT:Improved Initiative
 GEAR:Trident	SIZE:PC	LOCATION:Primary Hand
@@ -219,7 +219,7 @@ STARTPACK:Thornclaw	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1
 RACE:Thornclaw	!PRERACE:1,%
 ALIGN:NE
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Craft (Alchemy)			RANK:3
+SKILL:Craft (Alchemy)		RANK:3
 SKILL:Bluff				RANK:3
 SKILL:Disable Device		RANK:3
 SKILL:Escape Artist		RANK:3
@@ -227,7 +227,7 @@ SKILL:Knowledge (Nature)	RANK:3
 SKILL:Listen			RANK:3
 SKILL:Move Silently		RANK:3
 SKILL:Spot				RANK:3
-SKILL:Survival		RANK:3
+SKILL:Survival			RANK:3
 FEAT:Weapon Finesse
 
 ###Block: Treell-------------------------------
@@ -240,7 +240,7 @@ SKILL:Listen		RANK:10
 SKILL:Move Silently	RANK:8
 SKILL:Sense Motive	RANK:8
 SKILL:Spot			RANK:8
-SKILL:Survival	RANK:8
+SKILL:Survival		RANK:8
 FEAT:Alertness
 FEAT:Iron Will
 FEAT:Power Attack
@@ -258,7 +258,7 @@ SKILL:Knowledge (Nature)	RANK:9
 SKILL:Listen			RANK:9
 SKILL:Move Silently		RANK:9
 SKILL:Spot				RANK:5
-SKILL:Survival		RANK:6
+SKILL:Survival			RANK:6
 FEAT:Improved Initiative
 FEAT:Point Blank Shot
 GEAR:Whip	SIZE:PC	LOCATION:Primary Hand
@@ -270,12 +270,12 @@ ALIGN:CE
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
 SKILL:Hide			RANK:10
 SKILL:Intimidate		RANK:10
-SKILL:Survival	RANK:10
+SKILL:Survival		RANK:10
 SKILL:Listen		RANK:11
 SKILL:Search		RANK:10
 SKILL:Sense Motive	RANK:10
 SKILL:Spot			RANK:10
-SKILL:Survival	RANK:10
+SKILL:Survival		RANK:10
 FEAT:Alertness
 FEAT:Blind Fight
 FEAT:Great Fortitude
@@ -295,7 +295,7 @@ SKILL:Hide				RANK:2
 SKILL:Listen			RANK:2
 SKILL:Knowledge (Religion)	RANK:6
 SKILL:Move Silently		RANK:4
-SKILL:Perform (Sing)			RANK:4
+SKILL:Perform (Sing)		RANK:4
 FEAT:Alertness
 
 ###Block: Bedwen------------------------------------
@@ -370,7 +370,7 @@ SKILL:Knowledge (Local)	RANK:4
 SKILL:Listen		RANK:4
 SKILL:Sense Motive	RANK:4
 SKILL:Spot			RANK:4
-SKILL:Survival	RANK:4
+SKILL:Survival		RANK:4
 FEAT:Improved Initiative
 FEAT:Weapon Focus (Rapier)
 
@@ -398,18 +398,18 @@ SKILL:Escape Artist		RANK:6
 SKILL:Heal				RANK:9
 SKILL:Hide				RANK:9
 SKILL:Intimidate			RANK:2
-SKILL:Survival		RANK:6
+SKILL:Survival			RANK:6
 SKILL:Jump				RANK:9
 SKILL:Knowledge (Arcana)	RANK:9
 SKILL:Knowledge (Nature)	RANK:9
 SKILL:Listen			RANK:9
 SKILL:Move Silently		RANK:9	FREE:YES
-SKILL:Sleight of Hand			RANK:6
+SKILL:Sleight of Hand		RANK:6
 SKILL:Spellcraft			RANK:9	FREE:YES
 SKILL:Spot				RANK:9	FREE:YES
 SKILL:Swim				RANK:9	FREE:YES
 SKILL:Use Magic Device		RANK:7
-SKILL:Survival		RANK:9	FREE:YES
+SKILL:Survival			RANK:9	FREE:YES
 FEAT:Dodge		FREE:YES
 FEAT:Mobility	FREE:YES
 FEAT:Multiattack
@@ -441,7 +441,7 @@ SKILL:Listen			RANK:2
 SKILL:Profession (Farmer)	RANK:6
 SKILL:Search			RANK:5
 SKILL:Spot				RANK:3
-SKILL:Survival		RANK:5
+SKILL:Survival			RANK:5
 FEAT:Combat Reflexes
 FEAT:Power Attack
 FEAT:Toughness		FREE:YES
@@ -463,9 +463,9 @@ STARTPACK:Grimdeath Vulture	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[P
 RACE:Grimdeath Vulture	!PRERACE:1,%
 ALIGN:TN|NE
 STAT:STR=11|DEX=11|CON=11|INT=11|WIS=11|CHA=10
-SKILL:Hide			RANK:4
-SKILL:Listen		RANK:4
-SKILL:Spot			RANK:3
+SKILL:Hide		RANK:4
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:3
 SKILL:Survival	RANK:3
 FEAT:Dodge
 FEAT:Multiattack
@@ -517,7 +517,7 @@ STARTPACK:Vermilion Hound	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRE
 RACE:Vermilion Hound	!PRERACE:1,%
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
-SKILL:Survival	RANK:3
+SKILL:Survival		RANK:3
 SKILL:Listen		RANK:3
 SKILL:Spot			RANK:4
 SKILL:Sense Motive	RANK:1
@@ -527,22 +527,22 @@ FEAT:Improved Initiative
 STARTPACK:Zephtaur	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Zephtaur],[!PRERACE:1,%]
 RACE:Zephtaur	!PRERACE:1,%
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
-SKILL:Hide				RANK:5
-SKILL:Diplomacy			RANK:3
-SKILL:Listen			RANK:2
-SKILL:Knowledge (the Planes)	RANK:11
-SKILL:Move Silently		RANK:5
+SKILL:Hide					RANK:5
+SKILL:Diplomacy				RANK:3
+SKILL:Listen				RANK:2
+SKILL:Knowledge (the Planes)		RANK:11
+SKILL:Move Silently			RANK:5
 SKILL:Perform (Sing)			RANK:1
 SKILL:Perform (Oratory)			RANK:1
 SKILL:Perform (Wind Instruments)	RANK:1
-SKILL:Spot				RANK:4
-SKILL:Survival		RANK:6
+SKILL:Spot					RANK:4
+SKILL:Survival				RANK:6
 #
 FEAT:Cleave				FREE:YES
 FEAT:Flyby Attack
 FEAT:Improved Initiative
 FEAT:Iron Will
 FEAT:Power Attack			FREE:YES
-GEAR:Shield (Heavy/Wood)		SIZE:PC	LOCATION:Equipped
-GEAR:Shortspear				SIZE:PC	LOCATION:Primary Hand
-GEAR:Longbow (Composite)		SIZE:PC	LOCATION:Equipped		EQMOD:BOWSTR|4
+GEAR:Shield (Heavy/Wood)	SIZE:PC	LOCATION:Equipped
+GEAR:Shortspear			SIZE:PC	LOCATION:Primary Hand
+GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Equipped		EQMOD:BOWSTR|4

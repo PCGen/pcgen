@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Mon Jan 19 23:44:35 2009 -- reformated by prettylst.pl v1.38 (build 8180)
-SOURCELONG:The Way of the Huckster	SOURCESHORT:Huckster	SOURCEWEB:http://www.peginc.com/index.htm
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:The Way of the Huckster	SOURCESHORT:Huckster	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																						Combat bonus
 CLASS:Diffusionist	HD:6		TYPE:PC.Prestige	ABB:Dif		MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|max((CL-1)/2,0)	BONUS:CHECKS|BASE.Reflex|CL/2+1	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|max((CL-1)/2,0)|TYPE=Base.REPLACE

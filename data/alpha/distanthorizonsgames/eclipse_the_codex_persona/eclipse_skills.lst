@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Feb 15 13:58:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647	SOURCEDATE:2005-01
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
@@ -81,8 +81,8 @@ Rune Mastery (Weather)															USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoi
 Spellcraft (Rune Casting)												KEYSTAT:INT	USEUNTRAINED:NO															VISIBLE:EXPORT
 
 ###Block: Mystic Artist Skill
-# Skill Name			Untrained?		Classes	Type					Visible		Modify VAR
-Mystic Artist Skill					CLASSES:ALL	TYPE:None				VISIBLE:DISPLAY	BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL", "Mystic Artist Skill")|TYPE=PerformSkill
+# Skill Name		Classes	Type		Visible		Modify VAR
+Mystic Artist Skill	CLASSES:ALL	TYPE:None	VISIBLE:DISPLAY	BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL", "Mystic Artist Skill")|TYPE=PerformSkill
 #COMMENT: This skill controls the Mystic Artist Free Purchases
 #COMMENT: VISIBLE:NO not valid
 #Block: Mystic Artist Subs
@@ -177,36 +177,36 @@ Thaumaturgy (Mysticism ~ Willcrystal)			USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptC
 
 ###Block:
 # Theurgical Verbs ~
-# Skill Name				Untrained?		Skill Penalty Apply	Type											Source Page
-Theurgical Verb (Creation)		USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalVerb.NormalSkill.OccultSkill	SOURCEPAGE:p.107
-Theurgical Verb (Control)		USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalVerb.NormalSkill.OccultSkill	SOURCEPAGE:p.107
-Theurgical Verb (Destruction)		USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalVerb.NormalSkill.OccultSkill	SOURCEPAGE:p.107
-Theurgical Verb (Healing)		USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalVerb.NormalSkill.OccultSkill	SOURCEPAGE:p.107
-Theurgical Verb (Transformation)	USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalVerb.NormalSkill.OccultSkill	SOURCEPAGE:p.107
-Theurgical Verb (Understanding)	USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalVerb.NormalSkill.OccultSkill	SOURCEPAGE:p.107
+# Skill Name					Untrained?		Skill Penalty Apply	Type													Source Page
+Theurgical Verb (Creation)			USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalVerb.NormalSkill.OccultSkill			SOURCEPAGE:p.107
+Theurgical Verb (Control)			USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalVerb.NormalSkill.OccultSkill			SOURCEPAGE:p.107
+Theurgical Verb (Destruction)			USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalVerb.NormalSkill.OccultSkill			SOURCEPAGE:p.107
+Theurgical Verb (Healing)			USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalVerb.NormalSkill.OccultSkill			SOURCEPAGE:p.107
+Theurgical Verb (Transformation)		USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalVerb.NormalSkill.OccultSkill			SOURCEPAGE:p.107
+Theurgical Verb (Understanding)		USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalVerb.NormalSkill.OccultSkill			SOURCEPAGE:p.107
 
 #Theurgical Nouns ~
-Theurgical Noun (Air)			USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill	SOURCEPAGE:p.107
-Theurgical Noun (Earth)			USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill	SOURCEPAGE:p.107
-Theurgical Noun (Fire)			USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill	SOURCEPAGE:p.108
-Theurgical Noun (Water)			USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill	SOURCEPAGE:p.108
-Theurgical Noun (Body)			USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill	SOURCEPAGE:p.108
-Theurgical Noun (Mind)			USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill	SOURCEPAGE:p.108
-Theurgical Noun (Plant)			USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill	SOURCEPAGE:p.108
-Theurgical Noun (Spirit)		USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill	SOURCEPAGE:p.108
-Theurgical Noun (Illusion)		USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill	SOURCEPAGE:p.108
-Theurgical Noun (Magic)			USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill	SOURCEPAGE:p.108
-Theurgical Noun (Space)			USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill	SOURCEPAGE:p.108
-Theurgical Noun (Time)			USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill	SOURCEPAGE:p.108
+Theurgical Noun (Air)				USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.107
+Theurgical Noun (Earth)				USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.107
+Theurgical Noun (Fire)				USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108
+Theurgical Noun (Water)				USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108
+Theurgical Noun (Body)				USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108
+Theurgical Noun (Mind)				USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108
+Theurgical Noun (Plant)				USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108
+Theurgical Noun (Spirit)			USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108
+Theurgical Noun (Illusion)			USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108
+Theurgical Noun (Magic)				USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108
+Theurgical Noun (Space)				USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108
+Theurgical Noun (Time)				USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Theurgy.TheurgicalNoun.NormalSkill.OccultSkill			SOURCEPAGE:p.108
 
 
 
 
 #Block: Umbrancy
-Thaumaturgy (Umbrancy ~ Darkness)			USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
-Thaumaturgy (Umbrancy ~ Light)			USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
-Thaumaturgy (Umbrancy ~ Ambiance)			USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
-Thaumaturgy (Umbrancy ~ Spectrum Vision)		USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
-Thaumaturgy (Umbrancy ~ Gate of Shadow)		USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
-Thaumaturgy (Umbrancy ~ One with Shadow)		USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
-Thaumaturgy (Umbrancy ~ Wind)				USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Umbrancy ~ Darkness)		USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Umbrancy ~ Light)		USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Umbrancy ~ Ambiance)		USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Umbrancy ~ Spectrum Vision)	USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Umbrancy ~ Gate of Shadow)	USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Umbrancy ~ One with Shadow)	USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103
+Thaumaturgy (Umbrancy ~ Wind)			USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.Thaumaturgy.ThaumaturgyUmbrancy.NormalSkill.OccultSkill	SOURCEPAGE:p.103

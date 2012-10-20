@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Jul 19 17:14:00 2009 -- reformated by prettylst.pl v1.39 (build 9548)
-SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League	SOURCESHORT:XCrawl	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League	SOURCESHORT:XCrawl	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php	SOURCEDATE:2002-01
 
 ###Block:Simple weapons-melee
 # Equipment Name	Output Name				Required Weapon Proficiency		Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Special Property

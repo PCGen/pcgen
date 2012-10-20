@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Wed Feb 11 16:09:11 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Sovereign Stone Campaign Sourcebook	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com	SOURCEDATE:2002-04
 
 ###Block: Hidden Racial Feats
-# Feat Name		Type			Visible	Required Race			Var. Min. Value			Multiple?	Choose							Bonus to skill		Cost		Source Page
+# Feat Name		Type			Visible	Required Race			Var. Min. Value			Multiple?	Choose						Bonus to skill		Cost		Source Page
 Unhorsed Dwarf	TYPE:General	VISIBLE:NO	PRERACE:1,Dwarf (Unhorsed)	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:SKILL|TYPE=Craft|TYPE=Profession	BONUS:SKILL|LIST|2	COST:0.5	SOURCEPAGE:p.
 
 ###Block: Proficiencies
@@ -11,13 +11,13 @@ Archer Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Shortbow|Sho
 Sailor Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Rapier|Net|Scimitar|Trident
 
 ###Block: Archer Class abilities
-# Feat Name				Type			Visible	Special ABility				Define			Stackable?	Multiple?	Choose											Weapon prof. bonus				Source Page
+# Feat Name				Type			Visible	Special ABility				Define			Stackable?	Multiple?	Choose												Weapon prof. bonus				Source Page
 Primary Weapon			TYPE:ClassAbility	VISIBLE:NO	SAB:Primary Weapon +%|PrimaryWeap	DEFINE:PrimaryWeap|0	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|Crossbow (Heavy)|Crossbow (Light)|Longbow|Shortbow	BONUS:WEAPONPROF=%LIST|TOHIT|PrimaryWeap	SOURCEPAGE:p.
-Extra Shot				TYPE:ClassAbility	VISIBLE:NO	SAB:Extra Shot																															SOURCEPAGE:p.
-Improved Point Blank Shot	TYPE:ClassAbility	VISIBLE:NO	SAB:Improved Point Blank Shot																													SOURCEPAGE:p.
-Long Distance Accuracy		TYPE:ClassAbility	VISIBLE:NO	SAB:Long Distance Accuracy																													SOURCEPAGE:p.
-Ranged Disarm			TYPE:ClassAbility	VISIBLE:NO	SAB:Ranged Disarm																															SOURCEPAGE:p.
-Extended Range			TYPE:ClassAbility	VISIBLE:NO	SAB:Extended Range																														SOURCEPAGE:p.
+Extra Shot				TYPE:ClassAbility	VISIBLE:NO	SAB:Extra Shot																																SOURCEPAGE:p.
+Improved Point Blank Shot	TYPE:ClassAbility	VISIBLE:NO	SAB:Improved Point Blank Shot																														SOURCEPAGE:p.
+Long Distance Accuracy		TYPE:ClassAbility	VISIBLE:NO	SAB:Long Distance Accuracy																														SOURCEPAGE:p.
+Ranged Disarm			TYPE:ClassAbility	VISIBLE:NO	SAB:Ranged Disarm																																SOURCEPAGE:p.
+Extended Range			TYPE:ClassAbility	VISIBLE:NO	SAB:Extended Range																															SOURCEPAGE:p.
 
 ###Block: Mounted Warrior class abilities
 # Feat Name			Type			Visible	Special ABility		Source Page

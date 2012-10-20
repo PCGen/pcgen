@@ -1,7 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Jul  7 12:04:01 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 
 # Oracle Tongues granting Language:
+# Template Name				Automatically Gained Language
 Oracle Tongues Choice ~ Abyssal	AUTO:LANG|Abyssal
 Oracle Tongues Choice ~ Aklo		AUTO:LANG|Aklo
 Oracle Tongues Choice ~ Aquan		AUTO:LANG|Aquan
@@ -61,22 +62,22 @@ Oracle Tongues Choice ~ Terran	AUTO:LANG|Terran
 # Oracle Templates
 # Template Name	Visible	Define							Modify VAR									Weapon prof. bonus																											Natural Attacks
 
-# Template Name		Visible		Define							Minimum Size	Maximum Size	Required Vision			Prohibited Vision							Modify VAR							Add to vision			Choose									Bonus Languages	Vision		Natural Attacks								Temporary effect description
-Aquan Bonus Language																																																							LANGBONUS:Aquan
+# Template Name		Visible		Define							Minimum Size	Maximum Size	Required Vision			Prohibited Vision								Modify VAR							Add to vision			Choose									Bonus Languages	Vision		Natural Attacks								Temporary effect description
+Aquan Bonus Language																																																								LANGBONUS:Aquan
 
-Small Claws																	PRESIZELTEQ:S																																												NATURALATTACKS:Claws,Weapon.Natural.Melee.Slashing,*2,1d3
-Medium Claws													PRESIZEGTEQ:M																																															NATURALATTACKS:Claws,Weapon.Natural.Melee.Slashing,*2,1d4
+Small Claws																	PRESIZELTEQ:S																																													NATURALATTACKS:Claws,Weapon.Natural.Melee.Slashing,*2,1d3
+Medium Claws													PRESIZEGTEQ:M																																																NATURALATTACKS:Claws,Weapon.Natural.Melee.Slashing,*2,1d4
 
 
 Vision Normal																								!PREVISION:1,Darkvision=1	!PREVISION:1,Low-Light=ANY																											VISION:Low-Light
-Vision Lowlight																			PREVISION:1,Low-Light=ANY																		BONUS:VISION|Darkvision|30
-Vision Darkvision																			PREVISION:1,Darkvision=1																		BONUS:VISION|Darkvision|30
+Vision Lowlight																			PREVISION:1,Low-Light=ANY																			BONUS:VISION|Darkvision|30
+Vision Darkvision																			PREVISION:1,Darkvision=1																			BONUS:VISION|Darkvision|30
 # TODO: Test these thoroughly, I recall an issue with Low-Light having a NULL value.
 
 ### Block: Hero Points
-# Template Name		Visible		Define							Minimum Size	Maximum Size	Required Vision			Prohibited Vision							Modify VAR							Add to vision			Choose									Bonus Languages	Vision		Natural Attacks								Temporary effect description
+# Template Name		Visible		Define							Minimum Size	Maximum Size	Required Vision			Prohibited Vision								Modify VAR							Add to vision			Choose									Bonus Languages	Vision		Natural Attacks								Temporary effect description
 Hero Points			VISIBLE:DISPLAY	DEFINE:HeroPoints|0	DEFINE:HeroPointsMax|3
-Current Hero Points	VISIBLE:NO																														BONUS:VAR|HeroPoints|%CHOICE|PREAPPLY:ANYPC						CHOOSE:NUMBER|MIN=0|MAX=HeroPointsMax|TITLE=Hero Points																	TEMPDESC:Track Hero Points
+Current Hero Points	VISIBLE:NO																															BONUS:VAR|HeroPoints|%CHOICE|PREAPPLY:ANYPC						CHOOSE:NUMBER|MIN=0|MAX=HeroPointsMax|TITLE=Hero Points																	TEMPDESC:Track Hero Points
 
 #
 # End

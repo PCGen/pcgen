@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Oct  8 23:32:19 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2005-03
 ###Original Entry: Andrew Maitland
 
@@ -14,7 +14,7 @@ Wound Wraps			TYPE:Goods.Alchemical.Consumable	COST:20	WT:1.00	SOURCEPAGE:pg.70
 
 ###Block: Magic Items
 
-# Equipment Name				Product Identity?	Output Name							Required Weapon Proficiency		Type											Cost		Weight	Slot Needed	AC Penalty Check	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier					Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Ability								Save checks bonus				Combat bonus					Bonus to skill								Stat bonus						Modify VAR						Weapon prof. bonus					Weapon prop. bonus					Special Property
+# Equipment Name				Product Identity?	Output Name							Required Weapon Proficiency		Type											Cost		Weight	Slot Needed	AC Penalty Check	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier					Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Ability								Save checks bonus				Combat bonus				Bonus to skill								Stat bonus						Modify VAR						Weapon prof. bonus					Weapon prop. bonus					Special Property
 Potion (Purging)							OUTPUTNAME:Potion of [NAME]										TYPE:Magic.Potion.Consumable							COST:25	WT:0																																			SOURCEPAGE:pg.78
 Potion (Dragon's Breath)					OUTPUTNAME:Potion of [NAME]										TYPE:Magic.Potion.Consumable							COST:250	WT:0																																			SOURCEPAGE:pg.78
 Potion (Bodily Efficiency)					OUTPUTNAME:Potion of [NAME]										TYPE:Magic.Potion.Consumable							COST:400	WT:0																																			SOURCEPAGE:pg.78
@@ -32,15 +32,15 @@ Charm Arrow (Charm)						OUTPUTNAME:Charm Arrow of [NAME]									TYPE:Enhanceme
 Charm Arrow (Love)						OUTPUTNAME:Charm Arrow of [NAME]									TYPE:Enhancement.Ammunition.SpecificArrow.Individual			COST:250	WT:0																					EQMOD:STEEL.WOOD												SOURCEPAGE:pg.80
 Charm Arrow (Forgetfulness)					OUTPUTNAME:Charm Arrow of [NAME]									TYPE:Enhancement.Ammunition.SpecificArrow.Individual			COST:250	WT:0																					EQMOD:STEEL.WOOD												SOURCEPAGE:pg.80
 
-Earth Crusher															PROFICIENCY:WEAPON|Mace (Heavy)	TYPE:Enhancement.Weapon.Melee.Martial.Specific.Bashing.Mace		COST:50312	WT:4											CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	EQMOD:PLUS2W.STEEL.THNDR_M		WIELD:OneHanded				SIZE:M	SOURCEPAGE:pg.80																																																											BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
-Wind Warden																PROFICIENCY:WEAPON|Greatsword		TYPE:Enhancement.Weapon.Melee.Martial.Specific.Slashing.Sword	COST:50350	WT:4											CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	EQMOD:DANCE.PLUS2W.STEEL		WIELD:TwoHanded				SIZE:M	SOURCEPAGE:pg.80																																																											BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
+Earth Crusher															PROFICIENCY:WEAPON|Mace (Heavy)	TYPE:Enhancement.Weapon.Melee.Martial.Specific.Bashing.Mace		COST:50312	WT:4											CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	EQMOD:PLUS2W.STEEL.THNDR_M		WIELD:OneHanded				SIZE:M	SOURCEPAGE:pg.80																																																										BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
+Wind Warden																PROFICIENCY:WEAPON|Greatsword		TYPE:Enhancement.Weapon.Melee.Martial.Specific.Slashing.Sword	COST:50350	WT:4											CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	EQMOD:DANCE.PLUS2W.STEEL		WIELD:TwoHanded				SIZE:M	SOURCEPAGE:pg.80																																																										BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
 
 ###
 Ring (Blessing)							OUTPUTNAME:Ring of [NAME]										TYPE:Magic.Ring									COST:25000	WT:0																																			SOURCEPAGE:pg.80
-Ring (Fury)								OUTPUTNAME:Ring of [NAME]										TYPE:Magic.Ring									COST:75000	WT:0																																			SOURCEPAGE:pg.80																				BONUS:COMBAT|AC|4|TYPE=Deflection												BONUS:STAT|STR,DEX,CON|2|PREAPPLY:PC																								SPROP:DR %/+1 when enraged|CHA*2
+Ring (Fury)								OUTPUTNAME:Ring of [NAME]										TYPE:Magic.Ring									COST:75000	WT:0																																			SOURCEPAGE:pg.80																				BONUS:COMBAT|AC|4|TYPE=Deflection											BONUS:STAT|STR,DEX,CON|2|PREAPPLY:PC																								SPROP:DR %/+1 when enraged|CHA*2
 
 ####
-Staff (Blood)							OUTPUTNAME:Staff of [NAME]										TYPE:Magic.Staff									COST:20000	WT:5							BASEITEM:Staff												EQMOD:CHARGED_ITEM_50|CHARGES[50]									SOURCEPAGE:pg.81					ABILITY:Special Ability|AUTOMATIC|Negative Levels																															BONUS:VAR|NegLevels|1|!PREALIGN:LE,NE,CE
+Staff (Blood)							OUTPUTNAME:Staff of [NAME]										TYPE:Magic.Staff									COST:20000	WT:5							BASEITEM:Staff												EQMOD:CHARGED_ITEM_50|CHARGES[50]									SOURCEPAGE:pg.81					ABILITY:Special Ability|AUTOMATIC|Negative Levels																														BONUS:VAR|NegLevels|1|!PREALIGN:LE,NE,CE
 Wand (Mischief)							OUTPUTNAME:Wand of [NAME]										TYPE:Magic.Wand											WT:0.0625						BASEITEM:Wand												EQMOD:CHARGED_ITEM_50|CHARGES[50]									SOURCEPAGE:pg.81
 
 ###
@@ -48,12 +48,12 @@ Bestial Boots																					TYPE:Magic.Wondrous.Boot							COST:4000	WT:1	
 Bicycle of Speed																					TYPE:Magic.Wondrous								COST:4000	WT:20		SLOTS:0																																SOURCEPAGE:pg.81
 Bracelet of Useful Things																			TYPE:Magic.Wondrous.Bracelet							COST:6000	WT:1		SLOTS:0																																SOURCEPAGE:pg.81
 Bracelet of Useful Things (Greater)				OUTPUTNAME:[NAME] Bracelet of Useful Things							TYPE:Magic.Wondrous.Bracelet							COST:10000	WT:1		SLOTS:0																																SOURCEPAGE:pg.81
-Circlet of the Warrior																				TYPE:Magic.Wondrous.Headgear							COST:10000	WT:1		SLOTS:1																																SOURCEPAGE:pg.81														BONUS:CHECKS|ALL|1|TYPE=Resistance	BONUS:COMBAT|AC|1|TYPE=Deflection																										BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|1
+Circlet of the Warrior																				TYPE:Magic.Wondrous.Headgear							COST:10000	WT:1		SLOTS:1																																SOURCEPAGE:pg.81														BONUS:CHECKS|ALL|1|TYPE=Resistance	BONUS:COMBAT|AC|1|TYPE=Deflection																									BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|1
 Death Crown																						TYPE:Magic.Wondrous.Headgear							COST:75000	WT:1		SLOTS:1																																SOURCEPAGE:pg.82
-Echo Earrings																					TYPE:Magic.Wondrous								COST:2000	WT:0		SLOTS:0																																SOURCEPAGE:pg.82																											BONUS:SKILL|Listen|10|TYPE=Circumstance
+Echo Earrings																					TYPE:Magic.Wondrous								COST:2000	WT:0		SLOTS:0																																SOURCEPAGE:pg.82																										BONUS:SKILL|Listen|10|TYPE=Circumstance
 Fetish (Death)							OUTPUTNAME:[NAME], Fetish										TYPE:Magic.Wondrous								COST:8000	WT:1		SLOTS:0																																SOURCEPAGE:pg.82
 Fetish (Demon)							OUTPUTNAME:[NAME], Fetish										TYPE:Magic.Wondrous								COST:1000	WT:1		SLOTS:0																																SOURCEPAGE:pg.82
-Fetish (Key)							OUTPUTNAME:[NAME], Fetish										TYPE:Magic.Wondrous								COST:3000	WT:1		SLOTS:0																																SOURCEPAGE:pg.82																											BONUS:SKILL|Open Lock,Disable Device|2|TYPE=Competence
+Fetish (Key)							OUTPUTNAME:[NAME], Fetish										TYPE:Magic.Wondrous								COST:3000	WT:1		SLOTS:0																																SOURCEPAGE:pg.82																										BONUS:SKILL|Open Lock,Disable Device|2|TYPE=Competence
 Fetish (Worry)							OUTPUTNAME:[NAME], Fetish										TYPE:Magic.Wondrous								COST:2000	WT:1		SLOTS:0																																SOURCEPAGE:pg.83
 Michella's Mandolin			NAMEISPI:YES															TYPE:Magic.Wondrous								COST:1500	WT:2		SLOTS:0																																SOURCEPAGE:pg.83
 Mother's Brooch (+1)																				TYPE:Magic.Wondrous.Amulet							COST:6000	WT:0		SLOTS:1																																SOURCEPAGE:pg.83																				BONUS:COMBAT|AC|1|TYPE=Deflection
@@ -71,30 +71,30 @@ Pearl of Dispelling																				TYPE:Magic.Wondrous								COST:4000	WT:0
 Sharlette's Fabulous Bicycle		NAMEISPI:YES															TYPE:Magic.Wondrous								COST:8000	WT:20		SLOTS:0																																SOURCEPAGE:pg.83
 
 ###Block: ARTIFACTS:
-# Equipment Name				Product Identity?	Required Weapon Proficiency		Required Armor Proficiency	Required Shield Proficiency		Type													Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier						Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Save checks bonus					Combat bonus																								Weapon prop. bonus
+# Equipment Name				Product Identity?	Required Weapon Proficiency		Required Armor Proficiency	Required Shield Proficiency		Type													Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier						Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Save checks bonus					Combat bonus																					Weapon prop. bonus
 Allamonda's Mirror			NAMEISPI:YES																		TYPE:Magic.Artifact																																								SOURCEPAGE:pg.84
-Capalaquen					NAMEISPI:YES	PROFICIENCY:WEAPON|Greatsword													TYPE:Magic.Artifact.Enhancement.Weapon.Melee.Martial.Specific.Slashing.Sword	WT:4					CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6	EQMOD:KEEN.LAW_M.PLUS5W.STEEL			WIELD:TwoHanded				SIZE:M	SOURCEPAGE:pg.84																																						BONUS:WEAPON|DAMAGE,TOHIT|5|TYPE=Enhancement
+Capalaquen					NAMEISPI:YES	PROFICIENCY:WEAPON|Greatsword													TYPE:Magic.Artifact.Enhancement.Weapon.Melee.Martial.Specific.Slashing.Sword	WT:4					CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6	EQMOD:KEEN.LAW_M.PLUS5W.STEEL			WIELD:TwoHanded				SIZE:M	SOURCEPAGE:pg.84																																			BONUS:WEAPON|DAMAGE,TOHIT|5|TYPE=Enhancement
 ###COMMENT: Base Item is a Lawful +5 Keen Greatsword
 The Skeleton Key				NAMEISPI:YES																		TYPE:Magic.Artifact																																								SOURCEPAGE:pg.85
 
 ###Krakodonian Artifacts:
 The Shield of Madruk'thayunkon	NAMEISPI:YES												PROFICIENCY:SHIELD|Shield (Light)	TYPE:Magic.Artifact.Enhancement.Shield.Heavy.Specific					WT:15															EQMOD:MWORKA.PLUS4S.SPELL_RES_17.STEEL									SOURCEPAGE:pg.85												BONUS:COMBAT|AC|2|TYPE=Shield
 ###COMMENT: +4 War Shield SR:17
-The Sword of Krofgrog'Nigtrok		NAMEISPI:YES	PROFICIENCY:WEAPON|Scimitar													TYPE:Magic.Artifact.Enhancement.Weapon.Melee.Martial.Specific.Slashing.Sword	WT:4					CRITMULT:x2			CRITRANGE:3			DAMAGE:1d8	EQMOD:KEEN.PLUS3W.STEEL.WOUND			WIELD:OneHanded				SIZE:M	SOURCEPAGE:pg.85																																						BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement
+The Sword of Krofgrog'Nigtrok		NAMEISPI:YES	PROFICIENCY:WEAPON|Scimitar													TYPE:Magic.Artifact.Enhancement.Weapon.Melee.Martial.Specific.Slashing.Sword	WT:4					CRITMULT:x2			CRITRANGE:3			DAMAGE:1d8	EQMOD:KEEN.PLUS3W.STEEL.WOUND			WIELD:OneHanded				SIZE:M	SOURCEPAGE:pg.85																																			BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement
 ###COMMENT: +3 keen wounding scimitar
 Voklod'hapthuk's Armor			NAMEISPI:YES							PROFICIENCY:ARMOR|Leather							TYPE:Magic.Artifact.Armor.Light.Suit.Specific.Nonmetal				WT:15		ACCHECK:0												EQMOD:PLUS4A								MAXDEX:6				SOURCEPAGE:pg.85	SPELLFAILURE:5									BONUS:COMBAT|AC|2|TYPE=Armor
 ###COMMENT: +4 Leather DR:10 vs. Electricity, Fire, Cold, Immune Mind-Affecting		-SPROP? Don't want to get to descriptive do we? -AM
 
 ###Amphikin Artifacts
-Obar's Scepter				NAMEISPI:YES	PROFICIENCY:WEAPON|Mace (Light)												TYPE:Magic.Artifact.Enhancement.Weapon.Melee.Simple.Specific.Bludgeoning.Mace	WT:12					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:BANE_M.PLUS4W.STEEL			WIELD:Light					SIZE:M	SOURCEPAGE:pg.85																																						BONUS:WEAPON|DAMAGE,TOHIT|4|TYPE=Enhancement
+Obar's Scepter				NAMEISPI:YES	PROFICIENCY:WEAPON|Mace (Light)												TYPE:Magic.Artifact.Enhancement.Weapon.Melee.Simple.Specific.Bludgeoning.Mace	WT:12					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:BANE_M.PLUS4W.STEEL			WIELD:Light					SIZE:M	SOURCEPAGE:pg.85																																			BONUS:WEAPON|DAMAGE,TOHIT|4|TYPE=Enhancement
 ###COMMENT: +4 bane light mace
 Doldanda's Shell Armor			NAMEISPI:YES							PROFICIENCY:ARMOR|Scale Mail							TYPE:Magic.Artifact.Armor.Medium.Suit.Specific						WT:15		ACCHECK:-1												EQMOD:STEEL									MAXDEX:5				SOURCEPAGE:pg.86	SPELLFAILURE:5		BONUS:CHECKS|ALL|4|PRERACE:1,Amphikin	BONUS:COMBAT|AC|4|TYPE=Armor	BONUS:COMBAT|AC|3|TYPE=Divine|!PRERACE:1,Amphikin	BONUS:COMBAT|AC|10|TYPE=Armor|PRERACE:1,Amphikin
 ###CLARIFY:+10 more to Armor for total of +14 or total of +10? -- Andrew
 
 ###Block: Appendix Items pg 139 - 143:
-# Equipment Name			Product Identity?	Output Name					Required Weapon Proficiency			Required Shield Proficiency		Type															Alternative Type				Contains		Cost		Weight	Slot Needed	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier	Wield Category	Range		Reach		Size		Source Page		% of Spell Failure	Combat bonus																					Bonus to skill
+# Equipment Name			Product Identity?	Output Name					Required Weapon Proficiency			Required Shield Proficiency		Type															Alternative Type				Contains		Cost		Weight	Slot Needed	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier	Wield Category	Range		Reach		Size		Source Page		% of Spell Failure	Combat bonus																			Bonus to skill
 Amphikin Trapbuilder's Kit	NAMEISPI:YES																				TYPE:Goods																							COST:100																																										SOURCEPAGE:pg.139
-Ankle Braces																									TYPE:Goods.Boot																						COST:1			SLOTS:0																																						SOURCEPAGE:pg.139																												BONUS:SKILL|Balance,Jump,Tumble,Perform (Dancing)|1|TYPE=Circumstantial
+Ankle Braces																									TYPE:Goods.Boot																						COST:1			SLOTS:0																																						SOURCEPAGE:pg.139																										BONUS:SKILL|Balance,Jump,Tumble,Perform (Dancing)|1|TYPE=Circumstantial
 Auronne Flute			NAMEISPI:YES							PROFICIENCY:WEAPON|Auronne Flute								TYPE:Goods.Tools.Instrument.Wind.Resizable.Weapon.Melee.Simple.Bashing				ALTTYPE:Weapon.Ranged.Piercing				COST:300								CRITMULT:x2			CRITRANGE:2			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d3		EQMOD:STEEL	WIELD:Light		RANGE:20					SOURCEPAGE:pg.139
 Auronne Tambourine		NAMEISPI:YES							PROFICIENCY:WEAPON|Auronne Tambourine							TYPE:Goods.Tools.Instrument.Percussion.Resizable.Weapon.Melee.Exotic.Slashing												COST:150								CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4					EQMOD:STEEL	WIELD:Light								SOURCEPAGE:pg.140
 Bicycle																										TYPE:Goods																							COST:10	WT:20																																									SOURCEPAGE:pg.140
@@ -124,7 +124,7 @@ Rubber Chew Toy																									TYPE:Goods																							COST:0.
 Rubber Soled Boots					OUTPUTNAME:Rubber-soled Boots															TYPE:Goods																							COST:5	WT:0																																									SOURCEPAGE:pg.142
 Sleeper Bat Venom																									TYPE:Goods.Poison																						COST:200	WT:0																																									SOURCEPAGE:pg.142
 Trick Sword													PROFICIENCY:WEAPON|Sword (Short)								TYPE:Weapon.Melee.Finesseable.Martial.Standard.Piercing.Sword														COST:25	WT:0							CRITMULT:x2			CRITRANGE:2												DAMAGE:1d6					EQMOD:STEEL	WIELD:Light						SIZE:M	SOURCEPAGE:pg.143
-Wrist Wraps																										TYPE:Goods.Glove																						COST:0.20	WT:0		SLOTS:0																																						SOURCEPAGE:pg.143																												BONUS:SKILL|Climb,TYPE.Craft,Disable Device,Open Lock,Rope Use|1|TYPE=Circumstance
+Wrist Wraps																										TYPE:Goods.Glove																						COST:0.20	WT:0		SLOTS:0																																						SOURCEPAGE:pg.143																										BONUS:SKILL|Climb,TYPE.Craft,Disable Device,Open Lock,Rope Use|1|TYPE=Circumstance
 
 #
 ## EOF

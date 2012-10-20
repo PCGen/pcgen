@@ -1,31 +1,31 @@
-# CVS $Revision: 10335 $ $Author: amaitland $ -- Thu Feb 12 13:03:11 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-SOURCELONG:Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://dragonwing.net/Faeries.htm
+# CVS $Revision: 10335 $ $Author: amaitland $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://dragonwing.net/Faeries.htm	SOURCEDATE:2003-01
 #Original Entry: darkon_turas; clean up by Andrew Maitland
 
 ###Block: Faemancer ----------------------------------------------------------------------------------
-# Ability Name			Category of Ability		Type				Special ABility				Define				Allow Follower					Allowed Companions
-Fey Companion ~ Faemancer	CATEGORY:Special Ability	ABILITY:Special Ability|AUTOMATIC|Fey Companion (Grig)|PREVARGTEQ:FeyCompanionProgression,1	ABILITY:Special Ability|AUTOMATIC|Fey Companion (Pixie)|PREVAREQ:FeyCompanionProgression,2
-Fey Companion (Grig)		CATEGORY:Special Ability	TYPE:SpecialQuality						DEFINE:FaemancerComp|0	FOLLOWERS:Faemancer Companion|1	COMPANIONLIST:Faemancer Companion|Sprite (Grig)
+# Ability Name			Category of Ability		Type						Define			Ability																															Allow Follower				Allowed Companions
+Fey Companion ~ Faemancer	CATEGORY:Special Ability											ABILITY:Special Ability|AUTOMATIC|Fey Companion (Grig)|PREVARGTEQ:FeyCompanionProgression,1	ABILITY:Special Ability|AUTOMATIC|Fey Companion (Pixie)|PREVAREQ:FeyCompanionProgression,2
+Fey Companion (Grig)		CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:FaemancerComp|0																																	FOLLOWERS:Faemancer Companion|1	COMPANIONLIST:Faemancer Companion|Sprite (Grig)
 Life Bond				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Fey Friend				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Fey Companion Advancement	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Luck of the Fey			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
-Fey Companion (Pixie)		CATEGORY:Special Ability	TYPE:SpecialQuality							COMPANIONLIST:Faemancer Companion|Sprite (Pixie)
+Fey Companion (Pixie)		CATEGORY:Special Ability	TYPE:SpecialQuality																																													COMPANIONLIST:Faemancer Companion|Sprite (Pixie)
 Spirit Bond				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Mutual Bond				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
 ###Block: Faerie Hunter ------------------------------------------------------------------------------------------------------
-# Ability Name	Category of Ability		Type							Special ABility					Define
-Fey Wary		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		DESC:+%1|FeyWary			DEFINE:FeyWary|0
-FaerieFighter	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		DESC:+%1|FaerieFighter		DEFINE:FaerieFighter|0
-Fey Hunter		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		DESC:+%1|FeyHunter		DEFINE:FeyHunter|0
-Smite Fey		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		DESC:1/day
+# Ability Name	Category of Ability		Type						Define			Description
+Fey Wary		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:FeyWary|0		DESC:+%1|FeyWary
+FaerieFighter	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:FaerieFighter|0	DESC:+%1|FaerieFighter
+Fey Hunter		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:FeyHunter|0	DESC:+%1|FeyHunter
+Smite Fey		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					DESC:1/day
 Anchor		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Craft Blood Item	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Destroy Doorway	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
 ###Block: Faerier --------------------------------------------------------------------------------------------------------------
-# Ability Name			Category of Ability		Type			Special ABility
+# Ability Name			Category of Ability		Type
 Fey Sense				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Detect Doorways			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Create Doorways and Backroad	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
@@ -34,37 +34,37 @@ True Fey Form			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Create Doorway and Sideroad	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 
 ###Block: Fae-Walker---------------------------------------------------------------------------------------------------------------------------------
-# Ability Name	Category of Ability		Type			Special ABility					Define			Modify VAR
-Step Sideways	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:%1|StepSideways	DEFINE:StepSideways|0	BONUS:VAR|StepSideways|1
-Fae-walk		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		DESC:%1 ft. (Sp)|FaeWalk		DEFINE:FaeWalk|0
+# Ability Name	Category of Ability		Type						Define			Description				Modify VAR
+Step Sideways	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:StepSideways|0	DESC:%1|StepSideways		BONUS:VAR|StepSideways|1
+Fae-walk		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		DEFINE:FaeWalk|0		DESC:%1 ft. (Sp)|FaeWalk
 Defensive Jaunt	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Stray			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
 ###Block: Fey Guardian ------------------------------------------------------------------------------------------------------------------------------------
-# Ability Name	Category of Ability		Type				Special ABility
+# Ability Name	Category of Ability		Type
 Will of the Fey	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Mote Form		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Transfer		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 
 ###Block: Fey Prankster ------------------------------------------------------------------------------------------------------------------------------------------------
-# Ability Name			Output Name				Category of Ability		Type				Special ABility
-Luck of the Fey		KEY:Prankster Luck of the Fey		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:1/day
-Luck of the True Fey							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:2/day
-Destined									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+# Ability Name		Unique Key				Category of Ability		Type						Description
+Luck of the Fey		KEY:Prankster Luck of the Fey	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:1/day
+Luck of the True Fey						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:2/day
+Destined								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 
 ###Block: Fey-Touched ------------------------------------------------------------------------------------------------------------------------------------------------------
-# Ability Name	Category of Ability		Type				Special ABility
+# Ability Name	Category of Ability		Type
 Soul of Ages	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 
 ###Block: Knight of the Fey----------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Ability Name		Category of Ability		Type			Special ABility								Define							Modify VAR
+# Ability Name		Category of Ability		Type						Define							Description									Modify VAR
 Shining Beacon		CATEGORY:Special Ability	TYPE:SpecialQuality
-Lucky Hit			CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:To Hit +%1 damage %2/day|LuckyHitDamage|LuckyHitTimes	DEFINE:LuckyHitDamage|0	DEFINE:LuckyHitTimes|0	BONUS:VAR|LuckyHitTimes|1
+Lucky Hit			CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:LuckyHitDamage|0	DEFINE:LuckyHitTimes|0	DESC:To Hit +%1 damage %2/day|LuckyHitDamage|LuckyHitTimes	BONUS:VAR|LuckyHitTimes|1
 Call Knight of the Fey	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
 ###Block: Mage of the Circle -----------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Ability Name	Category of Ability		Special ABility		Define
-Encircle		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:%1|Encircle	DEFINE:Encircle|0
+# Ability Name	Category of Ability		Type				Define		Description
+Encircle		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:Encircle|0	DESC:%1|Encircle
 Sand Circles	CATEGORY:Special Ability	TYPE:SpecialQuality
 Extra Slot		CATEGORY:Special Ability	TYPE:SpecialQuality
 Circle Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality
@@ -80,21 +80,21 @@ Extra Slot LVL 7	CATEGORY:Special Ability	TYPE:ExtraSlot	PRECLASS:1,SPELLCASTER.
 Extra Slot LVL 8	CATEGORY:Special Ability	TYPE:ExtraSlot	PRECLASS:1,SPELLCASTER.Arcane=17	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=8|1
 
 ###Block: Mortal Slayer -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Ability Name		Category of Ability		Type						Special ABility													Define
-Unfurl the Mortal Coil	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		DESC:DC %1, %2/week|UnfurlMortalCoilDC|UnfurlMortalCoilTimes	DEFINE:UnfurlMortalCoilDC|0	DEFINE:UnfurlMortalCoilTimes|0
+# Ability Name		Category of Ability		Type						Define										Description
+Unfurl the Mortal Coil	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		DEFINE:UnfurlMortalCoilDC|0	DEFINE:UnfurlMortalCoilTimes|0	DESC:DC %1, %2/week|UnfurlMortalCoilDC|UnfurlMortalCoilTimes
 Fey Glade			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
 
 ###Block: Fey Arts ----------------------------------------------------------------------------------------------------
-# Ability Name		Category of Ability		Type									Innate Spells														Stackable?	Multiple?	Caster level			Cost		Source Page
-Bogan's Fog			CATEGORY:Special Ability	TYPE:SpecialQuality.FeyArts.SpellLike																									COST:1	SOURCEPAGE:p.23
-Gnome Brew			CATEGORY:Special Ability	TYPE:SpecialQuality.FeyArts.SpellLike																									COST:1	SOURCEPAGE:p.23
-Grig Fiddle			CATEGORY:Special Ability	TYPE:SpecialQuality.FeyArts.SpellLike																									COST:1	SOURCEPAGE:p.23
-Hanid Hiding		CATEGORY:Special Ability	TYPE:SpecialQuality.FeyArts.SpellLike																									COST:1	SOURCEPAGE:p.23
-Hob Lick			CATEGORY:Special Ability	TYPE:SpecialQuality.FeyArts.SpellLike																									COST:1	SOURCEPAGE:p.23
-Hybsil Sight		CATEGORY:Special Ability	TYPE:SpecialQuality.FeyArts.SpellLike																									COST:1	SOURCEPAGE:p.24
-Nixie Breath		CATEGORY:Special Ability	TYPE:SpecialQuality.FeyArts.SpellLike			SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Water Breathing,13+CHA						BONUS:CASTERLEVEL|Innate|6	COST:1	SOURCEPAGE:p.24
-Pixie Invisibility	CATEGORY:Special Ability	TYPE:SpecialQuality.FeyArts.SpellLike																									COST:1	SOURCEPAGE:p.24
-Satyr Pipe			CATEGORY:Special Ability	TYPE:SpecialQuality.FeyArts.SpellLike																									COST:1	SOURCEPAGE:p.24
-Siren Song			CATEGORY:Special Ability	TYPE:SpecialQuality.FeyArts.SpellLike																									COST:1	SOURCEPAGE:p.24
-Sprite Charm		CATEGORY:Special Ability	TYPE:SpecialQuality.FeyArts.SpellLike			SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Charm Person or Animal,11+CHA|Charm Person,11+CHA		BONUS:CASTERLEVEL|Innate|6	COST:1	SOURCEPAGE:p.24
+# Ability Name		Category of Ability		Type							Innate Spells														Caster level			Cost		Source Page
+Bogan's Fog			CATEGORY:Special Ability	TYPE:SpecialQuality.FeyArts.SpellLike																						COST:1	SOURCEPAGE:p.23
+Gnome Brew			CATEGORY:Special Ability	TYPE:SpecialQuality.FeyArts.SpellLike																						COST:1	SOURCEPAGE:p.23
+Grig Fiddle			CATEGORY:Special Ability	TYPE:SpecialQuality.FeyArts.SpellLike																						COST:1	SOURCEPAGE:p.23
+Hanid Hiding		CATEGORY:Special Ability	TYPE:SpecialQuality.FeyArts.SpellLike																						COST:1	SOURCEPAGE:p.23
+Hob Lick			CATEGORY:Special Ability	TYPE:SpecialQuality.FeyArts.SpellLike																						COST:1	SOURCEPAGE:p.23
+Hybsil Sight		CATEGORY:Special Ability	TYPE:SpecialQuality.FeyArts.SpellLike																						COST:1	SOURCEPAGE:p.24
+Nixie Breath		CATEGORY:Special Ability	TYPE:SpecialQuality.FeyArts.SpellLike	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Water Breathing,13+CHA					BONUS:CASTERLEVEL|Innate|6	COST:1	SOURCEPAGE:p.24
+Pixie Invisibility	CATEGORY:Special Ability	TYPE:SpecialQuality.FeyArts.SpellLike																						COST:1	SOURCEPAGE:p.24
+Satyr Pipe			CATEGORY:Special Ability	TYPE:SpecialQuality.FeyArts.SpellLike																						COST:1	SOURCEPAGE:p.24
+Siren Song			CATEGORY:Special Ability	TYPE:SpecialQuality.FeyArts.SpellLike																						COST:1	SOURCEPAGE:p.24
+Sprite Charm		CATEGORY:Special Ability	TYPE:SpecialQuality.FeyArts.SpellLike	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Charm Person or Animal,11+CHA|Charm Person,11+CHA	BONUS:CASTERLEVEL|Innate|6	COST:1	SOURCEPAGE:p.24

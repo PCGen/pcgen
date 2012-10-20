@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Tue Jan 20 17:09:30 2009 -- reformated by prettylst.pl v1.38 (build 8180)
-SOURCELONG:Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
 
-# Skill Name					Key Stat	Untrained?		Skill Penalty Apply	Exclusive?		Type					Source Page		Choose			Bonus to skill
+# Skill Name					Key Stat	Untrained?		Skill Penalty Apply	Exclusive?		Type					Source Page		Choose			Bonus to skill																																																	Automatically Gained Language
 Black Magic						KEYSTAT:INT	USEUNTRAINED:NO					EXCLUSIVE:YES	TYPE:Intelligence			SOURCEPAGE:p.124
 Demolitions						KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence			SOURCEPAGE:p.45					BONUS:SKILL|Demolitions|SynergyBonus|PRESKILL:1,Disable Device=5,Knowledge (Chemistry)=5|TYPE=Synergy.STACK
 Drivin' (Aircraft)				KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity.Drivin'		SOURCEPAGE:p.45					BONUS:SKILL|Drivin' (Aircraft)|SynergyBonus|PRESKILL:1,Profession (Airship Pilot)=5|TYPE=Synergy.STACK
@@ -31,7 +31,7 @@ Profession (Stage Magician)			KEYSTAT:WIS	USEUNTRAINED:NO								TYPE:Wisdom.Pro
 Ridicule						KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence			SOURCEPAGE:p.48
 Ritual						KEYSTAT:INT	USEUNTRAINED:NO					EXCLUSIVE:YES	TYPE:Intelligence			SOURCEPAGE:p.49
 Sleight o' Hand					KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity			SOURCEPAGE:p.49
-Speak Language							USEUNTRAINED:NO								TYPE:None.Language		SOURCEPAGE:p.44	AUTO:LANG|%LIST	CHOOSE:LANG|TYPE=Spoken
+Speak Language							USEUNTRAINED:NO								TYPE:None.Language		SOURCEPAGE:p.44	CHOOSE:LANG|TYPE=Spoken																																																				AUTO:LANG|%LIST
 Speed Load						KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity			SOURCEPAGE:p.49
 Tale Tellin'					KEYSTAT:CHA	USEUNTRAINED:NO								TYPE:Charisma			SOURCEPAGE:p.50
 Tinkerin'						KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence			SOURCEPAGE:p.50					BONUS:SKILL|Tinkerin'|SynergyBonus|PRESKILL:1,Mad Science=5|TYPE=Synergy.STACK

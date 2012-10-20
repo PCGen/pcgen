@@ -1,50 +1,56 @@
-# CVS $Revision: 10335 $ $Author: amaitland $ -- Sat Sep  6 00:04:54 2008 -- reformated by prettylst.pl v1.38 (build 7302)
-SOURCELONG:Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://dragonwing.net/Faeries.htm
+# CVS $Revision: 10335 $ $Author: amaitland $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://dragonwing.net/Faeries.htm	SOURCEDATE:2003-01
 #Original Entry: darkon_turas
 
 # Prestige Races
 
 ###Block: Focus of the Beast ---------------------------------------------------
-# Template Name			Size		Visible	Source Page		Special ABility								Required Lvl	Required Template					Prohibited Template											Save checks bonus					Combat bonus						Bonus to skill														Bonus to nb of slots	Stat bonus					Add 				Type			Vision				Innate Spells											Natural Attacks
-Feral Creature					VISIBLE:YES	SOURCEPAGE:p.34	ABILITY:Special Ability|AUTOMATIC|Resistance To Cold	BONUS:VAR|ColdResistanceBonus|5						PRELEVEL:MIN=4								!PRETEMPLATE:1,Barked Creature,Scaled Creature (Serpent),Scaled Creature (Wyrm)								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK
-Wild Creature					VISIBLE:YES	SOURCEPAGE:p.34											PRELEVEL:MIN=5	PRETEMPLATE:1,Feral Creature																																																																																			NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d6|Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d8
-Snouted Creature					VISIBLE:YES	SOURCEPAGE:p.34	ABILITY:Special Ability|AUTOMATIC|Scent								PRELEVEL:MIN=6	PRETEMPLATE:1,Wild Creature
-Tailed Creature					VISIBLE:YES	SOURCEPAGE:p.34	ABILITY:Special Ability|AUTOMATIC|Prehensile Tail						PRELEVEL:MIN=7	PRETEMPLATE:1,Snouted Creature																																															BONUS:SLOTS|HANDS|1
+# Template Name	Visible	Source Page		Required Lvl	Required Template				Prohibited Template											Combat bonus					Bonus to nb of slots	Modify VAR					Ability								Natural Attacks
+Feral Creature	VISIBLE:YES	SOURCEPAGE:p.34	PRELEVEL:MIN=4							!PRETEMPLATE:1,Barked Creature,Scaled Creature (Serpent),Scaled Creature (Wyrm)	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK					BONUS:VAR|ColdResistanceBonus|5	ABILITY:Special Ability|AUTOMATIC|Resistance To Cold
+Wild Creature	VISIBLE:YES	SOURCEPAGE:p.34	PRELEVEL:MIN=5	PRETEMPLATE:1,Feral Creature																																										NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d6|Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d8
+Snouted Creature	VISIBLE:YES	SOURCEPAGE:p.34	PRELEVEL:MIN=6	PRETEMPLATE:1,Wild Creature																																	ABILITY:Special Ability|AUTOMATIC|Scent
+Tailed Creature	VISIBLE:YES	SOURCEPAGE:p.34	PRELEVEL:MIN=7	PRETEMPLATE:1,Snouted Creature																						BONUS:SLOTS|HANDS|1							ABILITY:Special Ability|AUTOMATIC|Prehensile Tail
 
 ###Block: Focus of the Changling ---------------------------------------------------
-Bland Creature					VISIBLE:YES	SOURCEPAGE:p.35											PRELEVEL:MIN=2																																					BONUS:SKILL|Bluff|2|TYPE=Competence	BONUS:SKILL|Disguise|5|TYPE=Competence
-Chameleon Creature				VISIBLE:YES	SOURCEPAGE:p.35											PRELEVEL:MIN=3	PRETEMPLATE:1,Bland Creature																																BONUS:SKILL|Bluff|4|TYPE=Competence																																	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Change Self,11+CHA
-Changeling Creature				VISIBLE:YES	SOURCEPAGE:p.35											PRELEVEL:MIN=6	PRETEMPLATE:1,Chameleon Creature																															BONUS:SKILL|Bluff,Diplomacy,Gather Information,Intimidate,Perform,Perform%|2|TYPE=Competence					BONUS:STAT|CHA|2
+# Template Name		Visible	Source Page		Required Lvl	Required Template				Bonus to skill														Stat bonus		Innate Spells
+Bland Creature		VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:MIN=2							BONUS:SKILL|Bluff|2|TYPE=Competence	BONUS:SKILL|Disguise|5|TYPE=Competence
+Chameleon Creature	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:MIN=3	PRETEMPLATE:1,Bland Creature		BONUS:SKILL|Bluff|4|TYPE=Competence														SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Change Self,11+CHA
+Changeling Creature	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:MIN=6	PRETEMPLATE:1,Chameleon Creature	BONUS:SKILL|Bluff,Diplomacy,Gather Information,Intimidate,Perform,Perform%|2|TYPE=Competence	BONUS:STAT|CHA|2
 
 ###Block: Focus of the Fey ---------------------------------------------------
-Centered Creature					VISIBLE:YES	SOURCEPAGE:p.36											PRELEVEL:MIN=6																																					BONUS:SKILL|Concentration|4|TYPE=Insight
-Fair Creature (Fey)				VISIBLE:YES	SOURCEPAGE:p.36											PRELEVEL:MIN=7	PRETEMPLATE:1,Centered Creature																															BONUS:SKILL|Bluff,Diplomacy,Perform,Perform%|4|TYPE=Competence										BONUS:STAT|CHA|2
-Discerning Creature				VISIBLE:YES	SOURCEPAGE:p.36	ABILITY:Special Ability|AUTOMATIC|Discerning Creature Illusions and Enhancement Bonus	PRELEVEL:MIN=7	PRETEMPLATE:1,Fair Creature (Fey)																															BONUS:SKILL|Innuendo,Sense Motive|4|TYPE=Insight												BONUS:STAT|WIS|2
-Fey Creature					VISIBLE:YES	SOURCEPAGE:p.36	ABILITY:Special Ability|AUTOMATIC|Immune to Enchantment spells					PRELEVEL:MIN=10	PRETEMPLATE:1,Discerning Creature																																																													RACETYPE:Fey	VISION:Darkvision
+# Template Name		Visible	Source Page		Required Lvl	Required Template				Bonus to skill									Stat bonus		Ability														Main Race Type	Vision
+Centered Creature		VISIBLE:YES	SOURCEPAGE:p.36	PRELEVEL:MIN=6							BONUS:SKILL|Concentration|4|TYPE=Insight
+Fair Creature (Fey)	VISIBLE:YES	SOURCEPAGE:p.36	PRELEVEL:MIN=7	PRETEMPLATE:1,Centered Creature	BONUS:SKILL|Bluff,Diplomacy,Perform,Perform%|4|TYPE=Competence	BONUS:STAT|CHA|2
+Discerning Creature	VISIBLE:YES	SOURCEPAGE:p.36	PRELEVEL:MIN=7	PRETEMPLATE:1,Fair Creature (Fey)	BONUS:SKILL|Innuendo,Sense Motive|4|TYPE=Insight			BONUS:STAT|WIS|2	ABILITY:Special Ability|AUTOMATIC|Discerning Creature Illusions and Enhancement Bonus
+Fey Creature		VISIBLE:YES	SOURCEPAGE:p.36	PRELEVEL:MIN=10	PRETEMPLATE:1,Discerning Creature															ABILITY:Special Ability|AUTOMATIC|Immune to Enchantment spells					RACETYPE:Fey	VISION:Darkvision
 
 
 ###Block: Focus of the Green ---------------------------------------------------
-Barked Creature					VISIBLE:YES	SOURCEPAGE:p.36	ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity	BONUS:VAR|ElectricityResistanceBonus|5				PRELEVEL:MIN=4								!PRETEMPLATE:1,Feral Creature,Scaled Creature (Serpent),Scaled Creature (Wyrm)								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK
-Photosynthesizing Creature			VISIBLE:YES	SOURCEPAGE:p.36											PRELEVEL:MIN=7	PRETEMPLATE:1,Barked Creature
-Regenerating Creature				VISIBLE:YES	SOURCEPAGE:p.36	ABILITY:Special Ability|AUTOMATIC|Regeneration	BONUS:VAR|RegenerationRate|2					PRELEVEL:MIN=10	PRETEMPLATE:1,Photosynthesizing Creature
-Green Creature					VISIBLE:YES	SOURCEPAGE:p.36											PRELEVEL:MIN=14	PRETEMPLATE:1,Regenerating Creature
+# Template Name			Visible	Source Page		Required Lvl	Required Template					Prohibited Template											Combat bonus					Modify VAR						Ability
+Barked Creature			VISIBLE:YES	SOURCEPAGE:p.36	PRELEVEL:MIN=4								!PRETEMPLATE:1,Feral Creature,Scaled Creature (Serpent),Scaled Creature (Wyrm)	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:VAR|ElectricityResistanceBonus|5	ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity
+Photosynthesizing Creature	VISIBLE:YES	SOURCEPAGE:p.36	PRELEVEL:MIN=7	PRETEMPLATE:1,Barked Creature
+Regenerating Creature		VISIBLE:YES	SOURCEPAGE:p.36	PRELEVEL:MIN=10	PRETEMPLATE:1,Photosynthesizing Creature																						BONUS:VAR|RegenerationRate|2			ABILITY:Special Ability|AUTOMATIC|Regeneration
+Green Creature			VISIBLE:YES	SOURCEPAGE:p.36	PRELEVEL:MIN=14	PRETEMPLATE:1,Regenerating Creature
 
 ###Block: Focus of the Hordes ---------------------------------------------------
-Goblinoid Creature				VISIBLE:YES	SOURCEPAGE:p.37											PRELEVEL:MIN=3																																					BONUS:SKILL|Move Silently|4|TYPE=Competence																			AUTO:FEAT|Alertness	RACETYPE:Humanoid	VISION:Darkvision (60')
-Orc-Blooded Creature				VISIBLE:YES	SOURCEPAGE:p.37											PRELEVEL:MIN=4	PRETEMPLATE:1,Goblinoid Creature																																																			BONUS:STAT|CON|2|TYPE=Inherent								VISION:Darkvision (120')
-Hobgoblinoid Creature				VISIBLE:YES	SOURCEPAGE:p.37											PRELEVEL:MIN=5	PRETEMPLATE:1,Orc-Blooded Creature																															BONUS:SKILL|Intimidate|4|TYPE=Competence	BONUS:SKILL|Spot,Listen|5|TYPE=Insight							BONUS:STAT|STR|2|TYPE=Inherent
-Ogrish Creature			SIZE:Large	VISIBLE:YES	SOURCEPAGE:p.37											PRELEVEL:MIN=8	PRETEMPLATE:1,Hobgoblinoid Creature																							BONUS:COMBAT|AC|3|TYPE=NaturalArmor																							BONUS:STAT|STR|2|TYPE=Inherent					RACETYPE:Giant
+# Template Name		Size		Visible	Source Page		Required Lvl	Required Template				Combat bonus				Bonus to skill												Stat bonus					Automatically Gained Feat	Main Race Type	Vision
+Goblinoid Creature			VISIBLE:YES	SOURCEPAGE:p.37	PRELEVEL:MIN=3													BONUS:SKILL|Move Silently|4|TYPE=Competence													AUTO:FEAT|Alertness		RACETYPE:Humanoid	VISION:Darkvision (60')
+Orc-Blooded Creature			VISIBLE:YES	SOURCEPAGE:p.37	PRELEVEL:MIN=4	PRETEMPLATE:1,Goblinoid Creature																					BONUS:STAT|CON|2|TYPE=Inherent									VISION:Darkvision (120')
+Hobgoblinoid Creature			VISIBLE:YES	SOURCEPAGE:p.37	PRELEVEL:MIN=5	PRETEMPLATE:1,Orc-Blooded Creature							BONUS:SKILL|Intimidate|4|TYPE=Competence	BONUS:SKILL|Spot,Listen|5|TYPE=Insight	BONUS:STAT|STR|2|TYPE=Inherent
+Ogrish Creature		SIZE:Large	VISIBLE:YES	SOURCEPAGE:p.37	PRELEVEL:MIN=8	PRETEMPLATE:1,Hobgoblinoid Creature	BONUS:COMBAT|AC|3|TYPE=NaturalArmor															BONUS:STAT|STR|2|TYPE=Inherent						RACETYPE:Giant
 
 ###Block: Focus of the Seersighted ---------------------------------------------------
-Sighted Creature					VISIBLE:YES	SOURCEPAGE:p.37											PRELEVEL:MIN=7	PRETEMPLATE:1,Centered Creature																															BONUS:SKILL|Spot|5|TYPE=Insight																																	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Second Sight,12+CHA
-Clairvoyant Creature				VISIBLE:YES	SOURCEPAGE:p.37											PRELEVEL:MIN=9	PRETEMPLATE:1,Sighted Creature																																																																					SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Clairaudience/Clairvoyance
-Seersighted Creature				VISIBLE:YES	SOURCEPAGE:p.37											PRELEVEL:MIN=10	PRETEMPLATE:1,Clairvoyant Creature																							BONUS:COMBAT|AC|2|TYPE=Insight																																				VISION:Darkvision			SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Contact Other Plane,15+CHA
+# Template Name		Visible	Source Page		Required Lvl	Required Template				Combat bonus				Bonus to skill				Vision		Innate Spells
+Sighted Creature		VISIBLE:YES	SOURCEPAGE:p.37	PRELEVEL:MIN=7	PRETEMPLATE:1,Centered Creature							BONUS:SKILL|Spot|5|TYPE=Insight				SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Second Sight,12+CHA
+Clairvoyant Creature	VISIBLE:YES	SOURCEPAGE:p.37	PRELEVEL:MIN=9	PRETEMPLATE:1,Sighted Creature																SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Clairaudience/Clairvoyance
+Seersighted Creature	VISIBLE:YES	SOURCEPAGE:p.37	PRELEVEL:MIN=10	PRETEMPLATE:1,Clairvoyant Creature	BONUS:COMBAT|AC|2|TYPE=Insight							VISION:Darkvision	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Contact Other Plane,15+CHA
 
 ###Block: Focus of the Shapeshifter ---------------------------------------------------
-Skinflow Creature					VISIBLE:YES	SOURCEPAGE:p.37											PRELEVEL:MIN=4																																					BONUS:SKILL|Bluff|3|TYPE=Competence	BONUS:SKILL|Disguise|2|TYPE=Competence																										SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Alter Self,12+CHA
-Boneknit Creature					VISIBLE:YES	SOURCEPAGE:p.38	ABILITY:Special Ability|AUTOMATIC|Regeneration	BONUS:VAR|RegenerationRate|5						PRELEVEL:MIN=5	PRETEMPLATE:1,Skinflow Creature																BONUS:CHECKS|Fortitude|2|TYPE=Resistance
-Flexable Creature					VISIBLE:YES	SOURCEPAGE:p.38	ABILITY:Special Ability|AUTOMATIC|Reach		BONUS:VAR|ReachBonus|5						PRELEVEL:MIN=6	PRETEMPLATE:1,Boneknit Creature																																																			BONUS:STAT|STR|2
-Sizeshifter Creature				VISIBLE:YES	SOURCEPAGE:p.38											PRELEVEL:MIN=7	PRETEMPLATE:1,Flexable Creature																BONUS:CHECKS|Reflex|2|TYPE=Enhancement																													BONUS:STAT|CON|2|TYPE=Inherent													SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Enlarge,11+CHA|Reduce,11+CHA
-Shapeshifter Creature				VISIBLE:YES	SOURCEPAGE:p.38											PRELEVEL:MIN=8	PRETEMPLATE:1,Sizeshifter Creature																BONUS:CHECKS|Fortitude|2			BONUS:COMBAT|AC|2|TYPE=NaturalArmor																																									SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Polymorph Self,14+CHA
+# Template Name		Visible	Source Page		Required Lvl	Required Template				Save checks bonus					Combat bonus				Bonus to skill											Stat bonus					Modify VAR				Ability							Innate Spells
+Skinflow Creature		VISIBLE:YES	SOURCEPAGE:p.37	PRELEVEL:MIN=4																				BONUS:SKILL|Bluff|3|TYPE=Competence	BONUS:SKILL|Disguise|2|TYPE=Competence																				SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Alter Self,12+CHA
+Boneknit Creature		VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:MIN=5	PRETEMPLATE:1,Skinflow Creature	BONUS:CHECKS|Fortitude|2|TYPE=Resistance																										BONUS:VAR|RegenerationRate|5	ABILITY:Special Ability|AUTOMATIC|Regeneration
+Flexable Creature		VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:MIN=6	PRETEMPLATE:1,Boneknit Creature																											BONUS:STAT|STR|2				BONUS:VAR|ReachBonus|5		ABILITY:Special Ability|AUTOMATIC|Reach
+Sizeshifter Creature	VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:MIN=7	PRETEMPLATE:1,Flexable Creature	BONUS:CHECKS|Reflex|2|TYPE=Enhancement																				BONUS:STAT|CON|2|TYPE=Inherent														SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Enlarge,11+CHA|Reduce,11+CHA
+Shapeshifter Creature	VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:MIN=8	PRETEMPLATE:1,Sizeshifter Creature	BONUS:CHECKS|Fortitude|2			BONUS:COMBAT|AC|2|TYPE=NaturalArmor																																	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Polymorph Self,14+CHA
 
 ###EOF

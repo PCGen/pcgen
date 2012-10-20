@@ -1,16 +1,16 @@
-# CVS $Revision$ $Author$ -- Sat Oct  2 20:18:32 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Eric C. Smith (Maredudd)
 
 ###Block: MINOR ARTIFACTS
-# Equipment Name			Required Weapon Proficiency	Type												Cost		Weight	Choose					Selections	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Wield Category	Size		Source Page		Bonus to skill		Stat bonus						Quality and value
-Beacon of True Faith							TYPE:Artifact.Minor.LightSource							COST:0	WT:2																														SOURCEPAGE:p.313												QUALITY:Bright Illumination|20 ft.	QUALITY:Shadowy Illumination|40 ft.	QUALITY:Duration|Permanent
-Hammer of Thunderbolts		PROFICIENCY:WEAPON|Warhammer	TYPE:Weapon.Melee.OneHanded.Martial.Artifact.Minor.Bludgeoning.Hammer	COST:0	WT:15										CRITMULT:x3			CRITRANGE:1			DAMAGE:2d6	EQMOD:PLUS3W.RETURN.STEEL	WIELD:OneHanded	SIZE:L	SOURCEPAGE:p.314
+# Equipment Name			Required Weapon Proficiency	Type												Cost		Weight	Choose				Selections	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Wield Category	Size		Source Page		Bonus to skill		Stat bonus						Quality and value
+Beacon of True Faith							TYPE:Artifact.Minor.LightSource							COST:0	WT:2																													SOURCEPAGE:p.313												QUALITY:Bright Illumination|20 ft.	QUALITY:Shadowy Illumination|40 ft.	QUALITY:Duration|Permanent
+Hammer of Thunderbolts		PROFICIENCY:WEAPON|Warhammer	TYPE:Weapon.Melee.OneHanded.Martial.Artifact.Minor.Bludgeoning.Hammer	COST:0	WT:15									CRITMULT:x3			CRITRANGE:1			DAMAGE:2d6	EQMOD:PLUS3W.RETURN.STEEL	WIELD:OneHanded	SIZE:L	SOURCEPAGE:p.314
 ##TODO: Add PRExxx for Girdle and additional capabilities.
-Knucklebone of Fickle Fortune						TYPE:Artifact.Minor									COST:0	WT:0.01																													SOURCEPAGE:p.314
-Perfect Golden Lute							TYPE:Artifact.Minor									COST:0	WT:3																														SOURCEPAGE:p.314
+Knucklebone of Fickle Fortune						TYPE:Artifact.Minor									COST:0	WT:0.01																												SOURCEPAGE:p.314
+Perfect Golden Lute							TYPE:Artifact.Minor									COST:0	WT:3																													SOURCEPAGE:p.314
 Spindle of Perfect Knowledge						TYPE:Artifact.Minor									COST:0	WT:0.01	CHOOSE:SKILL|TYPE=Knowledge	SELECT:2																					SOURCEPAGE:p.314	BONUS:SKILL|LIST|5	BONUS:STAT|INT,WIS,CHA|4|TYPE=Enhancement
-Talisman of Reluctant Wishes						TYPE:Artifact.Minor									COST:0	WT:1																														SOURCEPAGE:p.314
+Talisman of Reluctant Wishes						TYPE:Artifact.Minor									COST:0	WT:1																													SOURCEPAGE:p.314
 
 ###Block: MAJOR ARTIFACTS
 # Equipment Name				Required Weapon Proficiency	Type													Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier							Wield Category	Reach Multiplier	Size		Source Page		Innate Spells							Bonus to skill

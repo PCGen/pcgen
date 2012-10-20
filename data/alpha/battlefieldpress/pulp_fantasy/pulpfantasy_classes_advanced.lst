@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Feb 18 00:27:04 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2006-01
 #Original entry by: Frank Kliewe
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus			Modify VAR
@@ -43,15 +43,15 @@ CLASS:Combat Ace	PREATT:2	PREFEAT:1,Aircraft Operation	PRESKILL:1,Pilot=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Combat Ace	STARTSKILLPTS:5	CSKILL:Bluff|Craft (Electronic)|Craft (Mechanical)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Navigate|Pilot|Profession|Repair
 1	ADD:FEAT|TYPE=CombatAce
-2						AUTO:FEAT|Defender of the Skies
+2					AUTO:FEAT|Defender of the Skies
 3	ADD:FEAT|TYPE=CombatAce
-4						AUTO:FEAT|Shake Rattle and Roll
-5						AUTO:FEAT|To the Max
+4					AUTO:FEAT|Shake Rattle and Roll
+5					AUTO:FEAT|To the Max
 6	ADD:FEAT|TYPE=CombatAce
-7						AUTO:FEAT|Shake Rattle and Roll
-8						AUTO:FEAT|Keep it Together
+7					AUTO:FEAT|Shake Rattle and Roll
+8					AUTO:FEAT|Keep it Together
 9	ADD:FEAT|TYPE=CombatAce
-10						AUTO:FEAT|Shake Rattle and Roll
+10					AUTO:FEAT|Shake Rattle and Roll
 
 #Daredevil Class is being included from MSRD
 
@@ -60,7 +60,7 @@ CLASS:Daredevil.MOD	SOURCEPAGE:p.96
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
 CLASS:Detective	HD:6		TYPE:Advanced.PC	ABB:Det		MAXLEVEL:10	SOURCEPAGE:p.97	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
-# Class Name	Req. Att.	Required Feat			Required Skill
+# Class Name	Req. Att.	Required Feat				Required Skill
 CLASS:Detective	PREATT:2	PREFEAT:1,Skill Focus (Search)	PRESKILL:3,Investigate=6,Listen=6,Sense Motive=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Detective	STARTSKILLPTS:5	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Disable Device|Drive|Forgery|Gather Information|Intimidate|Investigate|TYPE=Knowledge|Listen|Profession|Read/Write Language|Research|Search|Sense Motive|Speak Language|Spot
@@ -82,15 +82,15 @@ CLASS:Driver	PRECHECKBASE:1,Reflex=2	PREFEAT:1,Vehicle Expert	PRESKILL:1,Drive=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Driver	STARTSKILLPTS:5	CSKILL:Balance|Concentration|Craft (Electronic)|Craft (Mechanical)|Disable Device|Drive|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Technology)|Listen|Profession|Navigate|Pilot|Read/Write Language|Repair|Speak Language|Tumble
 1	ADD:ABILITY|Talent|NORMAL|Uncanny Dodge I,Uncanny Dodge II							QUALIFY:ABILITY=Talent|Uncanny Dodge I|Uncanny Dodge II
-2												AUTO:FEAT|Hit the weak Spot
-3	ADD:FEAT|TYPE=Driver								AUTO:FEAT|Vehicle Empathy
-4												AUTO:FEAT|Need for Speed
-5												AUTO:FEAT|Nursing the Turns
-6	ADD:FEAT|TYPE=Driver								AUTO:FEAT|Commandeer
-7												AUTO:FEAT|Leadfoot
-8												AUTO:FEAT|Redlining the Needle
-9	ADD:FEAT|TYPE=Driver								AUTO:FEAT|Restore Vehicle
-10												AUTO:FEAT|One with the Vehicle
+2											AUTO:FEAT|Hit the weak Spot
+3	ADD:FEAT|TYPE=Driver							AUTO:FEAT|Vehicle Empathy
+4											AUTO:FEAT|Need for Speed
+5											AUTO:FEAT|Nursing the Turns
+6	ADD:FEAT|TYPE=Driver							AUTO:FEAT|Commandeer
+7											AUTO:FEAT|Leadfoot
+8											AUTO:FEAT|Redlining the Needle
+9	ADD:FEAT|TYPE=Driver							AUTO:FEAT|Restore Vehicle
+10											AUTO:FEAT|One with the Vehicle
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus		Modify VAR
 CLASS:Explorer	HD:8		TYPE:Advanced.PC	ABB:Expl		MAXLEVEL:10	SOURCEPAGE:p.101	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
@@ -98,16 +98,16 @@ CLASS:Explorer	HD:8		TYPE:Advanced.PC	ABB:Expl		MAXLEVEL:10	SOURCEPAGE:p.101	BON
 CLASS:Explorer	PREFEAT:1,Aware	PREMULT:2,[PRESKILL:3,Search=4,Knowledge (Earth and Life Sciences)=6,Survival=6],[PRESKILL:1,Knowledge (History)=4,Knowledge (Physical Sciences)=4,Knowledge (Theology and Philosophy)=4]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Explorer	STARTSKILLPTS:5	CSKILL:Balance|Bluff|Climb|Decipher Script|Disable Device|Drive|Gather Information|Handle Animal|Investigate|Jump|Knowledge (Art)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Theology and Philosophy)|Listen|Navigate|Read/Write Language|Research|Ride|Search|Sense Motive|Speak Language|Spot|Survival|Swim|Treat Injury
-1													AUTO:FEAT|Explorer Lore|Guide|Track
-2													AUTO:FEAT|Resolve|Skilled Searcher
+1												AUTO:FEAT|Explorer Lore|Guide|Track
+2												AUTO:FEAT|Resolve|Skilled Searcher
 3	ADD:FEAT|TYPE=Explorer
-4													AUTO:FEAT|Trap Sense
-5													AUTO:FEAT|Extra Step
+4												AUTO:FEAT|Trap Sense
+5												AUTO:FEAT|Extra Step
 6	ADD:FEAT|TYPE=Explorer
-7													AUTO:FEAT|Trap Sense
-8						ABILITY:Talent|AUTOMATIC|Improved Evasion
+7												AUTO:FEAT|Trap Sense
+8					ABILITY:Talent|AUTOMATIC|Improved Evasion
 9	ADD:FEAT|TYPE=Explorer
-10													AUTO:FEAT|Extra Step|Trap Sense
+10												AUTO:FEAT|Extra Step|Trap Sense
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus				Modify VAR
 CLASS:G-Man		HD:6		TYPE:Advanced.PC	ABB:GMan		MAXLEVEL:10	SOURCEPAGE:p.102	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|(CL+2)*7/10-1	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/2	BONUS:VAR|Action|CL*6
@@ -115,11 +115,11 @@ CLASS:G-Man		HD:6		TYPE:Advanced.PC	ABB:GMan		MAXLEVEL:10	SOURCEPAGE:p.102	BONUS
 CLASS:G-Man		PREATT:2	PRESKILL:2,Speak Language=1,Research=1	PRESTAT:2,INT=13,CHA=11	PRETEXT:Must have an allegiance to the USA
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:G-Man		STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Demolitions|Diplomacy|Disable Device|Disguise|Drive|Forgery|Gather Information|Hide|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Listen|Move Silently|Profession|Read/Write Language|Repair|Research|Search|Sense Motive|Speak Language|Spot|Swim|Treat Injury
-1						AUTO:FEAT|Jurisdiction|Only the Best
-2						AUTO:FEAT|Big Brother
+1					AUTO:FEAT|Jurisdiction|Only the Best
+2					AUTO:FEAT|Big Brother
 3	ADD:FEAT|TYPE=G_Man
 5	ADD:FEAT|Signature Kit	AUTO:FEAT|Team Effort
-6	ADD:FEAT|TYPE=G_Man		AUTO:FEAT|Safe House
+6	ADD:FEAT|TYPE=G_Man	AUTO:FEAT|Safe House
 8	ADD:FEAT|TYPE=G_Man
 
 
@@ -129,16 +129,16 @@ CLASS:Gangster	HD:8		TYPE:Advanced.PC	ABB:Gang		MAXLEVEL:10	SOURCEPAGE:p.104	BON
 CLASS:Gangster	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Intimidate=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gangster	STARTSKILLPTS:7	CSKILL:Bluff|Craft (Chemical)|Craft (Mechanical)|Craft (Structural)|Diplomacy|Disguise|Drive|Escape Artist|Forgery|Gather Information|Hide|Gamble|Intimidate|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Move Silently|Profession|Read/Write Language|Search|Sense Motive|Sleight of Hand|Speak Language
-1													AUTO:FEAT|Infamy|Sneak Attack
-2													AUTO:FEAT|Underworld Contact
-3						ABILITY:Talent|AUTOMATIC|Opportunist
-4													AUTO:FEAT|Sneak Attack|Underworld Contact
+1												AUTO:FEAT|Infamy|Sneak Attack
+2												AUTO:FEAT|Underworld Contact
+3					ABILITY:Talent|AUTOMATIC|Opportunist
+4												AUTO:FEAT|Sneak Attack|Underworld Contact
 5	ADD:FEAT|TYPE=Gangster
-6													AUTO:FEAT|Underworld Contact
-7													AUTO:FEAT|Sneak Attack
-8													AUTO:FEAT|Underworld Contact
-9													AUTO:FEAT|Crippling Strike
-10													AUTO:FEAT|Sneak Attack|Underworld Contact
+6												AUTO:FEAT|Underworld Contact
+7												AUTO:FEAT|Sneak Attack
+8												AUTO:FEAT|Underworld Contact
+9												AUTO:FEAT|Crippling Strike
+10												AUTO:FEAT|Sneak Attack|Underworld Contact
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Mystery Man	HD:8		TYPE:Advanced.PC	ABB:MstM		MAXLEVEL:10	SOURCEPAGE:p.105	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|CL/2+2	BONUS:VAR|Reputation|(CL+1)/2	BONUS:VAR|Action|CL*6
@@ -175,16 +175,16 @@ CLASS:Mystic	STARTSKILLPTS:3	CSKILL:Balance|Climb|Escape Artist|Hide|Intimidate|
 9	UDAM:1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10
 10	UDAM:1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10
 ###Block: Normal progression
-1						AUTO:FEAT|Living Weapon
-2						AUTO:FEAT|Flying Kick
+1					AUTO:FEAT|Living Weapon
+2					AUTO:FEAT|Flying Kick
 3	ADD:FEAT|TYPE=Mystic_PF
-4						AUTO:FEAT|Living Weapon
-5						AUTO:FEAT|Iron Fist
+4					AUTO:FEAT|Living Weapon
+5					AUTO:FEAT|Iron Fist
 6	ADD:FEAT|TYPE=Mystic_PF
-7						AUTO:FEAT|Flurry of Blows
-8						AUTO:FEAT|Living Weapon
+7					AUTO:FEAT|Flurry of Blows
+8					AUTO:FEAT|Living Weapon
 9	ADD:FEAT|TYPE=Mystic_PF
-10						AUTO:FEAT|Iron Fist
+10					AUTO:FEAT|Iron Fist
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus		Modify VAR
 CLASS:News Hound	HD:6		TYPE:Advanced.PC	ABB:NHnd		MAXLEVEL:10	SOURCEPAGE:p.109	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL-1)/3	BONUS:CHECKS|BASE.Will|(CL+3)/3	BONUS:COMBAT|BAB|CL/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
@@ -192,13 +192,13 @@ CLASS:News Hound	HD:6		TYPE:Advanced.PC	ABB:NHnd		MAXLEVEL:10	SOURCEPAGE:p.109	B
 CLASS:News Hound	PRESKILL:3,Bluff=8,Diplomacy=8,Gather Information=8	PRESTAT:2,INT=12,CHA=13
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:News Hound	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Craft (Visual Arts)|Craft (Writing)|Concentration|Diplomacy|Disguise|Gather Information|Hide|Intimidate|Jump|TYPE=Knowledge|Profession|Research|Read/Write Language|Speak Language|Spot|Survival|Swim
-1													AUTO:FEAT|Journalistic Sense
-2													AUTO:FEAT|Alertness|Ally
-3													AUTO:FEAT|Danger Sense
+1												AUTO:FEAT|Journalistic Sense
+2												AUTO:FEAT|Alertness|Ally
+3												AUTO:FEAT|Danger Sense
 4	ADD:FEAT|Skilled Contact - News Hound,Street Contact - News Hound	AUTO:FEAT|Ally
-5													AUTO:FEAT|Nerves of Steel|News Hound Intuition
-7													AUTO:FEAT|News Hound Sex Appeal
-8													AUTO:FEAT|Memory For Facts
+5												AUTO:FEAT|Nerves of Steel|News Hound Intuition
+7												AUTO:FEAT|News Hound Sex Appeal
+8												AUTO:FEAT|Memory For Facts
 9	ADD:FEAT|Language Training
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
@@ -207,15 +207,15 @@ CLASS:Operator	HD:8		TYPE:Advanced.PC	ABB:Oprt		MAXLEVEL:10	SOURCEPAGE:p.111	BON
 CLASS:Operator	PREATT:4	PREFEAT:3,Fade to Black,Information Network,Licensed and Authorized	PRESKILL:3,Investigate=4,Research=2,Sense Motive=2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Operator	STARTSKILLPTS:6	CSKILL:Concentration|Disguise|Drive|Forgery|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Search|Sense Motive|Speak Language|Spot
-1																						AUTO:FEAT|Improved Information Network
-2																						AUTO:FEAT|Breadth of Knowledge
+1																					AUTO:FEAT|Improved Information Network
+2																					AUTO:FEAT|Breadth of Knowledge
 3	BONUS:VAR|WeapSpecQualify|1	DEFINE:WeapSpecQualify|0	ADD:FEAT|TYPE=Operator
-4	BONUS:VAR|WeapSpecQualify|-1																	AUTO:FEAT|Above Top Secret|Applied Knowledge
-5																						AUTO:FEAT|The Truth Is Out There
+4	BONUS:VAR|WeapSpecQualify|-1																AUTO:FEAT|Above Top Secret|Applied Knowledge
+5																					AUTO:FEAT|The Truth Is Out There
 6	BONUS:VAR|WeapSpecQualify|1	DEFINE:WeapSpecQualify|0	ADD:FEAT|TYPE=Operator
-7	BONUS:VAR|WeapSpecQualify|-1											ABILITY:Talent|AUTOMATIC|Intuition
+7	BONUS:VAR|WeapSpecQualify|-1										ABILITY:Talent|AUTOMATIC|Intuition
 9	BONUS:VAR|WeapSpecQualify|1	DEFINE:WeapSpecQualify|0	ADD:FEAT|TYPE=Operator	ABILITY:Talent|AUTOMATIC|Connected
-10	BONUS:VAR|WeapSpecQualify|-1																	AUTO:FEAT|Bulls Eye
+10	BONUS:VAR|WeapSpecQualify|-1																AUTO:FEAT|Bulls Eye
 
 #Personality Class is being included from MSRD
 
@@ -262,16 +262,16 @@ CLASS:Shadowy Avenger	HD:8		TYPE:Advanced.PC	ABB:ShAv		MAXLEVEL:10	SOURCEPAGE:p.
 CLASS:Shadowy Avenger	PREATT:2	PREFEAT:2,Low Profile,Secret Identity	PRESKILL:2,Intimidate=6,Knowledge (Streetwise)=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadowy Avenger	STARTSKILLPTS:7	CSKILL:Balance|Bluff|Climb|Disable Device|Disguise|Gather Information|Hide|Intimidate|Jump|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Move Silently|Sense Motive|Spot|Tumble
-1							AUTO:FEAT|Persona
-2							AUTO:FEAT|Cloak of Secrecy
+1						AUTO:FEAT|Persona
+2						AUTO:FEAT|Cloak of Secrecy
 3	ADD:FEAT|TYPE=Shadowy_Avenger
-4							AUTO:FEAT|Cloak of Fear
-5							AUTO:FEAT|Persona
+4						AUTO:FEAT|Cloak of Fear
+5						AUTO:FEAT|Persona
 6	ADD:FEAT|TYPE=Shadowy_Avenger
-7							AUTO:FEAT|Phantom
-8							AUTO:FEAT|Quick Change
+7						AUTO:FEAT|Phantom
+8						AUTO:FEAT|Quick Change
 9	ADD:FEAT|TYPE=Shadowy_Avenger
-10							AUTO:FEAT|Persona
+10						AUTO:FEAT|Persona
 
 ###Soldier Class included from MSRD set
 

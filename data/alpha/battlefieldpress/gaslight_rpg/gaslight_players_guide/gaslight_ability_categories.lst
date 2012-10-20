@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr  1 10:54:26 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 #SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2008-05
 
 ###Block: Master Categories
@@ -9,9 +9,9 @@ ABILITYCATEGORY:Starting Occupation	VISIBLE:NO	EDITABLE:NO			EDITPOOL:NO		FRACTI
 ABILITYCATEGORY:Wealth			VISIBLE:NO	EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Wealth
 
 ###Block: Background Abilities
-# Ability Category		Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
-ABILITYCATEGORY:Wealth Roll	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Wealth			TYPE:Wealth		PLURAL:Wealth Roll		DISPLAYLOCATION:Background
-ABILITYCATEGORY:Occupation	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Occupation	PLURAL:Occupations		DISPLAYLOCATION:Background	POOL:1
+# Ability Category		Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number	Category of Object		Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Wealth Roll	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO					CATEGORY:Wealth			TYPE:Wealth		PLURAL:Wealth Roll		DISPLAYLOCATION:Background
+ABILITYCATEGORY:Occupation	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:1		CATEGORY:Starting Occupation	TYPE:Occupation	PLURAL:Occupations		DISPLAYLOCATION:Background
 
 ###Block: Racial Abilities
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI		Display Location
@@ -121,11 +121,11 @@ ABILITYCATEGORY:Favored Terrain		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRAC
 ABILITYCATEGORY:Gunslinger Weapon Focus	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GunslingerWeaponFocus	PLURAL:Gunslinger Weapon Focus	DISPLAYLOCATION:Class Abilities
 
 ###Block: Single Feat Class Features
-# Ability Category		Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object	Plural description for UI	Display Location
-ABILITYCATEGORY:Educated	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Educated	PLURAL:Educated			DISPLAYLOCATION:Feats
+# Ability Category		Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Educated	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Educated	PLURAL:Educated			DISPLAYLOCATION:Feats
 
 
-ABILITYCATEGORY:Animal Trick		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AnimalTrick		PLURAL:Animal Tricks		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Animal Trick	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AnimalTrick	PLURAL:Animal Tricks		DISPLAYLOCATION:Class Abilities
 
 #
 # End

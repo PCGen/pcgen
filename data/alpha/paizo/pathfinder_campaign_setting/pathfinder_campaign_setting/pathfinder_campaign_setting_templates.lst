@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Apr 22 12:20:08 2010 -- reformated by prettylst.pl v1.39 (build 11455)
-SOURCELONG:Pathfinder Chronicles: Campaign Setting	SOURCESHORT:PFCS	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search	SOURCEDATE:2008-08
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Pathfinder Campaign Setting	SOURCESHORT:PFCS	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search	SOURCEDATE:2008-08
 
 
-# Template Name			Hit Dice Size		Visible		Required Language	Automatic Languages
+# Template Name			Hit Dice Size		Visible		Required Language	Automatically Gained Language
 Taldane as Common Language					VISIBLE:DISPLAY	PRELANG:1,Common	AUTO:LANG|Taldane
 Holy Warrior Hit Dice		HITDIE:10|CLASS=Cleric	VISIBLE:NO
 

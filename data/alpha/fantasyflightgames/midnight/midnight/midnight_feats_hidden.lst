@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Wed Nov 21 00:00:04 2007 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Midnight Campaign Source Book	SOURCESHORT:MDNT	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Midnight Campaign Source Book	SOURCESHORT:MDNT	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html	SOURCEDATE:2002-01
 # Original Entry By: Tir Gwaith
 
 ###Block: Erenlander
-# Feat Name				Type			Visible		Required Race			Multiple?	Choose									Bonus to skill rank	Source Page
+# Feat Name				Type			Visible		Required Race			Multiple?	Choose								Bonus to skill rank	Source Page
 Erenlander Craft/Profession	TYPE:Special	VISIBLE:DISPLAY	PRERACE:1,Human (Erenlander)	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Craft|TYPE=Profession	BONUS:SKILLRANK|LIST|4	SOURCEPAGE:p.28
 
 ###Block: Defender Abilities

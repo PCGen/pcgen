@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Feb 15 13:58:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647	SOURCEDATE:2005-01
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
@@ -108,7 +108,7 @@ Wilderness Lore.MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Ma
 
 
 ###Block: MM skills
-# Skill Name				Type					Ability																														Modify VAR
+# Skill Name				Type					Ability																															Modify VAR
 Control Shape.MOD				TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Control Shape|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Control Shape),Full Skill Buy (Control Shape)
 Craft (Metalworking).MOD		TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Craft (Metalworking)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Craft (Metalworking)),Full Skill Buy (Craft (Metalworking))
 Knowledge (Geology).MOD			TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Knowledge (Geology)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Knowledge (Geology)),Full Skill Buy (Knowledge (Geology))
@@ -118,7 +118,7 @@ Knowledge (Plane of Water).MOD	TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIR
 Profession (Hunt).MOD			TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Profession (Hunt)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Profession (Hunt)),Full Skill Buy (Profession (Hunt))
 
 # Mystic Artist Sub Skill
-Perform.MOD																																									BONUS:VAR|MysticArtist|skillinfo("TOTAL","Perform")|TYPE=PerformSkill|PREABILITY:1,CATEGORY=Special Ability,TYPE.MysticArtistDefault
+Perform.MOD																																										BONUS:VAR|MysticArtist|skillinfo("TOTAL","Perform")|TYPE=PerformSkill|PREABILITY:1,CATEGORY=Special Ability,TYPE.MysticArtistDefault
 
 
 

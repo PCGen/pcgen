@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb  6 16:30:49 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html	SOURCEDATE:2004-04
 # Original Entry by: Ratheof Blithwyn
 
@@ -125,17 +125,17 @@ Craft Summoning Pit	TYPE:ItemCreation	PRECLASS:1,SPELLCASTER=12																	
 
 
 ###block: Regional Feats Chapter Six
-# Feat Name				Type					Required Class			Required Feat					Required Skill	Required Stat	Required Template										Required Text						Description																						Stackable?	Multiple?	Choose				Selections	Class Skill	Source Page
-Craft Greater Holy Weapon	TYPE:ItemCreation.Cultural	PRECLASS:1,SPELLCASTER=12	PREFEAT:1,Craft Magic Arms and Armor							PRETEMPLATE:1,Region (Kingsmarch)															DESC:See Text																																		SOURCEPAGE:p.105
+# Feat Name				Type					Required Class			Required Feat					Required Skill	Required Stat	Required Template										Required Text						Description																						Stackable?	Multiple?	Choose			Selections	Class Skill	Source Page
+Craft Greater Holy Weapon	TYPE:ItemCreation.Cultural	PRECLASS:1,SPELLCASTER=12	PREFEAT:1,Craft Magic Arms and Armor							PRETEMPLATE:1,Region (Kingsmarch)															DESC:See Text																																	SOURCEPAGE:p.105
 Innate Talent			TYPE:Cultural																					PRETEMPLATE:1,Region (Kingsmarch)															DESC:See Text																					STACK:YES	MULT:YES	CHOOSE:SKILL|CROSSCLASS	SELECT:2	CSKILL:LIST	SOURCEPAGE:p.105
 #test test test
-Skilled Prodigy			TYPE:Cultural																					PRETEMPLATE:1,Region (Kingsmarch),Region (Emerlyn)												DESC:See Text																																		SOURCEPAGE:p.105
+Skilled Prodigy			TYPE:Cultural																					PRETEMPLATE:1,Region (Kingsmarch),Region (Emerlyn)												DESC:See Text																																	SOURCEPAGE:p.105
 #...probably not possible at the moment...
-Sprinter				TYPE:Cultural																					PRETEMPLATE:1,Region (Emerlyn)															DESC:On the battlefields of the Emerlyn peninsula, there are many who can draw on bursts of speed in desperate situations																SOURCEPAGE:p.105
-Quick Mount				TYPE:Cultural															PRESKILL:1,Ride=5	PRESTAT:1,DEX=13	PRETEMPLATE:1,Region (Kingsmarch)															DESC:The horsemen of the Kingsmarch drill until they move from their bedrolls to ready astride their mount in a single, fluid motion														SOURCEPAGE:p.105
-Favored Disciple			TYPE:Metamagic																					PRETEMPLATE:1,Region (Emerlyn),Region (Kingsmarch),Region (Valhedar)	PRETEXT:Ability to make Intercession check	DESC:You are the favored servant of an immortal																													SOURCEPAGE:p.105
+Sprinter				TYPE:Cultural																					PRETEMPLATE:1,Region (Emerlyn)															DESC:On the battlefields of the Emerlyn peninsula, there are many who can draw on bursts of speed in desperate situations															SOURCEPAGE:p.105
+Quick Mount				TYPE:Cultural															PRESKILL:1,Ride=5	PRESTAT:1,DEX=13	PRETEMPLATE:1,Region (Kingsmarch)															DESC:The horsemen of the Kingsmarch drill until they move from their bedrolls to ready astride their mount in a single, fluid motion													SOURCEPAGE:p.105
+Favored Disciple			TYPE:Metamagic																					PRETEMPLATE:1,Region (Emerlyn),Region (Kingsmarch),Region (Valhedar)	PRETEXT:Ability to make Intercession check	DESC:You are the favored servant of an immortal																												SOURCEPAGE:p.105
 #PRExx Intercession checks ... and then bonus..
-Shield Mastery			TYPE:Cultural								PREFEAT:1,Shield Proficiency									PRETEMPLATE:1,Region (Kingsmarch)															DESC:You are trained and experienced in the use of the shield as both an offensive and defensive tool																				SOURCEPAGE:p.105
+Shield Mastery			TYPE:Cultural								PREFEAT:1,Shield Proficiency									PRETEMPLATE:1,Region (Kingsmarch)															DESC:You are trained and experienced in the use of the shield as both an offensive and defensive tool																			SOURCEPAGE:p.105
 #bonus while bashing....
 
 ###Block: Feat Mods

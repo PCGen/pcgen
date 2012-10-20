@@ -1,11 +1,11 @@
-# CVS $Revision: 9359 $ $Author: eddyanthony $ -- Wed Sep 24 23:18:03 2008 -- reformated by prettylst.pl v1.38 (build 7233)
-SOURCELONG:eFaeries	SOURCESHORT:eFaeries	SOURCEWEB:http://dragonwing.net/Faeries.htm
+# CVS $Revision: 9359 $ $Author: eddyanthony $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:eFaeries	SOURCESHORT:eFaeries	SOURCEWEB:http://dragonwing.net/Faeries.htm	SOURCEDATE:2003-01
 #Original Entry: Andrew Maitland
 
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus					Bonus Number of Feats
 CLASS:The Master of the Hunt	HD:10		TYPE:Monster	MAXLEVEL:15	SOURCEPAGE:p. 10	BONUS:CHECKS|BASE.Will,BASE.Reflex|6	BONUS:CHECKS|BASE.Fortitude|13	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:FEAT|POOL|4
-# Class Name			Reg. Race Type
+# Class Name			Required Race
 CLASS:The Master of the Hunt	PRERACE:1,RACETYPE=Fey
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:The Master of the Hunt	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Climb|TYPE=Craft|Handle Animal|Hide|Intimidate|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|Profession (Hunter/Tracker)|Spot|Tumble|Use Rope|Wilderness Lore

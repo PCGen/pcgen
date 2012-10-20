@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Jul 19 17:14:31 2009 -- reformated by prettylst.pl v1.39 (build 9548)
-SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex	SOURCEDATE:2003-01
 
 # Bard and Druid block.  Due to .MOD issues, redoing classes here
 
@@ -34,8 +34,8 @@ CLASS:Bard ~ LoE	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|CL
 19	CAST:0,0,2,3,4,5,6	KNOWN:9,5,5,4,4,3,3	BONUS:VAR|BASEPOWERPOINTS|17
 20	CAST:0,0,2,3,4,5,6	KNOWN:9,5,5,4,4,3,3	BONUS:VAR|BASEPOWERPOINTS|19
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Automatic Languages	Bonus Languages	Virtual Feat													Define																			Save checks bonus											Combat bonus
-CLASS:Druid ~ LoE	HD:8		TYPE:Base.PC	ABB:Drd		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	AUTO:LANG|Druidic		LANGBONUS:Sylvan	VFEAT:Literacy|PREMULT:2,[!PRETEMPLATE:1,Saxon],[!PRERACE:1,Base/Criminal,Common/Serf]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|WIS	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Bonus Languages	Virtual Feat													Define																			Automatically Gained Language	Save checks bonus											Combat bonus
+CLASS:Druid ~ LoE	HD:8		TYPE:Base.PC	ABB:Drd		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	LANGBONUS:Sylvan	VFEAT:Literacy|PREMULT:2,[!PRETEMPLATE:1,Saxon],[!PRERACE:1,Base/Criminal,Common/Serf]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|WIS	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	AUTO:LANG|Druidic			BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Druid ~ LoE	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level

@@ -1,13 +1,13 @@
-# CVS $Revision$ $Author$ -- Tue Jan 22 22:12:00 2008 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Book of Iron Might	SOURCESHORT:BoIM	SOURCEWEB:http://www.montecook.com/cgi-bin/page.cgi?mpress_BOIM
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Book of Iron Might	SOURCESHORT:BoIM	SOURCEWEB:http://www.montecook.com/cgi-bin/page.cgi?mpress_BOIM	SOURCEDATE:2004-01
 
 ###Block: arcane battle mastery
-# Template Name				Source Page		Req. Att.	Required Class Skill							Req. Spell Type		Required Stat	Feat
+# Template Name				Source Page		Req. Att.	Required Class Skill							Req. Spell Type		Required Stat	Automatically Gained Feat
 Automatic Arcane Battle Mastery	SOURCEPAGE:p.36	PREATT:1	PRECSKILL:3,Concentration,Knowledge (Arcana),Spellcraft	PRESPELLTYPE:1,Arcane=1	PRESTAT:1,INT=13	AUTO:FEAT|Arcane Battle Mastery
 
 ###Block: ironborn
-# Template Name	Visible	Template																																																																							Special ABility					Combat bonus				Bonus to skill
-Ironborn Trait	VISIBLE:NO	TEMPLATE:Humanoid	TEMPLATE:CHOOSE:Ironborn No Stat Adjustment|Ironborn Str Stat Adjustment|Ironborn NonStr Stat Adjustment	TEMPLATE:CHOOSE:Ironborn Acrobat Ability Package|Ironborn Centurion Ability Package|Ironborn Divine Mark Ability Package|Ironborn Iron Heart Ability Package|Ironborn Shadow Friend Ability Package|Ironborn Slayer Ability Package|Ironborn Spellmaster Ability Package|Ironborn Trailblazer Ability Package	ABILITY:Special Ability|AUTOMATIC|Immortal ~ Ironborn Trait|Rust Vulnerability ~ Ironborn Trait	BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:SKILL|Bluff,Diplomacy,Gather Information,Sense Motive|-2|TYPE=Racial
+# Template Name	Visible	Template																																																																							Combat bonus				Bonus to skill											Ability
+Ironborn Trait	VISIBLE:NO	TEMPLATE:Humanoid	TEMPLATE:CHOOSE:Ironborn No Stat Adjustment|Ironborn Str Stat Adjustment|Ironborn NonStr Stat Adjustment	TEMPLATE:CHOOSE:Ironborn Acrobat Ability Package|Ironborn Centurion Ability Package|Ironborn Divine Mark Ability Package|Ironborn Iron Heart Ability Package|Ironborn Shadow Friend Ability Package|Ironborn Slayer Ability Package|Ironborn Spellmaster Ability Package|Ironborn Trailblazer Ability Package	BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:SKILL|Bluff,Diplomacy,Gather Information,Sense Motive|-2|TYPE=Racial	ABILITY:Special Ability|AUTOMATIC|Immortal ~ Ironborn Trait|Rust Vulnerability ~ Ironborn Trait
 
 ###Block: Ironborn Stat Adjustments
 # Template Name				Visible	Template																																							Stat bonus
@@ -27,7 +27,7 @@ Ironborn Plus Wis				VISIBLE:NO																																									BONUS:ST
 Ironborn Plus Cha				VISIBLE:NO																																									BONUS:STAT|CHA|2
 
 ###Block: Ironborn Packages
-# Template Name					Visible	Add
+# Template Name					Visible	Bonus to Ability Pool
 Ironborn Acrobat Ability Package		VISIBLE:NO	BONUS:ABILITYPOOL|Ironborn Primary Ability Choice|1
 Ironborn Centurion Ability Package		VISIBLE:NO	BONUS:ABILITYPOOL|Ironborn Primary Ability Choice|1
 Ironborn Divine Mark Ability Package	VISIBLE:NO	BONUS:ABILITYPOOL|Ironborn Primary Ability Choice|1
@@ -38,6 +38,6 @@ Ironborn Spellmaster Ability Package	VISIBLE:NO	BONUS:ABILITYPOOL|Ironborn Prima
 Ironborn Trailblazer Ability Package	VISIBLE:NO	BONUS:ABILITYPOOL|Ironborn Primary Ability Choice|1
 
 ###Block: Ironborn Secondary Ability (Small Ironborn)
-# Template Name			Visible	Stat bonus		Add
-Ironborn Secondary Ability	VISIBLE:NO	BONUS:STAT|STR|-2	BONUS:ABILITYPOOL|Ironborn Secondary Ability Choice|1
+# Template Name			Visible	Bonus to Ability Pool						Stat bonus
+Ironborn Secondary Ability	VISIBLE:NO	BONUS:ABILITYPOOL|Ironborn Secondary Ability Choice|1	BONUS:STAT|STR|-2
 Ironborn No Secondary Ability	VISIBLE:NO

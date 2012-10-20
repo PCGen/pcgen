@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Oct  8 23:34:04 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html	SOURCEDATE:2003-10
 # Original Entry by: Ratheof Blithwyn, conversion to Abilities by Eddy Anthony
 
@@ -8,41 +8,41 @@ SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/
 #########################
 
 ###Block: Talent Skills
-# Ability Name							Category of Ability		Type																																		Visible		Restricted Ability															Required Text											Stackable?	Multiple?	Choose					Bonus to skill												Source Page
-Talent +1 on Appraise						CATEGORY:Special Ability	TYPE:DwarfTalentSkill.HalflingTalentSkill.LowlanderTalentSkill																								VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Appraise																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Appraise|1|TYPE=Talent.STACK								SOURCEPAGE:p.22
-Talent +1 on Bluff						CATEGORY:Special Ability	TYPE:DoppelTalentSkill.NightElfTalentSkill.HalflingTalentSkill.SaltbloodTalentSkill																					VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Bluff																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Bluff|1|TYPE=Talent.STACK								SOURCEPAGE:p.20
+# Ability Name							Category of Ability		Type																																		Visible		Restricted Ability															Required Text											Stackable?	Multiple?	Choose				Bonus to skill												Source Page
+Talent +1 on Appraise						CATEGORY:Special Ability	TYPE:DwarfTalentSkill.HalflingTalentSkill.LowlanderTalentSkill																								VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Appraise																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Appraise|1|TYPE=Talent.STACK								SOURCEPAGE:p.22
+Talent +1 on Bluff						CATEGORY:Special Ability	TYPE:DoppelTalentSkill.NightElfTalentSkill.HalflingTalentSkill.SaltbloodTalentSkill																					VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Bluff																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Bluff|1|TYPE=Talent.STACK								SOURCEPAGE:p.20
 Talent +1 on Craft Skills					CATEGORY:Special Ability	TYPE:DoppelTalentSkill.DwarfTalentSkill.DawnElfTalentSkill.NightElfTalentSkill.GnomeTalentSkill.HalflingTalentSkill.LowlanderTalentSkill.SaltbloodTalentSkill.TruebornTalentSkill					VISIBLE:DISPLAY																			PRETEXT:A skill may receive no more than a +3 talent bonus from this ability	STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Craft		BONUS:SKILL|%LIST|1|TYPE=Talent.STACK								SOURCEPAGE:p.22
-Talent +1 on Decipher Script					CATEGORY:Special Ability	TYPE:HalflingTalentSkill.ThinbloodTalentSkill																											VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Decipher Script																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Decipher Script|1|TYPE=Talent.STACK							SOURCEPAGE:p.20
-Talent +1 on Diplomacy						CATEGORY:Special Ability	TYPE:HalflingTalentSkill.LowlanderTalentSkill.TruebornTalentSkill.TieflingTalentSkill.ThinbloodTalentSkill																	VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Diplomacy																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Diplomacy|1|TYPE=Talent.STACK								SOURCEPAGE:p.20
-Talent +1 on Disable Device					CATEGORY:Special Ability	TYPE:HalflingTalentSkill.LowlanderTalentSkill																											VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Disable Device																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Disable Device|1|TYPE=Talent.STACK							SOURCEPAGE:p.20
-Talent +1 on Disguise						CATEGORY:Special Ability	TYPE:HalflingTalentSkill																														VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Disguise																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Disguise|1|TYPE=Talent.STACK								SOURCEPAGE:p.20
-Talent +1 on Forgery						CATEGORY:Special Ability	TYPE:HalflingTalentSkill																														VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Forgery																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Forgery|1|TYPE=Talent.STACK								SOURCEPAGE:p.20
-Talent +1 on Gather Information				CATEGORY:Special Ability	TYPE:HalflingTalentSkill.SaltbloodTalentSkill																											VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Gather Information																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Gather Information|1|TYPE=Talent.STACK						SOURCEPAGE:p.20
-Talent +1 on Handle Animal					CATEGORY:Special Ability	TYPE:DawnElfTalentSkill.GnomeTalentSkill.TruebornTalentSkill																								VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Handle Animal																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Handle Animal|1|TYPE=Talent.STACK							SOURCEPAGE:p.20
-Talent +1 on Heal							CATEGORY:Special Ability	TYPE:DawnElfTalentSkill.GnomeTalentSkill.LowlanderTalentSkill.LizardTalentSkill																					VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Heal																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Heal|1|TYPE=Talent.STACK								SOURCEPAGE:p.20
-Talent +1 on Intimidate						CATEGORY:Special Ability	TYPE:DoppelTalentSkill.DawnElfTalentSkill.LowlanderTalentSkill.SaltbloodTalentSkill.MinotaurTalentSkill.OgreTalentSkill.OrcTalentSkill.TieflingTalentSkill.TruebornTalentFeat						VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Intimidate																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Intimidate|1|TYPE=Talent.STACK							SOURCEPAGE:p.22
+Talent +1 on Decipher Script					CATEGORY:Special Ability	TYPE:HalflingTalentSkill.ThinbloodTalentSkill																											VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Decipher Script																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Decipher Script|1|TYPE=Talent.STACK							SOURCEPAGE:p.20
+Talent +1 on Diplomacy						CATEGORY:Special Ability	TYPE:HalflingTalentSkill.LowlanderTalentSkill.TruebornTalentSkill.TieflingTalentSkill.ThinbloodTalentSkill																	VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Diplomacy																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Diplomacy|1|TYPE=Talent.STACK								SOURCEPAGE:p.20
+Talent +1 on Disable Device					CATEGORY:Special Ability	TYPE:HalflingTalentSkill.LowlanderTalentSkill																											VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Disable Device																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Disable Device|1|TYPE=Talent.STACK							SOURCEPAGE:p.20
+Talent +1 on Disguise						CATEGORY:Special Ability	TYPE:HalflingTalentSkill																														VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Disguise																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Disguise|1|TYPE=Talent.STACK								SOURCEPAGE:p.20
+Talent +1 on Forgery						CATEGORY:Special Ability	TYPE:HalflingTalentSkill																														VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Forgery																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Forgery|1|TYPE=Talent.STACK								SOURCEPAGE:p.20
+Talent +1 on Gather Information				CATEGORY:Special Ability	TYPE:HalflingTalentSkill.SaltbloodTalentSkill																											VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Gather Information																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Gather Information|1|TYPE=Talent.STACK						SOURCEPAGE:p.20
+Talent +1 on Handle Animal					CATEGORY:Special Ability	TYPE:DawnElfTalentSkill.GnomeTalentSkill.TruebornTalentSkill																								VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Handle Animal																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Handle Animal|1|TYPE=Talent.STACK							SOURCEPAGE:p.20
+Talent +1 on Heal							CATEGORY:Special Ability	TYPE:DawnElfTalentSkill.GnomeTalentSkill.LowlanderTalentSkill.LizardTalentSkill																					VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Heal																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Heal|1|TYPE=Talent.STACK								SOURCEPAGE:p.20
+Talent +1 on Intimidate						CATEGORY:Special Ability	TYPE:DoppelTalentSkill.DawnElfTalentSkill.LowlanderTalentSkill.SaltbloodTalentSkill.MinotaurTalentSkill.OgreTalentSkill.OrcTalentSkill.TieflingTalentSkill.TruebornTalentFeat						VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Intimidate																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Intimidate|1|TYPE=Talent.STACK							SOURCEPAGE:p.22
 Talent +1 on Knowledge Skills					CATEGORY:Special Ability	TYPE:SaltbloodTalentSkill																														VISIBLE:DISPLAY																			PRETEXT:A skill may receive no more than a +3 talent bonus from this ability	STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	BONUS:SKILL|%LIST|1|TYPE=Talent.STACK								SOURCEPAGE:p.22
-Talent +1 on Knowledge (Arcana)				CATEGORY:Special Ability	TYPE:TalentKnowSkill.DwarfTalentSkill.DawnElfTalentSkill.GnomeTalentSkill.TruebornTalentSkill																			VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Knowledge (Arcana)																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Knowledge (Arcana)|1|TYPE=Talent.STACK						SOURCEPAGE:p.22
-Talent +1 on Knowledge (Architecture and Engineering)	CATEGORY:Special Ability	TYPE:TalentKnowSkill.DwarfTalentSkill.MinotaurTalentSkill.OgreTalentSkill																						VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Knowledge (Architecture and Engineering)														STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Knowledge (Architecture and Engineering)|1|TYPE=Talent.STACK		SOURCEPAGE:p.22
-Talent +1 on Knowledge (Dungeoneering)			CATEGORY:Special Ability	TYPE:TalentKnowSkill.DwarfTalentSkill.NightElfTalentSkill.TruebornTalentSkill.LizardTalentSkill.MinotaurTalentSkill.OgreTalentSkill.OrcTalentSkill										VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Knowledge (Dungeoneering)																	STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Knowledge (Dungeoneering)|1|TYPE=Talent.STACK					SOURCEPAGE:p.22
-Talent +1 on Knowledge (Geography)				CATEGORY:Special Ability	TYPE:TalentKnowSkill.DoppelTalentSkill.DwarfTalentSkill.DawnElfTalentSkill.NightElfTalentSkill.GnomeTalentSkill.TruebornTalentSkill.LizardTalentSkill.MinotaurTalentSkill.OgreTalentSkill.OrcTalentSkill	VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Knowledge (Geography)																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Knowledge (Geography)|1|TYPE=Talent.STACK						SOURCEPAGE:p.22
-Talent +1 on Knowledge (History)				CATEGORY:Special Ability	TYPE:TalentKnowSkill.DoppelTalentSkill.TruebornTalentSkill.LizardTalentSkill																						VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Knowledge (History)																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Knowledge (History)|1|TYPE=Talent.STACK						SOURCEPAGE:p.22
-Talent +1 on Knowledge (Local)				CATEGORY:Special Ability	TYPE:TalentKnowSkill.DoppelTalentSkill.DwarfTalentSkill.DawnElfTalentSkill.NightElfTalentSkill.GnomeTalentSkill.TruebornTalentSkill.LizardTalentSkill.MinotaurTalentSkill.OgreTalentSkill.OrcTalentSkill	VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Knowledge (Local)																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Knowledge (Local)|1|TYPE=Talent.STACK						SOURCEPAGE:p.22
-Talent +1 on Knowledge (Nature)				CATEGORY:Special Ability	TYPE:TalentKnowSkill.DawnElfTalentSkill.NightElfTalentSkill.GnomeTalentSkill.LizardTalentSkill.OrcTalentSkill																VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Knowledge (Nature)																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Knowledge (Nature)|1|TYPE=Talent.STACK						SOURCEPAGE:p.22
-Talent +1 on Knowledge (Nobility and Royalty)		CATEGORY:Special Ability	TYPE:TalentKnowSkill.DwarfTalentSkill.TruebornTalentSkill																									VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Knowledge (Nobility and Royalty)																STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Knowledge (Nobility and Royalty)|1|TYPE=Talent.STACK				SOURCEPAGE:p.22
-Talent +1 on Knowledge (Religion)				CATEGORY:Special Ability	TYPE:TalentKnowSkill.DwarfTalentSkill.DawnElfTalentSkill.NightElfTalentSkill.GnomeTalentSkill.TruebornTalentSkill																VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Knowledge (Religion)																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Knowledge (Religion)|1|TYPE=Talent.STACK						SOURCEPAGE:p.22
-Talent +1 on Knowledge (The Planes)				CATEGORY:Special Ability	TYPE:TalentKnowSkill.DawnElfTalentSkill.NightElfTalentSkill.GnomeTalentSkill.TruebornTalentSkill																		VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Knowledge (The Planes)																	STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Knowledge (The Planes)|1|TYPE=Talent.STACK					SOURCEPAGE:p.22
-Talent +1 on Listen						CATEGORY:Special Ability	TYPE:DoppelTalentSkill.NightElfTalentSkill.GnomeTalentSkill.LizardTalentSkill.OgreTalentSkill.TruebornTalentFeat																VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Listen																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Listen|1|TYPE=Talent.STACK								SOURCEPAGE:p.22
-Talent +1 on Open Lock						CATEGORY:Special Ability	TYPE:HalflingTalentSkill.OgreTalentSkill																												VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Open Lock																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Open Lock|1|TYPE=Talent.STACK								SOURCEPAGE:p.22
+Talent +1 on Knowledge (Arcana)				CATEGORY:Special Ability	TYPE:TalentKnowSkill.DwarfTalentSkill.DawnElfTalentSkill.GnomeTalentSkill.TruebornTalentSkill																			VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Knowledge (Arcana)																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Knowledge (Arcana)|1|TYPE=Talent.STACK						SOURCEPAGE:p.22
+Talent +1 on Knowledge (Architecture and Engineering)	CATEGORY:Special Ability	TYPE:TalentKnowSkill.DwarfTalentSkill.MinotaurTalentSkill.OgreTalentSkill																						VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Knowledge (Architecture and Engineering)														STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Knowledge (Architecture and Engineering)|1|TYPE=Talent.STACK		SOURCEPAGE:p.22
+Talent +1 on Knowledge (Dungeoneering)			CATEGORY:Special Ability	TYPE:TalentKnowSkill.DwarfTalentSkill.NightElfTalentSkill.TruebornTalentSkill.LizardTalentSkill.MinotaurTalentSkill.OgreTalentSkill.OrcTalentSkill										VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Knowledge (Dungeoneering)																	STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Knowledge (Dungeoneering)|1|TYPE=Talent.STACK					SOURCEPAGE:p.22
+Talent +1 on Knowledge (Geography)				CATEGORY:Special Ability	TYPE:TalentKnowSkill.DoppelTalentSkill.DwarfTalentSkill.DawnElfTalentSkill.NightElfTalentSkill.GnomeTalentSkill.TruebornTalentSkill.LizardTalentSkill.MinotaurTalentSkill.OgreTalentSkill.OrcTalentSkill	VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Knowledge (Geography)																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Knowledge (Geography)|1|TYPE=Talent.STACK						SOURCEPAGE:p.22
+Talent +1 on Knowledge (History)				CATEGORY:Special Ability	TYPE:TalentKnowSkill.DoppelTalentSkill.TruebornTalentSkill.LizardTalentSkill																						VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Knowledge (History)																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Knowledge (History)|1|TYPE=Talent.STACK						SOURCEPAGE:p.22
+Talent +1 on Knowledge (Local)				CATEGORY:Special Ability	TYPE:TalentKnowSkill.DoppelTalentSkill.DwarfTalentSkill.DawnElfTalentSkill.NightElfTalentSkill.GnomeTalentSkill.TruebornTalentSkill.LizardTalentSkill.MinotaurTalentSkill.OgreTalentSkill.OrcTalentSkill	VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Knowledge (Local)																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Knowledge (Local)|1|TYPE=Talent.STACK						SOURCEPAGE:p.22
+Talent +1 on Knowledge (Nature)				CATEGORY:Special Ability	TYPE:TalentKnowSkill.DawnElfTalentSkill.NightElfTalentSkill.GnomeTalentSkill.LizardTalentSkill.OrcTalentSkill																VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Knowledge (Nature)																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Knowledge (Nature)|1|TYPE=Talent.STACK						SOURCEPAGE:p.22
+Talent +1 on Knowledge (Nobility and Royalty)		CATEGORY:Special Ability	TYPE:TalentKnowSkill.DwarfTalentSkill.TruebornTalentSkill																									VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Knowledge (Nobility and Royalty)																STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Knowledge (Nobility and Royalty)|1|TYPE=Talent.STACK				SOURCEPAGE:p.22
+Talent +1 on Knowledge (Religion)				CATEGORY:Special Ability	TYPE:TalentKnowSkill.DwarfTalentSkill.DawnElfTalentSkill.NightElfTalentSkill.GnomeTalentSkill.TruebornTalentSkill																VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Knowledge (Religion)																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Knowledge (Religion)|1|TYPE=Talent.STACK						SOURCEPAGE:p.22
+Talent +1 on Knowledge (The Planes)				CATEGORY:Special Ability	TYPE:TalentKnowSkill.DawnElfTalentSkill.NightElfTalentSkill.GnomeTalentSkill.TruebornTalentSkill																		VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Knowledge (The Planes)																	STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Knowledge (The Planes)|1|TYPE=Talent.STACK					SOURCEPAGE:p.22
+Talent +1 on Listen						CATEGORY:Special Ability	TYPE:DoppelTalentSkill.NightElfTalentSkill.GnomeTalentSkill.LizardTalentSkill.OgreTalentSkill.TruebornTalentFeat																VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Listen																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Listen|1|TYPE=Talent.STACK								SOURCEPAGE:p.22
+Talent +1 on Open Lock						CATEGORY:Special Ability	TYPE:HalflingTalentSkill.OgreTalentSkill																												VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Open Lock																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Open Lock|1|TYPE=Talent.STACK								SOURCEPAGE:p.22
 Talent +1 on Perform Skills					CATEGORY:Special Ability	TYPE:HalflingTalentSkill.LowlanderTalentSkill.SaltbloodTalentSkill																							VISIBLE:DISPLAY																			PRETEXT:A skill may receive no more than a +3 talent bonus from this ability	STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Profession	BONUS:SKILL|%LIST|1|TYPE=Talent.STACK	BONUS:SKILL|%LIST|1|TYPE=Talent.STACK	SOURCEPAGE:p.22
 Talent +1 on Profession Skills				CATEGORY:Special Ability	TYPE:DoppelTalentSkill.DwarfTalentSkill.DawnElfTalentSkill.NightElfTalentSkill.GnomeTalentSkill.HalflingTalentSkill.LowlanderTalentSkill.SaltbloodTalentSkill.TruebornTalentSkill					VISIBLE:DISPLAY																			PRETEXT:A skill may receive no more than a +3 talent bonus from this ability	STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Profession	BONUS:SKILL|%LIST|1|TYPE=Talent.STACK								SOURCEPAGE:p.22
-Talent +1 on Search						CATEGORY:Special Ability	TYPE:DawnElfTalentSkill.NightElfTalentSkill.TruebornTalentFeat																								VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Search																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Search|1|TYPE=Talent.STACK								SOURCEPAGE:p.20
-Talent +1 on Sense Motive					CATEGORY:Special Ability	TYPE:DoppelTalentSkill.GnomeTalentSkill.HalflingTalentSkill.LowlanderTalentSkill.SaltbloodTalentSkill.LizardTalentSkill.ThinbloodTalentSkill.TruebornTalentFeat								VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Sense Motive																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Sense Motive|1|TYPE=Talent.STACK							SOURCEPAGE:p.22
-Talent +1 on Sleight of Hand					CATEGORY:Special Ability	TYPE:HalflingTalentSkill																														VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Sleight of Hand																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Sleight of Hand|1|TYPE=Talent.STACK							SOURCEPAGE:p.22
-Talent +1 on Speak Language					CATEGORY:Special Ability	TYPE:OgreTalentSkill.TieflingTalentSkill																												VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Speak Language																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Speak Language|1|TYPE=Talent.STACK							SOURCEPAGE:p.20
-Talent +1 on Spellcraft						CATEGORY:Special Ability	TYPE:DawnElfTalentSkill.GnomeTalentSkill.HalflingTalentSkill																								VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Spellcraft																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Spellcraft|1|TYPE=Talent.STACK							SOURCEPAGE:p.20
-Talent +1 on Spot							CATEGORY:Special Ability	TYPE:DoppelTalentSkill.DawnElfTalentSkill.NightElfTalentSkill.GnomeTalentSkill.SaltbloodTalentSkill.LizardTalentSkill.MinotaurTalentSkill.TruebornTalentFeat								VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Spot																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Spot|1|TYPE=Talent.STACK								SOURCEPAGE:p.22
-Talent +1 on Survival						CATEGORY:Special Ability	TYPE:DawnElfTalentSkill.SaltbloodTalentSkill.LizardTalentSkill.OrcTalentSkill																						VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Survival																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:SKILL|Survival|1|TYPE=Talent.STACK								SOURCEPAGE:p.20
+Talent +1 on Search						CATEGORY:Special Ability	TYPE:DawnElfTalentSkill.NightElfTalentSkill.TruebornTalentFeat																								VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Search																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Search|1|TYPE=Talent.STACK								SOURCEPAGE:p.20
+Talent +1 on Sense Motive					CATEGORY:Special Ability	TYPE:DoppelTalentSkill.GnomeTalentSkill.HalflingTalentSkill.LowlanderTalentSkill.SaltbloodTalentSkill.LizardTalentSkill.ThinbloodTalentSkill.TruebornTalentFeat								VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Sense Motive																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Sense Motive|1|TYPE=Talent.STACK							SOURCEPAGE:p.22
+Talent +1 on Sleight of Hand					CATEGORY:Special Ability	TYPE:HalflingTalentSkill																														VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Sleight of Hand																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Sleight of Hand|1|TYPE=Talent.STACK							SOURCEPAGE:p.22
+Talent +1 on Speak Language					CATEGORY:Special Ability	TYPE:OgreTalentSkill.TieflingTalentSkill																												VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Speak Language																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Speak Language|1|TYPE=Talent.STACK							SOURCEPAGE:p.20
+Talent +1 on Spellcraft						CATEGORY:Special Ability	TYPE:DawnElfTalentSkill.GnomeTalentSkill.HalflingTalentSkill																								VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Spellcraft																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Spellcraft|1|TYPE=Talent.STACK							SOURCEPAGE:p.20
+Talent +1 on Spot							CATEGORY:Special Ability	TYPE:DoppelTalentSkill.DawnElfTalentSkill.NightElfTalentSkill.GnomeTalentSkill.SaltbloodTalentSkill.LizardTalentSkill.MinotaurTalentSkill.TruebornTalentFeat								VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Spot																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Spot|1|TYPE=Talent.STACK								SOURCEPAGE:p.22
+Talent +1 on Survival						CATEGORY:Special Ability	TYPE:DawnElfTalentSkill.SaltbloodTalentSkill.LizardTalentSkill.OrcTalentSkill																						VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Talent +1 on Survival																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:SKILL|Survival|1|TYPE=Talent.STACK								SOURCEPAGE:p.20
 
 ###Block: Transformation Skills
 # Ability Name				Category of Ability		Type																																												Visible		Restricted Ability												Stackable?	Multiple?	Choose		Bonus to skill								Source Page
@@ -65,15 +65,15 @@ Transformation +1 on Use Rope		CATEGORY:Special Ability	TYPE:TransfSkill.Halflin
 #####################
 
 ###Block: Generic Racial Talents
-# Ability Name		Category of Ability		Type																								Visible		Required Class				Required Lvl	Multiple?	Template				Source Page
-Arcane Mastery		CATEGORY:Special Ability	TYPE:DawnElfRacialTalent.SpecialQuality.NightElfRacialTalent.GnomeRacialTalent.HalflingRacialTalent.LowlanderRacialTalent.TieflingRacialTalent	VISIBLE:YES		PRECLASS:1,SPELLCASTER.Arcane=1										SOURCEPAGE:p.25
-Divine Mastery		CATEGORY:Special Ability	TYPE:DwarfRacialTalent.SpecialQuality.GnomeRacialTalent.LowlanderRacialTalent.TruebornRacialTalent								VISIBLE:YES		PRECLASS:1,SPELLCASTER.Divine=1										SOURCEPAGE:p.22
-Fast Learner		CATEGORY:Special Ability	TYPE:HalflingRacialTalent.SpecialQuality.HighlanderRacialTalent.LowlanderRacialTalent.SaltbloodRacialTalent							VISIBLE:YES																	SOURCEPAGE:p.32
+# Ability Name		Category of Ability		Type																								Visible		Required Class				Required Lvl	Template				Source Page
+Arcane Mastery		CATEGORY:Special Ability	TYPE:DawnElfRacialTalent.SpecialQuality.NightElfRacialTalent.GnomeRacialTalent.HalflingRacialTalent.LowlanderRacialTalent.TieflingRacialTalent	VISIBLE:YES		PRECLASS:1,SPELLCASTER.Arcane=1									SOURCEPAGE:p.25
+Divine Mastery		CATEGORY:Special Ability	TYPE:DwarfRacialTalent.SpecialQuality.GnomeRacialTalent.LowlanderRacialTalent.TruebornRacialTalent								VISIBLE:YES		PRECLASS:1,SPELLCASTER.Divine=1									SOURCEPAGE:p.22
+Fast Learner		CATEGORY:Special Ability	TYPE:HalflingRacialTalent.SpecialQuality.HighlanderRacialTalent.LowlanderRacialTalent.SaltbloodRacialTalent							VISIBLE:YES																SOURCEPAGE:p.32
 
 #TODO: Divine Mastery and Arcane Mastery need Spell choosers
 
 ### Generic Racial Transformations
-Monstrous Humanoid	CATEGORY:Special Ability	TYPE:MinotaurRacialTransformation.DoppelRacialTransformation														VISIBLE:DISPLAY							PRELEVEL:MIN=6		TEMPLATE:Monstrous Humanoid	SOURCEPAGE:p.47
+Monstrous Humanoid	CATEGORY:Special Ability	TYPE:MinotaurRacialTransformation.DoppelRacialTransformation														VISIBLE:DISPLAY							PRELEVEL:MIN=6	TEMPLATE:Monstrous Humanoid	SOURCEPAGE:p.47
 
 ####################
 ### Doppelganger ###
@@ -81,11 +81,11 @@ Monstrous Humanoid	CATEGORY:Special Ability	TYPE:MinotaurRacialTransformation.Do
 
 ###Block: Racial Talents and Transformations
 # Ability Name			Category of Ability		Type							Visible		Required Ability																	Required Lvl	Required Text									Stackable?	Multiple?	Choose		Template				Bonus to Ability Pool					Source Page
-Additional Alternate Form	CATEGORY:Special Ability	TYPE:DoppelRacialTalent				VISIBLE:DISPLAY																																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:ABILITYPOOL|Doppelganger Alternate Form|1	SOURCEPAGE:p.19
-Form Mastery			CATEGORY:Special Ability	TYPE:DoppelRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,TYPE.DoppelAltForm	PREABILITY:1,CATEGORY=Special Ability,Quick Form	PRELEVEL:MIN=7																															SOURCEPAGE:p.19
-Deception				CATEGORY:Special Ability	TYPE:DoppelRacialTalent.SpecialQuality	VISIBLE:YES																																									TEMPLATE:Deception Talent									SOURCEPAGE:p.19
-Improvised Equipment		CATEGORY:Special Ability	TYPE:DoppelRacialTalent.SpecialQuality	VISIBLE:YES																																																						SOURCEPAGE:p.19
-Quick Form				CATEGORY:Special Ability	TYPE:DoppelRacialTalent.SpecialQuality	VISIBLE:YES																																																						SOURCEPAGE:p.20
+Additional Alternate Form	CATEGORY:Special Ability	TYPE:DoppelRacialTalent				VISIBLE:DISPLAY																																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:ABILITYPOOL|Doppelganger Alternate Form|1	SOURCEPAGE:p.19
+Form Mastery			CATEGORY:Special Ability	TYPE:DoppelRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,TYPE.DoppelAltForm	PREABILITY:1,CATEGORY=Special Ability,Quick Form	PRELEVEL:MIN=7																																SOURCEPAGE:p.19
+Deception				CATEGORY:Special Ability	TYPE:DoppelRacialTalent.SpecialQuality	VISIBLE:YES																																										TEMPLATE:Deception Talent									SOURCEPAGE:p.19
+Improvised Equipment		CATEGORY:Special Ability	TYPE:DoppelRacialTalent.SpecialQuality	VISIBLE:YES																																																							SOURCEPAGE:p.19
+Quick Form				CATEGORY:Special Ability	TYPE:DoppelRacialTalent.SpecialQuality	VISIBLE:YES																																																							SOURCEPAGE:p.20
 Doppelganger Talent Skills	CATEGORY:Special Ability	TYPE:DoppelRacialTalent				VISIBLE:DISPLAY																																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:ABILITYPOOL|Doppelganger Talent Skill|5	SOURCEPAGE:p.20
 Doppelganger Talent Feats	CATEGORY:Special Ability	TYPE:DoppelRacialTalent				VISIBLE:DISPLAY																							PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:ABILITYPOOL|Doppelganger Talent Feat|1	SOURCEPAGE:p.20
 
@@ -112,11 +112,11 @@ Alternate Form (Thinblood Yuan-ti)	CATEGORY:Special Ability	TYPE:DoppelAltForm.S
 
 ###Block: Racial Transformations
 # Ability Name				Unique Key					Category of Ability		Type								Visible		Required Lvl	Required Text									Define				Description				Stackable?	Multiple?	Choose		Bonus to Ability Pool						Combat bonus					Modify VAR				Add to vision			Source Page
-Doppelganger Darkvision									CATEGORY:Special Ability	TYPE:DoppelRacialTransformation			VISIBLE:DISPLAY	PRELEVEL:MIN=4																																																	BONUS:VISION|DarkVision|60	SOURCEPAGE:p.20
-Detect Thoughts				KEY:Doppelganger Detect Thoughts	CATEGORY:Special Ability	TYPE:DoppelRacialTransformation.SpecialQuality	VISIBLE:YES		PRELEVEL:MIN=6																																																						SOURCEPAGE:p.20
+Doppelganger Darkvision									CATEGORY:Special Ability	TYPE:DoppelRacialTransformation			VISIBLE:DISPLAY	PRELEVEL:MIN=4																																																		BONUS:VISION|DarkVision|60	SOURCEPAGE:p.20
+Detect Thoughts				KEY:Doppelganger Detect Thoughts	CATEGORY:Special Ability	TYPE:DoppelRacialTransformation.SpecialQuality	VISIBLE:YES		PRELEVEL:MIN=6																																																							SOURCEPAGE:p.20
 Unusal Physiology										CATEGORY:Special Ability	TYPE:DoppelRacialTransformation.SpecialQuality	VISIBLE:YES																DEFINE:UnusalPhysiology|0	DESC:%1|UnusalPhysiology	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																	BONUS:VAR|UnusalPhysiology|10						SOURCEPAGE:p.20
 Change Shape				KEY:Doppelganger Change Shape		CATEGORY:Special Ability	TYPE:DoppelRacialTransformation.SpecialQuality	VISIBLE:YES		PRELEVEL:MIN=6												DEFINE:ChangeShape|0		DESC:%1/day|ChangeShape		STACK:YES	MULT:YES	CHOOSE:NOCHOICE																	BONUS:VAR|ChangeShape|1							SOURCEPAGE:p.20
-Doppelganger Natural Armor								CATEGORY:Special Ability	TYPE:DoppelRacialTransformation			VISIBLE:DISPLAY																																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK											SOURCEPAGE:p.20
+Doppelganger Natural Armor								CATEGORY:Special Ability	TYPE:DoppelRacialTransformation			VISIBLE:DISPLAY																																									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK											SOURCEPAGE:p.20
 Doppelganger Transformation Skills							CATEGORY:Special Ability	TYPE:DoppelRacialTransformation			VISIBLE:DISPLAY																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Doppelganger Transformation Skill|5																		SOURCEPAGE:p.22
 Doppelganger Transformation Feats							CATEGORY:Special Ability	TYPE:DoppelRacialTransformation			VISIBLE:DISPLAY				PRETEXT:This racial trait may not be selected twice in a row											STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Doppelganger Transformation Feat|1																		SOURCEPAGE:p.22
 
@@ -126,18 +126,18 @@ Doppelganger Transformation Feats							CATEGORY:Special Ability	TYPE:DoppelRaci
 
 ###Block: Racial Talents
 # Ability Name			Category of Ability		Type							Visible		Required Ability										Required Lvl	Required Text									Stackable?	Multiple?	Choose		Template			Bonus to Ability Pool				Modify VAR				Source Page
-Craft Magic Arms and Armor I	CATEGORY:Special Ability	TYPE:DwarfRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Identify Magic Arms and Armor																																					SOURCEPAGE:p.22
-Craft Magic Arms and Armor II	CATEGORY:Special Ability	TYPE:DwarfRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Craft Magic Arms and Armor I	PRELEVEL:MIN=7																																		SOURCEPAGE:p.22
+Craft Magic Arms and Armor I	CATEGORY:Special Ability	TYPE:DwarfRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Identify Magic Arms and Armor																																						SOURCEPAGE:p.22
+Craft Magic Arms and Armor II	CATEGORY:Special Ability	TYPE:DwarfRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Craft Magic Arms and Armor I	PRELEVEL:MIN=7																																			SOURCEPAGE:p.22
 Giant Fighter			CATEGORY:Special Ability	TYPE:DwarfRacialTalent				VISIBLE:DISPLAY																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE												BONUS:VAR|DwarfGiantFighter|1	SOURCEPAGE:p.22
-Identify Magic Arms and Armor	CATEGORY:Special Ability	TYPE:DwarfRacialTalent.SpecialQuality	VISIBLE:YES																																																		SOURCEPAGE:p.22
-Sabotage				CATEGORY:Special Ability	TYPE:DwarfRacialTalent				VISIBLE:DISPLAY																																	TEMPLATE:Dwarf Sabotage													SOURCEPAGE:p.22
+Identify Magic Arms and Armor	CATEGORY:Special Ability	TYPE:DwarfRacialTalent.SpecialQuality	VISIBLE:YES																																																			SOURCEPAGE:p.22
+Sabotage				CATEGORY:Special Ability	TYPE:DwarfRacialTalent				VISIBLE:DISPLAY																																		TEMPLATE:Dwarf Sabotage													SOURCEPAGE:p.22
 Dwarf Talent Skills		CATEGORY:Special Ability	TYPE:DwarfRacialTalent				VISIBLE:DISPLAY																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:ABILITYPOOL|Dwarf Talent Skill|5						SOURCEPAGE:p.22
 Dwarf Talent Feats		CATEGORY:Special Ability	TYPE:DwarfRacialTalent				VISIBLE:DISPLAY																PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE					BONUS:ABILITYPOOL|Dwarf Talent Feat|1						SOURCEPAGE:p.22
 
 ###Block: Racial Transformations
 # Ability Name			Category of Ability		Type								Visible		Required Lvl	Required Text									Stackable?	Multiple?	Choose		Move			Bonus to Ability Pool					Damage reduction	Bonus to skill				Add to vision			Source Page
-Dwarf Darkvision			CATEGORY:Special Ability	TYPE:DwarfRacialTransformation			VISIBLE:DISPLAY	PRELEVEL:MIN=4																																						BONUS:VISION|DarkVision|60	SOURCEPAGE:p.22
-Improved Climber			CATEGORY:Special Ability	TYPE:DwarfRacialTransformation.SpecialQuality	VISIBLE:YES																						MOVE:Climb,10												BONUS:SKILL|Climb|8|TYPE=Racial						SOURCEPAGE:p.22
+Dwarf Darkvision			CATEGORY:Special Ability	TYPE:DwarfRacialTransformation			VISIBLE:DISPLAY	PRELEVEL:MIN=4																																							BONUS:VISION|DarkVision|60	SOURCEPAGE:p.22
+Improved Climber			CATEGORY:Special Ability	TYPE:DwarfRacialTransformation.SpecialQuality	VISIBLE:YES																							MOVE:Climb,10												BONUS:SKILL|Climb|8|TYPE=Racial						SOURCEPAGE:p.22
 Dwarf Damage Reduction		CATEGORY:Special Ability	TYPE:DwarfRacialTransformation			VISIBLE:DISPLAY				PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE												BONUS:DR|-|1												SOURCEPAGE:p.22
 Dwarf Transformation Skills	CATEGORY:Special Ability	TYPE:DwarfRacialTransformation			VISIBLE:DISPLAY															STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:ABILITYPOOL|Dwarf Transformation Skill|5															SOURCEPAGE:p.22
 Dwarf Transformation Feats	CATEGORY:Special Ability	TYPE:DwarfRacialTransformation			VISIBLE:DISPLAY				PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:ABILITYPOOL|Dwarf Transformation Feat|1															SOURCEPAGE:p.22
@@ -148,19 +148,19 @@ Dwarf Transformation Feats	CATEGORY:Special Ability	TYPE:DwarfRacialTransformati
 
 ###Block: Racial Talents
 # Ability Name				Output Name					Category of Ability		Type									Visible		Required Ability								Required Lvl	Required Text									Define				Description				Stackable?	Multiple?	Choose		Bonus to Ability Pool				Combat bonus										Modify VAR				Source Page		Temporary effect description
-Dawn Elf Lesser Spellcasting I	OUTPUTNAME:Lesser Spellcasting I	CATEGORY:Special Ability	TYPE:DawnElfRacialTalent.SpecialQuality			VISIBLE:YES																																																																		SOURCEPAGE:p.25
-Dawn Elf Lesser Spellcasting II	OUTPUTNAME:Lesser Spellcasting II	CATEGORY:Special Ability	TYPE:DawnElfRacialTalent.SpecialQuality			VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Lesser Spellcasting I	PRELEVEL:MIN=7																																																				SOURCEPAGE:p.25
-Voice of the Woodlands									CATEGORY:Special Ability	TYPE:DawnElfRacialTalent.SpecialQuality			VISIBLE:YES																																																																		SOURCEPAGE:p.25
+Dawn Elf Lesser Spellcasting I	OUTPUTNAME:Lesser Spellcasting I	CATEGORY:Special Ability	TYPE:DawnElfRacialTalent.SpecialQuality			VISIBLE:YES																																																																			SOURCEPAGE:p.25
+Dawn Elf Lesser Spellcasting II	OUTPUTNAME:Lesser Spellcasting II	CATEGORY:Special Ability	TYPE:DawnElfRacialTalent.SpecialQuality			VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Lesser Spellcasting I	PRELEVEL:MIN=7																																																					SOURCEPAGE:p.25
+Voice of the Woodlands									CATEGORY:Special Ability	TYPE:DawnElfRacialTalent.SpecialQuality			VISIBLE:YES																																																																			SOURCEPAGE:p.25
 Woodland Fighting										CATEGORY:Special Ability	TYPE:DawnElfRacialTalent.SpecialQuality.AttackOption	VISIBLE:YES															PRETEXT:This racial trait may not be selected twice in a row	DEFINE:WoodlandFighting|0	DESC:+%1|WoodlandFighting	STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:COMBAT|TOHIT|WoodlandFighting|PREAPPLY:PC|TYPE=WoodlandFighting	BONUS:VAR|WoodlandFighting|1	SOURCEPAGE:p.25	TEMPDESC:Apply this bonus when fighting in woodland areas
 Dawn Elf Talent Skills									CATEGORY:Special Ability	TYPE:DawnElfRacialTalent					VISIBLE:DISPLAY																																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Dawn Elf Talent Skill|5																		SOURCEPAGE:p.25
 Dawn Elf Talent Feats									CATEGORY:Special Ability	TYPE:DawnElfRacialTalent					VISIBLE:DISPLAY														PRETEXT:This racial trait may not be selected twice in a row											STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Dawn Elf Talent Feat|1																		SOURCEPAGE:p.25
 
 ###Block: Racial Transformations
 # Ability Name				Unique Key			Category of Ability		Type								Visible		Required Text									Stackable?	Multiple?	Choose		Ability							Bonus to Ability Pool						Source Page
-Elfsight									CATEGORY:Special Ability	TYPE:DawnElfRacialTransformation.SpecialQuality	VISIBLE:YES																																				SOURCEPAGE:p.25
-Improved Spell Immunity							CATEGORY:Special Ability	TYPE:DawnElfRacialTransformation.SpecialQuality	VISIBLE:YES																																				SOURCEPAGE:p.25
-Wild Empathy				KEY:Elf Wild Empathy	CATEGORY:Special Ability	TYPE:DawnElfRacialTransformation			VISIBLE:DISPLAY																		ABILITY:Special Ability|AUTOMATIC|Wild Empathy										SOURCEPAGE:p.25
-Ageless									CATEGORY:Special Ability	TYPE:DawnElfRacialTransformation.SpecialQuality	VISIBLE:YES																																				SOURCEPAGE:p.25
+Elfsight									CATEGORY:Special Ability	TYPE:DawnElfRacialTransformation.SpecialQuality	VISIBLE:YES																																					SOURCEPAGE:p.25
+Improved Spell Immunity							CATEGORY:Special Ability	TYPE:DawnElfRacialTransformation.SpecialQuality	VISIBLE:YES																																					SOURCEPAGE:p.25
+Wild Empathy				KEY:Elf Wild Empathy	CATEGORY:Special Ability	TYPE:DawnElfRacialTransformation			VISIBLE:DISPLAY																			ABILITY:Special Ability|AUTOMATIC|Wild Empathy										SOURCEPAGE:p.25
+Ageless									CATEGORY:Special Ability	TYPE:DawnElfRacialTransformation.SpecialQuality	VISIBLE:YES																																					SOURCEPAGE:p.25
 Dawn Elf Transformation Skills					CATEGORY:Special Ability	TYPE:DawnElfRacialTransformation			VISIBLE:DISPLAY												STACK:YES	MULT:YES	CHOOSE:NOCHOICE									BONUS:ABILITYPOOL|Dawn Elf Transformation Skill|5	SOURCEPAGE:p.22
 Dawn Elf Transformation Feats						CATEGORY:Special Ability	TYPE:DawnElfRacialTransformation			VISIBLE:DISPLAY	PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE									BONUS:ABILITYPOOL|Dawn Elf Transformation Feat|1	SOURCEPAGE:p.22
 
@@ -172,18 +172,18 @@ Dawn Elf Transformation Feats						CATEGORY:Special Ability	TYPE:DawnElfRacialTr
 
 ###Block: Racial Talents
 # Ability Name		Unique Key			Category of Ability		Type							Visible		Required Lvl	Required Text									Define			Description				Stackable?	Multiple?	Choose		Bonus to Ability Pool					Modify VAR			Source Page
-Unusual Stealth						CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality	VISIBLE:YES																																											SOURCEPAGE:p.27
-Spider's Bite						CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialAttack	VISIBLE:YES		PRELEVEL:MIN=5																																							SOURCEPAGE:p.27
+Unusual Stealth						CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality	VISIBLE:YES																																												SOURCEPAGE:p.27
+Spider's Bite						CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialAttack	VISIBLE:YES		PRELEVEL:MIN=5																																								SOURCEPAGE:p.27
 Shadow Jump			KEY:Elf Shadow Jump	CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality	VISIBLE:YES		PRELEVEL:MIN=7												DEFINE:ShadowJump|0	DESC:up to %1ft.|ShadowJump	STACK:YES	MULT:YES	CHOOSE:NOCHOICE									BONUS:VAR|ShadowJump|40	SOURCEPAGE:p.27
 Night Elf Talent Skills					CATEGORY:Special Ability	TYPE:NightElfRacialTalent			VISIBLE:DISPLAY																								STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Night Elf Talent Skill|5					SOURCEPAGE:p.27
 Night Elf Talent Feats					CATEGORY:Special Ability	TYPE:NightElfRacialTalent			VISIBLE:DISPLAY				PRETEXT:This racial trait may not be selected twice in a row										STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Night Elf Talent Feat|1						SOURCEPAGE:p.27
 
 ###Block: Racial Transformations
 # Ability Name				Category of Ability		Type						Visible		Required Ability									Required Lvl	Required Text									Stackable?	Multiple?	Choose		Bonus to Ability Pool						Misc bonus		Add to vision			Source Page
-Night Elf Darkvision			CATEGORY:Special Ability	TYPE:NightElfRacialTransformation	VISIBLE:DISPLAY																																												BONUS:VISION|DarkVision|60	SOURCEPAGE:p.27
-Full Spell Resistance			CATEGORY:Special Ability	TYPE:NightElfRacialTransformation	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Moderate Spell Resistance	PRELEVEL:MIN=10																											BONUS:MISC|SR|5						SOURCEPAGE:p.27
-Minor Spell Resistance			CATEGORY:Special Ability	TYPE:NightElfRacialTransformation	VISIBLE:DISPLAY																																									BONUS:MISC|SR|5						SOURCEPAGE:p.27
-Moderate Spell Resistance		CATEGORY:Special Ability	TYPE:NightElfRacialTransformation	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Minor Spell Resistance	PRELEVEL:MIN=6																											BONUS:MISC|SR|5						SOURCEPAGE:p.27
+Night Elf Darkvision			CATEGORY:Special Ability	TYPE:NightElfRacialTransformation	VISIBLE:DISPLAY																																													BONUS:VISION|DarkVision|60	SOURCEPAGE:p.27
+Full Spell Resistance			CATEGORY:Special Ability	TYPE:NightElfRacialTransformation	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Moderate Spell Resistance	PRELEVEL:MIN=10																												BONUS:MISC|SR|5						SOURCEPAGE:p.27
+Minor Spell Resistance			CATEGORY:Special Ability	TYPE:NightElfRacialTransformation	VISIBLE:DISPLAY																																										BONUS:MISC|SR|5						SOURCEPAGE:p.27
+Moderate Spell Resistance		CATEGORY:Special Ability	TYPE:NightElfRacialTransformation	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Minor Spell Resistance	PRELEVEL:MIN=6																												BONUS:MISC|SR|5						SOURCEPAGE:p.27
 Night Elf Transformation Skills	CATEGORY:Special Ability	TYPE:NightElfRacialTransformation	VISIBLE:DISPLAY																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Night Elf Transformation Skill|5									SOURCEPAGE:p.27
 Night Elf Transformation Feats	CATEGORY:Special Ability	TYPE:NightElfRacialTransformation	VISIBLE:DISPLAY															PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Night Elf Transformation Feat|1									SOURCEPAGE:p.27
 
@@ -195,19 +195,19 @@ Night Elf Transformation Feats	CATEGORY:Special Ability	TYPE:NightElfRacialTrans
 
 ###Block: Racial Talents
 # Ability Name		Category of Ability		Type							Visible		Required Ability								Required Lvl	Required Text									Stackable?	Multiple?	Choose		Bonus to Ability Pool				Source Page
-Fey Gift I			CATEGORY:Special Ability	TYPE:GnomeRacialTalent.SpecialQuality	VISIBLE:YES																																							SOURCEPAGE:p.30
-Fey Gift II			CATEGORY:Special Ability	TYPE:GnomeRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Fey Gift I		PRELEVEL:MIN=7																									SOURCEPAGE:p.30
-Potion Mastery I		CATEGORY:Special Ability	TYPE:GnomeRacialTalent.SpecialQuality	VISIBLE:YES																																							SOURCEPAGE:p.30
-Potion Mastery II		CATEGORY:Special Ability	TYPE:GnomeRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Potion Mastery I																												SOURCEPAGE:p.30
+Fey Gift I			CATEGORY:Special Ability	TYPE:GnomeRacialTalent.SpecialQuality	VISIBLE:YES																																								SOURCEPAGE:p.30
+Fey Gift II			CATEGORY:Special Ability	TYPE:GnomeRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Fey Gift I		PRELEVEL:MIN=7																										SOURCEPAGE:p.30
+Potion Mastery I		CATEGORY:Special Ability	TYPE:GnomeRacialTalent.SpecialQuality	VISIBLE:YES																																								SOURCEPAGE:p.30
+Potion Mastery II		CATEGORY:Special Ability	TYPE:GnomeRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Potion Mastery I																													SOURCEPAGE:p.30
 Gnome Talent Skills	CATEGORY:Special Ability	TYPE:GnomeRacialTalent				VISIBLE:DISPLAY																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Gnome Talent Skill|5	SOURCEPAGE:p.30
 Gnome Talent Feats	CATEGORY:Special Ability	TYPE:GnomeRacialTalent				VISIBLE:DISPLAY														PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Gnome Talent Feat|1	SOURCEPAGE:p.30
 
 ###Block: Racial Transformations
 # Ability Name			Category of Ability		Type								Visible		Required Ability						Required Text									Stackable?	Multiple?	Choose		Bonus to Ability Pool					Damage reduction	Source Page
 Gnome Damage Reduction		CATEGORY:Special Ability	TYPE:GnomeRacialTransformation			VISIBLE:DISPLAY									PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE									BONUS:DR|-|1	SOURCEPAGE:p.30
-Ghosting				CATEGORY:Special Ability	TYPE:GnomeRacialTransformation.SpecialQuality	VISIBLE:YES																																						SOURCEPAGE:p.30
-Fading				CATEGORY:Special Ability	TYPE:GnomeRacialTransformation.SpecialQuality	VISIBLE:YES																																						SOURCEPAGE:p.30
-Improved Fading			CATEGORY:Special Ability	TYPE:GnomeRacialTransformation.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Fading																													SOURCEPAGE:p.30
+Ghosting				CATEGORY:Special Ability	TYPE:GnomeRacialTransformation.SpecialQuality	VISIBLE:YES																																							SOURCEPAGE:p.30
+Fading				CATEGORY:Special Ability	TYPE:GnomeRacialTransformation.SpecialQuality	VISIBLE:YES																																							SOURCEPAGE:p.30
+Improved Fading			CATEGORY:Special Ability	TYPE:GnomeRacialTransformation.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Fading																														SOURCEPAGE:p.30
 Gnome Transformation Skills	CATEGORY:Special Ability	TYPE:GnomeRacialTransformation			VISIBLE:DISPLAY																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Gnome Transformation Skill|5				SOURCEPAGE:p.30
 Gnome Transformation Feats	CATEGORY:Special Ability	TYPE:GnomeRacialTransformation			VISIBLE:DISPLAY									PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Gnome Transformation Feat|1				SOURCEPAGE:p.30
 
@@ -219,14 +219,14 @@ Gnome Transformation Feats	CATEGORY:Special Ability	TYPE:GnomeRacialTransformati
 
 ###Block: Racial Talents
 # Ability Name		Category of Ability		Type							Visible		Required Text									Stackable?	Multiple?	Choose		Bonus to Ability Pool				Source Page
-Incredible Luck		CATEGORY:Special Ability	TYPE:HalflingRacialTalent.SpecialQuality	VISIBLE:YES																										SOURCEPAGE:p.32
+Incredible Luck		CATEGORY:Special Ability	TYPE:HalflingRacialTalent.SpecialQuality	VISIBLE:YES																											SOURCEPAGE:p.32
 Halfling Talent Skills	CATEGORY:Special Ability	TYPE:HalflingRacialTalent			VISIBLE:DISPLAY												STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Halfling Talent Skill|5	SOURCEPAGE:p.32
 Halfling Talent Feats	CATEGORY:Special Ability	TYPE:HalflingRacialTalent			VISIBLE:DISPLAY	PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Halfling Talent Feat|1	SOURCEPAGE:p.32
 
 ###Block: Racial Transformations
 # Ability Name				Output Name				Category of Ability		Type									Visible		Required Text									Define			Description			Stackable?	Multiple?	Choose		Bonus to Ability Pool						Modify VAR			Source Page
-Halfling Animal Companion		OUTPUTNAME:Animal Companion	CATEGORY:Special Ability	TYPE:HalflingRacialTransformation.SpecialQuality	VISIBLE:YES																																								SOURCEPAGE:p.32
-Good First Impression								CATEGORY:Special Ability	TYPE:HalflingRacialTransformation.SpecialQuality	VISIBLE:YES																																								SOURCEPAGE:p.32
+Halfling Animal Companion		OUTPUTNAME:Animal Companion	CATEGORY:Special Ability	TYPE:HalflingRacialTransformation.SpecialQuality	VISIBLE:YES																																									SOURCEPAGE:p.32
+Good First Impression								CATEGORY:Special Ability	TYPE:HalflingRacialTransformation.SpecialQuality	VISIBLE:YES																																									SOURCEPAGE:p.32
 Quick Feet										CATEGORY:Special Ability	TYPE:HalflingRacialTransformation.SpecialQuality	VISIBLE:YES													DEFINE:QuickFeet|0	DESC:+%1ft.|QuickFeet	STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|QuickFeet|5	SOURCEPAGE:p.32
 Halfling Transformation Skills						CATEGORY:Special Ability	TYPE:HalflingRacialTransformation				VISIBLE:DISPLAY																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Halfling Transformation Skill|5					SOURCEPAGE:p.32
 Halfling Transformation Feats							CATEGORY:Special Ability	TYPE:HalflingRacialTransformation				VISIBLE:DISPLAY	PRETEXT:This racial trait may not be selected twice in a row									STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Halfling Transformation Feat|1					SOURCEPAGE:p.32
@@ -239,9 +239,9 @@ Halfling Transformation Feats							CATEGORY:Special Ability	TYPE:HalflingRacial
 
 ###Block: Racial Talents
 # Ability Name		Category of Ability		Type								Visible		Required Text									Stackable?	Multiple?	Choose		Bonus to Ability Pool					Source Page
-Clan Favored Weapon	CATEGORY:Special Ability	TYPE:HighlanderRacialTalent.SpecialQuality	VISIBLE:YES																											SOURCEPAGE:p.32
+Clan Favored Weapon	CATEGORY:Special Ability	TYPE:HighlanderRacialTalent.SpecialQuality	VISIBLE:YES																												SOURCEPAGE:p.32
 Highlander Talent Feats	CATEGORY:Special Ability	TYPE:HighlanderRacialTalent				VISIBLE:DISPLAY	PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Highlander Talent Feat|1	SOURCEPAGE:p.32
-Voice of the Highlands	CATEGORY:Special Ability	TYPE:HighlanderRacialTalent.SpecialQuality	VISIBLE:YES																											SOURCEPAGE:p.32
+Voice of the Highlands	CATEGORY:Special Ability	TYPE:HighlanderRacialTalent.SpecialQuality	VISIBLE:YES																												SOURCEPAGE:p.32
 
 ###Block: Racial Transformations
 # Ability Name				Output Name				Category of Ability		Type									Visible		Required Text									Define				Description				Stackable?	Multiple?	Choose		Bonus to Ability Pool						Add to base move			Modify VAR				Source Page
@@ -258,7 +258,7 @@ Highlander Transformation Feats						CATEGORY:Special Ability	TYPE:HighlanderRac
 
 ###Block: Racial Talents
 # Ability Name		Category of Ability		Type							Visible		Required Text									Define			Description			Stackable?	Multiple?	Choose		Bonus to Ability Pool					Modify VAR				Source Page
-Connected			CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES																																								SOURCEPAGE:p.37
+Connected			CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES																																									SOURCEPAGE:p.37
 Group Fighter		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES													DEFINE:GroupFighter|0	DESC:+%1|GroupFighter	STACK:YES	MULT:YES	CHOOSE:NOCHOICE									BONUS:VAR|GroupFighter|1	SOURCEPAGE:p.37
 Lowlander Talent Skills	CATEGORY:Special Ability	TYPE:LowlanderRacialTalent			VISIBLE:DISPLAY																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Lowlander Talent Skill|5						SOURCEPAGE:p.37
 Lowlander Talent Feats	CATEGORY:Special Ability	TYPE:LowlanderRacialTalent			VISIBLE:DISPLAY	PRETEXT:This racial trait may not be selected twice in a row									STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Lowlander Talent Feat|1							SOURCEPAGE:p.37
@@ -266,7 +266,7 @@ Lowlander Talent Feats	CATEGORY:Special Ability	TYPE:LowlanderRacialTalent			VIS
 ###Block: Racial Transformations
 # Ability Name				Output Name				Category of Ability		Type									Visible		Required Text									Stackable?	Multiple?	Choose		Bonus to Ability Pool						Save checks bonus		Add to base move			Source Page
 Lowlander Fast Movement			OUTPUTNAME:Fast Movement	CATEGORY:Special Ability	TYPE:LowlanderRacialTransformation.SpecialQuality	VISIBLE:YES		PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE														BONUS:MOVEADD|TYPE.Walk|10	SOURCEPAGE:p.40
-Great Swimmer									CATEGORY:Special Ability	TYPE:LowlanderRacialTransformation.SpecialQuality	VISIBLE:YES																																					SOURCEPAGE:p.40
+Great Swimmer									CATEGORY:Special Ability	TYPE:LowlanderRacialTransformation.SpecialQuality	VISIBLE:YES																																						SOURCEPAGE:p.40
 Strength of Body Mind and Spirit						CATEGORY:Special Ability	TYPE:LowlanderRacialTransformation.SpecialQuality	VISIBLE:YES													STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:CHECKS|ALL|1						SOURCEPAGE:p.40
 Lowlander Transformation Skills						CATEGORY:Special Ability	TYPE:LowlanderRacialTransformation				VISIBLE:DISPLAY												STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Lowlander Transformation Skill|5										SOURCEPAGE:p.40
 Lowlander Transformation Feats						CATEGORY:Special Ability	TYPE:LowlanderRacialTransformation				VISIBLE:DISPLAY	PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Lowlander Transformation Feat|1										SOURCEPAGE:p.40
@@ -278,16 +278,16 @@ Lowlander Transformation Feats						CATEGORY:Special Ability	TYPE:LowlanderRacia
 ###Block: Racial Talents
 # Ability Name		Category of Ability		Type							Visible		Required Text									Stackable?	Multiple?	Choose		Bonus to Ability Pool					Combat bonus			Source Page
 Danger Sense		CATEGORY:Special Ability	TYPE:SaltbloodRacialTalent.SpecialQuality	VISIBLE:YES													STACK:YES	MULT:YES	CHOOSE:NOCHOICE									BONUS:COMBAT|INITIATIVE|4	SOURCEPAGE:p.39
-Ignore Pain			CATEGORY:Special Ability	TYPE:SaltbloodRacialTalent.SpecialQuality	VISIBLE:YES																																SOURCEPAGE:p.39
+Ignore Pain			CATEGORY:Special Ability	TYPE:SaltbloodRacialTalent.SpecialQuality	VISIBLE:YES																																	SOURCEPAGE:p.39
 Saltblood Talent Skills	CATEGORY:Special Ability	TYPE:SaltbloodRacialTalent			VISIBLE:DISPLAY												STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Saltblood Talent Skill|5						SOURCEPAGE:p.39
 Saltblood Talent Feats	CATEGORY:Special Ability	TYPE:SaltbloodRacialTalent			VISIBLE:DISPLAY	PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Saltblood Talent Feat|1							SOURCEPAGE:p.39
 
 ###Block: Racial Transformations
 # Ability Name				Unique Key				Category of Ability		Type									Visible		Required Ability							Required Lvl	Required Text									Stackable?	Multiple?	Choose		Move			Bonus to Ability Pool						Damage reduction	Add to base move			Source Page
-Hold Breath					KEY:Saltblood Hold Breath	CATEGORY:Special Ability	TYPE:SaltbloodRacialTransformation.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Perfect Swimmer																																									SOURCEPAGE:p.40
+Hold Breath					KEY:Saltblood Hold Breath	CATEGORY:Special Ability	TYPE:SaltbloodRacialTransformation.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Perfect Swimmer																																										SOURCEPAGE:p.40
 Saltblood Damage Reduction							CATEGORY:Special Ability	TYPE:SaltbloodRacialTransformation				VISIBLE:DISPLAY																								STACK:YES	MULT:YES	CHOOSE:NOCHOICE													BONUS:DR|-|1						SOURCEPAGE:p.40
-Natural Swimmer									CATEGORY:Special Ability	TYPE:SaltbloodRacialTransformation.SpecialQuality	VISIBLE:YES											PRELEVEL:MIN=4																		MOVE:Swim,10																		SOURCEPAGE:p.40
-Perfect Swimmer									CATEGORY:Special Ability	TYPE:SaltbloodRacialTransformation.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Natural Swimmer																																				BONUS:MOVEADD|TYPE.Swim|10	SOURCEPAGE:p.40
+Natural Swimmer									CATEGORY:Special Ability	TYPE:SaltbloodRacialTransformation.SpecialQuality	VISIBLE:YES											PRELEVEL:MIN=4																			MOVE:Swim,10																		SOURCEPAGE:p.40
+Perfect Swimmer									CATEGORY:Special Ability	TYPE:SaltbloodRacialTransformation.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Natural Swimmer																																					BONUS:MOVEADD|TYPE.Swim|10	SOURCEPAGE:p.40
 Saltblood Transformation Skills						CATEGORY:Special Ability	TYPE:SaltbloodRacialTransformation				VISIBLE:DISPLAY																								STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:ABILITYPOOL|Saltblood Transformation Skill|5									SOURCEPAGE:p.40
 Saltblood Transformation Feats						CATEGORY:Special Ability	TYPE:SaltbloodRacialTransformation				VISIBLE:DISPLAY													PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:ABILITYPOOL|Saltblood Transformation Feat|1									SOURCEPAGE:p.40
 
@@ -298,24 +298,24 @@ Saltblood Transformation Feats						CATEGORY:Special Ability	TYPE:SaltbloodRacia
 
 ###Block: Racial Talents
 # Ability Name				Output Name					Category of Ability		Type							Visible		Required Ability								Required Lvl	Required Text									Define			Description			Stackable?	Multiple?	Choose		Bonus to Ability Pool				Modify VAR			Source Page
-Trueborn Lesser Spellcasting I	OUTPUTNAME:Lesser Spellcasting I	CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality	VISIBLE:YES																																																			SOURCEPAGE:p.41
-Trueborn Lesser Spellcasting II	OUTPUTNAME:Lesser Spellcasting II	CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Lesser Spellcasting I	PRELEVEL:MIN=7																																					SOURCEPAGE:p.41
+Trueborn Lesser Spellcasting I	OUTPUTNAME:Lesser Spellcasting I	CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality	VISIBLE:YES																																																				SOURCEPAGE:p.41
+Trueborn Lesser Spellcasting II	OUTPUTNAME:Lesser Spellcasting II	CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Lesser Spellcasting I	PRELEVEL:MIN=7																																						SOURCEPAGE:p.41
 Trueborn Talent Skills									CATEGORY:Special Ability	TYPE:TruebornRacialTalent			VISIBLE:DISPLAY																																	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Trueborn Talent Skill|5					SOURCEPAGE:p.41
 Trueborn Talent Feats									CATEGORY:Special Ability	TYPE:TruebornRacialTalent			VISIBLE:DISPLAY														PRETEXT:This racial trait may not be selected twice in a row									STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Trueborn Talent Feat|1					SOURCEPAGE:p.41
 Horse Shield										CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality	VISIBLE:YES															PRETEXT:This racial trait may not be selected twice in a row	DEFINE:HorseShield|0	DESC:+%1|HorseShield	STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:VAR|HorseShield|2	SOURCEPAGE:p.41
-Natural Rider										CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality	VISIBLE:YES																																																			SOURCEPAGE:p.41
-Mounted Warrior										CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality	VISIBLE:YES																																																			SOURCEPAGE:p.41
+Natural Rider										CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality	VISIBLE:YES																																																				SOURCEPAGE:p.41
+Mounted Warrior										CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality	VISIBLE:YES																																																				SOURCEPAGE:p.41
 
 #TODO: Lesser Spellcasting ..
 
 ###Block: Racial Transformations
 # Ability Name				Unique Key				Category of Ability		Type									Visible		Required Ability								Required Lvl	Required Text									Stackable?	Multiple?	Choose		Template				Ability							Bonus to Ability Pool						Combat bonus				Add to vision			Spell Res.	Source Page
-Trueborn Outsider									CATEGORY:Special Ability	TYPE:TruebornRacialTransformation				VISIBLE:DISPLAY											PRELEVEL:MIN=6																		TEMPLATE:Trueborn Outsider																															SOURCEPAGE:p.41
-Aura of Good				KEY:Trueborn Aura of Good	CATEGORY:Special Ability	TYPE:TruebornRacialTransformation				VISIBLE:DISPLAY																																				ABILITY:Special Ability|AUTOMATIC|Aura of Good																							SOURCEPAGE:p.41
-Trueborn Natural Armor								CATEGORY:Special Ability	TYPE:TruebornRacialTransformation				VISIBLE:DISPLAY																																																					BONUS:COMBAT|AC|1|TYPE=NaturalArmor								SOURCEPAGE:p.41
-Trueborn Spell Resistance							CATEGORY:Special Ability	TYPE:TruebornRacialTransformation				VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Trueborn Aura of Good	PRELEVEL:MIN=6																																																			SR:5+TL	SOURCEPAGE:p.41
-Angel Wings										CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality	VISIBLE:YES												PRELEVEL:MIN=8																																																					SOURCEPAGE:p.41
-Trueborn Darkvision								CATEGORY:Special Ability	TYPE:TruebornRacialTransformation				VISIBLE:DISPLAY											PRELEVEL:MIN=4																																														BONUS:VISION|DarkVision|60			SOURCEPAGE:p.41
+Trueborn Outsider									CATEGORY:Special Ability	TYPE:TruebornRacialTransformation				VISIBLE:DISPLAY											PRELEVEL:MIN=6																			TEMPLATE:Trueborn Outsider																															SOURCEPAGE:p.41
+Aura of Good				KEY:Trueborn Aura of Good	CATEGORY:Special Ability	TYPE:TruebornRacialTransformation				VISIBLE:DISPLAY																																					ABILITY:Special Ability|AUTOMATIC|Aura of Good																							SOURCEPAGE:p.41
+Trueborn Natural Armor								CATEGORY:Special Ability	TYPE:TruebornRacialTransformation				VISIBLE:DISPLAY																																																						BONUS:COMBAT|AC|1|TYPE=NaturalArmor								SOURCEPAGE:p.41
+Trueborn Spell Resistance							CATEGORY:Special Ability	TYPE:TruebornRacialTransformation				VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Trueborn Aura of Good	PRELEVEL:MIN=6																																																				SR:5+TL	SOURCEPAGE:p.41
+Angel Wings										CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality	VISIBLE:YES												PRELEVEL:MIN=8																																																						SOURCEPAGE:p.41
+Trueborn Darkvision								CATEGORY:Special Ability	TYPE:TruebornRacialTransformation				VISIBLE:DISPLAY											PRELEVEL:MIN=4																																															BONUS:VISION|DarkVision|60			SOURCEPAGE:p.41
 Trueborn Transformation Skills						CATEGORY:Special Ability	TYPE:TruebornRacialTransformation				VISIBLE:DISPLAY																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE														BONUS:ABILITYPOOL|Trueborn Transformation Skill|5														SOURCEPAGE:p.41
 Trueborn Transformation Feats							CATEGORY:Special Ability	TYPE:TruebornRacialTransformation				VISIBLE:DISPLAY														PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE														BONUS:ABILITYPOOL|Trueborn Transformation Feat|1														SOURCEPAGE:p.41
 
@@ -325,9 +325,9 @@ Trueborn Transformation Feats							CATEGORY:Special Ability	TYPE:TruebornRacial
 
 ###Block: Racial Talents
 # Ability Name			Category of Ability		Type							Visible		Required Ability									Required Text									Define					Description					Stackable?	Multiple?	Choose		Bonus to Ability Pool					Modify VAR									Weapon prof. bonus													Source Page		Natural Attacks
-Natural Weapon Mastery I	CATEGORY:Special Ability	TYPE:LizardRacialTalent.SpecialQuality	VISIBLE:YES																																																																												SOURCEPAGE:p.44	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
-Natural Weapon Mastery II	CATEGORY:Special Ability	TYPE:LizardRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Natural Weapon Mastery I																																																																SOURCEPAGE:p.44	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6
-Natural Weapon Mastery III	CATEGORY:Special Ability	TYPE:LizardRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Natural Weapon Mastery II																																																BONUS:WEAPONPROF=Tail Sweep|DAMAGEMULT:0|.5	BONUS:WEAPONPROF=Tail Sweep|DAMAGEMULT:1|.5	SOURCEPAGE:p.44	NATURALATTACKS:Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d4|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d4
+Natural Weapon Mastery I	CATEGORY:Special Ability	TYPE:LizardRacialTalent.SpecialQuality	VISIBLE:YES																																																																													SOURCEPAGE:p.44	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
+Natural Weapon Mastery II	CATEGORY:Special Ability	TYPE:LizardRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Natural Weapon Mastery I																																																																	SOURCEPAGE:p.44	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6
+Natural Weapon Mastery III	CATEGORY:Special Ability	TYPE:LizardRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Natural Weapon Mastery II																																																	BONUS:WEAPONPROF=Tail Sweep|DAMAGEMULT:0|.5	BONUS:WEAPONPROF=Tail Sweep|DAMAGEMULT:1|.5	SOURCEPAGE:p.44	NATURALATTACKS:Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d4|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d4
 Primitive Weapon Mastery	CATEGORY:Special Ability	TYPE:LizardRacialTalent.SpecialQuality	VISIBLE:YES																								DEFINE:PrimitiveWeaponMastery|0	DESC:+%1|PrimitiveWeaponMastery	STACK:YES	MULT:YES	CHOOSE:NOCHOICE									BONUS:VAR|PrimitiveWeaponMastery|1|TYPE=RacialTalent.STACK																	SOURCEPAGE:p.44
 Lizardfolk Talent Skills	CATEGORY:Special Ability	TYPE:LizardRacialTalent				VISIBLE:DISPLAY																																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Lizardfolk Talent Skill|5																											SOURCEPAGE:p.22
 Lizardfolk Talent Feats		CATEGORY:Special Ability	TYPE:LizardRacialTalent				VISIBLE:DISPLAY												PRETEXT:This racial trait may not be selected twice in a row													STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Lizardfolk Talent Feat|1																											SOURCEPAGE:p.22
@@ -336,10 +336,10 @@ Lizardfolk Talent Feats		CATEGORY:Special Ability	TYPE:LizardRacialTalent				VIS
 
 ###Block: Racial Transformations
 # Ability Name				Category of Ability		Type								Visible		Required Lvl	Required Text									Stackable?	Multiple?	Choose		Ability						Bonus to Ability Pool						Combat bonus					Add to vision			Source Page
-Breathe Water				CATEGORY:Special Ability	TYPE:LizardRacialTransformation.SpecialQuality	VISIBLE:YES																																																		SOURCEPAGE:p.45
+Breathe Water				CATEGORY:Special Ability	TYPE:LizardRacialTransformation.SpecialQuality	VISIBLE:YES																																																			SOURCEPAGE:p.45
 Lizardfolk Natural Armor		CATEGORY:Special Ability	TYPE:LizardRacialTransformation			VISIBLE:DISPLAY															STACK:YES	MULT:YES	CHOOSE:NOCHOICE																	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK						SOURCEPAGE:p.45
-Lizardfolk Scent				CATEGORY:Special Ability	TYPE:LizardRacialTransformation			VISIBLE:DISPLAY																					ABILITY:Special Ability|AUTOMATIC|Scent																						SOURCEPAGE:p.45
-Lizardfolk Darkvision			CATEGORY:Special Ability	TYPE:LizardRacialTransformation			VISIBLE:DISPLAY	PRELEVEL:MIN=6																																									BONUS:VISION|DarkVision|60	SOURCEPAGE:p.45
+Lizardfolk Scent				CATEGORY:Special Ability	TYPE:LizardRacialTransformation			VISIBLE:DISPLAY																						ABILITY:Special Ability|AUTOMATIC|Scent																						SOURCEPAGE:p.45
+Lizardfolk Darkvision			CATEGORY:Special Ability	TYPE:LizardRacialTransformation			VISIBLE:DISPLAY	PRELEVEL:MIN=6																																										BONUS:VISION|DarkVision|60	SOURCEPAGE:p.45
 Lizardfolk Transformation Skills	CATEGORY:Special Ability	TYPE:LizardRacialTransformation			VISIBLE:DISPLAY															STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:ABILITYPOOL|Lizardfolk Transformation Skill|5													SOURCEPAGE:p.45
 Lizardfolk Transformation Feats	CATEGORY:Special Ability	TYPE:LizardRacialTransformation			VISIBLE:DISPLAY				PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:ABILITYPOOL|Lizardfolk Transformation Feat|1													SOURCEPAGE:p.45
 
@@ -349,21 +349,21 @@ Lizardfolk Transformation Feats	CATEGORY:Special Ability	TYPE:LizardRacialTransf
 
 ###Block: Racial Talents
 # Ability Name		Unique Key				Category of Ability		Type							Visible		Required Text									Stackable?	Multiple?	Choose		Bonus to Ability Pool				Bonus to HP			Weapon prof. bonus					Source Page		Natural Attacks
-Gore									CATEGORY:Special Ability	TYPE:MinotaurRacialTalent			VISIBLE:DISPLAY																													BONUS:WEAPONPROF=Gore|DAMAGE|-STR/2			SOURCEPAGE:p.46	NATURALATTACKS:Gore,Weapon.Melee.Natural.Piercing,*1,1d8
-Powerful Charge		KEY:Minotaur Powerful Charge	CATEGORY:Special Ability	TYPE:MinotaurRacialTalent			VISIBLE:DISPLAY																													BONUS:WEAPONPROF=Powerful Charge|DAMAGE|STR/2	SOURCEPAGE:p.46	NATURALATTACKS:Powerful Charge,Weapon.Melee.Natural.Piercing,*1,4d6
+Gore									CATEGORY:Special Ability	TYPE:MinotaurRacialTalent			VISIBLE:DISPLAY																														BONUS:WEAPONPROF=Gore|DAMAGE|-STR/2			SOURCEPAGE:p.46	NATURALATTACKS:Gore,Weapon.Melee.Natural.Piercing,*1,1d8
+Powerful Charge		KEY:Minotaur Powerful Charge	CATEGORY:Special Ability	TYPE:MinotaurRacialTalent			VISIBLE:DISPLAY																														BONUS:WEAPONPROF=Powerful Charge|DAMAGE|STR/2	SOURCEPAGE:p.46	NATURALATTACKS:Powerful Charge,Weapon.Melee.Natural.Piercing,*1,4d6
 Minotaur Talent Skills						CATEGORY:Special Ability	TYPE:MinotaurRacialTalent			VISIBLE:DISPLAY												STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Minotaur Talent Skill|5													SOURCEPAGE:p.46
 Minotaur Talent Feats						CATEGORY:Special Ability	TYPE:MinotaurRacialTalent			VISIBLE:DISPLAY	PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Minotaur Talent Feat|1													SOURCEPAGE:p.46
 #TODO: need to code Gore as a natural weapon so Weapon Focus(Gore) can be taken...add to Talent Feats..
-Robust								CATEGORY:Special Ability	TYPE:MinotaurRacialTalent.SpecialQuality	VISIBLE:YES																										BONUS:HP|CURRENTMAX|TL									SOURCEPAGE:p.46
-Second Wind								CATEGORY:Special Ability	TYPE:MinotaurRacialTalent.SpecialQuality	VISIBLE:YES																																						SOURCEPAGE:p.47
-Stamina								CATEGORY:Special Ability	TYPE:MinotaurRacialTalent.SpecialQuality	VISIBLE:YES																																						SOURCEPAGE:p.47
+Robust								CATEGORY:Special Ability	TYPE:MinotaurRacialTalent.SpecialQuality	VISIBLE:YES																											BONUS:HP|CURRENTMAX|TL									SOURCEPAGE:p.46
+Second Wind								CATEGORY:Special Ability	TYPE:MinotaurRacialTalent.SpecialQuality	VISIBLE:YES																																							SOURCEPAGE:p.47
+Stamina								CATEGORY:Special Ability	TYPE:MinotaurRacialTalent.SpecialQuality	VISIBLE:YES																																							SOURCEPAGE:p.47
 
 ###Block: Racial Transformations
 # Ability Name				Category of Ability		Type						Visible		Required Lvl	Required Text									Stackable?	Multiple?	Choose		Template				Ability						Bonus to Ability Pool						Combat bonus					Add to vision			Source Page
-Minotaur Darkvision			CATEGORY:Special Ability	TYPE:MinotaurRacialTransformation	VISIBLE:DISPLAY	PRELEVEL:MIN=6																																														BONUS:VISION|DarkVision|60	SOURCEPAGE:p.47
+Minotaur Darkvision			CATEGORY:Special Ability	TYPE:MinotaurRacialTransformation	VISIBLE:DISPLAY	PRELEVEL:MIN=6																																															BONUS:VISION|DarkVision|60	SOURCEPAGE:p.47
 Minotaur Natural Armor			CATEGORY:Special Ability	TYPE:MinotaurRacialTransformation	VISIBLE:DISPLAY															STACK:YES	MULT:YES	CHOOSE:NOCHOICE																						BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK						SOURCEPAGE:p.47
-Minotaur Large Size			CATEGORY:Special Ability	TYPE:MinotaurRacialTransformation	VISIBLE:DISPLAY	PRELEVEL:MIN=6																		TEMPLATE:Minotaur Large Size																													SOURCEPAGE:p.47
-Minotaur Scent				CATEGORY:Special Ability	TYPE:MinotaurRacialTransformation	VISIBLE:DISPLAY																										ABILITY:Special Ability|AUTOMATIC|Scent																						SOURCEPAGE:p.47
+Minotaur Large Size			CATEGORY:Special Ability	TYPE:MinotaurRacialTransformation	VISIBLE:DISPLAY	PRELEVEL:MIN=6																			TEMPLATE:Minotaur Large Size																													SOURCEPAGE:p.47
+Minotaur Scent				CATEGORY:Special Ability	TYPE:MinotaurRacialTransformation	VISIBLE:DISPLAY																											ABILITY:Special Ability|AUTOMATIC|Scent																						SOURCEPAGE:p.47
 Minotaur Transformation Skills	CATEGORY:Special Ability	TYPE:MinotaurRacialTransformation	VISIBLE:DISPLAY															STACK:YES	MULT:YES	CHOOSE:NOCHOICE													BONUS:ABILITYPOOL|Minotaur Transformation Skill|5													SOURCEPAGE:p.47
 Minotaur Transformation Feats		CATEGORY:Special Ability	TYPE:MinotaurRacialTransformation	VISIBLE:DISPLAY				PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE													BONUS:ABILITYPOOL|Minotaur Transformation Feat|1													SOURCEPAGE:p.47
 
@@ -374,16 +374,16 @@ Minotaur Transformation Feats		CATEGORY:Special Ability	TYPE:MinotaurRacialTrans
 # Ability Name			Output Name					Category of Ability		Type							Visible		Required Text									Define			Description				Stackable?	Multiple?	Choose		Bonus to Ability Pool				Combat bonus						Bonus to skill		Bonus to skill point/L		Modify VAR				Source Page
 Ogre Favored Weapons								CATEGORY:Special Ability	TYPE:OgreRacialTalent.SpecialQuality	VISIBLE:YES																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:COMBAT|TOHIT.Piercing|1|TYPE=Talent.STACK															SOURCEPAGE:p.48
 Ogre Feat of Strength								CATEGORY:Special Ability	TYPE:OgreRacialTalent.SpecialQuality	VISIBLE:YES													DEFINE:FeatOfStrength|0	DESC:%1/day|FeatOfStrength	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																									BONUS:VAR|FeatOfStrength|1	SOURCEPAGE:p.48
-Ogre Intellectual Curiosity	OUTPUTNAME:Intellectual Curiosity	CATEGORY:Special Ability	TYPE:OgreRacialTalent.SpecialQuality	VISIBLE:YES																																											BONUS:SKILL|STAT.INT|1	BONUS:SKILLPOINTS|NUMBER|1						SOURCEPAGE:p.48
-Ogre Keep the Distance		OUTPUTNAME:Keep the Distance		CATEGORY:Special Ability	TYPE:OgreRacialTalent.SpecialQuality	VISIBLE:YES																																																									SOURCEPAGE:p.48
+Ogre Intellectual Curiosity	OUTPUTNAME:Intellectual Curiosity	CATEGORY:Special Ability	TYPE:OgreRacialTalent.SpecialQuality	VISIBLE:YES																																												BONUS:SKILL|STAT.INT|1	BONUS:SKILLPOINTS|NUMBER|1						SOURCEPAGE:p.48
+Ogre Keep the Distance		OUTPUTNAME:Keep the Distance		CATEGORY:Special Ability	TYPE:OgreRacialTalent.SpecialQuality	VISIBLE:YES																																																										SOURCEPAGE:p.48
 Ogre Talent Skills								CATEGORY:Special Ability	TYPE:OgreRacialTalent				VISIBLE:DISPLAY																					STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Ogre Talent Skill|5																							SOURCEPAGE:p.48
 Ogre Talent Feats									CATEGORY:Special Ability	TYPE:OgreRacialTalent				VISIBLE:DISPLAY	PRETEXT:This racial trait may not be selected twice in a row										STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Ogre Talent Feat|1																							SOURCEPAGE:p.48
 
 ###Block: Racial Transformations
 # Ability Name			Category of Ability		Type					Visible		Required Lvl	Required Size	Required Text									Stackable?	Multiple?	Choose		Template				Bonus to Ability Pool					Combat bonus					Add to vision			Source Page
-Ogre Darkvision			CATEGORY:Special Ability	TYPE:OgreRacialTransformation	VISIBLE:DISPLAY																																												BONUS:VISION|DarkVision|60	SOURCEPAGE:p.49
-Ogre Large Size			CATEGORY:Special Ability	TYPE:OgreRacialTransformation	VISIBLE:DISPLAY	PRELEVEL:MIN=6																					TEMPLATE:Ogre Large Size																					SOURCEPAGE:p.49
-Ogre Giant				CATEGORY:Special Ability	TYPE:OgreRacialTransformation	VISIBLE:DISPLAY	PRELEVEL:MIN=8	PRESIZEEQ:L																			TEMPLATE:Ogre Giant																						SOURCEPAGE:p.49
+Ogre Darkvision			CATEGORY:Special Ability	TYPE:OgreRacialTransformation	VISIBLE:DISPLAY																																													BONUS:VISION|DarkVision|60	SOURCEPAGE:p.49
+Ogre Large Size			CATEGORY:Special Ability	TYPE:OgreRacialTransformation	VISIBLE:DISPLAY	PRELEVEL:MIN=6																						TEMPLATE:Ogre Large Size																					SOURCEPAGE:p.49
+Ogre Giant				CATEGORY:Special Ability	TYPE:OgreRacialTransformation	VISIBLE:DISPLAY	PRELEVEL:MIN=8	PRESIZEEQ:L																				TEMPLATE:Ogre Giant																						SOURCEPAGE:p.49
 Ogre Natural Armor		CATEGORY:Special Ability	TYPE:OgreRacialTransformation	VISIBLE:DISPLAY																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE														BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK						SOURCEPAGE:p.49
 Ogre Transformation Skills	CATEGORY:Special Ability	TYPE:OgreRacialTransformation	VISIBLE:DISPLAY																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:ABILITYPOOL|Ogre Transformation Skill|5													SOURCEPAGE:p.49
 Ogre Transformation Feats	CATEGORY:Special Ability	TYPE:OgreRacialTransformation	VISIBLE:DISPLAY							PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:ABILITYPOOL|Ogre Transformation Feat|1													SOURCEPAGE:p.49
@@ -402,7 +402,7 @@ Orc Talent Feats				CATEGORY:Special Ability	TYPE:OrcRacialTalent			VISIBLE:DISP
 ###Block: Racial Transformations
 # Ability Name			Category of Ability		Type					Visible		Required Lvl	Required Text									Stackable?	Multiple?	Choose		Bonus to Ability Pool					Damage reduction	Add to vision			Source Page
 Orc Damage Reduction		CATEGORY:Special Ability	TYPE:OrcRacialTransformation	VISIBLE:DISPLAY															STACK:YES	MULT:YES	CHOOSE:NOCHOICE									BONUS:DR|-|1						SOURCEPAGE:p.51
-Orc Darkvision			CATEGORY:Special Ability	TYPE:OrcRacialTransformation	VISIBLE:DISPLAY	PRELEVEL:MIN=4																													BONUS:VISION|DarkVision|60	SOURCEPAGE:p.51
+Orc Darkvision			CATEGORY:Special Ability	TYPE:OrcRacialTransformation	VISIBLE:DISPLAY	PRELEVEL:MIN=4																														BONUS:VISION|DarkVision|60	SOURCEPAGE:p.51
 Orc Transformation Skills	CATEGORY:Special Ability	TYPE:OrcRacialTransformation	VISIBLE:DISPLAY															STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Orc Transformation Skill|5									SOURCEPAGE:p.51
 Orc Transformation Feats	CATEGORY:Special Ability	TYPE:OrcRacialTransformation	VISIBLE:DISPLAY				PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Orc Transformation Feat|1									SOURCEPAGE:p.51
 
@@ -412,10 +412,10 @@ Orc Transformation Feats	CATEGORY:Special Ability	TYPE:OrcRacialTransformation	V
 
 ###Block: Racial Talents
 # Ability Name		Category of Ability		Type							Visible		Required Ability							Required Lvl	Required Text									Stackable?	Multiple?	Choose		Bonus to Ability Pool				Source Page
-Infernal Gift I		CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality	VISIBLE:YES																																						SOURCEPAGE:p.52
-Infernal Gift II		CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Infernal Gift I	PRELEVEL:MIN=7																									SOURCEPAGE:p.53
-Demonic Familiar		CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality	VISIBLE:YES																																						SOURCEPAGE:p.53
-Infernal Resistance	CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality	VISIBLE:YES																																						SOURCEPAGE:p.53
+Infernal Gift I		CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality	VISIBLE:YES																																							SOURCEPAGE:p.52
+Infernal Gift II		CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Infernal Gift I	PRELEVEL:MIN=7																										SOURCEPAGE:p.53
+Demonic Familiar		CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality	VISIBLE:YES																																							SOURCEPAGE:p.53
+Infernal Resistance	CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality	VISIBLE:YES																																							SOURCEPAGE:p.53
 Tiefling Talent Skills	CATEGORY:Special Ability	TYPE:TieflingRacialTalent			VISIBLE:DISPLAY																								STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Tiefling Talent Skill|5	SOURCEPAGE:p.53
 Tiefling Talent Feats	CATEGORY:Special Ability	TYPE:TieflingRacialTalent			VISIBLE:DISPLAY													PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Tiefling Talent Feat|1	SOURCEPAGE:p.53
 
@@ -423,11 +423,11 @@ Tiefling Talent Feats	CATEGORY:Special Ability	TYPE:TieflingRacialTalent			VISIB
 
 ###Block: Racial Transformations
 # Ability Name				Output Name				Category of Ability		Type									Visible		Restricted Ability										Required Lvl	Required Text									Define				Description				Stackable?	Multiple?	Choose		Template				Bonus to Ability Pool						Combat bonus					Modify VAR																					Add to vision			Source Page
-Outsider										CATEGORY:Special Ability	TYPE:TieflingRacialTransformation				VISIBLE:DISPLAY																																												TEMPLATE:Tiefling Outsider																																												SOURCEPAGE:p.53
+Outsider										CATEGORY:Special Ability	TYPE:TieflingRacialTransformation				VISIBLE:DISPLAY																																													TEMPLATE:Tiefling Outsider																																												SOURCEPAGE:p.53
 Tiefling Fire Resistance							CATEGORY:Special Ability	TYPE:TieflingRacialTransformation				VISIBLE:DISPLAY	!PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Tiefling Fire Resistance																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE																						BONUS:VAR|FireResistance|5	BONUS:VAR|FireImmunity|1|PREABILITY:3,CHECKMULT,CATEGORY=Special Ability,Tiefling Fire Resistance						SOURCEPAGE:p.53
-Tiefling Darkvision								CATEGORY:Special Ability	TYPE:TieflingRacialTransformation				VISIBLE:DISPLAY														PRELEVEL:MIN=4																																																																							BONUS:VISION|DarkVision|60	SOURCEPAGE:p.53
+Tiefling Darkvision								CATEGORY:Special Ability	TYPE:TieflingRacialTransformation				VISIBLE:DISPLAY														PRELEVEL:MIN=4																																																																								BONUS:VISION|DarkVision|60	SOURCEPAGE:p.53
 Infernal Presence				OUTPUTNAME:Infernal Presence	CATEGORY:Special Ability	TYPE:TieflingRacialTransformation.SpecialQuality	VISIBLE:YES																													DEFINE:InfernalPresence|0	DESC:%1/day|InfernalPresence	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																						BONUS:VAR|InfernalPresence|1																							SOURCEPAGE:p.53
-Tiefling Natural Armor								CATEGORY:Special Ability	TYPE:TieflingRacialTransformation				VISIBLE:DISPLAY																																																										BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK																												SOURCEPAGE:p.53
+Tiefling Natural Armor								CATEGORY:Special Ability	TYPE:TieflingRacialTransformation				VISIBLE:DISPLAY																																																											BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK																												SOURCEPAGE:p.53
 Tiefling Transformation Skills						CATEGORY:Special Ability	TYPE:TieflingRacialTransformation				VISIBLE:DISPLAY																																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:ABILITYPOOL|Tiefling Transformation Skill|5																																			SOURCEPAGE:p.53
 Tiefling Transformation Feats							CATEGORY:Special Ability	TYPE:TieflingRacialTransformation				VISIBLE:DISPLAY														PRELEVEL:MIN=4	PRETEXT:This racial trait may not be selected twice in a row											STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:ABILITYPOOL|Tiefling Transformation Feat|1																																			SOURCEPAGE:p.53
 
@@ -441,16 +441,16 @@ Tiefling Transformation Feats							CATEGORY:Special Ability	TYPE:TieflingRacial
 
 ###Block: Racial Talents
 # Ability Name		Category of Ability		Type							Visible		Required Ability								Required Lvl	Required Text									Innate Spells									Stackable?	Multiple?	Choose		Bonus to Ability Pool					Source Page
-Bite Attack			CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialAttack	VISIBLE:YES																																																			SOURCEPAGE:p.55
-Poison Attack		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialAttack	VISIBLE:YES																																																			SOURCEPAGE:p.55
-Lesser Psionics I		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality	VISIBLE:YES																										SPELLS:Innate|TIMES=1|Acid Splash|Chameleon,11|Detect Poison,10															SOURCEPAGE:p.55
-Lesser Psionics II	CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Lesser Psionics I	PRELEVEL:MIN=5												SPELLS:Innate|TIMES=1|Alter Self|Aversion,12																		SOURCEPAGE:p.55
-Psionic Mastery		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality	VISIBLE:YES																																																			SOURCEPAGE:p.55
-Invisible Psionics	CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Lesser Psionics II																																								SOURCEPAGE:p.55
+Bite Attack			CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialAttack	VISIBLE:YES																																																				SOURCEPAGE:p.55
+Poison Attack		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialAttack	VISIBLE:YES																																																				SOURCEPAGE:p.55
+Lesser Psionics I		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality	VISIBLE:YES																										SPELLS:Innate|TIMES=1|Acid Splash|Chameleon,11|Detect Poison,10																SOURCEPAGE:p.55
+Lesser Psionics II	CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Lesser Psionics I	PRELEVEL:MIN=5												SPELLS:Innate|TIMES=1|Alter Self|Aversion,12																			SOURCEPAGE:p.55
+Psionic Mastery		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality	VISIBLE:YES																																																				SOURCEPAGE:p.55
+Invisible Psionics	CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Lesser Psionics II																																									SOURCEPAGE:p.55
 Thinblood Talent Skills	CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent			VISIBLE:DISPLAY																																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Thinblood Talent Skill|5	SOURCEPAGE:p.55
 Thinblood Talent Feats	CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent			VISIBLE:DISPLAY														PRETEXT:This racial trait may not be selected twice in a row												STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Thinblood Talent Feat|1		SOURCEPAGE:p.55
-Identify Psionic Item	CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality	VISIBLE:YES																																																			SOURCEPAGE:p.55
-Craft Power Stone		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Identify Psionic Item																																								SOURCEPAGE:p.55
+Identify Psionic Item	CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality	VISIBLE:YES																																																				SOURCEPAGE:p.55
+Craft Power Stone		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Identify Psionic Item																																									SOURCEPAGE:p.55
 
 #TODO:Craft Power Stone multiple times selecting three psi power....
 #TODO: the natural weapons stuff could use some shaping up
@@ -458,11 +458,11 @@ Craft Power Stone		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQu
 
 ###Block: Racial Transformations
 # Ability Name				Category of Ability		Type									Visible		Required Lvl	Required Text									Stackable?	Multiple?	Choose		Bonus to Ability Pool						Combat bonus					Add to vision			Source Page
-Thinblood Darkvision			CATEGORY:Special Ability	TYPE:ThinbloodRacialTransformation				VISIBLE:DISPLAY	PRELEVEL:MIN=6																																		BONUS:VISION|DarkVision|60	SOURCEPAGE:p.55
-Thinblood Natural Armor			CATEGORY:Special Ability	TYPE:ThinbloodRacialTransformation				VISIBLE:DISPLAY																														BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK						SOURCEPAGE:p.55
-Snake Form I				CATEGORY:Special Ability	TYPE:ThinbloodgRacialTransformation.SpecialQuality	VISIBLE:YES																																											SOURCEPAGE:p.56
-Snake Form II				CATEGORY:Special Ability	TYPE:ThinbloodgRacialTransformation.SpecialQuality	VISIBLE:YES																																											SOURCEPAGE:p.56
-Snake Form III				CATEGORY:Special Ability	TYPE:ThinbloodgRacialTransformation.SpecialQuality	VISIBLE:YES																																											SOURCEPAGE:p.56
+Thinblood Darkvision			CATEGORY:Special Ability	TYPE:ThinbloodRacialTransformation				VISIBLE:DISPLAY	PRELEVEL:MIN=6																																			BONUS:VISION|DarkVision|60	SOURCEPAGE:p.55
+Thinblood Natural Armor			CATEGORY:Special Ability	TYPE:ThinbloodRacialTransformation				VISIBLE:DISPLAY																															BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK						SOURCEPAGE:p.55
+Snake Form I				CATEGORY:Special Ability	TYPE:ThinbloodgRacialTransformation.SpecialQuality	VISIBLE:YES																																												SOURCEPAGE:p.56
+Snake Form II				CATEGORY:Special Ability	TYPE:ThinbloodgRacialTransformation.SpecialQuality	VISIBLE:YES																																												SOURCEPAGE:p.56
+Snake Form III				CATEGORY:Special Ability	TYPE:ThinbloodgRacialTransformation.SpecialQuality	VISIBLE:YES																																												SOURCEPAGE:p.56
 Thinblood Transformation Skills	CATEGORY:Special Ability	TYPE:ThinbloodRacialTransformation				VISIBLE:DISPLAY															STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Thinblood Transformation Skill|5													SOURCEPAGE:p.56
 Thinblood Transformation Feats	CATEGORY:Special Ability	TYPE:ThinbloodRacialTransformation				VISIBLE:DISPLAY				PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Thinblood Transformation Feat|1													SOURCEPAGE:p.56
 

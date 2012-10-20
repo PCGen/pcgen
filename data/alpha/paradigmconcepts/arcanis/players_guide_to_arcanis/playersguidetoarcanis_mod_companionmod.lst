@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Nov 18 00:02:40 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
@@ -73,14 +73,14 @@ MASTERBONUSRACE:Toad			TYPE:Arcanis Familiar											BONUS:HP|CURRENTMAX|3				
 MASTERBONUSRACE:Weasel			TYPE:Arcanis Familiar	BONUS:CHECKS|Reflex|2																VFEAT:Alertness
 #
 ###Block:Arcanis Animal Companion
-# Class of the Master			Type					Hit Dice	Ability								Virtual Feat				Special ABility					Define			Save checks bonus		Combat bonus						Stat bonus					Choose
+# Class of the Master			Type					Hit Dice	Ability								Virtual Feat				Special ABility					Define			Combat bonus						Stat bonus
 FOLLOWER:CompLevel=1			TYPE:Arcanis Animal Companion																		SAB:Link (Ex)	SAB:Share Spells (Ex)
-FOLLOWER:CompLevel=3			TYPE:Arcanis Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Evasion																DEFINE:EvasionUsable|0					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:CompLevel=6			TYPE:Arcanis Animal Companion	HD:2																	SAB:Devotion (Ex)													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:CompLevel=9			TYPE:Arcanis Animal Companion	HD:2											VFEAT:Multiattack|PREHANDSGTEQ:3	SAB:Multiattack (Ex)												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:CompLevel=12			TYPE:Arcanis Animal Companion	HD:2																																BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:CompLevel=15			TYPE:Arcanis Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																						BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:CompLevel=18			TYPE:Arcanis Animal Companion	HD:2																																BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=3			TYPE:Arcanis Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Evasion																DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=6			TYPE:Arcanis Animal Companion	HD:2																	SAB:Devotion (Ex)									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=9			TYPE:Arcanis Animal Companion	HD:2											VFEAT:Multiattack|PREHANDSGTEQ:3	SAB:Multiattack (Ex)								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=12			TYPE:Arcanis Animal Companion	HD:2																												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=15			TYPE:Arcanis Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:CompLevel=18			TYPE:Arcanis Animal Companion	HD:2																												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
 FOLLOWER:Master of the Hounds=7	TYPE:Arcanis Animal Companion
 #Need to place in more appropriate ability > Does not belong in compmod file	BONUS:CHECKS|%LIST|2															CHOOSE:STAT|INT|WIS|CHA
 #

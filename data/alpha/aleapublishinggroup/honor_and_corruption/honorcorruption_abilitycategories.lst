@@ -1,5 +1,7 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
 
-ABILITYCATEGORY:Knight Bonus HP	TYPE:KnightSubClassBonusHP	CATEGORY:Special Ability	VISIBLE:QUALIFY	EDITABLE:YES	DISPLAYLOCATION:Class Abilities
+# Ability Category			Visible		Editable or Static?	Category of Object		Type of Object			Display Location
+ABILITYCATEGORY:Knight Bonus HP	VISIBLE:QUALIFY	EDITABLE:YES		CATEGORY:Special Ability	TYPE:KnightSubClassBonusHP	DISPLAYLOCATION:Class Abilities
 
-ABILITYCATEGORY:Scoundrel Bonus HP	TYPE:ScoundrelSubClassBonusHP	CATEGORY:Special Ability	VISIBLE:QUALIFY	EDITABLE:YES	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Scoundrel Bonus HP	VISIBLE:QUALIFY	EDITABLE:YES		CATEGORY:Special Ability	TYPE:ScoundrelSubClassBonusHP	DISPLAYLOCATION:Class Abilities

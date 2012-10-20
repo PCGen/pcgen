@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Aug 11 08:54:02 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm	SOURCEDATE:2006-01
 
 # Feat Name					Type
 Acrobatic.MOD				TYPE:VelinGuardian

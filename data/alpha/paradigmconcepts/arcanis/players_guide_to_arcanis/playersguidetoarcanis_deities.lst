@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 17:24:32 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 # all 2006-06-03 errata applied
@@ -18,7 +18,7 @@ Larissa		NAMEISPI:YES	DOMAINS:Divination,Fate,Holy,Luck,Protection,Senses							
 Neroth		NAMEISPI:YES	DOMAINS:Death,Destruction,Disease,Holy,Undead								DESC:Lord of the Dead				SYMBOL:Ankh					DEITYWEAP:Scythe							ALIGN:TN	PANTHEON:Man		SOURCEPAGE:p.6			PREMULT:1,[!PRECLASS:1,Cleric=1],[PRESUBCLASS:1,Neroth]
 Nier			NAMEISPI:YES	DOMAINS:Destruction,Fire,Glory,Holy,War									DESC:Lord of Flaming Destruction		SYMBOL:Fire Opal				DEITYWEAP:Greatsword|Flamberge				ALIGN:TN	PANTHEON:Man		SOURCEPAGE:p.8			PREMULT:1,[!PRECLASS:1,Cleric=1],[PRESUBCLASS:1,Nier]
 Saluwe		NAMEISPI:YES	DOMAINS:Animal,Cavern,Earth,Holy,Nature,Plant,Protection						DESC:The Stern Matriarch			SYMBOL:Wreath of Mistletoe		DEITYWEAP:Spear							ALIGN:TN	PANTHEON:Man		SOURCEPAGE:p.6			PREMULT:1,[!PRECLASS:1,Cleric=1],[PRESUBCLASS:1,Saluwe]
-Sarish		NAMEISPI:YES	DOMAINS:Daemonology,Holy,Magic,Oath,Secrets								DESC:The Oath Maker, Master of the Arcane	SYMBOL:Disc with Sigil of Sarish	DEITYWEAP:Dagger					ALIGN:TN	PANTHEON:Man		SOURCEPAGE:p.9			PREMULT:1,[!PRECLASS:1,Cleric=1],[PRESUBCLASS:1,Sarish]
+Sarish		NAMEISPI:YES	DOMAINS:Daemonology,Holy,Magic,Oath,Secrets								DESC:The Oath Maker, Master of the Arcane	SYMBOL:Disc with Sigil of Sarish	DEITYWEAP:Dagger							ALIGN:TN	PANTHEON:Man		SOURCEPAGE:p.9			PREMULT:1,[!PRECLASS:1,Cleric=1],[PRESUBCLASS:1,Sarish]
 # added storm to yarris per errata 2006-06-03
 Yarris		NAMEISPI:YES	DOMAINS:Cold,Holy,Protection,Sea,Storm,Water								DESC:The Sea King					SYMBOL:Gilded Conch Shell		DEITYWEAP:Trident							ALIGN:TN	PANTHEON:Man		SOURCEPAGE:p.6			PREMULT:1,[!PRECLASS:1,Cleric=1],[PRESUBCLASS:1,Yarris]
 

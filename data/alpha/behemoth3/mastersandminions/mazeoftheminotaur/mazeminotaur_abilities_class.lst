@@ -1,4 +1,4 @@
-# CVS $Revision: 6289 $ $Author: amaitland $ -- Sat Feb 14 09:37:38 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision: 6289 $ $Author: amaitland $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.com/	SOURCEDATE:2004-08
 #Original Entry by: Aaron Divinsky
 
@@ -18,4 +18,4 @@ Pack Tactics						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VIS
 Tunneling							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Tunneling (Ex)
 
 
-Natural Cunning						TYPE:SpecialQuality.Extraordinary	CATEGORY:Special Ability
+Natural Cunning						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary

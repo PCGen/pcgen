@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Tue Jan 13 23:13:07 2009 -- reformated by prettylst.pl v1.38 (build 8180)
-SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex	SOURCEDATE:2003-01
 
 
-# Feat Name			Type			Visible	Special ABility			Stackable?	Multiple?	Choose				Bonus to skill			Stat bonus
+# Feat Name			Type			Visible	Special ABility			Multiple?	Choose			Bonus to skill			Stat bonus
 Aura of Knighthood	TYPE:Special	VISIBLE:NO	SAB:Aura of Knighthood (Ex)							BONUS:SKILL|Intimidate|NOB/2
 
-CSStatBonus			TYPE:Special	VISIBLE:NO								MULT:YES	CHOOSE:PCSTAT|CON|STR						BONUS:STAT|LIST|2
+CSStatBonus			TYPE:Special	VISIBLE:NO						MULT:YES	CHOOSE:PCSTAT|CON|STR						BONUS:STAT|LIST|2
 
 ###Block: Power Source
 # Feat Name						Type			Visible	Prohibited Class					Special ABility
@@ -25,7 +25,7 @@ Minstrel Music	TYPE:Special	VISIBLE:NO	SAB:Minstrel music %/day|MinstrelMusicTim
 Knight's Warhorse	TYPE:Special	VISIBLE:NO	SAB:Knight's Warhorse (Ex)	DEFINE:KnightLevel|0	FOLLOWERS:Knight's Mount|1	COMPANIONLIST:Knight's Mount|Horse (Heavy),Horse (Light),Horse (Warhorse Heavy),Horse (Warhorse Light)
 
 ###Block: Literacy
-# Feat Name	Type			Visible	Automatic Languages
+# Feat Name	Type			Visible	Automatically Gained Language
 Literacy	TYPE:Special	VISIBLE:NO	AUTO:LANG|Literacy
 
 #

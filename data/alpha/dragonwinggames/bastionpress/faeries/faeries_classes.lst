@@ -1,8 +1,9 @@
-# CVS $Revision: 10335 $ $Author: amaitland $ -- Thu Feb 12 13:03:11 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-SOURCELONG:Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://dragonwing.net/Faeries.htm
+# CVS $Revision: 10335 $ $Author: amaitland $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://dragonwing.net/Faeries.htm	SOURCEDATE:2003-01
 #Original Entry: darkon_turas; clean up by Andrew Maitland
 
 ###Block: --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Faemancer	HD:4		TYPE:PC.Prestige	ABB:Fmc		MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Deities allowed		Required AL		Required Feat		Required Skill					Required Text
@@ -12,18 +13,19 @@ CLASS:Faemancer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level				Use Spell List
 CLASS:Faemancer	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Faemancer|CL	SPELLLIST:1|Wizard
 1								BONUS:VAR|FaemancerComp|CL
-1	CAST:0,1											ABILITY:Special Ability|AUTOMATIC|Fey Companion ~ Faemancer|Life Bond	BONUS:VAR|FeyCompanionProgression|1
-2	CAST:0,2,0											ABILITY:Special Ability|AUTOMATIC|Fey Companion Advancement|Fey Friend
-3	CAST:0,2,1		BONUS:DOMAIN|NUMBER|1						ABILITY:Special Ability|AUTOMATIC|Luck of the Fey
-4	CAST:0,3,2,0																						BONUS:VAR|FeyCompanionProgression|1
-5	CAST:0,3,2,1										ABILITY:Special Ability|AUTOMATIC|Spirit Bond
+1	CAST:0,1						BONUS:VAR|FeyCompanionProgression|1	ABILITY:Special Ability|AUTOMATIC|Fey Companion ~ Faemancer|Life Bond
+2	CAST:0,2,0												ABILITY:Special Ability|AUTOMATIC|Fey Companion Advancement|Fey Friend
+3	CAST:0,2,1		BONUS:DOMAIN|NUMBER|1							ABILITY:Special Ability|AUTOMATIC|Luck of the Fey
+4	CAST:0,3,2,0					BONUS:VAR|FeyCompanionProgression|1
+5	CAST:0,3,2,1											ABILITY:Special Ability|AUTOMATIC|Spirit Bond
 6	CAST:0,3,3,2,0
 7	CAST:0,4,3,2,1	BONUS:DOMAIN|NUMBER|1
 8	CAST:0,4,3,3,2
 9	CAST:0,4,4,3,2	BONUS:DOMAIN|NUMBER|1
-10	CAST:0,4,4,3,3										ABILITY:Special Ability|AUTOMATIC|Mutual Bond
+10	CAST:0,4,4,3,3											ABILITY:Special Ability|AUTOMATIC|Mutual Bond
 
 ###Block: --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Faerie Hunter	HD:10		TYPE:PC.Prestige	ABB:FHt		MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL				Req. Att.	Required Feat							Required Skill
@@ -44,6 +46,7 @@ CLASS:Faerie Hunter	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 10	CAST:0,2,2,2,1	BONUS:VAR|FeyHunter|1	BONUS:VAR|FeyWary|1
 
 ###Block: --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Faerier	HD:4		TYPE:PC.Prestige	ABB:Frr		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Feat		Required Language	Multiple Requirements																										Maximum Size	Required Skill
@@ -62,6 +65,7 @@ CLASS:Faerier	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Diplomacy|Disguise|Gather Inf
 10	BONUS:ABILITYPOOL|Fey Arts|1	ABILITY:Special Ability|AUTOMATIC|Create Doorway and Sideroad
 
 ###Block: --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Fae-Walker	HD:8		TYPE:PC.Prestige	ABB:FWk		MAXLEVEL:10	SOURCEPAGE:p.24	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL		Req. Att.	Required Feat					Required Skill
@@ -80,6 +84,7 @@ CLASS:Fae-Walker	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disguise|E
 10				BONUS:VAR|FaeWalk|60							ABILITY:Special Ability|AUTOMATIC|Stray
 
 ###Block: --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Fey Guardian	HD:4		TYPE:PC.Prestige	ABB:FGd		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat							Required Skill											Req. Spell Type
@@ -98,6 +103,7 @@ CLASS:Fey Guardian	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Knowl
 10	ADD:SPELLCASTER|ANY												SPELLS:Class|TIMES=1|Wish
 
 ###Block: --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Fey Prankster	HD:8		TYPE:PC.Prestige	ABB:FPk		MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*2/3|TYPE=Base.REPLACE
 # Class Name		Required AL				Req. Att.	Required Feat					Required Skill									Req. Spell Type
@@ -122,10 +128,11 @@ CLASS:Fey Prankster	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 10	CAST:0,4,4,3,3	ABILITY:Special Ability|AUTOMATIC|Destined
 
 ###Block: --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Fey-Touched	HD:6		TYPE:PC.Prestige	ABB:FTc		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name	Req. Att.	Required Feat			Required Skill			Prohibited Type
-CLASS:Fey-Touched	PREATT:4	PREFEAT:2,Alertness,Dodge	PRESKILL:1,Knowledge (Fey)=5	!PRERACE:1,RACETYPE=Fey
+# Class Name	Req. Att.	Required Feat			Prohibited Race		Required Skill
+CLASS:Fey-Touched	PREATT:4	PREFEAT:2,Alertness,Dodge	!PRERACE:1,RACETYPE=Fey	PRESKILL:1,Knowledge (Fey)=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fey-Touched	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Diplomacy|Disguise|Gather Information|Hide|Innuendo|Knowledge (Fey)|Knowledge (Nature)|Listen|Move Silently|Sense Motive|Spellcraft|Spot
 1	VISION:Low-light	ABILITY:Special Ability|AUTOMATIC|Fey Sense														AUTO:FEAT|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
@@ -140,10 +147,11 @@ CLASS:Fey-Touched	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Diplomacy|Disguise|Gather
 10				ABILITY:Special Ability|AUTOMATIC|Soul of Ages
 
 ###Block: --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Knight of the Fey	HD:10		TYPE:PC.Prestige	ABB:FTc		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Required AL			Req. Att.	Required Feat												Required Skill												Required Type
-CLASS:Knight of the Fey	PREALIGN:LG,LN,NG,TN	PREATT:4	PREFEAT:5,Armor Proficiency (Heavy),Power Attack,Cleave,Great Cleave,Mounted Combat	PRESKILL:4,Diplomacy=4,Ride=4,Knowledge (Fey)=5,Knowledge (Nobility and Royalty)=5	PRERACE:1,RACETYPE=Fey
+# Class Name		Required AL			Req. Att.	Required Feat												Required Race		Required Skill
+CLASS:Knight of the Fey	PREALIGN:LG,LN,NG,TN	PREATT:4	PREFEAT:5,Armor Proficiency (Heavy),Power Attack,Cleave,Great Cleave,Mounted Combat	PRERACE:1,RACETYPE=Fey	PRESKILL:4,Diplomacy=4,Ride=4,Knowledge (Fey)=5,Knowledge (Nobility and Royalty)=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Fey	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Knowledge (Fey)|Knowledge (Nobility and Royalty)|Ride|Spot
 ###Block: Proficiencies
@@ -163,6 +171,7 @@ CLASS:Knight of the Fey	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Knowledge (F
 10						ABILITY:Special Ability|AUTOMATIC|Destined
 
 ###Block: --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Mage of the Circle	HD:4		TYPE:PC.Prestige	ABB:MoC		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name			Required Feat							Required Skill							Req. Spell Type
@@ -181,10 +190,11 @@ CLASS:Mage of the Circle	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft
 10												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Circle Mastery
 
 ###Block: --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Mortal Slayer	HD:10		TYPE:PC.Prestige	ABB:MSl		MAXLEVEL:10	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Req. Att.	Required Feat								Required Skill							Required Type
-CLASS:Mortal Slayer	PREATT:6	PREFEAT:3,Improved Initiative,Mounted Combat,Quick Draw	PRESKILL:2,Knowledge (Fey)=8,Knowledge (Folk Tales)=8	PRERACE:1,RACETYPE=Fey
+# Class Name		Req. Att.	Required Feat								Required Race		Required Skill
+CLASS:Mortal Slayer	PREATT:6	PREFEAT:3,Improved Initiative,Mounted Combat,Quick Draw	PRERACE:1,RACETYPE=Fey	PRESKILL:2,Knowledge (Fey)=8,Knowledge (Folk Tales)=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mortal Slayer	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Heal|Intuit Direction|Jump|Knowledge (Fey)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Sense Motive|Speak Language|Spot|Swim|Use Rope|Wilderness Lore
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
@@ -207,6 +217,7 @@ CLASS:Mortal Slayer	SPELLSTAT:WIS	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 10	CAST:0,2,2,2,1	BONUS:VAR|UnfurlMortalCoilTimes|1
 
 ###Block: --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Class Name		Type			Max Level	Base class as subclass?	Save checks bonus																Combat bonus
 CLASS:Faerie Dragon	TYPE:Monster	MAXLEVEL:12	ALLOWBASECLASS:NO		BONUS:CHECKS|BASE.Fortitude|4	BONUS:CHECKS|BASE.Reflex|((CL+1)/2)+2	BONUS:CHECKS|BASE.Will|((CL+1)/2)+3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race

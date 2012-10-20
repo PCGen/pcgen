@@ -1,10 +1,12 @@
-SOURCELONG:Guide to Pathfinder Society Organised Play		SOURCESHORT:GTPOP	SOURCEWEB:http://paizo.com/pathfinderSociety/scenarios/v5748btpy84k4	SOURCEDATE:2011-08
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Guide to Pathfinder Society Organised Play	SOURCESHORT:GTPOP	SOURCEWEB:http://paizo.com/pathfinderSociety/scenarios/v5748btpy84k4	SOURCEDATE:2011-08
 # Original Entry by: Jeff Baril
 # Updated by: Andrew Wilson
 
-Cloak of Immolation.MOD			PRECLASS:1,NPC=1,Monster=1
-Crown of Blindness.MOD			PRECLASS:1,NPC=1,Monster=1
-Hat of Hatreds.MOD			PRECLASS:1,NPC=1,Monster=1
-Girdle of Opposite Gender.MOD			PRECLASS:1,NPC=1,Monster=1
+# Equipment Name			Required Class
+Cloak of Immolation.MOD		PRECLASS:1,NPC=1,Monster=1
+Crown of Blindness.MOD		PRECLASS:1,NPC=1,Monster=1
+Hat of Hatreds.MOD		PRECLASS:1,NPC=1,Monster=1
+Girdle of Opposite Gender.MOD	PRECLASS:1,NPC=1,Monster=1
 Riot Pipes.MOD			PRECLASS:1,NPC=1,Monster=1
 Buffoon's Sword.MOD		PRECLASS:1,NPC=1,Monster=1

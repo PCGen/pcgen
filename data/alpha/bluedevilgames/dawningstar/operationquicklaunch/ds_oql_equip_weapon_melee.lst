@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Feb 17 21:58:53 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm	SOURCEDATE:2006-01
 
 # Equipment Name	Required Weapon Proficiency		Type								Alternative Type			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Damage	Alternative Damage	Size		Source Page		Special Property
 Atomic Blade	PROFICIENCY:WEAPON|Atomic Blade	TYPE:Weapon.Exotic.Melee.Slashing.PL7							COST:26	WT:3		CRITMULT:x3			CRITRANGE:3							DAMAGE:2d6					SIZE:M				SPROP:Res(+2)

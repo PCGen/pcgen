@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sat Feb 13 19:07:25 2010 -- reformated by prettylst.pl v1.39 (build 11455)
-SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 ###Block: Dark Folk Equipment
 # Equipment Name			Output Name			Required Armor Proficiency	Type							Cost		Weight	AC Penalty Check	Modifier		Maximum DEX Bonus	Requires Modification?	Size		Source Page		% of Spell Failure	Combat bonus							Special Property

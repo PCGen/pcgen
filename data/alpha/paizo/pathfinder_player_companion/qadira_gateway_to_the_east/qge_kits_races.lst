@@ -1,8 +1,8 @@
-# CVS $Revision: $ $Author: $ -- Thu Oct 28 09:50:48 2010 -- reformated by prettylst.pl v1.38 (build 6875)
+# CVS $Revision: $ $Author: $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Qadira, Gateway to the East	SOURCESHORT:QGE	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy88zq	SOURCEDATE:2009-08
 # Original entry by Chris 'Barak' Chandler
 
-STARTPACK:Zhyen ~ Air Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zhyen ~ Air]	SOURCEPAGE:p.32	TYPE:DefaultMonster.Outsider
+STARTPACK:Zhyen ~ Air Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zhyen ~ Air]	SOURCEPAGE:p.32
 RACE:Zhyen ~ Air	!PRERACE:1,%
 NAME:Zhyen ~ Air
 ALIGN:TN
@@ -12,7 +12,7 @@ SKILL:Knowledge (Planes)	RANK:1
 SKILL:Perception			RANK:1
 SKILL:Stealth			RANK:1
 
-STARTPACK:Zhyen ~ Earth Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zhyen ~ Earth]	SOURCEPAGE:p.32	TYPE:DefaultMonster.Outsider
+STARTPACK:Zhyen ~ Earth Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zhyen ~ Earth]	SOURCEPAGE:p.32
 RACE:Zhyen ~ Earth	!PRERACE:1,%
 NAME:Zhyen ~ Earth
 ALIGN:TN
@@ -22,7 +22,7 @@ SKILL:Knowledge (Planes)	RANK:1
 SKILL:Perception			RANK:1
 SKILL:Stealth			RANK:1
 
-STARTPACK:Zhyen ~ Fire Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zhyen ~ Fire]	SOURCEPAGE:p.32	TYPE:DefaultMonster.Outsider
+STARTPACK:Zhyen ~ Fire Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zhyen ~ Fire]	SOURCEPAGE:p.32
 RACE:Zhyen ~ Fire	!PRERACE:1,%
 NAME:Zhyen ~ Fire
 ALIGN:TN
@@ -32,7 +32,7 @@ SKILL:Knowledge (Planes)	RANK:1
 SKILL:Perception			RANK:1
 SKILL:Stealth			RANK:1
 
-STARTPACK:Zhyen ~ Water Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zhyen ~ Water]	SOURCEPAGE:p.32	TYPE:DefaultMonster.Outsider
+STARTPACK:Zhyen ~ Water Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zhyen ~ Water]	SOURCEPAGE:p.32
 RACE:Zhyen ~ Water	!PRERACE:1,%
 NAME:Zhyen ~ Water
 ALIGN:TN
@@ -45,7 +45,7 @@ SKILL:Stealth			RANK:1
 
 
 
-STARTPACK:Jocta ~ Air Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jocta ~ Air]	SOURCEPAGE:p.32	TYPE:DefaultMonster.Outsider
+STARTPACK:Jocta ~ Air Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jocta ~ Air]	SOURCEPAGE:p.32
 RACE:Jocta ~ Air	!PRERACE:1,%
 NAME:Jocta ~ Air
 ALIGN:CE|NE
@@ -55,7 +55,7 @@ SKILL:Knowledge (Planes)	RANK:1
 SKILL:Perception			RANK:1
 SKILL:Stealth			RANK:1
 
-STARTPACK:Jocta ~ Earth Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jocta ~ Earth]	SOURCEPAGE:p.32	TYPE:DefaultMonster.Outsider
+STARTPACK:Jocta ~ Earth Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jocta ~ Earth]	SOURCEPAGE:p.32
 RACE:Jocta ~ Earth	!PRERACE:1,%
 NAME:Jocta ~ Earth
 ALIGN:CE|NE
@@ -65,7 +65,7 @@ SKILL:Knowledge (Planes)	RANK:1
 SKILL:Perception			RANK:1
 SKILL:Stealth			RANK:1
 
-STARTPACK:Jocta ~ Fire Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jocta ~ Fire]	SOURCEPAGE:p.32	TYPE:DefaultMonster.Outsider
+STARTPACK:Jocta ~ Fire Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jocta ~ Fire]	SOURCEPAGE:p.32
 RACE:Jocta ~ Fire	!PRERACE:1,%
 NAME:Jocta ~ Fire
 ALIGN:CE|NE
@@ -75,7 +75,7 @@ SKILL:Knowledge (Planes)	RANK:1
 SKILL:Perception			RANK:1
 SKILL:Stealth			RANK:1
 
-STARTPACK:Jocta ~ Water Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jocta ~ Water]	SOURCEPAGE:p.32	TYPE:DefaultMonster.Outsider
+STARTPACK:Jocta ~ Water Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jocta ~ Water]	SOURCEPAGE:p.32
 RACE:Jocta ~ Water	!PRERACE:1,%
 NAME:Jocta ~ Water
 ALIGN:CE|NE

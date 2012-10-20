@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Feb 29 00:48:57 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2004-01
 # Original Entry by: Felipe Diniz
 
-# Equipment Name				Type						Cost		Weight	Source Page		Virtual Feat		Vision				Innate Spells																	Combat bonus											Bonus to DC			Add to base move			Bonus to skill						Stat bonus					Automatic Languages	Special Property
+# Equipment Name				Type						Cost		Weight	Source Page		Virtual Feat		Vision				Innate Spells																	Combat bonus											Bonus to DC			Add to base move			Bonus to skill						Stat bonus					Special Property									Automatically Gained Language
 Amulet of the Arcanist			TYPE:Magic.Wondrous			COST:50000	WT:0.02	SOURCEPAGE:p.174																																										BONUS:DC|TYPE.Arcane|2
 Animated Instrument			TYPE:Magic.Wondrous			COST:600	WT:0.02	SOURCEPAGE:p.174
 Armband of the Delicate Touch		TYPE:Magic.Wondrous.Bracer		COST:5000	WT:0.02	SOURCEPAGE:p.174
@@ -22,7 +22,7 @@ Elemental Charms				TYPE:Magic.Wondrous.Bracer		COST:1250	WT:0.02	SOURCEPAGE:p.1
 Everwarm Blanket				TYPE:Magic.Wondrous			COST:1200	WT:1		SOURCEPAGE:p.176
 Fancy Platter				TYPE:Magic.Wondrous			COST:800	WT:1		SOURCEPAGE:p.176
 Flaming Cloak				TYPE:Magic.Wondrous.Cape		COST:1000	WT:1		SOURCEPAGE:p.176																																																			BONUS:SKILL|Intimidate|1|TYPE=Circumstance
-Gauntlet of Arthanath			TYPE:Magic.Wondrous.Glove		COST:5500	WT:0.02	SOURCEPAGE:p.176	VFEAT:Dragon Magic																																																													AUTO:LANG|Draconic
+Gauntlet of Arthanath			TYPE:Magic.Wondrous.Glove		COST:5500	WT:0.02	SOURCEPAGE:p.176	VFEAT:Dragon Magic																																																																								AUTO:LANG|Draconic
 Glass of Clarity				TYPE:Magic.Wondrous			COST:2000	WT:0.02	SOURCEPAGE:p.176
 Glass of Frozen Dreams			TYPE:Magic.Wondrous			COST:1500	WT:0.02	SOURCEPAGE:p.176
 Glass of Mist				TYPE:Magic.Wondrous			COST:9000	WT:1		SOURCEPAGE:p.176										SPELLS:Magic Item|TIMES=3|Obscuring Mist	SPELLS:Magic Item|TIMES=3|Mirror Shield
@@ -46,7 +46,7 @@ Manawall Robe				TYPE:Magic.Wondrous.Robe		COST:8500	WT:1		SOURCEPAGE:p.178
 Marstle's Mask				TYPE:Magic.Wondrous.Headgear		COST:17000	WT:0.02	SOURCEPAGE:p.178
 Mirror of Vanity +2			TYPE:Magic.Wondrous			COST:4000	WT:2		SOURCEPAGE:p.178																																																											BONUS:STAT|CHA|2|TYPE=Enhancement
 Mirror of Vanity +4			TYPE:Magic.Wondrous			COST:16000	WT:2		SOURCEPAGE:p.178																																																											BONUS:STAT|CHA|4|TYPE=Enhancement
-Mirror of Vanity +6			TYPE:Magic.Wondrous			COST:40000	WT:2		SOURCEPAGE:p.178																																																											BONUS:STAT|CHA|6|TYPE=Enhancement					SPROP:Once per day, can transfix a target with its own reflection
+Mirror of Vanity +6			TYPE:Magic.Wondrous			COST:40000	WT:2		SOURCEPAGE:p.178																																																											BONUS:STAT|CHA|6|TYPE=Enhancement	SPROP:Once per day, can transfix a target with its own reflection
 Mist of Divination Protection		TYPE:Magic.Wondrous.Vial		COST:1000	WT:0.02	SOURCEPAGE:p.178
 Necklace of Stars				TYPE:Magic.Wondrous.Amulet		COST:1400	WT:0.02	SOURCEPAGE:p.178
 Ocular Band					TYPE:Magic.Wondrous.Headgear		COST:21000	WT:0.02	SOURCEPAGE:p.178										SPELLS:Magic Item|TIMES=ATWILL|Detect Magic	SPELLS:Magic Item|TIMES=1|Clairaudience/Clairvoyance|True Seeing
@@ -55,7 +55,7 @@ Pipes of Power				TYPE:Magic.Wondrous			COST:70000	WT:2		SOURCEPAGE:p.179
 Pipes of Protection			TYPE:Magic.Wondrous			COST:35000	WT:3		SOURCEPAGE:p.179
 Quill of Dictation			TYPE:Magic.Wondrous			COST:400	WT:0.02	SOURCEPAGE:p.179
 Quill of Translation			TYPE:Magic.Wondrous			COST:5600	WT:0.02	SOURCEPAGE:p.179
-Razor Cloak					TYPE:Magic.Wondrous.Cape		COST:12000	WT:1		SOURCEPAGE:p.179																																																																					SPROP:Attacks at +10 for 1d8 damage
+Razor Cloak					TYPE:Magic.Wondrous.Cape		COST:12000	WT:1		SOURCEPAGE:p.179																																																																	SPROP:Attacks at +10 for 1d8 damage
 Robe of Force Resistance		TYPE:Magic.Wondrous.Robe		COST:100000	WT:1		SOURCEPAGE:p.180
 Scabbard of Venoms			TYPE:Magic.Wondrous			COST:5000	WT:1		SOURCEPAGE:p.180
 Scry Beacon					TYPE:Magic.Wondrous			COST:5000	WT:1		SOURCEPAGE:p.180

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Feb  6 23:25:02 2009 -- reformated by prettylst.pl v1.39 (build 9132)
-SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2002-01
 # Original entry by: Blithwyn
 
 
@@ -45,33 +45,33 @@ Enhanced Charisma V		CATEGORY:Special Ability	TYPE:LegendaryEnhancedCHA	VISIBLE:
 
 ###Block:Abyssal Infiltrator legendary abilities
 # Feat Name				Type								Visible	Required Class				Prohibited Feat				Special ABility					Innate Spells							Selections	Choose				Bonus to skill				Source Page
-# Ability Name			Category of Ability		Type								Visible	Required Class				Prohibited Feat				Special ABility					Innate Spells							Choose				Selections	Bonus to skill				Source Page
+# Ability Name			Category of Ability		Type								Visible	Required Class				Prohibited Feat				Special ABility					Innate Spells							Choose			Selections	Bonus to skill				Source Page
 Abyssal Skill I			CATEGORY:Special Ability	TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL1	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill I													CHOOSE:SKILL|CLASS			BONUS:SKILL|LIST|3|TYPE=Legendary	SOURCEPAGE:p.83
 Abyssal Skill II			CATEGORY:Special Ability	TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL2	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill II													CHOOSE:SKILL|CLASS	SELECT:2	BONUS:SKILL|LIST|6|TYPE=Legendary	SOURCEPAGE:p.83
 Abyssal Skill III			CATEGORY:Special Ability	TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL3	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill III													CHOOSE:SKILL|CLASS	SELECT:3	BONUS:SKILL|LIST|9|TYPE=Legendary	SOURCEPAGE:p.83
 Abyssal Skill IV			CATEGORY:Special Ability	TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL4	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=4	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill IV													CHOOSE:SKILL|CLASS	SELECT:4	BONUS:SKILL|LIST|12|TYPE=Legendary	SOURCEPAGE:p.83
 Abyssal Skill V			CATEGORY:Special Ability	TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL5	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=5	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill V													CHOOSE:SKILL|CLASS	SELECT:5	BONUS:SKILL|LIST|16|TYPE=Legendary	SOURCEPAGE:p.83
-Deadly Precision I		CATEGORY:Special Ability	TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL1	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision I (Ex)																									SOURCEPAGE:p.83
-Deadly Precision II		CATEGORY:Special Ability	TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL2	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision II (Ex)																									SOURCEPAGE:p.83
-Deadly Precision III		CATEGORY:Special Ability	TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL3	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision III (Ex)																									SOURCEPAGE:p.83
-Deadly Precision IV		CATEGORY:Special Ability	TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL4	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=4	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision IV (Ex)																									SOURCEPAGE:p.83
-Deadly Precision V		CATEGORY:Special Ability	TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL5	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=5	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision V (Ex)																									SOURCEPAGE:p.83
-Resist the Power of Faith I	CATEGORY:Special Ability	TYPE:LAResistPowerFaith.AbyssalInfiltratorLAPL1	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LAResistPowerFaith	SAB:Resist the Power of Faith I (Ex)																							SOURCEPAGE:p.83
-Resist the Power of Faith II	CATEGORY:Special Ability	TYPE:LAResistPowerFaith.AbyssalInfiltratorLAPL2	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LAResistPowerFaith	SAB:Resist the Power of Faith II (Ex)																							SOURCEPAGE:p.83
-Resist the Power of Faith III	CATEGORY:Special Ability	TYPE:LAResistPowerFaith.AbyssalInfiltratorLAPL3	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LAResistPowerFaith	SAB:Resist the Power of Faith III (Ex)																							SOURCEPAGE:p.83
-Resist the Power of Faith IV	CATEGORY:Special Ability	TYPE:LAResistPowerFaith.AbyssalInfiltratorLAPL4	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=4	!PREFEAT:1,TYPE.LAResistPowerFaith	SAB:Resist the Power of Faith IV (Ex)																							SOURCEPAGE:p.83
-Resist the Power of Faith V	CATEGORY:Special Ability	TYPE:LAResistPowerFaith.AbyssalInfiltratorLAPL5	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=5	!PREFEAT:1,TYPE.LAResistPowerFaith	SAB:Resist the Power of Faith V (Ex)																							SOURCEPAGE:p.83
+Deadly Precision I		CATEGORY:Special Ability	TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL1	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision I (Ex)																								SOURCEPAGE:p.83
+Deadly Precision II		CATEGORY:Special Ability	TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL2	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision II (Ex)																								SOURCEPAGE:p.83
+Deadly Precision III		CATEGORY:Special Ability	TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL3	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision III (Ex)																								SOURCEPAGE:p.83
+Deadly Precision IV		CATEGORY:Special Ability	TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL4	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=4	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision IV (Ex)																								SOURCEPAGE:p.83
+Deadly Precision V		CATEGORY:Special Ability	TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL5	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=5	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision V (Ex)																								SOURCEPAGE:p.83
+Resist the Power of Faith I	CATEGORY:Special Ability	TYPE:LAResistPowerFaith.AbyssalInfiltratorLAPL1	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LAResistPowerFaith	SAB:Resist the Power of Faith I (Ex)																						SOURCEPAGE:p.83
+Resist the Power of Faith II	CATEGORY:Special Ability	TYPE:LAResistPowerFaith.AbyssalInfiltratorLAPL2	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LAResistPowerFaith	SAB:Resist the Power of Faith II (Ex)																						SOURCEPAGE:p.83
+Resist the Power of Faith III	CATEGORY:Special Ability	TYPE:LAResistPowerFaith.AbyssalInfiltratorLAPL3	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LAResistPowerFaith	SAB:Resist the Power of Faith III (Ex)																						SOURCEPAGE:p.83
+Resist the Power of Faith IV	CATEGORY:Special Ability	TYPE:LAResistPowerFaith.AbyssalInfiltratorLAPL4	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=4	!PREFEAT:1,TYPE.LAResistPowerFaith	SAB:Resist the Power of Faith IV (Ex)																						SOURCEPAGE:p.83
+Resist the Power of Faith V	CATEGORY:Special Ability	TYPE:LAResistPowerFaith.AbyssalInfiltratorLAPL5	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=5	!PREFEAT:1,TYPE.LAResistPowerFaith	SAB:Resist the Power of Faith V (Ex)																						SOURCEPAGE:p.83
 # maybe add x/day a la smite evil
-Smite Good I			CATEGORY:Special Ability	TYPE:LASmiteGood.AbyssalInfiltratorLAPL1		VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LASmiteGood		SAB:Smite Good I (Su)																										SOURCEPAGE:p.83
-Smite Good II			CATEGORY:Special Ability	TYPE:LASmiteGood.AbyssalInfiltratorLAPL2		VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LASmiteGood		SAB:Smite Good II (Su)																										SOURCEPAGE:p.83
-Smite Good III			CATEGORY:Special Ability	TYPE:LASmiteGood.AbyssalInfiltratorLAPL3		VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LASmiteGood		SAB:Smite Good III (Su)																										SOURCEPAGE:p.83
-Smite Good IV			CATEGORY:Special Ability	TYPE:LASmiteGood.AbyssalInfiltratorLAPL4		VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=4	!PREFEAT:1,TYPE.LASmiteGood		SAB:Smite Good IV (Su)																										SOURCEPAGE:p.83
-Smite Good V			CATEGORY:Special Ability	TYPE:LASmiteGood.AbyssalInfiltratorLAPL5		VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=5	!PREFEAT:1,TYPE.LASmiteGood		SAB:Smite Good V (Su)																										SOURCEPAGE:p.83
-Unseen Assassin I			CATEGORY:Special Ability	TYPE:LAUnseenAssassin.AbyssalInfiltratorLAPL1	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LAUnseenAssassin	SAB:Unseen Assassin I (Sp)			SPELLS:Innate|TIMES=1|Ethereal Jaunt|Invisibility														SOURCEPAGE:p.83
-Unseen Assassin II		CATEGORY:Special Ability	TYPE:LAUnseenAssassin.AbyssalInfiltratorLAPL2	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LAUnseenAssassin	SAB:Unseen Assassin II (Sp)			SPELLS:Innate|TIMES=2|Ethereal Jaunt|Invisibility														SOURCEPAGE:p.83
-Unseen Assassin III		CATEGORY:Special Ability	TYPE:LAUnseenAssassin.AbyssalInfiltratorLAPL3	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LAUnseenAssassin	SAB:Unseen Assassin III (Sp)			SPELLS:Innate|TIMES=3|Ethereal Jaunt|Invisibility														SOURCEPAGE:p.83
-Unseen Assassin IV		CATEGORY:Special Ability	TYPE:LAUnseenAssassin.AbyssalInfiltratorLAPL4	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=4	!PREFEAT:1,TYPE.LAUnseenAssassin	SAB:Unseen Assassin IV (Sp)			SPELLS:Innate|TIMES=4|Ethereal Jaunt|Invisibility														SOURCEPAGE:p.83
-Unseen Assassin V			CATEGORY:Special Ability	TYPE:LAUnseenAssassin.AbyssalInfiltratorLAPL5	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=5	!PREFEAT:1,TYPE.LAUnseenAssassin	SAB:Unseen Assassin V (Sp)			SPELLS:Innate|TIMES=5|Ethereal Jaunt|Invisibility														SOURCEPAGE:p.83
+Smite Good I			CATEGORY:Special Ability	TYPE:LASmiteGood.AbyssalInfiltratorLAPL1		VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LASmiteGood		SAB:Smite Good I (Su)																									SOURCEPAGE:p.83
+Smite Good II			CATEGORY:Special Ability	TYPE:LASmiteGood.AbyssalInfiltratorLAPL2		VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LASmiteGood		SAB:Smite Good II (Su)																									SOURCEPAGE:p.83
+Smite Good III			CATEGORY:Special Ability	TYPE:LASmiteGood.AbyssalInfiltratorLAPL3		VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LASmiteGood		SAB:Smite Good III (Su)																									SOURCEPAGE:p.83
+Smite Good IV			CATEGORY:Special Ability	TYPE:LASmiteGood.AbyssalInfiltratorLAPL4		VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=4	!PREFEAT:1,TYPE.LASmiteGood		SAB:Smite Good IV (Su)																									SOURCEPAGE:p.83
+Smite Good V			CATEGORY:Special Ability	TYPE:LASmiteGood.AbyssalInfiltratorLAPL5		VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=5	!PREFEAT:1,TYPE.LASmiteGood		SAB:Smite Good V (Su)																									SOURCEPAGE:p.83
+Unseen Assassin I			CATEGORY:Special Ability	TYPE:LAUnseenAssassin.AbyssalInfiltratorLAPL1	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LAUnseenAssassin	SAB:Unseen Assassin I (Sp)			SPELLS:Innate|TIMES=1|Ethereal Jaunt|Invisibility													SOURCEPAGE:p.83
+Unseen Assassin II		CATEGORY:Special Ability	TYPE:LAUnseenAssassin.AbyssalInfiltratorLAPL2	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LAUnseenAssassin	SAB:Unseen Assassin II (Sp)			SPELLS:Innate|TIMES=2|Ethereal Jaunt|Invisibility													SOURCEPAGE:p.83
+Unseen Assassin III		CATEGORY:Special Ability	TYPE:LAUnseenAssassin.AbyssalInfiltratorLAPL3	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LAUnseenAssassin	SAB:Unseen Assassin III (Sp)			SPELLS:Innate|TIMES=3|Ethereal Jaunt|Invisibility													SOURCEPAGE:p.83
+Unseen Assassin IV		CATEGORY:Special Ability	TYPE:LAUnseenAssassin.AbyssalInfiltratorLAPL4	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=4	!PREFEAT:1,TYPE.LAUnseenAssassin	SAB:Unseen Assassin IV (Sp)			SPELLS:Innate|TIMES=4|Ethereal Jaunt|Invisibility													SOURCEPAGE:p.83
+Unseen Assassin V			CATEGORY:Special Ability	TYPE:LAUnseenAssassin.AbyssalInfiltratorLAPL5	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=5	!PREFEAT:1,TYPE.LAUnseenAssassin	SAB:Unseen Assassin V (Sp)			SPELLS:Innate|TIMES=5|Ethereal Jaunt|Invisibility													SOURCEPAGE:p.83
 
 
 ###Block:Blood Thief legendary abilities

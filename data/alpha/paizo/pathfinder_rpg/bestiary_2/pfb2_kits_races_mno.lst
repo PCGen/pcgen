@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Sep  3 17:29:33 2011 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
 
 # ORIGINAL ENTRY: Stefan Radermacher and Douglas Limmer
@@ -403,7 +403,7 @@ FEAT:Power Attack
 FEAT:Snatch
 
 # COMMENT: Human ability bonus not used
-# COMMENT: The bestiary's Climb and Swim bonuses haven't added the 
+# COMMENT: The bestiary's Climb and Swim bonuses haven't added the
 # COMMENT:   class skill bonus.
 STARTPACK:Ogrekin Human Fighter 2	TYPE:DefaultMonster.Ogrekin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.203
 ALIGN:CE

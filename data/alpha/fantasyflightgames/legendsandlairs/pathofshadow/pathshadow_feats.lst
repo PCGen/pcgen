@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 # Original entry by: Blithwyn
-SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2002-01
 
 # Feat Name				Type			Req. Att.	Required Class		Required Feat							Req. Special Ability	Required Skill				Required Stat		Var. Min. Value			Description																																Save checks bonus						Bonus to skill						Source Page
 Intimidating Sneak Attack	TYPE:General																				PRESKILL:1,Intimidate=5							PREVARGTEQ:SneakAttack,1	DESC:Your fearsome ambushes strike terror into the hearts of your enemies.																																					SOURCEPAGE:p.139

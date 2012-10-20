@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Feb  4 23:22:04 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html	SOURCEDATE:2004-04
 # Original Entry by: Ratheof Blithwyn
 
@@ -71,19 +71,19 @@ Gift of Wisdom		CATEGORY:Special Ability	TYPE:WildernessGuideGift	VISIBLE:DISPLA
 #TODO:Check if Gift of Wisdom PREs work, if yes add the rest...plus pre for charisma...
 
 ###Block: Unbroken's Resistance
-# Ability Name			Category of Ability		Type				Visible		Required Ability														Special ABility												Define					Multiple?	Choose		Ability								Modify VAR					Damage Reduction	Source Page
-Toxin Resistance			CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY																	SAB:Resistance (Ex) Toxin Resistance																																					SOURCEPAGE:p.117
+# Ability Name			Category of Ability		Type				Visible		Required Ability														Special ABility												Define					Stackable?	Multiple?	Choose		Ability								Modify VAR					Damage Reduction	Source Page
+Toxin Resistance			CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY																	SAB:Resistance (Ex) Toxin Resistance																																							SOURCEPAGE:p.117
 Weather Hardened Acid		CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY																	SAB:Resistance (Ex) Weather Hardened Acid Resistance %|AcidResistance			DEFINE:AcidResistance|0			STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|AcidResistance|5					SOURCEPAGE:p.117
 Weather Hardened Cold		CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY																	SAB:Resistance (Ex) Weather Hardened Cold Resistance %|ColdResistance			DEFINE:ColdResistance|0			STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|ColdResistance|5					SOURCEPAGE:p.117
 Weather Hardened Electricity	CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY																	SAB:Resistance (Ex) Weather Hardened Electricity Resistance %|ElectricityResistance	DEFINE:ElectricityResistance|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|ElectricityResistance|5				SOURCEPAGE:p.117
 Weather Hardened Fire		CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY																	SAB:Resistance (Ex) Weather Hardened Fire Resistance %|FireResistance			DEFINE:FireResistance|0			STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|FireResistance|5					SOURCEPAGE:p.117
 Weather Hardened Sonic		CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY																	SAB:Resistance (Ex) Weather Hardened Sonic Resistance %|SonicResistance			DEFINE:SonicResistance|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|SonicResistance|5					SOURCEPAGE:p.117
-Battle Hardened			CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY																	SAB:Resistance (Ex) Battle Hardened																																			DR:2/-		SOURCEPAGE:p.117
-Battle Hardened II		CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Battle Hardened																																																DR:3/-		SOURCEPAGE:p.117
-Battle Hardened III		CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY	PREABILITY:2,CATEGORY=Special Ability,Battle Hardened II,Battle Hardened																																												DR:4/-		SOURCEPAGE:p.117
-Battle Hardened IV		CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY	PREABILITY:3,CATEGORY=Special Ability,Battle Hardened III,Battle Hardened II,Battle Hardened																																									DR:5/-		SOURCEPAGE:p.117
-Survival Instincts		CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY																	SAB:Resistance (Ex) Survival Instincts																			ABILITY:Special Ability|VIRTUAL|Evasion												SOURCEPAGE:p.117
-Survival Instincts II		CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Survival Instincts																																ABILITY:Special Ability|VIRTUAL|Improved Evasion										SOURCEPAGE:p.117
+Battle Hardened			CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY																	SAB:Resistance (Ex) Battle Hardened																																					DR:2/-		SOURCEPAGE:p.117
+Battle Hardened II		CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Battle Hardened																																																		DR:3/-		SOURCEPAGE:p.117
+Battle Hardened III		CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY	PREABILITY:2,CATEGORY=Special Ability,Battle Hardened II,Battle Hardened																																														DR:4/-		SOURCEPAGE:p.117
+Battle Hardened IV		CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY	PREABILITY:3,CATEGORY=Special Ability,Battle Hardened III,Battle Hardened II,Battle Hardened																																											DR:5/-		SOURCEPAGE:p.117
+Survival Instincts		CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY																	SAB:Resistance (Ex) Survival Instincts																					ABILITY:Special Ability|VIRTUAL|Evasion												SOURCEPAGE:p.117
+Survival Instincts II		CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Survival Instincts																																		ABILITY:Special Ability|VIRTUAL|Improved Evasion										SOURCEPAGE:p.117
 
 ###Block: Trueborn Staunch bonuses
 # Ability Name					Category of Ability		Type				Visible		Save checks bonus

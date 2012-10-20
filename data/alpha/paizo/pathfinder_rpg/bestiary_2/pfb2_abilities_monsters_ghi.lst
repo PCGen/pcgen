@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Oct 22 14:51:19 2011 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
 
 # ORIGINAL ENTRY: Stefan Radermacher and Douglas Limmer
@@ -146,9 +146,9 @@ Pain			KEY:Pain ~ Howler			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordi
 Quill Defense	KEY:Quill Defense ~ Howler	CATEGORY:Special Ability	TYPE:Defensive.Extraordinary						DESC:Any creature that strikes a howler with a non-reach melee weapon, unarmed strike, or natural weapon takes 1d4+1 points of piercing damage from the howler's quills and suffers from the howler's pain attack.																																																																												SOURCEPAGE:p.159
 
 ###Block: Ifrit Abilities
-# NEEDS DATA WORK: Need to be able to add 1/2 (?) to the damage of the 
+# NEEDS DATA WORK: Need to be able to add 1/2 (?) to the damage of the
 # NEEDS DATA WORK: Fire Bolt ~ Fire Domain ability.
-# NEEDS DATA WORK: Ash subdomain - add 10 ft. of length to the wall and 
+# NEEDS DATA WORK: Ash subdomain - add 10 ft. of length to the wall and
 # NEEDS DATA WORK:   1 to minutes/day of wall of ashes
 # COMMENT: Smoke subdomain - no changes needed
 # Ability Name					Unique Key					Category of Ability		Type						Visible	Define				Innate Spells								Description																																						Ability																							Caster level																																									Bonus to DC															Bonus to spell cast/day																																																																																																																																								Modify VAR																																										Source Page

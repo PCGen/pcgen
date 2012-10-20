@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Wed Jul 25 20:21:46 2007 -- reformated by prettylst.pl v1.38 (build 2949)
-SOURCELONG:A Question of Loyalty: A Guidebook to Military Orders	SOURCESHORT:GuideMO	SOURCEWEB:http://www.aleapublishing.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:A Question of Loyalty: A Guidebook to Military Orders	SOURCESHORT:GuideMO	SOURCEWEB:http://www.aleapublishing.com	SOURCEDATE:2003-01
 # Original Entry: Andrew Maitland
 
-# Spell Name			Output Name					Classes of caster		School			Sub-School		Type		Components			Casting Time			Range			Target Area or Effect				Duration			Save Info						Spell Resistance				Description																	Source Page
+# Spell Name			Output Name					Classes of caster		School			Sub-School		Type		Components			Casting Time			Range			Target Area or Effect				Duration			Save Info						Spell Resistance				Description																				Source Page
 Cure Minor Wound (Mass)~ AP	OUTPUTNAME:Cure Minor Wound, Mass	CLASSES:Cleric,Druid=1	SCHOOL:Conjuration	SUBSCHOOL:Healing	TYPE:Divine	COMPS:V,S			CASTTIME:1 standard action	RANGE:see text	TARGETAREA:see cure light wounds, mass	DURATION:Instantaneous	SAVEINFO:Will half (harmless); see text	SPELLRES:Yes (harmless); see text	DESC:This spell functions like cure light wounds, mass &lbracket;PHB Chapter.11&rbracket;, except it only heals 1 point.	SOURCEPAGE:p.34
 Heal Light Wounds ~ AP		OUTPUTNAME:Heal Light Wounds		CLASSES:Cleric=1		SCHOOL:Conjuration	SUBSCHOOL:Healing	TYPE:Divine	COMPS:V,S,Quicken Spell	CASTTIME:1 free action		RANGE:Touch		TARGETAREA:One creature touched		DURATION:Instantaneous	SAVEINFO:Will half (harmless); see text	SPELLRES:Yes (harmless); see text	DESC:This spell functions like cure light wounds &lbracket;PHB Chapter.11&rbracket;, except as noted above.				SOURCEPAGE:p.34
 Heal Moderate Wounds ~ AP	OUTPUTNAME:Heal Moderate Wounds	CLASSES:Cleric=2		SCHOOL:Conjuration	SUBSCHOOL:Healing	TYPE:Divine	COMPS:V,S,Quicken Spell	CASTTIME:1 free action		RANGE:Touch		TARGETAREA:One creature touched		DURATION:Instantaneous	SAVEINFO:Will half (harmless); see text	SPELLRES:Yes (harmless); see text	DESC:This spell functions like cure moderate wounds &lbracket;PHB Chapter.11&rbracket;, except as noted above.			SOURCEPAGE:p.35

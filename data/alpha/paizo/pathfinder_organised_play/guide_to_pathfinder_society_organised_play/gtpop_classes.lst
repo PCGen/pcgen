@@ -1,22 +1,28 @@
-SOURCELONG:Guide to Pathfinder Society Organised Play		SOURCESHORT:GTPOP	SOURCEWEB:http://paizo.com/pathfinderSociety/scenarios/v5748btpy84k4	SOURCEDATE:2011-08
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Guide to Pathfinder Society Organised Play	SOURCESHORT:GTPOP	SOURCEWEB:http://paizo.com/pathfinderSociety/scenarios/v5748btpy84k4	SOURCEDATE:2011-08
 # Original Entry by: Jeff Baril
 # Updated by: Andrew Wilson
 
+# Class Name
 CLASS:Wizard.MOD
 ###Block: Level progression
-1			AUTO:FEAT|.CLEAR.Scribe Scroll		BONUS:ABILITYPOOL|Spell Focus Replacement|1
+1	BONUS:ABILITYPOOL|Spell Focus Replacement|1	AUTO:FEAT|.CLEAR.Scribe Scroll
 
 
+# Class Name
 CLASS:Alchemist.MOD
-1		AUTO:FEAT|.CLEAR.Brew Potion 													AUTO:FEAT|Extra Bomb
+1	AUTO:FEAT|.CLEAR.Brew Potion	AUTO:FEAT|Extra Bomb
 
 
 
+# Class Name
 CLASS:Cleric.MOD
-1		AUTO:FEAT|Improved Unarmed Strike|PREDEITY:1,Irori
+1	AUTO:FEAT|Improved Unarmed Strike|PREDEITY:1,Irori
 
 
-CLASS:Antipaladin.MOD		PRECLASS:1,NPC=1,Monster=1
+# Class Name		Required Class
+CLASS:Antipaladin.MOD	PRECLASS:1,NPC=1,Monster=1
 
+# Class Name
 CLASS:Cavalier.MOD
-4												ABILITY:Special Ability|AUTOMATIC|.CLEAR.Expert Trainer ~ Cavalier			AUTO:FEAT|Skill Focus (Handle Animal)
+4	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Expert Trainer ~ Cavalier	AUTO:FEAT|Skill Focus (Handle Animal)

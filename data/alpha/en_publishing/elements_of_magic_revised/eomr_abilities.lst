@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Oct  8 23:33:32 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Elements of Magic (Revised)	SOURCESHORT:EOM	SOURCEWEB:http://www.enworld.org/forum/e-n-publishing/
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Elements of Magic (Revised)	SOURCESHORT:EOM	SOURCEWEB:http://www.enworld.org/forum/e-n-publishing/	SOURCEDATE:2002-01
 #Original Entry: Joe Frazier, Clean up by Andrew Maitland
 
 
@@ -20,7 +20,7 @@ CATEGORY=Special Ability|Skill Mastery.MOD	TYPE:TaskmageSkillMastery
 Animal Speak		CATEGORY:Special Ability	TYPE:SpecialQuality.MinorBoon.SpellLike										DESC:You can speak with the following animals as if you have a common language, %1|%CHOICE			MULT:YES	CHOOSE:RACE|RACETYPE=Animal																													SOURCEPAGE:pg. 6
 Mage Bonus Feat		CATEGORY:Special Ability	TYPE:MinorBoon						VISIBLE:DISPLAY																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																						BONUS:ABILITYPOOL|Mage Feat|1					SOURCEPAGE:pg.
 Resist Fear			CATEGORY:Special Ability	TYPE:SpecialQuality.MinorBoon.Supernatural																																																														SOURCEPAGE:pg. 6
-Magically Empowered	CATEGORY:Special Ability	TYPE:SpecialQuality.MinorBoon.Supernatural																											MULT:YES	CHOOSE:SKILL|TYPE=Dexterity|TYPE=Strength																						BONUS:SKILLRANK|LIST|3	SOURCEPAGE:pg. 6
+Magically Empowered	CATEGORY:Special Ability	TYPE:SpecialQuality.MinorBoon.Supernatural																											MULT:YES	CHOOSE:SKILL|TYPE=Dexterity|TYPE=Strength																							BONUS:SKILLRANK|LIST|3	SOURCEPAGE:pg. 6
 Minor Energy Resistance	CATEGORY:Special Ability	TYPE:SpecialQuality.MinorBoon.Supernatural				DEFINE:ResistanceBonusMinor|1	DESC:Resistance %1 to %2|ResistanceBonusMinor|%LIST										MULT:YES	CHOOSE:STRING|Acid|Air|Crystal|Death|Earth|Fire|Force|Ice|Lava|Life|Light|Lightning|Metal|Mist|Nature|Ooze|Shadow|Sound|Space|Time|Void|Water										SOURCEPAGE:pg. 6
 Spiritual Medium		CATEGORY:Special Ability	TYPE:SpecialQuality.MinorBoon.Supernatural																																																														SOURCEPAGE:pg. 6
 

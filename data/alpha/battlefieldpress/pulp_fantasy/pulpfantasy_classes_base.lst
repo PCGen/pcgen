@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Nov 23 00:59:49 2007 -- reformated by prettylst.pl v1.38 (build 2788)
-SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2006-01
 #Original entry by: Frank Kliewe
 
 # Do NOT remove the COST:0 tags on the Subclass, unless you want an crash in loading the files. - Tir Gwaith

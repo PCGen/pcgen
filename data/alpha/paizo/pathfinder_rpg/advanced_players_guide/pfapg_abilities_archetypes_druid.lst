@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Jan 17 06:10:47 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 # Wild Shape, Shaman Wild Shape
 #
 # Ability Name								Category of Ability		Type						Define																Description																																																																												Ability																																																													Modify VAR																			Source Page
@@ -25,7 +25,7 @@ CATEGORY=Special Ability|Shaman Wild Shape.MOD	DESC:When changing into an totem 
 ###Block: Druid Shaman Wild Shape
 # Ability Name			Category of Ability		Type			Visible	Define			Modify VAR
 # Shaman Wild Shape Progression | 1 = L4, 2 = L6, 3 = L8, 4 = L10, 5 = L12, 6 = L14, 7 = L16, 8 = L18, 9 = L20
-# Ability Name				Unique Key				Output Name						Category of Ability		Type								Visible	Define				Modify VAR																																																																																																																				Source Page
-Shaman Druid Wild Shape															CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO	DEFINE:ShamanDruidWildShape|0	BONUS:VAR|ShamanWildShapeDuration|ShamanDruidWildShape
-Shaman Druid Wild Shape Times														CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO						BONUS:VAR|ShamanWildShapeTimes|ShamanWildShapeProgression
-Shaman Druid Wild Shape Progression													CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO						BONUS:VAR|ShamanWildShapeProgression|1|PREVARGTEQ:ShamanDruidWildShape,4	BONUS:VAR|ShamanWildShapeProgression|1|PREVARGTEQ:ShamanDruidWildShape,6	BONUS:VAR|ShamanWildShapeProgression|1|PREVARGTEQ:ShamanDruidWildShape,8	BONUS:VAR|ShamanWildShapeProgression|1|PREVARGTEQ:ShamanDruidWildShape,10	BONUS:VAR|ShamanWildShapeProgression|1|PREVARGTEQ:ShamanDruidWildShape,12	BONUS:VAR|ShamanWildShapeProgression|1|PREVARGTEQ:ShamanDruidWildShape,14	BONUS:VAR|ShamanWildShapeProgression|1|PREVARGTEQ:ShamanDruidWildShape,16	BONUS:VAR|ShamanWildShapeProgression|1|PREVARGTEQ:ShamanDruidWildShape,18	BONUS:VAR|ShamanWildShapeProgression|1|PREVARGTEQ:ShamanDruidWildShape,20
+# Ability Name				Category of Ability		Type			Visible	Define				Modify VAR
+Shaman Druid Wild Shape			CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:ShamanDruidWildShape|0	BONUS:VAR|ShamanWildShapeDuration|ShamanDruidWildShape
+Shaman Druid Wild Shape Times		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO						BONUS:VAR|ShamanWildShapeTimes|ShamanWildShapeProgression
+Shaman Druid Wild Shape Progression	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO						BONUS:VAR|ShamanWildShapeProgression|1|PREVARGTEQ:ShamanDruidWildShape,4	BONUS:VAR|ShamanWildShapeProgression|1|PREVARGTEQ:ShamanDruidWildShape,6	BONUS:VAR|ShamanWildShapeProgression|1|PREVARGTEQ:ShamanDruidWildShape,8	BONUS:VAR|ShamanWildShapeProgression|1|PREVARGTEQ:ShamanDruidWildShape,10	BONUS:VAR|ShamanWildShapeProgression|1|PREVARGTEQ:ShamanDruidWildShape,12	BONUS:VAR|ShamanWildShapeProgression|1|PREVARGTEQ:ShamanDruidWildShape,14	BONUS:VAR|ShamanWildShapeProgression|1|PREVARGTEQ:ShamanDruidWildShape,16	BONUS:VAR|ShamanWildShapeProgression|1|PREVARGTEQ:ShamanDruidWildShape,18	BONUS:VAR|ShamanWildShapeProgression|1|PREVARGTEQ:ShamanDruidWildShape,20

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Feb 17 21:52:10 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59	SOURCEDATE:2004-01
 
 # Feat Name					Type				Visible	Required Feat			Prohibited Feat			Special ABility		Define		Add 						Save checks bonus			Modify VAR
 Psyche					TYPE:Special		VISIBLE:NO											SAB:Psyche %|Psyche	DEFINE:Psyche|0												BONUS:VAR|Psyche|3

@@ -1,16 +1,16 @@
-# CVS $Revision$ $Author$ -- Mon Feb 16 22:41:18 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-SOURCELONG:Honor and Corruption	SOURCESHORT:Honor	SOURCEWEB:www.aleapublishing.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Honor and Corruption	SOURCESHORT:Honor	SOURCEWEB:www.aleapublishing.com	SOURCEDATE:2005-01
 #Original entry: Andrew Maitland
 
 
-# Race Name	Favored Class	Starting Feats	Size		Move			Face/Space	Reach		Required AL		Automatic Languages		Bonus Languages	Stat bonus								Modify VAR			Virtual Feat						Feat			Ability							Special ABility								Damage Reduction	Main Race Type	Race Subtype	Type			Challenge Rating	Source Page
-Honorborn	FAVCLASS:Paladin	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	KIT:1|LE|LG|LN	AUTO:LANG|Common|Celestial	LANGBONUS:ALL	BONUS:STAT|WIS|2	BONUS:STAT|CHA|2																AUTO:FEAT|Honorable									SAB:+2 racial bonus on saving throws against fear effects.	DR:5/honorable	RACETYPE:Humanoid	RACESUBTYPE:Human	TYPE:Humanoid	CR:1/2		SOURCEPAGE:p.18
+# Race Name	Favored Class	Starting Feats	Size		Move			Face/Space	Reach		Bonus Languages	Stat bonus								Modify VAR			Automatically Gained Feat	Automatically Gained Language	Virtual Feat						Ability							Special ABility								Damage Reduction	Main Race Type	Race Subtype	Type			Challenge Rating	Source Page		Apply Kit
+Honorborn	FAVCLASS:Paladin	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:ALL	BONUS:STAT|WIS|2	BONUS:STAT|CHA|2								AUTO:FEAT|Honorable		AUTO:LANG|Common|Celestial																	SAB:+2 racial bonus on saving throws against fear effects.	DR:5/honorable	RACETYPE:Humanoid	RACESUBTYPE:Human	TYPE:Humanoid	CR:1/2		SOURCEPAGE:p.18	KIT:1|LE|LG|LN
 ### COMMENT: No mechanism for SUBSCLASS Favoring exists
 ### Honorbound get a 10% penalty when taking Subclass Knight, instead of 20%
 ### Proposal Tag: FAVSUBSCLASS:Knight
 ### TODO: At will - Detect Corruption (Unknown if spell exists in the sourcebooks I have, if Not put a place holder.)
 
-Tarnishborn	FAVCLASS:Rogue	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	KIT:1|LE|LG|LN	AUTO:LANG|Common|Infernal	LANGBONUS:ALL	BONUS:STAT|STR|2	BONUS:STAT|CHA|-2	BONUS:STAT|INT|-2	BONUS:VAR|SneakAttack|1	VFEAT:BlackguardSpellList|PRECLASS:1,Cleric=1				ABILITY:Special Ability|AUTOMATIC|Sneak Attack	SAB:Preordained	SAB:Dishonorable								RACETYPE:Humanoid	RACESUBTYPE:Human	TYPE:Humanoid	CR:1/2		SOURCEPAGE:p.19
+Tarnishborn	FAVCLASS:Rogue	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:ALL	BONUS:STAT|STR|2	BONUS:STAT|CHA|-2	BONUS:STAT|INT|-2	BONUS:VAR|SneakAttack|1						AUTO:LANG|Common|Infernal	VFEAT:BlackguardSpellList|PRECLASS:1,Cleric=1	ABILITY:Special Ability|AUTOMATIC|Sneak Attack	SAB:Preordained	SAB:Dishonorable								RACETYPE:Humanoid	RACESUBTYPE:Human	TYPE:Humanoid	CR:1/2		SOURCEPAGE:p.19	KIT:1|LE|LG|LN
 ### Proposal Tag: FAVSUBCLASS:Scoundrel - ONLY 10% PENALTY FOR THE CLASS INSTEAD OF 20%
 ### SAB:Preordained - Allows character to become a PRC Blackguard without the contact requirement... It also grants Clerics the Blackguard Spell list.
 ### SAB:Dishonorable - no mechanism exists, purely a RP tool.

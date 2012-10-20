@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Thu May 17 18:58:16 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
-# Ability Category				Visible	Editable or Static?	Change Pool?	Fractional values?	Category of Object	Display Location
-ABILITYCATEGORY:Background			VISIBLE:YES	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Background
+# Ability Category		Visible	Editable or Static?	Change Pool?	Fractional values?	Category of Object
+ABILITYCATEGORY:Background	VISIBLE:YES	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Background
 
 ###Block: Background Ability Categories
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI	Display Location

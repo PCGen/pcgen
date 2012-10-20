@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jul  7 12:04:01 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Stefan Radermacher
 
@@ -7,30 +7,30 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/
 Alchemist Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Bomb
 
 ###Block: Immunities
-# Ability Name					Category of Ability		Type								Visible	Description																	Ability																																										Source Page		Aspects
-Immunity to Sickened Condition		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity			DESC:You are never subject to sickened effects.																																																						SOURCEPAGE:p.44	ASPECT:Immunity|Sickened Condition
-Immunity to Nauseated Condition		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity			DESC:You are never subject to nauseated effects.																																																					SOURCEPAGE:p.44	ASPECT:Immunity|Nauseated Condition
+# Ability Name									Category of Ability		Type								Visible	Required Ability										Description																	Ability																																										Modify VAR																			Source Page		Aspects
+Immunity to Sickened Condition						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity															DESC:You are never subject to sickened effects.																																																																										SOURCEPAGE:p.44	ASPECT:Immunity|Sickened Condition
+Immunity to Nauseated Condition						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity															DESC:You are never subject to nauseated effects.																																																																									SOURCEPAGE:p.44	ASPECT:Immunity|Nauseated Condition
 
 # Show that the character is fatigued when normally exhausted. Ofcourse, if the character is also immune to fatigue, the character is effectively immune to exhaustion as well.
-Exhaustion to Fatigue				CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO																			ABILITY:Special Ability|AUTOMATIC|Immunity to Exhaustion|PREABILITY:1,CATEGORY=Special Ability,Immunity to Fatigue	ABILITY:Special Ability|AUTOMATIC|Immunity to Exhaustion (becomes fatigued)|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Fatigue	SOURCEPAGE:p.264
-Immunity to Exhaustion (becomes fatigued)	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity			DESC:You can never be exhausted; anything that would cause you to be exhausted makes you fatigued instead.																																												SOURCEPAGE:p.44	ASPECT:Immunity|Exhaustion'
+Exhaustion to Fatigue								CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO																															ABILITY:Special Ability|AUTOMATIC|Immunity to Exhaustion|PREABILITY:1,CATEGORY=Special Ability,Immunity to Fatigue	ABILITY:Special Ability|AUTOMATIC|Immunity to Exhaustion (becomes fatigued)|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Fatigue																					SOURCEPAGE:p.264
+Immunity to Exhaustion (becomes fatigued)					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity															DESC:You can never be exhausted; anything that would cause you to be exhausted makes you fatigued instead.																																																																SOURCEPAGE:p.44	ASPECT:Immunity|Exhaustion'
 
 
 ##Block: Extra Channel feat support
-Oracle of Bone Extra Channel	CATEGORY:Special Ability	TYPE:ExtraChannel	PREABILITY:1,CATEGORY=Special Ability,Undead Servitude ~ Bone Mystery		BONUS:VAR|UndeadServitudeTimes|2
-Oracle of Life Extra Channel	CATEGORY:Special Ability	TYPE:ExtraChannel	PREABILITY:1,CATEGORY=Special Ability,Channel ~ Life Mystery			BONUS:VAR|OracleChannelTimes|2
+Oracle of Bone Extra Channel							CATEGORY:Special Ability	TYPE:ExtraChannel								PREABILITY:1,CATEGORY=Special Ability,Undead Servitude ~ Bone Mystery																																																														BONUS:VAR|UndeadServitudeTimes|2
+Oracle of Life Extra Channel							CATEGORY:Special Ability	TYPE:ExtraChannel								PREABILITY:1,CATEGORY=Special Ability,Channel ~ Life Mystery																																																															BONUS:VAR|OracleChannelTimes|2
 
-CATEGORY=Special Ability|Channel Energy ~ Prestige Class.MOD	BONUS:VAR|UndeadServitudeLVL|PrestigeClassChannelEnergyLVL	BONUS:VAR|OracleChannelLVL|PrestigeClassChannelEnergyLVL
+CATEGORY=Special Ability|Channel Energy ~ Prestige Class.MOD																																																																																									BONUS:VAR|UndeadServitudeLVL|PrestigeClassChannelEnergyLVL	BONUS:VAR|OracleChannelLVL|PrestigeClassChannelEnergyLVL
 
 ###Block: CMB Definitions
-# Ability Name			Define									Modify VAR
-CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_DirtyTricks|0	DEFINE:CMD_DirtyTricks|0	BONUS:VAR|CMB_DirtyTricks|CMB	BONUS:VAR|CMD_DirtyTricks|CMD
-CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Drag|0	DEFINE:CMD_Drag|0					BONUS:VAR|CMB_Drag|CMB	BONUS:VAR|CMD_Drag|CMD
-CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Reposition|0	DEFINE:CMD_Reposition|0			BONUS:VAR|CMB_Reposition|CMB	BONUS:VAR|CMD_Reposition|CMD
-CATEGORY=FEAT|CMB Output.MOD	DEFINE:CMB_Steal|0	DEFINE:CMD_Steal|0			BONUS:VAR|CMB_Steal|CMB	BONUS:VAR|CMD_Steal|CMD
+# Ability Name								Define									Automatically Gained Weapon Prof.	Modify VAR
+CATEGORY=FEAT|CMB Output.MOD						DEFINE:CMB_DirtyTricks|0	DEFINE:CMD_DirtyTricks|0							BONUS:VAR|CMB_DirtyTricks|CMB	BONUS:VAR|CMD_DirtyTricks|CMD
+CATEGORY=FEAT|CMB Output.MOD						DEFINE:CMB_Drag|0	DEFINE:CMD_Drag|0											BONUS:VAR|CMB_Drag|CMB	BONUS:VAR|CMD_Drag|CMD
+CATEGORY=FEAT|CMB Output.MOD						DEFINE:CMB_Reposition|0	DEFINE:CMD_Reposition|0									BONUS:VAR|CMB_Reposition|CMB	BONUS:VAR|CMD_Reposition|CMD
+CATEGORY=FEAT|CMB Output.MOD						DEFINE:CMB_Steal|0	DEFINE:CMD_Steal|0									BONUS:VAR|CMB_Steal|CMB	BONUS:VAR|CMD_Steal|CMD
 
 ## Monk Weapons
-CATEGORY=Special Ability|Monk Weapon Proficiencies.MOD	AUTO:WEAPONPROF|Sword (Temple)
+CATEGORY=Special Ability|Monk Weapon Proficiencies.MOD											AUTO:WEAPONPROF|Sword (Temple)
 
 #
 # End

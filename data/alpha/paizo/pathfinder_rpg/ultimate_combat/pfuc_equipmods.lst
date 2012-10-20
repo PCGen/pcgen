@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Sep  4 07:13:30 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
 
 # EQUIP MOD
@@ -28,11 +28,11 @@ Performance			KEY:PERFORMANCE			NAMEOPT:NOTHING	TYPE:SpecialWeaponQualities					
 
 
 ### EQMODS Base Types
-Bone				KEY:BONE		ITYPE:Bone			TYPE:Weapon.Shield.Armor
-Bronze			KEY:BRONZE		ITYPE:Bronze		TYPE:Weapon.Shield.Armor
-Gold				KEY:GOLD		ITYPE:Gold			TYPE:Weapon.Shield.Armor
-Stone				KEY:STONE		ITYPE:Stone			TYPE:Weapon.Shield.Armor
-Obsidian			KEY:OBSIDIAN	ITYPE:Obsidian		TYPE:Weapon.Shield.Armor
+Bone				KEY:BONE							TYPE:Weapon.Shield.Armor									ITYPE:Bone
+Bronze			KEY:BRONZE							TYPE:Weapon.Shield.Armor									ITYPE:Bronze
+Gold				KEY:GOLD							TYPE:Weapon.Shield.Armor									ITYPE:Gold
+Stone				KEY:STONE							TYPE:Weapon.Shield.Armor									ITYPE:Stone
+Obsidian			KEY:OBSIDIAN						TYPE:Weapon.Shield.Armor									ITYPE:Obsidian
 
 
 

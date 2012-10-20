@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Feb 10 09:52:08 2010 -- reformated by prettylst.pl v1.39 (build 11450)
-SOURCELONG:Pathfinder Chronicles: Campaign Setting	SOURCESHORT:PFCS	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search	SOURCEDATE:2008-08
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Pathfinder Campaign Setting	SOURCESHORT:PFCS	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search	SOURCEDATE:2008-08
 
 # Deity Name	Product Identity?	Domains												Desciption of Deity/Title					Deity Weapon				Alignment	Pantheon					Source Page
 Erastil		NAMEISPI:YES	DOMAINS:Animal,Community,Good,Law,Plant|PREALIGN:LG,LN,NG				DESC:God of farming, hunting, trade, family		DEITYWEAP:Longbow				ALIGN:LG	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.160

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Modern Dispatch #47 - New Tortuga	SOURCESHORT:MD47-NT	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=5053
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern Dispatch #47 - New Tortuga	SOURCESHORT:MD47-NT	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=5053	SOURCEDATE:2004-01
 
 # Equipment Name	Type				Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		Combat bonus																	Stat bonus																			Special Property
 Sugg Armor		TYPE:Armor.Powered	COST:45	WT:16		ACCHECK:0		MAXDEX:6		SOURCEPAGE:p.7	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|7|PREFEAT:1,Armor Proficiency (Powered)|TYPE=Armor.STACK	BONUS:STAT|STR|3|TYPE=Equipment.STATCK	BONUS:STAT|STR|7|PREFEAT:1,Armor Proficiency (Powered)|TYPE=Equipment.STACK	SPROP:Ill (+4)

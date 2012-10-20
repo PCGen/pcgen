@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
-SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141	SOURCEDATE:2005-01
 #Original entry by: Frank Kliewe
 
 ###Block:Mental Disorders
@@ -49,7 +49,7 @@ Night Terrors				TYPE:SleepDisorder		VISIBLE:NO	SAB:Mental Disorder - Sleep(Nigh
 Somnambulism				TYPE:SleepDisorder		VISIBLE:NO	SAB:Mental Disorder - Sleep(Somnambulism)																																																																	SOURCEPAGE:p.33
 
 ###Block:Class Abilities
-# Feat Name		Type				Visible	Prohibited Damage Resistance	Special ABility			Stackable?	Multiple?	Choose						Damage reduction	Weapon prof. bonus													Damage Reduction	Source Page
+# Feat Name		Type				Visible	Prohibited Damage Resistance	Special ABility			Stackable?	Multiple?	Choose								Damage reduction	Weapon prof. bonus													Damage Reduction	Source Page
 Smart Weapon	TYPE:MadGeniusAbility	VISIBLE:NO						SAB:Smart Weapon (%CHOICE)	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|EQUIPMENT[!TYPE=2 handed]|PC				BONUS:WEAPONPROF=%LIST|TOHIT.MELEE|INT-STR	BONUS:WEAPONPROF=%LIST|TOHIT.RANGED|INT-DEX				SOURCEPAGE:p.49
 
-Initiate DR		TYPE:Workaround		VISIBLE:NO	!PREDR:1,-=1																BONUS:DR|-|-1																	DR:1/-
+Initiate DR		TYPE:Workaround		VISIBLE:NO	!PREDR:1,-=1																					BONUS:DR|-|-1																	DR:1/-

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Oct 22 14:51:19 2011 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
 
 # ORIGINAL ENTRY: Douglas Limmer
@@ -143,7 +143,7 @@ Spriggan Magic							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	
 Spriggan Skills							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary						DESC:Climb, Disable Device, Perception, Sleight of Hand, and Stealth are class skills for spriggans.																																																																																																	CSKILL:Climb|Disable Device|Perception|Sleight of Hand|Stealth	SOURCEPAGE:p.257
 
 ###Block: Sylph Abilities
-# NEEDS DATA WORK: Need to be able to add 1/2 (?) to the damage of the 
+# NEEDS DATA WORK: Need to be able to add 1/2 (?) to the damage of the
 # NEEDS DATA WORK:   Lightning Arc ~ Air Domain ability.
 # NEEDS DATA WORK:   There's no way to do it as of now.
 # NEEDS DATA WORK: Cloud subdomain - add 1 to rounds/day of thundercloud
@@ -213,6 +213,7 @@ Poison Skin		KEY:Poison Skin ~ Giant Toad	CATEGORY:Special Ability	TYPE:Defensiv
 # COMMENT: Set number of damage dice with BONUS:VAR|SwallowWholeDice|x
 # COMMENT: Set Die size with BONUS:VAR|SwallowWholeDamageDie|x
 
+# Ability Name	Unique Key					Category of Ability		Type								Define																														Description																															Source Page		Aspects																							Description of the Benefits
 Swallow Whole	KEY:Swallow Whole ~ Glacier Toad	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	DEFINE:SwallowWholeDice|0	DEFINE:SwallowWholeDamageDie|0	DEFINE:SwallowWholeBonusDamage|0	DEFINE:SwallowWholeAC|10+(var("AC.NaturalArmor")/2)	DEFINE:SwallowWholeHP|HP/10	DESC:If you begin your turn with an opponent grappled in your mouth, you can attempt a new combat maneuver check. If you succeed, you swallow your prey, and the opponent takes bite damage.	SOURCEPAGE:p.268	ASPECT:Ability Benefit|(%1d%2 bludgeoning and 1d6 cold, AC %3, %4 hp)|SwallowWholeDice|SwallowWholeDamageDie|SwallowWholeAC|SwallowWholeHP	BENEFIT:If you begin your turn with an opponent grappled in your mouth, you can attempt a new combat maneuver check. If you succeed, you swallow your prey, and the opponent takes bite damage. The opponent can be up to one size category smaller than you. Being swallowed causes a creature to take damage each round. A swallowed creature keeps the grappled condition, while you do not. A swallowed creature can try to cut its way free with any light slashing or piercing weapon (the amount of cutting damage required to get free is equal to 1/10 of your total hit points), or it can just try to escape the grapple. The Armor Class of your interior is normally 10 + 1/2 of your natural armor bonus, with no modifiers for size or Dexterity. If a swallowed creature cuts its way out, you cannot use swallow whole again until the damage is healed. If the swallowed creature escapes the grapple, success puts it back in your mouth, where it may be bitten or swallowed again.
 
 Bitter Cold		KEY:Bitter Cold ~ Glacier Toad	CATEGORY:Special Ability	TYPE:Aura.Supernatural																																				DESC:All creatures within 20 feet of a glacier toad take 1d6 points of cold damage each round on the toad's turn.														SOURCEPAGE:p.268	ASPECT:Ability Benefit|(20 ft.)
@@ -248,7 +249,7 @@ Bramble Jump	KEY:Bramble Jump ~ Twigjack	CATEGORY:Special Ability	TYPE:SpecialQu
 Splinterspray	KEY:Splinterspray ~ Twigjack	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:TwigjackSplintersprayDC|0	DESC:A twigjack can eject a barrage of splinters and brambles from its body three times per day as a standard action.  This effect creates a 15-foot conical burst of jagged splinters, dealing 4d6 points of piercing damage to all creatures in the area.  A DC %1 Reflex saving throw halves this damage.|TwigjackSplintersprayDC											BONUS:VAR|TwigjackSplintersprayDC|10+TL/2+CON	BONUS:VAR|TwigjackSplintersprayDC|2|PREFEAT:1,Ability Focus (Splinterspray)	SOURCEPAGE:p.274
 
 ###Block: Undine Abilities
-# NEEDS DATA WORK: Need to be able to add 1/2 (?) to the damage of the 
+# NEEDS DATA WORK: Need to be able to add 1/2 (?) to the damage of the
 # NEEDS DATA WORK:   Icicle ~ Water Domain ability.  There's no way to do it as of now.
 # NEEDS DATA WORK:   Ice subdomain - add 1 to rounds/day of body of ice
 # NEEDS DATA WORK:   Wind subdomain - add 1 to CMB of surge

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
-SOURCELONG:Honor and Corruption	SOURCESHORT:Honor	SOURCEWEB:www.aleapublishing.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Honor and Corruption	SOURCESHORT:Honor	SOURCEWEB:www.aleapublishing.com	SOURCEDATE:2005-01
 #Original Entry: Andrew Maitland
 
 
@@ -7,7 +7,8 @@ SOURCELONG:Honor and Corruption	SOURCESHORT:Honor	SOURCEWEB:www.aleapublishing.c
 ### HIDDEN SUBCLASS HP
 #SubClassBonusHPd10		TYPE:Subclass.Hidden.KnightHP		MULT:YES	STACK:YES	BONUS:HP|CURRENTMAX|%CHOICE|TYPE=Enhancement|PREAPPLY:ANYPC										CHOOSE:NUMBER|MIN=4|MAX=18|TITLE=Choose number of bonus Hp.
 # Feat Name				Type						Visible	Special ABility			Stackable?	Multiple?	Choose											Bonus to HP
-KnightSubClassBonusHP		CATEGORY:Special Ability	TYPE:Subclass.Hidden.KnightHP								STACK:YES	MULT:YES	CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Choose number of bonus Subclass Hp.	BONUS:HP|CURRENTMAX|%CHOICE
+# Ability Name			Unique Key								Category of Ability		Type						Define										Description														Stackable?	Multiple?	Choose											Bonus to HP
+KnightSubClassBonusHP											CATEGORY:Special Ability	TYPE:Subclass.Hidden.KnightHP																												STACK:YES	MULT:YES	CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Choose number of bonus Subclass Hp.	BONUS:HP|CURRENTMAX|%CHOICE
 
 #KnightSubClassBonusHPlv4	TYPE:Subclass.Hidden.KnightHP			STACK:YES	MULT:YES	CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Choose number of bonus Subclass Hp.	BONUS:HP|CURRENTMAX|%CHOICE|PREAPPLY:ANYPC
 #KnightSubClassBonusHPlv8	TYPE:Subclass.Hidden.KnightHP			STACK:YES	MULT:YES	CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Choose number of bonus Subclass Hp.	BONUS:HP|CURRENTMAX|%CHOICE|PREAPPLY:ANYPC
@@ -18,7 +19,7 @@ KnightSubClassBonusHP		CATEGORY:Special Ability	TYPE:Subclass.Hidden.KnightHP			
 
 
 #SubClassBonusHPd6		TYPE:Subclass.Hidden.ScoundrelHP		MULT:YES	STACK:YES	BONUS:HP|CURRENTMAX|%CHOICE|TYPE=Enhancement|PREAPPLY:ANYPC										CHOOSE:NUMBER|MIN=4|MAX=18|TITLE=Choose number of bonus Hp.
-ScoundrelSubClassBonusHP	CATEGORY:Special Ability	TYPE:Subclass.Hidden.ScoundrelHP							STACK:YES	MULT:YES	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Choose number of bonus Subclass Hp.	BONUS:HP|CURRENTMAX|%CHOICE
+ScoundrelSubClassBonusHP										CATEGORY:Special Ability	TYPE:Subclass.Hidden.ScoundrelHP																											STACK:YES	MULT:YES	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Choose number of bonus Subclass Hp.	BONUS:HP|CURRENTMAX|%CHOICE
 
 #ScoundrelSubClassBonusHPlv4	TYPE:Subclass.Hidden.ScoundrelHP		STACK:YES	MULT:YES	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Choose number of bonus Subclass Hp.	BONUS:HP|CURRENTMAX|%CHOICE|PREAPPLY:ANYPC
 #ScoundrelSubClassBonusHPlv8	TYPE:Subclass.Hidden.ScoundrelHP		STACK:YES	MULT:YES	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Choose number of bonus Subclass Hp.	BONUS:HP|CURRENTMAX|%CHOICE|PREAPPLY:ANYPC
@@ -27,18 +28,18 @@ ScoundrelSubClassBonusHP	CATEGORY:Special Ability	TYPE:Subclass.Hidden.Scoundrel
 #ScoundrelSubClassBonusHPlv20	TYPE:Subclass.Hidden.ScoundrelHP		STACK:YES	MULT:YES	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Choose number of bonus Subclass Hp.	BONUS:HP|CURRENTMAX|%CHOICE|PREAPPLY:ANYPC
 
 
-Cast Blackguard Spells	KEY:BlackguardSpellList		CATEGORY:Special Ability	TYPE:SpecialQuality
+Cast Blackguard Spells		KEY:BlackguardSpellList						CATEGORY:Special Ability	TYPE:SpecialQuality
 ### TODO: Add blackguard spell list if CLERIC
 
 # ~ Knight Subclass
-Squire	KEY:Squire ~ Knight Subclass
-Honor		KEY:Honor ~ Knight Subclass		CATEGORY:Special Ability	TYPE:SpecialQuality		DESC:+%1|HonorScore|PREVARGTEQ:HonorScore,0	DESC:%1|HonorScore|PREVARLT:HonorScore,0	DEFINE:HonorScore|0
-Bonus HP	KEY:Bonus HP ~ Knight Subclass	CATEGORY:Special Ability	TYPE:SpecialQuality		DESC:%1d10 HP|KnightHitDieBonus													DEFINE:KnightHitDieBonus|0
-Sanctuary	KEY:Sanctuary ~ Knight Subclass	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Squire				KEY:Squire ~ Knight Subclass
+Honor					KEY:Honor ~ Knight Subclass					CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:HonorScore|0								DESC:+%1|HonorScore|PREVARGTEQ:HonorScore,0	DESC:%1|HonorScore|PREVARLT:HonorScore,0
+Bonus HP				KEY:Bonus HP ~ Knight Subclass				CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:KnightHitDieBonus|0							DESC:%1d10 HP|KnightHitDieBonus
+Sanctuary				KEY:Sanctuary ~ Knight Subclass				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 
 
 # ~ Scoundrel Subclass
-No Honor Amoung Thieves	KEY:No Honor Amoung Thieves ~ Scoundrel Subclass	CATEGORY:Special Ability	TYPE:SpecialQuality
-Bonus Sneak Attack	KEY:Bonus Sneak Attack ~ Scoundrel Subclass		CATEGORY:Special Ability	TYPE:SpecialQuality				DESC:+%1d%2|ScoundrelSneakAttack|ScoundrelSneakAttackDie	DEFINE:ScoundrelSneakAttackDie|4	DEFINE:ScoundrelSneakAttack|0
-Impromptu Sneak Attack	KEY:Impromptu Sneak Attack ~ Scoundrel Subclass		CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:%1/day|ImpromptuSneakTimes										DEFINE:ImpromptuSneakTimes|0
-Bonus HP			KEY:Bonus HP ~ Scoundrel Subclass				CATEGORY:Special Ability	TYPE:SpecialQuality				DESC:%1d6 HP|ScoundrelHitDieBonus												DEFINE:ScoundrelHitDieBonus|0
+No Honor Amoung Thieves		KEY:No Honor Amoung Thieves ~ Scoundrel Subclass	CATEGORY:Special Ability	TYPE:SpecialQuality
+Bonus Sneak Attack		KEY:Bonus Sneak Attack ~ Scoundrel Subclass		CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:ScoundrelSneakAttackDie|4	DEFINE:ScoundrelSneakAttack|0	DESC:+%1d%2|ScoundrelSneakAttack|ScoundrelSneakAttackDie
+Impromptu Sneak Attack		KEY:Impromptu Sneak Attack ~ Scoundrel Subclass		CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:ImpromptuSneakTimes|0							DESC:%1/day|ImpromptuSneakTimes
+Bonus HP				KEY:Bonus HP ~ Scoundrel Subclass				CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:ScoundrelHitDieBonus|0							DESC:%1d6 HP|ScoundrelHitDieBonus

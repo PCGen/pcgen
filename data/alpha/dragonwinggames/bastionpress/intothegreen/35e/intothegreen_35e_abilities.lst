@@ -1,15 +1,15 @@
-# CVS $Revision$ $Author$ -- Sun Oct 31 23:13:55 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Bastion Press - Into the Green	SOURCESHORT:ittg	SOURCEDATE:2003-01
 #Original Entry: Andrew (LegacyKing) Maitland
 
 # Arboreal Nemesis
-# Ability Name					Unique Key							Category of Ability		Type								Innate Spells																																																													Description							Ability								Bonus to Ability Pool			Modify VAR					Source Page
+# Ability Name					Unique Key							Category of Ability		Type								Innate Spells																																																														Description							Ability								Bonus to Ability Pool			Modify VAR					Source Page
 Favored Enemy					KEY:Arboreal Nemesis ~ Favored Enemy		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
 Despise Beauty					KEY:Arboreal Nemesis ~ Despise Beauty		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Rotting Grasp					KEY:Arboreal Nemesis ~ Rotting Grasp		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
 
 # Darkwoodsman
-Damage Reduction					KEY:Dark Woodsman ~ Damage Reduction		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																																		DESC:5/+1 (slashing and piercing weapons only)
+Damage Reduction					KEY:Dark Woodsman ~ Damage Reduction		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																																			DESC:5/+1 (slashing and piercing weapons only)
 Tree Bond						KEY:Dark Woodsman ~ Tree Bond				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Animate Trees					KEY:Dark Woodsman ~ Animate Trees			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Draw Strength					KEY:Dark Woodsman ~ Draw Strength			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
@@ -57,7 +57,7 @@ Blindsight						KEY:Gloomfog ~ Blindsight				CATEGORY:Special Ability	TYPE:Speci
 
 # Maakantu
 Poison Sting					KEY:Maakantu ~ Poison Sting				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
-Spells						KEY:Maakantu ~ Spells					CATEGORY:Special Ability																																																																																									BONUS:ABILITYPOOL|Caster Needed|1
+Spells						KEY:Maakantu ~ Spells					CATEGORY:Special Ability																																																																																										BONUS:ABILITYPOOL|Caster Needed|1
 
 
 # Spindleshank
@@ -73,7 +73,7 @@ Spell-Like Abilities				KEY:Verdant Guardian ~ Spell-Like Abilities	CATEGORY:Spe
 #. These Abilities Are As The Spells Cast By A 10thlevel Druid (Save Dc 14 + Spell Level).
 Whip							KEY:Verdant Guardian ~ Whip				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
 Forest Tongue					KEY:Verdant Guardian ~ Forest Tongue		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
-Improved Grapple					KEY:Verdant Guardian ~ Improved Grapple		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary																																																																																															SOURCEPAGE:p.37
+Improved Grapple					KEY:Verdant Guardian ~ Improved Grapple		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary																																																																																																SOURCEPAGE:p.37
 
 
 # Arborgeist
@@ -101,7 +101,7 @@ Slimy Doom						KEY:Bracken Corpse ~ Slimy Doom			CATEGORY:Special Ability	TYPE:
 Death's Tongue					KEY:Bracken Corpse ~ Death's Tongue			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
 
 # Elderwitch------------------------------------
-Spells						KEY:Elderwitch ~ Spells					CATEGORY:Special Ability																																																																																									BONUS:ABILITYPOOL|Caster Needed|1
+Spells						KEY:Elderwitch ~ Spells					CATEGORY:Special Ability																																																																																										BONUS:ABILITYPOOL|Caster Needed|1
 Blindsight						KEY:Elderwitch ~ Blindsight				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Camouflage						KEY:Elderwitch ~ Camouflage				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Telepathy						KEY:Elderwitch ~ Telepathy				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
@@ -110,7 +110,7 @@ Telepathy						KEY:Elderwitch ~ Telepathy				CATEGORY:Special Ability	TYPE:Speci
 They understand but do not speak Sylvan.	KEY:Fierling ~ Language					CATEGORY:Special Ability	TYPE:SpecialQuality
 Embersmash						KEY:Fierling ~ Embersmash				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
 Flameleap						KEY:Fierling ~ Flameleap				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Resistances ~ Fierling				KEY:Fierling ~ Resistances				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																																										ABILITY:Special Ability|AUTOMATIC|Resistance to Acid							BONUS:VAR|AcidResistanceBonus|20
+Resistances ~ Fierling				KEY:Fierling ~ Resistances				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																																											ABILITY:Special Ability|AUTOMATIC|Resistance to Acid							BONUS:VAR|AcidResistanceBonus|20
 
 # Lostling------------------------------------
 Understand Common					KEY:Lostling ~ Understand Common			CATEGORY:Special Ability	TYPE:SpecialQuality
@@ -185,12 +185,12 @@ Air Walk						KEY:Zephtaur ~ Air Walk					CATEGORY:Special Ability	TYPE:SpecialA
 Summon Elemental					KEY:Zephtaur ~ Summon Elemental			CATEGORY:Special Ability	TYPE:SpecialAttack.SpecialQuality.Supernatural
 
 ###Block: Work Arounds
-# Ability Name			Category of Ability		Type			Required Race		Add 					Caster level bonus
-Maakantu Druid Caster		CATEGORY:Special Ability	TYPE:CasterNeeded	PRERACE:1,Maakantu	ADD:SPELLCASTER|Druid		BONUS:PCLEVEL|Druid|6
-Elderwitch Sorcerer Caster	CATEGORY:Special Ability	TYPE:CasterNeeded	PRERACE:1,Elderwitch	ADD:SPELLCASTER|Sorcerer	BONUS:PCLEVEL|Sorcerer|7
+# Ability Name			Output Name				Category of Ability		Type							Visible	Required Race		Add 					Caster level bonus
+Maakantu Druid Caster							CATEGORY:Special Ability	TYPE:CasterNeeded							PRERACE:1,Maakantu	ADD:SPELLCASTER|Druid		BONUS:PCLEVEL|Druid|6
+Elderwitch Sorcerer Caster						CATEGORY:Special Ability	TYPE:CasterNeeded							PRERACE:1,Elderwitch	ADD:SPELLCASTER|Sorcerer	BONUS:PCLEVEL|Sorcerer|7
 
 
-Perform (Dirge)	OUTPUTNAME:Perform Dirge		CATEGORY:Special Ability	TYPE:SpecialQuality.PerformSkillChoice	VISIBLE:YES
+Perform (Dirge)			OUTPUTNAME:Perform Dirge	CATEGORY:Special Ability	TYPE:SpecialQuality.PerformSkillChoice	VISIBLE:YES
 
 
-Half Damage from Piercing		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+Half Damage from Piercing						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary

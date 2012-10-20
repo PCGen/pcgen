@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Jun  2 17:32:11 2010 -- reformated by prettylst.pl v1.39 (build 11455)
-SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 # Added 3rd printing errata - SR
 
@@ -139,8 +139,8 @@ Perfect Copy	KEY:Perfect Copy ~ Doppelganger	CATEGORY:Special Ability	TYPE:Speci
 Change Shape	KEY:Change Shape ~ Doppelganger	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:You have the ability to assume the appearance of a specific creature or type of creature, but retains most of your own physical qualities.																																	BONUS:SKILL|Bluff (While using change shape ability)|4|TYPE=Racial	BONUS:SKILL|Disguise (While using change shape ability)|20|TYPE=Racial	SOURCEPAGE:p.89	ASPECT:Ability Benefit|(Alter Self)	BENEFIT:You have the ability to assume the appearance of a specific creature or type of creature, but retains most of your own physical qualities. You cannot change shape to a form more than one size category smaller or larger than your original form. This ability functions as a polymorph spell, but you do not adjust your ability scores (although you gain any other abilities of the creature you mimic).
 
 ###Block: Dragon Turtle abilities
-# Ability Name	Unique Key					Category of Ability		Type						Define										Description																																																								Modify VAR																						Source Page		Aspects
-Capsize		KEY:Capsize ~ Dragon Turtle		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary												DESC:A dragon turtle can attempt to capsize a boat or ship by ramming it as a charge attack and making a CMB check. The DC of this check is 25, or the result of the boat captain's Profession (Sailor) check, whichever is higher. For each size category larger than the dragon turtle's size, it takes a cumulative -10 penalty on this CMB check.																								SOURCEPAGE:p.112
+# Ability Name	Unique Key					Category of Ability		Type						Define										Description																																																								Modify VAR																							Source Page		Aspects
+Capsize		KEY:Capsize ~ Dragon Turtle		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary												DESC:A dragon turtle can attempt to capsize a boat or ship by ramming it as a charge attack and making a CMB check. The DC of this check is 25, or the result of the boat captain's Profession (Sailor) check, whichever is higher. For each size category larger than the dragon turtle's size, it takes a cumulative -10 penalty on this CMB check.																									SOURCEPAGE:p.112
 Breath Weapon	KEY:Breath Weapon ~ Dragon Turtle	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DEFINE:BreathWeaponDice|HD	DEFINE:BreathWeaponDC|10+(HD/2)+CON	DESC:Cloud of steam 20 feet high, 25 feet wide, and 50 feet long, once every 1d4 rounds, damage %1d6 fire, Reflex DC %2 half; effective both on the surface and underwater.|BreathWeaponDice|BreathWeaponDC																								BONUS:VAR|BreathWeaponDC|2|PREFEAT:1,Ability Focus (Breath Weapon)	BONUS:VAR|BreathWeaponDC|2|PREFEAT:1,Ability Focus (Breath Weapon)	SOURCEPAGE:p.112	ASPECT:Ability Benefit|(Cloud of steam, %1d6 Fire, DC %2)|BreathWeaponDice|BreathWeaponDC
 
 ###Block: Drider Abilities

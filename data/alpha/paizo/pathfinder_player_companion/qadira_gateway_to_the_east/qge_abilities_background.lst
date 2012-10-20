@@ -1,4 +1,4 @@
-# CVS $Revision: 13590 $ $Author: barako $ -- Thu Oct 21 22:16:51 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision: 13590 $ $Author: barako $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Qadira, Gateway to the East	SOURCESHORT:QGE	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy88zq	SOURCEDATE:2009-08
 # Original Entry by: Terry Milnes
 
@@ -6,8 +6,8 @@ SOURCELONG:Qadira, Gateway to the East	SOURCESHORT:QGE	SOURCEWEB:http://paizo.co
 # "Pathfinder Campaign Setting World Guide: The Inner Sea" upon release of that dataset.
 
 ###Block: Human Ethnicities
-# Ability Name	Product Identity?	Category of Ability	Type			Visible		Template					Automatic Languages	Source Page
-Qadiran		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanSubrace	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Qadiran)	AUTO:LANG|Kelish		SOURCEPAGE:p.14
+# Ability Name	Product Identity?	Category of Ability	Type			Visible		Template					Automatically Gained Language	Source Page
+Qadiran		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanSubrace	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Qadiran)	AUTO:LANG|Kelish			SOURCEPAGE:p.14
 
 ###Block: Regional Affinities
 # Ability Name	Product Identity?	Category of Ability	Type		Visible		Description				Template					Source Page

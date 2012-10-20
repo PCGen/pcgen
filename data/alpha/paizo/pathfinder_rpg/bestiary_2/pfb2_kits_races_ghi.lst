@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep 21 17:25:55 2011 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
 
 # ORIGINAL ENTRY: Stefan Radermacher and Douglas Limmer
@@ -509,12 +509,12 @@ FEAT:Combat Reflexes
 FEAT:Improved Initiative
 FEAT:Skill Focus (Perception)
 
-# COMMENT: The Bestiary's ifrit sorcerer doesn't list the 18-20 crit 
+# COMMENT: The Bestiary's ifrit sorcerer doesn't list the 18-20 crit
 # COMMENT:   threat range for his scimitar.
-# COMMENT: The Bestiary's ifrit sorcerer lists elemental ray only 6/day; 
+# COMMENT: The Bestiary's ifrit sorcerer lists elemental ray only 6/day;
 # COMMENT:   the virtual +2 Cha should raise this to 7/day, I think.
 # NEEDS DATA WORK: The Bestiary lists the spell concentration bonus as +5;
-# NEEDS DATA WORK:   PCGen gives +4. I think the elemental affinity ability 
+# NEEDS DATA WORK:   PCGen gives +4. I think the elemental affinity ability
 # NEEDS DATA WORK:   needs to be tweaked to fix this.
 # COMMENT: The Bestiary's flare DC is 15; I'm getting 14.
 STARTPACK:Ifrit Sorcerer 1	TYPE:Ifrit	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ifrit]	SOURCEPAGE:p.160

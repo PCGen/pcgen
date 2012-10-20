@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Aug 17 20:35:47 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
 #Original Entry: Andrew Maitland
 
@@ -10,208 +10,208 @@ SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefie
 #(279): PObject Archaic Weapon Proficiency not found; .MOD skipped.
 
 # Feat New Source Pages due to new Revision
-# Feat Name						Type			Required Class			Stackable?	Multiple?	Choose					Selections	Bonus to skill		Source Page
-Academy Trained.MOD																												SOURCEPAGE:p.163
-Action Boost.MOD																													SOURCEPAGE:p.163
-Acrobatic.MOD																													SOURCEPAGE:p.164
-Advanced Combat Martial Arts.MOD																										SOURCEPAGE:p.164
-Advanced Two-Weapon Fighting.MOD																										SOURCEPAGE:p.164
-Agile Maneuvers.MOD																												SOURCEPAGE:p.164
-Agile Riposte.MOD																													SOURCEPAGE:p.164
-Airship Operation.MOD																												SOURCEPAGE:p.164
-Allure.MOD																														SOURCEPAGE:p.164
-Arcane Armor Mastery.MOD																											SOURCEPAGE:p.164
-Arcane Armor Training.MOD																											SOURCEPAGE:p.165
-Arcane Strike.MOD																													SOURCEPAGE:p.165
-Archaic Weapons Proficiency.MOD																										SOURCEPAGE:p.165
-Armor Proficiency (Heavy).MOD																											SOURCEPAGE:p.165
-Armor Proficiency (Light).MOD																											SOURCEPAGE:p.165
-Armor Proficiency (Medium).MOD																										SOURCEPAGE:p.165
-Augment Summoning.MOD																												SOURCEPAGE:p.165
-Back Off.MOD																													SOURCEPAGE:p.165
-Back To Back.MOD																													SOURCEPAGE:p.165
-Backwards Strike.MOD																												SOURCEPAGE:p.166
-Black Market.MOD																													SOURCEPAGE:p.166
-Blaze of Glory.MOD																												SOURCEPAGE:p.166
-Blazing Saddle.MOD																												SOURCEPAGE:p.166
-Blind-Fight.MOD																													SOURCEPAGE:p.166
-Brawl.MOD																														SOURCEPAGE:p.166
-Brew Potion.MOD																													SOURCEPAGE:p.166
-Bull's Eye.MOD																													SOURCEPAGE:p.167
-Card Sharp.MOD																													SOURCEPAGE:p.167
-Catch Off Guard.MOD																												SOURCEPAGE:p.167
-Cleave.MOD																														SOURCEPAGE:p.167
-Circle.MOD																														SOURCEPAGE:p.167
-Combat Casting.MOD																												SOURCEPAGE:p.168
-Combat Expertise.MOD																												SOURCEPAGE:p.168
-Combat Loading.MOD																												SOURCEPAGE:p.168
-Combat Martial Arts.MOD																												SOURCEPAGE:p.168
-Combat Misdirection.MOD																												SOURCEPAGE:p.168
-Combat Reflexes.MOD																												SOURCEPAGE:p.168
-Combat Throw.MOD																													SOURCEPAGE:p.168
-Country Squire.MOD																												SOURCEPAGE:p.169
-Courtesy Title.MOD																												SOURCEPAGE:p.169
-Cover Fire.MOD																													SOURCEPAGE:p.169
-Craft Magic Arms and Armor.MOD																										SOURCEPAGE:p.169
-Craft Rod.MOD																													SOURCEPAGE:p.169
-Craft Staff.MOD																													SOURCEPAGE:p.170
-Craft Wand.MOD																													SOURCEPAGE:p.170
-Criminal Record.MOD																												SOURCEPAGE:p.170
-Cross-Training.MOD																												SOURCEPAGE:p.170
-Dead Aim.MOD																													SOURCEPAGE:p.170
-Dead Shot.MOD																													SOURCEPAGE:p.171
-Defensive Martial Arts.MOD																											SOURCEPAGE:p.171
-Defensive Riding.MOD																												SOURCEPAGE:p.171
-Die Hard.MOD																													SOURCEPAGE:p.171
-Dodge.MOD																														SOURCEPAGE:p.171
-Double Tap.MOD																													SOURCEPAGE:p.171
-Dual Charge.MOD																													SOURCEPAGE:p.171
-Dual Guard.MOD																													SOURCEPAGE:p.172
-Eclectic.MOD																													SOURCEPAGE:p.172
-Elusive Target.MOD																												SOURCEPAGE:p.172
-Empower Spell.MOD																													SOURCEPAGE:p.172
-Endurance.MOD																													SOURCEPAGE:p.172
-Enlarge Spell.MOD																													SOURCEPAGE:p.172
-Eschew Materials.MOD																												SOURCEPAGE:p.172
-Exotic Features.MOD																												SOURCEPAGE:p.172
-Exotic Firearms Proficiency.MOD																										SOURCEPAGE:p.173
-Exotic Melee Weapon Proficiency.MOD																										SOURCEPAGE:p.173
-Expert Advice.MOD																													SOURCEPAGE:p.173
-Extend Spell.MOD																													SOURCEPAGE:p.173
-Extra Turning.MOD																													SOURCEPAGE:p.173
-Extended Guard.MOD																												SOURCEPAGE:p.173
-Fade to Black.MOD																													SOURCEPAGE:p.173
-False Opening.MOD																													SOURCEPAGE:p.173
-Far Shot.MOD																													SOURCEPAGE:p.174
-Fast Track.MOD																													SOURCEPAGE:p.174
-Flashing Blade.MOD																												SOURCEPAGE:p.174
-Fleet of Foot.MOD																													SOURCEPAGE:p.174
-Fletch.MOD																														SOURCEPAGE:p.174
-Forceful Parry.MOD																												SOURCEPAGE:p.174
-Forge Ring.MOD																													SOURCEPAGE:p.174
-Forgotten.MOD																													SOURCEPAGE:p.175
-Fool's Fortune.MOD																												SOURCEPAGE:p.175
-Frightful Presence.MOD																												SOURCEPAGE:p.175
-Good Impression.MOD																												SOURCEPAGE:p.175
-Gone Native.MOD																													SOURCEPAGE:p.175
-Great Fortitude.MOD																												SOURCEPAGE:p.175
-Greater Spell Focus.MOD																												SOURCEPAGE:p.175
-Greater Spell Penetration.MOD																											SOURCEPAGE:p.176
-Hard-Eyed.MOD																													SOURCEPAGE:p.176
-Heroic Surge.MOD																													SOURCEPAGE:p.176
-Heighten Spell.MOD																												SOURCEPAGE:p.176
-Highly Skilled.MOD																												SOURCEPAGE:p.176
-Hilt Strike.MOD																													SOURCEPAGE:p.176
-Improved Brawl.MOD																												SOURCEPAGE:p.176
-Improved Bull Rush.MOD																												SOURCEPAGE:p.177
-Improved Craft.MOD																												SOURCEPAGE:p.177
-Improved Critical.MOD																												SOURCEPAGE:p.177
-Improved Combat Martial Arts.MOD																										SOURCEPAGE:p.177
-Improved Combat Throw.MOD																											SOURCEPAGE:p.177
-Improved Counterspell.MOD																											SOURCEPAGE:p.177
-Improved Damage Threshold.MOD																											SOURCEPAGE:p.177
-Improved Disarm.MOD																												SOURCEPAGE:p.177
-Improved False Opening.MOD																											SOURCEPAGE:p.177
-Improved Feint.MOD																												SOURCEPAGE:p.177
-Improved Initiative.MOD																												SOURCEPAGE:p.178
-Improved Knockout Punch.MOD																											SOURCEPAGE:p.178
-Improved Natural Healing.MOD																											SOURCEPAGE:p.178
-Improved Overrun.MOD																												SOURCEPAGE:p.178
-Improved Parry.MOD																												SOURCEPAGE:p.178
-Improved Persuasion.MOD																												SOURCEPAGE:p.178
-Improved Riposte.MOD																												SOURCEPAGE:p.178
-Improved Repair.MOD																												SOURCEPAGE:p.179
-Improved Trip.MOD																													SOURCEPAGE:p.179
-Improved Turning.MOD																												SOURCEPAGE:p.179
-Improved Two-Weapon Fighting.MOD																										SOURCEPAGE:p.179
-Information Network.MOD																												SOURCEPAGE:p.179
-Intimidating Prowess.MOD																											SOURCEPAGE:p.179
-Iron Will.MOD																													SOURCEPAGE:p.179
-Jack of All Trades.MOD																												SOURCEPAGE:p.179
-Judge Opponent.MOD																												SOURCEPAGE:p.179
-Knockout Punch.MOD																												SOURCEPAGE:p.180
-Legal Protection.MOD																												SOURCEPAGE:p.180
-Library.MOD																														SOURCEPAGE:p.180
-Life Magic.MOD																													SOURCEPAGE:p.180
-Lightning Calculator.MOD																											SOURCEPAGE:p.180
-Lightning Reflexes.MOD																												SOURCEPAGE:p.180
-Lock Blades.MOD																													SOURCEPAGE:p.180
-Low Profile.MOD																													SOURCEPAGE:p.181
-Lunge.MOD																														SOURCEPAGE:p.181
-Maximize Spell.MOD																												SOURCEPAGE:p.181
-Manipulate Life.MOD																												SOURCEPAGE:p.181
-Midas Touch.MOD																													SOURCEPAGE:p.181
-Miracle Worker.MOD																												SOURCEPAGE:p.181
-Mobility.MOD																													SOURCEPAGE:p.181
-Mounted Firing.MOD																												SOURCEPAGE:p.181
-Noble Title.MOD																													SOURCEPAGE:p.182
-Non-Lethal Spell.MOD																												SOURCEPAGE:p.182
-Oathbound.MOD																													SOURCEPAGE:p.182
-One Shot Left.MOD																													SOURCEPAGE:p.182
-Open Minded.MOD																													SOURCEPAGE:p.182
-Parry.MOD																														SOURCEPAGE:p.182
-Perceptive Defense.MOD																												SOURCEPAGE:p.183
-Personal Firearms Proficiency.MOD																										SOURCEPAGE:p.183
-Photographic Memory.MOD																												SOURCEPAGE:p.183
-Political Influence.MOD																												SOURCEPAGE:p.183
-Point Blank Shot.MOD																												SOURCEPAGE:p.183
-Portable Armory.MOD																												SOURCEPAGE:p.183
-Power Attack.MOD																													SOURCEPAGE:p.183
-Power Critical.MOD																												SOURCEPAGE:p.183
-Precise Shot.MOD																													SOURCEPAGE:p.184
-Promethean Spark.MOD																												SOURCEPAGE:p.184
-Quick Feet.MOD																													SOURCEPAGE:p.184
-Quick Draw.MOD																													SOURCEPAGE:p.184
-Quick Reload.MOD																													SOURCEPAGE:p.184
-Quicken Spell.MOD																													SOURCEPAGE:p.184
-Renown.MOD																														SOURCEPAGE:p.184
-Riposte.MOD																														SOURCEPAGE:p.185
-Root.MOD																														SOURCEPAGE:p.185
-Rumor Monger.MOD																													SOURCEPAGE:p.185
-Run.MOD																														SOURCEPAGE:p.185
-Scarring Strike.MOD																												SOURCEPAGE:p.185
-Scribe Scroll.MOD																													SOURCEPAGE:p.185
-Secret Identity (1st).MOD																											SOURCEPAGE:p.186
-Secret Identity (2nd).MOD																											SOURCEPAGE:p.186
-Secret Identity (3rd).MOD																											SOURCEPAGE:p.186
-Sex Appeal.MOD																													SOURCEPAGE:p.186
-Shot on the Run.MOD																												SOURCEPAGE:p.186
-Sideways Trip.MOD																													SOURCEPAGE:p.186
-Silhouette.MOD																													SOURCEPAGE:p.186
-Silent Spell.MOD																													SOURCEPAGE:p.186
-Simple Weapons Proficiency.MOD																										SOURCEPAGE:p.186
-Spiritual Heritage.MOD			TYPE:Initial																							SOURCEPAGE:p.187
+# Feat Name						Type			Required Class			Stackable?	Multiple?	Choose				Selections	Bonus to skill		Source Page
+Academy Trained.MOD																											SOURCEPAGE:p.163
+Action Boost.MOD																												SOURCEPAGE:p.163
+Acrobatic.MOD																												SOURCEPAGE:p.164
+Advanced Combat Martial Arts.MOD																									SOURCEPAGE:p.164
+Advanced Two-Weapon Fighting.MOD																									SOURCEPAGE:p.164
+Agile Maneuvers.MOD																											SOURCEPAGE:p.164
+Agile Riposte.MOD																												SOURCEPAGE:p.164
+Airship Operation.MOD																											SOURCEPAGE:p.164
+Allure.MOD																													SOURCEPAGE:p.164
+Arcane Armor Mastery.MOD																										SOURCEPAGE:p.164
+Arcane Armor Training.MOD																										SOURCEPAGE:p.165
+Arcane Strike.MOD																												SOURCEPAGE:p.165
+Archaic Weapons Proficiency.MOD																									SOURCEPAGE:p.165
+Armor Proficiency (Heavy).MOD																										SOURCEPAGE:p.165
+Armor Proficiency (Light).MOD																										SOURCEPAGE:p.165
+Armor Proficiency (Medium).MOD																									SOURCEPAGE:p.165
+Augment Summoning.MOD																											SOURCEPAGE:p.165
+Back Off.MOD																												SOURCEPAGE:p.165
+Back To Back.MOD																												SOURCEPAGE:p.165
+Backwards Strike.MOD																											SOURCEPAGE:p.166
+Black Market.MOD																												SOURCEPAGE:p.166
+Blaze of Glory.MOD																											SOURCEPAGE:p.166
+Blazing Saddle.MOD																											SOURCEPAGE:p.166
+Blind-Fight.MOD																												SOURCEPAGE:p.166
+Brawl.MOD																													SOURCEPAGE:p.166
+Brew Potion.MOD																												SOURCEPAGE:p.166
+Bull's Eye.MOD																												SOURCEPAGE:p.167
+Card Sharp.MOD																												SOURCEPAGE:p.167
+Catch Off Guard.MOD																											SOURCEPAGE:p.167
+Cleave.MOD																													SOURCEPAGE:p.167
+Circle.MOD																													SOURCEPAGE:p.167
+Combat Casting.MOD																											SOURCEPAGE:p.168
+Combat Expertise.MOD																											SOURCEPAGE:p.168
+Combat Loading.MOD																											SOURCEPAGE:p.168
+Combat Martial Arts.MOD																											SOURCEPAGE:p.168
+Combat Misdirection.MOD																											SOURCEPAGE:p.168
+Combat Reflexes.MOD																											SOURCEPAGE:p.168
+Combat Throw.MOD																												SOURCEPAGE:p.168
+Country Squire.MOD																											SOURCEPAGE:p.169
+Courtesy Title.MOD																											SOURCEPAGE:p.169
+Cover Fire.MOD																												SOURCEPAGE:p.169
+Craft Magic Arms and Armor.MOD																									SOURCEPAGE:p.169
+Craft Rod.MOD																												SOURCEPAGE:p.169
+Craft Staff.MOD																												SOURCEPAGE:p.170
+Craft Wand.MOD																												SOURCEPAGE:p.170
+Criminal Record.MOD																											SOURCEPAGE:p.170
+Cross-Training.MOD																											SOURCEPAGE:p.170
+Dead Aim.MOD																												SOURCEPAGE:p.170
+Dead Shot.MOD																												SOURCEPAGE:p.171
+Defensive Martial Arts.MOD																										SOURCEPAGE:p.171
+Defensive Riding.MOD																											SOURCEPAGE:p.171
+Die Hard.MOD																												SOURCEPAGE:p.171
+Dodge.MOD																													SOURCEPAGE:p.171
+Double Tap.MOD																												SOURCEPAGE:p.171
+Dual Charge.MOD																												SOURCEPAGE:p.171
+Dual Guard.MOD																												SOURCEPAGE:p.172
+Eclectic.MOD																												SOURCEPAGE:p.172
+Elusive Target.MOD																											SOURCEPAGE:p.172
+Empower Spell.MOD																												SOURCEPAGE:p.172
+Endurance.MOD																												SOURCEPAGE:p.172
+Enlarge Spell.MOD																												SOURCEPAGE:p.172
+Eschew Materials.MOD																											SOURCEPAGE:p.172
+Exotic Features.MOD																											SOURCEPAGE:p.172
+Exotic Firearms Proficiency.MOD																									SOURCEPAGE:p.173
+Exotic Melee Weapon Proficiency.MOD																									SOURCEPAGE:p.173
+Expert Advice.MOD																												SOURCEPAGE:p.173
+Extend Spell.MOD																												SOURCEPAGE:p.173
+Extra Turning.MOD																												SOURCEPAGE:p.173
+Extended Guard.MOD																											SOURCEPAGE:p.173
+Fade to Black.MOD																												SOURCEPAGE:p.173
+False Opening.MOD																												SOURCEPAGE:p.173
+Far Shot.MOD																												SOURCEPAGE:p.174
+Fast Track.MOD																												SOURCEPAGE:p.174
+Flashing Blade.MOD																											SOURCEPAGE:p.174
+Fleet of Foot.MOD																												SOURCEPAGE:p.174
+Fletch.MOD																													SOURCEPAGE:p.174
+Forceful Parry.MOD																											SOURCEPAGE:p.174
+Forge Ring.MOD																												SOURCEPAGE:p.174
+Forgotten.MOD																												SOURCEPAGE:p.175
+Fool's Fortune.MOD																											SOURCEPAGE:p.175
+Frightful Presence.MOD																											SOURCEPAGE:p.175
+Good Impression.MOD																											SOURCEPAGE:p.175
+Gone Native.MOD																												SOURCEPAGE:p.175
+Great Fortitude.MOD																											SOURCEPAGE:p.175
+Greater Spell Focus.MOD																											SOURCEPAGE:p.175
+Greater Spell Penetration.MOD																										SOURCEPAGE:p.176
+Hard-Eyed.MOD																												SOURCEPAGE:p.176
+Heroic Surge.MOD																												SOURCEPAGE:p.176
+Heighten Spell.MOD																											SOURCEPAGE:p.176
+Highly Skilled.MOD																											SOURCEPAGE:p.176
+Hilt Strike.MOD																												SOURCEPAGE:p.176
+Improved Brawl.MOD																											SOURCEPAGE:p.176
+Improved Bull Rush.MOD																											SOURCEPAGE:p.177
+Improved Craft.MOD																											SOURCEPAGE:p.177
+Improved Critical.MOD																											SOURCEPAGE:p.177
+Improved Combat Martial Arts.MOD																									SOURCEPAGE:p.177
+Improved Combat Throw.MOD																										SOURCEPAGE:p.177
+Improved Counterspell.MOD																										SOURCEPAGE:p.177
+Improved Damage Threshold.MOD																										SOURCEPAGE:p.177
+Improved Disarm.MOD																											SOURCEPAGE:p.177
+Improved False Opening.MOD																										SOURCEPAGE:p.177
+Improved Feint.MOD																											SOURCEPAGE:p.177
+Improved Initiative.MOD																											SOURCEPAGE:p.178
+Improved Knockout Punch.MOD																										SOURCEPAGE:p.178
+Improved Natural Healing.MOD																										SOURCEPAGE:p.178
+Improved Overrun.MOD																											SOURCEPAGE:p.178
+Improved Parry.MOD																											SOURCEPAGE:p.178
+Improved Persuasion.MOD																											SOURCEPAGE:p.178
+Improved Riposte.MOD																											SOURCEPAGE:p.178
+Improved Repair.MOD																											SOURCEPAGE:p.179
+Improved Trip.MOD																												SOURCEPAGE:p.179
+Improved Turning.MOD																											SOURCEPAGE:p.179
+Improved Two-Weapon Fighting.MOD																									SOURCEPAGE:p.179
+Information Network.MOD																											SOURCEPAGE:p.179
+Intimidating Prowess.MOD																										SOURCEPAGE:p.179
+Iron Will.MOD																												SOURCEPAGE:p.179
+Jack of All Trades.MOD																											SOURCEPAGE:p.179
+Judge Opponent.MOD																											SOURCEPAGE:p.179
+Knockout Punch.MOD																											SOURCEPAGE:p.180
+Legal Protection.MOD																											SOURCEPAGE:p.180
+Library.MOD																													SOURCEPAGE:p.180
+Life Magic.MOD																												SOURCEPAGE:p.180
+Lightning Calculator.MOD																										SOURCEPAGE:p.180
+Lightning Reflexes.MOD																											SOURCEPAGE:p.180
+Lock Blades.MOD																												SOURCEPAGE:p.180
+Low Profile.MOD																												SOURCEPAGE:p.181
+Lunge.MOD																													SOURCEPAGE:p.181
+Maximize Spell.MOD																											SOURCEPAGE:p.181
+Manipulate Life.MOD																											SOURCEPAGE:p.181
+Midas Touch.MOD																												SOURCEPAGE:p.181
+Miracle Worker.MOD																											SOURCEPAGE:p.181
+Mobility.MOD																												SOURCEPAGE:p.181
+Mounted Firing.MOD																											SOURCEPAGE:p.181
+Noble Title.MOD																												SOURCEPAGE:p.182
+Non-Lethal Spell.MOD																											SOURCEPAGE:p.182
+Oathbound.MOD																												SOURCEPAGE:p.182
+One Shot Left.MOD																												SOURCEPAGE:p.182
+Open Minded.MOD																												SOURCEPAGE:p.182
+Parry.MOD																													SOURCEPAGE:p.182
+Perceptive Defense.MOD																											SOURCEPAGE:p.183
+Personal Firearms Proficiency.MOD																									SOURCEPAGE:p.183
+Photographic Memory.MOD																											SOURCEPAGE:p.183
+Political Influence.MOD																											SOURCEPAGE:p.183
+Point Blank Shot.MOD																											SOURCEPAGE:p.183
+Portable Armory.MOD																											SOURCEPAGE:p.183
+Power Attack.MOD																												SOURCEPAGE:p.183
+Power Critical.MOD																											SOURCEPAGE:p.183
+Precise Shot.MOD																												SOURCEPAGE:p.184
+Promethean Spark.MOD																											SOURCEPAGE:p.184
+Quick Feet.MOD																												SOURCEPAGE:p.184
+Quick Draw.MOD																												SOURCEPAGE:p.184
+Quick Reload.MOD																												SOURCEPAGE:p.184
+Quicken Spell.MOD																												SOURCEPAGE:p.184
+Renown.MOD																													SOURCEPAGE:p.184
+Riposte.MOD																													SOURCEPAGE:p.185
+Root.MOD																													SOURCEPAGE:p.185
+Rumor Monger.MOD																												SOURCEPAGE:p.185
+Run.MOD																													SOURCEPAGE:p.185
+Scarring Strike.MOD																											SOURCEPAGE:p.185
+Scribe Scroll.MOD																												SOURCEPAGE:p.185
+Secret Identity (1st).MOD																										SOURCEPAGE:p.186
+Secret Identity (2nd).MOD																										SOURCEPAGE:p.186
+Secret Identity (3rd).MOD																										SOURCEPAGE:p.186
+Sex Appeal.MOD																												SOURCEPAGE:p.186
+Shot on the Run.MOD																											SOURCEPAGE:p.186
+Sideways Trip.MOD																												SOURCEPAGE:p.186
+Silhouette.MOD																												SOURCEPAGE:p.186
+Silent Spell.MOD																												SOURCEPAGE:p.186
+Simple Weapons Proficiency.MOD																									SOURCEPAGE:p.186
+Spiritual Heritage.MOD				TYPE:Initial																					SOURCEPAGE:p.187
 #Skill Focus.MOD								SOURCEPAGE:p.187
-Skip Shot.MOD																													SOURCEPAGE:p.187
-Spell Penetration.MOD																												SOURCEPAGE:p.187
-Spring Attack.MOD																													SOURCEPAGE:p.187
-Stealthy.MOD																													SOURCEPAGE:p.187
-Streetfighting.MOD																												SOURCEPAGE:p.187
-Still Spell.MOD																													SOURCEPAGE:p.187
-Suppressive Fire.MOD																												SOURCEPAGE:p.187
-Sunder.MOD																														SOURCEPAGE:p.188
-Surface Vehicle Operation.MOD																											SOURCEPAGE:p.188
-Surgery.MOD																														SOURCEPAGE:p.188
-Sweep.MOD																														SOURCEPAGE:p.188
-Tactician.MOD																													SOURCEPAGE:p.188
-Teamwork.MOD																													SOURCEPAGE:p.188
-Thrust.MOD																														SOURCEPAGE:p.188
-Toughness.MOD																													SOURCEPAGE:p.189
-Tough Customer.MOD																												SOURCEPAGE:p.189
-Traceless.MOD																													SOURCEPAGE:p.189
-Tranche.MOD																														SOURCEPAGE:p.189
-Trusted Associate.MOD																												SOURCEPAGE:p.189
-Two-Weapon Fighting.MOD																												SOURCEPAGE:p.189
-Unarmed Parry.MOD																													SOURCEPAGE:p.189
-Unbalance Opponent.MOD																												SOURCEPAGE:p.189
-Weapon Finesse.MOD																												SOURCEPAGE:p.190
-Weapon Focus.MOD																													SOURCEPAGE:p.190
-Weapons Encyclopedia.MOD																											SOURCEPAGE:p.190
-Well-Connected.MOD																												SOURCEPAGE:p.190
-Whirlwind Attack.MOD																												SOURCEPAGE:p.190
-Wild Stance.MOD																													SOURCEPAGE:p.190
-Widen Spell.MOD																													SOURCEPAGE:p.191
-Windfall.MOD																													SOURCEPAGE:p.191
+Skip Shot.MOD																												SOURCEPAGE:p.187
+Spell Penetration.MOD																											SOURCEPAGE:p.187
+Spring Attack.MOD																												SOURCEPAGE:p.187
+Stealthy.MOD																												SOURCEPAGE:p.187
+Streetfighting.MOD																											SOURCEPAGE:p.187
+Still Spell.MOD																												SOURCEPAGE:p.187
+Suppressive Fire.MOD																											SOURCEPAGE:p.187
+Sunder.MOD																													SOURCEPAGE:p.188
+Surface Vehicle Operation.MOD																										SOURCEPAGE:p.188
+Surgery.MOD																													SOURCEPAGE:p.188
+Sweep.MOD																													SOURCEPAGE:p.188
+Tactician.MOD																												SOURCEPAGE:p.188
+Teamwork.MOD																												SOURCEPAGE:p.188
+Thrust.MOD																													SOURCEPAGE:p.188
+Toughness.MOD																												SOURCEPAGE:p.189
+Tough Customer.MOD																											SOURCEPAGE:p.189
+Traceless.MOD																												SOURCEPAGE:p.189
+Tranche.MOD																													SOURCEPAGE:p.189
+Trusted Associate.MOD																											SOURCEPAGE:p.189
+Two-Weapon Fighting.MOD																											SOURCEPAGE:p.189
+Unarmed Parry.MOD																												SOURCEPAGE:p.189
+Unbalance Opponent.MOD																											SOURCEPAGE:p.189
+Weapon Finesse.MOD																											SOURCEPAGE:p.190
+Weapon Focus.MOD																												SOURCEPAGE:p.190
+Weapons Encyclopedia.MOD																										SOURCEPAGE:p.190
+Well-Connected.MOD																											SOURCEPAGE:p.190
+Whirlwind Attack.MOD																											SOURCEPAGE:p.190
+Wild Stance.MOD																												SOURCEPAGE:p.190
+Widen Spell.MOD																												SOURCEPAGE:p.191
+Windfall.MOD																												SOURCEPAGE:p.191
 
 
 #Block: Class Bonus Feats:
@@ -276,7 +276,7 @@ Weapon Focus.MOD					TYPE:Scholar
 ###Block: Occupation Feat Choices
 
 # Bureaucrat
-# Feat Name											Type					Visible		Stackable?	Multiple?	Choose					Selections	Automatically Gained Feat									Bonus to skill
+# Feat Name											Type					Visible		Stackable?	Multiple?	Choose				Selections	Automatically Gained Feat									Bonus to skill
 Skill Focus.MOD										TYPE:Bureaucrat
 Skill Focus +2 to Two Skills.MOD							TYPE:Bureaucrat
 Renown.MOD											TYPE:Bureaucrat
@@ -295,38 +295,38 @@ Heir ~ Skill Focus									TYPE:Heir							STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=K
 
 
 # Escape Artist
-Escape Artist ~ Skill Focus (Deception)						TYPE:Escape_Artist		VISIBLE:DISPLAY													AUTO:FEAT|Skill Focus (Deception)
-Escape Artist ~ Skill Focus +2 to Escape Artist and Sleight of Hand	TYPE:Escape_Artist		VISIBLE:DISPLAY													AUTO:FEAT|Skill Focus +2 to Two Skills (Escape Artist,Sleight of Hand)
+Escape Artist ~ Skill Focus (Deception)						TYPE:Escape_Artist		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus (Deception)
+Escape Artist ~ Skill Focus +2 to Escape Artist and Sleight of Hand	TYPE:Escape_Artist		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills (Escape Artist,Sleight of Hand)
 
 # Fortune Teller
-Fortune Teller ~ Skill Focus (Deception)						TYPE:Fortuneteller		VISIBLE:DISPLAY													AUTO:FEAT|Skill Focus(Deception)
-Fortune Teller ~ Skill Focus (Sense Motive)					TYPE:Fortuneteller		VISIBLE:DISPLAY													AUTO:FEAT|Skill Focus(Sense Motive)
+Fortune Teller ~ Skill Focus (Deception)						TYPE:Fortuneteller		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus(Deception)
+Fortune Teller ~ Skill Focus (Sense Motive)					TYPE:Fortuneteller		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus(Sense Motive)
 Renown.MOD											TYPE:Fortuneteller
 
 # Hunter
-Skill Focus (Survival)									TYPE:Hunter				VISIBLE:DISPLAY													AUTO:FEAT|Skill Focus(Survival)
-Skill Focus (Stealth)									TYPE:Hunter				VISIBLE:DISPLAY													AUTO:FEAT|Skill Focus(Stealth)
+Skill Focus (Survival)									TYPE:Hunter				VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus(Survival)
+Skill Focus (Stealth)									TYPE:Hunter				VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus(Stealth)
 Far Shot.MOD										TYPE:Hunter
 Point Blank Shot.MOD									TYPE:Hunter
 
 # Psychic Investigator
-Psychic Investigator ~ Skill Focus (Sense Motive and Investigate)		TYPE:Psychic_Investigator	VISIBLE:DISPLAY													AUTO:FEAT|Skill Focus +2 to Two Skills(Sense Motive,Investigate)
-Psychic Investigator ~ Skill Focus (Decipher Script and Research)		TYPE:Psychic_Investigator	VISIBLE:DISPLAY													AUTO:FEAT|Skill Focus +2 to Two Skills(Decipher Script,Research)
+Psychic Investigator ~ Skill Focus (Sense Motive and Investigate)		TYPE:Psychic_Investigator	VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Sense Motive,Investigate)
+Psychic Investigator ~ Skill Focus (Decipher Script and Research)		TYPE:Psychic_Investigator	VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Decipher Script,Research)
 
 # Politician
 Renown.MOD											TYPE:Politician
-Politician ~ Skill Focus (Diplomacy)						TYPE:Politician			VISIBLE:DISPLAY													AUTO:FEAT|Skill Focus(Diplomacy)
-Politician ~ Skill Focus (Gather Information)					TYPE:Politician			VISIBLE:DISPLAY													AUTO:FEAT|Skill Focus(Gather Information)
+Politician ~ Skill Focus (Diplomacy)						TYPE:Politician			VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus(Diplomacy)
+Politician ~ Skill Focus (Gather Information)					TYPE:Politician			VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus(Gather Information)
 Windfall.MOD										TYPE:Politician
 
 # Stage Magician
-Stage Magician ~ Skill Focus (Deception)						TYPE:Stage_Magician		VISIBLE:DISPLAY													AUTO:FEAT|Skill Focus(Deception)
-Stage Magician ~ Skill Focus (Sleight of Hand)					TYPE:Stage_Magician		VISIBLE:DISPLAY													AUTO:FEAT|Skill Focus(Sleight of Hand)
+Stage Magician ~ Skill Focus (Deception)						TYPE:Stage_Magician		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus(Deception)
+Stage Magician ~ Skill Focus (Sleight of Hand)					TYPE:Stage_Magician		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus(Sleight of Hand)
 
 # World Traveler
 Renown
 Skill Focus (any two Knowledge skills)						TYPE:World_Traveler					STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	SELECT:2														BONUS:SKILL|%LIST|2|TYPE=SkillFocus
-Skill Focus (Investigate and Sense Motive)					TYPE:World_Traveler		VISIBLE:DISPLAY													AUTO:FEAT|Skill Focus +2 to Two Skills(Investigate,Sense Motive)
-Skill Focus (Gamble and Intimidate)							TYPE:World_Traveler		VISIBLE:DISPLAY													AUTO:FEAT|Skill Focus +2 to Two Skills(Gamble,Intimidate)
-Skill Focus (Survival)									TYPE:World_Traveler		VISIBLE:DISPLAY													AUTO:FEAT|Skill Focus(Survival)
-Skill Focus +2 to Two Skills(Diplomacy and Gather Information)		TYPE:World_Traveler		VISIBLE:DISPLAY													AUTO:FEAT|Skill Focus +2 to Two Skills(Diplomacy and Gather Information)
+Skill Focus (Investigate and Sense Motive)					TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Investigate,Sense Motive)
+Skill Focus (Gamble and Intimidate)							TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Gamble,Intimidate)
+Skill Focus (Survival)									TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus(Survival)
+Skill Focus +2 to Two Skills(Diplomacy and Gather Information)		TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Diplomacy and Gather Information)

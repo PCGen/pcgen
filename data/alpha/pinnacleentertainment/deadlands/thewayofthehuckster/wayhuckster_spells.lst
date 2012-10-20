@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
-SOURCELONG:The Way of the Huckster	SOURCESHORT:Huckster	SOURCEWEB:http://www.peginc.com/index.htm
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:The Way of the Huckster	SOURCESHORT:Huckster	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
 
 # Spell Name	Classes of caster		School			Sub-School			Type		Components	Casting Time		Range				Item		Target Area or Effect							Duration						Save Info				Spell Resistance	Description		Source Page
 Ace in the Hole	CLASSES:Huckster=4	SCHOOL:Transmutation					TYPE:Arcane	COMPS:F S	CASTTIME:10 minutes	RANGE:Touch					TARGETAREA:One small focus						DURATION:1 day/level				SAVEINFO:None			SPELLRES:No		DESC:See text	SOURCEPAGE:p.15

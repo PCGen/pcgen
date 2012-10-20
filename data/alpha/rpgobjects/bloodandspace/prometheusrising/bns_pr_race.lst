@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Oct  9 00:34:36 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59	SOURCEDATE:2004-01
 
 # Race Name		Skills/Level		Starting Feats	Size		Move				Face/Space	Reach		Vision				Bonus to skill											Stat bonus														Modify VAR				Automatically Gained Armor Prof.	Automatically Gained Feat	Virtual Feat			Ability							Special ABility																										Define			Main Race Type		Template					Source Page		Add
 Android (Laborer)					STARTFEATS:0	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5						BONUS:SKILL|TYPE.Constitution|CHA-CON							BONUS:STAT|STR|4	BONUS:STAT|DEX|3	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-5									AUTO:ARMORPROF|ARMORTYPE=Robotic																			SAB:Critical Systems	SAB:Cybernetic Incompatibility	SAB:Lifelike Appearance	SAB:Manipulators	SAB:Rejuvenation Cycle	SAB:Repairable	SAB:Robot Resurrection	DEFINE:LOCK.CON|10	RACETYPE:Construct	TEMPLATE:Android Stats|Construct	SOURCEPAGE:p.3

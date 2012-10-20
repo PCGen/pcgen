@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Oct  8 23:34:04 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Midnight Campaign Source Book	SOURCESHORT:MDNT	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Midnight Campaign Source Book	SOURCESHORT:MDNT	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html	SOURCEDATE:2002-01
 # Original Entry by: Tir Gwaith
 
 # Class Name	Hit Dice	Type			Max Level	Base class as subclass?	Save checks bonus											Combat bonus					Modify VAR					Template
@@ -131,8 +131,8 @@ CLASS:Wildlander	STARTSKILLPTS:6	CSKILL:Animal Empathy|Climb|TYPE=Craft|Handle A
 17																													ADD:FEAT|TYPE=WildlanderTrait
 20																													ADD:FEAT|TYPE=WildlanderTrait
 
-# Class Name		Output Name		Hit Dice	Type			Max Level	Automatic Languages	Save checks bonus											Combat bonus
-CLASS:Druid (Midnight)	OUTPUTNAME:Druid	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	AUTO:LANG|Druidic		BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Output Name		Hit Dice	Type			Max Level	Automatically Gained Language	Save checks bonus											Combat bonus
+CLASS:Druid (Midnight)	OUTPUTNAME:Druid	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	AUTO:LANG|Druidic			BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required Feat				Required Skill							Req. Known Spell
 CLASS:Druid (Midnight)	PREFEAT:1,Magecraft (Spiritual)	PRESKILL:2,Knowledge (Nature)=8,Wilderness Lore=8	PRESPELL:1,Animal Friendship
 # Class Name		Skill Pts/Lvl	Class Skill

@@ -1,13 +1,13 @@
-# CVS $Revision$ $Author$ -- Tue Jan 22 22:55:20 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html	SOURCEDATE:2003-10
 # Original Entry by: Ratheof Blithwyn
 
 ### Regional Feats Chapter One
-# Feat Name				Type				Req. Att.	Required Class			Required Skill				Description																						Stackable?	Multiple?	Choose							Source Page
+# Feat Name				Type				Req. Att.	Required Class			Required Skill				Description																						Stackable?	Multiple?	Choose						Source Page
 Exotic Shield Proficiency	TYPE:General.Fighter	PREATT:1												DESC:Choose a type of exotic shield, such as the breaker shield or flankshield. You understand how to use that type of shield in combat	STACK:NO	MULT:YES	CHOOSE:SHIELDPROFICIENCY|!PC[TYPE=Exotic]	SOURCEPAGE:p.87
 #Chooser won't work, waiting for redesign of chooser....
-Craft Magic Pouch			TYPE:ItemCreation				PRECLASS:1,Spellcaster=5							DESC:You can create magic pouches, which carry spells within themselves																								SOURCEPAGE:p.87
-Craft Spell Fetish		TYPE:ItemCreation				PRECLASS:1,Spellcaster=1	PRESKILL:1,Knowledge (Nature)=5	DESC:You can create spell fetishes, which carry spells within themselves																							SOURCEPAGE:p.87
+Craft Magic Pouch			TYPE:ItemCreation				PRECLASS:1,Spellcaster=5							DESC:You can create magic pouches, which carry spells within themselves																							SOURCEPAGE:p.87
+Craft Spell Fetish		TYPE:ItemCreation				PRECLASS:1,Spellcaster=1	PRESKILL:1,Knowledge (Nature)=5	DESC:You can create spell fetishes, which carry spells within themselves																						SOURCEPAGE:p.87
 
 
 ###Block: Feat Mods

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Nov 11 10:19:24 2010 -- reformated by prettylst.pl v1.38 (build 6875)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Bastion Press - Into the Black	SOURCESHORT:itblk	SOURCEDATE:2003-01
 #Original Entry: Andrew (LegacyKing) Maitland
 
@@ -7,7 +7,7 @@ SOURCELONG:Bastion Press - Into the Black	SOURCESHORT:itblk	SOURCEDATE:2003-01
 
 
 ###Block: Cave Hermit Kit ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-STARTPACK:Cave Hermit Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cave Hermit]	TYPE:DefaultMonster.Humanoid
+STARTPACK:Cave Hermit Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cave Hermit]
 RACE:Cave Hermit	!PRERACE:1,%
 ALIGN:CN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
@@ -21,7 +21,7 @@ FEAT:Negotiator
 FEAT:Skill Focus(Appraise)
 
 ###Block: Cavern Giant ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-STARTPACK:Cavern Giant Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cavern Giant (NPC)]	TYPE:DefaultMonster.Humanoid
+STARTPACK:Cavern Giant Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cavern Giant (NPC)]
 RACE:Cavern Giant (NPC)	!PRERACE:1,%
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
@@ -36,7 +36,7 @@ FEAT:Weapon Focus(Unarmed Strike)
 GEAR:Stalactite	SIZE:PC	LOCATION:Primary Hand
 
 ###Block: Deviant Mimic ~ Arcarivore ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-STARTPACK:Deviant Mimic ~ Arcarivore Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Deviant Mimic (Arcarivore)]	TYPE:DefaultMonster.Shapeshifter
+STARTPACK:Deviant Mimic ~ Arcarivore Default	TYPE:DefaultMonster.Shapeshifter	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Deviant Mimic (Arcarivore)]
 RACE:Deviant Mimic (Arcarivore)	!PRERACE:1,%
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Climb			RANK:2
@@ -49,7 +49,7 @@ FEAT:Acrobatic
 FEAT:Weapon Finesse
 
 ###Block:Deviant Mimic ~ Parasitic ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-STARTPACK:Deviant Mimic ~ Parasitic Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Deviant Mimic (Parasitic)]	TYPE:DefaultMonster.Shapeshifter
+STARTPACK:Deviant Mimic ~ Parasitic Default	TYPE:DefaultMonster.Shapeshifter	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Deviant Mimic (Parasitic)]
 RACE:Deviant Mimic (Parasitic)	!PRERACE:1,%
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Climb			RANK:2
@@ -62,7 +62,7 @@ FEAT:Acrobatic
 FEAT:Weapon Finesse
 
 ###Block:Deviant Mimic ~ Assuming ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-STARTPACK:Deviant Mimic ~ Assuming Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Deviant Mimic (Assuming)]	TYPE:DefaultMonster.Shapeshifter
+STARTPACK:Deviant Mimic ~ Assuming Default	TYPE:DefaultMonster.Shapeshifter	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Deviant Mimic (Assuming)]
 RACE:Deviant Mimic (Assuming)	!PRERACE:1,%
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Climb			RANK:2
@@ -74,7 +74,7 @@ FEAT:Athletic
 FEAT:Weapon Finesse
 
 ###Block:Mal'Orm (Cricket Men of the Deep) ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-STARTPACK:Mal'Orm Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mal'Orm (Cricket Men of the Deep)]	TYPE:DefaultMonster
+STARTPACK:Mal'Orm Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mal'Orm (Cricket Men of the Deep)]
 RACE:Mal'Orm (Cricket Men of the Deep)	!PRERACE:1,%
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
@@ -89,7 +89,7 @@ FEAT:Combat Casting
 FEAT:Track
 
 ###Block:Pallemon ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-STARTPACK:Pallemon Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pallemon]	TYPE:DefaultMonster
+STARTPACK:Pallemon Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pallemon]
 RACE:Pallemon	!PRERACE:1,%
 ALIGN:NE
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
@@ -110,7 +110,7 @@ FEAT:Mobility
 FEAT:Spring Attack		FREE:YES
 
 ###Block:Snailfolk ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-STARTPACK:Snailfolk Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Snailfolk]	TYPE:DefaultMonster
+STARTPACK:Snailfolk Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Snailfolk]
 RACE:Snailfolk	!PRERACE:1,%
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=11|CHA=10
@@ -121,7 +121,7 @@ FEAT:Great Fortitude
 GEAR:Mace (Light)	SIZE:PC	LOCATION:Primary Hand
 
 ###Block:Xastrial ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-STARTPACK:Xastrial Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Xastrial]	TYPE:DefaultMonster
+STARTPACK:Xastrial Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Xastrial]
 RACE:Xastrial	!PRERACE:1,%
 ALIGN:LE
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=10
@@ -140,13 +140,13 @@ FEAT:Power Attack
 FEAT:Toughness
 
 ###Block:Crypt Guardian  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-STARTPACK:Crypt Guardian Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Crypt Guardian]	TYPE:DefaultMonster
+STARTPACK:Crypt Guardian Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Crypt Guardian]
 RACE:Crypt Guardian	!PRERACE:1,%
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 
 ###Block:Hellscorn ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-STARTPACK:Hellscorn Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hellscorn]	TYPE:DefaultMonster
+STARTPACK:Hellscorn Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hellscorn]
 RACE:Hellscorn	!PRERACE:1,%
 ALIGN:CE
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
@@ -165,7 +165,7 @@ FEAT:Improved Initiative
 FEAT:Iron Will
 
 ###Block:Leytru ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-STARTPACK:Leytru Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leytru]	TYPE:DefaultMonster
+STARTPACK:Leytru Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leytru]
 RACE:Leytru	!PRERACE:1,%
 ALIGN:NE
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
@@ -184,7 +184,7 @@ FEAT:Multiattack
 FEAT:Weapon Finesse
 
 ###Block:Silent Reaper ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-STARTPACK:Silent Reaper Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Silent Reaper]	TYPE:DefaultMonster
+STARTPACK:Silent Reaper Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Silent Reaper]
 RACE:Silent Reaper	!PRERACE:1,%
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
@@ -198,7 +198,7 @@ FEAT:Improved Initiative
 FEAT:Stealthy
 
 ###Block:Waking Dead ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-STARTPACK:Waking Dead Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Waking Dead]	TYPE:DefaultMonster
+STARTPACK:Waking Dead Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Waking Dead]
 RACE:Waking Dead	!PRERACE:1,%
 ALIGN:CE
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
@@ -211,20 +211,20 @@ FEAT:Alertness
 FEAT:Toughness
 
 ###Block:Barangulaak  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-STARTPACK:Barangulaak Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Barangulaak]	TYPE:DefaultMonster
+STARTPACK:Barangulaak Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Barangulaak]
 RACE:Barangulaak	!PRERACE:1,%
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 GEAR:Pick (Heavy)	SIZE:PC	LOCATION:Primary Hand
 
 ###Block:Flosid ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-STARTPACK:Flosid Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Flosid]	TYPE:DefaultMonster
+STARTPACK:Flosid Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Flosid]
 RACE:Flosid	!PRERACE:1,%
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=11
 
 ###Block:Gremmin ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-STARTPACK:Gremmin Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gremmin]	TYPE:DefaultMonster
+STARTPACK:Gremmin Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gremmin]
 RACE:Gremmin	!PRERACE:1,%
 ALIGN:NE
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
@@ -244,7 +244,7 @@ FEAT:Weapon Focus(Pick (Heavy))
 GEAR:Pick (Heavy)	SIZE:PC	LOCATION:Primary Hand
 
 ###Block:Nokker ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-STARTPACK:Nokker Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nokker]	TYPE:DefaultMonster
+STARTPACK:Nokker Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nokker]
 RACE:Nokker	!PRERACE:1,%
 ALIGN:CN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
@@ -262,7 +262,7 @@ FEAT:Dodge
 FEAT:Mobility
 
 ###Block:Orvender ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-STARTPACK:Orvender Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Orvender]	TYPE:DefaultMonster
+STARTPACK:Orvender Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Orvender]
 RACE:Orvender	!PRERACE:1,%
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
@@ -278,7 +278,7 @@ FEAT:Great Cleave
 FEAT:Improved Overrun
 
 ###Block:Barathelar ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-STARTPACK:Barathelar Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Barathelar]	TYPE:DefaultMonster
+STARTPACK:Barathelar Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Barathelar]
 RACE:Barathelar	!PRERACE:1,%
 ALIGN:LE
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
@@ -297,7 +297,7 @@ FEAT:Dodge
 FEAT:Weapon Finesse
 
 ###Block:Ravvimen ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-STARTPACK:Ravvimen Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ravvimen]	TYPE:DefaultMonster
+STARTPACK:Ravvimen Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ravvimen]
 RACE:Ravvimen	!PRERACE:1,%
 ALIGN:CE
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
@@ -314,7 +314,7 @@ GEAR:Gaff		SIZE:PC	LOCATION:Secondary Hand
 GEAR:Leather	SIZE:PC	LOCATION:Equipped
 
 ###Block:Sarrenel ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-STARTPACK:Sarrenel Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sarrenel]	TYPE:DefaultMonster
+STARTPACK:Sarrenel Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sarrenel]
 RACE:Sarrenel	!PRERACE:1,%
 ALIGN:NE
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
@@ -326,7 +326,7 @@ FEAT:Blind Fight
 FEAT:Weapon Finesse
 
 ###Block:Walking Disease ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-STARTPACK:Walking Disease Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Walking Disease]	TYPE:DefaultMonster
+STARTPACK:Walking Disease Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Walking Disease]
 RACE:Walking Disease	!PRERACE:1,%
 ALIGN:NE
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
@@ -344,7 +344,7 @@ FEAT:Power Attack
 FEAT:Toughness
 
 ###Block:Wurggis ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-STARTPACK:Wurggis Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wurggis]	TYPE:DefaultMonster
+STARTPACK:Wurggis Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wurggis]
 RACE:Wurggis	!PRERACE:1,%
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=10
 ALIGN:TN

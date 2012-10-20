@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Jan 31 09:24:26 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Bastion Press - Arms and Armor	SOURCESHORT:arms	SOURCEWEB:http://dragonwing.net/	SOURCEDATE:2001-01
 
 ###Simple Weapons
@@ -6,11 +6,11 @@ SOURCELONG:Bastion Press - Arms and Armor	SOURCESHORT:arms	SOURCEWEB:http://drag
 # Equipment Name				Output Name				Required Weapon Proficiency					Type														Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage		Alternative Damage	Range		Reach		Size		Source Page		% of Spell Failure	Combat bonus				Weapon prop. bonus												Special Property
 Brass Knuckles									PROFICIENCY:WEAPON|Brass Knuckles				TYPE:Weapon.Unarmed.Simple.Melee.Bludgeoning.Standard.Finesseable.Metal			COST:0.5	WT:1					CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4										SIZE:T	SOURCEPAGE:p.9
 Ladies Chain									PROFICIENCY:WEAPON|Ladies Chain				TYPE:Weapon.Unarmed.Simple.Melee.Bludgeoning.Standard.Finesseable.Metal			COST:0.5	WT:0.25				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3										SIZE:T	SOURCEPAGE:p.17
-Razor (Fixed)				OUTPUTNAME:[NAME] Razor		PROFICIENCY:WEAPON|Razor (Fixed)				TYPE:Weapon.Unarmed.Simple.Melee.Slashing.Standard.Finesseable.Metal			COST:0.3	WT:0.5					CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3										SIZE:T	SOURCEPAGE:p.20
-Knife (Push)				OUTPUTNAME:[NAME] Knife		PROFICIENCY:WEAPON|Push Knife					TYPE:Weapon.Unarmed.Simple.Melee.Piercing.Standard.Finesseable.Metal			COST:1	WT:0.5					CRITMULT:x3			CRITRANGE:1												DAMAGE:1d3										SIZE:T	SOURCEPAGE:p.20
+Razor (Fixed)				OUTPUTNAME:[NAME] Razor		PROFICIENCY:WEAPON|Razor (Fixed)				TYPE:Weapon.Unarmed.Simple.Melee.Slashing.Standard.Finesseable.Metal			COST:0.3	WT:0.5				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3										SIZE:T	SOURCEPAGE:p.20
+Knife (Push)				OUTPUTNAME:[NAME] Knife		PROFICIENCY:WEAPON|Push Knife					TYPE:Weapon.Unarmed.Simple.Melee.Piercing.Standard.Finesseable.Metal			COST:1	WT:0.5				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d3										SIZE:T	SOURCEPAGE:p.20
 
 #TINY ----------------------------------------------------------------------------------------------------------
-Knife (Black)				OUTPUTNAME:[NAME] Knife		PROFICIENCY:WEAPON|Black Knife				TYPE:Weapon.Dagger.Simple.Melee.Ranged.Piercing.Standard.Metal				COST:2	WT:0.5					CRITMULT:x2			CRITRANGE:2												DAMAGE:1d3						RANGE:10	REACH:5	SIZE:T	SOURCEPAGE:p.10																										SPROP:+2 to Disguise/Conceal knife
+Knife (Black)				OUTPUTNAME:[NAME] Knife		PROFICIENCY:WEAPON|Black Knife				TYPE:Weapon.Dagger.Simple.Melee.Ranged.Piercing.Standard.Metal				COST:2	WT:0.5				CRITMULT:x2			CRITRANGE:2												DAMAGE:1d3						RANGE:10	REACH:5	SIZE:T	SOURCEPAGE:p.10																										SPROP:+2 to Disguise/Conceal knife
 Dagger (Carvet)				OUTPUTNAME:[NAME] Dagger	PROFICIENCY:WEAPON|Dagger					TYPE:Weapon.Dagger.Simple.Melee.Ranged.Piercing.Standard					COST:40	WT:1					CRITMULT:x2			CRITRANGE:2												DAMAGE:1d4+1					RANGE:10	REACH:5	SIZE:T	SOURCEPAGE:p.10
 Dirk											PROFICIENCY:WEAPON|Dirk						TYPE:Weapon.Dagger.Simple.Melee.Ranged.Piercing.Standard.Metal				COST:2	WT:1					CRITMULT:x2			CRITRANGE:2												DAMAGE:1d4						RANGE:10	REACH:5	SIZE:T	SOURCEPAGE:p.12																										SPROP:Can be used in same hand as targe shield
 Gutblade										PROFICIENCY:WEAPON|Gutblade					TYPE:Weapon.Simple.Melee.Piercing.Standard.Metal						COST:5	WT:1					CRITMULT:x2			CRITRANGE:3												DAMAGE:1d4								REACH:5	SIZE:T	SOURCEPAGE:p.15
@@ -77,10 +77,10 @@ Trident (Spiked Wolf Teeth)		OUTPUTNAME:[NAME] Trident	PROFICIENCY:WEAPON|Triden
 ###Exotic Weapons
 #TINY ----------------------------------------------------------------------------------------------------------			#TINY ----------------------------------------------------------------------------------------------------------
 Cat Gloves										PROFICIENCY:WEAPON|Cat Gloves					TYPE:Weapon.Exotic.Melee.Standard.Slashing.Finesseable.Metal				COST:5	WT:2					CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4								REACH:5	SIZE:T	SOURCEPAGE:p.10
-Emei Piercer									PROFICIENCY:WEAPON|Emei Piercer				TYPE:Weapon.Exotic.Melee.Standard.Piercing.Finesseable.Metal				COST:2	WT:0.5					CRITMULT:x3			CRITRANGE:1												DAMAGE:1d3								REACH:5	SIZE:T	SOURCEPAGE:p.13
-Poison Hairpin									PROFICIENCY:WEAPON|Poison Hairpin				TYPE:Weapon.Exotic.Melee.Standard.Piercing.Metal						COST:15	WT:0.1					CRITMULT:x2			CRITRANGE:1												DAMAGE:1d2								REACH:5	SIZE:T	SOURCEPAGE:p.15
-Ribbon Dagger									PROFICIENCY:WEAPON|Ribbon Dagger				TYPE:Weapon.Exotic.Melee.Standard.Ranged.Piercing.Metal					COST:1	WT:0.2					CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3						RANGE:20	REACH:5	SIZE:T	SOURCEPAGE:p.20
-Scholar's Brush									PROFICIENCY:WEAPON|Scholar's Brush				TYPE:Weapon.Exotic.Melee.Standard.Piercing.Finesseable.Metal				COST:2	WT:0.5					CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3						RANGE:10	REACH:5	SIZE:T	SOURCEPAGE:p.21
+Emei Piercer									PROFICIENCY:WEAPON|Emei Piercer				TYPE:Weapon.Exotic.Melee.Standard.Piercing.Finesseable.Metal				COST:2	WT:0.5				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d3								REACH:5	SIZE:T	SOURCEPAGE:p.13
+Poison Hairpin									PROFICIENCY:WEAPON|Poison Hairpin				TYPE:Weapon.Exotic.Melee.Standard.Piercing.Metal						COST:15	WT:0.1				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d2								REACH:5	SIZE:T	SOURCEPAGE:p.15
+Ribbon Dagger									PROFICIENCY:WEAPON|Ribbon Dagger				TYPE:Weapon.Exotic.Melee.Standard.Ranged.Piercing.Metal					COST:1	WT:0.2				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3						RANGE:20	REACH:5	SIZE:T	SOURCEPAGE:p.20
+Scholar's Brush									PROFICIENCY:WEAPON|Scholar's Brush				TYPE:Weapon.Exotic.Melee.Standard.Piercing.Finesseable.Metal				COST:2	WT:0.5				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3						RANGE:10	REACH:5	SIZE:T	SOURCEPAGE:p.21
 
 #SMALL ---------------------------------------------------------------------------------------------------------			#SMALL ---------------------------------------------------------------------------------------------------------
 Gauntlet (Battle)				OUTPUTNAME:[NAME] Gauntlet	PROFICIENCY:WEAPON|Gauntlet (Battle)			TYPE:Weapon.Exotic.Melee.Standard.Bludgeoning.Metal						COST:25	WT:3		ACCHECK:-1		CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6								REACH:5	SIZE:S	SOURCEPAGE:p.9	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=ArmorShield

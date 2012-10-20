@@ -1,21 +1,23 @@
-SOURCELONG:Guide to Pathfinder Society Organised Play		SOURCESHORT:GTPOP	SOURCEWEB:http://paizo.com/pathfinderSociety/scenarios/v5748btpy84k4	SOURCEDATE:2011-08
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Guide to Pathfinder Society Organised Play	SOURCESHORT:GTPOP	SOURCEWEB:http://paizo.com/pathfinderSociety/scenarios/v5748btpy84k4	SOURCEDATE:2011-08
 # Original Entry by: Jeff Baril
 # Updated by: Andrew Wilson
 
-Spell Focus.MOD			TYPE:FocusReplacement
+# Feat Name					Type				Required Class
+Spell Focus.MOD				TYPE:FocusReplacement
 
-Brew Potion.MOD		PRECLASS:1,NPC=1,Monster=1
-Craft Magic Arms and Armor.MOD		PRECLASS:1,NPC=1,Monster=1
-Craft Rod.MOD		PRECLASS:1,NPC=1,Monster=1
-Craft Staff.MOD		PRECLASS:1,NPC=1,Monster=1
-Craft Wand.MOD		PRECLASS:1,NPC=1,Monster=1
-Forge Ring.MOD		PRECLASS:1,NPC=1,Monster=1
-Leadership.MOD		PRECLASS:1,NPC=1,Monster=1
-Scribe Scroll.MOD		PRECLASS:1,NPC=1,Monster=1
-Cooperative Crafting.MOD		PRECLASS:1,NPC=1,Monster=1
+Brew Potion.MOD								PRECLASS:1,NPC=1,Monster=1
+Craft Magic Arms and Armor.MOD					PRECLASS:1,NPC=1,Monster=1
+Craft Rod.MOD								PRECLASS:1,NPC=1,Monster=1
+Craft Staff.MOD								PRECLASS:1,NPC=1,Monster=1
+Craft Wand.MOD								PRECLASS:1,NPC=1,Monster=1
+Forge Ring.MOD								PRECLASS:1,NPC=1,Monster=1
+Leadership.MOD								PRECLASS:1,NPC=1,Monster=1
+Scribe Scroll.MOD								PRECLASS:1,NPC=1,Monster=1
+Cooperative Crafting.MOD						PRECLASS:1,NPC=1,Monster=1
 
-Blood of Heroes.MOD		PRECLASS:1,NPC=1,Monster=1
-Hero's Fortune.MOD		PRECLASS:1,NPC=1,Monster=1
-Luck of Heroes.MOD		PRECLASS:1,NPC=1,Monster=1
+Blood of Heroes.MOD							PRECLASS:1,NPC=1,Monster=1
+Hero's Fortune.MOD							PRECLASS:1,NPC=1,Monster=1
+Luck of Heroes.MOD							PRECLASS:1,NPC=1,Monster=1
 
 #

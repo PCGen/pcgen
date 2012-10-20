@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Sat Feb 14 10:01:36 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-SOURCELONG:Book of Iron Might	SOURCESHORT:BoIM	SOURCEWEB:http://www.montecook.com/cgi-bin/page.cgi?mpress_BOIM
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Book of Iron Might	SOURCESHORT:BoIM	SOURCEWEB:http://www.montecook.com/cgi-bin/page.cgi?mpress_BOIM	SOURCEDATE:2004-01
 
-# Race Name		Favored Class			Size		Move			Face/Space	Reach		Stat bonus		Main Race Type	Template																Source Page		Add
-Ironborn ~ Small	FAVCLASS:HIGHESTLEVELCLASS	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5				RACETYPE:Ironborn	TEMPLATE:Ironborn Trait	TEMPLATE:CHOOSE:Ironborn Secondary Ability|Ironborn No Secondary Ability	SOURCEPAGE:p.25
-Ironborn ~ Medum	FAVCLASS:HIGHESTLEVELCLASS	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5				RACETYPE:Ironborn	TEMPLATE:Ironborn Trait														SOURCEPAGE:p.25	BONUS:ABILITYPOOL|Ironborn Secondary Ability Choice|1
-Ironborn ~ Large	FAVCLASS:HIGHESTLEVELCLASS	SIZE:L	MOVE:Walk,30	FACE:10	REACH:10	BONUS:STAT|DEX|-2	RACETYPE:Ironborn	TEMPLATE:Ironborn Trait														SOURCEPAGE:p.25
+# Race Name		Favored Class			Size		Move			Face/Space	Reach		Bonus to Ability Pool						Stat bonus		Main Race Type	Template																Source Page
+Ironborn ~ Small	FAVCLASS:HIGHESTLEVELCLASS	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5													RACETYPE:Ironborn	TEMPLATE:Ironborn Trait	TEMPLATE:CHOOSE:Ironborn Secondary Ability|Ironborn No Secondary Ability	SOURCEPAGE:p.25
+Ironborn ~ Medum	FAVCLASS:HIGHESTLEVELCLASS	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	BONUS:ABILITYPOOL|Ironborn Secondary Ability Choice|1				RACETYPE:Ironborn	TEMPLATE:Ironborn Trait														SOURCEPAGE:p.25
+Ironborn ~ Large	FAVCLASS:HIGHESTLEVELCLASS	SIZE:L	MOVE:Walk,30	FACE:10	REACH:10										BONUS:STAT|DEX|-2	RACETYPE:Ironborn	TEMPLATE:Ironborn Trait														SOURCEPAGE:p.25

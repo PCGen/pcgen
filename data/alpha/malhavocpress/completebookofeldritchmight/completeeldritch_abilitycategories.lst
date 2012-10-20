@@ -1,12 +1,14 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
-ABILITYCATEGORY:Ritual of Potency Choice	CATEGORY:Special Ability	TYPE:RitualofPotency	DISPLAYLOCATION:Class Abilities	EDITABLE:YES	EDITPOOL:YES	VISIBLE:QUALIFY
+# Ability Category				Visible		Editable or Static?	Change Pool?	Category of Object		Type of Object				Specific choices list																																																																																											Display Location
+ABILITYCATEGORY:Ritual of Potency Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:RitualofPotency																																																																																																	DISPLAYLOCATION:Class Abilities
 
-ABILITYCATEGORY:Eldritch Warrior Feat	CATEGORY:FEAT	ABILITYLIST:Cleave|Combat Expertise|Dodge|Exotic Weapon Proficiency|Far Shot|Great Cleave|Greater Two Weapon Fighting|Greater Weapon Focus|Improved Bull Rush|Improved Critical|Improved Disarm|Improved Feint|Improved Initiative|Improved Overrun|Improved Sunder|Improved Trip|Improved Two Weapon Fighting|Mobility|Mounted Archery|Mounted Combat|Point Blank Shot|Power Attack|Precise Shot|Quick Draw|Rapid Shot|Ride By Attack|Shot on the Run|Spirited Charge|Spring Attack|Trample|Two Weapon Defense|Two Weapon Fighting|Weapon Finesse|Weapon Focus|Whirlwind Attack		DISPLAYLOCATION:Class Abilities	EDITABLE:YES	EDITPOOL:YES	VISIBLE:QUALIFY
-
-
-ABILITYCATEGORY:Tattoo Of Power Choice	CATEGORY:Special Ability		TYPE:TattooofPower	DISPLAYLOCATION:Class Abilities	EDITABLE:YES	EDITPOOL:YES	VISIBLE:QUALIFY
+ABILITYCATEGORY:Eldritch Warrior Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:FEAT									ABILITYLIST:Cleave|Combat Expertise|Dodge|Exotic Weapon Proficiency|Far Shot|Great Cleave|Greater Two Weapon Fighting|Greater Weapon Focus|Improved Bull Rush|Improved Critical|Improved Disarm|Improved Feint|Improved Initiative|Improved Overrun|Improved Sunder|Improved Trip|Improved Two Weapon Fighting|Mobility|Mounted Archery|Mounted Combat|Point Blank Shot|Power Attack|Precise Shot|Quick Draw|Rapid Shot|Ride By Attack|Shot on the Run|Spirited Charge|Spring Attack|Trample|Two Weapon Defense|Two Weapon Fighting|Weapon Finesse|Weapon Focus|Whirlwind Attack	DISPLAYLOCATION:Class Abilities
 
 
-ABILITYCATEGORY:Imbue Vibration Choice	CATEGORY:Special Ability	TYPE:ImbueVibration		DISPLAYLOCATION:Class Abilities	EDITABLE:YES	EDITPOOL:YES	VISIBLE:QUALIFY
+ABILITYCATEGORY:Tattoo Of Power Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:TattooofPower																																																																																																	DISPLAYLOCATION:Class Abilities
 
-ABILITYCATEGORY:Magical Construct Choice		CATEGORY:Special Ability	TYPE:MagicalConstructAbilities		DISPLAYLOCATION:Class Abilities	EDITABLE:YES	EDITPOOL:YES	VISIBLE:QUALIFY
+
+ABILITYCATEGORY:Imbue Vibration Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:ImbueVibration																																																																																																	DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Magical Construct Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:MagicalConstructAbilities																																																																																															DISPLAYLOCATION:Class Abilities

@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Sat May 17 00:44:56 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Forged in Magic	SOURCESHORT:FiM	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2006-06
 #Original Entry:E. C. Smith (Maredudd), 2007
 
-# Race Name	Size		Move			Face/Space	Vision		Required AL	Save checks bonus										Combat bonus						Stat bonus															Virtual Feat		Feat		Nb Legs	Nb Hands	Natural Attacks											Special ABility				Main Race Type	Type		Source Page
-Hedgehog	SIZE:D	MOVE:Walk,30	FACE:1	VISION:Low-light	KIT:1|TN	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|2	BONUS:CHECKS|BASE.Will|0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor	BONUS:STAT|STR,CHA|6	BONUS:STAT|DEX|16	BONUS:STAT|CON|14	BONUS:STAT|INT|2	BONUS:STAT|WIS|10	AUTO:FEAT|Weapon Finesse	AUTO:FEAT|Dodge	LEGS:4	HANDS:2	NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing.Slashing.Bludgeoning,*1,1d2	SAB:Scent	SAB:Spined Defense (Ex)	RACETYPE:Animal	TYPE:Animal	SOURCEPAGE:p.154
+# Race Name	Size		Move			Face/Space	Vision		Save checks bonus										Combat bonus				Stat bonus															Automatically Gained Feat				Nb Legs	Nb Hands	Natural Attacks											Special ABility				Main Race Type	Type		Source Page		Apply Kit
+Hedgehog	SIZE:D	MOVE:Walk,30	FACE:1	VISION:Low-light	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|2	BONUS:CHECKS|BASE.Will|0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor	BONUS:STAT|STR,CHA|6	BONUS:STAT|DEX|16	BONUS:STAT|CON|14	BONUS:STAT|INT|2	BONUS:STAT|WIS|10	AUTO:FEAT|Weapon Finesse	AUTO:FEAT|Dodge	LEGS:4	HANDS:2	NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing.Slashing.Bludgeoning,*1,1d2	SAB:Scent	SAB:Spined Defense (Ex)	RACETYPE:Animal	TYPE:Animal	SOURCEPAGE:p.154	KIT:1|TN

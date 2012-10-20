@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Sat Oct 22 14:51:19 2011 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8ddb	SOURCEDATE:2010-12
 
 # ORIGINAL ENTRY: ? and Douglas Limmer
 # ORIGINAL ENTRY DATE: Unknown
 
 ###Block: Creature Subtypes
-# Template Name		Visible	Source Page		Define																Modify VAR												Class Skill							Ability																																					Automatic Languages		Race Subtype		Vision
+# Template Name		Visible	Source Page		Define																Modify VAR												Class Skill							Ability																																					Automatically Gained Language	Race Subtype		Vision
 Aeon				VISIBLE:NO	SOURCEPAGE:p.305																		BONUS:VAR|ElectricityResistanceBonus|10	BONUS:VAR|FireResistanceBonus|10									ABILITY:Special Ability|AUTOMATIC|Envisaging ~ Aeon|Extension of All ~ Aeon|Immunity to Cold|Immunity to Critical Hits|Immunity to Poison|Resistance to Electricity|Resistance to Fire|Void Form ~ Aeon										RACESUBTYPE:Aeon
 Agathion			VISIBLE:NO	SOURCEPAGE:p.306	DEFINE:ColdResistanceBonus|10	DEFINE:SonicResistanceBonus|10							BONUS:VAR|LayOnHandsLVL|min(20,TL)																ABILITY:Special Ability|AUTOMATIC|Immunity to Electricity|Immunity to Petrification|Lay on Hands ~ Agathion|Poison Save Bonus ~ Agathion|Resistance to Cold|Resistance to Sonic|Speak with Animals ~ Agathion|Truespeech ~ Agathion						RACESUBTYPE:Agathion	VISION:Low-light
 Angel ~ Cassisian		VISIBLE:NO	SOURCEPAGE:p.310	DEFINE:ElectricityResistanceBonus|10	DEFINE:FireResistanceBonus|10																											ABILITY:Special Ability|AUTOMATIC|Immunity to Acid|Immunity to Cold|Immunity to Petrification|Resistance to Electricity|Resistance to Fire|Save vs Poison|Truespeech ~ Angel															RACESUBTYPE:Angel		VISION:Darkvision (60')|Low-light
@@ -21,7 +21,7 @@ Qlippoth			VISIBLE:NO	SOURCEPAGE:p.309	DEFINE:AcidResistanceBonus|10	DEFINE:Elec
 Qlippoth ~ Cythnigot	VISIBLE:NO	SOURCEPAGE:p.309	DEFINE:AcidResistanceBonus|10	DEFINE:ElectricityResistanceBonus|10	DEFINE:FireResistanceBonus|10																						ABILITY:Special Ability|AUTOMATIC|Immunity to Cold|Immunity to Mind-Affecting Effects|Immunity to Poison|Resistance to Acid|Resistance to Electricity|Resistance to Fire|Telepathy ~ Touch							AUTO:LANG|Abyssal			RACESUBTYPE:Qlippoth
 
 ###Block: Animal Companion templates
-# COMMENT: Some animal companions don't follow the standard die-increase 
+# COMMENT: Some animal companions don't follow the standard die-increase
 # COMMENT:   pattern for their natural weapons when they increase in power.
 # COMMENT:   These templates are intended to handle that.
 # Template Name					Size		Visible	Source Page		Combat bonus					Stat bonus								Modify VAR					Ability						Natural Attacks

@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Thu Nov 11 10:19:24 2010 -- reformated by prettylst.pl v1.38 (build 6875)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Bastion Press - Into the Black	SOURCESHORT:itblk	SOURCEDATE:2003-01
 #Original Entry: Andrew (LegacyKing) Maitland
 
 ###Block: Racial Abilities
 # Cave Hermit ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Ability Name		Unique Key						Category of Ability		Type							Visible	Innate Spells																													Description						Automaticaly Gained Weapon Prof.	Ability							Save checks bonus			Combat bonus						Source Page
+# Ability Name		Unique Key						Category of Ability		Type							Visible	Innate Spells																													Description						Automatically Gained Weapon Prof.	Ability							Save checks bonus			Combat bonus						Source Page
 Dissolving Burst									CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary																																			DESC:Reflex save %1|10+CON+TL/2																													SOURCEPAGE:p.20
 Shell				KEY:Shell ~ Cave Hermit				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																																					SOURCEPAGE:p.20
 

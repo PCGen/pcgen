@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sat Jan 26 00:28:37 2008 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Blood and Relics 2nd Edition	SOURCESHORT:BnR2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=53
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Relics 2nd Edition	SOURCESHORT:BnR2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=53	SOURCEDATE:2004-01
 
 # Feat Name		Type			Visible	Special ABility							Define
 Inflict Wounds	TYPE:ClassAbility	VISIBLE:NO	SAB:Inflict Wounds +%d8|InflictWounds			DEFINE:InflictWounds|0

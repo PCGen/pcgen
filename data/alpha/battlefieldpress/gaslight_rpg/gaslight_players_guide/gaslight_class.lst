@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Apr 18 18:53:33 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
 #Original Entry: Andrew Maitland
 
@@ -215,8 +215,8 @@ CLASS:Officer	STARTSKILLPTS:4	CSKILL:Demolitions|Athletics|Knowledge (Current Ev
 
 ###Block: Rogue ----------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus						Modify VAR
-CLASS:Rogue		HD:8		TYPE:Base.PC	ABB:Rogue		MAXLEVEL:10	SOURCEPAGE:p.103	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3		BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+6)/2	BONUS:VAR|Reputation|CL/3
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus						Modify VAR
+CLASS:Rogue		HD:8		TYPE:Base.PC	ABB:Rogue		MAXLEVEL:10	SOURCEPAGE:p.103	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+6)/2	BONUS:VAR|Reputation|CL/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Acrobatics|Deception|Athletics|Craft (Mechanical)|Decipher Script|Demolitions|Disable Device|Deception|Escape Artist|Forgery|Gather Information|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Navigate|Notice|TYPE=OperateVehicle|Persuasion|TYPE=Perform|Profession|Read/Write Language|Ride|Sleight of Hand|Search|Stealth|Speak Language|Survival|Use Device|Notice (Locate Traps)
 ###Block: Background
@@ -224,11 +224,11 @@ CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Acrobatics|Deception|Athletics|Craft (Mechan
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapons Proficiency
 ###Block: Class progression
-1	BONUS:ABILITYPOOL|Rogue Talent|(CL+1)/2						ABILITY:Special Ability|AUTOMATIC|Trapfinding	BONUS:SKILL|Disable Device,Notice (Locate Traps)|CL/2
-2													ABILITY:Special Ability|AUTOMATIC|Evasion
-3								BONUS:VAR|TrapSenseBonus|CL/3	ABILITY:Special Ability|AUTOMATIC|Trap Sense
-4	BONUS:ABILITYPOOL|Rogue Feat|CL/4							ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
-7													ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge
+1	BONUS:ABILITYPOOL|Rogue Talent|(CL+1)/2	BONUS:SKILL|Disable Device,Notice (Locate Traps)|CL/2						ABILITY:Special Ability|AUTOMATIC|Trapfinding
+2																						ABILITY:Special Ability|AUTOMATIC|Evasion
+3																	BONUS:VAR|TrapSenseBonus|CL/3	ABILITY:Special Ability|AUTOMATIC|Trap Sense
+4	BONUS:ABILITYPOOL|Rogue Feat|CL/4																ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
+7																						ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge
 
 
 ###Block: Scholar ----------------------------------------------------------------------------------------------

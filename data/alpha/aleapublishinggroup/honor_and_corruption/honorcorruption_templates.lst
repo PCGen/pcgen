@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Mon Feb 16 22:41:18 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-SOURCELONG:Honor and Corruption	SOURCESHORT:Honor	SOURCEWEB:www.aleapublishing.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Honor and Corruption	SOURCESHORT:Honor	SOURCEWEB:www.aleapublishing.com	SOURCEDATE:2005-01
 #Original entry: Andrew Maitland
 #NEW FORMAT		ADD:FEAT|2|Alertness,TYPE.Fighter
 
@@ -9,55 +9,55 @@ SOURCELONG:Honor and Corruption	SOURCESHORT:Honor	SOURCEWEB:www.aleapublishing.c
 #Every 4 levels begining at 4 gain 1d10 additional hp
 # A random 1 to 10 hp need a mechanism to deal with this... Perhap a PREAPPLY:PC style tag in a feat call...
 
-# Template Name			Visible	Source Page		Special ABility																Define										Required Lvl	Required Template					Modify VAR													Choose								Add 						Ability								Temporary effect description
-Subclass (Knight Lvl 01)			SOURCEPAGE:p.22	ABILITY:Special Ability|AUTOMATIC|Honor ~ Knight Subclass|Squire ~ Knight Subclass	DEFINE:HonorScore|0																																															ABILITY:Special Ability|AUTOMATIC|Indomitable Will
-Subclass (Knight Lvl 02)			SOURCEPAGE:p.22																														PRELEVEL:MIN=2	PRETEMPLATE:1,Subclass (Knight Lvl 1)
-Subclass (Knight Lvl 03)			SOURCEPAGE:p.22																														PRELEVEL:MIN=3	PRETEMPLATE:1,Subclass (Knight Lvl 2)
-Subclass (Knight Lvl 04)			SOURCEPAGE:p.22	ABILITY:Special Ability|AUTOMATIC|Bonus HP ~ Knight Subclass													DEFINE:KnightHitDieBonus|0							PRELEVEL:MIN=4	PRETEMPLATE:1,Subclass (Knight Lvl 3)	BONUS:VAR|KnightHitDieBonus|1																			BONUS:ABILITYPOOL|Knight Bonus HP|1
-Subclass (Knight Lvl 05)			SOURCEPAGE:p.22	ABILITY:Special Ability|AUTOMATIC|Sanctuary ~ Knight Subclass																										PRELEVEL:MIN=5	PRETEMPLATE:1,Subclass (Knight Lvl 4)
-Subclass (Knight Lvl 06)			SOURCEPAGE:p.22																														PRELEVEL:MIN=6	PRETEMPLATE:1,Subclass (Knight Lvl 5)
-Subclass (Knight Lvl 07)			SOURCEPAGE:p.22																														PRELEVEL:MIN=7	PRETEMPLATE:1,Subclass (Knight Lvl 6)
-Subclass (Knight Lvl 08)			SOURCEPAGE:p.22																														PRELEVEL:MIN=8	PRETEMPLATE:1,Subclass (Knight Lvl 7)	BONUS:VAR|KnightHitDieBonus|1																			BONUS:ABILITYPOOL|Knight Bonus HP|1
-Subclass (Knight Lvl 09)			SOURCEPAGE:p.22																														PRELEVEL:MIN=9	PRETEMPLATE:1,Subclass (Knight Lvl 8)
-Subclass (Knight Lvl 10)			SOURCEPAGE:p.22																														PRELEVEL:MIN=10	PRETEMPLATE:1,Subclass (Knight Lvl 9)
-Subclass (Knight Lvl 11)			SOURCEPAGE:p.22																														PRELEVEL:MIN=11	PRETEMPLATE:1,Subclass (Knight Lvl 10)
-Subclass (Knight Lvl 12)			SOURCEPAGE:p.22																														PRELEVEL:MIN=12	PRETEMPLATE:1,Subclass (Knight Lvl 11)	BONUS:VAR|KnightHitDieBonus|1																			BONUS:ABILITYPOOL|Knight Bonus HP|1
-Subclass (Knight Lvl 13)			SOURCEPAGE:p.22																														PRELEVEL:MIN=13	PRETEMPLATE:1,Subclass (Knight Lvl 12)
-Subclass (Knight Lvl 14)			SOURCEPAGE:p.22																														PRELEVEL:MIN=14	PRETEMPLATE:1,Subclass (Knight Lvl 13)
-Subclass (Knight Lvl 15)			SOURCEPAGE:p.22																														PRELEVEL:MIN=15	PRETEMPLATE:1,Subclass (Knight Lvl 14)
-Subclass (Knight Lvl 16)			SOURCEPAGE:p.22																														PRELEVEL:MIN=16	PRETEMPLATE:1,Subclass (Knight Lvl 15)	BONUS:VAR|KnightHitDieBonus|1																			BONUS:ABILITYPOOL|Knight Bonus HP|1
-Subclass (Knight Lvl 17)			SOURCEPAGE:p.22																														PRELEVEL:MIN=17	PRETEMPLATE:1,Subclass (Knight Lvl 16)
-Subclass (Knight Lvl 18)			SOURCEPAGE:p.22																														PRELEVEL:MIN=18	PRETEMPLATE:1,Subclass (Knight Lvl 17)
-Subclass (Knight Lvl 19)			SOURCEPAGE:p.22																														PRELEVEL:MIN=19	PRETEMPLATE:1,Subclass (Knight Lvl 18)
-Subclass (Knight Lvl 20)			SOURCEPAGE:p.22																														PRELEVEL:MIN=20	PRETEMPLATE:1,Subclass (Knight Lvl 19)	BONUS:VAR|KnightHitDieBonus|1																			BONUS:ABILITYPOOL|Knight Bonus HP|1
+# Template Name			Source Page		Define										Required Lvl	Required Template					Bonus to Ability Pool				Modify VAR													Choose								Ability																						Temporary effect description
+Subclass (Knight Lvl 01)	SOURCEPAGE:p.22	DEFINE:HonorScore|0																																																ABILITY:Special Ability|AUTOMATIC|Honor ~ Knight Subclass|Squire ~ Knight Subclass	ABILITY:Special Ability|AUTOMATIC|Indomitable Will
+Subclass (Knight Lvl 02)	SOURCEPAGE:p.22												PRELEVEL:MIN=2	PRETEMPLATE:1,Subclass (Knight Lvl 1)
+Subclass (Knight Lvl 03)	SOURCEPAGE:p.22												PRELEVEL:MIN=3	PRETEMPLATE:1,Subclass (Knight Lvl 2)
+Subclass (Knight Lvl 04)	SOURCEPAGE:p.22	DEFINE:KnightHitDieBonus|0							PRELEVEL:MIN=4	PRETEMPLATE:1,Subclass (Knight Lvl 3)	BONUS:ABILITYPOOL|Knight Bonus HP|1		BONUS:VAR|KnightHitDieBonus|1																			ABILITY:Special Ability|AUTOMATIC|Bonus HP ~ Knight Subclass
+Subclass (Knight Lvl 05)	SOURCEPAGE:p.22												PRELEVEL:MIN=5	PRETEMPLATE:1,Subclass (Knight Lvl 4)																															ABILITY:Special Ability|AUTOMATIC|Sanctuary ~ Knight Subclass
+Subclass (Knight Lvl 06)	SOURCEPAGE:p.22												PRELEVEL:MIN=6	PRETEMPLATE:1,Subclass (Knight Lvl 5)
+Subclass (Knight Lvl 07)	SOURCEPAGE:p.22												PRELEVEL:MIN=7	PRETEMPLATE:1,Subclass (Knight Lvl 6)
+Subclass (Knight Lvl 08)	SOURCEPAGE:p.22												PRELEVEL:MIN=8	PRETEMPLATE:1,Subclass (Knight Lvl 7)	BONUS:ABILITYPOOL|Knight Bonus HP|1		BONUS:VAR|KnightHitDieBonus|1
+Subclass (Knight Lvl 09)	SOURCEPAGE:p.22												PRELEVEL:MIN=9	PRETEMPLATE:1,Subclass (Knight Lvl 8)
+Subclass (Knight Lvl 10)	SOURCEPAGE:p.22												PRELEVEL:MIN=10	PRETEMPLATE:1,Subclass (Knight Lvl 9)
+Subclass (Knight Lvl 11)	SOURCEPAGE:p.22												PRELEVEL:MIN=11	PRETEMPLATE:1,Subclass (Knight Lvl 10)
+Subclass (Knight Lvl 12)	SOURCEPAGE:p.22												PRELEVEL:MIN=12	PRETEMPLATE:1,Subclass (Knight Lvl 11)	BONUS:ABILITYPOOL|Knight Bonus HP|1		BONUS:VAR|KnightHitDieBonus|1
+Subclass (Knight Lvl 13)	SOURCEPAGE:p.22												PRELEVEL:MIN=13	PRETEMPLATE:1,Subclass (Knight Lvl 12)
+Subclass (Knight Lvl 14)	SOURCEPAGE:p.22												PRELEVEL:MIN=14	PRETEMPLATE:1,Subclass (Knight Lvl 13)
+Subclass (Knight Lvl 15)	SOURCEPAGE:p.22												PRELEVEL:MIN=15	PRETEMPLATE:1,Subclass (Knight Lvl 14)
+Subclass (Knight Lvl 16)	SOURCEPAGE:p.22												PRELEVEL:MIN=16	PRETEMPLATE:1,Subclass (Knight Lvl 15)	BONUS:ABILITYPOOL|Knight Bonus HP|1		BONUS:VAR|KnightHitDieBonus|1
+Subclass (Knight Lvl 17)	SOURCEPAGE:p.22												PRELEVEL:MIN=17	PRETEMPLATE:1,Subclass (Knight Lvl 16)
+Subclass (Knight Lvl 18)	SOURCEPAGE:p.22												PRELEVEL:MIN=18	PRETEMPLATE:1,Subclass (Knight Lvl 17)
+Subclass (Knight Lvl 19)	SOURCEPAGE:p.22												PRELEVEL:MIN=19	PRETEMPLATE:1,Subclass (Knight Lvl 18)
+Subclass (Knight Lvl 20)	SOURCEPAGE:p.22												PRELEVEL:MIN=20	PRETEMPLATE:1,Subclass (Knight Lvl 19)	BONUS:ABILITYPOOL|Knight Bonus HP|1		BONUS:VAR|KnightHitDieBonus|1
 
 ### Scoundrel Subclass Block:		SUBCLASS SCOUNDREL	SOURCEPAGE:p.25
 #BONUS Skill points 4 each level
 #Every 4 levels begining at 4 gain 1d6 additional hp
 
-Subclass (Scoundrel Lvl 01)			SOURCEPAGE:p.25	ABILITY:Special Ability|AUTOMATIC|Bonus Sneak Attack ~ Scoundrel Subclass|No Honor Amoung Thieves ~ Scoundrel Subclass	DEFINE:ScoundrelSneakAttackDie|4	DEFINE:ScoundrelSneakAttack|0											BONUS:VAR|ScoundrelSneakAttack|1
-Subclass (Scoundrel Lvl 02)			SOURCEPAGE:p.25																														PRELEVEL:MIN=2	PRETEMPLATE:1,Subclass (Scoundrel Lvl 1)
-Subclass (Scoundrel Lvl 03)			SOURCEPAGE:p.25	ABILITY:Special Ability|AUTOMATIC|Impromptu Sneak Attack ~ Scoundrel Subclass									DEFINE:ImpromptuSneakTimes|0							PRELEVEL:MIN=3	PRETEMPLATE:1,Subclass (Scoundrel Lvl 2)	BONUS:VAR|ImpromptuSneakTimes|1
-Subclass (Scoundrel Lvl 04)			SOURCEPAGE:p.25	ABILITY:Special Ability|AUTOMATIC|Bonus HP ~ Scoundrel Subclass												DEFINE:ScoundrelHitDieBonus|0							PRELEVEL:MIN=4	PRETEMPLATE:1,Subclass (Scoundrel Lvl 3)	BONUS:VAR|ScoundrelHitDieBonus|1																		BONUS:ABILITYPOOL|Scoundrel Bonus HP|1
-Subclass (Scoundrel Lvl 05)			SOURCEPAGE:p.25																														PRELEVEL:MIN=5	PRETEMPLATE:1,Subclass (Scoundrel Lvl 4)	BONUS:VAR|ScoundrelSneakAttack|1
-Subclass (Scoundrel Lvl 06)			SOURCEPAGE:p.25																														PRELEVEL:MIN=6	PRETEMPLATE:1,Subclass (Scoundrel Lvl 5)
-Subclass (Scoundrel Lvl 07)			SOURCEPAGE:p.25																														PRELEVEL:MIN=7	PRETEMPLATE:1,Subclass (Scoundrel Lvl 6)	BONUS:VAR|ImpromptuSneakTimes|1
-Subclass (Scoundrel Lvl 08)			SOURCEPAGE:p.25																														PRELEVEL:MIN=8	PRETEMPLATE:1,Subclass (Scoundrel Lvl 7)	BONUS:VAR|ScoundrelHitDieBonus|1																		BONUS:ABILITYPOOL|Scoundrel Bonus HP|1
-Subclass (Scoundrel Lvl 09)			SOURCEPAGE:p.25																														PRELEVEL:MIN=9	PRETEMPLATE:1,Subclass (Scoundrel Lvl 8)	BONUS:VAR|ScoundrelSneakAttack|1
-Subclass (Scoundrel Lvl 10)			SOURCEPAGE:p.25																														PRELEVEL:MIN=10	PRETEMPLATE:1,Subclass (Scoundrel Lvl 9)
-Subclass (Scoundrel Lvl 11)			SOURCEPAGE:p.25																														PRELEVEL:MIN=11	PRETEMPLATE:1,Subclass (Scoundrel Lvl 10)	BONUS:VAR|ImpromptuSneakTimes|1
-Subclass (Scoundrel Lvl 12)			SOURCEPAGE:p.25																														PRELEVEL:MIN=12	PRETEMPLATE:1,Subclass (Scoundrel Lvl 11)	BONUS:VAR|ScoundrelHitDieBonus|1																		BONUS:ABILITYPOOL|Scoundrel Bonus HP|1
-Subclass (Scoundrel Lvl 13)			SOURCEPAGE:p.25																														PRELEVEL:MIN=13	PRETEMPLATE:1,Subclass (Scoundrel Lvl 12)	BONUS:VAR|ScoundrelSneakAttack|1
-Subclass (Scoundrel Lvl 14)			SOURCEPAGE:p.25																														PRELEVEL:MIN=14	PRETEMPLATE:1,Subclass (Scoundrel Lvl 13)
-Subclass (Scoundrel Lvl 15)			SOURCEPAGE:p.25																														PRELEVEL:MIN=15	PRETEMPLATE:1,Subclass (Scoundrel Lvl 14)	BONUS:VAR|ImpromptuSneakTimes|1
-Subclass (Scoundrel Lvl 16)			SOURCEPAGE:p.25																														PRELEVEL:MIN=16	PRETEMPLATE:1,Subclass (Scoundrel Lvl 15)	BONUS:VAR|ScoundrelHitDieBonus|1																		BONUS:ABILITYPOOL|Scoundrel Bonus HP|1
-Subclass (Scoundrel Lvl 17)			SOURCEPAGE:p.25																														PRELEVEL:MIN=17	PRETEMPLATE:1,Subclass (Scoundrel Lvl 16)	BONUS:VAR|ScoundrelSneakAttack|1
-Subclass (Scoundrel Lvl 18)			SOURCEPAGE:p.25																														PRELEVEL:MIN=18	PRETEMPLATE:1,Subclass (Scoundrel Lvl 17)
-Subclass (Scoundrel Lvl 19)			SOURCEPAGE:p.25																														PRELEVEL:MIN=19	PRETEMPLATE:1,Subclass (Scoundrel Lvl 18)	BONUS:VAR|ImpromptuSneakTimes|1
-Subclass (Scoundrel Lvl 20)			SOURCEPAGE:p.25																														PRELEVEL:MIN=20	PRETEMPLATE:1,Subclass (Scoundrel Lvl 19)	BONUS:VAR|ScoundrelHitDieBonus|1																		BONUS:ABILITYPOOL|Scoundrel Bonus HP|1
+Subclass (Scoundrel Lvl 01)	SOURCEPAGE:p.25	DEFINE:ScoundrelSneakAttackDie|4	DEFINE:ScoundrelSneakAttack|0																		BONUS:VAR|ScoundrelSneakAttack|1																		ABILITY:Special Ability|AUTOMATIC|Bonus Sneak Attack ~ Scoundrel Subclass|No Honor Amoung Thieves ~ Scoundrel Subclass
+Subclass (Scoundrel Lvl 02)	SOURCEPAGE:p.25												PRELEVEL:MIN=2	PRETEMPLATE:1,Subclass (Scoundrel Lvl 1)
+Subclass (Scoundrel Lvl 03)	SOURCEPAGE:p.25	DEFINE:ImpromptuSneakTimes|0							PRELEVEL:MIN=3	PRETEMPLATE:1,Subclass (Scoundrel Lvl 2)								BONUS:VAR|ImpromptuSneakTimes|1																		ABILITY:Special Ability|AUTOMATIC|Impromptu Sneak Attack ~ Scoundrel Subclass
+Subclass (Scoundrel Lvl 04)	SOURCEPAGE:p.25	DEFINE:ScoundrelHitDieBonus|0							PRELEVEL:MIN=4	PRETEMPLATE:1,Subclass (Scoundrel Lvl 3)	BONUS:ABILITYPOOL|Scoundrel Bonus HP|1	BONUS:VAR|ScoundrelHitDieBonus|1																		ABILITY:Special Ability|AUTOMATIC|Bonus HP ~ Scoundrel Subclass
+Subclass (Scoundrel Lvl 05)	SOURCEPAGE:p.25												PRELEVEL:MIN=5	PRETEMPLATE:1,Subclass (Scoundrel Lvl 4)								BONUS:VAR|ScoundrelSneakAttack|1
+Subclass (Scoundrel Lvl 06)	SOURCEPAGE:p.25												PRELEVEL:MIN=6	PRETEMPLATE:1,Subclass (Scoundrel Lvl 5)
+Subclass (Scoundrel Lvl 07)	SOURCEPAGE:p.25												PRELEVEL:MIN=7	PRETEMPLATE:1,Subclass (Scoundrel Lvl 6)								BONUS:VAR|ImpromptuSneakTimes|1
+Subclass (Scoundrel Lvl 08)	SOURCEPAGE:p.25												PRELEVEL:MIN=8	PRETEMPLATE:1,Subclass (Scoundrel Lvl 7)	BONUS:ABILITYPOOL|Scoundrel Bonus HP|1	BONUS:VAR|ScoundrelHitDieBonus|1
+Subclass (Scoundrel Lvl 09)	SOURCEPAGE:p.25												PRELEVEL:MIN=9	PRETEMPLATE:1,Subclass (Scoundrel Lvl 8)								BONUS:VAR|ScoundrelSneakAttack|1
+Subclass (Scoundrel Lvl 10)	SOURCEPAGE:p.25												PRELEVEL:MIN=10	PRETEMPLATE:1,Subclass (Scoundrel Lvl 9)
+Subclass (Scoundrel Lvl 11)	SOURCEPAGE:p.25												PRELEVEL:MIN=11	PRETEMPLATE:1,Subclass (Scoundrel Lvl 10)								BONUS:VAR|ImpromptuSneakTimes|1
+Subclass (Scoundrel Lvl 12)	SOURCEPAGE:p.25												PRELEVEL:MIN=12	PRETEMPLATE:1,Subclass (Scoundrel Lvl 11)	BONUS:ABILITYPOOL|Scoundrel Bonus HP|1	BONUS:VAR|ScoundrelHitDieBonus|1
+Subclass (Scoundrel Lvl 13)	SOURCEPAGE:p.25												PRELEVEL:MIN=13	PRETEMPLATE:1,Subclass (Scoundrel Lvl 12)								BONUS:VAR|ScoundrelSneakAttack|1
+Subclass (Scoundrel Lvl 14)	SOURCEPAGE:p.25												PRELEVEL:MIN=14	PRETEMPLATE:1,Subclass (Scoundrel Lvl 13)
+Subclass (Scoundrel Lvl 15)	SOURCEPAGE:p.25												PRELEVEL:MIN=15	PRETEMPLATE:1,Subclass (Scoundrel Lvl 14)								BONUS:VAR|ImpromptuSneakTimes|1
+Subclass (Scoundrel Lvl 16)	SOURCEPAGE:p.25												PRELEVEL:MIN=16	PRETEMPLATE:1,Subclass (Scoundrel Lvl 15)	BONUS:ABILITYPOOL|Scoundrel Bonus HP|1	BONUS:VAR|ScoundrelHitDieBonus|1
+Subclass (Scoundrel Lvl 17)	SOURCEPAGE:p.25												PRELEVEL:MIN=17	PRETEMPLATE:1,Subclass (Scoundrel Lvl 16)								BONUS:VAR|ScoundrelSneakAttack|1
+Subclass (Scoundrel Lvl 18)	SOURCEPAGE:p.25												PRELEVEL:MIN=18	PRETEMPLATE:1,Subclass (Scoundrel Lvl 17)
+Subclass (Scoundrel Lvl 19)	SOURCEPAGE:p.25												PRELEVEL:MIN=19	PRETEMPLATE:1,Subclass (Scoundrel Lvl 18)								BONUS:VAR|ImpromptuSneakTimes|1
+Subclass (Scoundrel Lvl 20)	SOURCEPAGE:p.25												PRELEVEL:MIN=20	PRETEMPLATE:1,Subclass (Scoundrel Lvl 19)	BONUS:ABILITYPOOL|Scoundrel Bonus HP|1	BONUS:VAR|ScoundrelHitDieBonus|1
 
 ###Honor Tracker template
-Knight Honor Modification		SOURCEPAGE:p.22																																	PRETEMPLATE:1,Subclass (Knight Lvl 01)	BONUS:VAR|HonorScore|%CHOICE|PRETEMPLATE:1,Subclass (Knight Lvl 01)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Honor Modification																TEMPDESC:This can be used to modify the Honor value of a Knight. This can be applied multiple times.
+Knight Honor Modification	SOURCEPAGE:p.22															PRETEMPLATE:1,Subclass (Knight Lvl 01)								BONUS:VAR|HonorScore|%CHOICE|PRETEMPLATE:1,Subclass (Knight Lvl 01)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Honor Modification																								TEMPDESC:This can be used to modify the Honor value of a Knight. This can be applied multiple times.
 
 #
 ## EOF

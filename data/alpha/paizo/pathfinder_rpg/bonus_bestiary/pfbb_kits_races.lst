@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Sep  9 20:13:35 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Pathfinder Roleplaying Game Bonus Bestiary	SOURCESHORT:PFBB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy87f9	SOURCEDATE:2009-06
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Pathfinder Roleplaying Game Bonus Bestiary	SOURCESHORT:PFBB	SOURCEWEB:http://paizo.com/store/paizoExclusives/v5748btpy88x4	SOURCEDATE:2009-06
 
 STARTPACK:Allip Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Allip]	SOURCEPAGE:p.4
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=10

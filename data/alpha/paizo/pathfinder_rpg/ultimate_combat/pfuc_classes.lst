@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep 26 20:57:18 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
 # ORIGINAL ENTRY: Andrew Maitland
 # ORIGINAL ENTRY DATE: 08-2012 (August 8th)
@@ -56,10 +56,10 @@ CLASS:Ninja		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|D
 
 ###Block: Samurai
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Samurai	HD:10		TYPE:Base.PC	ABB:Gnslr		MAXLEVEL:20	SOURCEPAGE:p.9	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define									Save checks bonus											Combat bonus
+CLASS:Samurai	HD:10		TYPE:Base.PC	ABB:Gnslr		MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:FighterWeaponQualifyLVL|CL	DEFINE:SamuraiLvl|CL	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Samurai	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle Animal|Heal|Intimidate|Knowledge (engineering)|Knowledge (local)|Perception|TYPE=Profession|Ride|Sleight of Hand|Survival|Swim	DEFINE:FighterWeaponQualifyLVL|CL	DEFINE:SamuraiLvl|CL
+CLASS:Samurai	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle Animal|Heal|Intimidate|Knowledge (engineering)|Knowledge (local)|Perception|TYPE=Profession|Ride|Sleight of Hand|Survival|Swim
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|Samurai Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponProficiencies
@@ -100,7 +100,9 @@ CLASS:Samurai	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle An
 
 ###Block: Monk (for adjusting unarmed damage when a feat or something adjusts the effective monk level)
 # level 1
-CLASS:Monk.MOD		DEFINE:NonMonkLevels|TL-classlevel("Monk")		DEFINE:MonkLevelsAdjusted|classlevel("Monk")		
+
+# Class Name	Define
+CLASS:Monk.MOD	DEFINE:NonMonkLevels|TL-classlevel("Monk")	DEFINE:MonkLevelsAdjusted|classlevel("Monk")
 #CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD01|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD01],[PREVAREQ:MonkLevelsAdjusted,1]
 #CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD02|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD02],[PREVAREQ:MonkLevelsAdjusted,2]
 #CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD03|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD03],[PREVAREQ:MonkLevelsAdjusted,3]

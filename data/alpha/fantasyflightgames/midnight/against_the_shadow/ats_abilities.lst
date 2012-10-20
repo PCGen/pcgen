@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Feb  5 14:24:26 2009 -- reformated by prettylst.pl v1.39 (build 9132)
-SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html	SOURCEDATE:2003-01
 #Original Entry By: Aaron Divinsky
 
 
@@ -23,7 +23,7 @@ Water Elemental Cohort	CATEGORY:Special Ability	TYPE:ElementalCohort	VISIBLE:DIS
 # Ability Name		Unique Key				Category of Ability		Type					Visible		Special ABility				Define				Multiple?	Choose							Save checks bonus		Bonus to skill		Stat bonus
 SpellLike Ability		KEY:ATS SpellLike Ability	CATEGORY:Special Ability	TYPE:ATS_SpellLikeAbility	VISIBLE:DISPLAY	SAB:SpellLike Ability (%CHOICE)	DEFINE:SpellChoiceLvl|0		MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Channeler|1|MAXLEVEL
 Spontaneous Spell		KEY:ATS Spontaneous Spell	CATEGORY:Special Ability	TYPE:ATS_SpontaneousSpell	VISIBLE:DISPLAY	SAB:Spontaneous Spell (%CHOICE)	DEFINE:SpontaneousSpellLvl|0	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Channeler|1|MAXLEVEL
-Ability Boost		KEY:ATS Ability Boost		CATEGORY:Special Ability	TYPE:ATS_AbilityBoost		VISIBLE:DISPLAY												MULT:YES	CHOOSE:PCSTAT|ALL															BONUS:STAT|%LIST|1
+Ability Boost		KEY:ATS Ability Boost		CATEGORY:Special Ability	TYPE:ATS_AbilityBoost		VISIBLE:DISPLAY												MULT:YES	CHOOSE:PCSTAT|ALL														BONUS:STAT|%LIST|1
 Save Boost			KEY:ATS Save Boost		CATEGORY:Special Ability	TYPE:ATS_SaveBoost		VISIBLE:DISPLAY												MULT:YES	CHOOSE:STRING|Fortitude|Reflex|Will			BONUS:CHECKS|%CHOICE|2
 Skill Boost			KEY:ATS Skill Boost		CATEGORY:Special Ability	TYPE:ATS_SkillBoost		VISIBLE:DISPLAY												MULT:YES	CHOOSE:SKILL|PC										BONUS:SKILL|%LIST|2
 Pureblood Skill Mastery						CATEGORY:Special Ability	TYPE:PurebloodSkillMastery	VISIBLE:DISPLAY	SAB:Skill Mastery (%CHOICE)							MULT:YES	CHOOSE:SKILL|ALL

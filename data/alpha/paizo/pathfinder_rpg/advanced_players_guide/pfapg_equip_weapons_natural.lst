@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Oct  1 00:28:13 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Eric C. Smith (Maredudd)
 
 ####Block: Simple Weapons
 #-----unarmed------
-# Equipment Name	Required Weapon Proficiency		Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Eqmod		Wield Category	Size		Source Page
+# Equipment Name	Required Weapon Proficiency		Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Size		Source Page
 Brass Knuckles	PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Natural.Melee.Unarmed.Monk.Bludgeoning.Finesseable.Close	COST:1	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	EQMOD:STEEL	WIELD:Light		SIZE:M	SOURCEPAGE:177

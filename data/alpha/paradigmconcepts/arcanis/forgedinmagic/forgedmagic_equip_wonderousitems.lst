@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct  9 00:17:44 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Forged in Magic	SOURCESHORT:FiM	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2006-06
 #Original Entry:E. C. Smith (Maredudd) 2007; Andrew Maitland
 #Completed 2008-05-14 - Needs Review
@@ -16,17 +16,17 @@ Armguard of Talisos				TYPE:Magic.Wondrous.Bracer	COST:44200	SOURCEPAGE:p.64	ABI
 Aro's Unforgettable Mark			TYPE:Magic.Wondrous		COST:4000	SOURCEPAGE:p.64
 
 ###Block: B ---------------------------------------------------------------------------------------------------
-# Equipment Name					Output Name								Type					Cost		Slot Needed	Modifier		Source Page		Ability					Innate Spells														Combat bonus																																							Bonus to skill									Weapon prof. bonus															Automatically Gained Weapon Prof.
+# Equipment Name					Output Name								Type					Cost		Slot Needed	Modifier		Source Page		Ability					Innate Spells														Combat bonus																																						Bonus to skill									Weapon prof. bonus															Automatically Gained Weapon Prof.
 Badua's Eerie Warder													TYPE:Magic.Wondrous		COST:32000						SOURCEPAGE:p.65
-Bellahna's Veil of Persuasion												TYPE:Magic.Wondrous.Eyegear	COST:20000						SOURCEPAGE:p.65																																																																BONUS:SKILL|Bluff,Sense Motive|10|TYPE=Competence
+Bellahna's Veil of Persuasion												TYPE:Magic.Wondrous.Eyegear	COST:20000						SOURCEPAGE:p.65																																																															BONUS:SKILL|Bluff,Sense Motive|10|TYPE=Competence
 Belt of the Shield													TYPE:Magic.Wondrous.Belt	COST:22000						SOURCEPAGE:p.65							SPELLS:Belt of the Shield|TIMES=2|TIMEUNIT=Day|CASTERLEVEL=3|Invisibility
-Black Lotus Manual													TYPE:Magic.Wondrous.Book	COST:27500						SOURCEPAGE:p.66																																																																BONUS:SKILL|Craft (Poisons),Knowledge (Nature)|3|TYPE=Insight
+Black Lotus Manual													TYPE:Magic.Wondrous.Book	COST:27500						SOURCEPAGE:p.66																																																															BONUS:SKILL|Craft (Poisons),Knowledge (Nature)|3|TYPE=Insight
 Blood Robe															TYPE:Magic.Wondrous.Robe	COST:25000						SOURCEPAGE:p.66
 Bones of Divination													TYPE:Magic.Wondrous		COST:12050						SOURCEPAGE:p.66							SPELLS:Bones of Divination|TIMES=3|TIMEUNIT=Day|CASTERLEVEL=3|Augury
-Boots of Balance														TYPE:Magic.Wondrous.Boot	COST:10000	SLOTS:2				SOURCEPAGE:p.66																																																																BONUS:SKILL|Balance|10|TYPE=Competence
+Boots of Balance														TYPE:Magic.Wondrous.Boot	COST:10000	SLOTS:2				SOURCEPAGE:p.66																																																															BONUS:SKILL|Balance|10|TYPE=Competence
 Boots of Knocking														TYPE:Magic.Wondrous.Boot	COST:10500	SLOTS:2				SOURCEPAGE:p.66							SPELLS:Boots of Knocking|TIMES=15|TIMEUNIT=Charges|CASTERLEVEL=3|Knock
 Boots of the Relentless Hunter											TYPE:Magic.Wondrous.Boot	COST:3500	SLOTS:2				SOURCEPAGE:p.67
-Boots of the Seremasi (Greater)		OUTPUTNAME:Boots of the Seremasi, Greater			TYPE:Magic.Wondrous.Boot	COST:10000	SLOTS:2				SOURCEPAGE:p.67																																																																BONUS:SKILL|Move Silently|10|TYPE=Competence
+Boots of the Seremasi (Greater)		OUTPUTNAME:Boots of the Seremasi, Greater			TYPE:Magic.Wondrous.Boot	COST:10000	SLOTS:2				SOURCEPAGE:p.67																																																															BONUS:SKILL|Move Silently|10|TYPE=Competence
 Boots of the Toad														TYPE:Magic.Wondrous.Boot	COST:12000	SLOTS:2				SOURCEPAGE:p.67
 Box of the Mundane													TYPE:Magic.Wondrous		COST:65000						SOURCEPAGE:p.67
 Bracers of Arcane Wrath													TYPE:Magic.Wondrous.Bracer	COST:9450	SLOTS:2				SOURCEPAGE:p.67
@@ -39,10 +39,10 @@ Bracers of Shattering Silence (Greater)	OUTPUTNAME:Bracers of Shattering Silence
 #Comment: Unable to apply different eqmod if venerating a diety - Improved Silent Moves if worshipper of Cadic
 Bracers of Spell Deflection												TYPE:Magic.Wondrous.Bracer	COST:75000	SLOTS:2				SOURCEPAGE:p.68	ABILITY:FEAT|VIRTUAL|Deflect Arrows
 Bracers of the Thunderer												TYPE:Magic.Wondrous.Bracer	COST:50400	SLOTS:2				SOURCEPAGE:p.69
-Bracers of Yeomanry													TYPE:Magic.Wondrous.Bracer	COST:7000	SLOTS:2				SOURCEPAGE:p.69																																																																											BONUS:WEAPONPROF=Longbow|TOHIT|1|TYPE=Competence										AUTO:WEAPONPROF|Longbow
-Bracers of Yeomanry (Greater)			OUTPUTNAME:Bracers of Yeomanry Greater			TYPE:Magic.Wondrous.Bracer	COST:22000	SLOTS:2				SOURCEPAGE:p.69	ABILITY:FEAT|VIRTUAL|Far Shot																																																																						BONUS:WEAPONPROF=Longbow|TOHIT|2|TYPE=Competence	BONUS:WEAPONPROF=Longbow|DAMAGE|1|TYPE=Competence	AUTO:WEAPONPROF|Longbow
+Bracers of Yeomanry													TYPE:Magic.Wondrous.Bracer	COST:7000	SLOTS:2				SOURCEPAGE:p.69																																																																										BONUS:WEAPONPROF=Longbow|TOHIT|1|TYPE=Competence										AUTO:WEAPONPROF|Longbow
+Bracers of Yeomanry (Greater)			OUTPUTNAME:Bracers of Yeomanry Greater			TYPE:Magic.Wondrous.Bracer	COST:22000	SLOTS:2				SOURCEPAGE:p.69	ABILITY:FEAT|VIRTUAL|Far Shot																																																																					BONUS:WEAPONPROF=Longbow|TOHIT|2|TYPE=Competence	BONUS:WEAPONPROF=Longbow|DAMAGE|1|TYPE=Competence	AUTO:WEAPONPROF|Longbow
 Brigade Bucket														TYPE:Magic.Wondrous		COST:900						SOURCEPAGE:p.70
-Brooch of the Golden Boughs' of Saluwe										TYPE:Magic.Wondrous.Amulet	COST:13640						SOURCEPAGE:p.70							SPELLS:Brooch of the Golden Boughs' of Saluwe|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=12|Barkskin																																										BONUS:SKILL|Climb,Survival|5|TYPE=Competence
+Brooch of the Golden Boughs' of Saluwe										TYPE:Magic.Wondrous.Amulet	COST:13640						SOURCEPAGE:p.70							SPELLS:Brooch of the Golden Boughs' of Saluwe|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=12|Barkskin																																									BONUS:SKILL|Climb,Survival|5|TYPE=Competence
 
 ###Block: C -------------------------------------------------------------------------------------------
 # Equipment Name				Output Name						Type					Cost		Source Page		Ability				Vision		Innate Spells																				Save checks bonus				Combat bonus				Bonus to skill										Stat bonus					Weapon prof. bonus							Special Property
@@ -70,7 +70,7 @@ Crown of Darkness											TYPE:Magic.Wondrous.Headgear	COST:17640	SOURCEPAGE:p
 Cup of the Mendicant										TYPE:Magic.Wondrous		COST:2700	SOURCEPAGE:p.74
 
 ###Block: D --------------------------------------------------------------------------------------------
-# Equipment Name				Product Identity?	Type					Cost		Source Page		Spell Res.	Innate Spells												Combat bonus						Special ABility
+# Equipment Name				Product Identity?	Type					Cost		Source Page		Spell Res.	Innate Spells												Combat bonus						Special Property
 Decanter of Copious Libations					TYPE:Magic.Wondrous		COST:20000	SOURCEPAGE:p.74
 Demon-Hide Cloak							TYPE:Magic.Wondrous.Cape	COST:176000	SOURCEPAGE:p.75	SR:21		SPELLS:Demon-Hide Cloak|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=12|Fear				BONUS:COMBAT|AC|4|TYPE=NaturalArmorEnhancement	SPROP:Acid, Cold, Fire Resistance 10
 Devilskin Knot							TYPE:Magic.Wondrous		COST:72000	SOURCEPAGE:p.75
@@ -137,15 +137,15 @@ Grimm's Armband of Ever-Ready Blades	TYPE:Magic.Wondrous.Bracer	COST:55000			SOU
 Gris-Gris Bag					TYPE:Magic.Wondrous		COST:14000			SOURCEPAGE:p.87																																									BONUS:SKILL|Craft (Alchemy)|5|TYPE=Competence
 
 ###Block: H ---------------------------------------------------------------------------------------------
-# Equipment Name				Type						Cost		Required Text				AC Penalty Check	Source Page		% of Spell Failure	Ability																			Innate Spells													Save checks bonus				Combat bonus				Bonus to skill									Stat bonus					Special Property				Special ABility
-Hairpins of Prehensile Coiffure	TYPE:Magic.Wondrous.Headgear		COST:18682										SOURCEPAGE:p.87																																																															BONUS:STAT|CHA|2|TYPE=Enhancement	SPROP:May be used as +1 dagger
-Harness of Carrying			TYPE:Magic.Wondrous.Shirt.Vest	COST:8000										SOURCEPAGE:p.87		BONUS:VAR|LOADSCORE|4
+# Equipment Name				Type						Cost		Required Text				AC Penalty Check	Source Page		% of Spell Failure	Ability																			Innate Spells													Save checks bonus				Combat bonus				Bonus to skill									Stat bonus					Modify VAR			Special Property				Special ABility
+Hairpins of Prehensile Coiffure	TYPE:Magic.Wondrous.Headgear		COST:18682										SOURCEPAGE:p.87																																																															BONUS:STAT|CHA|2|TYPE=Enhancement					SPROP:May be used as +1 dagger
+Harness of Carrying			TYPE:Magic.Wondrous.Shirt.Vest	COST:8000										SOURCEPAGE:p.87																																																																					BONUS:VAR|LOADSCORE|4
 Hauberk of the Spirits			TYPE:Magic.Wondrous.Robe		COST:51450	PRETEXT:Only usable by a shaman.				SOURCEPAGE:p.87																																								BONUS:CHECKS|ALL|5|TYPE=Resistance																		BONUS:STAT|CHA|6|TYPE=Enhancement
 #Only usable by "shaman" is that an actual class in PGTA or Arcanis?
 Headband of Delusion			TYPE:Magic.Wondrous.Headgear		COST:11000										SOURCEPAGE:p.87
 Headdress of Osalian			TYPE:Magic.Wondrous.Headgear		COST:131000										SOURCEPAGE:p.88
-Headdress of the Phoenix		TYPE:Magic.Wondrous.Headgear		COST:330000										SOURCEPAGE:p.88																									SPELLS:Headdress of the Phoenix|TIMES=3|CASTERLEVEL=20|Mantle of Unassailable Flame																																					SAB:Fire Immunity
-Headdress of the Phoenix Lesser	TYPE:Magic.Wondrous.Headgear		COST:72540										SOURCEPAGE:p.88																									SPELLS:Headdress of the Phoenix|TIMES=1|CASTERLEVEL=13|Mantle of Unassailable Flame																																					SAB:Fire Resistance 20
+Headdress of the Phoenix		TYPE:Magic.Wondrous.Headgear		COST:330000										SOURCEPAGE:p.88																									SPELLS:Headdress of the Phoenix|TIMES=3|CASTERLEVEL=20|Mantle of Unassailable Flame																																									SAB:Fire Immunity
+Headdress of the Phoenix Lesser	TYPE:Magic.Wondrous.Headgear		COST:72540										SOURCEPAGE:p.88																									SPELLS:Headdress of the Phoenix|TIMES=1|CASTERLEVEL=13|Mantle of Unassailable Flame																																									SAB:Fire Resistance 20
 Helm of Disguise Greater		TYPE:Magic.Wondrous.Headgear		COST:4500										SOURCEPAGE:p.88
 Helm of Protection +1			TYPE:Magic.Wondrous.Headgear		COST:2100							ACCHECK:-3		SOURCEPAGE:p.89	SPELLFAILURE:10		ABILITY:FEAT|VIRTUAL|Helm of Protection Penalty|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREEQUIP:1,TYPE=Medium,TYPE=Heavy]																						BONUS:COMBAT|AC|1|TYPE=Deflection	BONUS:SKILL|Listen,Spot|-2|!PREFEAT:1,Armor Proficiency (Heavy)
 Helm of Protection +2			TYPE:Magic.Wondrous.Headgear		COST:8400							ACCHECK:-3		SOURCEPAGE:p.89	SPELLFAILURE:10		ABILITY:FEAT|VIRTUAL|Helm of Protection Penalty|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREEQUIP:1,TYPE=Medium,TYPE=Heavy]																						BONUS:COMBAT|AC|2|TYPE=Deflection	BONUS:SKILL|Listen,Spot|-2|!PREFEAT:1,Armor Proficiency (Heavy)

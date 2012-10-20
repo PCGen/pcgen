@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Tue Jan 22 23:23:21 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2004-01
 # Original Entry by: Felipe Diniz
 
 #	ADDSPELLLEVEL:-1 doesn't seem to work. (Precise Touch)
 
-# Feat Name					Key Name					Type			Required Class			Required Feat			Required Language		Required Skill				Req. Spell Type		Required Stat				Var. Min. Value		Description																										Stackable?	Multiple?	Choose																																			Add Spell Lvl	Bonus to skill						Source Page
+# Feat Name					Unique Key					Type			Required Class			Required Feat			Required Language		Required Skill				Req. Spell Type		Required Stat				Var. Min. Value		Description																										Stackable?	Multiple?	Choose																																			Add Spell Lvl	Bonus to skill						Source Page
 Accompaniment										TYPE:General																															PREVARGTEQ:Spellsong,1	DESC:You increase your spellsongs' resistance to silence by also playing an instrument.															MULT:NO																																																SOURCEPAGE:p.19
 Aid Spellcasting										TYPE:Eldritch																					PRESPELLTYPE:1,Arcane=1	PRESTAT:1,CHA=15	PRESTAT:1,INT=15					DESC:You add your knowledge and power to the casting of an allied arcanist's spell.																MULT:NO																																																SOURCEPAGE:p.19
 Amplify Song (Forte)									TYPE:General.Song																															PREVARGTEQ:Spellsong,1	DESC:You increase your spellsong's range with your skill in music.																		MULT:NO																																																SOURCEPAGE:p.19

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Feb  6 23:25:02 2009 -- reformated by prettylst.pl v1.39 (build 9132)
-SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2002-01
 # Original entry by: Blithwyn
 
 ###Block: Proficiencies
@@ -39,12 +39,12 @@ Insight into Deceit	TYPE:ConArtistSpecialAbilities	VISIBLE:NO	SAB:Insight into D
 # Feat Name						Type					Visible	Required Feat			Prohibited Feat			Prohibite Special Ability	Special ABility			Innate Spells				Stackable?	Multiple?	Choose		Add 					Save checks bonus		Modify VAR				Source Page
 Lucky Strike					TYPE:ChanceSpecialAbilities	VISIBLE:NO																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|LuckyStrike|1		SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
 Close Call						TYPE:ChanceSpecialAbilities	VISIBLE:NO																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|CloseCall|1		SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
-One More Time					TYPE:ChanceSpecialAbilities	VISIBLE:NO																SAB:One More Time (Su)																												SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
-Random Action					TYPE:ChanceSpecialAbilities	VISIBLE:NO																SAB:Random Action (Sp)		SPELLS:Class|TIMES=1|Random Action																					SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
-Acolyte of Chance Lightning Reflexes A	TYPE:ChanceSpecialAbilities	VISIBLE:NO	PREFEAT:1,Lightning Reflexes						!PRESA:1,Lightning Reflexes	SAB:Lightning Reflexes (Ex)																		BONUS:CHECKS|Reflex|2						SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
-Acolyte of Chance Lightning Reflexes B	TYPE:ChanceSpecialAbilities	VISIBLE:NO						!PREFEAT:1,Lightning Reflexes	!PRESA:1,Lightning Reflexes	SAB:Lightning Reflexes (Ex)													ADD:FEAT|Lightning Reflexes										SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
-Dumb Luck						TYPE:ChanceSpecialAbilities	VISIBLE:NO																SAB:Dumb Luck (Ex)																												SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
-Vitality of Chance				TYPE:ChanceSpecialAbilities	VISIBLE:NO																SAB:Vitality of Chance (Ex)																						BONUS:VAR|VitalityChance|1	SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
+One More Time					TYPE:ChanceSpecialAbilities	VISIBLE:NO																SAB:One More Time (Su)																													SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
+Random Action					TYPE:ChanceSpecialAbilities	VISIBLE:NO																SAB:Random Action (Sp)		SPELLS:Class|TIMES=1|Random Action																						SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
+Acolyte of Chance Lightning Reflexes A	TYPE:ChanceSpecialAbilities	VISIBLE:NO	PREFEAT:1,Lightning Reflexes						!PRESA:1,Lightning Reflexes	SAB:Lightning Reflexes (Ex)																			BONUS:CHECKS|Reflex|2						SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
+Acolyte of Chance Lightning Reflexes B	TYPE:ChanceSpecialAbilities	VISIBLE:NO						!PREFEAT:1,Lightning Reflexes	!PRESA:1,Lightning Reflexes	SAB:Lightning Reflexes (Ex)														ADD:FEAT|Lightning Reflexes										SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
+Dumb Luck						TYPE:ChanceSpecialAbilities	VISIBLE:NO																SAB:Dumb Luck (Ex)																													SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
+Vitality of Chance				TYPE:ChanceSpecialAbilities	VISIBLE:NO																SAB:Vitality of Chance (Ex)																							BONUS:VAR|VitalityChance|1	SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
 
 ###Block:
 #Evasion							VISIBLE:NO	SAB:Evasion (Ex)|PHBFeatEvasion	DEFINE:PHBFeatEvasion|COUNT[FEATNAME=Improved Evasion]-1	SOURCEPAGE:Chap.3, Rogue, Special Abilities
@@ -65,7 +65,7 @@ PackratBardIncrease	TYPE:PackratLevelIncrease	VISIBLE:NO	PRECLASS:1,Bard=1		STAC
 
 
 ###Block:Queen's Coronet
-# Feat Name				Type						Visible		Required Class			Description				Stackable?	Multiple?	Choose																										Selections		Source Page
+# Feat Name				Type						Visible		Required Class			Description				Stackable?	Multiple?	Choose																									Selections		Source Page
 Skill Mastery Queen's Coronet	TYPE:QueensCoronetSpecialAbilities	VISIBLE:EXPORT	PRECLASS:1,Queen's Coronet=10	DESC:Take 10 on listed skills	STACK:NO	MULT:YES	CHOOSE:SKILL|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Hide|Innuendo|Intimidate|Listen|Move Silently|Read Lips|Sense Motive|Spot|TYPE=Knowledge	SELECT:3+INT	SOURCEPAGE:Chap.3, Rogue, Special Abilities
 
 ###Block:Questioner special abilities (similar to the rogue)

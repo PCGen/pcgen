@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Jul 19 17:14:31 2009 -- reformated by prettylst.pl v1.39 (build 9548)
-SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex	SOURCEDATE:2003-01
 
 # Equipment Name	Output Name				Required Weapon Proficiency	Type													Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	Reach Multiplier	Size		Source Page
 Lance (Heavy)	OUTPUTNAME:Lance, Heavy		PROFICIENCY:WEAPON|Lance	TYPE:Weapon.Melee.TwoHanded.Martial.Reach.Standard.Wooden.Piercing.Lance	COST:20	WT:17		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10	WIELD:TwoHanded	REACHMULT:2		SIZE:M	SOURCEPAGE:63

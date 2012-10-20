@@ -1,63 +1,63 @@
-# CVS $Revision$ $Author$ -- Wed Feb 15 13:58:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647	SOURCEDATE:2005-01
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
 ###Block: Matches Level
-# Template Name						Visible		Template									Define									Multiple Requirements								Bonus to Ability Pool						Caster level					Modify VAR												Class Skill
-01 Point Buy Master Template for All Levels	VISIBLE:DISPLAY	TEMPLATE:CHOOSE:First Level Eclipse|Multiclass Eclipse	DEFINE:CharacterPoints|0	DEFINE:EclipseClassLvl|0
+# Template Name						Hit Dice Size	Visible		Level Adjustment		Template									Define									Multiple Requirements								Required Non-Monster Lvl	Caster level					Bonus to HP						Modify VAR																			Class Skill
+01 Point Buy Master Template for All Levels				VISIBLE:DISPLAY					TEMPLATE:CHOOSE:First Level Eclipse|Multiclass Eclipse	DEFINE:CharacterPoints|0	DEFINE:EclipseClassLvl|0
 #BONUS:ABILITYPOOL|Character Points|CharacterPoints
 #COMMENT: This Template chooses whether the Character is a True Eclipse or a Multiclass and controls how many "Character Points" the character gets (24 or 48 at 1st level)
-First Level Eclipse					VISIBLE:DISPLAY																					PREMULT:1,[PREPCLEVEL:MAX=1],[PREVARGTEQ:EclipseClassLvl,TL]																	BONUS:VAR|CharacterPoints,CharacterPointsTotal|24*EclipseClassLvl	BONUS:VAR|CharacterPoints,CharacterPointsTotal|24
-Multiclass Eclipse					VISIBLE:DISPLAY																					PREMULT:1,[PREPCLEVEL:MIN=2],[PREVARLT:EclipseClassLvl,TL]																		BONUS:VAR|CharacterPoints,CharacterPointsTotal|24*EclipseClassLvl
+First Level Eclipse								VISIBLE:DISPLAY																									PREMULT:1,[PREPCLEVEL:MAX=1],[PREVARGTEQ:EclipseClassLvl,TL]																				BONUS:VAR|CharacterPoints,CharacterPointsTotal|24*EclipseClassLvl	BONUS:VAR|CharacterPoints,CharacterPointsTotal|24
+Multiclass Eclipse								VISIBLE:DISPLAY																									PREMULT:1,[PREPCLEVEL:MIN=2],[PREVARLT:EclipseClassLvl,TL]																					BONUS:VAR|CharacterPoints,CharacterPointsTotal|24*EclipseClassLvl
 
 
 
-# Template Name				Hit Dice Size	Visible		Level Adjustment		Required Non-Monster Lvl	Bonus to HP						Modify VAR
-All Eclipse Automatic						VISIBLE:NO
+# Template Name						Hit Dice Size	Visible		Level Adjustment		Template									Define									Multiple Requirements								Required Non-Monster Lvl	Caster level					Bonus to HP						Modify VAR																			Class Skill
+All Eclipse Automatic								VISIBLE:NO
 
 #Spirit Weapon Fix		VISIBLE:DISPLAY	CHOOSE:NUMBER|MIN=1|MAX=15|TITLE=Spirit Weapon Fix	BONUS:VAR|SpiritWeaponRangedToHit|%CHOICE|PREAPPLY:ANYPC	BONUS:VAR|SpiritWeaponMeleeToHit|%CHOICE|PREAPPLY:ANYPC
 
-Spirit Weapon Fix +6						VISIBLE:DISPLAY																	BONUS:VAR|SpiritWeaponRangedToHit|8	BONUS:VAR|SpiritWeaponRangedBonusDamage|1
+Spirit Weapon Fix +6								VISIBLE:DISPLAY																																																							BONUS:VAR|SpiritWeaponRangedToHit|8	BONUS:VAR|SpiritWeaponRangedBonusDamage|1
 #+2 Martial Arts, +2 Comp Bonus to Bows, +1 Weapon Focus, +1 Inspiring Word (Hit and Damage)
 
 
 # These Are used to Emulate a Character of Lower than 1st Level. You need to REMOVE THE TEMPLATE if you plan on being higher than 0th level.
-Eclipse Character Level -2		HITDIE:1		VISIBLE:DISPLAY	LEVELADJUSTMENT:-3	PREPCLEVEL:MAX=1			BONUS:HP|CURRENTMAX|-CON|PRESTAT:1,CON=13	BONUS:VAR|CharacterPoints|-24	BONUS:VAR|CharacterPoints|-24		BONUS:VAR|ClassSkillPenalty|-3
+Eclipse Character Level -2				HITDIE:1		VISIBLE:DISPLAY	LEVELADJUSTMENT:-3																																PREPCLEVEL:MAX=1										BONUS:HP|CURRENTMAX|-CON|PRESTAT:1,CON=13	BONUS:VAR|CharacterPoints|-24	BONUS:VAR|CharacterPoints|-24	BONUS:VAR|ClassSkillPenalty|-3
 # Has only 1 HP
-Eclipse Character Level -1		HITDIE:1		VISIBLE:DISPLAY	LEVELADJUSTMENT:-2	PREPCLEVEL:MAX=1			BONUS:HP|CURRENTMAX|-CON|PRESTAT:1,CON=13	BONUS:VAR|CharacterPoints|-24	BONUS:VAR|CharacterPoints|-24			BONUS:VAR|ClassSkillPenalty|-2
-Eclipse Character Level 0		HITDIE:3		VISIBLE:DISPLAY	LEVELADJUSTMENT:-1	PREPCLEVEL:MAX=1										BONUS:VAR|CharacterPoints|-24	BONUS:VAR|ClassSkillPenalty|-1
+Eclipse Character Level -1				HITDIE:1		VISIBLE:DISPLAY	LEVELADJUSTMENT:-2																																PREPCLEVEL:MAX=1										BONUS:HP|CURRENTMAX|-CON|PRESTAT:1,CON=13	BONUS:VAR|CharacterPoints|-24	BONUS:VAR|CharacterPoints|-24	BONUS:VAR|ClassSkillPenalty|-2
+Eclipse Character Level 0				HITDIE:3		VISIBLE:DISPLAY	LEVELADJUSTMENT:-1																																PREPCLEVEL:MAX=1																	BONUS:VAR|CharacterPoints|-24	BONUS:VAR|ClassSkillPenalty|-1
 # 0th level has 24 CP
 
 # Adding these as simple workarounds for existing characters, or GM's requiring Modification.
-Eclipse Character ~ Grant 24 CP				VISIBLE:DISPLAY																	BONUS:VAR|CharacterPoints|24
-Eclipse Character ~ Remove 24 CP				VISIBLE:DISPLAY																	BONUS:VAR|CharacterPoints|-24
+Eclipse Character ~ Grant 24 CP						VISIBLE:DISPLAY																																																							BONUS:VAR|CharacterPoints|24
+Eclipse Character ~ Remove 24 CP						VISIBLE:DISPLAY																																																							BONUS:VAR|CharacterPoints|-24
 
-Eclipse Character ~ Grant 6 CP				VISIBLE:DISPLAY																	BONUS:VAR|CharacterPoints|6
-Eclipse Character ~ Remove 6 CP				VISIBLE:DISPLAY																	BONUS:VAR|CharacterPoints|-6
+Eclipse Character ~ Grant 6 CP						VISIBLE:DISPLAY																																																							BONUS:VAR|CharacterPoints|6
+Eclipse Character ~ Remove 6 CP						VISIBLE:DISPLAY																																																							BONUS:VAR|CharacterPoints|-6
 
 
 #COMMENT: HD Setting Templates for odd Cases. THESE will override actual HD of All Character Levels - Should only be used for Companions using special Templates.
-Magical Beast HD				HITDIE:10		VISIBLE:DISPLAY
-Dragon HD					HITDIE:12		VISIBLE:DISPLAY
+Magical Beast HD						HITDIE:10		VISIBLE:DISPLAY
+Dragon HD							HITDIE:12		VISIBLE:DISPLAY
 
 # From Web Blog
 
 
 
-Bonus Caster Level ~ Spell Wall of Fire																																													BONUS:CASTERLEVEL|SPELL.Wall of Fire|6
+Bonus Caster Level ~ Spell Wall of Fire																																																BONUS:CASTERLEVEL|SPELL.Wall of Fire|6
 
 Low Level Adventure Template
 #Incompetent. These characters suffer a -3 penalty on all skills in which they have no training.
 #Accursed. These characters only advance in level slowly by direct character point awards - usually gaining 2-3 character points per session. Once they hit level six, this slows even more, to a mere 1-2 CP per session. At level ten, it's reduced to 1 CP per session. Non-adventurers usually acquire CP even more slowly.
 
 
-01 Adept Skills (Half Cost Bypass)																DEFINE:SkillBuyBypass|1
+01 Adept Skills (Half Cost Bypass)																							DEFINE:SkillBuyBypass|1
 
-01 Class Skills Eclipse Point Buy			VISIBLE:DISPLAY																																																													CSKILL:TYPE=NormalSkill
+01 Class Skills Eclipse Point Buy						VISIBLE:DISPLAY																																																																											CSKILL:TYPE=NormalSkill
 #01 Class Skills Eclipse Psychic			CSKILL:
 #CSKILL:TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma|Speak Language
-01 Class Skills Martial Art				VISIBLE:DISPLAY																																																													CSKILL:Martial Arts|TYPE=MartialArt
+01 Class Skills Martial Art							VISIBLE:DISPLAY																																																																											CSKILL:Martial Arts|TYPE=MartialArt
 
 01 - World Law - All Companions Grant 6 CP
 

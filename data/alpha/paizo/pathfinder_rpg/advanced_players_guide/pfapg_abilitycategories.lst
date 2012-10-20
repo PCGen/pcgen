@@ -1,14 +1,15 @@
-# CVS $Revision$ $Author$ -- Thu Mar  8 11:46:29 2012 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 #SOURCELONG:Pathfinder Roleplaying Game Advanced Player's Guide Playtest	SOURCESHORT:PFAPGP1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8bcj	SOURCEDATE:2009-11
 # Original Entry by: Stefan Radermacher, Eric Smith (Maredudd) and Andrew Maitland
 
 ###Block: Archetype Buckets
-ABILITYCATEGORY:Alchemist Archetype	TYPE:AlchemistArchetype	PLURAL:Alchemist Archetypes	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	DISPLAYLOCATION:Archetype	
-ABILITYCATEGORY:Cavalier Archetype	TYPE:CavalierArchetype	PLURAL:Cavalier Archetypes	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	DISPLAYLOCATION:Archetype	
-ABILITYCATEGORY:Inquisitor Archetype	TYPE:InquisitorArchetype	PLURAL:Inquisitor Archetypes	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	DISPLAYLOCATION:Archetype	
-ABILITYCATEGORY:Oracle Archetype	TYPE:OracleArchetype	PLURAL:Oracle Archetypes	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	DISPLAYLOCATION:Archetype	
-ABILITYCATEGORY:Summoner Archetype	TYPE:SummonerArchetype	PLURAL:Summoner Archetypes	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	DISPLAYLOCATION:Archetype	
-ABILITYCATEGORY:Witch Archetype	TYPE:WitchArchetype	PLURAL:Witch Archetypes	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	DISPLAYLOCATION:Archetype	
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Alchemist Archetype			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:AlchemistArchetype		PLURAL:Alchemist Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Cavalier Archetype			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:CavalierArchetype		PLURAL:Cavalier Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Inquisitor Archetype		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:InquisitorArchetype	PLURAL:Inquisitor Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Oracle Archetype			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:OracleArchetype		PLURAL:Oracle Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Summoner Archetype			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:SummonerArchetype		PLURAL:Summoner Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Witch Archetype			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:WitchArchetype		PLURAL:Witch Archetypes			DISPLAYLOCATION:Archetype
 
 # Alchemist
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
@@ -156,10 +157,11 @@ ABILITYCATEGORY:Campaign Trait Choice					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL
 
 
 ###Block: Elemental Wizard Opposition School choices
-ABILITYCATEGORY:Air Opposition School Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AirOpposedSchool														PLURAL:Oracle Air Opposition School Choice					DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Earth Opposition School Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EarthOpposedSchool														PLURAL:Oracle Earth Opposition School Choice					DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Fire Opposition School Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FireOpposedSchool														PLURAL:Oracle Fire Opposition School Choice					DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Water Opposition School Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WaterOpposedSchool														PLURAL:Oracle Water Opposition School Choice					DISPLAYLOCATION:Class Abilities
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI				Display Location
+ABILITYCATEGORY:Air Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AirOpposedSchool	PLURAL:Oracle Air Opposition School Choice	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Earth Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EarthOpposedSchool	PLURAL:Oracle Earth Opposition School Choice	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Fire Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FireOpposedSchool	PLURAL:Oracle Fire Opposition School Choice	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Water Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WaterOpposedSchool	PLURAL:Oracle Water Opposition School Choice	DISPLAYLOCATION:Class Abilities
 
 
 #COMMENT: The following are in the Core Set and shouldn't be required any longer.
@@ -187,10 +189,10 @@ ABILITYCATEGORY:Water Opposition School Choice				VISIBLE:QUALIFY	EDITABLE:YES		
 #ABILITYCATEGORY:Rogue Archetype	VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:RogueArchetype	PLURAL:Rogue Archetypes		DISPLAYLOCATION:Class Archetypes
 
 # Copied from Bestiary files
-# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object		Plural description for UI	Display Location
-ABILITYCATEGORY:Giant Spider Type	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:GiantSpiderType	PLURAL:Giant Spider Types	DISPLAYLOCATION:Racial Abilities
+# Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Specific choices list						Plural description for UI				Display Location
+ABILITYCATEGORY:Giant Spider Type				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:GiantSpiderType										PLURAL:Giant Spider Types				DISPLAYLOCATION:Racial Abilities
 
-ABILITYCATEGORY:Guileful Polyglot Additional Language	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability		PLURAL:Guileful Polyglot Additional Languages	DISPLAYLOCATION:Class Abilities	ABILITYLIST:Guileful Polyglot Language Selection
+ABILITYCATEGORY:Guileful Polyglot Additional Language	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability					ABILITYLIST:Guileful Polyglot Language Selection	PLURAL:Guileful Polyglot Additional Languages	DISPLAYLOCATION:Class Abilities
 #
 # End
 #

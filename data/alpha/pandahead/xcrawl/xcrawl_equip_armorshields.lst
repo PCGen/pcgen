@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Jul 19 17:14:00 2009 -- reformated by prettylst.pl v1.39 (build 9548)
-SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League	SOURCESHORT:XCrawl	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League	SOURCESHORT:XCrawl	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php	SOURCEDATE:2002-01
 
 # Equipment Name				Output Name							Required Armor Proficiency				Required Shield Proficiency		Type							Cost		Weight	AC Penalty Check	Maximum DEX Bonus	% of Spell Failure	Combat bonus
 Armor (boffer)				OUTPUTNAME:Armor, boffer				PROFICIENCY:ARMOR|Armor (boffer)									TYPE:Armor.Light.Suit.Standard.Boffer	COST:20	WT:10		ACCHECK:0		MAXDEX:6		SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Aug 15 01:09:39 2011 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
 
 # ORIGINAL ENTRY: Douglas Limmer
@@ -54,7 +54,7 @@ FEAT:Lightning Reflexes
 FEAT:Skill Focus (Perception)
 
 # COMMENT: PCGen has a +10 Disable Device instead of a +8, and has
-# COMMENT:   not used the favored class bonuses or chosen a feat from the 
+# COMMENT:   not used the favored class bonuses or chosen a feat from the
 # COMMENT:   Combat Trick rogue talent.
 STARTPACK:Zombie (Juju) Human Rogue 2	TYPE:DefaultMonster.JujuZombie	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.291
 ALIGN:NE

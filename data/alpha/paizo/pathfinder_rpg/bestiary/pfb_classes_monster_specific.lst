@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Jan 22 13:24:50 2010 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 
 # Class Name		Output Name			Hit Dice	Type			Max Level		Source Page		Ability														Save checks bonus											Combat bonus
@@ -8,11 +8,11 @@ CLASS:Couatl Outsider	OUTPUTNAME:Outsider	HD:10		TYPE:Monster	MAXLEVEL:NOLIMIT	S
 CLASS:Couatl Outsider	PRERACE:1,Couatl	PRERACETYPE:Outsider
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Couatl Outsider	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
-# Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
+# Class Name		Spell Stat		Spell Type		Memorize	Use Spell List
 CLASS:Couatl Outsider	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:2|Cleric|Sorcerer
 ###Block:Proficiencies
-1							ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-#9	CAST:0,6,6,6,4	KNOWN:8,5,4,3,2	
+1											ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+#9	CAST:0,6,6,6,4	KNOWN:8,5,4,3,2
 1						ADD:SPELLCASTER|Sorcerer
 2	BONUS:PCLEVEL|Sorcerer|8
 

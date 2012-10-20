@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Jan 17 06:10:47 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Eric C. Smith (Maredudd)
 
@@ -76,7 +76,7 @@ Ioun Torch		TYPE:Magic.Wondrous	COST:75	SOURCEPAGE:p.306
 
 ###Block:K
 # Equipment Name			Type						Cost		Weight	Source Page
-Key of Lock Jamming		TYPE:Magic.Wondrous.Consumable	COST:400	WT:0.5		SOURCEPAGE:p.306
+Key of Lock Jamming		TYPE:Magic.Wondrous.Consumable	COST:400	WT:0.5	SOURCEPAGE:p.306
 Ki Mat				TYPE:Magic.Wondrous			COST:10000	WT:3		SOURCEPAGE:p.306
 Knight's Pennon (Battle)	TYPE:Magic.Wondrous			COST:4500	WT:1		SOURCEPAGE:p.307
 Knight's Pennon (Honor)		TYPE:Magic.Wondrous			COST:2200	WT:1		SOURCEPAGE:p.307
@@ -129,7 +129,7 @@ Torc of Lionheart Fury	TYPE:Magic.Wondrous.Neck	COST:8000	WT:1		SOURCEPAGE:p.310
 Vest of the Cockroach	TYPE:Magic.Wondrous.Vest	COST:1600	WT:2		SOURCEPAGE:p.310	ABILITY:Special Ability|AUTOMATIC|Resiliency|PREVARGTEQ:RogueTalentLVL,1
 
 ###Block:W
-# Equipment Name				Type						Cost		Weight	Source Page
+# Equipment Name				Type						Cost		Weight	Source Page		Special Property
 War Paint of the Terrible Visage	TYPE:Magic.Wondrous.Consumable	COST:100	WT:0.01	SOURCEPAGE:p.310	SPROP:(DC 11)
 
 ###Block: Cursed Items
@@ -141,11 +141,11 @@ Girdle of Opposite Gender	TYPE:Magic.Wondrous.Cursed			COST:0	WT:1		SOURCEPAGE:p
 Riot Pipes				TYPE:Magic.Wondrous.Instrument.Cursed	COST:0	WT:3		SOURCEPAGE:p.312
 
 ###Block:Special
-# Equipment Name		Type					Cost		Source Page
-Brooch (Folding Plate)	TYPE:Magic.Wondrous.Brooch	COST:12650	SOURCEPAGE:p.284
+# Equipment Name					Type					Cost		Source Page		Modify VAR
+Brooch (Folding Plate)				TYPE:Magic.Wondrous.Brooch	COST:12650	SOURCEPAGE:p.284
 
 
 
 
-Phylactery of Negative Channeling.MOD	BONUS:VAR|AntipaladinChannelDice|2|PREABILITY:1,CATEGORY=Special Ability,Channel Negative Energy ~ Antipaladin
-Phylactery of Positive Channeling.MOD	BONUS:VAR|OracleChannelDice|2|PREABILITY:1,CATEGORY=Special Ability,Channel ~ Life Mystery
+Phylactery of Negative Channeling.MOD											BONUS:VAR|AntipaladinChannelDice|2|PREABILITY:1,CATEGORY=Special Ability,Channel Negative Energy ~ Antipaladin
+Phylactery of Positive Channeling.MOD											BONUS:VAR|OracleChannelDice|2|PREABILITY:1,CATEGORY=Special Ability,Channel ~ Life Mystery

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Jul 19 16:47:19 2009 -- reformated by prettylst.pl v1.39 (build 9548)
-SOURCELONG:The Way of the Gun	SOURCESHORT:WayotGun	SOURCEWEB:http://www.peginc.com/index.htm
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:The Way of the Gun	SOURCESHORT:WayotGun	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
 CLASS:Bounty Hunter	HD:8		TYPE:PC.Prestige	ABB:Bht		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE

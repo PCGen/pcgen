@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Apr  1 10:54:26 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
 #Original Entry: Andrew Maitland
 
@@ -45,8 +45,8 @@ Combat Expertise trade off
 
 
 ###Block: Optional Rules
-# Template Name														Visible		Bonus to skill
-World Law ~ Skills										VISIBLE:NO		BONUS:SKILL|TYPE.LevelMod|TL/2
+# Template Name		Visible	Bonus to skill
+World Law ~ Skills	VISIBLE:NO	BONUS:SKILL|TYPE.LevelMod|TL/2
 
 ###Block: Magus's Assistant Occupation Support
 # Template Name	Visible	Caster level bonus						Bonus to spell cast/day																																	Add

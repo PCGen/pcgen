@@ -1,13 +1,13 @@
-# CVS $Revision$ $Author$ -- Thu Feb  4 22:47:42 2010 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-10
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 ###Block: Simple Templates
 # Template Name	Challenge Rating	Visible	Source Page		Combat bonus										Adjust PC Size		Stat bonus
 # All simple templates can be found in the Bestiary subfolder in the Core Set
 
 ###Block: Specific varients
-# Template Name				Challenge Rating	Source Page		Define				Required Race					Combat bonus					Stat bonus						Modify VAR				Ability
-Advanced Creature (Pegasus)		CR:1			SOURCEPAGE:p.225	DEFINE:FireResistanceBonus|10	PRERACE:1,Pegasus					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|4	BONUS:VAR|Maneuverability|2	ABILITY:Special Ability|AUTOMATIC|Immunity to Petrification|Resistance to Fire|Resistance to Poison ~ Pegasus
+# Template Name			Challenge Rating	Source Page		Define				Required Race	Combat bonus					Stat bonus						Modify VAR				Ability
+Advanced Creature (Pegasus)	CR:1			SOURCEPAGE:p.225	DEFINE:FireResistanceBonus|10	PRERACE:1,Pegasus	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|4	BONUS:VAR|Maneuverability|2	ABILITY:Special Ability|AUTOMATIC|Immunity to Petrification|Resistance to Fire|Resistance to Poison ~ Pegasus
 
 # Add NATURALATTACKS and BONUS:WEAPONPROF tags.
 

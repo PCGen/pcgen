@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Sep 25 18:14:02 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
 #
@@ -6,6 +6,7 @@ SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:200
 #
 
 #Class:Medicine Man (Complete)
+
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus										Combat bonus
 CLASS:Medicine Man	HD:8		TYPE:PC.Prestige	ABB:MedMn		MAXLEVEL:10	SOURCEPAGE:pg.8	BONUS:CHECKS|Fortitude,Will|(CL/2)+2	BONUS:CHECKS|Reflex|CL/3	BONUS:COMBAT|BAB|(CL/3)+(CL/4)-(CL/7)+(CL/10)+1
 # Class Name		Required AL		Req. Att.	Required Feat					Required Race	Required Skill								Req. Spell Type		Required Stat
@@ -38,6 +39,7 @@ CLASS:Medicine Man	STARTSKILLPTS:6	CSKILL:Animal Empathy|Balance|Climb|Concentra
 #
 
 #Class:Hunter (Complete)
+
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus
 CLASS:Hunter	HD:8		TYPE:PC.Prestige	ABB:Hntr		MAXLEVEL:10	SOURCEPAGE:pg.16	BONUS:CHECKS|Fortitude,Will|(CL/3)	BONUS:CHECKS|Reflex|(CL/2+1)	BONUS:COMBAT|BAB|(CL-1)/4+(CL-1)
 # Class Name	Required Feat						Required Skill								Required Text
@@ -59,6 +61,7 @@ CLASS:Hunter	STARTSKILLPTS:4	CSKILL:Climb|Hide|Intuit Direction|Jump|Listen|Move
 10									BONUS:VAR|CrackShotMult|1
 
 #Class:Slaver (Complete)
+
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus
 CLASS:Slaver	HD:8		TYPE:PC.Prestige	ABB:Slvr		MAXLEVEL:10	SOURCEPAGE:pg.17	BONUS:CHECKS|Fortitude|CL/2+2	BONUS:CHECKS|Reflex,Will|CL/3	BONUS:COMBAT|BAB|(CL-1)/4+(CL-1)
 # Class Name	Required AL		Req. Att.	Required Feat				Required Skill
@@ -86,6 +89,7 @@ CLASS:Slaver	STARTSKILLPTS:2	CSKILL:Animal Empathy|Bluff|Handle Animal|Intimidat
 #
 
 #Class:Poison Master (Complete)
+
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus
 CLASS:Poison Master	HD:6		TYPE:PC.Prestige	ABB:PsnMst		MAXLEVEL:10	SOURCEPAGE:pg.27	BONUS:CHECKS|Fortitude|CL/2+2	BONUS:CHECKS|Reflex,Will|CL/3	BONUS:COMBAT|BAB|CL/2
 # Class Name		Required AL		Required Feat		Required Skill					Required Text
@@ -106,6 +110,7 @@ CLASS:Poison Master	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|Heal|Knowledge 
 10	ABILITY:Special Ability|AUTOMATIC|Breath of Poison
 
 #Class: Spider Warrior (Complete)
+
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus
 CLASS:Spider Warrior	HD:10		TYPE:PC.Prestige	ABB:SpdrWr		MAXLEVEL:10	SOURCEPAGE:pg.26	BONUS:CHECKS|Fortitude,Reflex|CL/2+2	BONUS:CHECKS|Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name		Req. Att.	Required Race		Required Skill
@@ -130,6 +135,7 @@ CLASS:Spider Warrior	STARTSKILLPTS:2	CSKILL:Animal Empathy|Balance|Climb|Handle 
 #
 
 #Class:Karhollan Guard (Complete)
+
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus
 CLASS:Karhollan Guard	HD:10		TYPE:PC.Prestige	ABB:KarGrd		MAXLEVEL:10	SOURCEPAGE:pg.42	BONUS:CHECKS|Fortitude|CL/2+2	BONUS:CHECKS|Reflex,Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name		Required Feat						Required Race	Required Stat
@@ -203,6 +209,7 @@ CLASS:Exemplar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|K
 10						ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Exemplar Revealed
 
 #Class:Ex-Exemplar (Complete)
+
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus
 CLASS:Ex Exemplar	HD:8		TYPE:PC.Prestige	ABB:ExEx		MAXLEVEL:10	SOURCEPAGE:pg.58	BONUS:CHECKS|Fortitude,Will|CL/2+2	BONUS:CHECKS|Will|CL/3	BONUS:COMBAT|BAB|CL-1
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -214,6 +221,7 @@ CLASS:Ex Exemplar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidat
 #
 
 #Class:Servants of the One (Complete)
+
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus
 CLASS:Servants of the One	HD:6		TYPE:PC.Prestige	ABB:Svnt1		MAXLEVEL:10	SOURCEPAGE:pg.64	BONUS:CHECKS|Fortitude|CL/3	BONUS:CHECKS|Reflex,Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
 # Class Name			Required AL	Required Domain		Required Feat			Required Race		Required Skill								Req. Spell Type		Required Text
@@ -239,6 +247,7 @@ CLASS:Servants of the One	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Diplomacy|G
 #
 
 #Class:Humanoid Hunter (Complete)
+
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus
 CLASS:Humanoid Hunter	HD:10		TYPE:PC.Prestige	ABB:HdHnt		MAXLEVEL:10	SOURCEPAGE:pg.73	BONUS:CHECKS|Fortitude,Will|CL/2+2	BONUS:CHECKS|Reflex|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name		Req. Att.	Required Race							Required Skill							Required Text
@@ -366,6 +375,7 @@ CLASS:Chaos Crusader	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplo
 #
 
 #Class:Keeper of Secrets (Complete)
+
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus
 CLASS:Keeper of Secrets	HD:6		TYPE:PC.Prestige	ABB:KpSct		MAXLEVEL:10	SOURCEPAGE:pg.19	BONUS:CHECKS|Will|CL/2+2	BONUS:CHECKS|Fortitude,Reflex|CL/3	BONUS:COMBAT|BAB|CL/2
 # Class Name		Required Domain		Required Race		Required Skill				Req. Spell Type

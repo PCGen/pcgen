@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Mon Feb 16 22:33:24 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Eldritch Sorcery	SOURCESHORT:EldSor	SOURCEWEB:http://www.necromancergames.com/	SOURCEDATE:2005-06
 # Original Entry by: Tir Gwaith
 
-# Template Name	Hit Dice Size	Damage Reduction					Template		Source Page		Special ABility						Define				Combat bonus						Damage reduction																Modify VAR						Add to vision			Ability																		Spell Res.	Type		Vision			Innate Spells
+# Template Name	Hit Dice Size	Damage Reduction					Template		Source Page		Special ABility						Define				Combat bonus					Damage reduction																Modify VAR						Add to vision			Ability																		Spell Res.	Type		Vision			Innate Spells
 Plant Imbued	HITDIE:8		DR:5/Magic	DR:0/Magic and Cold Iron	TEMPLATE:Plant	SOURCEPAGE:p.97	SAB:Fast Healing (Ex) 5	SAB:Acute Senses (Ex)	DEFINE:UncannyDodgeLevel|2	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK	BONUS:DR|Magic|5|PREHD:MIN=6	BONUS:DR|Magic|5|PREHD:MIN=11	BONUS:DR|Magic and Cold Iron|15|PREHD:MIN=16	BONUS:VAR|UncannyDodgeFlankingLevel|TL	BONUS:VISION|Darkvision|30	ABILITY:Special Ability|AUTOMATIC|Woodland Stride	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge	SR:10+TL	TYPE:Plant	VISION:Darkvision (30')	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=9|Freedom of Movement,14+WIS	SPELLS:Innate|TIMES=3|CASTERLEVEL=9|Entangle,11+WIS|Magic Fang,11+WIS	SPELLS:Innate|TIMES=1|CASTERLEVEL=9|Sunburst,18+WIS|Tree Stride,15+WIS
