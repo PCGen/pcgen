@@ -1,0 +1,6 @@
+
+
+WILD STALKER Strong Senses	VISIBLE:NO	TEMPLATE:CHOOSE:WILD STALKER No Low Light Vision|WILD STALKER Has Low Light Vision
+
+WILD STALKER No Low Light Vision	!PREVISION:1,Low-Light=ANY,Low Light=ANY	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light
+WILD STALKER Has Low Light Vision	PREVISION:1,Low-Light=ANY,Low Light=ANY	VISIBLE:NO	BONUS:VAR|WildStalkerPerceptionBonus|1
