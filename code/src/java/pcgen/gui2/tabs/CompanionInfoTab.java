@@ -60,6 +60,7 @@ import pcgen.gui2.filter.FilteredListFacade;
 import pcgen.gui2.tabs.models.HtmlSheetSupport;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui2.util.DisplayAwareTab;
 import pcgen.gui2.util.JTreeTable;
 import pcgen.gui2.util.JTreeViewTable;
 import pcgen.gui2.util.treetable.AbstractTreeTableModel;
@@ -80,7 +81,7 @@ import pcgen.util.Logging;
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler
+public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler, DisplayAwareTab
 {
 
 	private final JTreeTable companionsTable;
@@ -180,6 +181,17 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 	public TabTitle getTabTitle()
 	{
 		return new TabTitle(LanguageBundle.getString("in_companions")); //$NON-NLS-1$
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void tabSelected()
+	{
+		// Refresh the character sheet as we have been displayed.
+		LoadButtonAndSheetHandler action = (LoadButtonAndSheetHandler) loadButton.getAction();
+		action.showCompanion(false);
 	}
 
 	private class TreeExpansionHandler implements TreeExpansionListener
@@ -289,7 +301,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			}
 		}
 
-		private void showCompanion(boolean switchTabs)
+		void showCompanion(boolean switchTabs)
 		{
 			CompanionFacade companion = getSelectedCompanion();
 			if (companion == null)

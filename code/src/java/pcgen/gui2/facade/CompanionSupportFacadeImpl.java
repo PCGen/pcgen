@@ -167,6 +167,8 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 			if (compFacade instanceof CharacterFacadeImpl)
 			{
 				CharacterFacadeImpl compFacadeImpl = (CharacterFacadeImpl) compFacade;
+				PlayerCharacter pc = compFacadeImpl.getTheCharacter();
+				pc.setMaster(pc.getMaster());
 				compFacadeImpl.refreshClassLevelModel();
 				compFacadeImpl.postLevellingUpdates();
 			}
