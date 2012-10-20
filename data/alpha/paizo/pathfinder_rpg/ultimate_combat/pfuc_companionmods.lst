@@ -50,3 +50,27 @@ FOLLOWER:FeatheredCompanionLvl=20	TYPE:Animal Companion	HD:1																				
 
 
 
+###Block: Empyreal Companion
+FOLLOWER:EmpyrealCompanion=1	TYPE:Special Mount						ABILITY:Special Ability|AUTOMATIC|Link|Share Spells						AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:MasterLevel|0	DEFINE:LOCK.INT|6																				BONUS:VAR|MasterLevel|1	RACETYPE:Animal
+FOLLOWER:EmpyrealCompanion=2	TYPE:Special Mount	HD:1																																																			BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=3	TYPE:Special Mount						ABILITY:Special Ability|AUTOMATIC|Evasion																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=4	TYPE:Special Mount	HD:1																																BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=5	TYPE:Special Mount	HD:1																																																			BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=6	TYPE:Special Mount	HD:1					ABILITY:Special Ability|AUTOMATIC|Devotion																												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=7	TYPE:Special Mount																																																				BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=8	TYPE:Special Mount	HD:1																																																			BONUS:VAR|MasterLevel|1	RACETYPE:Magical Beast	TEMPLATE:Celestial Creature
+FOLLOWER:EmpyrealCompanion=9	TYPE:Special Mount	HD:1														AUTO:FEAT|Multiattack															BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=10	TYPE:Special Mount	HD:1																																																			BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=11	TYPE:Special Mount																																																				BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=12	TYPE:Special Mount	HD:1																																								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	ABILITY:Special Ability|AUTOMATIC|Empyreal Creature Flight
+FOLLOWER:EmpyrealCompanion=13	TYPE:Special Mount	HD:1																																																			BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=14	TYPE:Special Mount	HD:1																																BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=15	TYPE:Special Mount			SR:MasterLevel+11																																				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=16	TYPE:Special Mount	HD:1					ABILITY:Special Ability|AUTOMATIC|Improved Evasion																																						BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=17	TYPE:Special Mount	HD:1																																																			BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=18	TYPE:Special Mount	HD:1																																								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=19	TYPE:Special Mount																																																				BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=20	TYPE:Special Mount	HD:1																																BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
+
+
+
