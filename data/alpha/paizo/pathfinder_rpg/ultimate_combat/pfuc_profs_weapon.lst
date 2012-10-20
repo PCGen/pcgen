@@ -4,53 +4,42 @@
 # ORIGINAL ENTRY DATE: 2012-02-03
 
 # Dummy Proficiency to Trigger granting all Firearms Profs
-# Name			Type
-# Weapon Name			Type							Nb Hands
+# Weapon Name			Type											Nb Hands
 Firearms				TYPE:Exotic.Exotic
 
 #-(Early) One-Handed Firearms
-Bukler Gun				TYPE:Ranged.Piercing.Bludgeoning.Firearm
-Pepperbox				TYPE:Ranged.Piercing.Bludgeoning.Firearm
-Pistol				TYPE:Ranged.Piercing.Bludgeoning.Firearm
-Pistol (Coat)			TYPE:Ranged.Piercing.Bludgeoning.Firearm
-Pistol (Dagger)			TYPE:Ranged.Piercing.Bludgeoning.Firearm
-Pistol (Double-Barreled)	TYPE:Ranged.Piercing.Bludgeoning.Firearm
-Pistol (Dragon)			TYPE:Ranged.Piercing.Bludgeoning.Firearm
-Pistol (Sword Cane)		TYPE:Ranged.Piercing.Bludgeoning.Firearm
+Bukler Gun				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm
+Pepperbox				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm
+Pistol				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+Pistol (Coat)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+Pistol (Dagger)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+Pistol (Double-Barreled)	TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+Pistol (Dragon)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+Pistol (Sword Cane)		TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
 
 # Early Two-Handed Firearms
-Blunderbuss				TYPE:Ranged.Piercing.Bludgeoning.Firearm	HANDS:2
-Culverin				TYPE:Ranged.Piercing.Bludgeoning.Firearm	HANDS:2
-Double Hackbut			TYPE:Ranged.Piercing.Bludgeoning.Firearm	HANDS:2
-Fire Lance				TYPE:Ranged.Piercing.Bludgeoning.Firearm	HANDS:2
-Musket				TYPE:Ranged.Piercing.Bludgeoning.Firearm	HANDS:2
-Musket (Axe)			TYPE:Ranged.Piercing.Bludgeoning.Firearm	HANDS:2
-Musket (Double-Barreled)	TYPE:Ranged.Piercing.Bludgeoning.Firearm	HANDS:2
-Musket (Warhammer)		TYPE:Ranged.Piercing.Bludgeoning.Firearm	HANDS:2
+Blunderbuss				TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm		HANDS:2
+Culverin				TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm		HANDS:2
+Double Hackbut			TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm		HANDS:2
+Fire Lance				TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm		HANDS:2
+Musket				TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket	HANDS:2
+Musket (Axe)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket	HANDS:2
+Musket (Double-Barreled)	TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket	HANDS:2
+Musket (Warhammer)		TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket	HANDS:2
 
 ###Block: Advanced Firearms
 # One-Handed
-# Name	Type
-# Weapon Name	Type										Nb Hands
-Revolver		TYPE:Ranged.Piercing.Bludgeoning.Firearm.Revolver
+# Weapon Name	Type													Nb Hands
+Revolver		TYPE:Ranged.Piercing.Bludgeoning.Firearm.Revolver.OneHandedFireArm
 
 # Two-Handed
-Rifle			TYPE:Ranged.Piercing.Bludgeoning.Firearm.Rifle			HANDS:2
-Shotgun		TYPE:Ranged.Piercing.Bludgeoning.Firearm.Shotgun.Scatter	HANDS:2
-
-
+Rifle			TYPE:Ranged.Piercing.Bludgeoning.Firearm.Rifle.TwoHandedFireArm			HANDS:2
+Shotgun		TYPE:Ranged.Piercing.Bludgeoning.Firearm.Shotgun.Scatter.TwoHandedFireArm	HANDS:2
 
 # NOTE: Expanded Groups p.45
 
-
-
-# IN PROGRESS
-
-#	COST:	DAMAGE:	CRITRANGE:	CRITMULT:x2		WT:	TYPE:
-
 ###Block: Eastern  - Martial
 # Light
-# Name				Type
 # Weapon Name				Type
 Butterfly Sword				TYPE:EasternEastern.Melee.Martial.Monk
 Iron Brush					TYPE:EasternEastern.Melee.Martial
@@ -75,20 +64,13 @@ Sansetsukon					TYPE:EasternEastern.Melee.Martial.Blocking.Disarm.Monk
 Sword (Tri-Point Double-Edged)	TYPE:EasternEastern.Melee.Martial.Reach
 Tiger Fork					TYPE:EasternEastern.Melee.Martial.Brace.Monk
 
-
-
-
-
-
 # Ranged
 Tube Arrow Shooter			TYPE:EasternEastern.Ranged.Martial
 Poisoned Sand Tube			TYPE:EasternEastern.Ranged.Martial
 
 
-
 ###Block: Eastern  - Exotic
 # Light
-# Name			Type
 # Weapon Name			Type
 Dan Bong				TYPE:EasternEastern.Melee.Exotic.Bludgeoning.Blocking.Monk.Ranged.Thrown
 Emei Piercer			TYPE:EasternEastern.Melee.Exotic.Piercing.Monk
@@ -110,10 +92,8 @@ Meteor Hammer			TYPE:EasternEastern.Melee.Exotic.Bludgeoning.Reach.Trip
 Sword (Seven-Branched)		TYPE:EasternEastern.Melee.Exotic.Slashing.Disarm.Monk
 Tetsubo				TYPE:EasternEastern.Melee.Exotic.Bludgeoning
 
-
 # Ranged
 Rope Dart				TYPE:EasternEastern.Ranged.Exotic.Piercing.Blocking.Distracting.Monk
-
 
 # Samurai
 Katana.MOD				TYPE:Samurai.HeavyBlade
@@ -125,7 +105,6 @@ Wakizashi.MOD			TYPE:Samurai.LightBlade
 # Martial
 
 # Light
-# Name		Type
 # Weapon Name		Type
 Gladius			TYPE:GladiatorMelee.Martial.Piercing.Performance
 
@@ -134,8 +113,6 @@ Scizore			TYPE:GladiatorMelee.Martial.Piercing.Performance
 
 # Ranged
 Amentum (Javelin)		TYPE:GladiatorMelee.Martial.Piercing.Performance.Thrown.Ranged
-
-
 
 # EXOTIC
 # Light
