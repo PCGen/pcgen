@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Feb 22 13:04:59 2007 -- reformated by prettylst.pl v1.36 (build 2045)
-SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPFC	SOURCEWEB:http://www.mywebsite.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPFC	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
 
 #insert your data here
 
@@ -45,7 +45,7 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPFC	SOURCEWEB:http://www.mywebsit
 #
 #The ABB tag can be used to hold a 3-5 letter abbreviation of the class name.
 #
-#The MAXLEVEL tag sets the maximum number of levels of the class you can add to a character. You can use MAXLEVEL:NOLIMIT in addition to a number. 
+#The MAXLEVEL tag sets the maximum number of levels of the class you can add to a character. You can use MAXLEVEL:NOLIMIT in addition to a number.
 #
 #The SOURCEPAGE tag can be used to hold a reference to where you can find the class. This will be displayed in PCGen.
 #

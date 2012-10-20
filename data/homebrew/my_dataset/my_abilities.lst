@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Feb 22 13:04:59 2007 -- reformated by prettylst.pl v1.36 (build 2045)
-SOURCELONG:My Campaign	SOURCESHORT:My	SOURCEWEB:http://www.mywebsite.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:My Campaign	SOURCESHORT:My	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
 
 #insert your data here
 
@@ -13,7 +13,7 @@ SOURCELONG:My Campaign	SOURCESHORT:My	SOURCEWEB:http://www.mywebsite.com
 # Abilities are the newest method for all aspects of class & race abilities. Currently we use hidden feats to emulate
 # class and racial abilities. The advent of Abilities allows us to use one standard format for a variety of things.
 # Generally Abilities are exactly the same in format as a Feat with the exception of a NEW tag CATEGORY which tells
-# PCGen what the ability is to be categoried as - example: My Ability is part of the my_abilities category, So I can add 
+# PCGen what the ability is to be categoried as - example: My Ability is part of the my_abilities category, So I can add
 # points only to the my_abilities allowing very small and restricted lists. Another example would be Fighter Bonus feats.
 #
 # Feat and ability are used through out this example as they almost the same thing - ABILITY can also be used to add "Feats"
