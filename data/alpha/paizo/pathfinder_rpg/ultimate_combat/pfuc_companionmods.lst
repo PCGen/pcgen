@@ -23,3 +23,30 @@ FOLLOWER:SamuraiMountLevel=17	TYPE:Animal Companion	HD:1																								
 FOLLOWER:SamuraiMountLevel=18	TYPE:Animal Companion	HD:1																																				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:SamuraiMountLevel=19	TYPE:Animal Companion																																																BONUS:VAR|MasterLevel|1
 FOLLOWER:SamuraiMountLevel=20	TYPE:Animal Companion	HD:1																												BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
+
+
+
+# Class of the Master		Type				Hit Dice	Ability												Automatically Gained Feat	Define							Bonus to Ability Pool					Combat bonus					Stat bonus			Modify VAR							Main Race Type
+FOLLOWER:FeatheredCompanionLvl=1	TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks	ABILITY:Special Ability|AUTOMATIC|Half HP|PREVARLT:MasterLvl,4					DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:FeatheredCompanionLvl=2	TYPE:Animal Companion	HD:1																																															BONUS:VAR|MasterLevel|1
+FOLLOWER:FeatheredCompanionLvl=3	TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Evasion																												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:FeatheredCompanionLvl=4	TYPE:Animal Companion	HD:1																												BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
+FOLLOWER:FeatheredCompanionLvl=5	TYPE:Animal Companion	HD:1																																															BONUS:VAR|MasterLevel|1
+FOLLOWER:FeatheredCompanionLvl=6	TYPE:Animal Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Devotion																											BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:FeatheredCompanionLvl=7	TYPE:Animal Companion																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:FeatheredCompanionLvl=8	TYPE:Animal Companion	HD:1																																															BONUS:VAR|MasterLevel|1
+FOLLOWER:FeatheredCompanionLvl=9	TYPE:Animal Companion	HD:1															AUTO:FEAT|Multiattack										BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:FeatheredCompanionLvl=10	TYPE:Animal Companion	HD:1																																															BONUS:VAR|MasterLevel|1
+FOLLOWER:FeatheredCompanionLvl=11	TYPE:Animal Companion																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:FeatheredCompanionLvl=12	TYPE:Animal Companion	HD:1																																				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:FeatheredCompanionLvl=13	TYPE:Animal Companion	HD:1																																															BONUS:VAR|MasterLevel|1
+FOLLOWER:FeatheredCompanionLvl=14	TYPE:Animal Companion	HD:1																												BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
+FOLLOWER:FeatheredCompanionLvl=15	TYPE:Animal Companion																																					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:FeatheredCompanionLvl=16	TYPE:Animal Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																																					BONUS:VAR|MasterLevel|1
+FOLLOWER:FeatheredCompanionLvl=17	TYPE:Animal Companion	HD:1																																															BONUS:VAR|MasterLevel|1
+FOLLOWER:FeatheredCompanionLvl=18	TYPE:Animal Companion	HD:1																																				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:FeatheredCompanionLvl=19	TYPE:Animal Companion																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:FeatheredCompanionLvl=20	TYPE:Animal Companion	HD:1																												BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
+
+
+

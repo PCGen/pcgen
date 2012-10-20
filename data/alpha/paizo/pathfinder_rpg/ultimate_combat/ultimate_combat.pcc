@@ -68,6 +68,8 @@ FEAT:pfuc_feats.lst
 WEAPONPROF:pfuc_profs_weapon.lst
 ARMORPROF:pfuc_profs_armor.lst
 
+RACE:pfuc_races_mod.lst
+
 SPELL:pfuc_spells.lst
 SPELL:pfuc_spells_shortdesc.lst
 
