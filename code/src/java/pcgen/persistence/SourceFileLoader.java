@@ -1041,12 +1041,9 @@ public class SourceFileLoader extends PCGenTask implements Observer
 				SettingsHandler.setPCGenOption(key, value);
 			}
 			// Make sure any game mode settings are applied.
-			for (GameModeFacade gmFacade : FacadeFactory.getGameModes())
+			for (GameMode game : SystemCollections.getUnmodifiableGameModeList())
 			{
-				if (gmFacade instanceof GameMode)
-				{
-					((GameMode)gmFacade).applyPreferences();
-				}
+				game.applyPreferences();
 			}
 		}
 	}
