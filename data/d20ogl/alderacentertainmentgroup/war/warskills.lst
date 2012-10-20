@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Jul 15 00:06:01 2008 -- reformated by prettylst.pl v1.38 (build 7077)
-SOURCELONG:Alderac Entertainment Group - War	SOURCESHORT:War	SOURCEWEB:http://alderac.com/d20
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Alderac Entertainment Group - War	SOURCESHORT:War	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 
 # Skill Name		Key Stat	Untrained?		Type					Source Page		Bonus to skill
 Craft (Gunsmith)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.40	BONUS:SKILL|Craft (Gunsmith)|SynergyBonus|PRESKILL:1,Craft (Blacksmithing)=5,Craft (Weaponsmithing)=5,Profession (Artillery)=5|TYPE=Synergy.STACK

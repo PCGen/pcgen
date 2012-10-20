@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Jan 30 22:50:29 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Curses!	SOURCESHORT:Curses	SOURCEWEB:http://www.silven.com/	SOURCEDATE:2005-04
 # Original Entry by: Eddy Anthony (MoSaT)
 
@@ -26,7 +26,7 @@ Warlock Superstition				TYPE:ClassFeature.Extraordinary	VISIBLE:NO														
 
 
 ###Block: Hexomancer Class Features
-# Feat Name		Type						Visible	Special ABility																																																																										Define					Stackable?	Multiple?	Choose
+# Feat Name		Type						Visible	Special ABility																																																																										Define					Stackable?	Multiple?	Choose											Selections
 Corrupting Magic	TYPE:ClassFeature.Extraordinary	VISIBLE:NO	SAB:Corrupting Magic (Ex) ~ %CHOICE																																																																													STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=5|USERINPUT|TITLE=Corrupting Magic Cursed Spells	SELECT:5
 Extended Curse	TYPE:ClassFeature.Extraordinary	VISIBLE:NO	SAB:Extended Curse (Ex)
 Effigy of Control	TYPE:ClassFeature.Extraordinary	VISIBLE:NO	SAB:Effigy of Control (Ex) ~ 1st - 2nd level spells|PREVAREQ:EffigyOfControlProgression,2	SAB:Effigy of Control (Ex) ~ 1st - 4th level spells|PREVAREQ:EffigyOfControlProgression,4	SAB:Effigy of Control (Ex) ~ 1st - 6th level spells|PREVAREQ:EffigyOfControlProgression,6	SAB:Effigy of Control (Ex) ~ 1st - 8th level spells|PREVAREQ:EffigyOfControlProgression,8	SAB:Effigy of Control (Ex) ~ 1st - 9th level spells|PREVARGTEQ:EffigyOfControlProgression,10	DEFINE:EffigyOfControlProgression|0

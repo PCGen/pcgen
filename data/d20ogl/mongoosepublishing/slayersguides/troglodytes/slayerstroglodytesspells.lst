@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
-SOURCELONG:Mongoose Publishing - Slayer's Guide to Troglodytes	SOURCESHORT:SGtTroglod	SOURCEWEB:http://mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Slayer's Guide to Troglodytes	SOURCESHORT:SGtTroglod	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
 # EFFECTS and EFFECTTYPE messed up.. Clean up EFFECTS...  - Tir Gwaith
 
 # Spell Name	Classes of caster	School			Sub-School		Type		Components	Casting Time	Range		Item		Target Area or Effect		Duration			Save Info		Spell Resistance	Description		Source Page

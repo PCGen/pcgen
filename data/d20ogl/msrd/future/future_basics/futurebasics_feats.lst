@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Aug 31 13:24:25 2008 -- reformated by prettylst.pl v1.38 (build 7233)
-SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 
 # Feat Name					Output Name				Type														Req. Att.	Required Feat									Multiple Requirements								Required Skill														Required Stat	Required Text																								Description																																													Stackable?	Multiple?	Choose										Automatically Gained Armor Prof.	Automatically Gained Weapon Prof.	Bonus to Ability Pool					Bonus to skill		Stat bonus		Modify VAR				Vision			Source Page
 Action Boost									TYPE:General.Dreadnought.Explorer.Swindler																																																																												DESC:You have the ability to alter your luck drastically in dire circumstances																																																																																				SOURCEPAGE:FutureOccupationsSkillsFeats.rtf

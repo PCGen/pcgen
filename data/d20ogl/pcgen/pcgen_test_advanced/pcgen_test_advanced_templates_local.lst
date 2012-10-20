@@ -1,43 +1,45 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
 # Templates - Local as listed in Docs.
 
-TL~AddLevel_Running With Scissors_5							ADDLEVEL:Running With Scissors|5
-TL~BONUSSKILLPOINTS_80					BONUSSKILLPOINTS:80
-TL~BONUSMONSKILLPTSLOCKNUMBER_6			BONUS:MONSKILLPTS|LOCKNUMBER|6
-TL~CHOOSELANGAUTO_Terestial Alpha_Terestial_Beta					CHOOSE:LANGAUTO|Terestial Alpha|Terestial Beta
-TL~CR_9								CR:9
-TL~FAVOREDCLASS_MonKee							FAVOREDCLASS:MonKee
-TL~FACE_20x40								FACE:20,40
-TL~FEAT_DodgeBall_MonkeyFu								FEAT:DodgeBall|MonkeyFu
-TL~GENDERLOCK_Female							GENDERLOCK:Female
-TL~HD_1-3_DR_5/1									HD:1-3:DR:5/1
-TL~HANDS_8								HANDS:8
-TL~HITDIE_20								HITDIE:20
-TL~LANGAUTO_LangAutoOne								AUTO:LANG|LangAutoOne
-TL~LANGBONUS_LangBonusTwo							LANGBONUS:LangBonusTwo
-TL~LEGS_8							LEGS:8
-TL~LEVEL_2_SR_15							LEVEL:2:SR:15
-TL~LEVELADJUSTMENT_12							LEVELADJUSTMENT:12
-TL~NONPP-8							NONPP:-8
-TL~RACESUBTYPE_Foo Monkey				RACESUBTYPE:Foo Monkey
-TL~RACETYPE_Not Listed							RACETYPE:Not Listed
-TL~REACH_20							REACH:20
-TL~REGION_Bahmamas							REGION:Bahmamas
-TL~REMOVABLE_NO							REMOVABLE:NO
-TL~REPEATLEVEL_2_0_20_1_Feat_ABonusFeat				REPEATLEVEL:2|0|20:1:AUTO:FEAT|ABonusFeat
-TL~SIZE_C_Colossal							SIZE:C
-TL~SUBRACE_ArticMonkey							SUBRACE:ArticMonkey
-TL~SUBREGION_Little Isle							SUBREGION:Little Isle
-TL~TEMPLATE_SomeOtherTemplate							TEMPLATE:SomeOtherTemplate
-TL~TEMPLATE_ADDCHOICE_Choices_OneTwoThree			TEMPLATE:ADDCHOICE:ChoiceOne|ChoiceTwo|ChoiceThree
-TL~TEMPLATE_CHOOSE_Choices_OneTwoThree							TEMPLATE:CHOOSE:ChoiceOne|ChoiceTwo|ChoiceThree
-TL~TYPE_Alien							TYPE:Alien
-TL~VISIBLE_DISPLAY							VISIBLE:DISPLAY
-TL~WEAPONBONUS							WEAPONBONUS:Fine Wine Blade|Suns Weapon Of Choice
+# Template Name							Hit Dice Size	Challenge Rating	Size		Face/Space	Reach		Nb Legs	Nb Hands	Visible		Level Adjustment		Template								Level			Bonus Monster Skill Points		BONUSSKILLPOINTS		NONPP		Choose							Favored Class		Feat				Automatically Gained Language	Bonus Languages		Region		Subregion			Removable?		Subrace			Main Race Type		Race Subtype		Type		Add Levels					Hit Dice		Optionnal Weapon Prof.						Lock Gender Selection	Repeat this Level
+TL~AddLevel_Running With Scissors_5																																																																																																				ADDLEVEL:Running With Scissors|5
+TL~BONUSSKILLPOINTS_80																																															BONUSSKILLPOINTS:80
+TL~BONUSMONSKILLPTSLOCKNUMBER_6																																							BONUS:MONSKILLPTS|LOCKNUMBER|6
+TL~CHOOSELANGAUTO_Terestial Alpha_Terestial_Beta																																																CHOOSE:LANGAUTO|Terestial Alpha|Terestial Beta
+TL~CR_9											CR:9
+TL~FAVOREDCLASS_MonKee																																																													FAVOREDCLASS:MonKee
+TL~FACE_20x40															FACE:20,40
+TL~FEAT_DodgeBall_MonkeyFu																																																																FEAT:DodgeBall|MonkeyFu
+TL~GENDERLOCK_Female																																																																																																																								GENDERLOCK:Female
+TL~HD_1-3_DR_5/1																																																																																																													HD:1-3:DR:5/1
+TL~HANDS_8																						HANDS:8
+TL~HITDIE_20							HITDIE:20
+TL~LANGAUTO_LangAutoOne																																																																					AUTO:LANG|LangAutoOne
+TL~LANGBONUS_LangBonusTwo																																																																									LANGBONUS:LangBonusTwo
+TL~LEGS_8																				LEGS:8
+TL~LEVEL_2_SR_15																																							LEVEL:2:SR:15
+TL~LEVELADJUSTMENT_12																									LEVELADJUSTMENT:12
+TL~NONPP-8																																																					NONPP:-8
+TL~RACESUBTYPE_Foo Monkey																																																																																															RACESUBTYPE:Foo Monkey
+TL~RACETYPE_Not Listed																																																																																												RACETYPE:Not Listed
+TL~REACH_20																		REACH:20
+TL~REGION_Bahmamas																																																																														REGION:Bahmamas
+TL~REMOVABLE_NO																																																																																						REMOVABLE:NO
+TL~REPEATLEVEL_2_0_20_1_Feat_ABonusFeat																																																																																																																									REPEATLEVEL:2|0|20:1:AUTO:FEAT|ABonusFeat
+TL~SIZE_C_Colossal												SIZE:C
+TL~SUBRACE_ArticMonkey																																																																																								SUBRACE:ArticMonkey
+TL~SUBREGION_Little Isle																																																																																SUBREGION:Little Isle
+TL~TEMPLATE_SomeOtherTemplate																												TEMPLATE:SomeOtherTemplate
+TL~TEMPLATE_ADDCHOICE_Choices_OneTwoThree																										TEMPLATE:ADDCHOICE:ChoiceOne|ChoiceTwo|ChoiceThree
+TL~TEMPLATE_CHOOSE_Choices_OneTwoThree																										TEMPLATE:CHOOSE:ChoiceOne|ChoiceTwo|ChoiceThree
+TL~TYPE_Alien																																																																																																					TYPE:Alien
+TL~VISIBLE_DISPLAY																						VISIBLE:DISPLAY
+TL~WEAPONBONUS																																																																																																																WEAPONBONUS:Fine Wine Blade|Suns Weapon Of Choice
 
-#TL~<template>.COPY (Global)							
-#TL~<template>.FORGET (Global)							
-#TL~<template>.MOD (Global)							
+#TL~<template>.COPY (Global)
+#TL~<template>.FORGET (Global)
+#TL~<template>.MOD (Global)
 
 TL~ModifyOneTemplate
 TL~ModifyOneTemplate.COPY=TL~ModifyTwoTemplate
@@ -45,8 +47,8 @@ TL~ModifyTwoTemplate.MOD
 TL~ModifyOneTemplate.FORGET
 
 # Extras to Test functionality
-SomeOtherTemplate		VISIBLE:NO
+SomeOtherTemplate																							VISIBLE:NO
 
-ChoiceOne		VISIBLE:NO
-ChoiceTwo		VISIBLE:NO
-ChoiceThree		VISIBLE:NO
+ChoiceOne																								VISIBLE:NO
+ChoiceTwo																								VISIBLE:NO
+ChoiceThree																								VISIBLE:NO

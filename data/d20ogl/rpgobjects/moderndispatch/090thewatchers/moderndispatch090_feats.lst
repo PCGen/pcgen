@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Feb 18 11:05:41 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-SOURCELONG:Modern Dispatch #90 - The Watchers	SOURCESHORT:MD90-TW	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=224
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern Dispatch #90 - The Watchers	SOURCESHORT:MD90-TW	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=224	SOURCEDATE:2004-01
 
 #Original entry by Paul W. King
 
@@ -9,7 +9,7 @@ Aura				TYPE:Watcher.Nephilim.Celestial				PRECLASS:1,The Watcher=1													
 Celestial Toughness I	TYPE:Watcher.Nephilim.Celestial				PRECLASS:1,The Watcher=1																															DESC:The character gains damage reduction																																																													DR:1/Iron		SOURCEPAGE:p.2
 Celestial Toughness II	TYPE:Watcher.Nephilim.Celestial				PRECLASS:1,The Watcher=2	PREFEAT:1,Celestial Toughness I																									DESC:The character gains damage reduction																																							BONUS:DR|Iron|1																							SOURCEPAGE:p.2
 Celestial Toughness III	TYPE:Watcher.Nephilim.Celestial				PRECLASS:1,The Watcher=3	PREFEAT:1,Celestial Toughness II																									DESC:The character gains damage reduction																																							BONUS:DR|Iron|1																							SOURCEPAGE:p.2
-Divine Grace		TYPE:Watcher.Nephilim.Celestial				PRECLASS:1,The Watcher=3							!PREFEAT:1,Divine Grace																					DESC:The blood of angels flows in your veins granting you additional physical abilities.																				MULT:YES	CHOOSE:PCSTAT|CON|DEX|STR																		BONUS:STAT|LIST|2|TYPE=Racial									SOURCEPAGE:p.2
+Divine Grace		TYPE:Watcher.Nephilim.Celestial				PRECLASS:1,The Watcher=3							!PREFEAT:1,Divine Grace																					DESC:The blood of angels flows in your veins granting you additional physical abilities.																				MULT:YES	CHOOSE:PCSTAT|CON|DEX|STR																	BONUS:STAT|LIST|2|TYPE=Racial									SOURCEPAGE:p.2
 Divine Healing		TYPE:Watcher.Nephilim.Celestial				PRECLASS:1,The Watcher=2													SAB:Heal one person 1/day for 1d8+% points of damage|TL/2									DESC:Your touch heals the wounded.																																																																	SOURCEPAGE:p.2
 Free Fall			TYPE:Watcher.Nephilim.Celestial									PREFEAT:1,Occupation (Celestial)																									DESC:Angels appear to be remarkably resilient to impact damage from falls or full body shocks.																																																							SOURCEPAGE:p.3
 Keen Vision			TYPE:Watcher.Nephilim.Celestial									PREFEAT:1,Occupation (Celestial)																									DESC:Your vision is beyond that of normal humans.																																																						BONUS:VISION|Darkvision|60				SOURCEPAGE:p.3

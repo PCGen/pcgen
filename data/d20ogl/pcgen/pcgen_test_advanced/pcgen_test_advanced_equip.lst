@@ -1,46 +1,48 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 #Equip
-Test Equipment	TYPE:CODE433		ABILITY:Any Feat Choice|VIRTUAL|AFC 1	ABILITY:Any Feat Choice|AUTOMATIC|AFC 2
+# Equipment Name			Required Weapon Proficiency			Required Armor Proficiency	Required Shield Proficiency	Type										Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	Range		Size		Add 				Ability													Combat bonus			Special Property
+Test Equipment																				TYPE:CODE433																																	ABILITY:Any Feat Choice|VIRTUAL|AFC 1	ABILITY:Any Feat Choice|AUTOMATIC|AFC 2
 
 
-Longbow		PROFICIENCY:WEAPON|Longbow	TYPE:Weapon.Ranged.Piercing.Cool.Magic.RangeIncrementTen	DAMAGE:1d8	CRITMULT:x2	CRITRANGE:1	SPROP:This is a test bow	WIELD:TwoHanded	SIZE:M	SLOTS:2	RANGE:100
+Longbow				PROFICIENCY:WEAPON|Longbow													TYPE:Weapon.Ranged.Piercing.Cool.Magic.RangeIncrementTen			SLOTS:2	CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	WIELD:TwoHanded	RANGE:100	SIZE:M																								SPROP:This is a test bow
 
 
-Torch		TYPE:Goods
-Lantern	TYPE:Goods.Lightsource.Latern
+Torch																						TYPE:Goods
+Lantern																					TYPE:Goods.Lightsource.Latern
 
-Item Test 42 Virtual Pre	TYPE:Goods.CODE347		ABILITY:FEAT|VIRTUAL|Weapon Focus(Longsword)|PRELEVEL:MIN=4
-Item Test 42 VCirtual Pre Max	TYPE:Goods.CODE347		ABILITY:FEAT|VIRTUAL|Weapon Focus(Longsword)|PRELEVEL:MAX=4
-Item Test 42 Virtual	TYPE:Goods.CODE347		ABILITY:FEAT|VIRTUAL|Weapon Focus(Longsword)|PRELEVEL:MIN=4
+Item Test 42 Virtual Pre																		TYPE:Goods.CODE347																																ABILITY:FEAT|VIRTUAL|Weapon Focus(Longsword)|PRELEVEL:MIN=4
+Item Test 42 VCirtual Pre Max																		TYPE:Goods.CODE347																																ABILITY:FEAT|VIRTUAL|Weapon Focus(Longsword)|PRELEVEL:MAX=4
+Item Test 42 Virtual																			TYPE:Goods.CODE347																																ABILITY:FEAT|VIRTUAL|Weapon Focus(Longsword)|PRELEVEL:MIN=4
 
-Item Test 42 Auto Pre	TYPE:Goods.CODE347		ABILITY:FEAT|AUTOMATIC|Weapon Focus(Longsword)|PRELEVEL:MIN=4
-Item Test 42 Auto	TYPE:Goods.CODE347		ABILITY:FEAT|AUTOMATIC|Weapon Focus(Longsword)
+Item Test 42 Auto Pre																			TYPE:Goods.CODE347																																ABILITY:FEAT|AUTOMATIC|Weapon Focus(Longsword)|PRELEVEL:MIN=4
+Item Test 42 Auto																				TYPE:Goods.CODE347																																ABILITY:FEAT|AUTOMATIC|Weapon Focus(Longsword)
 
 # Weapons
-Fine Wine Blade		PROFICIENCY:WEAPON|Fine Wine Blade			TYPE:Weapon.Melee.Sword	DAMAGE:d6	CRITMULT:x3	CRITRANGE:1	WIELD:Light
-Light Blades		PROFICIENCY:WEAPON|Light Blades			TYPE:Weapon.Melee.Sword	DAMAGE:d6	CRITMULT:x3	CRITRANGE:1	WIELD:Light
-Suns Weapon Of Choice	PROFICIENCY:WEAPON|Suns Weapon Of Choice		TYPE:Weapon.Melee.Sword	DAMAGE:d6	CRITMULT:x3	CRITRANGE:1	WIELD:OneHanded
-Uber Sword			PROFICIENCY:WEAPON|Uber Sword				TYPE:Weapon.Melee.Sword	DAMAGE:3d6	CRITMULT:x3	CRITRANGE:1	WIELD:TwoHanded
-Cool Sword			PROFICIENCY:WEAPON|Cool Sword				TYPE:Weapon.Melee.Sword	DAMAGE:3d6	CRITMULT:x3	CRITRANGE:1	WIELD:TwoHanded
-Longsword			PROFICIENCY:WEAPON|Longsword				TYPE:Weapon.Melee.Sword	DAMAGE:1d8	CRITMULT:x2	CRITRANGE:1	WIELD:OneHanded
+Fine Wine Blade			PROFICIENCY:WEAPON|Fine Wine Blade												TYPE:Weapon.Melee.Sword											CRITMULT:x3			CRITRANGE:1			DAMAGE:d6	WIELD:Light
+Light Blades			PROFICIENCY:WEAPON|Light Blades												TYPE:Weapon.Melee.Sword											CRITMULT:x3			CRITRANGE:1			DAMAGE:d6	WIELD:Light
+Suns Weapon Of Choice		PROFICIENCY:WEAPON|Suns Weapon Of Choice											TYPE:Weapon.Melee.Sword											CRITMULT:x3			CRITRANGE:1			DAMAGE:d6	WIELD:OneHanded
+Uber Sword				PROFICIENCY:WEAPON|Uber Sword													TYPE:Weapon.Melee.Sword											CRITMULT:x3			CRITRANGE:1			DAMAGE:3d6	WIELD:TwoHanded
+Cool Sword				PROFICIENCY:WEAPON|Cool Sword													TYPE:Weapon.Melee.Sword											CRITMULT:x3			CRITRANGE:1			DAMAGE:3d6	WIELD:TwoHanded
+Longsword				PROFICIENCY:WEAPON|Longsword													TYPE:Weapon.Melee.Sword											CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	WIELD:OneHanded
 
-50lb wt	TYPE:Goods	WT:50
+50lb wt																					TYPE:Goods									WT:50
 
 #Gear
 Longsword.COPY=Test Gear
-Test Gear.MOD	TYPE:Gear
+Test Gear.MOD																				TYPE:Gear
 
 
 
 # Armor Basic Test
-Medium Armor		PROFICIENCY:ARMOR|Medium				TYPE:Armor.Medium			BONUS:COMBAT|AC|2|TYPE=Armor
-Leather			PROFICIENCY:ARMOR|Leather				TYPE:Armor.Light.Leather	BONUS:COMBAT|AC|2|TYPE=Armor
-Moon Cloth			PROFICIENCY:ARMOR|Moon Cloth				TYPE:Armor.Light.Moon Cloth	BONUS:COMBAT|AC|2|TYPE=Armor
-Heavy Armor			PROFICIENCY:ARMOR|Heavy					TYPE:Armor.Heavy			BONUS:COMBAT|AC|2|TYPE=Armor
-Light Armor			PROFICIENCY:ARMOR|Light					TYPE:Armor.Light			BONUS:COMBAT|AC|2|TYPE=Armor
+Medium Armor										PROFICIENCY:ARMOR|Medium						TYPE:Armor.Medium																																															BONUS:COMBAT|AC|2|TYPE=Armor
+Leather											PROFICIENCY:ARMOR|Leather						TYPE:Armor.Light.Leather																																													BONUS:COMBAT|AC|2|TYPE=Armor
+Moon Cloth											PROFICIENCY:ARMOR|Moon Cloth						TYPE:Armor.Light.Moon Cloth																																													BONUS:COMBAT|AC|2|TYPE=Armor
+Heavy Armor											PROFICIENCY:ARMOR|Heavy							TYPE:Armor.Heavy																																															BONUS:COMBAT|AC|2|TYPE=Armor
+Light Armor											PROFICIENCY:ARMOR|Light							TYPE:Armor.Light																																															BONUS:COMBAT|AC|2|TYPE=Armor
 
 # Shield Basic Test
-Light Shield		PROFICIENCY:SHIELD|Light				TYPE:Shield.Light			BONUS:COMBAT|AC|2|TYPE=Shield
-Buckler Shield		PROFICIENCY:SHIELD|Light				TYPE:Shield.Light			BONUS:COMBAT|AC|2|TYPE=Shield
-Heavy Shield		PROFICIENCY:SHIELD|Heavy				TYPE:Shield.Heavy			BONUS:COMBAT|AC|2|TYPE=Shield
+Light Shield															PROFICIENCY:SHIELD|Light	TYPE:Shield.Light																																															BONUS:COMBAT|AC|2|TYPE=Shield
+Buckler Shield															PROFICIENCY:SHIELD|Light	TYPE:Shield.Light																																															BONUS:COMBAT|AC|2|TYPE=Shield
+Heavy Shield															PROFICIENCY:SHIELD|Heavy	TYPE:Shield.Heavy																																															BONUS:COMBAT|AC|2|TYPE=Shield
 
-Test Equip Feat		TYPE:FeatTestEquip.Any.Misc		ADD:FEAT|Add Feat Equip
+Test Equip Feat																				TYPE:FeatTestEquip.Any.Misc																											ADD:FEAT|Add Feat Equip

@@ -58,6 +58,8 @@ KIT:rrpg_kits_races_animals_pfrpg.lst
 KIT:rrpg_kits_races_pfrpg.lst
 RACE:rrpg_races_animals_pfrpg.lst
 
+
+
 # Hide internally used feat types
 HIDETYPE:FEAT|CityBorn|Varisia|VarisianTattoo
 

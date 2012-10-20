@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Feb 18 10:52:57 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-SOURCELONG:Blood and Guts - Soldiers	SOURCESHORT:BnG-S	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=49
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Guts - Soldiers	SOURCESHORT:BnG-S	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=49	SOURCEDATE:2004-01
 
 # Feat Name					Type			Required Feat					Multiple Requirements												Required Skill				Total Skill Points Req.				Required Text								Description																																																																				Bonus to Ability Pool																Modify VAR			Source Page
 Basic Training				TYPE:General	PREFEAT:1,Personal Firearms Proficiency																													PRETEXT:Active or Reserve Duty (one branch of service)	DESC:You have decided to be all you can be a little later in life than most.																																																									BONUS:ABILITYPOOL|Basic Training Skills|2													BONUS:VAR|WealthBonus|1	SOURCEPAGE:p.5

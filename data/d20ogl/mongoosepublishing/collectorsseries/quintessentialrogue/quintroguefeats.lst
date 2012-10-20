@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Aug  6 16:05:32 2008 -- reformated by prettylst.pl v1.38 (build 7233)
-SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-01
 
 # Feat Name			Type			Required Ability								Required AL				Req. Att.	Required Class		Required Feat			Required Lvl	Required Non-Monster Lvl	Required Skill			Required Stat	Prohibited Stat	Description																							Stackable?	Multiple?	Choose									Bonus to skill							Source Page
 Agonising Strike		TYPE:Rogue																			PRECLASS:1,Rogue=1	PREFEAT:1,Painful Strike																				DESC:Your knowledge of anatomy allows you to target extremely sensitive points of your opponent's body.																														SOURCEPAGE:p.46

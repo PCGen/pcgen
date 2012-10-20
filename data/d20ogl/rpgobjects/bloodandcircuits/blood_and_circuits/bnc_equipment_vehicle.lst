@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Blood and Circuits	SOURCESHORT:BNC	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=51
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Circuits	SOURCESHORT:BNC	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=51	SOURCEDATE:2004-01
 
 # Equipment Name	Type							Cost		Define																														Modifier		Size		Source Page		Modify VAR
 Combat Van		TYPE:Goods.Transportation.Truck		COST:32	DEFINE:vcrew|0	DEFINE:vpass|0	DEFINE:vcargo|0	DEFINE:vinit|0	DEFINE:vmaneuver|0	DEFINE:vt_speed|0	DEFINE:vdefense|0	DEFINE:vhard|0	DEFINE:vhpee|0	DEFINE:vsize|0	EQMOD:AAVEHICLE	SIZE:H	SOURCEPAGE:p.53	BONUS:VAR|vcrew|1	BONUS:VAR|vpass|1	BONUS:VAR|vcargo|1775	BONUS:VAR|vinit|-4	BONUS:VAR|vmaneuver|-4	BONUS:VAR|vt_speed|210	BONUS:VAR|vdefense|8	BONUS:VAR|vhard|9	BONUS:VAR|vhpee|46	BONUS:VAR|vsize|6

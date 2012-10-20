@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Wed Sep 23 23:42:21 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
 ###Block: Specific Armor
 
-# Equipment Name		Required Armor Proficiency	Type								Cost		Weight	AC Penalty Check	Modifier				Maximum DEX Bonus	Source Page					% of Spell Failure	Ability								Innate Spells						Combat bonus					Bonus to skill					Stat bonus		Modify VAR								Bonus Armor Modifiers						Special Property
+# Equipment Name		Required Armor Proficiency	Type								Cost		Weight	AC Penalty Check	Modifier				Maximum DEX Bonus	Source Page					% of Spell Failure	Ability								Innate Spells						Combat bonus			Bonus to skill					Stat bonus		Modify VAR								Bonus Armor Modifiers						Special Property
 Adamantine Breastplate	PROFICIENCY:ARMOR|Breastplate	TYPE:Armor.Medium.Suit.Specific			COST:350	WT:30		ACCHECK:-4		EQMOD:ADAMANT_ARMR_MED		MAXDEX:3		SOURCEPAGE:srdmagicitemsarmor.rtf	SPELLFAILURE:25																			BONUS:COMBAT|AC|5|TYPE=Armor
 Banded Mail of Luck	PROFICIENCY:ARMOR|Banded Mail	TYPE:Enhancement.Armor.Heavy.Suit.Specific	COST:9750	WT:35		ACCHECK:-6		EQMOD:MWORKA.PLUS3A.STEEL	MAXDEX:1		SOURCEPAGE:srdmagicitemsarmor.rtf	SPELLFAILURE:35																			BONUS:COMBAT|AC|6|TYPE=Armor																													SPROP:Allows the wearer to reroll one attack against him 1/week
 Breastplate of Command	PROFICIENCY:ARMOR|Breastplate	TYPE:Enhancement.Armor.Medium.Suit.Specific	COST:17450	WT:30		ACCHECK:-4		EQMOD:MWORKA.PLUS2A.STEEL	MAXDEX:3		SOURCEPAGE:srdmagicitemsarmor.rtf	SPELLFAILURE:25																			BONUS:COMBAT|AC|5|TYPE=Armor	BONUS:SKILL|Leadership|2|TYPE=Competence	BONUS:STAT|CHA|2
@@ -17,7 +17,7 @@ Rhino Hide			PROFICIENCY:ARMOR|Hide		TYPE:Armor.Medium.Suit.Specific.Nonmetal		C
 
 ###Block: Specific Shields
 
-# Equipment Name		Required Shield Proficiency		Type									Contains			Cost		Weight	AC Penalty Check	Modifier				Source Page					% of Spell Failure	Innate Spells						Combat bonus					Special Property
+# Equipment Name		Required Shield Proficiency		Type									Contains			Cost		Weight	AC Penalty Check	Modifier				Source Page					% of Spell Failure	Innate Spells						Combat bonus				Special Property
 Absorbing Shield		PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Enhancement.Shield.Specific.Specific							COST:49020	WT:15		ACCHECK:-2		EQMOD:MWORKA.PLUS1S.STEEL	SOURCEPAGE:srdmagicitemsarmor.rtf	SPELLFAILURE:15										BONUS:COMBAT|AC|2|TYPE=ArmorShield	SPROP:Allows the wearer to disintegrate an object on command as a touch attack once every 2 days
 Adamantine Shield		PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Heavy.Specific									COST:170	WT:15		ACCHECK:-2		EQMOD:ADAMANT_SHLD.STEEL	SOURCEPAGE:SRDEquipment.rtf		SPELLFAILURE:15										BONUS:COMBAT|AC|2|TYPE=ArmorShield
 Caster's Shield		PROFICIENCY:SHIELD|Shield (Light)	TYPE:Enhancement.Shield.Small.Specific.Nonmetal						COST:2003	WT:6		ACCHECK:-1		EQMOD:MWORKA.PLUS1S.WOOD	SOURCEPAGE:srdmagicitemsarmor.rtf													BONUS:COMBAT|AC|1|TYPE=ArmorShield	SPROP:It has a reusable back strip that allows the wearer to scribe a single spell as a scroll

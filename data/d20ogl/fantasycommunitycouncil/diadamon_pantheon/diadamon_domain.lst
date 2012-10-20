@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Nov 12 16:36:35 2008 -- reformated by prettylst.pl v1.38 (build 8180)
-SOURCELONG:Diadamon Pantheon	SOURCESHORT:DP	SOURCEWEB:http://www.dcrouzet.net/nbomisc/
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Diadamon Pantheon	SOURCESHORT:DP	SOURCEWEB:http://www.dcrouzet.net/nbomisc/	SOURCEDATE:2002-01
 
 # Domain Name	Caster level							Source Page		Description																																																																										List of Domain Spells by Level
 Decay												SOURCEPAGE:p.100	DESC:You can use a withering touch once per day. Your withering touch is a spell-like ability that will cause any non-living organic matter to rapidly decay into dirt. The materials effected include food, most drinks, wood, leather, bone, and fat. Up to 1 cu. ft. can be effected in this manner per level per day. Undead are not effected by this power, however, although it may be possible to ruin their leather armor with a successful touch attack.	SPELLLEVEL:DOMAIN|Decay=1|Ray of Enfeeblement|Decay=2|Warp Wood|Decay=3|Hasten Rot|Decay=4|Pyosis|Decay=5|Insect Plague|Decay=6|Harm|Decay=7|Disintegrate|Decay=8|Creeping Doom|Decay=9|Shambler

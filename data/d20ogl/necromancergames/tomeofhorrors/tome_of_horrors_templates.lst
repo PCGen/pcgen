@@ -1,36 +1,36 @@
-# CVS $Revision$ $Author$ -- Tue Jan  6 12:21:53 2009 -- reformated by prettylst.pl v1.38 (build 8180)
-SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/	SOURCEDATE:2002-01
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-# Template Name				Size		Visible	Template																			Special ABility														Required Race				Required Size	Required Stat	Required Template								Prohibited Template							Add to base move			Multiply base move		Adjust PC Size		Bonus to skill							Stat bonus		Modify VAR																								Ability							Feat																												Remove Object					Automatic Languages	Move			Removable?		Vision				Innate Spells																																																Natural Attacks
-Daemon Common Traits					VISIBLE:NO																																					PRERACE:1,Daemon%																																																								BONUS:VAR|ResistCold,ResistElectricity,ResistFire|10																									ABILITY:FEAT|AUTOMATIC|Immune to Acid|Immune to Poison|Resistance to Cold|Resistance to Electricity|Resistance to Fire|Summon Daemons|Telepathy																									VISION:Darkvision (60')
-Demodand Common Traits					VISIBLE:NO																																					PRERACE:1,Demodand%																																																							BONUS:VAR|ResistCold,ResistFire|10																												ABILITY:FEAT|AUTOMATIC|Immune to Acid|Immune to Mind-Affecting Effects|Immune to Poison|Resistance to Cold|Resistance to Fire|Scent|Summon Demodands																								VISION:Darkvision (120')	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=var("RacialCL")|Detect Good|Detect Magic|Detect Thoughts,12+CHA|Fear,14+CHA|Gaseous Form|Invisibility (Self Only)|Magic Circle against Good|See Invisibility|Tongues	SPELLS:Innate|TIMES=3|CASTERLEVEL=var("RacialCL")|Dispel Magic|Fog Cloud|Ray of Enfeeblement
-Demon Common Traits					VISIBLE:NO																																					PRERACE:1,Demon%																																																								BONUS:VAR|ResistAcid,ResistCold,ResistFire|10																										ABILITY:FEAT|AUTOMATIC|Immune to Electricity|Immune to Poison|Resistance to Acid|Resistance to Cold|Resistance to Fire|Telepathy																											VISION:Darkvision (60')
-Devil Common Traits					VISIBLE:NO																																					PRERACE:1,Devil%																																																								BONUS:VAR|ResistAcid,ResistCold|10																												ABILITY:FEAT|AUTOMATIC|Immune to Fire|Immune to Poison|Resistance to Acid|Resistance to Cold|Telepathy																															VISION:Darkvision (60')
-Devil Greater Traits					VISIBLE:NO																																					PRERACE:1,Devil%																																																																																									ABILITY:FEAT|AUTOMATIC|See in Darkness|Spell-Like Abilities|Summon Devils																																									SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=var("RacialCL")|Detect Good|Teleport (Greater/Self Only)|Wall of Fire
-Devil Royalty						VISIBLE:NO																																					PRERACE:1,Devil%																																																																																																																																											SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=var("RacialCL")|Blasphemy,17+CHA|Desecrate|Detect Magic|Invisibility (Greater)|Magic Circle against Good|See Invisibility|Tongues|Unholy Aura,18+CHA
+# Template Name				Size		Visible	Template																			Special ABility														Required Race				Required Size	Required Stat	Required Template								Prohibited Template							Add to base move			Multiply base move		Adjust PC Size		Bonus to skill							Stat bonus		Modify VAR																								Ability																														Automatically Gained Language	Remove Object					Move			Removable?		Vision				Innate Spells																																																Natural Attacks
+Daemon Common Traits					VISIBLE:NO																																					PRERACE:1,Daemon%																																																								BONUS:VAR|ResistCold,ResistElectricity,ResistFire|10																	ABILITY:FEAT|AUTOMATIC|Immune to Acid|Immune to Poison|Resistance to Cold|Resistance to Electricity|Resistance to Fire|Summon Daemons|Telepathy																										VISION:Darkvision (60')
+Demodand Common Traits					VISIBLE:NO																																					PRERACE:1,Demodand%																																																							BONUS:VAR|ResistCold,ResistFire|10																				ABILITY:FEAT|AUTOMATIC|Immune to Acid|Immune to Mind-Affecting Effects|Immune to Poison|Resistance to Cold|Resistance to Fire|Scent|Summon Demodands																									VISION:Darkvision (120')	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=var("RacialCL")|Detect Good|Detect Magic|Detect Thoughts,12+CHA|Fear,14+CHA|Gaseous Form|Invisibility (Self Only)|Magic Circle against Good|See Invisibility|Tongues	SPELLS:Innate|TIMES=3|CASTERLEVEL=var("RacialCL")|Dispel Magic|Fog Cloud|Ray of Enfeeblement
+Demon Common Traits					VISIBLE:NO																																					PRERACE:1,Demon%																																																								BONUS:VAR|ResistAcid,ResistCold,ResistFire|10																		ABILITY:FEAT|AUTOMATIC|Immune to Electricity|Immune to Poison|Resistance to Acid|Resistance to Cold|Resistance to Fire|Telepathy																												VISION:Darkvision (60')
+Devil Common Traits					VISIBLE:NO																																					PRERACE:1,Devil%																																																								BONUS:VAR|ResistAcid,ResistCold|10																				ABILITY:FEAT|AUTOMATIC|Immune to Fire|Immune to Poison|Resistance to Acid|Resistance to Cold|Telepathy																																VISION:Darkvision (60')
+Devil Greater Traits					VISIBLE:NO																																					PRERACE:1,Devil%																																																																																	ABILITY:FEAT|AUTOMATIC|See in Darkness|Spell-Like Abilities|Summon Devils																																										SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=var("RacialCL")|Detect Good|Teleport (Greater/Self Only)|Wall of Fire
+Devil Royalty						VISIBLE:NO																																					PRERACE:1,Devil%																																																																																																																																							SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=var("RacialCL")|Blasphemy,17+CHA|Desecrate|Detect Magic|Invisibility (Greater)|Magic Circle against Good|See Invisibility|Tongues|Unholy Aura,18+CHA
 
-Demon of Corruption					VISIBLE:NO																																					PRERACE:1,Demon of Corruption%																																									BONUS:SKILL|Listen,Spot|4|TYPE=Racial						BONUS:VAR|ResistAcid,ResistCold,ResistFire|10	BONUS:VAR|SummonDemonsTimes|1	BONUS:VAR|SummonDemonsPercent|35	BONUS:VAR|WhisperOfMadnessDC|CHA									ABILITY:FEAT|AUTOMATIC|Immune to Electricity|Immune to Poison|Resistance to Acid|Resistance to Cold|Resistance to Fire|Spell-Like Abilities|Summon Demons|Telepathy|Whisper of Madness																		VISION:Darkvision (60')		SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=var("RacialCL")|Cause Fear,11+CHA|Detect Good|Invisibility (Self Only)
+Demon of Corruption					VISIBLE:NO																																					PRERACE:1,Demon of Corruption%																																									BONUS:SKILL|Listen,Spot|4|TYPE=Racial						BONUS:VAR|ResistAcid,ResistCold,ResistFire|10	BONUS:VAR|SummonDemonsTimes|1	BONUS:VAR|SummonDemonsPercent|35	BONUS:VAR|WhisperOfMadnessDC|CHA	ABILITY:FEAT|AUTOMATIC|Immune to Electricity|Immune to Poison|Resistance to Acid|Resistance to Cold|Resistance to Fire|Spell-Like Abilities|Summon Demons|Telepathy|Whisper of Madness																			VISION:Darkvision (60')		SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=var("RacialCL")|Cause Fear,11+CHA|Detect Good|Invisibility (Self Only)
 
-Nabasu Traits						VISIBLE:NO																																					PRERACE:1,Demon (Nabasu%																																										BONUS:SKILL|Listen,Spot|8|TYPE=Racial						BONUS:VAR|DeathGazeTimes|HD-6	BONUS:VAR|DeathGazeRange|20	BONUS:VAR|DeathGazeDC|CHA	BONUS:VAR|SneakAttack|2							ABILITY:Special Ability|AUTOMATIC|Sneak Attack	ABILITY:FEAT|AUTOMATIC|Gaze (Death)|Plane Shift|Spell-Like Abilities																											AUTO:LANG|Abyssal|Common												SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=var("RacialCL")|Cause Shadows|Deeper Darkness (10-ft. Radius)
+Nabasu Traits						VISIBLE:NO																																					PRERACE:1,Demon (Nabasu%																																										BONUS:SKILL|Listen,Spot|8|TYPE=Racial						BONUS:VAR|DeathGazeTimes|HD-6	BONUS:VAR|DeathGazeRange|20	BONUS:VAR|DeathGazeDC|CHA	BONUS:VAR|SneakAttack|2							ABILITY:Special Ability|AUTOMATIC|Sneak Attack	ABILITY:FEAT|AUTOMATIC|Gaze (Death)|Plane Shift|Spell-Like Abilities												AUTO:LANG|Abyssal|Common																			SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=var("RacialCL")|Cause Shadows|Deeper Darkness (10-ft. Radius)
 
-Eblis (Ghost Sound)					VISIBLE:NO																																					PRERACE:1,Eblis																																																								BONUS:VAR|RacialCL|4|TYPE=NoStack																												ABILITY:FEAT|AUTOMATIC|Spell-Like Abilities																																														SPELLS:Innate|TIMES=1|CASTERLEVEL=var("RacialCL")|Ghost Sound,10+CHA
-Eblis (Disguise Self)					VISIBLE:NO																																					PRERACE:1,Eblis																																																								BONUS:VAR|RacialCL|4|TYPE=NoStack																												ABILITY:FEAT|AUTOMATIC|Spell-Like Abilities																																														SPELLS:Innate|TIMES=1|CASTERLEVEL=var("RacialCL")|Disguise Self,11+CHA
-Eblis (Hypnotism)						VISIBLE:NO																																					PRERACE:1,Eblis																																																								BONUS:VAR|RacialCL|4|TYPE=NoStack																												ABILITY:FEAT|AUTOMATIC|Spell-Like Abilities																																														SPELLS:Innate|TIMES=1|CASTERLEVEL=var("RacialCL")|Hypnotism,11+CHA
-Eblis (Scare)						VISIBLE:NO																																					PRERACE:1,Eblis																																																								BONUS:VAR|RacialCL|4|TYPE=NoStack																												ABILITY:FEAT|AUTOMATIC|Spell-Like Abilities																																														SPELLS:Innate|TIMES=1|CASTERLEVEL=var("RacialCL")|Scare,12+CHA
-Eblis (Fog Cloud)						VISIBLE:NO																																					PRERACE:1,Eblis																																																								BONUS:VAR|RacialCL|4|TYPE=NoStack																												ABILITY:FEAT|AUTOMATIC|Spell-Like Abilities																																														SPELLS:Innate|TIMES=1|CASTERLEVEL=var("RacialCL")|Fog Cloud,12+CHA
-Eblis (Blur)						VISIBLE:NO																																					PRERACE:1,Eblis																																																								BONUS:VAR|RacialCL|4|TYPE=NoStack																												ABILITY:FEAT|AUTOMATIC|Spell-Like Abilities																																														SPELLS:Innate|TIMES=1|CASTERLEVEL=var("RacialCL")|Blur,12+CHA
-Eblis (Hypnotic Pattern)				VISIBLE:NO																																					PRERACE:1,Eblis																																																								BONUS:VAR|RacialCL|4|TYPE=NoStack																												ABILITY:FEAT|AUTOMATIC|Spell-Like Abilities																																														SPELLS:Innate|TIMES=1|CASTERLEVEL=var("RacialCL")|Hypnotic Pattern,12+CHA
-Eblis (Whispering Wind)					VISIBLE:NO																																					PRERACE:1,Eblis																																																								BONUS:VAR|RacialCL|4|TYPE=NoStack																												ABILITY:FEAT|AUTOMATIC|Spell-Like Abilities																																														SPELLS:Innate|TIMES=1|CASTERLEVEL=var("RacialCL")|Whispering Wind,12+CHA
+Eblis (Ghost Sound)					VISIBLE:NO																																					PRERACE:1,Eblis																																																								BONUS:VAR|RacialCL|4|TYPE=NoStack																				ABILITY:FEAT|AUTOMATIC|Spell-Like Abilities																																															SPELLS:Innate|TIMES=1|CASTERLEVEL=var("RacialCL")|Ghost Sound,10+CHA
+Eblis (Disguise Self)					VISIBLE:NO																																					PRERACE:1,Eblis																																																								BONUS:VAR|RacialCL|4|TYPE=NoStack																				ABILITY:FEAT|AUTOMATIC|Spell-Like Abilities																																															SPELLS:Innate|TIMES=1|CASTERLEVEL=var("RacialCL")|Disguise Self,11+CHA
+Eblis (Hypnotism)						VISIBLE:NO																																					PRERACE:1,Eblis																																																								BONUS:VAR|RacialCL|4|TYPE=NoStack																				ABILITY:FEAT|AUTOMATIC|Spell-Like Abilities																																															SPELLS:Innate|TIMES=1|CASTERLEVEL=var("RacialCL")|Hypnotism,11+CHA
+Eblis (Scare)						VISIBLE:NO																																					PRERACE:1,Eblis																																																								BONUS:VAR|RacialCL|4|TYPE=NoStack																				ABILITY:FEAT|AUTOMATIC|Spell-Like Abilities																																															SPELLS:Innate|TIMES=1|CASTERLEVEL=var("RacialCL")|Scare,12+CHA
+Eblis (Fog Cloud)						VISIBLE:NO																																					PRERACE:1,Eblis																																																								BONUS:VAR|RacialCL|4|TYPE=NoStack																				ABILITY:FEAT|AUTOMATIC|Spell-Like Abilities																																															SPELLS:Innate|TIMES=1|CASTERLEVEL=var("RacialCL")|Fog Cloud,12+CHA
+Eblis (Blur)						VISIBLE:NO																																					PRERACE:1,Eblis																																																								BONUS:VAR|RacialCL|4|TYPE=NoStack																				ABILITY:FEAT|AUTOMATIC|Spell-Like Abilities																																															SPELLS:Innate|TIMES=1|CASTERLEVEL=var("RacialCL")|Blur,12+CHA
+Eblis (Hypnotic Pattern)				VISIBLE:NO																																					PRERACE:1,Eblis																																																								BONUS:VAR|RacialCL|4|TYPE=NoStack																				ABILITY:FEAT|AUTOMATIC|Spell-Like Abilities																																															SPELLS:Innate|TIMES=1|CASTERLEVEL=var("RacialCL")|Hypnotic Pattern,12+CHA
+Eblis (Whispering Wind)					VISIBLE:NO																																					PRERACE:1,Eblis																																																								BONUS:VAR|RacialCL|4|TYPE=NoStack																				ABILITY:FEAT|AUTOMATIC|Spell-Like Abilities																																															SPELLS:Innate|TIMES=1|CASTERLEVEL=var("RacialCL")|Whispering Wind,12+CHA
 
 ### Dragon Attacks
-Dragon Attacks (Tiny)					VISIBLE:NO																																					PRERACE:1,Dragon%				PRESIZEEQ:T																																																																																																																																																																																								NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
-Dragon Attacks (Small)					VISIBLE:NO																																					PRERACE:1,Dragon%				PRESIZEEQ:S																																																																																																																																																																																								NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
-Dragon Attacks (Medium)					VISIBLE:NO																																					PRERACE:1,Dragon%				PRESIZEEQ:M																																																																																																																																																																																								NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6|Wing,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d4
-Dragon Attacks (Large)					VISIBLE:NO																																					PRERACE:1,Dragon%				PRESIZEEQ:L																																																																																																																																																																																								NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8|Wing,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d6|Tail Slap,Weapon.Natural.Melee.Bludgeoning,*1,1d8
-Dragon Attacks (Huge)					VISIBLE:NO																																					PRERACE:1,Dragon%				PRESIZEEQ:H																																																																																																																																																																																								NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d8|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6|Wing,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d8|Tail Slap,Weapon.Natural.Melee.Bludgeoning,*1,2d6|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
-Dragon Attacks (Gargantuan)				VISIBLE:NO																																					PRERACE:1,Dragon%				PRESIZEEQ:G																																																																																																																																																																																								NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d8|Wing,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d6|Tail Slap,Weapon.Natural.Melee.Bludgeoning,*1,2d8|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d6
-Dragon Attacks (Colossal)				VISIBLE:NO																																					PRERACE:1,Dragon%				PRESIZEEQ:C																																																																																																																																																																																								NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d8|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,4d6|Wing,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d8|Tail Slap,Weapon.Natural.Melee.Bludgeoning,*1,4d6|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d8|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
+Dragon Attacks (Tiny)					VISIBLE:NO																																					PRERACE:1,Dragon%				PRESIZEEQ:T																																																																																																																																																																																				NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
+Dragon Attacks (Small)					VISIBLE:NO																																					PRERACE:1,Dragon%				PRESIZEEQ:S																																																																																																																																																																																				NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
+Dragon Attacks (Medium)					VISIBLE:NO																																					PRERACE:1,Dragon%				PRESIZEEQ:M																																																																																																																																																																																				NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6|Wing,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d4
+Dragon Attacks (Large)					VISIBLE:NO																																					PRERACE:1,Dragon%				PRESIZEEQ:L																																																																																																																																																																																				NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8|Wing,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d6|Tail Slap,Weapon.Natural.Melee.Bludgeoning,*1,1d8
+Dragon Attacks (Huge)					VISIBLE:NO																																					PRERACE:1,Dragon%				PRESIZEEQ:H																																																																																																																																																																																				NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d8|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6|Wing,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d8|Tail Slap,Weapon.Natural.Melee.Bludgeoning,*1,2d6|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
+Dragon Attacks (Gargantuan)				VISIBLE:NO																																					PRERACE:1,Dragon%				PRESIZEEQ:G																																																																																																																																																																																				NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d8|Wing,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d6|Tail Slap,Weapon.Natural.Melee.Bludgeoning,*1,2d8|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d6
+Dragon Attacks (Colossal)				VISIBLE:NO																																					PRERACE:1,Dragon%				PRESIZEEQ:C																																																																																																																																																																																				NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d8|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,4d6|Wing,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d8|Tail Slap,Weapon.Natural.Melee.Bludgeoning,*1,4d6|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d8|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
 
 ### Mongrelman Templates
 Gnoll Head (Left)						VISIBLE:NO	TEMPLATE:Gnoll Eye	TEMPLATE:Gnoll Ear													SAB:Gnoll Left Side of Head												PRERACE:1,Mongrelman
@@ -51,7 +51,7 @@ Gnoll Hand (Left)						VISIBLE:NO																					SAB:Gnoll Hand												
 Gnoll Hand (Right)					VISIBLE:NO																					SAB:Gnoll Hand														PRERACE:1,Mongrelman
 Gnoll Jaw/Mouth						VISIBLE:NO																					SAB:Gnoll Jaw/Mouth													PRERACE:1,Mongrelman
 
-Gnoll Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Spot|3|TYPE=Racial																																																																																					VISION:Darkvision (60')
+Gnoll Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Spot|3|TYPE=Racial																																																																																	VISION:Darkvision (60')
 Gnoll Ear							VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Listen|3|TYPE=Racial
 Gnoll Arm							VISIBLE:NO																					SAB:+4 on Str checks using arm											PRERACE:1,Mongrelman
 
@@ -73,7 +73,7 @@ Goblin Hand (Left)					VISIBLE:NO																					SAB:Goblin Hand											
 Goblin Hand (Right)					VISIBLE:NO																					SAB:Goblin Hand														PRERACE:1,Mongrelman
 Goblin Jaw/Mouth						VISIBLE:NO																					SAB:Goblin Jaw/Mouth													PRERACE:1,Mongrelman
 
-Goblin Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Spot|3|TYPE=Racial																																																																																					VISION:Darkvision (60')
+Goblin Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Spot|3|TYPE=Racial																																																																																	VISION:Darkvision (60')
 Goblin Ear							VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Listen|3|TYPE=Racial
 Goblin Arm							VISIBLE:NO																					SAB:-2 on Str checks using arm											PRERACE:1,Mongrelman
 
@@ -95,7 +95,7 @@ Hobgoblin Hand (Left)					VISIBLE:NO																					SAB:Hobgoblin Hand					
 Hobgoblin Hand (Right)					VISIBLE:NO																					SAB:Hobgoblin Hand													PRERACE:1,Mongrelman
 Hobgoblin Jaw/Mouth					VISIBLE:NO																					SAB:Hobgoblin Jaw/Mouth													PRERACE:1,Mongrelman
 
-Hobgoblin Eye						VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Spot|3|TYPE=Racial																																																																																					VISION:Darkvision (60')
+Hobgoblin Eye						VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Spot|3|TYPE=Racial																																																																																	VISION:Darkvision (60')
 Hobgoblin Ear						VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Listen|3|TYPE=Racial
 
 Human Head (Left)						VISIBLE:NO																					SAB:Human Left Side of Head												PRERACE:1,Mongrelman
@@ -134,7 +134,7 @@ Kobold Hand (Left)					VISIBLE:NO																					SAB:Kobold Hand											
 Kobold Hand (Right)					VISIBLE:NO																					SAB:Kobold Hand														PRERACE:1,Mongrelman
 Kobold Jaw/Mouth						VISIBLE:NO																					SAB:Kobold Jaw/Mouth													PRERACE:1,Mongrelman
 
-Kobold Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Spot|2|TYPE=Racial																																								ABILITY:FEAT|AUTOMATIC|Light Sensitivity																																										VISION:Darkvision (60')
+Kobold Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Spot|2|TYPE=Racial																																ABILITY:FEAT|AUTOMATIC|Light Sensitivity																																											VISION:Darkvision (60')
 Kobold Ear							VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Listen|2|TYPE=Racial
 Kobold Arm							VISIBLE:NO																					SAB:-4 on Str checks using arm											PRERACE:1,Mongrelman
 
@@ -156,11 +156,11 @@ Merfolk Hand (Left)					VISIBLE:NO																					SAB:Merfolk Hand									
 Merfolk Hand (Right)					VISIBLE:NO																					SAB:Merfolk Hand														PRERACE:1,Mongrelman
 Merfolk Jaw/Mouth						VISIBLE:NO	TEMPLATE:Merfolk Head																	SAB:Merfolk Jaw/Mouth													PRERACE:1,Mongrelman
 
-Merfolk Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Spot|4|TYPE=Racial																																																																																					VISION:Darkvision (60')
+Merfolk Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Spot|4|TYPE=Racial																																																																																	VISION:Darkvision (60')
 Merfolk Ear							VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Listen|4|TYPE=Racial
 Merfolk Head						VISIBLE:NO																					SAB:Amphibious|PRETEMPLATE:1,Merfolk Head (Left),Merfolk Head (Right),Merfolk Jaw/Mouth		PRERACE:1,Mongrelman
 Merfolk Leg							VISIBLE:NO																																					PRERACE:1,Mongrelman																																		BONUS:MOVEMULT|TYPE.Walk|.5
-Merfolk Torso (Lower)					VISIBLE:NO																																					PRERACE:1,Mongrelman																													BONUS:MOVEADD|TYPE.Walk|-25																																																																																														MOVE:Swim,50
+Merfolk Torso (Lower)					VISIBLE:NO																																					PRERACE:1,Mongrelman																													BONUS:MOVEADD|TYPE.Walk|-25																																																																																										MOVE:Swim,50
 
 Locathah Head (Left)					VISIBLE:NO	TEMPLATE:Locathah Eye	TEMPLATE:Locathah Ear	TEMPLATE:Locathah Head									SAB:Locathah Left Side of Head											PRERACE:1,Mongrelman
 Locathah Head (Right)					VISIBLE:NO	TEMPLATE:Locathah Eye	TEMPLATE:Locathah Ear	TEMPLATE:Locathah Head									SAB:Locathah Right Side of Head											PRERACE:1,Mongrelman
@@ -180,7 +180,7 @@ Locathah Hand (Left)					VISIBLE:NO																					SAB:Locathah Hand							
 Locathah Hand (Right)					VISIBLE:NO																					SAB:Locathah Hand														PRERACE:1,Mongrelman
 Locathah Jaw/Mouth					VISIBLE:NO	TEMPLATE:Locathah Head																	SAB:Locathah Jaw/Mouth													PRERACE:1,Mongrelman
 
-Locathah Eye						VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Spot|3|TYPE=Racial																																																																																					VISION:Darkvision (60')
+Locathah Eye						VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Spot|3|TYPE=Racial																																																																																	VISION:Darkvision (60')
 Locathah Ear						VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Listen|3|TYPE=Racial
 Locathah Head						VISIBLE:NO																					SAB:Amphibious|PRETEMPLATE:1,Locathah Head (Left),Locathah Head (Right),Locathah Jaw/Mouth	PRERACE:1,Mongrelman
 
@@ -202,7 +202,7 @@ Sahuagin Hand (Left)					VISIBLE:NO																					SAB:Sahuagin Hand							
 Sahuagin Hand (Right)					VISIBLE:NO																					SAB:Sahuagin Hand														PRERACE:1,Mongrelman
 Sahuagin Jaw/Mouth					VISIBLE:NO	TEMPLATE:Sahuagin Head																	SAB:Sahuagin Jaw/Mouth													PRERACE:1,Mongrelman
 
-Sahuagin Eye						VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Spot|3|TYPE=Racial																																								ABILITY:FEAT|AUTOMATIC|Light Blindness																																										VISION:Darkvision (60')
+Sahuagin Eye						VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Spot|3|TYPE=Racial																																ABILITY:FEAT|AUTOMATIC|Light Blindness																																											VISION:Darkvision (60')
 Sahuagin Ear						VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Listen|3|TYPE=Racial
 Sahuagin Arm						VISIBLE:NO																					SAB:+2 on Str checks using arm											PRERACE:1,Mongrelman
 Sahuagin Head						VISIBLE:NO																					SAB:Amphibious|PRETEMPLATE:1,Sahuagin Head (Left),Sahuagin Head (Right),Sahuagin Jaw/Mouth	PRERACE:1,Mongrelman
@@ -225,7 +225,7 @@ Dwarf Hand (Left)						VISIBLE:NO																					SAB:Dwarf Hand												
 Dwarf Hand (Right)					VISIBLE:NO																					SAB:Dwarf Hand														PRERACE:1,Mongrelman
 Dwarf Jaw/Mouth						VISIBLE:NO	TEMPLATE:Dwarf Head																	SAB:Dwarf Jaw/Mouth													PRERACE:1,Mongrelman
 
-Dwarf Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																																																																																																																					VISION:Darkvision (60')
+Dwarf Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																																																																																																																	VISION:Darkvision (60')
 Dwarf Head							VISIBLE:NO																					SAB:Stonecunning|PRETEMPLATE:1,Dwarf Head (Left),Dwarf Head (Right),Dwarf Jaw/Mouth			PRERACE:1,Mongrelman
 Dwarf Torso (Upper)					VISIBLE:NO																					SAB:+2 saves vs. poison													PRERACE:1,Mongrelman
 
@@ -247,7 +247,7 @@ Elf Hand (Left)						VISIBLE:NO																					SAB:Elf Hand														PR
 Elf Hand (Right)						VISIBLE:NO																					SAB:Elf Hand														PRERACE:1,Mongrelman
 Elf Jaw/Mouth						VISIBLE:NO	TEMPLATE:Elf Head																		SAB:Elf Jaw/Mouth														PRERACE:1,Mongrelman
 
-Elf Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Search,Spot|2|TYPE=Racial																																																																																				VISION:Low-light
+Elf Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Search,Spot|2|TYPE=Racial																																																																																VISION:Low-light
 Elf Ear							VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Listen|2|TYPE=Racial
 Elf Head							VISIBLE:NO																					SAB:+2 saves vs. enchantments|PRETEMPLATE:1,Elf Head (Left),Elf Head (Right),Elf Jaw/Mouth	PRERACE:1,Mongrelman
 
@@ -269,7 +269,7 @@ Gnome Hand (Left)						VISIBLE:NO																					SAB:Gnome Hand												
 Gnome Hand (Right)					VISIBLE:NO																					SAB:Gnome Hand														PRERACE:1,Mongrelman
 Gnome Jaw/Mouth						VISIBLE:NO	TEMPLATE:Gnome Head																	SAB:Gnome Jaw/Mouth													PRERACE:1,Mongrelman
 
-Gnome Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																																																																																																																					VISION:Low-light
+Gnome Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																																																																																																																	VISION:Low-light
 Gnome Ear							VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Listen|2|TYPE=Racial
 Gnome Head							VISIBLE:NO																					SAB:+2 saves vs. illusions|PRETEMPLATE:1,Gnome Head (Left),Gnome Head (Right),Gnome Jaw/Mouth	PRERACE:1,Mongrelman
 
@@ -314,7 +314,7 @@ Orc Hand (Left)						VISIBLE:NO																					SAB:Orc Hand														PR
 Orc Hand (Right)						VISIBLE:NO																					SAB:Orc Hand														PRERACE:1,Mongrelman
 Orc Jaw/Mouth						VISIBLE:NO																					SAB:Orc Jaw/Mouth														PRERACE:1,Mongrelman
 
-Orc Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																																																																								ABILITY:FEAT|AUTOMATIC|Light Sensitivity																																										VISION:Darkvision (60')
+Orc Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																																																																ABILITY:FEAT|AUTOMATIC|Light Sensitivity																																											VISION:Darkvision (60')
 Orc Arm							VISIBLE:NO																					SAB:+4 on Str checks using arm											PRERACE:1,Mongrelman
 
 Ogre Head (Left)						VISIBLE:NO	TEMPLATE:Ogre Eye																		SAB:Ogre Left Side of Head												PRERACE:1,Mongrelman
@@ -335,7 +335,7 @@ Ogre Hand (Left)						VISIBLE:NO																					SAB:Ogre Hand														
 Ogre Hand (Right)						VISIBLE:NO																					SAB:Ogre Hand														PRERACE:1,Mongrelman
 Ogre Jaw/Mouth						VISIBLE:NO																					SAB:Ogre Jaw/Mouth													PRERACE:1,Mongrelman
 
-Ogre Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																																																																								ABILITY:FEAT|AUTOMATIC|Light Sensitivity																																										VISION:Darkvision (60')
+Ogre Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																																																																ABILITY:FEAT|AUTOMATIC|Light Sensitivity																																											VISION:Darkvision (60')
 Ogre Arm							VISIBLE:NO																					SAB:+10 on Str checks using arm											PRERACE:1,Mongrelman
 
 Troglodyte Head (Left)					VISIBLE:NO	TEMPLATE:Troglodyte Eye																	SAB:Troglodyte Left Side of Head											PRERACE:1,Mongrelman
@@ -356,8 +356,8 @@ Troglodyte Hand (Left)					VISIBLE:NO																					SAB:Troglodyte Hand			
 Troglodyte Hand (Right)					VISIBLE:NO																					SAB:Troglodyte Hand													PRERACE:1,Mongrelman
 Troglodyte Jaw/Mouth					VISIBLE:NO																					SAB:Troglodyte Jaw/Mouth												PRERACE:1,Mongrelman
 
-Troglodyte Eye						VISIBLE:NO																																					PRERACE:1,Mongrelman																																																																																																																																					VISION:Darkvision (90')
-Troglodyte Any Torso					VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Hide|4|TYPE=Racial							BONUS:VAR|StenchDC|CON																														ABILITY:FEAT|AUTOMATIC|Stench
+Troglodyte Eye						VISIBLE:NO																																					PRERACE:1,Mongrelman																																																																																																																																	VISION:Darkvision (90')
+Troglodyte Any Torso					VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Hide|4|TYPE=Racial							BONUS:VAR|StenchDC|CON																						ABILITY:FEAT|AUTOMATIC|Stench
 
 Crabman Head (Left)					VISIBLE:NO	TEMPLATE:Crabman Eye																	SAB:Crabman Left Side of Head												PRERACE:1,Mongrelman
 Crabman Head (Right)					VISIBLE:NO	TEMPLATE:Crabman Eye																	SAB:Crabman Right Side of Head											PRERACE:1,Mongrelman
@@ -377,9 +377,9 @@ Crabman Hand (Left)					VISIBLE:NO	TEMPLATE:Crabman Hand																	SAB:Cra
 Crabman Hand (Right)					VISIBLE:NO	TEMPLATE:Crabman Hand																	SAB:Crabman Hand														PRERACE:1,Mongrelman
 Crabman Jaw/Mouth						VISIBLE:NO																					SAB:Crabman Jaw/Mouth													PRERACE:1,Mongrelman
 
-Crabman Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																																																																																																																					VISION:Darkvision (60')
+Crabman Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																																																																																																																	VISION:Darkvision (60')
 Crabman Arm							VISIBLE:NO																					SAB:+6 on Str checks using arm											PRERACE:1,Mongrelman
-Crabman Hand						VISIBLE:NO																																					PRERACE:1,Mongrelman																																																							BONUS:VAR|SqueezeDice|1	BONUS:VAR|SqueezeDieSize|6																									ABILITY:FEAT|AUTOMATIC|Improved Grab|Squeeze																																																																																																NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1d6
+Crabman Hand						VISIBLE:NO																																					PRERACE:1,Mongrelman																																																							BONUS:VAR|SqueezeDice|1	BONUS:VAR|SqueezeDieSize|6																	ABILITY:FEAT|AUTOMATIC|Improved Grab|Squeeze																																																																																																	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1d6
 
 Bugbear Head (Left)					VISIBLE:NO	TEMPLATE:Bugbear Eye																	SAB:Bugbear Left Side of Head												PRERACE:1,Mongrelman
 Bugbear Head (Right)					VISIBLE:NO	TEMPLATE:Bugbear Eye																	SAB:Bugbear Right Side of Head											PRERACE:1,Mongrelman
@@ -399,7 +399,7 @@ Bugbear Hand (Left)					VISIBLE:NO																					SAB:Bugbear Hand									
 Bugbear Hand (Right)					VISIBLE:NO																					SAB:Bugbear Hand														PRERACE:1,Mongrelman
 Bugbear Jaw/Mouth						VISIBLE:NO																					SAB:Bugbear Jaw/Mouth													PRERACE:1,Mongrelman
 
-Bugbear Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																																																																																																																					VISION:Darkvision (60')
+Bugbear Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																																																																																																																	VISION:Darkvision (60')
 Bugbear Arm							VISIBLE:NO																					SAB:+4 on Str checks using arm											PRERACE:1,Mongrelman
 
 Minotaur Head (Left)					VISIBLE:NO	TEMPLATE:Minotaur Eye	TEMPLATE:Minotaur Ear	TEMPLATE:Minotaur Head (Partial)	TEMPLATE:Minotaur Head (Whole)	SAB:Minotaur Left Side of Head											PRERACE:1,Mongrelman
@@ -420,11 +420,11 @@ Minotaur Hand (Left)					VISIBLE:NO																					SAB:Minotaur Hand							
 Minotaur Hand (Right)					VISIBLE:NO																					SAB:Minotaur Hand														PRERACE:1,Mongrelman
 Minotaur Jaw/Mouth					VISIBLE:NO																					SAB:Minotaur Jaw/Mouth													PRERACE:1,Mongrelman
 
-Minotaur Eye						VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Search,Spot|4|TYPE=Racial																																																																																				VISION:Darkvision (60')
+Minotaur Eye						VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Search,Spot|4|TYPE=Racial																																																																																VISION:Darkvision (60')
 Minotaur Ear						VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Listen|4|TYPE=Racial
 Minotaur Arm						VISIBLE:NO																					SAB:+8 on Str checks using arm											PRERACE:1,Mongrelman
-Minotaur Head (Partial)					VISIBLE:NO																																					PRERACE:1,Mongrelman																			!PRETEMPLATE:1,Minotaur Head (Left),Minotaur Head (Right)																																																																																																																																																																NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d4
-Minotaur Head (Whole)					VISIBLE:NO																																					PRERACE:1,Mongrelman									PRETEMPLATE:1,Minotaur Head (Left),Minotaur Head (Right)																																																																																																																																																																										NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d8
+Minotaur Head (Partial)					VISIBLE:NO																																					PRERACE:1,Mongrelman																			!PRETEMPLATE:1,Minotaur Head (Left),Minotaur Head (Right)																																																																																																																																																												NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d4
+Minotaur Head (Whole)					VISIBLE:NO																																					PRERACE:1,Mongrelman									PRETEMPLATE:1,Minotaur Head (Left),Minotaur Head (Right)																																																																																																																																																																						NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d8
 
 Flind Head (Left)						VISIBLE:NO	TEMPLATE:Flind Eye	TEMPLATE:Flind Ear													SAB:Flind Left Side of Head												PRERACE:1,Mongrelman
 Flind Head (Right)					VISIBLE:NO	TEMPLATE:Flind Eye	TEMPLATE:Flind Ear													SAB:Flind Right Side of Head												PRERACE:1,Mongrelman
@@ -444,7 +444,7 @@ Flind Hand (Left)						VISIBLE:NO																					SAB:Flind Hand												
 Flind Hand (Right)					VISIBLE:NO																					SAB:Flind Hand														PRERACE:1,Mongrelman
 Flind Jaw/Mouth						VISIBLE:NO																					SAB:Flind Jaw/Mouth													PRERACE:1,Mongrelman
 
-Flind Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Spot|3|TYPE=Racial																																																																																					VISION:Darkvision (60')
+Flind Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Spot|3|TYPE=Racial																																																																																	VISION:Darkvision (60')
 Flind Ear							VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Listen|3|TYPE=Racial
 Flind Arm							VISIBLE:NO																					SAB:+4 on Str checks using arm											PRERACE:1,Mongrelman
 
@@ -467,8 +467,8 @@ Lizardfolk Hand (Right)					VISIBLE:NO	TEMPLATE:Lizardfolk Hand																S
 Lizardfolk Jaw/Mouth					VISIBLE:NO	TEMPLATE:Lizardfolk Jaw																	SAB:Lizardfolk Jaw/Mouth												PRERACE:1,Mongrelman
 
 Lizardfolk Arm						VISIBLE:NO																					SAB:+2 on Str checks using arm											PRERACE:1,Mongrelman
-Lizardfolk Hand						VISIBLE:NO																																					PRERACE:1,Mongrelman																																																																																																																																																																																												NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1d4
-Lizardfolk Jaw						VISIBLE:NO																																					PRERACE:1,Mongrelman																																																																																																																																																																																												NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4
+Lizardfolk Hand						VISIBLE:NO																																					PRERACE:1,Mongrelman																																																																																																																																																																																								NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1d4
+Lizardfolk Jaw						VISIBLE:NO																																					PRERACE:1,Mongrelman																																																																																																																																																																																								NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4
 Lizardfolk Torso (Lower)				VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Balance,Jump,Swim|4|TYPE=Racial
 
 Missing Head (Left)					VISIBLE:NO																					SAB:Missing Left Side of Head												PRERACE:1,Mongrelman
@@ -488,9 +488,9 @@ Missing Hand (Right)					VISIBLE:NO																					SAB:Missing Hand								
 Missing Jaw/Mouth						VISIBLE:NO																					SAB:Missing Jaw/Mouth													PRERACE:1,Mongrelman
 
 
-Half Ogre Lang						VISIBLE:NO																																					PRERACE:1,Ogre (Half)						PRESTAT:1,INT=10																																																																																																																			AUTO:LANG|Giant
+Half Ogre Lang						VISIBLE:NO																																					PRERACE:1,Ogre (Half)						PRESTAT:1,INT=10																																																																																																							AUTO:LANG|Giant
 
-Enlarged Spriggan						VISIBLE:YES																																					PRERACE:1,Spriggan																																							BONUS:SIZEMOD|NUMBER|2										BONUS:STAT|DEX|2	BONUS:VAR|SneakAttack|-2	BONUS:VAR|SprigganLarge|1																																																																		REMOVABLE:YES
+Enlarged Spriggan						VISIBLE:YES																																					PRERACE:1,Spriggan																																							BONUS:SIZEMOD|NUMBER|2										BONUS:STAT|DEX|2	BONUS:VAR|SneakAttack|-2	BONUS:VAR|SprigganLarge|1																																																														REMOVABLE:YES
 
 Remove Resistance to Acid				VISIBLE:NO																																																																																																																																																												REMOVE:FEAT|Resistance to Acid
 Remove Resistance to Cold				VISIBLE:NO																																																																																																																																																												REMOVE:FEAT|Resistance to Cold

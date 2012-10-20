@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Feb  5 21:02:36 2009 -- reformated by prettylst.pl v1.39 (build 9132)
-SOURCELONG:Avalanche Press - Jade and Steel	SOURCESHORT:JadeSteel	SOURCEWEB:http://www.avalanchepress.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Avalanche Press - Jade and Steel	SOURCESHORT:JadeSteel	SOURCEWEB:http://www.avalanchepress.com	SOURCEDATE:2003-01
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Alchemist	HD:6		TYPE:PC.Prestige	ABB:Alc		MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -37,6 +37,7 @@ CLASS:Dim Mak Practitioner	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TY
 
 # Class Name	Unique Key		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Diviner	KEY:Diviner ~JS	HD:4		TYPE:PC.Prestige	ABB:Div		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+
 # Class Name	Required Feat				Required Skill					Required Spell School
 CLASS:Diviner ~JS	PREFEAT:1,Spell Focus (Divination)	PRESKILL:2,Knowledge (Arcana)=8,Scry=8	PRESPELLSCHOOL:7,Divination=3
 # Class Name	Skill Pts/Lvl	Class Skill

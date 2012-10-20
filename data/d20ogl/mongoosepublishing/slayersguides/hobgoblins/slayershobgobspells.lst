@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
-SOURCELONG:Mongoose Publishing - Slayer's Guide to Hobgoblins	SOURCESHORT:SGtHobgobl	SOURCEWEB:http://mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Slayer's Guide to Hobgoblins	SOURCESHORT:SGtHobgobl	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
 # Spell Name			Classes of caster		School			Sub-School		Type		Components	Casting Time		Range		Target Area or Effect					Duration			Save Info		Spell Resistance	Description		Source Page
 Fortitude				CLASSES:Adept,Cleric=2	SCHOOL:Conjuration	SUBSCHOOL:Healing	TYPE:Divine	COMPS:V S M	CASTTIME:10 minutes	RANGE:Touch	TARGETAREA:Hobgoblins within 25 feet of banner	DURATION:1 hour/level	SAVEINFO:None	SPELLRES:No		DESC:See text	SOURCEPAGE:p.29
 Vengeance of the Mighty One	CLASSES:Adept,Cleric=3	SCHOOL:Abjuration		SUBSCHOOL:Evil	TYPE:Divine	COMPS:V S M	CASTTIME:20 minutes	RANGE:Touch	TARGETAREA:Hobgoblins within 25 feet of banner	DURATION:1 hour/level	SAVEINFO:None	SPELLRES:No		DESC:See text	SOURCEPAGE:p.29

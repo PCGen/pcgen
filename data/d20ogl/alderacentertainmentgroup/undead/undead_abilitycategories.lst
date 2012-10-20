@@ -1,5 +1,7 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
-ABILITYCATEGORY:The Undying Feat			CATEGORY:FEAT	VISIBLE:QUALIFY	DISPLAYLOCATION:Class Abilities	ABILITYLIST:Cleave|Death Angel|Fearless|Great Cleave|Great Fortitude|Improved Critical|Improved Endurance|Invincible|Iron Will|Pure Hearted|Sixth Sense|Stout Hearted|Thick Skin(Cold)|Thick Skin(Hot)|Toughness|Turn Outsider	TYPE:Fighter
-ABILITYCATEGORY:Wasteland Druid Domain Choice	CATEGORY:FEAT	VISIBLE:QUALIFY	DISPLAYLOCATION:Class Abilities	ABILITYLIST:Wasteland Druid Destruction Domain|Wasteland Druid Undead Domain	
+# Ability Category					Visible		Category of Object	Type of Object	Specific choices list																																			Display Location
+ABILITYCATEGORY:The Undying Feat			VISIBLE:QUALIFY	CATEGORY:FEAT		TYPE:Fighter	ABILITYLIST:Cleave|Death Angel|Fearless|Great Cleave|Great Fortitude|Improved Critical|Improved Endurance|Invincible|Iron Will|Pure Hearted|Sixth Sense|Stout Hearted|Thick Skin(Cold)|Thick Skin(Hot)|Toughness|Turn Outsider	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Wasteland Druid Domain Choice	VISIBLE:QUALIFY	CATEGORY:FEAT					ABILITYLIST:Wasteland Druid Destruction Domain|Wasteland Druid Undead Domain																										DISPLAYLOCATION:Class Abilities
 
 #		ADD:FEAT|Wasteland Druid Destruction Domain,Wasteland Druid Undead Domain

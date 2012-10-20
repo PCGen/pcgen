@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Oct  8 22:17:02 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com	SOURCEDATE:2001-01
 
 #CHANGES 9/24 - ADDED Ritual Casting to all the spell casting classes in this data set.
 #.MOD the base class for the SRD to have CSKILL:Ritual Casting or Paladin/Rangers to have CCSKILL:Ritual Casting
@@ -36,16 +36,16 @@ CLASS:Crypt Lord	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Knowled
 1	BONUS:VAR|TurnDamagePlusBase|CL
 1	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
 ###Block: Level progression
-1															ADD:SPELLCASTER|ANY	AUTO:FEAT|Extended Necromancy
-2															ADD:SPELLCASTER|ANY	AUTO:FEAT|Undead Appearance
-3									BONUS:VAR|EnergyDrainResistance|5	ADD:SPELLCASTER|ANY	AUTO:FEAT|Energy Drain Resistance
-4															ADD:SPELLCASTER|ANY	AUTO:FEAT|Undead Familiar
+1														ADD:SPELLCASTER|ANY	AUTO:FEAT|Extended Necromancy
+2														ADD:SPELLCASTER|ANY	AUTO:FEAT|Undead Appearance
+3								BONUS:VAR|EnergyDrainResistance|5	ADD:SPELLCASTER|ANY	AUTO:FEAT|Energy Drain Resistance
+4														ADD:SPELLCASTER|ANY	AUTO:FEAT|Undead Familiar
 5	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							ADD:SPELLCASTER|ANY
-6															ADD:SPELLCASTER|ANY	AUTO:FEAT|Raise the Dead
+6														ADD:SPELLCASTER|ANY	AUTO:FEAT|Raise the Dead
 7	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							ADD:SPELLCASTER|ANY
-8															ADD:SPELLCASTER|ANY	AUTO:FEAT|Create Undead
-9															ADD:SPELLCASTER|ANY	AUTO:FEAT|Energy Drain Immunity
-10															ADD:SPELLCASTER|ANY	AUTO:FEAT|Lichdom
+8														ADD:SPELLCASTER|ANY	AUTO:FEAT|Create Undead
+9														ADD:SPELLCASTER|ANY	AUTO:FEAT|Energy Drain Immunity
+10														ADD:SPELLCASTER|ANY	AUTO:FEAT|Lichdom
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Incarnate	HD:8		TYPE:PC.Prestige	ABB:Inc		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|3*CL/4|TYPE=Base.REPLACE
@@ -173,16 +173,16 @@ CLASS:Vigilant	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	CAST:0,0																AUTO:FEAT|Sprint
-2	CAST:0,0										ADD:FEAT|Vigilant Favored Enemy	AUTO:FEAT|Tireless
-3	CAST:0,1																AUTO:FEAT|Ferocity|Toughness
-4	CAST:0,1,0																AUTO:FEAT|Great Fortitude
-5	CAST:0,1,1																AUTO:FEAT|Iron Will
-6	CAST:0,1,1,0															AUTO:FEAT|Lightning Reflexes
-7	CAST:0,1,1,1															AUTO:FEAT|Toughness
-8	CAST:0,1,1,1,0															AUTO:FEAT|Resist Massive Damage
+1	CAST:0,0															AUTO:FEAT|Sprint
+2	CAST:0,0									ADD:FEAT|Vigilant Favored Enemy	AUTO:FEAT|Tireless
+3	CAST:0,1															AUTO:FEAT|Ferocity|Toughness
+4	CAST:0,1,0															AUTO:FEAT|Great Fortitude
+5	CAST:0,1,1															AUTO:FEAT|Iron Will
+6	CAST:0,1,1,0														AUTO:FEAT|Lightning Reflexes
+7	CAST:0,1,1,1														AUTO:FEAT|Toughness
+8	CAST:0,1,1,1,0														AUTO:FEAT|Resist Massive Damage
 9	CAST:0,2,1,1,1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK
-10	CAST:0,2,2,1,1															AUTO:FEAT|Natural Healing
+10	CAST:0,2,2,1,1														AUTO:FEAT|Natural Healing
 
 ###Block: SRD CLASS .MOD SECTION
 

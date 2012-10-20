@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Aug 24 15:04:09 2008 -- reformated by prettylst.pl v1.38 (build 7302)
-SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
 # Class Name	Hit Dice	Type				Max Level	Base class as subclass?	Source Page					Save checks bonus											Combat bonus					Modify VAR
 CLASS:Psion		HD:4		TYPE:Base.Psionic.PC	MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:srdpsionicclasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREABILITY:1,CATEGORY=Special Ability,Psicrystal

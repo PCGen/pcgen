@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 15 15:45:48 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Spellbinder's Sourcebook	SOURCESHORT:Spellbinder	SOURCEWEB:http://www.bloodstone-press.com/spellbinders.html	SOURCEDATE:2004-02
 # Original Entry by: Paul W. King
 
@@ -16,5 +16,5 @@ SOURCELONG:Spellbinder's Sourcebook	SOURCESHORT:Spellbinder	SOURCEWEB:http://www
 # 17-18 Summon monster IX
 # 19-20 Wail of the banshee
 
-# Template Name	Damage Reduction	Template			Source Page		Special ABility																			Required Template				Combat bonus					Damage reduction	Misc bonus												Add to base move			Stat bonus								Feat												Spell Res.		Type				Vision			Innate Spells
+# Template Name	Damage Reduction	Template			Source Page		Special ABility																			Required Template				Combat bonus					Damage reduction	Misc bonus												Add to base move			Stat bonus								Automatically Gained Feat									Spell Res.		Type				Vision			Innate Spells
 War Beast		DR:5/Magic		TEMPLATE:Magical Beast	SOURCEPAGE:p.7	SAB:Immunity to Poison	SAB:Acid Resistance 10	SAB:Cold Resistance 10	SAB:Electricity Resistance 10	SAB:Fire Resistance 10	PRETEMPLATE:1,Animal,Magical Beast	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:DR|Magic|5	BONUS:MISC|CR|1	BONUS:MISC|CR|1|PREHD:MIN=5	BONUS:MISC|CR|1|PREHD:MIN=11	BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|STR,CON|4	BONUS:STAT|DEX,INT,WIS,CHA|2	AUTO:FEAT|Improved Initiative|Improved Natural Attack|Toughness|Weapon Focus	SR:max(10+TL,35)	TYPE:Magical Beast	VISION:Darkvision (60')	SPELLS:Innate|TIMES=1|True Strike

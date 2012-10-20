@@ -1,34 +1,34 @@
-# CVS $Revision$ $Author$ -- Tue Feb 12 11:15:22 2008 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
-# Equipment Name			Type						Cost		Slot Needed	Choose					Modifier	Source Page					Bonus to skill			Special Property
-Amulet of Catapsi			TYPE:Psionic.Universal.Amulet		COST:12000											SOURCEPAGE:srdpsionicitems.rtf
-Amulet of Psychic Bastion	TYPE:Psionic.Universal.Amulet		COST:2000											SOURCEPAGE:srdpsionicitems.rtf
-Boots (Skating)			TYPE:Psionic.Universal.Boot		COST:2000	SLOTS:2									SOURCEPAGE:srdpsionicitems.rtf
-Boots (Stomping)			TYPE:Psionic.Universal.Boot		COST:1200	SLOTS:2									SOURCEPAGE:srdpsionicitems.rtf
-Brain Lock Pearl			TYPE:Psionic.Universal			COST:1000											SOURCEPAGE:srdpsionicitems.rtf
-Crystal Mask (Detection)	TYPE:Psionic.Universal.Mask		COST:12000											SOURCEPAGE:srdpsionicitems.rtf						SPROP:Make search checks for traps like a rogue
-Crystal Mask (Fear)		TYPE:Psionic.Universal.Mask		COST:56000											SOURCEPAGE:srdpsionicitems.rtf						SPROP:Make gaze attack (Will DC 16) to Panick a target
+# Equipment Name			Type						Cost		Slot Needed	Choose				Modifier	Source Page					Bonus to skill			Special Property
+Amulet of Catapsi			TYPE:Psionic.Universal.Amulet		COST:12000										SOURCEPAGE:srdpsionicitems.rtf
+Amulet of Psychic Bastion	TYPE:Psionic.Universal.Amulet		COST:2000										SOURCEPAGE:srdpsionicitems.rtf
+Boots (Skating)			TYPE:Psionic.Universal.Boot		COST:2000	SLOTS:2								SOURCEPAGE:srdpsionicitems.rtf
+Boots (Stomping)			TYPE:Psionic.Universal.Boot		COST:1200	SLOTS:2								SOURCEPAGE:srdpsionicitems.rtf
+Brain Lock Pearl			TYPE:Psionic.Universal			COST:1000										SOURCEPAGE:srdpsionicitems.rtf
+Crystal Mask (Detection)	TYPE:Psionic.Universal.Mask		COST:12000										SOURCEPAGE:srdpsionicitems.rtf						SPROP:Make search checks for traps like a rogue
+Crystal Mask (Fear)		TYPE:Psionic.Universal.Mask		COST:56000										SOURCEPAGE:srdpsionicitems.rtf						SPROP:Make gaze attack (Will DC 16) to Panick a target
 Crystal Mask (Knowledge)	TYPE:Psionic.Universal.Mask		COST:500			CHOOSE:SKILL|Knowledge %			SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|LIST|5
-Crystal Mask (Language)		TYPE:Psionic.Universal.Mask		COST:500											SOURCEPAGE:srdpsionicitems.rtf
-Crystal Mask (Mindarmour)	TYPE:Psionic.Universal.Mask		COST:4000											SOURCEPAGE:srdpsionicitems.rtf						SPROP:+4 on all saves vs. Compulsions
-Eyes of Powerleech		TYPE:Psionic.Universal.Eyegear	COST:7200											SOURCEPAGE:srdpsionicitems.rtf
-Eyes of Vampiric Powerleech	TYPE:Psionic.Universal.Eyegear	COST:61000											SOURCEPAGE:srdpsionicitems.rtf
-Gloves of Object Reading	TYPE:Psionic.Universal.Glove		COST:2000	SLOTS:2									SOURCEPAGE:srdpsionicitems.rtf
-Ioun Stone (Rainbow)		TYPE:Psionic.Universal			COST:16000									EQMOD:STONE	SOURCEPAGE:srdpsionicitems.rtf
-Mirror of Suggestion		TYPE:Psionic.Universal			COST:12000									EQMOD:GLASS	SOURCEPAGE:srdpsionicitems.rtf
-Powerleech Pearl			TYPE:Psionic.Universal			COST:1000											SOURCEPAGE:srdpsionicitems.rtf
-Reverse Capacitor			TYPE:Psionic.Universal			COST:182000											SOURCEPAGE:srdpsionicitems.rtf
-Ring (Self-Sufficiency)		TYPE:Psionic.Universal.Ring		COST:2000											SOURCEPAGE:srdpsionicitems.rtf
-Ring (Stabilization)		TYPE:Psionic.Universal.Ring		COST:2000											SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|Stabilize Self|10
-Psionatrix				TYPE:Psionic.Universal			COST:2000											SOURCEPAGE:srdpsionicitems.rtf
-Psionic Restraints (Average)	TYPE:Psionic.Universal			COST:6000									EQMOD:IRON	SOURCEPAGE:srdpsionicitems.rtf
-Psionic Restraints (Damping)	TYPE:Psionic.Universal			COST:24000									EQMOD:IRON	SOURCEPAGE:srdpsionicitems.rtf
-Psionic Restraints (Greater)	TYPE:Psionic.Universal			COST:12000									EQMOD:IRON	SOURCEPAGE:srdpsionicitems.rtf
-Psionic Restraints (Lesser)	TYPE:Psionic.Universal			COST:1000									EQMOD:IRON	SOURCEPAGE:srdpsionicitems.rtf
-Torc of Free Will			TYPE:Psionic.Universal.Torc		COST:12000											SOURCEPAGE:srdpsionicitems.rtf						SPROP:Not affected by Brain Lock or Brain Lock-like effects
-Torc of Power			TYPE:Psionic.Universal.Torc		COST:12000											SOURCEPAGE:srdpsionicitems.rtf						SPROP:Protected from Powerleech effects
-Torc of Psionic Might		TYPE:Psionic.Universal.Torc		COST:10000											SOURCEPAGE:srdpsionicitems.rtf						SPROP:Wearer spends one less PP on powers manifested (min cost 1)
+Crystal Mask (Language)		TYPE:Psionic.Universal.Mask		COST:500										SOURCEPAGE:srdpsionicitems.rtf
+Crystal Mask (Mindarmour)	TYPE:Psionic.Universal.Mask		COST:4000										SOURCEPAGE:srdpsionicitems.rtf						SPROP:+4 on all saves vs. Compulsions
+Eyes of Powerleech		TYPE:Psionic.Universal.Eyegear	COST:7200										SOURCEPAGE:srdpsionicitems.rtf
+Eyes of Vampiric Powerleech	TYPE:Psionic.Universal.Eyegear	COST:61000										SOURCEPAGE:srdpsionicitems.rtf
+Gloves of Object Reading	TYPE:Psionic.Universal.Glove		COST:2000	SLOTS:2								SOURCEPAGE:srdpsionicitems.rtf
+Ioun Stone (Rainbow)		TYPE:Psionic.Universal			COST:16000								EQMOD:STONE	SOURCEPAGE:srdpsionicitems.rtf
+Mirror of Suggestion		TYPE:Psionic.Universal			COST:12000								EQMOD:GLASS	SOURCEPAGE:srdpsionicitems.rtf
+Powerleech Pearl			TYPE:Psionic.Universal			COST:1000										SOURCEPAGE:srdpsionicitems.rtf
+Reverse Capacitor			TYPE:Psionic.Universal			COST:182000										SOURCEPAGE:srdpsionicitems.rtf
+Ring (Self-Sufficiency)		TYPE:Psionic.Universal.Ring		COST:2000										SOURCEPAGE:srdpsionicitems.rtf
+Ring (Stabilization)		TYPE:Psionic.Universal.Ring		COST:2000										SOURCEPAGE:srdpsionicitems.rtf	BONUS:SKILL|Stabilize Self|10
+Psionatrix				TYPE:Psionic.Universal			COST:2000										SOURCEPAGE:srdpsionicitems.rtf
+Psionic Restraints (Average)	TYPE:Psionic.Universal			COST:6000								EQMOD:IRON	SOURCEPAGE:srdpsionicitems.rtf
+Psionic Restraints (Damping)	TYPE:Psionic.Universal			COST:24000								EQMOD:IRON	SOURCEPAGE:srdpsionicitems.rtf
+Psionic Restraints (Greater)	TYPE:Psionic.Universal			COST:12000								EQMOD:IRON	SOURCEPAGE:srdpsionicitems.rtf
+Psionic Restraints (Lesser)	TYPE:Psionic.Universal			COST:1000								EQMOD:IRON	SOURCEPAGE:srdpsionicitems.rtf
+Torc of Free Will			TYPE:Psionic.Universal.Torc		COST:12000										SOURCEPAGE:srdpsionicitems.rtf						SPROP:Not affected by Brain Lock or Brain Lock-like effects
+Torc of Power			TYPE:Psionic.Universal.Torc		COST:12000										SOURCEPAGE:srdpsionicitems.rtf						SPROP:Protected from Powerleech effects
+Torc of Psionic Might		TYPE:Psionic.Universal.Torc		COST:10000										SOURCEPAGE:srdpsionicitems.rtf						SPROP:Wearer spends one less PP on powers manifested (min cost 1)
 
 ###Block: Crystal Capacitors
 # Equipment Name			Type				Cost		Source Page
@@ -43,18 +43,18 @@ Crystal Capacitor (7 PP)	TYPE:Psionic.Universal	COST:16000	SOURCEPAGE:srdpsionic
 Crystal Capacitor (9 PP)	TYPE:Psionic.Universal	COST:25000	SOURCEPAGE:srdpsionicitems.rtf
 
 ###Block: Psycoactive Skin
-# Equipment Name				Type						Cost		Damage		Source Page					Save checks bonus					Combat bonus					Bonus to skill
-Psychoactive Skin (Chameleon)		TYPE:Psionic.Universal.PsycoSkin	COST:4500				SOURCEPAGE:srdpsionicitems.rtf															BONUS:SKILL|Hide|15
-Psychoactive Skin (Claw)		TYPE:Psionic.Universal.PsycoSkin	COST:16000	DAMAGE:1d12		SOURCEPAGE:srdpsionicitems.rtf	SPROP:+STR to Damage
-Psychoactive Skin (Defender)		TYPE:Psionic.Universal.PsycoSkin	COST:32000				SOURCEPAGE:srdpsionicitems.rtf								BONUS:COMBAT|AC|4
-Psychoactive Skin (Hero)		TYPE:Psionic.Universal.PsycoSkin	COST:68000				SOURCEPAGE:srdpsionicitems.rtf	BONUS:CHECKS|Fortitude,Will,Reflex|3	BONUS:COMBAT|AC|3	BONUS:COMBAT|TOHIT|3
-Psychoactive Skin (Iron)		TYPE:Psionic.Universal.PsycoSkin	COST:240000				SOURCEPAGE:srdpsionicitems.rtf
-Psychoactive Skin (Nimbleness)	TYPE:Psionic.Universal.PsycoSkin	COST:2000				SOURCEPAGE:srdpsionicitems.rtf															BONUS:SKILL|Tumble|10
-Psychoactive Skin (Proteus)		TYPE:Psionic.Universal.PsycoSkin	COST:90000				SOURCEPAGE:srdpsionicitems.rtf
-Psychoactive Skin (Psion)		TYPE:Psionic.Universal.PsycoSkin	COST:66000				SOURCEPAGE:srdpsionicitems.rtf
-Psychoactive Skin (Spider)		TYPE:Psionic.Universal.PsycoSkin	COST:20000				SOURCEPAGE:srdpsionicitems.rtf															BONUS:SKILL|Climb|20
-Psychoactive Skin (Striking)		TYPE:Psionic.Universal.PsycoSkin	COST:24000				SOURCEPAGE:srdpsionicitems.rtf
-Psychoactive Skin (Troll)		TYPE:Psionic.Universal.PsycoSkin	COST:90000				SOURCEPAGE:srdpsionicitems.rtf
+# Equipment Name				Type						Cost		Damage	Source Page					Save checks bonus					Combat bonus					Bonus to skill		Special Property
+Psychoactive Skin (Chameleon)		TYPE:Psionic.Universal.PsycoSkin	COST:4500			SOURCEPAGE:srdpsionicitems.rtf															BONUS:SKILL|Hide|15
+Psychoactive Skin (Claw)		TYPE:Psionic.Universal.PsycoSkin	COST:16000	DAMAGE:1d12	SOURCEPAGE:srdpsionicitems.rtf																			SPROP:+STR to Damage
+Psychoactive Skin (Defender)		TYPE:Psionic.Universal.PsycoSkin	COST:32000			SOURCEPAGE:srdpsionicitems.rtf								BONUS:COMBAT|AC|4
+Psychoactive Skin (Hero)		TYPE:Psionic.Universal.PsycoSkin	COST:68000			SOURCEPAGE:srdpsionicitems.rtf	BONUS:CHECKS|Fortitude,Will,Reflex|3	BONUS:COMBAT|AC|3	BONUS:COMBAT|TOHIT|3
+Psychoactive Skin (Iron)		TYPE:Psionic.Universal.PsycoSkin	COST:240000			SOURCEPAGE:srdpsionicitems.rtf
+Psychoactive Skin (Nimbleness)	TYPE:Psionic.Universal.PsycoSkin	COST:2000			SOURCEPAGE:srdpsionicitems.rtf															BONUS:SKILL|Tumble|10
+Psychoactive Skin (Proteus)		TYPE:Psionic.Universal.PsycoSkin	COST:90000			SOURCEPAGE:srdpsionicitems.rtf
+Psychoactive Skin (Psion)		TYPE:Psionic.Universal.PsycoSkin	COST:66000			SOURCEPAGE:srdpsionicitems.rtf
+Psychoactive Skin (Spider)		TYPE:Psionic.Universal.PsycoSkin	COST:20000			SOURCEPAGE:srdpsionicitems.rtf															BONUS:SKILL|Climb|20
+Psychoactive Skin (Striking)		TYPE:Psionic.Universal.PsycoSkin	COST:24000			SOURCEPAGE:srdpsionicitems.rtf
+Psychoactive Skin (Troll)		TYPE:Psionic.Universal.PsycoSkin	COST:90000			SOURCEPAGE:srdpsionicitems.rtf
 
 ###Block: Shards
 # Equipment Name	Type							Cost		Requires Modification?	Source Page

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author: $ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
-SOURCELONG:Firearm Arcana	SOURCESHORT:FA	SOURCEWEB:http://www.enworld.org/shop/index.php?do=publisher&publisher_id=34
+# CVS $Revision$ $Author: $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Firearm Arcana	SOURCESHORT:FA	SOURCEWEB:http://www.enworld.org/shop/index.php?do=publisher&publisher_id=34	SOURCEDATE:2005-01
 
 # Spell Name					Output Name					Classes of caster		School			Sub-School			Spell Descriptors			Type				Components		Casting Time			Range			Target Area or Effect												Duration						Save Info					Spell Resistance	Cost		Source Page
 Align Rounds											CLASSES:Acolyte=2		SCHOOL:Transmutation										TYPE:Divine			COMPS:V, S, DF	CASTTIME:10 minutes		RANGE:Close		TARGETAREA:Up to 20 rounds of ammunition									DURATION:Permanent															SOURCEPAGE:p.1

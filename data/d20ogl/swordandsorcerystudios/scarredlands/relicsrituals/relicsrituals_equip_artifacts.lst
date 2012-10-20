@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Thu Oct  8 22:17:02 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com	SOURCEDATE:2001-01
 
 ###Block: Relics - These have multiple powers, some are able to be done in the data file - Mynex 12/10/02
 # Equipment Name		Product Identity?	Type						Cost		Weight	Source Page		Vision			Innate Spells								Bonus to skill
 Amulet of Ebon Dreams	NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Amulet	COST:0	WT:0		SOURCEPAGE:p.202	VISION:Darkvision (60')	SPELLS:Magic Item|TIMES=3|CASTERLEVEL=7|Dimension Door,16	BONUS:SKILL|Hide,Spot|10|TYPE=Circumstance
 
 ###Block: Armor of flesh grants neg levels to any non evil characters
-# Equipment Name			Product Identity?	Type											Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page			% of Spell Failure	Combat bonus					Stat bonus
+# Equipment Name			Product Identity?	Type											Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page			% of Spell Failure	Combat bonus			Stat bonus
 Armor of Flesh (Dwarven)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Armor.Medium.Suit.Standard.Nonmetal	COST:0	WT:25		ACCHECK:0		MAXDEX:4		SOURCEPAGE:p.202		SPELLFAILURE:10		BONUS:COMBAT|AC|8|TYPE=Armor	BONUS:STAT|CON|2	BONUS:STAT|CHA|-2
 Armor of Flesh (Elven)		NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Armor.Medium.Suit.Standard.Nonmetal	COST:0	WT:25		ACCHECK:0		MAXDEX:4		SOURCEPAGE:p.202		SPELLFAILURE:10		BONUS:COMBAT|AC|8|TYPE=Armor	BONUS:STAT|DEX|2	BONUS:STAT|CON|-2
 Armor of Flesh (Halfling)	NAMEISPI:YES	TYPE:Magic.Artifact.Minor.Armor.Medium.Suit.Standard.Nonmetal	COST:0	WT:25		ACCHECK:0		MAXDEX:4		SOURCEPAGE:p.202		SPELLFAILURE:10		BONUS:COMBAT|AC|8|TYPE=Armor	BONUS:STAT|STR|-2	BONUS:STAT|DEX|2

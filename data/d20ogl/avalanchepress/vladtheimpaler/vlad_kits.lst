@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Apr  1 23:52:51 2008 -- reformated by prettylst.pl v1.38 (build 5225)
-SOURCELONG:Avalanche Press - Vlad the Impaler: Blood Prince of Wallachia	SOURCESHORT:Vlad	SOURCEWEB:http://www.avalanchepress.com/gameVlad.php
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Avalanche Press - Vlad the Impaler: Blood Prince of Wallachia	SOURCESHORT:Vlad	SOURCEWEB:http://www.avalanchepress.com/gameVlad.php	SOURCEDATE:2002-01
 
 STARTPACK:Vukodlak Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vukodlak]	SOURCEPAGE:p.39
 RACE:Vukodlak	!PRERACE:1,%

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Netbook of Magical Treasures	SOURCESHORT:NboMT	SOURCEWEB:http://www.d20magicitems.org/
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Netbook of Magical Treasures	SOURCESHORT:NboMT	SOURCEWEB:http://www.d20magicitems.org/	SOURCEDATE:2002-01
 ##Scrolls
 # Equipment Name		Type					Cost		Weight	Source Page				Special Property
 Scroll (Tutorial 1st)	TYPE:Magic.Scroll.Arcane	COST:100	WT:0		SOURCEPAGE:pg. 32, Scrolls	SPROP:See text

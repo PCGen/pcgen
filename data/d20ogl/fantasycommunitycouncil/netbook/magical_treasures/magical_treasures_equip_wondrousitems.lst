@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Sat Sep 26 22:38:41 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 # I just can't seem to figure out the demiform boots... someone else is welcome to them.
-SOURCELONG:Netbook of Magical Treasures	SOURCESHORT:NboMT	SOURCEWEB:http://www.d20magicitems.org/
+SOURCELONG:Netbook of Magical Treasures	SOURCESHORT:NboMT	SOURCEWEB:http://www.d20magicitems.org/	SOURCEDATE:2002-01
 ##Wondrous Items
 # Equipment Name						Type													Contains				Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Source Page						Virtual Feat					Combat bonus						Bonus to skill								Stat bonus					Special Property
 Amulet of Healing (Cure Light Wounds 1/day)	TYPE:Magic.Wondrous.Amulet														COST:360	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
@@ -33,7 +33,7 @@ Amulet of Healing (Heal 2/day)			TYPE:Magic.Wondrous.Amulet														COST:23
 Amulet of Healing (Heal 3/day)			TYPE:Magic.Wondrous.Amulet														COST:23760	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
 Amulet of Healing (Heal 4/day)			TYPE:Magic.Wondrous.Amulet														COST:23760	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
 Amulet of Healing (Heal 5/day)			TYPE:Magic.Wondrous.Amulet														COST:23760	WT:0																SOURCEPAGE:pg. 38, Wondrous Items																																	SPROP:See text
-Arcane Battle Robes					TYPE:Magic.Wondrous.Robe														COST:108500	WT:5																SOURCEPAGE:pg. 38-39, Wondrous Items								BONUS:COMBAT|AC|6|TYPE=Armor																		SPROP:See text
+Arcane Battle Robes					TYPE:Magic.Wondrous.Robe														COST:108500	WT:5																SOURCEPAGE:pg. 38-39, Wondrous Items								BONUS:COMBAT|AC|6|TYPE=Armor																				SPROP:See text
 Bag of Bones						TYPE:Magic.Wondrous															COST:18000	WT:1																SOURCEPAGE:pg. 39-40, Wondrous Items																																SPROP:See text
 Bandolier of Potion Storage				TYPE:Magic.Wondrous.Container									CONTAINS:UNLIM|Potion=25	COST:2000	WT:3																SOURCEPAGE:pg. 40-41, Wondrous Items																																SPROP:See text
 Band of Ferociousness					TYPE:Magic.Wondrous															COST:34500	WT:0.25															SOURCEPAGE:pg. 41, Wondrous Items									BONUS:COMBAT|DAMAGE,TOHIT|2|TYPE=Enhancement																	SPROP:See text

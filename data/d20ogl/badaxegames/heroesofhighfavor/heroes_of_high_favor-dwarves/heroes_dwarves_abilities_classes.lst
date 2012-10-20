@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb  6 23:46:57 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Heroes of High Favor - Dwarves	SOURCESHORT:HoHF-D	SOURCEWEB:www.badaxegames.com	SOURCEDATE:2002-07
 
 #Block:Battle-Rager ------------------------------------------------------------
@@ -17,7 +17,7 @@ Captivate		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES
 Instill Fear	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES
 
 ###Block:Rune-Priest ------------------------------------------------------------
-# Ability Name		Unique Key					Category of Ability		Type				Visible	Define					Description					ASPECT
+# Ability Name		Unique Key					Category of Ability		Type				Visible	Define					Description					Aspects
 Runecraft									CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:RunecraftBonus|0			DESC:+%1|RunecraftBonus			ASPECT:Ability Benefit|+%1|RunecraftBonus
 Divine Inspiration	KEY:Rune-Priest Divine Inspiration	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:DivineInspirationBonus|0	DESC:+%1|DivineInspirationBonus	ASPECT:Ability Benefit|+%1|DivineInspirationBonus
 
@@ -51,7 +51,7 @@ Quick and Quiet	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Tunnel Fighting	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:TunnelFightWall|0	DESC:%1 Walls|TunnelFightWall
 
 ###Block:Artificer -------------------------------------------------------------
-# Ability Name		Category of Ability		Type				Visible	Define			Description			ASPECT
+# Ability Name		Category of Ability		Type				Visible	Define			Description			Aspects
 Magical Craftsman		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Curse Resistance		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Magical Familiarity	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
@@ -71,27 +71,27 @@ Toughness										CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:
 
 ###Block: Aceldamist Hidden Class Feats
 # Feat Name						Type			Visible	Special ABility							Description					Stackable?	Multiple?	Choose													Misc bonus				Source Page
-# Ability Name					Category of Ability		Type						Visible	Stackable?	Multiple?	Choose													Misc bonus				Source Page
-Ancestral Lore					CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES	STACK:YES	MULT:YES	BONUS:SPELLKNOWN|%LIST|1	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|0|MAXLEVEL+1						SOURCEPAGE:p.54
-Armored Casting (Light)		KEY:Armored Casting ~ Light		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	DESC:Removes %1%%|ArmorCastingLight	DEFINE:ArmorCastingLight|0	BONUS:VAR|ArmorCastingLight|5		SOURCEPAGE:p.54	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	ABILITY:Internal|AUTOMATIC|Armored Casting ~ Holder
-Armored Casting (Medium)	KEY:Armored Casting ~ Medium		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	DESC:Removes %1%%|ArmorCastingMedium	DEFINE:ArmorCastingMedium|0	BONUS:VAR|ArmorCastingMedium|5	SOURCEPAGE:p.54	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	ABILITY:Internal|AUTOMATIC|Armored Casting ~ Holder
-Armored Casting (Heavy)		KEY:Armored Casting ~ Heavy		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	DESC:Removes %1%%|ArmorCastingHeavy	DEFINE:ArmorCastingHeavy|0	BONUS:VAR|ArmorCastingHeavy|5		SOURCEPAGE:p.54	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	ABILITY:Internal|AUTOMATIC|Armored Casting ~ Holder
+# Ability Name					Unique Key				Category of Ability		Type						Visible	Define				Description						Stackable?	Multiple?	Choose							Ability								Misc bonus																																							Bonus to spell known/L		Modify VAR					Source Page
+Ancestral Lore										CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES													STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|0|MAXLEVEL+1																																																		BONUS:SPELLKNOWN|%LIST|1							SOURCEPAGE:p.54
+Armored Casting (Light)				KEY:Armored Casting ~ Light	CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist			DEFINE:ArmorCastingLight|0	DESC:Removes %1%%|ArmorCastingLight		STACK:YES	MULT:YES	CHOOSE:NOCHOICE						ABILITY:Internal|AUTOMATIC|Armored Casting ~ Holder																																														BONUS:VAR|ArmorCastingLight|5		SOURCEPAGE:p.54
+Armored Casting (Medium)			KEY:Armored Casting ~ Medium	CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist			DEFINE:ArmorCastingMedium|0	DESC:Removes %1%%|ArmorCastingMedium	STACK:YES	MULT:YES	CHOOSE:NOCHOICE						ABILITY:Internal|AUTOMATIC|Armored Casting ~ Holder																																														BONUS:VAR|ArmorCastingMedium|5	SOURCEPAGE:p.54
+Armored Casting (Heavy)				KEY:Armored Casting ~ Heavy	CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist			DEFINE:ArmorCastingHeavy|0	DESC:Removes %1%%|ArmorCastingHeavy		STACK:YES	MULT:YES	CHOOSE:NOCHOICE						ABILITY:Internal|AUTOMATIC|Armored Casting ~ Holder																																														BONUS:VAR|ArmorCastingHeavy|5		SOURCEPAGE:p.54
 #
-Armored Casting ~ Holder	CATEGORY:Internal																						BONUS:MISC|SPELLFAILURE|-var("ArmorCastingHeavy")|PREEQUIP:1,TYPE=ARMOR.Heavy		BONUS:MISC|SPELLFAILURE|-var("ArmorCastingMedium")|PREEQUIP:1,TYPE=ARMOR.Medium			BONUS:MISC|SPELLFAILURE|-var("ArmorCastingLight")|PREEQUIP:1,TYPE=ARMOR.Light
+Armored Casting ~ Holder								CATEGORY:Internal																																												BONUS:MISC|SPELLFAILURE|-var("ArmorCastingHeavy")|PREEQUIP:1,TYPE=ARMOR.Heavy	BONUS:MISC|SPELLFAILURE|-var("ArmorCastingMedium")|PREEQUIP:1,TYPE=ARMOR.Medium	BONUS:MISC|SPELLFAILURE|-var("ArmorCastingLight")|PREEQUIP:1,TYPE=ARMOR.Light
 #
-Blood Magic						CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES																								SOURCEPAGE:p.54
-Fellblade Magic					CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES																								SOURCEPAGE:p.55
-Signature Metaspell ~ Empower Spell		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:p.55
-Signature Metaspell ~ Enlarge Spell		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:p.55
-Signature Metaspell ~ Extend Spell		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:p.55
-Signature Metaspell ~ Heighten Spell	CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:p.55
-Signature Metaspell ~ Maximize Spell	CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:p.55
-Signature Metaspell ~ Quicken Spell		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:p.55
-Signature Metaspell ~ Silent Spell		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:p.55
-Signature Metaspell ~ Still Spell		CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:p.55
-Signature Spell Focus				CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:p.55
-Signature Spell Immunity			CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:p.55
-Signature Spell Penetration			CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES			MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]													SOURCEPAGE:p.55
+Blood Magic											CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES																																																																																					SOURCEPAGE:p.54
+Fellblade Magic										CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES																																																																																					SOURCEPAGE:p.55
+Signature Metaspell ~ Empower Spell							CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES															MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]																																																														SOURCEPAGE:p.55
+Signature Metaspell ~ Enlarge Spell							CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES															MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]																																																														SOURCEPAGE:p.55
+Signature Metaspell ~ Extend Spell							CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES															MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]																																																														SOURCEPAGE:p.55
+Signature Metaspell ~ Heighten Spell						CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES															MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]																																																														SOURCEPAGE:p.55
+Signature Metaspell ~ Maximize Spell						CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES															MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]																																																														SOURCEPAGE:p.55
+Signature Metaspell ~ Quicken Spell							CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES															MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]																																																														SOURCEPAGE:p.55
+Signature Metaspell ~ Silent Spell							CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES															MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]																																																														SOURCEPAGE:p.55
+Signature Metaspell ~ Still Spell							CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES															MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]																																																														SOURCEPAGE:p.55
+Signature Spell Focus									CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES															MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]																																																														SOURCEPAGE:p.55
+Signature Spell Immunity								CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES															MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]																																																														SOURCEPAGE:p.55
+Signature Spell Penetration								CATEGORY:Special Ability	TYPE:SpecialQuality.Aceldamist	VISIBLE:YES															MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[KNOWN=YES]																																																														SOURCEPAGE:p.55
 
 ###Block: Slayer Hidden Class Feats
 # Ability Name		Output Name				Category of Ability		Type				Visible		Required Class			Stackable?	Multiple?	Choose
@@ -115,7 +115,7 @@ Slayer Favored Enemy Bonus Feat ~ Mobility		CATEGORY:Special Ability	TYPE:ClassA
 
 ###Block: Refined Skill Focus Subset:
 # Feat Name			Type			Visible	Multiple?	Selections	Choose																		Bonus to skill		Bonus to skill rank
-# Ability Name		Category of Ability		Type				Visible		Multiple?	Choose																		Selections	Bonus to skill		Bonus to skill rank
+# Ability Name		Category of Ability		Type				Visible		Multiple?	Choose																	Selections	Bonus to skill		Bonus to skill rank
 RSF +2 to Two Skills	CATEGORY:Special Ability	TYPE:RefinedSkillFocus	VISIBLE:DISPLAY	MULT:YES	CHOOSE:SKILL|TYPE=Charisma|TYPE=Constitution|TYPE=Dexterity|TYPE=Intelligence|TYPE=Strength|TYPE=Wisdom	SELECT:2	BONUS:SKILL|LIST|2
 RSF +3 to 1 Skill		CATEGORY:Special Ability	TYPE:RefinedSkillFocus	VISIBLE:DISPLAY	MULT:YES	CHOOSE:SKILL|TYPE=Charisma|TYPE=Constitution|TYPE=Dexterity|TYPE=Intelligence|TYPE=Strength|TYPE=Wisdom			BONUS:SKILL|LIST|3
 +2 Ranks to 1 skill	CATEGORY:Special Ability	TYPE:RefinedSkillFocus	VISIBLE:DISPLAY	MULT:YES	CHOOSE:SKILL|TYPE=Charisma|TYPE=Constitution|TYPE=Dexterity|TYPE=Intelligence|TYPE=Strength|TYPE=Wisdom							BONUS:SKILLRANK|LIST|2

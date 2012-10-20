@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sat Nov 24 07:13:09 2007 -- reformated by prettylst.pl v1.38 (build 2788)
-SOURCELONG:Atlas Games - Penumbra - Touched by the Gods	SOURCESHORT:TouchbtG	SOURCEWEB:http://www.atlas-games.com/pen_index.html
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Atlas Games - Penumbra - Touched by the Gods	SOURCESHORT:TouchbtG	SOURCEWEB:http://www.atlas-games.com/pen_index.html	SOURCEDATE:2001-01
 
 # Feat Name			Type			Req. Att.	Required Class			Required Feat				Required Lvl	Required Skill		Required Stat	Required Text					Description																																																			Source Page
 Battle Howl			TYPE:General	PREATT:3																													DESC:Once per day you can let loose a terrifying battle cry during a charge action. The target of the charge must make a Will save at DC 10 + your Cha bonus or suffer -1 morale on to hit rolls for 1d4 rounds.																		SOURCEPAGE:p.109

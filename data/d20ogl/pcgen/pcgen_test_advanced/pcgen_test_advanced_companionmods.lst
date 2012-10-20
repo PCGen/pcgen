@@ -1,21 +1,24 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
 
-FOLLOWER:CompanionLVL=1	TYPE:Companion Mod		SAB:This Companion Mod Works	ADD:FEAT|Add Feat CompanionMod
-FOLLOWER:CompanionLvl=2		TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|1	SAB:If this is working I should see this message.
+# Class of the Master	Type				Special ABility							Adjust PC Size		Add
+FOLLOWER:CompanionLVL=1	TYPE:Companion Mod	SAB:This Companion Mod Works									ADD:FEAT|Add Feat CompanionMod
+FOLLOWER:CompanionLvl=2	TYPE:Animal Companion	SAB:If this is working I should see this message.	BONUS:SIZEMOD|NUMBER|1
 
 
-MASTERBONUSRACE:Companion		TYPE:Companion Mod	SR:10+TL	ADD:FEAT|Add Feat Master Bonus Race
+# Race of familiar		Type				Add 						Spell Res.
+MASTERBONUSRACE:Companion	TYPE:Companion Mod	ADD:FEAT|Add Feat Master Bonus Race	SR:10+TL
 
 
 ###Block: Special Mount Progression
-# Class of the Master		Type				Hit Dice	Get Master's Saves					Ability										Define						Combat bonus													Stat bonus							Modify VAR				Main Race Type
-FOLLOWER:SpecialMountLvl=1	TYPE:Special Mount			SAB:CompanionL1		ABILITY:Special Ability|AUTOMATIC|CompL1			COPYMASTERCHECK:MASTER		ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Communicate with Master ~ Companion Creature|Improved Evasion|Improved Fortune ~ Evasion|Share Saving Throws|Share Spells ~ Companion Creature	ABILITY:Internal|AUTOMATIC|Intelligence Lock Tracker	BONUS:VAR|IntelligenceLockNumber|8	DEFINE:CompanionCPLvl|0	BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1	BONUS:VAR|CompanionCPLvl|3	RACETYPE:Magical Beast
-FOLLOWER:SpecialMountLvl=2	TYPE:Special Mount	HD:1		SAB:CompanionL2		ABILITY:Special Ability|AUTOMATIC|CompL2																BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK									BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=3	TYPE:Special Mount			SAB:CompanionL3		ABILITY:Special Ability|AUTOMATIC|CompL3																																							BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=4	TYPE:Special Mount	HD:1		SAB:CompanionL4		ABILITY:Special Ability|AUTOMATIC|CompL4																BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK									BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=5	TYPE:Special Mount			SAB:CompanionL5		ABILITY:Special Ability|AUTOMATIC|CompL5																																							BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=6	TYPE:Special Mount	HD:1		SAB:CompanionL6		ABILITY:Special Ability|AUTOMATIC|CompL6																BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=7	TYPE:Special Mount			SAB:CompanionL7		ABILITY:Special Ability|AUTOMATIC|CompL7																																							BONUS:VAR|CompanionCPLvl|3
+# Class of the Master		Type				Hit Dice	Ability																																																		Copy Masters Checks	Special ABility					Define			Bonus to Ability Pool						Combat bonus													Modify VAR										Main Race Type
+FOLLOWER:SpecialMountLvl=1	TYPE:Special Mount			ABILITY:Special Ability|AUTOMATIC|CompL1	ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Communicate with Master ~ Companion Creature|Improved Evasion|Improved Fortune ~ Evasion|Share Saving Throws|Share Spells ~ Companion Creature	ABILITY:Internal|AUTOMATIC|Intelligence Lock Tracker	COPYMASTERCHECK:MASTER	SAB:CompanionL1					DEFINE:CompanionCPLvl|0	BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1																BONUS:VAR|IntelligenceLockNumber|8	BONUS:VAR|CompanionCPLvl|3	RACETYPE:Magical Beast
+FOLLOWER:SpecialMountLvl=2	TYPE:Special Mount	HD:1		ABILITY:Special Ability|AUTOMATIC|CompL2																																																	SAB:CompanionL2																		BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=3	TYPE:Special Mount			ABILITY:Special Ability|AUTOMATIC|CompL3																																																	SAB:CompanionL3																																	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=4	TYPE:Special Mount	HD:1		ABILITY:Special Ability|AUTOMATIC|CompL4																																																	SAB:CompanionL4																		BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=5	TYPE:Special Mount			ABILITY:Special Ability|AUTOMATIC|CompL5																																																	SAB:CompanionL5																																	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=6	TYPE:Special Mount	HD:1		ABILITY:Special Ability|AUTOMATIC|CompL6																																																	SAB:CompanionL6									BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1	BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=7	TYPE:Special Mount			ABILITY:Special Ability|AUTOMATIC|CompL7																																																	SAB:CompanionL7																																	BONUS:VAR|CompanionCPLvl|3
 
 
-FOLLOWER:SpecialMountLvl=2	TYPE:Special Mount			SAB:CompanionL2 Alternate Line works too.
+FOLLOWER:SpecialMountLvl=2	TYPE:Special Mount																																																										SAB:CompanionL2 Alternate Line works too.

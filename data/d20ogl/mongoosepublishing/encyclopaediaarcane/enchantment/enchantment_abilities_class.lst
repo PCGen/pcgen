@@ -1,32 +1,33 @@
-# CVS $Revision$ $Author$ -- Thu Oct  8 16:52:12 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Enchantment	SOURCESHORT:Enchantment	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-09
 
 # Empath
-Striking Appearance	KEY:Striking Appearance ~ Empath	CATEGORY:Special Ability	TYPE:SpecialQuality		DESC: +%1|StrikingAppearance		DEFINE:StrikingAppearance|0
-Detect Emotion		KEY:Detect Emotion ~ Empath		CATEGORY:Special Ability	TYPE:SpecialQuality
-Calm/Enrage			KEY:Calm/Enrage ~ Empath		CATEGORY:Special Ability	TYPE:SpecialQuality
-Aura of Empathy		KEY:Aura of Empathy ~ Empath		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC: (%1 Targets)|AuraEmpathyTargets										DEFINE:AuraEmpathyTargets|4+CHA
-Emotional Mastery		KEY:Emotional Mastery ~ Empath	CATEGORY:Special Ability	TYPE:SpecialQuality
-Bolster III			KEY:Bolster III ~ Empath		CATEGORY:Special Ability	TYPE:SpecialQuality
-Shielding Bond		KEY:Shielding Bond ~ Empath		CATEGORY:Special Ability	TYPE:SpecialQuality		DESC: (DC %1)|EmpathyDC													DEFINE:EmpathyDC|10+CHA
-Empathic Healing		KEY:Empathic Healing ~ Empath		CATEGORY:Special Ability	TYPE:SpecialQuality
-Willcrafting		KEY:Willcrafting ~ Empath		CATEGORY:Special Ability	TYPE:SpecialQuality		DESC: (DC %1)|WillCraftDC								DEFINE:WillCraftDC|20+CHA
+# Ability Name		Unique Key							Category of Ability		Type				Define					Description
+Striking Appearance	KEY:Striking Appearance ~ Empath			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:StrikingAppearance|0		DESC: +%1|StrikingAppearance
+Detect Emotion		KEY:Detect Emotion ~ Empath				CATEGORY:Special Ability	TYPE:SpecialQuality
+Calm/Enrage			KEY:Calm/Enrage ~ Empath				CATEGORY:Special Ability	TYPE:SpecialQuality
+Aura of Empathy		KEY:Aura of Empathy ~ Empath				CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:AuraEmpathyTargets|4+CHA	DESC: (%1 Targets)|AuraEmpathyTargets
+Emotional Mastery		KEY:Emotional Mastery ~ Empath			CATEGORY:Special Ability	TYPE:SpecialQuality
+Bolster III			KEY:Bolster III ~ Empath				CATEGORY:Special Ability	TYPE:SpecialQuality
+Shielding Bond		KEY:Shielding Bond ~ Empath				CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:EmpathyDC|10+CHA			DESC: (DC %1)|EmpathyDC
+Empathic Healing		KEY:Empathic Healing ~ Empath				CATEGORY:Special Ability	TYPE:SpecialQuality
+Willcrafting		KEY:Willcrafting ~ Empath				CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:WillCraftDC|20+CHA		DESC: (DC %1)|WillCraftDC
 
 # Puppeteer
-Compell			KEY:Compell ~ Puppeteer				CATEGORY:Special Ability	TYPE:SpecialQuality
-Improved Enchantment	KEY:Improved Enchantment ~ Puppeteer	CATEGORY:Special Ability	TYPE:SpecialQuality					DESC: (+%1 DC)|ImprovedEnchantment		DEFINE:ImprovedEnchantment|0
-Silent Strings		KEY:Silent Strings ~ Puppeteer		CATEGORY:Special Ability	TYPE:SpecialQuality
-Subtle Puppetry		KEY:Subtle Puppetry ~ Puppeteer		CATEGORY:Special Ability	TYPE:SpecialQuality
-Dominion			KEY:Dominion ~ Puppeteer			CATEGORY:Special Ability	TYPE:SpecialQuality		DESC: %1|Dominion											DEFINE:Dominion|0
-Willing Slaves		KEY:Willing Slaves ~ Puppeteer		CATEGORY:Special Ability	TYPE:SpecialQuality
-Unwitting Pawns		KEY:Unwitting Pawns ~ Puppeteer		CATEGORY:Special Ability	TYPE:SpecialQuality
-Invisible Strings		KEY:Invisible Strings ~ Puppeteer		CATEGORY:Special Ability	TYPE:SpecialQuality
-Lord and Master		KEY:Lord and Master ~ Puppeteer		CATEGORY:Special Ability	TYPE:SpecialQuality
+Compell			KEY:Compell ~ Puppeteer					CATEGORY:Special Ability	TYPE:SpecialQuality
+Improved Enchantment	KEY:Improved Enchantment ~ Puppeteer		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:ImprovedEnchantment|0		DESC: (+%1 DC)|ImprovedEnchantment
+Silent Strings		KEY:Silent Strings ~ Puppeteer			CATEGORY:Special Ability	TYPE:SpecialQuality
+Subtle Puppetry		KEY:Subtle Puppetry ~ Puppeteer			CATEGORY:Special Ability	TYPE:SpecialQuality
+Dominion			KEY:Dominion ~ Puppeteer				CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:Dominion|0				DESC: %1|Dominion
+Willing Slaves		KEY:Willing Slaves ~ Puppeteer			CATEGORY:Special Ability	TYPE:SpecialQuality
+Unwitting Pawns		KEY:Unwitting Pawns ~ Puppeteer			CATEGORY:Special Ability	TYPE:SpecialQuality
+Invisible Strings		KEY:Invisible Strings ~ Puppeteer			CATEGORY:Special Ability	TYPE:SpecialQuality
+Lord and Master		KEY:Lord and Master ~ Puppeteer			CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # Dark Temptress
 Pleasing Shape		KEY:Pleasing Shape ~ Dark Temptress			CATEGORY:Special Ability	TYPE:SpecialQuality
 Sense Souls			KEY:Sense Souls ~ Dark Temptress			CATEGORY:Special Ability	TYPE:SpecialQuality
-Power of the Night	KEY:Power of the Night ~ Dark Temptress		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC: +%1|PowerOfTheNight																										DEFINE:PowerOfTheNight|0
+Power of the Night	KEY:Power of the Night ~ Dark Temptress		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:PowerOfTheNight|0		DESC: +%1|PowerOfTheNight
 First Pact (Passion)	KEY:First Pact (Passion) ~ Dark Temptress		CATEGORY:Special Ability	TYPE:SpecialQuality
 Touch Souls			KEY:Touch Souls ~ Dark Temptress			CATEGORY:Special Ability	TYPE:SpecialQuality
 Second Pact (Power)	KEY:Second Pact (Power) ~ Dark Temptress		CATEGORY:Special Ability	TYPE:SpecialQuality
@@ -40,12 +41,12 @@ Tanar'ri Qualities	KEY:Tanar'ri Qualities ~ Dark Temptress		CATEGORY:Special Abi
 
 # Mindmender
 Sense Charm			KEY:Sense Charm ~ Mindmender				CATEGORY:Special Ability	TYPE:SpecialQuality
-Word of Comfort		KEY:Word of Comfort ~ Mindmender			CATEGORY:Special Ability	TYPE:SpecialQuality	DESC: (DC 15)
+Word of Comfort		KEY:Word of Comfort ~ Mindmender			CATEGORY:Special Ability	TYPE:SpecialQuality							DESC: (DC 15)
 Lifting the Weight	KEY:Lifting the Weight ~ Mindmender			CATEGORY:Special Ability	TYPE:SpecialQuality
-Denial			KEY:Denial ~ Mindmender					CATEGORY:Special Ability	TYPE:SpecialQuality	DESC: (DC %1)|MindmenderDenial	DEFINE:MindmenderDenial|10+WIS
-Dream Voyager		KEY:Dream Voyager ~ Mindmender			CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:(DC 20)
+Denial			KEY:Denial ~ Mindmender					CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:MindmenderDenial|10+WIS	DESC: (DC %1)|MindmenderDenial
+Dream Voyager		KEY:Dream Voyager ~ Mindmender			CATEGORY:Special Ability	TYPE:SpecialQuality							DESC:(DC 20)
 Surcease			KEY:Surcease ~ Mindmender				CATEGORY:Special Ability	TYPE:SpecialQuality
-Ease Resistance		KEY:Ease Resistance ~ Mindmender			CATEGORY:Special Ability	TYPE:SpecialQuality	DESC: %1|EaseResistance					DEFINE:EaseResistance|0
+Ease Resistance		KEY:Ease Resistance ~ Mindmender			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:EaseResistance|0			DESC: %1|EaseResistance
 Word of Kindness		KEY:Word of Kindness ~ Mindmender			CATEGORY:Special Ability	TYPE:SpecialQuality
 Dream Guardian		KEY:Dream Guardian ~ Mindmender			CATEGORY:Special Ability	TYPE:SpecialQuality
 Breaking the Chains	KEY:Breaking the Chains ~ Mindmender		CATEGORY:Special Ability	TYPE:SpecialQuality

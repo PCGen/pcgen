@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sat Sep 26 22:38:41 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Netbook of Magical Treasures	SOURCESHORT:NboMT	SOURCEWEB:http://www.d20magicitems.org/
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Netbook of Magical Treasures	SOURCESHORT:NboMT	SOURCEWEB:http://www.d20magicitems.org/	SOURCEDATE:2002-01
 ###Block:Rods
 # Equipment Name					Output Name						Required Weapon Proficiency		Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Size		Source Page				Weapon prop. bonus					Special Property
 Rod (Dragon Scepter (Copper & Blue))	OUTPUTNAME:Dragon Scepter (Copper & Blue)	PROFICIENCY:WEAPON|Mace			TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace				COST:101200	WT:6		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6					SIZE:S	SOURCEPAGE:pg. 29, Rods		BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement	SPROP:See text

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Jan  6 17:08:43 2009 -- reformated by prettylst.pl v1.38 (build 8180)
-SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
 
 ###Block: Background and Occupation
 # Template Name		Visible	Template					Bonus to Ability Pool
@@ -11,18 +11,18 @@ Occupation.MOD				TEMPLATE:ADDCHOICE:PApocSkills	BONUS:ABILITYPOOL|Occupation|-1
 PApocSkills		VISIBLE:NO	PRECLASS:1,Post Apocalyptic Hero=1
 
 ###Block: Backgrounds
-# Template Name				Visible	Bonus to Ability Pool																			Automatically Gained Feat			Apply Kit								Automatic Languages
-Background (Feral)			VISIBLE:NO	BONUS:ABILITYPOOL|Feral Background Skills|3	BONUS:ABILITYPOOL|Feral Background Feat|1															KIT:1|Equipment_AnySimpleWeapon
-Background (Tribal)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Tribal Background Skills|1	BONUS:ABILITYPOOL|Tribal Background Feat|1	AUTO:FEAT|Primitive Technology		KIT:1|Equipment_MWArchaicWeapon				AUTO:LANG|Unislang
-Background (Ritual Preservationist)	VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Ritual Preservationist Background Skills|1						AUTO:FEAT|Post-Apocalyptic Technology	KIT:1|Equipment_ArtifactOfAncientsI				AUTO:LANG|Gutter Talk
-Background (Resentful)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Resentful Background Skills|1	BONUS:ABILITYPOOL|Resentful Background Feat|1	AUTO:FEAT|Primitive Technology											AUTO:LANG|Unislang
-Background (Radical)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Radical Background Skills|1	BONUS:ABILITYPOOL|Radical Background Feat|1	AUTO:FEAT|Post-Apocalyptic Technology										AUTO:LANG|Unislang
-Background (Degenerate)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Degenerate Background Skills|1								AUTO:FEAT|Post-Apocalyptic Technology	KIT:1|Equipment_ArtifactOfAncientsI				AUTO:LANG|Gutter Talk
-Background (Resurrector)		VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Resurrector Background Skills|1								AUTO:FEAT|Post-Apocalyptic Technology	KIT:1|Equipment_ArtifactOfAncientsI				AUTO:LANG|Unislang
-Background (Visionary Reinventor)	VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Visionary Reinventor Background Skills|1							AUTO:FEAT|Post-Apocalyptic Technology	KIT:1|Equipment_ArtifactOfAncientsI				AUTO:LANG|Unislang
-Background (Guardian)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Guardian Background Skills|3																KIT:1|Equipment_WeaponOfAncients				AUTO:LANG|Ancient
-Background (Hedonist)			VISIBLE:NO	BONUS:ABILITYPOOL|Hedonist Background Skills|1	BONUS:ABILITYPOOL|Hedonist Background Feat|1							AUTO:FEAT|Post-Apocalyptic Technology	KIT:2|Equipment_ArtifactOfAncientsII|Funds_6d6_10	AUTO:LANG|Ancient
-Background (Advanced)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Advanced Background Skills|1																KIT:1|Equipment_ArtifactOfAncientsIII			AUTO:LANG|Ancient
+# Template Name				Visible	Bonus to Ability Pool																			Automatically Gained Feat			Automatically Gained Language	Apply Kit
+Background (Feral)			VISIBLE:NO	BONUS:ABILITYPOOL|Feral Background Skills|3	BONUS:ABILITYPOOL|Feral Background Feat|1																				KIT:1|Equipment_AnySimpleWeapon
+Background (Tribal)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Tribal Background Skills|1	BONUS:ABILITYPOOL|Tribal Background Feat|1	AUTO:FEAT|Primitive Technology		AUTO:LANG|Unislang		KIT:1|Equipment_MWArchaicWeapon
+Background (Ritual Preservationist)	VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Ritual Preservationist Background Skills|1						AUTO:FEAT|Post-Apocalyptic Technology	AUTO:LANG|Gutter Talk		KIT:1|Equipment_ArtifactOfAncientsI
+Background (Resentful)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Resentful Background Skills|1	BONUS:ABILITYPOOL|Resentful Background Feat|1	AUTO:FEAT|Primitive Technology		AUTO:LANG|Unislang
+Background (Radical)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Radical Background Skills|1	BONUS:ABILITYPOOL|Radical Background Feat|1	AUTO:FEAT|Post-Apocalyptic Technology	AUTO:LANG|Unislang
+Background (Degenerate)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Degenerate Background Skills|1								AUTO:FEAT|Post-Apocalyptic Technology	AUTO:LANG|Gutter Talk		KIT:1|Equipment_ArtifactOfAncientsI
+Background (Resurrector)		VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Resurrector Background Skills|1								AUTO:FEAT|Post-Apocalyptic Technology	AUTO:LANG|Unislang		KIT:1|Equipment_ArtifactOfAncientsI
+Background (Visionary Reinventor)	VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Visionary Reinventor Background Skills|1							AUTO:FEAT|Post-Apocalyptic Technology	AUTO:LANG|Unislang		KIT:1|Equipment_ArtifactOfAncientsI
+Background (Guardian)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Guardian Background Skills|3																AUTO:LANG|Ancient			KIT:1|Equipment_WeaponOfAncients
+Background (Hedonist)			VISIBLE:NO	BONUS:ABILITYPOOL|Hedonist Background Skills|1	BONUS:ABILITYPOOL|Hedonist Background Feat|1							AUTO:FEAT|Post-Apocalyptic Technology	AUTO:LANG|Ancient			KIT:2|Equipment_ArtifactOfAncientsII|Funds_6d6_10
+Background (Advanced)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Advanced Background Skills|1																AUTO:LANG|Ancient			KIT:1|Equipment_ArtifactOfAncientsIII
 
 ###Block: Mutant
 # Template Name		Visible	Template							Special ABility						Define						Bonus to Ability Pool							Modify VAR							Subrace

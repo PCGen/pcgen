@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Mar 19 13:16:12 2008 -- reformated by prettylst.pl v1.38 (build 5225)
-SOURCELONG:Darwin's World 2nd Edition	SOURCESHORT:DW2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Darwin's World 2nd Edition	SOURCESHORT:DW2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2003-01
 
 ###Block: Backgrounds
 # Ability Name	Category of Ability	Type			Visible		Description			Template

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Oct  8 16:52:12 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-01
 
 # Move Rogue Proficiency change into hidden feat from SRD's new method.
 
@@ -14,11 +14,11 @@ CLASS:Agent of the Crown	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|TYPE=Craf
 1	AUTO:WEAPONPROF|Dagger|Rapier|Sap
 1	AUTO:WEAPONPROF|Mace (Light)|PRESIZEGTEQ:S
 ###Block: Normal Level Progression
-1	ABILITY:Special Ability|AUTOMATIC|Agent of the Crown ~ Agent of the Crown	ABILITY:Special Ability|AUTOMATIC|Smooth Talker ~ Agent of the Crown		BONUS:SKILL|Bluff,Diplomacy,Intimidate,Sense Motive|2|TYPE=Competence
-2	ABILITY:Special Ability|AUTOMATIC|Friends in Low Places ~ Agent of the Crown
-3	ABILITY:Special Ability|AUTOMATIC|Social Chameleon ~ Agent of the Crown
-4	ABILITY:Special Ability|AUTOMATIC|Man of 1000 Faces ~ Agent of the Crown
-5	ABILITY:Special Ability|AUTOMATIC|Charming Demeanor ~ Agent of the Crown													BONUS:VAR|CharmingDemeanor|CHA	DEFINE:CharmingDemeanor|0
+1	BONUS:SKILL|Bluff,Diplomacy,Intimidate,Sense Motive|2|TYPE=Competence												ABILITY:Special Ability|AUTOMATIC|Agent of the Crown ~ Agent of the Crown	ABILITY:Special Ability|AUTOMATIC|Smooth Talker ~ Agent of the Crown
+2																								ABILITY:Special Ability|AUTOMATIC|Friends in Low Places ~ Agent of the Crown
+3																								ABILITY:Special Ability|AUTOMATIC|Social Chameleon ~ Agent of the Crown
+4																								ABILITY:Special Ability|AUTOMATIC|Man of 1000 Faces ~ Agent of the Crown
+5													BONUS:VAR|CharmingDemeanor|CHA	DEFINE:CharmingDemeanor|0	ABILITY:Special Ability|AUTOMATIC|Charming Demeanor ~ Agent of the Crown
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Commando	HD:6		TYPE:PC.Prestige	ABB:Com		MAXLEVEL:5	SOURCEPAGE:p.23-24	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -31,10 +31,10 @@ CLASS:Commando	STARTSKILLPTS:2	CSKILL:Balance|Climb|Hide|Intuit Direction|Listen
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	ABILITY:Special Ability|AUTOMATIC|Live off the Land ~ Commando	ABILITY:Special Ability|AUTOMATIC|Silent Strike ~ Commando
-2								BONUS:VAR|SneakAttack|CL/2
-3	ABILITY:Special Ability|AUTOMATIC|Prepare Ambush ~ Commando
-5	ABILITY:Special Ability|AUTOMATIC|Sniper ~ Commando
+1						ABILITY:Special Ability|AUTOMATIC|Live off the Land ~ Commando	ABILITY:Special Ability|AUTOMATIC|Silent Strike ~ Commando
+2	BONUS:VAR|SneakAttack|CL/2
+3						ABILITY:Special Ability|AUTOMATIC|Prepare Ambush ~ Commando
+5						ABILITY:Special Ability|AUTOMATIC|Sniper ~ Commando
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
 CLASS:Crusading Footpad	HD:6		TYPE:PC.Prestige	ABB:CrF		MAXLEVEL:10	SOURCEPAGE:p.24-26	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -42,13 +42,13 @@ CLASS:Crusading Footpad	HD:6		TYPE:PC.Prestige	ABB:CrF		MAXLEVEL:10	SOURCEPAGE:p
 CLASS:Crusading Footpad	PREALIGN:LG,NG,CG	PREATT:4	PREFEAT:2,Dodge,Iron Will	PRESKILL:1,Knowledge (Religion)=4	PRESPELLTYPE:1,Divine=0
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Crusading Footpad	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Knowledge (Religion)|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
-1	ABILITY:Special Ability|AUTOMATIC|Divine Companion ~ Crusading Footpad	ABILITY:Special Ability|AUTOMATIC|Divine Luck ~ Crusading Footpad
+1																						ABILITY:Special Ability|AUTOMATIC|Divine Companion ~ Crusading Footpad	ABILITY:Special Ability|AUTOMATIC|Divine Luck ~ Crusading Footpad
 #	BONUS:CHECKS|2	- Um... To what?  Tir Gwaith
-2	ABILITY:Special Ability|AUTOMATIC|Smite Undead ~ Crusading Footpad									BONUS:VAR|SmiteUndead|CL/2	DEFINE:SmiteUndeadDie|6	DEFINE:SmiteUndead|0
-3	ABILITY:Special Ability|AUTOMATIC|Detect Undead ~ Crusading Footpad	ABILITY:Special Ability|AUTOMATIC|Detect Evil ~ Crusading Footpad
-5	ABILITY:Special Ability|AUTOMATIC|Mask Alignment ~ Crusading Footpad
-7	ABILITY:Special Ability|AUTOMATIC|Divine Shield ~ Crusading Footpad
-9	ABILITY:Special Ability|AUTOMATIC|Sense Guards and Wards ~ Crusading Footpad					BONUS:SKILL|Disable Device,Search|2|TYPE=Divine
+2									BONUS:VAR|SmiteUndead|CL/2	DEFINE:SmiteUndeadDie|6	DEFINE:SmiteUndead|0	ABILITY:Special Ability|AUTOMATIC|Smite Undead ~ Crusading Footpad
+3																						ABILITY:Special Ability|AUTOMATIC|Detect Undead ~ Crusading Footpad	ABILITY:Special Ability|AUTOMATIC|Detect Evil ~ Crusading Footpad
+5																						ABILITY:Special Ability|AUTOMATIC|Mask Alignment ~ Crusading Footpad
+7																						ABILITY:Special Ability|AUTOMATIC|Divine Shield ~ Crusading Footpad
+9	BONUS:SKILL|Disable Device,Search|2|TYPE=Divine														ABILITY:Special Ability|AUTOMATIC|Sense Guards and Wards ~ Crusading Footpad
 
 #TBD - implement Language requirement
 
@@ -62,11 +62,11 @@ CLASS:Deep Tracker	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Decipher Script|Diplo
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	ABILITY:Special Ability|AUTOMATIC|Monster Knowledge ~ Deep Tracker	ABILITY:Special Ability|AUTOMATIC|Underneath Explorer ~ Deep Tracker
-2	ABILITY:Special Ability|AUTOMATIC|Pathfinder ~ Deep Tracker						BONUS:VAR|SneakAttack|CL/2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-3	ABILITY:Special Ability|AUTOMATIC|Emissary ~ Deep Tracker
-4	ABILITY:Special Ability|AUTOMATIC|Maze Sense ~ Deep Tracker
-5	ABILITY:Special Ability|AUTOMATIC|Dark Sense ~ Deep Tracker
+1						ABILITY:Special Ability|AUTOMATIC|Monster Knowledge ~ Deep Tracker	ABILITY:Special Ability|AUTOMATIC|Underneath Explorer ~ Deep Tracker
+2	BONUS:VAR|SneakAttack|CL/2	ABILITY:Special Ability|AUTOMATIC|Pathfinder ~ Deep Tracker	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+3						ABILITY:Special Ability|AUTOMATIC|Emissary ~ Deep Tracker
+4						ABILITY:Special Ability|AUTOMATIC|Maze Sense ~ Deep Tracker
+5						ABILITY:Special Ability|AUTOMATIC|Dark Sense ~ Deep Tracker
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Executioner	HD:8		TYPE:PC.Prestige	ABB:Exe		MAXLEVEL:5	SOURCEPAGE:p.28-30	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -79,9 +79,9 @@ CLASS:Executioner	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Escape Artist|He
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	ABILITY:Special Ability|AUTOMATIC|Executioner's Strik ~ Executioner	BONUS:VAR|SneakAttack|(CL+1)/2	BONUS:VAR|ExecutionersStrike|(CL+1)/2	DEFINE:ExecutionersStrikeDie|6	DEFINE:ExecutionersStrike|0	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-2	ABILITY:Special Ability|AUTOMATIC|Cold Blooded Killer ~ Executioner
-4	ABILITY:Special Ability|AUTOMATIC|Executioner's Song ~ Executioner
+1	BONUS:VAR|SneakAttack|(CL+1)/2	BONUS:VAR|ExecutionersStrike|(CL+1)/2	DEFINE:ExecutionersStrikeDie|6	DEFINE:ExecutionersStrike|0	ABILITY:Special Ability|AUTOMATIC|Executioner's Strik ~ Executioner	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+2																									ABILITY:Special Ability|AUTOMATIC|Cold Blooded Killer ~ Executioner
+4																									ABILITY:Special Ability|AUTOMATIC|Executioner's Song ~ Executioner
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
@@ -94,13 +94,13 @@ CLASS:Shadowy Avenger	STARTSKILLPTS:4	CSKILL:Alchemy|Climb|TYPE=Craft|Disable De
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	ABILITY:Special Ability|AUTOMATIC|Eye for Detail ~ Shadowy Avenger	ABILITY:Special Ability|AUTOMATIC|Urban Ranger ~ Shadowy Avenger	BONUS:SKILL|Sense Motive|2|TYPE=Competence
-2	ABILITY:Special Ability|AUTOMATIC|Scrounger ~ Shadowy Avenger													BONUS:VAR|SneakAttack|CL/2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-3	ABILITY:Special Ability|AUTOMATIC|Punish the Guilty ~ Shadowy Avenger
-5	ABILITY:Special Ability|AUTOMATIC|Fearsome Reputation ~ Shadowy Avenger				BONUS:SKILL|Intimidate|2|TYPE=Competence
-7	ABILITY:Special Ability|AUTOMATIC|Alchemical Genius ~ Shadowy Avenger																									VFEAT:Brew Potion
-9	ABILITY:Special Ability|AUTOMATIC|Long Arm of the Law ~ Shadowy Avenger
-10	ABILITY:Special Ability|AUTOMATIC|Angel of Judgement ~ Shadowy Avenger
+1	BONUS:SKILL|Sense Motive|2|TYPE=Competence						ABILITY:Special Ability|AUTOMATIC|Eye for Detail ~ Shadowy Avenger	ABILITY:Special Ability|AUTOMATIC|Urban Ranger ~ Shadowy Avenger
+2									BONUS:VAR|SneakAttack|CL/2	ABILITY:Special Ability|AUTOMATIC|Scrounger ~ Shadowy Avenger	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+3														ABILITY:Special Ability|AUTOMATIC|Punish the Guilty ~ Shadowy Avenger
+5	BONUS:SKILL|Intimidate|2|TYPE=Competence							ABILITY:Special Ability|AUTOMATIC|Fearsome Reputation ~ Shadowy Avenger
+7														ABILITY:Special Ability|AUTOMATIC|Alchemical Genius ~ Shadowy Avenger												VFEAT:Brew Potion
+9														ABILITY:Special Ability|AUTOMATIC|Long Arm of the Law ~ Shadowy Avenger
+10														ABILITY:Special Ability|AUTOMATIC|Angel of Judgement ~ Shadowy Avenger
 
 #TBD - implement Superior Knowledge?
 
@@ -114,8 +114,8 @@ CLASS:Tomb Raider	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Climb|TYPE=Cra
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	ABILITY:Special Ability|AUTOMATIC|Recognize Trap Design ~ Tomb Raider	ABILITY:Special Ability|AUTOMATIC|Superior Knowledge ~ Tomb Raider
-2	ABILITY:Special Ability|AUTOMATIC|Mystic Knowledge ~ Tomb Raider	ABILITY:Special Ability|AUTOMATIC|Trap Sense ~ Tomb Raider			BONUS:SKILL|Use Magic Device|2|TYPE=Competence
-3	ABILITY:Special Ability|AUTOMATIC|Identify Item ~ Tomb Raider	ABILITY:Special Ability|AUTOMATIC|Superior Knowledge ~ Tomb Raider
-4	ABILITY:Special Ability|AUTOMATIC|Superior Appraise ~ Tomb Raider	ABILITY:Special Ability|AUTOMATIC|Rapid Dodge ~ Tomb Raider
-5	ABILITY:Special Ability|AUTOMATIC|Magical Lore ~ Tomb Raider	ABILITY:Special Ability|AUTOMATIC|Superior Knowledge ~ Tomb Raider
+1									ABILITY:Special Ability|AUTOMATIC|Recognize Trap Design ~ Tomb Raider	ABILITY:Special Ability|AUTOMATIC|Superior Knowledge ~ Tomb Raider
+2	BONUS:SKILL|Use Magic Device|2|TYPE=Competence	ABILITY:Special Ability|AUTOMATIC|Mystic Knowledge ~ Tomb Raider	ABILITY:Special Ability|AUTOMATIC|Trap Sense ~ Tomb Raider
+3									ABILITY:Special Ability|AUTOMATIC|Identify Item ~ Tomb Raider	ABILITY:Special Ability|AUTOMATIC|Superior Knowledge ~ Tomb Raider
+4									ABILITY:Special Ability|AUTOMATIC|Superior Appraise ~ Tomb Raider	ABILITY:Special Ability|AUTOMATIC|Rapid Dodge ~ Tomb Raider
+5									ABILITY:Special Ability|AUTOMATIC|Magical Lore ~ Tomb Raider	ABILITY:Special Ability|AUTOMATIC|Superior Knowledge ~ Tomb Raider

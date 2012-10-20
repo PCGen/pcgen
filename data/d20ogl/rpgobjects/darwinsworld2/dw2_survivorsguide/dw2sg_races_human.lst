@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Jan  6 17:08:43 2009 -- reformated by prettylst.pl v1.38 (build 8180)
-SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
 
 # Race Name	Favored Class			Skills/Level		Starting Feats	Size		Move			Face/Space	Reach		Bonus Languages	Main Race Type	Type			Challenge Rating	Source Page
 Human		FAVCLASS:HIGHESTLEVELCLASS	XTRASKILLPTSPERLVL:1	STARTFEATS:2	SIZE:M	MOVE:Walk,30	FACE:5,5	REACH:5	LANGBONUS:ALL	RACETYPE:Humanoid	TYPE:Humanoid	CR:1/2		SOURCEPAGE:msrdcreatures.rtf

@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Wed May 19 21:37:18 2010 -- reformated by prettylst.pl v1.39 (build 11455)
-SOURCELONG:Second Darkness - Chapter 2: Children of the Void	SOURCESHORT:PF14	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/adventurePath/secondDarkness/v5748btpy85ed	SOURCEDATE:2008-10
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Second Darkness, Chapter 2: Children of the Void	SOURCESHORT:PF14	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ed	SOURCEDATE:2008-10
 
-# Class Name		Clear Prereq.	Required AL		Req. Att.	Required Skill							Required Text
+# Class Name		Clear Prereq.	Required AL		Req. Att.	Required Skill						Required Text
 CLASS:Chevalier.MOD	PRE:.CLEAR		PREALIGN:LG,NG,CG	PREATT:6	PRESKILL:2,Diplomacy=1,Knowledge (Local)=1	PRETEXT:A would-be chevalier must have succeeded at a challenge requiring great heroism
 # Class Name		Remove Class Skill	Class Skill
 CLASS:Chevalier.MOD	CSKILL:.CLEAR		CSKILL:Acrobatics|Bluff|TYPE=Craft|Diplomacy|Intimidate|TYPE=Perform|TYPE=Profession|Survival

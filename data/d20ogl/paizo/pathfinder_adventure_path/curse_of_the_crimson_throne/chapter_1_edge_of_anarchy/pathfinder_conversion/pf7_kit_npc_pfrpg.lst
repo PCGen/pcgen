@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Jun  1 15:22:01 2010 -- reformated by prettylst.pl v1.39 (build 11455)
-SOURCELONG:Curse of the Crimson Throne: Edge of Anarchy	SOURCESHORT:CotCT:EoA	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy81xw	SOURCEDATE:2008-03
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Curse of the Crimson Throne, Chaper 1: Edge of Anarchy	SOURCESHORT:PF7	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy81xw	SOURCEDATE:2008-03
 
 
 STARTPACK:NPC (Yargin Balko)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 16	NAMEISPI:YES

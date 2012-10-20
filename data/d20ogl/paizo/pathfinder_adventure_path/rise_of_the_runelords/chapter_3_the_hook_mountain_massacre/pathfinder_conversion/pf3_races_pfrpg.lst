@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Tue Apr 27 12:59:12 2010 -- reformated by prettylst.pl v1.39 (build 11455)
-SOURCELONG:Rise of the Runelords - Chapter 3: The Hook Mountain Massacre	SOURCESHORT:PF3	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy80e8	SOURCEDATE:2007-08
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Rise of the Runelords, Chapter 3: The Hook Mountain Massacre	SOURCESHORT:PF3	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy80e8	SOURCEDATE:2007-08
 
-# Race Name			Bonus to skill										Modify VAR																																	Racial HD Class Skills	Ability												Define				Hit Dice Size	Monster Class Name and Starting Level
-Smoke Haunt.MOD		BONUS:SKILL|Perception|2|TYPE=Racial																																								MONCCSKILL:.CLEAR	MONCSKILL:.CLEAR		ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability				DEFINE:Maneuverability|5
-Totenmaske.MOD																																																MONCCSKILL:.CLEAR	MONCSKILL:.CLEAR																				HITDIE:8
-Skull Ripper.MOD		BONUS:SKILL|Perception|1|TYPE=Racial																																								MONCCSKILL:.CLEAR	MONCSKILL:.CLEAR		ABILITY:Special Ability|AUTOMATIC|.CLEAR.Improved Grab|Grab
-Argorth.MOD			BONUS:SKILL|Perception|3|TYPE=Racial	BONUS:SKILL|Climb,Swim|-8	BONUS:VAR|ConstrictDieSize|6	BONUS:VAR|ConstrictBonusDamage|STR*1.5	BONUS:VAR|ConstrictDice|1	BONUS:VAR|SwallowWholeDice|2	BONUS:VAR|SwallowWholeDamageDie|8	BONUS:VAR|SwallowWholeBonusDamage|8	MONCSKILL:.CLEAR		ABILITY:Special Ability|AUTOMATIC|.CLEAR.Death Throes|Death Throes ~ Argorth
-Mother of Oblivian.MOD													BONUS:VAR|ConstrictDieSize|6	BONUS:VAR|ConstrictBonusDamage|STR*1.5	BONUS:VAR|ConstrictDice|1																		MONCCSKILL:.CLEAR	MONCSKILL:.CLEAR		ABILITY:Special Ability|AUTOMATIC|.CLEAR.Improved Grab|Grab												MONSTERCLASS:Outsider (Fort/Will):15
+# Race Name			Bonus to skill										Modify VAR																																	Racial HD Class Skills	Racial HD Cross-class Skills	Ability												Define				Hit Dice Size	Monster Class Name and Starting Level
+Smoke Haunt.MOD		BONUS:SKILL|Perception|2|TYPE=Racial																																								MONCSKILL:.CLEAR		MONCCSKILL:.CLEAR			ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability				DEFINE:Maneuverability|5
+Totenmaske.MOD																																																MONCSKILL:.CLEAR		MONCCSKILL:.CLEAR																					HITDIE:8
+Skull Ripper.MOD		BONUS:SKILL|Perception|1|TYPE=Racial																																								MONCSKILL:.CLEAR		MONCCSKILL:.CLEAR			ABILITY:Special Ability|AUTOMATIC|.CLEAR.Improved Grab|Grab
+Argorth.MOD			BONUS:SKILL|Perception|3|TYPE=Racial	BONUS:SKILL|Climb,Swim|-8	BONUS:VAR|ConstrictDieSize|6	BONUS:VAR|ConstrictBonusDamage|STR*1.5	BONUS:VAR|ConstrictDice|1	BONUS:VAR|SwallowWholeDice|2	BONUS:VAR|SwallowWholeDamageDie|8	BONUS:VAR|SwallowWholeBonusDamage|8	MONCSKILL:.CLEAR							ABILITY:Special Ability|AUTOMATIC|.CLEAR.Death Throes|Death Throes ~ Argorth
+Mother of Oblivian.MOD													BONUS:VAR|ConstrictDieSize|6	BONUS:VAR|ConstrictBonusDamage|STR*1.5	BONUS:VAR|ConstrictDice|1																		MONCSKILL:.CLEAR		MONCCSKILL:.CLEAR			ABILITY:Special Ability|AUTOMATIC|.CLEAR.Improved Grab|Grab												MONSTERCLASS:Outsider (Fort/Will):15

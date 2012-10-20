@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Jan  6 17:08:43 2009 -- reformated by prettylst.pl v1.38 (build 8180)
-SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
 
 ###Block: Mutations
 #Hidden Feats for Additional Limb Development
@@ -20,7 +20,7 @@ Rage		TYPE:Special	VISIBLE:NO	SAB:Rage (Ex) % times/day (% rounds)|RageTimes|Rag
 Sneak Attack	TYPE:Special	VISIBLE:NO	SAB:Sneak Attack +%d%|SneakAttack|SneakAttackDie	DEFINE:SneakAttackDie|6	DEFINE:SneakAttack|0	DESC:Class Special Ability	SOURCEPAGE:p. 29
 
 ###Block: Skill Mastery
-# Feat Name		Type			Visible	Special ABility			Multiple?	Choose				Selections
+# Feat Name		Type			Visible	Special ABility			Multiple?	Choose			Selections
 Skill Mastery	TYPE:Special	VISIBLE:NO	SAB:Skill Mastery (%CHOICE)	MULT:YES	CHOOSE:SKILL|CLASS	SELECT:3+INT
 
 ###Block: Evasion/Improved Evasion

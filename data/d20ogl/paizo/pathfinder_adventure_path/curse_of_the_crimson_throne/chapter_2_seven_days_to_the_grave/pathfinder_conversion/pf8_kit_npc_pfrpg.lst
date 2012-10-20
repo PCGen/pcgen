@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Mon Jun 21 12:46:02 2010 -- reformated by prettylst.pl v1.39 (build 11455)
-SOURCELONG:Curse of the Crimson Thrown: Seven Days to the Grave	SOURCESHORT:CotCT:SDttG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinder/v5748btpy82qy	SOURCEDATE:2008-04
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Curse of the Crimson Throne, Chapter 2: Seven Days to the Grave	SOURCESHORT:PF8	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82qy	SOURCEDATE:2008-04
 
 
 STARTPACK:NPC (Vendra Loaggri)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 25	NAMEISPI:YES

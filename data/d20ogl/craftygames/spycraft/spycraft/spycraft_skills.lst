@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Thu Jul 16 23:47:06 2009 -- reformated by prettylst.pl v1.39 (build 9548)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 #
 # Spycraft PCGen dataset by Eddy Anthony
 #
 
 SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.crafty-games.com/product_catalog/spycraftfirsted	SOURCEDATE:2003-01
 
-# Skill Name		Key Stat	Untrained?		Skill Penalty Apply	Type			Source Page		Choose			Bonus to skill
+# Skill Name		Key Stat	Untrained?		Skill Penalty Apply	Type			Source Page		Choose			Bonus to skill																									Automatically Gained Language
 Appraise			KEYSTAT:INT								TYPE:Intelligence	SOURCEPAGE:p.40
 Balance			KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity	SOURCEPAGE:p.41					BONUS:SKILL|Balance|SynergyBonus|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK
 Bluff				KEYSTAT:CHA								TYPE:Charisma	SOURCEPAGE:p.41
@@ -29,7 +29,7 @@ Handle Animal		KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma	SOURCEPAGE:p.54
 Hide				KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity	SOURCEPAGE:p.55
 Innuendo			KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom		SOURCEPAGE:p.56
 Jump				KEYSTAT:STR				ACHECK:YES			TYPE:Strength	SOURCEPAGE:p.57					BONUS:SKILL|Jump|SynergyBonus|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK
-Languages			KEYSTAT:WIS								TYPE:Wisdom		SOURCEPAGE:p.58	AUTO:LANG|%LIST	CHOOSE:LANG|TYPE=Spoken
+Languages			KEYSTAT:WIS								TYPE:Wisdom		SOURCEPAGE:p.58	CHOOSE:LANG|TYPE=Spoken																												AUTO:LANG|%LIST
 #Languages (Native)	KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom																													SOURCEPAGE:p.58
 Listen			KEYSTAT:WIS								TYPE:Wisdom		SOURCEPAGE:p.58
 Mechanics			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence	SOURCEPAGE:p.59

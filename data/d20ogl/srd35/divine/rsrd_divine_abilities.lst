@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 
 # Ability Name					Output Name			Category of Ability		Type								Visible	PRELEGSGTEQ		PRELEGSLTEQ		Required Movement Rate	Required Size	Define									Description																																													Move			Ability
 Automatic Actions									CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES														DEFINE:AutomaticActions|0	DEFINE:AutomaticActionsDC|0	DESC:%1, max DC %2|AutomaticActions|AutomaticActionsDC

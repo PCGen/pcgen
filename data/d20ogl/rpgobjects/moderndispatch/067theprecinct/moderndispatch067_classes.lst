@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Feb 18 11:05:41 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-SOURCELONG:Modern Dispatch #67 - The Precinct	SOURCESHORT:MD67-Precinct	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=180
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern Dispatch #67 - The Precinct	SOURCESHORT:MD67-Precinct	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=180	SOURCEDATE:2004-01
 
 # Class Name	Hit Dice	Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Bad Cop	HD:10		MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4

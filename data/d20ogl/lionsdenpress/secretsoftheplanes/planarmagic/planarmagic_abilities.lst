@@ -1,13 +1,13 @@
-# CVS $Revision$ $Author$ -- Thu Feb 12 22:06:38 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-SOURCELONG:Secrets of the Planes - Planar Magic	SOURCESHORT:PlanarMagic	SOURCEWEB:http://www.lionsdenpress.com/
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Secrets of the Planes - Planar Magic	SOURCESHORT:PlanarMagic	SOURCEWEB:http://www.lionsdenpress.com/	SOURCEDATE:2005-01
 # Original Entry by: Tir Gwaith
 
 # Ability Name	Category of Ability		Type							Define																																									Description																									Source Page
 Planar Turning	CATEGORY:Special Ability	TYPE:SpecialAttack.Turning.TurnPlanar	DEFINE:TurnTimesPlanar|TurnTimesBase	DEFINE:TurnLevelPlanar|TurnLevelBase	DEFINE:TurnDicePlanar|TurnDiceBase	DEFINE:TurnDieSizePlanar|TurnDieSizeBase	DEFINE:TurnDamagePlusPlanar|TurnDamagePlusBase	DEFINE:TurnCheckPlanar|TurnCheckBase	DESC:Turn Planar (Su) %1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesPlanar|TurnLevelPlanar|TurnDicePlanar|TurnDieSizePlanar|TurnDamagePlusPlanar	SOURCEPAGE:p.7
 
 ###Block: Aspects
-# Ability Name						Aspects
-CATEGORY=Special Ability|Planar Turning.MOD	ASPECT:TurnType|Turn	ASPECT:TurnKind|Planar	ASPECT:TurnTimes|%1|TurnTimesPlanar	ASPECT:TurnLevel|%1|TurnLevelPlanar	ASPECT:TurnDamage|%1d%2+%3|TurnDicePlanar|TurnDieSizePlanar|TurnDamagePlusPlanar	ASPECT:TurnCheck|%1|TurnCheckPlanar	ASPECT:TurnNotes|You destroy Planar creatures with total hit dice up to %1.|TurnLevelPlanar/2
+# Ability Name						Unique Key					Category of Ability		Type						Aspects
+CATEGORY=Special Ability|Planar Turning.MOD																		ASPECT:TurnType|Turn	ASPECT:TurnKind|Planar	ASPECT:TurnTimes|%1|TurnTimesPlanar	ASPECT:TurnLevel|%1|TurnLevelPlanar	ASPECT:TurnDamage|%1d%2+%3|TurnDicePlanar|TurnDieSizePlanar|TurnDamagePlusPlanar	ASPECT:TurnCheck|%1|TurnCheckPlanar	ASPECT:TurnNotes|You destroy Planar creatures with total hit dice up to %1.|TurnLevelPlanar/2
 
 # Planar Mage
-Well Learned	KEY:Well Learned ~ Planar Mage	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+Well Learned						KEY:Well Learned ~ Planar Mage	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary

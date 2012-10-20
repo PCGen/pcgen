@@ -1,6 +1,8 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
 
-ABILITYCATEGORY:Igasaki Disciple Proficiencies	CATEGORY:Special Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	DISPLAYLOCATION:Class Abilities	ABILITYLIST:Igasaki Disciple Proficiencies
-ABILITYCATEGORY:Inpo Agent Proficiencies		CATEGORY:Special Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	DISPLAYLOCATION:Class Abilities	ABILITYLIST:Inpo Agent Proficiencies
-ABILITYCATEGORY:Lotus Warrior Proficiencies	CATEGORY:Special Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	DISPLAYLOCATION:Class Abilities	ABILITYLIST:Lotus Warrior Proficiencies
-ABILITYCATEGORY:Lotus Warrior Feat			CATEGORY:FEAT			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	DISPLAYLOCATION:Class Abilities	TYPE:LotusWarrior
+# Ability Category					Visible		Editable or Static?	Change Pool?	Category of Object		Type of Object	Specific choices list					Display Location
+ABILITYCATEGORY:Igasaki Disciple Proficiencies	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability				ABILITYLIST:Igasaki Disciple Proficiencies	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Inpo Agent Proficiencies		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability				ABILITYLIST:Inpo Agent Proficiencies		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Lotus Warrior Proficiencies	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability				ABILITYLIST:Lotus Warrior Proficiencies		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Lotus Warrior Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:FEAT			TYPE:LotusWarrior									DISPLAYLOCATION:Class Abilities

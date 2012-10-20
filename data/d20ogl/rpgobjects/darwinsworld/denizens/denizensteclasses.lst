@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Thu Oct  8 21:44:19 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 #Orginal entry by wizofice2001
-SOURCELONG:RPGObjects - Darwin's World - Denizens of the Twisted Earth	SOURCESHORT:DenizensTE	SOURCEWEB:http://www.darwinrpg.com
+SOURCELONG:RPGObjects - Darwin's World - Denizens of the Twisted Earth	SOURCESHORT:DenizensTE	SOURCEWEB:http://www.darwinrpg.com	SOURCEDATE:2001-01
 
 # CHAMPION: Pre-Reqs: Any background except FERAL is allowed.  Using [Feral ] - needs to be tested.
 # FORCE MASTER: Pre-Reqs: Character PRE's one Neural Mutation
@@ -149,7 +149,7 @@ CLASS:Ranger (DW)	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Gather Information|Hand
 ###Block: Normal Level Progression
 1	SAB:Rigorous Training
 2	SAB:Wanderer's Reputation +%|WanderersReputation	BONUS:SKILL|Diplomacy,Intimidate|CL	BONUS:VAR|WanderersReputation|2	DEFINE:WanderersReputation|CL
-3																												ADD:FEAT|Feel for Weapon
+3																											ADD:FEAT|Feel for Weapon
 4	SAB:Do It with Eyes Closed
 5	SAB:Leave No One Behind
 

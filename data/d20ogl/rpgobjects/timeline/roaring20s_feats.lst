@@ -1,13 +1,13 @@
-# CVS $Revision$ $Author$ -- Fri Nov 23 13:18:06 2007 -- reformated by prettylst.pl v1.38 (build 2788)
-SOURCELONG:Timeline: The Roaring 20s	SOURCESHORT:R20	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=196
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Timeline: The Roaring 20s	SOURCESHORT:R20	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=196	SOURCEDATE:2005-01
 
-# Feat Name				Type					Required Feat					Required Lvl	Required Skill			Required Stat	Required Text				Description																			Multiple?	Choose		Source Page
-Animal Companion			TYPE:General			PREFEAT:2,Sidekick,Occupation (Primitive)				PRESKILL:1,Handle Animal=5										DESC:You have a special kind of sidekick, an unusually intelligent animal that will accompany you on adventures.							SOURCEPAGE:p.9
-Enemy					TYPE:General.Tough																										DESC:You detest a particular allegiance, group, or individual.									STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.10
-Henchmen				TYPE:General.Charismatic								PRELEVEL:MIN=3															DESC:You have a group of followers.																				SOURCEPAGE:p.10
-Home Turf				TYPE:General.Dedicated																										DESC:You know every nook and cranny of your home territory, gaining advantages when fighting to defend it.								SOURCEPAGE:p.11
-Information Network		TYPE:General.Charismatic	PREFEAT:1,Henchmen																					DESC:You have informants on the ground that alert you of trouble.															SOURCEPAGE:p.11
-Inspired Leadership		TYPE:General.Charismatic	PREFEAT:1,Henchmen				PRELEVEL:MIN=5						PRESTAT:1,CHA=13							DESC:You inspire your followers to work together efficiently.															SOURCEPAGE:p.11
-Secret Identity			TYPE:General																											DESC:You lead a double life.																					SOURCEPAGE:p.11
-Sidekick				TYPE:General.Charismatic								PRELEVEL:MIN=3															DESC:You have a partner.																					SOURCEPAGE:p.11
-Teamwork (Specific Team)	TYPE:General.Dedicated																				PRETEXT:Allegiance (Specific Team)	DESC:You have trained extensively with your teammates, and are more effective within the group than you would be alone.						SOURCEPAGE:p.12
+# Feat Name				Type					Required Feat					Required Lvl	Required Skill			Required Stat	Required Text				Description																			Stackable?	Multiple?	Choose		Source Page
+Animal Companion			TYPE:General			PREFEAT:2,Sidekick,Occupation (Primitive)				PRESKILL:1,Handle Animal=5										DESC:You have a special kind of sidekick, an unusually intelligent animal that will accompany you on adventures.									SOURCEPAGE:p.9
+Enemy					TYPE:General.Tough																										DESC:You detest a particular allegiance, group, or individual.										STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.10
+Henchmen				TYPE:General.Charismatic								PRELEVEL:MIN=3															DESC:You have a group of followers.																						SOURCEPAGE:p.10
+Home Turf				TYPE:General.Dedicated																										DESC:You know every nook and cranny of your home territory, gaining advantages when fighting to defend it.										SOURCEPAGE:p.11
+Information Network		TYPE:General.Charismatic	PREFEAT:1,Henchmen																					DESC:You have informants on the ground that alert you of trouble.																	SOURCEPAGE:p.11
+Inspired Leadership		TYPE:General.Charismatic	PREFEAT:1,Henchmen				PRELEVEL:MIN=5						PRESTAT:1,CHA=13							DESC:You inspire your followers to work together efficiently.																	SOURCEPAGE:p.11
+Secret Identity			TYPE:General																											DESC:You lead a double life.																							SOURCEPAGE:p.11
+Sidekick				TYPE:General.Charismatic								PRELEVEL:MIN=3															DESC:You have a partner.																							SOURCEPAGE:p.11
+Teamwork (Specific Team)	TYPE:General.Dedicated																				PRETEXT:Allegiance (Specific Team)	DESC:You have trained extensively with your teammates, and are more effective within the group than you would be alone.								SOURCEPAGE:p.12

@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Mon Nov 28 13:37:53 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
 ###Block: Conditional skills (for output only)
-# Skill Name					Key Stat	Untrained?		Classes	Type			Visible		Req. Rule (in options)		Prohibited Var. Value												Source Page
+# Skill Name					Key Stat	Untrained?		Classes	Type			Visible		Req. Rule (in options)		Prohibited Var. Value													Source Page
 Acrobatics (Jump)					KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Acrobatics (Jump).MISC"),var("SKILL.Acrobatics.MISC")				SOURCEPAGE:p.87
 Appraise (Precious metals and gemstones)	KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Appraise (Precious metals and gemstones).MISC"),var("SKILL.Appraise.MISC")	SOURCEPAGE:p.90
 Perception (Notice unusual stonework)	KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Perception (Notice unusual stonework).MISC"),var("SKILL.Perception.MISC")	SOURCEPAGE:p.102
@@ -13,7 +13,7 @@ Survival (Follow or identify tracks)	KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TY
 
 ###Block: Skill .MODs
 # MODs to existing skills - have to do it this way otherwise the BONUS to MISC never fires and the conditions above are never triggered
-# Skill Name	Bonus to skill											Bonus to skill rank
+# Skill Name	Bonus to skill												Bonus to skill rank
 Acrobatics.MOD	BONUS:SKILL|Acrobatics (Jump)|var("SKILL.Acrobatics.MISC")					BONUS:SKILLRANK|Acrobatics (Jump)|skillinfo("TOTALRANK", "Acrobatics")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Acrobatics (Jump).MISC"),var("SKILL.Acrobatics.MISC")
 Appraise.MOD	BONUS:SKILL|Appraise (Precious metals and gemstones)|var("SKILL.Appraise.MISC")	BONUS:SKILLRANK|Appraise (Precious metals and gemstones)|skillinfo("TOTALRANK", "Appraise")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Appraise (Precious metals and gemstones).MISC"),var("SKILL.Appraise.MISC")
 Perception.MOD	BONUS:SKILL|Perception (Notice unusual stonework)|var("SKILL.Perception.MISC")	BONUS:SKILLRANK|Perception (Notice unusual stonework)|skillinfo("TOTALRANK", "Perception")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Perception (Notice unusual stonework).MISC"),var("SKILL.Perception.MISC")

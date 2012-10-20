@@ -1,23 +1,27 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
 
 
 # ~ Honor Guard	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Listen|Knowledge (Local)|Knowledge (Nobility and Royalty)|Profession (Soldier)|Sense Motive|Spot
-Harm's Way	KEY:Harm's Way ~ Honor Guard				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
-Honor Guard	KEY:Honor Guard ~ Honor Guard			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
-Lawful Strike	KEY:Lawful Strike ~ Honor Guard		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Sudden Action	KEY:Sudden Action ~ Honor Guard	CATEGORY:Special Ability	TYPE:SpecialQuality
-Elite Honor Guard	KEY:Elite Honor Guard ~ Honor Guard		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
-Defensive Strike	KEY:Defensive Strike ~ Honor Guard		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
-Blanket Protection	KEY:Blanket Protection ~ Honor Guard		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+# Ability Name		Unique Key						Category of Ability		Type
+Harm's Way			KEY:Harm's Way ~ Honor Guard			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+Honor Guard			KEY:Honor Guard ~ Honor Guard			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+Lawful Strike		KEY:Lawful Strike ~ Honor Guard		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Sudden Action		KEY:Sudden Action ~ Honor Guard		CATEGORY:Special Ability	TYPE:SpecialQuality
+Elite Honor Guard		KEY:Elite Honor Guard ~ Honor Guard		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+Defensive Strike		KEY:Defensive Strike ~ Honor Guard		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+Blanket Protection	KEY:Blanket Protection ~ Honor Guard	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 
 # ~ Questing Knight	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Knowledge (Local)|Knowledge (Nobility and Royalty)|Sense Motive
-Fearless			KEY:Fearless ~ Questing Knight	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
-Honorable Surge			KEY:Honorable Surge ~ Questing Knight	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Fearless			KEY:Fearless ~ Questing Knight		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+Honorable Surge		KEY:Honorable Surge ~ Questing Knight	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
 ###Block: Honor Guard abilities
 # Feat Name		Type			Visible	Special ABility				Define
-Combat Sense	KEY:Combat Sense ~ Honor Guard		DESC:Combat Sense +%%|CombatSense	DEFINE:CombatSense|0	CATEGORY:Special Ability	TYPE:SpecialQuality
+# Ability Name	Unique Key					Category of Ability		Type				Define			Description
+Combat Sense	KEY:Combat Sense ~ Honor Guard	CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:CombatSense|0	DESC:Combat Sense +%%|CombatSense
 
 ###Block: Questing Knight abilties
 # Feat Name		Type			Visible	Define			Bonus to skill
-Knowledge Local	KEY:Knowledge Local ~ Questing Knight	DEFINE:KnowledgeLocal|0	BONUS:SKILL|Knolwedge (Local)|KnowledgeLocal	CATEGORY:Special Ability	TYPE:SpecialQuality
+# Ability Name	Unique Key						Category of Ability		Type				Define			Bonus to skill
+Knowledge Local	KEY:Knowledge Local ~ Questing Knight	CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:KnowledgeLocal|0	BONUS:SKILL|Knolwedge (Local)|KnowledgeLocal

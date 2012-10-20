@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Oct 12 14:47:51 2008 -- reformated by prettylst.pl v1.38 (build 7302)
-SOURCELONG:Modern System - Gangland	SOURCESHORT:Gangland	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=74
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern System - Gangland	SOURCESHORT:Gangland	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=74	SOURCEDATE:2005-01
 
 ###Block: .MOD feats for TYPE addition
 # Ability Name										Type

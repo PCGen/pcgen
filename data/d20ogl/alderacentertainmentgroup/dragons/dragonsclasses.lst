@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Mon Feb  2 22:24:07 2009 -- reformated by prettylst.pl v1.39 (build 9132)
-SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 
 # Class Name	Product Identity?	Hit Dice	Starting Feats	Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Air Lord	NAMEISPI:NO		HD:10		XTRAFEATS:1		ABB:AL		MAXLEVEL:10	SOURCEPAGE:p.32-35	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -7,16 +7,16 @@ CLASS:Air Lord	NAMEISPI:NO		HD:10		XTRAFEATS:1		ABB:AL		MAXLEVEL:10	SOURCEPAGE:p
 CLASS:Air Lord	PREFEAT:1,Mounted Combat	PRESKILL:2,Balance=4,Ride=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Air Lord	STARTSKILLPTS:2	CSKILL:Balance|TYPE=Climb|TYPE=Craft|Handle Animal|Intuit Direction|TYPE=Jump|Ride|Spot|Swim
-1																																																										ABILITY:Special Ability|AUTOMATIC|Improved Aerial Rider ~ Air Lord			AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Martial Weapon Proficiency|Shield Proficiency|Simple Weapon Proficiency
-2																																																										ABILITY:Special Ability|AUTOMATIC|Aerial mount ~ Air Lord
-3																																																										ABILITY:Special Ability|AUTOMATIC|Swoop attack ~ Air Lord
-4																																																										ABILITY:Special Ability|AUTOMATIC|Feather fall ~ Air Lord
-5																																																										ABILITY:Special Ability|AUTOMATIC|Improved Aerial Rider ~ Air Lord|Improved Mount ~ Air Lord
-6	DEFINE:WeapSpecQualify|1	BONUS:ABILITYPOOL|Air Lord Feat|1
-7																																																										ABILITY:Special Ability|AUTOMATIC|Aerial Awarness ~ Air Lord
-8																																																										ABILITY:Special Ability|AUTOMATIC|Summon Air Elemental ~ Air Lord
-9																																																										ABILITY:Special Ability|AUTOMATIC|Improved Aerial Rider ~ Air Lord
-10						BONUS:ABILITYPOOL|Air Lord Feat|1	ABILITY:Special Ability|AUTOMATIC|Improved Mount ~ Air Lord
+1												ABILITY:Special Ability|AUTOMATIC|Improved Aerial Rider ~ Air Lord					AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Martial Weapon Proficiency|Shield Proficiency|Simple Weapon Proficiency
+2												ABILITY:Special Ability|AUTOMATIC|Aerial mount ~ Air Lord
+3												ABILITY:Special Ability|AUTOMATIC|Swoop attack ~ Air Lord
+4												ABILITY:Special Ability|AUTOMATIC|Feather fall ~ Air Lord
+5												ABILITY:Special Ability|AUTOMATIC|Improved Aerial Rider ~ Air Lord|Improved Mount ~ Air Lord
+6	BONUS:ABILITYPOOL|Air Lord Feat|1	DEFINE:WeapSpecQualify|1
+7												ABILITY:Special Ability|AUTOMATIC|Aerial Awarness ~ Air Lord
+8												ABILITY:Special Ability|AUTOMATIC|Summon Air Elemental ~ Air Lord
+9												ABILITY:Special Ability|AUTOMATIC|Improved Aerial Rider ~ Air Lord
+10	BONUS:ABILITYPOOL|Air Lord Feat|1						ABILITY:Special Ability|AUTOMATIC|Improved Mount ~ Air Lord
 
 # Class Name		Product Identity?	Hit Dice	Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Dragon Slayer	NAMEISPI:NO		HD:10		ABB:DS		MAXLEVEL:10	SOURCEPAGE:p.35-37	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -24,7 +24,7 @@ CLASS:Dragon Slayer	NAMEISPI:NO		HD:10		ABB:DS		MAXLEVEL:10	SOURCEPAGE:p.35-37	B
 CLASS:Dragon Slayer	PREATT:5	PREFEAT:1,Iron Will	PREFEAT:1,Power Attack
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dragon Slayer	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|TYPE=Jump|Listen|Ride|Spot|Swim
-1							ABILITY:Special Ability|AUTOMATIC|Improved Power Attack ~ Dragon Slayer		AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Martial Weapon Proficiency|Shield Proficiency|Simple Weapon Proficiency
+1							ABILITY:Special Ability|AUTOMATIC|Improved Power Attack ~ Dragon Slayer			AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Martial Weapon Proficiency|Shield Proficiency|Simple Weapon Proficiency
 2							ABILITY:Special Ability|AUTOMATIC|Latch Attack ~ Dragon Slayer
 3	BONUS:VAR|DragonSlayerFearlessLVL|1	ABILITY:Special Ability|AUTOMATIC|Fearless ~ Dragon Slayer
 4							ABILITY:Special Ability|AUTOMATIC|Penetrating Blow ~ Dragon Slayer
@@ -41,16 +41,16 @@ CLASS:Student of the Dragon	NAMEISPI:NO		HD:8		ABB:SotD		MAXLEVEL:10	SOURCEPAGE:
 CLASS:Student of the Dragon	PREATT:7	PREFEAT:1,Improved Unarmed Strike	PRELANG:1,Draconic	PRESKILL:1,Knowledge (Arcana)=13
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Student of the Dragon	STARTSKILLPTS:4	CSKILL:Balance|TYPE=Climb|Concentration|TYPE=Craft|TYPE=Diplomacy|Escape Artist|Hide|TYPE=Jump|Knowledge (Arcana)|Listen|Move Silently|TYPE=Profession|Swim|Tumble
-1					ABILITY:Special Ability|AUTOMATIC|Wings of the Dragon ~ Student of the Dragon	DEFINE:StudentoftheDragonLvl|CL
-2					ABILITY:Special Ability|AUTOMATIC|Strength of the Dragon ~ Student of the Dragon
-3	VISION:Darkvision (60')	ABILITY:Special Ability|AUTOMATIC|Eyes of the Dragon ~ Student of the Dragon
-4					ABILITY:Special Ability|AUTOMATIC|Fist of the Dragon ~ Student of the Dragon
-5					ABILITY:Special Ability|AUTOMATIC|Ki Strike ~ Student of the Dragon|Tactics of the Dragon ~ Student of the Dragon
-6					ABILITY:Special Ability|AUTOMATIC|Roar of the Dragon ~ Student of the Dragon
-7					ABILITY:Special Ability|AUTOMATIC|Fury of the Dragon ~ Student of the Dragon
+1					DEFINE:StudentoftheDragonLvl|CL	ABILITY:Special Ability|AUTOMATIC|Wings of the Dragon ~ Student of the Dragon
+2											ABILITY:Special Ability|AUTOMATIC|Strength of the Dragon ~ Student of the Dragon
+3	VISION:Darkvision (60')							ABILITY:Special Ability|AUTOMATIC|Eyes of the Dragon ~ Student of the Dragon
+4											ABILITY:Special Ability|AUTOMATIC|Fist of the Dragon ~ Student of the Dragon
+5											ABILITY:Special Ability|AUTOMATIC|Ki Strike ~ Student of the Dragon|Tactics of the Dragon ~ Student of the Dragon
+6											ABILITY:Special Ability|AUTOMATIC|Roar of the Dragon ~ Student of the Dragon
+7											ABILITY:Special Ability|AUTOMATIC|Fury of the Dragon ~ Student of the Dragon
 8
-9					ABILITY:Special Ability|AUTOMATIC|Thunder of the Dragon ~ Student of the Dragon
-10					ABILITY:Special Ability|AUTOMATIC|Master of the Dragon ~ Student of the Dragon
+9											ABILITY:Special Ability|AUTOMATIC|Thunder of the Dragon ~ Student of the Dragon
+10											ABILITY:Special Ability|AUTOMATIC|Master of the Dragon ~ Student of the Dragon
 
 # Class Name	Product Identity?	Hit Dice	Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Wyrmfoe	NAMEISPI:NO		HD:4		ABB:WFoe		MAXLEVEL:10	SOURCEPAGE:p.40-42	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE

@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Sat Sep 26 22:38:41 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 # I'm having issues with the shifting armor.  I can't figure out how to make it shift...
-SOURCELONG:Netbook of Magical Treasures	SOURCESHORT:NboMT	SOURCEWEB:http://www.d20magicitems.org/
+SOURCELONG:Netbook of Magical Treasures	SOURCESHORT:NboMT	SOURCEWEB:http://www.d20magicitems.org/	SOURCEDATE:2002-01
 ##Armor
 # Equipment Name			Required Armor Proficiency		Required Shield Proficiency		Type								Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page				% of Spell Failure	Combat bonus
 Armor of Defiance			PROFICIENCY:ARMOR|Studded Leather							TYPE:Magic.Armor.Light.Standard.Suit.Specific	COST:64175	WT:20		ACCHECK:0		MAXDEX:5		SOURCEPAGE:pg. 8, Armor		SPELLFAILURE:15		BONUS:COMBAT|AC|5|TYPE=Armor

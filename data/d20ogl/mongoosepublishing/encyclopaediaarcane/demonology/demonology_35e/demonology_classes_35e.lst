@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Nov  6 12:29:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
-SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Demonology	SOURCESHORT:Demonology	SOURCEWEB:http://www.mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Demonology	SOURCESHORT:Demonology	SOURCEWEB:http://www.mongoosepublishing.com	SOURCEDATE:2003-01
 
 # Class Name		Remove Class Skill
 CLASS:Demonologist.MOD	CSKILL:.CLEAR.Alchemy

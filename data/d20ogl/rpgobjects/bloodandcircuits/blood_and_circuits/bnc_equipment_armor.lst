@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Feb 18 11:04:43 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-SOURCELONG:Blood and Circuits	SOURCESHORT:BNC	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=51
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Circuits	SOURCESHORT:BNC	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=51	SOURCEDATE:2004-01
 
 # Equipment Name		Required Armor Proficiency			Type				Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		Combat bonus																	Stat bonus												Special Property
 Atlas Mk I			PROFICIENCY:ARMOR|Atlas				TYPE:Armor.Powered.PL6	COST:18	WT:6		ACCHECK:0		MAXDEX:7		SOURCEPAGE:p.33	BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:COMBAT|AC|1|PREFEAT:1,Armor Proficiency (Powered)|TYPE=Armor.STACK	BONUS:STAT|STR|1	BONUS:STAT|STR|1|PREFEAT:1,Armor Proficiency (Powered)

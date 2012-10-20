@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Tue Feb 17 13:05:28 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 # Author Terry FitzSimons	Date 26 May 2006
 
-SOURCELONG:d20 Weapons Locker	SOURCESHORT:d20WL	SOURCEWEB:http://www.wizards.com/d20modern
+SOURCELONG:d20 Weapons Locker	SOURCESHORT:d20WL	SOURCEWEB:http://www.wizards.com/d20modern	SOURCEDATE:2004-01
 
 # Bolt-Action Sniper Rifles
 # Equipment Name								Output Name								Required Proficiency					Type																				Cost	Weight	Crit Hit Range	Crit Hit Mult	Contains		Damage		Weapon prop. bonus						Range		Size	Rate of Fire		Source Page		Special Property

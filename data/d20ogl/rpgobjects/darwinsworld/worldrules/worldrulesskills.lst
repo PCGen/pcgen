@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCEWEB:http://www.darwinrpg.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCEWEB:http://www.darwinrpg.com	SOURCEDATE:2001-01
 # Original entry by wizofice2001
 
-# Skill Name				Key Stat	Untrained?		Exclusive?		Type					Source Page			Choose
+# Skill Name				Key Stat	Untrained?		Exclusive?		Type					Source Page			Choose			Automatically Gained Language
 Craft (Cybernetics)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.29
 Craft (Electrician)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.29
 Craft (Mechanics)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.29
@@ -18,4 +18,4 @@ Knowledge (Pathology)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligen
 Knowledge (Pharmacy)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.30
 Knowledge (Technology)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.30
 Knowledge (Vehicle Operations)	KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.30
-Speak Language						USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:None.Language		SOURCEPAGE:pp.30-32	AUTO:LANG|%LIST	CHOOSE:LANG|TYPE=Spoken
+Speak Language						USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:None.Language		SOURCEPAGE:pp.30-32	CHOOSE:LANG|TYPE=Spoken	AUTO:LANG|%LIST

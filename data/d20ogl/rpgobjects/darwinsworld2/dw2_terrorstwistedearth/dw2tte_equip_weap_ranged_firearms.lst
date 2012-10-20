@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Jul 19 17:25:26 2009 -- reformated by prettylst.pl v1.39 (build 9548)
-SOURCELONG:Darwin's World 2nd Edition	SOURCESHORT:DW2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Darwin's World 2nd Edition	SOURCESHORT:DW2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2003-01
 
 # creature Specific weapons
 # Equipment Name		Output Name				Required Weapon Proficiency	Type															Contains						Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property								Rate of Fire

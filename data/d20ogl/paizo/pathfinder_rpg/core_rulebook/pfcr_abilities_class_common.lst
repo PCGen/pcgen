@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Oct 13 02:22:45 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
@@ -14,17 +14,18 @@ Rogue Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO				
 Wizard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
 
 ###Block: Class Core Skills ~ Archetype Support
-Barbarian Core Class Skills	CATEGORY:Internal	KEY:Class Skills ~ Barbarian	CSKILL:Acrobatics|Climb|TYPE=Craft|Handle Animal|Intimidate|Knowledge (Nature)|Perception|Ride|Survival|Swim
-Bard Core Class Skills		CATEGORY:Internal	KEY:Class Skills ~ Bard		CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Intimidate|TYPE=Knowledge|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Spellcraft|Stealth|Use Magic Device
-Cleric Core Class Skills	CATEGORY:Internal	KEY:Class Skills ~ Cleric	CSKILL:Appraise|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|Knowledge (Nobility)|Knowledge (Planes)|Knowledge (Religion)|Linguistics|TYPE=Profession|Sense Motive|Spellcraft
-Druid Core Class Skills		CATEGORY:Internal	KEY:Class Skills ~ Druid	CSKILL:Climb|TYPE=Craft|Fly|Handle Animal|Heal|Knowledge (Geography)|Knowledge (Nature)|Perception|TYPE=Profession|Ride|Spellcraft|Survival|Swim
-Fighter Core Class Skills	CATEGORY:Internal	KEY:Class Skills ~ Fighter	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Knowledge (Dungeoneering)|Knowledge (Engineering)|TYPE=Profession|Ride|Survival|Swim
-Monk Core Class Skills		CATEGORY:Internal	KEY:Class Skills ~ Monk		CSKILL:Acrobatics|Climb|TYPE=Craft|Escape Artist|Intimidate|Knowledge (History)|Knowledge (Religion)|Perception|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Stealth|Swim
-Paladin Core Class Skills	CATEGORY:Internal	KEY:Class Skills ~ Paladin	CSKILL:TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility)|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive|Spellcraft
-Ranger Core Class Skills	CATEGORY:Internal	KEY:Class Skills ~ Ranger	CSKILL:Climb|TYPE=Craft|Handle Animal|Heal|Intimidate|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (Nature)|Perception|TYPE=Profession|Ride|Spellcraft|Stealth|Survival|Swim
-Rogue Core Class Skills		CATEGORY:Internal	KEY:Class Skills ~ Rogue	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (Dungeoneering)|Knowledge (Local)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device
-Sorcerer Core Class Skills	CATEGORY:Internal	KEY:Class Skills ~ Sorcerer	CSKILL:Appraise|Bluff|TYPE=Craft|Fly|Intimidate|Knowledge (Arcana)|TYPE=Profession|Spellcraft|Use Magic Device
-Wizard Core Class Skills	CATEGORY:Internal	KEY:Class Skills ~ Wizard	CSKILL:Appraise|TYPE=Craft|Fly|TYPE=Knowledge|Linguistics|TYPE=Profession|Spellcraft
+# Ability Name			Unique Key				Category of Ability	Class Skill
+Barbarian Core Class Skills	KEY:Class Skills ~ Barbarian	CATEGORY:Internal		CSKILL:Acrobatics|Climb|TYPE=Craft|Handle Animal|Intimidate|Knowledge (Nature)|Perception|Ride|Survival|Swim
+Bard Core Class Skills		KEY:Class Skills ~ Bard		CATEGORY:Internal		CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Intimidate|TYPE=Knowledge|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Spellcraft|Stealth|Use Magic Device
+Cleric Core Class Skills	KEY:Class Skills ~ Cleric	CATEGORY:Internal		CSKILL:Appraise|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|Knowledge (Nobility)|Knowledge (Planes)|Knowledge (Religion)|Linguistics|TYPE=Profession|Sense Motive|Spellcraft
+Druid Core Class Skills		KEY:Class Skills ~ Druid	CATEGORY:Internal		CSKILL:Climb|TYPE=Craft|Fly|Handle Animal|Heal|Knowledge (Geography)|Knowledge (Nature)|Perception|TYPE=Profession|Ride|Spellcraft|Survival|Swim
+Fighter Core Class Skills	KEY:Class Skills ~ Fighter	CATEGORY:Internal		CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Knowledge (Dungeoneering)|Knowledge (Engineering)|TYPE=Profession|Ride|Survival|Swim
+Monk Core Class Skills		KEY:Class Skills ~ Monk		CATEGORY:Internal		CSKILL:Acrobatics|Climb|TYPE=Craft|Escape Artist|Intimidate|Knowledge (History)|Knowledge (Religion)|Perception|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Stealth|Swim
+Paladin Core Class Skills	KEY:Class Skills ~ Paladin	CATEGORY:Internal		CSKILL:TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility)|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive|Spellcraft
+Ranger Core Class Skills	KEY:Class Skills ~ Ranger	CATEGORY:Internal		CSKILL:Climb|TYPE=Craft|Handle Animal|Heal|Intimidate|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (Nature)|Perception|TYPE=Profession|Ride|Spellcraft|Stealth|Survival|Swim
+Rogue Core Class Skills		KEY:Class Skills ~ Rogue	CATEGORY:Internal		CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (Dungeoneering)|Knowledge (Local)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device
+Sorcerer Core Class Skills	KEY:Class Skills ~ Sorcerer	CATEGORY:Internal		CSKILL:Appraise|Bluff|TYPE=Craft|Fly|Intimidate|Knowledge (Arcana)|TYPE=Profession|Spellcraft|Use Magic Device
+Wizard Core Class Skills	KEY:Class Skills ~ Wizard	CATEGORY:Internal		CSKILL:Appraise|TYPE=Craft|Fly|TYPE=Knowledge|Linguistics|TYPE=Profession|Spellcraft
 
 ###Block: Uncanny Dodge and Improved Uncanny Dodge --------------------------------------------------------------------------------------
 # Use: ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base to add the Uncanny Dodge/Improved Uncanny Dodge feature

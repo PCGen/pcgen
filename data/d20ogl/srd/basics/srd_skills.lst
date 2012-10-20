@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Oct 16 12:09:16 2008 -- reformated by prettylst.pl v1.38 (build 7302)
-SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
 # VAR SynergyBonus defined in statsandchecks.lst to allow raising the value of the Synergy bonus - Frank
 
-# Skill Name					Key Stat	Untrained?		Skill Penalty Apply	Exclusive?		Type					Visible		Source Page				Choose			Bonus to Ability Pool								Bonus to skill																									Modify VAR								Temporary effect description
+# Skill Name					Key Stat	Untrained?		Skill Penalty Apply	Exclusive?		Type					Visible		Source Page				Choose			Bonus to Ability Pool								Bonus to skill																									Modify VAR								Temporary effect description																																										Automatically Gained Language
 Alchemy						KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence						SOURCEPAGE:srdskillsi.rtf
 Animal Empathy					KEYSTAT:CHA	USEUNTRAINED:NO					EXCLUSIVE:YES	TYPE:Charisma						SOURCEPAGE:srdskillsi.rtf
 Appraise						KEYSTAT:INT											TYPE:Intelligence						SOURCEPAGE:srdskillsi.rtf
@@ -91,7 +91,7 @@ Ride							KEYSTAT:DEX				ACHECK:NONPROF					TYPE:Dexterity						SOURCEPAGE:srds
 Scry							KEYSTAT:INT								EXCLUSIVE:YES	TYPE:Intelligence						SOURCEPAGE:srdskillsii.rtf
 Search						KEYSTAT:INT											TYPE:Intelligence						SOURCEPAGE:srdskillsii.rtf
 Sense Motive					KEYSTAT:WIS											TYPE:Wisdom							SOURCEPAGE:srdskillsii.rtf
-Speak Language							USEUNTRAINED:NO								TYPE:None.Language					SOURCEPAGE:srdskillsii.rtf	AUTO:LANG|%LIST	CHOOSE:LANG|TYPE=Spoken
+Speak Language							USEUNTRAINED:NO								TYPE:None.Language					SOURCEPAGE:srdskillsii.rtf	CHOOSE:LANG|TYPE=Spoken																																																																																														AUTO:LANG|%LIST
 Spellcraft						KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence						SOURCEPAGE:srdskillsii.rtf
 Spot							KEYSTAT:WIS											TYPE:Wisdom							SOURCEPAGE:srdskillsii.rtf
 Swim							KEYSTAT:STR				ACHECK:WEIGHT					TYPE:Strength						SOURCEPAGE:srdskillsii.rtf

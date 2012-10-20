@@ -1,105 +1,146 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
-CLASS:Test Code Bugs	OUTPUTNAME:Testing Code Bug 1730
-CLASS:Test Code Bugs	HD:1	
+# Class Name		Output Name					Hit Dice
+CLASS:Test Code Bugs	OUTPUTNAME:Testing Code Bug 1730	HD:1
 #1	ABILITY:Special Ability|AUTOMATIC|TYPE.CodeBugOfTheDayTester
 1	ADD:FEAT|TYPE=Code1730
 
 ###Class
-CLASS:MonKee	TYPE:PC.Base	HD:12	BONUS:CASTERLEVEL|MonKee|CL	BONUS:COMBAT|BAB|CL+3|TYPE=Base.REPLACE	BONUS:CHECKS|BASE.Fortitude|CL+4	BONUS:COMBAT|AC|TL
-CLASS:MonKee	BONUS:CASTERLEVEL|MonKee|CL+4	SPELLTYPE:Arcane	SPELLSTAT:CHA	BONUS:DOMAIN|NUMBER|3
+
+# Class Name	Hit Dice	Type			Save checks bonus				Combat bonus									Add domain number
+CLASS:MonKee	HD:12		TYPE:PC.Base	BONUS:CHECKS|BASE.Fortitude|CL+4	BONUS:COMBAT|BAB|CL+3|TYPE=Base.REPLACE	BONUS:COMBAT|AC|TL	BONUS:DOMAIN|NUMBER|3
+# Class Name	Spell Stat		Spell Type		Caster level
+CLASS:MonKee	SPELLSTAT:CHA	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|MonKee|CL	BONUS:CASTERLEVEL|MonKee|CL+4
 SUBCLASS:MonKee Junior	COST:0	TYPE:SubclassMonkee
 SUBCLASSLEVEL:1	SAB:Sab Test for MonKee Junior	ABILITY:Special Ability|AUTOMATIC|Monkee Jr Test
-1	CAST:8,7,6,5,4,3,2,1,0	SPELLLEVEL:CLASS|MonKee=1|Spell Test ~ MM|PREVAREQ:CL,4
-2	CSKILL:Test Skill (Class Level)
+1	CAST:8,7,6,5,4,3,2,1,0							SPELLLEVEL:CLASS|MonKee=1|Spell Test ~ MM|PREVAREQ:CL,4
+2					CSKILL:Test Skill (Class Level)
 
-CLASS:Animal	HD:8	TYPE:Monster
+# Class Name	Hit Dice	Type
+CLASS:Animal	HD:8		TYPE:Monster
 
+# Class Name			Type
 CLASS:KeePer of Knowledge	TYPE:PC.Base
-CLASS:KeePer of Knowledge	CSKILL:Test Crafting|Craft (Two)|TYPE=Craft	SPELLTYPE:Divine	BONUS:CASTERLEVEL|KeePer of Knowledge|CL
+# Class Name			Class Skill
+CLASS:KeePer of Knowledge	CSKILL:Test Crafting|Craft (Two)|TYPE=Craft
+# Class Name			Spell Type		Caster level
+CLASS:KeePer of Knowledge	SPELLTYPE:Divine	BONUS:CASTERLEVEL|KeePer of Knowledge|CL
 SUBSTITUTIONCLASS:KeePer of Knowledge (Stars)
-SUBSTITUTIONLEVEL:1		ABILITY:Special Ability|AUTOMATIC|SubstitutionLevelTracker		BONUS:VAR|SubstitutionLevelTracker|CL+25
+SUBSTITUTIONLEVEL:1	BONUS:VAR|SubstitutionLevelTracker|CL+25	ABILITY:Special Ability|AUTOMATIC|SubstitutionLevelTracker
 SUBSTITUTIONCLASS:KeePer of Knowledge (Suns)
-SUBSTITUTIONLEVEL:1		AUTO:WEAPONPROF|Suns Weapon Of Choice
+SUBSTITUTIONLEVEL:1																																		AUTO:WEAPONPROF|Suns Weapon Of Choice
 SUBSTITUTIONCLASS:KeePer of Knowledge (Moons)
-SUBSTITUTIONLEVEL:1		AUTO:ARMORPROF|Moon Cloth
+SUBSTITUTIONLEVEL:1																										AUTO:ARMORPROF|Moon Cloth
 SUBSTITUTIONCLASS:KeePer of Knowledge (Celestial Events)
-SUBSTITUTIONLEVEL:1		ADD:FEAT|Dodge,Test Case Extreme,Toughness
+SUBSTITUTIONLEVEL:1																		ADD:FEAT|Dodge,Test Case Extreme,Toughness
 SUBSTITUTIONCLASS:KeePer of Knowledge (Cosmic Master)
-SUBSTITUTIONLEVEL:1		AUTO:FEAT|Dodge
-1	AUTO:FEAT|Not Dodge
-2	CAST:5,4,3,2,1	BONUS:DOMAIN|NUMBER|3+(CL/2)
+SUBSTITUTIONLEVEL:1																															AUTO:FEAT|Dodge
+1														AUTO:FEAT|Not Dodge
+2	CAST:5,4,3,2,1						BONUS:DOMAIN|NUMBER|3+(CL/2)
 3	CAST:10,9,8,7,6,5,4,3,2,1,0,0,0,0,0,0,0,0,0,0,0
 
+# Class Name			Type
 CLASS:Running With Scissors	TYPE:NPC.Monster
+# Class Name			Class Skill
 CLASS:Running With Scissors	CSKILL:Monkey Building Sensation
 
 
 # Older Testing Stuff
-CLASS:Tom Test Copy Deal	HD:1	TYPE:Base.PC
+
+# Class Name			Hit Dice	Type
+CLASS:Tom Test Copy Deal	HD:1		TYPE:Base.PC
 #SAB:Tom Test Works
 #SAB:Tom Test Works|PREVARGTEQ:CL,2
 1	SAB:Tom Test Works|PREFEAT:1,Dodge
 
+# Class Name
 CLASS:Tom Test Copy Deal.COPY=Testing the Copy
 
 
-CLASS:SpellCaster One		TYPE:Base.PC	SPELLTYPE:Arcane	SPELLSTAT:INT		MEMORIZE:YES	BONUS:COMBAT|BAB|1	BONUS:CHECKS|ALL|1		SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Fireball,18	SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Magic Missile,80
-1	CAST:6,6	BONUS:SKILL|Athletics|25|PREVARGTEQ:CL,BASESPELLSTAT	BONUS:SKILL|Acrobatics|25|PREVARGTEQ:CL,1	DEFINE:MyVar|0	BONUS:VAR|MyVar|10
-2	SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Fireball	SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Magic Missile,80
+# Class Name		Type			Save checks bonus		Combat bonus		Innate Spells
+CLASS:SpellCaster One	TYPE:Base.PC	BONUS:CHECKS|ALL|1	BONUS:COMBAT|BAB|1	SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Fireball,18	SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Magic Missile,80
+# Class Name		Spell Stat		Spell Type		Memorize
+CLASS:SpellCaster One	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES
+1	CAST:6,6	BONUS:SKILL|Athletics|25|PREVARGTEQ:CL,BASESPELLSTAT	BONUS:SKILL|Acrobatics|25|PREVARGTEQ:CL,1	BONUS:VAR|MyVar|10	DEFINE:MyVar|0
+2																										SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Fireball	SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Magic Missile,80
 
-CLASS:SpellCaster Two		TYPE:Base.PC	SPELLTYPE:Arcane	SPELLSTAT:INT	PREVARGT:2,BASESPELLSTAT	MEMORIZE:YES	BONUS:COMBAT|BAB|1	BONUS:CHECKS|ALL|1
-1	CAST:6,6	BONUS:SKILL|Athletics|25|PREVARGTEQ:MyVar,BASESPELLSTAT		BONUS:SKILL|Acrobatics|25|PREVARGTEQ:CL,1
+# Class Name		Type			Save checks bonus		Combat bonus
+CLASS:SpellCaster Two	TYPE:Base.PC	BONUS:CHECKS|ALL|1	BONUS:COMBAT|BAB|1
+# Class Name		Var. Must Be Grater
+CLASS:SpellCaster Two	PREVARGT:2,BASESPELLSTAT
+# Class Name		Spell Stat		Spell Type		Memorize
+CLASS:SpellCaster Two	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES
+1	CAST:6,6	BONUS:SKILL|Athletics|25|PREVARGTEQ:MyVar,BASESPELLSTAT	BONUS:SKILL|Acrobatics|25|PREVARGTEQ:CL,1
 
 
-CLASS:SpellCaster Three		PREVARGTEQ:MyVar,1	TYPE:Base.PC	SPELLTYPE:Arcane	SPELLSTAT:INT	MEMORIZE:YES	BONUS:COMBAT|BAB|1	BONUS:CHECKS|ALL|1
+# Class Name		Type			Save checks bonus		Combat bonus
+CLASS:SpellCaster Three	TYPE:Base.PC	BONUS:CHECKS|ALL|1	BONUS:COMBAT|BAB|1
+# Class Name		Var. Min. Value
+CLASS:SpellCaster Three	PREVARGTEQ:MyVar,1
+# Class Name		Spell Stat		Spell Type		Memorize
+CLASS:SpellCaster Three	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES
 1	CAST:6,6
 
 
-CLASS:Basic Fighter	HD:10		TYPE:Base.PC	BONUS:COMBAT|BAB|TL|TYPE=Base.REPLACE	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3
-CLASS:Basic Fighter	CSKILL:TYPE=TestSkills	STARTSKILLPTS:2
-1	AUTO:FEAT|Simple Weapon Proficiency		AUTO:WEAPONPROF|Extra Blade
+# Class Name		Hit Dice	Type			Save checks bonus											Combat bonus
+CLASS:Basic Fighter	HD:10		TYPE:Base.PC	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|TL|TYPE=Base.REPLACE
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Basic Fighter	STARTSKILLPTS:2	CSKILL:TYPE=TestSkills
+1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|Extra Blade
 
 
 
 # Alice and Charlie Classes -
-CLASS:Alice Class	HD:10		TYPE:Base.PC	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3
-CLASS:Alice Class	STARTSKILLPTS:2	KNOWNSPELLS:Alice Class Known Spell|LEVEL=5	SPELLTYPE:Arcane	MEMORIZE:YES	BONUS:DOMAIN|NUMBER|2	BONUS:CASTERLEVEL|Alice Class|CL
-CLASS:Alice Class	ADD:CLASSSKILLS|Exclusing Skill_2,Exclusing Skill_3	CSKILL:Class Skill 1	ADD:FEAT|Add Feat Class Line
+
+# Class Name	Hit Dice	Type			Add 														Save checks bonus											Combat bonus					Add domain number
+CLASS:Alice Class	HD:10		TYPE:Base.PC	ADD:CLASSSKILLS|Exclusing Skill_2,Exclusing Skill_3	ADD:FEAT|Add Feat Class Line	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Alice Class	STARTSKILLPTS:2	CSKILL:Class Skill 1
+# Class Name	Spell Type		Memorize		Automatically Known Spell Levels			Caster level
+CLASS:Alice Class	SPELLTYPE:Arcane	MEMORIZE:YES	KNOWNSPELLS:Alice Class Known Spell|LEVEL=5	BONUS:CASTERLEVEL|Alice Class|CL
 1	CAST:1,1,1,1,1,1,1,1,1,1,1
-2	ADD:CLASSSKILLS|Exclusing Skill_4,Exclusing Skill_5	CSKILL:Class Skill 2
-3	ADD:FEAT|Add Feat Class Level
+2						CSKILL:Class Skill 2	ADD:CLASSSKILLS|Exclusing Skill_4,Exclusing Skill_5
+3										ADD:FEAT|Add Feat Class Level
 
 
+# Class Name		Hit Dice	Type			Combat bonus
 CLASS:Charlie Class	HD:10		TYPE:Base.PC	BONUS:COMBAT|AC|22|TYPE=Deflection
+# Class Name		Skill Pts/Lvl
 CLASS:Charlie Class	STARTSKILLPTS:2
+# Class Name		Spell Stat		Spell Type		Caster level
 CLASS:Charlie Class	SPELLSTAT:CHA	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Charlie Class|CL
 1	CAST:1,1,1,1,1,1,1,1,1,1,1	KNOWN:1,1,1,1,1,1,1,1,1,1,1
-1	BONUS:COMBAT|AC|22|TYPE=Shield	ABILITY:Special Ability|AUTOMATIC|Charlie Explanation
-2	BONUS:HP|CURRENTMAX|22
-3	BONUS:STAT|STR|22
-5	BONUS:COMBAT|AC|22|TYPE=Armor
+1											BONUS:COMBAT|AC|22|TYPE=Shield								ABILITY:Special Ability|AUTOMATIC|Charlie Explanation
+2																	BONUS:HP|CURRENTMAX|22
+3																					BONUS:STAT|STR|22
+5											BONUS:COMBAT|AC|22|TYPE=Armor
 
 
 #1 BONUS object should be on a CLASS LST line
 #1 BONUS object should be on a class level below the current PC level in that class (e.g. 1 if the PC is level 2 in that class)
 #1 BONUS object should be on a class level exactly matching the current PC level in that class (e.g. 2 if the PC is level 2 in that class)
 #1 BONUS object should be on a class level above the current PC level in that class but below the total level of the PC (e.g. 3 if the PC is level 2 in that class but level 4 overall)
-#1 BONUS object should be on a class level above the current PC level in that class and above the current total level of the PC (e.g. 5 if the PC is level 2 in that class, but level 4 overall) 
+#1 BONUS object should be on a class level above the current PC level in that class and above the current total level of the PC (e.g. 5 if the PC is level 2 in that class, but level 4 overall)
 
 
 
 
+# Class Name		Hit Dice
 CLASS:PreReq Class	HD:4
+# Class Name		Required Race
 CLASS:PreReq Class	PRERACE:1,Hughpert Case Won
 1	SAB:You shouldn't have this unless you are Hughpert Case Won Race
 2	SAB:You are Second Level and shouldn't be
 
+# Class Name		Hit Dice
 CLASS:PreReq Class Two	HD:4
+# Class Name		Var. Must Be Grater
 CLASS:PreReq Class Two	PREVARGT:1,CL
 1	SAB:How'd you manage this?
 
 
 
+# Class Name		Hit Dice
 CLASS:Test Spell DC	HD:4
 1	SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Spell Control DC,11
 
@@ -114,7 +155,8 @@ CLASS:Companion	STARTSKILLPTS:0
 
 
 
-CLASS:Domain Test		HD:4	TYPE:PC.Base
+# Class Name	Hit Dice	Type
+CLASS:Domain Test	HD:4		TYPE:PC.Base
 2	BONUS:DOMAIN|NUMBER|4
 
 
@@ -148,10 +190,12 @@ CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 19	CAST:4,4,4,4,4,4,3	KNOWN:6,5,5,5,5,4,4
 20	CAST:4,4,4,4,4,4,4	KNOWN:6,5,5,5,5,5,4
 
+# Class Name	Visible
 CLASS:Wizard	VISIBLE:YES
+
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus
 CLASS:Sorcerer	HD:4		TYPE:Base.PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name	Skill Pts/Lvl	Class Skill
+# Class Name	Skill Pts/Lvl
 CLASS:Sorcerer	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|CL
@@ -181,63 +225,76 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 
 # More Test Cases
 
-CLASS:Test Nothing	HD:4	TYPE:PC.Base
+# Class Name		Hit Dice	Type
+CLASS:Test Nothing	HD:4		TYPE:PC.Base
 
-CLASS:Test13
+# Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Test13	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Test13|CL
 #	SPELLLIST:1|Druid
-1	CAST:5,3				KNOWN:4,2
-2	CAST:6,4				KNOWN:5,2
-3	CAST:6,5				KNOWN:5,3
-4	CAST:6,6,3				KNOWN:6,3,1
-5	CAST:6,6,4				KNOWN:6,4,2
+1	CAST:5,3	KNOWN:4,2
+2	CAST:6,4	KNOWN:5,2
+3	CAST:6,5	KNOWN:5,3
+4	CAST:6,6,3	KNOWN:6,3,1
+5	CAST:6,6,4	KNOWN:6,4,2
 
 
 # TEST 46
+
+# Class Name
 CLASS:Test46a
-1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(NoChooseFeatAuto)|PRECLASS:1,Test46a=2
-1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(NoStackNoChoiceFeatAuto)|PRECLASS:1,Test46a=2
-1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(NoStackChoiceFeatAuto(Ride))|PRECLASS:1,Test46a=2
-1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(Naturally Something Auto (comment))|PRECLASS:1,Test46a=2
+1	ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(NoChooseFeatAuto)|PRECLASS:1,Test46a=2
+1	ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(NoStackNoChoiceFeatAuto)|PRECLASS:1,Test46a=2
+1	ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(NoStackChoiceFeatAuto(Ride))|PRECLASS:1,Test46a=2
+1	ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(Naturally Something Auto (comment))|PRECLASS:1,Test46a=2
 
+# Class Name
 CLASS:Test46b
-1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(StackNoChoiceFeatAuto)|PRECLASS:1,Test46b=2
-1				ABILITY:FEAT|AUTOMATIC|GivingThingy(StackChoiceFeatAuto(Tumble))|GivingThingyAuto(StackChoiceFeatAuto(Ride))|PRECLASS:1,Test46b=2
-1				ABILITY:FEAT|AUTOMATIC|Naturally Something Auto (comment)|PRECLASS:1,Test46b=2
+1	ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(StackNoChoiceFeatAuto)|PRECLASS:1,Test46b=2
+1	ABILITY:FEAT|AUTOMATIC|GivingThingy(StackChoiceFeatAuto(Tumble))|GivingThingyAuto(StackChoiceFeatAuto(Ride))|PRECLASS:1,Test46b=2
+1	ABILITY:FEAT|AUTOMATIC|Naturally Something Auto (comment)|PRECLASS:1,Test46b=2
 
+# Class Name
 CLASS:Test46c
-1				ABILITY:FEAT|AUTOMATIC|GivingThingy(StackNoChoiceFeatAuto)|GivingThingyAuto(StackNoChoiceFeatAuto)|PRECLASS:1,Test46c=2
-1				ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(StackChoiceFeat(Ride))|GivingThingyAuto(StackChoiceFeat(Tumble))|GivingThingyAuto(StackChoiceFeatAuto(Ride))|PRECLASS:1,Test46c=2
+1	ABILITY:FEAT|AUTOMATIC|GivingThingy(StackNoChoiceFeatAuto)|GivingThingyAuto(StackNoChoiceFeatAuto)|PRECLASS:1,Test46c=2
+1	ABILITY:FEAT|AUTOMATIC|GivingThingyAuto(StackChoiceFeat(Ride))|GivingThingyAuto(StackChoiceFeat(Tumble))|GivingThingyAuto(StackChoiceFeatAuto(Ride))|PRECLASS:1,Test46c=2
 
 #TEST 51
 
+# Class Name
 CLASS:Test51G
 1	ABILITY:FEAT|AUTOMATIC|DirectApplication_StackNoChoiceFeat
 1	ABILITY:FEAT|AUTOMATIC|DirectApplication_NoStackChoiceFeat(Ride)
 1	ABILITY:FEAT|AUTOMATIC|DirectApplication_StackChoiceFeat(Athletics)
 
+# Class Name
 CLASS:Test51H
 1	ABILITY:FEAT|AUTOMATIC|DirectApplication_StackNoChoiceFeat|DirectApplication_StackNoChoiceFeat|DirectApplication_StackNoChoiceFeat|DirectApplication_StackNoChoiceFeat
 1	ABILITY:FEAT|AUTOMATIC|DirectApplication_StackChoiceFeat(Athletics)|DirectApplication_StackChoiceFeat(Ride)
 
+# Class Name
 CLASS:Test51I
 1	ABILITY:FEAT|AUTOMATIC|DirectApplication_StackChoiceFeat(Ride)|DirectApplication_StackChoiceFeat(Ride)|DirectApplication_StackChoiceFeat(Ride)
 
 # TEST 53
+
+# Class Name
 CLASS:Test53
 1	ABILITY:FEAT|VIRTUAL|TargetedAbility ~ WeaponProf (Longsword)
 2	ABILITY:FEAT|VIRTUAL|TargetedAbility ~ WeaponProf (Short Sword)
 
+# Class Name
 CLASS:Test53b
 1	ABILITY:FEAT|VIRTUAL|TargetedAbility ~ WeaponProf (Longsword)|PRECLASS:1,Test53b=2
 #  (you will need to update this to the correct class name)
 3	ABILITY:FEAT|VIRTUAL|TargetedAbility ~ WeaponProf (Short Sword)
 
+# Class Name
 CLASS:Test53c
 1	BONUS:ABILITYPOOL|FEAT|1
 1	BONUS:ABILITYPOOL|FEAT|1
 
 
+# Class Name
 CLASS:Test56
 1	ABILITY:FEAT|VIRTUAL|Weapon Focus (Longsword)|!PRECLASS:1,Test Nothing=1
 3	ABILITY:FEAT|VIRTUAL|Weapon Focus (Longsword)
@@ -248,40 +305,43 @@ CLASS:Test56
 
 ### Eclipse Set Test Class
 
-# Class Name			Output Name					Hit Dice	Type				Abbreviation	Max Level	Define			Combat bonus
+# Class Name			Output Name		Hit Dice	Type				Abbreviation	Max Level	Define			Combat bonus
 CLASS:Eclipse Point Buy (d08)	OUTPUTNAME:d8E	HD:8		TYPE:Base.PC.Eclipse	ABB:d8E		MAXLEVEL:20	DEFINE:EclipseClass|1	BONUS:COMBAT|BAB|var("Warcraft Bonus")|TYPE=Base
 # Class Name			Skill Pts/Lvl
 CLASS:Eclipse Point Buy (d08)	STARTSKILLPTS:0
 ###Block:
-1																																				TEMPLATE:01 Point Buy Master Template for All Levels
-1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9	DONOTADD:SKILLPOINTS											ABILITY:Internal|AUTOMATIC|HD Taken d8
+1																															TEMPLATE:01 Point Buy Master Template for All Levels
+1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9												ABILITY:Internal|AUTOMATIC|HD Taken d8													DONOTADD:SKILLPOINTS
 1																					ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities
 1										BONUS:VAR|CharacterPoints|-4*CL	BONUS:VAR|EclipseClassLvl|CL
 # No Skill Points Added During Level Progression
-1	DONOTADD:SKILLPOINTS
-2	DONOTADD:SKILLPOINTS
-3	DONOTADD:SKILLPOINTS
-4	DONOTADD:SKILLPOINTS
-5	DONOTADD:SKILLPOINTS
-6	DONOTADD:SKILLPOINTS
-7	DONOTADD:SKILLPOINTS
-8	DONOTADD:SKILLPOINTS
-9	DONOTADD:SKILLPOINTS
-10	DONOTADD:SKILLPOINTS
-11	DONOTADD:SKILLPOINTS
-12	DONOTADD:SKILLPOINTS
-13	DONOTADD:SKILLPOINTS
-14	DONOTADD:SKILLPOINTS
-15	DONOTADD:SKILLPOINTS
-16	DONOTADD:SKILLPOINTS
-17	DONOTADD:SKILLPOINTS
-18	DONOTADD:SKILLPOINTS
-19	DONOTADD:SKILLPOINTS
-20	DONOTADD:SKILLPOINTS
+1																																								DONOTADD:SKILLPOINTS
+2																																								DONOTADD:SKILLPOINTS
+3																																								DONOTADD:SKILLPOINTS
+4																																								DONOTADD:SKILLPOINTS
+5																																								DONOTADD:SKILLPOINTS
+6																																								DONOTADD:SKILLPOINTS
+7																																								DONOTADD:SKILLPOINTS
+8																																								DONOTADD:SKILLPOINTS
+9																																								DONOTADD:SKILLPOINTS
+10																																								DONOTADD:SKILLPOINTS
+11																																								DONOTADD:SKILLPOINTS
+12																																								DONOTADD:SKILLPOINTS
+13																																								DONOTADD:SKILLPOINTS
+14																																								DONOTADD:SKILLPOINTS
+15																																								DONOTADD:SKILLPOINTS
+16																																								DONOTADD:SKILLPOINTS
+17																																								DONOTADD:SKILLPOINTS
+18																																								DONOTADD:SKILLPOINTS
+19																																								DONOTADD:SKILLPOINTS
+20																																								DONOTADD:SKILLPOINTS
 #
 
 ###BLOCK: This is a changing class - DO NOT BASE any Test Cases off of it
-CLASS:Test Current	HD:4	TYPE:PC.Base
+
+# Class Name		Hit Dice	Type
+CLASS:Test Current	HD:4		TYPE:PC.Base
+# Class Name		Class Skill
 CLASS:Test Current	CSKILL:Speak Language
 #1		ADD:ABILITY|1|Special Ability|VIRTUAL|Test Current
 #1	AUTO:FEAT|Dodge|PRESTAT:1,DEX=11|PRESTAT:1,WIS=12

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
-SOURCELONG:Alderac Entertainment Group - Dungeons	SOURCESHORT:Dungeons	SOURCEWEB:http://alderac.com/d20
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Alderac Entertainment Group - Dungeons	SOURCESHORT:Dungeons	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 # Spell Name			Classes of caster					Domains granting the spell	School			Sub-School			Type				Components	Casting Time		Range			Target Area or Effect											Duration								Save Info		Spell Resistance	Description		Source Page
 Cloaked Sphere of Radiance	CLASSES:Bard,Sorcerer,Wizard=3|Cleric=4						SCHOOL:Evocation		SUBSCHOOL:Light		TYPE:Arcane.Divine	COMPS:V S	CASTTIME:1 action		RANGE:Touch		TARGETAREA:Object touched										DURATION:10 minutes/level					SAVEINFO:None	SPELLRES:No		DESC:See text	SOURCEPAGE:p.85
 Detect Precious Metals		CLASSES:Bard,Sorcerer,Wizard=0							SCHOOL:Divination						TYPE:Arcane			COMPS:V S	CASTTIME:1 action		RANGE:60 feet	TARGETAREA:Quarter circle emanating from the character to the extreme of the range	DURATION:Concentration up to 5 minutes/level (D)	SAVEINFO:None	SPELLRES:No		DESC:See text	SOURCEPAGE:p.85

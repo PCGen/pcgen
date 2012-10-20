@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Nov  6 15:54:09 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Enchantment	SOURCESHORT:Enchantment	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-09
 #ITEM:Potion tag added by: Paul "Yes, that Paul" Grosse
 
@@ -39,5 +39,5 @@ Shattered Will		CLASSES:Wizard=5	SCHOOL:Enchantment	SUBSCHOOL:None	TYPE:Arcane	C
 Thrall's Understanding	CLASSES:Wizard=2	SCHOOL:Enchantment	SUBSCHOOL:None	TYPE:Arcane	COMPS:V, S, F	CASTTIME:1 action	RANGE:Close		ITEM:Potion	TARGETAREA:Your Charmed Creature									DURATION:Varies [D]				SAVEINFO:None				SPELLRES:Yes	DESC:Allows caster to communicate with charmed creature.		SOURCEPAGE:p.39
 Torment of Loss		CLASSES:Wizard=7	SCHOOL:Enchantment	SUBSCHOOL:None	TYPE:Arcane	COMPS:V, S, M	CASTTIME:1 action	RANGE:Touch		ITEM:Potion	TARGETAREA:Your Charmed Creature									DURATION:Permanent [D]				SAVEINFO:None				SPELLRES:Yes	DESC:Creature dies or is shaken when charm spell ends.		SOURCEPAGE:p.40
 Undying Loyalty		CLASSES:Wizard=7	SCHOOL:Enchantment	SUBSCHOOL:None	TYPE:Arcane	COMPS:V, S, M	CASTTIME:1 action	RANGE:Touch		ITEM:Potion	TARGETAREA:One Living Creature									DURATION:Instantaneous [D]			SAVEINFO:Will Negates			SPELLRES:Yes	DESC:If target becomes undead, it is subjest to his spells.		SOURCEPAGE:p.40
-Wall of Distraction	CLASSES:Wizard=4	SCHOOL:Enchantment	SUBSCHOOL:None	TYPE:Arcane	COMPS:V, S		CASTTIME:1 action	RANGE:Close		ITEM:Potion	TARGETAREA:Wall of light whose area is up to (CASTERLEVEL*5) ft. square			DURATION:Instantaneous				SAVEINFO:Will Partial			SPELLRES:Yes	DESC:-2 morale penalty to attacks, damage, skills, &amp; saves.		SOURCEPAGE:p.41
+Wall of Distraction	CLASSES:Wizard=4	SCHOOL:Enchantment	SUBSCHOOL:None	TYPE:Arcane	COMPS:V, S		CASTTIME:1 action	RANGE:Close		ITEM:Potion	TARGETAREA:Wall of light whose area is up to (CASTERLEVEL*5) ft. square			DURATION:Instantaneous				SAVEINFO:Will Partial			SPELLRES:Yes	DESC:-2 morale penalty to attacks, damage, skills, &amp; saves.	SOURCEPAGE:p.41
 Wave of Hesitation	CLASSES:Wizard=3	SCHOOL:Enchantment	SUBSCHOOL:None	TYPE:Arcane	COMPS:V, S, M	CASTTIME:1 action	RANGE:Close		ITEM:Potion	TARGETAREA:Cone												DURATION:Instantaneous				SAVEINFO:Will Partial			SPELLRES:Yes	DESC:Targets are stunned for 1d4 rounds [or as Daze].			SOURCEPAGE:p.41

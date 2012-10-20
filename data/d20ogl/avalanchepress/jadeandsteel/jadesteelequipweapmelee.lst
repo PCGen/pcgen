@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Avalanche Press - Jade and Steel	SOURCESHORT:JadeSteel	SOURCEWEB:http://www.avalanchepress.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Avalanche Press - Jade and Steel	SOURCESHORT:JadeSteel	SOURCEWEB:http://www.avalanchepress.com	SOURCEDATE:2003-01
 # Equipment Name	Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page
 Do			TYPE:Weapon.Martial.Melee.Standard.Slashing.Metal		COST:15	WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8			SIZE:M	SOURCEPAGE:p.
 Tiger-Fork		TYPE:Weapon.Martial.Melee.Ranged.Standard.Piercing.Metal	COST:15	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	RANGE:10	SIZE:M	SOURCEPAGE:p.

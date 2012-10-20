@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Oct  8 16:52:12 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 #Official Errata from Mongoose on Necrophage - The Table is incorrect about Spellcasting levels - The Class Features:Spells per Day section is correct
 
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy	SOURCESHORT:Necromancy	SOURCEWEB:http://www.mongoosepublishing.com	SOURCEDATE:2003-09
@@ -10,16 +10,16 @@ CLASS:Spectral Loremaster	HD:4		TYPE:PC.Prestige	ABB:SpL		MAXLEVEL:10	SOURCEPAGE
 CLASS:Spectral Loremaster	PREFEAT:1,Spell Focus	PRESKILL:2,Knowledge (Arcana)=7,Knowledge (Necrology)=7	PRESPELLSCHOOL:1,Necromancy=1	!PRESPELLSCHOOLSUB:1,Divination=1	PRESPELLTYPE:1,Arcane=1
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Spectral Loremaster	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Decipher Script|Gather Information|TYPE=Knowledge|Scry|Spellcraft
-1	ABILITY:Special Ability|AUTOMATIC|Speak with Dead ~ Spectral Loremaster																			ADD:SPELLCASTER|Arcane								SPELLS:Class|TIMES=1|Speak with Dead
-2	ABILITY:Special Ability|AUTOMATIC|Spectral Investigation ~ Spectral Loremaster																							ADD:SPELLCASTER|Arcane
-3	ABILITY:Special Ability|AUTOMATIC|Divination ~ Spectral Loremaster																									ADD:SPELLCASTER|Arcane								SPELLS:Class|TIMES=1|Divination
-4	ABILITY:Special Ability|AUTOMATIC|Lost Arcane Lore ~ Spectral Loremaster																								ADD:SPELLCASTER|Arcane	BONUS:ABILITYPOOL|Spectral Loremaster Feat|1
-5	ABILITY:Special Ability|AUTOMATIC|Commune ~ Spectral Loremaster																										ADD:SPELLCASTER|Arcane
-6	ABILITY:Special Ability|AUTOMATIC|Contact Other Plane ~ Spectral Loremaster																								ADD:SPELLCASTER|Arcane
-7	ABILITY:Special Ability|AUTOMATIC|Lessons from the Grave ~ Spectral Loremaster						CSKILL:TYPE=Wisdom|TYPE=Intelligence|TYPE=Strength|TYPE=Constitution|TYPE=Dexterity|TYPE=Charisma	ADD:SPELLCASTER|Arcane
-8	ABILITY:Special Ability|AUTOMATIC|Spectral Lore ~ Spectral Loremaster																									ADD:SPELLCASTER|Arcane
-9	ABILITY:Special Ability|AUTOMATIC|Lost Arcane Lore ~ Spectral Loremaster																								ADD:SPELLCASTER|Arcane	BONUS:ABILITYPOOL|Spectral Loremaster Feat|1
-10	ABILITY:Special Ability|AUTOMATIC|The Veil Parted ~ Spectral Loremaster																								ADD:SPELLCASTER|Arcane
+1																										ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Speak with Dead ~ Spectral Loremaster			SPELLS:Class|TIMES=1|Speak with Dead
+2																										ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Spectral Investigation ~ Spectral Loremaster
+3																										ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Divination ~ Spectral Loremaster			SPELLS:Class|TIMES=1|Divination
+4	BONUS:ABILITYPOOL|Spectral Loremaster Feat|1																		ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Lost Arcane Lore ~ Spectral Loremaster
+5																										ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Commune ~ Spectral Loremaster
+6																										ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Contact Other Plane ~ Spectral Loremaster
+7									CSKILL:TYPE=Wisdom|TYPE=Intelligence|TYPE=Strength|TYPE=Constitution|TYPE=Dexterity|TYPE=Charisma	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Lessons from the Grave ~ Spectral Loremaster
+8																										ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Spectral Lore ~ Spectral Loremaster
+9	BONUS:ABILITYPOOL|Spectral Loremaster Feat|1																		ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Lost Arcane Lore ~ Spectral Loremaster
+10																										ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|The Veil Parted ~ Spectral Loremaster
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus
 CLASS:Deathseeker	HD:4		TYPE:PC.Prestige	ABB:DSR		MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -27,16 +27,16 @@ CLASS:Deathseeker	HD:4		TYPE:PC.Prestige	ABB:DSR		MAXLEVEL:10	SOURCEPAGE:p.13	BO
 CLASS:Deathseeker	PREALIGN:LN,LE,TN,NE,CN,CE	PRESKILL:1,Knowledge (Necrology)=10	PRESPELLTYPE:1,Arcane=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Deathseeker	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|Spellcraft
-1	ABILITY:Special Ability|AUTOMATIC|Deathseeker Casting ~ Deathseeker|Proximity to Death ~ Deathseeker	BONUS:VAR|DeathProx|10	DEFINE:DeathProx|0	ADD:SPELLCASTER|Arcane
-2	ABILITY:Special Ability|AUTOMATIC|Unleash Negativity ~ Deathseeker					BONUS:VAR|UnleashNeg|1	DEFINE:UnleashNeg|0	ADD:SPELLCASTER|Arcane
-3												BONUS:VAR|DeathProx|10					ADD:SPELLCASTER|Arcane
-4																				ADD:SPELLCASTER|Arcane
-5												BONUS:VAR|UnleashNeg|1					ADD:SPELLCASTER|Arcane
-6												BONUS:VAR|DeathProx|10					ADD:SPELLCASTER|Arcane
-7																				ADD:SPELLCASTER|Arcane
-8												BONUS:VAR|UnleashNeg|1					ADD:SPELLCASTER|Arcane
-9																				ADD:SPELLCASTER|Arcane
-10												BONUS:VAR|DeathProx|30					ADD:SPELLCASTER|Arcane
+1	BONUS:VAR|DeathProx|10	DEFINE:DeathProx|0	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Deathseeker Casting ~ Deathseeker|Proximity to Death ~ Deathseeker
+2	BONUS:VAR|UnleashNeg|1	DEFINE:UnleashNeg|0	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Unleash Negativity ~ Deathseeker
+3	BONUS:VAR|DeathProx|10					ADD:SPELLCASTER|Arcane
+4									ADD:SPELLCASTER|Arcane
+5	BONUS:VAR|UnleashNeg|1					ADD:SPELLCASTER|Arcane
+6	BONUS:VAR|DeathProx|10					ADD:SPELLCASTER|Arcane
+7									ADD:SPELLCASTER|Arcane
+8	BONUS:VAR|UnleashNeg|1					ADD:SPELLCASTER|Arcane
+9									ADD:SPELLCASTER|Arcane
+10	BONUS:VAR|DeathProx|30					ADD:SPELLCASTER|Arcane
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
 CLASS:Necrophage	HD:4		TYPE:PC.Prestige	ABB:Ncp		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -44,13 +44,13 @@ CLASS:Necrophage	HD:4		TYPE:PC.Prestige	ABB:Ncp		MAXLEVEL:10	SOURCEPAGE:p.16	BON
 CLASS:Necrophage	PREALIGN:LN,LE,TN,NE,CN,CE	PRESKILL:3,Knowledge (Necrology)=10,Knowledge (Anatomy)=7,Knowledge (Arcana)=7	PRESPELLTYPE:1,Arcane=0
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Necrophage	STARTSKILLPTS:2	CSKILL:Alchemy|TYPE=Craft|TYPE=Knowledge|Heal|Spellcraft
-1	ABILITY:Special Ability|AUTOMATIC|Grafting ~ Necrophage			ADD:SPELLCASTER|Arcane
-2	ABILITY:Special Ability|AUTOMATIC|Body Enhancement ~ Necrophage		ADD:SPELLCASTER|Arcane	BONUS:VAR|BodyEnhancementNecrophageLvl|1
-3	ABILITY:Special Ability|AUTOMATIC|Enhanced Grafting ~ Necrophage		ADD:SPELLCASTER|Arcane
-4	ABILITY:Special Ability|AUTOMATIC|Augmentation ~ Necrophage			ADD:SPELLCASTER|Arcane
-5													ADD:SPELLCASTER|Arcane	BONUS:VAR|BodyEnhancementNecrophageLvl|1
-6	ABILITY:Special Ability|AUTOMATIC|Advanced Grafting ~ Necrophage		ADD:SPELLCASTER|Arcane
-7	ABILITY:Special Ability|AUTOMATIC|Enhanced Augmentation ~ Necrophage	ADD:SPELLCASTER|Arcane
-8													ADD:SPELLCASTER|Arcane	BONUS:VAR|BodyEnhancementNecrophageLvl|1
-9	ABILITY:Special Ability|AUTOMATIC|Master Grafting ~ Necrophage		ADD:SPELLCASTER|Arcane
-10	ABILITY:Special Ability|AUTOMATIC|Body Tranformation ~ Necrophage		ADD:SPELLCASTER|Arcane
+1								ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Grafting ~ Necrophage
+2	BONUS:VAR|BodyEnhancementNecrophageLvl|1	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Body Enhancement ~ Necrophage
+3								ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Enhanced Grafting ~ Necrophage
+4								ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Augmentation ~ Necrophage
+5	BONUS:VAR|BodyEnhancementNecrophageLvl|1	ADD:SPELLCASTER|Arcane
+6								ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Advanced Grafting ~ Necrophage
+7								ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Enhanced Augmentation ~ Necrophage
+8	BONUS:VAR|BodyEnhancementNecrophageLvl|1	ADD:SPELLCASTER|Arcane
+9								ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Master Grafting ~ Necrophage
+10								ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Body Tranformation ~ Necrophage

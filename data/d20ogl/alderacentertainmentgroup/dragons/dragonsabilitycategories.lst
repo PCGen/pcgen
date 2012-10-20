@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Mon Feb  2 22:24:07 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 #SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20
 
-# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Wyrmfoe Damage Resistance	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WyrmfoeDamageResistance	PLURAL:Wyrmfoe Damage Resistance	DISPLAYLOCATION:Class Abilities
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list																																																		Plural description for UI		Display Location
+ABILITYCATEGORY:Wyrmfoe Damage Resistance	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WyrmfoeDamageResistance																																																						PLURAL:Wyrmfoe Damage Resistance	DISPLAYLOCATION:Class Abilities
 
 
-ABILITYCATEGORY:Air Lord Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT	DISPLAYLOCATION:Class Abilities	ABILITYLIST:Alertness|Cleave|Far Shot|Great Cleave|Improved Bull Rush|Improved Critical|Improved Initiative|Mounted Archery|Point Blank Shot|Power Attack|Precise Shot|Quick Draw|Rapid Shot|Ride-By Attack|Shot on the Run|Skill Focus|Spirited Charge|Sunder|Trample|Weapon Finesse|Weapon Focus|Weapon Specialization
+ABILITYCATEGORY:Air Lord Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Alertness|Cleave|Far Shot|Great Cleave|Improved Bull Rush|Improved Critical|Improved Initiative|Mounted Archery|Point Blank Shot|Power Attack|Precise Shot|Quick Draw|Rapid Shot|Ride-By Attack|Shot on the Run|Skill Focus|Spirited Charge|Sunder|Trample|Weapon Finesse|Weapon Focus|Weapon Specialization							DISPLAYLOCATION:Class Abilities

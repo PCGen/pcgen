@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Feb 10 21:44:31 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-SOURCELONG:RPGObjects - Darwin's World - Artifacts of the Ancients	SOURCESHORT:ArtifactsA	SOURCEWEB:http://www.darwinrpg.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:RPGObjects - Darwin's World - Artifacts of the Ancients	SOURCESHORT:ArtifactsA	SOURCEWEB:http://www.darwinrpg.com	SOURCEDATE:2001-01
 # Original entry by wizofice2001
 
 #Martial Weapons Ranged
@@ -25,17 +25,17 @@ Energy Grenade					PROFICIENCY:WEAPON|Energy Grenade		TYPE:Weapon.Exotic.Ranged.
 Fragmentation Grenade				PROFICIENCY:WEAPON|Fragmentation Grenade	TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:150	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:6d6		RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 37, 41
 Glitter Grenade					PROFICIENCY:WEAPON|Glitter Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:50	WT:1		CRITMULT:x1			CRITRANGE:1						RANGE:10	SIZE:T	SOURCEPAGE:pp. 36-38, 41
 Inferno Grenade					PROFICIENCY:WEAPON|Inferno Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:150	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:5d6		RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 38, 41
-Irritant Gas Grenade				PROFICIENCY:WEAPON|Irritant Gas Grenade	TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:225	WT:1		CRITMULT:x1			CRITRANGE:1					RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 38, 41
+Irritant Gas Grenade				PROFICIENCY:WEAPON|Irritant Gas Grenade	TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:225	WT:1		CRITMULT:x1			CRITRANGE:1						RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 38, 41
 Molotov Cocktail					PROFICIENCY:WEAPON|Molotov Cocktail		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:15	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:2d6		RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 38, 41
-Mutation Grenade					PROFICIENCY:WEAPON|Mutation Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:3825	WT:1		CRITMULT:x1			CRITRANGE:1					RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 38, 39, 41
-Negation Grenade					PROFICIENCY:WEAPON|Negation Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:225	WT:1		CRITMULT:x1			CRITRANGE:1					RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 39, 41
-Nerve Gas Grenade					PROFICIENCY:WEAPON|Nerve Gas Grenade	TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:2275	WT:1		CRITMULT:x1			CRITRANGE:1					RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 39, 41
-Photon Grenade					PROFICIENCY:WEAPON|Photon Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:150	WT:1		CRITMULT:x1			CRITRANGE:1					RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 39, 41
+Mutation Grenade					PROFICIENCY:WEAPON|Mutation Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:3825	WT:1		CRITMULT:x1			CRITRANGE:1						RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 38, 39, 41
+Negation Grenade					PROFICIENCY:WEAPON|Negation Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:225	WT:1		CRITMULT:x1			CRITRANGE:1						RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 39, 41
+Nerve Gas Grenade					PROFICIENCY:WEAPON|Nerve Gas Grenade	TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:2275	WT:1		CRITMULT:x1			CRITRANGE:1						RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 39, 41
+Photon Grenade					PROFICIENCY:WEAPON|Photon Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:150	WT:1		CRITMULT:x1			CRITRANGE:1						RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 39, 41
 Plasma Grenade					PROFICIENCY:WEAPON|Plasma Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:500	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:9d6		RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 39, 41
 Radiation Grenade					PROFICIENCY:WEAPON|Radiation Grenade	TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:1650	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:1d6		RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 39, 41
 Satchel Charge A					PROFICIENCY:WEAPON|Satchel Charge A		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:700	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:4d6		RANGE:0	SIZE:T	SOURCEPAGE:pp. 36, 39, 41
 Shock Grenade					PROFICIENCY:WEAPON|Shock Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:375	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:3d6		RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 39-41
-Smoke Grenade					PROFICIENCY:WEAPON|Smoke Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:25	WT:1		CRITMULT:x1			CRITRANGE:1					RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 40, 41
+Smoke Grenade					PROFICIENCY:WEAPON|Smoke Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:25	WT:1		CRITMULT:x1			CRITRANGE:1						RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 40, 41
 Stun Grenade					PROFICIENCY:WEAPON|Stun Grenade		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Metal											COST:150	WT:1		CRITMULT:x1			CRITRANGE:1			DAMAGE:5d6		RANGE:10	SIZE:T	SOURCEPAGE:pp. 36, 40, 41
 
 #SMALL ----------------------------------------------------------------------------------------------------------
@@ -47,7 +47,7 @@ Flame Pistol					PROFICIENCY:WEAPON|Flame Pistol		TYPE:Weapon.Exotic.Ranged.Expl
 Gauss Pistol Mk 1					PROFICIENCY:WEAPON|Gauss Pistol Mk 1	TYPE:Weapon.Exotic.Ranged.Mass.Piercing.Container.Metal		CONTAINS:UNLIM						COST:18750	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6		RANGE:100	SIZE:S	SOURCEPAGE:pp.77,78		SPROP:Rounds=10, Power=Clip|Beltpack|Backpack, Rate=Normal, Reload=
 Gauss Pistol Mk 2					PROFICIENCY:WEAPON|Gauss Pistol Mk 2	TYPE:Weapon.Exotic.Ranged.Mass.Piercing.Container.Metal		CONTAINS:UNLIM						COST:20750	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6		RANGE:100	SIZE:S	SOURCEPAGE:pp.77,78		SPROP:Rounds=10, Power=Clip|Beltpack|Backpack, Rate=Normal, Reload=
 Gauss SMG						PROFICIENCY:WEAPON|Gauss SMG			TYPE:Weapon.Exotic.Ranged.Mass.Piercing.Container.Metal		CONTAINS:UNLIM						COST:32900	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6		RANGE:100	SIZE:S	SOURCEPAGE:pp.77,78		SPROP:Rounds=10, Power=Clip|Beltpack|Backpack, Rate=Automatic, Reload=
-Grenade Launcher					PROFICIENCY:WEAPON|Greande Launcher		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Container.Metal		CONTAINS:UNLIM						COST:4500	WT:12		CRITMULT:x1			CRITRANGE:1					RANGE:200	SIZE:S	SOURCEPAGE:pp. 36, 38, 42	SPROP:Rounds=
+Grenade Launcher					PROFICIENCY:WEAPON|Greande Launcher		TYPE:Weapon.Exotic.Ranged.Explosive.Special.Container.Metal		CONTAINS:UNLIM						COST:4500	WT:12		CRITMULT:x1			CRITRANGE:1						RANGE:200	SIZE:S	SOURCEPAGE:pp. 36, 38, 42	SPROP:Rounds=
 Laser Pistol Mk 1					PROFICIENCY:WEAPON|Laser Pistol Mk 1	TYPE:Weapon.Exotic.Ranged.Energy.Special.Container.Metal		CONTAINS:UNLIM						COST:8500	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8		RANGE:100	SIZE:S	SOURCEPAGE:pp.73,74,76		SPROP:Power=Clip|Backpack|Beltpack, Rate=Normal, Reload=
 Laser Pistol Mk 2					PROFICIENCY:WEAPON|Laser Pistol Mk 2	TYPE:Weapon.Exotic.Ranged.Energy.Special.Container.Metal		CONTAINS:UNLIM						COST:16500	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d10		RANGE:100	SIZE:S	SOURCEPAGE:pp.73-76		SPROP:Power=Clip|Backpack|Beltpack, Rate=Normal, Reload=
 Maser Pistol					PROFICIENCY:WEAPON|Maser Pistol		TYPE:Weapon.Exotic.Ranged.Energy.Special.Container.Metal		CONTAINS:UNLIM						COST:6500	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8		RANGE:100	SIZE:S	SOURCEPAGE:pp.73,75,76		SPROP:Power=Clip|Backpack|Beltpack, Rate=Normal, Reload=

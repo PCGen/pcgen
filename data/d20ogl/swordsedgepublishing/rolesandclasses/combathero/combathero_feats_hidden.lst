@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author: $ -- Thu Oct  8 22:17:39 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Roles and Classes - Combat Hero	SOURCESHORT:RnC - Cmbt	SOURCEWEB:http://www.swordsedgepublishing.ca/Products.html
+# CVS $Revision$ $Author: $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Roles and Classes - Combat Hero	SOURCESHORT:RnC - Cmbt	SOURCEWEB:http://www.swordsedgepublishing.ca/Products.html	SOURCEDATE:2005-01
 #Original Entry by: Frank Kliewe
 
 ###Block:Defensive Talent Tree
@@ -9,8 +9,8 @@ CATEGORY=Talent|Defensive Roll.MOD	TYPE:CombatHeroTalent
 CATEGORY=Talent|Opportunist.MOD	TYPE:CombatHeroTalent
 
 ###Block:Firearms Training Talent Tree
-# Ability Name				Output Name				Category of Ability	Type								Visible	Restricted Ability					Required Feat					Special ABility						Stackable?	Multiple?	Choose							Weapon prof. bonus				Source Page
-Personal Weapon Focus								CATEGORY:Talent		TYPE:Talent.CombatHeroTalent.FirearmsTraining	VISIBLE:YES																SAB:Personal Weapon Focus (%CHOICE)			STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC					BONUS:WEAPONPROF=%LIST|TOHIT|1		SOURCEPAGE:p.3
+# Ability Name				Output Name				Category of Ability	Type								Visible	Restricted Ability					Required Feat					Special ABility						Stackable?	Multiple?	Choose										Weapon prof. bonus				Source Page
+Personal Weapon Focus								CATEGORY:Talent		TYPE:Talent.CombatHeroTalent.FirearmsTraining	VISIBLE:YES																SAB:Personal Weapon Focus (%CHOICE)			STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC							BONUS:WEAPONPROF=%LIST|TOHIT|1		SOURCEPAGE:p.3
 Personal Weapon Specialization						CATEGORY:Talent		TYPE:Talent.CombatHeroTalent.FirearmsTraining	VISIBLE:YES									PREFEAT:1,Personal Weapon Focus		SAB:Personal Weapon Specialization (%CHOICE)	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Personal Weapon Focus			BONUS:WEAPONPROF=%LIST|DAMAGE|2		SOURCEPAGE:p.3
 Improved Critical - Combat Hero	OUTPUTNAME:Improved Critical	CATEGORY:Talent		TYPE:Talent.CombatHeroTalent.FirearmsTraining	VISIBLE:YES	!PREABILITY:1,CATEGORY=Talent,Improved Critical	PREFEAT:1,Personal Weapon Specialization	SAB:Improved Critical (%CHOICE)			STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Personal Weapon Specialization	BONUS:WEAPONPROF=%LIST|CRITRANGEADD|1	SOURCEPAGE:p.3
 

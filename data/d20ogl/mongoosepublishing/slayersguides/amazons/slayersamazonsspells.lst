@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
-SOURCELONG:Mongoose Publishing - Slayer's Guide to Amazons	SOURCESHORT:SGtAmazons	SOURCEWEB:http://mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Slayer's Guide to Amazons	SOURCESHORT:SGtAmazons	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
 
 # Spell Name	Domains granting the spell	School			Type		Components		Casting Time	Range			Item		Target Area or Effect			Duration				Save Info			Spell Resistance	Description		Source Page
 Cold of Night	DOMAINS:Moon=8			SCHOOL:Evocation		TYPE:Divine	COMPS:V S DF	CASTTIME:1 round	RANGE:Medium	ITEM:Potion	TARGETAREA:Creatures within area	DURATION:Instantantenous	SAVEINFO:Reflex half	SPELLRES:Yes	DESC:See text	SOURCEPAGE:p.26

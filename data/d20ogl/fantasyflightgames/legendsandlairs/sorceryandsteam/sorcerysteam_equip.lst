@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep 30 21:36:04 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html	SOURCEDATE:2003-08
 # Original Entry by: Eddy Anthony
 
@@ -29,14 +29,14 @@ Holy Water Sprinkler										TYPE:Goods.Tools.Resizable		COST:600	WT:8				SIZE:
 Prayer Watch											TYPE:Goods.Tools.Resizable		COST:800	WT:0.25			SIZE:T	SOURCEPAGE:p.128
 
 ###Block: General Items-------------------------------------------------------------------------------------------------------------------------------
-# Equipment Name				Type							Cost		Weight	Slot Needed	AC Penalty Check	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Combat bonus					Bonus to skill					Special Property
+# Equipment Name				Type							Cost		Weight	Slot Needed	AC Penalty Check	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Combat bonus			Bonus to skill					Special Property
 Automatic Ladder (Collapsible)	TYPE:Goods.General				COST:300	WT:15										SIZE:M	SOURCEPAGE:p.128
 Clockwork Animals				TYPE:Goods.General				COST:750	WT:1										SIZE:T	SOURCEPAGE:p.128
 Coal (1 lb.)				TYPE:Goods.Trade					COST:0.01	WT:1										SIZE:T	SOURCEPAGE:p.127
 Dwarven Miner's Glove			TYPE:Goods.Tools.Glove.Resizable		COST:700	WT:25		SLOTS:1							SIZE:S	SOURCEPAGE:p.129
 Electric Lantern				TYPE:Goods.General.Resizable			COST:50	WT:3										SIZE:S	SOURCEPAGE:p.129
 Electric Lantern Battery		TYPE:Goods.General.Consumable			COST:0.1	WT:0										SIZE:T	SOURCEPAGE:p.129
-Jumping Boots				TYPE:Goods.Tools.Boot.Resizable		COST:150	WT:5		SLOTS:2							SIZE:T	SOURCEPAGE:p.127												BONUS:SKILL|Jump|10|TYPE=Circumstance
+Jumping Boots				TYPE:Goods.Tools.Boot.Resizable		COST:150	WT:5		SLOTS:2							SIZE:T	SOURCEPAGE:p.127										BONUS:SKILL|Jump|10|TYPE=Circumstance
 Diving Suit					TYPE:Armor.Light.Suit.Standard.Nonmetal	COST:50	WT:3				ACCHECK:0		MAXDEX:6		SIZE:S	SOURCEPAGE:p.129	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor	BONUS:SKILL|Swim|2|TYPE=Circumstance	SPROP:Supplies 1 hour of air
 Rocket Pack					TYPE:Goods.Transportation.Resizable		COST:5000	WT:40										SIZE:S	SOURCEPAGE:p.129
 Steam Portal				TYPE:Goods.General				COST:600	WT:2000									SIZE:H	SOURCEPAGE:p.130

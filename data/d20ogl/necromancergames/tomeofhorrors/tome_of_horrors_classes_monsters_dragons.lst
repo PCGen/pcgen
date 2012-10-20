@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Jul 11 11:23:21 2008 -- reformated by prettylst.pl v1.38 (build 7077)
-SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/	SOURCEDATE:2002-01
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
 # Class Name		Hit Dice	Type			Max Level		Source Page		Save checks bonus								Combat bonus
@@ -30,7 +30,7 @@ CLASS:Cloud Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 8																		BONUS:MOVEADD|TYPE.Fly|50
 23																		BONUS:MOVEADD|TYPE.Fly|50
 1																																DEFINE:DragonAge|1
-8				BONUS:COMBAT|AC|7|TYPE=NaturalArmor.STACK																	BONUS:VAR|DragonAge|1										SPELLS:Innate|TIMES=2|CASTERLEVEL=2|Solid Fog,10+(HD/2)+CHA
+8				BONUS:COMBAT|AC|7|TYPE=NaturalArmor.STACK																		BONUS:VAR|DragonAge|1										SPELLS:Innate|TIMES=2|CASTERLEVEL=2|Solid Fog,10+(HD/2)+CHA
 11				BONUS:COMBAT|AC|10|TYPE=NaturalArmor.STACK																	BONUS:VAR|DragonAge|1										SPELLS:Innate|TIMES=2|CASTERLEVEL=3|Stinking Cloud,10+(HD/2)+CHA
 14				BONUS:COMBAT|AC|13|TYPE=NaturalArmor.STACK																	BONUS:VAR|DragonAge|1					ADD:SPELLCASTER|Sorcerer	SPELLS:Innate|TIMES=2|CASTERLEVEL=var("CL=Sorcerer")|Create Water,10+(HD/2)+CHA
 17	SR:19	DR:5/magic	BONUS:COMBAT|AC|16|TYPE=NaturalArmor.STACK												BONUS:PCLEVEL|Sorcerer|2	BONUS:VAR|DragonAge|1
@@ -43,30 +43,31 @@ CLASS:Cloud Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 38				BONUS:COMBAT|AC|37|TYPE=NaturalArmor.STACK				BONUS:MISC|SR|2						BONUS:PCLEVEL|Sorcerer|2	BONUS:VAR|DragonAge|1
 
 # Added by: Arjan van Ginneken
-# Class Name	Hit Dice	Type			Max Level		Source Page				Save checks bonus								Combat bonus
+
+# Class Name	Hit Dice	Type			Max Level		Source Page		Save checks bonus								Combat bonus
 CLASS:Mist Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p. 165	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Race		Reg. Race Type
-CLASS:Mist Dragon	PRERACE:1,Dragon (Mist%		PRERACETYPE:Dragon
+CLASS:Mist Dragon	PRERACE:1,Dragon (Mist%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Mist Dragon	STARTSKILLPTS:6		MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
-1	BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
+CLASS:Mist Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
+1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
 1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
 ###Block: Breath Weapon and other SA's
-1	BONUS:VAR|BreathWeaponDamageDie|6	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDice|(2*DragonAge)				ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Cloudy Scalding Vapor
-1	ABILITY:Special Ability|AUTOMATIC|Mist Form
-1	ABILITY:Special Ability|AUTOMATIC|Immunity To Fire
+1	BONUS:VAR|BreathWeaponDamageDie|6	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Cloudy Scalding Vapor
+1																						ABILITY:Special Ability|AUTOMATIC|Mist Form
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Fire
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
-1			DEFINE:DragonAge|1
-9			DEFINE:DragonAge|2	ABILITY:Special Ability|AUTOMATIC|Water Breathing
-12			DEFINE:DragonAge|3	ABILITY:Special Ability|AUTOMATIC|Fog Cloud
-15			DEFINE:DragonAge|4	ABILITY:Special Ability|AUTOMATIC|Create Water	ADD:SPELLCASTER|Sorcerer	BONUS:PCLEVEL|Sorcerer|3
-18	BONUS:MISC|SR|20	DEFINE:DragonAge|5	DR:5/Magic	BONUS:PCLEVEL|Sorcerer|2
-21	BONUS:MISC|SR|2	DEFINE:DragonAge|6	ABILITY:Special Ability|AUTOMATIC|Crush	ABILITY:Special Ability|AUTOMATIC|Control Winds	BONUS:PCLEVEL|Sorcerer|2
-24	BONUS:MISC|SR|1	DEFINE:DragonAge|7	ABILITY:Special Ability|AUTOMATIC|Wind Wall	DR:10/Magic	BONUS:PCLEVEL|Sorcerer|2
-27	BONUS:MISC|SR|2	DEFINE:DragonAge|8	ABILITY:Special Ability|AUTOMATIC|Solid Fog	BONUS:PCLEVEL|Sorcerer|2
-30	BONUS:MISC|SR|1	DEFINE:DragonAge|9	ABILITY:Special Ability|AUTOMATIC|Control Water	DR:15/Magic	BONUS:PCLEVEL|Sorcerer|2
-33	BONUS:MISC|SR|2	DEFINE:DragonAge|10	ABILITY:Special Ability|AUTOMATIC|Tail Sweep	BONUS:PCLEVEL|Sorcerer|2
-36	BONUS:MISC|SR|1	DEFINE:DragonAge|11	DR:20/Magic	BONUS:PCLEVEL|Sorcerer|2
-39	BONUS:MISC|SR|2	DEFINE:DragonAge|12	BONUS:PCLEVEL|Sorcerer|2
+1											DEFINE:DragonAge|1
+9											DEFINE:DragonAge|2						ABILITY:Special Ability|AUTOMATIC|Water Breathing
+12											DEFINE:DragonAge|3						ABILITY:Special Ability|AUTOMATIC|Fog Cloud
+15						BONUS:PCLEVEL|Sorcerer|3	DEFINE:DragonAge|4	ADD:SPELLCASTER|Sorcerer	ABILITY:Special Ability|AUTOMATIC|Create Water
+18	DR:5/Magic	BONUS:MISC|SR|20	BONUS:PCLEVEL|Sorcerer|2	DEFINE:DragonAge|5
+21			BONUS:MISC|SR|2	BONUS:PCLEVEL|Sorcerer|2	DEFINE:DragonAge|6						ABILITY:Special Ability|AUTOMATIC|Crush	ABILITY:Special Ability|AUTOMATIC|Control Winds
+24	DR:10/Magic	BONUS:MISC|SR|1	BONUS:PCLEVEL|Sorcerer|2	DEFINE:DragonAge|7						ABILITY:Special Ability|AUTOMATIC|Wind Wall
+27			BONUS:MISC|SR|2	BONUS:PCLEVEL|Sorcerer|2	DEFINE:DragonAge|8						ABILITY:Special Ability|AUTOMATIC|Solid Fog
+30	DR:15/Magic	BONUS:MISC|SR|1	BONUS:PCLEVEL|Sorcerer|2	DEFINE:DragonAge|9						ABILITY:Special Ability|AUTOMATIC|Control Water
+33			BONUS:MISC|SR|2	BONUS:PCLEVEL|Sorcerer|2	DEFINE:DragonAge|10						ABILITY:Special Ability|AUTOMATIC|Tail Sweep
+36	DR:20/Magic	BONUS:MISC|SR|1	BONUS:PCLEVEL|Sorcerer|2	DEFINE:DragonAge|11
+39			BONUS:MISC|SR|2	BONUS:PCLEVEL|Sorcerer|2	DEFINE:DragonAge|12

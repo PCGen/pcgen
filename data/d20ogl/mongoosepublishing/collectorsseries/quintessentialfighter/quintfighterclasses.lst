@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Aug  6 15:45:22 2008 -- reformated by prettylst.pl v1.38 (build 7233)
-SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter	SOURCESHORT:QuintFight	SOURCEWEB:http://mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter	SOURCESHORT:QuintFight	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
 
 # Removed the (TYPE=Slashing) to the Living blade... I can't get it to
 #	work with current code, so leaving policing to the user. -- Tir Gwaith
@@ -15,11 +15,11 @@ CLASS:Berserker	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	ABILITY:Special Ability|AUTOMATIC|Berserk Fury ~ Berserker	BONUS:VAR|BerserkFury|1	DEFINE:BerserkFury|0
-2	ABILITY:Special Ability|AUTOMATIC|Savage Fear ~ Berserker
-3	ABILITY:Special Ability|AUTOMATIC|Berserk Attack ~ Berserker
-4	ABILITY:Special Ability|AUTOMATIC|Shrug off Blow ~ Berserker
-5	ABILITY:Special Ability|AUTOMATIC|Mind Block ~ Berserker
+1	BONUS:VAR|BerserkFury|1	DEFINE:BerserkFury|0	ABILITY:Special Ability|AUTOMATIC|Berserk Fury ~ Berserker
+2									ABILITY:Special Ability|AUTOMATIC|Savage Fear ~ Berserker
+3									ABILITY:Special Ability|AUTOMATIC|Berserk Attack ~ Berserker
+4									ABILITY:Special Ability|AUTOMATIC|Shrug off Blow ~ Berserker
+5									ABILITY:Special Ability|AUTOMATIC|Mind Block ~ Berserker
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Brawler	HD:10		TYPE:PC.Prestige	ABB:Brl		MAXLEVEL:5	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -27,11 +27,11 @@ CLASS:Brawler	HD:10		TYPE:PC.Prestige	ABB:Brl		MAXLEVEL:5	SOURCEPAGE:p.16	BONUS:
 CLASS:Brawler	PREATT:5	PREFEAT:2,Alertness,Improved Unarmed Strike	PRESTAT:1,STR=15
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Brawler	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Swim
-1	UDAM:1,1,1,1d2,1d3,1d4,1d6,1d8,1d10									BONUS:VAR|SneakAttack|1									ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-2	UDAM:1,1,1,1d2,1d3,1d4,1d6,1d8,1d10		ABILITY:Special Ability|AUTOMATIC|Combat Awareness ~ Brawler
+1	UDAM:1,1,1,1d2,1d3,1d4,1d6,1d8,1d10		BONUS:VAR|SneakAttack|1									ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+2	UDAM:1,1,1,1d2,1d3,1d4,1d6,1d8,1d10														ABILITY:Special Ability|AUTOMATIC|Combat Awareness ~ Brawler
 3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8
-4	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8	ABILITY:Special Ability|AUTOMATIC|Surprise Guard ~ Brawler
-5	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8	ABILITY:Special Ability|AUTOMATIC|Barroom Fury ~ Brawler		BONUS:VAR|SneakAttack|1	BONUS:VAR|BarroomFury|1	DEFINE:BarroomFury|0
+4	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8													ABILITY:Special Ability|AUTOMATIC|Surprise Guard ~ Brawler
+5	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8	BONUS:VAR|SneakAttack|1	BONUS:VAR|BarroomFury|1	DEFINE:BarroomFury|0	ABILITY:Special Ability|AUTOMATIC|Barroom Fury ~ Brawler
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Knight of the Griffin	HD:10		TYPE:PC.Prestige	ABB:KotG		MAXLEVEL:5	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -61,11 +61,11 @@ CLASS:Legend	STARTSKILLPTS:4	CSKILL:TYPE=Strength|TYPE=Intelligence|TYPE=Wisdom|
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	ABILITY:Special Ability|AUTOMATIC|Favour of the Gods ~ Legend	BONUS:VAR|FavourGods|1	DEFINE:FavourGods|0
-2	ABILITY:Special Ability|AUTOMATIC|Pain Driven ~ Legend
-3	ABILITY:Special Ability|AUTOMATIC|Inspiring ~ Legend					BONUS:VAR|FavourGods|1
-4	ABILITY:Special Ability|AUTOMATIC|Killing Machine ~ Legend
-5	ABILITY:Special Ability|AUTOMATIC|To the Bitter End ~ Legend
+1	BONUS:VAR|FavourGods|1	DEFINE:FavourGods|0	ABILITY:Special Ability|AUTOMATIC|Favour of the Gods ~ Legend
+2									ABILITY:Special Ability|AUTOMATIC|Pain Driven ~ Legend
+3	BONUS:VAR|FavourGods|1					ABILITY:Special Ability|AUTOMATIC|Inspiring ~ Legend
+4									ABILITY:Special Ability|AUTOMATIC|Killing Machine ~ Legend
+5									ABILITY:Special Ability|AUTOMATIC|To the Bitter End ~ Legend
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Living Blade	HD:10		TYPE:PC.Prestige	ABB:LiB		MAXLEVEL:5	SOURCEPAGE:p.19	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -78,11 +78,11 @@ CLASS:Living Blade	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Heal|Jump|
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	ABILITY:Special Ability|AUTOMATIC|Weaponmastery ~ Living Blade			BONUS:WEAPON|TOHIT|1|PREFEAT:1,Weapon Specialization|TYPE=Competence
-2	ABILITY:Special Ability|AUTOMATIC|Suberb Specialization ~ Living Blade	BONUS:WEAPON|DAMAGE|2|PREFEAT:1,Weapon Specialization|TYPE=Competence
-3	ABILITY:Special Ability|AUTOMATIC|Deadly opponent ~ Living Blade
-4	ABILITY:Special Ability|AUTOMATIC|Web of Death ~ Living Blade
-5	ABILITY:Special Ability|AUTOMATIC|Furious Strike ~ Living Blade
+1	BONUS:WEAPON|TOHIT|1|PREFEAT:1,Weapon Specialization|TYPE=Competence	ABILITY:Special Ability|AUTOMATIC|Weaponmastery ~ Living Blade
+2	BONUS:WEAPON|DAMAGE|2|PREFEAT:1,Weapon Specialization|TYPE=Competence	ABILITY:Special Ability|AUTOMATIC|Suberb Specialization ~ Living Blade
+3													ABILITY:Special Ability|AUTOMATIC|Deadly opponent ~ Living Blade
+4													ABILITY:Special Ability|AUTOMATIC|Web of Death ~ Living Blade
+5													ABILITY:Special Ability|AUTOMATIC|Furious Strike ~ Living Blade
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Master Bowman	HD:8		TYPE:PC.Prestige	ABB:MBm		MAXLEVEL:5	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -94,11 +94,11 @@ CLASS:Master Bowman	STARTSKILLPTS:2	CSKILL:Climb|Concentration|Craft (Bowmaking)
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	ABILITY:Special Ability|AUTOMATIC|Master shot ~ Master Bowman
-2	ABILITY:Special Ability|AUTOMATIC|Shoot the Opening ~ Master Bowman
-3	ABILITY:Special Ability|AUTOMATIC|Master Aim ~ Master Bowman		BONUS:VAR|MasterAim|1	DEFINE:MasterAim|0
-4	ABILITY:Special Ability|AUTOMATIC|All Seeing Eyes ~ Master Bowman
-5	ABILITY:Special Ability|AUTOMATIC|All Seeing Aim ~ Master Bowman
+1									ABILITY:Special Ability|AUTOMATIC|Master shot ~ Master Bowman
+2									ABILITY:Special Ability|AUTOMATIC|Shoot the Opening ~ Master Bowman
+3	BONUS:VAR|MasterAim|1	DEFINE:MasterAim|0	ABILITY:Special Ability|AUTOMATIC|Master Aim ~ Master Bowman
+4									ABILITY:Special Ability|AUTOMATIC|All Seeing Eyes ~ Master Bowman
+5									ABILITY:Special Ability|AUTOMATIC|All Seeing Aim ~ Master Bowman
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Noble Defender	HD:10		TYPE:PC.Prestige	ABB:NoD		MAXLEVEL:5	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -111,11 +111,11 @@ CLASS:Noble Defender	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Gather Information|I
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	ABILITY:Special Ability|AUTOMATIC|Noble Command ~ Noble Defender	BONUS:VAR|NobleCommand|1	DEFINE:NobleCommand|0
-2	ABILITY:Special Ability|AUTOMATIC|Noble Renown ~ Noble Defender
-3							BONUS:VAR|NobleCommand|1
-4	ABILITY:Special Ability|AUTOMATIC|Castle ~ Noble Defender
-5							BONUS:VAR|NobleCommand|1
+1	BONUS:VAR|NobleCommand|1	DEFINE:NobleCommand|0	ABILITY:Special Ability|AUTOMATIC|Noble Command ~ Noble Defender
+2										ABILITY:Special Ability|AUTOMATIC|Noble Renown ~ Noble Defender
+3	BONUS:VAR|NobleCommand|1
+4										ABILITY:Special Ability|AUTOMATIC|Castle ~ Noble Defender
+5	BONUS:VAR|NobleCommand|1
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Officer of War	HD:10		TYPE:PC.Prestige	ABB:OoW		MAXLEVEL:5	SOURCEPAGE:p.23	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -158,8 +158,8 @@ CLASS:Swashbuckler	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Diplomacy|Gather I
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 ###Block: Normal Level Progression
-1	ABILITY:Special Ability|AUTOMATIC|Leaping Dodge ~ Swashbuckler		BONUS:COMBAT|AC|CL|PREVAREQ:COUNT[EQTYPE.ARMOR.EQUIPPED],0
-2															BONUS:SKILL|Balance,Climb,Jump,Tumble|4
-3																											ABILITY:Special Ability|VIRTUAL|Evasion
-4																						BONUS:VAR|UncannyDodge|1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
-5	ABILITY:Special Ability|AUTOMATIC|Freedom of Movement ~ Swashbuckler
+1	BONUS:COMBAT|AC|CL|PREVAREQ:COUNT[EQTYPE.ARMOR.EQUIPPED],0													ABILITY:Special Ability|AUTOMATIC|Leaping Dodge ~ Swashbuckler
+2											BONUS:SKILL|Balance,Climb,Jump,Tumble|4
+3																							ABILITY:Special Ability|VIRTUAL|Evasion
+4																		BONUS:VAR|UncannyDodge|1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
+5																							ABILITY:Special Ability|AUTOMATIC|Freedom of Movement ~ Swashbuckler

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Jul 19 17:25:26 2009 -- reformated by prettylst.pl v1.39 (build 9548)
-SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
 
 # Weapon Accessories?
 # Made weapon accessories into eqmods but not sure how to represent the cost.
@@ -64,26 +64,26 @@ Access (Platinum)			KEY:IDENT_VIM	NAMEOPT:TEXT=Platinum Access	TYPE:IdentityCard
 
 # Modifier Name			Unique Key		Naming Option	Type														Cost		Visible		Keys to replace										Source Page				Required Type			Prohibited Type							Bonus to skill					Special Property
 #Vehicle Mods
-Cover Provided (1/2)		KEY:ABVEH_CVR_H	NAMEOPT:NORMAL	TYPE:VehicleCover												COST:0	VISIBLE:QUALIFY	REPLACES:ABVEH_CVR_T,ABVEH_CVR_N,ABVEH_CVR_F,ABVEH_CVR_TH,ABVEH_CVR_HF	SOURCEPAGE:p. 218			PRETYPE:1,Transportation																	SPROP:Provides 1/2 Cover to Crew and Passengers
-Cover Provided (1/2 or Full)	KEY:ABVEH_CVR_HF	NAMEOPT:NORMAL	TYPE:VehicleCover												COST:0	VISIBLE:QUALIFY	REPLACES:ABVEH_CVR_T,ABVEH_CVR_N,ABVEH_CVR_F,ABVEH_CVR_H,ABVEH_CVR_TH	SOURCEPAGE:p. 218			PRETYPE:1,Transportation																	SPROP:Provides 1/2 (or Full) Cover to Crew and Passengers
-Cover Provided (3/4)		KEY:ABVEH_CVR_T	NAMEOPT:NORMAL	TYPE:VehicleCover												COST:0	VISIBLE:QUALIFY	REPLACES:ABVEH_CVR_H,ABVEH_CVR_N,ABVEH_CVR_F,ABVEH_CVR_TH,ABVEH_CVR_HF	SOURCEPAGE:p. 218			PRETYPE:1,Transportation																	SPROP:Provides 3/4 Cover to Crew and Passengers
-Cover Provided (3/4 or 1/2)	KEY:ABVEH_CVR_TH	NAMEOPT:NORMAL	TYPE:VehicleCover												COST:0	VISIBLE:QUALIFY	REPLACES:ABVEH_CVR_H,ABVEH_CVR_N,ABVEH_CVR_F,ABVEH_CVR_T,ABVEH_CVR_F	SOURCEPAGE:p. 218			PRETYPE:1,Transportation																	SPROP:Provides 3/4 (or 1/2) Cover to Crew and Passengers
-Cover Provided (9/10)		KEY:ABVEH_CVR_N	NAMEOPT:NORMAL	TYPE:VehicleCover												COST:0	VISIBLE:QUALIFY	REPLACES:ABVEH_CVR_H,ABVEH_CVR_T,ABVEH_CVR_F,ABVEH_CVR_TH,ABVEH_CVR_HF	SOURCEPAGE:p. 218			PRETYPE:1,Transportation																	SPROP:Provides 9/10 Cover to Crew and Passengers
-Cover Provided (Full)		KEY:ABVEH_CVR_F	NAMEOPT:NORMAL	TYPE:VehicleCover												COST:0	VISIBLE:QUALIFY	REPLACES:ABVEH_CVR_H,ABVEH_CVR_T,ABVEH_CVR_N,ABVEH_CVR_TH,ABVEH_CVR_HF	SOURCEPAGE:p. 218			PRETYPE:1,Transportation																	SPROP:Provides Full Cover to Crew and Passengers
+Cover Provided (1/2)		KEY:ABVEH_CVR_H	NAMEOPT:NORMAL			TYPE:VehicleCover												COST:0	VISIBLE:QUALIFY	REPLACES:ABVEH_CVR_T,ABVEH_CVR_N,ABVEH_CVR_F,ABVEH_CVR_TH,ABVEH_CVR_HF	SOURCEPAGE:p. 218			PRETYPE:1,Transportation																	SPROP:Provides 1/2 Cover to Crew and Passengers
+Cover Provided (1/2 or Full)	KEY:ABVEH_CVR_HF	NAMEOPT:NORMAL			TYPE:VehicleCover												COST:0	VISIBLE:QUALIFY	REPLACES:ABVEH_CVR_T,ABVEH_CVR_N,ABVEH_CVR_F,ABVEH_CVR_H,ABVEH_CVR_TH	SOURCEPAGE:p. 218			PRETYPE:1,Transportation																	SPROP:Provides 1/2 (or Full) Cover to Crew and Passengers
+Cover Provided (3/4)		KEY:ABVEH_CVR_T	NAMEOPT:NORMAL			TYPE:VehicleCover												COST:0	VISIBLE:QUALIFY	REPLACES:ABVEH_CVR_H,ABVEH_CVR_N,ABVEH_CVR_F,ABVEH_CVR_TH,ABVEH_CVR_HF	SOURCEPAGE:p. 218			PRETYPE:1,Transportation																	SPROP:Provides 3/4 Cover to Crew and Passengers
+Cover Provided (3/4 or 1/2)	KEY:ABVEH_CVR_TH	NAMEOPT:NORMAL			TYPE:VehicleCover												COST:0	VISIBLE:QUALIFY	REPLACES:ABVEH_CVR_H,ABVEH_CVR_N,ABVEH_CVR_F,ABVEH_CVR_T,ABVEH_CVR_F	SOURCEPAGE:p. 218			PRETYPE:1,Transportation																	SPROP:Provides 3/4 (or 1/2) Cover to Crew and Passengers
+Cover Provided (9/10)		KEY:ABVEH_CVR_N	NAMEOPT:NORMAL			TYPE:VehicleCover												COST:0	VISIBLE:QUALIFY	REPLACES:ABVEH_CVR_H,ABVEH_CVR_T,ABVEH_CVR_F,ABVEH_CVR_TH,ABVEH_CVR_HF	SOURCEPAGE:p. 218			PRETYPE:1,Transportation																	SPROP:Provides 9/10 Cover to Crew and Passengers
+Cover Provided (Full)		KEY:ABVEH_CVR_F	NAMEOPT:NORMAL			TYPE:VehicleCover												COST:0	VISIBLE:QUALIFY	REPLACES:ABVEH_CVR_H,ABVEH_CVR_T,ABVEH_CVR_N,ABVEH_CVR_TH,ABVEH_CVR_HF	SOURCEPAGE:p. 218			PRETYPE:1,Transportation																	SPROP:Provides Full Cover to Crew and Passengers
 
 #Powered Armor Mods
-20 Base Movement			KEY:BASE_MV_20	NAMEOPT:NOTHING	TYPE:PoweredArmorMod											COST:0	VISIBLE:NO																			PRETYPE:2,Armor,Powered																		SPROP:Base Move - 20'
-25 Base Movement			KEY:BASE_MV_25	NAMEOPT:NOTHING	TYPE:PoweredArmorMod											COST:0	VISIBLE:NO																			PRETYPE:2,Armor,Powered																		SPROP:Base Move - 25'
-70 Base Movement			KEY:BASE_MV_70	NAMEOPT:NOTHING	TYPE:PoweredArmorMod											COST:0	VISIBLE:NO																			PRETYPE:2,Armor,Powered																		SPROP:Base Move - 70'
-Air Supply				KEY:AIR_SUPP_ARMR	NAMEOPT:NOTHING	TYPE:PoweredArmorMod											COST:0	VISIBLE:NO																			PRETYPE:2,Armor,Powered																		SPROP:Air Supply
-Communication System		KEY:COMM_SYS_ARMR	NAMEOPT:NOTHING	TYPE:PoweredArmorMod											COST:0	VISIBLE:NO																			PRETYPE:2,Armor,Powered																		SPROP:Communication System
-Hazmat				KEY:HAZ_MAT_ARMR	NAMEOPT:NOTHING	TYPE:PoweredArmorMod											COST:0	VISIBLE:NO																			PRETYPE:2,Armor,Powered																		SPROP:HazMat Protection
-Optics - Night Vision 120	KEY:N_VIS120_ARMR	NAMEOPT:NOTHING	TYPE:PoweredArmorMod											COST:0	VISIBLE:NO																			PRETYPE:2,Armor,Powered																		SPROP:Night Vision (120')
-Optics - Telescopic		KEY:TELE_VIS_ARMR	NAMEOPT:NOTHING	TYPE:PoweredArmorMod											COST:0	VISIBLE:NO																			PRETYPE:2,Armor,Powered											BONUS:SKILL|Spot|4|TYPE=PoweredArmor	SPROP:Telescopic Vision (+4 to Spot Checks)
-Optics - X Ray			KEY:XRAY_VIS_ARMR	NAMEOPT:NOTHING	TYPE:PoweredArmorMod											COST:0	VISIBLE:NO																			PRETYPE:2,Armor,Powered																		SPROP:X-Ray Optics
-Gamma Protection - Moderate	KEY:GPRO_MOD_ARMR	NAMEOPT:NOTHING	TYPE:PoweredArmorMod											COST:0	VISIBLE:NO																			PRETYPE:2,Armor,Powered																		SPROP:Gamma Radiation Protection - Moderate
-Geiger Counter			KEY:GEIGER_ARMR	NAMEOPT:NOTHING	TYPE:PoweredArmorMod											COST:0	VISIBLE:NO																			PRETYPE:2,Armor,Powered																		SPROP:Geiger Counter
-Chemical Sensor			KEY:CHEM_SEN_ARMR	NAMEOPT:NOTHING	TYPE:PoweredArmorMod											COST:0	VISIBLE:NO																			PRETYPE:2,Armor,Powered																		SPROP:Chemical Sensor
+20 Base Movement			KEY:BASE_MV_20	NAMEOPT:NOTHING			TYPE:PoweredArmorMod											COST:0	VISIBLE:NO																			PRETYPE:2,Armor,Powered																		SPROP:Base Move - 20'
+25 Base Movement			KEY:BASE_MV_25	NAMEOPT:NOTHING			TYPE:PoweredArmorMod											COST:0	VISIBLE:NO																			PRETYPE:2,Armor,Powered																		SPROP:Base Move - 25'
+70 Base Movement			KEY:BASE_MV_70	NAMEOPT:NOTHING			TYPE:PoweredArmorMod											COST:0	VISIBLE:NO																			PRETYPE:2,Armor,Powered																		SPROP:Base Move - 70'
+Air Supply				KEY:AIR_SUPP_ARMR	NAMEOPT:NOTHING			TYPE:PoweredArmorMod											COST:0	VISIBLE:NO																			PRETYPE:2,Armor,Powered																		SPROP:Air Supply
+Communication System		KEY:COMM_SYS_ARMR	NAMEOPT:NOTHING			TYPE:PoweredArmorMod											COST:0	VISIBLE:NO																			PRETYPE:2,Armor,Powered																		SPROP:Communication System
+Hazmat				KEY:HAZ_MAT_ARMR	NAMEOPT:NOTHING			TYPE:PoweredArmorMod											COST:0	VISIBLE:NO																			PRETYPE:2,Armor,Powered																		SPROP:HazMat Protection
+Optics - Night Vision 120	KEY:N_VIS120_ARMR	NAMEOPT:NOTHING			TYPE:PoweredArmorMod											COST:0	VISIBLE:NO																			PRETYPE:2,Armor,Powered																		SPROP:Night Vision (120')
+Optics - Telescopic		KEY:TELE_VIS_ARMR	NAMEOPT:NOTHING			TYPE:PoweredArmorMod											COST:0	VISIBLE:NO																			PRETYPE:2,Armor,Powered											BONUS:SKILL|Spot|4|TYPE=PoweredArmor	SPROP:Telescopic Vision (+4 to Spot Checks)
+Optics - X Ray			KEY:XRAY_VIS_ARMR	NAMEOPT:NOTHING			TYPE:PoweredArmorMod											COST:0	VISIBLE:NO																			PRETYPE:2,Armor,Powered																		SPROP:X-Ray Optics
+Gamma Protection - Moderate	KEY:GPRO_MOD_ARMR	NAMEOPT:NOTHING			TYPE:PoweredArmorMod											COST:0	VISIBLE:NO																			PRETYPE:2,Armor,Powered																		SPROP:Gamma Radiation Protection - Moderate
+Geiger Counter			KEY:GEIGER_ARMR	NAMEOPT:NOTHING			TYPE:PoweredArmorMod											COST:0	VISIBLE:NO																			PRETYPE:2,Armor,Powered																		SPROP:Geiger Counter
+Chemical Sensor			KEY:CHEM_SEN_ARMR	NAMEOPT:NOTHING			TYPE:PoweredArmorMod											COST:0	VISIBLE:NO																			PRETYPE:2,Armor,Powered																		SPROP:Chemical Sensor
 
 #
 #EOF

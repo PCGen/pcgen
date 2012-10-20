@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Modern Dispatch #67 - The Precinct	SOURCESHORT:MD67-Precinct	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=180
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern Dispatch #67 - The Precinct	SOURCESHORT:MD67-Precinct	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=180	SOURCEDATE:2004-01
 
 # Feat Name					Type
 Alertness.MOD				TYPE:BadCop.GoodCop

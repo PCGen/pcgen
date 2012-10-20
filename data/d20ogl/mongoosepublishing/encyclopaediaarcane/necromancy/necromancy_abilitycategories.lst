@@ -1,3 +1,5 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
 
-ABILITYCATEGORY:Spectral Loremaster Feat	CATEGORY:FEAT	TYPE:ItemCreation.Metamagic	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	DISPLAYLOCATION:Class Abilities
+# Ability Category				Visible		Editable or Static?	Change Pool?	Category of Object	Type of Object			Display Location
+ABILITYCATEGORY:Spectral Loremaster Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:FEAT		TYPE:ItemCreation.Metamagic	DISPLAYLOCATION:Class Abilities

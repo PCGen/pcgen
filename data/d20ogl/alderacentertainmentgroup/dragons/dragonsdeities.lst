@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
-SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 # Deity Name	Product Identity?	Domains												Desciption of Deity/Title						Holy Item	Alignment	Pantheon		Source Page
 Arym-Ahya		NAMEISPI:YES	DOMAINS:Air,Good,Healing,Law,Protection,Sun|PREALIGN:LG,LN,NG			DESC:Queen of the Sky, Starry Oracle, Mother of Dragons	SYMBOL:None	ALIGN:LG	PANTHEON:Draconic	SOURCEPAGE:p.18-19
 Nhym-Nadaal		NAMEISPI:YES	DOMAINS:Animal,Chaos,Magic,Strength,Travel,Water|PREALIGN:LN,NG,TN,NE,CN	DESC:King of the Sea, Leviathan					SYMBOL:None	ALIGN:TN	PANTHEON:Draconic	SOURCEPAGE:p.18-19

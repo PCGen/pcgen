@@ -74,7 +74,7 @@ HIDETYPE:EQUIP|ArmorsmithingTools|BasketweavingTools|BookbindingTools|BowmakingT
 HIDETYPE:EQUIP|GemcuttingTools|LeatherworkingTools|LocksmithingTools|PaintingTools|PotteryTools|SculptureTools|ShipmakingTools|StoneworkingTools
 HIDETYPE:EQUIP|TrapmakingTools |WeaponsmithingTools|WeavingTools|UntrainedTools|LightSource
 
-# Hide key stat types for skills 
+# Hide key stat types for skills
 HIDETYPE:SKILL|Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma
 
 

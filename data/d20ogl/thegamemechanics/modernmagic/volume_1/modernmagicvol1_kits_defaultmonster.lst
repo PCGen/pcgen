@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Aug  8 05:24:19 2007 -- reformated by prettylst.pl v1.38 (build 2788)
-SOURCELONG:Modern Magic - Volume 1	SOURCESHORT:ModMag1	SOURCEWEB:http://www.thegamemechanics.com/products/modernmagic1.asp
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern Magic - Volume 1	SOURCESHORT:ModMag1	SOURCEWEB:http://www.thegamemechanics.com/products/modernmagic1.asp	SOURCEDATE:2004-01
 
 STARTPACK:Air Elemental Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Air Elemental]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11

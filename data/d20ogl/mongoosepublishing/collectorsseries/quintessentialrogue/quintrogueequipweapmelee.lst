@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Feb 10 22:27:48 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-01
 
 # Equipment Name		Required Weapon Proficiency		Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Bonus to skill				Special Property
 Club (Padded)		PROFICIENCY:WEAPON|Club			TYPE:Weapon.Simple.Melee.Medium.Bludgeoning			COST:1	WT:4		CRITMULT:x2							DAMAGE:1d6			SIZE:M	SOURCEPAGE:p.53							SPROP:Deals subdual damage.

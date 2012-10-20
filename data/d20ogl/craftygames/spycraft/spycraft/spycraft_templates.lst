@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Nov 10 23:40:38 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 #
 # Spycraft PCGen dataset by Eddy Anthony
 #
@@ -8,19 +8,20 @@ SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.crafty-games.c
 
 ###Block: Class Core Ability
 
+# Template Name		Template										Multiple Requirements						Ability
 Class Core Ability	TEMPLATE:CHOOSE:Faceman|Fixer|Pointman|Snoop|Soldier|Wheelman
 
-Faceman		PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Faceman=1]	ABILITY:Special Ability|AUTOMATIC|Adaptable
-Fixer			PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Fixer=1]	ABILITY:Special Ability|AUTOMATIC|Dexterous
-Pointman		PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Pointman=1]	ABILITY:Special Ability|AUTOMATIC|Generous
-Snoop			PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Snoop=1]	ABILITY:Special Ability|AUTOMATIC|Astute
-Soldier		PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Soldier=1]	ABILITY:Special Ability|AUTOMATIC|Accurate
-Wheelman		PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Wheelman=1]	ABILITY:Special Ability|AUTOMATIC|Lucky|Custom Ride
+Faceman														PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Faceman=1]	ABILITY:Special Ability|AUTOMATIC|Adaptable
+Fixer															PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Fixer=1]	ABILITY:Special Ability|AUTOMATIC|Dexterous
+Pointman														PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Pointman=1]	ABILITY:Special Ability|AUTOMATIC|Generous
+Snoop															PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Snoop=1]	ABILITY:Special Ability|AUTOMATIC|Astute
+Soldier														PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Soldier=1]	ABILITY:Special Ability|AUTOMATIC|Accurate
+Wheelman														PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Wheelman=1]	ABILITY:Special Ability|AUTOMATIC|Lucky|Custom Ride
 
 
 ###Block: Hidden Universal Template--------------------------------------------------
 
-# Template Name	Visible	Add 						Removable?
+# Template Name	Visible	Bonus to Ability Pool				Removable?
 Agent			VISIBLE:NO	BONUS:ABILITYPOOL|Starting Nationality|1	REMOVABLE:NO
 
 ###Block: Mission Budget Temporary Bonuses--------------------------------------------------
@@ -33,9 +34,9 @@ Mission Threat Code - Black	VISIBLE:NO	BONUS:VAR|MISSIONBUDGET|35|PREAPPLY:ANYPC
 
 ###Block: Department templates--------------------------------------------------
 
-# Template Name				Visible
+# Template Name				Visible	Bonus to Ability Pool																																																						Removable?
 D-0 Home Office Template		VISIBLE:NO	BONUS:ABILITYPOOL|D-0 Class Skills|2|PREPCLEVEL:MIN=1	BONUS:ABILITYPOOL|D-0 Class Skills|1|PREPCLEVEL:MIN=4	BONUS:ABILITYPOOL|D-0 Class Skills|1|PREPCLEVEL:MIN=8	BONUS:ABILITYPOOL|D-0 Class Skills|1|PREPCLEVEL:MIN=12	BONUS:ABILITYPOOL|D-0 Class Skills|1|PREPCLEVEL:MIN=16	BONUS:ABILITYPOOL|D-0 Class Skills|1|PREPCLEVEL:MIN=20	REMOVABLE:NO
-D-2 Military Operations Template	VISIBLE:NO	BONUS:ABILITYPOOL|D-2 Skill Bonus|1|PREPCLEVEL:MIN=1	BONUS:ABILITYPOOL|D-2 Skill Bonus|1|PREPCLEVEL:MIN=4	BONUS:ABILITYPOOL|D-2 Skill Bonus|1|PREPCLEVEL:MIN=8	BONUS:ABILITYPOOL|D-2 Skill Bonus|1|PREPCLEVEL:MIN=12	BONUS:ABILITYPOOL|D-2 Skill Bonus|1|PREPCLEVEL:MIN=16	BONUS:ABILITYPOOL|D-2 Skill Bonus|1|PREPCLEVEL:MIN=20									REMOVABLE:NO
+D-2 Military Operations Template	VISIBLE:NO	BONUS:ABILITYPOOL|D-2 Skill Bonus|1|PREPCLEVEL:MIN=1	BONUS:ABILITYPOOL|D-2 Skill Bonus|1|PREPCLEVEL:MIN=4	BONUS:ABILITYPOOL|D-2 Skill Bonus|1|PREPCLEVEL:MIN=8	BONUS:ABILITYPOOL|D-2 Skill Bonus|1|PREPCLEVEL:MIN=12	BONUS:ABILITYPOOL|D-2 Skill Bonus|1|PREPCLEVEL:MIN=16	BONUS:ABILITYPOOL|D-2 Skill Bonus|1|PREPCLEVEL:MIN=20				REMOVABLE:NO
 
 
 ###Block: Nationalities

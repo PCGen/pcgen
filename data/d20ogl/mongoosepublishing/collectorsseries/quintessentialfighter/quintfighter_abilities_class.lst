@@ -1,67 +1,69 @@
-# CVS $Revision$ $Author$ -- Wed Aug  6 15:45:22 2008 -- reformated by prettylst.pl v1.38 (build 7233)
-SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter	SOURCESHORT:QuintFight	SOURCEWEB:http://mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter	SOURCESHORT:QuintFight	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
 
 # ~ Berserker
-Berserk Fury	KEY:Berserk Fury ~ Berserker			CATEGORY:Special Ability	TYPE:SpecialQuality		DESC: %1/day|BerserkFury		DEFINE:BerserkFury|0
-Savage Fear		KEY:Savage Fear ~ Berserker	CATEGORY:Special Ability	TYPE:SpecialQuality
-Berserk Attack	KEY:Berserk Attack ~ Berserker	CATEGORY:Special Ability	TYPE:SpecialQuality
-Shrug off Blow	KEY:Shrug off Blow ~ Berserker		CATEGORY:Special Ability	TYPE:SpecialQuality		DESC:(1 / day)
-Mind Block		KEY:Mind Block ~ Berserker	CATEGORY:Special Ability	TYPE:SpecialQuality
+# Ability Name		Unique Key							Category of Ability		Type				Define			Description
+Berserk Fury		KEY:Berserk Fury ~ Berserker				CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:BerserkFury|0	DESC: %1/day|BerserkFury
+Savage Fear			KEY:Savage Fear ~ Berserker				CATEGORY:Special Ability	TYPE:SpecialQuality
+Berserk Attack		KEY:Berserk Attack ~ Berserker			CATEGORY:Special Ability	TYPE:SpecialQuality
+Shrug off Blow		KEY:Shrug off Blow ~ Berserker			CATEGORY:Special Ability	TYPE:SpecialQuality					DESC:(1 / day)
+Mind Block			KEY:Mind Block ~ Berserker				CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Brawler	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Swim
-Combat Awareness	KEY:Combat Awareness ~ Brawler		DESC:can't be flanked	CATEGORY:Special Ability	TYPE:SpecialQuality
-Surprise Guard	KEY:Surprise Guard ~ Brawler	CATEGORY:Special Ability	TYPE:SpecialQuality
-Barroom Fury	KEY:Barroom Fury ~ Brawler		DESC: %1/day|BarroomFury			DEFINE:BarroomFury|0	CATEGORY:Special Ability	TYPE:SpecialQuality
+Combat Awareness		KEY:Combat Awareness ~ Brawler			CATEGORY:Special Ability	TYPE:SpecialQuality					DESC:can't be flanked
+Surprise Guard		KEY:Surprise Guard ~ Brawler				CATEGORY:Special Ability	TYPE:SpecialQuality
+Barroom Fury		KEY:Barroom Fury ~ Brawler				CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:BarroomFury|0	DESC: %1/day|BarroomFury
 
 # ~ Knight of the Griffin
-Resolute		KEY:Resolute ~ Knight of the Griffin	CATEGORY:Special Ability	TYPE:SpecialQuality
-Controled Charge	KEY:Controled Charge ~ Knight of the Griffin	CATEGORY:Special Ability	TYPE:SpecialQuality
-Heroic Stand	KEY:Heroic Stand ~ Knight of the Griffin	CATEGORY:Special Ability	TYPE:SpecialQuality
-Counter Charge	KEY:Counter Charge ~ Knight of the Griffin	CATEGORY:Special Ability	TYPE:SpecialQuality
-Fearless		KEY:Fearless ~ Knight of the Griffin	CATEGORY:Special Ability	TYPE:SpecialQuality
+Resolute			KEY:Resolute ~ Knight of the Griffin		CATEGORY:Special Ability	TYPE:SpecialQuality
+Controled Charge		KEY:Controled Charge ~ Knight of the Griffin	CATEGORY:Special Ability	TYPE:SpecialQuality
+Heroic Stand		KEY:Heroic Stand ~ Knight of the Griffin		CATEGORY:Special Ability	TYPE:SpecialQuality
+Counter Charge		KEY:Counter Charge ~ Knight of the Griffin	CATEGORY:Special Ability	TYPE:SpecialQuality
+Fearless			KEY:Fearless ~ Knight of the Griffin		CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Legend
-Favour of the Gods	KEY:Favour of the Gods ~ Legend		DESC: %1/day|FavourGods	DEFINE:FavourGods|0	CATEGORY:Special Ability	TYPE:SpecialQuality
-Pain Driven			KEY:Pain Driven ~ Legend		DESC: (1/day)	CATEGORY:Special Ability	TYPE:SpecialQuality
-Inspiring			KEY:Inspiring ~ Legend						CATEGORY:Special Ability	TYPE:SpecialQuality
-Killing Machine		KEY:Killing Machine ~ Legend	CATEGORY:Special Ability	TYPE:SpecialQuality
-To the Bitter End		KEY:To the Bitter End ~ Legend	CATEGORY:Special Ability	TYPE:SpecialQuality
+Favour of the Gods	KEY:Favour of the Gods ~ Legend			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:FavourGods|0	DESC: %1/day|FavourGods
+Pain Driven			KEY:Pain Driven ~ Legend				CATEGORY:Special Ability	TYPE:SpecialQuality					DESC: (1/day)
+Inspiring			KEY:Inspiring ~ Legend					CATEGORY:Special Ability	TYPE:SpecialQuality
+Killing Machine		KEY:Killing Machine ~ Legend				CATEGORY:Special Ability	TYPE:SpecialQuality
+To the Bitter End		KEY:To the Bitter End ~ Legend			CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Living Blade
-Weaponmastery	KEY:Weaponmastery ~ Living Blade			CATEGORY:Special Ability	TYPE:SpecialQuality
-Suberb Specialization	KEY:Suberb Specialization ~ Living Blade	CATEGORY:Special Ability	TYPE:SpecialQuality
-Deadly Opponent	KEY:Deadly opponent ~ Living Blade	CATEGORY:Special Ability	TYPE:SpecialQuality
-Web of Death	KEY:Web of Death ~ Living Blade	CATEGORY:Special Ability	TYPE:SpecialQuality
-Furious Strike	KEY:Furious Strike ~ Living Blade	CATEGORY:Special Ability	TYPE:SpecialQuality
+Weaponmastery		KEY:Weaponmastery ~ Living Blade			CATEGORY:Special Ability	TYPE:SpecialQuality
+Suberb Specialization	KEY:Suberb Specialization ~ Living Blade		CATEGORY:Special Ability	TYPE:SpecialQuality
+Deadly Opponent		KEY:Deadly opponent ~ Living Blade			CATEGORY:Special Ability	TYPE:SpecialQuality
+Web of Death		KEY:Web of Death ~ Living Blade			CATEGORY:Special Ability	TYPE:SpecialQuality
+Furious Strike		KEY:Furious Strike ~ Living Blade			CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Master Bowman
-Master Shot		KEY:Master shot ~ Master Bowman	CATEGORY:Special Ability	TYPE:SpecialQuality
-Shoot the Opening	KEY:Shoot the Opening ~ Master Bowman	CATEGORY:Special Ability	TYPE:SpecialQuality
-Master Aim		KEY:Master Aim ~ Master Bowman					DESC: +%1d6|MasterAim	DEFINE:MasterAim|0	CATEGORY:Special Ability	TYPE:SpecialQuality
-All Seeing Eyes	KEY:All Seeing Eyes ~ Master Bowman	CATEGORY:Special Ability	TYPE:SpecialQuality
-All Seeing Aim	KEY:All Seeing Aim ~ Master Bowman	CATEGORY:Special Ability	TYPE:SpecialQuality
+Master Shot			KEY:Master shot ~ Master Bowman			CATEGORY:Special Ability	TYPE:SpecialQuality
+Shoot the Opening		KEY:Shoot the Opening ~ Master Bowman		CATEGORY:Special Ability	TYPE:SpecialQuality
+Master Aim			KEY:Master Aim ~ Master Bowman			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:MasterAim|0	DESC: +%1d6|MasterAim
+All Seeing Eyes		KEY:All Seeing Eyes ~ Master Bowman			CATEGORY:Special Ability	TYPE:SpecialQuality
+All Seeing Aim		KEY:All Seeing Aim ~ Master Bowman			CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Noble Defender
-Noble Command	KEY:Noble Command ~ Noble Defender				DESC: +%1|NobleCommand		DEFINE:NobleCommand|0	CATEGORY:Special Ability	TYPE:SpecialQuality
-Noble Renown	KEY:Noble Renown ~ Noble Defender	CATEGORY:Special Ability	TYPE:SpecialQuality
-Castle		KEY:Castle ~ Noble Defender	CATEGORY:Special Ability	TYPE:SpecialQuality
+Noble Command		KEY:Noble Command ~ Noble Defender			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:NobleCommand|0	DESC: +%1|NobleCommand
+Noble Renown		KEY:Noble Renown ~ Noble Defender			CATEGORY:Special Ability	TYPE:SpecialQuality
+Castle			KEY:Castle ~ Noble Defender				CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Officer of War
-Command		KEY:Command ~ Officer of War	CATEGORY:Special Ability	TYPE:SpecialQuality
-Rallying Call	KEY:Rallying Call ~ Officer of War	CATEGORY:Special Ability	TYPE:SpecialQuality
-Marching Cadence	KEY:Marching Cadence ~ Officer of War	CATEGORY:Special Ability	TYPE:SpecialQuality
-Calming Presence	KEY:Calming Presence ~ Officer of War	CATEGORY:Special Ability	TYPE:SpecialQuality
-Inciting Speech	KEY:Inciting Speech ~ Officer of War	CATEGORY:Special Ability	TYPE:SpecialQuality
+Command			KEY:Command ~ Officer of War				CATEGORY:Special Ability	TYPE:SpecialQuality
+Rallying Call		KEY:Rallying Call ~ Officer of War			CATEGORY:Special Ability	TYPE:SpecialQuality
+Marching Cadence		KEY:Marching Cadence ~ Officer of War		CATEGORY:Special Ability	TYPE:SpecialQuality
+Calming Presence		KEY:Calming Presence ~ Officer of War		CATEGORY:Special Ability	TYPE:SpecialQuality
+Inciting Speech		KEY:Inciting Speech ~ Officer of War		CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Swashbuckler
-Leaping Dodg		KEY:Leaping Dodge ~ Swashbuckler	CATEGORY:Special Ability	TYPE:SpecialQuality
-Freedom of Movement	KEY:Freedom of Movement ~ Swashbuckler	CATEGORY:Special Ability	TYPE:SpecialQuality
+Leaping Dodg		KEY:Leaping Dodge ~ Swashbuckler			CATEGORY:Special Ability	TYPE:SpecialQuality
+Freedom of Movement	KEY:Freedom of Movement ~ Swashbuckler		CATEGORY:Special Ability	TYPE:SpecialQuality
 
 ###Block: Peasant Hero
 # Feat Name						Type			Visible	Special ABility			Stackable?	Multiple?	Choose																		Weapon prof. bonus							Source Page
-Peasant Hero Weapon Competence Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility						STACK:YES	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC[Axe (Carpenter's)|Dagger|Quarterstaff|Scythe|Short Spear|Sword (Short)|War Rake]	BONUS:WEAPONPROF=%LIST|TOHIT|1|TYPE=Competence.REPLACE	SOURCEPAGE:p.24
-Peasant Hero 5th level Weapon Competence	CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility						STACK:YES	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC[Axe (Carpenter's)|Dagger|Quarterstaff|Scythe|Short Spear|Sword (Short)|War Rake]	BONUS:WEAPONPROF=%LIST|TOHIT|2|TYPE=Competence.REPLACE	SOURCEPAGE:p.24
-Inspire Commoners					CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility																																				SOURCEPAGE:p.24
-Harmless Bluff					CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility																																				SOURCEPAGE:p.24
-Improvise Weapon					CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility																																				SOURCEPAGE:p.24
-Unconventional Skill				CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility																																			SOURCEPAGE:p.24
+# Ability Name					Category of Ability		Type						Stackable?	Multiple?	Choose																		Weapon prof. bonus							Source Page
+Peasant Hero Weapon Competence Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility	STACK:YES	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC[Axe (Carpenter's)|Dagger|Quarterstaff|Scythe|Short Spear|Sword (Short)|War Rake]	BONUS:WEAPONPROF=%LIST|TOHIT|1|TYPE=Competence.REPLACE	SOURCEPAGE:p.24
+Peasant Hero 5th level Weapon Competence	CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility	STACK:YES	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC[Axe (Carpenter's)|Dagger|Quarterstaff|Scythe|Short Spear|Sword (Short)|War Rake]	BONUS:WEAPONPROF=%LIST|TOHIT|2|TYPE=Competence.REPLACE	SOURCEPAGE:p.24
+Inspire Commoners					CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility																																		SOURCEPAGE:p.24
+Harmless Bluff					CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility																																		SOURCEPAGE:p.24
+Improvise Weapon					CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility																																		SOURCEPAGE:p.24
+Unconventional Skill				CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility																																		SOURCEPAGE:p.24

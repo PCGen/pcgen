@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Nov 10 23:40:38 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 #
 # Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
 #
@@ -6,20 +6,21 @@
 SOURCELONG:Shadowforce Archer	SOURCESHORT:Shadowforce Archer	SOURCEWEB:http://www.crafty-games.com/node/54	SOURCEDATE:2002-07
 
 #
+# Template Name			Template												Multiple Requirements											Ability
 Prestige Class Core Ability	TEMPLATE:CHOOSE:Cat Burglar|Counter Terrorist|Hacker|Sniper|Shadespeaker
 
-Cat Burglar			PREMULT:2,[PREVARLTEQ:NumberPrestigeClasses,1],[PRECLASS:1,Cat Burglar=1]		ABILITY:Special Ability|AUTOMATIC|Cat Burglar Core Ability
-Counter Terrorist		PREMULT:2,[PREVARLTEQ:NumberPrestigeClasses,1],[PRECLASS:1,Counter Terrorist=1]	ABILITY:Special Ability|AUTOMATIC|Counter Terrorist Core Ability
-Hacker			PREMULT:2,[PREVARLTEQ:NumberPrestigeClasses,1],[PRECLASS:1,Hacker=1]			ABILITY:Special Ability|AUTOMATIC|Hacker Core Ability
-Sniper			PREMULT:2,[PREVARLTEQ:NumberPrestigeClasses,1],[PRECLASS:1,Sniper=1]			ABILITY:Special Ability|AUTOMATIC|Sniper Core Ability
-Shadespeaker		PREMULT:2,[PREVARLTEQ:NumberPrestigeClasses,1],[PRECLASS:1,Shadespeaker=1]		ABILITY:Special Ability|AUTOMATIC|Shadespeaker Core Ability
+Cat Burglar																	PREMULT:2,[PREVARLTEQ:NumberPrestigeClasses,1],[PRECLASS:1,Cat Burglar=1]		ABILITY:Special Ability|AUTOMATIC|Cat Burglar Core Ability
+Counter Terrorist																PREMULT:2,[PREVARLTEQ:NumberPrestigeClasses,1],[PRECLASS:1,Counter Terrorist=1]	ABILITY:Special Ability|AUTOMATIC|Counter Terrorist Core Ability
+Hacker																	PREMULT:2,[PREVARLTEQ:NumberPrestigeClasses,1],[PRECLASS:1,Hacker=1]			ABILITY:Special Ability|AUTOMATIC|Hacker Core Ability
+Sniper																	PREMULT:2,[PREVARLTEQ:NumberPrestigeClasses,1],[PRECLASS:1,Sniper=1]			ABILITY:Special Ability|AUTOMATIC|Sniper Core Ability
+Shadespeaker																PREMULT:2,[PREVARLTEQ:NumberPrestigeClasses,1],[PRECLASS:1,Shadespeaker=1]		ABILITY:Special Ability|AUTOMATIC|Shadespeaker Core Ability
 
 
 Psion Class Core Ability	TEMPLATE:CHOOSE:Mentalist|Physical Adept|Telepath
 
-Mentalist			PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Mentalist=1]		ABILITY:Special Ability|AUTOMATIC|Mentalist Core Ability
-Physical Adept		PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Physical Adept=1]	ABILITY:Special Ability|AUTOMATIC|Physical Adept Core Ability
-Telepath			PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Telepath=1]		ABILITY:Special Ability|AUTOMATIC|Telepath Core Ability
+Mentalist																	PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Mentalist=1]						ABILITY:Special Ability|AUTOMATIC|Mentalist Core Ability
+Physical Adept																PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Physical Adept=1]					ABILITY:Special Ability|AUTOMATIC|Physical Adept Core Ability
+Telepath																	PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Telepath=1]						ABILITY:Special Ability|AUTOMATIC|Telepath Core Ability
 
 
 

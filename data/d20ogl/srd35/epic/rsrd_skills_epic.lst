@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Sep 28 00:18:54 2005 -- reformated by prettylst.pl v1.35 (build 469)
-SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 
 # VAR SynergyBonus defined in statsandchecks.lst to allow raising the value of the Synergy bonus -- Frank
 

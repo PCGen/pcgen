@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Sep 23 23:42:21 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
 # New 5.14 'QUALITY:Bright Illumination|x ft.' and 'QUALITY:DURATION|x hr.' for light sources
 ###Block:Alchemical Stuff and Liquids
@@ -14,7 +14,7 @@ Antitoxin (Vial)			TYPE:Goods.Alchemical.Vial.Consumable.DefensiveGear	COST:50	W
 Holy Water				TYPE:Goods.Liquid.OffensiveGear				COST:24.97	WT:1.00				SOURCEPAGE:SRDEquipmentII.rtf
 Holy Water (Flask)		TYPE:Goods.Flask.Consumable.OffensiveGear			COST:25	WT:1.25				SOURCEPAGE:SRDEquipmentII.rtf
 Smokestick				TYPE:Goods.Alchemical.Consumable				COST:20			EQMOD:WOOD		SOURCEPAGE:SRDEquipmentII.rtf
-Sunrod				TYPE:Goods.Alchemical.Consumable.LightSource		COST:2			EQMOD:IRON		SOURCEPAGE:SRDEquipmentII.rtf	QUALITY:Bright Illumination|30 ft.		QUALITY:DURATION|6 hr.
+Sunrod				TYPE:Goods.Alchemical.Consumable.LightSource		COST:2			EQMOD:IRON		SOURCEPAGE:SRDEquipmentII.rtf	QUALITY:Bright Illumination|30 ft.	QUALITY:DURATION|6 hr.
 Tanglefoot Bag			TYPE:Goods.Alchemical.Consumable.OffensiveGear		COST:50	WT:4		EQMOD:LEATHER	SOURCEPAGE:SRDEquipmentII.rtf
 Thunderstone			TYPE:Goods.Alchemical.Consumable.OffensiveGear		COST:30	WT:1		EQMOD:STONE		SOURCEPAGE:SRDEquipmentII.rtf
 Tindertwig				TYPE:Goods.Alchemical.Consumable				COST:1			EQMOD:WOOD		SOURCEPAGE:SRDEquipmentII.rtf

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Feb 11 23:16:39 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Battlefield Press - Cityscape	SOURCESHORT:Cityscape	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2002-11
 # Original Entry by: Tir Gwaith
 
@@ -43,8 +43,8 @@ Mastercraft (Electronic)						TYPE:MasterElectronic	VISIBLE:NO	PRECLASS:1,Techie
 Mastercraft (Mechanical)						TYPE:MasterMechanical	VISIBLE:NO	PRECLASS:1,Techie=5																			SAB:Mastercraft (Mechanical) +%|MasterMechanical	DEFINE:MasterMechanical|COUNT[FEATTYPE=MasterMechanical]				STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 
 # Soldier Favored Weapon
-Favored Weapon								TYPE:Special				PRECLASS:1,Soldier=2																																						DESC:See Text	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC																																BONUS:WEAPONPROF=%LIST|TOHIT|2		SOURCEPAGE:p.
-Soldier Improved Critical	OUTPUTNAME:Improved Critical	TYPE:Special				PRECLASS:1,Soldier=5	PREFEAT:1,Weapon Specialization																																DESC:See Text			MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC																																BONUS:WEAPONPROF=%LIST|CRITRANGEDOUBLE|1	SOURCEPAGE:p.
+Favored Weapon								TYPE:Special				PRECLASS:1,Soldier=2																																						DESC:See Text	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC																															BONUS:WEAPONPROF=%LIST|TOHIT|2		SOURCEPAGE:p.
+Soldier Improved Critical	OUTPUTNAME:Improved Critical	TYPE:Special				PRECLASS:1,Soldier=5	PREFEAT:1,Weapon Specialization																																DESC:See Text			MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC																															BONUS:WEAPONPROF=%LIST|CRITRANGEDOUBLE|1	SOURCEPAGE:p.
 Greater Weapon Specialization						TYPE:Special				PRECLASS:1,Soldier=8	PREFEAT:2,Weapon Specialization,Favored Weapon																														DESC:See Text	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|WEAPONPROFICIENCY|PC																													BONUS:WEAPONPROF=%LIST|DAMAGE|2		SOURCEPAGE:p.
 
 # Spy Profs

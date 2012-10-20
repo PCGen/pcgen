@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Dec 27 20:59:10 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Second Darkness - Chapter 1: Shadow in the Sky	SOURCESHORT:PF13	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/v5748btpy84em	SOURCEDATE:2008-08
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Second Darkness, Chapter 1: Shadow in the Sky	SOURCESHORT:PF13	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy84em	SOURCEDATE:2008-08
 
 
 STARTPACK:NPC (Riddleport Thief)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.9	NAMEISPI:YES

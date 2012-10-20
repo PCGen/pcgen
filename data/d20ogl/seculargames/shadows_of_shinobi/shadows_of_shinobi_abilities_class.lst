@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Oct  8 20:19:00 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Shadows of Shinobi	SOURCESHORT:SoS	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#ninja
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Shadows of Shinobi	SOURCESHORT:SoS	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#ninja	SOURCEDATE:2005-01
 
 # CREATED BY: Paul W. King, Jan 2007
 # EDITED BY: Paul W. King, Jan 2007
@@ -7,19 +7,21 @@ SOURCELONG:Shadows of Shinobi	SOURCESHORT:SoS	SOURCEWEB:http://paginas.terra.com
 
 ###BLOCK: Igasaki Disciple abilities
 # Feat Name		Type			Visible	Special ABility					Define			Bonus to skill
-Art of Trickery	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	DESC:Art of Trickery +%1|ArtOfTrickery	DEFINE:ArtOfTrickery|0	BONUS:SKILL|Bluff,Disguise,Forgery|ArtOfTrickery
+# Ability Name		Category of Ability		Type								Define			Description						Bonus to skill
+Art of Trickery		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality			DEFINE:ArtOfTrickery|0	DESC:Art of Trickery +%1|ArtOfTrickery	BONUS:SKILL|Bluff,Disguise,Forgery|ArtOfTrickery
 #
-Explosive Use			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialAttack
-Saboteur				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality
-Still Mind				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality
-Igasaki Poison			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialAttack
-Face in the Shadows		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural
+Explosive Use		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialAttack
+Saboteur			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality
+Still Mind			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality
+Igasaki Poison		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialAttack
+Face in the Shadows	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural
 
 
 ###BLOCK: Inpo Agent abilities
 # Feat Name		Type			Visible	Special ABility			Innate Spells					Bonus to skill
-Predators Spirit		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary									BONUS:SKILL|Hide,Move Silently|4|TYPE=Competence
-Whispering Wind		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural		SPELLS:Class|TIMES=ATWILL|Invisibility
+# Ability Name		Category of Ability		Type								Innate Spells					Bonus to skill
+Predators Spirit		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary								BONUS:SKILL|Hide,Move Silently|4|TYPE=Competence
+Whispering Wind		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural	SPELLS:Class|TIMES=ATWILL|Invisibility
 #
 Cautious Invader		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality
 Scorpion Technique	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary
@@ -28,26 +30,29 @@ Improved Coup de Grace	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality
 
 ###BLOCK: Lotus Warrior abilities
 # Feat Name	Type				Visible	Special ABility						Define			Damage Reduction
-Devil Skin	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural	DESC:%1/adamantine|DevilSkin	DEFINE:DevilSkin|0	DR:DevilSkin/adamantine
+# Ability Name	Category of Ability		Type								Define			Description				Damage Reduction
+Devil Skin		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural	DEFINE:DevilSkin|0	DESC:%1/adamantine|DevilSkin	DR:DevilSkin/adamantine
 #
-Tiger Roar			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural
-Beast Fang			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural
-Fiery Tiger Roar		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural
-Shadow and Smoke		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural
+Tiger Roar		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural
+Beast Fang		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural
+Fiery Tiger Roar	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural
+Shadow and Smoke	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural
 
 
 
 ###BLOCK: Shadow Saint abilities
 # Feat Name			Type			Visible	Special ABility																																																														Define			Innate Spells
-Shadow Cast					CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.SpellLike	DESC:%1/day (shadow conjuration)|ShadowCast|PREMULT:2,[PREVARGTEQ:ShadowSaint,2],[PREVARLT:ShadowSaint,6]	DESC:Shadow Cast %1/day (shadow conjuration, shadow walk) (Sp)|ShadowCast|PREMULT:2,[PREVARGTEQ:ShadowSaint,6],[PREVARLT:ShadowSaint,10]	DESC:Shadow Cast %1/day (shadow conjuration, shadow evocation, shadow walk) (Sp)|ShadowCast|PREVARGTEQ:ShadowSaint,10	DEFINE:ShadowCast|0	SPELLS:Class|TIMES=ShadowSaint|CASTERLEVEL=5+ShadowSaint|Shadow Conjuration,10+ShadowSaint|PREVARGTEQ:ShadowSaint,2	SPELLS:Class|TIMES=ShadowSaint|CASTERLEVEL=5+ShadowSaint|Shadow Walk,10+ShadowSaint|PREVARGTEQ:ShadowSaint,6	SPELLS:Class|TIMES=ShadowSaint|CASTERLEVEL=5+ShadowSaint|Shadow Evocation,10+ShadowSaint|PREVARGTEQ:ShadowSaint,10
-Resist the Riddle of Illusion		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality			DESC:Resist the Riddle of Illusion (level %1 Illusion spells or lower) (Ex)|ResistRiddle																																																		DEFINE:ResistRiddle|0
-Warrior of the Night			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural	DESC:Warrior of the Night (+2 attack/damage) (Su)|PREMULT:2,[PREVARGTEQ:ShadowSaint,4],[PREVARLT:ShadowSaint,7]	DESC:Warrior of the Night (+2 attack/damage, DR 2/-) (Su)|PREVARGTEQ:ShadowSaint,7
+# Ability Name			Category of Ability		Type								Define			Innate Spells																																																									Description
+Shadow Cast				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.SpellLike	DEFINE:ShadowCast|0	SPELLS:Class|TIMES=ShadowSaint|CASTERLEVEL=5+ShadowSaint|Shadow Conjuration,10+ShadowSaint|PREVARGTEQ:ShadowSaint,2	SPELLS:Class|TIMES=ShadowSaint|CASTERLEVEL=5+ShadowSaint|Shadow Walk,10+ShadowSaint|PREVARGTEQ:ShadowSaint,6	SPELLS:Class|TIMES=ShadowSaint|CASTERLEVEL=5+ShadowSaint|Shadow Evocation,10+ShadowSaint|PREVARGTEQ:ShadowSaint,10	DESC:%1/day (shadow conjuration)|ShadowCast|PREMULT:2,[PREVARGTEQ:ShadowSaint,2],[PREVARLT:ShadowSaint,6]	DESC:Shadow Cast %1/day (shadow conjuration, shadow walk) (Sp)|ShadowCast|PREMULT:2,[PREVARGTEQ:ShadowSaint,6],[PREVARLT:ShadowSaint,10]	DESC:Shadow Cast %1/day (shadow conjuration, shadow evocation, shadow walk) (Sp)|ShadowCast|PREVARGTEQ:ShadowSaint,10
+Resist the Riddle of Illusion	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality			DEFINE:ResistRiddle|0																																																												DESC:Resist the Riddle of Illusion (level %1 Illusion spells or lower) (Ex)|ResistRiddle
+Warrior of the Night		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural																																																																DESC:Warrior of the Night (+2 attack/damage) (Su)|PREMULT:2,[PREVARGTEQ:ShadowSaint,4],[PREVARLT:ShadowSaint,7]	DESC:Warrior of the Night (+2 attack/damage, DR 2/-) (Su)|PREVARGTEQ:ShadowSaint,7
 #
 Curse of Darkness			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality
 Shadow Meld				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural
 
 ###BLOCK: Worm Doctor abilities
 # Feat Name							Type			Visible	Special ABility
+# Ability Name	Category of Ability		Type								Description
 Worm Cast		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural	DESC:Worm Cast ~ Empower (Su)|PREMULT:2,[PREVARGTEQ:WormDoctor,2],[PREVARLT:WormDoctor,6]	DESC:Worm Cast ~ Empower/Maximize (Su)|PREVARGTEQ:WormDoctor,6
 #
 Worm Colony		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary
@@ -59,9 +64,10 @@ Worm Immortality	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Super
 
 ###BLOCK: Class Proficiencies
 # Feat Name					Type			Visible	Stackable?	Multiple?	Choose																																		Automatically Gained Weapon Prof.
-Igasaki Disciple Proficiencies	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality		STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[Bakuhatsugama|Bo Shuriken|Futokoro Teppo|Hyakurai Ju|Kusarigama|Ninja To|Tsubute|Uchi Ne]															AUTO:WEAPONPROF|%LIST
-Inpo Agent Proficiencies		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality		STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[Bakuhatsugama|Bo Shuriken|Futokoro Teppo|Hyakurai Ju|Kama|Kukri|Kusarigama|Ninja To|Nunchaku|Pick (Light)|Sai|Shuriken|Siangham|Sword (Bastard)|Sword (Short)|Tsubute|Uchi Ne]	AUTO:WEAPONPROF|%LIST
-Lotus Warrior Proficiencies		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality		STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[Bakuhatsugama|Bo Shuriken|Futokoro Teppo|Hyakurai Ju|Kama|Kukri|Kusarigama|Ninja To|Nunchaku|Pick (Light)|Sai|Shuriken|Siangham|Sword (Bastard)|Sword (Short)|Tsubute|Uchi Ne]	AUTO:WEAPONPROF|%LIST
+# Ability Name				Category of Ability		Type						Stackable?	Multiple?	Choose																																	Automatically Gained Weapon Prof.
+Igasaki Disciple Proficiencies	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[Bakuhatsugama|Bo Shuriken|Futokoro Teppo|Hyakurai Ju|Kusarigama|Ninja To|Tsubute|Uchi Ne]															AUTO:WEAPONPROF|%LIST
+Inpo Agent Proficiencies		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[Bakuhatsugama|Bo Shuriken|Futokoro Teppo|Hyakurai Ju|Kama|Kukri|Kusarigama|Ninja To|Nunchaku|Pick (Light)|Sai|Shuriken|Siangham|Sword (Bastard)|Sword (Short)|Tsubute|Uchi Ne]	AUTO:WEAPONPROF|%LIST
+Lotus Warrior Proficiencies		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[Bakuhatsugama|Bo Shuriken|Futokoro Teppo|Hyakurai Ju|Kama|Kukri|Kusarigama|Ninja To|Nunchaku|Pick (Light)|Sai|Shuriken|Siangham|Sword (Bastard)|Sword (Short)|Tsubute|Uchi Ne]	AUTO:WEAPONPROF|%LIST
 
 #
 # End

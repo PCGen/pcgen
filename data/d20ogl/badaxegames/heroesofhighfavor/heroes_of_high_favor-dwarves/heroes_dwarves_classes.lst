@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb  6 23:46:57 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Heroes of High Favor - Dwarves	SOURCESHORT:HoHF-D	SOURCEWEB:www.badaxegames.com	SOURCEDATE:2002-07
 # Original Entry by: Andrew Maitland
 
@@ -129,9 +129,9 @@ CLASS:Paragon	HD:10		TYPE:PC.Prestige	ABB:Parag		MAXLEVEL:10	SOURCEPAGE:pg.42	BO
 CLASS:Paragon	PREATT:5	PREFEAT:2,Sunder,Weapon Specialization	PRESA:1,Lay on Hands (Su)	PRESKILL:2,Craft (Armorsmithing)=8,Knowledge (Dwarves)=6	PRETEXT:Weapon Specialization must be deities favored weapon
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Paragon	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)
-1	BONUS:VAR|SmiteEvil|1	BONUS:VAR|LayOnHands|max(CHA,0)*CL						ABILITY:Special Ability|AUTOMATIC|Lay on Hands	ABILITY:Special Ability|AUTOMATIC|Smite Evil
+1	BONUS:VAR|SmiteEvil|1	BONUS:VAR|LayOnHands|max(CHA,0)*CL					ABILITY:Special Ability|AUTOMATIC|Lay on Hands	ABILITY:Special Ability|AUTOMATIC|Smite Evil
 2											ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Forge Mastery
-3	BONUS:VAR|AncestralWeaponLvl|1										ABILITY:Special Ability|AUTOMATIC|Ancestral Weapon
+3	BONUS:VAR|AncestralWeaponLvl|1									ABILITY:Special Ability|AUTOMATIC|Ancestral Weapon
 4	BONUS:VAR|SmiteEvil|1							ADD:SPELLCASTER|Divine
 6	BONUS:VAR|AncestralWeaponLvl|1					ADD:SPELLCASTER|Divine
 7	BONUS:VAR|SmiteEvil|1
@@ -204,11 +204,11 @@ CLASS:Artificer	HD:6		TYPE:PC.Prestige	ABB:ArtF		MAXLEVEL:10	SOURCEPAGE:pg.58	BO
 CLASS:Artificer	PREFEAT:1,Craft Magic Arms and Armor	PREMULT:1,[PREPROFWITHARMOR:1,TYPE.Heavy],[PREFEAT:1,Armor Proficiency (Heavy)]	PREMULT:1,[PREFEAT:1,Shield Proficiency],[PREPROFWITHSHIELD:1,TYPE.Shield,TYPE.Buckler,TYPE.Tower,TYPE.Light,TYPE.Heavy]	PRESKILL:3,Craft (Armorsmithing)=9,Craft (Weaponsmithing)=9,Spellcraft=9	PREWEAPONPROF:2,TYPE.Simple,TYPE.Martial
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Artificer	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Knowledge (Arcana)|TYPE=Profession|Scry|Spellcraft|Use Magic Device
-1																		ABILITY:Special Ability|AUTOMATIC|Magical Craftsman
+1																	ABILITY:Special Ability|AUTOMATIC|Magical Craftsman
 2			BONUS:ABILITYPOOL|Artificer Feat|1					ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Curse Resistance
-3																		ABILITY:Special Ability|AUTOMATIC|Magical Familiarity
+3																	ABILITY:Special Ability|AUTOMATIC|Magical Familiarity
 4			BONUS:ABILITYPOOL|Artificer Feat|1					ADD:SPELLCASTER|Arcane
-5									BONUS:VAR|MagicDecon|25						ABILITY:Special Ability|AUTOMATIC|Magical Deconstruction
+5									BONUS:VAR|MagicDecon|25					ABILITY:Special Ability|AUTOMATIC|Magical Deconstruction
 6			BONUS:ABILITYPOOL|Artificer Feat|1					ADD:SPELLCASTER|Arcane
 7									BONUS:VAR|MagicDecon|25
 8	SR:10+INT	BONUS:ABILITYPOOL|Artificer Feat|1					ADD:SPELLCASTER|Arcane

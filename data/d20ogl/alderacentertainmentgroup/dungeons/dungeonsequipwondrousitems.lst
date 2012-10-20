@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Apr  6 15:59:04 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Alderac Entertainment Group - Dungeons	SOURCESHORT:Dungeons	SOURCEWEB:http://alderac.com/d20
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Alderac Entertainment Group - Dungeons	SOURCESHORT:Dungeons	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 
 # Equipment Name					Type							Cost		Weight	Slot Needed	Source Page		Special Property
 Gloves of Tunneling				TYPE:Magic.Wondrous.Glove			COST:3000	WT:4		SLOTS:2	SOURCEPAGE:p.	SPROP:Burrow through rock, soil, and unfinished stone at 1 ft. per round, creating tunnel.

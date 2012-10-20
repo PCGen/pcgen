@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Oct  8 16:52:12 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Demonology	SOURCESHORT:Demonology	SOURCEWEB:http://www.mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Demonology	SOURCESHORT:Demonology	SOURCEWEB:http://www.mongoosepublishing.com	SOURCEDATE:2003-01
 # Equipment Name		Required Weapon Proficiency	Type								Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page		Special Property
 Demon's Bane (Dagger)	PROFICIENCY:WEAPON|Dagger	TYPE:Magic.Weapon.Simple.Melee.Piercing.Tiny	COST:25000	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	SIZE:T	SOURCEPAGE:p.42	SPROP:Special - See text on p.42

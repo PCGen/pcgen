@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Feb 18 11:04:43 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-SOURCELONG:Blood and Circuits	SOURCESHORT:BNC	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=51
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Circuits	SOURCESHORT:BNC	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=51	SOURCEDATE:2004-01
 
 # Equipment Name	Output Name				Required Weapon Proficiency		Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Rate of Fire
 Disk Blade							PROFICIENCY:WEAPON|Disk Blade		TYPE:Weapon.Ranged.Standard.Thrown.Slashing.Exotic.Aerodynamic	COST:18	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	RANGE:30	SIZE:M	SOURCEPAGE:p.28

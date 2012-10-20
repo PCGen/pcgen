@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Mon Feb  2 23:32:28 2009 -- reformated by prettylst.pl v1.39 (build 9132)
-SOURCELONG:Avalanche Press - Black Flags - Piracy in the Caribbean	SOURCESHORT:BlackFlags	SOURCEWEB:http://www.avalanchepress.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Avalanche Press - Black Flags - Piracy in the Caribbean	SOURCESHORT:BlackFlags	SOURCEWEB:http://www.avalanchepress.com	SOURCEDATE:2002-01
 
 # Feat Name				Product Identity?	Type				Req. Att.	Required Feat						Required Skill	Required Stat	Desc is PI?	Description								Bonus to skill				Source Page
 Amputate				NAMEISPI:NO		TYPE:General												PRESKILL:1,Heal=8				DESCISPI:NO	DESC:Better skilled at removing a limb.									SOURCEPAGE:p.48

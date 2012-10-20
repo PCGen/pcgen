@@ -1,5 +1,5 @@
-# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Legends of the Ancients - Macedon	SOURCESHORT:Macedon	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=137
+# CVS $Revision: 1.1 $ $Author: eddyanthony $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Legends of the Ancients - Macedon	SOURCESHORT:Macedon	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=137	SOURCEDATE:2005-01
 
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
@@ -7,18 +7,18 @@ CLASS:Cavalry	HD:10		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.3	BONUS:CHECKS|BASE.F
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cavalry	STARTSKILLPTS:2	CSKILL:Handle Animal|Intimidate|Jump|Knowledge (Tactics)|Ride|Spot|Survival
 ###Block: proficiencies
-1	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
+1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																	AUTO:FEAT|Shield Proficiency
 ###Block: standard
-1	ABILITY:Special Ability|AUTOMATIC|Mounted Combat ~ Cavalry				BONUS:VAR|MountedCombat|(CL/4)+1			VFEAT:Mounted Combat
-2	ABILITY:Special Ability|AUTOMATIC|Mounted Mobility ~ Cavalry|Saddle Leap ~ Cavalry
-3	ABILITY:Special Ability|AUTOMATIC|Cavalry Mount ~ Cavalry|Spur ~ Cavalry			BONUS:VAR|CavalrySpur|min(30,(10*(CL/3)))
-5	ABILITY:Special Ability|AUTOMATIC|Harry ~ Cavalry				BONUS:VAR|CavalryHarry|CL/5				VFEAT:Ride By Attack
-7	ABILITY:Special Ability|AUTOMATIC|Mounted Endurance ~ Cavalry|Spur ~ Cavalry	DEFINE:SpurLvl|1
-9																					VFEAT:Spirited Charge
-10	ABILITY:Special Ability|AUTOMATIC|Mounted Agility ~ Cavalry
-11	ABILITY:Special Ability|AUTOMATIC|Like the Wind ~ Cavalry				BONUS:VAR|LikeTheWind|(CL-8)/3
-13	ABILITY:Special Ability|AUTOMATIC|Tall in the saddle ~ Cavalry
-18	ABILITY:Special Ability|AUTOMATIC|Lightning Attack ~ Cavalry
-19	ABILITY:Special Ability|AUTOMATIC|Companion Mount ~ Cavalry
+1	BONUS:VAR|MountedCombat|(CL/4)+1					ABILITY:Special Ability|AUTOMATIC|Mounted Combat ~ Cavalry					VFEAT:Mounted Combat
+2											ABILITY:Special Ability|AUTOMATIC|Mounted Mobility ~ Cavalry|Saddle Leap ~ Cavalry
+3	BONUS:VAR|CavalrySpur|min(30,(10*(CL/3)))				ABILITY:Special Ability|AUTOMATIC|Cavalry Mount ~ Cavalry|Spur ~ Cavalry
+5	BONUS:VAR|CavalryHarry|CL/5						ABILITY:Special Ability|AUTOMATIC|Harry ~ Cavalry						VFEAT:Ride By Attack
+7								DEFINE:SpurLvl|1	ABILITY:Special Ability|AUTOMATIC|Mounted Endurance ~ Cavalry|Spur ~ Cavalry
+9																									VFEAT:Spirited Charge
+10											ABILITY:Special Ability|AUTOMATIC|Mounted Agility ~ Cavalry
+11	BONUS:VAR|LikeTheWind|(CL-8)/3					ABILITY:Special Ability|AUTOMATIC|Like the Wind ~ Cavalry
+13											ABILITY:Special Ability|AUTOMATIC|Tall in the saddle ~ Cavalry
+18											ABILITY:Special Ability|AUTOMATIC|Lightning Attack ~ Cavalry
+19											ABILITY:Special Ability|AUTOMATIC|Companion Mount ~ Cavalry

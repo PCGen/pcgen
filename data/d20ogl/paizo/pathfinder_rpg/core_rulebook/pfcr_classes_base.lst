@@ -1,15 +1,15 @@
-# CVS $Revision$ $Author$ -- Sat Oct 13 02:22:45 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher and Eric C. Smith (Maredudd); Archetype work by Andrew Maitland
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page		Define			Save checks bonus											Combat bonus
-CLASS:Barbarian	HD:12		TYPE:Base.PC	ABB:Brb		MAXLEVEL:20	EXCLASS:Ex-Barbarian	SOURCEPAGE:p.31	DEFINE:BarbarianLvl|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page		Ability																		Define			Save checks bonus											Combat bonus
+CLASS:Barbarian	HD:12		TYPE:Base.PC	ABB:Brb		MAXLEVEL:20	EXCLASS:Ex-Barbarian	SOURCEPAGE:p.31	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianClassSkills	DEFINE:BarbarianLvl|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Restricted AL
 CLASS:Barbarian	!PREALIGN:LG,LN,LE
-# Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Barbarian	STARTSKILLPTS:4	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianClassSkills
+# Class Name	Skill Pts/Lvl
+CLASS:Barbarian	STARTSKILLPTS:4
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies	
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
 ###Block:
 1	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies
@@ -25,10 +25,10 @@ CLASS:Barbarian	STARTSKILLPTS:4	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbar
 20																								ABILITY:Special Ability|AUTOMATIC|Mighty Rage
 #TODO: See about implementing a better method for the Uncanny Dodge; Barbarian Loses one or both with some Archetypes.
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Visible	Define			Save checks bonus											Combat bonus
-CLASS:Ex-Barbarian	HD:12		TYPE:Base.PC	ABB:Brb		MAXLEVEL:20	VISIBLE:NO	DEFINE:BarbarianLvl|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Ex-Barbarian	STARTSKILLPTS:4	CABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianClassSkills
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Visible	Define			Save checks bonus											Combat bonus					CABILITY
+CLASS:Ex-Barbarian	HD:12		TYPE:Base.PC	ABB:Brb		MAXLEVEL:20	VISIBLE:NO	DEFINE:BarbarianLvl|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	CABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianClassSkills
+# Class Name		Skill Pts/Lvl
+CLASS:Ex-Barbarian	STARTSKILLPTS:4
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
@@ -41,12 +41,12 @@ CLASS:Ex-Barbarian	STARTSKILLPTS:4	CABILITY:Internal|AUTOMATIC|Class Skills ~ Ba
 14																			ABILITY:Special Ability|AUTOMATIC|Indomitable Will
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define		Save checks bonus											Combat bonus
-CLASS:Bard		HD:8		TYPE:Base.PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:p.34	DEFINE:BardLvl|CL	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Bard		STARTSKILLPTS:6		ABILITY:Internal|AUTOMATIC|Class Skills ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardClassSkills	
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Ability																Define					Save checks bonus											Combat bonus
+CLASS:Bard		HD:8		TYPE:Base.PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:p.34	ABILITY:Internal|AUTOMATIC|Class Skills ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardClassSkills	DEFINE:BardLvl|CL	DEFINE:BardLvl|CL	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl
+CLASS:Bard		STARTSKILLPTS:6
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL	DEFINE:BardLvl|CL
+CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:Special Ability|AUTOMATIC|Bard Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWeaponProficiencies	AUTO:FEAT|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWeaponProficiencies
 1																																	AUTO:FEAT|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmorProficiencies
@@ -74,10 +74,10 @@ CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 20	CAST:0,5,5,5,5,5,5	KNOWN:6,6,6,6,6,5,5
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Bonus Languages					Define			Save checks bonus											Combat bonus
-CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr		MAXLEVEL:20	SOURCEPAGE:p.38	LANGBONUS:Abyssal,Celestial,Infernal	DEFINE:ClericLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	DEFINE:ClericLvl|CL
-# Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Cleric	STARTSKILLPTS:2		ABILITY:Internal|AUTOMATIC|Class Skills ~ Cleric|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericClassSkills
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Bonus Languages					Ability																	Define							Save checks bonus											Combat bonus
+CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr		MAXLEVEL:20	SOURCEPAGE:p.38	LANGBONUS:Abyssal,Celestial,Infernal	ABILITY:Internal|AUTOMATIC|Class Skills ~ Cleric|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericClassSkills	DEFINE:ClericLvl|CL	DEFINE:ClericLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl
+CLASS:Cleric	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL
 ###Block:Proficiencies
@@ -120,11 +120,11 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Bonus Languages	Ability																	Define			Automatically Gained Language	Save checks bonus											Combat bonus
-CLASS:Druid		HD:8		TYPE:Base.PC	ABB:Drd		MAXLEVEL:20	SOURCEPAGE:p.48	LANGBONUS:Sylvan		DEFINE:DruidLVL|CL	AUTO:LANG|Druidic			BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Druid		HD:8		TYPE:Base.PC	ABB:Drd		MAXLEVEL:20	SOURCEPAGE:p.48	LANGBONUS:Sylvan	ABILITY:Internal|AUTOMATIC|Class Skills ~ Druid|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidClassSkills	DEFINE:DruidLVL|CL	AUTO:LANG|Druidic			BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL
 CLASS:Druid		PREALIGN:NG,LN,TN,CN,NE
 # Class Name	Skill Pts/Lvl
-CLASS:Druid		STARTSKILLPTS:4	ABILITY:Internal|AUTOMATIC|Class Skills ~ Druid|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidClassSkills
+CLASS:Druid		STARTSKILLPTS:4
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Druid|CL
 ###Block:Proficiencies
@@ -152,7 +152,7 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 ###Block: Wild Shape
 1	BONUS:VAR|DruidWildShape|CL	ABILITY:Special Ability|AUTOMATIC|Druid Wild Shape|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildShape	ABILITY:Special Ability|AUTOMATIC|Druid Wild Shape Progression|Druid Wild Shape Times|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildShape
 ###Block: Level progression
-1	CAST:3,1				BONUS:VAR|WildEmpathyLVL|CL		ABILITY:Special Ability|AUTOMATIC|Nature Sense|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidNatureSense	ABILITY:Special Ability|AUTOMATIC|Wild Empathy|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildEmpathy
+1	CAST:3,1				BONUS:VAR|WildEmpathyLVL|CL	ABILITY:Special Ability|AUTOMATIC|Nature Sense|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidNatureSense	ABILITY:Special Ability|AUTOMATIC|Wild Empathy|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildEmpathy
 2	CAST:4,2									ABILITY:Special Ability|AUTOMATIC|Woodland Stride|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWoodlandStride
 3	CAST:4,2,1									ABILITY:Special Ability|AUTOMATIC|Trackless Step|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidTracklessStep
 4	CAST:4,3,2									ABILITY:Special Ability|AUTOMATIC|Wild Shape|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildShape	ABILITY:Special Ability|AUTOMATIC|Resist Nature's Lure|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidResistNaturesLure
@@ -174,10 +174,10 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 20	CAST:4,4,4,4,4,4,4,4,4,4
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
-CLASS:Fighter	HD:10		TYPE:Base.PC	ABB:Ftr		MAXLEVEL:20	SOURCEPAGE:p.55	DEFINE:FighterLvl|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Fighter	STARTSKILLPTS:2	ABILITY:Internal|AUTOMATIC|Class Skills ~ Fighter|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterClassSkills
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Ability																	Define			Save checks bonus											Combat bonus
+CLASS:Fighter	HD:10		TYPE:Base.PC	ABB:Ftr		MAXLEVEL:20	SOURCEPAGE:p.55	ABILITY:Internal|AUTOMATIC|Class Skills ~ Fighter|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterClassSkills	DEFINE:FighterLvl|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl
+CLASS:Fighter	STARTSKILLPTS:2
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponProficiencies
@@ -214,12 +214,12 @@ CLASS:Fighter	STARTSKILLPTS:2	ABILITY:Internal|AUTOMATIC|Class Skills ~ Fighter|
 20	BONUS:ABILITYPOOL|Weapon Mastery|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponMastery
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define						Save checks bonus								Combat bonus
-CLASS:Monk		HD:8		TYPE:Base.PC	ABB:Mnk		MAXLEVEL:20	SOURCEPAGE:p.56	DEFINE:FlurryOfBlows|1	DEFINE:MonkLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Ability																Define						Save checks bonus								Combat bonus
+CLASS:Monk		HD:8		TYPE:Base.PC	ABB:Mnk		MAXLEVEL:20	SOURCEPAGE:p.56	ABILITY:Internal|AUTOMATIC|Class Skills ~ Monk|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkClassSkills	DEFINE:FlurryOfBlows|1	DEFINE:MonkLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Multiple Requirements
 CLASS:Monk		PREMULT:1,[PREALIGN:LG,LN,LE],[PREABILITY:1,CATEGORY=Archetype,TYPE.MonkAlignment]
-# Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Monk		STARTSKILLPTS:4	ABILITY:Internal|AUTOMATIC|Class Skills ~ Monk|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkClassSkills
+# Class Name	Skill Pts/Lvl
+CLASS:Monk		STARTSKILLPTS:4
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Monk Weapon Proficiencies
 ###Block: Flurry of Blows
@@ -258,12 +258,12 @@ CLASS:Monk		STARTSKILLPTS:4	ABILITY:Internal|AUTOMATIC|Class Skills ~ Monk|!PREA
 #9	ABILITY:Special Ability|AUTOMATIC|Evasion|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkEvasion
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page		Visible	Define			Save checks bonus											Combat bonus
-CLASS:Paladin	HD:10		TYPE:Base.PC	ABB:Pld		MAXLEVEL:20	EXCLASS:Ex-Paladin	SOURCEPAGE:p.60	VISIBLE:YES	DEFINE:PaladinLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page		Ability																	Visible	Define			Save checks bonus											Combat bonus
+CLASS:Paladin	HD:10		TYPE:Base.PC	ABB:Pld		MAXLEVEL:20	EXCLASS:Ex-Paladin	SOURCEPAGE:p.60	ABILITY:Internal|AUTOMATIC|Class Skills ~ Paladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinClassSkills	VISIBLE:YES	DEFINE:PaladinLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required AL
 CLASS:Paladin	PREALIGN:LG
-# Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Paladin	STARTSKILLPTS:2	ABILITY:Internal|AUTOMATIC|Class Skills ~ Paladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinClassSkills
+# Class Name	Skill Pts/Lvl
+CLASS:Paladin	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Craft Level Mult.	Caster level
 CLASS:Paladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Paladin|CL-3|PRECLASS:1,Paladin=4
 ###Block:Proficiencies
@@ -316,10 +316,10 @@ CLASS:Paladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3
 19	CAST:0,4,3,3,2
 20	CAST:0,4,4,3,3
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Visible	Define			Save checks bonus											Combat bonus
-CLASS:Ex-Paladin	HD:10		TYPE:Base.PC	ABB:XPal		MAXLEVEL:20	VISIBLE:NO	DEFINE:PaladinLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Ex-Paladin	STARTSKILLPTS:2		ABILITY:Internal|AUTOMATIC|Class Skills ~ Paladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinClassSkills
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Ability																	Visible	Define			Save checks bonus											Combat bonus
+CLASS:Ex-Paladin	HD:10		TYPE:Base.PC	ABB:XPal		MAXLEVEL:20	ABILITY:Internal|AUTOMATIC|Class Skills ~ Paladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinClassSkills	VISIBLE:NO	DEFINE:PaladinLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl
+CLASS:Ex-Paladin	STARTSKILLPTS:2
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
@@ -327,18 +327,18 @@ CLASS:Ex-Paladin	STARTSKILLPTS:2		ABILITY:Internal|AUTOMATIC|Class Skills ~ Pala
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Ability																Define			Save checks bonus											Combat bonus
-CLASS:Ranger	HD:10		TYPE:Base.PC	ABB:Rgr		MAXLEVEL:20	SOURCEPAGE:p.64	DEFINE:RangerLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Ranger	HD:10		TYPE:Base.PC	ABB:Rgr		MAXLEVEL:20	SOURCEPAGE:p.64	ABILITY:Internal|AUTOMATIC|Class Skills ~ Ranger|!PREABILITY:1,CATEGORY=Archetype,RangerClassSkills	DEFINE:RangerLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl
-CLASS:Ranger	STARTSKILLPTS:6	ABILITY:Internal|AUTOMATIC|Class Skills ~ Ranger|!PREABILITY:1,CATEGORY=Archetype,RangerClassSkills
+CLASS:Ranger	STARTSKILLPTS:6
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Craft Level Mult.	Caster level
 CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Ranger|CL-3|PRECLASS:1,Ranger=4
 ###Block:Proficiencies
-1	BONUS:VAR|RangerDefaultCombatStyle|1	DEFINE:RangerDefaultCombatStyle|0	
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1	AUTO:FEAT|Armor Proficiency (Light)
-1	AUTO:FEAT|Armor Proficiency (Medium)
-1	AUTO:FEAT|Shield Proficiency
+1	BONUS:VAR|RangerDefaultCombatStyle|1	DEFINE:RangerDefaultCombatStyle|0
+1														ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1																														AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1																														AUTO:FEAT|Armor Proficiency (Light)
+1																														AUTO:FEAT|Armor Proficiency (Medium)
+1																														AUTO:FEAT|Shield Proficiency
 ###Block: Favored Enemies and Terrains
 1	BONUS:VAR|RangerFavoredEnemyLVL|CL		ABILITY:Special Ability|AUTOMATIC|Basic Favored Enemy|Ranger Favored Enemy|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy
 1	BONUS:VAR|RangerFavoredTerrainLVL|CL	ABILITY:Special Ability|AUTOMATIC|Basic Favored Terrain|Ranger Favored Terrain|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredTerrain
@@ -365,12 +365,12 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|
 20	CAST:0,4,4,3,3	BONUS:VAR|MasterHunterLVL|CL						ABILITY:Special Ability|AUTOMATIC|Master Hunter|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerMasterHunter
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define							Save checks bonus												Combat bonus
-CLASS:Rogue		HD:8		TYPE:Base.PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:p.67	DEFINE:RogueLvl|CL	DEFINE:RogueLvl|CL	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Rogue		STARTSKILLPTS:8	ABILITY:Internal|AUTOMATIC|Class Skills ~ Rogue|!PREABILITY:1,CATEGORY=Archetype,RogueClassSkills
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Ability																Define							Save checks bonus												Combat bonus
+CLASS:Rogue		HD:8		TYPE:Base.PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:p.67	ABILITY:Internal|AUTOMATIC|Class Skills ~ Rogue|!PREABILITY:1,CATEGORY=Archetype,RogueClassSkills	DEFINE:RogueLvl|CL	DEFINE:RogueLvl|CL	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl
+CLASS:Rogue		STARTSKILLPTS:8
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Rogue Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueWeaponProficiencies
 ###BlocK
 1	AUTO:FEAT|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueWeaponProficiencies
@@ -392,10 +392,10 @@ CLASS:Rogue		STARTSKILLPTS:8	ABILITY:Internal|AUTOMATIC|Class Skills ~ Rogue|!PR
 20	ABILITY:Special Ability|AUTOMATIC|Master Strike|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueMasterStrike
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
-CLASS:Sorcerer	HD:6		TYPE:Base.PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:p.70	DEFINE:SorcererLvl|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Sorcerer	STARTSKILLPTS:2	ABILITY:Internal|AUTOMATIC|Class Skills ~ Sorcerer|!PREABILITY:1,CATEGORY=Archetype,SorcererClassSkills
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Ability																	Define			Save checks bonus											Combat bonus
+CLASS:Sorcerer	HD:6		TYPE:Base.PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:p.70	ABILITY:Internal|AUTOMATIC|Class Skills ~ Sorcerer|!PREABILITY:1,CATEGORY=Archetype,SorcererClassSkills	DEFINE:SorcererLvl|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl
+CLASS:Sorcerer	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|CL
 ###Block:Proficiencies
@@ -407,7 +407,7 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 ###Block:
 1	VFEAT:Eschew Materials
 ###Block: Level progression
-1	CAST:0,3				KNOWN:4,2		
+1	CAST:0,3				KNOWN:4,2
 2	CAST:0,4				KNOWN:5,2
 3	CAST:0,5				KNOWN:5,3
 4	CAST:0,6,3				KNOWN:6,3,1
@@ -429,10 +429,10 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 20	CAST:0,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Bonus Languages		Visible	Define																Save checks bonus											Combat bonus
-CLASS:Wizard	HD:6		TYPE:Base.PC	ABB:Wiz		MAXLEVEL:20	SOURCEPAGE:p.77	LANGBONUS:Draconic	VISIBLE:YES	DEFINE:WizardLvl|CL	DEFINE:UniversalSchoolLVL|0	DEFINE:DisallowWizardArcaneSchoolArchetype|0	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Wizard	STARTSKILLPTS:2	ABILITY:Internal|AUTOMATIC|Class Skills ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,WizardClassSkills
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Bonus Languages		Ability																Visible	Define																Save checks bonus											Combat bonus
+CLASS:Wizard	HD:6		TYPE:Base.PC	ABB:Wiz		MAXLEVEL:20	SOURCEPAGE:p.77	LANGBONUS:Draconic	ABILITY:Internal|AUTOMATIC|Class Skills ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,WizardClassSkills	VISIBLE:YES	DEFINE:WizardLvl|CL	DEFINE:UniversalSchoolLVL|0	DEFINE:DisallowWizardArcaneSchoolArchetype|0	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl
+CLASS:Wizard	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
 CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard|CL
 #

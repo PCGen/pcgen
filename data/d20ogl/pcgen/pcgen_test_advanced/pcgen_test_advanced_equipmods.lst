@@ -1,8 +1,10 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
 ###EQMODs
 
-Test EQMOD	TYPE:Weapon.Shield.Armor.Misc	ADD:FEAT|Add Feat Equipmod
+# Modifier Name			Unique Key		Type					Ability																																					Choose					Add
+Test EQMOD							TYPE:Weapon.Shield.Armor.Misc																																													ADD:FEAT|Add Feat Equipmod
 
 
 #Eqmod
-Test EQMOD Apply Ability	KEY:APPLY_ABILITY		TYPE:Gear	ABILITY:Special Ability|AUTOMATIC|Test Application of Ability by Pretype|PRETYPE:1,EQMOD=APPLY_ABILITY(Test)	ABILITY:Special Ability|AUTOMATIC|Test Application of Ability by Pretype 2|PRETYPE:1,EQMOD=APPLY_ABILITY(Test2)	CHOOSE:STRING|Test|Test2|TITLE=Test
+Test EQMOD Apply Ability	KEY:APPLY_ABILITY	TYPE:Gear				ABILITY:Special Ability|AUTOMATIC|Test Application of Ability by Pretype|PRETYPE:1,EQMOD=APPLY_ABILITY(Test)	ABILITY:Special Ability|AUTOMATIC|Test Application of Ability by Pretype 2|PRETYPE:1,EQMOD=APPLY_ABILITY(Test2)	CHOOSE:STRING|Test|Test2|TITLE=Test

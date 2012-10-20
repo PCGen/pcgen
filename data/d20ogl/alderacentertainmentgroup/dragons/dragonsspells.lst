@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
-SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 # Spell Name			Product Identity?	Classes of caster							Domains granting the spell	School			Sub-School			Type				Components		Casting Time			Range				Item		Target Area or Effect					Duration								Save Info			Spell Resistance	Description		Source Page
 Become Dragon			NAMEISPI:YES	CLASSES:Sorcerer,Wizard=9										SCHOOL:Transmutation					TYPE:Arcane			COMPS:V S F		CASTTIME:1 round			RANGE:Personal				TARGETAREA:You						DURATION:10 minutes/level					SAVEINFO:None		SPELLRES:No		DESC:See text	SOURCEPAGE:p.69
 Blessing of the Ages		NAMEISPI:YES	CLASSES:Paladin=4|Sorcerer,Wizard=6				DOMAINS:Protection=5		SCHOOL:Enchantment					TYPE:Arcane.Divine	COMPS:V S XP	CASTTIME:5 minutes		RANGE:Touch					TARGETAREA:One, special					DURATION:Special							SAVEINFO:None		SPELLRES:No		DESC:See text	SOURCEPAGE:p.69-70

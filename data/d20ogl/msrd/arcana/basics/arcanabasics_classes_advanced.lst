@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Mar 18 13:19:23 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 #Original Entry by: Paul King
 
 # Class Name		Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
@@ -163,7 +163,7 @@ CLASS:Swashbuckler	STARTSKILLPTS:4	CSKILL:Balance|Climb|Escape Artist|Hide|Jump|
 2															ABILITY:Special Ability|AUTOMATIC|Quick Weapon Draw
 3	BONUS:ABILITYPOOL|Swashbuckler Feat|1
 4	BONUS:ABILITYPOOL|Weapon Specialization|1			DEFINE:WeapSpecQualify|1
-5															BONUS:ABILITYPOOL|Find the Mark|1
+5	BONUS:ABILITYPOOL|Find the Mark|1
 6	BONUS:ABILITYPOOL|Swashbuckler Feat|1
 7	BONUS:ABILITYPOOL|Greater Weapon Specialization|1
 8															ABILITY:Special Ability|AUTOMATIC|Deflect Missiles

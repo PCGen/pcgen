@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Oct  8 11:03:52 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:DCC 28 - Into the Wilds	SOURCESHORT:DCC28	SOURCEWEB:http://www.goodman-games.com/
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:DCC 28 - Into the Wilds	SOURCESHORT:DCC28	SOURCEWEB:http://www.goodman-games.com/	SOURCEDATE:2006-01
 # Equipment Name			Output Name					Required Weapon Proficiency	Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Range		Source Page
 Javelin (Small Barbed)		OUTPUTNAME:[NAME] Javelin		PROFICIENCY:WEAPON|Javelin	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Thrown.Javelin	COST:1	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:WOOD	RANGE:20	SOURCEPAGE:p.6
 Riding Harness (Dire Bat)	OUTPUTNAME:[NAME] Riding Harness						TYPE:Goods.Saddle								COST:0	WT:30																SOURCEPAGE:p.6

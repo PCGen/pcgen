@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Oct  8 16:52:12 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter	SOURCESHORT:QuintFight	SOURCEWEB:http://mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter	SOURCESHORT:QuintFight	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
 #Unsure how to set syntax for roundels and back and breast armors.
 
-# Equipment Name		Required Armor Proficiency	Required Shield Proficiency		Type							Cost		Weight	Slot Needed	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus					Special Property
-Silk Shirt			PROFICIENCY:ARMOR|Padded							TYPE:Armor.Light.Shirt.Standard.Nonmetal	COST:25	WT:0										SOURCEPAGE:p.49												SPROP:+2 circumstance bonus on healing ranged.
+# Equipment Name		Required Armor Proficiency	Required Shield Proficiency		Type							Cost		Weight	Slot Needed	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus			Special Property
+Silk Shirt			PROFICIENCY:ARMOR|Padded							TYPE:Armor.Light.Shirt.Standard.Nonmetal	COST:25	WT:0										SOURCEPAGE:p.49										SPROP:+2 circumstance bonus on healing ranged.
 #Medium Weight -------------------------------------------------------------------------------------------------------------
 #Back and Breast		TYPE:Armor.Medium.Metal.Suit.Standard	COST:50	WT:15		SOURCEPAGE:p.49	ACCHECK:-5					MAXDEX:2		MOVE:20,15	SPELLFAILURE:20		BONUS:COMBAT|AC|2|TYPE=Armor
 Bugbear Hide		PROFICIENCY:ARMOR|Hide								TYPE:Armor.Medium.Suit.Standard.Nonmetal	COST:475	WT:25				ACCHECK:-3		MAXDEX:4		SOURCEPAGE:p.49	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed May 19 21:37:18 2010 -- reformated by prettylst.pl v1.39 (build 11455)
-SOURCELONG:Second Darkness - Chapter 2: Children of the Void	SOURCESHORT:PF14	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/adventurePath/secondDarkness/v5748btpy85ed	SOURCEDATE:2008-10
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Second Darkness, Chapter 2: Children of the Void	SOURCESHORT:PF14	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ed	SOURCEDATE:2008-10
 
 
 STARTPACK:Akata Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Akata],[!PRERACE:1,%]	SOURCEPAGE:p. 80

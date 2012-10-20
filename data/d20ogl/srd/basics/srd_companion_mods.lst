@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Sat Sep 27 18:49:26 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 # Original Entry by Emily and Tir Gwaith
-SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
 ###Block:Special Mount
-# Class of the Master	Type				Hit Dice	Spell Res.	Ability																Automatically Gained Armor Prof.	Define						Combat bonus						Stat bonus		Main Race Type
+# Class of the Master	Type				Hit Dice	Spell Res.	Ability																Automatically Gained Armor Prof.	Define						Combat bonus					Stat bonus		Main Race Type
 FOLLOWER:SMLevel=5	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Saving Throws|Share Spells	AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:LOCK.INT|6	DEFINE:PHBFeatEvasion|0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	RACETYPE:Magical Beast
 FOLLOWER:SMLevel=8	TYPE:Special Mount	HD:2																											DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
 FOLLOWER:SMLevel=11	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Command Creatures of Own Kind													DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
@@ -15,7 +15,7 @@ FOLLOWER:SMLevel=19	TYPE:Special Mount			SR:24
 FOLLOWER:SMLevel=20	TYPE:Special Mount			SR:25
 
 ###Block:Familiar
-# Class of the Master	Type			Spell Res.	Ability												Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define						Combat bonus						Main Race Type
+# Class of the Master	Type			Spell Res.	Ability												Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define						Combat bonus					Main Race Type
 FOLLOWER:FMLevel=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Spells	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2		USEMASTERSKILL:YES	DEFINE:LOCK.INT|6	DEFINE:PHBFeatEvasion|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	RACETYPE:Magical Beast
 FOLLOWER:FMLevel=3	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Touch																								DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 FOLLOWER:FMLevel=5	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Master																						DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
@@ -45,7 +45,7 @@ MASTERBONUSRACE:Toad			TYPE:Familiar											BONUS:STAT|CON|2
 MASTERBONUSRACE:Weasel			TYPE:Familiar	BONUS:CHECKS|Reflex|2
 
 ###Block:Fiendish Servant
-# Class of the Master	Type				Hit Dice	Spell Res.	Ability																Define						Combat bonus						Stat bonus
+# Class of the Master	Type				Hit Dice	Spell Res.	Ability																Define						Combat bonus					Stat bonus
 FOLLOWER:FSLevel=5	TYPE:Fiendish Servant	HD:2				ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Saving Throws|Share Spells	DEFINE:LOCK.INT|6	DEFINE:PHBFeatEvasion|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
 FOLLOWER:FSLevel=13	TYPE:Fiendish Servant	HD:2				ABILITY:Special Ability|AUTOMATIC|Speak with Master									DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
 FOLLOWER:FSLevel=16	TYPE:Fiendish Servant	HD:2				ABILITY:Special Ability|AUTOMATIC|Blood Bond										DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
@@ -53,7 +53,7 @@ FOLLOWER:FSLevel=19	TYPE:Fiendish Servant	HD:2		SR:24																			DEFINE:L
 FOLLOWER:FSLevel=20	TYPE:Fiendish Servant			SR:25
 
 ###Block:Undead Companion
-# Class of the Master			Type				Hit Dice	Spell Res.	Ability																			Define						Combat bonus						Stat bonus
+# Class of the Master			Type				Hit Dice	Spell Res.	Ability																			Define						Combat bonus					Stat bonus
 FOLLOWER:UndeadCompanionLVL=5		TYPE:Undead Companion	HD:2				ABILITY:Special Ability|AUTOMATIC|Cannot be Turned|Empathic Link|Improved Evasion|Share Saving Throws|Share Spells	DEFINE:LOCK.INT|6	DEFINE:PHBFeatEvasion|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
 FOLLOWER:UndeadCompanionLVL=13	TYPE:Undead Companion	HD:2				ABILITY:Special Ability|AUTOMATIC|Speak with Master												DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
 FOLLOWER:UndeadCompanionLVL=16	TYPE:Undead Companion	HD:2				ABILITY:Special Ability|AUTOMATIC|Blood Bond													DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1

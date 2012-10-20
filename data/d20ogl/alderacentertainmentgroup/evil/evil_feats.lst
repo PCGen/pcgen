@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Sep 25 13:47:25 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Alderac Entertainment Group (AEG) - Evil	SOURCESHORT:Evil	SOURCEWEB:http://alderac.com/d20
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Alderac Entertainment Group (AEG) - Evil	SOURCESHORT:Evil	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 
 # Feat Name				Product Identity?	Type			Visible	Required AL		Req. Att.	Required Class			Required Feat						Required Lvl	Required Skill		Required Stat	Description																												Stackable?	Multiple?	Choose																																																																																																												Virtual Feat				Bonus to HP			Add to magical move														Stat bonus		Source Page
 Infernal Pact			NAMEISPI:NO		TYPE:Infernal																															DESC:This is the first feat you must take on your path of power.																																																																																																																																																																		SOURCEPAGE:p.

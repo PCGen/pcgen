@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Oct  8 16:52:12 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood	SOURCESHORT:SeasofBlood	SOURCEWEB:http://mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood	SOURCESHORT:SeasofBlood	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
 
 # Feat Name				Type			Req. Att.	Required Feat			Required Skill					Required Stat	Description																										Bonus to skill							Source Page
 Amazing Agility			TYPE:General								PRESKILL:1,Balance=12							DESC:May always Take 20 on a Balance check																													SOURCEPAGE:p.17

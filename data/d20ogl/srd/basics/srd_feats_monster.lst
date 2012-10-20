@@ -1,22 +1,22 @@
-# CVS $Revision$ $Author$ -- Sat Aug 23 14:20:17 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 ###Block: Monster Feats
 # Currently the Multidexterity and Multiweapon Fighting feats are only displayed properly
 #    in the eqsheet.htm created by the Equip tab.
-# Feat Name				Output Name						Type					Visible		Min. nb of Hands	Required Movement Rate	Required Stat	Required Template				Description		Stackable?	Multiple?	Choose					Combat bonus						Class Skill			Cost		Source Page
-Flyby Attack										TYPE:General.Fighter.Dragon							PREMOVE:1,Fly=1																																				SOURCEPAGE:srdfeats.rtf					DESC:When flying, the creature can take a move action (including a dive) and another standard action at any point during the move.
-Hover												TYPE:General.Dragon								PREMOVE:1,Fly=1					PRETEMPLATE:1,Dragon,Half-Dragon																										SOURCEPAGE:srdmonstersdragons.rtf			DESC:When flying, the creature can halt its forward motion and hover in place as a move action.
-Improved Control Shape									TYPE:Special																PRETEMPLATE:1,Lycanthrope																					CSKILL:Control Shape	COST:0	SOURCEPAGE:srdmonsterstemplates.rtf			DESC:See Text
-Multidexterity										TYPE:General.Fighter					PREHANDSGTEQ:3					PRESTAT:1,DEX=15																		BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|4							SOURCEPAGE:srdfeats.rtf					DESC:The creature's secondary attacks with natural weapons take only a -2 penalty.
-Multiweapon Fighting									TYPE:General.Fighter					PREHANDSGTEQ:3																									BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|2							SOURCEPAGE:srdfeats.rtf					DESC:The creature ignores all penalties for using an off hand.
-Multiattack											TYPE:General.Fighter					PREHANDSGTEQ:3																									BONUS:COMBAT|TOHIT-SECONDARY|3									SOURCEPAGE:srdfeats.rtf					DESC:Penalties for fighting with multiple weapons are reduced by 2 with the primary hand and reduced by 6 with off hands.
+# Feat Name				Unique Key					Type					Visible		Min. nb of Hands	Required Movement Rate	Required Stat	Required Template				Description																												Stackable?	Multiple?	Choose					Combat bonus						Class Skill			Cost		Source Page
+Flyby Attack									TYPE:General.Fighter.Dragon							PREMOVE:1,Fly=1											DESC:When flying, the creature can take a move action (including a dive) and another standard action at any point during the move.																																SOURCEPAGE:srdfeats.rtf
+Hover											TYPE:General.Dragon								PREMOVE:1,Fly=1					PRETEMPLATE:1,Dragon,Half-Dragon	DESC:When flying, the creature can halt its forward motion and hover in place as a move action.																																						SOURCEPAGE:srdmonstersdragons.rtf
+Improved Control Shape								TYPE:Special																PRETEMPLATE:1,Lycanthrope		DESC:See Text																																													CSKILL:Control Shape	COST:0	SOURCEPAGE:srdmonsterstemplates.rtf
+Multidexterity									TYPE:General.Fighter					PREHANDSGTEQ:3					PRESTAT:1,DEX=15							DESC:The creature's secondary attacks with natural weapons take only a -2 penalty.																										BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|4							SOURCEPAGE:srdfeats.rtf
+Multiweapon Fighting								TYPE:General.Fighter					PREHANDSGTEQ:3														DESC:The creature ignores all penalties for using an off hand.																													BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|2							SOURCEPAGE:srdfeats.rtf
+Multiattack										TYPE:General.Fighter					PREHANDSGTEQ:3														DESC:Penalties for fighting with multiple weapons are reduced by 2 with the primary hand and reduced by 6 with off hands.																			BONUS:COMBAT|TOHIT-SECONDARY|3									SOURCEPAGE:srdfeats.rtf
 #COMMENT: Multiattack does not work because of PCGen's inability to allow multiple natural attacks to be equipped.
-Quicken Spell-Like Ability	KEY:Quicken Spell Like Ability		TYPE:General.Dragon															PRETEMPLATE:1,Dragon,Half-Dragon		STACK:NO	MULT:YES	CHOOSE:SPELLS|SPELLBOOK=Innate															SOURCEPAGE:srdmonstersdragons.rtf			DESC:The creature can use the selected ability as a quickened spell-like ability three times per day (or less, if the ability is normally usable only once or twice per day).
-Snatch											TYPE:General.Dragon															PRETEMPLATE:1,Dragon,Half-Dragon																										SOURCEPAGE:srdmonstersdragons.rtf			DESC:The creature can choose to start a grapple when it hits with a claw or bite attack, as though it had the improved grab special attack.
-Spell-Like Ability Focus	KEY:Spell Like Ability Focus			TYPE:General																							STACK:NO	MULT:YES	CHOOSE:SCHOOLS|ALL																		SOURCEPAGE:srdmonstersfg.rtf				DESC:See Text
-Wingover											TYPE:General.Dragon															PRETEMPLATE:1,Dragon,Half-Dragon																										SOURCEPAGE:srdmonstersdragons.rtf			DESC:A flying creature with this feat can change direction quickly once each round as a free action.
+Quicken Spell-Like Ability	KEY:Quicken Spell Like Ability	TYPE:General.Dragon															PRETEMPLATE:1,Dragon,Half-Dragon	DESC:The creature can use the selected ability as a quickened spell-like ability three times per day (or less, if the ability is normally usable only once or twice per day).	STACK:NO	MULT:YES	CHOOSE:SPELLS|SPELLBOOK=Innate															SOURCEPAGE:srdmonstersdragons.rtf
+Snatch										TYPE:General.Dragon															PRETEMPLATE:1,Dragon,Half-Dragon	DESC:The creature can choose to start a grapple when it hits with a claw or bite attack, as though it had the improved grab special attack.																														SOURCEPAGE:srdmonstersdragons.rtf
+Spell-Like Ability Focus	KEY:Spell Like Ability Focus		TYPE:General																						DESC:See Text																											STACK:NO	MULT:YES	CHOOSE:SCHOOLS|ALL																	SOURCEPAGE:srdmonstersfg.rtf
+Wingover										TYPE:General.Dragon															PRETEMPLATE:1,Dragon,Half-Dragon	DESC:A flying creature with this feat can change direction quickly once each round as a free action.																																					SOURCEPAGE:srdmonstersdragons.rtf
 
 ### Special ???
-Unearthly Beauty										TYPE:General			VISIBLE:EXPORT																																												SOURCEPAGE:srdmonstersnop.rtf
+Unearthly Beauty									TYPE:General			VISIBLE:EXPORT																																																																						SOURCEPAGE:srdmonstersnop.rtf
 
 
 #

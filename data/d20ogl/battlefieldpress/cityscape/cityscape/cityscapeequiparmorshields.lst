@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Wed Feb 11 23:16:39 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Battlefield Press - Cityscape	SOURCESHORT:Cityscape	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2002-11
 # Original Entry by: Tir Gwaith
 
 #Light Weight --------------------------------------------------------------
-# Equipment Name			Required Armor Proficiency		Type							Cost		Weight	Define			AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus											Special Property
+# Equipment Name			Required Armor Proficiency		Type							Cost		Weight	Define			AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus									Special Property
 Forcefield Belt			PROFICIENCY:ARMOR|Forcefield Belt	TYPE:Armor.Light.Suit.Standard.Nonmetal	COST:100000	WT:5						ACCHECK:0		MAXDEX:6		SOURCEPAGE:p.					BONUS:COMBAT|AC|6|TYPE=Armor
 Bulletproof Vest			PROFICIENCY:ARMOR|Bulletproof Vest	TYPE:Armor.Light.Suit.Standard.Nonmetal	COST:350	WT:10						ACCHECK:0		MAXDEX:6		SOURCEPAGE:p.	SPELLFAILURE:10		BONUS:COMBAT|AC|3|TYPE=Armor
 Padded.MOD																	COST:350
@@ -21,7 +21,7 @@ Breastplate.MOD																COST:200
 Chainmail.MOD																COST:1000
 
 # Heavy Weight
-# Equipment Name			Required Armor Proficiency		Type							Cost		Weight	Define			AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus											Special Property
+# Equipment Name			Required Armor Proficiency		Type							Cost		Weight	Define			AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus									Special Property
 Banded Mail.MOD																COST:250
 Splint Mail.MOD																COST:200
 Half-Plate.MOD																COST:1000

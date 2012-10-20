@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Thu Oct 23 20:27:11 2008 -- reformated by prettylst.pl v1.38 (build 8180)
-SOURCELONG:d20 Weapons Locker	SOURCESHORT:d20WL	SOURCEWEB:http://www.wizards.com/d20modern
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:d20 Weapons Locker	SOURCESHORT:d20WL	SOURCEWEB:http://www.wizards.com/d20modern	SOURCEDATE:2004-01
 
 # Suppressors
-# Modifier Name				Unique Key		Output Name									Type			Cost		Visible		Type granted	Source Page		Required Type		Bonus Equipment Modifiers	Special Property
-FN Five-seveN Suppressor		KEY:SPPRSS_FN57	NAMEOPT:TEXT=Suppressors Kit: FN Five-seveN				TYPE:Pistol		COST:1	VISIBLE:QUALIFY				SOURCEPAGE:p.25	PRETYPE:1,FN57							SPROP:Res(+2)
+# Modifier Name				Unique Key		Naming Option								Type			Cost		Visible		Type granted	Source Page		Required Type		Bonus Equipment Modifiers	Special Property
+FN Five-seveN Suppressor		KEY:SPPRSS_FN57	NAMEOPT:TEXT=Suppressors Kit: FN Five-seveN			TYPE:Pistol		COST:1	VISIBLE:QUALIFY				SOURCEPAGE:p.25	PRETYPE:1,FN57							SPROP:Res(+2)
 Ingram MAC-10 Suppressor		KEY:SPPRSS_MAC10	NAMEOPT:TEXT=Conversion Kit: Ingram MAC-10 Suppressor		TYPE:Longarm	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:p.128	PRETYPE:1,MAC10		BONUS:EQM|WEIGHTADD|2		SPROP:Suppressor Puchase DC 12,Res(+2)
 Ingram MAC-11 Suppressor		KEY:SPPRSS_MAC11	NAMEOPT:TEXT=Conversion Kit: Ingram MAC-11 Suppressor		TYPE:Longarm	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:p.128	PRETYPE:1,MAC11		BONUS:EQM|WEIGHTADD|2		SPROP:Suppressor Puchase DC 11,Res(+2)
-OTs-02 Kiparis Suppressor		KEY:SPPRSS_OTS02	NAMEOPT:TEXT=Conversion Kit: OTs-02 Kiparis Suppressor		TYPE:Longarm	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:p.131	PRETYPE:1,OTS02							SPROP:Suppressor Puchase DC 14,Res(+2)
+OTs-02 Kiparis Suppressor		KEY:SPPRSS_OTS02	NAMEOPT:TEXT=Conversion Kit: OTs-02 Kiparis Suppressor	TYPE:Longarm	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:p.131	PRETYPE:1,OTS02							SPROP:Suppressor Puchase DC 14,Res(+2)
 SCH-21 Gorda Suppressor Barrel	KEY:SPPRSS_SCH21	NAMEOPT:TEXT=Conversion Kit: SCH-21 Gorda Suppressor Barrel	TYPE:Longarm	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:p.136	PRETYPE:1,SCH21							SPROP:Suppressor Puchase DC 15,Res(+2)
 Steyr MPi69 Suppressor			KEY:SPPRSS_MPI69	NAMEOPT:TEXT=Conversion Kit: Steyr MPi69 Suppressor		TYPE:Longarm	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:p.138	PRETYPE:1,MPI69							SPROP:Suppressor Puchase DC 17,Mil(+3)
 Steyr MPi81 Suppressor			KEY:SPPRSS_MPI81	NAMEOPT:TEXT=Conversion Kit: Steyr MPi81 Suppressor		TYPE:Longarm	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:p.138	PRETYPE:1,MPI83							SPROP:Suppressor Puchase DC 17.Mil(+3)

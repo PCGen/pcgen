@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Apr  2 15:12:06 2008 -- reformated by prettylst.pl v1.38 (build 5225)
-SOURCELONG:DCC 25 - The Dread Crypt of Srihoz	SOURCESHORT:DCC25	SOURCEWEB:http://www.goodman-games.com/
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:DCC 25 - The Dread Crypt of Srihoz	SOURCESHORT:DCC25	SOURCEWEB:http://www.goodman-games.com/	SOURCEDATE:2006-01
 
 STARTPACK:Golem (Amber) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Amber)]	SOURCEPAGE:p.36
 RACE:Golem (Amber)	!PRERACE:1,%

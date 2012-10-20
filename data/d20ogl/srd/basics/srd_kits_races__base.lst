@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Feb 19 22:17:11 2008 -- reformated by prettylst.pl v1.38 (build 5225)
-SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
 STARTPACK:Wizard Spell Book	EQUIPBUY:0	PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Wizard=1]
 GEAR:Spellbook (Wizard's/Blank)	LOCATION:Carried

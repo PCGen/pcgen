@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Nov 23 13:18:06 2007 -- reformated by prettylst.pl v1.38 (build 2788)
-SOURCELONG:Blood and Space - High Flyers and Ground Pounders	SOURCESHORT:BnS-HFnGP	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=56
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Space - High Flyers and Ground Pounders	SOURCESHORT:BnS-HFnGP	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=56	SOURCEDATE:2004-01
 
 # Feat Name			Type							Req. Att.	Required Feat				Required Lvl	Required Skill				Required Stat		Required Text											Description																																																						Bonus to skill			Class Skill		Source Page
 Antithesis			TYPE:General					PREATT:9	PREFEAT:1,Enemy																	PRETEXT:The allegiance for this feat must be the same as your Enemy feat	DESC:You have a deep hatred of those loyal to one Allegiance																																																					SOURCEPAGE:p.10

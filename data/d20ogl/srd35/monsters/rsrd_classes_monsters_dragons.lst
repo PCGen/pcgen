@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Sep 10 00:33:14 2008 -- reformated by prettylst.pl v1.38 (build 7233)
-SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Original Entry by: Tir Gwaith
 
 # Class Name		Hit Dice	Type			Max Level		Source Page				Save checks bonus								Combat bonus
@@ -45,7 +45,8 @@ CLASS:Blue Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.
 CLASS:Blue Dragon	PRERACE:1,Dragon (Blue%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Blue Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Bluff|Hide|Spellcraft
-CLASS:Blue Dragon		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Air|DOMAIN.Evil|DOMAIN.Law
+# Class Name	Spell Stat		Spell Type		Memorize	Use Spell List
+CLASS:Blue Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Air|DOMAIN.Evil|DOMAIN.Law
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
 1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
 ###Block: Breath Weapon and other SA's
@@ -56,20 +57,20 @@ CLASS:Blue Dragon		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcer
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
-1									DEFINE:DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Create/Destroy Water
-9									DEFINE:DragonAge|2
-12									DEFINE:DragonAge|3
-15									DEFINE:DragonAge|4		ABILITY:Special Ability|AUTOMATIC|Sound Imitation
-18	SR:19	DR:5/Magic		DEFINE:DragonAge|5
-21	SR:21				DEFINE:DragonAge|6						ABILITY:Special Ability|AUTOMATIC|Crush				SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Ventriloquism,11+CHA
-24	SR:22	DR:10/Magic		DEFINE:DragonAge|7
-27	SR:24				DEFINE:DragonAge|8																SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Hallucinatory Terrain,14+CHA
-30	SR:25	DR:15/Magic		DEFINE:DragonAge|9
-33	SR:27				DEFINE:DragonAge|10						ABILITY:Special Ability|AUTOMATIC|Tail Sweep			SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Veil,16+CHA
-36	SR:29	DR:20/Magic		DEFINE:DragonAge|11
-39	SR:31				DEFINE:DragonAge|12																SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Mirage Arcana,15+CHA
+1				DEFINE:DragonAge|1	ABILITY:Special Ability|AUTOMATIC|Create/Destroy Water
+9				DEFINE:DragonAge|2
+12				DEFINE:DragonAge|3
+15				DEFINE:DragonAge|4	ABILITY:Special Ability|AUTOMATIC|Sound Imitation
+18	SR:19	DR:5/Magic	DEFINE:DragonAge|5
+21	SR:21			DEFINE:DragonAge|6	ABILITY:Special Ability|AUTOMATIC|Crush				SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Ventriloquism,11+CHA
+24	SR:22	DR:10/Magic	DEFINE:DragonAge|7
+27	SR:24			DEFINE:DragonAge|8											SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Hallucinatory Terrain,14+CHA
+30	SR:25	DR:15/Magic	DEFINE:DragonAge|9
+33	SR:27			DEFINE:DragonAge|10	ABILITY:Special Ability|AUTOMATIC|Tail Sweep			SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Veil,16+CHA
+36	SR:29	DR:20/Magic	DEFINE:DragonAge|11
+39	SR:31			DEFINE:DragonAge|12											SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Mirage Arcana,15+CHA
 ###Block: Casting Block
-15	BONUS:CASTERLEVEL|Blue Dragon|((DragonAge-3)*2)-1
+15											BONUS:CASTERLEVEL|Blue Dragon|((DragonAge-3)*2)-1
 15	CAST:5,3				KNOWN:4,2
 16	CAST:5,3				KNOWN:4,2
 17	CAST:6,4				KNOWN:5,2
@@ -146,7 +147,8 @@ CLASS:Red Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.r
 CLASS:Red Dragon	PRERACE:1,Dragon (Red%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Red Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Appraise|Bluff|Jump
-CLASS:Red Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO		SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Evil|DOMAIN.Chaos|DOMAIN.Fire
+# Class Name	Spell Stat		Spell Type		Memorize	Use Spell List
+CLASS:Red Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Evil|DOMAIN.Chaos|DOMAIN.Fire
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
 1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
 ###Block: Breath Weapon and other SA's
@@ -158,20 +160,20 @@ CLASS:Red Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO		SPELLLIST:5|Sorcere
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
-1									DEFINE:DragonAge|1
-10									DEFINE:DragonAge|2
-13									DEFINE:DragonAge|3	
-16					DEFINE:DragonAge|4														SPELLS:Innate|TIMES=DragonAge|CASTERLEVEL=DragonCL|Locate Object,12+CHA
-19	SR:19	DR:5/Magic		DEFINE:DragonAge|5						ABILITY:Special Ability|AUTOMATIC|Crush
-22	SR:21				DEFINE:DragonAge|6
-25	SR:23	DR:10/Magic		DEFINE:DragonAge|7
-28	SR:24				DEFINE:DragonAge|8						ABILITY:Special Ability|AUTOMATIC|Tail Sweep	SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Suggestion,13+CHA
-31	SR:26	DR:15/Magic		DEFINE:DragonAge|9
-34	SR:28				DEFINE:DragonAge|10														SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Find the Path,16+CHA
-37	SR:30	DR:20/Magic		DEFINE:DragonAge|11
-40	SR:32				DEFINE:DragonAge|12														SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Discern Location,18+CHA
+1				DEFINE:DragonAge|1
+10				DEFINE:DragonAge|2
+13				DEFINE:DragonAge|3
+16				DEFINE:DragonAge|4									SPELLS:Innate|TIMES=DragonAge|CASTERLEVEL=DragonCL|Locate Object,12+CHA
+19	SR:19	DR:5/Magic	DEFINE:DragonAge|5	ABILITY:Special Ability|AUTOMATIC|Crush
+22	SR:21			DEFINE:DragonAge|6
+25	SR:23	DR:10/Magic	DEFINE:DragonAge|7
+28	SR:24			DEFINE:DragonAge|8	ABILITY:Special Ability|AUTOMATIC|Tail Sweep	SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Suggestion,13+CHA
+31	SR:26	DR:15/Magic	DEFINE:DragonAge|9
+34	SR:28			DEFINE:DragonAge|10									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Find the Path,16+CHA
+37	SR:30	DR:20/Magic	DEFINE:DragonAge|11
+40	SR:32			DEFINE:DragonAge|12									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Discern Location,18+CHA
 ###Block: Replacement Caster
-13	BONUS:CASTERLEVEL|Red Dragon|((DragonAge-2)*2)-1
+13											BONUS:CASTERLEVEL|Red Dragon|((DragonAge-2)*2)-1
 13	CAST:5,3				KNOWN:4,2
 14	CAST:5,3				KNOWN:4,2
 15	CAST:6,4				KNOWN:5,2
@@ -246,6 +248,7 @@ CLASS:Brass Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw
 CLASS:Brass Dragon	PRERACE:1,Dragon (Brass%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Brass Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Bluff|Gather Information|Survival
+# Class Name		Spell Stat		Spell Type		Memorize	Use Spell List
 CLASS:Brass Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:4|Sorcerer|Cleric|DOMAIN.Chaos|DOMAIN.Knowledge
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
 1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
@@ -259,20 +262,20 @@ CLASS:Brass Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:4|Sorcer
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
-1															DEFINE:DragonAge|1														SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Speak with Animals,11+CHA
-7															DEFINE:DragonAge|2
-10															DEFINE:DragonAge|3
-13											DEFINE:DragonAge|4														SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (40 ft. radius),11+CHA|PREVAREQ:DragonAge,4	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (50 ft. radius),11+CHA|PREVAREQ:DragonAge,5	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (60 ft. radius),11+CHA|PREVAREQ:DragonAge,6	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (70 ft. radius),11+CHA|PREVAREQ:DragonAge,7	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (80 ft. radius),11+CHA|PREVAREQ:DragonAge,8	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (90 ft. radius),11+CHA|PREVAREQ:DragonAge,9	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (100 ft. radius),11+CHA|PREVAREQ:DragonAge,10	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (110 ft. radius),11+CHA|PREVAREQ:DragonAge,11	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (120 ft. radius),11+CHA|PREVAREQ:DragonAge,12
-16	SR:18	DR:5/Magic								DEFINE:DragonAge|5
-19	SR:20										DEFINE:DragonAge|6														SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Suggestion,13+CHA
-22	SR:22	DR:10/Magic								DEFINE:DragonAge|7						ABILITY:Special Ability|AUTOMATIC|Crush
-25	SR:24										DEFINE:DragonAge|8														SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Winds,15+CHA
-28	SR:25	DR:15/Magic								DEFINE:DragonAge|9
-31	SR:27										DEFINE:DragonAge|10														SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Weather,17+CHA
-34	SR:28	DR:20/Magic								DEFINE:DragonAge|11						ABILITY:Special Ability|AUTOMATIC|Tail Sweep
-37	SR:30				BONUS:VAR|SummonDjinniDC|17+CHA	DEFINE:DragonAge|12						ABILITY:Special Ability|AUTOMATIC|Summon Djinni
+1										DEFINE:DragonAge|1									SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Speak with Animals,11+CHA
+7										DEFINE:DragonAge|2
+10										DEFINE:DragonAge|3
+13										DEFINE:DragonAge|4									SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (40 ft. radius),11+CHA|PREVAREQ:DragonAge,4	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (50 ft. radius),11+CHA|PREVAREQ:DragonAge,5	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (60 ft. radius),11+CHA|PREVAREQ:DragonAge,6	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (70 ft. radius),11+CHA|PREVAREQ:DragonAge,7	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (80 ft. radius),11+CHA|PREVAREQ:DragonAge,8	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (90 ft. radius),11+CHA|PREVAREQ:DragonAge,9	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (100 ft. radius),11+CHA|PREVAREQ:DragonAge,10	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (110 ft. radius),11+CHA|PREVAREQ:DragonAge,11	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (120 ft. radius),11+CHA|PREVAREQ:DragonAge,12
+16	SR:18	DR:5/Magic							DEFINE:DragonAge|5
+19	SR:20									DEFINE:DragonAge|6									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Suggestion,13+CHA
+22	SR:22	DR:10/Magic							DEFINE:DragonAge|7	ABILITY:Special Ability|AUTOMATIC|Crush
+25	SR:24									DEFINE:DragonAge|8									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Winds,15+CHA
+28	SR:25	DR:15/Magic							DEFINE:DragonAge|9
+31	SR:27									DEFINE:DragonAge|10									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Weather,17+CHA
+34	SR:28	DR:20/Magic							DEFINE:DragonAge|11	ABILITY:Special Ability|AUTOMATIC|Tail Sweep
+37	SR:30			BONUS:VAR|SummonDjinniDC|17+CHA	DEFINE:DragonAge|12	ABILITY:Special Ability|AUTOMATIC|Summon Djinni
 ###Block: Casting Block
-10	BONUS:CASTERLEVEL|Brass Dragon|((DragonAge-2)*2)-1
+10											BONUS:CASTERLEVEL|Brass Dragon|((DragonAge-2)*2)-1
 10	CAST:5,3				KNOWN:4,2
 11	CAST:5,3				KNOWN:4,2
 12	CAST:6,4				KNOWN:5,2
@@ -311,7 +314,8 @@ CLASS:Bronze Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-D
 CLASS:Bronze Dragon	PRERACE:1,Dragon (Bronze%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Bronze Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Disguise|Swim|Survival
-CLASS:Bronze Dragon		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO		SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Animal|DOMAIN.Law|DOMAIN.Water
+# Class Name		Spell Stat		Spell Type		Memorize	Use Spell List
+CLASS:Bronze Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Animal|DOMAIN.Law|DOMAIN.Water
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
 1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
 ###Block: Breath Weapon and other SA's
@@ -323,20 +327,20 @@ CLASS:Bronze Dragon		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO		SPELLLIST:5|Sor
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
-1															DEFINE:DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Water Breathing	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Speak with Animals,11+CHA
-9															DEFINE:DragonAge|2
-12									BONUS:VAR|AlternateFormTimes|3	DEFINE:DragonAge|3		ABILITY:Special Ability|AUTOMATIC|Alternate Form
-15											DEFINE:DragonAge|4
-18	SR:20	DR:5/Magic								DEFINE:DragonAge|5
-21	SR:22										DEFINE:DragonAge|6						ABILITY:Special Ability|AUTOMATIC|Crush			SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Create Food and Water,13+CHA|Fog Cloud,12+CHA
-24	SR:23	DR:10/Magic								DEFINE:DragonAge|7
-27	SR:25										DEFINE:DragonAge|8															SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Detect Thoughts,12+CHA
-30	SR:26	DR:15/Magic								DEFINE:DragonAge|9
-33	SR:28										DEFINE:DragonAge|10						ABILITY:Special Ability|AUTOMATIC|Tail Sweep		SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Control Water,16+CHA
-36	SR:29	DR:20/Magic								DEFINE:DragonAge|11
-39	SR:31										DEFINE:DragonAge|12															SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Weather,17+CHA
+1										DEFINE:DragonAge|1	ABILITY:Special Ability|AUTOMATIC|Water Breathing	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Speak with Animals,11+CHA
+9										DEFINE:DragonAge|2
+12				BONUS:VAR|AlternateFormTimes|3	DEFINE:DragonAge|3	ABILITY:Special Ability|AUTOMATIC|Alternate Form
+15										DEFINE:DragonAge|4
+18	SR:20	DR:5/Magic							DEFINE:DragonAge|5
+21	SR:22									DEFINE:DragonAge|6	ABILITY:Special Ability|AUTOMATIC|Crush			SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Create Food and Water,13+CHA|Fog Cloud,12+CHA
+24	SR:23	DR:10/Magic							DEFINE:DragonAge|7
+27	SR:25									DEFINE:DragonAge|8										SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Detect Thoughts,12+CHA
+30	SR:26	DR:15/Magic							DEFINE:DragonAge|9
+33	SR:28									DEFINE:DragonAge|10	ABILITY:Special Ability|AUTOMATIC|Tail Sweep		SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Control Water,16+CHA
+36	SR:29	DR:20/Magic							DEFINE:DragonAge|11
+39	SR:31									DEFINE:DragonAge|12										SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Weather,17+CHA
 ###Block: Casting Block
-12	BONUS:CASTERLEVEL|Bronze Dragon|((DragonAge-2)*2)-1
+12											BONUS:CASTERLEVEL|Bronze Dragon|((DragonAge-2)*2)-1
 12	CAST:5,3				KNOWN:4,2
 13	CAST:5,3				KNOWN:4,2
 14	CAST:6,4				KNOWN:5,2
@@ -374,7 +378,8 @@ CLASS:Copper Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-D
 CLASS:Copper Dragon	PRERACE:1,Dragon (Copper%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Copper Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Bluff|Hide|Jump
-CLASS:Copper Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO		SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Chaos|DOMAIN.Earth|DOMAIN.Trickery
+# Class Name		Spell Stat		Spell Type		Memorize	Use Spell List
+CLASS:Copper Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Chaos|DOMAIN.Earth|DOMAIN.Trickery
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
 1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
 ###Block: Breath Weapon and other SA's
@@ -386,20 +391,20 @@ CLASS:Copper Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO		SPELLLIST:5|Sorc
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
-1									DEFINE:DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Spider Climb
-8									DEFINE:DragonAge|2
-11									DEFINE:DragonAge|3
-14					DEFINE:DragonAge|4
-17	SR:19	DR:5/Magic		DEFINE:DragonAge|5
-20	SR:21				DEFINE:DragonAge|6														SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Stone Shape,14+CHA
-23	SR:23	DR:10/Magic		DEFINE:DragonAge|7						ABILITY:Special Ability|AUTOMATIC|Crush
-26	SR:25				DEFINE:DragonAge|8														SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Transmute Mud to Rock or Rock to Mud,15+CHA
-29	SR:26	DR:15/Magic		DEFINE:DragonAge|9
-32	SR:28				DEFINE:DragonAge|10														SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Wall of Stone,15+CHA
-35	SR:29	DR:20/Magic		DEFINE:DragonAge|11						ABILITY:Special Ability|AUTOMATIC|Tail Sweep
-38	SR:31				DEFINE:DragonAge|12														SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Move Earth,16+CHA
+1				DEFINE:DragonAge|1	ABILITY:Special Ability|AUTOMATIC|Spider Climb
+8				DEFINE:DragonAge|2
+11				DEFINE:DragonAge|3
+14				DEFINE:DragonAge|4
+17	SR:19	DR:5/Magic	DEFINE:DragonAge|5
+20	SR:21			DEFINE:DragonAge|6									SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Stone Shape,14+CHA
+23	SR:23	DR:10/Magic	DEFINE:DragonAge|7	ABILITY:Special Ability|AUTOMATIC|Crush
+26	SR:25			DEFINE:DragonAge|8									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Transmute Mud to Rock or Rock to Mud,15+CHA
+29	SR:26	DR:15/Magic	DEFINE:DragonAge|9
+32	SR:28			DEFINE:DragonAge|10									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Wall of Stone,15+CHA
+35	SR:29	DR:20/Magic	DEFINE:DragonAge|11	ABILITY:Special Ability|AUTOMATIC|Tail Sweep
+38	SR:31			DEFINE:DragonAge|12									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Move Earth,16+CHA
 ###Block: Casting Block
-11	BONUS:CASTERLEVEL|Copper Dragon|((DragonAge-2)*2)-1
+11											BONUS:CASTERLEVEL|Copper Dragon|((DragonAge-2)*2)-1
 11	CAST:5,3				KNOWN:4,2
 12	CAST:5,3				KNOWN:4,2
 13	CAST:6,4				KNOWN:5,2
@@ -437,7 +442,8 @@ CLASS:Gold Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.
 CLASS:Gold Dragon	PRERACE:1,Dragon (Gold%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Gold Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Disguise|Heal|Swim
-CLASS:Gold Dragon		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO		SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Law|DOMAIN.Luck|DOMAIN.Good
+# Class Name	Spell Stat		Spell Type		Memorize	Use Spell List
+CLASS:Gold Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Law|DOMAIN.Luck|DOMAIN.Good
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
 1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
 ###Block: Breath Weapon and other SA's
@@ -451,20 +457,20 @@ CLASS:Gold Dragon		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO		SPELLLIST:5|Sorce
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
-1									BONUS:VAR|AlternateFormTimes|3	DEFINE:DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Alternate Form
-11															DEFINE:DragonAge|2
-14															DEFINE:DragonAge|3
-17											DEFINE:DragonAge|4															SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Bless,11+CHA
-20	SR:21	DR:5/Magic								DEFINE:DragonAge|5						ABILITY:Special Ability|AUTOMATIC|Crush
-23	SR:23										DEFINE:DragonAge|6						ABILITY:Special Ability|AUTOMATIC|Luck Bonus
-26	SR:25	DR:10/Magic								DEFINE:DragonAge|7						ABILITY:Special Ability|AUTOMATIC|Detect Gems
-29	SR:27										DEFINE:DragonAge|8						ABILITY:Special Ability|AUTOMATIC|Tail Sweep		SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Geas/Quest,16+CHA
-32	SR:28	DR:15/Magic								DEFINE:DragonAge|9
-35	SR:30										DEFINE:DragonAge|10															SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Sunburst,18+CHA
-38	SR:31	DR:20/Magic								DEFINE:DragonAge|11
-41	SR:33										DEFINE:DragonAge|12															SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Foresight,19+CHA
+1				BONUS:VAR|AlternateFormTimes|3	DEFINE:DragonAge|1	ABILITY:Special Ability|AUTOMATIC|Alternate Form
+11										DEFINE:DragonAge|2
+14										DEFINE:DragonAge|3
+17										DEFINE:DragonAge|4										SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Bless,11+CHA
+20	SR:21	DR:5/Magic							DEFINE:DragonAge|5	ABILITY:Special Ability|AUTOMATIC|Crush
+23	SR:23									DEFINE:DragonAge|6	ABILITY:Special Ability|AUTOMATIC|Luck Bonus
+26	SR:25	DR:10/Magic							DEFINE:DragonAge|7	ABILITY:Special Ability|AUTOMATIC|Detect Gems
+29	SR:27									DEFINE:DragonAge|8	ABILITY:Special Ability|AUTOMATIC|Tail Sweep		SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Geas/Quest,16+CHA
+32	SR:28	DR:15/Magic							DEFINE:DragonAge|9
+35	SR:30									DEFINE:DragonAge|10										SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Sunburst,18+CHA
+38	SR:31	DR:20/Magic							DEFINE:DragonAge|11
+41	SR:33									DEFINE:DragonAge|12										SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Foresight,19+CHA
 ###Block: Casting Block
-14	BONUS:CASTERLEVEL|Gold Dragon|((DragonAge-2)*2)-1
+14											BONUS:CASTERLEVEL|Gold Dragon|((DragonAge-2)*2)-1
 14	CAST:5,3				KNOWN:4,2
 15	CAST:5,3				KNOWN:4,2
 16	CAST:6,4				KNOWN:5,2
@@ -502,7 +508,8 @@ CLASS:Silver Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-D
 CLASS:Silver Dragon	PRERACE:1,Dragon (Silver%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Silver Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Bluff|Disguise|Jump
-CLASS:Silver Dragon		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO		SPELLLIST:6|Sorcerer|Cleric|DOMAIN.Air|DOMAIN.Good|DOMAIN.Law|DOMAIN.Sun
+# Class Name		Spell Stat		Spell Type		Memorize	Use Spell List
+CLASS:Silver Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:6|Sorcerer|Cleric|DOMAIN.Air|DOMAIN.Good|DOMAIN.Law|DOMAIN.Sun
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
 1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
 ###Block: Breath Weapon and other SA's
@@ -517,20 +524,20 @@ CLASS:Silver Dragon		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO		SPELLLIST:6|Sor
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
-1									BONUS:VAR|AlternateFormTimes|3	DEFINE:DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Alternate Form
-10															DEFINE:DragonAge|2
-13															DEFINE:DragonAge|3
-16											DEFINE:DragonAge|4															SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Feather Fall,11+CHA
-19	SR:20	DR:5/Magic								DEFINE:DragonAge|5
-22	SR:22										DEFINE:DragonAge|6						ABILITY:Special Ability|AUTOMATIC|Crush			SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Fog Cloud,12+CHA
-25	SR:24	DR:10/Magic								DEFINE:DragonAge|7
-28	SR:26										DEFINE:DragonAge|8															SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Control Winds,15+CHA
-31	SR:27	DR:15/Magic								DEFINE:DragonAge|9
-34	SR:29										DEFINE:DragonAge|10															SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Weather,17+CHA
-37	SR:30	DR:20/Magic								DEFINE:DragonAge|11						ABILITY:Special Ability|AUTOMATIC|Tail Sweep
-40	SR:32										DEFINE:DragonAge|12															SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Reverse Gravity,17+CHA
+1				BONUS:VAR|AlternateFormTimes|3	DEFINE:DragonAge|1	ABILITY:Special Ability|AUTOMATIC|Alternate Form
+10										DEFINE:DragonAge|2
+13										DEFINE:DragonAge|3
+16										DEFINE:DragonAge|4										SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Feather Fall,11+CHA
+19	SR:20	DR:5/Magic							DEFINE:DragonAge|5
+22	SR:22									DEFINE:DragonAge|6	ABILITY:Special Ability|AUTOMATIC|Crush			SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Fog Cloud,12+CHA
+25	SR:24	DR:10/Magic							DEFINE:DragonAge|7
+28	SR:26									DEFINE:DragonAge|8										SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Control Winds,15+CHA
+31	SR:27	DR:15/Magic							DEFINE:DragonAge|9
+34	SR:29									DEFINE:DragonAge|10										SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Weather,17+CHA
+37	SR:30	DR:20/Magic							DEFINE:DragonAge|11	ABILITY:Special Ability|AUTOMATIC|Tail Sweep
+40	SR:32									DEFINE:DragonAge|12										SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Reverse Gravity,17+CHA
 ###Block: Casting Block
-13	BONUS:CASTERLEVEL|Silver Dragon|((DragonAge-2)*2)-1
+13											BONUS:CASTERLEVEL|Silver Dragon|((DragonAge-2)*2)-1
 13	CAST:5,3				KNOWN:4,2
 14	CAST:5,3				KNOWN:4,2
 15	CAST:6,4				KNOWN:5,2

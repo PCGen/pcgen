@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Mar 16 10:50:00 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Timeline: The Roaring 20s	SOURCESHORT:R20	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=196
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Timeline: The Roaring 20s	SOURCESHORT:R20	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=196	SOURCEDATE:2005-01
 
 # Feat Name					Type
 Acrobatic.MOD				TYPE:Primitive_Feat.MysteryMan

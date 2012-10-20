@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Sep 30 21:05:34 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Quests	SOURCESHORT:Quests	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=5380&src=AleaPublsihingGroup
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Quests	SOURCESHORT:Quests	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=5380&src=AleaPublsihingGroup	SOURCEDATE:2005-01
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus
 CLASS:Honor Guard	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -7,14 +7,14 @@ CLASS:Honor Guard	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:CHECK
 CLASS:Honor Guard	PREALIGN:LG,NG,CG	PREATT:5	PREFEAT:1,Alertness	PRESKILL:2,Diplomacy=2,Knowledge (Nobility and Royalty)=2	PRETEXT:Honor Guard, Honor score of 25+
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Honor Guard	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Listen|Knowledge (Local)|Knowledge (Nobility and Royalty)|Profession (Soldier)|Sense Motive|Spot
-1	ABILITY:Special Ability|AUTOMATIC|Harm's Way ~ Honor Guard|Honor Guard ~ Honor Guard							SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=CL|Detect Evil,11+WIS
-2									BONUS:VAR|CombatSense|(CL+4)/6											ABILITY:Special Ability|AUTOMATIC|Combat Sense ~ Honor Guard
-3	ABILITY:Special Ability|AUTOMATIC|Lawful Strike ~ Honor Guard
-4	ABILITY:Special Ability|AUTOMATIC|Sudden Action ~ Honor Guard
-5	ABILITY:Special Ability|AUTOMATIC|Elite Honor Guard ~ Honor Guard
-6																									AUTO:FEAT|Diehard
-7	ABILITY:Special Ability|AUTOMATIC|Defensive Strike ~ Honor Guard
-10	ABILITY:Special Ability|AUTOMATIC|Blanket Protection ~ Honor Guard
+1							ABILITY:Special Ability|AUTOMATIC|Harm's Way ~ Honor Guard|Honor Guard ~ Honor Guard	SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=CL|Detect Evil,11+WIS
+2	BONUS:VAR|CombatSense|(CL+4)/6	ABILITY:Special Ability|AUTOMATIC|Combat Sense ~ Honor Guard
+3							ABILITY:Special Ability|AUTOMATIC|Lawful Strike ~ Honor Guard
+4							ABILITY:Special Ability|AUTOMATIC|Sudden Action ~ Honor Guard
+5							ABILITY:Special Ability|AUTOMATIC|Elite Honor Guard ~ Honor Guard
+6																																AUTO:FEAT|Diehard
+7							ABILITY:Special Ability|AUTOMATIC|Defensive Strike ~ Honor Guard
+10							ABILITY:Special Ability|AUTOMATIC|Blanket Protection ~ Honor Guard
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Questing Knight	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -22,6 +22,6 @@ CLASS:Questing Knight	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:C
 CLASS:Questing Knight	PREATT:5	PREFEAT:1,Quest	PRESKILL:2,Knowledge (Local)=2,Knowledge (Nobility and Royalty)=2	PRETEXT:Bound by an Oath
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Questing Knight	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Knowledge (Local)|Knowledge (Nobility and Royalty)|Sense Motive
-1			ABILITY:Special Ability|AUTOMATIC|Fearless ~ Questing Knight			BONUS:VAR|KnowledgeLocal|((CL+1)/2)*2				ABILITY:Special Ability|AUTOMATIC|Knowledge Local ~ Questing Knight
-2:REPEATLEVEL:2													BONUS:ABILITYPOOL|Quest|1
-4			ABILITY:Special Ability|AUTOMATIC|Honorable Surge ~ Questing Knight
+1								BONUS:VAR|KnowledgeLocal|((CL+1)/2)*2	ABILITY:Special Ability|AUTOMATIC|Fearless ~ Questing Knight	ABILITY:Special Ability|AUTOMATIC|Knowledge Local ~ Questing Knight
+2:REPEATLEVEL:2	BONUS:ABILITYPOOL|Quest|1
+4															ABILITY:Special Ability|AUTOMATIC|Honorable Surge ~ Questing Knight

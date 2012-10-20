@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sat May 29 15:27:02 2010 -- reformated by prettylst.pl v1.39 (build 11455)
-SOURCELONG:Curse of the Crimson Throne Player's Guide	SOURCESHORT:CCTPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/v5748btpy806v	SOURCEDATE:2008-02
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Curse of the Crimson Throne Player's Guide	SOURCESHORT:CotCTPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy8bdb	SOURCEDATE:2008-02
 
 
-# Feat Name			Type				Required Ability										Required Class		Required Feat							Required Non-Monster Lvl	Required Stat	Required Subclass														Description																																			Bonus to skill				Allowed Companions						Source Page
+# Feat Name			Type				Restricted Ability									Required Class		Required Feat							Required Non-Monster Lvl	Required Stat	Required Subclass														Description																																			Bonus to skill				Allowed Companions						Source Page
 Acadamae Graduate		TYPE:General		!PREABILITY:1,CATEGORY=Special Ability,Conjuration Opposition School																						PRESUBCLASS:1,Abjurer,Conjurer,Diviner,Enchanter,Evoker,Illusionist,Necromancer,Transmuter	DESC:You have passed the grueling Test of Summoning and graduated from the Acadamae.																																					SOURCEPAGE:p.11
 Crossbow Mastery		TYPE:General.Fighter																	PREFEAT:3,Point-Blank Shot,Rapid Reload,Rapid Shot						PRESTAT:1,DEX=15																	DESC:You can load crossbows with blinding speed and even fire them in melee with little fear of reprisal.																																		SOURCEPAGE:p.10
 Harrowed			TYPE:General																											PREPCLEVEL:MAX=1			PRESTAT:1,CHA=13																	DESC:Numerous Harrow readings early in your life seem to have hit the mark precisely, increasing your belief that you are destined for a specific purpose in life; the Harrow deck and your destiny seem intertwined.																SOURCEPAGE:p.14

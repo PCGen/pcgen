@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Jan 14 11:29:19 2009 -- reformated by prettylst.pl v1.38 (build 8180)
-SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 
 # Spell Name			Classes of caster									School			Sub-School			Spell Descriptors				Type				Components			Casting Time			Range						Item		Target Area or Effect															Duration							Save Info											Spell Resistance							Cost		Description																										Save checks bonus															Combat bonus							Bonus to HP									Bonus to skill													Stat bonus							Choose								Source Page				Temporary effect description
 Arcane Graffiti			CLASSES:Mage,Techno Mage=0							SCHOOL:Conjuration	SUBSCHOOL:Creation							TYPE:Arcane			COMPS:V, S			CASTTIME:Attack action		RANGE:0 ft							TARGETAREA:One personal rune or short message											DURATION:Instantaneous					SAVEINFO:None										SPELLRES:No										DESC:Inscribes personal rune or short message on object or surface																																																																																				SOURCEPAGE:ArcanaSpells.rtf

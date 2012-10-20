@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
-SOURCELONG:DCC 25 - The Dread Crypt of Srihoz	SOURCESHORT:DCC25	SOURCEWEB:http://www.goodman-games.com/
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:DCC 25 - The Dread Crypt of Srihoz	SOURCESHORT:DCC25	SOURCEWEB:http://www.goodman-games.com/	SOURCEDATE:2006-01
 # Spell Name		Classes of caster			School			Type		Components		Casting Time			Range			Target Area or Effect														Duration					Save Info						Spell Resistance	Description																				Source Page
 Acid Blood			CLASSES:Sorcerer,Wizard=0	SCHOOL:Sanguiomancy	TYPE:Arcane	COMPS:V, S		CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:Any valid sanguiomantic target											DURATION:1 minute				SAVEINFO:Fortitude negates (harmless)	SPELLRES:Yes	DESC:Any time target receives bludeoning, piercing or slashing damage, the damaging weapon receives 1 point of damage.		SOURCEPAGE:p.34
 Boil Blood			CLASSES:Sorcerer,Wizard=1	SCHOOL:Sanguiomancy	TYPE:Arcane	COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:(CASTERLEVEL/3) valid sanguiomantic targets, no two of which can be more than 30 ft. apart	DURATION:Instantaneous			SAVEINFO:Fortitude to avoid CON Damage	SPELLRES:Yes	DESC:Target receives 2d4 fire damage as her blood boils in her veins. Target takes 1 point of CON damage on a failed save.	SOURCEPAGE:p.34

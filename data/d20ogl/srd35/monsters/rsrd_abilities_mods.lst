@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Oct 31 15:13:06 2008 -- reformated by prettylst.pl v1.38 (build 8180)
-SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 
 # Ability Name						Allowed Companions																																																																																																																						Source Page
 CATEGORY=Special Ability|Animal Companion.MOD	COMPANIONLIST:Animal Companion|Dire Animal (Dire Rat)	COMPANIONLIST:Animal Companion|Dire Animal (Dire Badger),Dire Animal (Dire Bat),Dire Animal (Dire Weasel)|FOLLOWERADJUSTMENT:-3	COMPANIONLIST:Animal Companion|Dinosaur (Deinonychus),Dinosaur (Elasmosaurus),Dire Animal (Dire Ape),Dire Animal (Dire Boar),Dire Animal (Dire Wolf),Dire Animal (Dire Wolverine)|FOLLOWERADJUSTMENT:-6	COMPANIONLIST:Animal Companion|Dinosaur (Megaraptor),Dire Animal (Dire Lion)|FOLLOWERADJUSTMENT:-9	COMPANIONLIST:Animal Companion|Dire Animal (Dire Bear)|FOLLOWERADJUSTMENT:-12	COMPANIONLIST:Animal Companion|Dinosaur (Triceratops),Dinosaur (Tyrannosaurus),Dire Animal (Dire Shark),Dire Animal (Dire Tiger)|FOLLOWERADJUSTMENT:-15

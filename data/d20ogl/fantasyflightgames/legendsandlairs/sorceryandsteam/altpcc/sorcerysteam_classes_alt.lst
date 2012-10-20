@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb  6 21:04:53 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html	SOURCEDATE:2003-08
 # Original Entry by: Eddy Anthony
 
@@ -38,8 +38,8 @@ CLASS:Street Runner.MOD	AUTO:WEAPONPROF|TYPE=Firearms
 ### Alternate base classes for Steampunk setting
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class		Source Page		Automatic Languages	Bonus Languages	Define			Save checks bonus											Combat bonus					Modify VAR
-CLASS:Urban Druid	HD:8		TYPE:Base.PC	ABB:Drd		MAXLEVEL:20	EXCLASS:Ex Druid	SOURCEPAGE:p. 31	AUTO:LANG|Druidic		LANGBONUS:Sylvan	DEFINE:CompLevel|0	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|CompLevel|CL
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class		Source Page		Bonus Languages	Define			Automatically Gained Language	Save checks bonus											Combat bonus					Modify VAR
+CLASS:Urban Druid	HD:8		TYPE:Base.PC	ABB:Drd		MAXLEVEL:20	EXCLASS:Ex Druid	SOURCEPAGE:p. 31	LANGBONUS:Sylvan	DEFINE:CompLevel|0	AUTO:LANG|Druidic			BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|CompLevel|CL
 # Class Name	Required AL
 CLASS:Urban Druid	PREALIGN:LN,NG,TN,NE,CN
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -62,11 +62,11 @@ CLASS:Urban Druid	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEV
 1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE
 1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG
 1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE
-1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	
+1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE
 1	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE
 1	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG
-1	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE	
-1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE	
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE
+1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
 ###Block: Level progression
 1	CAST:3,1							ABILITY:Special Ability|AUTOMATIC|Animal Companion|Nature Sense
 2	CAST:4,2				SAB:Hidden Paths

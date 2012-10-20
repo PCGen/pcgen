@@ -1,13 +1,14 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Rise of the Runelords Anniversary Edition Player's Guide	SOURCESHORT:RotRAEPG	SOURCEWEB:http://paizo.com/products/btpy8tgl?Pathfinder-Adventure-Path-Rise-of-the-Runelords-Anniversary-Edition-Players-Guide	SOURCEDATE:2012-07
 # Original Entry by: Paul Shipley
 
 ###Block: Conditional Skills for output only
-# Skill Name					Key Stat	Untrained?		Classes	Type			Visible		Req. Rule (in options)		Prohibited Var. Value
+# Skill Name					Key Stat	Untrained?		Classes	Type			Visible		Req. Rule (in options)		Prohibited Var. Value												Source Page
 Appraise (Determine most valuable item)	KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Appraise (Determine most valuable item).MISC"),SKILL.Appraise.MISC	SOURCEPAGE:p.90
 
 ###Block: Skill .MODs
-# Skill Name	Bonus to skill											Bonus to skill rank
-Appraise.MOD	BONUS:SKILL|Appraise (Determine most valuable item)|SKILL.Appraise.MISC		BONUS:SKILLRANK|Appraise (Determine most valuable item)|skillinfo("TOTALRANK", "Appraise")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Appraise (Determine most valuable item).MISC"),SKILL.Appraise.MISC
+# Skill Name	Bonus to skill										Bonus to skill rank
+Appraise.MOD	BONUS:SKILL|Appraise (Determine most valuable item)|SKILL.Appraise.MISC	BONUS:SKILLRANK|Appraise (Determine most valuable item)|skillinfo("TOTALRANK", "Appraise")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Appraise (Determine most valuable item).MISC"),SKILL.Appraise.MISC
 
 #
 # End

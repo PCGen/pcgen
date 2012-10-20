@@ -1,37 +1,37 @@
-# CVS $Revision$ $Author$ -- Tue Jan 20 22:35:28 2009 -- reformated by prettylst.pl v1.38 (build 8180)
-SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
 #Original Entry by Arknight
 
 ###Block: PA Hero Talents
-# Ability Name		Category of Ability	Type						Visible	Required Ability																										Required Feat					Required Skill					Required Template		Description																	Stackable?	Multiple?	Choose				Combat bonus			Bonus to skill										Modify VAR												Weapon prof. bonus				Source Page
-Technologist		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREFEAT:1,Post-Apocalyptic Technology												DESC:Technologist																														BONUS:SKILL|Knowledge (Technology)|var("CL=Post Apocalyptic Hero")																					SOURCEPAGE:p. 14
-Computer Lore		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREFEAT:1,Post-Apocalyptic Technology												DESC:Computer Lore																													BONUS:SKILL|Computer Use|var("CL=Post Apocalyptic Hero")																							SOURCEPAGE:p. 14
-Medical Lore		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREFEAT:1,Post-Apocalyptic Technology												DESC:Medical Lore																														BONUS:SKILL|Treat Injury|var("CL=Post Apocalyptic Hero")																							SOURCEPAGE:p. 14
-Historian			CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREFEAT:1,Post-Apocalyptic Technology												DESC:Historian																														BONUS:SKILL|Knowledge (Ancient Lore)|var("CL=Post Apocalyptic Hero")																					SOURCEPAGE:p. 14
+# Ability Name		Category of Ability	Type						Visible	Required Ability																										Required Feat					Required Skill					Required Template		Description																	Stackable?	Multiple?	Choose			Combat bonus			Bonus to skill										Modify VAR												Weapon prof. bonus				Source Page
+Technologist		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREFEAT:1,Post-Apocalyptic Technology												DESC:Technologist																													BONUS:SKILL|Knowledge (Technology)|var("CL=Post Apocalyptic Hero")																					SOURCEPAGE:p. 14
+Computer Lore		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREFEAT:1,Post-Apocalyptic Technology												DESC:Computer Lore																												BONUS:SKILL|Computer Use|var("CL=Post Apocalyptic Hero")																							SOURCEPAGE:p. 14
+Medical Lore		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREFEAT:1,Post-Apocalyptic Technology												DESC:Medical Lore																													BONUS:SKILL|Treat Injury|var("CL=Post Apocalyptic Hero")																							SOURCEPAGE:p. 14
+Historian			CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREFEAT:1,Post-Apocalyptic Technology												DESC:Historian																													BONUS:SKILL|Knowledge (Ancient Lore)|var("CL=Post Apocalyptic Hero")																					SOURCEPAGE:p. 14
 Craft Lore			CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREFEAT:1,Advanced Technology														DESC:Craft Lore (%1)|%CHOICE														STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Craft						BONUS:SKILL|LIST|var("CL=Post Apocalyptic Hero")																								SOURCEPAGE:p. 14
 
-Mutation Knowledge	CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Mutant	VISIBLE:YES																																				PRESKILL:1,Knowledge (Mutant Lore)=1					DESC:Mutation Knowledge																																																													SOURCEPAGE:p. 14
-Mutant Weapon		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Mutant	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Mutation Knowledge																																			PRETEMPLATE:1,Mutant	DESC:Mutant Weapon																																																						BONUS:WEAPONPROF=TYPE.Mutation|TOHIT|1	SOURCEPAGE:p. 14
-Neural Mastery		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Mutant	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Mutation Knowledge	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition,Neural Mutation - Telekinesis,Neural Mutation - Telepathy																			DESC:Neural Mastery																																									BONUS:VAR|precogUses|WIS	BONUS:VAR|tkUses|CON	BONUS:VAR|teepUses|CHA								SOURCEPAGE:p. 14
+Mutation Knowledge	CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Mutant	VISIBLE:YES																																				PRESKILL:1,Knowledge (Mutant Lore)=1					DESC:Mutation Knowledge																																																												SOURCEPAGE:p. 14
+Mutant Weapon		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Mutant	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Mutation Knowledge																																			PRETEMPLATE:1,Mutant	DESC:Mutant Weapon																																																					BONUS:WEAPONPROF=TYPE.Mutation|TOHIT|1	SOURCEPAGE:p. 14
+Neural Mastery		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Mutant	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Mutation Knowledge	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition,Neural Mutation - Telekinesis,Neural Mutation - Telepathy																			DESC:Neural Mastery																																								BONUS:VAR|precogUses|WIS	BONUS:VAR|tkUses|CON	BONUS:VAR|teepUses|CHA								SOURCEPAGE:p. 14
 
-Improvised Toolkit	CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Scavenge	VISIBLE:YES																																				PRESKILL:1,Repair=1								DESC:Improvised Toolkit																																																													SOURCEPAGE:p. 14
-Restore			CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Scavenge	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Improvised Toolkit																																							DESC:Restore																																																														SOURCEPAGE:p. 14
-Salvage Expert		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Scavenge	VISIBLE:YES																																															DESC:Salvage Expert (+%1)|(2*var("CL=Post Apocalyptic Hero"))																																																						SOURCEPAGE:p. 14
+Improvised Toolkit	CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Scavenge	VISIBLE:YES																																				PRESKILL:1,Repair=1								DESC:Improvised Toolkit																																																												SOURCEPAGE:p. 14
+Restore			CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Scavenge	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Improvised Toolkit																																							DESC:Restore																																																													SOURCEPAGE:p. 14
+Salvage Expert		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Scavenge	VISIBLE:YES																																															DESC:Salvage Expert (+%1)|(2*var("CL=Post Apocalyptic Hero"))																																																					SOURCEPAGE:p. 14
 
-Conserve			CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Survival	VISIBLE:YES																																															DESC:Conserve																																																														SOURCEPAGE:p. 15
-Wasteland Lore		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Survival	VISIBLE:YES																																															DESC:Wasteland Lore (+%1 to Survival and Navigation in Wasteland areas)|var("CL=Post Apocalyptic Hero")																																															SOURCEPAGE:p. 15
-Necropoli Lore		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Survival	VISIBLE:YES																																															DESC:Necropoli Lore (+%1 to Survival and Navigation in Necropoli areas)|var("CL=Post Apocalyptic Hero")																																															SOURCEPAGE:p. 15
-Survival Sense		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Survival	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Wasteland Lore,Necropoli Lore																																					DESC:Survival Sense (+2 Init.; +2 Spot for detecting Ambushes)																	BONUS:COMBAT|INITIATIVE|2																																	SOURCEPAGE:p. 15
+Conserve			CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Survival	VISIBLE:YES																																															DESC:Conserve																																																													SOURCEPAGE:p. 15
+Wasteland Lore		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Survival	VISIBLE:YES																																															DESC:Wasteland Lore (+%1 to Survival and Navigation in Wasteland areas)|var("CL=Post Apocalyptic Hero")																																														SOURCEPAGE:p. 15
+Necropoli Lore		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Survival	VISIBLE:YES																																															DESC:Necropoli Lore (+%1 to Survival and Navigation in Necropoli areas)|var("CL=Post Apocalyptic Hero")																																														SOURCEPAGE:p. 15
+Survival Sense		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Survival	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Wasteland Lore,Necropoli Lore																																					DESC:Survival Sense (+2 Init.; +2 Spot for detecting Ambushes)																BONUS:COMBAT|INITIATIVE|2																																	SOURCEPAGE:p. 15
 
 ###Block: Scholar Abilities
-# Ability Name			Output Name		Category of Ability	Type							Visible	Description						Multiple?	Choose																		Bonus to skill rank
-Ancient Knowledge						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Knowledge (%1)|%CHOICE		MULT:YES	CHOOSE:SKILL|TYPE=Knowledge														BONUS:SKILLRANK|LIST|4
-Ancient Craft						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Craft (%1)|%CHOICE		MULT:YES	CHOOSE:SKILL|TYPE=Craft															BONUS:SKILLRANK|LIST|4
-Ancient Technology					CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Technology (%1)|%CHOICE	MULT:YES	AUTO:FEAT|%LIST	CHOOSE:FEATSELECTION|Advanced Technology|TYPE=TechCraft|TITLE=Add a Feat
-Ancient Vehicles						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Vehicle (%1)|%CHOICE		MULT:YES	AUTO:FEAT|%LIST	CHOOSE:FEATSELECTION|Aircraft Operation|Powered Armor Operation|Surface Vehicle Operation|TYPE=ASVehicle|Vehicle Expert|TITLE=Add a Feat
+# Ability Name			Output Name		Category of Ability	Type							Visible	Description						Multiple?	Choose																						Automatically Gained Feat	Bonus to skill rank
+Ancient Knowledge						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Knowledge (%1)|%CHOICE		MULT:YES	CHOOSE:SKILL|TYPE=Knowledge																								BONUS:SKILLRANK|LIST|4
+Ancient Craft						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Craft (%1)|%CHOICE		MULT:YES	CHOOSE:SKILL|TYPE=Craft																									BONUS:SKILLRANK|LIST|4
+Ancient Technology					CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Technology (%1)|%CHOICE	MULT:YES	CHOOSE:FEATSELECTION|Advanced Technology|TYPE=TechCraft|TITLE=Add a Feat											AUTO:FEAT|%LIST
+Ancient Vehicles						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Vehicle (%1)|%CHOICE		MULT:YES	CHOOSE:FEATSELECTION|Aircraft Operation|Powered Armor Operation|Surface Vehicle Operation|TYPE=ASVehicle|Vehicle Expert|TITLE=Add a Feat	AUTO:FEAT|%LIST
 
-Ancient Vehicles (Pilot)	OUTPUTNAME:Pilot	CATEGORY:Talent		TYPE:Talent.ScholarTalent.ASVehicle		VISIBLE:YES																													BONUS:SKILLRANK|Pilot|4
-Ancient Vehicles (Drive)	OUTPUTNAME:Drive	CATEGORY:Talent		TYPE:Talent.ScholarTalent.ASVehicle		VISIBLE:YES																													BONUS:SKILLRANK|Drive|4
+Ancient Vehicles (Pilot)	OUTPUTNAME:Pilot	CATEGORY:Talent		TYPE:Talent.ScholarTalent.ASVehicle		VISIBLE:YES																																						BONUS:SKILLRANK|Pilot|4
+Ancient Vehicles (Drive)	OUTPUTNAME:Drive	CATEGORY:Talent		TYPE:Talent.ScholarTalent.ASVehicle		VISIBLE:YES																																						BONUS:SKILLRANK|Drive|4
 
 ###Block: Survivalist
 # Ability Name				Category of Ability	Type								Visible	Define			Description													Stackable?	Multiple?	Choose		Add 								Bonus to skill						Modify VAR
@@ -71,12 +71,12 @@ MedTech (Regeneration Serum)	CATEGORY:Talent		TYPE:Talent.MedicineManTalent.Anci
 MedTech (Zombie Plague Serum)	CATEGORY:Talent		TYPE:Talent.MedicineManTalent.AncientMedTech		VISIBLE:YES																																	DESC:Ancient Medical Technology (Zombie Plague Serum)												SOURCEPAGE:p. 49
 
 ###Block: Scientist
-# Ability Name	Category of Ability	Type					Visible	Special ABility		Multiple?	Choose			Weapon prof. bonus															Source Page
+# Ability Name	Category of Ability	Type					Visible	Special ABility		Multiple?	Choose				Weapon prof. bonus															Source Page
 Smart Weapon	CATEGORY:Talent		TYPE:Talent.ScientistTalent	VISIBLE:YES	SAB:Smart Weapon (%)	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC	BONUS:WEAPONPROF=%LIST|TOHIT|INT-STR|TYPE=NotRanged	BONUS:WEAPONPROF=%LIST|TOHIT|INT-DEX|TYPE=Ranged	SOURCEPAGE:p. 52
 
 ###Block: Warrior Monk
 # Ability Name				Category of Ability	Type				Visible	Required Ability								Required Feat		Description								Stackable?	Multiple?	Choose								Weapon prof. bonus			Source Page
-Superior Weapon Focus			CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES											PREFEAT:1,Weapon Focus	DESC:Superior Weapon Focus (%1)|%CHOICE			STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus					BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:p. 58
+Superior Weapon Focus			CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES											PREFEAT:1,Weapon Focus	DESC:Superior Weapon Focus (%1)|%CHOICE			STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus		BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:p. 58
 Superior Combat Reflexes		CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES															DESC:Superior Combat Reflexes																								SOURCEPAGE:p. 58
 Superior Weapon Specialization	CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Weapon Specialization	PREFEAT:1,Weapon Focus	DESC:Superior Weapon Specialization (%1)|%CHOICE	STACK:NO	MULT:YES	CHOOSE:ABILITY|Special Ability|Weapon Specialization	BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:p. 58
 Superior Combat Expertise		CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES															DESC:Superior Combat Expertise																							SOURCEPAGE:p. 58

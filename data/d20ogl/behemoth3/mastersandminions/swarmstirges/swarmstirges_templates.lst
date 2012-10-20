@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 00:08:55 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:A Swarm of Stirges	SOURCESHORT:ASoS	SOURCEWEB:http://www.behemoth3.com/	SOURCEDATE:2004-08
 #Original Entry by: Eddy Anthony
 
@@ -9,7 +9,7 @@ Hollow Husk (Water Filled)	VISIBLE:YES	SOURCEPAGE:p.10	SAB:Filled with water	SAB
 
 ###Block: Wing Jockey Mount support
 
-# Template Name	Source Page		Feat
+# Template Name	Source Page		Automatically Gained Feat
 Wing Jockey Mount	SOURCEPAGE:p.20	AUTO:FEAT|Wing Jockey (Mounted Defense)|Wing Jockey (Riding Style/Mount)|Wing Jockey (Riding Style Mastery/Mount)
 
 

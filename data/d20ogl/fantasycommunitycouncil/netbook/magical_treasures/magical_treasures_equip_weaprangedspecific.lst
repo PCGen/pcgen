@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sat Sep 26 22:38:41 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Netbook of Magical Treasures	SOURCESHORT:NboMT	SOURCEWEB:http://www.d20magicitems.org/
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Netbook of Magical Treasures	SOURCESHORT:NboMT	SOURCEWEB:http://www.d20magicitems.org/	SOURCEDATE:2002-01
 ##Ranged Weapons
 # Equipment Name	Required Weapon Proficiency		Type															Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page				Weapon prop. bonus					Special Property
 Crossbow of Pain	PROFICIENCY:WEAPON|Crossbow (Light)	TYPE:Magic.Weapon.Simple.Ranged.Piercing.Projectile.Specific.Wooden.Container.Crossbow	CONTAINS:UNLIM|Bolt=1	COST:8335	WT:6		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	RANGE:80	SIZE:S	SOURCEPAGE:pg. 15, Weapons	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement	SPROP:See text

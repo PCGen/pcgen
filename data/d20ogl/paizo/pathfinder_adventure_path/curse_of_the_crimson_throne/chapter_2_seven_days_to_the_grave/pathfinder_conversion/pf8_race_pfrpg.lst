@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Mon Jun 21 12:46:02 2010 -- reformated by prettylst.pl v1.39 (build 11455)
-SOURCELONG:Curse of the Crimson Thrown: Seven Days to the Grave	SOURCESHORT:CotCT:SDttG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinder/v5748btpy82qy	SOURCEDATE:2008-04
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Curse of the Crimson Throne, Chapter 2: Seven Days to the Grave	SOURCESHORT:PF8	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82qy	SOURCEDATE:2008-04
 
 # Race Name				Bonus to skill					Modify VAR					Racial HD Class Skills									Ability												Define				Monster Class Name and Starting Level	Clear Racial Subtype	Race Subtype		Template
 Daemon (Leukodaemon).MOD								BONUS:VAR|FireResistanceBonus|10	MONCSKILL:.CLEAR	MONCSKILL:Fly|Heal|Knowledge (Religion)|Survival	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|Resistance To Fire	DEFINE:Maneuverability|3	MONSTERCLASS:Outsider (Fort/Ref):10		RACESUBTYPE:.CLEAR	RACESUBTYPE:Daemon	TEMPLATE:Evil|Extraplanar

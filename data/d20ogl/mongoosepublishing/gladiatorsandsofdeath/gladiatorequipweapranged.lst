@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Oct  8 16:52:12 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Mongoose Publishing - Gladiators - Sand of Death	SOURCESHORT:Gladiators	SOURCEWEB:http://mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Gladiators - Sand of Death	SOURCESHORT:Gladiators	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
 # Equipment Name	Required Weapon Proficiency	Type									Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property
 Aclis								TYPE:Weapon.Exotic.Melee.Ranged.Thrown.Bludgeoning					COST:1	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	RANGE:10	SIZE:M	SOURCEPAGE:p.57	SPROP:move-equivalent action to drag weapon back after throwing. Maximum range of 30 feet.
 Bolas (3 ball)	PROFICIENCY:WEAPON|Bola		TYPE:Weapon.Exotic.Ranged.Thrown.Bludgeoning						COST:15	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	RANGE:10	SIZE:M	SOURCEPAGE:p.57	SPROP:Trips target on a successful ranged touch attack. Target must then make a grapple check to avoid being grappled as well.

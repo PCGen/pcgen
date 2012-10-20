@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jul  1 11:49:56 2008 -- reformated by prettylst.pl v1.38 (build 6887)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Clash of Arms - Cavalry	SOURCESHORT:CoA-C	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=21487&	SOURCEDATE:2007-03
 
 #CREATED BY: Paul W. King, Mar 2007, EDITED BY: Paul W. King, Mar 2007, UPDATED BY: Eddy Anthony, Jan 2008
@@ -30,7 +30,7 @@ Increase Magical Beast By 2	VISIBLE:NO	PRERACE:1,RACETYPE=Magical Beast	ADDLEVEL
 #TODO: I've removed the ADDLEVEL tags with negatives, ADDLEVEL can only take positive number, I don't think there is a way to remove levels with a template or anything else  -Eddy
 
 ###BLOCK: Mount trait
-# Template Name				Output Name		Template														Source Page		Special ABility				Combat bonus					Bonus to HP				Add to base move			Bonus to skill		Stat bonus			Feat
+# Template Name				Output Name		Template														Source Page		Special ABility				Combat bonus					Bonus to HP				Add to base move			Bonus to skill		Stat bonus			Automatically Gained Feat
 Mount Trait (Lame)			OUTPUTNAME:[NAME]																SOURCEPAGE:p.9																			BONUS:MOVEADD|TYPE.Walk|15
 Mount Trait (Hairline Fracture)	OUTPUTNAME:[NAME]																SOURCEPAGE:p.9
 Mount Trait (Past Injury)		OUTPUTNAME:[NAME]																SOURCEPAGE:p.9

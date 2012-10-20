@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Aug  6 17:34:54 2008 -- reformated by prettylst.pl v1.38 (build 7233)
-SOURCELONG:Mongoose Publishing - Power Classes Volume I - Assassin	SOURCESHORT:Assassin	SOURCEWEB:http//www.mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Power Classes Volume I - Assassin	SOURCESHORT:Assassin	SOURCEWEB:http//www.mongoosepublishing.com	SOURCEDATE:2002-01
 # Original Entry by: Mynex
 
 # Class Name		Output Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
@@ -14,9 +14,9 @@ CLASS:Assassin (Mong)	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Clim
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Assassin (Mong) Weapon Proficiencies|Simple Weapon Proficiency
 1												AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-2	ABILITY:Special Ability|AUTOMATIC|Poison Use
-4	SAB:Meticulous Planning (+%)|MeticulousPlanning	BONUS:VAR|MeticulousPlanning|(CL+2)/6	DEFINE:MeticulousPlanning|0
-5						BONUS:VAR|PoisonUse|(CL+1)/3			DEFINE:PoisonUse|0
-6																					BONUS:ABILITYPOOL|Exotic Weapon Proficiency|1
-12																					BONUS:ABILITYPOOL|Exotic Weapon Proficiency|1
-18																					BONUS:ABILITYPOOL|Exotic Weapon Proficiency|1
+2																													ABILITY:Special Ability|AUTOMATIC|Poison Use
+4	SAB:Meticulous Planning (+%)|MeticulousPlanning									BONUS:VAR|MeticulousPlanning|(CL+2)/6	DEFINE:MeticulousPlanning|0
+5																	BONUS:VAR|PoisonUse|(CL+1)/3			DEFINE:PoisonUse|0
+6									BONUS:ABILITYPOOL|Exotic Weapon Proficiency|1
+12									BONUS:ABILITYPOOL|Exotic Weapon Proficiency|1
+18									BONUS:ABILITYPOOL|Exotic Weapon Proficiency|1

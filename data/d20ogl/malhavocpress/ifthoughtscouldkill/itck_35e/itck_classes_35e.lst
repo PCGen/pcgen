@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 14:25:56 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Malhavoc Press - If Thoughts Could Kill	SOURCESHORT:ITCK	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2002-04
 
 # Class Name		Product Identity?	Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
@@ -8,16 +8,16 @@ CLASS:Colorless Adept	PREFEAT:1,Sequester Power	PREFEAT:2,TYPE=Psionic,TYPE=Meta
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Colorless Adept	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE=Craft|Diplomacy|TYPE=Knowledge|TYPE=Profession|Psicraft|Spot
 ###Block: Level progression
-1	ABILITY:Special Ability|AUTOMATIC|Power Sharing I ~ Colorless Adept																																					ADD:SPELLCASTER|Psionic
-2																																									ADD:SPELLCASTER|Psionic
-3																																									ADD:SPELLCASTER|Psionic
-4	ABILITY:Special Ability|AUTOMATIC|Power Sharing II ~ Colorless Adept																																					ADD:SPELLCASTER|Psionic
-5	ABILITY:Special Ability|AUTOMATIC|Colorless Fire ~ Colorless Adept	BONUS:VAR|ColorlessFireDC|(17+INT)	BONUS:VAR|ColorlessFireTimes|(var("CL=Colorless Adept")-2)	DEFINE:ColorlessFireDC|0	DEFINE:ColorlessFireTimes|0	BONUS:ABILITYPOOL|Colorless Adept Feat|1
-6																																									ADD:SPELLCASTER|Psionic
-7	ABILITY:Special Ability|AUTOMATIC|Power Sharing III ~ Colorless Adept																																					ADD:SPELLCASTER|Psionic
-8																																									ADD:SPELLCASTER|Psionic
-9																																									ADD:SPELLCASTER|Psionic
-10	ABILITY:Special Ability|AUTOMATIC|Colorless Rain ~ Colorless Adept	BONUS:VAR|ColorlessRainDC|(23+INT)	BONUS:VAR|ColorlessRainTimes|(var("CL=Colorless Adept")-5)	DEFINE:ColorlessRainDC|0	DEFINE:ColorlessRainTimes|0	BONUS:ABILITYPOOL|Colorless Adept Feat|1
+1																																		ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Power Sharing I ~ Colorless Adept
+2																																		ADD:SPELLCASTER|Psionic
+3																																		ADD:SPELLCASTER|Psionic
+4																																		ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Power Sharing II ~ Colorless Adept
+5	BONUS:ABILITYPOOL|Colorless Adept Feat|1	BONUS:VAR|ColorlessFireDC|(17+INT)	BONUS:VAR|ColorlessFireTimes|(var("CL=Colorless Adept")-2)	DEFINE:ColorlessFireDC|0	DEFINE:ColorlessFireTimes|0					ABILITY:Special Ability|AUTOMATIC|Colorless Fire ~ Colorless Adept
+6																																		ADD:SPELLCASTER|Psionic
+7																																		ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Power Sharing III ~ Colorless Adept
+8																																		ADD:SPELLCASTER|Psionic
+9																																		ADD:SPELLCASTER|Psionic
+10	BONUS:ABILITYPOOL|Colorless Adept Feat|1	BONUS:VAR|ColorlessRainDC|(23+INT)	BONUS:VAR|ColorlessRainTimes|(var("CL=Colorless Adept")-5)	DEFINE:ColorlessRainDC|0	DEFINE:ColorlessRainTimes|0					ABILITY:Special Ability|AUTOMATIC|Colorless Rain ~ Colorless Adept
 
 ###Block: variant prestige classes
 
@@ -30,20 +30,20 @@ CLASS:Metamind ITCK	PREFEAT:1,Psicrystal Affinity	PRESKILL:2,Psicraft=4,Knowledg
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Metamind ITCK	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE=Craft|Knowledge (Psionics)|Psicraft
 ###Block: Psicrystal info
-1	ABILITY:Special Ability|AUTOMATIC|Cognizance Psicrystal ~ Metamind ITCK	BONUS:VAR|PowerPsicrystal|2*floor(((var("CL=Metamind ITCK")-1)/2))	DEFINE:PowerPsicrystal|5
+1	BONUS:VAR|PowerPsicrystal|2*floor(((var("CL=Metamind ITCK")-1)/2))	DEFINE:PowerPsicrystal|5	ABILITY:Special Ability|AUTOMATIC|Cognizance Psicrystal ~ Metamind ITCK
 ###Block: sequestration
-1	ABILITY:Special Ability|AUTOMATIC|Sequestration ~ Metamind ITCK	BONUS:VAR|SequesVar|var("CL=Metamind ITCK")	DEFINE:SequesVar|1
+1	BONUS:VAR|SequesVar|var("CL=Metamind ITCK")	DEFINE:SequesVar|1	ABILITY:Special Ability|AUTOMATIC|Sequestration ~ Metamind ITCK
 ###Block: Level progression
-1								ADD:SPELLCASTER|Psionic	BONUS:ABILITYPOOL|Power Sequestration|2
-2								ADD:SPELLCASTER|Psionic	BONUS:ABILITYPOOL|Power Sequestration|1
-3								ADD:SPELLCASTER|Psionic	BONUS:ABILITYPOOL|Power Sequestration|1
-4								ADD:SPELLCASTER|Psionic	BONUS:ABILITYPOOL|Power Sequestration|1
-5								ADD:SPELLCASTER|Psionic	BONUS:ABILITYPOOL|Power Sequestration|1
-6								ADD:SPELLCASTER|Psionic	BONUS:ABILITYPOOL|Power Sequestration|1
-7								ADD:SPELLCASTER|Psionic	BONUS:ABILITYPOOL|Power Sequestration|1
-8								ADD:SPELLCASTER|Psionic	BONUS:ABILITYPOOL|Power Sequestration|1
-9								ADD:SPELLCASTER|Psionic	BONUS:ABILITYPOOL|Power Sequestration|1
-10	ABILITY:Special Ability|AUTOMATIC|Font of Power ~ Metamind ITCK	ADD:SPELLCASTER|Psionic	BONUS:ABILITYPOOL|Power Sequestration|1
+1	BONUS:ABILITYPOOL|Power Sequestration|2	ADD:SPELLCASTER|Psionic
+2	BONUS:ABILITYPOOL|Power Sequestration|1	ADD:SPELLCASTER|Psionic
+3	BONUS:ABILITYPOOL|Power Sequestration|1	ADD:SPELLCASTER|Psionic
+4	BONUS:ABILITYPOOL|Power Sequestration|1	ADD:SPELLCASTER|Psionic
+5	BONUS:ABILITYPOOL|Power Sequestration|1	ADD:SPELLCASTER|Psionic
+6	BONUS:ABILITYPOOL|Power Sequestration|1	ADD:SPELLCASTER|Psionic
+7	BONUS:ABILITYPOOL|Power Sequestration|1	ADD:SPELLCASTER|Psionic
+8	BONUS:ABILITYPOOL|Power Sequestration|1	ADD:SPELLCASTER|Psionic
+9	BONUS:ABILITYPOOL|Power Sequestration|1	ADD:SPELLCASTER|Psionic
+10	BONUS:ABILITYPOOL|Power Sequestration|1	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Font of Power ~ Metamind ITCK
 
 
 # Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus												Combat bonus					Modify VAR

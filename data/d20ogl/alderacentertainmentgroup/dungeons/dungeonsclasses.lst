@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sat Nov  7 20:38:11 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Alderac Entertainment Group - Dungeons	SOURCESHORT:Dungeons	SOURCEWEB:http://alderac.com/d20
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Alderac Entertainment Group - Dungeons	SOURCESHORT:Dungeons	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 
 # COMMENT: Need to review and see if the Crusader should be using the RANGER FAVORED ENEMY TABLE - If So, we do need to convert this to using the proper method.
 
@@ -15,16 +15,16 @@ CLASS:Crusader	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Crusader|CL
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	ADD:SPELLCASTER|Divine	BONUS:ABILITYPOOL|Crusader Favored Choice|1
-2	ADD:SPELLCASTER|Divine	ADD:LANGUAGE|3|Abyssal,Aquan,Auran,Celestial,Common,Draconic,Dwarven,Elven,Giant,Gnoll,Gnome,Goblin,Halfling,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon
-3	ADD:SPELLCASTER|Divine
-4	ADD:SPELLCASTER|Divine																											ABILITY:Special Ability|AUTOMATIC|Find the Path ~ Crusader
-5	ADD:SPELLCASTER|Divine
-6	ADD:SPELLCASTER|Divine																											ABILITY:Special Ability|AUTOMATIC|Improved Spontaneous Casting ~ Crusader
-7	ADD:SPELLCASTER|Divine
-8	ADD:SPELLCASTER|Divine																											ABILITY:Special Ability|AUTOMATIC|Spells ~ Crusader
-9	ADD:SPELLCASTER|Divine
-10	ADD:SPELLCASTER|Divine																											ABILITY:Special Ability|AUTOMATIC|Turn Chosen Enemy ~ Crusader
+1	BONUS:ABILITYPOOL|Crusader Favored Choice|1	ADD:SPELLCASTER|Divine
+2									ADD:SPELLCASTER|Divine	ADD:LANGUAGE|3|Abyssal,Aquan,Auran,Celestial,Common,Draconic,Dwarven,Elven,Giant,Gnoll,Gnome,Goblin,Halfling,Ignan,Infernal,Orc,Sylvan,Terran,Undercommon
+3									ADD:SPELLCASTER|Divine
+4									ADD:SPELLCASTER|Divine																											ABILITY:Special Ability|AUTOMATIC|Find the Path ~ Crusader
+5									ADD:SPELLCASTER|Divine
+6									ADD:SPELLCASTER|Divine																											ABILITY:Special Ability|AUTOMATIC|Improved Spontaneous Casting ~ Crusader
+7									ADD:SPELLCASTER|Divine
+8									ADD:SPELLCASTER|Divine																											ABILITY:Special Ability|AUTOMATIC|Spells ~ Crusader
+9									ADD:SPELLCASTER|Divine
+10									ADD:SPELLCASTER|Divine																											ABILITY:Special Ability|AUTOMATIC|Turn Chosen Enemy ~ Crusader
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Demolitionist	HD:4		TYPE:PC.Prestige	ABB:ae2		MAXLEVEL:10	SOURCEPAGE:p.89	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -59,15 +59,15 @@ CLASS:Shock Trooper	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE=Craft|Intuit Direc
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY],1|TYPE=FastMovement
-2																									ABILITY:Special Ability|AUTOMATIC|Bonus Damage ~ Shock Trooper
-3																									ABILITY:Special Ability|AUTOMATIC|Improved Aid Another ~ Shock Trooper
+2																					ABILITY:Special Ability|AUTOMATIC|Bonus Damage ~ Shock Trooper
+3																					ABILITY:Special Ability|AUTOMATIC|Improved Aid Another ~ Shock Trooper
 4																	BONUS:VAR|LargeAttack|1
-5																									ABILITY:Special Ability|AUTOMATIC|Focused Attack ~ Shock Trooper
+5																					ABILITY:Special Ability|AUTOMATIC|Focused Attack ~ Shock Trooper
 6																	BONUS:VAR|LargeAttack|1
-7																									ABILITY:Special Ability|AUTOMATIC|Improved Dodge ~ Shock Trooper
+7																					ABILITY:Special Ability|AUTOMATIC|Improved Dodge ~ Shock Trooper
 8																	BONUS:VAR|LargeAttack|1
-9																									ABILITY:Special Ability|AUTOMATIC|Into The Breach ~ Shock Trooper
-10																									ABILITY:Special Ability|AUTOMATIC|Improved Critical ~ Shock Trooper
+9																					ABILITY:Special Ability|AUTOMATIC|Into The Breach ~ Shock Trooper
+10																					ABILITY:Special Ability|AUTOMATIC|Improved Critical ~ Shock Trooper
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Treasure Hunter	HD:6		TYPE:PC.Prestige	ABB:ae4		MAXLEVEL:10	SOURCEPAGE:p.93	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE

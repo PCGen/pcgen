@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Nov  6 12:29:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
-SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Chaos Magic	SOURCESHORT:ChaosMagic	SOURCEWEB:http://www.mongoosepublishing.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Chaos Magic	SOURCESHORT:ChaosMagic	SOURCEWEB:http://www.mongoosepublishing.com	SOURCEDATE:2001-01
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Chaos Mage	HD:4		TYPE:Base.PC	ABB:cmc		MAXLEVEL:20	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -12,11 +12,11 @@ CLASS:Chaos Mage	SPELLSTAT:CHA	SPELLTYPE:Chaos	BONUS:CASTERLEVEL|Chaos Mage|CL
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression
-1	ABILITY:Special Ability|AUTOMATIC|Chaos Magic Casting ~ Chaos Mage	BONUS:VAR|ChaosCasting|CL	BONUS:VAR|ChaosCasting|CHA	DEFINE:ChaosCasting|0
-4	ABILITY:Special Ability|AUTOMATIC|Chaos Familiar ~ Chaos Mage
-5	ABILITY:Special Ability|AUTOMATIC|Multiple Effects ~ Chaos Mage											DEFINE:MultipleEffects|CL/5
-8	ABILITY:Special Ability|AUTOMATIC|Countermagic ~ Chaos Mage
-12	ABILITY:Special Ability|AUTOMATIC|Purge Chaos ~ Chaos Mage
+1	BONUS:VAR|ChaosCasting|CL	BONUS:VAR|ChaosCasting|CHA	DEFINE:ChaosCasting|0		ABILITY:Special Ability|AUTOMATIC|Chaos Magic Casting ~ Chaos Mage
+4																ABILITY:Special Ability|AUTOMATIC|Chaos Familiar ~ Chaos Mage
+5											DEFINE:MultipleEffects|CL/5	ABILITY:Special Ability|AUTOMATIC|Multiple Effects ~ Chaos Mage
+8																ABILITY:Special Ability|AUTOMATIC|Countermagic ~ Chaos Mage
+12																ABILITY:Special Ability|AUTOMATIC|Purge Chaos ~ Chaos Mage
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
 CLASS:Bloodcarver	HD:6		TYPE:PC.Prestige	ABB:bcc		MAXLEVEL:5	SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ChaosCasting|CL
@@ -26,11 +26,11 @@ CLASS:Bloodcarver	PREALIGN:CG,CN,CE	PRESKILL:1,Concentration=12	PREVARGTEQ:Chaos
 CLASS:Bloodcarver	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Heal|Intimidate|Spellcraft|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Caster level
 CLASS:Bloodcarver	SPELLSTAT:CHA	SPELLTYPE:Chaos	BONUS:CASTERLEVEL|Bloodcarver|CL
-1			ABILITY:Special Ability|AUTOMATIC|Bloodletting ~ Bloodcarver
-2			ABILITY:Special Ability|AUTOMATIC|Ignore Pain ~ Bloodcarver										AUTO:FEAT|Combat Casting
-3	DR:1/-	ABILITY:Special Ability|AUTOMATIC|Damage Reduction 1 ~ Bloodcarver
-4			ABILITY:Special Ability|AUTOMATIC|Armour of Scars ~ Bloodcarver	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-5			ABILITY:Special Ability|AUTOMATIC|Bloodcarving ~ Bloodcarver
+1										ABILITY:Special Ability|AUTOMATIC|Bloodletting ~ Bloodcarver
+2										ABILITY:Special Ability|AUTOMATIC|Ignore Pain ~ Bloodcarver			AUTO:FEAT|Combat Casting
+3	DR:1/-								ABILITY:Special Ability|AUTOMATIC|Damage Reduction 1 ~ Bloodcarver
+4			BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	ABILITY:Special Ability|AUTOMATIC|Armour of Scars ~ Bloodcarver
+5										ABILITY:Special Ability|AUTOMATIC|Bloodcarving ~ Bloodcarver
 
 # Class Name	Hit Dice	Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
 CLASS:Doomringer	HD:4		ABB:dmc		MAXLEVEL:5	SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ChaosCasting|CL

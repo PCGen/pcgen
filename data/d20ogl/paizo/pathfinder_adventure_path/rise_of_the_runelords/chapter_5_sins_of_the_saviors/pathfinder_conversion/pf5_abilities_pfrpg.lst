@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sat May  8 22:34:11 2010 -- reformated by prettylst.pl v1.39 (build 11455)
-SOURCELONG:Rise of the Runelords - Chapter 5: Sins of the Saviors	SOURCESHORT:PF5	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8029	SOURCEDATE:2007-10
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Rise of the Runelords, Chapter 5: Sins of the Saviors	SOURCESHORT:PF5	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy815o	SOURCEDATE:2007-10
 
 # Ability Name							Unique Key					Category of Ability		Type							Visible	Define						Description
 Mimicry								KEY:Mimicry ~ Witchfire			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary											DESC:A witchfire can imitate the sounds of any animal found near its lair.

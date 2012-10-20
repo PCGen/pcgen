@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
-SOURCELONG:Auran d20 - Dark Awakenings - Guardian	SOURCESHORT:Guardian	SOURCEWEB:http://www.auran.com/d20
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Auran d20 - Dark Awakenings - Guardian	SOURCESHORT:Guardian	SOURCEWEB:http://www.auran.com/d20	SOURCEDATE:2000-01
 
 # Spell Name	Classes of caster						School			Sub-School			Spell Descriptors				Type				Components	Casting Time		Range			Target Area or Effect			Duration								Save Info		Spell Resistance	Description		Source Page
 Glimpse		CLASSES:Sorcerer,Wizard=1|Cleric=2			SCHOOL:Divination												TYPE:Arcane.Divine	COMPS:V S	CASTTIME:1 full round	RANGE:Long		TARGETAREA:Circle				DURATION:Instantanious						SAVEINFO:None	SPELLRES:No		DESC:See text	SOURCEPAGE:p.81

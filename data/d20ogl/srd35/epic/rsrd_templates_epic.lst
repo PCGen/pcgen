@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Author: Andargor <andargor@yahoo.com>
 
 # Template Name	Hit Dice Size	Challenge Rating	Damage Reduction			Level Adjustment		Required AL		Required Template		Bonus to Ability Pool					Save checks bonus				Combat bonus																								Damage reduction								Bonus Number of Feats	Bonus to HP				Misc bonus																Multiply base move									Add to magical move			Bonus to skill												Stat bonus													Modify VAR																																						Ability																																																			Virtual Feat						Spell Res.	Main Race Type		Vision				Innate Spells																																																								Natural Attacks

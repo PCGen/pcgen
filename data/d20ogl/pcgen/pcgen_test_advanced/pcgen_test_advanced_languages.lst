@@ -1,32 +1,34 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 ###Lang
-Doosuldorf				TYPE:Spoken
-Evilhaasness			TYPE:Written.Read
+# Language						Unique Key			Type					Required AL		Required Class
+Doosuldorf										TYPE:Spoken
+Evilhaasness									TYPE:Written.Read
 
-Terestial Alpha			TYPE:Spoken.Read.Written
-Terestial Beta			TYPE:Spoken.Read.Written
+Terestial Alpha									TYPE:Spoken.Read.Written
+Terestial Beta									TYPE:Spoken.Read.Written
 
-Evil Language need Evil Align	TYPE:Spoken.Read.Written	PREALIGN:LE,NE,CE
-Good Language need Good Align	TYPE:Spoken.Read.Written	PREALIGN:LG,NG,CG
+Evil Language need Evil Align							TYPE:Spoken.Read.Written	PREALIGN:LE,NE,CE
+Good Language need Good Align							TYPE:Spoken.Read.Written	PREALIGN:LG,NG,CG
 
-MonKee Language			TYPE:Spoken.Read.Written	PRECLASS:1,MonKee=1
-
-
-LangAutoOne				TYPE:Spoken.Read.Written
-LangBonusTwo			TYPE:Spoken.Read.Written
+MonKee Language									TYPE:Spoken.Read.Written				PRECLASS:1,MonKee=1
 
 
-Common				TYPE:Spoken.Read.Written
+LangAutoOne										TYPE:Spoken.Read.Written
+LangBonusTwo									TYPE:Spoken.Read.Written
 
-Choose Lang Persistence Race			TYPE:Other
-Choose Lang Persistence Race Two		TYPE:Other
 
-Choose Lang Persistence Template		TYPE:Other
-Choose Lang Persistence Template Two	TYPE:Other
+Common										TYPE:Spoken.Read.Written
 
-Draconic				TYPE:Spoken
-Sylvan				TYPE:Spoken
+Choose Lang Persistence Race							TYPE:Other
+Choose Lang Persistence Race Two						TYPE:Other
 
-Elven					TYPE:Spoken
-Undercommon				TYPE:Spoken
+Choose Lang Persistence Template						TYPE:Other
+Choose Lang Persistence Template Two					TYPE:Other
 
-Draconic				TYPE:Read	KEY:Draconic ~ Read
+Draconic										TYPE:Spoken
+Sylvan										TYPE:Spoken
+
+Elven											TYPE:Spoken
+Undercommon										TYPE:Spoken
+
+Draconic						KEY:Draconic ~ Read	TYPE:Read

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Aug  6 12:39:51 2008 -- reformated by prettylst.pl v1.38 (build 7233)
-SOURCELONG:Avalanche Press - Jade and Steel	SOURCESHORT:JadeSteel	SOURCEWEB:http://www.avalanchepress.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Avalanche Press - Jade and Steel	SOURCESHORT:JadeSteel	SOURCEWEB:http://www.avalanchepress.com	SOURCEDATE:2003-01
 
 # Feat Name				Type				Req. Att.	Required Feat											Required Skill				Required Stat	Description																	Source Page
 Dual Weapon Attack		TYPE:General.Fighter			PREFEAT:3,Ambidexterity,Two-Weapon Fighting,Improved Two-Weapon Fighting										DESC:Now do full STR bonus with off-handed weapons										SOURCEPAGE:p.21

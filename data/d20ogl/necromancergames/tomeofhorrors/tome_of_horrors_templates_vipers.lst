@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Jul 11 11:23:21 2008 -- reformated by prettylst.pl v1.38 (build 7077)
-SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/	SOURCEDATE:2002-01
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-# Template Name				Challenge Rating	Visible	Define						Required Race		Modify VAR																								Feat					Remove Object
+# Template Name				Challenge Rating	Visible	Define						Required Race		Modify VAR																								Ability							Remove Object
 Viper (Adder/Death)			CR:1			VISIBLE:YES	DEFINE:Suffocation|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|5	BONUS:VAR|PoisonInitDice|1	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2						ABILITY:FEAT|AUTOMATIC|Poison (Str)			REMOVE:FEAT|Poison (Con)
 Viper (Adder/Night)						VISIBLE:YES	DEFINE:Suffocation|1				PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonInitDieSize|-2	BONUS:VAR|PoisonSecDieSize|-2															ABILITY:FEAT|AUTOMATIC|Poison (Str)			REMOVE:FEAT|Poison (Con)
 Viper (Adder/Puff)						VISIBLE:YES								PRERACE:1,Snake (Viper%	BONUS:VAR|PoisonDC|3	BONUS:VAR|PoisonSecDieSize|2

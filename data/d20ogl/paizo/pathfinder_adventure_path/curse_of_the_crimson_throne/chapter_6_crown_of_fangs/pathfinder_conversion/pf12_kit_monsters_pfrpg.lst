@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Mon Jun 28 02:14:18 2010 -- reformated by prettylst.pl v1.39 (build 11455)
-SOURCELONG:Curse of the Crimson Throne - Chapter 6: Crown of Fangs	SOURCESHORT:CotCT:CoF	SOURCEWEB:http://paizo.com/store/paizo/v5748btpy84el	SOURCEDATE:2008-08
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Curse of the Crimson Throne, Chapter 6: Crown of Fangs	SOURCESHORT:PF12	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy84el	SOURCEDATE:2008-08
 
 STARTPACK:Akaruzug Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Akaruzug],[!PRERACE:1,%]
 ALIGN:LE

@@ -1,24 +1,26 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 #WeaponProf
+# Weapon Name			Type
 Light Blades
 Martial
-Suns Weapon Of Choice	TYPE:Simple.Sword
-Fine Wine Blade		TYPE:Martial.Sword
+Suns Weapon Of Choice		TYPE:Simple.Sword
+Fine Wine Blade			TYPE:Martial.Sword
 
-Extra Blade			TYPE:Sword
+Extra Blade				TYPE:Sword
 
-MonKee Fu Hands		TYPE:Exotic
-Uber Sword			TYPE:Exotic.Sword
-Cool Sword			TYPE:Martial.Sword.Blade.Special
+MonKee Fu Hands			TYPE:Exotic
+Uber Sword				TYPE:Exotic.Sword
+Cool Sword				TYPE:Martial.Sword.Blade.Special
 
-Rapier			TYPE:Martial
+Rapier				TYPE:Martial
 
 
-Simple Weapon One		TYPE:Simple
-Simple Weapon Two		TYPE:Simple
+Simple Weapon One			TYPE:Simple
+Simple Weapon Two			TYPE:Simple
 Simple Weapon Three		TYPE:Simple
 Simple Weapon Four		TYPE:Simple
 
-Longbow			TYPE:Martial.Bow.Longbow.WeaponGroupBows
+Longbow				TYPE:Martial.Bow.Longbow.WeaponGroupBows
 
 # Deity Specific Weapons For Bob Tests
 Deity Weapon Puni			TYPE:Exotic
@@ -27,9 +29,9 @@ Deity Weapon Second Puni	TYPE:Martial
 
 
 # Bob Specific Tests
-Bob Long Blade		TYPE:Bob.Exotic
-Bob Short Blade		TYPE:Bob.Exotic
-Bob Two Hand Blade	TYPE:Bob.Exotic
+Bob Long Blade			TYPE:Bob.Exotic
+Bob Short Blade			TYPE:Bob.Exotic
+Bob Two Hand Blade		TYPE:Bob.Exotic
 #
 Jim Long Blade			TYPE:Jim.Exotic
 Jim Short Blade			TYPE:Jim.Exotic

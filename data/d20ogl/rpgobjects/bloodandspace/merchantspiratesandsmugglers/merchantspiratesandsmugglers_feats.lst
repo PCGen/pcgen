@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Nov 28 23:54:00 2007 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Blood and Space - Merchants, Pirates and Smugglers	SOURCESHORT:BnS-MPS	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=57
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Space - Merchants, Pirates and Smugglers	SOURCESHORT:BnS-MPS	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=57	SOURCEDATE:2052-01
 # Original Entry by: Paul W. King
 
 # Feat Name			Output Name				Type					Required Feat			Required Lvl	Required Skill		Required Stat	Required Text										Var. Min. Value		Special ABility							Define				Description																		Stackable?	Multiple?	Choose		Combat bonus				Bonus to skill				Modify VAR					Source Page

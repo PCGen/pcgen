@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Oct  8 21:44:19 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Blood and Guts - War on Terror	SOURCESHORT:BnG-WoT	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=24
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Guts - War on Terror	SOURCESHORT:BnG-WoT	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=24	SOURCEDATE:2003-01
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
 CLASS:Demagogue	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|CL*6

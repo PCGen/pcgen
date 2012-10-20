@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Fantasy Flight Games - City Works	SOURCESHORT:CW	SOURCEWEB:http://www.fantasyflightgames.com/dd42.html	SOURCEDATE:2003-08
 # Original Entry by: Eddy Anthony
 
 ###Block:Assassin special ability
 
-# Feat Name			Type					Visible		Required Class			Minimum Size	Maximum Size	Define												Description								Stackable?	Multiple?	Choose												Weapon prof. bonus
-Weapon Mastery		TYPE:AssassinSpecialAbilities	VISIBLE:EXPORT	PRECLASS:1,Assassin (CW)=2				PRESIZELTEQ:M	DEFINE:AssassinDamage|2	DEFINE:AssassinToHit|0	DEFINE:AssassinCritical|0	DESC:You are exceptionaly deadly with this weapon	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|WEAPONPROFICIENCY|EQUIPMENT[TYPE=Dagger]	SELECT:1								BONUS:WEAPONPROF=%LIST|DAMAGE|AssassinDamage	BONUS:WEAPONPROF=%LIST|TOHIT|AssassinToHit	BONUS:WEAPONPROF=%LIST|CRITMULTADD|AssassinCritical
+# Feat Name			Type					Visible		Required Class			Minimum Size	Maximum Size	Define												Description								Stackable?	Multiple?	Choose																Selections	Weapon prof. bonus
+Weapon Mastery		TYPE:AssassinSpecialAbilities	VISIBLE:EXPORT	PRECLASS:1,Assassin (CW)=2				PRESIZELTEQ:M	DEFINE:AssassinDamage|2	DEFINE:AssassinToHit|0	DEFINE:AssassinCritical|0	DESC:You are exceptionaly deadly with this weapon	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|WEAPONPROFICIENCY|EQUIPMENT[TYPE=Dagger]							SELECT:1	BONUS:WEAPONPROF=%LIST|DAMAGE|AssassinDamage	BONUS:WEAPONPROF=%LIST|TOHIT|AssassinToHit	BONUS:WEAPONPROF=%LIST|CRITMULTADD|AssassinCritical
 Large Weapon Mastery	TYPE:AssassinSpecialAbilities	VISIBLE:EXPORT	PRECLASS:1,Assassin (CW)=2	PRESIZEGTEQ:L				DEFINE:AssassinDamage|2	DEFINE:AssassinToHit|0	DEFINE:AssassinCritical|0	DESC:You are exceptionaly deadly with this weapon	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|WEAPONPROFICIENCY|EQUIPMENT[TYPE=Dagger]|Longsword|Rapier|Scimitar|Sword (Short)	SELECT:1	BONUS:WEAPONPROF=%LIST|DAMAGE|AssassinDamage	BONUS:WEAPONPROF=%LIST|TOHIT|AssassinToHit	BONUS:WEAPONPROF=%LIST|CRITMULTADD|AssassinCritical
 
 ###Block:Speaker of the City special ability, Note- the SpeakerSpells feat is used as a prerequisite for the Prestige Spells, it has no other purpose.

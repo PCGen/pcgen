@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Tue Jul 15 00:06:01 2008 -- reformated by prettylst.pl v1.38 (build 7077)
-SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 
-# Skill Name				Product Identity?	Key Stat	Untrained?		Skill Penalty Apply	Exclusive?		Type						Source Page			Choose			Bonus to skill
+# Skill Name				Product Identity?	Key Stat	Untrained?		Skill Penalty Apply	Exclusive?		Type						Source Page			Choose			Bonus to skill																													Automatically Gained Language
 Alchemy (Organ Harvesting)		NAMEISPI:NO		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Alchemy		SOURCEPAGE:p.26
 Bluff (Flattery)				NAMEISPI:NO		KEYSTAT:CHA											TYPE:Charisma.Bluff			SOURCEPAGE:p.26
 Climb (Swarm Huge Monster)		NAMEISPI:NO		KEYSTAT:STR				ACHECK:YES						TYPE:Strength.Climb			SOURCEPAGE:p.26-27
@@ -11,7 +11,7 @@ Diplomacy (Dragon Protocol)		NAMEISPI:NO		KEYSTAT:CHA											TYPE:Charisma.Di
 Jump (Leap into the Saddle)		NAMEISPI:NO		KEYSTAT:STR				ACHECK:YES						TYPE:Strength.Jump			SOURCEPAGE:p.28						BONUS:SKILL|Jump (Leap into the Saddle)|SynergyBonus|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK
 Pick Pocket (Plant Object)		NAMEISPI:NO		KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES						TYPE:Dexterity.Pick Pocket		SOURCEPAGE:p.28						BONUS:SKILL|Pick Pocket (Plant Object)|SynergyBonus|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK
 Search (Stash Item)			NAMEISPI:NO		KEYSTAT:INT											TYPE:Intelligence.Search		SOURCEPAGE:p.28
-Speak Language (Speak Dialect)	NAMEISPI:NO				USEUNTRAINED:NO								TYPE:None.Language			SOURCEPAGE:p.28		AUTO:LANG|%LIST	CHOOSE:LANG|TYPE=Spoken
+Speak Language (Speak Dialect)	NAMEISPI:NO				USEUNTRAINED:NO								TYPE:None.Language			SOURCEPAGE:p.28		CHOOSE:LANG|TYPE=Spoken																																AUTO:LANG|%LIST
 
 ###Block:Type .MODs
 # Skill Name		Type

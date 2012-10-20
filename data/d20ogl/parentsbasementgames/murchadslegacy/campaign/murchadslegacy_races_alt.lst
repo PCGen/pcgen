@@ -1,34 +1,34 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 16:25:26 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://murchadslegacy.pbwiki.com/	SOURCEDATE:2005-07
 #Original Entry: Eddy Anthony (MoSaT)
 
-# Race Name				Automatic Languages	Clear Bonus Languages	Bonus Languages
-Human.MOD				AUTO:LANG|Remarian		LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
-Dwarf.MOD				AUTO:LANG|Galkarnic	LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
-Elf.MOD				AUTO:LANG|Aeylamdyarian	LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
-Gnome.MOD				AUTO:LANG|Remarian		LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
-Half-Elf.MOD			AUTO:LANG|Remarian		LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
-Half-Orc.MOD			AUTO:LANG|Remarian		LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
-Halfling.MOD			AUTO:LANG|Homish		LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
+# Race Name				Clear Bonus Languages	Bonus Languages										Automatically Gained Language
+Human.MOD				LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Remarian
+Dwarf.MOD				LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Galkarnic
+Elf.MOD				LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Aeylamdyarian
+Gnome.MOD				LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Remarian
+Half-Elf.MOD			LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Remarian
+Half-Orc.MOD			LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Remarian
+Halfling.MOD			LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Homish
 
-Elf (Aquatic).MOD			AUTO:LANG|Aeylamdyarian	LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
-Elf (Drow).MOD			AUTO:LANG|Aeylamdyarian	LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
-Elf (Grey).MOD			AUTO:LANG|Aeylamdyarian	LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
-Elf (Wild).MOD			AUTO:LANG|Aeylamdyarian	LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
-Elf (Wood).MOD			AUTO:LANG|Aeylamdyarian	LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
+Elf (Aquatic).MOD			LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Aeylamdyarian
+Elf (Drow).MOD			LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Aeylamdyarian
+Elf (Grey).MOD			LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Aeylamdyarian
+Elf (Wild).MOD			LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Aeylamdyarian
+Elf (Wood).MOD			LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Aeylamdyarian
 
-Gnoll.MOD				AUTO:LANG|Gadohig		LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
-Gnome (Svirfneblin).MOD		AUTO:LANG|Remarian		LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
-Gnome (Forest).MOD		AUTO:LANG|Remarian		LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
-Goblin.MOD				AUTO:LANG|Gadohig		LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
-Halfling (Tallfellow).MOD	AUTO:LANG|Homish		LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
-Halfling (Deep).MOD		AUTO:LANG|Homish		LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
-Hobgoblin.MOD			AUTO:LANG|Gadohig		LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
-Kobold.MOD				AUTO:LANG|Gadohig		LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
+Gnoll.MOD				LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Gadohig
+Gnome (Svirfneblin).MOD		LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Remarian
+Gnome (Forest).MOD		LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Remarian
+Goblin.MOD				LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Gadohig
+Halfling (Tallfellow).MOD	LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Homish
+Halfling (Deep).MOD		LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Homish
+Hobgoblin.MOD			LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Gadohig
+Kobold.MOD				LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Gadohig
 
-Orc.MOD				AUTO:LANG|Gadohig		LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
-Planetouched (Aasimar).MOD	AUTO:LANG|Remarian		LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
-Planetouched (Tiefling).MOD	AUTO:LANG|Remarian		LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian
+Orc.MOD				LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Gadohig
+Planetouched (Aasimar).MOD	LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Remarian
+Planetouched (Tiefling).MOD	LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Remarian
 
 #
 # End

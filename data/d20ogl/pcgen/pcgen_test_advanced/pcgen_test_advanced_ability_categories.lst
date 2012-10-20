@@ -1,57 +1,59 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
-ABILITYCATEGORY:Martial Art Techniques		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MartialArtsSkill			PLURAL:Martial Art Techniques			DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Martial Art Skill Power Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MASpower				PLURAL:Martial Arts Power Choices		DISPLAYLOCATION:Character Creation Pool
+# Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object			Type of Object																																				Specific choices list				Plural description for UI			Display Location
+ABILITYCATEGORY:Martial Art Techniques			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES					CATEGORY:Special Ability		TYPE:MartialArtsSkill																																										PLURAL:Martial Art Techniques			DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Martial Art Skill Power Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES					CATEGORY:Special Ability		TYPE:MASpower																																											PLURAL:Martial Arts Power Choices		DISPLAYLOCATION:Character Creation Pool
 
-ABILITYCATEGORY:Martial Arts ~ Hiten Mitsurugi Ryuu				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MA ~ Hiten Mitsurugi Ryuu			PLURAL:Hiten Mitsurugi Ryuu Techniques			DISPLAYLOCATION:Character Creation Pool
-
-
-ABILITYCATEGORY:Any Feat Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:FEAT			TYPE:*																																										PLURAL:Any Feat Choices		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Martial Arts ~ Hiten Mitsurugi Ryuu	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES					CATEGORY:Special Ability		TYPE:MA ~ Hiten Mitsurugi Ryuu																																								PLURAL:Hiten Mitsurugi Ryuu Techniques	DISPLAYLOCATION:Character Creation Pool
 
 
-ABILITYCATEGORY:Exotic Weapon Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:FEAT																																								POOL:1				ABILITYLIST:Exotic Weapon Proficiency	PLURAL:Exotic Weapon Choices		DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Any Feat Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES					CATEGORY:FEAT				TYPE:*																																												PLURAL:Any Feat Choices				DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:CodeOneOneFourFive	VISIBLE:QUALIFY	EDITABLE:YES	TYPE:CODEOneOneFourFive	EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability																		DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Exotic Weapon Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	POOL:1			CATEGORY:FEAT																																										ABILITYLIST:Exotic Weapon Proficiency	PLURAL:Exotic Weapon Choices			DISPLAYLOCATION:Character Creation Pool
+
+ABILITYCATEGORY:CodeOneOneFourFive				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES					CATEGORY:Special Ability		TYPE:CODEOneOneFourFive																																																	DISPLAYLOCATION:Class Abilities
 
 # Enable Support for OS testing
-ABILITYCATEGORY:FEAT				VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT	PLURAL:Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Internal			VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal
-ABILITYCATEGORY:Mutation			VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Mutation
-ABILITYCATEGORY:Salient Divine Ability	VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:SalientDivinePool	CATEGORY:Salient Divine Ability	PLURAL:Salient Divine Abilities
+ABILITYCATEGORY:FEAT						VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT																																																	PLURAL:Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Internal					VISIBLE:NO		EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Internal
+ABILITYCATEGORY:Mutation					VISIBLE:NO		EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Mutation
+ABILITYCATEGORY:Salient Divine Ability			VISIBLE:YES		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:SalientDivinePool	CATEGORY:Salient Divine Ability																																														PLURAL:Salient Divine Abilities
 
 #
-ABILITYCATEGORY:Special Ability	CATEGORY:Special Ability
+ABILITYCATEGORY:Special Ability																						CATEGORY:Special Ability
 #
-ABILITYCATEGORY:Animal Trick			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AnimalTrick		PLURAL:Animal Tricks		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Special Ability Sub		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SpecialAbilitySub		PLURAL:Special Ability Subs		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Animal Trick					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:AnimalTrick																																											PLURAL:Animal Tricks				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Special Ability Sub				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:SpecialAbilitySub																																										PLURAL:Special Ability Subs			DISPLAYLOCATION:Class Abilities
 
 
 
-ABILITYCATEGORY:Talent																			VISIBLE:NO		DISPLAYLOCATION:Talents
+ABILITYCATEGORY:Talent						VISIBLE:NO																																																																											DISPLAYLOCATION:Talents
 #
-ABILITYCATEGORY:Force Powers			CATEGORY:Force Powers												VISIBLE:QUALIFY	DISPLAYLOCATION:Class Abilities	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO
-ABILITYCATEGORY:Force Techniques		CATEGORY:Force Techniques											VISIBLE:QUALIFY	DISPLAYLOCATION:Class Abilities	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO
-ABILITYCATEGORY:Force Secrets			CATEGORY:Force Secrets												VISIBLE:QUALIFY	DISPLAYLOCATION:Class Abilities	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO
+ABILITYCATEGORY:Force Powers					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Force Powers																																																							DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Force Techniques				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Force Techniques																																																						DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Force Secrets					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Force Secrets																																																							DISPLAYLOCATION:Class Abilities
 #
 
-ABILITYCATEGORY:Test Choosers			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Chooser		PLURAL:Choosers		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Test Choosers					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:Chooser																																											PLURAL:Choosers					DISPLAYLOCATION:Class Abilities
 
 # EClipse Stuff
-ABILITYCATEGORY:Character Points			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:General.Character Creation.SavingThrow.Proficiencies.CasterLevel.MagicLevels.CombatEnhancements.Base Attack Bonus.Abilities.TemplatesRacial.Metamagical.Channeling.Paths.Dominion.PathoftheDragon.MysticArtist.Pact.Extra												PLURAL:Character Points			DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Character Class Skill Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:ClassSkillsChoice																																											PLURAL:Class Skill Choices				DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Character Points				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES					CATEGORY:Special Ability		TYPE:General.Character Creation.SavingThrow.Proficiencies.CasterLevel.MagicLevels.CombatEnhancements.Base Attack Bonus.Abilities.TemplatesRacial.Metamagical.Channeling.Paths.Dominion.PathoftheDragon.MysticArtist.Pact.Extra								PLURAL:Character Points				DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Character Class Skill Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES					CATEGORY:Special Ability		TYPE:ClassSkillsChoice																																										PLURAL:Class Skill Choices			DISPLAYLOCATION:Character Creation Pool
 
-ABILITYCATEGORY:Skill Buy		VISIBLE:NO									FRACTIONALPOOL:YES	CATEGORY:Skill Buy
+ABILITYCATEGORY:Skill Buy					VISIBLE:NO									FRACTIONALPOOL:YES					CATEGORY:Skill Buy
 #
-ABILITYCATEGORY:Character Skills	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Skill Buy	TYPE:SkillBuy	PLURAL:Character Skills		DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Character Skills				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES					CATEGORY:Skill Buy			TYPE:SkillBuy																																											PLURAL:Character Skills				DISPLAYLOCATION:Character Creation Pool
 
 
 ###Block: Paths of Power ----------------------------------------------------------------------------------------------
-# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
-ABILITYCATEGORY:Mystic Artist Skill			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:MysticArtistSkill										DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Mystic Artist Stat Selection	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:MysticArtistChoice										DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Disadvantages					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:Disadvantage																																												PLURAL:Disadvantages					DISPLAYLOCATION:Character Creation Pool
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display Location
+ABILITYCATEGORY:Mystic Artist Skill			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:MysticArtistSkill						DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Mystic Artist Stat Selection	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:MysticArtistChoice						DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Disadvantages				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:Disadvantage		PLURAL:Disadvantages		DISPLAYLOCATION:Character Creation Pool
 
-ABILITYCATEGORY:Internal			CATEGORY:Internal
+ABILITYCATEGORY:Internal																		CATEGORY:Internal
 
 
 
-ABILITYCATEGORY:CODE-362				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:FEAT			TYPE:CODE-362A												PLURAL:CODE-362 Test			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:CODE-362				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:FEAT			TYPE:CODE-362A		PLURAL:CODE-362 Test		DISPLAYLOCATION:Feats

@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Wed Aug  6 21:30:02 2008 -- reformated by prettylst.pl v1.38 (build 7233)
-SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCEWEB:http://www.darwinrpg.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCEWEB:http://www.darwinrpg.com	SOURCEDATE:2001-01
 # Original Entry by: Tir Gwaith
 
-# Feat Name					Type			Visible	Multiple?	Choose
+# Feat Name					Type			Visible	Multiple?	Choose				Class Skill
 All Exotic Weapon Proficiencies	TYPE:Special	VISIBLE:NO
-Craft Class Skills			TYPE:Special	VISIBLE:NO	MULT:YES	CHOOSE:SKILL|TYPE=Craft	CSKILL:LIST
+Craft Class Skills			TYPE:Special	VISIBLE:NO	MULT:YES	CHOOSE:SKILL|TYPE=Craft		CSKILL:LIST
 Knowledge Class Skills			TYPE:Special	VISIBLE:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	CSKILL:LIST

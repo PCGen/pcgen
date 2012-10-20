@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author: $ -- Sat Mar 18 10:04:01 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Roles and Classes - Covert Hero	SOURCESHORT:CovertHero	SOURCEWEB:http://swordsedgepublishing.ca/Products.html
+# CVS $Revision$ $Author: $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Roles and Classes - Covert Hero	SOURCESHORT:CovertHero	SOURCEWEB:http://swordsedgepublishing.ca/Products.html	SOURCEDATE:2005-01
 
 # Feat Name					Type
 Acrobatic.MOD				TYPE:CovertHero

@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Tue Mar 11 21:56:05 2008 -- reformated by prettylst.pl v1.38 (build 5225)
-SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
 ###Block: Special Materials
-# Modifier Name	Unique Key		Type												Cost		Visible		Type granted				Keys to replace			Source Page					Required Type	Combat bonus																																	Modify the item cost																					Weapon prop. bonus										Special Property					Apply to both heads
+# Modifier Name	Unique Key		Type												Cost		Visible		Type granted				Keys to replace			Source Page					Required Type	Combat bonus																														Modify the item cost																					Weapon prop. bonus										Special Property					Apply to both heads
 Ferroplasm		KEY:FERROPLASM	TYPE:Ammunition.Weapon.Armor.Shield.BaseMaterial.MasterworkQuality	COST:1500	VISIBLE:QUALIFY	ITYPE:Metal.FerroPlasm.Masterwork	REPLACES:STEEL,MWORKA,MWORKW	SOURCEPAGE:srdpsionicitems.rtf	PRETYPE:1,Metal	BONUS:COMBAT|AC|1|TYPE=Armor|PREMULT:1,[PRETYPE:2,Armor,Light],[PRETYPE:1,Shield]	BONUS:COMBAT|AC|2|TYPE=Armor|PRETYPE:2,Armor,Medium	BONUS:COMBAT|AC|3|TYPE=Armor|PRETYPE:2,Armor,Heavy	BONUS:ITEMCOST|TYPE.Armor.Medium|2500	BONUS:ITEMCOST|TYPE.Heavy|6500	BONUS:ITEMCOST|TYPE.Weapon|1000+(min(floor(DMGDIE/8),1)*5000)	BONUS:WEAPON|TOHIT|1+min(floor(DMGDIE/8),1)|TYPE=Enhancement|PRETYPE:1,Weapon	SPROP:Usable only by psionic creatures	ASSIGNTOALL:YES
 
 ###Block:Weapon

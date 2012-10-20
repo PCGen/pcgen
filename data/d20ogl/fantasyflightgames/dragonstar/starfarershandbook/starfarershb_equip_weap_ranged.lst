@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Feb 12 13:16:24 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html	SOURCEDATE:2001-12
 
 ###Block: MODs
@@ -98,15 +98,15 @@ Grenade (Smoke)		PROFICIENCY:WEAPON|Grenade (Smoke)		TYPE:Weapon.HighTechMartial
 Grenade (Stun)		PROFICIENCY:WEAPON|Grenade (Stun)		TYPE:Weapon.HighTechMartial.Ranged.Explosive	COST:50	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:6d6	RANGE:10	SIZE:T	SOURCEPAGE:p.100	SPROP:Blast damage is subdual
 
 ###Block: Ship Weapons
-# Equipment Name							Type										Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page			Special Property									Rate of Fire
-Scout Walker Laser Cannon					TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Fire		CRITMULT:x2			CRITRANGE:1			DAMAGE:6d10		RANGE:10	SIZE:H	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+2 Attck bonus); Firing Arc:Frontal(1)	RATEOFFIRE:Single Pulse/Attack
-Assault Walker Laser Cannon					TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Fire		CRITMULT:x2			CRITRANGE:1			DAMAGE:6d10		RANGE:10	SIZE:H	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+2 Attck bonus); Firing Arc:Frontal(1)	RATEOFFIRE:Single Pulse/Attack
-Assault Walker Missile launcher (Multishot-4 shot)	TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Explosive	CRITMULT:x2			CRITRANGE:1			DAMAGE:6d10		RANGE:0	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Firing Arc:Turret(1)							RATEOFFIRE:1 Missile/Attack
-Hovertank Plasma Cannon						TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Fire		CRITMULT:x2			CRITRANGE:1			DAMAGE:10d10	RANGE:15	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+2 Attck bonus); Firing Arc:Turret(1)	RATEOFFIRE:Single Pulse/Attack
-Hovertank Laser Cannon						TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Fire		CRITMULT:x2			CRITRANGE:1			DAMAGE:6d10		RANGE:10	SIZE:H	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+2 Attck bonus); Firing Arc:Turret(1)	RATEOFFIRE:Single Pulse/Attack
-Hovertank Missile launcher (Multishot-16 shot)		TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Explosive	CRITMULT:x2			CRITRANGE:1			DAMAGE:0		RANGE:0	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Firing Arc:Frontal(1)							RATEOFFIRE:4 Missiles/Attack
-Strike Aircraft Laser Cannon					TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Fire		CRITMULT:x2			CRITRANGE:1			DAMAGE:6d10		RANGE:1	SIZE:H	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+5 Attck bonus); Firing Arc:Frontal(1)	RATEOFFIRE:Single Pulse/Attack
-Strike Aircraft Missile launcher (Multishot-16 shot)	TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Explosive	CRITMULT:x2			CRITRANGE:1			DAMAGE:0		RANGE:0	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Firing Arc:Frontal(1)							RATEOFFIRE:4 Missiles/Attack
+# Equipment Name							Type										Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page			Special Property											Rate of Fire
+Scout Walker Laser Cannon					TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Fire		CRITMULT:x2			CRITRANGE:1			DAMAGE:6d10		RANGE:10	SIZE:H	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+2 Attck bonus); Firing Arc:Frontal(1)			RATEOFFIRE:Single Pulse/Attack
+Assault Walker Laser Cannon					TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Fire		CRITMULT:x2			CRITRANGE:1			DAMAGE:6d10		RANGE:10	SIZE:H	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+2 Attck bonus); Firing Arc:Frontal(1)			RATEOFFIRE:Single Pulse/Attack
+Assault Walker Missile launcher (Multishot-4 shot)	TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Explosive	CRITMULT:x2			CRITRANGE:1			DAMAGE:6d10		RANGE:0	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Firing Arc:Turret(1)									RATEOFFIRE:1 Missile/Attack
+Hovertank Plasma Cannon						TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Fire		CRITMULT:x2			CRITRANGE:1			DAMAGE:10d10	RANGE:15	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+2 Attck bonus); Firing Arc:Turret(1)			RATEOFFIRE:Single Pulse/Attack
+Hovertank Laser Cannon						TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Fire		CRITMULT:x2			CRITRANGE:1			DAMAGE:6d10		RANGE:10	SIZE:H	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+2 Attck bonus); Firing Arc:Turret(1)			RATEOFFIRE:Single Pulse/Attack
+Hovertank Missile launcher (Multishot-16 shot)		TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Explosive	CRITMULT:x2			CRITRANGE:1			DAMAGE:0		RANGE:0	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Firing Arc:Frontal(1)									RATEOFFIRE:4 Missiles/Attack
+Strike Aircraft Laser Cannon					TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Fire		CRITMULT:x2			CRITRANGE:1			DAMAGE:6d10		RANGE:1	SIZE:H	SOURCEPAGE:Chap. 9	SPROP:Targeting Computer(+5 Attck bonus); Firing Arc:Frontal(1)			RATEOFFIRE:Single Pulse/Attack
+Strike Aircraft Missile launcher (Multishot-16 shot)	TYPE:Weapon.HighTechMartial.Ranged.HeavyWeapon.Explosive	CRITMULT:x2			CRITRANGE:1			DAMAGE:0		RANGE:0	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Firing Arc:Frontal(1)									RATEOFFIRE:4 Missiles/Attack
 Interceptor Twin Laser Cannon(Battery)			TYPE:Weapon.Ranged.ShipWeapon.Fire					CRITMULT:x2			CRITRANGE:1			DAMAGE:6d10		RANGE:5	SIZE:H	SOURCEPAGE:Chap. 9	SPROP:Damage is x2; Targeting Computer(+5 Attck bonus); Firing Arc:Frontal(1)	RATEOFFIRE:All facing Battery/Attack
 Corvette Twin Laser Cannon(Battery)				TYPE:Weapon.Ranged.ShipWeapon.Fire					CRITMULT:x2			CRITRANGE:1			DAMAGE:6d10		RANGE:5	SIZE:H	SOURCEPAGE:Chap. 9	SPROP:Damage is x2; Targeting Computer(+5 Attck bonus); Firing Arc:Frontal(1)	RATEOFFIRE:All facing Battery/Attack
 Corvette Twin Plasma Cannon(Battery)			TYPE:Weapon.Ranged.ShipWeapon.Fire					CRITMULT:x2			CRITRANGE:1			DAMAGE:10d10	RANGE:10	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Damage is x2; Targeting Computer(+5 Attck bonus); Firing Arc:Turret(1)	RATEOFFIRE:All facing Battery/Attack
@@ -118,7 +118,7 @@ Carrier Quad Plasma Cannon(Battery)				TYPE:Weapon.Ranged.ShipWeapon.Fire					CR
 Carrier Torpedo Bay						TYPE:Weapon.Ranged.ShipWeapon.Explosive												DAMAGE:6d10		RANGE:0	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Damage is x5; Firing Arc:Frontal(2);Speed 50					RATEOFFIRE:2 Torpedos
 Battleship Quad Ion Cannon(Battery)				TYPE:Weapon.Ranged.ShipWeapon.Bludgeoning				CRITMULT:x2			CRITRANGE:1			DAMAGE:10d12	RANGE:20	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Damage is x4; Targeting Computer(+5 Attck bonus); Firing Arc:Frontal(1)	RATEOFFIRE:All facing Battery/Attack
 Battleship Quad Plasma Cannon(Battery)			TYPE:Weapon.Ranged.ShipWeapon.Fire					CRITMULT:x2			CRITRANGE:1			DAMAGE:10d10	RANGE:10	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Damage is x4; Targeting Computer(+5 Attck bonus); Firing Arc:Turret(10)	RATEOFFIRE:All facing Battery/Attack
-Battleship Torpedo Bay						TYPE:Weapon.Ranged.ShipWeapon.Explosive												DAMAGE:6d10		RANGE:0	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Damage is x5; Firing Arc:Front(3),Left(2),Right(2),Rear(3);Speed 50		RATEOFFIRE:2 Torpedos
+Battleship Torpedo Bay						TYPE:Weapon.Ranged.ShipWeapon.Explosive												DAMAGE:6d10		RANGE:0	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Damage is x5; Firing Arc:Front(3),Left(2),Right(2),Rear(3);Speed 50	RATEOFFIRE:2 Torpedos
 DreadnoughtQuad Ion Cannon(Battery)				TYPE:Weapon.Ranged.ShipWeapon.Bludgeoning				CRITMULT:x2			CRITRANGE:1			DAMAGE:10d12	RANGE:20	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Damage is x4; Targeting Computer(+5 Attck bonus); Firing Arc:Turret(3)	RATEOFFIRE:All facing Battery/Attack
 Dreadnought Quad Plasma Cannon(Battery)			TYPE:Weapon.Ranged.ShipWeapon.Fire					CRITMULT:x2			CRITRANGE:1			DAMAGE:10d10	RANGE:10	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Damage is x4; Targeting Computer(+5 Attck bonus); Firing Arc:Turret(20)	RATEOFFIRE:All facing Battery/Attack
-Dreadnought Torpedo Bay						TYPE:Weapon.Ranged.ShipWeapon.Explosive												DAMAGE:6d10		RANGE:0	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Damage is x5; Firing Arc:Front(5),Left(5),Right(5),Rear(5);Speed 50		RATEOFFIRE:2 Torpedos
+Dreadnought Torpedo Bay						TYPE:Weapon.Ranged.ShipWeapon.Explosive												DAMAGE:6d10		RANGE:0	SIZE:G	SOURCEPAGE:Chap. 9	SPROP:Damage is x5; Firing Arc:Front(5),Left(5),Right(5),Rear(5);Speed 50	RATEOFFIRE:2 Torpedos

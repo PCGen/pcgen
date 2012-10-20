@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Oct  8 12:19:38 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Malhavoc Press - If Thoughts Could Kill	SOURCESHORT:ITCK	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2002-04
 # Remove Veiwing in Colorless Adept changed to "Remote View" to match srd skill.
 
@@ -9,16 +9,16 @@ CLASS:Colorless Adept	PREFEAT:1,Sequester Power	PREFEAT:2,TYPE=Psionic,TYPE=Meta
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Colorless Adept	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE=Craft|Diplomacy|TYPE=Knowledge|TYPE=Profession|Psicraft|Remote View|Speak Language|Spot|Stabilize Self
 ###Block: Level Progression
-1	ABILITY:Special Ability|AUTOMATIC|Power Sharing I ~ Colorless Adept																																													ADD:SPELLCASTER|Psionic
-2																																																	ADD:SPELLCASTER|Psionic
-3														BONUS:ABILITYPOOL|Psionic Combat Mode|1																													ADD:SPELLCASTER|Psionic
-4	ABILITY:Special Ability|AUTOMATIC|Power Sharing II ~ Colorless Adept																																													ADD:SPELLCASTER|Psionic
-5	ABILITY:Special Ability|AUTOMATIC|Colorless Fire ~ Colorless Adept								BONUS:VAR|ColorlessFireDC|(17+BASESPELLSTAT)	BONUS:VAR|ColorlessFireTimes|(var("CL=Colorless Adept")-2)	DEFINE:ColorlessFireDC|0	DEFINE:ColorlessFireTimes|0
-6														BONUS:ABILITYPOOL|Psionic Combat Mode|1																													ADD:SPELLCASTER|Psionic
-7	ABILITY:Special Ability|AUTOMATIC|Power Sharing III ~ Colorless Adept																																													ADD:SPELLCASTER|Psionic
-8																																																	ADD:SPELLCASTER|Psionic
-9														BONUS:ABILITYPOOL|Psionic Combat Mode|1																													ADD:SPELLCASTER|Psionic
-10	ABILITY:Special Ability|AUTOMATIC|Colorless Rain ~ Colorless Adept								BONUS:VAR|ColorlessRainDC|(23+BASESPELLSTAT)	BONUS:VAR|ColorlessRainTimes|(var("CL=Colorless Adept")-5)	DEFINE:ColorlessRainDC|0	DEFINE:ColorlessRainTimes|0
+1																																				ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Power Sharing I ~ Colorless Adept
+2																																				ADD:SPELLCASTER|Psionic
+3	BONUS:ABILITYPOOL|Psionic Combat Mode|1																													ADD:SPELLCASTER|Psionic
+4																																				ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Power Sharing II ~ Colorless Adept
+5								BONUS:VAR|ColorlessFireDC|(17+BASESPELLSTAT)	BONUS:VAR|ColorlessFireTimes|(var("CL=Colorless Adept")-2)	DEFINE:ColorlessFireDC|0	DEFINE:ColorlessFireTimes|0					ABILITY:Special Ability|AUTOMATIC|Colorless Fire ~ Colorless Adept
+6	BONUS:ABILITYPOOL|Psionic Combat Mode|1																													ADD:SPELLCASTER|Psionic
+7																																				ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Power Sharing III ~ Colorless Adept
+8																																				ADD:SPELLCASTER|Psionic
+9	BONUS:ABILITYPOOL|Psionic Combat Mode|1																													ADD:SPELLCASTER|Psionic
+10								BONUS:VAR|ColorlessRainDC|(23+BASESPELLSTAT)	BONUS:VAR|ColorlessRainTimes|(var("CL=Colorless Adept")-5)	DEFINE:ColorlessRainDC|0	DEFINE:ColorlessRainTimes|0					ABILITY:Special Ability|AUTOMATIC|Colorless Rain ~ Colorless Adept
 
 # Class Name	Output Name		Hit Dice	Type			Base class as subclass?	Source Page		Save checks bonus											Combat bonus
 CLASS:Psion ITCK	OUTPUTNAME:Psion	HD:4		TYPE:PC.Base	ALLOWBASECLASS:NO		SOURCEPAGE:p.37	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -69,18 +69,18 @@ SUBCLASSLEVEL:1	ADD:FEAT|2|Clairsentience Subdiscipline,Metacreativity Subdiscip
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Level progression
-1												ABILITY:Special Ability|AUTOMATIC|Psion 0 level powers ~ Psion ITCK								DEFINE:PsionFreePowers|CL+var("BL=Psion ITCK")+3	ABILITY:Special Ability|AUTOMATIC|Psicrystal
-1	KNOWN:3,1				SPECIALTYKNOWN:1,1													BONUS:ABILITYPOOL|Psionic Combat Mode|5
+1																			DEFINE:PsionFreePowers|CL+var("BL=Psion ITCK")+3	ABILITY:Special Ability|AUTOMATIC|Psion 0 level powers ~ Psion ITCK	ABILITY:Special Ability|AUTOMATIC|Psicrystal
+1	KNOWN:3,1				SPECIALTYKNOWN:1,1			BONUS:ABILITYPOOL|Psionic Combat Mode|5
 2	KNOWN:4,1				SPECIALTYKNOWN:1,1
-3	KNOWN:4,2				SPECIALTYKNOWN:1,1													BONUS:ABILITYPOOL|Psionic Combat Mode|1
+3	KNOWN:4,2				SPECIALTYKNOWN:1,1			BONUS:ABILITYPOOL|Psionic Combat Mode|1
 4	KNOWN:5,2,0				SPECIALTYKNOWN:1,1,1
-5	KNOWN:5,3,1				SPECIALTYKNOWN:1,1,1													BONUS:ABILITYPOOL|Psionic Combat Mode|1
+5	KNOWN:5,3,1				SPECIALTYKNOWN:1,1,1			BONUS:ABILITYPOOL|Psionic Combat Mode|1
 6	KNOWN:6,3,1,0			SPECIALTYKNOWN:1,1,1,1
-7	KNOWN:6,4,2,1			SPECIALTYKNOWN:1,1,1,1													BONUS:ABILITYPOOL|Psionic Combat Mode|1
+7	KNOWN:6,4,2,1			SPECIALTYKNOWN:1,1,1,1			BONUS:ABILITYPOOL|Psionic Combat Mode|1
 8	KNOWN:7,4,2,1,0			SPECIALTYKNOWN:1,1,1,1,1
-9	KNOWN:7,4,3,2,1			SPECIALTYKNOWN:1,1,1,1,1												BONUS:ABILITYPOOL|Psionic Combat Mode|1
+9	KNOWN:7,4,3,2,1			SPECIALTYKNOWN:1,1,1,1,1		BONUS:ABILITYPOOL|Psionic Combat Mode|1
 10	KNOWN:8,4,3,2,1,0			SPECIALTYKNOWN:1,1,1,1,1,1
-11	KNOWN:8,4,4,3,2,1			SPECIALTYKNOWN:1,1,1,1,1,1												BONUS:ABILITYPOOL|Psionic Combat Mode|1
+11	KNOWN:8,4,4,3,2,1			SPECIALTYKNOWN:1,1,1,1,1,1		BONUS:ABILITYPOOL|Psionic Combat Mode|1
 12	KNOWN:8,4,4,3,3,1,0		SPECIALTYKNOWN:1,1,1,1,1,1,1
 13	KNOWN:8,4,4,3,3,2,1		SPECIALTYKNOWN:1,1,1,1,1,1,1
 14	KNOWN:8,4,4,3,3,2,1,0		SPECIALTYKNOWN:1,1,1,1,1,1,1,1
@@ -100,18 +100,18 @@ CLASS:Metamind ITCK	PREFEAT:1,Inner Strength	PRESKILL:2,Psicraft=6,Knowledge (Ps
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Metamind ITCK	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Knowledge (Psionics)|Psicraft|Remote View
 ###Block: Level progression
-1																																			ABILITY:Special Ability|AUTOMATIC|Psicrystal
-1																										DEFINE:PowerPsicrystal|5
-1	ABILITY:Special Ability|AUTOMATIC|Power Psicrystal ~ Metamind ITCK	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal											ADD:SPELLCASTER|Psionic
-2	ABILITY:Special Ability|AUTOMATIC|Freely Manifest 1st ~ Metamind ITCK		BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal											ADD:SPELLCASTER|Psionic
-3								BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	BONUS:VAR|PowerPsicrystal|2						ADD:SPELLCASTER|Psionic
-4	ABILITY:Special Ability|AUTOMATIC|Freely Manifest 2nd ~ Metamind ITCK		BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal											ADD:SPELLCASTER|Psionic
-5								BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	BONUS:VAR|PowerPsicrystal|2						ADD:SPELLCASTER|Psionic
-6	ABILITY:Special Ability|AUTOMATIC|Freely Manifest 3rd ~ Metamind ITCK
-7								BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	BONUS:VAR|PowerPsicrystal|2						ADD:SPELLCASTER|Psionic
-8	ABILITY:Special Ability|AUTOMATIC|Freely Manifest 4th ~ Metamind ITCK
-9								BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	BONUS:VAR|PowerPsicrystal|2						ADD:SPELLCASTER|Psionic
-10	ABILITY:Special Ability|AUTOMATIC|Apotheosis ~ Metamind ITCK
+1																												ABILITY:Special Ability|AUTOMATIC|Psicrystal
+1																			DEFINE:PowerPsicrystal|5
+1	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal											ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Power Psicrystal ~ Metamind ITCK
+2	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal											ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Freely Manifest 1st ~ Metamind ITCK
+3	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	BONUS:VAR|PowerPsicrystal|2						ADD:SPELLCASTER|Psionic
+4	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal											ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Freely Manifest 2nd ~ Metamind ITCK
+5	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	BONUS:VAR|PowerPsicrystal|2						ADD:SPELLCASTER|Psionic
+6																												ABILITY:Special Ability|AUTOMATIC|Freely Manifest 3rd ~ Metamind ITCK
+7	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	BONUS:VAR|PowerPsicrystal|2						ADD:SPELLCASTER|Psionic
+8																												ABILITY:Special Ability|AUTOMATIC|Freely Manifest 4th ~ Metamind ITCK
+9	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	BONUS:VAR|PowerPsicrystal|2						ADD:SPELLCASTER|Psionic
+10																												ABILITY:Special Ability|AUTOMATIC|Apotheosis ~ Metamind ITCK
 
 # Class Name			Output Name				Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Pyrokineticist ITCK	OUTPUTNAME:Pyrokineticist	HD:6		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	SOURCEPAGE:p.58	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -120,16 +120,16 @@ CLASS:Pyrokineticist ITCK	PREALIGN:CG,CN,CE	PRESKILL:2,Alchemy=8,Knowledge (Psio
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Pyrokineticist ITCK	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Knowledge (Psionics)|Psicraft
 ###Block: Level progression
-1	ABILITY:Special Ability|AUTOMATIC|Fire Lash ~ Pyrokineticist ITCK	ABILITY:Special Ability|AUTOMATIC|Touch Aflame ~ Pyrokineticist ITCK
-2	ABILITY:Special Ability|AUTOMATIC|Hand Afire ~ Pyrokineticist ITCK	ABILITY:Special Ability|AUTOMATIC|Fire Adaptation ~ Pyrokineticist ITCK	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	ADD:SPELLCASTER|Psionic
-3	ABILITY:Special Ability|AUTOMATIC|Bolt of Fire ~ Pyrokineticist ITCK
-4	ABILITY:Special Ability|AUTOMATIC|Weapon Afire ~ Pyrokineticist ITCK					BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	ADD:SPELLCASTER|Psionic
-5	ABILITY:Special Ability|AUTOMATIC|Breath of the Dragon ~ Pyrokineticist ITCK
-6	ABILITY:Special Ability|AUTOMATIC|Firewalk ~ Pyrokineticist ITCK					BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	ADD:SPELLCASTER|Psionic
-7	ABILITY:Special Ability|AUTOMATIC|Nimbus ~ Pyrokineticist ITCK
-8	ABILITY:Special Ability|AUTOMATIC|Fear no Fire ~ Pyrokineticist ITCK					BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	ADD:SPELLCASTER|Psionic
-9	ABILITY:Special Ability|AUTOMATIC|Heat Death ~ Pyrokineticist ITCK
-10	ABILITY:Special Ability|AUTOMATIC|Fire Lord ~ Pyrokineticist ITCK						BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	ADD:SPELLCASTER|Psionic
+1																		ABILITY:Special Ability|AUTOMATIC|Fire Lash ~ Pyrokineticist ITCK	ABILITY:Special Ability|AUTOMATIC|Touch Aflame ~ Pyrokineticist ITCK
+2	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Hand Afire ~ Pyrokineticist ITCK	ABILITY:Special Ability|AUTOMATIC|Fire Adaptation ~ Pyrokineticist ITCK
+3																		ABILITY:Special Ability|AUTOMATIC|Bolt of Fire ~ Pyrokineticist ITCK
+4	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Weapon Afire ~ Pyrokineticist ITCK
+5																		ABILITY:Special Ability|AUTOMATIC|Breath of the Dragon ~ Pyrokineticist ITCK
+6	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Firewalk ~ Pyrokineticist ITCK
+7																		ABILITY:Special Ability|AUTOMATIC|Nimbus ~ Pyrokineticist ITCK
+8	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Fear no Fire ~ Pyrokineticist ITCK
+9																		ABILITY:Special Ability|AUTOMATIC|Heat Death ~ Pyrokineticist ITCK
+10	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Fire Lord ~ Pyrokineticist ITCK
 
 
 # Class Name	Output Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus
@@ -143,16 +143,16 @@ CLASS:Slayer ITCK	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Mortal E
 1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Level progression
-1	ABILITY:Special Ability|AUTOMATIC|Favored Enemy ~ Slayer ITCK	ABILITY:Special Ability|AUTOMATIC|Mortal Enemy Sense ~ Slayer ITCK	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	BONUS:VAR|EnemySense|30*CL	DEFINE:EnemySense|60	ADD:SPELLCASTER|Psionic
-2																																					ADD:FEAT|TYPE=General,TYPE=Metapsionic,TYPE=Psionic
-3															BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal										ADD:SPELLCASTER|Psionic	ADD:FEAT|TYPE=General,TYPE=Metapsionic,TYPE=Psionic
-4	ABILITY:Special Ability|AUTOMATIC|Lucid Buffer ~ Slayer ITCK
-5															BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal										ADD:SPELLCASTER|Psionic	ADD:FEAT|TYPE=General,TYPE=Metapsionic,TYPE=Psionic
-6	ABILITY:Special Ability|AUTOMATIC|Cerebral Blind ~ Slayer ITCK
-7															BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal										ADD:SPELLCASTER|Psionic	ADD:FEAT|TYPE=General,TYPE=Metapsionic,TYPE=Psionic
-8	ABILITY:Special Ability|AUTOMATIC|Breach Power Resistance ~ Slayer ITCK
-9															BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal										ADD:SPELLCASTER|Psionic	ADD:FEAT|TYPE=General,TYPE=Metapsionic,TYPE=Psionic
-10	ABILITY:Special Ability|AUTOMATIC|Blast Feedback ~ Slayer ITCK
+1	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	BONUS:VAR|EnemySense|30*CL	DEFINE:EnemySense|60	ADD:SPELLCASTER|Psionic										ABILITY:Special Ability|AUTOMATIC|Favored Enemy ~ Slayer ITCK	ABILITY:Special Ability|AUTOMATIC|Mortal Enemy Sense ~ Slayer ITCK
+2																							ADD:FEAT|TYPE=General,TYPE=Metapsionic,TYPE=Psionic
+3	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal										ADD:SPELLCASTER|Psionic	ADD:FEAT|TYPE=General,TYPE=Metapsionic,TYPE=Psionic
+4																																				ABILITY:Special Ability|AUTOMATIC|Lucid Buffer ~ Slayer ITCK
+5	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal										ADD:SPELLCASTER|Psionic	ADD:FEAT|TYPE=General,TYPE=Metapsionic,TYPE=Psionic
+6																																				ABILITY:Special Ability|AUTOMATIC|Cerebral Blind ~ Slayer ITCK
+7	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal										ADD:SPELLCASTER|Psionic	ADD:FEAT|TYPE=General,TYPE=Metapsionic,TYPE=Psionic
+8																																				ABILITY:Special Ability|AUTOMATIC|Breach Power Resistance ~ Slayer ITCK
+9	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal										ADD:SPELLCASTER|Psionic	ADD:FEAT|TYPE=General,TYPE=Metapsionic,TYPE=Psionic
+10																																				ABILITY:Special Ability|AUTOMATIC|Blast Feedback ~ Slayer ITCK
 
 # Class Name		Output Name			Hit Dice	Type					Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Soulknife ITCK	OUTPUTNAME:Soulknife	HD:6		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	SOURCEPAGE:p.61	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -161,14 +161,14 @@ CLASS:Soulknife ITCK	PREATT:3	PRESKILL:2,Move Silently=3,Knowledge (Psionics)=3	
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Soulknife ITCK	STARTSKILLPTS:4	CSKILL:Autohypnosis|Concentration|Hide|Knowledge (Psionics)|Move Silently|Psicraft|Sense Motive|Stabilize Self|Tumble
 ###Block: Mind Blade
-1	ABILITY:Special Ability|AUTOMATIC|Mind-blade sneak attack ~ Soulknife ITCK	BONUS:VAR|MindBladeSneakAttack|(CL+1)/2	BONUS:VAR|MindBladeEnchantment|CL/2	DEFINE:MindBladeAllowed|1	DEFINE:MindBladeEnchantment|0	DEFINE:MindBladeSneakAttack|0	DEFINE:SneakAttackDie|6	AUTO:EQUIP|Mind Blade
-2	ABILITY:Special Ability|AUTOMATIC|Throw Mind-Blade ~ Soulknife ITCK	ABILITY:Special Ability|AUTOMATIC|Mind-Blade ~ Soulknife ITCK		BONUS:VAR|MindBladeRange|30									DEFINE:MindBladeRange|0
+1	BONUS:VAR|MindBladeSneakAttack|(CL+1)/2	BONUS:VAR|MindBladeEnchantment|CL/2	DEFINE:MindBladeAllowed|1	DEFINE:MindBladeEnchantment|0	DEFINE:MindBladeSneakAttack|0	DEFINE:SneakAttackDie|6	ABILITY:Special Ability|AUTOMATIC|Mind-blade sneak attack ~ Soulknife ITCK											AUTO:EQUIP|Mind Blade
+2	BONUS:VAR|MindBladeRange|30									DEFINE:MindBladeRange|0																ABILITY:Special Ability|AUTOMATIC|Throw Mind-Blade ~ Soulknife ITCK	ABILITY:Special Ability|AUTOMATIC|Mind-Blade ~ Soulknife ITCK
 ###Block: Proficiencies
 1	AUTO:FEAT|Soulknife ITCK Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Level progression
-2	ABILITY:Special Ability|AUTOMATIC|Imbed Power ~ Soulknife ITCK				BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal													ADD:SPELLCASTER|Psionic
-4	ABILITY:Special Ability|AUTOMATIC|Imbed Psionic Attack ~ Soulknife ITCK		BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal													ADD:SPELLCASTER|Psionic
-6	ABILITY:Special Ability|AUTOMATIC|Free Draw ~ Soulknife ITCK	ABILITY:Special Ability|AUTOMATIC|Sever Life ~ Soulknife ITCK	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal													ADD:SPELLCASTER|Psionic
-8	ABILITY:Special Ability|AUTOMATIC|Upgrade ~ Soulknife ITCK					BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	BONUS:VAR|MindBladeDamageSizeAdj|1	DEFINE:MindBladeDamageSizeAdj|0	ADD:SPELLCASTER|Psionic
-10	ABILITY:Special Ability|AUTOMATIC|Knife to the Soul ~ Soulknife ITCK			BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal													ADD:SPELLCASTER|Psionic
+2	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal													ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Imbed Power ~ Soulknife ITCK
+4	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal													ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Imbed Psionic Attack ~ Soulknife ITCK
+6	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal													ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Free Draw ~ Soulknife ITCK	ABILITY:Special Ability|AUTOMATIC|Sever Life ~ Soulknife ITCK
+8	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	BONUS:VAR|MindBladeDamageSizeAdj|1	DEFINE:MindBladeDamageSizeAdj|0	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Upgrade ~ Soulknife ITCK
+10	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal													ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Knife to the Soul ~ Soulknife ITCK

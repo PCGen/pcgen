@@ -1,25 +1,26 @@
-# CVS $Revision$ $Author$ -- Sun Nov  2 13:54:44 2008 -- reformated by prettylst.pl v1.38 (build 8180)
-SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
-Spellbook	VISIBLE:NO	KIT:1|Wizard Spell Book
+# Template Name	Visible	Source Page					Define			Combat bonus								Bonus to HP													Stat bonus		Ability																															Automatically Gained Feat	Apply Kit			Removable?		Type		Vision
+Spellbook		VISIBLE:NO																																																																											KIT:1|Wizard Spell Book
 
 #
 # This File is for all "standard" templates used in multiple sources.
 #
 # - Tir Gwaith
-# Template Name	Visible	Source Page					Define			Combat bonus								Bonus to HP													Stat bonus		Ability																															Feat			Removable?		Type		Vision
-Construct		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	DEFINE:LOCK.CON|10																												ABILITY:Special Ability|AUTOMATIC|Construct Traits|Immunity To Disease|Immunity To Mind-Affecting|Immunity To Poison																REMOVABLE:YES
+# Template Name	Visible	Source Page					Define			Combat bonus								Bonus to HP													Stat bonus		Ability																															Automatically Gained Feat	Apply Kit			Removable?		Type		Vision
+Construct		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	DEFINE:LOCK.CON|10																												ABILITY:Special Ability|AUTOMATIC|Construct Traits|Immunity To Disease|Immunity To Mind-Affecting|Immunity To Poison																						REMOVABLE:YES
 # Added all dragons skills to keep the race files down in size.
-Dragon		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf																																ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis|Immunity To Sleep																							REMOVABLE:YES	TYPE:Dragon
-Elemental		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf																																ABILITY:Special Ability|AUTOMATIC|Immunity To Critical Hits|Immunity To Paralysis|Immunity To Poison|Immunity To Stunning															REMOVABLE:YES
-Familiar				SOURCEPAGE:srdNPCsFamMntsComps.rtf					BONUS:COMBAT|AC|((TL+1)/2).INTVAL|TYPE=NaturalArmor.STACK															BONUS:STAT|INT|6	ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Spells																				AUTO:FEAT|Alertness	REMOVABLE:YES
-Incorporeal		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	DEFINE:LOCK.STR|10	BONUS:COMBAT|TOHIT|DEX|TYPE=NotRanged																					ABILITY:Special Ability|AUTOMATIC|Incorporeal Traits																											REMOVABLE:YES
-Ooze			VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	DEFINE:LOCK.INT|10											BONUS:HP|CURRENTMAX|max((SIZE-2),0)*5	BONUS:HP|CURRENTMAX|max((SIZE-6),0)*5				ABILITY:Special Ability|AUTOMATIC|Immunity To Critical Hits|Immunity To Mind-Affecting|Immunity To Paralysis|Immunity To Poison|Immunity To Polymorph|Immunity To Sleep|Immunity To Stunning				REMOVABLE:YES
-Plant			VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf																																ABILITY:Special Ability|AUTOMATIC|Immunity To Critical Hits|Immunity To Disease|Immunity To Mind-Affecting|Immunity To Paralysis|Immunity To Poison|Immunity To Sleep|Immunity To Stunning				REMOVABLE:YES
-Undead		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	DEFINE:LOCK.CON|10																												ABILITY:Special Ability|AUTOMATIC|Immunity To Disease|Immunity To Mind-Affecting|Immunity To Paralysis|Immunity To Poison|Immunity To Sleep|Immunity To Stunning|Undead Traits						REMOVABLE:YES	TYPE:Undead	VISION:Darkvision (60')
-Vermin		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	DEFINE:LOCK.INT|10																												ABILITY:Special Ability|AUTOMATIC|Immunity To Mind-Affecting																									REMOVABLE:YES	TYPE:Vermin
+Dragon		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf																																ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis|Immunity To Sleep																													REMOVABLE:YES	TYPE:Dragon
+Elemental		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf																																ABILITY:Special Ability|AUTOMATIC|Immunity To Critical Hits|Immunity To Paralysis|Immunity To Poison|Immunity To Stunning																					REMOVABLE:YES
+Familiar				SOURCEPAGE:srdNPCsFamMntsComps.rtf					BONUS:COMBAT|AC|((TL+1)/2).INTVAL|TYPE=NaturalArmor.STACK															BONUS:STAT|INT|6	ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Spells																				AUTO:FEAT|Alertness						REMOVABLE:YES
+Incorporeal		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	DEFINE:LOCK.STR|10	BONUS:COMBAT|TOHIT|DEX|TYPE=NotRanged																					ABILITY:Special Ability|AUTOMATIC|Incorporeal Traits																																	REMOVABLE:YES
+Ooze			VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	DEFINE:LOCK.INT|10											BONUS:HP|CURRENTMAX|max((SIZE-2),0)*5	BONUS:HP|CURRENTMAX|max((SIZE-6),0)*5				ABILITY:Special Ability|AUTOMATIC|Immunity To Critical Hits|Immunity To Mind-Affecting|Immunity To Paralysis|Immunity To Poison|Immunity To Polymorph|Immunity To Sleep|Immunity To Stunning										REMOVABLE:YES
+Plant			VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf																																ABILITY:Special Ability|AUTOMATIC|Immunity To Critical Hits|Immunity To Disease|Immunity To Mind-Affecting|Immunity To Paralysis|Immunity To Poison|Immunity To Sleep|Immunity To Stunning										REMOVABLE:YES
+Undead		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	DEFINE:LOCK.CON|10																												ABILITY:Special Ability|AUTOMATIC|Immunity To Disease|Immunity To Mind-Affecting|Immunity To Paralysis|Immunity To Poison|Immunity To Sleep|Immunity To Stunning|Undead Traits												REMOVABLE:YES	TYPE:Undead	VISION:Darkvision (60')
+Vermin		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	DEFINE:LOCK.INT|10																												ABILITY:Special Ability|AUTOMATIC|Immunity To Mind-Affecting																															REMOVABLE:YES	TYPE:Vermin
 #
-Mindless		VISIBLE:NO	DEFINE:LOCK.INT|10
+Mindless		VISIBLE:NO							DEFINE:LOCK.INT|10
 
 
 ###Block: For races which only have one gender - Satyr, Succubi, Dryads, and so on.
@@ -110,49 +111,49 @@ Evil			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	ABILITY:Special Ability|
 Fire			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	ABILITY:Special Ability|AUTOMATIC|Immunity To Fire|Vulnerability To Cold
 
 ###Block: Inherent ability bonuses
-# Template Name					Visible		Source Page		Choose
-Inherent Ability Bonus (Strength)		VISIBLE:DISPLAY	SOURCEPAGE:p.370	TEMPLATE:CHOOSE:Inherent Strength Bonus +1|Inherent Strength Bonus +2|Inherent Strength Bonus +3|Inherent Strength Bonus +4|Inherent Strength Bonus +5
-Inherent Ability Bonus (Dexterity)		VISIBLE:DISPLAY	SOURCEPAGE:p.370	TEMPLATE:CHOOSE:Inherent Dexterity Bonus +1|Inherent Dexterity Bonus +2|Inherent Dexterity Bonus +3|Inherent Dexterity Bonus +4|Inherent Dexterity Bonus +5
-Inherent Ability Bonus (Constitution)	VISIBLE:DISPLAY	SOURCEPAGE:p.370	TEMPLATE:CHOOSE:Inherent Constitution Bonus +1|Inherent Constitution Bonus +2|Inherent Constitution Bonus +3|Inherent Constitution Bonus +4|Inherent Constitution Bonus +5
-Inherent Ability Bonus (Intelligence)	VISIBLE:DISPLAY	SOURCEPAGE:p.370	TEMPLATE:CHOOSE:Inherent Intelligence Bonus +1|Inherent Intelligence Bonus +2|Inherent Intelligence Bonus +3|Inherent Intelligence Bonus +4|Inherent Intelligence Bonus +5
-Inherent Ability Bonus (Wisdom)		VISIBLE:DISPLAY	SOURCEPAGE:p.370	TEMPLATE:CHOOSE:Inherent Wisdom Bonus +1|Inherent Wisdom Bonus +2|Inherent Wisdom Bonus +3|Inherent Wisdom Bonus +4|Inherent Wisdom Bonus +5
-Inherent Ability Bonus (Charisma)		VISIBLE:DISPLAY	SOURCEPAGE:p.370	TEMPLATE:CHOOSE:Inherent Charisma Bonus +1|Inherent Charisma Bonus +2|Inherent Charisma Bonus +3|Inherent Charisma Bonus +4|Inherent Charisma Bonus +5
+# Template Name					Visible		Template																												Source Page		Stat bonus
+Inherent Ability Bonus (Strength)		VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Inherent Strength Bonus +1|Inherent Strength Bonus +2|Inherent Strength Bonus +3|Inherent Strength Bonus +4|Inherent Strength Bonus +5				SOURCEPAGE:p.370
+Inherent Ability Bonus (Dexterity)		VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Inherent Dexterity Bonus +1|Inherent Dexterity Bonus +2|Inherent Dexterity Bonus +3|Inherent Dexterity Bonus +4|Inherent Dexterity Bonus +5				SOURCEPAGE:p.370
+Inherent Ability Bonus (Constitution)	VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Inherent Constitution Bonus +1|Inherent Constitution Bonus +2|Inherent Constitution Bonus +3|Inherent Constitution Bonus +4|Inherent Constitution Bonus +5	SOURCEPAGE:p.370
+Inherent Ability Bonus (Intelligence)	VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Inherent Intelligence Bonus +1|Inherent Intelligence Bonus +2|Inherent Intelligence Bonus +3|Inherent Intelligence Bonus +4|Inherent Intelligence Bonus +5	SOURCEPAGE:p.370
+Inherent Ability Bonus (Wisdom)		VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Inherent Wisdom Bonus +1|Inherent Wisdom Bonus +2|Inherent Wisdom Bonus +3|Inherent Wisdom Bonus +4|Inherent Wisdom Bonus +5						SOURCEPAGE:p.370
+Inherent Ability Bonus (Charisma)		VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Inherent Charisma Bonus +1|Inherent Charisma Bonus +2|Inherent Charisma Bonus +3|Inherent Charisma Bonus +4|Inherent Charisma Bonus +5				SOURCEPAGE:p.370
 # Strength
-Inherent Strength Bonus +1		VISIBLE:NO	BONUS:STAT|STR|1|TYPE=Inherent
-Inherent Strength Bonus +2		VISIBLE:NO	BONUS:STAT|STR|2|TYPE=Inherent
-Inherent Strength Bonus +3		VISIBLE:NO	BONUS:STAT|STR|3|TYPE=Inherent
-Inherent Strength Bonus +4		VISIBLE:NO	BONUS:STAT|STR|4|TYPE=Inherent
-Inherent Strength Bonus +5		VISIBLE:NO	BONUS:STAT|STR|5|TYPE=Inherent
+Inherent Strength Bonus +1			VISIBLE:NO																																		BONUS:STAT|STR|1|TYPE=Inherent
+Inherent Strength Bonus +2			VISIBLE:NO																																		BONUS:STAT|STR|2|TYPE=Inherent
+Inherent Strength Bonus +3			VISIBLE:NO																																		BONUS:STAT|STR|3|TYPE=Inherent
+Inherent Strength Bonus +4			VISIBLE:NO																																		BONUS:STAT|STR|4|TYPE=Inherent
+Inherent Strength Bonus +5			VISIBLE:NO																																		BONUS:STAT|STR|5|TYPE=Inherent
 # Dexterity
-Inherent Dexterity Bonus +1		VISIBLE:NO	BONUS:STAT|DEX|1|TYPE=Inherent
-Inherent Dexterity Bonus +2		VISIBLE:NO	BONUS:STAT|DEX|2|TYPE=Inherent
-Inherent Dexterity Bonus +3		VISIBLE:NO	BONUS:STAT|DEX|3|TYPE=Inherent
-Inherent Dexterity Bonus +4		VISIBLE:NO	BONUS:STAT|DEX|4|TYPE=Inherent
-Inherent Dexterity Bonus +5		VISIBLE:NO	BONUS:STAT|DEX|5|TYPE=Inherent
+Inherent Dexterity Bonus +1			VISIBLE:NO																																		BONUS:STAT|DEX|1|TYPE=Inherent
+Inherent Dexterity Bonus +2			VISIBLE:NO																																		BONUS:STAT|DEX|2|TYPE=Inherent
+Inherent Dexterity Bonus +3			VISIBLE:NO																																		BONUS:STAT|DEX|3|TYPE=Inherent
+Inherent Dexterity Bonus +4			VISIBLE:NO																																		BONUS:STAT|DEX|4|TYPE=Inherent
+Inherent Dexterity Bonus +5			VISIBLE:NO																																		BONUS:STAT|DEX|5|TYPE=Inherent
 # Constitution
-Inherent Constitution Bonus +1	VISIBLE:NO	BONUS:STAT|CON|1|TYPE=Inherent
-Inherent Constitution Bonus +2	VISIBLE:NO	BONUS:STAT|CON|2|TYPE=Inherent
-Inherent Constitution Bonus +3	VISIBLE:NO	BONUS:STAT|CON|3|TYPE=Inherent
-Inherent Constitution Bonus +4	VISIBLE:NO	BONUS:STAT|CON|4|TYPE=Inherent
-Inherent Constitution Bonus +5	VISIBLE:NO	BONUS:STAT|CON|5|TYPE=Inherent
+Inherent Constitution Bonus +1		VISIBLE:NO																																		BONUS:STAT|CON|1|TYPE=Inherent
+Inherent Constitution Bonus +2		VISIBLE:NO																																		BONUS:STAT|CON|2|TYPE=Inherent
+Inherent Constitution Bonus +3		VISIBLE:NO																																		BONUS:STAT|CON|3|TYPE=Inherent
+Inherent Constitution Bonus +4		VISIBLE:NO																																		BONUS:STAT|CON|4|TYPE=Inherent
+Inherent Constitution Bonus +5		VISIBLE:NO																																		BONUS:STAT|CON|5|TYPE=Inherent
 # Intelligence
-Inherent Intelligence Bonus +1	VISIBLE:NO	BONUS:STAT|INT|1|TYPE=Inherent
-Inherent Intelligence Bonus +2	VISIBLE:NO	BONUS:STAT|INT|2|TYPE=Inherent
-Inherent Intelligence Bonus +3	VISIBLE:NO	BONUS:STAT|INT|3|TYPE=Inherent
-Inherent Intelligence Bonus +4	VISIBLE:NO	BONUS:STAT|INT|4|TYPE=Inherent
-Inherent Intelligence Bonus +5	VISIBLE:NO	BONUS:STAT|INT|5|TYPE=Inherent
+Inherent Intelligence Bonus +1		VISIBLE:NO																																		BONUS:STAT|INT|1|TYPE=Inherent
+Inherent Intelligence Bonus +2		VISIBLE:NO																																		BONUS:STAT|INT|2|TYPE=Inherent
+Inherent Intelligence Bonus +3		VISIBLE:NO																																		BONUS:STAT|INT|3|TYPE=Inherent
+Inherent Intelligence Bonus +4		VISIBLE:NO																																		BONUS:STAT|INT|4|TYPE=Inherent
+Inherent Intelligence Bonus +5		VISIBLE:NO																																		BONUS:STAT|INT|5|TYPE=Inherent
 # Wisdom
-Inherent Wisdom Bonus +1		VISIBLE:NO	BONUS:STAT|WIS|1|TYPE=Inherent
-Inherent Wisdom Bonus +2		VISIBLE:NO	BONUS:STAT|WIS|2|TYPE=Inherent
-Inherent Wisdom Bonus +3		VISIBLE:NO	BONUS:STAT|WIS|3|TYPE=Inherent
-Inherent Wisdom Bonus +4		VISIBLE:NO	BONUS:STAT|WIS|4|TYPE=Inherent
-Inherent Wisdom Bonus +5		VISIBLE:NO	BONUS:STAT|WIS|5|TYPE=Inherent
+Inherent Wisdom Bonus +1			VISIBLE:NO																																		BONUS:STAT|WIS|1|TYPE=Inherent
+Inherent Wisdom Bonus +2			VISIBLE:NO																																		BONUS:STAT|WIS|2|TYPE=Inherent
+Inherent Wisdom Bonus +3			VISIBLE:NO																																		BONUS:STAT|WIS|3|TYPE=Inherent
+Inherent Wisdom Bonus +4			VISIBLE:NO																																		BONUS:STAT|WIS|4|TYPE=Inherent
+Inherent Wisdom Bonus +5			VISIBLE:NO																																		BONUS:STAT|WIS|5|TYPE=Inherent
 # Wisdom
-Inherent Charisma Bonus +1		VISIBLE:NO	BONUS:STAT|CHA|1|TYPE=Inherent
-Inherent Charisma Bonus +2		VISIBLE:NO	BONUS:STAT|CHA|2|TYPE=Inherent
-Inherent Charisma Bonus +3		VISIBLE:NO	BONUS:STAT|CHA|3|TYPE=Inherent
-Inherent Charisma Bonus +4		VISIBLE:NO	BONUS:STAT|CHA|4|TYPE=Inherent
-Inherent Charisma Bonus +5		VISIBLE:NO	BONUS:STAT|CHA|5|TYPE=Inherent
+Inherent Charisma Bonus +1			VISIBLE:NO																																		BONUS:STAT|CHA|1|TYPE=Inherent
+Inherent Charisma Bonus +2			VISIBLE:NO																																		BONUS:STAT|CHA|2|TYPE=Inherent
+Inherent Charisma Bonus +3			VISIBLE:NO																																		BONUS:STAT|CHA|3|TYPE=Inherent
+Inherent Charisma Bonus +4			VISIBLE:NO																																		BONUS:STAT|CHA|4|TYPE=Inherent
+Inherent Charisma Bonus +5			VISIBLE:NO																																		BONUS:STAT|CHA|5|TYPE=Inherent
 
 
 

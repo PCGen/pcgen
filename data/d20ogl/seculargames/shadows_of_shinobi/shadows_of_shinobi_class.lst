@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Thu Oct  8 20:19:00 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Shadows of Shinobi	SOURCESHORT:SoS	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#ninja
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Shadows of Shinobi	SOURCESHORT:SoS	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#ninja	SOURCEDATE:2005-01
 
 #CREATED BY: Paul W. King, Jan 2007
 #EDITED BY: Paul W. King, Jan 2007
@@ -12,14 +12,14 @@ CLASS:Igasaki Disciple	PREALIGN:LN,LE,TN,NE	PREATT:5	PREFEAT:2,Alertness,Improve
 CLASS:Igasaki Disciple	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Knowledge (Architecture and Engineering)|Listen|Move Silently|Open Lock|TYPE=Perform|Search|Sense Motive|Sleight of Hand|Spot|Tumble|Use Magic Device|Use Rope
 ###Block:Proficiencies
 1	BONUS:ABILITYPOOL|Igasaki Disciple Proficiencies|3	AUTO:FEAT|Simple Weapon Proficiency
-1								AUTO:FEAT|Armor Proficiency (Light)
+1										AUTO:FEAT|Armor Proficiency (Light)
 ###Block: class abilities
-1	ABILITY:Special Ability|AUTOMATIC|Explosive Use|Poison Use
-2														BONUS:VAR|ArtOfTrickery|((CL+1)/3)*2									ABILITY:Special Ability|AUTOMATIC|Art of Trickery
-3					BONUS:VAR|SneakAttack|CL/3			ABILITY:Special Ability|AUTOMATIC|Saboteur|Sneak Attack
-4														ABILITY:Special Ability|AUTOMATIC|Still Mind
-7	ABILITY:Special Ability|AUTOMATIC|Igasaki Poison
-10	ABILITY:Special Ability|AUTOMATIC|Face in the Shadows
+1								ABILITY:Special Ability|AUTOMATIC|Explosive Use|Poison Use
+2	BONUS:VAR|ArtOfTrickery|((CL+1)/3)*2	ABILITY:Special Ability|AUTOMATIC|Art of Trickery
+3	BONUS:VAR|SneakAttack|CL/3			ABILITY:Special Ability|AUTOMATIC|Saboteur|Sneak Attack
+4								ABILITY:Special Ability|AUTOMATIC|Still Mind
+7								ABILITY:Special Ability|AUTOMATIC|Igasaki Poison
+10								ABILITY:Special Ability|AUTOMATIC|Face in the Shadows
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Inpo Agent	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
@@ -31,7 +31,7 @@ CLASS:Inpo Agent	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=C
 CLASS:Inpo Agent	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Inpo Agent|CL
 ###Block:Proficiencies
 1	BONUS:ABILITYPOOL|Inpo Agent Proficiencies|4	AUTO:FEAT|Simple Weapon Proficiency
-1							AUTO:FEAT|Armor Proficiency (Light)
+1									AUTO:FEAT|Armor Proficiency (Light)
 ###Block:Spellcasting
 1							SPELLLEVEL:CLASS|Inpo Agent=1|Alter Self,Detect Secret Doors,Expeditious Retreat,Jump,Mage Armor,Obscuring Mist,Sleep,True Strike|Inpo Agent=2|Cat's Grace,Darkness,Darkvision,Fog Cloud,Gust of Wind,Invisibility,Pass without Trace,Protection from Arrows,Spider Climb|Inpo Agent=3|Blink,Displacement,Gaseous Form,Haste,Illusory Script,Turn Back Strike,Water Breathing|Inpo Agent=4|Detect Scrying,Dimension Door,Illusory Wall,Invisibility (Greater),Locate Creature,Mislead,Scrying,Solid Fog
 1	CAST:0		KNOWN:2
@@ -45,12 +45,12 @@ CLASS:Inpo Agent	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|In
 9	CAST:3,3,3,2	KNOWN:4,4,4,3
 10	CAST:3,3,3,3	KNOWN:4,4,4,4
 ###Block:class abilities
-1							BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),1|TYPE=FastMovement	BONUS:VAR|SneakAttack|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-2	ABILITY:Special Ability|AUTOMATIC|Cautious Invader
-4																																									ABILITY:Special Ability|AUTOMATIC|Predators Spirit
-6	ABILITY:Special Ability|AUTOMATIC|Scorpion Technique
-8	ABILITY:Special Ability|AUTOMATIC|Improved Coup de Grace
-10																																									ABILITY:Special Ability|AUTOMATIC|Whispering Wind
+1	BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),1|TYPE=FastMovement	BONUS:VAR|SneakAttack|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+2																											ABILITY:Special Ability|AUTOMATIC|Cautious Invader
+4																											ABILITY:Special Ability|AUTOMATIC|Predators Spirit
+6																											ABILITY:Special Ability|AUTOMATIC|Scorpion Technique
+8																											ABILITY:Special Ability|AUTOMATIC|Improved Coup de Grace
+10																											ABILITY:Special Ability|AUTOMATIC|Whispering Wind
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Lotus Warrior	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL
@@ -61,14 +61,14 @@ CLASS:Lotus Warrior	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Escape
 ###Block:Proficiencies
 1	BONUS:ABILITYPOOL|Lotus Warrior Proficiencies|3	AUTO:FEAT|Simple Weapon Proficiency
 ###Block:general
-1								BONUS:UDAM|CLASS.Monk|CL	BONUS:VAR|MonkLVL|CL
-2													BONUS:VAR|DevilSkin|(CL+1)/3																						ABILITY:Special Ability|AUTOMATIC|Devil Skin
-3			ABILITY:Special Ability|AUTOMATIC|Tiger Roar
-4			ABILITY:Special Ability|AUTOMATIC|Beast Fang
-6																		DEFINE:WeapSpecQualify|1	DEFINE:GreatWeapFocusQualify|1	DEFINE:GreatWeapSpecQualify|1
-6:REPEATLEVEL:3																																BONUS:ABILITYPOOL|Lotus Warrior Feat|1
-7			ABILITY:Special Ability|AUTOMATIC|Fiery Tiger Roar
-10			ABILITY:Special Ability|AUTOMATIC|Shadow and Smoke
+1										BONUS:UDAM|CLASS.Monk|CL	BONUS:VAR|MonkLVL|CL
+2															BONUS:VAR|DevilSkin|(CL+1)/3																	ABILITY:Special Ability|AUTOMATIC|Devil Skin
+3																																				ABILITY:Special Ability|AUTOMATIC|Tiger Roar
+4																																				ABILITY:Special Ability|AUTOMATIC|Beast Fang
+6																				DEFINE:WeapSpecQualify|1	DEFINE:GreatWeapFocusQualify|1	DEFINE:GreatWeapSpecQualify|1
+6:REPEATLEVEL:3	BONUS:ABILITYPOOL|Lotus Warrior Feat|1
+7																																				ABILITY:Special Ability|AUTOMATIC|Fiery Tiger Roar
+10																																				ABILITY:Special Ability|AUTOMATIC|Shadow and Smoke
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Shadow Saint	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.24	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL
@@ -80,10 +80,10 @@ CLASS:Shadow Saint	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block:general
-1	ABILITY:Special Ability|AUTOMATIC|Curse of Darkness|Shadow Meld	BONUS:VAR|ShadowSaint|CL	DEFINE:ShadowSaint|0
-2									BONUS:VAR|ShadowCast|(CL+1)/3					ABILITY:Special Ability|AUTOMATIC|Shadow Cast
-3									BONUS:VAR|ResistRiddle|CL/3					ABILITY:Special Ability|AUTOMATIC|Resist the Riddle of Illusion
-4																		ABILITY:Special Ability|AUTOMATIC|Warrior of the Night
+1	BONUS:VAR|ShadowSaint|CL	DEFINE:ShadowSaint|0	ABILITY:Special Ability|AUTOMATIC|Curse of Darkness|Shadow Meld
+2	BONUS:VAR|ShadowCast|(CL+1)/3					ABILITY:Special Ability|AUTOMATIC|Shadow Cast
+3	BONUS:VAR|ResistRiddle|CL/3					ABILITY:Special Ability|AUTOMATIC|Resist the Riddle of Illusion
+4										ABILITY:Special Ability|AUTOMATIC|Warrior of the Night
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Worm Doctor	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4
@@ -91,12 +91,12 @@ CLASS:Worm Doctor	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:CHECK
 CLASS:Worm Doctor	PREALIGN:LN,NG,TN,CN,NE	PREFEAT:1,Toughness	PRESKILL:3,Heal=9,Knowledge (Religion)=9,Spellcraft=5	PRESPELLTYPE:1,Divine=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Worm Doctor	STARTSKILLPTS:2	CSKILL:Concentration|Craft (Alchemy)|Heal|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
-1			ABILITY:Special Ability|AUTOMATIC|Worm Colony		BONUS:VAR|WormDoctor|CL	DEFINE:WormDoctor|0
-2:REPEATLEVEL:1														ADD:SPELLCASTER|Divine
-2			ABILITY:Special Ability|AUTOMATIC|Worm Cast
-4			ABILITY:Special Ability|AUTOMATIC|Worm Remedy
-8			ABILITY:Special Ability|AUTOMATIC|Worm Heal
-10			ABILITY:Special Ability|AUTOMATIC|Worm Immortality
+1			BONUS:VAR|WormDoctor|CL	DEFINE:WormDoctor|0					ABILITY:Special Ability|AUTOMATIC|Worm Colony
+2:REPEATLEVEL:1									ADD:SPELLCASTER|Divine
+2															ABILITY:Special Ability|AUTOMATIC|Worm Cast
+4															ABILITY:Special Ability|AUTOMATIC|Worm Remedy
+8															ABILITY:Special Ability|AUTOMATIC|Worm Heal
+10															ABILITY:Special Ability|AUTOMATIC|Worm Immortality
 
 #
 # End

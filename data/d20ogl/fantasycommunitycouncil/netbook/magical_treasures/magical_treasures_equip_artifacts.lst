@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sat Sep 26 22:38:41 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-SOURCELONG:Netbook of Magical Treasures	SOURCESHORT:NboMT	SOURCEWEB:http://www.d20magicitems.org/
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Netbook of Magical Treasures	SOURCESHORT:NboMT	SOURCEWEB:http://www.d20magicitems.org/	SOURCEDATE:2002-01
 # Equipment Name					Required Weapon Proficiency		Type															Weight	Source Page					Combat bonus						Bonus to skill														Stat bonus						Special Property
 Cape of Ultimate Influence									TYPE:Magic.Artifact.Major.Cape										WT:1		SOURCEPAGE:pg. 70-71, Artifacts									BONUS:SKILL|Bluff, Diplomancy, Gather Information, Intimidate, Sense Motive|15|TYPE=Enhancement	BONUS:STAT|CHA,WIS|4|TYPE=Enhancement	SPROP:See text
 The Circlet of Devruar										TYPE:Magic.Artifact.Major.Headgear										WT:1.5	SOURCEPAGE:pg. 71-72, Artifacts																																SPROP:See text

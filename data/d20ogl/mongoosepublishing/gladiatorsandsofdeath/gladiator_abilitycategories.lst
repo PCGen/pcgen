@@ -1,5 +1,7 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
 
-ABILITYCATEGORY:Exotic Weapon Proficiency		CATEGORY:FEAT	ABILITYLIST:Exotic Weapon Proficiency	EDITABLE:YES	EDITPOOL:YES	VISIBLE:QUALIFY	DISPLAYLOCATION:Feats
+# Ability Category				Visible		Editable or Static?	Change Pool?	Category of Object		Specific choices list				Display Location
+ABILITYCATEGORY:Exotic Weapon Proficiency	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:FEAT			ABILITYLIST:Exotic Weapon Proficiency	DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Slave Weapon Choice			CATEGORY:Special Ability	ABILITYLIST:Slave Weapon	EDITABLE:YES	EDITPOOL:YES	VISIBLE:QUALIFY	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Slave Weapon Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	ABILITYLIST:Slave Weapon			DISPLAYLOCATION:Feats

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
-SOURCELONG:Diadamon Pantheon	SOURCESHORT:DP	SOURCEWEB:http://www.dcrouzet.net/nbomisc/
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Diadamon Pantheon	SOURCESHORT:DP	SOURCEWEB:http://www.dcrouzet.net/nbomisc/	SOURCEDATE:2002-01
 
 # Spell Name	Output Name			Classes of caster						School			Sub-School			Spell Descriptors			Type				Components		Casting Time		Range			Target Area or Effect					Duration					Save Info					Spell Resistance		Cost		Source Page
 Fasting						CLASSES:Bard,Cleric,Druid,Sorcerer,Wizard=4	SCHOOL:Enchantment	SUBSCHOOL:Compulsion						TYPE:Arcane.Divine	COMPS:V, S, M	CASTTIME:1 full round	RANGE:Touch		TARGETAREA:One creature					DURATION:(CASTERLEVEL+7) days		SAVEINFO:Will negates			SPELLRES:Yes				SOURCEPAGE:p.103

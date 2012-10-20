@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Jan 26 14:15:26 2007 -- reformated by prettylst.pl v1.36 (build 2045)
-SOURCELONG:Malhavoc Press - Web Enhancements	SOURCESHORT:MalhavocWb	SOURCEWEB:http://www.montecook.com
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Malhavoc Press - Web Enhancements	SOURCESHORT:MalhavocWb	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2001-01
 
 # Spell Name		Classes of caster				School			Sub-School			Spell Descriptors				Type		Components	Casting Time	Range			Target Area or Effect				Duration				Save Info						Spell Resistance		Description		Source Page
 Blight Enemy		CLASSES:Ranger (Monte Cook's)=2	SCHOOL:Evocation												TYPE:Divine	COMPS:V S	CASTTIME:1 action	RANGE:Close		TARGETAREA:One favored enemy			DURATION:Instantaneous		SAVEINFO:Fortitude negates			SPELLRES:Yes		DESC:See text	SOURCEPAGE:Web

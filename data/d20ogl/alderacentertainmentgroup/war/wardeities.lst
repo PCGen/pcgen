@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
-SOURCELONG:Alderac Entertainment Group - War	SOURCESHORT:War	SOURCEWEB:http://alderac.com/d20
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Alderac Entertainment Group - War	SOURCESHORT:War	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 # Deity Name	Product Identity?	Domains								Desciption of Deity/Title					Holy Item	Deity Weapon			Alignment	Pantheon		Source Page
 Corlein		NAMEISPI:YES	DOMAINS:Conquest,Good,Law,War|PREALIGN:LG			DESC:The Crusader, god of justice				SYMBOL:None	DEITYWEAP:Warhammer		ALIGN:LG	PANTHEON:War	SOURCEPAGE:p.110
 Branyen		NAMEISPI:YES	DOMAINS:Good,Luck,Trickery,War|PREALIGN:CG		DESC:The Bringer of Freedom, patron of the oppressed	SYMBOL:None	DEITYWEAP:Longsword		ALIGN:CG	PANTHEON:War	SOURCEPAGE:p.110

@@ -1,45 +1,47 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
 # ~ Faceman
-Linguist		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Linguist ~ Faceman		DESC: +%1|FaceLinguist			DEFINE:FaceLinguist|0	
-Cold Read		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Cold Read ~ Faceman		DESC: (%1/session)|ColdRead		DEFINE:ColdRead|0
-Quick Change	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Quick Change ~ Faceman	DESC: (%1/session)|QuickChange	DEFINE:QuickChange|0
-Backup		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Backup ~ Faceman		DESC: (%1/session)|Backup		DEFINE:Backup|0
-Fake it		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Fake it ~ Faceman		DESC: (%1/session)|Fakeit		DEFINE:Fakeit|0
-1,000 Faces		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:1000 Faces ~ Faceman	DESC: (%1/session)|ThousandFaces	DEFINE:ThousandFaces|0
-Bald-Faced Lie	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Bald-Faced Lie ~ Faceman	DESC: (1/session)
+# Ability Name	Unique Key					Category of Ability		Type				Define								Description									Combat bonus						Misc bonus
+Linguist		KEY:Linguist ~ Faceman			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:FaceLinguist|0						DESC: +%1|FaceLinguist
+Cold Read		KEY:Cold Read ~ Faceman			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:ColdRead|0							DESC: (%1/session)|ColdRead
+Quick Change	KEY:Quick Change ~ Faceman		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:QuickChange|0						DESC: (%1/session)|QuickChange
+Backup		KEY:Backup ~ Faceman			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:Backup|0							DESC: (%1/session)|Backup
+Fake it		KEY:Fake it ~ Faceman			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:Fakeit|0							DESC: (%1/session)|Fakeit
+1,000 Faces		KEY:1000 Faces ~ Faceman		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:ThousandFaces|0						DESC: (%1/session)|ThousandFaces
+Bald-Faced Lie	KEY:Bald-Faced Lie ~ Faceman		CATEGORY:Special Ability	TYPE:SpecialQuality										DESC: (1/session)
 
 # ~ Fixer
-Procure		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Procure ~ Fixer									
-Improvisation	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Improvisation ~ Fixer	DESC: (%1/session)|FixerImprovisation	DEFINE:FixerImprovisation|0
-Master Thief	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Master Thief ~ Fixer	DESC: (%1/session)|FixerMasterThief		DEFINE:FixerMasterThief|0
-Defensive Roll	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Defensive Roll ~ Fixer	DESC: (%1/session)|DefensiveRoll		DEFINE:DefensiveRoll|0
-Wildcard Gadget	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Wildcard Gadget ~ Fixer	DESC: (1/session)
+Procure		KEY:Procure ~ Fixer			CATEGORY:Special Ability	TYPE:SpecialQuality
+Improvisation	KEY:Improvisation ~ Fixer		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:FixerImprovisation|0					DESC: (%1/session)|FixerImprovisation
+Master Thief	KEY:Master Thief ~ Fixer		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:FixerMasterThief|0					DESC: (%1/session)|FixerMasterThief
+Defensive Roll	KEY:Defensive Roll ~ Fixer		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:DefensiveRoll|0						DESC: (%1/session)|DefensiveRoll
+Wildcard Gadget	KEY:Wildcard Gadget ~ Fixer		CATEGORY:Special Ability	TYPE:SpecialQuality										DESC: (1/session)
 
 # ~ Pointman
-Assistance		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Assistance ~ Pointman	DESC: (1/%1 time)|Assistance						DEFINE:Assistance|0
-Lead			CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Lead ~ Pointman		DESC: (%1/session)|PointmanLead					DEFINE:PointmanLead|0
-Tactics		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Tactics ~ Pointman		DESC: (+%1 bonus %1/session)|TacticsBonus|TacticsPerSession	DEFINE:TacticsBonus|0	DEFINE:TacticsPerSession|0
-Serendipity		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Serendipity ~ Pointman	DESC: (%1/session)|Serendipity					DEFINE:Serendipity|0
-Strategy		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Strategy ~ Pointman		DESC: (1/session)
+Assistance		KEY:Assistance ~ Pointman		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:Assistance|0						DESC: (1/%1 time)|Assistance
+Lead			KEY:Lead ~ Pointman			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:PointmanLead|0						DESC: (%1/session)|PointmanLead
+Tactics		KEY:Tactics ~ Pointman			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:TacticsBonus|0	DEFINE:TacticsPerSession|0	DESC: (+%1 bonus %1/session)|TacticsBonus|TacticsPerSession
+Serendipity		KEY:Serendipity ~ Pointman		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:Serendipity|0						DESC: (%1/session)|Serendipity
+Strategy		KEY:Strategy ~ Pointman			CATEGORY:Special Ability	TYPE:SpecialQuality										DESC: (1/session)
 
 # ~ Snoop
-Flawless Search	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Flawless Search ~ Snoop	
-Intuition		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Intuition ~ Snoop		DESC: (%1/session)|Intuition		DEFINE:Intuition|0
-Jury-rig		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Jury-rig ~ Snoop		DESC: (+%1)|Juryrig			DEFINE:Juryrig|0
-Back Door		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Back Door ~ Snoop		DESC: (%1 systems)|BackDoor		DEFINE:BackDoor|0
-Master Cracker	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Master Cracker ~ Snoop	DESC: (%1/session)|MasterCracker	DEFINE:MasterCracker|0
-Global Search	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Global Search ~ Snoop	DESC: (1/session)
+Flawless Search	KEY:Flawless Search ~ Snoop		CATEGORY:Special Ability	TYPE:SpecialQuality
+Intuition		KEY:Intuition ~ Snoop			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:Intuition|0						DESC: (%1/session)|Intuition
+Jury-rig		KEY:Jury-rig ~ Snoop			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:Juryrig|0							DESC: (+%1)|Juryrig
+Back Door		KEY:Back Door ~ Snoop			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:BackDoor|0							DESC: (%1 systems)|BackDoor
+Master Cracker	KEY:Master Cracker ~ Snoop		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:MasterCracker|0						DESC: (%1/session)|MasterCracker
+Global Search	KEY:Global Search ~ Snoop		CATEGORY:Special Ability	TYPE:SpecialQuality										DESC: (1/session)
 
 
 # ~ Soldier
-Armor Use		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Armor Use ~ Soldier			DESC: +%1|ArmorUse				BONUS:COMBAT|AC|ArmorUse|PREEQUIP:1,TYPE=Armor				BONUS:MISC|ACCCHECK|0-ArmorUse|PREEQUIP:1,TYPE=Armor	DEFINE:ArmorUse|0
-Portable Cover	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Portable Cover ~ Soldier		DESC: (1/%1 cover)|PortableCover																						DEFINE:PortableCover|0
-One in a Million	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:One in a Million ~ Soldier	DESC: (1/session)
+Armor Use		KEY:Armor Use ~ Soldier			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:ArmorUse|0							DESC: +%1|ArmorUse							BONUS:COMBAT|AC|ArmorUse|PREEQUIP:1,TYPE=Armor	BONUS:MISC|ACCCHECK|0-ArmorUse|PREEQUIP:1,TYPE=Armor
+Portable Cover	KEY:Portable Cover ~ Soldier		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:PortableCover|0						DESC: (1/%1 cover)|PortableCover
+One in a Million	KEY:One in a Million ~ Soldier	CATEGORY:Special Ability	TYPE:SpecialQuality										DESC: (1/session)
 
 # ~ Wheelman
-Daredevil		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Daredevil ~ Wheelman																
-Kick Start		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Kick Start ~ Wheelman		DESC: (%1/session)|KickStart					DEFINE:KickStart|0
-Familiarity		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Familiarity ~ Wheelman		DESC: +%1|Familiarity						DEFINE:Familiarity|0
-Elbow Grease	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Elbow Grease ~ Wheelman		DESC: +%1|ElbowGrease						DEFINE:ElbowGrease|0
-Soup Her Up		CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Soup Her Up ~ Wheelman		DESC: (%1 percent)|SoupHerUp					DEFINE:SoupHerUp|0
-That's Impossible	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:That's Impossible ~ Wheelman	DESC: (1/session)
+Daredevil		KEY:Daredevil ~ Wheelman		CATEGORY:Special Ability	TYPE:SpecialQuality
+Kick Start		KEY:Kick Start ~ Wheelman		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:KickStart|0						DESC: (%1/session)|KickStart
+Familiarity		KEY:Familiarity ~ Wheelman		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:Familiarity|0						DESC: +%1|Familiarity
+Elbow Grease	KEY:Elbow Grease ~ Wheelman		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:ElbowGrease|0						DESC: +%1|ElbowGrease
+Soup Her Up		KEY:Soup Her Up ~ Wheelman		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:SoupHerUp|0						DESC: (%1 percent)|SoupHerUp
+That's Impossible	KEY:That's Impossible ~ Wheelman	CATEGORY:Special Ability	TYPE:SpecialQuality										DESC: (1/session)

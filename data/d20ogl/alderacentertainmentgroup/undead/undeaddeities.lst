@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 # Original entry by: Mortal_Elf (elves_are_mortal@yahoo.com)
-SOURCELONG:Alderac Entertainment Group - Undead	SOURCESHORT:Undead	SOURCEWEB:http://alderac.com/d20
+SOURCELONG:Alderac Entertainment Group - Undead	SOURCESHORT:Undead	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 
 # Deity Name	Product Identity?	Domains												Desciption of Deity/Title							Holy Item	Deity Weapon		Alignment	Pantheon				Source Page
 Demortus		NAMEISPI:YES	DOMAINS:Evil,Spirit,Undead|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESC:Lord of Unlife, the Eternal One, Deathstealer			SYMBOL:None	DEITYWEAP:Dagger		ALIGN:LE	PANTHEON:Lords of the Undead	SOURCEPAGE:p.68

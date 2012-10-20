@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 00:08:55 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:A Swarm of Stirges	SOURCESHORT:ASoS	SOURCEWEB:http://www.behemoth3.com/	SOURCEDATE:2004-08
 #Original Entry by: Eddy Anthony
 
@@ -10,11 +10,11 @@ CLASS:Wing Jockey	PREFEAT:1,Mounted Combat	PRESKILL:2,Ride=4,Handle Animal=4
 CLASS:Wing Jockey	STARTSKILLPTS:6	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Jump|Knowledge (Geography)|Listen|TYPE=Profession|Ride|Spot|Use Rope
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 ###Block: Level Progression
-1	ABILITY:Special Ability|AUTOMATIC|Mount Affinity ~ Wing Jockey	ABILITY:Special Ability|AUTOMATIC|Empathic Bonding ~ Wing Jockey	BONUS:VAR|EmpathicBonding|CL	DEFINE:EmpathicBonding|CHA	ABILITY:Special Ability|AUTOMATIC|Wing Jockey (Mount Affinity)
-2	ABILITY:Special Ability|AUTOMATIC|Mounted Defense I ~ Wing Jockey													DEFINE:MountedDefenseAC|1	ABILITY:Special Ability|AUTOMATIC|Wing Jockey (Mounted Defense)
-3	ABILITY:Special Ability|AUTOMATIC|Mounted Evasion ~ Wing Jockey	ABILITY:Special Ability|AUTOMATIC|Riding Style ~ Wing Jockey														ABILITY:Special Ability|AUTOMATIC|Wing Jockey (Riding Style/Rider)
-4	ABILITY:Special Ability|AUTOMATIC|Mounted Defense II ~ Wing Jockey																		ABILITY:Special Ability|AUTOMATIC|Wing Jockey (Mounted Defense II)
-5	ABILITY:Special Ability|AUTOMATIC|Riding Style Mastery ~ Wing Jockey																		ABILITY:Special Ability|AUTOMATIC|Wing Jockey (Riding Style Mastery/Rider)
+1	BONUS:VAR|EmpathicBonding|CL	DEFINE:EmpathicBonding|CHA	ABILITY:Special Ability|AUTOMATIC|Mount Affinity ~ Wing Jockey	ABILITY:Special Ability|AUTOMATIC|Empathic Bonding ~ Wing Jockey	ABILITY:Special Ability|AUTOMATIC|Wing Jockey (Mount Affinity)
+2						DEFINE:MountedDefenseAC|1	ABILITY:Special Ability|AUTOMATIC|Mounted Defense I ~ Wing Jockey	ABILITY:Special Ability|AUTOMATIC|Wing Jockey (Mounted Defense)
+3											ABILITY:Special Ability|AUTOMATIC|Mounted Evasion ~ Wing Jockey	ABILITY:Special Ability|AUTOMATIC|Riding Style ~ Wing Jockey	ABILITY:Special Ability|AUTOMATIC|Wing Jockey (Riding Style/Rider)
+4											ABILITY:Special Ability|AUTOMATIC|Mounted Defense II ~ Wing Jockey	ABILITY:Special Ability|AUTOMATIC|Wing Jockey (Mounted Defense II)
+5											ABILITY:Special Ability|AUTOMATIC|Riding Style Mastery ~ Wing Jockey	ABILITY:Special Ability|AUTOMATIC|Wing Jockey (Riding Style Mastery/Rider)
 #
 # End
 #

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
-SOURCELONG:Atlas Games - Penumbra - Touched by the Gods	SOURCESHORT:TouchbtG	SOURCEWEB:http://www.atlas-games.com/pen_index.html
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Atlas Games - Penumbra - Touched by the Gods	SOURCESHORT:TouchbtG	SOURCEWEB:http://www.atlas-games.com/pen_index.html	SOURCEDATE:2001-01
 
 # Deity Name				Domains										Desciption of Deity/Title					Holy Item																	Deity Weapon							Alignment	Pantheon		Source Page
 Raeksen					DOMAINS:Destruction,Good,Protection|PREALIGN:NG,CG,CN			DESC:The Just, The Mad						SYMBOL:A scale representing justice for all											DEITYWEAP:Quarterstaff						ALIGN:CG	PANTHEON:Penumbra	SOURCEPAGE:p.44

@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Thu Feb 12 13:16:24 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html	SOURCEDATE:2001-12
 
-# Equipment Name		Required Armor Proficiency			Type									Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus					Bonus to skill
+# Equipment Name		Required Armor Proficiency			Type									Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus			Bonus to skill
 Heavy clothes		PROFICIENCY:ARMOR|Heavy clothes		TYPE:Armor.HighTechLight.Suit.Standard.Nonmetal		COST:5	WT:10		ACCHECK:0		MAXDEX:6		SOURCEPAGE:p.105	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor
 Flight suit			PROFICIENCY:ARMOR|Flight suit			TYPE:Armor.HighTechLight.Suit.Standard.Nonmetal		COST:50	WT:6		ACCHECK:0		MAXDEX:8		SOURCEPAGE:p.105					BONUS:COMBAT|AC|4|TYPE=Armor
 Armor vest			PROFICIENCY:ARMOR|Armor vest			TYPE:Armor.HighTechLight.Suit.Standard.Nonmetal		COST:75	WT:8		ACCHECK:0		MAXDEX:5		SOURCEPAGE:p.104	SPELLFAILURE:5		BONUS:COMBAT|AC|5|TYPE=Armor
@@ -22,4 +22,4 @@ Combat hardsuit		PROFICIENCY:ARMOR|Combat hardsuit		TYPE:Armor.HighTechPowered.S
 Assault hardsuit		PROFICIENCY:ARMOR|Assault hardsuit		TYPE:Armor.HighTechPowered.Suit.Standard.Nonmetal	COST:15000	WT:350	ACCHECK:0		MAXDEX:0		SOURCEPAGE:p.104	SPELLFAILURE:40		BONUS:COMBAT|AC|16|TYPE=Armor
 
 #Extras
-Camouflage			PROFICIENCY:ARMOR|Camouflage			TYPE:Armor.HighTechExtra.Standard.Nonmetal		COST:20	WT:0								SOURCEPAGE:p.104												BONUS:SKILL|Hide|2
+Camouflage			PROFICIENCY:ARMOR|Camouflage			TYPE:Armor.HighTechExtra.Standard.Nonmetal		COST:20	WT:0								SOURCEPAGE:p.104										BONUS:SKILL|Hide|2

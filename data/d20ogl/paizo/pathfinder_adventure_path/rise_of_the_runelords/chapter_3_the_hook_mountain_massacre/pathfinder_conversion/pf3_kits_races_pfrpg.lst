@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Tue Apr 27 12:58:27 2010 -- reformated by prettylst.pl v1.39 (build 11455)
-SOURCELONG:Rise of the Runelords - Chapter 3: The Hook Mountain Massacre	SOURCESHORT:PF3	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy80e8	SOURCEDATE:2007-08
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Rise of the Runelords, Chapter 3: The Hook Mountain Massacre	SOURCESHORT:PF3	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy80e8	SOURCEDATE:2007-08
 
 ### Standard Animals
 ## Advanced Donkey Rat
@@ -8,7 +8,7 @@ RACE:Donkey Rat	!PRERACE:1,%
 NAME:Donkey Rat (Advanced)
 ALIGN:TN
 STAT:STR=10|DEX=12|CON=10|INT=10|WIS=10|CHA=10
-CLASS:Animal (Will)	LEVEL:6
+CLASS:Animal	LEVEL:6
 SKILL:Perception	RANK:3
 SKILL:Stealth	RANK:4
 FEAT:Alertness

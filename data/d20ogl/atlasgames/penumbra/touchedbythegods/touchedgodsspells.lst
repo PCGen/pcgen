@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Wed Aug  6 00:00:09 2008 -- reformated by prettylst.pl v1.38 (build 7233)
-SOURCELONG:Atlas Games - Penumbra - Touched by the Gods	SOURCESHORT:TouchbtG	SOURCEWEB:http://www.atlas-games.com/pen_index.html
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Atlas Games - Penumbra - Touched by the Gods	SOURCESHORT:TouchbtG	SOURCEWEB:http://www.atlas-games.com/pen_index.html	SOURCEDATE:2001-01
 
 #Could not find the Time domain in the book or index.
 #Commenting out the 2 Totem spells since they are exclusive to a class that has not been coded yet.

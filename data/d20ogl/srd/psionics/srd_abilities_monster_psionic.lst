@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Mon Oct  6 13:43:21 2008 -- reformated by prettylst.pl v1.38 (build 7302)
-SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
 ###Block: Astral Construct menu choices
 # Feat Name				Type					Visible	Special ABility																																					Define																																																																		Stackable?	Multiple?	Choose									Combat bonus				Source Page

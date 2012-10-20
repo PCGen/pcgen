@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Oct  8 16:52:12 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fey Magic	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-06
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
@@ -7,16 +7,16 @@ CLASS:Feydancer	HD:4		TYPE:PC.Prestige	ABB:Fyd		MAXLEVEL:10	SOURCEPAGE:p.26	BONU
 CLASS:Feydancer	PRELANG:1,Sylvan	PRESKILL:2,Knowledge (Fey)=8,Knowledge (Reverie)=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Feydancer	STARTSKILLPTS:4	CSKILL:Animal Empathy|TYPE=Craft|Knowledge (Fey)|Knowledge (Reverie)|Perform|TYPE=Profession|Sense Motive|Spot|Wilderness Lore
-1	ABILITY:Special Ability|AUTOMATIC|Attunement ~ Feydancer|Essence Retention ~ Feydancer	BONUS:VAR|ATTUNEMENT|2	DEFINE:ATTUNEMENT|0
-2																		BONUS:ABILITYPOOL|Fey Gift Feat|1
-3						BONUS:VAR|ATTUNEMENT|2
-4	ABILITY:Special Ability|AUTOMATIC|Essence Efficiency ~ Feydancer				BONUS:VAR|EssEff|1	DEFINE:EssEff|0
-5										BONUS:VAR|ATTUNEMENT|2					BONUS:ABILITYPOOL|Fey Gift Feat|1
-6	ABILITY:Special Ability|AUTOMATIC|Enchanted Slumber ~ Feydancer
-7										BONUS:VAR|ATTUNEMENT|2
-8										BONUS:VAR|EssEff|1					BONUS:ABILITYPOOL|Fey Gift Feat|1
-9										BONUS:VAR|ATTUNEMENT|2
-10	ABILITY:Special Ability|AUTOMATIC|Transformation ~ Feydancer																	TEMPLATE:Feydancer Transformation
+1							BONUS:VAR|ATTUNEMENT|2	DEFINE:ATTUNEMENT|0	ABILITY:Special Ability|AUTOMATIC|Attunement ~ Feydancer|Essence Retention ~ Feydancer
+2	BONUS:ABILITYPOOL|Fey Gift Feat|1
+3							BONUS:VAR|ATTUNEMENT|2
+4							BONUS:VAR|EssEff|1	DEFINE:EssEff|0		ABILITY:Special Ability|AUTOMATIC|Essence Efficiency ~ Feydancer
+5	BONUS:ABILITYPOOL|Fey Gift Feat|1	BONUS:VAR|ATTUNEMENT|2
+6															ABILITY:Special Ability|AUTOMATIC|Enchanted Slumber ~ Feydancer
+7							BONUS:VAR|ATTUNEMENT|2
+8	BONUS:ABILITYPOOL|Fey Gift Feat|1	BONUS:VAR|EssEff|1
+9							BONUS:VAR|ATTUNEMENT|2
+10															ABILITY:Special Ability|AUTOMATIC|Transformation ~ Feydancer					TEMPLATE:Feydancer Transformation
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
@@ -25,16 +25,16 @@ CLASS:Spellbinder	HD:4		TYPE:PC.Prestige	ABB:Spb		MAXLEVEL:10	SOURCEPAGE:p.28	BO
 CLASS:Spellbinder	PREFEAT:2,Craft Token,TYPE.ItemCreation	PREMULT:2,[PRESKILL:2,TYPE.Craft=8,TYPE.Craft=8],[PRESKILL:1,Knowledge (Reverie)=6]	PRESPELLTYPE:1,Arcane=2,Divine=2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Spellbinder	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|Knowledge (Reverie)|TYPE=Profession|Spellcraft|Wilderness Lore
-1	ABILITY:Special Ability|AUTOMATIC|Sense Token ~ Spellbinder																							BONUS:ABILITYPOOL|Craft Focus|1
-2	ABILITY:Special Ability|AUTOMATIC|Hand of the Inventor ~ Spellbinder|Overcharge ~ Spellbinder	BONUS:VAR|HOTI|2	BONUS:VAR|OVERCHARGE|1	DEFINE:HOTI|0	DEFINE:OVERCHARGE|0
-3																										BONUS:ABILITYPOOL|Improved Craft Focus|1
-4												BONUS:VAR|HOTI|2												BONUS:ABILITYPOOL|Craft Focus|1
-5	ABILITY:Special Ability|AUTOMATIC|Invest Token ~ Spellbinder									BONUS:VAR|OVERCHARGE|1
-6												BONUS:VAR|HOTI|2												BONUS:ABILITYPOOL|Improved Craft Focus|1
-7	ABILITY:Special Ability|AUTOMATIC|Command Word Activated ~ Spellbinder																					BONUS:ABILITYPOOL|Craft Focus|1
-8												BONUS:VAR|HOTI|2	BONUS:VAR|OVERCHARGE|1
-9																										BONUS:ABILITYPOOL|Improved Craft Focus|1
-10	ABILITY:Special Ability|AUTOMATIC|Use Activated ~ Spellbinder									BONUS:VAR|HOTI|2
+1	BONUS:ABILITYPOOL|Craft Focus|1																ABILITY:Special Ability|AUTOMATIC|Sense Token ~ Spellbinder
+2								BONUS:VAR|HOTI|2	BONUS:VAR|OVERCHARGE|1	DEFINE:HOTI|0	DEFINE:OVERCHARGE|0	ABILITY:Special Ability|AUTOMATIC|Hand of the Inventor ~ Spellbinder|Overcharge ~ Spellbinder
+3	BONUS:ABILITYPOOL|Improved Craft Focus|1
+4	BONUS:ABILITYPOOL|Craft Focus|1		BONUS:VAR|HOTI|2
+5								BONUS:VAR|OVERCHARGE|1											ABILITY:Special Ability|AUTOMATIC|Invest Token ~ Spellbinder
+6	BONUS:ABILITYPOOL|Improved Craft Focus|1	BONUS:VAR|HOTI|2
+7	BONUS:ABILITYPOOL|Craft Focus|1																ABILITY:Special Ability|AUTOMATIC|Command Word Activated ~ Spellbinder
+8								BONUS:VAR|HOTI|2	BONUS:VAR|OVERCHARGE|1
+9	BONUS:ABILITYPOOL|Improved Craft Focus|1
+10								BONUS:VAR|HOTI|2												ABILITY:Special Ability|AUTOMATIC|Use Activated ~ Spellbinder
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
@@ -43,16 +43,16 @@ CLASS:Wylding	HD:6		TYPE:PC.Prestige	ABB:Wyl		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:
 CLASS:Wylding	PREFEAT:1,Forge Bond	PRESKILL:3,Wilderness Lore=8,Knowledge (Nature)=8,Knowledge (Reverie)=8	PRESPELL:1,Speak with Plants
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wylding	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Heal|Intuit Direction|Knowledge (Nature)|TYPE=Profession|Wilderness Lore
-1	ABILITY:Special Ability|AUTOMATIC|Safe Passage ~ Wylding															SPELLS:Class|TIMES=1|Speak with Plants
-2	ABILITY:Special Ability|AUTOMATIC|Absorb Essence ~ Wylding	BONUS:VAR|ABSORBESSENCE|1	DEFINE:ABSORBESSENCE|0	ADD:SPELLCASTER|ANY
-3	ABILITY:Special Ability|AUTOMATIC|Plant Bond ~ Wylding																	SPELLS:Class|TIMES=2|Speak with Plants
-4		BONUS:VAR|SafePassageLvl|1										ADD:SPELLCASTER|ANY
-5							BONUS:VAR|ABSORBESSENCE|1									SPELLS:Class|TIMES=3|Speak with Plants
-6																ADD:SPELLCASTER|ANY
-7																				SPELLS:Class|TIMES=ATWILL|Speak with Plants
-8																ADD:SPELLCASTER|ANY	SPELLS:Class|TIMES=ATWILL|Commune with Nature
-9							BONUS:VAR|ABSORBESSENCE|1
-10	ABILITY:Special Ability|AUTOMATIC|Symbiosis ~ Wylding													ADD:SPELLCASTER|ANY									TEMPLATE:Wylding Plant
+1														ABILITY:Special Ability|AUTOMATIC|Safe Passage ~ Wylding	SPELLS:Class|TIMES=1|Speak with Plants
+2	BONUS:VAR|ABSORBESSENCE|1	DEFINE:ABSORBESSENCE|0	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Absorb Essence ~ Wylding
+3														ABILITY:Special Ability|AUTOMATIC|Plant Bond ~ Wylding	SPELLS:Class|TIMES=2|Speak with Plants
+4	BONUS:VAR|SafePassageLvl|1					ADD:SPELLCASTER|ANY
+5	BONUS:VAR|ABSORBESSENCE|1																			SPELLS:Class|TIMES=3|Speak with Plants
+6										ADD:SPELLCASTER|ANY
+7																								SPELLS:Class|TIMES=ATWILL|Speak with Plants
+8										ADD:SPELLCASTER|ANY											SPELLS:Class|TIMES=ATWILL|Commune with Nature
+9	BONUS:VAR|ABSORBESSENCE|1
+10										ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Symbiosis ~ Wylding										TEMPLATE:Wylding Plant
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
@@ -61,16 +61,16 @@ CLASS:Chosen Protector	HD:10		TYPE:PC.Prestige	ABB:Chp		MAXLEVEL:10	SOURCEPAGE:p
 CLASS:Chosen Protector	PREATT:5	PREFEAT:1,Track	PRESKILL:2,Wilderness Lore=8,Knowledge (Fey)=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Chosen Protector	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Hide|Jump|Knowledge (Fey)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Spot|Swim|Wilderness Lore
-1	ABILITY:Special Ability|AUTOMATIC|Scent of the Hunter ~ Chosen Protector|Slayer ~ Chosen Protector	BONUS:SKILL|Listen,Spot,Wilderness Lore|CL	BONUS:VAR|CPSLAYER|1	DEFINE:CPSLAYER|0		BONUS:VAR|ScentoftheHunterLvl|CL
-2	ABILITY:Special Ability|AUTOMATIC|Augmentation ~ Chosen Protector	BONUS:COMBAT|AC|1|TYPE=NaturalArmor																	TEMPLATE:Chosen Protector Natural Attacks
-3																			BONUS:VAR|CPSLAYER|1
-4																										SPELLS:Class|TIMES=1|Summon Nature's Ally I
-5																			BONUS:VAR|CPSLAYER|1
-6																										SPELLS:Class|TIMES=1|Summon Nature's Ally II
-7																			BONUS:VAR|CPSLAYER|1
-8																										SPELLS:Class|TIMES=1|Summon Nature's Ally III
-9																			BONUS:VAR|CPSLAYER|1
-10																										SPELLS:Class|TIMES=1|Summon Nature's Ally IV
+1							BONUS:SKILL|Listen,Spot,Wilderness Lore|CL	BONUS:VAR|CPSLAYER|1	BONUS:VAR|ScentoftheHunterLvl|CL	DEFINE:CPSLAYER|0	ABILITY:Special Ability|AUTOMATIC|Scent of the Hunter ~ Chosen Protector|Slayer ~ Chosen Protector
+2	BONUS:COMBAT|AC|1|TYPE=NaturalArmor																						ABILITY:Special Ability|AUTOMATIC|Augmentation ~ Chosen Protector															TEMPLATE:Chosen Protector Natural Attacks
+3															BONUS:VAR|CPSLAYER|1
+4																																													SPELLS:Class|TIMES=1|Summon Nature's Ally I
+5															BONUS:VAR|CPSLAYER|1
+6																																													SPELLS:Class|TIMES=1|Summon Nature's Ally II
+7															BONUS:VAR|CPSLAYER|1
+8																																													SPELLS:Class|TIMES=1|Summon Nature's Ally III
+9															BONUS:VAR|CPSLAYER|1
+10																																													SPELLS:Class|TIMES=1|Summon Nature's Ally IV
 
 
 # Class Name

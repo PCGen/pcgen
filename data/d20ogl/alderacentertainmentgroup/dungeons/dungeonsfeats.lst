@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
-SOURCELONG:Alderac Entertainment Group - Dungeons	SOURCESHORT:Dungeons	SOURCEWEB:http://alderac.com/d20
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Alderac Entertainment Group - Dungeons	SOURCESHORT:Dungeons	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 
 # Feat Name				Type			Required Feat		Required Stat	Description																				Bonus to skill			Source Page
 Blind Casting			TYPE:General	PREFEAT:1,Blind-Fight				DESC:You can re-roll your miss chance roll (for unseen targets) once if target is within 15 feet for cast spells with to hit.						SOURCEPAGE:p.81

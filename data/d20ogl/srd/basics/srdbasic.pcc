@@ -75,7 +75,7 @@ HIDETYPE:EQUIP|GemcuttingTools|LeatherworkingTools|LocksmithingTools|PaintingToo
 HIDETYPE:EQUIP|TrapmakingTools |WeaponsmithingTools|WeavingTools|UntrainedTools|LightSource
 HIDETYPE:FEAT|SpecialQuality|SpecialAttack|Extraordinary|SpellLike|Supernatural|AttackOption|Aura|Immunity|ModifyAC|Resistance|Weakness
 
-# Hide key stat types for skills 
+# Hide key stat types for skills
 HIDETYPE:SKILL|Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma
 
 # Universal tags

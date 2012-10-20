@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Wed Sep 30 21:36:04 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html	SOURCEDATE:2003-08
 # Original Entry by: Eddy Anthony
 
-# Equipment Name			Required Armor Proficiency				Required Shield Proficiency		Type							Cost		Weight	Slot Needed	Required Text				Define					AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus					Add to base move			Bonus to skill									Stat bonus					Special Property
+# Equipment Name			Required Armor Proficiency				Required Shield Proficiency		Type							Cost		Weight	Slot Needed	Required Text				Define					AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus			Add to base move			Bonus to skill									Stat bonus					Special Property
 Steamcraft Armor (+10)		PROFICIENCY:ARMOR|Steamcraft Armor									TYPE:Armor.Steamcraft.Suit.Standard.Metal	COST:2000	WT:100									DEFINE:SteamcraftArmorAcheck|7	ACCHECK:-7		MAXDEX:1		SOURCEPAGE:p.134	SPELLFAILURE:40		BONUS:COMBAT|AC|10|TYPE=Armor	BONUS:MOVEADD|TYPE=Walk|30	BONUS:SKILL|Listen|-2
 Steamcraft Armor (+11)		PROFICIENCY:ARMOR|Steamcraft Armor									TYPE:Armor.Steamcraft.Suit.Standard.Metal	COST:3000	WT:100									DEFINE:SteamcraftArmorAcheck|8	ACCHECK:-8		MAXDEX:0		SOURCEPAGE:p.134	SPELLFAILURE:45		BONUS:COMBAT|AC|11|TYPE=Armor	BONUS:MOVEADD|TYPE=Walk|0	BONUS:SKILL|Listen|-2
 Steamcraft Armor (+12)		PROFICIENCY:ARMOR|Steamcraft Armor									TYPE:Armor.Steamcraft.Suit.Standard.Metal	COST:6000	WT:100									DEFINE:SteamcraftArmorAcheck|9	ACCHECK:-9		MAXDEX:0		SOURCEPAGE:p.134	SPELLFAILURE:50		BONUS:COMBAT|AC|12|TYPE=Armor	BONUS:MOVEADD|TYPE=Walk|-5	BONUS:SKILL|Listen|-2

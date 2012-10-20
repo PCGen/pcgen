@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Nov 29 00:04:05 2007 -- reformated by prettylst.pl v1.38 (build 4314)
-SOURCELONG:Malhavoc Press - Web Enhancements	SOURCESHORT:MalhavocWb	SOURCEWEB:http://www.montecook.com
-# Race Name	Product Identity?	Favored Class	Starting Feats	Size		Move			Face/Space	Reach		Vision		Automatic Languages		Bonus Languages				Bonus to skill								Stat bonus								Special ABility	Main Race Type			Level Adjustment	Source Page
-Litorian	NAMEISPI:YES	FAVCLASS:Ranger	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5,5	REACH:5	VISION:Low-light	AUTO:LANG|Common|Litorian	LANGBONUS:Elven,Gnoll,Goblin,Orc	BONUS:SKILL|Intimidate,Listen,Search,Spot,Wilderness Lore|2	BONUS:STAT|STR|2	BONUS:STAT|DEX|2	BONUS:STAT|CON|2	SAB:Scent(Ex)	RACETYPE:Monstrous Humanoid	LEVELADJUSTMENT:1	SOURCEPAGE:p.1
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Malhavoc Press - Web Enhancements	SOURCESHORT:MalhavocWb	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2001-01
+# Race Name	Product Identity?	Favored Class	Starting Feats	Size		Move			Face/Space	Reach		Vision		Bonus Languages				Bonus to skill								Stat bonus								Automatically Gained Language	Special ABility	Main Race Type			Level Adjustment	Source Page
+Litorian	NAMEISPI:YES	FAVCLASS:Ranger	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5,5	REACH:5	VISION:Low-light	LANGBONUS:Elven,Gnoll,Goblin,Orc	BONUS:SKILL|Intimidate,Listen,Search,Spot,Wilderness Lore|2	BONUS:STAT|STR|2	BONUS:STAT|DEX|2	BONUS:STAT|CON|2	AUTO:LANG|Common|Litorian	SAB:Scent(Ex)	RACETYPE:Monstrous Humanoid	LEVELADJUSTMENT:1	SOURCEPAGE:p.1

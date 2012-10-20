@@ -1,6 +1,8 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
-ABILITYCATEGORY:Skill Focus Knowledge Choice	CATEGORY:FEAT	ABILITYLIST:Skill Focus(Knowledge %)	VISIBLE:QUALIFY	DISPLAYLOCATION:Class Abilities	EDITABLE:YES	EDITPOOL:YES
+# Ability Category					Visible		Editable or Static?	Change Pool?	Category of Object		Type of Object			Specific choices list				Display Location
+ABILITYCATEGORY:Skill Focus Knowledge Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:FEAT								ABILITYLIST:Skill Focus(Knowledge %)	DISPLAYLOCATION:Class Abilities
 
-ABILITYCATEGORY:Planar Mage Feat			CATEGORY:FEAT	TYPE:Metamagic.PlanarMage	VISIBLE:QUALIFY	DISPLAYLOCATION:Class Abilities	EDITABLE:YES	EDITPOOL:YES
+ABILITYCATEGORY:Planar Mage Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:FEAT			TYPE:Metamagic.PlanarMage								DISPLAYLOCATION:Class Abilities
 
-ABILITYCATEGORY:Planar Attunement Choice		CATEGORY:Special Ability	TYPE:PlanarAttunement	VISIBLE:QUALIFY	DISPLAYLOCATION:Class Abilities	EDITABLE:YES	EDITPOOL:YES
+ABILITYCATEGORY:Planar Attunement Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:PlanarAttunement									DISPLAYLOCATION:Class Abilities

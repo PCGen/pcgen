@@ -1,14 +1,14 @@
-# CVS $Revision$ $Author$ -- Sat Aug 23 14:20:17 2008 -- reformated by prettylst.pl v1.38 (build 7233)
-SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 # Original entry for Astral Contruct templates by: Ian
 
-# Template Name	Key								Add to magical move
-PP >= 1		KEY:Psionic Power Points greater than one		BONUS:POSTMOVEADD|TYPE=Walk|10|PREFEAT:1,Speed of Thought
+# Template Name		Unique Key						Visible	Add to magical move							Favored Class
+PP >= 1			KEY:Psionic Power Points greater than one			BONUS:POSTMOVEADD|TYPE=Walk|10|PREFEAT:1,Speed of Thought
 
 ### Race templates
-# Template Name		Visible	Favored Class
-Fighter Favored		VISIBLE:NO	FAVOREDCLASS:Fighter
-Psychic Warrior Favored	VISIBLE:NO	FAVOREDCLASS:Psychic Warrior
+# Template Name		Unique Key						Visible	Add to magical move							Favored Class
+Fighter Favored									VISIBLE:NO											FAVOREDCLASS:Fighter
+Psychic Warrior Favored								VISIBLE:NO											FAVOREDCLASS:Psychic Warrior
 
 ###Block: Astral Construct menu choices, groups are all possible combinations of A/B/C choices given any set in the group.
 # Template Name				Visible	Source Page					Bonus to Ability Pool

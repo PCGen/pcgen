@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Tue Oct 21 19:45:30 2008 -- reformated by prettylst.pl v1.38 (build 7302)
-SOURCELONG:Blood and Guts - Soldiers	SOURCESHORT:BnG-S	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=49
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Guts - Soldiers	SOURCESHORT:BnG-S	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=49	SOURCEDATE:2004-01
 
-# Feat Name				Type				Visible	Special ABility				Multiple?	Choose			Selections	Save checks bonus
-Smart Resilience (Fortitude)	TYPE:SmartResilience	VISIBLE:NO	SAB:Smart Resilience (Fortitude)									BONUS:CHECKS|Fortitude|INT
-Smart Resilience (Reflex)	TYPE:SmartResilience	VISIBLE:NO	SAB:Smart Resilience (Reflex)										BONUS:CHECKS|Reflex|INT
-Smart Resilience (Will)		TYPE:SmartResilience	VISIBLE:NO	SAB:Smart Resilience (Will)										BONUS:CHECKS|Will|INT
+# Feat Name				Type				Visible	Special ABility				Multiple?	Choose		Selections	Save checks bonus
+Smart Resilience (Fortitude)	TYPE:SmartResilience	VISIBLE:NO	SAB:Smart Resilience (Fortitude)								BONUS:CHECKS|Fortitude|INT
+Smart Resilience (Reflex)	TYPE:SmartResilience	VISIBLE:NO	SAB:Smart Resilience (Reflex)									BONUS:CHECKS|Reflex|INT
+Smart Resilience (Will)		TYPE:SmartResilience	VISIBLE:NO	SAB:Smart Resilience (Will)									BONUS:CHECKS|Will|INT
 
 Speed of the Essence		TYPE:Special		VISIBLE:NO	SAB:Speed of the Essence (%CHOICE)	MULT:YES	CHOOSE:SKILL|ALL	SELECT:1
