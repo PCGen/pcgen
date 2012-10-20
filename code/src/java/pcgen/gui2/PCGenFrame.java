@@ -1101,7 +1101,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 					JOptionPane.ERROR_MESSAGE);
 			}
 		}
-		else
+		else if (currentDataSetRef.getReference() != null)
 		{
 			if (showWarningConfirm(Constants.APPLICATION_NAME,
 				LanguageBundle.getFormattedString("in_loadPcSourcesLoadQuery", //$NON-NLS-1$
@@ -1110,6 +1110,14 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 				CharacterManager.openCharacter(pcgFile, PCGenFrame.this,
 					currentDataSetRef.getReference());
 			}
+		}
+		else
+		{
+			// No character sources and no sources loaded.
+			JOptionPane.showMessageDialog(this,
+				LanguageBundle.getFormattedString("in_loadPcNoSources", pcgFile), //$NON-NLS-1$
+				LanguageBundle.getString("in_loadPcFailTtile"), //$NON-NLS-1$
+				JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
