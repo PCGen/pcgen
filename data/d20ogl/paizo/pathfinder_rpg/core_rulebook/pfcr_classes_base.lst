@@ -25,10 +25,10 @@ CLASS:Barbarian	STARTSKILLPTS:4
 20																								ABILITY:Special Ability|AUTOMATIC|Mighty Rage
 #TODO: See about implementing a better method for the Uncanny Dodge; Barbarian Loses one or both with some Archetypes.
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Visible	Define			Save checks bonus											Combat bonus					CABILITY
-CLASS:Ex-Barbarian	HD:12		TYPE:Base.PC	ABB:Brb		MAXLEVEL:20	VISIBLE:NO	DEFINE:BarbarianLvl|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	CABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianClassSkills
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Visible	Define			Save checks bonus											Combat bonus				
+CLASS:Ex-Barbarian	HD:12		TYPE:Base.PC	ABB:Brb		MAXLEVEL:20	VISIBLE:NO	DEFINE:BarbarianLvl|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	
 # Class Name		Skill Pts/Lvl
-CLASS:Ex-Barbarian	STARTSKILLPTS:4
+CLASS:Ex-Barbarian	STARTSKILLPTS:4	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianClassSkills
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
