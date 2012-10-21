@@ -66,6 +66,7 @@ import pcgen.gui2.util.JTreeViewTable;
 import pcgen.gui2.util.treetable.AbstractTreeTableModel;
 import pcgen.gui2.util.treetable.DefaultTreeTableNode;
 import pcgen.gui2.util.treetable.SortableTreeTableModel;
+import pcgen.gui2.util.treetable.TreeTableModel;
 import pcgen.gui2.util.treeview.DataView;
 import pcgen.gui2.util.treeview.DataViewColumn;
 import pcgen.gui2.util.treeview.TreeView;
@@ -191,7 +192,51 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 	{
 		// Refresh the character sheet as we have been displayed.
 		LoadButtonAndSheetHandler action = (LoadButtonAndSheetHandler) loadButton.getAction();
-		action.showCompanion(false);
+		if (action != null)
+		{
+			action.showCompanion(false);
+		}
+	}
+
+	private void selectCompanion(CompanionFacade compFacade)
+	{
+		TreeTableModel treeTableModel = companionsTable.getTreeTableModel();
+		treeTableModel.getRoot();
+		TreePath path = null;
+
+		JTree tree = companionsTable.getTree();
+		String companionType = compFacade.getCompanionType();
+		for (int i = 0; i < tree.getRowCount(); i++)
+		{
+			TreePath pathForRow = tree.getPathForRow(i);
+			Object lastPathComponent = pathForRow.getLastPathComponent();
+			if (lastPathComponent.toString()
+				.startsWith(companionType))
+			{
+				tree.expandRow(i);
+			}
+			else if (lastPathComponent instanceof pcgen.gui2.tabs.CompanionInfoTab.CompanionsModel.CompanionNode)
+			{
+				CompanionFacade rowComp =
+						(CompanionFacade) ((pcgen.gui2.tabs.CompanionInfoTab.CompanionsModel.CompanionNode) lastPathComponent).getValueAt(0);
+
+				if (rowComp != null
+					&& rowComp.getFileRef().getReference() == compFacade
+						.getFileRef().getReference()
+					&& rowComp.getNameRef().getReference() == compFacade
+						.getNameRef().getReference()
+					&& rowComp.getRaceRef().getReference() == compFacade
+						.getRaceRef().getReference())
+				{
+					path = pathForRow;
+				}
+			}
+		}
+		if (path != null)
+		{
+			companionsTable.getTree().setSelectionPath(path);
+			companionsTable.getTree().scrollPathToVisible(path);
+		}
 	}
 
 	private class TreeExpansionHandler implements TreeExpansionListener
@@ -543,6 +588,11 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 				companionDialog.setCompanionType(type);
 				Utility.setDialogRelativeLocation(CompanionInfoTab.this, companionDialog);
 				companionDialog.setVisible(true);
+				CharacterFacade comp = companionDialog.getNewCompanion();
+				if (comp != null)
+				{
+					selectCompanion(comp);
+				}
 			}
 			cancelCellEditing();
 		}
@@ -584,6 +634,10 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		private final JTreeViewTable raceTable;
 		private CharacterFacade character;
 		private String companionType;
+		private CharacterFacade newCompanion;
+
+		private DefaultListFacade<CompanionTreeView> treeViews = new DefaultListFacade<CompanionTreeView>(
+				Arrays.asList(CompanionTreeView.values()));
 
 		public CompanionDialog()
 		{
@@ -632,12 +686,11 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			CharacterFacade newCompanion = CharacterManager.createNewCharacter(character.getUIDelegate(), character.getDataSet());
+			newCompanion = CharacterManager.createNewCharacter(character.getUIDelegate(), character.getDataSet());
 			CompanionStubFacade selected = (CompanionStubFacade) raceTable.getSelectedObject();
 			newCompanion.setRace(selected.getRaceRef().getReference());
 			character.getCompanionSupport().addCompanion(newCompanion, companionType);
 			setVisible(false);
-			//TODO select newly created character
 		}
 
 		public void setCharacter(CharacterFacade character)
@@ -652,10 +705,8 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			model.setCompanionType(type);
 			selectButton.setText(LanguageBundle.getFormattedString(
 				"in_companionCreateType", type)); //$NON-NLS-1$
+			newCompanion = null;
 		}
-
-		private DefaultListFacade<CompanionTreeView> treeViews = new DefaultListFacade<CompanionTreeView>(
-				Arrays.asList(CompanionTreeView.values()));
 
 		@Override
 		public ListFacade<? extends TreeView<CompanionStubFacade>> getTreeViews()
@@ -700,6 +751,14 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		public String getPrefsKey()
 		{
 			return "CompanionAvail";  //$NON-NLS-1$
+		}
+
+		/**
+		 * @return the newCompanion
+		 */
+		public CharacterFacade getNewCompanion()
+		{
+			return newCompanion;
 		}
 
 	}
