@@ -2209,6 +2209,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		remainingDomains.setReference(theCharacter.getMaxCharacterDomains() - theCharacter.getDomainCount());
 		updateDomainTodo();
 		spellSupportFacade.refreshAvailableKnownSpells();
+		companionSupportFacade.refreshCompanionData();
 	}
 
 	/* (non-Javadoc)
