@@ -426,7 +426,7 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 				return i;
 			}
 		}
-		Logging.errorPrint("Unable to find view " + view + " in " + treeViews);
+		// If not found it is most likely the text search view,
 		return -1;
 	}
 
