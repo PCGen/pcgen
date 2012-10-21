@@ -2704,11 +2704,19 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		UIPropertyContext context = UIPropertyContext.getInstance();
 		if (context.getBoolean(UIPropertyContext.SAVE_OUTPUT_SHEET_WITH_PC))
 		{
+			String sheet;			
 			if (pdf)
 			{
-				return theCharacter.getSelectedCharacterPDFOutputSheet();
+				sheet = theCharacter.getSelectedCharacterPDFOutputSheet();
 			}
-			return theCharacter.getSelectedCharacterHTMLOutputSheet();
+			else
+			{
+				sheet = theCharacter.getSelectedCharacterHTMLOutputSheet();
+			}
+			if (StringUtils.isNotEmpty(sheet))
+			{
+				return sheet;
+			}
 		}
 
 		if (pdf)
