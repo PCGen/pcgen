@@ -37,6 +37,8 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.apache.commons.lang.StringUtils;
+
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.CategorizedCDOMObject;
@@ -220,7 +222,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	{
 		gamemodePrefsContext = prefsContext.createChildContext(name);
 		String rollMethodExpr = gamemodePrefsContext.getProperty("rollMethodExpression"); //$NON-NLS-1$
-		if (rollMethodExpr != null)
+		if (StringUtils.isNotBlank(rollMethodExpr))
 		{
 			activeRollMethod =
 					getModeContext().ref.silentlyGetConstructedCDOMObject(
