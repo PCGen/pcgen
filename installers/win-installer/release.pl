@@ -311,13 +311,15 @@ else {
         ],
 
         other_copies_ref => [
-            # In the installtion base folder, we have only jep and wraplf
+            # In the installation base folder, we have jep, spring, cobra etc
             {   destination         => "$DEST_NSIS_BASE_FOLDER/lib",
                 files_to_keep_ref   => [
+                    # directory
+                    qr{ [/] (?: apache | cobra | jep | spring ) [/] }xmsi,
+
                     # files
                     qr{ [/]
-                        (?: jep |
-                            wraplf )
+                        (?:  xml-apis | xalan | xerces  )
                         [^/]* \z
                     }xmsi,
                 ]
@@ -327,7 +329,7 @@ else {
                 files_to_keep_ref   => [
                     # files
                     qr{ [/]
-                        (?: fop | jdom | xml-apis )
+                        (?: fop | jdom )
                         [^/]* \z
                     }xmsi,
                 ],
@@ -340,7 +342,7 @@ else {
 
                     # files
                     qr{ [/]
-                        (?: javacc | junit | xmlunit | jep | wraplf | fop | jdom | xml-apis )
+                        (?: javacc | junit | xmlunit | jep | apache | cobra | spring | xml-apis | xalan | xerces | fop | jdom   )
                         [^/]* \z
                     }xmsi,
                 ],
