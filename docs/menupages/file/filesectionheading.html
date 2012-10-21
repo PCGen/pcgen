@@ -10,6 +10,7 @@
 		
 		Contributors:
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+		Eric C Smith - mareduddATblackrootDOTorg
 		
 		Description:
 		PCGen Documentation File Menu Options.
@@ -23,85 +24,75 @@
 	<body>
 		<h1>File Menu Options</h1>
 		
-		<p class="center"><img src="../../images/menus/file.png" alt="File Menu Options"></p>
+		<p class="center"><img src="../../images/menus/menu_file_0.png" alt="File Menu Options"></p>
 		
-		<p>These are the <strong>File</strong> options that are available to use once sources 
-		have been loaded. These options are used for starting a new PC, loading an existing PC, or export 
-		a currently loaded PC to a file.</p>
+		<p>These are the <strong>File</strong> menu options that are available to use once sources have 
+			been loaded. These options are used for starting a new PC, loading an existing PC, or exporting 
+			a currently loaded PC to a file.</p>
 		
-		<p>The <strong>New</strong> command allows the user to create a new PC based on the
-		sources that were previously loaded. When this command is used a new PC screen appears and the 
-		user can begin to input the information needed to build a PC.</p>
-		
+		<p>The <strong>New</strong> command allows the user to create a new PC based on the sources that 
+			were previously loaded. When this command is used a new PC screen appears and the user can 
+			begin to input the information needed to build a PC.</p>
+
+<!--
 		<p>The <strong>New NPC</strong> command opens up a new window containing options for creating 
 		random characters within a set of parameters you can specify.</p>
+-->
 		
-		<p>The <strong>Open</strong> command opens up a new window and prompts you to pick
-		the PC to load. This folder is the last place that the user selected to save a PC to. The default 
-		is the Characters folder under the PCGen main directory.</p>
+		<p>The <strong>Open</strong> command opens up a new window and prompts you to pick the PC to load. 
+			This folder is the last place that the user selected to save a PC to. The default is the 
+			Characters folder under the PCGen main directory.</p>
+
+		<p>The <strong>Close</strong> command closes the PC but does not exit the application. This is 
+			used primarily to close the working PC and still be running PCGen but without that PC loaded.</p>
 		
-		<p>The <strong>Open Recent</strong> command opens a recently closed or saved
-		file. This	is useful for quickly loading saved or closed PC's and wanting
-		to open them up and edit them again.</p>
+		<p>The <strong>Close All </strong>command closes all loaded and running PC's but does not close 
+			the application. This is used for clearing all running PC's that are being worked on.</p>
+
+		<p>The <strong>Save </strong>command saves the current PC that is loaded. If the character has 
+			not been saved before, a <strong>Save </strong>command another window will then open up and 
+			ask for the name of the file that the user wishes to save it as. Otherwise the <strong>Save</strong> 
+			command will automatically use the last filename used.</p>
 		
-		<p>The <strong>Close</strong> command closes the PC but does not exit the application.
-		This is used primarily to close the working PC and still be running PCGen but without that PC loaded.</p>
+		<p>The <strong>Save As</strong> command allows the user to save the PC as something other than 
+			what was previously used. This can be used to change the filename or location. This will 
+			create a new file with the new name to be used but will not overwrite the preexisting file 
+			that the PC is based off of.</p>
 		
-		<p>The <strong>Close All </strong>command closes all loaded and running PC's
-		  but does not close the application. This is used for clearing all running
-		  PC's that are being worked on.</p>
+		<p>The <strong>Save All</strong> command is used to save all the open PC's to their  respective 
+			files and folders. This is a quick way to save multiple loaded PC's at one time using the 
+			same names that they previously had before.</p>
 		
-		<p>The <strong>Save </strong>command saves the current PC that is loaded. If the 
-		character has not been saved before, a <strong>Save </strong>command another window will then open up and ask 
-		for the name of the file that the user wishes to save it as. Otherwise the <strong>Save</strong> command will 
-		automatically use the last filename used.</p>
-		
-		<p>The <strong>Save As</strong> command allows the user to save the PC as something
-		other than what was previously used. This can be used to change the filename or location. 
-		This will create a new file with the new name to be used but will not overwrite the preexisting file 
-		that the PC is based off of.</p>
-		
-		<p>The <strong>Save All</strong> command is used to save all the open PC's
-		  to their  respective files and folders. This is a quick way to save multiple
-		  loaded PC's at one time using 
-		the same names that they previously had before.</p>
-		
-		<p>The <strong>Revert to Saved</strong> command reverts all changes made to the
-		character and takes the PC back to the way it originally was when loaded. This reverts all changes 
-		made to the PC, discards any added items or updates, and takes it back to the original file.</p>
-		
-		<p>The <strong>Party</strong> option allows the user to save all the PC's that
-		  are created as a party and allows quick loading of the party at once. This
-		  is useful for a DM who manages 
-		the PC's to load all people in the party with one file name.</p>
-		
-		<p>The <strong>Print Preview</strong> command displays the current PC in the default
-		browser window. First you have to specify a "Default HTML Output Sheet" under 
-		<a href="../settings/pcgen/pcgenoutput.html">Preferences</a>. Default Browser can be any html capable browser 
-		e.g: Internet Explorer, Netscape, Mozilla, etc. The browser location can be customized via the  
-		<a href="../settings/pcgen/pcgenlocation.html">Location Preferences</a>.</p>
-		
+		<p>The <strong>Revert to Saved</strong> command reverts all changes made to the character and 
+			takes the PC back to the way it originally was when loaded. This reverts all changes made 
+			to the PC, discards any added items or updates, and takes it back to the original file.</p>
+
+		<p>The <strong>Party</strong> option allows the user to save all the PC's that	are created as 
+			a party and allows quick loading of the party at once. This is useful for a DM who manages 
+			the PC's to load all people in the party with one file name.</p>
+
 		<p>The <strong>Print</strong> command sends the selected PC to the printer using one of
-		several files.</p>
-		<ul>
-			<li>Once the option is selected another window appears and asks the user to select which 
-			file is to be used for printing.</li>
-			<li>Once the file is selected select the &quot;Print&quot; button and it will send
-			  the 	file off to the printer.</li>
-			<li>If you wish to print all the PC's that are loaded select the &quot;Entire
-			  Party&quot;
-			  	checkbox and select print.</li>
-		</ul>
-		
+			several files.</p>
+			<ul>
+				<li>Once the option is selected another window appears and asks the user to select which 
+					file is to be used for printing.</li>
+				<li>Once the file is selected select the &quot;Print&quot; button and it will send
+					the file off to the printer.</li>
+				<li>If you wish to print all the PC's that are loaded select the &quot;Entire
+					Party&quot; checkbox and select print.</li>
+			</ul>
+
 		<p>The <strong>Export</strong> command exports the PC to a file used to view the PC.
-		These are used primarily to view and use the PC with other applications such as Internet Browsers,
-		Adobe Acrobat, OpenRPG, and others.</p>
-		
-		<p>The <strong>Add Kit </strong>brings up a dialog box which allows you to apply 
-		pre-generated sets of Feats, Skills, Equipment etc, to a character.</p>
+			These are used primarily to view and use the PC with other applications such as 
+			Internet Browsers, Adobe Acrobat, OpenRPG, and others.</p>
+
+		<p>The most recently closed or saved character can be loaded directly from this menu.</p>
 		
 		<p>The <strong>Exit </strong>command exits PCGen and prompts the user to save the
-		application before closing.</p>
+			application before closing.</p>
+
+<hr>
+
 	<p>
 	<a href="http://validator.w3.org/check?uri=referer"><img
        	src="../../images/system/valid-html401.png"
