@@ -211,7 +211,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 
 		Rectangle screenBounds = getGraphicsConfiguration().getBounds();
 
-		setSize(1060, 685);//this is the default frame dimensions
+		setSize(1060, 725);//this is the default frame dimensions
 		setLocationRelativeTo(null);//center the frame
 		if (!screenBounds.contains(getBounds()))
 		{
