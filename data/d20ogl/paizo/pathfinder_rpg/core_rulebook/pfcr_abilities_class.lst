@@ -751,6 +751,17 @@ CATEGORY=Internal|Default.MOD					ABILITY:Internal|AUTOMATIC|Rogue Archetype Sup
 # COMMENT: This supports the Tiered System to Bring Back Abilities at the next tier if an Archetype replaced them.
 Rogue Archetype Support		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Sneak Attack|Sneak Attack ~ Rogue|PREVARGTEQ:RogueLvl,3|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueSneakAttack	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base|PREVARGTEQ:RogueLvl,8|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueUncannyDodge,TYPE.RogueImprovedUncannyDodge	BONUS:VAR|RogueSneakAttackLVL|-2|PREVARGTEQ:RogueLvl,3|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueSneakAttack	BONUS:VAR|UncannyDodgeLevel|-4|PREVARGTEQ:RogueLvl,8|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueUncannyDodge,TYPE.RogueImprovedUncannyDodge
 
+CATEGORY=Special Ability|Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,1|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent1
+CATEGORY=Special Ability|Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,2|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent2
+CATEGORY=Special Ability|Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,3|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent3
+CATEGORY=Special Ability|Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,4|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent4
+CATEGORY=Special Ability|Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,5|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent5
+CATEGORY=Special Ability|Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,6|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent6
+CATEGORY=Special Ability|Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,7|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent7
+CATEGORY=Special Ability|Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,8|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent8
+CATEGORY=Special Ability|Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,9|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent9
+CATEGORY=Special Ability|Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,10|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent10
+
 
 ###Block: Rogue Talents
 # Ability Name	Unique Key				Category of Ability		Type										Visible		Required Ability							Required Stat	Define				Description																																Multiple?	Choose											Virtual Feat		Bonus to Ability Pool				Modify VAR							Source Page		Aspects								Description of the Benefits
