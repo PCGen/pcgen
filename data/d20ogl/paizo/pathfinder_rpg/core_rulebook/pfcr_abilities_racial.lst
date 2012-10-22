@@ -90,7 +90,6 @@ Skilled		KEY:Skilled ~ Human	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQ
 ###Block: Default Ability that should be applied to all races/classes eventually
 
 # Ability Name							Category of Ability	Ability																							Bonus to Ability Pool
-Default								CATEGORY:Internal
 #
 CATEGORY=Internal|Default.MOD									ABILITY:Internal|AUTOMATIC|Select Racial Traits
 #|PREMULT:1,[PRERACE:1,Dwarf],[PRERACE:1,Elf],[PRERACE:1,Halfling],[PRERACE:1,Human],[PRERACE:1,Half-Elf],[PRERACE:1,Half-Orc],[PRERACE:1,Gnome]

@@ -3,6 +3,11 @@ SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downl
 # Original RSRD Entry by: PCGen Data Team
 # Original Entry by: Stefan Radermacher
 
+
+Default								CATEGORY:Internal
+
+CATEGORY=Internal|Default.MOD	DEFINE:DomainNotAllowed|0
+
 ###Block: Abilities
 # Ability Name	Category of Ability		Type								Visible
 Tongues		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communicate	VISIBLE:YES
