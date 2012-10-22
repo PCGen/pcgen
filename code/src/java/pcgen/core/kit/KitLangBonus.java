@@ -147,7 +147,16 @@ public class KitLangBonus extends BaseKit
 	@Override
 	public String toString()
 	{
-		return StringUtil.join(langList, ", ");
+		StringBuilder result = new StringBuilder();
+		for (CDOMSingleRef<Language> lang : langList)
+		{
+			if (result.length() > 0)
+			{
+				result.append(", ");
+			}
+			result.append(lang.getLSTformat(false));
+		}
+		return result.toString();
 	}
 
 	public void addLanguage(CDOMSingleRef<Language> reference)

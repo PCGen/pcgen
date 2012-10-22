@@ -59,7 +59,12 @@ public class KitClass extends BaseKit
 	public String toString()
 	{
 		StringBuffer ret = new StringBuffer(100);
-		ret.append(pcClass.getLSTformat(false)).append(levelFormula);
+		ret.append(pcClass.getLSTformat(false));
+		if (subClass != null)
+		{
+			ret.append("(").append(subClass.getLSTformat(false)).append(")");
+		}
+		ret.append(levelFormula);
 		return ret.toString();
 	}
 
@@ -73,11 +78,7 @@ public class KitClass extends BaseKit
 		theClass = pcClass.resolvesTo();
 
 		theOrigSubClass = aPC.getSubClassName(theClass);
-		if (subClass != null)
-		{
-			// try and set a subclass too.
-			SubClassApplication.setSubClassKey(aPC, theClass, getSubClass().getLSTformat(false));
-		}
+		applySubClass(aPC);
 
 		if (!PrereqHandler.passesAll(theClass.getPrerequisiteList(), aPC, aKit))
 		{
@@ -96,9 +97,27 @@ public class KitClass extends BaseKit
 		return true;
 	}
 
+	private void applySubClass(PlayerCharacter aPC)
+	{
+		if (subClass != null)
+		{
+			// Ensure the character has the class
+			PCClass heldClass = aPC.getClassKeyed(theClass.getKeyName());
+			if (heldClass == null)
+			{
+				aPC.incrementClassLevel(0, theClass);
+				heldClass = aPC.getClassKeyed(theClass.getKeyName());
+			}
+
+			// try and set a subclass too.
+			SubClassApplication.setSubClassKey(aPC, heldClass, getSubClass().getLSTformat(false));
+		}
+	}
+
 	@Override
 	public void apply(PlayerCharacter aPC)
 	{
+		applySubClass(aPC);
 		addLevel(aPC, theLevel, theClass, doLevelAbilities);
 		if (theOrigSubClass != null)
 		{
