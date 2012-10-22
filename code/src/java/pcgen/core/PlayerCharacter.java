@@ -2488,8 +2488,8 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 
 			Visibility skVis = bSkill.getSafe(ObjectKey.VISIBILITY);
 			Integer outputIndex = this.getAssoc(bSkill, AssociationKey.OUTPUT_INDEX);
-			if (outputIndex != null && outputIndex == -1 || skVis.equals(Visibility.HIDDEN)
-					|| skVis.equals(Visibility.DISPLAY_ONLY))
+			if ((outputIndex != null && outputIndex == -1) || skVis.equals(Visibility.HIDDEN)
+					|| skVis.equals(Visibility.DISPLAY_ONLY) || !bSkill.qualifies(this, null))
 			{
 				i.remove();
 			}
