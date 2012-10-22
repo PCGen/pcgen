@@ -2167,25 +2167,31 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			element = it.next();
 
-			aPCClass =
-					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-						PCClass.class, EntityEncoder.decode(element.getText()));
-
-			if (aPCClass != null)
+			String classKey = EntityEncoder.decode(element.getText());
+			// First check for an existing class, say from a racial casting ability
+			aPCClass = thePC.getClassKeyed(classKey);
+			if (aPCClass == null)
 			{
-				// Icky: Need to redesign the way classes work!
-				// Icky: Having to clone the class here is UGLY!
-				aPCClass = aPCClass.clone();
-			}
-			else
-			{
-				final String msg =
-						LanguageBundle.getFormattedString(
-							"Warnings.PCGenParser.CouldntAddClass", //$NON-NLS-1$
-							element.getText());
-				warnings.add(msg);
-
-				return;
+				aPCClass =
+						Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+							PCClass.class, classKey);
+	
+				if (aPCClass != null)
+				{
+					// Icky: Need to redesign the way classes work!
+					// Icky: Having to clone the class here is UGLY!
+					aPCClass = aPCClass.clone();
+				}
+				else
+				{
+					final String msg =
+							LanguageBundle.getFormattedString(
+								"Warnings.PCGenParser.CouldntAddClass", //$NON-NLS-1$
+								element.getText());
+					warnings.add(msg);
+	
+					return;
+				}
 			}
 		}
 
