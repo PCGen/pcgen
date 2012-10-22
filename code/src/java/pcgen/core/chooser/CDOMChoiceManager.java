@@ -3,8 +3,10 @@ package pcgen.core.chooser;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
@@ -121,7 +123,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	public List<T> doChooser(PlayerCharacter aPc, final List<T> availableList,
 			final List<T> selectedList, final List<String> reservedList)
 	{
-		int effectiveChoices = getNumEffectiveChoices(selectedList, reservedList);
+		int effectiveChoices = getNumEffectiveChoices(selectedList, reservedList, aPc);
 
 //		final ChooserInterface chooser = getChooserInstance();
 		boolean dupsAllowed = controller.isMultYes() && controller.isStackYes();
@@ -166,11 +168,12 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	 * Calculate the number of effective choices the user can make.
 	 *  
 	 * @param selectedList The list of already selected items.
-	 * @param reservedList 
+	 * @param reservedList The list of options which cannot be offered.
+	 * @param aPc The character the choice applies to.
 	 * @return The number of choices that may be made 
 	 */
 	public int getNumEffectiveChoices(final List<T> selectedList,
-		final List<String> reservedList)
+		final List<String> reservedList, PlayerCharacter aPc)
 	{
 		int selectedPoolValue = (selectedList.size() + (choicesPerUnitCost - 1))
 				/ choicesPerUnitCost;
@@ -189,6 +192,15 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 				.min(controller.getPool() + selectedPoolValue,
 						effectiveTotalChoices / choicesPerUnitCost);
 		effectiveChoices *= choicesPerUnitCost;
+		Formula formula = owner.get(FormulaKey.NUMCHOICES);
+		if (formula != null)
+		{
+			int numChoices = formula.resolve(aPc, owner.getKeyName()).intValue();
+			if (numChoices > 0)
+			{
+				effectiveChoices = Math.min(effectiveChoices, numChoices);
+			}
+		}
 		effectiveChoices -=  selectedList.size();
 		return effectiveChoices;
 	}

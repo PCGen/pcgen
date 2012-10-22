@@ -91,11 +91,12 @@ public interface ChoiceManagerList<T> {
 	 * Calculate the number of effective choices the user can make.
 	 *  
 	 * @param selectedList The list of already selected items.
-	 * @param reservedList 
+	 * @param reservedList The list of options which cannot be offered.
+	 * @param aPc The character the choice applies to.
 	 * @return The number of choices that may be made 
 	 */
 	public int getNumEffectiveChoices(final List<T> selectedList,
-		final List<String> reservedList);
+		final List<String> reservedList, PlayerCharacter aPc);
 
 	public abstract boolean conditionallyApply(PlayerCharacter pc, T item);
 

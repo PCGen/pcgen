@@ -109,7 +109,7 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 	}
 
 	public int getNumEffectiveChoices(List<String> selectedList,
-		List<String> reservedList)
+		List<String> reservedList, PlayerCharacter aPc)
 	{
 		return 0;
 	}

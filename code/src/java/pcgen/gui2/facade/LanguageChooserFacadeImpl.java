@@ -158,8 +158,12 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		}
 		else
 		{
-			ChoiceManagerList<Language> aMan = ChooserUtilities.getConfiguredController((PObject) source, theCharacter, null, new ArrayList<String>());
-			numSelections = aMan.getNumEffectiveChoices(selLangs, new ArrayList<String>());
+			ChoiceManagerList<Language> aMan =
+					ChooserUtilities.getConfiguredController((PObject) source,
+						theCharacter, null, new ArrayList<String>());
+			numSelections =
+					aMan.getNumEffectiveChoices(selLangs,
+						new ArrayList<String>(), theCharacter);
 		}
 		numSelectionsRemain.setReference(numSelections);
 	}

@@ -45,7 +45,7 @@ public class UserInputManager extends CDOMChoiceManager<String>
 	public List<String> doChooser(PlayerCharacter aPc, final List<String> availableList,
 			final List<String> selectedList, final List<String> reservedList)
 	{
-		int effectiveChoices = getNumEffectiveChoices(selectedList, reservedList);
+		int effectiveChoices = getNumEffectiveChoices(selectedList, reservedList, aPc);
 
 		final ChooserInterface chooser = getChooserInstance();
 		boolean dupsAllowed = controller.isMultYes() && controller.isStackYes();
