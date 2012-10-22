@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sun Oct 21 23:15:04 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
 # ORIGINAL ENTRY: Andrew Maitland
 # ORIGINAL ENTRY DATE: 08-2012 (August 8th)
@@ -26,8 +26,8 @@ CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle
 
 ###Block: Ninja
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus												Combat bonus
-CLASS:Ninja		HD:8		TYPE:Base.PC	ABB:Nin		MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:NinjaLvl|CL	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	DEFINE:RogueTalentLVL|0
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define							Save checks bonus												Combat bonus
+CLASS:Ninja		HD:8		TYPE:Base.PC	ABB:Nin		MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:NinjaLvl|CL	DEFINE:RogueTalentLVL|0	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ninja		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (Local)|Knowledge (Nobility)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device
 ###Block: Proficiencies
@@ -35,8 +35,8 @@ CLASS:Ninja		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|D
 1																																	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Vars
 1	BONUS:VAR|NinjaSneakAttackLVL|CL
-2	BONUS:VAR|KiPoolLVL|CL	
-2	BONUS:VAR|NinjaTrickLVL|CL	BONUS:VAR|RogueTalentLVL|CL	
+2	BONUS:VAR|KiPoolLVL|CL
+2	BONUS:VAR|NinjaTrickLVL|CL	BONUS:VAR|RogueTalentLVL|CL
 3	BONUS:VAR|NinjaTrapSenseLVL|CL
 3	BONUS:VAR|NinjaNoTraceLVL|CL
 4	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE

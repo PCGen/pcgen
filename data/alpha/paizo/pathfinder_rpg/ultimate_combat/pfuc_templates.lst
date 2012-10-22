@@ -1,6 +1,8 @@
+# CVS $Revision$ $Author$ -- Sun Oct 21 23:15:04 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
 
-WILD STALKER Strong Senses	VISIBLE:NO	TEMPLATE:CHOOSE:WILD STALKER No Low Light Vision|WILD STALKER Has Low Light Vision
+# Template Name				Visible	Template													Required Vision					Prohibited Vision					Modify VAR						Ability
+WILD STALKER Strong Senses		VISIBLE:NO	TEMPLATE:CHOOSE:WILD STALKER No Low Light Vision|WILD STALKER Has Low Light Vision
 
-WILD STALKER No Low Light Vision	!PREVISION:1,Low-Light=ANY,Low Light=ANY	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light
-WILD STALKER Has Low Light Vision	PREVISION:1,Low-Light=ANY,Low Light=ANY	VISIBLE:NO	BONUS:VAR|WildStalkerPerceptionBonus|1
+WILD STALKER No Low Light Vision	VISIBLE:NO																						!PREVISION:1,Low-Light=ANY,Low Light=ANY								ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light
+WILD STALKER Has Low Light Vision	VISIBLE:NO															PREVISION:1,Low-Light=ANY,Low Light=ANY								BONUS:VAR|WildStalkerPerceptionBonus|1
