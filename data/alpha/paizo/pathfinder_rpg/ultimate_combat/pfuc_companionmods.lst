@@ -74,3 +74,24 @@ FOLLOWER:EmpyrealCompanion=20	TYPE:Special Mount	HD:1																											
 
 
 
+# Class of the Master		Type				Hit Dice	Ability												Automatically Gained Feat	Define							Bonus to Ability Pool					Combat bonus					Stat bonus			Modify VAR							Main Race Type
+FOLLOWER:BeastRiderLvl=1	TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Animal Training ~ Combat Training			AUTO:FEAT|Endurance			DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:BeastRiderLvl=2	TYPE:Animal Companion	HD:1																																															BONUS:VAR|MasterLevel|1
+FOLLOWER:BeastRiderLvl=3	TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Evasion																												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:BeastRiderLvl=4	TYPE:Animal Companion	HD:1																												BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
+FOLLOWER:BeastRiderLvl=5	TYPE:Animal Companion	HD:1																																															BONUS:VAR|MasterLevel|1
+FOLLOWER:BeastRiderLvl=6	TYPE:Animal Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Devotion																											BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:BeastRiderLvl=7	TYPE:Animal Companion																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:BeastRiderLvl=8	TYPE:Animal Companion	HD:1																																															BONUS:VAR|MasterLevel|1
+FOLLOWER:BeastRiderLvl=9	TYPE:Animal Companion	HD:1															AUTO:FEAT|Multiattack										BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:BeastRiderLvl=10	TYPE:Animal Companion	HD:1																																															BONUS:VAR|MasterLevel|1
+FOLLOWER:BeastRiderLvl=11	TYPE:Animal Companion																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:BeastRiderLvl=12	TYPE:Animal Companion	HD:1																																				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:BeastRiderLvl=13	TYPE:Animal Companion	HD:1																																															BONUS:VAR|MasterLevel|1
+FOLLOWER:BeastRiderLvl=14	TYPE:Animal Companion	HD:1																												BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
+FOLLOWER:BeastRiderLvl=15	TYPE:Animal Companion																																					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:BeastRiderLvl=16	TYPE:Animal Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																																					BONUS:VAR|MasterLevel|1
+FOLLOWER:BeastRiderLvl=17	TYPE:Animal Companion	HD:1																																															BONUS:VAR|MasterLevel|1
+FOLLOWER:BeastRiderLvl=18	TYPE:Animal Companion	HD:1																																				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:BeastRiderLvl=19	TYPE:Animal Companion																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:BeastRiderLvl=20	TYPE:Animal Companion	HD:1																												BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
