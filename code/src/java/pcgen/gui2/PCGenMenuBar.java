@@ -83,11 +83,11 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 	private JMenu createEditMenu()
 	{
 		JMenu menu = new JMenu(actionMap.get(PCGenActionMap.EDIT_COMMAND));
-		menu.add(actionMap.get(PCGenActionMap.UNDO_COMMAND));
-		menu.add(actionMap.get(PCGenActionMap.REDO_COMMAND));
-		menu.addSeparator();
+//		menu.add(actionMap.get(PCGenActionMap.UNDO_COMMAND));
+//		menu.add(actionMap.get(PCGenActionMap.REDO_COMMAND));
+//		menu.addSeparator();
 		menu.add(actionMap.get(PCGenActionMap.ADD_KIT_COMMAND));
-		menu.add(actionMap.get(PCGenActionMap.GENERATE_COMMAND));
+		//menu.add(actionMap.get(PCGenActionMap.GENERATE_COMMAND));
 		menu.addSeparator();
 		menu.add(equipmentMenu);
 		menu.add(tempMenu);
@@ -122,7 +122,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 		filtersMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.EQUIPMENT_FILTERS_COMMAND)));
 		filtersMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.SPELL_FILTERS_COMMAND)));
 		filtersMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.TEMPLATE_FILTERS_COMMAND)));
-		menu.add(filtersMenu);
+		//menu.add(filtersMenu);
 		
 		JMenu generatorsMenu = new JMenu(actionMap.get(PCGenActionMap.GENERATORS_COMMAND));
 		generatorsMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.TREASURE_GENERATORS_COMMAND)));
@@ -135,8 +135,8 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 		generatorsMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.EQUIPMENT_GENERATORS_COMMAND)));
 		generatorsMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.SPELL_GENERATORS_COMMAND)));
 		generatorsMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.TEMPLATE_GENERATORS_COMMAND)));
-		menu.add(generatorsMenu);
-		menu.addSeparator();
+		//menu.add(generatorsMenu);
+		//menu.addSeparator();
 		menu.add(actionMap.get(PCGenActionMap.PREFERENCES_COMMAND));
 		menu.addSeparator();
 		menu.add(actionMap.get(PCGenActionMap.GMGEN_COMMAND));
