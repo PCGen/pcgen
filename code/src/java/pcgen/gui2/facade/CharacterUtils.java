@@ -1,4 +1,4 @@
-package pcgen.gui.tabs;
+package pcgen.gui2.facade;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
 
-public class TabUtils
+public class CharacterUtils
 {
 	public static void selectClothes(final PlayerCharacter aPC)
 	{

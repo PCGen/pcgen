@@ -739,7 +739,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			pcClassLevels.addElement(cl);
 			charLevelsFacade.addLevelOfClass(cl);
 		}
-
+		CharacterUtils.selectClothes(getTheCharacter());
+		
 		// Calculate any active bonuses
 		theCharacter.calcActiveBonuses();
 		

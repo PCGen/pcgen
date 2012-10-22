@@ -122,6 +122,7 @@ import pcgen.gui.utils.ResizeColumnListener;
 import pcgen.gui.utils.TreeTableModel;
 import pcgen.gui.utils.Utility;
 import pcgen.gui.utils.WholeNumberField;
+import pcgen.gui2.facade.CharacterUtils;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
@@ -612,7 +613,7 @@ public final class InfoClasses extends FilterAdapterPanel implements
 		//
 		if (levels > 0)
 		{
-			TabUtils.selectClothes(pc);
+			CharacterUtils.selectClothes(pc);
 		}
 
 		pc.setDirty(true);
