@@ -29,21 +29,30 @@ public class NegatingPrimitive<T> implements PrimitiveCollection<T>
 {
 
 	private final PrimitiveCollection<T> primitive;
+	private final PrimitiveCollection<T> all;
 
-	public NegatingPrimitive(PrimitiveCollection<T> prim)
+	public NegatingPrimitive(PrimitiveCollection<T> prim, PrimitiveCollection<T> all)
 	{
 		if (prim == null)
 		{
 			throw new IllegalArgumentException(
 					"PrimitiveCollection cannot be null");
 		}
+		if (all == null)
+		{
+			throw new IllegalArgumentException(
+					"All Collection cannot be null");
+		}
 		primitive = prim;
+		this.all = all;
 	}
 
 	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<T, R> c)
 	{
-		return primitive.getCollection(pc, new NegateFilterConverter<T, R>(c));
+		Collection<R> result = all.getCollection(pc, c);
+		result.removeAll(primitive.getCollection(pc, c));
+		return result;
 	}
 
 	@Override

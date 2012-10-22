@@ -334,7 +334,7 @@ public final class ChoiceSetLoadUtilities
 			{
 				return null;
 			}
-			return new NegatingPrimitive<T>(typeReference);
+			return new NegatingPrimitive<T>(typeReference, sc.getAllReference());
 		}
 		if (tokValue != null)
 		{
@@ -353,8 +353,8 @@ public final class ChoiceSetLoadUtilities
 		}
 		if (key.startsWith(Constants.LST_NOT_TYPE_DOT))
 		{
-			return new NegatingPrimitive<T>(TokenUtilities.getTypeReference(
-					sc, key.substring(6)));
+			return new NegatingPrimitive<T>(TokenUtilities.getTypeReference(sc,
+				key.substring(6)), sc.getAllReference());
 		}
 		if (key.indexOf('%') != -1)
 		{
