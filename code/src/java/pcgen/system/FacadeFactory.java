@@ -32,6 +32,7 @@ import org.apache.commons.lang.ArrayUtils;
 
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
+import pcgen.core.GameModeDisplay;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
@@ -39,6 +40,7 @@ import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.CampaignInfoFactory;
 import pcgen.core.facade.DefaultReferenceFacade;
 import pcgen.core.facade.GameModeFacade;
+import pcgen.core.facade.GameModeDisplayFacade;
 import pcgen.core.facade.ReferenceFacade;
 import pcgen.core.facade.SourceSelectionFacade;
 import pcgen.core.facade.LoadableFacade.LoadingState;
@@ -60,6 +62,7 @@ public class FacadeFactory
 	private static DefaultListFacade<SourceSelectionFacade> quickSources = null;
 	private static DefaultListFacade<CampaignFacade> campaigns = null;
 	private static DefaultListFacade<GameModeFacade> gamemodes = null;
+	private static DefaultListFacade<GameModeDisplayFacade> gamemodedisplays = null;
 	private static DefaultListFacade<SourceSelectionFacade> displayedSources = null;
 	private static DefaultListFacade<SourceSelectionFacade> customSources;
 	private static Map<String, CampaignFacade> campaignMap;
@@ -69,8 +72,10 @@ public class FacadeFactory
 	static void initialize()
 	{
 		List<GameMode> modes = SystemCollections.getUnmodifiableGameModeList();
+		List<GameModeDisplay> modeDisplays = SystemCollections.getUnmodifiableGameModeDisplayList();
 		List<Campaign> camps = Globals.getCampaignList();
 		gamemodes = new DefaultListFacade<GameModeFacade>(modes);
+		gamemodedisplays = new DefaultListFacade<GameModeDisplayFacade>(modeDisplays);
 		campaigns = new DefaultListFacade<CampaignFacade>(camps);
 		quickSources = new DefaultListFacade<SourceSelectionFacade>();
 		displayedSources = new DefaultListFacade<SourceSelectionFacade>();
@@ -87,8 +92,10 @@ public class FacadeFactory
 	public static void refresh()
 	{
 		List<GameMode> modes = SystemCollections.getUnmodifiableGameModeList();
+		List<GameModeDisplay> modeDisplays = SystemCollections.getUnmodifiableGameModeDisplayList();
 		List<Campaign> camps = Globals.getCampaignList();
 		gamemodes.setContents(modes);
+		gamemodedisplays.setContents(modeDisplays);
 		campaigns.setContents(camps);
 		quickSources.clearContents();
 		displayedSources.clearContents();
@@ -316,6 +323,11 @@ public class FacadeFactory
 		return gamemodes;
 	}
 
+	public static ListFacade<GameModeDisplayFacade> getGameModeDisplays()
+	{
+		return gamemodedisplays;
+	}
+
 	public static ListFacade<CampaignFacade> getSupportedCampaigns(GameModeFacade gameMode)
 	{
 		if (!campaignListMap.containsKey(gameMode))
@@ -404,7 +416,7 @@ public class FacadeFactory
 			if (gameModeRef != null && gameModeRef.getReference() != null)
 			{
 				return LanguageBundle.getFormattedString("in_source_gamemode",
-					gameModeRef.getReference().toString());
+					gameModeRef.getReference().getDisplayName());
 			}
 			return "";
 		}

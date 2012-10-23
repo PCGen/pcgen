@@ -54,6 +54,7 @@ import org.apache.commons.lang.StringUtils;
 import pcgen.cdom.base.Constants;
 import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.GameModeFacade;
+import pcgen.core.facade.GameModeDisplayFacade;
 import pcgen.core.facade.SourceSelectionFacade;
 import pcgen.core.facade.event.ListEvent;
 import pcgen.core.facade.event.ListListener;
@@ -136,8 +137,8 @@ class AdvancedSourceSelectionPanel extends JPanel
 		JPanel panel = new JPanel(new BorderLayout());
 		panel.add(new JLabel(LanguageBundle.getString("in_src_gameLabel")), BorderLayout.WEST); //$NON-NLS-1$
 
-		FacadeComboBoxModel<GameModeFacade> gameModes = new FacadeComboBoxModel<GameModeFacade>();
-		gameModes.setListFacade(FacadeFactory.getGameModes());
+		FacadeComboBoxModel<GameModeDisplayFacade> gameModes = new FacadeComboBoxModel<GameModeDisplayFacade>();
+		gameModes.setListFacade(FacadeFactory.getGameModeDisplays());
 		gameModeList.setModel(gameModes);
 		gameModeList.addActionListener(this); 
 		panel.add(gameModeList, BorderLayout.CENTER);
@@ -214,25 +215,25 @@ class AdvancedSourceSelectionPanel extends JPanel
 	{
 		String defaultGame =
 				context.initProperty(PROP_SELECTED_GAME, "");		
-		GameModeFacade mode = null;
+		GameModeDisplayFacade modeDisplay = null;
 		if (StringUtils.isNotEmpty(defaultGame))
 		{
 			for (int i = 0; i < gameModeList.getModel().getSize(); i++)
 			{
-				GameModeFacade game =
-						(GameModeFacade) gameModeList.getModel()
+				GameModeDisplayFacade game =
+						(GameModeDisplayFacade) gameModeList.getModel()
 							.getElementAt(i);
-				if (defaultGame.equals(game.toString()))
+				if (defaultGame.equals(game.getGameMode().toString()))
 				{
 					gameModeList.setSelectedIndex(i);
-					mode = game;
+					modeDisplay = game;
 				}
 			}
 		}
-		if (mode == null && gameModeList.getModel().getSize() > 0)
+		if (modeDisplay == null && gameModeList.getModel().getSize() > 0)
 		{
 			gameModeList.setSelectedIndex(0);
-			mode = (GameModeFacade) gameModeList.getSelectedItem();
+			modeDisplay = (GameModeDisplayFacade) gameModeList.getSelectedItem();
 		}
 	}
 
@@ -288,12 +289,12 @@ class AdvancedSourceSelectionPanel extends JPanel
 		selectedCampaigns.setContents(ListFacades.wrap(sources.getCampaigns()));
 	}
 	
-	private void setSelectedGameMode(GameModeFacade elementAt)
+	private void setSelectedGameMode(GameModeDisplayFacade elementAt)
 	{
-		this.gameMode = elementAt;
+		this.gameMode = elementAt.getGameMode();
 		context.setProperty(PROP_SELECTED_GAME, gameMode.toString());		
 		selectedCampaigns.clearContents();
-		availTreeViewModel.setGameModel(elementAt);
+		availTreeViewModel.setGameModel(elementAt.getGameMode());
 		selectDefaultSources(gameMode);
 	}
 	
@@ -348,7 +349,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 	public void actionPerformed(ActionEvent e)
 	{
 		// Signal from the game mode conbo that the selection has changed.
-		setSelectedGameMode((GameModeFacade) gameModeList.getSelectedItem());
+		setSelectedGameMode((GameModeDisplayFacade) gameModeList.getSelectedItem());
 	}
 
 	/**

@@ -49,6 +49,7 @@ public class SystemCollections
 	 * <li>bonusStackList</li>
 	 * <li>cityList</li>
 	 * <li>gameModeList</li>
+	 * <li>gameModeDisplayList</li>
 	 * <li>hairStyleList</li>
 	 * <li>helpContextFileList</li>
 	 * <li>interestsList</li>
@@ -66,6 +67,7 @@ public class SystemCollections
 	private static final Map<String, List<String>> birthplaceMap = new HashMap<String, List<String>>();
 	private static final Map<String, List<String>> cityMap = new HashMap<String, List<String>>();
 	private static final List<GameMode> gameModeList = new ArrayList<GameMode>();
+	private static final List<GameModeDisplay> gameModeDisplayList = new ArrayList<GameModeDisplay>();
 	private static final Map<String, List<String>> hairStyleMap = new HashMap<String, List<String>>();
 	private static final Map<String, List<String>> interestsMap = new HashMap<String, List<String>>();
 	private static final Map<String, List<String>> locationMap = new HashMap<String, List<String>>();
@@ -200,12 +202,21 @@ public class SystemCollections
 	}
 
 	/**
-	 * Return an <b>unmodifiable</b> version of the hairstyle list.
-	 * @return an <b>unmodifiable</b> version of the hairstyle list.
+	 * Return an <b>unmodifiable</b> version of the game mode list.
+	 * @return an <b>unmodifiable</b> version of the game mode list.
 	 */
 	public static List<GameMode> getUnmodifiableGameModeList()
 	{
 		return Collections.unmodifiableList(gameModeList);
+	}
+
+	/**
+	 * Return an <b>unmodifiable</b> version of the game mode display list.
+	 * @return an <b>unmodifiable</b> version of the game mode display list.
+	 */
+	public static List<GameModeDisplay> getUnmodifiableGameModeDisplayList()
+	{
+		return Collections.unmodifiableList(gameModeDisplayList);
 	}
 
 	/**
@@ -426,6 +437,7 @@ public class SystemCollections
 	public static void addToGameModeList(final GameMode mode)
 	{
 		gameModeList.add(mode);
+		gameModeDisplayList.add(new GameModeDisplay(mode));
 	}
 
 	//HAIRSTYLELIST
@@ -585,6 +597,7 @@ public class SystemCollections
 	public static void clearGameModeList()
 	{
 		gameModeList.clear();
+		gameModeDisplayList.clear();
 	}
 
 	/**
@@ -593,5 +606,6 @@ public class SystemCollections
 	public static void sortGameModeList()
 	{
 		Collections.sort(gameModeList);
+		Collections.sort(gameModeDisplayList);
 	}
 }
