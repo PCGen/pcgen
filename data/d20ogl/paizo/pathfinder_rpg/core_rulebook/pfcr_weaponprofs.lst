@@ -31,7 +31,7 @@ Blowgun				TYPE:Simple.Ranged.Piercing.RangedPiercing.Blowgun
 Crossbow (Heavy)			TYPE:Simple.Ranged.Piercing.RangedPiercing.Crossbow.Archery										HANDS:2
 Crossbow (Light)			TYPE:Simple.Ranged.Piercing.RangedPiercing.Crossbow.Archery										HANDS:2
 Dart					TYPE:Simple.Thrown.Piercing.RangedPiercing
-Javelin				TYPE:Simple.Thrown.Piercing.RangedPiercing
+Javelin				TYPE:Simple.Thrown.Piercing.RangedPiercing.Spear
 Sling					TYPE:Simple.Ranged.Bludgeoning.RangedBludgeoning
 
 # Martial
@@ -54,7 +54,7 @@ Pick (Heavy)			TYPE:Martial.OneHanded.Melee.Piercing.MeleePiercing.Pick
 Rapier				TYPE:Martial.OneHanded.Melee.Piercing.MeleePiercing.Sword
 Scimitar				TYPE:Martial.OneHanded.Melee.Slashing.MeleeSlashing.Sword
 Shieldbash (Heavy)		TYPE:Martial.OneHanded.Melee.Bludgeoning.MeleeBludgeoning
-Trident				TYPE:Martial.OneHanded.Melee.Thrown.Piercing.RangedPiercing.MeleePiercing
+Trident				TYPE:Martial.OneHanded.Melee.Thrown.Piercing.RangedPiercing.MeleePiercing.Spear
 Warhammer				TYPE:Martial.OneHanded.Melee.Bludgeoning.MeleeBludgeoning.Hammer
 # 2-handers
 Falchion				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Sword.TwoHanded
@@ -65,7 +65,7 @@ Flail (Heavy)			TYPE:Martial.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Flail.
 Greatsword				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Sword.TwoHanded
 Guisarme				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Polearm.TwoHanded
 Halberd				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Polearm.TwoHanded.Piercing.MeleePiercing
-Lance					TYPE:Martial.TwoHanded.Melee.Piercing.MeleePiercing.TwoHanded
+Lance					TYPE:Martial.TwoHanded.Melee.Piercing.MeleePiercing.TwoHanded.Spear
 Ranseur				TYPE:Martial.TwoHanded.Melee.Piercing.MeleePiercing.Polearm.TwoHanded
 Scythe				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Piercing.MeleePiercing.TwoHanded
 Sword (Bastard)			TYPE:Martial.TwoHanded.Exotic.Melee.Slashing.MeleeSlashing.Sword.TwoHanded
@@ -73,7 +73,6 @@ Waraxe (Dwarven)			TYPE:Martial.TwoHanded.Exotic.Melee.Slashing.MeleeSlashing.Ax
 # --ranged
 Longbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow.Archery										HANDS:2
 Shortbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow.Archery										HANDS:2
-
 # EXOTIC
 # -- light
 Kama					TYPE:Exotic.Light.Melee.Slashing.MeleeSlashing

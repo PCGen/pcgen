@@ -53,16 +53,16 @@ Wushu Dart					TYPE:EasternEastern.Melee.Martial.Monk
 # One-Handed Melee
 Broadsword (Nine Ring)			TYPE:EasternEastern.Melee.Martial.Monk
 Double Chicken Saber			TYPE:EasternEastern.Melee.Martial.Disarm.Monk
-Sibat						TYPE:EasternEastern.Melee.Martial
+Sibat						TYPE:EasternEastern.Melee.Martial.Spear
 
 # Two-Handed Melee
-Hooked Lance				TYPE:EasternEastern.Melee.Martial.Reach.Trip
-Monk's Spade				TYPE:EasternEastern.Melee.Martial.Double.Monk
+Hooked Lance				TYPE:EasternEastern.Melee.Martial.Reach.Trip.Polearm
+Monk's Spade				TYPE:EasternEastern.Melee.Martial.Double.Monk.Polearm
 Naginata					TYPE:EasternEastern.Melee.Martial.Reach
-Nodachi					TYPE:EasternEastern.Melee.Martial.Brace
+Nodachi					TYPE:EasternEastern.Melee.Martial.Brace.Polearm
 Sansetsukon					TYPE:EasternEastern.Melee.Martial.Blocking.Disarm.Monk
 Sword (Tri-Point Double-Edged)	TYPE:EasternEastern.Melee.Martial.Reach
-Tiger Fork					TYPE:EasternEastern.Melee.Martial.Brace.Monk
+Tiger Fork					TYPE:EasternEastern.Melee.Martial.Brace.Monk.Polearm.Spear
 
 # Ranged
 Tube Arrow Shooter			TYPE:EasternEastern.Ranged.Martial
@@ -112,7 +112,7 @@ Gladius			TYPE:GladiatorMelee.Martial.Piercing.Performance
 Scizore			TYPE:GladiatorMelee.Martial.Piercing.Performance
 
 # Ranged
-Amentum (Javelin)		TYPE:GladiatorMelee.Martial.Piercing.Performance.Thrown.Ranged
+Amentum (Javelin)		TYPE:GladiatorMelee.Martial.Piercing.Performance.Thrown.Ranged.Spear
 
 # EXOTIC
 # Light
@@ -141,7 +141,7 @@ Rhomphaia			TYPE:Piercing.Slashing.Martial.Brace.Fragile.Reach
 
 #Exotic
 #Two-Handed Melee
-Harpoon			TYPE:Piercing.Ranged.Thrown.Exotic.Fragile.Grapple
+Harpoon			TYPE:Piercing.Ranged.Thrown.Exotic.Fragile.Grapple.Spear
 
 #Ranged
 Kestros			TYPE:Piercing.Exotic.Ranged

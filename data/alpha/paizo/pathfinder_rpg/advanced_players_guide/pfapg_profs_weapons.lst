@@ -22,11 +22,11 @@ Spear (Boar)		TYPE:Simple.Melee,Piercing.MeleePiercing.Spear.TwoHanded
 Sword Cane			TYPE:Martial.Melee.Piercing.MeleePiercing.Sword
 
 # 2-handers
-Bardiche			TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe.TwoHanded
-Bec de Corbin		TYPE:Martial.Melee,Bludgeoning.Piercing.MeleeBlidgeoning.MeleePiercing.Hammer.TwoHanded
-Bill				TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe.TwoHanded
-Glaive-Guisarme		TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe.TwoHanded
-Lucern Hammer		TYPE:Martial.Melee.Bludgeoning.Piercing.MeleeBludgeoning.MeleePiercing.Hammer.TwoHanded
+Bardiche			TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe.TwoHanded.Polearm
+Bec de Corbin		TYPE:Martial.Melee.Bludgeoning.Piercing.MeleeBludgeoning.MeleePiercing.Hammer.TwoHanded.Polearm
+Bill				TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe.TwoHanded.Polearm
+Glaive-Guisarme		TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe.TwoHanded.Polearm
+Lucern Hammer		TYPE:Martial.Melee.Bludgeoning.Piercing.MeleeBludgeoning.MeleePiercing.Hammer.TwoHanded.Polearm
 
 # --ranged
 #Longbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow											HANDS:2
