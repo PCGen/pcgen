@@ -76,8 +76,8 @@ TAB:TEMPMOD		NAME:in_InfoTempMod		CONTEXT:tabpages\players\inventory\inventoryte
 # Menu entry (under Settings-->Campaign), and tool tip displayed for said entry
 # use & for mnemonic, && for & (MENUENTRY only)
 #
-MENUENTRY:The Pathfinder Roleplaying Game
-MENUTOOLTIP:Use The Pathfinder Roleplaying Game character creation settings
+MENUENTRY:Pathfinder RPG
+MENUTOOLTIP:Use Pathfinder RPG character creation settings
 DISPLAYORDER:1
 ALLOWEDMODES:Pathfinder|Pathfinder_RPG
 #
