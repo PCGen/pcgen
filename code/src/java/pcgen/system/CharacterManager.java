@@ -158,6 +158,8 @@ public class CharacterManager
 			newPC.setFileName(file.getAbsolutePath());
 			ioHandler.read(newPC, file.getAbsolutePath());
 			newPC.insertBonusLanguageAbility();
+			// Ensure any custom equipment held by the character is added to the dataset's list
+			dataset.refreshEquipment();
 
 			if (!showLoadNotices(true, ioHandler.getErrors(), file.getName(),
 				delegate))

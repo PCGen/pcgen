@@ -83,4 +83,9 @@ public interface DataSetFacade
 	 * @return the list of kits
 	 */
 	public ListFacade<KitFacade> getKits();
+	
+	/**
+	 * Update the equipment list from the global equipment list. 
+	 */
+	public void refreshEquipment();
 }

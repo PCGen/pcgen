@@ -271,4 +271,14 @@ public class MockDataSetFacade implements DataSetFacade
 		return null;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void refreshEquipment()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
 }

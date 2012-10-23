@@ -396,6 +396,12 @@ public class DataSet implements DataSetFacade
 		return equipment;
 	}
 
+	public void refreshEquipment()
+	{
+		equipment.updateContents(new ArrayList<EquipmentFacade>(context.ref
+			.getConstructedCDOMObjects(Equipment.class)));
+	}
+	
 	public ListFacade<String> getXPTableNames()
 	{
 		return xpTableNames;
