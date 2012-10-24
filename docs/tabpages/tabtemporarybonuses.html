@@ -17,37 +17,48 @@
 		PCGen Documentation Tab Inventory Temporary Bonus Sub-Tab.
 	-->
 	<head>
-		<title>Inventory Temporary Bonus Sub-Tab</title>
+		<title>Temporary Bonus Tab</title>
 		<link rel="stylesheet" type="text/css" href="../../../pcgen.css">
   		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	</head>
 	
 	<body>
-		<h1>Inventory Temporary Bonus Sub-Tab</h1>
+		<h1>Temporary Bonus Tab</h1>
 		
-		<p class="center"><img src="../../../images/tabs/inventory_temporarybonuses.png" alt="Inventory Temporary Bonus Sub-Tab" /></p>
+		<p class="center"><img src="../images/tabs/tempbonustab/tab_tempbonus_00.png" alt="Temporary Bonus Tab" /></p>
 		
-		<p>The Temporary Bonus Sub-Tab can be used to apply conditional bonuses to your character such as Spell effects, 
+		<p>The Temporary Bonus Tab is used to apply conditional bonuses to your character such as Spell effects,  
 		bonuses due to Rage, having a familiar within 5 feet of your character and more.  Normally PCGen will only apply 
 		absolute bonuses to your character, for example if you you equip your character with a Belt of Giant Strength he 
 		gets a bonus to his strength score because wearing the belt is the only condition that needs to be met. If 
 		however your character is of a class that gets a +2 to Hide but only when he's in a forest environment then PCGen 
 		will not apply the bonus to the Skill on the character sheet although there may be an entry in Special Abilities 
-		noting this bonus. This is where the Temporary Bonus Sub-Tab comes into play, these conditional bonuses can be 
-		applied and removed from characters  as needed and the bonuses will then show up on the character sheets. You could 
-		then for example apply the rage bonuses and print out a second character sheet with these bonuses applied saving 
+		noting this bonus. This is where the Temporary Bonus Tab comes into play, these conditional bonuses can be 
+		applied and removed from characters as needed and the bonuses will then show up on the character sheets. You could 
+		then for example apply the Rage bonuses and print out a second character sheet with these bonuses applied saving 
 		you the time of manually adding these in.</p>
 		
-		<p>The panel on the top left displays all the conditional bonuses available to the character. To apply one of these 
-		select the bonus and then select the target of the bonus from the panel on the right. Depending on the type of bonus 
-		the target will either be your character or a weapon he or she is equipped with. Press the Apply Bonus button and it 
-		will appear in the bottom panel which lists details of the bonus. Once you check the box labeled Use Temporary Bonuses 
-		they will be applied to your character and appear on the output sheet.</p>
+		<p class="center"><img src="../images/tabs/tempbonustab/tab_tempbonus_00_upperleftpane.png" alt="Available Temporary Bonuses" /></p>
+
+		<p>The panel on the top left displays all the conditional bonuses available to the character.</p>
+
+		<p class="center"><img src="../images/tabs/tempbonustab/tab_tempbonus_02_applying.png" alt="Applying a Temporary Bonus Target" /></p>
+
+		<p>To apply one of these select the bonus and then press the <strong>Apply Bonus &gt;</strong> button. If the target of 
+			the bonus is the PC, the bonus will title will appear in the right pane. If the bonus the target applies to a 
+			piece of gear carried by the character, e.g. a weapon or piece of armor, the target selection dialog will appear.</p>
+
+		<p class="center"><img src="../images/tabs/tempbonustab/tab_tempbonus_02_target.png" alt="Temporary Bonus Target" /></p>
+
+		<p>Select the target of the bonus and click on the <strong>Add</strong> button. The bonus and the appropriate descriptive 
+			information will appear in the bottom panel, listing details of the bonus. Now click the <strong>Ok</strong> button and 
+			if the piece of equipment which has had the bonus applied to it is &quot;Equipped&quot;, the temporary bonus will be 
+			applied to your character and appear on the output sheet.</p>
 		
-		<p>One caveat. Up till the implementation of this tab the only way to apply temporary bonuses was through templates 
-		created for this purpose. LST file creators generally ignore conditional bonuses, note them in an SA entry and/or 
-		make templates for them. At this time there are only a few experimental Temporary Bonus tags in the LST files. 
-		Expect to see more as they are added in.</p>
+		<p class="center"><img src="../images/tabs/tempbonustab/tab_tempbonus_02_applied.png" alt="Temporary Bonus Applied" /></p>
+
+		<p>Removing the bonus from the target is as simple as selecting the bouns in the right-hand pane and clicking the 
+			<strong>&lt; Remove Bonus</strong> buttong.</p>
 		
 		<h4>How to Code Temporary Bonuses.</h4> 
 
@@ -122,9 +133,11 @@
 		
 		<p></p>
 
+<hr>
+
 	<p>
 	<a href="http://validator.w3.org/check?uri=referer"><img
-       	src="../../../images/system/valid-html401.png"
+       	src="../images/system/valid-html401.png"
        	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
 	</p>
 
