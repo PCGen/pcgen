@@ -2623,13 +2623,13 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		if (exportPc == null
 			|| theCharacter.getSerial() != lastExportCharSerial)
 		{
+			lastExportCharSerial = theCharacter.getSerial();
 			exportPc = (PlayerCharacter) theCharacter.clone();
 
 			// Get the PC all up to date, (equipment and active bonuses etc)
 			exportPc.preparePCForOutput();
 			
 			lastExportChar = exportPc;
-			lastExportCharSerial = theCharacter.getSerial();
 		}
 		return exportPc;
 	}
