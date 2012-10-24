@@ -62,7 +62,7 @@ SUBSTITUTIONCLASS:Skilled Fighter - Pathfinder Varient
 ###Block: Skilled Fighter - Pathfinder Varient
 SUBSTITUTIONLEVEL:1	BONUS:SKILLPOINTS|NUMBER|2	TEMPLATE:Skilled Fighter
 ###Block:Proficiencies
-SUBSTITUTIONLEVEL:1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+SUBSTITUTIONLEVEL:1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 SUBSTITUTIONLEVEL:1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 SUBSTITUTIONLEVEL:1																	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 ###Block: Advanced Weapon Feat qualifications
@@ -104,7 +104,7 @@ SUBSTITUTIONCLASS:Ranger - Enhanced Companion Pathfinder Varient
 ###Block: Enhanced Companion Pathfinder Varient
 SUBSTITUTIONLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Enhanced Companion ~ Ranger|PRECLASS:1,Ranger=4
 ###Block:Proficiencies
-SUBSTITUTIONLEVEL:1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+SUBSTITUTIONLEVEL:1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 SUBSTITUTIONLEVEL:1																	AUTO:FEAT|Armor Proficiency (Light)
 SUBSTITUTIONLEVEL:1																	AUTO:FEAT|Shield Proficiency
 ###Block: Favored Enemy level stacking
