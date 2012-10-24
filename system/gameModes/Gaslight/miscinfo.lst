@@ -54,18 +54,18 @@ DISPLAYVARIABLE3NAME:Wealth
 #
 # Tabs defined
 TAB:ABILITIES		NAME:in_abilities_tabname	CONTEXT:tabpages\players\tabability.html
-TAB:CLASS			NAME:in_class			CONTEXT:tabpages\players\tabclasses.html
-TAB:DOMAINS			NAME:in_domains			CONTEXT:tabpages\players\tabdomains.html
-TAB:DESCRIPTION		NAME:in_descrip			CONTEXT:tabpages\players\tabdescription.html
-TAB:FEATS			NAME:in_feats			CONTEXT:tabpages\players\tabfeats.html
-#TAB:INVENTORY		NAME:in_inventory			CONTEXT:tabpages\players\tabinventory.html
-TAB:INVENTORY		NAME:in_inventory			CONTEXT:tabpages\players\inventory\inventorygear.html
+TAB:CLASS			NAME:in_class			CONTEXT:tabpages\tabclasses.html
+TAB:DOMAINS			NAME:in_domains			CONTEXT:tabpages\tabdomains.html
+TAB:DESCRIPTION		NAME:in_descrip			CONTEXT:tabpages\tabdescription.html
+TAB:FEATS			NAME:in_feats			CONTEXT:tabpages\tabfeatsandabilities.html
+#TAB:INVENTORY		NAME:in_inventory			CONTEXT:tabpages\tabinventory.html
+TAB:INVENTORY		NAME:in_inventory			CONTEXT:tabpages\tabinventory.html
 
-TAB:RACE			NAME:in_race			CONTEXT:tabpages\players\tabraces.html
-TAB:SKILLS			NAME:in_skills			CONTEXT:tabpages\players\tabskills.html
+TAB:RACE			NAME:in_race			CONTEXT:tabpages\tabraces.html
+TAB:SKILLS			NAME:in_skills			CONTEXT:tabpages\tabskills.html
 TAB:CAMPAIGNS		NAME:Source Materials		CONTEXT:tabpages\source\sourcesectionheading.html
-TAB:SPELLS			NAME:in_spells			CONTEXT:tabpages\players\tabspells.html
-TAB:SUMMARY			NAME:in_summary			CONTEXT:tabpages\players\tabsummary.html
+TAB:SPELLS			NAME:in_spells			CONTEXT:tabpages\tabspells.html
+TAB:SUMMARY			NAME:in_summary			CONTEXT:tabpages\tabsummary.html
 #
 # Menu entry (under Settings-->Campaign), and tool tip displayed for said entry
 # use & for mnemonic, && for & (MENUENTRY only)
