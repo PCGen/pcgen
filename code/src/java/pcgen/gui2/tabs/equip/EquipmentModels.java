@@ -277,7 +277,7 @@ public class EquipmentModels
 				{
 					EquipNode path = paths.get(i);
 					data[i][0] = path.getEquipment();
-					data[i][1] = 1;
+					data[i][1] = equipSet.getEquippedItems().getQuantity(path.getEquipment());
 				}
 				Object[] columns = new Object[]
 				{
@@ -389,7 +389,7 @@ public class EquipmentModels
 				{
 					EquipmentFacade equipmentFacade = equipment.get(i);
 					data[i][0] = equipmentFacade;
-					data[i][1] = 1;
+					data[i][1] = unequippedList.getQuantity(equipmentFacade);
 					data[i][2] = getInitialNode(equipMap, equipSet, equipmentFacade); 
 				}
 				Object[] columns = new Object[]
@@ -521,7 +521,12 @@ public class EquipmentModels
 		{
 			EquipmentFacade equipment = (EquipmentFacade) table.getValueAt(row, 0);
 			int maxQuantity = equipmentList.getQuantity(equipment);
-			SpinnerNumberModel model = new SpinnerNumberModel(((Integer) value).intValue(), 1, maxQuantity, 1);
+			int minQuantity = 1;
+			if (maxQuantity <= 0)
+			{
+				minQuantity = maxQuantity = 0;
+			}
+			SpinnerNumberModel model = new SpinnerNumberModel(((Integer) value).intValue(), minQuantity, maxQuantity, 1);
 			spinner.setModel(model);
 			return spinner;
 		}
