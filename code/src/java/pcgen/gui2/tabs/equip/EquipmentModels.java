@@ -174,6 +174,7 @@ public class EquipmentModels
 	{
 		JScrollPane pane = new JScrollPane(table);
 		Dimension size = table.getPreferredSize();
+		size.height += 30; // account for the header which has not been prepared yet
 		final int decorationHeight = 80;
 		final int decorationWidth = 70;
 		Rectangle screenBounds =
