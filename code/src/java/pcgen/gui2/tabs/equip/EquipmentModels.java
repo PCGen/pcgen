@@ -24,6 +24,7 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -535,6 +536,20 @@ public class EquipmentModels
 		public void stateChanged(ChangeEvent e)
 		{
 			stopCellEditing();
+		}
+
+		@Override
+		public boolean stopCellEditing()
+		{
+			try
+			{
+				spinner.commitEdit();
+			}
+			catch (ParseException ex)
+			{
+				// Fall through and cancel the edit.
+			}
+			return super.stopCellEditing();
 		}
 
 	}
