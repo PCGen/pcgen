@@ -68,7 +68,7 @@ TAB:SPELLS		NAME:in_spells			CONTEXT:tabpages\tabspells.html
 TAB:SUMMARY		NAME:in_summary			CONTEXT:tabpages\tabsummary.html
 # Inventory subpanels
 TAB:GEAR		NAME:in_InfoGear		CONTEXT:tabpages\tabinventory.html
-TAB:EQUIPPING	NAME:in_InfoEquipping	CONTEXT:tabpages\taginventory.html
+TAB:EQUIPPING	NAME:in_InfoEquipping	CONTEXT:tabpages\tabinventory.html
 TAB:RESOURCES	NAME:in_InfoResources	CONTEXT:tabpages\tabcompanions.html
 TAB:TEMPMOD		NAME:in_InfoTempMod	CONTEXT:tabpages\tabtemporarybonuses.html
 #
