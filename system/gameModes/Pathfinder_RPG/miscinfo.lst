@@ -56,7 +56,7 @@ SHOWCLASSDEFENSE:No
 #
 # Whether or not the game mode displays these tabs
 #
-TAB:ABILITIES	NAME:in_abilities_tabname	CONTEXT:tabpages\tabability.html
+TAB:ABILITIES	NAME:in_abilities_tabname	CONTEXT:tabpages\players\tabability.html
 TAB:CAMPAIGNS	NAME:Source Materials		CONTEXT:tabpages\source\sourcesectionheading.html
 TAB:CLASS		NAME:in_class			CONTEXT:tabpages\tabclasses.html
 TAB:DESCRIPTION	NAME:in_descrip			CONTEXT:tabpages\tabdescription.html
