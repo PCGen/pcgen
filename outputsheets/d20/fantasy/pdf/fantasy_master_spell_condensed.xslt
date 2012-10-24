@@ -7320,14 +7320,23 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 		<fo:table-row>
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/></xsl:call-template>
 			<fo:table-cell padding-top="1pt" number-columns-spanned="10">
+<!-- Set Up Alternate FONT SIZE		<xsl:if test="string-length(effect) &gt; 100">-->
+	
 				<fo:block text-align="start" font-size="5pt">
+				<xsl:if test="string-length(components) &gt; 0">
 					<fo:inline font-weight="bold">[<xsl:value-of select="components"/>]</fo:inline>
 					<fo:inline> </fo:inline>
+				</xsl:if>
 					<fo:inline font-weight="bold"> TARGET: </fo:inline><xsl:value-of select="target"/>
 					<fo:inline>; </fo:inline>
-					<fo:inline font-style="italic" font-weight="bold">EFFECT: </fo:inline>
-
-					<xsl:value-of select="effect"/>
+					<fo:inline font-style="italic" font-weight="bold" font-size="5pt">EFFECT: </fo:inline>
+<xsl:if test="string-length(effect) &gt; 150">
+					<fo:inline font-size="7pt"><xsl:value-of select="effect"/></fo:inline>
+</xsl:if>
+<xsl:if test="string-length(effect) &lt; 151">
+	<fo:inline font-size="5pt"><xsl:value-of select="effect"/></fo:inline>
+</xsl:if>
+					
 						<xsl:if test="string-length(spell_resistance) &gt; 0 or dc &gt; 0"><fo:inline> [</fo:inline>
 							<xsl:if test="string-length(spell_resistance) &gt; 0">
 								<fo:inline font-weight="bold">SR:</fo:inline>
