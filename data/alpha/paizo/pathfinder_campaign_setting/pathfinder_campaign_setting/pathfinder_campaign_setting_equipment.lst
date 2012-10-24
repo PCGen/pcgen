@@ -30,7 +30,7 @@ Sawtooth Sabre								PROFICIENCY:WEAPON|Sawtooth Sabre		TYPE:Weapon.Exotic.Mele
 Thorn Bracer								PROFICIENCY:WEAPON|Thorn Bracer		TYPE:Weapon.Exotic.Melee.Finesseable.Standard.Piercing								COST:30	WT:3				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD	WIELD:Light							SOURCEPAGE:p.209
 
 #One-Handed Exotic Melee Weapons
-Dueling Sword (Aldori)	OUTPUTNAME:Aldori Dueling Sword	PROFICIENCY:WEAPON|Aldori Dueling Sword	TYPE:Weapon.Exotic.Melee.Standard.Slashing										COST:20	WT:3				CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:STEEL	WIELD:OneHanded						SOURCEPAGE:p.209
+Dueling Sword (Aldori)	OUTPUTNAME:Aldori Dueling Sword	PROFICIENCY:WEAPON|Aldori Dueling Sword	TYPE:Weapon.Martial.Exotic.Melee.Standard.Slashing										COST:20	WT:3				CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:STEEL	WIELD:OneHanded						SOURCEPAGE:p.209	BONUS:WEAPON|TOHIT|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged|PREFEAT:2,Exotic Weapon Proficiency (Aldori Dueling Sword),Weapon Finesse
 Falcata									PROFICIENCY:WEAPON|Falcata			TYPE:Weapon.Exotic.Melee.Standard.Slashing										COST:16	WT:4				CRITMULT:x3			CRITRANGE:2			DAMAGE:1d8	EQMOD:STEEL	WIELD:OneHanded						SOURCEPAGE:p.209
 Temple Sword								PROFICIENCY:WEAPON|Temple Sword		TYPE:Weapon.Exotic.Melee.Standard.Slashing										COST:18	WT:4				CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:STEEL	WIELD:OneHanded						SOURCEPAGE:p.209
 Urumi										PROFICIENCY:WEAPON|Urumi			TYPE:Weapon.Exotic.Melee.Standard.Slashing										COST:30	WT:3				CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:STEEL	WIELD:OneHanded			REACHMULT:2		SOURCEPAGE:p.209
