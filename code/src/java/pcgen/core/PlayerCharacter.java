@@ -8707,6 +8707,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		{
 			aClone.addSpellBook(book);
 		}
+		aClone.calcEquipSetId = calcEquipSetId;
 		aClone.tempBonusItemList.addAll(tempBonusItemList);
 		aClone.bonusManager = bonusManager.buildDeepClone(aClone);
 		aClone.setDescriptionLst(getDescriptionLst());
