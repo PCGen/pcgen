@@ -22,6 +22,9 @@ package pcgen.gui2.tabs.equip;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.GraphicsEnvironment;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
@@ -165,6 +168,28 @@ public class EquipmentModels
 			equipAction.uninstall();
 			unequipAction.uninstall();
 		}
+	}
+
+	private static JScrollPane prepareScrollPane(JTable table)
+	{
+		JScrollPane pane = new JScrollPane(table);
+		Dimension size = table.getPreferredSize();
+		final int decorationHeight = 80;
+		final int decorationWidth = 70;
+		Rectangle screenBounds =
+				GraphicsEnvironment.getLocalGraphicsEnvironment()
+					.getMaximumWindowBounds();
+		if (size.height > screenBounds.height - decorationHeight)
+		{
+			size.height = screenBounds.height - decorationHeight;
+		}
+		if (size.width > screenBounds.width - decorationWidth)
+		{
+			size.width = screenBounds.width - decorationWidth;
+		}
+		pane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		pane.setPreferredSize(size);
+		return pane;
 	}
 	
 	private class EquipFilterHandler implements FilterHandler
@@ -316,7 +341,7 @@ public class EquipmentModels
 				table.setPreferredScrollableViewportSize(table.getPreferredSize());
 				JTableHeader header = table.getTableHeader();
 				header.setReorderingAllowed(false);
-				JScrollPane pane = new JScrollPane(table);
+				JScrollPane pane = EquipmentModels.prepareScrollPane(table);
 				JPanel panel = new JPanel(new BorderLayout());
 				JLabel help = new JLabel(LanguageBundle.getString("in_equipSelectUnequipQty")); //$NON-NLS-1$
 				panel.add(help, BorderLayout.NORTH);
@@ -432,7 +457,7 @@ public class EquipmentModels
 				table.setPreferredScrollableViewportSize(table.getPreferredSize());
 				JTableHeader header = table.getTableHeader();
 				header.setReorderingAllowed(false);
-				JScrollPane pane = new JScrollPane(table);
+				JScrollPane pane = EquipmentModels.prepareScrollPane(table);
 				JPanel panel = new JPanel(new BorderLayout());
 				JLabel help = new JLabel(LanguageBundle.getString("in_equipSelectQtyLoc")); //$NON-NLS-1$
 				panel.add(help, BorderLayout.NORTH);
