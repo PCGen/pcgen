@@ -259,6 +259,13 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 			if (getSelectedIndex() != -1)
 			{
 				selectedTitle = getTitleAt(getSelectedIndex());
+				if (typeMap.get(selectedTitle) == null)
+				{
+					Logging.errorPrint("Selected tab " + selectedTitle
+						+ " at index " + getSelectedIndex()
+						+ " but there is no typeMap entry for it.");
+					Logging.reportAllThreads();
+				}
 				abilityTab.restoreState(typeMap.get(selectedTitle).tabData);
 			}
 		}
