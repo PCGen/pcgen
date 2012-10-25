@@ -1,12 +1,11 @@
 # CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
-CAMPAIGN:Paizo - Pathfinder Roleplaying Game Bestiary (Core Data)
+CAMPAIGN:Paizo - Pathfinder RPG Bestiary (Core Data)
 #GAMEMODE:Pathfinder
-TYPE:Alpha Datasets.Paizo Publishing.Pathfinder Roleplaying Game
+TYPE:Alpha Datasets.Paizo Publishing.Pathfinder RPG
 #STATUS:BETA
 RANK:1
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder Chronicles
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -40,7 +39,7 @@ COPYRIGHT:Wood Golem from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.
 COPYRIGHT:Yellow Musk Creeper from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Albie Fiore.
 COPYRIGHT:Yellow Musk Zombie from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Albie Fiore.
 COPYRIGHT:Yeti from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
-COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Bestiary" Copyright 2009, PCGen Data team (Including, but not limited to Stefan Radermacher, Eddy Anthony (MoSaT), Eric C Smith (Maredudd), Andrew Maitland (LegacyKing)).
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Bestiary" Copyright 2009, PCGen Data team (Including, but not limited to Stefan Radermacher, Eddy Anthony (MoSaT), Eric C Smith (Maredudd), Andrew Maitland (LegacyKing)).
 
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt

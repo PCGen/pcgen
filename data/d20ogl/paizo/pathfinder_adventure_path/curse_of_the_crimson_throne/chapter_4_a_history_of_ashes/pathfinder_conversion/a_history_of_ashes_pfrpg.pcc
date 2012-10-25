@@ -1,13 +1,14 @@
 # CVS $Revision$ $Author$ -- Sun Aug 10 23:59:36 2008 -- reformated by prettylst.pl v1.38 (build 7233)
-CAMPAIGN:Paizo - Curse of the Crimson Throne, Chapter 4: A History of Ashes
+CAMPAIGN:Paizo - Curse of the Crimson Throne, Chapter 4: A History of Ashes (Conversion)
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Curse of the Crimson Throne
 RANK:3
+STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Adventure
-SETTING:Pathfinder Chronicles
+SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
-PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Bestiary,BOOKTYPE=Complete Core
+PRECAMPAIGN:1,Paizo - Pathfinder RPG Bestiary,BOOKTYPE=Complete Core
 PRECAMPAIGN:1,Paizo - Curse of the Crimson Throne Player's Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
@@ -31,7 +32,7 @@ COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on Material by E. Gary Gygax and Dave Arneson.
 COPYRIGHT:Pathfinder 10: A History of Ashes. Copyright 2008, Paizo Publishing, LLC; Author: Michael Kortes
 COPYRIGHT:Advanced Bestiary. Copyright 2004 Green Ronin Publishing LLC. Author Matthew Sernett
-COPYRIGHT:Pathfinder Roleplaying Game Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
 COPYRIGHT:PCGen dataset conversion for "Curse of the Crimson Throne, Chapter 4: A History of Ashes" Copyright 2008-2010, PCGen Data Team (including, but not limited to Paul Grosse and Eric C Smith).
 
 # Do not remove the EXTRAFILE comment.

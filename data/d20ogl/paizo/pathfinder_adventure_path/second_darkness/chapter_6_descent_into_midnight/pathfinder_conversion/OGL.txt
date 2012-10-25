@@ -48,6 +48,6 @@ Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene,
 
 Tome of Horrors III. Copyright 2005, Necromancer Games, Inc.; Authors: Scott Greene, Casey Christofferson, Eric Balsley, Kevin Baase, Lance Hawvermale, Travis Hawvermale, Ian S. Johnston, Patrick Lawringer, Nathan Paul, Clark Peterson, Greg Ragland, Robert Schwalb, Bill Webb.
 
-Pathfinder Roleplaying Game Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
 
 PCGen dataset conversion for "Second Darkness, Chapter 6: Descent into Midnight" Copyright 2009-2010, PCGen Data Team (including, but not limited to Eddy Anthony).

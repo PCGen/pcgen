@@ -38,6 +38,6 @@ System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jo
 
 Rise of the Runelords Player's Guide. Copyright 2007 Paizo Publishing LLC. Author F. Wesley Schneider.
 
-Pathfinder Roleplaying Game Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
 
 PCGen dataset conversion for "Rise of the Runelords Player's Guide" Copyright 2007-2010, PCGen Data Team (including, but not limited to Stefan Radermacher, Eric C. Smith).

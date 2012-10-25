@@ -1,14 +1,15 @@
 # CVS $Revision$ $Author$ -- Mon Aug  4 12:09:38 2008 -- reformated by prettylst.pl v1.38 (build 7233)
-CAMPAIGN:Paizo - Rise of the Runelords, Chapter 4: Fortress of the Stone Giants
+CAMPAIGN:Paizo - Rise of the Runelords, Chapter 4: Fortress of the Stone Giants (Conversion)
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Rise of the Runelords
 RANK:3
+STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Adventure
-SETTING:Pathfinder Chronicles
+SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
-PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Bestiary,BOOKTYPE=Complete Core,Pathfinder RPG for Game Masters (includes Monsters)
-PRECAMPAIGN:1,Paizo - Rise of the Runelords Player's Guide
+PRECAMPAIGN:1,Paizo - Pathfinder RPG Bestiary,BOOKTYPE=Complete Core,Pathfinder RPG for Game Masters (includes Monsters)
+PRECAMPAIGN:1,Paizo - Rise of the Runelords Player's Guide (Conversion)
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -32,7 +33,7 @@ COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; 
 COPYRIGHT:Pathfinder 4: Fortress of the Stone Giants, Copyright 2007, Paizo Publishing, LLC; Author Wolfgang Baur.
 COPYRIGHT:Advanced Bestiary, Copyright 2004, Green Ronin Publishing, LLC; Author Matthew Sernett.
 COPYRIGHT:Tome of Horrors II, Copyright 2004, Necromancer Games, Inc.; Author Scott Greene; Additional Authors: Erica Balsley, Kevin Baase, Casey Christofferson, Jim Collura, Meghan Greene, Lance Hawvermale, Travis Hawvermale, Bill Kenower, Patrick Lawinger, Nathan Paul, Clark Peterson, Bill Webb, and Monte Cook.
-COPYRIGHT:Pathfinder Roleplaying Game Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
 COPYRIGHT:PCGen dataset conversion for "Rise of the Runelords, Chapter 4: Fortress of the Stone Giants" Copyright 2007-2010, PCGen Data Team (including, but not limited to Eric C. Smith).
 
 # Do not remove the EXTRAFILE comment.

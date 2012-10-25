@@ -46,6 +46,6 @@ Tome of Horrors. Copyright 2002 Necromancer Games, Inc.; Authors: Scott Greene, 
 
 Tome of Horrors II. Copyright 2004, Necromancer Games, Inc.; Authors: Scott Greene; Additional Authors: Erica Balsley, Kevin Baase, Casey Christofferson, Jim Collura, Meghan Greene, Lance Hawvermale, Travis Hawvermale, Bill Kenower, Patrick Lawinger, Nathan Paul, Clark Peterson, Bill Webb, and Monte Cook.
 
-Pathfinder Roleplaying Game Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
 
 PCGen dataset conversion for "Curse of the Crimson Throne, Chapter 5: Skeletons of Scarwall" Copyright 2008-2010, PCGen Data Team (including, but not limited to Terrence FitzSimons).

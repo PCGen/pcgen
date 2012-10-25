@@ -1,11 +1,11 @@
 # CVS $Revision$ $Author$ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
-CAMPAIGN:Paizo - Curse of the Crimson Throne - Player's Guide
+CAMPAIGN:Paizo - Curse of the Crimson Throne Player's Guide
 RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Adventure Paths.Curse of the Crimson Throne
+SETTING:Pathfinder Campaign Setting
+TYPE:Paizo Publishing.Pathfinder Adventure Path.Curse of the Crimson Throne
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo

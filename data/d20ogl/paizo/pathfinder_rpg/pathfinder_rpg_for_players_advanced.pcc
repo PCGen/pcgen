@@ -1,21 +1,18 @@
 # CVS $Revision$ $Author$ -- Thu Jul  7 12:04:01 2011 -- reformated by prettylst.pl v1.39 (build 11455)
-# $Revision$ $Author$
 CAMPAIGN:Pathfinder RPG for Players - Advanced
-RANK:1
-STATUS:BETA
 # Note: Game mode must be a match for the game mode folder name to ensure the right gamemode gets loaded when using the basic source loading screen
 GAMEMODE:Pathfinder_RPG
+TYPE:Paizo Publishing.Pathfinder RPG
+RANK:1
+STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Complete Core
-TYPE:Paizo Publishing.Pathfinder Roleplaying Game
 SHOWINMENU:YES
-
 !PRECAMPAIGN:1,BOOKTYPE=Core Rules,[Pathfinder RPG for Players - Advanced]
-!PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide
-
-PUBNAMELONG:Paizo Publishing LLC
+!PRECAMPAIGN:1,Paizo - Pathfinder RPG Advanced Player's Guide
+PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
-PUBNAMEWEB:http://paizo.com/
+PUBNAMEWEB:http://paizo.com
 SOURCELONG:Pathfinder RPG for Players - Advanced
 SOURCESHORT:PFCR+APG
 SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1
@@ -27,7 +24,7 @@ COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
 COPYRIGHT:Advanced Player's Guide. Copyright 2010, Paizo Publishing, LLC; Author: Jason Bulmahn.
 COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
-COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Advanced Player's Guide" Copyright 2010, PCGen Data team (Including, but not limited to Stefan Radermacher, Andrew Maitland, Eric Smith, Joseph (Sensai) Caubo, David Bender, gjorbjond, and tons of community feedback).
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Advanced Player's Guide" Copyright 2010, PCGen Data team (Including, but not limited to Stefan Radermacher, Andrew Maitland, Eric Smith, Joseph (Sensai) Caubo, David Bender, gjorbjond, and tons of community feedback).
 
 COVER:@/d20ogl/paizo/pathfinder_rpg/core_rulebook/core_rulebook.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png

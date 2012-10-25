@@ -42,6 +42,6 @@ Advanced Bestiary, Copyright 2004, Green Ronin Publishing, LLC; Author Matthew S
 
 Tome of Horrors, Copyright 2002 Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
 
-Pathfinder Roleplaying Game Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
 
 PCGen dataset conversion for "Rise of the Runelords, Chapter 6: Spires of Xin-Shalast" Copyright 2007-2010, PCGen Data Team (including, but not limited to Andrew Maitland).

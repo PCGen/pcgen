@@ -42,6 +42,6 @@ Pathfinder 1: Burnt Offerings. Copyright 2007 Paizo Publishing LLC. Author: Jame
 
 Pathfinder 2: The Skinsaw Murders. Copyright 2007 Paizo Publishing LLC. Author: Richard Pett.
 
-Pathfinder Roleplaying Game Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
 
 PCGen dataset conversion for "Rise of the Runelords, Chapter 3: The Hook Mountain Massacre" Copyright 2007-2010, PCGen Data Team (including, but not limited to Eric C. Smith).

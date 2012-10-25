@@ -40,6 +40,6 @@ Pathfinder 10: A History of Ashes. Copyright 2008, Paizo Publishing, LLC; Author
 
 Advanced Bestiary. Copyright 2004 Green Ronin Publishing LLC. Author Matthew Sernett
 
-Pathfinder Roleplaying Game Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
 
 PCGen dataset conversion for "Curse of the Crimson Throne, Chapter 4: A History of Ashes" Copyright 2008-2010, PCGen Data Team (including, but not limited to Paul Grosse and Eric C Smith).

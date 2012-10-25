@@ -78,4 +78,4 @@ Yellow Musk Zombie from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; 
 
 Yeti from the Tome of Horrors, (c) 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
 
-PCGen dataset conversion for "Pathfinder Roleplaying Game Bestiary" Copyright 2009, PCGen Data team (Including, but not limited to Stefan Radermacher, Eddy Anthony (MoSaT), Eric C Smith (Maredudd), Andrew Maitland (LegacyKing))
+PCGen dataset conversion for "Pathfinder RPG Bestiary" Copyright 2009, PCGen Data team (Including, but not limited to Stefan Radermacher, Eddy Anthony (MoSaT), Eric C Smith (Maredudd), Andrew Maitland (LegacyKing))

@@ -1,13 +1,14 @@
 # CVS $Revision$ $Author$ -- Sun Aug 10 10:12:11 2008 -- reformated by prettylst.pl v1.38 (build 6887)
-CAMPAIGN:Paizo - Curse of the Crimson Throne, Chapter 3: Escape from Old Korvosa
+CAMPAIGN:Paizo - Curse of the Crimson Throne, Chapter 3: Escape from Old Korvosa (Conversion)
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Curse of the Crimson Throne
 RANK:3
+STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Adventure
-SETTING:Pathfinder Chronicles
+SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
-PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Bestiary,BOOKTYPE=Complete Core
+PRECAMPAIGN:1,Paizo - Pathfinder RPG Bestiary,BOOKTYPE=Complete Core
 PRECAMPAIGN:1,Paizo - Curse of the Crimson Throne Player's Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
@@ -33,7 +34,7 @@ COPYRIGHT:Advanced Bestiary. Copyright 2004, Green Ronin Publishing, LLC; Author
 COPYRIGHT:Necropolis. Copyright 2002. Necromancer Games, Inc.; Authors: Gary Gygax, with Bill Webb, Scott Greene, Lance Hawvermale, Clark Peterson.
 COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
 COPYRIGHT:Pathfinder 9: Escape from Old Korvosa. Copyright 2008, Paizo Publishing, LLC; Author: Richard Pett.
-COPYRIGHT:Pathfinder Roleplaying Game Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
 COPYRIGHT:PCGen dataset conversion for "Curse of the Crimson Throne, Chapter 3: Escape From Old Korvosa" Copyright 2008-2010, PCGen Data Team (including, but not limited to Andrew Maitland and Eric Smith).
 
 # Do not remove the EXTRAFILE comment.

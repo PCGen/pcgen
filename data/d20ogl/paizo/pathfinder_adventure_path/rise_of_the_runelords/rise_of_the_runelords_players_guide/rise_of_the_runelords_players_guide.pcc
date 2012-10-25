@@ -1,11 +1,11 @@
 # CVS $Revision$ $Author$ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
 CAMPAIGN:Paizo - Rise of the Runelords - Player's Guide
 GAMEMODE:35e
-TYPE:Paizo Publishing.Pathfinder Adventure Paths.Rise of the Runelords
+TYPE:Paizo Publishing.Pathfinder Adventure Path.Rise of the Runelords
 RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder Chronicles
+SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo

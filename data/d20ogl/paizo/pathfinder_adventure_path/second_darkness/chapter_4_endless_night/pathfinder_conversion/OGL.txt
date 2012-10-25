@@ -44,6 +44,6 @@ Plot & Poison: A Guidebook to Drow. Copyright 2002, Green Ronin Publishing; Auth
 
 Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
 
-Pathfinder Roleplaying Game Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
 
 PCGen dataset conversion for "Second Darkness, Chapter 4: Endless Night" Copyright 2008-2010, PCGen Data Team (including, but not limited to Eddy Anthony).

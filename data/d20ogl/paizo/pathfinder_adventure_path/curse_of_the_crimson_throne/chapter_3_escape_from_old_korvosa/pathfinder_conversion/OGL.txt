@@ -44,6 +44,6 @@ Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene,
 
 Pathfinder 9: Escape from Old Korvosa. Copyright 2008, Paizo Publishing, LLC; Author: Richard Pett.
 
-Pathfinder Roleplaying Game Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
 
 PCGen dataset conversion for "Curse of the Crimson Throne, Chapter 3: Escape From Old Korvosa" Copyright 2008-2010, PCGen Data Team (including, but not limited to Andrew Maitland and Eric Smith).

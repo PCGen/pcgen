@@ -38,6 +38,6 @@ System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jo
 
 Pathfinder 13: Shadow in the Sky. Copyright 2008, Paizo Publishing, LLC; Author: Greg A. Vaughan.
 
-Pathfinder Roleplaying Game Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
 
 PCGen dataset conversion for "Second Darkness, Chapter 1: Shadow in the Sky" Copyright 2008-2010, PCGen Data Team (including, but not limited to Eddy Anthony).

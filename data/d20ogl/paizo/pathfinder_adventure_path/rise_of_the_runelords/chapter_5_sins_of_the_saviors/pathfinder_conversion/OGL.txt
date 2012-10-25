@@ -46,6 +46,6 @@ Tome of Horrors. Copyright 2002 Necromancer Games, Inc.; Authors: Scott Greene, 
 
 Unearthed Arcana. Copyright 2004 Wizards of the Coast; Authors: Andy Collins, Jesse Decker, David Noonan, Rich Redman.
 
-Pathfinder Roleplaying Game Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
 
 PCGen dataset conversion for "Rise of the Runelords, Chapter 5: Sins of the Saviors" Copyright 2007-2010, PCGen Data Team (including, but not limited to Andrew Maitland).

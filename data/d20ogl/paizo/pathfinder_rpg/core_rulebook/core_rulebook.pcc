@@ -1,13 +1,13 @@
 # CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
-CAMPAIGN:Paizo - Pathfinder Roleplaying Game Core Rulebook
+CAMPAIGN:Paizo - Pathfinder RPG Core Rulebook
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Roleplaying Game
+TYPE:Paizo Publishing.Pathfinder RPG
 RANK:1
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Core Rules
-!PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core,[Paizo - Pathfinder Roleplaying Game Core Rulebook]
-SETTING:Pathfinder Chronicles
+SETTING:Pathfinder RPG
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core,[Paizo - Pathfinder RPG Core Rulebook]
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -30,7 +30,7 @@ COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc.;
 COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
 COPYRIGHT:The Book of Experimental Might. Copyright 2008, Monte J. Cook. All rights reserved.
 COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
-COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Core Rulebook" Copyright 2009-2010, PCGen Data team (Including, but not limited to Stefan Radermacher, Eddy Anthony (MoSaT), Eric Smith (Mardudd), Andrew Maitland (LegacyKing)).
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Core Rulebook" Copyright 2009-2010, PCGen Data team (Including, but not limited to Stefan Radermacher, Eddy Anthony (MoSaT), Eric Smith (Mardudd), Andrew Maitland (LegacyKing)).
 
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt

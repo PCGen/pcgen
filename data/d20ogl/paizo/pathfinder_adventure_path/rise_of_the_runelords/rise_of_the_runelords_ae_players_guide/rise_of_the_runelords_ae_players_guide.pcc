@@ -3,9 +3,10 @@ CAMPAIGN:Paizo - Rise of the Runelords Anniversary Edition Player's Guide
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Rise of the Runelords
 RANK:3
+STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder Chronicles
+SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
@@ -26,7 +27,7 @@ DESC:The Rise of the Runelords Anniversary Edition Player's Guide gives players 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
-COPYRIGHT:Rise of the Runelords Anniversary Edition Player's Guide © 2012, Paizo Publishing, LLC; Authors: Adam Daigle and James L. Sutter.
+COPYRIGHT:Rise of the Runelords Anniversary Edition Player's Guide Copyright 2012, Paizo Publishing, LLC; Authors: Adam Daigle and James L. Sutter.
 COPYRIGHT:PCGen dataset conversion for "Rise of the Runelords Player's Guide Anniversary Edition Player's Guide" Copyright 2012, PCGen Data Team (including, but not limited to Paul Shipley).
 
 # Do not remove the EXTRAFILE comment.

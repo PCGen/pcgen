@@ -1,13 +1,14 @@
 # CVS $Revision$ $Author$ -- Sun Aug 10 23:59:36 2008 -- reformated by prettylst.pl v1.38 (build 7233)
-CAMPAIGN:Paizo - Second Darkness, Chapter 6: Descent into Midnight
+CAMPAIGN:Paizo - Second Darkness, Chapter 6: Descent into Midnight (Conversion)
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Second Darkness
 RANK:3
+STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Adventure
-SETTING:Pathfinder Chronicles
+SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
-PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Bestiary,BOOKTYPE=Complete Core
+PRECAMPAIGN:1,Paizo - Pathfinder RPG Bestiary,BOOKTYPE=Complete Core
 PRECAMPAIGN:1,Paizo - Second Darkness Player's Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
@@ -35,7 +36,7 @@ COPYRIGHT:Book of Fiends. Copyright 2003, Green Ronin Publishing, LL; Authors Aa
 COPYRIGHT:Kobold Quarterly #7. Copyright 2008, Open Design; Author; Wolfgang Baur, Philip Larwood, et al.
 COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
 COPYRIGHT:Tome of Horrors III. Copyright 2005, Necromancer Games, Inc.; Authors: Scott Greene, Casey Christofferson, Eric Balsley, Kevin Baase, Lance Hawvermale, Travis Hawvermale, Ian S. Johnston, Patrick Lawringer, Nathan Paul, Clark Peterson, Greg Ragland, Robert Schwalb, Bill Webb.
-COPYRIGHT:Pathfinder Roleplaying Game Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
 COPYRIGHT:PCGen dataset conversion for "Second Darkness, Chapter 6: Descent into Midnight" Copyright 2009-2010, PCGen Data Team (including, but not limited to Eddy Anthony).
 
 # Do not remove the EXTRAFILE comment.

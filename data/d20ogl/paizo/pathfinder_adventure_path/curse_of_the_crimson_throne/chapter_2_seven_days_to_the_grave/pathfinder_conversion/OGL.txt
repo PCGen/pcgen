@@ -38,6 +38,6 @@ System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jo
 
 Pathfinder 8: Seven Days to the Grave. Copyright 2008, Paizo Publishing, LLC; Author: F. Wesley Schneider.
 
-Pathfinder Roleplaying Game Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
 
 PCGen dataset conversion for "Curse of the Crimson Throne, Chapter 2: Seven Days to the Grave" Copyright 2008-2010, PCGen Data Team (including, but not limited to Eddy Anthony).

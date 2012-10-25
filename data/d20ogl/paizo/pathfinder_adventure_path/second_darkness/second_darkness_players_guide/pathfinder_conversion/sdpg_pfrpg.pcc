@@ -1,12 +1,13 @@
 # CVS $Revision: 14158 $ $Author: neofax $ -- Sun Aug 10 23:59:36 2008 -- reformated by prettylst.pl v1.38 (build 7233)
-CAMPAIGN:Paizo - Second Darkness Player's Guide
+CAMPAIGN:Paizo - Second Darkness Player's Guide (Conversion)
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Second Darkness
 RANK:3
+STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder Chronicles
-PREMULT:2,[PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core],[PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder Character Traits Web Enhancement,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide]
+SETTING:Pathfinder Campaign Setting
+PREMULT:2,[PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core],[PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder RPG Character Traits Web Enhancement,Paizo - Pathfinder RPG Advanced Player's Guide]
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -28,7 +29,7 @@ INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishin
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
 COPYRIGHT:Pathfinder Companion: Second Darkness Player's Guide, Copyright 2008, Paizo Publishing, LLC; Authors James Jacobs, F. Wesley Schneider, Amber Scott, Greg A. Vaughan.
-COPYRIGHT:Pathfinder Roleplaying Game Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
 COPYRIGHT:PCGen dataset conversion for "Second Darkness Player's Guide" Copyright 2008-2010, PCGen Data Team (including, but not limited to Stefan Radermacher, Eddy Anthony).
 
 # Do not remove the EXTRAFILE comment.

@@ -1,10 +1,10 @@
-Pathfinder Roleplaying Game PCGen data set - Release Notes
+Pathfinder RPG PCGen data set - Release Notes
 ==========================================================
 
 Release 1
 
 Please note that this first release of the data set for the Pathfinder
-Roleplaying Game Core Rulebook is a beta release. (This "beta" status refers
+RPG Core Rulebook is a beta release. (This "beta" status refers
 to the status of the data set - this is NOT a data set for the "Pathfinder
 RPG Beta" rules!) There are bound to be bugs or things missing. The PCGen
 team is dedicated to create the best Pathfinder support for PCGen we can,

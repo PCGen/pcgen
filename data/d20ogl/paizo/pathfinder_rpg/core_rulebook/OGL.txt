@@ -42,4 +42,4 @@ The Book of Experimental Might. Copyright 2008, Monte J. Cook. All rights reserv
 
 Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
 
-PCGen dataset conversion for "Pathfinder Roleplaying Game Core Rulebook" Copyright 2009, PCGen Data team (Including, but not limited to Stefan Radermacher, Eddy Anthony (MoSaT), Eric Smith (Mardudd), Andrew Maitland (LegacyKing) )
+PCGen dataset conversion for "Pathfinder RPG Core Rulebook" Copyright 2009, PCGen Data team (Including, but not limited to Stefan Radermacher, Eddy Anthony (MoSaT), Eric Smith (Mardudd), Andrew Maitland (LegacyKing) )

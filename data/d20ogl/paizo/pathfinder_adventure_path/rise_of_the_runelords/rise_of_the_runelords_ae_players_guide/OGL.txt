@@ -36,8 +36,6 @@ Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 
 System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
 
-Rise of the Runelords Player's Guide. Copyright 2007 Paizo Publishing LLC. Author F. Wesley Schneider.
+Rise of the Runelords Anniversary Edition Player’s Guide Copyright 2012, Paizo Publishing, LLC; Authors: Adam Daigle and James L. Sutter.
 
-Pathfinder Roleplaying Game Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
-
-PCGen dataset conversion for "Rise of the Runelords Player's Guide" Copyright 2007-2010, PCGen Data Team (including, but not limited to Stefan Radermacher, Eric C. Smith).
+PCGen dataset conversion for "Rise of the Runelords Anniversary Edition Player’s Guide" Copyright 2007-2010, PCGen Data Team (including, but not limited to Paul Shipley).

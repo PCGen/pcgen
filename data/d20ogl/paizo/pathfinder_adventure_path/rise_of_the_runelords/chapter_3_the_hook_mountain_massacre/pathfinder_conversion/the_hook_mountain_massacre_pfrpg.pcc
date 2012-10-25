@@ -1,14 +1,15 @@
 # CVS $Revision$ $Author$ -- Mon Jun 30 17:16:58 2008 -- reformated by prettylst.pl v1.38 (build 6887)
-CAMPAIGN:Paizo - Rise of the Runelords, Chapter 3: The Hook Mountain Massacre
+CAMPAIGN:Paizo - Rise of the Runelords, Chapter 3: The Hook Mountain Massacre (Conversion)
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Rise of the Runelords
 RANK:3
+STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Adventure
-SETTING:Pathfinder Chronicles
+SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
-PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Bestiary,BOOKTYPE=Complete Core,Pathfinder RPG for Game Masters (includes Monsters)
-PRECAMPAIGN:1,Paizo - Rise of the Runelords Player's Guide
+PRECAMPAIGN:1,Paizo - Pathfinder RPG Bestiary,BOOKTYPE=Complete Core,Pathfinder RPG for Game Masters (includes Monsters)
+PRECAMPAIGN:1,Paizo - Rise of the Runelords Player's Guide (Conversion)
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -32,7 +33,7 @@ COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; 
 COPYRIGHT:Rise of the Runelords Player's Guide. Copyright 2007 Paizo Publishing LLC. Author: F. Wesley Schneider.
 COPYRIGHT:Pathfinder 1: Burnt Offerings. Copyright 2007 Paizo Publishing LLC. Author: James Jacobs.
 COPYRIGHT:Pathfinder 2: The Skinsaw Murders. Copyright 2007 Paizo Publishing LLC. Author: Richard Pett.
-COPYRIGHT:Pathfinder Roleplaying Game Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
 COPYRIGHT:PCGen dataset conversion for "Rise of the Runelords, Chapter 3: The Hook Mountain Massacre" Copyright 2007-2010, PCGen Data Team (including, but not limited to Eric C. Smith).
 
 # Do not remove the EXTRAFILE comment.

@@ -1,14 +1,15 @@
 # CVS $Revision$ $Author$ -- Sat Jan 17 15:39:52 2004 -- reformated by prettylst.pl v1.31 (build 327)
-CAMPAIGN:Paizo - Rise of the Runelords, Chapter 2: The Skinsaw Murders
+CAMPAIGN:Paizo - Rise of the Runelords, Chapter 2: The Skinsaw Murders (Conversion)
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Rise of the Runelords
 RANK:3
+STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Adventure
-SETTING:Pathfinder Chronicles
+SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
-PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Bestiary,BOOKTYPE=Complete Core,Pathfinder RPG for Game Masters (includes Monsters)
-PRECAMPAIGN:1,Paizo - Rise of the Runelords Player's Guide
+PRECAMPAIGN:1,Paizo - Pathfinder RPG Bestiary,BOOKTYPE=Complete Core,Pathfinder RPG for Game Masters (includes Monsters)
+PRECAMPAIGN:1,Paizo - Rise of the Runelords Player's Guide (Conversion)
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -33,7 +34,7 @@ COPYRIGHT:Rise of the Runelords Player's Guide. Copyright 2007, Paizo Publishing
 COPYRIGHT:Pathfinder 1: Burnt Offerings. Copyright 2007 Paizo Publishing LLC. Author: James Jacobs
 COPYRIGHT:Pathfinder 2: The Skinsaw Murders. Copyright 2007 Paizo Publishing LLC. Author: Richard Pett
 COPYRIGHT:Advanced Bestiary. Copyright 2004 Green Ronin Publishing LLC. Author Matthew Sernett
-COPYRIGHT:Pathfinder Roleplaying Game Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
 COPYRIGHT:PCGen dataset conversion for "Rise of the Runelords, Chapter 2: The Skinsaw Murders" Copyright 2007-2010, PCGen Data Team (including, but not limited to Stefan Radermacher).
 
 # Do not remove the EXTRAFILE comment.

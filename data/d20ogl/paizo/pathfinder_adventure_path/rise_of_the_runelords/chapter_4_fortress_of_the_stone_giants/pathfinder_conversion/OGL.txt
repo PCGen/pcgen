@@ -42,6 +42,6 @@ Advanced Bestiary, Copyright 2004, Green Ronin Publishing, LLC; Author Matthew S
 
 Tome of Horrors II, Copyright 2004, Necromancer Games, Inc.; Author Scott Greene; Additional Authors: Erica Balsley, Kevin Baase, Casey Christofferson, Jim Collura, Meghan Greene, Lance Hawvermale, Travis Hawvermale, Bill Kenower, Patrick Lawinger, Nathan Paul, Clark Peterson, Bill Webb, and Monte Cook.
 
-Pathfinder Roleplaying Game Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
 
 PCGen dataset conversion for "Rise of the Runelords, Chapter 4: Fortress of the Stone Giants" Copyright 2007-2010, PCGen Data Team (including, but not limited to Eric C. Smith).

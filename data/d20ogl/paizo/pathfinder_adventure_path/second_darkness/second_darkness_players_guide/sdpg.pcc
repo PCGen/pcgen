@@ -1,7 +1,7 @@
 # CVS $Revision: 11246 $ $Author: eddyanthony $ -- Sun Aug 10 23:59:36 2008 -- reformated by prettylst.pl v1.38 (build 7233)
-CAMPAIGN:Paizo - Pathfinder Companion: Second Darkness Player's Guide
+CAMPAIGN:Paizo - Second Darkness Player's Guide
 GAMEMODE:35e
-TYPE:Paizo Publishing.Pathfinder Adventure Paths.Second Darkness
+TYPE:Paizo Publishing.Pathfinder Adventure Path.Second Darkness
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PRECAMPAIGN:1,Paizo - Pathfinder Character Traits Web Enhancement
 RANK:5
@@ -10,7 +10,7 @@ BOOKTYPE:Supplement
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
-SETTING:Pathfinder Chronicles
+SETTING:Pathfinder Campaign Setting
 SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide
 SOURCESHORT:SDPG
 SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderCompanion/v5748btpy84en

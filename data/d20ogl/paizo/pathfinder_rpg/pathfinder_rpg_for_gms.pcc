@@ -1,19 +1,18 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:Pathfinder RPG for Game Masters (includes Monsters)
-RANK:1
-STATUS:RELEASE
 # Note: Game mode must be a match for the game mode folder name to ensure the right gamemode gets loaded when using the basic source loading screen
 GAMEMODE:Pathfinder_RPG
+TYPE:Paizo Publishing.Pathfinder RPG
+RANK:1
+STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Core Rules
-SETTING:Pathfinder Chronicles
-TYPE:Paizo Publishing.Pathfinder Roleplaying Game
 SHOWINMENU:YES
 !PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core,[Pathfinder RPG for Game Masters (includes Monsters)]
-PUBNAMELONG:Paizo Publishing LLC
+PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
-PUBNAMEWEB:http://paizo.com/
-SOURCELONG:Pathfinder Roleplaying Game Core Rulebook
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Pathfinder RPG Core Rulebook
 SOURCESHORT:PFCR
 SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255
 SOURCEDATE:2009-08
@@ -25,7 +24,7 @@ COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc.;
 COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
 COPYRIGHT:The Book of Experimental Might. Copyright 2008, Monte J. Cook. All rights reserved.
 COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
-COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Core Rulebook" Copyright 2009, PCGen Data team (Including, but not limited to Stefan Radermacher, Eddy Anthony (MoSaT), Eric Smith (Mardudd), Andrew Maitland (LegacyKing) )
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Core Rulebook" Copyright 2009, PCGen Data team (Including, but not limited to Stefan Radermacher, Eddy Anthony (MoSaT), Eric Smith (Mardudd), Andrew Maitland (LegacyKing) )
 
 COVER:@/d20ogl/paizo/pathfinder_rpg/core_rulebook/core_rulebook.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png

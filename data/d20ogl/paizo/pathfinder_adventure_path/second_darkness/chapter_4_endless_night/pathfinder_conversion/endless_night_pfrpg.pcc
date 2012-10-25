@@ -1,13 +1,14 @@
 # CVS $Revision$ $Author$ -- Sun Aug 10 23:59:36 2008 -- reformated by prettylst.pl v1.38 (build 7233)
-CAMPAIGN:Paizo - Second Darkness, Chapter 4: Endless Night
+CAMPAIGN:Paizo - Second Darkness, Chapter 4: Endless Night (Conversion)
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Second Darkness
 RANK:3
+STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Adventure
-SETTING:Pathfinder Chronicles
+SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
-PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Bestiary,BOOKTYPE=Complete Core
+PRECAMPAIGN:1,Paizo - Pathfinder RPG Bestiary,BOOKTYPE=Complete Core
 PRECAMPAIGN:1,Paizo - Second Darkness Player's Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
@@ -33,7 +34,7 @@ COPYRIGHT:Pathfinder 16: Endless Night. Copyright 2008, Paizo Publishing, LLC; A
 COPYRIGHT:The Advanced Bestiary. Copyright 2004, Green Ronin Publishing; Author: Matthew Sernett.
 COPYRIGHT:Plot & Poison: A Guidebook to Drow. Copyright 2002, Green Ronin Publishing; Author: Matthew Sernett.
 COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
-COPYRIGHT:Pathfinder Roleplaying Game Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
 COPYRIGHT:PCGen dataset conversion for "Second Darkness, Chapter 4: Endless Night" Copyright 2008-2010, PCGen Data Team (including, but not limited to Eddy Anthony).
 
 # Do not remove the EXTRAFILE comment.

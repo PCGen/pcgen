@@ -1,11 +1,12 @@
 # CVS $Revision$ $Author$ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
-CAMPAIGN:Paizo - Curse of the Crimson Throne Player's Guide
+CAMPAIGN:Paizo - Curse of the Crimson Throne Player's Guide (Conversion)
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Curse of the Crimson Throne
 RANK:3
+STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder Chronicles
+SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
@@ -28,7 +29,7 @@ INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishin
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
 COPYRIGHT:Rise of the Runelords Player's Guide. Copyright 2007 Paizo Publishing LLC. Author James Jacobs and Mike McArtor.
-COPYRIGHT:Pathfinder Roleplaying Game Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
 COPYRIGHT:PCGen dataset conversion for "Curse of the Crimson Throne Player's Guide" Copyright 2008-2010, PCGen Data Team (including, but not limited to Stefan Radermacher, Eddy Anthony).
 
 # Do not remove the EXTRAFILE comment.

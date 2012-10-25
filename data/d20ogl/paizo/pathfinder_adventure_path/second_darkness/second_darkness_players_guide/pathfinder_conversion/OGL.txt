@@ -38,6 +38,6 @@ System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jo
 
 Pathfinder Companion: Second Darkness Player's Guide, Copyright 2008, Paizo Publishing, LLC; Authors James Jacobs, F. Wesley Schneider, Amber Scott, Greg A. Vaughan.
 
-Pathfinder Roleplaying Game Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
 
 PCGen dataset conversion for "Second Darkness Player's Guide" Copyright 2008-2010, PCGen Data Team (including, but not limited to Stefan Radermacher, Eddy Anthony).
