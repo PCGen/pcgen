@@ -1,13 +1,13 @@
 # CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
-CAMPAIGN:Paizo - Pathfinder Roleplaying Game Bestiary 2
+CAMPAIGN:Paizo - Pathfinder RPG Bestiary 2
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Roleplaying Game
+TYPE:Paizo Publishing.Pathfinder RPG
 RANK:3
-STATUS:Alpha
+STATUS:ALPHA
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder Chronicles
-PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide
+SETTING:Pathfinder RPG
+PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder RPG Advanced Player's Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -86,7 +86,7 @@ COPYRIGHT:Tick, Giant & Dragon from the Tome of Horrors, Revised, Copyright 2002
 COPYRIGHT:Troll, Ice from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Russell Cole.
 COPYRIGHT:Troll, Rock from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene.
 COPYRIGHT:Zombie, Juju from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
-COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Bestiary 2" Copyright 2011, PCGen Data team (Including, but not limited to Eric Smith, Douglas Limmer, Stefan Radermacher)
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Bestiary 2" Copyright 2011, PCGen Data team (Including, but not limited to Eric Smith, Douglas Limmer, Stefan Radermacher)
 
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt

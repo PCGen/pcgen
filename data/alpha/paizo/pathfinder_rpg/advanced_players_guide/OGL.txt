@@ -40,4 +40,4 @@ Advanced Player’s Guide. Copyright 2010, Paizo Publishing, LLC; Author: Jason 
 
 Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
 
-PCGen dataset conversion for "Pathfinder Roleplaying Game Advanced Player's Guide" Copyright 2010, PCGen Data team (Including, but not limited to Stefan Radermacher).
+PCGen dataset conversion for "Pathfinder RPG Advanced Player's Guide" Copyright 2010, PCGen Data team (Including, but not limited to Stefan Radermacher).

@@ -40,4 +40,4 @@ Pathfinder Roleplaying Game: Bonus bestiary, Copyright 2009, Paizo Publishing, L
 
 Tome of Horrors, Revised Edition. Copyright 2005, Necromancer Games, Inc.; Authors: Scott Greene, Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, Bill Webb; Based on original content from TSR.
 
-PCGen dataset conversion for "Pathfinder Roleplaying Game Bonus Bestiary" Copyright 2009, PCGen Data team (Including, but not limited to Stefan Radermacher)
+PCGen dataset conversion for "Pathfinder RPG Bonus Bestiary" Copyright 2009, PCGen Data team (Including, but not limited to Stefan Radermacher)

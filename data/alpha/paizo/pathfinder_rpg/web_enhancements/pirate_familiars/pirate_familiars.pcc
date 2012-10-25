@@ -1,13 +1,12 @@
 # CVS $Revision$ $Author$ -- Sat Sep  8 05:03:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-# $Revision$ $Author$
-CAMPAIGN:Paizo Blog — Pirate Familiars
+CAMPAIGN:Paizo - Blog: Pirate Familiars
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Web Enhancement
-STATUS:ALPHA
+TYPE:Paizo Publishing.Pathfinder RPG.Web Enhancement
 RANK:3
+STATUS:ALPHA
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder Campaign Setting
+SETTING:Pathfinder RPG
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
@@ -29,7 +28,7 @@ INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishin
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
 COPYRIGHT:Paizo Blog — Pirate Familiars. Copyright 2012, Paizo Publishing, LLC; Authors: Rob McCreary
-COPYRIGHT:PCGen dataset conversion for "Paizo Blog — Pirate Familiars" Copyright 2012, PCGen Data Team (including, but not limited to Vincent Lhote, Andrew Maitland)
+COPYRIGHT:PCGen dataset conversion for "Paizo - Blog: Pirate Familiars" Copyright 2012, PCGen Data Team (including, but not limited to Vincent Lhote, Andrew Maitland)
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt

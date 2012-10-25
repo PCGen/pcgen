@@ -1,12 +1,13 @@
 # CVS $Revision$ $Author$ -- Tue Jun 14 18:40:08 2011 -- reformated by prettylst.pl v1.39 (build 11455)
-CAMPAIGN:Paizo - Pathfinder Companion: Legacy of Fire Player's Guide (Conversion)
+CAMPAIGN:Paizo - Legacy of Fire Player's Guide (Conversion)
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Legacy of Fire
 RANK:3
+STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder
-PREMULT:2,[PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core],[PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder Character Traits Web Enhancement,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide]
+SETTING:Pathfinder Camapign Setting
+PREMULT:2,[PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core],[PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder RPG Character Traits Web Enhancement,Paizo - Pathfinder RPG Advanced Player's Guide]
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com

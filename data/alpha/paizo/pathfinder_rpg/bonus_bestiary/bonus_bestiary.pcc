@@ -1,17 +1,17 @@
 # CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
-CAMPAIGN:Paizo - Pathfinder Roleplaying Game Bonus Bestiary
+CAMPAIGN:Paizo - Pathfinder RPG Bonus Bestiary
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Roleplaying Game
+TYPE:Paizo Publishing.Pathfinder RPG
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder Chronicles
+SETTING:Pathfinder RPG
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core,[Pathfinder RPG for Game Masters (includes Monsters)]
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
-SOURCELONG:Pathfinder Roleplaying Game Bonus Bestiary
+SOURCELONG:Bonus Bestiary
 SOURCESHORT:PFBB
 SOURCEWEB:http://paizo.com/store/paizoExclusives/v5748btpy88x4
 SOURCEDATE:2009-06
@@ -29,7 +29,7 @@ COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
 COPYRIGHT:Pathfinder Roleplaying Game: Bonus bestiary, Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulmahn.
 COPYRIGHT:Tome of Horrors, Revised Edition. Copyright 2005, Necromancer Games, Inc.; Authors: Scott Greene, Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, Bill Webb; Based on original content from TSR.
-COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Bonus Bestiary" Copyright 2009, PCGen Data team (Including, but not limited to Stefan Radermacher).
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Bonus Bestiary" Copyright 2009, PCGen Data team (Including, but not limited to Stefan Radermacher).
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt

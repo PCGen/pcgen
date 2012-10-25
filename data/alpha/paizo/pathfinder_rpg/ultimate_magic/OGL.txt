@@ -88,4 +88,4 @@ Wood Golem from the Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Au
 
 Pathfinder Roleplaying Game Ultimate Magic. Copyright 2011, Paizo Publishing, LLC; Authors: Jason Bulmahn, Tim Hitchcock, Colin McComb, Rob McCreary, Jason Nelson, Stephen Radney-MacFarland, Sean K Reynolds, Owen K.C. Stephens, and Russ Taylor.
 
-PCGen dataset conversion for "Pathfinder Roleplaying Game Ultimate Magic Playtest" Copyright 2010, PCGen Data team (Including, but not limited to Stefan Radermacher, Doug Limmer, Henk Slaaf, and Eric Smith (Maredudd)).
+PCGen dataset conversion for "Pathfinder RPG Ultimate Magic" Copyright 2010, PCGen Data team (Including, but not limited to Stefan Radermacher, Doug Limmer, Henk Slaaf, and Eric Smith (Maredudd)).

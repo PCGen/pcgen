@@ -153,4 +153,4 @@ Troll, Rock from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games
 
 Zombie, Juju from the Tome of Horrors, Revised, Copyright 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
 
-PCGen dataset conversion for "Pathfinder Roleplaying Game Bestiary 2" Copyright 2011, PCGen Data team (Including, but not limited to x)
+PCGen dataset conversion for "Pathfinder RPG Bestiary 2" Copyright 2011, PCGen Data team (Including, but not limited to Eric Smith, Douglas Limmer, Stefan Radermacher)

@@ -6,11 +6,11 @@ RANK:9
 STATUS:ALPHA
 GENRE:Fantasy
 BOOKTYPE:Supplement
+SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
 PUBNAMELONG:Paizo Publishing LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
-SETTING:Pathfinder Chronicles
 SOURCELONG:Guide to Pathfinder Society Organised Play
 SOURCESHORT:GTPOP
 SOURCEWEB:http://paizo.com/pathfinderSociety/scenarios/v5748btpy84k4

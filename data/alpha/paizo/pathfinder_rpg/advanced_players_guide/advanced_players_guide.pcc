@@ -1,17 +1,17 @@
 # CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
-CAMPAIGN:Paizo - Pathfinder Roleplaying Game Advanced Player's Guide
+CAMPAIGN:Paizo - Pathfinder RPG Advanced Player's Guide
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Roleplaying Game
-STATUS:Alpha
+TYPE:Paizo Publishing.Pathfinder RPG
+STATUS:ALPHA
 RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
+SETTING:Pathfinder RPG
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
-!PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Character Traits Web Enhancement
+!PRECAMPAIGN:1,Paizo - Pathfinder RPG Character Traits Web Enhancement
 PUBNAMELONG:Paizo Publishing LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
-SETTING:Pathfinder Chronicles
 SOURCELONG:Advanced Player's Guide
 SOURCESHORT:PFAPG
 SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1
@@ -24,7 +24,7 @@ ISOGL:YES
 ISLICENSED:YES
 #LICENSE:FILE=pathfinderapgwip.html
 # For people that have the license pop up disabled.
-INFOTEXT:This dataset for Paizo's Pathfinder RPG 'Advanced Player's Guide'
+#INFOTEXT:This dataset for Paizo's Pathfinder RPG 'Advanced Player's Guide'
 #is still a beta "Work in Progress" by the PCGen Data Team. Use of this set is highly cautioned as the PCGen team is still working on improving it. Characters created in PCGen using this set may not work in later revisions. Please send any comments, questions or feedback to the PCGen Experimental Group with the Subject [APG] at the beginning. The direct email is 'pcgen_experimental@yahoogroups.com'. This set is being released to the overwhelming requests of the community to get early access to this dataset. Thanks for your patience as we work to bring further improvements to your gaming circles.
 #
 
@@ -41,7 +41,7 @@ COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
 COPYRIGHT:Advanced Player's Guide. Copyright 2010, Paizo Publishing, LLC; Author: Jason Bulmahn.
 COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
-COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Advanced Player's Guide" Copyright 2010, PCGen Data team (Including, but not limited to Stefan Radermacher, Andrew Maitland, Eric Smith, Joseph (Sensai) Caubo, David Bender, gjorbjond, and tons of community feedback).
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Advanced Player's Guide" Copyright 2010, PCGen Data team (Including, but not limited to Stefan Radermacher, Andrew Maitland, Eric Smith, Joseph (Sensai) Caubo, David Bender, gjorbjond, and tons of community feedback).
 
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
@@ -67,6 +67,7 @@ DOMAIN:pfapg_domains.lst
 
 EQUIPMENT:pfapg_equip_armorshields.lst
 EQUIPMENT:pfapg_equip_armorshields_specific.lst
+EQUIPMENT:pfapg_equip_components.lst
 EQUIPMENT:pfapg_equip_rings.lst
 EQUIPMENT:pfapg_equip_rods.lst
 EQUIPMENT:pfapg_equip_staves.lst

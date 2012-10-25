@@ -3,10 +3,10 @@ CAMPAIGN:Paizo - Princes of Darkness, Book of the Damned Vol. I
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
 RANK:3
+STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder Campaign Setting
-STATUS:BETA
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo

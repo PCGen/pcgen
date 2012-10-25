@@ -1,15 +1,14 @@
 # CVS $Revision$ $Author$ -- Tue Jun 12 2012
-# Author: Henk Slaaf
 CAMPAIGN:Paizo - Orcs of Golarion
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Player Companion
-STATUS:BETA
 RANK:3
+STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder Campaign Setting
-PREMULT:2,[PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core],[PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder Character Traits Web Enhancement,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide]
-#PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Bestiary
+PREMULT:2,[PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core],[PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder RPG Character Traits Web Enhancement,Paizo - Pathfinder RPG Advanced Player's Guide]
+#PRECAMPAIGN:1,Paizo - Pathfinder RPG Bestiary
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -30,7 +29,7 @@ INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishin
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
 COPYRIGHT:Pathfinder Companion: Orcs of Golarion. Copyright 2010, Paizo Publishing, LLC; Authors: David Eitelbach, Russ Taylor, JD Wiker, Keri Wiker, and Hank Woon
-COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Dwarves of Golarion" Copyright 2011, PCGen Data Team (including, but not limited to Gerard van Konijnenburg, Andrew Maitland)
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Dwarves of Golarion" Copyright 2011, PCGen Data Team (including, but not limited to Gerard van Konijnenburg, Andrew Maitland, Henk Slaaf)
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt

@@ -1,16 +1,16 @@
 # CVS $Revision$ $Author$ -- Tue Sep  4 07:13:30 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-CAMPAIGN:Paizo - Pathfinder Roleplaying Game Ultimate Combat
+CAMPAIGN:Paizo - Pathfinder RPG Ultimate Combat
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Roleplaying Game
+TYPE:Paizo Publishing.Pathfinder RPG
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
+SETTING:Pathfinder RPG
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
 PUBNAMELONG:Paizo Publishing LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
-SETTING:Pathfinder Chronicles
 SOURCELONG:Ultimate Combat
 SOURCESHORT:PFUC
 #SOURCEWEB:
@@ -28,7 +28,7 @@ COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.;
 COPYRIGHT:Pathfinder Roleplaying Game Core Rulebook. Copyright 2010, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
 COPYRIGHT:Marid from the Tome of Horrors III. Copyright 2005, Necromancer Games, Inc.; Author: Scott Greene.
 COPYRIGHT:Pathfinder Roleplaying Game Ultimate Combat. Copyright 2011, Paizo Publishing, LLC; Authors: Jason Bulmahn, Tim Hitchcock, Colin McComb, Rob McCreary, Jason Nelson, Stephen Radney-MacFarland, Sean K Reynolds, Owen K.C. Stephens, and Russ Taylor.
-COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Ultimate Combat" Copyright 2011, PCGen Data team (Including, but not limited to Andrew Maitland).
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Combat" Copyright 2011, PCGen Data team (Including, but not limited to Andrew Maitland).
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt

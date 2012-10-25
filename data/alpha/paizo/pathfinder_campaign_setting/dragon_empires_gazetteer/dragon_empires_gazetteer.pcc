@@ -1,31 +1,28 @@
 # CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
-CAMPAIGN:Paizo - Pathfinder Chronicles: Dragon Empires Gazetteer
+CAMPAIGN:Paizo - Dragon Empires Gazetteer
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
+RANK:3
 STATUS:ALPHA
-RANK:4
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
+SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core,[Pathfinder RPG for Game Masters (includes Monsters)]
-
 # ENABLE THESE AND REMOVE FORWARDREFS ONCE INCLUDED
 #PRECAMPAIGN:1,Paizo - Inner Sea World Guide
-#PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Ultimate Combat
+#PRECAMPAIGN:1,Paizo - Pathfinder RPG Ultimate Combat
 INFOTEXT:This set requires data from Inner Sea World Guide and UC for deity weapons and a domain. Neither of those sets are completed.
 FORWARDREF:WEAPONPROF|Naginata,Nine-Ring broadsword,Bo staff,Urumi,Katana,Tetsubo
 FORWARDREF:DOMAIN|Scalykind
-
 ###
-PUBNAMELONG:Paizo Publishing LLC
+PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
-PUBNAMEWEB:http://paizo.com/
-SETTING:Pathfinder Chronicles
-SOURCELONG:Pathfinder Chronicles: Dragon Empires Gazetteer
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Dragon Empires Gazetteer
 SOURCESHORT:DEG
 SOURCEWEB:http://paizo.com/products/btpy8pfu
 SOURCEDATE:2012-02
 ISOGL:YES
-ISLICENSED:NO
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.

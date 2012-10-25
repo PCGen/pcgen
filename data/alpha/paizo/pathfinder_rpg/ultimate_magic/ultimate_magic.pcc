@@ -1,16 +1,16 @@
 # CVS $Revision$ $Author$ -- Sat Apr  2 09:13:16 2011 -- reformated by prettylst.pl v1.39 (build 11455)
-CAMPAIGN:Paizo - Pathfinder Roleplaying Game Ultimate Magic
+CAMPAIGN:Paizo - Pathfinder RPG Ultimate Magic
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Roleplaying Game
+TYPE:Paizo Publishing.Pathfinder RPG
 RANK:3
-STATUS:Alpha
+STATUS:ALPHA
 GENRE:Fantasy
 BOOKTYPE:Supplement
-PREMULT:2,[PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core],[PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder Character Traits Web Enhancement,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide]
+SETTING:Pathfinder RPG
+PREMULT:2,[PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core],[PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder RPG Character Traits Web Enhancement,Paizo - Pathfinder RPG Advanced Player's Guide]
 PUBNAMELONG:Paizo Publishing LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
-SETTING:Pathfinder Campaign Setting
 SOURCELONG:Ultimate Magic
 SOURCESHORT:PFUM
 SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s
@@ -53,7 +53,7 @@ COPYRIGHT:Scarecrow from the Tome of Horrors, Revised. Copyright 2002, Necromanc
 COPYRIGHT:Shadow Demon from the Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Neville White.
 COPYRIGHT:Wood Golem from the Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene and Patrick Lawinger.
 COPYRIGHT:Pathfinder Roleplaying Game Ultimate Magic. Copyright 2011, Paizo Publishing, LLC; Authors: Jason Bulmahn, Tim Hitchcock, Colin McComb, Rob McCreary, Jason Nelson, Stephen Radney-MacFarland, Sean K Reynolds, Owen K.C. Stephens, and Russ Taylor.
-COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Ultimate Magic" Copyright 2011, PCGen Data team (Including, but not limited to Stefan Radermacher, Doug Limmer, Henk Slaaf, and Eric Smith (Maredudd)).
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Magic" Copyright 2011, PCGen Data team (Including, but not limited to Stefan Radermacher, Doug Limmer, Henk Slaaf, and Eric Smith (Maredudd)).
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt

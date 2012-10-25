@@ -1,18 +1,18 @@
 # CVS $Revision$ $Author$ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
-CAMPAIGN:Paizo - Pathfinder Roleplaying Game Character Traits Web Enhancement
+CAMPAIGN:Paizo - Pathfinder RPG Character Traits Web Enhancement
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Roleplaying Game
+TYPE:Paizo Publishing.Pathfinder RPG
 RANK:4
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
-!PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide
-SETTING:Pathfinder
+SETTING:Pathfinder RPG
+!PRECAMPAIGN:1,Paizo - Pathfinder RPG Advanced Player's Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
-SOURCELONG:Pathfinder Roleplaying Game Character Traits
+SOURCELONG:Character Traits Web Enhancement
 SOURCESHORT:PFCTWE
 SOURCEWEB:http://paizo.com/traits
 SOURCEDATE:2009-08
@@ -28,7 +28,7 @@ INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishin
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
 COPYRIGHT:Pathfinder Character Traits Web Enhancement, Copyright 2009, Paizo Publishing, LLC. Author: James Jacobs and F. Wesley Schneider.
-COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Character Traits Web Enhancement" Copyright 2009, PCGen Data Team (including, but not limited to Eddy Anthony and Stefan Radermacher).
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Character Traits Web Enhancement" Copyright 2009, PCGen Data Team (including, but not limited to Eddy Anthony and Stefan Radermacher).
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
