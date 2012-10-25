@@ -101,12 +101,12 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 			hbox.add(clearButton);
 			box.add(hbox);
 		}
-		box.add(Box.createVerticalStrut(5));
-		{
-			Box hbox = Box.createHorizontalBox();
-			hbox.add(purchaseButton);
-			box.add(hbox);
-		}
+//		box.add(Box.createVerticalStrut(5));
+//		{
+//			Box hbox = Box.createHorizontalBox();
+//			hbox.add(purchaseButton);
+//			box.add(hbox);
+//		}
 		panel.add(box);
 
 		box = Box.createVerticalBox();
@@ -148,7 +148,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 		state.put(PortraitHandler.class, new PortraitHandler(character));
 		state.put(LoadAction.class, new LoadAction(character));
 		state.put(ClearAction.class, new ClearAction(character));
-		state.put(PurchaseAction.class, new PurchaseAction(character));
+		//state.put(PurchaseAction.class, new PurchaseAction(character));
 		return state;
 	}
 
@@ -157,7 +157,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 	{
 		loadButton.setAction((Action) state.get(LoadAction.class));
 		clearButton.setAction((Action) state.get(ClearAction.class));
-		purchaseButton.setAction((Action) state.get(PurchaseAction.class));
+		//purchaseButton.setAction((Action) state.get(PurchaseAction.class));
 		((PortraitHandler) state.get(PortraitHandler.class)).install();
 	}
 
