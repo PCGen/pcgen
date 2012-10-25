@@ -227,7 +227,10 @@ CLASS:Summoner	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Fly|Handle Animal|TYPE=Knowledg
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Summoner	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Summoner|CL
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
+###Block:
+1	AUTO:FEAT|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerLightArmor,TYPE.SummonerArmorProficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSimpleWeapons
 ###Block: Class Abilities
 1	ABILITY:Special Ability|AUTOMATIC|Cantrips ~ Summoner
 1	ABILITY:Special Ability|AUTOMATIC|Eidolon ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerEidolon
