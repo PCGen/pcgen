@@ -1,5 +1,5 @@
 # CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Pathfinder Roleplaying Game Bonus Bestiary	SOURCESHORT:PFBB	SOURCEWEB:http://paizo.com/store/paizoExclusives/v5748btpy88x4	SOURCEDATE:2009-06
+SOURCELONG:Bonus Bestiary	SOURCESHORT:PFBB	SOURCEWEB:http://paizo.com/store/paizoExclusives/v5748btpy88x4	SOURCEDATE:2009-06
 
 # Class Name		Hit Dice	Type			Max Level		Ability					Save checks bonus								Combat bonus
 CLASS:Faerie Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE

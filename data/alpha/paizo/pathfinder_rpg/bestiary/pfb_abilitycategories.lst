@@ -1,5 +1,5 @@
 # CVS $Revision$ $Author$ -- Sun Nov 22 22:29:53 2009 -- reformated by prettylst.pl v1.39 (build 10232)
-#SOURCELONG:Pathfinder Roleplaying Game Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-09
+#SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-09
 
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
 ABILITYCATEGORY:Animated Object Ability		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AnimatedObjectAbility	PLURAL:Animated Object Abilities		DISPLAYLOCATION:Racial Abilities

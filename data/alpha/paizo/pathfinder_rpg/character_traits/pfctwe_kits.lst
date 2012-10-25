@@ -1,5 +1,5 @@
 # CVS $Revision$ $Author$ -- Thu Jun 16 13:37:38 2011 -- reformated by prettylst.pl v1.39 (build 11455)
-SOURCELONG:Pathfinder Roleplaying Game Character Traits	SOURCESHORT:PFCTWE	SOURCEWEB:http://paizo.com/traits	SOURCEDATE:2009-08
+SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:PFCTWE	SOURCEWEB:http://paizo.com/traits	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
 STARTPACK:Rich Parents	TYPE:StartingKit	VISIBLE:NO
