@@ -5317,6 +5317,7 @@
 	<xsl:template match="companions">
 		<!-- BEGIN Companions Table -->
 		<xsl:apply-templates select="familiar"/>
+		<xsl:apply-templates select="psicrystal"/>
 		<xsl:apply-templates select="mount"/>
 		<xsl:apply-templates select="companion"/>
 		<xsl:call-template name="followers.list"/>
@@ -5328,6 +5329,13 @@
 			<xsl:with-param name="followerType" select="'Familiar'"/>
 		</xsl:call-template>
 		<!-- END Familiar Table -->
+	</xsl:template>
+	<xsl:template match="psicrystal">
+		<!-- BEGIN psicrystal Table -->
+		<xsl:call-template name="show_companion">
+			<xsl:with-param name="followerType" select="'Psicrystal'"/>
+		</xsl:call-template>
+		<!-- END psicrystal Table -->
 	</xsl:template>
 	<xsl:template match="mount">
 		<!-- BEGIN Familiar Table -->
@@ -5479,7 +5487,7 @@
 							<xsl:with-param name="attribute" select="'companions'"/>
 						</xsl:call-template>
 						<fo:block font-size="8pt">
-							<xsl:value-of select="willpower"/>
+							<xsl:value-of select="will"/>
 						</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
@@ -7096,7 +7104,7 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 		</fo:table-footer>
 	</xsl:template>
 	<!--
-====================================
+====================================	
 ====================================
 	TEMPLATE - KNOWN SPELL HEADER COLUMN TITLES
 ====================================
@@ -7162,7 +7170,9 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 		</xsl:variable>
 		<xsl:variable name="baseconcentration" select="../../@concentration">
 		</xsl:variable>
-		<fo:table-row keep-with-next.within-column="always">
+<!-->	New to keep Spell Details togather	
+		<fo:table-body>	-->
+		<fo:table-row keep-with-next.within-column="always"	 keep-together="always">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/></xsl:call-template>
 				
 			<xsl:choose>
@@ -7365,7 +7375,7 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 				</fo:block>
 			</fo:table-cell>
 		</fo:table-row>
-
+<!-->		</fo:table-body>	-->
 	</xsl:template>
 	<!--
 ====================================

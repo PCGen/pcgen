@@ -466,15 +466,15 @@
 				<short>will</short>
 			</name>
 			<ability>wisdom</ability>
-			<total>|CHECK.2.TOTAL|</total>
-			<base>|CHECK.2.BASE|</base>
-			<abil_mod>|CHECK.2.STATMOD|</abil_mod>
-			<feats>|CHECK.2.FEATS|</feats>
-			<magic_mod>|CHECK.2.MAGIC|</magic_mod>
-			<misc_mod>|CHECK.2.MISC.NOMAGIC.NOSTAT|</misc_mod>
-			<misc_w_magic_mod>|CHECK.2.MISC.NOSTAT|</misc_w_magic_mod>
-			<race>|CHECK.2.RACE|</race>
-			<epic_mod>|CHECK.2.EPIC|</epic_mod>
+			<total>|CHECK.WILL.TOTAL|</total>
+			<base>|CHECK.WILL.BASE|</base>
+			<abil_mod>|CHECK.WILL.STATMOD|</abil_mod>
+			<feats>|CHECK.WILL.FEATS|</feats>
+			<magic_mod>|CHECK.WILL.MAGIC|</magic_mod>
+			<misc_mod>|CHECK.WILL.MISC.NOMAGIC.NOSTAT|</misc_mod>
+			<misc_w_magic_mod>|CHECK.WILL.MISC.NOSTAT|</misc_w_magic_mod>
+			<race>|CHECK.WILL.RACE|</race>
+			<epic_mod>|CHECK.WILL.EPIC|</epic_mod>
 			<temp_mod/>
 		</saving_throw>
 	</saving_throws>
@@ -3026,7 +3026,7 @@ Immune
 			<ac>|FOLLOWERTYPE.FAMILIAR.0.BONUS.COMBAT.AC.TOTAL|</ac>
 			<fortitude>|FOLLOWERTYPE.FAMILIAR.0.CHECK.FORTITUDE.TOTAL|</fortitude>
 			<reflex>|FOLLOWERTYPE.FAMILIAR.0.CHECK.REFLEX.TOTAL|</reflex>
-			<willpower>|FOLLOWERTYPE.FAMILIAR.0.CHECK.2.TOTAL|</willpower>
+			<will>|FOLLOWERTYPE.FAMILIAR.0.CHECK.WILL.TOTAL|</will>
 			<initiative_mod>|FOLLOWERTYPE.FAMILIAR.0.INITIATIVEMOD|</initiative_mod>
 			<special_properties>|FOLLOWERTYPE.FAMILIAR.0.SPECIALLIST|</special_properties>
 |ENDFOR|
@@ -3083,7 +3083,7 @@ Immune
 			<ac>|FOLLOWERTYPE.SPECIAL MOUNT.0.BONUS.COMBAT.AC.TOTAL|</ac>
 			<fortitude>|FOLLOWERTYPE.SPECIAL MOUNT.0.CHECK.FORTITUDE.TOTAL|</fortitude>
 			<reflex>|FOLLOWERTYPE.SPECIAL MOUNT.0.CHECK.REFLEX.TOTAL|</reflex>
-			<willpower>|FOLLOWERTYPE.SPECIAL MOUNT.0.CHECK.2.TOTAL|</willpower>
+			<will>|FOLLOWERTYPE.SPECIAL MOUNT.0.CHECK.WILL.TOTAL|</will>
 			<initiative_mod>|FOLLOWERTYPE.SPECIAL MOUNT.0.INITIATIVEMOD|</initiative_mod>
 			<special_properties>|FOLLOWERTYPE.SPECIAL MOUNT.0.SPECIALLIST|</special_properties>
 |ENDFOR|
@@ -3137,7 +3137,7 @@ Immune
 			<ac>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.BONUS.COMBAT.AC.TOTAL|</ac>
 			<fortitude>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.CHECK.FORTITUDE.TOTAL|</fortitude>
 			<reflex>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.CHECK.REFLEX.TOTAL|</reflex>
-			<willpower>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.CHECK.2.TOTAL|</willpower>
+			<will>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.CHECK.WILL.TOTAL|</will>
 			<initiative_mod>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.INITIATIVEMOD|</initiative_mod>
 			<special_properties>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.SPECIALLIST|</special_properties>
 			<trick>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick|</trick>
@@ -3194,7 +3194,7 @@ Immune
 			<ac>|FOLLOWERTYPE.FOLLOWER.%companion.BONUS.COMBAT.AC.TOTAL|</ac>
 			<fortitude>|FOLLOWERTYPE.FOLLOWER.%companion.CHECK.FORTITUDE.TOTAL|</fortitude>
 			<reflex>|FOLLOWERTYPE.FOLLOWER.%companion.CHECK.REFLEX.TOTAL|</reflex>
-			<willpower>|FOLLOWERTYPE.FOLLOWER.%companion.CHECK.2.TOTAL|</willpower>
+			<will>|FOLLOWERTYPE.FOLLOWER.%companion.CHECK.WILL.TOTAL|</will>
 			<initiative_mod>|FOLLOWERTYPE.FOLLOWER.%companion.INITIATIVEMOD|</initiative_mod>
 			<special_properties>|FOLLOWERTYPE.FOLLOWER.%companion.SPECIALLIST|</special_properties>
 			<attacks>

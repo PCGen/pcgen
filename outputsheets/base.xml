@@ -466,15 +466,15 @@
 				<short>will</short>
 			</name>
 			<ability>wisdom</ability>
-			<total>|CHECK.2.TOTAL|</total>
-			<base>|CHECK.2.BASE|</base>
-			<abil_mod>|CHECK.2.STATMOD|</abil_mod>
-			<feats>|CHECK.2.FEATS|</feats>
-			<magic_mod>|CHECK.2.MAGIC|</magic_mod>
-			<misc_mod>|CHECK.2.MISC.NOMAGIC.NOSTAT|</misc_mod>
-			<misc_w_magic_mod>|CHECK.2.MISC.NOSTAT|</misc_w_magic_mod>
-			<race>|CHECK.2.RACE|</race>
-			<epic_mod>|CHECK.2.EPIC|</epic_mod>
+			<total>|CHECK.WILL.TOTAL|</total>
+			<base>|CHECK.WILL.BASE|</base>
+			<abil_mod>|CHECK.WILL.STATMOD|</abil_mod>
+			<feats>|CHECK.WILL.FEATS|</feats>
+			<magic_mod>|CHECK.WILL.MAGIC|</magic_mod>
+			<misc_mod>|CHECK.WILL.MISC.NOMAGIC.NOSTAT|</misc_mod>
+			<misc_w_magic_mod>|CHECK.WILL.MISC.NOSTAT|</misc_w_magic_mod>
+			<race>|CHECK.WILL.RACE|</race>
+			<epic_mod>|CHECK.WILL.EPIC|</epic_mod>
 			<temp_mod/>
 		</saving_throw>
 	</saving_throws>
@@ -3045,7 +3045,7 @@ Immune
 			<ac>|FOLLOWERTYPE.FAMILIAR.0.BONUS.COMBAT.AC.TOTAL|</ac>
 			<fortitude>|FOLLOWERTYPE.FAMILIAR.0.CHECK.FORTITUDE.TOTAL|</fortitude>
 			<reflex>|FOLLOWERTYPE.FAMILIAR.0.CHECK.REFLEX.TOTAL|</reflex>
-			<willpower>|FOLLOWERTYPE.FAMILIAR.0.CHECK.2.TOTAL|</willpower>
+			<will>|FOLLOWERTYPE.FAMILIAR.0.CHECK.WILL.TOTAL|</will>
 			<initiative_mod>|FOLLOWERTYPE.FAMILIAR.0.INITIATIVEMOD|</initiative_mod>
 			<special_properties>|FOLLOWERTYPE.FAMILIAR.0.SPECIALLIST|</special_properties>
 |ENDFOR|
@@ -3090,6 +3090,60 @@ Immune
 			</attacks>
 		</familiar>
 |%|
+|%FOLLOWERTYPE.Psicrystal|
+|FOR,%companion,0,COUNT[FOLLOWERTYPE.Psicrystal]-1,1,0|
+		<psicrystal>
+			<name>|FOLLOWERTYPE.Psicrystal.0.NAME|</name>
+			<race>|FOLLOWERTYPE.Psicrystal.0.RACE|</race>
+			<hp>|FOLLOWERTYPE.Psicrystal.0.HP|</hp>
+			<ac>|FOLLOWERTYPE.Psicrystal.0.BONUS.COMBAT.AC.TOTAL|</ac>
+			<fortitude>|FOLLOWERTYPE.Psicrystal.0.CHECK.FORTITUDE.TOTAL|</fortitude>
+			<reflex>|FOLLOWERTYPE.Psicrystal.0.CHECK.REFLEX.TOTAL|</reflex>
+			<will>|FOLLOWERTYPE.Psicrystal.0.CHECK.WILL.TOTAL|</will>
+			<initiative_mod>|FOLLOWERTYPE.Psicrystal.0.INITIATIVEMOD|</initiative_mod>
+			<special_properties>|FOLLOWERTYPE.Psicrystal.0.SPECIALLIST|</special_properties>
+|ENDFOR|
+
+			<attacks>
+|FOR,%weap,0,COUNT[FOLLOWERTYPE.Psicrystal.0.EQTYPE.WEAPON]-1,1,0|
+				<attack>
+					<common>
+						<name>
+							<short>|FOLLOWERTYPE.Psicrystal.0.WEAPON.%weap.NAME|</short>
+							<long>|FOLLOWERTYPE.Psicrystal.0.WEAPON.%weap.LONGNAME|</long>
+						</name>
+						<category>|FOLLOWERTYPE.Psicrystal.0.WEAPON.%weap.CATEGORY|</category>
+						<critical>
+							<range>|FOLLOWERTYPE.Psicrystal.0.WEAPON.%weap.CRIT|</range>
+							<multiplier>|FOLLOWERTYPE.Psicrystal.0.WEAPON.%weap.MULT|</multiplier>
+						</critical>
+						<to_hit>
+							<hit>|FOLLOWERTYPE.Psicrystal.0.WEAPON.%weap.HIT|</hit>
+							<magic_hit>|FOLLOWERTYPE.Psicrystal.0.WEAPON.%weap.MAGICHIT|</magic_hit>
+							<total_hit>|FOLLOWERTYPE.Psicrystal.0.WEAPON.%weap.TOTALHIT|</total_hit>
+						</to_hit>
+						<feat>|FOLLOWERTYPE.Psicrystal.0.WEAPON.%weap.FEAT|</feat>
+						<hand>|FOLLOWERTYPE.Psicrystal.0.WEAPON.%weap.HAND|</hand>
+						<num_attacks>|FOLLOWERTYPE.Psicrystal.0.WEAPON.%weap.NUMATTACKS|</num_attacks>
+						<reach>|FOLLOWERTYPE.Psicrystal.0.WEAPON.%weap.REACH|</reach>
+						<reachunit>|FOLLOWERTYPE.Psicrystal.0.WEAPON.%weap.REACHUNIT|</reachunit>
+						<size>|FOLLOWERTYPE.Psicrystal.0.WEAPON.%weap.SIZE|</size>
+						<special_properties>|FOLLOWERTYPE.Psicrystal.0.WEAPON.%weap.SPROP|</special_properties>
+						<template>|FOLLOWERTYPE.Psicrystal.0.WEAPON.%weap.TEMPLATE|</template>
+						<type>|FOLLOWERTYPE.Psicrystal.0.WEAPON.%weap.TYPE|</type>
+						<weight>|FOLLOWERTYPE.Psicrystal.0.WEAPON.%weap.WT|</weight>
+						<sequence>|%weap|</sequence>
+					</common>
+					<simple>
+						<to_hit>|FOLLOWERTYPE.Psicrystal.0.WEAPON.%weap.TOTALHIT|</to_hit>
+						<damage>|FOLLOWERTYPE.Psicrystal.0.WEAPON.%weap.DAMAGE|</damage>
+						<range>|FOLLOWERTYPE.Psicrystal.0.WEAPON.%weap.RANGE|</range>
+					</simple>
+				</attack>
+|ENDFOR|
+			</attacks>
+		</psicrystal>
+|%|
 |%FOLLOWERTYPE.SPECIAL MOUNT|
 |FOR,%companion,0,COUNT[FOLLOWERTYPE.SPECIAL MOUNT]-1,1,0|
 		<mount>
@@ -3102,7 +3156,7 @@ Immune
 			<ac>|FOLLOWERTYPE.SPECIAL MOUNT.0.BONUS.COMBAT.AC.TOTAL|</ac>
 			<fortitude>|FOLLOWERTYPE.SPECIAL MOUNT.0.CHECK.FORTITUDE.TOTAL|</fortitude>
 			<reflex>|FOLLOWERTYPE.SPECIAL MOUNT.0.CHECK.REFLEX.TOTAL|</reflex>
-			<willpower>|FOLLOWERTYPE.SPECIAL MOUNT.0.CHECK.2.TOTAL|</willpower>
+			<will>|FOLLOWERTYPE.SPECIAL MOUNT.0.CHECK.WILL.TOTAL|</will>
 			<initiative_mod>|FOLLOWERTYPE.SPECIAL MOUNT.0.INITIATIVEMOD|</initiative_mod>
 			<special_properties>|FOLLOWERTYPE.SPECIAL MOUNT.0.SPECIALLIST|</special_properties>
 |ENDFOR|
@@ -3156,11 +3210,11 @@ Immune
 			<ac>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.BONUS.COMBAT.AC.TOTAL|</ac>
 			<fortitude>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.CHECK.FORTITUDE.TOTAL|</fortitude>
 			<reflex>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.CHECK.REFLEX.TOTAL|</reflex>
-			<willpower>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.CHECK.2.TOTAL|</willpower>
+			<will>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.CHECK.WILL.TOTAL|</will>
 			<initiative_mod>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.INITIATIVEMOD|</initiative_mod>
 			<special_properties>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.SPECIALLIST|</special_properties>
-			<trick>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick|</trick>
-|FOR,%trick,0,COUNT[FOLLOWERTYPE.FOLLOWER.%companion.ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick]-1,1,0|
+|FOR,%companion,0,COUNT[FOLLOWERTYPE.ANIMAL COMPANION.%companion.ABILITYALL.Special Ability.VISIBLE.TYPE=AnimalTrick]-1,1,0|
+			<trick>|FOLLOWERTYPE.ANIMAL COMPANION.ABILITYALL.Special Ability.VISIBLE.%trick.TYPE=AnimalTrick|</trick>
 |ENDFOR|
 |ENDFOR|
 			<attacks>
@@ -3213,7 +3267,7 @@ Immune
 			<ac>|FOLLOWERTYPE.FOLLOWER.%companion.BONUS.COMBAT.AC.TOTAL|</ac>
 			<fortitude>|FOLLOWERTYPE.FOLLOWER.%companion.CHECK.FORTITUDE.TOTAL|</fortitude>
 			<reflex>|FOLLOWERTYPE.FOLLOWER.%companion.CHECK.REFLEX.TOTAL|</reflex>
-			<willpower>|FOLLOWERTYPE.FOLLOWER.%companion.CHECK.2.TOTAL|</willpower>
+			<will>|FOLLOWERTYPE.FOLLOWER.%companion.CHECK.WILL.TOTAL|</will>
 			<initiative_mod>|FOLLOWERTYPE.FOLLOWER.%companion.INITIATIVEMOD|</initiative_mod>
 			<special_properties>|FOLLOWERTYPE.FOLLOWER.%companion.SPECIALLIST|</special_properties>
 			<attacks>

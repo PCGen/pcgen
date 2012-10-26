@@ -924,7 +924,7 @@ WeapPos = 1;
 // Set up the table of information about the checks
 CheckArr[FORTindex] = new Check("Fortitude", "Constitution", |CHECK.FORTITUDE.TOTAL|, |CHECK.FORTITUDE.BASE|,2,|CHECK.FORTITUDE.MAGIC|,|CHECK.FORTITUDE.EPIC|,|CHECK.FORTITUDE.MISC.NOMAGIC.NOSTAT|);
 CheckArr[REFindex] = new Check("Reflex", "Dexterity", |CHECK.REFLEX.TOTAL|, |CHECK.REFLEX.BASE|,1,|CHECK.REFLEX.MAGIC|,|CHECK.REFLEX.EPIC|,|CHECK.REFLEX.MISC.NOMAGIC.NOSTAT|);
-CheckArr[WILLindex] = new Check("Willpower", "Wisdom", |CHECK.2.TOTAL|, |CHECK.2.BASE|,4,|CHECK.2.MAGIC|,|CHECK.2.EPIC|,|CHECK.2.MISC.NOMAGIC.NOSTAT|);
+CheckArr[WILLindex] = new Check("Will", "Wisdom", |CHECK.WILL.TOTAL|, |CHECK.WILL.BASE|,4,|CHECK.WILL.MAGIC|,|CHECK.WILL.EPIC|,|CHECK.WILL.MISC.NOMAGIC.NOSTAT|);
 // Set up the attack information table
 ATKArr[0] = new ATK("Melee","|ATTACK.MELEE.TOTAL|","|ATTACK.MELEE|",STRindex,|ATTACK.MELEE.SIZE|,|ATTACK.MELEE.EPIC|,|ATTACK.MELEE.MISC|);
 ATKArr[1] = new ATK("Ranged","|ATTACK.RANGED.TOTAL|","|ATTACK.RANGED|",DEXindex,|ATTACK.RANGED.SIZE|,|ATTACK.RANGED.EPIC|,|ATTACK.RANGED.MISC|);
@@ -6327,7 +6327,7 @@ function RemoveStat (attribute) {
 					<td width="8%" class="c8swB">REF:</td>
 					<td width="8%" class="c8wB">|FOLLOWERTYPE.FAMILIAR.0.CHECK.REFLEX.TOTAL|</td>
 					<td width="8%" class="c8swB">WILL:</td>
-					<td width="8%" class="c8wB">|FOLLOWERTYPE.FAMILIAR.0.CHECK.2.TOTAL|</td>
+					<td width="8%" class="c8wB">|FOLLOWERTYPE.FAMILIAR.0.CHECK.WILL.TOTAL|</td>
 					<td width="8%" class="c8swB">HP:</td>
 					<td width="8%" class="c8wB">|FOLLOWERTYPE.FAMILIAR.0.HP|</td>
 					<td width="8%" class="c8swB">AC:</td>
@@ -6376,7 +6376,7 @@ function RemoveStat (attribute) {
 					<td width="8%" class="c8swB">REF:</td>
 					<td width="8%" class="c8wB">|FOLLOWERTYPE.SPECIAL MOUNT.0.CHECK.REFLEX.TOTAL|</td>
 					<td width="8%" class="c8swB">WILL:</td>
-					<td width="8%" class="c8wB">|FOLLOWERTYPE.SPECIAL MOUNT.0.CHECK.2.TOTAL|</td>
+					<td width="8%" class="c8wB">|FOLLOWERTYPE.SPECIAL MOUNT.0.CHECK.WILL.TOTAL|</td>
 					<td width="8%" class="c8swB">HP:</td>
 					<td width="8%" class="c8wB">|FOLLOWERTYPE.SPECIAL MOUNT.0.HP|</td>
 					<td width="8%" class="c8swB">AC:</td>
@@ -6424,7 +6424,7 @@ function RemoveStat (attribute) {
 					<td width="8%" class="c8swB">REF:</td>
 					<td width="8%" class="c8wB">|FOLLOWERTYPE.MOUNT.0.CHECK.REFLEX.TOTAL|</td>
 					<td width="8%" class="c8swB">WILL:</td>
-					<td width="8%" class="c8wB">|FOLLOWERTYPE.MOUNT.0.CHECK.2.TOTAL|</td>
+					<td width="8%" class="c8wB">|FOLLOWERTYPE.MOUNT.0.CHECK.WILL.TOTAL|</td>
 					<td width="8%" class="c8swB">HP:</td>
 					<td width="8%" class="c8wB">|FOLLOWERTYPE.MOUNT.0.HP|</td>
 					<td width="8%" class="c8swB">AC:</td>
@@ -6473,7 +6473,7 @@ function RemoveStat (attribute) {
 					<td width="8%" class="c8swB">REF:</td>
 					<td width="8%" class="c8wB">|FOLLOWERTYPE.ANIMAL COMPANION.%anm.CHECK.REFLEX.TOTAL|</td>
 					<td width="8%" class="c8swB">WILL:</td>
-					<td width="8%" class="c8wB">|FOLLOWERTYPE.ANIMAL COMPANION.%anm.CHECK.2.TOTAL|</td>
+					<td width="8%" class="c8wB">|FOLLOWERTYPE.ANIMAL COMPANION.%anm.CHECK.WILL.TOTAL|</td>
 					<td width="8%" class="c8swB">HP:</td>
 					<td width="8%" class="c8wB">|FOLLOWERTYPE.ANIMAL COMPANION.%anm.HP|</td>
 					<td width="8%" class="c8swB">AC:</td>

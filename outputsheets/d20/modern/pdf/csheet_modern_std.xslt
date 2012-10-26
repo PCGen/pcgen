@@ -3287,7 +3287,7 @@
 					<fo:table-cell xsl:use-attribute-sets="companions.title" text-align="end"><fo:block  font-size="8pt">REF:</fo:block></fo:table-cell>
 					<fo:table-cell xsl:use-attribute-sets="companions"><fo:block font-size="8pt"><xsl:value-of select="reflex"/></fo:block></fo:table-cell>
 					<fo:table-cell xsl:use-attribute-sets="companions.title" text-align="end"><fo:block  font-size="8pt">WILL:</fo:block></fo:table-cell>
-					<fo:table-cell xsl:use-attribute-sets="companions"><fo:block font-size="8pt"><xsl:value-of select="willpower"/></fo:block></fo:table-cell>
+					<fo:table-cell xsl:use-attribute-sets="companions"><fo:block font-size="8pt"><xsl:value-of select="will"/></fo:block></fo:table-cell>
 				</fo:table-row>
 				<xsl:for-each select="attacks/attack">
 					<xsl:if test="string-length(common/name/long) &gt; 0">

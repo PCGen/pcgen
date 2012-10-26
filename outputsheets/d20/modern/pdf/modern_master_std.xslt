@@ -4327,7 +4327,7 @@
 							<xsl:with-param name="attribute" select="'companions'"/>
 						</xsl:call-template>
 						<fo:block font-size="8pt">
-							<xsl:value-of select="willpower"/>
+							<xsl:value-of select="will"/>
 						</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
