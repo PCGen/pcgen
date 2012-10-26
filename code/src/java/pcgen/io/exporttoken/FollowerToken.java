@@ -128,7 +128,8 @@ public class FollowerToken extends Token
 
 		for (PlayerCharacter eachPC : Globals.getPCList())
 		{
-			if (follower.getFileName().equals(eachPC.getFileName()))
+			if (follower.getFileName().equals(eachPC.getFileName())
+				&& follower.getName().equals(eachPC.getName()))
 			{
 				PlayerCharacter newPC = eachPC;
 				eh.replaceToken(token, bw, newPC);
