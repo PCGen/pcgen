@@ -135,10 +135,11 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 		 * CDOMChoiceManager not remove items when selected, which is consistent
 		 * with the (buggy?) old Choose system
 		 */
-		// if (!dupsAllowed)
-		// {
+		if (!dupsAllowed)
+		{
 		// availableList.removeAll(reservedList);
-		//		}
+			availableList.removeAll(selectedList);
+		}
 
 		Globals.sortChooserLists(availableList, selectedList);
 //		chooser.setAvailableList(availableList);
