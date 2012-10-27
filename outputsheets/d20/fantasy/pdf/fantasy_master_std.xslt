@@ -5428,8 +5428,9 @@
 			<xsl:with-param name="followerType" select="'Familiar'"/>
 		</xsl:call-template>
 		<!-- END Familiar Table -->
+	</xsl:template>
 	<xsl:template match="psicrystal">
-		<!-- BEGIN Familiar Table -->
+		<!-- BEGIN Psicrystal Table -->
 		<xsl:call-template name="show_companion">
 			<xsl:with-param name="followerType" select="'Psicrystal'"/>
 		</xsl:call-template>
@@ -5491,7 +5492,7 @@
 			<fo:table-column column-width="14mm"/>
 			<fo:table-column column-width="13mm"/>
 			<fo:table-column column-width="14mm"/>
-			<fo:table-body keep-together="column">
+			<fo:table-body keep-together="always">
 				<fo:table-row>
 					<fo:table-cell number-columns-spanned="6">
 						<xsl:call-template name="attrib">
