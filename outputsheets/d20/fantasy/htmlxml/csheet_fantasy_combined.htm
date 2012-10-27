@@ -1125,7 +1125,7 @@ function RagePrint()
      var conMod = |VAR.RageConBonus|;
      var willMod = |VAR.RageMorale|;
 	tempHTML = '<br /><table width="100%" cellspacing="0" cellpadding="2"><tr><td class="c9wB" colspan="2">BARBARIAN RAGE<\/td><\/tr>';
-	tempHTML = tempHTML+'<tr><td colspan="2" class="l9s">The Barbarian temporarily gains '+modPlusMinus(strMod)+' to Strength, '+modPlusMinus(conMod)+' to Constitution, and a '+modPlusMinus(willMod)+' morale bonus on Will saves, but suffers a -2 penalty to AC.  ';
+	tempHTML = tempHTML+'<tr><td colspan="2" class="l9s">|ABILITYALL.Special Ability.0.TYPE=RageDescription.ASPECT.RageDescription|';
 	// Do it this way since we want to show the same length regardless of current rage state
 	tempHTML = tempHTML+'A fit of rage lasts for ';
 	if ( RageStatus == "Raging" )
