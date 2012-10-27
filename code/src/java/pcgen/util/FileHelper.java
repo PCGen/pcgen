@@ -86,6 +86,13 @@ public class FileHelper
 
 			if (relativePath.indexOf(testPath) == 0)
 			{
+				if (testPath.length() >= relativePath.length())
+				{
+					Logging.log(Logging.WARNING, "Unable to get path for "
+						+ relative + " relative to " + base
+						+ ". Using absolute path.");
+					return relative.getAbsolutePath();
+				}
 				String pieceToKeep =
 						relativePath.substring(testPath.length() + 1,
 							relativePath.length());
