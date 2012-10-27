@@ -332,6 +332,8 @@
 	<!-- P -->
 	<bean id="prerequisiteFacet" class="pcgen.cdom.facet.PrerequisiteFacet"/>
 	<bean id="prohibitedSchoolFacet" class="pcgen.cdom.facet.ProhibitedSchoolFacet"/>
+	<bean id="portraitThumbnailRectFacet" class="pcgen.cdom.facet.PortraitThumbnailRectFacet"/>
+	
 	<!-- Q -->
 	<bean id="qualifyFacet" class="pcgen.cdom.facet.QualifyFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
