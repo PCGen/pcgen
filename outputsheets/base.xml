@@ -3037,58 +3037,57 @@ Immune
 |%FOLLOWERTYPE.FAMILIAR|
 |FOR,%companion,0,COUNT[FOLLOWERTYPE.FAMILIAR]-1,1,0|
 		<familiar>
-			<!-- Note that only one familiar is allowed, so no support for multiple familiars 
-			New: 4/8/2010 - Added Support for multiple Familiars-->
-			<name>|FOLLOWERTYPE.FAMILIAR.0.NAME|</name>
-			<race>|FOLLOWERTYPE.FAMILIAR.0.RACE|</race>
-			<hp>|FOLLOWERTYPE.FAMILIAR.0.HP|</hp>
-			<ac>|FOLLOWERTYPE.FAMILIAR.0.BONUS.COMBAT.AC.TOTAL|</ac>
-			<fortitude>|FOLLOWERTYPE.FAMILIAR.0.CHECK.FORTITUDE.TOTAL|</fortitude>
-			<reflex>|FOLLOWERTYPE.FAMILIAR.0.CHECK.REFLEX.TOTAL|</reflex>
-			<will>|FOLLOWERTYPE.FAMILIAR.0.CHECK.WILL.TOTAL|</will>
-			<initiative_mod>|FOLLOWERTYPE.FAMILIAR.0.INITIATIVEMOD|</initiative_mod>
-			<special_properties>|FOLLOWERTYPE.FAMILIAR.0.SPECIALLIST|</special_properties>
-|ENDFOR|
+			<name>|FOLLOWERTYPE.FAMILIAR.%companion.NAME|</name>
+			<race>|FOLLOWERTYPE.FAMILIAR.%companion.RACE|</race>
+			<hp>|FOLLOWERTYPE.FAMILIAR.%companion.HP|</hp>
+			<ac>|FOLLOWERTYPE.FAMILIAR.%companion.BONUS.COMBAT.AC.TOTAL|</ac>
+			<fortitude>|FOLLOWERTYPE.FAMILIAR.%companion.CHECK.FORTITUDE.TOTAL|</fortitude>
+			<reflex>|FOLLOWERTYPE.FAMILIAR.%companion.CHECK.REFLEX.TOTAL|</reflex>
+			<will>|FOLLOWERTYPE.FAMILIAR.%companion.CHECK.WILL.TOTAL|</will>
+			<initiative_mod>|FOLLOWERTYPE.FAMILIAR.%companion.INITIATIVEMOD|</initiative_mod>
+			<special_properties>|FOLLOWERTYPE.FAMILIAR.%companion.SPECIALLIST|</special_properties>
 
 			<attacks>
-|FOR,%weap,0,COUNT[FOLLOWERTYPE.FAMILIAR.0.EQTYPE.WEAPON]-1,1,0|
+|FOR,%weap,0,COUNT[FOLLOWERTYPE.FAMILIAR.%companion.EQTYPE.WEAPON]-1,1,0|
 				<attack>
 					<common>
 						<name>
-							<short>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.NAME|</short>
-							<long>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.LONGNAME|</long>
+							<short>|FOLLOWERTYPE.FAMILIAR.%companion.WEAPON.%weap.NAME|</short>
+							<long>|FOLLOWERTYPE.FAMILIAR.%companion.WEAPON.%weap.LONGNAME|</long>
 						</name>
-						<category>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.CATEGORY|</category>
+						<category>|FOLLOWERTYPE.FAMILIAR.%companion.WEAPON.%weap.CATEGORY|</category>
 						<critical>
-							<range>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.CRIT|</range>
-							<multiplier>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.MULT|</multiplier>
+							<range>|FOLLOWERTYPE.FAMILIAR.%companion.WEAPON.%weap.CRIT|</range>
+							<multiplier>|FOLLOWERTYPE.FAMILIAR.%companion.WEAPON.%weap.MULT|</multiplier>
 						</critical>
 						<to_hit>
-							<hit>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.HIT|</hit>
-							<magic_hit>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.MAGICHIT|</magic_hit>
-							<total_hit>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.TOTALHIT|</total_hit>
+							<hit>|FOLLOWERTYPE.FAMILIAR.%companion.WEAPON.%weap.HIT|</hit>
+							<magic_hit>|FOLLOWERTYPE.FAMILIAR.%companion.WEAPON.%weap.MAGICHIT|</magic_hit>
+							<total_hit>|FOLLOWERTYPE.FAMILIAR.%companion.WEAPON.%weap.TOTALHIT|</total_hit>
 						</to_hit>
-						<feat>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.FEAT|</feat>
-						<hand>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.HAND|</hand>
-						<num_attacks>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.NUMATTACKS|</num_attacks>
-						<reach>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.REACH|</reach>
-						<reachunit>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.REACHUNIT|</reachunit>
-						<size>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.SIZE|</size>
-						<special_properties>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.SPROP|</special_properties>
-						<template>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.TEMPLATE|</template>
-						<type>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.TYPE|</type>
-						<weight>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.WT|</weight>
+						<feat>|FOLLOWERTYPE.FAMILIAR.%companion.WEAPON.%weap.FEAT|</feat>
+						<hand>|FOLLOWERTYPE.FAMILIAR.%companion.WEAPON.%weap.HAND|</hand>
+						<num_attacks>|FOLLOWERTYPE.FAMILIAR.%companion.WEAPON.%weap.NUMATTACKS|</num_attacks>
+						<reach>|FOLLOWERTYPE.FAMILIAR.%companion.WEAPON.%weap.REACH|</reach>
+						<reachunit>|FOLLOWERTYPE.FAMILIAR.%companion.WEAPON.%weap.REACHUNIT|</reachunit>
+						<size>|FOLLOWERTYPE.FAMILIAR.%companion.WEAPON.%weap.SIZE|</size>
+						<special_properties>|FOLLOWERTYPE.FAMILIAR.%companion.WEAPON.%weap.SPROP|</special_properties>
+						<template>|FOLLOWERTYPE.FAMILIAR.%companion.WEAPON.%weap.TEMPLATE|</template>
+						<type>|FOLLOWERTYPE.FAMILIAR.%companion.WEAPON.%weap.TYPE|</type>
+						<weight>|FOLLOWERTYPE.FAMILIAR.%companion.WEAPON.%weap.WT|</weight>
 						<sequence>|%weap|</sequence>
 					</common>
 					<simple>
-						<to_hit>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.TOTALHIT|</to_hit>
-						<damage>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.DAMAGE|</damage>
-						<range>|FOLLOWERTYPE.FAMILIAR.0.WEAPON.%weap.RANGE|</range>
+						<to_hit>|FOLLOWERTYPE.FAMILIAR.%companion.WEAPON.%weap.TOTALHIT|</to_hit>
+						<damage>|FOLLOWERTYPE.FAMILIAR.%companion.WEAPON.%weap.DAMAGE|</damage>
+						<range>|FOLLOWERTYPE.FAMILIAR.%companion.WEAPON.%weap.RANGE|</range>
 					</simple>
 				</attack>
 |ENDFOR|
 			</attacks>
 		</familiar>
+|ENDFOR|
+		
 |%|
 |%FOLLOWERTYPE.Psicrystal|
 |FOR,%companion,0,COUNT[FOLLOWERTYPE.Psicrystal]-1,1,0|
@@ -3217,8 +3216,8 @@ Immune
 			<trick>|FOLLOWERTYPE.ANIMAL COMPANION.ABILITYALL.Special Ability.VISIBLE.%trick.TYPE=AnimalTrick|</trick>
 |ENDFOR|
 |ENDFOR|
-			<attacks>
-|FOR,%weap,0,COUNT[FOLLOWERTYPE.ANIMAL COMPANION.%companion.EQTYPE.WEAPON]-1,1,0|
+			<attacks>|COUNT[FOLLOWERTYPE.ANIMAL COMPANION.0.EQTYPE.WEAPON]|
+|FOR,%weap,0,FOLLOWERTYPE.ANIMAL COMPANION.0.COUNT[EQTYPE.WEAPON]-1,1,0|
 				<attack>
 					<common>
 						<name>
