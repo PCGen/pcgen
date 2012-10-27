@@ -3045,7 +3045,7 @@ Immune
 			<reflex>|FOLLOWERTYPE.FAMILIAR.%companion.CHECK.REFLEX.TOTAL|</reflex>
 			<will>|FOLLOWERTYPE.FAMILIAR.%companion.CHECK.WILL.TOTAL|</will>
 			<initiative_mod>|FOLLOWERTYPE.FAMILIAR.%companion.INITIATIVEMOD|</initiative_mod>
-			<special_properties>|FOLLOWERTYPE.FAMILIAR.%companion.SPECIALLIST|</special_properties>
+			<special_properties>|FOLLOWERTYPE.FAMILIAR.%companion.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialAttack||FOLLOWERTYPE.FAMILIAR.%companion.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialQuality|</special_properties>
 
 			<attacks>
 |FOR,%weap,0,COUNT[FOLLOWERTYPE.FAMILIAR.%companion.EQTYPE.WEAPON]-1,1,0|
@@ -3100,7 +3100,7 @@ Immune
 			<reflex>|FOLLOWERTYPE.Psicrystal.%companion.CHECK.REFLEX.TOTAL|</reflex>
 			<will>|FOLLOWERTYPE.Psicrystal.%companion.CHECK.WILL.TOTAL|</will>
 			<initiative_mod>|FOLLOWERTYPE.Psicrystal.%companion.INITIATIVEMOD|</initiative_mod>
-			<special_properties>|FOLLOWERTYPE.Psicrystal.%companion.SPECIALLIST|</special_properties>
+			<special_properties>|FOLLOWERTYPE.Psicrystal.%companion.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialAttack||FOLLOWERTYPE.Psicrystal.%companion.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialQuality|</special_properties>
 
 			<attacks>
 |FOR,%weap,0,COUNT[FOLLOWERTYPE.Psicrystal.%companion.EQTYPE.WEAPON]-1,1,0|
@@ -3159,7 +3159,7 @@ Immune
 			<reflex>|FOLLOWERTYPE.SPECIAL MOUNT.%companion.CHECK.REFLEX.TOTAL|</reflex>
 			<will>|FOLLOWERTYPE.SPECIAL MOUNT.%companion.CHECK.WILL.TOTAL|</will>
 			<initiative_mod>|FOLLOWERTYPE.SPECIAL MOUNT.%companion.INITIATIVEMOD|</initiative_mod>
-			<special_properties>|FOLLOWERTYPE.SPECIAL MOUNT.%companion.SPECIALLIST|</special_properties>
+			<special_properties>|FOLLOWERTYPE.SPECIAL MOUNT.%companion.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialAttack||FOLLOWERTYPE.SPECIAL MOUNT.%companion.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialQuality|</special_properties>
 
 			<attacks>
 			
@@ -3214,7 +3214,7 @@ Immune
 			<reflex>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.CHECK.REFLEX.TOTAL|</reflex>
 			<will>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.CHECK.WILL.TOTAL|</will>
 			<initiative_mod>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.INITIATIVEMOD|</initiative_mod>
-			<special_properties>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.SPECIALLIST|</special_properties>
+			<special_properties>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialAttack||FOLLOWERTYPE.ANIMAL COMPANION.%companion.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialQuality|</special_properties>
 			<trick>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.ABILITYLIST.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick|</trick>
 			<attacks>
 |FOR,%weap,0,COUNT[FOLLOWERTYPE.ANIMAL COMPANION.%companion.EQTYPE.WEAPON]-1,1,0|
@@ -3268,7 +3268,7 @@ Immune
 			<reflex>|FOLLOWERTYPE.FOLLOWER.%companion.CHECK.REFLEX.TOTAL|</reflex>
 			<will>|FOLLOWERTYPE.FOLLOWER.%companion.CHECK.WILL.TOTAL|</will>
 			<initiative_mod>|FOLLOWERTYPE.FOLLOWER.%companion.INITIATIVEMOD|</initiative_mod>
-			<special_properties>|FOLLOWERTYPE.FOLLOWER.%companion.SPECIALLIST|</special_properties>
+			<special_properties>|FOLLOWERTYPE.FOLLOWER.%companion.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialAttack||FOLLOWERTYPE.FOLLOWER.%companion.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialQuality|</special_properties>
 			<attacks>
 |FOR,%weap,0,COUNT[FOLLOWERTYPE.FOLLOWER.%companion.EQTYPE.WEAPON]-1,1,0|
 				<attack>
