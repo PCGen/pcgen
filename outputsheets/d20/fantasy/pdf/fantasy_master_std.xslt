@@ -5416,6 +5416,7 @@
 	<xsl:template match="companions">
 		<!-- BEGIN Companions Table -->
 		<xsl:apply-templates select="familiar"/>
+		<xsl:apply-templates select="psicrystal"/>
 		<xsl:apply-templates select="mount"/>
 		<xsl:apply-templates select="companion"/>
 		<xsl:call-template name="followers.list"/>
@@ -5425,6 +5426,12 @@
 		<!-- BEGIN Familiar Table -->
 		<xsl:call-template name="show_companion">
 			<xsl:with-param name="followerType" select="'Familiar'"/>
+		</xsl:call-template>
+		<!-- END Familiar Table -->
+	<xsl:template match="psicrystal">
+		<!-- BEGIN Familiar Table -->
+		<xsl:call-template name="show_companion">
+			<xsl:with-param name="followerType" select="'Psicrystal'"/>
 		</xsl:call-template>
 		<!-- END Familiar Table -->
 	</xsl:template>
@@ -5475,7 +5482,7 @@
 	</xsl:template>
 	<xsl:template name="show_companion">
 		<xsl:param name="followerType" select="Follower"/>
-		<fo:table table-layout="fixed" space-before.optimum="2mm">
+		<fo:table table-layout="fixed" space-before.optimum="2mm" keep-together="always">
 				<fo:table-column>
 					<xsl:attribute name="column-width"><xsl:value-of select="0.5 * ($pagePrintableWidth - 2) - 69" />mm</xsl:attribute>
 				</fo:table-column>
@@ -5484,7 +5491,7 @@
 			<fo:table-column column-width="14mm"/>
 			<fo:table-column column-width="13mm"/>
 			<fo:table-column column-width="14mm"/>
-			<fo:table-body>
+			<fo:table-body keep-together="column">
 				<fo:table-row>
 					<fo:table-cell number-columns-spanned="6">
 						<xsl:call-template name="attrib">
@@ -5659,7 +5666,7 @@
 						</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
-			<!-->	<xsl:if test="count(companion/trick) &gt; 0">	-->
+				<xsl:if test="count(trick) &gt; 0">
 					<fo:table-row keep-with-next.within-column="always">
 						<fo:table-cell text-align="end">
 							<xsl:call-template name="attrib">
@@ -5676,7 +5683,7 @@
 							</fo:block>
 						</fo:table-cell>
 					</fo:table-row>
-		<!-->		</xsl:if> -->
+				</xsl:if>
 			</fo:table-body>
 		</fo:table>
 	</xsl:template>

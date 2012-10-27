@@ -3215,7 +3215,7 @@ Immune
 			<will>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.CHECK.WILL.TOTAL|</will>
 			<initiative_mod>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.INITIATIVEMOD|</initiative_mod>
 			<special_properties>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialAttack||FOLLOWERTYPE.ANIMAL COMPANION.%companion.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialQuality|</special_properties>
-			<trick>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.ABILITYLIST.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick|</trick>
+			<trick>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=AnimalTrick|</trick>
 			<attacks>
 |FOR,%weap,0,COUNT[FOLLOWERTYPE.ANIMAL COMPANION.%companion.EQTYPE.WEAPON]-1,1,0|
 				<attack>
