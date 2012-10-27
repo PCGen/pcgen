@@ -5667,7 +5667,7 @@
 						</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
-				<xsl:if test="count(trick) &gt; 0">
+				<xsl:if test="string-length(trick) &gt; 0">
 					<fo:table-row keep-with-next.within-column="always">
 						<fo:table-cell text-align="left">
 							<xsl:call-template name="attrib">
