@@ -5394,7 +5394,7 @@
 			<fo:table-column column-width="13mm"/>
 			<fo:table-column column-width="14mm"/>
 			<fo:table-body keep-together="always">
-				<fo:table-row>
+				<fo:table-row keep-with-next.within-column="always">
 					<fo:table-cell number-columns-spanned="6">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'companions.title'"/>
@@ -5553,7 +5553,7 @@
 					</xsl:if>
 				</xsl:for-each>
 				<fo:table-row keep-with-next.within-column="always">
-					<fo:table-cell text-align="end">
+					<fo:table-cell text-align="left">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'companions.title'"/>
 						</xsl:call-template>
@@ -5563,18 +5563,18 @@
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'companions'"/>
 						</xsl:call-template>
-						<fo:block font-size="7pt">
+						<fo:block font-size="7pt" text-align="left">
 							<xsl:value-of select="special_properties"/>
 						</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
 				<xsl:if test="count(trick) &gt; 0">
 					<fo:table-row keep-with-next.within-column="always">
-						<fo:table-cell text-align="end">
+						<fo:table-cell text-align="left">
 							<xsl:call-template name="attrib">
 								<xsl:with-param name="attribute" select="'companions.title'"/>
 							</xsl:call-template>
-							<fo:block font-size="8pt">Tricks:</fo:block>
+							<fo:block font-size="8pt" text-align="left">Tricks:</fo:block>
 						</fo:table-cell>
 						<fo:table-cell number-columns-spanned="5">
 							<xsl:call-template name="attrib">
