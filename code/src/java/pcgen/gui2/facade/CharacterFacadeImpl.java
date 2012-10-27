@@ -296,6 +296,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		characterAbilities.closeCharacter();
 		charLevelsFacade.closeCharacter();
 		GMBus.send(new PCClosedMessage(null, theCharacter));
+		Globals.getPCList().remove(theCharacter);
 	}
 	
 	/**

@@ -74,7 +74,8 @@ public class PCCountFollowerTypeTransitiveTermEvaluator
 
 				for ( PlayerCharacter pc : Globals.getPCList() )
 				{
-					if (follower.getFileName().equals(pc.getFileName()))
+					if (follower.getFileName().equals(pc.getFileName())
+							&& follower.getName().equals(pc.getName()))
 					{
 						return pc.getVariableValue(newCount, "");
 					}
