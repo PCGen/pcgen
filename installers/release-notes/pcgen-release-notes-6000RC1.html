@@ -17,6 +17,7 @@
 		<ul>
 			<li><a href="#WhatsNew">What's new for v6.00.0 RC1</a></li>
 			<li><a href="#Installation">Installation</a></li>
+			<li><a href="#NewUI">New User Interface</a></li>
 			<li><a href="#CustomDataSets">Custom Data Sets</a></li>
 			<li><a href="#WantToHelp">Want to Help?</a></li>
 			<li><a href="#links">Useful Links</a></li>
@@ -42,17 +43,20 @@ The highlights of the changes for PCGen 6.0 are listed below:
 <li>A redesigned interface intended to be friendlier and more informative</li>
 <li>Support for Java 7 and Open JDK</li>
 <li>Faster startup time</li>
+<li><a href="#NewUI">more...</a></li>
 </ul>
 <li>Improved performance</li>
 <li>Install to non admin location on Windows</li>
 <li>Full spell descriptions in RSRD and Pathfinder</li>
-<li></li>
+<li>Command line PDF generation</li>
 </ul>
 
  
 <b>LST Changes:</b>
 <ul>
-<li>Choice tags revamped and rigoroudsly parsed</li>
+<li>Choice tags revamped and rigorously parsed</li>
+<li>Choice tags now only provide a choice - a separate tag (e.g. BONUS)is used to apply the choice</li>
+<li>All shipped data run through LST converter to bring it up to 6.0 standards</li>
 </ul>
 
  
@@ -72,34 +76,34 @@ The highlights of the changes for PCGen 6.0 are listed below:
 <li>[Dreamscarred Press] Psionics Expanded - Unlimited Possibilities</li>
 <li>[Dreamscarred Press] Psionics Unleashed</li>
 <li>[Nitehawk Interactive Games] Creatures & Chaos: Adventurer's Handbook</li>
-<li>[Paizo] Advanced Player's Guide</li>
-<li>[Paizo] Carrion Crown Player's Guide</li>
 <li>[Paizo] Critical Fumble Deck</li>
 <li>[Paizo] Guide to Pathfinder Society Organised Play</li>
 <li>[Paizo] Legacy of Fire Player's Guide (Pathfinder conversion)</li>
-<li>[Paizo] PF Companion - Dwarves of Golarion</li>
 <li>[Paizo] Paizo Blog - Pirate Familiars</li>
+<li>[Paizo] Pathfinder Adventure Path: Carrion Crown Player's Guide</li>
 <li>[Paizo] Pathfinder Adventure Path: Council of Thieves Player's Guide</li>
+<li>[Paizo] Pathfinder Adventure Path: Jade Regents' Players Guide</li>
 <li>[Paizo] Pathfinder Adventure Path: Kingmaker Player's Guide</li>
 <li>[Paizo] Pathfinder Adventure Path: Serpent's Skull Player's Guide</li>
-<li>[Paizo] Pathfinder Bestiary 2</li>
 <li>[Paizo] Pathfinder Chronices: Princes of Darkness, Book of the Damned, Vol. I</li>
 <li>[Paizo] Pathfinder Chronicles: Campaign Setting</li>
 <li>[Paizo] Pathfinder Chronicles: Dark Markets, A Guide to Katapesh</li>
 <li>[Paizo] Pathfinder Chronicles: Guide to the River Kingdoms</li>
 <li>[Paizo] Pathfinder Chronicles: Heart of the Jungle</li>
 <li>[Paizo] Pathfinder Companion: Cheliax, Empire of Devils</li>
+<li>[Paizo] Pathfinder Companion: Dwarves of Golarion</li>
+<li>[Paizo] Pathfinder Companion: Orcs of Golarion</li>
 <li>[Paizo] Pathfinder Companion: Qadira, Gateway to the East</li> 
 <li>[Paizo] Pathfinder Companion: Sargava, the Lost Colony</li>
-<li>[Paizo] Pathfinder Jade Regents' Players Guide</li>
 <li>[Paizo] Pathfinder Player Compendium: Inner Sea Primer</li>
 <li>[Paizo] Pathfinder Player Compendium: Pirates of the Inner Sea</li>
+<li>[Paizo] Pathfinder RPG: Advanced Player's Guide</li>
+<li>[Paizo] Pathfinder RPG: Bestiary 2</li>
 <li>[Paizo] Pathfinder RPG: Ultimate Combat</li>
 <li>[Paizo] Pathfinder RPG: Ultimate Magic</li>
 <li>[Paizo] Pathfinder conversion sets for Curse of the Crimson Throne</li>
 <li>[Paizo] Pathfinder conversion sets for Rise of the Runelords</li>
 <li>[Paizo] Pathfinder conversion sets for Second Darkness</li>
-<li>[Paizo] Player Companion: Orcs of Golarion</li>
 <li>[Rite] 101 1st level spells</li>
 <li>[Super Genius Games]Krazy Kragnar's Alchemical Surplus Shop</li>
 <li>[Unearthed Arcana] Paladin Variant Classes</li>
@@ -152,6 +156,30 @@ For full details of the new changes in 6.00, see the <a href="#ChangeLog60">Chan
 				the full package bundle in an easy to use installer for Mac (distributed as a disk image)</li>
 		</ul>
 		<p></p>
+
+		<h2><a name="NewUI">New User Interface</a></h2>
+
+		<p>A major feature of PCGen 6.0 is the new user interface. 
+		While the general layout of the program will still be familiar we've made lots of 
+		enhancements along the way such as 
+		<ul>
+		<li>More information on the summary page for a quick view of the character</li>
+		<li>Easier access to new character tasks such as choosing an ability score method</li>
+		<li>Active 'things to do' list - click on a task and you'll be taken to the screen and field.</li>
+		<li>Start your character with class first - alignment is back to an after thought</li>
+		<li>Toggle quick filtering buttons (e.g. Qualified) to quickly focus on relevant items</li>
+		<li>A location based equipping display supporting drag and drop.</li>
+		<li>Thumbnail selection from your character portrait.</li>
+		<li>A campaign history tracker</li>
+		<li>Improved command line use, including PDF generation.</li>
+		<li>Improved printing including an in-program print preview.</li>
+		<li>Easier exporting, including auto open your generated file.</li>
+		<li>An easier to use Temporary Bonuses system</li>
+		</ul>
+		
+		<p>The new user interface does not currently provide random NPC generation or LST editor functionality.
+		These are earmarked for implementation in the future though. 
+		</p>
 
 		<h2><a name="CustomDataSets">Custom Data Sets</a></h2>
 
@@ -514,6 +542,8 @@ For full details of the new changes in 6.00, see the <a href="#ChangeLog60">Chan
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-132'>CODE-132</a>] -         Languages &quot;SKILL&quot; Button assumes only 1 skill assigns lang
 </li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-211'>CODE-211</a>] -         &quot;No To All&quot; / &quot;Yes to All&quot; buttons for Yes/No dialogs
+</li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-431'>CODE-431</a>] -         Let users know where/how to resolve &quot;Things to be Done&quot; items
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-444'>CODE-444</a>] -         Flag DAMAGE:0d0 as a LST Error
@@ -523,6 +553,14 @@ For full details of the new changes in 6.00, see the <a href="#ChangeLog60">Chan
 <li>[<a href='http://jira.pcgen.org/browse/CODE-480'>CODE-480</a>] -         Retrospective skill point support
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-497'>CODE-497</a>] -         Add to ABILITYALL the selection of an ability by name
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-511'>CODE-511</a>] -         Implement New Known SpellsTab
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-512'>CODE-512</a>] -         Implement New Prepared SpellsTab
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-513'>CODE-513</a>] -         Implement New SpellbooksTab
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-515'>CODE-515</a>] -         Implement New Description Tab
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-517'>CODE-517</a>] -         Remove the Code that prevents removal of Skill ranks if another object is using it as a PREREQ
 </li>
@@ -544,6 +582,8 @@ For full details of the new changes in 6.00, see the <a href="#ChangeLog60">Chan
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-940'>CODE-940</a>] -         Enable auto resize when buying equipment
 </li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1042'>CODE-1042</a>] -         Equipping should default to basic Set if no other sets added
+</li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-1091'>CODE-1091</a>] -         Detect invalid XML characters in DESC
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-1094'>CODE-1094</a>] -         Create variable to read number of legs
@@ -554,7 +594,11 @@ For full details of the new changes in 6.00, see the <a href="#ChangeLog60">Chan
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-1112'>CODE-1112</a>] -         Command Line Interface RFE
 </li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1113'>CODE-1113</a>] -         Loading in new data should be done via the Load sources dialog
+</li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-1115'>CODE-1115</a>] -         Inventory display doesn&#39;t indicate weight limit for current category.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1128'>CODE-1128</a>] -         Double Click is not enabled for Spells and Abilites Add/Remove
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-1132'>CODE-1132</a>] -         Skills Tab - Auto select for remove ranks
 </li>
@@ -562,7 +606,25 @@ For full details of the new changes in 6.00, see the <a href="#ChangeLog60">Chan
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-1149'>CODE-1149</a>] -         Report file location for LST Error
 </li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1153'>CODE-1153</a>] -         Abiltiies Tab - Tabs should be added in order
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1154'>CODE-1154</a>] -         new UI Startup - Complete support for command line export
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1157'>CODE-1157</a>] -         Purchase Tab - Add Support for Customisation
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1164'>CODE-1164</a>] -         Summary Tab - Stat arrows should take effect immediately
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1166'>CODE-1166</a>] -         Summary Tab - Tidy up Ability Scores table
+</li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-1167'>CODE-1167</a>] -         Implement capability to add a bonus to the RANGEPENALTY game mode variable
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1171'>CODE-1171</a>] -         Set default look and feel of new UI to nimbus
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1176'>CODE-1176</a>] -         Description Tab - readd Purchase Portrait button
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1182'>CODE-1182</a>] -         Summary Tab - Add todos for abilities
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1184'>CODE-1184</a>] -         Summary Tab - Switch to field when todo clicked
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-1191'>CODE-1191</a>] -         Replace old user interface with new user interface
 </li>
