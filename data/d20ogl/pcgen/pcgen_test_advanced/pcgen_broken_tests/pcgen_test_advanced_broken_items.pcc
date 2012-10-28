@@ -3,7 +3,7 @@ CAMPAIGN:PCGen Advanced Testing Set - Outstanding Broken Items - Code & Data Tea
 RANK:1
 GAMEMODE:35e|MSRD|3e|Modern
 #COMMENT: Will need to break it out into each gamemode eventually
-
+STATUS:TESTONLY
 GENRE:Any
 BOOKTYPE:Supplement
 SETTING:Any

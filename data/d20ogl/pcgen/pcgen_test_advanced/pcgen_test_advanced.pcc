@@ -4,7 +4,7 @@ RANK:1
 GAMEMODE:35e
 #|MSRD|3e|Modern|Pathfinder
 #COMMENT: Will need to break it out into each gamemode eventually
-STATUS:BETA
+STATUS:TESTONLY
 GENRE:Any
 BOOKTYPE:Supplement
 SETTING:Any
