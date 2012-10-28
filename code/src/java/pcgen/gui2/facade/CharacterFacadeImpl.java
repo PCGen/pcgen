@@ -379,8 +379,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		skinColor = new DefaultReferenceFacade<String>(theCharacter.getDisplay().getSkinColor());
 		hairColor = new DefaultReferenceFacade<String>(theCharacter.getDisplay().getHairColor());
 		eyeColor = new DefaultReferenceFacade<String>(theCharacter.getDisplay().getEyeColor());
-		weightRef = new DefaultReferenceFacade<Integer>(theCharacter.getWeight());
-		heightRef = new DefaultReferenceFacade<Integer>(theCharacter.getHeight());
+		weightRef = new DefaultReferenceFacade<Integer>();
+		heightRef = new DefaultReferenceFacade<Integer>();
+		refreshHeightWeight();
 
 		purchasedEquip = new EquipmentListFacadeImpl(theCharacter.getEquipmentMasterList());
 		carriedWeightRef = new DefaultReferenceFacade<String>();
@@ -765,13 +766,20 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		xpTableName.setReference(theCharacter.getXPTableName());
 		hpRef.setReference(theCharacter.hitPoints());
 		age.setReference(theCharacter.getAge());
-		weightRef.setReference(theCharacter.getWeight());
-		heightRef.setReference(theCharacter.getHeight());
+		refreshHeightWeight();
 
 		updateLevelTodo();
 		buildAvailableDomainsList();
 		spellSupportFacade.refreshAvailableKnownSpells();
 		updateScorePurchasePool(false);
+	}
+
+	private void refreshHeightWeight()
+	{
+		weightRef.setReference(Globals.getGameModeUnitSet()
+			.convertWeightToUnitSet(theCharacter.getWeight()));
+		heightRef.setReference((int) Math.round(Globals.getGameModeUnitSet()
+			.convertHeightToUnitSet(theCharacter.getHeight())));
 	}
 
 	/* (non-Javadoc)
@@ -1941,8 +1949,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		refreshStatScores();
 		age.setReference(theCharacter.getAge());
 		updateAgeCategoryForAge();
-		weightRef.setReference(theCharacter.getWeight());
-		heightRef.setReference(theCharacter.getHeight());
+		refreshHeightWeight();
 		refreshClassLevelModel();
 		characterAbilities.rebuildAbilityLists();
 		currentXP.setReference(theCharacter.getXP());
