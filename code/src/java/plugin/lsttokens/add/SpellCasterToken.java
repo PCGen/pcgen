@@ -36,6 +36,7 @@ import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.choiceset.SpellCasterChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -280,6 +281,11 @@ public class SpellCasterToken extends AbstractToken implements
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
 			PCClass choice)
 	{
+		if (owner instanceof PCClassLevel)
+		{
+			// Bonuses for ADD:SPELLCASTER are restored on load for a PCClassLevel so no need to restore here.
+			return;
+		}
 		applyChoice(owner, choice, pc);
 	}
 
