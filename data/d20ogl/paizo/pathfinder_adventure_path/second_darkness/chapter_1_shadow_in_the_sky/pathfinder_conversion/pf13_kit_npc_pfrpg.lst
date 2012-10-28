@@ -73,7 +73,7 @@ FEAT:Combat Casting
 FEAT:Improved Initiative
 GEAR:Pouch (Belt)						LOCATION:Carried
 GEAR:Coin (Gold Piece)			QTY:33	LOCATION:Pouch (Belt)
-GEAR:Wand (Shocking Grasp)				LOCATION:Carried
+GEAR:Wand of Shocking Grasp				LOCATION:Carried
 GEAR:Scroll (Pyrotechnics)				LOCATION:Carried
 GEAR:Scroll (Shrink Item)				LOCATION:Carried
 GEAR:Bracers of Armor +1				LOCATION:Equipped
@@ -167,7 +167,7 @@ GEAR:Rapier						LOCATION:Primary Hand	EQMOD:PLUS1W
 GEAR:Key Stump					LOCATION:Secondary Hand
 GEAR:Pouch (Belt)					LOCATION:Carried
 GEAR:Coin (Gold Piece)		QTY:25	LOCATION:Pouch (Belt)
-GEAR:Potion (Barkskin +2)			LOCATION:Pouch (Belt)
+GEAR:Potion of Barkskin +2			LOCATION:Pouch (Belt)
 GEAR:Poison (Drow Poison)	QTY:3		LOCATION:Pouch (Belt)
 LANGBONUS:Varisian
 
@@ -260,7 +260,7 @@ GEAR:Studded Leather					LOCATION:Equipped		EQMOD:PLUS1A
 GEAR:Scimitar						LOCATION:Primary Hand	EQMOD:MWORKW
 GEAR:Crossbow (Light)					LOCATION:Carried
 GEAR:Bolt (Crossbow)			QTY:10	LOCATION:Carried
-GEAR:Potion (Bull's Strength)		QTY:2		LOCATION:Carried
+GEAR:Potion of Bull's Strength		QTY:2		LOCATION:Carried
 GEAR:Poison (Black adder venom)			LOCATION:Carried
 GEAR:Pouch (Belt)						LOCATION:Carried
 GEAR:Coin (Gold Piece)			QTY:25	LOCATION:Pouch (Belt)
@@ -309,7 +309,7 @@ SKILL:Perception	RANK:3
 FEAT:Dodge
 FEAT:Improved Initiative
 ABILITY:CATEGORY=Monk Bonus Feat|Combat Reflexes
-ABILITY:CATEGORY=Monk Bonus Feat|Stunning Fist
+#ABILITY:CATEGORY=Monk Bonus Feat|Stunning Fist
 GEAR:Amulet of Natural Armor +1	LOCATION:Equipped
 GEAR:Outfit (Monk's)			LOCATION:Equipped
 GEAR:Unarmed Strike			LOCATION:Equipped
@@ -366,7 +366,7 @@ GEAR:Dagger							LOCATION:Carried
 GEAR:Arrow					QTY:20	LOCATION:Carried
 GEAR:Arrow					QTY:8		LOCATION:Carried		EQMOD:ALCHM
 GEAR:Alchemist's Fire (Flask)		QTY:2		LOCATION:Carried
-GEAR:Potion (Cure Moderate Wounds)			LOCATION:Carried
+GEAR:Potion of Cure Moderate Wounds			LOCATION:Carried
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Ranger|Animal Messenger
 LANGBONUS:Orc
 
@@ -431,7 +431,7 @@ GEAR:Chain Shirt					LOCATION:Equipped		EQMOD:PLUS1A
 GEAR:Battleaxe					LOCATION:Primary Hand	EQMOD:MWORKW
 GEAR:Handaxe					LOCATION:Secondary Hand	EQMOD:MWORKW
 GEAR:Axe (Throwing)			QTY:3	LOCATION:Carried
-GEAR:Potion (Cure Light Wounds)		LOCATION:Carried
+GEAR:Potion of Cure Light Wounds		LOCATION:Carried
 LANGBONUS:Orc
 
 
@@ -447,7 +447,7 @@ ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Weapon Training I|Weapon Training (Crossbows)
+ABILITY:CATEGORY=Weapon Training I|Weapon Training 1 Crossbows
 SKILL:Craft (Alchemy)	RANK:5
 SKILL:Intimidate		RANK:5
 SKILL:Survival		RANK:4
@@ -456,14 +456,14 @@ FEAT:Diehard
 FEAT:Endurance
 FEAT:Great Fortitude
 ABILITY:CATEGORY=Fighter Bonus Feat|Dodge
-ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Hand Crossbow)
-ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Specialization (Hand Crossbow)
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Crossbow (Hand))
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Specialization (Crossbow (Hand))
 GEAR:Chainmail						LOCATION:Equipped		EQMOD:PLUS1A.MITHRAL_ARMR_MED
 GEAR:Buckler						LOCATION:Equipped
 GEAR:Sword (Short)					LOCATION:Primary Hand	EQMOD:MWORKW
 GEAR:Crossbow (Hand)					LOCATION:Secondary Hand	EQMOD:MWORKW
 GEAR:Bolt (Crossbow)			QTY:20	LOCATION:Carried
-GEAR:Ring (Feather Falling)				LOCATION:Equipped
+GEAR:Ring of Feather Falling				LOCATION:Equipped
 GEAR:Slippers of Spider Climbing			LOCATION:Equipped
 GEAR:Poison (Drow Poison)		QTY:5		LOCATION:Carried
 LANGBONUS:Common
@@ -500,8 +500,8 @@ GEAR:Leather						LOCATION:Equipped
 GEAR:Dagger							LOCATION:Primary Hand	EQMOD:PLUS1W
 GEAR:Thunderstone				QTY:4		LOCATION:Carried
 GEAR:Thieves' Tools					LOCATION:Carried		EQMOD:MWORKT
-GEAR:Potion (Shield of Faith +3)			LOCATION:Carried
-GEAR:Potion (Spider Climb)				LOCATION:Carried
+GEAR:Potion of Shield of Faith +3			LOCATION:Carried
+GEAR:Potion of Spider Climb				LOCATION:Carried
 GEAR:Coin (Gold Piece)			QTY:178	LOCATION:Carried
 LANGBONUS:Varisian
 
