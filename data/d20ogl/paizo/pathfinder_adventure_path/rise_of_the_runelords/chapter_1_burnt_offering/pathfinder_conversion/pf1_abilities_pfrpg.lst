@@ -5,6 +5,9 @@ SOURCELONG:Rise of the Runelords, Chapter 1: Burnt Offerings	SOURCESHORT:PF1	SOU
 # Ability Name	Unique Key				Category of Ability		Type						Visible
 Bay			KEY:Bay ~ Sandpoint Devil	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES
 
+# Fix abilites that can't be imported
+Immunity To Mind-Affecting	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Immunity to Mind-Affecting Effects
+
 #
 # End
 #

@@ -46,7 +46,7 @@ EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of
 EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_equip_weap_melee.lst|(EXCLUDE:Starknife)
 FEAT:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_feats.lst
 LANGUAGE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_languages.lst|(EXCLUDE:Boggard)
-RACE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_races_animals.lst
+RACE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_races_animals.lst|(EXCLUDE:Donkey Rat)
 RACE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_races.lst
 SHIELDPROF:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_profs_shield.lst
 TEMPLATE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_templates_background.lst
@@ -65,4 +65,4 @@ RACE:rrpg_races_animals_pfrpg.lst
 HIDETYPE:FEAT|CityBorn|Varisia|VarisianTattoo
 
 # Prevent unconstructed reference errors
-#FORWARDREF:SKILL|Balance,Hide,Jump,Listen,Move Silently,Search,Spot
+FORWARDREF:SKILL|Balance,Hide,Jump,Listen,Move Silently,Search,Spot

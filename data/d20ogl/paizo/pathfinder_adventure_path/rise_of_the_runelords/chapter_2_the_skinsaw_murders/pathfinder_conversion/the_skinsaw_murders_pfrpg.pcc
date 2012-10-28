@@ -49,7 +49,7 @@ COMPANIONMOD:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chap
 DEITY:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_2_the_skinsaw_murders/pf2_deities.lst
 EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_2_the_skinsaw_murders/pf2_equip_wondrousitems.lst
 FEAT:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_2_the_skinsaw_murders/pf2_feats.lst
-RACE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_2_the_skinsaw_murders/pf2_races.lst|(EXCLUDE:Boggard)
+RACE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_2_the_skinsaw_murders/pf2_races.lst|(EXCLUDE:Boggard|Boggard (Priest-King))
 SPELL:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_2_the_skinsaw_murders/pf2_spells.lst
 TEMPLATE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_2_the_skinsaw_murders/pf2_templates_hidden.lst
 

@@ -75,7 +75,7 @@ SKILL:Perception				RANK:1
 SKILL:Stealth				RANK:1
 FEAT:Dodge
 FEAT:Weapon Finesse
-ABILITY:CATEGORY=Monk Bonus Feat|Stunning Fist
+#ABILITY:CATEGORY=Monk Bonus Feat|Stunning Fist
 ABILITY:CATEGORY=Monk Bonus Feat|Deflect Arrows
 ABILITY:CATEGORY=Favored Class|Monk
 ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
@@ -100,7 +100,7 @@ STAT:STR=17|DEX=9|CON=16|INT=3|WIS=8|CHA=12
 SKILL:Intimidate	RANK:2
 FEAT:Great Fortitude
 ABILITY:CATEGORY=Fighter Bonus Feat|Improved Initiative
-ABILITY:CATEGORY=Fighter Bonus Feat|Toughness
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Longsword)
 TEMPLATE:Waters of Lamashtu (Koruvus's Mutation)
 GEAR:Longsword	LOCATION:Primary Hand	EQMOD:PLUS1W
 GEAR:Handaxe	LOCATION:Secondary Hand	EQMOD:MWORKW
@@ -331,7 +331,7 @@ FEAT:Lamashtu's Mark
 FEAT:Dazzling Display
 ABILITY:CATEGORY=Fighter Bonus Feat|Exotic Weapon Proficiency (Sword (Bastard))
 ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
-ABILITY:CATEGORY=Channel Energy|Channel Negative Energy
+ABILITY:CATEGORY=Channel Energy|Channel Negative Energy ~ Cleric
 TEMPLATE:Lamashtu's Gift
 GEAR:Breastplate					LOCATION:Equipped		EQMOD:PLUS1A
 GEAR:Sword (Bastard)				LOCATION:Primary Hand	EQMOD:PLUS1W

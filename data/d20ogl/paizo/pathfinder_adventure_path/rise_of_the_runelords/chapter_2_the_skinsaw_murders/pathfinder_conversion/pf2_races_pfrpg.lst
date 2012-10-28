@@ -3,7 +3,7 @@ SOURCELONG:Rise of the Runelords, Chapter 2: The Skinsaw Murders	SOURCESHORT:PF2
 # Original Entry by: Stefan Radermacher
 
 # Race Name				Bonus to skill												Modify VAR																Racial HD Class Skills	Ability									Define				Monster Class Name and Starting Level
-Boggard (Priest-King).MOD	BONUS:SKILL|Acrobatics|16|TYPE=Racial	BONUS:SKILL|Perception|4|TYPE=Racial																		MONCSKILL:.CLEAR
+#Boggard (Priest-King).MOD	BONUS:SKILL|Acrobatics|16|TYPE=Racial	BONUS:SKILL|Perception|4|TYPE=Racial																		MONCSKILL:.CLEAR
 Carrionstorm.MOD																																		MONCSKILL:.CLEAR
 Faceless Stalker.MOD																																	MONCSKILL:.CLEAR
 Faceless Hulk (Huge).MOD																																MONCSKILL:.CLEAR

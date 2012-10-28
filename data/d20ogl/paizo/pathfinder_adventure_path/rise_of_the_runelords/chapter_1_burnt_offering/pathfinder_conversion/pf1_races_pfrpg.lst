@@ -13,4 +13,5 @@ Sinspawn (Gluttonspawn).MOD	BONUS:SKILL|Stealth|4|TYPE=Racial		MONCSKILL:.CLEAR
 Sinspawn (Greedspawn).MOD	BONUS:SKILL|Stealth|4|TYPE=Racial		MONCSKILL:.CLEAR
 Sinspawn (Lustspawn).MOD	BONUS:SKILL|Stealth|4|TYPE=Racial		MONCSKILL:.CLEAR
 Sinspawn (Pridespawn).MOD	BONUS:SKILL|Stealth|4|TYPE=Racial		MONCSKILL:.CLEAR
-Sinspawn (Slothspawn).MOD	BONUS:SKILL|Stealth|4|TYPE=Racial		MONCSKILL:.CLEAR		ABILITY:Special Ability|AUTOMATIC|.CLEAR.Immunity To Mind-Affecting|Immunity to Mind-Affecting Effects
+Sinspawn (Slothspawn).MOD	BONUS:SKILL|Stealth|4|TYPE=Racial		MONCSKILL:.CLEAR
+#ABILITY:Special Ability|AUTOMATIC|.CLEAR.Immunity To Mind-Affecting|Immunity to Mind-Affecting Effects

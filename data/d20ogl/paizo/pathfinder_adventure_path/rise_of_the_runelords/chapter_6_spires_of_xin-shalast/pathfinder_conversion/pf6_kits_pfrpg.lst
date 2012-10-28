@@ -126,8 +126,8 @@ RACE:Wendigo	!PRERACE:1,%
 NAME:Wendigo
 ALIGN:CE
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
-FEAT:Ability Focus(Howl)
-FEAT:Ability Focus(Dream Haunting)
+FEAT:Ability Focus(Howl ~ Wendigo)
+FEAT:Ability Focus(Dream Haunting ~ Wendigo)
 FEAT:Flyby Attack
 FEAT:Improved Initiative
 FEAT:Lightning Reflexes
