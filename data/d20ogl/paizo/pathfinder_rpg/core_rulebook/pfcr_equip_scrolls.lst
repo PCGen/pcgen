@@ -153,6 +153,7 @@ Scroll (Nondetection)													TYPE:Magic.Scroll.Arcane.Consumable	COST:425	W
 Scroll (Protection from Energy/Arcane)		OUTPUTNAME:Scroll (Protection from Energy)	TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0.01	SOURCEPAGE:p.490
 Scroll (Rage)														TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0.01	SOURCEPAGE:p.490
 Scroll (Ray of Exhaustion)												TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0.01	SOURCEPAGE:p.490
+Scroll (Shrink Item)													TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0.01	SOURCEPAGE:p.490
 Scroll (Sleet Storm)													TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0.01	SOURCEPAGE:p.490
 Scroll (Slow)														TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0.01	SOURCEPAGE:p.490
 Scroll (Stinking Cloud)													TYPE:Magic.Scroll.Arcane.Consumable	COST:375	WT:0.01	SOURCEPAGE:p.490
