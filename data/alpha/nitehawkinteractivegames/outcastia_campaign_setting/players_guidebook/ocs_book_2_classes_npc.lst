@@ -1,0 +1,31 @@
+# CVS $Revision$ $Author$ -- Tue Oct 16 20:52:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.nitehawk-games.biz/products/ocs_b2.html	SOURCEDATE:09-2011
+# ORIGINAL ENTRY BY: Andrew Maitland
+# ORIGINAL ENTRY DATE: 2011-11-26
+
+###Block: NPC Classes
+
+# Fanatic
+
+CLASS:Fanatic	SOURCEPAGE:p.78	HD:6	TYPE:Base.NPC	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3
+CLASS:Fanatic	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Handle Animal|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft
+CLASS:Fanatic	SPELLSTAT:WIS	BONUS:CASTERLEVEL|Fanatic|CL	SPELLLIST:1|Adept
+###Block:
+#Weapon and Armor Proficiency: Fanatics are skilled with all simple weapons. Fanatics are not proficient with any type of armor or with shields.
+1	AUTO:WEAPONPROF|TYPE=Simple
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Steadfast ~ Fanatic
+5	ABILITY:Special Ability|AUTOMATIC|Fantastic Rage ~ Fanatic
+###Block:
+9	CAST:1
+10	CAST:1
+11	CAST:1
+12	CAST:1
+13	CAST:2
+14	CAST:2
+15	CAST:2
+16	CAST:2
+17	CAST:3
+18	CAST:3
+19	CAST:3
+20	CAST:3,1

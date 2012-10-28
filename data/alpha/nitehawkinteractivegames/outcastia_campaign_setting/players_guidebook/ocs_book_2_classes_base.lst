@@ -1,0 +1,345 @@
+# CVS $Revision$ $Author$ -- Tue Oct 16 20:52:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.nitehawk-games.biz/products/ocs_b2.html	SOURCEDATE:09-2011
+# ORIGINAL ENTRY BY: Andrew Maitland
+# ORIGINAL ENTRY DATE: 2011-11-26
+
+#CLASSES
+
+# Crusader
+
+# Class Name	Hit Dice	Type			Ex Class			Source Page		Save checks bonus											Combat bonus
+CLASS:Crusader	HD:10		TYPE:Base.PC	EXCLASS:Ex-Crusader	SOURCEPAGE:p.38	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Restricted AL
+CLASS:Crusader	!PREALIGN:LG
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Crusader	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (Nobility and Royalty)|Knowledge (Religion)|Ride|Sense Motive|Tactics
+###Block:
+1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy
+1	AUTO:SHIELDPROF|Buckler|Shield (Light)|Shield (Heavy)
+###Block:
+1	BONUS:ABILITYPOOL|Crusader Weapon Specialization|1
+###Block:
+2	BONUS:VAR|StrikeHeathenTimes|CL-1/6+1
+4	BONUS:VAR|CrusaderDomainLvl|CL-3	
+5	BONUS:VAR|TacticianCount|1	
+6	BONUS:VAR|DivineWeaponBonus|CL-3/3	
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Equipment ~ Crusader|Tithe ~ Crusader
+2	ABILITY:Special Ability|AUTOMATIC|Divine Sympathy ~ Crusader|Strike Heathen ~ Crusader
+3	ABILITY:Special Ability|AUTOMATIC|Unshakable Faith ~ Crusader
+4	ABILITY:Special Ability|AUTOMATIC|Domain ~ Crusader
+5	ABILITY:Special Ability|AUTOMATIC|Tactician ~ Crusader
+6	ABILITY:Special Ability|AUTOMATIC|Divine Weapon ~ Crusader
+10	ABILITY:Special Ability|AUTOMATIC|Leadership ~ Crusader
+20	ABILITY:Special Ability|AUTOMATIC|Sainthood ~ Crusader
+
+# Class Name	Hit Dice	Type			Source Page		Visible	Save checks bonus											Combat bonus
+CLASS:Ex-Crusader	HD:10		TYPE:Base.PC	SOURCEPAGE:p.38	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Ex-Crusader	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (Nobility and Royalty)|Knowledge (Religion)|Ride|Sense Motive|Tactics
+#1	ABILITY:Special Ability|AUTOMATIC|<all simple & martial weapons>|<All Armor and shields>
+1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy
+1	AUTO:SHIELDPROF|Buckler|Shield (Light)|Shield (Heavy)
+
+
+# Dragon Lord
+
+# Class Name	Hit Dice	Type			Ex Class			Source Page		Save checks bonus											Combat bonus
+CLASS:Dragon Lord	HD:10		TYPE:Base.PC	EXCLASS:Ex-Dragon Lord	SOURCEPAGE:p.41	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required AL
+CLASS:Dragon Lord	PREALIGN:TN
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Dragon Lord	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE.Craft|Dragon Lore|Gather Information|Handle Animal|Hide|Intimidate|Jump|Knowledge (dragons)|Listen|Move Silently|Ride|Search|Spellcraft|Spot|Swim
+# Class Name	Spell Stat		Memorize		Caster level
+CLASS:Dragon Lord	SPELLSTAT:INT	MEMORIZE:YES	BONUS:CASTERLEVEL|Dragon Lord|CL
+###Block:
+#1	ABILITY:Special Ability|AUTOMATIC|<all simple & martial weapons>|<All Armor>
+1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy
+###Block: Class Progression
+1	BONUS:ABILITYPOOL|Dragon Lord Exotic Weapon Proficiency Feat|1
+5	BONUS:ABILITYPOOL|Dragon Lord Feat|CL/5
+###Block:
+5	BONUS:VAR|DragonLordWrymRageTimes|1	
+10	BONUS:VAR|DragonLordCalmDragonHD|5	
+12	BONUS:VAR|DragonLordWrymRageTimes|1	
+14	BONUS:VAR|DragonLordReputationBonus|1
+15	BONUS:VAR|DragonLordCalmDragonHD|2	
+17	BONUS:VAR|DragonLordReputationBonus|1
+19	BONUS:VAR|DragonLordWrymRageTimes|1
+20	BONUS:VAR|DragonLordReputationBonus|1	BONUS:VAR|DragonLordCalmDragonHD|3
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Homage ~ Dragon Lord
+5	ABILITY:Special Ability|AUTOMATIC|Wyrmrage ~ Dragon Lord
+6	ABILITY:Special Ability|AUTOMATIC|Bonus language ~ Draconic|Dragon Academia ~ Dragon Lord
+8	ABILITY:Special Ability|AUTOMATIC|Leadership
+10	ABILITY:Special Ability|AUTOMATIC|Calm Dragon
+12	ABILITY:Special Ability|AUTOMATIC|Resistance ~ Dragon Lord (Cold and Chlorine)
+14	ABILITY:Special Ability|AUTOMATIC|Reputation ~ Dragon Lord
+15	ABILITY:Special Ability|AUTOMATIC|Resistance ~ Dragon Lord (Acid)
+18	ABILITY:Special Ability|AUTOMATIC|Resistance ~ Dragon Lord (Lightning)
+20	ABILITY:Special Ability|AUTOMATIC|Resistance ~ Dragon Lord (Fire)
+###Block:Casting Progression
+7	CAST:0,0
+8	CAST:0,0
+9	CAST:0,1
+10	CAST:0,1
+11	CAST:0,1,0
+12	CAST:0,1,0
+13	CAST:0,1,1
+14	CAST:0,1,1,0
+15	CAST:0,1,1,1
+16	CAST:0,1,1,1
+17	CAST:0,2,1,1,0
+18	CAST:0,2,1,1,1
+19	CAST:0,2,2,1,1
+20	CAST:0,2,2,2,1
+
+# Class Name		Hit Dice	Type			Ex Class			Source Page		Save checks bonus											Combat bonus
+CLASS:Ex-Dragon Lord	HD:10		TYPE:Base.PC	EXCLASS:Ex-Dragon Lord	SOURCEPAGE:p.41	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Ex-Dragon Lord	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE.Craft|Dragon Lore|Gather Information|Handle Animal|Hide|Intimidate|Jump|Knowledge (dragons)|Listen|Move Silently|Ride|Search|Spellcraft|Spot|Swim
+1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy
+
+# Highwayman
+
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus															Combat bonus
+CLASS:Highwayman	HD:8		TYPE:Base.PC	SOURCEPAGE:p.45	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Restricted AL
+CLASS:Highwayman	!PREALIGN:LG,LE,LN
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Highwayman	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Hide|Intimidate|Jump|Knowledge (geography)|Knowledge (local)|Knowledge (nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Seduction|Sense Motive|Sleight of Hand|Spot|Survival|Swim|Use Rope
+###Block:#Weapon and Armor Proficiency: Highwaymen are proficient with all simple weapons, plus the bola (2 and 4-head), hand crossbow, longsword, rapier, sap, shortbow, and short sword. Highwaymen are proficient with light armor and light shields.
+1	AUTO:WEAPONPROF|TYPE=Simple|Bola|Crossbow (Hand)|Longsword|Rapier|Sap|Shortbow|Sword (Short)
+1	AUTO:ARMORPROF|ARMORTYPE=Light
+1	AUTO:SHIELDPROF|Buckler|Shield (Light)
+###Block:
+2	BONUS:VAR|HighwayManAmbushSenseBonus|(CL+3)/3
+###Block:
+10	BONUS:ABILITYPOOL|Highway Man Special Ability|(CL-7)/3
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Ambush ~ Highwayman|Track ~ Highwayman
+2	ABILITY:Special Ability|AUTOMATIC|Ambush Sense ~ Highwayman|Trapfinding ~ Highwayman
+4	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
+7	ABILITY:Special Ability|AUTOMATIC|Leadership ~ Highwayman
+8	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge
+9	ABILITY:Special Ability|AUTOMATIC|Swift Tracker ~ Highwayman
+
+# Mystic Knight
+# Class Name		Hit Dice	Type			Ex Class				Source Page		Save checks bonus															Combat bonus
+CLASS:Mystic Knight	HD:8		TYPE:Base.PC	EXCLASS:Ex-Mystic Knight	SOURCEPAGE:p.56	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Restricted AL
+CLASS:Mystic Knight	!PREALIGN:CG,CN,CE,LE,NE
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Mystic Knight	STARTSKILLPTS:6	CSKILL:Balance|Concentration|TYPE.Craft|Diplomacy|Heal|Hide|Intimidate|Jump|Knowledge (the planes)|Knowledge (arcana)|Listen|Move Silently|Search|Sense Motive|Spot|Survival|Tumble
+###Block:
+1	AUTO:WEAPONPROF|TYPE=Simple
+###Block:
+4	BONUS:VAR|MysticKnightBladedDefenderBonus|CL/4
+2	BONUS:VAR|NavitusFlemenCount|CL+1/3
+5	BONUS:VAR|MysticKnightSkillFocusCount|CL/5
+###Block:
+1	BONUS:ABILITYPOOL|Weapon Focus|1
+1	BONUS:ABILITYPOOL|Mystic Knight Martial Weapon Choice|1
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Intuitive Defense ~ Mystic Knight|Essence Finger ~ Mystic Knight|Weapon Focus ~ Mystic Knight
+2	ABILITY:Special Ability|AUTOMATIC|Bonded Weapon ~ Mystic Knight|Navitus Flemen ~ Mystic Knight
+4	ABILITY:Special Ability|AUTOMATIC|Bladed Defender ~ Mystic Knight|power bond I ~ Mystic Knight
+5	ABILITY:Special Ability|AUTOMATIC|Skill Focus ~ Mystic Knight
+7	ABILITY:Special Ability|AUTOMATIC|Essence hand ~ Mystic Knight|power bond II ~ Mystic Knight
+11	ABILITY:Special Ability|AUTOMATIC|Energy bond I ~ Mystic Knight
+13	ABILITY:Special Ability|AUTOMATIC|Essence manipulation ~ Mystic Knight
+15	ABILITY:Special Ability|AUTOMATIC|Energy bond II ~ Mystic Knight
+19	ABILITY:Special Ability|AUTOMATIC|Essence mastery ~ Mystic Knight
+20	ABILITY:Special Ability|AUTOMATIC|Navitus Flemen mastery ~ Mystic Knight
+
+# Class Name		Hit Dice	Type			Source Page		Save checks bonus															Combat bonus
+CLASS:Ex-Mystic Knight	HD:8		TYPE:Base.PC	SOURCEPAGE:p.61	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Ex-Mystic Knight	STARTSKILLPTS:6	CSKILL:Balance|Concentration|TYPE.Craft|Diplomacy|Heal|Hide|Intimidate|Jump|Knowledge (the planes)|Knowledge (arcana)|Listen|Move Silently|Search|Sense Motive|Spot|Survival|Tumble
+
+# Oracle
+
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus														Combat bonus
+CLASS:Oracle	HD:4		TYPE:Base.PC	SOURCEPAGE:p.63	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Oracle	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft|Star Reading|Witchcraft
+CLASS:Oracle	SPELLSTAT:WIS	BONUS:CASTERLEVEL|Oracle|CL
+#Weapon and Armor Proficiency: Oracles are proficient with all simple weapons. They are proficient with leather, studded leather, and hide armor, but not with shields as they tend to interfere with the motions required for divination.
+###Block:
+1	AUTO:WEAPONPROF|TYPE=Simple
+1	AUTO:ARMORPROF|Leather|Studded Leather|Hide
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Craft Focus ~ Oracle
+5	ABILITY:Special Ability|AUTOMATIC|Empower ~ Oracle
+10	ABILITY:Special Ability|AUTOMATIC|Enlarge ~ Oracle
+15	ABILITY:Special Ability|AUTOMATIC|Maximize ~ Oracle
+20	ABILITY:Special Ability|AUTOMATIC|Extend ~ Oracle
+###Block:
+1	CAST:5,3
+2	CAST:6,4
+3	CAST:6,5
+4	CAST:6,6,3
+5	CAST:6,6,4
+6	CAST:6,6,5,3
+7	CAST:6,6,6,4
+8	CAST:6,6,6,5,3
+9	CAST:6,6,6,6,4
+10	CAST:6,6,6,6,5,3
+11	CAST:6,6,6,6,6,4
+12	CAST:6,6,6,6,6,5,3
+13	CAST:6,6,6,6,6,6,4
+14	CAST:6,6,6,6,6,6,5,3
+15	CAST:6,6,6,6,6,6,6,4
+16	CAST:6,6,6,6,6,6,6,5
+17	CAST:6,6,6,6,6,6,6,6
+18	CAST:6,6,6,6,6,6,6,6
+19	CAST:6,6,6,6,6,6,6,6
+20	CAST:6,6,6,6,6,6,6,6
+
+# Elocutionist
+
+# Class Name		Hit Dice	Type			Source Page		Save checks bonus														Combat bonus
+CLASS:Elocutionist	HD:6		TYPE:Base.PC	SOURCEPAGE:p.65	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Elocutionist	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|Heal|Knowledge (arcana)|Knowledge (history)|Knowledge (librarian)|Knowledge (religion)|TYPE=PerformVocal|TYPE=Profession|Sense Motive|Spellcraft
+CLASS:Elocutionist	SPELLSTAT:WIS	BONUS:CASTERLEVEL|Elocutionist|CL
+###Block:Elocutionists are proficient with all bludgeoning weapons (gauntlet, light mace, club, heavy mace, quarterstaff, sling, light hammer, sap, light shield, flail, heavy shield, warhammer, great club, heavy flail, nunchaku, sai, dire flail, and bolas), with all types of armor (light, medium, and heavy), and with shields (except tower shields).
+1	AUTO:WEAPONPROF|TYPE=Bludgeoning
+1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy
+1	AUTO:SHIELDPROF|Buckler|Shield (Light)|Shield (Heavy)
+###Block:
+1	BONUS:DOMAIN|NUMBER|2
+###Block:
+1	BONUS:VAR|AlignmentAuraLVL|CL
+###Block:
+# COMMENT: Won't work as we lack any write up on the deities currently.
+1	ABILITY:Special Ability|VIRTUAL|Aura of Chaos|PREDEITYALIGN:CG,CN,CE
+1	ABILITY:Special Ability|VIRTUAL|Aura of Evil|PREDEITYALIGN:LE,NE,CE
+1	ABILITY:Special Ability|VIRTUAL|Aura of Good|PREDEITYALIGN:LG,NG,CG
+1	ABILITY:Special Ability|VIRTUAL|Aura of Law|PREDEITYALIGN:LG,LN,LE
+###Block:
+1	CAST:5,3
+2	CAST:6,4
+3	CAST:6,5
+4	CAST:6,6,3
+5	CAST:6,6,4
+6	CAST:6,6,5,3
+7	CAST:6,6,6,4
+8	CAST:6,6,6,5,3
+9	CAST:6,6,6,6,4
+10	CAST:6,6,6,6,5,3
+11	CAST:6,6,6,6,6,4
+12	CAST:6,6,6,6,6,5,3
+13	CAST:6,6,6,6,6,6,4
+14	CAST:6,6,6,6,6,6,5,3
+15	CAST:6,6,6,6,6,6,6,4
+16	CAST:6,6,6,6,6,6,6,5,3
+17	CAST:6,6,6,6,6,6,6,6,4
+18	CAST:6,6,6,6,6,6,6,6,5,3
+19	CAST:6,6,6,6,6,6,6,6,6,4
+20	CAST:6,6,6,6,6,6,6,6,6,5
+###Block: Known
+1	KNOWN:5,3
+2	KNOWN:6,3
+3	KNOWN:6,4
+4	KNOWN:7,4,2
+5	KNOWN:7,5,3
+6	KNOWN:8,5,3,2
+7	KNOWN:8,6,4,3
+8	KNOWN:9,6,4,3,2
+9	KNOWN:9,6,5,4,3
+10	KNOWN:10,6,5,4,3,2
+11	KNOWN:10,6,6,5,4,3
+12	KNOWN:10,6,6,5,4,3,2
+13	KNOWN:10,6,6,5,5,4,3
+14	KNOWN:10,6,6,5,5,4,3,2
+15	KNOWN:10,6,6,5,5,5,4,3
+16	KNOWN:10,6,6,5,5,5,4,3,2
+17	KNOWN:10,6,6,5,5,5,4,4,3
+18	KNOWN:10,6,6,5,5,5,4,4,3,2
+19	KNOWN:10,6,6,5,5,5,4,4,4,3
+20	KNOWN:10,6,6,5,5,5,4,4,4,4
+
+## Murmur
+
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus															Combat bonus
+CLASS:Murmur	HD:8		TYPE:Base.PC	SOURCEPAGE:p.70	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Murmur	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Diplomacy|Disable Device|Hide|Jump|Knowledge (arcana)|Listen|Move Silently|Open Lock|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Spellcraft|Spot|Swim|Tumble|Use Magic Device|Use Rope
+# Class Name	Spell Stat		Memorize	Caster level
+CLASS:Murmur	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Murmur|CL
+###Block:Proficiency: Murmurs are proficient in light and medium armors, all simple weapons, and the greatsword, but not with shields.
+1	AUTO:WEAPONPROF|TYPE=Simple|Greatsword
+1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium
+###Block:
+1	BONUS:VAR|CompetenceTimes|MIN(3,CL+2/3)
+2	BONUS:VAR|TacticalAttackBonus|CL/2
+3	BONUS:VAR|AdvantageousStepTimes|CL+3/6
+5	BONUS:VAR|PushTimes|CL+1/6
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Competence ~ Murmur|Improved Feint ~ Murmur|Spells ~ Murmur
+2	ABILITY:Special Ability|AUTOMATIC|Tactical attack ~ Murmur
+3	ABILITY:Special Ability|AUTOMATIC|Advantageous step ~ Murmur
+5	ABILITY:Special Ability|AUTOMATIC|Push ~ Murmur
+###Block:
+1	CAST:1
+2	CAST:2,0
+3	CAST:2,1
+4	CAST:2,1,0
+5	CAST:2,2,1
+6	CAST:2,2,1
+7	CAST:2,2,1,0
+8	CAST:2,2,2,1
+9	CAST:2,2,2,1
+10	CAST:2,2,2,1,0
+11	CAST:2,2,2,2,1
+12	CAST:2,2,2,2,1
+13	CAST:2,2,2,2,1,0
+14	CAST:3,2,2,2,2,1
+15	CAST:3,3,2,2,2,1
+16	CAST:3,3,3,2,2,1,0
+17	CAST:3,3,3,3,2,2,1
+18	CAST:3,3,3,3,3,2,1
+19	CAST:3,3,3,3,3,3,2
+20	CAST:3,3,3,3,3,3,3
+
+## Utter Master
+
+# Class Name		Hit Dice	Type			Source Page		Save checks bonus												Combat bonus
+CLASS:Utter Master	HD:4		TYPE:Base.PC	SOURCEPAGE:p.74	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Utter Master	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Knowledge (Arcana)|Knowledge (History)|Knowledge (Librarian)|TYPE=PerformVocal|TYPE=Profession|Spellcraft
+###Block:
+5	BONUS:VAR|UtterMasterPowerCastTimes|CL/5
+7	BONUS:VAR|UtterMasterQuickCastTimes|CL-3/4
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Improved Counterspell ~ Utter Master
+5	ABILITY:Special Ability|AUTOMATIC|Power Cast ~ Utter Master
+7	ABILITY:Special Ability|AUTOMATIC|Quick Cast ~ Utter Master
+8	ABILITY:Special Ability|AUTOMATIC|Improved Spell Penetration ~ Utter Master
+16	ABILITY:Special Ability|AUTOMATIC|Superior Spell Knowledge ~ Utter Master
+###Block:
+1	CAST:5,3
+2	CAST:6,4
+3	CAST:6,5
+4	CAST:6,6,3
+5	CAST:6,6,4
+6	CAST:6,6,5,3
+7	CAST:6,6,6,4
+8	CAST:6,6,6,5,3
+9	CAST:6,6,6,6,4
+10	CAST:6,6,6,6,5,3
+11	CAST:6,6,6,6,6,4
+12	CAST:6,6,6,6,6,5,3
+13	CAST:6,6,6,6,6,6,4
+14	CAST:6,6,6,6,6,6,5,3
+15	CAST:6,6,6,6,6,6,6,4
+16	CAST:6,6,6,6,6,6,6,5,3
+17	CAST:6,6,6,6,6,6,6,6,4
+18	CAST:6,6,6,6,6,6,6,6,5,3
+19	CAST:6,6,6,6,6,6,6,6,6,4
+20	CAST:6,6,6,6,6,6,6,6,6,5

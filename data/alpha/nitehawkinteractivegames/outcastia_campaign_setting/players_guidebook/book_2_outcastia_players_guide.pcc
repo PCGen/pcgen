@@ -1,0 +1,69 @@
+# CVS $Revision$ $Author$ -- Mon Dec 21 12:18:35 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+#Original Entry: Andrew Maitland (LegacyKing)
+CAMPAIGN:Outcastia Campaign Book II - Players Guide Book
+RANK:6
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Campaign
+SETTING:RSRD
+STATUS:ALPHA
+TYPE:Nitehawk Interactive Games.Campaign
+PRECAMPAIGN:1,BOOKTYPE=Core Rules,[3.5 RSRD Basics]
+PUBNAMELONG:Nitehawk Interactive Games
+PUBNAMESHORT:NIG
+PUBNAMEWEB:http://www.nitehawk-games.biz/index.html
+SOURCELONG:Outcastia Campaign Book II
+SOURCESHORT:OCS_II
+SOURCEWEB:http://www.nitehawk-games.biz/products/ocs_b2.html
+SOURCEDATE:09-2011
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Refernce Document Copyright 2000-2005, Wizards of the Coast, Inc.
+# Need Book Copyright
+COPYRIGHT:PCGen dataset conversion for "Outcastia Campaign Book II - Players Guide Book" Copyright 2010, PCGen Data Team (including, but not limited to Andrew Maitland (LegacyKing))
+#OGL.TXT
+#EXTRA.TXT
+
+# Core Files
+
+ABILITYCATEGORY:ocs_book_2_abilitycategories.lst
+
+ABILITY:ocs_book_2_abilities.lst
+ABILITY:ocs_book_2_abilities_class.lst
+ABILITY:ocs_book_2_abilities_class_prestige.lst
+ABILITY:ocs_book_2_abilities_racial.lst
+
+CLASS:ocs_book_2_classes_base.lst
+CLASS:ocs_book_2_classes_npc.lst
+CLASS:ocs_book_2_classes_prestige.lst
+
+DEITY:ocs_book_2_deities.lst
+DOMAIN:ocs_book_2_domains.lst
+
+EQUIPMENT:ocs_book_2_equip.lst
+EQUIPMENT:ocs_book_2_equip_armor.lst
+EQUIPMENT:ocs_book_2_equip_weapons.lst
+
+FEAT:ocs_book_2_feats.lst
+FEAT:ocs_book_2_feats_background.lst
+#FEAT:ocs_book_2_feats_epic.lst
+
+LANGUAGE:ocs_book_2_languages.lst
+
+
+ARMORPROF:ocs_book_2_profs_armor.lst
+WEAPONPROF:ocs_book_2_profs_weapon.lst
+
+RACE:ocs_book_2_races.lst
+
+SKILL:ocs_book_2_skills.lst
+
+SPELL:ocs_book_2_spells.lst
+SPELL:ocs_book_2_spells_mod.lst
+
+TEMPLATE:ocs_book_2_templates.lst
+
+###Block:
+FORWARDREF:WEAPONPROF|Patar
+FORWARDREF:DOMAIN|ANTIMAGIC,PESTILENCE,SHADOW
+FORWARDREF:SPELL|Counterspell,Counterspell (Improved),Counterspell (Greater),Counterspell (Supreme),Watcher,Create Undead

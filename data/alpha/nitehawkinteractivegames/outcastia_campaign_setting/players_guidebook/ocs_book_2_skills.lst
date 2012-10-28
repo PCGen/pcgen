@@ -1,0 +1,116 @@
+# CVS $Revision$ $Author$ -- Tue Oct 16 20:52:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.nitehawk-games.biz/products/ocs_b2.html	SOURCEDATE:09-2011
+# ORIGINAL ENTRY BY: Andrew Maitland
+# ORIGINAL ENTRY DATE: 2011-11-26
+###Block: Skills
+# Skill Name			Key Stat	Untrained?		Type
+Craft (apothecary)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
+Craft (Brewing)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
+Craft (Cooking)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
+Craft (Embroidery)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
+Craft (Glassblowing)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
+Craft (Locksmithing)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
+Craft (Scrimshaw)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
+#Craft (Shipmaking)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
+Craft (Tailor)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
+Dragon Handling			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom
+Knowledge (Librarian)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge
+Knowledge (Weaponology)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge
+
+# Requires the synergy bonuses below this point
+Perform (Juggling/Awe)		KEYSTAT:CHA	USEUNTRAINED:NO	TYPE:Perform
+Perform (Juggling/Manuevers)	KEYSTAT:DEX	USEUNTRAINED:NO	TYPE:Perform
+Profession (Barrister)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Beggar)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Bookkepper)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Driver)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Fisher)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Harlot)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Herder)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Lumberjack)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Magistrate)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Miller)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+#Profession (Miner)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Porter)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Sailor)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Scribe)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+#Profession (Siege Engineer)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Smelter)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Tanner)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+#Profession (Teamster)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Woodcutter)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+
+Tactics.COPY=Tactics (guerrilla warfare only)
+#Tactics (guerrilla warfare only)
+#Speak Language					USEUNTRAINED:NO
+#Spot				KEYSTAT:WIS
+Weaponcraft				KEYSTAT:INT	USEUNTRAINED:NO
+
+
+###Block: Skill Synergy Mods
+# Skill Name			Bonus to skill
+Craft (Brewing).MOD		BONUS:SKILL|Profession (Bartender)|2|TYPE=Synergy|PRESKILL:1,Craft (Brewing)=5
+Craft (Embroidery).MOD		BONUS:SKILL|Profession (Tailor)|2|TYPE=Synergy|PRESKILL:1,Craft (Embroidery)=5
+Craft (Locksmithing).MOD	BONUS:SKILL|Open Locks|2|TYPE=Synergy|PRESKILL:1,Craft (Brewing)=5
+Craft (Shipmaking).MOD		BONUS:SKILL|Craft (Carpentry),Craft (Woodworking)|2|TYPE=Synergy|PRESKILL:1,Craft (Shipmaking)=5
+Craft (Tailor).MOD		BONUS:SKILL|Craft (Embroidery)|2|TYPE=Synergy|PRESKILL:1,Craft (Tailor)=5
+#
+Craft (Whittling).MOD		BONUS:SKILL|Craft (Scrimshaw)|2|TYPE=Synergy|PRESKILL:1,Craft (Whittling)=5
+Craft (Sculpture).MOD		BONUS:SKILL|Craft (Scrimshaw)|2|TYPE=Synergy|PRESKILL:1,Craft (Sculpture)=5
+
+Craft (Carpentry).MOD		BONUS:SKILL|Craft (Shipmaking)|2|TYPE=Synergy|PRESKILL:1,Craft (Carpentry)=5
+Craft (Woodworking).MOD		BONUS:SKILL|Craft (Shipmaking)|2|TYPE=Synergy|PRESKILL:1,Craft (Woodworking)=5
+
+Knowledge (Dragons).MOD		BONUS:SKILL|Dragon Handling|2|TYPE=Synergy|PRESKILL:1,Knowledge (Dragons)=5
+Dragon Lore.MOD			BONUS:SKILL|Dragon Handling|2|TYPE=Synergy|PRESKILL:1,Dragon Lore=5
+Diplomacy.MOD			BONUS:SKILL|Dragon Handling|2|TYPE=Synergy|PRESKILL:1,Diplomacy=5
+
+Knowledge (Weaponology).MOD	BONUS:SKILL|Craft (Weaponsmithing),Weaponcraft|2|TYPE=Synergy|PRESKILL:1,Knowledge (Weaponology)=5
+Weaponcraft.MOD			BONUS:SKILL|Knowledge (Weaponology)|2|TYPE=Synergy|PRESKILL:1,Weaponcraft=5
+
+
+
+###Block: Conditional Skills
+# Skill Name					Key Stat	Untrained?		Classes	Type			Visible		Req. Rule (in options)		Prohibited Var. Value														Source Page
+Bluff (Draconic Creatures)			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Bluff (Draconic Creatures).MISC"),SKILL.Bluff.MISC						SOURCEPAGE:p.x
+Diplomacy (Draconic Creatures)		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Diplomacy (Draconic Creatures).MISC"),SKILL.Diplomacy.MISC				SOURCEPAGE:p.x
+Gather Information (City of Nightwatch)	KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Gather Information (City of Nightwatch).MISC"),SKILL.Gather Information.MISC	SOURCEPAGE:p.x
+Jump (Running Start)				KEYSTAT:STR	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Jump (Running Start).MISC"),SKILL.Jump.MISC							SOURCEPAGE:p.x
+Sense Motive (Draconic Creatures)		KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Sense Motive (Draconic Creatures).MISC"),SKILL.Sense Motive.MISC			SOURCEPAGE:p.x
+Listen (Criminal Matters)			KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Listen (Criminal Matters).MISC"),SKILL.Listen.MISC						SOURCEPAGE:p.x
+Sense Motive (Criminal Matters)		KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Sense Motive (Criminal Matters).MISC"),SKILL.Sense Motive.MISC				SOURCEPAGE:p.x
+Spot (Criminal Matters)				KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Spot (Criminal Matters).MISC"),SKILL.Spot.MISC						SOURCEPAGE:p.x
+
+
+#	KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Survival (Follow or identify tracks).MISC"),SKILL.Survival.MISC	SOURCEPAGE:p.x
+
+###Block: Skill .MODs
+# MODs to existing skills - have to do it this way otherwise the BONUS to MISC never fires and the conditions above are never triggered
+# Skill Name		Bonus to skill												Bonus to skill rank
+Bluff.MOD			BONUS:SKILL|Bluff (Draconic Creatures)|SKILL.Bluff.MISC					BONUS:SKILLRANK|Bluff (Draconic Creatures)|skillinfo("TOTALRANK", "Bluff")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Bluff (Draconic Creatures).MISC"),SKILL.Bluff.MISC
+Diplomacy.MOD		BONUS:SKILL|Diplomacy (Draconic Creatures)|SKILL.Diplomacy.MISC				BONUS:SKILLRANK|Diplomacy (Draconic Creatures)|skillinfo("TOTALRANK", "Diplomacy")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Diplomacy (Draconic Creatures).MISC"),SKILL.Diplomacy.MISC
+Gather Information.MOD	BONUS:SKILL|Gather Information (City of Nightwatch)|SKILL.Gather Information.MISC	BONUS:SKILLRANK|Gather Information (City of Nightwatch)|skillinfo("TOTALRANK", "Gather Information")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Gather Information (City of Nightwatch).MISC"),SKILL.Gather Information.MISC
+Jump.MOD			BONUS:SKILL|Jump (Running Start)|SKILL.Jump.MISC						BONUS:SKILLRANK|Jump (Running Start)|skillinfo("TOTALRANK", "Jump")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Jump (Running Start).MISC"),SKILL.Jump.MISC
+Sense Motive.MOD		BONUS:SKILL|Sense Motive (Draconic Creatures)|SKILL.Sense Motive.MISC			BONUS:SKILLRANK|Sense Motive (Draconic Creatures)|skillinfo("TOTALRANK", "Sense Motive")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Sense Motive (Draconic Creatures).MISC"),SKILL.Sense Motive.MISC
+Listen.MOD			BONUS:SKILL|Listen (Criminal Matters)|SKILL.Listen.MISC					BONUS:SKILLRANK|Listen (Criminal Matters)|skillinfo("TOTALRANK", "Listen")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Listen (Criminal Matters).MISC"),SKILL.Listen.MISC
+Sense Motive.MOD		BONUS:SKILL|Sense Motive (Criminal Matters)|SKILL.Sense Motive.MISC			BONUS:SKILLRANK|Sense Motive (Criminal Matters)|skillinfo("TOTALRANK", "Sense Motive")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Sense Motive (Criminal Matters).MISC"),SKILL.Sense Motive.MISC
+Spot.MOD			BONUS:SKILL|Spot (Criminal Matters)|SKILL.Spot.MISC						BONUS:SKILLRANK|Spot (Criminal Matters)|skillinfo("TOTALRANK", "Spot")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Spot (Criminal Matters).MISC"),SKILL.Spot.MISC
+
+###Block:
+# Skill Name		Type
+Perform (Comedy).MOD	TYPE:PerformVocal
+Perform (Oratory).MOD	TYPE:PerformVocal
+Perform (Sing).MOD	TYPE:PerformVocal
+
+###Block: No Details -
+#Witchcraft
+#Craft (Whittling)
+Craft (Sculpture)
+#Knowledge (Dragons)
+#Dragon Lore
+
+
+
+#
+# EOF
+#

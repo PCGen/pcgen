@@ -1,0 +1,121 @@
+# CVS $Revision$ $Author$ -- Tue Oct 16 20:52:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.nitehawk-games.biz/products/ocs_b2.html	SOURCEDATE:09-2011
+# ORIGINAL ENTRY BY: Andrew Maitland
+# ORIGINAL ENTRY DATE: 2011-11-26
+
+Wyrmrage		KEY:Wyrmrage						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:WrymRageTimes|0	SOURCEPAGE:p.108	DESC:%1/day|WrymRageTimes
+
+Wyrmrage		KEY:Wyrmrage ~ Dragon Lord						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:WrymRageTimes|0	SOURCEPAGE:p.108	DESC:%1/day|WrymRageTimes
+
+###Block: ~ Dragon Lord
+Homage		KEY:Homage ~ Dragon Lord						CATEGORY:Special Ability	TYPE:SpecialQuality
+
+
+Bonus language	KEY:Bonus language ~ Draconic						CATEGORY:Special Ability	TYPE:SpecialQuality
+Dragon Academia	KEY:Dragon Academia ~ Dragon Lord					CATEGORY:Special Ability	TYPE:SpecialQuality
+Leadership		KEY:Leadership								CATEGORY:Special Ability	TYPE:SpecialQuality
+Calm Dragon		KEY:Calm Dragon								CATEGORY:Special Ability	TYPE:SpecialQuality
+Resistance		KEY:Resistance ~ Dragon Lord (Cold and Chlorine)		CATEGORY:Special Ability	TYPE:SpecialQuality
+Reputation		KEY:Reputation ~ Dragon Lord						CATEGORY:Special Ability	TYPE:SpecialQuality
+Resistance		KEY:Resistance ~ Dragon Lord (Acid)					CATEGORY:Special Ability	TYPE:SpecialQuality
+Resistance		KEY:Resistance ~ Dragon Lord (Lightning)				CATEGORY:Special Ability	TYPE:SpecialQuality
+Resistance		KEY:Resistance ~ Dragon Lord (Fire)					CATEGORY:Special Ability	TYPE:SpecialQuality
+
+
+
+
+###Block: ~ Crusader
+Equipment		CATEGORY:Special Ability	TYPE:SpecialAbility	KEY:Equipment ~ Crusader
+Tithe			CATEGORY:Special Ability	TYPE:SpecialAbility	KEY:Tithe ~ Crusader
+Divine Sympathy	CATEGORY:Special Ability	TYPE:SpecialAbility	KEY:Divine Sympathy ~ Crusader
+Strike Heathen	CATEGORY:Special Ability	TYPE:SpecialAbility	KEY:Strike Heathen ~ Crusader
+Unshakable Faith	CATEGORY:Special Ability	TYPE:SpecialAbility	KEY:Unshakable Faith ~ Crusader
+Domain		CATEGORY:Special Ability	TYPE:SpecialAbility	KEY:Domain ~ Crusader
+Tactician		CATEGORY:Special Ability	TYPE:SpecialAbility	KEY:Tactician ~ Crusader
+Divine Weapon	CATEGORY:Special Ability	TYPE:SpecialAbility	KEY:Divine Weapon ~ Crusader
+Leadership		CATEGORY:Special Ability	TYPE:SpecialAbility	KEY:Leadership ~ Crusader
+Sainthood		CATEGORY:Special Ability	TYPE:SpecialAbility	KEY:Sainthood ~ Crusader
+
+###Block: ~ Fanatic (NPC)
+Steadfast		KEY:Steadfast ~ Fanatic		CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p.79
+Fantastic Rage	KEY:Fantastic Rage ~ Fanatic	CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p.78
+
+###Block: ~ Highwayman
+Ambush		CATEGORY:Special Ability	TYPE:SpecialAbility	KEY:Ambush ~ Highwayman
+Track			CATEGORY:Special Ability	TYPE:SpecialAbility	KEY:Track ~ Highwayman
+Ambush Sense	CATEGORY:Special Ability	TYPE:SpecialAbility	KEY:Ambush Sense ~ Highwayman
+Trapfinding		CATEGORY:Special Ability	TYPE:SpecialAbility	KEY:Trapfinding ~ Highwayman
+Leadership		CATEGORY:Special Ability	TYPE:SpecialAbility	KEY:Leadership ~ Highwayman
+Swift Tracker	CATEGORY:Special Ability	TYPE:SpecialAbility	KEY:Swift Tracker ~ Highwayman
+
+
+
+###Block: ~ Mystic Knight
+Intuitive Defense		KEY:Intuitive Defense ~ Mystic Knight	CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p.58
+Essence Finger		KEY:Essence Finger ~ Mystic Knight	CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p.58
+Weapon Focus		KEY:Weapon Focus ~ Mystic Knight	CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p.58
+Bonded Weapon		KEY:Bonded Weapon ~ Mystic Knight	CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p.58
+Navitus Flemen		KEY:Navitus Flemen ~ Mystic Knight	CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p.59	ABILITY:Special Ability|AUTOMATIC|Navitus Flemen
+Bladed Defender		KEY:Bladed Defender ~ Mystic Knight	DESC:+%1|MysticKnightBladedDefenderBonus		DEFINE:MysticKnightBladedDefenderBonus|0	CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p.60
+Power Bond I		KEY:power bond I ~ Mystic Knight	CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p.60
+Skill Focus			KEY:Skill Focus ~ Mystic Knight	CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p.60	BONUS:ABILITYPOOL|Skill Focus|MysticKnightSkillFocusCount	DEFINE:MysticKnightSkillFocusCount|0
+Essence Hand		KEY:Essence hand ~ Mystic Knight	CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p.60
+Power Bond II		KEY:power bond II ~ Mystic Knight	CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p.60
+Energy Bond I		KEY:Energy bond I ~ Mystic Knight	CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p.60
+Essence Manipulation	KEY:Essence manipulation ~ Mystic Knight	CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p.60
+Energy Bond II		KEY:Energy bond II ~ Mystic Knight			CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p.60
+Essence Mastery		KEY:Essence Mastery ~ Mystic Knight			CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p.60
+Navitus Flemen Mastery	KEY:Navitus Flemen mastery ~ Mystic Knight	CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p.60	BONUS:VAR|NavitusFlemenMasteryCount|1	ABILITY:Special Ability|AUTOMATIC|Navitus Flemen Mastery
+
+
+Navitus Flemen		KEY:Navitus Flemen			CATEGORY:Special Ability		BONUS:ABILITYPOOL|Navitus Flemen|NavitusFlemenCount	DEFINE:NavitusFlemenCount|0
+###Block:
+Navitus Flemen / Mend Discipline Level 1		CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemen.MavitusFlemenMend	SOURCEPAGE:p.59
+Navitus Flemen / Mend Discipline Level 2		CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemen.MavitusFlemenMend	SOURCEPAGE:p.59
+Navitus Flemen / Mend Discipline Level 3		CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemen.MavitusFlemenMend	SOURCEPAGE:p.59
+Navitus Flemen / Sense Discipline Level 1		CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemen.MavitusFlemenSense	SOURCEPAGE:p.59
+Navitus Flemen / Sense Discipline Level 2		CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemen.MavitusFlemenSense	SOURCEPAGE:p.59
+Navitus Flemen / Sense Discipline Level 3		CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemen.MavitusFlemenSense	SOURCEPAGE:p.59
+Navitus Flemen / Control Discipline Level 1	CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemen.MavitusFlemenControl	SOURCEPAGE:p.59
+Navitus Flemen / Control Discipline Level 2	CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemen.MavitusFlemenControl	SOURCEPAGE:p.59
+Navitus Flemen / Control Discipline Level 3	CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemen.MavitusFlemenControl	SOURCEPAGE:p.60
+
+Navitus Flemen Mastery	KEY:Navitus Flemen Mastery	CATEGORY:Special Ability	BONUS:ABILITYPOOL|Navitus Flemen Mastery|NavitusFlemenMasteryCount	DEFINE:NavitusFlemenMasteryCount|0
+###Block:
+Navitus Flemen / Mend Discipline Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemenMastery	SOURCEPAGE:p.60	PREABILITY:3,CATEGORY=Special Ability,TYPE.MavitusFlemenMend
+Navitus Flemen / Sense Discipline Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemenMastery	SOURCEPAGE:p.61	PREABILITY:3,CATEGORY=Special Ability,TYPE.MavitusFlemenSense
+Navitus Flemen / Control Discipline  Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemenMastery	SOURCEPAGE:p.61	PREABILITY:3,CATEGORY=Special Ability,TYPE.MavitusFlemenControl
+#
+Mystic Knight Martial Weapon Choice		CATEGORY:Special Ability		MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Sword,TYPE=Martial]	AUTO:FEAT|Mystic Knight Martial Weapon Choice (%LIST)	
+Mystic Knight Weapon Focus			CATEGORY:Special Ability		MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Mystic Knight Martial Weapon Choice
+Mystic Knight Skill Focus			CATEGORY:Special Ability		MULT:YES	CHOOSE:SKILL|CLASS
+###
+Mystic Knight Martial Weapon Choice	VISIBLE:NO		CATEGORY:FEAT	MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Sword,TYPE=Martial]
+
+
+###Block: ~ Oracle
+# Ability Name	Unique Key				Category of Ability		Type						Source Page	
+Craft Focus		KEY:Craft Focus ~ Oracle	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	SOURCEPAGE:p.63
+Empower		KEY:Empower ~ Oracle		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		SOURCEPAGE:p.63	
+Enlarge		KEY:Enlarge ~ Oracle		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		SOURCEPAGE:p.63
+Maximize		KEY:Maximize ~ Oracle		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		SOURCEPAGE:p.63
+Extend		KEY:Extend ~ Oracle		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		SOURCEPAGE:p.64
+
+
+###Block: ~ Utter Master
+# Ability Name			Unique Key							Category of Ability		Type						Define						Description						Automatically Gained Feat	Source Page		(Sp)
+Improved Counterspell		KEY:Improved Counterspell ~ Utter Master		CATEGORY:Special Ability	TYPE:SpecialQuality																						SOURCEPAGE:p.77
+Power Cast				KEY:Power Cast ~ Utter Master				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:UtterMasterPowerCastTimes|0		DESC: %1/day|UtterMasterPowerCastTimes						SOURCEPAGE:p.76
+Quick Cast				KEY:Quick Cast ~ Utter Master				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:UtterMasterQuickCastTimes|0		DESC: %1/day|UtterMasterQuickCastTimes						SOURCEPAGE:p.76
+Improved Spell Penetration	KEY:Improved Spell Penetration ~ Utter Master	CATEGORY:Special Ability	TYPE:SpecialQuality																						SOURCEPAGE:p.77
+Superior Spell Knowledge	KEY:Superior Spell Knowledge ~ Utter Master	CATEGORY:Special Ability	TYPE:SpecialQuality																						SOURCEPAGE:p.77
+
+
+### ~ Murmur
+Competence				KEY:Competence ~ Murmur					CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:MurmurCompetenceTimes|0		DESC:%1/day|MurmurCompetenceTimes							SOURCEPAGE:p.71
+Improved Feint			KEY:Improved Feint ~ Murmur				CATEGORY:Special Ability	TYPE:SpecialQuality																	AUTO:FEAT|Improved Feint	SOURCEPAGE:p.71
+Spells				KEY:Spells ~ Murmur					CATEGORY:Special Ability	TYPE:SpecialQuality																						SOURCEPAGE:p.71
+Tactical Attack			KEY:Tactical Attack ~ Murmur				CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:MurmurTacticalAttackBonus|0		DESC: +%1d6|MurmurTacticalAttackBonus						SOURCEPAGE:p.71
+Advantageous Step			KEY:Advantageous Step ~ Murmur			CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:MurmurAdvantageousStepTimes|0	DESC: %1/day|MurmurAdvantageousStepTimes						SOURCEPAGE:p.71
+Push					KEY:Push ~ Murmur						CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:MurmurPushTimes|0			DESC: %1/day|MurmurPushTimes								SOURCEPAGE:p.71
+
