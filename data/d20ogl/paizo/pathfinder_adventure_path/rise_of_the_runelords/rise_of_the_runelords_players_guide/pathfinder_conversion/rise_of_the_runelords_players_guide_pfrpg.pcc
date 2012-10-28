@@ -1,5 +1,5 @@
 # CVS $Revision$ $Author$ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
-CAMPAIGN:Paizo - Rise of the Runelords Player's Guide (Conversion)
+CAMPAIGN:Paizo - Rise of the Runelords Player's Guide
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Rise of the Runelords
 RANK:3
@@ -8,7 +8,7 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
-PRECAMPAIGN:1,Paizo - Pathfinder RPG Bestiary,Pathfinder RPG for Game Masters (includes Monsters)
+PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Bestiary,Pathfinder RPG for Game Masters (includes Monsters)
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com

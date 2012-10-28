@@ -1,5 +1,5 @@
 # CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
-CAMPAIGN:Paizo - Pathfinder RPG Advanced Player's Guide
+CAMPAIGN:Paizo - Pathfinder Roleplaying Game Advanced Player's Guide
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder RPG
 STATUS:ALPHA
@@ -8,7 +8,7 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder RPG
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
-!PRECAMPAIGN:1,Paizo - Pathfinder RPG Character Traits Web Enhancement
+!PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Character Traits Web Enhancement
 PUBNAMELONG:Paizo Publishing LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -67,7 +67,6 @@ DOMAIN:pfapg_domains.lst
 
 EQUIPMENT:pfapg_equip_armorshields.lst
 EQUIPMENT:pfapg_equip_armorshields_specific.lst
-EQUIPMENT:pfapg_equip_components.lst
 EQUIPMENT:pfapg_equip_rings.lst
 EQUIPMENT:pfapg_equip_rods.lst
 EQUIPMENT:pfapg_equip_staves.lst

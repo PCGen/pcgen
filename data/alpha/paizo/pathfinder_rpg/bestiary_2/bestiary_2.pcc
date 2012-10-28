@@ -1,5 +1,5 @@
 # CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
-CAMPAIGN:Paizo - Pathfinder RPG Bestiary 2
+CAMPAIGN:Paizo - Pathfinder Roleplaying Game Bestiary 2
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder RPG
 RANK:3
@@ -7,7 +7,7 @@ STATUS:ALPHA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder RPG
-PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder RPG Advanced Player's Guide
+PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com

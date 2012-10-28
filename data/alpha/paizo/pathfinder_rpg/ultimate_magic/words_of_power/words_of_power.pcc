@@ -1,5 +1,5 @@
 # CVS $Revision$ $Author$ -- Sat Apr  2 09:13:16 2011 -- reformated by prettylst.pl v1.39 (build 11455)
-CAMPAIGN:Paizo - Pathfinder RPG Ultimate Magic - Words of Power Subsystem
+CAMPAIGN:Paizo - Pathfinder Roleplaying Game Ultimate Magic - Words of Power subsystem
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder RPG
 RANK:3
@@ -7,7 +7,7 @@ STATUS:Alpha
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder RPG
-PRECAMPAIGN:1,Paizo - Pathfinder RPG Ultimate Magic
+PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Ultimate Magic
 PUBNAMELONG:Paizo Publishing LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com

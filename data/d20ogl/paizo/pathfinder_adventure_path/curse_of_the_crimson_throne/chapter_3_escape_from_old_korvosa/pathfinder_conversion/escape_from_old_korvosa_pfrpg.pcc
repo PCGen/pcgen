@@ -1,5 +1,5 @@
 # CVS $Revision$ $Author$ -- Sun Aug 10 10:12:11 2008 -- reformated by prettylst.pl v1.38 (build 6887)
-CAMPAIGN:Paizo - Curse of the Crimson Throne, Chapter 3: Escape from Old Korvosa (Conversion)
+CAMPAIGN:Paizo - Curse of the Crimson Throne, Chapter 3: Escape from Old Korvosa
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Curse of the Crimson Throne
 RANK:3
@@ -8,7 +8,7 @@ GENRE:Fantasy
 BOOKTYPE:Adventure
 SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
-PRECAMPAIGN:1,Paizo - Pathfinder RPG Bestiary,BOOKTYPE=Complete Core
+PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Bestiary,BOOKTYPE=Complete Core
 PRECAMPAIGN:1,Paizo - Curse of the Crimson Throne Player's Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo

@@ -1,5 +1,5 @@
 # CVS $Revision$ $Author$ -- Sat Dec  8 13:08:09 2007 -- reformated by prettylst.pl v1.38 (build 4387)
-CAMPAIGN:Paizo - Rise of the Runelords, Chapter 1: Burnt Offerings (Conversion)
+CAMPAIGN:Paizo - Rise of the Runelords, Chapter 1: Burnt Offerings
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Rise of the Runelords
 RANK:3
@@ -8,8 +8,8 @@ GENRE:Fantasy
 BOOKTYPE:Adventure
 SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
-PRECAMPAIGN:1,Paizo - Pathfinder RPG Bestiary,BOOKTYPE=Complete Core
-PRECAMPAIGN:1,Paizo - Rise of the Runelords Player's Guide (Conversion)
+PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Bestiary,BOOKTYPE=Complete Core
+PRECAMPAIGN:1,Paizo - Rise of the Runelords Player's Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com

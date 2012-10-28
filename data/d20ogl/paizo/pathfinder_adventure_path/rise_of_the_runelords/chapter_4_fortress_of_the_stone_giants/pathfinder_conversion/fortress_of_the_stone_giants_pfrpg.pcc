@@ -1,5 +1,5 @@
 # CVS $Revision$ $Author$ -- Mon Aug  4 12:09:38 2008 -- reformated by prettylst.pl v1.38 (build 7233)
-CAMPAIGN:Paizo - Rise of the Runelords, Chapter 4: Fortress of the Stone Giants (Conversion)
+CAMPAIGN:Paizo - Rise of the Runelords, Chapter 4: Fortress of the Stone Giants
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Rise of the Runelords
 RANK:3
@@ -8,8 +8,8 @@ GENRE:Fantasy
 BOOKTYPE:Adventure
 SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
-PRECAMPAIGN:1,Paizo - Pathfinder RPG Bestiary,BOOKTYPE=Complete Core,Pathfinder RPG for Game Masters (includes Monsters)
-PRECAMPAIGN:1,Paizo - Rise of the Runelords Player's Guide (Conversion)
+PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Bestiary,BOOKTYPE=Complete Core,Pathfinder RPG for Game Masters (includes Monsters)
+PRECAMPAIGN:1,Paizo - Rise of the Runelords Player's Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com

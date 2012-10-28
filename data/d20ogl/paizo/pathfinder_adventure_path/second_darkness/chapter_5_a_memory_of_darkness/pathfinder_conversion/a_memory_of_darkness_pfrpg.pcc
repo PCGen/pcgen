@@ -1,5 +1,5 @@
 # CVS $Revision$ $Author$ -- Sun Aug 10 23:59:36 2008 -- reformated by prettylst.pl v1.38 (build 7233)
-CAMPAIGN:Paizo - Second Darkness, Chapter 5: A Memory of Darkness (Conversion)
+CAMPAIGN:Paizo - Second Darkness, Chapter 5: A Memory of Darkness
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Second Darkness
 RANK:3
@@ -8,7 +8,7 @@ GENRE:Fantasy
 BOOKTYPE:Adventure
 SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
-PRECAMPAIGN:1,Paizo - Pathfinder RPG Bestiary,BOOKTYPE=Complete Core
+PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Bestiary,BOOKTYPE=Complete Core
 PRECAMPAIGN:1,Paizo - Second Darkness Player's Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo

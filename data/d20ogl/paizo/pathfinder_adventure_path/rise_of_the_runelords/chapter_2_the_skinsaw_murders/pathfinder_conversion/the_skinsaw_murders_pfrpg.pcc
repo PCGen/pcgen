@@ -1,5 +1,5 @@
 # CVS $Revision$ $Author$ -- Sat Jan 17 15:39:52 2004 -- reformated by prettylst.pl v1.31 (build 327)
-CAMPAIGN:Paizo - Rise of the Runelords, Chapter 2: The Skinsaw Murders (Conversion)
+CAMPAIGN:Paizo - Rise of the Runelords, Chapter 2: The Skinsaw Murders
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Rise of the Runelords
 RANK:3
@@ -8,8 +8,8 @@ GENRE:Fantasy
 BOOKTYPE:Adventure
 SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
-PRECAMPAIGN:1,Paizo - Pathfinder RPG Bestiary,BOOKTYPE=Complete Core,Pathfinder RPG for Game Masters (includes Monsters)
-PRECAMPAIGN:1,Paizo - Rise of the Runelords Player's Guide (Conversion)
+PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Bestiary,BOOKTYPE=Complete Core,Pathfinder RPG for Game Masters (includes Monsters)
+PRECAMPAIGN:1,Paizo - Rise of the Runelords Player's Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
