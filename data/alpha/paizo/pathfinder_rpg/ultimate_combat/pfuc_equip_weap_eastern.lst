@@ -38,9 +38,9 @@ Tube Arrow Shooter												TYPE:Weapon.EasternWeapon.Eastern.Ranged						COST
 Poisoned Sand Tube												TYPE:Weapon.EasternWeapon.Eastern.Ranged						COST:1	WT:1																					SIZE:M
 
 # Ammo
-Bamboo Shaft (10)																									COST:10	WT:.5																					SIZE:M
-Arrow (Iron-tipped Distance/20)
-Arrow (Whistling)
+Bamboo Shaft (10)													TYPE:Ammo.BambooShaft												COST:10	WT:.5																					SIZE:M
+Arrow (Iron-tipped Distance/20)										TYPE:Ammo.Arrow
+Arrow (Whistling)													TYPE:Ammo.Arrow
 
 
 ###Block: Eastern Weapons - Exotic
