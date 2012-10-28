@@ -1,0 +1,62 @@
+# CVS $Revision$ $Author$ -- Fri Apr 22 17:00:42 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html	SOURCEDATE:06-2005
+#Original Entry by: Tir Gwaith
+
+# How the heck to implement Improved Swimmer ?
+
+#Improved swimmer (Ex): The shark charmer must become a strong swimmer in order to survive at sea. He gains a +6
+#bonus to all swim checks, and can hold his breathe underwater for an additional 8 rounds underwater before incurring
+#penalties. The shark charmer does not suffer the normal penalties of other swimmers; other swimmers suffer double
+#the normal armor check penalties or double the normal encumbrance penalties while swimming. Improved swimmers
+#only suffer the normal armor check penalty or encumbrance penalty while swimming. Furthermore, he suffers only half
+#the penalties when attacking underwater; that is -1 to attacks with slashing or bludgeoning weapons and three-quarters
+#damage. Piercing weapons are always unaffected. Ranged weapons normally suffer a -2 to attack penalty for each 5 feet of
+#distance in addition to range penalties; the improved swimmer only suffers -1 to ranged attacks underwater for each 5 feet
+#of distance in addition to normal range penalties.
+
+#Shark Empathy - This acts as a  Diplomacy skill check to improve the attitudes of sharks.
+#The DC is the shark charmer's level plus his Charisma modifier plus the Shark Empathy bonus.
+#	What Shark Empathy bonus???  What value?  They just defined a DC...
+
+
+###Block:Ghost Hunter abilities
+# Ability Name					Category of Ability		Type								Define											Description																											Source Page
+Ethereal Attack					CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.AttackOption	DEFINE:EtheralAttack|0									DESC:+%1 attack bonus against ghosts|EtheralAttack																				SOURCEPAGE:p.130
+Ethereal Sight					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense		DEFINE:EtheralSightDuration|0	DEFINE:EtherealSightTimes|max(CHA,1)	DESC:See Etheral creatures %1 rounds (%2 / day)|EtheralSightDuration|EtherealSightTimes														SOURCEPAGE:p.131
+Ghostly Insight					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary															DESC:By observing a ghost for more than 4 rounds, you can determine what happend to the person or creature	DESC:+8 Diplomacy and Sense Motive when dealing with ghosts	SOURCEPAGE:p.131
+Resistance to Frightful Moan			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	DEFINE:ResistanceFrightfulMoanHD|0							DESC:Immune to feat causing effects of ghosts with %1 or less HD|ResistanceFrightfulMoanHD													SOURCEPAGE:p.131
+Improved Resistance to Frightful Moan	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.SaveBonus													DESC:+%1 to all Will saves when attempting to resist a ghost's fightful moan attack|CHA														SOURCEPAGE:p.131
+Planar Shift					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ModifyMovement	DEFINE:PlanarShiftDuration|CHA							DESC:Full round to shift, may stay for %1 rounds|PlanarShiftDuration																	SOURCEPAGE:p.131
+Contact Ether Plane				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																DESC:See text																										SOURCEPAGE:p.131
+
+###Block: Master Chef abilities
+# Ability Name				Output Name					Category of Ability		Type						Define			Innate Spells								Description											Source Page
+Master Chef Cure				OUTPUTNAME:Cure				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary															DESC:See text										SOURCEPAGE:p.132
+Handle Innards										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary															DESC:See text										SOURCEPAGE:p.132
+Identify Food										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary															DESC:See text										SOURCEPAGE:p.133
+Political Meal										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:PoliticalMeal|0											DESC:+%1 to Diplomacy when preparing and serving a meal.|PoliticalMeal	SOURCEPAGE:p.133
+Master Chef Purify Food and Drink	OUTPUTNAME:Purify Food and Drink	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike						SPELLS:Class|TIMES=1|CASTERLEVEL=10|Purify Food and Drink													SOURCEPAGE:p.133
+Sauce Maker											CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:SauceMaker|0											DESC:+%1 to Craft (Alchemy) when attempting to make a sauce.|SauceMaker	SOURCEPAGE:p.133
+
+###Block: Seasoned Veteran abilities
+# Ability Name		Category of Ability		Type						Define				Description										Source Page
+Leadership Quality	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:LeadershipQuality|0	DESC:Leadership +%1 as long as in the military|LeadershipQuality	SOURCEPAGE:p.134
+
+###Block: Shark Charmer abilities
+# Ability Name		Category of Ability		Type						Visible		Define																	Description																				Ability																									Combat bonus			Add to magical move					Bonus to skill						Stat bonus				Modify VAR																	Source Page		Temporary effect description
+Calm Shark			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike					DEFINE:CalmSharkHD|0	DEFINE:CalmSharkDuration|0	DEFINE:CalmSharkDC|11+CHA	DEFINE:CalmSharkLVL|0	DESC:2d4+%1 HD for %2 minutes (Will save DC %3)|CalmSharkHD|CalmSharkDuration|CalmSharkDC																																																											BONUS:VAR|CalmSharkHD|min(8,floor(CalmSharkLVL/2)*2)	BONUS:VAR|CalmSharkDuration,CalmSharkDC|CalmSharkLVL	SOURCEPAGE:p.136
+Charm Shark ~ Base	CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO		DEFINE:CharmSharkDC|11+CHA	DEFINE:CharmSharkDuration|0	DEFINE:CharmShark|1																										ABILITY:Special Ability|AUTOMATIC|Charm Shark|PREVAREQ:CharmShark,1	ABILITY:Special Ability|AUTOMATIC|Improved Charm Shark|PREVARGTEQ:CharmShark,2																																													SOURCEPAGE:p.137
+Charm Shark			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:EXPORT	DEFINE:CharmSharkRange|60														DESC:Charm shark up to %1 ft away for %2 hrs (Will DC %3)|CharmSharkRange|CharmSharkDuration|CharmSharkDC																																																																										SOURCEPAGE:p.137
+Improved Charm Shark	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:EXPORT	DEFINE:CharmSharkRange|80	DEFINE:CharmSharkNumber|max(1,CHA)								DESC:%1 Sharks up to %2 ft away for %1 hours (Will DC %4)|CharmSharkNumber|CharmSharkRange|CharmSharkDuration|CharmSharkDC																																																																							SOURCEPAGE:p.137
+Confusing Touch		CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike					DEFINE:ConfusingTouchTimes|CHA	DEFINE:ConfusingTouchDuration|3+CHA							DESC:%1 per day, confuse shark for %2 rounds with touch|ConfusingTouchTimes|ConfusingTouchDuration																																																																											SOURCEPAGE:p.137
+Identify Shark		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																						DESC:+2 to Survival skills when used against sharks																																																																																			SOURCEPAGE:p.137
+Improved Swimmer		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																						DESC:+8 rounds holding breath underwater and other abilities.																																																		BONUS:SKILL|Swim|6
+# Improved Swimmer not totally implemented
+Water Breathing	KEY:Water Breathing ~ Shark Charmer	CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike					DEFINE:WaterBreathingTimes|1	DEFINE:WaterBreathingDuration|CON								DESC:%1 day for up to %2 rounds|WaterBreathingTimes|WaterBreathingDuration																																																																															SOURCEPAGE:p.137
+Summon Shark		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				DEFINE:SummonSharkHD|0	DEFINE:SummonSharkLVL|0											DESC:%1 HD of shark(s) with use of a tribal musical charm|SummonSharkHD																																																														BONUS:VAR|SummonSharkHD|floor((SummonSharkLVL+1)/2)*4										SOURCEPAGE:p.137
+Shark Empathy		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																						DESC:+2 to Diplomacy, Intimidate, and Sense Motive in all dealings with Sharks																																																																														SOURCEPAGE:p.137
+Shark Spirit		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																						DESC:See text																																													BONUS:COMBAT|AC|6|PREAPPLY:PC	BONUS:POSTMOVEADD|TYPE.Swim|30|PREAPPLY:PC	BONUS:SKILL|Swim,Spot,Listen|8|PREAPPLY:PC	BONUS:STAT|STR|6|PREAPPLY:PC																			SOURCEPAGE:p.137	TEMPDESC:Shark Spirit Applied
+
+
+
+

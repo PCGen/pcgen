@@ -1,0 +1,24 @@
+# CVS $Revision$ $Author$ -- Fri Apr 22 15:38:49 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+#SOURCELONG:The Adventurer's Handbook	SOURCESHORT:AdHb	SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html	SOURCEDATE:06-2005
+# Original Entry by: Tir Gwaith, Eddy Anthony, Andrew Maitland
+#
+# Ability Categories
+#
+
+
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list				Plural description for UI				Display Location
+ABILITYCATEGORY:Dwonome Familiarity		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DwonomeFamiliarity									PLURAL:Dwonome Weapon Familiarity Choices		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Gnomling Familiarity	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GnomlingFamiliarity								PLURAL:Gnomling Weapon Familiarity Choices	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half Dwarf Early Life	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalfDwarfEarlyLife									PLURAL:Half-Dwarf Early Life Choices		DISPLAYLOCATION:Racial Abilities
+
+# Class Stuff
+ABILITYCATEGORY:Favored Prey Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredPreyChoice									PLURAL:Favored Prey Choices				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Witch Favored Race		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WitchFavoredRace									PLURAL:Witch Favored Races				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Psionist Feat Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Metapsionic.ItemCreation								PLURAL:Psionic Feat Choices				DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Mentalist Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Psionic.Fighter									PLURAL:Psionic Feat Choices				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Mentalist Exotic Weapon	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Exotic Weapon Proficiency	PLURAL:Psionic Feat Choices				DISPLAYLOCATION:Feats
+
+
+
+

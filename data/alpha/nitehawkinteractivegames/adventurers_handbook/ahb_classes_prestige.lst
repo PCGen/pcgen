@@ -1,0 +1,80 @@
+# CVS $Revision$ $Author$ -- Fri Apr 22 15:38:49 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html	SOURCEDATE:06-2005
+#Original Entry by: Tir Gwaith
+
+# Seasoned Veteran: What's with the BAB +6/+4/+2 bits?  Nothing explained beyond the progression table.
+# - Per Nitehawk, they'll likely do a rev2 of the book correcting some of these oddities, for now, the progression CANNOT be done at this time.
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus
+CLASS:Ghost Hunter	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.130	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|min(1,CL/2)+min(1,CL/5)	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Feat		Required Skill						Required Text
+CLASS:Ghost Hunter	PREATT:4	PREFEAT:1,Alertness	PRESKILL:2,Knowledge (Undead)=4,Sense Motive=4	PRETEXT:To become a ghost hunter the player character must have encountered and defied the approaches of at least one ghost, without the aid of others or magical assistance.
+# Class Name		Class Skill
+CLASS:Ghost Hunter	CSKILL:Concentration|TYPE.Craft|Diplomacy|Knowledge (Undead)|Listen|Search|Sense Motive|Spot
+###Block:Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+###Block:Level Progression
+1	BONUS:VAR|ResistanceFrightfulMoanHD|CL	ABILITY:Special Ability|AUTOMATIC|Resistance to Frightful Moan
+2								ABILITY:Special Ability|AUTOMATIC|Ghostly Insight
+3	BONUS:VAR|EtheralSightDuration|CL		ABILITY:Special Ability|AUTOMATIC|Ethereal Sight
+4	BONUS:VAR|EtheralAttack|CL/2-1		ABILITY:Special Ability|AUTOMATIC|Ethereal Attack
+5	BONUS:VAR|PlanarShiftDuration|CL		ABILITY:Special Ability|AUTOMATIC|Planar Shift
+7								ABILITY:Special Ability|AUTOMATIC|Improved Resistance to Frightful Moan
+9								ABILITY:Special Ability|AUTOMATIC|Contact Ether Plane
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Master Chef	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.132	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+1)/2-1	BONUS:CHECKS|BASE.Will|max(CL-3,0)+1	BONUS:COMBAT|BAB|max(0,CL-1)|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Skill														Required Text
+CLASS:Master Chef	PREATT:1	PRESKILL:1,Craft (Cooking)=4	PRESKILL:2,Knowledge (Agriculture)=2,Knowledge (Spices and Herbs)=2	PRETEXT:To become a master chef, the character must have trained under a chef or cook for 10 years.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Master Chef	STARTSKILLPTS:2	CSKILL:Craft (Alchemy)|Craft (Cooking)|Knowledge (Agriculture)|Knowledge (Food Preparation)|Knowledge (Seas and Oceans)|Knowledge (Spices and Herbs)|Knowledge (any specific foods)|TYPE.Perform|Profession (Chef)
+###Block:Proficiencies
+1						AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:ARMORPROF|Padded|Leather
+###Block:Level Progression
+1	BONUS:SKILL|Craft (Cooking)|min((CL+1)/2,5)	BONUS:VAR|SauceMaker|(floor(CL/4)+1)*22	ABILITY:Special Ability|AUTOMATIC|Identify Food|Sauce Maker
+2									BONUS:VAR|PoliticalMeal|CL/2			ABILITY:Special Ability|AUTOMATIC|Political Meal
+3																												AUTO:FEAT|Alertness
+5																ABILITY:Special Ability|AUTOMATIC|Handle Innards
+9																ABILITY:Special Ability|AUTOMATIC|Master Chef Cure
+10																ABILITY:Special Ability|AUTOMATIC|Master Chef Purify Food and Drink
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus
+CLASS:Seasoned Veteran	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.134	BONUS:CHECKS|BASE.Fortitude|CL	BONUS:CHECKS|BASE.Reflex|(CL+3)/3	BONUS:CHECKS|BASE.Will|CL/2	BONUS:COMBAT|BAB|CL+1|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Feat			Required Text
+CLASS:Seasoned Veteran	PREATT:6	PREFEAT:1,Combat Reflexes	PRETEXT:To become a Seasoned Veteran, the character must have actively participated in a minimum of three major campaign battles.
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Seasoned Veteran	STARTSKILLPTS:2	CSKILL:Bluff|TYPE.Craft|Handle Animal|Intimidate|Listen|TYPE.Profession|Ride|Search|Spot
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1													AUTO:FEAT|Shield Proficiency
+###Block:Level Progression
+1						BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base	AUTO:FEAT|Combat Expertise
+2	BONUS:ABILITYPOOL|FEAT|1
+3						BONUS:VAR|UncannyDodgeLevel|1																AUTO:FEAT|Improved Disarm
+4	BONUS:ABILITYPOOL|FEAT|1	BONUS:VAR|LeadershipQuality|CL-3					ABILITY:Special Ability|AUTOMATIC|Leadership Quality
+5																										AUTO:FEAT|Improved Feint
+#COMMENT: BAB Progression CANNOT be implemented at this time.
+
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus																									Combat bonus
+CLASS:Shark Charmer	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.136	BONUS:CHECKS|BASE.Fortitude|(CL+1)/2+max(0,CL/2-3)	BONUS:CHECKS|BASE.Reflex|max(1,(CL+1)/3)	BONUS:CHECKS|BASE.Will|min(1,CL/4)+floor(max(0,min(2,(CL-5)/2)))	BONUS:COMBAT|BAB|CL/2+floor(min(1,CL/9))|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Feat		Required Skill								Required Text
+CLASS:Shark Charmer	PREATT:4	PREFEAT:1,Endurance	PRESKILL:1,Knowledge (Seas and Oceans)=2	PRESKILL:1,Swim=4	PRETEXT:To become a shark charmer the character must have killed at least one shark without aid from others.
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Shark Charmer	STARTSKILLPTS:2	CSKILL:Handle Animal|Knowledge (Seas and Oceans)|Sense Motive|Survival|Swim|Use Rope
+###Block:Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+###Block:Level Progression
+1	BONUS:VAR|SummonSharkLVL|CL				ABILITY:Special Ability|AUTOMATIC|Summon Shark|Improved Swimmer
+2	BONUS:VAR|CalmSharkLVL|CL				ABILITY:Special Ability|AUTOMATIC|Identify Shark|Calm Shark|Shark Empathy
+3									ABILITY:Special Ability|AUTOMATIC|Confusing Touch
+5	BONUS:VAR|CharmSharkDC,CharmSharkDuration|CL	ABILITY:Special Ability|AUTOMATIC|Charm Shark ~ Base
+7	BONUS:VAR|WaterBreathingDuration|CL*2		ABILITY:Special Ability|AUTOMATIC|Water Breathing ~ Shark Charmer
+10	BONUS:VAR|CharmShark|1					ABILITY:Special Ability|AUTOMATIC|Shark Spirit
+
+
+

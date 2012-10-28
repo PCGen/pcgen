@@ -1,0 +1,512 @@
+# CVS $Revision$ $Author$ -- Fri Apr 22 17:00:42 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html	SOURCEDATE:06-2005
+#Original Entry by: Tir Gwaith and Andrew Maitland
+
+
+# Spell Name				Classes of caster									Domains granting the spell	School			Sub-School			Spell Descriptors			Components			Casting Time			Range						Target Area or Effect												Duration								Save Info								Spell Resistance			Cost		XP Cost	Source Page
+Aerial Battle				CLASSES:Sorcerer,Wizard=3												SCHOOL:Transmutation					DESCRIPTOR:Air			COMPS:V			CASTTIME:Free-Action		RANGE:Touch					TARGETAREA:1 creature												DURATION:(CASTERLEVEL) rounds					SAVEINFO:None							SPELLRES:No								SOURCEPAGE:96
+Ancient Counsel				CLASSES:Cleric,Shaman=7													SCHOOL:Divination											COMPS:V, S, M, DF, XP	CASTTIME:10 minutes		RANGE:Personal				TARGETAREA:You													DURATION:1 hour plus see below [D]																				XPCOST:300	SOURCEPAGE:97
+Argent Sword				CLASSES:Outcast,Sorcerer,Wizard=4											SCHOOL:Evocation											COMPS:V, S, M		CASTTIME:1 standard action	RANGE:(CASTERLEVEL*5+10) ft.		TARGETAREA:Creature(s) attacked										DURATION:(CASTERLEVEL*2) rounds [D]				SAVEINFO:None							SPELLRES:No				COST:20			SOURCEPAGE:98
+Battlescars					CLASSES:Cleric,Shaman=0													SCHOOL:Transmutation										COMPS:V, S, M		CASTTIME:1 standard action	RANGE:Touch					TARGETAREA:One creature												DURATION:Instantaneous						SAVEINFO:Yes (harmless)						SPELLRES:Yes (harmless)						SOURCEPAGE:98
+Boneshatter					CLASSES:Cleric,Shaman,Sorcerer,Wizard,Witch=6				DOMAINS:Death=6			SCHOOL:Necromancy											COMPS:V, S, M		CASTTIME:1 standard action	RANGE:Medium				TARGETAREA:One creature												DURATION:Instantaneous						SAVEINFO:Fortitude partial (See text)			SPELLRES:Yes							SOURCEPAGE:99
+Calimar's Calamitous Conflaagration	CLASSES:Sorcerer,Wizard=4												SCHOOL:Evocation						DESCRIPTOR:Fire			COMPS:V, S, M		CASTTIME:1 standard action	RANGE:20 ft.				TARGETAREA:15 ft. radius spread										DURATION:Instantaneous						SAVEINFO:None							SPELLRES:Yes							SOURCEPAGE:99	NAMEISPI:YES
+Campsite					CLASSES:Bard,Shaman,Sorcerer,Wizard=5|Druid,Outcast,Ranger=4						SCHOOL:Conjuration	SUBSCHOOL:Creation						COMPS:V, S			CASTTIME:10 minutes		RANGE:Touch					TARGETAREA:Campsite												DURATION:(6+CASTERLEVEL) hours				SAVEINFO:None							SPELLRES:No								SOURCEPAGE:100
+Charming Flare				CLASSES:Bard,Sorcerer,Wizard,Witch=0										SCHOOL:Enchantment	SUBSCHOOL:Charm							COMPS:S			CASTTIME:Free-action		RANGE:Personal				TARGETAREA:You													DURATION:(CASTERLEVEL*30+60) minutes																					SOURCEPAGE:100
+Deeppack					CLASSES:Druid,Outcast,Sorcerer,Wizard=4										SCHOOL:Transmutation										COMPS:V, S, M, F		CASTTIME:30 minutes		RANGE:Touch					TARGETAREA:1 backpack												DURATION:(CASTERLEVEL*2) days					SAVEINFO:None (harmless)														SOURCEPAGE:100
+Deep Sleep					CLASSES:Bard,Sorcerer,Wizard,Witch=2|Ranger=3									SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting	COMPS:V, S, M		CASTTIME:1 rMediumound		RANGE:Medium				TARGETAREA:Several creatures within a 20 ft. radius burst						DURATION:(CASTERLEVEL*2) minutes				SAVEINFO:Will negates						SPELLRES:Yes							SOURCEPAGE:101
+Disperse Air				CLASSES:Cleric,Druid,Shaman=3							DOMAINS:Air=3			SCHOOL:Transmutation					DESCRIPTOR:Air			COMPS:V, S			CASTTIME:1 standard action	RANGE:Long					TARGETAREA:30 ft. radius burst										DURATION:Instantaneous						SAVEINFO:None (See text)					SPELLRES:No								SOURCEPAGE:101
+Dragon's Coat				CLASSES:Cleric=4									DOMAINS:Strength=4		SCHOOL:Transmutation										COMPS:V, S, M		CASTTIME:1 standard action	RANGE:Touch					TARGETAREA:1 living creature											DURATION:(CASTERLEVEL+2) rounds				SAVEINFO:Will negates (harmless)				SPELLRES:Yes (harmless)						SOURCEPAGE:102
+Dream Trap					CLASSES:Cleric,Shaman,Sorcerer,Wizard,Witch=6				DOMAINS:Trickery=6		SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting	COMPS:V, S			CASTTIME:1 minute			RANGE:120 ft.				TARGETAREA:30 ft. radius burst										DURATION:(CASTERLEVEL*10) minutes				SAVEINFO:Will negates						SPELLRES:Yes							SOURCEPAGE:102
+Dual Ray					CLASSES:Cleric,Sorcerer,Wizard=4						DOMAINS:Fire=4			SCHOOL:Evocation						DESCRIPTOR:Fire			COMPS:V, S, M		CASTTIME:1 standard action	RANGE:(CASTERLEVEL*10+20) ft.		TARGETAREA:Two creatures within 20 ft. of each other							DURATION:(CASTERLEVEL) rounds					SAVEINFO:None							SPELLRES:Yes			COST:30			SOURCEPAGE:102
+Dweomer's Brutal Beating Protection	CLASSES:Cleric,Sorcerer,Wizard=5						DOMAINS:Protection=5		SCHOOL:Abjuration						DESCRIPTOR:Force			COMPS:V, S, M		CASTTIME:1 standard action	RANGE:Touch					TARGETAREA:Creature touched											DURATION:Permanent until discharged				SAVEINFO:Will negates (harmless)				SPELLRES:Yes (harmless)						SOURCEPAGE:103
+Ear of Nature				CLASSES:Druid,Shaman=0|Outcast,Ranger,Sorcerer,Wizard=1							SCHOOL:Divination											COMPS:V			CASTTIME:1 standard action	RANGE:Touch					TARGETAREA:One living creature										DURATION:1d4 hours						SAVEINFO:Will negates (harmless)				SPELLRES:Yes (harmless)						SOURCEPAGE:103
+Earth Wave					CLASSES:Druid,Shaman=3|Sorcerer,Wizard=4					DOMAINS:Earth=3			SCHOOL:Conjuration					DESCRIPTOR:Earth			COMPS:V, S			CASTTIME:1 standard action	RANGE:Close					TARGETAREA:(CASTERLEVEL*10+30) ft. radius semi-circular burst					DURATION:Instantaneous						SAVEINFO:Reflex partial (See text)				SPELLRES:None							SOURCEPAGE:103
+Find Hidden Doors				CLASSES:Cleric,Druid,Outcast,Ranger,Shaman=1				DOMAINS:Knowledge=1		SCHOOL:Divination											COMPS:V, S			CASTTIME:1 full round		RANGE:60 ft.				TARGETAREA:Quarter circle emanating from the caster to the extreme of the range		DURATION:Concentration, up to (CASTERLEVEL) minutes	SAVEINFO:None							SPELLRES:No								SOURCEPAGE:104
+Fire Eyes					CLASSES:Sorcerer,Wizard=1												SCHOOL:Evocation						DESCRIPTOR:Fire			COMPS:V, S			CASTTIME:1 standard action	RANGE:(CASTERLEVEL*5) ft.		TARGETAREA:First creature or object in direct line of sight, within range of spell		DURATION:(CASTERLEVEL) rounds of the caster		SAVEINFO:Reflex negates						SPELLRES:Yes							SOURCEPAGE:104
+Force Push					CLASSES:Cleric,Sorcerer,Wizard=3						DOMAINS:Strength=3		SCHOOL:Evocation						DESCRIPTOR:Force			COMPS:V			CASTTIME:1 standard action	RANGE:Close					TARGETAREA:One creature at least 15 ft. away								DURATION:1d4 rounds						SAVEINFO:Will negates						SPELLRES:Yes							SOURCEPAGE:105
+Gluey Air					CLASSES:Cleric,Druid,Shaman=2							DOMAINS:Air=2			SCHOOL:Transmutation					DESCRIPTOR:Air			COMPS:V, S, M		CASTTIME:1 standard action	RANGE:Long					TARGETAREA:1 creature												DURATION:(CASTERLEVEL) rounds					SAVEINFO:None							SPELLRES:No								SOURCEPAGE:105
+Campsite (Greater)		OUTPUTNAME:Greater Campsite		CLASSES:Bard,Shaman,Sorcerer,Wizard=6|Druid=5									SCHOOL:Conjuration	SUBSCHOOL:Creation						COMPS:V, S			CASTTIME:10 minutes		RANGE:Touch					TARGETAREA:Campsite												DURATION:(CASTERLEVEL+8) hours				SAVEINFO:None							SPELLRES:No								SOURCEPAGE:105
+Haunting					CLASSES:Cleric,Shaman=9								DOMAINS:Death=9			SCHOOL:Necromancy						DESCRIPTOR:Evil			COMPS:V, S, M, DF		CASTTIME:30 minutes		RANGE:10 ft.				TARGETAREA:(CASTERLEVEL*100)-yard radius, centered on the caster's location			DURATION:Instantaneous						SAVEINFO:None							SPELLRES:No								SOURCEPAGE:106
+Mists of Time				CLASSES:Cleric,Sorcerer,Wizard=9						DOMAINS:Knowledge=9		SCHOOL:Divination											COMPS:V, S, M		CASTTIME:8 hours			RANGE:Personal				TARGETAREA:You													DURATION:(CASTERLEVEL*10) minutes																		COST:3000	XPCOST:500	SOURCEPAGE:106
+Nature's Health				CLASSES:Druid,Shaman=3|Outcast=4											SCHOOL:Conjuration	SUBSCHOOL:Healing							COMPS:V			CASTTIME:1 standard action	RANGE:Touch					TARGETAREA:Creature touched											DURATION:1d8 hours						SAVEINFO:None or Will negates (harmless)			SPELLRES:Yes (harmless)						SOURCEPAGE:107
+Outcast					CLASSES:Cleric,Sorcerer,Wizard=6											SCHOOL:Abjuration											COMPS:V, S, M		CASTTIME:1 standard action	RANGE:20 ft.				TARGETAREA:One living creature										DURATION:Instantaneous						SAVEINFO:Will negates						SPELLRES:Yes			COST:100			SOURCEPAGE:107
+Returned Outcast				CLASSES:Cleric,Sorcerer,Wizard=6											SCHOOL:Conjuration										COMPS:V, S, M		CASTTIME:1 standard action	RANGE:Special				TARGETAREA:One living creature previously outcas							DURATION:Instantaneous						SAVEINFO:Will negates (harmless)				SPELLRES:Yes (harmless)						SOURCEPAGE:107
+Repel Animal				CLASSES:Cleric,Druid,Shaman=5							DOMAINS:Animal=5			SCHOOL:Abjuration											COMPS:V, S, DF		CASTTIME:1 standard action	RANGE:10 ft.				TARGETAREA:10 ft. radius centered on the caster								DURATION:(10*CASTERLEVEL) minutes				SAVEINFO:None or Will negates					SPELLRES:Yes							SOURCEPAGE:107
+Sleeplessness				CLASSES:Bard,Sorcerer,Wizard,Witch=2|Ranger=3									SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting	COMPS:V, S			CASTTIME:1 standard action	RANGE:Long					TARGETAREA:1 creature												DURATION:(CASTERLEVEL+1) hours				SAVEINFO:Will negates (harmless)				SPELLRES:Yes (harmless)						SOURCEPAGE:108
+Spellbane's Spell-Exchange		CLASSES:Cleric,Sorcerer,Wizard=5						DOMAINS:Protection=5		SCHOOL:Abjuration											COMPS:V, S, M		CASTTIME:1 minute			RANGE:Personal				TARGETAREA:You													DURATION:(CASTERLEVEL*5) minutes																		COST:300			SOURCEPAGE:108
+Spikeskin					CLASSES:Sorcerer,Wizard=1												SCHOOL:Transmutation										COMPS:V, S			CASTTIME:1 standard action	RANGE:15 ft.				TARGETAREA:1 creature												DURATION:(CASTERLEVEL) rounds					SAVEINFO:None							SPELLRES:Yes							SOURCEPAGE:108
+Spin						CLASSES:Sorcerer,Wizard,Witch=4											SCHOOL:Enchantment	SUBSCHOOL:Compulsion						COMPS:V, S			CASTTIME:1 standard action	RANGE:(CASTERLEVEL*5+30) ft.		TARGETAREA:1 creature												DURATION:1 minute							SAVEINFO:Will negates						SPELLRES:Yes							SOURCEPAGE:109
+Starstruck					CLASSES:Sorcerer,Wizard=5												SCHOOL:Evocation						DESCRIPTOR:Electricity		COMPS:V, S			CASTTIME:1 standard action	RANGE:Medium				TARGETAREA:Up to 10 targets no two can be more than 30 ft. apart					DURATION:Instantaneous						SAVEINFO:None							SPELLRES:Yes							SOURCEPAGE:109
+Starswarm					CLASSES:Sorcerer,Wizard=7												SCHOOL:Evocation						DESCRIPTOR:Electricity		COMPS:V, S			CASTTIME:1 standard action	RANGE:Long					TARGETAREA:Up to 20 targets no two can be more than 50 ft. apart					DURATION:Instantaneous						SAVEINFO:None							SPELLRES:Yes							SOURCEPAGE:109
+Synergetic Whip				CLASSES:Sorcerer,Wizard=1												SCHOOL:Evocation						DESCRIPTOR:Force			COMPS:V			CASTTIME:1 standard action	RANGE:15 ft.				TARGETAREA:A whip of light											DURATION:(CASTERLEVEL+5) rounds [D]				SAVEINFO:None							SPELLRES:Yes							SOURCEPAGE:110
+Temporary Permanency			CLASSES:Sorcerer,Wizard,Witch=4											SCHOOL:Universal											COMPS:V, S			CASTTIME:2 full rounds		RANGE:See text				TARGETAREA:See text												DURATION:2d4+1 hours						SAVEINFO:None							SPELLRES:No								SOURCEPAGE:110
+Tent						CLASSES:Bard,Sorcerer,Wizard=3|Druid,Outcast,Ranger,Shaman=2						SCHOOL:Conjuration	SUBSCHOOL:Creation						COMPS:V, S			CASTTIME:5 minutes		RANGE:Touch					TARGETAREA:Campsite												DURATION:(6+CASTERLEVEL) hours				SAVEINFO:None							SPELLRES:No								SOURCEPAGE:110
+Tribal Mask					CLASSES:Shaman=3														SCHOOL:Transmutation										COMPS:V, S, F		CASTTIME:1 standard action	RANGE:Personal				TARGETAREA:You													DURATION:(CASTERLEVEL) hours																							SOURCEPAGE:111
+Turn Haunting				CLASSES:Cleric,Shaman=9								DOMAINS:Death=9			SCHOOL:Necromancy											COMPS:V, S, M, DF		CASTTIME:30 minutes		RANGE:Touch					TARGETAREA:(100*CASTERLEVEL) yard radius									DURATION:Instantaneous						SAVEINFO:None							SPELLRES:Yes			COST:1500			SOURCEPAGE:111
+
+# New School Atomicancy Spells
+Densification				CLASSES:Sorcerer,Wizard=6												SCHOOL:Atomicancy		SUBSCHOOL:Alter							COMPS:V, S, M		CASTTIME:1 standard action	RANGE:Long					TARGETAREA:(CASTERLEVEL/5) creatures, no two of which can be more than 20' apart		DURATION:(CASTERLEVEL) rounds					SAVEINFO:Fortitude negates					SPELLRES:Yes
+Delayed Fusion				CLASSES:Sorcerer,Wizard=9												SCHOOL:Atomicancy		SUBSCHOOL:Energy							COMPS:V, S, M		CASTTIME:1 standard action	RANGE:Long																				DURATION:See text
+Delayed Static Shock			CLASSES:Bard=1|Sorcerer,Wizard=1											SCHOOL:Atomicancy		SUBSCHOOL:Alter							COMPS:V, S			CASTTIME:1 standard action	RANGE:Touch					TARGETAREA:1 item													DURATION:Until discharged					SAVEINFO:None							SPELLRES:Yes (harmless)
+Energy Swarm				CLASSES:Sorcerer,Wizard=8												SCHOOL:Atomicancy		SUBSCHOOL:Energy							COMPS:V, S, M		CASTTIME:1 standard action	RANGE:Medium				TARGETAREA:1 creature												DURATION:(CASTERLEVEL) rounds					SAVEINFO:None							SPELLRES:Yes (see below)
+Freeze Light				CLASSES:Bard,Druid,Outcast,Ranger,Sorcerer,Wizard,Witch=2							SCHOOL:Atomicancy		SUBSCHOOL:Energy		DESCRIPTOR:Light			COMPS:V, S			CASTTIME:1 standard action	RANGE:25 ft.				TARGETAREA:25 ft. radius emanation from center of spell						DURATION:(CASTERLEVEL) hours					SAVEINFO:None							SPELLRES:None
+Fusion					CLASSES:Sorcerer,Wizard=8						KEY:Fusion ~ ahb						SCHOOL:Atomicancy		SUBSCHOOL:Energy							COMPS:V, S, M		CASTTIME:1 standard action	RANGE:Long					TARGETAREA:1 creature plus (CASTERLEVEL*10) ft. radius spread from target			DURATION:Instantaneous						SAVEINFO:Fortitude half or Reflex quarter (see below)	SPELLRES:Yes
+Intense Static Shock			CLASSES:Bard=2|Sorcerer,Wizard=2											SCHOOL:Atomicancy		SUBSCHOOL:Alter		DESCRIPTOR:Electricity		COMPS:S			CASTTIME:1 standard action	RANGE:Long					TARGETAREA:1 creature												DURATION:Instantaneous						SAVEINFO:None							SPELLRES:Yes
+Magnetism					CLASSES:Sorcerer,Wizard=1												SCHOOL:Atomicancy		SUBSCHOOL:Alter							COMPS:V, S			CASTTIME:1 standard action	RANGE:(20+(CASTERLEVEL*10)) ft.	TARGETAREA:1 item or creature											DURATION:(2+(CASTERLEVEL)) minutes				SAVEINFO:Will negates						SPELLRES:Yes
+Mercury Release				CLASSES:Sorcerer,Wizard=7												SCHOOL:Atomicancy		SUBSCHOOL:Alter							COMPS:V, S, M		CASTTIME:1 standard action	RANGE:Long					TARGETAREA:One creature												DURATION:Instantaneous						SAVEINFO:Fortitude negates (harmless)			SPELLRES:Yes (harmless)
+Negative Pulse				CLASSES:Sorcerer,Wizard=4												SCHOOL:Atomicancy		SUBSCHOOL:Energy							COMPS:V, S			CASTTIME:1 standard action	RANGE:Long					TARGETAREA:40 ft. radius spread										DURATION:Instantaneous (see below)				SAVEINFO:Reflex half						SPELLRES:Yes
+Positive Pulse				CLASSES:Sorcerer,Wizard=4												SCHOOL:Atomicancy		SUBSCHOOL:Energy							COMPS:V, S			CASTTIME:1 standard action	RANGE:Long					TARGETAREA:40 ft. radius spread										DURATION:Instantaneous (see below)				SAVEINFO:Reflex half						SPELLRES:Yes
+Protection from Atomicancy		CLASSES:Cleric,Sorcerer,Wizard=3											SCHOOL:Atomicancy		SUBSCHOOL:Alter							COMPS:V, S, DF		CASTTIME:1 standard action	RANGE:Touch					TARGETAREA:Creature touched											DURATION:(CASTERLEVEL*10) minutes or until discharged	SAVEINFO:Fortitude negates (harmless)			SPELLRES:Yes (harmless)
+Protonic Passage				CLASSES:Sorcerer,Wizard=5												SCHOOL:Atomicancy		SUBSCHOOL:Energy							COMPS:V, S, M		CASTTIME:1 standard action	RANGE:30 ft.				TARGETAREA:1 creature												DURATION:(CASTERLEVEL*10) minutes				SAVEINFO:Fortitude negates					SPELLRES:Yes
+Quantum Release				CLASSES:Sorcerer,Wizard=3												SCHOOL:Atomicancy		SUBSCHOOL:Alter							COMPS:V, S, M		CASTTIME:1 standard action	RANGE:Touch					TARGETAREA:Item touched/ up to (CASTERLEVEL)' x (CASTERLEVEL)' x (CASTERLEVEL)' cube	DURATION:(CASTERLEVEL) minutes				SAVEINFO:Will (harmless)					SPELLRES:Yes (harmless)
+Resist Atomicancy				CLASSES:Cleric,Sorcerer,Wizard=2											SCHOOL:Atomicancy		SUBSCHOOL:Alter							COMPS:V, S, DF		CASTTIME:1 standard action	RANGE:Touch					TARGETAREA:Creature touched											DURATION:(CASTERLEVEL*10) minutes				SAVEINFO:Fortitude negates (harmless)			SPELLRES:Yes (harmless)
+Static Shock				CLASSES:Bard,Sorcerer,Wizard=0											SCHOOL:Atomicancy		SUBSCHOOL:Alter		DESCRIPTOR:Electricity		COMPS:S			CASTTIME:1 standard action	RANGE:Medium				TARGETAREA:1 creature												DURATION:Instantaneous						SAVEINFO:Special (see below)					SPELLRES:Yes (harmless)
+Touch of Quick Silver			CLASSES:Sorcerer,Wizard=7												SCHOOL:Atomicancy		SUBSCHOOL:Alter		DESCRIPTOR:Death|Evil		COMPS:V, S, M		CASTTIME:1 standard action	RANGE:Long					TARGETAREA:1 creature												DURATION:Instantaneous						SAVEINFO:Fortitude negates					SPELLRES:Yes
+
+
+# New Domain Animal Spirit Spells
+Birds of a Feather			CLASSES:Druid=4|Shaman=4							DOMAINS:Animal Spirit=4		SCHOOL:Transmutation										COMPS:V, S, M		CASTTIME:1 standard action	RANGE:Personal				TARGETAREA:You													DURATION:(CASTERLEVEL*10) minutes
+Call of the Pack				CLASSES:Druid=7|Shaman=7							DOMAINS:Animal Spirit=7		SCHOOL:Transmutation										COMPS:V, S			CASTTIME:1 standard action	RANGE:Personal				TARGETAREA:You													DURATION:8 hours [D]
+Claws of the Wolverine			CLASSES:Druid=2|Shaman=2							DOMAINS:Animal Spirit=2		SCHOOL:Transmutation										COMPS:V, S			CASTTIME:1 standard action	RANGE:Personal				TARGETAREA:You													DURATION:(CASTERLEVEL*15) minutes
+Eagle Sight					CLASSES:Druid=3|Shaman=3							DOMAINS:Animal Spirit=3		SCHOOL:Transmutation										COMPS:V, S			CASTTIME:1 standard action	RANGE:Personal				TARGETAREA:You													DURATION:(CASTERLEVEL*10) minutes
+Mole Sense					CLASSES:Druid=1|Shaman=1							DOMAINS:Animal Spirit=1		SCHOOL:Transmutation										COMPS:V, S			CASTTIME:1 standard action	RANGE:Personal				TARGETAREA:You													DURATION:(CASTERLEVEL*10) minutes
+Spirit of the Grizzly			CLASSES:Druid=9|Shaman=9							DOMAINS:Animal Spirit=9		SCHOOL:Transmutation										COMPS:V, S			CASTTIME:1 standard action	RANGE:Personal				TARGETAREA:You													DURATION:Until discharged [D]
+Spirit of the Night			CLASSES:Druid=5|Shaman=5							DOMAINS:Animal Spirit=5		SCHOOL:Transmutation										COMPS:V, S			CASTTIME:1 standard action	RANGE:Personal				TARGETAREA:You													DURATION:(CASTERLEVEL*10) minutes
+Spirit of the Predator			CLASSES:Druid=6|Shaman=6							DOMAINS:Animal Spirit=6		SCHOOL:Transmutation										COMPS:V, S			CASTTIME:1 standard action	RANGE:Personal				TARGETAREA:You													DURATION:(CASTERLEVEL*10) minutes
+Spirit of the Sea				CLASSES:Druid=8|Shaman=8							DOMAINS:Animal Spirit=8		SCHOOL:Transmutation										COMPS:V, S, M, F		CASTTIME:1 standard action	RANGE:Personal				TARGETAREA:You													DURATION:(CASTERLEVEL) hour [D]
+
+
+#Block: Shaman Spells
+# 0-Level:
+Create Water.MOD				CLASSES:Shaman=0
+Cure Minor Wounds.MOD			CLASSES:Shaman=0
+Detect Magic.MOD				CLASSES:Shaman=0
+Detect Poison.MOD				CLASSES:Shaman=0
+Ear of Nature.MOD				CLASSES:Shaman=0
+Guidance.MOD				CLASSES:Shaman=0
+Know Direction.MOD			CLASSES:Shaman=0
+Light.MOD					CLASSES:Shaman=0
+Purify Food and Drink.MOD		CLASSES:Shaman=0
+Read Magic.MOD				CLASSES:Shaman=0
+Resistance.MOD				CLASSES:Shaman=0
+Virtue.MOD					CLASSES:Shaman=0
+# 1-Level:
+Calm Animals.MOD				CLASSES:Shaman=1
+Charm Animal.MOD				CLASSES:Shaman=1
+Cure Light Wounds.MOD			CLASSES:Shaman=1
+Detect Animals or Plants.MOD		CLASSES:Shaman=1
+Endure Elements.MOD			CLASSES:Shaman=1
+Entangle.MOD				CLASSES:Shaman=1
+Find Hidden Doors.MOD			CLASSES:Shaman=1
+Goodberry.MOD				CLASSES:Shaman=1
+Hide from Animals.MOD			CLASSES:Shaman=1
+Jump.MOD					CLASSES:Shaman=1
+Longstrider.MOD				CLASSES:Shaman=1
+Magic Fang.MOD				CLASSES:Shaman=1
+Magic Stone.MOD				CLASSES:Shaman=1
+Mole Sense.MOD				CLASSES:Shaman=1
+Pass without Trace.MOD			CLASSES:Shaman=1
+Produce Flame.MOD				CLASSES:Shaman=1
+Speak with Animals.MOD			CLASSES:Shaman=1
+Summon Nature's Ally I.MOD		CLASSES:Shaman=1
+# 2-Level:
+Animal Messenger.MOD			CLASSES:Shaman=2
+Animal Trance.MOD				CLASSES:Shaman=2
+Barkskin.MOD				CLASSES:Shaman=2
+Bear's Endurance.MOD			CLASSES:Shaman=2
+Bull's Strength.MOD			CLASSES:Shaman=2
+Cat's Grace.MOD				CLASSES:Shaman=2
+Claws of the Wolverine.MOD		CLASSES:Shaman=2
+Delay Poison.MOD				CLASSES:Shaman=2
+Gluey Air.MOD				CLASSES:Shaman=2
+Gust of Wind.MOD				CLASSES:Shaman=2
+Hold Animal.MOD				CLASSES:Shaman=2
+Owl's Wisdom.MOD				CLASSES:Shaman=2
+Reduce Animal.MOD				CLASSES:Shaman=2
+Resist Energy.MOD				CLASSES:Shaman=2
+Restoration (Lesser).MOD		CLASSES:Shaman=2
+Soften Earth and Stone.MOD		CLASSES:Shaman=2
+Spider Climb.MOD				CLASSES:Shaman=2
+Summon Nature's Ally II.MOD		CLASSES:Shaman=2
+Summon Swarm.MOD				CLASSES:Shaman=2
+Tent.MOD					CLASSES:Shaman=2
+Tree Shape.MOD				CLASSES:Shaman=2
+Warp Wood.MOD				CLASSES:Shaman=2
+Wood Shape.MOD				CLASSES:Shaman=2
+# 3-Level:
+Call Lightning.MOD			CLASSES:Shaman=3
+Contagion.MOD				CLASSES:Shaman=3
+Cure Moderate Wounds.MOD		CLASSES:Shaman=3
+Daylight.MOD				CLASSES:Shaman=3
+Diminish Plants.MOD			CLASSES:Shaman=3
+Disperse Air.MOD				CLASSES:Shaman=3
+Dominate Animal.MOD			CLASSES:Shaman=3
+Eagle Sight.MOD				CLASSES:Shaman=3
+Earth Wave.MOD				CLASSES:Shaman=3
+Magic Fang (Greater).MOD		CLASSES:Shaman=3
+Meld into Stone.MOD			CLASSES:Shaman=3
+Nature's Health.MOD			CLASSES:Shaman=3
+Neutralize Poison.MOD			CLASSES:Shaman=3
+Protection from Energy.MOD		CLASSES:Shaman=3
+Remove Disease.MOD			CLASSES:Shaman=3
+Speak with Plants.MOD			CLASSES:Shaman=3
+Spike Growth.MOD				CLASSES:Shaman=3
+Stone Shape.MOD				CLASSES:Shaman=3
+Summon Nature's Ally III.MOD		CLASSES:Shaman=3
+Tribal Mask.MOD				CLASSES:Shaman=3
+Water Breathing.MOD			CLASSES:Shaman=3
+Wind Wall.MOD				CLASSES:Shaman=3
+#4-Level:
+Air Walk.MOD				CLASSES:Shaman=3
+Antiplant Shell.MOD			CLASSES:Shaman=3
+Birds of a Feather.MOD			CLASSES:Shaman=3
+Blight.MOD					CLASSES:Shaman=3
+Command Plants.MOD			CLASSES:Shaman=3
+Control Water.MOD				CLASSES:Shaman=3
+Cure Serious Wounds.MOD			CLASSES:Shaman=3
+Dispel Magic.MOD				CLASSES:Shaman=3
+Flame Strike.MOD				CLASSES:Shaman=3
+Freedom of Movement.MOD			CLASSES:Shaman=3
+Giant Vermin.MOD				CLASSES:Shaman=3
+Ice Storm.MOD				CLASSES:Shaman=3
+Repel Vermin.MOD				CLASSES:Shaman=3
+Scrying.MOD					CLASSES:Shaman=3
+Spike Stones.MOD				CLASSES:Shaman=3
+Summon Nature's Ally IV.MOD		CLASSES:Shaman=3
+# 5- Level:
+Animal Growth.MOD				CLASSES:Shaman=5
+Atonement.MOD				CLASSES:Shaman=5
+Awaken.MOD					CLASSES:Shaman=5
+Call Lightning Storm.MOD		CLASSES:Shaman=5
+Campsite.MOD				CLASSES:Shaman=5
+Commune with Nature.MOD			CLASSES:Shaman=5
+Control Winds.MOD				CLASSES:Shaman=5
+Cure Critical Wounds.MOD		CLASSES:Shaman=5
+Hallow.MOD					CLASSES:Shaman=5
+Insect Plague.MOD				CLASSES:Shaman=5
+Repel Animal.MOD				CLASSES:Shaman=5
+Spirit of the Night.MOD			CLASSES:Shaman=5
+Stoneskin.MOD				CLASSES:Shaman=5
+Summon Nature's Ally V.MOD		CLASSES:Shaman=5
+Transmute Mud to Rock.MOD		CLASSES:Shaman=5
+Transmute Rock to Mud.MOD		CLASSES:Shaman=5
+#	Tree Strike.MOD				CLASSES:Shaman=5
+Unhallow.MOD				CLASSES:Shaman=5
+Wall of Fire.MOD				CLASSES:Shaman=5
+Wall of Thorns.MOD			CLASSES:Shaman=5
+# 6-Level:
+Antilife Shell.MOD			CLASSES:Shaman=6
+Bear's Endurance (Mass).MOD		CLASSES:Shaman=6
+Boneshatter.MOD				CLASSES:Shaman=6
+Cat's Grace (Mass).MOD			CLASSES:Shaman=6
+Cure Light Wounds (Mass).MOD		CLASSES:Shaman=6
+Dispel Magic (Greater).MOD		CLASSES:Shaman=6
+Dream Trap.MOD				CLASSES:Shaman=6
+Find the Path.MOD				CLASSES:Shaman=6
+Fire Seeds.MOD				CLASSES:Shaman=6
+Campsite (Greater).MOD			CLASSES:Shaman=6
+Ironwood.MOD				CLASSES:Shaman=6
+Liveoak.MOD					CLASSES:Shaman=6
+Move Earth.MOD				CLASSES:Shaman=6
+Owl's Wisdom (Mass).MOD			CLASSES:Shaman=6
+Repel Wood.MOD				CLASSES:Shaman=6
+Spellstaff.MOD				CLASSES:Shaman=6
+Spirit of the Predator.MOD		CLASSES:Shaman=6
+Stone Tell.MOD				CLASSES:Shaman=6
+Summon Nature's Ally VI.MOD		CLASSES:Shaman=6
+Transport via Plants.MOD		CLASSES:Shaman=6
+Wall of Stone.MOD				CLASSES:Shaman=6
+# 7-Level:
+Ancient Counsel.MOD			CLASSES:Shaman=7
+Animate Plants.MOD			CLASSES:Shaman=7
+Call of the Pack.MOD			CLASSES:Shaman=7
+Changestaff.MOD				CLASSES:Shaman=7
+Control Weather.MOD			CLASSES:Shaman=7
+Creeping Doom.MOD				CLASSES:Shaman=7
+Cure Moderate Wounds (Mass).MOD	CLASSES:Shaman=7
+Fire Storm.MOD				CLASSES:Shaman=7
+Heal.MOD					CLASSES:Shaman=7
+Scrying (Greater).MOD			CLASSES:Shaman=7
+Summon Nature's Ally VII.MOD		CLASSES:Shaman=7
+Sunbeam.MOD					CLASSES:Shaman=7
+Transmute Metal to Wood.MOD		CLASSES:Shaman=7
+True Seeing.MOD				CLASSES:Shaman=7
+Wind Walk.MOD				CLASSES:Shaman=7
+#8-Level:
+Animal Shapes.MOD				CLASSES:Shaman=8
+Control Plants.MOD			CLASSES:Shaman=8
+Cure Serious Wounds (Mass).MOD	CLASSES:Shaman=8
+Earthquake.MOD				CLASSES:Shaman=8
+Repel Metal or Stone.MOD		CLASSES:Shaman=8
+Spirit of the Sea.MOD			CLASSES:Shaman=8
+Summon Nature's Ally VIII.MOD		CLASSES:Shaman=8
+Sunburst.MOD				CLASSES:Shaman=8
+Whirlwind.MOD				CLASSES:Shaman=8
+# 9-Level:
+Antipathy.MOD				CLASSES:Shaman=9
+Cure Critical Wounds (Mass).MOD	CLASSES:Shaman=9
+Elemental Swarm.MOD			CLASSES:Shaman=9
+Foresight.MOD				CLASSES:Shaman=9
+Haunting.MOD				CLASSES:Shaman=9
+Shambler.MOD				CLASSES:Shaman=9
+Shapechange.MOD				CLASSES:Shaman=9
+Spirit of the Grizzly.MOD		CLASSES:Shaman=9
+Storm of Vengeance.MOD			CLASSES:Shaman=9
+Summon Nature's Ally IX.MOD		CLASSES:Shaman=9
+Turn Haunting.MOD				CLASSES:Shaman=9
+
+# Witch Spells
+#0  level:
+Acid Splash.MOD				CLASSES:Witch=0
+Charming Flare.MOD			CLASSES:Witch=0
+Dancing Lights.MOD			CLASSES:Witch=0
+Daze.MOD					CLASSES:Witch=0
+Detect Poison.MOD				CLASSES:Witch=0
+Detect Magic.MOD				CLASSES:Witch=0
+Disrupt Undead.MOD			CLASSES:Witch=0
+Flare.MOD					CLASSES:Witch=0
+Ghost Sound.MOD				CLASSES:Witch=0
+Mage Hand.MOD				CLASSES:Witch=0
+Message.MOD					CLASSES:Witch=0
+Open/Close.MOD				CLASSES:Witch=0
+Prestidigitation.MOD			CLASSES:Witch=0
+Purify Food and Drink.MOD		CLASSES:Witch=0
+Read Magic.MOD				CLASSES:Witch=0
+Touch of Fatigue.MOD			CLASSES:Witch=0
+#1st level:
+Bane.MOD					CLASSES:Witch=1
+Burning Hands.MOD				CLASSES:Witch=1
+Cause Fear.MOD				CLASSES:Witch=1
+Charm Person.MOD				CLASSES:Witch=1
+Chill Touch.MOD				CLASSES:Witch=1
+Command.MOD					CLASSES:Witch=1
+Comprehend Languages.MOD		CLASSES:Witch=1
+Curse Water.MOD				CLASSES:Witch=1
+Detect Undead.MOD				CLASSES:Witch=1
+Doom.MOD					CLASSES:Witch=1
+Endure Elements.MOD			CLASSES:Witch=1
+Enlarge Person.MOD			CLASSES:Witch=1
+Erase.MOD					CLASSES:Witch=1
+Expeditious Retreat.MOD			CLASSES:Witch=1
+Hide from Undead.MOD			CLASSES:Witch=1
+Hypnotism.MOD				CLASSES:Witch=1
+Identify.MOD				CLASSES:Witch=1
+Obscuring Mist.MOD			CLASSES:Witch=1
+Protection from Chaos.MOD		CLASSES:Witch=1
+Protection from Evil.MOD		CLASSES:Witch=1
+Protection from Good.MOD		CLASSES:Witch=1
+Protection from Law.MOD			CLASSES:Witch=1
+Ray of Enfeeblement.MOD			CLASSES:Witch=1
+Reduce Person.MOD				CLASSES:Witch=1
+Shocking Grasp.MOD			CLASSES:Witch=1
+Sleep.MOD					CLASSES:Witch=1
+#2nd level:
+Augury.MOD					CLASSES:Witch=2
+Bear's Endurance.MOD			CLASSES:Witch=2
+Blindness/Deafness.MOD			CLASSES:Witch=2
+Bull's Strength.MOD			CLASSES:Witch=2
+Blur.MOD					CLASSES:Witch=2
+Cat's Grace.MOD				CLASSES:Witch=2
+Darkness.MOD				CLASSES:Witch=2
+Daze Monster.MOD				CLASSES:Witch=2
+Deep Sleep.MOD				CLASSES:Witch=2
+Delay Poison.MOD				CLASSES:Witch=2
+Detect Thoughts.MOD			CLASSES:Witch=2
+Eagle's Splendor.MOD			CLASSES:Witch=2
+Enthrall.MOD				CLASSES:Witch=2
+Fog Cloud.MOD				CLASSES:Witch=2
+Fox's Cunning.MOD				CLASSES:Witch=2
+Freeze Light.MOD				CLASSES:Witch=2
+Ghoul Touch.MOD				CLASSES:Witch=2
+Glitterdust.MOD				CLASSES:Witch=2
+Gust of Wind.MOD				CLASSES:Witch=2
+Hideous Laughter.MOD			CLASSES:Witch=2
+Hypnotic Pattern.MOD			CLASSES:Witch=2
+Invisibility.MOD				CLASSES:Witch=2
+Locate Object.MOD				CLASSES:Witch=2
+Misdirection.MOD				CLASSES:Witch=2
+Obscure Object.MOD			CLASSES:Witch=2
+Owl's Wisdom.MOD				CLASSES:Witch=2
+Resist Energy.MOD				CLASSES:Witch=2
+Scare.MOD					CLASSES:Witch=2
+See Invisibility.MOD			CLASSES:Witch=2
+Silence.MOD					CLASSES:Witch=2
+Sleeplessness.MOD				CLASSES:Witch=2
+Spectral Hand.MOD				CLASSES:Witch=2
+Spider Climb.MOD				CLASSES:Witch=2
+Summon Swarm.MOD				CLASSES:Witch=2
+Touch of Idiocy.MOD			CLASSES:Witch=2
+Web.MOD					CLASSES:Witch=2
+Whispering Wind.MOD			CLASSES:Witch=2
+Zone of Truth.MOD				CLASSES:Witch=2
+#3rd level:
+Arcane Sight.MOD				CLASSES:Witch=3
+Animate Dead.MOD				CLASSES:Witch=3
+Bestow Curse.MOD				CLASSES:Witch=3
+Clairaudience/Clairvoyance.MOD	CLASSES:Witch=3
+Contagion.MOD				CLASSES:Witch=3
+Deeper Darkness.MOD			CLASSES:Witch=3
+Deep Slumber.MOD				CLASSES:Witch=3
+Dispel Magic.MOD				CLASSES:Witch=3
+Fly.MOD					CLASSES:Witch=3
+Gaseous Form.MOD				CLASSES:Witch=3
+Gentle Repose.MOD				CLASSES:Witch=3
+Halt Undead.MOD				CLASSES:Witch=3
+Haste.MOD					CLASSES:Witch=3
+Heroism.MOD					CLASSES:Witch=3
+Hold Person.MOD				CLASSES:Witch=3
+Magic Circle against Chaos.MOD	CLASSES:Witch=3
+Magic Circle against Evil.MOD		CLASSES:Witch=3
+Magic Circle against Good.MOD		CLASSES:Witch=3
+Magic Circle against Law.MOD		CLASSES:Witch=3
+Nondetection.MOD				CLASSES:Witch=3
+Protection from Energy.MOD		CLASSES:Witch=3
+Rage.MOD					CLASSES:Witch=3
+Ray of Exhaustion.MOD			CLASSES:Witch=3
+Remove Curse.MOD				CLASSES:Witch=3
+Remove Disease.MOD			CLASSES:Witch=3
+Sepia Snake Sigil.MOD			CLASSES:Witch=3
+Slow.MOD					CLASSES:Witch=3
+Speak with Dead.MOD			CLASSES:Witch=3
+Suggestion.MOD				CLASSES:Witch=3
+Vampiric Touch.MOD			CLASSES:Witch=3
+Water Breathing.MOD			CLASSES:Witch=3
+#4th level:
+Black Tentacles.MOD			CLASSES:Witch=4
+Charm Monster.MOD				CLASSES:Witch=4
+Confusion.MOD				CLASSES:Witch=4
+Crushing Despair.MOD			CLASSES:Witch=4
+Death Ward.MOD				CLASSES:Witch=4
+Detect Scrying.MOD			CLASSES:Witch=4
+Dimensional Anchor.MOD			CLASSES:Witch=4
+Discern Lies.MOD				CLASSES:Witch=4
+Dismissal.MOD				CLASSES:Witch=4
+Divination.MOD				CLASSES:Witch=4
+Enervation.MOD				CLASSES:Witch=4
+Geas (Lesser).MOD				CLASSES:Witch=4
+Giant Vermin.MOD				CLASSES:Witch=4
+Hallucinatory Terrain.MOD		CLASSES:Witch=4
+Neutralize Poison.MOD			CLASSES:Witch=4
+Planar Ally (Lesser).MOD		CLASSES:Witch=4
+Poison.MOD					CLASSES:Witch=4
+Repel Vermin.MOD				CLASSES:Witch=4
+Scrying.MOD					CLASSES:Witch=4
+Shout.MOD					CLASSES:Witch=4
+Solid Fog.MOD				CLASSES:Witch=4
+Spin.MOD					CLASSES:Witch=4
+Temporary Permanency.MOD		CLASSES:Witch=4
+Tongues.MOD					CLASSES:Witch=4
+#5th level:
+Atonement.MOD				CLASSES:Witch=5
+Baleful Polymorph.MOD			CLASSES:Witch=5
+Blight.MOD					CLASSES:Witch=5
+Break Enchantment.MOD			CLASSES:Witch=5
+Contact Other Plane.MOD			CLASSES:Witch=5
+Dismissal.MOD				CLASSES:Witch=5
+Dominate Person.MOD			CLASSES:Witch=5
+Dream.MOD					CLASSES:Witch=5
+False Vision.MOD				CLASSES:Witch=5
+Feeblemind.MOD				CLASSES:Witch=5
+Hold Monster.MOD				CLASSES:Witch=5
+Insect Plague.MOD				CLASSES:Witch=5
+Magic Jar.MOD				CLASSES:Witch=5
+Mind Fog.MOD				CLASSES:Witch=5
+Nightmare.MOD				CLASSES:Witch=5
+Passwall.MOD				CLASSES:Witch=5
+Permanency.MOD				CLASSES:Witch=5
+Planar Binding (Lesser).MOD		CLASSES:Witch=5
+Prying Eyes.MOD				CLASSES:Witch=5
+Raise Dead.MOD				CLASSES:Witch=5
+Scrying.MOD					CLASSES:Witch=5
+Sending.MOD					CLASSES:Witch=5
+Slay Living.MOD				CLASSES:Witch=5
+Symbol of Pain.MOD			CLASSES:Witch=5
+Symbol of Sleep.MOD			CLASSES:Witch=5
+True Seeing.MOD				CLASSES:Witch=5
+Waves of Fatigue.MOD			CLASSES:Witch=5
+#6th level:
+Acid Fog.MOD				CLASSES:Witch=6
+Analyze Dweomer.MOD			CLASSES:Witch=6
+Banishment.MOD				CLASSES:Witch=6
+Boneshatter.MOD				CLASSES:Witch=6
+Chain Lightning.MOD			CLASSES:Witch=6
+Circle of Death.MOD			CLASSES:Witch=6
+Contingency.MOD				CLASSES:Witch=6
+Create Undead.MOD				CLASSES:Witch=6
+Dispel Magic.MOD				CLASSES:Witch=6
+Dispel Magic (Greater).MOD		CLASSES:Witch=6
+Dream Trap.MOD				CLASSES:Witch=6
+Eyebite.MOD					CLASSES:Witch=6
+Flesh to Stone.MOD			CLASSES:Witch=6
+Forbiddance.MOD				CLASSES:Witch=6
+Geas/Quest.MOD				CLASSES:Witch=6
+Guards and Wards.MOD			CLASSES:Witch=6
+Harm.MOD					CLASSES:Witch=6
+Heroism (Greater).MOD			CLASSES:Witch=6
+Legend Lore.MOD				CLASSES:Witch=6
+Planar Ally.MOD				CLASSES:Witch=6
+Planar Binding.MOD			CLASSES:Witch=6
+Shadow Walk.MOD				CLASSES:Witch=6
+Stone to Flesh.MOD			CLASSES:Witch=6
+Suggestion (Mass).MOD			CLASSES:Witch=6
+Symbol of Fear.MOD			CLASSES:Witch=6
+Symbol of Persuasion.MOD		CLASSES:Witch=6
+Undeath to Death.MOD			CLASSES:Witch=6
+# 7th level:
+Arcane Sight (Greater).MOD		CLASSES:Witch=7
+Blasphemy.MOD				CLASSES:Witch=7
+Control Weather.MOD			CLASSES:Witch=7
+Control Undead.MOD			CLASSES:Witch=7
+Ethereal Jaunt.MOD			CLASSES:Witch=7
+Finger of Death.MOD			CLASSES:Witch=7
+Grasping Hand.MOD				CLASSES:Witch=7
+Hold Person (Mass).MOD			CLASSES:Witch=7
+Insanity.MOD				CLASSES:Witch=7
+Instant Summons.MOD			CLASSES:Witch=7
+Phase Door.MOD				CLASSES:Witch=7
+Plane Shift.MOD				CLASSES:Witch=7
+Power Word Blind.MOD			CLASSES:Witch=7
+Scrying (Greater).MOD			CLASSES:Witch=7
+Sequester.MOD				CLASSES:Witch=7
+Spell Turning.MOD				CLASSES:Witch=7
+Statue.MOD					CLASSES:Witch=7
+Symbol of Stunning.MOD			CLASSES:Witch=7
+Symbol of Weakness.MOD			CLASSES:Witch=7
+Vision.MOD					CLASSES:Witch=7
+Waves of Exhaustion.MOD			CLASSES:Witch=7
+#8th level:
+Antipathy.MOD				CLASSES:Witch=8
+Binding.MOD					CLASSES:Witch=8
+Charm Monster (Mass).MOD		CLASSES:Witch=8
+Create Greater Undead.MOD		CLASSES:Witch=8
+Demand.MOD					CLASSES:Witch=8
+Discern Location.MOD			CLASSES:Witch=8
+Horrid Wilting.MOD			CLASSES:Witch=8
+Irresistible Dance.MOD			CLASSES:Witch=8
+Mind Blank.MOD				CLASSES:Witch=8
+Planar Ally (Greater).MOD		CLASSES:Witch=8
+Planar Binding (Greater).MOD		CLASSES:Witch=8
+Power Word Stun.MOD			CLASSES:Witch=8
+Prying Eyes (Greater).MOD		CLASSES:Witch=8
+Symbol of Death.MOD			CLASSES:Witch=8
+Symbol of Insanity.MOD			CLASSES:Witch=8
+Sympathy.MOD				CLASSES:Witch=8
+Trap the Soul.MOD				CLASSES:Witch=8
+Unholy Aura.MOD				CLASSES:Witch=8
+# 9th level:
+Astral Projection.MOD			CLASSES:Witch=9
+Dominate Monster.MOD			CLASSES:Witch=9
+Energy Drain.MOD				CLASSES:Witch=9
+Etherealness.MOD				CLASSES:Witch=9
+Freedom.MOD					CLASSES:Witch=9
+Hold Monster (Mass).MOD			CLASSES:Witch=9
+Imprisonment.MOD				CLASSES:Witch=9
+Power Word Kill.MOD			CLASSES:Witch=9
+Soul Bind.MOD				CLASSES:Witch=9
+Time Stop.MOD				CLASSES:Witch=9
+Wail of the Banshee.MOD			CLASSES:Witch=9
+
+
+#
+# END
+#

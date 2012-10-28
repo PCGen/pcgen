@@ -1,0 +1,55 @@
+# CVS $Revision$ $Author$ -- Fri Apr 22 15:38:49 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html	SOURCEDATE:06-2005
+#Original Entry by: Tir Gwaith & Andrew Maitland
+
+
+###Block: Proficiencies
+# Ability Name			Category of Ability		Type			Visible	Automatically Gained Weapon Prof.
+Bounty Hunter Proficiencies	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AUTO:WEAPONPROF|Bola|Whip|Net
+
+###Block: Bounty Hunter abilities
+# Ability Name			Category of Ability		Type						Define																											Description																				Automatically Gained Armor Prof.	Automatically Gained Weapon Prof.						Bonus to skill															Modify VAR																																																																																																																																																																																																																																															Source Page		Temporary effect description
+Base of Operations		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:BaseOperationsRadius|CHA*10+40																						DESC:+4 to Diplomacy, Gather Information, Knowledge (Local), and Survival within area (%1 radius)|BaseOperationsRadius																			BONUS:SKILL|Diplomacy,Gather Information,Knowledge (Local),Survival|4|TYPE=Circumstance|PREAPPLY:PC																																																																																																																																																																																																																																																	SOURCEPAGE:p.35	TEMPDESC:Bonuses while operating withing the Base of Operations
+
+# Shaman (Alternate)
+#Animal Companion
+Dance of the Shaman		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:DanceOfTheShamanBonus|0																							DESC:+%1|DanceOfTheShamanBonus
+Interpret Dream			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+War Summoning			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+Astral Projection		KEY:Astral Projection ~ Shaman	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Ageless Being			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+# Need to Implement this, seems to follow the Druid ability.
+Improved Astral Projection	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+#Wild Empathy
+#Woodland Stride
+#Trackless Step
+Commune with Nature		CATEGORY:Special Ability	TYPE:SpecialQuality
+
+
+# Mentalist ---------------------------------------------------------------------------------------------------
+Mentalist Power Points		CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:MentalistPowerPoints|0	DEFINE:MentalistPowerPointsVariable|0	DEFINE:MentalistPSPScore|0	DEFINE:MentalistPowerPoints|0	DEFINE:MentalistPowerPointsVariable|0	DESC:Mentalist Score %1, Mentalist PSP %2|MentalistPSPScore|MentalistPowerPoints																																										BONUS:VAR|MentalistPSPScore|(INT+WIS+CON)/3	BONUS:VAR|MentalistPowerPointsVariable|MentalistAlternateScore+5	BONUS:VAR|MentalistPowerPoints|10+(MentalistPSPScore*2)|TYPE=LevelOne|PREVARGTEQ:MentalistPSPScore,0	BONUS:VAR|MentalistPowerPoints|10+(MentalistPSPScore)|TYPE=LevelOne|PREVARLTEQ:MentalistPSPScore,-1
+Mentalist Powers Known		CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:MentalistLvl|0	DEFINE:MentalistBasePowersKnown|0	DEFINE:MentalistPowersKnown|0														DESC:Mentalist Level %1, Base Powers Known %2, Powers Known %3|MentalistLvl|MentalistBasePowersKnown|MentalistPowersKnown																																			BONUS:VAR|MentalistBasePowersKnown|1|PREVARGTEQ:MentalistLvl,1	BONUS:VAR|MentalistBasePowersKnown|1|PREVARGTEQ:MentalistLvl,4	BONUS:VAR|MentalistBasePowersKnown|1|PREVARGTEQ:MentalistLvl,12
+
+
+# Psionist (Alternate) --------------------------------------------------------------------------------------
+Psionist Power Points		CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:PSPAlternateScore|0	DEFINE:PsionicPowerPointsAlt|0	DEFINE:PSPPowerPointsVariable|0												DESC:Psionist (Alternate) Score %1, Psionist (Alternate) PSP %2|PSPAlternateScore|PsionicPowerPointsAlt																																						BONUS:VAR|PSPAlternateScore|(INT+WIS+CON)/3	BONUS:VAR|PSPPowerPointsVariable|PSPAlternateScore+10	BONUS:VAR|PsionicPowerPointsAlt|20+PSPAlternateScore|TYPE=LevelOne
+Psionist Alt ~ Bonus Language	CATEGORY:Special Ability							DEFINE:PsiBonusLang|0
+Psionist Alt ~ Powers Known	CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:PsionistAltLvl|0	DEFINE:BasePowersKnown|0	DEFINE:PowersKnown|0																DESC:Psionist (Alternate) Level %1, Base Powers Known %2, Powers Known %3|PsionistAltLvl|BasePowersKnown|PowersKnown																																				BONUS:VAR|BasePowersKnown|1|PREVARGTEQ:PsionistAltLvl,1	BONUS:VAR|BasePowersKnown|1|PREVARGTEQ:PsionistAltLvl,2	BONUS:VAR|BasePowersKnown|1|PREVARGTEQ:PsionistAltLvl,5	BONUS:VAR|BasePowersKnown|1|PREVARGTEQ:PsionistAltLvl,8	BONUS:VAR|BasePowersKnown|1|PREVARGTEQ:PsionistAltLvl,12	BONUS:VAR|BasePowersKnown|1|PREVARGTEQ:PsionistAltLvl,16	BONUS:VAR|PowersKnown|4|PREVARGTEQ:PsionistAltLvl,1	BONUS:VAR|PowersKnown|1|PREVARGTEQ:PsionistAltLvl,2	BONUS:VAR|PowersKnown|2|PREVARGTEQ:PsionistAltLvl,3	BONUS:VAR|PowersKnown|1|PREVARGTEQ:PsionistAltLvl,4	BONUS:VAR|PowersKnown|2|PREVARGTEQ:PsionistAltLvl,5	BONUS:VAR|PowersKnown|1|PREVARGTEQ:PsionistAltLvl,6	BONUS:VAR|PowersKnown|2|PREVARGTEQ:PsionistAltLvl,7	BONUS:VAR|PowersKnown|2|PREVARGTEQ:PsionistAltLvl,8	BONUS:VAR|PowersKnown|1|PREVARGTEQ:PsionistAltLvl,9	BONUS:VAR|PowersKnown|3|PREVARGTEQ:PsionistAltLvl,10	BONUS:VAR|PowersKnown|2|PREVARGTEQ:PsionistAltLvl,11	BONUS:VAR|PowersKnown|3|PREVARGTEQ:PsionistAltLvl,12	BONUS:VAR|PowersKnown|2|PREVARGTEQ:PsionistAltLvl,13	BONUS:VAR|PowersKnown|3|PREVARGTEQ:PsionistAltLvl,14	BONUS:VAR|PowersKnown|2|PREVARGTEQ:PsionistAltLvl,15	BONUS:VAR|PowersKnown|2|PREVARGTEQ:PsionistAltLvl,16	BONUS:VAR|PowersKnown|2|PREVARGTEQ:PsionistAltLvl,17	BONUS:VAR|PowersKnown|3|PREVARGTEQ:PsionistAltLvl,18	BONUS:VAR|PowersKnown|2|PREVARGTEQ:PsionistAltLvl,19	BONUS:VAR|PowersKnown|2|PREVARGTEQ:PsionistAltLvl,20
+Psionist Alt ~ Proficiencies	CATEGORY:Special Ability																																																								AUTO:ARMORPROF|ARMORTYPE=Light	AUTO:WEAPONPROF|TYPE=Simple|TYPE=OneHandedMartial
+
+# Witch
+Empowered Charm			CATEGORY:Special Ability	TYPE:SpecialQuality
+Improved Brewing			CATEGORY:Special Ability	TYPE:SpecialQuality
+
+
+###Block: Common abilities
+# Ability Name	Category of Ability		Type						Define			Description					Source Page
+Reputation		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:Reputation|0	DESC:Reputation +%1|Reputation	SOURCEPAGE:p.36,140
+# Used by Bounty Hunter and Ruffian
+
+
+
+
+#
+# EOF
+#

@@ -1,0 +1,93 @@
+# CVS $Revision$ $Author$ -- Fri Apr 22 15:38:49 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html	SOURCEDATE:06-2005
+#Original Entry by: Tir-Gwaith
+
+# Referenced but not in source
+Knowledge (Trapmaking)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge
+Knowledge (Cultures)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge
+
+#Not implemented at this time:
+#	Having the  Sailing skill provides a +2 circumstance bonus to  Balance, Climb and  Use Rope skill checks when on board a boat or a ship.
+#	Seduction Modifier tables: Not tackling the racial modifier table for now.  Not even sure if we can (not reading in detail yet. - Tir-Gwaith)
+#	If you have 5 or more ranks of Craft (Carpentry), you get a +2 bonus on all Knowledge (Architecture and Engineering) checks involving wooden buildings, bridges, or fortifications.
+#	If you have 5 or more ranks of Craft (Stonemasony), you get a +2 bonus on all Knowledge (Architecture and Engineering) checks involving stone buildings, bridges, aqueducts, or fortifications.
+#	If you have 5 or more ranks of Craft (Carpentry), you get a +2 bonus on all Knowledge (Architecture and Engineering) checks involving wooden buildings, bridges, or fortifications.
+#	If you have 5 or more ranks of  Profession (Soldier), you get a +2 bonus on all Knowledge (Architecture and Engineering) checks involving siege equipment or fortifications.
+#	If you have 5 or more ranks of Knowledge (Agriculture), you get a +2 bonus on all Knowledge (Nature) checks involving plants.
+#	If you have 5 or more ranks of Dragon Lore, you get a +2 bonus on  Ride checks when riding a dragon-type creature.
+#	If you have 5 or more ranks of Use Rope, you get a +2 bonus on strapping in  Ride checks.
+#
+#	Conditionals that might be useful, but can be skipped for a first pass.
+
+###Block: New skills
+# Skill Name		Key Stat	Untrained?		Skill Penalty Apply	Exclusive?		Classes			Type			Source Page		Bonus to skill
+Dragon Lore			KEYSTAT:INT	USEUNTRAINED:NO												TYPE:Intelligence	SOURCEPAGE:p.61	BONUS:SKILL|Knowledge (Dragons)|SKILL.Dragon Lore.RANK|TYPE=SkillGranted
+Improvised Trap Setting	KEYSTAT:INT	USEUNTRAINED:NO					EXCLUSIVE:YES	CLASSES:Rogue|Ranger	TYPE:Intelligence	SOURCEPAGE:p.62
+Sailing			KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES										TYPE:Dexterity	SOURCEPAGE:p.62
+Seduction			KEYSTAT:CHA	USEUNTRAINED:YES												TYPE:Charisma	SOURCEPAGE:p.63
+# Not tackling the racial modifier table for now.  Not even sure if we can (not reading in detail yet. - Tir-Gwaith)
+Star Reading		KEYSTAT:WIS	USEUNTRAINED:NO												TYPE:Wisdom		SOURCEPAGE:p.64
+Tactics			KEYSTAT:INT	USEUNTRAINED:NO												TYPE:Intelligence	SOURCEPAGE:p.65
+Witchcraft			KEYSTAT:INT	USEUNTRAINED:NO												TYPE:Intelligence	SOURCEPAGE:p.65	BONUS:SKILL|Use Magic Device (Scroll)|SynergyBonus|PRESKILL:1,Witchcraft=5
+
+
+###Block: Craft/Knowledge/Profession subskills
+# Skill Name				Key Stat	Untrained?		Type					Source Page		Bonus to skill
+Craft (Apothecary).MOD			BONUS:SKILL|Craft (Alchemy)|SynergyBonus|PRESKILL:1,Craft (Apothecary)=5
+Craft (Cooking).MOD			BONUS:SKILL|Profession (Chef)|SynergyBonus|PRESKILL:1,Craft (Cooking)=5
+Craft (Gemcutting).MOD			BONUS:SKILL|Craft (Lapidary)|SynergyBonus|PRESKILL:1,Craft (Gemcutting)=5
+Craft (Lapidary)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.70
+Craft (Whitesmithing)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.71	BONUS:SKILL|Craft (Blacksmithing)|SynergyBonus|PRESKILL:1,Craft (Whitesmithing)=5
+Craft (Whittling)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.71	BONUS:SKILL|Craft (Carpentry)|SynergyBonus|PRESKILL:1,Craft (Whittling)=5
+#
+Knowledge (Agriculture)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.73	BONUS:SKILL|Profession (Farmer)|SynergyBonus|PRESKILL:1,Knowledge (Agriculture)=5
+Knowledge (Dreams)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.73
+Knowledge (Dragons)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.73	BONUS:SKILL|Dragon Lore|SynergyBonus|PRESKILL:1,Knowledge (Dragons)=5
+Knowledge (Food Preparation)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.73	BONUS:SKILL|Craft (Cooking),Profession (Chef)|SynergyBonus|PRESKILL:1,Knowledge (Food Preparation)=5
+Knowledge (Gemstones)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.74
+Knowledge (Seas and Oceans)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.74	BONUS:SKILL|Sailing|SynergyBonus|PRESKILL:1,Knowledge (Seas and Oceans)=5
+Knowledge (Spirits)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.74	BONUS:SKILL|Knowledge (Incorporeal Undead)|SynergyBonus|PRESKILL:1,Knowledge (Spirits)
+Knowledge (Undead)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.74
+Knowledge (Spices and Herbs)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.132
+Knowledge (any specific foods)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.132
+
+#
+Profession (Bartender)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:p.75
+Profession (Bouncer)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:p.75
+Profession (Chef)				KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:p.76
+Profession (Cooper)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:p.76
+Profession (Farmer)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:p.76
+Profession (Guide)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:p.76	BONUS:SKILL|Tactics|SynergyBonus|PRESKILL:1,Profession (Guide)=5
+Profession (Innkeeper)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:p.76	BONUS:SKILL|Profession (Bartender)|SynergyBonus|PRESKILL:1,Profession (Innkeeper)=5
+Profession (Soldier)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:p.76	BONUS:SKILL|Tactics,Profession (Bouncer)|SynergyBonus|PRESKILL:1,Profession (Soldier)=5
+Profession (Teamster)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:p.76
+
+###Block:.MODs
+# Skill Name			Source Page		Bonus to skill
+Disguise.MOD						BONUS:SKILL|Seduction|SynergyBonus|PRESKILL:1,Disguise=5
+Disable Device.MOD					BONUS:SKILL|Improvised Trap Setting|SynergyBonus|PRESKILL:1,Disable Device=5
+Craft (Alchemy).MOD					BONUS:SKILL|Craft (Apothecary)|SynergyBonus|PRESKILL:1,Craft (Alchemy)=5
+Craft (Blacksmithing).MOD				BONUS:SKILL|Craft (Whitesmithing)|SynergyBonus|PRESKILL:1,Craft (Blacksmithing)=5
+Craft (Carpentry).MOD		SOURCEPAGE:p.70	BONUS:SKILL|Craft (Woodworking),Craft (Whittling),Profession (Cooper)|SynergyBonus|PRESKILL:1,Craft (Carpentry)=5
+Craft (Trapmaking).MOD					BONUS:SKILL|Improvised Trap Setting|SynergyBonus|PRESKILL:1,Craft (Trapmaking)=5
+Craft (Woodworking).MOD					BONUS:SKILL|Craft (Carpentry),Craft (Whittling)|SynergyBonus|PRESKILL:1,Craft (Woodworking)=5
+Handle Animal.MOD						BONUS:SKILL|Profession (Teamster)|SynergyBonus|PRESKILL:1,Handle Animal=5
+Knowledge (Arcana).MOD					BONUS:SKILL|Witchcraft|SynergyBonus|PRESKILL:1,Knowledge (Arcana)=5
+Knowledge (History).MOD					BONUS:SKILL|Tactics|SynergyBonus|PRESKILL:1,Knowledge (History)=5
+Knowledge (Local).MOD					BONUS:SKILL|Profession (Bartender),Profession (Guide)|SynergyBonus|PRESKILL:1,Knowledge (Local)=5
+Knowledge (Religion).MOD				BONUS:SKILL|Knowledge (Undead)|SynergyBonus|PRESKILL:1,Knowledge (Religion)=5
+Use Magic Device.MOD					BONUS:SKILL|Witchcraft (Decipher spell on scroll)|SynergyBonus|PRESKILL:1,Use Magic Device=5
+Use Rope.MOD						BONUS:SKILL|Sailing|SynergyBonus|PRESKILL:1,Use Rope=5
+
+
+
+###Block: Conditional Skill MODs
+# Skill Name		Bonus to skill rank
+Knowledge (Undead).MOD	BONUS:SKILLRANK|Knowledge (Incorporeal Undead)|skillinfo("TOTALRANK","Knowledge (Undead)")|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PRESKILL:1,Knowledge (Spirits)=5
+Witchcraft.MOD		BONUS:SKILLRANK|Witchcraft (Decipher spell on scroll)|skillinfo("TOTALRANK","Witchcraft")|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PRESKILL:1,Use Magic Device=5
+
+
+###Block: Conditional Skills for output only
+# Skill Name					Key Stat	Untrained?		Classes	Type			Visible		Source Page
+Knowledge (Incorporeal Undead)		KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.65
+Witchcraft (Decipher spell on scroll)	KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	SOURCEPAGE:p.65

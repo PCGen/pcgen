@@ -1,0 +1,53 @@
+# CVS $Revision$ $Author$ -- Mon Dec 21 12:18:35 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+CAMPAIGN:Adventurer's Handbook
+RANK:6
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:RSRD
+STATUS:BETA
+TYPE:Nitehawk Interactive Games.Supplement.Creatures and Chaos
+PRECAMPAIGN:1,BOOKTYPE=Core Rules,[3.5 RSRD Basics]
+PUBNAMELONG:Nitehawk Interactive Games
+PUBNAMESHORT:NIG
+PUBNAMEWEB:http://www.nitehawk-games.biz/index.html
+SOURCELONG:Adventurer's Handbook
+SOURCESHORT:AHB
+SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html
+SOURCEDATE:06-2005
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Refernce Document Copyright 2000-2005, Wizards of the Coast, Inc.
+COPYRIGHT:The Adventurer's Handbook Copyright 2005, Nitehawk Interactive
+COPYRIGHT:PCGen dataset conversion for "Adventurer's Handbook" Copyright 2010, PCGen Data Team (including, but not limited to Andrew McDougall (Tir Gwaith), Andrew Maitland)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITYCATEGORY:ahb_abilitycategories.lst
+
+ABILITY:ahb_abilities_class.lst
+ABILITY:ahb_abilities_class_prestige.lst
+ABILITY:ahb_abilities_race.lst
+
+#Skills, Languages, etc.
+SKILL:ahb_skills.lst
+LANGUAGE:ahb_languages.lst
+FEAT:ahb_feats.lst
+
+#Race stuff
+RACE:ahb_races.lst
+TEMPLATE:ahb_templates.lst
+BIOSET:ahb_biosettings.lst
+
+#Class stuff
+CLASS:ahb_classes_base.lst
+CLASS:ahb_classes_npc.lst
+CLASS:ahb_classes_prestige.lst
+DOMAIN:ahb_domains.lst
+SPELL:ahb_spells.lst
+
+# Equip
+EQUIPMENT:ahb_equip.lst
+WEAPONPROF:ahb_profs_weapon.lst
+ARMORPROF:ahb_profs_armor.lst

@@ -1,0 +1,13 @@
+# CVS $Revision$ $Author$ -- Fri Apr 22 15:38:49 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html	SOURCEDATE:06-2005
+# Original Entry by: Tir Gwaith
+
+
+# Language	Type
+Duergar	TYPE:Spoken.Written.Read
+Kirish	TYPE:Spoken.Written.Read
+Magene	TYPE:Spoken.Written.Read
+Sslithrak	TYPE:Spoken.Written.Read
+Valhuru	TYPE:Spoken.Written.Read
+
+Wraith Elf	TYPE:Spoken.Written.Read

@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Fri Apr 22 15:38:49 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html	SOURCEDATE:06-2005
+#Original Entry by: Andrew Maitland
+
+
+# Domain Name	Class Skill					Description															List of Domain Spells by Level
+Animal Spirit	CSKILL:Knowledge (Nature)|Survival	DESC:Knowledge (nature) and Survival are class skills. You cast Calm Animals once per day.	SPELLLEVEL:DOMAIN|Animal Spirit=1|Mole Sense|Animal Spirit=2|Claws of the Wolverine|Animal Spirit=3|Eagle Sight|Animal Spirit=4|Birds of a Feather|Animal Spirit=5|Spirit of the Night|Animal Spirit=6|Spirit of the Predator|Animal Spirit=7|Call of the Pack|Animal Spirit=8|Spirit of the Sea|Animal Spirit=9|Spirit of the Grizzly

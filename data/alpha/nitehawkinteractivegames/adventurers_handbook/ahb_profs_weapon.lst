@@ -1,0 +1,14 @@
+# CVS $Revision$ $Author$ -- Fri Apr 22 15:38:49 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+
+# Exotic Weapons
+# Weapon Name		Type
+Garrote			TYPE:Exotic
+Yo-yo				TYPE:Exotic
+Fist Blade			TYPE:Exotic
+Patar				TYPE:Exotic
+Patar (Retracting)	TYPE:Exotic
+Blood Sword			TYPE:Exotic
+Bola				TYPE:Exotic
+Chakrum			TYPE:Exotic
+Net (Hooked)		TYPE:Exotic
+Net (Weighted)		TYPE:Exotic

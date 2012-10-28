@@ -1,0 +1,49 @@
+# CVS $Revision$ $Author$ -- Fri Apr 22 17:00:42 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html	SOURCEDATE:06-2005
+#Original Entry by: Tir Gwaith
+
+# At some point, prob. good idea to combine the different Weapon Familiarity objects with multiple TYPEs.
+
+###Block: Dwonome abilities
+# Ability Name					Output Name					Category of Ability		Type							Visible		Description																																			Change Weapon Prof. Category					Source Page
+Gnomish Dwarven Blood				OUTPUTNAME:Gnomish-Dwarven Blood	CATEGORY:Special Ability	TYPE:SpecialQuality							DESC:For all purposes, Dwonomes are considered gnomes and dwarves. They may use weapons and items only usable by gnomes and only usable by dwarves, and weapons meant to only harm dwarves or gnomes may harm them.										SOURCEPAGE:p.8
+Weapon Familiarity (Dwarven weapons)							CATEGORY:Special Ability	TYPE:SpecialQuality.DwonomeFamiliarity	VISIBLE:DISPLAY	DESC:Dwonomes raised in a dwarven community may treat dwarven waraxes and dwarven urgroshes as martial weapon, rather than exotic weapons.													CHANGEPROF:Urgrosh (Dwarven),Waraxe (Dwarven)=Martial	SOURCEPAGE:p.8
+Weapon Familiarity (Gnome Hooked Hammer)							CATEGORY:Special Ability	TYPE:SpecialQuality.DwonomeFamiliarity	VISIBLE:DISPLAY	DESC:Dwonomes raised in a gnomish community may treat gnome hooked hammers as martial weapon, rather than exotic weapons.																CHANGEPROF:Hammer (Gnome Hooked)=Martial			SOURCEPAGE:p.8
+
+###Block:Gnomling abilities
+# Ability Name					Unique Key					Output Name					Category of Ability		Type							Visible		Description																														Change Weapon Prof. Category			Source Page
+Gnome Halfling Blood										OUTPUTNAME:Gnome-Halfling Blood	CATEGORY:Special Ability	TYPE:SpecialQuality							DESC:For many special effects a Gnomling is considered both a gnome and Halfling.  Magical weapons useable only by gnomes and halflings will work for a Gnomling and affect them as well.								SOURCEPAGE:p.11
+Weapon Familiarity (Gnome Hooked Hammer)	KEY:Familiarity_Gnomling_gnome							CATEGORY:Special Ability	TYPE:SpecialQuality.GnomlingFamiliarity	VISIBLE:DISPLAY	DESC:Gnomlings raised in a gnomish community may treat gnome hooked hammers as martial weapons instead of exotic weapons.											CHANGEPROF:Hammer (Gnome Hooked)=Martial	SOURCEPAGE:p.11
+
+###Block:Half-Dwarf abilities
+# Ability Name				Output Name												Category of Ability		Type						Visible		Description																												Ability									Bonus to skill																																															Source Page		Temporary effect description
+Dwarven Blood																	CATEGORY:Special Ability	TYPE:SpecialQuality						DESC:For all purposes, half-dwarves are considered dwarves and may use weapons and items only useable by dwarves, and may be harmed by weapons meant to only harm dwarves.																																																												SOURCEPAGE:p.14
+Half Dwarf Stoneworking Skills	OUTPUTNAME:+1 bonus to Craft checks that are related to metal and stone.	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																																									BONUS:SKILL|Craft (Armorsmithing),Craft (Blacksmithing),Craft (Metalworking),Craft (Stonemasonry),Craft (Stoneworking),Craft (Weaponsmithing),Craft (Gemcutting),Craft (Lapidary),Craft (Stonemasonry),Craft (Whitesmithing)|1|TYPE=Racial	BONUS:SKILL|TYPE.Craft|1|TYPE=Racial|PREAPPLY:PC	SOURCEPAGE:p.14	TEMPDESC:Adjusts Craft skill bonuses by 1
+Raised in Dwarven community															CATEGORY:Special Ability	TYPE:Internal.HalfDwarfEarlyLife	VISIBLE:DISPLAY																														ABILITY:Special Ability|AUTOMATIC|Dwarf Attacks|Dodge Giant																																																		SOURCEPAGE:p.15
+Not raised in Dwarven community														CATEGORY:Special Ability	TYPE:Internal.HalfDwarfEarlyLife	VISIBLE:DISPLAY																																																																																									SOURCEPAGE:p.15
+
+###Block: Kiriton abilities
+# Ability Name		Output Name															Category of Ability		Type				Visible	Move		Ability																											Bonus to skill																																															Modify VAR				Source Page		Temporary effect description
+Kiriton Artistic Skills	OUTPUTNAME:+1 racial bonus to Craft focusing on artistic pursuits such as artistry or sculpting	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES																															BONUS:SKILL|Craft (Armorsmithing),Craft (Blacksmithing),Craft (Metalworking),Craft (Stonemasonry),Craft (Stoneworking),Craft (Weaponsmithing),Craft (Gemcutting),Craft (Lapidary),Craft (Stonemasonry),Craft (Whitesmithing)|1|TYPE=Racial	BONUS:SKILL|TYPE.Craft|1|TYPE=Racial|PREAPPLY:PC						SOURCEPAGE:p.14	TEMPDESC:Adjusts Craft skill bonuses by 1
+Kiriton Flight																		CATEGORY:Special Ability	TYPE:Racial							ABILITY:Special Ability|AUTOMATIC|Kiriton Flight (Good)|PREVAREQ:KiritonFlightMan,0	ABILITY:Special Ability|AUTOMATIC|Kiriton Flight (Poor)|PREVAREQ:KiritonFlightMan,1
+#
+Kiriton Flight (Good)																	CATEGORY:Special Ability							MOVE:Fly,40																																																																														BONUS:VAR|Maneuverability|4
+Kiriton Flight (Poor)																	CATEGORY:Special Ability							MOVE:Fly,20																																																																														BONUS:VAR|Maneuverability|2
+
+
+###Block: Sslithrak abilities
+# Ability Name				Output Name																Category of Ability		Type					Source Page
+Sslithrak Heat and Cold Resistance	OUTPUTNAME:+1 racial saving throw bonus to all cold and heat based attacks, both magical and normal	CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus	SOURCEPAGE:p.22
+Sslithrak Diplomancy Penalty		OUTPUTNAME:-2 racial penalty to Diplomacy checks when dealing with elves					CATEGORY:Special Ability	TYPE:SpecialQuality		SOURCEPAGE:p.22
+Sslithrak Keen direction		OUTPUTNAME:+2 racial bonus to Survival skill checks when trying to determine direction			CATEGORY:Special Ability	TYPE:SpecialQuality		SOURCEPAGE:p.22
+Sslithrak Immune to Maze		OUTPUTNAME:Immune to Maze spells												CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity	SOURCEPAGE:p.22
+
+###Block: Tarnat abilities
+# Ability Name		Output Name													Category of Ability		Type					Visible	Description																																		Source Page
+Orc Dwarven Blood		OUTPUTNAME:Orc-Dwarven Blood										CATEGORY:Special Ability	TYPE:SpecialQuality				DESC:For all purposes, Tarnats are considered orcs and dwarves. They may use weapons and items only usable by orcs and only usable by dwarves, and weapons meant to only harm dwarves or orcs may harm them.	SOURCEPAGE:p.14
+Tarnat Spell Resistance	OUTPUTNAME:+1 racial bonus on saving throws against spells and spell-like effects	CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus	VISIBLE:YES																																				SOURCEPAGE:p.25
+
+###Block: Ulf abilities
+# Ability Name	Output Name				Category of Ability		Type				Description																																		Source Page
+Elf Dwarven Blood	OUTPUTNAME:Elf-Dwarven Blood	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:For all purposes, ulves are considered elves and dwarves. They may use weapons and items only usable by elves and only usable by dwarves, and weapons meant to only harm dwarves or elves may harm them.	SOURCEPAGE:p.28
+
