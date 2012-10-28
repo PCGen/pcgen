@@ -1325,7 +1325,8 @@ public class Gui2InfoFactory implements InfoFactory
 	{
 		if (equipment instanceof Equipment)
 		{
-			return ((Equipment)equipment).getWeight(pc);
+			Float weight = ((Equipment)equipment).getWeight(pc);
+			return (float) Globals.getGameModeUnitSet().convertWeightToUnitSet(weight);
 		}
 		return 0;
 	}
