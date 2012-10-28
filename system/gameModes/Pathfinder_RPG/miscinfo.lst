@@ -279,7 +279,7 @@ WEAPONREACH:(RACEREACH+(max(0,REACH-5)))*REACHMULT
 
 ABILITYCATEGORY:FEAT			VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT	PLURAL:Feats	DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Internal		VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal
-ABILITYCATEGORY:Natural Attack	VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Natural Attack					
+ABILITYCATEGORY:Natural Attack	VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Natural Attack
 
 ###COMMENT: Internal Category is for all hidden abilities.
 
@@ -298,7 +298,7 @@ RESIZABLEEQUIPTYPE:Shield|Weapon|Armor|Ammunition|Resizable
 # Character Types:
 CHARACTERTYPE:PC|NPC
 
-DEFAULTDATASET:Paizo - Pathfinder RPG Core Rulebook,Paizo - Pathfinder RPG Character Traits Web Enhancement|Pathfinder RPG for Players
+DEFAULTDATASET:Paizo - Pathfinder Roleplaying Game Core Rulebook,Paizo - Pathfinder Roleplaying Game Character Traits Web Enhancement|Pathfinder RPG for Players
 #
 # DONE
 #
