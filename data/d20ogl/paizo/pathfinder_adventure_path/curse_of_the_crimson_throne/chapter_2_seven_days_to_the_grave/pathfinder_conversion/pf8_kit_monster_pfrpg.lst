@@ -126,7 +126,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Ghost Sound|Mage Hand|Message|Disguis
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Ghost Sound|Mage Hand|Message|Disguise Self|Mage Armor|Magic Missile|Ray of Enfeeblement|Silent Image|Invisibility|Scorching Ray|Touch of Idiocy|Web|Dispel Magic|Hold Person|Lightning Bolt|Stinking Cloud|Crushing Despair|Dimension Door|Fire Shield
 GEAR:Wand						LOCATION:Equipped	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[3]CHARGES[31]
 GEAR:Potion					QTY:2	LOCATION:Equipped	EQMOD:SPL_1USE|SPELLNAME[Inflict Moderate Wounds]CASTER[Cleric]SPELLTYPE[Divine]SPELLLEVEL[2]CASTERLEVEL[3]
-GEAR:Ring (Protection +2)			LOCATION:Equipped
+GEAR:Ring of Protection +2			LOCATION:Equipped
 GEAR:Cape of the Mountebank			LOCATION:Equipped
 GEAR:Spellbook (Wizard's/Blank)		LOCATION:Equipped
 

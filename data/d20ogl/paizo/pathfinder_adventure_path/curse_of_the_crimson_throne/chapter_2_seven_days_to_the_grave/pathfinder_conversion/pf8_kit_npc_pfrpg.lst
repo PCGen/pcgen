@@ -106,8 +106,8 @@ ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Rapier)
 ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Specialization (Rapier)
 ABILITY:CATEGORY=Fighter Bonus Feat|Improved Initiative
 ABILITY:CATEGORY=Weapon Training I|Weapon Training 1 Blades Light
-GEAR:Potion (Blur)					LOCATION:Pouch (Belt)
-GEAR:Potion (Shield of Faith +3)			LOCATION:Pouch (Belt)
+GEAR:Potion of Blur					LOCATION:Pouch (Belt)
+GEAR:Potion of Shield of Faith +3			LOCATION:Pouch (Belt)
 GEAR:Chain Shirt						LOCATION:Equipped		EQMOD:PLUS1A
 GEAR:Rapier							LOCATION:Primary Hand	EQMOD:PLUS1W.ALCHM
 GEAR:Coin (Gold Piece)			QTY:30	LOCATION:Pouch (Belt)
@@ -183,8 +183,8 @@ FEAT:Alertness
 FEAT:Improved Initiative
 FEAT:Point-Blank Shot
 FEAT:Precise Shot
-GEAR:Potion (Invisibility)	QTY:3		LOCATION:Pouch (Belt)
-GEAR:Potion (Remove Disease)	QTY:2		LOCATION:Pouch (Belt)
+GEAR:Potion of Invisibility	QTY:3		LOCATION:Pouch (Belt)
+GEAR:Potion of Remove Disease	QTY:2		LOCATION:Pouch (Belt)
 GEAR:Wand						LOCATION:Pouch (Belt)	EQMOD:SPL_CHRG|SPELLNAME[Cat's Grace]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[11]
 GEAR:Smokestick			QTY:5		LOCATION:Pouch (Belt)
 GEAR:Studded Leather				LOCATION:Equipped		EQMOD:PLUS1A.GLAM
@@ -274,7 +274,7 @@ ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Profession (Doctor))
 ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Perception)
 ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Sense Motive)
 ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Sleight of Hand)
-ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Linguistics))
+ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Linguistics)
 CLASS:Bard		LEVEL:4
 ABILITY:CATEGORY=Favored Class|Bard
 ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
@@ -306,7 +306,7 @@ FEAT:Dodge
 FEAT:Improved Initiative
 FEAT:Quick Draw
 FEAT:Weapon Finesse
-GEAR:Potion (Remove Disease)		LOCATION:Equipped
+GEAR:Potion of Remove Disease		LOCATION:Equipped
 GEAR:Rapier					LOCATION:Primary Hand	EQMOD:PLUS1W.BANE|Humanoids (human)
 GEAR:Mithral Shirt			LOCATION:Equipped		EQMOD:PLUS1A.MITHRAL_ARMR_LT
 GEAR:Amulet of Natural Armor +1	LOCATION:Equipped
@@ -344,14 +344,14 @@ ABILITY:CATEGORY=Wizard Bonus Feat|Brew Potion
 ABILITY:CATEGORY=Arcane Bond|Arcane Bond ~ Familiar
 ABILITY:CATEGORY=Arcane Opposition School|Illusion Opposition School
 ABILITY:CATEGORY=Arcane Opposition School|Transmutation Opposition School
-ABILITY:CATEGORY=Necromancer Channeling|Command Undead ~ Necromancer
+ABILITY:CATEGORY=Necromancer Channeling|Power Over Undead ~ Command Undead
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Acid Splash|Animate Dead|Charm Person|Chill Touch|Detect Magic|Detect Thoughts|Dimension Door|Dispel Magic|Enervation|False Life|Ghoul Touch|Grease|Hold Person|Ice Storm|Light|Lightning Bolt|Mage Armor|Ray of Enfeeblement|Ray of Exhaustion|Ray of Frost|Scorching Ray|Shield|Spectral Hand|Touch of Fatigue|Vampiric Touch
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Acid Splash|Animate Dead|Charm Person|Chill Touch|Detect Magic|Detect Thoughts|Dimension Door|Dispel Magic|Enervation|False Life|Ghoul Touch|Grease|Hold Person|Ice Storm|Light|Lightning Bolt|Mage Armor|Ray of Enfeeblement|Ray of Exhaustion|Ray of Frost|Scorching Ray|Shield|Spectral Hand|Touch of Fatigue|Vampiric Touch
 GEAR:Wand						LOCATION:Equipped		EQMOD:SPL_CHRG|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[3]CHARGES[43]
 GEAR:Dagger						LOCATION:Primary Hand	EQMOD:MWORKW
 GEAR:Cloak of Resistance +1			LOCATION:Equipped
 GEAR:Headband of Vast Intelligence +2	LOCATION:Equipped
-GEAR:Ring (Protection +1)			LOCATION:Equipped
+GEAR:Ring of Protection +1			LOCATION:Equipped
 GEAR:Unguent of Timelessness			LOCATION:Equipped
 GEAR:Mortician's Tools				LOCATION:Equipped
 TEMPLATE:Rolth's Magic Buffs
@@ -374,9 +374,9 @@ SKILL:Perception			RANK:2
 SKILL:Spellcraft			RANK:2
 FEAT:Combat Casting
 FEAT:Great Fortitude
-ABILITY:CATEGORY=Channel Energy|Channel Negative Energy
+ABILITY:CATEGORY=Channel Energy|Channel Negative Energy ~ Cleric
 GEAR:Scythe					LOCATION:Both Hands	EQMOD:MWORKW
-GEAR:Potion (Cure Moderate Wounds)	LOCATION:Equipped
+GEAR:Potion of Cure Moderate Wounds	LOCATION:Equipped
 GEAR:Breastplate				LOCATION:Equipped		EQMOD:PLUS1A
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Light Wounds|Detect Magic|Divine Favor|Resistance|Shield of Faith
 # Domain Spells, Note: PCGen does not currently Add Cleric Domain spells
@@ -413,7 +413,7 @@ FEAT:Extend Spell
 FEAT:Spell Focus(Necromancy)
 FEAT:Martial Weapon Proficiency (Scythe)
 FEAT:Weapon Focus (Scythe)			FREE:YES
-ABILITY:CATEGORY=Channel Energy|Channel Negative Energy
+ABILITY:CATEGORY=Channel Energy|Channel Negative Energy ~ Cleric
 GEAR:Scythe				LOCATION:Both Hands	EQMOD:PLUS1W.VICIOUS
 GEAR:Breastplate			LOCATION:Equipped		EQMOD:PLUS1A
 GEAR:Cloak of Resistance +2	LOCATION:Equipped
