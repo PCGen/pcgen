@@ -34,8 +34,8 @@ Staff of Hateful Healing												TYPE:Magic.Cursed.Staff														COST:30
 Wand of Reciprocal Paralyzation											TYPE:Magic.Wand.Cursed														COST:57600																		EQMOD:CHARGED_ITEM_10|CHARGES[10]						SOURCEPAGE:p.19
 
 #
-Razor Shield								PROFICIENCY:WEAPON|Razor Shield	TYPE:Weapon.Melee.Slashing.Shield.MeleeSlashing												WT:6							CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8							SIZE:M
+#Razor Shield								PROFICIENCY:WEAPON|Razor Shield	TYPE:Weapon.Melee.Slashing.Shield.MeleeSlashing												WT:6							CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8							SIZE:M
 #
-Razor Shield.MOD																																					ACCHECK:-1																																	BONUS:COMBAT|AC|1|TYPE=Shield	BONUS:COMBAT|TOHIT|-1|!PREFEAT:1,Shield Proficiency	BONUS:SKILL|ALL|-1|!PREFEAT:1,Shield Proficiency	BONUS:SLOTS|SHIELD|-1
+#Razor Shield.MOD																																					ACCHECK:-1																																	BONUS:COMBAT|AC|1|TYPE=Shield	BONUS:COMBAT|TOHIT|-1|!PREFEAT:1,Shield Proficiency	BONUS:SKILL|ALL|-1|!PREFEAT:1,Shield Proficiency	BONUS:SLOTS|SHIELD|-1
 #
 Razor Shield.COPY=Razor Shield of Travel

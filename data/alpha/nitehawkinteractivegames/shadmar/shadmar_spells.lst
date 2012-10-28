@@ -3,8 +3,8 @@ SOURCELONG:From the Laboratory of the Mad Wizard Shadmar	SOURCESHORT:MWS	SOURCEW
 # Original Entry: Andrew Maitland
 
 # Spells with classes not included with set.
-#Alter Allegiance.MOD	CLASSES:Witch=7
-#Longevity.MOD		CLASSES:Witch=9
+Alter Allegiance.MOD	CLASSES:Witch=7
+Longevity.MOD		CLASSES:Witch=9
 
 #Block: --------------------------------------------------------------------------------------------------------
 # Spell Name	Classes of caster				School			Sub-School			Spell Descriptors			Type		Components		Casting Time			Range					Target Area or Effect						Duration				Save Info				Spell Resistance	Description		Source Page

@@ -39,5 +39,5 @@ COVER:65633.jpg
 EQUIPMENT:shadmar_equip.lst
 SPELL:shadmar_spells.lst
 
-# TEMP till we get the Nitehawk Supplements coded:
-WEAPONPROF:shadmar_profs_weapon_temp.lst
+###Block: Duplicate In OCS II
+ALLOWDUPES:SPELL
