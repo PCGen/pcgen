@@ -7,11 +7,11 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 Gauntlet			PROFICIENCY:WEAPON|Gauntlet			TYPE:Weapon.Melee.Simple.Unarmed.Standard.Metal.Bludgeoning.Finesseable.Gauntlet	COST:2	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:Light						SIZE:M	SOURCEPAGE:Equipment.rtf
 Unarmed Strike		PROFICIENCY:WEAPON|Unarmed Strike		TYPE:Weapon.Natural.Melee.Simple.Unarmed.Subdual.Standard.Monk.Bludgeoning		COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:Equipment.rtf
 Flurry of Blows		PROFICIENCY:WEAPON|Unarmed Strike		TYPE:Weapon.Natural.Melee.Simple.Unarmed.Monk.Bludgeoning.Finesseable			COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:ClassesI.rtf		BONUS:WEAPON|ATTACKS|FlurryAttacks|PREVAREQ:COUNT[EQTYPE.ARMOR.EQUIPPED],0	BONUS:WEAPON|TOHIT|min(-1*FlurryPenalty,0)|PREVAREQ:COUNT[EQTYPE.ARMOR.EQUIPPED],0	SPROP:Flurry of Blows can not be used when armored|PREVARNEQ:COUNT[EQTYPE.ARMOR.EQUIPPED],0
-Grapple			PROFICIENCY:WEAPON|Grapple			TYPE:Weapon.Natural.Melee.Unarmed.Subdual								COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:0	WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:CombatII.rtf
+Grapple			PROFICIENCY:WEAPON|Grapple			TYPE:Weapon.Natural.Melee.Unarmed.Subdual								COST:0	WT:0		CRITMULT:x2			CRITRANGE:1					WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:CombatII.rtf
 Shieldbash (Light)	PROFICIENCY:WEAPON|Shieldbash (Light)	TYPE:Weapon.Melee.Martial.Unarmed.Bludgeoning.Finesseable.Shieldbash			COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:Light						SIZE:M	SOURCEPAGE:Equipment.rtf																												SPROP:Shieldbash attacks are considered to be offhanded attacks
 Shieldbash (Heavy)	PROFICIENCY:WEAPON|Shieldbash (Heavy)	TYPE:Weapon.Melee.Martial.Unarmed.Bludgeoning.Shieldbash					COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	WIELD:OneHanded					SIZE:M	SOURCEPAGE:Equipment.rtf																												SPROP:Shieldbash attacks are considered to be offhanded attacks
-Touch Attack (Grapple)	PROFICIENCY:WEAPON|Grapple			TYPE:Weapon.Natural.Melee.Unarmed									COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:0	WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:CombatII.rtf
-Touch Attack (Ray)	PROFICIENCY:WEAPON|Spells(Ray)		TYPE:Weapon.Ranged.Unarmed										COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:0	WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:CombatII.rtf
+Touch Attack (Grapple)	PROFICIENCY:WEAPON|Grapple			TYPE:Weapon.Natural.Melee.Unarmed									COST:0	WT:0		CRITMULT:x2			CRITRANGE:1					WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:CombatII.rtf
+Touch Attack (Ray)	PROFICIENCY:WEAPON|Spells(Ray)		TYPE:Weapon.Ranged.Unarmed										COST:0	WT:0		CRITMULT:x2			CRITRANGE:1					WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:CombatII.rtf
 
 
 #Special ---->(Flurry of Blows)
