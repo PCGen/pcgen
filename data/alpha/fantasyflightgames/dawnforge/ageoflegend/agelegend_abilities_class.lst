@@ -63,7 +63,7 @@ Gift of Bounds		CATEGORY:Special Ability	TYPE:WildernessGuideGift	VISIBLE:DISPLA
 Gift of Compassion	CATEGORY:Special Ability	TYPE:WildernessGuideGift	VISIBLE:DISPLAY	SAB:Gift of Compassion																																												SOURCEPAGE:p.88
 Gift of Healing		CATEGORY:Special Ability	TYPE:WildernessGuideGift	VISIBLE:DISPLAY	SAB:Gift of Healing																																												SOURCEPAGE:p.88
 Gift of Mercy		CATEGORY:Special Ability	TYPE:WildernessGuideGift	VISIBLE:DISPLAY	SAB:Gift of Mercy																																													SOURCEPAGE:p.88
-Gift of Power		CATEGORY:Special Ability	TYPE:WildernessGuideGift	VISIBLE:DISPLAY	SAB:Gift of Power																																			BONUS:STAT|BASESPELLKNOWNSTAT:Class=Wilderness Guide|4	SOURCEPAGE:p.88
+Gift of Power		CATEGORY:Special Ability	TYPE:WildernessGuideGift	VISIBLE:DISPLAY	SAB:Gift of Power																																			BONUS:STAT|BASESPELLKNOWNSTAT;CLASS=Wilderness Guide|4	SOURCEPAGE:p.88
 Gift of Sight		CATEGORY:Special Ability	TYPE:WildernessGuideGift	VISIBLE:DISPLAY	SAB:Gift of Sight		BONUS:SKILL|Listen,Spot|2																																							SOURCEPAGE:p.88
 Gift of Swiftness		CATEGORY:Special Ability	TYPE:WildernessGuideGift	VISIBLE:DISPLAY	SAB:Gift of Swiftness																																												SOURCEPAGE:p.88
 Gift of Wisdom		CATEGORY:Special Ability	TYPE:WildernessGuideGift	VISIBLE:DISPLAY	SAB:Gift of Wisdom						BONUS:SPELLKNOWN|CLASS=Wilderness Guide;LEVEL=1|1|PREVARGT:CL=Wilderness Guide,1	BONUS:SPELLKNOWN|CLASS=Wilderness Guide;LEVEL=2|1|PREVARGT:CL=Wilderness Guide,3											SOURCEPAGE:p.88
