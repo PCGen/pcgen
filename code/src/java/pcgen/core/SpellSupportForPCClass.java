@@ -222,7 +222,7 @@ public class SpellSupportForPCClass
 		final int bonusStat = (int) aPC.getTotalBonusTo("STAT", "KNOWN."
 				+ statString)
 				+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLKNOWNSTAT")
-				+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLKNOWNSTAT;CLASS."
+				+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLKNOWNSTAT;CLASS="
 						+ source.getKeyName());
 		if (!source.getSafe(ObjectKey.USE_SPELL_SPELL_STAT))
 		{
@@ -547,7 +547,7 @@ public class SpellSupportForPCClass
 		final int bonusStat = (int) aPC.getTotalBonusTo("STAT", "CAST."
 				+ statString)
 				+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLSTAT")
-				+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLSTAT;CLASS."
+				+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLSTAT;CLASS="
 						+ source.getKeyName());
 
 		if (limitByStat)

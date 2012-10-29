@@ -535,7 +535,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 			// bonuses.addAll( getBonusesTo("STAT", "CAST." + statString) );
 			// baseSpellStat += TypedBonus.totalBonuses(bonuses);
 			baseSpellStat += (int) getTotalBonusTo("STAT", "BASESPELLSTAT");
-			baseSpellStat += (int) getTotalBonusTo("STAT", "BASESPELLSTAT;CLASS." + aClass.getKeyName());
+			baseSpellStat += (int) getTotalBonusTo("STAT", "BASESPELLSTAT;CLASS=" + aClass.getKeyName());
 			baseSpellStat += (int) getTotalBonusTo("STAT", "CAST." + ss.getAbb());
 			baseSpellStat = StatAnalysis.getModForNumber(this, baseSpellStat, ss);
 		}
