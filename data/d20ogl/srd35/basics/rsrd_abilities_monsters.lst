@@ -675,6 +675,7 @@ Trained for Riding		KEY:Animal Training ~ Riding			CATEGORY:Special Ability	TYPE
 
 # DATA-330
 Low-light Vision			KEY:Low light Vision				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision																																																																										DEFINE:LowLightRange|2	DESC:You can see %1x as far as humans in low illumination.|LowLightRange
+Blindsense											CATEGORY:Special Ability	TYPE:SpecialQuality					DEFINE:BlindsenseRange|0	DESC:%1|BlindsenseRange
 
 # DATA-401
 Martial Weapons			KEY:Outsider House Rule ~ Martial Weapons	CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																	DESC:0 HD Outsider gains all Martial Weapon Proficiencies															AUTO:WEAPONPROF|TYPE=Martial|PREHD:MAX=0

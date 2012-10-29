@@ -49,41 +49,41 @@ Sling					TYPE:Simple.Ranged.Bludgeoning.RangedBludgeoning
 
 # Martial
 # -- light
-Axe (Throwing)			TYPE:Martial.Thrown.Slashing.Axe.Light
-Hammer (Light)			TYPE:Martial.Thrown.Melee.Bludgeoning.Hammer.Light
-Handaxe				TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe.Light
-Kukri					TYPE:Martial.Melee.Slashing.MeleeSlashing.Light
-Pick (Light)			TYPE:Martial.Melee.Piercing.MeleePiercing.Pick.Light
-Sap					TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.Light
-Shieldbash (Light)		TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.Light
-Spiked Armor			TYPE:Martial.Melee.Piercing.MeleePiercing.Light
-Sword (Short)			TYPE:Martial.Melee.Piercing.MeleePiercing.Sword.Light
+Axe (Throwing)			TYPE:Martial.Thrown.Slashing.Axe.Light.OneHandedMartial
+Hammer (Light)			TYPE:Martial.Thrown.Melee.Bludgeoning.Hammer.Light.OneHandedMartial
+Handaxe				TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe.Light.OneHandedMartial
+Kukri					TYPE:Martial.Melee.Slashing.MeleeSlashing.Light.OneHandedMartial
+Pick (Light)			TYPE:Martial.Melee.Piercing.MeleePiercing.Pick.Light.OneHandedMartial
+Sap					TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.Light.OneHandedMartial
+Shieldbash (Light)		TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.Light.OneHandedMartial
+Spiked Armor			TYPE:Martial.Melee.Piercing.MeleePiercing.Light.OneHandedMartial
+Sword (Short)			TYPE:Martial.Melee.Piercing.MeleePiercing.Sword.Light.OneHandedMartial
 
 # 1-handers
-Battleaxe				TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe.OneHanded
-Flail					TYPE:Martial.Melee.Bludgeoning.Flail.MeleeBludgeoning.OneHanded
-Longsword				TYPE:Martial.Melee.Slashing.MeleeSlashing.Sword.OneHanded
-Pick (Heavy)			TYPE:Martial.Melee.Piercing.MeleePiercing.Pick.OneHanded
-Rapier				TYPE:Martial.Melee.Piercing.MeleePiercing.Sword.OneHanded
-Scimitar				TYPE:Martial.Melee.Slashing.MeleeSlashing.Sword.OneHanded
-Shieldbash (Heavy)		TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.OneHanded
-Trident				TYPE:Martial.Melee.Thrown.Piercing.RangedPiercing.MeleePiercing.OneHanded
-Warhammer				TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.Hammer.OneHanded
+Battleaxe				TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe.OneHanded.OneHandedMartial
+Flail					TYPE:Martial.Melee.Bludgeoning.Flail.MeleeBludgeoning.OneHanded.OneHandedMartial
+Longsword				TYPE:Martial.Melee.Slashing.MeleeSlashing.Sword.OneHanded.OneHandedMartial
+Pick (Heavy)			TYPE:Martial.Melee.Piercing.MeleePiercing.Pick.OneHanded.OneHandedMartial
+Rapier				TYPE:Martial.Melee.Piercing.MeleePiercing.Sword.OneHanded.OneHandedMartial
+Scimitar				TYPE:Martial.Melee.Slashing.MeleeSlashing.Sword.OneHanded.OneHandedMartial
+Shieldbash (Heavy)		TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.OneHanded.OneHandedMartial
+Trident				TYPE:Martial.Melee.Thrown.Piercing.RangedPiercing.MeleePiercing.OneHanded.OneHandedMartial
+Warhammer				TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.Hammer.OneHanded.OneHandedMartial
 
 # 2-handers
-Falchion				TYPE:Martial.Melee.Slashing.MeleeSlashing.Sword.TwoHanded
-Glaive				TYPE:Martial.Melee.Slashing.MeleeSlashing.Polearm.TwoHanded
-Greataxe				TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe.TwoHanded
-Greatclub				TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.Club.TwoHanded
-Flail (Heavy)			TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.Flail.TwoHanded
-Greatsword				TYPE:Martial.Melee.Slashing.MeleeSlashing.Sword.TwoHanded
-Guisarme				TYPE:Martial.Melee.Slashing.MeleeSlashing.Polearm.TwoHanded
-Halberd				TYPE:Martial.Melee.Slashing.MeleeSlashing.Polearm.TwoHanded.Piercing.MeleePiercing
-Lance					TYPE:Martial.Melee.Piercing.MeleePiercing.TwoHanded
-Ranseur				TYPE:Martial.Melee.Piercing.MeleePiercing.Polearm.TwoHanded
-Scythe				TYPE:Martial.Melee.Slashing.MeleeSlashing.Piercing.MeleePiercing.TwoHanded
-Sword (Bastard)			TYPE:Martial.Exotic.Melee.Slashing.MeleeSlashing.Sword.TwoHanded
-Waraxe (Dwarven)			TYPE:Martial.Exotic.Melee.Slashing.MeleeSlashing.Axe.TwoHanded
+Falchion				TYPE:Martial.Melee.Slashing.MeleeSlashing.Sword.TwoHanded.TwoHandedMartial
+Glaive				TYPE:Martial.Melee.Slashing.MeleeSlashing.Polearm.TwoHanded.TwoHandedMartial
+Greataxe				TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe.TwoHanded.TwoHandedMartial
+Greatclub				TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.Club.TwoHanded.TwoHandedMartial
+Flail (Heavy)			TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.Flail.TwoHanded.TwoHandedMartial
+Greatsword				TYPE:Martial.Melee.Slashing.MeleeSlashing.Sword.TwoHanded.TwoHandedMartial
+Guisarme				TYPE:Martial.Melee.Slashing.MeleeSlashing.Polearm.TwoHanded.TwoHandedMartial
+Halberd				TYPE:Martial.Melee.Slashing.MeleeSlashing.Polearm.TwoHanded.Piercing.MeleePiercing.TwoHandedMartial
+Lance					TYPE:Martial.Melee.Piercing.MeleePiercing.TwoHanded.TwoHandedMartial
+Ranseur				TYPE:Martial.Melee.Piercing.MeleePiercing.Polearm.TwoHanded.TwoHandedMartial
+Scythe				TYPE:Martial.Melee.Slashing.MeleeSlashing.Piercing.MeleePiercing.TwoHanded.TwoHandedMartial
+Sword (Bastard)			TYPE:Martial.Exotic.Melee.Slashing.MeleeSlashing.Sword.TwoHanded.TwoHandedMartial
+Waraxe (Dwarven)			TYPE:Martial.Exotic.Melee.Slashing.MeleeSlashing.Axe.TwoHanded.TwoHandedMartial
 
 # --ranged
 Longbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow												HANDS:2

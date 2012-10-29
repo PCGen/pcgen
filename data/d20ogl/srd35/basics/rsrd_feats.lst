@@ -121,6 +121,14 @@ Weapon Specialization								TYPE:Special.Fighter																	PREFEAT:1,Weap
 Whirlwind Attack									TYPE:General.Fighter.AttackOption			PREATT:4											PREFEAT:4,Dodge,Mobility,Spring Attack,Combat Expertise																																	PRESTAT:2,DEX=13,INT=13																						DESC:When you use the full attack action, you can give up your regular attacks and instead make one melee attack at your full base attack bonus against each opponent within reach.																																																																																																																																																																																																									SOURCEPAGE:Feats.rtf
 Widen Spell										TYPE:Metamagic.Wizard																																																																																				DESC:You can alter a burst, emanation, line, or spread shaped spell to increase its area. Any numeric measurements of the spell's area increase by 100%%. A widened spell uses up a spell slot three levels higher than the spell's actual level.																																																																											ADDSPELLLEVEL:3																																																																																																																	SOURCEPAGE:Feats.rtf
 
+###Block: Homebrew Support
+Blind-Feat				VISIBLE:NO	AUTO:FEAT|Blind Fight
+Two-Weapon Defense		VISIBLE:NO	AUTO:FEAT|Two Weapon Defense
+Two-Weapon Fighting		VISIBLE:NO	AUTO:FEAT|Two Weapon Fighting
+Self-Sufficient			VISIBLE:NO	AUTO:FEAT|Self Sufficient
+Ride-By Attack			VISIBLE:NO	AUTO:FEAT|Ride By Attack
+Improved Two-Weapon Fighting	VISIBLE:NO	AUTO:FEAT|Improved Two Weapon Fighting
+Greater Two-Weapon Fighting	VISIBLE:NO	AUTO:FEAT|Greater Two Weapon Fighting
 #
 # DONE
 #
