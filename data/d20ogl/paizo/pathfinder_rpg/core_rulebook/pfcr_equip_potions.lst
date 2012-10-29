@@ -101,7 +101,7 @@ Oil of Greater Magic Weapon +3	TYPE:Magic.Potion.Consumable	COST:1800	WT:0		SOUR
 Oil of Greater Magic Weapon +4	TYPE:Magic.Potion.Consumable	COST:2400	WT:0		SOURCEPAGE:p.477	SPROP:Gives a weapon or 50 projectiles a +4 enhancement bonus on attack and damage rolls for 16 hours.
 Oil of Greater Magic Weapon +5	TYPE:Magic.Potion.Consumable	COST:3000	WT:0		SOURCEPAGE:p.477	SPROP:Gives a weapon or 50 projectiles a +5 enhancement bonus on attack and damage rolls for 20 hours.
 Oil of Invisibility			TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477	SPROP:Object becomes invisible for 3 minutes.
-Oil of Keen Edge				TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477	SPROP:Doubles normal weapon's threat range for 5 minutes.
+Oil of Keen Edge				TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477	SPROP:Doubles normal weapon's threat range for 50 minutes.
 Oil of Silence				TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477	SPROP:Complete silence prevails in a 20in the affected area
 Oil of Levitate				TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477	SPROP:Allows you to move yourself, another creature, or an object up and down as you wish for 3 minutes.
 Oil of Magic Stone			TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:p.477	SPROP:Transmute as many as three pebbles, which can be no larger than sling bullets, so that they strike with great force when thrown or slung. Lasts 30 minutes or until discharged.
