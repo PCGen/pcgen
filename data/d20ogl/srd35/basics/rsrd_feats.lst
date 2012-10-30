@@ -123,7 +123,7 @@ Widen Spell										TYPE:Metamagic.Wizard																																						
 
 ###Block: Homebrew Support
 # Feat Name				Visible	Automatically Gained Feat
-Blind-Feat				VISIBLE:NO	AUTO:FEAT|Blind Fight
+Blind-Fight				VISIBLE:NO	AUTO:FEAT|Blind Fight
 Two-Weapon Defense		VISIBLE:NO	AUTO:FEAT|Two Weapon Defense
 Two-Weapon Fighting		VISIBLE:NO	AUTO:FEAT|Two Weapon Fighting
 Self-Sufficient			VISIBLE:NO	AUTO:FEAT|Self Sufficient
