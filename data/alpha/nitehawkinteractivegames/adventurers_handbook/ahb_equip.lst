@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Apr 22 15:38:49 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
 
 # Exotic Weapons
@@ -13,8 +13,8 @@ Patar (Retracting)								PROFICIENCY:WEAPON|Patar (Retracting)						TYPE:Weapon
 Blood Sword										PROFICIENCY:WEAPON|Blood Sword							TYPE:Weapon.Melee.OneHanded.Sword.Slashing.Piercing.Exotic	COST:20	WT:10					CRITMULT:x2							DAMAGE:1d8			SIZE:M	SOURCEPAGE:p.124
 
 #Ranged
-Bola (2-Headed)									PROFICIENCY:WEAPON|Bola							TYPE:Weapon.Ranged.Exotic.Bludgeoning.Thrown			COST:2	WT:1					CRITMULT:x2							DAMAGE:1d3	RANGE:10	SIZE:M	SOURCEPAGE:p.124											SPROP:Non-lethal Damage
-Bola (4-Headed)									PROFICIENCY:WEAPON|Bola							TYPE:Weapon.Ranged.Exotic.Bludgeoning.Thrown			COST:2	WT:3					CRITMULT:x2							DAMAGE:1d3	RANGE:10	SIZE:M	SOURCEPAGE:p.124											SPROP:Non-lethal Damage
+Bola (2-Headed)									PROFICIENCY:WEAPON|Bola									TYPE:Weapon.Ranged.Exotic.Bludgeoning.Thrown			COST:2	WT:1					CRITMULT:x2							DAMAGE:1d3	RANGE:10	SIZE:M	SOURCEPAGE:p.124											SPROP:Non-lethal Damage
+Bola (4-Headed)									PROFICIENCY:WEAPON|Bola									TYPE:Weapon.Ranged.Exotic.Bludgeoning.Thrown			COST:2	WT:3					CRITMULT:x2							DAMAGE:1d3	RANGE:10	SIZE:M	SOURCEPAGE:p.124											SPROP:Non-lethal Damage
 Chakrum										PROFICIENCY:WEAPON|Chakrum								TYPE:Weapon.Ranged.Exotic.Slashing.Thrown				COST:10	WT:2					CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6	RANGE:10	SIZE:M	SOURCEPAGE:p.124
 Net (Hooked)									PROFICIENCY:WEAPON|Net (Hooked)							TYPE:Weapon.Ranged.Exotic.Slashing.Thrown				COST:30	WT:10													DAMAGE:1d4			SIZE:M	SOURCEPAGE:p.124											SPROP:10' max
 Net (Weighted)									PROFICIENCY:WEAPON|Net (Weighted)							TYPE:Weapon.Ranged.Exotic.Thrown					COST:30	WT:15																	SIZE:M	SOURCEPAGE:p.124											SPROP:10' max

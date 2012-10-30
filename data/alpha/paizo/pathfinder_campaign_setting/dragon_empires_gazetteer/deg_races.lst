@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Pathfinder Chronicles: Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
+# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
 
 # Race Name		Unique Key		Starting Feats	Size		Move			Face/Space	Reach		Bonus Languages															Bonus to Ability Pool				Stat bonus						Automatically Gained Language	Ability																										Main Race Type	Type			Template		Challenge Rating
 Kitsune					STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Aklo,Celestial,Elven,Gnome,Nagaji,Samsaran,Tengu,Wayang							BONUS:ABILITYPOOL|Kitsune Racial Trait|4	BONUS:STAT|DEX,CHA|2	BONUS:STAT|STR|-2	AUTO:LANG|Tien|Senzar		ABILITY:Internal|AUTOMATIC|Kitsune Racial Trait Default|PREABILITY:1,CATEGORY=Special Ability,Grant Default Racial Abilities	ABILITY:Internal|AUTOMATIC|Default	RACETYPE:Humanoid	TYPE:Base.PC	TEMPLATE:Kitsune	CR:1/2

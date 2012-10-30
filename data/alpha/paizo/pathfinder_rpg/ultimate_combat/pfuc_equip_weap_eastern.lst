@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep 26 12:21:11 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
 
 
@@ -38,7 +38,7 @@ Tube Arrow Shooter												TYPE:Weapon.EasternWeapon.Eastern.Ranged						COST
 Poisoned Sand Tube												TYPE:Weapon.EasternWeapon.Eastern.Ranged						COST:1	WT:1																					SIZE:M
 
 # Ammo
-Bamboo Shaft (10)													TYPE:Ammo.BambooShaft												COST:10	WT:.5																					SIZE:M
+Bamboo Shaft (10)													TYPE:Ammo.BambooShaft									COST:10	WT:.5																					SIZE:M
 Arrow (Iron-tipped Distance/20)										TYPE:Ammo.Arrow
 Arrow (Whistling)													TYPE:Ammo.Arrow
 

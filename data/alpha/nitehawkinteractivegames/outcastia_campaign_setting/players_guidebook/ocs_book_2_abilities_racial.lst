@@ -1,32 +1,32 @@
-# CVS $Revision$ $Author$ -- Tue Oct 16 20:52:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.nitehawk-games.biz/products/ocs_b2.html	SOURCEDATE:09-2011
 # ORIGINAL ENTRY BY: Andrew Maitland
 # ORIGINAL ENTRY DATE: 2011-11-26
 
 
 ###Block: Half-Dragon Parent Selection
-# Ability Name		Category of Ability	Type				Define			Ability																																				Bonus to Ability Pool													Combat bonus				Modify VAR
-Half-Black Adamantite	CATEGORY:Internal		TYPE:SpecialQuality.HalfDragonParent	DEFINE:ClawsSize|8	ABILITY:Special Ability|AUTOMATIC|Half-Dragon Claws|PREPCLEVEL:MIN=5	ABILITY:Special Ability|AUTOMATIC|Half-Black Adamantite Breath Weapon|PREPCLEVEL:MIN=7	ABILITY:Internal|AUTOMATIC|Half-Dragon Progression Tracker	BONUS:ABILITYPOOL|Half-Black Adamantite Discretionary Powers|DraconicDiscretionaryAbilityCount	BONUS:COMBAT|AC|5|TYPE=NaturalArmor	BONUS:VAR|RacialStatStr|6	BONUS:VAR|RacialStatDex|-4	BONUS:VAR|RacialStatCon|4	BONUS:VAR|RacialStatWis|-2
-Half-Bronze			CATEGORY:Internal		TYPE:SpecialQuality.HalfDragonParent	DEFINE:ClawsSize|4	ABILITY:Special Ability|AUTOMATIC|Half-Dragon Claws|PREPCLEVEL:MIN=5	ABILITY:Special Ability|AUTOMATIC|Half-Bronze Breath Weapon|PREPCLEVEL:MIN=7	ABILITY:Internal|AUTOMATIC|Half-Dragon Progression Tracker			BONUS:ABILITYPOOL|Half-Bronze Discretionary Powers|DraconicDiscretionaryAbilityCount		BONUS:COMBAT|AC|4|TYPE=NaturalArmor	BONUS:VAR|RacialStatStr|2	BONUS:VAR|RacialStatCon|2	BONUS:VAR|RacialStatInt|-4	BONUS:VAR|RacialStatWis|2
-Half-Gold			CATEGORY:Internal		TYPE:SpecialQuality.HalfDragonParent	DEFINE:ClawsSize|6	ABILITY:Special Ability|AUTOMATIC|Half-Dragon Claws|PREPCLEVEL:MIN=5	ABILITY:Special Ability|AUTOMATIC|Half-Gold Breath Weapon|PREPCLEVEL:MIN=7	ABILITY:Internal|AUTOMATIC|Half-Dragon Progression Tracker			BONUS:ABILITYPOOL|Half-Gold Discretionary Powers|DraconicDiscretionaryAbilityCount			BONUS:COMBAT|AC|4|TYPE=NaturalArmor	BONUS:VAR|RacialStatStr|6	BONUS:VAR|RacialStatDex|-4	BONUS:VAR|RacialStatCon|4	BONUS:VAR|RacialStatInt|-2	BONUS:VAR|RacialStatWis|-2
-Half-Gold Adamantite	CATEGORY:Internal		TYPE:SpecialQuality.HalfDragonParent	DEFINE:ClawsSize|6	ABILITY:Special Ability|AUTOMATIC|Half-Dragon Claws|PREPCLEVEL:MIN=5	ABILITY:Special Ability|AUTOMATIC|Half-Gold Adamantite Breath Weapon|PREPCLEVEL:MIN=7	ABILITY:Internal|AUTOMATIC|Half-Dragon Progression Tracker	BONUS:ABILITYPOOL|Half-Gold Adamantite Discretionary Powers|DraconicDiscretionaryAbilityCount	BONUS:COMBAT|AC|5|TYPE=NaturalArmor	BONUS:VAR|RacialStatStr|2	BONUS:VAR|RacialStatDex|-4	BONUS:VAR|RacialStatCon|6	BONUS:VAR|RacialStatInt|2	BONUS:VAR|RacialStatWis|-4
-Half-Red Adamantite	CATEGORY:Internal		TYPE:SpecialQuality.HalfDragonParent	DEFINE:ClawsSize|6	ABILITY:Special Ability|AUTOMATIC|Half-Dragon Claws|PREPCLEVEL:MIN=5	ABILITY:Special Ability|AUTOMATIC|Half-Red Adamantite Breath Weapon|PREPCLEVEL:MIN=7	ABILITY:Internal|AUTOMATIC|Half-Dragon Progression Tracker	BONUS:ABILITYPOOL|Half-Red Adamantite Discretionary Powers|DraconicDiscretionaryAbilityCount	BONUS:COMBAT|AC|5|TYPE=NaturalArmor	BONUS:VAR|RacialStatStr|4	BONUS:VAR|RacialStatCon|2	BONUS:VAR|RacialStatInt|-4	BONUS:VAR|RacialStatWis|-4	BONUS:VAR|RacialStatCha|4
-Half-Royal Adamantite	CATEGORY:Internal		TYPE:SpecialQuality.HalfDragonParent	DEFINE:ClawsSize|8	ABILITY:Special Ability|AUTOMATIC|Half-Dragon Claws|PREPCLEVEL:MIN=5	ABILITY:Special Ability|AUTOMATIC|Half-Royal Adamantite Breath Weapon|PREPCLEVEL:MIN=7	ABILITY:Internal|AUTOMATIC|Half-Dragon Progression Tracker	BONUS:ABILITYPOOL|Half-Royal Adamantite Discretionary Powers|DraconicDiscretionaryAbilityCount	BONUS:COMBAT|AC|5|TYPE=NaturalArmor	BONUS:VAR|RacialStatStr|6	BONUS:VAR|RacialStatDex|-2	BONUS:VAR|RacialStatCon|-4	BONUS:VAR|RacialStatInt|2	BONUS:VAR|RacialStatWis|-4	BONUS:VAR|RacialStatCha|4
-Half-Silver			CATEGORY:Internal		TYPE:SpecialQuality.HalfDragonParent	DEFINE:ClawsSize|4	ABILITY:Special Ability|AUTOMATIC|Half-Dragon Claws|PREPCLEVEL:MIN=5	ABILITY:Special Ability|AUTOMATIC|Half-Silver Breath Weapon|PREPCLEVEL:MIN=7	ABILITY:Internal|AUTOMATIC|Half-Dragon Progression Tracker			BONUS:ABILITYPOOL|Half-Silver Discretionary Powers|DraconicDiscretionaryAbilityCount		BONUS:COMBAT|AC|4|TYPE=NaturalArmor	BONUS:VAR|RacialStatStr|4	BONUS:VAR|RacialStatDex|-2	BONUS:VAR|RacialStatCon|2	BONUS:VAR|RacialStatInt|-2
-Half-Silver Adamantite	CATEGORY:Internal		TYPE:SpecialQuality.HalfDragonParent	DEFINE:ClawsSize|6	ABILITY:Special Ability|AUTOMATIC|Half-Dragon Claws|PREPCLEVEL:MIN=5	ABILITY:Special Ability|AUTOMATIC|Half-Silver Adamantite Breath Weapon|PREPCLEVEL:MIN=7	ABILITY:Internal|AUTOMATIC|Half-Dragon Progression Tracker	BONUS:ABILITYPOOL|Half-Silver Adamantite Discretionary Powers|DraconicDiscretionaryAbilityCount	BONUS:COMBAT|AC|5|TYPE=NaturalArmor	BONUS:VAR|RacialStatStr|2	BONUS:VAR|RacialStatCon|4	BONUS:VAR|RacialStatInt|-2	BONUS:VAR|RacialStatWis|-2
-Half-Yellow Adamantite	CATEGORY:Internal		TYPE:SpecialQuality.HalfDragonParent	DEFINE:ClawsSize|4	ABILITY:Special Ability|AUTOMATIC|Half-Dragon Claws|PREPCLEVEL:MIN=5	ABILITY:Special Ability|AUTOMATIC|Half-Yellow Adamantite Breath Weapon|PREPCLEVEL:MIN=7	ABILITY:Internal|AUTOMATIC|Half-Dragon Progression Tracker	BONUS:ABILITYPOOL|Half-Yellow Discretionary Powers|DraconicDiscretionaryAbilityCount		BONUS:COMBAT|AC|5|TYPE=NaturalArmor	BONUS:VAR|RacialStatDex|4	BONUS:VAR|RacialStatCon|2	BONUS:VAR|RacialStatWis|-2	BONUS:VAR|RacialStatCha|-2
+# Ability Name		Category of Ability		Type							Define											Description								Ability																																				Bonus to Ability Pool													Combat bonus				Modify VAR
+Half-Black Adamantite	CATEGORY:Internal			TYPE:SpecialQuality.HalfDragonParent	DEFINE:ClawsSize|8																		ABILITY:Special Ability|AUTOMATIC|Half-Dragon Claws|PREPCLEVEL:MIN=5	ABILITY:Special Ability|AUTOMATIC|Half-Black Adamantite Breath Weapon|PREPCLEVEL:MIN=7	ABILITY:Internal|AUTOMATIC|Half-Dragon Progression Tracker	BONUS:ABILITYPOOL|Half-Black Adamantite Discretionary Powers|DraconicDiscretionaryAbilityCount	BONUS:COMBAT|AC|5|TYPE=NaturalArmor	BONUS:VAR|RacialStatStr|6	BONUS:VAR|RacialStatDex|-4	BONUS:VAR|RacialStatCon|4	BONUS:VAR|RacialStatWis|-2
+Half-Bronze			CATEGORY:Internal			TYPE:SpecialQuality.HalfDragonParent	DEFINE:ClawsSize|4																		ABILITY:Special Ability|AUTOMATIC|Half-Dragon Claws|PREPCLEVEL:MIN=5	ABILITY:Special Ability|AUTOMATIC|Half-Bronze Breath Weapon|PREPCLEVEL:MIN=7	ABILITY:Internal|AUTOMATIC|Half-Dragon Progression Tracker			BONUS:ABILITYPOOL|Half-Bronze Discretionary Powers|DraconicDiscretionaryAbilityCount		BONUS:COMBAT|AC|4|TYPE=NaturalArmor	BONUS:VAR|RacialStatStr|2	BONUS:VAR|RacialStatCon|2	BONUS:VAR|RacialStatInt|-4	BONUS:VAR|RacialStatWis|2
+Half-Gold			CATEGORY:Internal			TYPE:SpecialQuality.HalfDragonParent	DEFINE:ClawsSize|6																		ABILITY:Special Ability|AUTOMATIC|Half-Dragon Claws|PREPCLEVEL:MIN=5	ABILITY:Special Ability|AUTOMATIC|Half-Gold Breath Weapon|PREPCLEVEL:MIN=7	ABILITY:Internal|AUTOMATIC|Half-Dragon Progression Tracker			BONUS:ABILITYPOOL|Half-Gold Discretionary Powers|DraconicDiscretionaryAbilityCount			BONUS:COMBAT|AC|4|TYPE=NaturalArmor	BONUS:VAR|RacialStatStr|6	BONUS:VAR|RacialStatDex|-4	BONUS:VAR|RacialStatCon|4	BONUS:VAR|RacialStatInt|-2	BONUS:VAR|RacialStatWis|-2
+Half-Gold Adamantite	CATEGORY:Internal			TYPE:SpecialQuality.HalfDragonParent	DEFINE:ClawsSize|6																		ABILITY:Special Ability|AUTOMATIC|Half-Dragon Claws|PREPCLEVEL:MIN=5	ABILITY:Special Ability|AUTOMATIC|Half-Gold Adamantite Breath Weapon|PREPCLEVEL:MIN=7	ABILITY:Internal|AUTOMATIC|Half-Dragon Progression Tracker	BONUS:ABILITYPOOL|Half-Gold Adamantite Discretionary Powers|DraconicDiscretionaryAbilityCount	BONUS:COMBAT|AC|5|TYPE=NaturalArmor	BONUS:VAR|RacialStatStr|2	BONUS:VAR|RacialStatDex|-4	BONUS:VAR|RacialStatCon|6	BONUS:VAR|RacialStatInt|2	BONUS:VAR|RacialStatWis|-4
+Half-Red Adamantite	CATEGORY:Internal			TYPE:SpecialQuality.HalfDragonParent	DEFINE:ClawsSize|6																		ABILITY:Special Ability|AUTOMATIC|Half-Dragon Claws|PREPCLEVEL:MIN=5	ABILITY:Special Ability|AUTOMATIC|Half-Red Adamantite Breath Weapon|PREPCLEVEL:MIN=7	ABILITY:Internal|AUTOMATIC|Half-Dragon Progression Tracker	BONUS:ABILITYPOOL|Half-Red Adamantite Discretionary Powers|DraconicDiscretionaryAbilityCount	BONUS:COMBAT|AC|5|TYPE=NaturalArmor	BONUS:VAR|RacialStatStr|4	BONUS:VAR|RacialStatCon|2	BONUS:VAR|RacialStatInt|-4	BONUS:VAR|RacialStatWis|-4	BONUS:VAR|RacialStatCha|4
+Half-Royal Adamantite	CATEGORY:Internal			TYPE:SpecialQuality.HalfDragonParent	DEFINE:ClawsSize|8																		ABILITY:Special Ability|AUTOMATIC|Half-Dragon Claws|PREPCLEVEL:MIN=5	ABILITY:Special Ability|AUTOMATIC|Half-Royal Adamantite Breath Weapon|PREPCLEVEL:MIN=7	ABILITY:Internal|AUTOMATIC|Half-Dragon Progression Tracker	BONUS:ABILITYPOOL|Half-Royal Adamantite Discretionary Powers|DraconicDiscretionaryAbilityCount	BONUS:COMBAT|AC|5|TYPE=NaturalArmor	BONUS:VAR|RacialStatStr|6	BONUS:VAR|RacialStatDex|-2	BONUS:VAR|RacialStatCon|-4	BONUS:VAR|RacialStatInt|2	BONUS:VAR|RacialStatWis|-4	BONUS:VAR|RacialStatCha|4
+Half-Silver			CATEGORY:Internal			TYPE:SpecialQuality.HalfDragonParent	DEFINE:ClawsSize|4																		ABILITY:Special Ability|AUTOMATIC|Half-Dragon Claws|PREPCLEVEL:MIN=5	ABILITY:Special Ability|AUTOMATIC|Half-Silver Breath Weapon|PREPCLEVEL:MIN=7	ABILITY:Internal|AUTOMATIC|Half-Dragon Progression Tracker			BONUS:ABILITYPOOL|Half-Silver Discretionary Powers|DraconicDiscretionaryAbilityCount		BONUS:COMBAT|AC|4|TYPE=NaturalArmor	BONUS:VAR|RacialStatStr|4	BONUS:VAR|RacialStatDex|-2	BONUS:VAR|RacialStatCon|2	BONUS:VAR|RacialStatInt|-2
+Half-Silver Adamantite	CATEGORY:Internal			TYPE:SpecialQuality.HalfDragonParent	DEFINE:ClawsSize|6																		ABILITY:Special Ability|AUTOMATIC|Half-Dragon Claws|PREPCLEVEL:MIN=5	ABILITY:Special Ability|AUTOMATIC|Half-Silver Adamantite Breath Weapon|PREPCLEVEL:MIN=7	ABILITY:Internal|AUTOMATIC|Half-Dragon Progression Tracker	BONUS:ABILITYPOOL|Half-Silver Adamantite Discretionary Powers|DraconicDiscretionaryAbilityCount	BONUS:COMBAT|AC|5|TYPE=NaturalArmor	BONUS:VAR|RacialStatStr|2	BONUS:VAR|RacialStatCon|4	BONUS:VAR|RacialStatInt|-2	BONUS:VAR|RacialStatWis|-2
+Half-Yellow Adamantite	CATEGORY:Internal			TYPE:SpecialQuality.HalfDragonParent	DEFINE:ClawsSize|4																		ABILITY:Special Ability|AUTOMATIC|Half-Dragon Claws|PREPCLEVEL:MIN=5	ABILITY:Special Ability|AUTOMATIC|Half-Yellow Adamantite Breath Weapon|PREPCLEVEL:MIN=7	ABILITY:Internal|AUTOMATIC|Half-Dragon Progression Tracker	BONUS:ABILITYPOOL|Half-Yellow Discretionary Powers|DraconicDiscretionaryAbilityCount		BONUS:COMBAT|AC|5|TYPE=NaturalArmor	BONUS:VAR|RacialStatDex|4	BONUS:VAR|RacialStatCon|2	BONUS:VAR|RacialStatWis|-2	BONUS:VAR|RacialStatCha|-2
 
-Half-Dragon Claws		CATEGORY:Special Ability	TYPE:SpecialAttack	DESC:%1d%2+%3|ClawDice|ClawDieSize|ClawBonusDamage	DEFINE:ClawDice|0	DEFINE:ClawDieSize|0	DEFINE:ClawBonusDamage|0
+Half-Dragon Claws		CATEGORY:Special Ability	TYPE:SpecialAttack				DEFINE:ClawDice|0	DEFINE:ClawDieSize|0	DEFINE:ClawBonusDamage|0	DESC:%1d%2+%3|ClawDice|ClawDieSize|ClawBonusDamage
 
 
 ###Block: Trackers and Misc.
-# Ability Name				Category of Ability		Type					Var. Min. Value				Define												Modify VAR
-Half-Dragon Progression Tracker	CATEGORY:Internal														DEFINE:RemoveRacialTrait|0	DEFINE:DraconicDiscretionaryAbilityCount|0	BONUS:VAR|RemoveRacialTrait|TL/2|!PRERACE:1,RACESUBTYPE=Human	BONUS:VAR|DraconicDiscretionaryAbilityCount|RacialTraitRemoved	BONUS:VAR|DraconicDiscretionaryAbilityCount|TL/2|PRERACE:1,RACESUBTYPE=Human
+# Ability Name				Category of Ability		Type								Var. Min. Value				Define												Modify VAR
+Half-Dragon Progression Tracker	CATEGORY:Internal																	DEFINE:RemoveRacialTrait|0	DEFINE:DraconicDiscretionaryAbilityCount|0	BONUS:VAR|RemoveRacialTrait|TL/2|!PRERACE:1,RACESUBTYPE=Human	BONUS:VAR|DraconicDiscretionaryAbilityCount|RacialTraitRemoved	BONUS:VAR|DraconicDiscretionaryAbilityCount|TL/2|PRERACE:1,RACESUBTYPE=Human
 
 Remove Racial Trait			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.TraitDefault	PREVARGTEQ:RemoveRacialTrait,1														BONUS:VAR|RemoveRacialTrait|-1	BONUS:VAR|RacialTraitRemoved|1
 
 ###Block: Fixed Powers
-# Ability Name	Unique Key						Category of Ability
+# Ability Name	Unique Key						Category of Ability		Type
 Breath Weapon	KEY:Half-Black Adamantite Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack
 Breath Weapon	KEY:Half-Bronze Breath Weapon			CATEGORY:Special Ability	TYPE:SpecialAttack
 Breath Weapon	KEY:Half-Gold Breath Weapon			CATEGORY:Special Ability	TYPE:SpecialAttack
@@ -51,14 +51,14 @@ Immune To Fire													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraord
 90-Foot Darkvision												CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DraconicDiscretionary.HalfBlackAdDiscretionary
 
 ###Block: Half-Bronze
-# Ability Name			Category of Ability		Type
-Water Breathing (at will)	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.DraconicDiscretionary.HalfBronzeDiscretionary
-Speak With Animals (at will)	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.DraconicDiscretionary.HalfBronzeDiscretionary
-Create Food And Water (2/day)	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.DraconicDiscretionary.HalfBronzeDiscretionary
-Detect Thoughts (1/day)		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.DraconicDiscretionary.HalfBronzeDiscretionary
-Dragon Fear (2/day)		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.DraconicDiscretionary.HalfBronzeDiscretionary
-CATEGORY=Special Ability|Immunity to Electricity.MOD		TYPE:SpecialQuality.Extraordinary.DraconicDiscretionary.HalfBronzeDiscretionary
-Darkvision ~ 60			CATEGORY:Special Ability	KEY:Darkvision ~ Half Bronze					TYPE:SpecialQuality.Extraordinary.DraconicDiscretionary.HalfBronzeDiscretionary
+# Ability Name							Unique Key				Category of Ability		Type
+Water Breathing (at will)										CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.DraconicDiscretionary.HalfBronzeDiscretionary
+Speak With Animals (at will)										CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.DraconicDiscretionary.HalfBronzeDiscretionary
+Create Food And Water (2/day)										CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.DraconicDiscretionary.HalfBronzeDiscretionary
+Detect Thoughts (1/day)											CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.DraconicDiscretionary.HalfBronzeDiscretionary
+Dragon Fear (2/day)											CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.DraconicDiscretionary.HalfBronzeDiscretionary
+CATEGORY=Special Ability|Immunity to Electricity.MOD											TYPE:SpecialQuality.Extraordinary.DraconicDiscretionary.HalfBronzeDiscretionary
+Darkvision ~ 60							KEY:Darkvision ~ Half Bronze	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DraconicDiscretionary.HalfBronzeDiscretionary
 
 ###Block: Half-Gold
 # Ability Name								Category of Ability		Type
@@ -94,15 +94,15 @@ CATEGORY=Special Ability|Dragon Fear (2/day).MOD																	TYPE:SpecialQua
 CATEGORY=Special Ability|Darkvision ~ 60.MOD																		TYPE:SpecialQuality.HalfRedAdDiscretionary
 
 ###Block: Half-Royal Ad
-# Ability Name							Category of Ability		Type
-Immune To Sonic							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DraconicDiscretionary.HalfRoyalAdDiscretionary
+# Ability Name								Category of Ability		Type
+Immune To Sonic								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DraconicDiscretionary.HalfRoyalAdDiscretionary
 CATEGORY=Special Ability|Water Breathing (at will).MOD						TYPE:SpecialQuality.HalfRoyalAdDiscretionary
-CATEGORY=Special Ability|Antimagic Field (1/day).MOD						TYPE:SpecialQuality.HalfRoyalAdDiscretionary
-Mirror Image (1/day)						CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.DraconicDiscretionary.HalfRoyalAdDiscretionary
-CATEGORY=Special Ability|Flame Walk ~ Half-Dragon.MOD						TYPE:SpecialQuality.HalfRoyalAdDiscretionary
-Passwall (2/day)							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.DraconicDiscretionary.HalfRoyalAdDiscretionary
-CATEGORY=Special Ability|Dragon Fear (2/day).MOD						TYPE:SpecialQuality.HalfRoyalAdDiscretionary
-CATEGORY=Special Ability|Darkvision ~ 60.MOD						TYPE:SpecialQuality.HalfRoyalAdDiscretionary
+CATEGORY=Special Ability|Antimagic Field (1/day).MOD							TYPE:SpecialQuality.HalfRoyalAdDiscretionary
+Mirror Image (1/day)							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.DraconicDiscretionary.HalfRoyalAdDiscretionary
+CATEGORY=Special Ability|Flame Walk ~ Half-Dragon.MOD							TYPE:SpecialQuality.HalfRoyalAdDiscretionary
+Passwall (2/day)								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.DraconicDiscretionary.HalfRoyalAdDiscretionary
+CATEGORY=Special Ability|Dragon Fear (2/day).MOD							TYPE:SpecialQuality.HalfRoyalAdDiscretionary
+CATEGORY=Special Ability|Darkvision ~ 60.MOD								TYPE:SpecialQuality.HalfRoyalAdDiscretionary
 
 ###Block: Half-Silver
 # Ability Name							Category of Ability		Type
@@ -122,12 +122,12 @@ Fast Healing 1d4+1 hp (every ten rounds)				KEY:Fast Healing Ten Rounds ~ Half-D
 Charm Reptiles (2/day, as charm animals, but reptiles)	KEY:Charm Reptiles ~ Half-Dragon			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.DraconicDiscretionary.HalfSilverAdDiscretionary
 Curse Water (2/day)															CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.DraconicDiscretionary.HalfSilverAdDiscretionary
 CATEGORY=Special Ability|Dragon Fear (2/day).MOD															TYPE:SpecialQuality.HalfSilverAdDiscretionary
-CATEGORY=Special Ability|Darkvision ~ 60.MOD				TYPE:SpecialQuality.HalfSilverAdDiscretionary
+CATEGORY=Special Ability|Darkvision ~ 60.MOD																TYPE:SpecialQuality.HalfSilverAdDiscretionary
 
 ###Block: Half-Yellow Ad
 # Ability Name							Category of Ability		Type
 CATEGORY=Special Ability|Immunity to Electricity.MOD						TYPE:SpecialQuality.HalfYellowAdDiscretionary
-Spider Climb (stone surfaces only - 1/day)			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.DraconicDiscretionary.HalfYellowAdDiscretionary
+Spider Climb (stone surfaces only - 1/day)		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.DraconicDiscretionary.HalfYellowAdDiscretionary
 Ventriloquism (2/day)						CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.DraconicDiscretionary.HalfYellowAdDiscretionary
 Stone Shape (2/day)						CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.DraconicDiscretionary.HalfYellowAdDiscretionary
 Modify Memory (1/day)						CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.DraconicDiscretionary.HalfYellowAdDiscretionary
@@ -135,14 +135,14 @@ CATEGORY=Special Ability|Dragon Fear (2/day).MOD						TYPE:SpecialQuality.HalfYe
 CATEGORY=Special Ability|Darkvision ~ 60.MOD							TYPE:SpecialQuality.HalfYellowAdDiscretionary
 
 ###Block: Common Abilities
-# Ability Name					Unique Key			Category of Ability		Type						Define				Description			Ability											Modify VAR						Add to vision					Spell Res.
+# Ability Name					Unique Key			Category of Ability		Type								Define				Description			Ability											Modify VAR						Add to vision					Spell Res.
 Darkvision						KEY:Darkvision		CATEGORY:Internal			TYPE:SpecialQuality.Internal				DEFINE:DarkvisionRange|0																								BONUS:VISION|Darkvision|DarkvisionRange
 #
-Darkvision						KEY:Darkvision ~ 120	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait													ABILITY:Internal|AUTOMATIC|Darkvision						BONUS:VAR|DarkvisionRange|120|TYPE=Base
-Darkvision						KEY:Darkvision ~ 60	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait													ABILITY:Internal|AUTOMATIC|Darkvision						BONUS:VAR|DarkvisionRange|60|TYPE=Base
-Darkvision						KEY:Darkvision ~ 30	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait													ABILITY:Internal|AUTOMATIC|Darkvision						BONUS:VAR|DarkvisionRange|30|TYPE=Base
+Darkvision						KEY:Darkvision ~ 120	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait												ABILITY:Internal|AUTOMATIC|Darkvision						BONUS:VAR|DarkvisionRange|120|TYPE=Base
+Darkvision						KEY:Darkvision ~ 60	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait												ABILITY:Internal|AUTOMATIC|Darkvision						BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Darkvision						KEY:Darkvision ~ 30	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait												ABILITY:Internal|AUTOMATIC|Darkvision						BONUS:VAR|DarkvisionRange|30|TYPE=Base
 
-Spell Resistance and Power Resistance					CATEGORY:Special Ability																ABILITY:Special Ability|AUTOMATIC|Spell Resistance|Power Resistance
+Spell Resistance and Power Resistance					CATEGORY:Special Ability																		ABILITY:Special Ability|AUTOMATIC|Spell Resistance|Power Resistance
 
 Spell Resistance									CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.SpecialQuality	DEFINE:SpellResistance|0	DESC:%1|SpellResistance																											SR:SpellResistance
 #Power Resistance									CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.SpecialQuality	DEFINE:PowerResistance|0	DESC:%1|PowerResistance
@@ -150,70 +150,70 @@ Spell Resistance									CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrai
 ###Block: Dwarves
 
 ###Block: Foul Dwarf
-# Ability Name											Category of Ability		Type
-Stonecunning											KEY:Stonecunning ~ Foul Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitFoulDwarf
-Weapon Familiarity										KEY:Weapon Familiarity ~ Foul Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitFoulDwarf
-Immune to Magical and Alchemical Poisons							KEY:Immunity ~ Foul Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitFoulDwarf
+# Ability Name											Unique Key						Category of Ability		Type
+Stonecunning											KEY:Stonecunning ~ Foul Dwarf			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitFoulDwarf
+Weapon Familiarity										KEY:Weapon Familiarity ~ Foul Dwarf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitFoulDwarf
+Immune to Magical and Alchemical Poisons							KEY:Immunity ~ Foul Dwarf			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitFoulDwarf
 +2 Racial Bonus On Saving Throws Against Natural Poison				KEY:Racial Bonus Poison ~ Foul Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitFoulDwarf
-+2 racial bonus on saving throws against spells and spell-like effects		KEY:Racial Bonus Saves ~ Foul Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitFoulDwarf
-+1 racial bonus on attack rolls against elves orcs and goblinoids			KEY:Racial Enemy ~ Foul Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitFoulDwarf
-+4 dodge bonus to Armor Class against monsters of the giant type			KEY:Racial Dodge ~ Foul Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitFoulDwarf
++2 racial bonus on saving throws against spells and spell-like effects		KEY:Racial Bonus Saves ~ Foul Dwarf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitFoulDwarf
++1 racial bonus on attack rolls against elves orcs and goblinoids			KEY:Racial Enemy ~ Foul Dwarf			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitFoulDwarf
++4 dodge bonus to Armor Class against monsters of the giant type			KEY:Racial Dodge ~ Foul Dwarf			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitFoulDwarf
 +2 racial bonus on Appraise checks that are related to stone or metal items	KEY:Racial Skill Appraise ~ Foul Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitFoulDwarf
-+2 racial bonus on Craft checks that are related to stone or metal		KEY:Racial Skill Craft ~ Foul Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitFoulDwarf
++2 racial bonus on Craft checks that are related to stone or metal		KEY:Racial Skill Craft ~ Foul Dwarf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitFoulDwarf
 +4 racial bonus on Move Silently checks							KEY:Racial Skill Move Silent ~ Foul Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitFoulDwarf
 
 ###Block: Hammer Dwarf
-# Ability Name											Category of Ability		Type
-Stonecunning											KEY:Stonecunning ~ Hammer Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHammerDwarf
+# Ability Name											Unique Key						Category of Ability		Type
+Stonecunning											KEY:Stonecunning ~ Hammer Dwarf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHammerDwarf
 Weapon Familiarity ~ Dwarven									KEY:Weapon Familiarity ~ Hammer Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHammerDwarf
-Stability												KEY:Stability ~ Hammer Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHammerDwarf
+Stability												KEY:Stability ~ Hammer Dwarf			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHammerDwarf
 +2 Racial Bonus On Saving Throws Against Poison						KEY:Save Bonus Poison ~ Hammer Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHammerDwarf
 +2 racial bonus on saving throws against spells and spell-like effects		KEY:Save Bonus Spells ~ Hammer Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHammerDwarf
-+1 racial bonus on attack rolls against orcs and goblinoids				KEY:Attack Bonus ~ Hammer Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHammerDwarf
-+4 dodge bonus to Armor Class against monsters of the giant type			KEY:Dodge Bonus ~ Hammer Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHammerDwarf
++1 racial bonus on attack rolls against orcs and goblinoids				KEY:Attack Bonus ~ Hammer Dwarf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHammerDwarf
++4 dodge bonus to Armor Class against monsters of the giant type			KEY:Dodge Bonus ~ Hammer Dwarf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHammerDwarf
 +2 racial bonus on Appraise checks that are related to stone or metal items	KEY:Skill Bonus Appraise ~ Hammer Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHammerDwarf
 +2 racial bonus on Craft checks that are related to stone or metal		KEY:Skill Bonus Craft ~ Hammer Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHammerDwarf
 +2 racial bonus on Craft (Lapidary) checks that are related to stone or metal	KEY:Skill Bonus Lapidary ~ Hammer Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHammerDwarf
 
 ###Block: Ice Dwarf
 
-# Ability Name											Category of Ability		Type
-Low-Light Vision											KEY:Low Light ~ Ice Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIceDwarf
-Icecunning												KEY:Icecunning ~ Ice Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIceDwarf
-Weapon Familiarity ~ Dwarven									KEY:Weapon Familiarity ~ Ice Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIceDwarf
-Stability ~ Ice Dwarf										KEY:Stability ~ Ice Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIceDwarf
-+2 Racial Bonus On Saving Throws Against Poison						KEY:Save Bonus Poison ~ Ice Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIceDwarf
-+2 racial bonus on saving throws against spells and spell-like effects		KEY:Save Bonus Spells ~ Ice Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIceDwarf
-+4 dodge bonus to Armor Class against monsters of the giant type			KEY:Dodge Bonus ~ Ice Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIceDwarf
+# Ability Name											Unique Key						Category of Ability		Type
+Low-Light Vision											KEY:Low Light ~ Ice Dwarf			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIceDwarf
+Icecunning												KEY:Icecunning ~ Ice Dwarf			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIceDwarf
+Weapon Familiarity ~ Dwarven									KEY:Weapon Familiarity ~ Ice Dwarf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIceDwarf
+Stability ~ Ice Dwarf										KEY:Stability ~ Ice Dwarf			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIceDwarf
++2 Racial Bonus On Saving Throws Against Poison						KEY:Save Bonus Poison ~ Ice Dwarf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIceDwarf
++2 racial bonus on saving throws against spells and spell-like effects		KEY:Save Bonus Spells ~ Ice Dwarf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIceDwarf
++4 dodge bonus to Armor Class against monsters of the giant type			KEY:Dodge Bonus ~ Ice Dwarf			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIceDwarf
 +2 racial bonus on Appraise checks that are related to stone or metal items	KEY:Skill Bonus Appraise ~ Ice Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIceDwarf
-+2 racial bonus on Craft checks that are related to stone or metal		KEY:Skill Bonus Craft ~ Ice Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIceDwarf
++2 racial bonus on Craft checks that are related to stone or metal		KEY:Skill Bonus Craft ~ Ice Dwarf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIceDwarf
 
 ###Block: Iron Dwarf
 
-# Ability Name											Category of Ability		Type
+# Ability Name											Unique Key						Category of Ability		Type
 Improved Stonecunning										KEY:Improved Stonecunning ~ Iron Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIronDwarf
-Weapon Familiarity										KEY:Weapon Familiarity ~ Iron Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIronDwarf
-Stability												KEY:Stability ~ Iron Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIronDwarf
-+2 Racial Bonus On Saving Throws Against Poison						KEY:Save Bonus Poison ~ Iron Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIronDwarf
-+2 racial bonus on saving throws against spells and spell-like effects		KEY:Save Bonus Spells ~ Iron Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIronDwarf
-+1 racial bonus on attack rolls against orcs and goblinoids				KEY:Attack Bonus ~ Iron Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIronDwarf
-+4 dodge bonus to Armor Class against monsters of the giant type			KEY:Dodge Bonus ~ Iron Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIronDwarf
+Weapon Familiarity										KEY:Weapon Familiarity ~ Iron Dwarf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIronDwarf
+Stability												KEY:Stability ~ Iron Dwarf			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIronDwarf
++2 Racial Bonus On Saving Throws Against Poison						KEY:Save Bonus Poison ~ Iron Dwarf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIronDwarf
++2 racial bonus on saving throws against spells and spell-like effects		KEY:Save Bonus Spells ~ Iron Dwarf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIronDwarf
++1 racial bonus on attack rolls against orcs and goblinoids				KEY:Attack Bonus ~ Iron Dwarf			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIronDwarf
++4 dodge bonus to Armor Class against monsters of the giant type			KEY:Dodge Bonus ~ Iron Dwarf			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIronDwarf
 +2 racial bonus on Appraise checks that are related to stone or metal items	KEY:Skill Bonus Appraise ~ Iron Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIronDwarf
-+2 racial bonus on Craft checks that are related to stone or metal		KEY:Skill Bonus Craft ~ Iron Dwarf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIronDwarf
++2 racial bonus on Craft checks that are related to stone or metal		KEY:Skill Bonus Craft ~ Iron Dwarf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitIronDwarf
 
 #####Block: Elves
 
 ###Block: Cavern
 
-# Ability Name										Category of Ability		Type
+# Ability Name										Unique Key					Category of Ability		Type
 Immune to Sleep Spells and Effects							KEY:Immunity to Sleep ~ Cavern Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCavernElf
-+2 racial saving throw bonus against enchantment spells and effects	KEY:Save Bonus ~ Cavern Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCavernElf
-Low-Light Vision										KEY:Low Light ~ Cavern Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCavernElf
-+2 racial bonus on Listen Search and Spot checks				KEY:Skill Bonus ~ Cavern Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCavernElf
++2 racial saving throw bonus against enchantment spells and effects	KEY:Save Bonus ~ Cavern Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCavernElf
+Low-Light Vision										KEY:Low Light ~ Cavern Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCavernElf
++2 racial bonus on Listen Search and Spot checks				KEY:Skill Bonus ~ Cavern Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCavernElf
 
 
 ###Block: Cavern Elf Weapon Prof Choices
-# Ability Name	Unique Key				Category of Ability		Type								Restricted Ability								Automatically Gained Feat
+# Ability Name	Unique Key				Category of Ability		Type											Restricted Ability								Automatically Gained Feat
 Light Pick		KEY:Martial WP ~ Light Pick	CATEGORY:Special Ability	TYPE:SpecialQuality.ElvenMartialProficiency.CavernElfWPChoice	!PREABILITY:1,CATEGORY=Special Ability,Martial WP ~ Heavy Pick	AUTO:FEAT|Martial Weapon Proficiency (Pick (Light))
 Heavy Pick		KEY:Martial WP ~ Heavy Pick	CATEGORY:Special Ability	TYPE:SpecialQuality.ElvenMartialProficiency.CavernElfWPChoice	!PREABILITY:1,CATEGORY=Special Ability,Martial WP ~ Light Pick	AUTO:FEAT|Martial Weapon Proficiency (Pick (Heavy))
 Longbow		KEY:Martial WP ~ Longbow	CATEGORY:Special Ability	TYPE:SpecialQuality.ElvenMartialProficiency.CavernElfWPChoice	!PREABILITY:1,CATEGORY=Special Ability,Martial WP ~ Shortbow	AUTO:FEAT|Martial Weapon Proficiency (Longbow)
@@ -221,166 +221,166 @@ Shortbow		KEY:Martial WP ~ Shortbow	CATEGORY:Special Ability	TYPE:SpecialQuality
 
 
 ###Block: Draconic Elf
-# Ability Name										Category of Ability		Type			Define			Description																									Template			Ability
-Natural Attacks										KEY:Natural Attacks ~ Draconic Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitDraconicElf				DEFINE:ClawsSize|3																											TEMPLATE:Claws ~ 1d3	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Draconic Elf
-Breath Weapon										KEY:Breath Weapon ~ Draconic Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitDraconicElf								DESC:%1 time per day may breath Fire, Cone 10' Long, 10' Wide, deals 1d8+%2 fire damage; Reflex DC %3; usable once every 2d3 rounds|min(CON,1)|CON|DEXSCORE
-Fast Healing								KEY:Fast Healing ~ Draconic Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitDraconicElf								DESC:%1|min(CON,1)
+# Ability Name										Unique Key						Category of Ability		Type										Define			Description																									Template			Ability
+Natural Attacks										KEY:Natural Attacks ~ Draconic Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitDraconicElf	DEFINE:ClawsSize|3																											TEMPLATE:Claws ~ 1d3	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Draconic Elf
+Breath Weapon										KEY:Breath Weapon ~ Draconic Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitDraconicElf					DESC:%1 time per day may breath Fire, Cone 10' Long, 10' Wide, deals 1d8+%2 fire damage; Reflex DC %3; usable once every 2d3 rounds|min(CON,1)|CON|DEXSCORE
+Fast Healing										KEY:Fast Healing ~ Draconic Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitDraconicElf					DESC:%1|min(CON,1)
 Immunity to magic sleep effects							KEY:Immunity to Sleep ~ Draconic Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitDraconicElf
-+4 racial saving throw bonus against enchantment spells or effects	KEY:Racial Save ~ Draconic Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitDraconicElf
-Low-Light Vision										KEY:Low Light ~ Draconic Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitDraconicElf
++4 racial saving throw bonus against enchantment spells or effects	KEY:Racial Save ~ Draconic Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitDraconicElf
+Low-Light Vision										KEY:Low Light ~ Draconic Elf			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitDraconicElf
 +2 racial bonus on Search checks							KEY:Bonus Skill Search ~ Draconic Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitDraconicElf
-+4 racial bonus on Listen and Spot checks						KEY:Bonus Skill ~ Draconic Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitDraconicElf
++4 racial bonus on Listen and Spot checks						KEY:Bonus Skill ~ Draconic Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitDraconicElf
 
 ###Block: Feral Elf
 
-# Ability Name										Category of Ability		Type
-Immunity to magic sleep effects							KEY:Immunity to Sleep ~ Feral Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTraitFeralElf
-+2 racial saving throw bonus against enchantment spells or effects	KEY:Racial Save ~ Feral Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitFeralElf
+# Ability Name										Unique Key					Category of Ability		Type
+Immunity to magic sleep effects							KEY:Immunity to Sleep ~ Feral Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTraitFeralElf
++2 racial saving throw bonus against enchantment spells or effects	KEY:Racial Save ~ Feral Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitFeralElf
 Low-Light Vision										KEY:Low Light ~ Feral Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTraitFeralElf
-+2 racial bonus on Listen, Search, Spot and Survival checks			KEY:Racial Skill ~ Feral Elf			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitFeralElf
++2 racial bonus on Listen, Search, Spot and Survival checks			KEY:Racial Skill ~ Feral Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitFeralElf
 
 ###Block: Forest Elf
 
-# Ability Name										Category of Ability		Type
+# Ability Name										Unique Key					Category of Ability		Type
 Immunity to magic sleep effects							KEY:Immunity to Sleep ~ Forest Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitForestElf
-+2 racial saving throw bonus against enchantment spells or effects	KEY:Save Bonus ~ Forest Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitForestElf
-Low-Light Vision										KEY:Low Light ~ Forest Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitForestElf
-+2 racial bonus on Listen, Search, Spot and Survival checks			KEY:Racial Skill ~ Forest Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitForestElf
++2 racial saving throw bonus against enchantment spells or effects	KEY:Save Bonus ~ Forest Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitForestElf
+Low-Light Vision										KEY:Low Light ~ Forest Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitForestElf
++2 racial bonus on Listen, Search, Spot and Survival checks			KEY:Racial Skill ~ Forest Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitForestElf
 
 ###Block: Oceanic Elf
 
-# Ability Name										Category of Ability		Type
+# Ability Name										Unique Key					Category of Ability		Type
 Immunity to magic sleep effects							KEY:Immunity to Sleep ~ Oceanic Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitOceanicElf
-+2 racial saving throw bonus against enchantment spells or effects	KEY:Save Bonus ~ Oceanic Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitOceanicElf
-Low-Light Vision										KEY:Low Light ~ Oceanic Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitOceanicElf
++2 racial saving throw bonus against enchantment spells or effects	KEY:Save Bonus ~ Oceanic Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitOceanicElf
+Low-Light Vision										KEY:Low Light ~ Oceanic Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitOceanicElf
 +2 racial bonus on Listen, Search, Spot and Survival checks			KEY:Racial Skill ~ Oceanic Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitOceanicElf
-Aquatic Resilience									KEY:Aquatic ~ Oceanic Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitOceanicElf
+Aquatic Resilience									KEY:Aquatic ~ Oceanic Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitOceanicElf
 Extended Breath Oceanic Elf								KEY:Extended Breath ~ Oceanic Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitOceanicElf
 
 ###Block: Polar Elf
 
-# Ability Name													Category of Ability		Type
+# Ability Name													Unique Key					Category of Ability		Type
 Immunity to magic sleep effects										KEY:Immunity to Sleep ~ Polar Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitPolarElf
-+2 racial saving throw bonus against enchantment spells or effects				KEY:Save Bonus ~ Polar Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitPolarElf
-Low-Light Vision													KEY:Low Light ~ Polar Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitPolarElf
-+2 racial bonus on Listen Search, Spot and Survival checks						KEY:Racial Skill ~ Polar Elf			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitPolarElf
-+4 racial bonus to their Constitution to resist cold effects, both natural and magical.	KEY:Resist Cold ~ Polar Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitPolarElf
++2 racial saving throw bonus against enchantment spells or effects				KEY:Save Bonus ~ Polar Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitPolarElf
+Low-Light Vision													KEY:Low Light ~ Polar Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitPolarElf
++2 racial bonus on Listen Search, Spot and Survival checks						KEY:Racial Skill ~ Polar Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitPolarElf
++4 racial bonus to their Constitution to resist cold effects, both natural and magical.	KEY:Resist Cold ~ Polar Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitPolarElf
 
 ###Block: Royal Elf
 
-# Ability Name											Category of Ability		Type
+# Ability Name												Unique Key					Category of Ability		Type
 Immunity to magic sleep effects									KEY:Immunity to Sleep ~ Royal Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitRoyalElf
-+2 racial saving throw bonus against enchantment spells or effects			KEY:Save Bonus ~ Royal Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitRoyalElf
-Low-Light Vision												KEY:Low Light ~ Royal Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitRoyalElf
-+2 racial bonus on Bluff, Diplomacy, Listen, Search, Sense Motive and Spot checks	KEY:Racial Skill ~ Royal Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitRoyalElf
++2 racial saving throw bonus against enchantment spells or effects			KEY:Save Bonus ~ Royal Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitRoyalElf
+Low-Light Vision												KEY:Low Light ~ Royal Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitRoyalElf
++2 racial bonus on Bluff, Diplomacy, Listen, Search, Sense Motive and Spot checks	KEY:Racial Skill ~ Royal Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitRoyalElf
 
 ###Block: Sky Elf
 
-# Ability Name										Category of Ability		Type
+# Ability Name										Unique Key					Category of Ability		Type
 +4 racial saving throw bonus to magic sleep effects				KEY:Immunity to Sleep ~ Sky Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitSkyElf
-+2 racial saving throw bonus against enchantment spells or effects	KEY:Save Bonus ~ Sky Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitSkyElf
-Low-Light Vision										KEY:Low Light ~ Sky Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitSkyElf
-+2 racial bonus on Listen, Search, and Spot checks		KEY:Racial Skill ~ Sky Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitSkyElf
++2 racial saving throw bonus against enchantment spells or effects	KEY:Save Bonus ~ Sky Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitSkyElf
+Low-Light Vision										KEY:Low Light ~ Sky Elf			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitSkyElf
++2 racial bonus on Listen, Search, and Spot checks				KEY:Racial Skill ~ Sky Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitSkyElf
 
 ###Block: Wraith Elf
 
-# Ability Name								Category of Ability		Type
-Darkvision									KEY:Darkvision ~ Wraith Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitWraithElf
+# Ability Name								Unique Key					Category of Ability		Type
+Darkvision									KEY:Darkvision ~ Wraith Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitWraithElf
 Immunity to magic sleep effects					KEY:Immunity to Sleep ~ Wraith Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitWraithElf
-+2 racial bonus on Intimidate Listen Search and Spot checks	KEY:Racial Skill ~ Wraith Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitWraithElf
++2 racial bonus on Intimidate Listen Search and Spot checks	KEY:Racial Skill ~ Wraith Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitWraithElf
 Darkvision ~ 120								KEY:Darkvision 120 ~ Wraith Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitWraithElf
-Light Sensitivity								KEY:Light Sensitivity ~ Wraith Elf				CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitWraithElf
+Light Sensitivity								KEY:Light Sensitivity ~ Wraith Elf	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitWraithElf
 
 ### Gnomes
 ###Block: Cavern
 
-# Ability Name							Category of Ability		Type
-Darkvision								KEY:Darkvision ~ Cavern Gnome	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCavernGnome
+# Ability Name							Unique Key						Category of Ability		Type
+Darkvision								KEY:Darkvision ~ Cavern Gnome			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCavernGnome
 Weapon Familiarity						KEY:Weapon Familiarity ~ Cavern Gnome	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCavernGnome
 +2 racial bonus on saving throws against illusions	KEY:Save Bonus Illusion ~ Cavern Gnome	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCavernGnome
 +2 racial bonus on Listen checks				KEY:Skill Bonus Listen ~ Cavern Gnome	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCavernGnome
 +2 competence bonus on Craft (any) checks			KEY:Skill Bonus Craft ~ Cavern Gnome	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCavernGnome
-+2 racial bonus on Hide checks				KEY:Skill Bonus Hide ~ Cavern Gnome	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCavernGnome
++2 racial bonus on Hide checks				KEY:Skill Bonus Hide ~ Cavern Gnome		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCavernGnome
 +2 racial bonus on all Improvised Trap Setting checks	KEY:Skill Bonus Traps ~ Cavern Gnome	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCavernGnome
-Spell-Like Abilities						KEY:Spell Abilities ~ Cavern Gnome	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCavernGnome
-Stoneworking						KEY:Stoneworking ~ Cavern Gnome	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCavernGnome
-Spell Resistance and Power Resistance			KEY:Spell Res ~ Cavern Gnome	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCavernGnome
+Spell-Like Abilities						KEY:Spell Abilities ~ Cavern Gnome		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCavernGnome
+Stoneworking							KEY:Stoneworking ~ Cavern Gnome		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCavernGnome
+Spell Resistance and Power Resistance			KEY:Spell Res ~ Cavern Gnome			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCavernGnome
 
 ###Block: Crag
 
-# Ability Name														Category of Ability		Type
-Low-Light Vision														KEY:Low Light ~ Crag Gnome	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCragGnome
-Weapon Familiarity													KEY:Weapon Familiarity ~ Crag Gnome	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCragGnome
+# Ability Name														Unique Key						Category of Ability		Type
+Low-Light Vision														KEY:Low Light ~ Crag Gnome			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCragGnome
+Weapon Familiarity													KEY:Weapon Familiarity ~ Crag Gnome		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCragGnome
 +2 racial bonus on saving throws against illusions								KEY:Save Bonus Illusion ~ Crag Gnome	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCragGnome
-Add +1 to the Difficulty Class for all saving throws against illusion spells cast by gnomes	KEY:Illusion DC ~ Crag Gnome	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCragGnome
-+1 racial bonus on attack rolls against kobolds and goblinoids						KEY:Attack Bonus ~ Crag Gnome	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCragGnome
-+4 dodge bonus to Armor Class against monsters of the giant type						KEY:Dodge Bonus ~ Crag Gnome	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCragGnome
-+2 racial bonus on Listen checks											KEY:Skill Bonus Listen ~ Crag Gnome	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCragGnome
+Add +1 to the Difficulty Class for all saving throws against illusion spells cast by gnomes	KEY:Illusion DC ~ Crag Gnome			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCragGnome
++1 racial bonus on attack rolls against kobolds and goblinoids						KEY:Attack Bonus ~ Crag Gnome			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCragGnome
++4 dodge bonus to Armor Class against monsters of the giant type						KEY:Dodge Bonus ~ Crag Gnome			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCragGnome
++2 racial bonus on Listen checks											KEY:Skill Bonus Listen ~ Crag Gnome		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCragGnome
 +2 racial bonus on Craft (alchemy) checks										KEY:Skill Bonus Alchemy ~ Crag Gnome	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCragGnome
-Spell-Like Abilities ~ Crag Gnome											KEY:Spell Abilities ~ Crag Gnome	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCragGnome
+Spell-Like Abilities ~ Crag Gnome											KEY:Spell Abilities ~ Crag Gnome		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitCragGnome
 
 ###Block: Halfling
 ###Block: Oceanic
-# Ability Name										Category of Ability		Type
-+1 racial bonus on attack rolls with thrown weapons and slings		KEY:Racial Attack ~ Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait
-+1 racial bonus on all saving throws						KEY:Save Bonus ~ Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitOceanicHalfling
-+2 morale bonus on saving throws against fear					KEY:Save Bonus Fear ~ Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitOceanicHalfling
+# Ability Name										Unique Key						Category of Ability		Type
++1 racial bonus on attack rolls with thrown weapons and slings		KEY:Racial Attack ~ Halfling			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait
++1 racial bonus on all saving throws						KEY:Save Bonus ~ Halfling			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitOceanicHalfling
++2 morale bonus on saving throws against fear					KEY:Save Bonus Fear ~ Halfling		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitOceanicHalfling
 +1 racial bonus on attack rolls with thrown daggers and throwing axes	KEY:Racial Attack ~ Oceanic Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitOceanicHalfling
-+2 racial bonus on Climb, Jump, Listen, and Move Silently checks		KEY:Bonus Skill ~ Oceanic Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitOceanicHalfling
++2 racial bonus on Climb, Jump, Listen, and Move Silently checks		KEY:Bonus Skill ~ Oceanic Halfling		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitOceanicHalfling
 Weapon Proficiency									KEY:Weapon Proficiency ~ Oceanic Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitOceanicHalfling
 
 
 ###Block: Shaggyfoot
-# Ability Name								Category of Ability		Type
-+2 racial bonus on Climb, Jump, and Move Silently checks	KEY:Bonus Skill ~ Shaggyfoot Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitShaggyfootHalfling
-+2 racial bonus on Listen checks					KEY:Bonus Skill Listen ~ Shaggyfoot Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitShaggyfootHalfling
-+2 racial bonus to all Sleight of Hand checks			KEY:Bonus Skill Sleight of Hand ~ Shaggyfoot Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitShaggyfootHalfling
+# Ability Name									Unique Key								Category of Ability		Type
++2 racial bonus on Climb, Jump, and Move Silently checks		KEY:Bonus Skill ~ Shaggyfoot Halfling			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitShaggyfootHalfling
++2 racial bonus on Listen checks						KEY:Bonus Skill Listen ~ Shaggyfoot Halfling		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitShaggyfootHalfling
++2 racial bonus to all Sleight of Hand checks				KEY:Bonus Skill Sleight of Hand ~ Shaggyfoot Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitShaggyfootHalfling
 
-+1 racial bonus on all saving throws					KEY:Save Bonus ~ Shaggyfoot Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitShaggyfootHalfling
-+2 morale bonus on saving throws against fear				KEY:Save Bonus Fear ~ Shaggyfoot Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitShaggyfootHalfling
-+1 racial bonus on attack rolls with thrown weapons and slings	KEY:Weapon Bonus ~ Shaggyfoot Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitShaggyfootHalfling
++1 racial bonus on all saving throws					KEY:Save Bonus ~ Shaggyfoot Halfling			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitShaggyfootHalfling
++2 morale bonus on saving throws against fear				KEY:Save Bonus Fear ~ Shaggyfoot Halfling			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitShaggyfootHalfling
++1 racial bonus on attack rolls with thrown weapons and slings	KEY:Weapon Bonus ~ Shaggyfoot Halfling			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitShaggyfootHalfling
 
 
 ###Block: Tundra
-# Ability Name									Category of Ability		Type
-+4 racial bonus on Climb, Jump, Move Silently and Survival checks	KEY:Bonus Skill ~ Tundra Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitTundraHalfling
+# Ability Name									Unique Key						Category of Ability		Type
++4 racial bonus on Climb, Jump, Move Silently and Survival checks	KEY:Bonus Skill ~ Tundra Halfling		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitTundraHalfling
 +2 racial bonus on Listen checks						KEY:Bonus Skill Listen ~ Tundra Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitTundraHalfling
-+1 racial bonus on all saving throws					KEY:Racial Save ~ Tundra Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitTundraHalfling
++1 racial bonus on all saving throws					KEY:Racial Save ~ Tundra Halfling		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitTundraHalfling
 +2 morale bonus on saving throws against fear				KEY:Racial Fear Save ~ Tundra Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitTundraHalfling
-+1 racial bonus on attack rolls with thrown weapons and slings	KEY:Racial Attack ~ Tundra Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitTundraHalfling
++1 racial bonus on attack rolls with thrown weapons and slings	KEY:Racial Attack ~ Tundra Halfling		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitTundraHalfling
 Stability										KEY:Stability ~ Tundra Halfling		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitTundraHalfling
 
 ###Block: Urban
-# Ability Name									Category of Ability		Type									Bonus to skill point/L
-Martial Weapon Proficiency							KEY:MWP ~ Urban Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitUrbanHalfling
-Armor Proficiency									KEY:Armor ~ Urban Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitUrbanHalfling
-+2 racial bonus on Climb, Jump, Listen, and Move Silently checks	KEY:Racial Skill ~ Urban Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitUrbanHalfling
+# Ability Name									Unique Key						Category of Ability		Type													Bonus to skill point/L
+Martial Weapon Proficiency							KEY:MWP ~ Urban Halfling			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitUrbanHalfling
+Armor Proficiency									KEY:Armor ~ Urban Halfling			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitUrbanHalfling
++2 racial bonus on Climb, Jump, Listen, and Move Silently checks	KEY:Racial Skill ~ Urban Halfling		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitUrbanHalfling
 +4 bonus skill points								KEY:Bonus Skill Points ~ Urban Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.SpecialQuality.BaseRaceTrait.RacialTraitUrbanHalfling	BONUS:SKILLPOINTS|NUMBER|4
 
 ###Block: Wild
-# Ability Name									Category of Ability		Type
-+2 racial bonus on Climb, Jump, Listen, and Move Silently checks	KEY:Racial Skill ~ Wild Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitWildHalfling
-Specialized Foe									KEY:Specialized Foe ~ Wild Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitWildHalfling
-+2 morale bonus on saving throws against fear				KEY:Racial Save ~ Wild Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitWildHalfling
-+1 racial bonus on attack rolls with thrown weapons and slings	KEY:Racial Attack ~ Wild Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitWildHalfling
+# Ability Name									Unique Key						Category of Ability		Type
++2 racial bonus on Climb, Jump, Listen, and Move Silently checks	KEY:Racial Skill ~ Wild Halfling		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitWildHalfling
+Specialized Foe									KEY:Specialized Foe ~ Wild Halfling		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitWildHalfling
++2 morale bonus on saving throws against fear				KEY:Racial Save ~ Wild Halfling		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitWildHalfling
++1 racial bonus on attack rolls with thrown weapons and slings	KEY:Racial Attack ~ Wild Halfling		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitWildHalfling
 
 #####Block: Gnoblin
-Darkvision										KEY:Darkvision ~ Gnoblin	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitGnoblin
-Goblin Blood									KEY:Goblin Blood ~ Gnoblin	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitGnoblin
-Gnome Blood										KEY:Gnome Blood ~ Gnoblin	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitGnoblin
-Spell resistance and power resistance					KEY:Spell Res ~ Gnoblin	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitGnoblin
-Spell-Like Abilities								KEY:Spell ~ Gnoblin	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitGnoblin
-Stoneworking ~ Gnoblin								KEY:Stoneworking ~ Gnoblin	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitGnoblin
-Weapon Familiarity								KEY:Weapon Familiarity ~ Gnoblin	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitGnoblin
-+2 racial bonus on saving throws against illusions			KEY:Racial Save ~ Gnoblin	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitGnoblin
-+1 competence bonus on Craft (any) checks					KEY:Racial Skill ~ Gnoblin	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitGnoblin
+Darkvision										KEY:Darkvision ~ Gnoblin			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitGnoblin
+Goblin Blood									KEY:Goblin Blood ~ Gnoblin			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitGnoblin
+Gnome Blood										KEY:Gnome Blood ~ Gnoblin			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitGnoblin
+Spell resistance and power resistance					KEY:Spell Res ~ Gnoblin				CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitGnoblin
+Spell-Like Abilities								KEY:Spell ~ Gnoblin				CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitGnoblin
+Stoneworking ~ Gnoblin								KEY:Stoneworking ~ Gnoblin			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitGnoblin
+Weapon Familiarity								KEY:Weapon Familiarity ~ Gnoblin		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitGnoblin
++2 racial bonus on saving throws against illusions			KEY:Racial Save ~ Gnoblin			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitGnoblin
++1 competence bonus on Craft (any) checks					KEY:Racial Skill ~ Gnoblin			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitGnoblin
 #Racial Skills ~ Gnoblin								KEY: ~ Gnoblin	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitGnoblin
 
 #####Block: Horok
-Darkvision										KEY:Darkvision ~ Horok	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHorok
-+1 natural armor									KEY:Natural Armor ~ Horok	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHorok
-Immune to Psionics								KEY:Immunity to Psionics ~ Horok	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHorok
-+2 racial bonus to Spot skill checks					KEY:Racial Skill Spot ~ Horok	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHorok
+Darkvision										KEY:Darkvision ~ Horok				CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHorok
++1 natural armor									KEY:Natural Armor ~ Horok			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHorok
+Immune to Psionics								KEY:Immunity to Psionics ~ Horok		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHorok
++2 racial bonus to Spot skill checks					KEY:Racial Skill Spot ~ Horok			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHorok
 +2 racial bonus to Intimidation skill checks				KEY:Racial Skill Intimidation ~ Horok	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHorok
 
 

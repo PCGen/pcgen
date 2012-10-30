@@ -1,23 +1,23 @@
-# CVS $Revision$ $Author$ -- Tue Oct 16 20:52:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 # SOURCELONG:Ocastia Campaign Setting - Book 2 - Player's Guide	SOURCESHORT:OCS_PG
 # ORIGINAL ENTRY BY: Andrew Maitland
 # ORIGINAL ENTRY DATE: 2011-11-26
 
-# Ability Category							Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list								Plural description for UI		Display Location
-ABILITYCATEGORY:Half-Dragon Parentage Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Internal			TYPE:HalfDragonParent																					DISPLAYLOCATION:Racial Abilities
+# Ability Category							Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list			Plural description for UI		Display Location
+ABILITYCATEGORY:Half-Dragon Parentage Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Internal			TYPE:HalfDragonParent																DISPLAYLOCATION:Racial Abilities
 # Discretionary Powers Pools ---
-ABILITYCATEGORY:Half-Black Adamantite Discretionary Powers	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:HalfBlackAdDiscretionary																				DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Half-Bronze Discretionary Powers		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:HalfBronzeDiscretionary																				DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Half-Gold Discretionary Powers			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:HalfGoldDiscretionary																				DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Half-Gold Adamantite Discretionary Powers	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:HalfGoldAdDiscretionary																				DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Half-Red Adamantite Discretionary Powers	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:HalfRedAdDiscretionary																				DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Half-Royal Adamantite Discretionary Powers	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:HalfRoyalAdDiscretionary																				DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Half-Silver Discretionary Powers		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:HalfSilverDiscretionary																				DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Half-Silver Adamantite Discretionary Powers	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:HalfSilverAdDiscretionary																			DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Half-Yellow Discretionary Powers		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:HalfYellowAdDiscretionary																			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half-Black Adamantite Discretionary Powers	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:HalfBlackAdDiscretionary															DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half-Bronze Discretionary Powers		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:HalfBronzeDiscretionary															DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half-Gold Discretionary Powers			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:HalfGoldDiscretionary															DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half-Gold Adamantite Discretionary Powers	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:HalfGoldAdDiscretionary															DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half-Red Adamantite Discretionary Powers	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:HalfRedAdDiscretionary															DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half-Royal Adamantite Discretionary Powers	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:HalfRoyalAdDiscretionary															DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half-Silver Discretionary Powers		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:HalfSilverDiscretionary															DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half-Silver Adamantite Discretionary Powers	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:HalfSilverAdDiscretionary														DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half-Yellow Discretionary Powers		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:HalfYellowAdDiscretionary														DISPLAYLOCATION:Racial Abilities
 
 # Cavern Elf MWP Choices
-ABILITYCATEGORY:Cavern Elf Martial Proficiency			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:CavernElfWPChoice																					DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Cavern Elf Martial Proficiency			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:CavernElfWPChoice																DISPLAYLOCATION:Racial Abilities
 
 
 
@@ -81,22 +81,22 @@ ABILITYCATEGORY:Feral Raider Run Substitution	VISIBLE:QUALIFY	EDITABLE:YES		EDIT
 ABILITYCATEGORY:Holy Terror Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT										ABILITYLIST:Empower Spell|Enlarge Spell|Extend Spell|Heighten Spell|Maximize Spell|Quicken Spell|Silent Spell|Still Spell						DISPLAYLOCATION:Feats
 
 # ~ Knight of Manunzul
-ABILITYCATEGORY:Knight of Manunzul Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT	TYPE:KnightofManunzul																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Knight of Manunzul Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:KnightofManunzul																														DISPLAYLOCATION:Class Abilities
 
 # ~ Mastermind
-ABILITYCATEGORY:Mastermind High Psionia			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MastermindHighPsionia.HighPsionia																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Mastermind High Psionia		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MastermindHighPsionia.HighPsionia																											DISPLAYLOCATION:Class Abilities
 
 # ~ Mystic Teacher
-ABILITYCATEGORY:Mystic Teacher Gained Knowledge		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MysticTeacherGainedKnowledge		ABILITYLIST:Mystic Teacher Gained Knowledge																											DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Navitus Flemen				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NavitusFlemen																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Mystic Teacher Gained Knowledge	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MysticTeacherGainedKnowledge		ABILITYLIST:Mystic Teacher Gained Knowledge																			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Navitus Flemen			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NavitusFlemen																														DISPLAYLOCATION:Class Abilities
 
-ABILITYCATEGORY:Navitus Flemen Mastery			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NavitusFlemenMastery																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Navitus Flemen Mastery		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NavitusFlemenMastery																													DISPLAYLOCATION:Class Abilities
 
 #  ~ Observer Bonus
-ABILITYCATEGORY:Observer Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT	TYPE:Observer																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Observer Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Observer																															DISPLAYLOCATION:Class Abilities
 
 # ~ Watchman
-ABILITYCATEGORY:Undead Insight				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:UndeadInsight																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Undead Insight			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:UndeadInsight																														DISPLAYLOCATION:Class Abilities
 
 # ~ Shakasan
 ABILITYCATEGORY:Shakasan Mystic Tattoo		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShakasanMysticTattoo																													DISPLAYLOCATION:Class Abilities

@@ -1,5 +1,5 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Pathfinder Chronicles: Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
+# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
 
 # Deity Name	Product Identity?	Domains											Desciption of Deity/Title							Holy Item												Deity Weapon				Alignment	Pantheon					Deity Title				Usual Worshippers								Source Page		Deity Appearance																												RACE
 Daikitsu		NAMEISPI:YES	DOMAINS:Animal,Artifice,Community,Plant,Weather|PREALIGN:CN,LN,TN,NG,NE	DESC:Goddess of agriculture, craftsmanship, kitsune, and rice	SYMBOL:Nine-tailed fox										DEITYWEAP:Flail				ALIGN:TN	PANTHEON:Pathfinder Chronicles	TITLE:Lady of Foxes		WORSHIPPERS:Farmers, Smiths, Craftsmen				SOURCEPAGE:p.59	APPEARANCE:Daikitsu usually appears as beautiful kitsune woman with snow-white fur and nine tails.														RACE:Kitsune

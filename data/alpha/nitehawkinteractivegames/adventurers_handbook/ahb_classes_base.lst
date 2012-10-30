@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Apr 22 15:38:49 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html	SOURCEDATE:06-2005
 #Original Entry by: Tir Gwaith
 
@@ -56,16 +56,17 @@ CLASS:Outcast	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Outca
 #COMMENT: Can't implement BAB progression properly, third iteration wonky.
 #		Not liking the wonky progression.
 
+# Class Name	Visible
 CLASS:Shaman	VISIBLE:NO
 
-# Class Name			Hit Dice	Type			Ex Class			Source Page		Save checks bonus											Combat bonus							Bonus
-CLASS:Shaman (Alternate)	HD:6		TYPE:Base.PC	EXCLASS:Ex-Shamans	SOURCEPAGE:p.42	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|var("ShamanBAB")|TYPE=Base.REPLACE	BONUS:CASTERLEVEL|Shaman (Alternate)|CL
+# Class Name			Hit Dice	Type			Ex Class			Source Page		Save checks bonus											Combat bonus
+CLASS:Shaman (Alternate)	HD:6		TYPE:Base.PC	EXCLASS:Ex-Shamans	SOURCEPAGE:p.42	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|var("ShamanBAB")|TYPE=Base.REPLACE
 # Class Name			Required AL
 CLASS:Shaman (Alternate)	PREALIGN:LG,LN,TN,NG,CG
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Shaman (Alternate)	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Dreams)|Knowledge (Nature)|Knowledge (Spirits)|Spellcraft|Survival
-# Class Name			Spell Stat		Spell Type
-CLASS:Shaman (Alternate)	SPELLSTAT:WIS	SPELLTYPE:Divine	SPELLLIST:1|Shaman
+# Class Name			Spell Stat		Spell Type		Caster level					Use Spell List
+CLASS:Shaman (Alternate)	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Shaman (Alternate)|CL	SPELLLIST:1|Shaman
 ###Block:Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
@@ -125,20 +126,19 @@ CLASS:Ex-Shamans	HD:6		SOURCEPAGE:p.42	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude,BA
 18	BONUS:VAR|ShamanBAB|1
 20	BONUS:VAR|ShamanBAB|1
 
-# Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus					Bonus
-CLASS:Witch		HD:4		TYPE:Base.PC	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE	BONUS:CASTERLEVEL|Witch|CL
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
+CLASS:Witch		HD:4		TYPE:Base.PC	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
 # Class Name	Required AL
 CLASS:Witch		PREALIGN:LN,NG,TN,CN,NE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Witch		STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Craft (Alchemy)|Craft (Apothecary)|Diplomacy|Heal|Intimidate|Knowledge (Cultures)|Listen|Search|Seduction|Spellcraft|Spot|Star Reading|Survival|Witchcraft
-#Scry|
-# Class Name	Spell Stat		Spell Type
-CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane
+# Class Name	Spell Stat		Spell Type		Caster level
+CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Witch|CL
 ###Block:Proficiencies
-1																								ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies				AUTO:FEAT|Simple Weapon Proficiency
+1																								ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 #Block: Level Progression
-1						BONUS:ABILITYPOOL|Witch Favored Race|1	BONUS:VAR|EmpoweredCharmBonus|2	DEFINE:EmpoweredCharmBonus|0	ABILITY:Special Ability|AUTOMATIC|Summon Familiar|Empowered Charm				AUTO:FEAT|Scribe Scroll
-3																																						AUTO:FEAT|Brew Potion
+1						BONUS:ABILITYPOOL|Witch Favored Race|1	BONUS:VAR|EmpoweredCharmBonus|2	DEFINE:EmpoweredCharmBonus|0	ABILITY:Special Ability|AUTOMATIC|Summon Familiar|Empowered Charm	AUTO:FEAT|Scribe Scroll
+3																																			AUTO:FEAT|Brew Potion
 5						BONUS:ABILITYPOOL|Witch Favored Race|CL/5	BONUS:VAR|EmpoweredCharmBonus|CL/5
 13																								ABILITY:Special Ability|AUTOMATIC|Improved Brewing
 #Block: Spell Casting Progression
@@ -166,7 +166,7 @@ CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane
 #Witch has exclass, but all it says is you can't advance without atonement, no loss of spells, or powers.
 
 
-# Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus					Modify VAR
 CLASS:Mentalist	HD:8		TYPE:Base.PC	SOURCEPAGE:p.53	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL
 # Class Name	Restricted AL
 CLASS:Mentalist	!PREALIGN:CG,CN,CE

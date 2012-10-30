@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Apr 22 15:38:49 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html	SOURCEDATE:06-2005
 #Original Entry by: Tir Gwaith
 
@@ -25,7 +25,7 @@ CLASS:Ghost Hunter	CSKILL:Concentration|TYPE.Craft|Diplomacy|Knowledge (Undead)|
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus														Combat bonus
 CLASS:Master Chef	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.132	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+1)/2-1	BONUS:CHECKS|BASE.Will|max(CL-3,0)+1	BONUS:COMBAT|BAB|max(0,CL-1)|TYPE=Base.REPLACE
-# Class Name	Req. Att.	Required Skill														Required Text
+# Class Name	Req. Att.	Required Skill															Required Text
 CLASS:Master Chef	PREATT:1	PRESKILL:1,Craft (Cooking)=4	PRESKILL:2,Knowledge (Agriculture)=2,Knowledge (Spices and Herbs)=2	PRETEXT:To become a master chef, the character must have trained under a chef or cook for 10 years.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Master Chef	STARTSKILLPTS:2	CSKILL:Craft (Alchemy)|Craft (Cooking)|Knowledge (Agriculture)|Knowledge (Food Preparation)|Knowledge (Seas and Oceans)|Knowledge (Spices and Herbs)|Knowledge (any specific foods)|TYPE.Perform|Profession (Chef)

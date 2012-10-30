@@ -1,16 +1,16 @@
-# CVS $Revision$ $Author$ -- Sun Oct 14 21:10:22 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
 # ORIGINAL ENTRY: Stefan Radermacher, Eric Smith (Maredudd), and Douglas Limmer
 # ORIGINAL ENTRY DATE: Unknown
 
 ###Block: Archetype Buckets
-# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object		Plural description for UI	Display Location
-ABILITYCATEGORY:Magus Archetype	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:MagusArchetype	PLURAL:Magus Archetypes		DISPLAYLOCATION:Archetype
+# Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Specific choices list						Plural description for UI	Display Location
+ABILITYCATEGORY:Magus Archetype				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:MagusArchetype										PLURAL:Magus Archetypes		DISPLAYLOCATION:Archetype
 
-ABILITYCATEGORY:Animal Friend Choice			ABILITYLIST:Animal Friend Choice ~ Animal Speaker	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Geisha Weapon Proficiency Choice	ABILITYLIST:Geisha Weapon Proficiency Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal				DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Geisha Knowledge Choice			ABILITYLIST:Geisha Knowledge Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Secrets of the Grave Spell Choice	ABILITYLIST:Secrets of the Grave Spell Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Animal Friend Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability					ABILITYLIST:Animal Friend Choice ~ Animal Speaker						DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Geisha Weapon Proficiency Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal							ABILITYLIST:Geisha Weapon Proficiency Choice							DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Geisha Knowledge Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability					ABILITYLIST:Geisha Knowledge Choice									DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Secrets of the Grave Spell Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability					ABILITYLIST:Secrets of the Grave Spell Choice							DISPLAYLOCATION:Class Abilities
 
 
 ###Block: Bonus Feats

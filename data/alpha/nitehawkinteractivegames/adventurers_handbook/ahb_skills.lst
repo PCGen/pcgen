@@ -1,8 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Apr 22 15:38:49 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html	SOURCEDATE:06-2005
 #Original Entry by: Tir-Gwaith
 
 # Referenced but not in source
+# Skill Name		Key Stat	Untrained?		Type
 Knowledge (Trapmaking)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge
 Knowledge (Cultures)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge
 
@@ -33,9 +34,9 @@ Witchcraft			KEYSTAT:INT	USEUNTRAINED:NO												TYPE:Intelligence	SOURCEPAGE
 
 ###Block: Craft/Knowledge/Profession subskills
 # Skill Name				Key Stat	Untrained?		Type					Source Page		Bonus to skill
-Craft (Apothecary).MOD			BONUS:SKILL|Craft (Alchemy)|SynergyBonus|PRESKILL:1,Craft (Apothecary)=5
-Craft (Cooking).MOD			BONUS:SKILL|Profession (Chef)|SynergyBonus|PRESKILL:1,Craft (Cooking)=5
-Craft (Gemcutting).MOD			BONUS:SKILL|Craft (Lapidary)|SynergyBonus|PRESKILL:1,Craft (Gemcutting)=5
+Craft (Apothecary).MOD																BONUS:SKILL|Craft (Alchemy)|SynergyBonus|PRESKILL:1,Craft (Apothecary)=5
+Craft (Cooking).MOD																BONUS:SKILL|Profession (Chef)|SynergyBonus|PRESKILL:1,Craft (Cooking)=5
+Craft (Gemcutting).MOD																BONUS:SKILL|Craft (Lapidary)|SynergyBonus|PRESKILL:1,Craft (Gemcutting)=5
 Craft (Lapidary)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.70
 Craft (Whitesmithing)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.71	BONUS:SKILL|Craft (Blacksmithing)|SynergyBonus|PRESKILL:1,Craft (Whitesmithing)=5
 Craft (Whittling)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.71	BONUS:SKILL|Craft (Carpentry)|SynergyBonus|PRESKILL:1,Craft (Whittling)=5

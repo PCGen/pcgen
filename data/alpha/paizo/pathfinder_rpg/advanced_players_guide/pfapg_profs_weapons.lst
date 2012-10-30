@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Oct  1 00:28:13 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Eric C. Smith (Maredudd)
 
-# Weapon Name		Type															Nb Hands
+# Weapon Name		Type																Nb Hands
 Bomb				TYPE:Exotic.Ranged.Splash
 # SIMPLE WEAPONS
 # -- unarmed
@@ -48,5 +48,5 @@ Mancatcher			TYPE:Exotic.Melee.Piercing.MeleePiercing.Spear.TwoHanded
 
 # -- ranged
 Boomerang			TYPE:Exotic.Ranged.Bludgeoning.RangedBludgeoning
-Crossbow (Double)		TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow							HANDS:2
-Lasso				TYPE:Exotic.Ranged.Lasso											HANDS:2
+Crossbow (Double)		TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow								HANDS:2
+Lasso				TYPE:Exotic.Ranged.Lasso												HANDS:2

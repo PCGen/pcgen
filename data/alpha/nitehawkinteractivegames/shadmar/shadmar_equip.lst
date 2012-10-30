@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:From the Laboratory of the Mad Wizard Shadmar	SOURCESHORT:MWS	SOURCEWEB:http://www.nitehawk-games.biz/products/shadmar_rev2.html	SOURCEDATE:09-2009
 # Original Entry: Andrew Maitland
 #COMMENT: No stats for the weapon 'Jumping Blade' in the current source book, requires [Creatures and Chaos Adventurer's Handbook].
@@ -14,24 +14,24 @@ Jumping Blade				TYPE:Magic.Cursed.Sword	COST:50320	WT:10		SOURCEPAGE:p.11
 #Razor Shield of Travel - Shield or Wondrous item? - Razor Shield, no such item to reference so leaving it as is.
 
 ###Block: New Entries
-# Equipment Name					Product Identity?	Required Weapon Proficiency		Type												Number of Pages	Page Usage	Cost		Weight	Slot Needed	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier					Size		Move			Source Page		Ability						Combat bonus												Bonus to skill							Bonus to nb of slots	Stat bonus
-Amulet of Creation													TYPE:Magic.Artifact.Amulet.Cursed														WT:3																												SOURCEPAGE:p.5	ABILITY:FEAT|AUTOMATIC|TYPE=ItemCreation
-Belt of Armor														TYPE:Magic.Wondrous.Belt.Cursed												COST:1000	WT:3																												SOURCEPAGE:p.5
-Cape of the Fish														TYPE:Magic.Wondrous.Cape.Cloak.Cursed											COST:65000	WT:2																									MOVE:Swim,30	SOURCEPAGE:p.6
-Circlet of the Learned													TYPE:Magic.Wondrous.Headgear.Circlet.Cursed										COST:47500	WT:1																												SOURCEPAGE:p.7																						BONUS:SKILL|TYPE.Knowledge|15|TYPE=Insight
-Cloak of Camouflage													TYPE:Magic.Wondrous.Cape.Cloak.Cursed											COST:80000	WT:3																												SOURCEPAGE:p.8
-Eli's Shoes						NAMEISPI:YES							TYPE:Magic.Wondrous.Boot.Cursed												COST:15000	WT:1		SLOTS:2																									SOURCEPAGE:p.9
-Flute of the Farmer													TYPE:Magic.Wondrous.Cursed.MusicalInstrument.Instrument.WindInstrument						COST:126100	WT:1																												SOURCEPAGE:p.10
-Gloves of Climbing													TYPE:Glove.Wondrous.Cursed													COST:61500	WT:1		SLOTS:2																									SOURCEPAGE:p.10																																			BONUS:STAT|DEX|2|TYPE=Enhancement
-Mask of Disguise														TYPE:Magic.Wondrous.Mask.Eyegear.Cursed											COST:224000	WT:1																												SOURCEPAGE:p.12
-Potion of Mutilate Self													TYPE:Magic.Potion.Cursed													COST:500																													SOURCEPAGE:p.13
-Razor Shield of Travel.MOD												TYPE:Magic.Cursed															COST:182650	WT:6																												SOURCEPAGE:p.13
-Ring of Competence													TYPE:Magic.Ring.Cursed														COST:50000																													SOURCEPAGE:p.14
-Ring of The Whole Truth													TYPE:Magic.Ring.Cursed														COST:120000																													SOURCEPAGE:p.15
-Shadmar's Crystal Mask of Languages		NAMEISPI:YES							TYPE:Magic.Mask.Eyegear.Cursed												COST:2500	WT:0.5																											SOURCEPAGE:p.16
-Spellbook of Research													TYPE:Magic.Cursed.Spellbook.Book							NUMPAGES:6		PAGEUSAGE:1	COST:26490	WT:2.5																											SOURCEPAGE:p.16
-Staff of Hateful Healing												TYPE:Magic.Cursed.Staff														COST:30600	WT:4																												SOURCEPAGE:p.18
-Wand of Reciprocal Paralyzation											TYPE:Magic.Wand.Cursed														COST:57600																		EQMOD:CHARGED_ITEM_10|CHARGES[10]						SOURCEPAGE:p.19
+# Equipment Name					Product Identity?	Type												Number of Pages	Page Usage	Cost		Weight	Slot Needed	Modifier					Move			Source Page		Ability						Bonus to skill						Stat bonus
+Amulet of Creation							TYPE:Magic.Artifact.Amulet.Cursed														WT:3													SOURCEPAGE:p.5	ABILITY:FEAT|AUTOMATIC|TYPE=ItemCreation
+Belt of Armor								TYPE:Magic.Wondrous.Belt.Cursed												COST:1000	WT:3													SOURCEPAGE:p.5
+Cape of the Fish								TYPE:Magic.Wondrous.Cape.Cloak.Cursed											COST:65000	WT:2										MOVE:Swim,30	SOURCEPAGE:p.6
+Circlet of the Learned							TYPE:Magic.Wondrous.Headgear.Circlet.Cursed										COST:47500	WT:1													SOURCEPAGE:p.7								BONUS:SKILL|TYPE.Knowledge|15|TYPE=Insight
+Cloak of Camouflage							TYPE:Magic.Wondrous.Cape.Cloak.Cursed											COST:80000	WT:3													SOURCEPAGE:p.8
+Eli's Shoes						NAMEISPI:YES	TYPE:Magic.Wondrous.Boot.Cursed												COST:15000	WT:1		SLOTS:2										SOURCEPAGE:p.9
+Flute of the Farmer							TYPE:Magic.Wondrous.Cursed.MusicalInstrument.Instrument.WindInstrument						COST:126100	WT:1													SOURCEPAGE:p.10
+Gloves of Climbing							TYPE:Glove.Wondrous.Cursed													COST:61500	WT:1		SLOTS:2										SOURCEPAGE:p.10																BONUS:STAT|DEX|2|TYPE=Enhancement
+Mask of Disguise								TYPE:Magic.Wondrous.Mask.Eyegear.Cursed											COST:224000	WT:1													SOURCEPAGE:p.12
+Potion of Mutilate Self							TYPE:Magic.Potion.Cursed													COST:500														SOURCEPAGE:p.13
+Razor Shield of Travel.MOD						TYPE:Magic.Cursed															COST:182650	WT:6													SOURCEPAGE:p.13
+Ring of Competence							TYPE:Magic.Ring.Cursed														COST:50000														SOURCEPAGE:p.14
+Ring of The Whole Truth							TYPE:Magic.Ring.Cursed														COST:120000														SOURCEPAGE:p.15
+Shadmar's Crystal Mask of Languages		NAMEISPI:YES	TYPE:Magic.Mask.Eyegear.Cursed												COST:2500	WT:0.5												SOURCEPAGE:p.16
+Spellbook of Research							TYPE:Magic.Cursed.Spellbook.Book							NUMPAGES:6		PAGEUSAGE:1	COST:26490	WT:2.5												SOURCEPAGE:p.16
+Staff of Hateful Healing						TYPE:Magic.Cursed.Staff														COST:30600	WT:4													SOURCEPAGE:p.18
+Wand of Reciprocal Paralyzation					TYPE:Magic.Wand.Cursed														COST:57600					EQMOD:CHARGED_ITEM_10|CHARGES[10]				SOURCEPAGE:p.19
 
 #
 #Razor Shield								PROFICIENCY:WEAPON|Razor Shield	TYPE:Weapon.Melee.Slashing.Shield.MeleeSlashing												WT:6							CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8							SIZE:M

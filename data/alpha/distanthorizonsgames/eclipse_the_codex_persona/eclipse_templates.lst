@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647	SOURCEDATE:2005-01
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
 ###Block: Matches Level
-# Template Name						Hit Dice Size	Visible		Level Adjustment		Template									Define									Multiple Requirements								Required Non-Monster Lvl	Caster level					Bonus to HP						Modify VAR																			Class Skill
+# Template Name						Hit Dice Size	Visible		Level Adjustment		Template									Define									Multiple Requirements								Required Non-Monster Lvl	Caster level					Bonus to HP						Modify VAR															Class Skill
 01 Point Buy Master Template for All Levels				VISIBLE:DISPLAY					TEMPLATE:CHOOSE:First Level Eclipse|Multiclass Eclipse	DEFINE:CharacterPoints|0	DEFINE:EclipseClassLvl|0
 #BONUS:ABILITYPOOL|Character Points|CharacterPoints
 #COMMENT: This Template chooses whether the Character is a True Eclipse or a Multiclass and controls how many "Character Points" the character gets (24 or 48 at 1st level)
@@ -13,7 +13,7 @@ Multiclass Eclipse								VISIBLE:DISPLAY																									PREMULT:1,[PRE
 
 
 
-# Template Name						Hit Dice Size	Visible		Level Adjustment		Template									Define									Multiple Requirements								Required Non-Monster Lvl	Caster level					Bonus to HP						Modify VAR																			Class Skill
+# Template Name						Hit Dice Size	Visible		Level Adjustment		Template									Define									Multiple Requirements								Required Non-Monster Lvl	Caster level					Bonus to HP						Modify VAR															Class Skill
 All Eclipse Automatic								VISIBLE:NO
 
 #Spirit Weapon Fix		VISIBLE:DISPLAY	CHOOSE:NUMBER|MIN=1|MAX=15|TITLE=Spirit Weapon Fix	BONUS:VAR|SpiritWeaponRangedToHit|%CHOICE|PREAPPLY:ANYPC	BONUS:VAR|SpiritWeaponMeleeToHit|%CHOICE|PREAPPLY:ANYPC
@@ -54,10 +54,10 @@ Low Level Adventure Template
 
 01 Adept Skills (Half Cost Bypass)																							DEFINE:SkillBuyBypass|1
 
-01 Class Skills Eclipse Point Buy						VISIBLE:DISPLAY																																																																											CSKILL:TYPE=NormalSkill
+01 Class Skills Eclipse Point Buy						VISIBLE:DISPLAY																																																																							CSKILL:TYPE=NormalSkill
 #01 Class Skills Eclipse Psychic			CSKILL:
 #CSKILL:TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma|Speak Language
-01 Class Skills Martial Art							VISIBLE:DISPLAY																																																																											CSKILL:Martial Arts|TYPE=MartialArt
+01 Class Skills Martial Art							VISIBLE:DISPLAY																																																																							CSKILL:Martial Arts|TYPE=MartialArt
 
 01 - World Law - All Companions Grant 6 CP
 

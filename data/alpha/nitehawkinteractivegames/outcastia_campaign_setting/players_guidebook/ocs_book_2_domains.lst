@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Oct 16 20:52:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.nitehawk-games.biz/products/ocs_b2.html	SOURCEDATE:09-2011
 # ORIGINAL ENTRY BY: Andrew Maitland
 # ORIGINAL ENTRY DATE: 2011-11-26
@@ -16,5 +16,6 @@ Time										SOURCEPAGE:p.178	DESC:You age 1/4 slower than normal individuals o
 #PESTILENCE
 #SHADOW
 
-Antimagic		SOURCELONG:Divine Aspirations	SOURCESHORT:NI_DA	SOURCEPAGE:p.189	
+# Domain Name	Source, Long Desc.		Source, Short Desc.	Source Page
+Antimagic		SOURCELONG:Divine Aspirations	SOURCESHORT:NI_DA		SOURCEPAGE:p.189
 #Deities: Arkonseptsis, Blitzhavoc

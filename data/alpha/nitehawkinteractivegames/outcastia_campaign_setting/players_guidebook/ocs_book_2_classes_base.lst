@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Oct 16 20:52:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.nitehawk-games.biz/products/ocs_b2.html	SOURCEDATE:09-2011
 # ORIGINAL ENTRY BY: Andrew Maitland
 # ORIGINAL ENTRY DATE: 2011-11-26
@@ -14,16 +14,16 @@ CLASS:Crusader	!PREALIGN:LG
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Crusader	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (Nobility and Royalty)|Knowledge (Religion)|Ride|Sense Motive|Tactics
 ###Block:
-1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1																					AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy
-1	AUTO:SHIELDPROF|Buckler|Shield (Light)|Shield (Heavy)
+1												AUTO:SHIELDPROF|Buckler|Shield (Light)|Shield (Heavy)
 ###Block:
 1	BONUS:ABILITYPOOL|Crusader Weapon Specialization|1
 ###Block:
 2	BONUS:VAR|StrikeHeathenTimes|CL-1/6+1
-4	BONUS:VAR|CrusaderDomainLvl|CL-3	
-5	BONUS:VAR|TacticianCount|1	
-6	BONUS:VAR|DivineWeaponBonus|CL-3/3	
+4	BONUS:VAR|CrusaderDomainLvl|CL-3
+5	BONUS:VAR|TacticianCount|1
+6	BONUS:VAR|DivineWeaponBonus|CL-3/3
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Equipment ~ Crusader|Tithe ~ Crusader
 2	ABILITY:Special Ability|AUTOMATIC|Divine Sympathy ~ Crusader|Strike Heathen ~ Crusader
@@ -39,9 +39,9 @@ CLASS:Ex-Crusader	HD:10		TYPE:Base.PC	SOURCEPAGE:p.38	VISIBLE:NO	BONUS:CHECKS|BA
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ex-Crusader	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (Nobility and Royalty)|Knowledge (Religion)|Ride|Sense Motive|Tactics
 #1	ABILITY:Special Ability|AUTOMATIC|<all simple & martial weapons>|<All Armor and shields>
-1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1																					AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy
-1	AUTO:SHIELDPROF|Buckler|Shield (Light)|Shield (Heavy)
+1												AUTO:SHIELDPROF|Buckler|Shield (Light)|Shield (Heavy)
 
 
 # Dragon Lord
@@ -56,17 +56,17 @@ CLASS:Dragon Lord	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE.Craft|Dragon L
 CLASS:Dragon Lord	SPELLSTAT:INT	MEMORIZE:YES	BONUS:CASTERLEVEL|Dragon Lord|CL
 ###Block:
 #1	ABILITY:Special Ability|AUTOMATIC|<all simple & martial weapons>|<All Armor>
-1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1												AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy
 ###Block: Class Progression
 1	BONUS:ABILITYPOOL|Dragon Lord Exotic Weapon Proficiency Feat|1
 5	BONUS:ABILITYPOOL|Dragon Lord Feat|CL/5
 ###Block:
-5	BONUS:VAR|DragonLordWrymRageTimes|1	
-10	BONUS:VAR|DragonLordCalmDragonHD|5	
-12	BONUS:VAR|DragonLordWrymRageTimes|1	
+5	BONUS:VAR|DragonLordWrymRageTimes|1
+10	BONUS:VAR|DragonLordCalmDragonHD|5
+12	BONUS:VAR|DragonLordWrymRageTimes|1
 14	BONUS:VAR|DragonLordReputationBonus|1
-15	BONUS:VAR|DragonLordCalmDragonHD|2	
+15	BONUS:VAR|DragonLordCalmDragonHD|2
 17	BONUS:VAR|DragonLordReputationBonus|1
 19	BONUS:VAR|DragonLordWrymRageTimes|1
 20	BONUS:VAR|DragonLordReputationBonus|1	BONUS:VAR|DragonLordCalmDragonHD|3
@@ -101,7 +101,7 @@ CLASS:Dragon Lord	SPELLSTAT:INT	MEMORIZE:YES	BONUS:CASTERLEVEL|Dragon Lord|CL
 CLASS:Ex-Dragon Lord	HD:10		TYPE:Base.PC	EXCLASS:Ex-Dragon Lord	SOURCEPAGE:p.41	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ex-Dragon Lord	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE.Craft|Dragon Lore|Gather Information|Handle Animal|Hide|Intimidate|Jump|Knowledge (dragons)|Listen|Move Silently|Ride|Search|Spellcraft|Spot|Swim
-1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1												AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy
 
 # Highwayman
@@ -113,9 +113,9 @@ CLASS:Highwayman	!PREALIGN:LG,LE,LN
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Highwayman	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Hide|Intimidate|Jump|Knowledge (geography)|Knowledge (local)|Knowledge (nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Seduction|Sense Motive|Sleight of Hand|Spot|Survival|Swim|Use Rope
 ###Block:#Weapon and Armor Proficiency: Highwaymen are proficient with all simple weapons, plus the bola (2 and 4-head), hand crossbow, longsword, rapier, sap, shortbow, and short sword. Highwaymen are proficient with light armor and light shields.
-1	AUTO:WEAPONPROF|TYPE=Simple|Bola|Crossbow (Hand)|Longsword|Rapier|Sap|Shortbow|Sword (Short)
+1														AUTO:WEAPONPROF|TYPE=Simple|Bola|Crossbow (Hand)|Longsword|Rapier|Sap|Shortbow|Sword (Short)
 1	AUTO:ARMORPROF|ARMORTYPE=Light
-1	AUTO:SHIELDPROF|Buckler|Shield (Light)
+1							AUTO:SHIELDPROF|Buckler|Shield (Light)
 ###Block:
 2	BONUS:VAR|HighwayManAmbushSenseBonus|(CL+3)/3
 ###Block:
@@ -129,6 +129,7 @@ CLASS:Highwayman	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Diplomac
 9	ABILITY:Special Ability|AUTOMATIC|Swift Tracker ~ Highwayman
 
 # Mystic Knight
+
 # Class Name		Hit Dice	Type			Ex Class				Source Page		Save checks bonus															Combat bonus
 CLASS:Mystic Knight	HD:8		TYPE:Base.PC	EXCLASS:Ex-Mystic Knight	SOURCEPAGE:p.56	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Restricted AL
@@ -167,10 +168,11 @@ CLASS:Ex-Mystic Knight	STARTSKILLPTS:6	CSKILL:Balance|Concentration|TYPE.Craft|D
 CLASS:Oracle	HD:4		TYPE:Base.PC	SOURCEPAGE:p.63	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Oracle	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft|Star Reading|Witchcraft
+# Class Name	Spell Stat		Caster level
 CLASS:Oracle	SPELLSTAT:WIS	BONUS:CASTERLEVEL|Oracle|CL
 #Weapon and Armor Proficiency: Oracles are proficient with all simple weapons. They are proficient with leather, studded leather, and hide armor, but not with shields as they tend to interfere with the motions required for divination.
 ###Block:
-1	AUTO:WEAPONPROF|TYPE=Simple
+1									AUTO:WEAPONPROF|TYPE=Simple
 1	AUTO:ARMORPROF|Leather|Studded Leather|Hide
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Craft Focus ~ Oracle
@@ -206,11 +208,12 @@ CLASS:Oracle	SPELLSTAT:WIS	BONUS:CASTERLEVEL|Oracle|CL
 CLASS:Elocutionist	HD:6		TYPE:Base.PC	SOURCEPAGE:p.65	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Elocutionist	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|Heal|Knowledge (arcana)|Knowledge (history)|Knowledge (librarian)|Knowledge (religion)|TYPE=PerformVocal|TYPE=Profession|Sense Motive|Spellcraft
+# Class Name		Spell Stat		Caster level
 CLASS:Elocutionist	SPELLSTAT:WIS	BONUS:CASTERLEVEL|Elocutionist|CL
 ###Block:Elocutionists are proficient with all bludgeoning weapons (gauntlet, light mace, club, heavy mace, quarterstaff, sling, light hammer, sap, light shield, flail, heavy shield, warhammer, great club, heavy flail, nunchaku, sai, dire flail, and bolas), with all types of armor (light, medium, and heavy), and with shields (except tower shields).
-1	AUTO:WEAPONPROF|TYPE=Bludgeoning
+1																					AUTO:WEAPONPROF|TYPE=Bludgeoning
 1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy
-1	AUTO:SHIELDPROF|Buckler|Shield (Light)|Shield (Heavy)
+1												AUTO:SHIELDPROF|Buckler|Shield (Light)|Shield (Heavy)
 ###Block:
 1	BONUS:DOMAIN|NUMBER|2
 ###Block:
@@ -273,7 +276,7 @@ CLASS:Murmur	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft
 # Class Name	Spell Stat		Memorize	Caster level
 CLASS:Murmur	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Murmur|CL
 ###Block:Proficiency: Murmurs are proficient in light and medium armors, all simple weapons, and the greatsword, but not with shields.
-1	AUTO:WEAPONPROF|TYPE=Simple|Greatsword
+1									AUTO:WEAPONPROF|TYPE=Simple|Greatsword
 1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium
 ###Block:
 1	BONUS:VAR|CompetenceTimes|MIN(3,CL+2/3)
@@ -309,7 +312,7 @@ CLASS:Murmur	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Murmur|CL
 
 ## Utter Master
 
-# Class Name		Hit Dice	Type			Source Page		Save checks bonus												Combat bonus
+# Class Name		Hit Dice	Type			Source Page		Save checks bonus														Combat bonus
 CLASS:Utter Master	HD:4		TYPE:Base.PC	SOURCEPAGE:p.74	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Utter Master	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Knowledge (Arcana)|Knowledge (History)|Knowledge (Librarian)|TYPE=PerformVocal|TYPE=Profession|Spellcraft
