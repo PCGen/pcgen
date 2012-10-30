@@ -2926,14 +2926,14 @@ Immune
 |FOR,%level,0,0,1,1|
 |%SPELLLISTBOOK.%class.%level.%spellbook|
 <!-- START Spell list Header Table (Racial Innate) -->
-<table width="200%" cellspacing="0" cellpadding="2" summary="Spell List">
+<table width="98%" cellspacing="0" cellpadding="2" summary="Spell List">
  <tr>
   <td colspan="11" class="sphead"><b>Innate Spell-like Abilities</b></td>
  </tr>
 </table>
 <!-- End Spell List Header Table (Racial Innate) -->
 <!-- Start Racial Innate Spell listing -->
-<table width="200%" cellspacing="0" cellpadding="2" summary="Spell List">
+<table width="98%" cellspacing="0" cellpadding="2" summary="Spell List">
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
 |OIF(EVEN:%spell,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
   <td class="spname"><b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b><br /></td>
@@ -2982,12 +2982,12 @@ at will
 |%SPELLLISTBOOK.%class.%level.%spellbook|
 <!-- START Spell list Header Table (Other Innate) -->
 <br />
-<table width="200%" cellspacing="0" cellpadding="2" summary="Spell List">
+<table width="98%" cellspacing="0" cellpadding="2" summary="Spell List">
  <tr>
   <td colspan="9" class="sphead"><b>|SPELLBOOKNAME.%spellbook| Spell-like Abilities</b></font></td>
  </tr>
 </table>
-<table width="200%" cellspacing="0" cellpadding="2" summary="Spell List">
+<table width="98%" cellspacing="0" cellpadding="2" summary="Spell List">
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
 |OIF(EVEN:%spell,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
   <td class="spname"><b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b><br /></td>
