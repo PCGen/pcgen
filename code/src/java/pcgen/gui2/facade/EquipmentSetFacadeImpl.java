@@ -527,6 +527,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		updateTotalQuantity(newItem, quantity);
 		updateNaturalWeaponSlots();
 		updateOutputOrder();
+		theCharacter.calcActiveBonuses();
 		
 		return newItem;
 	}
@@ -626,6 +627,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		updateTotalWeight(eqI, quantity*-1, targetNode.getBodyStructure());
 		updateTotalQuantity(eqI, quantity*-1);
 		updateNaturalWeaponSlots();
+		theCharacter.calcActiveBonuses();
 		
 		return eqI;
 	}

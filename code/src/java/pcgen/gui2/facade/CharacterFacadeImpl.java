@@ -1667,6 +1667,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		theCharacter.setAssoc(pcStat, AssociationKey.STAT_SCORE, score);
 		facade.setReference(score);
 		theCharacter.saveStatIncrease(pcStat, score - baseScore, false);
+		theCharacter.calcActiveBonuses();
 		hpRef.setReference(theCharacter.hitPoints());
 
 		updateScorePurchasePool(true);
