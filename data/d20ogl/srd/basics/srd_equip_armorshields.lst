@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
 #Light Weight
@@ -27,7 +27,7 @@ Shield (Small/Metal)	OUTPUTNAME:Shield, Small	PROFICIENCY:SHIELD|Shield (Light)	
 Shield (Small/Wood)	OUTPUTNAME:Shield, Small	PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard	COST:3	WT:5				ACCHECK:-1		EQMOD:WOOD	SOURCEPAGE:SRDEquipment.rtf	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=ArmorShield
 Shield (Large/Metal)	OUTPUTNAME:Shield, Large	PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Heavy.Standard	COST:20	WT:15				ACCHECK:-2		EQMOD:STEEL	SOURCEPAGE:SRDEquipment.rtf	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=ArmorShield
 Shield (Large/Wood)	OUTPUTNAME:Shield, Large	PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Heavy.Standard	COST:7	WT:10				ACCHECK:-2		EQMOD:WOOD	SOURCEPAGE:SRDEquipment.rtf	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=ArmorShield
-Shield (Tower/Wood)	OUTPUTNAME:Shield, Tower	PROFICIENCY:SHIELD|Tower Shield	TYPE:Shield.Standard.Nonmetal	COST:30	WT:45				ACCHECK:-10		EQMOD:WOOD	SOURCEPAGE:SRDEquipmentI.rtf	SPELLFAILURE:50								BONUS:COMBAT|TOHIT|-2|PREFEAT:1,Tower Shield Proficiency	BONUS:COMBAT|TOHIT|SHIELDACCHECK|!PREFEAT:1,Tower Shield Proficiency	SPROP:Tower shields grant cover
+Shield (Tower/Wood)	OUTPUTNAME:Shield, Tower	PROFICIENCY:SHIELD|Tower Shield	TYPE:Shield.Standard.Nonmetal	COST:30	WT:45				ACCHECK:-10		EQMOD:WOOD	SOURCEPAGE:SRDEquipmentI.rtf	SPELLFAILURE:50		BONUS:COMBAT|TOHIT|-2|PREFEAT:1,Tower Shield Proficiency	BONUS:COMBAT|TOHIT|SHIELDACCHECK|!PREFEAT:1,Tower Shield Proficiency	SPROP:Tower shields grant cover
 
 ###Block: Barding
 #Medium Weight

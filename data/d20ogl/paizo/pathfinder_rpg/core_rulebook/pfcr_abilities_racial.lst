@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Oct 13 02:22:45 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher & Andrew Maitland
 
@@ -91,6 +91,7 @@ Skilled		KEY:Skilled ~ Human	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQ
 
 # Ability Name							Category of Ability	Ability																							Bonus to Ability Pool
 #
+# Ability Name							Category of Ability	Ability																							Bonus to Ability Pool
 CATEGORY=Internal|Default.MOD									ABILITY:Internal|AUTOMATIC|Select Racial Traits
 #|PREMULT:1,[PRERACE:1,Dwarf],[PRERACE:1,Elf],[PRERACE:1,Halfling],[PRERACE:1,Human],[PRERACE:1,Half-Elf],[PRERACE:1,Half-Orc],[PRERACE:1,Gnome]
 

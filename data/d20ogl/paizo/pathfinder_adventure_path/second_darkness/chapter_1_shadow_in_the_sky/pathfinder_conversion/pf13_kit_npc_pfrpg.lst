@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Second Darkness, Chapter 1: Shadow in the Sky	SOURCESHORT:PF13	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy84em	SOURCEDATE:2008-08
 
 
@@ -260,7 +260,7 @@ GEAR:Studded Leather					LOCATION:Equipped		EQMOD:PLUS1A
 GEAR:Scimitar						LOCATION:Primary Hand	EQMOD:MWORKW
 GEAR:Crossbow (Light)					LOCATION:Carried
 GEAR:Bolt (Crossbow)			QTY:10	LOCATION:Carried
-GEAR:Potion of Bull's Strength		QTY:2		LOCATION:Carried
+GEAR:Potion of Bull's Strength	QTY:2		LOCATION:Carried
 GEAR:Poison (Black adder venom)			LOCATION:Carried
 GEAR:Pouch (Belt)						LOCATION:Carried
 GEAR:Coin (Gold Piece)			QTY:25	LOCATION:Pouch (Belt)

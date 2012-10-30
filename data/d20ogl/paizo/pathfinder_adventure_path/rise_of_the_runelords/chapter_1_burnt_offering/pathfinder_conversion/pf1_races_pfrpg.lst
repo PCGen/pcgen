@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Rise of the Runelords, Chapter 1: Burnt Offerings	SOURCESHORT:PF1	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy7zkq	SOURCEDATE:2007-08
 
 
-# Race Name				Bonus to skill					Racial HD Class Skills	Ability																	Monster Class Name and Starting Level
+# Race Name				Bonus to skill					Racial HD Class Skills	Ability											Monster Class Name and Starting Level
 Attic Whisperer.MOD									MONCSKILL:.CLEAR
 Gecko (Giant).MOD			BONUS:SKILL|Acrobatics|8|TYPE=Racial	MONCSKILL:.CLEAR
 Goblin Snake.MOD										MONCSKILL:.CLEAR
-Sandpoint Devil.MOD									MONCSKILL:.CLEAR		ABILITY:Special Ability|AUTOMATIC|.CLEAR.Bay|Bay ~ Sandpoint Devil							MONSTERCLASS:Outsider (Fort/Ref):12
+Sandpoint Devil.MOD									MONCSKILL:.CLEAR		ABILITY:Special Ability|AUTOMATIC|.CLEAR.Bay|Bay ~ Sandpoint Devil	MONSTERCLASS:Outsider (Fort/Ref):12
 Sinspawn.MOD			BONUS:SKILL|Stealth|4|TYPE=Racial		MONCSKILL:.CLEAR
 Sinspawn (Envyspawn).MOD	BONUS:SKILL|Stealth|4|TYPE=Racial		MONCSKILL:.CLEAR
 Sinspawn (Gluttonspawn).MOD	BONUS:SKILL|Stealth|4|TYPE=Racial		MONCSKILL:.CLEAR

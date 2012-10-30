@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Oct 13 01:30:35 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Author: Drew Bernat (abernat@zathras.net)
 # Uses the following variables defined elsewhere:
@@ -122,6 +122,7 @@ Whirlwind Attack									TYPE:General.Fighter.AttackOption			PREATT:4											
 Widen Spell										TYPE:Metamagic.Wizard																																																																																				DESC:You can alter a burst, emanation, line, or spread shaped spell to increase its area. Any numeric measurements of the spell's area increase by 100%%. A widened spell uses up a spell slot three levels higher than the spell's actual level.																																																																											ADDSPELLLEVEL:3																																																																																																																	SOURCEPAGE:Feats.rtf
 
 ###Block: Homebrew Support
+# Feat Name				Visible	Automatically Gained Feat
 Blind-Feat				VISIBLE:NO	AUTO:FEAT|Blind Fight
 Two-Weapon Defense		VISIBLE:NO	AUTO:FEAT|Two Weapon Defense
 Two-Weapon Fighting		VISIBLE:NO	AUTO:FEAT|Two Weapon Fighting

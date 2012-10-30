@@ -1,13 +1,14 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Rise of the Runelords, Chapter 2: The Skinsaw Murders	SOURCESHORT:PF2	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy8029	SOURCEDATE:2007-10
 # Original Entry by: Stefan Radermacher
 
 # Race Name				Bonus to skill												Modify VAR																Racial HD Class Skills	Ability									Define				Monster Class Name and Starting Level
 #Boggard (Priest-King).MOD	BONUS:SKILL|Acrobatics|16|TYPE=Racial	BONUS:SKILL|Perception|4|TYPE=Racial																		MONCSKILL:.CLEAR
-Carrionstorm.MOD																																		MONCSKILL:.CLEAR
-Faceless Stalker.MOD																																	MONCSKILL:.CLEAR
-Faceless Hulk (Huge).MOD																																MONCSKILL:.CLEAR
-Faceless Hulk (Large).MOD																																MONCSKILL:.CLEAR
-Lamia Matriarch.MOD		BONUS:SKILL|Acrobatics|4|TYPE=Racial																									MONCSKILL:.CLEAR		ABILITY:Special Ability|AUTOMATIC|.CLEAR.Alternate Form
-Lyrakien.MOD																																		MONCSKILL:.CLEAR		ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability	DEFINE:Maneuverability|5	MONSTERCLASS:Outsider (Ref/Will):2
-Revenant.MOD																	BONUS:VAR|ConstrictDieSize|6	BONUS:VAR|ConstrictBonusDamage|STR*1.5	BONUS:VAR|FastHealingRate|5	MONCSKILL:.CLEAR		ABILITY:Special Ability|AUTOMATIC|.CLEAR.Improved Grab|Grab
+# Race Name				Bonus to skill					Modify VAR																Racial HD Class Skills	Ability									Define				Monster Class Name and Starting Level
+Carrionstorm.MOD																											MONCSKILL:.CLEAR
+Faceless Stalker.MOD																										MONCSKILL:.CLEAR
+Faceless Hulk (Huge).MOD																									MONCSKILL:.CLEAR
+Faceless Hulk (Large).MOD																									MONCSKILL:.CLEAR
+Lamia Matriarch.MOD		BONUS:SKILL|Acrobatics|4|TYPE=Racial																		MONCSKILL:.CLEAR		ABILITY:Special Ability|AUTOMATIC|.CLEAR.Alternate Form
+Lyrakien.MOD																											MONCSKILL:.CLEAR		ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability	DEFINE:Maneuverability|5	MONSTERCLASS:Outsider (Ref/Will):2
+Revenant.MOD										BONUS:VAR|ConstrictDieSize|6	BONUS:VAR|ConstrictBonusDamage|STR*1.5	BONUS:VAR|FastHealingRate|5	MONCSKILL:.CLEAR		ABILITY:Special Ability|AUTOMATIC|.CLEAR.Improved Grab|Grab
