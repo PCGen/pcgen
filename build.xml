@@ -239,7 +239,7 @@ These files can be renamed and used for releases.
         <jar jarfile="${bin.dir}/${jar.bin.file}" manifest="${manifest.file}">
             <fileset dir="${src.java.dir}" includes="images/" />
             <fileset dir="${build.classes.dir}" excludes="test/**,src/**,plugin/**" />
-            <fileset dir="." includes="${project.license.file}" />
+            <fileset dir="${src.java.dir}" includes="${project.license.file}" />
         </jar>
     </target>
     <target name="convert-jar" depends="compile, manifest" description="Build (Link) converter jar files">
