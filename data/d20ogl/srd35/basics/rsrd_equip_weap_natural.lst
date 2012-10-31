@@ -11,7 +11,7 @@ Grapple			PROFICIENCY:WEAPON|Grapple			TYPE:Weapon.Natural.Melee.Unarmed.Subdual
 Shieldbash (Light)	PROFICIENCY:WEAPON|Shieldbash (Light)	TYPE:Weapon.Melee.Martial.Unarmed.Bludgeoning.Finesseable.Shieldbash			COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:Light						SIZE:M	SOURCEPAGE:Equipment.rtf																												SPROP:Shieldbash attacks are considered to be offhanded attacks
 Shieldbash (Heavy)	PROFICIENCY:WEAPON|Shieldbash (Heavy)	TYPE:Weapon.Melee.Martial.Unarmed.Bludgeoning.Shieldbash					COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	WIELD:OneHanded					SIZE:M	SOURCEPAGE:Equipment.rtf																												SPROP:Shieldbash attacks are considered to be offhanded attacks
 Touch Attack (Grapple)	PROFICIENCY:WEAPON|Grapple			TYPE:Weapon.Natural.Melee.Unarmed									COST:0	WT:0		CRITMULT:x2			CRITRANGE:1					WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:CombatII.rtf
-Touch Attack (Ray)	PROFICIENCY:WEAPON|Spells(Ray)		TYPE:Weapon.Ranged.Unarmed										COST:0	WT:0		CRITMULT:x2			CRITRANGE:1					WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:CombatII.rtf
+Touch Attack (Ray)	PROFICIENCY:WEAPON|Spells (Ray)		TYPE:Weapon.Ranged.Unarmed										COST:0	WT:0		CRITMULT:x2			CRITRANGE:1					WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:CombatII.rtf
 
 
 #Special ---->(Flurry of Blows)
