@@ -408,7 +408,7 @@ Touch Attack (Ray)	CATEGORY:Natural Attack	TYPE:NaturalAttack	DEFINE:RayAttackRa
 # See this tracker: http://sourceforge.net/tracker/?func=detail&aid=1158480&group_id=36698&atid=417819
 ###Block: Weapon proficiencies
 # Ability Name				Unique Key						Category of Ability		Type				Visible		Serves As						Description											Multiple?	Choose						Automatically Gained Weapon Prof.																						Ability
-All Automatic Proficiencies									CATEGORY:Special Ability	TYPE:Internal		VISIBLE:NO																														AUTO:WEAPONPROF|Gauntlet|Unarmed Strike|Spells(Ray)|Grapple																		ABILITY:Internal|AUTOMATIC|Grants All Hidden Abilities
+All Automatic Proficiencies									CATEGORY:Special Ability	TYPE:Internal		VISIBLE:NO																														AUTO:WEAPONPROF|Gauntlet|Unarmed Strike|Spells (Ray)|Grapple																		ABILITY:Internal|AUTOMATIC|Grants All Hidden Abilities
 All Martial Weapon Proficiencies								CATEGORY:Special Ability	TYPE:Internal		VISIBLE:NO		SERVESAS:FEAT|Martial Weapon Proficiency																						AUTO:WEAPONPROF|TYPE=Martial
 Bard Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal		VISIBLE:NO																														AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Shortbow|Whip
 Druid Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal		VISIBLE:NO																														AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Spear
