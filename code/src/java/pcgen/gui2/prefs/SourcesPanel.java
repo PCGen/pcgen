@@ -75,6 +75,7 @@ public class SourcesPanel extends PCGenPrefsPanel
 	private JComboBoxEx sourceOptions = new JComboBoxEx();
 	private JCheckBox loadURL = new JCheckBox();
 	private JCheckBox allowOverride = new JCheckBox();
+	private JCheckBox skipSourceSelect = new JCheckBox();
 	private JCheckBox useAdvancedSourceSelect = new JCheckBox();
 	private JCheckBox allowMultiLineObjectsSelect = new JCheckBox();
 
@@ -173,11 +174,16 @@ public class SourcesPanel extends PCGenPrefsPanel
 		this.add(allowOverride);
 
 		Utility.buildConstraints(c, 0, 11, GridBagConstraints.REMAINDER, 1, 0, 0);
+		skipSourceSelect.setText(LanguageBundle.getString("in_Prefs_skipSourceSelect")); //$NON-NLS-1$
+		gridbag.setConstraints(skipSourceSelect, c);
+		this.add(skipSourceSelect);
+
+		Utility.buildConstraints(c, 0, 12, GridBagConstraints.REMAINDER, 1, 0, 0);
 		useAdvancedSourceSelect.setText(LanguageBundle.getString("in_Prefs_useAdvancedSourceSelect")); //$NON-NLS-1$
 		gridbag.setConstraints(useAdvancedSourceSelect, c);
 		this.add(useAdvancedSourceSelect);
 
-		Utility.buildConstraints(c, 0, 12, GridBagConstraints.REMAINDER, 1, 0, 0);
+		Utility.buildConstraints(c, 0, 13, GridBagConstraints.REMAINDER, 1, 0, 0);
 		allowMultiLineObjectsSelect.setText(LanguageBundle.getString("in_Prefs_allowMultiLineObjectsSelect")); //$NON-NLS-1$
 		gridbag.setConstraints(allowMultiLineObjectsSelect, c);
 		this.add(allowMultiLineObjectsSelect);
@@ -223,6 +229,9 @@ public class SourcesPanel extends PCGenPrefsPanel
 			PCGenSettings.OPTION_SHOW_SPONSORS_ON_LOAD, showSponsors.isSelected());
 		SettingsHandler.setLoadURLs(loadURL.isSelected());
 		SettingsHandler.setAllowOverride(allowOverride.isSelected());
+		UIPropertyContext.getInstance().setBoolean(
+			UIPropertyContext.SKIP_SOURCE_SELECTION,
+			skipSourceSelect.isSelected());
 		UIPropertyContext.getInstance().setBoolean(
 			UIPropertyContext.SOURCE_USE_BASIC_KEY,
 			!useAdvancedSourceSelect.isSelected());
@@ -285,8 +294,10 @@ public class SourcesPanel extends PCGenPrefsPanel
 			PCGenSettings.OPTION_SHOW_SPONSORS_ON_LOAD));
 		loadURL.setSelected(SettingsHandler.isLoadURLs());
 		allowOverride.setSelected(SettingsHandler.isAllowOverride());
+		skipSourceSelect.setSelected(UIPropertyContext.getInstance()
+				.getBoolean(UIPropertyContext.SKIP_SOURCE_SELECTION));
 		useAdvancedSourceSelect.setSelected(!UIPropertyContext.getInstance()
-			.getBoolean(UIPropertyContext.SOURCE_USE_BASIC_KEY));
+				.getBoolean(UIPropertyContext.SOURCE_USE_BASIC_KEY));
 		allowMultiLineObjectsSelect.setSelected(PCGenSettings.OPTIONS_CONTEXT
 			.getBoolean(PCGenSettings.OPTION_SOURCES_ALLOW_MULTI_LINE));
 		

@@ -132,6 +132,12 @@ public class SourceSelectionDialog extends JDialog
 		pack();
 	}
 
+	public static boolean skipSourceSelection()
+	{
+		return UIPropertyContext.getInstance().initBoolean(
+				UIPropertyContext.SKIP_SOURCE_SELECTION, false);
+	}
+
 	private void initComponents()
 	{
 		Container pane = getContentPane();
