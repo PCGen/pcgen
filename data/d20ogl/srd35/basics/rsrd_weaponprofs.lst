@@ -22,7 +22,7 @@ Grapple				TYPE:Simple.Melee.Unarmed.Bludgeoning
 Unarmed Strike			TYPE:Simple.Melee.Unarmed.Bludgeoning
 
 #Spells(Energy Missile)		TYPE:Simple
-Spells(Ray)				TYPE:Simple.RangedTouch.Spell
+Spells (Ray)			TYPE:Simple.RangedTouch.Spell
 #Spells(Touch)			TYPE:Simple
 
 # -- light melee
