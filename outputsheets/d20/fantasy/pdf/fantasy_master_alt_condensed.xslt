@@ -5655,13 +5655,13 @@
 						</fo:table-cell>
 						<fo:table-cell padding-top="1pt">
 							<fo:block font-size="7pt">
-								<xsl:variable name="TotalValue">
+								/ <xsl:variable name="TotalValue">
 									<xsl:call-template name="Total">
 										<xsl:with-param name="Items" select="item[contains(type, 'COIN')=false and contains(type, 'GEM')=false]"/>
 										<xsl:with-param name="RunningTotal" select="0"/>
 									</xsl:call-template>
 								</xsl:variable>
-								<xsl:value-of select="format-number($TotalValue, '####0.0#')"/> gp
+								<xsl:value-of select="format-number($TotalValue, '##,##0.#')"/> gp
 							</fo:block>
 						</fo:table-cell>
 					</fo:table-row>
@@ -5723,17 +5723,17 @@
 							</fo:table-cell>
 							<fo:table-cell>
 								<fo:block text-align="center" space-before.optimum="1pt" font-size="7pt">
-									<xsl:value-of select="format-number(weight, '####0.0#')"/>
+									<xsl:value-of select="format-number(weight, '##,##0.#')"/>
 									<xsl:if test="quantity &gt; 1">
-										(<xsl:value-of select="format-number(weight * quantity, '####0.0#')"/>)
+										(<xsl:value-of select="format-number(weight * quantity, '##,##0.#')"/>)
 									</xsl:if>
 								</fo:block>
 							</fo:table-cell>
 							<fo:table-cell>
 								<fo:block text-align="center" space-before.optimum="1pt" font-size="7pt">
-									<xsl:value-of select="format-number(cost, '####0.0#')"/>
+									<xsl:value-of select="format-number(cost, '##,##0.#')"/>
 									<xsl:if test="quantity &gt; 1">
-										(<xsl:value-of select="format-number(cost * quantity, '####0.0#')"/>)
+										(<xsl:value-of select="format-number(cost * quantity, '##,##0.#')"/>)
 									</xsl:if>
 								</fo:block>
 							</fo:table-cell>
@@ -5870,7 +5870,7 @@
 										<xsl:with-param name="RunningTotal" select="0"/>
 									</xsl:call-template>
 								</xsl:variable>
-								Total   = <xsl:value-of select="format-number($TotalValue, '####0.0#')"/> gp
+								Total   = <xsl:value-of select="format-number($TotalValue, '##,##0.#')"/> gp
 							</fo:block>
 						</fo:table-cell>
 					</fo:table-row>
