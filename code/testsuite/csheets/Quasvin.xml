@@ -1517,7 +1517,7 @@ BIO
 	  ====================================
 	  ====================================-->
 	<!-- Domains -->
-	<weapon_proficiencies>Club, Crossbow (Heavy), Crossbow (Light), Dagger, Gauntlet, Grapple, Quarterstaff, Shortspear, Spells(Ray), Unarmed Strike</weapon_proficiencies>
+	<weapon_proficiencies>Club, Crossbow (Heavy), Crossbow (Light), Dagger, Gauntlet, Grapple, Quarterstaff, Shortspear, Spells (Ray), Unarmed Strike</weapon_proficiencies>
 	<languages>Common, Draconic, Elven, Halfling, Orc</languages>
 
 	<templates>
