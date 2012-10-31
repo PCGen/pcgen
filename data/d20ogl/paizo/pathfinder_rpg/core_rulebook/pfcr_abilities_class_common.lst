@@ -3,8 +3,8 @@ SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downl
 # Original Entry by: Stefan Radermacher
 
 # COMMENT: Post 6.0 Change
-#CATEGORY=Internal|Default.MOD	ABILITY:Natural Attack|AUTOMATIC|Touch Attack (Ray)|PRECLASS:1,TYPE.SPELLCASTER=1
-#Touch Attack (Ray)							CATEGORY:Natural Attack	TYPE:NaturalAttack	DEFINE:RayAttackRange|10	DEFINE:RayAttackBonus|0	DEFINE:RayDamageDice|0	DEFINE:RayDamageSize|0	DEFINE:RayDamageBonus|0	DEFINE:RayThreatRange|0						AUTO:WEAPONPROF|Spells (Ray)			BONUS:VAR|RayAttackBonus|1|PREFEAT:1,Weapon Focus (Spells (Ray))	BONUS:VAR|RayThreatRange|20	BONUS:VAR|RayThreatRange|-1|PREFEAT:1,Improved Critical (Spells (Ray))	COST:0	ASPECT:NaturalAttackName|Spells (Ray)	ASPECT:NaturalAttackToHit|+%1|RayAttackBonus	ASPECT:NaturalAttackToHit|+%1/+%2|RayAttackBonus|RayAttackBonus-5	ASPECT:NaturalAttackRange|%1|NaturalRayRange	ASPECT:NaturalAttackType|Ray	ASPECT:NaturalAttackThreatRange|%1|RayThreatRange
+CATEGORY=Internal|Default.MOD	ABILITY:Natural Attack|AUTOMATIC|Touch Attack (Ray)|PRECLASS:1,SPELLCASTER=1
+Touch Attack (Ray)	CATEGORY:Natural Attack	TYPE:NaturalAttack	DEFINE:RayAttackRange|1	DEFINE:RayAttackBonus|0	DEFINE:RayDamageDice|0	DEFINE:RayDamageSize|0	DEFINE:RayDamageBonus|0	DEFINE:RayThreatRange|0						AUTO:WEAPONPROF|Spells (Ray)			BONUS:VAR|RayAttackBonus|1|PREFEAT:1,Weapon Focus (Spells (Ray))	BONUS:VAR|RayThreatRange|20	BONUS:VAR|RayThreatRange|-1|PREFEAT:1,Improved Critical (Spells (Ray))	COST:0	ASPECT:NaturalAttackName|Touch Attack (Ray)	ASPECT:NaturalAttackToHit|+%1|RayAttackBonus		ASPECT:NaturalAttackRange|As Spell	ASPECT:NaturalAttackType|Ray	ASPECT:NaturalAttackThreatRange|%1|RayThreatRange	ASPECT:NaturalAttackDamage|As Spell	BONUS:VAR|RayAttackBonus|BAB+DEX	DEFINE:RayCritMult|2	ASPECT:NaturalAttackCritMult|/x%1|RayCritMult
 
 ###Block: Weapon Proficiencies
 # Ability Name				Category of Ability		Type			Visible	Serves As						Automatically Gained Weapon Prof.																									Ability

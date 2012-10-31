@@ -843,7 +843,11 @@ Immune
 			<td align="center" bgcolor="black" width="15%" class="ablable" height="20">TOTAL ATTACK BONUS</td>
 			<td align="center" bgcolor="black" width="15%" class="ablable">DAMAGE</td>
 			<td align="center" bgcolor="black" width="15%" class="ablable">CRIT / MULT</td>
+|IIF(ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.HASASPECT.NaturalAttackRange:Y)|
+			<td align="center" bgcolor="black" width="15%" class="ablable">RANGE</td>
+|ELSE|
 			<td align="center" bgcolor="black" width="15%" class="ablable">REACH</td>
+|ENDIF|
 		</tr>
 		<tr>
 			<td align="center" bgcolor="white" class="border10" height="20">|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackToHit|</td>
@@ -851,13 +855,19 @@ Immune
 <!-->			<td align="center" bgcolor="white" class="border10">|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackDamage||ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackDamageBonus.SIGN|</td>
 -->
 			<td align="center" bgcolor="white" class="border10">|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackThreatRange||ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackCritMult|</td>
-			<td align="center" bgcolor="white" class="border10">|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackReach.INTVAL|</td>
+|IIF(ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.HASASPECT.NaturalAttackRange:Y)|
+			<td align="center" bgcolor="white" class="border10">|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackRange|</td>
+|ELSE|
+			<td align="center" bgcolor="white" class="border10">|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackReach|</td>
+|ENDIF|
 		</tr>
+|IIF(ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.DESC:YES)|
 		<tr>
 			<td align="center" bgcolor="black" colspan="1" width="15%" class="ablable" height="20">Special Properties</td>
 			<td align="start" bgcolor="white" colspan="4" class="border10">|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackNotes||ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.DESC|</td>
 		</tr>
-
+|ELSE|
+|ENDIF|
 	</table>
 	<br />
 |ENDFOR|

@@ -666,14 +666,14 @@ Immune
 		<type>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackType|</type>
 		<threat>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackThreatRange||ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackCritMult|</threat>
 		<reach>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackReach.INTVAL|</reach>
-				<range>|ABILITYALL.Natural Attack.%NaturalAttack.%NaturalAttackRange.TYPE=NaturalAttack.ASPECT.NaturalAttackRange|</range>
+		<range>|ABILITYALL.Natural Attack.%NaturalAttack.%NaturalAttackRange.TYPE=NaturalAttack.ASPECT.NaturalAttackRange|</range>
 		<rangeincrement>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackRangeIncrement|</rangeincrement>
 
 |FOR,%NaturalAttackRange,0,4,1,0|
 		<range>
-		<distance>|ABILITYALL.Natural Attack.%NaturalAttackRange.TYPE=NaturalAttack.ASPECT.NaturalAttackRange|</distance>
-		<rangeincrement>|ABILITYALL.Natural Attack.%NaturalAttackRange.TYPE=NaturalAttack.ASPECT.NaturalAttackRangeIncrement|</rangeincrement>
-		<distance_unit>|UNITSET.DISTANCEUNIT|</distance_unit>
+			<distance>|ABILITYALL.Natural Attack.%NaturalAttackRange.TYPE=NaturalAttack.ASPECT.NaturalAttackRange|</distance>
+			<rangeincrement>|ABILITYALL.Natural Attack.%NaturalAttackRange.TYPE=NaturalAttack.ASPECT.NaturalAttackRangeIncrement|</rangeincrement>
+			<distance_unit>|UNITSET.DISTANCEUNIT|</distance_unit>
 		</range>
 |ENDFOR|
 		<notes>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackNotes||ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.DESC|</notes>

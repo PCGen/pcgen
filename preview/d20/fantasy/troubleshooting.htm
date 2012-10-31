@@ -495,6 +495,15 @@ To Hit:
 |ENDFOR|
 </blockquote>
 
+|IIF(count("ABILITIES";"CATEGORY=Natural Attack")==0)|
+|ELSE|
+<b>Natural Attack</b>
+|ENDIF|
+<blockquote>
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Natural Attack")-1,1,0|
+<b>|ABILITYALL.Natural Attack.%ability|</b> [<i>|ABILITYALL.Natural Attack.%ability.SOURCE|</i>]<br>
+|ENDFOR|
+</blockquote>
 
 <!-- START Template Table -->
 |%TEMPLATE.0|

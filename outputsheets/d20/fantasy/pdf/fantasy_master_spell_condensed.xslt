@@ -3298,11 +3298,19 @@
 					</xsl:otherwise>
 				</xsl:choose>
 					</fo:table-cell>
-					<fo:table-cell>
+					
+						<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.title'"/>
 						</xsl:call-template>
+					<xsl:choose>
+					<xsl:when test="range &gt; 0">
+						<fo:block font-size="6pt">RANGE</fo:block>
+					</xsl:when>
+					<xsl:otherwise>
 						<fo:block font-size="6pt">REACH</fo:block>
+					</xsl:otherwise>
+					</xsl:choose>
 					</fo:table-cell>
 				</fo:table-row>
 <!-->	<xsl:for-each select="naturalattack">-->
@@ -3336,7 +3344,14 @@
 							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
 						</xsl:call-template>
 						<fo:block font-size="8pt">
+					<xsl:choose>
+					<xsl:when test="range &gt; 0">
+							<xsl:value-of select="range"/>
+					</xsl:when>
+					<xsl:otherwise>
 							<xsl:value-of select="reach"/>
+					</xsl:otherwise>
+					</xsl:choose>>
 						</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
