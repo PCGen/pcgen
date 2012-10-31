@@ -400,6 +400,9 @@ Necromancer Learning Bonus	OUTPUTNAME:+2 bonus to Spellcraft when learning Necro
 Transmuter Learning Bonus	OUTPUTNAME:+2 bonus to Spellcraft when learning Transmutation	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES					SOURCEPAGE:ClassesII.rtf
 #
 Free Spell Book														CATEGORY:Internal									TEMPLATE:Spellbook
+###Block:
+CATEGORY=Internal|Default.MOD	ABILITY:Natural Attack|AUTOMATIC|Touch Attack (Ray)|PRECLASS:1,SPELLCASTER=1
+Touch Attack (Ray)	CATEGORY:Natural Attack	TYPE:NaturalAttack	DEFINE:RayAttackRange|1	DEFINE:RayAttackBonus|0	DEFINE:RayDamageDice|0	DEFINE:RayDamageSize|0	DEFINE:RayDamageBonus|0	DEFINE:RayThreatRange|0						AUTO:WEAPONPROF|Spells (Ray)			BONUS:VAR|RayAttackBonus|1|PREFEAT:1,Weapon Focus (Spells (Ray))	BONUS:VAR|RayThreatRange|20	BONUS:VAR|RayThreatRange|-1|PREFEAT:1,Improved Critical (Spells (Ray))	COST:0	ASPECT:NaturalAttackName|Touch Attack (Ray)	ASPECT:NaturalAttackToHit|+%1|RayAttackBonus		ASPECT:NaturalAttackRange|As Spell	ASPECT:NaturalAttackType|Ray	ASPECT:NaturalAttackThreatRange|%1|RayThreatRange	ASPECT:NaturalAttackDamage|As Spell	BONUS:VAR|RayAttackBonus|BAB+DEX	DEFINE:RayCritMult|2	ASPECT:NaturalAttackCritMult|/x%1|RayCritMult
 
 #Weapon Proficiencies for .MOD capabilities in classes.
 # See this tracker: http://sourceforge.net/tracker/?func=detail&aid=1158480&group_id=36698&atid=417819
