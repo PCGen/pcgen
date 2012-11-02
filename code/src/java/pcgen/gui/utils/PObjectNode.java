@@ -42,8 +42,6 @@ import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
-import pcgen.gui.CharacterInfo;
-import pcgen.gui.PCGen_Frame1;
 import pcgen.util.Logging;
 import pcgen.util.ResetableListIterator;
 
@@ -659,15 +657,6 @@ public class PObjectNode implements Cloneable, ResetableListIterator
 
 			if (item instanceof Race)
 			{
-				// if we are on the Resource tab,
-				// don't check race preReq stuff
-				final CharacterInfo cp = PCGen_Frame1.getCharacterPane();
-
-				if ((cp != null)
-					&& (cp.getSelectedIndex() == cp.indexOfTab("Resources")))
-				{
-					return itemName;
-				}
 			}
 
 			if (item instanceof Deity)

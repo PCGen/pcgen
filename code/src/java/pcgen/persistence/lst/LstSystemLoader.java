@@ -90,7 +90,6 @@ import pcgen.core.analysis.EqModAttachment;
 import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.gui.pcGenGUI;
 import pcgen.io.PCGFile;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
@@ -98,8 +97,8 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.LoadValidator;
 import pcgen.rules.context.ReferenceContext;
-import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 
 /**
@@ -1835,42 +1834,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 */
 	private void showLicensesIfNeeded()
 	{
-		// Only worry about it if we're using the GUI
-		if (Globals.getUseGUI())
-		{
-			if (showOGL && SettingsHandler.showLicense())
-			{
-				pcGenGUI.showLicense();
-			}
-
-			if (showLicensed && SettingsHandler.showLicense())
-			{
-				String licenseInfo = licensesToDisplayString.toString();
-				if (licenseInfo.trim().length() > 0)
-				{
-					pcGenGUI.showLicense("Special Licenses", licenseInfo);
-				}
-				pcGenGUI.showLicense("Special Licenses", licenseFiles);
-			}
-
-			if (showD20 && SettingsHandler.showD20Info())
-			{
-				// D20 compliant removed as of 10/14/2003
-				// some products may still be D20 compliant, so we need to display this
-				// even though PCGen itself is not D20 compliant
-				pcGenGUI.showMandatoryD20Info();
-			}
-
-			if (showMature && SettingsHandler.showMature())
-			{
-				String matureInfo = matureCampaigns.toString();
-				if (matureInfo.trim().length() > 0)
-				{
-					pcGenGUI.showMature(matureInfo);
-				}
-			}
-		}
-
 		// Prevent redisplay (i.e. sources unloaded, then re-loaded
 		Globals.getSection15().setLength(0);
 		showOGL = false;
@@ -1880,14 +1843,6 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 	private void showSponsorsIfNeeded()
 	{
-		// Only worry about it if we're using the GUI
-		if (Globals.getUseGUI())
-		{
-			if (SettingsHandler.showSponsors())
-			{
-				pcGenGUI.showSponsors();
-			}
-		}
 	}
 
 	/**

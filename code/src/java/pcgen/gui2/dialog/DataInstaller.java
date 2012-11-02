@@ -64,12 +64,10 @@ import pcgen.core.InstallableCampaign;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.gui.sources.MainSource;
 import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.JLabelPane;
 import pcgen.gui.utils.Utility;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.PersistenceManager;
 import pcgen.persistence.lst.InstallLoader;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.FacadeFactory;
@@ -805,7 +803,7 @@ public class DataInstaller extends JFrame
 		
 		// Display the info
 		dataSetSel.setText(dataSet.getAbsolutePath());
-		dataSetDetails.setText(MainSource.buildInfoLabel(campaign));
+		dataSetDetails.setText(FacadeFactory.getCampaignInfoFactory().getHTMLInfo(campaign));
 		if (campaign.get(ObjectKey.DESTINATION) == null)
 		{
 			locDataButton.setSelected(false);

@@ -276,7 +276,7 @@ public final class UIFactory
 
 			// Expect exception for updating helpMenu before
 			// it exists.
-			PCGen_Frame1.getInst().getPcgenMenuBar().separateHelpMenu(!isWindowsUI());
+			//PCGen_Frame1.getInst().getPcgenMenuBar().separateHelpMenu(!isWindowsUI());
 		}
 		catch (Exception e)
 		{

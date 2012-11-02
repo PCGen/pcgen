@@ -56,7 +56,6 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.core.utils.SortedProperties;
 import pcgen.gui.GuiConstants;
-import pcgen.gui.PCGen_Frame1;
 import pcgen.gui.filter.FilterFactory;
 import pcgen.gui.filter.Filterable;
 import pcgen.gui.utils.Utility;
@@ -1174,14 +1173,6 @@ public final class SettingsHandler
 	public static void setNameDisplayStyle(final int style)
 	{
 		nameDisplayStyle = style;
-
-		final PCGen_Frame1 frame = PCGen_Frame1.getInst();
-
-		// Guard against load order
-		if (frame != null)
-		{
-			PCGen_Frame1.forceUpdate_PlayerTabs();
-		}
 	}
 
 	public static int getNameDisplayStyle()
@@ -1398,7 +1389,6 @@ public final class SettingsHandler
 					""))); //$NON-NLS-1$
 		setShowFeatDialogAtLevelUp(getPCGenOption("showFeatDialogAtLevelUp", true)); //$NON-NLS-1$
 		setShowHPDialogAtLevelUp(getPCGenOption("showHPDialogAtLevelUp", true)); //$NON-NLS-1$
-		setShowMemoryArea(getPCGenOption("showMemoryArea", false)); //$NON-NLS-1$
 		setShowImagePreview(getPCGenOption("showImagePreview", true)); //$NON-NLS-1$
 		setShowSingleBoxPerBundle(getPCGenOption("showSingleBoxPerBundle", false)); //$NON-NLS-1$
 		setOutputDeprecationMessages(getPCGenOption("outputDeprecationMessages", true));
@@ -1616,12 +1606,6 @@ public final class SettingsHandler
 		else
 		{
 			setPCGenOption("browserPath", ""); //$NON-NLS-1$ //$NON-NLS-2$
-		}
-
-		if (PCGen_Frame1.getInst() != null)
-		{
-			setOpenRecentOption("openRecentPCs", PCGen_Frame1.getInst().getOpenRecentPCs()); //$NON-NLS-1$
-			setOpenRecentOption("openRecentParties", PCGen_Frame1.getInst().getOpenRecentParties()); //$NON-NLS-1$
 		}
 
 		if (getGame() != null)
@@ -2716,14 +2700,6 @@ public final class SettingsHandler
 	{
 		toolTipTextShown = showToolTipText;
 
-		final PCGen_Frame1 frame = PCGen_Frame1.getInst();
-
-		// Guard against load order
-		if (frame != null)
-		{
-			PCGen_Frame1.forceUpdate_PlayerTabs();
-		}
-
 		Utility.handleToolTipShownStateChange();
 	}
 
@@ -2757,7 +2733,6 @@ public final class SettingsHandler
 	public static void setUseWaitCursor(final boolean b)
 	{
 		useWaitCursor = b;
-		PCGen_Frame1.useWaitCursor(b);
 	}
 
 	public static boolean getUseWaitCursor()
@@ -2827,10 +2802,6 @@ public final class SettingsHandler
 
 			//System.out.println("Java Ver < 1.4 && OS Name = MAC -- Defaulting toolTips OFF -- MAC/Java 1.3 Bug");
 		}
-
-		// Menu stuff
-		setOpenRecentPCs(getOpenRecentOption("openRecentPCs")); //$NON-NLS-1$
-		setOpenRecentParties(getOpenRecentOption("openRecentParties")); //$NON-NLS-1$
 	}
 
 	/**
@@ -3248,16 +3219,6 @@ public final class SettingsHandler
 		}
 
 		return strings.toArray(new String[strings.size()]);
-	}
-
-	private static void setOpenRecentPCs(final String[] strings)
-	{
-		PCGen_Frame1.getInst().setOpenRecentPCs(strings);
-	}
-
-	private static void setOpenRecentParties(final String[] strings)
-	{
-		PCGen_Frame1.getInst().setOpenRecentParties(strings);
 	}
 
 	private static int getOptionTabPlacement(final String optionName, final int defaultValue)
@@ -3736,18 +3697,6 @@ public final class SettingsHandler
 	public static boolean isShowMemoryArea()
 	{
 		return showMemoryArea;
-	}
-
-	/**
-	 * Toggles showing program memory use in the status bar if <code>true</code>.
-	 * Updates the status bar when state changes.
-	 *
-	 * @param showMemoryArea <code>true</code> to show memory use
-	 */
-	public static void setShowMemoryArea(final boolean showMemoryArea)
-	{
-		PCGen_Frame1.showMemoryArea(
-				SettingsHandler.showMemoryArea = showMemoryArea);
 	}
 
 	/**
