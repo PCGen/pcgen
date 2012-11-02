@@ -2,30 +2,30 @@
 
 ###Block: Firearm Gear
 # Equipment Name					Type							Cost		Weight
-Alchemical Cartridge (Dragon's Breath)	TYPE:FirearmGear.Ammo.FirearmCartridge	COST:40
-Alchemical Cartridge (Entangling Shot)	TYPE:FirearmGear.Ammo.FirearmCartridge	COST:40
-Alchemical Cartridge (Flare)			TYPE:FirearmGear.Ammo.FirearmCartridge	COST:10
-Alchemical Cartridge (Paper/Bullet)		TYPE:FirearmGear.Ammo.FirearmCartridge	COST:12
-Alchemical Cartridge (Paper/Pellet)		TYPE:FirearmGear.Ammo.FirearmCartridge	COST:12
-Alchemical Cartridge (Salt Shot)		TYPE:FirearmGear.Ammo.FirearmCartridge	COST:12
+Alchemical Cartridge (Dragon's Breath)	TYPE:FirearmGear.Ammo.Ammunition.FirearmCartridge	COST:40
+Alchemical Cartridge (Entangling Shot)	TYPE:FirearmGear.Ammo.Ammunition.FirearmCartridge	COST:40
+Alchemical Cartridge (Flare)			TYPE:FirearmGear.Ammo.Ammunition.FirearmCartridge	COST:10
+Alchemical Cartridge (Paper/Bullet)		TYPE:FirearmGear.Ammo.Ammunition.FirearmCartridge	COST:12
+Alchemical Cartridge (Paper/Pellet)		TYPE:FirearmGear.Ammo.Ammunition.FirearmCartridge	COST:12
+Alchemical Cartridge (Salt Shot)		TYPE:FirearmGear.Ammo.Ammunition.FirearmCartridge	COST:12
 Black Powder (Dose)				TYPE:FirearmGear					COST:10
 Black Powder (Keg)				TYPE:FirearmGear					COST:1000	WT:5
-Bullet (Firearm)					TYPE:FirearmGear.Ammo.FirearmBullet		COST:1
-Bullet (Firearm/30)				TYPE:FirearmGear.Ammo.FirearmBullet		COST:30	WT:.5
-Bullet (Adamantine)				TYPE:FirearmGear.Ammo.FirearmBullet		COST:61
-Bullet (Firearm/Pitted)				TYPE:FirearmGear.Ammo.FirearmBullet		COST:5
-Bullet (Firearm/Silver)				TYPE:FirearmGear.Ammo.FirearmBullet		COST:25
+Bullet (Firearm)					TYPE:FirearmGear.Ammo.Ammunition.FirearmBullet		COST:1
+Bullet (Firearm/30)				TYPE:FirearmGear.Ammo.Ammunition.FirearmBullet		COST:30	WT:.5
+Bullet (Adamantine)				TYPE:FirearmGear.Ammo.Ammunition.FirearmBullet		COST:61
+Bullet (Firearm/Pitted)				TYPE:FirearmGear.Ammo.Ammunition.FirearmBullet		COST:5
+Bullet (Firearm/Silver)				TYPE:FirearmGear.Ammo.Ammunition.FirearmBullet		COST:25
 Gunsmith's Kit					TYPE:FirearmGear.Kit				COST:15	WT:2
-Metal Cartridge					TYPE:FirearmGear.Ammo.FirearmCartridge	COST:15
-Pellets (Handful)					TYPE:FirearmGear.Ammo.FirearmPellet		COST:1
-Pellets (Handful/30)				TYPE:FirearmGear.Ammo.FirearmPellet		COST:30	WT:.5
+Metal Cartridge					TYPE:FirearmGear.Ammo.Ammunition.FirearmCartridge	COST:15
+Pellets (Handful)					TYPE:FirearmGear.Ammo.Ammunition.FirearmPellet		COST:1
+Pellets (Handful/30)				TYPE:FirearmGear.Ammo.Ammunition.FirearmPellet		COST:30	WT:.5
 Powder Horn						TYPE:FirearmGear					COST:3	WT:1
 
 
 ###Block: Specific Ammo
 # Equipment Name			Type							Cost		Source Page		Special Property
-Burrowing Bullet			TYPE:FirearmGear.Ammo.FirearmBullet.Magic	COST:1722	SOURCEPAGE:p.142	SPROP:This +1 firearm bullet deals normal damage, but when it hits a living creature, it burrows into the creature's flesh, causing wracking pain until removed or until the bullet burrows its way out of the creature. While these bullets burrow, the creature is staggered. This effect lasts for 1d3 rounds or until the bullet is removed with a DC 15 Heal check made as a standard action.
-Burrowing Bullet (Greater)	TYPE:FirearmGear.Ammo.FirearmBullet.Magic	COST:3447	SOURCEPAGE:p.142	SPROP:This +1 firearm bullet deals normal damage, but when it hits a living creature, it burrows into the creature's flesh, causing wracking pain until removed or until the bullet burrows its way out of the creature. While these bullets burrow, the creature is staggered. This effect lasts for 1d3+2 rounds or until the bullet is removed with a DC 20 Heal check made as a standard action.
-Tracer Bullet			TYPE:FirearmGear.Ammo.FirearmBullet.Magic	COST:100	SOURCEPAGE:p.142	SPROP:These +1 firearm bullets deal no damage, but instead cause a pale glow to outline the target, granting the effect of a faerie fire spell and causing the target to take a -2 penalty to AC against ranged attacks. These effects last for 1d4 rounds.
+Burrowing Bullet			TYPE:FirearmGear.Ammo.Ammunition.FirearmBullet.Magic	COST:1722	SOURCEPAGE:p.142	SPROP:This +1 firearm bullet deals normal damage, but when it hits a living creature, it burrows into the creature's flesh, causing wracking pain until removed or until the bullet burrows its way out of the creature. While these bullets burrow, the creature is staggered. This effect lasts for 1d3 rounds or until the bullet is removed with a DC 15 Heal check made as a standard action.
+Burrowing Bullet (Greater)	TYPE:FirearmGear.Ammo.Ammunition.FirearmBullet.Magic	COST:3447	SOURCEPAGE:p.142	SPROP:This +1 firearm bullet deals normal damage, but when it hits a living creature, it burrows into the creature's flesh, causing wracking pain until removed or until the bullet burrows its way out of the creature. While these bullets burrow, the creature is staggered. This effect lasts for 1d3+2 rounds or until the bullet is removed with a DC 20 Heal check made as a standard action.
+Tracer Bullet			TYPE:FirearmGear.Ammo.Ammunition.FirearmBullet.Magic	COST:100	SOURCEPAGE:p.142	SPROP:These +1 firearm bullets deal no damage, but instead cause a pale glow to outline the target, granting the effect of a faerie fire spell and causing the target to take a -2 penalty to AC against ranged attacks. These effects last for 1d4 rounds.
 
 
