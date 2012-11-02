@@ -703,61 +703,6 @@ public final class Utility
 	}
 
 	/**
-	 * Previews the character in web browser
-	 * @param currentPC The character to be previewed.
-	 **/
-	public static void previewInBrowser(PlayerCharacter currentPC)
-	{
-		File template =
-				new File(SettingsHandler
-					.getSelectedCharacterHTMLOutputSheet(currentPC));
-		String fileName = template.getAbsolutePath();
-		previewInBrowser(fileName, currentPC);
-	}
-
-	/**
-	 * Previews the character in web browser using supplied output sheet
-	 *
-	 * @param fileName The name of the file to output the character sheet to.
-	 * @param pc The PC to be previewed.
-	 */
-	public static void previewInBrowser(String fileName, PlayerCharacter pc)
-	{
-		// Karianna - Fix for bug 966281
-		// null means we are not passing through the template name
-		// from the equipment sub screen
-		File outFile = getTempPreviewFile(pc, fileName);
-		// Karianna - End of Fix for bug 966281
-
-		// ensure we've got something
-		if (outFile == null)
-		{
-			// message will have been displayed already
-			return;
-		}
-
-		try
-		{
-			OutputStreamWriter w =
-					new OutputStreamWriter(new FileOutputStream(outFile),
-						"UTF-8");
-			printToWriter(w, fileName, pc);
-			w.close();
-
-			URL url = outFile.toURI().toURL();
-			viewInBrowser(url.toString());
-		}
-		catch (Exception ex)
-		{
-			ShowMessageDelegate.showMessageDialog(
-				"Could not preview file in external browser. Sorry...",
-				"PCGen", MessageType.ERROR);
-			Logging.errorPrint(
-				"Could not preview file in external browser. Sorry...", ex);
-		}
-	}
-
-	/**
 	 * Prints the character or party details to the writer specified.
 	 *
 	 * @param w  The writer to print the data to.
@@ -851,48 +796,6 @@ public final class Utility
 		}
 
 		return stringOut;
-	}
-
-	/**
-	 * View a URL in a browser.  Uses BrowserLauncher class.
-	 * 
-	 * @param url URL to display in browser.
-	 * @see pcgen.gui.utils.BrowserLauncher
-	 */
-	public static void viewInBrowser(String url)
-	{
-		try
-		{
-			// Windows tends to lock up or not actually
-			// display anything unless we've specified a
-			// default browser, so at least make the user
-			// aware that (s)he needs one. If they don't
-			// pick one and it doesn't work, at least they
-			// might know enough to try selecting one the
-			// next time.
-			if (SystemUtils.IS_OS_WINDOWS
-				&& (SettingsHandler.getBrowserPath() == null))
-			{
-				Utility.selectDefaultBrowser(null);
-			}
-
-			if (SystemUtils.IS_OS_MAC)
-			{
-				BrowserLauncher.openURL(url);
-			}
-			else
-			{
-				BrowserLauncher.openURL(url);
-			}
-		}
-		catch (Exception ex)
-		{
-			ShowMessageDelegate.showMessageDialog(
-				"Could not preview file in external browser. Sorry...",
-				"PCGen", MessageType.ERROR);
-			Logging.errorPrint(
-				"Could not preview file in external browser. Sorry...", ex);
-		}
 	}
 
 	/**

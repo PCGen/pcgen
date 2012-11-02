@@ -56,8 +56,6 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.core.utils.SortedProperties;
 import pcgen.gui.GuiConstants;
-import pcgen.gui.filter.FilterFactory;
-import pcgen.gui.filter.Filterable;
 import pcgen.gui.utils.Utility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
@@ -2888,32 +2886,6 @@ public final class SettingsHandler
 	public static boolean showNaturalWeaponTab()
 	{
 		return showNatWeaponTab;
-	}
-
-	/**
-	 * store the filter settings for a given Filterable
-	 *
-	 * <br>author: Thomas Behr 19-02-02
-	 *
-	 * @param filterable - the Filterable whose settings
-	 *              will be stored
-	 */
-	public static void storeFilterSettings(final Filterable filterable)
-	{
-		final String name = filterable.getName();
-
-		if (name == null)
-		{
-			return;
-		}
-
-		getFilterSettings().setProperty("pcgen.filters." + name + ".mode", Integer.toString(filterable.getFilterMode())); //$NON-NLS-1$ //$NON-NLS-2$
-		getFilterSettings().setProperty("pcgen.filters." + name + ".available", //$NON-NLS-1$ //$NON-NLS-2$
-			FilterFactory.filterListToString(filterable.getAvailableFilters()));
-		getFilterSettings().setProperty("pcgen.filters." + name + ".selected", //$NON-NLS-1$ //$NON-NLS-2$
-			FilterFactory.filterListToString(filterable.getSelectedFilters()));
-		getFilterSettings().setProperty("pcgen.filters." + name + ".removed", //$NON-NLS-1$ //$NON-NLS-2$
-			FilterFactory.filterListToString(filterable.getRemovedFilters()));
 	}
 
 	public static boolean useFeatBenefits()
