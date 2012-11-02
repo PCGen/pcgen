@@ -12,7 +12,7 @@ Harpoon		PROFICIENCY:WEAPON|Harpoon	TYPE:Piercing.Ranged.Thrown.Fragile.Grapple	
 
 #Ranged Weapons
 Kestros		PROFICIENCY:WEAPON|Kestros	TYPE:Piercing.Container.Ranged			CONTAINS:1|KestrosDart=1	COST:1	WT:1		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8					RANGE:50
-Kestros Dart (10)						TYPE:Ammo.KestrosDart										COST:5	WT:5
+Kestros Dart (10)						TYPE:Ammunition.KestrosDart									COST:5	WT:5
 
 
 
