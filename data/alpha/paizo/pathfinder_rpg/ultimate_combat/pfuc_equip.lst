@@ -11,14 +11,14 @@ Alchemical Cartridge (Salt Shot)		TYPE:FirearmGear.Ammo.Ammunition.FirearmCartri
 Black Powder (Dose)				TYPE:FirearmGear					COST:10
 Black Powder (Keg)				TYPE:FirearmGear					COST:1000	WT:5
 Bullet (Firearm)					TYPE:FirearmGear.Ammo.Ammunition.FirearmBullet		COST:1
-Bullet (Firearm/30)				TYPE:FirearmGear.Ammo.Ammunition.FirearmBullet		COST:30	WT:.5
+Bullet (Firearm/30)				TYPE:FirearmGear.Ammo.Ammunition.FirearmBullet	BASEQTY:20	COST:30	WT:.5
 Bullet (Adamantine)				TYPE:FirearmGear.Ammo.Ammunition.FirearmBullet		COST:61
 Bullet (Firearm/Pitted)				TYPE:FirearmGear.Ammo.Ammunition.FirearmBullet		COST:5
 Bullet (Firearm/Silver)				TYPE:FirearmGear.Ammo.Ammunition.FirearmBullet		COST:25
 Gunsmith's Kit					TYPE:FirearmGear.Kit				COST:15	WT:2
 Metal Cartridge					TYPE:FirearmGear.Ammo.Ammunition.FirearmCartridge	COST:15
 Pellets (Handful)					TYPE:FirearmGear.Ammo.Ammunition.FirearmPellet		COST:1
-Pellets (Handful/30)				TYPE:FirearmGear.Ammo.Ammunition.FirearmPellet		COST:30	WT:.5
+Pellets (Handful/30)				TYPE:FirearmGear.Ammo.Ammunition.FirearmPellet	BASEQTY:20	COST:30	WT:.5
 Powder Horn						TYPE:FirearmGear					COST:3	WT:1
 
 
