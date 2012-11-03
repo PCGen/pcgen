@@ -30,7 +30,6 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.list.CompanionList;
 import pcgen.core.Race;
-import pcgen.system.PCGenSettings;
 
 /**
  * <code>Follower.java</code>

@@ -27,7 +27,6 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.base.util.DoubleKeyMap;
-import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.ListSet;
 import pcgen.base.util.MapToList;

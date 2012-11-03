@@ -32,7 +32,6 @@ import plugin.experience.ExperienceAdjusterPlugin;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.BorderLayout;
-import java.awt.Font;
 
 /**
  *

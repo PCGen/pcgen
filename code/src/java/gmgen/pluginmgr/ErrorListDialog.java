@@ -21,8 +21,6 @@
  */
 package gmgen.pluginmgr;
 
-import gmgen.util.MiscUtilities;
-
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 

@@ -27,8 +27,6 @@ package gmgen.gui;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 
-import pcgen.system.LanguageBundle;
-
 import java.util.ArrayList;
 import java.util.List;
 

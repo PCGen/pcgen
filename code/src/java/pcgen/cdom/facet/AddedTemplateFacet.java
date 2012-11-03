@@ -30,7 +30,6 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
-import pcgen.util.Logging;
 
 /**
  * AddedTemplateFacet is a Facet that tracks the Templates that have been added

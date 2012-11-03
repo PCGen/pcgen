@@ -45,7 +45,6 @@ import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.TipOfTheDayHandler;
 import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.system.LanguageBundle;
-import pcgen.util.Logging;
 
 /**
  * This class provides a guide for first time 

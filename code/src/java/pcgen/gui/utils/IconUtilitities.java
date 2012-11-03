@@ -24,7 +24,6 @@ package pcgen.gui.utils;
 
 import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
-import java.awt.Frame;
 import java.awt.Window;
 import java.net.URL;
 

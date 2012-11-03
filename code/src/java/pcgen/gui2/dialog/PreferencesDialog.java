@@ -66,7 +66,6 @@ import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
 import pcgen.cdom.base.Constants;
-import pcgen.core.SettingsHandler;
 import pcgen.gui2.prefs.CharacterStatsPanel;
 import pcgen.gui2.prefs.ColorsPanel;
 import pcgen.gui2.prefs.CopySettingsPanel;

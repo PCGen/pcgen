@@ -25,7 +25,6 @@ package pcgen.core.kit;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.base.lang.StringUtil;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;

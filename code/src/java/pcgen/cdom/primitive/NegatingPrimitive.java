@@ -21,7 +21,6 @@ import java.util.Collection;
 
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveCollection;
-import pcgen.cdom.converter.NegateFilterConverter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
 

@@ -27,7 +27,6 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import java.awt.event.InputEvent;
 import java.awt.event.MouseEvent;
-import javax.swing.JSplitPane;
 
 /**
  * <code>Utilities</code>.

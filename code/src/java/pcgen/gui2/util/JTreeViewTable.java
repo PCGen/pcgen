@@ -71,7 +71,6 @@ import pcgen.gui2.util.treeview.TreeViewTableModel;
 import pcgen.system.PropertyContext;
 import pcgen.util.CollectionMaps;
 import pcgen.util.ListMap;
-import pcgen.util.Logging;
 
 /**
  * This class is a reimplementation of JTreeViewPane

@@ -22,7 +22,6 @@ package pcgen.core;
 
 import pcgen.core.character.CachedVariable;
 import pcgen.core.character.CharacterSpell;
-import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.io.ExportHandler;
 import pcgen.util.Logging;
