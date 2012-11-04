@@ -159,7 +159,7 @@ Dodge													TYPE:TestMonkey
 Not Dodge												TYPE:TestMonkey
 Test Case Extreme											TYPE:TestMonkey.Fighter
 Toughness												TYPE:TestMonkey.Fighter																																				STACK:YES			MULT:YES	CHOOSE:NOCHOICE																																																																																							BONUS:HP|CURRENTMAX|3
-
+Toughness B											TYPE:TestMonkey.Fighter																																				STACK:YES			MULT:YES	CHOOSE:NOCHOICE																																																																																							BONUS:HP|CURRENTMAX|3	COST:2
 Choose No Choice											TYPE:TestMonkey.Chooser																																				STACK:YES	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 Choose String Stack Yes										TYPE:TestMonkey.Chooser																																				STACK:YES			MULT:YES	CHOOSE:STRING|Choice 1|Choice 2|Choice 3
 Choose String Stack No										TYPE:TestMonkey.Chooser																																				STACK:NO			MULT:YES	CHOOSE:STRING|Choice 1|Choice 2|Choice 3
