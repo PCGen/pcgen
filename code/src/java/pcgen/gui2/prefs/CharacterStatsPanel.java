@@ -249,7 +249,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 	}
 
 	/* (non-Javadoc)
-	 * @see pcgen.gui.prefs.PCGenPrefsPanel#applyOptionValuesToControls()
+	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#applyOptionValuesToControls()
 	 */
 	@Override
 	public void applyOptionValuesToControls()
@@ -473,7 +473,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 	}
 
 	/* (non-Javadoc)
-	 * @see pcgen.gui.prefs.PCGenPrefsPanel#getTitle()
+	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
 	 */
 	@Override
 	public String getTitle()
@@ -482,7 +482,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 	}
 
 	/* (non-Javadoc)
-	 * @see pcgen.gui.prefs.PCGenPrefsPanel#setOptionsBasedOnControls()
+	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#setOptionsBasedOnControls()
 	 */
 	@Override
 	public void setOptionsBasedOnControls()
