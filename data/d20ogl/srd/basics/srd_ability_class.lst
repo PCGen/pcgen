@@ -44,6 +44,9 @@ Leadership Score	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	CHOOSE:NUMBER
 # Ability Name	Category of Ability		Type				Visible	Define			Description																					Save checks bonus						Combat bonus				Bonus to HP					Bonus to skill																		Aspects
 Negative Levels	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:NegLevels|0	DESC:%1 negative level(s) (-%1 effective level(s) and loses access to %1 spell(s) from the highest spell level castable)|NegLevels	BONUS:CHECKS|Fortitude,Reflex,Will|-1*NegLevels	BONUS:COMBAT|TOHIT|-1*NegLevels	BONUS:HP|CURRENTMAX|-5*NegLevels	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*NegLevels	ASPECT:Ability Bonus|%1|NegLevels
 
+Default	CATEGORY:Internal
+CATEGORY=Internal|Default.MOD		DEFINE:GauntletOS|0	DEFINE:UnarmedLethal|0	BONUS:VAR|GauntletOS|1|PREARMORTYPE:1,TYPE.Heavy	BONUS:VAR|UnarmedLethal|GauntletOS	AUTO:EQUIP|Gauntlet|PREARMORTYPE:1,TYPE.Heavy
+
 ###Block: Class Proficiencies
 # Ability Name							Unique Key						Category of Ability		Type							Visible		Serves As						Define																Description												Automatically Gained Weapon Prof.																																				Ability
 All Automatic Proficiencies												CATEGORY:Special Ability	TYPE:Internal					VISIBLE:NO																																							AUTO:WEAPONPROF|Gauntlet|Unarmed Strike|Spells(Ray)|Grapple

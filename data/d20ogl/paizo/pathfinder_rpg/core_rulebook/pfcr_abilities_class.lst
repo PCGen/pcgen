@@ -1181,6 +1181,8 @@ Wizard / Remove Scribe Scroll			CATEGORY:Archetype	TYPE:ACF.ScribeScroll								
 
 CATEGORY=Internal|Default.MOD																																					ABILITY:Internal|AUTOMATIC|Archetype Display
 CATEGORY=Internal|Default.MOD													DEFINE:RacialStatStr|0	DEFINE:RacialStatDex|0	DEFINE:RacialStatCon|0	DEFINE:RacialStatInt|0	DEFINE:RacialStatWis|0	DEFINE:RacialStatCha|0
+CATEGORY=Internal|Default.MOD		DEFINE:GauntletOS|0	DEFINE:UnarmedLethal|0	BONUS:VAR|GauntletOS|1|PREARMORTYPE:1,TYPE.Heavy	BONUS:VAR|UnarmedLethal|GauntletOS	AUTO:EQUIP|Gauntlet|PREARMORTYPE:1,TYPE.Heavy
+
 #
 Archetype Display					CATEGORY:Internal						VISIBLE:NO
 
