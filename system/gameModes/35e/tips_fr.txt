@@ -1,0 +1,36 @@
+# 35e tips file
+#
+# Author: James Dempsey <jdempsey@users.sourceforge.net>
+# Version: $Revision: 17402 $
+#
+# Each non comment, non blank line is a tip. Tips can support simple html markup.
+
+<strong>Bienvenue dans PCGen !</strong><br>Si vous avez besoin d’aide, appuyez sur <em>F1</em> ou bien lisez la documentation accessible par le menu <b>Aide</b>. Le pas-à-pas de création de personnage est bien pour débuter.
+<em>Not yet translated</em><br>The "Things to be Done" list in the bottom left of the Summary tab will guide you on what needs to be done for your character. You can even click on an item to be taken to the appropriate tab and field. 
+<em>Not yet translated</em><br>PCGen supports a huge range of source books. Some of the most popular combinations have been set up for you in the Basic list of sources. However you can always create your own combinations on the Advanced sources tab and click Save Source Selection so they show up on the Basic list for you next time. 
+<em>Not yet translated</em><br>Use the <em>File > Export</em> or <em>File > Print</em> menus to output great character sheets. We support HTML and PDF output as well as output to files which can be loaded into real time tools.
+<em>Not yet translated</em><br>Using the Qualified toggle buttons on each tab will trim the list down to just the options that you can take.
+<em>Not yet translated</em><br>The Affordable toggle button on the Purchase tab only shows those items you have the funds for.
+<em>Not yet translated</em><br>Here be Monsters!<p>PCGen makes it easy to create monsters too. Just load up a source which includes monsters and then create a new character. You can either: <UL><LI>Click on the <em>Create Monsters</em> button to make one just like in the book; or</LI><LI>Select a monster race and make up the monster like you would a normal character.</LI</UL> 
+
+# Game mode specific items go here
+<em>Not yet translated</em><br>Don't forget, in 3e and 35e mode, bonus skill points from intelligence are only applied at the time, not retroactively, so if you increase your intelligence later on, you will not get bonus skill points from your previous levels.
+En cas de modificateur d’Intelligence positif, les langues supplémentaires doivent être choisies au premier niveau, il n’est pas permis de les sélectionner après le premier niveau à moins d’activer la règle maison contraire. Les règles maison se trouvent dans <b>Outils ▸ Préférences</b>.
+
+Au dessus des listes, il y a un champs de recherche ; il suffit d’y taper du texte pour commencer la recherche, le bouton X efface la recherche.
+<em>Not yet translated</em><br>You can right-click the heading of the first column in most lists to choose how you want the contents grouped.
+Essayez de cliquer du bouton droit dans les listes pour voir des options supplémentaires, y compris achat et vente en gros d’équipement.
+Les armes avec amélioration peuvent être crées dans PCGen en sélectionnant une arme de base et en cliquant sur <em>Ajouter personnalisation</em>. Ce qui permet d’ajouter de créer des armes de maître, des bonus magiques, des matériaux spécifiques, etc. pour créer le parfait donneur de mort.
+Dans l’onglet <em>Sorts ▸ Sorts préparés</em>, il y a un champs liste de sort. Il est possible d’ajouter de nouvelle liste de sort (ensemble de sorts mémorisés e.g. Ville, Donjon, Voyage dans des étendues sauvages) en ajoutant un nouveau nom dans le champs puis en cliquant Ajouter.
+<em>Not yet translated</em><br>On the <em>Spells</em> Tab you can see the number of spells you can cast in a day for a class by selecting any spell, level or class in either tree.
+<em>Not yet translated</em><br>The <em>Inventory > Purchase</em> tab shows all of the gear you own. You need to equip the gear on the <em>Inventory > Equipping</em> tab before it affects your character though. You can even set up groups of equipment that you'd use (e.g. City, Party, Combat).  You can then print these sets out showing the changed effects on your movement and skills!
+<em>Not yet translated</em><br>If you ever see something that doesn't make sense to you, look on the trouble-shooting preview. To get to that, click on the <em>Character Sheet</em> tab. Select the "Troubleshooting.htm" sheet. You will see all the various abilities, skills, hit points, saving throws, and the like all expanded with a tag in [] showing where it came from. Very useful for tracking down that strange -1 that shows up.
+Il est possible d’enregistrer les bonus temporaires de votre personnage, il suffit de les appliquer dans l’onglet <em>Bonus temporaires</em>. Les effets du bonus seront inclus en exportant le personnage.
+Le malus de circonstance de −2 pour le manque d’outils de voleur est un bonus temporaire qui peut être ajouté dans l’onglet <em>Bonus temporaires</em>. D’autres bonus de circonstance sont disponibles tels que chevaucher sans selle ou bien avoir son familier dans les 1,5 m.
+La rage de barbare est aussi un bonus temporaire.
+Il y a de nombreux moyens de personnaliser PCGen. Utilisez <b>Outils ▸ Préférences</b> pour y parvenir.
+<em>Not yet translated</em><br>PCGEN doesn't always deal with levelling down perfectly.  So before you level up a character, make sure that you back up the pcg file first. That way if you choose the wrong class etc., you can go back and do it properly.
+Troublé par l’or de votre inventaire ? Il est possible d’acheter des pièces, gemmes, etc. avec votre réserve d’or afin qu’ils soient visibles dans votre inventaire.
+<em>Not yet translated</em><br>You will see small &gt;, &lt;, &lt;up&gt; and &lt;down&gt; arrows on the panes of the PCGen windows. You can click on these to get one of the panes to expand to its full width/length.
+Il est possible d’utiliser <em>Édition ▸ Ajout de kit</em> pour choisir des kits prédéfinies à ajouter à un personnage. Il en existe pour des lots d’équipement standard, l’or d’un personnage débutant et même les monstres standards.
+<em>Not yet translated</em><br>PCGen is an Open Source project which means anyone can contribute. If you want to help drop a mail to <a href="mailto:PR@pcgen.org">PR@pcgen.org</a> or <a href="mailto:Content@pcgen.org">Content@pcgen.org</a>, or simply post a message with the title <strong>"I Want To Help"</strong> in one of the mailing lists.
