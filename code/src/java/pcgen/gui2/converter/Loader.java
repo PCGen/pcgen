@@ -15,31 +15,21 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package plugin.converter;
+package pcgen.gui2.converter;
+
+import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.gui2.converter.event.TokenProcessEvent;
-import pcgen.gui2.converter.event.TokenProcessorPlugin;
+import pcgen.core.Campaign;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.CampaignSourceEntry;
 
-public class KeyConvertPlugin implements TokenProcessorPlugin
+public interface Loader
 {
-	// Just process over these magical tokens for now
-	public String process(TokenProcessEvent tpe)
-	{
-		tpe.append(tpe.getKey());
-		tpe.append(':');
-		tpe.append(tpe.getValue());
-		tpe.consume();
-		return null;
-	}
+	public List<CDOMObject> process(StringBuilder sb, int line,
+			String lineString, ConversionDecider decider)
+			throws PersistenceLayerException, InterruptedException;
 
-	public Class<? extends CDOMObject> getProcessedClass()
-	{
-		return CDOMObject.class;
-	}
+	public List<CampaignSourceEntry> getFiles(Campaign campaign);
 
-	public String getProcessedToken()
-	{
-		return "KEY";
-	}
 }

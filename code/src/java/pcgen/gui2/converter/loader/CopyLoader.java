@@ -15,31 +15,45 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package plugin.converter;
+package pcgen.gui2.converter.loader;
+
+import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.gui2.converter.event.TokenProcessEvent;
-import pcgen.gui2.converter.event.TokenProcessorPlugin;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.Campaign;
+import pcgen.gui2.converter.ConversionDecider;
+import pcgen.gui2.converter.Loader;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.CampaignSourceEntry;
 
-public class KeyConvertPlugin implements TokenProcessorPlugin
+public class CopyLoader implements Loader
 {
-	// Just process over these magical tokens for now
-	public String process(TokenProcessEvent tpe)
+	private final ListKey<CampaignSourceEntry> listkey;
+
+	public CopyLoader(ListKey<CampaignSourceEntry> lk)
 	{
-		tpe.append(tpe.getKey());
-		tpe.append(':');
-		tpe.append(tpe.getValue());
-		tpe.consume();
+		listkey = lk;
+	}
+
+	@Override
+	public List<CDOMObject> process(StringBuilder sb, int line,
+			String lineString, ConversionDecider decider)
+			throws PersistenceLayerException, InterruptedException
+	{
+		sb.append(lineString);
 		return null;
 	}
 
-	public Class<? extends CDOMObject> getProcessedClass()
+	@Override
+	public List<CampaignSourceEntry> getFiles(Campaign c)
 	{
-		return CDOMObject.class;
+		return c.getSafeListFor(listkey);
 	}
 
-	public String getProcessedToken()
+	public String getLoadName()
 	{
-		return "KEY";
+		return "Copy " + listkey.toString();
 	}
+
 }

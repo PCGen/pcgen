@@ -24,6 +24,7 @@ package pcgen.gui2.tools;
 
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.FontMetrics;
 import java.awt.GraphicsEnvironment;
 import java.awt.GridBagConstraints;
 import java.awt.Point;
@@ -480,5 +481,28 @@ public final class Utility
 			// Rather than do a OS system condition, just ignore this expected exception
 			//Logging.log(Level.FINEST, "Can not set name of application for window manager", e);
 		}
+	}
+
+	/**
+	 * Trim a string from the left to fit within the specified width.
+	 * @param fm The font the text will be rendered in.
+	 * @param string The string to trimmed.
+	 * @param maxWidth The maximum width that the string is allowed to be.
+	 * @return String The trimmed string.
+	 */
+	public static String shortenString(FontMetrics fm, String string, int maxWidth)
+	{
+		for (int i=string.length() ; i>0 ; i-=5)
+		{
+			String foo = "..." + string.substring( string.length()-i);
+
+			int width = fm.stringWidth(foo);
+			//System.out.println("testing '"+foo+"' = "+width);
+			if (width < maxWidth)
+			{
+				return foo;
+			}
+		}
+		return "";
 	}
 }

@@ -19,10 +19,10 @@ package plugin.converter;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.inst.ObjectCache;
-import pcgen.gui.converter.ConversionDecider;
-import pcgen.gui.converter.TokenConverter;
-import pcgen.gui.converter.event.TokenProcessEvent;
-import pcgen.gui.converter.event.TokenProcessorPlugin;
+import pcgen.gui2.converter.ConversionDecider;
+import pcgen.gui2.converter.TokenConverter;
+import pcgen.gui2.converter.event.TokenProcessEvent;
+import pcgen.gui2.converter.event.TokenProcessorPlugin;
 import pcgen.rules.context.EditorLoadContext;
 import pcgen.util.Logging;
 

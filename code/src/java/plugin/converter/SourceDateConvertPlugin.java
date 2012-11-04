@@ -18,8 +18,8 @@
 package plugin.converter;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.gui.converter.event.TokenProcessEvent;
-import pcgen.gui.converter.event.TokenProcessorPlugin;
+import pcgen.gui2.converter.event.TokenProcessEvent;
+import pcgen.gui2.converter.event.TokenProcessorPlugin;
 
 public class SourceDateConvertPlugin implements TokenProcessorPlugin
 {

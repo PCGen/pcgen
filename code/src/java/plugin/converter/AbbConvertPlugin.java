@@ -19,8 +19,8 @@ package plugin.converter;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCClass;
-import pcgen.gui.converter.event.TokenProcessEvent;
-import pcgen.gui.converter.event.TokenProcessorPlugin;
+import pcgen.gui2.converter.event.TokenProcessEvent;
+import pcgen.gui2.converter.event.TokenProcessorPlugin;
 
 public class AbbConvertPlugin implements TokenProcessorPlugin
 {

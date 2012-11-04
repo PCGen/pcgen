@@ -102,7 +102,7 @@ These files can be renamed and used for releases.
     <!-- For writing the compatibility checker jar -->
     <property name="convert-jar.bin.file" value="batch-convert.jar" />
     <property name="convert-manifest.file" value="code/comp-manifest" />
-    <property name="convert-manifest.main.class" value="pcgen.gui.converter.PCGenDataConvert" />
+    <property name="convert-manifest.main.class" value="pcgen.gui2.converter.PCGenDataConvert" />
 
     <!-- Text files always shipped along -->
     <property name="project.license.file" value="LICENSE" />
@@ -417,7 +417,7 @@ pcgen.filepaths=user
         <javadoc sourcepath="${src.java.dir}:${build.src.dir}" destdir="${doc.dir}" packagenames="pcgen.*,gmgen.*,plugin.*" classpathref="javadoc.classpath" author="true" version="true" use="true" package="true" splitindex="true" windowtitle="PCGen Packages" doctitle="&lt;h1&gt;PCGen Packages&lt;/h1&gt;" overview="${docs.overview}" maxmemory="256m">
             <group title="PCGen Base Packages" packages="pcgen" />
             <group title="PCGen Core Packages" packages="pcgen.core" />
-            <group title="PCGen GUI Packages" packages="pcgen.gui" />
+            <group title="PCGen GUI Packages" packages="pcgen.gui2" />
             <group title="PCGen Utility Packages" packages="pcgen.util" />
             <group title="PCGen XML Packages" packages="pcgen.xml" />
             <group title="GMGen Packages" packages="gmgen.*" />

@@ -32,8 +32,8 @@ import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.SubClass;
-import pcgen.gui.converter.event.TokenProcessEvent;
-import pcgen.gui.converter.event.TokenProcessorPlugin;
+import pcgen.gui2.converter.event.TokenProcessEvent;
+import pcgen.gui2.converter.event.TokenProcessorPlugin;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 

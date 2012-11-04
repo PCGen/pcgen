@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2006, 2009.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -14,32 +14,17 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ * 
+ * Created on Mar 10, 2006
  */
-package plugin.converter;
+package pcgen.gui2.converter.event;
 
-import pcgen.cdom.base.CDOMObject;
-import pcgen.gui2.converter.event.TokenProcessEvent;
-import pcgen.gui2.converter.event.TokenProcessorPlugin;
+import java.util.EventListener;
 
-public class KeyConvertPlugin implements TokenProcessorPlugin
+public interface ProgressListener extends EventListener
 {
-	// Just process over these magical tokens for now
-	public String process(TokenProcessEvent tpe)
-	{
-		tpe.append(tpe.getKey());
-		tpe.append(':');
-		tpe.append(tpe.getValue());
-		tpe.consume();
-		return null;
-	}
 
-	public Class<? extends CDOMObject> getProcessedClass()
-	{
-		return CDOMObject.class;
-	}
+	public void progressAllowed(ProgressEvent pe);
 
-	public String getProcessedToken()
-	{
-		return "KEY";
-	}
+	public void progressNotAllowed(ProgressEvent pe);
 }
