@@ -401,6 +401,7 @@
 						<xsl:apply-templates select="salient_divine_abilities"/>
 						<xsl:apply-templates select="leadership"/>
 						<xsl:apply-templates select="feats"/>
+						<xsl:apply-templates select="deity"/>
 						<xsl:apply-templates select="domains"/>
 						<xsl:apply-templates select="weapon_proficiencies"/>
 <!-->						<xsl:apply-templates select="proficiency_specials"/>-->
@@ -408,6 +409,7 @@
 						<xsl:apply-templates select="tempbonuses"/>
 						<xsl:apply-templates select="prohibited_schools"/>
 						<xsl:apply-templates select="companions"/>
+						
 					</fo:block>
 				</fo:flow>
 			</fo:page-sequence>
@@ -5262,6 +5264,7 @@
 		</xsl:call-template>
 		<!-- END Domains Table -->
 	</xsl:template>
+
 	<!--
 ====================================
 ====================================
@@ -6117,7 +6120,34 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 		</xsl:if>
 	</xsl:template>
 
-
+	<!--
+====================================
+====================================
+	TEMPLATE - DEITY
+====================================
+====================================-->
+	<xsl:template match="deity">
+<!-->		<xsl:if test="count(deity) &gt; 0">	-->
+<!-->			<xsl:call-template name="bold.list">	
+				<xsl:with-param name="attribute" select="'deity'" />
+				<xsl:with-param name="title" select="'Deity Details'" />
+				<xsl:with-param name="list" select="deity"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+				<xsl:with-param name="alignment.tag" select="'alignment'"/>
+				<xsl:with-param name="domainlist.tag" select="'domainlist'"/>
+				<xsl:with-param name="favoredweapon.tag" select="'favoredweapon'"/>
+				<xsl:with-param name="holyitem.tag" select="'holyitem'"/>
+				<xsl:with-param name="pantheonlist.tag" select="'pantheonlist'"/>
+				<xsl:with-param name="source.tag" select="'source'"/>
+				<xsl:with-param name="special_abilities.tag" select="'special_abilities'"/>
+				<xsl:with-param name="appearance.tag" select="'appearance'"/>
+				<xsl:with-param name="deitytitle.tag" select="'title'"/>
+				<xsl:with-param name="worshippers.tag" select="'worshippers'"/>
+			</xsl:call-template>	-->
+<!-->		</xsl:if>	-->
+	</xsl:template>
+	
 	<!--
 ====================================
 ====================================
@@ -6152,6 +6182,7 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
+
 	<!--	
 ====================================
 ====================================
@@ -6752,7 +6783,7 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 						<xsl:with-param name="title" select="'Innate Racial Spells'"/>
 					</xsl:call-template>
 					<fo:table-body>
-						<xsl:apply-templates select="spell" mode="details">
+						<xsl:apply-templates select="spell" mode="innate_details">
 							<xsl:with-param name="columnOne" select="'Times'"/>
 						</xsl:apply-templates>
 					</fo:table-body>
@@ -6775,7 +6806,7 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 						<xsl:with-param name="title" select="concat(@name, ' Spell-like Abilities')"/>
 					</xsl:call-template>
 					<fo:table-body>
-						<xsl:apply-templates select="spell" mode="details">
+						<xsl:apply-templates select="spell" mode="innate_details">
 							<xsl:with-param name="columnOne" select="'Times'"/>
 						</xsl:apply-templates>
 					</fo:table-body>
@@ -7141,9 +7172,6 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt" font-weight="bold">School</fo:block>
 			</fo:table-cell>
-<!-->			<fo:table-cell padding-top="1pt">
-				<fo:block text-align="start" font-size="5pt" font-weight="bold">Saving Throw</fo:block>
-			</fo:table-cell> -->
 			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt" font-weight="bold">Time</fo:block>
 			</fo:table-cell>
@@ -7153,15 +7181,6 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt" font-weight="bold">Range</fo:block>
 			</fo:table-cell>
-<!-->			<fo:table-cell padding-top="1pt" number-columns-spanned="1">
-				<fo:block text-align="start" font-size="5pt" font-weight="bold">Target</fo:block>		Caster Level	
-			</fo:table-cell>	<-->
-<!-->			<fo:table-cell padding-top="1pt">
-				<fo:block text-align="start" font-size="5pt" font-weight="bold">Spell Resistance</fo:block>
-			</fo:table-cell>	-->
-<!-->			<fo:table-cell padding-top="1pt">
-				<fo:block text-align="start" font-size="5pt" font-weight="bold">School</fo:block>
-			</fo:table-cell>	<-->
 			<fo:table-cell padding-top="1pt" number-columns-spanned="1">
 				<fo:block text-align="right" font-size="5pt" font-weight="bold">Source</fo:block>		<!--> Source / Now target is taking both blocks-->
 			</fo:table-cell>
@@ -7185,8 +7204,7 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 		</xsl:variable>
 		<xsl:variable name="baseconcentration" select="../../@concentration">
 		</xsl:variable>
-<!-->	New to keep Spell Details togather	
-		<fo:table-body>	-->
+
 		<fo:table-row keep-with-next.within-column="always"	 keep-together="always">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/></xsl:call-template>
 				
@@ -7247,10 +7265,7 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 							<xsl:value-of select="school/fullschool"/>
 						</fo:block>
 			</fo:table-cell>
-<!-->			<fo:table-cell padding-top="1pt">
-				<fo:block text-align="start" font-size="5pt">
-				</fo:block>
-			</fo:table-cell>	-->
+
 			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt">
 					<xsl:value-of select="castingtime"/>
@@ -7266,12 +7281,7 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 					<xsl:value-of select="range"/>
 				</fo:block>
 			</fo:table-cell>
-<!-->			<fo:table-cell padding-top="1pt" number-columns-spanned="1">
-				<fo:block text-align="start" font-size="5pt">
-					<fo:inline font-style="italic">Target: </fo:inline>	
-					<xsl:value-of select="target"/>
-				</fo:block>	
-			</fo:table-cell>	-->
+
 			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="right" font-size="5pt" number-columns-spanned="1">
 					<xsl:value-of select="source/sourceshort"/>
@@ -7279,68 +7289,166 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 					<xsl:value-of select="source/sourcepage"/>
 				</fo:block>
 			</fo:table-cell>	
-<!-->			<fo:table-cell padding-top="1pt">
-				<fo:block text-align="start" font-size="5pt">
-					<xsl:value-of select="school/fullschool"/>
-				</fo:block>
-			</fo:table-cell>	 number-columns-spanned="1"	<!-->
-	<!-->		<fo:table-cell padding-top="1pt">
-				<fo:block text-align="start" font-size="5pt">	-->
-	<!-->				<fo:inline font-style="italic">Target: </fo:inline>	-->
-						
-	<!-->				<xsl:value-of select="source/sourceshort"/>
-					<xsl:text>: </xsl:text>
-					<xsl:value-of select="source/sourcepage"/>	-->
-	<!-->			</fo:block>
-			</fo:table-cell>				-->
+
 		</fo:table-row>
-<!-- Second Row -->
-<!-->		<fo:table-row>
-			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/></xsl:call-template>	-->
-<!-->			<fo:table-cell padding-top="1pt" number-columns-spanned="6">
+
+<!-- Second Row = For Spell Descriptions -->
+		<fo:table-row>
+			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/></xsl:call-template>
+			<fo:table-cell padding-top="1pt" number-columns-spanned="10">
+<!-- Set Up Alternate FONT SIZE		<xsl:if test="string-length(effect) &gt; 100">-->
+	
 				<fo:block text-align="start" font-size="5pt">
-					<fo:inline font-style="italic">Effect: </fo:inline>
-					<fo:block text-align="justify" text-indent="5pt">
-						<xsl:call-template name="paragraghlist">
-							<xsl:with-param name="tag" select="'effect'"/>
-						</xsl:call-template>
-					</fo:block>
-				</fo:block>
-			</fo:table-cell>	-->
-<!-->			<fo:table-cell padding-top="1pt" number-columns-spanned="2">
-				<fo:block text-align="start" font-size="5pt">
-					<fo:inline font-style="italic">School: </fo:inline>
-					<xsl:value-of select="school/fullschool"/>
-				</fo:block>
-			</fo:table-cell>
-			<fo:table-cell padding-top="1pt" number-columns-spanned="1">
-				<fo:block text-align="start" font-size="5pt">
-					<fo:inline font-style="italic">SR: </fo:inline>
-					<xsl:value-of select="spell_resistance"/>
-				</fo:block>
-			</fo:table-cell>
-			<fo:table-cell padding-top="1pt" number-columns-spanned="3">
-				<fo:block text-align="start" font-size="5pt">
-					<fo:inline font-style="italic">Target: </fo:inline>
-					<xsl:value-of select="target"/>
-				</fo:block>
-			</fo:table-cell>
-			<fo:table-cell padding-top="1pt" number-columns-spanned="1">
-				<fo:block text-align="start" font-size="5pt">
-					<fo:inline font-style="italic">Caster Level: </fo:inline>
-					<xsl:value-of select="casterlevel"/>
-				</fo:block>
-			</fo:table-cell>	-->
-			<!-- Placeholder for future concentration for spells -->
-<!--			<fo:table-cell padding-top="1pt" number-columns-spanned="2">
-				<fo:block text-align="start" font-size="5pt">
-					<xsl:if test="concentration != ''">
-						<fo:inline font-style="italic">Concentration: </fo:inline>
+				<xsl:if test="string-length(components) &gt; 0">
+					<fo:inline font-weight="bold">[<xsl:value-of select="components"/>]</fo:inline>
+					<fo:inline> </fo:inline>
+				</xsl:if>
+					<fo:inline font-weight="bold"> TARGET: </fo:inline><xsl:value-of select="target"/>
+					<fo:inline>; </fo:inline>
+					<fo:inline font-style="italic" font-weight="bold" font-size="5pt">EFFECT: </fo:inline>
+<xsl:if test="string-length(effect) &gt; 150">
+					<fo:inline font-size="7pt"><xsl:value-of select="effect"/></fo:inline>
+</xsl:if>
+<xsl:if test="string-length(effect) &lt; 151">
+	<fo:inline font-size="5pt"><xsl:value-of select="effect"/></fo:inline>
+</xsl:if>
+					
+						<xsl:if test="string-length(spell_resistance) &gt; 0 or dc &gt; 0"><fo:inline> [</fo:inline>
+							<xsl:if test="string-length(spell_resistance) &gt; 0">
+								<fo:inline font-weight="bold">SR:</fo:inline>
+								<xsl:value-of select="spell_resistance"/>
+							</xsl:if>
+							<xsl:choose>
+								<xsl:when test="dc &gt; 0">
+									<fo:inline>; </fo:inline><fo:inline font-weight="bold">DC:</fo:inline> <xsl:value-of select="dc"/> 
+									<fo:inline>, </fo:inline> <xsl:value-of select="saveinfo"/>
+								</xsl:when>
+								<xsl:when test="/character/house_var/spelldisplaydc &gt; 0">
+									<fo:inline>; </fo:inline><fo:inline font-weight="bold">DC: N/A</fo:inline>
+								</xsl:when>
+								<xsl:otherwise>
+								</xsl:otherwise>
+							</xsl:choose>
+						<fo:inline>] </fo:inline>
+						</xsl:if>
+					<xsl:if test="concentration != $baseconcentration">
+						<fo:inline>; </fo:inline>
+						<fo:inline font-style="italic" font-weight="bold">CONCENTRATION:</fo:inline>
 						<xsl:value-of select="concentration"/>
 					</xsl:if>
+					
+				</fo:block>
+			</fo:table-cell>
+		</fo:table-row>
+	</xsl:template>
+
+<!--
+====================================
+====================================
+	TEMPLATE - SPELL INNATE DETAILS
+====================================
+====================================-->
+<!--	This is to display the Racial and Class Innate and make use of the x/y format	-->
+	<xsl:template match="spell" mode="innate_details">
+		<xsl:param name="columnOne" select="'Times'"/>
+		<xsl:variable name="shade">
+			<xsl:choose>
+				<xsl:when test="position() mod 2 = 0">darkline</xsl:when>
+				<xsl:otherwise>lightline</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+		<xsl:variable name="basecasterlevel" select="../../@spellcasterlevel">
+		</xsl:variable>
+		<xsl:variable name="baseconcentration" select="../../@concentration">
+		</xsl:variable>
+
+		<fo:table-row keep-with-next.within-column="always"	 keep-together="always">
+			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/></xsl:call-template>
+				
+			<xsl:choose>
+				<xsl:when test="$columnOne = 'Times'">
+					<xsl:choose>
+						<xsl:when test="times_memorized &gt;= 0">
+							<fo:table-cell padding-top="0pt">
+								<fo:block text-align="start" font-size="8pt" font-family="ZapfDingbats">
+									<xsl:call-template name="for.loop">
+										<xsl:with-param name="count" select="times_memorized"/>
+									</xsl:call-template>
+								</fo:block>
+							</fo:table-cell>
+						</xsl:when>
+						<xsl:otherwise>
+							<fo:table-cell padding-top="1pt" text-align="start">
+								<fo:block text-align="start" font-size="7pt">At Will</fo:block>
+							</fo:table-cell>
+						</xsl:otherwise>
+					</xsl:choose>
+				</xsl:when>
+				<xsl:when test="$columnOne = 'Boxes'">
+					<fo:table-cell padding-top="0pt">
+						<fo:block text-align="start" font-size="8pt" font-family="ZapfDingbats">
+							<xsl:call-template name="for.loop">
+								<xsl:with-param name="count" select="5"/>
+							</xsl:call-template>
+						</fo:block>
+					</fo:table-cell>
+				</xsl:when>
+				<xsl:when test="$columnOne = 'PowerPoints'">
+					<fo:table-cell padding-top="0pt">
+						<fo:block text-align="start" font-size="8pt">
+							<xsl:variable name="ppcount" select="((../@number)*2)-1"/>
+							<xsl:choose>
+								<xsl:when test="number($ppcount) &gt; 0">
+									<xsl:value-of select="$ppcount"/>
+								</xsl:when>
+								<xsl:otherwise>0/1</xsl:otherwise>
+							</xsl:choose>
+						</fo:block>
+					</fo:table-cell>
+				</xsl:when>
+			</xsl:choose>
+			<fo:table-cell padding-top="1pt" number-columns-spanned="1">
+				<fo:block text-align="start" font-size="7pt" font-weight="bold">
+				<fo:inline font-style="italic">	<xsl:value-of select="bonusspell"/>	</fo:inline>
+						<xsl:choose>
+						<xsl:when test="times_memorized &gt;= 1">
+						(<xsl:value-of select="times_memorized"/>/<xsl:value-of select="times_unit"/>) 
+						</xsl:when>
+						</xsl:choose>
+						<xsl:value-of select="name"/>
+				</fo:block>
+			</fo:table-cell>
+			<fo:table-cell padding-top="1pt">
+						<fo:block text-align="start" font-size="5pt" font-weight="bold">
+							<xsl:value-of select="school/fullschool"/>
+						</fo:block>
+			</fo:table-cell>
+			<fo:table-cell padding-top="1pt">
+				<fo:block text-align="start" font-size="5pt">
+					<xsl:value-of select="castingtime"/>
+				</fo:block>
+			</fo:table-cell>
+			<fo:table-cell padding-top="1pt">
+				<fo:block text-align="start" font-size="5pt">
+					<xsl:value-of select="duration"/>
+				</fo:block>
+			</fo:table-cell>
+			<fo:table-cell padding-top="1pt">
+				<fo:block text-align="start" font-size="5pt">
+					<xsl:value-of select="range"/>
+				</fo:block>
+			</fo:table-cell>
+
+			<fo:table-cell padding-top="1pt">
+				<fo:block text-align="right" font-size="5pt" number-columns-spanned="1">
+					<xsl:value-of select="source/sourceshort"/>
+					<xsl:text>:</xsl:text>
+					<xsl:value-of select="source/sourcepage"/>
 				</fo:block>
 			</fo:table-cell>	
-		</fo:table-row>		-->
+
+		</fo:table-row>
+
 <!-- Third Row = For Spell Descriptions -->
 		<fo:table-row>
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/></xsl:call-template>
@@ -7380,10 +7488,12 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 							</xsl:choose>
 						<fo:inline>] </fo:inline>
 						</xsl:if>
+						(<fo:inline font-weight="bold">Caster Level:</fo:inline>
+						<xsl:value-of select="casterlevel"/>)
 		<!-->			<xsl:if test="concentration != ''">	-->
 					<xsl:if test="concentration != $baseconcentration">
 						<fo:inline>; </fo:inline>
-						<fo:inline font-style="italic" font-weight="bold">CONCENTRATION:</fo:inline>
+						<fo:inline font-style="italic" font-weight="bold">Concentration:</fo:inline>
 						<xsl:value-of select="concentration"/>
 					</xsl:if>
 					
@@ -7392,6 +7502,7 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 		</fo:table-row>
 <!-->		</fo:table-body>	-->
 	</xsl:template>
+
 	<!--
 ====================================
 ====================================

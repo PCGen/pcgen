@@ -336,6 +336,13 @@
 		<salient_divine_abilities.lightline><subattrib light=""/></salient_divine_abilities.lightline>
 		<salient_divine_abilities.darkline><subattrib medium=""/></salient_divine_abilities.darkline>
 
+		<deity.title><subattrib centre="" inverse=""/></deity.title>
+		<deity.border padding="0.5pt"><subattrib border="" inverse=""/></deity.border>
+		<deity.lightline><subattrib light=""/></deity.lightline>
+		<deity.darkline><subattrib medium=""/></deity.darkline>
+
+
+
 		<feats.title><subattrib centre="" inverse=""/></feats.title>
 		<feats.border padding="0.5pt"><subattrib border="" inverse=""/></feats.border>
 		<feats.lightline><subattrib light=""/></feats.lightline>

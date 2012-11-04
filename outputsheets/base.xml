@@ -85,18 +85,21 @@
 		</classes>
 		<deity>
 			<name>|DEITY|</name>
-			<alignment>|DEITY.ALIGNMENT|</alignment>
-			<description>|DEITY.DESCRIPTION|</description>
-			<domainlist>|DEITY.DOMAINLIST|</domainlist>
-			<favoredweapon>|DEITY.FAVOREDWEAPON|</favoredweapon>
-			<holyitem>|DEITY.HOLYITEM|</holyitem>
-			<pantheonlist>|DEITY.PANTHEONLIST|</pantheonlist>
-			<source>|DEITY.SOURCE|</source>
-			<special_abilities>|DEITY.SA|</special_abilities>
-			<appearance>|DEITY.APPEARANCE|</appearance>
-			<title>|DEITY.TITLE|</title>
-			<worshippers>|DEITY.WORSHIPPERS|</worshippers>
 		</deity>
+		<deity_info>
+				<name>|DEITY|</name>
+				<alignment>|DEITY.ALIGNMENT|</alignment>
+				<description>|DEITY.DESCRIPTION|</description>
+				<domainlist>|DEITY.DOMAINLIST|</domainlist>
+				<favoredweapon>|DEITY.FAVOREDWEAPON|</favoredweapon>
+				<holyitem>|DEITY.HOLYITEM|</holyitem>
+				<pantheonlist>|DEITY.PANTHEONLIST|</pantheonlist>
+				<source>|DEITY.SOURCE|</source>
+				<special_abilities>|DEITY.SA|</special_abilities>
+				<appearance>|DEITY.APPEARANCE|</appearance>
+				<title>|DEITY.TITLE|</title>
+				<worshippers>|DEITY.WORSHIPPERS|</worshippers>
+		</deity_info>
 		<description>|DESC|</description>
 		<experience>
 			<current>|EXP.CURRENT|</current>
@@ -656,6 +659,20 @@ Immune
 		</spiritweaponranged>
 |ENDIF|
 <!-- End Spirit Weapon - Ranged -->
+
+	<!-- Blank Natural Attack -->
+|FOR,%NaturalAttack,0,count("ABILITIES","CATEGORY=Natural Attack","Name=BlankNaturalAttack")-1,1,0|
+	<naturalattack>
+		<name>Weapon</name>
+		<tohit></tohit>
+		<damage></damage>
+		<type></type>
+		<threat></threat>
+		<reach></reach>
+		<range></range>
+		<rangeincrement>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackRangeIncrement|</rangeincrement>
+		<notes>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackNotes||ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.DESC|</notes>
+|ENDFOR|
 
 	<!-- Natural Attack -->
 |FOR,%NaturalAttack,0,count("ABILITIES","CATEGORY=Natural Attack","TYPE=NaturalAttack")-1,1,0|
@@ -2258,7 +2275,82 @@ Immune
 		</power_classfeature>
 |ENDFOR|
 	</powers_classfeatures>
-	<!--
+
+		<!--
+	  ====================================
+	  ====================================
+			POWERS - CLASSFEATURES
+	  ====================================
+	  ====================================-->
+	<powers_classfeatures>
+|IIF(count("ABILITIES";"CATEGORY=Power";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Class Feature")==0)|
+|ELSE|
+	<!-- Standard Special Qualities -->
+|ENDIF|
+|FOR,%classFeature,0,count("ABILITIES","CATEGORY=Power","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Class Feature")-1,1,0|
+		<power_classfeature>
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.TYPE:Extraordinary)|
+			<name>|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature| (Ex)</name>
+|ELSE|
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.TYPE:Supernatural)|
+			<name>|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature| (Su)</name>
+|ELSE|
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.TYPE:SpellLike)|
+			<name>|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature| (Sp)</name>
+|ELSE|
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.TYPE:PsiLike)|
+			<name>|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature| (Ps)</name>
+|ELSE|
+			<name>|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature|</name>
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+			<description>|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.DESC|</description>
+
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.HASASPECT.Power Type:Y)|
+			<power_type>|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.ASPECT.Power Type|</power_type>
+|ENDIF|
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.HASASPECT.Power Use:Y)|
+			<power_use>|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.ASPECT.Power Use|</power_use>
+|ENDIF|
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.HASASPECT.Action Type:Y)|
+			<action_type>|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.ASPECT.Action Type|</action_type>
+|ENDIF|
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.HASASPECT.Special:Y)|
+			<special>|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.ASPECT.Special|</special>
+|ENDIF|
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.HASASPECT.Trigger:Y)|
+			<trigger>|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.ASPECT.Trigger|</trigger>
+|ENDIF|
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.HASASPECT.Target:Y)|
+			<target>|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.ASPECT.Target|</target>
+|ENDIF|
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.HASASPECT.Attack:Y)|
+			<attack>|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.ASPECT.Attack|</attack>
+|ENDIF|
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.HASASPECT.Hit:Y)|
+			<hit>|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.ASPECT.Hit|</hit>
+|ENDIF|
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.HASASPECT.Miss:Y)|
+			<miss>|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.ASPECT.Miss|</miss>
+|ENDIF|
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.HASASPECT.Effect:Y)|
+			<effect>|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.ASPECT.Effect|</effect>
+|ENDIF|
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.HASASPECT.Sustain:Y)|
+			<sustain>|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.ASPECT.Sustain|</sustain>
+|ENDIF|
+			<type>|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.TYPE|</type>
+			<associated>|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Power</category>
+		</power_classfeature>
+|ENDFOR|
+	</powers_classfeatures><!--
 	  ====================================
 	  ====================================
 			POWERS - FEATPOWERS
@@ -2409,6 +2501,83 @@ Immune
 		</powers_atwill>
 |ENDFOR|
 	</powers_atwills>
+
+	<!--
+	  ====================================
+	  ====================================
+			4e Powers - At-Will
+	  ====================================
+	  ====================================-->
+	<powers_atwills>
+|IIF(count("ABILITIES";"CATEGORY=Power";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=At-Will")==0)|
+|ELSE|
+	<!-- Standard At Will Powers -->
+|ENDIF|
+|FOR,%atWill,0,count("ABILITIES","CATEGORY=Power","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=At-Will")-1,1,0|
+		<powers_atwill>
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.TYPE:Extraordinary)|
+			<name>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will| (Ex)</name>
+|ELSE|
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.TYPE:Supernatural)|
+			<name>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will| (Su)</name>
+|ELSE|
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.TYPE:SpellLike)|
+			<name>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will| (Sp)</name>
+|ELSE|
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.TYPE:PsiLike)|
+			<name>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will| (Ps)</name>
+|ELSE|
+			<name>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will|</name>
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.HASASPECT.Power Use:Y)|
+			<power_use>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.ASPECT.Power Use|</power_use>
+|ENDIF|
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.HASASPECT.Power Type:Y)|
+			<power_type>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.ASPECT.Power Type|</power_type>
+|ENDIF|
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.HASASPECT.Action Type:Y)|
+			<action_type>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.ASPECT.Action Type|</action_type>
+|ENDIF|
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.HASASPECT.Special:Y)|
+			<special>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.ASPECT.Special|</special>
+|ENDIF|
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.HASASPECT.Trigger:Y)|
+			<trigger>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.ASPECT.Trigger|</trigger>
+|ENDIF|
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.HASASPECT.Target:Y)|
+			<target>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.ASPECT.Target|</target>
+|ENDIF|
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.HASASPECT.Attack:Y)|
+			<attack>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.ASPECT.Attack|</attack>
+|ENDIF|
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.HASASPECT.Hit:Y)|
+			<hit>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.ASPECT.Hit|</hit>
+|ENDIF|
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.HASASPECT.Miss:Y)|
+			<miss>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.ASPECT.Miss|</miss>
+|ENDIF|
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.HASASPECT.Effect:Y)|
+			<effect>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.ASPECT.Effect|</effect>
+|ENDIF|
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.HASASPECT.Sustain:Y)|
+			<sustain>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.ASPECT.Sustain|</sustain>
+|ENDIF|
+			<description>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.DESC|</description>
+			<type>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.TYPE|</type>
+			<associated>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Power</category>
+			<source>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.SOURCE|</source>
+		</powers_atwill>
+|ENDFOR|
+	</powers_atwills>
+
 	<!--
 	  ====================================
 	  ====================================
