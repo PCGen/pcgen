@@ -59,7 +59,7 @@ CLASS:Ninja		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|D
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define									Save checks bonus											Combat bonus
 CLASS:Samurai	HD:10		TYPE:Base.PC	ABB:Gnslr		MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:FighterWeaponQualifyLVL|CL	DEFINE:SamuraiLvl|CL	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Samurai	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle Animal|Heal|Intimidate|Knowledge (engineering)|Knowledge (local)|Perception|TYPE=Profession|Ride|Sleight of Hand|Survival|Swim
+CLASS:Samurai	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|TYPE=Profession|Ride|Sense Motive|Swim
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|Samurai Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponProficiencies
