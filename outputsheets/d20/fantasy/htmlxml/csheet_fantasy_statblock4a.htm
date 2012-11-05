@@ -962,6 +962,187 @@ var bonusDamageType = new Array();
  (<font face="ScalaSans Caps">|EQ.IS.CombatGear.%equip.QTY.INTVAL|</font>)
 |ENDIF|
 |ENDFOR|
+
+
+<!-- New Version from SRD -->
+<!-- SpellBooks -->
+|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+|IIF(SPELLBOOK.%spellbook.TYPE:Spell Book)|
+<p><b>Spell Book: </b>|SPELLBOOKNAME.%spellbook| 
+|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
+|IIF(SPELLLISTMEMORIZE.%class:false)|
+|ELSE|
+<br />|SPELLLISTCLASS.%class| (CL |SPELLLISTCLASS.%class.LEVEL|): 
+|FOR,%level,0,9,1,1|
+|FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.%spellbook.%level],COUNT[SPELLSINBOOK.%class.%spellbook.%level],1,0|
+|IIF(%spelllevelcount:0)|
+<!-- no memorized spells for SPELLSINBOOK.%class %spellbook %level -->
+|ELSE|
+|MANUALWHITESPACE||%level||TEXT.NUMSUFFIX.%level||ENDMANUALWHITESPACE| -
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-2,1,0|
+<i>|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|</i>
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:1)|
+|ELSE|
+(|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)
+|ENDIF|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+(DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|)
+|ENDIF|
+, 
+|ENDFOR|
+|FOR,%spell,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|<i>|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|</i>
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:1)|
+|ELSE|
+(|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)
+|ENDIF|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+(DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|)
+|ENDIF|
+|ENDFOR|
+|ENDIF|
+|ENDFOR|
+|ENDFOR|
+|ENDIF|
+|ENDFOR|
+|ELSE|
+</p>
+|ENDIF|
+|ENDFOR|
+<!-- End SpellBooks -->
+
+
+<!-- Innate Spell-Like Abilities -->
+|IIF(VAR.IF(VAR("COUNT[SPELLSINBOOK.0.1.0]")>0;1;0):1)|
+<p><b>Innate Spell-Like Abilities:</b>
+|FOR,%spellbook,1,1,1,0|
+|FOR,%class,0,0,1,0|
+|FOR,%level,0,0,1,0|
+|%SPELLLISTBOOK.%class.%level.%spellbook|
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+<i>|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|</i> (
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|, 
+|ENDIF|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
+at will) 
+|ELSE|
+|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|) 
+|ENDIF|
+|ENDFOR|
+|%|
+|ENDFOR|
+|ENDFOR|
+|ENDFOR|
+</p>
+|ENDIF|
+<!-- End Innate Spell-Like Abilities -->
+
+<!-- Other Spell-Like Abilities -->
+|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+|IIF(SPELLBOOK.%spellbook.TYPE:Innate Spell List)|
+|IIF(VAR.IF(VAR("COUNT[SPELLSINBOOK.0.%spellbook.0]")>0;1;0):1)|
+<p><b>|SPELLBOOK.%spellbook.NAME| Spell-Like Abilities:</b>
+|FOR,%class,0,0,1,0|
+|FOR,%level,0,0,1,0|
+|%SPELLLISTBOOK.%class.%level.%spellbook|
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+<i>|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|</i> (
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|, 
+|ENDIF|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
+at will) 
+|ELSE|
+|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|) 
+|ENDIF|
+|ENDFOR|
+|%|
+|ENDFOR|
+|ENDFOR|
+</p>
+|ENDIF|
+|ENDIF|
+|ENDFOR|
+<!-- End Other Spell-Like Abilities -->
+
+
+|%SPELLLISTCLASS.0|
+<p><i>Spells:</i></p>
+|%|
+
+
+<!-- Prepared Spells -->
+|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+|IIF(SPELLBOOK.%spellbook.TYPE:Prepared Spell List)|
+<p><b>|SPELLBOOKNAME.%spellbook| Prepared Spells: </b>
+|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
+|IIF(SPELLLISTMEMORIZE.%class:false)|
+|ELSE|
+<br />|SPELLLISTCLASS.%class| (CL |SPELLLISTCLASS.%class.LEVEL|): 
+|FOR,%level,0,9,1,1|
+|FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.%spellbook.%level],COUNT[SPELLSINBOOK.%class.%spellbook.%level],1,0|
+|IIF(%spelllevelcount:0)|
+<!-- no memorized spells for SPELLSINBOOK.%class %spellbook %level -->
+|ELSE|
+|MANUALWHITESPACE||%level||TEXT.NUMSUFFIX.%level||ENDMANUALWHITESPACE| -
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-2,1,0|
+<i>|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|</i>
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:1)|
+|ELSE|
+(|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)
+|ENDIF|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+(DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|)
+|ENDIF|
+, 
+|ENDFOR|
+|FOR,%spell,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|<i>|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|</i>
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:1)|
+|ELSE|
+(|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)
+|ENDIF|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+(DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|)
+|ENDIF|
+|ENDFOR|
+|ENDIF|
+|ENDFOR|
+|ENDFOR|
+|ENDIF|
+|ENDFOR|
+|ELSE|
+</p>
+|ENDIF|
+|ENDFOR|
+<!-- End Prepared Spells -->
+
+|FOR,%class,COUNT[SPELLRACE],COUNT[CLASSES],1,1|
+|%SPELLLISTCLASS.%class|
+<p><b>|SPELLLISTCLASS.%class|:</b> Spells per Day: (|FOR.0,9,1,\SPELLLISTCAST.%class.%\,NONE,/,0| DC:|SPELLLISTDC.%class.1|+spell level), Spells Known: 
+|FOR,%level,0,MAXSPELLLEVEL.%class,1,1|
+|%SPELLLISTBOOK.%class.%level.0|
+<b>|MANUALWHITESPACE||%level||TEXT.NUMSUFFIX.%level||ENDMANUALWHITESPACE| - </b>
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.0.%level]-2,1,1|
+|SPELLMEM.%class.0.%level.%spell.NAME|,
+|ENDFOR|
+|FOR,%spell,COUNT[SPELLSINBOOK.%class.0.%level]-1,COUNT[SPELLSINBOOK.%class.0.%level]-1,1,1|
+|SPELLMEM.%class.0.%level.%spell.NAME|
+|ENDFOR|
+|%| 
+|ENDFOR|
+</p>
+|ENDFOR| 
+|%| 
+
+
 <!-- Spells Prepared -->
 |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
 |%SPELLLISTCLASS.%class|
